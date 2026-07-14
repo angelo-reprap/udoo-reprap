@@ -1480,7 +1480,7 @@ const PBX = {
                 <button class="pbx-act pbx-act-green" onclick="PBX.wavnoteSaveNote()"><i class="bi bi-save"></i> ${this.t('pbx_wavnote_save', 'Telefonnotiz speichern')}</button>
             </div>
         </div>`;
-        document.body.appendChild(overlay);
+        this._meetmeMountModal(overlay);
         this.wavnoteTranscribe();
         this.wavnoteResolveContact();
     },
@@ -1572,7 +1572,7 @@ const PBX = {
         overlay.className = 'pbx-meetme-modal-overlay';
         overlay.id = 'pbx-meetme-modal-overlay';
         overlay.innerHTML = this._mmNewContactHtml(0, true);
-        document.body.appendChild(overlay);
+        this._meetmeMountModal(overlay);
     },
 
     async wavnoteSaveNewContact() {
@@ -2204,7 +2204,7 @@ Object.assign(PBX, {
                 </div>
             </div>
         `;
-        document.body.appendChild(overlay);
+        this._meetmeMountModal(overlay);
         this._meetmeChoiceCtx = { r, emails, phone };
     },
 
@@ -2266,14 +2266,94 @@ Object.assign(PBX, {
                 </div>
             </div>
         `;
-        document.body.appendChild(overlay);
+        this._meetmeMountModal(overlay);
     },
+
+    _meetmeModalDragPos: null,
 
     meetmeCloseModal() {
         // Alle Overlays entfernen, nicht nur eins - falls durch einen Bug
         // mehrere gleichzeitig im DOM haengen, sonst liest getElementById()
         // andernorts weiterhin aus einer verwaisten Kopie.
         document.querySelectorAll('#pbx-meetme-modal-overlay').forEach(el => el.remove());
+        this._meetmeModalDragPos = null;
+    },
+
+    _meetmeEnsureDragStyles() {
+        if (document.getElementById('pbx-mm-drag-styles')) return;
+        const s = document.createElement('style');
+        s.id = 'pbx-mm-drag-styles';
+        s.textContent = [
+            '.pbx-meetme-modal-overlay.pbx-mm-drag-active{align-items:flex-start!important;justify-content:flex-start!important;}',
+            '.pbx-meetme-modal.pbx-mm-drag-positioned{position:absolute;margin:0;max-height:calc(100vh - 16px);overflow:auto;}',
+            '.pbx-mm-modal-drag-handle{cursor:grab;user-select:none;-webkit-user-select:none;}',
+            '.pbx-mm-modal-drag-handle:active{cursor:grabbing;}',
+        ].join('');
+        document.head.appendChild(s);
+    },
+
+    _meetmeMountModal(overlay) {
+        this._meetmeEnsureDragStyles();
+        document.body.appendChild(overlay);
+        if (overlay.id === 'pbx-meetme-modal-overlay' && overlay.querySelector('.pbx-meetme-modal')) {
+            this._meetmeInitModalDrag(overlay);
+        }
+    },
+
+    _meetmeInitModalDrag(overlay) {
+        const modal = overlay.querySelector('.pbx-meetme-modal');
+        if (!modal || overlay.dataset.mmDragInit === '1') return;
+        overlay.dataset.mmDragInit = '1';
+
+        const pos = this._meetmeModalDragPos;
+        if (pos && pos.x != null && pos.y != null) {
+            overlay.classList.add('pbx-mm-drag-active');
+            modal.classList.add('pbx-mm-drag-positioned');
+            modal.style.left = pos.x + 'px';
+            modal.style.top = pos.y + 'px';
+        }
+
+        let handle = modal.querySelector('.pbx-mm-modal-drag-handle');
+        if (!handle && modal.firstElementChild) {
+            handle = modal.firstElementChild;
+            handle.classList.add('pbx-mm-modal-drag-handle');
+        }
+        if (!handle) return;
+
+        handle.addEventListener('mousedown', (e) => {
+            if (e.button !== 0) return;
+            if (e.target.closest('button, input, select, textarea, a, label, .pbx-wizard-tab')) return;
+
+            const rect = modal.getBoundingClientRect();
+            overlay.classList.add('pbx-mm-drag-active');
+            modal.classList.add('pbx-mm-drag-positioned');
+            const startX = e.clientX;
+            const startY = e.clientY;
+            const origX = this._meetmeModalDragPos ? this._meetmeModalDragPos.x : rect.left;
+            const origY = this._meetmeModalDragPos ? this._meetmeModalDragPos.y : rect.top;
+            modal.style.left = origX + 'px';
+            modal.style.top = origY + 'px';
+
+            const onMove = (ev) => {
+                let nx = origX + (ev.clientX - startX);
+                let ny = origY + (ev.clientY - startY);
+                const pad = 8;
+                const mw = modal.offsetWidth;
+                const mh = modal.offsetHeight;
+                nx = Math.max(pad, Math.min(nx, window.innerWidth - mw - pad));
+                ny = Math.max(pad, Math.min(ny, window.innerHeight - Math.min(mh, window.innerHeight - pad * 2) - pad));
+                modal.style.left = nx + 'px';
+                modal.style.top = ny + 'px';
+                this._meetmeModalDragPos = { x: nx, y: ny };
+            };
+            const onUp = () => {
+                document.removeEventListener('mousemove', onMove);
+                document.removeEventListener('mouseup', onUp);
+            };
+            e.preventDefault();
+            document.addEventListener('mousemove', onMove);
+            document.addEventListener('mouseup', onUp);
+        });
     },
 
     async meetmeCreateMeeting() {
@@ -2428,7 +2508,7 @@ Object.assign(PBX, {
                 `}
             </div>
         `;
-        document.body.appendChild(overlay);
+        this._meetmeMountModal(overlay);
     },
 
     _mmFindGuestObj(guestId) {
@@ -2540,7 +2620,7 @@ Object.assign(PBX, {
                 </div>
             </div>
         `;
-        document.body.appendChild(overlay);
+        this._meetmeMountModal(overlay);
     },
 
     _mmComposeRenderControlsHtml(st) {
@@ -3246,7 +3326,7 @@ Object.assign(PBX, {
                 </div>
             </div>
         `;
-        document.body.appendChild(overlay);
+        this._meetmeMountModal(overlay);
     },
 
     _mmReminderRenderScopeBody(st, m) {
@@ -3841,7 +3921,7 @@ Object.assign(PBX, {
                 </div>
             </div>
         `;
-        document.body.appendChild(overlay);
+        this._meetmeMountModal(overlay);
     },
 });
 
@@ -4000,7 +4080,7 @@ Object.assign(PBX, {
                 <div id="pbx-mm-notify-actions" class="pbx-meetme-modal-actions">${this._mmNotifyRenderActionsHtml(st)}</div>
             </div>
         `;
-        document.body.appendChild(overlay);
+        this._meetmeMountModal(overlay);
         this._mmNotifyRenderPhoneList(m);
     },
 
@@ -4651,7 +4731,7 @@ Object.assign(PBX, {
                 </div>
             </div>
         `;
-        document.body.appendChild(overlay);
+        this._meetmeMountModal(overlay);
     },
 
     async meetmeSaveEdit(meetingId) {
@@ -4851,7 +4931,7 @@ Object.assign(PBX, {
         overlay.className = 'pbx-meetme-modal-overlay';
         overlay.id = 'pbx-meetme-modal-overlay';
         overlay.innerHTML = this._mmNewContactHtml(meetingId);
-        document.body.appendChild(overlay);
+        this._meetmeMountModal(overlay);
     },
 
     _mmCompanySearch(inp) {
@@ -4898,7 +4978,7 @@ Object.assign(PBX, {
         overlay.className = 'pbx-meetme-modal-overlay';
         overlay.id = 'pbx-meetme-modal-overlay';
         overlay.innerHTML = this._mmNewContactHtml(meetingId);
-        document.body.appendChild(overlay);
+        this._meetmeMountModal(overlay);
     },
 
     _mmClearCompany() {
@@ -4909,7 +4989,7 @@ Object.assign(PBX, {
         overlay.className = 'pbx-meetme-modal-overlay';
         overlay.id = 'pbx-meetme-modal-overlay';
         overlay.innerHTML = this._mmNewContactHtml(meetingId);
-        document.body.appendChild(overlay);
+        this._meetmeMountModal(overlay);
     },
 
     async _mmSaveNewContact(meetingId) {
@@ -5107,7 +5187,7 @@ Object.assign(PBX, {
                 <p style="font-size:10px;color:var(--text-muted);margin:10px 0 0;text-align:center">1 Wiedergabe · 3 Löschen · 7 Zurück · 9 Weiter</p>
             </div>
         `;
-        document.body.appendChild(overlay);
+        this._meetmeMountModal(overlay);
     },
 
     _vmSetStatus(text, ok) {

@@ -19,5 +19,8 @@ Prüfen:
 
 ```bash
 grep -n '_mmRaupeRequest' apps/abpe_crm/static/abpe_crm/js/mod-crm-pbx.js
+grep -n '_meetmeMountModal' apps/abpe_crm/static/abpe_crm/js/mod-crm-pbx.js
 grep -n 'pbx_sa_apply' apps/abpe_crm/static/abpe_crm/js/mod-crm-pbx.js
 ```
+
+**Modal verschiebbar:** Kopfzeile/Titel-Zeile mit Maus ziehen (cursor: grab). Position bleibt beim Wizard-Tab-Wechsel erhalten, Reset beim Schließen.
