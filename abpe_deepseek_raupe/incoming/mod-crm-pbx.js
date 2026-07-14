@@ -3790,18 +3790,36 @@ Object.assign(PBX, {
         st.action = action;
         st.tabs = this._mmWizardTabsFor(action);
         st.tabIndex = 0;
-        st.autoLoadedInvite = false;
+        st.autoLoadedTemplate = false;
         this._mmWizardRender();
+    },
+
+    _mmNotifyDefaultTemplateName(action) {
+        const map = {
+            invite: 'Einladung — Telefonkonferenz',
+            cancel: 'Terminabsage — Standard',
+        };
+        return map[action] || null;
     },
 
     async _mmNotifyAutoLoadDefaultTemplate() {
         const st = this._mmNotifyState;
-        const tpl = (st.templates || []).find(t => t.name === 'Einladung — Telefonkonferenz');
+        const templateName = this._mmNotifyDefaultTemplateName(st.action);
+        if (!templateName) return;
+        const tpl = (st.templates || []).find(t => t.name === templateName);
         if (!tpl) return;
         const selId = st.mode === 'all' ? 'pbx-mm-notify-tpl-all' : 'pbx-mm-notify-tpl-ind';
         const sel = this.$(selId);
         if (sel) sel.value = tpl.id;
         await this._mmNotifyLoadTemplate(st.mode);
+    },
+
+    async _mmWizardMaybeAutoLoadDefaultTemplate() {
+        const st = this._mmWizardState;
+        if (st.tabIndex !== 1 || st.autoLoadedTemplate) return;
+        if (!this._mmNotifyDefaultTemplateName(st.action)) return;
+        st.autoLoadedTemplate = true;
+        await this._mmNotifyAutoLoadDefaultTemplate();
     },
 
     async _mmWizardEnsureTabReady(idx) {
@@ -3914,10 +3932,7 @@ Object.assign(PBX, {
         st.tabIndex = idx;
         await this._mmWizardEnsureTabReady(idx);
         this._mmWizardRender();
-        if (idx === 1 && st.action === 'invite' && !st.autoLoadedInvite) {
-            st.autoLoadedInvite = true;
-            await this._mmNotifyAutoLoadDefaultTemplate();
-        }
+        await this._mmWizardMaybeAutoLoadDefaultTemplate();
     },
 
     async _mmWizardNext() {
@@ -3927,10 +3942,7 @@ Object.assign(PBX, {
             st.tabIndex++;
             await this._mmWizardEnsureTabReady(st.tabIndex);
             this._mmWizardRender();
-            if (st.tabIndex === 1 && st.action === 'invite' && !st.autoLoadedInvite) {
-                st.autoLoadedInvite = true;
-                await this._mmNotifyAutoLoadDefaultTemplate();
-            }
+            await this._mmWizardMaybeAutoLoadDefaultTemplate();
         }
     },
 
