@@ -3796,7 +3796,7 @@ Object.assign(PBX, {
 
     _mmNotifyDefaultTemplateName(action) {
         const map = {
-            invite: 'Einladung — Telefonkonferenz',
+            invite: 'Einladung — Abstimmung',
             cancel: 'Terminabsage — Standard',
         };
         return map[action] || null;
