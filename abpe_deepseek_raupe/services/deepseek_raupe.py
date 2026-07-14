@@ -18,6 +18,30 @@ _RE_BOLD = re.compile(r'\*\*(.+?)\*\*')
 _RE_BRACKET_NAME = re.compile(r'\[Ihr Name\]', re.IGNORECASE)
 
 
+def _coerce_pbx_result(result):
+    """_chat() liefert auf ucs5 oft (bool, text, err) — einheitlich als PbxAIResult."""
+    from apps.abpe_crm.services.deepseek_api_pbx import PbxAIResult
+
+    if isinstance(result, PbxAIResult):
+        return result
+    if isinstance(result, tuple):
+        if len(result) >= 2 and isinstance(result[0], bool):
+            return PbxAIResult(
+                success=result[0],
+                text=(result[1] or '') if result[0] else '',
+                error=result[2] if len(result) > 2 else None,
+            )
+        content = (result[0] or '') if result else ''
+        txt = str(content).strip()
+        return PbxAIResult(success=bool(txt), text=txt)
+    if isinstance(result, str):
+        txt = result.strip()
+        return PbxAIResult(success=bool(txt), text=txt)
+    if hasattr(result, 'success'):
+        return result
+    return PbxAIResult(success=False, error='DeepSeek: unbekanntes Antwortformat')
+
+
 class DeepSeekRaupe:
     """KI-Vorschlag + Normalisierung + Variablen-Ersetzung."""
 
@@ -40,11 +64,10 @@ class DeepSeekRaupe:
         if prompt_key == 'summarize':
             from apps.abpe_crm.services.deepseek_api_pbx import get_prompt_config
             instr = instruction or get_prompt_config('summarize').get('instruction_default') or 'Fasse kurz zusammen.'
-            return deepseek_pbx.summarize(text, instr)
+            return _coerce_pbx_result(deepseek_pbx.summarize(text, instr))
         if hasattr(deepseek_pbx, 'suggest_with_key'):
-            return deepseek_pbx.suggest_with_key(text, prompt_key, instruction)
-        # Fallback
-        return deepseek_pbx.summarize(text, instruction or 'Formuliere den Text um.')
+            return _coerce_pbx_result(deepseek_pbx.suggest_with_key(text, prompt_key, instruction))
+        return _coerce_pbx_result(deepseek_pbx.summarize(text, instruction or 'Formuliere den Text um.'))
 
     def build_all_vars(
         self,
