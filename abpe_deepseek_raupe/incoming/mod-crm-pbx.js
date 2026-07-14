@@ -2277,6 +2277,7 @@ Object.assign(PBX, {
         // andernorts weiterhin aus einer verwaisten Kopie.
         document.querySelectorAll('#pbx-meetme-modal-overlay').forEach(el => el.remove());
         this._meetmeModalDragPos = null;
+        this._mmCollapsibleState = {};
     },
 
     _meetmeEnsureDragStyles() {
@@ -2288,8 +2289,70 @@ Object.assign(PBX, {
             '.pbx-meetme-modal.pbx-mm-drag-positioned{position:absolute;margin:0;max-height:calc(100vh - 16px);overflow:auto;}',
             '.pbx-mm-modal-drag-handle{cursor:grab;user-select:none;-webkit-user-select:none;}',
             '.pbx-mm-modal-drag-handle:active{cursor:grabbing;}',
+            '.pbx-mm-collapsible{border:1px solid var(--border-color,#dee2e6);border-radius:8px;margin-bottom:10px;background:#fff;overflow:hidden;}',
+            '.pbx-mm-collapsible-hdr{width:100%;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;background:var(--abcona-gray-bg,#f8f9fa);border:none;cursor:pointer;font-size:12px;font-weight:600;color:#888;text-align:left;}',
+            '.pbx-mm-collapsible-hdr span{font-size:12.5px;font-weight:600;color:#555;}',
+            '.pbx-mm-collapsible-hdr .pbx-mm-collapsible-chevron{color:#888;font-size:14px;flex-shrink:0;}',
+            '.pbx-mm-collapsible:not(.pbx-mm-collapsed) .pbx-mm-collapsible-hdr{border-radius:8px 8px 0 0;}',
+            '.pbx-mm-collapsible.pbx-mm-collapsed .pbx-mm-collapsible-hdr{border-radius:8px;}',
+            '.pbx-mm-collapsible-body{padding:10px 12px 12px;}',
+            '.pbx-mm-collapsible.pbx-sa-ds .pbx-mm-collapsible-hdr span{color:#333;}',
         ].join('');
         document.head.appendChild(s);
+    },
+
+    _mmCollapsibleState: {},
+
+    _mmCollapsibleIsOpen(id, defaultOpen) {
+        if (Object.prototype.hasOwnProperty.call(this._mmCollapsibleState, id)) {
+            return this._mmCollapsibleState[id];
+        }
+        return !!defaultOpen;
+    },
+
+    _mmToggleCollapsible(id) {
+        const body = this.$(id);
+        if (!body) return;
+        const wrap = body.closest('.pbx-mm-collapsible');
+        const open = body.style.display === 'none';
+        body.style.display = open ? 'block' : 'none';
+        this._mmCollapsibleState[id] = open;
+        if (wrap) {
+            wrap.classList.toggle('pbx-mm-collapsed', !open);
+            const chev = wrap.querySelector('.pbx-mm-collapsible-chevron');
+            if (chev) chev.className = 'bi ' + (open ? 'bi-chevron-up' : 'bi-chevron-down') + ' pbx-mm-collapsible-chevron';
+            const btn = wrap.querySelector('.pbx-mm-collapsible-hdr');
+            if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+    },
+
+    _mmRenderCollapsible(bodyId, title, bodyHtml, opts) {
+        opts = opts || {};
+        const open = this._mmCollapsibleIsOpen(bodyId, opts.defaultOpen);
+        const icon = opts.icon ? `<i class="bi ${opts.icon}"></i> ` : '';
+        const cls = opts.className ? ' ' + opts.className : '';
+        return `
+<div class="pbx-mm-collapsible${cls}${open ? '' : ' pbx-mm-collapsed'}">
+  <button type="button" class="pbx-mm-collapsible-hdr" onclick="PBX._mmToggleCollapsible('${bodyId}')" aria-expanded="${open}">
+    <span>${icon}${title}</span>
+    <i class="bi ${open ? 'bi-chevron-up' : 'bi-chevron-down'} pbx-mm-collapsible-chevron"></i>
+  </button>
+  <div class="pbx-mm-collapsible-body" id="${bodyId}" style="display:${open ? 'block' : 'none'}">${bodyHtml}</div>
+</div>`;
+    },
+
+    _mmRenderDeepseekPanel(bodyId, topId, bottomId, suggestOnclick, applyOnclick) {
+        const inner = `
+            <div style="display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap">
+                <button class="pbx-act pbx-act-gray" onclick="${suggestOnclick}"><i class="bi bi-arrow-clockwise"></i> ${this.t('pbx_sa_suggest', 'Vorschlag generieren')}</button>
+                <button class="pbx-act pbx-act-blue" onclick="${applyOnclick}"><i class="bi bi-check2-circle"></i> ${this.t('pbx_sa_apply', 'Vorschlag übernehmen')}</button>
+            </div>
+            <label>${this.t('pbx_sa_your_text', 'Ihr Text (oben, wird gesendet)')}</label>
+            <textarea id="${topId}" rows="3"></textarea>
+            <label>${this.t('pbx_sa_suggestion', 'DeepSeek-Vorschlag (zum Rueckkopieren)')}</label>
+            <textarea id="${bottomId}" rows="3" readonly></textarea>
+        `;
+        return this._mmRenderCollapsible(bodyId, this.t('pbx_sa_deepseek', 'DeepSeek-Raupe'), inner, { icon: 'bi-stars', className: 'pbx-sa-ds' });
     },
 
     _meetmeMountModal(overlay) {
@@ -2600,19 +2663,13 @@ Object.assign(PBX, {
                 <div id="pbx-mm-compose-preview-text" style="display:${st.previewTab === 'html' ? 'none' : 'block'};white-space:pre-wrap;font-size:12px;border:1px solid var(--border-color, #dee2e6);border-radius:8px;padding:10px;max-height:220px;overflow:auto;margin-bottom:12px"></div>
                 <div id="pbx-mm-compose-preview-html" style="display:${st.previewTab === 'html' ? 'block' : 'none'};margin-bottom:12px"></div>
 
-                <div class="pbx-sa-ds">
-                    <div style="display:flex;justify-content:space-between;align-items:center">
-                        <span style="font-size:12.5px;font-weight:600"><i class="bi bi-stars"></i> ${this.t('pbx_sa_deepseek', 'DeepSeek-Raupe')}</span>
-                    <div style="display:flex;gap:6px">
-                        <button class="pbx-act pbx-act-gray" onclick="PBX._mmComposeDeepseekSuggest()"><i class="bi bi-arrow-clockwise"></i> ${this.t('pbx_sa_suggest', 'Vorschlag generieren')}</button>
-                        <button class="pbx-act pbx-act-blue" onclick="PBX._mmRaupeApply('pbx-mm-compose-ds-bottom','pbx-mm-compose-body')"><i class="bi bi-check2-circle"></i> ${this.t('pbx_sa_apply', 'Vorschlag übernehmen')}</button>
-                    </div>
-                    </div>
-                    <label>${this.t('pbx_sa_your_text', 'Ihr Text (oben, wird gesendet)')}</label>
-                    <textarea id="pbx-mm-compose-ds-top" rows="3"></textarea>
-                    <label>${this.t('pbx_sa_suggestion', 'DeepSeek-Vorschlag (zum Rueckkopieren)')}</label>
-                    <textarea id="pbx-mm-compose-ds-bottom" rows="3" readonly></textarea>
-                </div>
+                ${this._mmRenderDeepseekPanel(
+                    'pbx-mm-compose-ds-panel',
+                    'pbx-mm-compose-ds-top',
+                    'pbx-mm-compose-ds-bottom',
+                    'PBX._mmComposeDeepseekSuggest()',
+                    "PBX._mmRaupeApply('pbx-mm-compose-ds-bottom','pbx-mm-compose-body')"
+                )}
 
                 <div class="pbx-meetme-modal-actions">
                     <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeCloseModal()">${this.t('pbx_cancel', 'Abbrechen')}</button>
@@ -2623,10 +2680,8 @@ Object.assign(PBX, {
         this._meetmeMountModal(overlay);
     },
 
-    _mmComposeRenderControlsHtml(st) {
+    _mmComposeRenderOptionsInnerHtml(st) {
         return `
-            <div style="border:1px solid var(--border-color, #dee2e6);border-radius:8px;padding:10px 12px;margin-bottom:10px">
-                <label style="font-size:11px;color:#888;display:block;margin-bottom:8px">${this.t('pbx_mm_notify_options_label', 'Weitere Optionen')}</label>
                 <div style="display:flex;gap:6px">
                     <button type="button" style="flex:1;font-size:11px;line-height:1.25;padding:8px 4px;border-radius:8px;border:none;cursor:pointer;background:${st.allTemplates ? 'var(--abcona-blue-light)' : 'var(--abcona-gray-bg)'};color:${st.allTemplates ? '#fff' : 'var(--text-secondary)'}" onclick="PBX._mmComposeToggleTemplateFilter(${st.allTemplates ? 'false' : 'true'})">${this.t('pbx_mm_notify_all_templates_short', 'Alle Vorlagen')}</button>
                     <button type="button" style="flex:1;font-size:11px;line-height:1.25;padding:8px 4px;border-radius:8px;border:none;cursor:pointer;background:${st.sigOverride ? 'var(--abcona-blue-light)' : 'var(--abcona-gray-bg)'};color:${st.sigOverride ? '#fff' : 'var(--text-secondary)'}" onclick="PBX._mmComposeToggleSigOverride(${st.sigOverride ? 'false' : 'true'})">${this.t('pbx_mm_notify_sig_override_short', 'Andere Signatur')}</button>
@@ -2636,7 +2691,17 @@ Object.assign(PBX, {
                         ${st.signatures.map(s => `<option value="${s.id}" ${s.id === st.sigId ? 'selected' : ''}>${this._meetmeEsc(s.name)}</option>`).join('')}
                     </select>
                 ` : ''}
-            </div>
+        `;
+    },
+
+    _mmComposeRenderControlsHtml(st) {
+        return `
+            ${this._mmRenderCollapsible(
+                'pbx-mm-compose-options',
+                this.t('pbx_mm_notify_options_label', 'Weitere Optionen'),
+                this._mmComposeRenderOptionsInnerHtml(st),
+                { icon: 'bi-sliders' },
+            )}
 
             <label>${this.t('pbx_sa_template', 'Vorlage')}</label>
             <div style="display:flex;gap:6px">
@@ -3296,8 +3361,10 @@ Object.assign(PBX, {
                     <button class="pbx-act ${st.mode === 'individual' ? 'pbx-act-blue' : 'pbx-act-gray'}" style="flex:1" onclick="PBX._mmReminderSetMode('individual')">${this.t('pbx_mm_notify_individual', 'Individuell')}</button>
                 </div>
 
-                <div style="border:1px solid var(--border-color, #dee2e6);border-radius:8px;padding:10px 12px 26px;margin-bottom:10px">
-                    <label style="font-size:11px;color:#888;display:block;margin-bottom:8px">${this.t('pbx_mm_notify_options_label', 'Weitere Optionen')}</label>
+                ${this._mmRenderCollapsible(
+                    'pbx-mm-reminder-options',
+                    this.t('pbx_mm_notify_options_label', 'Weitere Optionen'),
+                    `
                     <div style="display:flex;gap:6px">
                         <div class="pbx-mm-opt-wrap" style="position:relative;flex:1">
                             <button type="button" style="width:100%;font-size:11px;line-height:1.25;padding:8px 4px;border-radius:8px;border:none;cursor:pointer;background:${st.allTemplates ? 'var(--abcona-blue-light)' : 'var(--abcona-gray-bg)'};color:${st.allTemplates ? '#fff' : 'var(--text-secondary)'}" onclick="PBX._mmReminderToggleTemplateFilter(${st.allTemplates ? 'false' : 'true'})">${this.t('pbx_mm_notify_all_templates_short', 'Alle Vorlagen')}</button>
@@ -3311,7 +3378,9 @@ Object.assign(PBX, {
                             ${st.signatures.map(s => `<option value="${s.id}" ${s.id === st.sigId ? 'selected' : ''}>${this._meetmeEsc(s.name)}</option>`).join('')}
                         </select>
                     ` : ''}
-                </div>
+                    `,
+                    { icon: 'bi-sliders' },
+                )}
 
                 <div id="pbx-mm-reminder-scope-body">${this._mmReminderRenderScopeBody(st, m)}</div>
 
@@ -3429,19 +3498,13 @@ Object.assign(PBX, {
                 <div id="pbx-mm-reminder-preview-text" style="display:${st.previewTab === 'html' ? 'none' : 'block'};white-space:pre-wrap;font-size:12px;border:1px solid var(--border-color, #dee2e6);border-radius:8px;padding:10px;max-height:180px;overflow:auto;margin-bottom:12px"></div>
                 <div id="pbx-mm-reminder-preview-html" style="display:${st.previewTab === 'html' ? 'block' : 'none'};margin-bottom:12px"></div>
 
-                <div class="pbx-sa-ds">
-                    <div style="display:flex;justify-content:space-between;align-items:center">
-                        <span style="font-size:12.5px;font-weight:600"><i class="bi bi-stars"></i> ${this.t('pbx_sa_deepseek', 'DeepSeek-Raupe')}</span>
-                    <div style="display:flex;gap:6px">
-                        <button class="pbx-act pbx-act-gray" onclick="PBX._mmReminderDeepseekSuggest()"><i class="bi bi-arrow-clockwise"></i> ${this.t('pbx_sa_suggest', 'Vorschlag generieren')}</button>
-                        <button class="pbx-act pbx-act-blue" onclick="PBX._mmRaupeApply('pbx-mm-reminder-ds-bottom','pbx-mm-reminder-body')"><i class="bi bi-check2-circle"></i> ${this.t('pbx_sa_apply', 'Vorschlag übernehmen')}</button>
-                    </div>
-                    </div>
-                    <label>${this.t('pbx_sa_your_text', 'Ihr Text (oben, wird gesendet)')}</label>
-                    <textarea id="pbx-mm-reminder-ds-top" rows="2"></textarea>
-                    <label>${this.t('pbx_sa_suggestion', 'DeepSeek-Vorschlag (zum Rüberkopieren)')}</label>
-                    <textarea id="pbx-mm-reminder-ds-bottom" rows="2" readonly></textarea>
-                </div>
+                ${this._mmRenderDeepseekPanel(
+                    'pbx-mm-reminder-ds-panel',
+                    'pbx-mm-reminder-ds-top',
+                    'pbx-mm-reminder-ds-bottom',
+                    'PBX._mmReminderDeepseekSuggest()',
+                    "PBX._mmRaupeApply('pbx-mm-reminder-ds-bottom','pbx-mm-reminder-body')"
+                )}
 
                 <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:10px">
                     <button class="pbx-act pbx-act-gray" onclick="PBX._mmReminderCancelDraft()">${this.t('pbx_mm_reminder_discard', 'Verwerfen')}</button>
@@ -3873,7 +3936,12 @@ Object.assign(PBX, {
         return `
             <label>${this.t('pbx_mm_notify_mode', 'Versand')}</label>
             <div id="pbx-mm-notify-modetoggle" style="display:flex;gap:6px;margin-bottom:10px">${this._mmNotifyRenderModeToggleHtml(nst)}</div>
-            <div id="pbx-mm-notify-options" style="border:1px solid var(--border-color, #dee2e6);border-radius:8px;padding:10px 12px 26px;margin-bottom:10px">${this._mmNotifyRenderOptionsHtml(nst)}</div>
+            ${this._mmRenderCollapsible(
+                'pbx-mm-notify-options',
+                this.t('pbx_mm_notify_options_label', 'Weitere Optionen'),
+                this._mmNotifyRenderOptionsHtml(nst),
+                { icon: 'bi-sliders' },
+            )}
             <div id="pbx-mm-notify-content">${this._mmNotifyRenderContentHtml(nst, m)}</div>
             <div style="margin:10px 0">
                 <div style="display:flex;gap:6px;margin-bottom:6px">
@@ -3884,19 +3952,13 @@ Object.assign(PBX, {
                 <div id="pbx-mm-notify-preview-text" style="display:${nst.previewTab === 'html' ? 'none' : 'block'};white-space:pre-wrap;font-size:12px;border:1px solid var(--border-color, #dee2e6);border-radius:8px;padding:10px;max-height:280px;overflow:auto"></div>
                 <div id="pbx-mm-notify-preview-html" style="display:${nst.previewTab === 'html' ? 'block' : 'none'}"></div>
             </div>
-            <div class="pbx-sa-ds">
-                <div style="display:flex;justify-content:space-between;align-items:center">
-                    <span style="font-size:12.5px;font-weight:600"><i class="bi bi-stars"></i> ${this.t('pbx_sa_deepseek', 'DeepSeek-Raupe')}</span>
-                    <div style="display:flex;gap:6px">
-                        <button class="pbx-act pbx-act-gray" onclick="PBX._mmNotifyDeepseekSuggest()"><i class="bi bi-arrow-clockwise"></i> ${this.t('pbx_sa_suggest', 'Vorschlag generieren')}</button>
-                        <button class="pbx-act pbx-act-blue" onclick="PBX._mmRaupeApplyNotify()"><i class="bi bi-check2-circle"></i> ${this.t('pbx_sa_apply', 'Vorschlag übernehmen')}</button>
-                    </div>
-                </div>
-                <label>${this.t('pbx_sa_your_text', 'Ihr Text (oben, wird gesendet)')}</label>
-                <textarea id="pbx-mm-notify-ds-top" rows="2"></textarea>
-                <label>${this.t('pbx_sa_suggestion', 'DeepSeek-Vorschlag (zum Rueberkopieren)')}</label>
-                <textarea id="pbx-mm-notify-ds-bottom" rows="2" readonly></textarea>
-            </div>
+            ${this._mmRenderDeepseekPanel(
+                'pbx-mm-notify-ds-panel',
+                'pbx-mm-notify-ds-top',
+                'pbx-mm-notify-ds-bottom',
+                'PBX._mmNotifyDeepseekSuggest()',
+                'PBX._mmRaupeApplyNotify()'
+            )}
             <div id="pbx-mm-notify-phonelist" style="display:${nst.showPhones ? 'block' : 'none'}"></div>
         `;
     },
@@ -4047,7 +4109,12 @@ Object.assign(PBX, {
                 <label>${this.t('pbx_mm_notify_mode', 'Versand')}</label>
                 <div id="pbx-mm-notify-modetoggle" style="display:flex;gap:6px;margin-bottom:10px">${this._mmNotifyRenderModeToggleHtml(st)}</div>
 
-                <div id="pbx-mm-notify-options" style="border:1px solid var(--border-color, #dee2e6);border-radius:8px;padding:10px 12px 26px;margin-bottom:10px">${this._mmNotifyRenderOptionsHtml(st)}</div>
+                ${this._mmRenderCollapsible(
+                    'pbx-mm-notify-options',
+                    this.t('pbx_mm_notify_options_label', 'Weitere Optionen'),
+                    this._mmNotifyRenderOptionsHtml(st),
+                    { icon: 'bi-sliders' },
+                )}
 
                 <div id="pbx-mm-notify-content">${this._mmNotifyRenderContentHtml(st, m)}</div>
 
@@ -4061,19 +4128,13 @@ Object.assign(PBX, {
                     <div id="pbx-mm-notify-preview-html" style="display:${st.previewTab === 'html' ? 'block' : 'none'}"></div>
                 </div>
 
-                <div class="pbx-sa-ds">
-                    <div style="display:flex;justify-content:space-between;align-items:center">
-                        <span style="font-size:12.5px;font-weight:600"><i class="bi bi-stars"></i> ${this.t('pbx_sa_deepseek', 'DeepSeek-Raupe')}</span>
-                        <div style="display:flex;gap:6px">
-                        <button class="pbx-act pbx-act-gray" onclick="PBX._mmNotifyDeepseekSuggest()"><i class="bi bi-arrow-clockwise"></i> ${this.t('pbx_sa_suggest', 'Vorschlag generieren')}</button>
-                        <button class="pbx-act pbx-act-blue" onclick="PBX._mmRaupeApplyNotify()"><i class="bi bi-check2-circle"></i> ${this.t('pbx_sa_apply', 'Vorschlag übernehmen')}</button>
-                    </div>
-                    </div>
-                    <label>${this.t('pbx_sa_your_text', 'Ihr Text (oben, wird gesendet)')}</label>
-                    <textarea id="pbx-mm-notify-ds-top" rows="2"></textarea>
-                    <label>${this.t('pbx_sa_suggestion', 'DeepSeek-Vorschlag (zum Rüberkopieren)')}</label>
-                    <textarea id="pbx-mm-notify-ds-bottom" rows="2" readonly></textarea>
-                </div>
+                ${this._mmRenderDeepseekPanel(
+                    'pbx-mm-notify-ds-panel',
+                    'pbx-mm-notify-ds-top',
+                    'pbx-mm-notify-ds-bottom',
+                    'PBX._mmNotifyDeepseekSuggest()',
+                    'PBX._mmRaupeApplyNotify()'
+                )}
 
                 <div id="pbx-mm-notify-phonelist" style="display:${st.showPhones ? 'block' : 'none'}"></div>
 
@@ -4093,7 +4154,6 @@ Object.assign(PBX, {
 
     _mmNotifyRenderOptionsHtml(st) {
         return `
-            <label style="font-size:11px;color:#888;display:block;margin-bottom:8px">${this.t('pbx_mm_notify_options_label', 'Weitere Optionen')}</label>
             <div style="display:flex;gap:6px">
                 <div class="pbx-mm-opt-wrap" style="position:relative;flex:1">
                     <button type="button" style="width:100%;font-size:11px;line-height:1.25;padding:8px 4px;border-radius:8px;border:none;cursor:pointer;background:${st.force ? 'var(--abcona-blue, #1a5fb4)' : 'var(--abcona-gray-bg)'};color:${st.force ? '#fff' : 'var(--text-secondary)'}" onclick="PBX._mmNotifyToggleForce(${st.force ? 'false' : 'true'})">${this.t('pbx_mm_notify_force_short', 'Erneut informieren')}</button>
