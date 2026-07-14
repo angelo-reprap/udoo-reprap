@@ -23,6 +23,14 @@ DE_FIX = {
     'pbx_wiz_back': 'Zurück',
     'pbx_mm_reminder_manual': 'Manuell prüfen',
     'pbx_no_contact': 'Kein Kontakt – über „ändern“ suchen',
+    'pbx_meetme_delete': 'Löschen',
+    'pbx_meetme_delete_confirm': (
+        'Termin „{title}“ wirklich endgültig löschen?\n\n'
+        'Der Termin wird dauerhaft aus der Datenbank entfernt. '
+        'Dies kann nicht rückgängig gemacht werden.'
+    ),
+    'pbx_meetme_deleted': 'Termin gelöscht',
+    'pbx_meetme_delete_err': 'Löschen fehlgeschlagen',
 }
 
 # Wort-Ersetzungen in allen DE-String-Werten (längere zuerst)
@@ -35,6 +43,7 @@ DE_WORDS = [
     ('Zurueck', 'Zurück'),
     ('stoeren', 'stören'),
     ('pruefen', 'prüfen'),
+    ('ueberlagern', 'überlagern'),
 ]
 
 EN_ADD = {
@@ -45,6 +54,14 @@ EN_ADD = {
     'pbx_mm_status_none_invited': 'No invitations sent yet',
     'pbx_mm_status_pending': 'Invitation pending',
     'pbx_no_contact': 'No contact – search via “change”',
+    'pbx_meetme_delete': 'Delete',
+    'pbx_meetme_delete_confirm': (
+        'Permanently delete meeting "{title}"?\n\n'
+        'The meeting will be removed from the database. '
+        'This cannot be undone.'
+    ),
+    'pbx_meetme_deleted': 'Meeting deleted',
+    'pbx_meetme_delete_err': 'Delete failed',
 }
 
 
