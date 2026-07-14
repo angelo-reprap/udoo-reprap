@@ -143,6 +143,11 @@ function _afterLanguageChange(lang) {
     document.dispatchEvent(new CustomEvent('languageChanged', {
         detail: { language: lang, moduleId: _currentModuleId }
     }));
+    setTimeout(function() {
+        if (window.PBX && typeof window.PBX.refreshI18n === 'function') {
+            try { window.PBX.refreshI18n(); } catch (e) { console.warn('PBX.refreshI18n:', e); }
+        }
+    }, 0);
 }
 
 async function setLanguage(lang) {
