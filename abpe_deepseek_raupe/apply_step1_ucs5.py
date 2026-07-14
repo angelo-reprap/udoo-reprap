@@ -75,12 +75,21 @@ def main():
     if 'AiPromptAdmin' not in admin_text:
         snippet = (PKG / 'admin_ai_prompt_snippet.py').read_text(encoding='utf-8')
         snippet = re.sub(r'^#.*\n', '', snippet, flags=re.MULTILINE)
-        if 'from .models import AiPrompt' not in admin_text:
-            admin_text = admin_text.replace(
-                'from .models import',
-                'from .models import AiPrompt,',
-                1,
-            ) if 'AiPrompt' not in admin_text else admin_text
+        if 'AiPrompt' not in admin_text:
+            if 'from .models import (' in admin_text:
+                admin_text = admin_text.replace(
+                    'from .models import (',
+                    'from .models import (\n    AiPrompt,',
+                    1,
+                )
+            elif re.search(r'^from \.models import \w', admin_text, re.M):
+                admin_text = re.sub(
+                    r'^(from \.models import )',
+                    r'\1AiPrompt, ',
+                    admin_text,
+                    count=1,
+                    flags=re.M,
+                )
         admin_text = admin_text.rstrip() + '\n\n' + snippet
         admin_py.write_text(admin_text, encoding='utf-8')
         print('OK admin registered')

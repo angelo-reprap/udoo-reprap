@@ -1,7 +1,5 @@
-# ── In apps/abpe_email_studio/admin.py einfügen ──
-
-from django.contrib import admin
-from .models import AiPrompt  # ggf. bereits andere imports
+# ── Am Ende von apps/abpe_email_studio/admin.py einfügen ──
+# AiPrompt zuerst in bestehenden "from .models import (...)" Block aufnehmen!
 
 
 @admin.register(AiPrompt)
