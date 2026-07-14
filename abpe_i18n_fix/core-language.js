@@ -88,10 +88,27 @@ async function loadLanguage(lang, moduleId = null) {
 
 function _refreshPbxUi() {
     const run = () => {
-        if (!document.getElementById('pbx-root')) return;
-        if (window.PBX && typeof window.PBX.refreshI18n === 'function') {
-            try { window.PBX.refreshI18n(); } catch (e) { console.warn('PBX.refreshI18n:', e); }
+        if (!document.getElementById('pbx-root') || !window.PBX) return;
+        const P = window.PBX;
+        if (typeof window.applyTranslations === 'function') window.applyTranslations();
+        if (typeof P.refreshI18n === 'function') {
+            try { P.refreshI18n(); return; } catch (e) { console.warn('PBX.refreshI18n:', e); }
         }
+        // Fallback: direkt rendern (wenn refreshI18n in mod-crm-pbx.js fehlt / veraltet)
+        if (typeof P.renderHud === 'function') P.renderHud();
+        if (typeof P.renderPark === 'function') P.renderPark();
+        if (typeof P.renderKonf === 'function') P.renderKonf();
+        if (typeof P.renderQueues === 'function') P.renderQueues();
+        if (typeof P.updateCount === 'function') P.updateCount();
+        if (typeof P.meetmeRenderStrip === 'function') P.meetmeRenderStrip();
+        const id = P._meetmeState && P._meetmeState.selectedId;
+        const cached = id && P._meetmeState.detailCache && P._meetmeState.detailCache[id];
+        if (cached && typeof P.meetmeRenderDetail === 'function') P.meetmeRenderDetail(cached);
+        const tab = P.tab;
+        if (tab === 'cdr' && typeof P.loadCdr === 'function') P.loadCdr();
+        else if (tab === 'stats' && typeof P.loadStats === 'function') P.loadStats();
+        else if (tab === 'vm' && typeof P.loadVm === 'function') P.loadVm();
+        else if (tab === 'wavnotes' && typeof P.loadWavNotes === 'function') P.loadWavNotes();
     };
     if (typeof requestAnimationFrame === 'function') {
         requestAnimationFrame(() => requestAnimationFrame(run));
