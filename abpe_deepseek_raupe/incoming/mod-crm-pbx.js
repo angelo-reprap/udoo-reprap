@@ -3798,6 +3798,7 @@ Object.assign(PBX, {
         const map = {
             invite: 'Einladung — Abstimmung',
             cancel: 'Terminabsage — Standard',
+            reschedule: 'Terminänderung — Standard',
         };
         return map[action] || null;
     },
