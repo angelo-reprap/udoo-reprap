@@ -88,8 +88,8 @@ async function loadLanguage(lang, moduleId = null) {
 
 function _refreshPbxUi() {
     const run = () => {
-        if (!document.getElementById('pbx-root') || !window.PBX) return;
-        const P = window.PBX;
+        if (!document.getElementById('pbx-root') || typeof PBX === 'undefined') return;
+        const P = PBX;
         if (typeof window.applyTranslations === 'function') window.applyTranslations();
         if (typeof P.refreshI18n === 'function') {
             try { P.refreshI18n(); } catch (e) { console.warn('PBX.refreshI18n:', e); }
