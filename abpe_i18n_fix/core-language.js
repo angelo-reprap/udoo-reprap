@@ -83,6 +83,21 @@ async function loadLanguage(lang, moduleId = null) {
 
     applyTranslations();
     updateLanguageButtons();
+    _refreshPbxUi();
+}
+
+function _refreshPbxUi() {
+    const run = () => {
+        if (!document.getElementById('pbx-root')) return;
+        if (window.PBX && typeof window.PBX.refreshI18n === 'function') {
+            try { window.PBX.refreshI18n(); } catch (e) { console.warn('PBX.refreshI18n:', e); }
+        }
+    };
+    if (typeof requestAnimationFrame === 'function') {
+        requestAnimationFrame(() => requestAnimationFrame(run));
+    } else {
+        setTimeout(run, 50);
+    }
 }
 
 window.applyTranslations = function applyTranslations() {
@@ -143,11 +158,6 @@ function _afterLanguageChange(lang) {
     document.dispatchEvent(new CustomEvent('languageChanged', {
         detail: { language: lang, moduleId: _currentModuleId }
     }));
-    setTimeout(function() {
-        if (window.PBX && typeof window.PBX.refreshI18n === 'function') {
-            try { window.PBX.refreshI18n(); } catch (e) { console.warn('PBX.refreshI18n:', e); }
-        }
-    }, 0);
 }
 
 async function setLanguage(lang) {
