@@ -3792,7 +3792,6 @@ Object.assign(PBX, {
         st.tabIndex = 0;
         st.autoLoadedInvite = false;
         this._mmWizardRender();
-        this._mmNotifyLoadPhonesIfNeeded(m);
     },
 
     async _mmNotifyAutoLoadDefaultTemplate() {
@@ -3959,7 +3958,6 @@ Object.assign(PBX, {
                 'PBX._mmNotifyDeepseekSuggest()',
                 'PBX._mmRaupeApplyNotify()'
             )}
-            <div id="pbx-mm-notify-phonelist" style="display:${nst.showPhones ? 'block' : 'none'}"></div>
         `;
     },
 
@@ -3991,7 +3989,7 @@ Object.assign(PBX, {
 // Termin verschieben / absagen (vereinheitlicht)
 // ============================================================
 Object.assign(PBX, {
-    _mmNotifyState: { meetingId: null, action: null, mode: 'individual', queue: [], idx: 0, templates: [], newStartAt: null, force: false, allTemplates: false, sigOverride: false, sigId: null, signatures: [], previewTab: 'text', showPhones: true, phones: {} },
+    _mmNotifyState: { meetingId: null, action: null, mode: 'individual', queue: [], idx: 0, templates: [], newStartAt: null, force: false, allTemplates: false, sigOverride: false, sigId: null, signatures: [], previewTab: 'text' },
 
     meetmeShowRescheduleModal(meetingId) {
         this.meetmeOpenWizard(meetingId, 'reschedule');
@@ -4019,7 +4017,6 @@ Object.assign(PBX, {
         st.allTemplates = false;
         st.sigOverride = false;
         st.sigId = null;
-        st.phones = {};
         st.attachmentsShared = [];
         st.attachmentsByGuest = {};
         st.attachPanelOpen = false;
@@ -4046,7 +4043,6 @@ Object.assign(PBX, {
         const m = await this._mmNotifyPrepareState(meetingId, action);
         if (!m) return;
         this._mmNotifyRender();
-        this._mmNotifyLoadPhonesIfNeeded(m);
     },
 
     _mmNotifyRebuildQueue(m) {
@@ -4136,13 +4132,10 @@ Object.assign(PBX, {
                     'PBX._mmRaupeApplyNotify()'
                 )}
 
-                <div id="pbx-mm-notify-phonelist" style="display:${st.showPhones ? 'block' : 'none'}"></div>
-
                 <div id="pbx-mm-notify-actions" class="pbx-meetme-modal-actions">${this._mmNotifyRenderActionsHtml(st)}</div>
             </div>
         `;
         this._meetmeMountModal(overlay);
-        this._mmNotifyRenderPhoneList(m);
     },
 
     _mmNotifyRenderModeToggleHtml(st) {
@@ -4162,10 +4155,6 @@ Object.assign(PBX, {
                 <div class="pbx-mm-opt-wrap" style="position:relative;flex:1">
                     <button type="button" style="width:100%;font-size:11px;line-height:1.25;padding:8px 4px;border-radius:8px;border:none;cursor:pointer;background:${st.allTemplates ? 'var(--abcona-blue, #1a5fb4)' : 'var(--abcona-gray-bg)'};color:${st.allTemplates ? '#fff' : 'var(--text-secondary)'}" onclick="PBX._mmNotifyToggleTemplateFilter(${st.allTemplates ? 'false' : 'true'})">${this.t('pbx_mm_notify_all_templates_short', 'Alle Vorlagen')}</button>
                     <div class="pbx-mm-opt-tip">${this.t('pbx_mm_notify_all_templates_tip', 'Zeigt alle E-Mail-Vorlagen im System an, nicht nur die für Verschieben/Absagen vorgesehenen.')}</div>
-                </div>
-                <div class="pbx-mm-opt-wrap" style="position:relative;flex:1">
-                    <button type="button" style="width:100%;font-size:11px;line-height:1.25;padding:8px 4px;border-radius:8px;border:none;cursor:pointer;background:${st.showPhones ? 'var(--abcona-blue, #1a5fb4)' : 'var(--abcona-gray-bg)'};color:${st.showPhones ? '#fff' : 'var(--text-secondary)'}" onclick="PBX._mmNotifyTogglePhones(${st.showPhones ? 'false' : 'true'})">${this.t('pbx_mm_notify_show_phones_short', 'Telefonliste')}</button>
-                    <div class="pbx-mm-opt-tip">${this.t('pbx_mm_notify_show_phones_tip', 'Zeigt die Telefonnummern aller Gäste zum direkten Anrufen an.')}</div>
                 </div>
                 <div class="pbx-mm-opt-wrap" style="position:relative;flex:1">
                     <button type="button" style="width:100%;font-size:11px;line-height:1.25;padding:8px 4px;border-radius:8px;border:none;cursor:pointer;background:${st.sigOverride ? 'var(--abcona-blue, #1a5fb4)' : 'var(--abcona-gray-bg)'};color:${st.sigOverride ? '#fff' : 'var(--text-secondary)'}" onclick="PBX._mmNotifyToggleSigOverride(${st.sigOverride ? 'false' : 'true'})">${this.t('pbx_mm_notify_sig_override_short', 'Andere Signatur')}</button>
@@ -4716,44 +4705,6 @@ Object.assign(PBX, {
         }
     },
 
-    _mmNotifyTogglePhones(checked) {
-        this._mmNotifyState.showPhones = checked;
-        this._mmNotifyRefreshOptions();
-        const listEl = this.$('pbx-mm-notify-phonelist');
-        if (listEl) listEl.style.display = checked ? 'block' : 'none';
-    },
-
-    async _mmNotifyLoadPhonesIfNeeded(m) {
-        const st = this._mmNotifyState;
-        const guests = (m.guests || []).filter(g => g.is_active !== false && g.contact_crm_id && !st.phones[g.id]);
-        if (guests.length) {
-            await Promise.all(guests.map(async g => {
-                try {
-                    const detail = await this.get(`/crm/api/berater/${g.contact_crm_id}/`);
-                    if (detail && Array.isArray(detail.phones) && detail.phones.length) {
-                        st.phones[g.id] = detail.phones.map(p => ({ raw: p.raw, label: p.label || p.field_name || '', primary: p.is_primary }));
-                    }
-                } catch (e) { /* Fallback bleibt g.phone */ }
-            }));
-        }
-        this._mmNotifyRenderPhoneList(m);
-    },
-
-    _mmNotifyRenderPhoneList(m) {
-        const st = this._mmNotifyState;
-        const listEl = this.$('pbx-mm-notify-phonelist');
-        if (!listEl) return;
-        listEl.innerHTML = (m.guests || []).filter(g => g.is_active !== false).map(g => {
-            const phones = st.phones[g.id] || (g.phone ? [{ raw: g.phone, primary: true }] : []);
-            const rows = phones.length ? phones.map(p => `
-                <div class="pbx-meetme-guestrow" style="margin-bottom:4px">
-                    <span style="font-size:12px">${this._meetmeEsc(p.raw)}${p.label ? ` <span style="color:#999;font-size:11px">(${this._meetmeEsc(p.label)})</span>` : ''}</span>
-                    <button class="pbx-act pbx-act-green" style="padding:3px 9px" onclick="PBX.meetmeDialGuest('${p.raw}')"><i class="bi bi-telephone-outbound"></i></button>
-                </div>
-            `).join('') : `<span class="pbx-hint">${this.t('pbx_mm_no_phone', 'keine Nummer hinterlegt')}</span>`;
-            return `<div style="margin-bottom:10px"><p style="font-size:12.5px;font-weight:600;margin:0 0 4px">${this._meetmeEsc(g.name)}</p>${rows}</div>`;
-        }).join('');
-    },
 });
 
 // ============================================================
