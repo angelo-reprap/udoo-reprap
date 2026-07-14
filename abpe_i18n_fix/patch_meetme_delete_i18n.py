@@ -3,10 +3,11 @@
 
 Workflow (ucs5):
   1. python3 patch_meetme_delete_i18n.py          # nur DE
-  2. python manage.py sync_i18n …                 # euer übliches Sprachpaket-Tool
-  3. python manage.py collectstatic --noinput
+  2. python apps/abpe_crm/bin/i18n_translator.py  # euer Sprachpaket-Tool (DE → alle Sprachen)
+  3. python apps/abpe_crm/bin/i18n_validate.py    # optional: Lücken prüfen
+  4. python manage.py collectstatic --noinput
 
-Optional: --deepseek-all  (falls kein sync_i18n — DeepSeek für alle Sprachen)
+Optional: --deepseek-all  (nur Fallback ohne i18n_translator.py)
 """
 from __future__ import annotations
 
@@ -137,7 +138,7 @@ def main() -> int:
         return rc
     if args.deepseek_all:
         return deepseek_all()
-    print('\nNächster Schritt: euer Sprachpaket-Sync (z.B. python manage.py sync_i18n …)')
+    print('\nNächster Schritt: python apps/abpe_crm/bin/i18n_translator.py')
     return 0
 
 
