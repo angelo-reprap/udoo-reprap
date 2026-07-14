@@ -59,10 +59,31 @@ Response:
 }
 ```
 
-## Nächster Schritt (2)
+## Nächster Schritt (2) — Hotfix auf ucs5
 
-- JS: `variables` aus MeetMe-Kontext mitsenden
-- Button **„Vorschlag übernehmen“** im Versand-Tab
+Wenn `manage.py shell` mit `AttributeError: 'tuple' object has no attribute 'success'` scheitert,
+fehlt Schritt 2 (alter `suggest()` rief `_chat()` direkt auf):
+
+```bash
+cd /opt/abpe/backend
+python apps/abpe_ui/backup_restore.py -save apps/abpe_crm/services/deepseek_api_pbx.py -m "vor step2"
+python apps/abpe_ui/backup_restore.py -save apps/abpe_email_studio/services/deepseek_raupe.py -m "vor step2"
+python abpe_deepseek_raupe/apply_step2_hotfix_ucs5.py
+python manage.py collectstatic --noinput
+supervisorctl restart abpe-django
+```
+
+Test:
+
+```bash
+python manage.py shell -c "
+from apps.abpe_email_studio.services.deepseek_raupe import deepseek_raupe
+r = deepseek_raupe.full_pipeline('Test', {'name':'Max'}, prompt_key='meetme_email')
+print(r)
+"
+```
+
+JS: `variables` aus MeetMe-Kontext, Button **„Vorschlag übernehmen“** (Compose + Notify + Reminder).
 
 ## Phase 2 (später)
 
