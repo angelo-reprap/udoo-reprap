@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""i18n-Keys für Archiv-Löschen (MeetMe) in crm_telefon.json.
+"""Nur DE: fehlende MeetMe-Archiv-Löschen-Keys in crm_telefon.json ergänzen.
 
-Auf ucs5:
-  cd /opt/abpe/backend
-  python3 abpe_i18n_fix/patch_meetme_delete_i18n.py
-  python3 abpe_i18n_fix/patch_meetme_delete_i18n.py --deepseek   # weitere Sprachen via DeepSeek
-  python manage.py collectstatic --noinput
+Workflow (ucs5):
+  1. python3 patch_meetme_delete_i18n.py          # nur DE
+  2. python manage.py sync_i18n …                 # euer übliches Sprachpaket-Tool
+  3. python manage.py collectstatic --noinput
+
+Optional: --deepseek-all  (falls kein sync_i18n — DeepSeek für alle Sprachen)
 """
 from __future__ import annotations
 
@@ -30,26 +31,9 @@ KEYS_DE = {
     'pbx_meetme_delete_err': 'Löschen fehlgeschlagen',
 }
 
-KEYS_EN = {
-    'pbx_meetme_delete': 'Delete',
-    'pbx_meetme_delete_confirm': (
-        'Permanently delete meeting "{title}"?\n\n'
-        'The meeting will be removed from the database. '
-        'This cannot be undone.'
-    ),
-    'pbx_meetme_deleted': 'Meeting deleted',
-    'pbx_meetme_delete_err': 'Delete failed',
-}
-
 LANG_LABEL = {
-    'en': 'Englisch',
-    'fr': 'Französisch',
-    'it': 'Italienisch',
-    'es': 'Spanisch',
-    'nl': 'Niederländisch',
-    'pl': 'Polnisch',
-    'cs': 'Tschechisch',
-    'tr': 'Türkisch',
+    'en': 'Englisch', 'fr': 'Französisch', 'it': 'Italienisch', 'es': 'Spanisch',
+    'nl': 'Niederländisch', 'pl': 'Polnisch', 'cs': 'Tschechisch', 'tr': 'Türkisch',
 }
 
 
@@ -69,21 +53,22 @@ def _save_flat(path: Path, flat: dict) -> None:
     path.write_text(json.dumps(flat, ensure_ascii=False, indent=4) + '\n', encoding='utf-8')
 
 
-def _patch_lang(lang: str, keys: dict) -> int:
-    path = _json_path(lang)
+def patch_de() -> int:
+    path = _json_path('de')
     if not path.is_file():
-        print(f'  {lang}: {path} fehlt — übersprungen')
-        return 0
+        print(f'FEHLER: {path} nicht gefunden', file=sys.stderr)
+        return 1
     flat = _load_flat(path)
     n = 0
-    for key, val in keys.items():
+    for key, val in KEYS_DE.items():
         if flat.get(key) != val:
             flat[key] = val
             n += 1
-            print(f'  {lang} {key}: {val!r}')
+            print(f'  DE {key}: {val!r}')
     if n:
         _save_flat(path, flat)
-    return n
+    print(f'DE: {n} Key(s) ergänzt/aktualisiert')
+    return 0
 
 
 def _setup_django() -> None:
@@ -111,64 +96,48 @@ def _deepseek_translate(text: str, lang: str) -> str:
     return str(result or text).strip()
 
 
-def _deepseek_fill(lang: str, source: dict[str, str]) -> int:
-    path = _json_path(lang)
-    if not path.is_file():
-        print(f'  {lang}: Datei fehlt — übersprungen')
-        return 0
-    flat = _load_flat(path)
-    n = 0
-    for key, de_val in source.items():
-        if key in flat and flat[key]:
+def deepseek_all() -> int:
+    _setup_django()
+    total = 0
+    for lang_dir in sorted(I18N_ROOT.iterdir()):
+        if not lang_dir.is_dir() or lang_dir.name == 'de':
             continue
-        try:
-            translated = _deepseek_translate(de_val, lang)
-        except Exception as exc:
-            print(f'  {lang} {key}: DeepSeek fehlgeschlagen ({exc})')
+        path = _json_path(lang_dir.name)
+        if not path.is_file():
             continue
-        flat[key] = translated
-        n += 1
-        print(f'  {lang} {key}: {translated!r}')
-    if n:
+        flat = _load_flat(path)
+        lang = lang_dir.name
+        for key, de_val in KEYS_DE.items():
+            if key in flat and flat[key]:
+                continue
+            try:
+                flat[key] = _deepseek_translate(de_val, lang)
+                total += 1
+                print(f'  {lang} {key}: {flat[key]!r}')
+            except Exception as exc:
+                print(f'  {lang} {key}: DeepSeek fehlgeschlagen ({exc})')
         _save_flat(path, flat)
-    return n
+    print(f'DeepSeek: {total} Key(s) ergänzt')
+    return 0
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description='MeetMe-Archiv-Löschen i18n patchen')
-    parser.add_argument('--deepseek', action='store_true', help='Fehlende Keys in anderen Sprachen via DeepSeek übersetzen')
-    parser.add_argument('--backend', default=str(BACKEND), help='Pfad zu /opt/abpe/backend')
+    parser = argparse.ArgumentParser(description='MeetMe-Archiv-Löschen: DE-Keys ergänzen')
+    parser.add_argument('--deepseek-all', action='store_true',
+                        help='Fallback: alle Sprachen via DeepSeek (sonst euer sync_i18n nutzen)')
+    parser.add_argument('--backend', default=str(BACKEND))
     args = parser.parse_args()
 
     global BACKEND, I18N_ROOT
     BACKEND = Path(args.backend)
     I18N_ROOT = BACKEND / 'apps/abpe_crm/static/abpe_crm/i18n'
 
-    if not I18N_ROOT.is_dir():
-        print(f'FEHLER: {I18N_ROOT} nicht gefunden', file=sys.stderr)
-        return 1
-
-    print('=== DE Keys ===')
-    de_n = _patch_lang('de', KEYS_DE)
-    print(f'DE: {de_n} Key(s) gesetzt\n')
-
-    print('=== EN Keys ===')
-    en_n = _patch_lang('en', KEYS_EN)
-    print(f'EN: {en_n} Key(s) gesetzt\n')
-
-    if not args.deepseek:
-        print('Hinweis: --deepseek für automatische Übersetzung in weitere Sprachen')
-        return 0
-
-    print('=== DeepSeek-Übersetzer ===')
-    _setup_django()
-    total = 0
-    for lang_dir in sorted(I18N_ROOT.iterdir()):
-        if not lang_dir.is_dir() or lang_dir.name in ('de', 'en'):
-            continue
-        print(f'\n{lang_dir.name}:')
-        total += _deepseek_fill(lang_dir.name, KEYS_DE)
-    print(f'\nDeepSeek: {total} Key(s) ergänzt')
+    rc = patch_de()
+    if rc:
+        return rc
+    if args.deepseek_all:
+        return deepseek_all()
+    print('\nNächster Schritt: euer Sprachpaket-Sync (z.B. python manage.py sync_i18n …)')
     return 0
 
 
