@@ -3844,12 +3844,68 @@ Object.assign(PBX, {
         }
     },
 
+    _mmNotifyInWizard() {
+        return !!this.$('pbx-mm-wizard-body');
+    },
+
+    _mmNotifySaveCurrentGuestText() {
+        const st = this._mmNotifyState;
+        if (st.mode === 'all') {
+            const subjectEl = this.$('pbx-mm-notify-subject-all');
+            const bodyEl = this.$('pbx-mm-notify-body-all');
+            if (subjectEl) st.cachedSubject = subjectEl.value;
+            if (bodyEl) st.cachedBody = bodyEl.value;
+            return;
+        }
+        const g = st.queue[st.idx];
+        if (!g) return;
+        st.subjectByGuest = st.subjectByGuest || {};
+        st.bodyByGuest = st.bodyByGuest || {};
+        const subjectEl = this.$('pbx-mm-notify-subject-ind');
+        const bodyEl = this.$('pbx-mm-notify-body-ind');
+        if (subjectEl) st.subjectByGuest[g.id] = subjectEl.value;
+        if (bodyEl) st.bodyByGuest[g.id] = bodyEl.value;
+    },
+
+    _mmNotifyGetGuestDraft(m, g) {
+        const st = this._mmNotifyState;
+        const hasCached = st.subjectByGuest && Object.prototype.hasOwnProperty.call(st.subjectByGuest, g.id);
+        if (hasCached || (st.bodyByGuest && Object.prototype.hasOwnProperty.call(st.bodyByGuest, g.id))) {
+            return {
+                subject: (st.subjectByGuest && st.subjectByGuest[g.id]) || '',
+                body: (st.bodyByGuest && st.bodyByGuest[g.id]) || '',
+            };
+        }
+        return this._mmNotifyDefaultText(m, g);
+    },
+
+    _mmNotifyGetBulkDraft(m) {
+        const st = this._mmNotifyState;
+        if (st.cachedSubject !== null || st.cachedBody !== null) {
+            return { subject: st.cachedSubject || '', body: st.cachedBody || '' };
+        }
+        const g = st.queue[0];
+        return g ? this._mmNotifyDefaultText(m, g) : { subject: '', body: '' };
+    },
+
+    _mmNotifyGoToGuest(idx) {
+        const st = this._mmNotifyState;
+        if (idx < 0 || idx >= st.queue.length || idx === st.idx) return;
+        this._mmNotifySaveCurrentGuestText();
+        st.idx = idx;
+        if (this._mmNotifyInWizard()) {
+            const m = this._mmFindMeeting(st.meetingId);
+            const el = this.$('pbx-mm-notify-content');
+            if (el && m) el.innerHTML = this._mmNotifyRenderContentHtml(st, m);
+        } else {
+            this._mmNotifyRefreshContent();
+            this._mmNotifyRefreshActions();
+        }
+    },
+
     _mmWizardCacheComposeText() {
-        const nst = this._mmNotifyState;
-        const subjectEl = this.$(nst.mode === 'all' ? 'pbx-mm-notify-subject-all' : 'pbx-mm-notify-subject-ind');
-        const bodyEl = this.$(nst.mode === 'all' ? 'pbx-mm-notify-body-all' : 'pbx-mm-notify-body-ind');
-        if (subjectEl) nst.cachedSubject = subjectEl.value;
-        if (bodyEl) nst.cachedBody = bodyEl.value;
+        this._mmNotifySaveCurrentGuestText();
+        this._mmNotifyState.composeVisited = true;
     },
 
     async _mmWizardGoToTab(idx) {
@@ -3888,6 +3944,78 @@ Object.assign(PBX, {
         }
     },
 
+    async _mmWizardSend() {
+        const wst = this._mmWizardState;
+        const st = this._mmNotifyState;
+        const m = this._mmFindMeeting(st.meetingId);
+        if (!m) return;
+
+        if (wst.tabIndex === 1 || st.composeVisited) {
+            this._mmWizardCacheComposeText();
+        } else if (this._mmNotifyInWizard()) {
+            this._mmNotifySaveCurrentGuestText();
+            st.composeVisited = true;
+        }
+
+        if (st.mode === 'all') {
+            const draft = this._mmNotifyGetBulkDraft(m);
+            if (!draft.subject.trim() || !draft.body.trim()) {
+                this.toast(this.t('pbx_meetme_fields_req', 'Betreff und Text erforderlich'));
+                return;
+            }
+        } else if (!st.queue.length) {
+            this.toast(this.t('pbx_mm_notify_none_open', 'Alle Gäste sind bereits informiert.'));
+            return;
+        } else {
+            for (const g of st.queue) {
+                const draft = this._mmNotifyGetGuestDraft(m, g);
+                if (!draft.subject.trim() || !draft.body.trim()) {
+                    this.toast(`${this.t('pbx_meetme_fields_req', 'Betreff und Text erforderlich')}: ${g.name || ''}`);
+                    return;
+                }
+            }
+        }
+
+        const committed = await this._mmNotifyCommit();
+        if (!committed) return;
+
+        try {
+            if (st.mode === 'all') {
+                const draft = this._mmNotifyGetBulkDraft(m);
+                await this.post(`/meetme/api/meetings/${st.meetingId}/notify-bulk/`, {
+                    notification_kind: st.action,
+                    subject: draft.subject.trim(),
+                    body: draft.body.trim(),
+                    target_start_at: st.newStartAt,
+                    force: st.force,
+                    signature_id: st.sigOverride ? st.sigId : null,
+                    attachment_refs: st.attachmentsShared,
+                });
+            } else {
+                for (const g of st.queue) {
+                    const draft = this._mmNotifyGetGuestDraft(m, g);
+                    await this.post(`/meetme/api/guests/${g.id}/send-adhoc/`, {
+                        subject: draft.subject.trim(),
+                        body: draft.body.trim(),
+                        notification_kind: st.action,
+                        target_start_at: st.newStartAt,
+                        signature_id: st.sigOverride ? st.sigId : null,
+                        attachment_refs: st.attachmentsByGuest[g.id] || [],
+                    });
+                }
+            }
+        } catch (e) {
+            this.toast(st.mode === 'all'
+                ? this.t('pbx_mm_notify_bulk_err', 'Versand an alle fehlgeschlagen')
+                : this.t('pbx_mm_compose_err', 'Senden fehlgeschlagen'));
+            return;
+        }
+
+        this.meetmeCloseModal();
+        this.toast(st.action === 'cancel' ? this.t('pbx_meetme_cancelled', 'Termin abgesagt') : this.t('pbx_meetme_saved', 'Gespeichert'));
+        await this.meetmeLoadMeetings();
+    },
+
     _mmWizardRenderBody() {
         const st = this._mmWizardState;
         const m = this._mmFindMeeting(st.meetingId);
@@ -3903,18 +4031,37 @@ Object.assign(PBX, {
         if (isSummaryTab) {
             const nst = this._mmNotifyState;
             const guestNames = (nst.queue || []).map(g => g.name).join(', ') || this.t('pbx_wiz_summary_none', 'Keine Empfaenger in der Warteschlange');
-            const notVisited = nst.cachedSubject === null && nst.cachedBody === null;
-            const summarySubject = nst.cachedSubject || '';
-            const summaryBody = nst.cachedBody || '';
+            const notVisited = !nst.composeVisited;
+            if (nst.mode === 'individual') {
+                const guestRows = (nst.queue || []).map(g => {
+                    const draft = this._mmNotifyGetGuestDraft(m, g);
+                    const customized = nst.subjectByGuest && Object.prototype.hasOwnProperty.call(nst.subjectByGuest, g.id);
+                    return `
+                        <div style="padding:8px 0;border-bottom:1px solid var(--border-color, #dee2e6)">
+                            <div style="font-size:12.5px;font-weight:600">${this._meetmeEsc(g.name || '')}${customized ? '' : ` <span style="font-weight:400;color:#999;font-size:11px">(${this.t('pbx_wiz_summary_default', 'Standard')})</span>`}</div>
+                            <div style="font-size:12px;color:var(--text-secondary);margin-top:2px">${this._meetmeEsc(draft.subject || '—')}</div>
+                        </div>
+                    `;
+                }).join('');
+                return `
+                    <div style="font-size:13px;font-weight:600;margin-bottom:10px">${this.t('pbx_wiz_summary_title', 'Zusammenfassung')}</div>
+                    <div style="display:flex;justify-content:space-between;font-size:12.5px;padding:6px 0;border-bottom:1px solid var(--border-color, #dee2e6)"><span style="color:var(--text-secondary)">${this.t('pbx_wiz_summary_recipients', 'Empfaenger')}</span><span>${this._meetmeEsc(guestNames)}</span></div>
+                    <div style="display:flex;justify-content:space-between;font-size:12.5px;padding:6px 0;border-bottom:1px solid var(--border-color, #dee2e6)"><span style="color:var(--text-secondary)">${this.t('pbx_wiz_summary_mode', 'Versand')}</span><span>${this.t('pbx_mm_notify_individual', 'Individuell')}</span></div>
+                    ${notVisited ? `
+                        <p class="pbx-hint" style="margin-top:10px">${this.t('pbx_wiz_summary_not_visited', 'Betreff/Text noch nicht sichtbar - bitte zuerst den Reiter mit dem Text besuchen.')}</p>
+                    ` : guestRows || `<p class="pbx-hint">${this.t('pbx_wiz_summary_none', 'Keine Empfaenger in der Warteschlange')}</p>`}
+                `;
+            }
+            const summaryDraft = this._mmNotifyGetBulkDraft(m);
             return `
                 <div style="font-size:13px;font-weight:600;margin-bottom:10px">${this.t('pbx_wiz_summary_title', 'Zusammenfassung')}</div>
                 <div style="display:flex;justify-content:space-between;font-size:12.5px;padding:6px 0;border-bottom:1px solid var(--border-color, #dee2e6)"><span style="color:var(--text-secondary)">${this.t('pbx_wiz_summary_recipients', 'Empfaenger')}</span><span>${this._meetmeEsc(guestNames)}</span></div>
-                <div style="display:flex;justify-content:space-between;font-size:12.5px;padding:6px 0;border-bottom:1px solid var(--border-color, #dee2e6)"><span style="color:var(--text-secondary)">${this.t('pbx_wiz_summary_mode', 'Versand')}</span><span>${nst.mode === 'all' ? this.t('pbx_mm_notify_all', 'An alle') : this.t('pbx_mm_notify_individual', 'Individuell')}</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12.5px;padding:6px 0;border-bottom:1px solid var(--border-color, #dee2e6)"><span style="color:var(--text-secondary)">${this.t('pbx_wiz_summary_mode', 'Versand')}</span><span>${this.t('pbx_mm_notify_all', 'An alle')}</span></div>
                 ${notVisited ? `
                     <p class="pbx-hint" style="margin-top:10px">${this.t('pbx_wiz_summary_not_visited', 'Betreff/Text noch nicht sichtbar - bitte zuerst den Reiter mit dem Text besuchen.')}</p>
                 ` : `
-                    <div style="font-size:12.5px;padding:6px 0;border-bottom:1px solid var(--border-color, #dee2e6)"><span style="color:var(--text-secondary);display:block;margin-bottom:2px">${this.t('pbx_wiz_summary_subject', 'Betreff')}</span><span>${this._meetmeEsc(summarySubject)}</span></div>
-                    <div style="font-size:12.5px;padding:6px 0"><span style="color:var(--text-secondary);display:block;margin-bottom:2px">${this.t('pbx_wiz_summary_body', 'Text')}</span><div style="white-space:pre-wrap">${this._meetmeEsc(summaryBody)}</div></div>
+                    <div style="font-size:12.5px;padding:6px 0;border-bottom:1px solid var(--border-color, #dee2e6)"><span style="color:var(--text-secondary);display:block;margin-bottom:2px">${this.t('pbx_wiz_summary_subject', 'Betreff')}</span><span>${this._meetmeEsc(summaryDraft.subject)}</span></div>
+                    <div style="font-size:12.5px;padding:6px 0"><span style="color:var(--text-secondary);display:block;margin-bottom:2px">${this.t('pbx_wiz_summary_body', 'Text')}</span><div style="white-space:pre-wrap;max-height:220px;overflow:auto">${this._meetmeEsc(summaryDraft.body)}</div></div>
                 `}
             `;
         }
@@ -3969,6 +4116,12 @@ Object.assign(PBX, {
         overlay.id = 'pbx-meetme-modal-overlay';
 
         const tabBar = st.tabs.map((t, i) => `<div class="pbx-wizard-tab ${i === st.tabIndex ? 'active' : ''}" onclick="PBX._mmWizardGoToTab(${i})">${this._meetmeEsc(t)}</div>`).join('');
+        const isLastTab = st.tabIndex >= st.tabs.length - 1;
+        const nst = this._mmNotifyState;
+        const isCancel = nst.action === 'cancel';
+        const isInvite = nst.action === 'invite';
+        const sendLabel = isCancel ? this.t('pbx_meetme_cancel_confirm_btn', 'Ja, absagen') : (isInvite ? this.t('pbx_meetme_invite_confirm', 'Einladung senden') : this.t('pbx_meetme_reschedule_confirm', 'Verschieben'));
+        const sendCls = isCancel ? 'pbx-act-red' : 'pbx-act-green';
 
         overlay.innerHTML = `
             <div class="pbx-meetme-modal pbx-sa-modal">
@@ -3976,7 +4129,9 @@ Object.assign(PBX, {
                 <div id="pbx-mm-wizard-body" style="min-height:100px;padding:10px 0">${this._mmWizardRenderBody()}</div>
                 <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px">
                     <button class="pbx-act pbx-act-gray" onclick="PBX._mmWizardBack()" style="visibility:${st.tabIndex === 0 ? 'hidden' : 'visible'}">${this.t('pbx_wiz_back', 'Zurueck')}</button>
-                    <button class="pbx-act pbx-act-blue" onclick="PBX._mmWizardNext()">${this.t('pbx_wiz_next', 'Weiter')}</button>
+                    ${isLastTab
+                        ? `<button class="pbx-act ${sendCls}" onclick="PBX._mmWizardSend()">${sendLabel}</button>`
+                        : `<button class="pbx-act pbx-act-blue" onclick="PBX._mmWizardNext()">${this.t('pbx_wiz_next', 'Weiter')}</button>`}
                     <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeCloseModal()">${this.t('pbx_cancel', 'Abbrechen')}</button>
                 </div>
             </div>
@@ -3989,7 +4144,7 @@ Object.assign(PBX, {
 // Termin verschieben / absagen (vereinheitlicht)
 // ============================================================
 Object.assign(PBX, {
-    _mmNotifyState: { meetingId: null, action: null, mode: 'individual', queue: [], idx: 0, templates: [], newStartAt: null, force: false, allTemplates: false, sigOverride: false, sigId: null, signatures: [], previewTab: 'text' },
+    _mmNotifyState: { meetingId: null, action: null, mode: 'individual', queue: [], idx: 0, templates: [], newStartAt: null, force: false, allTemplates: false, sigOverride: false, sigId: null, signatures: [], previewTab: 'text', subjectByGuest: {}, bodyByGuest: {}, composeVisited: false },
 
     meetmeShowRescheduleModal(meetingId) {
         this.meetmeOpenWizard(meetingId, 'reschedule');
@@ -4028,6 +4183,9 @@ Object.assign(PBX, {
         st.attachBrowseFiles = [];
         st.cachedSubject = null;
         st.cachedBody = null;
+        st.subjectByGuest = {};
+        st.bodyByGuest = {};
+        st.composeVisited = false;
         if (!st.signatures.length) {
             try {
                 const sigData = await this.get('/email-studio/api/signatures/');
@@ -4449,9 +4607,10 @@ Object.assign(PBX, {
             let cls = 'pbx-sa-chip';
             if (i < st.idx) cls += ' done';
             if (i === st.idx) cls += ' current';
-            return `<span class="${cls}">${this._meetmeEsc(item.name || '')}</span>`;
+            const customized = st.subjectByGuest && Object.prototype.hasOwnProperty.call(st.subjectByGuest, item.id);
+            return `<span class="${cls}" style="cursor:pointer" onclick="PBX._mmNotifyGoToGuest(${i})" title="${this._meetmeEsc(item.name || '')}">${this._meetmeEsc(item.name || '')}${customized ? ' *' : ''}</span>`;
         }).join('');
-        const text = this._mmNotifyDefaultText(m, g);
+        const text = this._mmNotifyGetGuestDraft(m, g);
         const tplOptions = st.templates.map(t => `<option value="${t.id}">${this._meetmeEsc(t.name)}</option>`).join('');
         return `
             <div class="pbx-sa-guestchips">${chips}</div>
@@ -4495,6 +4654,7 @@ Object.assign(PBX, {
     },
 
     _mmNotifySetMode(mode) {
+        this._mmNotifySaveCurrentGuestText();
         this._mmNotifyState.mode = mode;
         this._mmNotifyRefreshModeToggle();
         this._mmNotifyRefreshContent();
@@ -4603,6 +4763,8 @@ Object.assign(PBX, {
             const data = await this.get(url);
             this.$(which === 'all' ? 'pbx-mm-notify-subject-all' : 'pbx-mm-notify-subject-ind').value = data.subject || '';
             this.$(which === 'all' ? 'pbx-mm-notify-body-all' : 'pbx-mm-notify-body-ind').value = data.text || '';
+            this._mmNotifySaveCurrentGuestText();
+            st.composeVisited = true;
             await this._mmNotifyRefreshPreview();
         } catch (e) {
             this.toast(this.t('pbx_sa_template_err', 'Vorlage konnte nicht geladen werden'));
@@ -4638,12 +4800,12 @@ Object.assign(PBX, {
     async _mmNotifySendAndNext() {
         const st = this._mmNotifyState;
         const g = st.queue[st.idx];
-        const subject = this.$('pbx-mm-notify-subject-ind').value.trim();
-        const body = this.$('pbx-mm-notify-body-ind').value.trim();
-        if (!subject || !body) { this.toast(this.t('pbx_meetme_fields_req', 'Betreff und Text erforderlich')); return; }
+        this._mmNotifySaveCurrentGuestText();
+        const draft = this._mmNotifyGetGuestDraft(this._mmFindMeeting(st.meetingId), g);
+        if (!draft.subject.trim() || !draft.body.trim()) { this.toast(this.t('pbx_meetme_fields_req', 'Betreff und Text erforderlich')); return; }
         try {
             await this.post(`/meetme/api/guests/${g.id}/send-adhoc/`, {
-                subject, body,
+                subject: draft.subject.trim(), body: draft.body.trim(),
                 notification_kind: st.action,
                 target_start_at: st.newStartAt,
                 signature_id: st.sigOverride ? st.sigId : null,
@@ -4660,14 +4822,15 @@ Object.assign(PBX, {
 
     async _mmNotifySendBulk() {
         const st = this._mmNotifyState;
-        const subject = this.$('pbx-mm-notify-subject-all').value.trim();
-        const body = this.$('pbx-mm-notify-body-all').value.trim();
-        if (!subject || !body) { this.toast(this.t('pbx_meetme_fields_req', 'Betreff und Text erforderlich')); return; }
+        const m = this._mmFindMeeting(st.meetingId);
+        this._mmNotifySaveCurrentGuestText();
+        const draft = this._mmNotifyGetBulkDraft(m);
+        if (!draft.subject.trim() || !draft.body.trim()) { this.toast(this.t('pbx_meetme_fields_req', 'Betreff und Text erforderlich')); return; }
         const committed = await this._mmNotifyCommit();
         if (!committed) return;
         try {
             await this.post(`/meetme/api/meetings/${st.meetingId}/notify-bulk/`, {
-                notification_kind: st.action, subject, body,
+                notification_kind: st.action, subject: draft.subject.trim(), body: draft.body.trim(),
                 target_start_at: st.newStartAt, force: st.force,
                 signature_id: st.sigOverride ? st.sigId : null,
                 attachment_refs: st.attachmentsShared,
