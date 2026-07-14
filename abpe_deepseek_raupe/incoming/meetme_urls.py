@@ -10,6 +10,7 @@ urlpatterns = [
     path('api/meetings/<int:meeting_id>/', views.api_meeting_detail, name='api_meeting_detail'),
     path('api/meetings/<int:meeting_id>/update/', views.api_meeting_update, name='api_meeting_update'),
     path('api/meetings/<int:meeting_id>/cancel/', views.api_meeting_cancel, name='api_meeting_cancel'),
+    path('api/meetings/<int:meeting_id>/delete/', views.api_meeting_delete, name='api_meeting_delete'),
     path('api/meetings/<int:meeting_id>/reschedule/', views.api_meeting_reschedule, name='api_meeting_reschedule'),
     path('api/meetings/<int:meeting_id>/notify-bulk/', views.api_meeting_notify_bulk, name='api_meeting_notify_bulk'),
     path('api/meetings/<int:meeting_id>/render-preview/', views.api_meeting_render_preview, name='api_meeting_render_preview'),

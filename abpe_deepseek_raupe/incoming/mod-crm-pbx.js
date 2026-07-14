@@ -1835,6 +1835,14 @@ Object.assign(PBX, {
         const past = !cancelled && new Date(m.start_at).getTime() < Date.now();
         const statusCls = cancelled ? 'pbx-mm-tile-cancelled' : (past ? 'pbx-mm-tile-done' : 'pbx-mm-tile-ok');
         const activeCls = m.id === this._meetmeState.selectedId ? 'pbx-mm-tile-active' : '';
+        const deleteBtn = compact ? `
+            <div style="display:flex;justify-content:flex-end;margin-top:4px">
+                <button type="button" title="${this.t('pbx_meetme_delete', 'Löschen')}"
+                        style="border:none;background:transparent;color:#adb5bd;cursor:pointer;padding:2px 6px;border-radius:4px;font-size:14px;line-height:1"
+                        onclick="event.stopPropagation(); PBX.meetmeDeleteArchived(${m.id})">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>` : '';
         return `
             <div class="pbx-meetme-card pbx-mm-tile ${statusCls} ${activeCls} ${compact ? 'pbx-mm-tile-compact' : ''}"
                  onclick="PBX.meetmeSelectMeeting(${m.id})">
@@ -1845,6 +1853,7 @@ Object.assign(PBX, {
                 </div>
                 <p class="pm-date">${this._meetmeFmtDate(m.start_at)}</p>
                 <p class="pm-guests"><i class="bi bi-people"></i> ${(m.guests || []).length} ${this.t('pbx_meetme_guests_short', 'Gäste')}</p>
+                ${deleteBtn}
             </div>
         `;
     },
@@ -1951,6 +1960,29 @@ Object.assign(PBX, {
         st.open = !st.open;
         if (st.open && !st.loaded) { await this._mmLoadArchive(); return; }
         this._mmRenderArchiveBox();
+    },
+
+    async meetmeDeleteArchived(meetingId) {
+        const st = this._mmArchiveState;
+        const m = (st.items || []).find(x => x.id === meetingId);
+        const title = m ? m.title : String(meetingId);
+        if (!confirm(this.t('pbx_meetme_delete_confirm', 'Termin „{title}“ wirklich endgültig löschen?\n\nDer Termin wird dauerhaft aus der Datenbank entfernt. Dies kann nicht rückgängig gemacht werden.').replace('{title}', title))) return;
+        try {
+            const res = await this.del(`/meetme/api/meetings/${meetingId}/delete/`);
+            if (res && res.error) throw new Error(res.error);
+            st.items = (st.items || []).filter(x => x.id !== meetingId);
+            if (this._meetmeState.selectedId === meetingId) {
+                this._meetmeState.selectedId = null;
+                const detail = this.$('pbx-meetme-detail');
+                if (detail) {
+                    detail.innerHTML = `<div class="pbx-hint">${this.t('pbx_meetme_select_hint', 'Termin auswählen oder neuen Termin anlegen')}</div>`;
+                }
+            }
+            this.meetmeRenderStrip();
+            this.toast(this.t('pbx_meetme_deleted', 'Termin gelöscht'));
+        } catch (e) {
+            this.toast(this.t('pbx_meetme_delete_err', 'Löschen fehlgeschlagen'));
+        }
     },
 
     async meetmeSelectMeeting(id) {

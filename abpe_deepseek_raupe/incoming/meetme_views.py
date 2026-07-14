@@ -415,6 +415,28 @@ def api_meeting_cancel(request, meeting_id):
     return Response(status=status.HTTP_204_NO_CONTENT)
 
 
+def _mm_meeting_is_archived(meeting):
+    """Archiv = abgesagt oder Terminzeitpunkt liegt in der Vergangenheit."""
+    return meeting.status == 'CANCELLED' or meeting.start_at < timezone.now()
+
+
+@extend_schema(summary="Archiviertes Meeting endgueltig loeschen", responses={204: None})
+@api_view(['DELETE'])
+def api_meeting_delete(request, meeting_id):
+    meeting = get_object_or_404(MeetmeMeeting, id=meeting_id)
+    if not _mm_meeting_is_archived(meeting):
+        return Response(
+            {'error': 'Nur archivierte Termine (vergangen oder abgesagt) koennen geloescht werden'},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+    reminder_engine.cancel_reminder_deliveries(meeting)
+    MeetmeReminderDelivery.objects.filter(rule__meeting=meeting).delete()
+    MeetmeReminderRule.objects.filter(meeting=meeting).delete()
+    MeetmeGuest.objects.filter(meeting=meeting).delete()
+    meeting.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
+
+
 # ========== Gaeste ==========
 
 @extend_schema(summary="Gast zu einem Meeting hinzufuegen", request=MeetmeGuestSerializer, responses=MeetmeGuestSerializer)
