@@ -36,15 +36,15 @@ class DeepSeekRaupe:
         prompt_key: str = 'summarize',
         instruction: Optional[str] = None,
     ):
-        from apps.abpe_crm.services.deepseek_api_pbx import deepseek_pbx, get_prompt_config
-        cfg = get_prompt_config(prompt_key)
-        instr = (instruction or cfg.get('instruction_default') or 'Formuliere den Text um.').strip()
-        # summarize-Pipeline: system/user aus cfg, instruction separat
-        system = cfg.get('system') or ''
-        user_tpl = cfg.get('user_template') or '[[INSTRUCTION]]\n\n[[TEXT]]'
-        from apps.abpe_crm.services.deepseek_api_pbx import _fill
-        user_prompt = _fill(user_tpl, INSTRUCTION=instr, TEXT=text)
-        return deepseek_pbx._chat(system, user_prompt)
+        from apps.abpe_crm.services.deepseek_api_pbx import deepseek_pbx
+        if prompt_key == 'summarize':
+            from apps.abpe_crm.services.deepseek_api_pbx import get_prompt_config
+            instr = instruction or get_prompt_config('summarize').get('instruction_default') or 'Fasse kurz zusammen.'
+            return deepseek_pbx.summarize(text, instr)
+        if hasattr(deepseek_pbx, 'suggest_with_key'):
+            return deepseek_pbx.suggest_with_key(text, prompt_key, instruction)
+        # Fallback
+        return deepseek_pbx.summarize(text, instruction or 'Formuliere den Text um.')
 
     def build_all_vars(
         self,
