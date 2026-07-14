@@ -92,14 +92,15 @@ function _refreshPbxUi() {
         const P = window.PBX;
         if (typeof window.applyTranslations === 'function') window.applyTranslations();
         if (typeof P.refreshI18n === 'function') {
-            try { P.refreshI18n(); return; } catch (e) { console.warn('PBX.refreshI18n:', e); }
+            try { P.refreshI18n(); } catch (e) { console.warn('PBX.refreshI18n:', e); }
+        } else {
+            if (typeof P.renderHud === 'function') P.renderHud();
+            if (typeof P.renderPark === 'function') P.renderPark();
+            if (typeof P.renderKonf === 'function') P.renderKonf();
+            if (typeof P.renderQueues === 'function') P.renderQueues();
+            if (typeof P.updateCount === 'function') P.updateCount();
         }
-        // Fallback: direkt rendern (wenn refreshI18n in mod-crm-pbx.js fehlt / veraltet)
-        if (typeof P.renderHud === 'function') P.renderHud();
-        if (typeof P.renderPark === 'function') P.renderPark();
-        if (typeof P.renderKonf === 'function') P.renderKonf();
-        if (typeof P.renderQueues === 'function') P.renderQueues();
-        if (typeof P.updateCount === 'function') P.updateCount();
+        // MeetMe immer nachziehen (auch wenn refreshI18n veraltet / tab-gated)
         if (typeof P.meetmeRenderStrip === 'function') P.meetmeRenderStrip();
         const id = P._meetmeState && P._meetmeState.selectedId;
         const cached = id && P._meetmeState.detailCache && P._meetmeState.detailCache[id];
