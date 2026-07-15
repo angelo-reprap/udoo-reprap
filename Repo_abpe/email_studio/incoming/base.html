@@ -112,35 +112,23 @@
 {% block module_js %}
 <script src="{% static 'email_studio/js/es-core.js' %}"></script>
 <script>
+function _esReloadLanguage(lang) {
+    if (typeof loadLanguage !== 'function') return Promise.resolve();
+    return loadLanguage(lang, 'email_studio').then(function() {
+        if (typeof applyTranslations === 'function') applyTranslations();
+        var lbl = document.getElementById('es-help-btn-label');
+        if (lbl && window.i18nData?.es?.help_btn) lbl.textContent = window.i18nData.es.help_btn;
+        if (window.ESHelp) ESHelp._helpData = null;
+    });
+}
+document.addEventListener('DOMContentLoaded', function() {
+    _esReloadLanguage('{{ current_lang|default:"de" }}');
+});
 document.addEventListener('languageChanged', function(e) {
-    if (typeof loadLanguage === 'function') {
-        loadLanguage(e.detail.language, 'email_studio').then(() => {
-            if (typeof applyTranslations === 'function') applyTranslations();
-            if (window.ESHelp) ESHelp._helpData = null;
-        });
-    }
+    _esReloadLanguage(e.detail.language);
 });
 </script>
 {% endblock %}
 
 {% block extra_js %}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    if (typeof loadLanguage === 'function') {
-        loadLanguage('{{ current_lang|default:"de" }}', 'email_studio').then(() => {
-            const lbl = document.getElementById('es-help-btn-label');
-            if (lbl && window.i18nData?.es?.help_btn) lbl.textContent = window.i18nData.es.help_btn;
-        });
-    }
-});
-document.addEventListener('languageChanged', function(e) {
-    if (typeof loadLanguage === 'function') {
-        loadLanguage(e.detail.language, 'email_studio').then(() => {
-            const lbl = document.getElementById('es-help-btn-label');
-            if (lbl && window.i18nData?.es?.help_btn) lbl.textContent = window.i18nData.es.help_btn;
-            if (window.ESHelp) ESHelp._helpData = null;
-        });
-    }
-}, {capture: true});
-</script>
 {% endblock %}

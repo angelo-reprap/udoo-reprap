@@ -29,9 +29,11 @@ Root-Dateien und `email-studio/` sind ältere Snapshots — nicht deployen ohne 
 
 | Kanonisch (Live) | Im Export |
 |------------------|-----------|
-| `abpe_ui/static/.../i18n/de/modules/email_studio/email_studio.json` | `email_studio/incoming/email_studio.json` (EN — **muss DE werden**) |
+| `abpe_ui/static/.../i18n/de/modules/email_studio/email_studio.json` | `email_studio/incoming/i18n/de/email_studio.json` |
+| `abpe_ui/static/.../i18n/en/modules/email_studio/email_studio.json` | `email_studio/incoming/i18n/en/email_studio.json` |
 | `email_studio/static/.../i18n/help_de.json` | `email_studio/incoming/help_de.json` |
-| — | `manifest.json` referenziert `email_studio_help.json` (**falsch** — korrigiert in Phase A) |
+
+**Referenzsprache:** Deutsch (`i18n/de/`). Englische Datei separat unter `i18n/en/`.
 
 ---
 

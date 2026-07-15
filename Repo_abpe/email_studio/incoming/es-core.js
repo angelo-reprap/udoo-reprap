@@ -237,7 +237,7 @@ window.ESHelp = {
         set('help-tab-vars',       t('help.tab_vars'));
         set('help-tab-translate',  t('help.tab_translate'));
         set('help-tab-tutorial',   t('help.tab_tutorial'));
-        set('es-help-btn-label',   t('help.close') === 'Close' ? 'Help' : 'Hilfe');
+        set('es-help-btn-label',   window.i18nData?.es?.help_btn || 'Hilfe');
     },
 
     tab: function(name, btn) {
