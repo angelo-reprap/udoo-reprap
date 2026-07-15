@@ -27,9 +27,9 @@ def _load_es_i18n(lang):
     if not p.exists():
         p = pathlib.Path('apps/abpe_ui/static/abpe_ui/i18n/de/modules/email_studio/email_studio.json')
     try:
-        return json.dumps(json.loads(p.read_text()))
-    except:
-        return '{}'
+        return json.loads(p.read_text())
+    except Exception:
+        return {}
 
 
 def _base_context(request, active_tab='index'):

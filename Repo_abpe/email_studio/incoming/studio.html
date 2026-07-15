@@ -493,16 +493,25 @@
     </div>
 
     {% if not edit_lang %}
-    <div class="toggle-section">
+    <div class="toggle-section" id="es-signature-section">
         <div class="section-header" onclick="toggleSection(this)">
             <span>
                 <i class="bi bi-pen"></i>
                 <span data-i18n="es.signature_title">Signatur</span>
                 <span class="es-badge es-badge-white">{{ template.get_signature_mode_display|default:"USER" }}</span>
+                <span id="es-sig-block-badge" class="es-badge es-badge-blue" style="display:none"
+                      data-i18n="es.sig_block_active">{% verbatim %}{{block:signature}}{% endverbatim %}</span>
             </span>
             <i class="bi bi-chevron-down"></i>
         </div>
         <div class="section-content">
+            <p class="es-sig-hint" data-i18n="es.sig_block_hint">
+                {% verbatim %}Im Template <code>{{block:signature}}</code> einfügen{% endverbatim %} — die gewählte Quelle erscheint dort in der Vorschau.
+            </p>
+            <button type="button" id="es-sig-insert-btn" class="es-sig-insert-btn">
+                <i class="bi bi-plus-circle"></i>
+                <span data-i18n="es.sig_insert_btn">{% verbatim %}{{block:signature}} einfügen{% endverbatim %}</span>
+            </button>
             <div class="es-var-group-lbl" data-i18n="es.signature_source">Signatur-Quelle</div>
             {% for val, lbl in signature_modes %}
             <label class="es-sig-option {% if template.signature_mode == val or not template.pk and val == 'USER' %}active{% endif %}">
@@ -510,13 +519,6 @@
                        {% if template.signature_mode == val or not template.pk and val == 'USER' %}checked{% endif %}>
                 <span data-i18n="es.sig_{{ val|lower }}">{{ lbl }}</span>
             </label>
-            {% if val == 'USER' %}
-            <div id="es-sig-preview" class="es-sig-preview" {% if template.signature_mode != 'USER' and template.pk %}style="display:none"{% endif %}>
-                Mit freundlichen Grüßen<br>
-                <strong>{sender_name}</strong><br>
-                {sender_email}
-            </div>
-            {% endif %}
             {% if val == 'FIXED' %}
             <div id="es-sig-fixed-select-wrap" {% if template.signature_mode != 'FIXED' %}style="display:none"{% endif %}>
                 <select id="es-sig-fixed-select" class="form-select form-select-sm es-sig-fixed-select">
@@ -532,6 +534,12 @@
             </div>
             {% endif %}
             {% endfor %}
+            <div id="es-sig-preview" class="es-sig-preview"
+                 {% if template.signature_mode == 'NONE' %}style="display:none"{% endif %}>
+                Mit freundlichen Grüßen<br>
+                <strong>{sender_name}</strong><br>
+                {sender_email}
+            </div>
         </div>
     </div>
     {% endif %}
@@ -647,6 +655,7 @@
                 </div>
 
                 <div class="es-block" data-block-type="signature">
+                    <span class="es-block-label">{% verbatim %}{{block:signature}}{% endverbatim %}</span>
                     <div class="es-block-actions">
                         <button class="es-block-action-btn" data-action="sig-settings" data-i18n-title="es.block_sig_settings">
                             <i class="bi bi-gear"></i>
@@ -657,7 +666,7 @@
                             <i class="bi bi-pen"></i>
                             <span data-i18n="es.sig_user">Signatur — User des Absenders</span>
                         </span>
-                        <div class="es-sig-content">
+                        <div class="es-sig-content es-sig-preview-placeholder">
                             Mit freundlichen Grüßen<br>
                             <strong>{sender_name}</strong><br>
                             <span class="es-sig-email">{sender_email}</span>
@@ -680,6 +689,10 @@
                     <div onclick="esAddBlock('button')" class="es-module-chip">
                         <i class="bi bi-cursor es-module-chip-icon"></i>
                         <span data-i18n="es.block_button">Button-Block</span>
+                    </div>
+                    <div onclick="esAddBlock('signature')" class="es-module-chip">
+                        <i class="bi bi-pen es-module-chip-icon"></i>
+                        <span data-i18n="es.block_signature">Signatur</span>
                     </div>
                     <div onclick="esAddBlock('divider')" class="es-module-chip">
                         <i class="bi bi-dash-lg es-module-chip-icon"></i>

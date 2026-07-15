@@ -61,6 +61,7 @@ def _template_to_dict(tpl: EmailTemplate) -> dict:
         'status':           tpl.status,
         'active_version':   tpl.active_version,
         'include_signature': tpl.include_signature,
+        'signature_mode':   tpl.signature_mode,
         'translation_languages': tpl.translation_languages,
         'usage_count':      tpl.usage_count,
         'last_used_at':     tpl.last_used_at.isoformat() if tpl.last_used_at else None,
@@ -147,6 +148,7 @@ class TemplateListCreateAPI(LoginRequiredMixin, View):
             variables        = data.get('variables', []),
             status           = data.get('status', TemplateStatus.DRAFT),
             include_signature = data.get('include_signature', True),
+            signature_mode   = data.get('signature_mode', 'USER'),
             created_by       = request.user,
         )
         log.info(f'Template erstellt: {tpl.identifier} von {request.user}')
@@ -171,7 +173,7 @@ class TemplateDetailAPI(LoginRequiredMixin, View):
             'name', 'description', 'app_scope', 'event_type',
             'sender_mode', 'cc_emails', 'bcc_emails',
             'subject', 'html_body', 'text_body',
-            'variables', 'status', 'include_signature',
+            'variables', 'status', 'include_signature', 'signature_mode',
         ]
         for field in updatable:
             if field in data:
@@ -182,10 +184,13 @@ class TemplateDetailAPI(LoginRequiredMixin, View):
                 pk=data['sender_account_id']
             ).first()
 
-        if data.get('signature_id'):
+        sig_mode = data.get('signature_mode', tpl.signature_mode)
+        if sig_mode == 'FIXED' and data.get('signature_id'):
             tpl.signature = EmailSignature.objects.filter(
                 pk=data['signature_id']
             ).first()
+        elif sig_mode == 'NONE':
+            tpl.include_signature = False
 
         # TXT automatisch via Deepseek generieren wenn HTML geändert
         if 'html_body' in data and data['html_body'] != tpl.html_body:
@@ -982,7 +987,19 @@ class ModuleListAPI(LoginRequiredMixin, View):
             qs = qs.filter(module_type=module_type)
 
         grouped = {}
+        grouped['SIGNATURE'] = [{
+            'id':          0,
+            'identifier':  'signature',
+            'name':        'Signatur (auswählbar)',
+            'module_type': 'SIGNATURE',
+            'description': 'Signatur-Quelle links im Panel wählen',
+            'syntax':      '{{block:signature}}',
+            'preview_bg':  '#ffffff',
+            'is_virtual':  True,
+        }]
         for m in qs:
+            if m.identifier == 'signature':
+                continue
             t = m.module_type
             if t not in grouped:
                 grouped[t] = []

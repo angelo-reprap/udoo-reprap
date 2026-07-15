@@ -181,6 +181,7 @@ window.ESStudio = (() => {
                 if (action === 'up')     _moveBlock(block, -1);
                 if (action === 'down')   _moveBlock(block, 1);
                 if (action === 'delete') _deleteBlock(block);
+                if (action === 'sig-settings') _openSignaturePanel();
             });
         });
     }
@@ -271,6 +272,15 @@ window.ESStudio = (() => {
         } else if (type === 'divider') {
             div.innerHTML = actions + `
                 <div style="padding:8px 16px;"><hr style="border:none;border-top:1px solid #e0e0e0;margin:0;"></div>`;
+        } else if (type === 'signature') {
+            div.innerHTML = `<span class="es-block-label">{{block:signature}}</span>` + actions + `
+                <div class="es-block-sig-inner">
+                    <span class="es-block-sig-label">
+                        <i class="bi bi-pen"></i>
+                        <span>${t('block_signature', 'Signatur')}</span>
+                    </span>
+                    <div class="es-sig-content es-sig-preview-placeholder"></div>
+                </div>`;
         } else {
             return null;
         }
@@ -289,6 +299,11 @@ window.ESStudio = (() => {
         clone.querySelectorAll('.es-block-actions').forEach(el => el.remove());
         clone.querySelectorAll('.es-block-label').forEach(el => el.remove());
         clone.querySelectorAll('.es-block-sig-label').forEach(el => el.remove());
+
+        clone.querySelectorAll('.es-block[data-block-type="signature"]').forEach(block => {
+            const ph = document.createTextNode('{{block:signature}}');
+            block.replaceWith(ph);
+        });
 
         clone.querySelectorAll('[contenteditable]').forEach(el => {
             el.removeAttribute('contenteditable');
@@ -309,8 +324,11 @@ window.ESStudio = (() => {
 
         // Einfacher Parser: bekannte Block-Typen aus HTML wiederherstellen
         const html = textarea.value;
+        const hasSigToken = html.includes('{{block:signature}}');
+        const htmlWithoutSig = html.replace(/\{\{block:signature\}\}/g, '').trim();
+
         const tmpDiv = document.createElement('div');
-        tmpDiv.innerHTML = html;
+        tmpDiv.innerHTML = htmlWithoutSig || html;
 
         // Blöcke aus dem Canvas-HTML rekonstruieren
         canvas.querySelectorAll('.es-block').forEach(b => b.remove());
@@ -331,11 +349,21 @@ window.ESStudio = (() => {
                     <button class="es-block-action-btn" data-action="down" title="${t('block_down','Runter')}"><i class="bi bi-arrow-down"></i></button>
                     <button class="es-block-action-btn danger" data-action="delete" title="${t('block_delete','Löschen')}"><i class="bi bi-trash"></i></button>
                 </div>
-                <div class="es-block-body-inner" contenteditable="true">${html}</div>`;
+                <div class="es-block-body-inner" contenteditable="true">${htmlWithoutSig || html}</div>`;
             canvas.appendChild(bodyBlock);
         }
 
+        if (hasSigToken && !canvas.querySelector('.es-block[data-block-type="signature"]')) {
+            const sigBlock = _createBlock('signature');
+            if (sigBlock) {
+                canvas.appendChild(sigBlock);
+                _bindBlock(sigBlock);
+            }
+        }
+
         canvas.querySelectorAll('.es-block').forEach(_bindBlock);
+        _updateSigBlock(document.querySelector('input[name="es-sig-mode"]:checked')?.value || 'USER');
+        _updateSignatureBlockState();
     }
 
     /* ══════════════════════════════════════════════════════
@@ -430,8 +458,13 @@ window.ESStudio = (() => {
             container.dataset.loaded = '1';
             container.querySelectorAll('.es-module-chip').forEach(chip => {
                 chip.addEventListener('click', function() {
-                    _insertAtCursor(this.dataset.syntax);
-                    ES.copyToClipboard(this.dataset.syntax, this);
+                    const syntax = this.dataset.syntax;
+                    if (syntax === '{{block:signature}}') {
+                        _insertSignatureBlock();
+                    } else {
+                        _insertAtCursor(syntax);
+                    }
+                    ES.copyToClipboard(syntax, this);
                 });
             });
         } catch(e) {
@@ -457,6 +490,9 @@ window.ESStudio = (() => {
         }
         _syncCanvasToCode();
         _schedulePreview();
+        if (text && text.includes('{{block:signature}}')) {
+            _updateSignatureBlockState();
+        }
     }
 
     /* ══════════════════════════════════════════════════════
@@ -969,6 +1005,8 @@ window.ESStudio = (() => {
     function _initSignaturePanel() {
         document.querySelectorAll('input[name="es-sig-mode"]').forEach(radio => {
             radio.addEventListener('change', function() {
+                document.querySelectorAll('.es-sig-option').forEach(el => el.classList.remove('active'));
+                this.closest('.es-sig-option')?.classList.add('active');
                 _updateSigPanel(this.value);
                 _updateSigBlock(this.value);
                 _schedulePreview();
@@ -980,8 +1018,60 @@ window.ESStudio = (() => {
             sigFixedEl.addEventListener('change', _schedulePreview);
         }
 
+        const insertBtn = document.getElementById('es-sig-insert-btn');
+        if (insertBtn) {
+            insertBtn.addEventListener('click', _insertSignatureBlock);
+        }
+
         const current = document.querySelector('input[name="es-sig-mode"]:checked');
-        if (current) _updateSigPanel(current.value);
+        if (current) {
+            _updateSigPanel(current.value);
+            _updateSigBlock(current.value);
+        }
+        _updateSignatureBlockState();
+    }
+
+    function _hasSignatureBlock() {
+        const html = document.getElementById('es-html-editor')?.value || '';
+        return html.includes('{{block:signature}}') ||
+               !!document.querySelector('.es-block[data-block-type="signature"]');
+    }
+
+    function _updateSignatureBlockState() {
+        const has = _hasSignatureBlock();
+        const badge = document.getElementById('es-sig-block-badge');
+        if (badge) badge.style.display = has ? '' : 'none';
+        const hdr = document.getElementById('es-signature-section')?.querySelector('.section-header');
+        if (hdr) hdr.classList.toggle('es-sig-active', has);
+    }
+
+    function _openSignaturePanel() {
+        const section = document.getElementById('es-signature-section');
+        const hdr = section?.querySelector('.section-header');
+        if (hdr && !hdr.classList.contains('open')) hdr.click();
+        section?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function _insertSignatureBlock() {
+        if (_hasSignatureBlock()) {
+            _openSignaturePanel();
+            return;
+        }
+        if (_currentMode === 'visual') {
+            const canvas = document.getElementById('es-canvas');
+            const sigBlock = _createBlock('signature');
+            if (sigBlock && canvas) {
+                canvas.appendChild(sigBlock);
+                _bindBlock(sigBlock);
+                _syncCanvasToCode();
+            }
+        } else {
+            _insertAtCursor('{{block:signature}}');
+        }
+        _updateSigBlock(document.querySelector('input[name="es-sig-mode"]:checked')?.value || 'USER');
+        _updateSignatureBlockState();
+        _schedulePreview();
+        _openSignaturePanel();
     }
 
     function _updateSigPanel(mode) {
@@ -995,9 +1085,11 @@ window.ESStudio = (() => {
         if (preview) {
             const map = {
                 NONE:    '',
-                TEAM:    'Mit freundlichen Grüßen<br><strong>abcona e. K. Team</strong>',
+                TEAM:    'Mit freundlichen Grüßen<br><br><strong>Ihr abcona e. K. Team</strong>'
+                         + '<br><span style="color:#888;font-size:10px;">'
+                         + 'info@abcona.de · +49 0 6171 8867 10</span>',
                 USER:    'Mit freundlichen Grüßen<br><strong>{sender_name}</strong><br>{sender_email}',
-                FIXED:   t('sig_fixed', 'Feste Signatur'),
+                FIXED:   t('sig_fixed', 'Feste Signatur — Auswahl oben'),
                 DYNAMIC: t('sig_dynamic', 'Beim Versand wählbar'),
             };
             preview.innerHTML = map[mode] || '';
@@ -1026,7 +1118,8 @@ window.ESStudio = (() => {
         const content = inner.querySelector('.es-sig-content');
         if (content) {
             const map = {
-                TEAM:    'Mit freundlichen Grüßen<br><strong>abcona e. K. Team</strong>',
+                TEAM:    'Mit freundlichen Grüßen<br><br><strong>Ihr abcona e. K. Team</strong>'
+                         + '<br><span style="color:#888">info@abcona.de · +49 0 6171 8867 10</span>',
                 USER:    'Mit freundlichen Grüßen<br><strong>{sender_name}</strong><br><span style="color:#888">{sender_email}</span>',
                 FIXED:   'Mit freundlichen Grüßen<br><strong>{signature_name}</strong>',
                 DYNAMIC: '{signature}',
@@ -1062,6 +1155,7 @@ window.ESStudio = (() => {
                 status:        document.querySelector('select[name="status"]')?.value      || 'DRAFT',
                 change_note:   note,
                 signature_mode: sigModeEl ? sigModeEl.value : 'USER',
+                include_signature: sigModeEl ? sigModeEl.value !== 'NONE' : true,
             };
 
             if (sigModeEl?.value === 'FIXED' && sigFixedEl?.value) {
