@@ -10,6 +10,13 @@ Portal-weite Hilfe (`?` Button oben rechts). Wird von `core-language.js` geladen
 
 ```bash
 cd /mnt/public/udoo-reprap
+
+# Branch holen (auch wenn lokaler Stand abweicht — typisch auf ucs5)
+git fetch origin cursor/portal-help-bf44
+git checkout cursor/portal-help-bf44 2>/dev/null \
+  || git checkout -b cursor/portal-help-bf44 origin/cursor/portal-help-bf44
+git reset --hard origin/cursor/portal-help-bf44
+
 R=Repo_abpe/abpe_ui/incoming
 I18N=/opt/abpe/backend/apps/abpe_ui/static/abpe_ui/i18n
 TPL=/opt/abpe/backend/apps/abpe_ui/templates/abpe_ui/components
@@ -19,6 +26,22 @@ for L in de en es it fr; do
   cp $R/i18n/$L/help-modal.json $I18N/$L/
 done
 cp $R/help_modal.html $TPL/
+supervisorctl restart abpe-django
+```
+
+**Hinweis:** `git pull` schlägt auf ucs5 oft fehl („divergent branches“), wenn dort lokale Commits liegen. Dann `fetch` + `reset --hard` wie oben — oder nur die Dateien per `git show` kopieren:
+
+```bash
+cd /mnt/public/udoo-reprap
+git fetch origin cursor/portal-help-bf44
+BR=origin/cursor/portal-help-bf44
+I18N=/opt/abpe/backend/apps/abpe_ui/static/abpe_ui/i18n
+TPL=/opt/abpe/backend/apps/abpe_ui/templates/abpe_ui/components
+for L in de en es it fr; do
+  mkdir -p $I18N/$L
+  git show $BR:Repo_abpe/abpe_ui/incoming/i18n/$L/help-modal.json > $I18N/$L/help-modal.json
+done
+git show $BR:Repo_abpe/abpe_ui/incoming/help_modal.html > $TPL/help_modal.html
 supervisorctl restart abpe-django
 ```
 
