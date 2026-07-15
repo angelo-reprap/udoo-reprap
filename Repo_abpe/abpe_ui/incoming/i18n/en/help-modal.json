@@ -1,0 +1,22 @@
+{
+  "help_title": "Help & Tips",
+  "help_portal": "About this portal",
+  "help_portal_text": "ABpE Portal - Automated consultant profile acquisition system. Manages CVs, consultants, matching and workflows.",
+  "help_navigation": "Navigation",
+  "help_nav1": "Sidebar: icons become visible on hover",
+  "help_nav2": "Dashboard: statistics can be expanded/collapsed",
+  "help_nav3": "All sections can be expanded/collapsed with a click",
+  "help_nav4": "Search bar: find consultants, CVs and records across the portal",
+  "help_language": "Language & appearance",
+  "help_lang_header": "Language: buttons top right (DE/EN/ES/IT/FR) or in Settings",
+  "help_lang_persist": "Your selected language is saved and restored on next login",
+  "help_theme_toggle": "Light/dark mode: sun/moon button top right or in Settings",
+  "help_modules": "Modules & guides",
+  "help_mod_overview": "Each module may have its own help — Help button in the module view",
+  "help_mod_email": "Email Studio: detailed tutorial with simulations (overview, modules, variables, translation)",
+  "help_mod_more": "More modules (Doc Studio, Matching, CRM) will be added step by step",
+  "help_shortcuts": "Keyboard shortcuts",
+  "help_shortcut_help": "Open help",
+  "help_shortcut_search": "Focus search field",
+  "help_shortcut_stats": "Toggle statistics"
+}

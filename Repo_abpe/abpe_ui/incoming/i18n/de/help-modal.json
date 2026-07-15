@@ -1,0 +1,22 @@
+{
+  "help_title": "Hilfe & Tipps",
+  "help_portal": "Über dieses Portal",
+  "help_portal_text": "ABpE Portal - Automatisiertes Berater Profil Erfassungssystem. Verwaltet CVs, Berater, Matching und Workflows.",
+  "help_navigation": "Navigation",
+  "help_nav1": "Sidebar: Icons werden beim Hovern sichtbar",
+  "help_nav2": "Dashboard: Statistiken können ein-/ausgeklappt werden",
+  "help_nav3": "Alle Sektionen sind per Klick auf/zu klappbar",
+  "help_nav4": "Suche oben: Berater, CVs und Datensätze portalweit finden",
+  "help_language": "Sprache & Darstellung",
+  "help_lang_header": "Sprache: Buttons oben rechts (DE/EN/ES/IT/FR) oder unter Einstellungen",
+  "help_lang_persist": "Die gewählte Sprache wird gespeichert und beim nächsten Login geladen",
+  "help_theme_toggle": "Hell/Dunkel-Modus: Sonne/Mond-Button oben rechts oder unter Einstellungen",
+  "help_modules": "Module & Anleitungen",
+  "help_mod_overview": "Jedes Modul kann eigene Hilfe haben — Button „Hilfe“ in der Modul-Ansicht",
+  "help_mod_email": "Email Studio: ausführliches Tutorial mit Simulationen (Übersicht, Module, Variablen, Übersetzung)",
+  "help_mod_more": "Weitere Module (Doc Studio, Matching, CRM) werden schrittweise ergänzt",
+  "help_shortcuts": "Tastaturkürzel",
+  "help_shortcut_help": "Hilfe öffnen",
+  "help_shortcut_search": "Suchfeld fokussieren",
+  "help_shortcut_stats": "Statistik ein-/ausklappen"
+}
