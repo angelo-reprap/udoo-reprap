@@ -37,7 +37,9 @@ def _base_context(request, active_tab='index'):
     from django.conf import settings as django_settings
     return {
         'active_tab':    active_tab,
-        'active_module': 'email_studio',
+        'active_module': 'email',
+        'active':        'email',
+        'active_subpage': 'studio',
         'current_lang':  request.session.get('language', 'de'),
         'es_i18n':       _load_es_i18n(request.session.get('language', 'de')),
         'user_is_admin': request.user.is_staff,

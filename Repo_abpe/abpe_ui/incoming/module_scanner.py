@@ -85,6 +85,10 @@ class ModuleScanner:
         nav = []
         for module in self.modules:
             mid   = module['id']
+
+            if module.get('nav_hidden'):
+                continue
+
             roles = module.get('roles', [])
 
             # ── Priorität 1: User-spezifisch ──────────────────────────
@@ -123,9 +127,11 @@ class ModuleScanner:
                 if roles and not self._check_roles(roles, user_groups, is_staff):
                     continue
 
-            # Subpages filtern
+            # Subpages filtern (nur Nav-Einträge, keine internen Templates)
             subpages = []
-            for sp in module.get('subpages', []):
+            for sp in sorted(module.get('subpages', []), key=lambda x: x.get('order', 999)):
+                if module.get('nav_group') and sp.get('template'):
+                    continue
                 sp_roles = sp.get('roles', [])
                 if sp_roles and not self._check_roles(sp_roles, user_groups, is_staff):
                     continue
@@ -134,6 +140,7 @@ class ModuleScanner:
                     'title':  sp['title'],
                     'titles': sp.get('titles', {}),
                     'route':  sp['route'],
+                    'order':  sp.get('order', 999),
                 })
 
             nav.append({

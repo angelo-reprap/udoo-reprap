@@ -12,6 +12,7 @@
     "route": "/email-studio/",
     "order": 45,
     "enabled": true,
+    "nav_hidden": true,
     "roles": [
         "!berater"
     ],
