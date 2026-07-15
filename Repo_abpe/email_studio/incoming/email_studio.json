@@ -227,6 +227,9 @@
         "editor_tab_txt": "TXT",
         "test_recipient_placeholder": "Recipient email...",
         "preview_test_email": "max@example.com",
+        "preview_refresh": "Refresh",
+        "preview_dummy_hint": "Sample data",
+        "preview_loading": "Updating preview…",
         "sig_greeting": "Kind regards",
         "modules_empty": "No modules found",
         "btn_saveas": "Save as"

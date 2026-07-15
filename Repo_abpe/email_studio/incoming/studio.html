@@ -725,8 +725,16 @@
 
     <div class="section-content open">
         <div class="es-preview-hdr">
-            <span class="es-preview-hdr-title" data-i18n="es.preview_title">Vorschau</span>
-            <div class="d-flex gap-1">
+            <div class="d-flex align-items-center gap-2">
+                <span class="es-preview-hdr-title" data-i18n="es.preview_title">Vorschau</span>
+                <span class="es-badge es-badge-blue es-preview-dummy-hint" data-i18n="es.preview_dummy_hint">Beispieldaten</span>
+            </div>
+            <div class="d-flex gap-1 align-items-center">
+                <button id="es-preview-refresh-btn" class="es-preview-refresh-btn" type="button"
+                        data-i18n-title="es.preview_refresh" title="Vorschau aktualisieren">
+                    <i class="bi bi-arrow-clockwise"></i>
+                    <span data-i18n="es.preview_refresh">Aktualisieren</span>
+                </button>
                 <button class="es-preview-client-btn active" data-client="outlook" onclick="esSetPreviewClient(this)">Outlook</button>
                 <button class="es-preview-client-btn" data-client="gmail" onclick="esSetPreviewClient(this)">Gmail</button>
                 <button class="es-preview-client-btn" data-client="txt" onclick="esSetPreviewClient(this)">TXT</button>
