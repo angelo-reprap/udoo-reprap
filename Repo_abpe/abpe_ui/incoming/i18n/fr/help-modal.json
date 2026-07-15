@@ -1,0 +1,22 @@
+{
+  "help_title": "Aide et astuces",
+  "help_portal": "À propos de ce portail",
+  "help_portal_text": "Portail ABpE - Système automatisé d'acquisition de profils de consultants. Gère les CV, consultants, matching et workflows.",
+  "help_navigation": "Navigation",
+  "help_nav1": "Barre latérale : les icônes apparaissent au survol",
+  "help_nav2": "Tableau de bord : les statistiques peuvent être ouvertes/fermées",
+  "help_nav3": "Toutes les sections sont extensibles/réductibles en un clic",
+  "help_nav4": "Recherche en haut : trouver consultants, CV et enregistrements dans tout le portail",
+  "help_language": "Langue et apparence",
+  "help_lang_header": "Langue : boutons en haut à droite (DE/EN/ES/IT/FR) ou dans Paramètres",
+  "help_lang_persist": "La langue choisie est enregistrée et restaurée à la prochaine connexion",
+  "help_theme_toggle": "Mode clair/sombre : bouton soleil/lune en haut à droite ou dans Paramètres",
+  "help_modules": "Modules et guides",
+  "help_mod_overview": "Chaque module peut avoir sa propre aide — bouton Aide dans la vue du module",
+  "help_mod_email": "Email Studio : tutoriel détaillé avec simulations (aperçu, modules, variables, traduction)",
+  "help_mod_more": "D'autres modules (Doc Studio, Matching, CRM) seront ajoutés progressivement",
+  "help_shortcuts": "Raccourcis clavier",
+  "help_shortcut_help": "Ouvrir l'aide",
+  "help_shortcut_search": "Focaliser le champ de recherche",
+  "help_shortcut_stats": "Ouvrir/fermer les statistiques"
+}
