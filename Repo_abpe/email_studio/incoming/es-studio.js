@@ -1005,6 +1005,8 @@ window.ESStudio = (() => {
     function _initSignaturePanel() {
         document.querySelectorAll('input[name="es-sig-mode"]').forEach(radio => {
             radio.addEventListener('change', function() {
+                document.querySelectorAll('.es-sig-option').forEach(el => el.classList.remove('active'));
+                this.closest('.es-sig-option')?.classList.add('active');
                 _updateSigPanel(this.value);
                 _updateSigBlock(this.value);
                 _schedulePreview();
@@ -1083,9 +1085,10 @@ window.ESStudio = (() => {
         if (preview) {
             const map = {
                 NONE:    '',
-                TEAM:    'Mit freundlichen Grüßen<br><strong>abcona e. K. Team</strong>',
+                TEAM:    'Mit freundlichen Grüßen<br><strong>abcona e. K. Team</strong>'
+                         + '<br><span style="color:#888;font-size:10px;">abcona e. K. · info@abcona.de</span>',
                 USER:    'Mit freundlichen Grüßen<br><strong>{sender_name}</strong><br>{sender_email}',
-                FIXED:   t('sig_fixed', 'Feste Signatur'),
+                FIXED:   t('sig_fixed', 'Feste Signatur — Auswahl oben'),
                 DYNAMIC: t('sig_dynamic', 'Beim Versand wählbar'),
             };
             preview.innerHTML = map[mode] || '';
@@ -1114,7 +1117,8 @@ window.ESStudio = (() => {
         const content = inner.querySelector('.es-sig-content');
         if (content) {
             const map = {
-                TEAM:    'Mit freundlichen Grüßen<br><strong>abcona e. K. Team</strong>',
+                TEAM:    'Mit freundlichen Grüßen<br><strong>abcona e. K. Team</strong>'
+                         + '<br><span style="color:#888">info@abcona.de</span>',
                 USER:    'Mit freundlichen Grüßen<br><strong>{sender_name}</strong><br><span style="color:#888">{sender_email}</span>',
                 FIXED:   'Mit freundlichen Grüßen<br><strong>{signature_name}</strong>',
                 DYNAMIC: '{signature}',

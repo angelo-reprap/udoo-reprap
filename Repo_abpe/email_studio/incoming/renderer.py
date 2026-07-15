@@ -241,12 +241,7 @@ class EmailRenderer:
             return ''
 
         if mode == SignatureMode.TEAM:
-            html = (
-                '<div style="margin-top:16px;">'
-                '<p>Mit freundlichen Grüßen<br><strong>abcona e. K. Team</strong></p>'
-                '</div>'
-            )
-            return self._render(html, all_vars)
+            return self._render(self._get_team_signature_html(), all_vars)
 
         if mode == SignatureMode.USER:
             sig = None
@@ -298,7 +293,25 @@ class EmailRenderer:
 
         return ''
 
-    def render_preview(
+    def _get_team_signature_html(self) -> str:
+        """Team-Signatur aus DB (identifier abcona_team) oder Fallback."""
+        from apps.abpe_email_studio.models import EmailSignature
+        for ident in ('abcona_team', 'team', 'general_team'):
+            sig = EmailSignature.objects.filter(identifier=ident).first()
+            if sig and sig.html_body:
+                return sig.html_body
+        sig = EmailSignature.objects.filter(
+            name__icontains='team', is_public=True
+        ).first()
+        if sig and sig.html_body:
+            return sig.html_body
+        return (
+            '<div style="margin-top:16px;font-family:Arial,sans-serif;font-size:13px;color:#333;">'
+            '<p>Mit freundlichen Grüßen<br><strong>abcona e. K. Team</strong></p>'
+            '<p style="color:#888;font-size:11px;margin-top:8px;">'
+            'abcona e. K. · info@abcona.de · www.abcona.de'
+            '</p></div>'
+        )
         self, template, variables: dict = None, user=None, *,
         html_body=None, subject=None, text_body=None,
         signature_mode=None, signature_id=None, include_signature=None,

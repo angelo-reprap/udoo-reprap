@@ -519,13 +519,6 @@
                        {% if template.signature_mode == val or not template.pk and val == 'USER' %}checked{% endif %}>
                 <span data-i18n="es.sig_{{ val|lower }}">{{ lbl }}</span>
             </label>
-            {% if val == 'USER' %}
-            <div id="es-sig-preview" class="es-sig-preview" {% if template.signature_mode != 'USER' and template.pk %}style="display:none"{% endif %}>
-                Mit freundlichen Grüßen<br>
-                <strong>{sender_name}</strong><br>
-                {sender_email}
-            </div>
-            {% endif %}
             {% if val == 'FIXED' %}
             <div id="es-sig-fixed-select-wrap" {% if template.signature_mode != 'FIXED' %}style="display:none"{% endif %}>
                 <select id="es-sig-fixed-select" class="form-select form-select-sm es-sig-fixed-select">
@@ -541,6 +534,12 @@
             </div>
             {% endif %}
             {% endfor %}
+            <div id="es-sig-preview" class="es-sig-preview"
+                 {% if template.signature_mode == 'NONE' %}style="display:none"{% endif %}>
+                Mit freundlichen Grüßen<br>
+                <strong>{sender_name}</strong><br>
+                {sender_email}
+            </div>
         </div>
     </div>
     {% endif %}
