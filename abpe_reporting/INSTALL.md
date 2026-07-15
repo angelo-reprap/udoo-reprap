@@ -36,6 +36,22 @@ python3 -m py_compile apps/abpe_crm/urls.py && echo "urls.py OK"
 
 Dann Strg+F5 auf `/crm/reporting/` — kein 404 mehr in der Konsole.
 
+## Sync-Status reparieren (TypeError __rep_doc_count)
+
+Falls `/crm/api/sync/status/` mit `__rep_doc_count() missing 1 required positional argument: 'request'` fehlschlägt:
+
+```bash
+cd /opt/abpe/backend
+curl -sL 'https://raw.githubusercontent.com/angelo-reprap/udoo-reprap/cursor/reporting-overhaul-c24e/abpe_reporting/patch_sync_status_documents.py' \
+  -o /tmp/patch_sync_status_documents.py
+python3 /tmp/patch_sync_status_documents.py
+python3 -m py_compile apps/abpe_crm/views.py
+supervisorctl restart abpe-django
+python manage.py shell -c "from django.test import Client; c=Client(); print(c.get('/crm/api/sync/status/').status_code, c.get('/crm/api/sync/status/').content[:200])"
+```
+
+Erwartung: Status **200**, `documents_total` > 0 (EDMS).
+
 ## Frontend (falls noch nicht)
 
 ```bash
