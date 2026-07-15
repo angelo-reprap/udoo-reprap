@@ -1,0 +1,15 @@
+{% extends "abpe_crm/base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block module_css %}
+<script>
+    // Reporting hat keine CRM-Search-API — mod-crm.js nicht auto-suchen lassen
+    window.CRM_SKIP_SEARCH = true;
+</script>
+{% endblock %}
+
+{% block content %}
+{% include "abpe_crm/tabs/reporting_tab.html" %}
+{% endblock %}
