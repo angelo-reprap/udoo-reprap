@@ -2059,6 +2059,7 @@ Object.assign(PBX, {
     },
 
     meetmeRenderDetail(m) {
+        this._meetmeEnsureDragStyles();
         const wrap = this.$('pbx-meetme-detail');
         if (!wrap) return;
         const guests = m.guests || [];
@@ -2116,7 +2117,7 @@ Object.assign(PBX, {
                     `;
                     }).join('') || `<div class="pbx-hint">${this.t('pbx_meetme_no_guests', 'Noch keine Gäste')}</div>`}
                 </div>
-                <button class="pbx-act pbx-act-gray" style="width:100%;justify-content:center;margin-top:8px" onclick="PBX.meetmeToggleGuestAdd()">
+                <button class="pbx-act pbx-mm-add-guest-btn" style="width:100%;justify-content:center;margin-top:8px" onclick="PBX.meetmeToggleGuestAdd()">
                     <i class="bi bi-plus-lg"></i> ${this.t('pbx_mm_add_guest', 'Weiterer Gast')}
                 </button>
                 <div id="pbx-meetme-guest-search-wrap" style="position:relative;display:none;gap:6px;margin-top:8px">
@@ -2329,6 +2330,8 @@ Object.assign(PBX, {
             '.pbx-mm-collapsible.pbx-mm-collapsed .pbx-mm-collapsible-hdr{border-radius:8px;}',
             '.pbx-mm-collapsible-body{padding:10px 12px 12px;}',
             '.pbx-mm-collapsible.pbx-sa-ds .pbx-mm-collapsible-hdr span{color:#333;}',
+            '.pbx-mm-add-guest-btn{background:var(--abcona-blue-tint,#eef3fb)!important;color:var(--abcona-blue,#1a5fb4)!important;border:1px solid var(--abcona-blue-tint-border,#c5d7ef)!important;}',
+            '.pbx-mm-add-guest-btn:hover{background:var(--abcona-blue-tint-border,#c5d7ef)!important;}',
         ].join('');
         document.head.appendChild(s);
     },
@@ -4459,7 +4462,7 @@ Object.assign(PBX, {
             `;
         }).join('');
         const addBlock = st.action === 'cancel' ? '' : `
-            <button class="pbx-act pbx-act-gray" style="width:100%;justify-content:center;margin-top:6px" onclick="PBX._mmNotifyToggleGuestAdd()">
+            <button class="pbx-act pbx-mm-add-guest-btn" style="width:100%;justify-content:center;margin-top:6px" onclick="PBX._mmNotifyToggleGuestAdd()">
                 <i class="bi bi-plus-lg"></i> ${this.t('pbx_mm_add_guest', 'Weiterer Gast')}
             </button>
             <div id="pbx-mm-notify-guest-search-wrap" style="position:relative;display:none;flex-wrap:wrap;gap:6px;margin-top:8px">
