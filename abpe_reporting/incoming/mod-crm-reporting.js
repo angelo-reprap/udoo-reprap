@@ -74,8 +74,14 @@ const CRM_Reporting = {
             let data = null;
             try {
                 const r = await fetch('/crm/api/reporting/dashboard/', { headers: this._headers() });
-                if (r.ok) data = await r.json();
-            } catch (e) { /* fallback */ }
+                if (r.ok) {
+                    data = await r.json();
+                } else if (r.status >= 500) {
+                    console.warn('reporting dashboard HTTP', r.status);
+                }
+            } catch (e) {
+                console.warn('reporting dashboard fetch failed', e);
+            }
 
             if (!data) {
                 const r2 = await fetch('/crm/api/sync/status/', { headers: this._headers() });
@@ -290,13 +296,17 @@ const CRM_Reporting = {
                 headers: this._headers(true),
                 body: '{}',
             });
-            const data = await r.json().catch(() => ({}));
-            const msg = data.message || data.error || this.t('sync_gestartet', 'Sync wird gestartet — bitte warten...');
+            let data = {};
+            try { data = await r.json(); } catch (e) { /* HTML error page */ }
+            const msg = data.message || data.error
+                || (r.status === 404
+                    ? this.t('rep_sync_unavailable', 'Sync-Endpoint nicht verfügbar.')
+                    : this.t('sync_gestartet', 'Sync wird gestartet — bitte warten...'));
             if (typeof window.showToast === 'function') window.showToast(msg);
             else alert(msg);
             if (data.ok) setTimeout(() => this.refresh(), 1500);
         } catch (e) {
-            const msg = this.t('rep_sync_unavailable', 'Sync-Endpoint noch nicht verfügbar. Bitte reporting_views.py installieren.');
+            const msg = this.t('rep_sync_unavailable', 'Sync-Endpoint nicht verfügbar.');
             if (typeof window.showToast === 'function') window.showToast(msg);
             else alert(msg);
         }

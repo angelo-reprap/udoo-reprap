@@ -95,6 +95,13 @@ def patch_de(i18n_root: Path) -> int:
     if n:
         _save_flat(path, flat, wrapped)
     print(f'DE: {n} Key(s) ergänzt/aktualisiert')
+
+    manifest_path = i18n_root / 'de' / 'modules' / MODULE / 'manifest.json'
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest = {'files': [f'{MODULE}.json']}
+    if not manifest_path.is_file() or json.loads(manifest_path.read_text()) != manifest:
+        manifest_path.write_text(json.dumps(manifest, indent=4) + '\n', encoding='utf-8')
+        print(f'  manifest.json: {manifest_path}')
     return 0
 
 
