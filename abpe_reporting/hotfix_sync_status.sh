@@ -6,7 +6,7 @@ set -e
 cd /opt/abpe/backend
 
 echo "========== Hotfix sync/status =========="
-grep -n "documents_total\|__rep_doc_count\|_crm_edms_document_count" apps/abpe_crm/views.py | head -20
+grep -n "documents_total\|__rep_doc_count\|_crm_edms_document_count\|_sync_documents_total" apps/abpe_crm/views.py | head -25
 
 SCRIPT=/tmp/patch_sync_status_documents.py
 curl -fsSL 'https://raw.githubusercontent.com/angelo-reprap/udoo-reprap/cursor/reporting-overhaul-c24e/abpe_reporting/patch_sync_status_documents.py' \

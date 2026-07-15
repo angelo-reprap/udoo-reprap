@@ -58,8 +58,8 @@ supervisorctl restart abpe-django
 
 Erwartete Patch-Ausgabe:
 ```
-OK: __rep_doc_count()-Aufruf durch _crm_edms_document_count() ersetzt
-OK: ... _crm_edms_document_count() Helper ergänzt
+OK: fehlerhaften no-arg Helper entfernt   (falls vorhanden)
+OK: ... documents_total inline via EDMS (_sync_documents_total)
 ```
 
 Danach Test — muss **200** sein:
