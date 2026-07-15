@@ -38,19 +38,31 @@ Dann Strg+F5 auf `/crm/reporting/` — kein 404 mehr in der Konsole.
 
 ## Sync-Status reparieren (TypeError __rep_doc_count)
 
-Falls `/crm/api/sync/status/` mit `__rep_doc_count() missing 1 required positional argument: 'request'` fehlschlägt:
+Falls `/crm/api/sync/status/` mit `__rep_doc_count() missing 1 required positional argument: 'request'` fehlschlägt — **zuerst diesen Block ausführen** (nicht nur den Test):
 
 ```bash
 cd /opt/abpe/backend
-curl -sL 'https://raw.githubusercontent.com/angelo-reprap/udoo-reprap/cursor/reporting-overhaul-c24e/abpe_reporting/patch_sync_status_documents.py' \
+curl -fsSL 'https://raw.githubusercontent.com/angelo-reprap/udoo-reprap/cursor/reporting-overhaul-c24e/abpe_reporting/hotfix_sync_status.sh' | bash
+```
+
+Oder manuell:
+
+```bash
+cd /opt/abpe/backend
+curl -fsSL 'https://raw.githubusercontent.com/angelo-reprap/udoo-reprap/cursor/reporting-overhaul-c24e/abpe_reporting/patch_sync_status_documents.py' \
   -o /tmp/patch_sync_status_documents.py
 python3 /tmp/patch_sync_status_documents.py
 python3 -m py_compile apps/abpe_crm/views.py
 supervisorctl restart abpe-django
-python manage.py shell -c "from django.test import Client; c=Client(); print(c.get('/crm/api/sync/status/').status_code, c.get('/crm/api/sync/status/').content[:200])"
 ```
 
-Erwartung: Status **200**, `documents_total` > 0 (EDMS).
+Erwartete Patch-Ausgabe:
+```
+OK: __rep_doc_count()-Aufruf durch _crm_edms_document_count() ersetzt
+OK: ... _crm_edms_document_count() Helper ergänzt
+```
+
+Danach Test — muss **200** sein:
 
 ## Frontend (falls noch nicht)
 

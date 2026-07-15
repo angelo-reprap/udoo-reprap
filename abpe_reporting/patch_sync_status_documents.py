@@ -17,9 +17,13 @@ from pathlib import Path
 
 VIEWS = Path('apps/abpe_crm/views.py')
 HELPER = '_crm_edms_document_count'
-OLD = "'documents_total': CrmDocument.objects.count(),"
-BROKEN = "'documents_total': __rep_doc_count(),"
 NEW = f"'documents_total': {HELPER}(),"
+OLD_RE = re.compile(
+    r"(['\"]documents_total['\"]\s*:\s*)CrmDocument\.objects\.count\(\)\s*,",
+)
+BROKEN_RE = re.compile(
+    r"(['\"]documents_total['\"]\s*:\s*)__rep_doc_count\s*\(\s*\)\s*,",
+)
 
 HELPER_BLOCK = f'''
 
@@ -67,20 +71,24 @@ def patch() -> int:
         changed = True
         print('OK: fehlerhaften __rep_doc_count()-Helper entfernt')
 
-    if BROKEN in text:
-        text = text.replace(BROKEN, NEW, 1)
+    broken_m = BROKEN_RE.search(text)
+    if broken_m:
+        text = BROKEN_RE.sub(NEW, text, count=1)
         changed = True
         print('OK: __rep_doc_count()-Aufruf durch _crm_edms_document_count() ersetzt')
 
     if NEW in text and f'def {HELPER}(' in text:
         if not changed:
             print('OK: bereits gepatcht')
+        else:
+            text = _insert_helper(text)
         path.write_text(text, encoding='utf-8')
         return 0
 
-    if OLD in text:
+    old_m = OLD_RE.search(text)
+    if old_m:
         text = _insert_helper(text)
-        text = text.replace(OLD, NEW, 1)
+        text = OLD_RE.sub(NEW, text, count=1)
         path.write_text(text, encoding='utf-8')
         print(f'OK: {path} — documents_total nutzt EDMS via {HELPER}()')
         return 0
