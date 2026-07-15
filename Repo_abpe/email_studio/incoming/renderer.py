@@ -293,6 +293,21 @@ class EmailRenderer:
 
         return ''
 
+    TEAM_SIGNATURE_FALLBACK = (
+        '<div style="margin-top:20px;font-family:Arial,Helvetica,sans-serif;font-size:13px;'
+        'line-height:1.5;color:#333;">'
+        '<p style="margin:0 0 8px 0;">Mit freundlichen Grüßen<br>'
+        '<strong>Ihr abcona e. K. Team</strong></p>'
+        '<p style="margin:0 0 4px 0;font-size:12px;">'
+        'E-Mail: <a href="mailto:info@abcona.de" style="color:#163258;">info@abcona.de</a><br>'
+        'Telefon: +49 0 6171 8867 10</p>'
+        '<p style="margin:12px 0 0 0;font-size:10px;color:#666;line-height:1.4;">'
+        '<strong>abcona e. K.</strong> | active business consulting agency<br>'
+        'Bornhohl 26 | D-61449 Steinbach/Ts.<br>'
+        'USt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>'
+        'Inhaber: Angelo Malaguarnera</p></div>'
+    )
+
     def _get_team_signature_html(self) -> str:
         """Team-Signatur aus DB (identifier abcona_team) oder Fallback."""
         from apps.abpe_email_studio.models import EmailSignature
@@ -305,13 +320,9 @@ class EmailRenderer:
         ).first()
         if sig and sig.html_body:
             return sig.html_body
-        return (
-            '<div style="margin-top:16px;font-family:Arial,sans-serif;font-size:13px;color:#333;">'
-            '<p>Mit freundlichen Grüßen<br><strong>abcona e. K. Team</strong></p>'
-            '<p style="color:#888;font-size:11px;margin-top:8px;">'
-            'abcona e. K. · info@abcona.de · www.abcona.de'
-            '</p></div>'
-        )
+        return self.TEAM_SIGNATURE_FALLBACK
+
+    def render_preview(
         self, template, variables: dict = None, user=None, *,
         html_body=None, subject=None, text_body=None,
         signature_mode=None, signature_id=None, include_signature=None,
