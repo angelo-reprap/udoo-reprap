@@ -2007,11 +2007,24 @@ Object.assign(PBX, {
         const rules = m.reminder_rules || [];
         const invitedCount = guests.filter(g => !!g.invited_at).length;
         const total = guests.length;
-        let inviteStatus, inviteClass;
-        if (total === 0) { inviteStatus = this.t('pbx_mm_status_no_guests', 'Keine Gäste'); inviteClass = 'neutral'; }
-        else if (invitedCount === 0) { inviteStatus = this.t('pbx_mm_status_none_invited', PBX.t('pbx_meetme_no_invites')); inviteClass = 'warning'; }
-        else if (invitedCount === total) { inviteStatus = this.t('pbx_mm_status_all_invited', 'Einladungen versendet'); inviteClass = 'success'; }
-        else { inviteStatus = this.t('pbx_mm_status_some_invited', 'Einladungen teilweise versendet'); inviteClass = 'warning'; }
+        let inviteStatus, inviteClass, inviteTip;
+        if (total === 0) {
+            inviteStatus = this.t('pbx_mm_status_no_guests', 'Keine Gäste');
+            inviteClass = 'neutral';
+            inviteTip = this.t('pbx_mm_status_no_guests_tip', 'Es sind noch keine Gäste für diesen Termin hinterlegt.');
+        } else if (invitedCount === 0) {
+            inviteStatus = this.t('pbx_mm_status_none_invited', PBX.t('pbx_meetme_no_invites'));
+            inviteClass = 'warning';
+            inviteTip = this.t('pbx_mm_status_none_invited_tip', 'Noch keine Einladungs-E-Mail versendet. Einladungen über „Einladung senden“ oder den Assistenten starten.');
+        } else if (invitedCount === total) {
+            inviteStatus = this.t('pbx_mm_status_all_invited', 'Einladungen versendet');
+            inviteClass = 'success';
+            inviteTip = this.t('pbx_mm_status_all_invited_tip', 'Alle Gäste wurden per E-Mail über den Termin informiert.');
+        } else {
+            inviteStatus = this.t('pbx_mm_status_some_invited', 'Einladungen teilweise versendet');
+            inviteClass = 'warning';
+            inviteTip = this.t('pbx_mm_status_some_invited_tip', 'Nicht alle Gäste wurden per E-Mail informiert. Fehlende Einladungen über den Assistenten nachsenden.');
+        }
 
         const coversAll = rules.some(r => !r.guest);
         let remindersSetCount;
@@ -2021,10 +2034,13 @@ Object.assign(PBX, {
             remindersSetCount = guests.filter(g => guestIdsWithRule.has(g.id)).length;
         }
 
+        const agreedTip = this.t('pbx_mm_status_agreed_tip', 'Der Termin ist in der Planung angelegt und aktiv — noch nicht abgesagt.');
+        const remindersTip = this.t('pbx_mm_status_reminders_tip', 'Zeigt, für wie viele Gäste automatische Erinnerungen eingerichtet sind. Unter „Erinnerungen verwalten“ konfigurieren.');
+
         return `
-            <span class="pbx-mm-status-pill success"><i class="bi bi-check-circle-fill"></i> ${this.t('pbx_mm_status_agreed', PBX.t('pbx_meetme_termin_ok'))}</span>
-            <span class="pbx-mm-status-pill ${inviteClass}">${inviteStatus}</span>
-            <span class="pbx-mm-status-pill neutral">${this.t('pbx_mm_status_reminders', 'Erinnerungen')}: ${remindersSetCount} ${this.t('pbx_mm_status_of', 'von')} ${total} ${this.t('pbx_mm_status_guests', 'Gästen')} ${this.t('pbx_mm_status_set', 'eingerichtet')}</span>
+            <span class="pbx-mm-status-pill success" title="${this._meetmeEsc(agreedTip)}"><i class="bi bi-check-circle-fill"></i> ${this.t('pbx_mm_status_agreed', PBX.t('pbx_meetme_termin_ok'))}</span>
+            <span class="pbx-mm-status-pill ${inviteClass}" title="${this._meetmeEsc(inviteTip)}">${inviteStatus}</span>
+            <span class="pbx-mm-status-pill neutral" title="${this._meetmeEsc(remindersTip)}">${this.t('pbx_mm_status_reminders', 'Erinnerungen')}: ${remindersSetCount} ${this.t('pbx_mm_status_of', 'von')} ${total} ${this.t('pbx_mm_status_guests', 'Gästen')} ${this.t('pbx_mm_status_set', 'eingerichtet')}</span>
         `;
     },
 
@@ -2332,6 +2348,7 @@ Object.assign(PBX, {
             '.pbx-mm-collapsible.pbx-sa-ds .pbx-mm-collapsible-hdr span{color:#333;}',
             '.pbx-mm-add-guest-btn{background:var(--status-green-bg,#d1e7dd)!important;color:#0f5132!important;border:1px solid #a3cfbb!important;}',
             '.pbx-mm-add-guest-btn:hover{background:#a3cfbb!important;}',
+            '.pbx-mm-status-pill[title]{cursor:help;}',
         ].join('');
         document.head.appendChild(s);
     },
