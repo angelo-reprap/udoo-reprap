@@ -1085,7 +1085,7 @@ window.ESStudio = (() => {
         if (preview) {
             const map = {
                 NONE:    '',
-                TEAM:    'Mit freundlichen Grüßen<br><strong>Ihr abcona e. K. Team</strong>'
+                TEAM:    'Mit freundlichen Grüßen<br><br><strong>Ihr abcona e. K. Team</strong>'
                          + '<br><span style="color:#888;font-size:10px;">'
                          + 'info@abcona.de · +49 0 6171 8867 10</span>',
                 USER:    'Mit freundlichen Grüßen<br><strong>{sender_name}</strong><br>{sender_email}',
@@ -1118,7 +1118,7 @@ window.ESStudio = (() => {
         const content = inner.querySelector('.es-sig-content');
         if (content) {
             const map = {
-                TEAM:    'Mit freundlichen Grüßen<br><strong>Ihr abcona e. K. Team</strong>'
+                TEAM:    'Mit freundlichen Grüßen<br><br><strong>Ihr abcona e. K. Team</strong>'
                          + '<br><span style="color:#888">info@abcona.de · +49 0 6171 8867 10</span>',
                 USER:    'Mit freundlichen Grüßen<br><strong>{sender_name}</strong><br><span style="color:#888">{sender_email}</span>',
                 FIXED:   'Mit freundlichen Grüßen<br><strong>{signature_name}</strong>',
