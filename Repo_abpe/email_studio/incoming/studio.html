@@ -500,17 +500,17 @@
                 <span data-i18n="es.signature_title">Signatur</span>
                 <span class="es-badge es-badge-white">{{ template.get_signature_mode_display|default:"USER" }}</span>
                 <span id="es-sig-block-badge" class="es-badge es-badge-blue" style="display:none"
-                      data-i18n="es.sig_block_active">{{ '{' }}{{ '{' }}block:signature{{ '}' }}{{ '}' }}</span>
+                      data-i18n="es.sig_block_active">{% verbatim %}{{block:signature}}{% endverbatim %}</span>
             </span>
             <i class="bi bi-chevron-down"></i>
         </div>
         <div class="section-content">
             <p class="es-sig-hint" data-i18n="es.sig_block_hint">
-                Im Template <code>{{block:signature}}</code> einfügen — die gewählte Quelle erscheint dort in der Vorschau.
+                {% verbatim %}Im Template <code>{{block:signature}}</code> einfügen{% endverbatim %} — die gewählte Quelle erscheint dort in der Vorschau.
             </p>
             <button type="button" id="es-sig-insert-btn" class="es-sig-insert-btn">
                 <i class="bi bi-plus-circle"></i>
-                <span data-i18n="es.sig_insert_btn">{{block:signature}} einfügen</span>
+                <span data-i18n="es.sig_insert_btn">{% verbatim %}{{block:signature}} einfügen{% endverbatim %}</span>
             </button>
             <div class="es-var-group-lbl" data-i18n="es.signature_source">Signatur-Quelle</div>
             {% for val, lbl in signature_modes %}
@@ -656,7 +656,7 @@
                 </div>
 
                 <div class="es-block" data-block-type="signature">
-                    <span class="es-block-label">{{block:signature}}</span>
+                    <span class="es-block-label">{% verbatim %}{{block:signature}}{% endverbatim %}</span>
                     <div class="es-block-actions">
                         <button class="es-block-action-btn" data-action="sig-settings" data-i18n-title="es.block_sig_settings">
                             <i class="bi bi-gear"></i>

@@ -9,9 +9,13 @@
 {% block content %}
 <div class="es-module-wrap">
 
+    {{ es_i18n|json_script:"es-i18n-inline" }}
+
     <script>
     (function() {
-        const d = {{ es_i18n|safe }};
+        const el = document.getElementById('es-i18n-inline');
+        if (!el) return;
+        const d = JSON.parse(el.textContent);
         window.i18nData = window.i18nData || {};
         Object.assign(window.i18nData, d);
     })();
