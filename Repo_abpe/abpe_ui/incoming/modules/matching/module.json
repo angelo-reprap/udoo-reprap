@@ -1,0 +1,52 @@
+{
+    "id": "matching",
+    "title": "Matching",
+    "titles": {
+        "de": "Matching",
+        "en": "Matching",
+        "fr": "Matching",
+        "it": "Matching",
+        "es": "Matching"
+    },
+    "icon": "diagram-3",
+    "route": "/matching/",
+    "order": 25,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod/mod-matching.css"
+        ],
+        "js": [
+            "mod/mod-matching.js"
+        ]
+    },
+    "subpages": [
+        {
+            "id": "requests",
+            "title": "Anfragen",
+            "titles": {
+                "de": "Anfragen",
+                "en": "Requests",
+                "fr": "Demandes",
+                "it": "Richieste",
+                "es": "Solicitudes"
+            },
+            "route": "/matching/"
+        },
+        {
+            "id": "archive",
+            "title": "Archiv",
+            "titles": {
+                "de": "Archiv",
+                "en": "Archive",
+                "fr": "Archive",
+                "it": "Archivio",
+                "es": "Archivo"
+            },
+            "route": "/matching/?tab=archiv"
+        }
+    ]
+}

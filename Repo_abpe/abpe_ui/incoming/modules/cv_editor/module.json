@@ -1,0 +1,26 @@
+{
+    "id": "cv_editor",
+    "title": "CV Editor",
+    "titles": {
+        "de": "CV Editor",
+        "en": "CV Editor",
+        "fr": "Éditeur CV",
+        "it": "Editor CV",
+        "es": "Editor de CV"
+    },
+    "icon": "file-earmark-person",
+    "route": "/cv_editor/",
+    "order": 20,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod/mod-cv_editor.css"
+        ],
+        "js": [
+            "mod/mod-cv_editor.js"
+        ]
+    }
+}

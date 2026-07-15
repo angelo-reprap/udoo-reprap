@@ -1,0 +1,26 @@
+{
+    "id": "cv_upload",
+    "title": "CV Upload",
+    "titles": {
+        "de": "CV Upload",
+        "en": "CV Upload",
+        "fr": "CV Upload",
+        "it": "CV Upload",
+        "es": "CV Upload"
+    },
+    "icon": "file-earmark-arrow-up",
+    "route": "/cv_upload/",
+    "order": 30,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod/mod-cv_upload.css"
+        ],
+        "js": [
+            "mod/mod-cv_upload.js"
+        ]
+    }
+}

@@ -1,0 +1,377 @@
+{
+  "system": {
+    "name": "ABpE",
+    "environment": "production",
+    "debug": false,
+    "timezone": "Europe/Berlin"
+  },
+  "database": {
+    "default": "postgresql"
+  },
+  "mysql": {
+    "suitecrm": {
+      "host": "172.20.3.150",
+      "port": 3306,
+      "database": "suitecrm",
+      "user": "suitecrm",
+      "password": "***REDACTED***"
+    }
+  },
+  "suitecrm": {
+    "soap_endpoint": "https://ucs.win.abcona.info/suitecrm/soap.php?wsdl",
+    "user": "admin",
+    "password": "***REDACTED***",
+    "linkback_template": "https://ucs.win.abcona.info/suitecrm/index.php?module=Contacts&action=DetailView&record=%s"
+  },
+  "ai_models": {
+    "ollama": {
+      "primary": "qwen2.5:7b",
+      "fallback": "phi3:mini",
+      "timeout": 60,
+      "temperature": 0.1
+    },
+    "deepseek": {
+      "api_key": "***REDACTED***",
+      "model": "deepseek-chat",
+      "timeout": 30,
+      "temperature": 0.1
+    }
+  },
+  "namazu": {
+    "enabled": true,
+    "index_path": "/var/lib/namazu/namazu-index",
+    "template_path": "/var/lib/namazu/namazu-templates",
+    "html_source": "/var/www/namazu/index/",
+    "html_output": "/var/www/namazu/index/",
+    "namazu_index": "/var/www/namazu/namazu-index/",
+    "registry_file": "/opt/Namazu/Sugar2Namazu/sugar2namazu.ini",
+    "binary": {
+      "namazu": "/usr/bin/namazu",
+      "mknmz": "/usr/bin/mknmz"
+    },
+    "max_documents": 0,
+    "batch_size": 100,
+    "file_pattern": "*.html",
+    "name_pattern": "([^_]+)__([^_]+)__([a-f0-9-]+)\\.html"
+  },
+  "email": {
+    "imap": {
+      "server": "imap.ionos.de",
+      "port": 993,
+      "username": "cv_scan@abcona.de",
+      "password": "***REDACTED***",
+      "use_ssl": true,
+      "mailbox": "INBOX"
+    },
+    "smtp": {
+      "server": "smtp.ionos.de",
+      "port": 587,
+      "username": "cv_scan@abcona.de",
+      "password": "***REDACTED***",
+      "use_ssl": true
+    },
+    "processing": {
+      "delete_after_import": false,
+      "process_attachments": true,
+      "attachment_types": [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "text/plain"
+      ],
+      "keywords": [
+        "cv",
+        "lebenslauf",
+        "resume",
+        "bewerbung",
+        "application",
+        "profil",
+        "projektleiter",
+        "entwickler",
+        "berater"
+      ],
+      "max_emails_per_batch": 50,
+      "auto_reply_enabled": true,
+      "auto_reply_template": "Vielen Dank für Ihre Nachricht. Ihr Dokument wird automatisch verarbeitet."
+    }
+  },
+  "elasticsearch": {
+    "enabled": true,
+    "hosts": [
+      "http://localhost:9200"
+    ],
+    "index_name": "abpe_skills_index",
+    "min_score": 0.6,
+    "knn_candidates": 100
+  },
+  "training": {
+    "min_confidence_to_save": 0.7,
+    "use_deepseek_fallback": true,
+    "auto_create_relations": true,
+    "max_variations_per_term": 10,
+    "use_elasticsearch": true
+  },
+  "storage": {
+    "data_root": "/opt/abpe/backend/data",
+    "pdf_path": "/opt/abpe/backend/data/pdf",
+    "extracted_path": "/opt/abpe/backend/data/extracted",
+    "enriched_path": "/opt/abpe/backend/data/enriched",
+    "html_out_path": "/opt/abpe/backend/data/html_out",
+    "html_adds_path": "/opt/abpe/backend/data/html_out/adds",
+    "doc_out_path": "/opt/abpe/backend/data/doc_out",
+    "temp_path": "/opt/abpe/backend/data/tmp",
+    "email_attachments": "/opt/abpe/backend/data/email/attachments",
+    "training_data": "/opt/abpe/backend/data/training",
+    "master_json_path": "/opt/abpe/backend/data/exports/master_json"
+  },
+  "export": {
+    "cv_output_path": "/opt/abpe/backend/data/html_out",
+    "templates": {
+      "abcona_qp": {
+        "name": "abcona Qualifikationsprofil",
+        "description": "Vollständiges Qualifikationsprofil im abcona Design",
+        "filename": "abcona_qp.html",
+        "enabled": true
+      },
+      "abcona_short": {
+        "name": "abcona Kurzprofil",
+        "description": "Kurzes Profil (1-2 Seiten)",
+        "filename": "abcona_short.html",
+        "enabled": true
+      },
+      "customer": {
+        "name": "Kunden-CV",
+        "description": "CV für Kunden (neutrales Design)",
+        "filename": "customer.html",
+        "enabled": true
+      },
+      "minimal": {
+        "name": "Minimal CV",
+        "description": "Sehr einfaches, klares Design",
+        "filename": "minimal.html",
+        "enabled": true
+      }
+    },
+    "formats": {
+      "html": {
+        "enabled": true,
+        "extension": "html"
+      },
+      "pdf": {
+        "enabled": false,
+        "extension": "pdf",
+        "engine": "weasyprint"
+      },
+      "docx": {
+        "enabled": true,
+        "extension": "docx",
+        "target_dir": "/opt/abpe/backend/data/doc_out"
+      }
+    },
+    "default_template": "abcona_qp",
+    "auto_export_on_upload": true
+  },
+  "versioning": {
+    "default_version": "1.0.0.1",
+    "version_pattern": "{major}.{minor}.{patch}.{build}",
+    "auto_increment": "build",
+    "max_versions_per_profile": 100
+  },
+  "duplicate_check": {
+    "enabled": true,
+    "check_exact_match": true,
+    "check_variants": true,
+    "variant_separator": "-",
+    "max_variants": 10,
+    "warn_on_duplicate": true,
+    "auto_version_on_duplicate": true
+  },
+  "api_keys": "***REDACTED***",
+  "debug": {
+    "global": false,
+    "pdf_extractor": true,
+    "block_detector": false,
+    "enricher": false,
+    "pipeline": true
+  },
+  "pipeline": {
+    "parallel_workers_projects": 10,
+    "parallel_workers_sections": 6,
+    "parallel_workers_i18n": 10
+  },
+  "merger": {
+    "match_weights": {
+      "period": 0.5,
+      "company": 0.4,
+      "keyword": 0.1,
+      "_comment": "Summe muss 1.0 ergeben"
+    },
+    "confidence": {
+      "match_high": 0.7,
+      "match_low": 0.3,
+      "_comment": ">=high regelbasiert, low-high LLM, <low kein Match"
+    },
+    "company": {
+      "min_match_len": 6,
+      "_comment": "Minimale Zeichenlaenge fuer Substring-Match"
+    }
+  },
+  "detector": {
+    "ocr_size_factor": 0.72,
+    "ocr_heading_factor": 1.4,
+    "ocr_caps_threshold": 0.7,
+    "ocr_min_heading_size": 13.0,
+    "col_x_raster": 20,
+    "col_min_gap": 100,
+    "col_min_spans": 5,
+    "_comment": "Alle Werte anpassbar ohne Code-Änderung"
+  },
+  "email_translation": {
+    "enabled": true,
+    "default_languages": [
+      "de",
+      "en"
+    ],
+    "auto_translate_on_create": true,
+    "lang_map_path": "/opt/abpe/backend/apps/abpe_ui/bin/lang_map.json",
+    "parallel_workers": 10,
+    "deepseek_model": "deepseek-chat",
+    "ref_lang": "de"
+  },
+  "matching": {
+    "scoring": {
+      "weight_skills_required": 0.5,
+      "weight_skills_nice": 0.2,
+      "weight_industry": 0.15,
+      "weight_experience": 0.1,
+      "weight_location": 0.05,
+      "min_score_threshold": 0.3,
+      "default_shortlist_threshold": 0.5
+    },
+    "llm": {
+      "reranker_model": "qwen2.5:7b",
+      "reranker_fallback": "deepseek-chat",
+      "reranker_top_n": 20,
+      "reason_language": "de",
+      "reason_max_tokens": "***REDACTED***"
+    },
+    "followup": {
+      "default_delay_hours": 48,
+      "default_channel": "email",
+      "auto_email_on_no_reach": true,
+      "reminder_days": [
+        1,
+        3,
+        7
+      ]
+    },
+    "phone": {
+      "webdial_url": "http://172.20.3.120/cgi-bin/webdial.cgi",
+      "from_extension": 12,
+      "channel": "SIP/12",
+      "context": "from-internal",
+      "timeout": 10
+    },
+    "crm_sync": {
+      "enabled": true,
+      "sync_interval_minutes": 15,
+      "auto_sync_on_status_change": false,
+      "opportunity_sales_stage_map": {
+        "draft": "Prospecting",
+        "active": "Qualification",
+        "matching": "Value Proposition",
+        "offers_sent": "Proposal/Price Quote",
+        "interviews": "Perception Analysis",
+        "placed": "Closed Won",
+        "cancelled": "Closed Lost",
+        "lost": "Closed Lost"
+      }
+    },
+    "storage": {
+      "matching_root": "/opt/abpe/backend/data/matching",
+      "documents_path": "/opt/abpe/backend/data/matching/documents",
+      "contracts_path": "/opt/abpe/backend/data/matching/contracts"
+    },
+    "debug": {
+      "log_scoring": false,
+      "log_crm_sync": true,
+      "log_followup": true
+    },
+    "kanban_columns": [
+      {
+        "id": "shortlist",
+        "label": "Shortlist",
+        "statuses": [
+          "identified"
+        ],
+        "color": "#163258",
+        "text_color": "white"
+      },
+      {
+        "id": "contacted",
+        "label": "Angeschrieben",
+        "statuses": [
+          "contacted",
+          "followup_sent",
+          "reminder_sent"
+        ],
+        "color": "#1e40af",
+        "text_color": "white"
+      },
+      {
+        "id": "interested",
+        "label": "Interesse",
+        "statuses": [
+          "interested",
+          "offer_prepared",
+          "offer_sent"
+        ],
+        "color": "#854d0e",
+        "text_color": "white"
+      },
+      {
+        "id": "client",
+        "label": "Beim Kunden",
+        "statuses": [
+          "client_interested",
+          "client_no_feedback"
+        ],
+        "color": "#4c1d95",
+        "text_color": "white"
+      },
+      {
+        "id": "interview",
+        "label": "Interview",
+        "statuses": [
+          "interview_scheduled",
+          "interview_done",
+          "interview_cancelled"
+        ],
+        "color": "#065f46",
+        "text_color": "white"
+      },
+      {
+        "id": "placed",
+        "label": "Vermittelt",
+        "statuses": [
+          "accepted",
+          "placed"
+        ],
+        "color": "#155724",
+        "text_color": "white"
+      },
+      {
+        "id": "rejected",
+        "label": "Absage",
+        "statuses": [
+          "rejected",
+          "not_interested",
+          "unavailable",
+          "client_not_interested"
+        ],
+        "color": "#991b1b",
+        "text_color": "white"
+      }
+    ]
+  }
+}

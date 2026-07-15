@@ -1,0 +1,77 @@
+/* mod-documentation.css */
+.doc-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Fix für section-header Text linksbündig (wie in Console getestet) */
+.doc-container .section-header > span {
+    flex: 1;
+    text-align: left;
+}
+
+/* TOC Grid */
+.toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.toc-item {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.toc-item:hover {
+    background: var(--abcona-blue);
+    border-color: var(--abcona-blue);
+    color: white;
+}
+
+/* Code-Blöcke */
+.doc-container .section-content pre {
+    background: var(--abcona-gray-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+    margin: 1rem 0;
+}
+
+/* Tabellen */
+.doc-container .section-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.doc-container .section-content th,
+.doc-container .section-content td {
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+}
+
+.doc-container .section-content th {
+    background: var(--abcona-gray-bg);
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .toc-grid {
+        grid-template-columns: 1fr;
+    }
+    .doc-container {
+        padding: 0 1rem;
+    }
+}

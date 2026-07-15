@@ -1,0 +1,91 @@
+{
+    "id": "documentation",
+    "title": "Dokumentation",
+    "titles": {
+        "de": "Dokumentation",
+        "en": "Documentation",
+        "fr": "Documentation",
+        "it": "Documentazione",
+        "es": "Documentación"
+    },
+    "icon": "book",
+    "route": "/documentation/",
+    "template": "abpe_ui/modules/documentation/architecture.html",
+    "order": 40,
+    "enabled": true,
+    "static": {
+        "css": [
+            "mod/mod-documentation.css"
+        ],
+        "js": [
+            "mod/mod-documentation.js"
+        ]
+    },
+    "subpages": [
+        {
+            "id": "architecture",
+            "title": "Architekturdesign",
+            "titles": {
+                "de": "Architekturdesign",
+                "en": "Architecture",
+                "fr": "Architecture",
+                "it": "Architettura",
+                "es": "Arquitectura"
+            },
+            "route": "/documentation/architecture/",
+            "template": "abpe_ui/modules/documentation/architecture.html"
+        },
+        {
+            "id": "user_manual",
+            "title": "Benutzerhandbuch",
+            "titles": {
+                "de": "Benutzerhandbuch",
+                "en": "User Manual",
+                "fr": "Manuel utilisateur",
+                "it": "Manuale utente",
+                "es": "Manual de usuario"
+            },
+            "route": "/documentation/user-manual/",
+            "template": "abpe_ui/modules/documentation/user_manual.html"
+        },
+        {
+            "id": "api_reference",
+            "title": "API Referenz",
+            "titles": {
+                "de": "API Referenz",
+                "en": "API Reference",
+                "fr": "Référence API",
+                "it": "Riferimento API",
+                "es": "Referencia API"
+            },
+            "route": "/documentation/api/",
+            "template": "abpe_ui/modules/documentation/api_reference.html"
+        },
+        {
+            "id": "operations",
+            "title": "Betriebshandbuch",
+            "titles": {
+                "de": "Betriebshandbuch",
+                "en": "Operations Guide",
+                "fr": "Guide opérationnel",
+                "it": "Guida operativa",
+                "es": "Guía operativa"
+            },
+            "route": "/documentation/operations/",
+            "template": "abpe_ui/modules/documentation/operations.html"
+        },
+        {
+            "id": "new_module",
+            "title": "Modul erstellen",
+            "titles": {
+                "de": "Modul erstellen",
+                "en": "Create Module",
+                "fr": "Créer un module",
+                "it": "Crea modulo",
+                "es": "Crear módulo"
+            },
+            "route": "/documentation/new-module/",
+            "template": "abpe_ui/modules/documentation/new_module.html"
+        }
+    ]
+}
