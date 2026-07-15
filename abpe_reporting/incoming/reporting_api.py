@@ -40,13 +40,21 @@ def _last_sync(model, field='crm_synced_at'):
         return ''
 
 
-def _count_since(model, days=30):
-    for field in ('date_entered', 'created_at', 'date_modified', 'crm_synced_at'):
+def _count_since(model, days=30, total=None):
+    model_name = getattr(model, '__name__', '')
+    if model_name == 'CrmDocument':
+        fields = ('created_at', 'date_entered')
+    else:
+        fields = ('date_entered', 'created_at', 'date_modified')
+    since = timezone.now() - timedelta(days=days)
+    for field in fields:
         try:
             if not hasattr(model, field):
                 continue
-            since = timezone.now() - timedelta(days=days)
-            return model.objects.filter(**{f'{field}__gte': since}).count()
+            cnt = model.objects.filter(**{f'{field}__gte': since}).count()
+            if total and total > 0 and cnt >= max(total - 1, int(total * 0.95)):
+                continue
+            return cnt
         except Exception:
             continue
     return None
@@ -171,10 +179,10 @@ def api_reporting_dashboard(request):
 
     growth = {'contacts': None, 'accounts': None, 'documents': None}
     try:
-        growth['contacts'] = _count_since(CrmContact, 30)
-        growth['accounts'] = _count_since(CrmAccount, 30)
+        growth['contacts'] = _count_since(CrmContact, 30, contacts_total)
+        growth['accounts'] = _count_since(CrmAccount, 30, accounts_total)
         if CrmDocument:
-            growth['documents'] = _count_since(CrmDocument, 30)
+            growth['documents'] = _count_since(CrmDocument, 30, documents_total)
     except Exception as exc:
         errors.append(f'growth: {exc}')
 
