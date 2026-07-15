@@ -2330,8 +2330,8 @@ Object.assign(PBX, {
             '.pbx-mm-collapsible.pbx-mm-collapsed .pbx-mm-collapsible-hdr{border-radius:8px;}',
             '.pbx-mm-collapsible-body{padding:10px 12px 12px;}',
             '.pbx-mm-collapsible.pbx-sa-ds .pbx-mm-collapsible-hdr span{color:#333;}',
-            '.pbx-mm-add-guest-btn{background:var(--abcona-blue-tint,#eef3fb)!important;color:var(--abcona-blue,#1a5fb4)!important;border:1px solid var(--abcona-blue-tint-border,#c5d7ef)!important;}',
-            '.pbx-mm-add-guest-btn:hover{background:var(--abcona-blue-tint-border,#c5d7ef)!important;}',
+            '.pbx-mm-add-guest-btn{background:var(--status-green-bg,#d1e7dd)!important;color:#0f5132!important;border:1px solid #a3cfbb!important;}',
+            '.pbx-mm-add-guest-btn:hover{background:#a3cfbb!important;}',
         ].join('');
         document.head.appendChild(s);
     },
