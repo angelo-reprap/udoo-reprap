@@ -48,6 +48,8 @@ const CRM_Reporting = {
             '.crm-rpt-actions{display:flex;gap:8px;margin-left:auto}',
             '.crm-rpt-foot{padding:8px 16px 14px;font-size:11px;color:var(--text-muted,#999)}',
             '.crm-rpt-empty{padding:16px;color:var(--text-muted,#999);font-size:13px}',
+            '.crm-full-panel .section-content{display:none}',
+            '.crm-full-panel .section-header.open+.section-content{display:block}',
         ].join('');
         document.head.appendChild(s);
     },
@@ -149,13 +151,35 @@ const CRM_Reporting = {
     _panel(title, icon, bodyHtml, actionsHtml) {
         return `
         <div class="crm-full-panel">
-            <div class="section-header open">
+            <div class="section-header">
                 <span><i class="bi ${icon}"></i> ${this.esc(title)}</span>
                 ${actionsHtml || ''}
-                <i class="bi bi-chevron-down"></i>
+                <i class="bi bi-chevron-down crm-rpt-chevron"></i>
             </div>
-            <div class="section-content open">${bodyHtml}</div>
+            <div class="section-content">${bodyHtml}</div>
         </div>`;
+    },
+
+    _bindPanels(root) {
+        if (!root) return;
+        root.querySelectorAll('.crm-full-panel').forEach(panel => {
+            const hdr = panel.querySelector('.section-header');
+            const body = panel.querySelector('.section-content');
+            if (!hdr || !body || hdr.dataset.rptBound === '1') return;
+            hdr.dataset.rptBound = '1';
+            hdr.style.cursor = 'pointer';
+            const chev = hdr.querySelector('.crm-rpt-chevron');
+            const setOpen = (open) => {
+                hdr.classList.toggle('open', open);
+                body.classList.toggle('open', open);
+                if (chev) chev.className = 'bi crm-rpt-chevron ' + (open ? 'bi-chevron-up' : 'bi-chevron-down');
+            };
+            setOpen(false);
+            hdr.addEventListener('click', (e) => {
+                if (e.target.closest('button, a, input, select, textarea')) return;
+                setOpen(!hdr.classList.contains('open'));
+            });
+        });
     },
 
     _tableRows(rows) {
@@ -283,6 +307,7 @@ const CRM_Reporting = {
             : '';
 
         root.innerHTML = kpis + syncPanel + overviewPanel + qualityPanel + growthPanel + meetmePanel + foot;
+        this._bindPanels(root);
     },
 
     refresh() {
