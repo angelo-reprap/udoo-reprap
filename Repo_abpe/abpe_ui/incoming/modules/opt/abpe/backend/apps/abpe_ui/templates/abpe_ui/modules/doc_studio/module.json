@@ -1,0 +1,56 @@
+{
+    "id": "doc_studio",
+    "title": "Doc Studio",
+    "titles": {
+        "de": "Doc Studio",
+        "en": "Doc Studio",
+        "fr": "Doc Studio",
+        "it": "Doc Studio"
+    },
+    "icon": "file-earmark-word",
+    "route": "/doc-studio/",
+    "order": 46,
+    "enabled": true,
+    "static": {
+        "css": ["mod/mod-doc_studio.css"],
+        "js":  ["mod/mod-doc_studio.js"]
+    },
+    "roles": ["!berater"],
+    "subpages": [
+        {
+            "id":       "index",
+            "title":    "Vorlagen",
+            "titles":   {"de": "Vorlagen", "en": "Templates", "fr": "Modèles", "it": "Modelli"},
+            "route":    "/doc-studio/",
+            "template": "abpe_ui/modules/doc_studio/index.html"
+        },
+        {
+            "id":       "studio",
+            "title":    "Studio",
+            "titles":   {"de": "Studio / Editor", "en": "Studio / Editor", "fr": "Studio", "it": "Studio"},
+            "route":    "/doc-studio/studio/",
+            "template": "abpe_ui/modules/doc_studio/studio.html"
+        },
+        {
+            "id":       "invoices",
+            "title":    "Rechnungen",
+            "titles":   {"de": "Rechnungen", "en": "Invoices", "fr": "Factures", "it": "Fatture"},
+            "route":    "/doc-studio/invoices/",
+            "template": "abpe_ui/modules/doc_studio/invoices.html"
+        },
+        {
+            "id":       "log",
+            "title":    "Log",
+            "titles":   {"de": "Generierungs-Log", "en": "Generation Log", "fr": "Journal", "it": "Log"},
+            "route":    "/doc-studio/log/",
+            "template": "abpe_ui/modules/doc_studio/log.html"
+        },
+        {
+            "id":       "config",
+            "title":    "Konfiguration",
+            "titles":   {"de": "Konfiguration", "en": "Configuration", "fr": "Configuration", "it": "Configurazione"},
+            "route":    "/doc-studio/config/",
+            "template": "abpe_ui/modules/doc_studio/config.html"
+        }
+    ]
+}

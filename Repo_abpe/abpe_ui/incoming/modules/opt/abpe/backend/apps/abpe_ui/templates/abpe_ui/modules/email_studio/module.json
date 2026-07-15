@@ -1,0 +1,67 @@
+{
+    "id": "email_studio",
+    "title": "Email Studio",
+    "titles": {
+        "de": "Email Studio",
+        "en": "Email Studio",
+        "fr": "Email Studio",
+        "it": "Email Studio",
+        "es": "Email Studio"
+    },
+    "icon": "envelope-at",
+    "route": "/email-studio/",
+    "order": 45,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod/mod-email_studio.css"
+        ],
+        "js": [
+            "mod/mod-email_studio.js"
+        ]
+    },
+    "subpages": [
+        {
+            "id": "studio",
+            "title": "Studio / Editor",
+            "titles": {
+                "de": "Studio / Editor",
+                "en": "Studio / Editor",
+                "fr": "Studio / Éditeur",
+                "it": "Studio / Editor",
+                "es": "Studio / Editor"
+            },
+            "route": "/email-studio/studio/",
+            "template": "abpe_ui/modules/email_studio/studio.html"
+        },
+        {
+            "id": "log",
+            "title": "Versand-Log",
+            "titles": {
+                "de": "Versand-Log",
+                "en": "Send Log",
+                "fr": "Journal d'envoi",
+                "it": "Log di invio",
+                "es": "Registro de envío"
+            },
+            "route": "/email-studio/log/",
+            "template": "abpe_ui/modules/email_studio/log.html"
+        },
+        {
+            "id": "config",
+            "title": "Konfiguration",
+            "titles": {
+                "de": "Konfiguration",
+                "en": "Configuration",
+                "fr": "Configuration",
+                "it": "Configurazione",
+                "es": "Configuración"
+            },
+            "route": "/email-studio/config/",
+            "template": "abpe_ui/modules/email_studio/config.html"
+        }
+    ]
+}
