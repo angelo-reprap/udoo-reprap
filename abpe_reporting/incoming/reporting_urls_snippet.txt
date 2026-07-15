@@ -1,0 +1,8 @@
+# In apps/abpe_crm/urls.py bei den anderen api/-Routen einfügen:
+#
+# from . import reporting_views   # oder Funktionen in views.py kopieren
+
+path('api/reporting/dashboard/', views.api_reporting_dashboard, name='api_reporting_dashboard'),
+path('api/reporting/sync/start/', views.api_reporting_sync_start, name='api_reporting_sync_start'),
+
+# Optional: bestehendes api_sync_status unverändert lassen (mod-crm.js nutzt es weiterhin).
