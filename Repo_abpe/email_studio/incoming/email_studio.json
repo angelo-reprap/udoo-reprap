@@ -234,6 +234,12 @@
         "sig_insert_btn": "Insert {{block:signature}}",
         "sig_block_active": "{{block:signature}}",
         "sig_greeting": "Kind regards",
+        "sig_editor_new": "New Signature",
+        "sig_editor_edit": "Edit Signature",
+        "sig_preview_title": "Live Preview",
+        "sig_save_as": "Save as…",
+        "sig_saved": "Signature saved",
+        "error_load_sig": "Could not load signature",
         "modules_empty": "No modules found",
         "btn_saveas": "Save as"
     },

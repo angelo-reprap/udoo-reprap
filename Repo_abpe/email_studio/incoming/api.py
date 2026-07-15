@@ -585,6 +585,7 @@ class SignatureListCreateAPI(LoginRequiredMixin, View):
                 'name':           s.name,
                 'identifier':     s.identifier,
                 'sender_account': s.sender_account.email if s.sender_account else None,
+                'sender_account_id': s.sender_account_id,
                 'is_default':     s.is_default,
                 'is_public':      s.is_public,
             } for s in sigs]
@@ -592,15 +593,31 @@ class SignatureListCreateAPI(LoginRequiredMixin, View):
 
     def post(self, request):
         data = _json_body(request)
-        sig  = EmailSignature.objects.create(
-            name        = data.get('name', ''),
-            identifier  = data.get('identifier', ''),
-            html_body   = data.get('html_body', ''),
-            text_body   = data.get('text_body', ''),
-            is_default  = data.get('is_default', False),
-            is_public   = data.get('is_public', False),
-            created_by  = request.user,
+        identifier = (data.get('identifier') or '').strip()
+        name = (data.get('name') or '').strip()
+        if not name or not identifier:
+            return JsonResponse(
+                {'error': 'name und identifier sind Pflichtfelder'},
+                status=400,
+            )
+        if EmailSignature.objects.filter(identifier=identifier).exists():
+            return JsonResponse(
+                {'error': f'Identifier „{identifier}" bereits vergeben'},
+                status=400,
+            )
+        sender_id = data.get('sender_account_id') or None
+        sig = EmailSignature.objects.create(
+            name             = name,
+            identifier       = identifier,
+            html_body        = data.get('html_body', ''),
+            text_body        = data.get('text_body', ''),
+            sender_account_id = sender_id,
+            is_default       = data.get('is_default', False),
+            is_public        = data.get('is_public', False),
+            created_by       = request.user,
         )
+        if sig.is_default:
+            EmailSignature.objects.exclude(pk=sig.pk).update(is_default=False)
         return JsonResponse({'id': sig.pk, 'name': sig.name}, status=201)
 
 
@@ -608,19 +625,43 @@ class SignatureListCreateAPI(LoginRequiredMixin, View):
 class SignatureDetailAPI(LoginRequiredMixin, View):
 
     def get(self, request, pk):
-        sig = get_object_or_404(EmailSignature, pk=pk)
+        sig = get_object_or_404(
+            EmailSignature.objects.select_related('sender_account'),
+            pk=pk,
+        )
         return JsonResponse({
-            'id': sig.pk, 'name': sig.name,
-            'html_body': sig.html_body, 'text_body': sig.text_body,
+            'id':                sig.pk,
+            'name':              sig.name,
+            'identifier':        sig.identifier,
+            'html_body':         sig.html_body,
+            'text_body':         sig.text_body,
+            'sender_account_id': sig.sender_account_id,
+            'sender_account':    sig.sender_account.email if sig.sender_account else None,
+            'is_default':        sig.is_default,
+            'is_public':         sig.is_public,
         })
 
     def put(self, request, pk):
         sig  = get_object_or_404(EmailSignature, pk=pk)
         data = _json_body(request)
+        if 'identifier' in data:
+            new_id = (data['identifier'] or '').strip()
+            if not new_id:
+                return JsonResponse({'error': 'identifier darf nicht leer sein'}, status=400)
+            if EmailSignature.objects.filter(identifier=new_id).exclude(pk=pk).exists():
+                return JsonResponse(
+                    {'error': f'Identifier „{new_id}" bereits vergeben'},
+                    status=400,
+                )
+            sig.identifier = new_id
         for f in ['name', 'html_body', 'text_body', 'is_default', 'is_public']:
             if f in data:
                 setattr(sig, f, data[f])
+        if 'sender_account_id' in data:
+            sig.sender_account_id = data['sender_account_id'] or None
         sig.save()
+        if sig.is_default:
+            EmailSignature.objects.exclude(pk=sig.pk).update(is_default=False)
         return JsonResponse({'success': True})
 
     def delete(self, request, pk):
