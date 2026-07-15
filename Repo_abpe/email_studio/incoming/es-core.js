@@ -427,7 +427,7 @@ mk(1,1, ()=>`<div class="es-tut-sim">
       </div>
     </div>
   </div>
-</div>`},
+</div>`),
 mk(1,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="font-size:10px;font-weight:600;color:#163258;margin-bottom:8px;">${S('start_question')}</div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:9px;">
@@ -447,7 +447,7 @@ mk(1,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
       <div style="color:#666;margin-top:3px;font-size:8px;">${S('duplicate_hint')}</div>
     </div>
   </div>
-</div>`},
+</div>`),
 mk(1,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="font-size:10px;font-weight:600;color:#163258;margin-bottom:6px;">${S('copy_settings')}</div>
   <div style="display:flex;flex-direction:column;gap:5px;font-size:9px;">
@@ -462,7 +462,7 @@ mk(1,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
       <div><div class="es-tut-lbl">${S('lbl_status')}</div><div class="es-tut-inp">${S('stat_active')} ▾</div></div>
     </div>
   </div>
-</div>`},
+</div>`),
 mk(1,4, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="font-size:10px;font-weight:600;color:#163258;margin-bottom:6px;">${S('sender_mode')}</div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:9px;">
@@ -484,7 +484,7 @@ mk(1,4, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
     </div>
   </div>
   <div style="margin-top:6px;background:#e6f1fb;border-radius:4px;padding:4px 7px;font-size:8px;color:#0c447c;">${S('mode_hint_user_short')}</div>
-</div>`},
+</div>`),
 mk(1,5, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
   <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;">
     <div>
@@ -514,7 +514,7 @@ mk(1,5, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
       </div>
     </div>
   </div>
-</div>`},
+</div>`),
 mk(1,6, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
   <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:8px;">
     <div>
@@ -548,7 +548,7 @@ mk(1,6, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
       </div>
     </div>
   </div>
-</div>`},
+</div>`),
 mk(1,7, ()=>`<div class="es-tut-sim" style="padding:8px 12px;text-align:center;">
   <div style="display:flex;justify-content:flex-end;gap:6px;margin-bottom:10px;">
     <div style="border:1px solid #163258;color:#163258;border-radius:4px;padding:4px 10px;font-size:9px;">${S('save_as')}</div>
@@ -562,7 +562,7 @@ mk(1,7, ()=>`<div class="es-tut-sim" style="padding:8px 12px;text-align:center;"
     <div style="background:#eaf3de;color:#27500a;border-radius:5px;padding:5px 10px;font-size:9px;border:1px solid #97c459;">${S('version_n')}</div>
   </div>
   <div style="background:#163258;color:#fff;border-radius:4px;padding:4px 10px;font-size:9px;display:inline-block;">${S('saved_ok')}</div>
-</div>`},
+</div>`),
 ]},
 {lbl:lbl[1], steps:[
 mk(2,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
@@ -591,7 +591,7 @@ mk(2,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
       <div style="font-size:8px;color:#888;">${S('click_restore')}</div>
     </div>
   </div>
-</div>`},
+</div>`),
 mk(2,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;">
@@ -603,7 +603,7 @@ mk(2,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
     </div>
   </div>
   <div style="margin-top:6px;background:#eaf3de;border-radius:4px;padding:4px 7px;font-size:8px;color:#27500a;">${S('milestone_tip')}</div>
-</div>`},
+</div>`),
 mk(2,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="background:#fff;border:1px solid #e24b4a;border-radius:5px;padding:10px;font-size:9px;">
     <div style="font-weight:600;color:#e24b4a;margin-bottom:5px;">${S('restore_title')}</div>
@@ -613,7 +613,7 @@ mk(2,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
       <div class="es-tut-pulse" style="background:#163258;color:#fff;border-radius:4px;padding:3px 10px;font-size:9px;">${S('restore')}</div>
     </div>
   </div>
-</div>`},
+</div>`),
 ]},
 {lbl:lbl[2], steps:[
 mk(3,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
@@ -643,7 +643,7 @@ mk(3,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
       </div>
     </div>
   </div>
-</div>`},
+</div>`),
 mk(3,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;font-weight:500;">${S('lang_config_title')}</div>
@@ -662,7 +662,7 @@ mk(3,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
       </div>
     </div>
   </div>
-</div>`},
+</div>`),
 mk(3,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:8px;">
     <div style="background:#163258;color:#fff;border-radius:5px;padding:5px 10px;font-size:9px;font-weight:600;">${S('de_basis_tab')}</div>
@@ -677,7 +677,7 @@ ${S('hello_name')} <span style="background:#264f78;">{name}</span>, ${S('html_pr
 <span style="color:#6a9955;">${S('code_it_auto')}</span>
 Ciao <span style="background:#264f78;">{name}</span>, il tuo profilo è pronto.</div>
   <div style="margin-top:5px;background:#eaf3de;border-radius:4px;padding:4px 7px;font-size:8px;color:#27500a;">${S('vars_never_translated')}</div>
-</div>`},
+</div>`),
 mk(3,4, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;font-weight:500;display:flex;gap:4px;">
@@ -695,7 +695,7 @@ Cordiali saluti, <span style="background:#264f78;">{sender_name}</span><span cla
       <div style="margin-top:5px;background:#163258;color:#fff;border-radius:4px;padding:4px 7px;font-size:8px;text-align:center;cursor:pointer;">💾 ${S('save')}</div>
     </div>
   </div>
-</div>`},
+</div>`),
 ]},
 {lbl:lbl[3], steps:[
 mk(4,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
@@ -724,7 +724,7 @@ mk(4,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
       <div style="background:#fff;border:1px solid #eee;padding:4px 6px;border-radius:3px;font-size:7px;color:#666;">📞 ${S('html_support')}: support@abcona.de</div>
     </div>
   </div>
-</div>`},
+</div>`),
 mk(4,2, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;max-width:220px;">
     <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;font-weight:500;">${S('modules_panel')}</div>
@@ -745,7 +745,7 @@ mk(4,2, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
       <div style="display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #eee;border-radius:4px;opacity:.7;"><span>📋</span><span>${S('header_red')}</span></div>
     </div>
   </div>
-</div>`},
+</div>`),
 mk(4,3, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
   <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:8px;">
     <div>
@@ -771,7 +771,7 @@ mk(4,3, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
       </div>
     </div>
   </div>
-</div>`},
+</div>`),
 ]},
 {lbl:lbl[4], steps:[
 mk(5,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
@@ -787,7 +787,7 @@ mk(5,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
     <span style="color:#888;">${d}</span>
   </div>`).join('')}
   <div style="margin-top:6px;background:#faeeda;border-radius:4px;padding:4px 7px;font-size:8px;color:#633806;">${S('dup_independent')}</div>
-</div>`},
+</div>`),
 mk(5,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:4px 8px;font-size:8px;display:grid;grid-template-columns:2fr 1fr 1fr 80px;">
@@ -805,7 +805,7 @@ mk(5,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
     </div>
   </div>
   <div style="margin-top:5px;background:#e6f1fb;border-radius:4px;padding:4px 7px;font-size:8px;color:#0c447c;">${S('dup_click_hint')}</div>
-</div>`},
+</div>`),
 mk(5,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="font-size:9px;font-weight:600;color:#163258;margin-bottom:5px;">${S('dup_from')}</div>
   <div style="display:flex;flex-direction:column;gap:5px;font-size:9px;">
@@ -822,7 +822,7 @@ mk(5,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
       ${['HTML','TXT',S('copy_sender_mode'),T('help.vars.title'),T('help.tab_modules'),S('copy_settings')].map(x=>`<span style="color:#27500a;">✓ ${x}</span>`).join('')}
     </div>
   </div>
-</div>`},
+</div>`),
 mk(5,4, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;">
     <div>
@@ -839,7 +839,7 @@ mk(5,4, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
     </div>
   </div>
   <div style="margin-top:5px;background:#eaf3de;border-radius:4px;padding:4px 7px;font-size:8px;color:#27500a;">${S('only_3_changes')}</div>
-</div>`},
+</div>`),
 ]},
                 ]; /* end SC */
 
