@@ -2225,6 +2225,36 @@
 .es-preview-refresh-btn.es-preview-refreshing .bi-arrow-clockwise {
     animation: es-spin 0.8s linear infinite;
 }
+.es-sig-hint {
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+.es-sig-hint code {
+    font-size: 9px;
+    color: var(--abcona-blue);
+}
+.es-sig-insert-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--abcona-blue);
+    border-radius: 4px;
+    background: var(--abcona-blue-tint);
+    color: var(--abcona-blue);
+    cursor: pointer;
+}
+.es-sig-insert-btn:hover {
+    background: var(--abcona-blue);
+    color: #fff;
+}
+#es-signature-section .section-header.es-sig-active {
+    border-color: var(--abcona-blue);
+}
 .es-preview-html {
     width: 100%;
     overflow: hidden;

@@ -35,12 +35,24 @@ class EmailRenderer:
             text = text.replace(f'{{{key}}}', str(value) if value else '')
         return text
 
-    def _resolve_modules(self, html: str, variables: dict) -> str:
+    def _resolve_modules(
+        self, html: str, variables: dict, template=None, user=None,
+        signature_mode=None, signature_id=None, include_signature=None,
+    ) -> str:
         """Ersetzt {{block:identifier}} durch Modul-HTML."""
         from apps.abpe_email_studio.models import EmailModule
         pattern = re.compile(r'\{\{block:([\w_-]+)\}\}')
+
         def replace_module(match):
             identifier = match.group(1)
+            if identifier == 'signature' and template is not None:
+                return self._resolve_signature_html(
+                    template, variables, user,
+                    signature_mode=signature_mode,
+                    signature_id=signature_id,
+                    include_signature=include_signature,
+                    dynamic_sig_id=variables.get('signature'),
+                )
             module = EmailModule.objects.filter(
                 identifier=identifier, is_active=True
             ).first()
@@ -48,21 +60,39 @@ class EmailRenderer:
                 return self._render(module.html_body, variables)
             log.warning(f'Modul nicht gefunden: {identifier}')
             return f'<!-- Modul nicht gefunden: {identifier} -->'
+
         return pattern.sub(replace_module, html)
 
-    def _resolve_modules_txt(self, text: str, variables: dict) -> str:
+    def _resolve_modules_txt(
+        self, text: str, variables: dict, template=None, user=None,
+        signature_mode=None, signature_id=None, include_signature=None,
+    ) -> str:
         """Ersetzt {{block:identifier}} durch Modul-TXT."""
         from apps.abpe_email_studio.models import EmailModule
         pattern = re.compile(r'\{\{block:([\w_-]+)\}\}')
+
         def replace_module(match):
             identifier = match.group(1)
+            if identifier == 'signature' and template is not None:
+                sig_html = self._resolve_signature_html(
+                    template, variables, user,
+                    signature_mode=signature_mode,
+                    signature_id=signature_id,
+                    include_signature=include_signature,
+                    dynamic_sig_id=variables.get('signature'),
+                )
+                return re.sub(r'<[^>]+>', '', sig_html).strip()
             module = EmailModule.objects.filter(
                 identifier=identifier, is_active=True
             ).first()
             if module and module.text_body:
                 return self._render(module.text_body, variables)
             return ''
+
         return pattern.sub(replace_module, text)
+
+    def _has_signature_block(self, *texts: str) -> bool:
+        return any('{{block:signature}}' in (t or '') for t in texts)
 
     def render_subject(self, subject: str, variables: dict) -> str:
         all_vars = {**self._get_system_vars(), **variables}
@@ -76,11 +106,24 @@ class EmailRenderer:
             **variables,
         }
         html = template.html_body
-        html = self._resolve_modules(html, all_vars)
+        html = self._resolve_modules(
+            html, all_vars, template=template, user=user,
+            signature_mode=template.signature_mode,
+            signature_id=template.signature_id,
+            include_signature=template.include_signature,
+        )
         html = self._render(html, all_vars)
-        if template.include_signature and template.signature:
-            sig = self._render(template.signature.html_body, all_vars)
-            html = html + sig
+
+        if not self._has_signature_block(template.html_body):
+            sig = self._resolve_signature_html(
+                template, all_vars, user,
+                signature_mode=template.signature_mode,
+                signature_id=template.signature_id,
+                include_signature=template.include_signature,
+                dynamic_sig_id=variables.get('signature'),
+            )
+            if sig:
+                html = html + sig
         return html
 
     def render_text(self, template, variables: dict, user=None) -> str:
@@ -92,11 +135,32 @@ class EmailRenderer:
         }
         text = template.text_body or ''
         if text:
-            text = self._resolve_modules_txt(text, all_vars)
+            text = self._resolve_modules_txt(
+                text, all_vars, template=template, user=user,
+                signature_mode=template.signature_mode,
+                signature_id=template.signature_id,
+                include_signature=template.include_signature,
+            )
             return self._render(text, all_vars)
-        # Fallback: HTML-Strip
-        html = self._resolve_modules(template.html_body, all_vars)
+        html = self._resolve_modules(
+            template.html_body, all_vars, template=template, user=user,
+            signature_mode=template.signature_mode,
+            signature_id=template.signature_id,
+            include_signature=template.include_signature,
+        )
         text = re.sub(r'<[^>]+>', '', html)
+        if not self._has_signature_block(template.html_body, template.text_body):
+            sig = self._resolve_signature_html(
+                template, all_vars, user,
+                signature_mode=template.signature_mode,
+                signature_id=template.signature_id,
+                include_signature=template.include_signature,
+                dynamic_sig_id=variables.get('signature'),
+            )
+            if sig:
+                sig_txt = re.sub(r'<[^>]+>', '', sig).strip()
+                if sig_txt:
+                    text = f'{text}\n\n{sig_txt}' if text else sig_txt
         return self._render(text, all_vars)
 
     def get_default_preview_vars(self, user=None) -> dict:
@@ -160,9 +224,10 @@ class EmailRenderer:
                 expanded[key] = defaults.get(key, f'[{key}]')
         return expanded
 
-    def _resolve_preview_signature_html(
+    def _resolve_signature_html(
         self, template, all_vars: dict, user=None,
         signature_mode=None, signature_id=None, include_signature=None,
+        dynamic_sig_id=None,
     ) -> str:
         from apps.abpe_email_studio.models import SignatureMode, EmailSignature
         from .signature import SignatureResolver
@@ -212,7 +277,17 @@ class EmailRenderer:
             return ''
 
         if mode == SignatureMode.DYNAMIC:
-            sig = SignatureResolver().resolve(template, user)
+            sig = None
+            if dynamic_sig_id:
+                sig = EmailSignature.objects.filter(
+                    identifier=dynamic_sig_id
+                ).first()
+                if not sig and str(dynamic_sig_id).isdigit():
+                    sig = EmailSignature.objects.filter(
+                        pk=int(dynamic_sig_id)
+                    ).first()
+            if not sig:
+                sig = SignatureResolver().resolve(template, user)
             if sig and sig.html_body:
                 return self._render(sig.html_body, all_vars)
             placeholder = (
@@ -229,8 +304,6 @@ class EmailRenderer:
         signature_mode=None, signature_id=None, include_signature=None,
     ) -> dict:
         """Rendert Editor-Vorschau mit aktuellem HTML und Beispieldaten."""
-        from apps.abpe_email_studio.models import SignatureMode
-
         merged = self.merge_preview_variables(variables, user)
         subj_src = subject if subject is not None else template.subject
         html_src = html_body if html_body is not None else template.html_body
@@ -244,33 +317,52 @@ class EmailRenderer:
         }
 
         html = html_src
-        html = self._resolve_modules(html, all_vars)
-        html = self._render(html, all_vars)
-
-        sig_html = self._resolve_preview_signature_html(
-            template, all_vars, user,
+        html = self._resolve_modules(
+            html, all_vars, template=template, user=user,
             signature_mode=signature_mode,
             signature_id=signature_id,
             include_signature=include_signature,
         )
-        mode = signature_mode or template.signature_mode
-        if sig_html and mode in (SignatureMode.FIXED, SignatureMode.DYNAMIC):
-            html = html + sig_html
+        html = self._render(html, all_vars)
+
+        if not self._has_signature_block(html_src):
+            sig_html = self._resolve_signature_html(
+                template, all_vars, user,
+                signature_mode=signature_mode,
+                signature_id=signature_id,
+                include_signature=include_signature,
+            )
+            if sig_html:
+                html = html + sig_html
 
         vars_for_subj = {k: v for k, v in all_vars.items() if k != 'subject'}
         rendered_subject = self.render_subject(subj_src or '', vars_for_subj)
 
         if txt_src:
-            txt = self._resolve_modules_txt(txt_src, all_vars)
+            txt = self._resolve_modules_txt(
+                txt_src, all_vars, template=template, user=user,
+                signature_mode=signature_mode,
+                signature_id=signature_id,
+                include_signature=include_signature,
+            )
             rendered_text = self._render(txt, all_vars)
         else:
             rendered_text = re.sub(r'<[^>]+>', '\n', html)
             rendered_text = re.sub(r'\n{3,}', '\n\n', rendered_text).strip()
 
-        if sig_html and mode in (SignatureMode.FIXED, SignatureMode.DYNAMIC):
-            sig_text = re.sub(r'<[^>]+>', '', sig_html).strip()
-            if sig_text:
-                rendered_text = f'{rendered_text}\n\n{sig_text}' if rendered_text else sig_text
+        if not self._has_signature_block(html_src, txt_src):
+            sig_html = self._resolve_signature_html(
+                template, all_vars, user,
+                signature_mode=signature_mode,
+                signature_id=signature_id,
+                include_signature=include_signature,
+            )
+            if sig_html:
+                sig_text = re.sub(r'<[^>]+>', '', sig_html).strip()
+                if sig_text:
+                    rendered_text = (
+                        f'{rendered_text}\n\n{sig_text}' if rendered_text else sig_text
+                    )
 
         return {
             'subject': rendered_subject,

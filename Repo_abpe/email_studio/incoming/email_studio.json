@@ -230,6 +230,9 @@
         "preview_refresh": "Refresh",
         "preview_dummy_hint": "Sample data",
         "preview_loading": "Updating preview…",
+        "sig_block_hint": "Insert {{block:signature}} in the template — the selected source appears there in preview.",
+        "sig_insert_btn": "Insert {{block:signature}}",
+        "sig_block_active": "{{block:signature}}",
         "sig_greeting": "Kind regards",
         "modules_empty": "No modules found",
         "btn_saveas": "Save as"
