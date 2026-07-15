@@ -568,34 +568,29 @@ window.ESStudio = (() => {
         return out;
     }
 
+    function _sanitizePreviewHtml(html) {
+        if (!html) return '';
+        let out = html;
+        out = out.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
+        out = out.replace(/<script\b[^>]*\/>/gi, '');
+        out = out.replace(/\s+on\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, '');
+        return out;
+    }
+
     function _renderInIframe(html) {
         const bodyEl = document.getElementById('es-preview-body');
         if (!bodyEl) return;
-        let iframe = bodyEl.querySelector('iframe.es-preview-iframe');
-        if (!iframe) {
+
+        const safeHtml = _sanitizePreviewHtml(html);
+        let wrap = bodyEl.querySelector('.es-preview-html');
+        if (!wrap) {
             bodyEl.innerHTML = '';
-            bodyEl.style.padding = '0';
-            iframe = document.createElement('iframe');
-            iframe.className   = 'es-preview-iframe';
-            iframe.style.cssText = 'width:100%;height:300px;border:none;display:block;';
-            iframe.sandbox = 'allow-same-origin';
-            bodyEl.appendChild(iframe);
+            bodyEl.style.padding = '10px';
+            wrap = document.createElement('div');
+            wrap.className = 'es-preview-html';
+            bodyEl.appendChild(wrap);
         }
-        try {
-            const doc     = iframe.contentDocument || iframe.contentWindow?.document;
-            const safeHtml = html.replace(/<script[\s\S]*?<\/script>/gi, '');
-            doc.open();
-            doc.write(safeHtml);
-            doc.close();
-            requestAnimationFrame(() => {
-                try {
-                    const h = doc.body?.scrollHeight;
-                    if (h && h > 50) iframe.style.height = (h + 20) + 'px';
-                } catch(e) {}
-            });
-        } catch(e) {
-            console.error('iframe render Fehler:', e);
-        }
+        wrap.innerHTML = safeHtml;
     }
 
     function _collectTestVars() {

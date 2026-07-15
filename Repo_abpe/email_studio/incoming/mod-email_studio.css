@@ -2225,6 +2225,15 @@
 .es-preview-refresh-btn.es-preview-refreshing .bi-arrow-clockwise {
     animation: es-spin 0.8s linear infinite;
 }
+.es-preview-html {
+    width: 100%;
+    overflow: hidden;
+    text-align: left;
+}
+.es-preview-html img {
+    max-width: 100%;
+    height: auto;
+}
 .es-preview-body.es-preview-loading {
     opacity: 0.55;
     pointer-events: none;

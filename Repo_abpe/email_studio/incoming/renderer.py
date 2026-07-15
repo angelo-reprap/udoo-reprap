@@ -274,9 +274,15 @@ class EmailRenderer:
 
         return {
             'subject': rendered_subject,
-            'html':    html,
+            'html':    self._strip_scripts(html),
             'text':    rendered_text,
         }
+
+    def _strip_scripts(self, html: str) -> str:
+        if not html:
+            return ''
+        html = re.sub(r'<script\b[^>]*>[\s\S]*?</script>', '', html, flags=re.I)
+        return re.sub(r'<script\b[^>]*\/>', '', html, flags=re.I)
 
     def html_to_text_via_deepseek(self, html: str) -> str:
         """Konvertiert HTML zu sauberem Plaintext via Deepseek."""
