@@ -371,11 +371,14 @@ EmailStudio.send(
                     T('help.tutorial.s4.label'),
                     T('help.tutorial.s5.label'),
                 ];
+                const mk = (sc, step, r) => ({
+                    t: T(`help.tutorial.s${sc}.step${step}.title`),
+                    d: T(`help.tutorial.s${sc}.step${step}.desc`),
+                    r
+                });
                 const SC = [
 {lbl:lbl[0], steps:[
-{t:'Vorlagen-Übersicht',
- d:'Klicken Sie oben auf den Tab "Vorlagen". Hier sehen Sie alle E-Mail-Vorlagen — wie viele aktiv, im Entwurf oder archiviert sind. Mit "+ Neue Vorlage" oben rechts starten Sie eine neue E-Mail-Vorlage.',
- r:()=>`<div class="es-tut-sim">
+mk(1,1, ()=>`<div class="es-tut-sim">
   <div class="es-tut-topbar">✉ Email Studio
     <span class="es-tut-pulse" style="background:#fff;color:#163258;padding:2px 8px;border-radius:4px;font-size:9px;font-weight:600;">+ Neue Vorlage</span>
   </div>
@@ -417,9 +420,7 @@ EmailStudio.send(
     </div>
   </div>
 </div>`},
-{t:'Neue Vorlage — Startoptionen',
- d:'Nach Klick auf "+ Neue Vorlage" wählen Sie wie Sie starten möchten: Leeres Template (freie Gestaltung), Corporate Skeleton (mit fertigem Header und Footer), oder eine bestehende Vorlage duplizieren.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(1,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="font-size:10px;font-weight:600;color:#163258;margin-bottom:8px;">Wie möchten Sie starten?</div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:9px;">
     <div class="es-tut-pulse es-tut-crd" style="background:#e6f1fb;text-align:center;padding:10px 6px;">
@@ -439,9 +440,7 @@ EmailStudio.send(
     </div>
   </div>
 </div>`},
-{t:'Einstellungen ausfüllen',
- d:'Füllen Sie die Felder aus: Anzeigename, Betreff, Technischer Name (Identifier). Der Identifier ist der interne Name der im Python-Code verwendet wird — z.B. cv_generated_berater. Er kann nach dem ersten Speichern nicht mehr geändert werden.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(1,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="font-size:10px;font-weight:600;color:#163258;margin-bottom:6px;">Einstellungen</div>
   <div style="display:flex;flex-direction:column;gap:5px;font-size:9px;">
     <div><div class="es-tut-lbl">ANZEIGENAME</div><div class="es-tut-inp">CV fertig — Berater</div></div>
@@ -456,9 +455,7 @@ EmailStudio.send(
     </div>
   </div>
 </div>`},
-{t:'Absender-Modus wählen',
- d:'Wählen Sie wer als Absender erscheint. "User" = die E-Mail kommt vom eingeloggten Mitarbeiter (z.B. angelo@abcona.de) mit seiner Signatur. "Template" = feste Absenderadresse. "Auto" = noreply, für automatische System-Mails.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(1,4, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="font-size:10px;font-weight:600;color:#163258;margin-bottom:6px;">Absender-Modus</div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:9px;">
     <div class="es-tut-crd" style="text-align:center;padding:8px;opacity:.5;">
@@ -480,9 +477,7 @@ EmailStudio.send(
   </div>
   <div style="margin-top:6px;background:#e6f1fb;border-radius:4px;padding:4px 7px;font-size:8px;color:#0c447c;">From = eingeloggter User · Signatur automatisch aus User-Profil</div>
 </div>`},
-{t:'HTML schreiben und Variablen einfügen',
- d:'Im mittleren Bereich schreiben Sie den E-Mail-Inhalt. Unter "Variablen" in der Sidebar sehen Sie alle Platzhalter — klicken Sie auf einen um ihn einzufügen. {name} wird beim Versand durch den echten Namen des Empfängers ersetzt.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 10px;">
+mk(1,5, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
   <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;">
     <div>
       <div style="font-size:8px;color:#888;margin-bottom:3px;">HTML-Editor · Visuell / Code / TXT</div>
@@ -512,9 +507,7 @@ EmailStudio.send(
     </div>
   </div>
 </div>`},
-{t:'Live-Vorschau und Test-E-Mail',
- d:'Rechts sehen Sie die Live-Vorschau — so sieht die E-Mail beim Empfänger aus. Wechseln Sie zwischen Outlook, Gmail und TXT. In der Sidebar unter "Test-E-Mail senden" können Sie eine echte Test-E-Mail an eine beliebige Adresse schicken.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 10px;">
+mk(1,6, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
   <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:8px;">
     <div>
       <div style="border:1px solid #eee;border-radius:4px;overflow:hidden;">
@@ -548,9 +541,7 @@ EmailStudio.send(
     </div>
   </div>
 </div>`},
-{t:'Speichern — TXT wird automatisch erstellt',
- d:'Klicken Sie oben rechts auf "Speichern". Jedes Speichern legt eine neue Version mit Zeitstempel an. Der TXT-Inhalt (Nur-Text-Version) wird dabei automatisch aus dem HTML generiert — Sie müssen nichts manuell pflegen.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;text-align:center;">
+mk(1,7, ()=>`<div class="es-tut-sim" style="padding:8px 12px;text-align:center;">
   <div style="display:flex;justify-content:flex-end;gap:6px;margin-bottom:10px;">
     <div style="border:1px solid #163258;color:#163258;border-radius:4px;padding:4px 10px;font-size:9px;">Speichern unter</div>
     <div class="es-tut-pulse" style="background:#163258;color:#fff;border-radius:4px;padding:4px 10px;font-size:9px;">Speichern</div>
@@ -566,9 +557,7 @@ EmailStudio.send(
 </div>`},
 ]},
 {lbl:lbl[1], steps:[
-{t:'Versionsverlauf öffnen',
- d:'Klicken Sie in der blauen Leiste auf "Versionsverlauf". Es öffnet sich ein Panel mit allen gespeicherten Versionen. Die grün markierte Version ist die aktuell aktive. Ältere Versionen können wiederhergestellt werden.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(2,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
       <span class="es-tut-pulse" style="background:rgba(255,255,255,.25);padding:2px 8px;border-radius:3px;">⏱ Versionsverlauf 2 offiziell</span>
@@ -595,9 +584,7 @@ EmailStudio.send(
     </div>
   </div>
 </div>`},
-{t:'Änderungsnotiz und Meilenstein',
- d:'Geben Sie vor dem Speichern eine kurze Notiz ein (z.B. "Logo aktualisiert"). Klicken Sie auf "Merken" um die aktuelle Version als Meilenstein zu markieren — so finden Sie wichtige Versionen schnell wieder.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(2,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;">
       <span style="opacity:.6;">⏱ Versionsverlauf 2</span>
@@ -609,9 +596,7 @@ EmailStudio.send(
   </div>
   <div style="margin-top:6px;background:#eaf3de;border-radius:4px;padding:4px 7px;font-size:8px;color:#27500a;">Tipp: Notiz eingeben → Speichern → Version ist dokumentiert und auffindbar</div>
 </div>`},
-{t:'Version wiederherstellen',
- d:'Klicken Sie im Versionsverlauf auf eine ältere Version. Nach Bestätigung wird diese Version wiederhergestellt. Die aktuelle Version bleibt als Backup erhalten — Sie können jederzeit wieder zurückwechseln.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(2,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="background:#fff;border:1px solid #e24b4a;border-radius:5px;padding:10px;font-size:9px;">
     <div style="font-weight:600;color:#e24b4a;margin-bottom:5px;">⚠ Version wiederherstellen</div>
     <div style="color:#333;margin-bottom:8px;line-height:1.6;">Möchten Sie Version 1 (18.05. 13:22) wiederherstellen?<br>Die aktuelle Version bleibt als Backup erhalten.</div>
@@ -623,9 +608,7 @@ EmailStudio.send(
 </div>`},
 ]},
 {lbl:lbl[2], steps:[
-{t:'Übersetzungs-Panel öffnen',
- d:'Klicken Sie in der blauen Leiste auf "Übersetzungen". Es öffnet sich ein Panel mit allen vorhandenen Übersetzungen. DE ist immer die Referenz-Sprache — alle anderen Sprachen werden aus dem deutschen Text übersetzt.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(3,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;font-weight:500;display:flex;align-items:center;gap:6px;">
       <span>⇄ Übersetzungen</span>
@@ -653,9 +636,7 @@ EmailStudio.send(
     </div>
   </div>
 </div>`},
-{t:'Sprachen aktivieren',
- d:'Klicken Sie auf "Sprachen" um das Sprachen-Panel zu öffnen. Setzen Sie Häkchen bei den gewünschten Sprachen. Klicken Sie dann in der Leiste auf "Auto-Übersetzen" — die KI übersetzt alle aktivierten Sprachen automatisch.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(3,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;font-weight:500;">Übersetzungssprachen für diese Vorlage</div>
     <div style="padding:8px;">
@@ -674,9 +655,7 @@ EmailStudio.send(
     </div>
   </div>
 </div>`},
-{t:'Auto-Übersetzen',
- d:'Klicken Sie in der blauen Leiste auf "Auto-Übersetzen". Die KI übersetzt den gesamten E-Mail-Inhalt automatisch. Wichtig: Variablen wie {name} oder {cv_link} werden dabei nie übersetzt — sie bleiben immer als Platzhalter erhalten.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(3,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:8px;">
     <div style="background:#163258;color:#fff;border-radius:5px;padding:5px 10px;font-size:9px;font-weight:600;">🇩🇪 DE Basis</div>
     <span style="font-size:14px;color:#163258;">→</span>
@@ -691,9 +670,7 @@ Hallo <span style="background:#264f78;">{name}</span>, Ihr Profil ist fertig.
 Ciao <span style="background:#264f78;">{name}</span>, il tuo profilo è pronto.</div>
   <div style="margin-top:5px;background:#eaf3de;border-radius:4px;padding:4px 7px;font-size:8px;color:#27500a;">{name}, {cv_link} usw. werden NIE übersetzt — nur der normale Text</div>
 </div>`},
-{t:'Übersetzung prüfen und bearbeiten',
- d:'Klicken Sie auf das Stift-Symbol (✏) neben einer Sprache um die Übersetzung zu öffnen. Sie können den Text direkt bearbeiten und korrigieren. Nach dem Speichern ist Ihre Version aktiv und wird beim nächsten Versand verwendet.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(3,4, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;font-weight:500;display:flex;gap:4px;">
       <span style="background:rgba(255,255,255,.15);padding:2px 7px;border-radius:3px;">🇩🇪 DE Basis</span>
@@ -713,9 +690,7 @@ Cordiali saluti, <span style="background:#264f78;">{sender_name}</span><span cla
 </div>`},
 ]},
 {lbl:lbl[3], steps:[
-{t:'Was sind Module?',
- d:'Module sind fertige Bausteine die Sie in Vorlagen einbauen können: Header (Kopfbereich mit abcona-Logo), Footer (Fußbereich mit Impressum), Buttons und Sektionen. Ändern Sie ein Modul einmal — es ändert sich automatisch in allen Vorlagen die es verwenden.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(4,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:8px;">
     <div class="es-tut-crd" style="background:#e6f1fb;">
       <div style="font-weight:600;color:#0c447c;margin-bottom:3px;">HEADER</div>
@@ -742,9 +717,7 @@ Cordiali saluti, <span style="background:#264f78;">{sender_name}</span><span cla
     </div>
   </div>
 </div>`},
-{t:'Modul in der Sidebar finden',
- d:'Scrollen Sie in der linken Sidebar nach unten zu "Module". Die Module sind nach Typ gruppiert: BUTTON, FOOTER, HEADER, SECTION. Klicken Sie auf ein Modul — es wird an der aktuellen Cursor-Position im HTML-Editor eingefügt.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 10px;">
+mk(4,2, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;max-width:220px;">
     <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;font-weight:500;">⊞ Module ∧</div>
     <div style="padding:6px 8px;font-size:8px;">
@@ -765,9 +738,7 @@ Cordiali saluti, <span style="background:#264f78;">{sender_name}</span><span cla
     </div>
   </div>
 </div>`},
-{t:'Modul einfügen — Ergebnis',
- d:'Nach dem Klick auf ein Modul erscheint in Ihrem HTML-Code ein Platzhalter wie {{block:abcona_header_blau}}. In der Live-Vorschau rechts sehen Sie sofort wie das Modul aussieht. Beim Versand wird der Platzhalter automatisch durch den echten Inhalt ersetzt.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 10px;">
+mk(4,3, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
   <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:8px;">
     <div>
       <div style="font-size:8px;color:#888;margin-bottom:3px;">HTML-Code nach Einfügen:</div>
@@ -795,9 +766,7 @@ Cordiali saluti, <span style="background:#264f78;">{sender_name}</span><span cla
 </div>`},
 ]},
 {lbl:lbl[4], steps:[
-{t:'Wann duplizieren?',
- d:'Duplizieren ist sinnvoll wenn Sie eine ähnliche Vorlage brauchen — z.B. eine Erfolgs-Mail und eine Fehler-Mail haben fast denselben Aufbau. Sie sparen die gesamte Grundstruktur und müssen nur die unterschiedlichen Texte anpassen.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(5,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="font-size:9px;font-weight:600;color:#163258;margin-bottom:6px;">Typische Situationen:</div>
   ${[['pipeline_success','pipeline_error','Gleiche Struktur — Erfolg vs. Fehler'],
      ['upload_received','upload_error','Bestätigung vs. Fehlermeldung'],
@@ -811,9 +780,7 @@ Cordiali saluti, <span style="background:#264f78;">{sender_name}</span><span cla
   </div>`).join('')}
   <div style="margin-top:6px;background:#faeeda;border-radius:4px;padding:4px 7px;font-size:8px;color:#633806;">Kopie ist vollständig unabhängig — Änderungen am Original betreffen die Kopie nicht</div>
 </div>`},
-{t:'Vorlage duplizieren',
- d:'In der Vorlagen-Übersicht klicken Sie auf das Kopier-Symbol 📋 in der Aktionen-Spalte. Es öffnet sich sofort ein Dialog wo Sie der Kopie einen neuen Namen und einen neuen technischen Namen (Identifier) geben.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(5,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:4px 8px;font-size:8px;display:grid;grid-template-columns:2fr 1fr 1fr 80px;">
       <span>Name / Identifier</span><span>Absender</span><span>Status</span><span>Aktionen</span>
@@ -831,9 +798,7 @@ Cordiali saluti, <span style="background:#264f78;">{sender_name}</span><span cla
   </div>
   <div style="margin-top:5px;background:#e6f1fb;border-radius:4px;padding:4px 7px;font-size:8px;color:#0c447c;">📋 Klicken → Dialog öffnet sich sofort</div>
 </div>`},
-{t:'Neuen Identifier vergeben',
- d:'Geben Sie der Kopie einen neuen Anzeigenamen und einen neuen Identifier. Der Identifier muss eindeutig sein und darf nicht identisch mit dem Original sein. Alle Inhalte (HTML, Variablen, Module, Einstellungen) werden vollständig kopiert.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(5,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="font-size:9px;font-weight:600;color:#163258;margin-bottom:5px;">📋 Dupliziert von: pipeline_success</div>
   <div style="display:flex;flex-direction:column;gap:5px;font-size:9px;">
     <div><div class="es-tut-lbl">NEUER IDENTIFIER *</div>
@@ -850,9 +815,7 @@ Cordiali saluti, <span style="background:#264f78;">{sender_name}</span><span cla
     </div>
   </div>
 </div>`},
-{t:'Nur die Unterschiede anpassen',
- d:'Nach dem Duplizieren öffnet sich sofort das Studio der neuen Vorlage. Ändern Sie nur die Textstellen die sich unterscheiden sollen — z.B. Betreff, Überschrift und Fehlertext. Layout, Header und Footer bleiben automatisch identisch.',
- r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+mk(5,4, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;">
     <div>
       <div style="font-size:8px;color:#888;margin-bottom:3px;">Original: pipeline_success</div>
@@ -927,7 +890,7 @@ Cordiali saluti, <span style="background:#264f78;">{sender_name}</span><span cla
     <div class="es-tut-ctrl">
       <button class="es-tut-bp" id="es-tut-bp" onclick="window._esTut.nav(-1)" disabled>← ${T('help.tutorial.prev')}</button>
       <div class="es-tut-dots" id="es-tut-dots"></div>
-      <input type="range" min="1" max="6" value="3" step="1" style="width:50px;" title="Geschwindigkeit" oninput="window._esTutSpeed=this.value*1000">
+      <input type="range" min="1" max="6" value="3" step="1" style="width:50px;" title="${T('help.tutorial.speed')}" oninput="window._esTutSpeed=this.value*1000">
       <button class="es-tut-abtn" id="es-tut-abtn" onclick="window._esTut.toggleAuto()">${T('help.tutorial.auto')}</button>
       <button class="es-tut-bn" id="es-tut-bn" onclick="window._esTut.nav(1)">${T('help.tutorial.next')} →</button>
     </div>
