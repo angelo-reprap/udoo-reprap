@@ -2486,6 +2486,33 @@ Object.assign(PBX, {
         div.textContent = s || '';
         return div.innerHTML;
     },
+
+    _mmSanitizePreviewHtml(html) {
+        return String(html || '')
+            .replace(/<script[\s\S]*?<\/script>/gi, '')
+            .replace(/\son\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, '')
+            .replace(/javascript:/gi, '')
+            .replace(/<iframe[\s\S]*?<\/iframe>/gi, '')
+            .replace(/<object[\s\S]*?<\/object>/gi, '')
+            .replace(/<embed[\s\S]*?\/?>/gi, '');
+    },
+
+    _mmMountPreviewHtml(bodyEl, html, className, height) {
+        if (!bodyEl) return;
+        const safeHtml = this._mmSanitizePreviewHtml(html);
+        let iframe = bodyEl.querySelector('iframe.' + className);
+        if (!iframe) {
+            bodyEl.innerHTML = '';
+            iframe = document.createElement('iframe');
+            iframe.className = className;
+            iframe.style.cssText = `width:100%;height:${height}px;border:1px solid var(--border-color, #dee2e6);border-radius:8px;display:block;background:#fff`;
+            iframe.setAttribute('sandbox', '');
+            iframe.setAttribute('referrerpolicy', 'no-referrer');
+            iframe.title = this.t('pbx_mm_notify_tab_html', 'HTML');
+            bodyEl.appendChild(iframe);
+        }
+        iframe.srcdoc = safeHtml;
+    },
 });
 
 Object.assign(PBX, {
@@ -2799,6 +2826,7 @@ Object.assign(PBX, {
         const htmlBtn = this.$('pbx-mm-compose-tab-html-btn');
         if (textBtn) textBtn.className = 'pbx-act ' + (tab !== 'html' ? 'pbx-act-blue' : 'pbx-act-gray');
         if (htmlBtn) htmlBtn.className = 'pbx-act ' + (tab === 'html' ? 'pbx-act-blue' : 'pbx-act-gray');
+        if (tab === 'html') this._mmComposeRefreshPreview();
     },
 
     async _mmComposeRefreshPreview() {
@@ -2819,28 +2847,7 @@ Object.assign(PBX, {
     },
 
     _mmComposeRenderPreviewHtml(html) {
-        const bodyEl = this.$('pbx-mm-compose-preview-html');
-        if (!bodyEl) return;
-        let iframe = bodyEl.querySelector('iframe.pbx-mm-compose-preview-iframe');
-        if (!iframe) {
-            bodyEl.innerHTML = '';
-            iframe = document.createElement('iframe');
-            iframe.className = 'pbx-mm-compose-preview-iframe';
-            iframe.style.cssText = 'width:100%;height:220px;border:1px solid var(--border-color, #dee2e6);border-radius:8px;display:block';
-            iframe.sandbox = 'allow-same-origin';
-            bodyEl.appendChild(iframe);
-        }
-        try {
-            const doc = iframe.contentDocument || iframe.contentWindow?.document;
-            const safeHtml = html
-                .replace(/<script[\s\S]*?<\/script>/gi, '')
-                .replace(/\son\w+="[^"]*"/gi, '')
-                .replace(/\son\w+='[^']*'/gi, '')
-                .replace(/javascript:/gi, '');
-            doc.open();
-            doc.write(safeHtml);
-            doc.close();
-        } catch (e) { /* ignore */ }
+        this._mmMountPreviewHtml(this.$('pbx-mm-compose-preview-html'), html, 'pbx-mm-compose-preview-iframe', 220);
     },
 
     _mmRaupeContext() {
@@ -3249,6 +3256,7 @@ Object.assign(PBX, {
         const htmlBtn = this.$('pbx-mm-reminder-tab-html-btn');
         if (textBtn) textBtn.className = 'pbx-act ' + (tab !== 'html' ? 'pbx-act-blue' : 'pbx-act-gray');
         if (htmlBtn) htmlBtn.className = 'pbx-act ' + (tab === 'html' ? 'pbx-act-blue' : 'pbx-act-gray');
+        if (tab === 'html') this._mmReminderRefreshPreview();
     },
 
     async _mmReminderRefreshPreview() {
@@ -3268,28 +3276,7 @@ Object.assign(PBX, {
     },
 
     _mmReminderRenderPreviewHtml(html) {
-        const bodyEl = this.$('pbx-mm-reminder-preview-html');
-        if (!bodyEl) return;
-        let iframe = bodyEl.querySelector('iframe.pbx-mm-reminder-preview-iframe');
-        if (!iframe) {
-            bodyEl.innerHTML = '';
-            iframe = document.createElement('iframe');
-            iframe.className = 'pbx-mm-reminder-preview-iframe';
-            iframe.style.cssText = 'width:100%;height:220px;border:1px solid var(--border-color, #dee2e6);border-radius:8px;display:block';
-            iframe.sandbox = 'allow-same-origin';
-            bodyEl.appendChild(iframe);
-        }
-        try {
-            const doc = iframe.contentDocument || iframe.contentWindow?.document;
-            const safeHtml = html
-                .replace(/<script[\s\S]*?<\/script>/gi, '')
-                .replace(/\son\w+="[^"]*"/gi, '')
-                .replace(/\son\w+='[^']*'/gi, '')
-                .replace(/javascript:/gi, '');
-            doc.open();
-            doc.write(safeHtml);
-            doc.close();
-        } catch (e) { /* ignore */ }
+        this._mmMountPreviewHtml(this.$('pbx-mm-reminder-preview-html'), html, 'pbx-mm-reminder-preview-iframe', 220);
     },
 
     async _mmReminderDeepseekSuggest() {
@@ -4741,6 +4728,7 @@ Object.assign(PBX, {
         const htmlBtn = this.$('pbx-mm-notify-tab-html-btn');
         if (textBtn) textBtn.className = 'pbx-act ' + (tab !== 'html' ? 'pbx-act-blue' : 'pbx-act-gray');
         if (htmlBtn) htmlBtn.className = 'pbx-act ' + (tab === 'html' ? 'pbx-act-blue' : 'pbx-act-gray');
+        if (tab === 'html') this._mmNotifyRefreshPreview();
     },
 
     async _mmNotifyRefreshPreview() {
@@ -4760,28 +4748,7 @@ Object.assign(PBX, {
     },
 
     _mmNotifyRenderPreviewHtml(html) {
-        const bodyEl = this.$('pbx-mm-notify-preview-html');
-        if (!bodyEl) return;
-        let iframe = bodyEl.querySelector('iframe.pbx-mm-notify-preview-iframe');
-        if (!iframe) {
-            bodyEl.innerHTML = '';
-            iframe = document.createElement('iframe');
-            iframe.className = 'pbx-mm-notify-preview-iframe';
-            iframe.style.cssText = 'width:100%;height:280px;border:1px solid var(--border-color, #dee2e6);border-radius:8px;display:block';
-            iframe.sandbox = 'allow-same-origin';
-            bodyEl.appendChild(iframe);
-        }
-        try {
-            const doc = iframe.contentDocument || iframe.contentWindow?.document;
-            const safeHtml = html
-                .replace(/<script[\s\S]*?<\/script>/gi, '')
-                .replace(/\son\w+="[^"]*"/gi, '')
-                .replace(/\son\w+='[^']*'/gi, '')
-                .replace(/javascript:/gi, '');
-            doc.open();
-            doc.write(safeHtml);
-            doc.close();
-        } catch (e) { /* ignore */ }
+        this._mmMountPreviewHtml(this.$('pbx-mm-notify-preview-html'), html, 'pbx-mm-notify-preview-iframe', 280);
     },
 
     async _mmNotifyToggleTemplateFilter(checked) {
