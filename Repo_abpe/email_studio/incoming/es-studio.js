@@ -19,14 +19,19 @@ window.ESStudio = (() => {
 
     const DUMMY_VARS = {
         name:           'Max Mustermann',
+        first_name:     'Max',
+        last_name:      'Mustermann',
         vorname:        'Max',
         nachname:       'Mustermann',
         email:          'max@example.de',
         firma:          'Muster GmbH',
         unternehmen:    'Muster GmbH',
         termin_datum:   '15.07.2026',
+        termin_zeit:    '14:00 Uhr',
         termin_uhrzeit: '14:00 Uhr',
         raum:           'Meetingraum 3',
+        einwahl_info:   'Einwahl: +49 30 123456, PIN 4711',
+        teilnehmer_liste_html: '<ul><li>Max Mustermann</li><li>Erika Musterfrau</li></ul>',
         strasse:        'Musterstraße 1',
         plz:            '12345',
         ort:            'Musterstadt',
@@ -34,6 +39,10 @@ window.ESStudio = (() => {
         link:           'https://abpe.win.abcona.info',
         button_url:     'https://abpe.win.abcona.info',
         button_text:    'Zum Portal',
+        cv_link:        'https://abpe.win.abcona.info/cv/beispiel',
+        cv_version:     'v3',
+        created_date:   '15.07.2026',
+        task_ref:       'TASK-4711',
         signature:      'Mit freundlichen Grüßen\nMax Mustermann\nmax@example.de',
         signature_name: 'Max Mustermann',
         berater_name:   'Tanja Groß',
@@ -466,7 +475,11 @@ window.ESStudio = (() => {
         const sigMode    = sigModeEl?.value || 'USER';
 
         const payload = {
-            variables:         { ...DUMMY_VARS, ..._collectTestVars() },
+            variables:         _expandPreviewVars(
+                document.getElementById('es-html-editor')?.value || '',
+                document.getElementById('es-subject-input')?.value || '',
+                document.getElementById('es-txt-editor')?.value || ''
+            ),
             mode:              'both',
             html_body:         document.getElementById('es-html-editor')?.value || '',
             subject:           document.getElementById('es-subject-input')?.value || '',
@@ -506,7 +519,7 @@ window.ESStudio = (() => {
         if (manual && refreshBtn) refreshBtn.classList.add('es-preview-refreshing');
         if (manual && bodyEl) bodyEl.classList.add('es-preview-loading');
 
-        if (subjEl && subject) subjEl.textContent = subject;
+        if (subjEl && subject) subjEl.textContent = _applyDummyVarsLocal(subject);
 
         if (!_templateId || editLang) {
             if (htmlBody) _renderInIframe(_applyDummyVarsLocal(htmlBody));
@@ -533,8 +546,21 @@ window.ESStudio = (() => {
         }
     }
 
-    function _applyDummyVarsLocal(html) {
+    function _expandPreviewVars(...texts) {
         const vars = { ...DUMMY_VARS, ..._collectTestVars() };
+        const re = /\{(\w+)\}/g;
+        texts.forEach(text => {
+            if (!text) return;
+            let m;
+            while ((m = re.exec(text)) !== null) {
+                if (!(m[1] in vars)) vars[m[1]] = `[${m[1]}]`;
+            }
+        });
+        return vars;
+    }
+
+    function _applyDummyVarsLocal(html) {
+        const vars = _expandPreviewVars(html);
         let out = html;
         Object.entries(vars).forEach(([key, value]) => {
             out = out.split(`{${key}}`).join(String(value ?? ''));
@@ -552,7 +578,7 @@ window.ESStudio = (() => {
             iframe = document.createElement('iframe');
             iframe.className   = 'es-preview-iframe';
             iframe.style.cssText = 'width:100%;height:300px;border:none;display:block;';
-            iframe.sandbox = 'allow-same-origin allow-scripts';
+            iframe.sandbox = 'allow-same-origin';
             bodyEl.appendChild(iframe);
         }
         try {

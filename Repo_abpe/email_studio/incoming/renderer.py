@@ -104,14 +104,21 @@ class EmailRenderer:
         now = timezone.now()
         vars = {
             'name':            'Max Mustermann',
+            'first_name':      'Max',
+            'last_name':       'Mustermann',
             'vorname':         'Max',
             'nachname':        'Mustermann',
             'email':           'max@example.de',
             'firma':           'Muster GmbH',
             'unternehmen':     'Muster GmbH',
             'termin_datum':    now.strftime('%d.%m.%Y'),
+            'termin_zeit':     '14:00 Uhr',
             'termin_uhrzeit':  '14:00 Uhr',
             'raum':            'Meetingraum 3',
+            'einwahl_info':    'Einwahl: +49 30 123456, PIN 4711',
+            'teilnehmer_liste_html': (
+                '<ul><li>Max Mustermann</li><li>Erika Musterfrau</li></ul>'
+            ),
             'strasse':         'Musterstraße 1',
             'plz':             '12345',
             'ort':             'Musterstadt',
@@ -119,6 +126,10 @@ class EmailRenderer:
             'link':            'https://abpe.win.abcona.info',
             'button_url':      'https://abpe.win.abcona.info',
             'button_text':     'Zum Portal',
+            'cv_link':         'https://abpe.win.abcona.info/cv/beispiel',
+            'cv_version':      'v3',
+            'created_date':    now.strftime('%d.%m.%Y'),
+            'task_ref':        'TASK-4711',
             'signature':       'Mit freundlichen Grüßen\nMax Mustermann\nmax@example.de',
             'signature_name':  'Max Mustermann',
             'berater_name':    'Tanja Groß',
@@ -134,6 +145,20 @@ class EmailRenderer:
 
     def merge_preview_variables(self, variables: dict = None, user=None) -> dict:
         return {**self.get_default_preview_vars(user), **(variables or {})}
+
+    def _expand_placeholder_vars(self, variables: dict, *texts: str) -> dict:
+        """Ergänzt fehlende Platzhalter aus dem Template-Text."""
+        pattern = re.compile(r'\{(\w+)\}')
+        found = set()
+        for text in texts:
+            if text:
+                found.update(pattern.findall(text))
+        defaults = self.get_default_preview_vars()
+        expanded = dict(variables)
+        for key in found:
+            if key not in expanded:
+                expanded[key] = defaults.get(key, f'[{key}]')
+        return expanded
 
     def _resolve_preview_signature_html(
         self, template, all_vars: dict, user=None,
@@ -208,13 +233,17 @@ class EmailRenderer:
 
         merged = self.merge_preview_variables(variables, user)
         subj_src = subject if subject is not None else template.subject
+        html_src = html_body if html_body is not None else template.html_body
+        txt_src = text_body if text_body is not None else (template.text_body or '')
+
+        merged = self._expand_placeholder_vars(merged, subj_src or '', html_src or '', txt_src or '')
         all_vars = {
             **self._get_system_vars(),
             **merged,
             'subject': subj_src or '',
         }
 
-        html = html_body if html_body is not None else template.html_body
+        html = html_src
         html = self._resolve_modules(html, all_vars)
         html = self._render(html, all_vars)
 
@@ -231,7 +260,6 @@ class EmailRenderer:
         vars_for_subj = {k: v for k, v in all_vars.items() if k != 'subject'}
         rendered_subject = self.render_subject(subj_src or '', vars_for_subj)
 
-        txt_src = text_body if text_body is not None else (template.text_body or '')
         if txt_src:
             txt = self._resolve_modules_txt(txt_src, all_vars)
             rendered_text = self._render(txt, all_vars)
