@@ -15,10 +15,10 @@
     "enabled": true,
     "static": {
         "css": [
-            "mod-documentation.css"
+            "mod/mod-documentation.css"
         ],
         "js": [
-            "mod-documentation.js"
+            "mod/mod-documentation.js"
         ]
     },
     "subpages": [

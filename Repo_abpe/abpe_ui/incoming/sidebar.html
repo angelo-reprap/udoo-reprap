@@ -36,14 +36,14 @@
         {% if item.id == 'admin' %}
             {% if user.is_staff %}
             <a href="{{ item.route }}" class="nav-link {% if active == item.id %}active{% endif %}"
-               data-titles="{{ item.titles_json|default:'{}'  }}"{}" |safe }}'>
+               data-titles="{{ item.titles_json|default:'{}' }}">
                 <i class="bi bi-{{ item.icon }}"></i>
                 <span class="nav-title">{{ item.title }}</span>
             </a>
             {% endif %}
         {% else %}
         <a href="{{ item.route }}" class="nav-link {% if active == item.id %}active{% endif %}"
-           data-titles="{{ item.titles_json|default:'{}'  }}"{}" |safe }}'>
+           data-titles="{{ item.titles_json|default:'{}' }}">
             <i class="bi bi-{{ item.icon }}"></i>
             <span class="nav-title">{{ item.title }}</span>
         </a>
