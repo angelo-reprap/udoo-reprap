@@ -28,13 +28,14 @@ const CRM_Reporting = {
         const s = document.createElement('style');
         s.id = 'crm-reporting-styles';
         s.textContent = [
-            '.crm-rpt-kpis{margin:12px;display:flex;flex-wrap:nowrap;gap:8px;max-width:42%;width:100%;box-sizing:border-box}',
-            '.crm-rpt-kpis .crm-stat{flex:1 1 0;min-width:0;padding:8px 6px;text-align:center}',
-            '.crm-rpt-kpis .crm-stat-val{font-size:clamp(13px,1.05vw,17px);line-height:1.2;display:block}',
+            '.crm-rpt-head{display:flex;align-items:flex-start;gap:10px;margin:12px;width:calc(100% - 24px);box-sizing:border-box}',
+            '.crm-rpt-kpis{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:8px;flex:1 1 auto;min-width:0;width:100%!important;max-width:none!important;margin:0!important;flex-wrap:nowrap!important}',
+            '.crm-stats-bar.crm-rpt-kpis{display:grid!important;flex-wrap:nowrap!important}',
+            '.crm-rpt-kpis .crm-stat{min-width:0;padding:8px 6px;text-align:center}',
+            '.crm-rpt-kpis .crm-stat-val{font-size:clamp(12px,1.1vw,18px);line-height:1.2;display:block;font-weight:700}',
             '.crm-rpt-kpis .crm-stat-lbl{font-size:10.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;margin-top:2px}',
-            '@media (max-width:1200px){.crm-rpt-kpis{max-width:58%}}',
-            '@media (max-width:900px){.crm-rpt-kpis{max-width:100%;flex-wrap:wrap}.crm-rpt-kpis .crm-stat{flex:1 1 calc(20% - 8px);min-width:68px}}',
-            '@media (max-width:560px){.crm-rpt-kpis .crm-stat{flex:1 1 calc(33.33% - 8px)}}',
+            '.crm-rpt-refresh{flex-shrink:0;align-self:center}',
+            '@media (max-width:720px){.crm-rpt-head{flex-wrap:wrap}.crm-rpt-kpis{grid-template-columns:repeat(5,minmax(56px,1fr))!important;overflow-x:auto}}',
             '.crm-rpt-meta{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;padding:12px 16px}',
             '.crm-rpt-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px}',
             '.crm-rpt-badge.ok{background:var(--status-green-bg,#d1e7dd);color:#0f5132}',
@@ -110,7 +111,6 @@ const CRM_Reporting = {
     _legacyPayload(legacy) {
         return {
             generated_at: '',
-            sync: { status: legacy.last_sync ? 'ok' : 'unknown', last_sync: legacy.last_sync || '' },
             totals: {
                 contacts: legacy.contacts_total || 0,
                 accounts: legacy.accounts_total || 0,
@@ -131,7 +131,7 @@ const CRM_Reporting = {
     },
 
     _fmtDate(iso) {
-        if (!iso) return this.t('rep_never', 'Noch nie');
+        if (!iso) return '';
         try {
             const d = new Date(iso);
             if (Number.isNaN(d.getTime())) return iso;
@@ -142,16 +142,6 @@ const CRM_Reporting = {
         } catch (e) {
             return iso;
         }
-    },
-
-    _syncBadge(status) {
-        const map = {
-            ok: ['ok', this.t('rep_sync_ok', 'OK')],
-            unknown: ['warn', this.t('rep_sync_unknown', 'Unbekannt')],
-            empty: ['neutral', this.t('rep_sync_empty', 'Leer')],
-        };
-        const [cls, label] = map[status] || map.unknown;
-        return `<span class="crm-rpt-badge ${cls}"><i class="bi bi-circle-fill" style="font-size:7px"></i> ${this.esc(label)}</span>`;
     },
 
     _panel(title, icon, bodyHtml, actionsHtml) {
@@ -215,38 +205,20 @@ const CRM_Reporting = {
         const q = d.quality || {};
         const g = d.growth_30d || {};
         const m = d.meetme || {};
-        const sync = d.sync || {};
 
         const kpis = `
-        <div class="crm-stats-bar crm-rpt-kpis">
-            <div class="crm-stat"><span class="crm-stat-val">${this._num(t.contacts)}</span><span class="crm-stat-lbl">${this.esc(this.t('rep_kpi_contacts', 'Kontakte'))}</span></div>
-            <div class="crm-stat"><span class="crm-stat-val">${this._num(t.accounts)}</span><span class="crm-stat-lbl">${this.esc(this.t('rep_kpi_accounts', 'Accounts'))}</span></div>
-            <div class="crm-stat"><span class="crm-stat-val">${this._num(t.emails)}</span><span class="crm-stat-lbl">${this.esc(this.t('rep_kpi_emails', 'E-Mails'))}</span></div>
-            <div class="crm-stat"><span class="crm-stat-val">${this._num(t.documents)}</span><span class="crm-stat-lbl">${this.esc(this.t('rep_kpi_documents', 'Dokumente'))}</span></div>
-            <div class="crm-stat"><span class="crm-stat-val">${this._num(t.notes)}</span><span class="crm-stat-lbl">${this.esc(this.t('rep_kpi_notes', 'Notizen'))}</span></div>
-        </div>`;
-
-        const syncActions = `
-            <div class="crm-rpt-actions">
-                <button class="crm-new-btn" type="button" onclick="CRM_Reporting.refresh()" title="${this.esc(this.t('rep_refresh', 'Aktualisieren'))}">
-                    <i class="bi bi-arrow-clockwise"></i>
-                </button>
-                <button class="crm-new-btn" type="button" onclick="CRM_Reporting.startSync()">
-                    <i class="bi bi-arrow-repeat"></i> <span>${this.esc(this.t('sync_starten', 'Sync starten'))}</span>
-                </button>
-            </div>`;
-
-        const syncPanel = this._panel(
-            this.t('reporting_sync', 'Reporting & Sync'),
-            'bi-bar-chart',
-            `<div class="crm-rpt-meta">
-                <div><span class="crm-section-label">${this.esc(this.t('rep_last_sync', 'Letzter Sync'))}</span>
-                <div style="font-size:14px;color:var(--abcona-blue,#1a5fb4);margin-top:2px">${this.esc(this._fmtDate(sync.last_sync))}</div></div>
-                <div>${this._syncBadge(sync.status)}</div>
+        <div class="crm-rpt-head">
+            <div class="crm-stats-bar crm-rpt-kpis">
+                <div class="crm-stat"><span class="crm-stat-val">${this._num(t.contacts)}</span><span class="crm-stat-lbl">${this.esc(this.t('rep_kpi_contacts', 'Kontakte'))}</span></div>
+                <div class="crm-stat"><span class="crm-stat-val">${this._num(t.accounts)}</span><span class="crm-stat-lbl">${this.esc(this.t('rep_kpi_accounts', 'Accounts'))}</span></div>
+                <div class="crm-stat"><span class="crm-stat-val">${this._num(t.emails)}</span><span class="crm-stat-lbl">${this.esc(this.t('rep_kpi_emails', 'E-Mails'))}</span></div>
+                <div class="crm-stat"><span class="crm-stat-val">${this._num(t.documents)}</span><span class="crm-stat-lbl">${this.esc(this.t('rep_kpi_documents', 'Dokumente'))}</span></div>
+                <div class="crm-stat"><span class="crm-stat-val">${this._num(t.notes)}</span><span class="crm-stat-lbl">${this.esc(this.t('rep_kpi_notes', 'Notizen'))}</span></div>
             </div>
-            ${d._legacy ? `<div class="crm-rpt-foot"><i class="bi bi-info-circle"></i> ${this.esc(this.t('rep_legacy_api', 'Erweiterte API noch nicht installiert — Basis-Zähler aus /crm/api/sync/status/'))}</div>` : ''}`,
-            syncActions,
-        );
+            <button class="crm-new-btn crm-rpt-refresh" type="button" onclick="CRM_Reporting.refresh()" title="${this.esc(this.t('rep_refresh', 'Aktualisieren'))}">
+                <i class="bi bi-arrow-clockwise"></i>
+            </button>
+        </div>`;
 
         const overviewPanel = this._panel(
             this.t('rep_section_overview', 'Datenübersicht'),
@@ -310,44 +282,18 @@ const CRM_Reporting = {
 
         const foot = d.generated_at
             ? `<div class="crm-rpt-foot">${this.esc(this.t('rep_generated', 'Stand'))}: ${this.esc(this._fmtDate(d.generated_at))}</div>`
-            : '';
+            : (d._legacy ? `<div class="crm-rpt-foot"><i class="bi bi-info-circle"></i> ${this.esc(this.t('rep_live_db', 'Live-Zähler aus der CRM-Datenbank'))}</div>` : '');
 
-        root.innerHTML = kpis + syncPanel + overviewPanel + qualityPanel + growthPanel + meetmePanel + foot;
+        root.innerHTML = kpis + overviewPanel + qualityPanel + growthPanel + meetmePanel + foot;
         this._bindPanels(root);
     },
 
     refresh() {
         this.load();
     },
-
-    async startSync() {
-        try {
-            const r = await fetch('/crm/api/reporting/sync/start/', {
-                method: 'POST',
-                headers: this._headers(true),
-                body: '{}',
-            });
-            let data = {};
-            try { data = await r.json(); } catch (e) { /* HTML error page */ }
-            const msg = data.message || data.error
-                || (r.status === 501
-                    ? this.t('rep_sync_not_wired', 'Sync-Job ist noch nicht angebunden — Daten kommen live aus der DB.')
-                    : r.status === 404
-                    ? this.t('rep_sync_unavailable', 'Sync-Endpoint nicht verfügbar.')
-                    : this.t('sync_gestartet', 'Sync wird gestartet — bitte warten...'));
-            if (typeof window.showToast === 'function') window.showToast(msg);
-            else alert(msg);
-            if (data.ok) setTimeout(() => this.refresh(), 1500);
-        } catch (e) {
-            const msg = this.t('rep_sync_unavailable', 'Sync-Endpoint nicht verfügbar.');
-            if (typeof window.showToast === 'function') window.showToast(msg);
-            else alert(msg);
-        }
-    },
 };
 
 window.CRM_Reporting = CRM_Reporting;
-window.crmStartSync = () => CRM_Reporting.startSync();
 window.crmReportingRefresh = () => CRM_Reporting.refresh();
 
 document.addEventListener('DOMContentLoaded', () => {

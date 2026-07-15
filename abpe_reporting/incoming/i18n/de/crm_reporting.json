@@ -15,6 +15,7 @@
         "rep_legacy_api": "Erweiterte API noch nicht installiert — Basis-Zähler aus /crm/api/sync/status/",
         "rep_sync_unavailable": "Sync-Endpoint noch nicht verfügbar. Bitte reporting_views.py installieren.",
         "rep_generated": "Stand",
+        "rep_live_db": "Live-Zähler aus der CRM-Datenbank",
         "rep_kpi_contacts": "Kontakte",
         "rep_kpi_accounts": "Accounts",
         "rep_kpi_emails": "E-Mails",

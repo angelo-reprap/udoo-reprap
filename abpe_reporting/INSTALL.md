@@ -64,10 +64,13 @@ OK: ... documents_total inline via EDMS (_sync_documents_total)
 
 Danach Test — muss **200** sein:
 
-## Frontend (falls noch nicht)
+## Frontend (Reporting UI)
 
 ```bash
 BASE='https://raw.githubusercontent.com/angelo-reprap/udoo-reprap/cursor/reporting-overhaul-c24e/abpe_reporting/incoming'
-curl -sL "$BASE/mod-crm-reporting.js" -o apps/abpe_crm/static/abpe_crm/js/mod-crm-reporting.js
+curl -fsSL "$BASE/mod-crm-reporting.js" -o apps/abpe_crm/static/abpe_crm/js/mod-crm-reporting.js
 python manage.py collectstatic --noinput
+supervisorctl restart abpe-django
 ```
+
+Danach **Strg+F5** auf `/crm/reporting/` — KPIs in einer Zeile, kein Sync-Panel mehr.
