@@ -16,9 +16,6 @@ python3 Archiv/backup_restore.py -save apps/abpe_ui/templates/abpe_ui/components
 python3 Archiv/backup_restore.py -save apps/abpe_ui/templates/abpe_ui/modules/email_studio/module.json -m "$B"
 python3 Archiv/backup_restore.py -save apps/abpe_email_studio/views.py -m "$B"
 python3 Archiv/backup_restore.py -save apps/abpe_crm/views.py -m "$B"
-
-# Neues Modul-Verzeichnis (falls noch nicht vorhanden)
-mkdir -p apps/abpe_ui/templates/abpe_ui/modules/email
 ```
 
 ## 2. Deploy aus Repo
@@ -45,10 +42,16 @@ git show $BR:$R/abpe_ui/incoming/sidebar.html \
   > /opt/abpe/backend/apps/abpe_ui/templates/abpe_ui/components/sidebar.html
 
 # Views (active=email)
-git show $BR:$R/email_studio/incoming/views.py \
-  > /opt/abpe/backend/apps/abpe_email_studio/views.py
-git show $BR:$R/abpe_crm/incoming/views.py \
-  > /opt/abpe/backend/apps/abpe_crm/views.py
+# ⚠ NICHT die ganze views.py kopieren — Live-Code weicht vom Repo ab!
+# Nur _base_context patchen (siehe HOTFIX-rollback.sh oder unten):
+#
+#   sed -i "s/'active_module': 'email_studio',/'active_module': 'email',\n        'active':        'email',\n        'active_subpage': 'studio',/" \
+#     /opt/abpe/backend/apps/abpe_email_studio/views.py
+#
+# CRM compose — zwei Zeilen in ctx.update nach signatures_list:
+#   'active': 'email',  'active_subpage': 'compose',
+#
+# Bei 500 nach Deploy: bash Repo_abpe/abpe_ui/incoming/modules/email/HOTFIX-rollback.sh
 
 supervisorctl restart abpe-django
 ```
