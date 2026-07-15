@@ -165,7 +165,7 @@ class EmailRenderer:
         signature_mode=None, signature_id=None, include_signature=None,
     ) -> str:
         from apps.abpe_email_studio.models import SignatureMode, EmailSignature
-        from .services.signature import SignatureResolver
+        from .signature import SignatureResolver
 
         if include_signature is False:
             return ''
