@@ -26,6 +26,7 @@ for L in de en es it fr; do
   cp $R/i18n/$L/help-modal.json $I18N/$L/
 done
 cp $R/help_modal.html $TPL/
+cp $R/ui-components.css /opt/abpe/backend/apps/abpe_ui/static/abpe_ui/css/ui/
 supervisorctl restart abpe-django
 ```
 
@@ -42,6 +43,7 @@ for L in de en es it fr; do
   git show $BR:Repo_abpe/abpe_ui/incoming/i18n/$L/help-modal.json > $I18N/$L/help-modal.json
 done
 git show $BR:Repo_abpe/abpe_ui/incoming/help_modal.html > $TPL/help_modal.html
+git show $BR:Repo_abpe/abpe_ui/incoming/ui-components.css > /opt/abpe/backend/apps/abpe_ui/static/abpe_ui/css/ui/ui-components.css
 supervisorctl restart abpe-django
 ```
 
