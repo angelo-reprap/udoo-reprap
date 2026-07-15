@@ -236,7 +236,9 @@
         "preview_test_email": "max@example.com",
         "sig_greeting": "Mit freundlichen Grüßen",
         "modules_empty": "Keine Module gefunden",
-        "btn_saveas": "Speichern unter"
+        "btn_saveas": "Speichern unter",
+        "confirm_default": "Sind Sie sicher?",
+        "confirm_delete_translation": "Übersetzung wirklich löschen?"
     },
     "help": {
         "title": "Email Studio — Anleitung",

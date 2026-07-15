@@ -164,7 +164,7 @@ window.ESStudio = (() => {
     }
 
     function _deleteBlock(block) {
-        if (!ES.confirm('es.confirm_delete', t('confirm_delete'))) return;
+        if (!ES.confirm('es.confirm_delete')) return;
         block.remove();
         _scheduleUndoSnapshot();
         _syncCanvasToCode();
@@ -1151,7 +1151,7 @@ window.ESStudio = (() => {
         },
         deleteLang:     async function(lang) {
             if (!_templateId) return;
-            if (!ES.confirm('es.confirm_delete_sig',`${lang.toUpperCase()} löschen?`)) return;
+            if (!ES.confirm('es.confirm_delete_translation')) return;
             try {
                 await fetch(`/email-studio/api/templates/${_templateId}/translation/${lang}/`,
                     {method:'DELETE',headers:{'X-CSRFToken':ES.csrf()}});

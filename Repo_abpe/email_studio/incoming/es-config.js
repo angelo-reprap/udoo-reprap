@@ -27,7 +27,7 @@ window.ESConfig = (() => {
                     statusEl.className = 'es-smtp-ok';
                     statusEl.innerHTML =
                         '<i class="bi bi-check-circle"></i> ' +
-                        (window.i18nData?.es?.smtp_ok || 'Verbindung OK');
+                        (window.i18nData?.es?.smtp_ok || '');
                 }
                 console.log('SMTP Test OK:', data.message);
             } catch(err) {
@@ -35,7 +35,7 @@ window.ESConfig = (() => {
                     statusEl.className = 'es-smtp-fail';
                     statusEl.innerHTML =
                         '<i class="bi bi-x-circle"></i> ' +
-                        (window.i18nData?.es?.smtp_fail || 'Verbindung fehlgeschlagen');
+                        (window.i18nData?.es?.smtp_fail || '');
                 }
                 console.error('SMTP Test fehlgeschlagen:', err);
             } finally {
@@ -49,15 +49,15 @@ window.ESConfig = (() => {
         document.addEventListener('click', async function(e) {
             const btn = e.target.closest('[data-action="delete-sender"]');
             if (!btn) return;
-            if (!ES.confirm('es.confirm_delete_sender', 'Absender-Konto löschen?')) return;
+            if (!ES.confirm('es.confirm_delete_sender')) return;
             const id = btn.dataset.id;
             try {
                 await ES.api.delete(ES.apiUrl(`senders/${id}/`));
                 btn.closest('[data-sender-row]')?.remove();
-                ES.notify.success('es.deleted', 'Gelöscht');
+                ES.notify.success('es.deleted');
             } catch(err) {
                 console.error('Löschen fehlgeschlagen:', err);
-                ES.notify.error('es.error_delete', 'Fehler beim Löschen');
+                ES.notify.error('es.error_delete');
             }
         });
     }
@@ -67,15 +67,15 @@ window.ESConfig = (() => {
         document.addEventListener('click', async function(e) {
             const btn = e.target.closest('[data-action="delete-signature"]');
             if (!btn) return;
-            if (!ES.confirm('es.confirm_delete_sig', 'Signatur löschen?')) return;
+            if (!ES.confirm('es.confirm_delete_sig')) return;
             const id = btn.dataset.id;
             try {
                 await ES.api.delete(ES.apiUrl(`signatures/${id}/`));
                 btn.closest('[data-sig-row]')?.remove();
-                ES.notify.success('es.deleted', 'Gelöscht');
+                ES.notify.success('es.deleted');
             } catch(err) {
                 console.error('Löschen fehlgeschlagen:', err);
-                ES.notify.error('es.error_delete', 'Fehler beim Löschen');
+                ES.notify.error('es.error_delete');
             }
         });
     }
