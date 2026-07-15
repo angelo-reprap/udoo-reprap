@@ -1,13 +1,9 @@
 #!/usr/bin/env python3
-"""api_sync_status: documents_total aus EDMS (inline, ohne Helper — keine Namenskollision).
-
-Repariert fehlerhafte Patches mit __rep_doc_count() / _crm_edms_document_count(),
-die mit bestehenden View-Funktionen(request) in views.py kollidieren.
+"""api_sync_status: documents_total aus EDMS (inline in api_sync_status only).
 
 Usage:
   cd /opt/abpe/backend
-  curl -fsSL 'https://raw.githubusercontent.com/angelo-reprap/udoo-reprap/cursor/reporting-overhaul-c24e/abpe_reporting/patch_sync_status_documents.py' -o /tmp/patch_sync_status_documents.py
-  python3 /tmp/patch_sync_status_documents.py
+  python3 patch_sync_status_documents.py
 """
 from __future__ import annotations
 
@@ -17,6 +13,7 @@ from pathlib import Path
 
 VIEWS = Path('apps/abpe_crm/views.py')
 MARKER = '_sync_documents_total'
+PATCH_VERSION = 'v4'
 
 INJECT = '''    try:
         from apps.abpe_edms.models import CrmDocument as _EdmsCrmDocument
@@ -25,12 +22,25 @@ INJECT = '''    try:
         _sync_documents_total = 0
 '''
 
-DOC_TOTAL_RE = re.compile(
+DOC_TOTAL_BROKEN = re.compile(
     r"(['\"]documents_total['\"]\s*:\s*)"
     r"(?:CrmDocument\.objects\.count\(\)|__rep_doc_count\s*\(\s*\)|_crm_edms_document_count\s*\(\s*\))\s*,",
 )
 
-# Fehlerhafte no-arg Helper aus früheren Patch-Versuchen entfernen
+DOC_TOTAL_OK = re.compile(
+    rf"documents_total['\"]\s*:\s*{re.escape(MARKER)}\s*,",
+)
+
+API_SYNC_FN = re.compile(
+    r'def api_sync_status\(request\):.*?(?=\n(?:def |@\w|\Z))',
+    re.DOTALL,
+)
+
+API_SYNC_HEAD = re.compile(
+    r'(def api_sync_status\(request\):\n(?:    """.*?"""\n|    \'\'\'.*?\'\'\'\n)?)',
+    re.DOTALL,
+)
+
 BAD_HELPERS = (
     re.compile(
         r'\n\ndef __rep_doc_count\(\):\n'
@@ -43,16 +53,7 @@ BAD_HELPERS = (
     ),
     re.compile(
         r'\n\ndef _crm_edms_document_count\(\):\n'
-        r'    """EDMS-Dokumente zählen \(api_sync_status, ohne Request\)\."""\n'
-        r'    try:\n'
-        r'        from apps\.abpe_edms\.models import CrmDocument\n'
-        r'        return CrmDocument\.objects\.count\(\)\n'
-        r'    except Exception:\n'
-        r'        return 0\n',
-        re.MULTILINE,
-    ),
-    re.compile(
-        r'\n\ndef _crm_edms_document_count\(\):\n'
+        r'(?:    """.*?"""\n)?'
         r'    try:\n'
         r'        from apps\.abpe_edms\.models import CrmDocument\n'
         r'        return CrmDocument\.objects\.count\(\)\n'
@@ -62,67 +63,73 @@ BAD_HELPERS = (
     ),
 )
 
-API_SYNC_HEAD = re.compile(
-    r'(def api_sync_status\(request\):\n(?:    """.*?"""\n|    \'\'\'.*?\'\'\'\n)?)',
-    re.DOTALL,
-)
+
+def _remove_bad_helpers(text: str) -> tuple[str, int]:
+    removed = 0
+    for bad in BAD_HELPERS:
+        while bad.search(text):
+            text = bad.sub('\n', text, count=1)
+            removed += 1
+    return text, removed
 
 
-def _already_patched(text: str) -> bool:
-    return bool(
-        re.search(
-            rf"documents_total['\"]\s*:\s*{re.escape(MARKER)}\s*,",
-            text,
-        )
-        and MARKER in text
-        and 'def api_sync_status' in text
-    )
+def _patch_api_sync_block(block: str) -> str:
+    if DOC_TOTAL_OK.search(block):
+        return block
 
+    head = API_SYNC_HEAD.match(block)
+    if not head:
+        return block
 
-def _inject_block(text: str) -> str:
-    m = API_SYNC_HEAD.search(text)
-    if not m:
-        return text
-    body_start = m.end()
-    before_return = text[body_start : body_start + 400].split('return', 1)[0]
-    if MARKER in before_return:
-        return text
-    return text[:body_start] + INJECT + text[body_start:]
+    rest = block[head.end() :]
+    before_return = rest.split('return', 1)[0]
+    if MARKER not in before_return:
+        rest = INJECT + rest
+
+    rest = DOC_TOTAL_BROKEN.sub(rf'\1{MARKER},', rest, count=1)
+    return head.group(1) + rest
 
 
 def patch() -> int:
+    print(f'patch_sync_status_documents {PATCH_VERSION}')
     path = VIEWS
     if not path.is_file():
         print(f'FEHLER: {path} nicht gefunden', file=sys.stderr)
         return 1
 
     text = path.read_text(encoding='utf-8')
-    changed = False
+    text, removed = _remove_bad_helpers(text)
+    if removed:
+        print(f'OK: {removed} fehlerhafte no-arg Helper entfernt')
 
-    for bad in BAD_HELPERS:
-        if bad.search(text):
-            text = bad.sub('\n', text, count=1)
-            changed = True
-            print('OK: fehlerhaften no-arg Helper entfernt')
-
-    if _already_patched(text):
-        if changed:
-            path.write_text(text, encoding='utf-8')
-        else:
-            print('OK: bereits gepatcht (inline _sync_documents_total)')
-        return 0
-
-    if not DOC_TOTAL_RE.search(text):
-        print(
-            'WARNUNG: documents_total-Zeile nicht erkannt — grep api_sync_status prüfen',
-            file=sys.stderr,
-        )
+    m = API_SYNC_FN.search(text)
+    if not m:
+        print('FEHLER: def api_sync_status(request) nicht gefunden', file=sys.stderr)
         return 1
 
-    text = _inject_block(text)
-    text = DOC_TOTAL_RE.sub(rf"\1{MARKER},", text, count=1)
+    block = m.group(0)
+    if DOC_TOTAL_OK.search(block) and MARKER in block.split('return', 1)[0]:
+        if removed:
+            path.write_text(text, encoding='utf-8')
+        print('OK: api_sync_status bereits korrekt')
+        return 0
+
+    if not DOC_TOTAL_BROKEN.search(block):
+        print(
+            'WARNUNG: documents_total in api_sync_status nicht erkannt — bitte manuell prüfen',
+            file=sys.stderr,
+        )
+        print(block[:500], file=sys.stderr)
+        return 1
+
+    new_block = _patch_api_sync_block(block)
+    if new_block == block:
+        print('FEHLER: Patch konnte api_sync_status nicht ändern', file=sys.stderr)
+        return 1
+
+    text = text[: m.start()] + new_block + text[m.end() :]
     path.write_text(text, encoding='utf-8')
-    print(f'OK: {path} — documents_total inline via EDMS ({MARKER})')
+    print(f'OK: {path} — api_sync_status nutzt inline EDMS ({MARKER})')
     return 0
 
 
