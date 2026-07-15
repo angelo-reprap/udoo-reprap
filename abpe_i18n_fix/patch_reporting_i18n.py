@@ -33,6 +33,7 @@ KEYS_DE = {
     'rep_sync_empty': 'Leer',
     'rep_legacy_api': 'Erweiterte API noch nicht installiert — Basis-Zähler aus /crm/api/sync/status/',
     'rep_sync_unavailable': 'Sync-Endpoint noch nicht verfügbar. Bitte reporting_views.py installieren.',
+    'rep_sync_not_wired': 'Sync-Job ist noch nicht angebunden — Daten kommen live aus der DB.',
     'rep_generated': 'Stand',
     'rep_kpi_contacts': 'Kontakte',
     'rep_kpi_accounts': 'Accounts',

@@ -28,7 +28,13 @@ const CRM_Reporting = {
         const s = document.createElement('style');
         s.id = 'crm-reporting-styles';
         s.textContent = [
-            '.crm-rpt-kpis{margin:12px 12px 0}',
+            '.crm-rpt-kpis{margin:12px;display:flex;flex-wrap:nowrap;gap:8px;max-width:42%;width:100%;box-sizing:border-box}',
+            '.crm-rpt-kpis .crm-stat{flex:1 1 0;min-width:0;padding:8px 6px;text-align:center}',
+            '.crm-rpt-kpis .crm-stat-val{font-size:clamp(13px,1.05vw,17px);line-height:1.2;display:block}',
+            '.crm-rpt-kpis .crm-stat-lbl{font-size:10.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;margin-top:2px}',
+            '@media (max-width:1200px){.crm-rpt-kpis{max-width:58%}}',
+            '@media (max-width:900px){.crm-rpt-kpis{max-width:100%;flex-wrap:wrap}.crm-rpt-kpis .crm-stat{flex:1 1 calc(20% - 8px);min-width:68px}}',
+            '@media (max-width:560px){.crm-rpt-kpis .crm-stat{flex:1 1 calc(33.33% - 8px)}}',
             '.crm-rpt-meta{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;padding:12px 16px}',
             '.crm-rpt-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px}',
             '.crm-rpt-badge.ok{background:var(--status-green-bg,#d1e7dd);color:#0f5132}',
@@ -324,7 +330,9 @@ const CRM_Reporting = {
             let data = {};
             try { data = await r.json(); } catch (e) { /* HTML error page */ }
             const msg = data.message || data.error
-                || (r.status === 404
+                || (r.status === 501
+                    ? this.t('rep_sync_not_wired', 'Sync-Job ist noch nicht angebunden — Daten kommen live aus der DB.')
+                    : r.status === 404
                     ? this.t('rep_sync_unavailable', 'Sync-Endpoint nicht verfügbar.')
                     : this.t('sync_gestartet', 'Sync wird gestartet — bitte warten...'));
             if (typeof window.showToast === 'function') window.showToast(msg);
