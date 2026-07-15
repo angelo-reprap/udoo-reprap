@@ -99,6 +99,191 @@ class EmailRenderer:
         text = re.sub(r'<[^>]+>', '', html)
         return self._render(text, all_vars)
 
+    def get_default_preview_vars(self, user=None) -> dict:
+        """Beispieldaten für die Live-Vorschau im Editor."""
+        now = timezone.now()
+        vars = {
+            'name':            'Max Mustermann',
+            'first_name':      'Max',
+            'last_name':       'Mustermann',
+            'vorname':         'Max',
+            'nachname':        'Mustermann',
+            'email':           'max@example.de',
+            'firma':           'Muster GmbH',
+            'unternehmen':     'Muster GmbH',
+            'termin_datum':    now.strftime('%d.%m.%Y'),
+            'termin_zeit':     '14:00 Uhr',
+            'termin_uhrzeit':  '14:00 Uhr',
+            'raum':            'Meetingraum 3',
+            'einwahl_info':    'Einwahl: +49 30 123456, PIN 4711',
+            'teilnehmer_liste_html': (
+                '<ul><li>Max Mustermann</li><li>Erika Musterfrau</li></ul>'
+            ),
+            'strasse':         'Musterstraße 1',
+            'plz':             '12345',
+            'ort':             'Musterstadt',
+            'telefon':         '+49 123 456789',
+            'link':            'https://abpe.win.abcona.info',
+            'button_url':      'https://abpe.win.abcona.info',
+            'button_text':     'Zum Portal',
+            'cv_link':         'https://abpe.win.abcona.info/cv/beispiel',
+            'cv_version':      'v3',
+            'created_date':    now.strftime('%d.%m.%Y'),
+            'task_ref':        'TASK-4711',
+            'signature':       'Mit freundlichen Grüßen\nMax Mustermann\nmax@example.de',
+            'signature_name':  'Max Mustermann',
+            'berater_name':    'Tanja Groß',
+            'kandidat_name':   'Max Mustermann',
+            'betreff':         'Beispiel-Betreff',
+        }
+        vars.update(self._get_user_vars(user))
+        if not vars.get('sender_name'):
+            vars['sender_name'] = 'Max Mustermann'
+        if not vars.get('sender_email'):
+            vars['sender_email'] = 'max@example.de'
+        return vars
+
+    def merge_preview_variables(self, variables: dict = None, user=None) -> dict:
+        return {**self.get_default_preview_vars(user), **(variables or {})}
+
+    def _expand_placeholder_vars(self, variables: dict, *texts: str) -> dict:
+        """Ergänzt fehlende Platzhalter aus dem Template-Text."""
+        pattern = re.compile(r'\{(\w+)\}')
+        found = set()
+        for text in texts:
+            if text:
+                found.update(pattern.findall(text))
+        defaults = self.get_default_preview_vars()
+        expanded = dict(variables)
+        for key in found:
+            if key not in expanded:
+                expanded[key] = defaults.get(key, f'[{key}]')
+        return expanded
+
+    def _resolve_preview_signature_html(
+        self, template, all_vars: dict, user=None,
+        signature_mode=None, signature_id=None, include_signature=None,
+    ) -> str:
+        from apps.abpe_email_studio.models import SignatureMode, EmailSignature
+        from .signature import SignatureResolver
+
+        if include_signature is False:
+            return ''
+        mode = signature_mode or template.signature_mode
+        if mode == SignatureMode.NONE:
+            return ''
+        if include_signature is None and not template.include_signature:
+            return ''
+
+        if mode == SignatureMode.TEAM:
+            html = (
+                '<div style="margin-top:16px;">'
+                '<p>Mit freundlichen Grüßen<br><strong>abcona e. K. Team</strong></p>'
+                '</div>'
+            )
+            return self._render(html, all_vars)
+
+        if mode == SignatureMode.USER:
+            sig = None
+            if user and user.email:
+                sig = EmailSignature.objects.filter(
+                    sender_account__email=user.email
+                ).first()
+            if not sig:
+                sig = SignatureResolver().resolve(template, user)
+            if sig and sig.html_body:
+                return self._render(sig.html_body, all_vars)
+            html = (
+                '<div style="margin-top:16px;">'
+                '<p>Mit freundlichen Grüßen<br><strong>{sender_name}</strong>'
+                '<br>{sender_email}</p></div>'
+            )
+            return self._render(html, all_vars)
+
+        if mode == SignatureMode.FIXED:
+            sig = None
+            if signature_id:
+                sig = EmailSignature.objects.filter(pk=signature_id).first()
+            if not sig:
+                sig = template.signature
+            if sig and sig.html_body:
+                sig_vars = {**all_vars, 'signature_name': sig.name}
+                return self._render(sig.html_body, sig_vars)
+            return ''
+
+        if mode == SignatureMode.DYNAMIC:
+            sig = SignatureResolver().resolve(template, user)
+            if sig and sig.html_body:
+                return self._render(sig.html_body, all_vars)
+            placeholder = (
+                '<div style="margin-top:16px;color:#888;">'
+                '<p>{signature}</p></div>'
+            )
+            return self._render(placeholder, all_vars)
+
+        return ''
+
+    def render_preview(
+        self, template, variables: dict = None, user=None, *,
+        html_body=None, subject=None, text_body=None,
+        signature_mode=None, signature_id=None, include_signature=None,
+    ) -> dict:
+        """Rendert Editor-Vorschau mit aktuellem HTML und Beispieldaten."""
+        from apps.abpe_email_studio.models import SignatureMode
+
+        merged = self.merge_preview_variables(variables, user)
+        subj_src = subject if subject is not None else template.subject
+        html_src = html_body if html_body is not None else template.html_body
+        txt_src = text_body if text_body is not None else (template.text_body or '')
+
+        merged = self._expand_placeholder_vars(merged, subj_src or '', html_src or '', txt_src or '')
+        all_vars = {
+            **self._get_system_vars(),
+            **merged,
+            'subject': subj_src or '',
+        }
+
+        html = html_src
+        html = self._resolve_modules(html, all_vars)
+        html = self._render(html, all_vars)
+
+        sig_html = self._resolve_preview_signature_html(
+            template, all_vars, user,
+            signature_mode=signature_mode,
+            signature_id=signature_id,
+            include_signature=include_signature,
+        )
+        mode = signature_mode or template.signature_mode
+        if sig_html and mode in (SignatureMode.FIXED, SignatureMode.DYNAMIC):
+            html = html + sig_html
+
+        vars_for_subj = {k: v for k, v in all_vars.items() if k != 'subject'}
+        rendered_subject = self.render_subject(subj_src or '', vars_for_subj)
+
+        if txt_src:
+            txt = self._resolve_modules_txt(txt_src, all_vars)
+            rendered_text = self._render(txt, all_vars)
+        else:
+            rendered_text = re.sub(r'<[^>]+>', '\n', html)
+            rendered_text = re.sub(r'\n{3,}', '\n\n', rendered_text).strip()
+
+        if sig_html and mode in (SignatureMode.FIXED, SignatureMode.DYNAMIC):
+            sig_text = re.sub(r'<[^>]+>', '', sig_html).strip()
+            if sig_text:
+                rendered_text = f'{rendered_text}\n\n{sig_text}' if rendered_text else sig_text
+
+        return {
+            'subject': rendered_subject,
+            'html':    self._strip_scripts(html),
+            'text':    rendered_text,
+        }
+
+    def _strip_scripts(self, html: str) -> str:
+        if not html:
+            return ''
+        html = re.sub(r'<script\b[^>]*>[\s\S]*?</script>', '', html, flags=re.I)
+        return re.sub(r'<script\b[^>]*\/>', '', html, flags=re.I)
+
     def html_to_text_via_deepseek(self, html: str) -> str:
         """Konvertiert HTML zu sauberem Plaintext via Deepseek."""
         import requests

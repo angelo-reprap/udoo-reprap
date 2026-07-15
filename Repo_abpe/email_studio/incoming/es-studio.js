@@ -17,6 +17,38 @@ window.ESStudio = (() => {
     const UNDO_MAX    = 20;
     const MILESTONE_MAX = 10;
 
+    const DUMMY_VARS = {
+        name:           'Max Mustermann',
+        first_name:     'Max',
+        last_name:      'Mustermann',
+        vorname:        'Max',
+        nachname:       'Mustermann',
+        email:          'max@example.de',
+        firma:          'Muster GmbH',
+        unternehmen:    'Muster GmbH',
+        termin_datum:   '15.07.2026',
+        termin_zeit:    '14:00 Uhr',
+        termin_uhrzeit: '14:00 Uhr',
+        raum:           'Meetingraum 3',
+        einwahl_info:   'Einwahl: +49 30 123456, PIN 4711',
+        teilnehmer_liste_html: '<ul><li>Max Mustermann</li><li>Erika Musterfrau</li></ul>',
+        strasse:        'Musterstraße 1',
+        plz:            '12345',
+        ort:            'Musterstadt',
+        telefon:        '+49 123 456789',
+        link:           'https://abpe.win.abcona.info',
+        button_url:     'https://abpe.win.abcona.info',
+        button_text:    'Zum Portal',
+        cv_link:        'https://abpe.win.abcona.info/cv/beispiel',
+        cv_version:     'v3',
+        created_date:   '15.07.2026',
+        task_ref:       'TASK-4711',
+        signature:      'Mit freundlichen Grüßen\nMax Mustermann\nmax@example.de',
+        signature_name: 'Max Mustermann',
+        berater_name:   'Tanja Groß',
+        kandidat_name:  'Max Mustermann',
+    };
+
     /* ── t() Hilfsfunktion ── */
     function t(key, fallback) {
         return window.i18nData?.es?.[key] || fallback || key;
@@ -38,15 +70,19 @@ window.ESStudio = (() => {
         _initMilestone();
         _initSignaturePanel();
         _initRestorePopup();
+        _initPreviewRefresh();
 
         if (_currentMode === 'visual') {
             _initWysiwyg();
         }
 
         if (_templateId) {
-            setTimeout(_loadPreview, 200);
+            setTimeout(() => _loadPreview(false), 200);
             _loadVersionsBar();
         }
+
+        const subjectInput = document.getElementById('es-subject-input');
+        if (subjectInput) subjectInput.addEventListener('input', _schedulePreview);
 
         const editLang = window.ES_CONFIG?.editLang;
         if (editLang) {
@@ -428,64 +464,133 @@ window.ESStudio = (() => {
      * ══════════════════════════════════════════════════════ */
     function _schedulePreview() {
         clearTimeout(_previewTimer);
-        _previewTimer = setTimeout(_loadPreview, 600);
+        _previewTimer = setTimeout(() => _loadPreview(false), 600);
     }
 
-    async function _loadPreview() {
+    function _collectPreviewPayload() {
+        if (_currentMode === 'visual') _syncCanvasToCode();
+
+        const sigModeEl  = document.querySelector('input[name="es-sig-mode"]:checked');
+        const sigFixedEl = document.getElementById('es-sig-fixed-select');
+        const sigMode    = sigModeEl?.value || 'USER';
+
+        const payload = {
+            variables:         _expandPreviewVars(
+                document.getElementById('es-html-editor')?.value || '',
+                document.getElementById('es-subject-input')?.value || '',
+                document.getElementById('es-txt-editor')?.value || ''
+            ),
+            mode:              'both',
+            html_body:         document.getElementById('es-html-editor')?.value || '',
+            subject:           document.getElementById('es-subject-input')?.value || '',
+            text_body:         document.getElementById('es-txt-editor')?.value || '',
+            signature_mode:    sigMode,
+            include_signature: sigMode !== 'NONE',
+        };
+
+        if (sigMode === 'FIXED' && sigFixedEl?.value) {
+            payload.signature_id = parseInt(sigFixedEl.value, 10);
+        }
+
+        const senderBtn = document.querySelector('.es-mode-btn.active');
+        if (senderBtn?.dataset.mode) {
+            payload.sender_mode = senderBtn.dataset.mode;
+        }
+
+        return payload;
+    }
+
+    function _initPreviewRefresh() {
+        const btn = document.getElementById('es-preview-refresh-btn');
+        if (btn) {
+            btn.addEventListener('click', () => _loadPreview(true));
+        }
+    }
+
+    async function _loadPreview(manual = false) {
         const editLang = window.ES_CONFIG?.editLang || '';
         const htmlBody = document.getElementById('es-html-editor')?.value || '';
         const subject  = document.getElementById('es-subject-input')?.value || '';
 
         const subjEl = document.getElementById('es-preview-subject');
-        if (subjEl && subject) subjEl.textContent = subject;
+        const bodyEl = document.getElementById('es-preview-body');
+        const refreshBtn = document.getElementById('es-preview-refresh-btn');
+
+        if (manual && refreshBtn) refreshBtn.classList.add('es-preview-refreshing');
+        if (manual && bodyEl) bodyEl.classList.add('es-preview-loading');
+
+        if (subjEl && subject) subjEl.textContent = _applyDummyVarsLocal(subject);
 
         if (!_templateId || editLang) {
-            if (htmlBody) _renderInIframe(htmlBody);
+            if (htmlBody) _renderInIframe(_applyDummyVarsLocal(htmlBody));
+            if (manual && refreshBtn) refreshBtn.classList.remove('es-preview-refreshing');
+            if (manual && bodyEl) bodyEl.classList.remove('es-preview-loading');
             return;
         }
 
         try {
             const data = await ES.api.post(
                 ES.apiUrl(`templates/${_templateId}/preview/`),
-                { variables: _collectTestVars(), mode: 'both', lang: editLang }
+                _collectPreviewPayload()
             );
             if (data.html) _renderInIframe(data.html);
             if (subjEl && data.subject) subjEl.textContent = data.subject;
             const fromEl = document.getElementById('es-preview-from');
             if (fromEl && data.from_email) fromEl.textContent = data.from_email;
         } catch(err) {
-            if (htmlBody) _renderInIframe(htmlBody);
+            console.error('Vorschau fehlgeschlagen:', err);
+            if (htmlBody) _renderInIframe(_applyDummyVarsLocal(htmlBody));
+        } finally {
+            if (manual && refreshBtn) refreshBtn.classList.remove('es-preview-refreshing');
+            if (manual && bodyEl) bodyEl.classList.remove('es-preview-loading');
         }
+    }
+
+    function _expandPreviewVars(...texts) {
+        const vars = { ...DUMMY_VARS, ..._collectTestVars() };
+        const re = /\{(\w+)\}/g;
+        texts.forEach(text => {
+            if (!text) return;
+            let m;
+            while ((m = re.exec(text)) !== null) {
+                if (!(m[1] in vars)) vars[m[1]] = `[${m[1]}]`;
+            }
+        });
+        return vars;
+    }
+
+    function _applyDummyVarsLocal(html) {
+        const vars = _expandPreviewVars(html);
+        let out = html;
+        Object.entries(vars).forEach(([key, value]) => {
+            out = out.split(`{${key}}`).join(String(value ?? ''));
+        });
+        return out;
+    }
+
+    function _sanitizePreviewHtml(html) {
+        if (!html) return '';
+        let out = html;
+        out = out.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
+        out = out.replace(/<script\b[^>]*\/>/gi, '');
+        out = out.replace(/\s+on\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, '');
+        return out;
     }
 
     function _renderInIframe(html) {
         const bodyEl = document.getElementById('es-preview-body');
         if (!bodyEl) return;
-        let iframe = bodyEl.querySelector('iframe.es-preview-iframe');
-        if (!iframe) {
+
+        const safeHtml = _sanitizePreviewHtml(html);
+        let wrap = bodyEl.querySelector('.es-preview-html');
+        if (!wrap) {
             bodyEl.innerHTML = '';
-            bodyEl.style.padding = '0';
-            iframe = document.createElement('iframe');
-            iframe.className   = 'es-preview-iframe';
-            iframe.style.cssText = 'width:100%;height:300px;border:none;display:block;';
-            iframe.sandbox = 'allow-same-origin allow-scripts';
-            bodyEl.appendChild(iframe);
+            bodyEl.style.padding = '10px';
+            wrap = document.createElement('div');
+            wrap.className = 'es-preview-html';
+            bodyEl.appendChild(wrap);
         }
-        try {
-            const doc     = iframe.contentDocument || iframe.contentWindow?.document;
-            const safeHtml = html.replace(/<script[\s\S]*?<\/script>/gi, '');
-            doc.open();
-            doc.write(safeHtml);
-            doc.close();
-            requestAnimationFrame(() => {
-                try {
-                    const h = doc.body?.scrollHeight;
-                    if (h && h > 50) iframe.style.height = (h + 20) + 'px';
-                } catch(e) {}
-            });
-        } catch(e) {
-            console.error('iframe render Fehler:', e);
-        }
+        wrap.innerHTML = safeHtml;
     }
 
     function _collectTestVars() {
@@ -866,8 +971,14 @@ window.ESStudio = (() => {
             radio.addEventListener('change', function() {
                 _updateSigPanel(this.value);
                 _updateSigBlock(this.value);
+                _schedulePreview();
             });
         });
+
+        const sigFixedEl = document.getElementById('es-sig-fixed-select');
+        if (sigFixedEl) {
+            sigFixedEl.addEventListener('change', _schedulePreview);
+        }
 
         const current = document.querySelector('input[name="es-sig-mode"]:checked');
         if (current) _updateSigPanel(current.value);

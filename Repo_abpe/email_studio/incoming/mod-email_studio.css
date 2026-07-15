@@ -2202,6 +2202,46 @@
     font-weight: 600;
     color: var(--abcona-blue);
 }
+.es-preview-dummy-hint {
+    font-size: 9px;
+    padding: 1px 6px;
+}
+.es-preview-refresh-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    padding: 3px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+.es-preview-refresh-btn:hover {
+    border-color: var(--abcona-blue);
+    color: var(--abcona-blue);
+}
+.es-preview-refresh-btn.es-preview-refreshing .bi-arrow-clockwise {
+    animation: es-spin 0.8s linear infinite;
+}
+.es-preview-html {
+    width: 100%;
+    overflow: hidden;
+    text-align: left;
+}
+.es-preview-html img {
+    max-width: 100%;
+    height: auto;
+}
+.es-preview-body.es-preview-loading {
+    opacity: 0.55;
+    pointer-events: none;
+}
+@keyframes es-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
 .es-compat-title {
     font-size: 10px;
     font-weight: 600;

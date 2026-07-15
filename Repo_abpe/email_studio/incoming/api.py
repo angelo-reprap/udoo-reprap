@@ -325,20 +325,45 @@ class TemplatePreviewAPI(LoginRequiredMixin, View):
         from .services.renderer import EmailRenderer
         renderer = EmailRenderer()
 
-        from_email = request.user.email if tpl.sender_mode == SenderMode.USER else (
-            tpl.sender_account.email if tpl.sender_account else 'noreply@abcona.de'
+        sender_mode = data.get('sender_mode') or tpl.sender_mode
+        if sender_mode == SenderMode.USER:
+            from_email = request.user.email or 'max@example.de'
+        elif sender_mode == SenderMode.AUTO:
+            from_email = 'noreply@abcona.de'
+        else:
+            from_email = (
+                tpl.sender_account.email if tpl.sender_account else 'noreply@abcona.de'
+            )
+
+        signature_mode = data.get('signature_mode')
+        signature_id   = data.get('signature_id')
+        include_sig    = data.get('include_signature')
+        if include_sig is None and signature_mode == 'NONE':
+            include_sig = False
+
+        preview = renderer.render_preview(
+            tpl,
+            variables,
+            request.user,
+            html_body=data.get('html_body'),
+            subject=data.get('subject'),
+            text_body=data.get('text_body'),
+            signature_mode=signature_mode,
+            signature_id=signature_id,
+            include_signature=include_sig,
         )
 
         result = {
-            'from_email': from_email,
-            'sender_mode': tpl.sender_mode,
-            'subject':    renderer.render_subject(tpl.subject, variables),
+            'from_email':   from_email,
+            'sender_mode':  sender_mode,
+            'subject':      preview['subject'],
+            'dummy_vars':   renderer.get_default_preview_vars(request.user),
         }
 
         if mode in ['html', 'both']:
-            result['html'] = renderer.render_html(tpl, variables, request.user)
+            result['html'] = preview['html']
         if mode in ['txt', 'both']:
-            result['text'] = renderer.render_text(tpl, variables)
+            result['text'] = preview['text']
 
         return JsonResponse(result)
 
