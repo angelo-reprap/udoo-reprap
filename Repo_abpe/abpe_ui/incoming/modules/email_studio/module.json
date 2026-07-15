@@ -17,11 +17,19 @@
     ],
     "static": {
         "css": [
-            "mod/mod-email_studio.css"
+            "mod/mod-email_studio.css",
+            "mod/mod-es-components.css"
         ],
         "js": [
-            "mod/mod-email_studio.js"
+            "email_studio/js/es-core.js"
         ]
+    },
+    "_static_pages": {
+        "_note": "Seiten-Skripte in template extra_js bis Phase B static-Loader",
+        "index": ["email_studio/js/es-templates.js"],
+        "studio": ["email_studio/js/es-studio.js"],
+        "log": ["email_studio/js/es-log.js"],
+        "config": ["email_studio/js/es-config.js"]
     },
     "subpages": [
         {
