@@ -565,10 +565,10 @@
 <script>
 async function _refreshComposeI18n(lang) {
     lang = lang || window.ABPE_CONFIG?.current_lang || 'de';
-    if (typeof loadLanguage !== 'function') return;
-    await loadLanguage(lang, 'email_studio');
-    if (typeof loadCrmI18nSupplement === 'function') await loadCrmI18nSupplement(lang, 'crm_emails');
-    if (typeof applyTranslations === 'function') applyTranslations();
+    if (typeof window.loadLanguage !== 'function') return;
+    await window.loadLanguage(lang, 'email_studio');
+    if (typeof window.loadCrmI18nSupplement === 'function') await window.loadCrmI18nSupplement(lang, 'crm_emails');
+    if (typeof window.applyTranslations === 'function') window.applyTranslations();
     const lbl = document.getElementById('es-help-btn-label');
     if (lbl && window.i18nData?.es?.help_btn) lbl.textContent = window.i18nData.es.help_btn;
 }

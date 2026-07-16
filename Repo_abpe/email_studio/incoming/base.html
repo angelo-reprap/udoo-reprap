@@ -121,35 +121,24 @@
 {% block module_js %}
 <script src="{% static 'email_studio/js/es-core.js' %}"></script>
 <script>
-document.addEventListener('languageChanged', function(e) {
-    if (typeof loadLanguage === 'function') {
-        loadLanguage(e.detail.language, 'email_studio').then(() => {
+(function() {
+    function _reloadEsI18n(lang) {
+        if (typeof window.loadLanguage !== 'function') return Promise.resolve();
+        return window.loadLanguage(lang, 'email_studio').then(function() {
             if (typeof applyTranslations === 'function') applyTranslations();
+            var lbl = document.getElementById('es-help-btn-label');
+            if (lbl && window.i18nData && window.i18nData.es && window.i18nData.es.help_btn) {
+                lbl.textContent = window.i18nData.es.help_btn;
+            }
             if (window.ESHelp) ESHelp._helpData = null;
         });
     }
-});
-</script>
-{% endblock %}
-
-{% block extra_js %}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    if (typeof loadLanguage === 'function') {
-        loadLanguage('{{ current_lang|default:"de" }}', 'email_studio').then(() => {
-            const lbl = document.getElementById('es-help-btn-label');
-            if (lbl && window.i18nData?.es?.help_btn) lbl.textContent = window.i18nData.es.help_btn;
-        });
-    }
-});
-document.addEventListener('languageChanged', function(e) {
-    if (typeof loadLanguage === 'function') {
-        loadLanguage(e.detail.language, 'email_studio').then(() => {
-            const lbl = document.getElementById('es-help-btn-label');
-            if (lbl && window.i18nData?.es?.help_btn) lbl.textContent = window.i18nData.es.help_btn;
-            if (window.ESHelp) ESHelp._helpData = null;
-        });
-    }
-}, {capture: true});
+    document.addEventListener('languageSelectorReady', function(e) {
+        _reloadEsI18n(e.detail.language);
+    });
+    document.addEventListener('languageChanged', function(e) {
+        _reloadEsI18n(e.detail.language);
+    });
+})();
 </script>
 {% endblock %}

@@ -12,6 +12,7 @@ let translations = window.i18nData;
 // Letztes aktives Modul merken
 let _currentModuleId = null;
 let _allowedLangs = null;
+let _loadChain = Promise.resolve();
 
 // Portal-Shell-Keys — dürfen von Modul-JSON (z.B. email_studio.help-Objekt) nicht überschrieben werden
 const PORTAL_SHELL_KEYS = new Set([
@@ -129,25 +130,30 @@ async function loadCrmI18nSupplement(lang, moduleId) {
 }
 
 async function loadLanguage(lang, moduleId = null) {
-    console.log(`📚 Lade Sprache: ${lang}${moduleId ? ' [' + moduleId + ']' : ''}`);
-    currentLang = lang;
+    const run = async () => {
+        console.log(`📚 Lade Sprache: ${lang}${moduleId ? ' [' + moduleId + ']' : ''}`);
+        currentLang = lang;
 
-    // translations immer auf window.i18nData zeigen
-    translations = window.i18nData;
+        // translations immer auf window.i18nData zeigen
+        translations = window.i18nData;
 
-    // Core-Dateien immer laden
-    await loadFile(lang, 'core-common.json');
-    await loadFile(lang, 'ui-components.json');
-    await loadFile(lang, 'help-modal.json');
+        // Core-Dateien immer laden
+        await loadFile(lang, 'core-common.json');
+        await loadFile(lang, 'ui-components.json');
+        await loadFile(lang, 'help-modal.json');
 
-    // Modul-JSON laden — neu übergeben oder letztes merken
-    if (moduleId && moduleId !== 'null') _currentModuleId = moduleId;
-    if (_currentModuleId) {
-        await _loadModuleLanguage(lang, _currentModuleId);
-    }
+        // Modul-JSON laden — neu übergeben oder letztes merken
+        if (moduleId && moduleId !== 'null') _currentModuleId = moduleId;
+        if (_currentModuleId) {
+            await _loadModuleLanguage(lang, _currentModuleId);
+        }
 
-    applyTranslations();
-    updateLanguageButtons();
+        applyTranslations();
+        updateLanguageButtons();
+    };
+
+    _loadChain = _loadChain.then(run, run);
+    return _loadChain;
 }
 
 window.applyTranslations = function applyTranslations() {
@@ -254,6 +260,7 @@ async function initLanguage(lang) {
 
 window.setLanguage = setLanguage;
 window.initLanguage = initLanguage;
+window.loadLanguage = loadLanguage;
 window.applyTranslations = applyTranslations;
 window.mergeModuleI18n = _mergeModuleI18n;
 window.loadCrmI18nSupplement = loadCrmI18nSupplement;

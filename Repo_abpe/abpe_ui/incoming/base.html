@@ -63,15 +63,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             console.log('ABpE Portal gestartet');
-            
-            // Sprache aus Window-Config initialisieren
-            if (typeof initLanguage === 'function') {
-                initLanguage(window.ABPE_CONFIG.current_lang);
-            } else if (typeof setLanguage === 'function') {
-                setLanguage(window.ABPE_CONFIG.current_lang);
-            }
-            
-            // Theme Icons aktualisieren
+            // Sprache: core-language.js → initLanguageSelector() (einmalig, kein Doppel-Load)
+
             if (typeof updateThemeIcons === 'function') {
                 updateThemeIcons();
             }
