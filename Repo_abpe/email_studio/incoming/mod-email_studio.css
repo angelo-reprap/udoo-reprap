@@ -1162,6 +1162,51 @@
 .es-rich-editor a {
     color: #163258;
 }
+.es-rich-editor p,
+.es-rich-editor div:not(.es-rich-block-token) {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    min-height: 1em;
+}
+.es-rich-color-wrap {
+    position: relative;
+}
+.es-rich-color-popover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 300;
+    margin-top: 4px;
+    padding: 8px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.12);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 160px;
+}
+.es-rich-swatch {
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.es-rich-swatch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 2px var(--abcona-blue);
+}
+.es-rich-color-input-hidden {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
 
 /* ── TXT-Editor (lesbar, hell) ── */
 .es-txt-editor-wrap {

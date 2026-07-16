@@ -600,10 +600,85 @@ window.ESStudio = (() => {
         return root.innerHTML.trim();
     }
 
+    /** Theme-Farben aus core-theme.css (:root Light) */
+    const THEME_COLORS = [
+        { hex: '#163258', label: 'Abcona Blau' },
+        { hex: '#0f2442', label: 'Blau dunkel' },
+        { hex: '#1e4a7a', label: 'Blau hell' },
+        { hex: '#1e1e1e', label: 'Text primär' },
+        { hex: '#6c757d', label: 'Text sekundär' },
+        { hex: '#10b981', label: 'Grün' },
+        { hex: '#f59e0b', label: 'Gelb' },
+        { hex: '#ef4444', label: 'Rot' },
+        { hex: '#ffffff', label: 'Weiß' },
+        { hex: '#333333', label: 'Dunkelgrau' },
+    ];
+
+    function _richGetBlockParent(node, root) {
+        let el = node;
+        if (el && el.nodeType === Node.TEXT_NODE) el = el.parentElement;
+        const blocks = new Set(['P', 'DIV', 'LI', 'TD', 'TH', 'H1', 'H2', 'H3', 'H4']);
+        while (el && el !== root) {
+            if (blocks.has(el.tagName)) return el;
+            el = el.parentElement;
+        }
+        return null;
+    }
+
+    /** Ausrichtung per Block-style — verhindert „verschwindende" Zeilen bei rechts */
+    function _richSetBlockAlign(align) {
+        const rich = document.getElementById('es-rich-editor');
+        if (!rich) return;
+        rich.focus();
+        const sel = window.getSelection();
+        if (!sel || !sel.rangeCount) return;
+
+        let block = _richGetBlockParent(sel.anchorNode, rich);
+        if (!block) {
+            document.execCommand('formatBlock', false, 'p');
+            block = _richGetBlockParent(sel.anchorNode, rich);
+        }
+        if (!block) {
+            block = rich;
+        }
+        if (block === rich) {
+            const p = document.createElement('p');
+            p.style.textAlign = align;
+            p.style.width = '100%';
+            p.style.display = 'block';
+            p.style.boxSizing = 'border-box';
+            p.innerHTML = rich.innerHTML;
+            rich.innerHTML = '';
+            rich.appendChild(p);
+        } else {
+            block.style.textAlign = align;
+            block.style.width = '100%';
+            block.style.display = 'block';
+            block.style.boxSizing = 'border-box';
+            block.style.minHeight = '1em';
+        }
+        _syncRichToCode();
+        _schedulePreview();
+    }
+
+    function _richApplyColor(hex) {
+        const rich = document.getElementById('es-rich-editor');
+        if (!rich) return;
+        rich.focus();
+        document.execCommand('foreColor', false, hex);
+        _syncRichToCode();
+        _schedulePreview();
+    }
+
     function _richExecCmd(cmd, value) {
         const rich = document.getElementById('es-rich-editor');
         if (!rich) return;
         rich.focus();
+        if (cmd === 'justifyLeft' || cmd === 'justifyCenter' || cmd === 'justifyRight') {
+            const map = { justifyLeft: 'left', justifyCenter: 'center', justifyRight: 'right' };
+            _richSetBlockAlign(map[cmd]);
+            return;
+        }
         if (cmd === 'link') {
             const url = prompt(t('html_link_prompt', 'Link-URL:'), 'https://');
             if (url) document.execCommand('createLink', false, url);
@@ -623,12 +698,54 @@ window.ESStudio = (() => {
         _schedulePreview();
     }
 
+    function _initThemeColorPopover() {
+        const pop = document.getElementById('es-rich-theme-popover');
+        if (!pop) return;
+        pop.innerHTML = THEME_COLORS.map(c =>
+            `<button type="button" class="es-rich-swatch" data-hex="${c.hex}" title="${c.label}"
+                     style="background:${c.hex};${c.hex === '#ffffff' ? 'border:1px solid #ccc' : ''}"></button>`
+        ).join('');
+        pop.querySelectorAll('.es-rich-swatch').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                _richApplyColor(btn.dataset.hex);
+                pop.style.display = 'none';
+            });
+        });
+    }
+
     function _initRichEditor() {
-        document.querySelectorAll('.es-rich-btn').forEach(btn => {
+        _initThemeColorPopover();
+
+        document.querySelectorAll('.es-rich-btn[data-cmd]').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 _richExecCmd(this.dataset.cmd, this.dataset.value);
             });
+        });
+
+        const themeBtn = document.getElementById('es-rich-theme-btn');
+        const themePop = document.getElementById('es-rich-theme-popover');
+        themeBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (!themePop) return;
+            themePop.style.display = themePop.style.display === 'none' ? 'flex' : 'none';
+        });
+
+        const colorInput = document.getElementById('es-rich-color-input');
+        document.getElementById('es-rich-custom-color-btn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            colorInput?.click();
+        });
+        colorInput?.addEventListener('input', () => {
+            if (colorInput.value) _richApplyColor(colorInput.value);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.es-rich-color-wrap')) {
+                if (themePop) themePop.style.display = 'none';
+            }
         });
 
         document.getElementById('es-rich-fontsize')?.addEventListener('change', function() {

@@ -773,15 +773,17 @@
                     </button>
                 </div>
                 <span class="es-rich-toolbar-sep"></span>
-                <div class="es-rich-toolbar-group">
-                    <button type="button" class="es-rich-btn es-rich-color-btn" data-cmd="color" data-value="#163258"
-                            data-i18n-title="es.html_btn_color_blue" title="Abcona Blau">
+                <div class="es-rich-toolbar-group es-rich-color-wrap">
+                    <button type="button" id="es-rich-theme-btn" class="es-rich-btn"
+                            data-i18n-title="es.html_btn_theme_colors" title="Theme-Farben">
                         <i class="bi bi-palette-fill" style="color:#163258"></i>
                     </button>
-                    <button type="button" class="es-rich-btn es-rich-color-btn" data-cmd="color" data-value="#333333"
-                            data-i18n-title="es.html_btn_color_dark" title="Dunkelgrau">
-                        <i class="bi bi-palette-fill" style="color:#333"></i>
+                    <div id="es-rich-theme-popover" class="es-rich-color-popover" style="display:none;"></div>
+                    <button type="button" id="es-rich-custom-color-btn" class="es-rich-btn"
+                            data-i18n-title="es.html_btn_custom_color" title="Freie Farbwahl">
+                        <i class="bi bi-eyedropper"></i>
                     </button>
+                    <input type="color" id="es-rich-color-input" class="es-rich-color-input-hidden" value="#163258">
                 </div>
                 <span class="es-rich-toolbar-sep"></span>
                 <div class="es-rich-toolbar-group">
@@ -799,6 +801,9 @@
                     </button>
                     <button type="button" class="es-rich-btn" data-cmd="justifyCenter" title="Zentriert">
                         <i class="bi bi-text-center"></i>
+                    </button>
+                    <button type="button" class="es-rich-btn" data-cmd="justifyRight" title="Rechts">
+                        <i class="bi bi-text-right"></i>
                     </button>
                     <button type="button" class="es-rich-btn" data-cmd="insertBr" data-i18n-title="es.html_btn_br" title="Zeilenumbruch">
                         <i class="bi bi-text-wrap"></i>
