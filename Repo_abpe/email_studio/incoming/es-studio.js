@@ -1167,20 +1167,20 @@ window.ESStudio = (() => {
         const canvas = document.getElementById('es-canvas');
         if (!canvas) return;
 
-        canvas.querySelectorAll('.es-block').forEach(block => {
-            _bindBlock(block);
-        });
-
         const addBtn = document.getElementById('es-add-block-btn');
         if (addBtn) {
             addBtn.addEventListener('click', _showAddBlockMenu);
         }
 
-        // Echter Template-Inhalt aus Textarea in Canvas laden
-        if (document.getElementById('es-html-editor')?.value?.trim()) {
+        const ta = document.getElementById('es-html-editor');
+        if (ta?.value?.trim()) {
             _syncCodeToCanvas();
+        } else if (_templateId) {
+            canvas.innerHTML = '';
         }
-        _syncCanvasToCode();
+
+        canvas.querySelectorAll('.es-block').forEach(_bindBlock);
+        // Kein _syncCanvasToCode() beim Init — überschreibt sonst html_body mit Demo-Skeleton
     }
 
     function _bindBlock(block) {

@@ -724,7 +724,8 @@
         {# ── Visual: Block-Canvas (nur Vorlage) ── #}
         <div id="es-wysiwyg-wrap" class="es-canvas-wrap">
             <div id="es-canvas" class="es-canvas">
-
+            {% if not template.pk %}
+                {# Demo-Skeleton nur für neue Vorlagen — nicht bei bestehenden Templates! #}
                 <div class="es-block" data-block-type="module-header">
                     <span class="es-block-label">{{ '{' }}{ block:abcona_header_blau }{{ '}' }}</span>
                     <div class="es-block-actions">
@@ -791,7 +792,7 @@
                         </div>
                     </div>
                 </div>
-
+            {% endif %}
             </div>
 
             <div class="es-add-block-wrap">
