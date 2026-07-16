@@ -176,6 +176,9 @@ def setup_django(backend: str) -> Any:
     if backend not in sys.path:
         sys.path.insert(0, backend)
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'abpe_backend.settings')
+    os.environ.setdefault('DJANGO_LOG_LEVEL', 'ERROR')
+    import logging
+    logging.disable(logging.CRITICAL)
     import django
     django.setup()
     from django.test import Client
@@ -212,7 +215,7 @@ class DjangoClient:
             except Exception:
                 body = r.content.decode('utf-8', errors='replace')[:2000]
                 return r.status_code, body, content_type
-        return r.status_code, r.content.decode('utf-8', errors='replace')[:2000], content_type
+        return r.status_code, r.content.decode('utf-8', errors='replace'), content_type
 
 
 # ── Test-Helfer ───────────────────────────────────────────────────────────────
@@ -239,6 +242,7 @@ def assert_json_has(data: Any, *keys: str) -> None:
 
 STATIC_MARKERS = {
     'es-studio.js': [
+        ('_resolveEditorHtml', 'Preview HTML-Fallback'),
         ('_finalizeUndoBaseline', 'Undo nach Canvas-Sync'),
         ('_setUndoFloor', 'Meilenstein-Untergrenze'),
         ('_canvasHasBlocks', 'Leerer Canvas schützt Textarea'),
@@ -409,10 +413,13 @@ def section_portal(report: SuiteReport, client: Any, template_id: int, user_is_s
                 if 'email_studio' in str(body) or 'Email Studio' in str(body) or 'email-studio' in path:
                     hints.append('Email-Studio')
                 if 'compose' in path.lower():
-                    if 'email_compose' in str(body) or 'ES_CONFIG' in str(body) or 'crm' in str(body).lower():
+                    compose_ok = any(x in str(body) for x in (
+                        'email_compose', 'ES_CONFIG', 'es-core', 'crm_email', 'email-studio',
+                    ))
+                    if compose_ok:
                         hints.append('Compose-UI')
                     else:
-                        report.warn(section, label, f'HTTP 200 aber Compose-Marker fehlen')
+                        report.warn(section, label, 'HTTP 200 aber Compose-Marker fehlen')
                 report.pass_(section, label, f'HTTP 200 — {", ".join(hints) or "HTML"}')
             elif code == 302:
                 report.warn(section, label, f'Redirect HTTP {code}')
@@ -672,8 +679,9 @@ def section_composer(
         if code == 200:
             body_s = str(body)
             checks = [
-                ('es-core.js', 'Email Studio Core JS'),
+                ('email-studio/js/es-core', 'Email Studio Core JS'),
                 ('ES_CONFIG', 'ES_CONFIG'),
+                ('crm_email', 'Compose-Root'),
             ]
             for needle, desc in checks:
                 if needle in body_s:
