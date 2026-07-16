@@ -26,6 +26,13 @@ LANGS = [
     'ar', 'de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'nl', 'pl', 'pt', 'ru', 'tr', 'zh',
 ]
 
+# Keys mit EN-Platzhalter entfernen → i18n_translator übersetzt fehlende Keys neu
+INVALIDATE_FOR_TRANSLATOR = {
+    'btn_create_module', 'btn_create_signature', 'btn_save_module', 'btn_save_signature',
+    'milestone_save_short', 'btn_new_signature_short',
+    'duplicate_suffix', 'version_prefix', 'history_template_only',
+}
+
 MODULE_DIR = Path('modules/email_studio')
 FILE_NAME = 'email_studio.json'
 
@@ -43,11 +50,25 @@ def _save_json(path: Path, data: dict) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=4) + '\n', encoding='utf-8')
 
 
+def _invalidate_en_placeholders(es: dict, lang: str, en_es: dict) -> int:
+    """EN-Platzhalter löschen damit i18n_translator Keys neu übersetzt."""
+    if lang in ('de', 'en'):
+        return 0
+    n = 0
+    for key in INVALIDATE_FOR_TRANSLATOR:
+        if key in es and es[key] == en_es.get(key):
+            del es[key]
+            n += 1
+    return n
+
+
 def _merge_section(target: dict, source: dict, lang: str, ref_en: dict) -> int:
     """Fehlende Keys ergänzen. DE=kanonisch, EN=Referenz, andere=EN dann DE."""
     n = 0
     for key, de_val in source.items():
         if key in target and target[key] not in (None, ''):
+            continue
+        if lang not in ('de', 'en') and key in INVALIDATE_FOR_TRANSLATOR:
             continue
         if lang == 'de':
             val = de_val
@@ -84,8 +105,11 @@ def patch_all(i18n_root: Path, canonical_de: dict, ref_en: dict, langs: list[str
         es = data.setdefault('es', {})
         help_sec = data.setdefault('help', {})
 
+        inv = _invalidate_en_placeholders(es, lang, en_es)
         n_es = _merge_section(es, de_es, lang, en_es)
         n_help = _merge_section(help_sec, de_help, lang, en_help)
+        if inv:
+            print(f'  {lang}: {inv} Keys für Translator invalidiert')
 
         for k, v in top_keys.items():
             if k not in data:

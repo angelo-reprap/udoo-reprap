@@ -210,7 +210,7 @@
                 <i class="bi bi-clock-history"></i>
                 <span data-i18n="es.versions_title">Versionsverlauf</span>
                 <span id="es-versions-official-badge" class="es-badge es-badge-white"><span id="es-versions-official-count">{{ versions|length }}</span> <span data-i18n="es.versions_official_count">offiziell</span></span>
-                <span id="es-versions-ms-badge" class="es-badge es-badge-amber">📌 <span id="es-versions-ms-count">{{ milestones|length }}</span> <span data-i18n="es.versions_milestone_count">Meilensteine</span></span>
+                <span id="es-versions-ms-badge" class="es-badge es-badge-ms"><i class="bi bi-pin-angle-fill"></i> <span id="es-versions-ms-count">{{ milestones|length }}</span> <span data-i18n="es.versions_milestone_count">Meilensteine</span></span>
             </span>
             <i class="bi bi-chevron-down"></i>
         </div>
@@ -224,12 +224,12 @@
         <span data-i18n="es.redo">Redo</span>
     </button>
     <button id="es-milestone-btn" class="es-milestone-btn" data-i18n-title="es.milestone_save">
-        <i class="bi bi-pin"></i>
-        <span data-i18n="es.milestone_save">Merken</span>
+        <i class="bi bi-pin-angle"></i>
+        <span data-i18n="es.milestone_save_short">Merken</span>
     </button>
     <div id="es-milestone-input-wrap" class="es-milestone-input-wrap">
         <div class="es-milestone-popup-title">
-            <i class="bi bi-pin"></i>
+            <i class="bi bi-pin-angle-fill"></i>
             <span data-i18n="es.milestone_save">Stand merken</span>
         </div>
         <input id="es-milestone-label-inp" class="form-control form-control-sm"
@@ -244,9 +244,6 @@
             </button>
         </div>
     </div>
-    <div class="es-divider-v"></div>
-    <input id="es-change-note" class="form-control form-control-sm es-change-note-input"
-           data-i18n-placeholder="es.label_change_note" placeholder="Änderungsnotiz...">
     <div class="es-tab-spacer"></div>
     <div class="toggle-section es-inline">
         <div id="es-trans-toggle" class="section-header" onclick="toggleSection(this);document.getElementById('es-trans-panel').style.display=this.classList.contains('open')?'':'none';">
@@ -655,7 +652,7 @@
                         <option value="" data-i18n="es.entity_select_placeholder">— Bitte wählen —</option>
                     </select>
                     <div class="es-entity-ctx-actions">
-                        <button type="button" id="es-entity-signature-new" class="btn btn-sm btn-outline-success" data-i18n-title="es.btn_new_signature" title="Neu">
+                        <button type="button" id="es-entity-signature-new" class="btn btn-sm btn-outline-success" data-i18n-title="es.btn_new_module" title="Neu">
                             <i class="bi bi-plus"></i>
                         </button>
                         <button type="button" id="es-entity-signature-dup" class="btn btn-sm btn-outline-primary es-entity-dup-btn" data-i18n-title="es.btn_saveas" title="Speichern unter">

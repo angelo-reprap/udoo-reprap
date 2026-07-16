@@ -184,6 +184,7 @@
         "undo": "Undo",
         "redo": "Redo",
         "milestone_save": "Save Milestone",
+        "milestone_save_short": "Save",
         "milestone_label": "Label",
         "milestone_saved": "Milestone saved",
         "milestone_error": "Error saving milestone",

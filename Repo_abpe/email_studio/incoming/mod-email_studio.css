@@ -1580,19 +1580,30 @@
 .es-milestone-btn {
     padding: 3px 8px;
     border-radius: 5px;
-    border: 1px solid var(--status-yellow);
-    background: var(--status-yellow-bg);
+    border: 1px solid var(--border-color);
+    background: var(--bg-white);
     font-size: 10px;
-    color: var(--status-yellow-text);
+    color: var(--text-secondary);
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 3px;
-    transition: background 0.1s;
+    gap: 4px;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.es-milestone-btn i {
+    color: var(--status-yellow);
+    font-size: 11px;
 }
 
 .es-milestone-btn:hover {
-    background: var(--status-yellow-bg);
+    background: var(--abcona-gray-bg);
+    border-color: var(--status-yellow);
+    color: var(--abcona-blue);
+}
+
+.es-milestone-btn:hover i {
+    color: var(--status-yellow-text);
 }
 
 /* ── Milestone Input Popup ── */
@@ -1618,6 +1629,7 @@
 
 /* ── Versions-Toggle-Leiste ── */
 .es-versions-bar {
+    position: relative;
     background: var(--bg-white);
     border-bottom: 1px solid var(--border-color);
     display: flex;
@@ -1701,13 +1713,15 @@
 }
 
 .es-version-item.milestone {
-    border-color: var(--status-yellow);
-    background: var(--status-yellow-bg);
+    border-color: var(--border-color);
+    background: var(--bg-white);
+    border-left: 3px solid var(--status-yellow);
 }
 
 .es-version-item.milestone:hover {
-    border-color: var(--status-yellow-text);
-    background: var(--status-yellow-bg);
+    border-color: var(--abcona-blue);
+    background: var(--abcona-blue-tint);
+    border-left-color: var(--status-yellow);
 }
 
 .es-version-item.active-ver {
@@ -1729,7 +1743,12 @@
 }
 
 .es-version-num.ok  { background: var(--status-green); color: white; }
-.es-version-num.ms  { background: var(--status-yellow); color: white; }
+.es-version-num.ms  {
+    background: transparent;
+    color: var(--status-yellow);
+    border: 1px solid var(--status-yellow);
+    font-size: 10px;
+}
 .es-version-num.old { background: var(--abcona-blue-tint); color: var(--abcona-blue); }
 
 .es-version-info .vt { font-size: 9px; font-weight: 500; color: var(--text-primary); }
@@ -2569,12 +2588,19 @@
 .es-breadcrumb-name {
     color: var(--abcona-blue);
 }
+.es-badge-ms {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    gap: 3px;
+}
+.es-badge-ms .bi-pin-angle-fill {
+    color: var(--status-yellow);
+    font-size: 10px;
+}
 .es-versions-bar-hint {
     font-size: 10px;
     color: var(--text-secondary);
-}
-.es-change-note-input {
-    width: 130px;
 }
 .es-preview-hdr-title {
     font-size: 10px;

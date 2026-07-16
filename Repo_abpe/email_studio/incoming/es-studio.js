@@ -260,17 +260,17 @@ window.ESStudio = (() => {
     function _updateSaveButtonLabel() {
         const lbl = document.querySelector('#es-save-btn span');
         if (!lbl) return;
+        let key = 'btn_save';
+        let fallback = 'Speichern';
         if (_currentEntity === 'module') {
-            const key = _entityCache.module.id ? 'btn_save_module' : 'btn_create_module';
-            lbl.textContent = t(key, _entityCache.module.id ? 'Modul speichern' : 'Modul anlegen');
-            return;
+            key = _entityCache.module.id ? 'btn_save_module' : 'btn_create_module';
+            fallback = _entityCache.module.id ? 'Modul speichern' : 'Modul anlegen';
+        } else if (_currentEntity === 'signature') {
+            key = _entityCache.signature.id ? 'btn_save_signature' : 'btn_create_signature';
+            fallback = _entityCache.signature.id ? 'Signatur speichern' : 'Signatur anlegen';
         }
-        if (_currentEntity === 'signature') {
-            const key = _entityCache.signature.id ? 'btn_save_signature' : 'btn_create_signature';
-            lbl.textContent = t(key, _entityCache.signature.id ? 'Signatur speichern' : 'Signatur anlegen');
-            return;
-        }
-        lbl.textContent = t('btn_save', 'Speichern');
+        lbl.setAttribute('data-i18n', 'es.' + key);
+        lbl.textContent = t(key, fallback);
     }
 
     function _slugify(text) {
@@ -1993,7 +1993,7 @@ window.ESStudio = (() => {
             html += `
             <div class="es-version-item milestone" data-ms-id="${ms.id}"
                  title="${t('versions_click_hint', 'anklicken zum Wiederherstellen')}">
-                <div class="es-version-num ms">📌</div>
+                <div class="es-version-num ms"><i class="bi bi-pin-angle-fill"></i></div>
                 <div class="es-version-info">
                     <div class="vt">${_esc(ms.milestone_label)}</div>
                     <div class="vs">${_formatDate(ms.created_at)}</div>
@@ -2088,7 +2088,11 @@ window.ESStudio = (() => {
             ? item.milestone_label
             : (t('version_prefix', 'Version ') + item.version + (item.change_note ? ' — ' + item.change_note : ''));
 
-        if (nameEl) nameEl.textContent = (type === 'milestone' ? '📌 ' : '') + label;
+        if (type === 'milestone' && nameEl) {
+            nameEl.innerHTML = '<i class="bi bi-pin-angle-fill"></i> ' + _esc(label);
+        } else if (nameEl) {
+            nameEl.textContent = label;
+        }
         if (subEl)  subEl.textContent  = _formatDate(item.created_at);
 
         const efHdr  = document.getElementById('es-restore-ef-hdr');
@@ -2288,7 +2292,6 @@ window.ESStudio = (() => {
 
             const isNew    = this.dataset.isNew === 'true';
             const editLang = window.ES_CONFIG?.editLang || '';
-            const note     = document.getElementById('es-change-note')?.value || '';
 
             _syncAllToCode();
 
@@ -2304,7 +2307,7 @@ window.ESStudio = (() => {
                 sender_mode:   document.querySelector('.es-mode-btn.active')?.dataset.mode || 'TEMPLATE',
                 app_scope:     document.querySelector('select[name="app_scope"]')?.value   || 'general',
                 status:        document.querySelector('select[name="status"]')?.value      || 'DRAFT',
-                change_note:   note,
+                change_note:   '',
                 signature_mode: sigModeEl ? sigModeEl.value : 'USER',
                 include_signature: sigModeEl ? sigModeEl.value !== 'NONE' : true,
             };
