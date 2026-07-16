@@ -69,6 +69,7 @@ window.ESStudio = (() => {
         _initEditorTabs();
         _initEntityTabs();
         _initEntitySelectors();
+        _initEntityActions();
         _initRichEditor();
         _initVarChips();
         _initModuleChips();
@@ -86,6 +87,7 @@ window.ESStudio = (() => {
         }
 
         _updateModePanels();
+        _updateSaveButtonLabel();
 
         ['es-html-editor', 'es-txt-editor'].forEach(id => {
             const el = document.getElementById(id);
@@ -193,7 +195,20 @@ window.ESStudio = (() => {
         }
 
         _updateModePanels();
+        _updateSaveButtonLabel();
         setTimeout(_loadPreview, 100);
+    }
+
+    function _updateSaveButtonLabel() {
+        const lbl = document.querySelector('#es-save-btn span');
+        if (!lbl) return;
+        const keys = {
+            template:  ['btn_save', 'Speichern'],
+            module:    ['btn_save_module', 'Modul speichern'],
+            signature: ['btn_save_signature', 'Signatur speichern'],
+        };
+        const [key, fb] = keys[_currentEntity] || keys.template;
+        lbl.textContent = t(key, fb);
     }
 
     function _applyEntityToEditors(data) {
@@ -227,20 +242,7 @@ window.ESStudio = (() => {
         });
 
         if (!modSel) return;
-        try {
-            const data = await ES.api.get(ES.apiUrl('modules/'));
-            const grouped = data.modules || {};
-            let opts = `<option value="">${t('entity_select_placeholder', '— Bitte wählen —')}</option>`;
-            for (const modules of Object.values(grouped)) {
-                for (const m of modules) {
-                    if (!m.id || m.is_virtual) continue;
-                    opts += `<option value="${m.id}">${m.name} (${m.identifier})</option>`;
-                }
-            }
-            modSel.innerHTML = opts;
-        } catch (e) {
-            console.error('Modul-Liste für Entity-Tab fehlgeschlagen:', e);
-        }
+        await _refreshModuleSelect();
     }
 
     async function _loadModuleEntity(id) {
@@ -263,6 +265,75 @@ window.ESStudio = (() => {
         }
     }
 
+    async function _refreshModuleSelect(selectedId) {
+        const modSel = document.getElementById('es-entity-module-select');
+        if (!modSel) return;
+        try {
+            const data = await ES.api.get(ES.apiUrl('modules/'));
+            const grouped = data.modules || {};
+            let opts = `<option value="">${t('entity_select_placeholder', '— Bitte wählen —')}</option>`;
+            for (const modules of Object.values(grouped)) {
+                for (const m of modules) {
+                    if (!m.id || m.is_virtual) continue;
+                    const sel = selectedId && String(m.id) === String(selectedId) ? ' selected' : '';
+                    opts += `<option value="${m.id}"${sel}>${m.name} (${m.identifier})</option>`;
+                }
+            }
+            modSel.innerHTML = opts;
+        } catch (e) {
+            console.error('Modul-Liste aktualisieren fehlgeschlagen:', e);
+        }
+    }
+
+    function _initEntityActions() {
+        document.getElementById('es-entity-module-new')?.addEventListener('click', _createNewModule);
+    }
+
+    async function _createNewModule() {
+        const name = prompt(t('module_new_name', 'Anzeigename des neuen Moduls:'), '');
+        if (!name) return;
+        const identifier = prompt(
+            t('module_new_identifier', 'Technischer Name (Identifier):'),
+            name.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')
+        );
+        if (!identifier) return;
+
+        _syncAllToCode();
+        const html = document.getElementById('es-html-editor')?.value || '';
+        const txt  = document.getElementById('es-txt-editor')?.value  || '';
+
+        try {
+            const r = await fetch(ES.apiUrl('modules/'), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': ES.csrf(),
+                },
+                body: JSON.stringify({
+                    name, identifier,
+                    html_body: html,
+                    text_body: txt,
+                    module_type: 'SECTION',
+                }),
+            });
+            const data = await r.json().catch(() => ({}));
+            if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
+
+            _entityCache.module = {
+                id: data.id, html, text: txt,
+                identifier: data.identifier, name: data.name,
+            };
+            await _refreshModuleSelect(data.id);
+            const badge = document.getElementById('es-entity-module-id');
+            if (badge) badge.textContent = data.identifier;
+            ES.notify.success('es.module_saved', t('module_saved', 'Modul angelegt'));
+            _loadModules(true);
+        } catch (e) {
+            console.error('Modul anlegen fehlgeschlagen:', e);
+            ES.notify.error('es.error_save', e.message || t('error_save', 'Fehler'));
+        }
+    }
+
     async function _loadSignatureEntity(id) {
         try {
             const data = await ES.api.get(ES.apiUrl(`signatures/${id}/`));
@@ -280,6 +351,67 @@ window.ESStudio = (() => {
         } catch (e) {
             console.error('Signatur laden fehlgeschlagen:', e);
             ES.notify.error('es.error_load_sig', 'Signatur konnte nicht geladen werden');
+        }
+    }
+
+    async function _saveModuleEntity() {
+        _syncAllToCode();
+        const id = _entityCache.module.id;
+        if (!id) {
+            ES.notify.error('es.entity_select_module', t('entity_select_module', 'Bitte zuerst ein Modul wählen'));
+            return;
+        }
+        const payload = {
+            html_body: document.getElementById('es-html-editor')?.value || '',
+            text_body: document.getElementById('es-txt-editor')?.value  || '',
+        };
+        try {
+            const r = await fetch(ES.apiUrl(`modules/${id}/`), {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': ES.csrf(),
+                },
+                body: JSON.stringify(payload),
+            });
+            const data = await r.json().catch(() => ({}));
+            if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
+            Object.assign(_entityCache.module, { html: payload.html_body, text: payload.text_body });
+            ES.notify.success('es.module_saved', t('module_saved', 'Modul gespeichert'));
+            _loadModules(true);
+        } catch (e) {
+            console.error('Modul speichern fehlgeschlagen:', e);
+            ES.notify.error('es.error_save', e.message || t('error_save', 'Fehler'));
+        }
+    }
+
+    async function _saveSignatureEntity() {
+        _syncAllToCode();
+        const id = _entityCache.signature.id;
+        if (!id) {
+            ES.notify.error('es.entity_select_signature', t('entity_select_signature', 'Bitte zuerst eine Signatur wählen'));
+            return;
+        }
+        const payload = {
+            html_body: document.getElementById('es-html-editor')?.value || '',
+            text_body: document.getElementById('es-txt-editor')?.value  || '',
+        };
+        try {
+            const r = await fetch(ES.apiUrl(`signatures/${id}/`), {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': ES.csrf(),
+                },
+                body: JSON.stringify(payload),
+            });
+            const data = await r.json().catch(() => ({}));
+            if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
+            Object.assign(_entityCache.signature, { html: payload.html_body, text: payload.text_body });
+            ES.notify.success('es.sig_saved', t('sig_saved', 'Signatur gespeichert'));
+        } catch (e) {
+            console.error('Signatur speichern fehlgeschlagen:', e);
+            ES.notify.error('es.error_save', e.message || t('error_save', 'Fehler'));
         }
     }
 
@@ -691,12 +823,14 @@ window.ESStudio = (() => {
         }
     }
 
-    async function _loadModules() {
+    async function _loadModules(forceReload) {
         const container = document.getElementById('es-modules-panel-body');
-        if (!container || container.dataset.loaded) return;
+        if (!container) return;
+        if (container.dataset.loaded && !forceReload) return;
+        if (forceReload) delete container.dataset.loaded;
         if (typeof ES === 'undefined' || !ES.api) {
             console.warn('ES noch nicht geladen, Module-Load verschoben');
-            setTimeout(_loadModules, 300);
+            setTimeout(() => _loadModules(forceReload), 300);
             return;
         }
         try {
@@ -1429,9 +1563,12 @@ window.ESStudio = (() => {
         const btn = document.getElementById('es-save-btn');
         if (!btn) return;
         btn.addEventListener('click', async function() {
-            if (_currentEntity !== 'template') {
-                ES.notify.info('es.entity_phase2_hint',
-                    t('entity_phase2_hint', 'Speichern für Modul/Signatur folgt in Phase 2'));
+            if (_currentEntity === 'module') {
+                await _saveModuleEntity();
+                return;
+            }
+            if (_currentEntity === 'signature') {
+                await _saveSignatureEntity();
                 return;
             }
 
