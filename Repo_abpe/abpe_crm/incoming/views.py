@@ -1491,8 +1491,6 @@ def crm_email_compose(request):
         ],
         'signature_modes': [],
         'signatures_list': list(signatures),
-        'active':         'email',
-        'active_subpage': 'compose',
     })
     return render(request, 'abpe_crm/email_compose.html', ctx)
 

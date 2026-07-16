@@ -6,7 +6,17 @@
         "en": "Matching",
         "fr": "Matching",
         "it": "Matching",
-        "es": "Matching"
+        "es": "Matching",
+        "ar": "مطابقة",
+        "ja": "マッチング",
+        "ko": "매칭",
+        "nl": "Matching",
+        "pl": "Dopasowanie",
+        "pt": "Matching",
+        "ru": "Сопоставление",
+        "tr": "Eşleştirme",
+        "zh": "匹配",
+        "hu": "Matching"
     },
     "icon": "diagram-3",
     "route": "/matching/",
@@ -32,7 +42,17 @@
                 "en": "Requests",
                 "fr": "Demandes",
                 "it": "Richieste",
-                "es": "Solicitudes"
+                "es": "Solicitudes",
+                "ar": "الطلبات",
+                "ja": "リクエスト",
+                "ko": "요청",
+                "nl": "Aanvragen",
+                "pl": "Zapytania",
+                "pt": "Solicitações",
+                "ru": "Запросы",
+                "tr": "Talepler",
+                "zh": "请求",
+                "hu": "Kérések"
             },
             "route": "/matching/"
         },
@@ -44,7 +64,17 @@
                 "en": "Archive",
                 "fr": "Archive",
                 "it": "Archivio",
-                "es": "Archivo"
+                "es": "Archivo",
+                "ar": "الأرشيف",
+                "ja": "アーカイブ",
+                "ko": "보관소",
+                "nl": "Archief",
+                "pl": "Archiwum",
+                "pt": "Arquivo",
+                "ru": "Архив",
+                "tr": "Arşiv",
+                "zh": "存档",
+                "hu": "Archívum"
             },
             "route": "/matching/?tab=archiv"
         }
