@@ -79,12 +79,13 @@ _delete_non_de() {
 _run_translator() {
   cd "$BACKEND"
   _activate_venv
-  if [[ ! -f apps/abpe_crm/bin/i18n_translator.py ]]; then
-    echo "FEHLER: apps/abpe_crm/bin/i18n_translator.py nicht gefunden"
+  local translator="apps/abpe_ui/bin/i18n_translator.py"
+  if [[ ! -f "$translator" ]]; then
+    echo "FEHLER: $translator nicht gefunden"
     exit 1
   fi
-  echo "--- i18n_translator (alle Module, Email Studio fehlt in Fremdsprachen) ---"
-  PYTHONWARNINGS=ignore python3 apps/abpe_crm/bin/i18n_translator.py
+  echo "--- i18n_translator (apps/abpe_ui/bin — NICHT abpe_crm) ---"
+  PYTHONWARNINGS=ignore python3 "$translator"
 }
 
 _finish() {

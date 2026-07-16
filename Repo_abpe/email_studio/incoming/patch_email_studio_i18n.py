@@ -4,8 +4,8 @@
 Workflow (ucs5):
   1. git fetch && git show … > /tmp/…  ODER Repo unter /mnt/public/udoo-reprap
   2. python3 Repo_abpe/email_studio/incoming/patch_email_studio_i18n.py
-  3. python apps/abpe_crm/bin/i18n_translator.py
-  4. python apps/abpe_crm/bin/i18n_validate.py   # optional
+  3. python apps/abpe_ui/bin/i18n_translator.py
+  4. python apps/abpe_ui/bin/i18n_validate.py   # optional
   5. python manage.py collectstatic --noinput
   6. supervisorctl restart abpe-django
 """
