@@ -1,4 +1,8 @@
 // core-language.js - i18n Sprachlogik (abpe_crm)
+(function() {
+if (window.__ABPE_CRM_LANGUAGE__) return;
+window.__ABPE_CRM_LANGUAGE__ = true;
+
 let currentLang = window.ABPE_CONFIG?.current_lang || 'de';
 
 window.i18nData = window.i18nData || {};
@@ -231,6 +235,11 @@ async function initLanguage(lang, moduleId) {
     await loadLanguage(currentLang, _getModuleId(moduleId));
 }
 
+window.setLanguage = setLanguage;
+window.initLanguage = initLanguage;
+
 document.addEventListener('DOMContentLoaded', () => {
     initLanguageSelector();
 });
+
+})();

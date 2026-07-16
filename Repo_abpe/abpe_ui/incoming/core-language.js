@@ -1,4 +1,8 @@
-// core-language.js - i18n Sprachlogik
+// core-language.js - i18n Sprachlogik (Portal)
+(function() {
+if (window.__ABPE_UI_LANGUAGE__) return;
+window.__ABPE_UI_LANGUAGE__ = true;
+
 let currentLang = window.ABPE_CONFIG?.current_lang || 'de';
 
 // window.i18nData global — alle Modul-JS können t() nutzen
@@ -7,6 +11,7 @@ let translations = window.i18nData;
 
 // Letztes aktives Modul merken
 let _currentModuleId = null;
+let _allowedLangs = null;
 
 // Portal-Shell-Keys — dürfen von Modul-JSON (z.B. email_studio.help-Objekt) nicht überschrieben werden
 const PORTAL_SHELL_KEYS = new Set([
@@ -78,6 +83,49 @@ async function _loadModuleLanguage(lang, moduleId) {
     // Fallback — alte einzelne JSON (alle anderen Module unverändert)
     console.log(`📄 Modul-Fallback: modules/${moduleId}.json`);
     await loadFile(lang, `modules/${moduleId}.json`);
+}
+
+async function _fetchCrmJson(lang, relPath) {
+    const url = `/static/abpe_crm/i18n/${lang}/${relPath}`;
+    try {
+        const response = await fetch(url);
+        if (response.ok) return await response.json();
+    } catch (e) {}
+    if (lang !== 'de') return _fetchCrmJson('de', relPath);
+    return null;
+}
+
+function _flattenCrmModule(data) {
+    if (!data || typeof data !== 'object' || Array.isArray(data)) return data;
+    const keys = Object.keys(data);
+    if (keys.length === 1) {
+        const inner = data[keys[0]];
+        if (inner && typeof inner === 'object' && !Array.isArray(inner)) {
+            const sample = Object.values(inner)[0];
+            if (typeof sample === 'string') return inner;
+        }
+    }
+    return data;
+}
+
+/** CRM-Texte nachladen ohne i18nData zu leeren (Compose-Seiten). */
+async function loadCrmI18nSupplement(lang, moduleId) {
+    moduleId = moduleId || 'crm_emails';
+    translations = window.i18nData;
+
+    const crm = await _fetchCrmJson(lang, 'crm.json');
+    if (crm) Object.assign(translations, crm);
+
+    const manifest = await _fetchCrmJson(lang, `modules/${moduleId}/manifest.json`);
+    if (manifest && manifest.files) {
+        for (const file of manifest.files) {
+            const mod = await _fetchCrmJson(lang, `modules/${moduleId}/${file}`);
+            if (mod) Object.assign(translations, _flattenCrmModule(mod));
+        }
+    } else {
+        const mod = await _fetchCrmJson(lang, `modules/${moduleId}.json`);
+        if (mod) Object.assign(translations, _flattenCrmModule(mod));
+    }
 }
 
 async function loadLanguage(lang, moduleId = null) {
@@ -163,11 +211,13 @@ async function setLanguage(lang) {
             .map(c => c.trim())
             .find(c => c.startsWith('csrftoken='))
             ?.split('=')[1] || '';
-        await fetch('/api/set-language/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf },
-            body: JSON.stringify({ language: lang })
-        });
+        if (!_allowedLangs || _allowedLangs.includes(lang)) {
+            await fetch('/api/set-language/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf },
+                body: JSON.stringify({ language: lang })
+            });
+        }
     } catch(e) {}
 }
 
@@ -182,29 +232,11 @@ async function initLanguageSelector() {
         const response = await fetch('/api/available-languages/');
         const data = await response.json();
 
-        const container = document.querySelector('.language-selector');
-        if (container && data.languages) {
-            container.innerHTML = '';
-            data.languages.forEach(lang => {
-                const btn = document.createElement('button');
-                btn.className = `lang-btn ${lang.code === currentLang ? 'active' : ''}`;
-                btn.setAttribute('data-lang', lang.code);
-                btn.innerHTML = lang.code.toUpperCase();
-                btn.title = lang.native;
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    setLanguage(lang.code);
-                });
-                container.appendChild(btn);
-            });
-        }
-
-        // Sprache vom Server nehmen
         const serverLang = data.current || currentLang;
         currentLang = serverLang;
+        _allowedLangs = (data.languages || []).map(l => l.code);
         await loadLanguage(currentLang);
 
-        // Module informieren dass Selector bereit ist
         document.dispatchEvent(new CustomEvent('languageSelectorReady', {
             detail: { language: currentLang }
         }));
@@ -220,6 +252,14 @@ async function initLanguage(lang) {
     await loadLanguage(currentLang);
 }
 
+window.setLanguage = setLanguage;
+window.initLanguage = initLanguage;
+window.applyTranslations = applyTranslations;
+window.mergeModuleI18n = _mergeModuleI18n;
+window.loadCrmI18nSupplement = loadCrmI18nSupplement;
+
 document.addEventListener('DOMContentLoaded', () => {
     initLanguageSelector();
 });
+
+})();

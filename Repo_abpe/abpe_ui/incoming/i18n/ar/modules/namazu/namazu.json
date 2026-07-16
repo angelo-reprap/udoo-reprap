@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "بحث المستشارين (Namazu)",
+            "placeholder": "الاسم، المهارة، التقنية...",
+            "btn": "بحث",
+            "max_label": "أقصى عدد من النتائج"
+        },
+        "results": {
+            "total": "إجمالي النتائج",
+            "empty": "لم يتم العثور على نتائج",
+            "score": "الدرجة"
+        },
+        "profile": {
+            "open": "الملف الشخصي",
+            "preview": "معاينة ورقة البيانات",
+            "close": "إغلاق"
+        },
+        "admin": {
+            "title": "إدارة الفهرس",
+            "imap_title": "صناديق البريد IMAP",
+            "add_account": "إضافة حساب",
+            "active": "نشط",
+            "inactive": "غير نشط",
+            "html_count": "ملفات HTML",
+            "index_size": "حجم الفهرس",
+            "last_indexed": "آخر فهرسة",
+            "reindex_btn": "بدء إعادة الفهرسة",
+            "reindex_ok": "تم بدء إعادة الفهرسة",
+            "reindex_err": "خطأ في البدء",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "جارٍ التحميل..."
+        },
+        "es": {
+            "title": "بحث Elasticsearch",
+            "placeholder": "المهارات، الاسم، التقنية...",
+            "exclude": "استبعاد:",
+            "exclude_account": "استبعاد صندوق البريد",
+            "query_helper": "مساعدة الاستعلام",
+            "examples": "أمثلة:",
+            "index": {
+                "consultants": "المستشارون",
+                "emails": "رسائل البريد الإلكتروني",
+                "profiles": "الملفات الشخصية"
+            },
+            "sort": {
+                "placeholder": "الترتيب...",
+                "date_desc": "التاريخ ↓",
+                "date_asc": "التاريخ ↑",
+                "indexed_desc": "المفهرس ↓",
+                "indexed_asc": "المفهرس ↑",
+                "attachments": "المرفقات أولاً",
+                "from_asc": "المرسل أ-ي",
+                "account_asc": "صندوق البريد أ-ي",
+                "name_asc": "الاسم أ-ي",
+                "status": "الحالة",
+                "available": "متاح من",
+                "availability": "التوفر",
+                "folder_asc": "المجلد أ-ي",
+                "size_desc": "الحجم ↓"
+            },
+            "chips": {
+                "boolean": "منطقي:",
+                "wildcards": "البدائل والغموض:",
+                "fields_email": "الحقول (رسائل البريد الإلكتروني):",
+                "fields_consultant": "الحقول (المستشارون):",
+                "date_ranges": "التاريخ والنطاقات:",
+                "and": "كلاهما",
+                "or": "أحدهما",
+                "not": "استبعاد",
+                "must": "يجب",
+                "must_not": "لا يجب",
+                "wildcard": "بديل",
+                "one_char": "حرف واحد",
+                "fuzzy": "غامض",
+                "phrase": "عبارة",
+                "proximity": "قرب",
+                "boost": "تعزيز",
+                "with_attachment": "مع مرفق",
+                "fulltext": "النص الكامل",
+                "name": "الاسم",
+                "location": "الموقع",
+                "availability": "التوفر",
+                "subject": "الموضوع",
+                "sender": "المرسل",
+                "content": "المحتوى",
+                "mailbox": "صندوق البريد",
+                "folder": "المجلد"
+            }
+        }
+    }
+}
