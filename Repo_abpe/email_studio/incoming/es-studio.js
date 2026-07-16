@@ -22,6 +22,8 @@ window.ESStudio = (() => {
     let _undoStack    = [];
     let _redoStack    = [];
     let _undoTimer    = null;
+    let _undoBaseline = null;
+    let _undoReady    = false;
     let _lastVersionsData = { versions: [], milestones: [], activeVersion: null };
     const UNDO_MAX    = 20;
     const MILESTONE_MAX = 10;
@@ -112,7 +114,12 @@ window.ESStudio = (() => {
         }
 
         if (_templateId && _currentMode === 'visual' && _currentEntity === 'template') {
-            setTimeout(() => _syncCodeToCanvas(), 0);
+            setTimeout(() => {
+                _syncCodeToCanvas();
+                _finalizeUndoBaseline();
+            }, 0);
+        } else {
+            _finalizeUndoBaseline();
         }
 
         const subjectInput = document.getElementById('es-subject-input');
@@ -224,6 +231,9 @@ window.ESStudio = (() => {
         _updateSaveButtonLabel();
         _updateEntityMetaVisibility();
         _resetUndoStack();
+        if (entity === 'template' && _templateId && _lastVersionsData.milestones.length) {
+            _setUndoFloor();
+        }
         _updateHistoryBar();
         if (!deferPreview) {
             setTimeout(_loadPreview, 100);
@@ -251,7 +261,7 @@ window.ESStudio = (() => {
             }
         }
         if (_currentMode === 'visual' && _currentEntity === 'template') {
-            _syncCanvasToCode();
+            if (_canvasHasBlocks()) _syncCanvasToCode();
         } else if (_currentMode === 'html-editor') {
             _syncRichToCode();
         }
@@ -811,9 +821,14 @@ window.ESStudio = (() => {
         });
     }
 
+    function _canvasHasBlocks() {
+        const canvas = document.getElementById('es-canvas');
+        return !!(canvas && canvas.querySelector('.es-block'));
+    }
+
     function _syncAllToCode() {
         if (_currentMode === 'visual' && _currentEntity === 'template') {
-            _syncCanvasToCode();
+            if (_canvasHasBlocks()) _syncCanvasToCode();
         }
         if (_currentMode === 'html-editor') {
             _syncRichToCode();
@@ -824,7 +839,7 @@ window.ESStudio = (() => {
         const prev = _currentMode;
 
         if (prev === 'visual' && _currentEntity === 'template') {
-            _syncCanvasToCode();
+            if (_canvasHasBlocks()) _syncCanvasToCode();
         } else if (prev === 'html-editor') {
             _syncRichToCode();
         }
@@ -1783,8 +1798,52 @@ window.ESStudio = (() => {
             }
         });
 
-        _resetUndoStack();
+        _updateUndoRedoBtns();
         _updateHistoryBar();
+    }
+
+    function _stateFromMilestone(ms) {
+        return {
+            html:    ms.html_body || '',
+            txt:     ms.text_body || '',
+            subject: ms.subject  || '',
+            mode:    _currentMode,
+            entity:  'template',
+            canvasHtml: null,
+        };
+    }
+
+    /** Undo-Stack erst nach Canvas-Sync — sonst leerer Erst-Snapshot */
+    function _finalizeUndoBaseline() {
+        if (_undoReady) return;
+        _undoReady = true;
+        _resetUndoStack();
+        if (_lastVersionsData.milestones.length) {
+            _setUndoFloor();
+        }
+    }
+
+    function _setUndoFloor() {
+        if (_currentEntity !== 'template' || !_templateId) return;
+
+        const ms = _lastVersionsData.milestones?.[0];
+        let floor;
+
+        if (ms) {
+            floor = _stateFromMilestone(ms);
+        } else {
+            floor = _captureState();
+        }
+
+        _undoBaseline = floor;
+        const current = _captureState();
+
+        _undoStack = [_undoBaseline];
+        if (!_statesEqual(_undoBaseline, current)) {
+            _undoStack.push(current);
+        }
+        _redoStack = [];
+        _updateUndoRedoBtns();
     }
 
     function _resetUndoStack() {
@@ -1794,25 +1853,30 @@ window.ESStudio = (() => {
     }
 
     function _scheduleUndoSnapshot() {
+        if (!_undoReady) return;
         clearTimeout(_undoTimer);
         _undoTimer = setTimeout(() => _takeUndoSnapshot(), 800);
     }
 
     function _syncBeforeCapture() {
         if (_currentMode === 'visual' && _currentEntity === 'template') {
-            _syncCanvasToCode();
+            if (_canvasHasBlocks()) _syncCanvasToCode();
         } else if (_currentMode === 'html-editor') {
             _syncRichToCode();
         }
     }
 
     function _takeUndoSnapshot(force) {
+        if (!_undoReady) return;
         const state = _captureState();
         const last  = _undoStack[_undoStack.length - 1];
         if (!force && last && _statesEqual(last, state)) return;
 
         _undoStack.push(state);
-        if (_undoStack.length > UNDO_MAX) _undoStack.shift();
+        if (_undoStack.length > UNDO_MAX) {
+            _undoStack.shift();
+            if (_undoBaseline) _undoStack[0] = _undoBaseline;
+        }
         _redoStack = [];
         _updateUndoRedoBtns();
     }
@@ -1834,7 +1898,9 @@ window.ESStudio = (() => {
         let canvasHtml = null;
 
         if (_currentMode === 'visual' && _currentEntity === 'template' && canvas) {
-            canvasHtml = canvas.innerHTML;
+            if (_canvasHasBlocks()) {
+                canvasHtml = canvas.innerHTML;
+            }
         }
 
         return {
@@ -1875,10 +1941,16 @@ window.ESStudio = (() => {
     }
 
     function _undo() {
-        if (_undoStack.length <= 1) return;
+        if (!_undoReady || _undoStack.length <= 1) return;
         const current = _undoStack.pop();
         _redoStack.push(current);
-        _applyState(_undoStack[_undoStack.length - 1]);
+        const target = _undoStack[_undoStack.length - 1];
+        if (_undoBaseline && _statesEqual(target, _undoBaseline)) {
+            _applyState(_undoBaseline);
+        } else {
+            _applyState(target);
+        }
+        _updateUndoRedoBtns();
     }
 
     function _redo() {
@@ -1891,8 +1963,18 @@ window.ESStudio = (() => {
     function _updateUndoRedoBtns() {
         const undoBtn = document.getElementById('es-undo-btn');
         const redoBtn = document.getElementById('es-redo-btn');
-        if (undoBtn) undoBtn.disabled = _undoStack.length <= 1;
-        if (redoBtn) redoBtn.disabled = _redoStack.length === 0;
+        const canUndo = _undoReady && _undoStack.length > 1;
+        if (undoBtn) {
+            undoBtn.disabled = !canUndo;
+            if (_undoBaseline && _lastVersionsData.milestones?.[0]) {
+                undoBtn.title = canUndo
+                    ? t('undo_to_milestone', 'Rückgängig bis Meilenstein') + ' (Ctrl+Z)'
+                    : t('undo', 'Rückgängig') + ' (Ctrl+Z)';
+            } else {
+                undoBtn.title = t('undo', 'Rückgängig') + ' (Ctrl+Z)';
+            }
+        }
+        if (redoBtn) redoBtn.disabled = !_undoReady || _redoStack.length === 0;
     }
 
     function _updateHistoryBar() {
@@ -1973,6 +2055,10 @@ window.ESStudio = (() => {
                 }
             );
             ES.notify.success('es.milestone_saved', t('milestone_saved', 'Meilenstein gespeichert'));
+            _undoBaseline = _captureState();
+            _undoStack = [_undoBaseline];
+            _redoStack = [];
+            _updateUndoRedoBtns();
             _loadVersionsBar();
         } catch(e) {
             ES.notify.error('es.milestone_error', t('milestone_error', 'Fehler'));
@@ -2022,6 +2108,7 @@ window.ESStudio = (() => {
             };
             _renderVersionsList(_lastVersionsData.versions, _lastVersionsData.milestones, _lastVersionsData.activeVersion);
             _updateVersionsBadges(_lastVersionsData.versions, _lastVersionsData.milestones);
+            if (_undoReady) _setUndoFloor();
         } catch(e) {
             console.warn('Versionen laden fehlgeschlagen:', e);
         }

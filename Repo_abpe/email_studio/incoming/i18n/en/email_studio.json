@@ -182,6 +182,7 @@
         "btn_edit": "Edit",
         "btn_preview": "Preview",
         "undo": "Undo",
+        "undo_to_milestone": "Undo to milestone",
         "redo": "Redo",
         "milestone_save": "Save Milestone",
         "milestone_save_short": "Save",
