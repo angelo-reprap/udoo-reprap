@@ -75,8 +75,6 @@ def _merge_section(target: dict, source: dict, lang: str, ref_en: dict) -> int:
     for key, de_val in source.items():
         if key in target and target[key] not in (None, ''):
             continue
-        if lang not in ('de', 'en') and key in INVALIDATE_FOR_TRANSLATOR:
-            continue
         if lang == 'de':
             val = de_val
         elif lang == 'en':
@@ -173,10 +171,8 @@ def main() -> int:
     patch_all(i18n_root, canonical_de, ref_en, args.langs, force=args.force_invalidate)
 
     print('\n--- Nächste Schritte auf ucs5 ---')
-    print('  cd /opt/abpe/backend')
-    print('  python apps/abpe_crm/bin/i18n_translator.py')
-    print('  python manage.py collectstatic --noinput')
-    print('  supervisorctl restart abpe-django')
+    print('  python3 Repo_abpe/email_studio/incoming/translate_email_studio_i18n.py')
+    print('  cd /opt/abpe/backend && python manage.py collectstatic --noinput')
     return 0
 
 

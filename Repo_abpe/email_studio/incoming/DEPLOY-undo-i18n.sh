@@ -67,18 +67,19 @@ git show "$BR:$R/i18n/en/email_studio.json" > "$REPO/$R/i18n/en/email_studio.jso
 git show "$BR:$R/patch_email_studio_i18n.py" > "$REPO/$R/patch_email_studio_i18n.py"
 chmod +x "$REPO/$R/patch_email_studio_i18n.py"
 
-echo "--- i18n patchen (alle Sprachen, EN-Platzhalter invalidieren) ---"
-python3 "$REPO/$R/patch_email_studio_i18n.py" --backend "$BACKEND" --repo "$REPO" --force-invalidate
+echo "--- i18n patchen (fehlende Keys mit EN-Fallback) ---"
+python3 "$REPO/$R/patch_email_studio_i18n.py" --backend "$BACKEND" --repo "$REPO"
 
-echo "--- i18n_translator (Deepseek) ---"
+git show "$BR:$R/translate_email_studio_i18n.py" > "$REPO/$R/translate_email_studio_i18n.py"
+chmod +x "$REPO/$R/translate_email_studio_i18n.py"
+
+echo "--- Email Studio UI-Keys übersetzen (Deepseek) ---"
+python3 "$REPO/$R/translate_email_studio_i18n.py" --backend "$BACKEND" --repo "$REPO" \
+  || echo "WARN: translate_email_studio_i18n fehlgeschlagen — manuell nachholen"
+
+echo "--- collectstatic + restart ---"
 cd "$BACKEND"
 _activate_venv
-if [[ -f apps/abpe_crm/bin/i18n_translator.py ]]; then
-  python apps/abpe_crm/bin/i18n_translator.py || echo "WARN: i18n_translator fehlgeschlagen — manuell nachholen"
-else
-  echo "WARN: i18n_translator.py nicht gefunden — nur DE/EN-Merge aktiv"
-fi
-
 python manage.py collectstatic --noinput
 supervisorctl restart abpe-django
 echo "✓ Fertig — Strg+Shift+R"
