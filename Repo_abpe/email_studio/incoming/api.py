@@ -1060,6 +1060,25 @@ class ModuleListAPI(LoginRequiredMixin, View):
         })
 
 
+@method_decorator(csrf_exempt, name='dispatch')
+class ModuleDetailAPI(LoginRequiredMixin, View):
+    """GET /api/modules/<pk>/ — Modul-Detail für Studio-Editor."""
+
+    def get(self, request, pk):
+        from .models import EmailModule
+        mod = get_object_or_404(EmailModule, pk=pk, is_active=True)
+        return JsonResponse({
+            'id':          mod.pk,
+            'identifier':  mod.identifier,
+            'name':        mod.name,
+            'module_type': mod.module_type,
+            'description': mod.description,
+            'html_body':   mod.html_body,
+            'text_body':   mod.text_body,
+            'preview_bg':  mod.preview_bg,
+        })
+
+
 # ── Meilenstein API ───────────────────────────────────────────────────────────
 
 @method_decorator(csrf_exempt, name='dispatch')
