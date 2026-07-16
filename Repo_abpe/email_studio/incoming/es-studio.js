@@ -182,14 +182,14 @@ window.ESStudio = (() => {
             const selId = modSel?.value ? parseInt(modSel.value, 10) : null;
             if (c.id) {
                 _applyEntityToEditors(c);
-                const badge = document.getElementById('es-entity-module-id');
-                if (badge) badge.textContent = c.identifier || '';
+                _fillModuleMeta(c);
                 if (modSel && c.id) modSel.value = String(c.id);
             } else if (selId) {
                 deferPreview = true;
                 void _loadModuleEntity(selId);
             } else {
                 _clearEditors();
+                _clearModuleMeta();
             }
         } else if (entity === 'signature') {
             const c = _entityCache.signature;
@@ -197,14 +197,14 @@ window.ESStudio = (() => {
             const selId = sigSel?.value ? parseInt(sigSel.value, 10) : null;
             if (c.id) {
                 _applyEntityToEditors(c);
-                const badge = document.getElementById('es-entity-signature-id');
-                if (badge) badge.textContent = c.identifier || '';
+                _fillSignatureMeta(c);
                 if (sigSel && c.id) sigSel.value = String(c.id);
             } else if (selId) {
                 deferPreview = true;
                 void _loadSignatureEntity(selId);
             } else {
                 _clearEditors();
+                _clearSignatureMeta();
             }
         }
 
@@ -249,13 +249,79 @@ window.ESStudio = (() => {
     function _updateSaveButtonLabel() {
         const lbl = document.querySelector('#es-save-btn span');
         if (!lbl) return;
-        const keys = {
-            template:  ['btn_save', 'Speichern'],
-            module:    ['btn_save_module', 'Modul speichern'],
-            signature: ['btn_save_signature', 'Signatur speichern'],
+        if (_currentEntity === 'module') {
+            const key = _entityCache.module.id ? 'btn_save_module' : 'btn_create_module';
+            lbl.textContent = t(key, _entityCache.module.id ? 'Modul speichern' : 'Modul anlegen');
+            return;
+        }
+        if (_currentEntity === 'signature') {
+            const key = _entityCache.signature.id ? 'btn_save_signature' : 'btn_create_signature';
+            lbl.textContent = t(key, _entityCache.signature.id ? 'Signatur speichern' : 'Signatur anlegen');
+            return;
+        }
+        lbl.textContent = t('btn_save', 'Speichern');
+    }
+
+    function _slugify(text) {
+        return (text || '')
+            .toLowerCase()
+            .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+            .replace(/[^a-z0-9]+/g, '_')
+            .replace(/^_+|_+$/g, '')
+            .slice(0, 80);
+    }
+
+    function _fillModuleMeta(data) {
+        const nameEl = document.getElementById('es-entity-module-name');
+        const idEl   = document.getElementById('es-entity-module-identifier');
+        const typeEl = document.getElementById('es-entity-module-type');
+        if (nameEl) nameEl.value = data?.name || '';
+        if (idEl)   idEl.value   = data?.identifier || '';
+        if (typeEl && data?.module_type) typeEl.value = data.module_type;
+    }
+
+    function _readModuleMeta() {
+        const name = document.getElementById('es-entity-module-name')?.value?.trim() || '';
+        let identifier = document.getElementById('es-entity-module-identifier')?.value?.trim() || '';
+        if (!identifier && name) identifier = _slugify(name);
+        return {
+            name,
+            identifier,
+            module_type: document.getElementById('es-entity-module-type')?.value || 'SECTION',
         };
-        const [key, fb] = keys[_currentEntity] || keys.template;
-        lbl.textContent = t(key, fb);
+    }
+
+    function _fillSignatureMeta(data) {
+        const nameEl = document.getElementById('es-entity-signature-name');
+        const idEl   = document.getElementById('es-entity-signature-identifier');
+        const defEl  = document.getElementById('es-entity-signature-default');
+        const pubEl  = document.getElementById('es-entity-signature-public');
+        if (nameEl) nameEl.value = data?.name || '';
+        if (idEl)   idEl.value   = data?.identifier || '';
+        if (defEl)  defEl.checked = !!data?.is_default;
+        if (pubEl)  pubEl.checked = !!data?.is_public;
+    }
+
+    function _readSignatureMeta() {
+        const name = document.getElementById('es-entity-signature-name')?.value?.trim() || '';
+        let identifier = document.getElementById('es-entity-signature-identifier')?.value?.trim() || '';
+        if (!identifier && name) identifier = _slugify(name);
+        return {
+            name,
+            identifier,
+            is_default: !!document.getElementById('es-entity-signature-default')?.checked,
+            is_public:  !!document.getElementById('es-entity-signature-public')?.checked,
+        };
+    }
+
+    function _clearModuleMeta() {
+        _fillModuleMeta({});
+        const typeEl = document.getElementById('es-entity-module-type');
+        if (typeEl) typeEl.value = 'SECTION';
+    }
+
+    function _clearSignatureMeta() {
+        _fillSignatureMeta({});
     }
 
     function _applyEntityToEditors(data) {
@@ -294,18 +360,48 @@ window.ESStudio = (() => {
 
         modSel?.addEventListener('change', async function() {
             const id = parseInt(this.value, 10);
-            if (!id) return;
+            if (!id) {
+                _entityCache.module = { id: null, html: '', text: '', identifier: '', name: '' };
+                _clearEditors();
+                _clearModuleMeta();
+                _updateSaveButtonLabel();
+                _loadPreview(false);
+                return;
+            }
             await _loadModuleEntity(id);
         });
 
         sigSel?.addEventListener('change', async function() {
             const id = parseInt(this.value, 10);
-            if (!id) return;
+            if (!id) {
+                _entityCache.signature = { id: null, html: '', text: '', identifier: '', name: '' };
+                _clearEditors();
+                _clearSignatureMeta();
+                _updateSaveButtonLabel();
+                _loadPreview(false);
+                return;
+            }
             await _loadSignatureEntity(id);
         });
 
-        if (!modSel) return;
         await _refreshModuleSelect();
+        await _refreshSignatureSelect();
+        await _loadModuleTypes();
+    }
+
+    async function _loadModuleTypes() {
+        const typeEl = document.getElementById('es-entity-module-type');
+        if (!typeEl) return;
+        try {
+            const data = await ES.api.get(ES.apiUrl('modules/'));
+            const types = data.types || [];
+            if (!types.length) return;
+            typeEl.innerHTML = types.map(([val, label]) =>
+                `<option value="${val}">${label || val}</option>`
+            ).join('');
+        } catch (e) {
+            console.warn('Modul-Typen laden:', e);
+        }
     }
 
     async function _loadModuleEntity(id) {
@@ -314,10 +410,13 @@ window.ESStudio = (() => {
             _entityCache.module = {
                 id, html: data.html_body, text: data.text_body,
                 identifier: data.identifier, name: data.name,
+                module_type: data.module_type,
             };
             _applyEntityToEditors(_entityCache.module);
-            const badge = document.getElementById('es-entity-module-id');
-            if (badge) badge.textContent = data.identifier;
+            _fillModuleMeta(data);
+            const modSel = document.getElementById('es-entity-module-select');
+            if (modSel) modSel.value = String(id);
+            _updateSaveButtonLabel();
             if (_currentEntity === 'module') {
                 _updateModePanels();
                 _loadPreview(false);
@@ -348,51 +447,222 @@ window.ESStudio = (() => {
         }
     }
 
-    function _initEntityActions() {
-        document.getElementById('es-entity-module-new')?.addEventListener('click', _createNewModule);
+    async function _refreshSignatureSelect(selectedId) {
+        const sigSel = document.getElementById('es-entity-signature-select');
+        if (!sigSel) return;
+        try {
+            const data = await ES.api.get(ES.apiUrl('signatures/'));
+            const sigs = data.signatures || [];
+            let opts = `<option value="">${t('entity_select_placeholder', '— Bitte wählen —')}</option>`;
+            for (const s of sigs) {
+                const sel = selectedId && String(s.id) === String(selectedId) ? ' selected' : '';
+                opts += `<option value="${s.id}"${sel}>${s.name} (${s.identifier})</option>`;
+            }
+            sigSel.innerHTML = opts;
+        } catch (e) {
+            console.error('Signatur-Liste aktualisieren fehlgeschlagen:', e);
+        }
     }
 
-    async function _createNewModule() {
-        const name = prompt(t('module_new_name', 'Anzeigename des neuen Moduls:'), '');
-        if (!name) return;
-        const identifier = prompt(
-            t('module_new_identifier', 'Technischer Name (Identifier):'),
-            name.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')
-        );
-        if (!identifier) return;
+    function _initEntityActions() {
+        document.getElementById('es-entity-module-new')?.addEventListener('click', _resetNewModule);
+        document.getElementById('es-entity-module-dup')?.addEventListener('click', () => _duplicateModule());
+        document.getElementById('es-entity-module-del')?.addEventListener('click', () => _deleteModule());
+        document.getElementById('es-entity-signature-new')?.addEventListener('click', _resetNewSignature);
+        document.getElementById('es-entity-signature-dup')?.addEventListener('click', () => _duplicateSignature());
+        document.getElementById('es-entity-signature-del')?.addEventListener('click', () => _deleteSignature());
 
-        _syncAllToCode();
-        const html = document.getElementById('es-html-editor')?.value || '';
-        const txt  = document.getElementById('es-txt-editor')?.value  || '';
+        document.getElementById('es-entity-module-name')?.addEventListener('input', function() {
+            const idEl = document.getElementById('es-entity-module-identifier');
+            if (idEl && !idEl.value.trim()) {
+                idEl.placeholder = _slugify(this.value) || t('label_identifier', 'identifier');
+            }
+        });
+        document.getElementById('es-entity-signature-name')?.addEventListener('input', function() {
+            const idEl = document.getElementById('es-entity-signature-identifier');
+            if (idEl && !idEl.value.trim()) {
+                idEl.placeholder = _slugify(this.value) || t('label_identifier', 'identifier');
+            }
+        });
+    }
 
+    function _resetNewModule() {
+        _entityCache.module = { id: null, html: '', text: '', identifier: '', name: '' };
+        const modSel = document.getElementById('es-entity-module-select');
+        if (modSel) modSel.value = '';
+        _clearModuleMeta();
+        _clearEditors();
+        _updateSaveButtonLabel();
+        document.getElementById('es-entity-module-name')?.focus();
+        _loadPreview(false);
+    }
+
+    function _resetNewSignature() {
+        _entityCache.signature = { id: null, html: '', text: '', identifier: '', name: '' };
+        const sigSel = document.getElementById('es-entity-signature-select');
+        if (sigSel) sigSel.value = '';
+        _clearSignatureMeta();
+        _clearEditors();
+        _updateSaveButtonLabel();
+        document.getElementById('es-entity-signature-name')?.focus();
+        _loadPreview(false);
+    }
+
+    async function _duplicateModule() {
+        const snap = _getEditorSnapshot();
+        const meta = _readModuleMeta();
+        if (!meta.name) {
+            ES.notify.error('es.error_save', t('entity_name_required', 'Anzeigename ist Pflicht'));
+            return;
+        }
+        const payload = {
+            name: `${meta.name} (Kopie)`,
+            identifier: `${meta.identifier || _slugify(meta.name)}_copy`,
+            module_type: meta.module_type,
+            html_body: snap.html,
+            text_body: snap.txt,
+        };
         try {
             const r = await fetch(ES.apiUrl('modules/'), {
                 method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRFToken': ES.csrf() },
+                body: JSON.stringify(payload),
+            });
+            const data = await r.json().catch(() => ({}));
+            if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
+            await _refreshModuleSelect(data.id);
+            await _loadModuleEntity(data.id);
+            ES.notify.success('es.module_saved', t('entity_dup_ok', 'Kopie angelegt'));
+            _loadModules(true);
+        } catch (e) {
+            ES.notify.error('es.error_save', e.message || t('error_save', 'Fehler'));
+        }
+    }
+
+    async function _duplicateSignature() {
+        const snap = _getEditorSnapshot();
+        const meta = _readSignatureMeta();
+        if (!meta.name) {
+            ES.notify.error('es.error_save', t('entity_name_required', 'Anzeigename ist Pflicht'));
+            return;
+        }
+        const payload = {
+            name: `${meta.name} (Kopie)`,
+            identifier: `${meta.identifier || _slugify(meta.name)}_copy`,
+            html_body: snap.html,
+            text_body: snap.txt,
+            is_default: false,
+            is_public: meta.is_public,
+        };
+        try {
+            const r = await fetch(ES.apiUrl('signatures/'), {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRFToken': ES.csrf() },
+                body: JSON.stringify(payload),
+            });
+            const data = await r.json().catch(() => ({}));
+            if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
+            await _refreshSignatureSelect(data.id);
+            await _loadSignatureEntity(data.id);
+            ES.notify.success('es.sig_saved', t('entity_dup_ok', 'Kopie angelegt'));
+        } catch (e) {
+            ES.notify.error('es.error_save', e.message || t('error_save', 'Fehler'));
+        }
+    }
+
+    async function _deleteModule() {
+        const id = _entityCache.module.id;
+        if (!id) {
+            ES.notify.error('es.entity_select_module', t('entity_select_module', 'Bitte zuerst ein Modul wählen'));
+            return;
+        }
+        if (!ES.confirm('es.entity_delete_confirm', t('entity_delete_confirm', 'Wirklich löschen?'))) return;
+        try {
+            const r = await fetch(ES.apiUrl(`modules/${id}/`), {
+                method: 'DELETE',
+                headers: { 'X-CSRFToken': ES.csrf() },
+            });
+            const data = await r.json().catch(() => ({}));
+            if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
+            _resetNewModule();
+            await _refreshModuleSelect();
+            ES.notify.success('es.entity_deleted', t('entity_deleted', 'Gelöscht'));
+            _loadModules(true);
+        } catch (e) {
+            ES.notify.error('es.error_save', e.message || t('error_save', 'Fehler'));
+        }
+    }
+
+    async function _deleteSignature() {
+        const id = _entityCache.signature.id;
+        if (!id) {
+            ES.notify.error('es.entity_select_signature', t('entity_select_signature', 'Bitte zuerst eine Signatur wählen'));
+            return;
+        }
+        if (!ES.confirm('es.entity_delete_confirm', t('entity_delete_confirm', 'Wirklich löschen?'))) return;
+        try {
+            const r = await fetch(ES.apiUrl(`signatures/${id}/`), {
+                method: 'DELETE',
+                headers: { 'X-CSRFToken': ES.csrf() },
+            });
+            const data = await r.json().catch(() => ({}));
+            if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
+            _resetNewSignature();
+            await _refreshSignatureSelect();
+            ES.notify.success('es.entity_deleted', t('entity_deleted', 'Gelöscht'));
+        } catch (e) {
+            ES.notify.error('es.error_save', e.message || t('error_save', 'Fehler'));
+        }
+    }
+
+    async function _saveModuleEntity() {
+        const snap = _getEditorSnapshot();
+        const meta = _readModuleMeta();
+        if (!meta.name || !meta.identifier) {
+            ES.notify.error('es.error_save', t('entity_meta_required', 'Name und Identifier sind Pflichtfelder'));
+            return;
+        }
+
+        const payload = {
+            name: meta.name,
+            identifier: meta.identifier,
+            module_type: meta.module_type,
+            html_body: snap.html,
+            text_body: snap.txt,
+        };
+
+        const id = _entityCache.module.id;
+        const url    = id ? ES.apiUrl(`modules/${id}/`) : ES.apiUrl('modules/');
+        const method = id ? 'PUT' : 'POST';
+
+        try {
+            const r = await fetch(url, {
+                method,
                 headers: {
                     'Content-Type': 'application/json',
                     'X-CSRFToken': ES.csrf(),
                 },
-                body: JSON.stringify({
-                    name, identifier,
-                    html_body: html,
-                    text_body: txt,
-                    module_type: 'SECTION',
-                }),
+                body: JSON.stringify(payload),
             });
             const data = await r.json().catch(() => ({}));
             if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
 
+            const newId = data.id || id;
             _entityCache.module = {
-                id: data.id, html, text: txt,
-                identifier: data.identifier, name: data.name,
+                id: newId,
+                html: payload.html_body,
+                text: payload.text_body,
+                identifier: data.identifier || meta.identifier,
+                name: data.name || meta.name,
+                module_type: meta.module_type,
             };
-            await _refreshModuleSelect(data.id);
-            const badge = document.getElementById('es-entity-module-id');
-            if (badge) badge.textContent = data.identifier;
-            ES.notify.success('es.module_saved', t('module_saved', 'Modul angelegt'));
+            await _refreshModuleSelect(newId);
+            _fillModuleMeta(_entityCache.module);
+            _updateSaveButtonLabel();
+            ES.notify.success('es.module_saved', t('module_saved', id ? 'Modul gespeichert' : 'Modul angelegt'));
             _loadModules(true);
         } catch (e) {
-            console.error('Modul anlegen fehlgeschlagen:', e);
+            console.error('Modul speichern fehlgeschlagen:', e);
             ES.notify.error('es.error_save', e.message || t('error_save', 'Fehler'));
         }
     }
@@ -403,10 +673,13 @@ window.ESStudio = (() => {
             _entityCache.signature = {
                 id, html: data.html_body, text: data.text_body,
                 identifier: data.identifier, name: data.name,
+                is_default: data.is_default, is_public: data.is_public,
             };
             _applyEntityToEditors(_entityCache.signature);
-            const badge = document.getElementById('es-entity-signature-id');
-            if (badge) badge.textContent = data.identifier;
+            _fillSignatureMeta(data);
+            const sigSel = document.getElementById('es-entity-signature-select');
+            if (sigSel) sigSel.value = String(id);
+            _updateSaveButtonLabel();
             if (_currentEntity === 'signature') {
                 _updateModePanels();
                 _loadPreview(false);
@@ -417,51 +690,30 @@ window.ESStudio = (() => {
         }
     }
 
-    async function _saveModuleEntity() {
-        const snap = _getEditorSnapshot();
-        const id = _entityCache.module.id;
-        if (!id) {
-            ES.notify.error('es.entity_select_module', t('entity_select_module', 'Bitte zuerst ein Modul wählen'));
-            return;
-        }
-        const payload = {
-            html_body: snap.html,
-            text_body: snap.txt,
-        };
-        try {
-            const r = await fetch(ES.apiUrl(`modules/${id}/`), {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': ES.csrf(),
-                },
-                body: JSON.stringify(payload),
-            });
-            const data = await r.json().catch(() => ({}));
-            if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
-            Object.assign(_entityCache.module, { html: payload.html_body, text: payload.text_body });
-            ES.notify.success('es.module_saved', t('module_saved', 'Modul gespeichert'));
-            _loadModules(true);
-        } catch (e) {
-            console.error('Modul speichern fehlgeschlagen:', e);
-            ES.notify.error('es.error_save', e.message || t('error_save', 'Fehler'));
-        }
-    }
-
     async function _saveSignatureEntity() {
         const snap = _getEditorSnapshot();
-        const id = _entityCache.signature.id;
-        if (!id) {
-            ES.notify.error('es.entity_select_signature', t('entity_select_signature', 'Bitte zuerst eine Signatur wählen'));
+        const meta = _readSignatureMeta();
+        if (!meta.name || !meta.identifier) {
+            ES.notify.error('es.error_save', t('entity_meta_required', 'Name und Identifier sind Pflichtfelder'));
             return;
         }
+
         const payload = {
+            name: meta.name,
+            identifier: meta.identifier,
             html_body: snap.html,
             text_body: snap.txt,
+            is_default: meta.is_default,
+            is_public: meta.is_public,
         };
+
+        const id = _entityCache.signature.id;
+        const url    = id ? ES.apiUrl(`signatures/${id}/`) : ES.apiUrl('signatures/');
+        const method = id ? 'PUT' : 'POST';
+
         try {
-            const r = await fetch(ES.apiUrl(`signatures/${id}/`), {
-                method: 'PUT',
+            const r = await fetch(url, {
+                method,
                 headers: {
                     'Content-Type': 'application/json',
                     'X-CSRFToken': ES.csrf(),
@@ -470,8 +722,21 @@ window.ESStudio = (() => {
             });
             const data = await r.json().catch(() => ({}));
             if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
-            Object.assign(_entityCache.signature, { html: payload.html_body, text: payload.text_body });
-            ES.notify.success('es.sig_saved', t('sig_saved', 'Signatur gespeichert'));
+
+            const newId = data.id || id;
+            _entityCache.signature = {
+                id: newId,
+                html: payload.html_body,
+                text: payload.text_body,
+                identifier: meta.identifier,
+                name: meta.name,
+                is_default: meta.is_default,
+                is_public: meta.is_public,
+            };
+            await _refreshSignatureSelect(newId);
+            _fillSignatureMeta(_entityCache.signature);
+            _updateSaveButtonLabel();
+            ES.notify.success('es.sig_saved', t('sig_saved', id ? 'Signatur gespeichert' : 'Signatur angelegt'));
         } catch (e) {
             console.error('Signatur speichern fehlgeschlagen:', e);
             ES.notify.error('es.error_save', e.message || t('error_save', 'Fehler'));

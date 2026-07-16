@@ -1016,20 +1016,58 @@
     border-bottom: 1px solid var(--border-color);
     padding: 8px 12px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
     flex-wrap: wrap;
     flex-shrink: 0;
 }
 .es-entity-ctx-panel {
     display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 280px;
+}
+.es-entity-ctx-main {
+    display: flex;
     align-items: center;
     gap: 8px;
-    flex: 1;
-    min-width: 200px;
+    flex-wrap: wrap;
 }
-.es-entity-ctx-panel .form-select {
+.es-entity-ctx-main .form-select {
     max-width: 280px;
+    flex: 1;
+    min-width: 160px;
+}
+.es-entity-ctx-actions {
+    display: flex;
+    gap: 4px;
+}
+.es-entity-ctx-actions .btn {
+    padding: 2px 8px;
+}
+.es-entity-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.es-entity-meta .form-control,
+.es-entity-meta .form-select {
+    max-width: 200px;
+    min-width: 120px;
+}
+.es-entity-check {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin: 0;
+    white-space: nowrap;
+}
+.es-entity-check input {
+    margin: 0;
 }
 .es-entity-id-badge {
     font-family: monospace;

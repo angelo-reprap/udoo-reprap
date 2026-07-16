@@ -605,28 +605,71 @@
             </div>
         </div>
 
-        {# ── Kontext-Leiste (Modul/Signatur-Auswahl) ── #}
+        {# ── Kontext-Leiste (Modul/Signatur-Auswahl + Metadaten) ── #}
         <div id="es-entity-context" class="es-entity-context" style="display:none;">
             <div id="es-entity-module-ctx" class="es-entity-ctx-panel" style="display:none;">
-                <label class="es-lbl" data-i18n="es.entity_module_select">Modul wählen</label>
-                <select id="es-entity-module-select" class="form-select form-select-sm">
-                    <option value="" data-i18n="es.entity_select_placeholder">— Bitte wählen —</option>
-                </select>
-                <span id="es-entity-module-id" class="es-entity-id-badge"></span>
-                <button type="button" id="es-entity-module-new" class="btn btn-sm btn-outline-success">
-                    <i class="bi bi-plus"></i>
-                    <span data-i18n="es.btn_new_module">Neu</span>
-                </button>
+                <div class="es-entity-ctx-main">
+                    <label class="es-lbl" data-i18n="es.entity_module_select">Modul wählen</label>
+                    <select id="es-entity-module-select" class="form-select form-select-sm">
+                        <option value="" data-i18n="es.entity_select_placeholder">— Bitte wählen —</option>
+                    </select>
+                    <div class="es-entity-ctx-actions">
+                        <button type="button" id="es-entity-module-new" class="btn btn-sm btn-outline-success" data-i18n-title="es.btn_new_module" title="Neu">
+                            <i class="bi bi-plus"></i>
+                        </button>
+                        <button type="button" id="es-entity-module-dup" class="btn btn-sm btn-outline-primary" data-i18n-title="es.entity_dup" title="Kopie">
+                            <i class="bi bi-copy"></i>
+                        </button>
+                        <button type="button" id="es-entity-module-del" class="btn btn-sm btn-outline-danger" data-i18n-title="es.entity_delete" title="Löschen">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="es-entity-meta">
+                    <input type="text" id="es-entity-module-name" class="form-control form-control-sm"
+                           data-i18n-placeholder="es.label_name" placeholder="Anzeigename">
+                    <input type="text" id="es-entity-module-identifier" class="form-control form-control-sm es-mono"
+                           data-i18n-placeholder="es.label_identifier" placeholder="identifier">
+                    <select id="es-entity-module-type" class="form-select form-select-sm" data-i18n-title="es.entity_module_type" title="Modul-Typ">
+                        <option value="SECTION">SECTION</option>
+                        <option value="HEADER">HEADER</option>
+                        <option value="FOOTER">FOOTER</option>
+                        <option value="BUTTON">BUTTON</option>
+                    </select>
+                </div>
             </div>
             <div id="es-entity-signature-ctx" class="es-entity-ctx-panel" style="display:none;">
-                <label class="es-lbl" data-i18n="es.entity_signature_select">Signatur wählen</label>
-                <select id="es-entity-signature-select" class="form-select form-select-sm">
-                    <option value="" data-i18n="es.entity_select_placeholder">— Bitte wählen —</option>
-                    {% for sig in signatures %}
-                    <option value="{{ sig.pk }}">{{ sig.name }} ({{ sig.identifier }})</option>
-                    {% endfor %}
-                </select>
-                <span id="es-entity-signature-id" class="es-entity-id-badge"></span>
+                <div class="es-entity-ctx-main">
+                    <label class="es-lbl" data-i18n="es.entity_signature_select">Signatur wählen</label>
+                    <select id="es-entity-signature-select" class="form-select form-select-sm">
+                        <option value="" data-i18n="es.entity_select_placeholder">— Bitte wählen —</option>
+                    </select>
+                    <div class="es-entity-ctx-actions">
+                        <button type="button" id="es-entity-signature-new" class="btn btn-sm btn-outline-success" data-i18n-title="es.btn_new_signature" title="Neu">
+                            <i class="bi bi-plus"></i>
+                        </button>
+                        <button type="button" id="es-entity-signature-dup" class="btn btn-sm btn-outline-primary" data-i18n-title="es.entity_dup" title="Kopie">
+                            <i class="bi bi-copy"></i>
+                        </button>
+                        <button type="button" id="es-entity-signature-del" class="btn btn-sm btn-outline-danger" data-i18n-title="es.entity_delete" title="Löschen">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="es-entity-meta">
+                    <input type="text" id="es-entity-signature-name" class="form-control form-control-sm"
+                           data-i18n-placeholder="es.label_name" placeholder="Anzeigename">
+                    <input type="text" id="es-entity-signature-identifier" class="form-control form-control-sm es-mono"
+                           data-i18n-placeholder="es.label_identifier" placeholder="identifier">
+                    <label class="es-entity-check">
+                        <input type="checkbox" id="es-entity-signature-default">
+                        <span data-i18n="es.sig_default">Standard</span>
+                    </label>
+                    <label class="es-entity-check">
+                        <input type="checkbox" id="es-entity-signature-public">
+                        <span data-i18n="es.sig_public">Öffentlich</span>
+                    </label>
+                </div>
             </div>
             <div id="es-entity-phase-hint" class="es-entity-phase-hint">
                 <i class="bi bi-floppy"></i>
