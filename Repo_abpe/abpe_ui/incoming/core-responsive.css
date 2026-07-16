@@ -1,0 +1,88 @@
+/* core-responsive.css - Mobile First Breakpoints */
+
+/* ============================================================
+   MOBILE (< 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+
+    /* Sidebar: aus dem Bild links */
+    .sidebar {
+        left: -260px;
+        width: 260px !important;
+        box-shadow: none;
+        transition: left 0.3s ease, box-shadow 0.3s ease;
+    }
+    .sidebar:hover {
+        width: 260px !important;
+    }
+    .sidebar.open {
+        left: 0;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.3);
+    }
+
+    /* Nav-Links auf Mobile größer */
+    .sidebar .nav-link {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+    }
+
+    /* Main Content volle Breite */
+    .main-content {
+        margin-left: 0 !important;
+        padding: 80px 12px 20px 12px;
+    }
+
+    /* Sidebar-Arc ausblenden */
+    .sidebar-arc { display: none; }
+
+    /* Suche ausblenden */
+    .search-container { display: none; }
+
+    /* Mobile Menu Button sichtbar */
+    .mobile-menu-btn { display: block; }
+
+    /* Sprach-Buttons kompakter */
+    .lang-btn { padding: 2px 6px; font-size: 0.75rem; }
+
+    /* Overlay wenn Sidebar offen */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+        transition: opacity 0.3s;
+    }
+    .sidebar-overlay.show { display: block; }
+
+    /* Cards stapeln */
+    .stats-grid { grid-template-columns: 1fr 1fr !important; }
+    .system-grid { grid-template-columns: 1fr 1fr !important; }
+
+    /* Admin Portal Cards */
+    .row.g-3 .col-md-3 { width: 50%; }
+
+    /* Tabellen scrollen */
+    .table-responsive { font-size: 0.85rem; }
+
+    /* Header kompakter */
+    .logo-area span { display: none; }
+    .help-btn span { display: none; }
+}
+
+/* ============================================================
+   TABLET (768px - 1200px)
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 1200px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .system-grid { grid-template-columns: repeat(3, 1fr); }
+    .mobile-menu-btn { display: none; }
+}
+
+/* ============================================================
+   DESKTOP (> 1200px)
+   ============================================================ */
+@media (min-width: 1200px) {
+    .mobile-menu-btn { display: none; }
+    .sidebar-overlay { display: none !important; }
+}

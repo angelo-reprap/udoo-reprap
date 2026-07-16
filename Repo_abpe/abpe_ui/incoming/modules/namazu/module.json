@@ -1,0 +1,36 @@
+{
+    "id": "namazu",
+    "title": "Beratersuche",
+    "titles": {
+        "de": "Beratersuche",
+        "en": "Consultant Search",
+        "fr": "Recherche Conseil",
+        "it": "Ricerca Consulenti",
+        "es": "Búsqueda Consultores",
+        "ar": "البحث عن مستشار",
+        "ja": "アドバイザー検索",
+        "ko": "상담사 검색",
+        "nl": "Adviseurzoeker",
+        "pl": "Wyszukiwanie doradców",
+        "pt": "Busca de Consultores",
+        "ru": "Поиск консультанта",
+        "tr": "Danışman Arama",
+        "zh": "顾问搜索",
+        "hu": "Tanácsadó keresése"
+    },
+    "icon": "search",
+    "route": "/namazu/",
+    "order": 15,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod/mod-namazu.css"
+        ],
+        "js": [
+            "mod/mod-namazu.js"
+        ]
+    }
+}

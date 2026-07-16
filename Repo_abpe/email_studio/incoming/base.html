@@ -1,0 +1,155 @@
+{% extends 'abpe_ui/base.html' %}
+{% load static %}
+
+{% block module_css %}
+<link href="{% static 'abpe_ui/css/mod/mod-es-components.css' %}" rel="stylesheet">
+<link href="{% static 'abpe_ui/css/mod/mod-email_studio.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="es-module-wrap">
+
+    {{ es_i18n|json_script:"es-i18n-inline" }}
+
+    <script>
+    (function() {
+        const el = document.getElementById('es-i18n-inline');
+        if (!el) return;
+        const d = JSON.parse(el.textContent);
+        window.i18nData = window.i18nData || {};
+        if (typeof mergeModuleI18n === 'function') {
+            mergeModuleI18n(d);
+        } else if (d.es) {
+            window.i18nData.es = { ...(window.i18nData.es || {}), ...d.es };
+            if (d.help) window.i18nData.help_section = d.help;
+        }
+    })();
+
+    window.ES_CONFIG = {
+        lang:       '{{ current_lang|default:"de" }}',
+        isAdmin:    {{ user.is_staff|yesno:"true,false" }},
+        baseUrl:    '/email-studio/',
+        apiUrl:     '/email-studio/api/',
+        staticUrl:  '/static/email_studio/',
+        templateId: '{{ template.pk|default:"" }}',
+        csrfToken:  '{{ csrf_token }}',
+        activeTab:  '{{ active_tab|default:"index" }}',
+        editLang:   '{{ edit_lang|default:"" }}',
+        debug:      {{ debug|yesno:"true,false" }},
+    };
+    </script>
+
+    <div class="es-tabs">
+        <a href="/email-studio/"
+           class="es-tab {% if active_tab == 'index' %}active{% endif %}">
+            <i class="bi bi-collection"></i>
+            <span data-i18n="es.tab_templates">Vorlagen</span>
+        </a>
+        <a href="/email-studio/studio/{% if template %}?template={{ template.pk }}{% endif %}"
+           class="es-tab {% if active_tab == 'studio' %}active{% endif %}">
+            <i class="bi bi-code-square"></i>
+            <span data-i18n="es.tab_studio">Studio / Editor</span>
+        </a>
+        <a href="/email-studio/log/"
+           class="es-tab {% if active_tab == 'log' %}active{% endif %}">
+            <i class="bi bi-clock-history"></i>
+            <span data-i18n="es.tab_log">Versand-Log</span>
+        </a>
+        {% if user.is_staff %}
+        <a href="/email-studio/config/"
+           class="es-tab {% if active_tab == 'config' %}active{% endif %}">
+            <i class="bi bi-gear"></i>
+            <span data-i18n="es.tab_config">Konfiguration</span>
+        </a>
+        {% endif %}
+        <div class="es-tab-spacer"></div>
+        <div class="es-tab-tools">
+            {% block tab_tools %}{% endblock %}
+            <button id="es-test-send-topbar" class="es-btn-test-send">
+                <i class="bi bi-send"></i>
+                <span data-i18n="es.btn_test_send">Test senden</span>
+            </button>
+            <a href="/email-studio/studio/" class="es-btn-new-template">
+                <i class="bi bi-plus"></i>
+                <span data-i18n="es.btn_new">Neue Vorlage</span>
+            </a>
+            <button onclick="ESHelp.open()" class="es-btn-help">
+                <i class="bi bi-question-circle"></i>
+                <span id="es-help-btn-label" data-i18n="es.help_btn">Hilfe</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="es-help-modal" class="es-help-modal-wrap">
+        <div class="es-help-modal-box">
+            <div class="es-help-modal-hdr">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-question-circle-fill"></i>
+                    <span id="help-title" data-i18n="es.help_title">Email Studio — Anleitung</span>
+                </div>
+                <button onclick="ESHelp.close()" class="es-help-modal-close">
+                    <i class="bi bi-x-lg"></i>
+                    <span id="help-close" data-i18n="es.help_close">Schließen</span>
+                </button>
+            </div>
+            <div class="es-help-modal-tabs">
+                <button class="es-help-tab active" data-tab="overview" onclick="ESHelp.tab('overview',this)">
+                    <i class="bi bi-grid-1x2"></i><span id="help-tab-overview" data-i18n="es.help_tab_overview">Übersicht</span>
+                </button>
+                <button class="es-help-tab" data-tab="modules" onclick="ESHelp.tab('modules',this)">
+                    <i class="bi bi-puzzle"></i><span id="help-tab-modules" data-i18n="es.help_tab_modules">Module</span>
+                </button>
+                <button class="es-help-tab" data-tab="vars" onclick="ESHelp.tab('vars',this)">
+                    <i class="bi bi-braces"></i><span id="help-tab-vars" data-i18n="es.help_tab_vars">Variablen</span>
+                </button>
+                <button class="es-help-tab" data-tab="translate" onclick="ESHelp.tab('translate',this)">
+                    <i class="bi bi-translate"></i><span id="help-tab-translate" data-i18n="es.help_tab_translate">Übersetzungen</span>
+                </button>
+                <button class="es-help-tab" data-tab="tutorial" onclick="ESHelp.tab('tutorial',this)">
+                    <i class="bi bi-play-circle"></i><span id="help-tab-tutorial" data-i18n="es.help_tab_tutorial">Tutorial</span>
+                </button>
+            </div>
+            <div id="es-help-content" class="es-help-modal-content"></div>
+        </div>
+    </div>
+
+    {% block es_content %}{% endblock %}
+
+</div>
+{% endblock %}
+
+{% block module_js %}
+<script src="{% static 'email_studio/js/es-core.js' %}"></script>
+<script>
+document.addEventListener('languageChanged', function(e) {
+    if (typeof loadLanguage === 'function') {
+        loadLanguage(e.detail.language, 'email_studio').then(() => {
+            if (typeof applyTranslations === 'function') applyTranslations();
+            if (window.ESHelp) ESHelp._helpData = null;
+        });
+    }
+});
+</script>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof loadLanguage === 'function') {
+        loadLanguage('{{ current_lang|default:"de" }}', 'email_studio').then(() => {
+            const lbl = document.getElementById('es-help-btn-label');
+            if (lbl && window.i18nData?.es?.help_btn) lbl.textContent = window.i18nData.es.help_btn;
+        });
+    }
+});
+document.addEventListener('languageChanged', function(e) {
+    if (typeof loadLanguage === 'function') {
+        loadLanguage(e.detail.language, 'email_studio').then(() => {
+            const lbl = document.getElementById('es-help-btn-label');
+            if (lbl && window.i18nData?.es?.help_btn) lbl.textContent = window.i18nData.es.help_btn;
+            if (window.ESHelp) ESHelp._helpData = null;
+        });
+    }
+}, {capture: true});
+</script>
+{% endblock %}

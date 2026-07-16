@@ -1,0 +1,77 @@
+{
+    "id": "email",
+    "title": "Email",
+    "titles": {
+        "de": "Email",
+        "en": "Email",
+        "es": "Email",
+        "it": "Email",
+        "fr": "Email",
+        "ar": "البريد الإلكتروني",
+        "ja": "Email",
+        "ko": "Email",
+        "nl": "Email",
+        "pl": "Email",
+        "pt": "Email",
+        "ru": "Email",
+        "tr": "Email",
+        "zh": "Email",
+        "hu": "Email"
+    },
+    "icon": "envelope",
+    "route": "/crm/email/compose/",
+    "order": 45,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "nav_group": true,
+    "subpages": [
+        {
+            "id": "compose",
+            "title": "Email-Erstellen",
+            "titles": {
+                "de": "Email-Erstellen",
+                "en": "Compose Email",
+                "es": "Crear email",
+                "it": "Crea email",
+                "fr": "Créer un email",
+                "ar": "إنشاء بريد إلكتروني",
+                "ja": "メール作成",
+                "ko": "이메일 작성",
+                "nl": "E-mail opstellen",
+                "pl": "Tworzenie e-maila",
+                "pt": "Criar Email",
+                "ru": "Создание Email",
+                "tr": "E-posta Oluştur",
+                "zh": "撰写邮件",
+                "hu": "Email létrehozása"
+            },
+            "route": "/crm/email/compose/",
+            "order": 1
+        },
+        {
+            "id": "studio",
+            "title": "Email Studio",
+            "titles": {
+                "de": "Email Studio",
+                "en": "Email Studio",
+                "es": "Email Studio",
+                "it": "Email Studio",
+                "fr": "Email Studio",
+                "ar": "استوديو البريد الإلكتروني",
+                "ja": "メールスタジオ",
+                "ko": "이메일 스튜디오",
+                "nl": "E-mail Studio",
+                "pl": "Studio e-mail",
+                "pt": "Email Studio",
+                "ru": "Email Studio",
+                "tr": "E-posta Stüdyosu",
+                "zh": "邮件工作室",
+                "hu": "Email Studio"
+            },
+            "route": "/email-studio/",
+            "order": 2
+        }
+    ]
+}

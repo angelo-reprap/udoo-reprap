@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "Tartalomjegyzék"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Áttekintés"
+        },
+        {
+            "id": "endpoints",
+            "number": "2",
+            "title": "Végpontok"
+        }
+    ]
+}

@@ -1,0 +1,1057 @@
+{% extends 'abpe_ui/modules/email_studio/base.html' %}
+
+{% block title %}{% spaceless %}{% if template and template.pk %}{{ template.name }}{% endif %}{% endspaceless %}{% endblock %}
+
+{% block tab_tools %}
+{% if template and template.pk %}
+<span style="font-size:11px;color:var(--text-secondary);font-family:monospace;">{{ template.identifier }}</span>
+<span class="es-badge {% if template.status == 'ACTIVE' %}es-badge-green{% elif template.status == 'DRAFT' %}es-badge-amber{% else %}es-badge-gray{% endif %}">
+    v{{ template.active_version }}
+</span>
+{% endif %}
+{% endblock %}
+
+{% block es_content %}
+<div class="container-fluid px-0">
+
+{% if not template %}
+
+<div class="container-fluid px-3 py-3">
+    <div class="es-toggle-row-wrap">
+        <div class="es-toggle-row-hdr open" onclick="esToggleRow(this)">
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-plus-circle"></i>
+                <span data-i18n="es.new_template_title">Neue Vorlage erstellen</span>
+            </div>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="es-toggle-row-body col3 open" style="padding:12px;background:white;border:1px solid var(--border-color);border-top:none;border-radius:0 0 8px 8px;">
+            <div class="es-new-card es-new-card-primary"
+                 onclick="location.href='/email-studio/studio/?new=blank'">
+                <i class="bi bi-file-earmark-plus es-new-card-icon"></i>
+                <div class="es-new-card-title" data-i18n="es.new_blank">Leeres Template</div>
+                <div class="es-new-card-hint" data-i18n="es.new_blank_hint">HTML + TXT von Grund auf</div>
+            </div>
+            <div class="es-new-card"
+                 onclick="location.href='/email-studio/studio/?new=skeleton'">
+                <i class="bi bi-layout-text-window es-new-card-icon es-new-card-icon-secondary"></i>
+                <div class="es-new-card-title" data-i18n="es.new_skeleton">Corporate Skeleton</div>
+                <div class="es-new-card-hint" data-i18n="es.new_skeleton_hint">Abcona Blau, Header, Footer</div>
+            </div>
+            <div class="es-new-card">
+                <i class="bi bi-copy es-new-card-icon es-new-card-icon-secondary"></i>
+                <div class="es-new-card-title" data-i18n="es.new_duplicate">Von bestehender duplizieren</div>
+                <select id="es-from-template" class="form-select form-select-sm mt-2"
+                        onchange="if(this.value) location.href='/email-studio/studio/?duplicate='+this.value">
+                    <option value="" data-i18n="es.new_duplicate_select">Vorlage wählen...</option>
+                    {% for tpl in all_templates %}
+                    <option value="{{ tpl.pk }}">{{ tpl.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="es-toggle-row-wrap">
+        <div class="es-toggle-row-hdr" onclick="esToggleRow(this)">
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-collection"></i>
+                <span data-i18n="es.open_template_title">Bestehende Vorlage öffnen</span>
+            </div>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="es-toggle-row-body col1" style="background:white;border:1px solid var(--border-color);border-top:none;border-radius:0 0 8px 8px;overflow:hidden;">
+            <table class="es-table">
+                <thead><tr>
+                    <th data-i18n="es.col_name_only">Name</th>
+                    <th data-i18n="es.col_scope">Bereich</th>
+                    <th data-i18n="es.col_status">Status</th>
+                    <th data-i18n="es.col_version">Version</th>
+                    <th></th>
+                </tr></thead>
+                <tbody>
+                {% for tpl in all_templates %}
+                <tr>
+                    <td class="es-table-name">{{ tpl.name }}</td>
+                    <td><span class="es-scope">{{ tpl.app_scope }}</span></td>
+                    <td>
+                        {% if tpl.status == 'ACTIVE' %}<span class="es-badge es-badge-green" data-i18n="es.status_active">Aktiv</span>
+                        {% elif tpl.status == 'DRAFT' %}<span class="es-badge es-badge-amber" data-i18n="es.status_draft">Entwurf</span>
+                        {% else %}<span class="es-badge es-badge-gray" data-i18n="es.status_archive">Archiv</span>{% endif %}
+                    </td>
+                    <td><span class="es-badge es-badge-blue">v{{ tpl.active_version }}</span></td>
+                    <td>
+                        <a href="/email-studio/studio/?template={{ tpl.pk }}"
+                           class="btn btn-sm btn-outline-primary es-btn-xs">
+                            <i class="bi bi-pencil"></i>
+                            <span data-i18n="es.btn_open">Öffnen</span>
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="5" class="es-table-empty" data-i18n="es.empty_templates">Noch keine Vorlagen</td></tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% else %}
+
+{# ═══ BREADCRUMB BAR ═══ #}
+<div class="es-breadcrumb-bar">
+    <div class="es-breadcrumb-path">
+        <a href="/email-studio/" data-i18n="es.breadcrumb_templates">Vorlagen</a>
+        <i class="bi bi-chevron-right es-breadcrumb-sep"></i>
+        {% if template.pk %}
+        <span>{{ template.app_scope }}</span>
+        <i class="bi bi-chevron-right es-breadcrumb-sep"></i>
+        <strong class="es-breadcrumb-name">{{ template.name }}</strong>
+        {% if edit_lang %}
+        <i class="bi bi-chevron-right es-breadcrumb-sep"></i>
+        <span class="es-badge es-badge-blue"><i class="bi bi-translate"></i> {{ edit_lang|upper }}</span>
+        {% endif %}
+        {% else %}
+        <strong class="es-breadcrumb-name" data-i18n="es.new_blank">Neue Vorlage</strong>
+        {% endif %}
+    </div>
+    <div class="es-breadcrumb-actions">
+
+
+        {% if template.pk %}
+        <button id="es-saveas-btn" class="btn btn-sm btn-outline-primary"
+                onclick="document.getElementById('es-saveas-wrap').classList.toggle('show')">
+            <i class="bi bi-floppy2"></i>
+            <span data-i18n="es.btn_saveas">Speichern unter</span>
+        </button>
+        <div id="es-saveas-wrap" class="es-milestone-input-wrap" style="width:300px;">
+            <div class="es-milestone-popup-title">
+                <i class="bi bi-floppy2"></i>
+                <span data-i18n="es.btn_saveas">Speichern unter</span>
+            </div>
+            <input id="es-saveas-name" class="form-control form-control-sm"
+                   placeholder="Neuer Name..." style="margin-bottom:4px;">
+            <input id="es-saveas-id" class="form-control form-control-sm"
+                   placeholder="neuer_identifier" style="font-family:monospace;margin-bottom:6px;">
+            <div class="es-milestone-popup-actions">
+                <button class="btn btn-sm btn-outline-secondary es-btn-xs"
+                        onclick="document.getElementById('es-saveas-wrap').classList.remove('show')"
+                        data-i18n="es.btn_cancel">Abbrechen</button>
+                <button class="btn btn-sm btn-primary es-btn-xs"
+                        onclick="ESStudio.saveAs()">
+                    <i class="bi bi-floppy2"></i>
+                    <span data-i18n="es.btn_saveas">Speichern unter</span>
+                </button>
+            </div>
+        </div>
+        {% endif %}
+        <button id="es-save-btn"
+                class="btn btn-sm btn-primary"
+                data-template-id="{{ template.pk|default:'' }}"
+                data-is-new="{{ template.pk|yesno:'false,true' }}">
+            <i class="bi bi-floppy"></i>
+            <span data-i18n="es.btn_save">Speichern</span>
+        </button>
+    </div>
+</div>
+
+{# ═══ VORLAGEN SWITCHER ═══ #}
+<div class="es-toggle-row-wrap">
+    <div class="es-toggle-row-hdr" onclick="esToggleRow(this)">
+        <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-collection"></i>
+            <span data-i18n="es.open_template_title">Bestehende Vorlage öffnen</span>
+        </div>
+        <i class="bi bi-chevron-down"></i>
+    </div>
+    <div class="es-toggle-row-body col1" style="background:white;border:1px solid var(--border-color);border-top:none;border-radius:0 0 8px 8px;overflow:hidden;">
+        <table class="es-table">
+            <thead><tr>
+                <th data-i18n="es.col_name_only">Name</th>
+                <th data-i18n="es.col_scope">Bereich</th>
+                <th data-i18n="es.col_status">Status</th>
+                <th data-i18n="es.col_version">Version</th>
+                <th></th>
+            </tr></thead>
+            <tbody>
+            {% for tpl in all_templates %}
+            <tr>
+                <td class="es-table-name">{{ tpl.name }}</td>
+                <td><span class="es-scope">{{ tpl.app_scope }}</span></td>
+                <td>
+                    {% if tpl.status == 'ACTIVE' %}<span class="es-badge es-badge-green" data-i18n="es.status_active">Aktiv</span>
+                    {% elif tpl.status == 'DRAFT' %}<span class="es-badge es-badge-amber" data-i18n="es.status_draft">Entwurf</span>
+                    {% else %}<span class="es-badge es-badge-gray" data-i18n="es.status_archive">Archiv</span>{% endif %}
+                </td>
+                <td><span class="es-badge es-badge-blue">v{{ tpl.active_version }}</span></td>
+                <td>
+                    <a href="/email-studio/studio/?template={{ tpl.pk }}"
+                       class="btn btn-sm btn-outline-primary es-btn-xs">
+                        <i class="bi bi-pencil"></i>
+                        <span data-i18n="es.btn_open">Öffnen</span>
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5" class="es-table-empty" data-i18n="es.empty_templates">Noch keine Vorlagen</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{# ═══ VERSIONS BAR ═══ #}
+{% if template.pk and not edit_lang %}
+<div class="es-versions-bar">
+    <div class="toggle-section es-inline">
+        <div id="es-versions-toggle" class="section-header" onclick="toggleSection(this);document.getElementById('es-versions-panel').style.display=this.classList.contains('open')?'':'none';">
+            <span>
+                <i class="bi bi-clock-history"></i>
+                <span data-i18n="es.versions_title">Versionsverlauf</span>
+                <span id="es-versions-official-badge" class="es-badge es-badge-white"><span id="es-versions-official-count">{{ versions|length }}</span> <span data-i18n="es.versions_official_count">offiziell</span></span>
+                <span id="es-versions-ms-badge" class="es-badge es-badge-ms"><i class="bi bi-pin-angle-fill"></i> <span id="es-versions-ms-count">{{ milestones|length }}</span> <span data-i18n="es.versions_milestone_count">Meilensteine</span></span>
+            </span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </div>
+    <button id="es-undo-btn" class="es-undo-btn" disabled data-i18n-title="es.undo">
+        <i class="bi bi-arrow-counterclockwise"></i>
+        <span data-i18n="es.undo">Undo</span>
+    </button>
+    <button id="es-redo-btn" class="es-undo-btn" disabled data-i18n-title="es.redo">
+        <i class="bi bi-arrow-clockwise"></i>
+        <span data-i18n="es.redo">Redo</span>
+    </button>
+    <div class="es-milestone-anchor">
+        <button id="es-milestone-btn" class="es-milestone-btn" data-i18n-title="es.milestone_save">
+            <i class="bi bi-pin-angle"></i>
+            <span data-i18n="es.milestone_save_short">Merken</span>
+        </button>
+        <div id="es-milestone-input-wrap" class="es-milestone-input-wrap">
+        <div class="es-milestone-popup-title">
+            <i class="bi bi-pin-angle-fill"></i>
+            <span data-i18n="es.milestone_save">Stand merken</span>
+        </div>
+        <input id="es-milestone-label-inp" class="form-control form-control-sm"
+               data-i18n-placeholder="es.milestone_label_placeholder" placeholder="z.B. vor Farb-Test">
+        <div class="es-milestone-popup-actions">
+            <button class="btn btn-sm btn-outline-secondary es-btn-xs"
+                    onclick="document.getElementById('es-milestone-input-wrap').classList.remove('show')"
+                    data-i18n="es.btn_cancel">Abbrechen</button>
+            <button id="es-milestone-save" class="btn btn-sm btn-primary es-btn-xs">
+                <i class="bi bi-pin"></i>
+                <span data-i18n="es.milestone_save">Merken</span>
+            </button>
+        </div>
+        </div>
+    </div>
+    <div class="es-tab-spacer"></div>
+    <div class="toggle-section es-inline">
+        <div id="es-trans-toggle" class="section-header" onclick="toggleSection(this);document.getElementById('es-trans-panel').style.display=this.classList.contains('open')?'':'none';">
+            <span>
+                <i class="bi bi-translate"></i>
+                <span data-i18n="es.translations_title">Übersetzungen</span>
+                <span class="es-badge es-badge-white">{{ template.translations.count }}</span>
+            </span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </div>
+    <div class="toggle-section es-inline">
+        <div class="section-header" onclick="ESStudio.manageLangs()">
+            <span>
+                <i class="bi bi-gear"></i>
+                <span data-i18n="es.btn_manage_langs">Sprachen</span>
+            </span>
+        </div>
+    </div>
+    <div class="toggle-section es-inline">
+        <div class="section-header" onclick="ESStudio.autoTranslate()">
+            <span>
+                <i class="bi bi-magic"></i>
+                <span data-i18n="es.btn_auto_translate">Auto-Übersetzen</span>
+                <span class="es-bar-hint" data-i18n="es.versions_bar_hint">Stand anklicken zum Laden</span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div id="es-versions-panel" class="es-lang-config-panel" style="display:none;">
+    <div class="es-lang-config-hdr">
+        <span><i class="bi bi-clock-history"></i> <span data-i18n="es.versions_title">Versionsverlauf</span></span>
+        <button class="es-btn-icon" onclick="document.getElementById('es-versions-panel').style.display='none';document.getElementById('es-versions-toggle').classList.remove('open')"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="es-versions-list" class="es-versions-list" style="padding:8px 12px;">
+        {% for ms in milestones %}
+        <div class="es-version-item milestone" data-ms-id="{{ ms.pk }}">
+            <div class="es-version-num ms">📌</div>
+            <div class="es-version-info">
+                <div class="vt">{{ ms.milestone_label }}</div>
+                <div class="vs">{{ ms.created_at|date:"d.m. H:i" }}</div>
+            </div>
+        </div>
+        {% endfor %}
+        {% for v in versions %}
+        <div class="es-version-item {% if v.version == template.active_version %}active-ver{% endif %}"
+             data-ver="{{ v.version }}">
+            <div class="es-version-num {% if v.version == template.active_version %}ok{% else %}old{% endif %}">{{ v.version }}</div>
+            <div class="es-version-info">
+                <div class="vt">{% if v.change_note %}{{ v.change_note }}{% else %}Version {{ v.version }}{% endif %}{% if v.version == template.active_version %} · <span data-i18n="es.version_active">Aktiv</span>{% endif %}</div>
+                <div class="vs">{{ v.created_at|date:"d.m.Y H:i" }}</div>
+            </div>
+        </div>
+        {% endfor %}
+        <span class="es-versions-hint">
+            <i class="bi bi-arrow-left"></i>
+            <span data-i18n="es.versions_click_hint">anklicken zum Wiederherstellen</span>
+        </span>
+    </div>
+</div>
+
+<div id="es-trans-panel" class="es-lang-config-panel" style="display:none;">
+    <div class="es-lang-config-hdr">
+        <span><i class="bi bi-translate"></i> <span data-i18n="es.translations_title">Übersetzungen</span></span>
+        <button class="es-btn-icon" onclick="document.getElementById('es-trans-panel').style.display='none';document.getElementById('es-trans-toggle').classList.remove('open')"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <table class="es-table">
+        <thead><tr>
+            <th data-i18n="es.col_lang">Sprache</th>
+            <th data-i18n="es.col_subject">Betreff</th>
+            <th data-i18n="es.col_auto">Auto</th>
+            <th data-i18n="es.col_reviewed">Geprüft</th>
+            <th data-i18n="es.col_translated_at">Übersetzt am</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+        {% for tr in template.translations.all %}
+        <tr>
+            <td><span class="es-badge es-badge-blue">{{ tr.lang|upper }}</span></td>
+            <td class="es-table-subject">{{ tr.subject|truncatechars:60 }}</td>
+            <td>{% if tr.auto_translated %}<span class="es-badge es-badge-amber" data-i18n="es.col_auto">Auto</span>{% else %}<span class="es-badge es-badge-green" data-i18n="es.btn_translate_manual">Manuell</span>{% endif %}</td>
+            <td>{% if tr.reviewed %}<i class="bi bi-check-circle-fill es-icon-green"></i>{% else %}<i class="bi bi-circle es-icon-muted"></i>{% endif %}</td>
+            <td class="es-table-meta">{{ tr.translated_at|date:"d.m.Y H:i" }}</td>
+            <td>
+                <div class="d-flex gap-1">
+                    <a href="/email-studio/studio/?template={{ template.pk }}&lang={{ tr.lang }}" class="es-btn-icon" data-i18n-title="es.translation_edit"><i class="bi bi-pencil"></i></a>
+                    <button class="es-btn-icon" onclick="ESStudio.translateLang('{{ tr.lang }}')" data-i18n-title="es.translation_retranslate"><i class="bi bi-arrow-clockwise"></i></button>
+                    <button class="es-btn-icon danger" onclick="ESStudio.deleteLang('{{ tr.lang }}')" data-i18n-title="es.translation_delete"><i class="bi bi-trash"></i></button>
+                </div>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6" class="es-table-empty" data-i18n="es.translations_empty">Noch keine Übersetzungen</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+{# ═══ SPRACHEN-PANEL ═══ #}
+{% if template.pk and not edit_lang %}
+<div id="es-lang-config" class="es-lang-config-panel" style="display:none;">
+    <div class="es-lang-config-hdr">
+        <span><i class="bi bi-translate"></i> <span data-i18n="es.lang_config_title">Übersetzungssprachen für diese Vorlage</span> <span class="es-badge es-badge-gray" data-i18n="es.lang_config_hint">— DE ist immer Referenz</span></span>
+        <button class="es-btn-icon" onclick="ESStudio.manageLangs()"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="es-lang-config-body">
+        <div class="es-lang-config-section">
+            <div class="es-var-group-lbl" data-i18n="es.lang_config_title">Aktive Sprachen</div>
+            <div id="es-lang-list" class="es-lang-list"><div class="spinner-border spinner-border-sm text-primary"></div></div>
+        </div>
+        <div class="es-lang-config-section">
+            <div class="es-var-group-lbl" data-i18n="es.lang_install_title">Weitere Sprache installieren</div>
+            <div class="d-flex gap-2 align-items-center">
+                <select id="es-lang-add-select" class="form-select form-select-sm" style="max-width:250px;">
+                    <option value="" data-i18n="es.lang_select_placeholder">— Sprache wählen —</option>
+                </select>
+                <button class="btn btn-sm btn-primary" onclick="const s=document.getElementById('es-lang-add-select');if(s.value)ESStudio.toggleLang(s.value,true)">
+                    <i class="bi bi-plus"></i> <span data-i18n="es.btn_install">Installieren</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{# ═══ 3-SPALTEN LAYOUT ═══ #}
+<div class="es-studio-layout">
+
+{# ── SPALTE 1: SIDEBAR ── #}
+<div class="es-studio-sidebar">
+
+    {% if not edit_lang %}
+    <div class="toggle-section">
+        <div class="section-header open" onclick="toggleSection(this)">
+            <span><i class="bi bi-sliders"></i> <span data-i18n="es.settings_title">Einstellungen</span></span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="section-content open">
+            <div class="es-settings-field">
+                <label class="es-settings-lbl" data-i18n="es.label_name">Name</label>
+                <input id="es-name-input" class="form-control form-control-sm" value="{{ template.name }}">
+            </div>
+            <div class="es-settings-field">
+                <label class="es-settings-lbl" data-i18n="es.label_subject">Betreff</label>
+                <input id="es-subject-input" class="form-control form-control-sm" value="{{ template.subject }}">
+            </div>
+            <div class="es-settings-field">
+                <label class="es-settings-lbl" data-i18n="es.label_identifier">Identifier</label>
+                <input id="es-identifier-input"
+                       class="form-control form-control-sm{% if template.pk %} es-input-readonly{% endif %}"
+                       value="{{ template.identifier }}"
+                       {% if template.pk %}readonly{% endif %}
+                       placeholder="z.B. cv_generated_berater">
+            </div>
+            <div class="es-form-row col2">
+                <div>
+                    <label class="es-settings-lbl" data-i18n="es.label_scope">Bereich</label>
+                    <select class="form-select form-select-sm" name="app_scope">
+                        {% for val, label in scopes %}
+                        <option value="{{ val }}" {% if template.app_scope == val %}selected{% endif %}>{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label class="es-settings-lbl" data-i18n="es.col_status">Status</label>
+                    <select class="form-select form-select-sm" name="status">
+                        <option value="DRAFT" {% if template.status == 'DRAFT' or not template.pk %}selected{% endif %} data-i18n="es.status_draft">Entwurf</option>
+                        <option value="ACTIVE" {% if template.status == 'ACTIVE' %}selected{% endif %} data-i18n="es.status_active">Aktiv</option>
+                    </select>
+                </div>
+            </div>
+            <div class="es-settings-field">
+                <label class="es-settings-lbl" data-i18n="es.label_sender_mode">Absender-Modus</label>
+                <div class="es-mode-btns">
+                    <button class="es-mode-btn {% if template.sender_mode == 'TEMPLATE' %}active{% endif %}" data-mode="TEMPLATE" onclick="esSetSenderMode(this)">
+                        <i class="bi bi-building"></i><br><span data-i18n="es.mode_template">Template</span>
+                    </button>
+                    <button class="es-mode-btn {% if template.sender_mode == 'USER' or not template.pk %}active{% endif %}" data-mode="USER" onclick="esSetSenderMode(this)">
+                        <i class="bi bi-person-check"></i><br><span data-i18n="es.mode_user">User</span>
+                    </button>
+                    <button class="es-mode-btn {% if template.sender_mode == 'AUTO' %}active{% endif %}" data-mode="AUTO" onclick="esSetSenderMode(this)">
+                        <i class="bi bi-robot"></i><br><span data-i18n="es.mode_auto">Auto</span>
+                    </button>
+                </div>
+                <div id="es-mode-hint" class="es-mode-hint-text">
+                    {% if template.sender_mode == 'USER' %}<span data-i18n="es.mode_hint_user">From = eingeloggter User</span>
+                    {% elif template.sender_mode == 'AUTO' %}<span data-i18n="es.mode_hint_auto">From = noreply</span>
+                    {% else %}<span data-i18n="es.mode_hint_template">From = feste Adresse</span>{% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="toggle-section">
+        <div class="section-header" onclick="toggleSection(this)">
+            <span>
+                <i class="bi bi-braces"></i>
+                <span data-i18n="es.vars_title">Variablen</span>
+                <span class="es-badge es-badge-white">13</span>
+            </span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="section-content">
+            <div class="es-var-group-lbl" data-i18n="es.vars_context">Aus Kontext</div>
+            {% for v in context_vars %}
+            <div class="es-var-chip context" data-var="{{ v.name }}">
+                <span>{{ '{' }}{{ v.name }}{{ '}' }}</span>
+                <i class="bi bi-clipboard es-var-chip-icon"></i>
+            </div>
+            {% endfor %}
+            <div class="es-var-group-lbl" data-i18n="es.vars_user">User-Profil</div>
+            {% for v in user_vars %}
+            <div class="es-var-chip user" data-var="{{ v.name }}">
+                <span>{{ '{' }}{{ v.name }}{{ '}' }}</span>
+                <i class="bi bi-clipboard es-var-chip-icon"></i>
+            </div>
+            {% endfor %}
+            <div class="es-var-group-lbl" data-i18n="es.vars_system">System</div>
+            {% for v in system_vars %}
+            <div class="es-var-chip system" data-var="{{ v.name }}">
+                <span>{{ '{' }}{{ v.name }}{{ '}' }}</span>
+                <i class="bi bi-clipboard es-var-chip-icon"></i>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="toggle-section">
+        <div class="section-header" onclick="toggleSection(this);if(this.classList.contains('open'))ESStudio.showPanel('mods')">
+            <span>
+                <i class="bi bi-puzzle"></i>
+                <span data-i18n="es.modules_title">Module</span>
+            </span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div id="es-modules-panel-body" class="section-content">
+            <div class="es-loading-spinner">
+                <div class="spinner-border spinner-border-sm text-primary"></div>
+            </div>
+        </div>
+    </div>
+
+    {% if not edit_lang %}
+    <div class="toggle-section" id="es-signature-section">
+        <div class="section-header" onclick="toggleSection(this)">
+            <span>
+                <i class="bi bi-pen"></i>
+                <span data-i18n="es.signature_title">Signatur</span>
+                <span class="es-badge es-badge-white">{{ template.get_signature_mode_display|default:"USER" }}</span>
+                <span id="es-sig-block-badge" class="es-badge es-badge-blue" style="display:none"
+                      data-i18n="es.sig_block_active">{% verbatim %}{{block:signature}}{% endverbatim %}</span>
+            </span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="section-content">
+            <p class="es-sig-hint" data-i18n="es.sig_block_hint">
+                {% verbatim %}Im Template <code>{{block:signature}}</code> einfügen{% endverbatim %} — die gewählte Quelle erscheint dort in der Vorschau.
+            </p>
+            <button type="button" id="es-sig-insert-btn" class="es-sig-insert-btn">
+                <i class="bi bi-plus-circle"></i>
+                <span data-i18n="es.sig_insert_btn">{% verbatim %}{{block:signature}} einfügen{% endverbatim %}</span>
+            </button>
+            <div class="es-var-group-lbl" data-i18n="es.signature_source">Signatur-Quelle</div>
+            {% for val, lbl in signature_modes %}
+            <label class="es-sig-option {% if template.signature_mode == val or not template.pk and val == 'USER' %}active{% endif %}">
+                <input type="radio" name="es-sig-mode" value="{{ val }}"
+                       {% if template.signature_mode == val or not template.pk and val == 'USER' %}checked{% endif %}>
+                <span data-i18n="es.sig_{{ val|lower }}">{{ lbl }}</span>
+            </label>
+            {% if val == 'FIXED' %}
+            <div id="es-sig-fixed-select-wrap" {% if template.signature_mode != 'FIXED' %}style="display:none"{% endif %}>
+                <select id="es-sig-fixed-select" class="form-select form-select-sm es-sig-fixed-select">
+                    {% for sig in signatures %}
+                    <option value="{{ sig.pk }}" {% if template.signature_id == sig.pk %}selected{% endif %}>{{ sig.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            {% endif %}
+            {% if val == 'DYNAMIC' %}
+            <div id="es-sig-dynamic-hint" class="es-sig-code-hint" {% if template.signature_mode != 'DYNAMIC' %}style="display:none"{% endif %}>
+                EmailStudio.send(..., signature='sig_identifier')
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div id="es-sig-preview" class="es-sig-preview"
+                 {% if template.signature_mode == 'NONE' %}style="display:none"{% endif %}>
+                Mit freundlichen Grüßen<br>
+                <strong>{sender_name}</strong><br>
+                {sender_email}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if not edit_lang %}
+    <div class="toggle-section">
+        <div class="section-header" onclick="toggleSection(this)">
+            <span>
+                <i class="bi bi-send"></i>
+                <span data-i18n="es.test_box_title">Test senden</span>
+            </span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="section-content">
+            <div class="es-test-box">
+                <div class="es-test-box-title">
+                    <i class="bi bi-send"></i>
+                    <span data-i18n="es.test_box_title">Test-E-Mail senden</span>
+                </div>
+                <div class="d-flex gap-2">
+                    <input id="es-test-recipient"
+                           class="form-control form-control-sm flex-grow-1"
+                           placeholder="{{ user.email }}"
+                           data-i18n-placeholder="es.test_recipient_placeholder">
+                    <button class="btn btn-sm btn-warning es-test-send-trigger">
+                        <i class="bi bi-send"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+{# ── ENDE SPALTE 1 ── #}
+
+{# ── SPALTE 2: EDITOR ── #}
+<div class="es-editor-area toggle-section">
+
+    <div class="section-header open" onclick="toggleSection(this)">
+        <span>
+            <i class="bi bi-pencil-square"></i>
+            <span data-i18n="es.editor_title">HTML-Editor · Variablen · Vorschau</span>
+        </span>
+        <i class="bi bi-chevron-down"></i>
+    </div>
+
+    <div class="section-content open" style="padding:0;display:flex;flex-direction:column;flex:1;overflow:hidden;">
+
+        {# ── Hauptreiter: Vorlage | Modul | Signatur ── #}
+        <div class="es-entity-tab-bar">
+            <div class="es-entity-tab active" data-entity="template">
+                <i class="bi bi-file-earmark-text"></i>
+                <span data-i18n="es.entity_template">Vorlage</span>
+            </div>
+            <div class="es-entity-tab" data-entity="module">
+                <i class="bi bi-puzzle"></i>
+                <span data-i18n="es.entity_module">Modul</span>
+            </div>
+            <div class="es-entity-tab" data-entity="signature">
+                <i class="bi bi-pen"></i>
+                <span data-i18n="es.entity_signature">Signatur</span>
+            </div>
+        </div>
+
+        {# ── Kontext-Leiste (Modul/Signatur-Auswahl + Metadaten) ── #}
+        <div id="es-entity-context" class="es-entity-context" style="display:none;">
+            <div id="es-entity-module-ctx" class="es-entity-ctx-panel" style="display:none;">
+                <div class="es-entity-ctx-main">
+                    <label class="es-lbl" data-i18n="es.entity_module_select">Modul wählen</label>
+                    <select id="es-entity-module-select" class="form-select form-select-sm">
+                        <option value="" data-i18n="es.entity_select_placeholder">— Bitte wählen —</option>
+                    </select>
+                    <div class="es-entity-ctx-actions">
+                        <button type="button" id="es-entity-module-new" class="btn btn-sm btn-outline-success" data-i18n-title="es.btn_new_module" title="Neu">
+                            <i class="bi bi-plus"></i>
+                        </button>
+                        <button type="button" id="es-entity-module-dup" class="btn btn-sm btn-outline-primary es-entity-dup-btn" data-i18n-title="es.btn_saveas" title="Speichern unter">
+                            <i class="bi bi-files"></i>
+                            <span class="es-entity-dup-lbl" data-i18n="es.btn_saveas_short">Kopie</span>
+                        </button>
+                        <button type="button" id="es-entity-module-del" class="btn btn-sm btn-outline-danger" data-i18n-title="es.entity_delete" title="Löschen">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="es-entity-module-meta" class="es-entity-meta" style="display:none;">
+                    <div class="es-entity-meta-field">
+                        <label class="es-lbl" data-i18n="es.label_name">Anzeigename</label>
+                        <input type="text" id="es-entity-module-name" class="form-control form-control-sm"
+                               data-i18n-placeholder="es.label_name" placeholder="Anzeigename">
+                    </div>
+                    <div class="es-entity-meta-field">
+                        <label class="es-lbl" data-i18n="es.label_identifier">Technischer Name</label>
+                        <input type="text" id="es-entity-module-identifier" class="form-control form-control-sm es-mono"
+                               data-i18n-placeholder="es.label_identifier" placeholder="identifier">
+                    </div>
+                    <div class="es-entity-meta-field">
+                        <label class="es-lbl" data-i18n="es.entity_module_type">Modul-Typ</label>
+                        <select id="es-entity-module-type" class="form-select form-select-sm">
+                            <option value="SECTION">SECTION</option>
+                            <option value="HEADER">HEADER</option>
+                            <option value="FOOTER">FOOTER</option>
+                            <option value="BUTTON">BUTTON</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="es-entity-signature-ctx" class="es-entity-ctx-panel" style="display:none;">
+                <div class="es-entity-ctx-main">
+                    <label class="es-lbl" data-i18n="es.entity_signature_select">Signatur wählen</label>
+                    <select id="es-entity-signature-select" class="form-select form-select-sm">
+                        <option value="" data-i18n="es.entity_select_placeholder">— Bitte wählen —</option>
+                    </select>
+                    <div class="es-entity-ctx-actions">
+                        <button type="button" id="es-entity-signature-new" class="btn btn-sm btn-outline-success" data-i18n-title="es.btn_new_module" title="Neu">
+                            <i class="bi bi-plus"></i>
+                        </button>
+                        <button type="button" id="es-entity-signature-dup" class="btn btn-sm btn-outline-primary es-entity-dup-btn" data-i18n-title="es.btn_saveas" title="Speichern unter">
+                            <i class="bi bi-files"></i>
+                            <span class="es-entity-dup-lbl" data-i18n="es.btn_saveas_short">Kopie</span>
+                        </button>
+                        <button type="button" id="es-entity-signature-del" class="btn btn-sm btn-outline-danger" data-i18n-title="es.entity_delete" title="Löschen">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="es-entity-signature-meta-new" class="es-entity-meta" style="display:none;">
+                    <div class="es-entity-meta-field">
+                        <label class="es-lbl" data-i18n="es.label_name">Anzeigename</label>
+                        <input type="text" id="es-entity-signature-name" class="form-control form-control-sm"
+                               data-i18n-placeholder="es.label_name" placeholder="Anzeigename">
+                    </div>
+                    <div class="es-entity-meta-field">
+                        <label class="es-lbl" data-i18n="es.label_identifier">Technischer Name</label>
+                        <input type="text" id="es-entity-signature-identifier" class="form-control form-control-sm es-mono"
+                               data-i18n-placeholder="es.label_identifier" placeholder="identifier">
+                    </div>
+                    <label class="es-entity-check">
+                        <input type="checkbox" id="es-entity-signature-default-new">
+                        <span data-i18n="es.sig_default">Standard</span>
+                    </label>
+                    <label class="es-entity-check">
+                        <input type="checkbox" id="es-entity-signature-public-new">
+                        <span data-i18n="es.sig_public">Öffentlich</span>
+                    </label>
+                </div>
+                <div id="es-entity-signature-meta-edit" class="es-entity-meta" style="display:none;">
+                    <label class="es-entity-check">
+                        <input type="checkbox" id="es-entity-signature-default">
+                        <span data-i18n="es.sig_default">Standard</span>
+                    </label>
+                    <label class="es-entity-check">
+                        <input type="checkbox" id="es-entity-signature-public">
+                        <span data-i18n="es.sig_public">Öffentlich</span>
+                    </label>
+                </div>
+            </div>
+            <div id="es-entity-phase-hint" class="es-entity-phase-hint">
+                <i class="bi bi-floppy"></i>
+                <span data-i18n="es.entity_save_hint">Speichern-Button oben rechts speichert das gewählte Modul bzw. die Signatur.</span>
+            </div>
+        </div>
+
+        {# ── Submenü: Visual | HTML-Editor | HTML-Code | TXT ── #}
+        <div class="es-editor-tab-bar">
+            <div class="es-editor-tab active" data-mode="visual">
+                <i class="bi bi-eye"></i>
+                <span data-i18n="es.editor_tab_visual">Visual</span>
+            </div>
+            <div class="es-editor-tab" data-mode="html-editor">
+                <i class="bi bi-pencil-square"></i>
+                <span data-i18n="es.editor_tab_html_editor">HTML-Editor</span>
+            </div>
+            <div class="es-editor-tab" data-mode="code">
+                <i class="bi bi-code-slash"></i>
+                <span data-i18n="es.editor_tab_html_code">HTML-Code</span>
+            </div>
+            <div class="es-editor-tab" data-mode="txt-editor">
+                <i class="bi bi-text-paragraph"></i>
+                <span data-i18n="es.editor_tab_txt_editor">TXT-Editor</span>
+            </div>
+        </div>
+
+        {# ── Visual: Block-Canvas (nur Vorlage) ── #}
+        <div id="es-wysiwyg-wrap" class="es-canvas-wrap">
+            {# HTML-Quelle für Visual-Sync (unabhängig vom versteckten Code-Tab) #}
+            <textarea id="es-html-source" class="es-html-source" aria-hidden="true">{{ template.html_body }}</textarea>
+            <div id="es-canvas" class="es-canvas">
+            {% if not template.pk %}
+                {# Demo-Skeleton nur für neue Vorlagen — nicht bei bestehenden Templates! #}
+                <div class="es-block" data-block-type="module-header">
+                    <span class="es-block-label">{{ '{' }}{ block:abcona_header_blau }{{ '}' }}</span>
+                    <div class="es-block-actions">
+                        <button class="es-block-action-btn" data-action="up" data-i18n-title="es.block_up"><i class="bi bi-arrow-up"></i></button>
+                        <button class="es-block-action-btn" data-action="down" data-i18n-title="es.block_down"><i class="bi bi-arrow-down"></i></button>
+                        <button class="es-block-action-btn danger" data-action="delete" data-i18n-title="es.block_delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                    <div class="es-block-header-inner">abcona e. K.</div>
+                </div>
+
+                <div class="es-block" data-block-type="body">
+                    <div class="es-block-actions">
+                        <button class="es-block-action-btn" data-action="up" data-i18n-title="es.block_up"><i class="bi bi-arrow-up"></i></button>
+                        <button class="es-block-action-btn" data-action="down" data-i18n-title="es.block_down"><i class="bi bi-arrow-down"></i></button>
+                        <button class="es-block-action-btn danger" data-action="delete" data-i18n-title="es.block_delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                    <div class="es-block-body-inner" contenteditable="true"
+                         data-i18n-placeholder="es.wysiwyg_click_to_edit">
+                        <p>Hallo <strong>{name}</strong>,</p>
+                        <p>Ihr Berater-Profil wurde erfolgreich erstellt.</p>
+                    </div>
+                </div>
+
+                <div class="es-block" data-block-type="module-button">
+                    <span class="es-block-label">{{ '{' }}{ block:cta_blau }{{ '}' }}</span>
+                    <div class="es-block-actions">
+                        <button class="es-block-action-btn" data-action="up" data-i18n-title="es.block_up"><i class="bi bi-arrow-up"></i></button>
+                        <button class="es-block-action-btn" data-action="down" data-i18n-title="es.block_down"><i class="bi bi-arrow-down"></i></button>
+                        <button class="es-block-action-btn danger" data-action="delete" data-i18n-title="es.block_delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                    <div class="es-block-button-inner">
+                        <a href="{button_url}" class="es-block-button-link">{button_text}</a>
+                    </div>
+                </div>
+
+                <div class="es-block" data-block-type="module-footer">
+                    <span class="es-block-label">{{ '{' }}{ block:footer_standard }{{ '}' }}</span>
+                    <div class="es-block-actions">
+                        <button class="es-block-action-btn" data-action="up" data-i18n-title="es.block_up"><i class="bi bi-arrow-up"></i></button>
+                        <button class="es-block-action-btn" data-action="down" data-i18n-title="es.block_down"><i class="bi bi-arrow-down"></i></button>
+                        <button class="es-block-action-btn danger" data-action="delete" data-i18n-title="es.block_delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                    <div class="es-block-footer-inner">
+                        {sender_name} · {sender_email} · abcona e. K.
+                    </div>
+                </div>
+
+                <div class="es-block" data-block-type="signature">
+                    <span class="es-block-label">{% verbatim %}{{block:signature}}{% endverbatim %}</span>
+                    <div class="es-block-actions">
+                        <button class="es-block-action-btn" data-action="sig-settings" data-i18n-title="es.block_sig_settings">
+                            <i class="bi bi-gear"></i>
+                        </button>
+                    </div>
+                    <div class="es-block-sig-inner">
+                        <span class="es-block-sig-label">
+                            <i class="bi bi-pen"></i>
+                            <span data-i18n="es.sig_user">Signatur — User des Absenders</span>
+                        </span>
+                        <div class="es-sig-content es-sig-preview-placeholder">
+                            Mit freundlichen Grüßen<br>
+                            <strong>{sender_name}</strong><br>
+                            <span class="es-sig-email">{sender_email}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            </div>
+
+            <div class="es-add-block-wrap">
+                <button id="es-add-block-btn" class="es-add-block-btn">
+                    <i class="bi bi-plus-circle"></i>
+                    <span data-i18n="es.add_block">Block hinzufügen</span>
+                </button>
+                <div id="es-add-block-menu" class="es-add-block-menu">
+                    <div onclick="esAddBlock('text')" class="es-module-chip">
+                        <i class="bi bi-text-paragraph es-module-chip-icon"></i>
+                        <span data-i18n="es.block_body">Text-Block</span>
+                    </div>
+                    <div onclick="esAddBlock('button')" class="es-module-chip">
+                        <i class="bi bi-cursor es-module-chip-icon"></i>
+                        <span data-i18n="es.block_button">Button-Block</span>
+                    </div>
+                    <div onclick="esAddBlock('signature')" class="es-module-chip">
+                        <i class="bi bi-pen es-module-chip-icon"></i>
+                        <span data-i18n="es.block_signature">Signatur</span>
+                    </div>
+                    <div onclick="esAddBlock('divider')" class="es-module-chip">
+                        <i class="bi bi-dash-lg es-module-chip-icon"></i>
+                        <span data-i18n="es.block_divider">Trennlinie</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# ── Visual: Gerenderte Ansicht (Modul / Signatur) ── #}
+        <div id="es-entity-visual-wrap" class="es-entity-visual-wrap" style="display:none;">
+            <div id="es-entity-visual-body" class="es-entity-visual-body"></div>
+        </div>
+
+        {# ── HTML-Editor (E-Mail-sicher) ── #}
+        <div id="es-html-editor-wrap" class="es-html-editor-wrap" style="display:none;">
+            <div class="es-rich-toolbar">
+                <div class="es-rich-toolbar-group">
+                    <button type="button" class="es-rich-btn" data-cmd="bold" data-i18n-title="es.html_btn_bold" title="Fett">
+                        <i class="bi bi-type-bold"></i>
+                    </button>
+                    <button type="button" class="es-rich-btn" data-cmd="italic" data-i18n-title="es.html_btn_italic" title="Kursiv">
+                        <i class="bi bi-type-italic"></i>
+                    </button>
+                    <button type="button" class="es-rich-btn" data-cmd="link" data-i18n-title="es.html_btn_link" title="Link">
+                        <i class="bi bi-link-45deg"></i>
+                    </button>
+                </div>
+                <span class="es-rich-toolbar-sep"></span>
+                <div class="es-rich-toolbar-group es-rich-color-wrap">
+                    <button type="button" id="es-rich-theme-btn" class="es-rich-btn"
+                            data-i18n-title="es.html_btn_theme_colors" title="Theme-Farben">
+                        <i class="bi bi-palette-fill" style="color:#163258"></i>
+                    </button>
+                    <div id="es-rich-theme-popover" class="es-rich-color-popover" style="display:none;"></div>
+                    <button type="button" id="es-rich-custom-color-btn" class="es-rich-btn"
+                            data-i18n-title="es.html_btn_custom_color" title="Freie Farbwahl">
+                        <i class="bi bi-eyedropper"></i>
+                    </button>
+                    <input type="color" id="es-rich-color-input" class="es-rich-color-input-hidden" value="#163258">
+                </div>
+                <span class="es-rich-toolbar-sep"></span>
+                <div class="es-rich-toolbar-group">
+                    <select id="es-rich-fontsize" class="es-rich-select" data-i18n-title="es.html_btn_fontsize" title="Schriftgröße">
+                        <option value="12px">12 px</option>
+                        <option value="13px" selected>13 px</option>
+                        <option value="14px">14 px</option>
+                        <option value="16px">16 px</option>
+                    </select>
+                </div>
+                <span class="es-rich-toolbar-sep"></span>
+                <div class="es-rich-toolbar-group">
+                    <button type="button" class="es-rich-btn" data-cmd="justifyLeft" title="Links">
+                        <i class="bi bi-text-left"></i>
+                    </button>
+                    <button type="button" class="es-rich-btn" data-cmd="justifyCenter" title="Zentriert">
+                        <i class="bi bi-text-center"></i>
+                    </button>
+                    <button type="button" class="es-rich-btn" data-cmd="justifyRight" title="Rechts">
+                        <i class="bi bi-text-right"></i>
+                    </button>
+                    <button type="button" class="es-rich-btn" data-cmd="insertBr" data-i18n-title="es.html_btn_br" title="Zeilenumbruch">
+                        <i class="bi bi-text-wrap"></i>
+                    </button>
+                </div>
+                <span class="es-rich-toolbar-hint" data-i18n="es.html_editor_hint">E-Mail-sicher · Blöcke &amp; Variablen sind geschützt</span>
+            </div>
+            <div class="es-rich-editor-area">
+                <div id="es-rich-editor" class="es-rich-editor" contenteditable="true"></div>
+            </div>
+        </div>
+
+        <div id="es-code-wrap" class="es-code-area" style="display:none;">
+            <div class="es-editor-toolbar">
+                <div class="d-flex gap-1">
+                    <button class="es-editor-tab-btn" data-tab="html">HTML</button>
+                    <button class="es-editor-tab-btn inactive" data-tab="txt">TXT</button>
+                </div>
+                <button class="es-editor-tab-btn" onclick="ESStudio._loadPreview()">
+                    <i class="bi bi-arrow-clockwise"></i>
+                </button>
+            </div>
+            <textarea id="es-html-editor" class="es-code-textarea">{{ template.html_body }}</textarea>
+        </div>
+
+        <div id="es-txt-editor-wrap" class="es-txt-editor-wrap" style="display:none;">
+            <div class="es-txt-toolbar">
+                <button type="button" id="es-txt-raw-toggle" class="es-txt-raw-btn"
+                        data-i18n-title="es.txt_raw_toggle" title="Roh-TXT (Monospace)">
+                    <i class="bi bi-code-slash"></i>
+                    <span data-i18n="es.txt_raw_toggle">Roh-TXT</span>
+                </button>
+                <span class="es-txt-toolbar-hint" data-i18n="es.txt_editor_hint">Plaintext für Mail-Clients ohne HTML</span>
+            </div>
+            <textarea id="es-txt-editor" class="es-txt-friendly">{{ template.text_body }}</textarea>
+        </div>
+
+    </div>
+    {# ── ENDE section-content ── #}
+
+</div>
+{# ── ENDE SPALTE 2 ── #}
+
+{# ── SPALTE 3: VORSCHAU ── #}
+<div class="es-preview-col toggle-section">
+
+    <div class="section-header open" onclick="toggleSection(this)">
+        <span>
+            <i class="bi bi-eye"></i>
+            <span data-i18n="es.preview_title">Vorschau</span>
+        </span>
+        <i class="bi bi-chevron-down"></i>
+    </div>
+
+    <div class="section-content open">
+        <div class="es-preview-hdr">
+            <div class="d-flex align-items-center gap-2">
+                <span class="es-preview-hdr-title" data-i18n="es.preview_title">Vorschau</span>
+                <span class="es-badge es-badge-blue es-preview-dummy-hint" data-i18n="es.preview_dummy_hint">Beispieldaten</span>
+            </div>
+            <div class="d-flex gap-1 align-items-center">
+                <button id="es-preview-refresh-btn" class="es-preview-refresh-btn" type="button"
+                        data-i18n-title="es.preview_refresh" title="Vorschau aktualisieren">
+                    <i class="bi bi-arrow-clockwise"></i>
+                    <span data-i18n="es.preview_refresh">Aktualisieren</span>
+                </button>
+                <button class="es-preview-client-btn active" data-client="outlook" onclick="esSetPreviewClient(this)">Outlook</button>
+                <button class="es-preview-client-btn" data-client="gmail" onclick="esSetPreviewClient(this)">Gmail</button>
+                <button class="es-preview-client-btn" data-client="txt" onclick="esSetPreviewClient(this)">TXT</button>
+            </div>
+        </div>
+
+        <div class="es-preview-body">
+            <div class="es-email-sim" data-client-view="outlook">
+                <div class="es-email-sim-hdr">
+                    <div class="es-from">
+                        <span data-i18n="es.preview_from">Von:</span>
+                        <span id="es-preview-from">
+                            {% if template.sender_mode == 'USER' %}{{ user.email }}
+                            {% elif template.sender_account %}{{ template.sender_account.email }}
+                            {% else %}noreply@abcona.de{% endif %}
+                        </span>
+                    </div>
+                    <div class="es-to">
+                        <span data-i18n="es.preview_to">An:</span>
+                        <span data-i18n="es.preview_test_email">max@example.de</span>
+                    </div>
+                    <div class="es-subj">
+                        <span id="es-preview-subject">{{ template.subject }}</span>
+                    </div>
+                </div>
+                <div id="es-preview-body" class="es-email-sim-body"></div>
+            </div>
+
+            <div class="es-compat">
+                <div class="es-compat-title">
+                    <i class="bi bi-check2-all es-icon-green"></i>
+                    <span data-i18n="es.compat_title">Kompatibilität</span>
+                </div>
+                <div class="es-compat-grid">
+                    <span class="es-compat-item"><i class="bi bi-check-circle es-icon-green"></i>Outlook</span>
+                    <span class="es-compat-item"><i class="bi bi-check-circle es-icon-green"></i>Gmail</span>
+                    <span class="es-compat-item"><i class="bi bi-check-circle es-icon-green"></i>Web.de</span>
+                    <span class="es-compat-item"><i class="bi bi-check-circle es-icon-green"></i>Apple</span>
+                    <span class="es-compat-item"><i class="bi bi-check-circle es-icon-green"></i>TXT</span>
+                    <span class="es-compat-item"><i class="bi bi-exclamation-triangle es-icon-yellow"></i>GMX</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{# ── ENDE SPALTE 3 ── #}
+
+</div>
+{# ── ENDE es-studio-layout ── #}
+
+{# ═══ RESTORE POPUP ═══ #}
+<div id="es-restore-overlay" class="es-restore-overlay">
+    <div class="es-restore-popup">
+        <div class="es-restore-popup-hdr">
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-arrow-counterclockwise"></i>
+                <span data-i18n="es.restore_title">Stand wiederherstellen</span>
+            </div>
+            <button class="es-restore-close-btn"
+                    onclick="document.getElementById('es-restore-overlay').classList.remove('show')">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+        <div class="es-restore-popup-meta">
+            <div class="es-restore-ms-icon">📌</div>
+            <div>
+                <div id="es-restore-ms-name" class="es-restore-ms-name"></div>
+                <div id="es-restore-ms-sub" class="es-restore-ms-sub"></div>
+            </div>
+            <span class="es-restore-diff-badge" data-i18n="es.restore_diff_hint">Änderungen</span>
+        </div>
+        <div class="es-restore-popup-preview">
+            <div class="es-restore-preview-lbl">
+                <i class="bi bi-eye"></i>
+                <span data-i18n="es.restore_preview_lbl">Vorschau dieses Standes</span>
+            </div>
+            <div class="es-restore-email-frame">
+                <div class="es-restore-ef-topbar">
+                    <div class="es-restore-ef-field">
+                        <span data-i18n="es.preview_subject">Betreff:</span>
+                        <span id="es-restore-ef-subject"></span>
+                    </div>
+                </div>
+                <div id="es-restore-ef-hdr" class="es-restore-ef-hdr">abcona e. K.</div>
+                <div id="es-restore-ef-body" class="es-restore-ef-body"></div>
+                <div class="es-restore-ef-ftr">{sender_name} · {sender_email}</div>
+            </div>
+        </div>
+        <div class="es-restore-popup-footer">
+            <div class="es-restore-warning">
+                <i class="bi bi-exclamation-triangle"></i>
+                <span data-i18n="es.restore_warning">Nicht gespeicherte Änderungen gehen verloren</span>
+            </div>
+            <div class="es-restore-actions">
+                <button id="es-restore-cancel" class="es-restore-cancel" data-i18n="es.btn_cancel">Verwerfen</button>
+                <button id="es-restore-ok" class="es-restore-ok">
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                    <span data-i18n="es.restore_ok">Auf diesen Stand zurückspielen</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/email_studio/js/es-studio.js"></script>
+{% endblock %}
