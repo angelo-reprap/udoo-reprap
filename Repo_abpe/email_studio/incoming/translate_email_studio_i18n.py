@@ -77,6 +77,52 @@ def _needs_translation(key: str, val: str | None, en_val: str | None) -> bool:
     return False
 
 
+def _is_suspect(val: str | None, de_val: str | None, en_val: str | None, lang: str) -> bool:
+    """Verdächtig = leer, noch DE, oder EN-Platzhalter."""
+    if not val or not str(val).strip():
+        return True
+    if de_val and val == de_val:
+        return True
+    if en_val and val == en_val and lang not in ('de', 'en'):
+        return True
+    return False
+
+
+def _audit_langs(i18n_root: Path, de_es: dict, en_es: dict, langs: list[str]) -> dict[str, list[str]]:
+    report: dict[str, list[str]] = {}
+    for lang in langs:
+        if lang in ('de', 'en'):
+            continue
+        path = i18n_root / lang / MODULE_REL
+        if not path.is_file():
+            report[lang] = list(de_es.keys())
+            continue
+        es = _load_json(path).get('es', {})
+        bad = [
+            k for k in de_es
+            if _is_suspect(es.get(k), de_es.get(k), en_es.get(k), lang)
+        ]
+        if bad:
+            report[lang] = sorted(bad)
+    return report
+
+
+def _print_audit(report: dict[str, list[str]]) -> int:
+    total = 0
+    print('\n── i18n Audit (verdächtige Keys) ──')
+    if not report:
+        print('  ✓ Keine verdächtigen Keys')
+        return 0
+    for lang, keys in sorted(report.items()):
+        total += len(keys)
+        sample = ', '.join(keys[:6])
+        if len(keys) > 6:
+            sample += f' … (+{len(keys) - 6})'
+        print(f'  {lang}: {len(keys)} verdächtig — {sample}')
+    print(f'  Summe: {total} Keys')
+    return total
+
+
 def _translate_chunk(texts: dict[str, str], lang: str, api_key: str, model: str, timeout: int) -> dict[str, str]:
     tgt = _lang_name(lang)
     payload = json.dumps(texts, ensure_ascii=False, indent=2)
@@ -120,16 +166,24 @@ def translate_lang(
     model: str,
     timeout: int,
     dry_run: bool,
+    fix_suspect: bool = False,
 ) -> int:
     path = i18n_root / lang / MODULE_REL
     data = _load_json(path) if path.is_file() else {'es': {}, 'help': {}}
     es = data.setdefault('es', {})
 
-    pending = {
-        k: de_es[k]
-        for k in de_es
-        if _needs_translation(k, es.get(k), en_es.get(k))
-    }
+    if fix_suspect:
+        pending = {
+            k: de_es[k]
+            for k in de_es
+            if _is_suspect(es.get(k), de_es.get(k), en_es.get(k), lang)
+        }
+    else:
+        pending = {
+            k: de_es[k]
+            for k in de_es
+            if _needs_translation(k, es.get(k), en_es.get(k))
+        }
     if not pending:
         print(f'  {lang}: ✓ nichts zu übersetzen')
         return 0
@@ -166,6 +220,9 @@ def main() -> int:
     parser.add_argument('--repo', default=str(DEFAULT_REPO))
     parser.add_argument('--langs', nargs='*', default=LANGS)
     parser.add_argument('--dry-run', action='store_true')
+    parser.add_argument('--audit', action='store_true', help='Verdächtige Keys anzeigen (DE/EN/leer)')
+    parser.add_argument('--fix-suspect', action='store_true',
+                        help='Nur verdächtige Keys neu übersetzen (noch DE, EN-Platzhalter, leer)')
     args = parser.parse_args()
 
     repo = Path(args.repo)
@@ -181,12 +238,24 @@ def main() -> int:
     de_es = _load_json(de_file).get('es', {})
     en_es = _load_json(en_file).get('es', {})
 
+    if args.audit:
+        report = _audit_langs(i18n_root, de_es, en_es, args.langs)
+        _print_audit(report)
+        return 0
+
     cfg = _load_json(SETTINGS_PATH) if SETTINGS_PATH.is_file() else {}
     ds = cfg.get('ai_models', {}).get('deepseek', {})
     model = ds.get('model', 'deepseek-chat')
     timeout = int(ds.get('timeout', 90))
 
     print('Email Studio i18n — Deepseek-Übersetzung')
+    if args.fix_suspect:
+        report = _audit_langs(i18n_root, de_es, en_es, args.langs)
+        n = _print_audit(report)
+        if n == 0:
+            print('\n✓ Nichts zu korrigieren')
+            return 0
+        print('\n── Korrigiere verdächtige Keys ──')
     print(f'DE-Keys: {len(de_es)}  Ziel: {i18n_root}')
     api_key = None if args.dry_run else _api_key()
 
@@ -200,6 +269,7 @@ def main() -> int:
             model=model,
             timeout=timeout,
             dry_run=args.dry_run,
+            fix_suspect=args.fix_suspect,
         )
 
     print(f'\nFertig — {total} Keys übersetzt')
