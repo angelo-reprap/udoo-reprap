@@ -511,39 +511,267 @@ window.ESStudio = (() => {
     function _syncCodeToRich() {
         const code = document.getElementById('es-html-editor')?.value || '';
         const rich = document.getElementById('es-rich-editor');
-        if (rich) rich.innerHTML = code;
+        if (rich) rich.innerHTML = _protectPlaceholdersForRich(code);
     }
 
     function _syncRichToCode() {
         const rich = document.getElementById('es-rich-editor');
         const htmlEl = document.getElementById('es-html-editor');
-        if (rich && htmlEl) htmlEl.value = rich.innerHTML;
+        if (!rich || !htmlEl) return;
+        let html = _restorePlaceholdersFromRich(rich.innerHTML);
+        html = _sanitizeEmailHtml(html);
+        htmlEl.value = html;
+    }
+
+    /** {{block:x}} als geschützte Chips — {variablen} in Attributen bleiben unberührt */
+    function _protectPlaceholdersForRich(html) {
+        if (!html) return '';
+        return html.replace(
+            /\{\{block:([a-zA-Z0-9_]+)\}\}/g,
+            '<span class="es-rich-block-token" contenteditable="false" data-syntax="{{block:$1}}">{{block:$1}}</span>'
+        );
+    }
+
+    function _restorePlaceholdersFromRich(html) {
+        if (!html) return '';
+        const tmp = document.createElement('div');
+        tmp.innerHTML = html;
+        tmp.querySelectorAll('.es-rich-block-token').forEach(el => {
+            el.replaceWith(document.createTextNode(el.dataset.syntax || el.textContent));
+        });
+        return tmp.innerHTML;
+    }
+
+    const _EMAIL_ALLOWED_TAGS = new Set([
+        'P', 'BR', 'STRONG', 'B', 'EM', 'I', 'A', 'UL', 'OL', 'LI',
+        'TABLE', 'TBODY', 'THEAD', 'TR', 'TD', 'TH', 'DIV', 'SPAN',
+        'H1', 'H2', 'H3', 'H4', 'IMG',
+    ]);
+    const _EMAIL_ALLOWED_ATTRS = {
+        A:   ['href', 'style', 'target'],
+        IMG: ['src', 'alt', 'width', 'height', 'style'],
+        '*': ['style', 'class', 'colspan', 'rowspan', 'width', 'cellpadding', 'cellspacing', 'border', 'align'],
+    };
+
+    function _sanitizeEmailHtml(html) {
+        if (!html) return '';
+        const doc = new DOMParser().parseFromString(`<div id="es-sanitize-root">${html}</div>`, 'text/html');
+        const root = doc.getElementById('es-sanitize-root');
+        if (!root) return html;
+
+        function clean(node) {
+            Array.from(node.childNodes).forEach(child => {
+                if (child.nodeType === Node.COMMENT_NODE) {
+                    child.remove();
+                    return;
+                }
+                if (child.nodeType === Node.TEXT_NODE) return;
+                if (child.nodeType !== Node.ELEMENT_NODE) {
+                    child.remove();
+                    return;
+                }
+                const tag = child.tagName;
+                if (!_EMAIL_ALLOWED_TAGS.has(tag)) {
+                    while (child.firstChild) child.parentNode.insertBefore(child.firstChild, child);
+                    child.remove();
+                    return;
+                }
+                Array.from(child.attributes).forEach(attr => {
+                    const n = attr.name.toLowerCase();
+                    if (n.startsWith('on')) {
+                        child.removeAttribute(attr.name);
+                        return;
+                    }
+                    const allowed = _EMAIL_ALLOWED_ATTRS[tag] || _EMAIL_ALLOWED_ATTRS['*'];
+                    if (!allowed.includes(attr.name) && !allowed.includes(n)) {
+                        child.removeAttribute(attr.name);
+                    }
+                });
+                if (tag === 'A' && child.getAttribute('href')) {
+                    const href = child.getAttribute('href');
+                    if (!/^https?:\/\/|^mailto:/i.test(href)) {
+                        child.removeAttribute('href');
+                    }
+                }
+                clean(child);
+            });
+        }
+        clean(root);
+        return root.innerHTML.trim();
+    }
+
+    /** Theme-Farben aus core-theme.css (:root Light) */
+    const THEME_COLORS = [
+        { hex: '#163258', label: 'Abcona Blau' },
+        { hex: '#0f2442', label: 'Blau dunkel' },
+        { hex: '#1e4a7a', label: 'Blau hell' },
+        { hex: '#1e1e1e', label: 'Text primär' },
+        { hex: '#6c757d', label: 'Text sekundär' },
+        { hex: '#10b981', label: 'Grün' },
+        { hex: '#f59e0b', label: 'Gelb' },
+        { hex: '#ef4444', label: 'Rot' },
+        { hex: '#ffffff', label: 'Weiß' },
+        { hex: '#333333', label: 'Dunkelgrau' },
+    ];
+
+    function _richGetBlockParent(node, root) {
+        let el = node;
+        if (el && el.nodeType === Node.TEXT_NODE) el = el.parentElement;
+        const blocks = new Set(['P', 'DIV', 'LI', 'TD', 'TH', 'H1', 'H2', 'H3', 'H4']);
+        while (el && el !== root) {
+            if (blocks.has(el.tagName)) return el;
+            el = el.parentElement;
+        }
+        return null;
+    }
+
+    /** Ausrichtung per Block-style — verhindert „verschwindende" Zeilen bei rechts */
+    function _richSetBlockAlign(align) {
+        const rich = document.getElementById('es-rich-editor');
+        if (!rich) return;
+        rich.focus();
+        const sel = window.getSelection();
+        if (!sel || !sel.rangeCount) return;
+
+        let block = _richGetBlockParent(sel.anchorNode, rich);
+        if (!block) {
+            document.execCommand('formatBlock', false, 'p');
+            block = _richGetBlockParent(sel.anchorNode, rich);
+        }
+        if (!block) {
+            block = rich;
+        }
+        if (block === rich) {
+            const p = document.createElement('p');
+            p.style.textAlign = align;
+            p.style.width = '100%';
+            p.style.display = 'block';
+            p.style.boxSizing = 'border-box';
+            p.innerHTML = rich.innerHTML;
+            rich.innerHTML = '';
+            rich.appendChild(p);
+        } else {
+            block.style.textAlign = align;
+            block.style.width = '100%';
+            block.style.display = 'block';
+            block.style.boxSizing = 'border-box';
+            block.style.minHeight = '1em';
+        }
+        _syncRichToCode();
+        _schedulePreview();
+    }
+
+    function _richApplyColor(hex) {
+        const rich = document.getElementById('es-rich-editor');
+        if (!rich) return;
+        rich.focus();
+        document.execCommand('foreColor', false, hex);
+        _syncRichToCode();
+        _schedulePreview();
+    }
+
+    function _richExecCmd(cmd, value) {
+        const rich = document.getElementById('es-rich-editor');
+        if (!rich) return;
+        rich.focus();
+        if (cmd === 'justifyLeft' || cmd === 'justifyCenter' || cmd === 'justifyRight') {
+            const map = { justifyLeft: 'left', justifyCenter: 'center', justifyRight: 'right' };
+            _richSetBlockAlign(map[cmd]);
+            return;
+        }
+        if (cmd === 'link') {
+            const url = prompt(t('html_link_prompt', 'Link-URL:'), 'https://');
+            if (url) document.execCommand('createLink', false, url);
+        } else if (cmd === 'color') {
+            document.execCommand('foreColor', false, value || '#163258');
+        } else if (cmd === 'insertBr') {
+            document.execCommand('insertHTML', false, '<br>');
+        } else if (cmd === 'fontSize') {
+            const sel = window.getSelection()?.toString();
+            if (!sel) return;
+            document.execCommand('insertHTML', false,
+                `<span style="font-size:${value}">${sel}</span>`);
+        } else {
+            document.execCommand(cmd, false, value || null);
+        }
+        _syncRichToCode();
+        _schedulePreview();
+    }
+
+    function _initThemeColorPopover() {
+        const pop = document.getElementById('es-rich-theme-popover');
+        if (!pop) return;
+        pop.innerHTML = THEME_COLORS.map(c =>
+            `<button type="button" class="es-rich-swatch" data-hex="${c.hex}" title="${c.label}"
+                     style="background:${c.hex};${c.hex === '#ffffff' ? 'border:1px solid #ccc' : ''}"></button>`
+        ).join('');
+        pop.querySelectorAll('.es-rich-swatch').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                _richApplyColor(btn.dataset.hex);
+                pop.style.display = 'none';
+            });
+        });
     }
 
     function _initRichEditor() {
-        document.querySelectorAll('.es-rich-btn').forEach(btn => {
+        _initThemeColorPopover();
+
+        document.querySelectorAll('.es-rich-btn[data-cmd]').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                const cmd = this.dataset.cmd;
-                const rich = document.getElementById('es-rich-editor');
-                if (!rich) return;
-                rich.focus();
-                if (cmd === 'link') {
-                    const url = prompt('URL:', 'https://');
-                    if (url) document.execCommand('createLink', false, url);
-                } else if (cmd === 'color') {
-                    document.execCommand('foreColor', false, '#163258');
-                } else {
-                    document.execCommand(cmd, false, null);
-                }
-                _syncRichToCode();
-                _schedulePreview();
+                _richExecCmd(this.dataset.cmd, this.dataset.value);
             });
+        });
+
+        const themeBtn = document.getElementById('es-rich-theme-btn');
+        const themePop = document.getElementById('es-rich-theme-popover');
+        themeBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (!themePop) return;
+            themePop.style.display = themePop.style.display === 'none' ? 'flex' : 'none';
+        });
+
+        const colorInput = document.getElementById('es-rich-color-input');
+        document.getElementById('es-rich-custom-color-btn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            colorInput?.click();
+        });
+        colorInput?.addEventListener('input', () => {
+            if (colorInput.value) _richApplyColor(colorInput.value);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.es-rich-color-wrap')) {
+                if (themePop) themePop.style.display = 'none';
+            }
+        });
+
+        document.getElementById('es-rich-fontsize')?.addEventListener('change', function() {
+            const sel = window.getSelection()?.toString();
+            if (sel) {
+                _richExecCmd('fontSize', this.value);
+            } else {
+                ES.notify.info('es.html_select_text', t('html_select_text', 'Text markieren, dann Schriftgröße wählen'));
+            }
         });
 
         const rich = document.getElementById('es-rich-editor');
         if (rich) {
             rich.addEventListener('input', () => {
+                _syncRichToCode();
+                _schedulePreview();
+            });
+            rich.addEventListener('paste', (e) => {
+                e.preventDefault();
+                const html  = e.clipboardData?.getData('text/html');
+                const plain = e.clipboardData?.getData('text/plain') || '';
+                if (html) {
+                    document.execCommand('insertHTML', false, _sanitizeEmailHtml(html));
+                } else {
+                    document.execCommand('insertText', false, plain);
+                }
                 _syncRichToCode();
                 _schedulePreview();
             });

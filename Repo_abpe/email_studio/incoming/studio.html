@@ -758,17 +758,62 @@
             <div id="es-entity-visual-body" class="es-entity-visual-body"></div>
         </div>
 
-        {# ── HTML-Editor (E-Mail-sicher, Phase 1 Basis) ── #}
+        {# ── HTML-Editor (E-Mail-sicher) ── #}
         <div id="es-html-editor-wrap" class="es-html-editor-wrap" style="display:none;">
             <div class="es-rich-toolbar">
-                <button type="button" class="es-rich-btn" data-cmd="bold" title="Fett"><i class="bi bi-type-bold"></i></button>
-                <button type="button" class="es-rich-btn" data-cmd="italic" title="Kursiv"><i class="bi bi-type-italic"></i></button>
-                <button type="button" class="es-rich-btn" data-cmd="underline" title="Unterstrichen"><i class="bi bi-type-underline"></i></button>
-                <button type="button" class="es-rich-btn" data-cmd="link" title="Link"><i class="bi bi-link-45deg"></i></button>
-                <button type="button" class="es-rich-btn" data-cmd="color" title="Abcona Blau"><i class="bi bi-palette"></i></button>
-                <span class="es-rich-toolbar-hint" data-i18n="es.html_editor_hint">E-Mail-sicher: nur erlaubte Formatierungen (Phase 4 erweitert)</span>
+                <div class="es-rich-toolbar-group">
+                    <button type="button" class="es-rich-btn" data-cmd="bold" data-i18n-title="es.html_btn_bold" title="Fett">
+                        <i class="bi bi-type-bold"></i>
+                    </button>
+                    <button type="button" class="es-rich-btn" data-cmd="italic" data-i18n-title="es.html_btn_italic" title="Kursiv">
+                        <i class="bi bi-type-italic"></i>
+                    </button>
+                    <button type="button" class="es-rich-btn" data-cmd="link" data-i18n-title="es.html_btn_link" title="Link">
+                        <i class="bi bi-link-45deg"></i>
+                    </button>
+                </div>
+                <span class="es-rich-toolbar-sep"></span>
+                <div class="es-rich-toolbar-group es-rich-color-wrap">
+                    <button type="button" id="es-rich-theme-btn" class="es-rich-btn"
+                            data-i18n-title="es.html_btn_theme_colors" title="Theme-Farben">
+                        <i class="bi bi-palette-fill" style="color:#163258"></i>
+                    </button>
+                    <div id="es-rich-theme-popover" class="es-rich-color-popover" style="display:none;"></div>
+                    <button type="button" id="es-rich-custom-color-btn" class="es-rich-btn"
+                            data-i18n-title="es.html_btn_custom_color" title="Freie Farbwahl">
+                        <i class="bi bi-eyedropper"></i>
+                    </button>
+                    <input type="color" id="es-rich-color-input" class="es-rich-color-input-hidden" value="#163258">
+                </div>
+                <span class="es-rich-toolbar-sep"></span>
+                <div class="es-rich-toolbar-group">
+                    <select id="es-rich-fontsize" class="es-rich-select" data-i18n-title="es.html_btn_fontsize" title="Schriftgröße">
+                        <option value="12px">12 px</option>
+                        <option value="13px" selected>13 px</option>
+                        <option value="14px">14 px</option>
+                        <option value="16px">16 px</option>
+                    </select>
+                </div>
+                <span class="es-rich-toolbar-sep"></span>
+                <div class="es-rich-toolbar-group">
+                    <button type="button" class="es-rich-btn" data-cmd="justifyLeft" title="Links">
+                        <i class="bi bi-text-left"></i>
+                    </button>
+                    <button type="button" class="es-rich-btn" data-cmd="justifyCenter" title="Zentriert">
+                        <i class="bi bi-text-center"></i>
+                    </button>
+                    <button type="button" class="es-rich-btn" data-cmd="justifyRight" title="Rechts">
+                        <i class="bi bi-text-right"></i>
+                    </button>
+                    <button type="button" class="es-rich-btn" data-cmd="insertBr" data-i18n-title="es.html_btn_br" title="Zeilenumbruch">
+                        <i class="bi bi-text-wrap"></i>
+                    </button>
+                </div>
+                <span class="es-rich-toolbar-hint" data-i18n="es.html_editor_hint">E-Mail-sicher · Blöcke &amp; Variablen sind geschützt</span>
             </div>
-            <div id="es-rich-editor" class="es-rich-editor" contenteditable="true"></div>
+            <div class="es-rich-editor-area">
+                <div id="es-rich-editor" class="es-rich-editor" contenteditable="true"></div>
+            </div>
         </div>
 
         <div id="es-code-wrap" class="es-code-area" style="display:none;">

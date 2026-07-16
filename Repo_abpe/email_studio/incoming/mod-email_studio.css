@@ -1075,6 +1075,27 @@
     border-bottom: 1px solid var(--border-color);
     background: var(--abcona-gray-bg);
     flex-shrink: 0;
+    flex-wrap: wrap;
+}
+.es-rich-toolbar-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+.es-rich-toolbar-sep {
+    width: 1px;
+    height: 20px;
+    background: var(--border-color);
+    margin: 0 4px;
+}
+.es-rich-select {
+    font-size: 10px;
+    padding: 3px 6px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--bg-white);
+    color: var(--text-secondary);
+    height: 28px;
 }
 .es-rich-btn {
     width: 28px;
@@ -1098,17 +1119,93 @@
     color: var(--text-secondary);
     margin-left: 8px;
 }
-.es-rich-editor {
+.es-rich-editor-area {
     flex: 1;
-    padding: 14px 16px;
+    overflow: auto;
+    background: #e8ecf0;
+    padding: 16px;
+    min-height: 0;
+}
+.es-rich-editor {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 20px 24px;
     overflow: auto;
     outline: none;
     font-size: 13px;
     line-height: 1.6;
     min-height: 280px;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0,0,0,.06);
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
 }
 .es-rich-editor:focus {
-    background: #fafbfc;
+    box-shadow: 0 0 0 2px var(--abcona-blue-tint), 0 1px 6px rgba(0,0,0,.06);
+}
+.es-rich-block-token {
+    display: inline-block;
+    background: var(--abcona-blue-tint);
+    color: var(--abcona-blue);
+    border: 1px dashed var(--abcona-blue);
+    border-radius: 4px;
+    padding: 1px 8px;
+    font-family: monospace;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 2px 1px;
+    user-select: none;
+    vertical-align: middle;
+}
+.es-rich-editor a {
+    color: #163258;
+}
+.es-rich-editor p,
+.es-rich-editor div:not(.es-rich-block-token) {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    min-height: 1em;
+}
+.es-rich-color-wrap {
+    position: relative;
+}
+.es-rich-color-popover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 300;
+    margin-top: 4px;
+    padding: 8px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.12);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 160px;
+}
+.es-rich-swatch {
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.es-rich-swatch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 2px var(--abcona-blue);
+}
+.es-rich-color-input-hidden {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* ── TXT-Editor (lesbar, hell) ── */
