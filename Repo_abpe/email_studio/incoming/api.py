@@ -1017,8 +1017,9 @@ class TemplateSetLangsAPI(LoginRequiredMixin, View):
 
 # ── Module API ────────────────────────────────────────────────────────────────
 
+@method_decorator(csrf_exempt, name='dispatch')
 class ModuleListAPI(LoginRequiredMixin, View):
-    """Gibt alle Module zurück — für Modul-Panel im Studio."""
+    """GET /api/modules/ — Liste · POST — neues Modul anlegen."""
 
     def get(self, request):
         from .models import EmailModule, ModuleType
@@ -1059,10 +1060,39 @@ class ModuleListAPI(LoginRequiredMixin, View):
             'types':   ModuleType.choices,
         })
 
+    def post(self, request):
+        from .models import EmailModule, ModuleType
+        data = _json_body(request)
+        identifier = (data.get('identifier') or '').strip()
+        name = (data.get('name') or '').strip()
+        if not name or not identifier:
+            return JsonResponse(
+                {'error': 'name und identifier sind Pflichtfelder'},
+                status=400,
+            )
+        if EmailModule.objects.filter(identifier=identifier).exists():
+            return JsonResponse(
+                {'error': f'Identifier „{identifier}" bereits vergeben'},
+                status=400,
+            )
+        mod = EmailModule.objects.create(
+            name         = name,
+            identifier   = identifier,
+            module_type  = data.get('module_type', ModuleType.SECTION),
+            description  = data.get('description', ''),
+            html_body    = data.get('html_body', ''),
+            text_body    = data.get('text_body', ''),
+            preview_bg   = data.get('preview_bg', '#ffffff'),
+            created_by   = request.user,
+        )
+        return JsonResponse({
+            'id': mod.pk, 'name': mod.name, 'identifier': mod.identifier,
+        }, status=201)
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class ModuleDetailAPI(LoginRequiredMixin, View):
-    """GET /api/modules/<pk>/ — Modul-Detail für Studio-Editor."""
+    """GET/PUT/DELETE /api/modules/<pk>/ — Modul-Detail für Studio-Editor."""
 
     def get(self, request, pk):
         from .models import EmailModule
@@ -1077,6 +1107,34 @@ class ModuleDetailAPI(LoginRequiredMixin, View):
             'text_body':   mod.text_body,
             'preview_bg':  mod.preview_bg,
         })
+
+    def put(self, request, pk):
+        from .models import EmailModule
+        mod  = get_object_or_404(EmailModule, pk=pk)
+        data = _json_body(request)
+        if 'identifier' in data:
+            new_id = (data['identifier'] or '').strip()
+            if not new_id:
+                return JsonResponse({'error': 'identifier darf nicht leer sein'}, status=400)
+            if EmailModule.objects.filter(identifier=new_id).exclude(pk=pk).exists():
+                return JsonResponse(
+                    {'error': f'Identifier „{new_id}" bereits vergeben'},
+                    status=400,
+                )
+            mod.identifier = new_id
+        for f in ['name', 'html_body', 'text_body', 'description',
+                  'module_type', 'preview_bg', 'is_active']:
+            if f in data:
+                setattr(mod, f, data[f])
+        mod.save()
+        return JsonResponse({'success': True})
+
+    def delete(self, request, pk):
+        from .models import EmailModule
+        mod = get_object_or_404(EmailModule, pk=pk)
+        mod.is_active = False
+        mod.save()
+        return JsonResponse({'success': True})
 
 
 # ── Meilenstein API ───────────────────────────────────────────────────────────
