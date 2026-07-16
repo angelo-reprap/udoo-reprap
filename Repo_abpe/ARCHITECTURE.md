@@ -118,7 +118,7 @@ templates/abpe_ui/modules/<id>/module.json        # Sidebar: titles.de/en/…
 ```bash
 mkdir apps/abpe_ui/static/abpe_ui/i18n/hu/
 python3 apps/abpe_ui/bin/i18n_translator.py    # i18n/ + module.json titles.hu
-python3 apps/abpe_ui/bin/i18n_validate.py --check
+python3 apps/abpe_ui/bin/i18n_validate.py
 ```
 
 **Sidebar:** `data-titles` aus `module.json` → `titles.<lang>` (vom Translator aus `titles.de`).

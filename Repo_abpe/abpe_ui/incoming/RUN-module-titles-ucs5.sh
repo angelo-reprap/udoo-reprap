@@ -43,7 +43,7 @@ PYTHONWARNINGS=ignore python3 apps/abpe_ui/bin/i18n_translator.py
 
 echo ""
 echo "=== 5. Validate ==="
-PYTHONWARNINGS=ignore python3 apps/abpe_ui/bin/i18n_validate.py --check || true
+PYTHONWARNINGS=ignore python3 apps/abpe_ui/bin/i18n_validate.py || true
 
 python manage.py collectstatic --noinput
 supervisorctl restart abpe-django
@@ -54,4 +54,4 @@ echo ""
 echo "Neue Sprache (z.B. Ungarisch):"
 echo "  mkdir -p apps/abpe_ui/static/abpe_ui/i18n/hu"
 echo "  python3 apps/abpe_ui/bin/i18n_translator.py --lang hu"
-echo "  python3 apps/abpe_ui/bin/i18n_validate.py --lang hu --check"
+echo "  python3 apps/abpe_ui/bin/i18n_validate.py --lang hu"
