@@ -111,6 +111,10 @@ window.ESStudio = (() => {
             _loadVersionsBar();
         }
 
+        if (_templateId && _currentMode === 'visual' && _currentEntity === 'template') {
+            setTimeout(() => _syncCodeToCanvas(), 0);
+        }
+
         const subjectInput = document.getElementById('es-subject-input');
         if (subjectInput) {
             subjectInput.addEventListener('input', () => {
@@ -874,7 +878,20 @@ window.ESStudio = (() => {
 
         if (mode === 'visual' && entity !== 'template') {
             _updateEntityVisual();
+        } else if (mode === 'visual' && entity === 'template') {
+            _syncCodeToCanvas();
         }
+    }
+
+    function _getHtmlSourceTextarea() {
+        const editor = document.getElementById('es-html-editor');
+        const source = document.getElementById('es-html-source');
+        if (editor?.value?.trim()) return editor;
+        if (source?.value?.trim()) {
+            if (editor) editor.value = source.value;
+            return editor || source;
+        }
+        return editor || source;
     }
 
     function _updateEntityVisual() {
@@ -1172,7 +1189,7 @@ window.ESStudio = (() => {
             addBtn.addEventListener('click', _showAddBlockMenu);
         }
 
-        const ta = document.getElementById('es-html-editor');
+        const ta = _getHtmlSourceTextarea();
         if (ta?.value?.trim()) {
             _syncCodeToCanvas();
         } else if (_templateId) {
@@ -1243,7 +1260,7 @@ window.ESStudio = (() => {
             menu.classList.remove('show');
         }
         const msWrap = document.getElementById('es-milestone-input-wrap');
-        if (msWrap && !e.target.closest('#es-milestone-btn') && !e.target.closest('#es-milestone-input-wrap')) {
+        if (msWrap && !e.target.closest('#es-milestone-btn') && !e.target.closest('#es-milestone-input-wrap') && !e.target.closest('.es-milestone-anchor')) {
             msWrap.classList.remove('show');
         }
     });
@@ -1379,7 +1396,7 @@ window.ESStudio = (() => {
 
     function _syncCodeToCanvas() {
         const canvas   = document.getElementById('es-canvas');
-        const textarea = document.getElementById('es-html-editor');
+        const textarea = _getHtmlSourceTextarea();
         if (!canvas || !textarea || !textarea.value.trim()) return;
 
         const rawHtml = textarea.value;

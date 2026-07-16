@@ -1343,6 +1343,17 @@
     overflow-y: auto;
 }
 
+.es-html-source {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: pre;
+}
+
 .es-canvas-wrap::-webkit-scrollbar { width: 5px; }
 .es-canvas-wrap::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
 
@@ -1350,7 +1361,7 @@
     background: var(--bg-white);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-card);
-    overflow: hidden;
+    overflow: auto;
     max-width: 100%;
 }
 
@@ -1442,6 +1453,11 @@
     color: var(--text-primary);
     outline: none;
     min-height: 40px;
+    overflow: auto;
+}
+
+.es-block-body-inner table {
+    max-width: 100%;
 }
 
 .es-block-body-inner:focus {
@@ -1607,11 +1623,17 @@
 }
 
 /* ── Milestone Input Popup ── */
+.es-milestone-anchor {
+    position: relative;
+    display: inline-flex;
+}
+
 .es-milestone-input-wrap {
     display: none;
     position: absolute;
-    top: 36px;
-    right: 0;
+    top: calc(100% + 4px);
+    left: 0;
+    right: auto;
     background: var(--bg-white);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-card);
@@ -1619,6 +1641,10 @@
     width: 260px;
     z-index: 500;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.es-milestone-input-wrap.show {
+    display: block;
 }
 
 .es-milestone-btn:disabled {

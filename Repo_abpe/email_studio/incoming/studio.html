@@ -223,11 +223,12 @@
         <i class="bi bi-arrow-clockwise"></i>
         <span data-i18n="es.redo">Redo</span>
     </button>
-    <button id="es-milestone-btn" class="es-milestone-btn" data-i18n-title="es.milestone_save">
-        <i class="bi bi-pin-angle"></i>
-        <span data-i18n="es.milestone_save_short">Merken</span>
-    </button>
-    <div id="es-milestone-input-wrap" class="es-milestone-input-wrap">
+    <div class="es-milestone-anchor">
+        <button id="es-milestone-btn" class="es-milestone-btn" data-i18n-title="es.milestone_save">
+            <i class="bi bi-pin-angle"></i>
+            <span data-i18n="es.milestone_save_short">Merken</span>
+        </button>
+        <div id="es-milestone-input-wrap" class="es-milestone-input-wrap">
         <div class="es-milestone-popup-title">
             <i class="bi bi-pin-angle-fill"></i>
             <span data-i18n="es.milestone_save">Stand merken</span>
@@ -242,6 +243,7 @@
                 <i class="bi bi-pin"></i>
                 <span data-i18n="es.milestone_save">Merken</span>
             </button>
+        </div>
         </div>
     </div>
     <div class="es-tab-spacer"></div>
@@ -723,6 +725,8 @@
 
         {# ── Visual: Block-Canvas (nur Vorlage) ── #}
         <div id="es-wysiwyg-wrap" class="es-canvas-wrap">
+            {# HTML-Quelle für Visual-Sync (unabhängig vom versteckten Code-Tab) #}
+            <textarea id="es-html-source" class="es-html-source" aria-hidden="true">{{ template.html_body }}</textarea>
             <div id="es-canvas" class="es-canvas">
             {% if not template.pk %}
                 {# Demo-Skeleton nur für neue Vorlagen — nicht bei bestehenden Templates! #}
