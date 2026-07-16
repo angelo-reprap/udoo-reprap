@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "Inhaltsverzeichnis"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Überblick"
+        },
+        {
+            "id": "endpoints",
+            "number": "2",
+            "title": "Endpoints"
+        }
+    ]
+}

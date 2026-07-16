@@ -1,0 +1,3 @@
+{
+    "backup_ops": "<h3>2.1 Biztonsági mentés készítése</h3><pre><code>python backup_restore.py -save apps/abpe_ui/views.py -m \"Grund\"</code></pre>"
+}

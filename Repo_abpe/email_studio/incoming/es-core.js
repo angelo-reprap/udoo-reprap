@@ -77,31 +77,22 @@ ES.toggle = function(hdr) {
 };
 window.esToggle = ES.toggle;
 
-/* ── i18n Key Resolver (es.confirm_key) ── */
-ES._i18n = function(key) {
-    const keys = key.split('.');
-    let val = window.i18nData;
-    for (const k of keys) {
-        if (val && typeof val === 'object') val = val[k];
-        else return null;
-    }
-    return typeof val === 'string' ? val : null;
-};
-
 /* ── Notifications (kein hardcoded Text — Keys aus i18n) ── */
 ES.notify = {
     _show: function(msgKey, type, fallback) {
-        const msg = ES._i18n(msgKey) || fallback || msgKey;
+        const msg = (window.i18nData && window.i18nData[msgKey])
+            ? window.i18nData[msgKey]
+            : fallback;
         const el = document.createElement('div');
         el.className = `es-notify es-notify-${type}`;
         el.innerHTML = msg;
         document.body.appendChild(el);
         setTimeout(() => el.remove(), 3500);
     },
-    success: (key, fallback) => ES.notify._show(key, 'success', fallback),
-    error:   (key, fallback) => ES.notify._show(key, 'error',   fallback),
-    info:    (key, fallback) => ES.notify._show(key, 'info',    fallback),
-    warning: (key, fallback) => ES.notify._show(key, 'warning', fallback),
+    success: (key, fallback='OK') => ES.notify._show(key, 'success', fallback),
+    error:   (key, fallback='Fehler') => ES.notify._show(key, 'error',   fallback),
+    info:    (key, fallback='Info') => ES.notify._show(key, 'info',    fallback),
+    warning: (key, fallback='Warnung') => ES.notify._show(key, 'warning', fallback),
 };
 
 /* ── Clipboard (Variablen kopieren) ── */
@@ -141,9 +132,9 @@ ES.setSenderMode = function(btn) {
     if (hint) {
         const i18n = window.i18nData?.es || {};
         const texts = {
-            'USER':     `<i class="bi bi-info-circle es-icon-green"></i> ${i18n.mode_hint_user || ''}`,
-            'TEMPLATE': `<i class="bi bi-info-circle es-icon-blue"></i> ${i18n.mode_hint_template || ''}`,
-            'AUTO':     `<i class="bi bi-info-circle es-icon-yellow"></i> ${i18n.mode_hint_auto || ''}`,
+            'USER':     `<i class="bi bi-info-circle es-icon-green"></i> ${i18n.mode_hint_user || 'From = eingeloggter User'}`,
+            'TEMPLATE': `<i class="bi bi-info-circle es-icon-blue"></i> ${i18n.mode_hint_template || 'From = feste Adresse'}`,
+            'AUTO':     `<i class="bi bi-info-circle es-icon-yellow"></i> ${i18n.mode_hint_auto || 'From = noreply'}`,
         };
         hint.innerHTML = texts[mode] || '';
     }
@@ -179,7 +170,9 @@ ES.apiUrl = (path) => `${ES.urlBase()}api/${path}`;
 
 /* ── Bestätigung ── */
 ES.confirm = function(msgKey, fallback) {
-    const msg = ES._i18n(msgKey) || fallback || ES._i18n('es.confirm_default') || msgKey;
+    const msg = (window.i18nData && window.i18nData[msgKey])
+        ? window.i18nData[msgKey]
+        : (fallback || 'Sind Sie sicher?');
     return window.confirm(msg);
 };
 
@@ -244,7 +237,7 @@ window.ESHelp = {
         set('help-tab-vars',       t('help.tab_vars'));
         set('help-tab-translate',  t('help.tab_translate'));
         set('help-tab-tutorial',   t('help.tab_tutorial'));
-        set('es-help-btn-label',   window.i18nData?.es?.help_btn || t('help.title'));
+        set('es-help-btn-label',   t('help.close') === 'Close' ? 'Help' : 'Hilfe');
     },
 
     tab: function(name, btn) {
@@ -312,8 +305,8 @@ EmailStudio.send(
                     <div class="es-help-code">&lt;table width="100%"&gt;
   {{block:abcona_header_blau}}
   &lt;tr&gt;&lt;td style="padding:24px;"&gt;
-    &lt;p&gt;${t('help.modules.example.line1')}&lt;/p&gt;
-    &lt;p&gt;${t('help.modules.example.line2')}&lt;/p&gt;
+    &lt;p&gt;Hallo {name},&lt;/p&gt;
+    &lt;p&gt;Ihr CV ist fertig.&lt;/p&gt;
     {{block:cta_blau}}
   &lt;/td&gt;&lt;/tr&gt;
   {{block:footer_standard}}
@@ -378,158 +371,164 @@ EmailStudio.send(
                     T('help.tutorial.s4.label'),
                     T('help.tutorial.s5.label'),
                 ];
-                const mk = (sc, step, r) => ({
-                    t: T(`help.tutorial.s${sc}.step${step}.title`),
-                    d: T(`help.tutorial.s${sc}.step${step}.desc`),
-                    r
-                });
-                const S = (k) => T('help.tutorial.sim.' + k);
                 const SC = [
 {lbl:lbl[0], steps:[
-mk(1,1, ()=>`<div class="es-tut-sim">
+{t:'Vorlagen-Übersicht',
+ d:'Klicken Sie oben auf den Tab "Vorlagen". Hier sehen Sie alle E-Mail-Vorlagen — wie viele aktiv, im Entwurf oder archiviert sind. Mit "+ Neue Vorlage" oben rechts starten Sie eine neue E-Mail-Vorlage.',
+ r:()=>`<div class="es-tut-sim">
   <div class="es-tut-topbar">✉ Email Studio
-    <span class="es-tut-pulse" style="background:#fff;color:#163258;padding:2px 8px;border-radius:4px;font-size:9px;font-weight:600;">${S('new_template')}</span>
+    <span class="es-tut-pulse" style="background:#fff;color:#163258;padding:2px 8px;border-radius:4px;font-size:9px;font-weight:600;">+ Neue Vorlage</span>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;padding:8px 12px;font-size:9px;">
     <div style="text-align:center;padding:6px;border-right:1px solid #eee;">
       <div style="font-size:18px;font-weight:600;color:#163258;">6</div>
-      <div style="color:#888;font-size:8px;text-transform:uppercase;">${S('stat_templates')}</div>
+      <div style="color:#888;font-size:8px;text-transform:uppercase;">Vorlagen</div>
     </div>
     <div style="text-align:center;padding:6px;border-right:1px solid #eee;">
       <div style="font-size:18px;font-weight:600;color:#28a745;">5</div>
-      <div style="color:#888;font-size:8px;text-transform:uppercase;">${S('stat_active')}</div>
+      <div style="color:#888;font-size:8px;text-transform:uppercase;">Aktiv</div>
     </div>
     <div style="text-align:center;padding:6px;border-right:1px solid #eee;">
       <div style="font-size:18px;font-weight:600;color:#f59e0b;">1</div>
-      <div style="color:#888;font-size:8px;text-transform:uppercase;">${S('stat_draft')}</div>
+      <div style="color:#888;font-size:8px;text-transform:uppercase;">Entwurf</div>
     </div>
     <div style="text-align:center;padding:6px;">
       <div style="font-size:18px;font-weight:600;color:#888;">0</div>
-      <div style="color:#888;font-size:8px;text-transform:uppercase;">${S('stat_archive')}</div>
+      <div style="color:#888;font-size:8px;text-transform:uppercase;">Archiv</div>
     </div>
   </div>
   <div style="padding:0 12px 8px;font-size:8px;">
     <div style="background:#f8f8f8;border-radius:4px;overflow:hidden;border:1px solid #eee;">
       <div style="display:grid;grid-template-columns:2fr 1fr 1fr 60px;padding:4px 8px;background:#163258;color:#fff;font-size:8px;">
-        <span>${S('col_name_id')}</span><span>${S('col_sender')}</span><span>${S('col_status')}</span><span>${S('col_actions')}</span>
+        <span>Name / Identifier</span><span>Absender</span><span>Status</span><span>Aktionen</span>
       </div>
       <div style="display:grid;grid-template-columns:2fr 1fr 1fr 60px;padding:5px 8px;border-bottom:0.5px solid #eee;font-size:8px;align-items:center;">
-        <span><b style="color:#163258;">${S('sample_cv_berater')}</b><br><span style="font-family:monospace;color:#888;font-size:7px;">cv_generated_berater</span></span>
-        <span style="color:#28a745;">● ${S('mode_user')}</span>
-        <span><span style="background:#28a745;color:#fff;border-radius:3px;padding:1px 5px;font-size:7px;">${S('stat_active')}</span></span>
+        <span><b style="color:#163258;">CV fertig — Berater</b><br><span style="font-family:monospace;color:#888;font-size:7px;">cv_generated_berater</span></span>
+        <span style="color:#28a745;">● User</span>
+        <span><span style="background:#28a745;color:#fff;border-radius:3px;padding:1px 5px;font-size:7px;">Aktiv</span></span>
         <span style="color:#888;font-size:10px;">✏ 📋 👁 ✈</span>
       </div>
       <div style="display:grid;grid-template-columns:2fr 1fr 1fr 60px;padding:5px 8px;font-size:8px;align-items:center;opacity:.5;">
-        <span><b style="color:#163258;">${S('sample_pipeline_success')}</b><br><span style="font-family:monospace;color:#888;font-size:7px;">pipeline_success</span></span>
-        <span style="color:#f59e0b;">● ${S('mode_auto')}</span>
-        <span><span style="background:#28a745;color:#fff;border-radius:3px;padding:1px 5px;font-size:7px;">${S('stat_active')}</span></span>
+        <span><b style="color:#163258;">Pipeline Erfolg</b><br><span style="font-family:monospace;color:#888;font-size:7px;">pipeline_success</span></span>
+        <span style="color:#f59e0b;">● Auto</span>
+        <span><span style="background:#28a745;color:#fff;border-radius:3px;padding:1px 5px;font-size:7px;">Aktiv</span></span>
         <span style="color:#888;font-size:10px;">✏ 📋 👁 ✈</span>
       </div>
     </div>
   </div>
-</div>`),
-mk(1,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
-  <div style="font-size:10px;font-weight:600;color:#163258;margin-bottom:8px;">${S('start_question')}</div>
+</div>`},
+{t:'Neue Vorlage — Startoptionen',
+ d:'Nach Klick auf "+ Neue Vorlage" wählen Sie wie Sie starten möchten: Leeres Template (freie Gestaltung), Corporate Skeleton (mit fertigem Header und Footer), oder eine bestehende Vorlage duplizieren.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+  <div style="font-size:10px;font-weight:600;color:#163258;margin-bottom:8px;">Wie möchten Sie starten?</div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:9px;">
     <div class="es-tut-pulse es-tut-crd" style="background:#e6f1fb;text-align:center;padding:10px 6px;">
       <div style="font-size:18px;margin-bottom:4px;">📄</div>
-      <div style="font-weight:600;color:#0c447c;">${S('blank_template')}</div>
-      <div style="color:#185fa5;margin-top:3px;font-size:8px;">${S('blank_hint')}</div>
+      <div style="font-weight:600;color:#0c447c;">Leeres Template</div>
+      <div style="color:#185fa5;margin-top:3px;font-size:8px;">HTML von Grund auf schreiben</div>
     </div>
     <div class="es-tut-crd" style="text-align:center;padding:10px 6px;opacity:.6;">
       <div style="font-size:18px;margin-bottom:4px;">🏗</div>
-      <div style="font-weight:600;">${S('skeleton')}</div>
-      <div style="color:#666;margin-top:3px;font-size:8px;">${S('skeleton_hint')}</div>
+      <div style="font-weight:600;">Corporate Skeleton</div>
+      <div style="color:#666;margin-top:3px;font-size:8px;">Mit Header + Footer starten</div>
     </div>
     <div class="es-tut-crd" style="text-align:center;padding:10px 6px;opacity:.6;">
       <div style="font-size:18px;margin-bottom:4px;">📋</div>
-      <div style="font-weight:600;">${S('duplicate')}</div>
-      <div style="color:#666;margin-top:3px;font-size:8px;">${S('duplicate_hint')}</div>
+      <div style="font-weight:600;">Duplizieren</div>
+      <div style="color:#666;margin-top:3px;font-size:8px;">Bestehende Vorlage kopieren</div>
     </div>
   </div>
-</div>`),
-mk(1,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
-  <div style="font-size:10px;font-weight:600;color:#163258;margin-bottom:6px;">${S('copy_settings')}</div>
+</div>`},
+{t:'Einstellungen ausfüllen',
+ d:'Füllen Sie die Felder aus: Anzeigename, Betreff, Technischer Name (Identifier). Der Identifier ist der interne Name der im Python-Code verwendet wird — z.B. cv_generated_berater. Er kann nach dem ersten Speichern nicht mehr geändert werden.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+  <div style="font-size:10px;font-weight:600;color:#163258;margin-bottom:6px;">Einstellungen</div>
   <div style="display:flex;flex-direction:column;gap:5px;font-size:9px;">
-    <div><div class="es-tut-lbl">${S('lbl_display_name')}</div><div class="es-tut-inp">${S('sample_cv_berater')}</div></div>
-    <div><div class="es-tut-lbl">${S('lbl_subject')}</div><div class="es-tut-inp">${S('sample_subject')}</div></div>
-    <div><div class="es-tut-lbl">${S('lbl_identifier')}</div>
+    <div><div class="es-tut-lbl">ANZEIGENAME</div><div class="es-tut-inp">CV fertig — Berater</div></div>
+    <div><div class="es-tut-lbl">BETREFF</div><div class="es-tut-inp">Ihr Berater-Profil ist fertig — {name}</div></div>
+    <div><div class="es-tut-lbl">TECHNISCHER NAME (IDENTIFIER) *</div>
       <div class="es-tut-pulse" style="border:1px solid #4a90d9;border-radius:4px;padding:3px 6px;font-family:monospace;background:#e6f1fb;color:#0c447c;">cv_generated_berater<span class="es-tut-cur"></span></div>
-      <div style="font-size:8px;color:#185fa5;margin-top:2px;">${S('identifier_hint')}</div>
+      <div style="font-size:8px;color:#185fa5;margin-top:2px;">Wird im Python-Code verwendet: template='cv_generated_berater'</div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;">
-      <div><div class="es-tut-lbl">${S('lbl_app_scope')}</div><div class="es-tut-inp">${S('sample_scope')}</div></div>
-      <div><div class="es-tut-lbl">${S('lbl_status')}</div><div class="es-tut-inp">${S('stat_active')} ▾</div></div>
+      <div><div class="es-tut-lbl">APP-BEREICH</div><div class="es-tut-inp">Intake / CV Upload ▾</div></div>
+      <div><div class="es-tut-lbl">STATUS</div><div class="es-tut-inp">Aktiv ▾</div></div>
     </div>
   </div>
-</div>`),
-mk(1,4, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
-  <div style="font-size:10px;font-weight:600;color:#163258;margin-bottom:6px;">${S('sender_mode')}</div>
+</div>`},
+{t:'Absender-Modus wählen',
+ d:'Wählen Sie wer als Absender erscheint. "User" = die E-Mail kommt vom eingeloggten Mitarbeiter (z.B. angelo@abcona.de) mit seiner Signatur. "Template" = feste Absenderadresse. "Auto" = noreply, für automatische System-Mails.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+  <div style="font-size:10px;font-weight:600;color:#163258;margin-bottom:6px;">Absender-Modus</div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:9px;">
     <div class="es-tut-crd" style="text-align:center;padding:8px;opacity:.5;">
       <div style="font-size:16px;margin-bottom:3px;">▣</div>
-      <div style="font-weight:600;">${S('mode_template')}</div>
-      <div style="font-size:8px;color:#666;margin-top:2px;">${S('fixed_address')}</div>
+      <div style="font-weight:600;">Template</div>
+      <div style="font-size:8px;color:#666;margin-top:2px;">Feste Adresse</div>
     </div>
     <div class="es-tut-pulse es-tut-crd" style="background:#e6f1fb;text-align:center;padding:8px;">
       <div style="font-size:16px;margin-bottom:3px;">👤</div>
-      <div style="font-weight:600;color:#0c447c;">${S('mode_user')}</div>
-      <div style="font-size:8px;color:#185fa5;margin-top:2px;">${S('logged_in_employee')}</div>
-      <div style="font-size:8px;background:#163258;color:#fff;border-radius:3px;padding:2px 4px;margin-top:4px;">${S('recommended')}</div>
+      <div style="font-weight:600;color:#0c447c;">User</div>
+      <div style="font-size:8px;color:#185fa5;margin-top:2px;">Eingeloggter Mitarbeiter</div>
+      <div style="font-size:8px;background:#163258;color:#fff;border-radius:3px;padding:2px 4px;margin-top:4px;">Empfohlen</div>
     </div>
     <div class="es-tut-crd" style="text-align:center;padding:8px;opacity:.5;">
       <div style="font-size:16px;margin-bottom:3px;">🖨</div>
-      <div style="font-weight:600;">${S('mode_auto')}</div>
-      <div style="font-size:8px;color:#666;margin-top:2px;">${S('noreply_system')}</div>
+      <div style="font-weight:600;">Auto</div>
+      <div style="font-size:8px;color:#666;margin-top:2px;">noreply — System-Mails</div>
     </div>
   </div>
-  <div style="margin-top:6px;background:#e6f1fb;border-radius:4px;padding:4px 7px;font-size:8px;color:#0c447c;">${S('mode_hint_user_short')}</div>
-</div>`),
-mk(1,5, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
+  <div style="margin-top:6px;background:#e6f1fb;border-radius:4px;padding:4px 7px;font-size:8px;color:#0c447c;">From = eingeloggter User · Signatur automatisch aus User-Profil</div>
+</div>`},
+{t:'HTML schreiben und Variablen einfügen',
+ d:'Im mittleren Bereich schreiben Sie den E-Mail-Inhalt. Unter "Variablen" in der Sidebar sehen Sie alle Platzhalter — klicken Sie auf einen um ihn einzufügen. {name} wird beim Versand durch den echten Namen des Empfängers ersetzt.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 10px;">
   <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;">
     <div>
-      <div style="font-size:8px;color:#888;margin-bottom:3px;">${S('editor_tabs')}</div>
+      <div style="font-size:8px;color:#888;margin-bottom:3px;">HTML-Editor · Visuell / Code / TXT</div>
       <div style="border:1px solid #eee;border-radius:4px;overflow:hidden;">
         <div style="display:flex;gap:3px;padding:4px 6px;border-bottom:1px solid #eee;background:#f8f8f8;">
-          <span class="es-tut-tab-on">${S('tab_visual')}</span><span class="es-tut-tab-off">${S('tab_code')}</span><span class="es-tut-tab-off">TXT</span>
+          <span class="es-tut-tab-on">Visuell</span><span class="es-tut-tab-off">Code</span><span class="es-tut-tab-off">TXT</span>
         </div>
         <div style="padding:6px;background:#fff;font-size:9px;">
           <div style="background:#163258;color:#fff;padding:5px 8px;text-align:center;font-weight:600;font-size:9px;border-radius:3px;margin-bottom:4px;">abcona e. K.</div>
-          <p style="margin:0 0 3px;font-size:9px;">${S('hello_name')} <span style="background:#dbeafe;color:#1d4ed8;padding:0 3px;border-radius:2px;">{name}</span>,</p>
-          <p style="margin:0 0 4px;font-size:9px;">${S('profile_created')}</p>
-          <div style="display:inline-block;background:#163258;color:#fff;padding:3px 8px;border-radius:3px;font-size:8px;">${S('view_profile')}</div>
+          <p style="margin:0 0 3px;font-size:9px;">Hallo <span style="background:#dbeafe;color:#1d4ed8;padding:0 3px;border-radius:2px;">{name}</span>,</p>
+          <p style="margin:0 0 4px;font-size:9px;">Ihr Profil wurde erfolgreich erstellt.</p>
+          <div style="display:inline-block;background:#163258;color:#fff;padding:3px 8px;border-radius:3px;font-size:8px;">Profil ansehen</div>
         </div>
       </div>
     </div>
     <div>
-      <div style="font-size:8px;color:#888;margin-bottom:3px;">${S('sidebar_vars')}</div>
+      <div style="font-size:8px;color:#888;margin-bottom:3px;">Sidebar — Variablen</div>
       <div style="border:1px solid #eee;border-radius:4px;overflow:hidden;">
-        <div style="background:#163258;color:#fff;padding:4px 7px;font-size:8px;font-weight:500;">${S('vars_count')}</div>
+        <div style="background:#163258;color:#fff;padding:4px 7px;font-size:8px;font-weight:500;">{} Variablen 13</div>
         <div style="padding:5px 6px;font-size:8px;">
-          <div style="color:#888;font-size:7px;text-transform:uppercase;margin-bottom:2px;">${S('from_context')}</div>
+          <div style="color:#888;font-size:7px;text-transform:uppercase;margin-bottom:2px;">Aus Kontext</div>
           ${['{name}','{email}','{cv_link}','{cv_version}','{created_date}'].map((v,i)=>`<div style="padding:2px 4px;background:#e6f1fb;border-radius:3px;margin-bottom:2px;font-family:monospace;color:#0c447c;font-size:8px;display:flex;justify-content:space-between;${i===0?'border:1.5px solid #163258;':''}" class="${i===0?'es-tut-pulse':''}">${v}<span style="color:#888;">📋</span></div>`).join('')}
-          <div style="color:#888;font-size:7px;text-transform:uppercase;margin:4px 0 2px;">${S('user_profile')}</div>
+          <div style="color:#888;font-size:7px;text-transform:uppercase;margin:4px 0 2px;">User-Profil</div>
           ${['{sender_name}','{sender_email}'].map(v=>`<div style="padding:2px 4px;background:#eaf3de;border-radius:3px;margin-bottom:2px;font-family:monospace;color:#27500a;font-size:8px;">${v}</div>`).join('')}
         </div>
       </div>
     </div>
   </div>
-</div>`),
-mk(1,6, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
+</div>`},
+{t:'Live-Vorschau und Test-E-Mail',
+ d:'Rechts sehen Sie die Live-Vorschau — so sieht die E-Mail beim Empfänger aus. Wechseln Sie zwischen Outlook, Gmail und TXT. In der Sidebar unter "Test-E-Mail senden" können Sie eine echte Test-E-Mail an eine beliebige Adresse schicken.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 10px;">
   <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:8px;">
     <div>
       <div style="border:1px solid #eee;border-radius:4px;overflow:hidden;">
-        <div style="background:#163258;color:#fff;padding:4px 7px;font-size:8px;font-weight:500;">${S('send_test')}</div>
+        <div style="background:#163258;color:#fff;padding:4px 7px;font-size:8px;font-weight:500;">✈ Test-E-Mail senden</div>
         <div style="padding:7px;">
-          <div class="es-tut-inp" style="font-size:8px;margin-bottom:5px;">${S('recipient_email')}</div>
-          <div class="es-tut-pulse" style="background:#163258;color:#fff;border-radius:4px;padding:3px 8px;font-size:8px;text-align:center;cursor:pointer;">${S('send_btn')}</div>
+          <div class="es-tut-inp" style="font-size:8px;margin-bottom:5px;">Empfänger-E-Mail...</div>
+          <div class="es-tut-pulse" style="background:#163258;color:#fff;border-radius:4px;padding:3px 8px;font-size:8px;text-align:center;cursor:pointer;">✈ Senden</div>
         </div>
       </div>
     </div>
     <div>
       <div style="border:1px solid #eee;border-radius:4px;overflow:hidden;">
         <div style="background:#163258;color:#fff;padding:4px 7px;font-size:8px;display:flex;align-items:center;justify-content:space-between;">
-          <span>${S('live_preview')}</span>
+          <span>👁 Live-Vorschau</span>
           <div style="display:flex;gap:2px;">
             <span class="es-tut-tab-on" style="font-size:7px;padding:1px 4px;">Outlook</span>
             <span class="es-tut-tab-off" style="font-size:7px;padding:1px 4px;">Gmail</span>
@@ -537,118 +536,130 @@ mk(1,6, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
           </div>
         </div>
         <div style="padding:0;">
-          <div style="font-size:8px;color:#888;padding:3px 6px;background:#f8f8f8;border-bottom:1px solid #eee;">${S('preview_from_to')}</div>
+          <div style="font-size:8px;color:#888;padding:3px 6px;background:#f8f8f8;border-bottom:1px solid #eee;">Von: angelo@abcona.de · An: max@example.de</div>
           <div style="background:#163258;color:#fff;padding:5px 8px;font-size:9px;font-weight:600;">abcona e. K.</div>
           <div style="padding:6px 8px;background:#fff;">
-            <p style="margin:0 0 3px;font-size:9px;">${S('hello_name')} <b>Max Mustermann</b>,</p>
-            <p style="margin:0 0 4px;font-size:9px;">${S('profile_created')}</p>
-            <span style="display:inline-block;background:#163258;color:#fff;padding:3px 7px;border-radius:3px;font-size:8px;">${S('view_profile')}</span>
+            <p style="margin:0 0 3px;font-size:9px;">Hallo <b>Max Mustermann</b>,</p>
+            <p style="margin:0 0 4px;font-size:9px;">Ihr Profil wurde erfolgreich erstellt.</p>
+            <span style="display:inline-block;background:#163258;color:#fff;padding:3px 7px;border-radius:3px;font-size:8px;">Profil ansehen</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>`),
-mk(1,7, ()=>`<div class="es-tut-sim" style="padding:8px 12px;text-align:center;">
+</div>`},
+{t:'Speichern — TXT wird automatisch erstellt',
+ d:'Klicken Sie oben rechts auf "Speichern". Jedes Speichern legt eine neue Version mit Zeitstempel an. Der TXT-Inhalt (Nur-Text-Version) wird dabei automatisch aus dem HTML generiert — Sie müssen nichts manuell pflegen.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;text-align:center;">
   <div style="display:flex;justify-content:flex-end;gap:6px;margin-bottom:10px;">
-    <div style="border:1px solid #163258;color:#163258;border-radius:4px;padding:4px 10px;font-size:9px;">${S('save_as')}</div>
-    <div class="es-tut-pulse" style="background:#163258;color:#fff;border-radius:4px;padding:4px 10px;font-size:9px;">${S('save')}</div>
+    <div style="border:1px solid #163258;color:#163258;border-radius:4px;padding:4px 10px;font-size:9px;">Speichern unter</div>
+    <div class="es-tut-pulse" style="background:#163258;color:#fff;border-radius:4px;padding:4px 10px;font-size:9px;">Speichern</div>
   </div>
   <div style="display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:8px;">
     <div style="background:#163258;color:#fff;border-radius:5px;padding:5px 10px;font-size:9px;font-weight:600;">📝 HTML</div>
     <span style="color:#163258;font-size:14px;">→</span>
-    <div style="background:#faeeda;color:#633806;border-radius:5px;padding:5px 10px;font-size:9px;border:1px solid #ef9f27;">${S('txt_autogen')}</div>
+    <div style="background:#faeeda;color:#633806;border-radius:5px;padding:5px 10px;font-size:9px;border:1px solid #ef9f27;">✨ TXT auto-generiert</div>
     <span style="color:#163258;font-size:14px;">→</span>
-    <div style="background:#eaf3de;color:#27500a;border-radius:5px;padding:5px 10px;font-size:9px;border:1px solid #97c459;">${S('version_n')}</div>
+    <div style="background:#eaf3de;color:#27500a;border-radius:5px;padding:5px 10px;font-size:9px;border:1px solid #97c459;">🔖 Version 2</div>
   </div>
-  <div style="background:#163258;color:#fff;border-radius:4px;padding:4px 10px;font-size:9px;display:inline-block;">${S('saved_ok')}</div>
-</div>`),
+  <div style="background:#163258;color:#fff;border-radius:4px;padding:4px 10px;font-size:9px;display:inline-block;">✓ Gespeichert</div>
+</div>`},
 ]},
 {lbl:lbl[1], steps:[
-mk(2,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+{t:'Versionsverlauf öffnen',
+ d:'Klicken Sie in der blauen Leiste auf "Versionsverlauf". Es öffnet sich ein Panel mit allen gespeicherten Versionen. Die grün markierte Version ist die aktuell aktive. Ältere Versionen können wiederhergestellt werden.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
-      <span class="es-tut-pulse" style="background:rgba(255,255,255,.25);padding:2px 8px;border-radius:3px;">${S('ver_history_official')}</span>
-      <span style="opacity:.6;">${S('milestones_0')}</span>
-      <span style="opacity:.6;">${S('undo')}</span>
-      <span style="opacity:.6;">${S('redo')}</span>
-      <span style="opacity:.6;margin-left:auto;">${S('translations_btn')}</span>
-      <span style="opacity:.6;">${S('languages_btn')}</span>
-      <span style="opacity:.6;">${S('auto_translate_btn')}</span>
+      <span class="es-tut-pulse" style="background:rgba(255,255,255,.25);padding:2px 8px;border-radius:3px;">⏱ Versionsverlauf 2 offiziell</span>
+      <span style="opacity:.6;">⭐ 0 Meilensteine</span>
+      <span style="opacity:.6;">↩ Rückgängig</span>
+      <span style="opacity:.6;">↪ Wiederholen</span>
+      <span style="opacity:.6;margin-left:auto;">⇄ Übersetzungen</span>
+      <span style="opacity:.6;">Sprachen</span>
+      <span style="opacity:.6;">✂ Auto-Übersetzen</span>
     </div>
     <div style="padding:8px;display:flex;gap:8px;align-items:center;">
       <div style="background:#f8f8f8;border:1px solid #eee;border-radius:5px;padding:6px 10px;font-size:8px;text-align:center;opacity:.6;">
         <div style="font-weight:600;">2</div>
-        <div style="color:#888;font-size:7px;">${S('auto_version')}</div>
+        <div style="color:#888;font-size:7px;">Auto-Version</div>
         <div style="color:#888;font-size:7px;">18.05. 15:00</div>
       </div>
       <span style="color:#888;">←</span>
       <div class="es-tut-pulse" style="background:#eaf3de;border:2px solid #28a745;border-radius:5px;padding:6px 10px;font-size:8px;text-align:center;">
         <div style="width:18px;height:18px;border-radius:50%;background:#28a745;color:#fff;font-size:8px;font-weight:600;display:flex;align-items:center;justify-content:center;margin:0 auto 3px;">1</div>
-        <div style="font-weight:600;color:#27500a;">${S('initial_active')}</div>
+        <div style="font-weight:600;color:#27500a;">Initiale Version · Aktiv</div>
         <div style="color:#3b6d11;font-size:7px;">18.05. 13:22</div>
       </div>
-      <div style="font-size:8px;color:#888;">${S('click_restore')}</div>
+      <div style="font-size:8px;color:#888;">← anklicken zum Wiederherstellen</div>
     </div>
   </div>
-</div>`),
-mk(2,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+</div>`},
+{t:'Änderungsnotiz und Meilenstein',
+ d:'Geben Sie vor dem Speichern eine kurze Notiz ein (z.B. "Logo aktualisiert"). Klicken Sie auf "Merken" um die aktuelle Version als Meilenstein zu markieren — so finden Sie wichtige Versionen schnell wieder.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;">
-      <span style="opacity:.6;">${S('ver_history_2')}</span>
-      <span style="opacity:.6;">${S('milestones_0')}</span>
+      <span style="opacity:.6;">⏱ Versionsverlauf 2</span>
+      <span style="opacity:.6;">⭐ 0 Meilensteine</span>
       <span style="opacity:.6;">↩</span><span style="opacity:.6;">↪</span>
-      <span class="es-tut-pulse" style="background:rgba(255,255,255,.3);padding:1px 6px;border-radius:3px;font-size:8px;">${S('mark_milestone')}</span>
-      <input style="flex:1;min-width:80px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:3px;padding:2px 5px;color:#fff;font-size:8px;" placeholder="${S('change_note_ph')}">
+      <span class="es-tut-pulse" style="background:rgba(255,255,255,.3);padding:1px 6px;border-radius:3px;font-size:8px;">⭐ Merken</span>
+      <input style="flex:1;min-width:80px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:3px;padding:2px 5px;color:#fff;font-size:8px;" placeholder="Änderungsnotiz...">
     </div>
   </div>
-  <div style="margin-top:6px;background:#eaf3de;border-radius:4px;padding:4px 7px;font-size:8px;color:#27500a;">${S('milestone_tip')}</div>
-</div>`),
-mk(2,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+  <div style="margin-top:6px;background:#eaf3de;border-radius:4px;padding:4px 7px;font-size:8px;color:#27500a;">Tipp: Notiz eingeben → Speichern → Version ist dokumentiert und auffindbar</div>
+</div>`},
+{t:'Version wiederherstellen',
+ d:'Klicken Sie im Versionsverlauf auf eine ältere Version. Nach Bestätigung wird diese Version wiederhergestellt. Die aktuelle Version bleibt als Backup erhalten — Sie können jederzeit wieder zurückwechseln.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="background:#fff;border:1px solid #e24b4a;border-radius:5px;padding:10px;font-size:9px;">
-    <div style="font-weight:600;color:#e24b4a;margin-bottom:5px;">${S('restore_title')}</div>
-    <div style="color:#333;margin-bottom:8px;line-height:1.6;">${S('restore_confirm')}</div>
+    <div style="font-weight:600;color:#e24b4a;margin-bottom:5px;">⚠ Version wiederherstellen</div>
+    <div style="color:#333;margin-bottom:8px;line-height:1.6;">Möchten Sie Version 1 (18.05. 13:22) wiederherstellen?<br>Die aktuelle Version bleibt als Backup erhalten.</div>
     <div style="display:flex;gap:6px;justify-content:flex-end;">
-      <div style="border:1px solid #eee;border-radius:4px;padding:3px 10px;font-size:9px;color:#666;">${S('cancel')}</div>
-      <div class="es-tut-pulse" style="background:#163258;color:#fff;border-radius:4px;padding:3px 10px;font-size:9px;">${S('restore')}</div>
+      <div style="border:1px solid #eee;border-radius:4px;padding:3px 10px;font-size:9px;color:#666;">Abbrechen</div>
+      <div class="es-tut-pulse" style="background:#163258;color:#fff;border-radius:4px;padding:3px 10px;font-size:9px;">Wiederherstellen</div>
     </div>
   </div>
-</div>`),
+</div>`},
 ]},
 {lbl:lbl[2], steps:[
-mk(3,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+{t:'Übersetzungs-Panel öffnen',
+ d:'Klicken Sie in der blauen Leiste auf "Übersetzungen". Es öffnet sich ein Panel mit allen vorhandenen Übersetzungen. DE ist immer die Referenz-Sprache — alle anderen Sprachen werden aus dem deutschen Text übersetzt.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;font-weight:500;display:flex;align-items:center;gap:6px;">
-      <span>${S('translations_btn')}</span>
+      <span>⇄ Übersetzungen</span>
       <span style="background:rgba(255,255,255,.2);padding:1px 5px;border-radius:3px;font-size:8px;">2</span>
-      <span style="background:#e6f1fb;color:#0c447c;padding:1px 5px;border-radius:3px;font-size:8px;margin-left:auto;">${S('de_ref_hint')}</span>
+      <span style="background:#e6f1fb;color:#0c447c;padding:1px 5px;border-radius:3px;font-size:8px;margin-left:auto;">— DE ist immer Referenz</span>
     </div>
     <div style="padding:5px 8px;font-size:8px;">
       <div style="display:grid;grid-template-columns:50px 1fr 50px 90px 60px;gap:4px;color:#888;font-size:7px;text-transform:uppercase;padding:3px 0;border-bottom:1px solid #eee;">
-        <span>${S('col_lang')}</span><span>${S('col_subject')}</span><span>${S('mode_auto')}</span><span>${S('col_translated_at')}</span><span>${S('col_actions')}</span>
+        <span>Sprache</span><span>Betreff</span><span>Auto</span><span>Übersetzt am</span><span>Aktionen</span>
       </div>
       <div style="display:grid;grid-template-columns:50px 1fr 50px 90px 60px;gap:4px;padding:4px 0;border-bottom:0.5px solid #eee;align-items:center;">
         <span style="background:#e6f1fb;color:#0c447c;padding:1px 5px;border-radius:3px;font-weight:600;font-size:8px;">EN</span>
         <span style="color:#333;font-size:8px;">Your Consultant Profile is Ready — {name}</span>
-        <span style="background:#faeeda;color:#633806;padding:1px 4px;border-radius:3px;font-size:7px;">${S('mode_auto')}</span>
+        <span style="background:#faeeda;color:#633806;padding:1px 4px;border-radius:3px;font-size:7px;">Auto</span>
         <span style="color:#888;font-size:7px;">18.05.2026 15:29</span>
         <span style="color:#888;font-size:10px;">✏ 🔄 🗑</span>
       </div>
       <div style="display:grid;grid-template-columns:50px 1fr 50px 90px 60px;gap:4px;padding:4px 0;align-items:center;">
         <span style="background:#e6f1fb;color:#0c447c;padding:1px 5px;border-radius:3px;font-weight:600;font-size:8px;">IT</span>
         <span style="color:#333;font-size:8px;">Il tuo profilo consulente è pronto — {name}</span>
-        <span style="background:#faeeda;color:#633806;padding:1px 4px;border-radius:3px;font-size:7px;">${S('mode_auto')}</span>
+        <span style="background:#faeeda;color:#633806;padding:1px 4px;border-radius:3px;font-size:7px;">Auto</span>
         <span style="color:#888;font-size:7px;">18.05.2026 16:16</span>
         <span style="color:#888;font-size:10px;">✏ 🔄 🗑</span>
       </div>
     </div>
   </div>
-</div>`),
-mk(3,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+</div>`},
+{t:'Sprachen aktivieren',
+ d:'Klicken Sie auf "Sprachen" um das Sprachen-Panel zu öffnen. Setzen Sie Häkchen bei den gewünschten Sprachen. Klicken Sie dann in der Leiste auf "Auto-Übersetzen" — die KI übersetzt alle aktivierten Sprachen automatisch.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
-    <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;font-weight:500;">${S('lang_config_title')}</div>
+    <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;font-weight:500;">Übersetzungssprachen für diese Vorlage</div>
     <div style="padding:8px;">
-      <div style="font-size:8px;color:#888;margin-bottom:5px;text-transform:uppercase;font-size:7px;">${S('lang_config_title')}</div>
+      <div style="font-size:8px;color:#888;margin-bottom:5px;text-transform:uppercase;font-size:7px;">Übersetzungssprachen für diese Vorlage</div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
         <label style="display:flex;align-items:center;gap:3px;font-size:9px;"><input type="checkbox"> EN English</label>
         <label style="display:flex;align-items:center;gap:3px;font-size:9px;"><input type="checkbox"> ES Spanish</label>
@@ -656,32 +667,36 @@ mk(3,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
         <label style="display:flex;align-items:center;gap:3px;font-size:9px;" class="es-tut-pulse"><input type="checkbox" checked> IT Italian</label>
       </div>
       <div style="border-top:1px solid #eee;padding-top:6px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
-        <span style="font-size:8px;color:#888;">${S('install_lang')}</span>
-        <div class="es-tut-inp" style="font-size:8px;">${S('lang_select')}</div>
-        <div style="background:#163258;color:#fff;border-radius:4px;padding:3px 8px;font-size:8px;">${S('install_btn')}</div>
+        <span style="font-size:8px;color:#888;">Weitere Sprache installieren:</span>
+        <div class="es-tut-inp" style="font-size:8px;">— Sprache wählen —</div>
+        <div style="background:#163258;color:#fff;border-radius:4px;padding:3px 8px;font-size:8px;">+ Installieren</div>
       </div>
     </div>
   </div>
-</div>`),
-mk(3,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+</div>`},
+{t:'Auto-Übersetzen',
+ d:'Klicken Sie in der blauen Leiste auf "Auto-Übersetzen". Die KI übersetzt den gesamten E-Mail-Inhalt automatisch. Wichtig: Variablen wie {name} oder {cv_link} werden dabei nie übersetzt — sie bleiben immer als Platzhalter erhalten.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:8px;">
-    <div style="background:#163258;color:#fff;border-radius:5px;padding:5px 10px;font-size:9px;font-weight:600;">${S('de_basis_tab')}</div>
+    <div style="background:#163258;color:#fff;border-radius:5px;padding:5px 10px;font-size:9px;font-weight:600;">🇩🇪 DE Basis</div>
     <span style="font-size:14px;color:#163258;">→</span>
-    <div class="es-tut-pulse" style="background:#faeeda;color:#633806;border-radius:5px;padding:5px 10px;font-size:9px;border:1px solid #ef9f27;">${S('ai_translates')}</div>
+    <div class="es-tut-pulse" style="background:#faeeda;color:#633806;border-radius:5px;padding:5px 10px;font-size:9px;border:1px solid #ef9f27;">✨ KI übersetzt</div>
     <span style="font-size:14px;color:#163258;">→</span>
-    <div style="background:#eaf3de;color:#27500a;border-radius:5px;padding:5px 10px;font-size:9px;border:1px solid #97c459;">${S('en_it_flags')}</div>
+    <div style="background:#eaf3de;color:#27500a;border-radius:5px;padding:5px 10px;font-size:9px;border:1px solid #97c459;">🇬🇧 EN · 🇮🇹 IT</div>
   </div>
   <div style="background:#1e1e1e;color:#d4d4d4;font-family:monospace;font-size:8px;border-radius:4px;padding:7px;line-height:1.8;">
-<span style="color:#6a9955;">${S('code_de_basis')}</span>
-${S('hello_name')} <span style="background:#264f78;">{name}</span>, ${S('html_profile_ready')}
-<span style="color:#6a9955;">${S('code_it_auto')}</span>
+<span style="color:#6a9955;"># DE (Basis-Text):</span>
+Hallo <span style="background:#264f78;">{name}</span>, Ihr Profil ist fertig.
+<span style="color:#6a9955;"># IT (automatisch — {name} bleibt unverändert):</span>
 Ciao <span style="background:#264f78;">{name}</span>, il tuo profilo è pronto.</div>
-  <div style="margin-top:5px;background:#eaf3de;border-radius:4px;padding:4px 7px;font-size:8px;color:#27500a;">${S('vars_never_translated')}</div>
-</div>`),
-mk(3,4, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+  <div style="margin-top:5px;background:#eaf3de;border-radius:4px;padding:4px 7px;font-size:8px;color:#27500a;">{name}, {cv_link} usw. werden NIE übersetzt — nur der normale Text</div>
+</div>`},
+{t:'Übersetzung prüfen und bearbeiten',
+ d:'Klicken Sie auf das Stift-Symbol (✏) neben einer Sprache um die Übersetzung zu öffnen. Sie können den Text direkt bearbeiten und korrigieren. Nach dem Speichern ist Ihre Version aktiv und wird beim nächsten Versand verwendet.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;font-weight:500;display:flex;gap:4px;">
-      <span style="background:rgba(255,255,255,.15);padding:2px 7px;border-radius:3px;">${S('de_basis_tab')}</span>
+      <span style="background:rgba(255,255,255,.15);padding:2px 7px;border-radius:3px;">🇩🇪 DE Basis</span>
       <span style="background:rgba(255,255,255,.15);padding:2px 7px;border-radius:3px;">🇬🇧 EN</span>
       <span class="es-tut-pulse" style="background:#fff;color:#163258;padding:2px 7px;border-radius:3px;font-weight:600;">🇮🇹 IT ✏</span>
     </div>
@@ -692,93 +707,101 @@ Il tuo profilo consulente è pronto.
 Clicca qui: <span style="background:#264f78;">{cv_link}</span>
 
 Cordiali saluti, <span style="background:#264f78;">{sender_name}</span><span class="es-tut-cur"></span></div>
-      <div style="margin-top:5px;background:#163258;color:#fff;border-radius:4px;padding:4px 7px;font-size:8px;text-align:center;cursor:pointer;">💾 ${S('save')}</div>
+      <div style="margin-top:5px;background:#163258;color:#fff;border-radius:4px;padding:4px 7px;font-size:8px;text-align:center;cursor:pointer;">💾 Speichern</div>
     </div>
   </div>
-</div>`),
+</div>`},
 ]},
 {lbl:lbl[3], steps:[
-mk(4,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+{t:'Was sind Module?',
+ d:'Module sind fertige Bausteine die Sie in Vorlagen einbauen können: Header (Kopfbereich mit abcona-Logo), Footer (Fußbereich mit Impressum), Buttons und Sektionen. Ändern Sie ein Modul einmal — es ändert sich automatisch in allen Vorlagen die es verwenden.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:8px;">
     <div class="es-tut-crd" style="background:#e6f1fb;">
       <div style="font-weight:600;color:#0c447c;margin-bottom:3px;">HEADER</div>
-      <div style="color:#888;font-size:7px;margin-bottom:4px;">${S('mod_header_desc')}</div>
+      <div style="color:#888;font-size:7px;margin-bottom:4px;">Header — Blau / Grün (Erfolg) / Rot (Fehler)</div>
       <div style="background:#163258;color:#fff;padding:4px 6px;border-radius:3px;font-size:8px;text-align:center;font-weight:600;">abcona e. K.</div>
     </div>
     <div class="es-tut-crd" style="background:#eaf3de;">
       <div style="font-weight:600;color:#27500a;margin-bottom:3px;">FOOTER</div>
-      <div style="color:#888;font-size:7px;margin-bottom:4px;">${S('mod_footer_desc')}</div>
-      <div style="background:#f0f0f0;padding:4px 6px;border-radius:3px;font-size:7px;color:#666;text-align:center;">${S('imprint_unsubscribe')}</div>
+      <div style="color:#888;font-size:7px;margin-bottom:4px;">Footer Standard / Footer Auto-Reply</div>
+      <div style="background:#f0f0f0;padding:4px 6px;border-radius:3px;font-size:7px;color:#666;text-align:center;">Impressum · Abmelden</div>
     </div>
     <div class="es-tut-crd" style="background:#faeeda;">
       <div style="font-weight:600;color:#633806;margin-bottom:3px;">BUTTON</div>
-      <div style="color:#888;font-size:7px;margin-bottom:4px;">${S('mod_button_desc')}</div>
+      <div style="color:#888;font-size:7px;margin-bottom:4px;">Button — Blau / Button — Grün</div>
       <div style="display:flex;gap:4px;">
-        <div style="background:#163258;color:#fff;border-radius:3px;padding:3px 8px;font-size:8px;">${S('btn_blue')}</div>
-        <div style="background:#28a745;color:#fff;border-radius:3px;padding:3px 8px;font-size:8px;">${S('btn_green')}</div>
+        <div style="background:#163258;color:#fff;border-radius:3px;padding:3px 8px;font-size:8px;">Button — Blau</div>
+        <div style="background:#28a745;color:#fff;border-radius:3px;padding:3px 8px;font-size:8px;">Button — Grün</div>
       </div>
     </div>
     <div class="es-tut-crd" style="background:#f1efe8;">
       <div style="font-weight:600;color:#444;margin-bottom:3px;">SECTION</div>
-      <div style="color:#888;font-size:7px;margin-bottom:4px;">${S('support_contact')}</div>
-      <div style="background:#fff;border:1px solid #eee;padding:4px 6px;border-radius:3px;font-size:7px;color:#666;">📞 ${S('html_support')}: support@abcona.de</div>
+      <div style="color:#888;font-size:7px;margin-bottom:4px;">Support Kontakt</div>
+      <div style="background:#fff;border:1px solid #eee;padding:4px 6px;border-radius:3px;font-size:7px;color:#666;">📞 Support: support@abcona.de</div>
     </div>
   </div>
-</div>`),
-mk(4,2, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
+</div>`},
+{t:'Modul in der Sidebar finden',
+ d:'Scrollen Sie in der linken Sidebar nach unten zu "Module". Die Module sind nach Typ gruppiert: BUTTON, FOOTER, HEADER, SECTION. Klicken Sie auf ein Modul — es wird an der aktuellen Cursor-Position im HTML-Editor eingefügt.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 10px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;max-width:220px;">
-    <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;font-weight:500;">${S('modules_panel')}</div>
+    <div style="background:#163258;color:#fff;padding:5px 10px;font-size:9px;font-weight:500;">⊞ Module ∧</div>
     <div style="padding:6px 8px;font-size:8px;">
       <div style="color:#888;text-transform:uppercase;font-size:7px;margin-bottom:3px;">BUTTON</div>
       <div class="es-tut-pulse" style="display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #b5d4f4;border-radius:4px;margin-bottom:2px;cursor:pointer;background:#e6f1fb;">
-        <span>✈</span><span style="color:#0c447c;font-weight:500;">${S('btn_blue')}</span>
+        <span>✈</span><span style="color:#0c447c;font-weight:500;">Button — Blau</span>
       </div>
       <div style="display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #eee;border-radius:4px;margin-bottom:5px;opacity:.7;">
-        <span>✈</span><span>${S('btn_green')}</span>
+        <span>✈</span><span>Button — Grün</span>
       </div>
       <div style="color:#888;text-transform:uppercase;font-size:7px;margin-bottom:3px;">FOOTER</div>
-      <div style="display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #eee;border-radius:4px;margin-bottom:2px;opacity:.7;"><span>📋</span><span>${S('footer_auto_reply')}</span></div>
-      <div style="display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #eee;border-radius:4px;margin-bottom:5px;opacity:.7;"><span>📋</span><span>${S('footer_standard')}</span></div>
+      <div style="display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #eee;border-radius:4px;margin-bottom:2px;opacity:.7;"><span>📋</span><span>Footer Auto-Reply</span></div>
+      <div style="display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #eee;border-radius:4px;margin-bottom:5px;opacity:.7;"><span>📋</span><span>Footer Standard</span></div>
       <div style="color:#888;text-transform:uppercase;font-size:7px;margin-bottom:3px;">HEADER</div>
-      <div style="display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #eee;border-radius:4px;margin-bottom:2px;opacity:.7;"><span>📋</span><span>${S('header_blue')}</span></div>
-      <div style="display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #eee;border-radius:4px;margin-bottom:2px;opacity:.7;"><span>📋</span><span>${S('header_green')}</span></div>
-      <div style="display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #eee;border-radius:4px;opacity:.7;"><span>📋</span><span>${S('header_red')}</span></div>
+      <div style="display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #eee;border-radius:4px;margin-bottom:2px;opacity:.7;"><span>📋</span><span>Header — Blau</span></div>
+      <div style="display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #eee;border-radius:4px;margin-bottom:2px;opacity:.7;"><span>📋</span><span>Header — Grün (Erfolg)</span></div>
+      <div style="display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #eee;border-radius:4px;opacity:.7;"><span>📋</span><span>Header — Rot (Fehler)</span></div>
     </div>
   </div>
-</div>`),
-mk(4,3, ()=>`<div class="es-tut-sim" style="padding:8px 10px;">
+</div>`},
+{t:'Modul einfügen — Ergebnis',
+ d:'Nach dem Klick auf ein Modul erscheint in Ihrem HTML-Code ein Platzhalter wie {{block:abcona_header_blau}}. In der Live-Vorschau rechts sehen Sie sofort wie das Modul aussieht. Beim Versand wird der Platzhalter automatisch durch den echten Inhalt ersetzt.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 10px;">
   <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:8px;">
     <div>
-      <div style="font-size:8px;color:#888;margin-bottom:3px;">${S('html_after_insert')}</div>
+      <div style="font-size:8px;color:#888;margin-bottom:3px;">HTML-Code nach Einfügen:</div>
       <div class="es-tut-editor" style="font-size:8px;"><span style="background:#264f78;">{{block:abcona_header_blau}}</span>
 &lt;tr&gt;&lt;td style="padding:24px;"&gt;
-  &lt;p&gt;${S('html_hello_profile')}&lt;/p&gt;
-  &lt;p&gt;${S('html_profile_ready')}&lt;/p&gt;
+  &lt;p&gt;Hallo {name},&lt;/p&gt;
+  &lt;p&gt;Ihr Profil ist fertig.&lt;/p&gt;
   <span style="background:#264f78;">{{block:button_blau}}</span>
 &lt;/td&gt;&lt;/tr&gt;
 <span style="background:#264f78;">{{block:footer_standard}}</span><span class="es-tut-cur"></span></div>
     </div>
     <div>
-      <div style="font-size:8px;color:#888;margin-bottom:3px;">${S('preview_resolved')}</div>
+      <div style="font-size:8px;color:#888;margin-bottom:3px;">Live-Vorschau (aufgelöst):</div>
       <div style="border:1px solid #e0e0e0;border-radius:5px;overflow:hidden;">
         <div style="background:#163258;color:#fff;padding:5px 8px;font-size:9px;font-weight:600;">abcona e. K.</div>
         <div style="background:#fff;padding:7px 8px;">
-          <p style="margin:0 0 3px;font-size:9px;">${S('hello_name')} <b>{name}</b>,</p>
-          <p style="margin:0 0 5px;font-size:9px;">${S('html_profile_ready')}</p>
-          <span style="display:inline-block;background:#163258;color:#fff;padding:3px 8px;border-radius:3px;font-size:8px;">${S('view_profile')}</span>
+          <p style="margin:0 0 3px;font-size:9px;">Hallo <b>{name}</b>,</p>
+          <p style="margin:0 0 5px;font-size:9px;">Ihr Profil ist fertig.</p>
+          <span style="display:inline-block;background:#163258;color:#fff;padding:3px 8px;border-radius:3px;font-size:8px;">Profil ansehen</span>
         </div>
-        <div style="background:#f0f0f0;padding:3px 8px;font-size:7px;color:#999;">${S('imprint_footer')}</div>
+        <div style="background:#f0f0f0;padding:3px 8px;font-size:7px;color:#999;">Impressum · Abmelden · abcona e. K.</div>
       </div>
     </div>
   </div>
-</div>`),
+</div>`},
 ]},
 {lbl:lbl[4], steps:[
-mk(5,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
-  <div style="font-size:9px;font-weight:600;color:#163258;margin-bottom:6px;">${S('typical_situations')}</div>
-  ${[['pipeline_success','pipeline_error',S('dup_case1')],
-     ['upload_received','upload_error',S('dup_case2')],
-     ['cv_generated_de','cv_generated_en',S('dup_case3')]
+{t:'Wann duplizieren?',
+ d:'Duplizieren ist sinnvoll wenn Sie eine ähnliche Vorlage brauchen — z.B. eine Erfolgs-Mail und eine Fehler-Mail haben fast denselben Aufbau. Sie sparen die gesamte Grundstruktur und müssen nur die unterschiedlichen Texte anpassen.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+  <div style="font-size:9px;font-weight:600;color:#163258;margin-bottom:6px;">Typische Situationen:</div>
+  ${[['pipeline_success','pipeline_error','Gleiche Struktur — Erfolg vs. Fehler'],
+     ['upload_received','upload_error','Bestätigung vs. Fehlermeldung'],
+     ['cv_generated_de','cv_generated_en','Gleicher Inhalt — andere Sprache']
   ].map(([a,b,d])=>`
   <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:0.5px solid #eee;font-size:8px;">
     <code style="background:#f1f1f1;padding:1px 4px;border-radius:2px;">${a}</code>
@@ -786,17 +809,19 @@ mk(5,1, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
     <code style="background:#e6f1fb;color:#0c447c;padding:1px 4px;border-radius:2px;">${b}</code>
     <span style="color:#888;">${d}</span>
   </div>`).join('')}
-  <div style="margin-top:6px;background:#faeeda;border-radius:4px;padding:4px 7px;font-size:8px;color:#633806;">${S('dup_independent')}</div>
-</div>`),
-mk(5,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+  <div style="margin-top:6px;background:#faeeda;border-radius:4px;padding:4px 7px;font-size:8px;color:#633806;">Kopie ist vollständig unabhängig — Änderungen am Original betreffen die Kopie nicht</div>
+</div>`},
+{t:'Vorlage duplizieren',
+ d:'In der Vorlagen-Übersicht klicken Sie auf das Kopier-Symbol 📋 in der Aktionen-Spalte. Es öffnet sich sofort ein Dialog wo Sie der Kopie einen neuen Namen und einen neuen technischen Namen (Identifier) geben.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="border:1px solid #eee;border-radius:5px;overflow:hidden;">
     <div style="background:#163258;color:#fff;padding:4px 8px;font-size:8px;display:grid;grid-template-columns:2fr 1fr 1fr 80px;">
-      <span>${S('col_name_id')}</span><span>${S('col_sender')}</span><span>${S('col_status')}</span><span>${S('col_actions')}</span>
+      <span>Name / Identifier</span><span>Absender</span><span>Status</span><span>Aktionen</span>
     </div>
     <div style="display:grid;grid-template-columns:2fr 1fr 1fr 80px;padding:6px 8px;font-size:8px;align-items:center;">
-      <div><b style="color:#163258;">${S('sample_pipeline_success')}</b><br><span style="font-family:monospace;color:#888;font-size:7px;">pipeline_success</span></div>
-      <span style="color:#f59e0b;">● ${S('mode_auto')}</span>
-      <span><span style="background:#28a745;color:#fff;border-radius:3px;padding:1px 5px;font-size:7px;">${S('stat_active')}</span></span>
+      <div><b style="color:#163258;">Pipeline Erfolg</b><br><span style="font-family:monospace;color:#888;font-size:7px;">pipeline_success</span></div>
+      <span style="color:#f59e0b;">● Auto</span>
+      <span><span style="background:#28a745;color:#fff;border-radius:3px;padding:1px 5px;font-size:7px;">Aktiv</span></span>
       <div style="display:flex;gap:4px;align-items:center;">
         <span style="color:#888;">✏</span>
         <span class="es-tut-pulse" style="background:#e6f1fb;color:#163258;border-radius:3px;padding:2px 5px;font-size:11px;cursor:pointer;">📋</span>
@@ -804,42 +829,46 @@ mk(5,2, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
       </div>
     </div>
   </div>
-  <div style="margin-top:5px;background:#e6f1fb;border-radius:4px;padding:4px 7px;font-size:8px;color:#0c447c;">${S('dup_click_hint')}</div>
-</div>`),
-mk(5,3, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
-  <div style="font-size:9px;font-weight:600;color:#163258;margin-bottom:5px;">${S('dup_from')}</div>
+  <div style="margin-top:5px;background:#e6f1fb;border-radius:4px;padding:4px 7px;font-size:8px;color:#0c447c;">📋 Klicken → Dialog öffnet sich sofort</div>
+</div>`},
+{t:'Neuen Identifier vergeben',
+ d:'Geben Sie der Kopie einen neuen Anzeigenamen und einen neuen Identifier. Der Identifier muss eindeutig sein und darf nicht identisch mit dem Original sein. Alle Inhalte (HTML, Variablen, Module, Einstellungen) werden vollständig kopiert.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+  <div style="font-size:9px;font-weight:600;color:#163258;margin-bottom:5px;">📋 Dupliziert von: pipeline_success</div>
   <div style="display:flex;flex-direction:column;gap:5px;font-size:9px;">
-    <div><div class="es-tut-lbl">${S('lbl_new_identifier')}</div>
+    <div><div class="es-tut-lbl">NEUER IDENTIFIER *</div>
       <div class="es-tut-pulse" style="border:1px solid #4a90d9;border-radius:4px;padding:3px 6px;font-family:monospace;background:#e6f1fb;color:#0c447c;">pipeline_error<span class="es-tut-cur"></span></div>
     </div>
-    <div><div class="es-tut-lbl">${S('lbl_new_name')}</div>
-      <div class="es-tut-inp">${S('sample_pipeline_error_name')}</div>
+    <div><div class="es-tut-lbl">NEUER NAME</div>
+      <div class="es-tut-inp">Pipeline Fehler — CV-Verarbeitung fehlgeschlagen</div>
     </div>
   </div>
   <div style="margin-top:6px;border:1px solid #eee;border-radius:4px;padding:5px 7px;font-size:8px;">
-    <div style="font-weight:500;color:#333;margin-bottom:3px;">${S('what_copied')}</div>
+    <div style="font-weight:500;color:#333;margin-bottom:3px;">Was wird kopiert?</div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;">
-      ${['HTML','TXT',S('copy_sender_mode'),T('help.vars.title'),T('help.tab_modules'),S('copy_settings')].map(x=>`<span style="color:#27500a;">✓ ${x}</span>`).join('')}
+      ${['HTML','TXT','Absender-Modus','Variablen','Module','Einstellungen'].map(x=>`<span style="color:#27500a;">✓ ${x}</span>`).join('')}
     </div>
   </div>
-</div>`),
-mk(5,4, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
+</div>`},
+{t:'Nur die Unterschiede anpassen',
+ d:'Nach dem Duplizieren öffnet sich sofort das Studio der neuen Vorlage. Ändern Sie nur die Textstellen die sich unterscheiden sollen — z.B. Betreff, Überschrift und Fehlertext. Layout, Header und Footer bleiben automatisch identisch.',
+ r:()=>`<div class="es-tut-sim" style="padding:8px 12px;">
   <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;">
     <div>
-      <div style="font-size:8px;color:#888;margin-bottom:3px;">${S('original_label')}</div>
-      <div class="es-tut-editor" style="font-size:8px;opacity:.65;">&lt;h2&gt;${S('html_success_title')}&lt;/h2&gt;
-&lt;p style="color:#28a745;"&gt;${S('html_all_ok')}&lt;/p&gt;
-&lt;a style="background:#28a745;"&gt;${S('html_view_result')}&lt;/a&gt;</div>
+      <div style="font-size:8px;color:#888;margin-bottom:3px;">Original: pipeline_success</div>
+      <div class="es-tut-editor" style="font-size:8px;opacity:.65;">&lt;h2&gt;Verarbeitung erfolgreich&lt;/h2&gt;
+&lt;p style="color:#28a745;"&gt;✓ Alles OK&lt;/p&gt;
+&lt;a style="background:#28a745;"&gt;Ergebnis ansehen&lt;/a&gt;</div>
     </div>
     <div>
-      <div style="font-size:8px;color:#163258;margin-bottom:3px;">${S('copy_label')}</div>
-      <div class="es-tut-editor" style="font-size:8px;">&lt;h2&gt;<span style="background:#264f78;">${S('html_error_occurred')}</span>&lt;/h2&gt;
-&lt;p style="color:<span style="background:#264f78;">#e24b4a</span>;"&gt;<span style="background:#264f78;">${S('html_error')}</span>&lt;/p&gt;
-&lt;a style="background:<span style="background:#264f78;">#e24b4a</span>;"&gt;<span style="background:#264f78;">${S('html_support')}</span>&lt;/a&gt;<span class="es-tut-cur"></span></div>
+      <div style="font-size:8px;color:#163258;margin-bottom:3px;">Kopie: pipeline_error</div>
+      <div class="es-tut-editor" style="font-size:8px;">&lt;h2&gt;<span style="background:#264f78;">Fehler aufgetreten</span>&lt;/h2&gt;
+&lt;p style="color:<span style="background:#264f78;">#e24b4a</span>;"&gt;<span style="background:#264f78;">✗ Fehler</span>&lt;/p&gt;
+&lt;a style="background:<span style="background:#264f78;">#e24b4a</span>;"&gt;<span style="background:#264f78;">Support</span>&lt;/a&gt;<span class="es-tut-cur"></span></div>
     </div>
   </div>
-  <div style="margin-top:5px;background:#eaf3de;border-radius:4px;padding:4px 7px;font-size:8px;color:#27500a;">${S('only_3_changes')}</div>
-</div>`),
+  <div style="margin-top:5px;background:#eaf3de;border-radius:4px;padding:4px 7px;font-size:8px;color:#27500a;">Nur 3 Stellen geändert — Rest 1:1 vom Original</div>
+</div>`},
 ]},
                 ]; /* end SC */
 
@@ -898,7 +927,7 @@ mk(5,4, ()=>`<div class="es-tut-sim" style="padding:8px 12px;">
     <div class="es-tut-ctrl">
       <button class="es-tut-bp" id="es-tut-bp" onclick="window._esTut.nav(-1)" disabled>← ${T('help.tutorial.prev')}</button>
       <div class="es-tut-dots" id="es-tut-dots"></div>
-      <input type="range" min="1" max="6" value="3" step="1" style="width:50px;" title="${T('help.tutorial.speed')}" oninput="window._esTutSpeed=this.value*1000">
+      <input type="range" min="1" max="6" value="3" step="1" style="width:50px;" title="Geschwindigkeit" oninput="window._esTutSpeed=this.value*1000">
       <button class="es-tut-abtn" id="es-tut-abtn" onclick="window._esTut.toggleAuto()">${T('help.tutorial.auto')}</button>
       <button class="es-tut-bn" id="es-tut-bn" onclick="window._esTut.nav(1)">${T('help.tutorial.next')} →</button>
     </div>

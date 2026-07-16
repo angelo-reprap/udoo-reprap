@@ -19,7 +19,7 @@
 
 /* ── Linke Sidebar ── */
 .es-studio-sidebar {
-    background: var(--bg-white);
+    background: white;
     border-right: 1px solid var(--border-color);
     overflow-y: auto;
     display: flex;
@@ -71,7 +71,7 @@
     padding: 8px;
     flex-direction: column;
     gap: 4px;
-    background: var(--bg-white);
+    background: white;
 }
 
 .es-sidebar-panel-body.open {
@@ -114,7 +114,7 @@
     border: 1px solid var(--border-color);
     font-size: 10px;
     cursor: pointer;
-    background: var(--bg-white);
+    background: white;
     color: var(--text-secondary);
     transition: background 0.1s, border-color 0.1s;
 }
@@ -161,7 +161,7 @@
 }
 
 .es-sig-preview {
-    background: var(--bg-white);
+    background: white;
     border: 1px solid var(--border-color);
     border-left: 2px solid var(--abcona-blue);
     border-radius: 0 4px 4px 0;
@@ -191,7 +191,7 @@
 }
 
 .es-editor-tab-bar {
-    background: var(--bg-white);
+    background: white;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
@@ -236,7 +236,7 @@
 .es-canvas-wrap::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
 
 .es-canvas {
-    background: var(--bg-white);
+    background: white;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-card);
     overflow: hidden;
@@ -400,7 +400,7 @@
     font-size: 10px;
     color: var(--text-secondary);
     cursor: pointer;
-    background: var(--bg-white);
+    background: white;
     transition: background 0.1s, border-color 0.1s;
 }
 
@@ -437,7 +437,7 @@
     padding: 3px 8px;
     border-radius: 5px;
     border: 1px solid var(--border-color);
-    background: var(--bg-white);
+    background: white;
     font-size: 10px;
     color: var(--text-secondary);
     cursor: pointer;
@@ -458,7 +458,7 @@
 }
 
 .es-undo-btn:disabled:hover {
-    background: var(--bg-white);
+    background: white;
     color: var(--text-secondary);
 }
 
@@ -486,7 +486,7 @@
     position: absolute;
     top: 36px;
     right: 0;
-    background: var(--bg-white);
+    background: white;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-card);
     padding: 10px;
@@ -501,7 +501,7 @@
 
 /* ── Versions-Toggle-Leiste ── */
 .es-versions-bar {
-    background: var(--bg-white);
+    background: white;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
@@ -518,7 +518,7 @@
     padding: 3px 8px;
     border-radius: 5px;
     border: 1px solid var(--border-color);
-    background: var(--bg-white);
+    background: white;
     font-size: 10px;
     color: var(--text-secondary);
     cursor: pointer;
@@ -572,7 +572,7 @@
     padding: 5px 9px;
     border-radius: 6px;
     border: 1px solid var(--border-color);
-    background: var(--bg-white);
+    background: white;
     cursor: pointer;
     font-size: 10px;
     transition: border-color 0.1s, background 0.1s;
@@ -629,7 +629,7 @@
 
 /* ── Rechte Vorschau-Spalte ── */
 .es-preview-col {
-    background: var(--bg-white);
+    background: white;
     border-left: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
@@ -683,7 +683,7 @@
 }
 
 .es-restore-popup {
-    background: var(--bg-white);
+    background: white;
     border-radius: var(--border-radius-card);
     border: 1px solid var(--border-color);
     width: 500px;
@@ -846,7 +846,7 @@
     padding: 5px 14px;
     border-radius: 5px;
     border: 1px solid var(--border-color);
-    background: var(--bg-white);
+    background: white;
     font-size: 10px;
     cursor: pointer;
     color: var(--text-secondary);

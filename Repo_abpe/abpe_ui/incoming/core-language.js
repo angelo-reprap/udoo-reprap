@@ -1,4 +1,8 @@
-// core-language.js - i18n Sprachlogik
+// core-language.js - i18n Sprachlogik (Portal)
+(function() {
+if (window.__ABPE_UI_LANGUAGE__) return;
+window.__ABPE_UI_LANGUAGE__ = true;
+
 let currentLang = window.ABPE_CONFIG?.current_lang || 'de';
 
 // window.i18nData global — alle Modul-JS können t() nutzen
@@ -182,29 +186,10 @@ async function initLanguageSelector() {
         const response = await fetch('/api/available-languages/');
         const data = await response.json();
 
-        const container = document.querySelector('.language-selector');
-        if (container && data.languages) {
-            container.innerHTML = '';
-            data.languages.forEach(lang => {
-                const btn = document.createElement('button');
-                btn.className = `lang-btn ${lang.code === currentLang ? 'active' : ''}`;
-                btn.setAttribute('data-lang', lang.code);
-                btn.innerHTML = lang.code.toUpperCase();
-                btn.title = lang.native;
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    setLanguage(lang.code);
-                });
-                container.appendChild(btn);
-            });
-        }
-
-        // Sprache vom Server nehmen
         const serverLang = data.current || currentLang;
         currentLang = serverLang;
         await loadLanguage(currentLang);
 
-        // Module informieren dass Selector bereit ist
         document.dispatchEvent(new CustomEvent('languageSelectorReady', {
             detail: { language: currentLang }
         }));
@@ -220,6 +205,13 @@ async function initLanguage(lang) {
     await loadLanguage(currentLang);
 }
 
+window.setLanguage = setLanguage;
+window.initLanguage = initLanguage;
+window.applyTranslations = applyTranslations;
+window.mergeModuleI18n = _mergeModuleI18n;
+
 document.addEventListener('DOMContentLoaded', () => {
     initLanguageSelector();
 });
+
+})();

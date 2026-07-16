@@ -138,7 +138,7 @@ def studio(request):
 <table width="100%" cellpadding="0" cellspacing="0">
  <tr><td align="center" style="padding:20px 10px;">
   <table width="600" cellpadding="0" cellspacing="0"
-         style="background:var(--bg-white);border-radius:8px;overflow:hidden;">
+         style="background:white;border-radius:8px;overflow:hidden;">
    <tr><td style="background:#163258;padding:16px 24px;text-align:center;">
     <span style="color:white;font-size:18px;font-weight:bold;">abcona e. K.</span>
    </td></tr>

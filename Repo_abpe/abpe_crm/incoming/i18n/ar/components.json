@@ -1,0 +1,19 @@
+{
+    "component_actions_upload_pdf": "رفع PDF",
+    "component_actions_add_consultant": "إضافة مستشار",
+    "component_actions_start_matching": "بدء المطابقة",
+    "component_actions_contact": "مراسلة المستشار",
+    "component_stats_consultants": "المستشارون",
+    "component_stats_emails": "رسائل البريد الإلكتروني",
+    "component_stats_projects": "المشاريع",
+    "component_stats_matches": "المطابقات",
+    "component_system_django": "Django",
+    "component_system_celery": "Celery",
+    "component_system_postgresql": "PostgreSQL",
+    "component_system_cpu": "CPU",
+    "component_system_ram": "RAM",
+    "component_system_gpu": "GPU",
+    "component_recent_consultants_title": "آخر المستشارين",
+    "component_recent_emails_title": "آخر رسائل البريد الإلكتروني",
+    "component_show_all": "عرض الكل ←"
+}

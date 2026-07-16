@@ -1,0 +1,3 @@
+{
+    "endpoints": "<h3>2.1 Fontos végpontok</h3><table class='doc-table'><tr><th>Végpont</th><th>Módszer</th><th>Leírás</th></tr><tr><td>/api/stats/</td><td>GET</td><td>Statisztikák</td></tr><tr><td>/api/system/</td><td>GET</td><td>Rendszerállapot</td></tr></table>"
+}

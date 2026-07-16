@@ -18,8 +18,8 @@ window.ESStudio = (() => {
     const MILESTONE_MAX = 10;
 
     /* ── t() Hilfsfunktion ── */
-    function t(key) {
-        return window.i18nData?.es?.[key] || key;
+    function t(key, fallback) {
+        return window.i18nData?.es?.[key] || fallback || key;
     }
 
     /* ══════════════════════════════════════════════════════
@@ -164,7 +164,7 @@ window.ESStudio = (() => {
     }
 
     function _deleteBlock(block) {
-        if (!ES.confirm('es.confirm_delete')) return;
+        if (!ES.confirm('es.confirm_delete', t('confirm_delete', 'Block löschen?'))) return;
         block.remove();
         _scheduleUndoSnapshot();
         _syncCanvasToCode();
@@ -220,12 +220,12 @@ window.ESStudio = (() => {
                 <button class="es-block-action-btn danger" data-action="delete" title="Löschen"><i class="bi bi-trash"></i></button>
             </div>`;
 
-        const placeholderTxt = t('wysiwyg_click_to_edit');
+        const placeholderTxt = t('wysiwyg_click_to_edit', 'Klicken zum Bearbeiten');
 
         if (type === 'text') {
             div.innerHTML = actions + `
                 <div class="es-block-body-inner" contenteditable="true" data-placeholder="${placeholderTxt}">
-                    <p>${t('block_body_default')}</p>
+                    <p>${t('block_body', 'Neuer Textabschnitt')}</p>
                 </div>`;
         } else if (type === 'button') {
             div.innerHTML = `<span class="es-block-label">{{block:cta_blau}}</span>` + actions + `
@@ -291,9 +291,9 @@ window.ESStudio = (() => {
             bodyBlock.dataset.blockType = 'body';
             bodyBlock.innerHTML = `
                 <div class="es-block-actions">
-                    <button class="es-block-action-btn" data-action="up" title="${t('block_up')}"><i class="bi bi-arrow-up"></i></button>
-                    <button class="es-block-action-btn" data-action="down" title="${t('block_down')}"><i class="bi bi-arrow-down"></i></button>
-                    <button class="es-block-action-btn danger" data-action="delete" title="${t('block_delete')}"><i class="bi bi-trash"></i></button>
+                    <button class="es-block-action-btn" data-action="up" title="${t('block_up','Hoch')}"><i class="bi bi-arrow-up"></i></button>
+                    <button class="es-block-action-btn" data-action="down" title="${t('block_down','Runter')}"><i class="bi bi-arrow-down"></i></button>
+                    <button class="es-block-action-btn danger" data-action="delete" title="${t('block_delete','Löschen')}"><i class="bi bi-trash"></i></button>
                 </div>
                 <div class="es-block-body-inner" contenteditable="true">${html}</div>`;
             canvas.appendChild(bodyBlock);
@@ -505,11 +505,11 @@ window.ESStudio = (() => {
 
         if (undoBtn) {
             undoBtn.addEventListener('click', _undo);
-            undoBtn.title = t('undo') + ' (Ctrl+Z)';
+            undoBtn.title = t('undo', 'Rückgängig') + ' (Ctrl+Z)';
         }
         if (redoBtn) {
             redoBtn.addEventListener('click', _redo);
-            redoBtn.title = t('redo') + ' (Ctrl+Y)';
+            redoBtn.title = t('redo', 'Wiederholen') + ' (Ctrl+Y)';
         }
 
         document.addEventListener('keydown', e => {
@@ -642,7 +642,7 @@ window.ESStudio = (() => {
 
     async function _saveMilestone(label) {
         if (!_templateId) {
-            ES.notify.warning('es.error_save', t('error_save_first'));
+            ES.notify.warning('es.error_save', t('error_save', 'Erst speichern'));
             return;
         }
         try {
@@ -650,10 +650,10 @@ window.ESStudio = (() => {
                 ES.apiUrl(`templates/${_templateId}/milestones/`),
                 { label }
             );
-            ES.notify.success('es.milestone_saved', t('milestone_saved'));
+            ES.notify.success('es.milestone_saved', t('milestone_saved', 'Meilenstein gespeichert'));
             _loadVersionsBar();
         } catch(e) {
-            ES.notify.error('es.milestone_error', t('milestone_error'));
+            ES.notify.error('es.milestone_error', t('milestone_error', 'Fehler'));
         }
     }
 
@@ -709,7 +709,7 @@ window.ESStudio = (() => {
         milestones.slice(0, MILESTONE_MAX).forEach(ms => {
             html += `
             <div class="es-version-item milestone" data-ms-id="${ms.id}"
-                 title="${t('versions_click_hint')}">
+                 title="${t('versions_click_hint', 'anklicken zum Wiederherstellen')}">
                 <div class="es-version-num ms">📌</div>
                 <div class="es-version-info">
                     <div class="vt">${_esc(ms.milestone_label)}</div>
@@ -723,22 +723,22 @@ window.ESStudio = (() => {
             html += `
             <div class="es-version-item ${isActive ? 'active-ver' : ''}"
                  data-ver="${v.version}"
-                 title="${isActive ? t('version_active') : t('versions_click_hint')}">
+                 title="${isActive ? t('version_active', 'Aktiv') : t('versions_click_hint', 'anklicken')}">
                 <div class="es-version-num ${isActive ? 'ok' : 'old'}">${v.version}</div>
                 <div class="es-version-info">
-                    <div class="vt">${_esc(v.change_note) || 'Version ' + v.version}${isActive ? ' · ' + t('version_active') : ''}</div>
+                    <div class="vt">${_esc(v.change_note) || 'Version ' + v.version}${isActive ? ' · ' + t('version_active','Aktiv') : ''}</div>
                     <div class="vs">${_formatDate(v.created_at)}</div>
                 </div>
             </div>`;
         });
 
         if (!html) {
-            html = `<span class="es-versions-hint">${t('versions_empty')}</span>`;
+            html = `<span class="es-versions-hint">${t('versions_empty', 'Noch keine Versionen')}</span>`;
         }
 
         html += `<span class="es-versions-hint">
             <i class="bi bi-arrow-left"></i>
-            ${t('versions_click_hint')}
+            ${t('versions_click_hint', 'anklicken zum Wiederherstellen')}
         </span>`;
 
         list.innerHTML = html;
@@ -762,8 +762,8 @@ window.ESStudio = (() => {
     function _updateVersionsBadges(versions, milestones) {
         const offEl = document.getElementById('es-versions-official-badge');
         const msEl  = document.getElementById('es-versions-ms-badge');
-        if (offEl) offEl.textContent = versions.length + ' ' + t('versions_official_count');
-        if (msEl)  msEl.textContent  = '📌 ' + milestones.length + ' ' + t('versions_milestone_count');
+        if (offEl) offEl.textContent = versions.length + ' ' + t('versions_official_count', 'offiziell');
+        if (msEl)  msEl.textContent  = '📌 ' + milestones.length + ' ' + t('versions_milestone_count', 'Meilensteine');
     }
 
     /* ══════════════════════════════════════════════════════
@@ -817,7 +817,7 @@ window.ESStudio = (() => {
         if (efBody) {
             const preview = item.html_body
                 ? item.html_body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200)
-                : t('restore_preview_lbl');
+                : t('restore_preview_lbl', 'Vorschau');
             efBody.textContent = preview;
         }
 
@@ -849,11 +849,11 @@ window.ESStudio = (() => {
                     {}
                 );
             }
-            ES.notify.success('es.version_activated', t('version_activated'));
+            ES.notify.success('es.version_activated', t('version_activated', 'Stand wiederhergestellt'));
             _closeRestorePopup();
             setTimeout(() => location.reload(), 800);
         } catch(e) {
-            ES.notify.error('es.error_version', t('error_version'));
+            ES.notify.error('es.error_version', t('error_version', 'Fehler beim Wiederherstellen'));
             if (okBtn) okBtn.disabled = false;
         }
     }
@@ -886,8 +886,8 @@ window.ESStudio = (() => {
                 NONE:    '',
                 TEAM:    'Mit freundlichen Grüßen<br><strong>abcona e. K. Team</strong>',
                 USER:    'Mit freundlichen Grüßen<br><strong>{sender_name}</strong><br>{sender_email}',
-                FIXED:   t('sig_fixed'),
-                DYNAMIC: t('sig_dynamic'),
+                FIXED:   t('sig_fixed', 'Feste Signatur'),
+                DYNAMIC: t('sig_dynamic', 'Beim Versand wählbar'),
             };
             preview.innerHTML = map[mode] || '';
             preview.style.display = mode !== 'NONE' ? '' : 'none';
@@ -909,7 +909,7 @@ window.ESStudio = (() => {
         const label = inner.querySelector('.es-block-sig-label');
         const modeLabel = t('sig_' + mode.toLowerCase(), mode);
         if (label) {
-            label.innerHTML = `<i class="bi bi-pen"></i> ${t('signature_title')} — ${modeLabel}`;
+            label.innerHTML = `<i class="bi bi-pen"></i> ${t('signature_title', 'Signatur')} — ${modeLabel}`;
         }
 
         const content = inner.querySelector('.es-sig-content');
@@ -959,7 +959,7 @@ window.ESStudio = (() => {
 
             if (isNew && !data.identifier) {
                 document.getElementById('es-identifier-input')?.focus();
-                ES.notify.error('es.error_save', t('error_identifier_missing'));
+                ES.notify.error('es.error_save', t('error_save', 'Identifier fehlt'));
                 return;
             }
 
@@ -979,24 +979,24 @@ window.ESStudio = (() => {
                             })
                         }
                     );
-                    ES.notify.success('es.saved', t('saved'));
+                    ES.notify.success('es.saved', t('saved', 'Gespeichert'));
                     setTimeout(() => { location.href = `/email-studio/studio/?template=${_templateId}`; }, 800);
 
                 } else if (isNew) {
                     const result = await ES.api.post(ES.apiUrl('templates/'), data);
-                    ES.notify.success('es.saved', t('saved'));
+                    ES.notify.success('es.saved', t('saved', 'Gespeichert'));
                     setTimeout(() => { location.href = `/email-studio/studio/?template=${result.template.id}`; }, 800);
 
                 } else {
                     await ES.api.put(ES.apiUrl(`templates/${_templateId}/`), data);
-                    ES.notify.success('es.saved', t('saved'));
+                    ES.notify.success('es.saved', t('saved', 'Gespeichert'));
                     _takeUndoSnapshot();
                     _loadVersionsBar();
                     setTimeout(() => location.reload(), 800);
                 }
             } catch(err) {
                 console.error('Speichern fehlgeschlagen:', err);
-                ES.notify.error('es.error_save', t('error_save'));
+                ES.notify.error('es.error_save', t('error_save', 'Fehler beim Speichern'));
             }
         });
     }
@@ -1010,7 +1010,7 @@ window.ESStudio = (() => {
             btn.addEventListener('click', async () => {
                 if (!_templateId) return;
                 const inp       = document.getElementById('es-test-recipient');
-                const recipient = inp?.value?.trim() || prompt(t('test_recipient_prompt'), '') || '';
+                const recipient = inp?.value?.trim() || prompt(t('test_recipient', 'Empfänger E-Mail:'), '') || '';
                 if (!recipient) return;
                 if (inp) inp.value = recipient;
                 await _doTestSend(recipient);
@@ -1024,9 +1024,9 @@ window.ESStudio = (() => {
                 ES.apiUrl(`templates/${_templateId}/send-test/`),
                 { recipient, variables: _collectTestVars() }
             );
-            ES.notify.success('es.test_sent', t('test_sent'));
+            ES.notify.success('es.test_sent', t('test_sent', 'Test gesendet'));
         } catch(err) {
-            ES.notify.error('es.error_test_send', t('error_test_send'));
+            ES.notify.error('es.error_test_send', t('error_test_send', 'Fehler beim Test-Versand'));
         }
     }
 
@@ -1039,7 +1039,7 @@ window.ESStudio = (() => {
         const badge = document.createElement('span');
         badge.className   = 'es-badge es-badge-blue';
         badge.style.marginRight = '6px';
-        badge.innerHTML   = `<i class="bi bi-translate"></i> ${lang.toUpperCase()} ${t('translation_suffix')}`;
+        badge.innerHTML   = `<i class="bi bi-translate"></i> ${lang.toUpperCase()} ${t('translation_suffix', 'Übersetzung')}`;
         saveBtn.parentNode.insertBefore(badge, saveBtn);
     }
 
@@ -1050,7 +1050,7 @@ window.ESStudio = (() => {
         const addBtn = document.getElementById('es-add-block-btn');
         if (addBtn) {
             const span = addBtn.querySelector('[data-i18n="es.add_block"]');
-            if (span) span.textContent = t('add_block');
+            if (span) span.textContent = t('add_block', 'Block hinzufügen');
         }
     }
 
@@ -1068,7 +1068,7 @@ window.ESStudio = (() => {
             const d = new Date(iso);
             const today = new Date();
             if (d.toDateString() === today.toDateString()) {
-                return t('today') + ' ' + d.toLocaleTimeString('de-DE', {hour:'2-digit',minute:'2-digit'});
+                return t('today', 'heute') + ' ' + d.toLocaleTimeString('de-DE', {hour:'2-digit',minute:'2-digit'});
             }
             return d.toLocaleDateString('de-DE', {day:'2-digit',month:'2-digit'}) + ' ' +
                    d.toLocaleTimeString('de-DE', {hour:'2-digit',minute:'2-digit'});
@@ -1080,7 +1080,7 @@ window.ESStudio = (() => {
         const name = document.getElementById('es-saveas-name')?.value.trim();
         const identifier = document.getElementById('es-saveas-id')?.value.trim();
         if (!name || !identifier) {
-            ES.notify.error('es.error_save', t('error_name_identifier_required'));
+            ES.notify.error('es.error_save', t('error_save', 'Name und Identifier erforderlich'));
             return;
         }
         if (_currentMode === 'visual') _syncCanvasToCode();
@@ -1096,11 +1096,11 @@ window.ESStudio = (() => {
         };
         try {
             const result = await ES.api.post(ES.apiUrl('templates/'), data);
-            ES.notify.success('es.saved', t('saved'));
+            ES.notify.success('es.saved', t('saved', 'Gespeichert'));
             document.getElementById('es-saveas-wrap')?.classList.remove('show');
             setTimeout(() => { location.href = `/email-studio/studio/?template=${result.template.id}`; }, 800);
         } catch(err) {
-            ES.notify.error('es.error_save', t('error_save'));
+            ES.notify.error('es.error_save', t('error_save', 'Fehler'));
         }
     }
 
@@ -1121,7 +1121,7 @@ window.ESStudio = (() => {
             if (!_templateId) return;
             try {
                 const tplLangs = await _getTemplateLangs();
-                if (!tplLangs.length) { ES.notify.warning('es.saved', t('lang_not_configured')); return; }
+                if (!tplLangs.length) { ES.notify.warning('es.saved', t('milestone_error','Keine Sprachen konfiguriert')); return; }
                 const r = await fetch(`/email-studio/api/templates/${_templateId}/translate/`,
                     { method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':ES.csrf()},
                       body: JSON.stringify({langs: tplLangs, force: false}) });
@@ -1151,7 +1151,7 @@ window.ESStudio = (() => {
         },
         deleteLang:     async function(lang) {
             if (!_templateId) return;
-            if (!ES.confirm('es.confirm_delete_translation')) return;
+            if (!ES.confirm('es.confirm_delete_sig',`${lang.toUpperCase()} löschen?`)) return;
             try {
                 await fetch(`/email-studio/api/templates/${_templateId}/translation/${lang}/`,
                     {method:'DELETE',headers:{'X-CSRFToken':ES.csrf()}});
@@ -1205,7 +1205,7 @@ window.ESStudio = (() => {
         try {
             const r    = await fetch('/api/languages/available/');
             const data = await r.json();
-            sel.innerHTML = `<option value="">${t('lang_select_placeholder')}</option>` +
+            sel.innerHTML = `<option value="">${t('lang_select_placeholder','— Sprache wählen —')}</option>` +
                 (data.languages||[]).map(l=>`<option value="${l.code}">${l.flag||''} ${l.name} (${l.code.toUpperCase()})</option>`).join('');
         } catch(e) { console.error(e); }
     }

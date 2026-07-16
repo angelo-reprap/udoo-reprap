@@ -1,0 +1,14 @@
+{
+    "help_title": "Help & Tips",
+    "help_portal": "About This Portal",
+    "help_portal_text": "ABpE Portal - Automated Consultant Profile Capture System. Manages CVs, consultants, matching and workflows.",
+    "help_navigation": "Navigation",
+    "help_nav1": "Sidebar: Icons become visible on hover",
+    "help_nav2": "Dashboard: Statistics can be expanded/collapsed",
+    "help_nav3": "All sections can be toggled open/closed by clicking",
+    "help_shortcuts": "Keyboard Shortcuts",
+    "help_shortcut_help": "Open help",
+    "help_shortcut_search": "Focus search field",
+    "help_shortcut_stats": "Expand/collapse statistics",
+    "help_shortcut_quick": "Quick Actions"
+}
