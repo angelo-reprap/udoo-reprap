@@ -10,6 +10,7 @@ window.ESStudio = (() => {
 
     let _templateId   = null;
     let _previewTimer = null;
+    let _previewSeq   = 0;
     let _currentEntity = 'template'; // template | module | signature
     let _currentMode  = 'visual';  // visual | html-editor | code | txt-editor
     let _txtRawMode   = false;
@@ -137,9 +138,9 @@ window.ESStudio = (() => {
     }
 
     function _persistEntityEditors() {
-        _syncAllToCode();
-        const html = document.getElementById('es-html-editor')?.value || '';
-        const txt  = document.getElementById('es-txt-editor')?.value   || '';
+        const snap = _getEditorSnapshot();
+        const html = snap.html;
+        const txt  = snap.txt;
         if (_currentEntity === 'template') {
             _entityCache.template = { html, text: txt };
         } else if (_currentEntity === 'module') {
@@ -164,6 +165,8 @@ window.ESStudio = (() => {
         if (modCtx) modCtx.style.display = entity === 'module' ? '' : 'none';
         if (sigCtx) sigCtx.style.display = entity === 'signature' ? '' : 'none';
 
+        let deferPreview = false;
+
         if (entity === 'template') {
             const c = _entityCache.template;
             if (c) {
@@ -183,6 +186,7 @@ window.ESStudio = (() => {
                 if (badge) badge.textContent = c.identifier || '';
                 if (modSel && c.id) modSel.value = String(c.id);
             } else if (selId) {
+                deferPreview = true;
                 void _loadModuleEntity(selId);
             } else {
                 _clearEditors();
@@ -197,6 +201,7 @@ window.ESStudio = (() => {
                 if (badge) badge.textContent = c.identifier || '';
                 if (sigSel && c.id) sigSel.value = String(c.id);
             } else if (selId) {
+                deferPreview = true;
                 void _loadSignatureEntity(selId);
             } else {
                 _clearEditors();
@@ -205,7 +210,40 @@ window.ESStudio = (() => {
 
         _updateModePanels();
         _updateSaveButtonLabel();
-        setTimeout(_loadPreview, 100);
+        if (!deferPreview) {
+            setTimeout(_loadPreview, 100);
+        }
+    }
+
+    /** Aktiven Entity-Tab aus DOM lesen (Fallback falls State desync) */
+    function _getActiveEntity() {
+        const tab = document.querySelector('.es-entity-tab.active');
+        const dom = tab?.dataset?.entity;
+        if (dom && dom !== _currentEntity) {
+            _currentEntity = dom;
+        }
+        return _currentEntity;
+    }
+
+    /** Inhalt aus dem gerade sichtbaren Editor — nicht aus veralteter Textarea */
+    function _getEditorSnapshot() {
+        if (_currentMode === 'html-editor') {
+            const rich = document.getElementById('es-rich-editor');
+            if (rich) {
+                const html = _sanitizeEmailHtml(_restorePlaceholdersFromRich(rich.innerHTML));
+                const txt  = document.getElementById('es-txt-editor')?.value || '';
+                return { html, txt };
+            }
+        }
+        if (_currentMode === 'visual' && _currentEntity === 'template') {
+            _syncCanvasToCode();
+        } else if (_currentMode === 'html-editor') {
+            _syncRichToCode();
+        }
+        return {
+            html: document.getElementById('es-html-editor')?.value || '',
+            txt:  document.getElementById('es-txt-editor')?.value  || '',
+        };
     }
 
     function _updateSaveButtonLabel() {
@@ -380,15 +418,15 @@ window.ESStudio = (() => {
     }
 
     async function _saveModuleEntity() {
-        _syncAllToCode();
+        const snap = _getEditorSnapshot();
         const id = _entityCache.module.id;
         if (!id) {
             ES.notify.error('es.entity_select_module', t('entity_select_module', 'Bitte zuerst ein Modul wählen'));
             return;
         }
         const payload = {
-            html_body: document.getElementById('es-html-editor')?.value || '',
-            text_body: document.getElementById('es-txt-editor')?.value  || '',
+            html_body: snap.html,
+            text_body: snap.txt,
         };
         try {
             const r = await fetch(ES.apiUrl(`modules/${id}/`), {
@@ -411,15 +449,15 @@ window.ESStudio = (() => {
     }
 
     async function _saveSignatureEntity() {
-        _syncAllToCode();
+        const snap = _getEditorSnapshot();
         const id = _entityCache.signature.id;
         if (!id) {
             ES.notify.error('es.entity_select_signature', t('entity_select_signature', 'Bitte zuerst eine Signatur wählen'));
             return;
         }
         const payload = {
-            html_body: document.getElementById('es-html-editor')?.value || '',
-            text_body: document.getElementById('es-txt-editor')?.value  || '',
+            html_body: snap.html,
+            text_body: snap.txt,
         };
         try {
             const r = await fetch(ES.apiUrl(`signatures/${id}/`), {
@@ -526,8 +564,7 @@ window.ESStudio = (() => {
     function _updateEntityVisual() {
         const body = document.getElementById('es-entity-visual-body');
         if (!body) return;
-        _syncAllToCode();
-        const html = document.getElementById('es-html-editor')?.value || '';
+        const html = _getEditorSnapshot().html;
         body.innerHTML = html ? _applyDummyVarsLocal(html) : `<p style="color:#999;padding:20px;">${t('entity_visual_empty', 'Kein Inhalt — HTML-Code oder HTML-Editor verwenden')}</p>`;
     }
 
@@ -568,12 +605,13 @@ window.ESStudio = (() => {
     const _EMAIL_ALLOWED_TAGS = new Set([
         'P', 'BR', 'STRONG', 'B', 'EM', 'I', 'A', 'UL', 'OL', 'LI',
         'TABLE', 'TBODY', 'THEAD', 'TR', 'TD', 'TH', 'DIV', 'SPAN',
-        'H1', 'H2', 'H3', 'H4', 'IMG',
+        'H1', 'H2', 'H3', 'H4', 'IMG', 'FONT',
     ]);
     const _EMAIL_ALLOWED_ATTRS = {
-        A:   ['href', 'style', 'target'],
-        IMG: ['src', 'alt', 'width', 'height', 'style'],
-        '*': ['style', 'class', 'colspan', 'rowspan', 'width', 'cellpadding', 'cellspacing', 'border', 'align'],
+        A:    ['href', 'style', 'target'],
+        IMG:  ['src', 'alt', 'width', 'height', 'style'],
+        FONT: ['color', 'face', 'size', 'style'],
+        '*':  ['style', 'class', 'colspan', 'rowspan', 'width', 'cellpadding', 'cellspacing', 'border', 'align'],
     };
 
     function _sanitizeEmailHtml(html) {
@@ -784,6 +822,9 @@ window.ESStudio = (() => {
         if (rich) {
             rich.addEventListener('input', () => {
                 _syncRichToCode();
+                if (_currentEntity === 'module' || _currentEntity === 'signature') {
+                    _persistEntityEditors();
+                }
                 _schedulePreview();
             });
             rich.addEventListener('paste', (e) => {
@@ -956,6 +997,7 @@ window.ESStudio = (() => {
      * CANVAS ↔ CODE SYNC
      * ══════════════════════════════════════════════════════ */
     function _syncCanvasToCode() {
+        if (_currentEntity !== 'template') return;
         const canvas   = document.getElementById('es-canvas');
         const textarea = document.getElementById('es-html-editor');
         if (!canvas || !textarea) return;
@@ -1219,11 +1261,13 @@ window.ESStudio = (() => {
     }
 
     async function _loadPreview(manual = false) {
-        _syncAllToCode();
+        const seq = ++_previewSeq;
+        const entity = _getActiveEntity();
+        const snap = _getEditorSnapshot();
+        const htmlBody = snap.html;
+        const txtBody  = snap.txt;
 
         const editLang = window.ES_CONFIG?.editLang || '';
-        const htmlBody = document.getElementById('es-html-editor')?.value || '';
-        const txtBody  = document.getElementById('es-txt-editor')?.value || '';
         const subject  = document.getElementById('es-subject-input')?.value || '';
 
         const subjEl = document.getElementById('es-preview-subject');
@@ -1233,10 +1277,10 @@ window.ESStudio = (() => {
         if (manual && refreshBtn) refreshBtn.classList.add('es-preview-refreshing');
         if (manual && bodyEl) bodyEl.classList.add('es-preview-loading');
 
-        /* Modul / Signatur: Client-Vorschau */
-        if (_currentEntity === 'module' || _currentEntity === 'signature') {
+        /* Modul / Signatur: Client-Vorschau (immer aus Live-Editor) */
+        if (entity === 'module' || entity === 'signature') {
             if (subjEl) {
-                const label = _currentEntity === 'module'
+                const label = entity === 'module'
                     ? (_entityCache.module.name || t('entity_module', 'Modul'))
                     : (_entityCache.signature.name || t('entity_signature', 'Signatur'));
                 subjEl.textContent = label;
@@ -1283,14 +1327,17 @@ window.ESStudio = (() => {
                 ES.apiUrl(`templates/${_templateId}/preview/`),
                 _collectPreviewPayload()
             );
+            if (seq !== _previewSeq) return;
             if (data.html) _renderInIframe(data.html);
             if (subjEl && data.subject) subjEl.textContent = data.subject;
             const fromEl = document.getElementById('es-preview-from');
             if (fromEl && data.from_email) fromEl.textContent = data.from_email;
         } catch(err) {
+            if (seq !== _previewSeq) return;
             console.error('Vorschau fehlgeschlagen:', err);
             if (htmlBody) _renderInIframe(_applyDummyVarsLocal(htmlBody));
         } finally {
+            if (seq !== _previewSeq) return;
             if (manual && refreshBtn) refreshBtn.classList.remove('es-preview-refreshing');
             if (manual && bodyEl) bodyEl.classList.remove('es-preview-loading');
         }
@@ -1333,15 +1380,8 @@ window.ESStudio = (() => {
 
         const safeHtml = _sanitizePreviewHtml(html);
         bodyEl.className = 'es-email-sim-body';
-        let wrap = bodyEl.querySelector('.es-preview-html');
-        if (!wrap) {
-            bodyEl.innerHTML = '';
-            bodyEl.style.padding = '10px';
-            wrap = document.createElement('div');
-            wrap.className = 'es-preview-html';
-            bodyEl.appendChild(wrap);
-        }
-        wrap.innerHTML = safeHtml;
+        bodyEl.style.padding = '10px';
+        bodyEl.innerHTML = `<div class="es-preview-html">${safeHtml}</div>`;
     }
 
     function _collectTestVars() {

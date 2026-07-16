@@ -37,7 +37,7 @@ python manage.py collectstatic --noinput
 
 echo ""
 echo "--- Prüfung ---"
-grep -c "_syncEditorsFromCode" "$BACKEND/staticfiles/email_studio/js/es-studio.js"
+grep -c "_getEditorSnapshot" "$BACKEND/staticfiles/email_studio/js/es-studio.js"
 grep -c "_loadPreview" "$BACKEND/staticfiles/email_studio/js/es-core.js"
 
 echo ""
