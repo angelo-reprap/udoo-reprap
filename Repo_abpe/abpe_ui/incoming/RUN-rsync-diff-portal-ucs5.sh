@@ -31,7 +31,6 @@ FILES=(
   "apps/abpe_ui/api/components/available_languages.py|abpe_ui/incoming/api_components/available_languages.py"
   "apps/abpe_ui/api/components/language_manager.py|abpe_ui/incoming/api_components/language_manager.py"
   "apps/abpe_ui/views.py|abpe_ui/incoming/views.py"
-  "apps/abpe_ui/modules.json|abpe_ui/incoming/modules.json"
 )
 
 md5_of() {
