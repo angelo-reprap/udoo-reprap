@@ -42,19 +42,23 @@ MODULE_REL = Path('modules/email_studio/email_studio.json')
 INCOMING = 'Repo_abpe/email_studio/incoming'
 CHUNK_SIZE = 25
 
-# Werte die sprachübergreifend gleich bleiben (Akronyme, Platzhalter, Beispiel-E-Mails)
-_INVARIANT_RE = re.compile(
-    r'^(\{\{[^}]+\}\}|[A-Z0-9._@/-]{2,}|HTML|TXT|TLS|SMTP|CC|BCC|API|URL|PDF|OK|ID|'
-    r'max@example\.de|cv_extractor · ingest_email · matching · workflow)$',
-    re.I,
-)
+# Keys/Werte die nicht übersetzt werden (Akronyme, Platzhalter, technische Labels)
+INVARIANT_KEYS = frozenset({
+    'col_html', 'col_txt', 'editor_tab_txt', 'label_tls', 'label_cc', 'label_bcc',
+    'preview_test_email', 'sig_block_active', 'api_hint_apps',
+})
+INVARIANT_ACRONYMS = frozenset({
+    'HTML', 'TXT', 'TLS', 'SMTP', 'CC', 'BCC', 'API', 'URL', 'PDF', 'OK', 'ID',
+})
 
 
-def _is_invariant_value(val: str | None) -> bool:
+def _is_invariant_value(val: str | None, key: str = '') -> bool:
+    if key in INVARIANT_KEYS:
+        return True
     if not val:
         return False
     v = str(val).strip()
-    if _INVARIANT_RE.match(v):
+    if v.upper() in INVARIANT_ACRONYMS:
         return True
     if '{{' in v and '}}' in v:
         return True
@@ -99,10 +103,14 @@ def _needs_translation(key: str, val: str | None, en_val: str | None) -> bool:
     return False
 
 
-def _is_suspect(val: str | None, de_val: str | None, en_val: str | None, lang: str) -> bool:
-    """Verdächtig = leer, noch DE, oder EN-Platzhalter."""
+def _is_suspect(val: str | None, de_val: str | None, en_val: str | None, lang: str, key: str = '') -> bool:
+    """Verdächtig = leer, noch DE (echter Text), oder EN-Platzhalter."""
+    if key in INVARIANT_KEYS:
+        return False
     if not val or not str(val).strip():
         return True
+    if _is_invariant_value(de_val, key) or _is_invariant_value(val, key):
+        return False
     if de_val and val == de_val:
         return True
     if en_val and val == en_val and lang not in ('de', 'en'):
@@ -122,7 +130,7 @@ def _audit_langs(i18n_root: Path, de_es: dict, en_es: dict, langs: list[str]) ->
         es = _load_json(path).get('es', {})
         bad = [
             k for k in de_es
-            if _is_suspect(es.get(k), de_es.get(k), en_es.get(k), lang)
+            if _is_suspect(es.get(k), de_es.get(k), en_es.get(k), lang, k)
         ]
         if bad:
             report[lang] = sorted(bad)
@@ -198,7 +206,8 @@ def translate_lang(
         pending = {
             k: de_es[k]
             for k in de_es
-            if _is_suspect(es.get(k), de_es.get(k), en_es.get(k), lang)
+            if _is_suspect(es.get(k), de_es.get(k), en_es.get(k), lang, k)
+            and k not in INVARIANT_KEYS
         }
     else:
         pending = {

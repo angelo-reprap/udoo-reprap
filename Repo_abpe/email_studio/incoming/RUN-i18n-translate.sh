@@ -71,7 +71,7 @@ fi
 if [[ "$MODE" != "--dry-run" && "$MODE" != "--audit" ]]; then
   echo "--- collectstatic ---"
   cd "$BACKEND"
-  python manage.py collectstatic --noinput
+  PYTHONWARNINGS=ignore python manage.py collectstatic --noinput
   supervisorctl restart abpe-django
   echo "✓ Fertig — Strg+Shift+R"
 fi
