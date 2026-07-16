@@ -831,7 +831,7 @@ window.ESStudio = (() => {
             t.classList.toggle('active', t.dataset.mode === mode);
         });
 
-        if (mode === 'visual' && _currentEntity === 'template' && prev !== 'visual') {
+        if (mode === 'visual' && _currentEntity === 'template') {
             _syncCodeToCanvas();
         } else if (mode === 'html-editor') {
             _syncCodeToRich();
@@ -1314,6 +1314,41 @@ window.ESStudio = (() => {
     /* ══════════════════════════════════════════════════════
      * CANVAS ↔ CODE SYNC
      * ══════════════════════════════════════════════════════ */
+    function _extractHtmlBodyFragment(html) {
+        if (!html) return '';
+        const trimmed = html.trim();
+        if (/^<!DOCTYPE|^<html[\s>]/i.test(trimmed)) {
+            const doc = new DOMParser().parseFromString(trimmed, 'text/html');
+            const body = doc.body?.innerHTML?.trim();
+            if (body) return body;
+        }
+        return trimmed;
+    }
+
+    function _appendBlockActionButtons(block) {
+        const actions = document.createElement('div');
+        actions.className = 'es-block-actions';
+        actions.innerHTML = `
+            <button class="es-block-action-btn" data-action="up" title="${t('block_up', 'Hoch')}"><i class="bi bi-arrow-up"></i></button>
+            <button class="es-block-action-btn" data-action="down" title="${t('block_down', 'Runter')}"><i class="bi bi-arrow-down"></i></button>
+            <button class="es-block-action-btn danger" data-action="delete" title="${t('block_delete', 'Löschen')}"><i class="bi bi-trash"></i></button>`;
+        block.insertBefore(actions, block.firstChild);
+    }
+
+    function _createBodyBlockFromHtml(html) {
+        const bodyBlock = document.createElement('div');
+        bodyBlock.className = 'es-block';
+        bodyBlock.dataset.blockType = 'body';
+        _appendBlockActionButtons(bodyBlock);
+        const bodyInner = document.createElement('div');
+        bodyInner.className = 'es-block-body-inner';
+        bodyInner.contentEditable = 'true';
+        bodyInner.setAttribute('data-placeholder', t('wysiwyg_click_to_edit', 'Klicken zum Bearbeiten'));
+        bodyInner.innerHTML = html;
+        bodyBlock.appendChild(bodyInner);
+        return bodyBlock;
+    }
+
     function _syncCanvasToCode() {
         if (_currentEntity !== 'template') return;
         const canvas   = document.getElementById('es-canvas');
@@ -1347,42 +1382,34 @@ window.ESStudio = (() => {
         const textarea = document.getElementById('es-html-editor');
         if (!canvas || !textarea || !textarea.value.trim()) return;
 
-        // Einfacher Parser: bekannte Block-Typen aus HTML wiederherstellen
-        const html = textarea.value;
-        const hasSigToken = html.includes('{{block:signature}}');
-        const htmlWithoutSig = html.replace(/\{\{block:signature\}\}/g, '').trim();
+        const rawHtml = textarea.value;
+        const hasSigToken = rawHtml.includes('{{block:signature}}');
+        const htmlCore = _extractHtmlBodyFragment(
+            rawHtml.replace(/\{\{block:signature\}\}/g, '').trim() || rawHtml
+        );
+
+        canvas.innerHTML = '';
 
         const tmpDiv = document.createElement('div');
-        tmpDiv.innerHTML = htmlWithoutSig || html;
+        tmpDiv.innerHTML = htmlCore;
 
-        // Blöcke aus dem Canvas-HTML rekonstruieren
-        canvas.querySelectorAll('.es-block').forEach(b => b.remove());
-
-        // Alle es-block divs aus dem gespeicherten HTML wiederherstellen
-        tmpDiv.querySelectorAll('.es-block').forEach(block => {
-            canvas.appendChild(block.cloneNode(true));
-        });
-
-        // Wenn keine es-block Struktur vorhanden → rohen HTML als Body-Block anzeigen
-        if (!canvas.querySelector('.es-block')) {
-            const bodyBlock = document.createElement('div');
-            bodyBlock.className = 'es-block';
-            bodyBlock.dataset.blockType = 'body';
-            bodyBlock.innerHTML = `
-                <div class="es-block-actions">
-                    <button class="es-block-action-btn" data-action="up" title="${t('block_up','Hoch')}"><i class="bi bi-arrow-up"></i></button>
-                    <button class="es-block-action-btn" data-action="down" title="${t('block_down','Runter')}"><i class="bi bi-arrow-down"></i></button>
-                    <button class="es-block-action-btn danger" data-action="delete" title="${t('block_delete','Löschen')}"><i class="bi bi-trash"></i></button>
-                </div>
-                <div class="es-block-body-inner" contenteditable="true">${htmlWithoutSig || html}</div>`;
-            canvas.appendChild(bodyBlock);
+        const savedBlocks = tmpDiv.querySelectorAll('.es-block');
+        if (savedBlocks.length) {
+            savedBlocks.forEach(block => {
+                const clone = block.cloneNode(true);
+                if (!clone.querySelector('.es-block-actions')) {
+                    _appendBlockActionButtons(clone);
+                }
+                canvas.appendChild(clone);
+            });
+        } else {
+            canvas.appendChild(_createBodyBlockFromHtml(htmlCore));
         }
 
         if (hasSigToken && !canvas.querySelector('.es-block[data-block-type="signature"]')) {
             const sigBlock = _createBlock('signature');
             if (sigBlock) {
                 canvas.appendChild(sigBlock);
-                _bindBlock(sigBlock);
             }
         }
 
