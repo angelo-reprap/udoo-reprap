@@ -45,7 +45,7 @@ CHUNK_SIZE = 25
 # Keys/Werte die nicht übersetzt werden (Akronyme, Platzhalter, technische Labels)
 INVARIANT_KEYS = frozenset({
     'col_html', 'col_txt', 'editor_tab_txt', 'label_tls', 'label_cc', 'label_bcc',
-    'preview_test_email', 'sig_block_active', 'api_hint_apps',
+    'preview_test_email', 'sig_block_active', 'api_hint_apps', 'scope_label',
 })
 INVARIANT_ACRONYMS = frozenset({
     'HTML', 'TXT', 'TLS', 'SMTP', 'CC', 'BCC', 'API', 'URL', 'PDF', 'OK', 'ID',
