@@ -171,6 +171,7 @@ window.ESStudio = (() => {
                 const txtEl  = document.getElementById('es-txt-editor');
                 if (htmlEl) htmlEl.value = c.html;
                 if (txtEl)  txtEl.value  = c.text;
+                _syncEditorsFromCode();
             }
         } else if (entity === 'module') {
             const c = _entityCache.module;
@@ -218,13 +219,29 @@ window.ESStudio = (() => {
         const txtEl  = document.getElementById('es-txt-editor');
         if (htmlEl) htmlEl.value = data.html || data.html_body || '';
         if (txtEl)  txtEl.value  = data.text || data.text_body || '';
+        _syncEditorsFromCode();
     }
 
     function _clearEditors() {
         const htmlEl = document.getElementById('es-html-editor');
         const txtEl  = document.getElementById('es-txt-editor');
+        const rich   = document.getElementById('es-rich-editor');
         if (htmlEl) htmlEl.value = '';
         if (txtEl)  txtEl.value  = '';
+        if (rich)   rich.innerHTML = '';
+        if (_currentMode === 'visual' && _currentEntity !== 'template') {
+            _updateEntityVisual();
+        }
+    }
+
+    /** Textarea → Rich-Editor / Entity-Visual nach Laden oder Wechsel */
+    function _syncEditorsFromCode() {
+        if (_currentMode === 'html-editor') {
+            _syncCodeToRich();
+        }
+        if (_currentMode === 'visual' && _currentEntity !== 'template') {
+            _updateEntityVisual();
+        }
     }
 
     async function _initEntitySelectors() {
@@ -1187,6 +1204,14 @@ window.ESStudio = (() => {
         }
     }
 
+    function _getActivePreviewClient() {
+        return document.querySelector('.es-preview-hdr .es-preview-client-btn.active')?.dataset.client || 'outlook';
+    }
+
+    function _wantsTxtPreview() {
+        return _currentMode === 'txt-editor' || _getActivePreviewClient() === 'txt';
+    }
+
     async function _loadPreview(manual = false) {
         _syncAllToCode();
 
@@ -1210,15 +1235,17 @@ window.ESStudio = (() => {
                     : (_entityCache.signature.name || t('entity_signature', 'Signatur'));
                 subjEl.textContent = label;
             }
-            if (_currentMode === 'txt-editor' && txtBody) {
+            if (_wantsTxtPreview() && txtBody) {
                 if (bodyEl) {
                     bodyEl.innerHTML = '';
+                    bodyEl.className = 'es-email-sim-body es-preview-txt-mode';
                     bodyEl.textContent = _applyDummyVarsLocal(txtBody);
                 }
             } else if (htmlBody) {
                 _renderInIframe(_applyDummyVarsLocal(htmlBody));
             } else if (bodyEl) {
                 bodyEl.innerHTML = '';
+                bodyEl.className = 'es-email-sim-body';
             }
             if (manual && refreshBtn) refreshBtn.classList.remove('es-preview-refreshing');
             if (manual && bodyEl) bodyEl.classList.remove('es-preview-loading');
@@ -1299,6 +1326,7 @@ window.ESStudio = (() => {
         if (!bodyEl) return;
 
         const safeHtml = _sanitizePreviewHtml(html);
+        bodyEl.className = 'es-email-sim-body';
         let wrap = bodyEl.querySelector('.es-preview-html');
         if (!wrap) {
             bodyEl.innerHTML = '';
