@@ -1,0 +1,47 @@
+{
+    "id": "email",
+    "title": "Email",
+    "titles": {
+        "de": "Email",
+        "en": "Email",
+        "es": "Email",
+        "it": "Email",
+        "fr": "Email"
+    },
+    "icon": "envelope",
+    "route": "/crm/email/compose/",
+    "order": 45,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "nav_group": true,
+    "subpages": [
+        {
+            "id": "compose",
+            "title": "Email-Erstellen",
+            "titles": {
+                "de": "Email-Erstellen",
+                "en": "Compose Email",
+                "es": "Crear email",
+                "it": "Crea email",
+                "fr": "Créer un email"
+            },
+            "route": "/crm/email/compose/",
+            "order": 1
+        },
+        {
+            "id": "studio",
+            "title": "Email Studio",
+            "titles": {
+                "de": "Email Studio",
+                "en": "Email Studio",
+                "es": "Email Studio",
+                "it": "Email Studio",
+                "fr": "Email Studio"
+            },
+            "route": "/email-studio/",
+            "order": 2
+        }
+    ]
+}

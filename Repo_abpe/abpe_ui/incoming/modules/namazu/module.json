@@ -1,0 +1,20 @@
+{
+    "id": "namazu",
+    "title": "Beratersuche",
+    "titles": {
+        "de": "Beratersuche",
+        "en": "Consultant Search",
+        "fr": "Recherche Conseil",
+        "it": "Ricerca Consulenti",
+        "es": "Búsqueda Consultores"
+    },
+    "icon": "search",
+    "route": "/namazu/",
+    "order": 15,
+    "enabled": true,
+    "roles": ["!berater"],
+    "static": {
+        "css": ["mod/mod-namazu.css"],
+        "js":  ["mod/mod-namazu.js"]
+    }
+}

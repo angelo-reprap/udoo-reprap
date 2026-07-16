@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ current_lang|default:'de' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABpE Portal - {% block title %}Dashboard{% endblock %}</title>
+
+    <!-- Drittanbieter Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Core CSS -->
+    <link href="{% static 'abpe_ui/css/core/core-base.css' %}" rel="stylesheet">
+    <link href="{% static 'abpe_ui/css/core/core-layout.css' %}" rel="stylesheet">
+    <link href="{% static 'abpe_ui/css/core/core-theme.css' %}" rel="stylesheet">
+    <link href="{% static 'abpe_ui/css/core/core-responsive.css' %}" rel="stylesheet">
+
+    <!-- UI Components -->
+    <link href="{% static 'abpe_ui/css/ui/ui-components.css' %}" rel="stylesheet">
+
+    {% block module_css %}{% endblock %}
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    {% include 'abpe_ui/components/header.html' %}
+    {% include 'abpe_ui/components/sidebar.html' %}
+    <div class="sidebar-arc" id="sidebarArc"></div>
+    {% include 'abpe_ui/components/help_modal.html' %}
+
+    <div class="main-content">
+        {% block content %}{% endblock %}
+        {% include 'abpe_ui/components/footer.html' %}
+    </div>
+
+    <!-- WINDOW PARAMETER (globale Konfiguration für JS) -->
+    <script>
+        window.ABPE_CONFIG = {
+            is_admin: {{ user_is_admin|yesno:"true,false" }},
+            current_lang: '{{ current_lang|default:"de" }}',
+            debug: {{ debug|yesno:"true,false" }},
+            api_url: '/api/'
+        };
+        console.log('ABPE_CONFIG geladen:', window.ABPE_CONFIG);
+    </script>
+
+    <!-- Drittanbieter Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core JS -->
+    <script src="{% static 'abpe_ui/js/core/core-init.js' %}"></script>
+    <script src="{% static 'abpe_ui/js/core/core-sidebar.js' %}"></script>
+    <script src="{% static 'abpe_ui/js/core/core-theme.js' %}"></script>
+    <script src="{% static 'abpe_ui/js/core/core-language.js' %}"></script>
+    <script src="{% static 'abpe_ui/js/ui/ui-modal.js' %}"></script>
+
+    {% block module_js %}{% endblock %}
+
+    <!-- INITIALISIERUNG -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('ABpE Portal gestartet');
+            
+            // Sprache aus Window-Config initialisieren
+            if (typeof initLanguage === 'function') {
+                initLanguage(window.ABPE_CONFIG.current_lang);
+            } else if (typeof setLanguage === 'function') {
+                setLanguage(window.ABPE_CONFIG.current_lang);
+            }
+            
+            // Theme Icons aktualisieren
+            if (typeof updateThemeIcons === 'function') {
+                updateThemeIcons();
+            }
+        });
+
+        // Globale Funktionen
+        window.toggleHelp = function() {
+            const modal = document.getElementById('helpModal');
+            if (modal) modal.classList.toggle('show');
+        };
+
+        window.toggleUserMenu = function() {
+            const dropdown = document.getElementById('userDropdown');
+            if (dropdown) dropdown.classList.toggle('show');
+        };
+
+        window.closeHelpOnOutside = function(event) {
+            const modal = document.getElementById('helpModal');
+            if (event.target === modal && modal) {
+                modal.classList.remove('show');
+            }
+        };
+
+        window.toggleMobileSidebar = function() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (sidebar) {
+                sidebar.classList.toggle('open');
+                if (overlay) overlay.classList.toggle('show');
+            }
+        };
+
+        window.closeMobileSidebar = function() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (sidebar) sidebar.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+        };
+
+        window.toggleSection = function(header) {
+            if (!header) return;
+            header.classList.toggle('open');
+            const content = header.nextElementSibling;
+            if (content) content.classList.toggle('open');
+        };
+
+        document.addEventListener('click', function(e) {
+            const userMenu = document.querySelector('.user-menu');
+            const dropdown = document.getElementById('userDropdown');
+            if (userMenu && dropdown && !userMenu.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (e.key === '?') { e.preventDefault(); window.toggleHelp(); }
+            if (e.key === '/') { e.preventDefault(); const el = document.getElementById('searchInput'); if (el) el.focus(); }
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
