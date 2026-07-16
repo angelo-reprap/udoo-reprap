@@ -679,15 +679,17 @@ def section_composer(
         if code == 200:
             body_s = str(body)
             checks = [
-                ('email-studio/js/es-core', 'Email Studio Core JS'),
+                (('email-studio/js/es-core', 'es-core.js', 'email_studio/js/es-core'), 'Email Studio Core JS'),
                 ('ES_CONFIG', 'ES_CONFIG'),
                 ('crm_email', 'Compose-Root'),
             ]
-            for needle, desc in checks:
-                if needle in body_s:
-                    report.pass_(section, f'Compose HTML: {desc}', needle)
+            for needles, desc in checks:
+                if isinstance(needles, str):
+                    needles = (needles,)
+                if any(n in body_s for n in needles):
+                    report.pass_(section, f'Compose HTML: {desc}', needles[0])
                 else:
-                    report.warn(section, f'Compose HTML: {desc}', f'"{needle}" fehlt — Template evtl. veraltet')
+                    report.warn(section, f'Compose HTML: {desc}', f'nicht gefunden ({", ".join(needles)})')
         elif code == 500:
             report.fail(section, 'Compose Seite', 'HTTP 500 — email_compose.html fehlt?')
         else:

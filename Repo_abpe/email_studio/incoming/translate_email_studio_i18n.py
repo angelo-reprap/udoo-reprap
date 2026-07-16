@@ -16,7 +16,19 @@ import os
 import re
 import sys
 import time
+import warnings
 from pathlib import Path
+
+# ucs5: urllib3/requests Versions-Mismatch + verify=False — bewusst, Ausgabe störungsfrei
+warnings.filterwarnings('ignore', message='.*urllib3.*does not match a supported version.*')
+warnings.filterwarnings('ignore', message='.*chardet.*does not match a supported version.*')
+warnings.filterwarnings('ignore', message='.*Unverified HTTPS request.*')
+warnings.filterwarnings('ignore', category=UserWarning, module='requests')
+try:
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+except Exception:
+    pass
 
 import requests
 

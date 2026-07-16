@@ -74,7 +74,7 @@ git show "$BR:$R/translate_email_studio_i18n.py" > "$REPO/$R/translate_email_stu
 chmod +x "$REPO/$R/translate_email_studio_i18n.py"
 
 echo "--- Email Studio UI-Keys übersetzen (Deepseek) ---"
-python3 "$REPO/$R/translate_email_studio_i18n.py" --backend "$BACKEND" --repo "$REPO" \
+PYTHONWARNINGS="ignore" python3 "$REPO/$R/translate_email_studio_i18n.py" --backend "$BACKEND" --repo "$REPO" \
   || echo "WARN: translate_email_studio_i18n fehlgeschlagen — manuell nachholen"
 
 echo "--- collectstatic + restart ---"
