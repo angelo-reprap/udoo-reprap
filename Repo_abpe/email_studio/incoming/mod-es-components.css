@@ -287,6 +287,18 @@
 }
 .es-mode-btn i { font-size: 15px; display: block; margin-bottom: 2px; }
 
+/* ── Code-Editor (lesbar auf dunklem Hintergrund) ── */
+:root {
+    --es-code-bg:     #1a2332;
+    --es-code-fg:     #e8edf4;
+    --es-code-muted:  #8b9cb3;
+    --es-code-border: #2d3a4f;
+    --es-code-keyword: #79c0ff;
+    --es-code-string:  #ffa657;
+    --es-code-class:   #7ee787;
+    --es-code-fn:      #d2a8ff;
+}
+
 /* ── HTML Editor ── */
 .es-editor-wrap {
     display: grid;
@@ -297,7 +309,7 @@
     overflow: hidden;
 }
 .es-editor-code {
-    background: var(--abcona-blue-dark);
+    background: var(--es-code-bg);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -314,17 +326,22 @@
 }
 .es-editor-code textarea {
     width: 100%;
-    background: var(--abcona-blue-dark);
-    color: var(--text-primary);
+    background: var(--es-code-bg);
+    color: var(--es-code-fg);
     border: none;
-    font-family: monospace;
-    font-size: 11px;
-    line-height: 1.6;
-    padding: 10px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.65;
+    padding: 12px;
     resize: none;
+    caret-color: var(--es-code-fg);
+}
+.es-editor-code textarea::placeholder {
+    color: var(--es-code-muted);
 }
 .es-editor-toolbar {
-    background: var(--abcona-blue-dark);
+    background: #141c28;
+    border-bottom: 1px solid var(--es-code-border);
     padding: 5px 8px;
     display: flex;
     align-items: center;
@@ -549,19 +566,20 @@
 
 /* ── Code Block (API Beispiel) ── */
 .es-code {
-    background: var(--abcona-blue-dark);
+    background: var(--es-code-bg);
+    border: 1px solid var(--es-code-border);
     border-radius: 6px;
     padding: 10px 12px;
-    font-family: monospace;
-    font-size: 10px;
-    color: var(--text-primary);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--es-code-fg);
     line-height: 1.7;
     overflow-x: auto;
 }
-.es-code .kw  { color: var(--code-keyword); }
-.es-code .str { color: var(--code-string); }
-.es-code .cls { color: var(--code-class); }
-.es-code .fn  { color: var(--code-fn); }
+.es-code .kw  { color: var(--es-code-keyword); }
+.es-code .str { color: var(--es-code-string); }
+.es-code .cls { color: var(--es-code-class); }
+.es-code .fn  { color: var(--es-code-fn); }
 
 /* ── Responsive ── */
 @media (max-width: 992px) {

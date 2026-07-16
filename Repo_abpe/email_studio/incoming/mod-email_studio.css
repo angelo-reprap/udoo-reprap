@@ -651,8 +651,8 @@
     background: var(--bg-white);
 }
 .es-help-code {
-    background: var(--abcona-blue-dark);
-    color: var(--text-primary);
+    background: var(--es-code-bg);
+    color: var(--es-code-fg);
     border-radius: 5px;
     padding: 8px 12px;
     font-family: monospace;
@@ -2454,4 +2454,27 @@
 @media (max-width: 992px) {
     .es-sig-editor-main { grid-template-columns: 1fr; }
     .es-sig-editor-code { border-right: none; border-bottom: 1px solid var(--border-color); }
+}
+
+/* ── Code-Editoren: Lesbarkeit (finale Overrides) ── */
+.es-module-wrap textarea.es-code-textarea,
+.es-module-wrap .es-editor-code textarea,
+.es-module-wrap .es-sig-editor-code textarea {
+    background-color: var(--es-code-bg) !important;
+    color: var(--es-code-fg) !important;
+    caret-color: var(--es-code-fg) !important;
+    -webkit-text-fill-color: var(--es-code-fg);
+}
+.es-module-wrap .es-code,
+.es-module-wrap .es-help-code {
+    background-color: var(--es-code-bg) !important;
+    color: var(--es-code-fg) !important;
+}
+.es-module-wrap .es-code-area,
+.es-module-wrap .es-sig-editor-code {
+    background: var(--es-code-bg);
+}
+.es-module-wrap .es-editor-toolbar {
+    background: #141c28;
+    border-bottom: 1px solid var(--es-code-border);
 }

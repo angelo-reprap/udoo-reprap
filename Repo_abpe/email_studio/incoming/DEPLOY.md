@@ -65,6 +65,8 @@ supervisorctl restart abpe-django
 | `es-studio.js` | `apps/abpe_email_studio/static/email_studio/js/es-studio.js` |
 | `studio.html` | `apps/abpe_ui/templates/abpe_ui/modules/email_studio/studio.html` |
 | `mod-email_studio.css` | `apps/abpe_ui/static/abpe_ui/css/mod/mod-email_studio.css` ⚠ nicht unter email_studio/ |
+| `mod-es-components.css` | `apps/abpe_ui/static/abpe_ui/css/mod/mod-es-components.css` ⚠ ebenfalls nötig |
+| `base.html` | `apps/abpe_ui/templates/abpe_ui/modules/email_studio/base.html` (CSS-Ladereihenfolge) |
 | `email_studio.json` | `apps/abpe_ui/static/abpe_ui/i18n/de/modules/email_studio/email_studio.json` |
 
 ## Prüfen nach Deploy

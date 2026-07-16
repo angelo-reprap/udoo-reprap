@@ -420,16 +420,17 @@
 .es-code-textarea {
     flex: 1;
     width: 100%;
-    background: var(--abcona-blue-dark);
-    color: var(--text-primary);
+    background: var(--es-code-bg, #1a2332);
+    color: var(--es-code-fg, #e8edf4);
     border: none;
-    font-family: monospace;
-    font-size: 11px;
-    line-height: 1.6;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.65;
     padding: 12px;
     resize: none;
     outline: none;
     min-height: 400px;
+    caret-color: var(--es-code-fg, #e8edf4);
 }
 
 /* ── Breadcrumb Undo/Redo/Merken ── */
