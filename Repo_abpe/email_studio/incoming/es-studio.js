@@ -175,23 +175,29 @@ window.ESStudio = (() => {
             }
         } else if (entity === 'module') {
             const c = _entityCache.module;
+            const modSel = document.getElementById('es-entity-module-select');
+            const selId = modSel?.value ? parseInt(modSel.value, 10) : null;
             if (c.id) {
                 _applyEntityToEditors(c);
                 const badge = document.getElementById('es-entity-module-id');
                 if (badge) badge.textContent = c.identifier || '';
-                const sel = document.getElementById('es-entity-module-select');
-                if (sel && c.id) sel.value = String(c.id);
+                if (modSel && c.id) modSel.value = String(c.id);
+            } else if (selId) {
+                void _loadModuleEntity(selId);
             } else {
                 _clearEditors();
             }
         } else if (entity === 'signature') {
             const c = _entityCache.signature;
+            const sigSel = document.getElementById('es-entity-signature-select');
+            const selId = sigSel?.value ? parseInt(sigSel.value, 10) : null;
             if (c.id) {
                 _applyEntityToEditors(c);
                 const badge = document.getElementById('es-entity-signature-id');
                 if (badge) badge.textContent = c.identifier || '';
-                const sel = document.getElementById('es-entity-signature-select');
-                if (sel && c.id) sel.value = String(c.id);
+                if (sigSel && c.id) sigSel.value = String(c.id);
+            } else if (selId) {
+                void _loadSignatureEntity(selId);
             } else {
                 _clearEditors();
             }
