@@ -1,19 +1,11 @@
 #!/bin/bash
-# Live i18n + Sprach-Dropdown → Repo_abpe/incoming (ucs5)
+# Schritt 1 SYNC: Live i18n + Sprach-Dropdown → Repo (ucs5)
+# Siehe Repo_abpe/WORKFLOW.md
 #
-# Voraussetzung: export-to-repo.sh installiert (siehe Repo_abpe/README.md)
-#
+# Auf JEDEM Branch:
 #   cd /mnt/public/udoo-reprap
-#   git fetch origin cursor/portal-export-script-bf44
-#   mkdir -p /opt/abpe/scripts
-#   for f in export-to-repo.sh export-portal-baseline.sh; do
-#     git show origin/cursor/portal-export-script-bf44:scripts/$f > /opt/abpe/scripts/$f
-#     chmod +x /opt/abpe/scripts/$f
-#   done
-#
-# Dann:
-#   bash Repo_abpe/abpe_ui/incoming/RUN-export-i18n-live-ucs5.sh
-#   cd /mnt/public/udoo-reprap && git add Repo_abpe/ && git commit -m "Live: i18n + lang dropdown" && git push
+#   git fetch origin cursor/email-studio-undo-i18n-bf44
+#   git show origin/cursor/email-studio-undo-i18n-bf44:Repo_abpe/abpe_ui/incoming/RUN-export-i18n-live-ucs5.sh | bash
 
 set -euo pipefail
 
@@ -54,10 +46,17 @@ for f in "$BACKEND"/apps/abpe_ui/templates/abpe_ui/modules/*/module.json; do
 done
 
 echo ""
+echo "=== Staging → Git-Clone (nicht vergessen!) ==="
+rsync -a /mnt/public/Repo_abpe/abpe_ui/incoming/ "$REPO/Repo_abpe/abpe_ui/incoming/"
+rsync -a /mnt/public/Repo_abpe/abpe_crm/incoming/ "$REPO/Repo_abpe/abpe_crm/incoming/"
+rm -rf "$REPO/Repo_abpe/abpe_ui/incoming/modules/opt"
+
+echo ""
 echo "=== Fertig. Nächster Schritt ==="
 echo "  cd $REPO"
 echo "  git add Repo_abpe/abpe_ui/incoming/ Repo_abpe/abpe_crm/incoming/"
-echo "  git commit -m 'Live: i18n lang dropdown + module titles'"
+echo "  git status   # keine modules/opt/ Pfade!"
+echo "  git commit -m 'Live export: i18n lang dropdown + module titles'"
 echo "  git push"
 echo ""
-echo "Dann Cloud Agent: 'Bitte Repo_abpe analysieren'"
+echo "Dann Agent patcht im Repo → RUN-deploy-* (mit backup_restore.py)"

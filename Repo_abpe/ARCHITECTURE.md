@@ -161,6 +161,9 @@ Phase E  Matching-Integration (Berater/Kunde/Telefon/Email/Docs)
 
 ## 9. Export-Workflow (ucs5 → GitHub)
 
+**Vollständige Arbeitsanweisung:** `Repo_abpe/WORKFLOW.md`  
+Reihenfolge: **Sync → Patch → Backup → Deploy**
+
 ```bash
 /opt/abpe/scripts/export-portal-baseline.sh
 # module.json flach kopieren:
