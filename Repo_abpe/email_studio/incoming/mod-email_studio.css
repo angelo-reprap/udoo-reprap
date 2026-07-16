@@ -296,6 +296,18 @@
 }
 .es-mode-btn i { font-size: 15px; display: block; margin-bottom: 2px; }
 
+/* ── Code-Editor (lesbar auf dunklem Hintergrund) ── */
+:root {
+    --es-code-bg:     #1a2332;
+    --es-code-fg:     #e8edf4;
+    --es-code-muted:  #8b9cb3;
+    --es-code-border: #2d3a4f;
+    --es-code-keyword: #79c0ff;
+    --es-code-string:  #ffa657;
+    --es-code-class:   #7ee787;
+    --es-code-fn:      #d2a8ff;
+}
+
 /* ── HTML Editor ── */
 .es-editor-wrap {
     display: grid;
@@ -323,14 +335,18 @@
 }
 .es-editor-code textarea {
     width: 100%;
-    background: var(--abcona-blue-dark);
-    color: var(--text-primary);
+    background: var(--es-code-bg);
+    color: var(--es-code-fg);
     border: none;
-    font-family: monospace;
-    font-size: 11px;
-    line-height: 1.6;
-    padding: 10px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.65;
+    padding: 12px;
     resize: none;
+    tab-size: 2;
+}
+.es-editor-code textarea::placeholder {
+    color: var(--es-code-muted);
 }
 .es-editor-toolbar {
     background: var(--abcona-blue-dark);
@@ -558,19 +574,20 @@
 
 /* ── Code Block (API Beispiel) ── */
 .es-code {
-    background: var(--abcona-blue-dark);
+    background: var(--es-code-bg);
+    border: 1px solid var(--es-code-border);
     border-radius: 6px;
     padding: 10px 12px;
-    font-family: monospace;
-    font-size: 10px;
-    color: var(--text-primary);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--es-code-fg);
     line-height: 1.7;
     overflow-x: auto;
 }
-.es-code .kw  { color: var(--code-keyword, #9cdcfe); }
-.es-code .str { color: var(--code-string, #ce9178); }
-.es-code .cls { color: var(--code-class, #4ec9b0); }
-.es-code .fn  { color: var(--code-fn, #dcdcaa); }
+.es-code .kw  { color: var(--es-code-keyword); }
+.es-code .str { color: var(--es-code-string); }
+.es-code .cls { color: var(--es-code-class); }
+.es-code .fn  { color: var(--es-code-fn); }
 
 /* ── Responsive ── */
 @media (max-width: 992px) {
@@ -634,8 +651,8 @@
     background: var(--bg-white);
 }
 .es-help-code {
-    background: var(--abcona-blue-dark);
-    color: var(--text-primary);
+    background: var(--es-code-bg);
+    color: var(--es-code-fg);
     border-radius: 5px;
     padding: 8px 12px;
     font-family: monospace;
@@ -1158,16 +1175,20 @@
 .es-code-textarea {
     flex: 1;
     width: 100%;
-    background: var(--abcona-blue-dark);
-    color: var(--text-primary);
+    background: var(--es-code-bg);
+    color: var(--es-code-fg);
     border: none;
-    font-family: monospace;
-    font-size: 11px;
-    line-height: 1.6;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.65;
     padding: 12px;
     resize: none;
     outline: none;
     min-height: 400px;
+    tab-size: 2;
+}
+.es-code-textarea::placeholder {
+    color: var(--es-code-muted);
 }
 
 /* ── Breadcrumb Undo/Redo/Merken ── */
@@ -2319,4 +2340,141 @@
 .es-sig-fixed-select {
     margin: 2px 0 4px 18px;
     width: calc(100% - 18px);
+}
+
+/* ── Signatur-Editor (Config-Tab) ── */
+.es-sig-editor {
+    margin-bottom: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-card);
+    overflow: hidden;
+    background: var(--bg-white);
+}
+.es-sig-editor-hdr {
+    background: var(--abcona-blue);
+    color: white;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.es-sig-editor-hdr-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.es-sig-editor-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.es-sig-editor-actions .btn {
+    font-size: 11px;
+    padding: 3px 10px;
+}
+.es-sig-editor-meta {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--abcona-gray-bg);
+}
+.es-sig-editor-meta .es-form-row {
+    margin-bottom: 0;
+}
+.es-sig-editor-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: 320px;
+}
+.es-sig-editor-code {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+    background: var(--es-code-bg);
+}
+.es-sig-editor-code .es-editor-toolbar {
+    background: #141c28;
+    border-bottom: 1px solid var(--es-code-border);
+    padding: 6px 10px;
+}
+.es-sig-editor-code textarea {
+    flex: 1;
+    min-height: 280px;
+    width: 100%;
+    background: var(--es-code-bg);
+    color: var(--es-code-fg);
+    border: none;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.65;
+    padding: 12px;
+    resize: vertical;
+    outline: none;
+    tab-size: 2;
+}
+.es-sig-editor-preview {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+.es-sig-editor-preview-hdr {
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--abcona-blue);
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+.es-sig-editor-preview-body {
+    flex: 1;
+    padding: 14px;
+    overflow: auto;
+    background: #f8f9fb;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.es-sig-editor-preview-body.es-preview-txt {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 12px;
+    white-space: pre-wrap;
+    color: var(--text-primary);
+}
+.es-sig-row-clickable {
+    cursor: pointer;
+}
+.es-sig-row-clickable:hover {
+    background: var(--abcona-gray-bg);
+}
+@media (max-width: 992px) {
+    .es-sig-editor-main { grid-template-columns: 1fr; }
+    .es-sig-editor-code { border-right: none; border-bottom: 1px solid var(--border-color); }
+}
+
+/* ── Code-Editoren: Lesbarkeit (finale Overrides) ── */
+.es-module-wrap textarea.es-code-textarea,
+.es-module-wrap .es-editor-code textarea,
+.es-module-wrap .es-sig-editor-code textarea {
+    background-color: var(--es-code-bg) !important;
+    color: var(--es-code-fg) !important;
+    caret-color: var(--es-code-fg) !important;
+    -webkit-text-fill-color: var(--es-code-fg);
+}
+.es-module-wrap .es-code,
+.es-module-wrap .es-help-code {
+    background-color: var(--es-code-bg) !important;
+    color: var(--es-code-fg) !important;
+}
+.es-module-wrap .es-code-area,
+.es-module-wrap .es-sig-editor-code {
+    background: var(--es-code-bg);
+}
+.es-module-wrap .es-editor-toolbar {
+    background: #141c28;
+    border-bottom: 1px solid var(--es-code-border);
 }

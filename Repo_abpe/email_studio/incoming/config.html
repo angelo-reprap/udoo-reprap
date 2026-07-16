@@ -121,25 +121,116 @@
 
     <!-- Signaturen (einspaltig toggle) -->
     <div class="es-toggle-row-wrap">
-        <div class="es-toggle-row-hdr" onclick="esToggleRow(this)">
+        <div class="es-toggle-row-hdr open" onclick="esToggleRow(this)">
             <div style="display:flex;align-items:center;gap:7px;">
                 <i class="bi bi-pen"></i>
                 <span data-i18n="es.signatures_title">Signaturen</span>
-                <span class="es-badge es-badge-white">{{ signatures|length }}</span>
+                <span class="es-badge es-badge-white" id="es-sig-count">{{ signatures|length }}</span>
             </div>
             <div style="display:flex;align-items:center;gap:6px;">
-                <a href="/admin/abpe_email_studio/emailsignature/add/"
-                   class="es-badge es-badge-white"
-                   onclick="event.stopPropagation();">
+                <button type="button"
+                        class="es-badge es-badge-white"
+                        data-action="new-signature"
+                        onclick="event.stopPropagation();">
                     <span data-i18n="es.btn_new_signature">+ Neue Signatur</span>
-                </a>
+                </button>
                 <i class="bi bi-chevron-down"></i>
             </div>
         </div>
-        <div class="es-toggle-row-body col1"
+        <div class="es-toggle-row-body col1 open"
              style="background:white;border:1px solid var(--border-color);
                     border-top:none;border-radius:0 0 8px 8px;overflow:hidden;">
-            <table class="es-table">
+
+            <!-- Signatur-Editor (inline, ohne Django Admin) -->
+            <div id="es-sig-editor" class="es-sig-editor" style="display:none;">
+                <div class="es-sig-editor-hdr">
+                    <div class="es-sig-editor-hdr-title">
+                        <i class="bi bi-pen-fill"></i>
+                        <span id="es-sig-editor-title" data-i18n="es.sig_editor_new">Neue Signatur</span>
+                    </div>
+                    <div class="es-sig-editor-actions">
+                        <button type="button" class="btn btn-sm btn-light" data-action="sig-save-as"
+                                title="Als Kopie speichern">
+                            <i class="bi bi-copy"></i>
+                            <span data-i18n="es.sig_save_as">Speichern unter…</span>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-success" data-action="sig-save">
+                            <i class="bi bi-check-lg"></i>
+                            <span data-i18n="es.btn_save">Speichern</span>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-light" data-action="sig-cancel">
+                            <span data-i18n="es.btn_cancel">Abbrechen</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="es-sig-editor-meta">
+                    <div class="es-form-row col4">
+                        <div>
+                            <label class="es-lbl" data-i18n="es.label_name">Anzeigename</label>
+                            <input id="es-sig-name" class="form-control form-control-sm" type="text"
+                                   placeholder="z.B. abcona Team">
+                        </div>
+                        <div>
+                            <label class="es-lbl" data-i18n="es.label_identifier">Technischer Name</label>
+                            <input id="es-sig-identifier" class="form-control form-control-sm es-identifier"
+                                   type="text" placeholder="z.B. abcona_team">
+                        </div>
+                        <div>
+                            <label class="es-lbl" data-i18n="es.label_sender_account_col">Absender-Konto</label>
+                            <select id="es-sig-sender" class="form-select form-select-sm">
+                                <option value="">— keine Zuordnung —</option>
+                                {% for s in senders %}
+                                <option value="{{ s.pk }}">{{ s.email }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div style="display:flex;align-items:flex-end;gap:12px;padding-bottom:2px;">
+                            <label class="es-lbl" style="display:flex;align-items:center;gap:5px;margin:0;">
+                                <input id="es-sig-default" type="checkbox">
+                                <span data-i18n="es.label_standard">Standard</span>
+                            </label>
+                            <label class="es-lbl" style="display:flex;align-items:center;gap:5px;margin:0;">
+                                <input id="es-sig-public" type="checkbox">
+                                <span data-i18n="es.label_public">Öffentlich</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="es-sig-editor-main">
+                    <div class="es-sig-editor-code">
+                        <div class="es-editor-toolbar">
+                            <div style="display:flex;gap:4px;">
+                                <button type="button" class="es-editor-tab-btn" data-sig-tab="html">HTML</button>
+                                <button type="button" class="es-editor-tab-btn inactive" data-sig-tab="txt">TXT</button>
+                            </div>
+                            <button type="button" class="es-editor-tab-btn" data-action="sig-preview-refresh">
+                                <i class="bi bi-arrow-clockwise"></i>
+                                <span data-i18n="es.preview_refresh">Aktualisieren</span>
+                            </button>
+                        </div>
+                        <textarea id="es-sig-html" data-sig-pane="html"
+                                  placeholder="HTML-Signatur…"></textarea>
+                        <textarea id="es-sig-txt" data-sig-pane="txt"
+                                  style="display:none;" placeholder="Plaintext-Fallback…"></textarea>
+                    </div>
+                    <div class="es-sig-editor-preview">
+                        <div class="es-sig-editor-preview-hdr">
+                            <span data-i18n="es.sig_preview_title">Live-Vorschau</span>
+                            <div style="display:flex;gap:4px;">
+                                <button type="button" class="es-preview-client-btn active"
+                                        data-sig-preview-mode="html">HTML</button>
+                                <button type="button" class="es-preview-client-btn"
+                                        data-sig-preview-mode="txt">TXT</button>
+                            </div>
+                        </div>
+                        <div id="es-sig-preview-body" class="es-sig-editor-preview-body"></div>
+                    </div>
+                </div>
+            </div>
+
+            <table class="es-table" id="es-sig-table">
                 <thead>
                     <tr>
                         <th data-i18n="es.col_name">Name</th>
@@ -153,7 +244,7 @@
                 </thead>
                 <tbody>
                 {% for sig in signatures %}
-                <tr data-sig-row>
+                <tr data-sig-row data-sig-id="{{ sig.pk }}" class="es-sig-row-clickable">
                     <td style="font-weight:600;font-size:12px;">{{ sig.name }}</td>
                     <td class="es-identifier">{{ sig.identifier }}</td>
                     <td style="font-size:11px;">
@@ -174,11 +265,13 @@
                     </td>
                     <td>
                         <div style="display:flex;gap:3px;">
-                            <a href="/admin/abpe_email_studio/emailsignature/{{ sig.pk }}/change/"
-                               class="es-btn-icon">
+                            <button type="button" class="es-btn-icon"
+                                    data-action="edit-signature"
+                                    data-id="{{ sig.pk }}"
+                                    title="Bearbeiten">
                                 <i class="bi bi-pencil"></i>
-                            </a>
-                            <button class="es-btn-icon danger"
+                            </button>
+                            <button type="button" class="es-btn-icon danger"
                                     data-action="delete-signature"
                                     data-id="{{ sig.pk }}">
                                 <i class="bi bi-trash"></i>
