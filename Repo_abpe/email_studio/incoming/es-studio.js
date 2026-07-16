@@ -11,7 +11,8 @@ window.ESStudio = (() => {
     let _templateId   = null;
     let _previewTimer = null;
     let _currentEntity = 'template'; // template | module | signature
-    let _currentMode  = 'visual';  // visual | html-editor | code | txt
+    let _currentMode  = 'visual';  // visual | html-editor | code | txt-editor
+    let _txtRawMode   = false;
     let _entityCache  = {
         template:  null,
         module:    { id: null, html: '', text: '', identifier: '', name: '' },
@@ -71,6 +72,7 @@ window.ESStudio = (() => {
         _initEntitySelectors();
         _initEntityActions();
         _initRichEditor();
+        _initTxtEditor();
         _initVarChips();
         _initModuleChips();
         _initSave();
@@ -460,9 +462,21 @@ window.ESStudio = (() => {
 
         _updateModePanels();
 
-        if (mode !== 'txt') {
-            setTimeout(_loadPreview, 100);
-        }
+        setTimeout(_loadPreview, 100);
+    }
+
+    function _initTxtEditor() {
+        document.getElementById('es-txt-raw-toggle')?.addEventListener('click', _toggleTxtRaw);
+    }
+
+    function _toggleTxtRaw() {
+        _txtRawMode = !_txtRawMode;
+        const ta  = document.getElementById('es-txt-editor');
+        const btn = document.getElementById('es-txt-raw-toggle');
+        if (!ta) return;
+        ta.classList.toggle('es-txt-friendly', !_txtRawMode);
+        ta.classList.toggle('es-code-textarea', _txtRawMode);
+        btn?.classList.toggle('active', _txtRawMode);
     }
 
     function _updateModePanels() {
@@ -473,13 +487,13 @@ window.ESStudio = (() => {
         const entityVisual   = document.getElementById('es-entity-visual-wrap');
         const htmlEditorWrap = document.getElementById('es-html-editor-wrap');
         const codeWrap       = document.getElementById('es-code-wrap');
-        const txtWrap        = document.getElementById('es-txt-wrap');
+        const txtWrap        = document.getElementById('es-txt-editor-wrap');
 
         if (visualWrap)     visualWrap.style.display     = (mode === 'visual' && entity === 'template') ? '' : 'none';
         if (entityVisual)   entityVisual.style.display   = (mode === 'visual' && entity !== 'template') ? '' : 'none';
         if (htmlEditorWrap) htmlEditorWrap.style.display   = mode === 'html-editor' ? '' : 'none';
         if (codeWrap)       codeWrap.style.display         = mode === 'code' ? '' : 'none';
-        if (txtWrap)        txtWrap.style.display          = mode === 'txt' ? '' : 'none';
+        if (txtWrap)        txtWrap.style.display          = mode === 'txt-editor' ? '' : 'none';
 
         if (mode === 'visual' && entity !== 'template') {
             _updateEntityVisual();
@@ -968,7 +982,7 @@ window.ESStudio = (() => {
                     : (_entityCache.signature.name || t('entity_signature', 'Signatur'));
                 subjEl.textContent = label;
             }
-            if (_currentMode === 'txt' && txtBody) {
+            if (_currentMode === 'txt-editor' && txtBody) {
                 if (bodyEl) {
                     bodyEl.innerHTML = '';
                     bodyEl.textContent = _applyDummyVarsLocal(txtBody);
@@ -984,6 +998,17 @@ window.ESStudio = (() => {
         }
 
         if (subjEl && subject) subjEl.textContent = _applyDummyVarsLocal(subject);
+
+        if (_currentMode === 'txt-editor' && txtBody) {
+            if (bodyEl) {
+                bodyEl.innerHTML = '';
+                bodyEl.className = 'es-email-sim-body es-preview-txt-mode';
+                bodyEl.textContent = _applyDummyVarsLocal(txtBody);
+            }
+            if (manual && refreshBtn) refreshBtn.classList.remove('es-preview-refreshing');
+            if (manual && bodyEl) bodyEl.classList.remove('es-preview-loading');
+            return;
+        }
 
         if (!_templateId || editLang) {
             if (htmlBody) _renderInIframe(_applyDummyVarsLocal(htmlBody));

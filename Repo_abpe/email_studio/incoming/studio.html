@@ -648,9 +648,9 @@
                 <i class="bi bi-code-slash"></i>
                 <span data-i18n="es.editor_tab_html_code">HTML-Code</span>
             </div>
-            <div class="es-editor-tab" data-mode="txt">
-                <i class="bi bi-align-left"></i>
-                <span data-i18n="es.editor_tab_txt">TXT</span>
+            <div class="es-editor-tab" data-mode="txt-editor">
+                <i class="bi bi-text-paragraph"></i>
+                <span data-i18n="es.editor_tab_txt_editor">TXT-Editor</span>
             </div>
         </div>
 
@@ -784,8 +784,16 @@
             <textarea id="es-html-editor" class="es-code-textarea">{{ template.html_body }}</textarea>
         </div>
 
-        <div id="es-txt-wrap" class="es-code-area" style="display:none;">
-            <textarea id="es-txt-editor" class="es-code-textarea">{{ template.text_body }}</textarea>
+        <div id="es-txt-editor-wrap" class="es-txt-editor-wrap" style="display:none;">
+            <div class="es-txt-toolbar">
+                <button type="button" id="es-txt-raw-toggle" class="es-txt-raw-btn"
+                        data-i18n-title="es.txt_raw_toggle" title="Roh-TXT (Monospace)">
+                    <i class="bi bi-code-slash"></i>
+                    <span data-i18n="es.txt_raw_toggle">Roh-TXT</span>
+                </button>
+                <span class="es-txt-toolbar-hint" data-i18n="es.txt_editor_hint">Plaintext für Mail-Clients ohne HTML</span>
+            </div>
+            <textarea id="es-txt-editor" class="es-txt-friendly">{{ template.text_body }}</textarea>
         </div>
 
     </div>
