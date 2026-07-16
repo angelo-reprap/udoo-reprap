@@ -1,0 +1,72 @@
+{
+    "toc": {
+        "title": "Table of Contents"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Overview — The Module System"
+        },
+        {
+            "id": "struktur",
+            "number": "2",
+            "title": "Directory Structure"
+        },
+        {
+            "id": "module_json",
+            "number": "3",
+            "title": "The module.json"
+        },
+        {
+            "id": "template",
+            "number": "4",
+            "title": "The HTML Template"
+        },
+        {
+            "id": "css",
+            "number": "5",
+            "title": "CSS — Styles"
+        },
+        {
+            "id": "javascript",
+            "number": "6",
+            "title": "JavaScript — Module Logic"
+        },
+        {
+            "id": "toggle_system",
+            "number": "7",
+            "title": "The Toggle System"
+        },
+        {
+            "id": "i18n",
+            "number": "8",
+            "title": "Internationalization"
+        },
+        {
+            "id": "navigation",
+            "number": "9",
+            "title": "Navigation & Sidebar"
+        },
+        {
+            "id": "api",
+            "number": "10",
+            "title": "API Endpoints"
+        },
+        {
+            "id": "checkliste",
+            "number": "11",
+            "title": "Checklist & Errors"
+        },
+        {
+            "id": "beispiel",
+            "number": "12",
+            "title": "Complete Example"
+        },
+        {
+            "id": "anhang_a",
+            "number": "A",
+            "title": "Appendix A — Pitfalls in Portal Integration"
+        }
+    ]
+}

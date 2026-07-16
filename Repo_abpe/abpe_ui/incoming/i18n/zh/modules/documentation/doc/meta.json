@@ -1,0 +1,91 @@
+{
+    "toc": {
+        "title": "目录"
+    },
+    "sections": [
+        {
+            "id": "grundlagen",
+            "number": "1",
+            "title": "基础与概述"
+        },
+        {
+            "id": "modulsystem",
+            "number": "2",
+            "title": "模块系统"
+        },
+        {
+            "id": "i18n",
+            "number": "3",
+            "title": "语言与翻译系统"
+        },
+        {
+            "id": "theme",
+            "number": "4",
+            "title": "主题与设计系统"
+        },
+        {
+            "id": "multiuser",
+            "number": "5",
+            "title": "多用户与权限"
+        },
+        {
+            "id": "hilfe",
+            "number": "6",
+            "title": "帮助系统"
+        },
+        {
+            "id": "sidebar",
+            "number": "7",
+            "title": "侧边栏与导航"
+        },
+        {
+            "id": "api",
+            "number": "8",
+            "title": "API与外部集成"
+        },
+        {
+            "id": "backup",
+            "number": "9",
+            "title": "备份与归档系统"
+        },
+        {
+            "id": "helper",
+            "number": "10",
+            "title": "辅助与实用脚本"
+        },
+        {
+            "id": "responsive",
+            "number": "11",
+            "title": "响应式设计"
+        },
+        {
+            "id": "verzeichnisse",
+            "number": "12",
+            "title": "目录结构"
+        },
+        {
+            "id": "workflow",
+            "number": "13",
+            "title": "开发工作流程"
+        },
+        {
+            "id": "debugging",
+            "number": "14",
+            "title": "故障排查与调试"
+        },
+        {
+            "id": "versionen",
+            "number": "15",
+            "title": "版本管理与更新日志"
+        },
+        {
+            "id": "anhang",
+            "number": "16",
+            "title": "附录"
+        }
+    ],
+    "version": "版本 3.0",
+    "framework": "Django 5.x",
+    "users": "23,000+ 顾问",
+    "chapters": "16 章节"
+}

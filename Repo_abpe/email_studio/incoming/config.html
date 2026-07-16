@@ -1,0 +1,343 @@
+{% extends 'abpe_ui/modules/email_studio/base.html' %}
+{% block title %}Konfiguration{% endblock %}
+
+{% block es_content %}
+<div class="container-fluid px-3">
+
+    <!-- SMTP + Absender-Konten (zweispaltig toggle) -->
+    <div class="es-toggle-row-wrap">
+        <div class="es-toggle-row-hdr open" onclick="esToggleRow(this)">
+            <div style="display:flex;align-items:center;gap:7px;">
+                <i class="bi bi-server"></i>
+                <span data-i18n="es.smtp_title">SMTP · Absender-Konten</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;">
+                <span class="es-badge es-badge-white" data-i18n="es.editor_3col">zweispaltig</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+        </div>
+        <div class="es-toggle-row-body col2 open"
+             style="border:1px solid var(--border-color);border-top:none;
+                    border-radius:0 0 8px 8px;overflow:hidden;">
+
+            <!-- SMTP -->
+            <div style="background:white;padding:12px;border-right:1px solid var(--border-color);">
+                <div style="font-size:11px;font-weight:600;color:var(--abcona-blue);
+                            margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+                    <i class="bi bi-send-fill"></i>
+                    <span data-i18n="es.smtp_title">SMTP Konfiguration</span>
+                </div>
+                <div class="es-form-row col2">
+                    <div>
+                        <label class="es-lbl" data-i18n="es.label_host">Host</label>
+                        <input class="form-control form-control-sm"
+                               value="smtp.ionos.de" readonly
+                               style="background:var(--abcona-gray-card);">
+                    </div>
+                    <div>
+                        <label class="es-lbl" data-i18n="es.label_port">Port</label>
+                        <input class="form-control form-control-sm"
+                               value="587" readonly
+                               style="background:var(--abcona-gray-card);">
+                    </div>
+                </div>
+                <div class="es-form-row col2">
+                    <div>
+                        <label class="es-lbl" data-i18n="es.label_user">Benutzer</label>
+                        <input class="form-control form-control-sm"
+                               value="task@abcona.de" readonly
+                               style="background:var(--abcona-gray-card);">
+                    </div>
+                    <div>
+                        <label class="es-lbl" data-i18n="es.label_tls">TLS</label>
+                        <input class="form-control form-control-sm"
+                               value="STARTTLS (Port 587)" readonly
+                               style="background:var(--abcona-gray-card);">
+                    </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+                    <button id="es-smtp-test-btn"
+                            class="btn btn-sm btn-outline-primary">
+                        <i class="bi bi-plug"></i>
+                        <span data-i18n="es.btn_smtp_test">Verbindung testen</span>
+                    </button>
+                    <div id="es-smtp-status"></div>
+                </div>
+                <div style="font-size:10px;color:var(--text-secondary);margin-top:6px;">
+                    <span data-i18n="es.smtp_settings_hint">SMTP-Einstellungen werden in</span> <code>settings/email.py</code>
+                </div>
+            </div>
+
+            <!-- Absender-Konten -->
+            <div style="background:white;padding:12px;">
+                <div style="font-size:11px;font-weight:600;color:var(--abcona-blue);
+                            margin-bottom:10px;display:flex;
+                            align-items:center;justify-content:space-between;">
+                    <span style="display:flex;align-items:center;gap:6px;">
+                        <i class="bi bi-envelope-at"></i>
+                        <span data-i18n="es.senders_title">Absender-Konten</span>
+                    </span>
+                    <a href="/admin/abpe_email_studio/emailsenderaccount/add/"
+                       class="btn btn-sm btn-outline-success" style="font-size:10px;">
+                        <i class="bi bi-plus"></i>
+                    </a>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:4px;">
+                {% for s in senders %}
+                <div style="display:flex;align-items:center;gap:8px;padding:6px 8px;
+                            border-radius:5px;border:1px solid var(--border-color);"
+                     data-sender-row>
+                    <span class="es-dot
+                        {% if s.sender_mode == 'USER' %}es-dot-user
+                        {% elif s.sender_mode == 'AUTO' %}es-dot-auto
+                        {% else %}es-dot-tpl{% endif %}">
+                    </span>
+                    <div style="flex:1;">
+                        <div style="font-size:11px;font-weight:600;">{{ s.email }}</div>
+                        <div style="font-size:10px;color:var(--text-secondary);">
+                            {{ s.display_name }} · {{ s.get_sender_mode_display }}
+                        </div>
+                    </div>
+                    {% if s.is_default %}
+                    <span class="es-badge es-badge-green" data-i18n="es.label_standard">Standard</span>
+                    {% endif %}
+                    {% if not s.is_default %}
+                    <button class="es-btn-icon danger"
+                            data-action="delete-sender"
+                            data-id="{{ s.pk }}">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                    {% endif %}
+                </div>
+                {% empty %}
+                <div style="font-size:11px;color:var(--text-secondary);">
+                    <span data-i18n="es.senders_empty">Keine Absender-Konten konfiguriert.</span>
+                </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signaturen (einspaltig toggle) -->
+    <div class="es-toggle-row-wrap">
+        <div class="es-toggle-row-hdr open" onclick="esToggleRow(this)">
+            <div style="display:flex;align-items:center;gap:7px;">
+                <i class="bi bi-pen"></i>
+                <span data-i18n="es.signatures_title">Signaturen</span>
+                <span class="es-badge es-badge-white" id="es-sig-count">{{ signatures|length }}</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;">
+                <button type="button"
+                        class="es-badge es-badge-white"
+                        data-action="new-signature"
+                        onclick="event.stopPropagation();">
+                    <span data-i18n="es.btn_new_signature">+ Neue Signatur</span>
+                </button>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+        </div>
+        <div class="es-toggle-row-body col1 open"
+             style="background:white;border:1px solid var(--border-color);
+                    border-top:none;border-radius:0 0 8px 8px;overflow:hidden;">
+
+            <!-- Signatur-Editor (inline, ohne Django Admin) -->
+            <div id="es-sig-editor" class="es-sig-editor" style="display:none;">
+                <div class="es-sig-editor-hdr">
+                    <div class="es-sig-editor-hdr-title">
+                        <i class="bi bi-pen-fill"></i>
+                        <span id="es-sig-editor-title" data-i18n="es.sig_editor_new">Neue Signatur</span>
+                    </div>
+                    <div class="es-sig-editor-actions">
+                        <button type="button" class="btn btn-sm btn-light" data-action="sig-save-as"
+                                title="Als Kopie speichern">
+                            <i class="bi bi-copy"></i>
+                            <span data-i18n="es.sig_save_as">Speichern unter…</span>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-success" data-action="sig-save">
+                            <i class="bi bi-check-lg"></i>
+                            <span data-i18n="es.btn_save">Speichern</span>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-light" data-action="sig-cancel">
+                            <span data-i18n="es.btn_cancel">Abbrechen</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="es-sig-editor-meta">
+                    <div class="es-form-row col4">
+                        <div>
+                            <label class="es-lbl" data-i18n="es.label_name">Anzeigename</label>
+                            <input id="es-sig-name" class="form-control form-control-sm" type="text"
+                                   placeholder="z.B. abcona Team">
+                        </div>
+                        <div>
+                            <label class="es-lbl" data-i18n="es.label_identifier">Technischer Name</label>
+                            <input id="es-sig-identifier" class="form-control form-control-sm es-identifier"
+                                   type="text" placeholder="z.B. abcona_team">
+                        </div>
+                        <div>
+                            <label class="es-lbl" data-i18n="es.label_sender_account_col">Absender-Konto</label>
+                            <select id="es-sig-sender" class="form-select form-select-sm">
+                                <option value="">— keine Zuordnung —</option>
+                                {% for s in senders %}
+                                <option value="{{ s.pk }}">{{ s.email }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div style="display:flex;align-items:flex-end;gap:12px;padding-bottom:2px;">
+                            <label class="es-lbl" style="display:flex;align-items:center;gap:5px;margin:0;">
+                                <input id="es-sig-default" type="checkbox">
+                                <span data-i18n="es.label_standard">Standard</span>
+                            </label>
+                            <label class="es-lbl" style="display:flex;align-items:center;gap:5px;margin:0;">
+                                <input id="es-sig-public" type="checkbox">
+                                <span data-i18n="es.label_public">Öffentlich</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="es-sig-editor-main">
+                    <div class="es-sig-editor-code">
+                        <div class="es-editor-toolbar">
+                            <div style="display:flex;gap:4px;">
+                                <button type="button" class="es-editor-tab-btn" data-sig-tab="html">HTML</button>
+                                <button type="button" class="es-editor-tab-btn inactive" data-sig-tab="txt">TXT</button>
+                            </div>
+                            <button type="button" class="es-editor-tab-btn" data-action="sig-preview-refresh">
+                                <i class="bi bi-arrow-clockwise"></i>
+                                <span data-i18n="es.preview_refresh">Aktualisieren</span>
+                            </button>
+                        </div>
+                        <textarea id="es-sig-html" data-sig-pane="html"
+                                  placeholder="HTML-Signatur…"></textarea>
+                        <textarea id="es-sig-txt" data-sig-pane="txt"
+                                  style="display:none;" placeholder="Plaintext-Fallback…"></textarea>
+                    </div>
+                    <div class="es-sig-editor-preview">
+                        <div class="es-sig-editor-preview-hdr">
+                            <span data-i18n="es.sig_preview_title">Live-Vorschau</span>
+                            <div style="display:flex;gap:4px;">
+                                <button type="button" class="es-preview-client-btn active"
+                                        data-sig-preview-mode="html">HTML</button>
+                                <button type="button" class="es-preview-client-btn"
+                                        data-sig-preview-mode="txt">TXT</button>
+                            </div>
+                        </div>
+                        <div id="es-sig-preview-body" class="es-sig-editor-preview-body"></div>
+                    </div>
+                </div>
+            </div>
+
+            <table class="es-table" id="es-sig-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="es.col_name">Name</th>
+                        <th data-i18n="es.label_identifier_col">Identifier</th>
+                        <th data-i18n="es.label_sender_account_col">Absender-Konto</th>
+                        <th>Standard</th>
+                        <th data-i18n="es.label_public">Öffentlich</th>
+                        <th data-i18n="es.label_created_by">Erstellt von</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for sig in signatures %}
+                <tr data-sig-row data-sig-id="{{ sig.pk }}" class="es-sig-row-clickable">
+                    <td style="font-weight:600;font-size:12px;">{{ sig.name }}</td>
+                    <td class="es-identifier">{{ sig.identifier }}</td>
+                    <td style="font-size:11px;">
+                        {{ sig.sender_account.email|default:"—" }}
+                    </td>
+                    <td>
+                        {% if sig.is_default %}
+                        <i class="bi bi-check-circle-fill" style="color:var(--status-green);"></i>
+                        {% else %}—{% endif %}
+                    </td>
+                    <td>
+                        {% if sig.is_public %}
+                        <i class="bi bi-check-circle-fill" style="color:var(--status-green);"></i>
+                        {% else %}—{% endif %}
+                    </td>
+                    <td style="font-size:10px;color:var(--text-secondary);">
+                        {{ sig.created_by.username|default:"System" }}
+                    </td>
+                    <td>
+                        <div style="display:flex;gap:3px;">
+                            <button type="button" class="es-btn-icon"
+                                    data-action="edit-signature"
+                                    data-id="{{ sig.pk }}"
+                                    title="Bearbeiten">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button type="button" class="es-btn-icon danger"
+                                    data-action="delete-signature"
+                                    data-id="{{ sig.pk }}">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" style="text-align:center;padding:16px;
+                                           color:var(--text-secondary);">
+                        Noch keine Signaturen angelegt.
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- API Info (einspaltig toggle) -->
+    <div class="es-toggle-row-wrap">
+        <div class="es-toggle-row-hdr" onclick="esToggleRow(this)">
+            <div style="display:flex;align-items:center;gap:7px;">
+                <i class="bi bi-code-slash"></i>
+                <span data-i18n="es.api_title">Zentrale API — andere Apps</span>
+            </div>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="es-toggle-row-body col1"
+             style="padding:12px;background:white;border:1px solid var(--border-color);
+                    border-top:none;border-radius:0 0 8px 8px;">
+            <div class="es-code">
+<span class="kw">from</span> <span class="str">apps.abpe_email_studio.api</span> <span class="kw">import</span> <span class="cls">EmailStudio</span>
+
+<span class="cls">EmailStudio</span>.<span class="fn">send</span>(
+    template       = <span class="str">'cv_generated_berater'</span>,
+    recipient      = <span class="str">'max@example.de'</span>,
+    variables      = {<span class="str">'name'</span>: <span class="str">'Max'</span>, <span class="str">'cv_link'</span>: <span class="str">'...'</span>},
+    user           = request.user,
+    task_reference = <span class="str">'AID-12345'</span>,
+    app_reference  = <span class="str">'cv_extractor'</span>,
+    async_send     = <span class="kw">False</span>,
+    lang           = <span class="str">'de'</span>
+)
+            </div>
+            <div style="margin-top:8px;display:flex;flex-direction:column;gap:3px;">
+                <div style="display:flex;align-items:center;gap:5px;font-size:10px;">
+                    <i class="bi bi-check-circle" style="color:var(--status-green);"></i>
+                    cv_extractor · ingest_email · matching · workflow
+                </div>
+                <div style="display:flex;align-items:center;gap:5px;font-size:10px;">
+                    <i class="bi bi-check-circle" style="color:var(--status-green);"></i>
+                    <span data-i18n="es.api_hint_celery">signals.py + tasks.py (Celery) verfügbar</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:5px;font-size:10px;">
+                    <i class="bi bi-check-circle" style="color:var(--status-green);"></i>
+                    <span data-i18n="es.api_hint_log">Versand wird automatisch in EmailLog protokolliert</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/email_studio/js/es-config.js"></script>
+{% endblock %}

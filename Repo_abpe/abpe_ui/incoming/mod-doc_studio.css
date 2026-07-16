@@ -1,0 +1,401 @@
+/*
+ * mod-doc_studio.css — ABpE Doc Studio
+ * NUR Deltas zu core-base.css + ui-components.css
+ * Prefix: ds-
+ * Keine hardcodierten Farben — nur CSS-Variablen
+ */
+
+/* ── Statistik-Zeile ── */
+.ds-stats-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.ds-stat {
+    background: var(--abcona-gray-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-card);
+    padding: 10px 18px;
+    min-width: 90px;
+    text-align: center;
+}
+
+.ds-stat-val {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--abcona-blue);
+}
+
+.ds-stat-lbl {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+/* ── Badges ── */
+.ds-badge {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.ds-badge-blue   { background: var(--abcona-blue);  color: white; }
+.ds-badge-green  { background: var(--status-green);  color: white; }
+.ds-badge-amber  { background: var(--status-yellow); color: white; }
+.ds-badge-gray   { background: var(--border-color);  color: var(--text-secondary); }
+
+/* ── Tabelle ── */
+.ds-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.ds-table th {
+    padding: 6px 10px;
+    background: var(--abcona-blue);
+    color: white;
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.ds-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+.ds-table tr:hover td {
+    background: var(--abcona-gray-card);
+}
+
+.ds-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ── Identifier-Zeile in Tabelle ── */
+.ds-identifier {
+    font-size: 10px;
+    color: var(--text-secondary);
+    font-family: monospace;
+}
+
+/* ── Icon-Buttons ── */
+.ds-btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.15s, color 0.15s;
+    text-decoration: none;
+    padding: 0;
+}
+
+.ds-btn-icon:hover {
+    background: var(--abcona-blue);
+    color: white;
+    border-color: var(--abcona-blue);
+}
+
+.ds-btn-icon.danger:hover {
+    background: var(--status-red);
+    border-color: var(--status-red);
+}
+
+/* ── Toggle-Gruppe für Scope-Sections ── */
+.ds-scope-wrap {
+    margin-bottom: 8px;
+}
+
+.ds-scope-hdr {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--abcona-blue);
+    color: white;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    user-select: none;
+    font-size: 13px;
+}
+
+.ds-scope-hdr .bi-chevron-down {
+    margin-left: auto;
+    transition: transform 0.2s;
+}
+
+.ds-scope-hdr.open .bi-chevron-down {
+    transform: rotate(180deg);
+}
+
+.ds-scope-body {
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    background: var(--abcona-gray-card);
+}
+
+/* ── Studio Layout: 2 Spalten ── */
+.ds-studio-wrap {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .ds-studio-wrap {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Vorschau-Box ── */
+.ds-preview-box {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-card);
+    padding: 16px;
+    min-height: 400px;
+    background: var(--bg-white);
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    overflow-y: auto;
+}
+
+/* ── Variablen-Panel ── */
+.ds-var-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.ds-var-label {
+    font-size: 11px;
+    color: var(--abcona-blue);
+    font-weight: 500;
+    min-width: 100px;
+    font-family: monospace;
+}
+
+.ds-var-input {
+    flex: 1;
+    font-size: 11px;
+}
+
+/* ── Block-Liste im Studio ── */
+.ds-block-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    color: var(--text-primary);
+}
+
+.ds-block-item:hover {
+    background: var(--abcona-gray-card);
+}
+
+.ds-block-type {
+    font-size: 9px;
+    background: var(--border-color);
+    color: var(--text-secondary);
+    border-radius: 3px;
+    padding: 1px 4px;
+    font-family: monospace;
+}
+
+/* ── Log-Tabelle ── */
+.ds-log-status-ok     { color: var(--status-green); }
+.ds-log-status-failed { color: var(--status-red); }
+.ds-log-path {
+    font-size: 10px;
+    color: var(--text-secondary);
+    font-family: monospace;
+    word-break: break-all;
+}
+
+/* ── Tab-Leiste ── */
+.ds-tabbar {
+    background: var(--bg-white);
+    border-bottom: 0.5px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 0 16px;
+    position: sticky;
+    top: 0;
+    z-index: 199;
+}
+
+.ds-tab {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s;
+}
+
+.ds-tab:hover {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.ds-tab.ds-tab-active {
+    color: var(--abcona-blue);
+    border-bottom-color: var(--abcona-blue);
+    font-weight: 500;
+}
+
+.ds-tab-spacer {
+    flex: 1;
+}
+
+.ds-tab-btn {
+    margin: 4px 0;
+}
+
+/* ── Block-Editor: Drag & Drop Liste ── */
+.ds-block-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ds-block-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    border: 0.5px solid var(--border-color);
+    border-radius: 6px;
+    padding: 6px 8px;
+    background: var(--bg-white);
+    cursor: grab;
+    transition: border-color 0.15s, background 0.15s;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+}
+
+.ds-block-item:hover {
+    border-color: var(--abcona-blue);
+    background: var(--abcona-blue-tint);
+}
+
+.ds-block-item.ds-block-dragging {
+    opacity: 0.4;
+    border-style: dashed;
+}
+
+.ds-block-item.ds-block-over {
+    border-color: var(--status-yellow);
+    background: var(--status-yellow-bg);
+    border-style: dashed;
+}
+
+.ds-block-drag {
+    color: var(--text-secondary);
+    cursor: grab;
+    padding-top: 1px;
+    flex-shrink: 0;
+}
+
+.ds-block-drag:active {
+    cursor: grabbing;
+}
+
+.ds-block-body {
+    min-width: 0;
+}
+
+/* ── Tab-Leiste ── */
+.ds-tabbar {
+    background: var(--bg-white);
+    border-bottom: 0.5px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 0 16px;
+    position: sticky;
+    top: 0;
+    z-index: 199;
+}
+
+.ds-tab {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s;
+}
+
+.ds-tab:hover {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.ds-tab.ds-tab-active {
+    color: var(--abcona-blue);
+    border-bottom-color: var(--abcona-blue);
+    font-weight: 500;
+}
+
+.ds-tab-spacer { flex: 1; }
+.ds-tab-btn { margin: 4px 0; }
+
+/* ── Block-Editor: Drag Fix ── */
+.ds-block-item.ds-block-dragging {
+    opacity: 0.3;
+    border-style: dashed;
+    pointer-events: none;
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+.ds-block-list {
+    min-height: 40px;
+}
+
+.ds-block-item.ds-block-over {
+    border-color: var(--status-yellow) !important;
+    border-top: 3px solid var(--status-yellow) !important;
+    background: var(--status-yellow-bg) !important;
+    border-style: solid !important;
+}
+
+/* Vorschau-Blöcke hover */
+.ds-preview-block {
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 2px;
+    transition: outline 0.1s;
+}
+.ds-preview-block:hover {
+    outline: 2px dashed var(--status-yellow);
+}

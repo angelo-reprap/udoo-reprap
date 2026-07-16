@@ -1,0 +1,86 @@
+{
+    "toc": {
+        "title": "Tartalomjegyzék"
+    },
+    "sections": [
+        {
+            "id": "einstieg",
+            "number": "1",
+            "title": "Bevezetés és bejelentkezés"
+        },
+        {
+            "id": "dashboard",
+            "number": "2",
+            "title": "Irányítópult és navigáció"
+        },
+        {
+            "id": "cv_editor",
+            "number": "3",
+            "title": "Önéletrajz-szerkesztő"
+        },
+        {
+            "id": "cv_upload",
+            "number": "4",
+            "title": "Önéletrajz feltöltése és kinyerése"
+        },
+        {
+            "id": "matching",
+            "number": "5",
+            "title": "Párosítás és keresés"
+        },
+        {
+            "id": "email_studio",
+            "number": "6",
+            "title": "E-mail stúdió"
+        },
+        {
+            "id": "doc_studio",
+            "number": "7",
+            "title": "Dokumentumstúdió"
+        },
+        {
+            "id": "rechnungen",
+            "number": "8",
+            "title": "Számlák"
+        },
+        {
+            "id": "vorlagen",
+            "number": "9",
+            "title": "Sablonok és levélpapírok"
+        },
+        {
+            "id": "benutzerverwaltung",
+            "number": "10",
+            "title": "Felhasználókezelés"
+        },
+        {
+            "id": "einstellungen",
+            "number": "11",
+            "title": "Beállítások és konfiguráció"
+        },
+        {
+            "id": "sprache",
+            "number": "12",
+            "title": "Nyelv és lokalizáció"
+        },
+        {
+            "id": "tipps",
+            "number": "13",
+            "title": "Tippek és billentyűparancsok"
+        },
+        {
+            "id": "fehler",
+            "number": "14",
+            "title": "Gyakori hibák és megoldások"
+        },
+        {
+            "id": "glossar",
+            "number": "15",
+            "title": "Szójegyzék"
+        }
+    ],
+    "version": "2.0 verzió",
+    "framework": "Django 5.x",
+    "chapters": "15 fejezet",
+    "audience": "Végfelhasználók"
+}

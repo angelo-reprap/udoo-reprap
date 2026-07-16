@@ -1,0 +1,19 @@
+{
+    "component_actions_upload_pdf": "PDF feltöltése",
+    "component_actions_add_consultant": "Tanácsadó létrehozása",
+    "component_actions_start_matching": "Párosítás indítása",
+    "component_actions_contact": "Tanácsadó megkeresése",
+    "component_stats_consultants": "Tanácsadók",
+    "component_stats_emails": "E-mailek",
+    "component_stats_projects": "Projektek",
+    "component_stats_matches": "Párosítások",
+    "component_system_django": "Django",
+    "component_system_celery": "Celery",
+    "component_system_postgresql": "PostgreSQL",
+    "component_system_cpu": "CPU",
+    "component_system_ram": "RAM",
+    "component_system_gpu": "GPU",
+    "component_recent_consultants_title": "Legutóbbi tanácsadók",
+    "component_recent_emails_title": "Legutóbbi e-mailek",
+    "component_show_all": "Összes megjelenítése →"
+}
