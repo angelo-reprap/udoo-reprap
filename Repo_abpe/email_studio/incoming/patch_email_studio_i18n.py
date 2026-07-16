@@ -50,13 +50,20 @@ def _save_json(path: Path, data: dict) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=4) + '\n', encoding='utf-8')
 
 
-def _invalidate_en_placeholders(es: dict, lang: str, en_es: dict) -> int:
-    """EN-Platzhalter löschen damit i18n_translator Keys neu übersetzt."""
+def _invalidate_en_placeholders(
+    es: dict, lang: str, en_es: dict, de_es: dict, *, force: bool = False,
+) -> int:
+    """EN/DE-Platzhalter löschen → i18n_translator übersetzt fehlende Keys neu."""
     if lang in ('de', 'en'):
         return 0
     n = 0
     for key in INVALIDATE_FOR_TRANSLATOR:
-        if key in es and es[key] == en_es.get(key):
+        if key not in es:
+            continue
+        val = es[key]
+        en_val = en_es.get(key)
+        de_val = de_es.get(key)
+        if force or val in (en_val, de_val):
             del es[key]
             n += 1
     return n
@@ -81,7 +88,9 @@ def _merge_section(target: dict, source: dict, lang: str, ref_en: dict) -> int:
     return n
 
 
-def patch_all(i18n_root: Path, canonical_de: dict, ref_en: dict, langs: list[str]) -> int:
+def patch_all(
+    i18n_root: Path, canonical_de: dict, ref_en: dict, langs: list[str], *, force: bool = False,
+) -> int:
     de_es = canonical_de.get('es', {})
     en_es = ref_en.get('es', {})
     de_help = canonical_de.get('help', {})
@@ -105,11 +114,14 @@ def patch_all(i18n_root: Path, canonical_de: dict, ref_en: dict, langs: list[str
         es = data.setdefault('es', {})
         help_sec = data.setdefault('help', {})
 
-        inv = _invalidate_en_placeholders(es, lang, en_es)
+        inv = _invalidate_en_placeholders(es, lang, en_es, de_es, force=force)
         n_es = _merge_section(es, de_es, lang, en_es)
         n_help = _merge_section(help_sec, de_help, lang, en_help)
         if inv:
             print(f'  {lang}: {inv} Keys für Translator invalidiert')
+        missing = [k for k in INVALIDATE_FOR_TRANSLATOR if k not in es]
+        if missing and lang not in ('de', 'en'):
+            print(f'  {lang}: fehlend für Translator: {", ".join(missing)}')
 
         for k, v in top_keys.items():
             if k not in data:
@@ -128,6 +140,10 @@ def main() -> int:
     parser.add_argument('--backend', default=str(DEFAULT_BACKEND))
     parser.add_argument('--repo', default=str(DEFAULT_REPO))
     parser.add_argument('--langs', nargs='*', default=LANGS)
+    parser.add_argument(
+        '--force-invalidate', action='store_true',
+        help='INVALIDATE_FOR_TRANSLATOR-Keys in allen Nicht-DE/EN-Sprachen löschen',
+    )
     args = parser.parse_args()
 
     repo = Path(args.repo)
@@ -154,7 +170,7 @@ def main() -> int:
     print(f'Referenz EN:  {en_file}')
     print(f'Ziel:         {i18n_root}')
     print('Patche Sprachen:')
-    patch_all(i18n_root, canonical_de, ref_en, args.langs)
+    patch_all(i18n_root, canonical_de, ref_en, args.langs, force=args.force_invalidate)
 
     print('\n--- Nächste Schritte auf ucs5 ---')
     print('  cd /opt/abpe/backend')

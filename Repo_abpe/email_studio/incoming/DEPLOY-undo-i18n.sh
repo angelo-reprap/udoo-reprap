@@ -1,5 +1,13 @@
 #!/bin/bash
 # Email Studio — i18n + Undo/Milestone (ucs5)
+#
+# Aufruf (NICHT aus /opt/abpe/backend — Repo-Pfad verwenden):
+#   cd /mnt/public/udoo-reprap
+#   bash Repo_abpe/email_studio/incoming/DEPLOY-undo-i18n.sh
+#
+# Oder mit vollem Pfad von überall:
+#   bash /mnt/public/udoo-reprap/Repo_abpe/email_studio/incoming/DEPLOY-undo-i18n.sh
+#
 set -euo pipefail
 
 BACKEND=/opt/abpe/backend
@@ -9,7 +17,19 @@ BR="origin/${BRANCH}"
 R="Repo_abpe/email_studio/incoming"
 VENV="${VENV:-$BACKEND/venv311/bin/activate}"
 
+if [[ ! -d "$REPO/.git" ]]; then
+  echo "FEHLER: Git-Repo nicht gefunden unter: $REPO"
+  echo "Das Script liegt im Repo, nicht unter /opt/abpe/backend."
+  echo ""
+  echo "Korrekt:"
+  echo "  cd /mnt/public/udoo-reprap"
+  echo "  bash Repo_abpe/email_studio/incoming/DEPLOY-undo-i18n.sh"
+  exit 1
+fi
+
 echo "=== Email Studio Undo/i18n Deploy ==="
+echo "Repo:   $REPO"
+echo "Branch: $BRANCH"
 cd "$REPO"
 git fetch origin "$BRANCH"
 
@@ -27,8 +47,8 @@ git show "$BR:$R/i18n/en/email_studio.json" > "$REPO/$R/i18n/en/email_studio.jso
 git show "$BR:$R/patch_email_studio_i18n.py" > "$REPO/$R/patch_email_studio_i18n.py"
 chmod +x "$REPO/$R/patch_email_studio_i18n.py"
 
-echo "--- i18n patchen (alle Sprachen) ---"
-python3 "$REPO/$R/patch_email_studio_i18n.py" --backend "$BACKEND" --repo "$REPO"
+echo "--- i18n patchen (alle Sprachen, EN-Platzhalter invalidieren) ---"
+python3 "$REPO/$R/patch_email_studio_i18n.py" --backend "$BACKEND" --repo "$REPO" --force-invalidate
 
 echo "--- i18n_translator (Deepseek) ---"
 cd "$BACKEND"
