@@ -281,7 +281,8 @@
         "sig_saved": "Signatur gespeichert",
         "error_load_sig": "Signatur konnte nicht geladen werden",
         "modules_empty": "Keine Module gefunden",
-        "btn_saveas": "Speichern unter"
+        "btn_saveas": "Speichern unter",
+        "btn_saveas_short": "Kopie"
     },
     "help": {
         "title": "E-Mail-Studio — Anleitung",

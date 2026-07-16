@@ -1045,6 +1045,20 @@
 }
 .es-entity-ctx-actions .btn {
     padding: 2px 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-width: 28px;
+    min-height: 26px;
+}
+.es-entity-dup-btn .es-entity-dup-lbl {
+    font-size: 10px;
+    font-weight: 600;
+}
+.es-entity-ctx-actions .btn i {
+    font-size: 13px;
+    line-height: 1;
 }
 .es-entity-meta {
     display: flex;
