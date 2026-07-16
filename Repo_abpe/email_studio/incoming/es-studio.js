@@ -684,8 +684,6 @@ window.ESStudio = (() => {
             if (url) document.execCommand('createLink', false, url);
         } else if (cmd === 'color') {
             document.execCommand('foreColor', false, value || '#163258');
-        } else if (cmd === 'insertBr') {
-            document.execCommand('insertHTML', false, '<br>');
         } else if (cmd === 'fontSize') {
             const sel = window.getSelection()?.toString();
             if (!sel) return;

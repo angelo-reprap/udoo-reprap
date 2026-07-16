@@ -220,7 +220,6 @@
         "html_btn_theme_colors": "Theme colors (core-theme)",
         "html_btn_custom_color": "Custom color picker",
         "html_btn_fontsize": "Font size",
-        "html_btn_br": "Line break",
         "html_link_prompt": "Link URL:",
         "html_select_text": "Select text first, then choose font size",
         "error_load_module": "Could not load module",
