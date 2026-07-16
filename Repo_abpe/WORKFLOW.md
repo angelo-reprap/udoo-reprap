@@ -83,12 +83,21 @@ Deploy-Skripte rufen intern `backup_restore.py -save` auf, **bevor** sie übersc
 
 ## Agent-Regeln (Cloud)
 
+**STOP — Kein Analysieren, kein Patchen, kein Deploy-Raten, bevor Live-Sync im Repo liegt.**
+
+1. User führt `RUN-sync-live-ucs5.sh` auf ucs5 aus und pusht
+2. Agent: `git fetch` + Dateien aus `incoming/` lesen
+3. Erst dann Diagnose / Patch / Deploy-Skript
+
 | ❌ Nicht | ✅ Stattdessen |
 |---------|----------------|
 | Repo-Stand als Live-Wahrheit | Erst Live-Export abwarten |
+| Analyse ohne `email_compose.html` / i18n im Repo | `RUN-sync-live-ucs5.sh` → push → dann lesen |
 | `git checkout` auf ucs5 Live überschreiben | `git show … \| bash` oder `export-to-repo.sh` |
 | Ohne Backup deployen | `Archiv/backup_restore.py -save` |
 | `cp --parents` für module.json | Flach: `modules/<id>/module.json` |
+
+**Sync-Skript (vollständig):** `RUN-sync-live-ucs5.sh` — Compose, Shell, JS, i18n de/en/ar/zh/hu
 
 **Nach Sync im Repo:** Agent analysiert `Repo_abpe/incoming/`, patcht, pusht Branch, liefert `RUN-*-ucs5.sh` mit Backup.
 
