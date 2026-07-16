@@ -109,10 +109,20 @@ Phase B: Loader in `abpe_ui/base.html` aus `module_config.static`.
 ## 6. i18n
 
 ```
-/static/abpe_ui/i18n/<lang>/core-common.json
+/static/abpe_ui/i18n/<lang>/core-common.json      # Header, Profil, Suche, …
+/static/abpe_ui/i18n/<lang>/navigation.json       # Sidebar-Nav (nav.namazu, nav.email.studio, …)
 /static/abpe_ui/i18n/<lang>/modules/<moduleId>/manifest.json  → lädt Split-Dateien
 /static/abpe_ui/i18n/<lang>/modules/<moduleId>/<moduleId>.json
 ```
+
+**Neue Sprache (z.B. Ungarisch):**
+```bash
+mkdir apps/abpe_ui/static/abpe_ui/i18n/hu/
+python3 apps/abpe_ui/bin/i18n_translator.py
+python3 apps/abpe_ui/bin/i18n_validate.py --check
+```
+
+**Sidebar:** `data-i18n="nav.<module_id>"` — Keys aus `navigation.json` (DE-Referenz via `sync_navigation_i18n.py` aus `module.json` titles.de). **Nicht** `module.json` titles pro Sprache pflegen.
 
 - HTML: `data-i18n="es.tab_studio"`, `data-i18n-placeholder`, `data-i18n-title`
 - JS: `window.i18nData?.es?.key` oder Modul-`t(key, fallback)` nur als Notfall

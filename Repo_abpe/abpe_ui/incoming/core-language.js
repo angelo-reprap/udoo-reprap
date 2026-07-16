@@ -89,6 +89,7 @@ async function loadLanguage(lang, moduleId = null) {
 
     // Core-Dateien immer laden
     await loadFile(lang, 'core-common.json');
+    await loadFile(lang, 'navigation.json');
     await loadFile(lang, 'ui-components.json');
     await loadFile(lang, 'help-modal.json');
 
@@ -115,18 +116,6 @@ window.applyTranslations = function applyTranslations() {
         const key = el.getAttribute('data-i18n-placeholder');
         const val = _resolveKey(key);
         if (val) el.placeholder = val;
-    });
-
-    // data-titles — Modul-Titel aus module.json (Fallback de → en)
-    document.querySelectorAll('[data-titles]').forEach(el => {
-        try {
-            const titles = JSON.parse(el.getAttribute('data-titles') || '{}');
-            const title = titles[currentLang] || titles.de || titles.en;
-            if (title) {
-                const span = el.querySelector('.nav-title') || el;
-                span.innerText = title;
-            }
-        } catch(e) {}
     });
 }
 
