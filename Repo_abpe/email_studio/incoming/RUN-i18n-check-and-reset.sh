@@ -114,6 +114,15 @@ _delete_all_non_de() {
   echo "✓ Alle Fremdsprach-Verzeichnisse entfernt (nur de/ bleibt)"
 }
 
+_create_lang_dirs() {
+  cd "$BACKEND"
+  for lang in "${LANGS[@]}"; do
+    mkdir -p "$I18N_REL/$lang"
+    echo "  angelegt: $I18N_REL/$lang/"
+  done
+  echo "✓ Leere Sprachordner angelegt (Translator braucht diese!)"
+}
+
 _finish() {
   cd "$BACKEND"
   _activate_venv
@@ -168,13 +177,16 @@ if [[ "$MODE" == "--full-reset" ]]; then
   echo "--- 1/4 Archiv-Backup (alle JSONs in Fremdsprachen) ---"
   _backup_all_non_de
   echo ""
-  echo "--- 2/4 Komplette Fremdsprach-Verzeichnisse löschen ---"
+  echo "--- 2/5 Fremdsprach-Verzeichnisse löschen ---"
   _delete_all_non_de
   echo ""
-  echo "--- 3/4 Translator (alle ~79 Dateien × 13 Sprachen — dauert!) ---"
+  echo "--- 3/5 Leere Sprachordner anlegen (mkdir) ---"
+  _create_lang_dirs
+  echo ""
+  echo "--- 4/5 Translator (alle ~79 Dateien × 13 Sprachen — dauert!) ---"
   _run_translator
   echo ""
-  echo "--- 4/4 Deploy ---"
+  echo "--- 5/5 Deploy ---"
   _finish
   exit 0
 fi
