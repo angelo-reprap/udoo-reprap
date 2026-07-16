@@ -3,19 +3,19 @@
 # Behebt: doppeltes CRM core-language.js löscht es.*-Übersetzungen
 #
 #   cd /mnt/public/udoo-reprap
-#   git fetch origin cursor/email-studio-undo-i18n-bf44
-#   git show origin/cursor/email-studio-undo-i18n-bf44:Repo_abpe/abpe_ui/incoming/RUN-deploy-compose-i18n-ucs5.sh | bash
+#   git fetch origin cursor/portal-i18n-phase1-bf44
+#   git show origin/cursor/portal-i18n-phase1-bf44:Repo_abpe/abpe_ui/incoming/RUN-deploy-compose-i18n-ucs5.sh | bash
 
 set -euo pipefail
 
 REPO="${REPO:-/mnt/public/udoo-reprap}"
 BACKEND="${ABPE_BACKEND:-/opt/abpe/backend}"
-BR="${BR:-origin/cursor/email-studio-undo-i18n-bf44}"
+BR="${BR:-origin/cursor/portal-i18n-phase1-bf44}"
 NOTE="${NOTE:-vor compose-i18n-fix}"
 BR_PY="$BACKEND/Archiv/backup_restore.py"
 
 cd "$REPO"
-git fetch origin cursor/email-studio-undo-i18n-bf44 2>/dev/null || true
+git fetch origin cursor/portal-i18n-phase1-bf44 2>/dev/null || true
 
 if [[ ! -f "$BR_PY" ]]; then
   echo "FEHLER: $BR_PY nicht gefunden." >&2
