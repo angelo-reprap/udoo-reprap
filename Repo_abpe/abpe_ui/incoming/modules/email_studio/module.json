@@ -6,7 +6,16 @@
         "en": "Email Studio",
         "fr": "Email Studio",
         "it": "Email Studio",
-        "es": "Email Studio"
+        "es": "Email Studio",
+        "ar": "Email Studio",
+        "ja": "Email Studio",
+        "ko": "Email Studio",
+        "nl": "Email Studio",
+        "pl": "Email Studio",
+        "pt": "Email Studio",
+        "ru": "Email Studio",
+        "tr": "Email Studio",
+        "zh": "Email Studio"
     },
     "icon": "envelope-at",
     "route": "/email-studio/",
@@ -27,10 +36,18 @@
     },
     "_static_pages": {
         "_note": "Seiten-Skripte in template extra_js bis Phase B static-Loader",
-        "index": ["email_studio/js/es-templates.js"],
-        "studio": ["email_studio/js/es-studio.js"],
-        "log": ["email_studio/js/es-log.js"],
-        "config": ["email_studio/js/es-config.js"]
+        "index": [
+            "email_studio/js/es-templates.js"
+        ],
+        "studio": [
+            "email_studio/js/es-studio.js"
+        ],
+        "log": [
+            "email_studio/js/es-log.js"
+        ],
+        "config": [
+            "email_studio/js/es-config.js"
+        ]
     },
     "subpages": [
         {
@@ -41,7 +58,16 @@
                 "en": "Studio / Editor",
                 "fr": "Studio / Éditeur",
                 "it": "Studio / Editor",
-                "es": "Studio / Editor"
+                "es": "Studio / Editor",
+                "ar": "Studio / Editor",
+                "ja": "Studio / Editor",
+                "ko": "Studio / Editor",
+                "nl": "Studio / Editor",
+                "pl": "Studio / Editor",
+                "pt": "Studio / Editor",
+                "ru": "Studio / Editor",
+                "tr": "Studio / Editor",
+                "zh": "Studio / Editor"
             },
             "route": "/email-studio/studio/",
             "template": "abpe_ui/modules/email_studio/studio.html"
@@ -54,7 +80,16 @@
                 "en": "Send Log",
                 "fr": "Journal d'envoi",
                 "it": "Log di invio",
-                "es": "Registro de envío"
+                "es": "Registro de envío",
+                "ar": "Send Log",
+                "ja": "Send Log",
+                "ko": "Send Log",
+                "nl": "Send Log",
+                "pl": "Send Log",
+                "pt": "Send Log",
+                "ru": "Send Log",
+                "tr": "Send Log",
+                "zh": "Send Log"
             },
             "route": "/email-studio/log/",
             "template": "abpe_ui/modules/email_studio/log.html"
@@ -67,7 +102,16 @@
                 "en": "Configuration",
                 "fr": "Configuration",
                 "it": "Configurazione",
-                "es": "Configuración"
+                "es": "Configuración",
+                "ar": "Configuration",
+                "ja": "Configuration",
+                "ko": "Configuration",
+                "nl": "Configuration",
+                "pl": "Configuration",
+                "pt": "Configuration",
+                "ru": "Configuration",
+                "tr": "Configuration",
+                "zh": "Configuration"
             },
             "route": "/email-studio/config/",
             "template": "abpe_ui/modules/email_studio/config.html"

@@ -17,7 +17,12 @@
         if (!el) return;
         const d = JSON.parse(el.textContent);
         window.i18nData = window.i18nData || {};
-        Object.assign(window.i18nData, d);
+        if (typeof mergeModuleI18n === 'function') {
+            mergeModuleI18n(d);
+        } else if (d.es) {
+            window.i18nData.es = { ...(window.i18nData.es || {}), ...d.es };
+            if (d.help) window.i18nData.help_section = d.help;
+        }
     })();
 
     window.ES_CONFIG = {

@@ -6,7 +6,16 @@
         "en": "Email",
         "es": "Email",
         "it": "Email",
-        "fr": "Email"
+        "fr": "Email",
+        "ar": "Email",
+        "ja": "Email",
+        "ko": "Email",
+        "nl": "Email",
+        "pl": "Email",
+        "pt": "Email",
+        "ru": "Email",
+        "tr": "Email",
+        "zh": "Email"
     },
     "icon": "envelope",
     "route": "/crm/email/compose/",
@@ -25,7 +34,16 @@
                 "en": "Compose Email",
                 "es": "Crear email",
                 "it": "Crea email",
-                "fr": "Créer un email"
+                "fr": "Créer un email",
+                "ar": "Compose Email",
+                "ja": "Compose Email",
+                "ko": "Compose Email",
+                "nl": "Compose Email",
+                "pl": "Compose Email",
+                "pt": "Compose Email",
+                "ru": "Compose Email",
+                "tr": "Compose Email",
+                "zh": "Compose Email"
             },
             "route": "/crm/email/compose/",
             "order": 1
@@ -38,7 +56,16 @@
                 "en": "Email Studio",
                 "es": "Email Studio",
                 "it": "Email Studio",
-                "fr": "Email Studio"
+                "fr": "Email Studio",
+                "ar": "Email Studio",
+                "ja": "Email Studio",
+                "ko": "Email Studio",
+                "nl": "Email Studio",
+                "pl": "Email Studio",
+                "pt": "Email Studio",
+                "ru": "Email Studio",
+                "tr": "Email Studio",
+                "zh": "Email Studio"
             },
             "route": "/email-studio/",
             "order": 2

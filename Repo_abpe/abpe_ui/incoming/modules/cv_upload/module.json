@@ -6,7 +6,16 @@
         "en": "CV Upload",
         "fr": "CV Upload",
         "it": "CV Upload",
-        "es": "CV Upload"
+        "es": "CV Upload",
+        "ar": "CV Upload",
+        "ja": "CV Upload",
+        "ko": "CV Upload",
+        "nl": "CV Upload",
+        "pl": "CV Upload",
+        "pt": "CV Upload",
+        "ru": "CV Upload",
+        "tr": "CV Upload",
+        "zh": "CV Upload"
     },
     "icon": "file-earmark-arrow-up",
     "route": "/cv_upload/",

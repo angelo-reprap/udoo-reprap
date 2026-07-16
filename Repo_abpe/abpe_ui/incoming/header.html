@@ -12,7 +12,7 @@
 
     <div class="search-container">
         <i class="bi bi-search search-icon"></i>
-        <input type="text" class="search-input" placeholder="Suchen..." id="searchInput" autocomplete="off">
+        <input type="text" class="search-input" placeholder="Suchen..." id="searchInput" autocomplete="off" data-i18n-placeholder="search">
     </div>
 
     <div class="header-right">
@@ -61,9 +61,6 @@
     });
     observer.observe(document.body, { attributes: true });
     updateThemeIcons();
-    document.addEventListener('DOMContentLoaded', function() {
-        if (typeof setLanguage === 'function') setLanguage('{{ current_lang|default:"de" }}');
-    });
 </script>
 
 <!-- PROFIL MODAL -->

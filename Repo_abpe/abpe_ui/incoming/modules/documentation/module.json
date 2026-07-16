@@ -6,7 +6,16 @@
         "en": "Documentation",
         "fr": "Documentation",
         "it": "Documentazione",
-        "es": "Documentación"
+        "es": "Documentación",
+        "ar": "Documentation",
+        "ja": "Documentation",
+        "ko": "Documentation",
+        "nl": "Documentation",
+        "pl": "Documentation",
+        "pt": "Documentation",
+        "ru": "Documentation",
+        "tr": "Documentation",
+        "zh": "Documentation"
     },
     "icon": "book",
     "route": "/documentation/",
@@ -30,7 +39,16 @@
                 "en": "Architecture",
                 "fr": "Architecture",
                 "it": "Architettura",
-                "es": "Arquitectura"
+                "es": "Arquitectura",
+                "ar": "Architecture",
+                "ja": "Architecture",
+                "ko": "Architecture",
+                "nl": "Architecture",
+                "pl": "Architecture",
+                "pt": "Architecture",
+                "ru": "Architecture",
+                "tr": "Architecture",
+                "zh": "Architecture"
             },
             "route": "/documentation/architecture/",
             "template": "abpe_ui/modules/documentation/architecture.html"
@@ -43,7 +61,16 @@
                 "en": "User Manual",
                 "fr": "Manuel utilisateur",
                 "it": "Manuale utente",
-                "es": "Manual de usuario"
+                "es": "Manual de usuario",
+                "ar": "User Manual",
+                "ja": "User Manual",
+                "ko": "User Manual",
+                "nl": "User Manual",
+                "pl": "User Manual",
+                "pt": "User Manual",
+                "ru": "User Manual",
+                "tr": "User Manual",
+                "zh": "User Manual"
             },
             "route": "/documentation/user-manual/",
             "template": "abpe_ui/modules/documentation/user_manual.html"
@@ -56,7 +83,16 @@
                 "en": "API Reference",
                 "fr": "Référence API",
                 "it": "Riferimento API",
-                "es": "Referencia API"
+                "es": "Referencia API",
+                "ar": "API Reference",
+                "ja": "API Reference",
+                "ko": "API Reference",
+                "nl": "API Reference",
+                "pl": "API Reference",
+                "pt": "API Reference",
+                "ru": "API Reference",
+                "tr": "API Reference",
+                "zh": "API Reference"
             },
             "route": "/documentation/api/",
             "template": "abpe_ui/modules/documentation/api_reference.html"
@@ -69,7 +105,16 @@
                 "en": "Operations Guide",
                 "fr": "Guide opérationnel",
                 "it": "Guida operativa",
-                "es": "Guía operativa"
+                "es": "Guía operativa",
+                "ar": "Operations Guide",
+                "ja": "Operations Guide",
+                "ko": "Operations Guide",
+                "nl": "Operations Guide",
+                "pl": "Operations Guide",
+                "pt": "Operations Guide",
+                "ru": "Operations Guide",
+                "tr": "Operations Guide",
+                "zh": "Operations Guide"
             },
             "route": "/documentation/operations/",
             "template": "abpe_ui/modules/documentation/operations.html"
@@ -82,7 +127,16 @@
                 "en": "Create Module",
                 "fr": "Créer un module",
                 "it": "Crea modulo",
-                "es": "Crear módulo"
+                "es": "Crear módulo",
+                "ar": "Create Module",
+                "ja": "Create Module",
+                "ko": "Create Module",
+                "nl": "Create Module",
+                "pl": "Create Module",
+                "pt": "Create Module",
+                "ru": "Create Module",
+                "tr": "Create Module",
+                "zh": "Create Module"
             },
             "route": "/documentation/new-module/",
             "template": "abpe_ui/modules/documentation/new_module.html"

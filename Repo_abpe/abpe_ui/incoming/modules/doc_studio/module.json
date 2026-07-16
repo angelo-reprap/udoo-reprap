@@ -5,7 +5,17 @@
         "de": "Doc Studio",
         "en": "Doc Studio",
         "fr": "Doc Studio",
-        "it": "Doc Studio"
+        "it": "Doc Studio",
+        "ar": "Doc Studio",
+        "es": "Doc Studio",
+        "ja": "Doc Studio",
+        "ko": "Doc Studio",
+        "nl": "Doc Studio",
+        "pl": "Doc Studio",
+        "pt": "Doc Studio",
+        "ru": "Doc Studio",
+        "tr": "Doc Studio",
+        "zh": "Doc Studio"
     },
     "icon": "file-earmark-word",
     "route": "/doc-studio/",
@@ -19,40 +29,117 @@
         "js": []
     },
     "_export_status": "css_and_config_only — Django app + templates + ds-*.js fehlen im Baseline-Export",
-    "roles": ["!berater"],
+    "roles": [
+        "!berater"
+    ],
     "subpages": [
         {
             "id": "index",
             "title": "Vorlagen",
-            "titles": {"de": "Vorlagen", "en": "Templates", "fr": "Modèles", "it": "Modelli"},
+            "titles": {
+                "de": "Vorlagen",
+                "en": "Templates",
+                "fr": "Modèles",
+                "it": "Modelli",
+                "ar": "Templates",
+                "es": "Templates",
+                "ja": "Templates",
+                "ko": "Templates",
+                "nl": "Templates",
+                "pl": "Templates",
+                "pt": "Templates",
+                "ru": "Templates",
+                "tr": "Templates",
+                "zh": "Templates"
+            },
             "route": "/doc-studio/",
             "template": "abpe_ui/modules/doc_studio/index.html"
         },
         {
             "id": "studio",
             "title": "Studio",
-            "titles": {"de": "Studio / Editor", "en": "Studio / Editor", "fr": "Studio", "it": "Studio"},
+            "titles": {
+                "de": "Studio / Editor",
+                "en": "Studio / Editor",
+                "fr": "Studio",
+                "it": "Studio",
+                "ar": "Studio / Editor",
+                "es": "Studio / Editor",
+                "ja": "Studio / Editor",
+                "ko": "Studio / Editor",
+                "nl": "Studio / Editor",
+                "pl": "Studio / Editor",
+                "pt": "Studio / Editor",
+                "ru": "Studio / Editor",
+                "tr": "Studio / Editor",
+                "zh": "Studio / Editor"
+            },
             "route": "/doc-studio/studio/",
             "template": "abpe_ui/modules/doc_studio/studio.html"
         },
         {
             "id": "invoices",
             "title": "Rechnungen",
-            "titles": {"de": "Rechnungen", "en": "Invoices", "fr": "Factures", "it": "Fatture"},
+            "titles": {
+                "de": "Rechnungen",
+                "en": "Invoices",
+                "fr": "Factures",
+                "it": "Fatture",
+                "ar": "Invoices",
+                "es": "Invoices",
+                "ja": "Invoices",
+                "ko": "Invoices",
+                "nl": "Invoices",
+                "pl": "Invoices",
+                "pt": "Invoices",
+                "ru": "Invoices",
+                "tr": "Invoices",
+                "zh": "Invoices"
+            },
             "route": "/doc-studio/invoices/",
             "template": "abpe_ui/modules/doc_studio/invoices.html"
         },
         {
             "id": "log",
             "title": "Log",
-            "titles": {"de": "Generierungs-Log", "en": "Generation Log", "fr": "Journal", "it": "Log"},
+            "titles": {
+                "de": "Generierungs-Log",
+                "en": "Generation Log",
+                "fr": "Journal",
+                "it": "Log",
+                "ar": "Generation Log",
+                "es": "Generation Log",
+                "ja": "Generation Log",
+                "ko": "Generation Log",
+                "nl": "Generation Log",
+                "pl": "Generation Log",
+                "pt": "Generation Log",
+                "ru": "Generation Log",
+                "tr": "Generation Log",
+                "zh": "Generation Log"
+            },
             "route": "/doc-studio/log/",
             "template": "abpe_ui/modules/doc_studio/log.html"
         },
         {
             "id": "config",
             "title": "Konfiguration",
-            "titles": {"de": "Konfiguration", "en": "Configuration", "fr": "Configuration", "it": "Configurazione"},
+            "titles": {
+                "de": "Konfiguration",
+                "en": "Configuration",
+                "fr": "Configuration",
+                "it": "Configurazione",
+                "ar": "Configuration",
+                "es": "Configuration",
+                "ja": "Configuration",
+                "ko": "Configuration",
+                "nl": "Configuration",
+                "pl": "Configuration",
+                "pt": "Configuration",
+                "ru": "Configuration",
+                "tr": "Configuration",
+                "zh": "Configuration"
+            },
             "route": "/doc-studio/config/",
             "template": "abpe_ui/modules/doc_studio/config.html"
         }
