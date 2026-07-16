@@ -210,6 +210,7 @@ window.ESStudio = (() => {
 
         _updateModePanels();
         _updateSaveButtonLabel();
+        _updateEntityMetaVisibility();
         if (!deferPreview) {
             setTimeout(_loadPreview, 100);
         }
@@ -281,6 +282,13 @@ window.ESStudio = (() => {
     }
 
     function _readModuleMeta() {
+        if (_entityCache.module.id) {
+            return {
+                name: _entityCache.module.name,
+                identifier: _entityCache.module.identifier,
+                module_type: _entityCache.module.module_type || 'SECTION',
+            };
+        }
         const name = document.getElementById('es-entity-module-name')?.value?.trim() || '';
         let identifier = document.getElementById('es-entity-module-identifier')?.value?.trim() || '';
         if (!identifier && name) identifier = _slugify(name);
@@ -296,21 +304,33 @@ window.ESStudio = (() => {
         const idEl   = document.getElementById('es-entity-signature-identifier');
         const defEl  = document.getElementById('es-entity-signature-default');
         const pubEl  = document.getElementById('es-entity-signature-public');
+        const defNew = document.getElementById('es-entity-signature-default-new');
+        const pubNew = document.getElementById('es-entity-signature-public-new');
         if (nameEl) nameEl.value = data?.name || '';
         if (idEl)   idEl.value   = data?.identifier || '';
         if (defEl)  defEl.checked = !!data?.is_default;
         if (pubEl)  pubEl.checked = !!data?.is_public;
+        if (defNew) defNew.checked = !!data?.is_default;
+        if (pubNew) pubNew.checked = !!data?.is_public;
     }
 
     function _readSignatureMeta() {
+        if (_entityCache.signature.id) {
+            return {
+                name: _entityCache.signature.name,
+                identifier: _entityCache.signature.identifier,
+                is_default: !!document.getElementById('es-entity-signature-default')?.checked,
+                is_public:  !!document.getElementById('es-entity-signature-public')?.checked,
+            };
+        }
         const name = document.getElementById('es-entity-signature-name')?.value?.trim() || '';
         let identifier = document.getElementById('es-entity-signature-identifier')?.value?.trim() || '';
         if (!identifier && name) identifier = _slugify(name);
         return {
             name,
             identifier,
-            is_default: !!document.getElementById('es-entity-signature-default')?.checked,
-            is_public:  !!document.getElementById('es-entity-signature-public')?.checked,
+            is_default: !!document.getElementById('es-entity-signature-default-new')?.checked,
+            is_public:  !!document.getElementById('es-entity-signature-public-new')?.checked,
         };
     }
 
@@ -322,6 +342,21 @@ window.ESStudio = (() => {
 
     function _clearSignatureMeta() {
         _fillSignatureMeta({});
+    }
+
+    /** Metafelder nur bei „Neu“ (ohne ID) — Name/Identifier sonst im Dropdown */
+    function _updateEntityMetaVisibility() {
+        const moduleNew = _currentEntity === 'module' && !_entityCache.module.id;
+        const sigNew    = _currentEntity === 'signature' && !_entityCache.signature.id;
+        const sigEdit   = _currentEntity === 'signature' && !!_entityCache.signature.id;
+
+        const modMeta = document.getElementById('es-entity-module-meta');
+        const sigNewMeta  = document.getElementById('es-entity-signature-meta-new');
+        const sigEditMeta = document.getElementById('es-entity-signature-meta-edit');
+
+        if (modMeta) modMeta.style.display = moduleNew ? '' : 'none';
+        if (sigNewMeta)  sigNewMeta.style.display  = sigNew ? '' : 'none';
+        if (sigEditMeta) sigEditMeta.style.display = sigEdit ? '' : 'none';
     }
 
     function _applyEntityToEditors(data) {
@@ -365,6 +400,7 @@ window.ESStudio = (() => {
                 _clearEditors();
                 _clearModuleMeta();
                 _updateSaveButtonLabel();
+                _updateEntityMetaVisibility();
                 _loadPreview(false);
                 return;
             }
@@ -378,6 +414,7 @@ window.ESStudio = (() => {
                 _clearEditors();
                 _clearSignatureMeta();
                 _updateSaveButtonLabel();
+                _updateEntityMetaVisibility();
                 _loadPreview(false);
                 return;
             }
@@ -417,6 +454,7 @@ window.ESStudio = (() => {
             const modSel = document.getElementById('es-entity-module-select');
             if (modSel) modSel.value = String(id);
             _updateSaveButtonLabel();
+            _updateEntityMetaVisibility();
             if (_currentEntity === 'module') {
                 _updateModePanels();
                 _loadPreview(false);
@@ -493,6 +531,7 @@ window.ESStudio = (() => {
         _clearModuleMeta();
         _clearEditors();
         _updateSaveButtonLabel();
+        _updateEntityMetaVisibility();
         document.getElementById('es-entity-module-name')?.focus();
         _loadPreview(false);
     }
@@ -504,6 +543,7 @@ window.ESStudio = (() => {
         _clearSignatureMeta();
         _clearEditors();
         _updateSaveButtonLabel();
+        _updateEntityMetaVisibility();
         document.getElementById('es-entity-signature-name')?.focus();
         _loadPreview(false);
     }
@@ -532,7 +572,7 @@ window.ESStudio = (() => {
             if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
             await _refreshModuleSelect(data.id);
             await _loadModuleEntity(data.id);
-            ES.notify.success('es.module_saved', t('entity_dup_ok', 'Kopie angelegt'));
+            ES.notify.success('es.module_saved', t('entity_saveas_ok', 'Als Kopie gespeichert'));
             _loadModules(true);
         } catch (e) {
             ES.notify.error('es.error_save', e.message || t('error_save', 'Fehler'));
@@ -564,7 +604,7 @@ window.ESStudio = (() => {
             if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
             await _refreshSignatureSelect(data.id);
             await _loadSignatureEntity(data.id);
-            ES.notify.success('es.sig_saved', t('entity_dup_ok', 'Kopie angelegt'));
+            ES.notify.success('es.sig_saved', t('entity_saveas_ok', 'Als Kopie gespeichert'));
         } catch (e) {
             ES.notify.error('es.error_save', e.message || t('error_save', 'Fehler'));
         }
@@ -680,6 +720,7 @@ window.ESStudio = (() => {
             const sigSel = document.getElementById('es-entity-signature-select');
             if (sigSel) sigSel.value = String(id);
             _updateSaveButtonLabel();
+            _updateEntityMetaVisibility();
             if (_currentEntity === 'signature') {
                 _updateModePanels();
                 _loadPreview(false);

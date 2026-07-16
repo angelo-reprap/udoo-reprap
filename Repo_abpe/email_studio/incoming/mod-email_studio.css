@@ -1048,14 +1048,20 @@
 }
 .es-entity-meta {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    align-items: flex-end;
+    gap: 10px;
     flex-wrap: wrap;
+    width: 100%;
 }
-.es-entity-meta .form-control,
-.es-entity-meta .form-select {
+.es-entity-meta-field {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.es-entity-meta-field .form-control,
+.es-entity-meta-field .form-select {
     max-width: 200px;
-    min-width: 120px;
+    min-width: 140px;
 }
 .es-entity-check {
     display: flex;
