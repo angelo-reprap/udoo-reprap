@@ -117,11 +117,11 @@ window.applyTranslations = function applyTranslations() {
         if (val) el.placeholder = val;
     });
 
-    // data-titles — Modul-Titel aus module.json (Fallback en → de)
+    // data-titles — Modul-Titel aus module.json (Fallback de → en)
     document.querySelectorAll('[data-titles]').forEach(el => {
         try {
             const titles = JSON.parse(el.getAttribute('data-titles') || '{}');
-            const title = titles[currentLang] || titles.en || titles.de;
+            const title = titles[currentLang] || titles.de || titles.en;
             if (title) {
                 const span = el.querySelector('.nav-title') || el;
                 span.innerText = title;
