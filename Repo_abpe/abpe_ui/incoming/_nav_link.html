@@ -13,7 +13,7 @@
 <div class="submenu ms-4">
     {% for subpage in module.subpages %}
     <a href="{{ subpage.route }}"
-       class="nav-link subpage-link"
+       class="nav-link subpage-link {% if active_subpage == subpage.id %}active{% endif %}"
        data-titles="{{ subpage.titles_json|default:'{}' }}">
         <i class="bi bi-arrow-right-short"></i>
         <span class="nav-title">{{ subpage.title }}</span>

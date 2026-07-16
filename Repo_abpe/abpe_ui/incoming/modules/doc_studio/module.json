@@ -5,7 +5,18 @@
         "de": "Doc Studio",
         "en": "Doc Studio",
         "fr": "Doc Studio",
-        "it": "Doc Studio"
+        "it": "Doc Studio",
+        "ar": "Doc Studio",
+        "es": "Doc Studio",
+        "ja": "Doc Studio",
+        "ko": "Doc Studio",
+        "nl": "Doc Studio",
+        "pl": "Doc Studio",
+        "pt": "Doc Studio",
+        "ru": "Doc Studio",
+        "tr": "Doc Studio",
+        "zh": "Doc Studio",
+        "hu": "Doc Studio"
     },
     "icon": "file-earmark-word",
     "route": "/doc-studio/",
@@ -19,40 +30,122 @@
         "js": []
     },
     "_export_status": "css_and_config_only — Django app + templates + ds-*.js fehlen im Baseline-Export",
-    "roles": ["!berater"],
+    "roles": [
+        "!berater"
+    ],
     "subpages": [
         {
             "id": "index",
             "title": "Vorlagen",
-            "titles": {"de": "Vorlagen", "en": "Templates", "fr": "Modèles", "it": "Modelli"},
+            "titles": {
+                "de": "Vorlagen",
+                "en": "Templates",
+                "fr": "Modèles",
+                "it": "Modelli",
+                "ar": "القوالب",
+                "es": "Plantillas",
+                "ja": "テンプレート",
+                "ko": "템플릿",
+                "nl": "Sjablonen",
+                "pl": "Szablony",
+                "pt": "Modelos",
+                "ru": "Шаблоны",
+                "tr": "Şablonlar",
+                "zh": "模板",
+                "hu": "Sablonok"
+            },
             "route": "/doc-studio/",
             "template": "abpe_ui/modules/doc_studio/index.html"
         },
         {
             "id": "studio",
             "title": "Studio",
-            "titles": {"de": "Studio / Editor", "en": "Studio / Editor", "fr": "Studio", "it": "Studio"},
+            "titles": {
+                "de": "Studio / Editor",
+                "en": "Studio / Editor",
+                "fr": "Studio",
+                "it": "Studio",
+                "ar": "الاستوديو / المحرر",
+                "es": "Estudio / Editor",
+                "ja": "スタジオ / エディター",
+                "ko": "스튜디오 / 편집기",
+                "nl": "Studio / Editor",
+                "pl": "Studio / Edytor",
+                "pt": "Studio / Editor",
+                "ru": "Студия / Редактор",
+                "tr": "Stüdyo / Düzenleyici",
+                "zh": "工作室/编辑器",
+                "hu": "Stúdió / Szerkesztő"
+            },
             "route": "/doc-studio/studio/",
             "template": "abpe_ui/modules/doc_studio/studio.html"
         },
         {
             "id": "invoices",
             "title": "Rechnungen",
-            "titles": {"de": "Rechnungen", "en": "Invoices", "fr": "Factures", "it": "Fatture"},
+            "titles": {
+                "de": "Rechnungen",
+                "en": "Invoices",
+                "fr": "Factures",
+                "it": "Fatture",
+                "ar": "الفواتير",
+                "es": "Facturas",
+                "ja": "請求書",
+                "ko": "인보이스",
+                "nl": "Facturen",
+                "pl": "Faktury",
+                "pt": "Faturas",
+                "ru": "Счета",
+                "tr": "Faturalar",
+                "zh": "发票",
+                "hu": "Számlák"
+            },
             "route": "/doc-studio/invoices/",
             "template": "abpe_ui/modules/doc_studio/invoices.html"
         },
         {
             "id": "log",
             "title": "Log",
-            "titles": {"de": "Generierungs-Log", "en": "Generation Log", "fr": "Journal", "it": "Log"},
+            "titles": {
+                "de": "Generierungs-Log",
+                "en": "Generation Log",
+                "fr": "Journal",
+                "it": "Log",
+                "ar": "سجل التوليد",
+                "es": "Registro de generación",
+                "ja": "生成ログ",
+                "ko": "생성 로그",
+                "nl": "Generatielogboek",
+                "pl": "Dziennik generowania",
+                "pt": "Registo de Geração",
+                "ru": "Журнал генерации",
+                "tr": "Oluşturma Günlüğü",
+                "zh": "生成日志",
+                "hu": "Generálási napló"
+            },
             "route": "/doc-studio/log/",
             "template": "abpe_ui/modules/doc_studio/log.html"
         },
         {
             "id": "config",
             "title": "Konfiguration",
-            "titles": {"de": "Konfiguration", "en": "Configuration", "fr": "Configuration", "it": "Configurazione"},
+            "titles": {
+                "de": "Konfiguration",
+                "en": "Configuration",
+                "fr": "Configuration",
+                "it": "Configurazione",
+                "ar": "التكوين",
+                "es": "Configuración",
+                "ja": "設定",
+                "ko": "구성",
+                "nl": "Configuratie",
+                "pl": "Konfiguracja",
+                "pt": "Configuração",
+                "ru": "Конфигурация",
+                "tr": "Yapılandırma",
+                "zh": "配置",
+                "hu": "Konfiguráció"
+            },
             "route": "/doc-studio/config/",
             "template": "abpe_ui/modules/doc_studio/config.html"
         }

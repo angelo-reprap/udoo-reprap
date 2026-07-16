@@ -8,13 +8,41 @@ let translations = window.i18nData;
 // Letztes aktives Modul merken
 let _currentModuleId = null;
 
+// Portal-Shell-Keys — dürfen von Modul-JSON (z.B. email_studio.help-Objekt) nicht überschrieben werden
+const PORTAL_SHELL_KEYS = new Set([
+    'help', 'profile', 'settings', 'admin', 'logout', 'cancel', 'save',
+    'first_name', 'last_name', 'email', 'search', 'footer', 'login',
+    'documentation', 'architecture', 'modules', 'mobile', 'password',
+    'address', 'phone', 'start_matching', 'all', 'error',
+]);
+
+function _mergeModuleI18n(data) {
+    if (!data || typeof data !== 'object') return;
+    for (const [key, val] of Object.entries(data)) {
+        if (key === 'es' && val && typeof val === 'object') {
+            translations.es = { ...(translations.es || {}), ...val };
+            continue;
+        }
+        if (key === 'help' && val && typeof val === 'object') {
+            translations.help_section = val;
+            continue;
+        }
+        if (PORTAL_SHELL_KEYS.has(key)) continue;
+        translations[key] = val;
+    }
+}
+
 async function loadFile(lang, filename) {
     const url = `/static/abpe_ui/i18n/${lang}/${filename}`;
     try {
         const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
-            Object.assign(translations, data);
+            if (filename.startsWith('modules/')) {
+                _mergeModuleI18n(data);
+            } else {
+                Object.assign(translations, data);
+            }
             return true;
         }
     } catch (e) {}
@@ -89,11 +117,11 @@ window.applyTranslations = function applyTranslations() {
         if (val) el.placeholder = val;
     });
 
-    // data-titles — Modul-Titel aus module.json
+    // data-titles — Modul-Titel aus module.json (via Translator → titles.<lang>)
     document.querySelectorAll('[data-titles]').forEach(el => {
         try {
             const titles = JSON.parse(el.getAttribute('data-titles') || '{}');
-            const title = titles[currentLang];
+            const title = titles[currentLang] || titles.de;
             if (title) {
                 const span = el.querySelector('.nav-title') || el;
                 span.innerText = title;
@@ -101,6 +129,8 @@ window.applyTranslations = function applyTranslations() {
         } catch(e) {}
     });
 }
+
+window.mergeModuleI18n = _mergeModuleI18n;
 
 function _resolveKey(key) {
     const keys = key.split('.');

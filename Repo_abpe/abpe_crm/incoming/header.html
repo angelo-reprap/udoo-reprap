@@ -5,14 +5,157 @@
             <i class="bi bi-list"></i>
         </button>
         <div class="logo-area">
-            <img src="{% static 'abpe_ui/img/logo.svg' %}" alt="abcona" style="height: 35px;">
-            <span>ABpE Portal</span>
+            <img src="{% static 'abpe_crm/img/logo.svg' %}" alt="abcona" style="height: 35px;">
+            <span data-i18n="abpe_crm_label">ABpE CRM</span>
+        </div>
+        <button id="gsearch-trigger" class="gsearch-trigger-btn" title="Suche (Strg+K)" data-i18n-title="gsearch_tooltip">
+            <i class="bi bi-search"></i>
+        </button>
+        <div class="crm-qh-anchor" style="position:relative;">
+            <button id="crm-help-btn" class="crm-help-btn">
+                <i class="bi bi-question-circle"></i> <span data-i18n="query_hilfe_btn">Query-Hilfe</span>
+            </button>
+
+<div id="crm-query-help" class="crm-query-help" style="display:none">
+    <div class="qh-card">
+        <div class="qh-card-title"><i class="bi bi-code-slash"></i> <span data-i18n="boolean">Boolean</span></div>
+        <div class="qh-fieldlist">
+            <div class="qh-fielditem"><span class="qh-tag">AND</span><span class="qh-desc" data-i18n="beide">beide Begriffe muessen vorkommen</span><span class="qh-example">java AND C#</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">OR</span><span class="qh-desc" data-i18n="eines">mindestens einer muss vorkommen</span><span class="qh-example">java OR C#</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">NOT</span><span class="qh-desc" data-i18n="ausschliessen">schliesst aus</span><span class="qh-example">java NOT python</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">+</span><span class="qh-desc" data-i18n="muss">muss vorkommen</span><span class="qh-example">+java +münchen</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">-</span><span class="qh-desc" data-i18n="darf_nicht">darf nicht vorkommen</span><span class="qh-example">java -python</span></div>
+        </div>
+    </div>
+    <div class="qh-card">
+        <div class="qh-card-title"><i class="bi bi-asterisk"></i> <span data-i18n="wildcards">Wildcards</span></div>
+        <div class="qh-fieldlist">
+            <div class="qh-fielditem"><span class="qh-tag">*</span><span class="qh-desc" data-i18n="wildcard">beliebig viele Zeichen</span><span class="qh-example">jav*</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">?</span><span class="qh-desc" data-i18n="ein_zeichen">genau ein Zeichen</span><span class="qh-example">jav?</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">~</span><span class="qh-desc" data-i18n="fuzzy">Tippfehler werden toleriert</span><span class="qh-example">jaav~</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">"..."</span><span class="qh-desc" data-i18n="phrase">genaue Wortfolge</span><span class="qh-example">"java entwickler"</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">^3</span><span class="qh-desc" data-i18n="boost">wichtiger werten</span><span class="qh-example">java^3 python</span></div>
+        </div>
+    </div>
+    {% if tab == 'berater' %}
+    <div class="qh-card">
+        <div class="qh-card-title"><i class="bi bi-list-columns-reverse"></i> <span data-i18n="felder">Felder (Berater)</span></div>
+        <div class="qh-fieldlist">
+            <div class="qh-fielditem"><span class="qh-tag">name:</span><span class="qh-desc" data-i18n="qh_f_name">Name (Vor-/Nachname)</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">city:</span><span class="qh-desc" data-i18n="qh_f_city">Wohnort</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">einsatzort:</span><span class="qh-desc" data-i18n="qh_f_einsatzort">Gewünschter Einsatzort</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">kontakt_typ:</span><span class="qh-desc" data-i18n="qh_f_kontakt_typ">Typ: berater, kunde, interessent</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">kontakt_status:</span><span class="qh-desc" data-i18n="qh_f_kontakt_status">Status, z.B. aktiv, passiv</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">verfuegbar_ab:</span><span class="qh-desc" data-i18n="qh_f_verfuegbar_ab">Verfügbar ab Datum</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">stundensatz:</span><span class="qh-desc" data-i18n="qh_f_stundensatz">Stundensatz in Euro</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">company:</span><span class="qh-desc" data-i18n="qh_f_company">Name der verknüpften Firma</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">is_ansprechpartner:</span><span class="qh-desc" data-i18n="qh_f_ansprechpartner">true = Ansprechpartner einer Firma (Kunde)</span></div>
+        </div>
+    </div>
+    <div class="qh-card qh-card-examples">
+        <div class="qh-card-title"><i class="bi bi-lightbulb"></i> <span data-i18n="beispiele">Beispiele zum Ausprobieren</span></div>
+        <div class="qh-fieldlist">
+            <div class="qh-fielditem"><span class="qh-example">java AND python</span><span class="qh-desc" data-i18n="qh_e_javapython">Findet nur Berater mit beiden Begriffen</span></div>
+            <div class="qh-fielditem"><span class="qh-example">city:München</span><span class="qh-desc" data-i18n="qh_e_city">Nur Berater aus München</span></div>
+            <div class="qh-fielditem"><span class="qh-example">stundensatz:[80 TO 120]</span><span class="qh-desc" data-i18n="qh_e_stundensatz">Stundensatz zwischen 80€ und 120€</span></div>
+            <div class="qh-fielditem"><span class="qh-example">verfuegbar_ab:>2026-09-01</span><span class="qh-desc" data-i18n="qh_e_verfuegbar">Verfügbar ab September 2026</span></div>
+            <div class="qh-fielditem"><span class="qh-example">is_ansprechpartner:true</span><span class="qh-desc" data-i18n="qh_e_ansprechpartner">Nur Kunden-Ansprechpartner anzeigen</span></div>
+        </div>
+    </div>
+    {% elif tab == 'kunden' %}
+    <div class="qh-card">
+        <div class="qh-card-title"><i class="bi bi-list-columns-reverse"></i> <span data-i18n="felder_kunden">Felder (Kunden)</span></div>
+        <div class="qh-fieldlist">
+            <div class="qh-fielditem"><span class="qh-tag">name:</span><span class="qh-desc" data-i18n="qh_f_k_name">Firmenname</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">billing_city:</span><span class="qh-desc" data-i18n="qh_f_k_city">Ort der Rechnungsanschrift</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">industry:</span><span class="qh-desc" data-i18n="qh_f_k_industry">Branche</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">account_type:</span><span class="qh-desc" data-i18n="qh_f_k_account_type">Kundentyp, z.B. Customer, Partner</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">account_status:</span><span class="qh-desc" data-i18n="qh_f_k_account_status">Status, z.B. aktiv, inaktiv</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">kunden_nummer:</span><span class="qh-desc" data-i18n="qh_f_k_kunden_nummer">Kundennummer</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">contacts:</span><span class="qh-desc" data-i18n="qh_f_k_contacts">Name eines Ansprechpartners</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">website:</span><span class="qh-desc" data-i18n="qh_f_k_website">Webseite</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">notes:</span><span class="qh-desc" data-i18n="qh_f_k_notes">Notizen zur Firma</span></div>
+        </div>
+    </div>
+    <div class="qh-card qh-card-examples">
+        <div class="qh-card-title"><i class="bi bi-lightbulb"></i> <span data-i18n="beispiele">Beispiele zum Ausprobieren</span></div>
+        <div class="qh-fieldlist">
+            <div class="qh-fielditem"><span class="qh-example">IT AND Frankfurt</span><span class="qh-desc" data-i18n="qh_e_k_itfrankfurt">Findet nur Firmen mit beiden Begriffen</span></div>
+            <div class="qh-fielditem"><span class="qh-example">billing_city:München</span><span class="qh-desc" data-i18n="qh_e_k_city">Nur Firmen mit Sitz in München</span></div>
+            <div class="qh-fielditem"><span class="qh-example">account_status:aktiv</span><span class="qh-desc" data-i18n="qh_e_k_status">Nur aktive Kunden</span></div>
+            <div class="qh-fielditem"><span class="qh-example">kunden_nummer:K-1023</span><span class="qh-desc" data-i18n="qh_e_k_kundennummer">Exakte Kundennummer</span></div>
+            <div class="qh-fielditem"><span class="qh-example">contacts:Schmidt</span><span class="qh-desc" data-i18n="qh_e_k_contacts">Firma mit Ansprechpartner Schmidt</span></div>
+        </div>
+    </div>
+    {% elif tab == 'emails' %}
+    <div class="qh-card">
+        <div class="qh-card-title"><i class="bi bi-list-columns-reverse"></i> <span data-i18n="felder">Felder</span></div>
+        <div class="qh-fieldlist">
+            <div class="qh-fielditem"><span class="qh-tag">email_address:</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">bean_module:</span></div>
+        </div>
+    </div>
+    {% elif tab == 'dokumente' %}
+    <div class="qh-card">
+        <div class="qh-card-title"><i class="bi bi-list-columns-reverse"></i> <span data-i18n="felder">Felder</span></div>
+        <div class="qh-fieldlist">
+            <div class="qh-fielditem"><span class="qh-tag">title:</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">doc_type:</span></div>
+            <div class="qh-fielditem"><span class="qh-tag">contact:</span></div>
+        </div>
+    </div>
+    <div class="qh-card qh-card-examples">
+        <div class="qh-card-title"><i class="bi bi-lightbulb"></i> <span data-i18n="beispiele">Beispiele</span></div>
+        <div class="qh-fieldlist">
+            <div class="qh-fielditem"><span class="qh-example">doc_type:vertrag</span></div>
+            <div class="qh-fielditem"><span class="qh-example">contact:Maier</span></div>
+        </div>
+    </div>
+    {% endif %}
+</div>
         </div>
     </div>
 
-    <div class="search-container">
+    <!-- CRM Suche -->
+    <div class="search-container" style="flex:1; max-width:700px; display:flex; gap:6px; align-items:center; position:relative;">
         <i class="bi bi-search search-icon"></i>
-        <input type="text" class="search-input" placeholder="Suchen..." id="searchInput" autocomplete="off" data-i18n-placeholder="search">
+        <input type="text"
+               id="crm-global-search"
+               class="search-input"
+               placeholder="{% if tab == 'berater' %}Name, Skills, Gulp-ID...{% elif tab == 'kunden' %}Firma, Stadt...{% elif tab == 'emails' %}E-Mail suchen...{% elif tab == 'dokumente' %}Titel, Berater...{% else %}Suchen...{% endif %}"
+               autocomplete="off" />
+        <select id="crm-sort" class="crm-sort-select">
+            {% if tab == 'berater' %}
+            <option value="last_name">Name A-Z</option>
+            <option value="verfuegbar">Verfügbarkeit</option>
+            <option value="-verfuegbar">Verfügbarkeit ↓</option>
+            <option value="modified">Zuletzt geändert</option>
+            {% elif tab == 'kunden' %}
+            <option value="name">Name A-Z</option>
+            <option value="status">Status</option>
+            <option value="modified">Zuletzt geändert</option>
+            {% elif tab == 'emails' %}
+            <option value="email_address">E-Mail A-Z</option>
+            <option value="modified">Zuletzt geändert</option>
+            {% elif tab == 'dokumente' %}
+            <option value="-created_at">Datum ↓</option>
+            <option value="created_at">Datum ↑</option>
+            <option value="title">Titel A-Z</option>
+            <option value="doc_type">Typ</option>
+            {% elif tab == 'reporting' %}
+            <option value="-created_at">Datum ↓</option>
+            {% endif %}
+        </select>
+        <select id="crm-per-page" class="crm-sort-select">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20" selected>20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+        <button id="crm-search-btn" class="crm-search-btn">
+            <i class="bi bi-lightning-charge-fill"></i> <span data-i18n="suchen_btn">Suchen</span>
+        </button>
     </div>
 
     <div class="header-right">
@@ -23,7 +166,7 @@
         <button class="help-btn" onclick="toggleHelp()">
             <i class="bi bi-question-circle"></i> <span data-i18n="help">Hilfe</span>
         </button>
-        <div class="language-selector"></div>
+        <div id="lang-switcher"></div>
         <div class="user-menu">
             <div class="avatar" onclick="toggleUserMenu()">
                 <i class="bi bi-person-circle"></i>
@@ -38,11 +181,13 @@
                 <a class="dropdown-item" href="/admin/"><i class="bi bi-shield-lock"></i> <span data-i18n="admin">Admin Bereich</span></a>
                 {% endif %}
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/logout/"><i class="bi bi-box-arrow-right"></i> <span data-i18n="logout">Abmelden</span></a>
+                <a class="dropdown-item" href="{% url 'abpe_crm:logout' %}"><i class="bi bi-box-arrow-right"></i> <span data-i18n="logout">Abmelden</span></a>
             </div>
         </div>
     </div>
 </div>
+
+
 
 <script>
     function updateThemeIcons() {
@@ -61,6 +206,9 @@
     });
     observer.observe(document.body, { attributes: true });
     updateThemeIcons();
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof setLanguage === 'function') setLanguage('{{ current_lang|default:"de" }}');
+    });
 </script>
 
 <!-- PROFIL MODAL -->
@@ -491,7 +639,7 @@ function openSettingsModal() {
     document.getElementById('settingsModal').style.display = 'block';
     makeDraggable('settingsModalDialog', 'settingsModalHeader');
     // Phone Settings laden
-    fetch('/api/user-settings/').then(r => r.json()).then(d => {
+    fetch('/crm/api/user-settings/').then(r => r.json()).then(d => {
         if (!d.success) return;
         const us = d.data;
         const cb = document.getElementById('phone-enabled');
@@ -549,7 +697,7 @@ function updateSettingsBtns() {
 function saveSettings() {
     const csrf = getCsrfToken();
     // Theme + Sprache speichern
-    fetch('/api/user-settings/', {
+    fetch('/crm/api/user-settings/', {
         method: 'POST',
         headers: {'Content-Type':'application/json','X-CSRFToken': csrf},
         body: JSON.stringify({language: _settingsLang, theme: _settingsTheme})
@@ -574,7 +722,7 @@ function saveSettings() {
             phone_int_prefix:   document.getElementById("phone-int-prefix")?.value || "00",
             phone_pre:          document.getElementById("phone-pre")?.value || "",
         };
-        fetch('/api/user-settings/', {
+        fetch('/crm/api/user-settings/', {
             method: 'POST',
             headers: {'Content-Type':'application/json','X-CSRFToken': csrf},
             body: JSON.stringify(data),
