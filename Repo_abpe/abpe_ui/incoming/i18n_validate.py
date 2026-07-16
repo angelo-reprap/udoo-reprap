@@ -8,7 +8,8 @@ Funktionen:
   1. Struktur-Check   — alle JSON-Dateien in allen Sprachen vorhanden (wie DE)
   2. Key-Check        — alle Keys in allen Sprachen identisch wie DE
   3. Sprach-Check     — Inhalt wirklich in der Zielsprache (Deepseek, parallel)
-  4. Auto-Fix         — fehlerhafte JSONs löschen + i18n_translator.py aufrufen
+  4. Nav-Titles       — titles.<lang> in module.json + modules.json (aus i18n/-Ordnern)
+  5. Auto-Fix         — fehlerhafte JSONs löschen + i18n_translator.py aufrufen
 
 Aufruf:
   python3 i18n_validate.py              # Alles prüfen (kein Fix)
@@ -35,11 +36,13 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ── Konfiguration ─────────────────────────────────────────────────────────────
-BASE_DIR    = Path('/opt/abpe/backend')
-I18N_DIR    = BASE_DIR / 'apps/abpe_ui/static/abpe_ui/i18n'
-SETTINGS    = BASE_DIR / 'settings.json'
-TRANSLATOR  = BASE_DIR / 'apps/abpe_ui/bin/i18n_translator.py'
-REF_LANG    = 'de'
+BASE_DIR     = Path('/opt/abpe/backend')
+I18N_DIR     = BASE_DIR / 'apps/abpe_ui/static/abpe_ui/i18n'
+MODULES_DIR  = BASE_DIR / 'apps/abpe_ui/templates/abpe_ui/modules'
+MODULES_JSON = BASE_DIR / 'apps/abpe_ui/modules.json'
+SETTINGS     = BASE_DIR / 'settings.json'
+TRANSLATOR   = BASE_DIR / 'apps/abpe_ui/bin/i18n_translator.py'
+REF_LANG     = 'de'
 
 LANG_NAMES = {
     'de': 'German', 'en': 'English', 'fr': 'French', 'it': 'Italian',
@@ -262,6 +265,86 @@ def check_language(target_langs: list[str], api_key: str,
     return report
 
 
+def check_nav_titles(target_langs: list[str]) -> dict[str, list[str]]:
+    """Check 4: titles.<lang> in module.json und modules.json (Referenz: titles.de)."""
+    report = {lang: [] for lang in target_langs}
+
+    if MODULES_DIR.exists():
+        for mod_dir in sorted(MODULES_DIR.iterdir()):
+            if not mod_dir.is_dir():
+                continue
+            path = mod_dir / 'module.json'
+            if not path.exists():
+                continue
+            try:
+                data = json.loads(path.read_text(encoding='utf-8'))
+            except Exception as e:
+                report.setdefault(REF_LANG, []).append(f"LESEFEHLER module.json/{mod_dir.name}: {e}")
+                continue
+            mid = data.get('id', mod_dir.name)
+            blocks = [(data.get('titles'), mid)]
+            for sp in data.get('subpages') or []:
+                blocks.append((sp.get('titles'), f"{mid}.{sp.get('id', '?')}"))
+            for titles, label in blocks:
+                if not isinstance(titles, dict) or REF_LANG not in titles:
+                    continue
+                for lang in target_langs:
+                    if lang not in titles:
+                        report[lang].append(label)
+
+    if MODULES_JSON.exists():
+        try:
+            data = json.loads(MODULES_JSON.read_text(encoding='utf-8'))
+        except Exception as e:
+            for lang in target_langs:
+                report[lang].append(f"LESEFEHLER modules.json: {e}")
+            return report
+
+        blocks = []
+        dashboard = data.get('dashboard')
+        if isinstance(dashboard, dict):
+            blocks.append((dashboard.get('titles'), 'modules.json:dashboard'))
+        for item in data.get('system') or []:
+            if isinstance(item, dict):
+                blocks.append((item.get('titles'), f"modules.json:system.{item.get('id', '?')}"))
+
+        for titles, label in blocks:
+            if not isinstance(titles, dict) or REF_LANG not in titles:
+                continue
+            for lang in target_langs:
+                if lang not in titles:
+                    report[lang].append(label)
+
+    return report
+
+
+def fix_nav_titles(nav_report: dict[str, list[str]]) -> list[str]:
+    """Ruft i18n_translator.py --modules-only für Sprachen mit fehlenden Nav-Titeln auf."""
+    affected = [lang for lang, issues in nav_report.items() if issues]
+    if not affected:
+        return []
+
+    log.info(f"\n  Starte i18n_translator.py --modules-only für: {affected}")
+    fixed = []
+    for lang in affected:
+        log.info(f"  Navigation titles: {lang} ...")
+        try:
+            proc = subprocess.run(
+                [sys.executable, str(TRANSLATOR), '--modules-only', '--lang', lang],
+                capture_output=True, text=True, timeout=600,
+                cwd=str(BASE_DIR)
+            )
+            if proc.returncode == 0:
+                log.info(f"  ✓ {lang}: Navigation titles ergänzt")
+                fixed.append(lang)
+            else:
+                log.error(f"  ✗ {lang}: {(proc.stderr or proc.stdout)[:200]}")
+        except Exception as e:
+            log.error(f"  ✗ {lang}: {e}")
+
+    return fixed
+
+
 # ── Fix ───────────────────────────────────────────────────────────────────────
 
 def fix_issues(struct_report: dict, key_report: dict,
@@ -394,11 +477,28 @@ def run(args):
             else:
                 print(f"  {lang.upper()}: ✓ Sprache korrekt")
 
+    # ── Check 4: Navigation titles ────────────────────────────────────────
+    print("\n── Check 4: Navigation titles (module.json + modules.json) ─")
+    nav_report = check_nav_titles(target_langs)
+    nav_issues = sum(len(v) for v in nav_report.values())
+    for lang, issues in nav_report.items():
+        if issues:
+            print(f"  {lang.upper()}: {len(issues)} fehlende titles")
+            for i in issues[:5]:
+                print(f"    • {i}")
+            if len(issues) > 5:
+                print(f"    ... (+{len(issues)-5} weitere)")
+        else:
+            print(f"  {lang.upper()}: ✓ vollständig")
+
     # ── Zusammenfassung ───────────────────────────────────────────────────
-    total = struct_issues + key_issues + sum(len(v) for v in lang_report.values())
+    total = (struct_issues + key_issues + sum(len(v) for v in lang_report.values())
+             + nav_issues)
     print(f"\n{'='*58}")
     print(f"  Gesamt: {total} Problem(e) gefunden")
-    print(f"  Struktur: {struct_issues} | Keys: {key_issues} | Sprache: {sum(len(v) for v in lang_report.values())}")
+    print(f"  Struktur: {struct_issues} | Keys: {key_issues} | "
+          f"Sprache: {sum(len(v) for v in lang_report.values())} | "
+          f"Nav-Titles: {nav_issues}")
 
     if total == 0:
         print("  ✅ Alles in Ordnung!")
@@ -410,6 +510,9 @@ def run(args):
         print(f"\n── Auto-Fix ────────────────────────────────────────────")
         deleted = fix_issues(struct_report, key_report, lang_report, target_langs)
         print(f"  {len(deleted)} Datei(en) gelöscht und neu übersetzt")
+        if nav_issues > 0:
+            fixed_nav = fix_nav_titles(nav_report)
+            print(f"  Navigation titles ergänzt für: {fixed_nav or '—'}")
         print("\nNächste Schritte:")
         print("  python manage.py collectstatic --noinput")
         print("  supervisorctl restart abpe-django")

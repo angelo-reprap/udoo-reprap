@@ -8,22 +8,23 @@ Funktionen:
   - Erkennt alle Sprachverzeichnisse unter i18n/ automatisch
   - Verwendet DE als Referenzsprache
   - Übersetzt alle fehlenden / veralteten JSON-Dateien via Deepseek API
-  - Übersetzt module.json titles (Sidebar-Navigation) aus titles.de
+  - Übersetzt module.json + modules.json titles (Sidebar) aus titles.de
   - Prüft Konsistenz: alle Sprachen müssen alle Keys haben
   - 10 parallele Worker (kleine Dateien = kein Token-Problem)
-  - Neue Sprache anlegen: mkdir i18n/hu/ → Programm erkennt und übersetzt alles
+  - Neue Sprache: mkdir i18n/XX/ → i18n_translator.py → i18n_validate.py
 
 Aufruf:
   python3 i18n_translator.py              # Alle Sprachen prüfen + übersetzen
   python3 i18n_translator.py --check      # Nur Konsistenz prüfen, nicht übersetzen
   python3 i18n_translator.py --lang it    # Nur eine Sprache übersetzen
   python3 i18n_translator.py --force      # Alle Dateien neu übersetzen (auch vorhandene)
-  python3 i18n_translator.py --modules-only   # Nur module.json titles
+  python3 i18n_translator.py --modules-only   # Nur module.json + modules.json titles
 
 Pfade:
   Basis:    /opt/abpe/backend/apps/abpe_ui/static/abpe_ui/i18n/
   Referenz: de/
   Module:   /opt/abpe/backend/apps/abpe_ui/templates/abpe_ui/modules/*/module.json
+  Basis-Nav: /opt/abpe/backend/apps/abpe_ui/modules.json
 """
 
 import argparse
@@ -43,8 +44,9 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # ── Konfiguration ─────────────────────────────────────────────────────────────
 BASE_DIR    = Path("/opt/abpe/backend")
 I18N_DIR    = BASE_DIR / 'apps/abpe_ui/static/abpe_ui/i18n'
-MODULES_DIR = BASE_DIR / 'apps/abpe_ui/templates/abpe_ui/modules'
-SETTINGS    = BASE_DIR / 'settings.json'
+MODULES_DIR  = BASE_DIR / 'apps/abpe_ui/templates/abpe_ui/modules'
+MODULES_JSON = BASE_DIR / 'apps/abpe_ui/modules.json'
+SETTINGS     = BASE_DIR / 'settings.json'
 REF_LANG    = 'de'
 MAX_WORKERS = 10
 
@@ -200,7 +202,7 @@ def _target_path(ref_file: Path, ref_dir: Path, target_dir: Path) -> Path:
     return target_dir / ref_file.relative_to(ref_dir)
 
 
-# ── module.json titles (Sidebar) ──────────────────────────────────────────────
+# ── module.json + modules.json titles (Sidebar) ───────────────────────────────
 
 def _iter_title_blocks(data: dict, module_id: str) -> Iterator[tuple[dict, str]]:
     """Alle titles-Blöcke (Modul + Subpages) mit DE-Referenztext."""
@@ -214,80 +216,135 @@ def _iter_title_blocks(data: dict, module_id: str) -> Iterator[tuple[dict, str]]
             yield sp_titles, f"{module_id}.{sp_id}"
 
 
-def check_module_titles(languages: list[str]) -> dict[str, list[str]]:
-    """Prüft fehlende titles.<lang> in allen module.json."""
-    report = {lang: [] for lang in languages}
-    if not MODULES_DIR.exists():
-        log.warning(f"module.json Verzeichnis nicht gefunden: {MODULES_DIR}")
-        return report
+def _iter_modules_json_title_blocks(data: dict) -> Iterator[tuple[dict, str]]:
+    """titles-Blöcke in modules.json (dashboard + system-Navigation)."""
+    dashboard = data.get('dashboard')
+    if isinstance(dashboard, dict):
+        titles = dashboard.get('titles')
+        if isinstance(titles, dict) and titles.get(REF_LANG):
+            yield titles, 'dashboard'
+    for item in data.get('system') or []:
+        if not isinstance(item, dict):
+            continue
+        titles = item.get('titles')
+        item_id = item.get('id', '?')
+        if isinstance(titles, dict) and titles.get(REF_LANG):
+            yield titles, f"system.{item_id}"
 
-    for mod_dir in sorted(MODULES_DIR.iterdir()):
-        if not mod_dir.is_dir():
+
+def _collect_pending_titles(blocks: Iterator[tuple[dict, str]], target_lang: str,
+                            force: bool, results: dict) -> tuple[dict[str, str], dict[str, dict]]:
+    """Sammelt titles.de-Texte, die noch titles.<target_lang> brauchen."""
+    pending: dict[str, str] = {}
+    refs: dict[str, dict] = {}
+    for titles, label in blocks:
+        if target_lang in titles and not force:
+            results['skip'] += 1
             continue
-        path = mod_dir / 'module.json'
-        if not path.exists():
+        de_text = titles.get(REF_LANG, '').strip()
+        if not de_text:
             continue
-        data = _read_json(path)
-        if not data:
-            continue
-        mid = data.get('id', mod_dir.name)
-        for titles, label in _iter_title_blocks(data, mid):
-            for lang in languages:
-                if lang not in titles:
-                    report[lang].append(label)
+        pending[label] = de_text
+        refs[label] = titles
+    return pending, refs
+
+
+def _apply_translated_titles(translated: dict, refs: dict[str, dict], target_lang: str,
+                             results: dict) -> bool:
+    """Fügt übersetzte Texte als titles.<target_lang> ein."""
+    changed = False
+    for label, text in translated.items():
+        if label in refs and isinstance(text, str) and text.strip():
+            refs[label][target_lang] = text.strip()
+            changed = True
+            results['ok'] += 1
+    return changed
+
+
+def check_module_titles(languages: list[str]) -> dict[str, list[str]]:
+    """Prüft fehlende titles.<lang> in module.json und modules.json."""
+    report = {lang: [] for lang in languages}
+
+    if MODULES_DIR.exists():
+        for mod_dir in sorted(MODULES_DIR.iterdir()):
+            if not mod_dir.is_dir():
+                continue
+            path = mod_dir / 'module.json'
+            if not path.exists():
+                continue
+            data = _read_json(path)
+            if not data:
+                continue
+            mid = data.get('id', mod_dir.name)
+            for titles, label in _iter_title_blocks(data, mid):
+                for lang in languages:
+                    if lang not in titles:
+                        report[lang].append(label)
+    else:
+        log.warning(f"module.json Verzeichnis nicht gefunden: {MODULES_DIR}")
+
+    if MODULES_JSON.exists():
+        data = _read_json(MODULES_JSON)
+        if data:
+            for titles, label in _iter_modules_json_title_blocks(data):
+                for lang in languages:
+                    if lang not in titles:
+                        report[lang].append(f"modules.json:{label}")
+    else:
+        log.warning(f"modules.json nicht gefunden: {MODULES_JSON}")
 
     return report
 
 
 def translate_module_titles(target_lang: str, api_key: str, force: bool = False) -> dict:
-    """Übersetzt fehlende titles.<lang> in module.json aus titles.de."""
+    """Übersetzt fehlende titles.<lang> in module.json und modules.json aus titles.de."""
     results = {'ok': 0, 'skip': 0, 'fail': 0, 'errors': []}
-    if not MODULES_DIR.exists():
-        return results
 
-    for mod_dir in sorted(MODULES_DIR.iterdir()):
-        if not mod_dir.is_dir():
-            continue
-        path = mod_dir / 'module.json'
-        if not path.exists():
-            continue
-        data = _read_json(path)
-        if not data:
-            continue
-        mid = data.get('id', mod_dir.name)
-
-        pending: dict[str, str] = {}
-        refs: dict[str, dict] = {}
-        for titles, label in _iter_title_blocks(data, mid):
-            if target_lang in titles and not force:
-                results['skip'] += 1
+    if MODULES_DIR.exists():
+        for mod_dir in sorted(MODULES_DIR.iterdir()):
+            if not mod_dir.is_dir():
                 continue
-            de_text = titles.get(REF_LANG, '').strip()
-            if not de_text:
+            path = mod_dir / 'module.json'
+            if not path.exists():
                 continue
-            pending[label] = de_text
-            refs[label] = titles
+            data = _read_json(path)
+            if not data:
+                continue
+            mid = data.get('id', mod_dir.name)
 
-        if not pending:
-            continue
+            pending, refs = _collect_pending_titles(
+                _iter_title_blocks(data, mid), target_lang, force, results)
+            if not pending:
+                continue
 
-        log.info(f"  module.json [{target_lang}] {mid}: {len(pending)} Titel")
-        translated = _deepseek_translate(pending, REF_LANG, target_lang, api_key)
-        if not translated or not isinstance(translated, dict):
-            results['fail'] += len(pending)
-            results['errors'].append(f"{mid}: Übersetzung fehlgeschlagen")
-            continue
+            log.info(f"  module.json [{target_lang}] {mid}: {len(pending)} Titel")
+            translated = _deepseek_translate(pending, REF_LANG, target_lang, api_key)
+            if not translated or not isinstance(translated, dict):
+                results['fail'] += len(pending)
+                results['errors'].append(f"{mid}: Übersetzung fehlgeschlagen")
+                continue
 
-        changed = False
-        for label, text in translated.items():
-            if label in refs and isinstance(text, str) and text.strip():
-                refs[label][target_lang] = text.strip()
-                changed = True
-                results['ok'] += 1
+            changed = _apply_translated_titles(translated, refs, target_lang, results)
+            if changed and not _write_json(path, data):
+                results['fail'] += len(pending)
+                results['errors'].append(f"{mid}: Schreibfehler")
 
-        if changed and not _write_json(path, data):
-            results['fail'] += len(pending)
-            results['errors'].append(f"{mid}: Schreibfehler")
+    if MODULES_JSON.exists():
+        data = _read_json(MODULES_JSON)
+        if data:
+            pending, refs = _collect_pending_titles(
+                _iter_modules_json_title_blocks(data), target_lang, force, results)
+            if pending:
+                log.info(f"  modules.json [{target_lang}]: {len(pending)} Titel")
+                translated = _deepseek_translate(pending, REF_LANG, target_lang, api_key)
+                if not translated or not isinstance(translated, dict):
+                    results['fail'] += len(pending)
+                    results['errors'].append("modules.json: Übersetzung fehlgeschlagen")
+                else:
+                    changed = _apply_translated_titles(translated, refs, target_lang, results)
+                    if changed and not _write_json(MODULES_JSON, data):
+                        results['fail'] += len(pending)
+                        results['errors'].append("modules.json: Schreibfehler")
 
     return results
 
@@ -476,8 +533,8 @@ def run(args) -> None:
         else:
             log.info(f"  {lang.upper()}: ✓ vollständig")
 
-    # ── Konsistenz module.json titles ─────────────────────────────────────
-    log.info("\n── Konsistenz-Prüfung module.json titles ───────────────")
+    # ── Konsistenz module.json + modules.json titles ──────────────────────
+    log.info("\n── Konsistenz-Prüfung Navigation titles ────────────────")
     module_report = check_module_titles(target_langs)
     module_issues = sum(len(v) for v in module_report.values())
     total_issues += module_issues
@@ -533,12 +590,12 @@ def run(args) -> None:
                 for err in result['errors']:
                     print(f"      • {err}")
 
-    # ── module.json titles ────────────────────────────────────────────────
+    # ── module.json + modules.json titles ─────────────────────────────────
     if module_issues > 0 or args.force or args.modules_only:
-        print("\n── module.json titles übersetzen ───────────────────────")
+        print("\n── Navigation titles übersetzen (module.json + modules.json) ─")
         mod_ok = mod_fail = 0
         for lang in target_langs:
-            log.info(f"  Starte module.json: DE → {lang.upper()}")
+            log.info(f"  Starte Navigation titles: DE → {lang.upper()}")
             mr = translate_module_titles(lang, api_key, force=args.force)
             mod_ok   += mr['ok']
             mod_fail += mr['fail']
@@ -573,6 +630,6 @@ if __name__ == '__main__':
     parser.add_argument('--force', action='store_true',
                         help='Alle Dateien neu übersetzen')
     parser.add_argument('--modules-only', action='store_true',
-                        help='Nur module.json titles übersetzen')
+                        help='Nur module.json + modules.json titles übersetzen')
     args = parser.parse_args()
     run(args)
