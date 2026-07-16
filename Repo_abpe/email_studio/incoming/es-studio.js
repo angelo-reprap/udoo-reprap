@@ -109,7 +109,6 @@ window.ESStudio = (() => {
         });
 
         if (_templateId) {
-            setTimeout(() => _loadPreview(false), 200);
             _loadVersionsBar();
         }
 
@@ -117,9 +116,13 @@ window.ESStudio = (() => {
             setTimeout(() => {
                 _syncCodeToCanvas();
                 _finalizeUndoBaseline();
+                _loadPreview(false);
             }, 0);
         } else {
             _finalizeUndoBaseline();
+            if (_templateId) {
+                setTimeout(() => _loadPreview(false), 100);
+            }
         }
 
         const subjectInput = document.getElementById('es-subject-input');
@@ -260,13 +263,9 @@ window.ESStudio = (() => {
                 return { html, txt };
             }
         }
-        if (_currentMode === 'visual' && _currentEntity === 'template') {
-            if (_canvasHasBlocks()) _syncCanvasToCode();
-        } else if (_currentMode === 'html-editor') {
-            _syncRichToCode();
-        }
+        const html = _resolveEditorHtml();
         return {
-            html: document.getElementById('es-html-editor')?.value || '',
+            html,
             txt:  document.getElementById('es-txt-editor')?.value  || '',
         };
     }
@@ -826,9 +825,25 @@ window.ESStudio = (() => {
         return !!(canvas && canvas.querySelector('.es-block'));
     }
 
+    function _canvasHasContent() {
+        const canvas = document.getElementById('es-canvas');
+        return !!(canvas && (_canvasHasBlocks() || canvas.textContent?.trim()));
+    }
+
+    /** HTML für Preview/Save — nie leer wenn es-html-source noch Inhalt hat */
+    function _resolveEditorHtml() {
+        if (_currentMode === 'visual' && _currentEntity === 'template') {
+            if (_canvasHasContent()) _syncCanvasToCode();
+        } else if (_currentMode === 'html-editor') {
+            _syncRichToCode();
+        }
+        const ta = _getHtmlSourceTextarea();
+        return ta?.value || '';
+    }
+
     function _syncAllToCode() {
         if (_currentMode === 'visual' && _currentEntity === 'template') {
-            if (_canvasHasBlocks()) _syncCanvasToCode();
+            if (_canvasHasContent()) _syncCanvasToCode();
         }
         if (_currentMode === 'html-editor') {
             _syncRichToCode();
@@ -839,7 +854,7 @@ window.ESStudio = (() => {
         const prev = _currentMode;
 
         if (prev === 'visual' && _currentEntity === 'template') {
-            if (_canvasHasBlocks()) _syncCanvasToCode();
+            if (_canvasHasContent()) _syncCanvasToCode();
         } else if (prev === 'html-editor') {
             _syncRichToCode();
         }
@@ -1590,22 +1605,20 @@ window.ESStudio = (() => {
     }
 
     function _collectPreviewPayload() {
-        _syncAllToCode();
+        const htmlVal = _resolveEditorHtml();
+        const subjectVal = document.getElementById('es-subject-input')?.value || '';
+        const txtVal     = document.getElementById('es-txt-editor')?.value  || '';
 
         const sigModeEl  = document.querySelector('input[name="es-sig-mode"]:checked');
         const sigFixedEl = document.getElementById('es-sig-fixed-select');
         const sigMode    = sigModeEl?.value || 'USER';
 
         const payload = {
-            variables:         _expandPreviewVars(
-                document.getElementById('es-html-editor')?.value || '',
-                document.getElementById('es-subject-input')?.value || '',
-                document.getElementById('es-txt-editor')?.value || ''
-            ),
+            variables:         _expandPreviewVars(htmlVal, subjectVal, txtVal),
             mode:              'both',
-            html_body:         document.getElementById('es-html-editor')?.value || '',
-            subject:           document.getElementById('es-subject-input')?.value || '',
-            text_body:         document.getElementById('es-txt-editor')?.value || '',
+            html_body:         htmlVal,
+            subject:           subjectVal,
+            text_body:         txtVal,
             signature_mode:    sigMode,
             include_signature: sigMode !== 'NONE',
         };
