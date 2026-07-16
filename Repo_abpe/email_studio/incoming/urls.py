@@ -84,6 +84,8 @@ urlpatterns = [
     # ── Module ────────────────────────────────────────────────────────────────
     path('api/modules/',
          api.ModuleListAPI.as_view(),                name='api-module-list'),
+    path('api/modules/<int:pk>/',
+         api.ModuleDetailAPI.as_view(),              name='api-module-detail'),
 
     # ── Queue ─────────────────────────────────────────────────────────────────
     path('api/queue/',

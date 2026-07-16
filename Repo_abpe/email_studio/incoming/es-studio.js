@@ -10,7 +10,13 @@ window.ESStudio = (() => {
 
     let _templateId   = null;
     let _previewTimer = null;
-    let _currentMode  = 'visual'; // visual | code | txt
+    let _currentEntity = 'template'; // template | module | signature
+    let _currentMode  = 'visual';  // visual | html-editor | code | txt
+    let _entityCache  = {
+        template:  null,
+        module:    { id: null, html: '', text: '', identifier: '', name: '' },
+        signature: { id: null, html: '', text: '', identifier: '', name: '' },
+    };
     let _undoStack    = [];
     let _redoStack    = [];
     let _undoTimer    = null;
@@ -61,6 +67,9 @@ window.ESStudio = (() => {
         _templateId = window.ES_CONFIG?.templateId || null;
 
         _initEditorTabs();
+        _initEntityTabs();
+        _initEntitySelectors();
+        _initRichEditor();
         _initVarChips();
         _initModuleChips();
         _initSave();
@@ -75,6 +84,20 @@ window.ESStudio = (() => {
         if (_currentMode === 'visual') {
             _initWysiwyg();
         }
+
+        _updateModePanels();
+
+        ['es-html-editor', 'es-txt-editor'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', () => {
+                    _schedulePreview();
+                    if (_currentMode === 'visual' && _currentEntity !== 'template') {
+                        _updateEntityVisual();
+                    }
+                });
+            }
+        });
 
         if (_templateId) {
             setTimeout(() => _loadPreview(false), 200);
@@ -97,7 +120,171 @@ window.ESStudio = (() => {
     }
 
     /* ══════════════════════════════════════════════════════
-     * EDITOR TABS (Visuell / Code / TXT)
+     * ENTITY TABS (Vorlage / Modul / Signatur)
+     * ══════════════════════════════════════════════════════ */
+    function _initEntityTabs() {
+        document.querySelectorAll('.es-entity-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const entity = this.dataset.entity;
+                if (!entity || entity === _currentEntity) return;
+                _switchEntity(entity);
+            });
+        });
+    }
+
+    function _persistEntityEditors() {
+        _syncAllToCode();
+        const html = document.getElementById('es-html-editor')?.value || '';
+        const txt  = document.getElementById('es-txt-editor')?.value   || '';
+        if (_currentEntity === 'template') {
+            _entityCache.template = { html, text: txt };
+        } else if (_currentEntity === 'module') {
+            Object.assign(_entityCache.module, { html, text: txt });
+        } else if (_currentEntity === 'signature') {
+            Object.assign(_entityCache.signature, { html, text: txt });
+        }
+    }
+
+    function _switchEntity(entity) {
+        _persistEntityEditors();
+        _currentEntity = entity;
+
+        document.querySelectorAll('.es-entity-tab').forEach(t => {
+            t.classList.toggle('active', t.dataset.entity === entity);
+        });
+
+        const ctx = document.getElementById('es-entity-context');
+        const modCtx = document.getElementById('es-entity-module-ctx');
+        const sigCtx = document.getElementById('es-entity-signature-ctx');
+        if (ctx) ctx.style.display = entity === 'template' ? 'none' : '';
+        if (modCtx) modCtx.style.display = entity === 'module' ? '' : 'none';
+        if (sigCtx) sigCtx.style.display = entity === 'signature' ? '' : 'none';
+
+        if (entity === 'template') {
+            const c = _entityCache.template;
+            if (c) {
+                const htmlEl = document.getElementById('es-html-editor');
+                const txtEl  = document.getElementById('es-txt-editor');
+                if (htmlEl) htmlEl.value = c.html;
+                if (txtEl)  txtEl.value  = c.text;
+            }
+        } else if (entity === 'module') {
+            const c = _entityCache.module;
+            if (c.id) {
+                _applyEntityToEditors(c);
+                const badge = document.getElementById('es-entity-module-id');
+                if (badge) badge.textContent = c.identifier || '';
+                const sel = document.getElementById('es-entity-module-select');
+                if (sel && c.id) sel.value = String(c.id);
+            } else {
+                _clearEditors();
+            }
+        } else if (entity === 'signature') {
+            const c = _entityCache.signature;
+            if (c.id) {
+                _applyEntityToEditors(c);
+                const badge = document.getElementById('es-entity-signature-id');
+                if (badge) badge.textContent = c.identifier || '';
+                const sel = document.getElementById('es-entity-signature-select');
+                if (sel && c.id) sel.value = String(c.id);
+            } else {
+                _clearEditors();
+            }
+        }
+
+        _updateModePanels();
+        setTimeout(_loadPreview, 100);
+    }
+
+    function _applyEntityToEditors(data) {
+        const htmlEl = document.getElementById('es-html-editor');
+        const txtEl  = document.getElementById('es-txt-editor');
+        if (htmlEl) htmlEl.value = data.html || data.html_body || '';
+        if (txtEl)  txtEl.value  = data.text || data.text_body || '';
+    }
+
+    function _clearEditors() {
+        const htmlEl = document.getElementById('es-html-editor');
+        const txtEl  = document.getElementById('es-txt-editor');
+        if (htmlEl) htmlEl.value = '';
+        if (txtEl)  txtEl.value  = '';
+    }
+
+    async function _initEntitySelectors() {
+        const modSel = document.getElementById('es-entity-module-select');
+        const sigSel = document.getElementById('es-entity-signature-select');
+
+        modSel?.addEventListener('change', async function() {
+            const id = parseInt(this.value, 10);
+            if (!id) return;
+            await _loadModuleEntity(id);
+        });
+
+        sigSel?.addEventListener('change', async function() {
+            const id = parseInt(this.value, 10);
+            if (!id) return;
+            await _loadSignatureEntity(id);
+        });
+
+        if (!modSel) return;
+        try {
+            const data = await ES.api.get(ES.apiUrl('modules/'));
+            const grouped = data.modules || {};
+            let opts = `<option value="">${t('entity_select_placeholder', '— Bitte wählen —')}</option>`;
+            for (const modules of Object.values(grouped)) {
+                for (const m of modules) {
+                    if (!m.id || m.is_virtual) continue;
+                    opts += `<option value="${m.id}">${m.name} (${m.identifier})</option>`;
+                }
+            }
+            modSel.innerHTML = opts;
+        } catch (e) {
+            console.error('Modul-Liste für Entity-Tab fehlgeschlagen:', e);
+        }
+    }
+
+    async function _loadModuleEntity(id) {
+        try {
+            const data = await ES.api.get(ES.apiUrl(`modules/${id}/`));
+            _entityCache.module = {
+                id, html: data.html_body, text: data.text_body,
+                identifier: data.identifier, name: data.name,
+            };
+            _applyEntityToEditors(_entityCache.module);
+            const badge = document.getElementById('es-entity-module-id');
+            if (badge) badge.textContent = data.identifier;
+            if (_currentEntity === 'module') {
+                _updateModePanels();
+                _loadPreview(false);
+            }
+        } catch (e) {
+            console.error('Modul laden fehlgeschlagen:', e);
+            ES.notify.error('es.error_load_module', 'Modul konnte nicht geladen werden');
+        }
+    }
+
+    async function _loadSignatureEntity(id) {
+        try {
+            const data = await ES.api.get(ES.apiUrl(`signatures/${id}/`));
+            _entityCache.signature = {
+                id, html: data.html_body, text: data.text_body,
+                identifier: data.identifier, name: data.name,
+            };
+            _applyEntityToEditors(_entityCache.signature);
+            const badge = document.getElementById('es-entity-signature-id');
+            if (badge) badge.textContent = data.identifier;
+            if (_currentEntity === 'signature') {
+                _updateModePanels();
+                _loadPreview(false);
+            }
+        } catch (e) {
+            console.error('Signatur laden fehlgeschlagen:', e);
+            ES.notify.error('es.error_load_sig', 'Signatur konnte nicht geladen werden');
+        }
+    }
+
+    /* ══════════════════════════════════════════════════════
+     * EDITOR TABS (Visual / HTML-Editor / HTML-Code / TXT)
      * ══════════════════════════════════════════════════════ */
     function _initEditorTabs() {
         document.querySelectorAll('.es-editor-tab').forEach(tab => {
@@ -109,30 +296,111 @@ window.ESStudio = (() => {
         });
     }
 
+    function _syncAllToCode() {
+        if (_currentMode === 'visual' && _currentEntity === 'template') {
+            _syncCanvasToCode();
+        }
+        if (_currentMode === 'html-editor') {
+            _syncRichToCode();
+        }
+    }
+
     function _switchMode(mode) {
         const prev = _currentMode;
+
+        if (prev === 'visual' && _currentEntity === 'template') {
+            _syncCanvasToCode();
+        } else if (prev === 'html-editor') {
+            _syncRichToCode();
+        }
+
         _currentMode = mode;
 
         document.querySelectorAll('.es-editor-tab').forEach(t => {
             t.classList.toggle('active', t.dataset.mode === mode);
         });
 
-        const visualWrap = document.getElementById('es-wysiwyg-wrap');
-        const codeWrap   = document.getElementById('es-code-wrap');
-        const txtWrap    = document.getElementById('es-txt-wrap');
-
-        if (visualWrap) visualWrap.style.display = mode === 'visual' ? '' : 'none';
-        if (codeWrap)   codeWrap.style.display   = mode === 'code'   ? '' : 'none';
-        if (txtWrap)    txtWrap.style.display     = mode === 'txt'    ? '' : 'none';
-
-        if (mode === 'visual' && prev !== 'visual') {
+        if (mode === 'visual' && _currentEntity === 'template' && prev !== 'visual') {
             _syncCodeToCanvas();
-        } else if (mode === 'code' && prev === 'visual') {
-            _syncCanvasToCode();
+        } else if (mode === 'html-editor') {
+            _syncCodeToRich();
         }
+
+        _updateModePanels();
 
         if (mode !== 'txt') {
             setTimeout(_loadPreview, 100);
+        }
+    }
+
+    function _updateModePanels() {
+        const mode   = _currentMode;
+        const entity = _currentEntity;
+
+        const visualWrap     = document.getElementById('es-wysiwyg-wrap');
+        const entityVisual   = document.getElementById('es-entity-visual-wrap');
+        const htmlEditorWrap = document.getElementById('es-html-editor-wrap');
+        const codeWrap       = document.getElementById('es-code-wrap');
+        const txtWrap        = document.getElementById('es-txt-wrap');
+
+        if (visualWrap)     visualWrap.style.display     = (mode === 'visual' && entity === 'template') ? '' : 'none';
+        if (entityVisual)   entityVisual.style.display   = (mode === 'visual' && entity !== 'template') ? '' : 'none';
+        if (htmlEditorWrap) htmlEditorWrap.style.display   = mode === 'html-editor' ? '' : 'none';
+        if (codeWrap)       codeWrap.style.display         = mode === 'code' ? '' : 'none';
+        if (txtWrap)        txtWrap.style.display          = mode === 'txt' ? '' : 'none';
+
+        if (mode === 'visual' && entity !== 'template') {
+            _updateEntityVisual();
+        }
+    }
+
+    function _updateEntityVisual() {
+        const body = document.getElementById('es-entity-visual-body');
+        if (!body) return;
+        _syncAllToCode();
+        const html = document.getElementById('es-html-editor')?.value || '';
+        body.innerHTML = html ? _applyDummyVarsLocal(html) : `<p style="color:#999;padding:20px;">${t('entity_visual_empty', 'Kein Inhalt — HTML-Code oder HTML-Editor verwenden')}</p>`;
+    }
+
+    function _syncCodeToRich() {
+        const code = document.getElementById('es-html-editor')?.value || '';
+        const rich = document.getElementById('es-rich-editor');
+        if (rich) rich.innerHTML = code;
+    }
+
+    function _syncRichToCode() {
+        const rich = document.getElementById('es-rich-editor');
+        const htmlEl = document.getElementById('es-html-editor');
+        if (rich && htmlEl) htmlEl.value = rich.innerHTML;
+    }
+
+    function _initRichEditor() {
+        document.querySelectorAll('.es-rich-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const cmd = this.dataset.cmd;
+                const rich = document.getElementById('es-rich-editor');
+                if (!rich) return;
+                rich.focus();
+                if (cmd === 'link') {
+                    const url = prompt('URL:', 'https://');
+                    if (url) document.execCommand('createLink', false, url);
+                } else if (cmd === 'color') {
+                    document.execCommand('foreColor', false, '#163258');
+                } else {
+                    document.execCommand(cmd, false, null);
+                }
+                _syncRichToCode();
+                _schedulePreview();
+            });
+        });
+
+        const rich = document.getElementById('es-rich-editor');
+        if (rich) {
+            rich.addEventListener('input', () => {
+                _syncRichToCode();
+                _schedulePreview();
+            });
         }
     }
 
@@ -504,7 +772,7 @@ window.ESStudio = (() => {
     }
 
     function _collectPreviewPayload() {
-        if (_currentMode === 'visual') _syncCanvasToCode();
+        _syncAllToCode();
 
         const sigModeEl  = document.querySelector('input[name="es-sig-mode"]:checked');
         const sigFixedEl = document.getElementById('es-sig-fixed-select');
@@ -544,8 +812,11 @@ window.ESStudio = (() => {
     }
 
     async function _loadPreview(manual = false) {
+        _syncAllToCode();
+
         const editLang = window.ES_CONFIG?.editLang || '';
         const htmlBody = document.getElementById('es-html-editor')?.value || '';
+        const txtBody  = document.getElementById('es-txt-editor')?.value || '';
         const subject  = document.getElementById('es-subject-input')?.value || '';
 
         const subjEl = document.getElementById('es-preview-subject');
@@ -554,6 +825,29 @@ window.ESStudio = (() => {
 
         if (manual && refreshBtn) refreshBtn.classList.add('es-preview-refreshing');
         if (manual && bodyEl) bodyEl.classList.add('es-preview-loading');
+
+        /* Modul / Signatur: Client-Vorschau */
+        if (_currentEntity === 'module' || _currentEntity === 'signature') {
+            if (subjEl) {
+                const label = _currentEntity === 'module'
+                    ? (_entityCache.module.name || t('entity_module', 'Modul'))
+                    : (_entityCache.signature.name || t('entity_signature', 'Signatur'));
+                subjEl.textContent = label;
+            }
+            if (_currentMode === 'txt' && txtBody) {
+                if (bodyEl) {
+                    bodyEl.innerHTML = '';
+                    bodyEl.textContent = _applyDummyVarsLocal(txtBody);
+                }
+            } else if (htmlBody) {
+                _renderInIframe(_applyDummyVarsLocal(htmlBody));
+            } else if (bodyEl) {
+                bodyEl.innerHTML = '';
+            }
+            if (manual && refreshBtn) refreshBtn.classList.remove('es-preview-refreshing');
+            if (manual && bodyEl) bodyEl.classList.remove('es-preview-loading');
+            return;
+        }
 
         if (subjEl && subject) subjEl.textContent = _applyDummyVarsLocal(subject);
 
@@ -1135,11 +1429,17 @@ window.ESStudio = (() => {
         const btn = document.getElementById('es-save-btn');
         if (!btn) return;
         btn.addEventListener('click', async function() {
+            if (_currentEntity !== 'template') {
+                ES.notify.info('es.entity_phase2_hint',
+                    t('entity_phase2_hint', 'Speichern für Modul/Signatur folgt in Phase 2'));
+                return;
+            }
+
             const isNew    = this.dataset.isNew === 'true';
             const editLang = window.ES_CONFIG?.editLang || '';
             const note     = document.getElementById('es-change-note')?.value || '';
 
-            if (_currentMode === 'visual') _syncCanvasToCode();
+            _syncAllToCode();
 
             const sigModeEl = document.querySelector('input[name="es-sig-mode"]:checked');
             const sigFixedEl = document.getElementById('es-sig-fixed-select');
@@ -1288,7 +1588,8 @@ window.ESStudio = (() => {
             ES.notify.error('es.error_save', t('error_save', 'Name und Identifier erforderlich'));
             return;
         }
-        if (_currentMode === 'visual') _syncCanvasToCode();
+        if (_currentMode === 'visual' && _currentEntity === 'template') _syncCanvasToCode();
+        if (_currentMode === 'html-editor') _syncRichToCode();
         const data = {
             identifier,
             name,

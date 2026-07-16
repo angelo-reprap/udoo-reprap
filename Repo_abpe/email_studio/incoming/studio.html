@@ -589,14 +589,60 @@
 
     <div class="section-content open" style="padding:0;display:flex;flex-direction:column;flex:1;overflow:hidden;">
 
+        {# ── Hauptreiter: Vorlage | Modul | Signatur ── #}
+        <div class="es-entity-tab-bar">
+            <div class="es-entity-tab active" data-entity="template">
+                <i class="bi bi-file-earmark-text"></i>
+                <span data-i18n="es.entity_template">Vorlage</span>
+            </div>
+            <div class="es-entity-tab" data-entity="module">
+                <i class="bi bi-puzzle"></i>
+                <span data-i18n="es.entity_module">Modul</span>
+            </div>
+            <div class="es-entity-tab" data-entity="signature">
+                <i class="bi bi-pen"></i>
+                <span data-i18n="es.entity_signature">Signatur</span>
+            </div>
+        </div>
+
+        {# ── Kontext-Leiste (Modul/Signatur-Auswahl) ── #}
+        <div id="es-entity-context" class="es-entity-context" style="display:none;">
+            <div id="es-entity-module-ctx" class="es-entity-ctx-panel" style="display:none;">
+                <label class="es-lbl" data-i18n="es.entity_module_select">Modul wählen</label>
+                <select id="es-entity-module-select" class="form-select form-select-sm">
+                    <option value="" data-i18n="es.entity_select_placeholder">— Bitte wählen —</option>
+                </select>
+                <span id="es-entity-module-id" class="es-entity-id-badge"></span>
+            </div>
+            <div id="es-entity-signature-ctx" class="es-entity-ctx-panel" style="display:none;">
+                <label class="es-lbl" data-i18n="es.entity_signature_select">Signatur wählen</label>
+                <select id="es-entity-signature-select" class="form-select form-select-sm">
+                    <option value="" data-i18n="es.entity_select_placeholder">— Bitte wählen —</option>
+                    {% for sig in signatures %}
+                    <option value="{{ sig.pk }}">{{ sig.name }} ({{ sig.identifier }})</option>
+                    {% endfor %}
+                </select>
+                <span id="es-entity-signature-id" class="es-entity-id-badge"></span>
+            </div>
+            <div id="es-entity-phase-hint" class="es-entity-phase-hint">
+                <i class="bi bi-info-circle"></i>
+                <span data-i18n="es.entity_phase2_hint">Speichern für Modul/Signatur folgt in Phase 2 — Vorschau und Bearbeitung funktionieren bereits.</span>
+            </div>
+        </div>
+
+        {# ── Submenü: Visual | HTML-Editor | HTML-Code | TXT ── #}
         <div class="es-editor-tab-bar">
             <div class="es-editor-tab active" data-mode="visual">
                 <i class="bi bi-eye"></i>
-                <span data-i18n="es.editor_tab_visual">Visuell</span>
+                <span data-i18n="es.editor_tab_visual">Visual</span>
+            </div>
+            <div class="es-editor-tab" data-mode="html-editor">
+                <i class="bi bi-pencil-square"></i>
+                <span data-i18n="es.editor_tab_html_editor">HTML-Editor</span>
             </div>
             <div class="es-editor-tab" data-mode="code">
                 <i class="bi bi-code-slash"></i>
-                <span data-i18n="es.editor_tab_code">Code</span>
+                <span data-i18n="es.editor_tab_html_code">HTML-Code</span>
             </div>
             <div class="es-editor-tab" data-mode="txt">
                 <i class="bi bi-align-left"></i>
@@ -604,6 +650,7 @@
             </div>
         </div>
 
+        {# ── Visual: Block-Canvas (nur Vorlage) ── #}
         <div id="es-wysiwyg-wrap" class="es-canvas-wrap">
             <div id="es-canvas" class="es-canvas">
 
@@ -700,6 +747,24 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        {# ── Visual: Gerenderte Ansicht (Modul / Signatur) ── #}
+        <div id="es-entity-visual-wrap" class="es-entity-visual-wrap" style="display:none;">
+            <div id="es-entity-visual-body" class="es-entity-visual-body"></div>
+        </div>
+
+        {# ── HTML-Editor (E-Mail-sicher, Phase 1 Basis) ── #}
+        <div id="es-html-editor-wrap" class="es-html-editor-wrap" style="display:none;">
+            <div class="es-rich-toolbar">
+                <button type="button" class="es-rich-btn" data-cmd="bold" title="Fett"><i class="bi bi-type-bold"></i></button>
+                <button type="button" class="es-rich-btn" data-cmd="italic" title="Kursiv"><i class="bi bi-type-italic"></i></button>
+                <button type="button" class="es-rich-btn" data-cmd="underline" title="Unterstrichen"><i class="bi bi-type-underline"></i></button>
+                <button type="button" class="es-rich-btn" data-cmd="link" title="Link"><i class="bi bi-link-45deg"></i></button>
+                <button type="button" class="es-rich-btn" data-cmd="color" title="Abcona Blau"><i class="bi bi-palette"></i></button>
+                <span class="es-rich-toolbar-hint" data-i18n="es.html_editor_hint">E-Mail-sicher: nur erlaubte Formatierungen (Phase 4 erweitert)</span>
+            </div>
+            <div id="es-rich-editor" class="es-rich-editor" contenteditable="true"></div>
         </div>
 
         <div id="es-code-wrap" class="es-code-area" style="display:none;">
