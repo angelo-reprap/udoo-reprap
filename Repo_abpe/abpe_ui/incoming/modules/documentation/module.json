@@ -6,16 +6,7 @@
         "en": "Documentation",
         "fr": "Documentation",
         "it": "Documentazione",
-        "es": "Documentación",
-        "ar": "Dokumentation",
-        "ja": "Dokumentation",
-        "ko": "Dokumentation",
-        "nl": "Dokumentation",
-        "pl": "Dokumentation",
-        "pt": "Dokumentation",
-        "ru": "Dokumentation",
-        "tr": "Dokumentation",
-        "zh": "Dokumentation"
+        "es": "Documentación"
     },
     "icon": "book",
     "route": "/documentation/",
@@ -39,16 +30,7 @@
                 "en": "Architecture",
                 "fr": "Architecture",
                 "it": "Architettura",
-                "es": "Arquitectura",
-                "ar": "Architekturdesign",
-                "ja": "Architekturdesign",
-                "ko": "Architekturdesign",
-                "nl": "Architekturdesign",
-                "pl": "Architekturdesign",
-                "pt": "Architekturdesign",
-                "ru": "Architekturdesign",
-                "tr": "Architekturdesign",
-                "zh": "Architekturdesign"
+                "es": "Arquitectura"
             },
             "route": "/documentation/architecture/",
             "template": "abpe_ui/modules/documentation/architecture.html"
@@ -61,16 +43,7 @@
                 "en": "User Manual",
                 "fr": "Manuel utilisateur",
                 "it": "Manuale utente",
-                "es": "Manual de usuario",
-                "ar": "Benutzerhandbuch",
-                "ja": "Benutzerhandbuch",
-                "ko": "Benutzerhandbuch",
-                "nl": "Benutzerhandbuch",
-                "pl": "Benutzerhandbuch",
-                "pt": "Benutzerhandbuch",
-                "ru": "Benutzerhandbuch",
-                "tr": "Benutzerhandbuch",
-                "zh": "Benutzerhandbuch"
+                "es": "Manual de usuario"
             },
             "route": "/documentation/user-manual/",
             "template": "abpe_ui/modules/documentation/user_manual.html"
@@ -83,16 +56,7 @@
                 "en": "API Reference",
                 "fr": "Référence API",
                 "it": "Riferimento API",
-                "es": "Referencia API",
-                "ar": "API Referenz",
-                "ja": "API Referenz",
-                "ko": "API Referenz",
-                "nl": "API Referenz",
-                "pl": "API Referenz",
-                "pt": "API Referenz",
-                "ru": "API Referenz",
-                "tr": "API Referenz",
-                "zh": "API Referenz"
+                "es": "Referencia API"
             },
             "route": "/documentation/api/",
             "template": "abpe_ui/modules/documentation/api_reference.html"
@@ -105,16 +69,7 @@
                 "en": "Operations Guide",
                 "fr": "Guide opérationnel",
                 "it": "Guida operativa",
-                "es": "Guía operativa",
-                "ar": "Betriebshandbuch",
-                "ja": "Betriebshandbuch",
-                "ko": "Betriebshandbuch",
-                "nl": "Betriebshandbuch",
-                "pl": "Betriebshandbuch",
-                "pt": "Betriebshandbuch",
-                "ru": "Betriebshandbuch",
-                "tr": "Betriebshandbuch",
-                "zh": "Betriebshandbuch"
+                "es": "Guía operativa"
             },
             "route": "/documentation/operations/",
             "template": "abpe_ui/modules/documentation/operations.html"
@@ -127,16 +82,7 @@
                 "en": "Create Module",
                 "fr": "Créer un module",
                 "it": "Crea modulo",
-                "es": "Crear módulo",
-                "ar": "Modul erstellen",
-                "ja": "Modul erstellen",
-                "ko": "Modul erstellen",
-                "nl": "Modul erstellen",
-                "pl": "Modul erstellen",
-                "pt": "Modul erstellen",
-                "ru": "Modul erstellen",
-                "tr": "Modul erstellen",
-                "zh": "Modul erstellen"
+                "es": "Crear módulo"
             },
             "route": "/documentation/new-module/",
             "template": "abpe_ui/modules/documentation/new_module.html"

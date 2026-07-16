@@ -6,16 +6,7 @@
         "en": "Admin Portal",
         "fr": "Portail Admin",
         "it": "Portale Admin",
-        "es": "Portal Admin",
-        "ar": "Portal Admin",
-        "ja": "Portal Admin",
-        "ko": "Portal Admin",
-        "nl": "Portal Admin",
-        "pl": "Portal Admin",
-        "pt": "Portal Admin",
-        "ru": "Portal Admin",
-        "tr": "Portal Admin",
-        "zh": "Portal Admin"
+        "es": "Portal Admin"
     },
     "icon": "shield-lock",
     "route": "/admin_portal/",
@@ -42,16 +33,7 @@
                 "en": "Users",
                 "fr": "Utilisateurs",
                 "it": "Utenti",
-                "es": "Usuarios",
-                "ar": "Benutzer",
-                "ja": "Benutzer",
-                "ko": "Benutzer",
-                "nl": "Benutzer",
-                "pl": "Benutzer",
-                "pt": "Benutzer",
-                "ru": "Benutzer",
-                "tr": "Benutzer",
-                "zh": "Benutzer"
+                "es": "Usuarios"
             },
             "route": "/admin_portal/users/",
             "template": "abpe_ui/modules/admin_portal/users.html"
@@ -64,16 +46,7 @@
                 "en": "Groups & Permissions",
                 "fr": "Groupes & Droits",
                 "it": "Gruppi & Permessi",
-                "es": "Grupos & Permisos",
-                "ar": "Gruppen & Rechte",
-                "ja": "Gruppen & Rechte",
-                "ko": "Gruppen & Rechte",
-                "nl": "Gruppen & Rechte",
-                "pl": "Gruppen & Rechte",
-                "pt": "Gruppen & Rechte",
-                "ru": "Gruppen & Rechte",
-                "tr": "Gruppen & Rechte",
-                "zh": "Gruppen & Rechte"
+                "es": "Grupos & Permisos"
             },
             "route": "/admin_portal/groups/",
             "template": "abpe_ui/modules/admin_portal/groups.html"
@@ -86,16 +59,7 @@
                 "en": "Modules",
                 "fr": "Modules",
                 "it": "Moduli",
-                "es": "Módulos",
-                "ar": "Module",
-                "ja": "Module",
-                "ko": "Module",
-                "nl": "Module",
-                "pl": "Module",
-                "pt": "Module",
-                "ru": "Module",
-                "tr": "Module",
-                "zh": "Module"
+                "es": "Módulos"
             },
             "route": "/admin_portal/modules/",
             "template": "abpe_ui/modules/admin_portal/modules.html"
@@ -108,16 +72,7 @@
                 "en": "System",
                 "fr": "Système",
                 "it": "Sistema",
-                "es": "Sistema",
-                "ar": "System",
-                "ja": "System",
-                "ko": "System",
-                "nl": "System",
-                "pl": "System",
-                "pt": "System",
-                "ru": "System",
-                "tr": "System",
-                "zh": "System"
+                "es": "Sistema"
             },
             "route": "/admin_portal/system/",
             "template": "abpe_ui/modules/admin_portal/system.html"

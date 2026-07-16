@@ -6,16 +6,7 @@
         "en": "CV Editor",
         "fr": "Éditeur CV",
         "it": "Editor CV",
-        "es": "Editor de CV",
-        "ar": "CV Editor",
-        "ja": "CV Editor",
-        "ko": "CV Editor",
-        "nl": "CV Editor",
-        "pl": "CV Editor",
-        "pt": "CV Editor",
-        "ru": "CV Editor",
-        "tr": "CV Editor",
-        "zh": "CV Editor"
+        "es": "Editor de CV"
     },
     "icon": "file-earmark-person",
     "route": "/cv_editor/",

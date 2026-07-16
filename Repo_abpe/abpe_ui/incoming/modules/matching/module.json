@@ -6,16 +6,7 @@
         "en": "Matching",
         "fr": "Matching",
         "it": "Matching",
-        "es": "Matching",
-        "ar": "Matching",
-        "ja": "Matching",
-        "ko": "Matching",
-        "nl": "Matching",
-        "pl": "Matching",
-        "pt": "Matching",
-        "ru": "Matching",
-        "tr": "Matching",
-        "zh": "Matching"
+        "es": "Matching"
     },
     "icon": "diagram-3",
     "route": "/matching/",
@@ -41,16 +32,7 @@
                 "en": "Requests",
                 "fr": "Demandes",
                 "it": "Richieste",
-                "es": "Solicitudes",
-                "ar": "Anfragen",
-                "ja": "Anfragen",
-                "ko": "Anfragen",
-                "nl": "Anfragen",
-                "pl": "Anfragen",
-                "pt": "Anfragen",
-                "ru": "Anfragen",
-                "tr": "Anfragen",
-                "zh": "Anfragen"
+                "es": "Solicitudes"
             },
             "route": "/matching/"
         },
@@ -62,16 +44,7 @@
                 "en": "Archive",
                 "fr": "Archive",
                 "it": "Archivio",
-                "es": "Archivo",
-                "ar": "Archiv",
-                "ja": "Archiv",
-                "ko": "Archiv",
-                "nl": "Archiv",
-                "pl": "Archiv",
-                "pt": "Archiv",
-                "ru": "Archiv",
-                "tr": "Archiv",
-                "zh": "Archiv"
+                "es": "Archivo"
             },
             "route": "/matching/?tab=archiv"
         }

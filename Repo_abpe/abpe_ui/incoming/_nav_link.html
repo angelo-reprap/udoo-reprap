@@ -1,9 +1,10 @@
 {% load static %}
 <a href="{{ module.route }}"
    class="nav-link {% if active == module.id %}active{% endif %}"
-   data-module="{{ module.id }}">
+   data-module="{{ module.id }}"
+   data-titles="{{ module.titles_json|default:'{}' }}">
     <i class="bi bi-{{ module.icon }}"></i>
-    <span class="nav-title" data-i18n="nav.{{ module.id }}">{{ module.title }}</span>
+    <span class="nav-title">{{ module.title }}</span>
     {% if module.badge %}
     <span class="badge bg-danger ms-1" data-badge="{{ module.badge }}">0</span>
     {% endif %}
@@ -12,9 +13,10 @@
 <div class="submenu ms-4">
     {% for subpage in module.subpages %}
     <a href="{{ subpage.route }}"
-       class="nav-link subpage-link {% if active_subpage == subpage.id %}active{% endif %}">
+       class="nav-link subpage-link {% if active_subpage == subpage.id %}active{% endif %}"
+       data-titles="{{ subpage.titles_json|default:'{}' }}">
         <i class="bi bi-arrow-right-short"></i>
-        <span class="nav-title" data-i18n="nav.{{ module.id }}.{{ subpage.id }}">{{ subpage.title }}</span>
+        <span class="nav-title">{{ subpage.title }}</span>
     </a>
     {% endfor %}
 </div>

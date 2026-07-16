@@ -6,30 +6,15 @@
         "en": "Consultant Search",
         "fr": "Recherche Conseil",
         "it": "Ricerca Consulenti",
-        "es": "Búsqueda Consultores",
-        "ar": "Beratersuche",
-        "ja": "Beratersuche",
-        "ko": "Beratersuche",
-        "nl": "Beratersuche",
-        "pl": "Beratersuche",
-        "pt": "Beratersuche",
-        "ru": "Beratersuche",
-        "tr": "Beratersuche",
-        "zh": "Beratersuche"
+        "es": "Búsqueda Consultores"
     },
     "icon": "search",
     "route": "/namazu/",
     "order": 15,
     "enabled": true,
-    "roles": [
-        "!berater"
-    ],
+    "roles": ["!berater"],
     "static": {
-        "css": [
-            "mod/mod-namazu.css"
-        ],
-        "js": [
-            "mod/mod-namazu.js"
-        ]
+        "css": ["mod/mod-namazu.css"],
+        "js":  ["mod/mod-namazu.js"]
     }
 }
