@@ -18,7 +18,27 @@ REPO="${REPO:-/mnt/public/udoo-reprap}"
 BRANCH="${BRANCH:-cursor/email-studio-undo-i18n-bf44}"
 BR="origin/${BRANCH}"
 R="Repo_abpe/email_studio/incoming"
-VENV="${VENV:-$BACKEND/venv311/bin/activate}"
+
+_activate_venv() {
+  if [[ -n "${VIRTUAL_ENV:-}" ]]; then
+    echo "venv bereits aktiv: $VIRTUAL_ENV"
+    return 0
+  fi
+  local candidates=(
+    "${VENV:-}"
+    "/opt/abpe/venv311/bin/activate"
+    "/opt/abpe/backend/venv311/bin/activate"
+  )
+  for candidate in "${candidates[@]}"; do
+    [[ -n "$candidate" && -f "$candidate" ]] || continue
+    # shellcheck disable=SC1090
+    source "$candidate"
+    echo "venv aktiviert: $candidate"
+    return 0
+  done
+  echo "WARN: kein venv gefunden — nutze aktuelles python ($(command -v python || echo '?'))"
+  return 0
+}
 
 if [[ ! -d "$REPO/.git" ]]; then
   echo "FEHLER: Git-Repo nicht gefunden unter: $REPO"
@@ -52,7 +72,7 @@ python3 "$REPO/$R/patch_email_studio_i18n.py" --backend "$BACKEND" --repo "$REPO
 
 echo "--- i18n_translator (Deepseek) ---"
 cd "$BACKEND"
-source "$VENV"
+_activate_venv
 if [[ -f apps/abpe_crm/bin/i18n_translator.py ]]; then
   python apps/abpe_crm/bin/i18n_translator.py || echo "WARN: i18n_translator fehlgeschlagen — manuell nachholen"
 else
