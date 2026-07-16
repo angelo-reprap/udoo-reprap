@@ -282,7 +282,10 @@
         "error_load_sig": "Signatur konnte nicht geladen werden",
         "modules_empty": "Keine Module gefunden",
         "btn_saveas": "Speichern unter",
-        "btn_saveas_short": "Kopie"
+        "btn_saveas_short": "Kopie",
+        "duplicate_suffix": "(Kopie)",
+        "version_prefix": "Version ",
+        "history_template_only": "Meilensteine nur für Vorlagen"
     },
     "help": {
         "title": "E-Mail-Studio — Anleitung",

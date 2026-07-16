@@ -22,6 +22,7 @@ window.ESStudio = (() => {
     let _undoStack    = [];
     let _redoStack    = [];
     let _undoTimer    = null;
+    let _lastVersionsData = { versions: [], milestones: [], activeVersion: null };
     const UNDO_MAX    = 20;
     const MILESTONE_MAX = 10;
 
@@ -97,6 +98,7 @@ window.ESStudio = (() => {
             if (el) {
                 el.addEventListener('input', () => {
                     _schedulePreview();
+                    _scheduleUndoSnapshot();
                     if (_currentMode === 'visual' && _currentEntity !== 'template') {
                         _updateEntityVisual();
                     }
@@ -110,7 +112,12 @@ window.ESStudio = (() => {
         }
 
         const subjectInput = document.getElementById('es-subject-input');
-        if (subjectInput) subjectInput.addEventListener('input', _schedulePreview);
+        if (subjectInput) {
+            subjectInput.addEventListener('input', () => {
+                _schedulePreview();
+                _scheduleUndoSnapshot();
+            });
+        }
 
         const editLang = window.ES_CONFIG?.editLang;
         if (editLang) {
@@ -119,6 +126,7 @@ window.ESStudio = (() => {
 
         document.addEventListener('languageChanged', () => {
             _applyI18nToCanvas();
+            _refreshDynamicI18n();
         });
 
         console.log('ES Studio initialisiert, Template:', _templateId);
@@ -211,6 +219,8 @@ window.ESStudio = (() => {
         _updateModePanels();
         _updateSaveButtonLabel();
         _updateEntityMetaVisibility();
+        _resetUndoStack();
+        _updateHistoryBar();
         if (!deferPreview) {
             setTimeout(_loadPreview, 100);
         }
@@ -556,7 +566,7 @@ window.ESStudio = (() => {
             return;
         }
         const payload = {
-            name: `${meta.name} (Kopie)`,
+            name: `${meta.name} ${t('duplicate_suffix', '(Kopie)')}`.trim(),
             identifier: `${meta.identifier || _slugify(meta.name)}_copy`,
             module_type: meta.module_type,
             html_body: snap.html,
@@ -587,7 +597,7 @@ window.ESStudio = (() => {
             return;
         }
         const payload = {
-            name: `${meta.name} (Kopie)`,
+            name: `${meta.name} ${t('duplicate_suffix', '(Kopie)')}`.trim(),
             identifier: `${meta.identifier || _slugify(meta.name)}_copy`,
             html_body: snap.html,
             text_body: snap.txt,
@@ -1128,6 +1138,7 @@ window.ESStudio = (() => {
         if (rich) {
             rich.addEventListener('input', () => {
                 _syncRichToCode();
+                _scheduleUndoSnapshot();
                 if (_currentEntity === 'module' || _currentEntity === 'signature') {
                     _persistEntityEditors();
                 }
@@ -1143,6 +1154,7 @@ window.ESStudio = (() => {
                     document.execCommand('insertText', false, plain);
                 }
                 _syncRichToCode();
+                _scheduleUndoSnapshot();
                 _schedulePreview();
             });
         }
@@ -1715,7 +1727,8 @@ window.ESStudio = (() => {
         }
 
         document.addEventListener('keydown', e => {
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+            const tag = e.target.tagName;
+            if (tag === 'INPUT' || tag === 'SELECT') return;
             if ((e.ctrlKey || e.metaKey) && e.key === 'z' && !e.shiftKey) {
                 e.preventDefault();
                 _undo();
@@ -1726,23 +1739,33 @@ window.ESStudio = (() => {
             }
         });
 
-        const ta = document.getElementById('es-html-editor');
-        if (ta) {
-            ta.addEventListener('input', _scheduleUndoSnapshot);
-        }
+        _resetUndoStack();
+        _updateHistoryBar();
+    }
 
-        _takeUndoSnapshot();
+    function _resetUndoStack() {
+        _undoStack = [];
+        _redoStack = [];
+        _takeUndoSnapshot(true);
     }
 
     function _scheduleUndoSnapshot() {
         clearTimeout(_undoTimer);
-        _undoTimer = setTimeout(_takeUndoSnapshot, 800);
+        _undoTimer = setTimeout(() => _takeUndoSnapshot(), 800);
     }
 
-    function _takeUndoSnapshot() {
+    function _syncBeforeCapture() {
+        if (_currentMode === 'visual' && _currentEntity === 'template') {
+            _syncCanvasToCode();
+        } else if (_currentMode === 'html-editor') {
+            _syncRichToCode();
+        }
+    }
+
+    function _takeUndoSnapshot(force) {
         const state = _captureState();
         const last  = _undoStack[_undoStack.length - 1];
-        if (last && last.html === state.html && last.subject === state.subject) return;
+        if (!force && last && _statesEqual(last, state)) return;
 
         _undoStack.push(state);
         if (_undoStack.length > UNDO_MAX) _undoStack.shift();
@@ -1750,32 +1773,59 @@ window.ESStudio = (() => {
         _updateUndoRedoBtns();
     }
 
+    function _statesEqual(a, b) {
+        return a.html === b.html
+            && a.txt === b.txt
+            && a.subject === b.subject
+            && a.mode === b.mode
+            && a.entity === b.entity
+            && a.canvasHtml === b.canvasHtml;
+    }
+
     function _captureState() {
-        const canvas  = document.getElementById('es-canvas');
-        const ta      = document.getElementById('es-html-editor');
+        _syncBeforeCapture();
         const subject = document.getElementById('es-subject-input');
+        const canvas  = document.getElementById('es-canvas');
+        const snap    = _getEditorSnapshot();
+        let canvasHtml = null;
+
+        if (_currentMode === 'visual' && _currentEntity === 'template' && canvas) {
+            canvasHtml = canvas.innerHTML;
+        }
+
         return {
-            html:    canvas ? canvas.innerHTML : (ta ? ta.value : ''),
-            subject: subject ? subject.value : '',
-            mode:    _currentMode,
+            html:       snap.html,
+            txt:        snap.txt,
+            subject:    subject ? subject.value : '',
+            mode:       _currentMode,
+            entity:     _currentEntity,
+            canvasHtml,
         };
     }
 
     function _applyState(state) {
         if (!state) return;
-        const canvas  = document.getElementById('es-canvas');
-        const ta      = document.getElementById('es-html-editor');
-        const subject = document.getElementById('es-subject-input');
 
-        if (canvas && state.mode === 'visual') {
-            canvas.innerHTML = state.html;
-            canvas.querySelectorAll('.es-block').forEach(_bindBlock);
-        } else if (ta) {
-            ta.value = state.html;
+        const subject = document.getElementById('es-subject-input');
+        const htmlEl  = document.getElementById('es-html-editor');
+        const txtEl   = document.getElementById('es-txt-editor');
+        const canvas  = document.getElementById('es-canvas');
+
+        if (subject && state.subject !== undefined) subject.value = state.subject;
+        if (htmlEl) htmlEl.value = state.html || '';
+        if (txtEl)  txtEl.value  = state.txt  || '';
+
+        if (_currentMode === 'visual' && _currentEntity === 'template' && canvas) {
+            if (state.canvasHtml) {
+                canvas.innerHTML = state.canvasHtml;
+                canvas.querySelectorAll('.es-block').forEach(_bindBlock);
+            } else {
+                _syncCodeToCanvas();
+            }
+        } else {
+            _syncEditorsFromCode();
         }
-        if (subject && state.subject !== undefined) {
-            subject.value = state.subject;
-        }
+
         _updateUndoRedoBtns();
         _schedulePreview();
     }
@@ -1799,6 +1849,20 @@ window.ESStudio = (() => {
         const redoBtn = document.getElementById('es-redo-btn');
         if (undoBtn) undoBtn.disabled = _undoStack.length <= 1;
         if (redoBtn) redoBtn.disabled = _redoStack.length === 0;
+    }
+
+    function _updateHistoryBar() {
+        const milestoneBtn = document.getElementById('es-milestone-btn');
+        const msWrap       = document.getElementById('es-milestone-input-wrap');
+        const templateOnly = _currentEntity !== 'template' || !_templateId;
+
+        if (milestoneBtn) {
+            milestoneBtn.disabled = templateOnly;
+            milestoneBtn.title = templateOnly
+                ? t('history_template_only', 'Meilensteine nur für Vorlagen')
+                : t('milestone_save', 'Stand merken');
+        }
+        if (templateOnly && msWrap) msWrap.classList.remove('show');
     }
 
     /* ══════════════════════════════════════════════════════
@@ -1847,10 +1911,22 @@ window.ESStudio = (() => {
             ES.notify.warning('es.error_save', t('error_save', 'Erst speichern'));
             return;
         }
+        if (_currentEntity !== 'template') {
+            ES.notify.warning('es.history_template_only', t('history_template_only', 'Meilensteine nur für Vorlagen'));
+            return;
+        }
+        _syncAllToCode();
+        const snap = _getEditorSnapshot();
+        const subject = document.getElementById('es-subject-input')?.value || '';
         try {
             await ES.api.post(
                 ES.apiUrl(`templates/${_templateId}/milestones/`),
-                { label }
+                {
+                    label,
+                    html_body: snap.html,
+                    text_body: snap.txt,
+                    subject,
+                }
             );
             ES.notify.success('es.milestone_saved', t('milestone_saved', 'Meilenstein gespeichert'));
             _loadVersionsBar();
@@ -1895,8 +1971,13 @@ window.ESStudio = (() => {
                 ES.api.get(ES.apiUrl(`templates/${_templateId}/milestones/`)),
             ]);
 
-            _renderVersionsList(verData.versions || [], msData.milestones || [], verData.active_version);
-            _updateVersionsBadges(verData.versions || [], msData.milestones || []);
+            _lastVersionsData = {
+                versions: verData.versions || [],
+                milestones: msData.milestones || [],
+                activeVersion: verData.active_version,
+            };
+            _renderVersionsList(_lastVersionsData.versions, _lastVersionsData.milestones, _lastVersionsData.activeVersion);
+            _updateVersionsBadges(_lastVersionsData.versions, _lastVersionsData.milestones);
         } catch(e) {
             console.warn('Versionen laden fehlgeschlagen:', e);
         }
@@ -1928,7 +2009,7 @@ window.ESStudio = (() => {
                  title="${isActive ? t('version_active', 'Aktiv') : t('versions_click_hint', 'anklicken')}">
                 <div class="es-version-num ${isActive ? 'ok' : 'old'}">${v.version}</div>
                 <div class="es-version-info">
-                    <div class="vt">${_esc(v.change_note) || 'Version ' + v.version}${isActive ? ' · ' + t('version_active','Aktiv') : ''}</div>
+                    <div class="vt">${_esc(v.change_note) || t('version_prefix', 'Version ') + v.version}${isActive ? ' · ' + t('version_active','Aktiv') : ''}</div>
                     <div class="vs">${_formatDate(v.created_at)}</div>
                 </div>
             </div>`;
@@ -1962,10 +2043,10 @@ window.ESStudio = (() => {
     }
 
     function _updateVersionsBadges(versions, milestones) {
-        const offEl = document.getElementById('es-versions-official-badge');
-        const msEl  = document.getElementById('es-versions-ms-badge');
-        if (offEl) offEl.textContent = versions.length + ' ' + t('versions_official_count', 'offiziell');
-        if (msEl)  msEl.textContent  = '📌 ' + milestones.length + ' ' + t('versions_milestone_count', 'Meilensteine');
+        const offCount = document.getElementById('es-versions-official-count');
+        const msCount  = document.getElementById('es-versions-ms-count');
+        if (offCount) offCount.textContent = versions.length;
+        if (msCount)  msCount.textContent  = milestones.length;
     }
 
     /* ══════════════════════════════════════════════════════
@@ -2005,7 +2086,7 @@ window.ESStudio = (() => {
 
         const label = type === 'milestone'
             ? item.milestone_label
-            : ('Version ' + item.version + (item.change_note ? ' — ' + item.change_note : ''));
+            : (t('version_prefix', 'Version ') + item.version + (item.change_note ? ' — ' + item.change_note : ''));
 
         if (nameEl) nameEl.textContent = (type === 'milestone' ? '📌 ' : '') + label;
         if (subEl)  subEl.textContent  = _formatDate(item.created_at);
@@ -2321,6 +2402,26 @@ window.ESStudio = (() => {
     /* ══════════════════════════════════════════════════════
      * i18n auf Canvas anwenden (bei Sprachwechsel)
      * ══════════════════════════════════════════════════════ */
+    function _refreshDynamicI18n() {
+        _updateSaveButtonLabel();
+        _updateVersionsBadges(_lastVersionsData.versions, _lastVersionsData.milestones);
+        if (_lastVersionsData.versions.length || _lastVersionsData.milestones.length) {
+            _renderVersionsList(
+                _lastVersionsData.versions,
+                _lastVersionsData.milestones,
+                _lastVersionsData.activeVersion
+            );
+        }
+        const undoBtn = document.getElementById('es-undo-btn');
+        const redoBtn = document.getElementById('es-redo-btn');
+        if (undoBtn) undoBtn.title = t('undo', 'Rückgängig') + ' (Ctrl+Z)';
+        if (redoBtn) redoBtn.title = t('redo', 'Wiederholen') + ' (Ctrl+Y)';
+        _updateHistoryBar();
+        if (_currentMode === 'visual' && _currentEntity !== 'template') {
+            _updateEntityVisual();
+        }
+    }
+
     function _applyI18nToCanvas() {
         const addBtn = document.getElementById('es-add-block-btn');
         if (addBtn) {

@@ -1610,8 +1610,10 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.es-milestone-input-wrap.show {
-    display: block;
+.es-milestone-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 /* ── Versions-Toggle-Leiste ── */

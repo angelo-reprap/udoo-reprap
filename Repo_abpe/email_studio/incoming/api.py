@@ -1177,13 +1177,17 @@ class MilestoneListCreateAPI(LoginRequiredMixin, View):
         ).order_by('-version').first()
         next_version = (last.version + 1) if last else 1
 
-        # Aktuellen Stand als Meilenstein speichern
+        # Aktuellen Stand als Meilenstein speichern (Editor-Inhalt optional aus POST)
+        html_body = data.get('html_body', tpl.html_body)
+        text_body = data.get('text_body', tpl.text_body)
+        subject   = data.get('subject', tpl.subject)
+
         ms = EmailTemplateVersion.objects.create(
             template        = tpl,
             version         = next_version,
-            subject         = tpl.subject,
-            html_body       = tpl.html_body,
-            text_body       = tpl.text_body,
+            subject         = subject,
+            html_body       = html_body,
+            text_body       = text_body,
             variables       = tpl.variables,
             sender_mode     = tpl.sender_mode,
             change_note     = label,

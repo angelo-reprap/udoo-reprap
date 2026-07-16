@@ -285,7 +285,10 @@
         "modules_empty": "No modules found",
         "btn_saveas": "Save as",
         "entity_saveas_ok": "Saved as copy",
-        "btn_saveas_short": "Copy"
+        "btn_saveas_short": "Copy",
+        "duplicate_suffix": "(Copy)",
+        "version_prefix": "Version ",
+        "history_template_only": "Milestones only for templates"
     },
     "help": {
         "title": "Email Studio — Guide",
