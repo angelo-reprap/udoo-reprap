@@ -1,0 +1,20 @@
+{
+    "id": "crm_telefon",
+    "title": "Telefonanlage",
+    "titles": {
+        "de": "Telefonanlage",
+        "en": "Phone System",
+        "fr": "Téléphonie",
+        "it": "Telefonia",
+        "es": "Telefonía"
+    },
+    "icon": "telephone",
+    "route": "/crm/telefon/",
+    "order": 35,
+    "enabled": true,
+    "roles": ["!berater"],
+    "static": {
+        "css": ["mod-crm.css"],
+        "js":  ["mod-crm.js", "mod-telefon-studio.js"]
+    }
+}

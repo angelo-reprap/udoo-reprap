@@ -1,0 +1,72 @@
+{
+    "toc": {
+        "title": "Índice de contenidos"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Resumen — El sistema de módulos"
+        },
+        {
+            "id": "struktur",
+            "number": "2",
+            "title": "Estructura de directorios"
+        },
+        {
+            "id": "module_json",
+            "number": "3",
+            "title": "El module.json"
+        },
+        {
+            "id": "template",
+            "number": "4",
+            "title": "La plantilla HTML"
+        },
+        {
+            "id": "css",
+            "number": "5",
+            "title": "CSS — Estilos"
+        },
+        {
+            "id": "javascript",
+            "number": "6",
+            "title": "JavaScript — Lógica del módulo"
+        },
+        {
+            "id": "toggle_system",
+            "number": "7",
+            "title": "El sistema de alternancia"
+        },
+        {
+            "id": "i18n",
+            "number": "8",
+            "title": "Internacionalización"
+        },
+        {
+            "id": "navigation",
+            "number": "9",
+            "title": "Navegación y barra lateral"
+        },
+        {
+            "id": "api",
+            "number": "10",
+            "title": "Puntos finales de la API"
+        },
+        {
+            "id": "checkliste",
+            "number": "11",
+            "title": "Lista de verificación y errores"
+        },
+        {
+            "id": "beispiel",
+            "number": "12",
+            "title": "Ejemplo completo"
+        },
+        {
+            "id": "anhang_a",
+            "number": "A",
+            "title": "Apéndice A — Errores comunes en la integración del portal"
+        }
+    ]
+}

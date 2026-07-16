@@ -1,0 +1,26 @@
+{
+    "id": "crm_dms",
+    "title": "Dokumente",
+    "titles": {
+        "de": "Dokumente",
+        "en": "Documents",
+        "fr": "Documents",
+        "it": "Documenti",
+        "es": "Documentos"
+    },
+    "icon": "folder",
+    "route": "/crm/dms/",
+    "order": 40,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod-edms.css"
+        ],
+        "js": [
+            "mod-edms.js"
+        ]
+    }
+}

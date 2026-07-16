@@ -11,6 +11,8 @@ let translations = window.i18nData;
 
 // Letztes aktives Modul merken
 let _currentModuleId = null;
+let _allowedLangs = null;
+let _loadChain = Promise.resolve();
 
 // Portal-Shell-Keys — dürfen von Modul-JSON (z.B. email_studio.help-Objekt) nicht überschrieben werden
 const PORTAL_SHELL_KEYS = new Set([
@@ -84,26 +86,74 @@ async function _loadModuleLanguage(lang, moduleId) {
     await loadFile(lang, `modules/${moduleId}.json`);
 }
 
-async function loadLanguage(lang, moduleId = null) {
-    console.log(`📚 Lade Sprache: ${lang}${moduleId ? ' [' + moduleId + ']' : ''}`);
-    currentLang = lang;
+async function _fetchCrmJson(lang, relPath) {
+    const url = `/static/abpe_crm/i18n/${lang}/${relPath}`;
+    try {
+        const response = await fetch(url);
+        if (response.ok) return await response.json();
+    } catch (e) {}
+    if (lang !== 'de') return _fetchCrmJson('de', relPath);
+    return null;
+}
 
-    // translations immer auf window.i18nData zeigen
+function _flattenCrmModule(data) {
+    if (!data || typeof data !== 'object' || Array.isArray(data)) return data;
+    const keys = Object.keys(data);
+    if (keys.length === 1) {
+        const inner = data[keys[0]];
+        if (inner && typeof inner === 'object' && !Array.isArray(inner)) {
+            const sample = Object.values(inner)[0];
+            if (typeof sample === 'string') return inner;
+        }
+    }
+    return data;
+}
+
+/** CRM-Texte nachladen ohne i18nData zu leeren (Compose-Seiten). */
+async function loadCrmI18nSupplement(lang, moduleId) {
+    moduleId = moduleId || 'crm_emails';
     translations = window.i18nData;
 
-    // Core-Dateien immer laden
-    await loadFile(lang, 'core-common.json');
-    await loadFile(lang, 'ui-components.json');
-    await loadFile(lang, 'help-modal.json');
+    const crm = await _fetchCrmJson(lang, 'crm.json');
+    if (crm) Object.assign(translations, crm);
 
-    // Modul-JSON laden — neu übergeben oder letztes merken
-    if (moduleId && moduleId !== 'null') _currentModuleId = moduleId;
-    if (_currentModuleId) {
-        await _loadModuleLanguage(lang, _currentModuleId);
+    const manifest = await _fetchCrmJson(lang, `modules/${moduleId}/manifest.json`);
+    if (manifest && manifest.files) {
+        for (const file of manifest.files) {
+            const mod = await _fetchCrmJson(lang, `modules/${moduleId}/${file}`);
+            if (mod) Object.assign(translations, _flattenCrmModule(mod));
+        }
+    } else {
+        const mod = await _fetchCrmJson(lang, `modules/${moduleId}.json`);
+        if (mod) Object.assign(translations, _flattenCrmModule(mod));
     }
+}
 
-    applyTranslations();
-    updateLanguageButtons();
+async function loadLanguage(lang, moduleId = null) {
+    const run = async () => {
+        console.log(`📚 Lade Sprache: ${lang}${moduleId ? ' [' + moduleId + ']' : ''}`);
+        currentLang = lang;
+
+        // translations immer auf window.i18nData zeigen
+        translations = window.i18nData;
+
+        // Core-Dateien immer laden
+        await loadFile(lang, 'core-common.json');
+        await loadFile(lang, 'ui-components.json');
+        await loadFile(lang, 'help-modal.json');
+
+        // Modul-JSON laden — neu übergeben oder letztes merken
+        if (moduleId && moduleId !== 'null') _currentModuleId = moduleId;
+        if (_currentModuleId) {
+            await _loadModuleLanguage(lang, _currentModuleId);
+        }
+
+        applyTranslations();
+        updateLanguageButtons();
+    };
+
+    _loadChain = _loadChain.then(run, run);
+    return _loadChain;
 }
 
 window.applyTranslations = function applyTranslations() {
@@ -167,11 +217,13 @@ async function setLanguage(lang) {
             .map(c => c.trim())
             .find(c => c.startsWith('csrftoken='))
             ?.split('=')[1] || '';
-        await fetch('/api/set-language/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf },
-            body: JSON.stringify({ language: lang })
-        });
+        if (!_allowedLangs || _allowedLangs.includes(lang)) {
+            await fetch('/api/set-language/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf },
+                body: JSON.stringify({ language: lang })
+            });
+        }
     } catch(e) {}
 }
 
@@ -188,6 +240,7 @@ async function initLanguageSelector() {
 
         const serverLang = data.current || currentLang;
         currentLang = serverLang;
+        _allowedLangs = (data.languages || []).map(l => l.code);
         await loadLanguage(currentLang);
 
         document.dispatchEvent(new CustomEvent('languageSelectorReady', {
@@ -207,8 +260,10 @@ async function initLanguage(lang) {
 
 window.setLanguage = setLanguage;
 window.initLanguage = initLanguage;
+window.loadLanguage = loadLanguage;
 window.applyTranslations = applyTranslations;
 window.mergeModuleI18n = _mergeModuleI18n;
+window.loadCrmI18nSupplement = loadCrmI18nSupplement;
 
 document.addEventListener('DOMContentLoaded', () => {
     initLanguageSelector();

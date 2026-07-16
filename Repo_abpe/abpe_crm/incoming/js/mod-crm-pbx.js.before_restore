@@ -1,0 +1,1980 @@
+/* ============================================================
+   ABpE CRM — mod-crm-pbx.js
+   Telefon-Cockpit (HUD, Parken, Konferenz, Queues, Anrufliste,
+   Statistik, Voicemail) — spricht die /crm/api/telefon/* Endpoints.
+   Muster wie mod-edms.js: Namespace-Objekt + t()/csrf().
+   Alle sichtbaren Texte via PBX.t('pbx_*') -> window.i18nData.
+   ============================================================ */
+
+const PBX = {
+    cfg:  {},
+    tab:  'hud',
+    ext:  '',
+    data: { extensions: [], channels: [], parked: [], confbridge: [], queues: [], voicemail: [] },
+    _pollTimer: null,
+    _tickTimer: null,
+    _call: null,          // aktiver 1:1-Ruf (Kunde-Koenig): {name, nr}
+
+    api: {
+        hud:        '/crm/api/telefon/hud/',
+        dial:       '/crm/api/telefon/dial/',
+        call:       '/crm/api/telefon/call/',
+        hangup:     '/crm/api/telefon/hangup/',
+        redirect:   '/crm/api/telefon/redirect/',
+        park:       '/crm/api/telefon/park/',
+        presence:   '/crm/api/telefon/presence/',
+        steal:      '/crm/api/telefon/steal/',
+        barge:      '/crm/api/telefon/barge/',
+        record:     '/crm/api/telefon/record/',
+        dnd:        '/crm/api/telefon/dnd/',
+        fwd:        '/crm/api/telefon/fwd/',
+        fwdSet:     '/crm/api/telefon/fwd/set/',
+        confDetail: '/crm/api/conf/detail/',
+        confMember: '/crm/api/conf/member/',
+        confLock:   '/crm/api/conf/lock/',
+        confInvite: '/crm/api/conf/invite/',
+        conference: '/crm/api/telefon/conference/',
+        pullPartner:'/crm/api/conf/pull-partner/',
+        joinSelf:   '/crm/api/conf/join-self/',
+        queues:     '/crm/api/telefon/queues/',
+        queueMember:'/crm/api/telefon/queue-member/',
+        voicemail:  '/crm/api/telefon/voicemail/',
+        vmboxes:    '/crm/api/telefon/vmboxes/',
+        stats:      '/crm/api/telefon/stats/',
+        cdr:        '/crm/api/telefon/cdr/',
+        contacts:   '/crm/api/softphone/contacts/',
+        protokoll:  '/crm/api/telefon/protokoll/',
+        notiz:      '/crm/api/telefon/notiz/',
+        blindTransfer: '/crm/api/telefon/blind-transfer/',
+        atxfer:        '/crm/api/telefon/atxfer/',
+        cancelAtxfer:  '/crm/api/telefon/cancel-atxfer/',
+        noteSave:      '/crm/api/note/save/',
+        berater:       '/crm/api/berater/',
+        kunden:        '/crm/api/kunden/',
+        searchAll:     '/edms/api/search_all/',
+    },
+
+    /* ---- Helfer ---- */
+    t(key, fb) { return (window.i18nData && window.i18nData[key]) || fb || key; },
+    csrf() { return (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || ''; },
+    esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); },
+    fmtDur(sec) { sec = parseInt(sec || 0, 10); const m = Math.floor(sec / 60), s = sec % 60; return m + ':' + String(s).padStart(2, '0'); },
+    $(id) { return document.getElementById(id); },
+
+    async get(url) {
+        const r = await fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+        return r.json();
+    },
+    async post(url, body) {
+        const r = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': this.csrf(), 'X-Requested-With': 'XMLHttpRequest' },
+            body: JSON.stringify(body || {}),
+        });
+        return r.json();
+    },
+
+    toast(msg) {
+        let t = this.$('pbx-toast');
+        if (!t) { t = document.createElement('div'); t.id = 'pbx-toast'; t.className = 'pbx-toast'; document.body.appendChild(t); }
+        t.innerHTML = msg;
+        t.classList.add('show');
+        clearTimeout(this._toastT);
+        this._toastT = setTimeout(() => t.classList.remove('show'), 2200);
+    },
+
+    /* ---- Init ---- */
+    init() {
+        this.cfg = window.PBX_CONFIG || {};
+        this.ext = this.cfg.extension || '12';
+        this.bindTabs();
+        this.bindDial();
+        const de = this.$('pbx-dial-ext'); if (de) de.value = this.ext;
+        this.poll();                          // sofort
+        this._pollTimer = setInterval(() => this.poll(), 4000);
+        this._tickTimer = setInterval(() => this.tick(), 1000);
+        if (window.applyTranslations) window.applyTranslations();
+    },
+
+    bindTabs() {
+        document.querySelectorAll('#pbx-root .pbx-tabbtn').forEach(btn => {
+            btn.addEventListener('click', () => this.showTab(btn.getAttribute('data-tab'), btn));
+        });
+    },
+
+    showTab(tab, btn) {
+        this.tab = tab;
+        document.querySelectorAll('#pbx-root .pbx-tabbtn').forEach(b => b.classList.remove('pbx-tab-active'));
+        if (btn) btn.classList.add('pbx-tab-active');
+        document.querySelectorAll('#pbx-root .pbx-panel').forEach(p => p.style.display = 'none');
+        const panel = this.$('pbx-panel-' + tab);
+        if (panel) panel.style.display = '';
+        if (tab === 'cdr') this.loadCdr();
+        if (tab === 'stats') this.loadStats();
+        if (tab === 'vm') this.loadVm();
+    },
+
+    /* ---- Polling ---- */
+    async poll() {
+        try {
+            const res = await this.get(this.api.hud);
+            if (res && res.success) {
+                this.data = res.data;
+                this.renderHud();
+                this.renderPark();
+                this.renderKonf();
+                this.renderQueues();
+                this.updateCount();
+            }
+        } catch (e) { /* still */ }
+    },
+
+    updateCount() {
+        const busy = (this.data.channels || []).length;
+        const el = this.$('pbx-call-count');
+        if (el) el.textContent = busy + ' ' + this.t('pbx_active_calls', 'aktiv');
+    },
+
+    tick() {
+        // laufende Dauer-Anzeigen hochzaehlen (Kacheln, Park-Countdown)
+        document.querySelectorAll('#pbx-root [data-tick]').forEach(el => {
+            let v = parseInt(el.getAttribute('data-tick') || '0', 10) + 1;
+            el.setAttribute('data-tick', v);
+            el.textContent = this.fmtDur(v);
+        });
+        document.querySelectorAll('#pbx-root [data-countdown]').forEach(el => {
+            let v = parseInt(el.getAttribute('data-countdown') || '0', 10) - 1;
+            if (v < 0) v = 0;
+            el.setAttribute('data-countdown', v);
+            el.textContent = this.fmtDur(v);
+            if (v <= 10) el.classList.add('pbx-urgent');
+        });
+    },
+
+    /* ======================= HUD ======================= */
+    renderHud() {
+        this._renderCallStrip();
+        this._fillDialExt();
+        // Nebenstellen-Grid
+        const grid = this.$('pbx-extgrid');
+        if (grid) {
+            const exts = this.data.extensions || [];
+            const chBy = {};
+            (this.data.channels || []).forEach(c => { if (c.extension) chBy[c.extension] = c; });
+            grid.innerHTML = exts.map(e => this._extCard(e, chBy[e.ext])).join('') ||
+                '<div class="pbx-empty" data-i18n="pbx_no_ext">' + this.t('pbx_no_ext', 'Keine Nebenstellen') + '</div>';
+        }
+    },
+
+    _callKey(ch) { return String(ch == null ? '' : ch).replace(/[^a-zA-Z0-9]/g, '_'); },
+    _initials(name) {
+        const p = String(name || '').trim().split(/\s+/).filter(Boolean);
+        if (!p.length) return '?';
+        return (p[0][0] + (p.length > 1 ? p[p.length - 1][0] : '')).toUpperCase();
+    },
+
+    /* ---- Kontakt-Cache (1x beim ersten aktiven Call, wie Softphone) ---- */
+    async loadContactsCache() {
+        if (this._contactsLoaded || this._contactsLoading) return;
+        this._contactsLoading = true;
+        this._setContactsHint(true);
+        try {
+            const res = await this.get(this.api.contacts);
+            this._contacts = res.contacts || [];
+            this._extmap   = res.pbx_extensions || {};
+            this._contactsLoaded = true;
+        } catch (e) { /* Matching greift, sobald Cache da ist */ }
+        this._contactsLoading = false;
+        this._setContactsHint(false);
+        this._resolveAllCards();
+        this._fillDialExt();
+    },
+    _setContactsHint(on) {
+        document.querySelectorAll('.pbx-ac-contact').forEach(box => {
+            if (box.dataset.state === 'set') return;
+            const cn = box.querySelector('.pbx-ac-cn');
+            if (cn) cn.textContent = on
+                ? this.t('pbx_load_contacts', 'Kontakte werden geladen…')
+                : this.t('pbx_no_contact', 'Kein Kontakt – über „ändern" suchen');
+        });
+    },
+    _resolveAllCards() {
+        (this.data.channels || []).forEach(c => this.ccResolveAuto(c.channel, c.callerid || c.connectednum || ''));
+    },
+    /* Normierung wie normalize_phone_nr.py / phone-normalize.js (00-Format) */
+    _normNr(x) {
+        let d = String(x == null ? '' : x).replace(/\D/g, '');
+        if (!d) return '';
+        if (d.startsWith('00')) return d;
+        if (d.startsWith('0'))  return '0049' + d.slice(1);
+        if (d.startsWith('49') && d.length > 10) return '00' + d;
+        return d;
+    },
+    /* Gegenstellen-Nummer je Richtung; interne Nst (<=4 Ziffern) -> '' */
+    _peerNr(c) {
+        const ch = String(c.channel || '');
+        const bridge = String(c.bridge_channel || '');
+        // ausgehend: gebridgter Kanal ist ein Trunk (…-out-…) / app Dial -> Gegenstelle = connectednum
+        const outgoing = /-out-/i.test(bridge) || /trunk|easysip/i.test(bridge);
+        let nr = outgoing ? (c.connectednum || c.callerid) : (c.callerid || c.connectednum);
+        nr = String(nr || '');
+        const d = nr.replace(/\D/g, '');
+        if (d.length <= 4) return '';   // interne Nst -> kein Auto-Match
+        return nr;
+    },
+    _findContact(number) {
+        if (!number || !this._contacts || !this._contacts.length) return null;
+        const t = this._normNr(number);
+        if (!t || t.length <= 4) return null;
+        return this._contacts.find(c => (c.phones || []).some(p =>
+            this._normNr(p.number || p.raw) === t
+        )) || null;
+    },
+
+    /* ---- Aktive-Gespraeche-Strip (Signatur-Guard: Eingaben bleiben) ---- */
+    _renderCallStrip() {
+        const strip = this.$('pbx-callstrip');
+        if (!strip) return;
+        this.loadContactsCache();
+        const chans = this.data.channels || [];
+        const sig = chans.map(c => c.channel).join('|');
+        if (sig === this._callSig) return;
+        this._callSig = sig;
+        if (!chans.length) {
+            strip.innerHTML = '<div class="pbx-empty" data-i18n="pbx_no_calls">' + this.t('pbx_no_calls', 'Keine aktiven Gespräche') + '</div>';
+            return;
+        }
+        strip.innerHTML = chans.map(c => this._callCard(c)).join('');
+        this._resolveAllCards();
+    },
+
+    _callCard(c) {
+        const who     = this.esc(c.calleridname || c.callerid || c.connectednum || c.extension || '—');
+        const nr      = this.esc(c.callerid || c.connectednum || '');
+        const partner = c.bridge_channel ? this.esc(c.connectedname || c.connectednum || '') : '';
+        const dur     = (String(c.duration || '0:0:0')).split(':').reduce((a, b) => a * 60 + (+b), 0) || 0;
+        const key     = this._callKey(c.channel);
+        const ch      = this.esc(c.channel);
+        const ext     = this.esc(c.extension);
+        const rec     = this._recOn && this._recOn.has(c.channel);
+        const ib = (icon, cls, title, onclick) =>
+            `<button class="pbx-ac-btn ${cls}" title="${title}" aria-label="${title}" onclick="${onclick}"><i class="bi ${icon}"></i></button>`;
+        return `<div class="pbx-ac pbx-st-busy" data-cc="${key}" data-ch="${ch}" data-ext="${ext}" data-nr="${nr}" data-scope="all">
+            <div class="pbx-ac-head">
+                <span class="pbx-ac-dot"></span>
+                <div class="pbx-ac-id">
+                    <div class="pbx-ac-nm">${who}${partner ? ' <i class="bi bi-arrow-right pbx-ac-arr"></i> ' + partner : ''}</div>
+                    <div class="pbx-ac-sub">${nr ? nr + ' · ' : ''}${ch}</div>
+                </div>
+                <div class="pbx-ac-r">
+                    <div class="pbx-ac-dur" data-tick="${dur}">${this.fmtDur(dur)}</div>
+                    <div class="pbx-ac-owner"></div>
+                </div>
+            </div>
+            <div class="pbx-ac-bar">
+                ${ib('bi-telephone-x', 'danger', this.t('pbx_hangup', 'Auflegen'), "PBX.doHangup('" + ch + "')")}
+                ${ib('bi-pause-fill', '', this.t('pbx_park', 'Parken'), "PBX.doPark('" + ext + "')")}
+                ${ib('bi-arrow-right-circle', '', this.t('pbx_blind', 'Blind-Transfer'), "PBX.ccXfer(this,'blind')")}
+                ${ib('bi-people', '', this.t('pbx_atxfer', 'Rücksprache'), "PBX.ccXfer(this,'att')")}
+                ${ib('bi-collection', '', this.t('pbx_to_conf', 'In Konferenz legen'), "PBX.pullToConf('" + ext + "')")}
+                ${ib(rec ? 'bi-record-circle-fill' : 'bi-record-circle', rec ? 'danger pbx-ac-rec' : 'pbx-ac-rec', this.t('pbx_record', 'Aufnahme'), "PBX.ccRecord(this,'" + ch + "')")}
+                ${ib('bi-telephone-plus', '', this.t('pbx_second_call', 'Zweitanruf'), "PBX.ccXfer(this,'second')")}
+                <span class="pbx-ac-sp"></span>
+                <button class="pbx-ac-note-tgl" onclick="PBX.toggleNote(this)"><i class="bi bi-journal-text"></i> ${this.t('pbx_note', 'Notiz')} <i class="bi bi-chevron-down"></i></button>
+            </div>
+            <div class="pbx-ac-xfer"></div>
+            <div class="pbx-ac-note" style="display:none">
+                <div class="pbx-ac-contact" data-state="" data-crm="" data-kind="">
+                    <i class="bi bi-person-dash pbx-ac-cicon"></i>
+                    <div class="pbx-ac-ci">
+                        <div class="pbx-ac-cn">${this.t('pbx_resolving', 'suche Kontakt…')}</div>
+                        <div class="pbx-ac-ct">${nr}</div>
+                    </div>
+                    <button class="pbx-ac-link" onclick="PBX.ccNoteSearch(this)"><i class="bi bi-pencil"></i> ${this.t('pbx_change', 'ändern')}</button>
+                </div>
+                <div class="pbx-ac-search">
+                    <div class="pbx-ac-scope">
+                        <button class="on" data-sc="all" onclick="PBX.ccSetScope(this,'all')">${this.t('pbx_scope_all', 'Alle')}</button>
+                        <button data-sc="person" onclick="PBX.ccSetScope(this,'person')">${this.t('pbx_scope_person', 'Personen')}</button>
+                        <button data-sc="firma" onclick="PBX.ccSetScope(this,'firma')">${this.t('pbx_scope_firma', 'Firmen')}</button>
+                        <button data-sc="ext" onclick="PBX.ccSetScope(this,'ext')">${this.t('pbx_scope_ext', 'Nst/Owner')}</button>
+                    </div>
+                    <div class="pbx-ac-searchin"><i class="bi bi-search"></i><input placeholder="${this.t('pbx_search_contact', 'Name, Firma oder Nummer…')}" oninput="PBX.ccSearch(this)"></div>
+                    <div class="pbx-ac-results"></div>
+                </div>
+                <label class="pbx-ac-lbl">${this.t('pbx_note_in', 'Stichpunkte (Eingabe)')}</label>
+                <textarea class="pbx-ac-in" rows="3" placeholder="${this.t('pbx_note_ph', '- interesse projekt ab august\n- tagessatz 95 ok')}"></textarea>
+                <div class="pbx-ac-dsrow">
+                    <button class="pbx-ac-ds" onclick="PBX.ccDeepseek(this)"><i class="bi bi-stars"></i> ${this.t('pbx_deepseek', 'DeepSeek formulieren')} <i class="bi bi-arrow-down"></i></button>
+                </div>
+                <div class="pbx-ac-outhd">
+                    <label class="pbx-ac-lbl">${this.t('pbx_note_out', 'DeepSeek-Ausgabe (editierbar)')}</label>
+                    <span>
+                        <button class="pbx-ac-mini" title="${this.t('pbx_copy_up', 'nach oben kopieren')}" onclick="PBX.ccCopyUp(this)"><i class="bi bi-arrow-up"></i> ${this.t('pbx_up', 'nach oben')}</button>
+                        <button class="pbx-ac-mini" title="${this.t('pbx_regen', 'neu generieren')}" onclick="PBX.ccDeepseek(this)"><i class="bi bi-arrow-repeat"></i> ${this.t('pbx_new', 'neu')}</button>
+                    </span>
+                </div>
+                <textarea class="pbx-ac-out" rows="4" placeholder="${this.t('pbx_out_ph', 'Formulierte Notiz erscheint hier – editierbar, bis sie passt …')}"></textarea>
+                <div class="pbx-ac-targets">
+                    <span class="pbx-ac-tlbl">${this.t('pbx_save_to', 'Speichern an')}:</span>
+                    <button class="pbx-ac-chip" data-target="contact" data-on="0" onclick="PBX.ccToggleTarget(this)"><i class="bi bi-person"></i> ${this.t('pbx_person', 'Kontakt')}</button>
+                    <button class="pbx-ac-chip" data-target="company" data-on="0" onclick="PBX.ccToggleTarget(this)"><i class="bi bi-building"></i> ${this.t('pbx_firma', 'Firma')}</button>
+                    <span class="pbx-ac-type">
+                        <select class="pbx-ac-nt">
+                            <option value="phone">${this.t('pbx_note_phone', 'Telefonnotiz')}</option>
+                            <option value="general">${this.t('pbx_note_generic', 'Notiz')}</option>
+                            <option value="meeting">${this.t('pbx_note_meeting', 'Besprechung')}</option>
+                        </select>
+                    </span>
+                    <button class="pbx-ac-save" onclick="PBX.ccSaveNote(this)"><i class="bi bi-check-lg"></i> ${this.t('pbx_save', 'Speichern')}</button>
+                </div>
+            </div>
+        </div>`;
+    },
+
+    toggleNote(btn) {
+        const card = btn.closest('.pbx-ac');
+        const box = card.querySelector('.pbx-ac-note');
+        const open = box.style.display === 'none';
+        box.style.display = open ? 'block' : 'none';
+        btn.classList.toggle('on', open);
+        const ch = btn.querySelector('.bi-chevron-down, .bi-chevron-up');
+        if (ch) ch.className = open ? 'bi bi-chevron-up' : 'bi bi-chevron-down';
+    },
+
+    /* ---- Auto-Match Anrufer-Nr -> Kontakt (aus Cache) ---- */
+    ccResolveAuto(channel, nr) {
+        const card = document.querySelector('.pbx-ac[data-cc="' + this._callKey(channel) + '"]');
+        if (!card) return;
+        const ownerEl = card.querySelector('.pbx-ac-owner');
+        const owner = this._extmap && this._extmap[card.dataset.ext];
+        if (ownerEl) ownerEl.textContent = owner ? (this.t('pbx_owner', 'Owner') + ': ' + owner) : '';
+        const box = card.querySelector('.pbx-ac-contact');
+        if (!box || box.dataset.state === 'set') return;
+        const chan = (this.data.channels || []).find(c => c.channel === channel);
+        const peer = chan ? this._peerNr(chan) : nr;
+        const ctEl = box.querySelector('.pbx-ac-ct');
+        if (ctEl && peer) ctEl.textContent = peer;   // "erkannt aus <Gegenstelle>"
+        const hit = this._findContact(peer);
+        if (hit) {
+            this._ccAssign(card, { crm_id: hit.id || hit.crm_id, name: hit.full_name || hit.name, kind: 'person' }, 'auto');
+        } else if (this._contactsLoaded) {
+            const cn = box.querySelector('.pbx-ac-cn');
+            if (cn) cn.textContent = this.t('pbx_no_contact', 'Kein Kontakt – über „ändern" suchen');
+        }
+    },
+    _ccAssign(card, obj, mode) {
+        const box = card.querySelector('.pbx-ac-contact');
+        const isAcc = obj.kind === 'firma';
+        box.dataset.state = 'set';
+        box.dataset.crm = obj.crm_id || '';
+        box.dataset.kind = obj.kind || 'person';
+        if (isAcc) card.dataset.accountCrm = obj.crm_id || '';
+        else       card.dataset.contactCrm = obj.crm_id || '';
+        box.querySelector('.pbx-ac-cn').innerHTML = this.esc(obj.name || '—') +
+            ' <span class="pbx-ac-badge' + (isAcc ? ' acc' : '') + '">' +
+            (isAcc ? this.t('pbx_firma', 'Firma') : this.t('pbx_person', 'Kontakt')) + '</span>';
+        box.querySelector('.pbx-ac-ct').textContent = (mode === 'auto')
+            ? this.t('pbx_auto', 'automatisch erkannt') : this.t('pbx_manual', 'manuell gewählt');
+        const ic = box.querySelector('.pbx-ac-cicon'); if (ic) ic.className = 'bi bi-person-check-fill pbx-ac-cicon';
+        const chip = card.querySelector('.pbx-ac-chip[data-target="' + (isAcc ? 'company' : 'contact') + '"]');
+        if (chip) { chip.dataset.on = '1'; chip.classList.add('on'); }
+        if (mode !== 'auto') this.toast(this.t('pbx_assigned', 'Zugeordnet') + ': ' + (obj.name || ''));
+    },
+
+    /* ---- "ändern"-Suche: Cache-first + Fallback (wie Softphone) ---- */
+    ccNoteSearch(btn) {
+        const card = btn.closest('.pbx-ac');
+        const s = card.querySelector('.pbx-ac-search');
+        const on = !s.classList.contains('show');
+        s.classList.toggle('show', on);
+        if (on) { const i = s.querySelector('input'); if (i) setTimeout(() => i.focus(), 40); }
+    },
+    ccSetScope(btn, scope) {
+        const card = btn.closest('.pbx-ac');
+        card.dataset.scope = scope;
+        card.querySelectorAll('.pbx-ac-scope button').forEach(b => b.classList.toggle('on', b.dataset.sc === scope));
+        const inp = card.querySelector('.pbx-ac-searchin input');
+        if (inp && inp.value.trim().length >= 2) this.ccSearch(inp);
+    },
+    ccSearch(inp) {
+        const card = inp.closest('.pbx-ac');
+        const box = card.querySelector('.pbx-ac-results');
+        const q = (inp.value || '').trim();
+        const scope = card.dataset.scope || 'all';
+        clearTimeout(this._ccTimer);
+        if (q.length < 2) { box.innerHTML = ''; box.style.display = 'none'; return; }
+        box.innerHTML = '<div class="pbx-ac-hit muted">' + this.t('pbx_searching', 'suche…') + '</div>';
+        box.style.display = 'block';
+        this._ccTimer = setTimeout(async () => {
+            let out = [];
+            const esScopes = [];
+            if (scope === 'all' || scope === 'person') esScopes.push(['personen', 'person']);
+            if (scope === 'all' || scope === 'firma') esScopes.push(['firmen', 'firma']);
+            for (const sk of esScopes) {
+                try {
+                    const r = await this.get(this.api.searchAll + '?q=' + encodeURIComponent(q) + '&scope=' + sk[0] + '&size=10');
+                    (r.results || []).forEach(h => out.push({ crm_id: h.id, name: h.title, sub: h.meta || h.company || '', kind: sk[1] }));
+                } catch (e) { /* ignore */ }
+            }
+            if (scope === 'all' || scope === 'ext') {
+                const ql = q.toLowerCase();
+                Object.keys(this._extmap || {}).forEach(ext => {
+                    const nm = this._extmap[ext];
+                    if (ext.indexOf(q) !== -1 || String(nm || '').toLowerCase().indexOf(ql) !== -1)
+                        out.push({ crm_id: '', name: 'Nst ' + ext + ' · ' + nm, sub: this.t('pbx_owner', 'Owner'), kind: 'ext' });
+                });
+            }
+            this._ccResults = this._ccResults || {};
+            const key = card.dataset.cc;
+            this._ccResults[key] = out.slice(0, 20);
+            this._ccRenderResults(card, this._ccResults[key]);
+        }, 150);
+    },
+    _ccRenderResults(card, list) {
+        const box = card.querySelector('.pbx-ac-results');
+        if (!list.length) { box.innerHTML = '<div class="pbx-ac-hit muted">' + this.t('pbx_no_hits', 'keine Treffer') + '</div>'; box.style.display = 'block'; return; }
+        const icon = k => k === 'firma' ? 'bi-building' : (k === 'ext' ? 'bi-telephone-inbound' : 'bi-person');
+        const badge = k => k === 'firma' ? this.t('pbx_firma', 'Firma') : (k === 'ext' ? this.t('pbx_owner', 'Owner') : this.t('pbx_person', 'Kontakt'));
+        box.innerHTML = list.map((h, i) =>
+            `<div class="pbx-ac-hit" onclick="PBX.ccPick(this,${i})">
+                <i class="bi ${icon(h.kind)}"></i>
+                <div class="pbx-ac-hi"><div class="pbx-ac-hn">${this.esc(h.name)}</div><div class="pbx-ac-hs">${this.esc(h.sub || '')}</div></div>
+                <span class="pbx-ac-badge${h.kind === 'firma' ? ' acc' : ''}">${badge(h.kind)}</span>
+            </div>`).join('');
+        box.style.display = 'block';
+    },
+    ccPick(hit, idx) {
+        const card = hit.closest('.pbx-ac');
+        const list = (this._ccResults || {})[card.dataset.cc] || [];
+        const obj = list[idx];
+        if (!obj) return;
+        if (obj.kind === 'ext' || !obj.crm_id) { this.toast(this.t('pbx_ext_nocrm', 'Nst/Owner hat keinen CRM-Kontakt zum Speichern')); return; }
+        this._ccAssign(card, obj, 'manual');
+        card.querySelector('.pbx-ac-search').classList.remove('show');
+        card.querySelector('.pbx-ac-results').style.display = 'none';
+    },
+    ccToggleTarget(chip) {
+        const on = chip.dataset.on !== '1';
+        chip.dataset.on = on ? '1' : '0';
+        chip.classList.toggle('on', on);
+    },
+
+    /* ---- DeepSeek: Eingabe -> Ausgabe (2 Textareas) ---- */
+    async ccDeepseek(btn) {
+        const card = btn.closest('.pbx-ac');
+        const src = card.querySelector('.pbx-ac-in');
+        const dst = card.querySelector('.pbx-ac-out');
+        const note = (src.value || '').trim();
+        if (!note) { this.toast(this.t('pbx_note_empty', 'Erst Stichpunkte eingeben')); return; }
+        const old = btn.innerHTML; btn.innerHTML = '<i class="bi bi-hourglass-split"></i> …';
+        try {
+            const res = await this.post(this.api.notiz, { note });
+            if (res.success && res.text) dst.value = res.text;
+            else this.toast(res.error || this.t('pbx_ds_fail', 'DeepSeek fehlgeschlagen'));
+        } catch (e) { this.toast(this.t('pbx_ds_fail', 'DeepSeek fehlgeschlagen')); }
+        btn.innerHTML = old;
+    },
+    ccCopyUp(btn) {
+        const card = btn.closest('.pbx-ac');
+        const src = card.querySelector('.pbx-ac-in');
+        const dst = card.querySelector('.pbx-ac-out');
+        if (dst.value.trim()) { src.value = dst.value; this.toast(this.t('pbx_copied_up', 'in Eingabe übernommen')); }
+    },
+    async ccSaveNote(btn) {
+        const card = btn.closest('.pbx-ac');
+        const out = card.querySelector('.pbx-ac-out').value.trim();
+        const inp = card.querySelector('.pbx-ac-in').value.trim();
+        const text = out || inp;
+        if (!text) { this.toast(this.t('pbx_note_empty', 'Notiz ist leer')); return; }
+        const type = card.querySelector('.pbx-ac-nt').value || 'phone';
+        const jobs = [];
+        card.querySelectorAll('.pbx-ac-chip[data-on="1"]').forEach(chip => {
+            const t = chip.dataset.target;
+            if (t === 'contact' && card.dataset.contactCrm) jobs.push({ note_text: text, note_type: type, contact_crm_id: card.dataset.contactCrm });
+            else if (t === 'company' && card.dataset.accountCrm) jobs.push({ note_text: text, note_type: type, account_crm_id: card.dataset.accountCrm });
+        });
+        if (!jobs.length) { this.toast(this.t('pbx_no_target', 'Kein Ziel gewählt – Kontakt/Firma zuordnen')); return; }
+        let ok = 0;
+        for (const body of jobs) {
+            try { const r = await this.post(this.api.noteSave, body); if (r && (r.ok || r.success)) ok++; } catch (e) { /* ignore */ }
+        }
+        if (ok) this.toast(this.t('pbx_note_saved', 'Notiz gespeichert') + ' (' + ok + '×)');
+        else this.toast(this.t('pbx_note_fail', 'Speichern fehlgeschlagen'));
+    },
+
+    /* ---- Transfer / Zweitanruf (inline) ---- */
+    ccXfer(btn, mode) {
+        const card = btn.closest('.pbx-ac');
+        const box = card.querySelector('.pbx-ac-xfer');
+        const ch = card.dataset.ch;
+        box.dataset.ch = ch;
+        const labels = {
+            blind:  this.t('pbx_blind_hint', 'Blind-Transfer — Ziel sofort verbinden'),
+            att:    this.t('pbx_att_hint', 'Rücksprache — erst anklingeln, dann verbinden'),
+            second: this.t('pbx_second_hint', 'Zweitanruf — Nummer oder Nebenstelle wählen')
+        };
+        let row = '';
+        if (mode === 'blind') row = '<button class="pbx-ac-xbtn go" onclick="PBX.doBlind(this)"><i class="bi bi-arrow-right-circle"></i> ' + this.t('pbx_connect', 'Verbinden') + '</button>';
+        else if (mode === 'att') row = '<button class="pbx-ac-xbtn go" onclick="PBX.doAtxfer(this)"><i class="bi bi-telephone"></i> ' + this.t('pbx_consult', 'Rücksprache') + '</button><button class="pbx-ac-xbtn danger" onclick="PBX.cancelAtxfer(this)"><i class="bi bi-x-lg"></i> ' + this.t('pbx_cancel', 'Abbrechen') + '</button>';
+        else row = '<button class="pbx-ac-xbtn go" onclick="PBX.secondCall(this)"><i class="bi bi-telephone-plus"></i> ' + this.t('pbx_call', 'Anrufen') + '</button>';
+        box.innerHTML = '<label>' + labels[mode] + '</label><input class="pbx-ac-xin" placeholder="' + this.t('pbx_target_ph', 'Nst oder Nummer, z.B. 22') + '"><div class="pbx-ac-xrow">' + row + '<button class="pbx-ac-xbtn" onclick="PBX.ccXferClose(this)">' + this.t('pbx_close', 'Zu') + '</button></div>';
+        box.classList.add('show');
+        const i = box.querySelector('.pbx-ac-xin'); if (i) i.focus();
+    },
+    ccXferClose(btn) { const b = btn.closest('.pbx-ac-xfer'); b.classList.remove('show'); b.innerHTML = ''; },
+    async doBlind(btn) {
+        const box = btn.closest('.pbx-ac-xfer'), exten = (box.querySelector('.pbx-ac-xin').value || '').trim();
+        if (!exten) { this.toast(this.t('pbx_target_req', 'Ziel eingeben')); return; }
+        const res = await this.post(this.api.blindTransfer, { channel: box.dataset.ch, exten });
+        this.toast(res.success ? this.t('pbx_transferred', 'Verbunden — du bist raus') : (res.error || 'Fehler'));
+        this.ccXferClose(btn); this.poll();
+    },
+    async doAtxfer(btn) {
+        const box = btn.closest('.pbx-ac-xfer'), exten = (box.querySelector('.pbx-ac-xin').value || '').trim();
+        if (!exten) { this.toast(this.t('pbx_target_req', 'Ziel eingeben')); return; }
+        const res = await this.post(this.api.atxfer, { channel: box.dataset.ch, exten });
+        this.toast(res.success ? this.t('pbx_consulting', 'Rücksprache läuft…') : (res.error || 'Fehler'));
+    },
+    async cancelAtxfer(btn) {
+        const box = btn.closest('.pbx-ac-xfer');
+        const res = await this.post(this.api.cancelAtxfer, { channel: box.dataset.ch });
+        this.toast(res.success ? this.t('pbx_atxfer_cancelled', 'Rücksprache abgebrochen') : (res.error || 'Fehler'));
+        this.ccXferClose(btn); this.poll();
+    },
+    async secondCall(btn) {
+        const box = btn.closest('.pbx-ac-xfer'), target = (box.querySelector('.pbx-ac-xin').value || '').trim();
+        if (!target) { this.toast(this.t('pbx_target_req', 'Ziel eingeben')); return; }
+        const res = await this.post(this.api.dial, { desk: this.ext, target });
+        this.toast(res.success ? this.t('pbx_ringing', 'Tischtelefon klingelt') + ' → ' + this.esc(target) : (res.error || 'Fehler'));
+        this.ccXferClose(btn);
+    },
+    async ccRecord(btn, channel) {
+        if (!this._recOn) this._recOn = new Set();
+        const on = this._recOn.has(channel);
+        const res = await this.post(this.api.record, { channel, action: on ? 'stop' : 'start' });
+        if (res.success) {
+            const ic = btn.querySelector('.bi');
+            if (on) { this._recOn.delete(channel); btn.classList.remove('danger'); if (ic) ic.className = 'bi bi-record-circle'; }
+            else    { this._recOn.add(channel);    btn.classList.add('danger');    if (ic) ic.className = 'bi bi-record-circle-fill'; }
+        }
+        this.toast(res.success ? (on ? this.t('pbx_rec_stop', 'Aufnahme gestoppt') : this.t('pbx_rec_start', 'Aufnahme läuft')) : (res.error || 'Fehler'));
+    },
+
+    _extCard(e, ch) {
+        let busy = false, ringing = false;
+        if (ch) {
+            const cs = (ch.state || '').toLowerCase();
+            if (cs.indexOf('ring') !== -1) ringing = true;
+            else if (cs === 'up')          busy = true;
+        }
+        const isMine = (String(e.ext) === String(this.ext));
+
+        // Zustand -> Rand (border) + Punkt (dot) + Statustext
+        let border, dot, stTxt, stCls = '';
+        if (busy)                     { border = 'busy';    dot = 'busy';    stTxt = this.t('pbx_in_call', 'im Gespräch'); stCls = 'pbx-s-busy'; }
+        else if (ringing)             { border = 'ringing'; dot = 'ringing'; stTxt = this.t('pbx_ringing_now', 'klingelt'); stCls = 'pbx-s-ring'; }
+        else if (e.offline)           { border = 'away';    dot = 'away';    stTxt = this.t('pbx_offline_vm', 'offline · → Voicemail'); stCls = 'pbx-s-off'; }
+        else if (e.status === 'away') { border = 'away';    dot = 'away';    stTxt = this.t('pbx_unregistered', 'nicht registriert (Gerät aus)'); stCls = 'pbx-s-off'; }
+        else if (e.dnd)               { border = 'busy';    dot = 'busy';    stTxt = this.t('pbx_dnd_on', 'DND ein') + ' · → VM'; stCls = 'pbx-s-dnd'; }
+        else if (e.fwd)               { border = 'ringing'; dot = 'ringing'; stTxt = this.t('pbx_fwd_to', 'umgeleitet') + ' → ' + this.esc(e.fwd); stCls = 'pbx-s-fwd'; }
+        else                          { border = 'free';    dot = 'free';    stTxt = this.t('pbx_ready', 'frei · registriert'); }
+
+        // Aktionen
+        let acts = `<button class="pbx-act pbx-act-green" title="${this.t('pbx_dial', 'Anrufen')}" onclick="PBX.dialExt('${this.esc(e.ext)}')"><i class="bi bi-telephone"></i></button>`;
+        if (ringing) {
+            acts += `<button class="pbx-act pbx-act-warn" title="${this.t('pbx_pickup', 'Gespräch holen')}" onclick="PBX.pickup('${this.esc(e.ext)}')"><i class="bi bi-telephone-inbound"></i></button>`;
+        }
+        if (busy && !isMine) {
+            acts += `<button class="pbx-act pbx-act-warn" title="${this.t('pbx_steal', 'Zu mir ziehen')}" onclick="PBX.steal('${this.esc(e.ext)}')"><i class="bi bi-box-arrow-in-down-right"></i></button>`;
+            acts += `<button class="pbx-act pbx-act-accent" title="${this.t('pbx_barge', 'Dazuschalten')}" onclick="PBX.barge('${this.esc(e.ext)}')"><i class="bi bi-headset"></i></button>`;
+        }
+        acts += `<button class="pbx-act ${(e.dnd && !e.offline) ? 'pbx-act-red' : 'pbx-act-gray'}" title="DND" onclick="PBX.toggleDnd('${this.esc(e.ext)}',${!!(e.dnd && !e.offline)})"><i class="bi bi-bell-slash"></i></button>`;
+        acts += `<button class="pbx-act ${e.fwd ? 'pbx-act-warn' : 'pbx-act-gray'}" title="${this.t('pbx_fwd', 'Umleitung')}" onclick="PBX.promptFwd('${this.esc(e.ext)}')"><i class="bi bi-arrow-return-right"></i></button>`;
+        acts += `<button class="pbx-act ${e.offline ? 'pbx-act-dark' : 'pbx-act-gray'}" title="${this.t('pbx_offline', 'Offline')}" onclick="PBX.toggleOffline('${this.esc(e.ext)}',${!!e.offline})"><i class="bi bi-power"></i></button>`;
+
+        return `<div class="pbx-extcard pbx-st-${border}">
+            <div class="pbx-ext-top">
+                <span class="pbx-dot pbx-dot-${dot}"></span>
+                <span class="pbx-ext-nr">${this.esc(e.ext)}</span>
+                <span class="pbx-ext-proto">${this.esc(e.proto)}</span>
+            </div>
+            <div class="pbx-ext-name">${this.esc(e.name)}</div>
+            <div class="pbx-ext-status ${stCls}">${stTxt}</div>
+            <div class="pbx-ext-actions">${acts}</div>
+        </div>`;
+    },
+
+    async toggleOffline(ext, currentlyOff) {
+        const res = await this.post(this.api.presence, { extension: ext, offline: !currentlyOff });
+        this.toast(res.success ? (ext + ' ' + (!currentlyOff ? this.t('pbx_set_offline', 'offline') : this.t('pbx_set_online', 'online'))) : (res.error || 'Fehler'));
+        this.poll();
+    },
+    async steal(ext) {
+        const res = await this.post(this.api.steal, { extension: ext, to: this.ext });
+        this.toast(res.success ? this.t('pbx_stolen', 'Gespräch zu dir gezogen') : (res.error || 'Fehler'));
+        this.poll();
+    },
+    async barge(ext) {
+        const res = await this.post(this.api.barge, { extension: ext, desk: this.ext, mode: 'B' });
+        this.toast(res.success ? this.t('pbx_barged', 'Dazugeschaltet — alle hören dich') : (res.error || 'Fehler'));
+    },
+
+    async pickup(ext) {
+        const res = await this.post(this.api.dial, { desk: this.ext, target: '**' + ext });
+        this.toast(res.success ? this.t('pbx_pickup', 'Gespräch holen') + ' ' + ext : (res.error || 'Fehler'));
+        this.poll();
+    },
+
+    /* ---- Click-to-Dial (HUD-Kopf) ---- */
+    bindDial() {
+        const inp = this.$('pbx-dial-input');
+        if (inp) {
+            inp.addEventListener('input', () => this.dialSearch(inp.value));
+            inp.addEventListener('keydown', e => { if (e.key === 'Enter') this.dialGo(); });
+        }
+        document.addEventListener('click', e => {
+            if (!e.target.closest('#pbx-dial-input') && !e.target.closest('#pbx-dial-results')) {
+                const r = this.$('pbx-dial-results'); if (r) r.style.display = 'none';
+            }
+        });
+        this.loadContactsCache();
+    },
+    _fillDialExt() {
+        const sel = this.$('pbx-dial-ext');
+        if (!sel) return;
+        const list = (this.data.extensions || []).filter(e => e.status !== 'away');
+        const sig = list.map(e => e.ext).join('|');
+        if (sig === this._dialExtSig) return;   // nichts geaendert -> Auswahl unangetastet
+        this._dialExtSig = sig;
+        const cur = sel.value || this.ext || '';
+        list.sort((a, b) => String(a.ext).localeCompare(String(b.ext), undefined, { numeric: true }));
+        const nm = e => (this._extmap && this._extmap[e.ext]) || e.name || e.ext;
+        sel.innerHTML = list.map(e => `<option value="${this.esc(e.ext)}">${this.esc(e.ext)} · ${this.esc(nm(e))}</option>`).join('')
+            || `<option value="${this.esc(this.ext || '')}">${this.esc(this.ext || '—')}</option>`;
+        if (list.some(e => String(e.ext) === String(cur))) sel.value = String(cur);
+        else if (this.ext && list.some(e => String(e.ext) === String(this.ext))) sel.value = String(this.ext);
+    },
+    async dialSearch(q) {
+        const box = this.$('pbx-dial-results');
+        if (!box) return;
+        q = (q || '').trim();
+        this._dialNr = '';
+        clearTimeout(this._dialTimer);
+        if (q.length < 2) { box.style.display = 'none'; return; }
+        this._dialTimer = setTimeout(async () => {
+            let hits = [];
+            try {
+                const r = await this.get(this.api.searchAll + '?q=' + encodeURIComponent(q) + '&scope=personen&size=8');
+                hits = (r && r.results) || [];
+            } catch (e) { box.style.display = 'none'; return; }
+            box.innerHTML = hits.length ? hits.map(h => {
+                const ph = h.phones || [];
+                const nr = this.esc(ph[0] || ph[1] || '');
+                const disp = this.esc((ph[1] && /\D/.test(ph[1])) ? ph[1] : (ph[0] || ''));
+                const nm = this.esc(h.title || nr);
+                const co = h.company ? ' <span class="pbx-dial-co">' + this.esc(h.company) + '</span>' : (h.meta ? ' <span class="pbx-dial-co">' + this.esc(h.meta) + '</span>' : '');
+                return `<div class="pbx-dial-hit" onclick="PBX.dialPick('${nr}','${nm.replace(/'/g, '')}')"><b>${nm}</b>${co} <span>${disp}</span></div>`;
+            }).join('') : `<div class="pbx-dial-hit pbx-empty">${this.t('pbx_no_hits', 'keine Treffer')}</div>`;
+            box.style.display = 'block';
+        }, 150);
+    },
+    dialPick(nr, name) {
+        const inp = this.$('pbx-dial-input');
+        inp.value = name + ' · ' + nr;
+        this._dialNr = nr;
+        this.$('pbx-dial-results').style.display = 'none';
+    },
+
+    async dialGo() {
+        const inp = this.$('pbx-dial-input');
+        const nr = this._dialNr || (inp ? inp.value.trim() : '');
+        const desk = (this.$('pbx-dial-ext') || {}).value || this.ext;
+        if (!nr) { this.toast(this.t('pbx_enter_number', 'Nummer oder Kontakt eingeben')); return; }
+        const r = this.$('pbx-dial-results'); if (r) r.style.display = 'none';
+        const res = await this.post(this.api.dial, { desk, target: nr });
+        this.toast(res.success
+            ? '<i class="bi bi-telephone-outbound"></i> ' + this.t('pbx_ringing', 'Tischtelefon klingelt') + ' → ' + this.esc(nr)
+            : (res.error || this.t('pbx_dial_failed', 'Anruf fehlgeschlagen')));
+    },
+
+    async dialExt(target) {
+        const desk = (this.$('pbx-dial-ext') || {}).value || this.ext;
+        const res = await this.post(this.api.dial, { desk, target });
+        this.toast(res.success ? this.t('pbx_ringing', 'Tischtelefon klingelt') + ' → ' + target : (res.error || 'Fehler'));
+    },
+
+    /* ---- Anruf-Aktionen ---- */
+    async doHangup(channel) {
+        const res = await this.post(this.api.hangup, { channel });
+        this.toast(res.success ? this.t('pbx_hung_up', 'Aufgelegt') : (res.error || 'Fehler'));
+        this.poll();
+    },
+    async doPark(extension) {
+        const res = await this.post(this.api.park, { extension });
+        this.toast(res.success ? this.t('pbx_parked', 'Geparkt') : (res.error || 'Fehler'));
+        this.poll();
+    },
+    async doRecord(channel) {
+        const res = await this.post(this.api.record, { channel, action: 'start' });
+        this.toast(res.success ? this.t('pbx_recording', 'Aufnahme läuft') : (res.error || 'Fehler'));
+    },
+    async pullToConf(extension) {
+        const res = await this.post(this.api.pullPartner, { extension, room: '5555' });
+        this.toast(res.success
+            ? '<i class="bi bi-box-arrow-in-right"></i> ' + this.t('pbx_in_conf', 'In Konferenz 5555 gelegt')
+            : (res.error || this.t('pbx_no_partner', 'Kein Gesprächspartner')));
+        this.poll();
+    },
+    async toggleDnd(extension, currentlyOn) {
+        const res = await this.post(this.api.dnd, { extension, active: !currentlyOn });
+        this.toast(res.success ? ('DND ' + extension + ' ' + (!currentlyOn ? this.t('pbx_on', 'ein') : this.t('pbx_off', 'aus'))) : (res.error || 'Fehler'));
+        this.poll();
+    },
+    async promptFwd(extension) {
+        const cur = await this.get(this.api.fwd + '?extension=' + encodeURIComponent(extension));
+        const target = window.prompt(this.t('pbx_fwd_prompt', 'Umleitungsziel (leer = aus):'), cur.target || '');
+        if (target === null) return;
+        const res = await this.post(this.api.fwdSet, { extension, target: target.trim() });
+        this.toast(res.success ? (target.trim() ? this.t('pbx_fwd_set', 'Umleitung aktiv') : this.t('pbx_fwd_off', 'Umleitung aus')) : (res.error || 'Fehler'));
+    },
+
+    /* ======================= PARKEN ======================= */
+    renderPark() {
+        const grid = this.$('pbx-parkgrid');
+        if (!grid) return;
+        const p = this.data.parked || [];
+        grid.innerHTML = p.length ? p.map(x => this._parkCard(x)).join('')
+            : '<div class="pbx-empty">' + this.t('pbx_no_parked', 'Keine geparkten Anrufe') + '</div>';
+    },
+    _parkCard(x) {
+        const rem = parseInt(x.timeout || 0, 10);
+        return `<div class="pbx-parkcard pbx-st-busy">
+            <div class="pbx-park-slot">${this.esc(x.slot)}</div>
+            <div class="pbx-park-who">${this.esc(x.caller_name || x.caller_id)}</div>
+            <div class="pbx-park-meta">${this.t('pbx_timeout', 'Timeout')}: <span data-countdown="${rem}">${this.fmtDur(rem)}</span></div>
+            <button class="pbx-act pbx-act-green" title="${this.t('pbx_pickup', 'Abholen')}" onclick="PBX.pickupPark('${this.esc(x.slot)}')"><i class="bi bi-telephone-inbound"></i> ${this.t('pbx_pickup', 'Abholen')}</button>
+        </div>`;
+    },
+    async pickupPark(slot) {
+        // Abholen = Originate vom eigenen Tischtelefon auf den Slot
+        const res = await this.post(this.api.dial, { desk: this.ext, target: slot });
+        this.toast(res.success ? this.t('pbx_pickup', 'Abholen') + ' ' + slot : (res.error || 'Fehler'));
+        this.poll();
+    },
+
+    /* ======================= KONFERENZ ======================= */
+    renderKonf() {
+        const wrap = this.$('pbx-confwrap');
+        if (!wrap) return;
+        const rooms = this.data.confbridge || [];
+        if (!rooms.length) {
+            wrap.innerHTML = '<div class="pbx-empty">' + this.t('pbx_no_conf', 'Keine laufende Konferenz') + '</div>';
+            return;
+        }
+        // Invite- + Label-Feldwerte + Fokus/Cursor ueber den Poll retten
+        const saved = {}; let focId = null, selS = 0, selE = 0;
+        wrap.querySelectorAll('[id^="pbx-conf-invite-"],[id^="pbx-conf-label-"]').forEach(inp => {
+            saved[inp.id] = inp.value;
+            if (document.activeElement === inp) { focId = inp.id; selS = inp.selectionStart; selE = inp.selectionEnd; }
+        });
+        wrap.innerHTML = rooms.map(r => this._confRoom(r)).join('');
+        Object.keys(saved).forEach(id => { const inp = document.getElementById(id); if (inp && saved[id]) inp.value = saved[id]; });
+        if (focId) { const inp = document.getElementById(focId); if (inp) { inp.focus(); try { inp.setSelectionRange(selS, selE); } catch (e) {} } }
+    },
+    _confRoom(r) {
+        const room = this.esc(r.conference);
+        const members = (r.members || []).map(m => {
+            const nm   = this.esc(m.name || m.callerid || '?');
+            const num  = (m.callerid && m.callerid !== m.name) ? '<span class="pbx-cnum">' + this.esc(m.callerid) + '</span>' : '';
+            const dur  = m.duration ? '<span class="pbx-cdur">' + this.esc(m.duration) + '</span>' : '';
+            const admin= m.admin ? '<span class="pbx-badge">' + this.t('pbx_admin', 'Admin') + '</span>' : '';
+            const wait = m.waitmarked ? '<span class="pbx-badge pbx-badge-warn">' + this.t('pbx_waiting', 'Wartet') + '</span>' : '';
+            return `<div class="pbx-cmember ${m.talking ? 'pbx-talking' : ''}">
+                <span class="pbx-talkdot ${m.talking ? 'on' : ''}"></span>
+                <i class="bi bi-mic-fill pbx-talkmic ${m.talking ? 'on' : ''}" title="${this.t('pbx_talking', 'spricht')}"></i>
+                <span class="pbx-cnm">${nm}</span>${num}${dur}${admin}${wait}
+                <button class="pbx-act ${m.muted ? 'pbx-act-warn' : 'pbx-act-gray'}" title="${this.t('pbx_mute', 'Stumm')}" onclick="PBX.confMute('${room}','${this.esc(m.channel)}',${m.muted})"><i class="bi ${m.muted ? 'bi-mic-mute' : 'bi-mic'}"></i></button>
+                <button class="pbx-act pbx-act-red" title="${this.t('pbx_kick', 'Entfernen')}" onclick="PBX.confKick('${room}','${this.esc(m.channel)}')"><i class="bi bi-person-x"></i></button>
+            </div>`;
+        }).join('') || ('<div class="pbx-empty" style="padding:6px 0">' + this.t('pbx_conf_empty', 'Niemand im Raum') + '</div>');
+        return `<div class="pbx-confroom">
+            <div class="pbx-conf-head">
+                <span class="pbx-conf-title"><i class="bi bi-collection"></i> ${this.t('pbx_conf', 'Konferenz')} ${room}</span>
+                <span class="pbx-badge pbx-badge-blue">${(r.members || []).length} ${this.t('pbx_participants', 'Teilnehmer')}</span>
+                <span class="pbx-conf-sp"></span>
+                <button class="pbx-act pbx-act-green" title="${this.t('pbx_join_room', 'Diesem Raum mit Nst beitreten')}" onclick="PBX.joinSelf('${room}')"><i class="bi bi-door-open"></i> ${this.t('pbx_join', 'Beitreten')} (${this.esc(this.ext)})</button>
+                <button class="pbx-tgl ${r.locked ? 'on' : ''}" onclick="PBX.confLock('${room}',${r.locked})"><i class="bi ${r.locked ? 'bi-lock-fill' : 'bi-lock'}"></i> ${r.locked ? this.t('pbx_locked', 'Gesperrt') : this.t('pbx_lock', 'Sperren')}</button>
+            </div>
+            <div class="pbx-cmembers">${members}</div>
+            <div class="pbx-conf-invite">
+                <div class="pbx-conf-searchwrap">
+                    <input id="pbx-conf-invite-${room}" class="pbx-conf-invin" autocomplete="off" placeholder="${this.t('pbx_conf_invite_ph', 'Name, Firma oder Nummer…')}" oninput="PBX.confSearch(this,'${room}')" onkeydown="if(event.key==='Enter')PBX.confInvite('${room}')">
+                </div>
+                <input id="pbx-conf-label-${room}" class="pbx-conf-label" autocomplete="off" placeholder="${this.t('pbx_conf_label_ph', 'Label (opt.)')}" title="${this.t('pbx_conf_label_t', 'Anzeigename in der Konferenz, z.B. Feuerwehr')}">
+                <button class="pbx-act pbx-act-blue" title="${this.t('pbx_conf_invite', 'In diesen Raum holen')}" onclick="PBX.confInvite('${room}')"><i class="bi bi-person-plus"></i> ${this.t('pbx_conf_here', '→ Hier rein')}</button>
+            </div>
+        </div>`;
+    },
+    async confMute(room, channel, isMuted) {
+        const res = await this.post(this.api.confMember, { room, channel, action: isMuted ? 'unmute' : 'mute' });
+        this.toast(res.success ? (isMuted ? this.t('pbx_unmuted', 'Laut') : this.t('pbx_muted', 'Stumm')) : (res.error || 'Fehler'));
+        this.poll();
+    },
+    async confKick(room, channel) {
+        const res = await this.post(this.api.confMember, { room, channel, action: 'kick' });
+        this.toast(res.success ? this.t('pbx_kicked', 'Entfernt') : (res.error || 'Fehler'));
+        this.poll();
+    },
+    async confLock(room, isLocked) {
+        const res = await this.post(this.api.confLock, { room, action: isLocked ? 'unlock' : 'lock' });
+        this.toast(res.success ? (isLocked ? this.t('pbx_unlocked', 'Entsperrt') : this.t('pbx_locked', 'Gesperrt')) : (res.error || 'Fehler'));
+        this.poll();
+    },
+    async joinSelf(room) {
+        const res = await this.post(this.api.joinSelf, { desk: this.ext, room });
+        this.toast(res.success ? this.t('pbx_joining', 'Trete Konferenz bei') + ' ' + room : (res.error || 'Fehler'));
+    },
+
+    /* ======================= QUEUES ======================= */
+    /* Overlay am body (umgeht overflow:hidden), robust: nur Aussenklick/Escape schliesst */
+    _confPop() {
+        let p = document.getElementById('pbx-conf-pop');
+        if (!p) {
+            p = document.createElement('div');
+            p.id = 'pbx-conf-pop';
+            p.className = 'pbx-conf-pop';
+            document.body.appendChild(p);
+            document.addEventListener('mousedown', e => {
+                if (!e.target.closest('#pbx-conf-pop') && !e.target.closest('.pbx-conf-invin')) this._confPopHide();
+            });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') this._confPopHide(); });
+        }
+        return p;
+    },
+    _confPopHide() { const p = document.getElementById('pbx-conf-pop'); if (p) { p.style.display = 'none'; p.innerHTML = ''; } },
+    _confPopAt(inp) {
+        const p = this._confPop();
+        const r = inp.getBoundingClientRect();
+        p.style.left = r.left + 'px';
+        p.style.top = (r.bottom + 4) + 'px';
+        p.style.width = Math.max(r.width, 260) + 'px';
+        p.style.display = 'block';
+        return p;
+    },
+    /* Kontaktsuche aus dem Cache (wie dialSearch): ab 2 Zeichen, Namens-Treffer zuerst, max 10 */
+    confSearch(inp, room) {
+        const q = (inp.value || '').trim();
+        inp.dataset.nr = '';
+        clearTimeout(this._confTimer);
+        if (q.length < 2) { this._confPopHide(); return; }
+        this._confTimer = setTimeout(async () => {
+            const pw = this._confPopAt(inp);
+            pw.innerHTML = '<div class="pbx-conf-info"><i class="bi bi-search"></i> ' + this.t('pbx_searching_contacts', 'suche…') + '</div>';
+            let data = null;
+            try { data = await this.get(this.api.searchAll + '?q=' + encodeURIComponent(q) + '&scope=personen&size=10'); }
+            catch (e) { this._confPopHide(); return; }
+            if ((inp.value || '').trim() !== q) return;          // Eingabe hat sich geaendert
+            const results = (data && data.results) || [];
+            if (!results.length) { this._confPopHide(); return; }
+            const total = (data.counts && data.counts.personen) || results.length;
+            const p = this._confPopAt(inp);
+            const head = '<div class="pbx-conf-count">' + total + ' ' + this.t('pbx_hits', 'Treffer') + (total > results.length ? ' · ' + this.t('pbx_refine', 'verfeinern…') : '') + '</div>';
+            p.innerHTML = head + results.map(hit => {
+                const nm = this.esc(hit.title || '');
+                const co = hit.company ? ' · ' + this.esc(hit.company) : (hit.meta ? ' · ' + this.esc(hit.meta) : '');
+                const raw = hit.phones || [];
+                let nums = '';
+                for (let i = 0; i < raw.length; i += 2) {
+                    const dial = this.esc(raw[i] || raw[i + 1] || '');
+                    const disp = this.esc((raw[i + 1] && /\D/.test(raw[i + 1])) ? raw[i + 1] : raw[i]);
+                    if (dial) nums += `<button class="pbx-conf-nr" onclick="PBX.confPickNr('${room}','${dial}','${nm.replace(/'/g, '')}')"><i class="bi bi-telephone"></i> ${disp}</button>`;
+                }
+                return `<div class="pbx-conf-hit"><div class="pbx-conf-hn">${nm}<span class="pbx-conf-hc">${co}</span></div><div class="pbx-conf-nrs">${nums || '<span class="pbx-conf-nonum">' + this.t('pbx_no_number', 'keine Nummer') + '</span>'}</div></div>`;
+            }).join('');
+        }, 150);
+    },
+    confPickNr(room, nr, name) {
+        const inp = this.$('pbx-conf-invite-' + room);
+        if (inp) { inp.value = (name ? name + ' · ' : '') + nr; inp.dataset.nr = nr; }
+        const lbl = this.$('pbx-conf-label-' + room);
+        if (lbl && name && !lbl.value.trim()) lbl.value = name;
+        this._confPopHide();
+    },
+    async confInvite(room) {
+        const inp = this.$('pbx-conf-invite-' + room);
+        const number = inp ? ((inp.dataset.nr || '').trim() || (inp.value || '').trim()) : '';
+        if (!number) { this.toast(this.t('pbx_conf_invite_req', 'Kontakt suchen oder Nummer eingeben')); return; }
+        const lbl = this.$('pbx-conf-label-' + room);
+        const caller_id = (lbl && lbl.value.trim()) || '';
+        this._confPopHide();
+        const body = { room, number };
+        if (caller_id) body.caller_id = caller_id;
+        const res = await this.post(this.api.confInvite, body);
+        this.toast(res.success ? (this.t('pbx_conf_invited', 'wird geholt') + ' → ' + room) : (res.error || 'Fehler'));
+        if (inp && res.success) { inp.value = ''; inp.dataset.nr = ''; if (lbl) lbl.value = ''; }
+        this.poll();
+    },
+    renderQueues() {
+        const grid = this.$('pbx-queuegrid');
+        if (!grid) return;
+        const q = this.data.queues || [];
+        grid.innerHTML = q.length ? q.map(x => this._queueCard(x)).join('')
+            : '<div class="pbx-empty">' + this.t('pbx_no_queues', 'Keine Warteschlangen') + '</div>';
+    },
+    _queueCard(x) {
+        const waiting = (x.callers || []).length;
+        const mem = (x.members || []).length;
+        return `<div class="pbx-queuecard ${waiting ? 'pbx-st-busy' : 'pbx-st-free'}">
+            <div class="pbx-queue-top"><b>${this.esc(x.name)}</b><span class="pbx-badge">${mem} ${this.t('pbx_agents', 'Agenten')}</span></div>
+            <div class="pbx-queue-wait">${waiting} ${this.t('pbx_waiting', 'wartend')}</div>
+        </div>`;
+    },
+
+    /* ======================= VOICEMAIL ======================= */
+    async loadVm() {
+        const grid = this.$('pbx-vmgrid');
+        if (!grid) return;
+        grid.innerHTML = '<div class="pbx-empty">' + this.t('pbx_loading', 'Lade…') + '</div>';
+        try {
+            const res = await this.get(this.api.vmboxes);
+            const v = res.boxes || [];
+            grid.innerHTML = v.length ? v.map(b => this._vmCard(b)).join('')
+                : '<div class="pbx-empty">' + this.t('pbx_no_vm', 'Keine Mailboxen') + '</div>';
+        } catch (e) {
+            grid.innerHTML = '<div class="pbx-empty">' + this.t('pbx_load_error', 'Fehler beim Laden') + '</div>';
+        }
+    },
+    _vmCard(b) {
+        const pct = b.max ? Math.min(100, Math.round((b.new + b.old) / b.max * 100)) : 0;
+        return `<div class="pbx-vmcard ${b.new ? 'pbx-st-warn' : 'pbx-st-free'}">
+            <div class="pbx-vm-top"><b>${this.esc(b.box)}</b> <span>${this.esc(b.user)}</span></div>
+            <div class="pbx-vm-count"><span class="pbx-vm-new">${b.new}</span> ${this.t('pbx_new', 'neu')} · ${b.old} ${this.t('pbx_old', 'alt')}</div>
+            <div class="pbx-vm-bar"><div style="width:${pct}%"></div></div>
+            <div class="pbx-vm-meta">${b.new + b.old}/${b.max} · ${this.esc(b.email || '')}</div>
+        </div>`;
+    },
+
+    /* ======================= ANRUFLISTE (CDR) ======================= */
+    async loadCdr() {
+        const body = this.$('pbx-cdr-tbody');
+        if (!body) return;
+        body.innerHTML = `<tr><td colspan="6" class="pbx-empty">${this.t('pbx_loading', 'Lade…')}</td></tr>`;
+        try {
+            const res = await this.get(this.api.cdr + '?extension=' + encodeURIComponent(this.ext) + '&mode=all&days=30&limit=100');
+            const rows = res.rows || [];
+            body.innerHTML = rows.length ? rows.map(r => this._cdrRow(r)).join('')
+                : `<tr><td colspan="6" class="pbx-empty">${this.t('pbx_no_cdr', 'Keine Anrufe')}</td></tr>`;
+        } catch (e) {
+            body.innerHTML = `<tr><td colspan="6" class="pbx-empty">${this.t('pbx_load_error', 'Fehler beim Laden')}</td></tr>`;
+        }
+    },
+    _cdrRow(r) {
+        const dir = r.direction === 'outgoing'
+            ? '<i class="bi bi-telephone-outbound" style="color:var(--abcona-blue)"></i>'
+            : '<i class="bi bi-telephone-inbound" style="color:var(--status-green)"></i>';
+        const nr = r.direction === 'incoming' ? r.src : r.dst;
+        const contact = r.contact ? this.esc(r.contact.name) : '—';
+        const ok = r.disposition === 'ANSWERED';
+        return `<tr>
+            <td>${this.esc((r.calldate || '').slice(0, 16))}</td>
+            <td>${dir}</td>
+            <td>${this.esc(nr)}</td>
+            <td>${contact}</td>
+            <td><span class="pbx-badge ${ok ? 'pbx-ok' : 'pbx-miss'}">${this.esc(r.disposition || '')}</span></td>
+            <td>${this.esc(r.billsec_fmt || '')}</td>
+        </tr>`;
+    },
+
+    /* ======================= STATISTIK ======================= */
+    async loadStats() {
+        const wrap = this.$('pbx-stats');
+        if (!wrap) return;
+        wrap.innerHTML = `<div class="pbx-empty">${this.t('pbx_loading', 'Lade…')}</div>`;
+        try {
+            const res = await this.get(this.api.stats + '?extension=' + encodeURIComponent(this.ext));
+            const s = res.stats || {};
+            const box = (title, o) => `<div class="pbx-statcard"><h4>${title}</h4>` +
+                Object.entries(o || {}).map(([k, v]) => `<div class="pbx-statrow"><span>${this.esc(k)}</span><span>${this.esc(v)}</span></div>`).join('') + '</div>';
+            wrap.innerHTML = box(this.t('pbx_today', 'Heute'), s.heute) + box(this.t('pbx_week', 'Woche'), s.woche) + box(this.t('pbx_month', 'Monat'), s.monat);
+        } catch (e) {
+            wrap.innerHTML = `<div class="pbx-empty">${this.t('pbx_load_error', 'Fehler beim Laden')}</div>`;
+        }
+    },
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('pbx-root')) PBX.init();
+});
+
+// ============================================================
+// Meetme-Planung (Reiter 1) - via Object.assign ergaenzt, um
+// das bestehende PBX-Objektliteral nicht anfassen zu muessen.
+// ============================================================
+Object.assign(PBX.api, {
+    meetmeMeetings:      '/meetme/api/meetings/',
+    meetmeMeetingCreate: '/meetme/api/meetings/create/',
+    meetmeRooms:         '/meetme/api/rooms/',
+});
+
+Object.assign(PBX, {
+    _meetmeState: {
+        meetings: [],
+        selectedId: null,
+        rooms: [],
+    },
+    _meetmeGuestTimer: null,
+
+    async meetmeSwitchSubtab(tab) {
+        document.querySelectorAll('.pbx-subtabbtn').forEach(b => b.classList.remove('pbx-subtab-active'));
+        const btn = document.querySelector(`.pbx-subtabbtn[data-subtab="${tab}"]`);
+        if (btn) btn.classList.add('pbx-subtab-active');
+        this.$('pbx-meetme-planung').style.display = (tab === 'planung') ? '' : 'none';
+        this.$('pbx-meetme-cockpit').style.display = (tab === 'cockpit') ? '' : 'none';
+        if (tab === 'planung' && !this._meetmeState.meetings.length) {
+            await this.meetmeLoadMeetings();
+        }
+    },
+
+    async meetmeLoadMeetings() {
+        let data = null;
+        try { data = await this.get(this.api.meetmeMeetings); }
+        catch (e) { this.toast(this.t('pbx_meetme_load_err', 'Termine konnten nicht geladen werden')); return; }
+        this._meetmeState.meetings = (data && data.length) ? data : (data.results || data || []);
+        this.meetmeRenderStrip();
+        if (this._meetmeState.meetings.length && !this._meetmeState.selectedId) {
+            this.meetmeSelectMeeting(this._meetmeState.meetings[0].id);
+        }
+    },
+
+    meetmeRenderStrip() {
+        const wrap = this.$('pbx-meetme-strip');
+        if (!wrap) return;
+        wrap.innerHTML = this._meetmeState.meetings.map(m => `
+            <div class="pbx-meetme-card ${m.id === this._meetmeState.selectedId ? 'active' : ''}"
+                 onclick="PBX.meetmeSelectMeeting(${m.id})">
+                <p class="pm-date">${this._meetmeFmtDate(m.start_at)}</p>
+                <p class="pm-title">${this._meetmeEsc(m.title)}</p>
+                <p class="pm-guests"><i class="bi bi-people"></i> ${(m.guests || []).length} ${this.t('pbx_meetme_guests_short', 'Gäste')}</p>
+            </div>
+        `).join('') || `<div class="pbx-hint">${this.t('pbx_meetme_none', 'Keine Termine geplant')}</div>`;
+    },
+
+    async meetmeSelectMeeting(id) {
+        this._meetmeState.selectedId = id;
+        this.meetmeRenderStrip();
+        let m = null;
+        try { m = await this.get(this.api.meetmeMeetings + id + '/'); }
+        catch (e) { this.toast(this.t('pbx_meetme_load_err', 'Termin konnte nicht geladen werden')); return; }
+        this.meetmeRenderDetail(m);
+    },
+
+    meetmeRenderDetail(m) {
+        const wrap = this.$('pbx-meetme-detail');
+        if (!wrap) return;
+        const guests = m.guests || [];
+        const rules = m.reminder_rules || [];
+        wrap.innerHTML = `
+            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+                <div>
+                    <p style="font-size:15px;font-weight:600;margin:0 0 4px">
+                        ${this._meetmeEsc(m.title)}
+                        ${m.status === 'CANCELLED' ? `<span class="pbx-meetme-badge declined" style="margin-left:8px">${this.t('pbx_meetme_status_cancelled', 'ABGESAGT')}</span>` : ''}
+                    </p>
+                    <p style="font-size:12px;color:#888;margin:0 0 14px">
+                        ${this._meetmeFmtDateTime(m.start_at)} · ${m.duration_minutes} min
+                        ${m.room_extension ? ' · ' + this.t('pbx_meetme_room', 'Raum') + ' ' + m.room_extension : ''}
+                    </p>
+                </div>
+                <div style="display:flex;gap:6px">
+                    <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeShowEditModal(${m.id})">
+                        <i class="bi bi-pencil"></i> ${this.t('pbx_meetme_edit', 'Bearbeiten')}
+                    </button>
+                    <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeShowRescheduleModal(${m.id})">
+                        <i class="bi bi-calendar-week"></i> ${this.t('pbx_meetme_reschedule', 'Termin verschieben')}
+                    </button>
+                    <button class="pbx-act pbx-act-red" onclick="PBX.meetmeShowCancelConfirm(${m.id})">
+                        <i class="bi bi-x-circle"></i> ${this.t('pbx_meetme_cancel_meeting', 'Absagen')}
+                    </button>
+                </div>
+            </div>
+
+            <div class="pbx-meetme-section">
+                <p style="font-size:12.5px;font-weight:600;margin:0 0 8px">${this.t('pbx_meetme_guests_head', 'Gäste')}</p>
+                <div id="pbx-meetme-guest-search-wrap" style="position:relative;display:flex;gap:6px;margin-bottom:8px">
+                    <input id="pbx-meetme-guest-search" class="pbx-input" style="flex:1" autocomplete="off"
+                           placeholder="${this.t('pbx_meetme_guest_search_ph', 'Kontakt suchen…')}"
+                           oninput="PBX.meetmeGuestSearch(this, ${m.id})">
+                </div>
+                <div id="pbx-meetme-guestlist">
+                    ${guests.map(g => `
+                        <div class="pbx-meetme-guestrow">
+                            <span>
+                                <span class="pbx-mm-clickable" onclick="PBX.meetmeShowGuestPhone(${g.id})">${this._meetmeEsc(g.name)}</span>
+                                <span class="pbx-mm-clickable" style="color:#999" onclick="PBX.meetmeShowGuestCompose(${g.id})">${this._meetmeEsc(g.email || '')}</span>
+                            </span>
+                            <span style="display:flex;align-items:center;gap:6px">
+                                <span class="pbx-meetme-badge ${(g.status || 'pending').toLowerCase()}">${this._meetmeEsc(g.status || 'PENDING')}</span>
+                                <button class="pbx-act pbx-act-gray" style="padding:3px 7px" onclick="PBX.meetmeDeleteGuest(${g.id}, ${m.id})" title="${this.t('pbx_delete', 'Löschen')}"><i class="bi bi-trash"></i></button>
+                            </span>
+                        </div>
+                    `).join('') || `<div class="pbx-hint">${this.t('pbx_meetme_no_guests', 'Noch keine Gäste')}</div>`}
+                </div>
+            </div>
+
+            <div class="pbx-meetme-section">
+                <p style="font-size:12.5px;font-weight:600;margin:0 0 8px">${this.t('pbx_meetme_reminders_head', 'Erinnerungen')}</p>
+                <div id="pbx-meetme-reminderlist">
+                    ${rules.map(r => `
+                        <div class="pbx-meetme-reminderrow">
+                            <span>${r.offset_value} ${this._meetmeUnitLabel(r.offset_unit)} ${this.t('pbx_meetme_before', 'vorher')}${r.offset_unit === 'DAYS' && r.time_of_day ? ', um ' + r.time_of_day.slice(0,5) : ''}</span>
+                            <span style="display:flex;align-items:center;gap:6px">
+                                <span class="pbx-meetme-badge ${r.mode === 'AUTO' ? 'confirmed' : 'pending'}">${r.mode === 'AUTO' ? this.t('pbx_meetme_auto', 'automatisch') : this.t('pbx_meetme_manual', 'manuell')}</span>
+                                <button class="pbx-act pbx-act-gray" style="padding:3px 7px" onclick="PBX.meetmeDeleteReminder(${r.id}, ${m.id})" title="${this.t('pbx_delete', 'Löschen')}"><i class="bi bi-trash"></i></button>
+                            </span>
+                        </div>
+                    `).join('') || `<div class="pbx-hint">${this.t('pbx_meetme_no_reminders', 'Keine Erinnerungen')}</div>`}
+                </div>
+                <button class="pbx-act pbx-act-gray" style="margin-top:8px" onclick="PBX.meetmeShowReminderModal(${m.id})">
+                    <i class="bi bi-plus-lg"></i> ${this.t('pbx_meetme_reminder_add', 'Erinnerung hinzufügen')}
+                </button>
+                <button class="pbx-act pbx-act-blue" style="margin-top:8px;margin-left:8px" onclick="PBX.meetmeOpenSendAssistant(${m.id})">
+                    <i class="bi bi-send"></i> ${this.t('pbx_meetme_open_sa', 'Einladungen/Erinnerungen verschicken')}
+                </button>
+            </div>
+        `;
+    },
+
+    meetmeGuestSearch(inp, meetingId) {
+        const q = (inp.value || '').trim();
+        clearTimeout(this._meetmeGuestTimer);
+        if (q.length < 2) return;
+        this._meetmeGuestTimer = setTimeout(async () => {
+            let data = null;
+            try { data = await this.get(this.api.searchAll + '?q=' + encodeURIComponent(q) + '&scope=personen&size=8'); }
+            catch (e) { return; }
+            const results = (data && data.results) || [];
+            this._meetmeRenderGuestResults(inp, results, meetingId);
+        }, 300);
+    },
+
+    _meetmeRenderGuestResults(inp, results, meetingId) {
+        let pop = document.getElementById('pbx-meetme-guest-pop');
+        if (pop) pop.remove();
+        if (!results.length) return;
+        const wrap = document.getElementById('pbx-meetme-guest-search-wrap');
+        if (!wrap) return;
+        pop = document.createElement('div');
+        pop.id = 'pbx-meetme-guest-pop';
+        pop.className = 'pbx-meetme-guest-pop';
+        pop.innerHTML = results.map((r, i) => `
+            <div class="pbx-meetme-guest-pop-item" onclick="PBX.meetmeGuestAdd(${meetingId}, ${i})">
+                <span>${this._meetmeEsc(r.title || '')}</span>
+                <span class="pbx-meetme-guest-pop-meta">${this._meetmeEsc(r.meta || '')}</span>
+            </div>
+        `).join('');
+        wrap.appendChild(pop);
+        this._meetmeSearchResults = results;
+    },
+
+    async meetmeGuestAdd(meetingId, idx) {
+        const r = (this._meetmeSearchResults || [])[idx];
+        const pop = document.getElementById('pbx-meetme-guest-pop');
+        if (pop) pop.remove();
+        if (!r) return;
+
+        let detail = null;
+        try { detail = await this.get(`/crm/api/berater/${r.id}/`); }
+        catch (e) { /* Detail nicht verfuegbar */ }
+
+        const emails = (detail && Array.isArray(detail.emails)) ? detail.emails.filter(e => !e.invalid_email) : [];
+        const phones = (detail && Array.isArray(detail.phones)) ? detail.phones : [];
+        const phone = (phones.find(p => p.is_primary) || phones[0] || {}).raw || '';
+
+        if (emails.length <= 1) {
+            const email = (emails[0] && emails[0].email) || '';
+            if (!email) this.toast(this.t('pbx_meetme_guest_no_email', 'Keine E-Mail gefunden - bitte manuell ergänzen'));
+            await this._meetmeGuestSave(meetingId, r, email, phone);
+            return;
+        }
+
+        // Mehrere E-Mails - Auswahl-Dialog zeigen
+        this._meetmeShowEmailChoice(meetingId, r, emails, phone);
+    },
+
+    _meetmeShowEmailChoice(meetingId, r, emails, phone) {
+        const overlay = document.createElement('div');
+        overlay.className = 'pbx-meetme-modal-overlay';
+        overlay.id = 'pbx-meetme-modal-overlay';
+        overlay.innerHTML = `
+            <div class="pbx-meetme-modal">
+                <h4>${this.t('pbx_meetme_choose_email', 'E-Mail-Adresse wählen')} — ${this._meetmeEsc(r.title || '')}</h4>
+                <p style="font-size:12px;color:#888;margin:0 0 10px">${this.t('pbx_meetme_choose_email_hint', 'Dieser Kontakt hat mehrere E-Mail-Adressen. Eine oder mehrere auswählen (mehrere = mehrere Gast-Einträge).')}</p>
+                <div id="pbx-mm-email-list">
+                    ${emails.map((e, i) => `
+                        <label style="display:flex;align-items:center;gap:8px;padding:6px 0;font-size:12.5px">
+                            <input type="checkbox" class="pbx-mm-email-cb" value="${i}" ${e.primary ? 'checked' : ''} style="width:auto">
+                            ${this._meetmeEsc(e.email)} ${e.primary ? '<span style="color:#999;font-size:11px">(primär)</span>' : ''}
+                        </label>
+                    `).join('')}
+                </div>
+                <div class="pbx-meetme-modal-actions">
+                    <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeCloseModal()">${this.t('pbx_cancel', 'Abbrechen')}</button>
+                    <button class="pbx-act pbx-act-green" onclick="PBX.meetmeConfirmEmailChoice(${meetingId})">${this.t('pbx_meetme_add', 'Hinzufügen')}</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+        this._meetmeChoiceCtx = { r, emails, phone };
+    },
+
+    async meetmeConfirmEmailChoice(meetingId) {
+        const ctx = this._meetmeChoiceCtx;
+        const checked = Array.from(document.querySelectorAll('.pbx-mm-email-cb:checked')).map(cb => parseInt(cb.value, 10));
+        this.meetmeCloseModal();
+        if (!ctx || !checked.length) {
+            this.toast(this.t('pbx_meetme_choose_email_none', 'Keine E-Mail ausgewählt'));
+            return;
+        }
+        for (const idx of checked) {
+            const email = ctx.emails[idx].email;
+            await this._meetmeGuestSave(meetingId, ctx.r, email, ctx.phone);
+        }
+    },
+
+    async _meetmeGuestSave(meetingId, r, email, phone) {
+        try {
+            await this.post(`/meetme/api/meetings/${meetingId}/guests/create/`, {
+                contact_crm_id: r.id || null,
+                name: r.title || '',
+                email: email || `noemail-${r.id}@platzhalter.invalid`,
+                phone: phone || '',
+            });
+            this.toast(this.t('pbx_meetme_guest_added', 'Gast hinzugefügt'));
+            const searchInp = this.$('pbx-meetme-guest-search');
+            if (searchInp) searchInp.value = '';
+            this.meetmeSelectMeeting(meetingId);
+        } catch (e) {
+            this.toast(this.t('pbx_meetme_guest_err', 'Gast konnte nicht hinzugefügt werden'));
+        }
+    },
+
+    async meetmeShowNewModal() {
+        let rooms = [];
+        try { const d = await this.get(this.api.meetmeRooms); rooms = d.rooms || []; } catch (e) {}
+        const overlay = document.createElement('div');
+        overlay.className = 'pbx-meetme-modal-overlay';
+        overlay.id = 'pbx-meetme-modal-overlay';
+        overlay.innerHTML = `
+            <div class="pbx-meetme-modal">
+                <h4>${this.t('pbx_meetme_new', 'Neuer Termin')}</h4>
+                <label>${this.t('pbx_meetme_field_title', 'Titel')}</label>
+                <input id="pbx-mm-title" type="text">
+                <label>${this.t('pbx_meetme_field_start', 'Datum/Zeit')}</label>
+                <input id="pbx-mm-start" type="datetime-local">
+                <label>${this.t('pbx_meetme_field_duration', 'Dauer (Minuten)')}</label>
+                <input id="pbx-mm-duration" type="number" value="60">
+                <label>${this.t('pbx_meetme_field_room', 'Konferenzraum')}</label>
+                <select id="pbx-mm-room">
+                    <option value="">${this.t('pbx_meetme_room_none', '– kein fester Raum –')}</option>
+                    ${rooms.map(r => `<option value="${r.room_extension}">${r.room_extension}${r.hint_state ? ' (' + r.hint_state + ')' : ''}</option>`).join('')}
+                </select>
+                <div class="pbx-meetme-modal-actions">
+                    <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeCloseModal()">${this.t('pbx_cancel', 'Abbrechen')}</button>
+                    <button class="pbx-act pbx-act-green" onclick="PBX.meetmeCreateMeeting()">${this.t('pbx_meetme_create', 'Termin anlegen')}</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+    },
+
+    meetmeCloseModal() {
+        const el = document.getElementById('pbx-meetme-modal-overlay');
+        if (el) el.remove();
+    },
+
+    async meetmeCreateMeeting() {
+        const title = this.$('pbx-mm-title').value.trim();
+        const start = this.$('pbx-mm-start').value;
+        const duration = parseInt(this.$('pbx-mm-duration').value, 10) || 60;
+        const room = this.$('pbx-mm-room').value;
+        if (!title || !start) { this.toast(this.t('pbx_meetme_fields_req', 'Titel und Datum erforderlich')); return; }
+        try {
+            const created = await this.post(this.api.meetmeMeetingCreate, {
+                title, start_at: new Date(start).toISOString(),
+                duration_minutes: duration, room_extension: room,
+            });
+            this.meetmeCloseModal();
+            this.toast(this.t('pbx_meetme_created', 'Termin angelegt'));
+            this._meetmeState.meetings.unshift(created);
+            this._meetmeState.selectedId = created.id;
+            this.meetmeRenderStrip();
+            this.meetmeRenderDetail(created);
+        } catch (e) {
+            this.toast(this.t('pbx_meetme_create_err', 'Termin konnte nicht angelegt werden'));
+        }
+    },
+
+    meetmeShowReminderModal(meetingId) {
+        const overlay = document.createElement('div');
+        overlay.className = 'pbx-meetme-modal-overlay';
+        overlay.id = 'pbx-meetme-modal-overlay';
+        overlay.innerHTML = `
+            <div class="pbx-meetme-modal">
+                <h4>${this.t('pbx_meetme_reminder_add', 'Erinnerung hinzufügen')}</h4>
+                <label>${this.t('pbx_meetme_offset', 'Zeitpunkt')}</label>
+                <div style="display:flex;gap:6px;align-items:center">
+                    <input id="pbx-mr-value" type="number" value="1" style="width:70px">
+                    <select id="pbx-mr-unit" style="flex:1" onchange="PBX._meetmeToggleTimeField()">
+                        <option value="DAYS">${this.t('pbx_meetme_unit_days', 'Tage')}</option>
+                        <option value="HOURS" selected>${this.t('pbx_meetme_unit_hours', 'Stunden')}</option>
+                        <option value="MINUTES">${this.t('pbx_meetme_unit_minutes', 'Minuten')}</option>
+                    </select>
+                </div>
+                <div id="pbx-mr-time-wrap" style="display:none">
+                    <label>${this.t('pbx_meetme_time_of_day', 'Uhrzeit')}</label>
+                    <input id="pbx-mr-time" type="time" value="09:00">
+                </div>
+                <label>${this.t('pbx_meetme_mode', 'Modus')}</label>
+                <select id="pbx-mr-mode" onchange="PBX._meetmeToggleCopyField()">
+                    <option value="MANUAL">${this.t('pbx_meetme_manual', 'manuell prüfen')}</option>
+                    <option value="AUTO">${this.t('pbx_meetme_auto', 'automatisch senden')}</option>
+                </select>
+                <div id="pbx-mr-copy-wrap" style="display:none;margin-top:10px">
+                    <label style="display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--text-primary,#333)">
+                        <input id="pbx-mr-copy" type="checkbox" style="width:auto" checked>
+                        ${this.t('pbx_meetme_copy_to_owner', 'Kopie an meine E-Mail zur Bestätigung')}
+                    </label>
+                </div>
+                <div class="pbx-meetme-modal-actions">
+                    <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeCloseModal()">${this.t('pbx_cancel', 'Abbrechen')}</button>
+                    <button class="pbx-act pbx-act-green" onclick="PBX.meetmeCreateReminder(${meetingId})">${this.t('pbx_meetme_save', 'Speichern')}</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+    },
+
+    _meetmeToggleTimeField() {
+        const unit = this.$('pbx-mr-unit').value;
+        const wrap = this.$('pbx-mr-time-wrap');
+        if (wrap) wrap.style.display = (unit === 'DAYS') ? '' : 'none';
+    },
+
+    _meetmeToggleCopyField() {
+        const mode = this.$('pbx-mr-mode').value;
+        const wrap = this.$('pbx-mr-copy-wrap');
+        if (wrap) wrap.style.display = (mode === 'AUTO') ? '' : 'none';
+    },
+
+    async meetmeCreateReminder(meetingId) {
+        const value = parseInt(this.$('pbx-mr-value').value, 10) || 1;
+        const unit = this.$('pbx-mr-unit').value;
+        const mode = this.$('pbx-mr-mode').value;
+        const timeInp = this.$('pbx-mr-time');
+        const copyInp = this.$('pbx-mr-copy');
+        const body = { offset_value: value, offset_unit: unit, mode };
+        if (unit === 'DAYS' && timeInp && timeInp.value) {
+            body.time_of_day = timeInp.value + ':00';
+        }
+        if (mode === 'AUTO') {
+            body.send_copy_to_owner = !!(copyInp && copyInp.checked);
+        }
+        try {
+            await this.post(`/meetme/api/meetings/${meetingId}/reminder-rules/create/`, body);
+            this.meetmeCloseModal();
+            this.toast(this.t('pbx_meetme_reminder_saved', 'Erinnerung gespeichert'));
+            this.meetmeSelectMeeting(meetingId);
+        } catch (e) {
+            this.toast(this.t('pbx_meetme_reminder_err', 'Erinnerung konnte nicht gespeichert werden'));
+        }
+    },
+
+    _meetmeUnitLabel(unit) {
+        const map = { DAYS: this.t('pbx_meetme_unit_days', 'Tage'), HOURS: this.t('pbx_meetme_unit_hours', 'Stunden'), MINUTES: this.t('pbx_meetme_unit_minutes', 'Minuten') };
+        return map[unit] || unit;
+    },
+    _meetmeFmtDate(iso) {
+        const d = new Date(iso);
+        return d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit' }) + ' ' + d.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
+    },
+    _meetmeFmtDateTime(iso) {
+        const d = new Date(iso);
+        return d.toLocaleDateString('de-DE') + ', ' + d.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
+    },
+    _meetmeEsc(s) {
+        const div = document.createElement('div');
+        div.textContent = s || '';
+        return div.innerHTML;
+    },
+});
+
+
+Object.assign(PBX, {
+    async meetmeDeleteReminder(ruleId, meetingId) {
+        try {
+            await this.del(`/meetme/api/reminder-rules/${ruleId}/delete/`);
+            this.toast(this.t('pbx_meetme_reminder_deleted', 'Erinnerung gelöscht'));
+            this.meetmeSelectMeeting(meetingId);
+        } catch (e) {
+            this.toast(this.t('pbx_meetme_reminder_del_err', 'Konnte nicht gelöscht werden'));
+        }
+    },
+});
+
+Object.assign(PBX, {
+    async del(url) {
+        const r = await fetch(url, {
+            method: 'DELETE',
+            headers: { 'X-CSRFToken': this.csrf(), 'X-Requested-With': 'XMLHttpRequest' },
+        });
+        if (r.status === 204) return { success: true };
+        try { return await r.json(); }
+        catch (e) { return { success: r.ok }; }
+    },
+});
+
+// ============================================================
+// Sende-Assistent (Meetme Erinnerungs-Queue)
+// ============================================================
+Object.assign(PBX.api, {
+    meetmeDeliveryQueue: '/meetme/api/deliveries/queue/',
+    emailTemplates: '/email-studio/api/templates/',
+});
+
+Object.assign(PBX, {
+    _saState: { queue: [], idx: 0, templates: [] },
+
+    async meetmeOpenSendAssistant(meetingId) {
+        let data = null;
+        try { data = await this.get(this.api.meetmeDeliveryQueue + '?meeting_id=' + meetingId); }
+        catch (e) { this.toast(this.t('pbx_sa_load_err', 'Warteschlange konnte nicht geladen werden')); return; }
+
+        const queue = data || [];
+        if (!queue.length) {
+            this.toast(this.t('pbx_sa_empty', 'Keine offenen Erinnerungen')); return;
+        }
+
+        let tplData = null;
+        try { tplData = await this.get(this.api.emailTemplates); }
+        catch (e) { /* Templates optional, Assistent funktioniert auch ohne */ }
+
+        this._saState.queue = queue;
+        this._saState.idx = 0;
+        this._saState.templates = (tplData && tplData.templates) || [];
+        this._saRender();
+    },
+
+    _saRender() {
+        const st = this._saState;
+        const d = st.queue[st.idx];
+        if (!d) { this.meetmeCloseModal(); return; }
+
+        let overlay = document.getElementById('pbx-meetme-modal-overlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'pbx-meetme-modal-overlay';
+            overlay.id = 'pbx-meetme-modal-overlay';
+            document.body.appendChild(overlay);
+        }
+
+        const chips = st.queue.map((item, i) => {
+            let cls = 'pbx-sa-chip';
+            if (i < st.idx) cls += ' done';
+            if (i === st.idx) cls += ' current';
+            return `<span class="${cls}">${this._meetmeEsc(item.guest_name || '')}</span>`;
+        }).join('');
+
+        const tplOptions = st.templates.map(t =>
+            `<option value="${t.id}">${this._meetmeEsc(t.name)}</option>`
+        ).join('');
+
+        overlay.innerHTML = `
+            <div class="pbx-meetme-modal pbx-sa-modal">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                    <h4 style="margin:0">${this.t('pbx_sa_title', 'Sende-Assistent')}</h4>
+                    <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeCloseModal()">
+                        <i class="bi bi-x-lg"></i> ${this.t('pbx_cancel', 'Abbrechen')}
+                    </button>
+                </div>
+                <div class="pbx-sa-guestchips">${chips}</div>
+                <p class="pbx-sa-meta">${this.t('pbx_sa_of', 'Gast')} ${st.idx + 1} ${this.t('pbx_sa_of2', 'von')} ${st.queue.length} · ${this._meetmeEsc(d.guest_email || '')}</p>
+
+                <label>${this.t('pbx_sa_template', 'Vorlage')}</label>
+                <div style="display:flex;gap:6px">
+                    <select id="pbx-sa-template" style="flex:1">
+                        <option value="">${this.t('pbx_sa_template_none', '– keine –')}</option>
+                        ${tplOptions}
+                    </select>
+                    <button class="pbx-act pbx-act-gray" onclick="PBX._saLoadTemplate()">${this.t('pbx_sa_load', 'Laden')}</button>
+                </div>
+
+                <div class="pbx-sa-mailbox">
+                    <div class="pbx-sa-mailhead">
+                        <div class="pbx-sa-avatar">${this._meetmeInitials(d.guest_name)}</div>
+                        <div style="flex:1;min-width:0">
+                            <p style="font-size:12.5px;font-weight:600;margin:0">${this._meetmeEsc(d.guest_name || '')} <span style="font-weight:400;color:#999">&lt;${this._meetmeEsc(d.guest_email || '')}&gt;</span></p>
+                        </div>
+                    </div>
+                    <div class="pbx-sa-subject">
+                        <input id="pbx-sa-subject" type="text" value="${this._meetmeEsc(d.subject || '')}" placeholder="${this.t('pbx_sa_subject_ph', 'Betreff')}">
+                    </div>
+                    <div class="pbx-sa-body">
+                        <textarea id="pbx-sa-body" rows="6">${this._meetmeEsc(d.body || '')}</textarea>
+                    </div>
+                </div>
+
+                <div class="pbx-sa-ds">
+                    <div style="display:flex;justify-content:space-between;align-items:center">
+                        <span style="font-size:12.5px;font-weight:600"><i class="bi bi-stars"></i> ${this.t('pbx_sa_deepseek', 'DeepSeek-Raupe')}</span>
+                        <button class="pbx-act pbx-act-gray" onclick="PBX._saDeepseekSuggest()"><i class="bi bi-arrow-clockwise"></i> ${this.t('pbx_sa_suggest', 'Vorschlag generieren')}</button>
+                    </div>
+                    <label>${this.t('pbx_sa_your_text', 'Ihr Text (oben, wird gesendet)')}</label>
+                    <textarea id="pbx-sa-ds-top" rows="3"></textarea>
+                    <label>${this.t('pbx_sa_suggestion', 'DeepSeek-Vorschlag (zum Rüberkopieren)')}</label>
+                    <textarea id="pbx-sa-ds-bottom" rows="3" readonly></textarea>
+                </div>
+
+                <div class="pbx-sa-footer">
+                    <span class="pbx-sa-hint"><i class="bi bi-link-45deg"></i> ${this.t('pbx_sa_linked_hint', 'wird im E-Mail-Verlauf zugeordnet')}</span>
+                    <div style="display:flex;gap:8px">
+                        <button class="pbx-act pbx-act-gray" onclick="PBX._saSkip()">${this.t('pbx_sa_skip', 'Überspringen')}</button>
+                        <button class="pbx-act pbx-act-green" onclick="PBX._saSendAndNext()">${this.t('pbx_sa_send_next', 'Senden & weiter')}</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    },
+
+    _meetmeInitials(name) {
+        return (name || '').split(' ').map(p => p[0] || '').join('').slice(0, 2).toUpperCase();
+    },
+
+    async _saLoadTemplate() {
+        const tplId = this.$('pbx-sa-template').value;
+        if (!tplId) return;
+        try {
+            const data = await this.get(this.api.emailTemplates + tplId + '/');
+            const tpl = data && data.template;
+            if (!tpl) return;
+            this.$('pbx-sa-subject').value = tpl.subject || '';
+            this.$('pbx-sa-body').value = tpl.text_body || tpl.html_body || '';
+        } catch (e) {
+            this.toast(this.t('pbx_sa_template_err', 'Vorlage konnte nicht geladen werden'));
+        }
+    },
+
+    async _saDeepseekSuggest() {
+        const current = this.$('pbx-sa-body').value.trim();
+        if (!current) {
+            this.toast(this.t('pbx_sa_ds_empty', 'Erst Text eingeben oder Vorlage laden'));
+            return;
+        }
+        this.$('pbx-sa-ds-top').value = current;
+        const btn = event.currentTarget;
+        const origHtml = btn ? btn.innerHTML : '';
+        if (btn) { btn.innerHTML = '<i class="bi bi-hourglass-split"></i> ...'; btn.disabled = true; }
+        try {
+            const res = await this.post('/meetme/api/deepseek-suggest/', { text: current });
+            if (res && res.suggestion) {
+                this.$('pbx-sa-ds-bottom').value = res.suggestion;
+            } else {
+                this.toast(this.t('pbx_sa_ds_err', 'DeepSeek konnte keinen Vorschlag liefern'));
+            }
+        } catch (e) {
+            this.toast(this.t('pbx_sa_ds_err', 'DeepSeek konnte keinen Vorschlag liefern'));
+        } finally {
+            if (btn) { btn.innerHTML = origHtml; btn.disabled = false; }
+        }
+    },
+
+    async _saSkip() {
+        const st = this._saState;
+        const d = st.queue[st.idx];
+        try { await this.post(`/meetme/api/deliveries/${d.id}/skip/`, {}); }
+        catch (e) { /* trotzdem weiter */ }
+        st.idx += 1;
+        this._saRender();
+    },
+
+    async _saSendAndNext() {
+        const st = this._saState;
+        const d = st.queue[st.idx];
+        const subject = this.$('pbx-sa-subject').value;
+        const body = this.$('pbx-sa-body').value;
+        try {
+            await this.post(`/meetme/api/deliveries/${d.id}/mark-sent/`, { subject, body });
+            this.toast(this.t('pbx_sa_sent', 'Gesendet'));
+        } catch (e) {
+            this.toast(this.t('pbx_sa_send_err', 'Senden fehlgeschlagen'));
+            return;
+        }
+        st.idx += 1;
+        this._saRender();
+    },
+});
+
+
+Object.assign(PBX, {
+    async meetmeDeleteGuest(guestId, meetingId) {
+        try {
+            await this.del(`/meetme/api/guests/${guestId}/delete/`);
+            this.toast(this.t('pbx_meetme_guest_deleted', 'Gast entfernt'));
+            this.meetmeSelectMeeting(meetingId);
+        } catch (e) {
+            this.toast(this.t('pbx_meetme_guest_del_err', 'Konnte nicht entfernt werden'));
+        }
+    },
+});
+
+
+// ============================================================
+// Gast-Popovers: Telefon (Click-to-Dial) + Ad-hoc Mail-Compose
+// ============================================================
+Object.assign(PBX, {
+    _mmGuestCache: {},
+
+    async meetmeShowGuestPhone(guestId) {
+        const g = this._mmFindGuestObj(guestId);
+        let phones = [];
+
+        if (g && g.contact_crm_id) {
+            try {
+                const detail = await this.get(`/crm/api/berater/${g.contact_crm_id}/`);
+                if (detail && Array.isArray(detail.phones)) {
+                    phones = detail.phones.map(p => ({ raw: p.raw, label: p.label || p.field_name || '', primary: p.is_primary }));
+                }
+            } catch (e) { /* Fallback unten */ }
+        }
+        if (!phones.length && g && g.phone) {
+            phones = [{ raw: g.phone, label: '', primary: true }];
+        }
+        phones.sort((a, b) => (b.primary ? 1 : 0) - (a.primary ? 1 : 0));
+
+        const overlay = document.createElement('div');
+        overlay.className = 'pbx-meetme-modal-overlay';
+        overlay.id = 'pbx-meetme-modal-overlay';
+        overlay.innerHTML = `
+            <div class="pbx-meetme-modal" style="width:340px">
+                <h4>${this.t('pbx_mm_call', 'Anrufen')} — ${this._meetmeEsc(g ? g.name : '')}</h4>
+                ${phones.length ? `
+                    <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:12px">
+                        ${phones.map(p => `
+                            <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 8px;background:var(--abcona-surface-1,#f7f7f7);border-radius:6px">
+                                <span style="font-size:13px;font-weight:600">${this._meetmeEsc(p.raw)}${p.label ? ` <span style="font-weight:400;color:#999;font-size:11px">(${this._meetmeEsc(p.label)})</span>` : ''}${p.primary ? ' <span style="color:#999;font-size:11px">★</span>' : ''}</span>
+                                <button class="pbx-act pbx-act-green" style="padding:4px 10px" onclick="PBX.meetmeDialGuest('${p.raw}')"><i class="bi bi-telephone-outbound"></i></button>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="pbx-meetme-modal-actions">
+                        <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeCloseModal()">${this.t('pbx_cancel', 'Schließen')}</button>
+                    </div>
+                ` : `
+                    <p class="pbx-hint">${this.t('pbx_mm_no_phone', 'Keine Telefonnummer hinterlegt')}</p>
+                    <div class="pbx-meetme-modal-actions">
+                        <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeCloseModal()">${this.t('pbx_cancel', 'Schließen')}</button>
+                    </div>
+                `}
+            </div>
+        `;
+        document.body.appendChild(overlay);
+    },
+
+    _mmFindGuestObj(guestId) {
+        const m = (this._meetmeState.meetings || []).find(x => x.id === this._meetmeState.selectedId);
+        if (!m || !m.guests) return null;
+        return m.guests.find(x => x.id === guestId) || null;
+    },
+
+    async meetmeDialGuest(phone) {
+        this.meetmeCloseModal();
+        const desk = (this.$('pbx-dial-ext') || {}).value || this.ext;
+        try {
+            const res = await this.post(this.api.dial, { desk, target: phone });
+            this.toast(res.success ? this.t('pbx_dialing', 'Wird angerufen') : (res.error || this.t('pbx_dial_err', 'Anruf fehlgeschlagen')));
+        } catch (e) {
+            this.toast(this.t('pbx_dial_err', 'Anruf fehlgeschlagen'));
+        }
+    },
+
+    async meetmeShowGuestCompose(guestId) {
+        const m = (this._meetmeState.meetings || []).find(x => x.id === this._meetmeState.selectedId);
+        const g = m && m.guests ? m.guests.find(x => x.id === guestId) : null;
+        if (!g) return;
+
+        let tplData = null;
+        try { tplData = await this.get(this.api.emailTemplates); }
+        catch (e) { /* optional */ }
+        const templates = (tplData && tplData.templates) || [];
+
+        const overlay = document.createElement('div');
+        overlay.className = 'pbx-meetme-modal-overlay';
+        overlay.id = 'pbx-meetme-modal-overlay';
+        overlay.innerHTML = `
+            <div class="pbx-meetme-modal pbx-sa-modal">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                    <h4 style="margin:0">${this.t('pbx_mm_compose', 'E-Mail an')} ${this._meetmeEsc(g.name)}</h4>
+                    <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeCloseModal()"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <p class="pbx-sa-meta">${this._meetmeEsc(g.email || '')}</p>
+
+                <label>${this.t('pbx_sa_template', 'Vorlage')}</label>
+                <div style="display:flex;gap:6px">
+                    <select id="pbx-mm-compose-tpl" style="flex:1">
+                        <option value="">${this.t('pbx_sa_template_none', '– keine –')}</option>
+                        ${templates.map(t => `<option value="${t.id}">${this._meetmeEsc(t.name)}</option>`).join('')}
+                    </select>
+                    <button class="pbx-act pbx-act-gray" onclick="PBX._mmComposeLoadTemplate()">${this.t('pbx_sa_load', 'Laden')}</button>
+                </div>
+
+                <div class="pbx-sa-mailbox">
+                    <div class="pbx-sa-subject">
+                        <input id="pbx-mm-compose-subject" type="text" placeholder="${this.t('pbx_sa_subject_ph', 'Betreff')}">
+                    </div>
+                    <div class="pbx-sa-body">
+                        <textarea id="pbx-mm-compose-body" rows="7"></textarea>
+                    </div>
+                </div>
+
+                <div class="pbx-meetme-modal-actions">
+                    <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeCloseModal()">${this.t('pbx_cancel', 'Abbrechen')}</button>
+                    <button class="pbx-act pbx-act-green" onclick="PBX._mmComposeSend(${guestId})">${this.t('pbx_sa_send', 'Senden')}</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+    },
+
+    async _mmComposeLoadTemplate() {
+        const tplId = this.$('pbx-mm-compose-tpl').value;
+        if (!tplId) return;
+        try {
+            const data = await this.get(this.api.emailTemplates + tplId + '/');
+            const tpl = data && data.template;
+            if (!tpl) return;
+            this.$('pbx-mm-compose-subject').value = tpl.subject || '';
+            this.$('pbx-mm-compose-body').value = tpl.text_body || tpl.html_body || '';
+        } catch (e) {
+            this.toast(this.t('pbx_sa_template_err', 'Vorlage konnte nicht geladen werden'));
+        }
+    },
+
+    async _mmComposeSend(guestId) {
+        const subject = this.$('pbx-mm-compose-subject').value.trim();
+        const body = this.$('pbx-mm-compose-body').value.trim();
+        if (!subject || !body) {
+            this.toast(this.t('pbx_mm_compose_req', 'Betreff und Text erforderlich'));
+            return;
+        }
+        try {
+            await this.post(`/meetme/api/guests/${guestId}/send-adhoc/`, { subject, body });
+            this.toast(this.t('pbx_mm_compose_sent', 'E-Mail gesendet'));
+            this.meetmeCloseModal();
+        } catch (e) {
+            this.toast(this.t('pbx_mm_compose_err', 'Senden fehlgeschlagen'));
+        }
+    },
+});
+
+// ============================================================
+// Termin verschieben
+// ============================================================
+Object.assign(PBX, {
+    meetmeShowRescheduleModal(meetingId) {
+        const m = (this._meetmeState.meetings || []).find(x => x.id === meetingId);
+        if (!m) return;
+
+        const current = new Date(m.start_at);
+        const pad = n => String(n).padStart(2, '0');
+        const localValue = `${current.getFullYear()}-${pad(current.getMonth()+1)}-${pad(current.getDate())}T${pad(current.getHours())}:${pad(current.getMinutes())}`;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'pbx-meetme-modal-overlay';
+        overlay.id = 'pbx-meetme-modal-overlay';
+        overlay.innerHTML = `
+            <div class="pbx-meetme-modal">
+                <h4>${this.t('pbx_meetme_reschedule', 'Termin verschieben')}</h4>
+                <p style="font-size:12px;color:#888;margin:0 0 10px">${this._meetmeEsc(m.title)}</p>
+                <label>${this.t('pbx_meetme_new_start', 'Neues Datum/Zeit')}</label>
+                <input id="pbx-mm-reschedule-start" type="datetime-local" value="${localValue}">
+                <p class="pbx-hint" style="margin-top:10px">
+                    ${this.t('pbx_meetme_reschedule_hint', 'Gäste, die bereits eine Erinnerung erhalten haben, bekommen automatisch einen Terminänderungs-Hinweis in die Sende-Warteschlange. Gäste ohne bisherige Benachrichtigung werden separat aufgelistet.')}
+                </p>
+                <div class="pbx-meetme-modal-actions">
+                    <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeCloseModal()">${this.t('pbx_cancel', 'Abbrechen')}</button>
+                    <button class="pbx-act pbx-act-green" onclick="PBX.meetmeConfirmReschedule(${meetingId})">${this.t('pbx_meetme_reschedule_confirm', 'Verschieben')}</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+    },
+
+    async meetmeConfirmReschedule(meetingId) {
+        const inp = this.$('pbx-mm-reschedule-start');
+        if (!inp || !inp.value) { this.toast(this.t('pbx_meetme_fields_req', 'Datum erforderlich')); return; }
+        const newStartIso = new Date(inp.value).toISOString();
+
+        try {
+            const res = await this.post(`/meetme/api/meetings/${meetingId}/reschedule/`, { new_start_at: newStartIso });
+            this.meetmeCloseModal();
+            this._meetmeShowRescheduleResult(res, meetingId);
+        } catch (e) {
+            this.toast(this.t('pbx_meetme_reschedule_err', 'Verschieben fehlgeschlagen'));
+        }
+    },
+
+    async _meetmeShowRescheduleResult(res, meetingId) {
+        const notNotified = res.not_notified_guests || [];
+
+        // Alle Telefonnummern pro Gast live nachladen (nicht nur die eine gespeicherte)
+        const phoneLists = await Promise.all(notNotified.map(async g => {
+            if (!g.contact_crm_id) return [g.phone].filter(Boolean).map(p => ({ raw: p, primary: true }));
+            try {
+                const detail = await this.get(`/crm/api/berater/${g.contact_crm_id}/`);
+                if (detail && Array.isArray(detail.phones) && detail.phones.length) {
+                    return detail.phones.map(p => ({ raw: p.raw, label: p.label || p.field_name || '', primary: p.is_primary }));
+                }
+            } catch (e) { /* Fallback unten */ }
+            return [g.phone].filter(Boolean).map(p => ({ raw: p, primary: true }));
+        }));
+
+        const overlay = document.createElement('div');
+        overlay.className = 'pbx-meetme-modal-overlay';
+        overlay.id = 'pbx-meetme-modal-overlay';
+        overlay.innerHTML = `
+            <div class="pbx-meetme-modal">
+                <h4><i class="bi bi-check-circle-fill" style="color:#0f5132"></i> ${this.t('pbx_meetme_reschedule_done', 'Termin verschoben')}</h4>
+                <p style="font-size:13px;margin:10px 0">
+                    ${res.change_notice_count > 0
+                        ? `${res.change_notice_count} ${this.t('pbx_meetme_reschedule_notified', 'Gast/Gäste wurden automatisch für eine Terminänderungs-Mail in die Warteschlange gestellt.')}`
+                        : this.t('pbx_meetme_reschedule_none_notified', 'Niemand hatte bereits eine Erinnerung erhalten - keine Terminänderungs-Mails nötig.')}
+                </p>
+                ${notNotified.length ? `
+                    <div class="pbx-meetme-section">
+                        <p style="font-size:12.5px;font-weight:600;margin:0 0 8px"><i class="bi bi-telephone-fill"></i> ${this.t('pbx_meetme_please_call', 'Bitte anrufen und informieren')}</p>
+                        ${notNotified.map((g, i) => {
+                            const phones = phoneLists[i];
+                            phones.sort((a, b) => (b.primary ? 1 : 0) - (a.primary ? 1 : 0));
+                            return `
+                                <div style="margin-bottom:10px">
+                                    <p style="font-size:12.5px;font-weight:600;margin:0 0 4px">${this._meetmeEsc(g.name)}</p>
+                                    ${phones.length ? phones.map(p => `
+                                        <div class="pbx-meetme-guestrow" style="margin-bottom:4px">
+                                            <span style="font-size:12px">${this._meetmeEsc(p.raw)}${p.label ? ` <span style="color:#999;font-size:11px">(${this._meetmeEsc(p.label)})</span>` : ''}${p.primary ? ' <span style="color:#999;font-size:11px">★</span>' : ''}</span>
+                                            <button class="pbx-act pbx-act-green" style="padding:3px 9px" onclick="PBX.meetmeDialGuest('${p.raw}')"><i class="bi bi-telephone-outbound"></i></button>
+                                        </div>
+                                    `).join('') : `<span class="pbx-hint">${this.t('pbx_mm_no_phone', 'keine Nummer hinterlegt')}</span>`}
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                ` : ''}
+                <div class="pbx-meetme-modal-actions">
+                    ${res.change_notice_count > 0 ? `<button class="pbx-act pbx-act-blue" onclick="PBX.meetmeCloseModal(); PBX.meetmeOpenSendAssistant(${meetingId})">${this.t('pbx_meetme_open_sa', 'Einladungen/Erinnerungen verschicken')}</button>` : ''}
+                    <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeCloseModal(); PBX.meetmeSelectMeeting(${meetingId})">${this.t('pbx_close', 'Schließen')}</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+    },
+});
+
+// ============================================================
+// Meeting bearbeiten / absagen
+// ============================================================
+Object.assign(PBX, {
+    async meetmeShowEditModal(meetingId) {
+        const m = (this._meetmeState.meetings || []).find(x => x.id === meetingId);
+        if (!m) return;
+
+        let rooms = [];
+        try { const d = await this.get(this.api.meetmeRooms); rooms = d.rooms || []; } catch (e) {}
+
+        const overlay = document.createElement('div');
+        overlay.className = 'pbx-meetme-modal-overlay';
+        overlay.id = 'pbx-meetme-modal-overlay';
+        overlay.innerHTML = `
+            <div class="pbx-meetme-modal">
+                <h4>${this.t('pbx_meetme_edit', 'Termin bearbeiten')}</h4>
+                <label>${this.t('pbx_meetme_field_title', 'Titel')}</label>
+                <input id="pbx-mm-edit-title" type="text" value="${this._meetmeEsc(m.title)}">
+                <label>${this.t('pbx_meetme_field_duration', 'Dauer (Minuten)')}</label>
+                <input id="pbx-mm-edit-duration" type="number" value="${m.duration_minutes}">
+                <label>${this.t('pbx_meetme_field_room', 'Konferenzraum')}</label>
+                <select id="pbx-mm-edit-room">
+                    <option value="">${this.t('pbx_meetme_room_none', '– kein fester Raum –')}</option>
+                    ${rooms.map(r => `<option value="${r.room_extension}" ${r.room_extension === m.room_extension ? 'selected' : ''}>${r.room_extension}${r.hint_state ? ' (' + r.hint_state + ')' : ''}</option>`).join('')}
+                </select>
+                <label>${this.t('pbx_meetme_field_desc', 'Beschreibung')}</label>
+                <textarea id="pbx-mm-edit-desc" rows="3">${this._meetmeEsc(m.description || '')}</textarea>
+                <div class="pbx-meetme-modal-actions">
+                    <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeCloseModal()">${this.t('pbx_cancel', 'Abbrechen')}</button>
+                    <button class="pbx-act pbx-act-green" onclick="PBX.meetmeSaveEdit(${meetingId})">${this.t('pbx_meetme_save', 'Speichern')}</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+    },
+
+    async meetmeSaveEdit(meetingId) {
+        const title = this.$('pbx-mm-edit-title').value.trim();
+        const duration = parseInt(this.$('pbx-mm-edit-duration').value, 10) || 60;
+        const room = this.$('pbx-mm-edit-room').value;
+        const desc = this.$('pbx-mm-edit-desc').value;
+        if (!title) { this.toast(this.t('pbx_meetme_fields_req', 'Titel erforderlich')); return; }
+
+        try {
+            await this.patchReq(`/meetme/api/meetings/${meetingId}/update/`, {
+                title, duration_minutes: duration, room_extension: room, description: desc,
+            });
+            this.meetmeCloseModal();
+            this.toast(this.t('pbx_meetme_saved', 'Gespeichert'));
+            await this.meetmeLoadMeetings();
+            this.meetmeSelectMeeting(meetingId);
+        } catch (e) {
+            this.toast(this.t('pbx_meetme_save_err', 'Speichern fehlgeschlagen'));
+        }
+    },
+
+    meetmeShowCancelConfirm(meetingId) {
+        const m = (this._meetmeState.meetings || []).find(x => x.id === meetingId);
+        if (!m) return;
+        const overlay = document.createElement('div');
+        overlay.className = 'pbx-meetme-modal-overlay';
+        overlay.id = 'pbx-meetme-modal-overlay';
+        overlay.innerHTML = `
+            <div class="pbx-meetme-modal" style="width:360px">
+                <h4><i class="bi bi-exclamation-triangle-fill" style="color:#b02a37"></i> ${this.t('pbx_meetme_cancel_confirm_title', 'Termin absagen?')}</h4>
+                <p style="font-size:13px;margin:10px 0">
+                    ${this.t('pbx_meetme_cancel_confirm_text', 'Der Termin')} "${this._meetmeEsc(m.title)}" ${this.t('pbx_meetme_cancel_confirm_text2', 'wird auf \'Abgesagt\' gesetzt. Alle offenen, noch nicht gesendeten Erinnerungen werden storniert. Bereits gesendete Erinnerungen bleiben als Protokoll erhalten.')}
+                </p>
+                <div class="pbx-meetme-modal-actions">
+                    <button class="pbx-act pbx-act-gray" onclick="PBX.meetmeCloseModal()">${this.t('pbx_cancel', 'Zurück')}</button>
+                    <button class="pbx-act pbx-act-red" onclick="PBX.meetmeConfirmCancel(${meetingId})">${this.t('pbx_meetme_cancel_confirm_btn', 'Ja, absagen')}</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+    },
+
+    async meetmeConfirmCancel(meetingId) {
+        try {
+            await this.del(`/meetme/api/meetings/${meetingId}/cancel/`);
+            this.meetmeCloseModal();
+            this.toast(this.t('pbx_meetme_cancelled', 'Termin abgesagt'));
+            await this.meetmeLoadMeetings();
+            this.meetmeSelectMeeting(meetingId);
+        } catch (e) {
+            this.toast(this.t('pbx_meetme_cancel_err', 'Absagen fehlgeschlagen'));
+        }
+    },
+
+    async patchReq(url, body) {
+        const r = await fetch(url, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': this.csrf(), 'X-Requested-With': 'XMLHttpRequest' },
+            body: JSON.stringify(body || {}),
+        });
+        return r.json();
+    },
+});

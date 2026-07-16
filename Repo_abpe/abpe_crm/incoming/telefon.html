@@ -1,0 +1,23 @@
+{% extends "abpe_crm/base.html" %}
+{% load static %}
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block module_css %}
+<link href="{% static 'abpe_crm/css/mod-crm-pbx.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block module_js %}
+<script>
+window.CRM_SKIP_SEARCH = true;
+window.PBX_CONFIG = {
+    api_base:  '{{ pbx_api_base|default:"/crm/api" }}',
+    extension: '{{ pbx_extension|default:"12" }}',
+};
+</script>
+<script src="{% static 'abpe_crm/js/jssip.min.js' %}"></script>
+<script src="{% static 'abpe_crm/js/mod-crm-pbx.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+{% include "abpe_crm/tabs/telefon_tab.html" %}
+{% endblock %}

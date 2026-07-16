@@ -1,0 +1,26 @@
+{
+    "id": "crm_emails",
+    "title": "E-Mail Kampagne",
+    "titles": {
+        "de": "E-Mail Kampagne",
+        "en": "Email Campaign",
+        "fr": "Campagne E-Mail",
+        "it": "Campagna E-Mail",
+        "es": "Campaña E-Mail"
+    },
+    "icon": "megaphone",
+    "route": "/crm/emails/",
+    "order": 30,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod-crm.css"
+        ],
+        "js": [
+            "mod-crm.js"
+        ]
+    }
+}

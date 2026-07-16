@@ -1,0 +1,236 @@
+{% extends 'abpe_ui/base.html' %}
+{% load static %}
+
+{% block title %}<span data-i18n="namazu.search.title">Beratersuche</span>{% endblock %}
+
+{% block module_css %}
+<link href="{% static 'abpe_ui/css/mod/mod-namazu.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <!-- NAMAZU SUCHE -->
+    <div class="toggle-section">
+        <div class="section-header open" onclick="toggleSection(this)">
+            <span><i class="bi bi-search"></i> <span data-i18n="namazu.search.title">Beratersuche</span></span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="section-content open" style="padding:16px">
+            <a href="https://ucs5.win.abcona.info/cgi-bin/namazu.cgi"
+               target="_blank" class="btn btn-primary">
+                <i class="bi bi-search"></i>
+                <span data-i18n="namazu.search.btn">Suchen</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ELASTICSEARCH SUCHE -->
+    <div class="toggle-section">
+        <div class="section-header open" onclick="toggleSection(this)">
+            <span><i class="bi bi-lightning-charge"></i> <span data-i18n="namazu.es.title">Elasticsearch Suche</span></span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="section-content open">
+
+            <!-- Suchzeile -->
+            <div class="d-flex gap-2 mb-2">
+                <input type="text" id="es-search-q" class="form-control"
+                       style="font-family:monospace"
+                       data-i18n-placeholder="namazu.es.placeholder"
+                       placeholder="java AND python ...">
+                <select id="es-search-index" class="form-select" style="width:140px">
+                    <option value="consultants" data-i18n="namazu.es.index.consultants">Berater</option>
+                    <option value="emails"      data-i18n="namazu.es.index.emails">E-Mails</option>
+                    <option value="profiles"    data-i18n="namazu.es.index.profiles">Profile</option>
+                </select>
+                <select id="es-search-max" class="form-select" style="width:90px">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20" selected>20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                <select id="es-sort-add" class="form-select" style="width:160px">
+                    <!-- Optionen werden dynamisch per JS befüllt (updateSortDropdown) -->
+                </select>
+                <button id="es-search-btn" class="btn btn-primary" style="white-space:nowrap">
+                    <i class="bi bi-lightning-charge"></i>
+                    <span data-i18n="namazu.search.btn">Suchen</span>
+                </button>
+            </div>
+
+            <!-- Query-Helper Toggle -->
+            <div class="toggle-section mb-2" style="box-shadow:none;border:1px solid var(--border-color)">
+                <div class="section-header" onclick="toggleSection(this)"
+                     style="background:var(--abcona-gray-card);color:var(--text-primary);font-size:0.8rem;padding:8px 12px">
+                    <span><i class="bi bi-magic"></i> <span data-i18n="namazu.es.query_helper">Query-Hilfe</span></span>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+                <div class="section-content" style="padding:10px 12px">
+                    <div class="namazu-chip-label" data-i18n="namazu.es.chips.boolean">Boolean:</div>
+                    <div class="namazu-chip-group mb-2">
+                        <span class="namazu-chip" data-insert=" AND "><code>AND</code> <span data-i18n="namazu.es.chips.and">beide</span></span>
+                        <span class="namazu-chip" data-insert=" OR "><code>OR</code> <span data-i18n="namazu.es.chips.or">eines</span></span>
+                        <span class="namazu-chip" data-insert=" NOT "><code>NOT</code> <span data-i18n="namazu.es.chips.not">ausschließen</span></span>
+                        <span class="namazu-chip" data-insert=" +"><code>+</code> <span data-i18n="namazu.es.chips.must">muss</span></span>
+                        <span class="namazu-chip" data-insert=" -"><code>-</code> <span data-i18n="namazu.es.chips.must_not">darf nicht</span></span>
+                    </div>
+                    <div class="namazu-chip-label" data-i18n="namazu.es.chips.wildcards">Wildcards &amp; Fuzzy:</div>
+                    <div class="namazu-chip-group mb-2">
+                        <span class="namazu-chip" data-insert="*"><code>*</code> <span data-i18n="namazu.es.chips.wildcard">Wildcard</span></span>
+                        <span class="namazu-chip" data-insert="?"><code>?</code> <span data-i18n="namazu.es.chips.one_char">ein Zeichen</span></span>
+                        <span class="namazu-chip" data-insert="~"><code>~</code> <span data-i18n="namazu.es.chips.fuzzy">Fuzzy</span></span>
+                        <span class="namazu-chip" data-insert="~1"><code>~1</code> <span data-i18n="namazu.es.chips.fuzzy">Fuzzy</span> 1</span>
+                        <span class="namazu-chip" data-wrap='";"'><code>"..."</code> <span data-i18n="namazu.es.chips.phrase">Phrase</span></span>
+                        <span class="namazu-chip" data-wrap='";"~2'><code>"..."~2</code> <span data-i18n="namazu.es.chips.proximity">Nähe</span></span>
+                        <span class="namazu-chip" data-insert="^3"><code>^3</code> <span data-i18n="namazu.es.chips.boost">Boost</span></span>
+                    </div>
+                    <div class="namazu-chip-label" data-i18n="namazu.es.chips.fields_email">Felder (E-Mails):</div>
+                    <div class="namazu-chip-group mb-2">
+                        <span class="namazu-chip" data-insert="subject:"><code>subject:</code> <span data-i18n="namazu.es.chips.subject">Betreff</span></span>
+                        <span class="namazu-chip" data-insert="from_addr:"><code>from_addr:</code> <span data-i18n="namazu.es.chips.sender">Absender</span></span>
+                        <span class="namazu-chip" data-insert="body:"><code>body:</code> <span data-i18n="namazu.es.chips.content">Inhalt</span></span>
+                        <span class="namazu-chip" data-insert="account:"><code>account:</code> <span data-i18n="namazu.es.chips.mailbox">Postfach</span></span>
+                        <span class="namazu-chip" data-insert="folder:"><code>folder:</code> <span data-i18n="namazu.es.chips.folder">Ordner</span></span>
+                        <span class="namazu-chip" data-set="has_attachments:true"><span data-i18n="namazu.es.chips.with_attachment">Mit Anhang</span></span>
+                    </div>
+                    <div class="namazu-chip-label" data-i18n="namazu.es.chips.fields_consultant">Felder (Berater):</div>
+                    <div class="namazu-chip-group mb-2">
+                        <span class="namazu-chip" data-insert="searchable_text:"><code>searchable_text:</code> <span data-i18n="namazu.es.chips.fulltext">Volltext</span></span>
+                        <span class="namazu-chip" data-insert="full_name:"><code>full_name:</code> <span data-i18n="namazu.es.chips.name">Name</span></span>
+                        <span class="namazu-chip" data-insert="location:"><code>location:</code> <span data-i18n="namazu.es.chips.location">Ort</span></span>
+                        <span class="namazu-chip" data-insert="availability:"><code>availability:</code> <span data-i18n="namazu.es.chips.availability">Verfügbarkeit</span></span>
+                    </div>
+                    <div class="namazu-chip-label" data-i18n="namazu.es.chips.date_ranges">Datum &amp; Ranges:</div>
+                    <div class="namazu-chip-group mb-2">
+                        <span class="namazu-chip" data-set="date:[2025-01-01 TO *]">ab 2025</span>
+                        <span class="namazu-chip" data-set="date:[2024-01-01 TO 2024-12-31]">2024</span>
+                        <span class="namazu-chip" data-set="date:[2023-01-01 TO 2024-12-31]">2023-2024</span>
+                    </div>
+                    <div class="namazu-chip-label" data-i18n="namazu.es.examples">Beispiele:</div>
+                    <div class="namazu-chip-group">
+                        <span class="namazu-chip" data-set="java AND python">java AND python</span>
+                        <span class="namazu-chip" data-set='"Java Developer"'>Exakte Phrase</span>
+                        <span class="namazu-chip" data-set="java* NOT javascript">java* NOT javascript</span>
+                        <span class="namazu-chip" data-set="java~">Fuzzy: java~</span>
+                        <span class="namazu-chip" data-set='subject:Projektanfrage AND account:vertrieb'>Projektanfragen Vertrieb</span>
+                        <span class="namazu-chip" data-set='from_addr:gulp.de AND date:[2024-01-01 TO *]'>GULP ab 2024</span>
+                        <span class="namazu-chip" data-set="subject:Projektanfrage AND date:[2024-01-01 TO *]">Projektanfragen ab 2024</span>
+                        <span class="namazu-chip" data-set="*">Alle anzeigen</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sort Tags -->
+            <div id="es-sort-tags" class="mb-2" style="display:flex;gap:4px;flex-wrap:wrap;min-height:0"></div>
+
+            <!-- Exclude Filter -->
+            <div id="es-exclude-wrap" class="mb-2" style="display:none">
+                <span style="font-size:0.78rem;color:var(--text-secondary)" data-i18n="namazu.es.exclude">Ausschließen:</span>
+                <span id="es-exclude-tags"></span>
+            </div>
+
+            <!-- Info + Pagination -->
+            <div class="d-flex align-items-center mb-2 gap-3">
+                <div id="es-info" class="text-secondary" style="font-size:.82rem"></div>
+                <div id="es-pagination" class="ms-auto d-flex gap-1"></div>
+            </div>
+
+            <div id="es-results" class="namazu-result-list"></div>
+
+        </div>
+    </div>
+
+    <!-- ADMIN -->
+    <div class="toggle-section">
+        <div class="section-header" onclick="toggleSection(this)">
+            <span><i class="bi bi-gear"></i> <span data-i18n="namazu.admin.title">Index-Verwaltung</span></span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="section-content">
+
+            <!-- IMAP Accounts -->
+            <div class="toggle-section mb-3" style="box-shadow:none;border:1px solid var(--border-color)">
+                <div class="section-header" onclick="toggleSection(this)"
+                     style="font-size:0.85rem;padding:10px 14px">
+                    <span><i class="bi bi-envelope"></i> <span data-i18n="namazu.admin.imap_title">IMAP Postfächer</span></span>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+                <div class="section-content" style="padding:0">
+                    <div id="namazu-accounts-list"></div>
+                    <div style="padding:10px 14px">
+                        <button id="namazu-add-account-btn" class="btn btn-sm btn-outline-primary">
+                            <i class="bi bi-plus"></i>
+                            <span data-i18n="namazu.admin.add_account">Account hinzufügen</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Index Stats -->
+            <div class="stats-grid" style="grid-template-columns:repeat(3,1fr)">
+                <div class="stat-card">
+                    <div class="stat-value" id="namazu-html-count">—</div>
+                    <div class="stat-title" data-i18n="namazu.admin.html_count">HTML-Dateien</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="namazu-index-size">—</div>
+                    <div class="stat-title" data-i18n="namazu.admin.index_size">Index-Größe</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="namazu-last-indexed" style="font-size:1.1rem">—</div>
+                    <div class="stat-title" data-i18n="namazu.admin.last_indexed">Letzte Indizierung</div>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3 mt-3 mb-3">
+                <button id="namazu-reindex-btn" class="btn btn-primary">
+                    <i class="bi bi-arrow-clockwise"></i>
+                    <span data-i18n="namazu.admin.reindex_btn">Re-Indizierung starten</span>
+                </button>
+                <span id="namazu-reindex-msg" style="font-size:.82rem"></span>
+            </div>
+
+            <div class="mb-2">
+                <div class="stat-title mb-1" data-i18n="namazu.admin.log_title">NMZ.log</div>
+                <div id="namazu-log" class="namazu-log">—</div>
+            </div>
+            <div>
+                <div class="stat-title mb-1" data-i18n="namazu.admin.err_title">NMZ.err</div>
+                <div id="namazu-err" class="namazu-log">—</div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block module_js %}
+<script src="{% static 'abpe_ui/js/mod/mod-namazu.js' %}"></script>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof loadLanguage === 'function') {
+        loadLanguage('{{ current_lang|default:"de" }}', 'namazu').then(() => {
+            if (typeof applyTranslations === 'function') applyTranslations();
+            NamazuMod.init();
+        });
+    } else {
+        NamazuMod.init();
+    }
+});
+
+document.addEventListener('languageChanged', function(e) {
+    if (typeof loadLanguage === 'function') {
+        loadLanguage(e.detail.language, 'namazu').then(() => {
+            if (typeof applyTranslations === 'function') applyTranslations();
+            if (window.NamazuMod) NamazuMod.updateSortDropdown();
+        });
+    }
+}, {capture: true});
+</script>
+{% endblock %}

@@ -105,6 +105,7 @@ urlpatterns = [
     path('api/contact/quick-create/',           views.api_contact_quick_create, name='api_contact_quick_create'),
     path('api/berater/',                        views.api_berater_list,   name='api_berater_list'),
     path('api/berater/<str:crm_id>/',           views.api_berater_detail, name='api_berater_detail'),
+    path('api/berater/<str:crm_id>/cv/',        views.api_berater_cv,     name='api_berater_cv'),
     path('api/berater/<str:crm_id>/delete/',    views.api_berater_delete, name='api_berater_delete'),
 
     # ============================================================

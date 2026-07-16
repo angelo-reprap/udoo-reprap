@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "İçindekiler"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Genel Bakış"
+        },
+        {
+            "id": "endpoints",
+            "number": "2",
+            "title": "Uç Noktalar"
+        }
+    ]
+}

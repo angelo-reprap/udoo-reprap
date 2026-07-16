@@ -1,0 +1,27 @@
+{
+    "id": "crm_kunden",
+    "title": "Kunden",
+    "titles": {
+        "de": "Kunden",
+        "en": "Customers",
+        "fr": "Clients",
+        "it": "Clienti",
+        "es": "Clientes"
+    },
+    "icon": "briefcase",
+    "route": "/crm/kunden/",
+    "order": 20,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod-crm.css"
+        ],
+        "js": [
+            "mod-crm.js",
+            "mod-crm-kunden.js"
+        ]
+    }
+}

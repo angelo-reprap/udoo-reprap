@@ -1,0 +1,20 @@
+{
+    "id": "crm_berater",
+    "title": "Berater",
+    "titles": {
+        "de": "Berater",
+        "en": "Consultants",
+        "fr": "Consultants",
+        "it": "Consulenti",
+        "es": "Consultores"
+    },
+    "icon": "people",
+    "route": "/crm/berater/",
+    "order": 10,
+    "enabled": true,
+    "roles": ["!berater"],
+    "static": {
+        "css": ["mod-crm.css"],
+        "js":  ["mod-crm.js", "mod-crm-berater.js"]
+    }
+}
