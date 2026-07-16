@@ -1,12 +1,15 @@
 #!/bin/bash
 # Email Studio — i18n + Undo/Milestone (ucs5)
 #
-# Aufruf (NICHT aus /opt/abpe/backend — Repo-Pfad verwenden):
-#   cd /mnt/public/udoo-reprap
-#   bash Repo_abpe/email_studio/incoming/DEPLOY-undo-i18n.sh
+# WICHTIG: git fetch allein aktualisiert NICHT den Working Tree!
+# Nach fetch den Branch-Inhalt per git show laden:
 #
-# Oder mit vollem Pfad von überall:
-#   bash /mnt/public/udoo-reprap/Repo_abpe/email_studio/incoming/DEPLOY-undo-i18n.sh
+#   cd /mnt/public/udoo-reprap
+#   git fetch origin cursor/email-studio-undo-i18n-bf44
+#   git show origin/cursor/email-studio-undo-i18n-bf44:Repo_abpe/email_studio/incoming/DEPLOY-undo-i18n.sh | bash
+#
+# Alternativ (wenn Datei lokal existiert):
+#   bash Repo_abpe/email_studio/incoming/DEPLOY-undo-i18n.sh
 #
 set -euo pipefail
 
@@ -19,11 +22,6 @@ VENV="${VENV:-$BACKEND/venv311/bin/activate}"
 
 if [[ ! -d "$REPO/.git" ]]; then
   echo "FEHLER: Git-Repo nicht gefunden unter: $REPO"
-  echo "Das Script liegt im Repo, nicht unter /opt/abpe/backend."
-  echo ""
-  echo "Korrekt:"
-  echo "  cd /mnt/public/udoo-reprap"
-  echo "  bash Repo_abpe/email_studio/incoming/DEPLOY-undo-i18n.sh"
   exit 1
 fi
 
@@ -32,6 +30,8 @@ echo "Repo:   $REPO"
 echo "Branch: $BRANCH"
 cd "$REPO"
 git fetch origin "$BRANCH"
+
+mkdir -p "$REPO/$R/i18n/en"
 
 # Template (nicht collectstatic!)
 git show "$BR:$R/studio.html" > "$BACKEND/apps/abpe_ui/templates/abpe_ui/modules/email_studio/studio.html"
