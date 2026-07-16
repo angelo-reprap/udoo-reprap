@@ -46,7 +46,7 @@ shift || true
 echo "=== Email Studio i18n ==="
 
 if [[ "$MODE" == "--audit" ]]; then
-  python3 "$REPO/$R/translate_email_studio_i18n.py" --backend "$BACKEND" --repo "$REPO" --audit "$@"
+  PYTHONWARNINGS=ignore python3 "$REPO/$R/translate_email_studio_i18n.py" --backend "$BACKEND" --repo "$REPO" --audit "$@"
   exit 0
 fi
 

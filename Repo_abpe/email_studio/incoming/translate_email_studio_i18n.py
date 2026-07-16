@@ -42,6 +42,28 @@ MODULE_REL = Path('modules/email_studio/email_studio.json')
 INCOMING = 'Repo_abpe/email_studio/incoming'
 CHUNK_SIZE = 25
 
+# Werte die sprachübergreifend gleich bleiben (Akronyme, Platzhalter, Beispiel-E-Mails)
+_INVARIANT_RE = re.compile(
+    r'^(\{\{[^}]+\}\}|[A-Z0-9._@/-]{2,}|HTML|TXT|TLS|SMTP|CC|BCC|API|URL|PDF|OK|ID|'
+    r'max@example\.de|cv_extractor · ingest_email · matching · workflow)$',
+    re.I,
+)
+
+
+def _is_invariant_value(val: str | None) -> bool:
+    if not val:
+        return False
+    v = str(val).strip()
+    if _INVARIANT_RE.match(v):
+        return True
+    if '{{' in v and '}}' in v:
+        return True
+    if re.match(r'^[\w.@+-]+$', v) and '@' in v:
+        return True
+    if '·' in v and '_' in v:
+        return True
+    return False
+
 
 def _load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding='utf-8'))
