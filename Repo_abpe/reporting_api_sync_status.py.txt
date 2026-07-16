@@ -1,0 +1,41 @@
+def api_sync_status(request):
+    """Sync-Statistiken"""
+    return JsonResponse({
+        'contacts_total':  CrmContact.objects.count(),
+        'accounts_total':  CrmAccount.objects.count(),
+        'emails_total':    CrmEmailAddress.objects.count(),
+        'documents_total': CrmDocument.objects.count(),
+        'notes_total':     CrmContactNote.objects.count(),
+        'last_sync':       str(CrmContact.objects.order_by('-crm_synced_at').values_list('crm_synced_at', flat=True).first() or ''),
+    })
+
+
+@login_required
+@require_http_methods(['GET'])
+def api_emails_list(request):
+    """Email-Adressen suchen und listen"""
+    q          = request.GET.get('q', '').strip()
+    status     = request.GET.get('status', '')
+    module     = request.GET.get('module', '')
+    sort       = request.GET.get('sort', 'email_address')
+    page       = int(request.GET.get('page', 1))
+    per_page   = int(request.GET.get('per_page', 20))
+
+    # Basis: Email-Adressen die mit Contacts verknüpft sind
+    qs = CrmEmailAddress.objects.filter(
+        bean_relations__bean_module='Contacts',
+        bean_relations__primary_address=True,
+        invalid_email=False,
+    ).select_related().distinct()
+
+    if q:
+        qs = qs.filter(email_address__icontains=q)
+
+    if status == 'opt_out':
+        qs = qs.filter(opt_out=True)
+    elif status == 'aktiv':
+        qs = qs.filter(opt_out=False, invalid_email=False)
+
+    sort_map = {
+        'email_address': 'email_address',
+        '-email_address': '-email_address',
