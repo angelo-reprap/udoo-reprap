@@ -56,6 +56,23 @@ LANG_NAMES = {
     'ro': 'Romanian', 'sv': 'Swedish', 'da': 'Danish', 'fi': 'Finnish',
     'no': 'Norwegian',
 }
+
+LANG_NATIVE = {
+    'de': 'Deutsch', 'en': 'English', 'fr': 'Français', 'it': 'Italiano',
+    'es': 'Español', 'pt': 'Português', 'nl': 'Nederlands', 'pl': 'Polski',
+    'ru': 'Русский', 'tr': 'Türkçe', 'ar': 'العربية', 'zh': '中文',
+    'ja': '日本語', 'ko': '한국어', 'cs': 'Čeština', 'hu': 'Magyar',
+    'ro': 'Română', 'sv': 'Svenska', 'da': 'Dansk', 'fi': 'Suomi',
+    'no': 'Norsk',
+}
+
+LANG_FLAGS = {
+    'de': '🇩🇪', 'en': '🇬🇧', 'fr': '🇫🇷', 'it': '🇮🇹', 'es': '🇪🇸',
+    'pt': '🇵🇹', 'nl': '🇳🇱', 'pl': '🇵🇱', 'ru': '🇷🇺', 'tr': '🇹🇷',
+    'ar': '🇸🇦', 'zh': '🇨🇳', 'ja': '🇯🇵', 'ko': '🇰🇷', 'cs': '🇨🇿',
+    'hu': '🇭🇺', 'ro': '🇷🇴', 'sv': '🇸🇪', 'da': '🇩🇰', 'fi': '🇫🇮',
+    'no': '🇳🇴',
+}
 # ─────────────────────────────────────────────────────────────────────────────
 
 logging.basicConfig(
@@ -339,28 +356,17 @@ def _translate_file(args: tuple) -> tuple[str, bool, str]:
         return rel, True, 'übersprungen (manifest vorhanden)'
 
     if ref_file.name == "meta.json":
-        ref_data = _read_json(ref_file)
-        if not ref_data:
-            return rel, False, 'meta.json Lesefehler'
+        if tgt_file.exists() and not force:
+            return rel, True, 'OK (meta.json vorhanden)'
 
-        if ref_file.parent.name not in (
-            'de', 'en', 'fr', 'it', 'es', 'pt', 'nl', 'pl', 'ru', 'tr', 'zh',
-            'ja', 'ko', 'ar', 'cs', 'hu', 'ro', 'sv', 'da', 'fi', 'no', 'uk',
-            'vi', 'bg', 'hr', 'sk', 'sl', 'sq', 'sr', 'lt', 'lv', 'et', 'el', 'af'
-        ):
-            if tgt_file.exists() and not force:
-                return rel, True, 'OK (vollständig)'
-            translated = _deepseek_translate(ref_data, source_lang, target_lang, api_key)
-            if translated and isinstance(translated, dict):
-                _write_json(tgt_file, translated)
-                return rel, True, f'meta.json übersetzt ({len(json.dumps(translated))} chars)'
-            return rel, False, 'meta.json Übersetzung fehlgeschlagen'
-
-        meta = dict(ref_data)
-        meta['code']         = target_lang
-        meta['name']         = LANG_NAMES.get(target_lang, target_lang.upper())
-        meta['native']       = LANG_NAMES.get(target_lang, target_lang.upper())
-        meta['completeness'] = 0
+        meta = {
+            'code':         target_lang,
+            'name':         LANG_NAMES.get(target_lang, target_lang),
+            'native':       LANG_NATIVE.get(target_lang, LANG_NAMES.get(target_lang, target_lang)),
+            'flag':         LANG_FLAGS.get(target_lang, '🏳️'),
+            'enabled':      True,
+            'completeness': 0,
+        }
         _write_json(tgt_file, meta)
         return rel, True, 'meta.json angelegt'
 
