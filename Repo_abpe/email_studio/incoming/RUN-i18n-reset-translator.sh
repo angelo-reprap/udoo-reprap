@@ -8,6 +8,9 @@
 #   git fetch origin cursor/email-studio-undo-i18n-bf44
 #   git show origin/cursor/email-studio-undo-i18n-bf44:Repo_abpe/email_studio/incoming/RUN-i18n-reset-translator.sh | bash
 #
+# Nur i18n-Reset (ohne Studio-Deploy):
+#   git show origin/.../RUN-i18n-reset-translator.sh | bash
+#
 # Nur Backup (kein Löschen):
 #   ... | bash -s -- --backup-only
 #

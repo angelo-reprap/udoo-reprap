@@ -152,20 +152,26 @@ def main() -> int:
     if not de_file.is_file():
         print(f'FEHLER: {de_file} nicht gefunden', file=sys.stderr)
         return 1
-    if not en_file.is_file():
-        print(f'FEHLER: {en_file} nicht gefunden', file=sys.stderr)
-        return 1
 
     canonical_de = _load_json(de_file)
-    ref_en = _load_json(en_file)
     i18n_root = Path(args.backend) / 'apps/abpe_ui/static/abpe_ui/i18n'
+    live_en = _target_path(i18n_root, 'en')
+    if en_file.is_file():
+        ref_en = _load_json(en_file)
+        en_src = en_file
+    elif live_en.is_file():
+        ref_en = _load_json(live_en)
+        en_src = live_en
+    else:
+        ref_en = deepcopy(canonical_de)
+        en_src = '(DE-Fallback — EN wird von i18n_translator erzeugt)'
 
     if not i18n_root.is_dir():
         print(f'FEHLER: {i18n_root} nicht gefunden', file=sys.stderr)
         return 1
 
     print(f'Kanonisch DE: {de_file}')
-    print(f'Referenz EN:  {en_file}')
+    print(f'Referenz EN:  {en_src}')
     print(f'Ziel:         {i18n_root}')
     print('Patche Sprachen:')
     patch_all(i18n_root, canonical_de, ref_en, args.langs, force=args.force_invalidate)

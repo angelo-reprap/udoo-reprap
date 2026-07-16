@@ -30,10 +30,7 @@ _activate_venv() {
 
 cd "$REPO"
 git fetch origin "$BRANCH"
-mkdir -p "$REPO/$R/i18n/en"
-
 git show "$BR:$R/email_studio.json" > "$REPO/$R/email_studio.json"
-git show "$BR:$R/i18n/en/email_studio.json" > "$REPO/$R/i18n/en/email_studio.json"
 git show "$BR:$R/patch_email_studio_i18n.py" > "$REPO/$R/patch_email_studio_i18n.py"
 git show "$BR:$R/translate_email_studio_i18n.py" > "$REPO/$R/translate_email_studio_i18n.py"
 chmod +x "$REPO/$R/patch_email_studio_i18n.py" "$REPO/$R/translate_email_studio_i18n.py"

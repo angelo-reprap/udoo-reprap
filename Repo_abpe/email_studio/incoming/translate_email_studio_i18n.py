@@ -104,17 +104,23 @@ def _needs_translation(key: str, val: str | None, en_val: str | None) -> bool:
 
 
 def _is_suspect(val: str | None, de_val: str | None, en_val: str | None, lang: str, key: str = '') -> bool:
-    """Verdächtig = leer, noch DE (echter Text), oder EN-Platzhalter."""
+    """Verdächtig = noch deutscher Text — nicht Lehnwörter/EN-Referenz."""
     if key in INVARIANT_KEYS:
         return False
     if not val or not str(val).strip():
         return True
     if _is_invariant_value(de_val, key) or _is_invariant_value(val, key):
         return False
-    if de_val and val == de_val:
+    # DE == EN: internationale Begriffe (Visual, Host, Auto, app_scope …)
+    if de_val and en_val and de_val == en_val:
+        return False
+    # Noch deutscher Kanon-Text in Fremdsprache
+    if de_val and val == de_val and lang != 'de':
         return True
+    # EN-Platzhalter obwohl DE abweicht (fehlende Übersetzung)
     if en_val and val == en_val and lang not in ('de', 'en'):
-        return True
+        if de_val and de_val != en_val:
+            return True
     return False
 
 
@@ -140,6 +146,7 @@ def _audit_langs(i18n_root: Path, de_es: dict, en_es: dict, langs: list[str]) ->
 def _print_audit(report: dict[str, list[str]]) -> int:
     total = 0
     print('\n── i18n Audit (verdächtige Keys) ──')
+    print('  (nur noch DE-Text in Fremdsprachen — Lehnwörter/technische Begriffe ignoriert)')
     if not report:
         print('  ✓ Keine verdächtigen Keys')
         return 0
@@ -260,14 +267,21 @@ def main() -> int:
     de_file = repo / INCOMING / 'email_studio.json'
     en_file = repo / INCOMING / 'i18n/en/email_studio.json'
     i18n_root = Path(args.backend) / 'apps/abpe_ui/static/abpe_ui/i18n'
+    live_en = i18n_root / 'en' / MODULE_REL
 
-    for p in (de_file, en_file, i18n_root):
+    for p in (de_file, i18n_root):
         if not p.exists():
             print(f'FEHLER: {p} nicht gefunden', file=sys.stderr)
             return 1
 
-    de_es = _load_json(de_file).get('es', {})
-    en_es = _load_json(en_file).get('es', {})
+    de_data = _load_json(de_file)
+    de_es = de_data.get('es', {})
+    if en_file.is_file():
+        en_es = _load_json(en_file).get('es', {})
+    elif live_en.is_file():
+        en_es = _load_json(live_en).get('es', {})
+    else:
+        en_es = de_es
 
     if args.audit:
         report = _audit_langs(i18n_root, de_es, en_es, args.langs)

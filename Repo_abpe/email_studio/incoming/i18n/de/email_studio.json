@@ -182,6 +182,7 @@
         "btn_edit": "Bearbeiten",
         "btn_preview": "Vorschau",
         "undo": "Rückgängig",
+        "undo_to_milestone": "Rückgängig bis Meilenstein",
         "redo": "Wiederholen",
         "milestone_save": "Stand merken",
         "milestone_save_short": "Merken",

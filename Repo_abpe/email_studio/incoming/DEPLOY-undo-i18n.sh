@@ -51,8 +51,6 @@ echo "Branch: $BRANCH"
 cd "$REPO"
 git fetch origin "$BRANCH"
 
-mkdir -p "$REPO/$R/i18n/en"
-
 # Template (nicht collectstatic!)
 git show "$BR:$R/studio.html" > "$BACKEND/apps/abpe_ui/templates/abpe_ui/modules/email_studio/studio.html"
 
@@ -61,25 +59,7 @@ git show "$BR:$R/es-studio.js" > "$BACKEND/apps/abpe_email_studio/static/email_s
 git show "$BR:$R/mod-email_studio.css" > "$BACKEND/apps/abpe_ui/static/abpe_ui/css/mod/mod-email_studio.css"
 git show "$BR:$R/api.py" > "$BACKEND/apps/abpe_email_studio/api.py"
 
-# i18n kanonisch DE + EN
-git show "$BR:$R/email_studio.json" > "$REPO/$R/email_studio.json"
-git show "$BR:$R/i18n/en/email_studio.json" > "$REPO/$R/i18n/en/email_studio.json"
-git show "$BR:$R/patch_email_studio_i18n.py" > "$REPO/$R/patch_email_studio_i18n.py"
-chmod +x "$REPO/$R/patch_email_studio_i18n.py"
+# i18n: Archiv-Backup → nur DE → i18n_translator (sauber & konsistent)
+git show "$BR:$R/RUN-i18n-reset-translator.sh" | bash -s --
 
-echo "--- i18n patchen (fehlende Keys mit EN-Fallback) ---"
-python3 "$REPO/$R/patch_email_studio_i18n.py" --backend "$BACKEND" --repo "$REPO"
-
-git show "$BR:$R/translate_email_studio_i18n.py" > "$REPO/$R/translate_email_studio_i18n.py"
-chmod +x "$REPO/$R/translate_email_studio_i18n.py"
-
-echo "--- Email Studio UI-Keys übersetzen (Deepseek) ---"
-PYTHONWARNINGS="ignore" python3 "$REPO/$R/translate_email_studio_i18n.py" --backend "$BACKEND" --repo "$REPO" \
-  || echo "WARN: translate_email_studio_i18n fehlgeschlagen — manuell nachholen"
-
-echo "--- collectstatic + restart ---"
-cd "$BACKEND"
-_activate_venv
-python manage.py collectstatic --noinput
-supervisorctl restart abpe-django
 echo "✓ Fertig — Strg+Shift+R"
