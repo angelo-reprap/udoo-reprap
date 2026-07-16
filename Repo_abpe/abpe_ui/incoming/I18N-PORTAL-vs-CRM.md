@@ -25,13 +25,12 @@ python3 apps/abpe_ui/bin/i18n_translator.py --lang hu
 | Was | Wo |
 |-----|-----|
 | CRM-Tabs, Telefon, PBX | `static/abpe_crm/i18n/<lang>/` (crm.json, modules/crm_*) |
-| Sidebar | **Portal** — nicht CRM |
-
-**Kein `module.json` im CRM.** Der Portal-Fehler (titles.ar fehlt) betrifft CRM nicht.
+| CRM-Sidebar | `templates/abpe_crm/modules/*/module.json` → `titles.<lang>` |
+| CRM-Basis-Nav | `apps/abpe_crm/modules.json` → `titles.<lang>` (tabs/modules/navigation) |
 
 ```bash
-python3 apps/abpe_crm/bin/i18n_translator.py
-python3 apps/abpe_crm/bin/i18n_validate.py
+python3 apps/abpe_crm/bin/i18n_translator.py      # i18n/ + module.json + modules.json titles
+python3 apps/abpe_crm/bin/i18n_validate.py        # Prüfen + --fix
 ```
 
 Neue Sprache:
@@ -43,4 +42,4 @@ python3 apps/abpe_crm/bin/i18n_translator.py --lang hu
 ## Verwechslungsgefahr
 
 - Portal-Translator: `apps/abpe_ui/bin/i18n_translator.py`
-- CRM-Translator: `apps/abpe_crm/bin/i18n_translator.py` (nur `abpe_crm/i18n/`, kein module.json)
+- CRM-Translator: `apps/abpe_crm/bin/i18n_translator.py` (eigenes `abpe_crm/i18n/` + CRM `module.json`/`modules.json`)
