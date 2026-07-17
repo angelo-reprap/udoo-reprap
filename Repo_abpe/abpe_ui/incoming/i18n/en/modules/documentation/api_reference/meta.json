@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "Table of Contents"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Overview"
+        },
+        {
+            "id": "endpoints",
+            "number": "2",
+            "title": "Endpoints"
+        }
+    ]
+}

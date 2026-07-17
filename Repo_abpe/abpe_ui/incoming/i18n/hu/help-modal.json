@@ -1,0 +1,22 @@
+{
+    "help_title": "Súgó & tippek",
+    "help_portal": "Erről a portálról",
+    "help_portal_text": "ABpE Portál - Automatizált Tanácsadói Profil Rögzítő Rendszer. Önéletrajzokat, tanácsadókat, párosítást és munkafolyamatokat kezel.",
+    "help_navigation": "Navigáció",
+    "help_nav1": "Oldalsáv: Ikonok egérrel föléjük húzva láthatók",
+    "help_nav2": "Irányítópult: Statisztikák összecsukhatók/kinyithatók",
+    "help_nav3": "Minden szakasz kattintással nyitható/zárható",
+    "help_nav4": "Keresés fent: Tanácsadók, önéletrajzok és adatkészletek keresése a portálon",
+    "help_language": "Nyelv & megjelenítés",
+    "help_lang_header": "Nyelv: Gombok jobb fent (DE/EN/ES/IT/FR) vagy a Beállítások alatt",
+    "help_lang_persist": "A kiválasztott nyelv elmentésre kerül, és a következő bejelentkezéskor betöltődik",
+    "help_theme_toggle": "Világos/sötét mód: Nap/hold gomb jobb fent vagy a Beállítások alatt",
+    "help_modules": "Modulok & útmutatók",
+    "help_mod_overview": "Minden modulnak saját súgója lehet – „Súgó” gomb a modul nézetben",
+    "help_mod_email": "Email Stúdió: részletes oktatóanyag szimulációkkal (Áttekintés, modulok, változók, fordítás)",
+    "help_mod_more": "További modulok (Dokumentum Stúdió, Párosítás, CRM) fokozatosan kerülnek hozzáadásra",
+    "help_shortcuts": "Billentyűparancsok",
+    "help_shortcut_help": "Súgó megnyitása",
+    "help_shortcut_search": "Keresőmező fókuszálása",
+    "help_shortcut_stats": "Statisztika összecsukása/kinyitása"
+}

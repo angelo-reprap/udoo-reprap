@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ current_lang|default:'de' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABpE CRM - {% block title %}CRM{% endblock %}</title>
+
+    <!-- Drittanbieter -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css" rel="stylesheet">
+
+    <!-- Core CSS (aus abpe_crm) -->
+    <link href="{% static 'abpe_crm/css/core-base.css' %}" rel="stylesheet">
+    <link href="{% static 'abpe_crm/css/core-layout.css' %}" rel="stylesheet">
+    <link href="{% static 'abpe_crm/css/core-theme.css' %}" rel="stylesheet">
+    <link href="{% static 'abpe_crm/css/core-responsive.css' %}" rel="stylesheet">
+    <link href="{% static 'abpe_crm/css/ui-components.css' %}" rel="stylesheet">
+    <link href="{% static 'abpe_crm/css/core-gsearch.css' %}" rel="stylesheet">
+
+    <!-- CRM CSS -->
+    <link href="{% static 'abpe_crm/css/mod-crm.css' %}" rel="stylesheet">
+    <link href="{% static 'abpe_crm/css/mod-crm-dokumente.css' %}" rel="stylesheet">
+
+    {% block module_css %}{% endblock %}
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    {% include 'abpe_crm/components/header.html' %}
+    {% include 'abpe_crm/components/sidebar.html' %}
+    <div class="sidebar-arc" id="sidebarArc"></div>
+    {% include 'abpe_crm/components/help_modal.html' %}
+
+    <div class="main-content">
+        {% block content %}{% endblock %}
+        {% include 'abpe_crm/components/footer.html' %}
+    </div>
+
+    <script>
+        window.ABPE_CONFIG = {
+            is_admin: {{ user_is_admin|yesno:"true,false" }},
+            current_lang: '{{ current_lang|default:"de" }}',
+            tab: '{{ tab|default:"berater" }}',
+            module_id: 'crm_{{ tab|default:"berater" }}',
+            debug: {{ debug|yesno:"true,false" }},
+            api_url:     '/api/',
+            crm_api_url: '/crm/api/'
+        };
+        window.CRM_TAB = '{{ tab|default:"berater" }}';
+        console.log('ABpE CRM geladen:', window.ABPE_CONFIG);
+    </script>
+
+    <!-- Drittanbieter JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core JS (aus abpe_crm) -->
+    <script src="{% static 'abpe_crm/js/core-init.js' %}"></script>
+    <script src="{% static 'abpe_crm/js/core-sidebar.js' %}"></script>
+    <script src="{% static 'abpe_crm/js/core-theme.js' %}"></script>
+    <script src="{% static 'abpe_crm/js/core-language.js' %}"></script>
+    <script src="{% static 'abpe_crm/js/core-crm-lang-dropdown.js' %}"></script>
+    <script src="{% static 'abpe_crm/js/ui-modal.js' %}"></script>
+    <script src="{% static 'abpe_crm/js/core-gsearch.js' %}"></script>
+
+    <!-- CRM JS -->
+    <script src="{% static 'abpe_crm/js/mod-crm.js' %}"></script>
+    <script src="{% static 'abpe_crm/js/mod-crm-edit.js' %}"></script>
+    <script src="{% static 'abpe_crm/js/mod-crm-berater.js' %}"></script>
+    <script src="{% static 'abpe_crm/js/mod-crm-kunden.js' %}"></script>
+    <script src="{% static 'abpe_crm/js/mod-crm-dokumente.js' %}"></script>
+    <script src="{% static 'abpe_crm/js/mod-crm-reporting.js' %}"></script>
+
+    {% block module_js %}{% endblock %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof updateThemeIcons === 'function') updateThemeIcons();
+        });
+
+        document.addEventListener('languageChanged', function() {
+            if (typeof window.onCrmLanguageChanged === 'function') {
+                window.onCrmLanguageChanged();
+            }
+        });
+
+        window.toggleHelp = function() {
+            const m = document.getElementById('helpModal');
+            if (m) m.classList.toggle('show');
+        };
+        window.closeHelpOnOutside = function(e) {
+            const m = document.getElementById('helpModal');
+            if (e.target === m) m.classList.remove('show');
+        };
+        window.toggleUserMenu = function() {
+            const d = document.getElementById('userDropdown');
+            if (d) d.classList.toggle('show');
+        };
+        window.toggleMobileSidebar = function() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (sidebar) {
+                sidebar.classList.toggle('open');
+                if (overlay) overlay.classList.toggle('show');
+            }
+        };
+        window.closeMobileSidebar = function() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (sidebar) sidebar.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+        };
+        window.toggleSection = function(header) {
+            if (!header) return;
+            header.classList.toggle('open');
+            const c = header.nextElementSibling;
+            if (c) c.classList.toggle('open');
+        };
+        document.addEventListener('click', function(e) {
+            const um = document.querySelector('.user-menu');
+            const dd = document.getElementById('userDropdown');
+            if (um && dd && !um.contains(e.target)) dd.classList.remove('show');
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (e.key === '?') { e.preventDefault(); window.toggleHelp(); }
+            if (e.key === '/') { e.preventDefault(); const el = document.getElementById('searchInput'); if (el) el.focus(); }
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

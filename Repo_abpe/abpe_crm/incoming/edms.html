@@ -1,0 +1,23 @@
+{% extends "abpe_crm/base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block module_css %}
+<link href="{% static 'abpe_crm/css/mod-edms.css' %}" rel="stylesheet">
+<script>
+    // Muss VOR den CRM-Basis-Scripts gesetzt sein (head wird zuerst geparst):
+    // verhindert, dass mod-crm.js auf der EDMS-Seite automatisch sucht.
+    window.CRM_SKIP_SEARCH = true;
+</script>
+{% endblock %}
+
+{% block content %}
+{% include "abpe_crm/components/crm_search.html" %}
+{% include "abpe_crm/tabs/edms_tab.html" %}
+{% endblock %}
+
+{% block module_js %}
+<script src="{% static 'abpe_crm/js/mod-edms.js' %}"></script>
+{% endblock %}
+
