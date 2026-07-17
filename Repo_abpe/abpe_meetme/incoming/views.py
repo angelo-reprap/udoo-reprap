@@ -136,6 +136,109 @@ def _mm_build_final_bodies(body, signature_id=None, action=None):
     return text_final, html_final
 
 
+def _mm_resolve_delivery_content(delivery):
+    """Betreff/Text fuer eine Erinnerungs-Delivery aus Snapshot, Regel oder Vorlage."""
+    rule = delivery.rule
+    meeting = rule.meeting
+    guest = delivery.guest
+
+    subject = (delivery.subject or rule.subject or '').strip()
+    body = (delivery.body or rule.body or '').strip()
+    if subject and body:
+        return subject, body
+
+    if rule.template_id:
+        from apps.abpe_email_studio.models import EmailTemplate
+        from apps.abpe_email_studio.services.renderer import EmailRenderer
+        from apps.abpe_meetme.email_helpers import build_meetme_variables
+
+        tpl = EmailTemplate.objects.filter(pk=rule.template_id).first()
+        if tpl:
+            user = meeting.created_by
+            variables = build_meetme_variables(meeting, guest, user)
+            renderer = EmailRenderer()
+            merged = {**renderer._get_system_vars(), **variables}
+            if not subject:
+                subject = renderer.render_subject(tpl.subject, merged).strip()
+            if not body:
+                body = renderer.render_text(tpl, variables, user).strip()
+
+    return subject, body
+
+
+def _mm_send_reminder_delivery(delivery, subject=None, body=None, signature_id=None):
+    """Versendet eine Erinnerungs-Delivery (HTML + Anhaenge). Aktualisiert status/sent_at."""
+    if delivery.status in ('SENT', 'SKIPPED'):
+        return True, None
+
+    rule = delivery.rule
+    meeting = rule.meeting
+
+    if subject is None or body is None:
+        resolved_sub, resolved_body = _mm_resolve_delivery_content(delivery)
+        subject = subject if subject is not None else resolved_sub
+        body = body if body is not None else resolved_body
+
+    subject = (subject or '').strip()
+    body = (body or '').strip()
+    if not subject or not body:
+        delivery.status = 'FAILED'
+        delivery.failed_reason = 'Betreff oder Text fehlt (Regel ohne Inhalt/Vorlage)'
+        delivery.save(update_fields=['status', 'failed_reason'])
+        return False, delivery.failed_reason
+
+    text_final, html_final = _mm_build_final_bodies(body, signature_id, 'reminder')
+    try:
+        attachments = _mm_resolve_and_read_attachments(rule.attachment_refs or [])
+    except ValueError as exc:
+        delivery.status = 'FAILED'
+        delivery.failed_reason = str(exc)[:2000]
+        delivery.save(update_fields=['status', 'failed_reason'])
+        return False, str(exc)
+
+    from django.core.mail import EmailMultiAlternatives
+    from django.conf import settings as django_settings
+
+    try:
+        msg = EmailMultiAlternatives(
+            subject=subject,
+            body=text_final,
+            from_email=getattr(django_settings, 'DEFAULT_FROM_EMAIL', None),
+            to=[delivery.guest.email],
+        )
+        msg.attach_alternative(html_final, "text/html")
+        for fn, data, mt in attachments:
+            msg.attach(fn, data, mt)
+        msg.send(fail_silently=False)
+
+        if rule.send_copy_to_owner and meeting.created_by and meeting.created_by.email:
+            copy_msg = EmailMultiAlternatives(
+                subject=f"[Kopie] {subject}",
+                body=text_final,
+                from_email=getattr(django_settings, 'DEFAULT_FROM_EMAIL', None),
+                to=[meeting.created_by.email],
+            )
+            copy_msg.attach_alternative(html_final, "text/html")
+            for fn, data, mt in attachments:
+                copy_msg.attach(fn, data, mt)
+            copy_msg.send(fail_silently=False)
+    except Exception as exc:
+        logger.error("Erinnerung delivery=%s an guest=%s fehlgeschlagen: %s",
+                     delivery.id, delivery.guest_id, exc)
+        delivery.status = 'FAILED'
+        delivery.failed_reason = str(exc)[:2000]
+        delivery.save(update_fields=['status', 'failed_reason'])
+        return False, str(exc)
+
+    delivery.subject = subject
+    delivery.body = body
+    delivery.status = 'SENT'
+    delivery.sent_at = timezone.now()
+    delivery.failed_reason = ''
+    delivery.save()
+    return True, None
+
+
 # ========== Anhaenge (EDMS-Suche + Live-Ordner-Browser fuer Office/Public) ==========
 
 _MM_ATTACH_MAX_TOTAL_BYTES = 7 * 1024 * 1024  # ~7MB roh (Postfix-Limit 10MB inkl. Base64-Overhead)
@@ -596,32 +699,20 @@ def api_delivery_queue(request):
 )
 @api_view(['POST'])
 def api_delivery_mark_sent(request, delivery_id):
-    delivery = get_object_or_404(MeetmeReminderDelivery, id=delivery_id)
-    subject = request.data.get('subject', delivery.subject)
-    body = request.data.get('body', delivery.body)
-
-    from django.core.mail import send_mail
-    from django.conf import settings as django_settings
-    try:
-        send_mail(
-            subject=subject,
-            message=body,
-            from_email=getattr(django_settings, 'DEFAULT_FROM_EMAIL', None),
-            recipient_list=[delivery.guest.email],
-            fail_silently=False,
-        )
-    except Exception as exc:
-        logger.error("E-Mail-Versand fuer delivery=%s fehlgeschlagen: %s", delivery.id, exc)
-        delivery.status = 'FAILED'
-        delivery.failed_reason = str(exc)[:2000]
-        delivery.save(update_fields=['status', 'failed_reason'])
-        return Response({'error': f'Versand fehlgeschlagen: {exc}'}, status=502)
-
-    delivery.subject = subject
-    delivery.body = body
-    delivery.status = 'SENT'
-    delivery.sent_at = timezone.now()
-    delivery.save()
+    delivery = get_object_or_404(
+        MeetmeReminderDelivery.objects.select_related('rule', 'rule__meeting', 'guest'),
+        id=delivery_id,
+    )
+    subject = request.data.get('subject')
+    body = request.data.get('body')
+    ok, err = _mm_send_reminder_delivery(
+        delivery,
+        subject=subject,
+        body=body,
+        signature_id=request.data.get('signature_id'),
+    )
+    if not ok:
+        return Response({'error': f'Versand fehlgeschlagen: {err}'}, status=502)
     return Response(MeetmeReminderDeliverySerializer(delivery).data)
 
 
@@ -651,21 +742,30 @@ def api_webhook_reminder_due(request):
         return Response({'error': 'delivery_id fehlt'}, status=400)
 
     try:
-        delivery = MeetmeReminderDelivery.objects.get(id=delivery_id)
+        delivery = MeetmeReminderDelivery.objects.select_related(
+            'rule', 'rule__meeting', 'guest',
+        ).get(id=delivery_id)
     except MeetmeReminderDelivery.DoesNotExist:
         return Response({'error': 'delivery nicht gefunden'}, status=404)
 
-    if delivery.status not in ('SENT', 'SKIPPED'):
-        delivery.status = 'DUE'
-        delivery.save(update_fields=['status'])
-        logger.info("Erinnerung faellig: delivery=%s guest=%s rule=%s",
-                    delivery.id, delivery.guest.name, delivery.rule)
+    if delivery.status in ('SENT', 'SKIPPED'):
+        return Response({'status': 'ok', 'already_done': True})
 
-    # Bei mode=AUTO koennte hier direkt der Versand ueber abpe_email_studio
-    # angestossen werden. Fuer mode=MANUAL bleibt es bei status=DUE, das
-    # Frontend zeigt die Erinnerung dann im Sende-Assistenten (api_delivery_queue) an.
+    rule = delivery.rule
+    logger.info(
+        "Erinnerung faellig: delivery=%s guest=%s rule=%s mode=%s",
+        delivery.id, delivery.guest.name, rule.id, rule.mode,
+    )
 
-    return Response({'status': 'ok'})
+    if rule.mode == 'AUTO':
+        ok, err = _mm_send_reminder_delivery(delivery)
+        if not ok:
+            return Response({'status': 'failed', 'error': err}, status=502)
+        return Response({'status': 'sent', 'delivery_id': delivery.id})
+
+    delivery.status = 'DUE'
+    delivery.save(update_fields=['status'])
+    return Response({'status': 'due', 'delivery_id': delivery.id})
 
 
 # ========== Konferenzraeume (PBX/AMI) ==========

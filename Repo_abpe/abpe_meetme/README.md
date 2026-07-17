@@ -21,15 +21,16 @@ git commit -m "Export: MeetMe + Scheduler Backend von ucs5"
 git push
 ```
 
-## Deploy zurück nach ucs5 (nach Agent-Fix)
+## Deploy Fix nach ucs5
 
 ```bash
-rsync -a Repo_abpe/abpe_meetme/incoming/ /opt/abpe/backend/apps/abpe_meetme/
-rsync -a Repo_abpe/abpe_scheduler/incoming/ /opt/abpe/backend/apps/abpe_scheduler/
-cd /opt/abpe/backend && supervisorctl restart abpe-django abpe-scheduler-loop
+cd /mnt/public/udoo-reprap && git pull
+bash Repo_abpe/abpe_meetme/incoming/RUN-deploy-meetme-backend-ucs5.sh
+cd /opt/abpe/backend && python manage.py migrate abpe_meetme --noinput
+supervisorctl restart abpe-django abpe-scheduler-loop abpe-celery
 ```
 
-## Bekannte Lücke (AUTO-Versand)
+## AUTO-Versand (implementiert)
 
-`api_webhook_reminder_due` setzt bei Fälligkeit nur `status=DUE`.  
-Bei `mode=AUTO` wird **noch nicht automatisch** versendet — das ist der nächste Fix nach vollständigem Export.
+`api_webhook_reminder_due`: bei `rule.mode == 'AUTO'` → `_mm_send_reminder_delivery()` (HTML, Anhänge, Vorlage).  
+Bei `MANUAL` → `status=DUE` für Sende-Assistent.
