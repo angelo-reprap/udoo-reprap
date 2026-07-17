@@ -1,0 +1,13 @@
+/* Reset + body — Design-Tokens: core-theme.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Segoe UI', sans-serif;
+    background: var(--abcona-gray-bg);
+    margin: 0;
+}

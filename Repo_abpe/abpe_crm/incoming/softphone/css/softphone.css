@@ -1,0 +1,571 @@
+/* softphone.css — ABpE Softphone Browser-Widget
+ * Schwebendes, draggables Widget im Browser
+ * Light/Dark Mode via [data-theme="dark"] auf <html>
+ * PWA/Standalone: softphone_spa.css
+ */
+
+/* ── CSS-Variablen Light Mode ────────────────────────── */
+:root {
+    --abcona-blue:       #163258;
+    --abcona-blue-dark:  #0f2442;
+    --abcona-blue-light: #1e4a7a;
+    --bg-primary:        #ffffff;
+    --bg-secondary:      #f8f8f8;
+    --bg-tertiary:       #f1f3f5;
+    --text-primary:      #1e1e1e;
+    --text-muted:        #6c757d;
+    --border-color:      #dee2e6;
+    --status-green:      #22c55e;
+    --status-red:        #ef4444;
+    --status-yellow:     #f59e0b;
+    --fn-btn-bg:         #f9fafb;
+    --fn-btn-border:     #d1d5db;
+    --fn-btn-color:      #374151;
+    --input-bg:          #ffffff;
+    --input-border:      #dee2e6;
+    --panel-header-bg:   #163258;
+    --panel-header-text: #ffffff;
+    --scrollbar-thumb:   #dee2e6;
+    --hover-bg:          #e9ecef;
+    --active-highlight:  #dbeafe;
+    --panel-header-hover:#1e4080;
+    --active-bg:         #163258;
+    --active-color:      #ffffff;
+    --active-highlight-bg: #dbeafe;
+    --header-status-muted: #8ba8c8;
+    --btn-announce-bg:   #0f6e56;
+    --btn-announce-color:#ffffff;
+    --btn-cancel-bg:     #dc2626;
+    --btn-cancel-color:  #ffffff;
+    --status-dnd-border: #991b1b;
+    --status-dnd-bg:     #fff1f2;
+    --status-dnd-color:  #991b1b;
+    --status-vm-border:  #b45309;
+    --status-vm-bg:      #fffbeb;
+    --status-vm-color:   #92400e;
+    --status-fwd-border: #1e40af;
+    --status-fwd-bg:     #eff6ff;
+    --status-fwd-color:  #1e3a8a;
+    --status-ok-bg:      #dcfce7;
+    --status-ok-border:  #86efac;
+    --status-ok-color:   #14532d;
+    --status-warn-bg:    #fef3c7;
+    --status-warn-border:#fcd34d;
+    --status-warn-color: #92400e;
+    --ext-free-bg:       #dcfce7;
+    --ext-free-color:    #14532d;
+    --ext-free-dot:      #22c55e;
+    --ext-busy-bg:       #fef3c7;
+    --ext-busy-color:    #92400e;
+    --ext-busy-dot:      #ef4444;
+    --ext-dnd-bg:        #fee2e2;
+    --ext-dnd-color:     #7f1d1d;
+    --ext-dnd-dot:       #f59e0b;
+    --ext-offline-bg:    #f3f4f6;
+    --ext-offline-color: #6b7280;
+    --ext-offline-dot:   #9ca3af;
+    --action-ok-border:  #86efac;
+    --action-ok-bg:      #f0fdf4;
+    --action-ok-color:   #14532d;
+    --action-info-border:#7dd3fc;
+    --action-info-bg:    #e0f2fe;
+    --action-info-color: #0c4a6e;
+    --badge-dnd-bg:      #fee2e2;
+    --badge-dnd-color:   #7f1d1d;
+    --dot-inactive:      #d1d5db;
+    --dot-offline:       #9ca3af;
+    --avatar-inc-bg:     #d1fae5;
+    --avatar-inc-color:  #065f46;
+    --avatar-cdr-bg:     #dbeafe;
+    --avatar-cdr-color:  #1e40af;
+    --fn-vm-border:      #b45309;
+    --fn-vm-bg:          #fffbeb;
+    --fn-vm-color:       #92400e;
+    --fn-fwd-border:     #1e40af;
+    --fn-fwd-bg:         #eff6ff;
+    --fn-fwd-color:      #1e3a8a;
+    --fn-dnd-border:     #991b1b;
+    --fn-dnd-bg:         #fff1f2;
+    --fn-dnd-color:      #991b1b;
+}
+
+/* ── CSS-Variablen Dark Mode ─────────────────────────── */
+[data-theme="dark"] {
+    --abcona-blue:       #2d2d2d;
+    --abcona-blue-dark:  #1e1e1e;
+    --abcona-blue-light: #3a3a3a;
+    --bg-primary:        #1a1a1a;
+    --bg-secondary:      #252525;
+    --bg-tertiary:       #2e2e2e;
+    --text-primary:      #e0e0e0;
+    --text-muted:        #a0a0a0;
+    --border-color:      #3a3a3a;
+    --fn-btn-bg:         #2a2a2a;
+    --fn-btn-border:     #444444;
+    --fn-btn-color:      #c0c0c0;
+    --input-bg:          #222222;
+    --input-border:      #3a3a3a;
+    --panel-header-bg:   #2d2d2d;
+    --panel-header-text: #e0e0e0;
+    --scrollbar-thumb:   #444444;
+    --hover-bg:          #3a3a3a;
+    --active-highlight:  #1e3a5f;
+    --panel-header-hover:#3a3a3a;
+    --active-bg:         #444444;
+    --active-color:      #e0e0e0;
+    --active-highlight-bg:#1e3a5f;
+    --header-status-muted:#4a6a8a;
+    --btn-announce-bg:   #065f46;
+    --btn-announce-color:#86efac;
+    --btn-cancel-bg:     #7f1d1d;
+    --btn-cancel-color:  #fca5a5;
+    --status-dnd-border: #7f1d1d;
+    --status-dnd-bg:     #2a0a0a;
+    --status-dnd-color:  #fca5a5;
+    --status-vm-border:  #92400e;
+    --status-vm-bg:      #3a2800;
+    --status-vm-color:   #fcd34d;
+    --status-fwd-border: #1e3a8a;
+    --status-fwd-bg:     #0a1f3a;
+    --status-fwd-color:  #93c5fd;
+    --status-ok-bg:      #052e16;
+    --status-ok-border:  #166534;
+    --status-ok-color:   #86efac;
+    --status-warn-bg:    #3a2800;
+    --status-warn-border:#92400e;
+    --status-warn-color: #fcd34d;
+    --ext-free-bg:       #052e16;
+    --ext-free-color:    #86efac;
+    --ext-busy-bg:       #3a2800;
+    --ext-busy-color:    #fcd34d;
+    --ext-dnd-bg:        #2a0a0a;
+    --ext-dnd-color:     #fca5a5;
+    --ext-offline-bg:    #2a2a2a;
+    --ext-offline-color: #a0a0a0;
+    --action-ok-border:  #166534;
+    --action-ok-bg:      #052e16;
+    --action-ok-color:   #86efac;
+    --action-info-border:#1e40af;
+    --action-info-bg:    #0a1f3a;
+    --action-info-color: #93c5fd;
+    --badge-dnd-bg:      #2a0a0a;
+    --badge-dnd-color:   #fca5a5;
+    --dot-inactive:      #444444;
+    --dot-offline:       #555555;
+    --avatar-inc-bg:     #052e16;
+    --avatar-inc-color:  #86efac;
+    --avatar-cdr-bg:     #0a1f3a;
+    --avatar-cdr-color:  #93c5fd;
+    --fn-vm-border:      #92400e;
+    --fn-vm-bg:          #3a2800;
+    --fn-vm-color:       #fcd34d;
+    --fn-fwd-border:     #1e40af;
+    --fn-fwd-bg:         #0a1f3a;
+    --fn-fwd-color:      #93c5fd;
+    --fn-dnd-border:     #991b1b;
+    --fn-dnd-bg:         #2a0a0a;
+    --fn-dnd-color:      #fca5a5;
+}
+
+/* ── Reset ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--abcona-blue-dark);
+    color: var(--text-primary);
+    font-size: 12px;
+    overflow-y: auto;
+    transition: background 0.2s;
+}
+
+/* ── Softphone Widget ────────────────────────────────── */
+#sp-modal {
+    position: fixed !important;
+    display: block !important;
+    width: 260px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    font-size: 12px;
+    overflow: visible;
+    z-index: 9999;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+/* ── Display-Feld ────────────────────────────────────── */
+#sp-display {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ── Kontaktsuche ────────────────────────────────────── */
+#sp-search {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+#sp-search::placeholder { color: var(--text-muted); }
+#sp-search-results {
+    background: var(--bg-primary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+/* ── Tastatur-Keys ───────────────────────────────────── */
+.sp-key {
+    padding: 8px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 7px;
+    background: var(--bg-secondary);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+    transition: background 0.1s;
+    user-select: none;
+}
+.sp-key:hover  { background: var(--hover-bg); }
+.sp-key:active { background: var(--active-bg); color: var(--active-color); }
+.sp-key small  { font-size: 8px; color: var(--text-muted); font-weight: 400; }
+
+/* ── Aktions-Buttons ─────────────────────────────────── */
+#sp-tab-dial button:not(#sp-call-btn):not(#sp-hangup-btn):not(.sp-key):not(#sp-mute-btn) {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+/* ── Funktions-Buttons ───────────────────────────────── */
+#sp-fn-bar button {
+    background: var(--fn-btn-bg) !important;
+    border-color: var(--fn-btn-border) !important;
+    color: var(--fn-btn-color) !important;
+}
+
+/* ── Toggle-Buttons ──────────────────────────────────── */
+#sp-speed-toggle,
+#sp-recent-toggle,
+#sp-fop-toggle {
+    background: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-muted) !important;
+}
+
+/* ── Tab-Buttons ─────────────────────────────────────── */
+.sp-tab-active {
+    background: var(--abcona-blue) !important;
+    color: #fff !important;
+}
+.sp-tab-btn {
+    transition: background 0.15s;
+    color: var(--text-primary);
+    background: transparent;
+}
+
+/* ── Einstellungen Inputs ────────────────────────────── */
+#sp-tab-settings input[type="text"],
+#sp-tab-settings input[type="password"] {
+    background: var(--input-bg) !important;
+    border-color: var(--input-border) !important;
+    color: var(--text-primary) !important;
+}
+#sp-tab-settings input::placeholder { color: var(--text-muted); }
+#sp-tab-settings button:not([onclick*="saveAndRegister"]):not([onclick*="sp-cfg-pass"]) {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+#sp-tab-settings label { color: var(--text-muted); }
+
+/* ── Speed-Panel ─────────────────────────────────────── */
+#sp-speed-panel {
+    position: fixed !important;
+    background: var(--bg-primary);
+    border-color: var(--border-color);
+}
+#sp-speed-panel input {
+    background: var(--input-bg) !important;
+    border-color: var(--input-border) !important;
+    color: var(--text-primary) !important;
+}
+#sp-speed-add-form button:first-of-type {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+/* ── FOP-Panel ───────────────────────────────────────── */
+#sp-fop-panel {
+    position: fixed !important;
+    background: var(--bg-primary);
+    border-color: var(--border-color);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+#sp-fop-panel::-webkit-scrollbar { width: 4px; }
+#sp-fop-panel::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 2px; }
+
+/* ── Transfer ────────────────────────────────────────── */
+#sp-transfer-expand {
+    background: var(--bg-primary);
+    border-color: var(--border-color) !important;
+}
+#sp-transfer-expand input {
+    background: var(--input-bg) !important;
+    border-color: var(--input-border) !important;
+    color: var(--text-primary) !important;
+}
+#sp-transfer-expand input::placeholder { color: var(--text-muted); }
+#sp-transfer-panel {
+    background: var(--bg-primary);
+    border-color: var(--border-color);
+}
+#sp-transfer-panel input {
+    background: var(--input-bg) !important;
+    border-color: var(--input-border) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ── Letzte Anrufe Panel ─────────────────────────────── */
+#sp-recent-panel {
+    background: var(--bg-primary);
+    border-color: var(--border-color);
+}
+
+/* ── Timer ───────────────────────────────────────────── */
+#sp-call-timer { color: var(--status-green); }
+
+/* ── Incoming Call ───────────────────────────────────── */
+#sp-incoming {
+    background: var(--bg-primary);
+    z-index: 10000;
+}
+#sp-inc-name { color: var(--text-primary); }
+#sp-inc-num  { color: var(--text-muted); }
+
+/* ── Status-Bar ──────────────────────────────────────── */
+#sp-status-bar { color: var(--text-primary); }
+#sp-recent     { color: var(--text-primary); }
+
+/* ── PWA Install Banner ──────────────────────────────── */
+#sp-install-banner {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--abcona-blue);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 11px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: none;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    z-index: 9990;
+}
+#sp-install-banner.visible { display: flex; }
+
+/* ── Scrollbars ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 2px; }
+
+/* ── Übergänge ───────────────────────────────────────── */
+#sp-modal,
+#sp-modal * {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* ── Dark Mode Overrides ─────────────────────────────── */
+[data-theme="dark"] #sp-speed-panel > div:first-child,
+[data-theme="dark"] #sp-fop-panel > div:first-child,
+[data-theme="dark"] #sp-recent-panel > div:first-child,
+[data-theme="dark"] #sp-transfer-panel > div:first-child,
+[data-theme="dark"] #sp-transfer-expand > div:first-child,
+[data-theme="dark"] #sp-incoming > div:first-child {
+    background: var(--panel-header-bg) !important;
+    color: var(--panel-header-text) !important;
+}
+[data-theme="dark"] #sp-drag-handle { background: var(--abcona-blue) !important; }
+[data-theme="dark"] .sp-tab-active  { background: var(--abcona-blue) !important; }
+[data-theme="dark"] #sp-status-panel [style*="background:#163258"],
+[data-theme="dark"] #sp-recent-body [style*="background:#163258"],
+[data-theme="dark"] #sp-tr-exp-body [style*="background:#163258"],
+[data-theme="dark"] #sp-speed-list [style*="background:#163258"] {
+    background: var(--panel-header-bg) !important;
+}
+[data-theme="dark"] button:hover:not(#sp-call-btn):not(#sp-hangup-btn):not([style*="background:#163258"]):not([style*="background:var(--status-green)"]):not([style*="background:var(--status-red)"]) {
+    background: var(--hover-bg) !important;
+    color: var(--text-primary) !important;
+}
+[data-theme="dark"] .sp-tab-btn:not(.sp-tab-active):hover {
+    background: var(--hover-bg) !important;
+    color: var(--text-primary) !important;
+}
+[data-theme="dark"] #sp-fn-bar button:hover {
+    background: var(--hover-bg) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+[data-theme="dark"] #sp-speed-toggle:hover,
+[data-theme="dark"] #sp-recent-toggle:hover,
+[data-theme="dark"] #sp-fop-toggle:hover {
+    background: var(--hover-bg) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ── Funktions-Button Klassen ────────────────────────── */
+.sp-fn-base {
+    padding: 5px 2px;
+    border-radius: 6px;
+    font-size: 9px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.3;
+    border: 0.5px solid var(--fn-btn-border);
+    background: var(--fn-btn-bg);
+    color: var(--fn-btn-color);
+    transition: background 0.15s, color 0.15s;
+}
+.sp-fn-base:hover { background: var(--hover-bg) !important; color: var(--text-primary) !important; }
+.sp-fn-vm-active  { border: 0.5px solid var(--fn-vm-border) !important; background: var(--fn-vm-bg) !important; color: var(--fn-vm-color) !important; font-weight: 600; }
+.sp-fn-fwd-active { border: 0.5px solid var(--fn-fwd-border) !important; background: var(--fn-fwd-bg) !important; color: var(--fn-fwd-color) !important; font-weight: 600; }
+.sp-fn-dnd-active { border: 0.5px solid var(--fn-dnd-border) !important; background: var(--fn-dnd-bg) !important; color: var(--fn-dnd-color) !important; font-weight: 600; }
+
+/* ── Panel-Header ────────────────────────────────────── */
+.sp-panel-hdr {
+    background: var(--panel-header-bg, #163258);
+    color: var(--panel-header-text, #ffffff);
+}
+.sp-panel-hdr:hover { background: var(--panel-header-hover, #1e4080) !important; }
+
+/* ── Status-Bar Klassen ──────────────────────────────── */
+.sp-status-bar-dnd,
+.sp-status-bar-fwd,
+.sp-status-bar-vm {
+    display: block;
+    padding: 4px 8px;
+    border-left: 3px solid;
+    font-size: 10px;
+    font-weight: 500;
+    margin: 0 0 2px 0;
+}
+.sp-status-bar-dnd { border-color: var(--status-dnd-border); color: var(--status-dnd-color); background: var(--status-dnd-bg); }
+.sp-status-bar-fwd { border-color: var(--status-fwd-border); color: var(--status-fwd-color); background: var(--status-fwd-bg); }
+.sp-status-bar-vm  { border-color: var(--status-vm-border);  color: var(--status-vm-color);  background: var(--status-vm-bg); }
+
+/* ── Transfer Inline ─────────────────────────────────── */
+.sp-transfer-inline-warn,
+.sp-transfer-inline-ok {
+    display: block;
+    margin: 0 0 4px 0;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 0.5px solid;
+}
+.sp-transfer-inline-warn { border-color: var(--status-warn-border); background: var(--status-warn-bg); }
+.sp-transfer-inline-ok   { border-color: var(--status-ok-border);   background: var(--status-ok-bg); }
+.sp-transfer-inline-hdr  { padding: 5px 8px; font-size: 10px; font-weight: 500; border-bottom: 0.5px solid var(--status-warn-border); color: var(--status-warn-color); }
+.sp-transfer-inline-body { padding: 8px; text-align: center; font-size: 11px; font-weight: 500; color: var(--status-ok-color); }
+
+/* ── Pin-Kontakt ─────────────────────────────────────── */
+.sp-pin-contact {
+    font-size: 11px;
+    color: var(--text-muted);
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-left: 6px;
+    opacity: 0;
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: opacity 0.15s, color 0.15s, background 0.15s;
+}
+.sp-pin-contact:hover { opacity: 1 !important; color: var(--abcona-blue) !important; background: var(--active-highlight-bg) !important; }
+
+/* ── Status Dots ─────────────────────────────────────── */
+.sp-status-dot   { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.sp-dot-hdr      { margin-right: 5px; }
+.sp-dot-noevents { pointer-events: none; }
+.sp-dot-free     { background: var(--ext-free-dot); }
+.sp-dot-busy     { background: var(--ext-busy-dot); }
+.sp-dot-dnd      { background: var(--ext-dnd-dot); }
+.sp-dot-offline  { background: var(--ext-offline-dot); }
+.sp-dot-unknown  { background: var(--ext-offline-dot); }
+.sp-dot-active   { background: var(--status-green); }
+.sp-dot-inactive { background: var(--dot-inactive); }
+.sp-dot-dim      { background: rgba(255,255,255,0.25); }
+
+/* ── FOP ─────────────────────────────────────────────── */
+.sp-sec-arrow { font-size: 9px; opacity: .8; }
+.sp-ext-badge { padding: 1px 5px; border-radius: 3px; font-size: 9px; }
+.sp-ext-free    { background: var(--ext-free-bg);    color: var(--ext-free-color); }
+.sp-ext-busy    { background: var(--ext-busy-bg);    color: var(--ext-busy-color); }
+.sp-ext-dnd     { background: var(--ext-dnd-bg);     color: var(--ext-dnd-color); }
+.sp-ext-offline { background: var(--ext-offline-bg); color: var(--ext-offline-color); }
+.sp-ext-unknown { background: var(--ext-offline-bg); color: var(--ext-offline-color); }
+.sp-fop-act-bar { background: var(--bg-secondary); border-bottom: 0.5px solid var(--border-color); padding: 3px 6px; flex-wrap: wrap; gap: 3px; }
+.sp-fop-act-btn { font-size: 10px; padding: 2px 6px; border: 0.5px solid var(--border-color); border-radius: 3px; cursor: pointer; background: var(--bg-primary); color: var(--text-primary); }
+.sp-fop-btn-ok  { font-size: 10px; padding: 1px 5px; border: 0.5px solid var(--action-ok-border); border-radius: 3px; cursor: pointer; background: var(--action-ok-bg); color: var(--action-ok-color); }
+.sp-fop-btn-info{ font-size: 10px; padding: 1px 5px; border: 0.5px solid var(--action-info-border); border-radius: 3px; cursor: pointer; background: var(--action-info-bg); color: var(--action-info-color); }
+.sp-fop-vm-badge{ background: var(--badge-dnd-bg); color: var(--badge-dnd-color); padding: 1px 5px; border-radius: 3px; font-size: 10px; font-weight: 600; margin-right: 4px; }
+.sp-fop-btn-dnd { font-size: 10px; padding: 2px 6px; border: 0.5px solid var(--status-dnd-border); border-radius: 3px; cursor: pointer; background: var(--status-dnd-bg); color: var(--status-dnd-color); }
+.sp-sec-hdr { padding: 4px 8px; font-size: 9px; font-weight: 600; color: var(--panel-header-text); background: var(--panel-header-bg); border-top: 0.5px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+.sp-sec-hdr:hover { background: var(--panel-header-hover); }
+.sp-sec-hdr-left  { display: flex; align-items: center; gap: 5px; }
+.sp-toggle-active { background: var(--active-highlight) !important; }
+.sp-fop-ext-row { display: flex; align-items: center; gap: 6px; padding: 5px 8px; border-bottom: 0.5px solid var(--border-color); font-size: 11px; cursor: pointer; }
+.sp-fop-ext-row:hover { background: var(--hover-bg); }
+.sp-fop-ext-name  { flex: 1; pointer-events: none; }
+.sp-fop-ext-me    { font-weight: 600; }
+.sp-fop-ext-right { display: flex; align-items: center; gap: 4px; pointer-events: none; }
+.sp-fop-row       { display: flex; align-items: center; gap: 6px; padding: 4px 8px; border-bottom: 0.5px solid var(--border-color); font-size: 11px; }
+.sp-fop-row-muted { color: var(--text-muted); }
+.sp-fop-slot-nr     { color: var(--text-muted); width: 24px; flex-shrink: 0; }
+.sp-fop-slot-caller { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-fop-slot-empty  { flex: 1; }
+.sp-fop-conf-num    { color: var(--text-muted); width: 32px; cursor: pointer; flex-shrink: 0; }
+.sp-fop-conf-name   { flex: 1; cursor: pointer; }
+.sp-fop-conf-count  { font-size: 10px; color: var(--text-muted); margin-right: 4px; flex-shrink: 0; }
+.sp-fop-vm-ext { flex: 1; }
+.sp-fop-hint   { padding: 8px; font-size: 10px; color: var(--text-muted); }
+
+/* ── Speed Dial ──────────────────────────────────────── */
+.sp-spd-item { border-bottom: 0.5px solid var(--border-color); }
+.sp-spd-hdr  { padding: 5px 8px; display: flex; align-items: center; gap: 5px; cursor: pointer; justify-content: space-between; }
+.sp-spd-hdr:hover { background: var(--hover-bg); }
+.sp-spd-info { min-width: 0; flex: 1; }
+.sp-spd-name { font-weight: 500; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-spd-sub  { font-size: 10px; color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-spd-del  { font-size: 11px; color: var(--text-muted); cursor: pointer; flex-shrink: 0; margin-left: 4px; }
+.sp-spd-arr  { font-size: 9px; color: var(--text-muted); margin-right: 4px; }
+.sp-spd-num-row { padding: 4px 10px 4px 16px; font-size: 10px; display: flex; justify-content: space-between; cursor: pointer; background: var(--bg-secondary); border-top: 0.5px solid var(--border-color); }
+.sp-spd-num-row:hover  { background: var(--border-color); }
+.sp-spd-num-row-deep   { padding-left: 24px; }
+.sp-spd-ap-hdr { padding: 4px 8px 4px 14px; font-size: 11px; display: flex; justify-content: space-between; cursor: pointer; border-top: 0.5px solid var(--border-color); background: var(--bg-secondary); }
+.sp-spd-ap-hdr:hover { filter: brightness(0.95); }
+
+/* ── Firma Search ────────────────────────────────────── */
+.sp-firma-search-form  { padding: 6px 8px; border-top: 1px solid var(--border-color); }
+.sp-firma-input        { font-size: 11px; padding: 3px 6px; border: 1px solid var(--border-color); border-radius: 4px; width: 100%; box-sizing: border-box; background: var(--bg-secondary); color: var(--text-primary); }
+.sp-firma-results      { max-height: 120px; overflow-y: auto; margin-top: 4px; }
+.sp-firma-result-item  { padding: 4px 6px; font-size: 11px; cursor: pointer; border-bottom: 0.5px solid var(--border-color); }
+.sp-firma-result-item:hover { background: var(--bg-secondary); }
+
+/* ── Recent Rows ─────────────────────────────────────── */
+.sp-recent-row  { display: flex; align-items: center; gap: 6px; padding: 5px 8px; border-bottom: 0.5px solid var(--border-color); font-size: 11px; cursor: pointer; }
+.sp-recent-row:hover { background: var(--hover-bg); }
+.sp-recent-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-recent-num  { font-size: 9px; color: var(--text-muted); flex-shrink: 0; }
+.sp-recent-time { font-size: 9px; color: var(--text-muted); flex-shrink: 0; margin-left: 4px; }
+.sp-recent-dur  { font-size: 9px; color: var(--text-muted); flex-shrink: 0; margin-left: 2px; }
+
+/* ── Helpers ─────────────────────────────────────────── */
+.sp-text-muted { color: var(--text-muted); }

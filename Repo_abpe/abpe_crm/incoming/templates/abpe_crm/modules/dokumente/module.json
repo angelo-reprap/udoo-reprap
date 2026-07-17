@@ -1,0 +1,37 @@
+{
+    "id": "crm_dokumente",
+    "title": "Dokumente",
+    "titles": {
+        "de": "Dokumente",
+        "en": "Documents",
+        "fr": "Documents",
+        "it": "Documenti",
+        "es": "Documentos",
+        "ar": "المستندات",
+        "ja": "ドキュメント",
+        "ko": "문서",
+        "nl": "Documenten",
+        "pl": "Dokumenty",
+        "pt": "Documentos",
+        "ru": "Документы",
+        "tr": "Belgeler",
+        "zh": "文档"
+    },
+    "icon": "file-text",
+    "route": "/crm/dokumente/",
+    "order": 40,
+    "enabled": false,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod-crm.css",
+            "mod-crm-dokumente.css"
+        ],
+        "js": [
+            "mod-crm.js",
+            "mod-crm-dokumente.js"
+        ]
+    }
+}
