@@ -135,7 +135,7 @@ const CRM_Berater = {
             if (!value || value === 'None' || value === 'undefinded') return '';
             return '<div class="crm-info-row">' +
                 E.renderCheckbox(field, value, label) +
-                '<i class="bi ' + icon + '" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0"></i>' +
+                '<i class="bi ' + icon + '" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0"></i>' +
                 '<span style="font-size:10px;color:var(--text-muted);min-width:65px;flex-shrink:0">' + label + '</span>' +
                 E.editField(crm_id, field, value, type, opts) +
                 '<button data-copy="' + value.replace(/"/g, '&quot;') + '" onclick="CRM_Edit.copyText(this)" style="background:none;border:none;cursor:pointer;color:var(--text-muted);padding:0 3px;font-size:11px"><i class="bi bi-clipboard"></i></button>' +
@@ -146,7 +146,7 @@ const CRM_Berater = {
         function roRow(icon, label, value) {
             if (!value || value === 'None') return '';
             return '<div class="crm-info-row">' +
-                '<i class="bi ' + icon + '" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0"></i>' +
+                '<i class="bi ' + icon + '" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0"></i>' +
                 '<span style="font-size:10px;color:var(--text-muted);min-width:65px;flex-shrink:0">' + label + '</span>' +
                 '<span style="font-size:10px;color:var(--text-muted);flex:1">' + value + '</span>' +
                 '</div>';
@@ -168,7 +168,7 @@ const CRM_Berater = {
                 ? '<span style="font-size:9px;padding:1px 5px;border-radius:10px;background:#f3e8ff;color:#7c3aed;flex-shrink:0">' + I.t('privat_label', 'Privat') + '</span>'
                 : '<span style="font-size:9px;padding:1px 5px;border-radius:10px;background:#dcfce7;color:#15803d;flex-shrink:0">' + I.t('geschaeftl', 'Geschäftl.') + '</span>';
             const primaerBadge = e.primary
-                ? '<span style="font-size:9px;padding:1px 5px;border-radius:10px;background:#dbeafe;color:#1d4ed8;flex-shrink:0">' + I.t('primaer', 'Primär') + '</span>'
+                ? '<span style="font-size:9px;padding:1px 5px;border-radius:10px;background:var(--badge-info-bg);color:var(--badge-info-text);flex-shrink:0">' + I.t('primaer', 'Primär') + '</span>'
                 : '';
             const gesperrtBadge = gesperrt
                 ? '<span style="font-size:9px;padding:1px 5px;border-radius:10px;background:#fee2e2;color:#dc2626;flex-shrink:0">' + I.t('gesperrt', 'Gesperrt') + '</span>'
@@ -191,12 +191,12 @@ const CRM_Berater = {
                 '</label>';
             const deleteBtn = '<button onclick="CRM_Berater._deleteEmail(\'' + crm_id + '\',\'' + e.email + '\')" title="' + I.t('loeschen', 'Löschen') + '" style="background:none;border:none;cursor:pointer;color:var(--badge-error-text);padding:0 3px;font-size:11px"><i class="bi bi-trash3"></i></button>';
             const primaryBtn = !e.primary && !gesperrt
-                ? '<button onclick="CRM_Berater._setPrimary(\'' + crm_id + '\',\'' + e.email + '\')" title="' + I.t('als_primaer_setzen', 'Als Primär setzen') + '" style="background:none;border:none;cursor:pointer;color:var(--abcona-blue);padding:0 3px;font-size:11px"><i class="bi bi-star"></i></button>'
+                ? '<button onclick="CRM_Berater._setPrimary(\'' + crm_id + '\',\'' + e.email + '\')" title="' + I.t('als_primaer_setzen', 'Als Primär setzen') + '" style="background:none;border:none;cursor:pointer;color:var(--text-link);padding:0 3px;font-size:11px"><i class="bi bi-star"></i></button>'
                 : '';
             emailsHtml += '<div class="crm-info-row" style="' + rowStyle + '">' +
                 (gesperrt ? '<span style="width:12px;flex-shrink:0"></span>' : CRM_Edit.renderCheckbox('email_' + e.email, e.email, I.t('e_mail', 'E-Mail'))) +
-                '<i class="bi bi-envelope" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0"></i>' +
-                '<span style="font-size:10px;color:var(--abcona-blue);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;' + textStyle + '" onclick="CRM_Berater.email(\'' + e.email + '\')" title="' + I.t('email_oeffnen', 'E-Mail öffnen') + '">' + e.email + '</span>' +
+                '<i class="bi bi-envelope" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0"></i>' +
+                '<span style="font-size:10px;color:var(--text-link);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;' + textStyle + '" onclick="CRM_Berater.email(\'' + e.email + '\')" title="' + I.t('email_oeffnen', 'E-Mail öffnen') + '">' + e.email + '</span>' +
                 primaryBtn + primaerBadge + gesperrtBadge + kampagneHtml + gesperrtHtml +
                 deleteBtn +
                 '<button data-copy="' + e.email + '" onclick="CRM_Edit.copyText(this)" style="background:none;border:none;cursor:pointer;color:var(--text-muted);padding:0 3px;font-size:11px"><i class="bi bi-clipboard"></i></button>' +
@@ -219,11 +219,11 @@ const CRM_Berater = {
                 row('bi-building', I.t('abteilung', 'Abteilung'), d.department, 'department') +
                 row('bi-cake', I.t('geburtstag', 'Geburtstag'), d.birthdate, 'birthdate', 'date') +
                 (d.account
-                    ? '<div class="crm-info-row"><span style="width:12px;flex-shrink:0"></span><i class="bi bi-building" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0"></i><span style="font-size:10px;color:var(--text-muted);min-width:65px;flex-shrink:0">' + I.t('firma', 'Firma') + '</span><span style="font-size:11px;color:var(--abcona-blue);flex:1;cursor:pointer" onclick="window.location.href=\'/crm/kunden/?detail=' + d.account.crm_id + '\'" title="' + I.t('kunden_detail_oeffnen', 'Kunden-Detail öffnen') + '">' + d.account.name + ' <i class=\'bi bi-box-arrow-up-right\' style=\'font-size:9px;opacity:.6\'></i></span><button onclick="CRM_Berater.unlinkAccount(\'' + d.crm_id + '\')" style="background:none;border:none;cursor:pointer;color:var(--badge-error-text);font-size:11px;padding:0 3px" title="' + I.t('verknuepfung_loesen', 'Verknüpfung lösen') + '"><i class="bi bi-x-circle"></i></button></div>'
-                    : '<div class="crm-info-row"><span style="width:12px;flex-shrink:0"></span><i class="bi bi-building" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0"></i><span style="font-size:10px;color:var(--text-muted);min-width:65px;flex-shrink:0">' + I.t('firma', 'Firma') + '</span><span style="font-size:11px;color:var(--text-muted);font-style:italic;flex:1">' + I.t('nicht_verknuepft', '— nicht verknüpft') + '</span><button onclick="CRM_Berater.searchAccount(\'' + d.crm_id + '\')" style="background:none;border:1px dashed var(--border-color);border-radius:4px;cursor:pointer;color:var(--abcona-blue);font-size:10px;padding:1px 6px"><i class="bi bi-search"></i> ' + I.t('firma', 'Firma') + '</button></div>') +
+                    ? '<div class="crm-info-row"><span style="width:12px;flex-shrink:0"></span><i class="bi bi-building" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0"></i><span style="font-size:10px;color:var(--text-muted);min-width:65px;flex-shrink:0">' + I.t('firma', 'Firma') + '</span><span style="font-size:11px;color:var(--text-link);flex:1;cursor:pointer" onclick="window.location.href=\'/crm/kunden/?detail=' + d.account.crm_id + '\'" title="' + I.t('kunden_detail_oeffnen', 'Kunden-Detail öffnen') + '">' + d.account.name + ' <i class=\'bi bi-box-arrow-up-right\' style=\'font-size:9px;opacity:.6\'></i></span><button onclick="CRM_Berater.unlinkAccount(\'' + d.crm_id + '\')" style="background:none;border:none;cursor:pointer;color:var(--badge-error-text);font-size:11px;padding:0 3px" title="' + I.t('verknuepfung_loesen', 'Verknüpfung lösen') + '"><i class="bi bi-x-circle"></i></button></div>'
+                    : '<div class="crm-info-row"><span style="width:12px;flex-shrink:0"></span><i class="bi bi-building" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0"></i><span style="font-size:10px;color:var(--text-muted);min-width:65px;flex-shrink:0">' + I.t('firma', 'Firma') + '</span><span style="font-size:11px;color:var(--text-muted);font-style:italic;flex:1">' + I.t('nicht_verknuepft', '— nicht verknüpft') + '</span><button onclick="CRM_Berater.searchAccount(\'' + d.crm_id + '\')" style="background:none;border:1px dashed var(--border-color);border-radius:4px;cursor:pointer;color:var(--text-link);font-size:10px;padding:1px 6px"><i class="bi bi-search"></i> ' + I.t('firma', 'Firma') + '</button></div>') +
                 '<div class="crm-info-row">' +
                 '<span style="width:12px;flex-shrink:0"></span>' +
-                '<i class="bi bi-telephone-x" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0"></i>' +
+                '<i class="bi bi-telephone-x" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0"></i>' +
                 '<span style="font-size:10px;color:var(--text-muted);min-width:65px;flex-shrink:0">' + I.t('nicht_anrufen', 'Nicht anrufen') + '</span>' +
                 '<input type="checkbox" ' + (d.do_not_call ? 'checked' : '') + ' onchange="CRM_Edit.save(\'' + crm_id + '\',{action:\'update\',do_not_call:this.checked})" style="cursor:pointer">' +
                 '</div>',
@@ -248,22 +248,22 @@ const CRM_Berater = {
             false) +
 
             E.section(I.t('adressen', 'Adressen'),
-                '<div style="font-size:10px;font-weight:600;color:var(--abcona-blue);margin-bottom:4px"><i class="bi bi-house"></i> ' + I.t('hauptadresse', 'Hauptadresse') + '</div>' +
+                '<div style="font-size:10px;font-weight:600;color:var(--text-link);margin-bottom:4px"><i class="bi bi-house"></i> ' + I.t('hauptadresse', 'Hauptadresse') + '</div>' +
                 (adrHauptStr
                     ? '<div class="crm-info-row">' +
                       CRM_Edit.renderCheckbox('adr_main', adrHauptStr, I.t('adresse', 'Adresse')) +
                       '<span style="font-size:11px;flex:1;white-space:pre-line">' + adrHauptStr + '</span>' +
-                      '<button onclick="CRM_Berater.editAdresse(\'' + crm_id + '\',\'primary\')" style="background:none;border:none;cursor:pointer;color:var(--abcona-blue);font-size:11px"><i class="bi bi-pencil"></i></button>' +
+                      '<button onclick="CRM_Berater.editAdresse(\'' + crm_id + '\',\'primary\')" style="background:none;border:none;cursor:pointer;color:var(--text-link);font-size:11px"><i class="bi bi-pencil"></i></button>' +
                       '</div>'
-                    : '<div style="font-size:10px;color:var(--text-muted);font-style:italic">' + I.t('leer', '— leer') + ' <button onclick="CRM_Berater.editAdresse(\'' + crm_id + '\',\'primary\')" style="background:none;border:none;cursor:pointer;color:var(--abcona-blue);font-size:11px"><i class="bi bi-plus"></i> ' + I.t('hinzufuegen', 'Hinzufügen') + '</button></div>') +
-                '<div style="font-size:10px;font-weight:600;color:var(--abcona-blue);margin:8px 0 4px"><i class="bi bi-map"></i> ' + I.t('weitere_adresse', 'Weitere Adresse') + '</div>' +
+                    : '<div style="font-size:10px;color:var(--text-muted);font-style:italic">' + I.t('leer', '— leer') + ' <button onclick="CRM_Berater.editAdresse(\'' + crm_id + '\',\'primary\')" style="background:none;border:none;cursor:pointer;color:var(--text-link);font-size:11px"><i class="bi bi-plus"></i> ' + I.t('hinzufuegen', 'Hinzufügen') + '</button></div>') +
+                '<div style="font-size:10px;font-weight:600;color:var(--text-link);margin:8px 0 4px"><i class="bi bi-map"></i> ' + I.t('weitere_adresse', 'Weitere Adresse') + '</div>' +
                 (adrAltStr
                     ? '<div class="crm-info-row">' +
                       CRM_Edit.renderCheckbox('adr_alt', adrAltStr, I.t('weitere_adresse', 'Weitere Adresse')) +
                       '<span style="font-size:11px;flex:1;white-space:pre-line">' + adrAltStr + '</span>' +
-                      '<button onclick="CRM_Berater.editAdresse(\'' + crm_id + '\',\'alt\')" style="background:none;border:none;cursor:pointer;color:var(--abcona-blue);font-size:11px"><i class="bi bi-pencil"></i></button>' +
+                      '<button onclick="CRM_Berater.editAdresse(\'' + crm_id + '\',\'alt\')" style="background:none;border:none;cursor:pointer;color:var(--text-link);font-size:11px"><i class="bi bi-pencil"></i></button>' +
                       '</div>'
-                    : '<div style="font-size:10px;color:var(--text-muted);font-style:italic">' + I.t('leer', '— leer') + ' <button onclick="CRM_Berater.editAdresse(\'' + crm_id + '\',\'alt\')" style="background:none;border:none;cursor:pointer;color:var(--abcona-blue);font-size:11px"><i class="bi bi-plus"></i> ' + I.t('hinzufuegen', 'Hinzufügen') + '</button></div>'),
+                    : '<div style="font-size:10px;color:var(--text-muted);font-style:italic">' + I.t('leer', '— leer') + ' <button onclick="CRM_Berater.editAdresse(\'' + crm_id + '\',\'alt\')" style="background:none;border:none;cursor:pointer;color:var(--text-link);font-size:11px"><i class="bi bi-plus"></i> ' + I.t('hinzufuegen', 'Hinzufügen') + '</button></div>'),
             false);
 
         // Rechte Spalte
@@ -284,7 +284,7 @@ const CRM_Berater = {
                         const phLabel = I.phoneLabel(meta.field);
                         html += '<div class="crm-info-row">' +
                             E.renderCheckbox('ph_' + p.id, p.raw, phLabel) +
-                            '<i class="bi ' + meta.icon + '" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0"></i>' +
+                            '<i class="bi ' + meta.icon + '" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0"></i>' +
                             '<span style="font-size:10px;color:var(--text-muted);min-width:65px;flex-shrink:0">' + (p.label || phLabel) + '</span>' +
                             '<span style="font-size:11px;flex:1;cursor:pointer" onclick="CRM_Berater.call(\'' + p.raw + '\')">' + p.raw + '</span>' +
                             '<button data-copy="' + p.raw + '" onclick="CRM_Edit.copyText(this)" title="' + I.t('kopieren', 'Kopieren') + '" style="background:none;border:none;cursor:pointer;color:var(--text-muted);padding:0 3px;font-size:11px"><i class="bi bi-clipboard"></i></button>' +
@@ -305,7 +305,7 @@ const CRM_Berater = {
                         '<button onclick="CRM_Berater._addPhone(\'' + crm_id + '\')" style="background:var(--status-green);color:#fff;border:none;border-radius:5px;padding:3px 8px;cursor:pointer;font-size:11px"><i class="bi bi-check-lg"></i></button>' +
                         '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'none\'" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;padding:3px 6px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>' +
                         '</div>' +
-                        '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'flex\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--abcona-blue);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + I.t('telefon_hinzufuegen', 'Telefon hinzufügen') + '</button>';
+                        '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'flex\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--text-link);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + I.t('telefon_hinzufuegen', 'Telefon hinzufügen') + '</button>';
                     return html;
                 })(),
             true) +
@@ -342,7 +342,7 @@ const CRM_Berater = {
         form.id = 'adr-edit-form';
         form.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:8px;border:1px solid var(--border-color);padding:16px;z-index:1000;min-width:300px;box-shadow:0 4px 20px rgba(0,0,0,.15)';
         const title = typ === 'primary' ? I.t('hauptadresse_bearbeiten', 'Hauptadresse bearbeiten') : I.t('weitere_adresse_bearbeiten', 'Weitere Adresse bearbeiten');
-        form.innerHTML = '<div style="font-size:13px;font-weight:600;color:var(--abcona-blue);margin-bottom:12px">' + title + '</div>' +
+        form.innerHTML = '<div style="font-size:13px;font-weight:600;color:var(--link-color);margin-bottom:12px">' + title + '</div>' +
             [
                 ['street', I.t('strasse', 'Straße')],
                 ['city', I.t('stadt', 'Stadt')],
@@ -422,7 +422,7 @@ const CRM_Berater = {
         let bodies = '';
         filled.forEach(function(p, i) {
             bodies += '<div class="crm-profil-body" data-key="' + p.key + '" id="profil-body-' + p.key + '" style="display:' + (i === 0 ? 'block' : 'none') + '">' +
-                '<button onclick="CRM_Edit.startProfileEdit(\'' + crm_id + '\',\'' + p.field + '\',\'' + p.label.replace(/'/g, "\\'") + '\')" style="font-size:11px;border:1px solid var(--border-color);border-radius:4px;padding:2px 8px;background:none;cursor:pointer;color:var(--abcona-blue);margin-bottom:6px"><i class="bi bi-pencil"></i> ' + I.t('bearbeiten', 'Bearbeiten') + '</button>' +
+                '<button class="crm-profil-edit-btn" onclick="CRM_Edit.startProfileEdit(\'' + crm_id + '\',\'' + p.field + '\',\'' + p.label.replace(/'/g, "\\'") + '\')"><i class="bi bi-pencil"></i> ' + I.t('bearbeiten', 'Bearbeiten') + '</button>' +
                 '<div class="crm-profil-text" style="font-size:11px;white-space:pre-wrap;line-height:1.6;background:var(--abcona-gray-card);padding:8px;border-radius:7px;border:1px solid var(--border-color);max-height:400px;overflow-y:auto">' + c[p.key] + '</div>' +
                 '</div>';
         });
@@ -486,12 +486,12 @@ const CRM_Berater = {
                 ? '<a href="' + doc.view_url + '" target="_blank" style="color:inherit;text-decoration:none">' + (doc.title || '') + '</a>'
                 : (doc.title || '');
             return '<div class="crm-hist-item">' +
-                '<i class="bi bi-file-text" style="color:var(--abcona-blue)"></i>' +
+                '<i class="bi bi-file-text" style="color:var(--text-link)"></i>' +
                 '<div style="flex:1;min-width:0">' +
                 '<div style="font-size:11px;font-weight:600">' + titleHtml + '</div>' +
                 '<div style="font-size:10px;color:var(--text-muted)">' + (doc.doc_type || '') + ' \u00b7 ' + (doc.created_at || '').substring(0, 10) + '</div>' +
                 '</div>' +
-                (doc.file_path ? '<a href="' + doc.file_path + '" target="_blank" style="font-size:10px;color:var(--abcona-blue)"><i class="bi bi-download"></i></a>' : '') +
+                (doc.file_path ? '<a href="' + doc.file_path + '" target="_blank" style="font-size:10px;color:var(--text-link)"><i class="bi bi-download"></i></a>' : '') +
                 '</div>';
         }).join('') || '<div style="font-size:11px;color:var(--text-muted);padding:8px 0;font-style:italic">' + I.t('keine_dokumente', 'Keine Dokumente') + '</div>';
 
@@ -866,7 +866,7 @@ CRM_Berater._doSearchAccount = function() {
               return '<div onclick="CRM_Berater._linkAccount(\'' + popup.dataset.crmid + '\',\'' + a.crm_id + '\',\'' + (a.name || '').replace(/'/g, "\\'") + '\')" ' +
                   'style="padding:6px 8px;cursor:pointer;border-radius:5px;font-size:11px;display:flex;align-items:center;gap:8px" ' +
                   'onmouseover="this.style.background=\'rgba(255,255,255,.1)\'" onmouseout="this.style.background=\'\'">' +
-                  '<i class="bi bi-building" style="color:var(--abcona-blue,#4a90d9)"></i>' +
+                  '<i class="bi bi-building" style="color:var(--text-link)"></i>' +
                   '<span style="flex:1">' + (a.name || '') + '</span>' +
                   '<span style="font-size:10px;color:rgba(255,255,255,.4)">' + (a.city || '') + '</span>' +
                   '</div>';

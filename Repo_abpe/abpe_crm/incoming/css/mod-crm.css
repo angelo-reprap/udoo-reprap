@@ -493,6 +493,17 @@
 .crm-action-btn-secondary { background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.3); }
 .crm-action-btn-secondary:hover { background: rgba(255,255,255,.25); }
 
+/* Action-Buttons im Detail-Body (nicht auf blauem Header) */
+.crm-detail-body .crm-action-btn-secondary {
+    background: var(--abcona-gray-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+.crm-detail-body .crm-action-btn-secondary:hover {
+    background: var(--abcona-gray-bg);
+    color: var(--text-link);
+}
+
 /* ── Detail Tabs ─────────────────────────────────────────── */
 .crm-detail-tabs {
     display: flex;
@@ -994,6 +1005,59 @@ body.dark-mode .crm-info-row a {
 body.dark-mode .crm-page-btn.active {
     background: var(--link-color);
     border-color: var(--link-color);
+    color: var(--text-on-chrome);
+}
+
+/* Profil-Tab */
+.crm-profil-text {
+    color: var(--text-primary);
+}
+
+.crm-profil-edit-btn {
+    font-size: 11px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 2px 8px;
+    background: var(--abcona-gray-card);
+    cursor: pointer;
+    color: var(--text-link);
+    margin-bottom: 6px;
+}
+
+.crm-profil-edit-btn:hover {
+    background: var(--abcona-gray-bg);
+    border-color: var(--link-color);
+}
+
+/* Scrollbars Dark Mode */
+body.dark-mode .crm-profil-text,
+body.dark-mode .crm-detail-panel,
+body.dark-mode .crm-list-panel {
+    scrollbar-width: thin;
+    scrollbar-color: #555555 #2a2a2a;
+}
+
+body.dark-mode .crm-profil-text::-webkit-scrollbar,
+body.dark-mode .crm-detail-panel::-webkit-scrollbar,
+body.dark-mode .crm-list-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+body.dark-mode .crm-profil-text::-webkit-scrollbar-track,
+body.dark-mode .crm-detail-panel::-webkit-scrollbar-track,
+body.dark-mode .crm-list-panel::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+body.dark-mode .crm-profil-text::-webkit-scrollbar-thumb,
+body.dark-mode .crm-detail-panel::-webkit-scrollbar-thumb,
+body.dark-mode .crm-list-panel::-webkit-scrollbar-thumb {
+    background: #555555;
+    border-radius: 4px;
+}
+
+body.dark-mode .crm-sort-select option {
+    background: var(--abcona-dark);
     color: var(--text-on-chrome);
 }
 

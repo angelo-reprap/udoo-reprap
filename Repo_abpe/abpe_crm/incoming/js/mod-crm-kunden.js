@@ -86,7 +86,7 @@ const CRM_Kunden = {
             if (!value || value === 'None') return '';
             return '<div class="crm-info-row">' +
                 E.renderCheckbox(field, value, label) +
-                '<i class="bi ' + icon + '" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0"></i>' +
+                '<i class="bi ' + icon + '" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0"></i>' +
                 '<span style="font-size:10px;color:var(--text-muted);min-width:70px;flex-shrink:0">' + label + '</span>' +
                 E.editField(crm_id, field, value, type, opts) +
                 '<button data-copy="' + value.replace(/"/g, '&quot;') + '" onclick="CRM_Edit.copyText(this)" style="background:none;border:none;cursor:pointer;color:var(--text-muted);padding:0 3px;font-size:11px;opacity:0" class="crm-row-copy"><i class="bi bi-clipboard"></i></button>' +
@@ -96,7 +96,7 @@ const CRM_Kunden = {
         function roRow(icon, label, value) {
             if (!value || value === 'None') return '';
             return '<div class="crm-info-row">' +
-                '<i class="bi ' + icon + '" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0"></i>' +
+                '<i class="bi ' + icon + '" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0"></i>' +
                 '<span style="font-size:10px;color:var(--text-muted);min-width:70px;flex-shrink:0">' + label + '</span>' +
                 '<span style="font-size:10px;color:var(--text-muted);flex:1">' + value + '</span>' +
                 '</div>';
@@ -112,7 +112,7 @@ const CRM_Kunden = {
             const gesperrt = e.opt_out || e.invalid_email;
             const rowStyle = gesperrt ? 'opacity:.55' : '';
             const textStyle = gesperrt ? 'text-decoration:line-through' : '';
-            const primaerBadge = e.primary ? '<span style="font-size:9px;padding:1px 5px;border-radius:10px;background:#dbeafe;color:#1d4ed8;flex-shrink:0">' + I.t('primaer', 'Primär') + '</span>' : '';
+            const primaerBadge = e.primary ? '<span style="font-size:9px;padding:1px 5px;border-radius:10px;background:var(--badge-info-bg);color:var(--badge-info-text);flex-shrink:0">' + I.t('primaer', 'Primär') + '</span>' : '';
             const gesperrtBadge = gesperrt ? '<span style="font-size:9px;padding:1px 5px;border-radius:10px;background:#fee2e2;color:#dc2626;flex-shrink:0">' + I.t('gesperrt', 'Gesperrt') + '</span>' : '';
             const kampagneChecked2 = e.kampagne_ok ? 'checked' : '';
             const kampagneColor2 = e.kampagne_ok ? '#15803d' : '#9ca3af';
@@ -127,11 +127,11 @@ const CRM_Kunden = {
                 '<input type="checkbox" ' + gesperrtChecked2 + ' onchange="CRM_Kunden._toggleGesperrt(\'' + crm_id + '\',\'' + e.email + '\',this.checked)" style="width:11px;height:11px;cursor:pointer;accent-color:#dc2626">' +
                 '<span style="font-size:9px;color:' + gesperrtColor2 + ';white-space:nowrap">' + I.t('gesperrt', 'Gesperrt') + '</span></label>';
             const deleteBtn2 = '<button onclick="CRM_Kunden._deleteEmail(\'' + crm_id + '\',\'' + e.email + '\')" title="' + I.t('loeschen', 'Löschen') + '" style="background:none;border:none;cursor:pointer;color:var(--badge-error-text);padding:0 3px;font-size:11px"><i class="bi bi-trash3"></i></button>';
-            const primaryBtn2 = !e.primary && !gesperrt ? '<button onclick="CRM_Kunden._setPrimary(\'' + crm_id + '\',\'' + e.email + '\')" title="' + I.t('als_primaer_setzen', 'Als Primär setzen') + '" style="background:none;border:none;cursor:pointer;color:var(--abcona-blue);padding:0 3px;font-size:11px"><i class="bi bi-star"></i></button>' : '';
+            const primaryBtn2 = !e.primary && !gesperrt ? '<button onclick="CRM_Kunden._setPrimary(\'' + crm_id + '\',\'' + e.email + '\')" title="' + I.t('als_primaer_setzen', 'Als Primär setzen') + '" style="background:none;border:none;cursor:pointer;color:var(--text-link);padding:0 3px;font-size:11px"><i class="bi bi-star"></i></button>' : '';
             emailsHtml += '<div class="crm-info-row" style="' + rowStyle + '">' +
                 (gesperrt ? '<span style="width:12px;flex-shrink:0"></span>' : E.renderCheckbox('email_' + e.email, e.email, I.t('e_mail', 'E-Mail'))) +
-                '<i class="bi bi-envelope" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0"></i>' +
-                '<span style="font-size:10px;color:var(--abcona-blue);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;' + textStyle + '" onclick="CRM_Kunden.email(\'' + e.email + '\')" title="' + I.t('email_oeffnen', 'E-Mail öffnen') + '">' + e.email + '</span>' +
+                '<i class="bi bi-envelope" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0"></i>' +
+                '<span style="font-size:10px;color:var(--text-link);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;' + textStyle + '" onclick="CRM_Kunden.email(\'' + e.email + '\')" title="' + I.t('email_oeffnen', 'E-Mail öffnen') + '">' + e.email + '</span>' +
                 primaryBtn2 + primaerBadge + gesperrtBadge + kampagneHtml2 + gesperrtHtml2 + deleteBtn2 +
                 '<button data-copy="' + e.email + '" onclick="CRM_Edit.copyText(this)" style="background:none;border:none;cursor:pointer;color:var(--text-muted);padding:0 3px;font-size:11px"><i class="bi bi-clipboard"></i></button>' +
                 '</div>';
@@ -147,7 +147,7 @@ const CRM_Kunden = {
                 row('bi-people', I.t('mitarbeiter', 'Mitarbeiter'), d.employees, 'employees') +
                 row('bi-currency-euro', I.t('jahresumsatz', 'Jahresumsatz'), d.annual_revenue, 'annual_revenue') +
                 row('bi-star', I.t('einstufung', 'Einstufung'), d.rating, 'rating') +
-                (d.description ? '<div class="crm-info-row" style="align-items:flex-start"><i class="bi bi-text-paragraph" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0;margin-top:2px"></i><span style="font-size:10px;color:var(--text-muted);min-width:70px;flex-shrink:0">' + I.t('beschreibung', 'Beschreibung') + '</span>' + E.editField(crm_id, 'description', d.description, 'textarea') + '</div>' : ''),
+                (d.description ? '<div class="crm-info-row" style="align-items:flex-start"><i class="bi bi-text-paragraph" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0;margin-top:2px"></i><span style="font-size:10px;color:var(--text-muted);min-width:70px;flex-shrink:0">' + I.t('beschreibung', 'Beschreibung') + '</span>' + E.editField(crm_id, 'description', d.description, 'textarea') + '</div>' : ''),
             true) +
             E.section(I.t('crm_info', 'CRM Info'),
                 row('bi-circle', I.t('status', 'Status'), c.status, 'account_status_c', 'select', I.statusOpts()) +
@@ -156,10 +156,10 @@ const CRM_Kunden = {
                 roRow('bi-clock-history', I.t('geaendert', 'Geändert'), d.crm_date_modified),
             false) +
             E.section(I.t('adressen', 'Adressen'),
-                '<div style="font-size:10px;font-weight:600;color:var(--abcona-blue);margin-bottom:4px"><i class="bi bi-receipt"></i> ' + I.t('rechnungsadresse', 'Rechnungsadresse') + '</div>' +
-                (bilStr ? '<div class="crm-info-row">' + E.renderCheckbox('adr_billing', bilStr, I.t('rechnungsadresse', 'Rechnungsadresse')) + '<span style="font-size:11px;flex:1">' + bilStr + '</span><button onclick="CRM_Kunden.editAdresse(\'' + crm_id + '\',\'billing\')" style="background:none;border:none;cursor:pointer;color:var(--abcona-blue);font-size:11px"><i class="bi bi-pencil"></i></button><button onclick="CRM_Kunden._clearAdresse(\'' + crm_id + '\',\'billing\')" style="background:none;border:none;cursor:pointer;color:var(--badge-error-text);font-size:11px"><i class="bi bi-trash3"></i></button></div>' : '<div style="font-size:10px;color:var(--text-muted);font-style:italic">' + I.t('leer', '— leer') + ' <button onclick="CRM_Kunden.editAdresse(\'' + crm_id + '\',\'billing\')" style="background:none;border:none;cursor:pointer;color:var(--abcona-blue);font-size:11px"><i class="bi bi-plus"></i> ' + I.t('hinzufuegen', 'Hinzufügen') + '</button></div>') +
-                '<div style="font-size:10px;font-weight:600;color:var(--abcona-blue);margin:8px 0 4px"><i class="bi bi-truck"></i> ' + I.t('lieferadresse', 'Lieferadresse') + '</div>' +
-                (shiStr ? '<div class="crm-info-row">' + E.renderCheckbox('adr_shipping', shiStr, I.t('lieferadresse', 'Lieferadresse')) + '<span style="font-size:11px;flex:1">' + shiStr + '</span><button onclick="CRM_Kunden.editAdresse(\'' + crm_id + '\',\'shipping\')" style="background:none;border:none;cursor:pointer;color:var(--abcona-blue);font-size:11px"><i class="bi bi-pencil"></i></button><button onclick="CRM_Kunden._clearAdresse(\'' + crm_id + '\',\'shipping\')" style="background:none;border:none;cursor:pointer;color:var(--badge-error-text);font-size:11px"><i class="bi bi-trash3"></i></button></div>' : '<div style="font-size:10px;color:var(--text-muted);font-style:italic">' + I.t('leer', '— leer') + ' <button onclick="CRM_Kunden.editAdresse(\'' + crm_id + '\',\'shipping\')" style="background:none;border:none;cursor:pointer;color:var(--abcona-blue);font-size:11px"><i class="bi bi-plus"></i> ' + I.t('hinzufuegen', 'Hinzufügen') + '</button>' + (bilStr ? ' <button onclick="CRM_Kunden.copyBillingToShipping(\'' + crm_id + '\')" style="background:none;border:none;cursor:pointer;color:var(--abcona-blue);font-size:10px"><i class="bi bi-copy"></i> ' + I.t('von_rechnungsadresse', 'Von Rechnungsadresse') + '</button>' : '') + '</div>'),
+                '<div style="font-size:10px;font-weight:600;color:var(--text-link);margin-bottom:4px"><i class="bi bi-receipt"></i> ' + I.t('rechnungsadresse', 'Rechnungsadresse') + '</div>' +
+                (bilStr ? '<div class="crm-info-row">' + E.renderCheckbox('adr_billing', bilStr, I.t('rechnungsadresse', 'Rechnungsadresse')) + '<span style="font-size:11px;flex:1">' + bilStr + '</span><button onclick="CRM_Kunden.editAdresse(\'' + crm_id + '\',\'billing\')" style="background:none;border:none;cursor:pointer;color:var(--text-link);font-size:11px"><i class="bi bi-pencil"></i></button><button onclick="CRM_Kunden._clearAdresse(\'' + crm_id + '\',\'billing\')" style="background:none;border:none;cursor:pointer;color:var(--badge-error-text);font-size:11px"><i class="bi bi-trash3"></i></button></div>' : '<div style="font-size:10px;color:var(--text-muted);font-style:italic">' + I.t('leer', '— leer') + ' <button onclick="CRM_Kunden.editAdresse(\'' + crm_id + '\',\'billing\')" style="background:none;border:none;cursor:pointer;color:var(--text-link);font-size:11px"><i class="bi bi-plus"></i> ' + I.t('hinzufuegen', 'Hinzufügen') + '</button></div>') +
+                '<div style="font-size:10px;font-weight:600;color:var(--text-link);margin:8px 0 4px"><i class="bi bi-truck"></i> ' + I.t('lieferadresse', 'Lieferadresse') + '</div>' +
+                (shiStr ? '<div class="crm-info-row">' + E.renderCheckbox('adr_shipping', shiStr, I.t('lieferadresse', 'Lieferadresse')) + '<span style="font-size:11px;flex:1">' + shiStr + '</span><button onclick="CRM_Kunden.editAdresse(\'' + crm_id + '\',\'shipping\')" style="background:none;border:none;cursor:pointer;color:var(--text-link);font-size:11px"><i class="bi bi-pencil"></i></button><button onclick="CRM_Kunden._clearAdresse(\'' + crm_id + '\',\'shipping\')" style="background:none;border:none;cursor:pointer;color:var(--badge-error-text);font-size:11px"><i class="bi bi-trash3"></i></button></div>' : '<div style="font-size:10px;color:var(--text-muted);font-style:italic">' + I.t('leer', '— leer') + ' <button onclick="CRM_Kunden.editAdresse(\'' + crm_id + '\',\'shipping\')" style="background:none;border:none;cursor:pointer;color:var(--text-link);font-size:11px"><i class="bi bi-plus"></i> ' + I.t('hinzufuegen', 'Hinzufügen') + '</button>' + (bilStr ? ' <button onclick="CRM_Kunden.copyBillingToShipping(\'' + crm_id + '\')" style="background:none;border:none;cursor:pointer;color:var(--text-link);font-size:10px"><i class="bi bi-copy"></i> ' + I.t('von_rechnungsadresse', 'Von Rechnungsadresse') + '</button>' : '') + '</div>'),
             false);
 
         const rightHtml =
@@ -177,7 +177,7 @@ const CRM_Kunden = {
                         const phLabel = I.phoneLabel(meta.field);
                         html += '<div class="crm-info-row">' +
                             E.renderCheckbox('ph_' + p.id, p.raw, phLabel) +
-                            '<i class="bi ' + meta.icon + '" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0"></i>' +
+                            '<i class="bi ' + meta.icon + '" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0"></i>' +
                             '<span style="font-size:10px;color:var(--text-muted);min-width:65px;flex-shrink:0">' + (p.label || phLabel) + '</span>' +
                             '<span style="font-size:11px;flex:1;cursor:pointer" onclick="CRM_Kunden.call(\'' + p.raw + '\')">' + p.raw + '</span>' +
                             '<button data-copy="' + p.raw + '" onclick="CRM_Edit.copyText(this)" title="' + I.t('kopieren', 'Kopieren') + '" style="background:none;border:none;cursor:pointer;color:var(--text-muted);padding:0 3px;font-size:11px"><i class="bi bi-clipboard"></i></button>' +
@@ -196,7 +196,7 @@ const CRM_Kunden = {
                         '<button onclick="CRM_Kunden._addPhone(\'' + crm_id + '\')" style="background:var(--status-green);color:#fff;border:none;border-radius:5px;padding:3px 8px;cursor:pointer;font-size:11px"><i class="bi bi-check-lg"></i></button>' +
                         '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'none\'" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;padding:3px 6px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>' +
                         '</div>' +
-                        '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'flex\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--abcona-blue);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + I.t('telefon_hinzufuegen', 'Telefon hinzufügen') + '</button>';
+                        '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'flex\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--text-link);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + I.t('telefon_hinzufuegen', 'Telefon hinzufügen') + '</button>';
                     return html;
                 })(),
             true) +
@@ -217,7 +217,7 @@ const CRM_Kunden = {
         const form = document.createElement('div');
         form.id = 'adr-edit-form';
         form.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--abcona-dark-card,#1a2744);color:#fff;border-radius:8px;border:1px solid var(--border-color);padding:16px;z-index:1000;min-width:300px;box-shadow:0 4px 20px rgba(0,0,0,.3)';
-        form.innerHTML = '<div style="font-size:13px;font-weight:600;color:var(--abcona-blue-light,#6fa3d8);margin-bottom:12px">' + title + '</div>' +
+        form.innerHTML = '<div style="font-size:13px;font-weight:600;color:var(--link-color);margin-bottom:12px">' + title + '</div>' +
             [
                 ['street', I.t('strasse', 'Straße')],
                 ['city', I.t('stadt', 'Stadt')],
@@ -273,15 +273,15 @@ const CRM_Kunden = {
             const emails    = a.emails || [];
             const primEmail = emails.find(function(e){return e.primary;}) || emails[0] || null;
             const phoneHtml = phones.map(function(p) {
-                return '<div style="font-size:11px;margin-top:2px"><i class="bi bi-telephone" style="color:var(--abcona-blue);font-size:11px"></i> <a href="tel:' + p.raw + '" style="color:var(--text-primary);text-decoration:none">' + p.raw + '</a>' + (p.label ? ' <span style="font-size:9px;color:var(--text-muted)">(' + p.label + ')</span>' : '') + '</div>';
+                return '<div style="font-size:11px;margin-top:2px"><i class="bi bi-telephone" style="color:var(--text-link);font-size:11px"></i> <a href="tel:' + p.raw + '" style="color:var(--text-primary);text-decoration:none">' + p.raw + '</a>' + (p.label ? ' <span style="font-size:9px;color:var(--text-muted)">(' + p.label + ')</span>' : '') + '</div>';
             }).join('');
             const emailHtml = emails.map(function(e) {
-                return '<div style="font-size:11px;margin-top:2px"><i class="bi bi-envelope" style="color:var(--abcona-blue);font-size:11px"></i> <span style="color:var(--abcona-blue);cursor:pointer" onclick="CRM_Kunden.email(\'' + e.email.replace(/'/g, "\\'") + '\')">' + e.email + '</span>' + (e.primary ? ' <span style="font-size:9px;padding:1px 4px;border-radius:8px;background:#dbeafe;color:#1d4ed8">' + I.t('primaer', 'Primär') + '</span>' : '') + '</div>';
+                return '<div style="font-size:11px;margin-top:2px"><i class="bi bi-envelope" style="color:var(--text-link);font-size:11px"></i> <span style="color:var(--text-link);cursor:pointer" onclick="CRM_Kunden.email(\'' + e.email.replace(/'/g, "\\'") + '\')">' + e.email + '</span>' + (e.primary ? ' <span style="font-size:9px;padding:1px 4px;border-radius:8px;background:var(--badge-info-bg);color:var(--badge-info-text)">' + I.t('primaer', 'Primär') + '</span>' : '') + '</div>';
             }).join('');
             return '<div class="crm-hist-item" style="align-items:flex-start;gap:10px;padding:8px 0">' +
                 '<div class="crm-avatar" style="width:32px;height:32px;font-size:10px;flex-shrink:0;cursor:pointer;margin-top:2px"' + (contactId ? ' onclick="CRM_Kunden._openContact(\'' + contactId + '\')"' : '') + '>' + initials.toUpperCase() + '</div>' +
                 '<div style="flex:1;min-width:0">' +
-                '<div style="font-size:12px;font-weight:600;color:var(--abcona-blue);cursor:pointer"' + (contactId ? ' onclick="CRM_Kunden._openContact(\'' + contactId + '\')"' : '') + '>' + name + ' <i class="bi bi-box-arrow-up-right" style="font-size:9px;opacity:.6"></i></div>' +
+                '<div style="font-size:12px;font-weight:600;color:var(--text-primary);cursor:pointer"' + (contactId ? ' onclick="CRM_Kunden._openContact(\'' + contactId + '\')"' : '') + '>' + name + ' <i class="bi bi-box-arrow-up-right" style="font-size:9px;opacity:.6"></i></div>' +
                 (a.contact__title ? '<div style="font-size:10px;color:var(--text-muted)">' + a.contact__title + '</div>' : '') +
                 phoneHtml + emailHtml +
                 '</div>' +
@@ -316,7 +316,7 @@ const CRM_Kunden = {
         const I = window.CRM_I18N || { t: (k, f) => f || k };
         const docs = (d.documents || []).map(function(doc) {
             const titleHtml = doc.view_url ? '<a href="' + doc.view_url + '" target="_blank" style="color:inherit;text-decoration:none">' + (doc.title || '') + '</a>' : (doc.title || '');
-            return '<div class="crm-hist-item"><i class="bi bi-file-text" style="color:var(--abcona-blue)"></i><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:600">' + titleHtml + '</div><div style="font-size:10px;color:var(--text-muted)">' + (doc.doc_type || '') + ' \u00b7 ' + (doc.created_at || '').substring(0, 10) + '</div></div>' + (doc.file_path ? '<a href="' + doc.file_path + '" target="_blank" style="font-size:10px;color:var(--abcona-blue)"><i class="bi bi-download"></i></a>' : '') + '</div>';
+            return '<div class="crm-hist-item"><i class="bi bi-file-text" style="color:var(--text-link)"></i><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:600">' + titleHtml + '</div><div style="font-size:10px;color:var(--text-muted)">' + (doc.doc_type || '') + ' \u00b7 ' + (doc.created_at || '').substring(0, 10) + '</div></div>' + (doc.file_path ? '<a href="' + doc.file_path + '" target="_blank" style="font-size:10px;color:var(--text-link)"><i class="bi bi-download"></i></a>' : '') + '</div>';
         }).join('') || '<div style="font-size:11px;color:var(--text-muted);padding:8px 0;font-style:italic">' + I.t('keine_dokumente', 'Keine Dokumente') + '</div>';
         return '<div class="crm-section">' + docs + '</div>';
     },
