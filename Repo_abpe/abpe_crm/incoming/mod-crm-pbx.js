@@ -3048,6 +3048,42 @@ Object.assign(PBX, {
         return (m.reminder_rules || []).some(r => st.mode === 'all' ? !r.guest : r.guest === currentGuestId);
     },
 
+    _mmReminderScopeRules(st, m) {
+        if (!m) return [];
+        const currentGuestId = st.mode === 'individual' ? ((st.queue[st.idx] || {}).id) : null;
+        return (m.reminder_rules || []).filter(r => st.mode === 'all' ? !r.guest : r.guest === currentGuestId);
+    },
+
+    /** Betreff/Text: aus Editor-Inputs oder gespeicherter Regel (Liste ohne offenen Entwurf). */
+    _mmReminderGetMailContent(st, m) {
+        const subEl = this.$('pbx-mm-reminder-subject');
+        const bodyEl = this.$('pbx-mm-reminder-body');
+        if (subEl && bodyEl) {
+            return {
+                subject: subEl.value.trim(),
+                body: bodyEl.value.trim(),
+                attachment_refs: (st.draft && st.draft.attachment_refs) || [],
+            };
+        }
+        const rules = this._mmReminderScopeRules(st, m);
+        const rule = rules.length ? rules[rules.length - 1] : null;
+        if (rule) {
+            return {
+                subject: (rule.subject || '').trim(),
+                body: (rule.body || '').trim(),
+                attachment_refs: rule.attachment_refs || [],
+            };
+        }
+        if (st.draft) {
+            return {
+                subject: (st.draft.subject || '').trim(),
+                body: (st.draft.body || '').trim(),
+                attachment_refs: st.draft.attachment_refs || [],
+            };
+        }
+        return { subject: '', body: '', attachment_refs: [] };
+    },
+
     async meetmeOpenReminderPanel(meetingId) {
         const st = this._mmReminderState;
         const m = this._mmFindMeeting(meetingId);
@@ -3118,10 +3154,15 @@ Object.assign(PBX, {
 
     async _mmReminderSendNow() {
         const st = this._mmReminderState;
-        const subject = this.$('pbx-mm-reminder-subject').value.trim();
-        const body = this.$('pbx-mm-reminder-body').value.trim();
-        if (!subject || !body) { this.toast(this.t('pbx_meetme_fields_req', 'Betreff und Text erforderlich')); return; }
-        const attachmentRefs = (st.draft.attachment_refs || []).slice();
+        const m = this._mmFindMeeting(st.meetingId);
+        const mail = this._mmReminderGetMailContent(st, m);
+        const subject = mail.subject;
+        const body = mail.body;
+        if (!subject || !body) {
+            this.toast(this.t('pbx_meetme_fields_req', 'Betreff und Text erforderlich'));
+            return;
+        }
+        const attachmentRefs = (mail.attachment_refs || []).slice();
         const guestId = st.mode === 'individual' ? st.queue[st.idx].id : null;
         const sigId = st.sigOverride ? st.sigId : null;
 
