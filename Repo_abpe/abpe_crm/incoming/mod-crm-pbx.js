@@ -1766,6 +1766,16 @@ const PBX = {
     },
 
     /* ======================= STATISTIK ======================= */
+    _statLabel(k) {
+        const fb = {
+            total: 'Gesamt', answered: 'Angenommen', missed: 'Verpasst',
+            incoming: 'Eingehend', outgoing: 'Ausgehend', talk_sec: 'Gesprächszeit',
+        };
+        return this.t('pbx_stat_' + k, fb[k] || k);
+    },
+    _statValue(k, v) {
+        return k === 'talk_sec' ? this.fmtDur(v) : v;
+    },
     async loadStats() {
         const wrap = this.$('pbx-stats');
         if (!wrap) return;
@@ -1774,7 +1784,9 @@ const PBX = {
             const res = await this.get(this.api.stats + '?extension=' + encodeURIComponent(this.ext));
             const s = res.stats || {};
             const box = (title, o) => `<div class="pbx-statcard"><h4>${title}</h4>` +
-                Object.entries(o || {}).map(([k, v]) => `<div class="pbx-statrow"><span>${this.esc(k)}</span><span>${this.esc(v)}</span></div>`).join('') + '</div>';
+                Object.entries(o || {}).map(([k, v]) =>
+                    `<div class="pbx-statrow"><span>${this.esc(this._statLabel(k))}</span><span>${this.esc(this._statValue(k, v))}</span></div>`
+                ).join('') + '</div>';
             wrap.innerHTML = box(this.t('pbx_today', 'Heute'), s.heute) + box(this.t('pbx_week', 'Woche'), s.woche) + box(this.t('pbx_month', 'Monat'), s.monat);
         } catch (e) {
             wrap.innerHTML = `<div class="pbx-empty">${this.t('pbx_load_error', 'Fehler beim Laden')}</div>`;
