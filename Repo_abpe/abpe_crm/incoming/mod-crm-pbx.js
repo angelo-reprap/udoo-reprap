@@ -2490,8 +2490,10 @@ Object.assign(PBX, {
         const room = this.$('pbx-mm-room').value;
         if (!title || !start) { this.toast(this.t('pbx_meetme_fields_req', 'Titel und Datum erforderlich')); return; }
         try {
+            const startIso = (window.timezoneManager && timezoneManager.fromLocalInput(start))
+                || new Date(start).toISOString();
             const created = await this.post(this.api.meetmeMeetingCreate, {
-                title, start_at: new Date(start).toISOString(),
+                title, start_at: startIso,
                 duration_minutes: duration, room_extension: room,
             });
             this.meetmeCloseModal();
@@ -2506,10 +2508,12 @@ Object.assign(PBX, {
     },
 
     _meetmeFmtDate(iso) {
+        if (window.timezoneManager) return timezoneManager.formatDate(iso);
         const d = new Date(iso);
         return d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit' }) + ' ' + d.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
     },
     _meetmeFmtDateTime(iso) {
+        if (window.timezoneManager) return timezoneManager.formatDateTime(iso);
         const d = new Date(iso);
         return d.toLocaleDateString('de-DE') + ', ' + d.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
     },
@@ -2910,6 +2914,19 @@ Object.assign(PBX, {
 
     _mmRaupeSplitDateTime(iso) {
         if (!iso) return { datum: '', uhrzeit: '' };
+        if (window.timezoneManager) {
+            const d = new Date(iso);
+            const tz = timezoneManager.getTimezone();
+            const parts = new Intl.DateTimeFormat('de-DE', {
+                timeZone: tz, weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric',
+            }).formatToParts(d);
+            const g = (t) => (parts.find((p) => p.type === t) || {}).value || '';
+            const datum = `${g('weekday')}, ${g('day')}.${g('month')}.${g('year')}`;
+            const uhrzeit = new Intl.DateTimeFormat('de-DE', {
+                timeZone: tz, hour: '2-digit', minute: '2-digit',
+            }).format(d) + ' Uhr';
+            return { datum, uhrzeit };
+        }
         const d = new Date(iso);
         return {
             datum: d.toLocaleDateString('de-DE'),
@@ -4784,13 +4801,15 @@ Object.assign(PBX, {
     },
 
     _mmNotifyLocalInput(iso) {
+        if (window.timezoneManager) return timezoneManager.toLocalInput(iso);
         const d = new Date(iso);
         const pad = n => String(n).padStart(2, '0');
         return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
     },
 
     _mmNotifyDateChanged(value) {
-        this._mmNotifyState.newStartAt = new Date(value).toISOString();
+        this._mmNotifyState.newStartAt = (window.timezoneManager && timezoneManager.fromLocalInput(value))
+            || new Date(value).toISOString();
         const m = this._mmFindMeeting(this._mmNotifyState.meetingId);
         this._mmNotifyRebuildQueue(m);
         this._mmNotifyState.idx = 0;
@@ -5603,5 +5622,14 @@ function _pbxOnLanguageUpdate() {
 
 document.addEventListener('languageChanged', _pbxOnLanguageUpdate);
 document.addEventListener('languageSelectorReady', _pbxOnLanguageUpdate);
+
+function _pbxOnTimezoneUpdate() {
+    if (document.getElementById('pbx-root') && typeof PBX !== 'undefined') {
+        if (typeof PBX.meetmeRenderStrip === 'function') PBX.meetmeRenderStrip();
+        const sel = PBX._meetmeState && PBX._meetmeState.selectedId;
+        if (sel && typeof PBX.meetmeSelectMeeting === 'function') PBX.meetmeSelectMeeting(sel);
+    }
+}
+document.addEventListener('timezoneChanged', _pbxOnTimezoneUpdate);
 
 window.PBX = PBX;
