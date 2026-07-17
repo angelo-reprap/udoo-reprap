@@ -1,0 +1,36 @@
+{
+    "id": "crm_telefon",
+    "title": "Telefonanlage",
+    "titles": {
+        "de": "Telefonanlage",
+        "en": "Phone System",
+        "fr": "Téléphonie",
+        "it": "Telefonia",
+        "es": "Telefonía",
+        "ar": "نظام الهاتف",
+        "ja": "電話システム",
+        "ko": "전화 시스템",
+        "nl": "Telefooncentrale",
+        "pl": "Centrala telefoniczna",
+        "pt": "Central telefônica",
+        "ru": "Телефонная станция",
+        "tr": "Telefon Santrali",
+        "zh": "电话系统"
+    },
+    "icon": "telephone",
+    "route": "/crm/telefon/",
+    "order": 35,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod-crm.css"
+        ],
+        "js": [
+            "mod-crm.js",
+            "mod-telefon-studio.js"
+        ]
+    }
+}

@@ -1,0 +1,1063 @@
+/* ============================================================
+   ABpE CRM — mod-crm.css
+   Gemeinsame Basis: Stats-Bar, Query-Help, List, Detail-Panel
+   ============================================================ */
+
+/* ── CRM Topbar ─────────────────────────────────────────── */
+.crm-topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--abcona-blue);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    z-index: 999;
+}
+
+.crm-topbar .logo-area span {
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.crm-search-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 700px;
+}
+
+.crm-sort-select {
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 8px;
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.crm-sort-select option { background: var(--abcona-blue); }
+
+.crm-search-btn {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.crm-search-btn:hover { background: #1d4ed8; }
+
+.crm-help-btn {
+    background: rgba(255,255,255,.15);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.crm-help-btn:hover { background: rgba(255,255,255,.25); }
+
+/* ── Query Help ─────────────────────────────────────────── */
+.crm-query-help {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 8px;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 460px;
+    z-index: 998;
+    box-shadow: 0 8px 24px rgba(0,0,0,.18);
+    max-height: 75vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.qh-card { background: var(--abcona-gray-card, #f8fafc); border-radius: 8px; padding: 10px 12px; }
+.qh-card-title { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+.qh-card-examples { background: var(--abcona-blue-tint, #e8f0f8); }
+.qh-fieldlist { display: flex; flex-direction: column; gap: 4px; }
+.qh-fielditem { display: flex; align-items: center; gap: 8px; font-size: 11px; }
+.qh-fielditem .qh-tag { min-width: 100px; flex-shrink: 0; text-align: left; cursor: default; }
+.qh-fielditem .qh-desc { color: var(--text-secondary); flex: 1; }
+.qh-fielditem .qh-example { font-size: 10px; white-space: nowrap; flex-shrink: 0; }
+
+.qh-fieldlist {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 4px;
+}
+
+.qh-fielditem {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.qh-fielditem .qh-tag {
+    min-width: 150px;
+    flex-shrink: 0;
+    cursor: default;
+}
+
+.qh-desc {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.qh-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.qh-section-inline {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.qh-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-right: 2px;
+}
+
+.qh-tag {
+    font-size: 11px;
+    background: var(--abcona-gray-card);
+    color: var(--text-link);
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    font-family: monospace;
+}
+
+.qh-tag:hover { background: var(--abcona-blue); color: #fff; }
+
+.qh-text { font-size: 11px; color: var(--text-secondary); margin-right: 4px; }
+
+.qh-example {
+    font-size: 11px;
+    background: var(--abcona-blue);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.qh-example:hover { background: var(--abcona-blue-light); }
+
+/* ── Sidebar Navigation ─────────────────────────────────── */
+.crm-sidebar-nav {
+    position: fixed;
+    left: 0; top: 60px; bottom: 0;
+    width: 52px;
+    background: var(--abcona-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 0;
+    gap: 4px;
+    z-index: 100;
+}
+
+.crm-nav-item {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,.55);
+    text-decoration: none;
+    font-size: 18px;
+    transition: all .2s;
+}
+
+.crm-nav-item:hover { background: var(--abcona-blue-light); color: #fff; }
+.crm-nav-item.active { background: var(--abcona-blue-dark); color: #fff; }
+
+/* ── Main Content ───────────────────────────────────────── */
+.crm-main {
+    margin-left: 52px;
+    padding: 74px 16px 16px 16px;
+    min-height: 100vh;
+    background: var(--abcona-gray-bg);
+}
+
+/* ── Stats Bar ──────────────────────────────────────────── */
+.crm-stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.crm-section-count {
+    font-size: 12px;
+    font-weight: 400;
+    opacity: .75;
+    margin-left: 4px;
+}
+
+.crm-stat {
+    background: var(--abcona-gray-card);
+    border-radius: var(--border-radius-card);
+    padding: 10px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: all .2s;
+}
+
+.crm-stat:hover { transform: translateY(-2px); }
+
+.crm-stat-val {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-link);
+    line-height: 1.2;
+}
+
+.crm-stat-lbl {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    display: block;
+}
+
+/* ── Two Column Layout ──────────────────────────────────── */
+.crm-two-col {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.crm-full-panel {
+    background: var(--bg-white);
+    border-radius: var(--border-radius-card);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+/* ── List Panel ─────────────────────────────────────────── */
+.crm-list-panel {
+    flex: 1 1 auto;
+    min-width: 200px;
+    background: var(--bg-white);
+    border-radius: var(--border-radius-card);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.crm-new-btn {
+    margin-left: auto;
+    background: rgba(255,255,255,.15);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.crm-new-btn:hover { background: rgba(255,255,255,.25); }
+
+.crm-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 6px;
+    gap: 8px;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--abcona-gray-card);
+}
+
+.crm-filter-bar select {
+    padding: 5px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 7px;
+    font-size: 12px;
+    background: var(--input-bg);
+}
+.crm-pagination-inline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-top: none;
+    padding: 0;
+    justify-content: flex-end;
+    margin-left: auto;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+/* ── List Items ─────────────────────────────────────────── */
+.crm-list { min-height: 200px; }
+
+.crm-list-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 40px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.crm-list-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border-light);
+    cursor: pointer;
+    transition: background .15s;
+}
+
+.crm-list-item:hover { background: var(--abcona-gray-card); }
+.crm-list-item.active { background: var(--abcona-gray-bg); border-left: 3px solid var(--link-color); }
+
+.crm-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--abcona-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.crm-avatar-sq { border-radius: 8px; }
+
+.crm-item-info { flex: 1; min-width: 0; }
+
+.crm-item-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-link);
+}
+
+.crm-item-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 1px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.crm-item-tags { display: flex; gap: 3px; margin-top: 4px; flex-wrap: wrap; }
+
+.crm-tag {
+    font-size: 10px;
+    background: var(--abcona-gray-bg);
+    color: var(--text-secondary);
+    padding: 1px 6px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.crm-item-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+    flex-shrink: 0;
+}
+
+/* ── Badges ─────────────────────────────────────────────── */
+.crm-badge {
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.crm-badge-aktiv   { background: var(--badge-success-bg);  color: var(--badge-success-text); }
+.crm-badge-passiv  { background: var(--abcona-gray-card);  color: var(--text-muted); border: 1px solid var(--border-color); }
+.crm-badge-warning { background: var(--badge-warning-bg);  color: var(--badge-warning-text); }
+.crm-badge-error   { background: var(--badge-error-bg);    color: var(--badge-error-text); }
+
+/* ── Detail Panel ───────────────────────────────────────── */
+.crm-detail-panel {
+    flex: 4 1 auto;
+    min-width: 300px;
+    background: var(--bg-white);
+    border-radius: var(--border-radius-card);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    position: sticky;
+    top: 74px;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+}
+
+.crm-detail-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+    gap: 10px;
+}
+
+.crm-detail-empty i { font-size: 40px; opacity: .3; }
+
+.crm-detail-head {
+    background: var(--abcona-blue);
+    color: #fff;
+    padding: 12px 14px 10px;
+}
+
+.crm-detail-avatar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.crm-detail-name { font-size: 14px; font-weight: 700; color: #fff; }
+.crm-detail-sub  { font-size: 11px; color: rgba(255,255,255,.65); margin-top: 1px; }
+
+.crm-detail-tags { display: flex; gap: 4px; margin-top: 8px; flex-wrap: wrap; }
+
+.crm-detail-tag {
+    font-size: 10px;
+    background: rgba(255,255,255,.15);
+    color: rgba(255,255,255,.9);
+    padding: 2px 7px;
+    border-radius: 20px;
+}
+
+.crm-detail-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 9px;
+}
+
+.crm-action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 0;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.crm-action-btn-primary { background: var(--status-green); color: #fff; }
+.crm-action-btn-secondary { background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.3); }
+.crm-action-btn-secondary:hover { background: rgba(255,255,255,.25); }
+
+/* Action-Buttons im Detail-Body (nicht auf blauem Header) */
+.crm-detail-body .crm-action-btn-secondary {
+    background: var(--abcona-gray-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+.crm-detail-body .crm-action-btn-secondary:hover {
+    background: var(--abcona-gray-bg);
+    color: var(--text-link);
+}
+
+/* ── Detail Tabs ─────────────────────────────────────────── */
+.crm-detail-tabs {
+    display: flex;
+    border-bottom: 2px solid var(--border-color);
+    padding: 0 12px;
+    background: var(--abcona-gray-card);
+}
+
+.crm-detail-tab {
+    padding: 8px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color .15s;
+}
+
+.crm-detail-tab:hover { color: var(--link-color); }
+.crm-detail-tab.active { color: var(--text-link); border-bottom-color: var(--text-link); }
+
+/* ── Detail Body ─────────────────────────────────────────── */
+.crm-detail-body { padding: 12px; }
+
+.crm-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.crm-info-box {
+    background: var(--abcona-gray-bg);
+    border-radius: 7px;
+    padding: 7px 8px;
+    border: 1px solid var(--border-color);
+}
+
+.crm-info-box-full { grid-column: 1 / -1; }
+
+.crm-info-label { font-size: 10px; color: var(--text-muted); }
+.crm-info-value { font-size: 12px; font-weight: 700; color: var(--text-link); margin-top: 1px; }
+
+.crm-section { margin-bottom: 12px; }
+
+.crm-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin-bottom: 6px;
+}
+
+.crm-info-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: var(--text-primary);
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.crm-info-row:last-child { border-bottom: none; }
+.crm-info-row i { font-size: 13px; color: var(--text-link); width: 15px; }
+.crm-info-row-val { margin-left: auto; color: var(--text-muted); font-size: 10px; }
+
+/* ── History Items ───────────────────────────────────────── */
+.crm-hist-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 11px;
+}
+
+.crm-hist-item:last-child { border-bottom: none; }
+.crm-hist-right { margin-left: auto; font-size: 10px; color: var(--text-muted); }
+
+/* ── Note Area ───────────────────────────────────────────── */
+.crm-note-area {
+    width: 100%;
+    padding: 7px;
+    font-size: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 7px;
+    background: var(--abcona-gray-card);
+    color: var(--text-primary);
+    resize: none;
+    height: 65px;
+    font-family: Arial, sans-serif;
+}
+
+.crm-save-btn {
+    margin-top: 6px;
+    width: 100%;
+    padding: 7px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 7px;
+    border: none;
+    background: var(--abcona-blue);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.crm-save-btn:hover { background: var(--abcona-blue-light); }
+
+/* ── Pagination ──────────────────────────────────────────── */
+.crm-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    border-top: 1px solid var(--border-light);
+}
+
+.crm-page-btn {
+    padding: 4px 10px;
+    font-size: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--input-bg);
+    cursor: pointer;
+    color: var(--text-link);
+}
+
+.crm-page-btn.active { background: var(--abcona-blue); color: #fff; border-color: var(--text-link); }
+.crm-page-btn:hover:not(.active) { background: var(--abcona-gray-bg); }
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 992px) {
+    .crm-two-col { flex-direction: column; }
+    .crm-detail-panel { position: static; max-height: none; }
+    .crm-stats-bar { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .crm-stats-bar { grid-template-columns: 1fr; }
+    .crm-search-wrap { max-width: 100%; }
+}
+
+/* ── View Toggle Liste/Zuletzt ───────────────────────── */
+.crm-view-toggle {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color, #dee2e6);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+.crm-toggle-btn {
+    padding: 4px 12px;
+    font-size: 13px;
+    background: var(--bg-white);
+    color: var(--text-muted);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+.crm-toggle-btn + .crm-toggle-btn {
+    border-left: 1px solid var(--border-color, #dee2e6);
+}
+.crm-toggle-btn.active {
+    background: var(--abcona-dark, #1a2744);
+    color: #fff;
+}
+.crm-toggle-btn.active select,
+.crm-toggle-btn.active select option {
+    background: var(--abcona-dark, #1a2744);
+    color: #fff;
+}
+.crm-toggle-btn:not(.active) select,
+.crm-toggle-btn:not(.active) select option {
+    background: var(--input-bg);
+    color: var(--text-primary);
+}
+
+/* ── Drag Resizer ────────────────────────────────────── */
+.crm-resizer {
+    width: 5px;
+    cursor: col-resize;
+    background: var(--border-color);
+    flex-shrink: 0;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+.crm-resizer:hover, .crm-resizer.dragging {
+    background: var(--abcona-blue);
+}
+
+/* ── Stammdaten Zweispaltig ──────────────────────────── */
+.crm-two-col-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+}
+.crm-col-left, .crm-col-right { min-width: 0; }
+.crm-info-row-lbl {
+    font-size: 10px;
+    color: var(--text-muted);
+    min-width: 70px;
+    flex-shrink: 0;
+}
+.crm-copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 0 3px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity .15s;
+}
+.crm-info-row:hover .crm-copy-btn { opacity: 1; }
+.crm-add-inline {
+    background: none;
+    border: 1px dashed var(--border-color);
+    border-radius: 5px;
+    padding: 2px 8px;
+    font-size: 11px;
+    color: var(--text-link);
+    cursor: pointer;
+    margin: 3px 0;
+}
+/* ── Profil Sub-Reiter ───────────────────────────────── */
+.crm-profil-subtab {
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    cursor: pointer;
+}
+.crm-profil-subtab.active {
+    color: var(--text-link);
+    border-bottom-color: var(--text-link);
+}
+@media (max-width: 768px) {
+    .crm-two-col-info { grid-template-columns: 1fr; }
+}
+/* ── Collapsible Sections ────────────────────────────── */
+.crm-sec-wrap { margin-bottom: 4px; }
+.crm-sec-hdr {
+    display: flex; align-items: center; gap: 6px;
+    padding: 4px 8px; background: var(--abcona-gray-card);
+    border-radius: 5px; cursor: pointer;
+    border: 1px solid var(--border-light);
+    user-select: none;
+}
+.crm-sec-hdr:hover { border-color: var(--text-link); }
+.crm-sec-lbl {
+    font-size: 10px; font-weight: 600; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: .04em; flex: 1;
+}
+.crm-sec-ico {
+    font-size: 11px; color: var(--text-muted);
+    transition: transform .2s; flex-shrink: 0;
+}
+.crm-sec-hdr.crm-sec-open .crm-sec-ico { transform: rotate(180deg); }
+.crm-sec-body { overflow: hidden; transition: max-height .25s ease; }
+.crm-sec-inner { padding: 4px 2px; }
+
+/* ── Two-Col Stammdaten ──────────────────────────────── */
+.crm-two-col-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 14px;
+}
+.crm-col-left, .crm-col-right { min-width: 0; }
+
+/* ── Copy button hover ───────────────────────────────── */
+.crm-info-row:hover .crm-row-copy { opacity: 1 !important; }
+
+/* ── Profil Sub-Reiter ───────────────────────────────── */
+.crm-profil-subtab {
+    padding: 5px 10px; font-size: 11px; font-weight: 600;
+    color: var(--text-muted); border-bottom: 2px solid transparent;
+    margin-bottom: -1px; cursor: pointer;
+}
+.crm-profil-subtab.active {
+    color: var(--text-link);
+    border-bottom-color: var(--text-link);
+}
+
+/* ── Avatar dark ─────────────────────────────────────── */
+.crm-avatar svg { display: block; }
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 768px) {
+    .crm-two-col-info { grid-template-columns: 1fr; }
+}
+
+
+/* ── E-Mail Popup Selects ────────────────────────────────── */
+#crm-email-popup select {
+    background: var(--abcona-blue);
+    color: #fff;
+}
+#crm-email-popup select option {
+    background: var(--abcona-blue);
+    color: #fff;
+}
+#crm-email-popup select option:hover,
+#crm-email-popup select option:focus,
+#crm-email-popup select option:checked {
+    background: var(--abcona-blue-light, #2a5a9a);
+    color: #fff;
+}
+
+/* ── CRM Email Compose Popup ─────────────────────────────── */
+#crm-email-popup {
+    position: fixed; inset: 0; z-index: 3000;
+}
+#crm-email-popup .cem-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.55);
+}
+#crm-email-popup .cem-dialog {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1a2744;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.6);
+    width: 860px; max-width: 96vw;
+    height: 88vh; max-height: 680px;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+}
+#crm-email-popup .cem-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 14px 18px;
+    font-size: 13px; font-weight: 600; color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    flex-shrink: 0;
+}
+#crm-email-popup .cem-close {
+    margin-left: auto;
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,.5); font-size: 14px;
+    padding: 2px 6px; border-radius: 4px;
+    transition: color .15s;
+}
+#crm-email-popup .cem-close:hover { color: #f87171; }
+#crm-email-popup .cem-body {
+    display: flex; flex: 1; overflow: hidden;
+}
+#crm-email-popup .cem-left {
+    flex: 1; display: flex; flex-direction: column;
+    padding: 14px 16px; gap: 7px;
+    overflow-y: auto;
+    border-right: 1px solid rgba(255,255,255,.07);
+    min-height: 0;
+}
+#crm-email-popup .cem-right {
+    width: 210px; flex-shrink: 0;
+    padding: 12px 10px;
+    overflow-y: auto;
+    display: flex; flex-direction: column; gap: 6px;
+}
+#crm-email-popup .cem-row {
+    display: flex; flex-direction: column; gap: 3px;
+}
+#crm-email-popup .cem-lbl {
+    font-size: 10px; color: rgba(255,255,255,.5);
+}
+#crm-email-popup .cem-input,
+#crm-email-popup .cem-select {
+    font-size: 12px; padding: 6px 8px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 6px;
+    background: rgba(255,255,255,.07);
+    color: #fff;
+    transition: border-color .15s;
+}
+#crm-email-popup .cem-input:focus,
+#crm-email-popup .cem-select:focus {
+    outline: none;
+    border-color: rgba(99,179,237,.6);
+}
+#crm-email-popup .cem-select option { background: #163258; color: #fff; }
+#crm-email-popup .cem-textarea {
+    flex: 1; min-height: 160px;
+    font-size: 12px; padding: 8px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 6px;
+    background: rgba(255,255,255,.07);
+    color: #fff; resize: vertical;
+    transition: border-color .15s;
+    font-family: inherit;
+}
+#crm-email-popup .cem-textarea:focus {
+    outline: none; border-color: rgba(99,179,237,.6);
+}
+#crm-email-popup .cem-footer {
+    display: flex; gap: 8px; margin-top: 4px;
+}
+#crm-email-popup .cem-btn-send {
+    flex: 1; background: #2563eb; color: #fff;
+    border: none; border-radius: 7px;
+    padding: 9px; cursor: pointer;
+    font-size: 12px; font-weight: 600;
+    transition: background .15s;
+}
+#crm-email-popup .cem-btn-send:hover { background: #1d4ed8; }
+#crm-email-popup .cem-btn-send:disabled { background: #374151; cursor: default; }
+#crm-email-popup .cem-msg {
+    font-size: 11px; padding: 6px 8px;
+    border-radius: 5px;
+}
+#crm-email-popup .cem-msg-err { background: rgba(248,113,113,.15); color: #f87171; }
+#crm-email-popup .cem-msg-ok  { background: rgba(52,211,153,.15);  color: #34d399; }
+
+/* Rechte Panel */
+#crm-email-popup .cem-panel {
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 7px; overflow: hidden;
+}
+#crm-email-popup .cem-panel-hdr {
+    display: flex; align-items: center; gap: 6px;
+    padding: 7px 10px;
+    font-size: 11px; font-weight: 600; color: rgba(255,255,255,.7);
+    cursor: pointer;
+    background: rgba(255,255,255,.04);
+    user-select: none;
+}
+#crm-email-popup .cem-panel-hdr:hover { background: rgba(255,255,255,.08); }
+#crm-email-popup .cem-badge {
+    margin-left: 2px; background: rgba(99,179,237,.25);
+    color: #63b3ed; font-size: 9px;
+    padding: 1px 5px; border-radius: 8px;
+}
+#crm-email-popup .cem-chevron { margin-left: auto; font-size: 10px; transition: transform .2s; }
+#crm-email-popup .cem-panel.open .cem-chevron { transform: rotate(180deg); }
+#crm-email-popup .cem-panel-body {
+    display: none; padding: 8px;
+}
+#crm-email-popup .cem-panel.open .cem-panel-body { display: block; }
+#crm-email-popup .cem-chip {
+    display: inline-block;
+    margin: 2px; padding: 3px 7px;
+    background: rgba(99,179,237,.12);
+    border: 1px solid rgba(99,179,237,.25);
+    color: #93c5fd; border-radius: 5px;
+    font-size: 10px; cursor: pointer;
+    transition: background .15s;
+    user-select: none;
+}
+#crm-email-popup .cem-chip:hover { background: rgba(99,179,237,.3); }
+#crm-email-popup .cem-chip-mod {
+    background: rgba(167,139,250,.1);
+    border-color: rgba(167,139,250,.25);
+    color: #c4b5fd;
+}
+#crm-email-popup .cem-chip-mod:hover { background: rgba(167,139,250,.25); }
+#crm-email-popup .cem-chip-sig {
+    background: rgba(52,211,153,.1);
+    border-color: rgba(52,211,153,.25);
+    color: #6ee7b7;
+}
+#crm-email-popup .cem-chip-sig:hover { background: rgba(52,211,153,.25); }
+
+.crm-fav-star { font-size: 16px; color: var(--text-muted); cursor: pointer; margin-left: 8px; flex-shrink: 0; }
+.crm-fav-star:hover { color: var(--status-yellow, #f59e0b); }
+.crm-fav-active { color: var(--status-yellow, #f59e0b); }
+
+/* ── Dark Mode: Lesbarkeit Detail + Liste ─────────────── */
+body.dark-mode .crm-item-name,
+body.dark-mode .crm-info-value,
+body.dark-mode .crm-stat-val {
+    color: var(--text-primary);
+}
+
+body.dark-mode .crm-info-row span,
+body.dark-mode .crm-info-row a {
+    color: var(--text-primary);
+}
+
+body.dark-mode .crm-info-row a {
+    color: var(--link-color);
+}
+
+body.dark-mode .crm-page-btn.active {
+    background: var(--link-color);
+    border-color: var(--link-color);
+    color: var(--text-on-chrome);
+}
+
+/* Profil-Tab */
+.crm-profil-text {
+    color: var(--text-primary);
+}
+
+.crm-profil-edit-btn {
+    font-size: 11px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 2px 8px;
+    background: var(--abcona-gray-card);
+    cursor: pointer;
+    color: var(--text-link);
+    margin-bottom: 6px;
+}
+
+.crm-profil-edit-btn:hover {
+    background: var(--abcona-gray-bg);
+    border-color: var(--link-color);
+}
+
+/* Scrollbars Dark Mode */
+body.dark-mode .crm-profil-text,
+body.dark-mode .crm-detail-panel,
+body.dark-mode .crm-list-panel {
+    scrollbar-width: thin;
+    scrollbar-color: #555555 #2a2a2a;
+}
+
+body.dark-mode .crm-profil-text::-webkit-scrollbar,
+body.dark-mode .crm-detail-panel::-webkit-scrollbar,
+body.dark-mode .crm-list-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+body.dark-mode .crm-profil-text::-webkit-scrollbar-track,
+body.dark-mode .crm-detail-panel::-webkit-scrollbar-track,
+body.dark-mode .crm-list-panel::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+body.dark-mode .crm-profil-text::-webkit-scrollbar-thumb,
+body.dark-mode .crm-detail-panel::-webkit-scrollbar-thumb,
+body.dark-mode .crm-list-panel::-webkit-scrollbar-thumb {
+    background: #555555;
+    border-radius: 4px;
+}
+
+body.dark-mode .crm-sort-select option {
+    background: var(--abcona-dark);
+    color: var(--text-on-chrome);
+}
+

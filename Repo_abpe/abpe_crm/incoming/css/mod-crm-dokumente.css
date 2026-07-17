@@ -1,0 +1,70 @@
+/* ============================================================
+   ABpE CRM — mod-crm-dokumente.css
+   Datei-Icons, Upload-Bereich
+   ============================================================ */
+
+.crm-doc-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.crm-doc-pdf      { background: #fee2e2; color: #991b1b; }
+.crm-doc-word     { background: #dbeafe; color: #1e40af; }
+.crm-doc-contract { background: #dbeafe; color: #1e40af; }
+.crm-doc-invoice  { background: #d1fae5; color: #065f46; }
+.crm-doc-email    { background: #fef3c7; color: #92400e; }
+.crm-doc-cv       { background: #eef2f5; color: #163258; }
+.crm-doc-other    { background: #f1efe8; color: #5f5e5a; }
+
+.crm-upload-area {
+    border: 2px dashed var(--border-color);
+    border-radius: var(--border-radius-card);
+    padding: 30px;
+    text-align: center;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.crm-upload-area:hover {
+    border-color: var(--abcona-blue);
+    color: var(--abcona-blue);
+    background: var(--abcona-blue-tint);
+}
+
+.crm-upload-area i { font-size: 32px; display: block; margin-bottom: 8px; }
+
+.crm-upload-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.crm-upload-modal.show { display: flex; }
+
+.crm-upload-modal-content {
+    background: #fff;
+    border-radius: var(--border-radius-card);
+    padding: 24px;
+    width: 480px;
+    max-width: 90vw;
+}
+
+.crm-upload-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: var(--abcona-blue);
+}
