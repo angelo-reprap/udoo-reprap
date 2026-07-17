@@ -125,7 +125,7 @@ class MeetmeReminderRule(BaseModel):
     # Nur relevant bei offset_unit='DAYS' — freie Uhrzeit statt exakter Meeting-Zeit
     time_of_day = models.TimeField(null=True, blank=True, verbose_name="Uhrzeit (nur bei Tage)")
 
-    mode = models.CharField(max_length=10, choices=MODE_CHOICES, default='AUTO', verbose_name="Modus")
+    mode = models.CharField(max_length=10, choices=MODE_CHOICES, default='MANUAL', verbose_name="Modus")
     send_copy_to_owner = models.BooleanField(default=False, verbose_name="Kopie an Ersteller (nur bei Automatisch)")
 
     # Lose Kopplung zu abpe_email_studio.EmailTemplate — nur die numerische ID,

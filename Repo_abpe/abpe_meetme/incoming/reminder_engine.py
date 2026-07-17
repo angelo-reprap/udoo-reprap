@@ -42,15 +42,9 @@ def sync_reminder_deliveries(meeting):
             guests_for_rule = list(active_guests)
 
         for guest in guests_for_rule:
-            existing = MeetmeReminderDelivery.objects.filter(rule=rule, guest=guest).first()
-            defaults = {'scheduled_at': scheduled_at}
-            if not existing or existing.status not in ('SENT', 'SKIPPED'):
-                defaults['subject'] = rule.subject or ''
-                defaults['body'] = rule.body or ''
-
             delivery, created = MeetmeReminderDelivery.objects.update_or_create(
                 rule=rule, guest=guest,
-                defaults=defaults,
+                defaults={'scheduled_at': scheduled_at},
             )
             if not created and delivery.status in ('SENT', 'SKIPPED'):
                 # Bereits erledigte Erinnerungen werden nicht neu terminiert
