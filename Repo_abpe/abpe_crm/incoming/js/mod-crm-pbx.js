@@ -3068,10 +3068,16 @@ Object.assign(PBX, {
         const rules = this._mmReminderScopeRules(st, m);
         const rule = rules.length ? rules[rules.length - 1] : null;
         if (rule) {
+            let subject = (rule.subject || '').trim();
+            let body = (rule.body || '').trim();
+            if ((!subject || !body) && st.draft) {
+                subject = subject || (st.draft.subject || '').trim();
+                body = body || (st.draft.body || '').trim();
+            }
             return {
-                subject: (rule.subject || '').trim(),
-                body: (rule.body || '').trim(),
-                attachment_refs: rule.attachment_refs || [],
+                subject,
+                body,
+                attachment_refs: rule.attachment_refs || (st.draft && st.draft.attachment_refs) || [],
             };
         }
         if (st.draft) {
