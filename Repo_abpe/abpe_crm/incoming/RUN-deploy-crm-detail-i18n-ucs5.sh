@@ -11,7 +11,7 @@ echo "=== CRM Detail i18n Deploy ==="
 echo "Source: ${INCOMING}"
 echo "Target: ${STATIC}"
 
-for f in mod-crm.js mod-crm-kunden.js mod-crm-berater.js; do
+for f in mod-crm.js mod-crm-kunden.js mod-crm-berater.js mod-crm-edit.js; do
   src="${INCOMING}/${f}"
   if [[ -f "${INCOMING}/js/${f}" ]]; then src="${INCOMING}/js/${f}"; fi
   echo "  -> js/${f}"
@@ -27,6 +27,7 @@ if [[ -x "${ARCHIV}/backup_restore.py" ]]; then
     "${STATIC}/js/mod-crm.js" \
     "${STATIC}/js/mod-crm-kunden.js" \
     "${STATIC}/js/mod-crm-berater.js" \
+    "${STATIC}/js/mod-crm-edit.js" \
     "${STATIC}/i18n/de/crm.json"
 fi
 

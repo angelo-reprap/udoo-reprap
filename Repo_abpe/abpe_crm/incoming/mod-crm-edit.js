@@ -5,6 +5,12 @@
 
 const CRM_Edit = {
 
+    _t(key, fb) {
+        if (window.CRM_I18N) return CRM_I18N.t(key, fb);
+        if (typeof window.t === 'function') return window.t(key, fb);
+        return fb != null ? fb : key;
+    },
+
     csrf() {
         return CRM.getCsrf();
     },
@@ -191,6 +197,7 @@ const CRM_Edit = {
 
     renderWebProfiles(crm_id, profiles) {
         const self = this;
+        const T = this._t.bind(this);
         let html = '';
         profiles.forEach(function(wp) {
             const lbl = (self.WP_TYPEN.find(function(t) { return t.value === wp.typ; }) || {label: wp.typ}).label;
@@ -213,7 +220,7 @@ const CRM_Edit = {
             '<button onclick="CRM_Edit.addWebProfile(\'' + crm_id + '\')" style="background:var(--status-green);color:#fff;border:none;border-radius:5px;padding:3px 8px;cursor:pointer;font-size:11px"><i class="bi bi-check-lg"></i></button>' +
             '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'none\'" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;padding:3px 6px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>' +
             '</div>' +
-            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'flex\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--abcona-blue);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> Web-Profil hinzufügen</button>';
+            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'flex\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--abcona-blue);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + T('web_profil_hinzufuegen', 'Web-Profil hinzufügen') + '</button>';
         return html;
     },
 
@@ -261,6 +268,7 @@ const CRM_Edit = {
 
     renderIM(crm_id, im_list) {
         const self = this;
+        const T = this._t.bind(this);
         let html = '';
         im_list.forEach(function(im) {
             const lbl = (self.IM_TYPEN.find(function(t) { return t.value === im.typ; }) || {label: im.typ}).label;
@@ -281,7 +289,7 @@ const CRM_Edit = {
             '<button onclick="CRM_Edit.addIM(\'' + crm_id + '\')" style="background:var(--status-green);color:#fff;border:none;border-radius:5px;padding:3px 8px;cursor:pointer;font-size:11px"><i class="bi bi-check-lg"></i></button>' +
             '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'none\'" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;padding:3px 6px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>' +
             '</div>' +
-            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'flex\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--abcona-blue);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> Messenger hinzufügen</button>';
+            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'flex\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--abcona-blue);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + T('messenger_hinzufuegen', 'Messenger hinzufügen') + '</button>';
         return html;
     },
 
@@ -301,22 +309,23 @@ const CRM_Edit = {
 
     // ── E-Mail ────────────────────────────────────────────
     renderEmailAdd(crm_id) {
+        const T = this._t.bind(this);
         const formId = 'em_add_' + crm_id;
         return '<div id="' + formId + '" style="display:none;gap:6px;flex-wrap:wrap;padding:6px;background:var(--abcona-gray-card);border-radius:6px;border:1px solid var(--border-color);margin-top:4px">' +
             '<input id="em_val_' + crm_id + '" type="email" placeholder="name@firma.de" style="width:100%;font-size:11px;padding:4px;border:1px solid var(--border-color);border-radius:5px">' +
             '<div style="display:flex;gap:6px;flex-wrap:wrap">' +
-            '<label style="font-size:11px;display:flex;align-items:center;gap:3px;cursor:pointer"><input type="radio" name="em_typ_' + crm_id + '" value="geschaeftlich" checked> Geschäftlich</label>' +
-            '<label style="font-size:11px;display:flex;align-items:center;gap:3px;cursor:pointer"><input type="radio" name="em_typ_' + crm_id + '" value="privat"> Privat</label>' +
+            '<label style="font-size:11px;display:flex;align-items:center;gap:3px;cursor:pointer"><input type="radio" name="em_typ_' + crm_id + '" value="geschaeftlich" checked> ' + T('geschaeftl', 'Geschäftlich') + '</label>' +
+            '<label style="font-size:11px;display:flex;align-items:center;gap:3px;cursor:pointer"><input type="radio" name="em_typ_' + crm_id + '" value="privat"> ' + T('privat_label', 'Privat') + '</label>' +
             '</div>' +
             '<div style="display:flex;gap:6px;flex-wrap:wrap">' +
-            '<label style="font-size:11px;display:flex;align-items:center;gap:3px;cursor:pointer"><input type="checkbox" id="em_primaer_' + crm_id + '"> Als Primär</label>' +
-            '<label style="font-size:11px;display:flex;align-items:center;gap:3px;cursor:pointer"><input type="checkbox" id="em_gesperrt_' + crm_id + '"> Gesperrt</label>' +
+            '<label style="font-size:11px;display:flex;align-items:center;gap:3px;cursor:pointer"><input type="checkbox" id="em_primaer_' + crm_id + '"> ' + T('als_primaer', 'Als Primär') + '</label>' +
+            '<label style="font-size:11px;display:flex;align-items:center;gap:3px;cursor:pointer"><input type="checkbox" id="em_gesperrt_' + crm_id + '"> ' + T('gesperrt', 'Gesperrt') + '</label>' +
             '</div>' +
             '<div style="display:flex;gap:5px">' +
-            '<button onclick="CRM_Edit.addEmail(\'' + crm_id + '\')" style="background:var(--status-green);color:#fff;border:none;border-radius:5px;padding:4px 12px;cursor:pointer;font-size:11px"><i class="bi bi-check-lg"></i> Speichern</button>' +
+            '<button onclick="CRM_Edit.addEmail(\'' + crm_id + '\')" style="background:var(--status-green);color:#fff;border:none;border-radius:5px;padding:4px 12px;cursor:pointer;font-size:11px"><i class="bi bi-check-lg"></i> ' + T('speichern', 'Speichern') + '</button>' +
             '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'none\'" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;padding:4px 8px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>' +
             '</div></div>' +
-            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'block\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--abcona-blue);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> E-Mail hinzufügen</button>';
+            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'block\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--abcona-blue);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + T('email_hinzufuegen', 'E-Mail hinzufügen') + '</button>';
     },
 
     async addEmail(crm_id) {
@@ -399,6 +408,7 @@ const CRM_Edit = {
 
     renderCrmInfoAdd(crm_id, cstm, contact) {
         const self = this;
+        const T = this._t.bind(this);
         const formId = 'crminfo_add_' + crm_id;
         const ddId   = 'crminfo_dd_'  + crm_id;
         const inpId  = 'crminfo_inp_' + crm_id;
@@ -421,7 +431,7 @@ const CRM_Edit = {
         });
         return '<div id="' + formId + '" style="margin-top:4px">'
             + '<div id="' + inpId + '" style="display:none;gap:4px;align-items:center;padding:4px 0;flex-wrap:wrap" class="crm-info-row"></div>'
-            + '<button onclick="CRM_Edit._crmInfoToggleDd(\x27' + crm_id + '\x27)" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--abcona-blue);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> Hinzufügen</button>'
+            + '<button onclick="CRM_Edit._crmInfoToggleDd(\x27' + crm_id + '\x27)" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--abcona-blue);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + T('hinzufuegen', 'Hinzufügen') + '</button>'
             + '<div id="' + ddId + '" style="display:none;border:1px solid var(--border-color);border-radius:5px;background:var(--abcona-gray-card);margin-top:2px;overflow:hidden">' + ddHtml + '</div>'
             + '</div>';
     },

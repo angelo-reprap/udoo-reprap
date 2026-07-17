@@ -126,24 +126,24 @@
                autocomplete="off" />
         <select id="crm-sort" class="crm-sort-select">
             {% if tab == 'berater' %}
-            <option value="last_name">Name A-Z</option>
-            <option value="verfuegbar">Verfügbarkeit</option>
-            <option value="-verfuegbar">Verfügbarkeit ↓</option>
-            <option value="modified">Zuletzt geändert</option>
+            <option value="last_name" data-i18n="sort_name">Name A-Z</option>
+            <option value="verfuegbar" data-i18n="sort_verfuegbar">Verfügbarkeit</option>
+            <option value="-verfuegbar" data-i18n="verfuegbarkeit_desc">Verfügbarkeit ↓</option>
+            <option value="modified" data-i18n="sort_modified">Zuletzt geändert</option>
             {% elif tab == 'kunden' %}
-            <option value="name">Name A-Z</option>
-            <option value="status">Status</option>
-            <option value="modified">Zuletzt geändert</option>
+            <option value="name" data-i18n="sort_name">Name A-Z</option>
+            <option value="status" data-i18n="status">Status</option>
+            <option value="modified" data-i18n="sort_modified">Zuletzt geändert</option>
             {% elif tab == 'emails' %}
-            <option value="email_address">E-Mail A-Z</option>
-            <option value="modified">Zuletzt geändert</option>
+            <option value="email_address" data-i18n="e_mail_a_z">E-Mail A-Z</option>
+            <option value="modified" data-i18n="sort_modified">Zuletzt geändert</option>
             {% elif tab == 'dokumente' %}
-            <option value="-created_at">Datum ↓</option>
-            <option value="created_at">Datum ↑</option>
-            <option value="title">Titel A-Z</option>
-            <option value="doc_type">Typ</option>
+            <option value="-created_at" data-i18n="sort_datum_desc">Datum ↓</option>
+            <option value="created_at" data-i18n="sort_datum_asc">Datum ↑</option>
+            <option value="title" data-i18n="titel_a_z">Titel A-Z</option>
+            <option value="doc_type" data-i18n="typ">Typ</option>
             {% elif tab == 'reporting' %}
-            <option value="-created_at">Datum ↓</option>
+            <option value="-created_at" data-i18n="sort_datum_desc">Datum ↓</option>
             {% endif %}
         </select>
         <select id="crm-per-page" class="crm-sort-select">
