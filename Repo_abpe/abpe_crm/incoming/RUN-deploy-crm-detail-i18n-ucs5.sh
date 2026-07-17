@@ -21,6 +21,12 @@ done
 echo "  -> i18n/de/crm.json"
 cp "${INCOMING}/i18n/de/crm.json" "${STATIC}/i18n/de/crm.json"
 
+TEMPLATES="${BACKEND}/apps/abpe_crm/templates/abpe_crm/components"
+if [[ -d "${TEMPLATES}" ]]; then
+  echo "  -> templates/.../header.html (sort dropdown i18n)"
+  cp "${INCOMING}/templates/abpe_crm/components/header.html" "${TEMPLATES}/header.html"
+fi
+
 if [[ -x "${ARCHIV}/backup_restore.py" ]]; then
   echo "Backup..."
   python3 "${ARCHIV}/backup_restore.py" backup \
