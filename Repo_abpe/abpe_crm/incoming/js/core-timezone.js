@@ -3,12 +3,86 @@
     const DEFAULT_TZ = 'Europe/Berlin';
     const STORAGE_KEY = 'crm_timezone';
 
+    /** Gruppierte IANA-Zeitzonen — erweiterbar, Backend speichert freien String */
     const TZ_OPTIONS = [
-        { id: 'Europe/Berlin', label: 'Mitteleuropa (Berlin, MESZ/MEZ)' },
-        { id: 'Europe/Vienna', label: 'Österreich (Wien)' },
-        { id: 'Europe/Zurich', label: 'Schweiz (Zürich)' },
-        { id: 'UTC', label: 'UTC' },
+        {
+            group: 'Europa',
+            options: [
+                { id: 'Europe/Berlin', label: 'Deutschland (Berlin, MESZ/MEZ)' },
+                { id: 'Europe/Vienna', label: 'Österreich (Wien)' },
+                { id: 'Europe/Zurich', label: 'Schweiz (Zürich)' },
+                { id: 'Europe/London', label: 'Großbritannien (London)' },
+                { id: 'Europe/Paris', label: 'Frankreich (Paris)' },
+                { id: 'Europe/Amsterdam', label: 'Niederlande (Amsterdam)' },
+                { id: 'Europe/Rome', label: 'Italien (Rom)' },
+                { id: 'Europe/Madrid', label: 'Spanien (Madrid)' },
+                { id: 'Europe/Stockholm', label: 'Schweden (Stockholm)' },
+                { id: 'Europe/Warsaw', label: 'Polen (Warschau)' },
+                { id: 'Europe/Athens', label: 'Griechenland (Athen)' },
+                { id: 'Europe/Istanbul', label: 'Türkei (Istanbul)' },
+            ],
+        },
+        {
+            group: 'USA & Kanada',
+            options: [
+                { id: 'America/New_York', label: 'USA — Ostküste (New York, ET)' },
+                { id: 'America/Chicago', label: 'USA — Mitte (Chicago, CT)' },
+                { id: 'America/Denver', label: 'USA — Rocky Mountains (Denver, MT)' },
+                { id: 'America/Los_Angeles', label: 'USA — Westküste (Los Angeles, PT)' },
+                { id: 'America/Phoenix', label: 'USA — Arizona (Phoenix, keine Sommerzeit)' },
+                { id: 'America/Anchorage', label: 'USA — Alaska (Anchorage)' },
+                { id: 'Pacific/Honolulu', label: 'USA — Hawaii (Honolulu)' },
+                { id: 'America/Toronto', label: 'Kanada — Toronto (ET)' },
+                { id: 'America/Vancouver', label: 'Kanada — Vancouver (PT)' },
+            ],
+        },
+        {
+            group: 'Australien & Neuseeland',
+            options: [
+                { id: 'Australia/Sydney', label: 'Australien — Sydney (AEST/AEDT)' },
+                { id: 'Australia/Melbourne', label: 'Australien — Melbourne' },
+                { id: 'Australia/Brisbane', label: 'Australien — Brisbane (keine Sommerzeit)' },
+                { id: 'Australia/Perth', label: 'Australien — Perth' },
+                { id: 'Australia/Adelaide', label: 'Australien — Adelaide' },
+                { id: 'Australia/Darwin', label: 'Australien — Darwin' },
+                { id: 'Pacific/Auckland', label: 'Neuseeland (Auckland)' },
+            ],
+        },
+        {
+            group: 'Asien & Naher Osten',
+            options: [
+                { id: 'Asia/Dubai', label: 'VAE (Dubai)' },
+                { id: 'Asia/Kolkata', label: 'Indien (Kolkata)' },
+                { id: 'Asia/Singapore', label: 'Singapur' },
+                { id: 'Asia/Hong_Kong', label: 'Hongkong' },
+                { id: 'Asia/Shanghai', label: 'China (Shanghai)' },
+                { id: 'Asia/Tokyo', label: 'Japan (Tokio)' },
+                { id: 'Asia/Seoul', label: 'Südkorea (Seoul)' },
+                { id: 'Asia/Bangkok', label: 'Thailand (Bangkok)' },
+                { id: 'Asia/Jerusalem', label: 'Israel (Jerusalem)' },
+            ],
+        },
+        {
+            group: 'Afrika & Südamerika',
+            options: [
+                { id: 'Africa/Cairo', label: 'Ägypten (Kairo)' },
+                { id: 'Africa/Johannesburg', label: 'Südafrika (Johannesburg)' },
+                { id: 'America/Sao_Paulo', label: 'Brasilien (São Paulo)' },
+                { id: 'America/Buenos_Aires', label: 'Argentinien (Buenos Aires)' },
+                { id: 'America/Mexico_City', label: 'Mexiko (Mexico City)' },
+            ],
+        },
+        {
+            group: 'Sonstiges',
+            options: [
+                { id: 'UTC', label: 'UTC (koordinierte Weltzeit)' },
+            ],
+        },
     ];
+
+    function flatTzOptions() {
+        return TZ_OPTIONS.flatMap(function (g) { return g.options; });
+    }
 
     function csrf() {
         return (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '';
@@ -133,22 +207,30 @@
         }
 
         tzLabel() {
-            const map = {
-                'Europe/Berlin': 'MESZ/MEZ',
-                'Europe/Vienna': 'Mitteleuropa',
-                'Europe/Zurich': 'Mitteleuropa',
-                UTC: 'UTC',
-            };
-            return map[this.getTimezone()] || this.getTimezone();
+            try {
+                const parts = new Intl.DateTimeFormat('de-DE', {
+                    timeZone: this.getTimezone(),
+                    timeZoneName: 'short',
+                }).formatToParts(new Date());
+                return (parts.find(function (p) { return p.type === 'timeZoneName'; }) || {}).value
+                    || this.getTimezone();
+            } catch (e) {
+                return this.getTimezone();
+            }
         }
 
         static options() {
+            return flatTzOptions();
+        }
+
+        static groupedOptions() {
             return TZ_OPTIONS.slice();
         }
     }
 
     window.timezoneManager = new TimezoneManager();
     window.TZ_OPTIONS = TZ_OPTIONS;
+    window.flatTzOptions = flatTzOptions;
 
     document.addEventListener('DOMContentLoaded', function () {
         if (window.timezoneManager) timezoneManager.init();

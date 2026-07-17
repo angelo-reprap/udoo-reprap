@@ -322,7 +322,7 @@
                 style="width:100%;padding:10px 12px;border:1px solid var(--border-color);border-radius:10px;font-size:0.9rem;background:var(--abcona-gray-card);color:var(--text-primary);cursor:pointer;">
         </select>
         <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:6px;">
-          Standard: Mitteleuropa (Berlin, MESZ/MEZ). Termine und E-Mails werden in dieser Zeitzone angezeigt.
+          IANA-Zeitzone für Termine und E-Mails. Default: Mitteleuropa (Berlin). USA, Australien u.a. verfügbar.
         </div>
       </div>
 
@@ -648,15 +648,23 @@ let _settingsTimezone = 'Europe/Berlin';
 function _populateTimezoneSelect(selected) {
     const sel = document.getElementById('settings-timezone');
     if (!sel) return;
-    const opts = (window.TZ_OPTIONS || [
-        { id: 'Europe/Berlin', label: 'Mitteleuropa (Berlin, MESZ/MEZ)' },
-        { id: 'Europe/Vienna', label: 'Österreich (Wien)' },
-        { id: 'Europe/Zurich', label: 'Schweiz (Zürich)' },
-        { id: 'UTC', label: 'UTC' },
-    ]);
-    sel.innerHTML = opts.map(o =>
-        `<option value="${o.id}"${o.id === selected ? ' selected' : ''}>${o.label}</option>`
-    ).join('');
+    const grouped = (window.TZ_OPTIONS && window.TZ_OPTIONS[0] && window.TZ_OPTIONS[0].group)
+        ? window.TZ_OPTIONS
+        : [{ group: '', options: (window.TZ_OPTIONS || [{ id: 'Europe/Berlin', label: 'Deutschland (Berlin)' }]) }];
+    const known = new Set();
+    let html = '';
+    grouped.forEach(function (g) {
+        html += `<optgroup label="${g.group}">`;
+        g.options.forEach(function (o) {
+            known.add(o.id);
+            html += `<option value="${o.id}"${o.id === selected ? ' selected' : ''}>${o.label}</option>`;
+        });
+        html += '</optgroup>';
+    });
+    if (selected && !known.has(selected)) {
+        html = `<option value="${selected}" selected>${selected}</option>` + html;
+    }
+    sel.innerHTML = html;
 }
 
 function openSettingsModal() {
