@@ -100,7 +100,11 @@ def reschedule_meeting(meeting, new_start_at):
 
     old_start_at = meeting.start_at
     meeting.start_at = new_start_at
-    meeting.save(update_fields=['start_at'])
+    update_fields = ['start_at']
+    if meeting.status == 'CANCELLED':
+        meeting.status = 'PLANNED'
+        update_fields.append('status')
+    meeting.save(update_fields=update_fields)
 
     already_notified_guest_ids = set(
         MeetmeReminderDelivery.objects.filter(
