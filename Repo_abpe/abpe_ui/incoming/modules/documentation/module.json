@@ -1,0 +1,151 @@
+{
+    "id": "documentation",
+    "title": "Dokumentation",
+    "titles": {
+        "de": "Dokumentation",
+        "en": "Documentation",
+        "fr": "Documentation",
+        "it": "Documentazione",
+        "es": "Documentación",
+        "ar": "التوثيق",
+        "ja": "ドキュメント",
+        "ko": "문서",
+        "nl": "Documentatie",
+        "pl": "Dokumentacja",
+        "pt": "Documentação",
+        "ru": "Документация",
+        "tr": "Dokümantasyon",
+        "zh": "文档",
+        "hu": "Dokumentáció"
+    },
+    "icon": "book",
+    "route": "/documentation/",
+    "template": "abpe_ui/modules/documentation/architecture.html",
+    "order": 40,
+    "enabled": true,
+    "static": {
+        "css": [
+            "mod/mod-documentation.css"
+        ],
+        "js": [
+            "mod/mod-documentation.js"
+        ]
+    },
+    "subpages": [
+        {
+            "id": "architecture",
+            "title": "Architekturdesign",
+            "titles": {
+                "de": "Architekturdesign",
+                "en": "Architecture",
+                "fr": "Architecture",
+                "it": "Architettura",
+                "es": "Arquitectura",
+                "ar": "تصميم الهندسة",
+                "ja": "アーキテクチャ設計",
+                "ko": "아키텍처 설계",
+                "nl": "Architectuurontwerp",
+                "pl": "Projekt architektury",
+                "pt": "Design de Arquitetura",
+                "ru": "Проектирование архитектуры",
+                "tr": "Mimari Tasarım",
+                "zh": "架构设计",
+                "hu": "Architektúra tervezés"
+            },
+            "route": "/documentation/architecture/",
+            "template": "abpe_ui/modules/documentation/architecture.html"
+        },
+        {
+            "id": "user_manual",
+            "title": "Benutzerhandbuch",
+            "titles": {
+                "de": "Benutzerhandbuch",
+                "en": "User Manual",
+                "fr": "Manuel utilisateur",
+                "it": "Manuale utente",
+                "es": "Manual de usuario",
+                "ar": "دليل المستخدم",
+                "ja": "ユーザーマニュアル",
+                "ko": "사용자 매뉴얼",
+                "nl": "Gebruikershandleiding",
+                "pl": "Podręcznik użytkownika",
+                "pt": "Manual do Usuário",
+                "ru": "Руководство пользователя",
+                "tr": "Kullanıcı Kılavuzu",
+                "zh": "用户手册",
+                "hu": "Felhasználói kézikönyv"
+            },
+            "route": "/documentation/user-manual/",
+            "template": "abpe_ui/modules/documentation/user_manual.html"
+        },
+        {
+            "id": "api_reference",
+            "title": "API Referenz",
+            "titles": {
+                "de": "API Referenz",
+                "en": "API Reference",
+                "fr": "Référence API",
+                "it": "Riferimento API",
+                "es": "Referencia API",
+                "ar": "مرجع API",
+                "ja": "APIリファレンス",
+                "ko": "API 참조",
+                "nl": "API-referentie",
+                "pl": "Dokumentacja API",
+                "pt": "Referência da API",
+                "ru": "Справочник API",
+                "tr": "API Referansı",
+                "zh": "API 参考",
+                "hu": "API referencia"
+            },
+            "route": "/documentation/api/",
+            "template": "abpe_ui/modules/documentation/api_reference.html"
+        },
+        {
+            "id": "operations",
+            "title": "Betriebshandbuch",
+            "titles": {
+                "de": "Betriebshandbuch",
+                "en": "Operations Guide",
+                "fr": "Guide opérationnel",
+                "it": "Guida operativa",
+                "es": "Guía operativa",
+                "ar": "دليل التشغيل",
+                "ja": "運用マニュアル",
+                "ko": "운영 매뉴얼",
+                "nl": "Operationele handleiding",
+                "pl": "Podręcznik operacyjny",
+                "pt": "Manual de Operações",
+                "ru": "Руководство по эксплуатации",
+                "tr": "İşletim Kılavuzu",
+                "zh": "操作手册",
+                "hu": "Üzemeltetési kézikönyv"
+            },
+            "route": "/documentation/operations/",
+            "template": "abpe_ui/modules/documentation/operations.html"
+        },
+        {
+            "id": "new_module",
+            "title": "Modul erstellen",
+            "titles": {
+                "de": "Modul erstellen",
+                "en": "Create Module",
+                "fr": "Créer un module",
+                "it": "Crea modulo",
+                "es": "Crear módulo",
+                "ar": "إنشاء وحدة",
+                "ja": "モジュールを作成",
+                "ko": "모듈 생성",
+                "nl": "Module maken",
+                "pl": "Utwórz moduł",
+                "pt": "Criar Módulo",
+                "ru": "Создать модуль",
+                "tr": "Modül Oluştur",
+                "zh": "创建模块",
+                "hu": "Modul létrehozása"
+            },
+            "route": "/documentation/new-module/",
+            "template": "abpe_ui/modules/documentation/new_module.html"
+        }
+    ]
+}

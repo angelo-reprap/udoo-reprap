@@ -1,0 +1,36 @@
+{
+    "id": "cv_upload",
+    "title": "CV Upload",
+    "titles": {
+        "de": "CV Upload",
+        "en": "CV Upload",
+        "fr": "CV Upload",
+        "it": "CV Upload",
+        "es": "CV Upload",
+        "ar": "تحميل السيرة الذاتية",
+        "ja": "履歴書アップロード",
+        "ko": "이력서 업로드",
+        "nl": "CV Upload",
+        "pl": "Przesyłanie CV",
+        "pt": "Upload de CV",
+        "ru": "Загрузка резюме",
+        "tr": "CV Yükleme",
+        "zh": "简历上传",
+        "hu": "CV Feltöltés"
+    },
+    "icon": "file-earmark-arrow-up",
+    "route": "/cv_upload/",
+    "order": 30,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod/mod-cv_upload.css"
+        ],
+        "js": [
+            "mod/mod-cv_upload.js"
+        ]
+    }
+}

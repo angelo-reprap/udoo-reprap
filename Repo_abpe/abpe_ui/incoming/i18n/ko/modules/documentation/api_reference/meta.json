@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "목차"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "개요"
+        },
+        {
+            "id": "endpoints",
+            "number": "2",
+            "title": "엔드포인트"
+        }
+    ]
+}

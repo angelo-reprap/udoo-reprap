@@ -1,0 +1,160 @@
+{% extends 'abpe_ui/base.html' %}
+{% load static %}
+{% block title %}Doc Studio — Vorlagen{% endblock %}
+{% block module_css %}
+<link href="{% static 'abpe_ui/css/mod/mod-doc_studio.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<script>
+document.addEventListener('languageChanged', function(e) {
+    if (typeof loadLanguage === 'function') loadLanguage(e.detail.language, 'doc_studio');
+});
+</script>
+
+<div class="container-fluid p-0">
+
+    {# ── Tab-Leiste ── #}
+    <div class="ds-tabbar">
+        <a href="/doc-studio/"          class="ds-tab ds-tab-active">
+            <i class="bi bi-files"></i>
+            <span data-i18n="ds.tab_templates">Vorlagen</span>
+        </a>
+        <a href="/doc-studio/studio/"   class="ds-tab">
+            <i class="bi bi-pencil-square"></i>
+            <span data-i18n="ds.tab_studio">Studio</span>
+        </a>
+        <a href="/doc-studio/invoices/" class="ds-tab">
+            <i class="bi bi-receipt"></i>
+            <span data-i18n="ds.tab_invoices">Rechnungen</span>
+        </a>
+        <a href="/doc-studio/log/"      class="ds-tab">
+            <i class="bi bi-journal-text"></i>
+            <span data-i18n="ds.tab_log">Log</span>
+        </a>
+        {% if is_admin %}
+        <a href="/doc-studio/config/"   class="ds-tab">
+            <i class="bi bi-gear"></i>
+            <span data-i18n="ds.tab_config">Konfiguration</span>
+        </a>
+        {% endif %}
+        <div class="ds-tab-spacer"></div>
+        <a href="/doc-studio/studio/" class="btn btn-sm btn-primary ds-tab-btn">
+            <i class="bi bi-plus-circle me-1"></i>
+            <span data-i18n="ds.btn_new">Neue Vorlage</span>
+        </a>
+    </div>
+
+    <div class="p-4">
+
+        {# ── Statistik ── #}
+        <div class="ds-stats-row mb-3">
+            <div class="ds-stat">
+                <div class="ds-stat-val">{{ stats.total }}</div>
+                <div class="ds-stat-lbl" data-i18n="ds.stat_total">Vorlagen</div>
+            </div>
+            <div class="ds-stat">
+                <div class="ds-stat-val" style="color:var(--status-green);">{{ stats.contract }}</div>
+                <div class="ds-stat-lbl" data-i18n="ds.scope_contract">Verträge</div>
+            </div>
+            <div class="ds-stat">
+                <div class="ds-stat-val" style="color:var(--abcona-blue);">{{ stats.invoice }}</div>
+                <div class="ds-stat-lbl" data-i18n="ds.scope_invoice">Rechnungen</div>
+            </div>
+            <div class="ds-stat">
+                <div class="ds-stat-val" style="color:var(--status-yellow);">{{ stats.draft }}</div>
+                <div class="ds-stat-lbl" data-i18n="ds.status_draft">Entwurf</div>
+            </div>
+        </div>
+
+        {# ── Filter ── #}
+        <div class="d-flex gap-2 mb-3 align-items-center">
+            <input id="ds-search-input"
+                   data-i18n-placeholder="ds.search_placeholder"
+                   class="form-control form-control-sm" style="width:180px;"
+                   placeholder="Vorlage suchen...">
+            <select id="ds-scope-select" class="form-select form-select-sm" style="width:140px;">
+                <option value="" data-i18n="ds.all_scopes">Alle Bereiche</option>
+                {% for val, label in scopes %}
+                <option value="{{ val }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+            <select id="ds-status-select" class="form-select form-select-sm" style="width:110px;">
+                <option value=""        data-i18n="ds.all_status">Alle Status</option>
+                <option value="ACTIVE"  data-i18n="ds.status_active">Aktiv</option>
+                <option value="DRAFT"   data-i18n="ds.status_draft">Entwurf</option>
+                <option value="ARCHIVE" data-i18n="ds.status_archive">Archiv</option>
+            </select>
+        </div>
+
+        {# ── Vorlagen-Tabelle ── #}
+        <div id="ds-templates-container">
+            <div class="text-center py-4">
+                <div class="spinner-border spinner-border-sm text-secondary"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{# ── Generate Modal ── #}
+<div class="modal fade" id="dsGenerateModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">
+                    <i class="bi bi-play-circle me-2"></i>
+                    <span data-i18n="ds.btn_generate">Dokument generieren</span>
+                </h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label class="form-label small" data-i18n="ds.label_ref">Referenz</label>
+                    <input id="ds-gen-ref" type="text" class="form-control form-control-sm"
+                           placeholder="ANF-2026-0042">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small" data-i18n="ds.label_engine">Format</label>
+                    <select id="ds-gen-engine" class="form-select form-select-sm">
+                        <option value="DOCX">DOCX</option>
+                        <option value="PDF">PDF</option>
+                        <option value="BOTH" selected data-i18n="ds.engine_both">DOCX + PDF</option>
+                    </select>
+                </div>
+                <div id="ds-gen-result" class="d-none">
+                    <div class="alert alert-success py-2 small mb-0">
+                        <i class="bi bi-check-circle me-1"></i>
+                        <span id="ds-gen-result-text"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                        data-bs-dismiss="modal" data-i18n="ds.btn_cancel">Abbrechen</button>
+                <button type="button" class="btn btn-sm btn-primary" onclick="dsGenerate()">
+                    <i class="bi bi-play-fill me-1"></i>
+                    <span data-i18n="ds.btn_generate">Generieren</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block module_js %}
+<script src="{% static 'abpe_ui/js/mod/mod-doc_studio.js' %}"></script>
+{% endblock %}
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof loadLanguage === 'function') {
+        loadLanguage('{{ current_lang|default:"de" }}', 'doc_studio').then(function() {
+            if (typeof dsInit === 'function') dsInit('index');
+        });
+    } else {
+        if (typeof dsInit === 'function') dsInit('index');
+    }
+});
+</script>
+{% endblock %}

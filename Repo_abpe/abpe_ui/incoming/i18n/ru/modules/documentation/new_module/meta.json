@@ -1,0 +1,72 @@
+{
+    "toc": {
+        "title": "Содержание"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Обзор — Система модулей"
+        },
+        {
+            "id": "struktur",
+            "number": "2",
+            "title": "Структура каталогов"
+        },
+        {
+            "id": "module_json",
+            "number": "3",
+            "title": "Файл module.json"
+        },
+        {
+            "id": "template",
+            "number": "4",
+            "title": "HTML-шаблон"
+        },
+        {
+            "id": "css",
+            "number": "5",
+            "title": "CSS — Стили"
+        },
+        {
+            "id": "javascript",
+            "number": "6",
+            "title": "JavaScript — Логика модуля"
+        },
+        {
+            "id": "toggle_system",
+            "number": "7",
+            "title": "Система переключения"
+        },
+        {
+            "id": "i18n",
+            "number": "8",
+            "title": "Интернационализация"
+        },
+        {
+            "id": "navigation",
+            "number": "9",
+            "title": "Навигация и боковая панель"
+        },
+        {
+            "id": "api",
+            "number": "10",
+            "title": "API-эндпоинты"
+        },
+        {
+            "id": "checkliste",
+            "number": "11",
+            "title": "Контрольный список и ошибки"
+        },
+        {
+            "id": "beispiel",
+            "number": "12",
+            "title": "Полный пример"
+        },
+        {
+            "id": "anhang_a",
+            "number": "A",
+            "title": "Приложение A — Подводные камни при интеграции портала"
+        }
+    ]
+}

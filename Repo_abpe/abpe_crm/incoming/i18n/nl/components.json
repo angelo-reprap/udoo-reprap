@@ -1,0 +1,19 @@
+{
+    "component_actions_upload_pdf": "PDF Uploaden",
+    "component_actions_add_consultant": "Adviseur aanmaken",
+    "component_actions_start_matching": "Matching starten",
+    "component_actions_contact": "Adviseur aanschrijven",
+    "component_stats_consultants": "Adviseurs",
+    "component_stats_emails": "E-mails",
+    "component_stats_projects": "Projecten",
+    "component_stats_matches": "Matches",
+    "component_system_django": "Django",
+    "component_system_celery": "Celery",
+    "component_system_postgresql": "PostgreSQL",
+    "component_system_cpu": "CPU",
+    "component_system_ram": "RAM",
+    "component_system_gpu": "GPU",
+    "component_recent_consultants_title": "Laatste adviseurs",
+    "component_recent_emails_title": "Laatste e-mails",
+    "component_show_all": "Alles weergeven →"
+}

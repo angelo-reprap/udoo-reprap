@@ -1,0 +1,36 @@
+{
+    "id": "crm_reporting",
+    "title": "Reporting",
+    "titles": {
+        "de": "Reporting",
+        "en": "Reporting",
+        "fr": "Rapports",
+        "it": "Reportistica",
+        "es": "Informes",
+        "ar": "التقارير",
+        "ja": "レポート",
+        "ko": "리포팅",
+        "nl": "Rapportage",
+        "pl": "Raportowanie",
+        "pt": "Relatórios",
+        "ru": "Отчеты",
+        "tr": "Raporlama",
+        "zh": "报告"
+    },
+    "icon": "bar-chart",
+    "route": "/crm/reporting/",
+    "order": 50,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod-crm.css"
+        ],
+        "js": [
+            "mod-crm.js",
+            "mod-crm-reporting.js"
+        ]
+    }
+}

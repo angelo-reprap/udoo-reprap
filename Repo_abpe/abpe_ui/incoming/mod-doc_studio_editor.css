@@ -1,0 +1,235 @@
+/* ============================================================
+   mod-doc_studio_editor.css — ABpE Doc Studio Editor
+   Sauber neu geschrieben 29.05.2026
+   ============================================================ */
+
+/* ── Seiten-Layout ── */
+.ds-studio-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.ds-editor-layout {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+}
+
+/* ── Linke Spalte (Variablen / Blöcke) ── */
+.ds-editor-left {
+    overflow-y: auto;
+    border-right: 0.5px solid var(--border-color);
+    padding: 10px;
+    background: var(--abcona-gray-card);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ── Rechte Seite (Dokument) ── */
+.ds-editor-right {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Dokument-Canvas (grauer Hintergrund) ── */
+.ds-doc-canvas {
+    background: var(--abcona-gray-bg);
+    padding: 16px;
+    overflow-x: auto;
+    overflow-y: visible;
+    min-width: 826px;
+}
+
+.ds-doc-hint {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* ── DIN A4 Seiten (serverseitig aufgeteilt) ── */
+.ds-preview-page {
+    position: relative;
+    background: var(--bg-white);
+    width: 794px;        /* 210mm @ 96dpi */
+    height: auto;
+    margin: 0 auto 24px;
+    border: 0.5px solid var(--border-color);
+    box-shadow: 0 3px 16px rgba(0,0,0,.18);
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    padding: 59px 42px 74px 42px;
+    overflow: visible;
+    flex-shrink: 0;
+}
+
+.ds-doc-preview-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.ds-page-footer {
+    position: absolute;
+    bottom: 14px;
+    left: 42px;
+    right: 42px;
+}
+
+/* ── Toolbar ── */
+.ds-doc-toolbar {
+    background: var(--bg-white);
+    border-bottom: 0.5px solid var(--border-color);
+    padding: 5px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.ds-doc-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* ── Undo Button ── */
+.ds-undo-btn {
+    border: 0.5px solid var(--border-color);
+    background: var(--bg-white);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 10px;
+    cursor: pointer;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    transition: all .12s;
+}
+.ds-undo-btn:not(:disabled):hover { border-color: var(--abcona-blue); color: var(--abcona-blue); }
+.ds-undo-btn:disabled { opacity: .35; cursor: not-allowed; }
+
+/* ── Mode Toggle ── */
+.ds-mode-toggle {
+    display: flex;
+    border: 0.5px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.ds-mtog {
+    padding: 3px 12px;
+    font-size: 10px;
+    cursor: pointer;
+    background: var(--bg-white);
+    border: none;
+    color: var(--text-muted);
+    transition: background .12s;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.ds-mtog.on { background: var(--abcona-blue); color: white; }
+.ds-mtog:not(.on):hover { background: var(--abcona-gray-card); }
+
+/* ── Panel ── */
+.ds-panel { border: 0.5px solid var(--border-color); border-radius: 6px; overflow: hidden; }
+.ds-panel-hdr { background: var(--abcona-blue); color: white; font-size: 11px; padding: 5px 10px; font-weight: 500; display: flex; align-items: center; gap: 5px; }
+.ds-panel-body { padding: 8px 10px; font-size: 11px; }
+
+/* ── Variablen ── */
+.ds-field-lbl { font-size: 9px; color: var(--text-muted); margin-bottom: 2px; }
+.ds-var-row { display: flex; align-items: center; gap: 4px; margin-bottom: 4px; }
+.ds-var-key {
+    font-size: 9px; color: var(--abcona-blue); font-family: monospace;
+    min-width: 80px; background: var(--abcona-blue-tint); border-radius: 3px;
+    padding: 2px 5px; cursor: copy; user-select: none; transition: background .12s;
+}
+.ds-var-key:hover { background: var(--abcona-blue); color: white; }
+.ds-var-key.copied { background: var(--status-green); color: white; }
+.ds-var-input {
+    flex: 1; border: 0.5px solid var(--border-color);
+    border-radius: 3px; padding: 2px 5px; font-size: 10px;
+    background: var(--bg-white); color: var(--text-primary);
+}
+
+/* ── Blöcke links ── */
+.ds-block-item-left {
+    display: flex; align-items: center; gap: 5px;
+    border: 0.5px solid var(--border-color); border-radius: 4px;
+    padding: 4px 6px; margin-bottom: 3px;
+    background: var(--bg-white);
+    cursor: grab; user-select: none; transition: border-color .12s, background .12s;
+}
+.ds-block-item-left:hover { border-color: var(--abcona-blue); background: var(--abcona-blue-tint); }
+.ds-block-item-left.dragging { opacity: .3; border-style: dashed; }
+.ds-bl-name { font-size: 9px; font-weight: 500; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ds-bl-prev { font-size: 8px; color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ── Editor-Blöcke im Dokument ── */
+.ds-eb {
+    margin-bottom: 6px; border: 1px solid transparent;
+    border-radius: 3px; padding: 3px 5px;
+    cursor: pointer; position: relative; transition: border-color .12s, background .12s;
+}
+.ds-editor-mode .ds-eb:hover { border-color: var(--abcona-blue-tint-border); background: var(--abcona-blue-tint); }
+.ds-editor-mode .ds-eb:hover .ds-eb-tip { opacity: 1; }
+.ds-eb.ds-eb-active { border: 1.5px solid var(--status-yellow) !important; background: var(--status-yellow-bg) !important; cursor: default; }
+.ds-eb.ds-eb-over { border: 2px dashed var(--abcona-blue) !important; background: var(--abcona-blue-tint) !important; }
+.ds-eb-tip {
+    position: absolute; right: 4px; top: 3px; font-size: 7px; color: var(--abcona-blue);
+    opacity: 0; transition: opacity .12s; background: var(--abcona-blue-tint);
+    border-radius: 2px; padding: 1px 5px; pointer-events: none; white-space: nowrap;
+}
+
+/* ── DropZonen ── */
+.ds-dz {
+    height: 14px; border: 1.5px dashed transparent; border-radius: 3px;
+    margin: 2px 0; transition: all .12s; display: flex;
+    align-items: center; justify-content: center; font-size: 7px; color: transparent;
+}
+.ds-editor-mode .ds-dz { border-color: var(--border-color); color: var(--border-color); }
+.ds-dz.ds-dz-over { border-color: var(--abcona-blue) !important; background: var(--abcona-blue-tint) !important; color: var(--abcona-blue) !important; height: 24px; }
+
+/* ── Edit-Textarea ── */
+.ds-eb-textarea {
+    width: 100%; border: 0.5px solid var(--status-yellow); border-radius: 3px;
+    padding: 5px; font-size: 9px; font-family: Arial, sans-serif;
+    line-height: 1.5; resize: vertical; background: var(--status-yellow-bg);
+    outline: none; color: var(--text-primary); min-height: 60px;
+}
+.ds-eb-actions { display: flex; gap: 4px; margin-top: 4px; align-items: center; flex-wrap: wrap; }
+.ds-eb-save { background: var(--abcona-blue); color: white; border: none; border-radius: 3px; padding: 3px 10px; font-size: 9px; cursor: pointer; }
+.ds-eb-cancel { background: transparent; border: 0.5px solid var(--border-color); border-radius: 3px; padding: 3px 8px; font-size: 9px; cursor: pointer; color: var(--text-muted); }
+
+/* ── Variable Chips ── */
+.ds-var-chips { display: flex; flex-wrap: wrap; gap: 2px; align-items: center; }
+.ds-vchip-label { font-size: 8px; color: var(--text-muted); }
+.ds-vchip {
+    font-size: 7px; background: var(--abcona-blue-tint); color: var(--abcona-blue);
+    border-radius: 2px; padding: 1px 5px; cursor: pointer;
+    font-family: monospace; border: 0.5px solid var(--abcona-blue-tint-border); transition: background .1s;
+}
+.ds-vchip:hover { background: var(--abcona-blue); color: white; }
+
+/* ── Toast ── */
+.ds-toast {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: var(--abcona-blue-dark); color: white; border-radius: 20px;
+    padding: 6px 18px; font-size: 11px; display: none;
+    gap: 10px; align-items: center; z-index: 9999; white-space: nowrap;
+}
+.ds-toast.show { display: flex; }
+.ds-toast-undo { color: var(--status-yellow); cursor: pointer; text-decoration: underline; }
+
+/* ── Preview-Modus ── */
+.ds-preview-mode .ds-eb { cursor: default; }
+.ds-preview-mode .ds-eb-tip { display: none !important; }
+.ds-preview-mode .ds-dz { display: none; }
+
+/* ── Sonstiges ── */
+.ds-var-span { color: var(--abcona-blue); font-style: italic; }
+.ds-doc-page { background: var(--bg-white); max-width: 620px; margin: 0 auto; padding: 32px 44px 40px; border: 0.5px solid var(--border-color); font-family: Arial, sans-serif; min-height: 600px; position: relative; }
+.ds-doc-page-nr { position: absolute; top: 10px; right: 44px; font-size: 7px; color: var(--text-muted); }
+

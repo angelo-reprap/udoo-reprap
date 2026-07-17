@@ -1,0 +1,92 @@
+{% extends 'abpe_ui/base.html' %}
+{% load static %}
+{% block title %}Doc Studio — Log{% endblock %}
+{% block module_css %}
+<link href="{% static 'abpe_ui/css/mod/mod-doc_studio.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<script>
+document.addEventListener('languageChanged', function(e) {
+    if (typeof loadLanguage === 'function') loadLanguage(e.detail.language, 'doc_studio');
+});
+</script>
+
+<div class="container-fluid p-0">
+
+    {# ── Tab-Leiste ── #}
+    <div class="ds-tabbar">
+        <a href="/doc-studio/"          class="ds-tab">
+            <i class="bi bi-files"></i>
+            <span data-i18n="ds.tab_templates">Vorlagen</span>
+        </a>
+        <a href="/doc-studio/studio/"   class="ds-tab">
+            <i class="bi bi-pencil-square"></i>
+            <span data-i18n="ds.tab_studio">Studio</span>
+        </a>
+        <a href="/doc-studio/invoices/" class="ds-tab">
+            <i class="bi bi-receipt"></i>
+            <span data-i18n="ds.tab_invoices">Rechnungen</span>
+        </a>
+        <a href="/doc-studio/log/"      class="ds-tab ds-tab-active">
+            <i class="bi bi-journal-text"></i>
+            <span data-i18n="ds.tab_log">Log</span>
+        </a>
+        {% if is_admin %}
+        <a href="/doc-studio/config/"   class="ds-tab">
+            <i class="bi bi-gear"></i>
+            <span data-i18n="ds.tab_config">Konfiguration</span>
+        </a>
+        {% endif %}
+        <div class="ds-tab-spacer"></div>
+        <select id="ds-log-days" class="form-select form-select-sm ds-tab-btn"
+                style="width:100px;" onchange="dsLogLoad()">
+            <option value="1"  data-i18n="ds.log_today">Heute</option>
+            <option value="7"  selected data-i18n="ds.log_week">7 Tage</option>
+            <option value="30" data-i18n="ds.log_month">30 Tage</option>
+        </select>
+    </div>
+
+    <div class="p-4">
+
+        <div class="ds-stats-row mb-3">
+            <div class="ds-stat">
+                <div class="ds-stat-val" id="ds-log-stat-total">{{ stats.today_total }}</div>
+                <div class="ds-stat-lbl" data-i18n="ds.log_total">Gesamt</div>
+            </div>
+            <div class="ds-stat">
+                <div class="ds-stat-val" style="color:var(--status-green);" id="ds-log-stat-ok">{{ stats.today_ok }}</div>
+                <div class="ds-stat-lbl" data-i18n="ds.log_ok">Erfolgreich</div>
+            </div>
+            <div class="ds-stat">
+                <div class="ds-stat-val" style="color:var(--status-red);" id="ds-log-stat-failed">{{ stats.today_failed }}</div>
+                <div class="ds-stat-lbl" data-i18n="ds.log_failed">Fehlgeschlagen</div>
+            </div>
+        </div>
+
+        <div id="ds-log-container">
+            <div class="text-center py-4">
+                <div class="spinner-border spinner-border-sm text-secondary"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block module_js %}
+<script src="{% static 'abpe_ui/js/mod/mod-doc_studio.js' %}"></script>
+{% endblock %}
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof loadLanguage === 'function') {
+        loadLanguage('{{ current_lang|default:"de" }}', 'doc_studio').then(function() {
+            if (typeof dsInit === 'function') dsInit('log');
+        });
+    } else {
+        if (typeof dsInit === 'function') dsInit('log');
+    }
+});
+</script>
+{% endblock %}

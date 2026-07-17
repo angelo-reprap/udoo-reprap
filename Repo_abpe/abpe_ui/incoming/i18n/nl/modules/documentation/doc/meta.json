@@ -1,0 +1,91 @@
+{
+    "toc": {
+        "title": "Inhoudsopgave"
+    },
+    "sections": [
+        {
+            "id": "grundlagen",
+            "number": "1",
+            "title": "Grondbeginselen & Overzicht"
+        },
+        {
+            "id": "modulsystem",
+            "number": "2",
+            "title": "Modulesysteem"
+        },
+        {
+            "id": "i18n",
+            "number": "3",
+            "title": "Taal- & Vertaalsysteem"
+        },
+        {
+            "id": "theme",
+            "number": "4",
+            "title": "Thema & Ontwerpsysteem"
+        },
+        {
+            "id": "multiuser",
+            "number": "5",
+            "title": "Multi-gebruiker & Rechten"
+        },
+        {
+            "id": "hilfe",
+            "number": "6",
+            "title": "Hulpsysteem"
+        },
+        {
+            "id": "sidebar",
+            "number": "7",
+            "title": "Zijbalk & Navigatie"
+        },
+        {
+            "id": "api",
+            "number": "8",
+            "title": "API & Externe Integratie"
+        },
+        {
+            "id": "backup",
+            "number": "9",
+            "title": "Back-up & Archiefsysteem"
+        },
+        {
+            "id": "helper",
+            "number": "10",
+            "title": "Helper & Hulpprogramma's"
+        },
+        {
+            "id": "responsive",
+            "number": "11",
+            "title": "Responsief Ontwerp"
+        },
+        {
+            "id": "verzeichnisse",
+            "number": "12",
+            "title": "Mapstructuur"
+        },
+        {
+            "id": "workflow",
+            "number": "13",
+            "title": "Ontwikkelingsworkflow"
+        },
+        {
+            "id": "debugging",
+            "number": "14",
+            "title": "Foutopsporing & Debuggen"
+        },
+        {
+            "id": "versionen",
+            "number": "15",
+            "title": "Versiebeheer & Wijzigingslog"
+        },
+        {
+            "id": "anhang",
+            "number": "16",
+            "title": "Bijlagen"
+        }
+    ],
+    "version": "Versie 3.0",
+    "framework": "Django 5.x",
+    "users": "23.000+ Adviseurs",
+    "chapters": "16 Hoofdstukken"
+}

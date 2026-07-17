@@ -1,0 +1,86 @@
+{
+    "toc": {
+        "title": "Table des matières"
+    },
+    "sections": [
+        {
+            "id": "einstieg",
+            "number": "1",
+            "title": "Démarrage & Connexion"
+        },
+        {
+            "id": "dashboard",
+            "number": "2",
+            "title": "Tableau de bord & Navigation"
+        },
+        {
+            "id": "cv_editor",
+            "number": "3",
+            "title": "Éditeur de CV"
+        },
+        {
+            "id": "cv_upload",
+            "number": "4",
+            "title": "Téléchargement & Extraction de CV"
+        },
+        {
+            "id": "matching",
+            "number": "5",
+            "title": "Correspondance & Recherche"
+        },
+        {
+            "id": "email_studio",
+            "number": "6",
+            "title": "Studio d'e-mails"
+        },
+        {
+            "id": "doc_studio",
+            "number": "7",
+            "title": "Studio de documents"
+        },
+        {
+            "id": "rechnungen",
+            "number": "8",
+            "title": "Factures"
+        },
+        {
+            "id": "vorlagen",
+            "number": "9",
+            "title": "Modèles & Papier à en-tête"
+        },
+        {
+            "id": "benutzerverwaltung",
+            "number": "10",
+            "title": "Gestion des utilisateurs"
+        },
+        {
+            "id": "einstellungen",
+            "number": "11",
+            "title": "Paramètres & Configuration"
+        },
+        {
+            "id": "sprache",
+            "number": "12",
+            "title": "Langue & Localisation"
+        },
+        {
+            "id": "tipps",
+            "number": "13",
+            "title": "Astuces & Raccourcis clavier"
+        },
+        {
+            "id": "fehler",
+            "number": "14",
+            "title": "Erreurs fréquentes & Solutions"
+        },
+        {
+            "id": "glossar",
+            "number": "15",
+            "title": "Glossaire"
+        }
+    ],
+    "version": "Version 2.0",
+    "framework": "Django 5.x",
+    "chapters": "15 chapitres",
+    "audience": "Utilisateurs finaux"
+}

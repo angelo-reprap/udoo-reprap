@@ -1,0 +1,19 @@
+{
+    "component_actions_upload_pdf": "上传PDF",
+    "component_actions_add_consultant": "创建顾问",
+    "component_actions_start_matching": "开始匹配",
+    "component_actions_contact": "联系顾问",
+    "component_stats_consultants": "顾问",
+    "component_stats_emails": "邮件",
+    "component_stats_projects": "项目",
+    "component_stats_matches": "匹配",
+    "component_system_django": "Django",
+    "component_system_celery": "Celery",
+    "component_system_postgresql": "PostgreSQL",
+    "component_system_cpu": "CPU",
+    "component_system_ram": "RAM",
+    "component_system_gpu": "GPU",
+    "component_recent_consultants_title": "最近顾问",
+    "component_recent_emails_title": "最近邮件",
+    "component_show_all": "显示全部 →"
+}

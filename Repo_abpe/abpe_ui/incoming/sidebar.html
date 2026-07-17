@@ -1,0 +1,68 @@
+{% load static %}
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeMobileSidebar()"></div>
+<div class="sidebar" id="sidebar">
+    <div class="mt-3">
+        {% for module in main_navigation %}
+
+        {% comment %}Rollenbasierte Sichtbarkeit{% endcomment %}
+        {% if module.id == 'dashboard' %}
+            {% comment %}Dashboard: alle sehen es{% endcomment %}
+            {% include "abpe_ui/components/_nav_link.html" with module=module %}
+
+        {% elif module.id == 'email_inbox' %}
+            {% if user.groups.all|length > 0 %}
+                {% if perms.abpe_ui.can_view_email_inbox or user.is_staff %}
+                    {% include "abpe_ui/components/_nav_link.html" with module=module %}
+                {% endif %}
+            {% endif %}
+
+        {% elif module.id == 'matching' %}
+            {% if user.is_staff or user.groups.filter %}
+                {% include "abpe_ui/components/_nav_link.html" with module=module %}
+            {% endif %}
+
+        {% else %}
+            {% comment %}Alle anderen Module: alle eingeloggten User{% endcomment %}
+            {% include "abpe_ui/components/_nav_link.html" with module=module %}
+        {% endif %}
+
+        {% endfor %}
+    </div>
+
+    <hr class="mx-3">
+
+    <div>
+        {% for item in system_navigation %}
+        {% if item.id == 'admin' %}
+            {% if user.is_staff %}
+            <a href="{{ item.route }}" class="nav-link {% if active == item.id %}active{% endif %}"
+               data-titles="{{ item.titles_json|default:'{}' }}">
+                <i class="bi bi-{{ item.icon }}"></i>
+                <span class="nav-title">{{ item.title }}</span>
+            </a>
+            {% endif %}
+        {% else %}
+        <a href="{{ item.route }}" class="nav-link {% if active == item.id %}active{% endif %}"
+           data-titles="{{ item.titles_json|default:'{}' }}">
+            <i class="bi bi-{{ item.icon }}"></i>
+            <span class="nav-title">{{ item.title }}</span>
+        </a>
+        {% endif %}
+        {% endfor %}
+        <a href="/logout/" class="nav-link logout" onclick="closeMobileSidebar()">
+            <i class="bi bi-box-arrow-right"></i>
+            <span data-i18n="logout">Abmelden</span>
+        </a>
+    </div>
+</div>
+<style>
+.submenu { margin-left: 2rem; font-size: 0.9rem; }
+.subpage-link { padding: 6px 12px !important; }
+.subpage-link i { font-size: 0.8rem; }
+.subpage-link.active {
+    background: var(--abcona-blue-light, #e6f1fb);
+    color: var(--abcona-blue, #163258);
+    font-weight: 600;
+    border-radius: 6px;
+}
+</style>

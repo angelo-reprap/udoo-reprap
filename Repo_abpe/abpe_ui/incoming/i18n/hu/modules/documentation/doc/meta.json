@@ -1,0 +1,91 @@
+{
+    "toc": {
+        "title": "Tartalomjegyzék"
+    },
+    "sections": [
+        {
+            "id": "grundlagen",
+            "number": "1",
+            "title": "Alapok & Áttekintés"
+        },
+        {
+            "id": "modulsystem",
+            "number": "2",
+            "title": "Modulrendszer"
+        },
+        {
+            "id": "i18n",
+            "number": "3",
+            "title": "Nyelvi & Fordítási rendszer"
+        },
+        {
+            "id": "theme",
+            "number": "4",
+            "title": "Téma & Dizájnrendszer"
+        },
+        {
+            "id": "multiuser",
+            "number": "5",
+            "title": "Többfelhasználós & Jogosultságok"
+        },
+        {
+            "id": "hilfe",
+            "number": "6",
+            "title": "Súgórendszer"
+        },
+        {
+            "id": "sidebar",
+            "number": "7",
+            "title": "Oldalsáv & Navigáció"
+        },
+        {
+            "id": "api",
+            "number": "8",
+            "title": "API & Külső integráció"
+        },
+        {
+            "id": "backup",
+            "number": "9",
+            "title": "Biztonsági mentés & Archívumrendszer"
+        },
+        {
+            "id": "helper",
+            "number": "10",
+            "title": "Segédprogramok & Hasznossági szkriptek"
+        },
+        {
+            "id": "responsive",
+            "number": "11",
+            "title": "Reszponzív dizájn"
+        },
+        {
+            "id": "verzeichnisse",
+            "number": "12",
+            "title": "Könyvtárstruktúra"
+        },
+        {
+            "id": "workflow",
+            "number": "13",
+            "title": "Fejlesztési munkafolyamat"
+        },
+        {
+            "id": "debugging",
+            "number": "14",
+            "title": "Hibakeresés & Debugolás"
+        },
+        {
+            "id": "versionen",
+            "number": "15",
+            "title": "Verziókezelés & Változásnapló"
+        },
+        {
+            "id": "anhang",
+            "number": "16",
+            "title": "Függelékek"
+        }
+    ],
+    "version": "3.0-as verzió",
+    "framework": "Django 5.x",
+    "users": "23.000+ tanácsadó",
+    "chapters": "16 fejezet"
+}

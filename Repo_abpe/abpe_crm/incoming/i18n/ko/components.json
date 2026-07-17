@@ -1,0 +1,19 @@
+{
+    "component_actions_upload_pdf": "PDF 업로드",
+    "component_actions_add_consultant": "컨설턴트 추가",
+    "component_actions_start_matching": "매칭 시작",
+    "component_actions_contact": "컨설턴트에게 연락",
+    "component_stats_consultants": "컨설턴트",
+    "component_stats_emails": "이메일",
+    "component_stats_projects": "프로젝트",
+    "component_stats_matches": "매칭",
+    "component_system_django": "Django",
+    "component_system_celery": "Celery",
+    "component_system_postgresql": "PostgreSQL",
+    "component_system_cpu": "CPU",
+    "component_system_ram": "RAM",
+    "component_system_gpu": "GPU",
+    "component_recent_consultants_title": "최근 컨설턴트",
+    "component_recent_emails_title": "최근 이메일",
+    "component_show_all": "모두 보기 →"
+}
