@@ -3054,6 +3054,37 @@ Object.assign(PBX, {
         return (m.reminder_rules || []).filter(r => st.mode === 'all' ? !r.guest : r.guest === currentGuestId);
     },
 
+    /** Formularwerte: aus Editor-Inputs oder st.draft (Editor nicht gerendert). */
+    _mmReminderGetDraftFormData(st, m) {
+        const d = st.draft || {};
+        const offsetEl = this.$('pbx-mm-reminder-offset-value');
+        const unitEl = this.$('pbx-mm-reminder-offset-unit');
+        const modeEl = this.$('pbx-mm-reminder-mode');
+        const timeInput = this.$('pbx-mm-reminder-time');
+        const subEl = this.$('pbx-mm-reminder-subject');
+        const bodyEl = this.$('pbx-mm-reminder-body');
+        const offsetUnit = unitEl ? unitEl.value : (d.offset_unit || 'HOURS');
+        let subject = subEl ? subEl.value.trim() : (d.subject || '').trim();
+        let body = bodyEl ? bodyEl.value.trim() : (d.body || '').trim();
+        if ((!subject || !body) && m) {
+            const mail = this._mmReminderGetMailContent(st, m);
+            subject = subject || mail.subject;
+            body = body || mail.body;
+        }
+        return {
+            offset_value: offsetEl ? (parseInt(offsetEl.value, 10) || 1) : (d.offset_value || 1),
+            offset_unit: offsetUnit,
+            time_of_day: offsetUnit === 'DAYS'
+                ? (timeInput ? (timeInput.value || null) : (d.time_of_day || null))
+                : null,
+            mode: modeEl ? modeEl.value : (d.mode || 'AUTO'),
+            subject,
+            body,
+            template_id: d.template_id || null,
+            attachment_refs: (d.attachment_refs || []).slice(),
+        };
+    },
+
     /** Betreff/Text: aus Editor-Inputs oder gespeicherter Regel (Liste ohne offenen Entwurf). */
     _mmReminderGetMailContent(st, m) {
         const subEl = this.$('pbx-mm-reminder-subject');
@@ -3378,24 +3409,19 @@ Object.assign(PBX, {
 
     async _mmReminderSaveDraft() {
         const st = this._mmReminderState;
-        const offsetValue = parseInt(this.$('pbx-mm-reminder-offset-value').value, 10) || 1;
-        const offsetUnit = this.$('pbx-mm-reminder-offset-unit').value;
-        const timeInput = this.$('pbx-mm-reminder-time');
-        const timeOfDay = timeInput ? (timeInput.value || null) : null;
-        const mode = this.$('pbx-mm-reminder-mode').value;
-        const subject = this.$('pbx-mm-reminder-subject').value.trim();
-        const body = this.$('pbx-mm-reminder-body').value.trim();
+        const m = this._mmFindMeeting(st.meetingId);
+        const form = this._mmReminderGetDraftFormData(st, m);
 
         const payload = {
-            offset_value: offsetValue,
-            offset_unit: offsetUnit,
-            time_of_day: offsetUnit === 'DAYS' ? timeOfDay : null,
-            mode: mode,
+            offset_value: form.offset_value,
+            offset_unit: form.offset_unit,
+            time_of_day: form.time_of_day,
+            mode: form.mode,
             guest: st.mode === 'individual' ? st.queue[st.idx].id : null,
-            template_id: st.draft.template_id || null,
-            subject: subject,
-            body: body,
-            attachment_refs: st.draft.attachment_refs || [],
+            template_id: form.template_id,
+            subject: form.subject,
+            body: form.body,
+            attachment_refs: form.attachment_refs,
         };
 
         try {
