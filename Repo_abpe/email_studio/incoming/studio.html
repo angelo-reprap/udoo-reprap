@@ -390,13 +390,14 @@
             <span>
                 <i class="bi bi-sliders"></i>
                 <span data-i18n="es.settings_title">Einstellungen</span>
-                <button type="button" class="es-section-hint"
+                <span class="es-section-hint"
                         onclick="event.stopPropagation()"
+                        tabindex="0"
                         data-bs-toggle="tooltip" data-bs-placement="right"
                         data-i18n-title="es.hint_settings"
                         title="Name, Betreff, Bereich und Absender-Modus der Vorlage.">
                     <i class="bi bi-question-circle"></i>
-                </button>
+                </span>
             </span>
             <i class="bi bi-chevron-down"></i>
         </div>
@@ -463,13 +464,14 @@
                 <i class="bi bi-braces"></i>
                 <span data-i18n="es.vars_title">Variablen</span>
                 <span id="es-var-count-badge" class="es-badge es-badge-white">{{ variable_count }}</span>
-                <button type="button" class="es-section-hint"
+                <span class="es-section-hint"
                         onclick="event.stopPropagation()"
+                        tabindex="0"
                         data-bs-toggle="tooltip" data-bs-placement="right"
                         data-i18n-title="es.hint_vars"
                         title="Platzhalter {name} — Klick einfügen, (i) zeigt Erklärung.">
                     <i class="bi bi-question-circle"></i>
-                </button>
+                </span>
             </span>
             <i class="bi bi-chevron-down"></i>
         </div>
@@ -498,12 +500,13 @@
             <span>
                 <i class="bi bi-puzzle"></i>
                 <span data-i18n="es.modules_title">Module</span>
-                <button type="button" class="es-section-hint"
+                <span class="es-section-hint"
                         onclick="event.stopPropagation()"
+                        tabindex="0"
                         data-bs-toggle="tooltip" data-bs-placement="right"
                         data-i18n-title="es.hint_modules">
                     <i class="bi bi-question-circle"></i>
-                </button>
+                </span>
             </span>
             <i class="bi bi-chevron-down"></i>
         </div>
@@ -523,13 +526,13 @@
                 <span class="es-badge es-badge-white">{{ template.get_signature_mode_display|default:"USER" }}</span>
                 <span id="es-sig-block-badge" class="es-badge es-badge-blue" style="display:none"
                       data-i18n="es.sig_block_active">{% verbatim %}{{block:signature}}{% endverbatim %}</span>
-                <button type="button" class="es-section-hint"
+                <span class="es-section-hint"
                         onclick="event.stopPropagation()"
+                        tabindex="0"
                         data-bs-toggle="tooltip" data-bs-placement="right"
-                        data-i18n-title="es.hint_signature"
-                        title="Signatur-Quelle und {{block:signature}} im Template.">
+                        data-i18n-title="es.hint_signature">
                     <i class="bi bi-question-circle"></i>
-                </button>
+                </span>
             </span>
             <i class="bi bi-chevron-down"></i>
         </div>
@@ -579,13 +582,14 @@
             <span>
                 <i class="bi bi-send"></i>
                 <span data-i18n="es.test_box_title">Test senden</span>
-                <button type="button" class="es-section-hint"
+                <span class="es-section-hint"
                         onclick="event.stopPropagation()"
+                        tabindex="0"
                         data-bs-toggle="tooltip" data-bs-placement="right"
                         data-i18n-title="es.hint_test"
                         title="Testmail an dich — Variablen werden mit Beispieldaten gefüllt.">
                     <i class="bi bi-question-circle"></i>
-                </button>
+                </span>
             </span>
             <i class="bi bi-chevron-down"></i>
         </div>

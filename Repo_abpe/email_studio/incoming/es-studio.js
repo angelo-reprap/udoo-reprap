@@ -1474,10 +1474,24 @@ window.ESStudio = (() => {
      * SIDEBAR-HINWEISE & VARIABLEN
      * ══════════════════════════════════════════════════════ */
     function _initSectionHints() {
+        document.querySelectorAll('.es-section-hint[data-i18n-title]').forEach(el => {
+            const raw = el.getAttribute('data-i18n-title') || '';
+            const key = raw.startsWith('es.') ? raw.slice(3) : raw;
+            const txt = t(key, el.getAttribute('title') || '');
+            if (txt) {
+                el.setAttribute('title', txt);
+                el.setAttribute('data-bs-original-title', txt);
+            }
+        });
         if (typeof bootstrap === 'undefined' || !bootstrap.Tooltip) return;
         document.querySelectorAll('.es-section-hint[data-bs-toggle="tooltip"]').forEach(el => {
+            bootstrap.Tooltip.getInstance(el)?.dispose();
             bootstrap.Tooltip.getOrCreateInstance(el, { trigger: 'hover focus', container: 'body' });
         });
+    }
+
+    function _moduleGroupLabel(type) {
+        return t('module_grp_' + type, type);
     }
 
     function _varGroupLabel(key, fallback) {
@@ -1665,7 +1679,7 @@ window.ESStudio = (() => {
             };
             for (const [type, modules] of Object.entries(grouped)) {
                 if (!modules.length) continue;
-                html += `<div class="es-var-group-lbl">${type}</div>`;
+                html += `<div class="es-var-group-lbl">${_moduleGroupLabel(type)}</div>`;
                 for (const m of modules) {
                     html += `
                     <div class="es-module-chip" data-syntax="${m.syntax}" title="${m.description || m.name}">
@@ -1674,7 +1688,7 @@ window.ESStudio = (() => {
                     </div>`;
                 }
             }
-            container.innerHTML = html || `<div style="font-size:10px;color:var(--text-secondary)">Keine Module gefunden</div>`;
+            container.innerHTML = html || `<div class="es-modules-empty">${t('modules_empty', 'Keine Module gefunden')}</div>`;
             container.dataset.loaded = '1';
             container.querySelectorAll('.es-module-chip').forEach(chip => {
                 chip.addEventListener('click', function() {
