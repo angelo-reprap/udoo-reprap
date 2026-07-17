@@ -20,6 +20,7 @@
     --text-secondary: #6c757d;
     --text-on-chrome: #ffffff;
     --link-color: #163258;
+    --text-link: #163258;
     --input-bg: #ffffff;
     --overlay-bg: rgba(22, 50, 88, 0.55);
     --border-color: #dee2e6;
@@ -47,6 +48,7 @@ body.dark-mode {
     --text-secondary: #b0b0b0;
     --text-on-chrome: #f5f5f5;
     --link-color: #6eb5ff;
+    --text-link: #6eb5ff;
     --input-bg: #2a2a2a;
     --overlay-bg: rgba(0, 0, 0, 0.65);
     --border-color: #3a3a3a;

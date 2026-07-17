@@ -5,6 +5,8 @@
 
 const CRM_Edit = {
 
+    _INPUT_STYLE: 'font-size:11px;padding:4px;border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary);background:var(--input-bg);color:var(--text-primary)',
+
     _t(key, fb) {
         if (window.CRM_I18N) return CRM_I18N.t(key, fb);
         if (typeof window.t === 'function') return window.t(key, fb);
@@ -38,11 +40,11 @@ const CRM_Edit = {
 
         if (type === 'textarea') {
             input = document.createElement('textarea');
-            input.style.cssText = 'width:100%;min-height:80px;font-size:11px;padding:4px;border:1px solid var(--abcona-blue);border-radius:5px;resize:vertical';
+            input.style.cssText = 'width:100%;min-height:80px;' + this._INPUT_STYLE + ';resize:vertical';
             input.value = val;
         } else if (type === 'select' && options) {
             input = document.createElement('select');
-            input.style.cssText = 'font-size:11px;padding:4px;border:1px solid var(--abcona-blue);border-radius:5px';
+            input.style.cssText = this._INPUT_STYLE;
             options.forEach(function(o) {
                 const opt = document.createElement('option');
                 opt.value = o.value;
@@ -53,7 +55,7 @@ const CRM_Edit = {
         } else {
             input = document.createElement('input');
             input.type = type === 'date' ? 'date' : 'text';
-            input.style.cssText = 'width:100%;font-size:11px;padding:4px;border:1px solid var(--abcona-blue);border-radius:5px';
+            input.style.cssText = 'width:100%;' + this._INPUT_STYLE;
             input.value = val;
         }
 
@@ -66,7 +68,7 @@ const CRM_Edit = {
 
         const btnCancel = document.createElement('button');
         btnCancel.innerHTML = '<i class="bi bi-x-lg"></i>';
-        btnCancel.style.cssText = 'background:var(--abcona-gray-card);color:var(--text-muted);border:1px solid var(--border-color);border-radius:5px;padding:3px 6px;cursor:pointer;font-size:12px;flex-shrink:0';
+        btnCancel.style.cssText = 'background:var(--abcona-gray-card);color:var(--text-muted);border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary);padding:3px 6px;cursor:pointer;font-size:12px;flex-shrink:0';
 
         wrap.appendChild(input);
         wrap.appendChild(btnSave);
@@ -78,7 +80,7 @@ const CRM_Edit = {
             const s = document.createElement('span');
             s.textContent = v || '—';
             s.dataset.value = v || '';
-            s.style.cssText = 'cursor:pointer;border-bottom:1px dashed var(--border-color);flex:1;min-width:0;font-size:11px';
+            s.style.cssText = 'cursor:pointer;border-bottom:1px dashed var(--border-color);flex:1;min-width:0;font-size:11px;color:var(--text-primary)';
             s.title = 'Doppelklick zum Bearbeiten';
             s.ondblclick = function() { self.inlineEdit(s, crm_id, field, type, options); };
             return s;
@@ -113,7 +115,7 @@ const CRM_Edit = {
         const safeVal = (value || '').replace(/"/g, '&quot;').replace(/</g, '&lt;');
         const optsSafe = options ? JSON.stringify(options).replace(/'/g, '&#39;') : 'null';
         return '<span id="' + id + '" data-value="' + safeVal + '" style="cursor:pointer;border-bottom:1px dashed var(--border-color);flex:1;min-width:0;font-size:11px">' + display + '</span>'
-            + '<button onclick="CRM_Edit.inlineEditById(\'' + id + '\',\'' + crm_id + '\',\'' + field + '\',\'' + type + '\')" title="Bearbeiten" style="background:none;border:none;cursor:pointer;color:var(--abcona-blue);padding:0 3px;font-size:11px"><i class="bi bi-pencil"></i></button>';
+            + '<button onclick="CRM_Edit.inlineEditById(\'' + id + '\',\'' + crm_id + '\',\'' + field + '\',\'' + type + '\')" title="Bearbeiten" style="background:none;border:none;cursor:pointer;color:var(--text-link);padding:0 3px;font-size:11px"><i class="bi bi-pencil"></i></button>';
     },
 
     // ── Copy to clipboard ─────────────────────────────────
@@ -148,7 +150,7 @@ const CRM_Edit = {
         }
         bar.style.display = 'flex';
         bar.innerHTML = '<span>' + checked.length + ' Feld' + (checked.length > 1 ? 'er' : '') + ' ausgewählt</span>' +
-            '<button onclick="CRM_Edit.copySelected()" style="background:#fff;color:var(--abcona-blue);border:none;border-radius:5px;padding:4px 12px;cursor:pointer;font-size:12px;font-weight:600"><i class="bi bi-clipboard-check"></i> Kopieren</button>' +
+            '<button onclick="CRM_Edit.copySelected()" style="background:var(--bg-white);color:var(--text-link);border:none;border-radius:5px;padding:4px 12px;cursor:pointer;font-size:12px;font-weight:600"><i class="bi bi-clipboard-check"></i> Kopieren</button>' +
             '<button onclick="CRM_Edit.clearSelection()" style="background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:5px;padding:4px 8px;cursor:pointer;font-size:12px"><i class="bi bi-x"></i></button>';
     },
 
@@ -204,23 +206,23 @@ const CRM_Edit = {
             const safeUrl = wp.url.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
             html += '<div class="crm-info-row" id="wp_row_' + wp.id + '">' +
                 self.renderCheckbox('wp_' + wp.id, wp.url, lbl) +
-                '<i class="bi bi-link-45deg" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0"></i>' +
+                '<i class="bi bi-link-45deg" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0"></i>' +
                 '<span style="font-size:10px;font-weight:600;min-width:70px;color:var(--text-secondary);flex-shrink:0">' + lbl + '</span>' +
-                '<a href="' + wp.url + '" target="_blank" style="color:var(--abcona-blue);font-size:10px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + wp.url + '</a>' +
+                '<a href="' + wp.url + '" target="_blank" style="color:var(--text-link);font-size:10px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + wp.url + '</a>' +
                 '<button data-copy="' + safeUrl + '" onclick="CRM_Edit.copyText(this)" style="background:none;border:none;cursor:pointer;color:var(--text-muted);padding:0 3px;font-size:11px"><i class="bi bi-clipboard"></i></button>' +
-                '<button onclick="CRM_Edit.editWebProfile(' + wp.id + ',\'' + crm_id + '\')" style="background:none;border:none;cursor:pointer;color:var(--abcona-blue);padding:0 3px;font-size:11px"><i class="bi bi-pencil"></i></button>' +
+                '<button onclick="CRM_Edit.editWebProfile(' + wp.id + ',\'' + crm_id + '\')" style="background:none;border:none;cursor:pointer;color:var(--text-link);padding:0 3px;font-size:11px"><i class="bi bi-pencil"></i></button>' +
                 '<button onclick="CRM_Edit.deleteWebProfile(' + wp.id + ',\'' + crm_id + '\')" style="background:none;border:none;cursor:pointer;color:var(--badge-error-text);padding:0 3px;font-size:11px"><i class="bi bi-trash"></i></button>' +
                 '</div>';
         });
         const typOpts = this.WP_TYPEN.map(function(t) { return '<option value="' + t.value + '">' + t.label + '</option>'; }).join('');
         const formId = 'wp_add_' + crm_id;
         html += '<div id="' + formId + '" style="display:none;gap:4px;flex-wrap:wrap;padding:4px 0;align-items:center" class="crm-info-row">' +
-            '<select id="wp_typ_' + crm_id + '" style="font-size:11px;padding:3px;border:1px solid var(--border-color);border-radius:5px">' + typOpts + '</select>' +
-            '<input id="wp_url_' + crm_id + '" type="url" placeholder="https://..." style="flex:1;font-size:11px;padding:3px;border:1px solid var(--border-color);border-radius:5px;min-width:120px">' +
+            '<select id="wp_typ_' + crm_id + '" style="font-size:11px;padding:3px;border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary)">' + typOpts + '</select>' +
+            '<input id="wp_url_' + crm_id + '" type="url" placeholder="https://..." style="flex:1;font-size:11px;padding:3px;border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary);min-width:120px">' +
             '<button onclick="CRM_Edit.addWebProfile(\'' + crm_id + '\')" style="background:var(--status-green);color:#fff;border:none;border-radius:5px;padding:3px 8px;cursor:pointer;font-size:11px"><i class="bi bi-check-lg"></i></button>' +
-            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'none\'" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;padding:3px 6px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>' +
+            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'none\'" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary);padding:3px 6px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>' +
             '</div>' +
-            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'flex\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--abcona-blue);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + T('web_profil_hinzufuegen', 'Web-Profil hinzufügen') + '</button>';
+            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'flex\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--text-link);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + T('web_profil_hinzufuegen', 'Web-Profil hinzufügen') + '</button>';
         return html;
     },
 
@@ -243,11 +245,11 @@ const CRM_Edit = {
         if (!row) return;
         const url = row.querySelector('a') ? row.querySelector('a').href : '';
         const typOpts = this.WP_TYPEN.map(function(t) { return '<option value="' + t.value + '">' + t.label + '</option>'; }).join('');
-        row.innerHTML = '<i class="bi bi-link-45deg" style="color:var(--abcona-blue);font-size:12px;width:14px"></i>' +
-            '<select id="wp_etyp_' + id + '" style="font-size:11px;padding:3px;border:1px solid var(--abcona-blue);border-radius:5px">' + typOpts + '</select>' +
-            '<input id="wp_eurl_' + id + '" type="url" value="' + url.replace(/"/g, '&quot;') + '" style="flex:1;font-size:11px;padding:3px;border:1px solid var(--abcona-blue);border-radius:5px;min-width:100px">' +
+        row.innerHTML = '<i class="bi bi-link-45deg" style="color:var(--text-link);font-size:12px;width:14px"></i>' +
+            '<select id="wp_etyp_' + id + '" style="font-size:11px;padding:3px;border:1px solid var(--border-color);background:var(--input-bg);color:var(--text-primary);border-radius:5px">' + typOpts + '</select>' +
+            '<input id="wp_eurl_' + id + '" type="url" value="' + url.replace(/"/g, '&quot;') + '" style="flex:1;font-size:11px;padding:3px;border:1px solid var(--border-color);background:var(--input-bg);color:var(--text-primary);border-radius:5px;min-width:100px">' +
             '<button onclick="CRM_Edit.saveWebProfile(' + id + ',\'' + crm_id + '\')" style="background:var(--status-green);color:#fff;border:none;border-radius:5px;padding:3px 7px;cursor:pointer;font-size:11px"><i class="bi bi-check-lg"></i></button>' +
-            '<button onclick="CRM.loadDetail(\'' + crm_id + '\')" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;padding:3px 5px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>';
+            '<button onclick="CRM.loadDetail(\'' + crm_id + '\')" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary);padding:3px 5px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>';
     },
 
     async saveWebProfile(id, crm_id) {
@@ -274,7 +276,7 @@ const CRM_Edit = {
             const lbl = (self.IM_TYPEN.find(function(t) { return t.value === im.typ; }) || {label: im.typ}).label;
             html += '<div class="crm-info-row" id="im_row_' + im.id + '">' +
                 self.renderCheckbox('im_' + im.id, im.wert, lbl) +
-                '<i class="bi bi-chat-dots" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0"></i>' +
+                '<i class="bi bi-chat-dots" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0"></i>' +
                 '<span style="font-size:10px;font-weight:600;min-width:70px;color:var(--text-secondary);flex-shrink:0">' + lbl + '</span>' +
                 '<span style="font-size:11px;flex:1">' + im.wert + '</span>' +
                 '<button data-copy="' + im.wert.replace(/"/g, '&quot;') + '" onclick="CRM_Edit.copyText(this)" style="background:none;border:none;cursor:pointer;color:var(--text-muted);padding:0 3px;font-size:11px"><i class="bi bi-clipboard"></i></button>' +
@@ -284,12 +286,12 @@ const CRM_Edit = {
         const typOpts = this.IM_TYPEN.map(function(t) { return '<option value="' + t.value + '">' + t.label + '</option>'; }).join('');
         const formId = 'im_add_' + crm_id;
         html += '<div id="' + formId + '" style="display:none;gap:4px;flex-wrap:wrap;padding:4px 0;align-items:center" class="crm-info-row">' +
-            '<select id="im_typ_' + crm_id + '" style="font-size:11px;padding:3px;border:1px solid var(--border-color);border-radius:5px">' + typOpts + '</select>' +
-            '<input id="im_wert_' + crm_id + '" type="text" placeholder="Nummer oder ID..." style="flex:1;font-size:11px;padding:3px;border:1px solid var(--border-color);border-radius:5px;min-width:120px">' +
+            '<select id="im_typ_' + crm_id + '" style="font-size:11px;padding:3px;border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary)">' + typOpts + '</select>' +
+            '<input id="im_wert_' + crm_id + '" type="text" placeholder="Nummer oder ID..." style="flex:1;font-size:11px;padding:3px;border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary);min-width:120px">' +
             '<button onclick="CRM_Edit.addIM(\'' + crm_id + '\')" style="background:var(--status-green);color:#fff;border:none;border-radius:5px;padding:3px 8px;cursor:pointer;font-size:11px"><i class="bi bi-check-lg"></i></button>' +
-            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'none\'" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;padding:3px 6px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>' +
+            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'none\'" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary);padding:3px 6px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>' +
             '</div>' +
-            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'flex\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--abcona-blue);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + T('messenger_hinzufuegen', 'Messenger hinzufügen') + '</button>';
+            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'flex\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--text-link);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + T('messenger_hinzufuegen', 'Messenger hinzufügen') + '</button>';
         return html;
     },
 
@@ -312,7 +314,7 @@ const CRM_Edit = {
         const T = this._t.bind(this);
         const formId = 'em_add_' + crm_id;
         return '<div id="' + formId + '" style="display:none;gap:6px;flex-wrap:wrap;padding:6px;background:var(--abcona-gray-card);border-radius:6px;border:1px solid var(--border-color);margin-top:4px">' +
-            '<input id="em_val_' + crm_id + '" type="email" placeholder="name@firma.de" style="width:100%;font-size:11px;padding:4px;border:1px solid var(--border-color);border-radius:5px">' +
+            '<input id="em_val_' + crm_id + '" type="email" placeholder="name@firma.de" style="width:100%;font-size:11px;padding:4px;border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary)">' +
             '<div style="display:flex;gap:6px;flex-wrap:wrap">' +
             '<label style="font-size:11px;display:flex;align-items:center;gap:3px;cursor:pointer"><input type="radio" name="em_typ_' + crm_id + '" value="geschaeftlich" checked> ' + T('geschaeftl', 'Geschäftlich') + '</label>' +
             '<label style="font-size:11px;display:flex;align-items:center;gap:3px;cursor:pointer"><input type="radio" name="em_typ_' + crm_id + '" value="privat"> ' + T('privat_label', 'Privat') + '</label>' +
@@ -323,9 +325,9 @@ const CRM_Edit = {
             '</div>' +
             '<div style="display:flex;gap:5px">' +
             '<button onclick="CRM_Edit.addEmail(\'' + crm_id + '\')" style="background:var(--status-green);color:#fff;border:none;border-radius:5px;padding:4px 12px;cursor:pointer;font-size:11px"><i class="bi bi-check-lg"></i> ' + T('speichern', 'Speichern') + '</button>' +
-            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'none\'" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;padding:4px 8px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>' +
+            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'none\'" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary);padding:4px 8px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>' +
             '</div></div>' +
-            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'block\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--abcona-blue);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + T('email_hinzufuegen', 'E-Mail hinzufügen') + '</button>';
+            '<button onclick="document.getElementById(\'' + formId + '\').style.display=\'block\'" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--text-link);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + T('email_hinzufuegen', 'E-Mail hinzufügen') + '</button>';
     },
 
     async addEmail(crm_id) {
@@ -355,10 +357,10 @@ const CRM_Edit = {
         wrap.id = 'profil-edit-area';
         wrap.style.cssText = 'margin-top:8px;padding:8px;background:var(--abcona-gray-card);border-radius:6px;border:1px solid var(--border-color)';
         const titleEl = document.createElement('div');
-        titleEl.style.cssText = 'font-size:11px;font-weight:600;color:var(--abcona-blue);margin-bottom:6px';
+        titleEl.style.cssText = 'font-size:11px;font-weight:600;color:var(--text-link);margin-bottom:6px';
         titleEl.textContent = label + ' bearbeiten';
         const ta = document.createElement('textarea');
-        ta.style.cssText = 'width:100%;min-height:200px;font-size:11px;padding:6px;border:1px solid var(--abcona-blue);border-radius:6px;resize:vertical;font-family:inherit';
+        ta.style.cssText = 'width:100%;min-height:200px;' + this._INPUT_STYLE + ';resize:vertical;font-family:inherit';
         if (existing) {
             const textDiv = existing.querySelector('.crm-profil-text');
             ta.value = textDiv ? textDiv.textContent : '';
@@ -370,7 +372,7 @@ const CRM_Edit = {
         btnSave.style.cssText = 'background:var(--status-green);color:#fff;border:none;border-radius:5px;padding:5px 14px;cursor:pointer;font-size:12px';
         const btnCancel = document.createElement('button');
         btnCancel.innerHTML = '<i class="bi bi-x"></i> Abbrechen';
-        btnCancel.style.cssText = 'background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;padding:5px 10px;cursor:pointer;font-size:12px';
+        btnCancel.style.cssText = 'background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary);padding:5px 10px;cursor:pointer;font-size:12px';
         btnRow.appendChild(btnSave);
         btnRow.appendChild(btnCancel);
         wrap.appendChild(titleEl);
@@ -427,12 +429,12 @@ const CRM_Edit = {
                 ddHtml += '<div style="font-size:10px;color:var(--text-muted);padding:4px 10px 2px;letter-spacing:.05em;text-transform:uppercase;background:var(--abcona-gray-card)">' + f.group + '</div>';
                 lastGroup = f.group;
             }
-            ddHtml += '<div onclick="CRM_Edit._crmInfoSelectField(\x27' + crm_id + '\x27,\x27' + f.field + '\x27)" style="padding:6px 10px;font-size:11px;cursor:pointer;display:flex;align-items:center;gap:8px;border-bottom:0.5px solid var(--border-color)" onmouseover="this.style.background=\x27var(--abcona-blue-light)\x27" onmouseout="this.style.background=\x27\x27"><i class="bi ' + f.icon + '" style="color:var(--abcona-blue);font-size:12px;width:14px"></i>' + f.label + '</div>';
+            ddHtml += '<div onclick="CRM_Edit._crmInfoSelectField(\x27' + crm_id + '\x27,\x27' + f.field + '\x27)" style="padding:6px 10px;font-size:11px;cursor:pointer;display:flex;align-items:center;gap:8px;border-bottom:0.5px solid var(--border-color)" onmouseover="this.style.background=\x27var(--abcona-blue-light)\x27" onmouseout="this.style.background=\x27\x27"><i class="bi ' + f.icon + '" style="color:var(--text-link);font-size:12px;width:14px"></i>' + f.label + '</div>';
         });
         return '<div id="' + formId + '" style="margin-top:4px">'
             + '<div id="' + inpId + '" style="display:none;gap:4px;align-items:center;padding:4px 0;flex-wrap:wrap" class="crm-info-row"></div>'
-            + '<button onclick="CRM_Edit._crmInfoToggleDd(\x27' + crm_id + '\x27)" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--abcona-blue);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + T('hinzufuegen', 'Hinzufügen') + '</button>'
-            + '<div id="' + ddId + '" style="display:none;border:1px solid var(--border-color);border-radius:5px;background:var(--abcona-gray-card);margin-top:2px;overflow:hidden">' + ddHtml + '</div>'
+            + '<button onclick="CRM_Edit._crmInfoToggleDd(\x27' + crm_id + '\x27)" style="background:none;border:1px dashed var(--border-color);border-radius:5px;padding:2px 8px;font-size:10px;color:var(--text-link);cursor:pointer;margin-top:3px"><i class="bi bi-plus"></i> ' + T('hinzufuegen', 'Hinzufügen') + '</button>'
+            + '<div id="' + ddId + '" style="display:none;border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary);background:var(--abcona-gray-card);margin-top:2px;overflow:hidden">' + ddHtml + '</div>'
             + '</div>';
     },
 
@@ -453,15 +455,15 @@ const CRM_Edit = {
         if (!fDef) return;
         let inputHtml = '';
         if (fDef.type === 'select') {
-            inputHtml = '<select id="crminfo_val_' + crm_id + '" style="font-size:11px;padding:3px;border:1px solid var(--border-color);border-radius:5px">' + fDef.opts.map(function(o){ return '<option value="' + o.value + '">' + o.label + '</option>'; }).join('') + '</select>';
+            inputHtml = '<select id="crminfo_val_' + crm_id + '" style="font-size:11px;padding:3px;border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary)">' + fDef.opts.map(function(o){ return '<option value="' + o.value + '">' + o.label + '</option>'; }).join('') + '</select>';
         } else {
-            inputHtml = '<input id="crminfo_val_' + crm_id + '" type="' + fDef.type + '" placeholder="' + fDef.label + '..." style="flex:1;font-size:11px;padding:3px;border:1px solid var(--border-color);border-radius:5px;min-width:100px">';
+            inputHtml = '<input id="crminfo_val_' + crm_id + '" type="' + fDef.type + '" placeholder="' + fDef.label + '..." style="flex:1;font-size:11px;padding:3px;border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary);min-width:100px">';
         }
-        inp.innerHTML = '<i class="bi ' + fDef.icon + '" style="color:var(--abcona-blue);font-size:12px;width:14px;flex-shrink:0"></i>'
+        inp.innerHTML = '<i class="bi ' + fDef.icon + '" style="color:var(--text-link);font-size:12px;width:14px;flex-shrink:0"></i>'
             + '<span style="font-size:10px;color:var(--text-muted);min-width:65px;flex-shrink:0">' + fDef.label + '</span>'
             + inputHtml
             + '<button onclick="CRM_Edit._crmInfoSave(\x27' + crm_id + '\x27,\x27' + field + '\x27)" style="background:var(--status-green);color:#fff;border:none;border-radius:5px;padding:3px 8px;cursor:pointer;font-size:11px"><i class="bi bi-check-lg"></i></button>'
-            + '<button onclick="CRM_Edit._crmInfoCancelAdd(\x27' + crm_id + '\x27)" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;padding:3px 6px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>';
+            + '<button onclick="CRM_Edit._crmInfoCancelAdd(\x27' + crm_id + '\x27)" style="background:var(--abcona-gray-card);border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg);color:var(--text-primary);padding:3px 6px;cursor:pointer;font-size:11px"><i class="bi bi-x"></i></button>';
         inp.style.display = 'flex';
         const valEl = document.getElementById('crminfo_val_' + crm_id);
         if (valEl) valEl.focus();

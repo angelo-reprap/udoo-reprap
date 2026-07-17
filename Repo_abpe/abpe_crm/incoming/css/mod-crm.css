@@ -151,7 +151,7 @@
 .qh-tag {
     font-size: 11px;
     background: var(--abcona-gray-card);
-    color: var(--abcona-blue);
+    color: var(--text-link);
     padding: 2px 7px;
     border-radius: 4px;
     border: 1px solid var(--border-color);
@@ -242,7 +242,7 @@
     display: block;
     font-size: 22px;
     font-weight: 700;
-    color: var(--abcona-blue);
+    color: var(--text-link);
     line-height: 1.2;
 }
 
@@ -262,7 +262,7 @@
 }
 
 .crm-full-panel {
-    background: #fff;
+    background: var(--bg-white);
     border-radius: var(--border-radius-card);
     border: 1px solid var(--border-color);
     overflow: hidden;
@@ -272,7 +272,7 @@
 .crm-list-panel {
     flex: 1 1 auto;
     min-width: 200px;
-    background: #fff;
+    background: var(--bg-white);
     border-radius: var(--border-radius-card);
     overflow: hidden;
     border: 1px solid var(--border-color);
@@ -310,7 +310,7 @@
     border: 1px solid var(--border-color);
     border-radius: 7px;
     font-size: 12px;
-    background: #fff;
+    background: var(--input-bg);
 }
 .crm-pagination-inline {
     display: flex;
@@ -349,7 +349,7 @@
 }
 
 .crm-list-item:hover { background: var(--abcona-gray-card); }
-.crm-list-item.active { background: var(--abcona-gray-bg); border-left: 3px solid var(--abcona-blue); }
+.crm-list-item.active { background: var(--abcona-gray-bg); border-left: 3px solid var(--link-color); }
 
 .crm-avatar {
     width: 34px;
@@ -372,7 +372,7 @@
 .crm-item-name {
     font-size: 13px;
     font-weight: 600;
-    color: var(--abcona-blue);
+    color: var(--text-link);
 }
 
 .crm-item-sub {
@@ -420,7 +420,7 @@
 .crm-detail-panel {
     flex: 4 1 auto;
     min-width: 300px;
-    background: #fff;
+    background: var(--bg-white);
     border-radius: var(--border-radius-card);
     border: 1px solid var(--border-color);
     overflow: hidden;
@@ -513,8 +513,8 @@
     transition: color .15s;
 }
 
-.crm-detail-tab:hover { color: var(--abcona-blue-light); }
-.crm-detail-tab.active { color: var(--abcona-blue); border-bottom-color: var(--abcona-blue); }
+.crm-detail-tab:hover { color: var(--link-color); }
+.crm-detail-tab.active { color: var(--text-link); border-bottom-color: var(--text-link); }
 
 /* ── Detail Body ─────────────────────────────────────────── */
 .crm-detail-body { padding: 12px; }
@@ -536,7 +536,7 @@
 .crm-info-box-full { grid-column: 1 / -1; }
 
 .crm-info-label { font-size: 10px; color: var(--text-muted); }
-.crm-info-value { font-size: 12px; font-weight: 700; color: var(--abcona-blue); margin-top: 1px; }
+.crm-info-value { font-size: 12px; font-weight: 700; color: var(--text-link); margin-top: 1px; }
 
 .crm-section { margin-bottom: 12px; }
 
@@ -560,7 +560,7 @@
 }
 
 .crm-info-row:last-child { border-bottom: none; }
-.crm-info-row i { font-size: 13px; color: var(--abcona-blue); width: 15px; }
+.crm-info-row i { font-size: 13px; color: var(--text-link); width: 15px; }
 .crm-info-row-val { margin-left: auto; color: var(--text-muted); font-size: 10px; }
 
 /* ── History Items ───────────────────────────────────────── */
@@ -624,12 +624,12 @@
     font-size: 12px;
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    background: #fff;
+    background: var(--input-bg);
     cursor: pointer;
-    color: var(--abcona-blue);
+    color: var(--text-link);
 }
 
-.crm-page-btn.active { background: var(--abcona-blue); color: #fff; border-color: var(--abcona-blue); }
+.crm-page-btn.active { background: var(--abcona-blue); color: #fff; border-color: var(--text-link); }
 .crm-page-btn:hover:not(.active) { background: var(--abcona-gray-bg); }
 
 /* ── Responsive ──────────────────────────────────────────── */
@@ -657,8 +657,8 @@
 .crm-toggle-btn {
     padding: 4px 12px;
     font-size: 13px;
-    background: var(--bg-color, #fff);
-    color: var(--text-muted, #6c757d);
+    background: var(--bg-white);
+    color: var(--text-muted);
     border: none;
     cursor: pointer;
     display: flex;
@@ -680,8 +680,8 @@
 }
 .crm-toggle-btn:not(.active) select,
 .crm-toggle-btn:not(.active) select option {
-    background: #fff;
-    color: #1a2744;
+    background: var(--input-bg);
+    color: var(--text-primary);
 }
 
 /* ── Drag Resizer ────────────────────────────────────── */
@@ -727,7 +727,7 @@
     border-radius: 5px;
     padding: 2px 8px;
     font-size: 11px;
-    color: var(--abcona-blue);
+    color: var(--text-link);
     cursor: pointer;
     margin: 3px 0;
 }
@@ -742,8 +742,8 @@
     cursor: pointer;
 }
 .crm-profil-subtab.active {
-    color: var(--abcona-blue);
-    border-bottom-color: var(--abcona-blue);
+    color: var(--text-link);
+    border-bottom-color: var(--text-link);
 }
 @media (max-width: 768px) {
     .crm-two-col-info { grid-template-columns: 1fr; }
@@ -757,7 +757,7 @@
     border: 1px solid var(--border-light);
     user-select: none;
 }
-.crm-sec-hdr:hover { border-color: var(--abcona-blue); }
+.crm-sec-hdr:hover { border-color: var(--text-link); }
 .crm-sec-lbl {
     font-size: 10px; font-weight: 600; color: var(--text-muted);
     text-transform: uppercase; letter-spacing: .04em; flex: 1;
@@ -788,8 +788,8 @@
     margin-bottom: -1px; cursor: pointer;
 }
 .crm-profil-subtab.active {
-    color: var(--abcona-blue);
-    border-bottom-color: var(--abcona-blue);
+    color: var(--text-link);
+    border-bottom-color: var(--text-link);
 }
 
 /* ── Avatar dark ─────────────────────────────────────── */
@@ -974,4 +974,26 @@
 .crm-fav-star { font-size: 16px; color: var(--text-muted); cursor: pointer; margin-left: 8px; flex-shrink: 0; }
 .crm-fav-star:hover { color: var(--status-yellow, #f59e0b); }
 .crm-fav-active { color: var(--status-yellow, #f59e0b); }
+
+/* ── Dark Mode: Lesbarkeit Detail + Liste ─────────────── */
+body.dark-mode .crm-item-name,
+body.dark-mode .crm-info-value,
+body.dark-mode .crm-stat-val {
+    color: var(--text-primary);
+}
+
+body.dark-mode .crm-info-row span,
+body.dark-mode .crm-info-row a {
+    color: var(--text-primary);
+}
+
+body.dark-mode .crm-info-row a {
+    color: var(--link-color);
+}
+
+body.dark-mode .crm-page-btn.active {
+    background: var(--link-color);
+    border-color: var(--link-color);
+    color: var(--text-on-chrome);
+}
 
