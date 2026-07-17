@@ -1,88 +1,13 @@
-// core-timezone.js — Benutzer-Zeitzone (Default: Europe/Berlin / MESZ)
+// core-timezone.js — IANA-Zeitzonen (Default: Europe/Berlin), i18n via timezone.json
 (function () {
     const DEFAULT_TZ = 'Europe/Berlin';
     const STORAGE_KEY = 'crm_timezone';
+    const I18N_BASE = '/static/abpe_crm/i18n/';
 
-    /** Gruppierte IANA-Zeitzonen — erweiterbar, Backend speichert freien String */
-    const TZ_OPTIONS = [
-        {
-            group: 'Europa',
-            options: [
-                { id: 'Europe/Berlin', label: 'Deutschland (Berlin, MESZ/MEZ)' },
-                { id: 'Europe/Vienna', label: 'Österreich (Wien)' },
-                { id: 'Europe/Zurich', label: 'Schweiz (Zürich)' },
-                { id: 'Europe/London', label: 'Großbritannien (London)' },
-                { id: 'Europe/Paris', label: 'Frankreich (Paris)' },
-                { id: 'Europe/Amsterdam', label: 'Niederlande (Amsterdam)' },
-                { id: 'Europe/Rome', label: 'Italien (Rom)' },
-                { id: 'Europe/Madrid', label: 'Spanien (Madrid)' },
-                { id: 'Europe/Stockholm', label: 'Schweden (Stockholm)' },
-                { id: 'Europe/Warsaw', label: 'Polen (Warschau)' },
-                { id: 'Europe/Athens', label: 'Griechenland (Athen)' },
-                { id: 'Europe/Istanbul', label: 'Türkei (Istanbul)' },
-            ],
-        },
-        {
-            group: 'USA & Kanada',
-            options: [
-                { id: 'America/New_York', label: 'USA — Ostküste (New York, ET)' },
-                { id: 'America/Chicago', label: 'USA — Mitte (Chicago, CT)' },
-                { id: 'America/Denver', label: 'USA — Rocky Mountains (Denver, MT)' },
-                { id: 'America/Los_Angeles', label: 'USA — Westküste (Los Angeles, PT)' },
-                { id: 'America/Phoenix', label: 'USA — Arizona (Phoenix, keine Sommerzeit)' },
-                { id: 'America/Anchorage', label: 'USA — Alaska (Anchorage)' },
-                { id: 'Pacific/Honolulu', label: 'USA — Hawaii (Honolulu)' },
-                { id: 'America/Toronto', label: 'Kanada — Toronto (ET)' },
-                { id: 'America/Vancouver', label: 'Kanada — Vancouver (PT)' },
-            ],
-        },
-        {
-            group: 'Australien & Neuseeland',
-            options: [
-                { id: 'Australia/Sydney', label: 'Australien — Sydney (AEST/AEDT)' },
-                { id: 'Australia/Melbourne', label: 'Australien — Melbourne' },
-                { id: 'Australia/Brisbane', label: 'Australien — Brisbane (keine Sommerzeit)' },
-                { id: 'Australia/Perth', label: 'Australien — Perth' },
-                { id: 'Australia/Adelaide', label: 'Australien — Adelaide' },
-                { id: 'Australia/Darwin', label: 'Australien — Darwin' },
-                { id: 'Pacific/Auckland', label: 'Neuseeland (Auckland)' },
-            ],
-        },
-        {
-            group: 'Asien & Naher Osten',
-            options: [
-                { id: 'Asia/Dubai', label: 'VAE (Dubai)' },
-                { id: 'Asia/Kolkata', label: 'Indien (Kolkata)' },
-                { id: 'Asia/Singapore', label: 'Singapur' },
-                { id: 'Asia/Hong_Kong', label: 'Hongkong' },
-                { id: 'Asia/Shanghai', label: 'China (Shanghai)' },
-                { id: 'Asia/Tokyo', label: 'Japan (Tokio)' },
-                { id: 'Asia/Seoul', label: 'Südkorea (Seoul)' },
-                { id: 'Asia/Bangkok', label: 'Thailand (Bangkok)' },
-                { id: 'Asia/Jerusalem', label: 'Israel (Jerusalem)' },
-            ],
-        },
-        {
-            group: 'Afrika & Südamerika',
-            options: [
-                { id: 'Africa/Cairo', label: 'Ägypten (Kairo)' },
-                { id: 'Africa/Johannesburg', label: 'Südafrika (Johannesburg)' },
-                { id: 'America/Sao_Paulo', label: 'Brasilien (São Paulo)' },
-                { id: 'America/Buenos_Aires', label: 'Argentinien (Buenos Aires)' },
-                { id: 'America/Mexico_City', label: 'Mexiko (Mexico City)' },
-            ],
-        },
-        {
-            group: 'Sonstiges',
-            options: [
-                { id: 'UTC', label: 'UTC (koordinierte Weltzeit)' },
-            ],
-        },
-    ];
-
-    function flatTzOptions() {
-        return TZ_OPTIONS.flatMap(function (g) { return g.options; });
-    }
+    let _base = null;
+    let _i18n = null;
+    let _lang = window.ABPE_CONFIG?.current_lang || 'de';
+    let _loadPromise = null;
 
     function csrf() {
         return (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '';
@@ -92,13 +17,122 @@
         return (window.ABPE_CONFIG && window.ABPE_CONFIG.crm_api_url) || '/crm/api/';
     }
 
+    function currentLang() {
+        return window.ABPE_CONFIG?.current_lang || _lang || 'de';
+    }
+
+    async function _fetchJson(url) {
+        const res = await fetch(url + '?v=' + Date.now());
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+    }
+
+    async function loadI18n(lang) {
+        lang = lang || currentLang();
+        _lang = lang;
+        if (!_base) {
+            _base = await _fetchJson(I18N_BASE + 'timezone.base.json');
+        }
+        try {
+            _i18n = await _fetchJson(I18N_BASE + lang + '/timezone.json');
+        } catch (e) {
+            if (lang !== 'de') {
+                _i18n = await _fetchJson(I18N_BASE + 'de/timezone.json');
+            } else {
+                throw e;
+            }
+        }
+        return _i18n;
+    }
+
+    function ensureLoaded(lang) {
+        if (!_loadPromise || lang) {
+            _loadPromise = loadI18n(lang).catch(function (err) {
+                console.warn('timezone i18n:', err);
+                _loadPromise = null;
+            });
+        }
+        return _loadPromise;
+    }
+
+    function groupIds() {
+        if (!_base || !_base.groups) return [];
+        return Object.keys(_base.groups);
+    }
+
+    function zonesForGroup(groupId) {
+        if (!_base || !_base.groups) return [];
+        return (_base.groups[groupId] || []).slice();
+    }
+
+    function findGroupForTimezone(tzId) {
+        if (!tzId) return null;
+        if (tzId === 'UTC') return 'UTC';
+        if (!_base || !_base.groups) return tzId.split('/')[0] || null;
+        for (const g of Object.keys(_base.groups)) {
+            if ((_base.groups[g] || []).includes(tzId)) return g;
+        }
+        return tzId.includes('/') ? tzId.split('/')[0] : null;
+    }
+
+    function groupLabel(groupId) {
+        if (_i18n && _i18n.groups && _i18n.groups[groupId]) return _i18n.groups[groupId];
+        return groupId;
+    }
+
+    function zoneLabel(tzId) {
+        if (_i18n && _i18n.zones && _i18n.zones[tzId]) return _i18n.zones[tzId];
+        if (tzId === 'UTC') return 'UTC';
+        return tzId.split('/').slice(1).join(' / ').replace(/_/g, ' ') || tzId;
+    }
+
+    function uiText(key) {
+        if (_i18n && _i18n.ui && _i18n.ui[key]) return _i18n.ui[key];
+        const fb = { title: 'Zeitzone', region: 'Region', zone: 'Zeitzone', hint: '', search: 'Suchen…', custom: 'Gespeichert' };
+        return fb[key] || key;
+    }
+
+    function groupedOptions() {
+        return groupIds().map(function (gid) {
+            return {
+                group: gid,
+                groupLabel: groupLabel(gid),
+                options: zonesForGroup(gid).map(function (id) {
+                    return { id: id, label: zoneLabel(id) };
+                }),
+            };
+        });
+    }
+
+    function flatOptions() {
+        return groupedOptions().flatMap(function (g) { return g.options; });
+    }
+
+    function applyUiLabels() {
+        const map = {
+            'tz-ui-title': 'title',
+            'tz-ui-region-label': 'region',
+            'tz-ui-zone-label': 'zone',
+            'tz-ui-hint': 'hint',
+        };
+        Object.keys(map).forEach(function (id) {
+            const el = document.getElementById(id);
+            if (el) el.textContent = uiText(map[id]);
+        });
+        const search = document.getElementById('settings-timezone-search');
+        if (search) search.placeholder = uiText('search');
+    }
+
     class TimezoneManager {
         constructor() {
             this.timezone = localStorage.getItem(STORAGE_KEY) || DEFAULT_TZ;
         }
 
         init() {
-            this.loadFromServer();
+            const self = this;
+            ensureLoaded().then(function () {
+                self.loadFromServer();
+            });
         }
 
         getTimezone() {
@@ -145,7 +179,7 @@
             opts = opts || {};
             const d = new Date(iso);
             if (Number.isNaN(d.getTime())) return '';
-            return new Intl.DateTimeFormat(opts.locale || 'de-DE', {
+            return new Intl.DateTimeFormat(opts.locale || currentLang(), {
                 timeZone: this.getTimezone(),
                 year: 'numeric',
                 month: opts.shortDate ? '2-digit' : 'numeric',
@@ -160,7 +194,7 @@
             if (!iso) return '';
             const d = new Date(iso);
             if (Number.isNaN(d.getTime())) return '';
-            return new Intl.DateTimeFormat('de-DE', {
+            return new Intl.DateTimeFormat(currentLang(), {
                 timeZone: this.getTimezone(),
                 day: '2-digit',
                 month: '2-digit',
@@ -169,7 +203,6 @@
             }).format(d);
         }
 
-        /** datetime-local value in Benutzer-Zeitzone */
         toLocalInput(iso) {
             if (!iso) return '';
             const d = new Date(iso);
@@ -187,7 +220,6 @@
             return `${g('year')}-${g('month')}-${g('day')}T${g('hour')}:${g('minute')}`;
         }
 
-        /** datetime-local → ISO UTC (Wandzeit in Benutzer-Zeitzone) */
         fromLocalInput(localStr) {
             if (!localStr) return null;
             const [datePart, timePart = '00:00'] = localStr.split('T');
@@ -208,31 +240,60 @@
 
         tzLabel() {
             try {
-                const parts = new Intl.DateTimeFormat('de-DE', {
+                const parts = new Intl.DateTimeFormat(currentLang(), {
                     timeZone: this.getTimezone(),
                     timeZoneName: 'short',
                 }).formatToParts(new Date());
                 return (parts.find(function (p) { return p.type === 'timeZoneName'; }) || {}).value
-                    || this.getTimezone();
+                    || zoneLabel(this.getTimezone());
             } catch (e) {
-                return this.getTimezone();
+                return zoneLabel(this.getTimezone());
             }
         }
 
         static options() {
-            return flatTzOptions();
+            return flatOptions();
         }
 
         static groupedOptions() {
-            return TZ_OPTIONS.slice();
+            return groupedOptions();
         }
     }
 
     window.timezoneManager = new TimezoneManager();
-    window.TZ_OPTIONS = TZ_OPTIONS;
-    window.flatTzOptions = flatTzOptions;
+    window.tzLoadI18n = loadI18n;
+    window.tzEnsureLoaded = ensureLoaded;
+    window.tzFindGroup = findGroupForTimezone;
+    window.tzOptionsForGroup = function (groupId, filter) {
+        let list = zonesForGroup(groupId).map(function (id) {
+            return { id: id, label: zoneLabel(id) };
+        });
+        if (filter) {
+            const q = filter.toLowerCase();
+            list = list.filter(function (o) {
+                return o.id.toLowerCase().includes(q) || o.label.toLowerCase().includes(q);
+            });
+        }
+        return list;
+    };
+    window.tzGroupLabel = groupLabel;
+    window.tzZoneLabel = zoneLabel;
+    window.tzUiText = uiText;
+    window.tzApplyUiLabels = applyUiLabels;
+    window.tzGroupIds = groupIds;
 
     document.addEventListener('DOMContentLoaded', function () {
         if (window.timezoneManager) timezoneManager.init();
+    });
+
+    document.addEventListener('languageChanged', function (e) {
+        const lang = (e.detail && e.detail.lang) || currentLang();
+        loadI18n(lang).then(function () {
+            applyUiLabels();
+            if (typeof window._populateTimezoneCascade === 'function' && window.timezoneManager) {
+                window._populateTimezoneCascade(window.timezoneManager.getTimezone());
+            }
+            document.dispatchEvent(new CustomEvent('timezoneI18nLoaded', { detail: { lang: lang } }));
+        });
     });
 })();

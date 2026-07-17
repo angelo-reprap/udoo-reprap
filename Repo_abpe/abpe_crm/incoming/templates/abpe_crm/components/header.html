@@ -316,13 +316,23 @@
       <!-- Zeitzone -->
       <div style="margin-bottom:24px;">
         <div style="font-size:0.75rem; font-weight:600; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:12px;">
-          <i class="bi bi-clock me-1"></i> Zeitzone
+          <i class="bi bi-clock me-1"></i> <span id="tz-ui-title">Zeitzone</span>
         </div>
-        <select id="settings-timezone"
+        <label id="tz-ui-region-label" style="font-size:11px;color:var(--text-secondary);display:block;margin-bottom:4px">Region</label>
+        <select id="settings-timezone-group"
+                onchange="_onTimezoneGroupChanged()"
+                style="width:100%;padding:10px 12px;border:1px solid var(--border-color);border-radius:10px;font-size:0.9rem;background:var(--abcona-gray-card);color:var(--text-primary);cursor:pointer;margin-bottom:10px;">
+        </select>
+        <label id="tz-ui-zone-label" style="font-size:11px;color:var(--text-secondary);display:block;margin-bottom:4px">Zeitzone</label>
+        <input id="settings-timezone-search" type="search" autocomplete="off"
+               oninput="_onTimezoneSearchChanged()"
+               style="width:100%;padding:8px 12px;border:1px solid var(--border-color);border-radius:10px;font-size:0.85rem;background:var(--abcona-gray-card);color:var(--text-primary);margin-bottom:6px;">
+        <select id="settings-timezone-zone"
+                onchange="_onTimezoneZoneChanged()"
                 style="width:100%;padding:10px 12px;border:1px solid var(--border-color);border-radius:10px;font-size:0.9rem;background:var(--abcona-gray-card);color:var(--text-primary);cursor:pointer;">
         </select>
-        <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:6px;">
-          IANA-Zeitzone für Termine und E-Mails. Default: Mitteleuropa (Berlin). USA, Australien u.a. verfügbar.
+        <div id="tz-ui-hint" style="font-size:0.75rem;color:var(--text-secondary);margin-top:6px;">
+          Alle IANA-Zeitzonen. Standard: Europa → Berlin.
         </div>
       </div>
 
@@ -644,35 +654,82 @@ function saveProfile() {
 let _settingsLang  = window.ABPE_CONFIG?.current_lang || 'de';
 let _settingsTheme = 'light';
 let _settingsTimezone = 'Europe/Berlin';
+let _tzSearchFilter = '';
 
-function _populateTimezoneSelect(selected) {
-    const sel = document.getElementById('settings-timezone');
-    if (!sel) return;
-    const grouped = (window.TZ_OPTIONS && window.TZ_OPTIONS[0] && window.TZ_OPTIONS[0].group)
-        ? window.TZ_OPTIONS
-        : [{ group: '', options: (window.TZ_OPTIONS || [{ id: 'Europe/Berlin', label: 'Deutschland (Berlin)' }]) }];
-    const known = new Set();
-    let html = '';
-    grouped.forEach(function (g) {
-        html += `<optgroup label="${g.group}">`;
-        g.options.forEach(function (o) {
-            known.add(o.id);
-            html += `<option value="${o.id}"${o.id === selected ? ' selected' : ''}>${o.label}</option>`;
-        });
-        html += '</optgroup>';
-    });
-    if (selected && !known.has(selected)) {
-        html = `<option value="${selected}" selected>${selected}</option>` + html;
+function _populateTimezoneZoneSelect(group, selectedTz, filter) {
+    const zoneSel = document.getElementById('settings-timezone-zone');
+    if (!zoneSel) return;
+    let options = [];
+    if (group === '__custom__') {
+        const lbl = (typeof window.tzZoneLabel === 'function') ? tzZoneLabel(selectedTz) : selectedTz;
+        options = [{ id: selectedTz, label: lbl + ' (' + ((typeof window.tzUiText === 'function') ? tzUiText('custom') : 'gespeichert') + ')' }];
+    } else if (typeof window.tzOptionsForGroup === 'function') {
+        options = tzOptionsForGroup(group, filter || _tzSearchFilter);
     }
-    sel.innerHTML = html;
+    if (!options.length) {
+        options = [{ id: selectedTz || 'Europe/Berlin', label: selectedTz || 'Europe/Berlin' }];
+    }
+    zoneSel.innerHTML = options.map(o =>
+        `<option value="${o.id}"${o.id === selectedTz ? ' selected' : ''}>${o.label}</option>`
+    ).join('');
+    if (!zoneSel.value && options.length) zoneSel.value = options[0].id;
+    _settingsTimezone = zoneSel.value || selectedTz;
 }
 
-function openSettingsModal() {
+function _populateTimezoneCascade(selectedTz) {
+    const groupSel = document.getElementById('settings-timezone-group');
+    if (!groupSel) return;
+    const groupIds = (typeof window.tzGroupIds === 'function') ? tzGroupIds() : [];
+    const knownGroup = (typeof window.tzFindGroup === 'function') ? tzFindGroup(selectedTz) : null;
+    const useCustom = !!(selectedTz && (!knownGroup || !groupIds.includes(knownGroup)));
+
+    groupSel.innerHTML = groupIds.map(gid => {
+        const lbl = (typeof window.tzGroupLabel === 'function') ? tzGroupLabel(gid) : gid;
+        return `<option value="${gid}"${!useCustom && gid === knownGroup ? ' selected' : ''}>${lbl}</option>`;
+    }).join('');
+    if (useCustom || (selectedTz && !knownGroup)) {
+        const customLbl = (typeof window.tzUiText === 'function') ? tzUiText('custom') : 'Gespeichert';
+        groupSel.innerHTML += `<option value="__custom__" selected>${customLbl}</option>`;
+        _populateTimezoneZoneSelect('__custom__', selectedTz);
+        return;
+    }
+    _populateTimezoneZoneSelect(knownGroup || groupIds[0] || 'Europe', selectedTz);
+}
+window._populateTimezoneCascade = _populateTimezoneCascade;
+
+function _onTimezoneGroupChanged() {
+    const group = document.getElementById('settings-timezone-group')?.value;
+    if (!group || group === '__custom__') return;
+    _tzSearchFilter = '';
+    const search = document.getElementById('settings-timezone-search');
+    if (search) search.value = '';
+    _populateTimezoneZoneSelect(group, null, '');
+    _settingsTimezone = document.getElementById('settings-timezone-zone')?.value || _settingsTimezone;
+}
+
+function _onTimezoneSearchChanged() {
+    _tzSearchFilter = document.getElementById('settings-timezone-search')?.value || '';
+    const group = document.getElementById('settings-timezone-group')?.value;
+    if (!group || group === '__custom__') return;
+    const prev = document.getElementById('settings-timezone-zone')?.value;
+    _populateTimezoneZoneSelect(group, prev, _tzSearchFilter);
+}
+
+function _onTimezoneZoneChanged() {
+    _settingsTimezone = document.getElementById('settings-timezone-zone')?.value || 'Europe/Berlin';
+}
+
+async function openSettingsModal() {
     _settingsLang  = window.ABPE_CONFIG?.current_lang || 'de';
     _settingsTheme = window.themeManager ? themeManager.currentTheme :
         (document.body.classList.contains('dark-mode') ? 'dark' : 'light');
     _settingsTimezone = window.timezoneManager ? timezoneManager.getTimezone() : 'Europe/Berlin';
-    _populateTimezoneSelect(_settingsTimezone);
+    _tzSearchFilter = '';
+    const search = document.getElementById('settings-timezone-search');
+    if (search) search.value = '';
+    if (typeof window.tzEnsureLoaded === 'function') await tzEnsureLoaded(_settingsLang);
+    if (typeof window.tzApplyUiLabels === 'function') tzApplyUiLabels();
+    _populateTimezoneCascade(_settingsTimezone);
     updateSettingsBtns();
     document.getElementById('settings-msg').textContent = '';
     document.getElementById('settingsModal').style.display = 'block';
@@ -687,7 +744,7 @@ function openSettingsModal() {
         }
         if (us.timezone) {
             _settingsTimezone = us.timezone;
-            _populateTimezoneSelect(_settingsTimezone);
+            _populateTimezoneCascade(_settingsTimezone);
             if (window.timezoneManager) timezoneManager.setTimezone(us.timezone, { skipServer: true });
         }
         const cb = document.getElementById('phone-enabled');
@@ -744,7 +801,7 @@ function updateSettingsBtns() {
 
 function saveSettings() {
     const csrf = getCsrfToken();
-    _settingsTimezone = document.getElementById('settings-timezone')?.value || 'Europe/Berlin';
+    _settingsTimezone = document.getElementById('settings-timezone-zone')?.value || 'Europe/Berlin';
     // Theme + Sprache + Zeitzone speichern
     fetch('/crm/api/user-settings/', {
         method: 'POST',

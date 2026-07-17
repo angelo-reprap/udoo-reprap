@@ -47,6 +47,18 @@ copy_file "${REPO}/Repo_abpe/abpe_crm/incoming/templates/abpe_crm/components/hea
           "${CRM_TEMPLATES}/components/header.html"
 
 echo ""
+echo "--- i18n Zeitzonen (418 Zonen × 14 Sprachen) ---"
+I18N_SRC="${REPO}/Repo_abpe/abpe_crm/incoming/i18n"
+I18N_DEST="${BACKEND}/apps/abpe_crm/static/abpe_crm/i18n"
+mkdir -p "$I18N_DEST"
+cp -a "${I18N_SRC}/timezone.base.json" "${I18N_DEST}/"
+for lang in de en fr es it pt nl pl ru tr ar zh ja ko; do
+  mkdir -p "${I18N_DEST}/${lang}"
+  cp -a "${I18N_SRC}/${lang}/timezone.json" "${I18N_DEST}/${lang}/"
+done
+echo "OK: timezone.base.json + 14× timezone.json → ${I18N_DEST}"
+
+echo ""
 echo "--- Verifikation ---"
 if grep -q "timezoneManager" "${CRM_STATIC}/js/core-timezone.js"; then
   echo "OK: core-timezone.js auf Live"
@@ -59,10 +71,16 @@ if grep -q "timezoneManager.fromLocalInput" "${CRM_STATIC}/js/mod-crm-pbx.js"; t
 else
   echo "WARN: mod-crm-pbx.js evtl. ohne Timezone-Wiring" >&2
 fi
-if grep -q "settings-timezone" "${CRM_TEMPLATES}/components/header.html"; then
-  echo "OK: header.html mit Zeitzone-Dropdown"
+if grep -q "settings-timezone-search" "${CRM_TEMPLATES}/components/header.html"; then
+  echo "OK: header.html mit kaskadierten Zeitzonen-Dropdowns + Suche"
 else
-  echo "FEHLER: header.html ohne Zeitzone-Dropdown" >&2
+  echo "FEHLER: header.html ohne Zeitzonen-UI" >&2
+  exit 1
+fi
+if [[ -f "${I18N_DEST}/de/timezone.json" ]] && [[ -f "${I18N_DEST}/timezone.base.json" ]]; then
+  echo "OK: i18n/timezone.json deployed ($(wc -l < "${I18N_DEST}/de/timezone.json") Zeilen de)"
+else
+  echo "FEHLER: timezone i18n fehlt" >&2
   exit 1
 fi
 
