@@ -34,13 +34,19 @@ fi
 
 if [[ -x "${ARCHIV}/backup_restore.py" ]]; then
   echo "Backup..."
-  python3 "${ARCHIV}/backup_restore.py" backup \
-    "${STATIC}/js/mod-crm.js" \
-    "${STATIC}/js/mod-crm-kunden.js" \
-    "${STATIC}/js/mod-crm-berater.js" \
-    "${STATIC}/js/mod-crm-edit.js" \
-    "${STATIC}/js/mod-crm-kampagne.js" \
-    "${STATIC}/i18n/de/crm.json"
+  NOTE="${NOTE:-vor crm-i18n-deploy}"
+  for rel in \
+    apps/abpe_crm/static/abpe_crm/js/mod-crm.js \
+    apps/abpe_crm/static/abpe_crm/js/mod-crm-kunden.js \
+    apps/abpe_crm/static/abpe_crm/js/mod-crm-berater.js \
+    apps/abpe_crm/static/abpe_crm/js/mod-crm-edit.js \
+    apps/abpe_crm/static/abpe_crm/js/mod-crm-kampagne.js \
+    apps/abpe_crm/static/abpe_crm/i18n/de/crm.json \
+    apps/abpe_crm/templates/abpe_crm/tabs/emails_tab.html; do
+    if [[ -f "${BACKEND}/${rel}" ]]; then
+      python3 "${ARCHIV}/backup_restore.py" -save "${rel}" -m "${NOTE}" || true
+    fi
+  done
 fi
 
 echo "Done. Run i18n_translator.py for other langs, then collectstatic + restart."
