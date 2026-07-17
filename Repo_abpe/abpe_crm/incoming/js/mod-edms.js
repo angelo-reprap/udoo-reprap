@@ -211,7 +211,7 @@ const EDMS = {
     },
 
     _kindIcon(k) {
-        return {person:'bi-person', firma:'bi-building', dokument:'bi-file-earmark-text', mail:'bi-envelope'}[k] || 'bi-dot';
+        return {person:'bi-person', firma:'bi-buildings-fill', dokument:'bi-file-earmark-text', mail:'bi-envelope-fill'}[k] || 'bi-dot';
     },
     _kindLabel(k) {
         return {person:this.t('edms_kind_person','Person'), firma:this.t('edms_kind_firma','Firma'),
@@ -330,7 +330,7 @@ const EDMS = {
     _personItem(p) {
         const isAccount = p.owner_type === 'account';
         const icon = isAccount
-            ? this._typeIconHtml('firma', 'bi-building')
+            ? this._typeIconHtml('firma', this._kindIcon('firma'))
             : '<div class="crm-avatar edms-kind-person" style="font-size:10px;background:#6b62c9">' + this._initials(p.name) + '</div>';
         const typeLabel = isAccount ? this.t('kunden_label','Firma') : this.t('berater_label','Berater');
         return '<div class="crm-list-item" data-crm-id="' + p.crm_id + '"' +
@@ -371,8 +371,8 @@ const EDMS = {
         const m = {cv:'bi-file-person', vertrag:'bi-file-earmark-text', contract:'bi-file-earmark-text',
                    rechnung:'bi-receipt', invoice:'bi-receipt', nachweis:'bi-file-earmark-check',
                    leistungsnachweis:'bi-file-earmark-check', zeitnachweis:'bi-clock-history',
-                   angebot:'bi-file-earmark-richtext', korrespondenz:'bi-envelope',
-                   email:'bi-envelope', sonstiges:'bi-file-earmark'};
+                   angebot:'bi-file-earmark-richtext', korrespondenz:'bi-envelope-fill',
+                   email:'bi-envelope-fill', sonstiges:'bi-file-earmark'};
         return m[doctype] || 'bi-file-earmark';
     },
 
@@ -716,12 +716,10 @@ const EDMS = {
         const activeUuid = this._akteActiveUuid;
         list.innerHTML = items.map(it => {
             if (it._type === 'mail') {
-                const dir = this._mailDir(it._mail);
-                const mailBi = dir === 'in' ? 'bi-envelope-arrow-down' : 'bi-envelope-arrow-up';
                 const clip = it.has_attachments ? '<i class="bi bi-paperclip edms-akte-archicon"></i>' : '';
                 const datum = it.date ? ' · ' + this._mailDate(it.date) : '';
                 return '<div class="edms-akte-doc edms-akte-mailrow" onclick="EDMS.openAkteMail(' + it._mailIdx + ')">' +
-                    this._typeIconHtml('mail', mailBi) +
+                    this._typeIconHtml('mail', this._kindIcon('mail')) +
                     '<div style="flex:1;min-width:0">' +
                     '<div class="edms-akte-dtitle">' + clip + this._esc(it.title) + '</div>' +
                     '<div class="edms-akte-dsub">' + this._esc(it.sub) + datum + '</div></div>' +
@@ -901,7 +899,7 @@ const EDMS = {
         const ownerHead = owner
             ? '<div class="edms-detail-owner">' +
                 '<div class="crm-avatar" style="width:30px;height:30px;font-size:10px;background:' + (owner.type==='account'?'#1d9e75':'#6b62c9') + (owner.type==='account'?';border-radius:6px':'') + '">' +
-                (owner.type==='account' ? '<i class="bi bi-building"></i>' : this._initials(owner.name)) + '</div>' +
+                (owner.type==='account' ? '<i class="bi bi-buildings-fill"></i>' : this._initials(owner.name)) + '</div>' +
                 '<div style="min-width:0"><div class="edms-detail-oname">' + (owner.name||'') + '</div>' +
                 '<div class="edms-detail-osub">' + (owner.type==='account'?this.t('kunden_label','Firma'):this.t('berater_label','Berater')) + ' · ' + this.t('edms_owner','Owner') + '</div></div>' +
                 '<i class="bi bi-box-arrow-up-right edms-detail-crm" title="' + this.t('edms_in_crm_oeffnen','Im CRM öffnen') + '" onclick="EDMS.openInCrm(\'' + owner.type + '\',\'' + owner.crm_id + '\')"></i>' +
@@ -1132,9 +1130,8 @@ const EDMS = {
             const dt = m.date ? this._mailDate(m.date) : '';
             const clip = m.has_attachments ? '<i class="bi bi-paperclip edms-mail-clip"></i>' : '';
             const peer = this._mailPeer(m, dir);
-            const mailBi = dir === 'out' ? 'bi-envelope-arrow-up' : 'bi-envelope-arrow-down';
             return '<div class="edms-mail-row" data-i="' + i + '" onclick="EDMS.openMail(' + i + ')">' +
-                this._typeIconHtml('mail', mailBi) +
+                this._typeIconHtml('mail', this._kindIcon('mail')) +
                 '<div class="edms-mail-rowmain">' +
                 '<div class="edms-mail-subject">' + this._esc(m.subject) + '</div>' +
                 '<div class="edms-mail-peer">' + this._esc(peer) + '</div></div>' +

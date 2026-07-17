@@ -713,8 +713,9 @@
 .edms-type-icon {
     width: 28px; height: 28px; border-radius: 6px;
     display: flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 13px; flex-shrink: 0;
+    color: #fff; font-size: 14px; flex-shrink: 0;
 }
+.edms-type-icon > i { display: block; line-height: 1; font-size: 14px; }
 .edms-kind-person  { background: #6b62c9; }
 .edms-kind-firma   { background: #1d9e75; }
 .edms-kind-dokument { background: #378add; }
