@@ -1,0 +1,86 @@
+{
+    "toc": {
+        "title": "جدول المحتويات"
+    },
+    "sections": [
+        {
+            "id": "einstieg",
+            "number": "1",
+            "title": "البدء وتسجيل الدخول"
+        },
+        {
+            "id": "dashboard",
+            "number": "2",
+            "title": "لوحة التحكم والتنقل"
+        },
+        {
+            "id": "cv_editor",
+            "number": "3",
+            "title": "محرر السيرة الذاتية"
+        },
+        {
+            "id": "cv_upload",
+            "number": "4",
+            "title": "رفع السيرة الذاتية واستخراج البيانات"
+        },
+        {
+            "id": "matching",
+            "number": "5",
+            "title": "المطابقة والبحث"
+        },
+        {
+            "id": "email_studio",
+            "number": "6",
+            "title": "استوديو البريد الإلكتروني"
+        },
+        {
+            "id": "doc_studio",
+            "number": "7",
+            "title": "استوديو المستندات"
+        },
+        {
+            "id": "rechnungen",
+            "number": "8",
+            "title": "الفواتير"
+        },
+        {
+            "id": "vorlagen",
+            "number": "9",
+            "title": "القوالب والقرطاسية"
+        },
+        {
+            "id": "benutzerverwaltung",
+            "number": "10",
+            "title": "إدارة المستخدمين"
+        },
+        {
+            "id": "einstellungen",
+            "number": "11",
+            "title": "الإعدادات والتكوين"
+        },
+        {
+            "id": "sprache",
+            "number": "12",
+            "title": "اللغة والتوطين"
+        },
+        {
+            "id": "tipps",
+            "number": "13",
+            "title": "النصائح واختصارات لوحة المفاتيح"
+        },
+        {
+            "id": "fehler",
+            "number": "14",
+            "title": "الأخطاء الشائعة والحلول"
+        },
+        {
+            "id": "glossar",
+            "number": "15",
+            "title": "المسرد"
+        }
+    ],
+    "version": "الإصدار 2.0",
+    "framework": "Django 5.x",
+    "chapters": "15 فصلاً",
+    "audience": "المستخدم النهائي"
+}

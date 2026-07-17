@@ -1,0 +1,72 @@
+{
+    "toc": {
+        "title": "Tartalomjegyzék"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Áttekintés — A modulrendszer"
+        },
+        {
+            "id": "struktur",
+            "number": "2",
+            "title": "Könyvtárstruktúra"
+        },
+        {
+            "id": "module_json",
+            "number": "3",
+            "title": "A module.json fájl"
+        },
+        {
+            "id": "template",
+            "number": "4",
+            "title": "A HTML-sablon"
+        },
+        {
+            "id": "css",
+            "number": "5",
+            "title": "CSS — Stílusok"
+        },
+        {
+            "id": "javascript",
+            "number": "6",
+            "title": "JavaScript — Modullogika"
+        },
+        {
+            "id": "toggle_system",
+            "number": "7",
+            "title": "A váltórendszer"
+        },
+        {
+            "id": "i18n",
+            "number": "8",
+            "title": "Nemzetköziesítés"
+        },
+        {
+            "id": "navigation",
+            "number": "9",
+            "title": "Navigáció és oldalsáv"
+        },
+        {
+            "id": "api",
+            "number": "10",
+            "title": "API-végpontok"
+        },
+        {
+            "id": "checkliste",
+            "number": "11",
+            "title": "Ellenőrzőlista és hibák"
+        },
+        {
+            "id": "beispiel",
+            "number": "12",
+            "title": "Teljes példa"
+        },
+        {
+            "id": "anhang_a",
+            "number": "A",
+            "title": "A függelék — Buktatók a portál-integráció során"
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "toc": {
+        "title": "İçindekiler"
+    },
+    "sections": [
+        {
+            "id": "grundlagen",
+            "number": "1",
+            "title": "Temel Bilgiler ve Genel Bakış"
+        },
+        {
+            "id": "modulsystem",
+            "number": "2",
+            "title": "Modül Sistemi"
+        },
+        {
+            "id": "i18n",
+            "number": "3",
+            "title": "Dil ve Çeviri Sistemi"
+        },
+        {
+            "id": "theme",
+            "number": "4",
+            "title": "Tema ve Tasarım Sistemi"
+        },
+        {
+            "id": "multiuser",
+            "number": "5",
+            "title": "Çok Kullanıcı ve İzinler"
+        },
+        {
+            "id": "hilfe",
+            "number": "6",
+            "title": "Yardım Sistemi"
+        },
+        {
+            "id": "sidebar",
+            "number": "7",
+            "title": "Kenar Çubuğu ve Gezinme"
+        },
+        {
+            "id": "api",
+            "number": "8",
+            "title": "API ve Harici Entegrasyon"
+        },
+        {
+            "id": "backup",
+            "number": "9",
+            "title": "Yedekleme ve Arşiv Sistemi"
+        },
+        {
+            "id": "helper",
+            "number": "10",
+            "title": "Yardımcı ve Araç Betikleri"
+        },
+        {
+            "id": "responsive",
+            "number": "11",
+            "title": "Duyarlı Tasarım"
+        },
+        {
+            "id": "verzeichnisse",
+            "number": "12",
+            "title": "Dizin Yapısı"
+        },
+        {
+            "id": "workflow",
+            "number": "13",
+            "title": "Geliştirme İş Akışı"
+        },
+        {
+            "id": "debugging",
+            "number": "14",
+            "title": "Hata Ayıklama"
+        },
+        {
+            "id": "versionen",
+            "number": "15",
+            "title": "Sürüm ve Değişiklik Günlüğü"
+        },
+        {
+            "id": "anhang",
+            "number": "16",
+            "title": "Ekler"
+        }
+    ],
+    "version": "Sürüm 3.0",
+    "framework": "Django 5.x",
+    "users": "23.000+ Danışman",
+    "chapters": "16 Bölüm"
+}

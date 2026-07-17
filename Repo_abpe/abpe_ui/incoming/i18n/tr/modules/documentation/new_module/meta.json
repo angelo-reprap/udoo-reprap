@@ -1,0 +1,72 @@
+{
+    "toc": {
+        "title": "İçindekiler"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Genel Bakış — Modül Sistemi"
+        },
+        {
+            "id": "struktur",
+            "number": "2",
+            "title": "Dizin Yapısı"
+        },
+        {
+            "id": "module_json",
+            "number": "3",
+            "title": "module.json Dosyası"
+        },
+        {
+            "id": "template",
+            "number": "4",
+            "title": "HTML Şablonu"
+        },
+        {
+            "id": "css",
+            "number": "5",
+            "title": "CSS — Stiller"
+        },
+        {
+            "id": "javascript",
+            "number": "6",
+            "title": "JavaScript — Modül Mantığı"
+        },
+        {
+            "id": "toggle_system",
+            "number": "7",
+            "title": "Toggle Sistemi"
+        },
+        {
+            "id": "i18n",
+            "number": "8",
+            "title": "Uluslararasılaştırma"
+        },
+        {
+            "id": "navigation",
+            "number": "9",
+            "title": "Navigasyon ve Kenar Çubuğu"
+        },
+        {
+            "id": "api",
+            "number": "10",
+            "title": "API Uç Noktaları"
+        },
+        {
+            "id": "checkliste",
+            "number": "11",
+            "title": "Kontrol Listesi ve Hatalar"
+        },
+        {
+            "id": "beispiel",
+            "number": "12",
+            "title": "Tam Örnek"
+        },
+        {
+            "id": "anhang_a",
+            "number": "A",
+            "title": "Ek A — Portal Entegrasyonunda Tuzaklar"
+        }
+    ]
+}

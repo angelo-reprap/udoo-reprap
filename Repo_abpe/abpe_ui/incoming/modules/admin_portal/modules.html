@@ -1,0 +1,167 @@
+{% extends "abpe_ui/base.html" %}
+{% load static %}
+{% block module_css %}
+<link href="{% static 'abpe_ui/css/mod/mod-admin_portal.css' %}" rel="stylesheet">
+{% endblock %}
+{% block title %}Modul-Verwaltung{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-puzzle"></i> <span data-i18n-admin="modules.title">Module</span></h2>
+    <div style="display:flex; align-items:center; gap:12px;">
+        <small class="text-muted" data-i18n-admin="modules_config.hint">Änderungen werden sofort wirksam</small>
+        <button onclick="saveNavOrder()" id="save-order-btn"
+            style="background:var(--abcona-blue); color:white; border:none; padding:6px 14px;
+                   border-radius:8px; font-size:0.85rem; cursor:pointer; display:none; align-items:center; gap:6px;">
+            <i class="bi bi-save"></i> <span data-i18n-admin="modules_config.save_order">Reihenfolge speichern</span>
+        </button>
+        <span id="save-order-msg" style="font-size:0.8rem; color:var(--status-green); display:none;" data-i18n-admin="modules_config.saved">✓ Gespeichert</span>
+    </div>
+</div>
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th style="width:40px;"></th>
+                        <th data-i18n-admin="modules.col_module">Modul</th>
+                        <th data-i18n-admin="modules.col_route">Route</th>
+                        <th data-i18n-admin="modules.col_roles">Rollen</th>
+                        <th data-i18n-admin="modules.col_active">Aktiv</th>
+                    </tr>
+                </thead>
+                <tbody id="modules-tbody">
+                    <tr><td colspan="5" class="text-center py-4">
+                        <div class="spinner-border spinner-border-sm"></div>
+                    </td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block module_js %}
+<script src="{% static 'abpe_ui/js/mod/mod-admin_portal.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+{% endblock %}
+{% block extra_js %}
+<style>
+.drag-handle { cursor: grab; color: #adb5bd; padding: 0 10px; font-size: 1.1rem; }
+.drag-handle:hover { color: #495057; }
+.sortable-ghost { background: #e8f0fe !important; opacity: 0.7; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const lang = window.ABPE_CONFIG?.current_lang || 'de';
+    initAdminPortal(lang).then(() => {
+        loadModules();
+    });
+});
+
+function initDragDrop() {
+    const tbody = document.getElementById('modules-tbody');
+    if (!tbody || typeof Sortable === 'undefined') return;
+    if (tbody._sortable) tbody._sortable.destroy();
+
+    tbody._sortable = Sortable.create(tbody, {
+        animation: 150,
+        handle: '.drag-handle',
+        ghostClass: 'sortable-ghost',
+        onEnd: function() {
+            // Nummern aktualisieren
+            const rows = tbody.querySelectorAll('tr[data-module-id]');
+            rows.forEach((row, idx) => {
+                const span = row.querySelector('.order-display');
+                if (span) span.textContent = (idx + 1) * 10;
+            });
+            // Speichern-Button einblenden
+            const btn = document.getElementById('save-order-btn');
+            if (btn) btn.style.display = 'inline-flex';
+            const msg = document.getElementById('save-order-msg');
+            if (msg) msg.style.display = 'none';
+        }
+    });
+}
+
+async function saveNavOrder() {
+    const tbody = document.getElementById('modules-tbody');
+    const rows = tbody.querySelectorAll('tr[data-module-id]');
+    const navOrder = [];
+    const csrf = document.cookie.split(';').map(c=>c.trim())
+        .find(c=>c.startsWith('csrftoken='))?.split('=')[1] || '';
+
+    // Reihenfolge sammeln + module.json aktualisieren
+    for (const [idx, row] of [...rows].entries()) {
+        const mid = row.getAttribute('data-module-id');
+        const newOrder = (idx + 1) * 10;
+        navOrder.push(mid);
+        await fetch(`/api/admin-portal/modules/${mid}/`, {
+            method: 'PATCH',
+            headers: {'Content-Type':'application/json','X-CSRFToken': csrf},
+            body: JSON.stringify({order: newOrder})
+        });
+    }
+
+    // User-spezifische Reihenfolge in DB speichern
+    await fetch('/api/user-settings/', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','X-CSRFToken': csrf},
+        body: JSON.stringify({nav_order: navOrder})
+    });
+
+    // Feedback + Sidebar neu aufbauen
+    const btn = document.getElementById('save-order-btn');
+    const msg = document.getElementById('save-order-msg');
+    if (btn) btn.style.display = 'none';
+    if (msg) { msg.style.display = 'inline'; setTimeout(() => msg.style.display = 'none', 3000); }
+
+    // Sidebar sofort aktualisieren ohne F5
+    await reloadSidebar(navOrder);
+}
+
+async function reloadSidebar(navOrder) {
+    // Sidebar-Links in neuer Reihenfolge umsortieren
+    const sidebar = document.getElementById('sidebar');
+    if (!sidebar) return;
+
+    // Alle nav-links mit data-module sammeln
+    const navLinks = [...sidebar.querySelectorAll('a[data-module]')];
+    if (!navLinks.length) return;
+
+    const parent = navLinks[0].parentElement;
+
+    // Submenus auch sammeln
+    const allElements = [...parent.children];
+
+    // Nach navOrder sortieren
+    const sorted = [];
+    navOrder.forEach(mid => {
+        // Link finden
+        const link = allElements.find(el =>
+            el.matches?.('a[data-module="' + mid + '"]') ||
+            el.querySelector?.('a[data-module="' + mid + '"]')
+        );
+        if (link) sorted.push(link);
+
+        // Submenu direkt dahinter
+        const idx = allElements.indexOf(link);
+        if (idx >= 0 && allElements[idx+1]?.classList?.contains('submenu')) {
+            sorted.push(allElements[idx+1]);
+        }
+    });
+
+    // Rest (nicht in navOrder) ans Ende
+    allElements.forEach(el => {
+        if (!sorted.includes(el)) sorted.push(el);
+    });
+
+    // DOM neu aufbauen
+    sorted.forEach(el => parent.appendChild(el));
+
+    // Visuelles Feedback
+    sidebar.style.transition = 'opacity 0.2s';
+    sidebar.style.opacity = '0.5';
+    setTimeout(() => sidebar.style.opacity = '1', 300);
+}
+</script>
+{% endblock %}

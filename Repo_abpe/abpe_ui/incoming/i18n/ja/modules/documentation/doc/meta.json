@@ -1,0 +1,91 @@
+{
+    "toc": {
+        "title": "目次"
+    },
+    "sections": [
+        {
+            "id": "grundlagen",
+            "number": "1",
+            "title": "基礎と概要"
+        },
+        {
+            "id": "modulsystem",
+            "number": "2",
+            "title": "モジュールシステム"
+        },
+        {
+            "id": "i18n",
+            "number": "3",
+            "title": "言語・翻訳システム"
+        },
+        {
+            "id": "theme",
+            "number": "4",
+            "title": "テーマ・デザインシステム"
+        },
+        {
+            "id": "multiuser",
+            "number": "5",
+            "title": "マルチユーザーと権限"
+        },
+        {
+            "id": "hilfe",
+            "number": "6",
+            "title": "ヘルプシステム"
+        },
+        {
+            "id": "sidebar",
+            "number": "7",
+            "title": "サイドバーとナビゲーション"
+        },
+        {
+            "id": "api",
+            "number": "8",
+            "title": "APIと外部連携"
+        },
+        {
+            "id": "backup",
+            "number": "9",
+            "title": "バックアップ・アーカイブシステム"
+        },
+        {
+            "id": "helper",
+            "number": "10",
+            "title": "ヘルパー・ユーティリティスクリプト"
+        },
+        {
+            "id": "responsive",
+            "number": "11",
+            "title": "レスポンシブデザイン"
+        },
+        {
+            "id": "verzeichnisse",
+            "number": "12",
+            "title": "ディレクトリ構造"
+        },
+        {
+            "id": "workflow",
+            "number": "13",
+            "title": "開発ワークフロー"
+        },
+        {
+            "id": "debugging",
+            "number": "14",
+            "title": "トラブルシューティングとデバッグ"
+        },
+        {
+            "id": "versionen",
+            "number": "15",
+            "title": "バージョン管理と変更履歴"
+        },
+        {
+            "id": "anhang",
+            "number": "16",
+            "title": "付録"
+        }
+    ],
+    "version": "バージョン3.0",
+    "framework": "Django 5.x",
+    "users": "23,000人以上のコンサルタント",
+    "chapters": "16章"
+}

@@ -1,0 +1,91 @@
+{
+    "toc": {
+        "title": "목차"
+    },
+    "sections": [
+        {
+            "id": "grundlagen",
+            "number": "1",
+            "title": "기초 및 개요"
+        },
+        {
+            "id": "modulsystem",
+            "number": "2",
+            "title": "모듈 시스템"
+        },
+        {
+            "id": "i18n",
+            "number": "3",
+            "title": "언어 및 번역 시스템"
+        },
+        {
+            "id": "theme",
+            "number": "4",
+            "title": "테마 및 디자인 시스템"
+        },
+        {
+            "id": "multiuser",
+            "number": "5",
+            "title": "다중 사용자 및 권한"
+        },
+        {
+            "id": "hilfe",
+            "number": "6",
+            "title": "도움말 시스템"
+        },
+        {
+            "id": "sidebar",
+            "number": "7",
+            "title": "사이드바 및 탐색"
+        },
+        {
+            "id": "api",
+            "number": "8",
+            "title": "API 및 외부 통합"
+        },
+        {
+            "id": "backup",
+            "number": "9",
+            "title": "백업 및 아카이브 시스템"
+        },
+        {
+            "id": "helper",
+            "number": "10",
+            "title": "헬퍼 및 유틸리티 스크립트"
+        },
+        {
+            "id": "responsive",
+            "number": "11",
+            "title": "반응형 디자인"
+        },
+        {
+            "id": "verzeichnisse",
+            "number": "12",
+            "title": "디렉토리 구조"
+        },
+        {
+            "id": "workflow",
+            "number": "13",
+            "title": "개발 워크플로우"
+        },
+        {
+            "id": "debugging",
+            "number": "14",
+            "title": "오류 검색 및 디버깅"
+        },
+        {
+            "id": "versionen",
+            "number": "15",
+            "title": "버전 관리 및 변경 로그"
+        },
+        {
+            "id": "anhang",
+            "number": "16",
+            "title": "부록"
+        }
+    ],
+    "version": "버전 3.0",
+    "framework": "Django 5.x",
+    "users": "23,000명 이상의 컨설턴트",
+    "chapters": "16개 장"
+}

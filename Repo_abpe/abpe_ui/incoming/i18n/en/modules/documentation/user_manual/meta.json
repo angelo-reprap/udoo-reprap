@@ -1,0 +1,86 @@
+{
+    "toc": {
+        "title": "Table of Contents"
+    },
+    "sections": [
+        {
+            "id": "einstieg",
+            "number": "1",
+            "title": "Getting Started & Login"
+        },
+        {
+            "id": "dashboard",
+            "number": "2",
+            "title": "Dashboard & Navigation"
+        },
+        {
+            "id": "cv_editor",
+            "number": "3",
+            "title": "CV Editor"
+        },
+        {
+            "id": "cv_upload",
+            "number": "4",
+            "title": "CV Upload & Extraction"
+        },
+        {
+            "id": "matching",
+            "number": "5",
+            "title": "Matching & Search"
+        },
+        {
+            "id": "email_studio",
+            "number": "6",
+            "title": "Email Studio"
+        },
+        {
+            "id": "doc_studio",
+            "number": "7",
+            "title": "Doc Studio"
+        },
+        {
+            "id": "rechnungen",
+            "number": "8",
+            "title": "Invoices"
+        },
+        {
+            "id": "vorlagen",
+            "number": "9",
+            "title": "Templates & Letterhead"
+        },
+        {
+            "id": "benutzerverwaltung",
+            "number": "10",
+            "title": "User Management"
+        },
+        {
+            "id": "einstellungen",
+            "number": "11",
+            "title": "Settings & Configuration"
+        },
+        {
+            "id": "sprache",
+            "number": "12",
+            "title": "Language & Localization"
+        },
+        {
+            "id": "tipps",
+            "number": "13",
+            "title": "Tips & Keyboard Shortcuts"
+        },
+        {
+            "id": "fehler",
+            "number": "14",
+            "title": "Common Errors & Solutions"
+        },
+        {
+            "id": "glossar",
+            "number": "15",
+            "title": "Glossary"
+        }
+    ],
+    "version": "Version 2.0",
+    "framework": "Django 5.x",
+    "chapters": "15 Chapters",
+    "audience": "End Users"
+}

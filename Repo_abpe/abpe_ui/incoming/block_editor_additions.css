@@ -1,0 +1,91 @@
+
+/* ── Block-Editor: Drag & Drop Liste ── */
+.ds-block-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ds-block-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    border: 0.5px solid var(--border-color);
+    border-radius: 6px;
+    padding: 6px 8px;
+    background: var(--color-background-primary);
+    cursor: grab;
+    transition: border-color 0.15s, background 0.15s;
+    user-select: none;
+}
+
+.ds-block-item:hover {
+    border-color: var(--abcona-blue);
+    background: #f0f6ff;
+}
+
+.ds-block-item.ds-block-dragging {
+    opacity: 0.4;
+    border-style: dashed;
+}
+
+.ds-block-item.ds-block-over {
+    border-color: #f59e0b;
+    background: #fffbeb;
+    border-style: dashed;
+}
+
+.ds-block-drag {
+    color: var(--text-secondary);
+    cursor: grab;
+    padding-top: 1px;
+    flex-shrink: 0;
+}
+
+.ds-block-drag:active {
+    cursor: grabbing;
+}
+
+.ds-block-body {
+    min-width: 0;
+}
+
+/* ── Tab-Leiste ── */
+.ds-tabbar {
+    background: var(--color-background-primary);
+    border-bottom: 0.5px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 0 16px;
+    position: sticky;
+    top: 0;
+    z-index: 199;
+}
+
+.ds-tab {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s;
+}
+
+.ds-tab:hover {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.ds-tab.ds-tab-active {
+    color: var(--abcona-blue);
+    border-bottom-color: var(--abcona-blue);
+    font-weight: 500;
+}
+
+.ds-tab-spacer { flex: 1; }
+.ds-tab-btn { margin: 4px 0; }

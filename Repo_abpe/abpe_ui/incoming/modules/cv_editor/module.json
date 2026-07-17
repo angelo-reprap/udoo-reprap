@@ -1,0 +1,36 @@
+{
+    "id": "cv_editor",
+    "title": "CV Editor",
+    "titles": {
+        "de": "CV Editor",
+        "en": "CV Editor",
+        "fr": "Éditeur CV",
+        "it": "Editor CV",
+        "es": "Editor de CV",
+        "ar": "محرر السيرة الذاتية",
+        "ja": "CVエディター",
+        "ko": "CV 편집기",
+        "nl": "CV-editor",
+        "pl": "Edytor CV",
+        "pt": "Editor de CV",
+        "ru": "Редактор резюме",
+        "tr": "CV Düzenleyici",
+        "zh": "简历编辑器",
+        "hu": "CV Szerkesztő"
+    },
+    "icon": "file-earmark-person",
+    "route": "/cv_editor/",
+    "order": 20,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod/mod-cv_editor.css"
+        ],
+        "js": [
+            "mod/mod-cv_editor.js"
+        ]
+    }
+}

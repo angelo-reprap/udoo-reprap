@@ -1,0 +1,91 @@
+{
+    "toc": {
+        "title": "Table des matières"
+    },
+    "sections": [
+        {
+            "id": "grundlagen",
+            "number": "1",
+            "title": "Fondements & Aperçu"
+        },
+        {
+            "id": "modulsystem",
+            "number": "2",
+            "title": "Système de modules"
+        },
+        {
+            "id": "i18n",
+            "number": "3",
+            "title": "Système linguistique & de traduction"
+        },
+        {
+            "id": "theme",
+            "number": "4",
+            "title": "Thème & Système de design"
+        },
+        {
+            "id": "multiuser",
+            "number": "5",
+            "title": "Multi-utilisateur & Autorisations"
+        },
+        {
+            "id": "hilfe",
+            "number": "6",
+            "title": "Système d'aide"
+        },
+        {
+            "id": "sidebar",
+            "number": "7",
+            "title": "Barre latérale & Navigation"
+        },
+        {
+            "id": "api",
+            "number": "8",
+            "title": "API & Intégration externe"
+        },
+        {
+            "id": "backup",
+            "number": "9",
+            "title": "Sauvegarde & Système d'archivage"
+        },
+        {
+            "id": "helper",
+            "number": "10",
+            "title": "Scripts d'assistance & utilitaires"
+        },
+        {
+            "id": "responsive",
+            "number": "11",
+            "title": "Design responsive"
+        },
+        {
+            "id": "verzeichnisse",
+            "number": "12",
+            "title": "Structure des répertoires"
+        },
+        {
+            "id": "workflow",
+            "number": "13",
+            "title": "Flux de travail de développement"
+        },
+        {
+            "id": "debugging",
+            "number": "14",
+            "title": "Recherche d'erreurs & Débogage"
+        },
+        {
+            "id": "versionen",
+            "number": "15",
+            "title": "Versionnage & Journal des modifications"
+        },
+        {
+            "id": "anhang",
+            "number": "16",
+            "title": "Annexes"
+        }
+    ],
+    "version": "Version 3.0",
+    "framework": "Django 5.x",
+    "users": "23.000+ conseillers",
+    "chapters": "16 chapitres"
+}

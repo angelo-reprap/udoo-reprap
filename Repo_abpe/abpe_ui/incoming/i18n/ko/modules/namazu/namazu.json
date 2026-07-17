@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "컨설턴트 검색 (나마즈)",
+            "placeholder": "이름, 스킬, 기술...",
+            "btn": "검색",
+            "max_label": "최대 결과"
+        },
+        "results": {
+            "total": "전체 결과",
+            "empty": "결과를 찾을 수 없습니다",
+            "score": "점수"
+        },
+        "profile": {
+            "open": "프로필",
+            "preview": "데이터 시트 미리보기",
+            "close": "닫기"
+        },
+        "admin": {
+            "title": "인덱스 관리",
+            "imap_title": "IMAP 사서함",
+            "add_account": "계정 추가",
+            "active": "활성",
+            "inactive": "비활성",
+            "html_count": "HTML 파일",
+            "index_size": "인덱스 크기",
+            "last_indexed": "마지막 인덱싱",
+            "reindex_btn": "재인덱싱 시작",
+            "reindex_ok": "재인덱싱이 시작되었습니다",
+            "reindex_err": "시작 중 오류 발생",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "로딩 중..."
+        },
+        "es": {
+            "title": "Elasticsearch 검색",
+            "placeholder": "스킬, 이름, 기술...",
+            "exclude": "제외:",
+            "exclude_account": "사서함 제외",
+            "query_helper": "쿼리 도움말",
+            "examples": "예시:",
+            "index": {
+                "consultants": "컨설턴트",
+                "emails": "이메일",
+                "profiles": "프로필"
+            },
+            "sort": {
+                "placeholder": "정렬...",
+                "date_desc": "날짜 ↓",
+                "date_asc": "날짜 ↑",
+                "indexed_desc": "인덱싱 ↓",
+                "indexed_asc": "인덱싱 ↑",
+                "attachments": "첨부 파일 우선",
+                "from_asc": "보낸 사람 A-Z",
+                "account_asc": "사서함 A-Z",
+                "name_asc": "이름 A-Z",
+                "status": "상태",
+                "available": "사용 가능 시작일",
+                "availability": "가용성",
+                "folder_asc": "폴더 A-Z",
+                "size_desc": "크기 ↓"
+            },
+            "chips": {
+                "boolean": "부울:",
+                "wildcards": "와일드카드 및 퍼지:",
+                "fields_email": "필드 (이메일):",
+                "fields_consultant": "필드 (컨설턴트):",
+                "date_ranges": "날짜 및 범위:",
+                "and": "둘 다",
+                "or": "하나",
+                "not": "제외",
+                "must": "반드시 포함",
+                "must_not": "포함하지 않음",
+                "wildcard": "와일드카드",
+                "one_char": "한 문자",
+                "fuzzy": "퍼지",
+                "phrase": "구문",
+                "proximity": "근접",
+                "boost": "부스트",
+                "with_attachment": "첨부 파일 있음",
+                "fulltext": "전체 텍스트",
+                "name": "이름",
+                "location": "위치",
+                "availability": "가용성",
+                "subject": "제목",
+                "sender": "보낸 사람",
+                "content": "내용",
+                "mailbox": "사서함",
+                "folder": "폴더"
+            }
+        }
+    }
+}
