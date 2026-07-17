@@ -1,0 +1,123 @@
+/* core-theme.css - CSS-Variablen für Light/Dark Mode */
+:root {
+    /* Light Mode */
+    --abcona-blue: #163258;
+    --abcona-dark: #1a2744;
+    --abcona-blue-dark: #0f2442;
+    --abcona-blue-light: #1e4a7a;
+    --abcona-gray-bg: #eef2f5;
+    --abcona-gray-card: #f8fafc;
+    --status-green: #10b981;
+    --status-yellow: #f59e0b;
+    --status-red: #ef4444;
+    --sidebar-width-expanded: 240px;
+    --sidebar-width-collapsed: 60px;
+    --arc-radius: 20px;
+    --border-radius-card: 12px;
+    --border-radius-logo: 8px;
+    --text-primary: #1e1e1e;
+    --text-secondary: #6c757d;
+    --border-color: #dee2e6;
+}
+
+body.dark-mode {
+    /* Dark Mode - Dunkelgrau/Schwarz, KEIN Blau */
+    --abcona-blue: #3a3a3a;
+    --abcona-blue-dark: #2a2a2a;
+    --abcona-blue-light: #4a4a4a;
+    --abcona-gray-bg: #0f0f0f;
+    --abcona-gray-card: #1a1a1a;
+    --status-green: #10b981;
+    --status-yellow: #f59e0b;
+    --status-red: #ef4444;
+    --sidebar-width-expanded: 240px;
+    --sidebar-width-collapsed: 60px;
+    --arc-radius: 20px;
+    --border-radius-card: 12px;
+    --border-radius-logo: 8px;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --border-color: #333333;
+}
+
+/* Transition für flüssigen Wechsel */
+* {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Alpha-Variante für Hintergründe */
+:root {
+    --abcona-blue-alpha: rgba(22,50,88,.08);
+}
+
+body.dark-mode {
+    --abcona-blue-alpha: rgba(255,255,255,.08);
+}
+
+/* Semantische Badge/Status Farben */
+:root {
+    --badge-success-bg:   #d1fae5;
+    --badge-success-text: #065f46;
+    --badge-error-bg:     #fee2e2;
+    --badge-error-text:   #991b1b;
+    --badge-warning-bg:   #fef3c7;
+    --badge-warning-text: #92400e;
+    --badge-warning-hover: #fde68a;
+    --badge-warning-border: #f59e0b;
+    --text-muted:         #6c757d;
+    --border-light:       #e9ecef;
+}
+
+body.dark-mode {
+    --badge-success-bg:   #064e3b;
+    --badge-success-text: #6ee7b7;
+    --badge-error-bg:     #7f1d1d;
+    --badge-error-text:   #fca5a5;
+    --badge-warning-bg:   #78350f;
+    --badge-warning-text: #fcd34d;
+    --badge-warning-hover: #92400e;
+    --badge-warning-border: #d97706;
+    --text-muted:         #a0a0a0;
+    --border-light:       #333333;
+}
+
+/* Erweiterte Farb-Variablen */
+:root {
+    --abcona-blue-tint:      #e8f0f8;
+    --abcona-blue-tint-border: #b5d0f0;
+    --status-green-dark:     #1e8449;
+    --status-green-bg:       #d4edda;
+    --status-green-text:     #155724;
+    --status-yellow-dark:    #e67e22;
+    --status-yellow-bg:      #fff3cd;
+    --status-yellow-text:    #856404;
+    --status-red-bg:         #f8d7da;
+    --status-red-text:       #721c24;
+    --bg-white:              #ffffff;
+    --text-dark:             #212529;
+    --text-mid:              #495057;
+}
+
+body.dark-mode {
+    --abcona-blue-tint:      #1a2a3a;
+    --abcona-blue-tint-border: #2a4a6a;
+    --status-green-dark:     #16a34a;
+    --status-green-bg:       #064e3b;
+    --status-green-text:     #6ee7b7;
+    --status-yellow-dark:    #d97706;
+    --status-yellow-bg:      #78350f;
+    --status-yellow-text:    #fcd34d;
+    --status-red-bg:         #7f1d1d;
+    --status-red-text:       #fca5a5;
+    --bg-white:              #1a1a1a;
+    --text-dark:             #e0e0e0;
+    --text-mid:              #a0a0a0;
+}
+
+/* Code Syntax Highlighting */
+:root {
+    --code-keyword: #9cdcfe;
+    --code-string:  #ce9178;
+    --code-class:   #4ec9b0;
+    --code-fn:      #dcdcaa;
+}
