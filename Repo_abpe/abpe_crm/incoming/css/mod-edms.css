@@ -19,7 +19,7 @@
 .edms-col-treffer {
     flex: 0 0 240px;
     min-width: 160px;
-    background: #fff;
+    background: var(--bg-white);
     border-radius: var(--border-radius-card);
     border: 1px solid var(--border-color);
     overflow: hidden;
@@ -31,7 +31,7 @@
 .edms-col-akte {
     flex: 0 0 270px;
     min-width: 180px;
-    background: #fff;
+    background: var(--bg-white);
     border-radius: var(--border-radius-card);
     border: 1px solid var(--border-color);
     overflow: hidden;
@@ -43,7 +43,7 @@
 .edms-col-vorschau {
     flex: 1 1 auto;
     min-width: 300px;
-    background: #fff;
+    background: var(--bg-white);
     border-radius: var(--border-radius-card);
     border: 1px solid var(--border-color);
     overflow: hidden;
@@ -97,7 +97,7 @@
 }
 .edms-resizer:hover::after,
 .edms-resizer.dragging::after {
-    background: var(--abcona-blue);
+    background: var(--link-color);
 }
 
 /* ── Akte: DocType-Reiter (Pills) ── */
@@ -158,9 +158,9 @@
     transition: background .15s;
 }
 .edms-akte-doc:hover  { background: var(--abcona-gray-card); }
-.edms-akte-doc.active { background: var(--abcona-gray-bg); border-left: 3px solid var(--abcona-blue); }
-.edms-akte-doc i { font-size: 14px; color: var(--abcona-blue); flex-shrink: 0; }
-.edms-akte-doc .edms-akte-dtitle { font-size: 11px; font-weight: 600; color: var(--abcona-blue); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.edms-akte-doc.active { background: var(--abcona-gray-bg); border-left: 3px solid var(--link-color); }
+.edms-akte-doc .edms-type-icon { flex-shrink: 0; cursor: pointer; }
+.edms-akte-doc .edms-akte-dtitle { font-size: 11px; font-weight: 600; color: var(--text-primary); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .edms-akte-doc .edms-akte-dsub   { font-size: 9px; color: var(--text-muted); }
 
 /* ── Vorschau: zwei Reiter (Dokument / Mails) ── */
@@ -183,8 +183,8 @@
     gap: 5px;
 }
 .edms-vorschau-tab.active {
-    color: var(--abcona-blue);
-    border-bottom-color: var(--abcona-blue);
+    color: var(--text-link);
+    border-bottom-color: var(--text-link);
 }
 
 /* Vorschau-Kopf (Dateiname + Aktionen) */
@@ -196,10 +196,10 @@
     gap: 8px;
     flex-shrink: 0;
 }
-.edms-vorschau-fname { font-size: 11px; font-weight: 600; color: var(--abcona-blue); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.edms-vorschau-fname { font-size: 11px; font-weight: 600; color: var(--text-primary); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .edms-vorschau-format {
     font-size: 9px; padding: 2px 7px; border-radius: 5px;
-    background: var(--abcona-gray-bg); color: var(--abcona-blue);
+    background: var(--abcona-gray-bg); color: var(--text-link);
     flex-shrink: 0;
 }
 .edms-vorschau-actions { margin-left: auto; display: flex; gap: 5px; flex-shrink: 0; }
@@ -207,13 +207,13 @@
     width: 26px; height: 26px;
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    background: #fff;
+    background: var(--bg-white);
     color: var(--text-muted);
     cursor: pointer;
     display: flex; align-items: center; justify-content: center;
     font-size: 13px;
 }
-.edms-vorschau-actbtn:hover { background: var(--abcona-gray-card); color: var(--abcona-blue); }
+.edms-vorschau-actbtn:hover { background: var(--abcona-gray-card); color: var(--text-link); }
 
 /* ── Kopierbare Pfad-Zeile ── */
 .edms-pfad-zeile {
@@ -240,8 +240,8 @@
     width: 22px; height: 22px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
-    background: #fff;
-    color: var(--abcona-blue);
+    background: var(--bg-white);
+    color: var(--text-link);
     cursor: pointer;
     display: flex; align-items: center; justify-content: center;
     font-size: 11px;
@@ -321,7 +321,7 @@
 }
 .edms-mode-btn {
     padding: 7px 14px;
-    background: #fff;
+    background: var(--bg-white);
     color: var(--text-secondary);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-card);
@@ -366,12 +366,12 @@
 /* ── v2: Detail-Icon in Akte-Zeile ── */
 .edms-akte-detailbtn {
     font-size: 15px;
-    color: var(--abcona-blue);
+    color: var(--text-link);
     cursor: pointer;
     flex-shrink: 0;
     padding: 2px;
 }
-.edms-akte-detailbtn:hover { color: var(--abcona-blue); opacity: .7; }
+.edms-akte-detailbtn:hover { color: var(--text-link); opacity: .7; }
 /* ── 2b: Akte-Filterleiste ── */
 .edms-akte-filter {
     display: flex;
@@ -389,7 +389,7 @@
     padding: 0 4px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
-    background: #fff;
+    background: var(--bg-white);
     color: var(--text-secondary);
 }
 
@@ -405,11 +405,11 @@
 }
 .edms-detail-back {
     font-size: 16px;
-    color: var(--abcona-blue);
+    color: var(--text-link);
     cursor: pointer;
 }
 .edms-detail-back:hover { opacity: .7; }
-.edms-detail-title { font-size: 12px; font-weight: 600; color: var(--abcona-blue); }
+.edms-detail-title { font-size: 12px; font-weight: 600; color: var(--text-primary); }
 
 .edms-detail-owner {
     display: flex;
@@ -426,11 +426,12 @@
     color: var(--text-muted);
     cursor: pointer;
 }
-.edms-detail-crm:hover { color: var(--abcona-blue); }
+.edms-detail-crm:hover { color: var(--text-link); }
 .edms-detail-noowner i { font-size: 18px; color: var(--badge-warning-text,#c2841d); }
 .edms-detail-noowner .edms-detail-oname { color: var(--badge-warning-text,#c2841d); }
 
-.edms-detail-body { padding: 4px 12px; }
+.edms-detail-body { padding: 4px 12px; background: var(--bg-white); color: var(--text-primary); }
+#edms-akte-panel .edms-col-body { background: var(--bg-white); }
 .edms-detail-fname { font-size: 11px; font-weight: 600; margin: 8px 0 4px; color: var(--text-primary); }
 .edms-detail-table { width: 100%; border-collapse: collapse; }
 .edms-detail-lbl {
@@ -518,7 +519,7 @@
     gap: 6px;
     font-size: 12px;
 }
-.edms-inbox-abcona { color: var(--abcona-blue); border-color: var(--abcona-blue); }
+.edms-inbox-abcona { color: var(--text-link); border-color: var(--text-link); }
 .edms-inbox-done { color: var(--text-secondary); }
 
 /* ── A: Archivierte Dokumente in der Akte markieren ── */
@@ -537,11 +538,9 @@
 .edms-mail-row { display:flex; gap:8px; align-items:center; padding:7px 12px; border-bottom:1px solid var(--border-light); cursor:pointer; }
 .edms-mail-row:hover { background:var(--abcona-gray-bg); }
 .edms-mail-row.active { background:var(--abcona-gray-card); }
-.edms-mail-row > i { font-size:14px; flex-shrink:0; }
-.edms-mail-out { color:var(--abcona-blue); }
-.edms-mail-in  { color:var(--status-green,#1d9e75); }
+.edms-mail-row .edms-type-icon { flex-shrink:0; }
 .edms-mail-rowmain { flex:1; min-width:0; }
-.edms-mail-subject { font-size:12px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.edms-mail-subject { font-size:12px; font-weight:600; color:var(--text-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .edms-mail-peer { font-size:10px; color:var(--text-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .edms-mail-meta { text-align:right; flex-shrink:0; font-size:10px; color:var(--text-muted); display:flex; flex-direction:column; align-items:flex-end; gap:2px; }
 .edms-mail-clip { font-size:11px; }
@@ -549,7 +548,7 @@
 .edms-mail-detail { flex:1 1 auto; overflow-y:auto; min-height:0; }
 .edms-mail-detail:empty::before { content:""; }
 .edms-mail-dhead { display:flex; align-items:center; gap:10px; padding:12px 14px 10px; border-bottom:1px solid var(--border-light); }
-.edms-mail-avatar { width:38px; height:38px; border-radius:50%; background:var(--abcona-blue); color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; flex-shrink:0; }
+.edms-mail-avatar { width:38px; height:38px; border-radius:50%; background:#ba7517; color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; flex-shrink:0; }
 .edms-mail-dfrom { flex:1; min-width:0; }
 .edms-mail-dname { font-size:13px; font-weight:600; }
 .edms-mail-daddr { font-size:11px; color:var(--text-muted); }
@@ -561,14 +560,13 @@
 .edms-mail-attachbar { display:flex; flex-wrap:wrap; gap:8px; padding:0 14px 10px; }
 .edms-mail-attach { display:flex; align-items:center; gap:8px; background:var(--abcona-gray-bg); border:1px solid var(--border-color); border-radius:6px; padding:6px 10px; text-decoration:none; color:inherit; max-width:240px; }
 .edms-mail-attach:hover { background:var(--abcona-gray-card); }
-.edms-mail-attach > i { font-size:20px; color:var(--abcona-blue); flex-shrink:0; }
+.edms-mail-attach > i { font-size:20px; color:var(--text-link); flex-shrink:0; }
 .edms-mail-attmeta { min-width:0; }
 .edms-mail-attname { font-size:11px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .edms-mail-attsize { font-size:10px; color:var(--text-muted); }
 .edms-mail-bodyframe { width:100%; height:420px; border:0; background:#fff; }
 
 /* ── Mail-Zeilen in der gemischten Akte-Liste ── */
-.edms-akte-mailicon { color: var(--abcona-blue); }
 .edms-akte-mailrow:hover { background: var(--abcona-gray-bg); }
 
 /* ── Dritte Zeile: eigene Mail-Zeile (blau hinterlegt) ── */
@@ -581,7 +579,7 @@
     background: var(--abcona-blue-bg, rgba(55,138,221,0.08));
     flex-shrink: 0;
 }
-.edms-akte-mailbar-ic { color: var(--abcona-blue); font-size: 13px; flex-shrink: 0; }
+.edms-akte-mailbar-ic { color: #ba7517; font-size: 13px; flex-shrink: 0; }
 .edms-akte-mailbar select {
     flex: 1 1 auto;
     min-width: 120px;
@@ -590,16 +588,16 @@
     padding: 0 4px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
-    background: #fff;
+    background: var(--bg-white);
     color: var(--text-secondary);
 }
 .edms-akte-mailcount {
     font-size: 10px;
     padding: 3px 9px;
     border-radius: 20px;
-    background: #fff;
-    color: var(--abcona-blue);
-    border: 1px solid var(--abcona-blue);
+    background: var(--bg-white);
+    color: var(--text-link);
+    border: 1px solid var(--border-color);
     white-space: nowrap;
     flex-shrink: 0;
 }
@@ -709,6 +707,17 @@
     align-items: center; gap: 1px; padding-left: 6px;
     align-self: center;
 }
-.crm-dok-num { font-size: 14px; font-weight: 600; color: var(--abcona-blue,#2b3a52); line-height: 1; }
+.crm-dok-num { font-size: 14px; font-weight: 600; color: var(--text-link); line-height: 1; }
+
+/* ── Typ-Icons (Person / Firma / Dokument / Mail) wie Global-Search ── */
+.edms-type-icon {
+    width: 28px; height: 28px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 13px; flex-shrink: 0;
+}
+.edms-kind-person  { background: #6b62c9; }
+.edms-kind-firma   { background: #1d9e75; }
+.edms-kind-dokument { background: #378add; }
+.edms-kind-mail    { background: #ba7517; }
 .crm-dok-lbl { font-size: 8px; text-transform: uppercase; letter-spacing: .3px; color: var(--text-muted); }
 .crm-dok-zero .crm-dok-num { color: #b4b2a9; }

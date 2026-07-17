@@ -217,6 +217,16 @@ const EDMS = {
         return {person:this.t('edms_kind_person','Person'), firma:this.t('edms_kind_firma','Firma'),
                 dokument:this.t('edms_kind_dokument','Dokument'), mail:this.t('edms_kind_mail','Mail')}[k] || k;
     },
+    _kindColor(k) {
+        return { person:'#6b62c9', firma:'#1d9e75', dokument:'#378add', mail:'#ba7517' }[k] || '#888';
+    },
+    _typeIconHtml(kind, biIcon, onclick) {
+        const click = onclick ? ' onclick="' + onclick + '"' : '';
+        return '<div class="edms-type-icon edms-kind-' + kind + '"' + click + '><i class="bi ' + biIcon + '"></i></div>';
+    },
+    _doctypeKind(doctype) {
+        return ['email', 'korrespondenz'].includes(doctype) ? 'mail' : 'dokument';
+    },
     renderMixed(results) {
         const list = document.getElementById('edms-col1-list')
                   || document.getElementById('edms-col-treffer-body')
@@ -229,13 +239,12 @@ const EDMS = {
         list.innerHTML = results.map(r => this._mixItem(r)).join('');
     },
     _mixItem(r) {
-        const badgeCol = { person:'#6b62c9', firma:'#1d9e75', dokument:'#378add', mail:'#ba7517' }[r.kind] || '#888';
+        const badgeCol = this._kindColor(r.kind);
         let icon;
         if (r.kind === 'person') {
-            icon = '<div class="crm-avatar" style="font-size:10px">' + this._initials(r.title) + '</div>';
+            icon = '<div class="crm-avatar edms-kind-person" style="font-size:10px;background:' + badgeCol + '">' + this._initials(r.title) + '</div>';
         } else {
-            const bi = this._kindIcon(r.kind);
-            icon = '<div class="crm-avatar" style="background:' + badgeCol + ';border-radius:6px;font-size:13px"><i class="bi ' + bi + '"></i></div>';
+            icon = this._typeIconHtml(r.kind, this._kindIcon(r.kind));
         }
         const sub = r.meta ? this._esc(r.meta) : this._kindLabel(r.kind);
         const dokCounter = (r.kind === 'person')
@@ -321,8 +330,8 @@ const EDMS = {
     _personItem(p) {
         const isAccount = p.owner_type === 'account';
         const icon = isAccount
-            ? '<div class="crm-avatar" style="background:var(--abcona-blue);border-radius:6px;font-size:13px"><i class="bi bi-building"></i></div>'
-            : '<div class="crm-avatar" style="font-size:10px">' + this._initials(p.name) + '</div>';
+            ? this._typeIconHtml('firma', 'bi-building')
+            : '<div class="crm-avatar edms-kind-person" style="font-size:10px;background:#6b62c9">' + this._initials(p.name) + '</div>';
         const typeLabel = isAccount ? this.t('kunden_label','Firma') : this.t('berater_label','Berater');
         return '<div class="crm-list-item" data-crm-id="' + p.crm_id + '"' +
             ' data-owner-type="' + p.owner_type + '" data-name="' + (p.name||'').replace(/"/g,'&quot;') + '">' +
@@ -348,11 +357,11 @@ const EDMS = {
 
     _dokItem(r) {
         const owner = (r.owner_names && r.owner_names.length) ? r.owner_names[0] : this.t('edms_kein_owner','kein Owner');
-        const icon = this._docIcon(r.doctype);
+        const kind = this._doctypeKind(r.doctype);
+        const icon = this._typeIconHtml(kind, this._docIcon(r.doctype));
         const sub = [owner, r.doctype_label || r.doctype].filter(Boolean).join(' · ');
         return '<div class="crm-list-item" data-uuid="' + r.uuid + '">' +
-            '<div class="crm-avatar" style="background:var(--abcona-blue);font-size:13px"><i class="bi ' + icon + '"></i></div>' +
-            '<div class="crm-item-info">' +
+            icon + '<div class="crm-item-info">' +
             '<div class="crm-item-name" style="font-size:12px">' + (r.title || r.filename || '—') + '</div>' +
             '<div class="crm-item-sub">' + sub + '</div>' +
             '</div></div>';
@@ -708,10 +717,11 @@ const EDMS = {
         list.innerHTML = items.map(it => {
             if (it._type === 'mail') {
                 const dir = this._mailDir(it._mail);
+                const mailBi = dir === 'in' ? 'bi-envelope-arrow-down' : 'bi-envelope-arrow-up';
                 const clip = it.has_attachments ? '<i class="bi bi-paperclip edms-akte-archicon"></i>' : '';
                 const datum = it.date ? ' · ' + this._mailDate(it.date) : '';
                 return '<div class="edms-akte-doc edms-akte-mailrow" onclick="EDMS.openAkteMail(' + it._mailIdx + ')">' +
-                    '<i class="bi ' + (dir === 'in' ? 'bi-envelope-arrow-down' : 'bi-envelope-arrow-up') + ' edms-akte-mailicon"></i>' +
+                    this._typeIconHtml('mail', mailBi) +
                     '<div style="flex:1;min-width:0">' +
                     '<div class="edms-akte-dtitle">' + clip + this._esc(it.title) + '</div>' +
                     '<div class="edms-akte-dsub">' + this._esc(it.sub) + datum + '</div></div>' +
@@ -724,8 +734,9 @@ const EDMS = {
                 : '';
             const sizeKb = it.size_bytes ? ' · ' + Math.round(it.size_bytes/1024) + ' KB' : '';
             const datum = it.date ? ' · ' + it.date.substring(0,10) : '';
+            const docKind = this._doctypeKind(it.doctype);
             return '<div class="edms-akte-doc' + act + arch + '" data-uuid="' + it.uuid + '">' +
-                '<i class="bi ' + this._docIcon(it.doctype) + '" onclick="EDMS.selectAkteDoc(this.parentNode,\'' + it.uuid + '\')"></i>' +
+                this._typeIconHtml(docKind, this._docIcon(it.doctype), 'EDMS.selectAkteDoc(this.parentNode,\'' + it.uuid + '\')') +
                 '<div style="flex:1;min-width:0" onclick="EDMS.selectAkteDoc(this.parentNode,\'' + it.uuid + '\')">' +
                 '<div class="edms-akte-dtitle">' + archBadge + this._esc(it.title) + '</div>' +
                 '<div class="edms-akte-dsub">' + this._esc(it.sub) + datum + sizeKb + '</div></div>' +
@@ -889,7 +900,7 @@ const EDMS = {
         // Owner-Kopf
         const ownerHead = owner
             ? '<div class="edms-detail-owner">' +
-                '<div class="crm-avatar" style="width:30px;height:30px;font-size:10px' + (owner.type==='account'?';border-radius:6px':'') + '">' +
+                '<div class="crm-avatar" style="width:30px;height:30px;font-size:10px;background:' + (owner.type==='account'?'#1d9e75':'#6b62c9') + (owner.type==='account'?';border-radius:6px':'') + '">' +
                 (owner.type==='account' ? '<i class="bi bi-building"></i>' : this._initials(owner.name)) + '</div>' +
                 '<div style="min-width:0"><div class="edms-detail-oname">' + (owner.name||'') + '</div>' +
                 '<div class="edms-detail-osub">' + (owner.type==='account'?this.t('kunden_label','Firma'):this.t('berater_label','Berater')) + ' · ' + this.t('edms_owner','Owner') + '</div></div>' +
@@ -1121,8 +1132,9 @@ const EDMS = {
             const dt = m.date ? this._mailDate(m.date) : '';
             const clip = m.has_attachments ? '<i class="bi bi-paperclip edms-mail-clip"></i>' : '';
             const peer = this._mailPeer(m, dir);
+            const mailBi = dir === 'out' ? 'bi-envelope-arrow-up' : 'bi-envelope-arrow-down';
             return '<div class="edms-mail-row" data-i="' + i + '" onclick="EDMS.openMail(' + i + ')">' +
-                '<i class="bi ' + (dir === 'out' ? 'bi-arrow-up-right edms-mail-out' : 'bi-arrow-down-left edms-mail-in') + '"></i>' +
+                this._typeIconHtml('mail', mailBi) +
                 '<div class="edms-mail-rowmain">' +
                 '<div class="edms-mail-subject">' + this._esc(m.subject) + '</div>' +
                 '<div class="edms-mail-peer">' + this._esc(peer) + '</div></div>' +
