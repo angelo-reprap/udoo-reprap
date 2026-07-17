@@ -412,6 +412,76 @@
 .es-var-chip.user:hover    { background: var(--status-green-bg); }
 .es-var-chip.system  { background: var(--abcona-gray-card); color: var(--text-primary); }
 .es-var-chip.system:hover  { background: var(--abcona-gray-bg); }
+.es-var-chip.meetme  { background: #fff3e0; color: #9a3412; }
+.es-var-chip.meetme:hover  { background: #ffedd5; }
+.es-var-chip.module  { background: #f3e8ff; color: #6b21a8; }
+.es-var-chip.module:hover  { background: #ede9fe; }
+.es-var-chip-label { flex: 1; min-width: 0; }
+.es-var-chip-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+.es-var-info-btn {
+    border: none;
+    background: transparent;
+    padding: 0;
+    line-height: 1;
+    opacity: .65;
+    color: inherit;
+    cursor: pointer;
+}
+.es-var-info-btn:hover { opacity: 1; }
+.es-section-hint {
+    border: none;
+    background: transparent;
+    padding: 0 2px;
+    margin-left: 2px;
+    line-height: 1;
+    color: rgba(255,255,255,.75);
+    cursor: help;
+    vertical-align: middle;
+}
+.section-header:not(.open) .es-section-hint,
+.es-studio-sidebar .section-header .es-section-hint {
+    color: var(--text-secondary);
+}
+.es-first-steps-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 7px 10px;
+    border: 1px dashed var(--abcona-blue-tint-border);
+    border-radius: 6px;
+    background: var(--abcona-blue-tint);
+    color: var(--abcona-blue);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.es-first-steps-btn:hover {
+    background: var(--abcona-blue-tint-border);
+}
+.es-var-popover { font-size: 11px; max-width: 240px; }
+.es-var-popover-desc { margin: 4px 0; color: var(--text-secondary); }
+.es-var-popover-example {
+    font-family: monospace;
+    font-size: 10px;
+    background: var(--abcona-gray-card);
+    padding: 4px 6px;
+    border-radius: 4px;
+    margin-top: 4px;
+    word-break: break-word;
+}
+.es-var-popover-hint {
+    margin-top: 6px;
+    font-size: 9px;
+    color: var(--text-secondary);
+}
 .es-var-legend {
     font-size: 9px;
     color: var(--text-secondary);
