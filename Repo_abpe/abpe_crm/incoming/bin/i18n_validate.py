@@ -8,7 +8,8 @@ Funktionen:
   1. Struktur-Check   — alle JSON-Dateien in allen Sprachen vorhanden (wie DE)
   2. Key-Check        — alle Keys in allen Sprachen identisch wie DE
   3. Sprach-Check     — Inhalt wirklich in der Zielsprache (Deepseek, parallel)
-  4. Auto-Fix         — fehlerhafte JSONs löschen + i18n_translator.py aufrufen
+  4. Nav-Titles       — titles.<lang> in module.json + modules.json
+  5. Auto-Fix         — fehlerhafte JSONs löschen + i18n_translator.py aufrufen
 
 Aufruf:
   python3 i18n_validate.py              # Alles prüfen (kein Fix)
@@ -27,7 +28,7 @@ import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-from typing import Optional
+from typing import Iterator, Optional
 
 import requests
 import urllib3
@@ -35,11 +36,13 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ── Konfiguration ─────────────────────────────────────────────────────────────
-BASE_DIR    = Path('/opt/abpe/backend')
-I18N_DIR    = BASE_DIR / 'apps/abpe_crm/static/abpe_crm/i18n'
-SETTINGS    = BASE_DIR / 'settings.json'
-TRANSLATOR  = BASE_DIR / 'apps/abpe_crm/bin/i18n_translator.py'
-REF_LANG    = 'de'
+BASE_DIR     = Path('/opt/abpe/backend')
+I18N_DIR     = BASE_DIR / 'apps/abpe_crm/static/abpe_crm/i18n'
+MODULES_DIR  = BASE_DIR / 'apps/abpe_crm/templates/abpe_crm/modules'
+MODULES_JSON = BASE_DIR / 'apps/abpe_crm/modules.json'
+SETTINGS     = BASE_DIR / 'settings.json'
+TRANSLATOR   = BASE_DIR / 'apps/abpe_crm/bin/i18n_translator.py'
+REF_LANG     = 'de'
 
 LANG_NAMES = {
     'de': 'German', 'en': 'English', 'fr': 'French', 'it': 'Italian',
@@ -68,19 +71,39 @@ def _load_settings() -> dict:
             pass
     return {}
 
+
 def _load_api_key() -> Optional[str]:
     cfg = _load_settings()
     return cfg.get('ai_models', {}).get('deepseek', {}).get('api_key')
+
 
 def _load_workers() -> int:
     cfg = _load_settings()
     return cfg.get('pipeline', {}).get('parallel_workers_i18n', 10)
 
 
-# ── Deepseek Sprach-Check ──────────────────────────────────────────────────────
+# ── Navigation titles helpers ─────────────────────────────────────────────────
+
+def _iter_modules_json_title_blocks(data: dict) -> Iterator[tuple[dict, str]]:
+    dashboard = data.get('dashboard')
+    if isinstance(dashboard, dict):
+        titles = dashboard.get('titles')
+        if isinstance(titles, dict) and titles.get(REF_LANG):
+            yield titles, 'modules.json:dashboard'
+
+    for key in ('system', 'tabs', 'modules', 'navigation'):
+        for item in data.get(key) or []:
+            if not isinstance(item, dict):
+                continue
+            titles = item.get('titles')
+            item_id = item.get('id', '?')
+            if isinstance(titles, dict) and titles.get(REF_LANG):
+                yield titles, f"modules.json:{key}.{item_id}"
+
+
+# ── Deepseek Sprach-Check ─────────────────────────────────────────────────────
 
 def _extract_text_values(data, results=None):
-    """Alle String-Values aus JSON rekursiv extrahieren."""
     if results is None:
         results = []
     if isinstance(data, dict):
@@ -90,21 +113,15 @@ def _extract_text_values(data, results=None):
         for item in data:
             _extract_text_values(item, results)
     elif isinstance(data, str) and len(data.strip()) > 10:
-        # HTML-Tags entfernen für saubereren Text-Check
         import re
         clean = re.sub(r'<[^>]+>', ' ', data).strip()
         if len(clean) > 10:
-            results.append(clean[:500])  # Max 500 Zeichen pro Value
+            results.append(clean[:500])
     return results
 
 
 def _check_language_with_llm(file_path: Path, target_lang: str, api_key: str,
                                retries: int = 3) -> tuple[bool, str, list]:
-    """
-    Prüft ob der Inhalt einer JSON-Datei wirklich in der Zielsprache ist.
-    Gibt zurück: (valid, detected_lang, issues)
-    """
-    data = None
     try:
         data = json.loads(file_path.read_text(encoding='utf-8'))
     except Exception as e:
@@ -112,10 +129,9 @@ def _check_language_with_llm(file_path: Path, target_lang: str, api_key: str,
 
     texts = _extract_text_values(data)
     if not texts:
-        return True, target_lang, []  # Keine Text-Values → OK
+        return True, target_lang, []
 
-    # Alle Texte zusammenfügen für einen einzigen API-Call
-    combined = '\n'.join(texts[:50])  # Max 50 Values
+    combined = '\n'.join(texts[:50])
     target_name = LANG_NAMES.get(target_lang, target_lang.upper())
 
     prompt = (
@@ -156,12 +172,9 @@ def _check_language_with_llm(file_path: Path, target_lang: str, api_key: str,
                 raw = raw.rsplit('```', 1)[0].strip()
 
             result = json.loads(raw)
-            valid = result.get('valid', False)
-            detected = result.get('lang_detected', 'unknown')
-            issues = result.get('issues', [])
-            return valid, detected, issues
+            return result.get('valid', False), result.get('lang_detected', 'unknown'), result.get('issues', [])
 
-        except Exception as e:
+        except Exception:
             time.sleep(2 ** attempt)
 
     return False, 'unknown', ['API-Fehler nach Retries']
@@ -170,7 +183,6 @@ def _check_language_with_llm(file_path: Path, target_lang: str, api_key: str,
 # ── Checks ────────────────────────────────────────────────────────────────────
 
 def check_structure(target_langs: list[str]) -> dict[str, list[str]]:
-    """Check 1: Alle Dateien vorhanden wie in DE."""
     ref_dir = I18N_DIR / REF_LANG
     ref_files = sorted(ref_dir.rglob('*.json'))
     report = {lang: [] for lang in target_langs}
@@ -187,7 +199,6 @@ def check_structure(target_langs: list[str]) -> dict[str, list[str]]:
 
 
 def check_keys(target_langs: list[str]) -> dict[str, list[str]]:
-    """Check 2: Alle Keys identisch wie in DE."""
     ref_dir = I18N_DIR / REF_LANG
     ref_files = sorted(ref_dir.rglob('*.json'))
     report = {lang: [] for lang in target_langs}
@@ -226,15 +237,12 @@ def check_keys(target_langs: list[str]) -> dict[str, list[str]]:
 
 def check_language(target_langs: list[str], api_key: str,
                    workers: int = 10) -> dict[str, list[tuple[Path, str, list]]]:
-    """Check 3: Inhalt wirklich in Zielsprache (Deepseek, parallel)."""
     report = {lang: [] for lang in target_langs}
 
-    # Alle zu prüfenden Dateien sammeln
     tasks = []
     for lang in target_langs:
         tgt_dir = I18N_DIR / lang
         for tgt_file in sorted(tgt_dir.rglob('*.json')):
-            # meta.json und manifest.json überspringen
             if tgt_file.name in ('meta.json', 'manifest.json'):
                 continue
             tasks.append((tgt_file, lang, api_key))
@@ -256,23 +264,82 @@ def check_language(target_langs: list[str], api_key: str,
             if not valid:
                 report[lang].append((tgt_file, str(rel), issues))
                 log.warning(f"  ✗ [{done:3d}/{len(tasks)}] {lang}/{rel} — erkannt: {detected}")
-            else:
-                log.debug(f"  ✓ [{done:3d}/{len(tasks)}] {lang}/{rel}")
 
     return report
 
 
-# ── Fix ───────────────────────────────────────────────────────────────────────
+def check_nav_titles(target_langs: list[str]) -> dict[str, list[str]]:
+    report = {lang: [] for lang in target_langs}
+
+    if MODULES_DIR.exists():
+        for mod_dir in sorted(MODULES_DIR.iterdir()):
+            if not mod_dir.is_dir():
+                continue
+            path = mod_dir / 'module.json'
+            if not path.exists():
+                continue
+            try:
+                data = json.loads(path.read_text(encoding='utf-8'))
+            except Exception as e:
+                report.setdefault(REF_LANG, []).append(f"LESEFEHLER module.json/{mod_dir.name}: {e}")
+                continue
+            mid = data.get('id', mod_dir.name)
+            blocks = [(data.get('titles'), mid)]
+            for sp in data.get('subpages') or []:
+                blocks.append((sp.get('titles'), f"{mid}.{sp.get('id', '?')}"))
+            for titles, label in blocks:
+                if not isinstance(titles, dict) or REF_LANG not in titles:
+                    continue
+                for lang in target_langs:
+                    if lang not in titles:
+                        report[lang].append(label)
+
+    if MODULES_JSON.exists():
+        try:
+            data = json.loads(MODULES_JSON.read_text(encoding='utf-8'))
+        except Exception as e:
+            for lang in target_langs:
+                report[lang].append(f"LESEFEHLER modules.json: {e}")
+            return report
+
+        for titles, label in _iter_modules_json_title_blocks(data):
+            for lang in target_langs:
+                if lang not in titles:
+                    report[lang].append(label)
+
+    return report
+
+
+def fix_nav_titles(nav_report: dict[str, list[str]]) -> list[str]:
+    affected = [lang for lang, issues in nav_report.items() if issues]
+    if not affected:
+        return []
+
+    log.info(f"\n  Starte i18n_translator.py --modules-only für: {affected}")
+    fixed = []
+    for lang in affected:
+        log.info(f"  Navigation titles: {lang} ...")
+        try:
+            proc = subprocess.run(
+                [sys.executable, str(TRANSLATOR), '--modules-only', '--lang', lang],
+                capture_output=True, text=True, timeout=600,
+                cwd=str(BASE_DIR)
+            )
+            if proc.returncode == 0:
+                log.info(f"  ✓ {lang}: Navigation titles ergänzt")
+                fixed.append(lang)
+            else:
+                log.error(f"  ✗ {lang}: {(proc.stderr or proc.stdout)[:200]}")
+        except Exception as e:
+            log.error(f"  ✗ {lang}: {e}")
+
+    return fixed
+
 
 def fix_issues(struct_report: dict, key_report: dict,
                lang_report: dict, target_langs: list[str]) -> list[str]:
-    """
-    Löscht fehlerhafte/unvollständige JSONs und ruft i18n_translator.py auf.
-    Gibt Liste der gelöschten Dateien zurück.
-    """
     deleted = []
 
-    # Dateien mit falscher Sprache löschen
     for lang, issues in lang_report.items():
         for tgt_file, rel, _ in issues:
             try:
@@ -282,8 +349,6 @@ def fix_issues(struct_report: dict, key_report: dict,
             except Exception as e:
                 log.error(f"  ✗ Löschen fehlgeschlagen: {lang}/{rel} — {e}")
 
-    # Dateien mit fehlenden Keys löschen (werden neu übersetzt)
-    ref_dir = I18N_DIR / REF_LANG
     for lang, issues in key_report.items():
         for issue in issues:
             if issue.startswith('KEYS FEHLEN in '):
@@ -301,7 +366,6 @@ def fix_issues(struct_report: dict, key_report: dict,
         log.info("  Keine Dateien zu löschen.")
         return deleted
 
-    # i18n_translator.py aufrufen für betroffene Sprachen
     affected_langs = list(set(d.split('/')[0] for d in deleted))
     log.info(f"\n  Starte i18n_translator.py für: {affected_langs}")
 
@@ -316,7 +380,7 @@ def fix_issues(struct_report: dict, key_report: dict,
             if proc.returncode == 0:
                 log.info(f"  ✓ {lang}: Übersetzung abgeschlossen")
             else:
-                log.error(f"  ✗ {lang}: {proc.stderr[:200]}")
+                log.error(f"  ✗ {lang}: {(proc.stderr or proc.stdout)[:200]}")
         except Exception as e:
             log.error(f"  ✗ {lang}: {e}")
 
@@ -327,13 +391,12 @@ def fix_issues(struct_report: dict, key_report: dict,
 
 def run(args):
     print("\n╔══════════════════════════════════════════════════════╗")
-    print("║   i18n_validate.py — ABpE CRM Sprach-Validator    ║")
+    print("║   i18n_validate.py — ABpE CRM Sprach-Validator       ║")
     print("╚══════════════════════════════════════════════════════╝\n")
 
     workers = _load_workers()
     log.info(f"Workers (aus settings.json): {workers}")
 
-    # Sprachen ermitteln
     all_langs = sorted([
         d.name for d in I18N_DIR.iterdir()
         if d.is_dir() and not d.name.startswith('.')
@@ -348,7 +411,6 @@ def run(args):
 
     log.info(f"Prüfe Sprachen: {target_langs}\n")
 
-    # ── Check 1: Struktur ─────────────────────────────────────────────────
     print("── Check 1: Dateistruktur ──────────────────────────────")
     struct_report = check_structure(target_langs)
     struct_issues = sum(len(v) for v in struct_report.values())
@@ -362,7 +424,6 @@ def run(args):
         else:
             print(f"  {lang.upper()}: ✓ vollständig")
 
-    # ── Check 2: Keys ─────────────────────────────────────────────────────
     print("\n── Check 2: Key-Vollständigkeit ────────────────────────")
     key_report = check_keys(target_langs)
     key_issues = sum(len(v) for v in key_report.values())
@@ -376,7 +437,6 @@ def run(args):
         else:
             print(f"  {lang.upper()}: ✓ alle Keys vorhanden")
 
-    # ── Check 3: Sprach-Check ─────────────────────────────────────────────
     print("\n── Check 3: Sprach-Validierung (Deepseek) ──────────────")
     api_key = _load_api_key()
     lang_report = {lang: [] for lang in target_langs}
@@ -385,7 +445,6 @@ def run(args):
         print("  ⚠ Kein API-Key — Sprach-Check übersprungen")
     else:
         lang_report = check_language(target_langs, api_key, workers)
-        lang_issues = sum(len(v) for v in lang_report.values())
         for lang, issues in lang_report.items():
             if issues:
                 print(f"  {lang.upper()}: {len(issues)} fehlerhafte Dateien")
@@ -394,22 +453,39 @@ def run(args):
             else:
                 print(f"  {lang.upper()}: ✓ Sprache korrekt")
 
-    # ── Zusammenfassung ───────────────────────────────────────────────────
-    total = struct_issues + key_issues + sum(len(v) for v in lang_report.values())
+    print("\n── Check 4: Navigation titles (module.json + modules.json) ─")
+    nav_report = check_nav_titles(target_langs)
+    nav_issues = sum(len(v) for v in nav_report.values())
+    for lang, issues in nav_report.items():
+        if issues:
+            print(f"  {lang.upper()}: {len(issues)} fehlende titles")
+            for i in issues[:5]:
+                print(f"    • {i}")
+            if len(issues) > 5:
+                print(f"    ... (+{len(issues)-5} weitere)")
+        else:
+            print(f"  {lang.upper()}: ✓ vollständig")
+
+    total = (struct_issues + key_issues + sum(len(v) for v in lang_report.values())
+             + nav_issues)
     print(f"\n{'='*58}")
     print(f"  Gesamt: {total} Problem(e) gefunden")
-    print(f"  Struktur: {struct_issues} | Keys: {key_issues} | Sprache: {sum(len(v) for v in lang_report.values())}")
+    print(f"  Struktur: {struct_issues} | Keys: {key_issues} | "
+          f"Sprache: {sum(len(v) for v in lang_report.values())} | "
+          f"Nav-Titles: {nav_issues}")
 
     if total == 0:
         print("  ✅ Alles in Ordnung!")
         print(f"{'='*58}\n")
         return
 
-    # ── Fix ───────────────────────────────────────────────────────────────
     if args.fix:
         print(f"\n── Auto-Fix ────────────────────────────────────────────")
         deleted = fix_issues(struct_report, key_report, lang_report, target_langs)
         print(f"  {len(deleted)} Datei(en) gelöscht und neu übersetzt")
+        if nav_issues > 0:
+            fixed_nav = fix_nav_titles(nav_report)
+            print(f"  Navigation titles ergänzt für: {fixed_nav or '—'}")
         print("\nNächste Schritte:")
         print("  python manage.py collectstatic --noinput")
         print("  supervisorctl restart abpe-django")
@@ -419,11 +495,9 @@ def run(args):
     print(f"{'='*58}\n")
 
 
-# ── CLI ───────────────────────────────────────────────────────────────────────
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description='ABpE CRM i18n Validator — Struktur + Keys + Sprache'
+        description='ABpE CRM i18n Validator — Struktur + Keys + Sprache + Nav-Titles'
     )
     parser.add_argument('--fix',  action='store_true',
                         help='Fehlerhafte Dateien löschen + neu übersetzen')

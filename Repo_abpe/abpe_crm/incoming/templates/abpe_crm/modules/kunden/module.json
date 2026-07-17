@@ -6,7 +6,16 @@
         "en": "Customers",
         "fr": "Clients",
         "it": "Clienti",
-        "es": "Clientes"
+        "es": "Clientes",
+        "ar": "العملاء",
+        "ja": "顧客",
+        "ko": "고객",
+        "nl": "Klanten",
+        "pl": "Klienci",
+        "pt": "Clientes",
+        "ru": "Клиенты",
+        "tr": "Müşteriler",
+        "zh": "客户"
     },
     "icon": "briefcase",
     "route": "/crm/kunden/",

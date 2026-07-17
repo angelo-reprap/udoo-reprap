@@ -6,15 +6,31 @@
         "en": "Consultants",
         "fr": "Consultants",
         "it": "Consulenti",
-        "es": "Consultores"
+        "es": "Consultores",
+        "ar": "مستشار",
+        "ja": "コンサルタント",
+        "ko": "상담사",
+        "nl": "Adviseur",
+        "pl": "Doradca",
+        "pt": "Consultor",
+        "ru": "Консультант",
+        "tr": "Danışman",
+        "zh": "顾问"
     },
     "icon": "people",
     "route": "/crm/berater/",
     "order": 10,
     "enabled": true,
-    "roles": ["!berater"],
+    "roles": [
+        "!berater"
+    ],
     "static": {
-        "css": ["mod-crm.css"],
-        "js":  ["mod-crm.js", "mod-crm-berater.js"]
+        "css": [
+            "mod-crm.css"
+        ],
+        "js": [
+            "mod-crm.js",
+            "mod-crm-berater.js"
+        ]
     }
 }
