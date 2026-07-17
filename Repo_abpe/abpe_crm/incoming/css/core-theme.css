@@ -110,6 +110,8 @@ body.dark-mode {
     --badge-info-bg:       #dbeafe;
     --badge-info-text:     #1d4ed8;
     --bg-white:              #ffffff;
+    --card-bg:               #ffffff;
+    --hover-bg:              #f1f3f5;
     --text-dark:             #212529;
     --text-mid:              #495057;
 }
@@ -128,6 +130,8 @@ body.dark-mode {
     --badge-info-bg:       #1e3a5f;
     --badge-info-text:     #93c5fd;
     --bg-white:              #252525;
+    --card-bg:               #252525;
+    --hover-bg:              #2e2e2e;
     --text-dark:             #e8e8e8;
     --text-mid:              #b0b0b0;
 }
