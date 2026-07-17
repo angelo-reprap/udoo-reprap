@@ -487,6 +487,7 @@ window.CRM_I18N = {
 
 window.onCrmLanguageChanged = function() {
     if (window.CRM_I18N) CRM_I18N.refreshUi();
+    if (window.KampagneUI && KampagneUI.refreshUi) KampagneUI.refreshUi();
 };
 
 // Global verfügbar

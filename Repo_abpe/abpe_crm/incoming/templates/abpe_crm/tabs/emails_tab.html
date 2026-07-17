@@ -3,8 +3,8 @@
 <div class="crm-full-panel" style="margin-bottom:12px">
     <div class="section-header open" style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--abcona-blue);color:#fff;cursor:pointer" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.bi-chevron-down').style.transform=this.nextElementSibling.classList.contains('open')?'rotate(0)':'rotate(-90deg)'">
         <i class="bi bi-megaphone"></i>
-        <span style="font-size:13px;font-weight:600">E-Mail Kampagne</span>
-        <span id="kamp-count-badge" style="background:rgba(255,255,255,.2);font-size:11px;padding:1px 8px;border-radius:20px;margin-left:4px">0 ausgewählt</span>
+        <span style="font-size:13px;font-weight:600" data-i18n="email_kampagne">E-Mail Kampagne</span>
+        <span id="kamp-count-badge" style="background:rgba(255,255,255,.2);font-size:11px;padding:1px 8px;border-radius:20px;margin-left:4px" data-i18n="email_kampagne_ausgewaehlt">0 ausgewählt</span>
         <i class="bi bi-chevron-down" style="margin-left:auto;transition:transform .2s"></i>
     </div>
     <div class="section-content open">
@@ -12,40 +12,40 @@
         <!-- Filter-Leiste -->
         <div class="crm-filter-bar" style="flex-wrap:wrap;gap:6px;padding:10px 12px">
             <select id="kamp-filter-typ" onchange="KampagneUI.load()" style="padding:5px 8px;border:1px solid var(--border-color);border-radius:7px;font-size:12px;background:#fff">
-                <option value="">Alle Typen</option>
-                <option value="berater">Berater</option>
-                <option value="kunden">Kunden</option>
+                <option value="" data-i18n="alle_typen">Alle Typen</option>
+                <option value="berater" data-i18n="berater">Berater</option>
+                <option value="kunden" data-i18n="kunden">Kunden</option>
             </select>
             <select id="kamp-filter-status" onchange="KampagneUI.load()" style="padding:5px 8px;border:1px solid var(--border-color);border-radius:7px;font-size:12px;background:#fff">
-                <option value="">Alle Status</option>
-                <option value="aktiv">Aktiv</option>
-                <option value="passiv">Passiv</option>
+                <option value="" data-i18n="alle_status">Alle Status</option>
+                <option value="aktiv" data-i18n="aktiv">Aktiv</option>
+                <option value="passiv" data-i18n="passiv">Passiv</option>
             </select>
             <select id="kamp-filter-kampagne" onchange="KampagneUI.load()" style="padding:5px 8px;border:1px solid var(--border-color);border-radius:7px;font-size:12px;background:#fff">
-                <option value="">Kampagne: alle</option>
-                <option value="1" selected>Kampagne: erlaubt ✓</option>
-                <option value="0">Kampagne: gesperrt</option>
+                <option value="" data-i18n="kampagne_alle">Kampagne: alle</option>
+                <option value="1" selected data-i18n="kampagne_erlaubt_filter">Kampagne: erlaubt ✓</option>
+                <option value="0" data-i18n="kampagne_gesperrt_filter">Kampagne: gesperrt</option>
             </select>
-            <input id="kamp-filter-q" type="text" placeholder="Name oder E-Mail…" onkeydown="if(event.key==='Enter')KampagneUI.load()" style="padding:5px 8px;border:1px solid var(--border-color);border-radius:7px;font-size:12px;flex:1;min-width:140px">
+            <input id="kamp-filter-q" type="text" placeholder="Name oder E-Mail…" data-i18n-placeholder="name_oder_email" onkeydown="if(event.key==='Enter')KampagneUI.load()" style="padding:5px 8px;border:1px solid var(--border-color);border-radius:7px;font-size:12px;flex:1;min-width:140px">
             <button onclick="KampagneUI.load()" style="padding:5px 12px;background:var(--abcona-blue);color:#fff;border:none;border-radius:7px;font-size:12px;cursor:pointer">
-                <i class="bi bi-search"></i> Suchen
+                <i class="bi bi-search"></i> <span data-i18n="suchen">Suchen</span>
             </button>
         </div>
 
         <!-- Auswahl-Leiste -->
         <div style="display:flex;align-items:center;gap:8px;padding:6px 12px;background:var(--abcona-gray-card);border-bottom:1px solid var(--border-light)">
             <input type="checkbox" id="kamp-sel-all" onchange="KampagneUI.toggleAll(this.checked)" style="width:14px;height:14px;cursor:pointer">
-            <label for="kamp-sel-all" style="font-size:12px;color:var(--text-muted);cursor:pointer">Alle auswählen</label>
+            <label for="kamp-sel-all" style="font-size:12px;color:var(--text-muted);cursor:pointer" data-i18n="alle_auswaehlen">Alle auswählen</label>
             <div style="flex:1"></div>
-            <span id="kamp-selected-info" style="font-size:12px;color:var(--abcona-blue);font-weight:600">0 ausgewählt</span>
+            <span id="kamp-selected-info" style="font-size:12px;color:var(--abcona-blue);font-weight:600" data-i18n="email_kampagne_ausgewaehlt">0 ausgewählt</span>
             <button onclick="KampagneUI.openSendDialog()" id="kamp-send-btn" disabled style="padding:5px 14px;background:var(--badge-success-bg);color:var(--badge-success-text);border:1px solid var(--badge-success-text);border-radius:7px;font-size:12px;cursor:pointer;font-weight:600;opacity:.5">
-                <i class="bi bi-send"></i> Kampagne starten
+                <i class="bi bi-send"></i> <span data-i18n="kampagne_starten">Kampagne starten</span>
             </button>
         </div>
 
         <!-- Liste -->
         <div id="kamp-list" class="crm-list" style="max-height:420px;overflow-y:auto">
-            <div class="crm-list-loading"><i class="bi bi-hourglass-split"></i> Lade…</div>
+            <div class="crm-list-loading"><i class="bi bi-hourglass-split"></i> <span data-i18n="laden">Lade…</span></div>
         </div>
 
         <!-- Pagination -->
@@ -63,8 +63,8 @@
 <div class="crm-full-panel" id="kamp-log-panel" style="display:none">
     <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--abcona-blue);color:#fff">
         <i class="bi bi-list-check"></i>
-        <span style="font-size:13px;font-weight:600">Versand-Log</span>
-        <button onclick="document.getElementById('kamp-log-panel').style.display='none'" style="margin-left:auto;background:rgba(255,255,255,.15);border:none;color:#fff;border-radius:6px;padding:2px 8px;cursor:pointer;font-size:12px">Schließen</button>
+        <span style="font-size:13px;font-weight:600" data-i18n="versand_log">Versand-Log</span>
+        <button onclick="document.getElementById('kamp-log-panel').style.display='none'" style="margin-left:auto;background:rgba(255,255,255,.15);border:none;color:#fff;border-radius:6px;padding:2px 8px;cursor:pointer;font-size:12px" data-i18n="schliessen">Schließen</button>
     </div>
     <div id="kamp-log-stats" style="display:flex;gap:12px;padding:12px;border-bottom:1px solid var(--border-light)"></div>
     <div id="kamp-log-list" style="max-height:300px;overflow-y:auto"></div>
@@ -75,40 +75,40 @@
     <div style="background:#fff;border-radius:12px;padding:24px;width:500px;max-width:95vw;box-shadow:0 8px 32px rgba(0,0,0,.2)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
             <i class="bi bi-megaphone" style="color:var(--abcona-blue);font-size:18px"></i>
-            <span style="font-size:15px;font-weight:600;color:var(--abcona-blue)">Kampagne konfigurieren</span>
+            <span style="font-size:15px;font-weight:600;color:var(--abcona-blue)" data-i18n="kampagne_konfigurieren">Kampagne konfigurieren</span>
             <button onclick="KampagneUI.closeDialog()" style="margin-left:auto;background:none;border:none;cursor:pointer;font-size:18px;color:var(--text-muted)">×</button>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
             <div>
-                <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:4px">Kampagnen-Name</label>
+                <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:4px" data-i18n="kampagnen_name">Kampagnen-Name</label>
                 <input id="kamp-name" type="text" placeholder="z.B. Ostergrüße 2026" data-i18n-placeholder="email_vorlage_placeholder" style="width:100%;padding:7px 10px;border:1px solid var(--border-color);border-radius:7px;font-size:13px;box-sizing:border-box">
             </div>
             <div>
-                <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:4px">Vorlage</label>
+                <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:4px" data-i18n="vorlage">Vorlage</label>
                 <select id="kamp-template" style="width:100%;padding:7px 10px;border:1px solid var(--border-color);border-radius:7px;font-size:13px;box-sizing:border-box">
-                    <option value="">— Vorlage wählen —</option>
+                    <option value="" data-i18n="vorlage_waehlen">— Vorlage wählen —</option>
                 </select>
             </div>
             <div>
-                <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:4px">Absender</label>
+                <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:4px" data-i18n="email_absender">Absender</label>
                 <select id="kamp-sender" style="width:100%;padding:7px 10px;border:1px solid var(--border-color);border-radius:7px;font-size:13px;box-sizing:border-box">
-                    <option value="">— Absender wählen —</option>
+                    <option value="" data-i18n="absender_waehlen">— Absender wählen —</option>
                 </select>
             </div>
             <div>
-                <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:4px">Empfänger</label>
-                <div id="kamp-dialog-count" style="padding:7px 10px;background:var(--abcona-gray-card);border-radius:7px;font-size:13px;font-weight:600;color:var(--abcona-blue)">0 ausgewählt</div>
+                <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:4px" data-i18n="empfaenger">Empfänger</label>
+                <div id="kamp-dialog-count" style="padding:7px 10px;background:var(--abcona-gray-card);border-radius:7px;font-size:13px;font-weight:600;color:var(--abcona-blue)" data-i18n="email_kampagne_ausgewaehlt">0 ausgewählt</div>
             </div>
         </div>
         <div id="kamp-preview-box" style="padding:10px;background:var(--abcona-gray-card);border-radius:7px;margin-bottom:16px;font-size:12px;display:none">
-            <div style="color:var(--text-muted);margin-bottom:4px;font-size:11px">Vorschau (erster Empfänger)</div>
+            <div style="color:var(--text-muted);margin-bottom:4px;font-size:11px" data-i18n="vorschau_erster">Vorschau (erster Empfänger)</div>
             <div id="kamp-preview-subject" style="font-weight:600;color:var(--abcona-blue)"></div>
             <div id="kamp-preview-body" style="color:var(--text-secondary);margin-top:2px"></div>
         </div>
         <div style="display:flex;gap:8px;justify-content:flex-end">
-            <button onclick="KampagneUI.closeDialog()" style="padding:7px 16px;border:1px solid var(--border-color);border-radius:7px;font-size:13px;background:#fff;cursor:pointer">Abbrechen</button>
+            <button onclick="KampagneUI.closeDialog()" style="padding:7px 16px;border:1px solid var(--border-color);border-radius:7px;font-size:13px;background:#fff;cursor:pointer" data-i18n="abbrechen">Abbrechen</button>
             <button onclick="KampagneUI.send()" id="kamp-send-confirm" style="padding:7px 16px;background:var(--badge-success-bg);color:var(--badge-success-text);border:1px solid var(--badge-success-text);border-radius:7px;font-size:13px;font-weight:600;cursor:pointer">
-                <i class="bi bi-send"></i> <span id="kamp-send-label">Senden</span>
+                <i class="bi bi-send"></i> <span id="kamp-send-label" data-i18n="email_senden">Senden</span>
             </button>
         </div>
     </div>
