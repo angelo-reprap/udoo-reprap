@@ -379,10 +379,25 @@
 {# ── SPALTE 1: SIDEBAR ── #}
 <div class="es-studio-sidebar">
 
+    <button type="button" class="es-first-steps-btn" onclick="ESHelp.openTutorial()">
+        <i class="bi bi-play-circle"></i>
+        <span data-i18n="es.btn_first_steps">Erste Schritte</span>
+    </button>
+
     {% if not edit_lang %}
     <div class="toggle-section">
         <div class="section-header open" onclick="toggleSection(this)">
-            <span><i class="bi bi-sliders"></i> <span data-i18n="es.settings_title">Einstellungen</span></span>
+            <span>
+                <i class="bi bi-sliders"></i>
+                <span data-i18n="es.settings_title">Einstellungen</span>
+                <button type="button" class="es-section-hint"
+                        onclick="event.stopPropagation()"
+                        data-bs-toggle="tooltip" data-bs-placement="right"
+                        data-i18n-title="es.hint_settings"
+                        title="Name, Betreff, Bereich und Absender-Modus der Vorlage.">
+                    <i class="bi bi-question-circle"></i>
+                </button>
+            </span>
             <i class="bi bi-chevron-down"></i>
         </div>
         <div class="section-content open">
@@ -447,31 +462,33 @@
             <span>
                 <i class="bi bi-braces"></i>
                 <span data-i18n="es.vars_title">Variablen</span>
-                <span class="es-badge es-badge-white">13</span>
+                <span id="es-var-count-badge" class="es-badge es-badge-white">{{ variable_count }}</span>
+                <button type="button" class="es-section-hint"
+                        onclick="event.stopPropagation()"
+                        data-bs-toggle="tooltip" data-bs-placement="right"
+                        data-i18n-title="es.hint_vars"
+                        title="Platzhalter {name} — Klick einfügen, (i) zeigt Erklärung.">
+                    <i class="bi bi-question-circle"></i>
+                </button>
             </span>
             <i class="bi bi-chevron-down"></i>
         </div>
-        <div class="section-content">
-            <div class="es-var-group-lbl" data-i18n="es.vars_context">Aus Kontext</div>
-            {% for v in context_vars %}
-            <div class="es-var-chip context" data-var="{{ v.name }}">
-                <span>{{ '{' }}{{ v.name }}{{ '}' }}</span>
-                <i class="bi bi-clipboard es-var-chip-icon"></i>
+        <div id="es-vars-panel-body" class="section-content">
+            {% for group in variable_groups %}
+            <div class="es-var-group-lbl" data-i18n="{{ group.label_i18n }}">{{ group.label }}</div>
+            {% for v in group.vars %}
+            <div class="es-var-chip {{ group.chip_class }}"
+                 data-var="{{ v.name }}"
+                 data-var-desc="{{ v.description }}"
+                 data-var-example="{{ v.example }}">
+                <span class="es-var-chip-label">{{ '{' }}{{ v.name }}{{ '}' }}</span>
+                <span class="es-var-chip-actions">
+                    <button type="button" class="es-var-info-btn" title="Info"
+                            aria-label="Info"><i class="bi bi-info-circle"></i></button>
+                    <i class="bi bi-clipboard es-var-chip-icon"></i>
+                </span>
             </div>
             {% endfor %}
-            <div class="es-var-group-lbl" data-i18n="es.vars_user">User-Profil</div>
-            {% for v in user_vars %}
-            <div class="es-var-chip user" data-var="{{ v.name }}">
-                <span>{{ '{' }}{{ v.name }}{{ '}' }}</span>
-                <i class="bi bi-clipboard es-var-chip-icon"></i>
-            </div>
-            {% endfor %}
-            <div class="es-var-group-lbl" data-i18n="es.vars_system">System</div>
-            {% for v in system_vars %}
-            <div class="es-var-chip system" data-var="{{ v.name }}">
-                <span>{{ '{' }}{{ v.name }}{{ '}' }}</span>
-                <i class="bi bi-clipboard es-var-chip-icon"></i>
-            </div>
             {% endfor %}
         </div>
     </div>
@@ -481,6 +498,13 @@
             <span>
                 <i class="bi bi-puzzle"></i>
                 <span data-i18n="es.modules_title">Module</span>
+                <button type="button" class="es-section-hint"
+                        onclick="event.stopPropagation()"
+                        data-bs-toggle="tooltip" data-bs-placement="right"
+                        data-i18n-title="es.hint_modules"
+                        title="Wiederverwendbare HTML-Bausteine {{block:…}} — Klick zum Einfügen.">
+                    <i class="bi bi-question-circle"></i>
+                </button>
             </span>
             <i class="bi bi-chevron-down"></i>
         </div>
@@ -500,6 +524,13 @@
                 <span class="es-badge es-badge-white">{{ template.get_signature_mode_display|default:"USER" }}</span>
                 <span id="es-sig-block-badge" class="es-badge es-badge-blue" style="display:none"
                       data-i18n="es.sig_block_active">{% verbatim %}{{block:signature}}{% endverbatim %}</span>
+                <button type="button" class="es-section-hint"
+                        onclick="event.stopPropagation()"
+                        data-bs-toggle="tooltip" data-bs-placement="right"
+                        data-i18n-title="es.hint_signature"
+                        title="Signatur-Quelle und {{block:signature}} im Template.">
+                    <i class="bi bi-question-circle"></i>
+                </button>
             </span>
             <i class="bi bi-chevron-down"></i>
         </div>
@@ -549,6 +580,13 @@
             <span>
                 <i class="bi bi-send"></i>
                 <span data-i18n="es.test_box_title">Test senden</span>
+                <button type="button" class="es-section-hint"
+                        onclick="event.stopPropagation()"
+                        data-bs-toggle="tooltip" data-bs-placement="right"
+                        data-i18n-title="es.hint_test"
+                        title="Testmail an dich — Variablen werden mit Beispieldaten gefüllt.">
+                    <i class="bi bi-question-circle"></i>
+                </button>
             </span>
             <i class="bi bi-chevron-down"></i>
         </div>

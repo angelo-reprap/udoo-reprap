@@ -201,6 +201,16 @@ window.ESHelp = {
         ESHelp.tab('overview', document.querySelector('.es-help-tab[data-tab="overview"]'));
     },
 
+    openTutorial: async function() {
+        const modal = document.getElementById('es-help-modal');
+        if (!modal) return;
+        modal.style.display = 'flex';
+        const _curLang = (typeof currentLang !== 'undefined' ? currentLang : null) || window.ABPE_CONFIG?.current_lang || window.ES_CONFIG?.lang || 'de';
+        if (!ESHelp._helpData || ESHelp._loadedLang !== _curLang) await ESHelp._loadHelp();
+        ESHelp._applyLabels();
+        ESHelp.tab('tutorial', document.querySelector('.es-help-tab[data-tab="tutorial"]'));
+    },
+
     close: function() {
         const modal = document.getElementById('es-help-modal');
         if (modal) modal.style.display = 'none';

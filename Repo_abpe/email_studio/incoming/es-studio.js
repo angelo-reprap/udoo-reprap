@@ -43,6 +43,8 @@ window.ESStudio = (() => {
         raum:           'Meetingraum 3',
         einwahl_info:   'Einwahl: +49 30 123456, PIN 4711',
         teilnehmer_liste_html: '<ul><li>Max Mustermann</li><li>Erika Musterfrau</li></ul>',
+        teilnehmer_liste: 'Max Mustermann, +49 123\nErika Musterfrau, +49 456',
+        title:          'Kurze Abstimmung',
         strasse:        'Musterstraße 1',
         plz:            '12345',
         ort:            'Musterstadt',
@@ -78,6 +80,8 @@ window.ESStudio = (() => {
         _initRichEditor();
         _initTxtEditor();
         _initVarChips();
+        _initSectionHints();
+        _initScopeVariableReload();
         _initModuleChips();
         _initSave();
         _initTestSend();
@@ -1466,39 +1470,156 @@ window.ESStudio = (() => {
     /* ══════════════════════════════════════════════════════
      * VARIABLEN-CHIPS
      * ══════════════════════════════════════════════════════ */
-    function _initVarChips() {
-        document.querySelectorAll('.es-var-chip').forEach(chip => {
-            chip.addEventListener('click', function() {
-                const varName = this.dataset.var;
-                const token   = `{${varName}}`;
+    /* ══════════════════════════════════════════════════════
+     * SIDEBAR-HINWEISE & VARIABLEN
+     * ══════════════════════════════════════════════════════ */
+    function _initSectionHints() {
+        if (typeof bootstrap === 'undefined' || !bootstrap.Tooltip) return;
+        document.querySelectorAll('.es-section-hint[data-bs-toggle="tooltip"]').forEach(el => {
+            bootstrap.Tooltip.getOrCreateInstance(el, { trigger: 'hover focus', container: 'body' });
+        });
+    }
 
-                if (_currentMode === 'visual') {
-                    const sel = window.getSelection();
-                    if (sel && sel.rangeCount) {
-                        const range = sel.getRangeAt(0);
-                        const canvas = document.getElementById('es-canvas');
-                        if (canvas && canvas.contains(range.commonAncestorContainer)) {
-                            range.deleteContents();
-                            range.insertNode(document.createTextNode(token));
-                            range.collapse(false);
-                            _scheduleUndoSnapshot();
-                            _syncCanvasToCode();
-                            _schedulePreview();
-                        }
-                    }
-                } else {
-                    const ta = document.getElementById('es-html-editor');
-                    if (ta) {
-                        const pos = ta.selectionStart;
-                        ta.value  = ta.value.slice(0, pos) + token + ta.value.slice(pos);
-                        ta.selectionStart = ta.selectionEnd = pos + token.length;
-                        ta.focus();
-                        _schedulePreview();
-                    }
-                }
-                ES.copyToClipboard(token, this);
+    function _varGroupLabel(key, fallback) {
+        const map = {
+            context: t('vars_context', 'Aus Kontext'),
+            meetme:  t('vars_meetme', 'MeetMe / Telefon'),
+            user:    t('vars_user', 'Benutzerprofil'),
+            system:  t('vars_system', 'System'),
+            module:  t('vars_module', 'Module'),
+        };
+        return map[key] || fallback || key;
+    }
+
+    function _renderVariableGroups(groups) {
+        const container = document.getElementById('es-vars-panel-body');
+        if (!container || !groups) return;
+        let html = '';
+        groups.forEach(group => {
+            const chipClass = group.chip_class || group.key || 'context';
+            const label = _varGroupLabel(group.key, group.label);
+            html += `<div class="es-var-group-lbl">${label}</div>`;
+            (group.vars || []).forEach(v => {
+                const desc = (v.description || '').replace(/"/g, '&quot;');
+                const ex   = (v.example || '').replace(/"/g, '&quot;');
+                html += `<div class="es-var-chip ${chipClass}" data-var="${v.name}"`
+                     + ` data-var-desc="${desc}" data-var-example="${ex}">`
+                     + `<span class="es-var-chip-label">{${v.name}}</span>`
+                     + `<span class="es-var-chip-actions">`
+                     + `<button type="button" class="es-var-info-btn" title="Info"`
+                     + ` aria-label="Info"><i class="bi bi-info-circle"></i></button>`
+                     + `<i class="bi bi-clipboard es-var-chip-icon"></i></span></div>`;
             });
         });
+        container.innerHTML = html;
+        const badge = document.getElementById('es-var-count-badge');
+        if (badge) {
+            const n = groups.reduce((sum, g) => sum + (g.vars || []).length, 0);
+            badge.textContent = String(n);
+        }
+    }
+
+    async function _reloadVariablesPanel() {
+        const scopeEl = document.querySelector('select[name=app_scope]');
+        const identEl = document.getElementById('es-identifier-input');
+        const scope = scopeEl?.value || 'general';
+        const ident = identEl?.value || '';
+        if (typeof ES === 'undefined' || !ES.api) return;
+        try {
+            const q = `variables/?scope=${encodeURIComponent(scope)}&identifier=${encodeURIComponent(ident)}`;
+            const data = await ES.api.get(ES.apiUrl(q));
+            if (data.groups) _renderVariableGroups(data.groups);
+            _bindVarChips(document.getElementById('es-vars-panel-body'));
+        } catch (e) {
+            console.warn('Variablen neu laden fehlgeschlagen:', e);
+        }
+    }
+
+    function _initScopeVariableReload() {
+        const scopeEl = document.querySelector('select[name=app_scope]');
+        if (scopeEl) {
+            scopeEl.addEventListener('change', () => _reloadVariablesPanel());
+        }
+        const identEl = document.getElementById('es-identifier-input');
+        if (identEl && !identEl.readOnly) {
+            identEl.addEventListener('change', () => _reloadVariablesPanel());
+        }
+    }
+
+    function _showVarPopover(btn, chip) {
+        if (typeof bootstrap === 'undefined' || !bootstrap.Popover) return;
+        const desc = chip.dataset.varDesc || '';
+        const ex   = chip.dataset.varExample || '';
+        const name = chip.dataset.var || '';
+        let content = `<div class="es-var-popover"><strong>{${name}}</strong>`;
+        if (desc) content += `<p class="es-var-popover-desc">${desc}</p>`;
+        if (ex) content += `<div class="es-var-popover-example">${t('var_example', 'Beispiel')}: ${ex}</div>`;
+        content += `<div class="es-var-popover-hint">${t('var_click_insert', 'Klick auf Chip = einfügen')}</div></div>`;
+
+        bootstrap.Popover.getInstance(btn)?.dispose();
+        const pop = new bootstrap.Popover(btn, {
+            html: true,
+            sanitize: false,
+            content,
+            trigger: 'focus',
+            placement: 'right',
+            container: 'body',
+        });
+        pop.show();
+        btn.addEventListener('blur', () => pop.dispose(), { once: true });
+    }
+
+    function _insertVariableToken(varName) {
+        const token = `{${varName}}`;
+        if (_currentMode === 'visual') {
+            const sel = window.getSelection();
+            if (sel && sel.rangeCount) {
+                const range = sel.getRangeAt(0);
+                const canvas = document.getElementById('es-canvas');
+                if (canvas && canvas.contains(range.commonAncestorContainer)) {
+                    range.deleteContents();
+                    range.insertNode(document.createTextNode(token));
+                    range.collapse(false);
+                    _scheduleUndoSnapshot();
+                    _syncCanvasToCode();
+                    _schedulePreview();
+                }
+            }
+        } else {
+            const ta = document.getElementById('es-html-editor');
+            if (ta) {
+                const pos = ta.selectionStart;
+                ta.value  = ta.value.slice(0, pos) + token + ta.value.slice(pos);
+                ta.selectionStart = ta.selectionEnd = pos + token.length;
+                ta.focus();
+                _schedulePreview();
+            }
+        }
+    }
+
+    function _bindVarChips(root) {
+        (root || document).querySelectorAll('.es-var-chip').forEach(chip => {
+            if (chip.dataset.bound) return;
+            chip.dataset.bound = '1';
+            chip.addEventListener('click', function(e) {
+                if (e.target.closest('.es-var-info-btn')) return;
+                const varName = this.dataset.var;
+                _insertVariableToken(varName);
+                ES.copyToClipboard(`{${varName}}`, this);
+            });
+            const infoBtn = chip.querySelector('.es-var-info-btn');
+            if (infoBtn) {
+                infoBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    _showVarPopover(this, chip);
+                });
+            }
+        });
+    }
+
+    function _initVarChips() {
+        _bindVarChips(document.getElementById('es-vars-panel-body'));
     }
 
     /* ══════════════════════════════════════════════════════
@@ -2565,6 +2686,17 @@ window.ESStudio = (() => {
         if (_currentMode === 'visual' && _currentEntity !== 'template') {
             _updateEntityVisual();
         }
+        document.querySelectorAll('.es-section-hint[data-i18n-title]').forEach(el => {
+            const raw = el.getAttribute('data-i18n-title') || '';
+            const key = raw.startsWith('es.') ? raw.slice(3) : raw;
+            const txt = t(key, el.getAttribute('title') || '');
+            el.setAttribute('title', txt);
+            el.setAttribute('data-bs-original-title', txt);
+            if (typeof bootstrap !== 'undefined' && bootstrap.Tooltip) {
+                bootstrap.Tooltip.getInstance(el)?.dispose();
+                bootstrap.Tooltip.getOrCreateInstance(el, { trigger: 'hover focus', container: 'body' });
+            }
+        });
     }
 
     function _applyI18nToCanvas() {

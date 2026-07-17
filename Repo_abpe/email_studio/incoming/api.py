@@ -733,31 +733,16 @@ class SenderSMTPTestAPI(LoginRequiredMixin, View):
 
 class VariableListAPI(LoginRequiredMixin, View):
     """
-    Gibt alle bekannten Variablen zurück — kontextabhängig nach Quelle.
+    Gibt alle bekannten Variablen zurück — kontextabhängig nach app_scope.
     """
 
     def get(self, request):
+        from .variables_registry import get_sidebar_variable_groups, get_variables
+        scope = request.GET.get('scope', 'general')
+        identifier = request.GET.get('identifier', '')
         return JsonResponse({
-            'variables': [
-                # Kontext-Variablen
-                {'name': 'name',         'source': 'context',  'type': 'string',  'description': 'Vollständiger Name'},
-                {'name': 'first_name',   'source': 'context',  'type': 'string',  'description': 'Vorname'},
-                {'name': 'last_name',    'source': 'context',  'type': 'string',  'description': 'Nachname'},
-                {'name': 'email',        'source': 'context',  'type': 'string',  'description': 'E-Mail Adresse'},
-                {'name': 'cv_link',      'source': 'context',  'type': 'url',     'description': 'CV Direktlink'},
-                {'name': 'cv_version',   'source': 'context',  'type': 'string',  'description': 'CV Versionsnummer'},
-                {'name': 'created_date', 'source': 'context',  'type': 'date',    'description': 'Erstellungsdatum'},
-                {'name': 'task_ref',     'source': 'context',  'type': 'string',  'description': 'Task Referenz'},
-                # User-Profil (auto befüllt bei User-Modus)
-                {'name': 'sender_name',  'source': 'user',     'type': 'string',  'description': 'Name des Absenders'},
-                {'name': 'sender_email', 'source': 'user',     'type': 'email',   'description': 'E-Mail des Absenders'},
-                {'name': 'reply_to',     'source': 'user',     'type': 'email',   'description': 'Reply-To Adresse'},
-                # System
-                {'name': 'portal_url',   'source': 'system',   'type': 'url',     'description': 'Portal URL'},
-                {'name': 'date',         'source': 'system',   'type': 'date',    'description': 'Aktuelles Datum'},
-                {'name': 'year',         'source': 'system',   'type': 'string',  'description': 'Aktuelles Jahr'},
-                {'name': 'subject',      'source': 'template', 'type': 'string',  'description': 'Betreff der E-Mail'},
-            ]
+            'variables': get_variables(scope, identifier),
+            'groups': get_sidebar_variable_groups(scope, identifier),
         })
 
 
