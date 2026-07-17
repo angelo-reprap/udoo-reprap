@@ -23,21 +23,21 @@
         </div>
 
         <div class="edms-personen-filter" id="edms-personen-filter">
-            <span class="edms-pf-pill active" data-filter="all" onclick="EDMS.setPersonenFilter('all')" title="Alle (nach Relevanz)"><i class="bi bi-list-ul"></i></span>
-            <span class="edms-pf-pill" data-filter="personen" onclick="EDMS.setPersonenFilter('personen')" title="Berater zuerst (A-Z)"><i class="bi bi-person"></i></span>
-            <span class="edms-pf-pill" data-filter="firmen" onclick="EDMS.setPersonenFilter('firmen')" title="Firmen zuerst (A-Z)"><i class="bi bi-building"></i></span>
-            <span class="edms-pf-pill" data-filter="mails" onclick="EDMS.setPersonenFilter('mails')" title="E-Mails zuerst"><i class="bi bi-envelope"></i></span>
-            <span class="edms-pf-pill" data-filter="dokumente" onclick="EDMS.setPersonenFilter('dokumente')" title="Dokumente zuerst"><i class="bi bi-file-earmark-text"></i></span>
+            <span class="edms-pf-pill active" data-filter="all" onclick="EDMS.setPersonenFilter('all')" data-i18n-title="edms_pf_alle"><i class="bi bi-list-ul"></i></span>
+            <span class="edms-pf-pill" data-filter="personen" onclick="EDMS.setPersonenFilter('personen')" data-i18n-title="edms_pf_berater"><i class="bi bi-person"></i></span>
+            <span class="edms-pf-pill" data-filter="firmen" onclick="EDMS.setPersonenFilter('firmen')" data-i18n-title="edms_pf_firma"><i class="bi bi-building"></i></span>
+            <span class="edms-pf-pill" data-filter="mails" onclick="EDMS.setPersonenFilter('mails')" data-i18n-title="edms_pf_email"><i class="bi bi-envelope"></i></span>
+            <span class="edms-pf-pill" data-filter="dokumente" onclick="EDMS.setPersonenFilter('dokumente')" data-i18n-title="edms_pf_dokument"><i class="bi bi-file-earmark-text"></i></span>
         </div>
 
         <div class="crm-filter-bar" id="edms-doctype-filter" style="display:none">
             <select id="edms-filter-doctype" onchange="EDMS.loadCol1(1)">
                 <option value="" data-i18n="edms_filter_alle_typen">Alle Typen</option>
-                <option value="cv">CV / Profil</option>
+                <option value="cv" data-i18n="edms_doctype_cv">CV / Profil</option>
                 <option value="rechnung" data-i18n="rechnung">Rechnung</option>
                 <option value="angebot" data-i18n="angebot">Angebot</option>
                 <option value="vertrag" data-i18n="vertrag">Vertrag</option>
-                <option value="leistungsnachweis">Leistungsnachweis</option>
+                <option value="leistungsnachweis" data-i18n="edms_doctype_nachweis">Leistungsnachweis</option>
                 <option value="sonstiges" data-i18n="sonstiges">Sonstiges</option>
             </select>
         </div>

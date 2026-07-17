@@ -38,9 +38,40 @@ const EDMS = {
         this.bindSearch();
         this.bindModeButtons();
         this.bindResizers();
+        this._initStatLabels();
         this.loadStats();
         this.setMode('personen');
         this._handleDeepLink();
+    },
+
+    _initStatLabels() {
+        const map = {
+            'stat-total':  'edms_stat_dokumente',
+            'stat-extra1': 'edms_stat_posteingang',
+            'stat-extra2': 'edms_stat_doctypes',
+        };
+        Object.entries(map).forEach(([id, key]) => {
+            const lbl = document.querySelector('#' + id + ' .crm-stat-lbl');
+            if (lbl) lbl.textContent = this.t(key, key);
+        });
+    },
+
+    _doctypeLabel(k, fallback) {
+        const map = {
+            cv: 'edms_doctype_cv', vertrag: 'edms_doctype_vertrag', rechnung: 'edms_doctype_rechnung',
+            angebot: 'edms_doctype_angebot', sonstiges: 'edms_doctype_sonstiges',
+            leistungsnachweis: 'edms_doctype_nachweis', zeitnachweis: 'edms_doctype_zeitnachweis',
+            korrespondenz: 'edms_doctype_korrespondenz',
+        };
+        return this.t(map[k] || k, fallback || k);
+    },
+
+    refreshI18n() {
+        this._initStatLabels();
+        this.fillScopeDropdown();
+        if (this.currentOwner) {
+            this.loadAkte(this.currentOwner.type, this.currentOwner.crm_id, this.currentOwner.name, this.currentDocUuid);
+        }
     },
     _handleDeepLink() {
         const params = new URLSearchParams(window.location.search);
@@ -519,7 +550,8 @@ const EDMS = {
         html += '<span class="edms-akte-pill' + (this.akteFilter===''?' active':'') + '" onclick="EDMS.setAkteFilter(\'\')">' + this.t('edms_alle','Alle') + ' ' + total + '</span>';
         keys.forEach(k => {
             const cnt = docsOf(groups[k]).length;
-            const label = (groups[k] && groups[k].label) ? groups[k].label : k;
+            const raw = (groups[k] && groups[k].label) ? groups[k].label : k;
+            const label = this._doctypeLabel(k, raw);
             html += '<span class="edms-akte-pill' + (this.akteFilter===k?' active':'') + '" onclick="EDMS.setAkteFilter(\'' + k + '\')">' + label + ' ' + cnt + '</span>';
         });
         html += '</div>';
@@ -777,10 +809,10 @@ const EDMS = {
         if (!list) return;
         const notes = this._akteNotes || [];
         if (!notes.length) { list.innerHTML = '<div class="crm-list-loading">' + this.t('edms_keine_notizen','Keine Notizen') + '</div>'; return; }
-        const typLabel = { phone:'Telefon', email:'E-Mail', meeting:'Besprechung', general:'Allgemein' };
+        const typLabel = { phone:'telefonnotiz', email:'email_notiz', meeting:'besprechung', general:'allgemein' };
         list.innerHTML = notes.map(n => {
             const dt = (n.created_at || '').replace('T',' ').substring(0,16);
-            const typ = typLabel[n.note_type] || n.note_type || '';
+            const typ = this.t(typLabel[n.note_type] || n.note_type || '', n.note_type || '');
             const by = n.created_by ? ' · ' + this._esc(n.created_by) : '';
             return '<div class="edms-note-item">' +
                 '<div class="edms-rec-head"><i class="bi bi-journal-text edms-note-ico"></i>' +
@@ -1240,5 +1272,8 @@ const EDMS = {
 window.EDMS = EDMS;
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('edms-three-col')) EDMS.init();
+});
+document.addEventListener('languageChanged', () => {
+    if (window.EDMS && document.getElementById('edms-three-col')) EDMS.refreshI18n();
 });
 
