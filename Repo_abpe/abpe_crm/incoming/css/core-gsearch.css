@@ -30,4 +30,3 @@
 .gsearch-footer { display:flex; gap:14px; padding:8px 16px; border-top:1px solid var(--border-color); font-size:11px; color:var(--text-muted); }
 .gsearch-shortcut { margin-left:auto; }
 .gsearch-hint { padding:10px 16px; font-size:11px; color:var(--text-muted); text-align:center; border-top:1px solid var(--border-color); }
-.gsearch-hint { padding:10px 16px; font-size:11px; color:var(--text-muted); text-align:center; border-top:1px solid var(--border-color); }

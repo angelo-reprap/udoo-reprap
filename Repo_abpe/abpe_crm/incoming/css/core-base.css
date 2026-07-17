@@ -1,18 +1,4 @@
-:root {
-    --abcona-blue: #163258;
-    --abcona-blue-dark: #0f2442;
-    --abcona-blue-light: #1e4a7a;
-    --abcona-gray-bg: #eef2f5;
-    --abcona-gray-card: #f8fafc;
-    --status-green: #10b981;
-    --status-yellow: #f59e0b;
-    --status-red: #ef4444;
-    --sidebar-width-expanded: 240px;
-    --sidebar-width-collapsed: 60px;
-    --arc-radius: 20px;
-    --border-radius-card: 12px;
-    --border-radius-logo: 8px;
-}
+/* Reset + body — Design-Tokens: core-theme.css */
 
 * {
     margin: 0;

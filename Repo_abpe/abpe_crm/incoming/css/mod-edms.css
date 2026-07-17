@@ -669,27 +669,6 @@
     .edms-vorschau-hint .edms-kbd-grp:nth-child(n+2) { display: none; }
 }
 
-/* ── PDF-Viewer: Tastenkürzel-Hinweis in der Kopfleiste ──── */
-.edms-vorschau-hint {
-    display: flex; align-items: center; gap: 12px;
-    margin-left: 16px; flex-shrink: 0;
-    font-size: 11px; color: var(--text-muted);
-    white-space: nowrap;
-}
-.edms-kbd-grp { display: inline-flex; align-items: center; gap: 5px; }
-.edms-kbd {
-    font-family: ui-monospace, monospace; font-size: 10px;
-    background: var(--abcona-gray-card, #f3f4f6);
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
-    border-bottom-width: 2px; border-radius: 4px;
-    padding: 1px 5px; line-height: 1.4;
-}
-/* bei schmalem Platz: Hinweis darf schrumpfen, Dateiname behält Vorrang */
-@media (max-width: 1200px) {
-    .edms-vorschau-hint .edms-kbd-grp:nth-child(n+2) { display: none; }
-}
-
 /* ── Multi-Index Treffer (nutzt crm-list-Klassen + diese 2) ── */
 .crm-item-kind {
     font-size: 9px; font-weight: 600; text-transform: uppercase;
