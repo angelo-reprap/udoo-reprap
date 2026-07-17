@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
-# Exportiert abpe_meetme + abpe_scheduler von ucs5 ins Repo (für Cloud-Agent / Git).
+# Exportiert abpe_meetme + abpe_scheduler von ucs5 LIVE → Repo_abpe/incoming/
 #
-# Auf ucs5 als root:
-#   cd /mnt/public/udoo-reprap
-#   git pull
+# ⚠️  WICHTIG — Workflow:
+#   1. Agent-Fixes zuerst DEPLOYEN: bash Repo_abpe/abpe_meetme/incoming/RUN-deploy-meetme-backend-ucs5.sh
+#   2. Dann erst exportieren (sonst überschreibt Live den Fix im Git!)
+#   3. Export NUR wenn du direkt auf ucs5 am Backend geändert hast
+#
+# Auf ucs5:
+#   cd /mnt/public/udoo-reprap && git pull
 #   bash scripts/export-meetme-backend.sh
-#   git add Repo_abpe/abpe_meetme Repo_abpe/abpe_scheduler scripts/
+#   git diff Repo_abpe/abpe_meetme/incoming/views.py   # prüfen!
+#   git add Repo_abpe/abpe_meetme Repo_abpe/abpe_scheduler
 #   git commit -m "Export: MeetMe + Scheduler Backend von ucs5"
 #   git push
-#
-# Optional — direkt ins Git-Working-Tree (Standard auf ucs5):
-#   UDOO_REPO=/mnt/public/udoo-reprap bash scripts/export-meetme-backend.sh
-#
-# Nur anzeigen:
-#   DRY_RUN=1 bash scripts/export-meetme-backend.sh
 
 set -euo pipefail
 
@@ -28,6 +27,11 @@ if [[ ! -d "$BACKEND/apps" ]]; then
   echo "Fehler: Backend nicht gefunden: $BACKEND/apps" >&2
   exit 1
 fi
+
+echo ""
+echo "⚠️  Export kopiert LIVE → Git. Wenn Agent-Fixes noch nicht deployed sind,"
+echo "   werden sie überschrieben! Bei Zweifel: erst RUN-deploy-meetme-backend-ucs5.sh"
+echo ""
 
 export_app() {
   local app="$1"
@@ -52,7 +56,8 @@ export_app() {
   fi
 
   mkdir -p "$dest_staging"
-  rsync -a --delete \
+  # Kein --delete: Repo-only Dateien (RUN-deploy-*.sh, neue Migrationen) bleiben erhalten
+  rsync -a \
     --exclude '__pycache__/' \
     --exclude '*.pyc' \
     --include '*/' \
@@ -67,7 +72,7 @@ export_app() {
 
   if [[ -d "$UDOO_REPO/Repo_abpe" ]]; then
     mkdir -p "$dest_git"
-    rsync -a --delete \
+    rsync -a \
       --exclude '__pycache__/' \
       --exclude '*.pyc' \
       "$dest_staging/" "$dest_git/"
@@ -122,12 +127,14 @@ done
 
 cat <<'EOF'
 
-Nächster Schritt (auf ucs5):
-  cd /mnt/public/udoo-reprap
-  git status
-  git add Repo_abpe/abpe_meetme Repo_abpe/abpe_scheduler scripts/export-meetme-backend.sh scripts/export-to-repo.sh
-  git commit -m "Export: MeetMe + Scheduler Backend von ucs5"
-  git push
+Export fertig. VOR dem Commit prüfen:
+  git diff Repo_abpe/abpe_meetme/incoming/views.py | head -40
 
-Dann Cloud Agent: Konferenz Einladung + Erinnerung End-to-End testen und fixen.
+Wenn der AUTO-Versand-Fix fehlt (_mm_send_reminder_delivery):
+  → Fix war noch nicht auf Live deployed! Erst deployen, dann exportieren.
+
+Deploy Agent-Fix auf Live:
+  bash Repo_abpe/abpe_meetme/incoming/RUN-deploy-meetme-backend-ucs5.sh
+  cd /opt/abpe/backend && python manage.py migrate abpe_meetme --noinput
+  supervisorctl restart abpe-django abpe-scheduler-loop abpe-celery
 EOF
