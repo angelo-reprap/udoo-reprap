@@ -1,0 +1,11 @@
+{
+    "documentation": "文档",
+    "architecture": "架构",
+    "user_manual": "用户手册",
+    "architecture_title": "ABpE 门户架构",
+    "architecture_subtitle": "模块化结构文档",
+    "core_components": "核心组件",
+    "modules": "模块",
+    "api_endpoints": "API 端点",
+    "database_schema": "数据库模式"
+}

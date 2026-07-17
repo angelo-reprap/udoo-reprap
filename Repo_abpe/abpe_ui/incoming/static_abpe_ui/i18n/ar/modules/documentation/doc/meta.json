@@ -1,0 +1,91 @@
+{
+    "toc": {
+        "title": "جدول المحتويات"
+    },
+    "sections": [
+        {
+            "id": "grundlagen",
+            "number": "1",
+            "title": "الأساسيات والنظرة العامة"
+        },
+        {
+            "id": "modulsystem",
+            "number": "2",
+            "title": "نظام الوحدات"
+        },
+        {
+            "id": "i18n",
+            "number": "3",
+            "title": "نظام اللغة والترجمة"
+        },
+        {
+            "id": "theme",
+            "number": "4",
+            "title": "نظام التصميم والسمات"
+        },
+        {
+            "id": "multiuser",
+            "number": "5",
+            "title": "المستخدمون المتعددون والصلاحيات"
+        },
+        {
+            "id": "hilfe",
+            "number": "6",
+            "title": "نظام المساعدة"
+        },
+        {
+            "id": "sidebar",
+            "number": "7",
+            "title": "الشريط الجانبي والتنقل"
+        },
+        {
+            "id": "api",
+            "number": "8",
+            "title": "واجهة برمجة التطبيقات والتكامل الخارجي"
+        },
+        {
+            "id": "backup",
+            "number": "9",
+            "title": "نظام النسخ الاحتياطي والأرشفة"
+        },
+        {
+            "id": "helper",
+            "number": "10",
+            "title": "البرامج المساعدة والنصوص البرمجية"
+        },
+        {
+            "id": "responsive",
+            "number": "11",
+            "title": "التصميم المتجاوب"
+        },
+        {
+            "id": "verzeichnisse",
+            "number": "12",
+            "title": "هيكل الدليل"
+        },
+        {
+            "id": "workflow",
+            "number": "13",
+            "title": "سير عمل التطوير"
+        },
+        {
+            "id": "debugging",
+            "number": "14",
+            "title": "البحث عن الأخطاء وتصحيحها"
+        },
+        {
+            "id": "versionen",
+            "number": "15",
+            "title": "الإصدارات وسجل التغييرات"
+        },
+        {
+            "id": "anhang",
+            "number": "16",
+            "title": "الملاحق"
+        }
+    ],
+    "version": "الإصدار 3.0",
+    "framework": "Django 5.x",
+    "users": "أكثر من 23,000 مستشار",
+    "chapters": "16 فصلاً"
+}

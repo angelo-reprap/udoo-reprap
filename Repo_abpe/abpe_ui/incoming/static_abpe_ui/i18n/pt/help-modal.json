@@ -1,0 +1,22 @@
+{
+    "help_title": "Ajuda & Dicas",
+    "help_portal": "Sobre este Portal",
+    "help_portal_text": "Portal ABpE - Sistema Automatizado de Captura de Perfis de Consultores. Gerencia CVs, consultores, correspondência e fluxos de trabalho.",
+    "help_navigation": "Navegação",
+    "help_nav1": "Barra lateral: Ícones ficam visíveis ao passar o mouse",
+    "help_nav2": "Painel: Estatísticas podem ser expandidas/recolhidas",
+    "help_nav3": "Todas as seções podem ser expandidas/recolhidas com um clique",
+    "help_nav4": "Pesquisa no topo: Encontre consultores, CVs e registros em todo o portal",
+    "help_language": "Idioma & Exibição",
+    "help_lang_header": "Idioma: Botões no canto superior direito (DE/EN/ES/IT/FR) ou em Configurações",
+    "help_lang_persist": "O idioma selecionado é salvo e carregado no próximo login",
+    "help_theme_toggle": "Modo Claro/Escuro: Botão Sol/Lua no canto superior direito ou em Configurações",
+    "help_modules": "Módulos & Tutoriais",
+    "help_mod_overview": "Cada módulo pode ter sua própria ajuda — botão \"Ajuda\" na visualização do módulo",
+    "help_mod_email": "Email Studio: Tutorial detalhado com simulações (Visão geral, Módulos, Variáveis, Tradução)",
+    "help_mod_more": "Outros módulos (Doc Studio, Correspondência, CRM) serão adicionados gradualmente",
+    "help_shortcuts": "Atalhos de Teclado",
+    "help_shortcut_help": "Abrir ajuda",
+    "help_shortcut_search": "Focar no campo de pesquisa",
+    "help_shortcut_stats": "Expandir/recolher estatísticas"
+}

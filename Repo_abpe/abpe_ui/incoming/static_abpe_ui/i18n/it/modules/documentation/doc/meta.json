@@ -1,0 +1,91 @@
+{
+    "toc": {
+        "title": "Indice dei contenuti"
+    },
+    "sections": [
+        {
+            "id": "grundlagen",
+            "number": "1",
+            "title": "Fondamenti e Panoramica"
+        },
+        {
+            "id": "modulsystem",
+            "number": "2",
+            "title": "Sistema Modulare"
+        },
+        {
+            "id": "i18n",
+            "number": "3",
+            "title": "Sistema Linguistico e di Traduzione"
+        },
+        {
+            "id": "theme",
+            "number": "4",
+            "title": "Tema e Sistema di Design"
+        },
+        {
+            "id": "multiuser",
+            "number": "5",
+            "title": "Multi-Utente e Autorizzazioni"
+        },
+        {
+            "id": "hilfe",
+            "number": "6",
+            "title": "Sistema di Aiuto"
+        },
+        {
+            "id": "sidebar",
+            "number": "7",
+            "title": "Barra Laterale e Navigazione"
+        },
+        {
+            "id": "api",
+            "number": "8",
+            "title": "API e Integrazione Esterna"
+        },
+        {
+            "id": "backup",
+            "number": "9",
+            "title": "Sistema di Backup e Archiviazione"
+        },
+        {
+            "id": "helper",
+            "number": "10",
+            "title": "Script Helper e Utility"
+        },
+        {
+            "id": "responsive",
+            "number": "11",
+            "title": "Design Responsive"
+        },
+        {
+            "id": "verzeichnisse",
+            "number": "12",
+            "title": "Struttura delle Directory"
+        },
+        {
+            "id": "workflow",
+            "number": "13",
+            "title": "Flusso di Lavoro di Sviluppo"
+        },
+        {
+            "id": "debugging",
+            "number": "14",
+            "title": "Ricerca Errori e Debugging"
+        },
+        {
+            "id": "versionen",
+            "number": "15",
+            "title": "Versionamento e Changelog"
+        },
+        {
+            "id": "anhang",
+            "number": "16",
+            "title": "Appendici"
+        }
+    ],
+    "version": "Versione 3.0",
+    "framework": "Django 5.x",
+    "users": "23.000+ Consulenti",
+    "chapters": "16 Capitoli"
+}

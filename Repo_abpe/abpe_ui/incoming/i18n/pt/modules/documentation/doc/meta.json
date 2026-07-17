@@ -1,0 +1,91 @@
+{
+    "toc": {
+        "title": "Índice"
+    },
+    "sections": [
+        {
+            "id": "grundlagen",
+            "number": "1",
+            "title": "Fundamentos & Visão Geral"
+        },
+        {
+            "id": "modulsystem",
+            "number": "2",
+            "title": "Sistema de Módulos"
+        },
+        {
+            "id": "i18n",
+            "number": "3",
+            "title": "Sistema de Idiomas & Tradução"
+        },
+        {
+            "id": "theme",
+            "number": "4",
+            "title": "Tema & Sistema de Design"
+        },
+        {
+            "id": "multiuser",
+            "number": "5",
+            "title": "Multiusuário & Permissões"
+        },
+        {
+            "id": "hilfe",
+            "number": "6",
+            "title": "Sistema de Ajuda"
+        },
+        {
+            "id": "sidebar",
+            "number": "7",
+            "title": "Barra Lateral & Navegação"
+        },
+        {
+            "id": "api",
+            "number": "8",
+            "title": "API & Integração Externa"
+        },
+        {
+            "id": "backup",
+            "number": "9",
+            "title": "Sistema de Backup & Arquivo"
+        },
+        {
+            "id": "helper",
+            "number": "10",
+            "title": "Scripts Auxiliares & Utilitários"
+        },
+        {
+            "id": "responsive",
+            "number": "11",
+            "title": "Design Responsivo"
+        },
+        {
+            "id": "verzeichnisse",
+            "number": "12",
+            "title": "Estrutura de Diretórios"
+        },
+        {
+            "id": "workflow",
+            "number": "13",
+            "title": "Fluxo de Desenvolvimento"
+        },
+        {
+            "id": "debugging",
+            "number": "14",
+            "title": "Depuração & Solução de Problemas"
+        },
+        {
+            "id": "versionen",
+            "number": "15",
+            "title": "Versionamento & Registro de Alterações"
+        },
+        {
+            "id": "anhang",
+            "number": "16",
+            "title": "Apêndices"
+        }
+    ],
+    "version": "Versão 3.0",
+    "framework": "Django 5.x",
+    "users": "23.000+ Consultores",
+    "chapters": "16 Capítulos"
+}

@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "Ricerca consulenti (Namazu)",
+            "placeholder": "Nome, competenza, tecnologia...",
+            "btn": "Cerca",
+            "max_label": "Max. risultati"
+        },
+        "results": {
+            "total": "Risultati totali",
+            "empty": "Nessun risultato trovato",
+            "score": "Punteggio"
+        },
+        "profile": {
+            "open": "Profilo",
+            "preview": "Anteprima scheda",
+            "close": "Chiudi"
+        },
+        "admin": {
+            "title": "Gestione indice",
+            "imap_title": "Caselle IMAP",
+            "add_account": "Aggiungi account",
+            "active": "attivo",
+            "inactive": "inattivo",
+            "html_count": "File HTML",
+            "index_size": "Dimensione indice",
+            "last_indexed": "Ultima indicizzazione",
+            "reindex_btn": "Avvia re-indicizzazione",
+            "reindex_ok": "Re-indicizzazione avviata",
+            "reindex_err": "Errore nell'avvio",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "Caricamento..."
+        },
+        "es": {
+            "title": "Ricerca Elasticsearch",
+            "placeholder": "Competenze, nome, tecnologia...",
+            "exclude": "Escludi:",
+            "exclude_account": "Escludi casella",
+            "query_helper": "Aiuto query",
+            "examples": "Esempi:",
+            "index": {
+                "consultants": "Consulenti",
+                "emails": "Email",
+                "profiles": "Profili"
+            },
+            "sort": {
+                "placeholder": "Ordinamento...",
+                "date_desc": "Data ↓",
+                "date_asc": "Data ↑",
+                "indexed_desc": "Indicizzato ↓",
+                "indexed_asc": "Indicizzato ↑",
+                "attachments": "Prima allegati",
+                "from_asc": "Mittente A-Z",
+                "account_asc": "Casella A-Z",
+                "name_asc": "Nome A-Z",
+                "status": "Stato",
+                "available": "Disponibile da",
+                "availability": "Disponibilità",
+                "folder_asc": "Cartella A-Z",
+                "size_desc": "Dimensione ↓"
+            },
+            "chips": {
+                "boolean": "Booleano:",
+                "wildcards": "Wildcard e Fuzzy:",
+                "fields_email": "Campi (Email):",
+                "fields_consultant": "Campi (Consulenti):",
+                "date_ranges": "Data e intervalli:",
+                "and": "entrambi",
+                "or": "uno",
+                "not": "escludi",
+                "must": "deve",
+                "must_not": "non deve",
+                "wildcard": "Wildcard",
+                "one_char": "un carattere",
+                "fuzzy": "Fuzzy",
+                "phrase": "Frase",
+                "proximity": "Vicinanza",
+                "boost": "Boost",
+                "with_attachment": "Con allegato",
+                "fulltext": "Testo completo",
+                "name": "Nome",
+                "location": "Luogo",
+                "availability": "Disponibilità",
+                "subject": "Oggetto",
+                "sender": "Mittente",
+                "content": "Contenuto",
+                "mailbox": "Casella",
+                "folder": "Cartella"
+            }
+        }
+    }
+}

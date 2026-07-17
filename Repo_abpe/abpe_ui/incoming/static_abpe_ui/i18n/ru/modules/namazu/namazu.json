@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "Поиск консультантов (Namazu)",
+            "placeholder": "Имя, навык, технология...",
+            "btn": "Искать",
+            "max_label": "Макс. результатов"
+        },
+        "results": {
+            "total": "Всего результатов",
+            "empty": "Результатов не найдено",
+            "score": "Оценка"
+        },
+        "profile": {
+            "open": "Профиль",
+            "preview": "Предпросмотр данных",
+            "close": "Закрыть"
+        },
+        "admin": {
+            "title": "Управление индексами",
+            "imap_title": "IMAP-почтовые ящики",
+            "add_account": "Добавить аккаунт",
+            "active": "активен",
+            "inactive": "неактивен",
+            "html_count": "HTML-файлы",
+            "index_size": "Размер индекса",
+            "last_indexed": "Последняя индексация",
+            "reindex_btn": "Запустить переиндексацию",
+            "reindex_ok": "Переиндексация запущена",
+            "reindex_err": "Ошибка при запуске",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "Загрузка..."
+        },
+        "es": {
+            "title": "Поиск Elasticsearch",
+            "placeholder": "Навыки, имя, технология...",
+            "exclude": "Исключить:",
+            "exclude_account": "Исключить почтовый ящик",
+            "query_helper": "Помощь по запросам",
+            "examples": "Примеры:",
+            "index": {
+                "consultants": "Консультанты",
+                "emails": "Электронные письма",
+                "profiles": "Профили"
+            },
+            "sort": {
+                "placeholder": "Сортировка...",
+                "date_desc": "Дата ↓",
+                "date_asc": "Дата ↑",
+                "indexed_desc": "Индексировано ↓",
+                "indexed_asc": "Индексировано ↑",
+                "attachments": "Сначала с вложениями",
+                "from_asc": "Отправитель А-Я",
+                "account_asc": "Почтовый ящик А-Я",
+                "name_asc": "Имя А-Я",
+                "status": "Статус",
+                "available": "Доступен с",
+                "availability": "Доступность",
+                "folder_asc": "Папка А-Я",
+                "size_desc": "Размер ↓"
+            },
+            "chips": {
+                "boolean": "Логические операторы:",
+                "wildcards": "Подстановочные знаки и нечеткий поиск:",
+                "fields_email": "Поля (электронные письма):",
+                "fields_consultant": "Поля (консультанты):",
+                "date_ranges": "Дата и диапазоны:",
+                "and": "оба",
+                "or": "один из",
+                "not": "исключить",
+                "must": "должен",
+                "must_not": "не должен",
+                "wildcard": "Подстановочный знак",
+                "one_char": "один символ",
+                "fuzzy": "Нечеткий поиск",
+                "phrase": "Фраза",
+                "proximity": "Близость",
+                "boost": "Повышение",
+                "with_attachment": "С вложением",
+                "fulltext": "Полный текст",
+                "name": "Имя",
+                "location": "Местоположение",
+                "availability": "Доступность",
+                "subject": "Тема",
+                "sender": "Отправитель",
+                "content": "Содержание",
+                "mailbox": "Почтовый ящик",
+                "folder": "Папка"
+            }
+        }
+    }
+}

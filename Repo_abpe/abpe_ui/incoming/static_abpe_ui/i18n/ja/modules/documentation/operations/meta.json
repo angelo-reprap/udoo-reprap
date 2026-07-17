@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "目次"
+    },
+    "sections": [
+        {
+            "id": "dienste",
+            "number": "1",
+            "title": "サービス"
+        },
+        {
+            "id": "backup_ops",
+            "number": "2",
+            "title": "バックアップ"
+        }
+    ]
+}

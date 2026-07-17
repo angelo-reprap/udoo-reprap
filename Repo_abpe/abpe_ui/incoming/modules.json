@@ -1,0 +1,76 @@
+{
+    "dashboard": {
+        "id": "dashboard",
+        "title": "Dashboard",
+        "titles": {
+            "de": "Dashboard",
+            "en": "Dashboard",
+            "fr": "Tableau de bord",
+            "ar": "لوحة التحكم",
+            "es": "Panel de control",
+            "hu": "Irányítópult",
+            "it": "Dashboard",
+            "ja": "ダッシュボード",
+            "ko": "대시보드",
+            "nl": "Dashboard",
+            "pl": "Panel główny",
+            "pt": "Painel",
+            "ru": "Панель управления",
+            "tr": "Kontrol Paneli",
+            "zh": "仪表盘"
+        },
+        "icon": "speedometer2",
+        "route": "/",
+        "order": 10
+    },
+    "system": [
+        {
+            "id": "admin",
+            "title": "Admin",
+            "titles": {
+                "de": "Administration",
+                "en": "Administration",
+                "fr": "Administration",
+                "ar": "الإدارة",
+                "es": "Administración",
+                "hu": "Adminisztráció",
+                "it": "Amministrazione",
+                "ja": "管理",
+                "ko": "관리",
+                "nl": "Administratie",
+                "pl": "Administracja",
+                "pt": "Administração",
+                "ru": "Администрирование",
+                "tr": "Yönetim",
+                "zh": "管理"
+            },
+            "icon": "shield-lock",
+            "route": "/admin/",
+            "order": 900
+        },
+        {
+            "id": "api_docs",
+            "title": "API Docs",
+            "titles": {
+                "de": "API Docs",
+                "en": "API Docs",
+                "fr": "API Docs",
+                "ar": "وثائق API",
+                "es": "Documentación de la API",
+                "hu": "API dokumentáció",
+                "it": "Documentazione API",
+                "ja": "APIドキュメント",
+                "ko": "API 문서",
+                "nl": "API-documentatie",
+                "pl": "Dokumentacja API",
+                "pt": "Documentação da API",
+                "ru": "API Docs",
+                "tr": "API Dokümanları",
+                "zh": "API 文档"
+            },
+            "icon": "code-square",
+            "route": "/api/docs/",
+            "order": 910
+        }
+    ]
+}

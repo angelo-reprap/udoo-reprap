@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "Spis treści"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Przegląd"
+        },
+        {
+            "id": "endpoints",
+            "number": "2",
+            "title": "Punkty końcowe"
+        }
+    ]
+}

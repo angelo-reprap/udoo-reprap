@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "目次"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "概要"
+        },
+        {
+            "id": "endpoints",
+            "number": "2",
+            "title": "エンドポイント"
+        }
+    ]
+}

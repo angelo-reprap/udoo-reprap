@@ -1,0 +1,86 @@
+{
+    "toc": {
+        "title": "Inhaltsverzeichnis"
+    },
+    "sections": [
+        {
+            "id": "einstieg",
+            "number": "1",
+            "title": "Einstieg & Login"
+        },
+        {
+            "id": "dashboard",
+            "number": "2",
+            "title": "Dashboard & Navigation"
+        },
+        {
+            "id": "cv_editor",
+            "number": "3",
+            "title": "CV Editor"
+        },
+        {
+            "id": "cv_upload",
+            "number": "4",
+            "title": "CV Upload & Extraktion"
+        },
+        {
+            "id": "matching",
+            "number": "5",
+            "title": "Matching & Suche"
+        },
+        {
+            "id": "email_studio",
+            "number": "6",
+            "title": "Email Studio"
+        },
+        {
+            "id": "doc_studio",
+            "number": "7",
+            "title": "Doc Studio"
+        },
+        {
+            "id": "rechnungen",
+            "number": "8",
+            "title": "Rechnungen"
+        },
+        {
+            "id": "vorlagen",
+            "number": "9",
+            "title": "Vorlagen & Briefpapier"
+        },
+        {
+            "id": "benutzerverwaltung",
+            "number": "10",
+            "title": "Benutzerverwaltung"
+        },
+        {
+            "id": "einstellungen",
+            "number": "11",
+            "title": "Einstellungen & Konfiguration"
+        },
+        {
+            "id": "sprache",
+            "number": "12",
+            "title": "Sprache & Lokalisierung"
+        },
+        {
+            "id": "tipps",
+            "number": "13",
+            "title": "Tipps & Tastenkürzel"
+        },
+        {
+            "id": "fehler",
+            "number": "14",
+            "title": "Häufige Fehler & Lösungen"
+        },
+        {
+            "id": "glossar",
+            "number": "15",
+            "title": "Glossar"
+        }
+    ],
+    "version": "Version 2.0",
+    "framework": "Django 5.x",
+    "chapters": "15 Kapitel",
+    "audience": "Endbenutzer"
+}

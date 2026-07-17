@@ -1,0 +1,72 @@
+{
+    "toc": {
+        "title": "Spis treści"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Przegląd — System modułów"
+        },
+        {
+            "id": "struktur",
+            "number": "2",
+            "title": "Struktura katalogów"
+        },
+        {
+            "id": "module_json",
+            "number": "3",
+            "title": "Plik module.json"
+        },
+        {
+            "id": "template",
+            "number": "4",
+            "title": "Szablon HTML"
+        },
+        {
+            "id": "css",
+            "number": "5",
+            "title": "CSS — Style"
+        },
+        {
+            "id": "javascript",
+            "number": "6",
+            "title": "JavaScript — Logika modułu"
+        },
+        {
+            "id": "toggle_system",
+            "number": "7",
+            "title": "System przełączania"
+        },
+        {
+            "id": "i18n",
+            "number": "8",
+            "title": "Internacjonalizacja"
+        },
+        {
+            "id": "navigation",
+            "number": "9",
+            "title": "Nawigacja i panel boczny"
+        },
+        {
+            "id": "api",
+            "number": "10",
+            "title": "Punkty końcowe API"
+        },
+        {
+            "id": "checkliste",
+            "number": "11",
+            "title": "Lista kontrolna i błędy"
+        },
+        {
+            "id": "beispiel",
+            "number": "12",
+            "title": "Pełny przykład"
+        },
+        {
+            "id": "anhang_a",
+            "number": "A",
+            "title": "Dodatek A — Pułapki przy integracji z portalem"
+        }
+    ]
+}

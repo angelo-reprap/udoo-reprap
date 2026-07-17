@@ -1,0 +1,190 @@
+{% extends 'abpe_ui/base.html' %}
+{% load static %}
+{% block title %}Doc Studio — Studio{% endblock %}
+{% block module_css %}
+<link href="{% static 'abpe_ui/css/mod/mod-doc_studio.css' %}" rel="stylesheet">
+<link href="{% static 'abpe_ui/css/mod/mod-doc_studio_editor.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<script>
+document.addEventListener('languageChanged', function(e) {
+    if (typeof loadLanguage === 'function') loadLanguage(e.detail.language, 'doc_studio');
+});
+</script>
+
+<div class="container-fluid p-0 ds-studio-page">
+
+    {# ── Tab-Leiste ── #}
+    <div class="ds-tabbar">
+        <a href="/doc-studio/"          class="ds-tab">
+            <i class="bi bi-files"></i><span data-i18n="ds.tab_templates">Vorlagen</span>
+        </a>
+        <a href="/doc-studio/studio/"   class="ds-tab ds-tab-active">
+            <i class="bi bi-pencil-square"></i><span data-i18n="ds.tab_studio">Studio</span>
+        </a>
+        <a href="/doc-studio/invoices/" class="ds-tab">
+            <i class="bi bi-receipt"></i><span data-i18n="ds.tab_invoices">Rechnungen</span>
+        </a>
+        <a href="/doc-studio/log/"      class="ds-tab">
+            <i class="bi bi-journal-text"></i><span data-i18n="ds.tab_log">Log</span>
+        </a>
+        {% if is_admin %}
+        <a href="/doc-studio/config/"   class="ds-tab">
+            <i class="bi bi-gear"></i><span data-i18n="ds.tab_config">Konfiguration</span>
+        </a>
+        {% endif %}
+        <div class="ds-tab-spacer"></div>
+        <button class="btn btn-sm btn-outline-secondary ds-tab-btn me-2"
+                id="ds-btn-test" onclick="dsStudioTest()" style="display:none;">
+            <i class="bi bi-bug me-1"></i>Test
+        </button>
+        <button class="btn btn-sm btn-success ds-tab-btn"
+                id="ds-btn-generate" onclick="dsStudioGenerate()" style="display:none;">
+            <i class="bi bi-play-fill me-1"></i>
+            <span data-i18n="ds.btn_generate">Generieren</span>
+        </button>
+    </div>
+
+    {# ── Haupt-Layout: Links + Rechts ── #}
+    <div class="ds-editor-layout">
+
+        {# ── LINKE SPALTE ── #}
+        <div class="ds-editor-left">
+
+            {# Vorlage #}
+            <div class="toggle-section">
+                <div class="section-header open" onclick="toggleSection(this)">
+                    <i class="bi bi-file-earmark-word"></i>
+                    <span data-i18n="ds.studio_template">Vorlage</span>
+                </div>
+                <div class="section-content open" style="padding:8px 10px;">
+                    <div class="ds-field-lbl" data-i18n="ds.label_template">Vorlage</div>
+                    <select id="ds-template-select" class="form-select form-select-sm mb-2"
+                            onchange="dsStudioLoadTemplate(this.value)">
+                        <option value="">— Vorlage wählen —</option>
+                    </select>
+                    <div class="ds-field-lbl" data-i18n="ds.label_ref">Referenz</div>
+                    <input id="ds-studio-ref" type="text"
+                           class="form-control form-control-sm mb-2"
+                           placeholder="ANF-2026-0042">
+                    <div class="ds-field-lbl" data-i18n="ds.label_engine">Format</div>
+                    <select id="ds-studio-engine" class="form-select form-select-sm">
+                        <option value="DOCX">DOCX</option>
+                        <option value="PDF">PDF</option>
+                        <option value="BOTH" selected>DOCX + PDF</option>
+                    </select>
+                </div>
+            </div>
+
+            {# Variablen #}
+            <div class="toggle-section">
+                <div class="section-header open" onclick="toggleSection(this)">
+                    <i class="bi bi-braces"></i>
+                    <span data-i18n="ds.vars_title">Variablen</span>
+                    <span class="ds-badge ds-badge-gray ms-1" id="ds-vars-count">0</span>
+                    <span class="ms-auto" style="font-size:9px;opacity:.7;">Klick → kopieren</span>
+                </div>
+                <div class="section-content open" id="ds-vars-container" style="padding:8px 10px;">
+                    <p class="small text-secondary mb-0" data-i18n="ds.vars_hint">Vorlage wählen</p>
+                </div>
+            </div>
+
+            {# Blöcke #}
+            <div class="toggle-section" id="ds-blocks-panel" style="display:none;">
+                <div class="section-header open" onclick="toggleSection(this)">
+                    <i class="bi bi-stack"></i>
+                    <span data-i18n="ds.blocks_title">Blöcke</span>
+                    <span class="ds-badge ds-badge-gray ms-1" id="ds-blocks-count">0</span>
+                    <span class="ms-auto" style="font-size:9px;opacity:.7;">Ziehen ins Dokument</span>
+                </div>
+                <div class="section-content open" id="ds-blocks-container" style="padding:8px 10px;"></div>
+            </div>
+
+            {# Download-Bereich #}
+            <div id="ds-generate-result" class="d-none mt-auto">
+                <div class="alert alert-success py-2 mb-2" style="font-size:11px;">
+                    <i class="bi bi-check-circle-fill me-1"></i>
+                    <span data-i18n="ds.generate_success">Generiert</span>
+                    <div class="small text-secondary mt-1" id="ds-generate-paths"></div>
+                </div>
+                <div class="d-flex gap-2">
+                    <a id="ds-download-docx" href="#" class="btn btn-sm btn-outline-primary d-none flex-fill" download>
+                        <i class="bi bi-file-earmark-word me-1"></i>DOCX
+                    </a>
+                    <a id="ds-download-pdf" href="#" class="btn btn-sm btn-outline-danger d-none flex-fill" download>
+                        <i class="bi bi-file-earmark-pdf me-1"></i>PDF
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        {# ── RECHTE SEITE: Dokument ── #}
+        <div class="ds-editor-right">
+
+            {# Dokument-Toolbar #}
+            <div class="ds-doc-toolbar">
+                <span class="ds-doc-label">Dokument</span>
+
+                {# Undo #}
+                <button class="ds-undo-btn" id="ds-undo-btn" onclick="dsEditorUndo()" disabled>
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                    Undo <span id="ds-undo-cnt"></span>
+                </button>
+
+                {# Mode Toggle #}
+                <div class="ds-mode-toggle ms-auto">
+                    <button class="ds-mtog on" id="ds-tog-editor" onclick="dsSetMode('editor')">
+                        <i class="bi bi-pencil"></i> Editor
+                    </button>
+                    <button class="ds-mtog" id="ds-tog-preview" onclick="dsSetMode('preview')">
+                        <i class="bi bi-eye"></i> Vorschau
+                    </button>
+                </div>
+            </div>
+
+            {# Dokument-Canvas (Word-Seite) #}
+            <div class="ds-doc-canvas" id="ds-doc-canvas">
+                <div class="ds-doc-hint" id="ds-doc-hint">
+                    Vorlage wählen — Dokument erscheint hier
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{# Toast #}
+<div class="ds-toast" id="ds-toast">
+    <span id="ds-toast-msg">Gespeichert</span>
+    <span class="ds-toast-undo" id="ds-toast-undo" onclick="dsEditorUndo()">↩ Rückgängig</span>
+</div>
+{% endblock %}
+
+{% block module_js %}
+<script src="{% static 'abpe_ui/js/mod/mod-doc_studio.js' %}"></script>
+<script src="{% static 'abpe_ui/js/mod/mod-doc_studio-editor.js' %}"></script>
+<script src="{% static 'abpe_ui/js/mod/ds-vars-renderer.js' %}"></script>
+{% endblock %}
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof loadLanguage === 'function') {
+        loadLanguage('{{ current_lang|default:"de" }}', 'doc_studio').then(function() {
+            if (typeof dsInit === 'function') dsInit('studio');
+            {% if active_template %}
+            if (typeof dsStudioLoadTemplate === 'function') {
+                document.getElementById('ds-template-select').value = '{{ active_template.pk }}';
+                dsStudioLoadTemplate('{{ active_template.pk }}');
+            }
+            {% endif %}
+        });
+    } else {
+        if (typeof dsInit === 'function') dsInit('studio');
+    }
+});
+</script>
+{% endblock %}

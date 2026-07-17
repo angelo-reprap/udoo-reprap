@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "Pesquisa de Consultores (Namazu)",
+            "placeholder": "Nome, Habilidade, Tecnologia...",
+            "btn": "Pesquisar",
+            "max_label": "Máx. Resultados"
+        },
+        "results": {
+            "total": "Total de Resultados",
+            "empty": "Nenhum resultado encontrado",
+            "score": "Pontuação"
+        },
+        "profile": {
+            "open": "Perfil",
+            "preview": "Visualização da Ficha Técnica",
+            "close": "Fechar"
+        },
+        "admin": {
+            "title": "Gerenciamento de Índice",
+            "imap_title": "Caixas de Correio IMAP",
+            "add_account": "Adicionar Conta",
+            "active": "ativo",
+            "inactive": "inativo",
+            "html_count": "Arquivos HTML",
+            "index_size": "Tamanho do Índice",
+            "last_indexed": "Última Indexação",
+            "reindex_btn": "Iniciar Reindexação",
+            "reindex_ok": "Reindexação iniciada",
+            "reindex_err": "Erro ao iniciar",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "Carregando..."
+        },
+        "es": {
+            "title": "Pesquisa Elasticsearch",
+            "placeholder": "Habilidades, Nome, Tecnologia...",
+            "exclude": "Excluir:",
+            "exclude_account": "Excluir Caixa de Correio",
+            "query_helper": "Ajuda de Consulta",
+            "examples": "Exemplos:",
+            "index": {
+                "consultants": "Consultores",
+                "emails": "E-mails",
+                "profiles": "Perfis"
+            },
+            "sort": {
+                "placeholder": "Ordenação...",
+                "date_desc": "Data ↓",
+                "date_asc": "Data ↑",
+                "indexed_desc": "Indexado ↓",
+                "indexed_asc": "Indexado ↑",
+                "attachments": "Anexos primeiro",
+                "from_asc": "Remetente A-Z",
+                "account_asc": "Caixa de Correio A-Z",
+                "name_asc": "Nome A-Z",
+                "status": "Status",
+                "available": "Disponível a partir de",
+                "availability": "Disponibilidade",
+                "folder_asc": "Pasta A-Z",
+                "size_desc": "Tamanho ↓"
+            },
+            "chips": {
+                "boolean": "Booleano:",
+                "wildcards": "Curingas & Fuzzy:",
+                "fields_email": "Campos (E-mails):",
+                "fields_consultant": "Campos (Consultores):",
+                "date_ranges": "Data & Intervalos:",
+                "and": "ambos",
+                "or": "um",
+                "not": "excluir",
+                "must": "deve",
+                "must_not": "não deve",
+                "wildcard": "Curinga",
+                "one_char": "um caractere",
+                "fuzzy": "Fuzzy",
+                "phrase": "Frase",
+                "proximity": "Proximidade",
+                "boost": "Boost",
+                "with_attachment": "Com Anexo",
+                "fulltext": "Texto Completo",
+                "name": "Nome",
+                "location": "Localização",
+                "availability": "Disponibilidade",
+                "subject": "Assunto",
+                "sender": "Remetente",
+                "content": "Conteúdo",
+                "mailbox": "Caixa de Correio",
+                "folder": "Pasta"
+            }
+        }
+    }
+}

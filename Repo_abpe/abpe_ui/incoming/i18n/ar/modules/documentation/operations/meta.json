@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "جدول المحتويات"
+    },
+    "sections": [
+        {
+            "id": "dienste",
+            "number": "1",
+            "title": "الخدمات"
+        },
+        {
+            "id": "backup_ops",
+            "number": "2",
+            "title": "النسخ الاحتياطي"
+        }
+    ]
+}

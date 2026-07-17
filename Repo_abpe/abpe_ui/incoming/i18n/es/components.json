@@ -1,0 +1,19 @@
+{
+    "component_actions_upload_pdf": "Subir PDF",
+    "component_actions_add_consultant": "Crear consultor",
+    "component_actions_start_matching": "Iniciar emparejamiento",
+    "component_actions_contact": "Contactar consultor",
+    "component_stats_consultants": "Consultores",
+    "component_stats_emails": "Correos electrónicos",
+    "component_stats_projects": "Proyectos",
+    "component_stats_matches": "Emparejamientos",
+    "component_system_django": "Django",
+    "component_system_celery": "Celery",
+    "component_system_postgresql": "PostgreSQL",
+    "component_system_cpu": "CPU",
+    "component_system_ram": "RAM",
+    "component_system_gpu": "GPU",
+    "component_recent_consultants_title": "Últimos consultores",
+    "component_recent_emails_title": "Últimos correos electrónicos",
+    "component_show_all": "Mostrar todo →"
+}

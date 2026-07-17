@@ -1,0 +1,72 @@
+{
+    "toc": {
+        "title": "Table des matières"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Aperçu — Le système de modules"
+        },
+        {
+            "id": "struktur",
+            "number": "2",
+            "title": "Structure des répertoires"
+        },
+        {
+            "id": "module_json",
+            "number": "3",
+            "title": "Le fichier module.json"
+        },
+        {
+            "id": "template",
+            "number": "4",
+            "title": "Le modèle HTML"
+        },
+        {
+            "id": "css",
+            "number": "5",
+            "title": "CSS — Styles"
+        },
+        {
+            "id": "javascript",
+            "number": "6",
+            "title": "JavaScript — Logique du module"
+        },
+        {
+            "id": "toggle_system",
+            "number": "7",
+            "title": "Le système de bascule"
+        },
+        {
+            "id": "i18n",
+            "number": "8",
+            "title": "Internationalisation"
+        },
+        {
+            "id": "navigation",
+            "number": "9",
+            "title": "Navigation & Barre latérale"
+        },
+        {
+            "id": "api",
+            "number": "10",
+            "title": "Points de terminaison API"
+        },
+        {
+            "id": "checkliste",
+            "number": "11",
+            "title": "Liste de contrôle & Erreurs"
+        },
+        {
+            "id": "beispiel",
+            "number": "12",
+            "title": "Exemple complet"
+        },
+        {
+            "id": "anhang_a",
+            "number": "A",
+            "title": "Annexe A — Pièges courants lors de l'intégration au portail"
+        }
+    ]
+}

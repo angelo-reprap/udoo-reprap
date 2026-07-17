@@ -1,0 +1,11 @@
+{
+    "documentation": "ドキュメント",
+    "architecture": "アーキテクチャ",
+    "user_manual": "ユーザーマニュアル",
+    "architecture_title": "ABpE ポータルアーキテクチャ",
+    "architecture_subtitle": "モジュール構造のドキュメント",
+    "core_components": "コアコンポーネント",
+    "modules": "モジュール",
+    "api_endpoints": "API エンドポイント",
+    "database_schema": "データベーススキーマ"
+}

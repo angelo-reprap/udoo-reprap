@@ -1,0 +1,72 @@
+{
+    "toc": {
+        "title": "목차"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "개요 — 모듈 시스템"
+        },
+        {
+            "id": "struktur",
+            "number": "2",
+            "title": "디렉토리 구조"
+        },
+        {
+            "id": "module_json",
+            "number": "3",
+            "title": "module.json"
+        },
+        {
+            "id": "template",
+            "number": "4",
+            "title": "HTML 템플릿"
+        },
+        {
+            "id": "css",
+            "number": "5",
+            "title": "CSS — 스타일"
+        },
+        {
+            "id": "javascript",
+            "number": "6",
+            "title": "JavaScript — 모듈 로직"
+        },
+        {
+            "id": "toggle_system",
+            "number": "7",
+            "title": "토글 시스템"
+        },
+        {
+            "id": "i18n",
+            "number": "8",
+            "title": "국제화"
+        },
+        {
+            "id": "navigation",
+            "number": "9",
+            "title": "내비게이션 및 사이드바"
+        },
+        {
+            "id": "api",
+            "number": "10",
+            "title": "API 엔드포인트"
+        },
+        {
+            "id": "checkliste",
+            "number": "11",
+            "title": "체크리스트 및 오류"
+        },
+        {
+            "id": "beispiel",
+            "number": "12",
+            "title": "전체 예제"
+        },
+        {
+            "id": "anhang_a",
+            "number": "A",
+            "title": "부록 A — 포털 통합 시 흔한 실수"
+        }
+    ]
+}

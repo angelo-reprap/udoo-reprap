@@ -1,0 +1,86 @@
+{
+    "toc": {
+        "title": "目次"
+    },
+    "sections": [
+        {
+            "id": "einstieg",
+            "number": "1",
+            "title": "はじめ方とログイン"
+        },
+        {
+            "id": "dashboard",
+            "number": "2",
+            "title": "ダッシュボードとナビゲーション"
+        },
+        {
+            "id": "cv_editor",
+            "number": "3",
+            "title": "CVエディター"
+        },
+        {
+            "id": "cv_upload",
+            "number": "4",
+            "title": "CVアップロードと抽出"
+        },
+        {
+            "id": "matching",
+            "number": "5",
+            "title": "マッチングと検索"
+        },
+        {
+            "id": "email_studio",
+            "number": "6",
+            "title": "メールスタジオ"
+        },
+        {
+            "id": "doc_studio",
+            "number": "7",
+            "title": "ドキュメントスタジオ"
+        },
+        {
+            "id": "rechnungen",
+            "number": "8",
+            "title": "請求書"
+        },
+        {
+            "id": "vorlagen",
+            "number": "9",
+            "title": "テンプレートとレターヘッド"
+        },
+        {
+            "id": "benutzerverwaltung",
+            "number": "10",
+            "title": "ユーザー管理"
+        },
+        {
+            "id": "einstellungen",
+            "number": "11",
+            "title": "設定と構成"
+        },
+        {
+            "id": "sprache",
+            "number": "12",
+            "title": "言語とローカライゼーション"
+        },
+        {
+            "id": "tipps",
+            "number": "13",
+            "title": "ヒントとショートカットキー"
+        },
+        {
+            "id": "fehler",
+            "number": "14",
+            "title": "よくあるエラーと解決策"
+        },
+        {
+            "id": "glossar",
+            "number": "15",
+            "title": "用語集"
+        }
+    ],
+    "version": "バージョン2.0",
+    "framework": "Django 5.x",
+    "chapters": "15章",
+    "audience": "エンドユーザー"
+}

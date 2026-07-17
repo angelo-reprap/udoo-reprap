@@ -1,0 +1,11 @@
+{
+    "documentation": "Documentazione",
+    "architecture": "Architettura",
+    "user_manual": "Manuale utente",
+    "architecture_title": "Architettura del portale ABpE",
+    "architecture_subtitle": "Documentazione della struttura modulare",
+    "core_components": "Componenti principali",
+    "modules": "Moduli",
+    "api_endpoints": "Endpoint API",
+    "database_schema": "Schema del database"
+}

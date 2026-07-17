@@ -1,0 +1,72 @@
+{
+    "toc": {
+        "title": "Índice"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Visão Geral — O Sistema de Módulos"
+        },
+        {
+            "id": "struktur",
+            "number": "2",
+            "title": "Estrutura de Diretórios"
+        },
+        {
+            "id": "module_json",
+            "number": "3",
+            "title": "O module.json"
+        },
+        {
+            "id": "template",
+            "number": "4",
+            "title": "O Template HTML"
+        },
+        {
+            "id": "css",
+            "number": "5",
+            "title": "CSS — Estilos"
+        },
+        {
+            "id": "javascript",
+            "number": "6",
+            "title": "JavaScript — Lógica do Módulo"
+        },
+        {
+            "id": "toggle_system",
+            "number": "7",
+            "title": "O Sistema de Alternância"
+        },
+        {
+            "id": "i18n",
+            "number": "8",
+            "title": "Internacionalização"
+        },
+        {
+            "id": "navigation",
+            "number": "9",
+            "title": "Navegação e Barra Lateral"
+        },
+        {
+            "id": "api",
+            "number": "10",
+            "title": "Endpoints da API"
+        },
+        {
+            "id": "checkliste",
+            "number": "11",
+            "title": "Lista de Verificação e Erros"
+        },
+        {
+            "id": "beispiel",
+            "number": "12",
+            "title": "Exemplo Completo"
+        },
+        {
+            "id": "anhang_a",
+            "number": "A",
+            "title": "Apêndice A — Armadilhas na Integração do Portal"
+        }
+    ]
+}

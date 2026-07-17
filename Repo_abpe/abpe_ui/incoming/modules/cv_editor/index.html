@@ -1,0 +1,476 @@
+{% extends 'abpe_ui/base.html' %}
+{% load static %}
+{% block title %}CV Editor{% endblock %}
+{% block module_css %}
+<link href="{% static 'abpe_ui/css/mod/mod-cv_editor.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div id="cve-container" class="cve-container">
+
+  <!-- Dirty-Check Popup -->
+  <div id="cve-dirty-overlay" class="cve-dirty-overlay" style="display:none">
+    <div class="cve-dirty-popup">
+
+      <!-- Icon -->
+      <div class="cve-dirty-icon-wrap">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="24" fill="#FFF3CD"/>
+          <path d="M24 14L40 38H8L24 14Z" fill="#F39C12" opacity=".15"/>
+          <path d="M22 20h4l-.5 10h-3L22 20zm0 12h4v4h-4v-4z" fill="#163258"/>
+          <path d="M24 10L42 40H6L24 10Z" stroke="#F39C12" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+
+      <!-- Titel -->
+      <h4 class="cve-dirty-title" data-i18n="cv_editor.popup_title"></h4>
+
+      <!-- Berater-Name -->
+      <div class="cve-dirty-name-wrap">
+        <i class="bi bi-person-circle"></i>
+        <strong id="cve-dirty-name"></strong>
+      </div>
+
+      <!-- Hinweis -->
+      <div class="cve-dirty-hint">
+        <i class="bi bi-exclamation-circle"></i>
+        <span data-i18n="cv_editor.popup_hint"></span>
+      </div>
+
+      <!-- Buttons -->
+      <div class="cve-dirty-actions">
+        <button class="cve-popup-save" onclick="cveEditor.popupSave()">
+          <i class="bi bi-floppy"></i>
+          <span data-i18n="cv_editor.popup_save"></span>
+        </button>
+        <button class="cve-popup-discard" onclick="cveEditor.popupDiscard()">
+          <i class="bi bi-box-arrow-left"></i>
+          <span data-i18n="cv_editor.popup_discard"></span>
+        </button>
+        <button class="cve-popup-cancel" onclick="cveEditor.popupCancel()">
+          <i class="bi bi-pencil-square"></i>
+          <span data-i18n="cv_editor.popup_cancel"></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ HAUPT-TOGGLE 1: BERATER-ÜBERSICHT ═══ -->
+  <div class="toggle-section" id="toggle-list">
+    <div class="section-header open" id="hdr-list" onclick="cveEditor.tryOpenList()">
+      <span class="cve-main-title">
+        <i class="bi bi-people"></i>
+        <span data-i18n="cv_editor.list_title"></span>
+        <span class="cve-badge-count" id="cve-count"></span>
+      </span>
+      <i class="bi bi-chevron-down"></i>
+    </div>
+    <div class="section-content open" id="body-list">
+      <div class="cve-toolbar-list">
+        <input id="cve-search" data-i18n-placeholder="cv_editor.search_placeholder"
+          oninput="cveEditor.filterTable(this.value)">
+        <select id="cve-sort" onchange="cveEditor.filterTable(document.getElementById('cve-search').value)">
+          <option value="newest" data-i18n="cv_editor.sort_newest"></option>
+          <option value="oldest" data-i18n="cv_editor.sort_oldest"></option>
+          <option value="ln_asc"  data-i18n="cv_editor.sort_ln_asc"></option>
+          <option value="ln_desc" data-i18n="cv_editor.sort_ln_desc"></option>
+        </select>
+        <select id="cve-status-f" onchange="cveEditor.filterTable(document.getElementById('cve-search').value)">
+          <option value=""          data-i18n="cv_editor.filter_all"></option>
+          <option value="completed" data-i18n="cv_editor.filter_done"></option>
+          <option value="processing" data-i18n="cv_editor.filter_proc"></option>
+          <option value="failed"    data-i18n="cv_editor.filter_fail"></option>
+          <option value="uploaded"  data-i18n="cv_editor.filter_upload"></option>
+        </select>
+        <button onclick="cveEditor.loadConsultants()"><i class="bi bi-arrow-clockwise"></i></button>
+      </div>
+      <div class="cve-tbl-wrap">
+        <table class="cve-tbl">
+          <thead><tr>
+            <th data-i18n="cv_editor.col_lastname"></th>
+            <th data-i18n="cv_editor.col_firstname"></th>
+            <th data-i18n="cv_editor.col_aid"></th>
+            <th data-i18n="cv_editor.col_version"></th>
+            <th data-i18n="cv_editor.col_status"></th>
+            <th data-i18n="cv_editor.col_updated"></th>
+            <th data-i18n="cv_editor.col_valid"></th>
+            <th></th>
+          </tr></thead>
+          <tbody id="cve-tbody">
+            <tr><td colspan="8" class="cve-loading"><i class="bi bi-hourglass-split"></i></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ HAUPT-TOGGLE 2: EDITOR ═══ -->
+  <div class="toggle-section" id="toggle-editor" style="display:none">
+    <div class="section-header" id="hdr-editor" onclick="cveEditor.toggleEditorMain()">
+      <span class="cve-main-title">
+        <i class="bi bi-file-earmark-person"></i>
+        <span id="cve-ed-label"></span>
+      </span>
+      <div class="cve-ed-hdr-right">
+        <button class="cve-btn-validate" id="cve-btn-validate"
+          onclick="event.stopPropagation(); cveEditor.toggleValidate()">
+          <i class="bi bi-square" id="cve-val-icon"></i>
+          <span data-i18n="cv_editor.btn_validate"></span>
+        </button>
+        <button class="cve-btn-anon" id="cve-btn-anon"
+          onclick="event.stopPropagation(); cveEditor.toggleAnon()">
+          <i class="bi bi-eye-slash"></i>
+          <span data-i18n="cv_editor.btn_anon"></span>
+        </button>
+        <!-- Löschen jetzt in Toolbar -->
+        <i class="bi bi-chevron-down"></i>
+      </div>
+    </div>
+    <div class="section-content" id="body-editor">
+
+      <!-- Toolbar -->
+      <div class="cve-toolbar-ed">
+        <button class="cve-tb-btn" onclick="cveEditor.viewPdf()">
+          <i class="bi bi-file-earmark-pdf"></i>
+          <span data-i18n="cv_editor.btn_pdf"></span>
+        </button>
+        <button class="cve-tb-btn" onclick="cveEditor.viewTxt()">
+          <i class="bi bi-file-earmark-text"></i>
+          <span data-i18n="cv_editor.btn_txt"></span>
+        </button>
+        <button class="cve-tb-btn" onclick="cveEditor.viewHtml('de')">
+          <i class="bi bi-globe"></i>
+          <span data-i18n="cv_editor.btn_html_de"></span>
+        </button>
+        <button class="cve-tb-btn" onclick="cveEditor.viewHtml('en')">
+          <i class="bi bi-globe2"></i>
+          <span data-i18n="cv_editor.btn_html_en"></span>
+        </button>
+        <div class="cve-tb-separator"></div>
+        <button class="cve-word-btn" onclick="cveEditor.generateWord()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8.5 17l1.5-5.5 1.5 5.5H13l2-8h-1.5l-1.25 5.5L10.75 9H9.5L8.25 14.5 7 9H5.5l2 8H8.5z"/>
+          </svg>
+          <span data-i18n="cv_editor.btn_word"></span>
+        </button>
+        <div class="cve-tb-tpl-wrap">
+          <span class="cve-tb-tpl-label" data-i18n="cv_editor.btn_template"></span>
+          <select id="cve-word-tpl" class="cve-tb-tpl-select">
+            <option value="aid-word"         data-i18n="cv_editor.word_std_de"></option>
+            <option value="aid-word-short"    data-i18n="cv_editor.word_short_de"></option>
+            <option value="aid-word-en"       data-i18n="cv_editor.word_std_en"></option>
+            <option value="aid-word-short-en" data-i18n="cv_editor.word_short_en"></option>
+          </select>
+        </div>
+        <div style="flex:1"></div>
+        <button class="cve-btn-del" onclick="event.stopPropagation(); cveEditor.deleteConsultant()" id="cve-btn-del-tb">
+          <i class="bi bi-trash"></i>
+          <span data-i18n="cv_editor.btn_delete"></span>
+        </button>
+      </div>
+
+      <!-- 9 Editor-Sektionen: Portal Core toggle-section/section-header/section-content -->
+
+      <!-- 1: Kopf -->
+      <div class="toggle-section">
+        <div class="section-header" onclick="cveEditor.toggleSec(this, event)">
+          <span><i class="bi bi-person-badge"></i> <span data-i18n="cv_editor.sec_kopf"></span></span>
+          <div class="cve-sec-right">
+            <button class="cve-save-btn" onclick="event.stopPropagation();cveEditor.saveSection('personal')" data-i18n="cv_editor.save_kopf"></button>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+        </div>
+        <div class="section-content" id="sec-kopf">
+          <div class="cve-form-row">
+            <div class="cve-fg"><label data-i18n="cv_editor.field_firstname"></label><input id="cv-first_name" oninput="cveEditor.dirty()"></div>
+            <div class="cve-fg"><label data-i18n="cv_editor.field_lastname"></label><input id="cv-last_name" oninput="cveEditor.dirty()"></div>
+            <div class="cve-fg"><label data-i18n="cv_editor.field_headline"></label><input id="cv-headline" oninput="cveEditor.dirty()"></div>
+          </div>
+          <div class="cve-form-row">
+            <div class="cve-fg"><label data-i18n="cv_editor.field_email"></label><input id="cv-email" oninput="cveEditor.dirty()"></div>
+            <div class="cve-fg"><label data-i18n="cv_editor.field_phone"></label><input id="cv-phone" oninput="cveEditor.dirty()"></div>
+            <div class="cve-fg"><label data-i18n="cv_editor.field_location"></label><input id="cv-location" oninput="cveEditor.dirty()"></div>
+          </div>
+          <div class="cve-form-row">
+            <div class="cve-fg"><label data-i18n="cv_editor.field_company"></label><input id="cv-company" oninput="cveEditor.dirty()"></div>
+            <div class="cve-fg"><label data-i18n="cv_editor.field_address"></label><input id="cv-address" oninput="cveEditor.dirty()"></div>
+            <div class="cve-fg"><label data-i18n="cv_editor.field_website"></label><input id="cv-website" oninput="cveEditor.dirty()"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: Persönliche Daten -->
+      <div class="toggle-section">
+        <div class="section-header" onclick="cveEditor.toggleSec(this, event)">
+          <span><i class="bi bi-clipboard-data"></i> <span data-i18n="cv_editor.sec_personal"></span></span>
+          <div class="cve-sec-right">
+            <button class="cve-save-btn" onclick="event.stopPropagation();cveEditor.saveSection('personal')" data-i18n="cv_editor.save_personal"></button>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+        </div>
+        <div class="section-content" id="sec-personal">
+          <div class="cve-form-row">
+            <div class="cve-fg"><label data-i18n="cv_editor.field_birth_year"></label><input type="number" id="cv-birth_year" oninput="cveEditor.dirty()"></div>
+            <div class="cve-fg"><label data-i18n="cv_editor.field_nationality"></label><input id="cv-nationality" oninput="cveEditor.dirty()"></div>
+            <div class="cve-fg"><label data-i18n="cv_editor.field_edv_since"></label><input type="number" id="cv-edv_since" oninput="cveEditor.dirty()"></div>
+          </div>
+          <div class="cve-form-row">
+            <div class="cve-fg"><label data-i18n="cv_editor.field_availability"></label><input id="cv-availability" oninput="cveEditor.dirty()"></div>
+            <div class="cve-fg"><label data-i18n="cv_editor.field_stand"></label><input id="cv-stand" oninput="cveEditor.dirty()"></div>
+          </div>
+          <div class="cve-fg" style="margin-bottom:10px">
+            <label data-i18n="cv_editor.field_languages"></label>
+            <div class="cve-tag-wrap" id="languages-container">
+              <div class="cve-tags" id="languages-tags"></div>
+              <input class="cve-tag-input" data-i18n-placeholder="cv_editor.add_language">
+              <button class="cve-add-tag-btn">+</button>
+            </div>
+          </div>
+          <div class="cve-fg">
+            <label data-i18n="cv_editor.field_education"></label>
+            <div id="education-container"></div>
+            <button class="cve-add-btn" id="add-education">
+              + <span data-i18n="cv_editor.add_education"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: Branchen -->
+      <div class="toggle-section">
+        <div class="section-header" onclick="cveEditor.toggleSec(this, event)">
+          <span><i class="bi bi-building"></i> <span data-i18n="cv_editor.sec_branchen"></span></span>
+          <div class="cve-sec-right">
+            <button class="cve-save-btn" onclick="event.stopPropagation();cveEditor.saveSection('branchen')" data-i18n="cv_editor.save_branchen"></button>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+        </div>
+        <div class="section-content" id="sec-branchen">
+          <div class="cve-tag-wrap" id="branchen-container">
+            <div class="cve-tags" id="branchen-tags"></div>
+            <input class="cve-tag-input" data-i18n-placeholder="cv_editor.add_branche">
+            <button class="cve-add-tag-btn">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: Fachbereiche -->
+      <div class="toggle-section">
+        <div class="section-header" onclick="cveEditor.toggleSec(this, event)">
+          <span><i class="bi bi-tools"></i> <span data-i18n="cv_editor.sec_fachbereiche"></span></span>
+          <div class="cve-sec-right">
+            <button class="cve-save-btn" onclick="event.stopPropagation();cveEditor.saveSection('fachbereiche')" data-i18n="cv_editor.save_fachbereiche"></button>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+        </div>
+        <div class="section-content" id="sec-fachbereiche">
+          <div class="cve-tag-wrap" id="fachbereiche-container">
+            <div class="cve-tags" id="fachbereiche-tags"></div>
+            <input class="cve-tag-input" data-i18n-placeholder="cv_editor.add_fachbereich">
+            <button class="cve-add-tag-btn">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: Schulungen -->
+      <div class="toggle-section">
+        <div class="section-header" onclick="cveEditor.toggleSec(this, event)">
+          <span><i class="bi bi-journal-bookmark"></i> <span data-i18n="cv_editor.sec_schulungen"></span></span>
+          <div class="cve-sec-right">
+            <button class="cve-save-btn" onclick="event.stopPropagation();cveEditor.saveSection('schulungen')" data-i18n="cv_editor.save_schulungen"></button>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+        </div>
+        <div class="section-content" id="sec-schulungen">
+          <div class="cve-tag-wrap" id="schulungen-container">
+            <div class="cve-tags" id="schulungen-tags"></div>
+            <input class="cve-tag-input" data-i18n-placeholder="cv_editor.add_schulung">
+            <button class="cve-add-tag-btn">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6: Zertifikate -->
+      <div class="toggle-section">
+        <div class="section-header" onclick="cveEditor.toggleSec(this, event)">
+          <span><i class="bi bi-patch-check"></i> <span data-i18n="cv_editor.sec_zertifikate"></span></span>
+          <div class="cve-sec-right">
+            <button class="cve-save-btn" onclick="event.stopPropagation();cveEditor.saveSection('zertifikate')" data-i18n="cv_editor.save_zertifikate"></button>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+        </div>
+        <div class="section-content" id="sec-zertifikate">
+          <div class="cve-tag-wrap" id="zertifikate-container">
+            <div class="cve-tags" id="zertifikate-tags"></div>
+            <input class="cve-tag-input" data-i18n-placeholder="cv_editor.add_zertifikat">
+            <button class="cve-add-tag-btn">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7: Produkte -->
+      <div class="toggle-section">
+        <div class="section-header" onclick="cveEditor.toggleSec(this, event)">
+          <span><i class="bi bi-box-seam"></i> <span data-i18n="cv_editor.sec_produkte"></span></span>
+          <div class="cve-sec-right">
+            <button class="cve-save-btn" onclick="event.stopPropagation();cveEditor.saveSection('produkte')" data-i18n="cv_editor.save_produkte"></button>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+        </div>
+        <div class="section-content" id="sec-produkte">
+          <div class="cve-tag-wrap" id="produkte-container">
+            <div class="cve-tags" id="produkte-tags"></div>
+            <input class="cve-tag-input" data-i18n-placeholder="cv_editor.add_produkt">
+            <button class="cve-add-tag-btn">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8: Skills -->
+      <div class="toggle-section">
+        <div class="section-header" onclick="cveEditor.toggleSec(this, event)">
+          <span>
+            <i class="bi bi-cpu"></i>
+            <span data-i18n="cv_editor.sec_skills"></span>
+            <span class="cve-sec-badge" id="skills-badge"></span>
+          </span>
+          <div class="cve-sec-right">
+            <button class="cve-save-btn" onclick="event.stopPropagation();cveEditor.saveSection('skills')" data-i18n="cv_editor.save_skills"></button>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+        </div>
+        <div class="section-content" id="sec-skills">
+          <div class="cve-skills-wrap" id="skills-container"></div>
+          <div class="cve-add-cat-row">
+            <select id="new-cat-select">
+              <option value="" data-i18n="cv_editor.cat_select"></option>
+              {% for cat in skill_categories %}
+              <option value="{{ cat.name }}">{{ cat.name }}</option>
+              {% endfor %}
+            </select>
+            <button id="add-cat-btn">+ <span data-i18n="cv_editor.cat_add"></span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9: Projekte -->
+      <div class="toggle-section">
+        <div class="section-header" onclick="cveEditor.toggleSec(this, event)">
+          <span>
+            <i class="bi bi-briefcase"></i>
+            <span data-i18n="cv_editor.sec_projects"></span>
+            <span class="cve-sec-badge" id="projects-badge"></span>
+          </span>
+          <div class="cve-sec-right">
+            <button class="cve-save-btn" onclick="event.stopPropagation();cveEditor.saveSection('projects')" data-i18n="cv_editor.save_projects"></button>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+        </div>
+        <div class="section-content" id="sec-projects">
+          <div class="cve-projects-wrap" id="projects-container"></div>
+          <button class="cve-add-btn" id="add-project">
+            + <span data-i18n="cv_editor.add_project"></span>
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /body-editor -->
+  </div><!-- /toggle-editor -->
+
+  <!-- Skill-Move Overlay -->
+  <div id="cve-skill-overlay" class="cve-overlay" style="display:none">
+    <div class="cve-popup">
+      <h3 data-i18n="cv_editor.skill_move_title"></h3>
+      <p><span data-i18n="cv_editor.skill_label"></span> <strong id="cve-move-name" style="color:#163258"></strong></p>
+      <p><span data-i18n="cv_editor.skill_from"></span> <strong id="cve-move-from" style="color:#e67e22"></strong></p>
+      <label data-i18n="cv_editor.skill_to"></label>
+      <select id="cve-move-target" class="cve-skill-select"></select>
+      <div class="cve-popup-btns">
+        <button class="cve-popup-btn-green" onclick="cveEditor.moveSkill('consultant')" data-i18n="cv_editor.skill_move_consultant"></button>
+        <button class="cve-popup-btn-orange" onclick="cveEditor.moveSkill('both')" data-i18n="cv_editor.skill_move_global"></button>
+      </div>
+      <button class="cve-popup-btn-cancel" onclick="cveEditor.closeSkillPopup()" data-i18n="cv_editor.btn_cancel"></button>
+    </div>
+  </div>
+
+  <!-- Admin Settings Overlay -->
+  <div id="cve-settings-overlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+       background:rgba(22,50,88,0.55);backdrop-filter:blur(3px);z-index:88888;
+       align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 20px;">
+    <div style="background:white;border-radius:12px;width:100%;max-width:680px;
+                box-shadow:0 20px 60px rgba(22,50,88,.25);overflow:hidden;">
+
+      <!-- Header -->
+      <div style="background:linear-gradient(135deg,#163258,#1e4a76);padding:20px 24px;
+                  display:flex;justify-content:space-between;align-items:center;">
+        <div style="display:flex;align-items:center;gap:10px;color:white;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.92c.04-.3.07-.62.07-.93s-.03-.63-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.07.64-.07.94s.03.63.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.04.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.21.07-.47-.12-.61l-2.01-1.58z"/>
+          </svg>
+          <h3 style="margin:0;font-size:1.05rem;font-weight:700;" data-i18n="cv_editor.admin_settings_title"></h3>
+        </div>
+        <button onclick="cveEditor.closeAdminSettings()"
+          style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+                 color:white;border-radius:6px;width:30px;height:30px;cursor:pointer;
+                 display:flex;align-items:center;justify-content:center;font-size:1.1rem;">×</button>
+      </div>
+
+      <!-- Content -->
+      <div id="cve-settings-form" style="padding:20px 24px;max-height:60vh;overflow-y:auto;">
+        <div style="text-align:center;padding:40px;color:#6c757d;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="#adb5bd" style="animation:spin 1s linear infinite">
+            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" opacity=".3"/>
+            <path d="M12 2a10 10 0 0 1 10 10h-2a8 8 0 0 0-8-8z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div style="padding:16px 24px;border-top:1px solid #dee2e6;display:flex;justify-content:flex-end;gap:8px;background:#f8f9fa;">
+        <button onclick="cveEditor.closeAdminSettings()"
+          style="padding:8px 20px;border-radius:8px;border:1.5px solid #dee2e6;
+                 background:white;cursor:pointer;font-size:.88rem;color:#6c757d;">
+          <span data-i18n="cv_editor.btn_cancel"></span>
+        </button>
+        <button onclick="cveEditor.saveAdminSettings()"
+          style="display:inline-flex;align-items:center;gap:7px;padding:8px 20px;
+                 border-radius:8px;border:none;background:#163258;color:white;
+                 cursor:pointer;font-size:.88rem;font-weight:600;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7l-4-4zm-5 16a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm3-10H5V5h10v4z"/>
+          </svg>
+          <span data-i18n="cv_editor.btn_save_settings"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <input type="hidden" id="cve-csrf" value="{{ csrf_token }}">
+  <input type="hidden" id="cve-skill-cats" value="{% for cat in skill_categories %}{{ cat.name }}|{% endfor %}">
+  <input type="hidden" id="cve-show-name" value="false">
+
+</div>
+{% endblock %}
+
+{% block module_js %}
+<script src="{% static 'abpe_ui/js/mod/mod-cv_editor.js' %}"></script>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof loadLanguage === 'function') {
+        loadLanguage('{{ current_lang|default:"de" }}', 'cv_editor').then(() => {
+            cveEditor.init();
+        });
+    } else {
+        cveEditor.init();
+    }
+});
+document.addEventListener('languageChanged', function(e) {
+    if (typeof loadLanguage === 'function') {
+        loadLanguage(e.detail.language, 'cv_editor');
+    }
+});
+</script>
+{% endblock %}

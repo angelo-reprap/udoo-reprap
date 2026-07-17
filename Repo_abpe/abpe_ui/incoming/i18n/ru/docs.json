@@ -1,0 +1,11 @@
+{
+    "documentation": "Документация",
+    "architecture": "Архитектура",
+    "user_manual": "Руководство пользователя",
+    "architecture_title": "Архитектура портала ABpE",
+    "architecture_subtitle": "Документация модульной структуры",
+    "core_components": "Основные компоненты",
+    "modules": "Модули",
+    "api_endpoints": "API конечные точки",
+    "database_schema": "Схема базы данных"
+}

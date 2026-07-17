@@ -1,0 +1,1092 @@
+"""
+ABpE Email Studio — REST API
+==============================
+Zentrale API für:
+  - Template CRUD + Versionierung + Vorschau + Test
+  - Zentraler Versand (alle anderen Apps nutzen dies)
+  - Log + Statistik
+  - Signaturen + Absender-Konten
+
+Andere Apps importieren:
+    from apps.abpe_email_studio.api import EmailStudio
+    EmailStudio.send(template='cv_generated', recipient='...', variables={...}, user=request.user)
+"""
+import json
+import logging
+from django.http import JsonResponse
+from django.views import View
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q, Count
+from django.utils import timezone
+from django.shortcuts import get_object_or_404
+from datetime import timedelta
+
+from .models import (
+    EmailTemplate, EmailTemplateVersion, EmailLog,
+    EmailSignature, EmailSenderAccount, EmailQueue,
+    TemplateStatus, AppScope, SenderMode, LogStatus
+)
+
+log = logging.getLogger('abpe_email_studio.api')
+
+
+# ── Hilfsfunktionen ───────────────────────────────────────────────────────────
+
+def _json_body(request) -> dict:
+    try:
+        return json.loads(request.body)
+    except Exception:
+        return {}
+
+
+def _template_to_dict(tpl: EmailTemplate) -> dict:
+    return {
+        'id':               tpl.pk,
+        'identifier':       tpl.identifier,
+        'name':             tpl.name,
+        'description':      tpl.description,
+        'app_scope':        tpl.app_scope,
+        'event_type':       tpl.event_type,
+        'sender_mode':      tpl.sender_mode,
+        'sender_account':   tpl.sender_account.email if tpl.sender_account else None,
+        'signature_id':     tpl.signature_id,
+        'cc_emails':        tpl.cc_emails,
+        'bcc_emails':       tpl.bcc_emails,
+        'subject':          tpl.subject,
+        'html_body':        tpl.html_body,
+        'text_body':        tpl.text_body,
+        'variables':        tpl.variables,
+        'status':           tpl.status,
+        'active_version':   tpl.active_version,
+        'include_signature': tpl.include_signature,
+        'translation_languages': tpl.translation_languages,
+        'usage_count':      tpl.usage_count,
+        'last_used_at':     tpl.last_used_at.isoformat() if tpl.last_used_at else None,
+        'created_at':       tpl.created_at.isoformat(),
+        'updated_at':       tpl.updated_at.isoformat(),
+    }
+
+
+def _log_to_dict(entry: EmailLog) -> dict:
+    return {
+        'log_id':          str(entry.log_id),
+        'template':        entry.template.identifier if entry.template else None,
+        'from_email':      entry.from_email,
+        'from_name':       entry.from_name,
+        'sender_mode':     entry.sender_mode,
+        'to_emails':       entry.to_emails,
+        'cc_emails':       entry.cc_emails,
+        'subject':         entry.subject,
+        'status':          entry.status,
+        'error_message':   entry.error_message,
+        'task_reference':  entry.task_reference,
+        'app_reference':   entry.app_reference,
+        'sent_at':         entry.sent_at.isoformat(),
+    }
+
+
+# ── Template List + Create ────────────────────────────────────────────────────
+
+@method_decorator(csrf_exempt, name='dispatch')
+class TemplateListCreateAPI(LoginRequiredMixin, View):
+
+    def get(self, request):
+        scope  = request.GET.get('scope', '')
+        status = request.GET.get('status', '')
+        search = request.GET.get('q', '')
+
+        qs = EmailTemplate.objects.select_related('sender_account')
+        if scope:
+            qs = qs.filter(app_scope=scope)
+        if status:
+            qs = qs.filter(status=status)
+        if search:
+            qs = qs.filter(
+                Q(name__icontains=search) | Q(identifier__icontains=search)
+            )
+
+        return JsonResponse({
+            'templates': [_template_to_dict(t) for t in qs.order_by('app_scope', 'name')],
+            'total':     qs.count(),
+        })
+
+    def post(self, request):
+        data = _json_body(request)
+        required = ['identifier', 'name', 'subject', 'html_body']
+        missing  = [f for f in required if not data.get(f)]
+        if missing:
+            return JsonResponse({'error': f'Pflichtfelder fehlen: {missing}'}, status=400)
+
+        if EmailTemplate.objects.filter(identifier=data['identifier']).exists():
+            return JsonResponse({'error': f"Identifier '{data['identifier']}' bereits vorhanden"}, status=400)
+
+        sender_account = None
+        if data.get('sender_account_id'):
+            sender_account = EmailSenderAccount.objects.filter(
+                pk=data['sender_account_id']
+            ).first()
+
+        tpl = EmailTemplate.objects.create(
+            identifier       = data['identifier'],
+            name             = data['name'],
+            description      = data.get('description', ''),
+            app_scope        = data.get('app_scope', AppScope.GENERAL),
+            event_type       = data.get('event_type', 'general'),
+            sender_mode      = data.get('sender_mode', SenderMode.TEMPLATE),
+            sender_account   = sender_account,
+            cc_emails        = data.get('cc_emails', ''),
+            bcc_emails       = data.get('bcc_emails', ''),
+            subject          = data['subject'],
+            html_body        = data['html_body'],
+            text_body        = data.get('text_body', ''),
+            variables        = data.get('variables', []),
+            status           = data.get('status', TemplateStatus.DRAFT),
+            include_signature = data.get('include_signature', True),
+            created_by       = request.user,
+        )
+        log.info(f'Template erstellt: {tpl.identifier} von {request.user}')
+        return JsonResponse({'template': _template_to_dict(tpl)}, status=201)
+
+
+# ── Template Detail + Update + Delete ────────────────────────────────────────
+
+@method_decorator(csrf_exempt, name='dispatch')
+class TemplateDetailAPI(LoginRequiredMixin, View):
+
+    def get(self, request, pk):
+        tpl = get_object_or_404(EmailTemplate, pk=pk)
+        return JsonResponse({'template': _template_to_dict(tpl)})
+
+    def put(self, request, pk):
+        tpl  = get_object_or_404(EmailTemplate, pk=pk)
+        data = _json_body(request)
+        change_note = data.pop('change_note', '')
+
+        updatable = [
+            'name', 'description', 'app_scope', 'event_type',
+            'sender_mode', 'cc_emails', 'bcc_emails',
+            'subject', 'html_body', 'text_body',
+            'variables', 'status', 'include_signature',
+        ]
+        for field in updatable:
+            if field in data:
+                setattr(tpl, field, data[field])
+
+        if data.get('sender_account_id'):
+            tpl.sender_account = EmailSenderAccount.objects.filter(
+                pk=data['sender_account_id']
+            ).first()
+
+        if data.get('signature_id'):
+            tpl.signature = EmailSignature.objects.filter(
+                pk=data['signature_id']
+            ).first()
+
+        # TXT automatisch via Deepseek generieren wenn HTML geändert
+        if 'html_body' in data and data['html_body'] != tpl.html_body:
+            try:
+                from .services.renderer import EmailRenderer
+                renderer = EmailRenderer()
+                tpl.text_body = renderer.html_to_text_via_deepseek(data['html_body'])
+                log.info(f'TXT auto-generiert für {tpl.identifier}')
+            except Exception as e:
+                log.warning(f'TXT Auto-Generierung fehlgeschlagen: {e}')
+
+        tpl.save()
+
+        # Neue Version anlegen
+        last = EmailTemplateVersion.objects.filter(
+            template=tpl
+        ).order_by('-version').first()
+        next_version = (last.version + 1) if last else 1
+        EmailTemplateVersion.objects.create(
+            template     = tpl,
+            version      = next_version,
+            subject      = tpl.subject,
+            html_body    = tpl.html_body,
+            text_body    = tpl.text_body,
+            variables    = tpl.variables,
+            sender_mode  = tpl.sender_mode,
+            change_note  = change_note,
+            is_milestone = False,
+            created_by   = request.user,
+        )
+        tpl.active_version = next_version
+        tpl.save(update_fields=['active_version'])
+
+        log.info(f'Template aktualisiert: {tpl.identifier} v{next_version} von {request.user}')
+        return JsonResponse({'template': _template_to_dict(tpl)})
+
+    def delete(self, request, pk):
+        tpl = get_object_or_404(EmailTemplate, pk=pk)
+        identifier = tpl.identifier
+        tpl.status = TemplateStatus.ARCHIVE
+        tpl.save(update_fields=['status'])
+        log.info(f'Template archiviert: {identifier} von {request.user}')
+        return JsonResponse({'success': True, 'archived': identifier})
+
+
+
+# ── Template Duplicate ────────────────────────────────────────────────────────
+
+@method_decorator(csrf_exempt, name='dispatch')
+class TemplateDuplicateAPI(LoginRequiredMixin, View):
+
+    def post(self, request, pk):
+        src  = get_object_or_404(EmailTemplate, pk=pk)
+        data = _json_body(request)
+
+        new_id   = data.get('identifier', f'{src.identifier}_copy')
+        new_name = data.get('name', f'{src.name} (Kopie)')
+        scope    = data.get('app_scope', src.app_scope)
+
+        if EmailTemplate.objects.filter(identifier=new_id).exists():
+            return JsonResponse(
+                {'error': f"Identifier '{new_id}' bereits vorhanden"}, status=400
+            )
+
+        dup = EmailTemplate.objects.create(
+            identifier       = new_id,
+            name             = new_name,
+            description      = src.description,
+            app_scope        = scope,
+            event_type       = src.event_type,
+            sender_mode      = src.sender_mode,
+            sender_account   = src.sender_account,
+            signature        = src.signature,
+            cc_emails        = src.cc_emails,
+            bcc_emails       = src.bcc_emails,
+            subject          = src.subject,
+            html_body        = src.html_body,
+            text_body        = src.text_body,
+            variables        = src.variables,
+            status           = TemplateStatus.DRAFT,
+            include_signature = src.include_signature,
+            created_by       = request.user,
+        )
+        log.info(f'Template dupliziert: {src.identifier} → {dup.identifier}')
+        return JsonResponse({'template': _template_to_dict(dup)}, status=201)
+
+
+# ── Template Versions ─────────────────────────────────────────────────────────
+
+class TemplateVersionListAPI(LoginRequiredMixin, View):
+
+    def get(self, request, pk):
+        tpl      = get_object_or_404(EmailTemplate, pk=pk)
+        versions = EmailTemplateVersion.objects.filter(
+            template=tpl
+        ).order_by('-version').values(
+            'version', 'sender_mode', 'change_note',
+            'created_at', 'created_by__username'
+        )
+        return JsonResponse({
+            'template_id':     pk,
+            'active_version':  tpl.active_version,
+            'versions':        list(versions),
+        })
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class TemplateVersionActivateAPI(LoginRequiredMixin, View):
+
+    def post(self, request, pk, version):
+        tpl = get_object_or_404(EmailTemplate, pk=pk)
+        ver = get_object_or_404(
+            EmailTemplateVersion, template=tpl, version=version
+        )
+        tpl.subject      = ver.subject
+        tpl.html_body    = ver.html_body
+        tpl.text_body    = ver.text_body
+        tpl.variables    = ver.variables
+        tpl.sender_mode  = ver.sender_mode
+        tpl.active_version = ver.version
+        tpl.save()
+        log.info(f'Version aktiviert: {tpl.identifier} v{version}')
+        return JsonResponse({'success': True, 'active_version': version})
+
+
+# ── Template Preview ──────────────────────────────────────────────────────────
+
+@method_decorator(csrf_exempt, name='dispatch')
+class TemplatePreviewAPI(LoginRequiredMixin, View):
+
+    def post(self, request, pk):
+        tpl       = get_object_or_404(EmailTemplate, pk=pk)
+        data      = _json_body(request)
+        variables = data.get('variables', {})
+        mode      = data.get('mode', 'html')  # html | txt | both
+
+        from .services.renderer import EmailRenderer
+        renderer = EmailRenderer()
+
+        from_email = request.user.email if tpl.sender_mode == SenderMode.USER else (
+            tpl.sender_account.email if tpl.sender_account else 'noreply@abcona.de'
+        )
+
+        result = {
+            'from_email': from_email,
+            'sender_mode': tpl.sender_mode,
+            'subject':    renderer.render_subject(tpl.subject, variables),
+        }
+
+        if mode in ['html', 'both']:
+            result['html'] = renderer.render_html(tpl, variables, request.user)
+        if mode in ['txt', 'both']:
+            result['text'] = renderer.render_text(tpl, variables)
+
+        return JsonResponse(result)
+
+
+# ── Template Send Test ────────────────────────────────────────────────────────
+
+@method_decorator(csrf_exempt, name='dispatch')
+class TemplateSendTestAPI(LoginRequiredMixin, View):
+
+    def post(self, request, pk):
+        tpl       = get_object_or_404(EmailTemplate, pk=pk)
+        data      = _json_body(request)
+        recipient = data.get('recipient', request.user.email)
+        variables = data.get('variables', {})
+
+        if not recipient:
+            return JsonResponse({'error': 'Kein Empfänger angegeben'}, status=400)
+
+        from .services.sender import EmailSender
+        sender = EmailSender()
+        try:
+            result = sender.send(
+                template      = tpl,
+                to_emails     = [recipient],
+                variables     = variables,
+                user          = request.user,
+                task_reference = 'TEST',
+                app_reference  = 'email_studio_test',
+            )
+            return JsonResponse({'success': True, 'result': result})
+        except Exception as e:
+            log.error(f'Test-Versand fehlgeschlagen: {e}')
+            return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+# ── Template Compatibility Check ──────────────────────────────────────────────
+
+class TemplateCompatibilityAPI(LoginRequiredMixin, View):
+
+    def get(self, request, pk):
+        tpl = get_object_or_404(EmailTemplate, pk=pk)
+        from .services.compatibility import CompatibilityChecker
+        checker = CompatibilityChecker()
+        result  = checker.check(tpl.html_body)
+        return JsonResponse(result)
+
+
+
+# ── Zentraler Versand (für andere Apps) ──────────────────────────────────────
+
+@method_decorator(csrf_exempt, name='dispatch')
+class SendAPI(LoginRequiredMixin, View):
+    """
+    Synchroner Versand — direkt per SMTP.
+    Nutzung aus anderen Apps:
+        POST /email_studio/api/send/
+        {
+            "template": "cv_generated_berater",
+            "to":       ["max@example.de"],
+            "variables": {"name": "Max", "cv_link": "..."},
+            "task_reference": "AID-12345"
+        }
+    """
+
+    def post(self, request):
+        data = _json_body(request)
+
+        identifier = data.get('template')
+        if not identifier:
+            return JsonResponse({'error': 'template Pflichtfeld'}, status=400)
+
+        tpl = EmailTemplate.objects.filter(
+            identifier=identifier,
+            status=TemplateStatus.ACTIVE
+        ).first()
+        if not tpl:
+            return JsonResponse(
+                {'error': f"Template '{identifier}' nicht gefunden oder inaktiv"},
+                status=404
+            )
+
+        to_emails = data.get('to', [])
+        if isinstance(to_emails, str):
+            to_emails = [to_emails]
+        if not to_emails:
+            return JsonResponse({'error': 'to Pflichtfeld'}, status=400)
+
+        from .services.sender import EmailSender
+        sender = EmailSender()
+        try:
+            result = sender.send(
+                template       = tpl,
+                to_emails      = to_emails,
+                variables      = data.get('variables', {}),
+                user           = request.user,
+                cc_extra       = data.get('cc', []),
+                bcc_extra      = data.get('bcc', []),
+                task_reference = data.get('task_reference', ''),
+                app_reference  = data.get('app_reference', ''),
+            )
+            return JsonResponse({'success': True, 'log_id': result.get('log_id')})
+        except Exception as e:
+            log.error(f'SendAPI Fehler: {e}')
+            return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class SendAsyncAPI(LoginRequiredMixin, View):
+    """
+    Asynchroner Versand über Celery-Queue.
+    Gibt sofort queue_id zurück.
+    """
+
+    def post(self, request):
+        data = _json_body(request)
+
+        identifier = data.get('template')
+        if not identifier:
+            return JsonResponse({'error': 'template Pflichtfeld'}, status=400)
+
+        tpl = EmailTemplate.objects.filter(
+            identifier=identifier,
+            status=TemplateStatus.ACTIVE
+        ).first()
+        if not tpl:
+            return JsonResponse(
+                {'error': f"Template '{identifier}' nicht gefunden"},
+                status=404
+            )
+
+        to_emails = data.get('to', [])
+        if isinstance(to_emails, str):
+            to_emails = [to_emails]
+
+        item = EmailQueue.objects.create(
+            template       = tpl,
+            to_emails      = to_emails,
+            cc_emails      = data.get('cc', []),
+            bcc_emails     = data.get('bcc', []),
+            variables      = data.get('variables', {}),
+            sender_mode    = tpl.sender_mode,
+            user_id        = request.user.pk,
+            task_reference = data.get('task_reference', ''),
+            app_reference  = data.get('app_reference', ''),
+        )
+
+        from .tasks import send_queued_email
+        task = send_queued_email.delay(str(item.queue_id))
+        item.celery_task_id = task.id
+        item.save(update_fields=['celery_task_id'])
+
+        return JsonResponse({
+            'success':  True,
+            'queue_id': str(item.queue_id),
+            'task_id':  task.id,
+        })
+
+
+# ── Log API ───────────────────────────────────────────────────────────────────
+
+class LogListAPI(LoginRequiredMixin, View):
+
+    def get(self, request):
+        days   = int(request.GET.get('days', 7))
+        status = request.GET.get('status', '')
+        search = request.GET.get('q', '')
+        since  = timezone.now() - timedelta(days=days)
+
+        qs = EmailLog.objects.select_related('template').filter(sent_at__gte=since)
+        if status:
+            qs = qs.filter(status=status)
+        if search:
+            qs = qs.filter(
+                Q(subject__icontains=search) |
+                Q(from_email__icontains=search) |
+                Q(task_reference__icontains=search)
+            )
+
+        return JsonResponse({
+            'logs':  [_log_to_dict(e) for e in qs.order_by('-sent_at')[:200]],
+            'total': qs.count(),
+        })
+
+
+class LogStatsAPI(LoginRequiredMixin, View):
+
+    def get(self, request):
+        today = timezone.now().replace(hour=0, minute=0, second=0)
+        week  = timezone.now() - timedelta(days=7)
+        return JsonResponse({
+            'today': {
+                'total':  EmailLog.objects.filter(sent_at__gte=today).count(),
+                'ok':     EmailLog.objects.filter(sent_at__gte=today, status='OK').count(),
+                'failed': EmailLog.objects.filter(sent_at__gte=today, status='FAILED').count(),
+            },
+            'week': {
+                'total':  EmailLog.objects.filter(sent_at__gte=week).count(),
+                'ok':     EmailLog.objects.filter(sent_at__gte=week, status='OK').count(),
+                'failed': EmailLog.objects.filter(sent_at__gte=week, status='FAILED').count(),
+            },
+        })
+
+
+# ── Signaturen API ────────────────────────────────────────────────────────────
+
+@method_decorator(csrf_exempt, name='dispatch')
+class SignatureListCreateAPI(LoginRequiredMixin, View):
+
+    def get(self, request):
+        sigs = EmailSignature.objects.select_related('sender_account')
+        return JsonResponse({
+            'signatures': [{
+                'id':             s.pk,
+                'name':           s.name,
+                'identifier':     s.identifier,
+                'sender_account': s.sender_account.email if s.sender_account else None,
+                'is_default':     s.is_default,
+                'is_public':      s.is_public,
+            } for s in sigs]
+        })
+
+    def post(self, request):
+        data = _json_body(request)
+        sig  = EmailSignature.objects.create(
+            name        = data.get('name', ''),
+            identifier  = data.get('identifier', ''),
+            html_body   = data.get('html_body', ''),
+            text_body   = data.get('text_body', ''),
+            is_default  = data.get('is_default', False),
+            is_public   = data.get('is_public', False),
+            created_by  = request.user,
+        )
+        return JsonResponse({'id': sig.pk, 'name': sig.name}, status=201)
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class SignatureDetailAPI(LoginRequiredMixin, View):
+
+    def get(self, request, pk):
+        sig = get_object_or_404(EmailSignature, pk=pk)
+        return JsonResponse({
+            'id': sig.pk, 'name': sig.name,
+            'html_body': sig.html_body, 'text_body': sig.text_body,
+        })
+
+    def put(self, request, pk):
+        sig  = get_object_or_404(EmailSignature, pk=pk)
+        data = _json_body(request)
+        for f in ['name', 'html_body', 'text_body', 'is_default', 'is_public']:
+            if f in data:
+                setattr(sig, f, data[f])
+        sig.save()
+        return JsonResponse({'success': True})
+
+    def delete(self, request, pk):
+        get_object_or_404(EmailSignature, pk=pk).delete()
+        return JsonResponse({'success': True})
+
+
+# ── Absender-Konten API ───────────────────────────────────────────────────────
+
+@method_decorator(csrf_exempt, name='dispatch')
+class SenderAccountListAPI(LoginRequiredMixin, View):
+
+    def get(self, request):
+        return JsonResponse({
+            'senders': [{
+                'id':           s.pk,
+                'email':        s.email,
+                'display_name': s.display_name,
+                'sender_mode':  s.sender_mode,
+                'is_default':   s.is_default,
+                'is_active':    s.is_active,
+            } for s in EmailSenderAccount.objects.all()]
+        })
+
+    def post(self, request):
+        data = _json_body(request)
+        if not data.get('email'):
+            return JsonResponse({'error': 'email Pflichtfeld'}, status=400)
+        acc = EmailSenderAccount.objects.create(
+            email        = data['email'],
+            display_name = data.get('display_name', data['email']),
+            sender_mode  = data.get('sender_mode', SenderMode.TEMPLATE),
+            is_default   = data.get('is_default', False),
+            description  = data.get('description', ''),
+        )
+        return JsonResponse({'id': acc.pk, 'email': acc.email}, status=201)
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class SenderAccountDetailAPI(LoginRequiredMixin, View):
+
+    def put(self, request, pk):
+        acc  = get_object_or_404(EmailSenderAccount, pk=pk)
+        data = _json_body(request)
+        for f in ['display_name', 'sender_mode', 'is_default', 'is_active', 'description']:
+            if f in data:
+                setattr(acc, f, data[f])
+        acc.save()
+        return JsonResponse({'success': True})
+
+    def delete(self, request, pk):
+        get_object_or_404(EmailSenderAccount, pk=pk).delete()
+        return JsonResponse({'success': True})
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class SenderSMTPTestAPI(LoginRequiredMixin, View):
+
+    def post(self, request):
+        from .services.sender import EmailSender
+        try:
+            EmailSender().test_connection()
+            return JsonResponse({'success': True, 'message': 'SMTP Verbindung OK'})
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+# ── Variablen API ─────────────────────────────────────────────────────────────
+
+class VariableListAPI(LoginRequiredMixin, View):
+    """
+    Gibt alle bekannten Variablen zurück — kontextabhängig nach Quelle.
+    """
+
+    def get(self, request):
+        return JsonResponse({
+            'variables': [
+                # Kontext-Variablen
+                {'name': 'name',         'source': 'context',  'type': 'string',  'description': 'Vollständiger Name'},
+                {'name': 'first_name',   'source': 'context',  'type': 'string',  'description': 'Vorname'},
+                {'name': 'last_name',    'source': 'context',  'type': 'string',  'description': 'Nachname'},
+                {'name': 'email',        'source': 'context',  'type': 'string',  'description': 'E-Mail Adresse'},
+                {'name': 'cv_link',      'source': 'context',  'type': 'url',     'description': 'CV Direktlink'},
+                {'name': 'cv_version',   'source': 'context',  'type': 'string',  'description': 'CV Versionsnummer'},
+                {'name': 'created_date', 'source': 'context',  'type': 'date',    'description': 'Erstellungsdatum'},
+                {'name': 'task_ref',     'source': 'context',  'type': 'string',  'description': 'Task Referenz'},
+                # User-Profil (auto befüllt bei User-Modus)
+                {'name': 'sender_name',  'source': 'user',     'type': 'string',  'description': 'Name des Absenders'},
+                {'name': 'sender_email', 'source': 'user',     'type': 'email',   'description': 'E-Mail des Absenders'},
+                {'name': 'reply_to',     'source': 'user',     'type': 'email',   'description': 'Reply-To Adresse'},
+                # System
+                {'name': 'portal_url',   'source': 'system',   'type': 'url',     'description': 'Portal URL'},
+                {'name': 'date',         'source': 'system',   'type': 'date',    'description': 'Aktuelles Datum'},
+                {'name': 'year',         'source': 'system',   'type': 'string',  'description': 'Aktuelles Jahr'},
+                {'name': 'subject',      'source': 'template', 'type': 'string',  'description': 'Betreff der E-Mail'},
+            ]
+        })
+
+
+# ── Queue API ─────────────────────────────────────────────────────────────────
+
+class QueueListAPI(LoginRequiredMixin, View):
+
+    def get(self, request):
+        qs = EmailQueue.objects.select_related('template').order_by('-created_at')[:100]
+        return JsonResponse({
+            'queue': [{
+                'queue_id':      str(q.queue_id),
+                'template':      q.template.identifier,
+                'status':        q.status,
+                'retry_count':   q.retry_count,
+                'created_at':    q.created_at.isoformat(),
+                'processed_at':  q.processed_at.isoformat() if q.processed_at else None,
+            } for q in qs]
+        })
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class QueueCancelAPI(LoginRequiredMixin, View):
+
+    def post(self, request, queue_id):
+        item = get_object_or_404(EmailQueue, queue_id=queue_id)
+        if item.status in ['PENDING']:
+            item.status = 'CANCELLED'
+            item.save(update_fields=['status'])
+            return JsonResponse({'success': True})
+        return JsonResponse(
+            {'error': f'Status {item.status} kann nicht abgebrochen werden'},
+            status=400
+        )
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# PYTHON API — für andere Apps
+# Nutzung:
+#   from apps.abpe_email_studio.api import EmailStudio
+#   EmailStudio.send(template='cv_generated_berater', recipient='...', variables={})
+# ══════════════════════════════════════════════════════════════════════════════
+
+class EmailStudio:
+    """
+    Zentrale Python-API für andere Django-Apps.
+    Kein HTTP — direkter Python-Aufruf.
+    """
+
+    @staticmethod
+    def send(template: str, recipient: str | list,
+             variables: dict = None, user=None,
+             cc: list = None, bcc: list = None,
+             task_reference: str = '', app_reference: str = '',
+             async_send: bool = False,
+             lang: str = 'de') -> dict:
+        """
+        Sendet eine E-Mail über ein Template.
+
+        Args:
+            template:       Identifier der Vorlage (z.B. 'cv_generated_berater')
+            recipient:      E-Mail Adresse oder Liste
+            variables:      Variablen für die Vorlage
+            user:           Django User (für User-Modus)
+            cc:             Zusätzliche CC-Adressen
+            bcc:            Zusätzliche BCC-Adressen
+            task_reference: Referenz (z.B. 'AID-12345')
+            app_reference:  Welche App sendet (z.B. 'cv_extractor')
+            async_send:     True = Celery Queue, False = direkt
+
+        Returns:
+            {'success': True, 'log_id': '...'}  oder
+            {'success': False, 'error': '...'}
+        """
+        tpl = EmailTemplate.objects.filter(
+            identifier=template,
+            status=TemplateStatus.ACTIVE
+        ).first()
+
+        if not tpl:
+            log.error(f'EmailStudio.send: Template nicht gefunden: {template}')
+            return {'success': False, 'error': f"Template '{template}' nicht gefunden"}
+
+        to_emails = [recipient] if isinstance(recipient, str) else recipient
+        variables = variables or {}
+
+        if async_send:
+            from .tasks import send_queued_email
+            item = EmailQueue.objects.create(
+                template       = tpl,
+                to_emails      = to_emails,
+                cc_emails      = cc or [],
+                bcc_emails     = bcc or [],
+                variables      = variables,
+                sender_mode    = tpl.sender_mode,
+                user_id        = user.pk if user else None,
+                task_reference = task_reference,
+                app_reference  = app_reference,
+            )
+            task = send_queued_email.delay(str(item.queue_id))
+            return {'success': True, 'queue_id': str(item.queue_id), 'task_id': task.id}
+
+        from .services.sender import EmailSender
+        from .services.translator import EmailTranslator
+
+        sender = EmailSender()
+
+        # Sprach-Logik: lang Parameter oder aus Empfänger-Kontext erkennen
+        send_lang = lang or 'de'
+
+        # Wenn Sprache != DE → Übersetzung laden oder erstellen
+        if send_lang != 'de':
+            translation = EmailTranslator.get_translation(tpl, send_lang)
+            if not translation:
+                log.info(f'Übersetzung {tpl.identifier}→{send_lang} fehlt, erstelle...')
+                EmailTranslator.translate_template(tpl, [send_lang])
+                translation = EmailTranslator.get_translation(tpl, send_lang)
+            if translation:
+                # Temporäres Template-Objekt mit übersetztem Inhalt
+                from copy import copy
+                tpl_translated = copy(tpl)
+                tpl_translated.subject   = translation.subject
+                tpl_translated.html_body = translation.html_body
+                tpl_translated.text_body = translation.text_body
+                tpl = tpl_translated
+
+        return sender.send(
+            template       = tpl,
+            to_emails      = to_emails,
+            variables      = variables,
+            user           = user,
+            cc_extra       = cc or [],
+            bcc_extra      = bcc or [],
+            task_reference = task_reference,
+            app_reference  = app_reference,
+        )
+
+    @staticmethod
+    def preview(template: str, variables: dict = None, user=None) -> dict:
+        """Rendert eine Vorschau ohne zu senden."""
+        tpl = EmailTemplate.objects.filter(identifier=template).first()
+        if not tpl:
+            return {'error': f"Template '{template}' nicht gefunden"}
+        from .services.renderer import EmailRenderer
+        renderer = EmailRenderer()
+        return {
+            'subject': renderer.render_subject(tpl.subject, variables or {}),
+            'html':    renderer.render_html(tpl, variables or {}, user),
+            'text':    renderer.render_text(tpl, variables or {}),
+        }
+
+    @staticmethod
+    def get_template(identifier: str) -> EmailTemplate | None:
+        """Gibt ein Template-Objekt zurück."""
+        return EmailTemplate.objects.filter(
+            identifier=identifier,
+            status=TemplateStatus.ACTIVE
+        ).first()
+
+
+# ── Template Translation API ──────────────────────────────────────────────────
+
+@method_decorator(csrf_exempt, name='dispatch')
+class TemplateTranslateAPI(LoginRequiredMixin, View):
+    """
+    Übersetzt ein Template in eine oder mehrere Sprachen.
+    POST { langs: ['en', 'fr'], force: false }
+    """
+
+    def post(self, request, pk):
+        tpl  = get_object_or_404(EmailTemplate, pk=pk)
+        data = _json_body(request)
+        langs = data.get('langs', [])
+        force = data.get('force', False)
+
+        if not langs:
+            from .services.translator import EmailTranslator
+            langs = EmailTranslator.default_languages()
+
+        try:
+            from .services.translator import EmailTranslator
+            results = EmailTranslator.translate_template(tpl, langs, force=force)
+            log.info(f'Translation {tpl.identifier} → {langs}: {results}')
+            return JsonResponse({'success': True, 'results': results})
+        except Exception as e:
+            log.error(f'Translation fehlgeschlagen: {e}')
+            return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+
+# ── Translation Detail API ────────────────────────────────────────────────────
+
+@method_decorator(csrf_exempt, name='dispatch')
+class TranslationDetailAPI(LoginRequiredMixin, View):
+
+    def get(self, request, pk, lang):
+        from .models import EmailTemplateTranslation
+        tpl = get_object_or_404(EmailTemplate, pk=pk)
+        tr  = get_object_or_404(EmailTemplateTranslation, template=tpl, lang=lang)
+        return JsonResponse({
+            'lang':             tr.lang,
+            'subject':          tr.subject,
+            'html_body':        tr.html_body,
+            'text_body':        tr.text_body,
+            'auto_translated':  tr.auto_translated,
+            'reviewed':         tr.reviewed,
+            'translated_at':    tr.translated_at.isoformat(),
+        })
+
+    def put(self, request, pk, lang):
+        from .models import EmailTemplateTranslation
+        tpl  = get_object_or_404(EmailTemplate, pk=pk)
+        data = _json_body(request)
+        tr, created = EmailTemplateTranslation.objects.get_or_create(
+            template=tpl, lang=lang,
+            defaults={'subject': '', 'html_body': '', 'text_body': ''}
+        )
+        for f in ['subject', 'html_body', 'text_body', 'reviewed', 'auto_translated']:
+            if f in data:
+                setattr(tr, f, data[f])
+        tr.save()
+        log.info(f'Übersetzung gespeichert: {tpl.identifier} [{lang}] von {request.user}')
+        return JsonResponse({'success': True, 'lang': lang, 'created': created})
+
+    def delete(self, request, pk, lang):
+        from .models import EmailTemplateTranslation
+        tpl = get_object_or_404(EmailTemplate, pk=pk)
+        EmailTemplateTranslation.objects.filter(template=tpl, lang=lang).delete()
+        return JsonResponse({'success': True})
+
+
+# ── Template Set Languages API ────────────────────────────────────────────────
+
+@method_decorator(csrf_exempt, name='dispatch')
+class TemplateSetLangsAPI(LoginRequiredMixin, View):
+    """
+    Aktiviert oder deaktiviert eine Sprache für ein Template.
+    POST { lang: 'it', enabled: true }
+    """
+    def post(self, request, pk):
+        tpl  = get_object_or_404(EmailTemplate, pk=pk)
+        data = _json_body(request)
+        lang    = data.get('lang', '')
+        enabled = data.get('enabled', True)
+        if not lang:
+            return JsonResponse({'error': 'lang fehlt'}, status=400)
+        langs = list(tpl.translation_languages or [])
+        if enabled and lang not in langs:
+            langs.append(lang)
+        elif not enabled and lang in langs:
+            langs.remove(lang)
+        tpl.translation_languages = langs
+        tpl.save(update_fields=['translation_languages'])
+        log.info(f'{tpl.identifier} Sprachen: {langs}')
+        return JsonResponse({'success': True, 'languages': langs})
+
+
+# ── Module API ────────────────────────────────────────────────────────────────
+
+class ModuleListAPI(LoginRequiredMixin, View):
+    """Gibt alle Module zurück — für Modul-Panel im Studio."""
+
+    def get(self, request):
+        from .models import EmailModule, ModuleType
+        module_type = request.GET.get('type', '')
+        qs = EmailModule.objects.filter(is_active=True)
+        if module_type:
+            qs = qs.filter(module_type=module_type)
+
+        grouped = {}
+        for m in qs:
+            t = m.module_type
+            if t not in grouped:
+                grouped[t] = []
+            grouped[t].append({
+                'id':          m.pk,
+                'identifier':  m.identifier,
+                'name':        m.name,
+                'module_type': m.module_type,
+                'description': m.description,
+                'syntax':      f'{{{{block:{m.identifier}}}}}',
+                'preview_bg':  m.preview_bg,
+            })
+
+        return JsonResponse({
+            'modules': grouped,
+            'types':   ModuleType.choices,
+        })
+
+
+# ── Meilenstein API ───────────────────────────────────────────────────────────
+
+@method_decorator(csrf_exempt, name='dispatch')
+class MilestoneListCreateAPI(LoginRequiredMixin, View):
+    """
+    GET  /api/templates/<pk>/milestones/
+         Gibt alle Meilensteine eines Templates zurueck.
+    POST /api/templates/<pk>/milestones/
+         Erstellt einen neuen Meilenstein aus dem aktuellen Stand.
+         Body: { "label": "vor Farb-Test" }
+    """
+
+    def get(self, request, pk):
+        tpl = get_object_or_404(EmailTemplate, pk=pk)
+        milestones = EmailTemplateVersion.objects.filter(
+            template=tpl,
+            is_milestone=True
+        ).order_by('-created_at').values(
+            'id', 'version', 'milestone_label', 'change_note',
+            'subject', 'html_body', 'text_body',
+            'created_at', 'created_by__username'
+        )
+        return JsonResponse({
+            'template_id': pk,
+            'milestones':  list(milestones),
+        })
+
+    def post(self, request, pk):
+        tpl  = get_object_or_404(EmailTemplate, pk=pk)
+        data = _json_body(request)
+        label = data.get('label', '').strip()
+        if not label:
+            return JsonResponse({'error': 'label ist Pflichtfeld'}, status=400)
+
+        # Maximale Versionsnummer bestimmen
+        last = EmailTemplateVersion.objects.filter(
+            template=tpl
+        ).order_by('-version').first()
+        next_version = (last.version + 1) if last else 1
+
+        # Aktuellen Stand als Meilenstein speichern
+        ms = EmailTemplateVersion.objects.create(
+            template        = tpl,
+            version         = next_version,
+            subject         = tpl.subject,
+            html_body       = tpl.html_body,
+            text_body       = tpl.text_body,
+            variables       = tpl.variables,
+            sender_mode     = tpl.sender_mode,
+            change_note     = label,
+            is_milestone    = True,
+            milestone_label = label,
+            created_by      = request.user,
+        )
+        log.info(f'Meilenstein erstellt: {tpl.identifier} "{label}" v{next_version}')
+        return JsonResponse({
+            'id':      ms.pk,
+            'version': ms.version,
+            'label':   ms.milestone_label,
+        }, status=201)
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class MilestoneRestoreAPI(LoginRequiredMixin, View):
+    """
+    POST /api/templates/<pk>/milestones/<mid>/restore/
+         Spielt einen Meilenstein-Stand zurueck.
+         Der aktuelle Stand wird dabei als Auto-Version gesichert.
+    """
+
+    def post(self, request, pk, mid):
+        tpl = get_object_or_404(EmailTemplate, pk=pk)
+        ms  = get_object_or_404(
+            EmailTemplateVersion,
+            pk=mid,
+            template=tpl,
+            is_milestone=True
+        )
+
+        # Aktuellen Stand zuerst als Auto-Version sichern
+        last = EmailTemplateVersion.objects.filter(
+            template=tpl
+        ).order_by('-version').first()
+        auto_version = (last.version + 1) if last else 1
+
+        EmailTemplateVersion.objects.create(
+            template     = tpl,
+            version      = auto_version,
+            subject      = tpl.subject,
+            html_body    = tpl.html_body,
+            text_body    = tpl.text_body,
+            variables    = tpl.variables,
+            sender_mode  = tpl.sender_mode,
+            change_note  = 'Auto-Version vor Meilenstein-Wiederherstellung',
+            is_milestone = False,
+            created_by   = request.user,
+        )
+
+        # Meilenstein-Stand zurueckspielen
+        tpl.subject      = ms.subject
+        tpl.html_body    = ms.html_body
+        tpl.text_body    = ms.text_body
+        tpl.variables    = ms.variables
+        tpl.sender_mode  = ms.sender_mode
+        tpl.active_version = auto_version
+        tpl.save()
+
+        log.info(
+            f'Meilenstein zurueckgespielt: {tpl.identifier} '
+            f'"{ms.milestone_label}" von {request.user}'
+        )
+        return JsonResponse({
+            'success':       True,
+            'restored_from': ms.milestone_label,
+            'auto_saved_as': auto_version,
+        })

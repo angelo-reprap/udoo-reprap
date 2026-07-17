@@ -1,0 +1,72 @@
+{
+    "toc": {
+        "title": "Indice dei contenuti"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Panoramica — Il sistema modulare"
+        },
+        {
+            "id": "struktur",
+            "number": "2",
+            "title": "Struttura delle directory"
+        },
+        {
+            "id": "module_json",
+            "number": "3",
+            "title": "Il file module.json"
+        },
+        {
+            "id": "template",
+            "number": "4",
+            "title": "Il template HTML"
+        },
+        {
+            "id": "css",
+            "number": "5",
+            "title": "CSS — Stili"
+        },
+        {
+            "id": "javascript",
+            "number": "6",
+            "title": "JavaScript — Logica del modulo"
+        },
+        {
+            "id": "toggle_system",
+            "number": "7",
+            "title": "Il sistema di attivazione/disattivazione"
+        },
+        {
+            "id": "i18n",
+            "number": "8",
+            "title": "Internazionalizzazione"
+        },
+        {
+            "id": "navigation",
+            "number": "9",
+            "title": "Navigazione e barra laterale"
+        },
+        {
+            "id": "api",
+            "number": "10",
+            "title": "Endpoint API"
+        },
+        {
+            "id": "checkliste",
+            "number": "11",
+            "title": "Checklist ed errori"
+        },
+        {
+            "id": "beispiel",
+            "number": "12",
+            "title": "Esempio completo"
+        },
+        {
+            "id": "anhang_a",
+            "number": "A",
+            "title": "Appendice A — Insidie nell'integrazione del portale"
+        }
+    ]
+}

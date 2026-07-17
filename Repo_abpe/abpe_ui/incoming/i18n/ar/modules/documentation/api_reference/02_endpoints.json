@@ -1,0 +1,3 @@
+{
+    "endpoints": "<h3>2.1 نقاط النهاية الهامة</h3><table class='doc-table'><tr><th>نقطة النهاية</th><th>الطريقة</th><th>الوصف</th></tr><tr><td>/api/stats/</td><td>GET</td><td>الإحصائيات</td></tr><tr><td>/api/system/</td><td>GET</td><td>حالة النظام</td></tr></table>"
+}

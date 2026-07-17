@@ -1,0 +1,72 @@
+{
+    "toc": {
+        "title": "جدول المحتويات"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "نظرة عامة — نظام الوحدات"
+        },
+        {
+            "id": "struktur",
+            "number": "2",
+            "title": "هيكل الدليل"
+        },
+        {
+            "id": "module_json",
+            "number": "3",
+            "title": "ملف module.json"
+        },
+        {
+            "id": "template",
+            "number": "4",
+            "title": "قالب HTML"
+        },
+        {
+            "id": "css",
+            "number": "5",
+            "title": "CSS — الأنماط"
+        },
+        {
+            "id": "javascript",
+            "number": "6",
+            "title": "JavaScript — منطق الوحدة"
+        },
+        {
+            "id": "toggle_system",
+            "number": "7",
+            "title": "نظام التبديل"
+        },
+        {
+            "id": "i18n",
+            "number": "8",
+            "title": "التدويل"
+        },
+        {
+            "id": "navigation",
+            "number": "9",
+            "title": "التنقل والشريط الجانبي"
+        },
+        {
+            "id": "api",
+            "number": "10",
+            "title": "نقاط نهاية API"
+        },
+        {
+            "id": "checkliste",
+            "number": "11",
+            "title": "قائمة التحقق والأخطاء"
+        },
+        {
+            "id": "beispiel",
+            "number": "12",
+            "title": "مثال كامل"
+        },
+        {
+            "id": "anhang_a",
+            "number": "A",
+            "title": "الملحق أ — المزالق في تكامل البوابة"
+        }
+    ]
+}

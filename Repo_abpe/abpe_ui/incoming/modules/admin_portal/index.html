@@ -1,0 +1,91 @@
+{% extends "abpe_ui/base.html" %}
+{% load static %}
+
+{% block module_css %}
+<link href="{% static 'abpe_ui/css/mod/mod-admin_portal.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Portal Admin{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-shield-lock"></i> <span data-i18n-admin="title">Portal Admin</span></h2>
+</div>
+<div class="row g-3">
+    <div class="col-md-3">
+        <a href="/admin_portal/users/" class="text-decoration-none admin-card-link">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <i class="bi bi-people fs-1 text-primary mb-3 d-block"></i>
+                    <h5 data-i18n-admin="users.title">Benutzer</h5>
+                    <p class="text-muted small mb-2" data-i18n-admin="users.subtitle">Verwalten, anlegen, sperren</p>
+                    <span class="badge bg-primary" id="stat-users">...</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="/admin_portal/groups/" class="text-decoration-none admin-card-link">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <i class="bi bi-diagram-3 fs-1 text-success mb-3 d-block"></i>
+                    <h5 data-i18n-admin="groups.title">Gruppen & Rechte</h5>
+                    <p class="text-muted small mb-2" data-i18n-admin="groups.subtitle">Rollen und Berechtigungen</p>
+                    <span class="badge bg-success" id="stat-groups">...</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="/admin_portal/modules/" class="text-decoration-none admin-card-link">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <i class="bi bi-puzzle fs-1 text-warning mb-3 d-block"></i>
+                    <h5 data-i18n-admin="modules.title">Module</h5>
+                    <p class="text-muted small mb-2" data-i18n-admin="modules.subtitle">Aktivieren, deaktivieren</p>
+                    <span class="badge bg-warning text-dark" id="stat-modules">...</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="/admin_portal/system/" class="text-decoration-none admin-card-link">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <i class="bi bi-gear fs-1 text-danger mb-3 d-block"></i>
+                    <h5 data-i18n-admin="system.title">System</h5>
+                    <p class="text-muted small mb-2" data-i18n-admin="system.subtitle">Portal-Einstellungen</p>
+                    <span class="badge bg-secondary" id="stat-status">...</span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block module_js %}
+<script src="{% static 'abpe_ui/js/mod/mod-admin_portal.js' %}"></script>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const lang = window.ABPE_CONFIG?.current_lang || 'de';
+    initAdminPortal(lang).then(() => {
+        fetch('/api/admin-portal/stats/')
+            .then(r => r.json())
+            .then(d => {
+                const t = window.adminI18n || {};
+                document.getElementById('stat-users').textContent   = d.users   + ' ' + (t.users?.badge   || 'User');
+                document.getElementById('stat-groups').textContent  = d.groups  + ' ' + (t.groups?.badge  || 'Gruppen');
+                document.getElementById('stat-modules').textContent = d.modules + ' ' + (t.modules?.badge || 'Module');
+                const statusEl = document.getElementById('stat-status');
+                const statusVal = d.status || 'OK';
+                statusEl.textContent = statusVal;
+                statusEl.className = 'badge ' + (statusVal === 'OK' ? 'bg-success' : 'bg-danger');
+            })
+            .catch(() => {});
+    });
+});
+</script>
+{% endblock %}

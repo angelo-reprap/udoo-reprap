@@ -1,0 +1,86 @@
+{
+    "toc": {
+        "title": "Содержание"
+    },
+    "sections": [
+        {
+            "id": "einstieg",
+            "number": "1",
+            "title": "Начало работы и вход"
+        },
+        {
+            "id": "dashboard",
+            "number": "2",
+            "title": "Панель управления и навигация"
+        },
+        {
+            "id": "cv_editor",
+            "number": "3",
+            "title": "Редактор резюме"
+        },
+        {
+            "id": "cv_upload",
+            "number": "4",
+            "title": "Загрузка и извлечение резюме"
+        },
+        {
+            "id": "matching",
+            "number": "5",
+            "title": "Сопоставление и поиск"
+        },
+        {
+            "id": "email_studio",
+            "number": "6",
+            "title": "Email Studio"
+        },
+        {
+            "id": "doc_studio",
+            "number": "7",
+            "title": "Doc Studio"
+        },
+        {
+            "id": "rechnungen",
+            "number": "8",
+            "title": "Счета"
+        },
+        {
+            "id": "vorlagen",
+            "number": "9",
+            "title": "Шаблоны и бланки"
+        },
+        {
+            "id": "benutzerverwaltung",
+            "number": "10",
+            "title": "Управление пользователями"
+        },
+        {
+            "id": "einstellungen",
+            "number": "11",
+            "title": "Настройки и конфигурация"
+        },
+        {
+            "id": "sprache",
+            "number": "12",
+            "title": "Язык и локализация"
+        },
+        {
+            "id": "tipps",
+            "number": "13",
+            "title": "Советы и горячие клавиши"
+        },
+        {
+            "id": "fehler",
+            "number": "14",
+            "title": "Частые ошибки и решения"
+        },
+        {
+            "id": "glossar",
+            "number": "15",
+            "title": "Глоссарий"
+        }
+    ],
+    "version": "Версия 2.0",
+    "framework": "Django 5.x",
+    "chapters": "15 глав",
+    "audience": "Конечные пользователи"
+}

@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "Indice dei contenuti"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Panoramica"
+        },
+        {
+            "id": "endpoints",
+            "number": "2",
+            "title": "Endpoint"
+        }
+    ]
+}

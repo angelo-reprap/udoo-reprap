@@ -1,0 +1,11 @@
+{
+    "documentation": "문서",
+    "architecture": "아키텍처",
+    "user_manual": "사용자 매뉴얼",
+    "architecture_title": "ABpE 포털 아키텍처",
+    "architecture_subtitle": "모듈식 구조 문서",
+    "core_components": "핵심 구성 요소",
+    "modules": "모듈",
+    "api_endpoints": "API 엔드포인트",
+    "database_schema": "데이터베이스 스키마"
+}

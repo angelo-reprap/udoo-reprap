@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "Danışman Arama (Namazu)",
+            "placeholder": "İsim, Yetenek, Teknoloji...",
+            "btn": "Ara",
+            "max_label": "Maks. Sonuç"
+        },
+        "results": {
+            "total": "Toplam Sonuç",
+            "empty": "Sonuç bulunamadı",
+            "score": "Puan"
+        },
+        "profile": {
+            "open": "Profil",
+            "preview": "Veri Sayfası Önizleme",
+            "close": "Kapat"
+        },
+        "admin": {
+            "title": "Dizin Yönetimi",
+            "imap_title": "IMAP Posta Kutuları",
+            "add_account": "Hesap Ekle",
+            "active": "aktif",
+            "inactive": "pasif",
+            "html_count": "HTML Dosyaları",
+            "index_size": "Dizin Boyutu",
+            "last_indexed": "Son Dizinleme",
+            "reindex_btn": "Yeniden Dizinlemeyi Başlat",
+            "reindex_ok": "Yeniden Dizinleme Başlatıldı",
+            "reindex_err": "Başlatma Hatası",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "Yükleniyor..."
+        },
+        "es": {
+            "title": "Elasticsearch Arama",
+            "placeholder": "Yetenekler, İsim, Teknoloji...",
+            "exclude": "Hariç Tut:",
+            "exclude_account": "Posta Kutusunu Hariç Tut",
+            "query_helper": "Sorgu Yardımı",
+            "examples": "Örnekler:",
+            "index": {
+                "consultants": "Danışmanlar",
+                "emails": "E-postalar",
+                "profiles": "Profiller"
+            },
+            "sort": {
+                "placeholder": "Sıralama...",
+                "date_desc": "Tarih ↓",
+                "date_asc": "Tarih ↑",
+                "indexed_desc": "Dizinlenme ↓",
+                "indexed_asc": "Dizinlenme ↑",
+                "attachments": "Önce Ekler",
+                "from_asc": "Gönderen A-Z",
+                "account_asc": "Posta Kutusu A-Z",
+                "name_asc": "İsim A-Z",
+                "status": "Durum",
+                "available": "Mevcut",
+                "availability": "Uygunluk",
+                "folder_asc": "Klasör A-Z",
+                "size_desc": "Boyut ↓"
+            },
+            "chips": {
+                "boolean": "Boolean:",
+                "wildcards": "Joker & Bulanık:",
+                "fields_email": "Alanlar (E-postalar):",
+                "fields_consultant": "Alanlar (Danışmanlar):",
+                "date_ranges": "Tarih & Aralıklar:",
+                "and": "her ikisi",
+                "or": "biri",
+                "not": "hariç tut",
+                "must": "olmalı",
+                "must_not": "olmamalı",
+                "wildcard": "Joker",
+                "one_char": "bir karakter",
+                "fuzzy": "Bulanık",
+                "phrase": "İfade",
+                "proximity": "Yakınlık",
+                "boost": "Öncelik",
+                "with_attachment": "Ekli",
+                "fulltext": "Tam Metin",
+                "name": "İsim",
+                "location": "Konum",
+                "availability": "Uygunluk",
+                "subject": "Konu",
+                "sender": "Gönderen",
+                "content": "İçerik",
+                "mailbox": "Posta Kutusu",
+                "folder": "Klasör"
+            }
+        }
+    }
+}

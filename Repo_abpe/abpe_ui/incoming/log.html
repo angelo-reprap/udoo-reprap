@@ -1,0 +1,160 @@
+{% extends 'abpe_ui/modules/email_studio/base.html' %}
+{% block title %}{% endblock %}
+
+{% block tab_tools %}
+<input id="es-log-search" class="form-control form-control-sm"
+       data-i18n-placeholder="es.search_placeholder" style="width:140px;">
+<select id="es-log-status" class="form-select form-select-sm" style="width:100px;">
+    <option value=""       data-i18n="es.all_status">Alle Status</option>
+    <option value="OK"     data-i18n="es.log_ok"     {% if status_filter == 'OK'     %}selected{% endif %}>OK</option>
+    <option value="FAILED" data-i18n="es.log_failed" {% if status_filter == 'FAILED' %}selected{% endif %}>Fehler</option>
+</select>
+<select id="es-log-days" class="form-select form-select-sm" style="width:90px;">
+    <option value="1"  data-i18n="es.today"  {% if days == 1  %}selected{% endif %}>Heute</option>
+    <option value="7"  data-i18n="es.days_7" {% if days == 7  %}selected{% endif %}>7 Tage</option>
+    <option value="30" data-i18n="es.days_30"{% if days == 30 %}selected{% endif %}>30 Tage</option>
+</select>
+<select id="es-log-template" class="form-select form-select-sm" style="width:120px;">
+    <option value="" data-i18n="es.all_templates">Alle Templates</option>
+    {% for t in templates_used %}
+    <option value="{{ t.pk }}"
+        {% if template_filter == t.pk|stringformat:"s" %}selected{% endif %}>
+        {{ t.identifier }}
+    </option>
+    {% endfor %}
+</select>
+<button id="es-log-refresh" class="btn btn-sm btn-outline-secondary">
+    <i class="bi bi-arrow-clockwise"></i>
+</button>
+{% endblock %}
+
+{% block es_content %}
+<div class="container-fluid px-3">
+
+    <div class="es-stats-row mb-3">
+        <div class="es-stat">
+            <div class="es-stat-val">{{ stats.today_total }}</div>
+            <div class="es-stat-lbl" data-i18n="es.log_today"></div>
+        </div>
+        <div class="es-stat">
+            <div class="es-stat-val" style="color:var(--status-green);">{{ stats.today_ok }}</div>
+            <div class="es-stat-lbl" data-i18n="es.log_ok"></div>
+        </div>
+        <div class="es-stat">
+            <div class="es-stat-val" style="color:var(--status-red);">{{ stats.today_failed }}</div>
+            <div class="es-stat-lbl" data-i18n="es.log_failed"></div>
+        </div>
+        <div class="es-stat">
+            <div class="es-stat-val">{{ stats.week_total }}</div>
+            <div class="es-stat-lbl" data-i18n="es.log_week"></div>
+        </div>
+    </div>
+
+    <div class="es-toggle-row-wrap">
+        <div class="es-toggle-row-hdr open" onclick="esToggleRow(this)">
+            <div style="display:flex;align-items:center;gap:7px;">
+                <i class="bi bi-list-ul"></i>
+                <span data-i18n="es.log_title"></span>
+                <span class="es-badge es-badge-white">{{ logs|length }}</span>
+            </div>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="es-toggle-row-body col1 open"
+             style="background:var(--bg-white);border:1px solid var(--border-color);
+                    border-top:none;border-radius:0 0 8px 8px;overflow:hidden;">
+            <table class="es-table">
+                <thead>
+                    <tr>
+                        <th style="width:32px;"></th>
+                        <th data-i18n="es.col_recipient"></th>
+                        <th data-i18n="es.col_subject"></th>
+                        <th data-i18n="es.col_template"></th>
+                        <th data-i18n="es.col_from"></th>
+                        <th data-i18n="es.col_mode"></th>
+                        <th data-i18n="es.col_ref"></th>
+                        <th data-i18n="es.col_time"></th>
+                        <th data-i18n="es.col_status"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for entry in logs %}
+                <tr data-log-row
+                    data-subject="{{ entry.subject|lower }}"
+                    data-from="{{ entry.from_email|lower }}"
+                    data-ref="{{ entry.task_reference|lower }}"
+                    data-status="{{ entry.status }}"
+                    data-mode="{{ entry.sender_mode }}"
+                    data-template="{{ entry.template_id|default:'' }}"
+                    {% if entry.status == 'FAILED' %}style="background:#fffbf5;"{% endif %}>
+                    <td>
+                        <div class="es-log-dir
+                            {% if entry.status == 'FAILED' %}failed
+                            {% elif entry.sender_mode == 'AUTO' %}auto
+                            {% else %}ok{% endif %}">
+                            {% if entry.status == 'FAILED' %}<i class="bi bi-exclamation-triangle"></i>
+                            {% elif entry.sender_mode == 'AUTO' %}<i class="bi bi-robot"></i>
+                            {% else %}<i class="bi bi-send"></i>{% endif %}
+                        </div>
+                    </td>
+                    <td style="font-weight:500;color:var(--abcona-blue);font-size:11px;">
+                        {{ entry.to_emails_display|truncatechars:40 }}
+                    </td>
+                    <td style="font-size:11px;max-width:200px;
+                               overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                        {{ entry.subject|truncatechars:60 }}
+                    </td>
+                    <td>
+                        {% if entry.template %}
+                        <span class="es-scope">{{ entry.template.identifier }}</span>
+                        {% else %}—{% endif %}
+                    </td>
+                    <td style="font-size:10px;color:var(--text-secondary);">
+                        {{ entry.from_email }}
+                    </td>
+                    <td>
+                        <span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;">
+                            <span class="es-dot
+                                {% if entry.sender_mode == 'USER' %}es-dot-user
+                                {% elif entry.sender_mode == 'AUTO' %}es-dot-auto
+                                {% else %}es-dot-tpl{% endif %}">
+                            </span>
+                            {{ entry.sender_mode }}
+                        </span>
+                    </td>
+                    <td style="font-size:10px;color:var(--text-secondary);">
+                        {{ entry.task_reference|default:"—" }}
+                    </td>
+                    <td style="font-size:10px;
+                        {% if entry.status == 'FAILED' %}color:var(--status-red);font-weight:600;
+                        {% else %}color:var(--text-secondary);{% endif %}">
+                        {{ entry.sent_at|date:"d.m. H:i" }}
+                    </td>
+                    <td>
+                        {% if entry.status == 'OK' %}
+                            <span class="es-badge es-badge-green">OK</span>
+                        {% else %}
+                            <span class="es-badge es-badge-red"
+                                  title="{{ entry.error_message }}"
+                                  data-i18n="es.log_failed"></span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="9" style="text-align:center;padding:20px;
+                                           color:var(--text-secondary);">
+                        <span data-i18n="es.empty_log"></span>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/email_studio/js/es-log.js"></script>
+{% endblock %}
