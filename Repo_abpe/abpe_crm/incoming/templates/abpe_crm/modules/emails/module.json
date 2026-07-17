@@ -1,0 +1,35 @@
+{
+    "id": "crm_emails",
+    "title": "E-Mail Kampagne",
+    "titles": {
+        "de": "E-Mail Kampagne",
+        "en": "Email Campaign",
+        "fr": "Campagne E-Mail",
+        "it": "Campagna E-Mail",
+        "es": "Campaña E-Mail",
+        "ar": "حملة البريد الإلكتروني",
+        "ja": "メールキャンペーン",
+        "ko": "이메일 캠페인",
+        "nl": "E-mailcampagne",
+        "pl": "Kampania e-mail",
+        "pt": "Campanha de E-mail",
+        "ru": "Кампания по электронной почте",
+        "tr": "E-posta Kampanyası",
+        "zh": "电子邮件活动"
+    },
+    "icon": "megaphone",
+    "route": "/crm/emails/",
+    "order": 30,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod-crm.css"
+        ],
+        "js": [
+            "mod-crm.js"
+        ]
+    }
+}

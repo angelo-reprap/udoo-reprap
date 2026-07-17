@@ -32,7 +32,7 @@
         "rep_growth_contacts": "新联系人（30天）",
         "rep_growth_accounts": "新账户（30天）",
         "rep_growth_documents": "新文档（30天）",
-        "rep_mm_meetings": "总会议数",
+        "rep_mm_meetings": "会议总数",
         "rep_mm_upcoming": "即将到来的会议",
         "rep_mm_cancelled": "已取消的会议",
         "rep_mm_guests": "活跃嘉宾",

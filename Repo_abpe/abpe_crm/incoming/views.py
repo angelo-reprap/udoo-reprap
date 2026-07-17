@@ -3,7 +3,7 @@ abpe_crm/views.py
 CRM Portal Views — Berater, Kunden, Emails, Dokumente, Reporting
 Multiuser + Multilanguage
 """
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from rest_framework.authtoken.models import Token as AuthToken
 
@@ -275,6 +275,7 @@ def api_berater_detail(request, crm_id):
         'doc_type': _d.doctype.label if _d.doctype_id else '',
         'title': _d.title,
         'file_path': f'/edms/api/file/{_d.uuid}/?download=1',
+        'view_url': f'/crm/dms/?doc={_d.uuid}',
         'created_at': _d.document_date.isoformat() if _d.document_date else str(_d.created_at)[:10],
     } for _d in _docs_qs]
 
@@ -343,6 +344,27 @@ def api_berater_detail(request, crm_id):
     }
 
     return JsonResponse(data)
+
+
+@login_or_token_required
+@require_http_methods(['GET'])
+def api_berater_cv(request, crm_id):
+    """Neuestes CV-Profil (Dateiname beginnt mit 'AID', PDF) eines Beraters."""
+    from apps.abpe_edms.models import CrmDocument as _EdmsCrmDocument, OwnerType as _EdmsOwnerType
+
+    qs = _EdmsCrmDocument.objects.filter(
+        owners__owner_crm_id=crm_id,
+        owners__owner_type=_EdmsOwnerType.CONTACT,
+        in_trash=False,
+        title__istartswith='AID',
+    ).prefetch_related('versions').order_by('-document_date', '-created_at').distinct()
+
+    for doc in qs:
+        active = next((v for v in doc.versions.all() if v.is_active and not v.in_trash), None)
+        if active and active.filename and active.filename.lower().endswith('.pdf'):
+            return redirect(f'/edms/api/file/{doc.uuid}/')
+
+    return JsonResponse({'error': 'Kein aktuelles CV-Profil (AID*, PDF) gefunden'}, status=404)
 
 
 # ============================================================
@@ -469,6 +491,7 @@ def api_kunden_detail(request, crm_id):
         'doc_type': _d.doctype.label if _d.doctype_id else '',
         'title': _d.title,
         'file_path': f'/edms/api/file/{_d.uuid}/?download=1',
+        'view_url': f'/crm/dms/?doc={_d.uuid}',
         'created_at': _d.document_date.isoformat() if _d.document_date else str(_d.created_at)[:10],
     } for _d in _docs_qs]
 

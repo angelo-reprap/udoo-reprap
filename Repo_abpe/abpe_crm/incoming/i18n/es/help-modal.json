@@ -1,0 +1,14 @@
+{
+    "help_title": "Ayuda y Consejos",
+    "help_portal": "Acerca de este portal",
+    "help_portal_text": "Portal ABpE - Sistema Automatizado de Captura de Perfiles de Consultores. Gestiona CVs, consultores, emparejamientos y flujos de trabajo.",
+    "help_navigation": "Navegación",
+    "help_nav1": "Barra lateral: los iconos se vuelven visibles al pasar el ratón",
+    "help_nav2": "Panel: las estadísticas se pueden expandir/contraer",
+    "help_nav3": "Todas las secciones se pueden expandir/contraer con un clic",
+    "help_shortcuts": "Atajos de teclado",
+    "help_shortcut_help": "Abrir ayuda",
+    "help_shortcut_search": "Enfocar campo de búsqueda",
+    "help_shortcut_stats": "Expandir/contraer estadísticas",
+    "help_shortcut_quick": "Acciones rápidas"
+}

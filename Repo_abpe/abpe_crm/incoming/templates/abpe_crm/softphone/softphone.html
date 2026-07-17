@@ -1,0 +1,415 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#163258">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Softphone">
+    <title>ABpE Softphone</title>
+    <link rel="manifest" href="{% static 'abpe_crm/softphone/manifest.json' %}">
+    <link rel="apple-touch-icon" href="{% static 'abpe_crm/softphone/icons/icon-192.png' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
+    <link rel="stylesheet" href="{% static 'abpe_crm/softphone/css/softphone.css' %}">
+    <script>
+    window.SP_CONFIG = {
+        api_base:     '{{ api_base|default:"/crm/api" }}',
+        contacts_url: '{{ api_base|default:"/crm/api" }}/softphone/contacts/',
+        ws:           '{{ sp_settings.ws|default:"" }}',
+        extension:    '{{ sp_settings.extension|default:"" }}',
+        display:      '{{ sp_settings.display|default:"" }}',
+        vm_ext:       '{{ sp_settings.vm_ext|default:"" }}',
+        dnd_ext:      '{{ sp_settings.dnd_ext|default:"" }}',
+        status_exts:  '{{ sp_settings.status_exts|default:"" }}',
+        language:     '{{ sp_settings.language|default:"de" }}',
+    };
+    window.SP_LANG = '{{ request.LANGUAGE_CODE|default:"de" }}';
+    window.SP_STANDALONE = true;  // Softphone läuft als eigenständige Seite
+    </script>
+</head>
+<body>
+
+<div id="sp-modal" style="overflow:visible">
+
+    <!-- Header -->
+    <div id="sp-drag-handle" style="background:var(--abcona-blue,#163258);color:#fff;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;user-select:none;border-radius:12px 12px 0 0">
+        <span style="font-weight:600;font-size:13px"><i class="bi bi-telephone-fill"></i> Softphone</span>
+        <div style="display:flex;align-items:center;gap:8px">
+            <span id="sp-status-text" style="font-size:10px;color:var(--header-status-muted)"></span>
+            <span id="sp-status-dot" style="width:8px;height:8px;border-radius:50%;background:var(--dot-offline)"></span>
+            <button id="sp-theme-btn" onclick="SP_Theme.toggle()" data-i18n-title="title_theme" title="Dark/Light Mode"
+                style="background:none;border:none;color:rgba(255,255,255,0.5);cursor:pointer;padding:0;font-size:14px">
+                <i class="bi bi-moon"></i>
+            </button>
+            <!-- Sprach-Dropdown -->
+            <div id="sp-lang-wrap" style="position:relative">
+                <button id="sp-lang-btn" onclick="SP_Lang.toggle()"
+                    style="background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;padding:0 2px;font-size:11px;font-weight:600;display:flex;align-items:center;gap:2px;letter-spacing:.3px">
+                    <span id="sp-lang-flag" class="fi fi-de" style="font-size:14px;border-radius:2px;flex-shrink:0"></span>
+
+                </button>
+                <div id="sp-lang-panel" style="display:none;position:absolute;top:22px;right:0;z-index:10010;background:var(--bg-primary);border:1px solid var(--border-color);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.2);min-width:130px;overflow:hidden">
+                    <!-- wird per JS befüllt -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div style="display:flex;border-bottom:1px solid var(--border-color)">
+        <button class="sp-tab-btn sp-tab-active" onclick="Softphone.showTab('dial',this)"
+            style="flex:1;padding:7px;border:none;background:var(--abcona-blue,#163258);color:#fff;font-size:11px;cursor:pointer">
+            <i class="bi bi-grid-3x3-gap"></i> <span data-i18n="dial">Wählen</span>
+        </button>
+        <button class="sp-tab-btn" onclick="Softphone.showTab('settings',this)"
+            style="flex:1;padding:7px;border:none;background:transparent;color:inherit;font-size:11px;cursor:pointer;border-left:1px solid var(--border-color)">
+            <i class="bi bi-gear"></i> <span data-i18n="settings">Einstellungen</span>
+        </button>
+    </div>
+
+    <!-- TAB: Wählen -->
+    <div id="sp-tab-dial">
+        <div style="padding:10px 12px 0">
+            <div id="sp-display" style="background:var(--bg-secondary,#f8f8f8);border:1px solid var(--border-color);border-radius:7px;padding:8px 10px;font-size:18px;font-weight:600;min-height:38px;letter-spacing:2px;color:var(--text-primary,#111);margin-bottom:6px">&nbsp;</div>
+            <input id="sp-search" type="text" name="sp_search_field" placeholder="Kontakt suchen…" data-i18n-placeholder="search_contact" autocomplete="new-password" oninput="Softphone.search(this.value)"
+                style="width:100%;box-sizing:border-box;padding:5px 8px;border:1px solid var(--border-color);border-radius:7px;font-size:11px;background:var(--bg-secondary,#f8f8f8);margin-bottom:4px;color:var(--text-primary)">
+            <div id="sp-search-results" style="display:none;max-height:100px;overflow-y:auto;border:1px solid var(--border-color);border-radius:7px;margin-bottom:6px;background:var(--bg-primary,#fff)"></div>
+            <div id="sp-recent" style="margin-bottom:6px"></div>
+        </div>
+
+        <div style="padding:0 12px">
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:6px">
+                <button class="sp-key" onclick="Softphone.press('1')">1<span>&#8203;</span></button>
+                <button class="sp-key" onclick="Softphone.press('2')">2<small>ABC</small></button>
+                <button class="sp-key" onclick="Softphone.press('3')">3<small>DEF</small></button>
+                <button class="sp-key" onclick="Softphone.press('4')">4<small>GHI</small></button>
+                <button class="sp-key" onclick="Softphone.press('5')">5<small>JKL</small></button>
+                <button class="sp-key" onclick="Softphone.press('6')">6<small>MNO</small></button>
+                <button class="sp-key" onclick="Softphone.press('7')">7<small>PQR</small></button>
+                <button class="sp-key" onclick="Softphone.press('8')">8<small>TUV</small></button>
+                <button class="sp-key" onclick="Softphone.press('9')">9<small>WXY</small></button>
+                <button class="sp-key" onclick="Softphone.press('*')">*</button>
+                <button class="sp-key" onclick="Softphone.press('0')">0<small>+</small></button>
+                <button class="sp-key" onclick="Softphone.press('#')">#</button>
+            </div>
+
+            <div style="display:flex;gap:6px;margin-bottom:10px">
+                <button onclick="Softphone.backspace()"
+                    style="padding:8px 12px;border:1px solid var(--border-color);border-radius:7px;background:var(--bg-secondary,#f8f8f8);cursor:pointer;font-size:14px;color:var(--text-primary)">
+                    <i class="bi bi-backspace"></i></button>
+                <button id="sp-call-btn" onclick="Softphone.call()"
+                    style="flex:1;padding:8px;border:none;border-radius:7px;background:#22c55e;color:#fff;font-size:16px;cursor:pointer">
+                    <i class="bi bi-telephone-fill"></i></button>
+                <button onclick="Softphone.clearDisplay()"
+                    style="padding:8px 11px;border:1px solid var(--border-color);border-radius:7px;background:var(--bg-secondary,#f8f8f8);cursor:pointer;font-size:13px;font-weight:600;color:var(--text-muted)">C</button>
+                <button id="sp-hangup-btn" onclick="Softphone.hangup()"
+                    style="display:none;flex:1;padding:8px;border:none;border-radius:7px;background:#ef4444;color:#fff;font-size:16px;cursor:pointer">
+                    <i class="bi bi-telephone-x-fill"></i></button>
+                <button id="sp-mute-btn" onclick="Softphone.toggleMute()"
+                    style="display:none;padding:8px 12px;border:1px solid var(--border-color);border-radius:7px;background:var(--bg-secondary,#f8f8f8);cursor:pointer;font-size:14px">
+                    <i class="bi bi-mic-fill"></i></button>
+            </div>
+
+            <div id="sp-call-timer" style="display:none;text-align:center;font-size:13px;font-weight:600;color:#22c55e;padding-bottom:8px">0:00</div>
+
+            <!-- Transfer Expand — inline im Widget -->
+            <div id="sp-transfer-expand" style="display:none;border:1px solid var(--border-color);border-radius:8px;overflow:hidden;margin:0 0 6px 0;max-height:320px;overflow-y:auto">
+                <!-- Header -->
+                <div class="sp-panel-hdr" style="padding:5px 8px;font-size:10px;font-weight:600;display:flex;justify-content:space-between;align-items:center">
+                    <span>&#8594; Transfer <span id="sp-tr-exp-num" style="opacity:.7;font-weight:400"></span></span>
+                    <span onclick="Softphone._closeTransferExpand()" style="cursor:pointer;font-size:13px">&#10005;</span>
+                </div>
+                <!-- Direkte Nummereingabe -->
+                <div style="padding:5px 8px;border-bottom:0.5px solid var(--border-color);display:flex;gap:4px">
+                    <input id="sp-tr-exp-input" type="text" autocomplete="off" placeholder="Nummer eingeben..." data-i18n-placeholder="placeholder_number_input"
+                        style="flex:1;padding:4px 7px;border:0.5px solid var(--border-color);border-radius:5px;font-size:11px;background:var(--bg-primary,#fff);color:var(--text-primary)"
+                        onkeydown="if(event.key==='Enter')Softphone._confirmTransfer(this.value)">
+                    <button onclick="Softphone._confirmTransfer(document.getElementById('sp-tr-exp-input').value)"
+                        class="sp-panel-hdr" style="padding:4px 8px;border:none;border-radius:5px;font-size:10px;cursor:pointer;white-space:nowrap">&#8594;</button>
+                </div>
+                <!-- Kontakt-Suche -->
+                <div style="padding:4px 8px;border-bottom:0.5px solid var(--border-color)">
+                    <input id="sp-tr-exp-search" type="text" data-i18n-placeholder="search_contact" placeholder="Kontakt suchen..." autocomplete="off" readonly onfocus="this.removeAttribute('readonly')"
+                        style="width:100%;box-sizing:border-box;padding:4px 7px;border:0.5px solid var(--border-color);border-radius:5px;font-size:11px;background:var(--bg-primary,#fff);color:var(--text-primary)"
+                        oninput="Softphone._transferExpandSearch(this.value)">
+                    <div id="sp-tr-exp-search-results"></div>
+                </div>
+                <!-- Transfer Bestätigung -->
+                <div id="sp-transfer-inline" style="display:none;border-top:0.5px solid var(--status-warn-border);background:var(--status-warn-bg)"></div>
+                <!-- Dynamischer Body (Nebenstellen, Schnellwahl, Letzte Anrufe) -->
+                <div id="sp-tr-exp-body"></div>
+            </div>
+            <div style="border-top:1px solid var(--border-color);margin:4px 0"></div>
+            <div id="sp-status-bar" style="display:none"></div>
+            <div id="sp-fn-bar" style="display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin:5px 8px 8px">
+                <button id="sp-vm-btn" onclick="Softphone.callVoicemail()" data-i18n-title="title_voicemail" title="Voicemail"
+                    class="sp-fn-base">
+                    <i id="sp-vm-icon" class="bi bi-voicemail" style="display:block;font-size:13px"></i><span id="sp-vm-label" data-i18n="voicemail">VM</span></button>
+                <button id="sp-fwd-btn" onclick="Softphone.callForward()" data-i18n-title="title_forward" title="Rufweiterleitung"
+                    class="sp-fn-base">
+                    <i class="bi bi-arrow-return-right" style="display:block;font-size:13px"></i><span data-i18n="forward_short">Weiter</span></button>
+                <button id="sp-dnd-btn" onclick="Softphone.toggleDND()" data-i18n-title="title_dnd" title="Do Not Disturb"
+                    class="sp-fn-base">
+                    <i id="sp-dnd-icon" class="bi bi-bell" style="display:block;font-size:13px"></i><span id="sp-dnd-label" data-i18n="dnd">DND</span></button>
+                <button onclick="Softphone.pickup()" data-i18n-title="title_pickup" title="Pickup"
+                    class="sp-fn-base">
+                    <i class="bi bi-telephone-inbound" style="display:block;font-size:13px"></i><span data-i18n="pickup">Pickup</span></button>
+                <button id="sp-transfer-btn" onclick="Softphone.toggleTransfer()" data-i18n-title="title_transfer" title="Transfer"
+                    class="sp-fn-base" style="display:none">
+                    <i class="bi bi-arrow-right-circle" style="display:block;font-size:13px"></i><span data-i18n="transfer_short">Transf.</span></button>
+            </div>
+
+            <div style="display:flex;gap:4px;margin:4px 8px 6px">
+                <button onclick="Softphone.toggleSpeedDial()" id="sp-speed-toggle"
+                    style="flex:1;padding:3px;border:0.5px solid var(--border-color);border-radius:5px;background:var(--bg-secondary,#f8f8f8);font-size:9px;cursor:pointer;color:var(--text-muted)" data-i18n="speed_dial_toggle">&#9664; Schnellwahl</button>
+                <button onclick="Softphone.showRecent()" id="sp-recent-toggle"
+                    style="flex:1;padding:3px;border:0.5px solid var(--border-color);border-radius:5px;background:var(--bg-secondary,#f8f8f8);font-size:9px;cursor:pointer;color:var(--text-muted)" data-i18n="calls_toggle">&#9742; Anrufe</button>
+                <button onclick="Softphone.toggleFOP()" id="sp-fop-toggle"
+                    style="flex:1;padding:3px;border:0.5px solid var(--border-color);border-radius:5px;background:var(--bg-secondary,#f8f8f8);font-size:9px;cursor:pointer;color:var(--text-muted)" data-i18n="status_toggle">Status &#9654;</button>
+            </div>
+        </div>
+
+        <!-- Panel: Schnellwahl -->
+        <div id="sp-speed-panel" style="display:none;position:fixed;width:200px;background:var(--bg-primary,#fff);border:1px solid var(--border-color);border-radius:8px;overflow:visible;z-index:9998">
+            <div class="sp-panel-hdr" style="padding:6px 10px;font-size:11px;font-weight:600;border-bottom:1px solid var(--border-color);border-radius:8px 8px 0 0;display:flex;justify-content:space-between;align-items:center">
+                <span data-i18n="speed_dial">Schnellwahl</span>
+                <div style="display:flex;align-items:center;gap:8px">
+                    <span onclick="Softphone._speedDialAddManual()" style="cursor:pointer;font-size:14px;opacity:.7" data-i18n-title="add_manual_title" title="Manuell hinzufügen">&#43;</span>
+                    <span onclick="Softphone._speedDialAddFirma()" style="cursor:pointer;font-size:10px;opacity:.8;background:rgba(255,255,255,.15);padding:1px 5px;border-radius:3px" data-i18n-title="add_company_title" title="Firma hinzufügen" data-i18n="add_company">+Firma</span>
+                    <span onclick="Softphone.toggleSpeedDial()" style="cursor:pointer;font-size:14px">&#10005;</span>
+                </div>
+            </div>
+            <div id="sp-speed-list" style="padding:4px 0;max-height:60vh;overflow-y:auto">
+                <div data-i18n="no_entries" style="padding:8px;font-size:10px;color:var(--text-muted)">Keine Einträge</div>
+            </div>
+            <div id="sp-speed-add-form" style="display:none;padding:6px 8px;border-top:1px solid var(--border-color);flex-direction:column;gap:4px">
+                <input id="sp-speed-add-label" placeholder="Bezeichnung" data-i18n-placeholder="placeholder_label"
+                    style="font-size:11px;padding:3px 6px;border:1px solid var(--border-color);border-radius:4px;width:100%;box-sizing:border-box;background:var(--bg-secondary,#f8f8f8);color:var(--text-primary)">
+                <input id="sp-speed-add-number" placeholder="+49 171 123 4567"
+                    style="font-size:11px;padding:3px 6px;border:1px solid var(--border-color);border-radius:4px;width:100%;box-sizing:border-box;background:var(--bg-secondary,#f8f8f8);color:var(--text-primary)">
+                <div style="display:flex;gap:4px">
+                    <button onclick="Softphone._speedDialCancelManual()"
+                        style="flex:1;font-size:10px;padding:3px;border-radius:4px;cursor:pointer;border:1px solid var(--border-color);background:var(--bg-secondary,#f8f8f8);color:var(--text-primary)" data-i18n="cancel">Abbrechen</button>
+                    <button onclick="Softphone._speedDialConfirmManual()"
+                        class="sp-panel-hdr" style="flex:1;font-size:10px;padding:3px;border-radius:4px;cursor:pointer;border:none" data-i18n="add">Hinzufügen</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel: FOP -->
+        <div id="sp-fop-panel" style="display:none;position:fixed;width:220px;background:var(--bg-primary,#fff);border:1px solid var(--border-color);border-radius:8px;z-index:9998;max-height:80vh;overflow-y:auto">
+            <div class="sp-panel-hdr" style="padding:6px 10px;font-size:11px;font-weight:600;border-bottom:1px solid var(--border-color);border-radius:8px 8px 0 0;display:flex;justify-content:space-between">
+                <span data-i18n="ext_status">Ext. Status</span>
+                <span onclick="Softphone.toggleFOP()" style="cursor:pointer;color:#fff">&#10005;</span>
+            </div>
+            <div id="sp-status-panel" style="padding:4px 0">
+                <div data-i18n="no_extensions" style="padding:8px;font-size:10px;color:var(--text-muted)">Keine Extensions</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TAB: Einstellungen -->
+    <div id="sp-tab-settings" style="display:none;padding:12px">
+        <div style="display:flex;flex-direction:column;gap:8px">
+            <div>
+                <label data-i18n="sip_user" style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:3px">SIP Benutzer</label>
+                <input id="sp-cfg-user" type="text" placeholder="z.B. 22" data-i18n-placeholder="placeholder_ext"
+                    style="width:100%;box-sizing:border-box;padding:5px 8px;border:1px solid var(--border-color);border-radius:7px;font-size:12px;background:var(--bg-primary);color:var(--text-primary)">
+            </div>
+            <div>
+                <label data-i18n="sip_password" style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:3px">SIP Passwort</label>
+                <div style="display:flex">
+                    <input id="sp-cfg-pass" type="password" placeholder="Passwort" data-i18n-placeholder="placeholder_password"
+                        style="flex:1;padding:5px 8px;border:1px solid var(--border-color);border-radius:7px 0 0 7px;font-size:12px;box-sizing:border-box;background:var(--bg-primary);color:var(--text-primary)">
+                    <button type="button"
+                        onclick="const i=document.getElementById('sp-cfg-pass');i.type=i.type==='password'?'text':'password';this.querySelector('i').className=i.type==='password'?'bi bi-eye':'bi bi-eye-slash'"
+                        style="padding:5px 8px;border:1px solid var(--border-color);border-left:none;border-radius:0 7px 7px 0;background:var(--bg-secondary,#f8f8f8);cursor:pointer;color:var(--text-primary)">
+                        <i class="bi bi-eye"></i></button>
+                </div>
+            </div>
+            <div>
+                <label data-i18n="websocket_url" style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:3px">WebSocket URL</label>
+                <input id="sp-cfg-ws" type="text" placeholder="wss://pbx.win.abcona.info:8089/ws"
+                    style="width:100%;box-sizing:border-box;padding:5px 8px;border:1px solid var(--border-color);border-radius:7px;font-size:12px;background:var(--bg-primary);color:var(--text-primary)">
+            </div>
+            <div>
+                <label data-i18n="display_name" style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:3px">Anzeigename</label>
+                <input id="sp-cfg-name" type="text" placeholder="z.B. Mustermann" data-i18n-placeholder="placeholder_name"
+                    style="width:100%;box-sizing:border-box;padding:5px 8px;border:1px solid var(--border-color);border-radius:7px;font-size:12px;background:var(--bg-primary);color:var(--text-primary)">
+            </div>
+            <div style="border-top:1px solid var(--border-color);margin:4px 0;padding-top:4px">
+                <div style="font-size:10px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px" data-i18n="voicemail_dnd_section">Voicemail &amp; DND</div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+                <div>
+                    <label data-i18n="vm_extension" style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:3px">VM-Nebenstelle</label>
+                    <input id="sp-cfg-vm-ext" type="text" placeholder="z.B. 22" data-i18n-placeholder="placeholder_ext"
+                        style="width:100%;box-sizing:border-box;padding:5px 8px;border:1px solid var(--border-color);border-radius:7px;font-size:12px;background:var(--bg-primary);color:var(--text-primary)">
+                </div>
+                <div>
+                    <label data-i18n="dnd_extension" style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:3px">DND-Nebenstelle</label>
+                    <input id="sp-cfg-dnd-ext" type="text" placeholder="z.B. 22" data-i18n-placeholder="placeholder_ext"
+                        style="width:100%;box-sizing:border-box;padding:5px 8px;border:1px solid var(--border-color);border-radius:7px;font-size:12px;background:var(--bg-primary);color:var(--text-primary)">
+                </div>
+            </div>
+            <div style="border-top:1px solid var(--border-color);margin:4px 0;padding-top:4px">
+                <div data-i18n="ext_status_panel" style="font-size:10px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Extension Status Panel</div>
+            </div>
+            <div>
+                <label data-i18n="monitored_extensions" style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:3px">Überwachte Extensions (kommagetrennt)</label>
+                <input id="sp-cfg-status-exts" type="text" placeholder="z.B. 10,12,14,22,24,26" data-i18n-placeholder="placeholder_exts"
+                    style="width:100%;box-sizing:border-box;padding:5px 8px;border:1px solid var(--border-color);border-radius:7px;font-size:12px;background:var(--bg-primary);color:var(--text-primary)">
+            </div>
+            <div>
+                <label data-i18n="default_language" style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:3px">Standard-Sprache</label>
+                <select id="sp-cfg-lang"
+                    style="width:100%;box-sizing:border-box;padding:5px 8px;border:1px solid var(--border-color);border-radius:7px;font-size:12px;background:var(--bg-primary);color:var(--text-primary);cursor:pointer">
+                    <option value="de">🇩🇪 DE — Deutsch</option>
+                </select>
+            </div>
+            <button onclick="Softphone.saveAndRegister()"
+                style="padding:8px;background:var(--abcona-blue,#163258);color:#fff;border:none;border-radius:7px;font-size:12px;font-weight:500;cursor:pointer;margin-top:4px">
+                <i class="bi bi-save"></i> <span data-i18n="save_register_btn">Speichern &amp; registrieren</span>
+            </button>
+            <div id="sp-cfg-msg" style="font-size:11px;text-align:center;color:var(--text-muted)"></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Transfer Panel -->
+<div id="sp-transfer-panel" style="display:none;position:fixed;z-index:9997;width:260px;background:var(--bg-primary,#fff);border:1px solid var(--border-color);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.15);overflow:hidden;max-height:70vh;overflow-y:auto">
+    <div class="sp-panel-hdr" style="padding:6px 10px;font-size:11px;font-weight:600;border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center">
+        <span>&#8594; Transfer <span id="sp-transfer-active-num" style="font-size:9px;opacity:.7"></span></span>
+        <span onclick="Softphone.toggleTransfer()" style="cursor:pointer">&#10005;</span>
+    </div>
+    <div style="padding:6px 8px;border-bottom:0.5px solid var(--border-color)">
+        <div style="display:flex;gap:4px">
+            <input id="sp-transfer-input" type="text" autocomplete="off" placeholder="Nummer eingeben..." data-i18n-placeholder="placeholder_number_input"
+                style="flex:1;padding:4px 7px;border:0.5px solid var(--border-color);border-radius:5px;font-size:11px;background:var(--bg-primary,#fff);color:var(--text-primary)"
+                onkeydown="if(event.key==='Enter')Softphone._confirmTransfer(this.value)">
+            <button onclick="Softphone._confirmTransfer(document.getElementById('sp-transfer-input').value)"
+                class="sp-panel-hdr" style="padding:4px 8px;border:none;border-radius:5px;font-size:10px;cursor:pointer;white-space:nowrap">&#8594; <span data-i18n="transfer">Transfer</span></button>
+        </div>
+    </div>
+    <div style="padding:4px 8px;border-bottom:0.5px solid var(--border-color)">
+        <input id="sp-transfer-search" type="text" autocomplete="off" readonly onfocus="this.removeAttribute('readonly')" data-i18n-placeholder="search_contact" placeholder="Kontakt suchen..."
+            style="width:100%;box-sizing:border-box;padding:4px 7px;border:0.5px solid var(--border-color);border-radius:5px;font-size:11px;background:var(--bg-primary,#fff);color:var(--text-primary)"
+            oninput="Softphone._transferSearch(this.value)">
+        <div id="sp-transfer-search-results"></div>
+    </div>
+    <div id="sp-transfer-body"></div>
+</div>
+
+<!-- Letzte Anrufe Panel -->
+<div id="sp-recent-panel" style="display:none;position:fixed;z-index:9997;width:260px;background:var(--bg-primary,#fff);border:1px solid var(--border-color);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.15);overflow:hidden;max-height:60vh;overflow-y:auto">
+    <div class="sp-panel-hdr" style="padding:6px 10px;font-size:11px;font-weight:600;border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center">
+        <span data-i18n="last_calls">Letzte Anrufe</span>
+        <span onclick="Softphone.toggleRecent()" style="cursor:pointer">&#10005;</span>
+    </div>
+    <div id="sp-recent-body"></div>
+</div>
+
+<!-- Incoming Call -->
+<div id="sp-incoming" style="display:none;position:fixed;top:20px;right:20px;z-index:10000;width:260px;border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.35);background:var(--bg-primary);border:1px solid var(--border-color)">
+    <div class="sp-panel-hdr" style="padding:10px 14px;font-size:11px;font-weight:600;display:flex;align-items:center;gap:8px">
+        <i class="bi bi-telephone-inbound-fill"></i>
+        <span data-i18n="incoming_call">Eingehender Anruf…</span>
+    </div>
+    <div style="padding:10px 14px 8px;display:flex;align-items:center;gap:10px">
+        <div id="sp-inc-avatar" style="width:40px;height:40px;border-radius:50%;background:var(--avatar-inc-bg);color:var(--avatar-inc-color);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0;border:2px solid var(--status-green)"></div>
+        <div style="flex:1;min-width:0">
+            <div id="sp-inc-name" style="font-size:13px;font-weight:700;color:var(--text-primary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></div>
+            <div id="sp-inc-num" style="font-size:11px;color:var(--text-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></div>
+        </div>
+    </div>
+    <div style="display:flex;gap:8px;padding:10px 12px 14px">
+        <button onclick="Softphone.answer()" style="flex:1;background:var(--status-green);color:#fff;border:none;border-radius:8px;padding:10px;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px">
+            <i class="bi bi-telephone-fill"></i>
+            <span data-i18n="answer">Annehmen</span>
+        </button>
+        <button onclick="Softphone.reject()" style="flex:1;background:var(--status-red);color:#fff;border:none;border-radius:8px;padding:10px;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px">
+            <i class="bi bi-telephone-x-fill"></i>
+            <span data-i18n="reject">Ablehnen</span>
+        </button>
+    </div>
+</div>
+
+<!-- PWA Install Banner -->
+<div id="sp-install-banner">
+    <i class="bi bi-download"></i>
+    <span data-i18n="pwa_install">Als App installieren</span>
+    <button onclick="SP_PWA.install()" data-i18n="pwa_install_btn" style="background:rgba(255,255,255,0.2);border:none;color:#fff;padding:3px 10px;border-radius:10px;cursor:pointer;font-size:11px">Installieren</button>
+    <button onclick="document.getElementById('sp-install-banner').classList.remove('visible')" style="background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;font-size:14px">&#10005;</button>
+</div>
+
+<!-- JS -->
+<script src="{% static 'abpe_crm/softphone/js/vendor/jssip.min.js' %}"></script>
+<script src="{% static 'abpe_crm/softphone/js/2_sp-config.js' %}"></script>
+<script src="{% static 'abpe_crm/softphone/js/3_sp-i18n.js' %}"></script>
+<script src="{% static 'abpe_crm/softphone/js/4_sp-theme.js' %}"></script>
+<script src="{% static 'abpe_crm/softphone/js/5_sp-lang.js' %}"></script>
+<script src="{% static 'abpe_crm/softphone/js/5_sp-contacts.js' %}"></script>
+<script src="{% static 'abpe_crm/softphone/js/6_sp-core.js' %}"></script>
+<script src="{% static 'abpe_crm/softphone/js/7_sp-ui.js' %}"></script>
+<script src="{% static 'abpe_crm/softphone/js/8_sp-status.js' %}"></script>
+<script src="{% static 'abpe_crm/softphone/js/9_sp-transfer.js' %}"></script>
+<script src="{% static 'abpe_crm/softphone/js/10_sp-fop.js' %}"></script>
+<script src="{% static 'abpe_crm/softphone/js/11_sp-init.js' %}"></script>
+
+<script>
+// Keyboard-Shortcuts
+document.addEventListener('keydown', function(e) {
+    if (['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName)) return;
+    if (e.ctrlKey || e.altKey || e.metaKey) {
+        if (e.ctrlKey && e.key === 'c') {
+            var d = document.getElementById('sp-display');
+            var num = d ? d.textContent.trim() : '';
+            if (num && num !== '\u00a0') navigator.clipboard.writeText(num).catch(function(){});
+        }
+        return;
+    }
+    if (e.key === 'Delete' || e.key === 'Escape') { Softphone.clearDisplay(); }
+    else if (e.key === 'Backspace') { Softphone.backspace(); }
+    else if (e.key === 'Enter') { Softphone.call(); }
+    else if (/^[0-9*#+]$/.test(e.key)) { Softphone.press(e.key); }
+});
+document.addEventListener('paste', function(e) {
+    if (['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName)) return;
+    var text = (e.clipboardData || window.clipboardData).getData('text');
+    if (!text) return;
+    var num = text.replace(/[^0-9+*#]/g, '').trim();
+    if (num) { e.preventDefault(); Softphone.setNumber(num); }
+});
+document.addEventListener('click', function(e) {
+    var btn = e.target.closest('[data-sp-call]');
+    if (btn) { e.preventDefault(); Softphone.setNumber(btn.dataset.spCall); }
+});
+
+// PWA Install
+window.SP_PWA = {
+    _prompt: null,
+    install: function() {
+        if (this._prompt) {
+            this._prompt.prompt();
+            this._prompt.userChoice.then(function() {
+                document.getElementById('sp-install-banner').classList.remove('visible');
+            });
+        }
+    }
+};
+window.addEventListener('beforeinstallprompt', function(e) {
+    e.preventDefault();
+    window.SP_PWA._prompt = e;
+    document.getElementById('sp-install-banner').classList.add('visible');
+});
+</script>
+
+<!-- PWA Service Worker — Registrierung in 11_sp-init.js -->
+</body>
+</html>
