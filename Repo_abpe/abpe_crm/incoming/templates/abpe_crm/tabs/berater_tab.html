@@ -1,0 +1,58 @@
+<div class="crm-two-col">
+    <div class="crm-list-panel">
+        <div class="section-header open">
+            <i class="bi bi-people"></i> <span data-i18n="berater_label"><span data-i18n="berater_label">Berater</span></span>
+            <span id="crm-section-count" class="crm-section-count"></span>
+            <button class="crm-new-btn" onclick="crmNewBerater()">
+                <i class="bi bi-plus"></i> <span data-i18n="neue_berater">Neuer Berater</span>
+            </button>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="section-content open">
+            <div class="crm-filter-bar">
+                <select id="filter-status" onchange="crmSearch()">
+                    <option value=""><span data-i18n="alle_status">Alle Status</span></option>
+                    <option value="aktiv"><span data-i18n="aktiv">Aktiv</span></option>
+                    <option value="passiv"><span data-i18n="passiv">Passiv</span></option>
+                    <option value="unbekannt"><span data-i18n="unbekannt">Unbekannt</span></option>
+                </select>
+                <select id="filter-typ" onchange="crmSearch()">
+                    <option value="berater">Berater</option>
+                    <option value="interessent">Interessent</option>
+                    <option value="andere">Sonstiges</option>
+                    <option value="" selected>Alle Typen</option>
+                </select>
+                <div id="crm-pagination" class="crm-pagination crm-pagination-inline"></div>
+                <div class="crm-view-toggle">
+                    <button id="btn-liste" class="crm-toggle-btn active" onclick="CRM.setViewMode('liste')">
+                        <i class="bi bi-list-ul"></i> <span data-i18n="liste">Liste</span>
+                    </button>
+                    <button id="btn-zuletzt" class="crm-toggle-btn" onclick="CRM.setViewMode('zuletzt')">
+                        <i class="bi bi-clock-history"></i> <span data-i18n="zuletzt">Zuletzt</span>
+                        <select id="zuletzt-n" onclick="event.stopPropagation()" onchange="CRM.setViewMode('zuletzt')" style="border:none;background:transparent;font-size:inherit;color:inherit;cursor:pointer;padding:0 2px;">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20" selected>20</option>
+                            <option value="50">50</option>
+                        </select>
+                    </button>
+                    <button id="btn-favoriten" class="crm-toggle-btn" onclick="CRM.setViewMode('favoriten')">
+                        <i class="bi bi-star"></i> <span data-i18n="favoriten">Favoriten</span>
+                    </button>
+                </div>
+            </div>
+            <div id="crm-list" class="crm-list">
+                <div class="crm-list-loading">
+                    <i class="bi bi-arrow-repeat matching-spinner"></i> <span data-i18n="laden">Lade...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="crm-resizer" id="crm-resizer"></div>
+    <div class="crm-detail-panel" id="crm-detail-panel">
+        <div class="crm-detail-empty">
+            <i class="bi bi-person"></i>
+            <p><span data-i18n="berater_auswaehlen">Berater auswählen</span></p>
+        </div>
+    </div>
+</div>

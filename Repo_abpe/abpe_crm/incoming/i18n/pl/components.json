@@ -1,0 +1,19 @@
+{
+    "component_actions_upload_pdf": "Prześlij PDF",
+    "component_actions_add_consultant": "Dodaj konsultanta",
+    "component_actions_start_matching": "Rozpocznij dopasowanie",
+    "component_actions_contact": "Napisz do konsultanta",
+    "component_stats_consultants": "Konsultanci",
+    "component_stats_emails": "E-maile",
+    "component_stats_projects": "Projekty",
+    "component_stats_matches": "Dopasowania",
+    "component_system_django": "Django",
+    "component_system_celery": "Celery",
+    "component_system_postgresql": "PostgreSQL",
+    "component_system_cpu": "CPU",
+    "component_system_ram": "RAM",
+    "component_system_gpu": "GPU",
+    "component_recent_consultants_title": "Ostatni konsultanci",
+    "component_recent_emails_title": "Ostatnie e-maile",
+    "component_show_all": "Pokaż wszystkie →"
+}

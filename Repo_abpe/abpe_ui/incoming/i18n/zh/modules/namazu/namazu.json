@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "顾问搜索 (Namazu)",
+            "placeholder": "姓名、技能、技术...",
+            "btn": "搜索",
+            "max_label": "最大结果数"
+        },
+        "results": {
+            "total": "总结果数",
+            "empty": "未找到结果",
+            "score": "评分"
+        },
+        "profile": {
+            "open": "个人资料",
+            "preview": "数据表预览",
+            "close": "关闭"
+        },
+        "admin": {
+            "title": "索引管理",
+            "imap_title": "IMAP 邮箱",
+            "add_account": "添加账户",
+            "active": "活跃",
+            "inactive": "不活跃",
+            "html_count": "HTML 文件",
+            "index_size": "索引大小",
+            "last_indexed": "上次索引时间",
+            "reindex_btn": "开始重新索引",
+            "reindex_ok": "重新索引已启动",
+            "reindex_err": "启动时出错",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "加载中..."
+        },
+        "es": {
+            "title": "Elasticsearch 搜索",
+            "placeholder": "技能、姓名、技术...",
+            "exclude": "排除:",
+            "exclude_account": "排除邮箱",
+            "query_helper": "查询帮助",
+            "examples": "示例:",
+            "index": {
+                "consultants": "顾问",
+                "emails": "邮件",
+                "profiles": "个人资料"
+            },
+            "sort": {
+                "placeholder": "排序方式...",
+                "date_desc": "日期 ↓",
+                "date_asc": "日期 ↑",
+                "indexed_desc": "索引时间 ↓",
+                "indexed_asc": "索引时间 ↑",
+                "attachments": "附件优先",
+                "from_asc": "发件人 A-Z",
+                "account_asc": "邮箱 A-Z",
+                "name_asc": "姓名 A-Z",
+                "status": "状态",
+                "available": "可用自",
+                "availability": "可用性",
+                "folder_asc": "文件夹 A-Z",
+                "size_desc": "大小 ↓"
+            },
+            "chips": {
+                "boolean": "布尔:",
+                "wildcards": "通配符与模糊:",
+                "fields_email": "字段 (邮件):",
+                "fields_consultant": "字段 (顾问):",
+                "date_ranges": "日期与范围:",
+                "and": "两者",
+                "or": "任一",
+                "not": "排除",
+                "must": "必须",
+                "must_not": "不得",
+                "wildcard": "通配符",
+                "one_char": "一个字符",
+                "fuzzy": "模糊",
+                "phrase": "短语",
+                "proximity": "邻近",
+                "boost": "提升",
+                "with_attachment": "带附件",
+                "fulltext": "全文",
+                "name": "姓名",
+                "location": "地点",
+                "availability": "可用性",
+                "subject": "主题",
+                "sender": "发件人",
+                "content": "内容",
+                "mailbox": "邮箱",
+                "folder": "文件夹"
+            }
+        }
+    }
+}

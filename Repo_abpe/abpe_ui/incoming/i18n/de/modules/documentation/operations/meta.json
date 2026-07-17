@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "Inhaltsverzeichnis"
+    },
+    "sections": [
+        {
+            "id": "dienste",
+            "number": "1",
+            "title": "Dienste"
+        },
+        {
+            "id": "backup_ops",
+            "number": "2",
+            "title": "Backup"
+        }
+    ]
+}

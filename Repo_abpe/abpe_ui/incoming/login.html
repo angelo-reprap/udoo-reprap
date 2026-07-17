@@ -1,0 +1,72 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="{{ current_lang|default:'de' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABpE Portal - {% trans "login" %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="{% static 'abpe_ui/css/core/core-base.css' %}" rel="stylesheet">
+    <link href="{% static 'abpe_ui/css/core/core-login.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css" rel="stylesheet">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <div class="login-card">
+            <div id="lang-switcher"></div>
+            <div class="login-logo">
+                <img src="{% static 'abpe_ui/img/logo.svg' %}" alt="ABpE">
+                <h3 data-i18n="app_name">ABpE Portal</h3>
+            </div>
+            <form method="post" action="{% url 'abpe_ui:login' %}">
+                {% csrf_token %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                {% if next %}
+                <input type="hidden" name="next" value="{{ next }}">
+                {% endif %}
+                <div class="mb-3">
+                    <label for="username" class="form-label" data-i18n="username">Benutzername</label>
+                    <input type="text" name="username" id="username" class="form-control" required autofocus>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label" data-i18n="password">Passwort</label>
+                    <div class="input-group">
+                        <input type="password" name="password" id="password" class="form-control" required>
+                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mb-3 text-end">
+                    <a href="{% url 'password_reset' %}" class="text-decoration-none" data-i18n="forgot_password">Passwort vergessen?</a>
+                </div>
+                <button type="submit" class="btn btn-primary w-100" data-i18n="login">Anmelden</button>
+                <hr class="my-4">
+                <div class="text-center">
+                    <span data-i18n="no_account_yet">Noch kein Konto?</span>
+                    <a href="{% url 'abpe_ui:register' %}" data-i18n="register_here">Jetzt registrieren</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'abpe_ui/js/core/core-language.js' %}"></script>
+    <script src="{% static 'abpe_ui/js/core/core-lang-dropdown.js' %}"></script>
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+        if (togglePassword && password) {
+            togglePassword.addEventListener('click', function() {
+                const type = password.type === 'password' ? 'text' : 'password';
+                password.type = type;
+                this.querySelector('i').classList.toggle('bi-eye');
+                this.querySelector('i').classList.toggle('bi-eye-slash');
+            });
+        }
+    </script>
+</body>
+</html>

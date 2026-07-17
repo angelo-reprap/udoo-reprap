@@ -1,0 +1,11 @@
+{
+    "documentation": "Dokumentáció",
+    "architecture": "Architektúra",
+    "user_manual": "Felhasználói kézikönyv",
+    "architecture_title": "ABpE Portál Architektúra",
+    "architecture_subtitle": "A moduláris felépítés dokumentációja",
+    "core_components": "Alapvető összetevők",
+    "modules": "Modulok",
+    "api_endpoints": "API végpontok",
+    "database_schema": "Adatbázis séma"
+}

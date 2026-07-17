@@ -1,0 +1,14 @@
+{
+    "help_title": "Aide & Conseils",
+    "help_portal": "À propos de ce portail",
+    "help_portal_text": "Portail ABpE - Système automatisé de saisie de profils de conseillers. Gère les CV, les conseillers, le matching et les workflows.",
+    "help_navigation": "Navigation",
+    "help_nav1": "Barre latérale : les icônes deviennent visibles au survol",
+    "help_nav2": "Tableau de bord : les statistiques peuvent être développées/réduites",
+    "help_nav3": "Toutes les sections peuvent être ouvertes/fermées par clic",
+    "help_shortcuts": "Raccourcis clavier",
+    "help_shortcut_help": "Ouvrir l'aide",
+    "help_shortcut_search": "Focus sur le champ de recherche",
+    "help_shortcut_stats": "Développer/réduire les statistiques",
+    "help_shortcut_quick": "Actions rapides"
+}

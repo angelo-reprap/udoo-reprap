@@ -1,0 +1,35 @@
+{
+    "id": "crm_dms",
+    "title": "Dokumente",
+    "titles": {
+        "de": "Dokumente",
+        "en": "Documents",
+        "fr": "Documents",
+        "it": "Documenti",
+        "es": "Documentos",
+        "ar": "المستندات",
+        "ja": "ドキュメント",
+        "ko": "문서",
+        "nl": "Documenten",
+        "pl": "Dokumenty",
+        "pt": "Documentos",
+        "ru": "Документы",
+        "tr": "Belgeler",
+        "zh": "文档"
+    },
+    "icon": "folder",
+    "route": "/crm/dms/",
+    "order": 40,
+    "enabled": true,
+    "roles": [
+        "!berater"
+    ],
+    "static": {
+        "css": [
+            "mod-edms.css"
+        ],
+        "js": [
+            "mod-edms.js"
+        ]
+    }
+}
