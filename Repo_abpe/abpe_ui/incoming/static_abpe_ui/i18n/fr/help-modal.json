@@ -1,0 +1,22 @@
+{
+    "help_title": "Aide & Conseils",
+    "help_portal": "À propos de ce portail",
+    "help_portal_text": "Portail ABpE - Système automatisé de saisie de profil de conseiller. Gère les CV, conseillers, matching et workflows.",
+    "help_navigation": "Navigation",
+    "help_nav1": "Barre latérale : les icônes deviennent visibles au survol",
+    "help_nav2": "Tableau de bord : les statistiques peuvent être dépliées/repliées",
+    "help_nav3": "Toutes les sections sont repliables/dépliables par clic",
+    "help_nav4": "Recherche en haut : trouver conseillers, CV et enregistrements dans tout le portail",
+    "help_language": "Langue & Affichage",
+    "help_lang_header": "Langue : boutons en haut à droite (DE/EN/ES/IT/FR) ou dans Paramètres",
+    "help_lang_persist": "La langue choisie est sauvegardée et chargée lors de la prochaine connexion",
+    "help_theme_toggle": "Mode clair/sombre : bouton soleil/lune en haut à droite ou dans Paramètres",
+    "help_modules": "Modules & Guides",
+    "help_mod_overview": "Chaque module peut avoir sa propre aide — bouton « Aide » dans la vue du module",
+    "help_mod_email": "Email Studio : tutoriel détaillé avec simulations (Aperçu, Modules, Variables, Traduction)",
+    "help_mod_more": "Autres modules (Doc Studio, Matching, CRM) seront ajoutés progressivement",
+    "help_shortcuts": "Raccourcis clavier",
+    "help_shortcut_help": "Ouvrir l'aide",
+    "help_shortcut_search": "Focus sur le champ de recherche",
+    "help_shortcut_stats": "Déplier/replier les statistiques"
+}

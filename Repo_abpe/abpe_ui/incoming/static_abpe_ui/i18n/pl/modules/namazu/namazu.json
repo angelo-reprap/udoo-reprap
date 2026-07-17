@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "Wyszukiwanie doradców (Namazu)",
+            "placeholder": "Nazwa, umiejętność, technologia...",
+            "btn": "Szukaj",
+            "max_label": "Maks. wyników"
+        },
+        "results": {
+            "total": "Łączna liczba wyników",
+            "empty": "Nie znaleziono wyników",
+            "score": "Wynik"
+        },
+        "profile": {
+            "open": "Profil",
+            "preview": "Podgląd karty danych",
+            "close": "Zamknij"
+        },
+        "admin": {
+            "title": "Zarządzanie indeksem",
+            "imap_title": "Skrzynki IMAP",
+            "add_account": "Dodaj konto",
+            "active": "aktywne",
+            "inactive": "nieaktywne",
+            "html_count": "Pliki HTML",
+            "index_size": "Rozmiar indeksu",
+            "last_indexed": "Ostatnie indeksowanie",
+            "reindex_btn": "Rozpocznij ponowne indeksowanie",
+            "reindex_ok": "Ponowne indeksowanie rozpoczęte",
+            "reindex_err": "Błąd podczas uruchamiania",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "Ładowanie..."
+        },
+        "es": {
+            "title": "Wyszukiwanie Elasticsearch",
+            "placeholder": "Umiejętności, nazwa, technologia...",
+            "exclude": "Wyklucz:",
+            "exclude_account": "Wyklucz skrzynkę",
+            "query_helper": "Pomoc dotycząca zapytań",
+            "examples": "Przykłady:",
+            "index": {
+                "consultants": "Doradcy",
+                "emails": "E-maile",
+                "profiles": "Profile"
+            },
+            "sort": {
+                "placeholder": "Sortowanie...",
+                "date_desc": "Data ↓",
+                "date_asc": "Data ↑",
+                "indexed_desc": "Indeksowane ↓",
+                "indexed_asc": "Indeksowane ↑",
+                "attachments": "Załączniki najpierw",
+                "from_asc": "Nadawca A-Z",
+                "account_asc": "Skrzynka A-Z",
+                "name_asc": "Nazwa A-Z",
+                "status": "Status",
+                "available": "Dostępny od",
+                "availability": "Dostępność",
+                "folder_asc": "Folder A-Z",
+                "size_desc": "Rozmiar ↓"
+            },
+            "chips": {
+                "boolean": "Boolean:",
+                "wildcards": "Wildcards & Fuzzy:",
+                "fields_email": "Pola (e-maile):",
+                "fields_consultant": "Pola (doradcy):",
+                "date_ranges": "Data i zakresy:",
+                "and": "oba",
+                "or": "jeden",
+                "not": "wyklucz",
+                "must": "musi",
+                "must_not": "nie może",
+                "wildcard": "Wildcard",
+                "one_char": "jeden znak",
+                "fuzzy": "Fuzzy",
+                "phrase": "Fraza",
+                "proximity": "Bliskość",
+                "boost": "Boost",
+                "with_attachment": "Z załącznikiem",
+                "fulltext": "Pełny tekst",
+                "name": "Nazwa",
+                "location": "Miejscowość",
+                "availability": "Dostępność",
+                "subject": "Temat",
+                "sender": "Nadawca",
+                "content": "Treść",
+                "mailbox": "Skrzynka",
+                "folder": "Folder"
+            }
+        }
+    }
+}

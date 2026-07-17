@@ -1,0 +1,72 @@
+{
+    "toc": {
+        "title": "目录"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "概述 — 模块系统"
+        },
+        {
+            "id": "struktur",
+            "number": "2",
+            "title": "目录结构"
+        },
+        {
+            "id": "module_json",
+            "number": "3",
+            "title": "module.json 文件"
+        },
+        {
+            "id": "template",
+            "number": "4",
+            "title": "HTML 模板"
+        },
+        {
+            "id": "css",
+            "number": "5",
+            "title": "CSS — 样式"
+        },
+        {
+            "id": "javascript",
+            "number": "6",
+            "title": "JavaScript — 模块逻辑"
+        },
+        {
+            "id": "toggle_system",
+            "number": "7",
+            "title": "切换系统"
+        },
+        {
+            "id": "i18n",
+            "number": "8",
+            "title": "国际化"
+        },
+        {
+            "id": "navigation",
+            "number": "9",
+            "title": "导航与侧边栏"
+        },
+        {
+            "id": "api",
+            "number": "10",
+            "title": "API 端点"
+        },
+        {
+            "id": "checkliste",
+            "number": "11",
+            "title": "检查清单与错误"
+        },
+        {
+            "id": "beispiel",
+            "number": "12",
+            "title": "完整示例"
+        },
+        {
+            "id": "anhang_a",
+            "number": "A",
+            "title": "附录 A — 门户集成中的常见陷阱"
+        }
+    ]
+}

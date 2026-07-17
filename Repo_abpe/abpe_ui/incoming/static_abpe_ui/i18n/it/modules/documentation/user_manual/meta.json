@@ -1,0 +1,86 @@
+{
+    "toc": {
+        "title": "Indice dei contenuti"
+    },
+    "sections": [
+        {
+            "id": "einstieg",
+            "number": "1",
+            "title": "Introduzione e Login"
+        },
+        {
+            "id": "dashboard",
+            "number": "2",
+            "title": "Dashboard e Navigazione"
+        },
+        {
+            "id": "cv_editor",
+            "number": "3",
+            "title": "Editor CV"
+        },
+        {
+            "id": "cv_upload",
+            "number": "4",
+            "title": "Caricamento CV ed Estrazione"
+        },
+        {
+            "id": "matching",
+            "number": "5",
+            "title": "Matching e Ricerca"
+        },
+        {
+            "id": "email_studio",
+            "number": "6",
+            "title": "Email Studio"
+        },
+        {
+            "id": "doc_studio",
+            "number": "7",
+            "title": "Doc Studio"
+        },
+        {
+            "id": "rechnungen",
+            "number": "8",
+            "title": "Fatture"
+        },
+        {
+            "id": "vorlagen",
+            "number": "9",
+            "title": "Modelli e Carta intestata"
+        },
+        {
+            "id": "benutzerverwaltung",
+            "number": "10",
+            "title": "Gestione utenti"
+        },
+        {
+            "id": "einstellungen",
+            "number": "11",
+            "title": "Impostazioni e Configurazione"
+        },
+        {
+            "id": "sprache",
+            "number": "12",
+            "title": "Lingua e Localizzazione"
+        },
+        {
+            "id": "tipps",
+            "number": "13",
+            "title": "Suggerimenti e Scorciatoie da tastiera"
+        },
+        {
+            "id": "fehler",
+            "number": "14",
+            "title": "Errori comuni e Soluzioni"
+        },
+        {
+            "id": "glossar",
+            "number": "15",
+            "title": "Glossario"
+        }
+    ],
+    "version": "Versione 2.0",
+    "framework": "Django 5.x",
+    "chapters": "15 capitoli",
+    "audience": "Utente finale"
+}

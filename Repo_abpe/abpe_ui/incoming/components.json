@@ -1,0 +1,19 @@
+{
+    "component_actions_upload_pdf": "PDF Yükle",
+    "component_actions_add_consultant": "Danışman Ekle",
+    "component_actions_start_matching": "Eşleştirmeyi Başlat",
+    "component_actions_contact": "Danışmana Mesaj Gönder",
+    "component_stats_consultants": "Danışmanlar",
+    "component_stats_emails": "E-postalar",
+    "component_stats_projects": "Projeler",
+    "component_stats_matches": "Eşleşmeler",
+    "component_system_django": "Django",
+    "component_system_celery": "Celery",
+    "component_system_postgresql": "PostgreSQL",
+    "component_system_cpu": "CPU",
+    "component_system_ram": "RAM",
+    "component_system_gpu": "GPU",
+    "component_recent_consultants_title": "Son Danışmanlar",
+    "component_recent_emails_title": "Son E-postalar",
+    "component_show_all": "Tümünü Göster →"
+}

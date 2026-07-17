@@ -78,15 +78,15 @@ window.ESTemplates = (() => {
             const archBtn = e.target.closest('[data-action="archive"]');
             if (archBtn) {
                 const id = archBtn.dataset.id;
-                if (!ES.confirm('es.confirm_archive', 'Vorlage archivieren?')) return;
+                if (!ES.confirm('es.confirm_archive')) return;
                 try {
                     await ES.api.delete(ES.apiUrl(`templates/${id}/`));
                     archBtn.closest('[data-tpl-row]')?.remove();
-                    ES.notify.success('es.archived', 'Archiviert');
+                    ES.notify.success('es.archived');
                     _updateGroupVisibility();
                 } catch(err) {
                     console.error('Archivieren fehlgeschlagen:', err);
-                    ES.notify.error('es.error_archive', 'Fehler beim Archivieren');
+                    ES.notify.error('es.error_archive');
                 }
             }
 
@@ -104,11 +104,11 @@ window.ESTemplates = (() => {
                         identifier: newId,
                         name:       newName,
                     });
-                    ES.notify.success('es.duplicated', 'Dupliziert');
+                    ES.notify.success('es.duplicated');
                     setTimeout(() => location.reload(), 800);
                 } catch(err) {
                     console.error('Duplizieren fehlgeschlagen:', err);
-                    ES.notify.error('es.error_duplicate', 'Fehler beim Duplizieren');
+                    ES.notify.error('es.error_duplicate');
                 }
             }
 
@@ -122,10 +122,10 @@ window.ESTemplates = (() => {
                     await ES.api.post(ES.apiUrl(`templates/${id}/send-test/`), {
                         recipient
                     });
-                    ES.notify.success('es.test_sent', 'Test gesendet');
+                    ES.notify.success('es.test_sent');
                 } catch(err) {
                     console.error('Test-Versand fehlgeschlagen:', err);
-                    ES.notify.error('es.error_test_send', 'Fehler beim Test-Versand');
+                    ES.notify.error('es.error_test_send');
                 }
             }
         });

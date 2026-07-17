@@ -157,6 +157,9 @@ ES.setPreviewClient = function(btn) {
     panel.querySelectorAll('[data-client-view]').forEach(v => {
         v.style.display = v.dataset.clientView === client ? '' : 'none';
     });
+    if (window.ESStudio?._loadPreview) {
+        window.ESStudio._loadPreview(true);
+    }
     console.log('Vorschau-Client:', client);
 };
 window.esSetPreviewClient = ES.setPreviewClient;

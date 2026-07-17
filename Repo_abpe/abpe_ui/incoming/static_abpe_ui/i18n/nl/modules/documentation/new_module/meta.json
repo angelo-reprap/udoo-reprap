@@ -1,0 +1,72 @@
+{
+    "toc": {
+        "title": "Inhoudsopgave"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Overzicht — Het modulesysteem"
+        },
+        {
+            "id": "struktur",
+            "number": "2",
+            "title": "Directorystructuur"
+        },
+        {
+            "id": "module_json",
+            "number": "3",
+            "title": "De module.json"
+        },
+        {
+            "id": "template",
+            "number": "4",
+            "title": "Het HTML-sjabloon"
+        },
+        {
+            "id": "css",
+            "number": "5",
+            "title": "CSS — Stijlen"
+        },
+        {
+            "id": "javascript",
+            "number": "6",
+            "title": "JavaScript — Modulelogica"
+        },
+        {
+            "id": "toggle_system",
+            "number": "7",
+            "title": "Het toggle-systeem"
+        },
+        {
+            "id": "i18n",
+            "number": "8",
+            "title": "Internationalisering"
+        },
+        {
+            "id": "navigation",
+            "number": "9",
+            "title": "Navigatie & zijbalk"
+        },
+        {
+            "id": "api",
+            "number": "10",
+            "title": "API-eindpunten"
+        },
+        {
+            "id": "checkliste",
+            "number": "11",
+            "title": "Checklist & fouten"
+        },
+        {
+            "id": "beispiel",
+            "number": "12",
+            "title": "Volledig voorbeeld"
+        },
+        {
+            "id": "anhang_a",
+            "number": "A",
+            "title": "Bijlage A — Valkuilen bij de portalintegratie"
+        }
+    ]
+}

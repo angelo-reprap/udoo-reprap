@@ -1,0 +1,22 @@
+{
+    "help_title": "Hulp & Tips",
+    "help_portal": "Over dit portaal",
+    "help_portal_text": "ABpE Portaal - Geautomatiseerd Adviseur Profiel Registratiesysteem. Beheert CV's, adviseurs, matching en workflows.",
+    "help_navigation": "Navigatie",
+    "help_nav1": "Zijbalk: Pictogrammen worden zichtbaar bij hoveren",
+    "help_nav2": "Dashboard: Statistieken kunnen worden in-/uitgeklapt",
+    "help_nav3": "Alle secties zijn aanklikbaar om open/dicht te klappen",
+    "help_nav4": "Zoeken bovenaan: vind adviseurs, CV's en gegevenssets portaalbreed",
+    "help_language": "Taal & Weergave",
+    "help_lang_header": "Taal: Knoppen rechtsboven (DE/EN/ES/IT/FR) of onder Instellingen",
+    "help_lang_persist": "De gekozen taal wordt opgeslagen en bij de volgende login geladen",
+    "help_theme_toggle": "Licht/Donker-modus: Zon/Maan-knop rechtsboven of onder Instellingen",
+    "help_modules": "Modules & Handleidingen",
+    "help_mod_overview": "Elke module kan eigen hulp hebben — knop 'Hulp' in de moduleweergave",
+    "help_mod_email": "Email Studio: uitgebreide tutorial met simulaties (Overzicht, Modules, Variabelen, Vertaling)",
+    "help_mod_more": "Overige modules (Doc Studio, Matching, CRM) worden stapsgewijs toegevoegd",
+    "help_shortcuts": "Sneltoetsen",
+    "help_shortcut_help": "Hulp openen",
+    "help_shortcut_search": "Zoekveld focussen",
+    "help_shortcut_stats": "Statistiek in-/uitklappen"
+}

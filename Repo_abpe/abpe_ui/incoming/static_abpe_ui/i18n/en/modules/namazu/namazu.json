@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "Consultant Search (Namazu)",
+            "placeholder": "Name, Skill, Technology...",
+            "btn": "Search",
+            "max_label": "Max. Hits"
+        },
+        "results": {
+            "total": "Total Hits",
+            "empty": "No results found",
+            "score": "Score"
+        },
+        "profile": {
+            "open": "Profile",
+            "preview": "Data Sheet Preview",
+            "close": "Close"
+        },
+        "admin": {
+            "title": "Index Management",
+            "imap_title": "IMAP Mailboxes",
+            "add_account": "Add Account",
+            "active": "active",
+            "inactive": "inactive",
+            "html_count": "HTML Files",
+            "index_size": "Index Size",
+            "last_indexed": "Last Indexing",
+            "reindex_btn": "Start Re-indexing",
+            "reindex_ok": "Re-indexing started",
+            "reindex_err": "Error starting",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "Loading..."
+        },
+        "es": {
+            "title": "Elasticsearch Search",
+            "placeholder": "Skills, Name, Technology...",
+            "exclude": "Exclude:",
+            "exclude_account": "Exclude Mailbox",
+            "query_helper": "Query Help",
+            "examples": "Examples:",
+            "index": {
+                "consultants": "Consultants",
+                "emails": "Emails",
+                "profiles": "Profiles"
+            },
+            "sort": {
+                "placeholder": "Sorting...",
+                "date_desc": "Date ↓",
+                "date_asc": "Date ↑",
+                "indexed_desc": "Indexed ↓",
+                "indexed_asc": "Indexed ↑",
+                "attachments": "Attachment first",
+                "from_asc": "Sender A-Z",
+                "account_asc": "Mailbox A-Z",
+                "name_asc": "Name A-Z",
+                "status": "Status",
+                "available": "Available from",
+                "availability": "Availability",
+                "folder_asc": "Folder A-Z",
+                "size_desc": "Size ↓"
+            },
+            "chips": {
+                "boolean": "Boolean:",
+                "wildcards": "Wildcards & Fuzzy:",
+                "fields_email": "Fields (Emails):",
+                "fields_consultant": "Fields (Consultants):",
+                "date_ranges": "Date & Ranges:",
+                "and": "both",
+                "or": "one",
+                "not": "exclude",
+                "must": "must",
+                "must_not": "must not",
+                "wildcard": "Wildcard",
+                "one_char": "one character",
+                "fuzzy": "Fuzzy",
+                "phrase": "Phrase",
+                "proximity": "Proximity",
+                "boost": "Boost",
+                "with_attachment": "With attachment",
+                "fulltext": "Full text",
+                "name": "Name",
+                "location": "Location",
+                "availability": "Availability",
+                "subject": "Subject",
+                "sender": "Sender",
+                "content": "Content",
+                "mailbox": "Mailbox",
+                "folder": "Folder"
+            }
+        }
+    }
+}

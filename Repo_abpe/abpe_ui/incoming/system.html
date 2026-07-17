@@ -1,0 +1,415 @@
+{% extends "abpe_ui/base.html" %}
+{% load static %}
+
+{% block module_css %}
+<link href="{% static 'abpe_ui/css/mod/mod-admin_portal.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}System{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-gear"></i> <span data-i18n-admin="system.title">System-Einstellungen</span></h2>
+</div>
+<div class="row g-3">
+
+    <!-- Portal -->
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header">
+                <i class="bi bi-sliders"></i>
+                <span data-i18n-admin="system.portal_section">Portal</span>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label" data-i18n-admin="system.portal_name">Portal-Name</label>
+                    <input type="text" class="form-control" id="portal-name" value="ABpE Portal">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" data-i18n-admin="system.default_lang">Standard-Sprache</label>
+                    <select class="form-select" id="default-lang">
+                        <option value="de">Deutsch</option>
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" id="maintenance-mode">
+                    <label class="form-check-label" data-i18n-admin="system.maintenance">Wartungsmodus</label>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="saveSystemSettings()">
+                    <i class="bi bi-save"></i>
+                    <span data-i18n-admin="system.save">Speichern</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- System-Status -->
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header">
+                <i class="bi bi-activity"></i>
+                <span data-i18n-admin="system.status_title">System-Status</span>
+            </div>
+            <div class="card-body" id="system-status-container">
+                <div class="text-center py-3"><div class="spinner-border spinner-border-sm"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sprachpakete -->
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span>
+                    <i class="bi bi-translate"></i>
+                    <span data-i18n-admin="system.lang_title">Sprachpakete</span>
+                </span>
+                <span id="lang-count" class="badge bg-secondary">–</span>
+            </div>
+            <div class="card-body">
+
+                <!-- Installierte Sprachen -->
+                <div id="lang-installed" class="mb-3">
+                    <div class="text-center py-2"><div class="spinner-border spinner-border-sm"></div></div>
+                </div>
+
+                <hr class="my-3">
+
+                <!-- Neue Sprache -->
+                <label class="form-label fw-semibold">
+                    <i class="bi bi-plus-circle"></i>
+                    <span data-i18n-admin="system.lang_new">Neue Sprache installieren</span>
+                </label>
+                <div class="d-flex gap-2 mb-3">
+                    <select class="form-select form-select-sm" id="lang-add-select">
+                        <option value="" data-i18n-admin-option="system.lang_select">– Sprache wählen –</option>
+                    </select>
+                    <button class="btn btn-success btn-sm text-nowrap" onclick="langAdd()"
+                            title="" data-i18n-admin-title="system.lang_install_title">
+                        <i class="bi bi-download"></i>
+                        <span data-i18n-admin="system.lang_install">Installieren</span>
+                    </button>
+                </div>
+
+                <!-- Freitext -->
+                <label class="form-label fw-semibold">
+                    <i class="bi bi-pencil-square"></i>
+                    <span data-i18n-admin="system.lang_custom">Sprache nicht im Dropdown?</span>
+                </label>
+                <div class="input-group input-group-sm mb-1">
+                    <input type="text" class="form-control" id="lang-custom-input"
+                        data-i18n-admin-placeholder="system.lang_custom_placeholder">
+                    <button class="btn btn-outline-primary" onclick="langResolveAndAdd()">
+                        <i class="bi bi-magic"></i> Deepseek
+                    </button>
+                </div>
+                <div id="lang-resolve-result" class="small mt-1"></div>
+
+                <!-- Spinner Installation -->
+                <div id="lang-installing" style="display:none" class="text-center py-2 mt-2">
+                    <div class="spinner-border spinner-border-sm text-success"></div>
+                    <span class="ms-2 small text-muted" data-i18n-admin="system.lang_installing">
+                        Übersetze mit Deepseek API — bitte warten...
+                    </span>
+                </div>
+
+                <!-- Log -->
+                <div id="lang-log" style="display:none" class="mt-2">
+                    <pre id="lang-log-text" style="font-size:0.75rem;max-height:150px;overflow-y:auto;background:var(--bg-secondary);padding:0.5rem;border-radius:6px;"></pre>
+                </div>
+
+                <hr class="my-3">
+
+                <!-- Validieren -->
+                <label class="form-label fw-semibold">
+                    <i class="bi bi-shield-check"></i>
+                    <span data-i18n-admin="system.validate_title">Sprachpakete validieren</span>
+                </label>
+                <div class="small text-muted mb-2" data-i18n-admin="system.validate_desc">
+                    Prüft Struktur, Keys und Sprachinhalt aller Pakete via Deepseek API.
+                    Dieser Vorgang ist zeitaufwändig und verursacht API-Kosten.
+                </div>
+                <div class="d-flex gap-2 mb-2">
+                    <button class="btn btn-outline-warning btn-sm" onclick="langValidate(false)"
+                            title="" data-i18n-admin-title="system.validate_check_title">
+                        <i class="bi bi-search"></i>
+                        <span data-i18n-admin="system.validate_check">Nur prüfen</span>
+                    </button>
+                    <button class="btn btn-warning btn-sm" onclick="langValidate(true)"
+                            title="" data-i18n-admin-title="system.validate_fix_title">
+                        <i class="bi bi-wrench"></i>
+                        <span data-i18n-admin="system.validate_fix">Prüfen &amp; reparieren</span>
+                    </button>
+                </div>
+                <div id="lang-validate-spinner" style="display:none" class="text-center py-2">
+                    <div class="spinner-border spinner-border-sm text-warning"></div>
+                    <span class="ms-2 small text-muted" data-i18n-admin="system.validate_running">
+                        Validiere mit Deepseek API — bitte warten...
+                    </span>
+                </div>
+                <div id="lang-validate-log" style="display:none" class="mt-2">
+                    <pre id="lang-validate-log-text" style="font-size:0.75rem;max-height:200px;overflow-y:auto;background:var(--bg-secondary);padding:0.5rem;border-radius:6px;"></pre>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Backup -->
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header">
+                <i class="bi bi-archive"></i>
+                <span data-i18n-admin="system.backup_title">Backup</span>
+            </div>
+            <div class="card-body">
+                <p class="text-muted small">
+                    <span data-i18n-admin="system.last_backup">Letztes Backup</span>:
+                    <span id="last-backup">–</span>
+                </p>
+                <div id="backup-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audit-Log -->
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header">
+                <i class="bi bi-journal-text"></i>
+                <span data-i18n-admin="system.audit_title">Audit-Log</span>
+            </div>
+            <div class="card-body p-0">
+                <div id="audit-log" class="admin-audit-log p-3">
+                    <span data-i18n-admin="system.loading">Lade...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block module_js %}
+<script src="{% static 'abpe_ui/js/mod/mod-admin_portal.js' %}"></script>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const lang = window.ABPE_CONFIG?.current_lang || 'de';
+    initAdminPortal(lang).then(() => {
+        loadSystemStatus();
+        loadBackups();
+        loadAuditLog();
+        langLoadAll();
+    });
+});
+
+function saveSystemSettings() {
+    const name = document.getElementById('portal-name').value;
+    const lang = document.getElementById('default-lang').value;
+    const maint = document.getElementById('maintenance-mode').checked;
+    const csrf = document.cookie.split(';').map(c=>c.trim())
+        .find(c=>c.startsWith('csrftoken='))?.split('=')[1] || '';
+    fetch('/api/system/settings/', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','X-CSRFToken': csrf},
+        body: JSON.stringify({portal_name: name, default_lang: lang, maintenance: maint})
+    }).then(r => r.json()).then(d => {
+        if (d.success) alert(window.getNestedKey?.(window.adminI18n, 'system.save') || '✓ Gespeichert');
+    }).catch(() => {});
+}
+
+async function langLoadAll() {
+    await langLoadInstalled();
+    await langLoadAvailable();
+}
+
+async function langLoadInstalled() {
+    try {
+        const r     = await fetch('/api/languages/list/');
+        const data  = await r.json();
+        const langs = data.languages || [];
+        document.getElementById('lang-count').textContent = langs.length;
+        const container = document.getElementById('lang-installed');
+        const noLangs = window.getNestedKey?.(window.adminI18n, 'system.lang_none') || 'Keine Sprachen gefunden.';
+        const activeLabel = window.getNestedKey?.(window.adminI18n, 'system.lang_active') || 'Aktiv';
+        const hiddenLabel = window.getNestedKey?.(window.adminI18n, 'system.lang_hidden') || 'Versteckt';
+        if (!langs.length) {
+            container.innerHTML = `<p class="text-muted small">${noLangs}</p>`;
+            return;
+        }
+        container.innerHTML = langs.map(l => `
+            <div class="d-flex align-items-center justify-content-between py-1 border-bottom">
+                <span>
+                    <span style="font-size:1.2rem">${l.flag}</span>
+                    <strong class="ms-1">${l.code.toUpperCase()}</strong>
+                    <span class="text-muted small ms-1">${l.native}</span>
+                    ${l.is_ref ? `<span class="badge bg-primary ms-1" style="font-size:0.65rem">${window.getNestedKey?.(window.adminI18n,'system.lang_ref')||'Referenz'}</span>` : ''}
+                </span>
+                <span class="d-flex align-items-center gap-1">
+                    <span class="badge ${l.enabled ? 'bg-success' : 'bg-secondary'}" style="font-size:0.65rem">
+                        ${l.enabled ? activeLabel : hiddenLabel}
+                    </span>
+                    ${!l.is_ref ? `
+                    <button class="btn btn-outline-secondary btn-sm py-0 px-1" style="font-size:0.7rem"
+                        onclick="langToggle('${l.code}', ${l.enabled})">
+                        ${l.enabled ? '<i class="bi bi-eye-slash"></i>' : '<i class="bi bi-eye"></i>'}
+                    </button>` : ''}
+                </span>
+            </div>
+        `).join('');
+    } catch(e) {
+        const errMsg = window.getNestedKey?.(window.adminI18n, 'system.lang_load_error') || 'Fehler beim Laden.';
+        document.getElementById('lang-installed').innerHTML = `<p class="text-danger small">${errMsg}</p>`;
+    }
+}
+
+async function langLoadAvailable() {
+    try {
+        const r    = await fetch('/api/languages/available/');
+        const data = await r.json();
+        const sel  = document.getElementById('lang-add-select');
+        const placeholder = window.getNestedKey?.(window.adminI18n, 'system.lang_select') || '– Sprache wählen –';
+        sel.innerHTML = `<option value="">${placeholder}</option>`;
+        (data.languages || []).forEach(l => {
+            const opt = document.createElement('option');
+            opt.value = l.code;
+            opt.textContent = `${l.flag} ${l.name} (${l.native})`;
+            sel.appendChild(opt);
+        });
+    } catch(e) {}
+}
+
+async function langAdd() {
+    const code = document.getElementById('lang-add-select').value;
+    const selectMsg = window.getNestedKey?.(window.adminI18n, 'system.lang_select_hint') || 'Bitte eine Sprache wählen.';
+    const confirmMsg = window.getNestedKey?.(window.adminI18n, 'system.lang_confirm') || `Sprache "${code}" installieren? Die Übersetzung kann 2–5 Minuten dauern.`;
+    if (!code) { alert(selectMsg); return; }
+    if (!confirm(confirmMsg.replace('{code}', code))) return;
+    document.getElementById('lang-installing').style.display = 'block';
+    document.getElementById('lang-log').style.display        = 'none';
+    try {
+        const csrf = document.cookie.split(';').map(c=>c.trim())
+            .find(c=>c.startsWith('csrftoken='))?.split('=')[1] || '';
+        const r    = await fetch('/api/languages/add/', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json','X-CSRFToken': csrf},
+            body: JSON.stringify({code})
+        });
+        const data = await r.json();
+        document.getElementById('lang-installing').style.display = 'none';
+        document.getElementById('lang-log').style.display        = 'block';
+        document.getElementById('lang-log-text').textContent     = data.log || '';
+        if (data.success) {
+            langLoadAll();
+        } else {
+            const errPrefix = window.getNestedKey?.(window.adminI18n, 'system.lang_error') || '✗ Fehler:';
+            document.getElementById('lang-log-text').textContent =
+                `${errPrefix} ${data.error || 'Unbekannt'}\n\n${data.log || ''}`;
+        }
+    } catch(e) {
+        document.getElementById('lang-installing').style.display = 'none';
+        const netErr = window.getNestedKey?.(window.adminI18n, 'system.network_error') || 'Netzwerkfehler:';
+        alert(`${netErr} ${e.message}`);
+    }
+}
+
+async function langResolveAndAdd() {
+    const desc = document.getElementById('lang-custom-input').value.trim();
+    const inputHint = window.getNestedKey?.(window.adminI18n, 'system.lang_custom_hint') || 'Bitte eine Beschreibung eingeben.';
+    if (!desc) { alert(inputHint); return; }
+    const resultDiv = document.getElementById('lang-resolve-result');
+    const resolvingMsg = window.getNestedKey?.(window.adminI18n, 'system.lang_resolving') || 'Deepseek ermittelt Sprachdaten...';
+    resultDiv.innerHTML = `<i class="bi bi-hourglass-split"></i> ${resolvingMsg}`;
+    const csrf = document.cookie.split(';').map(c=>c.trim())
+        .find(c=>c.startsWith('csrftoken='))?.split('=')[1] || '';
+    try {
+        const r    = await fetch('/api/languages/resolve/', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json','X-CSRFToken': csrf},
+            body: JSON.stringify({description: desc})
+        });
+        const data = await r.json();
+        if (!data.success) {
+            resultDiv.innerHTML = `<span class="text-danger">✗ ${data.error || 'Fehler'}</span>`;
+            return;
+        }
+        const installLabel = window.getNestedKey?.(window.adminI18n, 'system.lang_install') || 'Installieren';
+        resultDiv.innerHTML = `<span class="text-success">
+            ✓ ${data.flag} <strong>${data.code.toUpperCase()}</strong>
+            — ${data.name} (${data.native})
+            &nbsp;
+            <button class="btn btn-success btn-sm py-0 px-2" onclick="langAddResolved('${data.code}')">
+                <i class="bi bi-download"></i> ${installLabel}
+            </button>
+        </span>`;
+        await langLoadAvailable();
+    } catch(e) {
+        const netErr = window.getNestedKey?.(window.adminI18n, 'system.network_error') || 'Netzwerkfehler:';
+        resultDiv.innerHTML = `<span class="text-danger">✗ ${netErr} ${e.message}</span>`;
+    }
+}
+
+async function langAddResolved(code) {
+    document.getElementById('lang-add-select').value = code;
+    await langAdd();
+}
+
+async function langValidate(fix) {
+    const checkMsg = window.getNestedKey?.(window.adminI18n, 'system.validate_confirm_check')
+        || 'Sprachpakete nur prüfen?\nDieser Vorgang ist zeitaufwändig und verursacht API-Kosten.';
+    const fixMsg = window.getNestedKey?.(window.adminI18n, 'system.validate_confirm_fix')
+        || 'Sprachpakete prüfen UND reparieren?\nDieser Vorgang ist zeitaufwändig und verursacht API-Kosten.';
+    if (!confirm(fix ? fixMsg : checkMsg)) return;
+    document.getElementById('lang-validate-spinner').style.display = 'block';
+    document.getElementById('lang-validate-log').style.display     = 'none';
+    document.getElementById('lang-validate-log-text').textContent  = '';
+    try {
+        const csrf = document.cookie.split(';').map(c=>c.trim())
+            .find(c=>c.startsWith('csrftoken='))?.split('=')[1] || '';
+        const r = await fetch('/api/languages/validate/', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json','X-CSRFToken': csrf},
+            body: JSON.stringify({fix})
+        });
+        const data = await r.json();
+        document.getElementById('lang-validate-spinner').style.display = 'none';
+        document.getElementById('lang-validate-log').style.display     = 'block';
+        document.getElementById('lang-validate-log-text').textContent  = data.log || '';
+    } catch(e) {
+        document.getElementById('lang-validate-spinner').style.display = 'none';
+        const netErr = window.getNestedKey?.(window.adminI18n, 'system.network_error') || 'Netzwerkfehler:';
+        alert(`${netErr} ${e.message}`);
+    }
+}
+
+async function langToggle(code, currentlyEnabled) {
+    const endpoint  = currentlyEnabled ? '/api/languages/hide/' : '/api/languages/show/';
+    const hideLabel = window.getNestedKey?.(window.adminI18n, 'system.lang_hide') || 'ausblenden';
+    const showLabel = window.getNestedKey?.(window.adminI18n, 'system.lang_show') || 'einblenden';
+    const action    = currentlyEnabled ? hideLabel : showLabel;
+    const confirmMsg = window.getNestedKey?.(window.adminI18n, 'system.lang_toggle_confirm')
+        || `Sprache "${code}" ${action}?`;
+    if (!confirm(confirmMsg.replace('{code}', code).replace('{action}', action))) return;
+    try {
+        const csrf = document.cookie.split(';').map(c=>c.trim())
+            .find(c=>c.startsWith('csrftoken='))?.split('=')[1] || '';
+        const r    = await fetch(endpoint, {
+            method: 'POST',
+            headers: {'Content-Type':'application/json','X-CSRFToken': csrf},
+            body: JSON.stringify({code})
+        });
+        const data = await r.json();
+        if (data.success) langLoadInstalled();
+        else alert('Fehler: ' + data.error);
+    } catch(e) {
+        const netErr = window.getNestedKey?.(window.adminI18n, 'system.network_error') || 'Netzwerkfehler:';
+        alert(`${netErr} ${e.message}`);
+    }
+}
+</script>
+{% endblock %}

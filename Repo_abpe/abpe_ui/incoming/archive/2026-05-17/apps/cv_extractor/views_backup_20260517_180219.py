@@ -1,0 +1,1227 @@
+"""
+cv_extractor/views.py
+"""
+
+import json
+import os
+import traceback
+import logging
+
+from django.conf import settings
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, render
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
+
+from drf_spectacular.utils import extend_schema
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+
+from .models import (
+    Consultant, ConsultantSkill, Education, Experience,
+    ExperienceActivity, ExperienceTechnology, ExtractionJob,
+    ExtractedCV, ExtractionLog, FocusArea, Industry,
+    Skill, SkillCategory, UploadedPDF,
+)
+from .pipeline import CvExtractionPipeline
+from .services.pdf_extractor import pdf_extractor
+from .tasks import process_pdf_task
+
+logger = logging.getLogger(__name__)
+
+
+# ============================================================
+# SEITEN
+# ============================================================
+
+def index(request):
+    return render(request, 'cv_extractor/index.html')
+
+
+def upload_page(request):
+    return render(request, 'cv_extractor/upload.html')
+
+
+# ============================================================
+# LEGACY API (extract_from_text / extract_from_file / jobs)
+# Werden intern noch genutzt – bleiben erhalten
+# ============================================================
+
+@csrf_exempt
+@api_view(["POST"])
+def extract_from_text(request):
+    try:
+        text = request.data.get('text', '')
+        if not text:
+            return Response({'error': 'text required'}, status=400)
+        pipeline = CvExtractionPipeline()
+        result = pipeline.process_text(text)
+        return Response({'success': True, 'data': result})
+    except Exception as e:
+        return Response({'error': str(e)}, status=500)
+
+
+@csrf_exempt
+@api_view(["POST"])
+def extract_from_file(request):
+    try:
+        uploaded_file = request.FILES.get('file')
+        if not uploaded_file:
+            return Response({'error': 'file required'}, status=400)
+        file_name = uploaded_file.name
+        file_path = default_storage.save(
+            f'cv_extractor/{file_name}', ContentFile(uploaded_file.read())
+        )
+        full_path = os.path.join(settings.MEDIA_ROOT, file_path)
+        pipeline = CvExtractionPipeline()
+        extraction_result = pdf_extractor.extract(full_path)
+        if extraction_result.error:
+            return Response({'error': extraction_result.error}, status=500)
+        result = pipeline.process(extraction_result.spans)
+        job = ExtractionJob.objects.create(
+            file_name=file_name, file_path=full_path, status='completed',
+            processing_time_ms=int(extraction_result.processing_time * 1000),
+            result_json=result
+        )
+        ExtractedCV.objects.create(
+            job=job,
+            consultant_name=result.get('extracted_data', {}).get('first_name', ''),
+            consultant_aid=result.get('metadata', {}).get('aid', ''),
+            json_data=result
+        )
+        return Response({'success': True, 'job_id': job.id, 'data': result})
+    except Exception as e:
+        return Response({'error': str(e)}, status=500)
+
+
+@api_view(["GET"])
+def get_job_status(request, job_id):
+    try:
+        job = ExtractionJob.objects.get(id=job_id)
+        return Response({'id': job.id, 'status': job.status, 'file_name': job.file_name})
+    except ExtractionJob.DoesNotExist:
+        return Response({'error': 'Job not found'}, status=404)
+
+
+@api_view(["GET"])
+def get_extracted_cv(request, job_id):
+    try:
+        job = ExtractionJob.objects.get(id=job_id)
+        if job.status != 'completed':
+            return Response({'error': 'Job not completed'}, status=400)
+        extracted = ExtractedCV.objects.get(job=job)
+        return Response(extracted.json_data)
+    except ExtractionJob.DoesNotExist:
+        return Response({'error': 'Job not found'}, status=404)
+
+
+@api_view(["GET"])
+def list_jobs(request):
+    jobs = ExtractionJob.objects.all().order_by('-created_at')[:50]
+    return Response({
+        'jobs': [{'id': j.id, 'file_name': j.file_name, 'status': j.status} for j in jobs]
+    })
+
+
+@api_view(["POST"])
+def reprocess_job(request, job_id):
+    try:
+        job = ExtractionJob.objects.get(id=job_id)
+        job.status = 'pending'
+        job.error_message = ''
+        job.save()
+        pipeline = CvExtractionPipeline()
+        extraction_result = pdf_extractor.extract(job.file_path)
+        if extraction_result.error:
+            job.status = 'failed'
+            job.error_message = extraction_result.error
+            job.save()
+            return Response({'error': extraction_result.error}, status=500)
+        result = pipeline.process(extraction_result.spans)
+        job.status = 'completed'
+        job.result_json = result
+        job.save()
+        return Response({'success': True, 'data': result})
+    except ExtractionJob.DoesNotExist:
+        return Response({'error': 'Job not found'}, status=404)
+
+
+@api_view(["GET"])
+def health(request):
+    return Response({'status': 'healthy', 'service': 'cv_extractor'})
+
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def list_word_templates(request):
+    """Gibt alle Word-Templates aus templates_config.json zurueck."""
+    import json as _json
+    try:
+        cfg_path = os.path.join(settings.BASE_DIR, 'apps', 'cv_extractor', 'templates_config.json')
+        with open(cfg_path, 'r', encoding='utf-8') as f:
+            cfg = _json.load(f)
+        templates = [
+            {'key': k, 'name': v.get('name', k)}
+            for k, v in cfg.get('templates', {}).items()
+            if v.get('format') == 'docx'
+        ]
+        return Response({'success': True, 'templates': templates})
+    except Exception as e:
+        return Response({'success': False, 'error': str(e)}, status=500)
+
+
+# ============================================================
+# UPLOAD API
+# Nur noch async – Task-Start ausschliesslich ueber Signal
+# ============================================================
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def check_duplicate_api(request):
+    """Prüft ob eine Person mit diesem Namen bereits existiert."""
+    try:
+        data = json.loads(request.body)
+        first_name = data.get('first_name', '').strip()
+        last_name  = data.get('last_name',  '').strip()
+
+        if not first_name or not last_name:
+            return JsonResponse(
+                {'success': False, 'error': 'Vor- und Nachname erforderlich'}, status=400
+            )
+
+        consultants = Consultant.objects.filter(
+            first_name__iexact=first_name,
+            last_name__iexact=last_name
+        )
+
+        persons = [
+            {
+                'directory':      c.consultant_dir or f"{last_name.lower()}_{first_name.lower()}",
+                'latest_version': c.version,
+                'versions': [{'version': c.version, 'filename': f"{c.aid}_{c.version}_master.json"}],
+                'aid':            c.aid,
+                'consultant_id':  c.id,
+            }
+            for c in consultants
+        ]
+
+        return JsonResponse({
+            'success':    True,
+            'count':      len(persons),
+            'persons':    persons,
+            'first_name': first_name,
+            'last_name':  last_name,
+        })
+
+    except Exception as e:
+        logger.error(f"check_duplicate_api: {e}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def upload_pdf_api_async(request):
+    """
+    PDF-Upload Endpunkt.
+
+    Ablauf:
+      1. PDF in DB speichern (UploadedPDF)
+      2. Signal start_pipeline_on_new_pdf greift automatisch
+         und startet process_pdf_task via Celery
+      3. Kein manueller Task-Start hier – verhindert Doppelverarbeitung
+    """
+    try:
+        pdf_file         = request.FILES.get('pdf_file')
+        first_name       = request.POST.get('first_name',       '').strip()
+        last_name        = request.POST.get('last_name',        '').strip()
+        target_directory = request.POST.get('target_directory', '').strip()
+        target_version   = request.POST.get('target_version',   '').strip()
+        action_type      = request.POST.get('action_type',      'new_version').strip()
+
+        if not pdf_file or not first_name or not last_name:
+            return JsonResponse(
+                {'success': False, 'error': 'PDF, Vor- und Nachname erforderlich'}, status=400
+            )
+        allowed_ext = ('.pdf', '.doc', '.docx')
+        if not pdf_file.name.lower().endswith(allowed_ext):
+            return JsonResponse(
+                {'success': False, 'error': 'Nur PDF, DOC oder DOCX Dateien erlaubt'}, status=400
+            )
+
+        logger.info(f"Upload: {first_name} {last_name} | action={action_type} | dir={target_directory}")
+
+        # UploadedPDF speichern → Signal startet den Task automatisch
+        uploaded_pdf = UploadedPDF.objects.create(
+            file=pdf_file,
+            filename=pdf_file.name,
+            first_name=first_name,
+            last_name=last_name,
+            target_directory=target_directory,
+            target_version=target_version,
+            action_type=action_type,
+            status='uploaded',
+        )
+
+        return JsonResponse({
+            'success':    True,
+            'upload_id':  uploaded_pdf.id,
+            'task_id':    uploaded_pdf.task_id or '',
+            'message':    'PDF wird verarbeitet',
+            'status_url': f'/cv-extractor/api/upload/{uploaded_pdf.id}/status/',
+        })
+
+    except Exception as e:
+        logger.error(f"upload_pdf_api_async: {e}\n{traceback.format_exc()}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["GET"])
+def get_upload_status(request, upload_id):
+    """Status eines laufenden oder abgeschlossenen Uploads abfragen."""
+    try:
+        uploaded = UploadedPDF.objects.get(id=upload_id)
+        return JsonResponse({
+            'success':        True,
+            'status':         uploaded.status,
+            'task_id':        uploaded.task_id,
+            'aid':            uploaded.aid,
+            'version':        uploaded.version,
+            'consultant_dir': uploaded.consultant_dir,
+        })
+    except UploadedPDF.DoesNotExist:
+        return JsonResponse({'success': False, 'error': 'Upload nicht gefunden'}, status=404)
+
+
+# ============================================================
+# CV EDITOR
+# ============================================================
+
+def editor_view(request, aid):
+    consultant = get_object_or_404(Consultant, aid=aid)
+    skill_categories  = SkillCategory.objects.filter(is_active=True).order_by('sort_order', 'name')
+    consultant_skills = ConsultantSkill.objects.filter(
+        consultant=consultant
+    ).select_related('skill')
+
+    # Gruppiert nach Kategorie - nur befüllte
+    consultant_skills_by_cat = {}
+    for cs in consultant_skills:
+        cat = cs.category_name or cs.skill.category_name or 'Sonstige'
+        consultant_skills_by_cat.setdefault(cat, []).append(cs.skill.name)
+
+    # PDF-Dateiname: source_filename oder Fallback auf AID.pdf
+    import os
+    pdf_filename = consultant.source_filename or f'{consultant.aid}.pdf'
+    # Nur Dateiname ohne Pfad
+    pdf_filename = os.path.basename(pdf_filename)
+
+    return render(request, 'cv_extractor/editor.html', {
+        'consultant':              consultant,
+        'skill_categories':        skill_categories,
+        'consultant_skills':       consultant_skills,
+        'consultant_skills_by_cat': consultant_skills_by_cat,
+        'pdf_filename':            pdf_filename,
+    })
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def editor_update_api(request, aid):
+    """Speichert einen Abschnitt des CV-Editors in die DB."""
+    try:
+        consultant   = get_object_or_404(Consultant, aid=aid)
+        data         = json.loads(request.body)
+        section      = data.get('section')
+        section_data = data.get('data', {})
+
+        if section == 'personal':
+            fields = [
+                'first_name', 'last_name', 'headline', 'email', 'phone',
+                'location', 'birth_year', 'nationality', 'edv_experience_since',
+                'availability', 'company', 'address', 'website', 'stand', 'show_name',
+            ]
+            INT_FIELDS = {'birth_year', 'edv_experience_since'}
+            BOOL_FIELDS = {'show_name'}
+            for field in fields:
+                if field in section_data and section_data[field] is not None:
+                    val = section_data[field]
+                    if field in INT_FIELDS:
+                        val = int(val) if str(val).strip() else None
+                    elif field in BOOL_FIELDS:
+                        val = bool(val)
+                    setattr(consultant, field, val)
+            consultant.save()
+
+        elif section == 'branchen':
+            consultant.industries.all().delete()
+            for name in section_data:
+                if name and name.strip():
+                    ind, _ = Industry.objects.get_or_create(name=name.strip())
+                    consultant.industries.create(industry=ind)
+
+        elif section == 'fachbereiche':
+            consultant.focus_areas.all().delete()
+            for name in section_data:
+                if name and name.strip():
+                    fa, _ = FocusArea.objects.get_or_create(name=name.strip())
+                    consultant.focus_areas.create(focus_area=fa)
+
+        elif section == 'schulungen':
+            consultant.education.filter(education_type='course').delete()
+            for name in section_data:
+                if name and name.strip():
+                    consultant.education.create(degree=name.strip(), education_type='course')
+
+        elif section == 'zertifikate':
+            from .models import Certification
+            consultant.certifications.all().delete()
+            for name in section_data:
+                if name and name.strip():
+                    cert, _ = Certification.objects.get_or_create(name=name.strip())
+                    consultant.certifications.create(certification=cert)
+
+        elif section == 'produkte':
+            consultant.focus_experience_items.all().delete()
+            for name in section_data:
+                if name and name.strip():
+                    consultant.focus_experience_items.create(
+                        name=name.strip(),
+                        category='',
+                        sort_order=0
+                    )
+
+        elif section == 'skills':
+            consultant.skills.all().delete()
+            for cat_name, skills in section_data.items():
+                for skill_name in skills:
+                    if skill_name and skill_name.strip():
+                        skill, _ = Skill.objects.get_or_create(
+                            name=skill_name.strip(),
+                            defaults={'category_name': cat_name}
+                        )
+                        consultant.skills.create(skill=skill, weight=0.8, category_name=cat_name)
+
+        elif section == 'projects':
+            consultant.experience.all().delete()
+            for project in section_data:
+                exp = consultant.experience.create(
+                    period=project.get('period', ''),
+                    title=project.get('title', ''),
+                    company=project.get('company', ''),
+                    industry=project.get('industry', ''),
+                    role=project.get('role', ''),
+                    location=project.get('location', ''),
+                )
+                for activity in project.get('activities', []):
+                    if activity and activity.strip():
+                        exp.activities.create(activity_text=activity.strip())
+                for tech in project.get('technologies', []):
+                    if tech and tech.strip():
+                        skill, _ = Skill.objects.get_or_create(
+                            name=tech.strip(),
+                            defaults={'category_name': 'Technologien'}
+                        )
+                        exp.technologies.create(skill=skill)
+
+        # HTML automatisch neu generieren
+        try:
+            from .generator.html.html_generator import HTMLGenerator
+            gen = HTMLGenerator()
+            gen.generate('aid-profile', consultant)
+            gen.generate('aid-short',   consultant)
+            logger.info(f"HTML auto-regeneriert nach {section} Speicherung")
+        except Exception as e:
+            logger.warning(f"HTML-Regenerierung fehlgeschlagen: {e}")
+
+        return JsonResponse({'status': 'success', 'message': f'{section} gespeichert'})
+
+    except Consultant.DoesNotExist:
+        return JsonResponse({'status': 'error', 'message': 'Consultant nicht gefunden'}, status=404)
+    except Exception as e:
+        logger.error(f"editor_update_api ({aid}): {e}\n{traceback.format_exc()}")
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+
+
+# ============================================================
+# WORD GENERATOR
+# ============================================================
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def generate_word_api(request, aid):
+    """
+    Generiert ein Word-Dokument (.docx) fuer einen Consultant.
+    POST /cv-extractor/api/cv-editor/<aid>/generate-word/
+    """
+    try:
+        consultant = get_object_or_404(Consultant, aid=aid)
+
+        import json as _json
+        try:
+            body = _json.loads(request.body)
+            template_key = body.get('template_key', 'aid-word')
+        except Exception:
+            template_key = 'aid-word'
+        # Bei EN-Templates den EN-Consultant laden
+        if template_key.endswith('-en'):
+            en_aid = consultant.aid + '-en'
+            en_consultant = Consultant.objects.filter(aid=en_aid).first()
+            if en_consultant:
+                consultant = en_consultant
+            # template_key normalisieren: aid-word-en → aid-word, aid-word-short-en → aid-word-short
+            template_key = template_key[:-3]  # '-en' abschneiden
+
+        from apps.cv_extractor.generator.word.word_generator import WordGenerator
+        result = WordGenerator(template_key=template_key).generate(consultant)
+
+        logger.info(f"Word generiert: {result['filepath']}")
+
+        return JsonResponse({
+            'success':  True,
+            'url':      result['url'],
+            'filename': result['filename'],
+            'filepath': result['filepath'],
+        })
+
+    except Consultant.DoesNotExist:
+        return JsonResponse({'success': False, 'error': 'Consultant nicht gefunden'}, status=404)
+    except Exception as e:
+        logger.error(f"generate_word_api ({aid}): {e}\n{traceback.format_exc()}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+# ============================================================
+# UPLOAD LISTE (fuer Polling in upload.html)
+# ============================================================
+
+@csrf_exempt
+@require_http_methods(["GET"])
+def list_uploads_api(request):
+    """
+    Gibt alle UploadedPDF-Eintraege zurueck – neueste zuerst.
+    Wird von upload.html alle 3 Sekunden gepollt.
+
+    Query-Parameter:
+      ?limit=50   (default 50)
+      ?status=processing   (optional Filter)
+    """
+    try:
+        limit  = int(request.GET.get('limit', 50))
+        status = request.GET.get('status', '')
+
+        qs = UploadedPDF.objects.all().order_by('-created_at')
+        if status:
+            qs = qs.filter(status=status)
+        qs = qs[:limit]
+
+        items = []
+        for u in qs:
+            items.append({
+                'id':             u.id,
+                'filename':       u.filename,
+                'first_name':     u.first_name,
+                'last_name':      u.last_name,
+                'status':         u.status,
+                'aid':            u.aid,
+                'version':        u.version,
+                'consultant_dir': u.consultant_dir,
+                'consultant_id':  u.consultant_id,
+                'task_id':        u.task_id,
+                'error_message':  u.error_message,
+                'created_at':     u.created_at.isoformat(),
+                'updated_at':     u.updated_at.isoformat(),
+                # Editor-URL direkt mitliefern wenn AID bekannt
+                'editor_url': f'/cv-extractor/editor/{u.aid}/' if u.aid else '',
+                'action_type': u.action_type or '',
+                'pipeline_step': '',  # wird unten aus Consultant geholt
+            })
+
+        # pipeline_step + status aus Consultant nachladen
+        aids = [i['aid'] for i in items if i['aid']]
+        if aids:
+            from .models import Consultant
+            consultant_map = {
+                c.aid: c
+                for c in Consultant.objects.filter(aid__in=aids).only('aid', 'pipeline_step', 'status')
+            }
+            for item in items:
+                if item['aid'] and item['aid'] in consultant_map:
+                    c = consultant_map[item['aid']]
+                    item['pipeline_step'] = c.pipeline_step
+                    # Consultant status überschreibt UploadedPDF status
+                    if c.status:
+                        item['status'] = c.status
+
+        return JsonResponse({'success': True, 'uploads': items, 'total': len(items)})
+
+    except Exception as e:
+        logger.error(f"list_uploads_api: {e}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+# ============================================================
+# DELETE & VALIDIERUNG
+# ============================================================
+
+@csrf_exempt
+@api_view(["DELETE", "POST"])
+@permission_classes([AllowAny])
+def delete_consultant_api(request, aid):
+    """
+    Löscht einen Consultant vollständig (DB + Dateien).
+    Erwartet: { "confirm_name": "Vorname Nachname" }
+    """
+    import shutil
+    from django.conf import settings
+
+    # Consultant oder UploadedPDF suchen
+    consultant = Consultant.objects.filter(aid=aid).first()
+    uploaded   = UploadedPDF.objects.filter(aid=aid).first()
+
+    if not consultant and not uploaded:
+        return Response({'error': 'Nicht gefunden'}, status=404)
+
+    # Namen ermitteln
+    if consultant:
+        first_name = consultant.first_name
+        last_name  = consultant.last_name
+    else:
+        first_name = uploaded.first_name
+        last_name  = uploaded.last_name
+
+    # Bestätigung prüfen
+    confirm_name = request.data.get('confirm_name', '').strip()
+    expected = f"{first_name} {last_name}".strip()
+    if confirm_name.lower() != expected.lower():
+        return Response({
+            'error': f'Bestätigung falsch. Bitte "{expected}" eingeben.'
+        }, status=400)
+
+    consultant_dir = consultant.consultant_dir if consultant else ''
+    data_root = os.path.join(settings.BASE_DIR, 'data')
+
+    # Prüfen ob andere Consultants das gleiche Verzeichnis nutzen
+    from .models import ConsultantDirectory, ConsultantVersion
+    other_consultants = Consultant.objects.filter(
+        consultant_dir=consultant_dir
+    ).exclude(aid=aid).count() if consultant_dir else 0
+
+    if other_consultants == 0 and consultant_dir:
+        # Verzeichnis nur löschen wenn kein anderer Consultant es nutzt
+        for subdir in ['html_out', 'extracted', 'doc_out']:
+            dir_path = os.path.join(data_root, subdir, consultant_dir)
+            if os.path.exists(dir_path):
+                shutil.rmtree(dir_path)
+        ConsultantDirectory.objects.filter(directory_name=consultant_dir).delete()
+        ConsultantVersion.objects.filter(consultant_dir=consultant_dir).delete()
+    else:
+        # Nur die spezifischen Dateien dieser AID löschen
+        for subdir in ['html_out']:
+            for suffix in [f'{aid}.html', f'{aid}-short.html']:
+                f_path = os.path.join(data_root, subdir, consultant_dir, suffix)
+                if os.path.exists(f_path):
+                    os.remove(f_path)
+        # Nur diese Version aus ConsultantVersion löschen
+        ConsultantVersion.objects.filter(aid=aid).delete()
+
+    # PDF immer löschen
+    pdf_path = os.path.join(data_root, 'pdf', f'{aid}.pdf')
+    if os.path.exists(pdf_path):
+        os.remove(pdf_path)
+
+    # DB löschen
+    UploadedPDF.objects.filter(aid=aid).delete()
+    if consultant:
+        consultant.delete()
+
+    logger.info(f"Consultant gelöscht: {aid} ({expected})")
+    return Response({'success': True, 'deleted': aid, 'name': expected})
+
+
+@csrf_exempt
+@api_view(["POST"])
+def validate_consultant_api(request, aid):
+    """
+    Setzt validated=True/False für einen Consultant.
+    Erwartet: { "validated": true }
+    """
+    try:
+        consultant = Consultant.objects.get(aid=aid)
+    except Consultant.DoesNotExist:
+        return Response({'error': 'Nicht gefunden'}, status=404)
+
+    validated = request.data.get('validated', True)
+    consultant.pipeline_step = 'validated' if validated else 'enriched'
+    consultant.save(update_fields=['pipeline_step', 'updated_at'])
+
+    logger.info(f"Consultant {'validiert' if validated else 'devalidiert'}: {aid}")
+    return Response({
+        'success': True,
+        'aid': aid,
+        'validated': validated,
+        'pipeline_step': consultant.pipeline_step
+    })
+
+# ============================================================
+# URL IMPORT
+# ============================================================
+@csrf_exempt
+@require_http_methods(["POST"])
+def import_url_api(request):
+    """
+    URL-Import Endpoint.
+    POST JSON: {"url": "https://www.freelancermap.de/profil/...", "cookies": {...}}
+    """
+    try:
+        body = json.loads(request.body)
+        url     = body.get('url', '').strip()
+        cookies = body.get('cookies', {})
+
+        if not url:
+            return JsonResponse({'success': False, 'error': 'URL erforderlich'}, status=400)
+
+        force_dir  = body.get('force_dir',  '').strip()
+        first_name = body.get('first_name', '').strip()
+        last_name  = body.get('last_name',  '').strip()
+
+        from .services.url_importer import url_importer
+        result = url_importer.run(
+            url=url, cookies=cookies,
+            force_dir=force_dir   or None,
+            first_name=first_name or None,
+            last_name=last_name   or None,
+        )
+
+        # name_missing: kein Fehler, Frontend zeigt Popup
+        if result.get('name_missing'):
+            return JsonResponse(result)
+        return JsonResponse({'success': True, **result})
+
+    except Exception as e:
+        logger.error(f"import_url_api: {e}\n{traceback.format_exc()}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def import_url_pdf_api(request):
+    """
+    PDF von Browser direkt empfangen und in url-Verzeichnis speichern.
+    FormData: pdf_file, url, first_name, last_name, platform
+    """
+    try:
+        pdf_file   = request.FILES.get('pdf_file')
+        url        = request.POST.get('url', '').strip()
+        first_name = request.POST.get('first_name', '').strip()
+        last_name  = request.POST.get('last_name', '').strip()
+        platform   = request.POST.get('platform', 'fl').strip()
+        filename   = request.POST.get('filename', pdf_file.name if pdf_file else 'unknown.pdf')
+
+        if not pdf_file or not first_name or not last_name:
+            return JsonResponse(
+                {'success': False, 'error': 'PDF, Vor- und Nachname erforderlich'},
+                status=400
+            )
+
+        from pathlib import Path
+        dir_name = f"{last_name.lower()}_{first_name.lower()}"
+        dl_dir   = Path(f"data/url/{platform}/{dir_name}/download")
+        dl_dir.mkdir(parents=True, exist_ok=True)
+
+        # Dateiname bereinigen
+        import re
+        safe_name = re.sub(r'[^\w\-_\. ]', '_', filename)
+        path      = dl_dir / safe_name
+
+        with open(path, 'wb') as f:
+            for chunk in pdf_file.chunks():
+                f.write(chunk)
+
+        size = path.stat().st_size
+        logger.info(f"[URL-Import] PDF gespeichert: {path} ({size//1024} KB)")
+
+        return JsonResponse({
+            'success':  True,
+            'path':     str(path),
+            'filename': safe_name,
+            'size_kb':  size // 1024,
+        })
+
+    except Exception as e:
+        logger.error(f"import_url_pdf_api: {e}\n{traceback.format_exc()}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["POST", "GET"])
+def freelancermap_session_api(request):
+    """
+    GET:  Prüft ob Session-Cookies vorhanden und gültig sind
+    POST: Speichert Cookies für automatischen PDF-Download
+    """
+    import json
+    from pathlib import Path
+    from datetime import datetime
+
+    COOKIE_FILE = Path('data/url/fl/.session_cookies.json')
+    COOKIE_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+    if request.method == 'GET':
+        if not COOKIE_FILE.exists():
+            return JsonResponse({'success': True, 'has_session': False,
+                                 'message': 'Keine Session vorhanden'})
+        try:
+            data    = json.loads(COOKIE_FILE.read_text())
+            saved   = data.get('saved_at', '')
+            cookies = data.get('cookies', [])
+            names   = [c.get('name','') for c in cookies]
+            has_php = 'PHPSESSID' in names
+            has_rem = 'REMEMBERME' in names
+            return JsonResponse({
+                'success':     True,
+                'has_session': has_php or has_rem,
+                'has_remember': has_rem,
+                'cookie_count': len(cookies),
+                'saved_at':    saved,
+                'cookies':     names,
+            })
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)})
+
+    # POST: Cookies speichern
+    try:
+        body    = json.loads(request.body)
+        cookies = body.get('cookies', [])
+
+        if not cookies:
+            return JsonResponse({'success': False,
+                                 'error': 'Keine Cookies übergeben'})
+
+        # Validieren: PHPSESSID oder REMEMBERME vorhanden?
+        names   = [c.get('name','') for c in cookies]
+        has_php = 'PHPSESSID' in names
+        has_rem = 'REMEMBERME' in names
+
+        if not has_php and not has_rem:
+            return JsonResponse({
+                'success': False,
+                'error': 'PHPSESSID oder REMEMBERME Cookie fehlt. '
+                         'Bitte stelle sicher dass du auf freelancermap.de eingeloggt bist.'
+            })
+
+        # Speichern
+        data = {
+            'saved_at': datetime.now().isoformat(),
+            'source':   'cookie_editor_export',
+            'cookies':  cookies,
+        }
+        COOKIE_FILE.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+
+        # Sofort testen
+        import requests as _req
+        import warnings
+        warnings.filterwarnings('ignore')
+        session = _req.Session()
+        session.verify = False
+        for c in cookies:
+            session.cookies.set(
+                c.get('name',''), c.get('value',''),
+                domain=c.get('domain','www.freelancermap.de')
+            )
+        r = session.get('https://www.freelancermap.de/mein_account.html',
+                        headers={'User-Agent': 'Mozilla/5.0'}, timeout=10)
+        logged_in = 'Malaguarnera' in r.text or 'mein_account' in r.url
+
+        logger.info(f"[Session] {len(cookies)} Cookies gespeichert | "
+                    f"Login-Test: {logged_in}")
+
+        return JsonResponse({
+            'success':    True,
+            'saved':      len(cookies),
+            'has_phpsessid': has_php,
+            'has_remember':  has_rem,
+            'login_test': logged_in,
+            'message':    f"✅ Session gespeichert! Login-Test: "
+                          f"{'erfolgreich' if logged_in else 'fehlgeschlagen'}",
+        })
+    except Exception as e:
+        logger.error(f"freelancermap_session_api: {e}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+
+@csrf_exempt
+@require_http_methods(["POST", "GET"])
+def gulp_session_api(request):
+    """
+    GET:  Prüft ob GULP Session-Cookies vorhanden sind
+    POST: Speichert GULP Cookies für automatischen Import
+    """
+    import json
+    from pathlib import Path
+    from datetime import datetime
+
+    COOKIE_FILE = Path('data/url/gu/.session_cookies.json')
+    COOKIE_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+    if request.method == 'GET':
+        if not COOKIE_FILE.exists():
+            return JsonResponse({'success': True, 'has_session': False,
+                                 'message': 'Keine GULP Session vorhanden'})
+        try:
+            data    = json.loads(COOKIE_FILE.read_text())
+            saved   = data.get('saved_at', '')
+            cookies = data.get('cookies', [])
+            names   = [c.get('name','') for c in cookies]
+            has_session = 'JSESSION_ID_DIREKT' in names or 'remember-me-dir' in names
+            return JsonResponse({
+                'success':      True,
+                'has_session':  has_session,
+                'has_remember': 'remember-me-dir' in names,
+                'cookie_count': len(cookies),
+                'saved_at':     saved,
+                'cookies':      names,
+            })
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)})
+
+    # POST: Cookies speichern
+    try:
+        body    = json.loads(request.body)
+        cookies = body.get('gulp_cookies', body.get('cookies', []))
+
+        if not cookies:
+            return JsonResponse({'success': False, 'error': 'Keine GULP Cookies übergeben'})
+
+        names       = [c.get('name','') for c in cookies]
+        has_session = 'JSESSION_ID_DIREKT' in names or 'remember-me-dir' in names
+
+        if not has_session:
+            return JsonResponse({
+                'success': False,
+                'error': 'JSESSION_ID_DIREKT oder remember-me-dir fehlt. '
+                         'Bitte auf gulp.de einloggen.'
+            })
+
+        data = {
+            'saved_at': datetime.now().isoformat(),
+            'source':   'abpe_extension',
+            'cookies':  cookies,
+        }
+        COOKIE_FILE.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+
+        # Login-Test
+        import requests as _req, warnings
+        warnings.filterwarnings('ignore')
+        session = _req.Session()
+        session.verify = False
+        for c in cookies:
+            session.cookies.set(
+                c.get('name',''), c.get('value',''),
+                domain=c.get('domain', 'www.gulp.de')
+            )
+        try:
+            r = session.get(
+                'https://www.gulp.de/talentfinder/app/api/secure/expert-profiles/540e2fc4e4b04404f785de0c',
+                headers={
+                    'accept': 'application/json',
+                    'direkt-language': 'de',
+                    'x-requested-with': 'XMLHttpRequest',
+                    'user-agent': 'Mozilla/5.0',
+                }, timeout=10
+            )
+            logged_in = r.status_code == 200
+        except:
+            logged_in = False
+
+        logger.info(f"[GULP Session] {len(cookies)} Cookies gespeichert | Login-Test: {logged_in}")
+
+        return JsonResponse({
+            'success':    True,
+            'saved':      len(cookies),
+            'has_session': has_session,
+            'login_test': logged_in,
+            'message':    f"✅ GULP Session gespeichert! Login-Test: {'erfolgreich' if logged_in else 'fehlgeschlagen'}",
+        })
+    except Exception as e:
+        logger.error(f"gulp_session_api: {e}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def import_url_to_db_api(request):
+    """
+    Startet DB-Import für einen bereits geholten URL-Import.
+    POST JSON: {"dir_name": "troschke_thomas", "platform": "gu"}
+    Legt UploadedPDF an → erscheint in Tabelle → Pipeline → HTML → Editor
+    """
+    try:
+        body     = json.loads(request.body)
+        dir_name = body.get('dir_name', '').strip()
+        platform = body.get('platform', 'gu').strip()
+
+        if not dir_name:
+            return JsonResponse({'success': False, 'error': 'dir_name erforderlich'}, status=400)
+
+        first_name = body.get('first_name', '').strip()
+        last_name  = body.get('last_name',  '').strip()
+
+        if platform == 'gu':
+            from .services.url_gu_db_importer import GULPDbImporter
+            result = GULPDbImporter().import_one(
+                dir_name,
+                dry_run=False,
+                first_name_override=first_name or None,
+                last_name_override=last_name  or None,
+            )
+        elif platform == 'fl':
+            from .services.url_fl_db_importer import FLDbImporter
+            result = FLDbImporter().import_one(
+                dir_name,
+                dry_run=False,
+                first_name_override=first_name or None,
+                last_name_override=last_name  or None,
+            )
+        else:
+            return JsonResponse({'success': False, 'error': f'Platform {platform} noch nicht unterstützt'}, status=400)
+
+        return JsonResponse({'success': True, **result})
+
+    except Exception as e:
+        logger.error(f"import_url_to_db_api: {e}\n{traceback.format_exc()}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def rename_url_dir_api(request):
+    """
+    Benennt ein URL-Import-Verzeichnis um.
+    POST JSON: {"platform": "gu", "old_dir": "...", "new_dir": "...",
+                "first_name": "...", "last_name": "..."}
+    """
+    import shutil
+    from pathlib import Path
+    try:
+        body     = json.loads(request.body)
+        platform = body.get('platform', 'gu').strip()
+        old_dir  = body.get('old_dir', '').strip()
+        new_dir  = body.get('new_dir', '').strip()
+        first    = body.get('first_name', '').strip()
+        last     = body.get('last_name',  '').strip()
+
+        if not old_dir or not new_dir:
+            return JsonResponse({'success': False, 'error': 'old_dir + new_dir erforderlich'}, status=400)
+
+        base     = Path(f'data/url/{platform}')
+        old_path = base / old_dir
+        new_path = base / new_dir
+
+        if not old_path.exists():
+            return JsonResponse({'success': False, 'error': f'{old_path} nicht gefunden'}, status=404)
+        if new_path.exists():
+            return JsonResponse({'success': True, 'dir': new_dir, 'message': 'Verzeichnis existiert bereits'})
+
+        old_path.rename(new_path)
+
+        pre_json_path = new_path / 'profil_pre_json.json'
+        if pre_json_path.exists() and first and last:
+            import json as _json
+            data = _json.loads(pre_json_path.read_text(encoding='utf-8'))
+            data['metadata']['first_name'] = first
+            data['metadata']['last_name']  = last
+            data['metadata']['consultant_dir'] = new_dir
+            if 'extracted_data' in data:
+                p = data['extracted_data'].get('personal', {})
+                p['first_name'] = first
+                p['last_name']  = last
+                data['extracted_data']['personal'] = p
+            pre_json_path.write_text(
+                _json.dumps(data, indent=2, ensure_ascii=False), encoding='utf-8'
+            )
+
+        logger.info(f"Verzeichnis umbenannt: {old_dir} → {new_dir}")
+        return JsonResponse({'success': True, 'dir': new_dir})
+
+    except Exception as e:
+        logger.error(f"rename_url_dir_api: {e}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+
+
+@csrf_exempt
+@require_http_methods(["GET"])
+def get_url_platforms(request):
+    """Liefert url_platforms.json für das Frontend."""
+    import json
+    from pathlib import Path
+    path = Path('apps/cv_extractor/fixtures/url_platforms.json')
+    try:
+        data = json.loads(path.read_text(encoding='utf-8'))
+        return JsonResponse({'success': True, 'platforms': data.get('platforms', [])})
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+# ============================================================
+# SETTINGS API
+# ============================================================
+
+@csrf_exempt
+@require_http_methods(["GET", "POST"])
+def settings_api(request):
+    import json as _json
+    from pathlib import Path
+    settings_path = Path('settings.json')
+    if request.method == 'GET':
+        try:
+            data = _json.loads(settings_path.read_text(encoding='utf-8'))
+            return JsonResponse({'success': True, 'settings': data})
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)}, status=500)
+    else:
+        try:
+            data = _json.loads(request.body)
+            settings_path.write_text(
+                _json.dumps(data, indent=4, ensure_ascii=False), encoding='utf-8'
+            )
+            logger.info("[Settings] settings.json gespeichert")
+            return JsonResponse({'success': True, 'message': 'Settings gespeichert'})
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+# ============================================================
+# TEMPLATES CONFIG API
+# ============================================================
+
+@csrf_exempt
+@require_http_methods(["GET", "POST"])
+def templates_config_api(request):
+    import json as _json
+    from pathlib import Path
+    cfg_path = Path('apps/cv_extractor/templates_config.json')
+    if request.method == 'GET':
+        try:
+            data = _json.loads(cfg_path.read_text(encoding='utf-8'))
+            return JsonResponse({'success': True, 'templates': data.get('templates', {})})
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)}, status=500)
+    else:
+        try:
+            data = _json.loads(request.body)
+            # Nur templates-Key updaten
+            existing = _json.loads(cfg_path.read_text(encoding='utf-8'))
+            existing['templates'] = data
+            cfg_path.write_text(
+                _json.dumps(existing, indent=2, ensure_ascii=False), encoding='utf-8'
+            )
+            logger.info("[TemplatesConfig] templates_config.json gespeichert")
+            return JsonResponse({'success': True, 'message': 'Templates gespeichert'})
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+# ============================================================
+# SKILL MOVE (Kategorie wechseln)
+# ============================================================
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def move_skill_api(request, aid):
+    """
+    Verschiebt einen Skill in eine andere Kategorie.
+    scope='consultant' → nur für diesen Berater (consultantskill.category_name)
+    scope='global'     → für alle Berater (skill.category_name)
+    POST JSON: {"skill_name": "ARM", "to_category": "Hardware", "scope": "consultant"}
+    """
+    try:
+        consultant = get_object_or_404(Consultant, aid=aid)
+        data        = json.loads(request.body)
+        skill_name  = data.get('skill_name', '').strip()
+        to_category = data.get('to_category', '').strip()
+        scope       = data.get('scope', 'consultant')  # 'consultant' oder 'global'
+
+        if not skill_name or not to_category:
+            return JsonResponse({'success': False, 'error': 'skill_name + to_category erforderlich'}, status=400)
+
+        skill = Skill.objects.filter(name=skill_name).first()
+        if not skill:
+            return JsonResponse({'success': False, 'error': f'Skill "{skill_name}" nicht gefunden'}, status=404)
+
+        from_category = ''
+
+        if scope == 'consultant' or scope == 'both':
+            cs = ConsultantSkill.objects.filter(consultant=consultant, skill=skill).first()
+            if cs:
+                from_category = cs.category_name
+                cs.category_name = to_category
+                cs.save(update_fields=['category_name'])
+
+        if scope == 'global' or scope == 'both':
+            from_category = skill.category_name
+            skill.category_name = to_category
+            skill.save(update_fields=['category_name'])
+            # Auch alle anderen ConsultantSkills updaten die noch den alten Wert haben
+            ConsultantSkill.objects.filter(skill=skill, category_name=from_category).update(category_name=to_category)
+
+        # HTML neu generieren
+        try:
+            from .generator.html.html_generator import HTMLGenerator
+            gen = HTMLGenerator()
+            gen.generate('aid-profile', consultant)
+            gen.generate('aid-short', consultant)
+        except Exception as e:
+            logger.warning(f"HTML-Regenerierung nach move-skill fehlgeschlagen: {e}")
+
+        logger.info(f"[move-skill] {aid}: {skill_name} | {from_category} → {to_category} | scope={scope}")
+        return JsonResponse({
+            'success': True,
+            'skill': skill_name,
+            'from': from_category,
+            'to': to_category,
+            'scope': scope,
+        })
+
+    except Exception as e:
+        logger.error(f"move_skill_api ({aid}): {e}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+# ============================================================
+# ARCHIVIEREN
+# ============================================================
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def archive_consultant_api(request, aid):
+    """Berater archivieren — status='archived', bleibt in DB erhalten"""
+    try:
+        consultant = get_object_or_404(Consultant, aid=aid)
+        consultant.status = 'archived'
+        consultant.save(update_fields=['status'])
+        logger.info(f"Consultant archiviert: {aid}")
+        return JsonResponse({'success': True, 'aid': aid, 'status': 'archived'})
+    except Exception as e:
+        logger.error(f"archive_consultant_api ({aid}): {e}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def reactivate_consultant_api(request, aid):
+    """Berater reaktivieren — status zurück auf completed"""
+    try:
+        consultant = get_object_or_404(Consultant, aid=aid)
+        consultant.status = 'completed'
+        consultant.save(update_fields=['status'])
+        logger.info(f"Consultant reaktiviert: {aid}")
+        return JsonResponse({'success': True, 'aid': aid, 'status': 'completed'})
+    except Exception as e:
+        logger.error(f"reactivate_consultant_api ({aid}): {e}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)

@@ -27,9 +27,9 @@ def _load_es_i18n(lang):
     if not p.exists():
         p = pathlib.Path('apps/abpe_ui/static/abpe_ui/i18n/de/modules/email_studio/email_studio.json')
     try:
-        return json.dumps(json.loads(p.read_text()))
-    except:
-        return '{}'
+        return json.loads(p.read_text())
+    except Exception:
+        return {}
 
 
 def _base_context(request, active_tab='index'):
@@ -37,7 +37,9 @@ def _base_context(request, active_tab='index'):
     from django.conf import settings as django_settings
     return {
         'active_tab':    active_tab,
-        'active_module': 'email_studio',
+        'active_module': 'email',
+        'active':        'email',
+        'active_subpage': 'studio',
         'current_lang':  request.session.get('language', 'de'),
         'es_i18n':       _load_es_i18n(request.session.get('language', 'de')),
         'user_is_admin': request.user.is_staff,

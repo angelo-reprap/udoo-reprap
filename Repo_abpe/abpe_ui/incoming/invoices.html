@@ -1,0 +1,163 @@
+{% extends 'abpe_ui/base.html' %}
+{% load static %}
+{% block title %}Doc Studio — Rechnungen{% endblock %}
+{% block module_css %}
+<link href="{% static 'abpe_ui/css/mod/mod-doc_studio.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<script>
+document.addEventListener('languageChanged', function(e) {
+    if (typeof loadLanguage === 'function') loadLanguage(e.detail.language, 'doc_studio');
+});
+</script>
+
+<div class="container-fluid p-0">
+
+    {# ── Tab-Leiste ── #}
+    <div class="ds-tabbar">
+        <a href="/doc-studio/"          class="ds-tab">
+            <i class="bi bi-files"></i>
+            <span data-i18n="ds.tab_templates">Vorlagen</span>
+        </a>
+        <a href="/doc-studio/studio/"   class="ds-tab">
+            <i class="bi bi-pencil-square"></i>
+            <span data-i18n="ds.tab_studio">Studio</span>
+        </a>
+        <a href="/doc-studio/invoices/" class="ds-tab ds-tab-active">
+            <i class="bi bi-receipt"></i>
+            <span data-i18n="ds.tab_invoices">Rechnungen</span>
+        </a>
+        <a href="/doc-studio/log/"      class="ds-tab">
+            <i class="bi bi-journal-text"></i>
+            <span data-i18n="ds.tab_log">Log</span>
+        </a>
+        {% if is_admin %}
+        <a href="/doc-studio/config/"   class="ds-tab">
+            <i class="bi bi-gear"></i>
+            <span data-i18n="ds.tab_config">Konfiguration</span>
+        </a>
+        {% endif %}
+        <div class="ds-tab-spacer"></div>
+        <button class="btn btn-sm btn-primary ds-tab-btn" onclick="dsInvoiceNew()">
+            <i class="bi bi-plus-circle me-1"></i>
+            <span data-i18n="ds.btn_new_invoice">Neue Rechnung</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+
+        <div class="ds-stats-row mb-3">
+            <div class="ds-stat">
+                <div class="ds-stat-val" id="ds-inv-stat-count">{{ invoice_stats.this_month_count }}</div>
+                <div class="ds-stat-lbl" data-i18n="ds.inv_this_month">Diesen Monat</div>
+            </div>
+            <div class="ds-stat">
+                <div class="ds-stat-val" style="color:var(--status-green);"
+                     id="ds-inv-stat-netto">{{ invoice_stats.this_month_netto|floatformat:2 }}</div>
+                <div class="ds-stat-lbl" data-i18n="ds.inv_netto">Netto €</div>
+            </div>
+            <div class="ds-stat">
+                <div class="ds-stat-val" style="color:var(--status-yellow);"
+                     id="ds-inv-stat-open">{{ invoice_stats.open_count }}</div>
+                <div class="ds-stat-lbl" data-i18n="ds.inv_open">Offen</div>
+            </div>
+        </div>
+
+        <div class="d-flex gap-2 mb-3">
+            <input id="ds-inv-search" type="text" class="form-control form-control-sm"
+                   style="width:180px;"
+                   data-i18n-placeholder="ds.search_invoice"
+                   placeholder="Rechnung suchen...">
+            <select id="ds-inv-type" class="form-select form-select-sm" style="width:140px;"
+                    onchange="dsInvoiceLoad()">
+                <option value="" data-i18n="ds.all_types">Alle Typen</option>
+                <option value="zeitaufwand" data-i18n="ds.type_time">Zeitaufwand</option>
+                <option value="arbeitspakete" data-i18n="ds.type_ap">Arbeitspakete</option>
+            </select>
+            <select id="ds-inv-status" class="form-select form-select-sm" style="width:110px;"
+                    onchange="dsInvoiceLoad()">
+                <option value="" data-i18n="ds.all_status">Alle Status</option>
+                <option value="draft"  data-i18n="ds.inv_status_draft">Entwurf</option>
+                <option value="sent"   data-i18n="ds.inv_status_sent">Versendet</option>
+                <option value="paid"   data-i18n="ds.inv_status_paid">Bezahlt</option>
+            </select>
+        </div>
+
+        <div id="ds-invoices-container">
+            <div class="text-center py-4">
+                <div class="spinner-border spinner-border-sm text-secondary"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{# ── Neue Rechnung Modal ── #}
+<div class="modal fade" id="dsInvoiceModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">
+                    <i class="bi bi-receipt me-2"></i>
+                    <span data-i18n="ds.new_invoice_title">Neue Rechnung</span>
+                </h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label small" data-i18n="ds.label_invoice_type">Rechnungstyp</label>
+                        <select id="ds-new-inv-type" class="form-select form-select-sm">
+                            <option value="zeitaufwand" data-i18n="ds.type_time">Zeitaufwand</option>
+                            <option value="arbeitspakete" data-i18n="ds.type_ap">Arbeitspakete</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label small" data-i18n="ds.label_invoice_date">Rechnungsdatum</label>
+                        <input id="ds-new-inv-date" type="date" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label small" data-i18n="ds.label_customer">Kunde</label>
+                        <input id="ds-new-inv-customer" type="text" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label small" data-i18n="ds.label_billing_month">Abrechnungsmonat</label>
+                        <input id="ds-new-inv-month" type="text" class="form-control form-control-sm"
+                               placeholder="April 2026">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label small" data-i18n="ds.label_subject">Betreff</label>
+                        <input id="ds-new-inv-subject" type="text" class="form-control form-control-sm">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                        data-bs-dismiss="modal" data-i18n="ds.btn_cancel">Abbrechen</button>
+                <button type="button" class="btn btn-sm btn-primary" onclick="dsInvoiceSave()">
+                    <i class="bi bi-save me-1"></i>
+                    <span data-i18n="ds.btn_save">Speichern</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block module_js %}
+<script src="{% static 'abpe_ui/js/mod/mod-doc_studio.js' %}"></script>
+{% endblock %}
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof loadLanguage === 'function') {
+        loadLanguage('{{ current_lang|default:"de" }}', 'doc_studio').then(function() {
+            if (typeof dsInit === 'function') dsInit('invoices');
+        });
+    } else {
+        if (typeof dsInit === 'function') dsInit('invoices');
+    }
+});
+</script>
+{% endblock %}

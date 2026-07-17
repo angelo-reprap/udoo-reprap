@@ -61,6 +61,7 @@ def _template_to_dict(tpl: EmailTemplate) -> dict:
         'status':           tpl.status,
         'active_version':   tpl.active_version,
         'include_signature': tpl.include_signature,
+        'signature_mode':   tpl.signature_mode,
         'translation_languages': tpl.translation_languages,
         'usage_count':      tpl.usage_count,
         'last_used_at':     tpl.last_used_at.isoformat() if tpl.last_used_at else None,
@@ -147,6 +148,7 @@ class TemplateListCreateAPI(LoginRequiredMixin, View):
             variables        = data.get('variables', []),
             status           = data.get('status', TemplateStatus.DRAFT),
             include_signature = data.get('include_signature', True),
+            signature_mode   = data.get('signature_mode', 'USER'),
             created_by       = request.user,
         )
         log.info(f'Template erstellt: {tpl.identifier} von {request.user}')
@@ -171,7 +173,7 @@ class TemplateDetailAPI(LoginRequiredMixin, View):
             'name', 'description', 'app_scope', 'event_type',
             'sender_mode', 'cc_emails', 'bcc_emails',
             'subject', 'html_body', 'text_body',
-            'variables', 'status', 'include_signature',
+            'variables', 'status', 'include_signature', 'signature_mode',
         ]
         for field in updatable:
             if field in data:
@@ -182,10 +184,13 @@ class TemplateDetailAPI(LoginRequiredMixin, View):
                 pk=data['sender_account_id']
             ).first()
 
-        if data.get('signature_id'):
+        sig_mode = data.get('signature_mode', tpl.signature_mode)
+        if sig_mode == 'FIXED' and data.get('signature_id'):
             tpl.signature = EmailSignature.objects.filter(
                 pk=data['signature_id']
             ).first()
+        elif sig_mode == 'NONE':
+            tpl.include_signature = False
 
         # TXT automatisch via Deepseek generieren wenn HTML geändert
         if 'html_body' in data and data['html_body'] != tpl.html_body:
@@ -325,20 +330,45 @@ class TemplatePreviewAPI(LoginRequiredMixin, View):
         from .services.renderer import EmailRenderer
         renderer = EmailRenderer()
 
-        from_email = request.user.email if tpl.sender_mode == SenderMode.USER else (
-            tpl.sender_account.email if tpl.sender_account else 'noreply@abcona.de'
+        sender_mode = data.get('sender_mode') or tpl.sender_mode
+        if sender_mode == SenderMode.USER:
+            from_email = request.user.email or 'max@example.de'
+        elif sender_mode == SenderMode.AUTO:
+            from_email = 'noreply@abcona.de'
+        else:
+            from_email = (
+                tpl.sender_account.email if tpl.sender_account else 'noreply@abcona.de'
+            )
+
+        signature_mode = data.get('signature_mode')
+        signature_id   = data.get('signature_id')
+        include_sig    = data.get('include_signature')
+        if include_sig is None and signature_mode == 'NONE':
+            include_sig = False
+
+        preview = renderer.render_preview(
+            tpl,
+            variables,
+            request.user,
+            html_body=data.get('html_body'),
+            subject=data.get('subject'),
+            text_body=data.get('text_body'),
+            signature_mode=signature_mode,
+            signature_id=signature_id,
+            include_signature=include_sig,
         )
 
         result = {
-            'from_email': from_email,
-            'sender_mode': tpl.sender_mode,
-            'subject':    renderer.render_subject(tpl.subject, variables),
+            'from_email':   from_email,
+            'sender_mode':  sender_mode,
+            'subject':      preview['subject'],
+            'dummy_vars':   renderer.get_default_preview_vars(request.user),
         }
 
         if mode in ['html', 'both']:
-            result['html'] = renderer.render_html(tpl, variables, request.user)
+            result['html'] = preview['html']
         if mode in ['txt', 'both']:
-            result['text'] = renderer.render_text(tpl, variables)
+            result['text'] = preview['text']
 
         return JsonResponse(result)
 
@@ -555,6 +585,7 @@ class SignatureListCreateAPI(LoginRequiredMixin, View):
                 'name':           s.name,
                 'identifier':     s.identifier,
                 'sender_account': s.sender_account.email if s.sender_account else None,
+                'sender_account_id': s.sender_account_id,
                 'is_default':     s.is_default,
                 'is_public':      s.is_public,
             } for s in sigs]
@@ -562,15 +593,31 @@ class SignatureListCreateAPI(LoginRequiredMixin, View):
 
     def post(self, request):
         data = _json_body(request)
-        sig  = EmailSignature.objects.create(
-            name        = data.get('name', ''),
-            identifier  = data.get('identifier', ''),
-            html_body   = data.get('html_body', ''),
-            text_body   = data.get('text_body', ''),
-            is_default  = data.get('is_default', False),
-            is_public   = data.get('is_public', False),
-            created_by  = request.user,
+        identifier = (data.get('identifier') or '').strip()
+        name = (data.get('name') or '').strip()
+        if not name or not identifier:
+            return JsonResponse(
+                {'error': 'name und identifier sind Pflichtfelder'},
+                status=400,
+            )
+        if EmailSignature.objects.filter(identifier=identifier).exists():
+            return JsonResponse(
+                {'error': f'Identifier „{identifier}" bereits vergeben'},
+                status=400,
+            )
+        sender_id = data.get('sender_account_id') or None
+        sig = EmailSignature.objects.create(
+            name             = name,
+            identifier       = identifier,
+            html_body        = data.get('html_body', ''),
+            text_body        = data.get('text_body', ''),
+            sender_account_id = sender_id,
+            is_default       = data.get('is_default', False),
+            is_public        = data.get('is_public', False),
+            created_by       = request.user,
         )
+        if sig.is_default:
+            EmailSignature.objects.exclude(pk=sig.pk).update(is_default=False)
         return JsonResponse({'id': sig.pk, 'name': sig.name}, status=201)
 
 
@@ -578,19 +625,43 @@ class SignatureListCreateAPI(LoginRequiredMixin, View):
 class SignatureDetailAPI(LoginRequiredMixin, View):
 
     def get(self, request, pk):
-        sig = get_object_or_404(EmailSignature, pk=pk)
+        sig = get_object_or_404(
+            EmailSignature.objects.select_related('sender_account'),
+            pk=pk,
+        )
         return JsonResponse({
-            'id': sig.pk, 'name': sig.name,
-            'html_body': sig.html_body, 'text_body': sig.text_body,
+            'id':                sig.pk,
+            'name':              sig.name,
+            'identifier':        sig.identifier,
+            'html_body':         sig.html_body,
+            'text_body':         sig.text_body,
+            'sender_account_id': sig.sender_account_id,
+            'sender_account':    sig.sender_account.email if sig.sender_account else None,
+            'is_default':        sig.is_default,
+            'is_public':         sig.is_public,
         })
 
     def put(self, request, pk):
         sig  = get_object_or_404(EmailSignature, pk=pk)
         data = _json_body(request)
+        if 'identifier' in data:
+            new_id = (data['identifier'] or '').strip()
+            if not new_id:
+                return JsonResponse({'error': 'identifier darf nicht leer sein'}, status=400)
+            if EmailSignature.objects.filter(identifier=new_id).exclude(pk=pk).exists():
+                return JsonResponse(
+                    {'error': f'Identifier „{new_id}" bereits vergeben'},
+                    status=400,
+                )
+            sig.identifier = new_id
         for f in ['name', 'html_body', 'text_body', 'is_default', 'is_public']:
             if f in data:
                 setattr(sig, f, data[f])
+        if 'sender_account_id' in data:
+            sig.sender_account_id = data['sender_account_id'] or None
         sig.save()
+        if sig.is_default:
+            EmailSignature.objects.exclude(pk=sig.pk).update(is_default=False)
         return JsonResponse({'success': True})
 
     def delete(self, request, pk):
@@ -946,8 +1017,9 @@ class TemplateSetLangsAPI(LoginRequiredMixin, View):
 
 # ── Module API ────────────────────────────────────────────────────────────────
 
+@method_decorator(csrf_exempt, name='dispatch')
 class ModuleListAPI(LoginRequiredMixin, View):
-    """Gibt alle Module zurück — für Modul-Panel im Studio."""
+    """GET /api/modules/ — Liste · POST — neues Modul anlegen."""
 
     def get(self, request):
         from .models import EmailModule, ModuleType
@@ -957,7 +1029,19 @@ class ModuleListAPI(LoginRequiredMixin, View):
             qs = qs.filter(module_type=module_type)
 
         grouped = {}
+        grouped['SIGNATURE'] = [{
+            'id':          0,
+            'identifier':  'signature',
+            'name':        'Signatur (auswählbar)',
+            'module_type': 'SIGNATURE',
+            'description': 'Signatur-Quelle links im Panel wählen',
+            'syntax':      '{{block:signature}}',
+            'preview_bg':  '#ffffff',
+            'is_virtual':  True,
+        }]
         for m in qs:
+            if m.identifier == 'signature':
+                continue
             t = m.module_type
             if t not in grouped:
                 grouped[t] = []
@@ -975,6 +1059,82 @@ class ModuleListAPI(LoginRequiredMixin, View):
             'modules': grouped,
             'types':   ModuleType.choices,
         })
+
+    def post(self, request):
+        from .models import EmailModule, ModuleType
+        data = _json_body(request)
+        identifier = (data.get('identifier') or '').strip()
+        name = (data.get('name') or '').strip()
+        if not name or not identifier:
+            return JsonResponse(
+                {'error': 'name und identifier sind Pflichtfelder'},
+                status=400,
+            )
+        if EmailModule.objects.filter(identifier=identifier).exists():
+            return JsonResponse(
+                {'error': f'Identifier „{identifier}" bereits vergeben'},
+                status=400,
+            )
+        mod = EmailModule.objects.create(
+            name         = name,
+            identifier   = identifier,
+            module_type  = data.get('module_type', ModuleType.SECTION),
+            description  = data.get('description', ''),
+            html_body    = data.get('html_body', ''),
+            text_body    = data.get('text_body', ''),
+            preview_bg   = data.get('preview_bg', '#ffffff'),
+            created_by   = request.user,
+        )
+        return JsonResponse({
+            'id': mod.pk, 'name': mod.name, 'identifier': mod.identifier,
+        }, status=201)
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class ModuleDetailAPI(LoginRequiredMixin, View):
+    """GET/PUT/DELETE /api/modules/<pk>/ — Modul-Detail für Studio-Editor."""
+
+    def get(self, request, pk):
+        from .models import EmailModule
+        mod = get_object_or_404(EmailModule, pk=pk, is_active=True)
+        return JsonResponse({
+            'id':          mod.pk,
+            'identifier':  mod.identifier,
+            'name':        mod.name,
+            'module_type': mod.module_type,
+            'description': mod.description,
+            'html_body':   mod.html_body,
+            'text_body':   mod.text_body,
+            'preview_bg':  mod.preview_bg,
+        })
+
+    def put(self, request, pk):
+        from .models import EmailModule
+        mod  = get_object_or_404(EmailModule, pk=pk)
+        data = _json_body(request)
+        if 'identifier' in data:
+            new_id = (data['identifier'] or '').strip()
+            if not new_id:
+                return JsonResponse({'error': 'identifier darf nicht leer sein'}, status=400)
+            if EmailModule.objects.filter(identifier=new_id).exclude(pk=pk).exists():
+                return JsonResponse(
+                    {'error': f'Identifier „{new_id}" bereits vergeben'},
+                    status=400,
+                )
+            mod.identifier = new_id
+        for f in ['name', 'html_body', 'text_body', 'description',
+                  'module_type', 'preview_bg', 'is_active']:
+            if f in data:
+                setattr(mod, f, data[f])
+        mod.save()
+        return JsonResponse({'success': True})
+
+    def delete(self, request, pk):
+        from .models import EmailModule
+        mod = get_object_or_404(EmailModule, pk=pk)
+        mod.is_active = False
+        mod.save()
+        return JsonResponse({'success': True})
 
 
 # ── Meilenstein API ───────────────────────────────────────────────────────────
@@ -1017,13 +1177,17 @@ class MilestoneListCreateAPI(LoginRequiredMixin, View):
         ).order_by('-version').first()
         next_version = (last.version + 1) if last else 1
 
-        # Aktuellen Stand als Meilenstein speichern
+        # Aktuellen Stand als Meilenstein speichern (Editor-Inhalt optional aus POST)
+        html_body = data.get('html_body', tpl.html_body)
+        text_body = data.get('text_body', tpl.text_body)
+        subject   = data.get('subject', tpl.subject)
+
         ms = EmailTemplateVersion.objects.create(
             template        = tpl,
             version         = next_version,
-            subject         = tpl.subject,
-            html_body       = tpl.html_body,
-            text_body       = tpl.text_body,
+            subject         = subject,
+            html_body       = html_body,
+            text_body       = text_body,
             variables       = tpl.variables,
             sender_mode     = tpl.sender_mode,
             change_note     = label,

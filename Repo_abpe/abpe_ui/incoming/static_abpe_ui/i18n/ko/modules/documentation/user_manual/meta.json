@@ -1,0 +1,86 @@
+{
+    "toc": {
+        "title": "목차"
+    },
+    "sections": [
+        {
+            "id": "einstieg",
+            "number": "1",
+            "title": "시작 및 로그인"
+        },
+        {
+            "id": "dashboard",
+            "number": "2",
+            "title": "대시보드 및 탐색"
+        },
+        {
+            "id": "cv_editor",
+            "number": "3",
+            "title": "이력서 편집기"
+        },
+        {
+            "id": "cv_upload",
+            "number": "4",
+            "title": "이력서 업로드 및 추출"
+        },
+        {
+            "id": "matching",
+            "number": "5",
+            "title": "매칭 및 검색"
+        },
+        {
+            "id": "email_studio",
+            "number": "6",
+            "title": "이메일 스튜디오"
+        },
+        {
+            "id": "doc_studio",
+            "number": "7",
+            "title": "문서 스튜디오"
+        },
+        {
+            "id": "rechnungen",
+            "number": "8",
+            "title": "청구서"
+        },
+        {
+            "id": "vorlagen",
+            "number": "9",
+            "title": "템플릿 및 편지지"
+        },
+        {
+            "id": "benutzerverwaltung",
+            "number": "10",
+            "title": "사용자 관리"
+        },
+        {
+            "id": "einstellungen",
+            "number": "11",
+            "title": "설정 및 구성"
+        },
+        {
+            "id": "sprache",
+            "number": "12",
+            "title": "언어 및 지역화"
+        },
+        {
+            "id": "tipps",
+            "number": "13",
+            "title": "팁 및 단축키"
+        },
+        {
+            "id": "fehler",
+            "number": "14",
+            "title": "일반적인 오류 및 해결 방법"
+        },
+        {
+            "id": "glossar",
+            "number": "15",
+            "title": "용어집"
+        }
+    ],
+    "version": "버전 2.0",
+    "framework": "Django 5.x",
+    "chapters": "15개 장",
+    "audience": "최종 사용자"
+}

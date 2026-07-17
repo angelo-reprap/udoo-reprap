@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "Tabla de contenidos"
+    },
+    "sections": [
+        {
+            "id": "dienste",
+            "number": "1",
+            "title": "Servicios"
+        },
+        {
+            "id": "backup_ops",
+            "number": "2",
+            "title": "Copia de seguridad"
+        }
+    ]
+}

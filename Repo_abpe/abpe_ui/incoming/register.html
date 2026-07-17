@@ -1,0 +1,118 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="{{ current_lang|default:'de' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABpE Portal - {% trans "register_title" %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="{% static 'abpe_ui/css/core/core-base.css' %}" rel="stylesheet">
+    <link href="{% static 'abpe_ui/css/core/core-login.css' %}" rel="stylesheet">
+    <style>
+        .register-card { max-width: 550px; }
+        .required-field::after { content: "*"; color: red; margin-left: 4px; }
+        .password-error { display: none; color: red; font-size: 0.875rem; margin-top: 5px; }
+    </style>
+</head>
+<body class="login-body">
+    <div class="login-container register-card">
+        <div class="login-card">
+            <div class="login-logo">
+                <img src="{% static 'abpe_ui/img/logo.svg' %}" alt="ABpE">
+                <h3 data-i18n="register_title">Registrierung</h3>
+                <p class="text-muted" data-i18n="register_subtitle">Erstellen Sie Ihr ABpE Portal Konto</p>
+            </div>
+            
+            <form method="post" action="{% url 'abpe_ui:register' %}" onsubmit="return validateForm()" autocomplete="off">
+                {% csrf_token %}
+                
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="first_name" class="form-label required-field" data-i18n="first_name">Vorname</label>
+                        <input type="text" name="first_name" id="first_name" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="last_name" class="form-label required-field" data-i18n="last_name">Nachname</label>
+                        <input type="text" name="last_name" id="last_name" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label required-field" data-i18n="email">E-Mail Adresse</label>
+                    <input type="email" name="email" id="email" class="form-control" required>
+                    <div class="form-text" data-i18n="email_help">Diese E-Mail wird für Benachrichtigungen verwendet.</div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="username" class="form-label required-field" data-i18n="username">Benutzername</label>
+                    <input type="text" name="username" id="username" class="form-control" required autocomplete="off">
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="password1" class="form-label required-field" data-i18n="password">Passwort</label>
+                        <div class="input-group">
+                            <input type="password" name="password1" id="password1" class="form-control" required autocomplete="new-password">
+                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('password1')">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="password2" class="form-label required-field" data-i18n="password_confirm">Passwort bestätigen</label>
+                        <div class="input-group">
+                            <input type="password" name="password2" id="password2" class="form-control" required autocomplete="new-password">
+                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('password2')">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                        <div id="password-error" class="password-error" data-i18n="passwords_not_match">Passwörter stimmen nicht überein</div>
+                    </div>
+                </div>
+                
+                <hr>
+                <h6 class="mb-3" data-i18n="optional">Optionale Angaben</h6>
+                
+                <div class="mb-3">
+                    <label for="phone" class="form-label" data-i18n="phone">Telefon</label>
+                    <input type="tel" name="phone" id="phone" class="form-control">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="mobile" class="form-label" data-i18n="mobile">Mobil</label>
+                    <input type="tel" name="mobile" id="mobile" class="form-control">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="address" class="form-label" data-i18n="address">Adresse</label>
+                    <textarea name="address" id="address" class="form-control" rows="2"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-100" data-i18n="register_btn">Konto erstellen</button>
+                
+                <div class="text-center mt-3">
+                    <span data-i18n="already_registered">Bereits registriert?</span>
+                    <a href="{% url 'abpe_ui:login' %}" data-i18n="login_here">Hier anmelden</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="{% static 'abpe_ui/js/core/core-language.js' %}"></script>
+    <script src="{% static 'abpe_ui/js/core/core-register.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof setLanguage === 'function') {
+                setLanguage('{{ current_lang|default:"de" }}');
+            }
+        });
+    </script>
+</body>
+</html>

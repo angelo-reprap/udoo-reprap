@@ -1,6 +1,4 @@
-# ABpE Django Apps — 2026-07-15T11:51:06Z
-# Backend: /opt/abpe/backend
-
+# ABpE Apps — 2026-07-17T15:14:20Z
 abe_admin
 abe_audit
 abe_core

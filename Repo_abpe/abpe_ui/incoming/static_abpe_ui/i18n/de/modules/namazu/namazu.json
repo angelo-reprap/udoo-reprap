@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "Beratersuche (Namazu)",
+            "placeholder": "Name, Skill, Technologie...",
+            "btn": "Suchen",
+            "max_label": "Max. Treffer"
+        },
+        "results": {
+            "total": "Treffer gesamt",
+            "empty": "Keine Treffer gefunden",
+            "score": "Score"
+        },
+        "profile": {
+            "open": "Profil",
+            "preview": "Datenblatt-Vorschau",
+            "close": "Schließen"
+        },
+        "admin": {
+            "title": "Index-Verwaltung",
+            "imap_title": "IMAP Postfächer",
+            "add_account": "Account hinzufügen",
+            "active": "aktiv",
+            "inactive": "inaktiv",
+            "html_count": "HTML-Dateien",
+            "index_size": "Index-Größe",
+            "last_indexed": "Letzte Indizierung",
+            "reindex_btn": "Re-Indizierung starten",
+            "reindex_ok": "Re-Indizierung gestartet",
+            "reindex_err": "Fehler beim Starten",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "Lade..."
+        },
+        "es": {
+            "title": "Elasticsearch Suche",
+            "placeholder": "Skills, Name, Technologie...",
+            "exclude": "Ausschließen:",
+            "exclude_account": "Postfach ausschließen",
+            "query_helper": "Query-Hilfe",
+            "examples": "Beispiele:",
+            "index": {
+                "consultants": "Berater",
+                "emails": "E-Mails",
+                "profiles": "Profile"
+            },
+            "sort": {
+                "placeholder": "Sortierung...",
+                "date_desc": "Datum ↓",
+                "date_asc": "Datum ↑",
+                "indexed_desc": "Indiziert ↓",
+                "indexed_asc": "Indiziert ↑",
+                "attachments": "Anhang zuerst",
+                "from_asc": "Absender A-Z",
+                "account_asc": "Postfach A-Z",
+                "name_asc": "Name A-Z",
+                "status": "Status",
+                "available": "Verfügbar ab",
+                "availability": "Verfügbarkeit",
+                "folder_asc": "Ordner A-Z",
+                "size_desc": "Größe ↓"
+            },
+            "chips": {
+                "boolean": "Boolean:",
+                "wildcards": "Wildcards & Fuzzy:",
+                "fields_email": "Felder (E-Mails):",
+                "fields_consultant": "Felder (Berater):",
+                "date_ranges": "Datum & Ranges:",
+                "and": "beide",
+                "or": "eines",
+                "not": "ausschließen",
+                "must": "muss",
+                "must_not": "darf nicht",
+                "wildcard": "Wildcard",
+                "one_char": "ein Zeichen",
+                "fuzzy": "Fuzzy",
+                "phrase": "Phrase",
+                "proximity": "Nähe",
+                "boost": "Boost",
+                "with_attachment": "Mit Anhang",
+                "fulltext": "Volltext",
+                "name": "Name",
+                "location": "Ort",
+                "availability": "Verfügbarkeit",
+                "subject": "Betreff",
+                "sender": "Absender",
+                "content": "Inhalt",
+                "mailbox": "Postfach",
+                "folder": "Ordner"
+            }
+        }
+    }
+}

@@ -1,0 +1,80 @@
+{% extends 'abpe_ui/base.html' %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block module_js %}
+<script src="{% static 'abpe_ui/js/mod/mod-dashboard.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0" data-i18n="dashboard">Dashboard</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item active" data-i18n="dashboard">Dashboard</li>
+        </ol>
+    </nav>
+</div>
+
+<!-- STATISTIK TOGGLE -->
+<div class="toggle-section">
+    <div class="section-header" onclick="toggleSection(this)" id="statsToggleHeader">
+        <span><i class="bi bi-bar-chart-fill"></i> <span data-i18n="statistics">Statistik</span></span>
+        <i class="bi bi-chevron-down"></i>
+    </div>
+    <div class="section-content">
+        {% include 'abpe_ui/components/stats_grid.html' %}
+        {% include 'abpe_ui/components/system_grid.html' %}
+    </div>
+</div>
+
+<!-- TIPPS & TRICKS -->
+<div class="toggle-section">
+    <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="bi bi-lightbulb-fill"></i> <span data-i18n="tips_tricks">Tipps & Tricks</span></span>
+        <i class="bi bi-chevron-down"></i>
+    </div>
+    <div class="section-content">
+        <ul class="mb-0">
+            <li data-i18n="tip1">Sidebar Icons werden beim Hovern sichtbar</li>
+            <li data-i18n="tip2">Drücke ? für Hilfe</li>
+            <li data-i18n="tip3">Drücke / für die Suche</li>
+            <li data-i18n="tip4">Alle Sektionen sind auf-/zuklappbar</li>
+        </ul>
+    </div>
+</div>
+
+<!-- QUICK ACTIONS -->
+<div class="toggle-section">
+    <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="bi bi-lightning-fill"></i> <span data-i18n="quick_actions">Quick Actions</span></span>
+        <i class="bi bi-chevron-down"></i>
+    </div>
+    <div class="section-content">
+        {% include 'abpe_ui/components/action_buttons.html' %}
+    </div>
+</div>
+
+<!-- LETZTE BERATER -->
+<div class="toggle-section">
+    <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="bi bi-people-fill"></i> <span data-i18n="recent_consultants">Letzte Berater</span></span>
+        <i class="bi bi-chevron-down"></i>
+    </div>
+    <div class="section-content">
+        {% include 'abpe_ui/components/recent_consultants.html' %}
+    </div>
+</div>
+
+<!-- LETZTE E-MAILS -->
+<div class="toggle-section">
+    <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="bi bi-envelope-fill"></i> <span data-i18n="recent_emails">Letzte E-Mails</span></span>
+        <i class="bi bi-chevron-down"></i>
+    </div>
+    <div class="section-content">
+        {% include 'abpe_ui/components/recent_emails.html' %}
+    </div>
+</div>
+{% endblock %}

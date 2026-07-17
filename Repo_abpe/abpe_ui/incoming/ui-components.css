@@ -279,4 +279,6 @@
     padding: 2px 6px;
     font-size: 0.75rem;
     font-family: monospace;
+    color: var(--text-primary);
+    font-weight: 600;
 }

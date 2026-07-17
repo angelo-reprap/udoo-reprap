@@ -1,0 +1,72 @@
+{
+    "toc": {
+        "title": "目次"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "概要 — モジュールシステム"
+        },
+        {
+            "id": "struktur",
+            "number": "2",
+            "title": "ディレクトリ構造"
+        },
+        {
+            "id": "module_json",
+            "number": "3",
+            "title": "module.json"
+        },
+        {
+            "id": "template",
+            "number": "4",
+            "title": "HTMLテンプレート"
+        },
+        {
+            "id": "css",
+            "number": "5",
+            "title": "CSS — スタイル"
+        },
+        {
+            "id": "javascript",
+            "number": "6",
+            "title": "JavaScript — モジュールロジック"
+        },
+        {
+            "id": "toggle_system",
+            "number": "7",
+            "title": "トグルシステム"
+        },
+        {
+            "id": "i18n",
+            "number": "8",
+            "title": "国際化"
+        },
+        {
+            "id": "navigation",
+            "number": "9",
+            "title": "ナビゲーション & サイドバー"
+        },
+        {
+            "id": "api",
+            "number": "10",
+            "title": "APIエンドポイント"
+        },
+        {
+            "id": "checkliste",
+            "number": "11",
+            "title": "チェックリスト & エラー"
+        },
+        {
+            "id": "beispiel",
+            "number": "12",
+            "title": "完全な例"
+        },
+        {
+            "id": "anhang_a",
+            "number": "A",
+            "title": "付録A — ポータル統合の落とし穴"
+        }
+    ]
+}

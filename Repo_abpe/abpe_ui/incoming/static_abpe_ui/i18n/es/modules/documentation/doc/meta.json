@@ -1,0 +1,91 @@
+{
+    "toc": {
+        "title": "Índice de contenidos"
+    },
+    "sections": [
+        {
+            "id": "grundlagen",
+            "number": "1",
+            "title": "Fundamentos y visión general"
+        },
+        {
+            "id": "modulsystem",
+            "number": "2",
+            "title": "Sistema de módulos"
+        },
+        {
+            "id": "i18n",
+            "number": "3",
+            "title": "Sistema de idiomas y traducción"
+        },
+        {
+            "id": "theme",
+            "number": "4",
+            "title": "Tema y sistema de diseño"
+        },
+        {
+            "id": "multiuser",
+            "number": "5",
+            "title": "Multi-usuario y permisos"
+        },
+        {
+            "id": "hilfe",
+            "number": "6",
+            "title": "Sistema de ayuda"
+        },
+        {
+            "id": "sidebar",
+            "number": "7",
+            "title": "Barra lateral y navegación"
+        },
+        {
+            "id": "api",
+            "number": "8",
+            "title": "API e integración externa"
+        },
+        {
+            "id": "backup",
+            "number": "9",
+            "title": "Sistema de copia de seguridad y archivo"
+        },
+        {
+            "id": "helper",
+            "number": "10",
+            "title": "Scripts auxiliares y de utilidad"
+        },
+        {
+            "id": "responsive",
+            "number": "11",
+            "title": "Diseño responsive"
+        },
+        {
+            "id": "verzeichnisse",
+            "number": "12",
+            "title": "Estructura de directorios"
+        },
+        {
+            "id": "workflow",
+            "number": "13",
+            "title": "Flujo de trabajo de desarrollo"
+        },
+        {
+            "id": "debugging",
+            "number": "14",
+            "title": "Búsqueda de errores y depuración"
+        },
+        {
+            "id": "versionen",
+            "number": "15",
+            "title": "Versionado y registro de cambios"
+        },
+        {
+            "id": "anhang",
+            "number": "16",
+            "title": "Apéndices"
+        }
+    ],
+    "version": "Versión 3.0",
+    "framework": "Django 5.x",
+    "users": "23.000+ consultores",
+    "chapters": "16 capítulos"
+}

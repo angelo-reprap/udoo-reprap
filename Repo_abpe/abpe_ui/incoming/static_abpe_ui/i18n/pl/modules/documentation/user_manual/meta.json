@@ -1,0 +1,86 @@
+{
+    "toc": {
+        "title": "Spis treści"
+    },
+    "sections": [
+        {
+            "id": "einstieg",
+            "number": "1",
+            "title": "Rozpoczęcie i logowanie"
+        },
+        {
+            "id": "dashboard",
+            "number": "2",
+            "title": "Panel i nawigacja"
+        },
+        {
+            "id": "cv_editor",
+            "number": "3",
+            "title": "Edytor CV"
+        },
+        {
+            "id": "cv_upload",
+            "number": "4",
+            "title": "Przesyłanie i ekstrakcja CV"
+        },
+        {
+            "id": "matching",
+            "number": "5",
+            "title": "Dopasowanie i wyszukiwanie"
+        },
+        {
+            "id": "email_studio",
+            "number": "6",
+            "title": "Studio e-mail"
+        },
+        {
+            "id": "doc_studio",
+            "number": "7",
+            "title": "Studio dokumentów"
+        },
+        {
+            "id": "rechnungen",
+            "number": "8",
+            "title": "Faktury"
+        },
+        {
+            "id": "vorlagen",
+            "number": "9",
+            "title": "Szablony i papier firmowy"
+        },
+        {
+            "id": "benutzerverwaltung",
+            "number": "10",
+            "title": "Zarządzanie użytkownikami"
+        },
+        {
+            "id": "einstellungen",
+            "number": "11",
+            "title": "Ustawienia i konfiguracja"
+        },
+        {
+            "id": "sprache",
+            "number": "12",
+            "title": "Język i lokalizacja"
+        },
+        {
+            "id": "tipps",
+            "number": "13",
+            "title": "Wskazówki i skróty klawiszowe"
+        },
+        {
+            "id": "fehler",
+            "number": "14",
+            "title": "Częste błędy i rozwiązania"
+        },
+        {
+            "id": "glossar",
+            "number": "15",
+            "title": "Słowniczek"
+        }
+    ],
+    "version": "Wersja 2.0",
+    "framework": "Django 5.x",
+    "chapters": "15 rozdziałów",
+    "audience": "Użytkownicy końcowi"
+}
