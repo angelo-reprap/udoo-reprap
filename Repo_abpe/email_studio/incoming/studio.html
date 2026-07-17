@@ -477,20 +477,30 @@
         </div>
         <div id="es-vars-panel-body" class="section-content">
             {% for group in variable_groups %}
-            <div class="es-var-group-lbl" data-i18n="{{ group.label_i18n }}">{{ group.label }}</div>
-            {% for v in group.vars %}
-            <div class="es-var-chip {{ group.chip_class }}"
-                 data-var="{{ v.name }}"
-                 data-var-desc="{{ v.description }}"
-                 data-var-example="{{ v.example }}">
-                <span class="es-var-chip-label">{{ '{' }}{{ v.name }}{{ '}' }}</span>
-                <span class="es-var-chip-actions">
-                    <button type="button" class="es-var-info-btn" title="Info"
-                            aria-label="Info"><i class="bi bi-info-circle"></i></button>
-                    <i class="bi bi-clipboard es-var-chip-icon"></i>
-                </span>
+            <div class="es-sub-toggle">
+                <div class="es-sub-toggle-hdr" onclick="toggleSection(this)">
+                    <span class="es-sub-toggle-lbl" data-i18n="{{ group.label_i18n }}">{{ group.label }}</span>
+                    <span class="es-sub-toggle-meta">
+                        <span class="es-sub-toggle-count">{{ group.vars|length }}</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </span>
+                </div>
+                <div class="es-sub-toggle-body section-content">
+                    {% for v in group.vars %}
+                    <div class="es-var-chip {{ group.chip_class }}"
+                         data-var="{{ v.name }}"
+                         data-var-desc="{{ v.description }}"
+                         data-var-example="{{ v.example }}">
+                        <span class="es-var-chip-label">{{ '{' }}{{ v.name }}{{ '}' }}</span>
+                        <span class="es-var-chip-actions">
+                            <button type="button" class="es-var-info-btn" title="Info"
+                                    aria-label="Info"><i class="bi bi-info-circle"></i></button>
+                            <i class="bi bi-clipboard es-var-chip-icon"></i>
+                        </span>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
-            {% endfor %}
             {% endfor %}
         </div>
     </div>

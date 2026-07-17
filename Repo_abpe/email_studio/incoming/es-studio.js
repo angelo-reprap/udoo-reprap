@@ -1505,6 +1505,17 @@ window.ESStudio = (() => {
         return map[key] || fallback || key;
     }
 
+    function _subGroupAccordionHtml(label, innerHtml, count) {
+        const n = count != null ? count : (innerHtml.match(/es-var-chip|es-module-chip/g) || []).length;
+        return `<div class="es-sub-toggle">`
+             + `<div class="es-sub-toggle-hdr" onclick="toggleSection(this)">`
+             + `<span class="es-sub-toggle-lbl">${label}</span>`
+             + `<span class="es-sub-toggle-meta">`
+             + `<span class="es-sub-toggle-count">${n}</span>`
+             + `<i class="bi bi-chevron-down"></i></span></div>`
+             + `<div class="es-sub-toggle-body section-content">${innerHtml}</div></div>`;
+    }
+
     function _renderVariableGroups(groups) {
         const container = document.getElementById('es-vars-panel-body');
         if (!container || !groups) return;
@@ -1512,11 +1523,11 @@ window.ESStudio = (() => {
         groups.forEach(group => {
             const chipClass = group.chip_class || group.key || 'context';
             const label = _varGroupLabel(group.key, group.label);
-            html += `<div class="es-var-group-lbl">${label}</div>`;
+            let chips = '';
             (group.vars || []).forEach(v => {
                 const desc = (v.description || '').replace(/"/g, '&quot;');
                 const ex   = (v.example || '').replace(/"/g, '&quot;');
-                html += `<div class="es-var-chip ${chipClass}" data-var="${v.name}"`
+                chips += `<div class="es-var-chip ${chipClass}" data-var="${v.name}"`
                      + ` data-var-desc="${desc}" data-var-example="${ex}">`
                      + `<span class="es-var-chip-label">{${v.name}}</span>`
                      + `<span class="es-var-chip-actions">`
@@ -1524,6 +1535,7 @@ window.ESStudio = (() => {
                      + ` aria-label="Info"><i class="bi bi-info-circle"></i></button>`
                      + `<i class="bi bi-clipboard es-var-chip-icon"></i></span></div>`;
             });
+            html += _subGroupAccordionHtml(label, chips, (group.vars || []).length);
         });
         container.innerHTML = html;
         const badge = document.getElementById('es-var-count-badge');
@@ -1679,14 +1691,15 @@ window.ESStudio = (() => {
             };
             for (const [type, modules] of Object.entries(grouped)) {
                 if (!modules.length) continue;
-                html += `<div class="es-var-group-lbl">${_moduleGroupLabel(type)}</div>`;
+                let chips = '';
                 for (const m of modules) {
-                    html += `
+                    chips += `
                     <div class="es-module-chip" data-syntax="${m.syntax}" title="${m.description || m.name}">
                         <i class="bi ${typeIcons[type] || 'bi-puzzle'}" style="font-size:11px;color:var(--abcona-blue)"></i>
                         <span>${m.name}</span>
                     </div>`;
                 }
+                html += _subGroupAccordionHtml(_moduleGroupLabel(type), chips, modules.length);
             }
             container.innerHTML = html || `<div class="es-modules-empty">${t('modules_empty', 'Keine Module gefunden')}</div>`;
             container.dataset.loaded = '1';

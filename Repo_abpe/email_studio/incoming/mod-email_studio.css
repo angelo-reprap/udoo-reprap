@@ -395,6 +395,63 @@
     letter-spacing: .05em;
     margin: 4px 0 2px;
 }
+
+/* ── Sidebar Untergruppen (Accordion, default zu) ── */
+.es-sub-toggle {
+    margin-bottom: 2px;
+}
+.es-sub-toggle-hdr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 5px 4px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 3px;
+}
+.es-sub-toggle-hdr:hover {
+    background: var(--abcona-gray-bg);
+}
+.es-sub-toggle-lbl {
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    flex: 1;
+    min-width: 0;
+}
+.es-sub-toggle-meta {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+.es-sub-toggle-count {
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    opacity: .65;
+}
+.es-sub-toggle-hdr .bi-chevron-down {
+    font-size: 9px;
+    color: var(--text-secondary);
+    transition: transform .2s;
+}
+.es-sub-toggle-hdr.open .bi-chevron-down {
+    transform: rotate(180deg);
+}
+.es-sub-toggle-body.section-content {
+    padding: 0 0 4px;
+    display: none;
+}
+.es-sub-toggle-body.section-content.open {
+    display: block;
+}
+.es-studio-sidebar .section-content > .es-sub-toggle:first-child .es-sub-toggle-hdr {
+    padding-top: 2px;
+}
 .es-var-chip {
     display: flex;
     align-items: center;
