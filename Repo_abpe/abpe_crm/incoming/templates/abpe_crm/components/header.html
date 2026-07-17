@@ -633,7 +633,8 @@ let _settingsTheme = 'light';
 
 function openSettingsModal() {
     _settingsLang  = window.ABPE_CONFIG?.current_lang || 'de';
-    _settingsTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+    _settingsTheme = window.themeManager ? themeManager.currentTheme :
+        (document.body.classList.contains('dark-mode') ? 'dark' : 'light');
     updateSettingsBtns();
     document.getElementById('settings-msg').textContent = '';
     document.getElementById('settingsModal').style.display = 'block';
@@ -642,6 +643,10 @@ function openSettingsModal() {
     fetch('/crm/api/user-settings/').then(r => r.json()).then(d => {
         if (!d.success) return;
         const us = d.data;
+        if (us.theme) {
+            _settingsTheme = us.theme;
+            updateSettingsBtns();
+        }
         const cb = document.getElementById('phone-enabled');
         if (cb) {
             cb.checked = us.phone_enabled || false;
@@ -703,7 +708,8 @@ function saveSettings() {
         body: JSON.stringify({language: _settingsLang, theme: _settingsTheme})
     }).then(r => r.json()).then(d => {
         if (d.success) {
-            if (_settingsTheme === 'dark') document.body.classList.add('dark-mode');
+            if (window.themeManager) themeManager.setTheme(_settingsTheme, { skipServer: true });
+            else if (_settingsTheme === 'dark') document.body.classList.add('dark-mode');
             else document.body.classList.remove('dark-mode');
             if (typeof setLanguage === 'function') setLanguage(_settingsLang);
         }

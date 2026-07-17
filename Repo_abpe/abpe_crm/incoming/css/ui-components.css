@@ -81,7 +81,7 @@
 
 /* TOGGLE SECTION */
 .toggle-section {
-    background: white;
+    background: var(--bg-white);
     border-radius: var(--border-radius-card);
     margin-bottom: 16px;
     overflow: hidden;
@@ -126,7 +126,7 @@
     text-align: left;
     padding: 16px;
     display: none;
-    background: white;
+    background: var(--bg-white);
 }
 
 .section-content.open {
@@ -174,7 +174,7 @@
 
 /* FOOTER */
 .footer {
-    background: white;
+    background: var(--bg-white);
     border-radius: var(--border-radius-card);
     padding: 12px;
     text-align: center;
@@ -215,7 +215,7 @@
 }
 
 .help-content {
-    background: white;
+    background: var(--bg-white);
     border-radius: var(--border-radius-card);
     max-width: 500px;
     width: 90%;

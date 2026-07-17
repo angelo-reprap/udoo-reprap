@@ -1,10 +1,11 @@
 /* core-theme.css - CSS-Variablen für Light/Dark Mode */
 :root {
-    /* Light Mode */
+    /* Light Mode — unverändert */
     --abcona-blue: #163258;
     --abcona-dark: #1a2744;
     --abcona-blue-dark: #0f2442;
     --abcona-blue-light: #1e4a7a;
+    --abcona-accent: #163258;
     --abcona-gray-bg: #eef2f5;
     --abcona-gray-card: #f8fafc;
     --status-green: #10b981;
@@ -17,16 +18,23 @@
     --border-radius-logo: 8px;
     --text-primary: #1e1e1e;
     --text-secondary: #6c757d;
+    --text-on-chrome: #ffffff;
+    --link-color: #163258;
+    --input-bg: #ffffff;
+    --overlay-bg: rgba(22, 50, 88, 0.55);
     --border-color: #dee2e6;
 }
 
 body.dark-mode {
-    /* Dark Mode - Dunkelgrau/Schwarz, KEIN Blau */
-    --abcona-blue: #3a3a3a;
-    --abcona-blue-dark: #2a2a2a;
-    --abcona-blue-light: #4a4a4a;
-    --abcona-gray-bg: #0f0f0f;
-    --abcona-gray-card: #1a1a1a;
+    color-scheme: dark;
+    /* Dark: lesbar — warmes Grau, Akzent-Blau für Links (kein Blau→Schwarz) */
+    --abcona-blue: #2a3444;
+    --abcona-dark: #1f2836;
+    --abcona-blue-dark: #1a2230;
+    --abcona-blue-light: #3d4f66;
+    --abcona-accent: #5ba3f5;
+    --abcona-gray-bg: #121212;
+    --abcona-gray-card: #1e1e1e;
     --status-green: #10b981;
     --status-yellow: #f59e0b;
     --status-red: #ef4444;
@@ -35,9 +43,13 @@ body.dark-mode {
     --arc-radius: 20px;
     --border-radius-card: 12px;
     --border-radius-logo: 8px;
-    --text-primary: #e0e0e0;
-    --text-secondary: #a0a0a0;
-    --border-color: #333333;
+    --text-primary: #e8e8e8;
+    --text-secondary: #b0b0b0;
+    --text-on-chrome: #f5f5f5;
+    --link-color: #6eb5ff;
+    --input-bg: #2a2a2a;
+    --overlay-bg: rgba(0, 0, 0, 0.65);
+    --border-color: #3a3a3a;
 }
 
 /* Transition für flüssigen Wechsel */
@@ -47,11 +59,11 @@ body.dark-mode {
 
 /* Alpha-Variante für Hintergründe */
 :root {
-    --abcona-blue-alpha: rgba(22,50,88,.08);
+    --abcona-blue-alpha: rgba(22, 50, 88, 0.08);
 }
 
 body.dark-mode {
-    --abcona-blue-alpha: rgba(255,255,255,.08);
+    --abcona-blue-alpha: rgba(91, 163, 245, 0.12);
 }
 
 /* Semantische Badge/Status Farben */
@@ -77,8 +89,8 @@ body.dark-mode {
     --badge-warning-text: #fcd34d;
     --badge-warning-hover: #92400e;
     --badge-warning-border: #d97706;
-    --text-muted:         #a0a0a0;
-    --border-light:       #333333;
+    --text-muted:         #9ca3af;
+    --border-light:       #2e2e2e;
 }
 
 /* Erweiterte Farb-Variablen */
@@ -99,8 +111,8 @@ body.dark-mode {
 }
 
 body.dark-mode {
-    --abcona-blue-tint:      #1a2a3a;
-    --abcona-blue-tint-border: #2a4a6a;
+    --abcona-blue-tint:      #1e2a38;
+    --abcona-blue-tint-border: #3d5a7a;
     --status-green-dark:     #16a34a;
     --status-green-bg:       #064e3b;
     --status-green-text:     #6ee7b7;
@@ -109,9 +121,24 @@ body.dark-mode {
     --status-yellow-text:    #fcd34d;
     --status-red-bg:         #7f1d1d;
     --status-red-text:       #fca5a5;
-    --bg-white:              #1a1a1a;
-    --text-dark:             #e0e0e0;
-    --text-mid:              #a0a0a0;
+    --bg-white:              #252525;
+    --text-dark:             #e8e8e8;
+    --text-mid:              #b0b0b0;
+}
+
+/* Bootstrap-Formulare in Dark Mode */
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: var(--input-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border-color: var(--abcona-accent);
 }
 
 /* Code Syntax Highlighting */
