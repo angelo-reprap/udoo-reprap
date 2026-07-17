@@ -1,0 +1,9 @@
+{% extends "abpe_crm/base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+{% include "abpe_crm/components/crm_search.html" %}
+{% include "abpe_crm/tabs/reporting_tab.html" %}
+{% endblock %}

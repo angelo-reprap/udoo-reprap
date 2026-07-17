@@ -1,0 +1,88 @@
+<div class="edms-mode-bar">
+    <button class="edms-mode-btn active" data-mode="personen">
+        <i class="bi bi-people"></i> <span data-i18n="edms_mode_personen">nach Personen</span>
+    </button>
+    <button class="edms-mode-btn" data-mode="dokumente">
+        <i class="bi bi-files"></i> <span data-i18n="edms_mode_dokumente">nach Dokumente</span>
+    </button>
+    <button class="edms-mode-btn" data-mode="posteingang">
+        <i class="bi bi-inbox"></i> <span data-i18n="edms_stat_posteingang">Allgemeine Dokumente</span>
+    </button>
+    <button class="edms-mode-btn" data-mode="archiv">
+        <i class="bi bi-archive"></i> <span data-i18n="edms_mode_archiv">Archiv</span>
+    </button>
+</div>
+
+<div class="edms-three-col" id="edms-three-col">
+
+    <div class="edms-col-treffer" id="edms-col-treffer">
+        <div class="edms-col-head">
+            <i class="bi bi-people" id="edms-col1-icon"></i>
+            <span id="edms-col1-title" data-i18n="edms_personen">Personen &amp; Firmen</span>
+            <span class="edms-col-count" id="edms-col1-count"></span>
+        </div>
+
+        <div class="edms-personen-filter" id="edms-personen-filter">
+            <span class="edms-pf-pill active" data-filter="all" onclick="EDMS.setPersonenFilter('all')" data-i18n-title="edms_pf_alle"><i class="bi bi-list-ul"></i></span>
+            <span class="edms-pf-pill" data-filter="personen" onclick="EDMS.setPersonenFilter('personen')" data-i18n-title="edms_pf_berater"><i class="bi bi-person"></i></span>
+            <span class="edms-pf-pill" data-filter="firmen" onclick="EDMS.setPersonenFilter('firmen')" data-i18n-title="edms_pf_firma"><i class="bi bi-building"></i></span>
+            <span class="edms-pf-pill" data-filter="mails" onclick="EDMS.setPersonenFilter('mails')" data-i18n-title="edms_pf_email"><i class="bi bi-envelope"></i></span>
+            <span class="edms-pf-pill" data-filter="dokumente" onclick="EDMS.setPersonenFilter('dokumente')" data-i18n-title="edms_pf_dokument"><i class="bi bi-file-earmark-text"></i></span>
+        </div>
+
+        <div class="crm-filter-bar" id="edms-doctype-filter" style="display:none">
+            <select id="edms-filter-doctype" onchange="EDMS.loadCol1(1)">
+                <option value="" data-i18n="edms_filter_alle_typen">Alle Typen</option>
+                <option value="cv" data-i18n="edms_doctype_cv">CV / Profil</option>
+                <option value="rechnung" data-i18n="rechnung">Rechnung</option>
+                <option value="angebot" data-i18n="angebot">Angebot</option>
+                <option value="vertrag" data-i18n="vertrag">Vertrag</option>
+                <option value="leistungsnachweis" data-i18n="edms_doctype_nachweis">Leistungsnachweis</option>
+                <option value="sonstiges" data-i18n="sonstiges">Sonstiges</option>
+            </select>
+        </div>
+
+        <div class="edms-col-body">
+            <div id="edms-col1-list" class="crm-list"></div>
+        </div>
+        <div id="edms-pagination" class="crm-pagination"></div>
+    </div>
+
+    <div class="edms-resizer" data-target="edms-col-treffer"></div>
+
+    <div class="edms-col-akte" id="edms-col-akte">
+        <div class="edms-col-head">
+            <i class="bi bi-folder"></i>
+            <span data-i18n="edms_akte">Akte</span>
+        </div>
+        <div id="edms-akte-panel" style="flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden">
+            <div class="crm-detail-empty" style="flex:1;justify-content:center">
+                <i class="bi bi-folder2-open"></i>
+                <p data-i18n="edms_person_waehlen">Person links wählen</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="edms-resizer" data-target="edms-col-akte"></div>
+
+    <div class="edms-col-vorschau" id="edms-col-vorschau">
+        <div class="edms-vorschau-tabs">
+            <div class="edms-vorschau-tab active" id="edms-vtab-dokument" onclick="EDMS.switchVorschauTab('dokument')">
+                <i class="bi bi-file-text"></i> <span data-i18n="edms_reiter_dokument">Dokument</span>
+            </div>
+            <div class="edms-vorschau-tab" id="edms-vtab-mails" onclick="EDMS.switchVorschauTab('mails')">
+                <i class="bi bi-envelope"></i> <span data-i18n="edms_reiter_mails">Mails</span>
+            </div>
+        </div>
+        <div class="edms-vorschau-head" id="edms-vorschau-head"></div>
+        <div class="edms-pfad-zeile" id="edms-pfad-zeile" style="display:none"></div>
+        <div class="edms-vorschau-body" id="edms-vorschau-body">
+            <div class="edms-vorschau-empty">
+                <i class="bi bi-file-earmark-text"></i>
+                <p data-i18n="edms_dokument_waehlen">Dokument wählen</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,193 @@
+.namazu-result-list { display: flex; flex-direction: column; gap: 6px; }
+
+.namazu-result-item {
+    background: var(--abcona-gray-card);
+    border-radius: var(--border-radius-card);
+    padding: 10px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    transition: background 0.15s;
+}
+
+.namazu-result-item:hover { background: var(--abcona-gray-bg); }
+
+.namazu-result-info { flex: 1; min-width: 0; }
+
+.namazu-result-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--abcona-blue);
+    margin: 0 0 3px;
+}
+
+.namazu-result-snippet {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin: 0 0 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.namazu-score {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--abcona-blue);
+    background: var(--abcona-blue-alpha);
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.namazu-profile-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-card);
+    padding: 3px 10px;
+    font-size: 0.78rem;
+    color: var(--abcona-blue);
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: all 0.15s;
+    text-decoration: none;
+}
+
+.namazu-profile-btn:hover {
+    background: var(--abcona-blue);
+    color: white;
+    border-color: var(--abcona-blue);
+}
+
+.namazu-iframe-wrap {
+    margin-top: 14px;
+    border-radius: var(--border-radius-card);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    display: none;
+}
+
+.namazu-iframe-wrap.open { display: block; }
+
+.namazu-iframe-wrap iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    display: block;
+}
+
+.namazu-log {
+    background: var(--abcona-blue-dark);
+    border-radius: var(--border-radius-card);
+    padding: 12px;
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    max-height: 200px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.namazu-chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.namazu-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--abcona-gray-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: all 0.15s;
+}
+
+.namazu-chip:hover {
+    background: var(--abcona-blue-alpha);
+    border-color: var(--abcona-blue);
+    color: var(--abcona-blue);
+}
+
+.namazu-chip code {
+    font-family: monospace;
+    font-size: 0.72rem;
+    color: var(--abcona-blue);
+    background: var(--abcona-blue-alpha);
+    padding: 1px 5px;
+    border-radius: 4px;
+}
+
+.namazu-chip-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 6px 0 4px;
+}
+
+.namazu-exclude-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--badge-warning-bg);
+    border: 1px solid var(--badge-warning-border);
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.72rem;
+    color: var(--badge-warning-text);
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.namazu-exclude-tag:hover { background: var(--badge-warning-hover); }
+
+.namazu-page-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: all 0.15s;
+}
+
+.namazu-page-btn:hover { background: var(--abcona-gray-card); }
+.namazu-page-btn.active { background: var(--abcona-blue); color: white; border-color: var(--abcona-blue); }
+
+.namazu-account-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.82rem;
+}
+
+.namazu-account-row:last-child { border-bottom: none; }
+
+.namazu-account-name { font-weight: 600; color: var(--abcona-blue); width: 80px; flex-shrink: 0; }
+.namazu-account-desc { flex: 1; color: var(--text-secondary); }
+.namazu-account-pw   { color: var(--text-secondary); font-family: monospace; font-size: 0.72rem; }
+
+.namazu-badge-on  { background: var(--badge-success-bg); color: var(--badge-success-text); font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; }
+.namazu-badge-off { background: var(--abcona-gray-card); color: var(--text-secondary); font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; }
+.namazu-badge-err { background: var(--badge-error-bg); color: var(--badge-error-text); font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; }
+
+.namazu-sort-remove {
+    cursor: pointer;
+    opacity: .8;
+    margin-left: 2px;
+}
+
+.namazu-account-edit {
+    padding: 2px 8px;
+    font-size: 0.72rem;
+}

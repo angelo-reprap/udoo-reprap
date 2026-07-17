@@ -1,0 +1,14 @@
+{
+    "help_title": "도움말 및 팁",
+    "help_portal": "이 포털 정보",
+    "help_portal_text": "ABpE 포털 - 자동화된 컨설턴트 프로필 수집 시스템. 이력서, 컨설턴트, 매칭 및 워크플로우를 관리합니다.",
+    "help_navigation": "탐색",
+    "help_nav1": "사이드바: 아이콘은 마우스를 올리면 표시됩니다",
+    "help_nav2": "대시보드: 통계를 펼치거나 접을 수 있습니다",
+    "help_nav3": "모든 섹션은 클릭하여 펼치거나 접을 수 있습니다",
+    "help_shortcuts": "키보드 단축키",
+    "help_shortcut_help": "도움말 열기",
+    "help_shortcut_search": "검색창 포커스",
+    "help_shortcut_stats": "통계 펼치기/접기",
+    "help_shortcut_quick": "빠른 작업"
+}

@@ -1,0 +1,182 @@
+{% extends 'abpe_ui/modules/email_studio/base.html' %}
+{% block title %}{% endblock %}
+
+{% block tab_tools %}
+<input id="es-search-input"
+       data-i18n-placeholder="es.search_placeholder"
+       class="form-control form-control-sm" style="width:160px;">
+<select id="es-scope-select" class="form-select form-select-sm" style="width:120px;">
+    <option value="" data-i18n="es.all_scopes">Alle Bereiche</option>
+    {% for val, label in scopes %}
+    <option value="{{ val }}" {% if scope_filter == val %}selected{% endif %}>{{ label }}</option>
+    {% endfor %}
+</select>
+<select id="es-status-select" class="form-select form-select-sm" style="width:110px;">
+    <option value=""        data-i18n="es.all_status">Alle Status</option>
+    <option value="ACTIVE"  data-i18n="es.status_active" {% if status_filter == 'ACTIVE'  %}selected{% endif %}>Aktiv</option>
+    <option value="DRAFT"   data-i18n="es.status_draft"   {% if status_filter == 'DRAFT'   %}selected{% endif %}>Entwurf</option>
+    <option value="ARCHIVE" data-i18n="es.status_archive" {% if status_filter == 'ARCHIVE' %}selected{% endif %}>Archiv</option>
+</select>
+{% endblock %}
+
+{% block es_content %}
+<div class="container-fluid px-3">
+
+    <div class="es-stats-row mb-3">
+        <div class="es-stat">
+            <div class="es-stat-val">{{ stats.total }}</div>
+            <div class="es-stat-lbl" data-i18n="es.tab_templates" data-i18n="es.breadcrumb_templates">Vorlagen</div>
+        </div>
+        <div class="es-stat">
+            <div class="es-stat-val" style="color:var(--status-green);">{{ stats.active }}</div>
+            <div class="es-stat-lbl" data-i18n="es.status_active"></div>
+        </div>
+        <div class="es-stat">
+            <div class="es-stat-val" style="color:var(--status-yellow);">{{ stats.draft }}</div>
+            <div class="es-stat-lbl" data-i18n="es.status_draft"></div>
+        </div>
+        <div class="es-stat">
+            <div class="es-stat-val" style="color:var(--text-secondary);">{{ stats.archive }}</div>
+            <div class="es-stat-lbl" data-i18n="es.status_archive"></div>
+        </div>
+    </div>
+
+    {% for scope, templates in grouped.items %}
+    <div class="es-toggle-row-wrap" data-scope-group="{{ scope }}">
+        <div class="es-toggle-row-hdr open" onclick="esToggleRow(this)">
+            <div style="display:flex;align-items:center;gap:7px;">
+                <i class="bi bi-folder2"></i>
+                <span>{{ scope }}</span>
+                <span class="es-badge es-badge-white">{{ templates|length }}</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;">
+                <span style="font-size:10px;opacity:.6;"
+                      data-i18n="es.scope_label"></span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+        </div>
+        <div class="es-toggle-row-body col1 open"
+             style="background:white;border:1px solid var(--border-color);
+                    border-top:none;border-radius:0 0 8px 8px;overflow:hidden;">
+            <table class="es-table">
+                <thead>
+                    <tr>
+                        <th style="width:220px;" data-i18n="es.col_name"></th>
+                        <th style="width:120px;" data-i18n="es.col_type"></th>
+                        <th style="width:90px;"  data-i18n="es.col_sender"></th>
+                        <th style="width:50px;"  data-i18n="es.col_html"></th>
+                        <th style="width:50px;"  data-i18n="es.col_txt"></th>
+                        <th style="width:70px;"  data-i18n="es.col_version"></th>
+                        <th style="width:80px;"  data-i18n="es.col_status"></th>
+                        <th style="width:130px;" data-i18n="es.col_last_used"></th>
+                        <th                      data-i18n="es.col_actions"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for tpl in templates %}
+                <tr data-tpl-row
+                    data-name="{{ tpl.name|lower }}"
+                    data-identifier="{{ tpl.identifier }}"
+                    data-scope="{{ tpl.app_scope }}"
+                    data-status="{{ tpl.status }}">
+                    <td>
+                        <div style="font-weight:600;color:var(--abcona-blue);font-size:12px;">
+                            {{ tpl.name }}
+                        </div>
+                        <div class="es-identifier">{{ tpl.identifier }}</div>
+                    </td>
+                    <td><span class="es-badge es-badge-blue">{{ tpl.event_type }}</span></td>
+                    <td>
+                        <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;">
+                            <span class="es-dot
+                                {% if tpl.sender_mode == 'USER' %}es-dot-user
+                                {% elif tpl.sender_mode == 'AUTO' %}es-dot-auto
+                                {% else %}es-dot-tpl{% endif %}">
+                            </span>
+                            <span data-i18n="es.mode_{{ tpl.sender_mode|lower }}"></span>
+                        </span>
+                    </td>
+                    <td>
+                        {% if tpl.html_body %}
+                            <i class="bi bi-check-circle-fill" style="color:var(--status-green);"></i>
+                        {% else %}
+                            <i class="bi bi-dash-circle"       style="color:var(--border-color);"></i>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if tpl.text_body %}
+                            <i class="bi bi-check-circle-fill" style="color:var(--status-green);"></i>
+                        {% else %}
+                            <i class="bi bi-dash-circle"       style="color:var(--border-color);"></i>
+                        {% endif %}
+                    </td>
+                    <td><span class="es-badge es-badge-blue">v{{ tpl.active_version }}</span></td>
+                    <td>
+                        {% if tpl.status == 'ACTIVE' %}
+                            <span class="es-badge es-badge-green"  data-i18n="es.status_active"></span>
+                        {% elif tpl.status == 'DRAFT' %}
+                            <span class="es-badge es-badge-amber"  data-i18n="es.status_draft"></span>
+                        {% else %}
+                            <span class="es-badge es-badge-gray"   data-i18n="es.status_archive"></span>
+                        {% endif %}
+                    </td>
+                    <td style="font-size:10px;color:var(--text-secondary);">
+                        {% if tpl.last_used_at %}{{ tpl.last_used_at|date:"d.m.Y H:i" }}
+                        {% else %}—{% endif %}
+                    </td>
+                    <td>
+                        <div style="display:flex;gap:3px;">
+                            <a href="/email-studio/studio/?template={{ tpl.pk }}"
+                               class="es-btn-icon" data-i18n-title="es.btn_edit"><i class="bi bi-pencil"></i></a>
+                            <button class="es-btn-icon" data-i18n-title="es.btn_duplicate"
+                                    data-action="duplicate"
+                                    data-id="{{ tpl.pk }}"
+                                    data-name="{{ tpl.name }}"
+                                    data-identifier="{{ tpl.identifier }}">
+                                <i class="bi bi-files"></i>
+                            </button>
+                            <a href="/email-studio/studio/?template={{ tpl.pk }}&preview=1"
+                               class="es-btn-icon" data-i18n-title="es.btn_preview"><i class="bi bi-eye"></i></a>
+                            <button class="es-btn-icon" data-i18n-title="es.btn_test_send"
+                                    data-action="test-send"
+                                    data-id="{{ tpl.pk }}">
+                                <i class="bi bi-send"></i>
+                            </button>
+                            {% if tpl.status != 'ARCHIVE' %}
+                            <button class="es-btn-icon danger" data-i18n-title="es.btn_archive"
+                                    data-action="archive"
+                                    data-id="{{ tpl.pk }}">
+                                <i class="bi bi-archive"></i>
+                            </button>
+                            {% endif %}
+                        </div>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="9" style="text-align:center;padding:20px;
+                                           color:var(--text-secondary);">
+                        <span data-i18n="es.no_templates_found"></span>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% empty %}
+    <div style="text-align:center;padding:40px;color:var(--text-secondary);">
+        <i class="bi bi-inbox" style="font-size:40px;display:block;margin-bottom:10px;"></i>
+        <span data-i18n="es.empty_templates"></span>
+        <a href="/email-studio/studio/" class="btn btn-sm btn-primary ms-2">
+            <span data-i18n="es.empty_templates_hint"></span>
+        </a>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/email_studio/js/es-templates.js"></script>
+{% endblock %}
