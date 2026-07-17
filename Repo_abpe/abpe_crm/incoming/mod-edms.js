@@ -368,12 +368,12 @@ const EDMS = {
     },
 
     _docIcon(doctype) {
-        const m = {cv:'bi-file-person-fill', vertrag:'bi-file-earmark-text-fill', contract:'bi-file-earmark-text-fill',
-                   rechnung:'bi-receipt', invoice:'bi-receipt', nachweis:'bi-file-earmark-check-fill',
-                   leistungsnachweis:'bi-file-earmark-check-fill', zeitnachweis:'bi-clock-history',
-                   angebot:'bi-file-earmark-richtext-fill', korrespondenz:'bi-envelope-fill',
-                   email:'bi-envelope-fill', sonstiges:'bi-file-earmark-fill'};
-        return m[doctype] || 'bi-file-earmark-fill';
+        const m = {cv:'bi-file-person', vertrag:'bi-file-earmark-text', contract:'bi-file-earmark-text',
+                   rechnung:'bi-receipt', invoice:'bi-receipt', nachweis:'bi-file-earmark-check',
+                   leistungsnachweis:'bi-file-earmark-check', zeitnachweis:'bi-clock-history',
+                   angebot:'bi-file-earmark-richtext', korrespondenz:'bi-envelope-fill',
+                   email:'bi-envelope-fill', sonstiges:'bi-file-earmark'};
+        return m[doctype] || 'bi-file-earmark';
     },
 
     setPersonenFilter(filt) {

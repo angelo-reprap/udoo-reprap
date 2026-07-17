@@ -2350,16 +2350,16 @@ Object.assign(PBX, {
             '.pbx-meetme-modal.pbx-mm-drag-positioned{position:absolute;margin:0;max-height:calc(100vh - 16px);overflow:auto;}',
             '.pbx-mm-modal-drag-handle{cursor:grab;user-select:none;-webkit-user-select:none;}',
             '.pbx-mm-modal-drag-handle:active{cursor:grabbing;}',
-            '.pbx-mm-collapsible{border:1px solid var(--border-color,#dee2e6);border-radius:8px;margin-bottom:10px;background:#fff;overflow:hidden;}',
-            '.pbx-mm-collapsible-hdr{width:100%;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;background:var(--abcona-gray-bg,#f8f9fa);border:none;cursor:pointer;font-size:12px;font-weight:600;color:#888;text-align:left;}',
-            '.pbx-mm-collapsible-hdr span{font-size:12.5px;font-weight:600;color:#555;}',
-            '.pbx-mm-collapsible-hdr .pbx-mm-collapsible-chevron{color:#888;font-size:14px;flex-shrink:0;}',
+            '.pbx-mm-collapsible{border:1px solid var(--border-color);border-radius:8px;margin-bottom:10px;background:var(--bg-white);overflow:hidden;color:var(--text-primary);}',
+            '.pbx-mm-collapsible-hdr{width:100%;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;background:var(--abcona-gray-bg);border:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--text-secondary);text-align:left;}',
+            '.pbx-mm-collapsible-hdr span{font-size:12.5px;font-weight:600;color:var(--text-primary);}',
+            '.pbx-mm-collapsible-hdr .pbx-mm-collapsible-chevron{color:var(--text-muted);font-size:14px;flex-shrink:0;}',
             '.pbx-mm-collapsible:not(.pbx-mm-collapsed) .pbx-mm-collapsible-hdr{border-radius:8px 8px 0 0;}',
             '.pbx-mm-collapsible.pbx-mm-collapsed .pbx-mm-collapsible-hdr{border-radius:8px;}',
             '.pbx-mm-collapsible-body{padding:10px 12px 12px;}',
-            '.pbx-mm-collapsible.pbx-sa-ds .pbx-mm-collapsible-hdr span{color:#333;}',
-            '.pbx-mm-add-guest-btn{background:var(--status-green-bg,#d1e7dd)!important;color:#0f5132!important;border:1px solid #a3cfbb!important;}',
-            '.pbx-mm-add-guest-btn:hover{background:#a3cfbb!important;}',
+            '.pbx-mm-collapsible.pbx-sa-ds .pbx-mm-collapsible-hdr span{color:var(--text-primary);}',
+            '.pbx-mm-add-guest-btn{background:var(--badge-success-bg)!important;color:var(--badge-success-text)!important;border:1px solid var(--status-green)!important;}',
+            '.pbx-mm-add-guest-btn:hover{background:var(--status-green-bg)!important;}',
             '.pbx-mm-status-pill[title]{cursor:help;}',
         ].join('');
         document.head.appendChild(s);
@@ -2537,7 +2537,7 @@ Object.assign(PBX, {
             bodyEl.innerHTML = '';
             iframe = document.createElement('iframe');
             iframe.className = className;
-            iframe.style.cssText = `width:100%;height:${height}px;border:1px solid var(--border-color, #dee2e6);border-radius:8px;display:block;background:#fff`;
+            iframe.style.cssText = `width:100%;height:${height}px;border:1px solid var(--border-color);border-radius:8px;display:block;background:var(--bg-white)`;
             iframe.setAttribute('sandbox', '');
             iframe.setAttribute('referrerpolicy', 'no-referrer');
             iframe.title = this.t('pbx_mm_notify_tab_html', 'HTML');
@@ -4612,9 +4612,9 @@ Object.assign(PBX, {
         if (box) box.remove();
         box = document.createElement('div');
         box.id = 'pbx-mm-notify-email-choice';
-        box.style.cssText = 'width:100%;border:1px solid var(--border-color, #dee2e6);border-radius:8px;padding:10px;margin-top:6px;background:#fff';
+        box.style.cssText = 'width:100%;border:1px solid var(--border-color);border-radius:8px;padding:10px;margin-top:6px;background:var(--bg-white);color:var(--text-primary)';
         box.innerHTML = `
-            <p style="font-size:12px;color:#888;margin:0 0 8px">${this.t('pbx_meetme_choose_email_hint', 'Mehrere E-Mail-Adressen gefunden, eine oder mehrere waehlen:')}</p>
+            <p style="font-size:12px;color:var(--text-muted);margin:0 0 8px">${this.t('pbx_meetme_choose_email_hint', 'Mehrere E-Mail-Adressen gefunden, eine oder mehrere waehlen:')}</p>
             ${emails.map((e, i) => `
                 <label style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12.5px">
                     <input type="checkbox" class="pbx-mm-notify-email-cb" value="${i}" ${e.primary ? 'checked' : ''} style="width:auto">
