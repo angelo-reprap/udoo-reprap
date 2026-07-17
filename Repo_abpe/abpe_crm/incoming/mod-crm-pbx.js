@@ -3037,7 +3037,7 @@ Object.assign(PBX, {
 
     _mmReminderFreshDraft(guestId) {
         return {
-            offset_value: 1, offset_unit: 'HOURS', time_of_day: null, mode: 'MANUAL',
+            offset_value: 1, offset_unit: 'HOURS', time_of_day: null, mode: 'AUTO',
             guest: guestId || null, template_id: null, subject: '', body: '', attachment_refs: [],
         };
     },
@@ -3560,8 +3560,8 @@ Object.assign(PBX, {
                     <div>
                         <label style="font-size:11px;color:#888">${this.t('pbx_mm_reminder_mode', 'Modus')}</label>
                         <select id="pbx-mm-reminder-mode">
+                            <option value="AUTO" ${r.mode !== 'MANUAL' ? 'selected' : ''}>${this.t('pbx_mm_reminder_auto', 'Automatisch senden')}</option>
                             <option value="MANUAL" ${r.mode === 'MANUAL' ? 'selected' : ''}>${this.t('pbx_mm_reminder_manual', 'Manuell pruefen')}</option>
-                            <option value="AUTO" ${r.mode === 'AUTO' ? 'selected' : ''}>${this.t('pbx_mm_reminder_auto', 'Automatisch senden')}</option>
                         </select>
                     </div>
                 </div>
