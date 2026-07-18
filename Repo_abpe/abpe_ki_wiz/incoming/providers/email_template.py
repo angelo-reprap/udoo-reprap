@@ -109,20 +109,17 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
                 'font_size_px': 14,
                 'text_color': '#333333',
                 'text_align': 'left',
-                'structure': ['header_module', 'event_label', 'body', 'closing'],
-                'header_modules': ['abcona_header_blau'],
-                'event_labels': ['label_info', 'label_bestaetigt', 'label_warnung'],
-                'footer_modules': ['footer_standard', 'footer_auto_reply'],
-                'button_modules': ['cta_blau', 'cta_gruen', 'cta_with_secondary'],
+                'structure': ['header_module', 'body', 'footer_module'],
+                'header_modules': [
+                    'abcona_header_blau',
+                    'abcona_header_gruen',
+                    'abcona_header_rot',
+                ],
+                'footer_modules': ['footer_standard', 'footer_auto_reply', 'signature'],
                 'default_header': 'abcona_header_blau',
-                # Signatur XOR Footer (DE-Impressum) — siehe EMAIL_LAYOUT_DECLARATION.md
-                'closing_xor': ['signature', 'footer'],
-                'footer_style': 'imprint',
-                'text_fallback': 'html_1to1',
                 'ci_notes': (
-                    '{{block:abcona_header_blau}} → optional label_info|bestaetigt|warnung → Body '
-                    '→ entweder {{block:signature}} ODER {{block:footer_standard|footer_auto_reply}}. '
-                    'Body: Arial 14px #333 left. TXT 1:1 aus HTML. CTA: cta_blau/cta_gruen.'
+                    'Header-Modul (blau/grün/rot) → Body-Text → Footer-Modul. '
+                    'Header/Body/Footer linksbündig; Body und Footer gleiche Schrift/Farbe.'
                 ),
             },
         }
@@ -161,11 +158,10 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
             'Deutsch, geschäftlich',
             'status immer DRAFT',
             '{sender_name} und {sender_email} für User-Absender erlaubt',
-            'Corporate: {{block:abcona_header_blau}} → optional label_* → Body',
-            'Abschluss XOR: Signatur ODER Footer (nie beides) — DE-Impressum',
-            'Body linksbündig, Arial 14px, Farbe #333333',
-            'text_body Pflicht: sichtbarer Text 1:1 aus HTML',
-            'Event-Badge: label_info (blau) / label_bestaetigt (grün) / label_warnung (rot)',
+            'Corporate-Layout: {{block:abcona_header_*}} → Body → {{block:footer_standard}} oder {{block:signature}}',
+            'Header, Body und Footer linksbündig (text-align:left)',
+            'Body und Footer: Arial 14px, Farbe #333333 — keine abweichende Formatierung',
+            'Header-Farbe: blau=info, grün=positiv, rot=warnung/dringend (L1-Antwort)',
         ]
         if scope == 'telefon':
             items.append('MeetMe/Termin-Variablen nur bei app_scope telefon')
@@ -173,17 +169,12 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
             items.append('Keine MeetMe-Variablen ({termin_datum} etc.) ohne Termin-Kontext')
         if answers.get('I1') == 'bullet_list':
             items.append('Kerninfos als Aufzählung (<ul> oder Fakten-Box)')
-        g1 = answers.get('G1')
-        if g1 and g1 != 'NONE':
-            items.append('{{block:signature}} im Body — kein Footer-Modul')
-        else:
-            items.append('Keine Signatur → {{block:footer_standard}} oder footer_auto_reply')
+        if answers.get('G1') and answers.get('G1') != 'NONE':
+            items.append('{{block:signature}} im Body einfügen')
         if answers.get('L3') and answers.get('L3') != 'none':
             items.append(f"Button-Modul: {{block:{answers['L3']}}}")
         if answers.get('L1') and answers.get('L1') != 'none':
             items.append(f"Header-Modul: {{block:{answers['L1']}}}")
-        if answers.get('L2') and answers.get('L2') != 'none':
-            items.append(f"Event-Label: {{block:{answers['L2']}}}")
         return items
 
     def default_meta_suggestions(
@@ -299,12 +290,8 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         merged: dict[str, Any],
     ) -> dict[str, Any]:
         blocks: list[str] = []
-        l1 = answers.get('L1') or 'abcona_header_blau'
-        if l1 != 'none':
-            blocks.append(f'{{{{block:{l1}}}}}')
-        l2 = answers.get('L2') or 'none'
-        if l2 != 'none':
-            blocks.append(f'{{{{block:{l2}}}}}')
+        if answers.get('L1') and answers.get('L1') != 'none':
+            blocks.append(f'{{{{block:{answers["L1"]}}}}}')
 
         info_html, info_text = self._render_info_block(answers)
         intro = (briefing or merged.get('description') or '').strip()
@@ -326,8 +313,6 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         sig_mode = answers.get('G1') or merged.get('signature_mode') or 'USER'
         if sig_mode and sig_mode != 'NONE':
             blocks.append('{{block:signature}}')
-        else:
-            blocks.append('{{block:footer_standard}}')
 
         html_body = self._wrap_email_table('\n'.join(blocks))
         text_parts = [
@@ -362,12 +347,8 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         merged: dict[str, Any],
     ) -> dict[str, Any]:
         blocks: list[str] = []
-        l1 = answers.get('L1') or 'abcona_header_blau'
-        if l1 != 'none':
-            blocks.append(f'{{{{block:{l1}}}}}')
-        l2 = answers.get('L2') or 'none'
-        if l2 != 'none':
-            blocks.append(f'{{{{block:{l2}}}}}')
+        if answers.get('L1') and answers.get('L1') != 'none':
+            blocks.append(f'{{{{block:{answers["L1"]}}}}}')
 
         intro = (briefing or merged.get('description') or '').strip()
         text = briefing or ''
@@ -432,8 +413,6 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         sig_mode = answers.get('G1') or merged.get('signature_mode') or 'USER'
         if sig_mode and sig_mode != 'NONE' and '{{block:signature}}' not in body_html:
             blocks.append('{{block:signature}}')
-        elif not sig_mode or sig_mode == 'NONE':
-            blocks.append('{{block:footer_standard}}')
 
         return {
             'html_body': self._wrap_email_table('\n'.join(blocks)),
