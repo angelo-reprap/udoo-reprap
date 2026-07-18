@@ -374,6 +374,24 @@ window.ESKiWizard = (() => {
         const title = document.getElementById('es-ki-wizard-title');
         if (title) title.textContent = t('ki_refine_tab', 'KI verfeinern');
 
+        _meta = {
+            name: fields.name,
+            identifier: fields.identifier,
+            subject: fields.subject,
+            app_scope: fields.app_scope || 'general',
+            sender_mode: fields.sender_mode || 'USER',
+            signature_mode: fields.signature_mode || 'USER',
+            event_type: 'info',
+            status: 'DRAFT',
+        };
+        _generated = {
+            html_body: fields.html_body,
+            text_body: fields.text_body,
+            source: 'editor',
+        };
+        _showPreview();
+        _setStep('preview');
+        _updatePreviewFooterForRefine();
         _showModal('es-ki-refine-notes');
         _setBusy(true);
 
@@ -402,14 +420,13 @@ window.ESKiWizard = (() => {
             await _api('POST', `/session/${_sessionId}/clarify/`, { answers: _answers });
 
             _meta = {
+                ..._meta,
                 name: fields.name,
                 identifier: fields.identifier,
                 subject: fields.subject,
                 app_scope: fields.app_scope || 'general',
                 sender_mode: fields.sender_mode || 'USER',
                 signature_mode: fields.signature_mode || 'USER',
-                event_type: 'info',
-                status: 'DRAFT',
             };
             _generated = {
                 html_body: fields.html_body,
@@ -417,9 +434,7 @@ window.ESKiWizard = (() => {
                 source: 'editor',
             };
             _showPreview();
-            _setStep('preview');
-            _updatePreviewFooterForRefine();
-            document.getElementById('es-ki-refine-notes')?.focus();
+            _focusModal('es-ki-refine-notes');
         } catch (e) {
             _refineMode = false;
             _showError(e.message);
@@ -457,6 +472,15 @@ window.ESKiWizard = (() => {
         window.location.href = '/email-studio/studio/?new=blank&from_ki=1';
     }
 
+    function _focusModal(focusId) {
+        if (!focusId) return;
+        requestAnimationFrame(() => {
+            const modal = document.getElementById('es-ki-wizard-modal');
+            if (!modal || modal.getAttribute('aria-hidden') === 'true') return;
+            document.getElementById(focusId)?.focus();
+        });
+    }
+
     function _showModal(focusId) {
         const modal = document.getElementById('es-ki-wizard-modal');
         if (!modal) {
@@ -465,7 +489,7 @@ window.ESKiWizard = (() => {
         }
         modal.classList.add('show');
         modal.setAttribute('aria-hidden', 'false');
-        if (focusId) document.getElementById(focusId)?.focus();
+        _focusModal(focusId);
     }
 
     function open() {
@@ -480,6 +504,10 @@ window.ESKiWizard = (() => {
     function close() {
         const modal = document.getElementById('es-ki-wizard-modal');
         if (!modal) return;
+        const active = document.activeElement;
+        if (active && modal.contains(active)) {
+            active.blur();
+        }
         modal.classList.remove('show');
         modal.setAttribute('aria-hidden', 'true');
     }

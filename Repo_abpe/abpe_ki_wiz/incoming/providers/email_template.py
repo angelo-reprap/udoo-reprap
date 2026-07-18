@@ -106,6 +106,21 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
                 'width_px': 600,
                 'brand': 'abcona',
                 'font': 'Arial,sans-serif',
+                'font_size_px': 14,
+                'text_color': '#333333',
+                'text_align': 'left',
+                'structure': ['header_module', 'body', 'footer_module'],
+                'header_modules': [
+                    'abcona_header_blau',
+                    'abcona_header_gruen',
+                    'abcona_header_rot',
+                ],
+                'footer_modules': ['footer_standard', 'footer_auto_reply', 'signature'],
+                'default_header': 'abcona_header_blau',
+                'ci_notes': (
+                    'Header-Modul (blau/grün/rot) → Body-Text → Footer-Modul. '
+                    'Header/Body/Footer linksbündig; Body und Footer gleiche Schrift/Farbe.'
+                ),
             },
         }
 
@@ -143,6 +158,10 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
             'Deutsch, geschäftlich',
             'status immer DRAFT',
             '{sender_name} und {sender_email} für User-Absender erlaubt',
+            'Corporate-Layout: {{block:abcona_header_*}} → Body → {{block:footer_standard}} oder {{block:signature}}',
+            'Header, Body und Footer linksbündig (text-align:left)',
+            'Body und Footer: Arial 14px, Farbe #333333 — keine abweichende Formatierung',
+            'Header-Farbe: blau=info, grün=positiv, rot=warnung/dringend (L1-Antwort)',
         ]
         if scope == 'telefon':
             items.append('MeetMe/Termin-Variablen nur bei app_scope telefon')
@@ -407,8 +426,8 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         return (
             '<table role="presentation" width="600" cellpadding="0" cellspacing="0" '
             'style="width:600px;max-width:600px;font-family:Arial,sans-serif;font-size:14px;'
-            'color:#333333;">'
-            '<tr><td style="padding:16px 24px;">'
+            'color:#333333;text-align:left;">'
+            '<tr><td style="padding:16px 24px;text-align:left;">'
             + inner
             + '</td></tr></table>'
         )

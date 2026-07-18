@@ -66,6 +66,8 @@ FACTS_USAGE_RULES: list[str] = [
     'Nutze facts.*.variables für konkrete Werte in {name}, {email}, {firma}, {berater_name}, …',
     'Dynamische unbekannte Empfänger weiter als {variablen} aus CONTEXT.catalog.variables.',
     'Bei KI-Verfeinern: facts weiterhin gültig; HTML anpassen, Fakten nicht erfinden.',
+    'Corporate-Layout: Header-Modul (abcona_header_blau/gruen/rot) → Body → Footer-Modul.',
+    'Header, Body, Footer linksbündig; Body/Footer Arial 14px, Farbe #333333.',
 ]
 
 _ES_FIELDS_BERATER = [
