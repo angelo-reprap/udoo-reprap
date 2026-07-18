@@ -168,9 +168,17 @@ async function initLanguageSelector() {
         currentLang = serverLang;
         await loadLanguage(currentLang);
 
+        /* Initial-Load: Module (ES Studio etc.) müssen dynamische Labels neu setzen */
+        document.dispatchEvent(new CustomEvent('languageChanged', {
+            detail: { language: currentLang, moduleId: _currentModuleId }
+        }));
+
     } catch (e) {
         console.error('Fehler beim Laden der Sprachen:', e);
         await loadLanguage(currentLang);
+        document.dispatchEvent(new CustomEvent('languageChanged', {
+            detail: { language: currentLang, moduleId: _currentModuleId }
+        }));
     }
 }
 

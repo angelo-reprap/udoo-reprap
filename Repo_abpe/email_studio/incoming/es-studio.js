@@ -126,12 +126,47 @@ window.ESStudio = (() => {
         }
 
         document.addEventListener('languageChanged', () => {
-            _applyI18nToCanvas();
+            _onLanguageChanged();
         });
 
         _applyPendingWizardResult();
 
+        /* Nach erstem loadLanguage Module-Labels neu setzen (Race mit DOMContentLoaded) */
+        _waitForI18nThenRefresh();
+
         console.log('ES Studio initialisiert, Template:', _templateId);
+    }
+
+    let _langRefreshTimer = null;
+    function _onLanguageChanged() {
+        clearTimeout(_langRefreshTimer);
+        _langRefreshTimer = setTimeout(() => {
+            _applyI18nToCanvas();
+            _loadModules(true);
+            const mode = document.querySelector('input[name="es-sig-mode"]:checked')?.value || 'USER';
+            _updateSigBlock(mode);
+            _initSectionHints();
+            /* Dynamische Var-Gruppen neu laden (Sektor-Labels via t()) */
+            if (document.getElementById('es-vars-panel-body')) {
+                _reloadVariablesPanel();
+            }
+        }, 50);
+    }
+
+    function _waitForI18nThenRefresh() {
+        let n = 0;
+        const tick = () => {
+            n += 1;
+            if (window.i18nData?.es?.modules_title || window.i18nData?.es?.signature_title) {
+                _onLanguageChanged();
+                return true;
+            }
+            return false;
+        };
+        if (tick()) return;
+        const iv = setInterval(() => {
+            if (tick() || n > 40) clearInterval(iv);
+        }, 100);
     }
 
     function _setSenderModeBtn(mode) {
@@ -880,11 +915,14 @@ window.ESStudio = (() => {
         return map[key] || fallback || key;
     }
 
-    function _subGroupAccordionHtml(label, innerHtml, count) {
+    function _subGroupAccordionHtml(label, innerHtml, count, i18nKey) {
         const n = count != null ? count : (innerHtml.match(/es-var-chip|es-module-chip/g) || []).length;
+        const i18nAttr = i18nKey
+            ? ` data-i18n="${i18nKey.startsWith('es.') ? i18nKey : 'es.' + i18nKey}"`
+            : '';
         return `<div class="es-sub-toggle">`
              + `<div class="es-sub-toggle-hdr" onclick="toggleSection(this)">`
-             + `<span class="es-sub-toggle-lbl">${label}</span>`
+             + `<span class="es-sub-toggle-lbl"${i18nAttr}>${label}</span>`
              + `<span class="es-sub-toggle-meta">`
              + `<span class="es-sub-toggle-count">${n}</span>`
              + `<i class="bi bi-chevron-down"></i></span></div>`
@@ -910,7 +948,8 @@ window.ESStudio = (() => {
                      + ` aria-label="Info"><i class="bi bi-info-circle"></i></button>`
                      + `<i class="bi bi-clipboard es-var-chip-icon"></i></span></div>`;
             });
-            html += _subGroupAccordionHtml(label, chips, (group.vars || []).length);
+            const i18nKey = group.label_i18n || ('es.vars_' + (group.key || ''));
+            html += _subGroupAccordionHtml(label, chips, (group.vars || []).length, i18nKey);
         });
         container.innerHTML = html;
         const badge = document.getElementById('es-var-count-badge');
@@ -1135,7 +1174,9 @@ window.ESStudio = (() => {
                         </span>
                     </div>`;
                 }
-                html += _subGroupAccordionHtml(_moduleGroupLabel(type), chips, modules.length);
+                html += _subGroupAccordionHtml(
+                    _moduleGroupLabel(type), chips, modules.length, 'es.module_grp_' + type
+                );
             }
             container.innerHTML = html || `<div class="es-modules-empty">${t('modules_empty', 'Keine Module gefunden')}</div>`;
             container.dataset.loaded = '1';
