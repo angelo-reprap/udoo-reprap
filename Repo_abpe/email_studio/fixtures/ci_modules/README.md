@@ -1,10 +1,15 @@
-# CI-Modul-Fixtures (Vorschläge)
+# CI-Modul-Fixtures
 
-Einheitliche Header-HTMLs gemäß Konsolidierungs-CI:
+| Datei | Zweck |
+|---|---|
+| `abcona_header_*.html` | Header vereinheitlicht (left, 18px) — optional |
+| `footer_standard.html` / `.txt` | Firmen-Impressum (Deklaration §3) |
+| `footer_auto_reply.html` / `.txt` | Impressum + „Bitte nicht antworten“ |
 
-- linksbündig (`text-align:left`)
-- Schrift: Arial/Helvetica, **18px**, weiß, weight 600
-- Padding: `16px 24px`
-- Farben: blau `#163258` · grün `#28a745` · rot `#dc3545`
+Anwenden über:
 
-**Nicht automatisch laden.** Nach Review auf ucs5 die `html_body` der drei `EmailModule`-Zeilen ersetzen (Admin oder gezieltes Update-Skript). Vorher Backup via `export-email-studio-data.sh`.
+```bash
+python3 Repo_abpe/email_studio/incoming/apply_layout_consolidation.py --apply-db
+```
+
+Siehe `docs/APPLY_CONSOLIDATION.md`. Vorher Backup.
