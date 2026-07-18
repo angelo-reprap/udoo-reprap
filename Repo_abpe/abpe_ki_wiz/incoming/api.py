@@ -1,20 +1,36 @@
 """
-ABpE KI Wizard — REST API
+ABpE KI Wizard — REST API (DRF + drf-spectacular)
 """
 from __future__ import annotations
 
-import json
 import logging
 import uuid
 
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import JsonResponse
 from django.utils.decorators import method_decorator
-from django.views import View
 from django.views.decorators.csrf import csrf_exempt
+from drf_spectacular.utils import OpenApiParameter, extend_schema
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from .models import WizardPrompt, WizardSession
 from .registry import WizardNotRegisteredError, get_provider, provider_info
+from .serializers import (
+    AnalyzeResponseSerializer,
+    ApplyResponseSerializer,
+    CatalogResponseSerializer,
+    ClarifyRequestSerializer,
+    ClarifyResponseSerializer,
+    ErrorSerializer,
+    GenerateRequestSerializer,
+    GenerateResponseSerializer,
+    HealthResponseSerializer,
+    PromptListResponseSerializer,
+    SessionCreateRequestSerializer,
+    SessionSerializer,
+    SuggestMetaResponseSerializer,
+    WizardListResponseSerializer,
+)
 from .services.orchestrator import (
     analyze_session,
     apply_session,
@@ -26,26 +42,39 @@ from .services.session_store import create_session, get_session_for_user, sessio
 
 log = logging.getLogger('abpe_ki_wiz.api')
 
+SESSION_ID_PARAM = OpenApiParameter(
+    name='session_id',
+    type=uuid.UUID,
+    location=OpenApiParameter.PATH,
+    description='Wizard-Session UUID',
+)
+WIZARD_ID_PARAM = OpenApiParameter(
+    name='wizard_id',
+    type=str,
+    location=OpenApiParameter.PATH,
+    description='Wizard-ID, z.B. email_template',
+)
 
-def _json_body(request) -> dict:
-    if not request.body:
-        return {}
-    try:
-        return json.loads(request.body.decode('utf-8'))
-    except (json.JSONDecodeError, UnicodeDecodeError):
-        return {}
 
-
-class KiWizardHealthAPI(View):
+class KiWizardHealthAPI(APIView):
     """GET /ki-wizard/api/health/ — ohne Login (Monitoring)."""
 
+    permission_classes = [AllowAny]
+    authentication_classes = []
+
+    @extend_schema(
+        tags=['monitoring'],
+        summary='Health Check',
+        responses={200: HealthResponseSerializer},
+        auth=[],
+    )
     def get(self, request):
         prompt_count = WizardPrompt.objects.filter(aktiv=True).count()
         wizards = [
             w for w in provider_info()
             if not w.get('wizard_id', '').startswith('_')
         ]
-        return JsonResponse({
+        return Response({
             'status': 'ok',
             'service': 'abpe_ki_wiz',
             'phase': 1,
@@ -56,35 +85,51 @@ class KiWizardHealthAPI(View):
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class KiWizardListAPI(LoginRequiredMixin, View):
-    """GET /ki-wizard/api/wizards/ — registrierte Wizard-Provider."""
+class KiWizardListAPI(APIView):
+    permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        tags=['wizards'],
+        summary='Registrierte Wizard-Provider',
+        responses={200: WizardListResponseSerializer, 401: ErrorSerializer},
+    )
     def get(self, request):
         wizards = [
             w for w in provider_info()
             if not w.get('wizard_id', '').startswith('_')
         ]
-        return JsonResponse({'wizards': wizards})
+        return Response({'wizards': wizards})
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class KiWizardCatalogAPI(LoginRequiredMixin, View):
-    """GET /ki-wizard/api/wizards/<wizard_id>/catalog/"""
+class KiWizardCatalogAPI(APIView):
+    permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        tags=['wizards'],
+        summary='Domain-Katalog (Variablen, Module, Fragen)',
+        parameters=[WIZARD_ID_PARAM],
+        responses={
+            200: CatalogResponseSerializer,
+            401: ErrorSerializer,
+            404: ErrorSerializer,
+            500: ErrorSerializer,
+        },
+    )
     def get(self, request, wizard_id):
         try:
             provider = get_provider(wizard_id)
         except WizardNotRegisteredError as exc:
-            return JsonResponse({'error': str(exc)}, status=404)
+            return Response({'error': str(exc)}, status=404)
 
         try:
             catalog = provider.get_catalog()
             questions = provider.get_question_catalog()
         except Exception as exc:
             log.exception('Katalog laden fehlgeschlagen: %s', wizard_id)
-            return JsonResponse({'error': str(exc)}, status=500)
+            return Response({'error': str(exc)}, status=500)
 
-        return JsonResponse({
+        return Response({
             'wizard_id': wizard_id,
             'title': provider.title,
             'description': provider.description,
@@ -94,9 +139,22 @@ class KiWizardCatalogAPI(LoginRequiredMixin, View):
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class KiWizardPromptListAPI(LoginRequiredMixin, View):
-    """GET /ki-wizard/api/prompts/ — aktive Prompts aus DB."""
+class KiWizardPromptListAPI(APIView):
+    permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        tags=['wizards'],
+        summary='Aktive WizardPrompts (DB)',
+        parameters=[
+            OpenApiParameter(
+                name='wizard_id',
+                type=str,
+                location=OpenApiParameter.QUERY,
+                required=False,
+            ),
+        ],
+        responses={200: PromptListResponseSerializer, 401: ErrorSerializer},
+    )
     def get(self, request):
         wizard_id = request.GET.get('wizard_id', '').strip()
         qs = WizardPrompt.objects.filter(aktiv=True).order_by('wizard_id', 'phase', 'key')
@@ -111,147 +169,231 @@ class KiWizardPromptListAPI(LoginRequiredMixin, View):
             'app_scope': p.app_scope,
         } for p in qs]
 
-        return JsonResponse({'prompts': prompts})
+        return Response({'prompts': prompts})
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class KiWizardSessionCreateAPI(LoginRequiredMixin, View):
-    """POST /ki-wizard/api/wizards/<wizard_id>/session/ — Session starten."""
+class KiWizardSessionCreateAPI(APIView):
+    permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        tags=['session'],
+        summary='Session starten',
+        parameters=[WIZARD_ID_PARAM],
+        request=SessionCreateRequestSerializer,
+        responses={
+            201: SessionSerializer,
+            400: ErrorSerializer,
+            401: ErrorSerializer,
+            404: ErrorSerializer,
+            500: ErrorSerializer,
+        },
+    )
     def post(self, request, wizard_id):
-        data = _json_body(request)
-        briefing = (data.get('briefing') or '').strip()
-        if len(briefing) < 10:
-            return JsonResponse(
-                {'error': 'briefing zu kurz (min. 10 Zeichen)'},
-                status=400,
-            )
+        serializer = SessionCreateRequestSerializer(data=request.data)
+        if not serializer.is_valid():
+            first_err = next(iter(serializer.errors.values()))[0]
+            return Response({'error': str(first_err)}, status=400)
+
+        briefing = serializer.validated_data['briefing'].strip()
         try:
             session = create_session(wizard_id, request.user, briefing)
         except WizardNotRegisteredError as exc:
-            return JsonResponse({'error': str(exc)}, status=404)
+            return Response({'error': str(exc)}, status=404)
         except Exception as exc:
             log.exception('Session create failed')
-            return JsonResponse({'error': str(exc)}, status=500)
+            return Response({'error': str(exc)}, status=500)
 
-        return JsonResponse(session_to_dict(session), status=201)
+        return Response(session_to_dict(session), status=201)
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class KiWizardSessionDetailAPI(LoginRequiredMixin, View):
-    """GET /ki-wizard/api/session/<uuid>/"""
+class KiWizardSessionDetailAPI(APIView):
+    permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        tags=['session'],
+        summary='Session-Details',
+        parameters=[SESSION_ID_PARAM],
+        responses={200: SessionSerializer, 401: ErrorSerializer, 404: ErrorSerializer},
+    )
     def get(self, request, session_id):
         try:
             sid = uuid.UUID(str(session_id))
             session = get_session_for_user(sid, request.user)
         except (ValueError, WizardSession.DoesNotExist):
-            return JsonResponse({'error': 'Session nicht gefunden'}, status=404)
-        return JsonResponse(session_to_dict(session))
+            return Response({'error': 'Session nicht gefunden'}, status=404)
+        return Response(session_to_dict(session))
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class KiWizardSessionAnalyzeAPI(LoginRequiredMixin, View):
-    """POST /ki-wizard/api/session/<uuid>/analyze/"""
+class KiWizardSessionAnalyzeAPI(APIView):
+    permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        tags=['session'],
+        summary='Briefing analysieren',
+        parameters=[SESSION_ID_PARAM],
+        responses={
+            200: AnalyzeResponseSerializer,
+            401: ErrorSerializer,
+            404: ErrorSerializer,
+            500: ErrorSerializer,
+        },
+    )
     def post(self, request, session_id):
         try:
             sid = uuid.UUID(str(session_id))
             session = get_session_for_user(sid, request.user)
             result = analyze_session(session)
-            return JsonResponse(result)
+            return Response(result)
         except (ValueError, WizardSession.DoesNotExist):
-            return JsonResponse({'error': 'Session nicht gefunden'}, status=404)
+            return Response({'error': 'Session nicht gefunden'}, status=404)
         except Exception as exc:
             log.exception('analyze failed')
-            return JsonResponse({'error': str(exc)}, status=500)
+            return Response({'error': str(exc)}, status=500)
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class KiWizardSessionClarifyAPI(LoginRequiredMixin, View):
-    """POST /ki-wizard/api/session/<uuid>/clarify/ — body: { answers: { S1: ... } }"""
+class KiWizardSessionClarifyAPI(APIView):
+    permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        tags=['session'],
+        summary='Klärfragen beantworten',
+        parameters=[SESSION_ID_PARAM],
+        request=ClarifyRequestSerializer,
+        responses={
+            200: ClarifyResponseSerializer,
+            400: ErrorSerializer,
+            401: ErrorSerializer,
+            404: ErrorSerializer,
+            500: ErrorSerializer,
+        },
+    )
     def post(self, request, session_id):
-        data = _json_body(request)
-        answers = data.get('answers') or {}
+        serializer = ClarifyRequestSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response({'error': 'answers muss ein Objekt sein'}, status=400)
+
+        answers = serializer.validated_data['answers']
         if not isinstance(answers, dict):
-            return JsonResponse({'error': 'answers muss ein Objekt sein'}, status=400)
+            return Response({'error': 'answers muss ein Objekt sein'}, status=400)
+
         try:
             sid = uuid.UUID(str(session_id))
             session = get_session_for_user(sid, request.user)
             result = clarify_session(session, answers)
-            return JsonResponse(result)
+            return Response(result)
         except (ValueError, WizardSession.DoesNotExist):
-            return JsonResponse({'error': 'Session nicht gefunden'}, status=404)
+            return Response({'error': 'Session nicht gefunden'}, status=404)
         except Exception as exc:
             log.exception('clarify failed')
-            return JsonResponse({'error': str(exc)}, status=500)
+            return Response({'error': str(exc)}, status=500)
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class KiWizardSessionSuggestMetaAPI(LoginRequiredMixin, View):
-    """POST /ki-wizard/api/session/<uuid>/suggest-meta/"""
+class KiWizardSessionSuggestMetaAPI(APIView):
+    permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        tags=['session'],
+        summary='Metadaten vorschlagen (Autofill)',
+        parameters=[SESSION_ID_PARAM],
+        responses={
+            200: SuggestMetaResponseSerializer,
+            401: ErrorSerializer,
+            404: ErrorSerializer,
+            500: ErrorSerializer,
+        },
+    )
     def post(self, request, session_id):
         try:
             sid = uuid.UUID(str(session_id))
             session = get_session_for_user(sid, request.user)
             result = suggest_meta_session(session)
-            return JsonResponse(result)
+            return Response(result)
         except (ValueError, WizardSession.DoesNotExist):
-            return JsonResponse({'error': 'Session nicht gefunden'}, status=404)
+            return Response({'error': 'Session nicht gefunden'}, status=404)
         except Exception as exc:
             log.exception('suggest_meta failed')
-            return JsonResponse({'error': str(exc)}, status=500)
+            return Response({'error': str(exc)}, status=500)
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class KiWizardSessionGenerateAPI(LoginRequiredMixin, View):
-    """POST /ki-wizard/api/session/<uuid>/generate/"""
+class KiWizardSessionGenerateAPI(APIView):
+    permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        tags=['session'],
+        summary='HTML + TXT generieren',
+        parameters=[SESSION_ID_PARAM],
+        request=GenerateRequestSerializer,
+        responses={
+            200: GenerateResponseSerializer,
+            401: ErrorSerializer,
+            404: ErrorSerializer,
+            502: ErrorSerializer,
+            500: ErrorSerializer,
+        },
+    )
     def post(self, request, session_id):
         try:
             sid = uuid.UUID(str(session_id))
             session = get_session_for_user(sid, request.user)
-            data = _json_body(request)
-            refinement = (data.get('refinement') or '').strip()
-            meta_override = data.get('meta')
-            if not isinstance(meta_override, dict):
-                meta_override = None
+        except (ValueError, WizardSession.DoesNotExist):
+            return Response({'error': 'Session nicht gefunden'}, status=404)
+
+        serializer = GenerateRequestSerializer(data=request.data or {})
+        serializer.is_valid(raise_exception=True)
+        data = serializer.validated_data
+
+        meta_override = data.get('meta')
+        if meta_override is not None and not isinstance(meta_override, dict):
+            meta_override = None
+
+        try:
             result = generate_session(
                 session,
-                refinement=refinement,
+                refinement=(data.get('refinement') or '').strip(),
                 meta_override=meta_override,
                 html_body=(data.get('html_body') or '').strip(),
                 text_body=(data.get('text_body') or '').strip(),
             )
             if result.get('error'):
-                return JsonResponse(result, status=502)
-            return JsonResponse(result)
-        except (ValueError, WizardSession.DoesNotExist):
-            return JsonResponse({'error': 'Session nicht gefunden'}, status=404)
+                return Response(result, status=502)
+            return Response(result)
         except Exception as exc:
             log.exception('generate failed')
-            return JsonResponse({'error': str(exc)}, status=500)
+            return Response({'error': str(exc)}, status=500)
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class KiWizardSessionApplyAPI(LoginRequiredMixin, View):
-    """POST /ki-wizard/api/session/<uuid>/apply/"""
+class KiWizardSessionApplyAPI(APIView):
+    permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        tags=['session'],
+        summary='Ergebnis anwenden / Session abschließen',
+        parameters=[SESSION_ID_PARAM],
+        responses={
+            200: ApplyResponseSerializer,
+            400: ErrorSerializer,
+            401: ErrorSerializer,
+            404: ErrorSerializer,
+            500: ErrorSerializer,
+        },
+    )
     def post(self, request, session_id):
         try:
             sid = uuid.UUID(str(session_id))
             session = get_session_for_user(sid, request.user)
             result = apply_session(session)
             if result.get('error'):
-                return JsonResponse(result, status=400)
-            return JsonResponse(result)
+                return Response(result, status=400)
+            return Response(result)
         except (ValueError, WizardSession.DoesNotExist):
-            return JsonResponse({'error': 'Session nicht gefunden'}, status=404)
+            return Response({'error': 'Session nicht gefunden'}, status=404)
         except Exception as exc:
             log.exception('apply failed')
-            return JsonResponse({'error': str(exc)}, status=500)
-
-
-from .services.prompt_loader import get_prompt_by_key
+            return Response({'error': str(exc)}, status=500)

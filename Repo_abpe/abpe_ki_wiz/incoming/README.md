@@ -2,17 +2,21 @@
 
 Zentrale Django-App für wiederverwendbare KI-Assistenten (Email Studio, Matching, Doc Studio, …).
 
-## API-Dokumentation (OpenAPI / drf-spectacular)
+## API-Dokumentation (DRF + drf-spectacular)
 
 | URL | Beschreibung |
 |-----|--------------|
-| `/ki-wizard/api/schema/` | OpenAPI 3.0 JSON (handgeschrieben, öffentlich) |
-| `/ki-wizard/api/docs/` | Swagger UI via **drf-spectacular** (wie `/api/docs/`) |
-| `/ki-wizard/api/redoc/` | ReDoc via **drf-spectacular** |
+| `/ki-wizard/api/schema/` | OpenAPI 3.0 JSON — **auto-generiert** aus DRF `@extend_schema` |
+| `/ki-wizard/api/docs/` | Swagger UI (drf-spectacular) |
+| `/ki-wizard/api/redoc/` | ReDoc (drf-spectacular) |
 
-Das **Schema** ist in `openapi_schema.py` gepflegt (keine DRF ViewSets). Die **UI** nutzt dieselbe drf-spectacular-Infrastruktur wie der Rest des Backends (`SpectacularSwaggerView` → `ki_wizard:api-schema`).
+Implementierung:
+- `api.py` — DRF `APIView` + `@extend_schema`
+- `serializers.py` — Request/Response-Schemas für spectacular
+- `urls_api.py` — nur API-Routen für Schema-Scope
+- `schema_settings.py` — `KI_WIZARD_SPECTACULAR_SETTINGS`
 
-Vollständige Auto-Generierung aus Code wäre erst nach Migration der Endpunkte auf DRF `APIView` + `@extend_schema` möglich.
+Schema neu generieren: Endpunkte in `api.py` anpassen — kein handgeschriebenes OpenAPI mehr nötig.
 
 ## Phase 1 — Session-API (neu)
 
@@ -94,7 +98,6 @@ path('ki-wizard/', include('apps.abpe_ki_wiz.urls', namespace='ki_wizard')),
 ```bash
 cd /opt/abpe/backend
 source /opt/abpe/venv311/bin/activate
-python manage.py makemigrations abpe_ki_wiz   # falls incoming ohne Migration
 python manage.py migrate abpe_ki_wiz
 python manage.py sync_wizard_prompts
 supervisorctl restart abpe-django

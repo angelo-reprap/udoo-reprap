@@ -52,5 +52,9 @@ fi
 supervisorctl restart abpe-django
 echo ""
 echo "Deploy fertig."
+echo "Optional — Prompts sync (manage.py liegt unter /opt/abpe/backend):"
+echo "  cd /opt/abpe/backend && source /opt/abpe/venv311/bin/activate"
+echo "  python manage.py sync_wizard_prompts --force --wizard-id email_template"
 echo "Prüfen: grep preview/draft $B/apps/abpe_email_studio/urls.py"
 echo "Test: curl -s -o /dev/null -w '%{http_code}' -X POST http://127.0.0.1:8000/email-studio/api/preview/draft/"
+echo "Schema: curl -s http://127.0.0.1:8000/ki-wizard/api/schema/ | python -m json.tool | head"

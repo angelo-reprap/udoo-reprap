@@ -12,7 +12,6 @@ from apps.abpe_ki_wiz.services.orchestrator import (
     _resolve_current_bodies,
     _rule_based_analyze,
 )
-from apps.abpe_ki_wiz.openapi_schema import build_openapi_schema
 from apps.abpe_ki_wiz.services.deepseek_client import _resolve_pbx_service, _coerce_result
 
 User = get_user_model()
@@ -139,18 +138,16 @@ class RefineGenerateTests(TestCase):
         self.assertEqual(text, 'session')
 
 
-class OpenAPISchemaTests(TestCase):
-    def test_build_schema_has_session_paths(self):
-        schema = build_openapi_schema(base_url='/ki-wizard/')
-        self.assertEqual(schema['openapi'], '3.0.3')
-        paths = schema['paths']
-        self.assertIn('/ki-wizard/api/health/', paths)
-        self.assertIn('/ki-wizard/api/session/{session_id}/generate/', paths)
-        gen = paths['/ki-wizard/api/session/{session_id}/generate/']['post']
-        ref = gen['requestBody']['content']['application/json']['schema']['$ref']
-        self.assertEqual(ref, '#/components/schemas/GenerateRequest')
-        self.assertIn('refinement', schema['components']['schemas']['GenerateRequest']['properties'])
-        self.assertIn('html_body', schema['components']['schemas']['GenerateRequest']['properties'])
+class SpectacularSchemaTests(TestCase):
+    def test_schema_lists_generate_endpoint(self):
+        r = self.client.get('/ki-wizard/api/schema/')
+        self.assertEqual(r.status_code, 200)
+        body = r.json()
+        self.assertIn('openapi', body)
+        paths = body.get('paths', {})
+        generate_paths = [p for p in paths if 'generate' in p]
+        self.assertTrue(generate_paths, msg=f'generate path fehlt in {list(paths)[:5]}')
+        self.assertEqual(body.get('info', {}).get('title'), 'ABpE KI Wizard API')
 
 
 class KiWizardApiTests(TestCase):
@@ -162,8 +159,10 @@ class KiWizardApiTests(TestCase):
         r = self.client.get('/ki-wizard/api/schema/')
         self.assertEqual(r.status_code, 200)
         body = r.json()
-        self.assertEqual(body['openapi'], '3.0.3')
-        self.assertIn('/ki-wizard/api/session/{session_id}/analyze/', body['paths'])
+        self.assertIn('openapi', body)
+        paths = body.get('paths', {})
+        analyze_paths = [p for p in paths if 'analyze' in p]
+        self.assertTrue(analyze_paths)
 
     def test_swagger_ui_html(self):
         r = self.client.get('/ki-wizard/api/docs/')

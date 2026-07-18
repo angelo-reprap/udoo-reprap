@@ -1,8 +1,6 @@
-"""Phase 0/1: JSON-Index + OpenAPI Schema."""
+"""Phase 0/1: JSON-Index."""
 from django.http import JsonResponse
 from django.views import View
-
-from .openapi_schema import build_openapi_schema
 
 
 class KiWizardIndexView(View):
@@ -30,14 +28,6 @@ class KiWizardIndexView(View):
             'openapi': '3.0.3',
             'swagger_ui': '/ki-wizard/api/docs/',
             'spectacular': True,
+            'schema_source': 'drf-spectacular',
             'admin': '/admin/abpe_ki_wiz/',
         })
-
-
-class KiWizardOpenAPISchemaView(View):
-    """GET /ki-wizard/api/schema/ — OpenAPI 3.0 JSON."""
-
-    def get(self, request):
-        base = request.build_absolute_uri('/ki-wizard/')
-        schema = build_openapi_schema(base_url=base)
-        return JsonResponse(schema)
