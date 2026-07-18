@@ -13,21 +13,29 @@ def build_context_payload(
     *,
     app_scope: str = '',
     identifier: str = '',
+    facts: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     catalog = provider.get_catalog(app_scope=app_scope, identifier=identifier)
     checklist = provider.build_checklist(answers or {})
-    return {
+    payload: dict[str, Any] = {
         'wizard_id': provider.wizard_id,
         'catalog': catalog,
         'checklist': checklist,
         'answers': answers or {},
         'question_catalog': provider.get_question_catalog(),
     }
+    if facts:
+        payload['facts'] = facts
+    return payload
 
 
 def build_context_json(
     provider: WizardDomainProvider,
     answers: dict[str, Any] | None = None,
+    *,
+    facts: dict[str, Any] | None = None,
     **kwargs,
 ) -> str:
-    return dumps_compact(build_context_payload(provider, answers, **kwargs))
+    return dumps_compact(
+        build_context_payload(provider, answers, facts=facts, **kwargs)
+    )

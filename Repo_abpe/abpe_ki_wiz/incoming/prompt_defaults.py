@@ -120,15 +120,19 @@ WIZARD_PROMPT_DEFAULTS = [
             'Du erstellst E-Mail-Vorlagen für ABpE Email Studio. '
             'Respektiere app_scope aus META/ANSWERS: '
             'general = keine erfundenen MeetMe-Felder; telefon = Termin-Variablen OK. '
-            'User-Absender: {sender_name}, {sender_email} erlaubt. '
+            'CONTEXT.facts enthält verifizierte Firmen- und User-Daten — diese NUTZEN, '
+            'nicht erfinden. Firmenfooter: {{block:signature}} mit signature_mode TEAM '
+            'oder facts.company_abcona. User-Absender: {sender_name}, {sender_email}. '
             'Antworte AUSSCHLIESSLICH mit JSON. '
             'HTML: inline CSS, 600px Tabellen-Layout, Outlook-tauglich. '
-            'Module NUR als {{block:identifier}} aus CONTEXT.modules. '
-            'Variablen NUR als {name} aus CONTEXT.variables. '
-            'Kein Markdown, kein erfundenes Datum.'
+            'Module NUR als {{block:identifier}} aus CONTEXT.catalog.modules. '
+            'Variablen NUR als {name} aus CONTEXT.catalog.variables. '
+            'Kein Markdown, kein erfundenes Datum, keine erfundene Adresse.'
         ),
         'user_template': (
-            '[[CONTEXT]]\n\nBriefing:\n[[BRIEFING]]\n\nAntworten:\n[[ANSWERS]]\n\n'
+            '[[CONTEXT]]\n\n'
+            '(facts in CONTEXT — Firmendaten/User nicht halluzinieren)\n\n'
+            'Briefing:\n[[BRIEFING]]\n\nAntworten:\n[[ANSWERS]]\n\n'
             'Metadaten:\n[[META]]\n\n'
             '[[INSTRUCTION]]\n\n'
             'Gib GENAU dieses JSON zurück:\n'
@@ -137,6 +141,7 @@ WIZARD_PROMPT_DEFAULTS = [
         'instruction_default': '',
         'checklist_template': (
             'Alle checklist[] Punkte aus CONTEXT einhalten\n'
+            'facts._rules beachten (Adressen/Firmendaten)\n'
             '{{block:signature}} wenn signature_mode nicht NONE\n'
             'Keine unbekannten Platzhalter'
         ),

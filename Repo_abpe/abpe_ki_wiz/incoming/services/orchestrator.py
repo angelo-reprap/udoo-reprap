@@ -8,6 +8,7 @@ import logging
 import re
 from typing import Any
 
+from apps.abpe_ki_wiz.services.context_fetcher import resolve_facts
 from apps.abpe_ki_wiz.services.prompt_loader import get_prompt_by_key
 from apps.abpe_ki_wiz.models import WizardPhase, WizardSession
 from apps.abpe_ki_wiz.registry import get_provider
@@ -95,7 +96,16 @@ def analyze_session(session: WizardSession) -> dict[str, Any]:
 
     prompt = get_prompt_by_key(_prompt_key(session.wizard_id, 'analyze'))
     if prompt:
-        ctx = build_context_json(provider, session.answers, app_scope='general')
+        facts = resolve_facts(
+            wizard_id=session.wizard_id,
+            user=session.user,
+            briefing=briefing,
+            answers=session.answers,
+            meta=session.meta_suggestions,
+        )
+        ctx = build_context_json(
+            provider, session.answers, app_scope='general', facts=facts,
+        )
         ds = call_wizard_prompt(prompt, context=ctx, briefing=briefing)
         if ds.success and ds.text:
             try:
@@ -153,7 +163,14 @@ def suggest_meta_session(session: WizardSession) -> dict[str, Any]:
     answers = session.answers or {}
     analyze = (session.meta_suggestions or {}).get('analyze') or {}
     scope = _scope_from_session(session, analyze)
-    ctx = build_context_json(provider, answers, app_scope=scope)
+    facts = resolve_facts(
+        wizard_id=session.wizard_id,
+        user=session.user,
+        briefing=briefing,
+        answers=answers,
+        meta=session.meta_suggestions,
+    )
+    ctx = build_context_json(provider, answers, app_scope=scope, facts=facts)
     briefing = session.briefing or ''
 
     prompt = get_prompt_by_key(_prompt_key(session.wizard_id, 'suggest_meta'))
@@ -216,6 +233,8 @@ def _build_refine_instruction(
         f'Verfeinerung/Korrektur vom User: {refinement}.',
         'Passe html_body und text_body an; Metadaten nur ändern wenn nötig.',
         'Behalte gültige {{block:…}} und {variablen} bei.',
+        'Firmenadresse/Impressum: nur facts.company_abcona oder {{block:signature}} — nie erfinden.',
+        'User-Absender: facts.user als {sender_name}/{sender_email}.',
     ]
     if current_html:
         parts.append(f'Aktueller html_body (Ausgangsbasis):\n{current_html[:12000]}')
@@ -246,11 +265,20 @@ def generate_session(
 
     meta = session.meta_suggestions or {}
     current_html, current_text = _resolve_current_bodies(session, html_body, text_body)
+    facts = resolve_facts(
+        wizard_id=session.wizard_id,
+        user=session.user,
+        briefing=session.briefing or '',
+        answers=answers,
+        meta=meta,
+        refinement=refinement,
+    )
     ctx = build_context_json(
         provider,
         answers,
         app_scope=meta.get('app_scope', ''),
         identifier=meta.get('identifier', ''),
+        facts=facts,
     )
 
     prompt = get_prompt_by_key(_prompt_key(session.wizard_id, 'generate'))

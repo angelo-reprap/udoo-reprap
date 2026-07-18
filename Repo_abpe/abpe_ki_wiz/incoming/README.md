@@ -17,6 +17,7 @@ KI-Wizard-Endpunkte erscheinen dort unter Tags `monitoring`, `wizards`, `session
 Implementierung:
 - `api.py` — DRF `APIView` + `@extend_schema`
 - `serializers.py` — Request/Response-Schemas für spectacular
+- `services/context_fetcher.py` — verifizierte Fakten (User, abcona-Firma) für `CONTEXT.facts` in Generate **und KI-Verfeinern**
 
 Schema neu generieren: Endpunkte in `api.py` anpassen — kein handgeschriebenes OpenAPI mehr nötig.
 

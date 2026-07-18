@@ -7,6 +7,14 @@ from django.contrib.auth import get_user_model
 from apps.abpe_ki_wiz.prompt_defaults import WIZARD_PROMPT_DEFAULTS
 from apps.abpe_ki_wiz.registry import get_provider, list_wizard_ids
 from apps.abpe_ki_wiz.services.json_utils import parse_ai_json
+from apps.abpe_ki_wiz.services.context_fetcher import (
+    ABCONA_COMPANY_FALLBACK,
+    detect_fact_keys,
+    fetch_company_abcona,
+    fetch_user_context,
+    resolve_facts,
+)
+from apps.abpe_ki_wiz.services.prompt_builder import build_context_payload
 from apps.abpe_ki_wiz.services.orchestrator import (
     _build_refine_instruction,
     _resolve_current_bodies,
@@ -112,6 +120,60 @@ class ProviderTests(TestCase):
         self.assertNotIn('M1', pending)
 
 
+class ContextFetcherTests(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username='fetcher',
+            password='testpass123',
+            first_name='Max',
+            last_name='Mustermann',
+            email='max@abcona.de',
+        )
+
+    def test_fetch_user_context(self):
+        facts = fetch_user_context(self.user)
+        self.assertEqual(facts['sender_name'], 'Max Mustermann')
+        self.assertEqual(facts['sender_email'], 'max@abcona.de')
+
+    def test_detect_company_from_refinement(self):
+        keys = detect_fact_keys(
+            wizard_id='email_template',
+            briefing='Weihnachtsgrüße',
+            refinement='Gib die abcona e.K. Adresse im Footer ein',
+        )
+        self.assertIn('company_abcona', keys)
+        self.assertIn('user', keys)
+
+    def test_resolve_facts_email_template_always_has_abcona(self):
+        facts = resolve_facts(
+            wizard_id='email_template',
+            user=self.user,
+            briefing='Allgemeine Info-Mail',
+        )
+        self.assertIn('company_abcona', facts)
+        self.assertEqual(
+            facts['company_abcona']['street'],
+            ABCONA_COMPANY_FALLBACK['street'],
+        )
+        self.assertIn('user', facts)
+
+    def test_fetch_company_abcona_fallback(self):
+        company = fetch_company_abcona()
+        self.assertEqual(company['email'], 'info@abcona.de')
+        self.assertIn('Bornhohl', company['address_line'])
+
+    def test_build_context_payload_includes_facts(self):
+        provider = get_provider('email_template')
+        facts = resolve_facts(
+            wizard_id='email_template',
+            user=self.user,
+            briefing='Footer mit abcona Adresse',
+        )
+        payload = build_context_payload(provider, {}, facts=facts)
+        self.assertIn('facts', payload)
+        self.assertIn('company_abcona', payload['facts'])
+
+
 class RefineGenerateTests(TestCase):
     def test_build_refine_instruction_includes_html(self):
         instr = _build_refine_instruction(
@@ -122,6 +184,15 @@ class RefineGenerateTests(TestCase):
         self.assertIn('Bibelzitat', instr)
         self.assertIn('<p>Hallo</p>', instr)
         self.assertIn('Hallo', instr)
+        self.assertIn('facts.company_abcona', instr)
+
+    def test_build_refine_instruction_abcona_address(self):
+        instr = _build_refine_instruction(
+            'Gib die abcona e.K. Adresse ein',
+            current_html='<p>Text</p>',
+        )
+        self.assertIn('abcona', instr.lower())
+        self.assertIn('nicht erfinden', instr.lower())
 
     def test_resolve_current_bodies_prefers_request_payload(self):
         session = type('S', (), {'result': {'fields': {'html_body': '<p>alt</p>'}}})()
