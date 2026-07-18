@@ -205,8 +205,19 @@ window.ESStudio = (() => {
         setVal('es-name-input', fields.name);
         setVal('es-subject-input', fields.subject);
         setVal('es-identifier-input', fields.identifier);
-        setVal('es-html-editor', fields.html_body);
-        setVal('es-txt-editor', fields.text_body);
+        // HTML/TXT auch bei Leerstring setzen, wenn Key vorhanden
+        if (Object.prototype.hasOwnProperty.call(fields, 'html_body')) {
+            const htmlEl = document.getElementById('es-html-editor');
+            if (htmlEl) htmlEl.value = fields.html_body || '';
+        } else {
+            setVal('es-html-editor', fields.html_body);
+        }
+        if (Object.prototype.hasOwnProperty.call(fields, 'text_body')) {
+            const txtEl = document.getElementById('es-txt-editor');
+            if (txtEl) txtEl.value = fields.text_body || '';
+        } else {
+            setVal('es-txt-editor', fields.text_body);
+        }
 
         const scopeSel = document.querySelector('select[name="app_scope"]');
         if (scopeSel && fields.app_scope) scopeSel.value = fields.app_scope;
@@ -218,6 +229,10 @@ window.ESStudio = (() => {
         if (fields.signature_mode) _setSignatureMode(fields.signature_mode);
 
         _syncCodeToCanvas();
+        // Visuell-Tab: Canvas ist führend — sicherstellen dass Code→Canvas greift
+        if (_currentMode === 'visual' || _currentMode === 'html-editor') {
+            _syncCodeToCanvas();
+        }
         _schedulePreview();
         ES.notify.success('es.ki_applied', t('ki_applied', 'KI-Vorlage übernommen'));
     }

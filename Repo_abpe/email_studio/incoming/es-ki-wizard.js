@@ -222,14 +222,6 @@ window.ESKiWizard = (() => {
     function _syncFromEditorIfRefine() {
         if (!_refineMode) return;
         const fields = _collectEditorFields();
-        if (fields.html_body) {
-            _generated = {
-                ...(_generated || {}),
-                html_body: fields.html_body,
-                text_body: fields.text_body || fields.html_body,
-                source: 'editor',
-            };
-        }
         _meta = {
             ..._meta,
             name: fields.name || _meta.name,
@@ -241,6 +233,23 @@ window.ESKiWizard = (() => {
             event_type: _meta.event_type || 'info',
             status: _meta.status || 'DRAFT',
         };
+        // Editor-HTML nur als Basis, solange noch kein KI-Ergebnis da ist.
+        // Sonst würde „Übernehmen“ / erneutes Verfeinern das KI-Ergebnis verwerfen.
+        const src = (_generated && _generated.source) || '';
+        const hasAiResult = !!(
+            _generated
+            && _generated.html_body
+            && src
+            && src !== 'editor'
+        );
+        if (!hasAiResult && fields.html_body) {
+            _generated = {
+                ...(_generated || {}),
+                html_body: fields.html_body,
+                text_body: fields.text_body || fields.html_body,
+                source: 'editor',
+            };
+        }
     }
 
     function _updatePreviewFooterForRefine() {
@@ -445,7 +454,14 @@ window.ESKiWizard = (() => {
 
     function _runApply() {
         _readMetaFields();
-        _syncFromEditorIfRefine();
+        // Kein _syncFromEditorIfRefine() hier — das würde das verfeinerte
+        // _generated mit dem alten Editor-Inhalt überschreiben.
+        const htmlBody = _generated?.html_body || '';
+        const textBody = _generated?.text_body || '';
+        if (!htmlBody.trim()) {
+            _showError(t('ki_refine_no_content', 'Kein Inhalt zum Übernehmen.'));
+            return;
+        }
         const fields = {
             name: _meta.name,
             identifier: _meta.identifier,
@@ -456,8 +472,8 @@ window.ESKiWizard = (() => {
             sender_mode: _meta.sender_mode || 'USER',
             signature_mode: _meta.signature_mode || 'USER',
             status: _meta.status || 'DRAFT',
-            html_body: _generated?.html_body || '',
-            text_body: _generated?.text_body || '',
+            html_body: htmlBody,
+            text_body: textBody,
         };
 
         if (_refineMode && window.ESStudio?.applyWizardResult) {
