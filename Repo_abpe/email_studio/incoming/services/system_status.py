@@ -450,19 +450,11 @@ def collect_system_status(*, use_cache: bool = True) -> dict[str, str]:
     pbx_ok, pbx_host = _check_pbx()
     meetme_ok = _check_meetme()
 
-    flag_list = [
+    system_status = _aggregate(
         disk_flag, load_flag, mem_flag,
         django_ok, db_ok, cache_ok,
         celery_ok, scheduler_ok,
         smtp_ok, pbx_ok, meetme_ok,
-    ]
-    system_status = _aggregate(*flag_list)
-    usable = [f for f in flag_list if f != _NA]
-    ok_n = sum(1 for f in usable if f == _OK)
-    total_n = len(usable)
-    # Kurzer, sichtbarer Gesamtstatus (nicht nur "OK")
-    system_status_label = (
-        f'{system_status} ({ok_n}/{total_n})' if total_n else system_status
     )
 
     lines = [
@@ -480,7 +472,7 @@ def collect_system_status(*, use_cache: bool = True) -> dict[str, str]:
         f'SMTP: {smtp_ok} ({smtp_host})',
         f'PBX/AMI: {pbx_ok} ({pbx_host})',
         f'MeetMe: {meetme_ok}',
-        f'Gesamt: {system_status_label}',
+        f'Gesamt: {system_status}',
     ]
 
     html_rows = [
@@ -499,7 +491,7 @@ def collect_system_status(*, use_cache: bool = True) -> dict[str, str]:
         ('SMTP', f'{smtp_ok} ({smtp_host})', smtp_ok),
         ('PBX/AMI', f'{pbx_ok} ({pbx_host})', pbx_ok),
         ('MeetMe', meetme_ok, meetme_ok),
-        ('Gesamt', system_status_label, system_status),
+        ('Gesamt', system_status, system_status),
     ]
 
     result = {
@@ -523,7 +515,7 @@ def collect_system_status(*, use_cache: bool = True) -> dict[str, str]:
         'pbx_ok': pbx_ok,
         'pbx_host': pbx_host,
         'meetme_ok': meetme_ok,
-        'system_status': system_status_label,
+        'system_status': system_status,
         'system_status_list': '\n'.join(lines),
         'system_status_html': _status_html_rows(html_rows),
     }

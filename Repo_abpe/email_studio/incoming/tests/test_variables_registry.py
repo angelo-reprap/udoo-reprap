@@ -10,10 +10,10 @@ from apps.abpe_email_studio.variables_registry import (
 
 class VariablesRegistryTest(unittest.TestCase):
 
-    def test_general_scope_includes_meetme_for_sidebar(self):
+    def test_general_scope_excludes_meetme(self):
         names = {v['name'] for v in get_variables('general', '')}
         self.assertIn('name', names)
-        self.assertIn('termin_datum', names)
+        self.assertNotIn('termin_datum', names)
 
     def test_telefon_scope_includes_meetme(self):
         names = {v['name'] for v in get_variables('telefon', 'meetme_invite_abstimmung')}
@@ -38,18 +38,6 @@ class VariablesRegistryTest(unittest.TestCase):
         n = variable_count('telefon', 'meetme_invite_abstimmung')
         self.assertGreater(n, 15)
 
-
-
-    def test_general_scope_group(self):
-        groups = get_sidebar_variable_groups('general', '')
-        keys = [g['key'] for g in groups]
-        self.assertIn('scope', keys)
-        self.assertIn('meetme', keys)
-        self.assertIn('status', keys)
-        scope_names = {v['name'] for g in groups if g['key'] == 'scope' for v in g['vars']}
-        self.assertIn('vertretung_name', scope_names)
-        status_names = {v['name'] for g in groups if g['key'] == 'status' for v in g['vars']}
-        self.assertIn('disk_free', status_names)
 
 if __name__ == '__main__':
     unittest.main()

@@ -37,18 +37,9 @@ class EmailRenderer:
             'reply_to':     user.email or '',
         }
 
-    def _render(self, text: str, variables: dict, *, html: bool = False) -> str:
-        # Längere Keys zuerst — vermeidet Teil-Treffer ({system_status} vs. {system_status_list})
-        items = sorted(variables.items(), key=lambda kv: len(str(kv[0])), reverse=True)
-        for key, value in items:
-            if value is None or value == '':
-                repl = ''
-            else:
-                repl = str(value)
-                # HTML: Zeilenumbrüche in Listen sichtbar machen
-                if html and key in ('system_status_list',) and '\n' in repl:
-                    repl = repl.replace('\n', '<br>\n')
-            text = text.replace(f'{{{key}}}', repl)
+    def _render(self, text: str, variables: dict) -> str:
+        for key, value in variables.items():
+            text = text.replace(f'{{{key}}}', str(value) if value else '')
         return text
 
     def _resolve_modules(
@@ -73,7 +64,7 @@ class EmailRenderer:
                 identifier=identifier, is_active=True
             ).first()
             if module:
-                return self._render(module.html_body, variables, html=True)
+                return self._render(module.html_body, variables)
             log.warning(f'Modul nicht gefunden: {identifier}')
             return f'<!-- Modul nicht gefunden: {identifier} -->'
 
@@ -128,7 +119,7 @@ class EmailRenderer:
             signature_id=template.signature_id,
             include_signature=template.include_signature,
         )
-        html = self._render(html, all_vars, html=True)
+        html = self._render(html, all_vars)
 
         if not self._has_signature_block(template.html_body):
             sig = self._resolve_signature_html(
@@ -377,7 +368,7 @@ class EmailRenderer:
             signature_id=signature_id,
             include_signature=include_signature,
         )
-        html = self._render(html, all_vars, html=True)
+        html = self._render(html, all_vars)
 
         if not self._has_signature_block(html_src):
             sig_html = self._resolve_signature_html(
