@@ -117,14 +117,9 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
                 ],
                 'footer_modules': ['footer_standard', 'footer_auto_reply', 'signature'],
                 'default_header': 'abcona_header_blau',
-                # imprint = kleiner zentrierter Impressum-Footer (#6c757d / 11px)
-                # body_match = Footer wie Body (14px / #333 / left) — optional, nicht Default
-                'footer_style': 'imprint',
-                'button_modules': ['cta_blau', 'cta_gruen', 'cta_with_secondary'],
                 'ci_notes': (
-                    'Header-Modul (blau/grün/rot, text-align:left) → Body (Arial 14px #333 left) '
-                    '→ Footer-Modul (Impressum: 11px #6c757d center) oder {{block:signature}}. '
-                    'CTA nur als {{block:cta_blau}} / {{block:cta_gruen}}.'
+                    'Header-Modul (blau/grün/rot) → Body-Text → Footer-Modul. '
+                    'Header/Body/Footer linksbündig; Body und Footer gleiche Schrift/Farbe.'
                 ),
             },
         }

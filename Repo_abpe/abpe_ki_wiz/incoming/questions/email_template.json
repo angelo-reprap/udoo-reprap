@@ -100,8 +100,8 @@
     "required": false,
     "options": [
       {"value": "none", "label": "Keiner"},
-      {"value": "cta_blau", "label": "Button — Blau (cta_blau)"},
-      {"value": "cta_gruen", "label": "Button — Grün (cta_gruen)"}
+      {"value": "button_blau", "label": "Button — Blau"},
+      {"value": "button_gruen", "label": "Button — Grün"}
     ]
   },
   {

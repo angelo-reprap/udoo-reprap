@@ -132,22 +132,32 @@ def studio(request):
         )
         template.pk = None
     elif new_mode == 'skeleton':
-        # Corporate Skeleton: Module statt Inline-Header/Footer (CI)
         template = EmailTemplate(
             identifier='', name='',
             subject='{subject}',
-            html_body=(
-                '{{block:abcona_header_blau}}\n'
-                '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
-                '<tbody><tr><td style="padding:24px;font-family:Arial,Helvetica,sans-serif;'
-                'font-size:14px;color:#333333;text-align:left;line-height:1.5;">\n'
-                '<p style="margin:0 0 12px;">Hallo {name},</p>\n'
-                '<p style="margin:0 0 12px;">Ihr Text hier.</p>\n'
-                '<p style="margin:0;">Mit freundlichen Grüßen<br>{sender_name}</p>\n'
-                '</td></tr></tbody></table>\n'
-                '{{block:footer_standard}}\n'
-                '{{block:signature}}'
-            ),
+            html_body='''<!DOCTYPE html>
+<html><head><meta charset="UTF-8"></head>
+<body style="margin:0;background:#eef2f5;font-family:Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0">
+ <tr><td align="center" style="padding:20px 10px;">
+  <table width="600" cellpadding="0" cellspacing="0"
+         style="background:white;border-radius:8px;overflow:hidden;">
+   <tr><td style="background:#163258;padding:16px 24px;text-align:center;">
+    <span style="color:white;font-size:18px;font-weight:bold;">abcona e. K.</span>
+   </td></tr>
+   <tr><td style="padding:24px;">
+    <p>Hallo {name},</p>
+    <p>Ihr Text hier.</p>
+    <p>Mit freundlichen Grüßen<br>{sender_name}</p>
+   </td></tr>
+   <tr><td style="background:#f8fafc;padding:12px 24px;
+                  font-size:11px;color:#6c757d;text-align:center;">
+    abcona e. K.
+   </td></tr>
+  </table>
+ </td></tr>
+</table>
+</body></html>''',
             text_body='''Hallo {name},
 
 Ihr Text hier.
@@ -155,7 +165,6 @@ Ihr Text hier.
 Mit freundlichen Grüßen
 {sender_name}''',
             sender_mode='TEMPLATE', app_scope='general', status='DRAFT',
-            signature_mode='USER',
         )
         template.pk = None
 
