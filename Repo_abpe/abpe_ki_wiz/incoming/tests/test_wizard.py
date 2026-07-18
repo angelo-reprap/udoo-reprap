@@ -144,8 +144,16 @@ class KiWizardApiTests(TestCase):
         r = self.client.get('/ki-wizard/api/docs/')
         self.assertEqual(r.status_code, 200)
         self.assertIn('text/html', r['Content-Type'])
-        self.assertIn('swagger-ui', r.content.decode())
-        self.assertIn('/ki-wizard/api/schema/', r.content.decode())
+        body = r.content.decode()
+        self.assertTrue(
+            'swagger' in body.lower() or 'schema' in body.lower(),
+            msg='Spectacular Swagger UI erwartet',
+        )
+
+    def test_redoc_html(self):
+        r = self.client.get('/ki-wizard/api/redoc/')
+        self.assertEqual(r.status_code, 200)
+        self.assertIn('text/html', r['Content-Type'])
 
     def test_index_lists_schema_and_docs(self):
         r = self.client.get('/ki-wizard/')

@@ -2,14 +2,17 @@
 
 Zentrale Django-App für wiederverwendbare KI-Assistenten (Email Studio, Matching, Doc Studio, …).
 
-## API-Dokumentation (OpenAPI / Swagger)
+## API-Dokumentation (OpenAPI / drf-spectacular)
 
 | URL | Beschreibung |
 |-----|--------------|
-| `/ki-wizard/api/schema/` | OpenAPI 3.0 JSON (öffentlich) |
-| `/ki-wizard/api/docs/` | Swagger UI (Browser) |
+| `/ki-wizard/api/schema/` | OpenAPI 3.0 JSON (handgeschrieben, öffentlich) |
+| `/ki-wizard/api/docs/` | Swagger UI via **drf-spectacular** (wie `/api/docs/`) |
+| `/ki-wizard/api/redoc/` | ReDoc via **drf-spectacular** |
 
-Kein DRF / drf-spectacular — handgeschriebenes Schema in `openapi_schema.py`. Bei späterer DRF-Migration kann drf-spectacular dieses Schema ersetzen.
+Das **Schema** ist in `openapi_schema.py` gepflegt (keine DRF ViewSets). Die **UI** nutzt dieselbe drf-spectacular-Infrastruktur wie der Rest des Backends (`SpectacularSwaggerView` → `ki_wizard:api-schema`).
+
+Vollständige Auto-Generierung aus Code wäre erst nach Migration der Endpunkte auf DRF `APIView` + `@extend_schema` möglich.
 
 ## Phase 1 — Session-API (neu)
 

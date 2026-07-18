@@ -1,5 +1,6 @@
 """ABpE KI Wizard — URL Konfiguration"""
 from django.urls import path
+from drf_spectacular.views import SpectacularRedocView, SpectacularSwaggerView
 
 from . import api
 from . import views
@@ -12,7 +13,16 @@ urlpatterns = [
     # Phase 0
     path('api/health/', api.KiWizardHealthAPI.as_view(), name='api-health'),
     path('api/schema/', views.KiWizardOpenAPISchemaView.as_view(), name='api-schema'),
-    path('api/docs/', views.KiWizardSwaggerUIView.as_view(), name='api-docs'),
+    path(
+        'api/docs/',
+        SpectacularSwaggerView.as_view(url_name='ki_wizard:api-schema'),
+        name='api-docs',
+    ),
+    path(
+        'api/redoc/',
+        SpectacularRedocView.as_view(url_name='ki_wizard:api-schema'),
+        name='api-redoc',
+    ),
     path('api/wizards/', api.KiWizardListAPI.as_view(), name='api-wizard-list'),
     path(
         'api/wizards/<str:wizard_id>/catalog/',

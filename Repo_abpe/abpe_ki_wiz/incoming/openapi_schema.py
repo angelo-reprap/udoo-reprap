@@ -1,8 +1,8 @@
 """
 OpenAPI 3.0 Schema für abpe_ki_wiz REST API.
 
-Kein DRF / drf-spectacular — handgeschriebenes Schema für Swagger UI.
-Bei späterer DRF-Migration kann drf-spectacular dieses Schema ersetzen.
+Handgeschriebenes Schema — Swagger/ReDoc UI via drf-spectacular
+(SpectacularSwaggerView → /ki-wizard/api/schema/).
 """
 from __future__ import annotations
 
