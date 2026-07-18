@@ -213,7 +213,9 @@ class KiWizardSessionGenerateAPI(LoginRequiredMixin, View):
         try:
             sid = uuid.UUID(str(session_id))
             session = get_session_for_user(sid, request.user)
-            result = generate_session(session)
+            data = _json_body(request)
+            refinement = (data.get('refinement') or '').strip()
+            result = generate_session(session, refinement=refinement)
             if result.get('error'):
                 return JsonResponse(result, status=502)
             return JsonResponse(result)

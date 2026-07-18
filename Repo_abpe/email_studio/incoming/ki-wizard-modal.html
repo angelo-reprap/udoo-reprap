@@ -69,6 +69,16 @@
                 <div id="es-ki-preview-subject" class="es-ki-preview-subject"></div>
                 <div id="es-ki-preview-html" class="es-ki-preview-html"></div>
                 <p id="es-ki-preview-source" class="es-ki-hint"></p>
+                <div id="es-ki-refine-wrap" class="es-ki-refine-wrap">
+                    <label class="es-ki-lbl" data-i18n="es.ki_refine_lbl">Anpassung / Verfeinerung</label>
+                    <textarea id="es-ki-refine-notes" class="form-control form-control-sm" rows="3"
+                              data-i18n-placeholder="es.ki_refine_ph"
+                              placeholder="z.B. Vertretung als eigene Variable, kürzerer Text, kein Footer"></textarea>
+                    <button type="button" class="btn btn-sm btn-outline-primary mt-2" onclick="ESKiWizard.refine()">
+                        <i class="bi bi-arrow-repeat"></i>
+                        <span data-i18n="es.ki_refine_btn">Neu generieren</span>
+                    </button>
+                </div>
             </div>
 
             <div id="es-ki-error" class="es-ki-error" style="display:none;"></div>

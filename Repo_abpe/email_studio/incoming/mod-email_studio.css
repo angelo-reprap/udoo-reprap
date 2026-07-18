@@ -2468,6 +2468,20 @@
     background: var(--abcona-gray-card, var(--bg-white));
 }
 .es-ki-footer-spacer { flex: 1; }
+.es-ki-refine-wrap {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border-color);
+}
+.es-entity-tab-ki {
+    margin-left: auto;
+    border: 1px dashed var(--abcona-green, #28a745);
+    color: var(--abcona-green, #28a745);
+    cursor: pointer;
+}
+.es-entity-tab-ki:hover {
+    background: var(--abcona-gray-bg);
+}
 
 /* ── Tabelle: Name + Meta ── */
 .es-table-name {

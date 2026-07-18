@@ -38,6 +38,8 @@ urlpatterns = [
     # ── Vorschau + Test ───────────────────────────────────────────────────────
     path('api/templates/<int:pk>/preview/',
          api.TemplatePreviewAPI.as_view(),           name='api-template-preview'),
+    path('api/preview/draft/',
+         api.DraftPreviewAPI.as_view(),              name='api-preview-draft'),
     path('api/templates/<int:pk>/send-test/',
          api.TemplateSendTestAPI.as_view(),          name='api-template-send-test'),
     path('api/templates/<int:pk>/compatibility/',

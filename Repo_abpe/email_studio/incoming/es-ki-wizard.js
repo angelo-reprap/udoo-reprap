@@ -247,11 +247,12 @@ window.ESKiWizard = (() => {
         }
     }
 
-    async function _runGenerate() {
+    async function _runGenerate(refinement) {
         _readMetaFields();
         _setBusy(true);
         try {
-            const gen = await _api('POST', `/session/${_sessionId}/generate/`);
+            const body = refinement ? { refinement } : undefined;
+            const gen = await _api('POST', `/session/${_sessionId}/generate/`, body);
             _generated = gen.generated || {};
             _showPreview();
             _setStep('preview');
@@ -259,6 +260,33 @@ window.ESKiWizard = (() => {
             _showError(e.message);
         } finally {
             _setBusy(false);
+        }
+    }
+
+    async function refine() {
+        const notes = document.getElementById('es-ki-refine-notes')?.value?.trim();
+        if (!notes) {
+            _showError(t('ki_refine_empty', 'Bitte kurz beschreiben, was geändert werden soll.'));
+            return;
+        }
+        _showError('');
+        await _runGenerate(notes);
+    }
+
+    function openRefine() {
+        const name = document.getElementById('es-name-input')?.value?.trim() || '';
+        const subject = document.getElementById('es-subject-input')?.value?.trim() || '';
+        const html = document.getElementById('es-html-editor')?.value?.trim() || '';
+        open();
+        const briefing = document.getElementById('es-ki-briefing');
+        if (briefing) {
+            briefing.value = [
+                t('ki_refine_intro', 'Bestehende Vorlage verfeinern:'),
+                name ? `Name: ${name}` : '',
+                subject ? `Betreff: ${subject}` : '',
+                html ? `\nAktueller Inhalt (Auszug):\n${html.slice(0, 800)}` : '',
+                `\n${t('ki_refine_wish', 'Gewünschte Anpassung:')}\n`,
+            ].filter(Boolean).join('\n');
         }
     }
 
@@ -309,7 +337,7 @@ window.ESKiWizard = (() => {
         if (_busy) return;
         if (_step === 'briefing') return _runBriefing();
         if (_step === 'clarify') return _runClarify();
-        if (_step === 'meta') return _runGenerate();
+        if (_step === 'meta') return _runGenerate('');
         if (_step === 'preview') return _runApply();
     }
 
@@ -317,6 +345,6 @@ window.ESKiWizard = (() => {
         if (e.key === 'Escape') close();
     });
 
-    return { open, close, back, next, STORAGE_KEY };
+    return { open, close, back, next, refine, openRefine, STORAGE_KEY };
 
 })();

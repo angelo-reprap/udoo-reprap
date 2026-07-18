@@ -38,6 +38,15 @@ window.ESStudio = (() => {
         raum:           'Meetingraum 3',
         einwahl_info:   'Einwahl: +49 30 123456, PIN 4711',
         teilnehmer_liste_html: '<ul><li>Max Mustermann</li><li>Erika Musterfrau</li></ul>',
+        teilnehmer_liste: 'Max Mustermann, Erika Musterfrau',
+        vertretung_name: 'Erika Musterfrau',
+        vertretung_email: 'erika.musterfrau@abcona.de',
+        vertretung_telefon: '+49 171 1234567',
+        mobil_nummer: '+49 171 9876543',
+        abwesenheit_von: '15.07.2026',
+        abwesenheit_bis: '20.07.2026',
+        sender_name: 'Max Mustermann',
+        sender_email: 'max@example.de',
         strasse:        'Musterstraße 1',
         plz:            '12345',
         ort:            'Musterstadt',
@@ -1050,10 +1059,21 @@ window.ESStudio = (() => {
             return;
         }
 
-        if (subjEl && subject) subjEl.textContent = _applyDummyVarsLocal(subject);
+        if (subjEl && subject) subjEl.textContent = subject;
 
         if (!_templateId || editLang) {
-            if (htmlBody) _renderInIframe(_applyDummyVarsLocal(htmlBody));
+            try {
+                const payload = _collectPreviewPayload();
+                const data = await ES.api.post(ES.apiUrl('preview/draft/'), payload);
+                if (data.html) _renderInIframe(data.html);
+                if (subjEl && data.subject) subjEl.textContent = data.subject;
+                const fromEl = document.getElementById('es-preview-from');
+                if (fromEl && data.from_email) fromEl.textContent = data.from_email;
+            } catch (err) {
+                console.warn('Draft-Vorschau fallback:', err);
+                if (htmlBody) _renderInIframe(_applyDummyVarsLocal(htmlBody));
+                if (subjEl && subject) subjEl.textContent = _applyDummyVarsLocal(subject);
+            }
             if (manual && refreshBtn) refreshBtn.classList.remove('es-preview-refreshing');
             if (manual && bodyEl) bodyEl.classList.remove('es-preview-loading');
             return;

@@ -4,6 +4,7 @@ ABpE Email Studio — Template Renderer
 import re
 import json
 import logging
+from datetime import timedelta
 from pathlib import Path
 from django.utils import timezone
 
@@ -183,6 +184,13 @@ class EmailRenderer:
             'teilnehmer_liste_html': (
                 '<ul><li>Max Mustermann</li><li>Erika Musterfrau</li></ul>'
             ),
+            'teilnehmer_liste': 'Max Mustermann, Erika Musterfrau',
+            'vertretung_name':     'Erika Musterfrau',
+            'vertretung_email':    'erika.musterfrau@abcona.de',
+            'vertretung_telefon':  '+49 171 1234567',
+            'mobil_nummer':        '+49 171 9876543',
+            'abwesenheit_von':     now.strftime('%d.%m.%Y'),
+            'abwesenheit_bis':     (now + timedelta(days=5)).strftime('%d.%m.%Y'),
             'strasse':         'Musterstraße 1',
             'plz':             '12345',
             'ort':             'Musterstadt',

@@ -163,7 +163,7 @@ def suggest_meta_session(session: WizardSession) -> dict[str, Any]:
     }
 
 
-def generate_session(session: WizardSession) -> dict[str, Any]:
+def generate_session(session: WizardSession, refinement: str = '') -> dict[str, Any]:
     provider = get_provider(session.wizard_id)
     answers = session.answers or {}
     meta = session.meta_suggestions or {}
@@ -178,6 +178,12 @@ def generate_session(session: WizardSession) -> dict[str, Any]:
     generated: dict[str, Any]
 
     ai_error = ''
+    refine_instr = ''
+    if refinement:
+        refine_instr = (
+            f'Verfeinerung/Korrektur vom User: {refinement}. '
+            'Passe html_body und text_body an; Metadaten nur ändern wenn nötig.'
+        )
     if prompt:
         ds = call_wizard_prompt(
             prompt,
@@ -185,6 +191,7 @@ def generate_session(session: WizardSession) -> dict[str, Any]:
             briefing=session.briefing or '',
             answers=dumps_compact(answers),
             meta=dumps_compact(meta),
+            instruction=refine_instr,
         )
         if ds.success and ds.text:
             try:

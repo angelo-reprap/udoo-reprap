@@ -373,6 +373,67 @@ class TemplatePreviewAPI(LoginRequiredMixin, View):
         return JsonResponse(result)
 
 
+@method_decorator(csrf_exempt, name='dispatch')
+class DraftPreviewAPI(LoginRequiredMixin, View):
+    """POST /email-studio/api/preview/draft/ — Vorschau ohne gespeichertes Template (KI-Neu)."""
+
+    def post(self, request):
+        from .models import EmailTemplate, SenderMode
+        from .services.renderer import EmailRenderer
+
+        data = _json_body(request)
+        renderer = EmailRenderer()
+
+        tpl = EmailTemplate(
+            subject=data.get('subject') or '',
+            html_body=data.get('html_body') or '',
+            text_body=data.get('text_body') or '',
+            sender_mode=data.get('sender_mode') or SenderMode.USER,
+            signature_mode=data.get('signature_mode') or 'USER',
+            status='DRAFT',
+        )
+
+        sender_mode = data.get('sender_mode') or SenderMode.USER
+        if sender_mode == SenderMode.USER:
+            from_email = request.user.email or 'max@example.de'
+        elif sender_mode == SenderMode.AUTO:
+            from_email = 'noreply@abcona.de'
+        else:
+            from_email = 'noreply@abcona.de'
+
+        variables = data.get('variables') or {}
+        signature_mode = data.get('signature_mode')
+        signature_id = data.get('signature_id')
+        include_sig = data.get('include_signature')
+        if include_sig is None and signature_mode == 'NONE':
+            include_sig = False
+
+        preview = renderer.render_preview(
+            tpl,
+            variables,
+            request.user,
+            html_body=data.get('html_body'),
+            subject=data.get('subject'),
+            text_body=data.get('text_body'),
+            signature_mode=signature_mode,
+            signature_id=signature_id,
+            include_signature=include_sig,
+        )
+
+        mode = data.get('mode', 'both')
+        result = {
+            'from_email': from_email,
+            'sender_mode': sender_mode,
+            'subject': preview['subject'],
+            'dummy_vars': renderer.get_default_preview_vars(request.user),
+        }
+        if mode in ('html', 'both'):
+            result['html'] = preview['html']
+        if mode in ('txt', 'both'):
+            result['text'] = preview['text']
+        return JsonResponse(result)
+
+
 # ── Template Send Test ────────────────────────────────────────────────────────
 
 @method_decorator(csrf_exempt, name='dispatch')
