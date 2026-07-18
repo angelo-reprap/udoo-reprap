@@ -1,11 +1,33 @@
 """Tests für variables_registry."""
-import unittest
+from __future__ import annotations
 
-from apps.abpe_email_studio.variables_registry import (
-    get_variables,
-    get_sidebar_variable_groups,
-    variable_count,
-)
+import importlib.util
+import sys
+import unittest
+from pathlib import Path
+
+
+def _load_registry():
+    """Django-Import wenn verfügbar, sonst Datei direkt laden (Cloud/Offline)."""
+    try:
+        from apps.abpe_email_studio.variables_registry import (  # type: ignore
+            get_variables,
+            get_sidebar_variable_groups,
+            variable_count,
+        )
+        return get_variables, get_sidebar_variable_groups, variable_count
+    except Exception:
+        reg = Path(__file__).resolve().parents[1] / 'variables_registry.py'
+        spec = importlib.util.spec_from_file_location(
+            'abpe_email_studio_variables_registry', reg,
+        )
+        mod = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(mod)
+        return mod.get_variables, mod.get_sidebar_variable_groups, mod.variable_count
+
+
+get_variables, get_sidebar_variable_groups, variable_count = _load_registry()
 
 
 class VariablesRegistryTest(unittest.TestCase):
@@ -27,12 +49,16 @@ class VariablesRegistryTest(unittest.TestCase):
         names = {v['name'] for v in get_variables('general', 'meetme_invite_abstimmung')}
         self.assertIn('termin_datum', names)
 
-    def test_groups_ordered(self):
+    def test_intake_vars_present(self):
+        names = {v['name'] for v in get_variables('intake', 'pipeline_success')}
+        for key in ('aid', 'de_editor_url', 'skills', 'button_text'):
+            self.assertIn(key, names, msg=key)
+
+    def test_groups_dict_keys(self):
         groups = get_sidebar_variable_groups('telefon', 'meetme_invite_abstimmung')
-        keys = [g['key'] for g in groups]
-        self.assertIn('meetme', keys)
-        self.assertEqual(keys.index('context'), 0)
-        self.assertLess(keys.index('meetme'), keys.index('user'))
+        self.assertEqual(set(groups.keys()), {'context', 'user', 'system', 'scope'})
+        scope_names = {v['name'] for v in groups['scope']}
+        self.assertIn('termin_datum', scope_names)
 
     def test_variable_count(self):
         n = variable_count('telefon', 'meetme_invite_abstimmung')

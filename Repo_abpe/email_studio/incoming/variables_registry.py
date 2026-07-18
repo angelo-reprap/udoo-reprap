@@ -1,11 +1,13 @@
 """
 Email Studio — Variablen-Katalog für KI-Wizard CONTEXT und Validierung.
 
+Single Source of Truth für Sidebar, VariableListAPI und Wizard-Validierung.
 Scope-spezifische Variablen werden ergänzt; User-/System-Variablen gelten überall.
 """
 from __future__ import annotations
 
 from typing import Any
+
 
 _CONTEXT_VARS: list[dict[str, Any]] = [
     {'name': 'name', 'source': 'context', 'type': 'string', 'description': 'Vollständiger Name'},
@@ -16,6 +18,9 @@ _CONTEXT_VARS: list[dict[str, Any]] = [
     {'name': 'cv_version', 'source': 'context', 'type': 'string', 'description': 'CV Versionsnummer'},
     {'name': 'created_date', 'source': 'context', 'type': 'date', 'description': 'Erstellungsdatum'},
     {'name': 'task_ref', 'source': 'context', 'type': 'string', 'description': 'Task Referenz'},
+    # CTA-Module (cta_blau / cta_gruen) — global verfügbar
+    {'name': 'button_url', 'source': 'context', 'type': 'url', 'description': 'Button-Ziel-URL'},
+    {'name': 'button_text', 'source': 'context', 'type': 'string', 'description': 'Button-Text'},
 ]
 
 _USER_VARS: list[dict[str, Any]] = [
@@ -51,6 +56,8 @@ _SCOPE_VARS: dict[str, list[dict[str, Any]]] = {
         {'name': 'abwesenheit_bis', 'source': 'context', 'type': 'date', 'description': 'Abwesenheit bis'},
         {'name': 'firma', 'source': 'context', 'type': 'string', 'description': 'Firma / Unternehmen'},
         {'name': 'unternehmen', 'source': 'context', 'type': 'string', 'description': 'Unternehmen (alias)'},
+        {'name': 'berater_anzahl', 'source': 'context', 'type': 'string', 'description': 'Anzahl Berater (CRM)'},
+        {'name': 'body', 'source': 'context', 'type': 'html', 'description': 'Freitext-Body (manuelle CRM-Mail)'},
     ],
     'matching': [
         {'name': 'berater_name', 'source': 'context', 'type': 'string', 'description': 'Berater-Name'},
@@ -60,6 +67,20 @@ _SCOPE_VARS: dict[str, list[dict[str, Any]]] = {
     'intake': [
         {'name': 'cv_link', 'source': 'context', 'type': 'url', 'description': 'CV Upload Link'},
         {'name': 'cv_version', 'source': 'context', 'type': 'string', 'description': 'CV Version'},
+        {'name': 'aid', 'source': 'context', 'type': 'string', 'description': 'AID / Profil-ID'},
+        {'name': 'email_id', 'source': 'context', 'type': 'string', 'description': 'E-Mail / Import-ID'},
+        {'name': 'error_code', 'source': 'context', 'type': 'string', 'description': 'Fehlercode'},
+        {'name': 'error_detail', 'source': 'context', 'type': 'string', 'description': 'Fehlerdetail'},
+        {'name': 'import_time', 'source': 'context', 'type': 'string', 'description': 'Import-Zeitpunkt'},
+        {'name': 'original_subject', 'source': 'context', 'type': 'string', 'description': 'Original-Betreff'},
+        {'name': 'solution', 'source': 'context', 'type': 'string', 'description': 'Lösungsvorschlag'},
+        {'name': 'attachment_count', 'source': 'context', 'type': 'string', 'description': 'Anzahl Anhänge'},
+        {'name': 'de_editor_url', 'source': 'context', 'type': 'url', 'description': 'DE Editor URL'},
+        {'name': 'de_html_url', 'source': 'context', 'type': 'url', 'description': 'DE HTML URL'},
+        {'name': 'en_html_url', 'source': 'context', 'type': 'url', 'description': 'EN HTML URL'},
+        {'name': 'duration', 'source': 'context', 'type': 'string', 'description': 'Verarbeitungszeit (Sekunden)'},
+        {'name': 'projects', 'source': 'context', 'type': 'string', 'description': 'Projekte (Kurz)'},
+        {'name': 'skills', 'source': 'context', 'type': 'string', 'description': 'Skills (Kurz)'},
     ],
     'portal': [
         {'name': 'portal_url', 'source': 'system', 'type': 'url', 'description': 'Portal URL'},
@@ -69,21 +90,28 @@ _SCOPE_VARS: dict[str, list[dict[str, Any]]] = {
 }
 
 
+def _resolve_scopes(app_scope: str, identifier: str | None) -> list[str]:
+    """Scope + Heuristik: meetme_* Identifier → Telefon-Variablen auch bei anderem app_scope."""
+    scope = (app_scope or 'general').strip() or 'general'
+    scopes = [scope]
+    ident = (identifier or '').strip().lower()
+    if ident.startswith('meetme_') and 'telefon' not in scopes:
+        scopes.append('telefon')
+    if ident.startswith(('cv_', 'upload_', 'pipeline_')) and 'intake' not in scopes:
+        scopes.append('intake')
+    if ident.startswith('crm_') and 'general' not in scopes:
+        scopes.append('general')
+    return scopes
+
+
 def get_variables(app_scope: str = 'general', identifier: str | None = None) -> list[dict[str, Any]]:
     """Variablen für KI-Wizard CONTEXT / Validierung (scope + global)."""
-    del identifier  # reserved for template-specific vars later
-    scope = (app_scope or 'general').strip() or 'general'
-
     merged: dict[str, dict[str, Any]] = {}
-    for row in (
-        _CONTEXT_VARS + _USER_VARS + _SYSTEM_VARS + _SCOPE_VARS.get(scope, [])
-    ):
+    rows = list(_CONTEXT_VARS + _USER_VARS + _SYSTEM_VARS)
+    for scope in _resolve_scopes(app_scope, identifier):
+        rows.extend(_SCOPE_VARS.get(scope, []))
+    for row in rows:
         merged[row['name']] = row
-
-    # Telefon-Scope: User-Variablen explizit (Absender aus Profil)
-    if scope != 'telefon':
-        pass  # already in _USER_VARS globally
-
     return list(merged.values())
 
 
@@ -113,7 +141,9 @@ def get_sidebar_variable_groups(
     base_context = {v['name'] for v in _CONTEXT_VARS}
     base_user = {v['name'] for v in _USER_VARS}
     base_system = {v['name'] for v in _SYSTEM_VARS}
-    scope_names = {v['name'] for v in _SCOPE_VARS.get(scope, [])}
+    scope_names: set[str] = set()
+    for s in _resolve_scopes(scope, identifier):
+        scope_names |= {v['name'] for v in _SCOPE_VARS.get(s, [])}
 
     groups: dict[str, list[dict[str, str]]] = {
         'context': [],
