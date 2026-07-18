@@ -201,5 +201,6 @@
     "es.module_grp_BUTTON": "Button",
     "es.module_grp_SECTION": "Section",
     "es.module_grp_DISCLAIMER": "Disclaimer",
-    "es.module_grp_SIGNATURE": "Signatur"
+    "es.module_grp_SIGNATURE": "Signaturen",
+    "es.signature_title": "Signaturen"
 }

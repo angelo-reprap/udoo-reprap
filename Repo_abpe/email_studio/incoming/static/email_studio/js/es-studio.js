@@ -1780,8 +1780,6 @@ window.ESStudio = (() => {
 
     function _updateSignatureBlockState() {
         const has = _hasSignatureBlock();
-        const badge = document.getElementById('es-sig-block-badge');
-        if (badge) badge.style.display = has ? '' : 'none';
         const hdr = document.getElementById('es-signature-section')?.querySelector('.section-header');
         if (hdr) hdr.classList.toggle('es-sig-active', has);
     }

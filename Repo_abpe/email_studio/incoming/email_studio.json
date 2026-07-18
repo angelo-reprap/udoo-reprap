@@ -194,7 +194,7 @@
         "versions_click_hint": "click to restore",
         "editor_tab_visual": "Visual",
         "editor_tab_code": "Code",
-        "signature_title": "Signature",
+        "signature_title": "Signaturen",
         "signature_source": "Signature Source",
         "sig_none": "No Signature",
         "sig_team": "General — abcona Team",
@@ -243,7 +243,7 @@
         "module_grp_BUTTON": "Button",
         "module_grp_SECTION": "Section",
         "module_grp_DISCLAIMER": "Disclaimer",
-        "module_grp_SIGNATURE": "Signatur"
+        "module_grp_SIGNATURE": "Signaturen"
   },
     "help": {
         "title": "Email Studio — Guide",
