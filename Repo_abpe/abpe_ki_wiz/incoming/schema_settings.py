@@ -1,4 +1,9 @@
-"""drf-spectacular Einstellungen für /ki-wizard/api/schema/."""
+"""drf-spectacular Einstellungen für /ki-wizard/api/schema/.
+
+Hinweis: Keys mit Prefix ``SERVE_`` dürfen NICHT in custom_settings stehen
+(drf-spectacular wirft AttributeError). Diese steuern wir am View:
+``KiWizardSpectacularAPIView.serve_public = True``.
+"""
 
 KI_WIZARD_SPECTACULAR_SETTINGS = {
     'TITLE': 'ABpE KI Wizard API',
@@ -8,7 +13,6 @@ KI_WIZARD_SPECTACULAR_SETTINGS = {
         'POST-Endpunkte erwarten `X-CSRFToken` bei Browser-Clients.'
     ),
     'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,
     'SCHEMA_PATH_PREFIX': '/ki-wizard/',
     'APPEND_COMPONENTS': {
         'securitySchemes': {

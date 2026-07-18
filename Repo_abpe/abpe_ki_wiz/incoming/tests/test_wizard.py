@@ -139,6 +139,15 @@ class RefineGenerateTests(TestCase):
 
 
 class SpectacularSchemaTests(TestCase):
+    def test_custom_settings_no_serve_keys(self):
+        from ..schema_settings import KI_WIZARD_SPECTACULAR_SETTINGS
+
+        for key in KI_WIZARD_SPECTACULAR_SETTINGS:
+            self.assertFalse(
+                key.startswith('SERVE_'),
+                msg=f'{key} darf nicht in custom_settings (drf-spectacular)',
+            )
+
     def test_schema_lists_generate_endpoint(self):
         r = self.client.get('/ki-wizard/api/schema/')
         self.assertEqual(r.status_code, 200)
