@@ -173,8 +173,12 @@ python3 - <<'PY'
 from pathlib import Path
 et = Path("Repo_abpe/abpe_ki_wiz/incoming/providers/email_template.py").read_text(encoding="utf-8")
 qj = Path("Repo_abpe/abpe_ki_wiz/incoming/questions/email_template.json").read_text(encoding="utf-8")
-ok = ("closing_xor" in et) and ("cta_blau" in qj) and ("button_blau" not in qj) and ('"L2"' in qj)
-print(f"closing_xor={('closing_xor' in et)} cta={('cta_blau' in qj)} L2={('\"L2\"' in qj)}")
+has_xor = "closing_xor" in et
+has_cta = "cta_blau" in qj
+no_old = "button_blau" not in qj
+has_l2 = '"L2"' in qj
+ok = has_xor and has_cta and no_old and has_l2
+print("closing_xor=%s cta=%s L2=%s" % (has_xor, has_cta, has_l2))
 print("VERIFY_KI_OK" if ok else "VERIFY_KI_FAIL — Code-Deploy hat Live nicht erreicht")
 raise SystemExit(0 if ok else 1)
 PY
