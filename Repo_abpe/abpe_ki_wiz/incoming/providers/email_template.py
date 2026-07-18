@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from pathlib import Path
 from typing import Any
 
@@ -20,6 +21,9 @@ _QUESTIONS_PATH = Path(__file__).resolve().parent.parent / 'questions' / 'email_
 
 # Pflichtfragen wenn nicht aus Briefing erkennbar
 _DEFAULT_REQUIRED = ['S1', 'S2', 'I1', 'G1', 'A1']
+
+_ABSENCE_KW = re.compile(r'abwesenheit|vertretung|urlaub|krank|out[\s-]?of[\s-]?office', re.IGNORECASE)
+_GREETING_KW = re.compile(r'weihnacht|festtag|silvester|neujahr|grüße|gruesse|season', re.IGNORECASE)
 
 
 def _load_questions() -> list[dict[str, Any]]:
@@ -131,13 +135,19 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         return pending
 
     def build_checklist(self, answers: dict[str, Any]) -> list[str]:
+        scope = answers.get('S1') or 'general'
         items = [
             'Nur Variablen aus catalog.variables verwenden',
             'Module nur als {{block:identifier}}',
             'Kein Markdown, kein erfundenes Datum',
             'Deutsch, geschäftlich',
             'status immer DRAFT',
+            '{sender_name} und {sender_email} für User-Absender erlaubt',
         ]
+        if scope == 'telefon':
+            items.append('MeetMe/Termin-Variablen nur bei app_scope telefon')
+        if scope == 'general':
+            items.append('Keine MeetMe-Variablen ({termin_datum} etc.) ohne Termin-Kontext')
         if answers.get('I1') == 'bullet_list':
             items.append('Kerninfos als Aufzählung (<ul> oder Fakten-Box)')
         if answers.get('G1') and answers.get('G1') != 'NONE':
@@ -155,15 +165,32 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
     ) -> dict[str, Any]:
         base = super().default_meta_suggestions(briefing, answers)
         answers = answers or {}
-        scope = answers.get('S1') or base.get('app_scope') or 'telefon'
-        event = answers.get('S2') or 'invite'
+        scope = answers.get('S1') or base.get('app_scope') or 'general'
+        event = answers.get('S2') or base.get('event_type') or 'info'
+        text = briefing or ''
 
         if scope == 'telefon' and event == 'invite':
             base['name'] = base.get('name') or 'Einladung — MeetMe'
-            base['identifier'] = 'meetme_invite_custom'
-            base['subject'] = 'Termin am {termin_datum}'
+            base['identifier'] = base.get('identifier') or 'meetme_invite_custom'
+            base['subject'] = base.get('subject') or 'Termin am {termin_datum}'
             base['app_scope'] = 'telefon'
             base['event_type'] = 'invite'
+        elif scope == 'general':
+            base['app_scope'] = 'general'
+            base['event_type'] = event
+            if _ABSENCE_KW.search(text):
+                base['name'] = base.get('name') or 'Abwesenheit — Vertretung'
+                base['identifier'] = base.get('identifier') or 'abwesenheit_vertretung'
+                base['subject'] = base.get('subject') or 'Abwesenheit — Vertretung durch {vertretung_name}'
+            elif _GREETING_KW.search(text):
+                base['name'] = base.get('name') or 'Festliche Grüße'
+                base['identifier'] = base.get('identifier') or 'festliche_gruesse'
+                base['subject'] = base.get('subject') or 'Frohe Festtage vom abcona Team'
+            else:
+                base['subject'] = base.get('subject') or '{subject}'
+        elif scope == 'matching':
+            base['app_scope'] = 'matching'
+            base['subject'] = base.get('subject') or 'Kandidatenvorschlag — {kandidat_name}'
 
         base['sender_mode'] = answers.get('A1') or 'USER'
         base['signature_mode'] = answers.get('G1') or 'USER'
@@ -175,7 +202,10 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         ident = result.get('identifier') or ''
         catalog = self.get_catalog(app_scope=scope, identifier=ident)
         allowed_vars = {v['name'] for v in catalog.get('variables') or [] if isinstance(v, dict)}
-        allowed_vars.update({'subject', 'name', 'date', 'year', 'portal_url'})
+        allowed_vars.update({
+            'subject', 'name', 'date', 'year', 'portal_url',
+            'sender_name', 'sender_email', 'reply_to',
+        })
         allowed_blocks = {m['identifier'] for m in catalog.get('modules') or [] if isinstance(m, dict)}
         allowed_blocks.add('signature')
         return validate_email_template_output(result, allowed_vars, allowed_blocks)
@@ -228,7 +258,18 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         answers = answers or {}
         meta = meta or {}
         merged = {**self.default_meta_suggestions(briefing, answers), **meta}
+        scope = answers.get('S1') or merged.get('app_scope') or 'general'
 
+        if scope == 'telefon':
+            return self._generate_fallback_telefon(briefing, answers, merged)
+        return self._generate_fallback_general(briefing, answers, merged)
+
+    def _generate_fallback_telefon(
+        self,
+        briefing: str,
+        answers: dict[str, Any],
+        merged: dict[str, Any],
+    ) -> dict[str, Any]:
         blocks: list[str] = []
         if answers.get('L1') and answers.get('L1') != 'none':
             blocks.append(f'{{{{block:{answers["L1"]}}}}}')
@@ -254,15 +295,7 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         if sig_mode and sig_mode != 'NONE':
             blocks.append('{{block:signature}}')
 
-        html_body = (
-            '<table role="presentation" width="600" cellpadding="0" cellspacing="0" '
-            'style="width:600px;max-width:600px;font-family:Arial,sans-serif;font-size:14px;'
-            'color:#333333;">'
-            '<tr><td style="padding:16px 24px;">'
-            + '\n'.join(blocks)
-            + '</td></tr></table>'
-        )
-
+        html_body = self._wrap_email_table('\n'.join(blocks))
         text_parts = [
             'Guten Tag,',
             '',
@@ -287,6 +320,98 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
             'variables_used': variables_used,
             'source': 'rules',
         }
+
+    def _generate_fallback_general(
+        self,
+        briefing: str,
+        answers: dict[str, Any],
+        merged: dict[str, Any],
+    ) -> dict[str, Any]:
+        blocks: list[str] = []
+        if answers.get('L1') and answers.get('L1') != 'none':
+            blocks.append(f'{{{{block:{answers["L1"]}}}}}')
+
+        intro = (briefing or merged.get('description') or '').strip()
+        text = briefing or ''
+        body_html = ''
+        body_text = ''
+        variables_used: list[str] = ['sender_name', 'sender_email', 'date']
+
+        if _ABSENCE_KW.search(text):
+            body_html = (
+                '<p>Guten Tag,</p>'
+                f'<p>{intro or "ich bin abwesend und werde durch eine Vertretung vertreten."}</p>'
+                '<p>Vertretung: <strong>{vertretung_name}</strong><br>'
+                'E-Mail: {vertretung_email}<br>'
+                'Telefon: {vertretung_telefon}</p>'
+                '<p>Abwesenheit: {abwesenheit_von} — {abwesenheit_bis}</p>'
+            )
+            body_text = (
+                'Guten Tag,\n\n'
+                f'{intro or "Ich bin abwesend und werde durch eine Vertretung vertreten."}\n\n'
+                'Vertretung: {vertretung_name}\n'
+                'E-Mail: {vertretung_email}\n'
+                'Telefon: {vertretung_telefon}\n\n'
+                'Abwesenheit: {abwesenheit_von} — {abwesenheit_bis}'
+            )
+            variables_used.extend([
+                'vertretung_name', 'vertretung_email', 'vertretung_telefon',
+                'abwesenheit_von', 'abwesenheit_bis', 'mobil_nummer',
+            ])
+        elif _GREETING_KW.search(text):
+            body_html = (
+                '<p>Liebe Kolleginnen und Kollegen,</p>'
+                f'<p>{intro or "wir wünschen Ihnen frohe Festtage und einen guten Rutsch ins neue Jahr {year}."}</p>'
+                '<p>Herzliche Grüße<br>{sender_name}<br>{sender_email}</p>'
+            )
+            body_text = (
+                'Liebe Kolleginnen und Kollegen,\n\n'
+                f'{intro or "Wir wünschen Ihnen frohe Festtage und einen guten Rutsch ins neue Jahr {year}."}\n\n'
+                'Herzliche Grüße\n{sender_name}\n{sender_email}'
+            )
+            variables_used.append('year')
+        else:
+            if answers.get('I1') == 'bullet_list':
+                body_html = (
+                    '<p>Guten Tag,</p>'
+                    f'<p>{intro or "folgende Informationen:"}</p>'
+                    '<ul><li>{subject}</li></ul>'
+                )
+                body_text = f'Guten Tag,\n\n{intro or "Folgende Informationen:"}\n\n- {{subject}}'
+            else:
+                body_html = (
+                    '<p>Guten Tag,</p>'
+                    f'<p>{intro or "vielen Dank für Ihre Nachricht."}</p>'
+                )
+                body_text = f'Guten Tag,\n\n{intro or "Vielen Dank für Ihre Nachricht."}'
+            variables_used.append('subject')
+
+        blocks.append(body_html)
+
+        if answers.get('L3') and answers.get('L3') != 'none':
+            blocks.append(f'{{{{block:{answers["L3"]}}}}}')
+
+        sig_mode = answers.get('G1') or merged.get('signature_mode') or 'USER'
+        if sig_mode and sig_mode != 'NONE' and '{{block:signature}}' not in body_html:
+            blocks.append('{{block:signature}}')
+
+        return {
+            'html_body': self._wrap_email_table('\n'.join(blocks)),
+            'text_body': body_text.strip(),
+            'variables_used': variables_used,
+            'source': 'rules',
+        }
+
+    @staticmethod
+    def _wrap_email_table(inner: str) -> str:
+        return (
+            '<table role="presentation" width="600" cellpadding="0" cellspacing="0" '
+            'style="width:600px;max-width:600px;font-family:Arial,sans-serif;font-size:14px;'
+            'color:#333333;">'
+            '<tr><td style="padding:16px 24px;">'
+            + inner
+            + '</td></tr></table>'
+        )
 
     def apply_result(
         self,

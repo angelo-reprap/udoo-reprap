@@ -35,7 +35,32 @@ class RuleAnalyzeTests(TestCase):
         r = _rule_based_analyze('email_template', 'MeetMe Einladung zur Telefon-Abstimmung')
         self.assertEqual(r['app_scope'], 'telefon')
         self.assertTrue(r['understood'])
-        self.assertNotIn('M1', r['missing_topics'])
+
+    def test_general_greeting_briefing(self):
+        r = _rule_based_analyze('email_template', 'Weihnachtsgrüße an alle Mitarbeiter mit Bibelzitat')
+        self.assertEqual(r['app_scope'], 'general')
+        self.assertEqual(r['event_type'], 'info')
+
+    def test_absence_briefing(self):
+        r = _rule_based_analyze('email_template', 'Abwesenheitsnotiz mit Vertretung durch Kollegin')
+        self.assertEqual(r['app_scope'], 'general')
+
+
+class GeneralFallbackTests(TestCase):
+    def test_greeting_fallback_uses_sender_not_meetme(self):
+        p = get_provider('email_template')
+        out = p.generate_fallback(
+            'Weihnachtsgrüße an alle Mitarbeiter',
+            {
+                'S1': 'general', 'S2': 'info', 'I1': 'prose',
+                'G1': 'USER', 'A1': 'USER', 'M2': 'none',
+                'L1': 'none', 'L3': 'none',
+            },
+            {},
+        )
+        self.assertEqual(out['source'], 'rules')
+        self.assertIn('{sender_name}', out['html_body'])
+        self.assertNotIn('{termin_datum}', out['html_body'])
 
 
 class GenerateFallbackTests(TestCase):

@@ -19,10 +19,12 @@ from apps.abpe_ki_wiz.services.session_store import merge_answers, session_to_di
 log = logging.getLogger('abpe_ki_wiz.orchestrator')
 
 _MEETME_KW = re.compile(
-    r'meetme|telefon|termin|abstimmung|einladung|konferenz|pbx',
+    r'meetme|telefon(?:-)?abstimmung|pbx|konferenz(?:einladung)?|einwahl',
     re.IGNORECASE,
 )
-_MATCHING_KW = re.compile(r'matching|kandidat|berater|kunde|cv', re.IGNORECASE)
+_MATCHING_KW = re.compile(r'matching|kandidat|berater|cv[\s-]?upload', re.IGNORECASE)
+_ABSENCE_KW = re.compile(r'abwesenheit|vertretung|urlaub|krank|out[\s-]?of[\s-]?office', re.IGNORECASE)
+_GREETING_KW = re.compile(r'weihnacht|festtag|silvester|neujahr|grüße|gruesse|season', re.IGNORECASE)
 
 
 def _prompt_key(wizard_id: str, phase: str) -> str:
@@ -37,22 +39,30 @@ def _prompt_key(wizard_id: str, phase: str) -> str:
 
 def _rule_based_analyze(wizard_id: str, briefing: str) -> dict[str, Any]:
     text = briefing or ''
-    missing = []
     app_scope = 'general'
     event_type = 'info'
+    missing: list[str] = []
 
-    if wizard_id == 'email_template' or _MEETME_KW.search(text):
+    if _MATCHING_KW.search(text):
+        app_scope = 'matching'
+        event_type = 'info'
+    elif _MEETME_KW.search(text) or (
+        re.search(r'termin|einladung|meetme', text, re.I) and re.search(r'telefon|pbx|meetme', text, re.I)
+    ):
         app_scope = 'telefon'
         event_type = 'invite'
         if re.search(r'erinnerung|reminder', text, re.I):
             event_type = 'reminder'
         if re.search(r'absage|cancel', text, re.I):
             event_type = 'cancel'
-        missing = ['I1', 'G1', 'A1']
-        if re.search(r'aufzählung|liste|bullet', text, re.I):
-            pass  # I1 likely answered
         if re.search(r'teilnehmer', text, re.I):
-            missing = [m for m in missing if m != 'M2'] or missing
+            missing.append('M2')
+    elif _ABSENCE_KW.search(text):
+        app_scope = 'general'
+        event_type = 'info'
+    elif _GREETING_KW.search(text):
+        app_scope = 'general'
+        event_type = 'info'
 
     summary = text[:200] + ('…' if len(text) > 200 else '')
     return {
@@ -65,6 +75,19 @@ def _rule_based_analyze(wizard_id: str, briefing: str) -> dict[str, Any]:
     }
 
 
+def _scope_from_session(session: WizardSession, analyze: dict[str, Any] | None = None) -> str:
+    answers = session.answers or {}
+    analyze = analyze or {}
+    meta = session.meta_suggestions or {}
+    return (
+        answers.get('S1')
+        or analyze.get('app_scope')
+        or meta.get('app_scope')
+        or (meta.get('analyze') or {}).get('app_scope')
+        or 'general'
+    )
+
+
 def analyze_session(session: WizardSession) -> dict[str, Any]:
     provider = get_provider(session.wizard_id)
     briefing = session.briefing or ''
@@ -72,7 +95,7 @@ def analyze_session(session: WizardSession) -> dict[str, Any]:
 
     prompt = get_prompt_by_key(_prompt_key(session.wizard_id, 'analyze'))
     if prompt:
-        ctx = build_context_json(provider, session.answers)
+        ctx = build_context_json(provider, session.answers, app_scope='general')
         ds = call_wizard_prompt(prompt, context=ctx, briefing=briefing)
         if ds.success and ds.text:
             try:
@@ -128,7 +151,9 @@ def clarify_session(session: WizardSession, new_answers: dict[str, Any]) -> dict
 def suggest_meta_session(session: WizardSession) -> dict[str, Any]:
     provider = get_provider(session.wizard_id)
     answers = session.answers or {}
-    ctx = build_context_json(provider, answers)
+    analyze = (session.meta_suggestions or {}).get('analyze') or {}
+    scope = _scope_from_session(session, analyze)
+    ctx = build_context_json(provider, answers, app_scope=scope)
     briefing = session.briefing or ''
 
     prompt = get_prompt_by_key(_prompt_key(session.wizard_id, 'suggest_meta'))

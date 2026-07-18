@@ -156,7 +156,7 @@
         "ki_step_meta": "Metadaten",
         "ki_step_preview": "Vorschau",
         "ki_briefing_lbl": "Was soll die E-Mail?",
-        "ki_briefing_ph": "z.B. MeetMe Einladung zur Telefon-Abstimmung mit Teilnehmerliste",
+        "ki_briefing_ph": "z.B. Abwesenheits-Mail mit Vertretung, Weihnachtsgrüße, MeetMe-Einladung …",
         "ki_briefing_hint": "Die KI stellt Rückfragen zu Layout, Signatur und Inhalt.",
         "ki_briefing_short": "Bitte ausführlicher beschreiben (mind. 10 Zeichen).",
         "ki_clarify_more": "Bitte alle Pflichtfragen beantworten.",

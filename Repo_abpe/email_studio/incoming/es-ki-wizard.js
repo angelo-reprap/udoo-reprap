@@ -162,7 +162,7 @@ window.ESKiWizard = (() => {
         set('es-ki-meta-name', s.name);
         set('es-ki-meta-identifier', s.identifier);
         set('es-ki-meta-subject', s.subject);
-        set('es-ki-meta-scope', s.app_scope || 'telefon');
+        set('es-ki-meta-scope', s.app_scope || 'general');
         set('es-ki-meta-status', s.status || 'DRAFT');
         _meta = { ...s };
     }
@@ -187,7 +187,17 @@ window.ESKiWizard = (() => {
         if (subj) subj.textContent = _meta.subject || '';
         if (html) html.innerHTML = _generated?.html_body || '';
         if (src) {
-            src.textContent = t('ki_source_label', 'Quelle') + ': ' + (_generated?.source || 'ai');
+            let label = t('ki_source_label', 'Quelle') + ': ' + (_generated?.source || 'ai');
+            if (_generated?.ai_error) {
+                label += ' — ' + _generated.ai_error;
+            }
+            src.textContent = label;
+        }
+        const warn = document.getElementById('es-ki-preview-warn');
+        if (warn) {
+            const msg = _generated?.ai_error || '';
+            warn.textContent = msg;
+            warn.style.display = msg ? 'block' : 'none';
         }
     }
 
@@ -216,6 +226,9 @@ window.ESKiWizard = (() => {
             _sessionId = created.session_id;
             const analyzed = await _api('POST', `/session/${_sessionId}/analyze/`);
             _questions = analyzed.questions || [];
+            const analyze = analyzed.analyze || {};
+            if (analyze.app_scope) _answers.S1 = analyze.app_scope;
+            if (analyze.event_type) _answers.S2 = analyze.event_type;
             _renderQuestions();
             _setStep('clarify');
         } catch (e) {
@@ -259,6 +272,9 @@ window.ESKiWizard = (() => {
             if (refinement) body.refinement = refinement;
             const gen = await _api('POST', `/session/${_sessionId}/generate/`, body);
             _generated = gen.generated || {};
+            if (gen.generated?.ai_error) {
+                _generated.ai_error = gen.generated.ai_error;
+            }
             _showPreview();
             _setStep('preview');
         } catch (e) {

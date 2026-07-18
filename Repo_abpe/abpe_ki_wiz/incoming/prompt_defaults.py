@@ -40,17 +40,19 @@ WIZARD_PROMPT_DEFAULTS = [
         'wizard_id': 'email_template',
         'phase': 'analyze',
         'name': 'Email: Briefing analysieren',
-        'description': 'MeetMe/E-Mail-Vorlage — Intent und fehlende Klärpunkte.',
-        'app_scope': 'telefon',
+        'description': 'E-Mail-Vorlage — Intent, App-Bereich und fehlende Klärpunkte.',
+        'app_scope': 'general',
         'system': (
             'Du analysierst Anforderungen für E-Mail-Vorlagen im ABpE Email Studio. '
+            'Erkenne app_scope aus dem Briefing: telefon (MeetMe/PBX), matching, intake, '
+            'portal, general (Abwesenheit, Festgrüße, allgemeine Infos). '
             'Antworte AUSSCHLIESSLICH mit JSON, ohne Markdown.'
         ),
         'user_template': (
             '[[CONTEXT]]\n\nBriefing:\n[[BRIEFING]]\n\n'
             'Gib GENAU dieses JSON zurück:\n'
-            '{"understood": true, "summary": "", "app_scope": "telefon", '
-            '"event_type": "invite", "missing_topics": ["I1", "M1", "G1"]}'
+            '{"understood": true, "summary": "", "app_scope": "general", '
+            '"event_type": "info", "missing_topics": []}'
         ),
         'instruction_default': '',
         'checklist_template': (
@@ -65,7 +67,7 @@ WIZARD_PROMPT_DEFAULTS = [
         'phase': 'clarify',
         'name': 'Email: Klärung auswerten',
         'description': 'Prüft ob alle Pflicht-Klärpunkte beantwortet sind.',
-        'app_scope': 'telefon',
+        'app_scope': 'general',
         'system': (
             'Du prüfst Antworten eines Email-Studio-Wizards. '
             'Antworte AUSSCHLIESSLICH mit JSON.'
@@ -84,9 +86,12 @@ WIZARD_PROMPT_DEFAULTS = [
         'phase': 'suggest_meta',
         'name': 'Email: Metadaten vorschlagen',
         'description': 'Name, Betreff, Identifier, Sender, Signatur — Autofill.',
-        'app_scope': 'telefon',
+        'app_scope': 'general',
         'system': (
             'Du schlägst Metadaten für eine E-Mail-Vorlage vor. '
+            'Nutze app_scope aus Antworten (S1). '
+            'Bei general: keine MeetMe-Variablen im Betreff unless Briefing verlangt es. '
+            'Bei telefon: {termin_datum} etc. erlaubt. '
             'Antworte AUSSCHLIESSLICH mit JSON. Identifier: snake_case, nur a-z0-9_. '
             'Betreff darf {variablen} aus CONTEXT enthalten.'
         ),
@@ -94,7 +99,7 @@ WIZARD_PROMPT_DEFAULTS = [
             '[[CONTEXT]]\n\nBriefing:\n[[BRIEFING]]\n\nAntworten:\n[[ANSWERS]]\n\n'
             'Gib GENAU dieses JSON zurück:\n'
             '{"name": "", "identifier": "", "subject": "", "description": "", '
-            '"app_scope": "telefon", "event_type": "", "sender_mode": "USER", '
+            '"app_scope": "general", "event_type": "info", "sender_mode": "USER", '
             '"signature_mode": "USER", "status": "DRAFT"}'
         ),
         'instruction_default': '',
@@ -110,9 +115,12 @@ WIZARD_PROMPT_DEFAULTS = [
         'phase': 'generate',
         'name': 'Email: HTML + TXT generieren',
         'description': 'Erzeugt html_body und text_body mit Modulen und Variablen.',
-        'app_scope': 'telefon',
+        'app_scope': 'general',
         'system': (
             'Du erstellst E-Mail-Vorlagen für ABpE Email Studio. '
+            'Respektiere app_scope aus META/ANSWERS: '
+            'general = keine erfundenen MeetMe-Felder; telefon = Termin-Variablen OK. '
+            'User-Absender: {sender_name}, {sender_email} erlaubt. '
             'Antworte AUSSCHLIESSLICH mit JSON. '
             'HTML: inline CSS, 600px Tabellen-Layout, Outlook-tauglich. '
             'Module NUR als {{block:identifier}} aus CONTEXT.modules. '

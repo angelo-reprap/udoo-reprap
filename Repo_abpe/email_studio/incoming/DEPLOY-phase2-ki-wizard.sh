@@ -29,10 +29,11 @@ copy "$R/es-studio.js" "$B/apps/abpe_email_studio/static/email_studio/js/es-stud
 copy "$R/es-ki-wizard.js" "$B/apps/abpe_email_studio/static/email_studio/js/es-ki-wizard.js"
 copy "$R/mod-email_studio.css" "$B/apps/abpe_ui/static/abpe_ui/css/mod/mod-email_studio.css"
 
-# Backend — Draft-Preview + Renderer (Pflicht für Live-Vorschau / Variablen)
+# Backend — Draft-Preview + Renderer + Variablen-Katalog
 copy "$R/api.py" "$B/apps/abpe_email_studio/api.py"
 copy "$R/urls.py" "$B/apps/abpe_email_studio/urls.py"
 copy "$R/renderer.py" "$B/apps/abpe_email_studio/services/renderer.py"
+copy "$R/variables_registry.py" "$B/apps/abpe_email_studio/variables_registry.py"
 
 # i18n (de + en minimum; weitere Sprachen aus incoming/i18n/)
 for lang in de en fr it es; do
