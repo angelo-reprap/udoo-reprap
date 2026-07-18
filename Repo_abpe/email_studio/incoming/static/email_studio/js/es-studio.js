@@ -989,9 +989,10 @@ window.ESStudio = (() => {
 
     function _showVarPopover(btn, chip) {
         if (typeof bootstrap === 'undefined' || !bootstrap.Popover) return;
-        const desc = chip.dataset.varDesc || '';
-        const ex   = chip.dataset.varExample || '';
         const name = chip.dataset.var || '';
+        const fallback = chip.dataset.varDesc || '';
+        const desc = t('var_desc_' + name, fallback);
+        const ex   = chip.dataset.varExample || '';
         let content = `<div class="es-var-popover"><strong>{${name}}</strong>`;
         if (desc) content += `<p class="es-var-popover-desc">${desc}</p>`;
         if (ex) content += `<div class="es-var-popover-example">${t('var_example', 'Beispiel')}: ${ex}</div>`;
