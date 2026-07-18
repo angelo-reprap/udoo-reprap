@@ -70,6 +70,29 @@ class SystemStatusServiceTest(unittest.TestCase):
         self.assertEqual(disk_mock.call_count, 1)
 
 
+class PreviewSystemStatusMergeTest(unittest.TestCase):
+    """render_preview: System-Werte müssen Expand-Fallback [key] überschreiben."""
+
+    def test_expand_then_system_vars_win(self):
+        # Entspricht der Merge-Reihenfolge in EmailRenderer.render_preview
+        merged = {'disk_free': '[disk_free]', 'name': 'Max'}
+        system = {
+            'portal_url': 'https://example.test',
+            'date': '18.07.2026',
+            'year': '2026',
+            'disk_free': '12.4 GB',
+            'system_status': 'OK',
+        }
+        all_vars = {**merged, **system, 'subject': 'x'}
+        self.assertEqual(all_vars['disk_free'], '12.4 GB')
+        self.assertEqual(all_vars['system_status'], 'OK')
+        self.assertEqual(all_vars['name'], 'Max')
+
+        # Alter (fehlerhafter) Order: System zuerst → [key] gewinnt
+        broken = {**system, **merged, 'subject': 'x'}
+        self.assertEqual(broken['disk_free'], '[disk_free]')
+
+
 class SystemStatusRegistryTest(unittest.TestCase):
 
     def test_status_in_group_order(self):

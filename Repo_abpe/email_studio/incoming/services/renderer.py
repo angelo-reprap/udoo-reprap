@@ -214,6 +214,8 @@ class EmailRenderer:
             'kandidat_name':   'Max Mustermann',
             'betreff':         'Beispiel-Betreff',
         }
+        # Live System-/Status-Werte gehören in die Vorschau (kein [disk_free]-Fallback)
+        vars.update(self._get_system_vars())
         vars.update(self._get_user_vars(user))
         if not vars.get('sender_name'):
             vars['sender_name'] = 'Max Mustermann'
@@ -231,7 +233,10 @@ class EmailRenderer:
         for text in texts:
             if text:
                 found.update(pattern.findall(text))
-        defaults = self.get_default_preview_vars()
+        defaults = {
+            **self.get_default_preview_vars(),
+            **self._get_system_vars(),
+        }
         expanded = dict(variables)
         for key in found:
             if key not in expanded:
@@ -348,9 +353,11 @@ class EmailRenderer:
         txt_src = text_body if text_body is not None else (template.text_body or '')
 
         merged = self._expand_placeholder_vars(merged, subj_src or '', html_src or '', txt_src or '')
+        # System-/Status-Werte nach merged: sonst überschreibt Expand-Fallback [key]
+        # die Live-Werte aus _get_system_vars().
         all_vars = {
-            **self._get_system_vars(),
             **merged,
+            **self._get_system_vars(),
             'subject': subj_src or '',
         }
 
