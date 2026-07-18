@@ -112,8 +112,10 @@ class SystemStatusServiceTest(unittest.TestCase):
         self.assertEqual(data['smtp_host'], 'smtp.example.de')
         self.assertEqual(data['pbx_ok'], _OK)
         self.assertEqual(data['meetme_ok'], _OK)
-        self.assertEqual(data['system_status'], _OK)
+        self.assertTrue(data['system_status'].startswith(_OK))
+        self.assertIn('(', data['system_status'])  # z.B. OK (11/11)
         self.assertIn('SMTP', data['system_status_list'])
+        self.assertIn('\n', data['system_status_list'])
         self.assertIn('MeetMe', data['system_status_html'])
         self.assertIn('<table', data['system_status_html'])
 
