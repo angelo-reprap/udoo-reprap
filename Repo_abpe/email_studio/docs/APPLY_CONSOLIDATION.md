@@ -5,6 +5,20 @@ Voraussetzung: Branch `cursor/email-studio-consolidate-modules-7f07` ausgecheckt
 > **Reihenfolge:** erst `--apply-db`, **danach** `RUN-phase1-iststand.sh`.  
 > Phase-1 allein schreibt nur den **Live**-Stand zurück ins Git — ohne Apply geht die Konsolidierung im Snapshot wieder verloren (und rsync kann KI-Fragen überschreiben).
 
+## Empfohlen: ein Befehl
+
+```bash
+cd /mnt/public/udoo-reprap && git pull
+bash Repo_abpe/email_studio/incoming/RUN-apply-consolidation.sh
+# optional vorher:  …/RUN-apply-consolidation.sh --dry-run
+```
+
+Das macht: Backup → `--apply-db` → Phase-1 Sync → Verify (USt / TXT / XOR).
+
+---
+
+## Manuell (falls nötig)
+
 ## 1. Backup (Pflicht)
 
 ```bash
