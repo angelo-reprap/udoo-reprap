@@ -162,6 +162,7 @@ def suggest_meta_session(session: WizardSession) -> dict[str, Any]:
     provider = get_provider(session.wizard_id)
     answers = session.answers or {}
     analyze = (session.meta_suggestions or {}).get('analyze') or {}
+    briefing = session.briefing or ''
     scope = _scope_from_session(session, analyze)
     facts = resolve_facts(
         wizard_id=session.wizard_id,
@@ -171,7 +172,6 @@ def suggest_meta_session(session: WizardSession) -> dict[str, Any]:
         meta=session.meta_suggestions,
     )
     ctx = build_context_json(provider, answers, app_scope=scope, facts=facts)
-    briefing = session.briefing or ''
 
     prompt = get_prompt_by_key(_prompt_key(session.wizard_id, 'suggest_meta'))
     suggestions: dict[str, Any]

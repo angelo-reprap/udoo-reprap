@@ -18,10 +18,12 @@ from apps.abpe_ki_wiz.services.context_fetcher import (
     search_crm_contacts,
 )
 from apps.abpe_ki_wiz.services.prompt_builder import build_context_payload
+from apps.abpe_ki_wiz.models import WizardPhase, WizardSession
 from apps.abpe_ki_wiz.services.orchestrator import (
     _build_refine_instruction,
     _resolve_current_bodies,
     _rule_based_analyze,
+    suggest_meta_session,
 )
 from apps.abpe_ki_wiz.services.deepseek_client import _resolve_pbx_service, _coerce_result
 
