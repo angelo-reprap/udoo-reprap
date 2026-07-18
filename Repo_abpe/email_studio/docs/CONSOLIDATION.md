@@ -1,51 +1,31 @@
-# Email Studio — Konsolidierung Module / Blöcke / Variablen
+# Email Studio — Konsolidierung (Analyse-Report)
 
-Stand: **2026-07-18** · Snapshot: `Repo_abpe/email_studio/data/email_studio_snapshot_2026-07-18.json`  
-Branch-Arbeit: `cursor/email-studio-consolidate-modules-7f07`  
-Live-DB: **keine Änderungen ohne Review**
+Stand: **2026-07-18** · Phase-1 Sync: Commit `7a7949d`  
+Snapshot: `Repo_abpe/email_studio/data/email_studio_snapshot_latest.json`  
+Deklaration: [`EMAIL_LAYOUT_DECLARATION.md`](./EMAIL_LAYOUT_DECLARATION.md)
 
-## Ziel-CI (abcona Corporate Layout)
+**Keine Live-DB-Änderungen in diesem Schritt — nur Inventar + Gap zur Deklaration.**
 
-**Verbindlich:** siehe [`EMAIL_LAYOUT_DECLARATION.md`](./EMAIL_LAYOUT_DECLARATION.md) (Abstimmung 2026-07-18).
+---
 
-| Regel | Soll |
+## Phase 1 — erledigt
+
+| Schritt | Status |
 |---|---|
-| Struktur | `{{block:abcona_header_blau}}` → optional `label_*` → Body → **Signatur XOR Footer** |
-| Header | immer nur blau (`abcona_header_blau`) |
-| Event | `label_info` (blau) / `label_bestaetigt` (grün) / `label_warnung` (rot) |
-| Abschluss | Signatur **oder** Footer (nicht beides) — DE-Impressum |
-| Breite | 600px Tabellen-Layout, Outlook-tauglich, inline CSS |
-| Typografie Body | Arial 14px, Farbe `#333333`, `text-align:left` |
-| TXT | 1:1 aus HTML-Text ableiten |
+| Code-Sync ucs5 → Git | OK (`RUN-phase1-iststand.sh`) |
+| DB-Snapshot Module/Vorlagen/Signaturen/Absender | OK (24 / 17 / 5 / 5) |
+| Layout-Deklaration | OK |
+| Offline-Audit | `python3 Repo_abpe/email_studio/incoming/audit_email_studio_snapshot.py` |
 
-Quellen: Deklaration, `abpe_ki_wiz/.../layout_rules`, `variables_registry.py`, `help_de.json`.
-
----
-
-## Phase 1 — Ist-Stand (erledigt auf ucs5)
-
-1. `RUN-sync-from-ucs5.sh` → Code nach `Repo_abpe/email_studio/incoming/`
-2. `dumpdata` → `Repo_abpe/email_studio/data/email_studio_snapshot_2026-07-18.json`
-3. Commit `ccbe0b1` auf `cursor/email-studio-ki-wizard-phase2-bf44`
-
-Wiederholbar:
+Wiederholen nach jedem funktionierenden Schritt:
 
 ```bash
-cd /mnt/public/udoo-reprap && git pull
 bash Repo_abpe/email_studio/incoming/RUN-phase1-iststand.sh --commit --push
-# oder nur DB:
-bash Repo_abpe/email_studio/incoming/export-email-studio-data.sh
-```
-
-Offline-Audit:
-
-```bash
-python3 Repo_abpe/email_studio/incoming/audit_email_studio_snapshot.py
 ```
 
 ---
 
-## Bestandsaufnahme Snapshot
+## Inventar Snapshot
 
 | Modell | Anzahl |
 |---|---|
@@ -54,133 +34,114 @@ python3 Repo_abpe/email_studio/incoming/audit_email_studio_snapshot.py
 | EmailSignature | 5 |
 | EmailSenderAccount | 5 |
 
-### Module nach Typ
+### Module (relevant für Deklaration)
 
-| Typ | Identifier |
-|---|---|
-| HEADER | `abcona_header_blau`, `_gruen`, `_rot` |
-| FOOTER | `footer_standard`, `footer_auto_reply` |
-| BUTTON | `cta_blau`, `cta_gruen`, `cta_with_secondary` |
-| SECTION | `support_kontakt`, Labels, Fakten, Kalender, Progress, … (16) |
+| Rolle | Identifier | Ist vs Deklaration |
+|---|---|---|
+| Header Marke | `abcona_header_blau` | vorhanden, left, 19px (Soll 18px) |
+| Header alt | `abcona_header_gruen`, `_rot` | vorhanden — laut Deklaration **nicht mehr als Marken-Kopf** |
+| Event | `label_info`, `label_bestaetigt`, `label_warnung` | vorhanden ✓ |
+| Footer | `footer_standard`, `footer_auto_reply` | Text noch alt („ABpE — …“), **ohne** USt-ID/HRA |
+| CTA | `cta_blau`, `cta_gruen`, `cta_with_secondary` | vorhanden ✓ |
+| Sonstige | calendar, fakten_box, support_kontakt, … | 16 SECTION-Module |
 
 Unbekannte `{{block:…}}` in Vorlagen: **keine**.
 
 ---
 
-## Formatierungs-Analyse
+## Gap-Analyse gegen Deklaration
 
-### Header-Module (Inkonsistent)
+### A. TXT-Fallback — kritisch
 
-| Modul | Align | Font-Size | Padding | Farbe |
-|---|---|---|---|---|
-| `abcona_header_blau` | **left** ✓ | **19px** | 22px 28px | `#163258` |
-| `abcona_header_gruen` | **center** ✗ | 18px | 16px 24px | `#28a745` |
-| `abcona_header_rot` | **center** ✗ | 18px | 16px 24px | `#dc3545` |
+**Alle 17 Vorlagen:** `text_body` Länge = **0**.
 
-Soll laut CI: alle Header **linksbündig**, einheitliche Schriftgröße/Padding.
+Deklaration §6: TXT Pflicht, 1:1 aus HTML.  
+→ Nächster Konsolidierungs-Schritt: TXT aus HTML ableiten (kein Blind-Overwrite ohne Review).
 
-### Footer-Module (weichen von Body-CI ab)
+### B. Signatur XOR Footer — Renderer-Verhalten wichtig
 
-| Modul | Align | Size | Color |
-|---|---|---|---|
-| `footer_standard` | center | 11px | `#6c757d` |
-| `footer_auto_reply` | center | 11px | `#6c757d` |
+Der Renderer hängt bei `signature_mode != NONE` die Signatur **automatisch ans Ende**, wenn kein `{{block:signature}}` im HTML steht (`services/renderer.py`).
 
-CI-Prompt sagt Body=Footer Arial 14px `#333333` links.  
-Entscheidung nötig: Footer bewusst kleiner/grau zentriert (Marken-Impressum) **oder** CI wörtlich (14px/`#333`/left). Empfehlung: **Impressum-Stil beibehalten**, aber in `layout_rules` klar dokumentieren (`footer_style: imprint`).
-
-### Signaturen
-
-Alle 5 Signaturen: Arial 11–12px, Farben `#163258` / `#333` / `#6c757d`, kein `text-align` (Default left). Relativ einheitlich.
-
-### Vorlagen — Struktur
-
-| Gruppe | Header-Modul | Footer / Signatur | Anmerkung |
-|---|---|---|---|
-| CRM (`crm_*`) | `abcona_header_blau` | `{{block:signature}}` + `signature_mode=USER` | gut |
-| Intake Pipeline / Upload | Header + Labels | `footer_*` | gut; Body oft 12px statt 14px |
-| MeetMe (`meetme_*`) | `abcona_header_blau` | **kein** Footer-Block | verlassen sich auf USER-Signatur beim Versand |
-| `cv_generated_berater_copy` (DRAFT) | **Inline-HTML** Header/Footer | — | Skeleton-Kopie, nicht modulbasiert |
-| `test` (DRAFT) | fehlt | nur signature | Entwurf |
-
----
-
-## Variablen — Lücken
-
-### In Vorlagen genutzt, fehlend in `variables_registry` (intake/general)
-
-`aid`, `email_id`, `error_code`, `error_detail`, `import_time`, `original_subject`, `solution`, `attachment_count`, `de_editor_url`, `de_html_url`, `en_html_url`, `duration`, `projects`, `skills`, `berater_anzahl`, `body`
-
-### `button_text` / `button_url`
-
-Nur unter Scope `portal` in der Registry — CTA-Module brauchen sie global.
-
-### `VariableListAPI` vs Registry
-
-`api.py` → `VariableListAPI` hat eine **feste, unvollständige Liste** (nur Basis-Kontext/User/System).  
-Sidebar nutzt bereits `variables_registry.get_sidebar_variable_groups`.  
-→ API muss Registry als Single Source of Truth nutzen (`?scope=`).
-
-### Tests vs Implementierung
-
-`tests/test_variables_registry.py` erwartet z.T. List-API mit Key `meetme` und Identifier-Heuristik — weicht vom aktuellen Dict-Return in `views.py` ab. Tests werden an die Live-API angeglichen; Identifier-Heuristik (`meetme_*` → Telefon-Vars) wird ergänzt.
-
----
-
-## Bekannte Namens-Inkonsistenzen
-
-| Ort | Ist | Soll |
+| Muster | Vorlagen | Bewertung |
 |---|---|---|
-| KI-Wizard `questions/email_template.json` L3 | `button_blau` / `button_gruen` | `cta_blau` / `cta_gruen` |
-| Tutorial `es-core.js` | `{{block:button_blau}}` | `{{block:cta_blau}}` |
-| Help | bereits `cta_blau` / `cta_gruen` ✓ | — |
-| DB-Module | `cta_blau` / `cta_gruen` ✓ | — |
-| Corporate Skeleton `views.py` | Inline Header/Footer HTML | `{{block:abcona_header_blau}}` + Body + `{{block:footer_standard}}` / signature |
+| Header + `{{block:signature}}`, kein Footer | CRM, `cv_generated_berater` | ✓ XOR erfüllt (Sig im Body) |
+| Header + Footer, `sig_mode=USER` | `pipeline_*`, `upload_*` | **Konflikt:** Footer im HTML **plus** Auto-Signatur beim Versand |
+| Header, kein Footer, `sig_mode=USER` | alle MeetMe | ✓ Impressum über Auto-Sig; kein `{{block:signature}}` sichtbar im Editor |
+| Inline-Skeleton | `cv_generated_berater_copy` (DRAFT) | ✗ kein Modul-Header |
+
+**Empfehlung (noch nicht umsetzen):**
+
+1. System-Mails (`pipeline_*`, `upload_*`): `signature_mode=NONE` + Footer mit Impressum-Text §3  
+2. Persönliche Mails (MeetMe, CRM): `signature_mode=USER|TEAM` + **kein** Footer; optional `{{block:signature}}` im Body für Editor-Klarheit  
+3. Footer-HTML auf Firmen-Impressum aus Deklaration §3 umstellen
+
+### C. Header + Event-Badge
+
+| Gruppe | Header blau | Event-Label | Gap |
+|---|---|---|---|
+| CRM | ✓ | `label_info` | OK |
+| CV generated | ✓ | `label_bestaetigt` | OK |
+| Pipeline/Upload success | ✓ | `label_bestaetigt` | OK |
+| Pipeline/Upload error | ✓ | `label_warnung` | OK |
+| MeetMe cancel | ✓ | `label_warnung` | OK |
+| MeetMe invite/reminder/reschedule | ✓ | **fehlt** | optional `label_info` |
+| DRAFT copy/test | — | — | aufräumen oder archivieren |
+
+### D. Footer-Inhalt
+
+Ist: „ABpE — Automatisiertes Berater Profil Erfassungssystem…“  
+Soll (Deklaration): Firma, Adresse, USt-ID DE813519516, Amtsgericht HRA 3662, Inhaber.
+
+### E. Code / KI-Katalog (Nebenbefund nach Sync)
+
+Nach dem Phase-1-rsync von Live liegen u. a. wieder vor:
+
+- KI-Frage L3: `button_blau` / `button_gruen` (Soll: `cta_*`)
+- `variables_registry` / `VariableListAPI`: Live-Stand (nicht die Agent-Erweiterung)
+
+**Absicht:** erst Report, dann gezielt angleichen — kein Misch-Restore.
+
+### F. UI Info-Popover `(i)`
+
+| Feature | Aktueller Git-/Sync-Stand |
+|---|---|
+| KI-Wizard | vorhanden |
+| Clipboard Klick | vorhanden |
+| Info-Popover `(i)` | fehlt (nur Branch `cursor/email-studio-vars-hints-bf44`) |
+
+Später **chirurgisch** mergen — kein Voll-Overwrite.
 
 ---
 
-## Phase 3 — Vorschläge (nicht blind deployen)
+## Vorlagen-Matrix (ACTIVE)
 
-### A. Code (dieses PR — sicher)
-
-1. `export-email-studio-data.sh` + `RUN-phase1-iststand.sh`
-2. `audit_email_studio_snapshot.py`
-3. `VariableListAPI` → `variables_registry`
-4. Registry: Intake-Vars + globale Button-Vars + `meetme_*`-Identifier
-5. KI-Fragen + Tutorial: `cta_*` statt `button_*`
-6. Skeleton in `views.py` auf Module umstellen
-
-### B. DB-Module (Review nötig — Fixtures unter `fixtures/ci_modules/`)
-
-Vereinheitlichte Header-HTMLs (left, 18px, padding 16px 24px):
-
-- `abcona_header_blau.html`
-- `abcona_header_gruen.html`
-- `abcona_header_rot.html`
-
-Nach Freigabe auf ucs5: Backup → `loaddata` oder Admin-Update nur dieser 3 Module.
-
-### C. Vorlagen (Review)
-
-1. MeetMe ACTIVE: optional `{{block:signature}}` ergänzen (oder Signatur-Policy dokumentieren)
-2. `cv_generated_berater_copy`: auf Modul-Struktur migrieren oder archivieren
-3. Body-Fließtext: wo sinnvoll `font-size:14px;color:#333333;text-align:left` an Body-`<td>`/`<p>`
-
-### D. layout_rules
-
-Footer-Stil explizit machen (`imprint` vs `body_match`), damit KI und Audit dieselbe Wahrheit haben.
+| Identifier | Header | Label | Abschluss (HTML) | sig_mode | TXT |
+|---|---|---|---|---|---|
+| crm_berater_profilupdate | blau | info | `signature` | USER | ✗ |
+| crm_firmenprofil | blau | info | `signature` | USER | ✗ |
+| crm_manual_email | blau | — | `signature` | USER | ✗ |
+| cv_generated_berater | blau | bestätigt | `signature` | USER | ✗ |
+| meetme_cancel_standard | blau | warnung | (auto-sig) | USER | ✗ |
+| meetme_invite_* / reminder / reschedule | blau | — | (auto-sig) | USER | ✗ |
+| pipeline_error | blau | warnung | `footer_auto_reply` | USER | ✗ + XOR-Risiko |
+| pipeline_success | blau | bestätigt | `footer_standard` | USER | ✗ + XOR-Risiko |
+| upload_error | blau | warnung | `footer_auto_reply` | USER | ✗ + XOR-Risiko |
+| upload_received | blau | bestätigt | `footer_auto_reply` | USER | ✗ + XOR-Risiko |
 
 ---
 
-## Deploy-Hinweis
+## Priorisierte nächste Schritte (eines nach dem anderen)
 
-Nur nach expliziter Freigabe auf ucs5. Vor DB-Änderungen:
+1. **Du checkst** diesen Report + Deklaration (OK / Korrektur)  
+2. **Footer-Modul** auf Impressum-Text §3 (Backup auf ucs5 vorher)  
+3. **XOR bereinigen:** System-Mails → `signature_mode=NONE`; persönliche → kein Footer  
+4. **TXT** für alle Vorlagen 1:1 generieren (Skript + Review)  
+5. **layout_rules / KI-Fragen** an Deklaration (`cta_*`, Header nur blau, Labels, XOR)  
+6. Optional: Info-Popover chirurgisch; MeetMe `label_info`; Header grün/rot deaktivieren oder nur intern behalten  
 
-```bash
-cd /opt/abpe/backend && source /opt/abpe/venv311/bin/activate
-python manage.py dumpdata abpe_email_studio.EmailModule \
-  abpe_email_studio.EmailTemplate \
-  abpe_email_studio.EmailSignature \
-  abpe_email_studio.EmailSenderAccount \
-  --indent 2 -o /tmp/email_studio_backup_$(date +%Y%m%d_%H%M%S).json
-```
+---
+
+## Arbeitsregel
+
+Vor Live-Änderung: `python3 Archiv/backup_restore.py -save <datei> -m "vor: …"`  
+Nach funktionierendem Schritt: `RUN-phase1-iststand.sh --commit --push`
