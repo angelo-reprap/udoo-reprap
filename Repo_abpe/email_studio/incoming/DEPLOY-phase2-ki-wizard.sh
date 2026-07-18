@@ -29,6 +29,11 @@ copy "$R/es-studio.js" "$B/apps/abpe_email_studio/static/email_studio/js/es-stud
 copy "$R/es-ki-wizard.js" "$B/apps/abpe_email_studio/static/email_studio/js/es-ki-wizard.js"
 copy "$R/mod-email_studio.css" "$B/apps/abpe_ui/static/abpe_ui/css/mod/mod-email_studio.css"
 
+# Backend — Draft-Preview + Renderer (Pflicht für Live-Vorschau / Variablen)
+copy "$R/api.py" "$B/apps/abpe_email_studio/api.py"
+copy "$R/urls.py" "$B/apps/abpe_email_studio/urls.py"
+copy "$R/renderer.py" "$B/apps/abpe_email_studio/services/renderer.py"
+
 # i18n (de + en minimum; weitere Sprachen aus incoming/i18n/)
 for lang in de en fr it es; do
   src="$R/i18n/${lang}/email_studio.json"
@@ -45,4 +50,6 @@ fi
 
 supervisorctl restart abpe-django
 echo ""
-echo "Deploy fertig. Test: /email-studio/studio/ → 4. Karte „KI-Assistent“"
+echo "Deploy fertig."
+echo "Prüfen: grep preview/draft $B/apps/abpe_email_studio/urls.py"
+echo "Test: curl -s -o /dev/null -w '%{http_code}' -X POST http://127.0.0.1:8000/email-studio/api/preview/draft/"

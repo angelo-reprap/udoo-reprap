@@ -264,6 +264,10 @@ window.ESKiWizard = (() => {
     }
 
     async function refine() {
+        if (!_sessionId) {
+            _showError(t('ki_refine_no_session', 'Keine Session — bitte zuerst Vorlage generieren.'));
+            return;
+        }
         const notes = document.getElementById('es-ki-refine-notes')?.value?.trim();
         if (!notes) {
             _showError(t('ki_refine_empty', 'Bitte kurz beschreiben, was geändert werden soll.'));
@@ -273,20 +277,78 @@ window.ESKiWizard = (() => {
         await _runGenerate(notes);
     }
 
-    function openRefine() {
-        const name = document.getElementById('es-name-input')?.value?.trim() || '';
-        const subject = document.getElementById('es-subject-input')?.value?.trim() || '';
-        const html = document.getElementById('es-html-editor')?.value?.trim() || '';
+    function _collectEditorFields() {
+        if (window.ESStudio?._syncCanvasToCode) {
+            ESStudio._syncCanvasToCode();
+        }
+        return {
+            name: document.getElementById('es-name-input')?.value?.trim() || '',
+            identifier: document.getElementById('es-identifier-input')?.value?.trim() || '',
+            subject: document.getElementById('es-subject-input')?.value?.trim() || '',
+            html_body: document.getElementById('es-html-editor')?.value?.trim() || '',
+            text_body: document.getElementById('es-txt-editor')?.value?.trim() || '',
+            app_scope: document.querySelector('select[name="app_scope"]')?.value || 'general',
+            sender_mode: document.querySelector('.es-mode-btn.active')?.dataset.mode || 'USER',
+            signature_mode: document.querySelector('input[name="es-sig-mode"]:checked')?.value || 'USER',
+        };
+    }
+
+    async function openRefine() {
+        const fields = _collectEditorFields();
+        if (!fields.html_body && !fields.subject) {
+            alert(t('ki_refine_no_content', 'Kein Inhalt im Editor zum Verfeinern.'));
+            return;
+        }
+
         open();
-        const briefing = document.getElementById('es-ki-briefing');
-        if (briefing) {
-            briefing.value = [
-                t('ki_refine_intro', 'Bestehende Vorlage verfeinern:'),
-                name ? `Name: ${name}` : '',
-                subject ? `Betreff: ${subject}` : '',
-                html ? `\nAktueller Inhalt (Auszug):\n${html.slice(0, 800)}` : '',
-                `\n${t('ki_refine_wish', 'Gewünschte Anpassung:')}\n`,
-            ].filter(Boolean).join('\n');
+        _setBusy(true);
+        _showError('');
+
+        const briefingText = [
+            t('ki_refine_intro', 'Bestehende Vorlage verfeinern:'),
+            fields.name ? `Name: ${fields.name}` : '',
+            fields.subject ? `Betreff: ${fields.subject}` : '',
+            fields.html_body ? `\nAktueller Inhalt:\n${fields.html_body.slice(0, 2000)}` : '',
+        ].filter(Boolean).join('\n');
+
+        try {
+            const created = await _api('POST', '/wizards/email_template/session/', { briefing: briefingText });
+            _sessionId = created.session_id;
+
+            await _api('POST', `/session/${_sessionId}/analyze/`);
+
+            _answers = {
+                S1: fields.app_scope,
+                S2: 'info',
+                I1: 'prose',
+                G1: fields.signature_mode,
+                A1: fields.sender_mode,
+                M2: 'none',
+                L1: 'none',
+                L3: 'none',
+            };
+            await _api('POST', `/session/${_sessionId}/clarify/`, { answers: _answers });
+
+            const metaRes = await _api('POST', `/session/${_sessionId}/suggest-meta/`);
+            _fillMetaFields({
+                ...(metaRes.suggestions || {}),
+                name: fields.name || metaRes.suggestions?.name,
+                identifier: fields.identifier || metaRes.suggestions?.identifier,
+                subject: fields.subject || metaRes.suggestions?.subject,
+                app_scope: fields.app_scope,
+            });
+
+            _generated = {
+                html_body: fields.html_body,
+                text_body: fields.text_body,
+                source: 'editor',
+            };
+            _showPreview();
+            _setStep('preview');
+        } catch (e) {
+            _showError(e.message);
+        } finally {
+            _setBusy(false);
         }
     }
 
