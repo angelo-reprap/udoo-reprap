@@ -82,14 +82,25 @@
   {
     "id": "L1",
     "group": "Layout",
-    "question": "Corporate Header?",
+    "question": "Corporate Header (Marke)?",
     "type": "select",
     "required": false,
     "options": [
-      {"value": "none", "label": "Keiner"},
-      {"value": "abcona_header_blau", "label": "Header — Blau"},
-      {"value": "abcona_header_gruen", "label": "Header — Grün"},
-      {"value": "abcona_header_rot", "label": "Header — Rot"}
+      {"value": "abcona_header_blau", "label": "Header — Blau (abcona e. K.)"},
+      {"value": "none", "label": "Keiner (nicht empfohlen)"}
+    ]
+  },
+  {
+    "id": "L2",
+    "group": "Layout",
+    "question": "Event-Badge unter dem Header?",
+    "type": "select",
+    "required": false,
+    "options": [
+      {"value": "none", "label": "Keines"},
+      {"value": "label_info", "label": "Info — blau"},
+      {"value": "label_bestaetigt", "label": "Bestätigung — grün"},
+      {"value": "label_warnung", "label": "Alert — rot"}
     ]
   },
   {
@@ -100,22 +111,22 @@
     "required": false,
     "options": [
       {"value": "none", "label": "Keiner"},
-      {"value": "button_blau", "label": "Button — Blau"},
-      {"value": "button_gruen", "label": "Button — Grün"}
+      {"value": "cta_blau", "label": "Button — Blau (cta_blau)"},
+      {"value": "cta_gruen", "label": "Button — Grün (cta_gruen)"}
     ]
   },
   {
     "id": "G1",
     "group": "Signatur",
-    "question": "Signatur-Modus?",
+    "question": "Signatur-Modus? (XOR Footer: bei NONE kommt Firmen-Footer)",
     "type": "select",
     "required": true,
     "options": [
-      {"value": "USER", "label": "Absender (User)"},
-      {"value": "TEAM", "label": "Team / abcona"},
-      {"value": "NONE", "label": "Keine Signatur"},
-      {"value": "FIXED", "label": "Feste Signatur"},
-      {"value": "DYNAMIC", "label": "Beim Versand wählbar"}
+      {"value": "USER", "label": "Absender (User) — kein Footer"},
+      {"value": "TEAM", "label": "Team / Ihr abcona e. K. Team — kein Footer"},
+      {"value": "NONE", "label": "Keine Signatur → Footer-Impressum"},
+      {"value": "FIXED", "label": "Feste Signatur — kein Footer"},
+      {"value": "DYNAMIC", "label": "Beim Versand wählbar — kein Footer"}
     ]
   },
   {

@@ -1,6 +1,6 @@
-# Email Studio — Konsolidierung (Analyse + Umsetzung)
+# Email Studio — Konsolidierung
 
-Stand: **2026-07-18**  
+Stand: **2026-07-18** · Live-DB Apply: **VERIFY_OK**  
 Deklaration: [`EMAIL_LAYOUT_DECLARATION.md`](./EMAIL_LAYOUT_DECLARATION.md)  
 Apply: [`APPLY_CONSOLIDATION.md`](./APPLY_CONSOLIDATION.md)
 
@@ -12,46 +12,39 @@ Apply: [`APPLY_CONSOLIDATION.md`](./APPLY_CONSOLIDATION.md)
 |---|---|
 | Phase 1 Sync + Snapshot | ✅ |
 | Layout-Deklaration | ✅ |
-| Gap-Analyse | ✅ |
-| Footer-Impressum Fixtures | ✅ im Git |
-| XOR + TXT im konsolidierten Snapshot | ✅ `data/email_studio_snapshot_latest.json` |
-| Apply-Skript | ✅ `incoming/apply_layout_consolidation.py` |
-| KI `layout_rules` + Fragen (L1/L2/L3, XOR) | ✅ im Git |
-| **Live-DB auf ucs5** | ⏳ du führst `--apply-db` aus (Backup vorher) |
+| Live-DB: Footer-Impressum (USt/HRA) | ✅ |
+| Live-DB: XOR System-Mails (`signature_mode=NONE`) | ✅ |
+| Live-DB: TXT 1:1 alle Vorlagen | ✅ |
+| Snapshot Verify (`77213` bytes) | ✅ `VERIFY_OK` |
+| KI `layout_rules` / Fragen auf Live | ⏳ Code-Deploy + Sync (`--code-only`) |
 | Info-Popover `(i)` chirurgisch | ⏳ später |
 
+Backup Live vor Apply: `/tmp/email_studio_backup_before_consolidation_20260718_164817.json`
+
 ---
 
-## Was der konsolidierte Snapshot enthält
+## Verifiziert im Snapshot (nach Apply)
 
-- `footer_standard` / `footer_auto_reply`: Firma, Adresse, USt-ID, HRA, Inhaber  
-- System-Mails `pipeline_*`, `upload_*`: `signature_mode=NONE`, `include_signature=False`  
-- Alle 17 Vorlagen: `text_body` 1:1 aus HTML (+ Modul-TXT)  
-- Modul-`text_body` neu aus HTML (ohne Altlast `=== … ===`)
+| Check | Wert |
+|---|---|
+| `footer_*` enthält DE813519516 | ja |
+| leere `text_body` | 0 / 17 |
+| `pipeline_*` / `upload_*` | `signature_mode=NONE` |
+| CRM / MeetMe | `USER` + TXT befüllt |
 
-Offline prüfen:
+---
+
+## Nächster Schritt (KI-Code auf Live, damit Sync nicht zurückdreht)
 
 ```bash
-python3 Repo_abpe/email_studio/incoming/apply_layout_consolidation.py --dry-run
-python3 Repo_abpe/email_studio/incoming/audit_email_studio_snapshot.py
+cd /mnt/public/udoo-reprap && git pull
+bash Repo_abpe/email_studio/incoming/RUN-apply-consolidation.sh --code-only
 ```
+
+Erwartung: `VERIFY_OK` + **`VERIFY_KI_OK`**
 
 ---
 
-## Inventar (Counts unverändert)
+## Inventar
 
 24 Module · 17 Vorlagen · 5 Signaturen · 5 Absender
-
----
-
-## Nach Apply auf ucs5
-
-```bash
-# 1 Backup + Apply — siehe APPLY_CONSOLIDATION.md
-python3 Repo_abpe/email_studio/incoming/apply_layout_consolidation.py --apply-db
-
-# 2 Sync zurück
-bash Repo_abpe/email_studio/incoming/RUN-phase1-iststand.sh --commit --push
-```
-
-Dann optional: MeetMe `label_info`, Header grün/rot deaktivieren, Info-Popover merge.
