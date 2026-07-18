@@ -72,6 +72,16 @@ class ProviderTests(TestCase):
         qs = p.get_question_catalog()
         self.assertGreater(len(qs), 5)
 
+    def test_optional_m1_not_blocking(self):
+        p = get_provider('email_template')
+        analyze = {'missing_topics': ['M1', 'I1']}
+        answers = {
+            'S1': 'telefon', 'S2': 'invite', 'I1': 'bullet_list',
+            'G1': 'USER', 'A1': 'USER',
+        }
+        pending = p.resolve_questions('', answers, analyze)
+        self.assertNotIn('M1', pending)
+
 
 class KiWizardApiTests(TestCase):
     def setUp(self):

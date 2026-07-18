@@ -118,16 +118,14 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         catalog = self.get_question_catalog()
         pending: list[str] = []
 
-        ai_missing = list((analyze_result or {}).get('missing_topics') or [])
-        required_ids = set(_DEFAULT_REQUIRED) | set(ai_missing)
-
         for q in catalog:
             qid = q['id']
-            if qid in answers and answers[qid] not in (None, ''):
+            val = answers.get(qid)
+            if val not in (None, '', []):
                 continue
             if not _question_visible(q, answers):
                 continue
-            if q.get('required') or qid in required_ids:
+            if q.get('required') or qid in _DEFAULT_REQUIRED:
                 pending.append(qid)
 
         return pending
