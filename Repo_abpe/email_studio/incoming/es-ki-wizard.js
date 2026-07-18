@@ -459,14 +459,20 @@ window.ESKiWizard = (() => {
 
     function _showModal(focusId) {
         const modal = document.getElementById('es-ki-wizard-modal');
-        if (!modal) return;
+        if (!modal) {
+            console.warn('[ESKiWizard] #es-ki-wizard-modal fehlt im DOM — ki-wizard-modal.html einbinden.');
+            return;
+        }
         modal.classList.add('show');
         modal.setAttribute('aria-hidden', 'false');
         if (focusId) document.getElementById(focusId)?.focus();
     }
 
     function open() {
-        if (!document.getElementById('es-ki-wizard-modal')) return;
+        if (!document.getElementById('es-ki-wizard-modal')) {
+            console.warn('[ESKiWizard] #es-ki-wizard-modal fehlt im DOM — ki-wizard-modal.html einbinden.');
+            return;
+        }
         _reset();
         _showModal('es-ki-briefing');
     }
