@@ -5,6 +5,7 @@ Implementierung in z. B. apps.abpe_email_studio.wizard.provider (Phase 1).
 """
 from __future__ import annotations
 
+import re
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Any
@@ -77,3 +78,26 @@ class WizardDomainProvider(ABC):
         Phase 0: Default passthrough.
         """
         return result
+
+    def default_meta_suggestions(
+        self,
+        briefing: str,
+        answers: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
+        """Regelbasierte Metadaten wenn KI ausfällt."""
+        answers = answers or {}
+        scope = answers.get('S1') or answers.get('app_scope') or 'general'
+        name = (briefing or '')[:80].strip() or 'Neue Vorlage'
+        ident = re.sub(r'[^a-z0-9]+', '_', name.lower()).strip('_')[:60] or 'new_template'
+        return {
+            'name': name,
+            'identifier': ident,
+            'subject': '{subject}',
+            'description': (briefing or '')[:500],
+            'app_scope': scope,
+            'event_type': answers.get('S2') or 'general',
+            'sender_mode': answers.get('A1') or 'USER',
+            'signature_mode': answers.get('G1') or 'USER',
+            'status': 'DRAFT',
+            'source': 'rules',
+        }

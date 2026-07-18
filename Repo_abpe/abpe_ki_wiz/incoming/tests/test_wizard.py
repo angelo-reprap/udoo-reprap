@@ -4,7 +4,6 @@ import json
 from django.test import Client, TestCase
 from django.contrib.auth import get_user_model
 
-from apps.abpe_ki_wiz.models import WizardPrompt, WizardSession
 from apps.abpe_ki_wiz.prompt_defaults import WIZARD_PROMPT_DEFAULTS
 from apps.abpe_ki_wiz.registry import get_provider, list_wizard_ids
 from apps.abpe_ki_wiz.services.json_utils import parse_ai_json
@@ -57,14 +56,16 @@ class KiWizardApiTests(TestCase):
         ids = [w['wizard_id'] for w in r.json()['wizards']]
         self.assertIn('email_template', ids)
 
-    def test_session_flow_analyze_clarify(self):
+    def test_session_flow_analyze_clarify_meta(self):
         from django.core.management import call_command
         call_command('sync_wizard_prompts')
 
         self.client.force_login(self.user)
         create = self.client.post(
             '/ki-wizard/api/wizards/email_template/session/',
-            data=json.dumps({'briefing': 'MeetMe Einladung zur kurzen Telefon-Abstimmung mit Teilnehmerliste'}),
+            data=json.dumps({
+                'briefing': 'MeetMe Einladung zur kurzen Telefon-Abstimmung mit Teilnehmerliste',
+            }),
             content_type='application/json',
         )
         self.assertEqual(create.status_code, 201)
@@ -78,7 +79,8 @@ class KiWizardApiTests(TestCase):
             f'/ki-wizard/api/session/{sid}/clarify/',
             data=json.dumps({'answers': {
                 'S1': 'telefon', 'S2': 'invite', 'I1': 'bullet_list',
-                'G1': 'USER', 'A1': 'USER', 'M2': 'plain', 'L1': 'abcona_header_blau', 'L3': 'none',
+                'G1': 'USER', 'A1': 'USER', 'M2': 'plain',
+                'L1': 'abcona_header_blau', 'L3': 'none',
             }}),
             content_type='application/json',
         )

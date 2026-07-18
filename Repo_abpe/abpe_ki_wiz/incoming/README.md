@@ -2,6 +2,26 @@
 
 Zentrale Django-App für wiederverwendbare KI-Assistenten (Email Studio, Matching, Doc Studio, …).
 
+## Phase 1 — Session-API (neu)
+
+| Methode | URL | Body |
+|---------|-----|------|
+| POST | `/ki-wizard/api/wizards/email_template/session/` | `{"briefing":"…"}` |
+| POST | `/ki-wizard/api/session/<uuid>/analyze/` | — |
+| POST | `/ki-wizard/api/session/<uuid>/clarify/` | `{"answers":{"S1":"telefon",…}}` |
+| POST | `/ki-wizard/api/session/<uuid>/suggest-meta/` | — |
+| POST | `/ki-wizard/api/session/<uuid>/generate/` | — (DeepSeek) |
+| POST | `/ki-wizard/api/session/<uuid>/apply/` | — |
+
+**Test (eingeloggt als Admin im Browser oder curl mit Session-Cookie):**
+
+```bash
+# Health — phase: 1, public_wizards: 1
+curl -s http://127.0.0.1:8000/ki-wizard/api/health/ | python -m json.tool
+```
+
+Phase 2: UI-Modal in `abpe_ui` + Paste ins Email Studio.
+
 ## Phase 0 — Inhalt
 
 - `WizardPrompt` — Prompts im Admin editierbar
