@@ -11,6 +11,8 @@ urlpatterns = [
 
     # Phase 0
     path('api/health/', api.KiWizardHealthAPI.as_view(), name='api-health'),
+    path('api/schema/', views.KiWizardOpenAPISchemaView.as_view(), name='api-schema'),
+    path('api/docs/', views.KiWizardSwaggerUIView.as_view(), name='api-docs'),
     path('api/wizards/', api.KiWizardListAPI.as_view(), name='api-wizard-list'),
     path(
         'api/wizards/<str:wizard_id>/catalog/',

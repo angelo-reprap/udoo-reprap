@@ -8,6 +8,7 @@ from apps.abpe_ki_wiz.prompt_defaults import WIZARD_PROMPT_DEFAULTS
 from apps.abpe_ki_wiz.registry import get_provider, list_wizard_ids
 from apps.abpe_ki_wiz.services.json_utils import parse_ai_json
 from apps.abpe_ki_wiz.services.orchestrator import _rule_based_analyze
+from apps.abpe_ki_wiz.openapi_schema import build_openapi_schema
 from apps.abpe_ki_wiz.services.deepseek_client import _resolve_pbx_service, _coerce_result
 
 User = get_user_model()
@@ -83,10 +84,44 @@ class ProviderTests(TestCase):
         self.assertNotIn('M1', pending)
 
 
+class OpenAPISchemaTests(TestCase):
+    def test_build_schema_has_session_paths(self):
+        schema = build_openapi_schema(base_url='/ki-wizard/')
+        self.assertEqual(schema['openapi'], '3.0.3')
+        paths = schema['paths']
+        self.assertIn('/ki-wizard/api/health/', paths)
+        self.assertIn('/ki-wizard/api/session/{session_id}/generate/', paths)
+        gen = paths['/ki-wizard/api/session/{session_id}/generate/']['post']
+        ref = gen['requestBody']['content']['application/json']['schema']['$ref']
+        self.assertEqual(ref, '#/components/schemas/GenerateRequest')
+        self.assertIn('refinement', schema['components']['schemas']['GenerateRequest']['properties'])
+
+
 class KiWizardApiTests(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = User.objects.create_user(username='wiztest', password='testpass123')
+
+    def test_openapi_schema_public(self):
+        r = self.client.get('/ki-wizard/api/schema/')
+        self.assertEqual(r.status_code, 200)
+        body = r.json()
+        self.assertEqual(body['openapi'], '3.0.3')
+        self.assertIn('/ki-wizard/api/session/{session_id}/analyze/', body['paths'])
+
+    def test_swagger_ui_html(self):
+        r = self.client.get('/ki-wizard/api/docs/')
+        self.assertEqual(r.status_code, 200)
+        self.assertIn('text/html', r['Content-Type'])
+        self.assertIn('swagger-ui', r.content.decode())
+        self.assertIn('/ki-wizard/api/schema/', r.content.decode())
+
+    def test_index_lists_schema_and_docs(self):
+        r = self.client.get('/ki-wizard/')
+        self.assertEqual(r.status_code, 200)
+        api = r.json()['api']
+        self.assertEqual(api['schema'], '/ki-wizard/api/schema/')
+        self.assertEqual(api['docs'], '/ki-wizard/api/docs/')
 
     def test_health_phase1(self):
         r = self.client.get('/ki-wizard/api/health/')

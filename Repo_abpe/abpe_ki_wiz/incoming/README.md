@@ -2,6 +2,15 @@
 
 Zentrale Django-App für wiederverwendbare KI-Assistenten (Email Studio, Matching, Doc Studio, …).
 
+## API-Dokumentation (OpenAPI / Swagger)
+
+| URL | Beschreibung |
+|-----|--------------|
+| `/ki-wizard/api/schema/` | OpenAPI 3.0 JSON (öffentlich) |
+| `/ki-wizard/api/docs/` | Swagger UI (Browser) |
+
+Kein DRF / drf-spectacular — handgeschriebenes Schema in `openapi_schema.py`. Bei späterer DRF-Migration kann drf-spectacular dieses Schema ersetzen.
+
 ## Phase 1 — Session-API (neu)
 
 | Methode | URL | Body |
@@ -92,6 +101,8 @@ supervisorctl restart abpe-django
 
 ```bash
 curl -s http://127.0.0.1:8000/ki-wizard/api/health/
+curl -s http://127.0.0.1:8000/ki-wizard/api/schema/ | python -m json.tool | head
+# Browser: http://127.0.0.1:8000/ki-wizard/api/docs/
 curl -s http://127.0.0.1:8000/ki-wizard/api/wizards/
 ```
 
