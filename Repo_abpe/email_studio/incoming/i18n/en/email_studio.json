@@ -177,6 +177,8 @@
         "ki_refine_empty": "Please describe what should change.",
         "ki_refine_intro": "Refine existing template:",
         "ki_refine_wish": "Desired changes:",
+        "ki_refine_no_session": "No session — generate a template first.",
+        "ki_refine_apply": "Apply refined result",
         "open_template_title": "Open existing template",
         "breadcrumb_templates": "Templates",
         "label_sender_account": "Sender Address",

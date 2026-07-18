@@ -180,6 +180,7 @@
         "ki_refine_wish": "Gewünschte Anpassung:",
         "ki_refine_no_session": "Keine Session — bitte zuerst Vorlage generieren.",
         "ki_refine_no_content": "Kein Inhalt im Editor zum Verfeinern.",
+        "ki_refine_apply": "Verfeinertes Ergebnis übernehmen",
         "open_template_title": "Bestehende Vorlage öffnen",
         "breadcrumb_templates": "Vorlagen",
         "label_sender_account": "Absender-Adresse",

@@ -17,6 +17,7 @@ window.ESKiWizard = (() => {
     let _meta = {};
     let _generated = null;
     let _busy = false;
+    let _refineMode = false;
 
     function t(key, fallback) {
         return window.i18nData?.es?.[key] || fallback || key;
@@ -207,10 +208,49 @@ window.ESKiWizard = (() => {
         _answers = {};
         _meta = {};
         _generated = null;
+        _refineMode = false;
         _showError('');
         const briefing = document.getElementById('es-ki-briefing');
         if (briefing) briefing.value = '';
+        const refineNotes = document.getElementById('es-ki-refine-notes');
+        if (refineNotes) refineNotes.value = '';
+        const title = document.getElementById('es-ki-wizard-title');
+        if (title) title.textContent = t('ki_title', 'KI-Vorlage generieren');
         _setStep('briefing');
+    }
+
+    function _syncFromEditorIfRefine() {
+        if (!_refineMode) return;
+        const fields = _collectEditorFields();
+        if (fields.html_body) {
+            _generated = {
+                ...(_generated || {}),
+                html_body: fields.html_body,
+                text_body: fields.text_body || fields.html_body,
+                source: 'editor',
+            };
+        }
+        _meta = {
+            ..._meta,
+            name: fields.name || _meta.name,
+            identifier: fields.identifier || _meta.identifier,
+            subject: fields.subject || _meta.subject,
+            app_scope: fields.app_scope || _meta.app_scope,
+            sender_mode: fields.sender_mode || _meta.sender_mode,
+            signature_mode: fields.signature_mode || _meta.signature_mode,
+            event_type: _meta.event_type || 'info',
+            status: _meta.status || 'DRAFT',
+        };
+    }
+
+    function _updatePreviewFooterForRefine() {
+        const nextBtn = document.getElementById('es-ki-btn-next');
+        if (nextBtn && _refineMode) {
+            nextBtn.querySelector('span').textContent = t(
+                'ki_refine_apply',
+                'Verfeinertes Ergebnis übernehmen',
+            );
+        }
     }
 
     async function _runBriefing() {
@@ -261,6 +301,7 @@ window.ESKiWizard = (() => {
     }
 
     async function _runGenerate(refinement) {
+        _syncFromEditorIfRefine();
         _readMetaFields();
         _setBusy(true);
         try {
@@ -277,6 +318,7 @@ window.ESKiWizard = (() => {
             }
             _showPreview();
             _setStep('preview');
+            _updatePreviewFooterForRefine();
         } catch (e) {
             _showError(e.message);
         } finally {
@@ -321,49 +363,54 @@ window.ESKiWizard = (() => {
             return;
         }
 
+        _refineMode = true;
         _showError('');
         _sessionId = null;
         _questions = [];
         _answers = {};
         _meta = {};
         _generated = null;
+
+        const title = document.getElementById('es-ki-wizard-title');
+        if (title) title.textContent = t('ki_refine_tab', 'KI verfeinern');
+
         _showModal('es-ki-refine-notes');
         _setBusy(true);
 
-        const briefingText = [
-            t('ki_refine_intro', 'Bestehende Vorlage verfeinern:'),
-            fields.name ? `Name: ${fields.name}` : '',
-            fields.subject ? `Betreff: ${fields.subject}` : '',
-            fields.html_body ? `\nAktueller Inhalt:\n${fields.html_body.slice(0, 2000)}` : '',
-        ].filter(Boolean).join('\n');
+        let briefing = (fields.subject || fields.name || '').trim();
+        if (briefing.length < 10) {
+            briefing = (fields.html_body || '').replace(/<[^>]+>/g, ' ').trim().slice(0, 400);
+        }
+        if (briefing.length < 10) {
+            briefing = 'Verfeinerung bestehender E-Mail-Vorlage im Editor';
+        }
 
         try {
-            const created = await _api('POST', '/wizards/email_template/session/', { briefing: briefingText });
+            const created = await _api('POST', '/wizards/email_template/session/', { briefing });
             _sessionId = created.session_id;
 
-            await _api('POST', `/session/${_sessionId}/analyze/`);
-
             _answers = {
-                S1: fields.app_scope,
+                S1: fields.app_scope || 'general',
                 S2: 'info',
                 I1: 'prose',
-                G1: fields.signature_mode,
-                A1: fields.sender_mode,
+                G1: fields.signature_mode || 'USER',
+                A1: fields.sender_mode || 'USER',
                 M2: 'none',
                 L1: 'none',
                 L3: 'none',
             };
             await _api('POST', `/session/${_sessionId}/clarify/`, { answers: _answers });
 
-            const metaRes = await _api('POST', `/session/${_sessionId}/suggest-meta/`);
-            _fillMetaFields({
-                ...(metaRes.suggestions || {}),
-                name: fields.name || metaRes.suggestions?.name,
-                identifier: fields.identifier || metaRes.suggestions?.identifier,
-                subject: fields.subject || metaRes.suggestions?.subject,
-                app_scope: fields.app_scope,
-            });
-
+            _meta = {
+                name: fields.name,
+                identifier: fields.identifier,
+                subject: fields.subject,
+                app_scope: fields.app_scope || 'general',
+                sender_mode: fields.sender_mode || 'USER',
+                signature_mode: fields.signature_mode || 'USER',
+                event_type: 'info',
+                status: 'DRAFT',
+            };
             _generated = {
                 html_body: fields.html_body,
                 text_body: fields.text_body,
@@ -371,7 +418,10 @@ window.ESKiWizard = (() => {
             };
             _showPreview();
             _setStep('preview');
+            _updatePreviewFooterForRefine();
+            document.getElementById('es-ki-refine-notes')?.focus();
         } catch (e) {
+            _refineMode = false;
             _showError(e.message);
         } finally {
             _setBusy(false);
@@ -380,19 +430,28 @@ window.ESKiWizard = (() => {
 
     function _runApply() {
         _readMetaFields();
+        _syncFromEditorIfRefine();
         const fields = {
             name: _meta.name,
             identifier: _meta.identifier,
             subject: _meta.subject,
             description: _meta.description || document.getElementById('es-ki-briefing')?.value || '',
             app_scope: _meta.app_scope,
-            event_type: _meta.event_type || 'general',
+            event_type: _meta.event_type || 'info',
             sender_mode: _meta.sender_mode || 'USER',
             signature_mode: _meta.signature_mode || 'USER',
             status: _meta.status || 'DRAFT',
             html_body: _generated?.html_body || '',
             text_body: _generated?.text_body || '',
         };
+
+        if (_refineMode && window.ESStudio?.applyWizardResult) {
+            close();
+            ESStudio.applyWizardResult(fields);
+            _refineMode = false;
+            return;
+        }
+
         sessionStorage.setItem(STORAGE_KEY, JSON.stringify(fields));
         close();
         window.location.href = '/email-studio/studio/?new=blank&from_ki=1';
