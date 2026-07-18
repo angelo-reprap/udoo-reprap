@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "Tanácsadó keresés (Namazu)",
+            "placeholder": "Név, készség, technológia...",
+            "btn": "Keresés",
+            "max_label": "Max. találat"
+        },
+        "results": {
+            "total": "Összes találat",
+            "empty": "Nincs találat",
+            "score": "Pontszám"
+        },
+        "profile": {
+            "open": "Profil",
+            "preview": "Adatlap előnézet",
+            "close": "Bezárás"
+        },
+        "admin": {
+            "title": "Index kezelés",
+            "imap_title": "IMAP postafiókok",
+            "add_account": "Fiók hozzáadása",
+            "active": "aktív",
+            "inactive": "inaktív",
+            "html_count": "HTML fájlok",
+            "index_size": "Index méret",
+            "last_indexed": "Utolsó indexelés",
+            "reindex_btn": "Újraindexelés indítása",
+            "reindex_ok": "Újraindexelés elindítva",
+            "reindex_err": "Hiba az indításkor",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "Betöltés..."
+        },
+        "es": {
+            "title": "Elasticsearch keresés",
+            "placeholder": "Készségek, név, technológia...",
+            "exclude": "Kizárás:",
+            "exclude_account": "Postafiók kizárása",
+            "query_helper": "Lekérdezés súgó",
+            "examples": "Példák:",
+            "index": {
+                "consultants": "Tanácsadók",
+                "emails": "E-mailek",
+                "profiles": "Profilok"
+            },
+            "sort": {
+                "placeholder": "Rendezés...",
+                "date_desc": "Dátum ↓",
+                "date_asc": "Dátum ↑",
+                "indexed_desc": "Indexelve ↓",
+                "indexed_asc": "Indexelve ↑",
+                "attachments": "Csatolmányok előre",
+                "from_asc": "Feladó A-Z",
+                "account_asc": "Postafiók A-Z",
+                "name_asc": "Név A-Z",
+                "status": "Állapot",
+                "available": "Elérhető ettől",
+                "availability": "Elérhetőség",
+                "folder_asc": "Mappa A-Z",
+                "size_desc": "Méret ↓"
+            },
+            "chips": {
+                "boolean": "Logikai:",
+                "wildcards": "Helyettesítő & Fuzzy:",
+                "fields_email": "Mezők (E-mailek):",
+                "fields_consultant": "Mezők (Tanácsadók):",
+                "date_ranges": "Dátum & Tartományok:",
+                "and": "mindkettő",
+                "or": "egyik",
+                "not": "kizárás",
+                "must": "kell",
+                "must_not": "nem lehet",
+                "wildcard": "Helyettesítő",
+                "one_char": "egy karakter",
+                "fuzzy": "Fuzzy",
+                "phrase": "Kifejezés",
+                "proximity": "Közelség",
+                "boost": "Boost",
+                "with_attachment": "Csatolmánnyal",
+                "fulltext": "Teljes szöveg",
+                "name": "Név",
+                "location": "Hely",
+                "availability": "Elérhetőség",
+                "subject": "Tárgy",
+                "sender": "Feladó",
+                "content": "Tartalom",
+                "mailbox": "Postafiók",
+                "folder": "Mappa"
+            }
+        }
+    }
+}

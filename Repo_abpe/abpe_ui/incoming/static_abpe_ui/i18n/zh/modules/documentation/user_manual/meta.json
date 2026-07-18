@@ -1,0 +1,86 @@
+{
+    "toc": {
+        "title": "目录"
+    },
+    "sections": [
+        {
+            "id": "einstieg",
+            "number": "1",
+            "title": "入门与登录"
+        },
+        {
+            "id": "dashboard",
+            "number": "2",
+            "title": "仪表盘与导航"
+        },
+        {
+            "id": "cv_editor",
+            "number": "3",
+            "title": "简历编辑器"
+        },
+        {
+            "id": "cv_upload",
+            "number": "4",
+            "title": "简历上传与提取"
+        },
+        {
+            "id": "matching",
+            "number": "5",
+            "title": "匹配与搜索"
+        },
+        {
+            "id": "email_studio",
+            "number": "6",
+            "title": "邮件工作室"
+        },
+        {
+            "id": "doc_studio",
+            "number": "7",
+            "title": "文档工作室"
+        },
+        {
+            "id": "rechnungen",
+            "number": "8",
+            "title": "发票"
+        },
+        {
+            "id": "vorlagen",
+            "number": "9",
+            "title": "模板与信纸"
+        },
+        {
+            "id": "benutzerverwaltung",
+            "number": "10",
+            "title": "用户管理"
+        },
+        {
+            "id": "einstellungen",
+            "number": "11",
+            "title": "设置与配置"
+        },
+        {
+            "id": "sprache",
+            "number": "12",
+            "title": "语言与本地化"
+        },
+        {
+            "id": "tipps",
+            "number": "13",
+            "title": "提示与快捷键"
+        },
+        {
+            "id": "fehler",
+            "number": "14",
+            "title": "常见错误与解决方案"
+        },
+        {
+            "id": "glossar",
+            "number": "15",
+            "title": "词汇表"
+        }
+    ],
+    "version": "版本 2.0",
+    "framework": "Django 5.x",
+    "chapters": "15 章",
+    "audience": "最终用户"
+}

@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "Tartalomjegyzék"
+    },
+    "sections": [
+        {
+            "id": "dienste",
+            "number": "1",
+            "title": "Szolgáltatások"
+        },
+        {
+            "id": "backup_ops",
+            "number": "2",
+            "title": "Biztonsági mentés"
+        }
+    ]
+}

@@ -1,0 +1,3 @@
+{
+    "endpoints": "<h3>2.1 Endpoint importanti</h3><table class='doc-table'><tr><th>Endpoint</th><th>Metodo</th><th>Descrizione</th></tr><tr><td>/api/stats/</td><td>GET</td><td>Statistiche</td></tr><tr><td>/api/system/</td><td>GET</td><td>Stato del sistema</td></tr></table>"
+}

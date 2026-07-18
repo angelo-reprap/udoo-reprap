@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "Adviseurzoekopdracht (Namazu)",
+            "placeholder": "Naam, vaardigheid, technologie...",
+            "btn": "Zoeken",
+            "max_label": "Max. resultaten"
+        },
+        "results": {
+            "total": "Totaal aantal resultaten",
+            "empty": "Geen resultaten gevonden",
+            "score": "Score"
+        },
+        "profile": {
+            "open": "Profiel",
+            "preview": "Gegevensbladvoorbeeld",
+            "close": "Sluiten"
+        },
+        "admin": {
+            "title": "Indexbeheer",
+            "imap_title": "IMAP-postvakken",
+            "add_account": "Account toevoegen",
+            "active": "actief",
+            "inactive": "inactief",
+            "html_count": "HTML-bestanden",
+            "index_size": "Indexgrootte",
+            "last_indexed": "Laatste indexering",
+            "reindex_btn": "Herindexering starten",
+            "reindex_ok": "Herindexering gestart",
+            "reindex_err": "Fout bij starten",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "Laden..."
+        },
+        "es": {
+            "title": "Elasticsearch-zoekopdracht",
+            "placeholder": "Vaardigheden, naam, technologie...",
+            "exclude": "Uitsluiten:",
+            "exclude_account": "Postvak uitsluiten",
+            "query_helper": "Query-hulp",
+            "examples": "Voorbeelden:",
+            "index": {
+                "consultants": "Adviseurs",
+                "emails": "E-mails",
+                "profiles": "Profielen"
+            },
+            "sort": {
+                "placeholder": "Sortering...",
+                "date_desc": "Datum ↓",
+                "date_asc": "Datum ↑",
+                "indexed_desc": "Geïndexeerd ↓",
+                "indexed_asc": "Geïndexeerd ↑",
+                "attachments": "Bijlage eerst",
+                "from_asc": "Afzender A-Z",
+                "account_asc": "Postvak A-Z",
+                "name_asc": "Naam A-Z",
+                "status": "Status",
+                "available": "Beschikbaar vanaf",
+                "availability": "Beschikbaarheid",
+                "folder_asc": "Map A-Z",
+                "size_desc": "Grootte ↓"
+            },
+            "chips": {
+                "boolean": "Boolean:",
+                "wildcards": "Wildcards & Fuzzy:",
+                "fields_email": "Velden (e-mails):",
+                "fields_consultant": "Velden (adviseurs):",
+                "date_ranges": "Datum & bereiken:",
+                "and": "beide",
+                "or": "een van",
+                "not": "uitsluiten",
+                "must": "moet",
+                "must_not": "mag niet",
+                "wildcard": "Wildcard",
+                "one_char": "één teken",
+                "fuzzy": "Fuzzy",
+                "phrase": "Zin",
+                "proximity": "Nabijheid",
+                "boost": "Boost",
+                "with_attachment": "Met bijlage",
+                "fulltext": "Volledige tekst",
+                "name": "Naam",
+                "location": "Locatie",
+                "availability": "Beschikbaarheid",
+                "subject": "Onderwerp",
+                "sender": "Afzender",
+                "content": "Inhoud",
+                "mailbox": "Postvak",
+                "folder": "Map"
+            }
+        }
+    }
+}

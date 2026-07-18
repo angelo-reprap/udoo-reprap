@@ -1,0 +1,210 @@
+"""
+ABpE Email Studio — Portal Views
+==================================
+4 Reiter: Vorlagen · Studio · Log · Konfiguration
+Phase 1: eigenständige Templates (email_studio/base.html)
+Phase 2: extends abpe_ui/base.html → eine Zeile ändern
+"""
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
+from django.http import JsonResponse
+from django.db.models import Count, Q
+from django.utils import timezone
+from datetime import timedelta
+
+from .models import (
+    EmailTemplate, EmailTemplateVersion, EmailLog,
+    EmailSignature, EmailSenderAccount, EmailQueue,
+    TemplateStatus, AppScope
+)
+
+
+def _base_context(request, active_tab='index'):
+    """Gemeinsamer Context für alle Views."""
+    return {
+        'active_tab':   active_tab,
+        'active_module': 'email_studio',
+        'current_lang':  getattr(request, 'LANGUAGE_CODE', 'de')[:2],
+        'user_is_admin': request.user.is_staff,
+    }
+
+
+# ── Reiter 1: Vorlagen-Bibliothek ─────────────────────────────────────────────
+
+@login_required
+def index(request):
+    """Vorlagen gruppiert nach app_scope — Bibliothek."""
+    scope_filter  = request.GET.get('scope', '')
+    status_filter = request.GET.get('status', 'ACTIVE')
+    search        = request.GET.get('q', '')
+
+    templates = EmailTemplate.objects.select_related(
+        'sender_account', 'signature', 'created_by'
+    )
+
+    if scope_filter:
+        templates = templates.filter(app_scope=scope_filter)
+    if status_filter:
+        templates = templates.filter(status=status_filter)
+    if search:
+        templates = templates.filter(
+            Q(name__icontains=search) |
+            Q(identifier__icontains=search) |
+            Q(subject__icontains=search)
+        )
+
+    # Gruppieren nach app_scope
+    grouped = {}
+    for tpl in templates.order_by('app_scope', 'name'):
+        scope = tpl.app_scope
+        if scope not in grouped:
+            grouped[scope] = []
+        grouped[scope].append(tpl)
+
+    # Statistik
+    stats = {
+        'total':   EmailTemplate.objects.count(),
+        'active':  EmailTemplate.objects.filter(status=TemplateStatus.ACTIVE).count(),
+        'draft':   EmailTemplate.objects.filter(status=TemplateStatus.DRAFT).count(),
+        'archive': EmailTemplate.objects.filter(status=TemplateStatus.ARCHIVE).count(),
+    }
+
+    ctx = _base_context(request, 'index')
+    ctx.update({
+        'grouped':       grouped,
+        'stats':         stats,
+        'scopes':        AppScope.choices,
+        'scope_filter':  scope_filter,
+        'status_filter': status_filter,
+        'search':        search,
+    })
+    return render(request, 'email_studio/index.html', ctx)
+
+
+# ── Reiter 2: Studio / Editor ─────────────────────────────────────────────────
+
+@login_required
+def studio(request):
+    """HTML-Editor mit Variablen-Panel, Vorschau und Versionsverlauf."""
+    template_id = request.GET.get('template')
+    template    = None
+    versions    = []
+
+    if template_id:
+        template = get_object_or_404(
+            EmailTemplate.objects.select_related('sender_account', 'signature'),
+            pk=template_id
+        )
+        versions = EmailTemplateVersion.objects.filter(
+            template=template
+        ).select_related('created_by').order_by('-version')
+
+    # Alle Templates für Sidebar-Liste
+    all_templates = EmailTemplate.objects.order_by('app_scope', 'name')
+    senders       = EmailSenderAccount.objects.filter(is_active=True)
+    signatures    = EmailSignature.objects.all()
+
+    ctx = _base_context(request, 'studio')
+    ctx.update({
+        'template':      template,
+        'versions':      versions,
+        'all_templates': all_templates,
+        'senders':       senders,
+        'signatures':    signatures,
+        'scopes':        AppScope.choices,
+        'context_vars': [
+            {'name': 'name'},
+            {'name': 'first_name'},
+            {'name': 'last_name'},
+            {'name': 'email'},
+            {'name': 'cv_link'},
+            {'name': 'cv_version'},
+            {'name': 'created_date'},
+            {'name': 'task_ref'},
+        ],
+        'user_vars': [
+            {'name': 'sender_name'},
+            {'name': 'sender_email'},
+            {'name': 'reply_to'},
+        ],
+        'system_vars': [
+            {'name': 'portal_url'},
+            {'name': 'date'},
+            {'name': 'year'},
+            {'name': 'subject'},
+        ],
+    })
+    return render(request, 'email_studio/studio.html', ctx)
+
+
+# ── Reiter 3: Versand-Log ─────────────────────────────────────────────────────
+
+@login_required
+def log(request):
+    """Protokoll aller gesendeten E-Mails mit Filter."""
+    days        = int(request.GET.get('days', 7))
+    status      = request.GET.get('status', '')
+    template_id = request.GET.get('template', '')
+    search      = request.GET.get('q', '')
+
+    since  = timezone.now() - timedelta(days=days)
+    logs   = EmailLog.objects.select_related('template', 'sent_by_user')
+    logs   = logs.filter(sent_at__gte=since)
+
+    if status:
+        logs = logs.filter(status=status)
+    if template_id:
+        logs = logs.filter(template_id=template_id)
+    if search:
+        logs = logs.filter(
+            Q(subject__icontains=search) |
+            Q(from_email__icontains=search) |
+            Q(task_reference__icontains=search)
+        )
+
+    logs = logs.order_by('-sent_at')[:500]
+
+    # Tages-Statistik
+    today_start = timezone.now().replace(hour=0, minute=0, second=0)
+    stats = {
+        'today_total':   EmailLog.objects.filter(sent_at__gte=today_start).count(),
+        'today_ok':      EmailLog.objects.filter(sent_at__gte=today_start, status='OK').count(),
+        'today_failed':  EmailLog.objects.filter(sent_at__gte=today_start, status='FAILED').count(),
+        'week_total':    EmailLog.objects.filter(sent_at__gte=since).count(),
+    }
+
+    templates_used = EmailTemplate.objects.filter(
+        logs__sent_at__gte=since
+    ).distinct()
+
+    ctx = _base_context(request, 'log')
+    ctx.update({
+        'logs':           logs,
+        'stats':          stats,
+        'days':           days,
+        'status_filter':  status,
+        'template_filter': template_id,
+        'search':         search,
+        'templates_used': templates_used,
+    })
+    return render(request, 'email_studio/log.html', ctx)
+
+
+# ── Reiter 4: Konfiguration ───────────────────────────────────────────────────
+
+@login_required
+@staff_member_required
+def config(request):
+    """SMTP · Absender-Konten · Signaturen — nur Admin."""
+    senders    = EmailSenderAccount.objects.all().order_by('-is_default', 'email')
+    signatures = EmailSignature.objects.select_related(
+        'sender_account', 'created_by'
+    ).order_by('-is_default', 'name')
+
+    ctx = _base_context(request, 'config')
+    ctx.update({
+        'senders':    senders,
+        'signatures': signatures,
+    })
+    return render(request, 'email_studio/config.html', ctx)

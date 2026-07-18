@@ -1,0 +1,86 @@
+{
+    "toc": {
+        "title": "İçindekiler"
+    },
+    "sections": [
+        {
+            "id": "einstieg",
+            "number": "1",
+            "title": "Başlangıç & Giriş"
+        },
+        {
+            "id": "dashboard",
+            "number": "2",
+            "title": "Kontrol Paneli & Gezinme"
+        },
+        {
+            "id": "cv_editor",
+            "number": "3",
+            "title": "CV Düzenleyici"
+        },
+        {
+            "id": "cv_upload",
+            "number": "4",
+            "title": "CV Yükleme & Çıkarma"
+        },
+        {
+            "id": "matching",
+            "number": "5",
+            "title": "Eşleştirme & Arama"
+        },
+        {
+            "id": "email_studio",
+            "number": "6",
+            "title": "E-posta Stüdyosu"
+        },
+        {
+            "id": "doc_studio",
+            "number": "7",
+            "title": "Belge Stüdyosu"
+        },
+        {
+            "id": "rechnungen",
+            "number": "8",
+            "title": "Faturalar"
+        },
+        {
+            "id": "vorlagen",
+            "number": "9",
+            "title": "Şablonlar & Antetli Kağıt"
+        },
+        {
+            "id": "benutzerverwaltung",
+            "number": "10",
+            "title": "Kullanıcı Yönetimi"
+        },
+        {
+            "id": "einstellungen",
+            "number": "11",
+            "title": "Ayarlar & Yapılandırma"
+        },
+        {
+            "id": "sprache",
+            "number": "12",
+            "title": "Dil & Yerelleştirme"
+        },
+        {
+            "id": "tipps",
+            "number": "13",
+            "title": "İpuçları & Kısayollar"
+        },
+        {
+            "id": "fehler",
+            "number": "14",
+            "title": "Sık Karşılaşılan Hatalar & Çözümler"
+        },
+        {
+            "id": "glossar",
+            "number": "15",
+            "title": "Sözlük"
+        }
+    ],
+    "version": "Sürüm 2.0",
+    "framework": "Django 5.x",
+    "chapters": "15 Bölüm",
+    "audience": "Son Kullanıcı"
+}

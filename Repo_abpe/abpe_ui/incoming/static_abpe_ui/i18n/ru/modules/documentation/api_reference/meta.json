@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "Содержание"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Обзор"
+        },
+        {
+            "id": "endpoints",
+            "number": "2",
+            "title": "Конечные точки"
+        }
+    ]
+}

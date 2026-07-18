@@ -1,0 +1,593 @@
+{% load static i18n %}
+<div class="topbar">
+    <div class="d-flex align-items-center gap-3">
+        <button class="mobile-menu-btn" onclick="toggleMobileSidebar()">
+            <i class="bi bi-list"></i>
+        </button>
+        <div class="logo-area">
+            <img src="{% static 'abpe_ui/img/logo.svg' %}" alt="abcona" style="height: 35px;">
+            <span>ABpE Portal</span>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <i class="bi bi-search search-icon"></i>
+        <input type="text" class="search-input" placeholder="Suchen..." id="searchInput" autocomplete="off" data-i18n-placeholder="search">
+    </div>
+
+    <div class="header-right">
+        <button class="help-btn" onclick="toggleTheme()" title="Theme umschalten">
+            <i class="bi bi-sun" id="theme-icon-sun"></i>
+            <i class="bi bi-moon" id="theme-icon-moon" style="display: none;"></i>
+        </button>
+        <button class="help-btn" onclick="toggleHelp()">
+            <i class="bi bi-question-circle"></i> <span data-i18n="help">Hilfe</span>
+        </button>
+        <div id="lang-switcher"></div>
+        <div class="user-menu">
+            <div class="avatar" onclick="toggleUserMenu()">
+                <i class="bi bi-person-circle"></i>
+                <span>{% if user.is_authenticated %}{{ user.username }}{% else %}Gast{% endif %}</span>
+                <i class="bi bi-chevron-down small"></i>
+            </div>
+            <div class="dropdown-menu" id="userDropdown">
+                <a class="dropdown-item" href="#" onclick="openProfileModal(); return false;"><i class="bi bi-person"></i> <span data-i18n="profile">Profil</span></a>
+                <a class="dropdown-item" href="#" onclick="openSettingsModal(); return false;"><i class="bi bi-gear"></i> <span data-i18n="settings">Einstellungen</span></a>
+                {% if user.is_staff %}
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/admin/"><i class="bi bi-shield-lock"></i> <span data-i18n="admin">Admin Bereich</span></a>
+                {% endif %}
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/logout/"><i class="bi bi-box-arrow-right"></i> <span data-i18n="logout">Abmelden</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateThemeIcons() {
+        const isDark = document.body.classList.contains('dark-mode');
+        const sunIcon = document.getElementById('theme-icon-sun');
+        const moonIcon = document.getElementById('theme-icon-moon');
+        if (sunIcon && moonIcon) {
+            sunIcon.style.display = isDark ? 'none' : 'inline';
+            moonIcon.style.display = isDark ? 'inline' : 'none';
+        }
+    }
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.attributeName === 'class') updateThemeIcons();
+        });
+    });
+    observer.observe(document.body, { attributes: true });
+    updateThemeIcons();
+</script>
+
+<!-- PROFIL MODAL -->
+<div id="profileModal" style="display:none; position:fixed; inset:0; z-index:9999;">
+  <div style="position:absolute; inset:0; background:rgba(0,0,0,0.5);" onclick="closeProfileModal()"></div>
+  <div id="profileModalDialog" style="position:absolute; top:80px; left:50%; transform:translateX(-50%); width:460px; background:white; border-radius:12px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.3); cursor:default;">
+    <div style="background:var(--abcona-blue); padding:16px 20px; display:flex; align-items:center; justify-content:space-between; cursor:move;" id="profileModalHeader">
+      <div style="display:flex; align-items:center; gap:10px; color:white;">
+        <i class="bi bi-person-circle" style="font-size:1.3rem;"></i>
+        <span style="font-weight:600; font-size:1rem;" data-i18n="profile">Profil</span>
+      </div>
+      <button onclick="closeProfileModal()" style="background:none; border:none; color:white; font-size:1.2rem; cursor:pointer; opacity:0.8;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div style="background:var(--abcona-blue-light); padding:16px 20px; display:flex; align-items:center; gap:14px;">
+      <div style="width:52px; height:52px; border-radius:50%; background:rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center;">
+        <i class="bi bi-person" style="font-size:1.6rem; color:white;"></i>
+      </div>
+      <div>
+        <div style="color:white; font-weight:600;" id="profile-username-display">admin</div>
+        <div style="color:rgba(255,255,255,0.7); font-size:0.8rem;" id="profile-role-display">Administrator</div>
+      </div>
+    </div>
+    <div style="padding:20px;">
+      <input type="hidden" id="profile-username" autocomplete="off" name="profile-uid">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+        <div>
+          <label style="font-size:0.75rem; color:var(--text-secondary); font-weight:500;" data-i18n="first_name">Vorname</label>
+          <input type="text" id="profile-firstname" class="form-control form-control-sm mt-1">
+        </div>
+        <div>
+          <label style="font-size:0.75rem; color:var(--text-secondary); font-weight:500;" data-i18n="last_name">Nachname</label>
+          <input type="text" id="profile-lastname" class="form-control form-control-sm mt-1">
+        </div>
+      </div>
+      <div style="margin-bottom:12px;">
+        <label style="font-size:0.75rem; color:var(--text-secondary); font-weight:500;" data-i18n="email">E-Mail</label>
+        <input type="email" id="profile-email" class="form-control form-control-sm mt-1">
+      </div>
+      <hr style="margin:16px 0; border-color:var(--border-color);">
+      <div style="margin-bottom:4px;">
+        <label style="font-size:0.75rem; color:var(--text-secondary); font-weight:500;"><i class="bi bi-shield-lock me-1"></i> Passwort ändern</label>
+        <input type="password" id="profile-password-new" class="form-control form-control-sm mt-1" placeholder="Neues Passwort" autocomplete="new-password">
+        <input type="password" id="profile-password-confirm" class="form-control form-control-sm mt-1" placeholder="Passwort bestätigen" autocomplete="new-password">
+      </div>
+      <div id="profile-msg" style="font-size:0.8rem; margin-top:8px; min-height:20px;"></div>
+    </div>
+    <div style="padding:12px 20px; background:#f8fafc; border-top:1px solid var(--border-color); display:flex; justify-content:flex-end; gap:8px;">
+      <button onclick="closeProfileModal()" class="btn btn-sm btn-secondary" data-i18n="cancel">Abbrechen</button>
+      <button onclick="saveProfile()" class="btn btn-sm" style="background:var(--abcona-blue); color:white;" data-i18n="save">Speichern</button>
+    </div>
+  </div>
+</div>
+
+<!-- EINSTELLUNGEN MODAL -->
+<div id="settingsModal" style="display:none; position:fixed; inset:0; z-index:9999;">
+  <div style="position:absolute; inset:0; background:rgba(0,0,0,0.5);" onclick="closeSettingsModal()"></div>
+  <div id="settingsModalDialog" style="position:absolute; top:60px; left:50%; transform:translateX(-50%); width:420px; background:white; border-radius:16px; overflow:visible; box-shadow:0 24px 64px rgba(0,0,0,0.35);">
+    <div style="background:var(--abcona-blue); padding:16px 20px; display:flex; align-items:center; justify-content:space-between; cursor:move; position:sticky; top:0; z-index:1;" id="settingsModalHeader">
+      <div style="display:flex; align-items:center; gap:10px; color:white;">
+        <i class="bi bi-gear-fill" style="font-size:1.2rem;"></i>
+        <span style="font-weight:600; font-size:1rem;" data-i18n="settings">Einstellungen</span>
+      </div>
+      <button onclick="closeSettingsModal()" style="background:rgba(255,255,255,0.15); border:none; color:white; width:28px; height:28px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;">
+        <i class="bi bi-x-lg" style="font-size:0.85rem;"></i>
+      </button>
+    </div>
+    <div style="padding:24px;">
+
+      <!-- Sprache -->
+      <div style="margin-bottom:24px;">
+        <div style="font-size:0.75rem; font-weight:600; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:12px;">
+          <i class="bi bi-translate me-1"></i> Sprache
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;">
+          <button onclick="setSettingsLang('de')" id="lang-btn-de" style="padding:10px 8px; border-radius:10px; border:2px solid transparent; background:#f0f4f8; cursor:pointer; font-size:0.85rem; font-weight:500; display:flex; flex-direction:column; align-items:center; gap:4px; transition:all 0.15s;">
+            <span style="font-size:1.4rem;">🇩🇪</span><span>Deutsch</span>
+          </button>
+          <button onclick="setSettingsLang('en')" id="lang-btn-en" style="padding:10px 8px; border-radius:10px; border:2px solid transparent; background:#f0f4f8; cursor:pointer; font-size:0.85rem; font-weight:500; display:flex; flex-direction:column; align-items:center; gap:4px; transition:all 0.15s;">
+            <span style="font-size:1.4rem;">🇬🇧</span><span>English</span>
+          </button>
+          <button onclick="setSettingsLang('fr')" id="lang-btn-fr" style="padding:10px 8px; border-radius:10px; border:2px solid transparent; background:#f0f4f8; cursor:pointer; font-size:0.85rem; font-weight:500; display:flex; flex-direction:column; align-items:center; gap:4px; transition:all 0.15s;">
+            <span style="font-size:1.4rem;">🇫🇷</span><span>Français</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Theme -->
+      <div style="margin-bottom:24px;">
+        <div style="font-size:0.75rem; font-weight:600; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:12px;">
+          <i class="bi bi-palette me-1"></i> Theme
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;">
+          <button onclick="setSettingsTheme('light')" id="theme-btn-light" style="padding:10px 8px; border-radius:10px; border:2px solid transparent; background:#f0f4f8; cursor:pointer; font-size:0.85rem; font-weight:500; display:flex; flex-direction:column; align-items:center; gap:4px; transition:all 0.15s;">
+            <i class="bi bi-sun" style="font-size:1.4rem; color:#f59e0b;"></i><span>Hell</span>
+          </button>
+          <button onclick="setSettingsTheme('dark')" id="theme-btn-dark" style="padding:10px 8px; border-radius:10px; border:2px solid transparent; background:#f0f4f8; cursor:pointer; font-size:0.85rem; font-weight:500; display:flex; flex-direction:column; align-items:center; gap:4px; transition:all 0.15s;">
+            <i class="bi bi-moon-stars" style="font-size:1.4rem; color:#6366f1;"></i><span>Dunkel</span>
+          </button>
+          <button onclick="setSettingsTheme('system')" id="theme-btn-system" style="padding:10px 8px; border-radius:10px; border:2px solid transparent; background:#f0f4f8; cursor:pointer; font-size:0.85rem; font-weight:500; display:flex; flex-direction:column; align-items:center; gap:4px; transition:all 0.15s;">
+            <i class="bi bi-circle-half" style="font-size:1.4rem; color:#6b7280;"></i><span>System</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Telefon -->
+      <div style="margin-bottom:24px;">
+        <div style="font-size:0.75rem; font-weight:600; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:12px;">
+          <i class="bi bi-telephone me-1"></i> Telefon (Issabel/Asterisk)
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;">
+            <input type="checkbox" id="phone-enabled" style="width:16px;height:16px;cursor:pointer"
+                   onchange="document.getElementById('phone-fields').style.display=this.checked?'block':'none'">
+            Telefon aktivieren
+          </label>
+        </div>
+        <div id="phone-fields" style="display:none">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+            <div>
+              <label style="font-size:11px;color:var(--text-secondary);display:block;margin-bottom:3px">Durchwahl</label>
+              <input type="text" id="phone-extension" placeholder="z.B. 12"
+                     style="width:100%;padding:7px 10px;border:1px solid var(--border-color);border-radius:6px;font-size:13px;background:var(--abcona-gray-card);color:var(--text-primary)">
+            </div>
+            <div>
+              <label style="font-size:11px;color:var(--text-secondary);display:block;margin-bottom:3px">PIN (optional)</label>
+              <input type="password" id="phone-pin" placeholder="Asterisk PIN"
+                     style="width:100%;padding:7px 10px;border:1px solid var(--border-color);border-radius:6px;font-size:13px;background:var(--abcona-gray-card);color:var(--text-primary)">
+            </div>
+          </div>
+          <div style="margin-bottom:8px;">
+            <label style="font-size:11px;color:var(--text-secondary);display:block;margin-bottom:3px">Anzeigename</label>
+            <input type="text" id="phone-display-name" placeholder="z.B. Max Mustermann"
+                   style="width:100%;padding:7px 10px;border:1px solid var(--border-color);border-radius:6px;font-size:13px;background:var(--abcona-gray-card);color:var(--text-primary)">
+          </div>
+
+          <!-- Erweiterte Einstellungen (nur 1x!) -->
+          <details style="font-size:11px;margin-top:8px">
+            <summary style="cursor:pointer;color:var(--text-secondary);padding:4px 0">
+              <i class="bi bi-gear"></i> Erweiterte Einstellungen
+            </summary>
+            <div style="padding:8px 0;display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px">
+              <div style="grid-column:1/-1">
+                <label style="font-size:10px;color:var(--text-secondary);display:block;margin-bottom:2px">Webdial URL</label>
+                <input type="text" id="phone-webdial-url" placeholder="http://172.20.3.120/cgi-bin/webdial.cgi"
+                       style="width:100%;padding:5px 8px;border:1px solid var(--border-color);border-radius:5px;font-size:11px;background:var(--abcona-gray-card);color:var(--text-primary)">
+              </div>
+              <div>
+                <label style="font-size:10px;color:var(--text-secondary);display:block;margin-bottom:2px">Context</label>
+                <input type="text" id="phone-context" placeholder="from-internal"
+                       style="width:100%;padding:5px 8px;border:1px solid var(--border-color);border-radius:5px;font-size:11px;background:var(--abcona-gray-card);color:var(--text-primary)">
+              </div>
+              <div>
+                <label style="font-size:10px;color:var(--text-secondary);display:block;margin-bottom:2px">Timeout (Sek)</label>
+                <input type="number" id="phone-timeout" placeholder="10"
+                       style="width:100%;padding:5px 8px;border:1px solid var(--border-color);border-radius:5px;font-size:11px;background:var(--abcona-gray-card);color:var(--text-primary)">
+              </div>
+              <div>
+                <label style="font-size:10px;color:var(--text-secondary);display:block;margin-bottom:2px">Intl. Prefix (statt +)</label>
+                <input type="text" id="phone-int-prefix" placeholder="00"
+                       style="width:100%;padding:5px 8px;border:1px solid var(--border-color);border-radius:5px;font-size:11px;background:var(--abcona-gray-card);color:var(--text-primary)">
+              </div>
+              <div>
+                <label style="font-size:10px;color:var(--text-secondary);display:block;margin-bottom:2px">Amtsvorwahl Prefix</label>
+                <input type="text" id="phone-pre" placeholder="z.B. 0 oder 9"
+                       style="width:100%;padding:5px 8px;border:1px solid var(--border-color);border-radius:5px;font-size:11px;background:var(--abcona-gray-card);color:var(--text-primary)">
+              </div>
+            </div>
+          </details>
+
+          <!-- Testanruf -->
+          <div style="margin-top:10px;padding:8px;background:#f0fdf4;border-radius:6px;border:1px solid #86efac">
+            <div style="font-size:10px;color:#155724;font-weight:600;margin-bottom:6px">
+              <i class="bi bi-telephone"></i> Testanruf
+            </div>
+            <div style="display:flex;gap:6px">
+              <input type="tel" id="phone-test-number" placeholder="z.B. 0178 8886712"
+                     style="flex:1;padding:6px 10px;border:1px solid #86efac;border-radius:6px;font-size:12px;background:white;color:#1a1a1a">
+              <button onclick="startTestCall()" style="padding:6px 12px;background:#155724;color:white;border:none;border-radius:6px;font-size:12px;cursor:pointer;white-space:nowrap">
+                <i class="bi bi-telephone-fill"></i> Anrufen
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="settings-msg" style="font-size:0.8rem; min-height:20px; text-align:center;"></div>
+
+      {% if user_is_admin %}
+      <div style="margin-top:8px;padding-top:16px;border-top:1px solid #e5e7eb;">
+        <div style="font-size:0.75rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:12px;display:flex;align-items:center;gap:6px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#6b7280"><path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.92c.04-.3.07-.62.07-.93s-.03-.63-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.07.64-.07.94s.03.63.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.04.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.21.07-.47-.12-.61l-2.01-1.58z"/></svg>
+          System-Einstellungen
+        </div>
+        <button onclick="closeSettingsModal();openCvExtractorSettings();"
+          style="width:100%;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;border:1.5px solid #163258;background:white;color:#163258;cursor:pointer;font-size:.85rem;font-weight:500;transition:all .15s;"
+          onmouseover="this.style.background='#163258';this.style.color='white'"
+          onmouseout="this.style.background='white';this.style.color='#163258'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.04.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.21.07-.47-.12-.61l-2.01-1.58zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+          CV-Extractor Einstellungen
+        </button>
+      </div>
+      {% endif %}
+
+    </div>
+    <div style="padding:12px 20px; background:#f8fafc; border-top:1px solid var(--border-color); display:flex; justify-content:flex-end; gap:8px;">
+      <button onclick="closeSettingsModal()" class="btn btn-sm btn-secondary" data-i18n="cancel">Abbrechen</button>
+      <button onclick="saveSettings()" class="btn btn-sm" style="background:var(--abcona-blue); color:white; border:none; padding:6px 18px;" data-i18n="save">Speichern</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// CV EXTRACTOR SETTINGS
+// ============================================================
+let _cvSettings = {};
+async function openCvExtractorSettings() {
+    let overlay = document.getElementById('cv-ext-settings-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'cv-ext-settings-overlay';
+        overlay.style.cssText = 'display:none;position:fixed;inset:0;z-index:9999;background:rgba(22,50,88,.55);backdrop-filter:blur(3px);align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 20px;';
+        overlay.innerHTML = `
+            <div style="background:white;border-radius:12px;width:100%;max-width:700px;box-shadow:0 20px 60px rgba(22,50,88,.3);overflow:hidden;">
+                <div style="background:linear-gradient(135deg,#163258,#1e4a76);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;">
+                    <div style="display:flex;align-items:center;gap:10px;color:white;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.92c.04-.3.07-.62.07-.93s-.03-.63-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.07.64-.07.94s.03.63.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.04.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.21.07-.47-.12-.61l-2.01-1.58z"/></svg>
+                        <span style="font-weight:700;font-size:1rem;">CV-Extractor Einstellungen</span>
+                    </div>
+                    <button onclick="closeCvExtractorSettings()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:white;border-radius:6px;width:28px;height:28px;cursor:pointer;font-size:1rem;">×</button>
+                </div>
+                <div id="cv-ext-settings-body" style="padding:20px 24px;max-height:65vh;overflow-y:auto;"></div>
+                <div style="padding:14px 24px;border-top:1px solid #dee2e6;background:#f8f9fa;display:flex;justify-content:flex-end;gap:8px;">
+                    <button onclick="closeCvExtractorSettings()" style="padding:8px 18px;border-radius:8px;border:1.5px solid #dee2e6;background:white;cursor:pointer;font-size:.88rem;color:#6c757d;">Abbrechen</button>
+                    <button onclick="saveCvExtractorSettings()" style="display:inline-flex;align-items:center;gap:7px;padding:8px 18px;border-radius:8px;border:none;background:#163258;color:white;cursor:pointer;font-size:.88rem;font-weight:600;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7l-4-4zm-5 16a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm3-10H5V5h10v4z"/></svg>
+                        Speichern
+                    </button>
+                </div>
+            </div>`;
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeCvExtractorSettings(); });
+        document.body.appendChild(overlay);
+    }
+    overlay.style.display = 'flex';
+    const body = document.getElementById('cv-ext-settings-body');
+    body.innerHTML = '<div style="text-align:center;padding:40px;color:#adb5bd;">Lade...</div>';
+    try {
+        const r = await fetch('/cv-extractor/api/settings/');
+        const d = await r.json();
+        if (d.success) { _cvSettings = d.settings; _renderCvSettings(d.settings, body); }
+    } catch(e) {
+        body.innerHTML = '<p style="color:#dc3545;padding:20px">Fehler beim Laden</p>';
+    }
+}
+function _flattenSettings(obj, prefix) {
+    const result = {};
+    for (const [key, val] of Object.entries(obj)) {
+        const fullKey = prefix ? prefix + '.' + key : key;
+        if (val !== null && typeof val === 'object' && !Array.isArray(val)) {
+            Object.assign(result, _flattenSettings(val, fullKey));
+        } else { result[fullKey] = val; }
+    }
+    return result;
+}
+function _renderCvSettings(settings, container) {
+    const flat = _flattenSettings(settings, '');
+    const groupLabels = { system:'System', database:'Datenbank', mysql:'MySQL', suitecrm:'SuiteCRM', ai_models:'KI-Modelle', namazu:'Namazu', email:'E-Mail', elasticsearch:'Elasticsearch', training:'Training', storage:'Storage', pipeline:'Pipeline', paths:'Pfade', api:'API Keys', templates:'Templates' };
+    const groupIcons = { api:'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z', paths:'M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z', system:'M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z', pipeline:'M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z', email:'M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z', suitecrm:'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z', templates:'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z' };
+    const groups = {};
+    for (const [key, val] of Object.entries(flat)) {
+        const parts = key.split('.');
+        const group = parts[0] || 'general';
+        const subkey = parts.slice(1).join('.') || key;
+        if (!groups[group]) groups[group] = [];
+        groups[group].push({ key, subkey, val });
+    }
+    let html = '';
+    for (const [group, items] of Object.entries(groups)) {
+        const label = groupLabels[group] || group;
+        const icon = groupIcons[group] || groupIcons.system;
+        const gid = 'cvs-g-' + group;
+        html += `<div style="border:1px solid #e5e7eb;border-radius:8px;margin-bottom:8px;overflow:hidden;">
+            <div id="${gid}-hdr" onclick="toggleCvGroup('${gid}')" style="display:flex;align-items:center;gap:10px;padding:11px 16px;background:#f8f9fa;cursor:pointer;user-select:none;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="#163258"><path d="${icon}"/></svg>
+                <span style="font-weight:600;font-size:.85rem;color:#163258;flex:1">${label}</span>
+                <svg id="${gid}-chv" width="12" height="12" viewBox="0 0 24 24" fill="#6c757d" style="transition:transform .2s"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div id="${gid}-body" style="display:none;padding:12px 16px;border-top:1px solid #e5e7eb;">`;
+        for (const { key, subkey, val } of items) {
+            const inputId = 'cvs-' + key.replace(/\./g,'-');
+            const isBoolean = typeof val === 'boolean';
+            const isLong = typeof val === 'string' && val.length > 60;
+            html += `<div style="display:grid;grid-template-columns:160px 1fr;gap:8px;align-items:center;margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed #f0f0f0;"><label style="font-size:.78rem;color:#6c757d;font-weight:500;" for="${inputId}">${subkey}</label>`;
+            if (isBoolean) {
+                html += `<label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" id="${inputId}" data-key="${key}" ${val?'checked':''} style="width:16px;height:16px;accent-color:#163258;cursor:pointer;"><span style="font-size:.82rem;color:#212529">${val?'✓ Aktiv':'✗ Inaktiv'}</span></label>`;
+            } else if (isLong) {
+                html += `<textarea id="${inputId}" data-key="${key}" rows="2" style="width:100%;padding:6px 10px;border:1px solid #dee2e6;border-radius:6px;font-size:.78rem;font-family:monospace;resize:vertical;">${String(val||'')}</textarea>`;
+            } else {
+                html += `<input type="text" id="${inputId}" data-key="${key}" value="${String(val||'').replace(/"/g,'&quot;').replace(/</g,'&lt;')}" style="width:100%;padding:6px 10px;border:1px solid #dee2e6;border-radius:6px;font-size:.82rem;">`;
+            }
+            html += `</div>`;
+        }
+        html += `</div></div>`;
+    }
+    container.innerHTML = html;
+}
+function toggleCvGroup(gid) {
+    const body = document.getElementById(gid + '-body');
+    const chv = document.getElementById(gid + '-chv');
+    if (!body) return;
+    const open = body.style.display !== 'none';
+    body.style.display = open ? 'none' : 'block';
+    if (chv) chv.style.transform = open ? '' : 'rotate(180deg)';
+}
+async function saveCvExtractorSettings() {
+    const body = document.getElementById('cv-ext-settings-body');
+    if (!body) return;
+    const updated = JSON.parse(JSON.stringify(_cvSettings));
+    body.querySelectorAll('[data-key]').forEach(el => {
+        const parts = el.dataset.key.split('.');
+        let obj = updated;
+        for (let i = 0; i < parts.length - 1; i++) {
+            if (typeof obj[parts[i]] !== 'object' || obj[parts[i]] === null) obj[parts[i]] = {};
+            obj = obj[parts[i]];
+        }
+        const last = parts[parts.length - 1];
+        if (el.type === 'checkbox') { obj[last] = el.checked; }
+        else {
+            let origVal = _cvSettings;
+            parts.forEach(p => { if (origVal != null) origVal = origVal[p]; });
+            if (typeof origVal === 'number') obj[last] = el.value === '' ? null : Number(el.value);
+            else if (typeof origVal === 'boolean') obj[last] = el.checked;
+            else obj[last] = el.value;
+        }
+    });
+    try {
+        const csrfToken = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
+        const r = await fetch('/cv-extractor/api/settings/', { method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':csrfToken}, body:JSON.stringify(updated) });
+        const d = await r.json();
+        if (d.success) {
+            closeCvExtractorSettings();
+            const toast = document.createElement('div');
+            toast.style.cssText = 'position:fixed;top:20px;right:20px;z-index:99999;background:white;border-left:4px solid #27ae60;border-radius:8px;padding:12px 20px;box-shadow:0 4px 16px rgba(0,0,0,.15);font-size:.88rem;display:flex;align-items:center;gap:8px;';
+            toast.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="#27ae60"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Einstellungen gespeichert';
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        } else { alert('Fehler: ' + (d.error || 'Unbekannter Fehler')); }
+    } catch(e) { alert('Netzwerkfehler: ' + e.message); }
+}
+function closeCvExtractorSettings() {
+    const overlay = document.getElementById('cv-ext-settings-overlay');
+    if (overlay) overlay.style.display = 'none';
+}
+
+// ============================================================
+// DRAGGABLE
+// ============================================================
+function makeDraggable(dialogId, headerId) {
+    const dialog = document.getElementById(dialogId);
+    const header = document.getElementById(headerId);
+    if (!dialog || !header) return;
+    let isDragging = false, startX, startY, startLeft, startTop;
+    header.addEventListener('mousedown', e => {
+        isDragging = true;
+        const rect = dialog.getBoundingClientRect();
+        startX = e.clientX; startY = e.clientY;
+        startLeft = rect.left; startTop = rect.top;
+        dialog.style.left = startLeft + 'px'; dialog.style.top = startTop + 'px';
+        dialog.style.transform = 'none'; e.preventDefault();
+    });
+    document.addEventListener('mousemove', e => {
+        if (!isDragging) return;
+        dialog.style.left = (startLeft + e.clientX - startX) + 'px';
+        dialog.style.top  = (startTop  + e.clientY - startY) + 'px';
+    });
+    document.addEventListener('mouseup', () => isDragging = false);
+}
+
+// ============================================================
+// PROFIL
+// ============================================================
+function openProfileModal() {
+    fetch('/api/admin-portal/users/{{ user.id }}/')
+        .then(r => r.json())
+        .then(u => {
+            document.getElementById('profile-username').value = u.username || '';
+            document.getElementById('profile-username-display').textContent = u.username || '';
+            document.getElementById('profile-firstname').value = u.first_name || '';
+            document.getElementById('profile-lastname').value  = u.last_name  || '';
+            document.getElementById('profile-email').value    = u.email      || '';
+            document.getElementById('profile-password-new').value = '';
+            document.getElementById('profile-password-confirm').value = '';
+            document.getElementById('profile-msg').textContent = '';
+            const roles = u.groups || [];
+            document.getElementById('profile-role-display').textContent =
+                u.is_superuser ? 'Superadmin' : roles.length ? roles.join(', ') : 'Benutzer';
+        }).catch(() => {});
+    document.getElementById('profileModal').style.display = 'block';
+    makeDraggable('profileModalDialog', 'profileModalHeader');
+}
+function closeProfileModal() { document.getElementById('profileModal').style.display = 'none'; }
+function saveProfile() {
+    const pw1 = document.getElementById('profile-password-new').value;
+    const pw2 = document.getElementById('profile-password-confirm').value;
+    const msg = document.getElementById('profile-msg');
+    if (pw1 && pw1 !== pw2) { msg.style.color='var(--status-red)'; msg.textContent='✗ Passwörter stimmen nicht überein'; return; }
+    const csrf = document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('csrftoken='))?.split('=')[1] || '';
+    const data = { first_name: document.getElementById('profile-firstname').value, last_name: document.getElementById('profile-lastname').value, email: document.getElementById('profile-email').value };
+    if (pw1) data.password = pw1;
+    fetch('/api/admin-portal/users/{{ user.id }}/', { method:'PUT', headers:{'Content-Type':'application/json','X-CSRFToken':csrf}, body:JSON.stringify(data) })
+    .then(r => r.json()).then(d => {
+        if (d.success) { msg.style.color='var(--status-green)'; msg.textContent='✓ Erfolgreich gespeichert'; setTimeout(() => closeProfileModal(), 1000); }
+        else { msg.style.color='var(--status-red)'; msg.textContent='✗ ' + (d.error || 'Fehler'); }
+    });
+}
+
+// ============================================================
+// EINSTELLUNGEN
+// ============================================================
+let _settingsLang  = window.ABPE_CONFIG?.current_lang || 'de';
+let _settingsTheme = 'light';
+
+function openSettingsModal() {
+    _settingsLang  = window.ABPE_CONFIG?.current_lang || 'de';
+    _settingsTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+    updateSettingsBtns();
+    document.getElementById('settings-msg').textContent = '';
+    document.getElementById('settingsModal').style.display = 'block';
+    makeDraggable('settingsModalDialog', 'settingsModalHeader');
+    // Phone Settings laden
+    fetch('/api/user-settings/').then(r => r.json()).then(d => {
+        if (!d.success) return;
+        const us = d.data;
+        const cb = document.getElementById('phone-enabled');
+        if (cb) {
+            cb.checked = us.phone_enabled || false;
+            document.getElementById('phone-fields').style.display = us.phone_enabled ? 'block' : 'none';
+        }
+        if (us.phone_extension)    document.getElementById('phone-extension').value    = us.phone_extension;
+        if (us.phone_display_name) document.getElementById('phone-display-name').value = us.phone_display_name;
+        document.getElementById('phone-webdial-url').value = us.phone_webdial_url || "http://172.20.3.120/cgi-bin/webdial.cgi";
+        if (us.phone_context)      document.getElementById('phone-context').value      = us.phone_context;
+        if (us.phone_timeout)      document.getElementById('phone-timeout').value      = us.phone_timeout;
+        if (us.phone_int_prefix)   document.getElementById('phone-int-prefix').value   = us.phone_int_prefix;
+        if (us.phone_pre)          document.getElementById('phone-pre').value          = us.phone_pre;
+    }).catch(() => {});
+}
+function closeSettingsModal() { document.getElementById('settingsModal').style.display = 'none'; }
+
+function getCsrfToken() {
+    return document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('csrftoken='))?.split('=')[1] || '';
+}
+
+function startTestCall() {
+    var number = document.getElementById("phone-test-number")?.value?.trim();
+    if (!number) { alert("Bitte Testnummer eingeben"); return; }
+    var ext   = document.getElementById("phone-extension")?.value || "12";
+    var wdUrl = document.getElementById("phone-webdial-url")?.value || "http://172.20.3.120/cgi-bin/webdial.cgi";
+    var clean = number.replace(/[^0-9+]/g, "").replace(/^\+/, "00");
+    var url   = wdUrl + "?from=" + ext + "&channel=SIP/" + ext + "&context=from-internal&timeout=10&to=" + clean;
+    window.open(url, "webdial_test", "height=100,width=100");
+    var msg = document.getElementById("settings-msg");
+    if (msg) { msg.style.color="#155724"; msg.textContent="📞 Testanruf: " + ext + " → " + clean; setTimeout(() => { msg.textContent=""; }, 5000); }
+}
+
+function setSettingsLang(lang)   { _settingsLang  = lang;  updateSettingsBtns(); }
+function setSettingsTheme(theme) { _settingsTheme = theme; updateSettingsBtns(); }
+
+function updateSettingsBtns() {
+    ['de','en','fr'].forEach(l => {
+        const btn = document.getElementById('lang-btn-' + l);
+        if (!btn) return;
+        btn.style.border     = l === _settingsLang ? '2px solid var(--abcona-blue)' : '2px solid transparent';
+        btn.style.background = l === _settingsLang ? '#e8f0fe' : '#f0f4f8';
+        btn.style.color      = l === _settingsLang ? 'var(--abcona-blue)' : 'inherit';
+    });
+    ['light','dark','system'].forEach(t => {
+        const btn = document.getElementById('theme-btn-' + t);
+        if (!btn) return;
+        btn.style.border     = t === _settingsTheme ? '2px solid var(--abcona-blue)' : '2px solid transparent';
+        btn.style.background = t === _settingsTheme ? '#e8f0fe' : '#f0f4f8';
+        btn.style.color      = t === _settingsTheme ? 'var(--abcona-blue)' : 'inherit';
+    });
+}
+
+function saveSettings() {
+    const csrf = getCsrfToken();
+    // Theme + Sprache speichern
+    fetch('/api/user-settings/', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','X-CSRFToken': csrf},
+        body: JSON.stringify({language: _settingsLang, theme: _settingsTheme})
+    }).then(r => r.json()).then(d => {
+        if (d.success) {
+            if (_settingsTheme === 'dark') document.body.classList.add('dark-mode');
+            else document.body.classList.remove('dark-mode');
+            if (typeof setLanguage === 'function') setLanguage(_settingsLang);
+        }
+    });
+    // Phone Settings speichern (wenn Telefon-Bereich sichtbar)
+    const phoneFields = document.getElementById('phone-fields');
+    if (phoneFields) {
+        var data = {
+            phone_enabled:      document.getElementById("phone-enabled")?.checked || false,
+            phone_extension:    document.getElementById("phone-extension")?.value || "",
+            phone_pin:          document.getElementById("phone-pin")?.value || "",
+            phone_display_name: document.getElementById("phone-display-name")?.value || "",
+            phone_webdial_url:  document.getElementById("phone-webdial-url")?.value || "",
+            phone_context:      document.getElementById("phone-context")?.value || "from-internal",
+            phone_timeout:      parseInt(document.getElementById("phone-timeout")?.value) || 10,
+            phone_int_prefix:   document.getElementById("phone-int-prefix")?.value || "00",
+            phone_pre:          document.getElementById("phone-pre")?.value || "",
+        };
+        fetch('/api/user-settings/', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json','X-CSRFToken': csrf},
+            body: JSON.stringify(data),
+        }).then(r => r.json()).then(d => {
+            var msg = document.getElementById("settings-msg");
+            if (d.success) { msg.style.color="#155724"; msg.textContent="✓ Einstellungen gespeichert"; }
+            else { msg.style.color="#dc3545"; msg.textContent="Fehler beim Speichern"; }
+            setTimeout(() => { msg.textContent=""; closeSettingsModal(); }, 1000);
+        });
+    } else {
+        const msg = document.getElementById('settings-msg');
+        if (msg) { msg.style.color='var(--status-green)'; msg.textContent='✓ Gespeichert'; }
+        setTimeout(() => closeSettingsModal(), 800);
+    }
+}
+</script>

@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "Table des matières"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "Aperçu"
+        },
+        {
+            "id": "endpoints",
+            "number": "2",
+            "title": "Points d'accès"
+        }
+    ]
+}

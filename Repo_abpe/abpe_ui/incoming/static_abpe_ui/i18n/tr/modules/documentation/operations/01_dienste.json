@@ -1,0 +1,3 @@
+{
+    "dienste": "<h3>1.1 Hizmetleri yönetme</h3><pre><code>supervisorctl status\nsupervisorctl restart abpe-django</code></pre>"
+}

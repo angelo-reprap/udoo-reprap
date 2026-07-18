@@ -1,0 +1,20 @@
+{
+    "files": [
+        "meta.json",
+        "01_einstieg.json",
+        "02_dashboard.json",
+        "03_cv_editor.json",
+        "04_cv_upload.json",
+        "05_matching.json",
+        "06_email_studio.json",
+        "07_doc_studio.json",
+        "08_rechnungen.json",
+        "09_vorlagen.json",
+        "10_benutzerverwaltung.json",
+        "11_einstellungen.json",
+        "12_sprache.json",
+        "13_tipps.json",
+        "14_fehler.json",
+        "15_glossar.json"
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "help_title": "ヘルプ＆ヒント",
+    "help_portal": "このポータルについて",
+    "help_portal_text": "ABpEポータル - 自動化されたコンサルタントプロファイル収集システム。CV、コンサルタント、マッチング、ワークフローを管理します。",
+    "help_navigation": "ナビゲーション",
+    "help_nav1": "サイドバー：ホバー時にアイコンが表示されます",
+    "help_nav2": "ダッシュボード：統計を展開/折りたたみできます",
+    "help_nav3": "すべてのセクションはクリックで開閉可能です",
+    "help_nav4": "上部の検索：ポータル全体でコンサルタント、CV、データセットを検索します",
+    "help_language": "言語と表示",
+    "help_lang_header": "言語：右上のボタン（DE/EN/ES/IT/FR）または設定から選択",
+    "help_lang_persist": "選択した言語は保存され、次回ログイン時に読み込まれます",
+    "help_theme_toggle": "ライト/ダークモード：右上の太陽/月ボタンまたは設定から切り替え",
+    "help_modules": "モジュールとガイド",
+    "help_mod_overview": "各モジュールには独自のヘルプがあります — モジュールビューの「ヘルプ」ボタン",
+    "help_mod_email": "Email Studio：シミュレーション付きの詳細チュートリアル（概要、モジュール、変数、翻訳）",
+    "help_mod_more": "その他のモジュール（Doc Studio、マッチング、CRM）は順次追加されます",
+    "help_shortcuts": "キーボードショートカット",
+    "help_shortcut_help": "ヘルプを開く",
+    "help_shortcut_search": "検索フィールドにフォーカス",
+    "help_shortcut_stats": "統計を展開/折りたたみ"
+}

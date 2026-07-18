@@ -1,0 +1,327 @@
+{% extends 'abpe_ui/base.html' %}
+{% load static %}
+
+{% block title %}<span data-i18n="cv_upload.title">CV Upload</span>{% endblock %}
+
+{% block module_css %}
+<link href="{% static 'abpe_ui/css/mod/mod-cv_upload.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="cv-upload-container">
+
+  <!-- Status Badge -->
+  <div class="cv-upload-statusbar">
+    <span id="sys-status" class="cv-status-badge cv-status-ok">
+      <i class="bi bi-check-circle"></i>
+      <span data-i18n="cv_upload.status_ready">System bereit</span>
+    </span>
+  </div>
+
+  <!-- Sektion 1: Personendaten & Upload -->
+  <div class="toggle-section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span>
+        <i class="bi bi-person-lines-fill"></i>
+        <span data-i18n="cv_upload.section_person">Personendaten & Upload</span>
+      </span>
+      <i class="bi bi-chevron-down"></i>
+    </div>
+    <div class="section-content">
+      <div class="cv-cols">
+
+        <!-- Spalte 1: Personendaten -->
+        <div class="cv-panel">
+          <h3><i class="bi bi-person-circle"></i> <span data-i18n="cv_upload.person_title">Personendaten</span></h3>
+          <div class="cv-fg">
+            <label><span data-i18n="cv_upload.firstname">Vorname</span> <span class="cv-required">*</span></label>
+            <input id="fn" type="text" data-i18n-placeholder="cv_upload.firstname_ph" autocomplete="off">
+          </div>
+          <div class="cv-fg">
+            <label><span data-i18n="cv_upload.lastname">Nachname</span> <span class="cv-required">*</span></label>
+            <input id="ln" type="text" data-i18n-placeholder="cv_upload.lastname_ph" autocomplete="off">
+          </div>
+          <div class="cv-fg">
+            <label><span data-i18n="cv_upload.email">E-Mail</span></label>
+            <input id="email" type="text" data-i18n-placeholder="cv_upload.email_ph">
+            <small data-i18n="cv_upload.multi_hint">Mehrere mit Semikolon (;)</small>
+          </div>
+          <div class="cv-fg">
+            <label><span data-i18n="cv_upload.phone">Telefon</span></label>
+            <input id="phone" type="text" data-i18n-placeholder="cv_upload.phone_ph">
+            <small data-i18n="cv_upload.multi_hint">Mehrere mit Semikolon (;)</small>
+          </div>
+          <div class="cv-fg">
+            <label><span data-i18n="cv_upload.website">Website</span></label>
+            <input id="website" type="text" data-i18n-placeholder="cv_upload.website_ph">
+            <small data-i18n="cv_upload.multi_hint">Mehrere mit Semikolon (;)</small>
+          </div>
+          <div class="cv-fg">
+            <label><span data-i18n="cv_upload.address">Adresse</span></label>
+            <input id="address" type="text" data-i18n-placeholder="cv_upload.address_ph">
+          </div>
+        </div>
+
+        <!-- Spalte 2: PDF Upload -->
+        <div class="cv-panel">
+          <h3><i class="bi bi-cloud-upload"></i> <span data-i18n="cv_upload.upload_title">PDF / Word Upload</span></h3>
+          <div class="cv-dropzone" id="dz">
+            <i class="bi bi-file-earmark-arrow-up"></i>
+            <h4 data-i18n="cv_upload.drop_title">PDF oder Word hier ablegen oder klicken</h4>
+            <small data-i18n="cv_upload.drop_hint">Max. 50 MB · PDF, DOC, DOCX</small>
+            <input type="file" id="fi" accept=".pdf,.doc,.docx" style="display:none">
+          </div>
+          <div class="cv-pdf-badge" id="pdf-badge">
+            <i class="bi bi-file-earmark-pdf cv-pdf-icon"></i>
+            <div style="flex:1">
+              <div id="pdf-name" class="cv-pdf-name"></div>
+              <div id="pdf-meta" class="cv-pdf-meta"></div>
+            </div>
+            <i class="bi bi-check-circle cv-pdf-check"></i>
+          </div>
+          <div class="cv-progress" id="prog">
+            <div class="cv-progress-bar" id="prog-bar"></div>
+          </div>
+          <div class="cv-upload-actions">
+            <button class="cv-btn-primary" id="up-btn" disabled>
+              <i class="bi bi-upload"></i>
+              <span data-i18n="cv_upload.btn_upload">Hochladen & Verarbeiten</span>
+            </button>
+            <button class="cv-btn-secondary" id="rst-btn" style="display:none">
+              <i class="bi bi-arrow-counterclockwise"></i>
+              <span data-i18n="cv_upload.btn_reset">Reset</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Spalte 3: Dublettenprüfung -->
+        <div class="cv-panel">
+          <h3><i class="bi bi-search"></i> <span data-i18n="cv_upload.dupe_title">Dublettenprüfung</span></h3>
+          <div class="cv-dupe-box" id="dupe-box">
+            <div class="cv-dupe-empty">
+              <i class="bi bi-info-circle"></i>
+              <p data-i18n="cv_upload.dupe_hint">Vorname + Nachname + PDF eingeben, dann erfolgt die automatische Prüfung.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Sektion 2: URL Import -->
+  <div class="toggle-section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span>
+        <i class="bi bi-link-45deg"></i>
+        <span data-i18n="cv_upload.section_url">URL Import</span>
+      </span>
+      <i class="bi bi-chevron-down"></i>
+    </div>
+    <div class="section-content">
+
+      <div class="cv-url-row">
+        <input id="url-input" type="text"
+          data-i18n-placeholder="cv_upload.url_placeholder"
+          oninput="cvUpload.autoDetectPlatform(this.value)">
+        <select id="url-platform" class="cv-select"></select>
+      </div>
+      <div class="cv-url-actions">
+        <button class="cv-btn-success" onclick="cvUpload.importSingleUrl()" id="url-import-btn">
+          <i class="bi bi-download"></i>
+          <span data-i18n="cv_upload.btn_import">Importieren</span>
+        </button>
+        <button class="cv-btn-secondary" onclick="cvUpload.toggleBatch()" id="batch-toggle-btn" title="Batch Import">
+          <i class="bi bi-list-ul"></i>
+        </button>
+        <button class="cv-btn-secondary" onclick="cvUpload.handleSessionBtn()" id="flm-session-btn" title="Session">
+          <i class="bi bi-key"></i>
+        </button>
+      </div>
+      <div id="url-result" class="cv-url-result" style="display:none"></div>
+
+      <!-- Batch Bereich -->
+      <div id="batch-area" style="display:none">
+        <div class="cv-divider"></div>
+        <p class="cv-batch-label"><i class="bi bi-list-ul"></i> <span data-i18n="cv_upload.batch_title">Batch Import</span></p>
+        <div class="cv-url-dropzone" id="url-dz"
+          onclick="document.getElementById('csv-file').click()"
+          ondragover="event.preventDefault();this.classList.add('over')"
+          ondragleave="this.classList.remove('over')"
+          ondrop="cvUpload.handleCsvDrop(event)">
+          <i class="bi bi-file-spreadsheet"></i>
+          <p data-i18n="cv_upload.batch_drop">CSV / TXT hier ablegen oder klicken</p>
+          <small data-i18n="cv_upload.batch_hint">Eine URL pro Zeile · max. 100 URLs</small>
+          <input type="file" id="csv-file" accept=".csv,.txt" style="display:none" onchange="cvUpload.loadUrlFile(this)">
+        </div>
+        <textarea id="url-batch" rows="4" class="cv-batch-textarea"
+          data-i18n-placeholder="cv_upload.batch_placeholder"
+          oninput="cvUpload.updateBatchCount()"></textarea>
+        <div class="cv-batch-footer">
+          <button class="cv-btn-success" onclick="cvUpload.importBatch()">
+            <i class="bi bi-download"></i>
+            <span data-i18n="cv_upload.btn_import_all">Alle importieren</span>
+          </button>
+          <span id="batch-count" class="cv-batch-count"></span>
+        </div>
+        <div id="url-queue" style="display:none">
+          <p class="cv-batch-label"><i class="bi bi-list-check"></i> <span data-i18n="cv_upload.queue_title">Import-Warteschlange</span></p>
+          <div id="url-queue-list"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Sektion 3: Upload-Übersicht -->
+  <div class="toggle-section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span>
+        <i class="bi bi-table"></i>
+        <span data-i18n="cv_upload.section_table">Upload-Übersicht</span>
+      </span>
+      <i class="bi bi-chevron-down"></i>
+    </div>
+    <div class="section-content">
+      <div class="cv-tbl-bar">
+        <input id="search" data-i18n-placeholder="cv_upload.search_placeholder">
+        <select id="sort" class="cv-select">
+          <option value="newest" data-i18n="cv_upload.sort_newest">Neueste zuerst</option>
+          <option value="oldest" data-i18n="cv_upload.sort_oldest">Älteste zuerst</option>
+          <option value="ln_asc" data-i18n="cv_upload.sort_ln_asc">Nachname A–Z</option>
+          <option value="ln_desc" data-i18n="cv_upload.sort_ln_desc">Nachname Z–A</option>
+          <option value="status" data-i18n="cv_upload.sort_status">Nach Status</option>
+        </select>
+        <button class="cv-btn-secondary" onclick="cvUpload.loadUploads()">
+          <i class="bi bi-arrow-clockwise"></i>
+          <span data-i18n="cv_upload.btn_refresh">Aktualisieren</span>
+        </button>
+      </div>
+      <div class="cv-tbl-wrap">
+        <table class="cv-table">
+          <thead>
+            <tr>
+              <th data-i18n="cv_upload.col_lastname">Nachname</th>
+              <th data-i18n="cv_upload.col_firstname">Vorname</th>
+              <th data-i18n="cv_upload.col_aid">AID</th>
+              <th data-i18n="cv_upload.col_version">Version</th>
+              <th data-i18n="cv_upload.col_status">Status</th>
+              <th data-i18n="cv_upload.col_uploaded">Hochgeladen</th>
+              <th data-i18n="cv_upload.col_update">Update</th>
+              <th data-i18n="cv_upload.col_valid">Valid</th>
+              <th data-i18n="cv_upload.col_actions">Aktionen</th>
+            </tr>
+          </thead>
+          <tbody id="tbl-body">
+            <tr><td colspan="9" class="cv-tbl-loading">
+              <i class="bi bi-hourglass-split"></i>
+              <span data-i18n="cv_upload.loading">Lade …</span>
+            </td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Hidden fields -->
+<input type="hidden" id="sel-dir">
+<input type="hidden" id="sel-ver">
+<input type="hidden" id="sel-act">
+<input type="hidden" id="csrf" value="{{ csrf_token }}">
+
+<!-- Session Modal -->
+<div id="flm-modal" class="cv-modal-overlay" style="display:none" onclick="cvUpload.closeSessionModal(event)">
+  <div class="cv-modal">
+    <div class="cv-modal-header">
+      <h2><i class="bi bi-key"></i> <span data-i18n="cv_upload.session_title">Session</span></h2>
+      <button class="cv-modal-close" onclick="cvUpload.closeSessionModal()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div id="flm-status"></div>
+    <div id="flm-action" style="display:none">
+      <button class="cv-btn-primary cv-btn-full" onclick="cvUpload.callExtensionFromModal()" id="flm-ext-btn">
+        <i class="bi bi-arrow-clockwise"></i>
+        <span data-i18n="cv_upload.session_renew">Session jetzt erneuern (ABpE Extension)</span>
+      </button>
+      <div id="flm-ext-result" class="cv-modal-result"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Name-Missing Modal -->
+<div id="name-missing-modal" class="cv-modal-overlay" style="display:none" onclick="cvUpload.closeNameModal(event)">
+  <div class="cv-modal">
+    <div class="cv-modal-header">
+      <div class="cv-modal-warn-icon"><i class="bi bi-exclamation"></i></div>
+      <div>
+        <div class="cv-modal-warn-title" data-i18n="cv_upload.name_missing_title">Kein Name gefunden</div>
+        <div id="nm-subtitle" class="cv-modal-warn-sub"></div>
+      </div>
+    </div>
+    <div class="cv-modal-dir-preview">
+      <span data-i18n="cv_upload.name_missing_dir">Verzeichnis wird gespeichert als:</span><br>
+      <code id="nm-dir-preview"></code><br>
+      <span class="cv-muted" data-i18n="cv_upload.name_missing_hint">Möchten Sie lieber den Namen nachtragen?</span>
+    </div>
+    <div id="nm-form-wrap" style="display:none">
+      <div class="cv-name-grid">
+        <div class="cv-fg">
+          <label data-i18n="cv_upload.firstname">Vorname</label>
+          <input type="text" id="nm-first" oninput="cvUpload.nmUpdatePreview()">
+        </div>
+        <div class="cv-fg">
+          <label data-i18n="cv_upload.lastname">Nachname</label>
+          <input type="text" id="nm-last" oninput="cvUpload.nmUpdatePreview()">
+        </div>
+      </div>
+      <div id="nm-name-preview" class="cv-name-preview" style="display:none">
+        <span data-i18n="cv_upload.name_dir_preview">Verzeichnis:</span>
+        <code id="nm-name-preview-text"></code>
+      </div>
+    </div>
+    <div class="cv-modal-actions">
+      <button class="cv-btn-secondary cv-btn-full" onclick="cvUpload.nmToggleForm()" id="nm-toggle-btn">
+        <i class="bi bi-pencil"></i>
+        <span data-i18n="cv_upload.name_enter">Ja, Namen jetzt eintragen</span>
+      </button>
+      <div class="cv-modal-btn-row">
+        <button class="cv-btn-secondary" onclick="cvUpload.nmSaveAnonymous()" style="flex:1">
+          <span data-i18n="cv_upload.name_save_anon">Ohne Namen speichern</span>
+        </button>
+        <button class="cv-btn-success" onclick="cvUpload.nmSaveWithName()" id="nm-confirm-btn" disabled style="flex:1.2;opacity:.4">
+          <i class="bi bi-check"></i>
+          <span data-i18n="cv_upload.name_save_with">Mit Namen speichern</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block module_js %}
+<script src="{% static 'abpe_ui/js/mod/mod-cv_upload.js' %}"></script>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Modul-JSON laden + init
+    if (typeof loadLanguage === 'function') {
+        loadLanguage('{{ current_lang|default:"de" }}', 'cv_upload').then(() => {
+            cvUpload.init();
+        });
+    } else {
+        cvUpload.init();
+    }
+});
+
+// Bei Sprachwechsel: Tabelle neu rendern (Texte kommen aus window.i18nData)
+document.addEventListener('languageChanged', function(e) {
+    cvUpload.loadUploads();
+});
+</script>
+{% endblock %}

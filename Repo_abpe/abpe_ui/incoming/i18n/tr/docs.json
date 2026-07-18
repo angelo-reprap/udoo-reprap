@@ -1,0 +1,11 @@
+{
+    "documentation": "Dokümantasyon",
+    "architecture": "Mimari",
+    "user_manual": "Kullanıcı Kılavuzu",
+    "architecture_title": "ABpE Portal Mimarisi",
+    "architecture_subtitle": "Modüler Yapının Dokümantasyonu",
+    "core_components": "Temel Bileşenler",
+    "modules": "Modüller",
+    "api_endpoints": "API Uç Noktaları",
+    "database_schema": "Veritabanı Şeması"
+}

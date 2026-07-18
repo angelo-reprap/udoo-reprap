@@ -1,0 +1,22 @@
+{
+    "help_title": "Pomoc & Wskazówki",
+    "help_portal": "O tym portalu",
+    "help_portal_text": "Portal ABpE - Automatyczny System Zbierania Profili Konsultantów. Zarządza CV, konsultantami, dopasowaniem i przepływami pracy.",
+    "help_navigation": "Nawigacja",
+    "help_nav1": "Panel boczny: Ikony stają się widoczne po najechaniu",
+    "help_nav2": "Panel główny: Statystyki można rozwinąć/zwinąć",
+    "help_nav3": "Wszystkie sekcje można rozwinąć/zwinąć kliknięciem",
+    "help_nav4": "Wyszukiwanie u góry: Znajdź konsultantów, CV i rekordy w całym portalu",
+    "help_language": "Język & Wygląd",
+    "help_lang_header": "Język: Przyciski w prawym górnym rogu (DE/EN/ES/IT/FR) lub w Ustawieniach",
+    "help_lang_persist": "Wybrany język jest zapisywany i ładowany przy następnym logowaniu",
+    "help_theme_toggle": "Tryb jasny/ciemny: Przycisk słońce/księżyc w prawym górnym rogu lub w Ustawieniach",
+    "help_modules": "Moduły & Instrukcje",
+    "help_mod_overview": "Każdy moduł może mieć własną pomoc — przycisk „Pomoc” w widoku modułu",
+    "help_mod_email": "Email Studio: szczegółowy samouczek z symulacjami (Przegląd, Moduły, Zmienne, Tłumaczenie)",
+    "help_mod_more": "Kolejne moduły (Doc Studio, Dopasowanie, CRM) będą stopniowo dodawane",
+    "help_shortcuts": "Skróty klawiaturowe",
+    "help_shortcut_help": "Otwórz pomoc",
+    "help_shortcut_search": "Skup się na polu wyszukiwania",
+    "help_shortcut_stats": "Rozwiń/zwiń statystyki"
+}

@@ -1,0 +1,153 @@
+{% extends 'abpe_ui/base.html' %}
+{% load static %}
+{% block title %}Doc Studio — Konfiguration{% endblock %}
+{% block module_css %}
+<link href="{% static 'abpe_ui/css/mod/mod-doc_studio.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<script>
+document.addEventListener('languageChanged', function(e) {
+    if (typeof loadLanguage === 'function') loadLanguage(e.detail.language, 'doc_studio');
+});
+</script>
+
+<div class="container-fluid p-0">
+
+    {# ── Tab-Leiste ── #}
+    <div class="ds-tabbar">
+        <a href="/doc-studio/"          class="ds-tab">
+            <i class="bi bi-files"></i>
+            <span data-i18n="ds.tab_templates">Vorlagen</span>
+        </a>
+        <a href="/doc-studio/studio/"   class="ds-tab">
+            <i class="bi bi-pencil-square"></i>
+            <span data-i18n="ds.tab_studio">Studio</span>
+        </a>
+        <a href="/doc-studio/invoices/" class="ds-tab">
+            <i class="bi bi-receipt"></i>
+            <span data-i18n="ds.tab_invoices">Rechnungen</span>
+        </a>
+        <a href="/doc-studio/log/"      class="ds-tab">
+            <i class="bi bi-journal-text"></i>
+            <span data-i18n="ds.tab_log">Log</span>
+        </a>
+        <a href="/doc-studio/config/"   class="ds-tab ds-tab-active">
+            <i class="bi bi-gear"></i>
+            <span data-i18n="ds.tab_config">Konfiguration</span>
+        </a>
+        <div class="ds-tab-spacer"></div>
+    </div>
+
+    <div class="p-4">
+
+        {% if not is_admin %}
+        <div class="alert alert-warning py-2">
+            <i class="bi bi-lock me-1"></i>
+            <span data-i18n="ds.admin_only">Nur für Administratoren</span>
+        </div>
+        {% else %}
+
+        <div class="ds-stats-row mb-3">
+            <div class="ds-stat">
+                <div class="ds-stat-val">{{ config_stats.layouts }}</div>
+                <div class="ds-stat-lbl" data-i18n="ds.stat_layouts">Layouts</div>
+            </div>
+            <div class="ds-stat">
+                <div class="ds-stat-val">{{ config_stats.styles }}</div>
+                <div class="ds-stat-lbl" data-i18n="ds.stat_styles">StyleKits</div>
+            </div>
+            <div class="ds-stat">
+                <div class="ds-stat-val">{{ config_stats.blocks }}</div>
+                <div class="ds-stat-lbl" data-i18n="ds.stat_blocks">Blöcke</div>
+            </div>
+        </div>
+
+        <div class="toggle-section mb-2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <i class="bi bi-layout-text-window"></i>
+                <span data-i18n="ds.layouts_title">Seiten-Layouts</span>
+                <span class="badge bg-light text-dark ms-2">{{ config_stats.layouts }}</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="section-content">
+                <div id="ds-layouts-container">
+                    <div class="text-center py-3"><div class="spinner-border spinner-border-sm text-secondary"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="toggle-section mb-2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <i class="bi bi-palette"></i>
+                <span data-i18n="ds.styles_title">StyleKits</span>
+                <span class="badge bg-light text-dark ms-2">{{ config_stats.styles }}</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="section-content">
+                <div id="ds-styles-container">
+                    <div class="text-center py-3"><div class="spinner-border spinner-border-sm text-secondary"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="toggle-section mb-2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <i class="bi bi-puzzle"></i>
+                <span data-i18n="ds.blocks_title">Content-Blöcke</span>
+                <span class="badge bg-light text-dark ms-2">{{ config_stats.blocks }}</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="section-content">
+                <div class="mb-2">
+                    <input id="ds-block-search" type="text" class="form-control form-control-sm"
+                           style="width:200px;"
+                           data-i18n-placeholder="ds.search_block"
+                           placeholder="Block suchen..."
+                           oninput="dsConfigFilterBlocks(this.value)">
+                </div>
+                <div id="ds-blocks-config-container">
+                    <div class="text-center py-3"><div class="spinner-border spinner-border-sm text-secondary"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="toggle-section mb-2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <i class="bi bi-arrow-repeat"></i>
+                <span data-i18n="ds.fixtures_title">Fixtures / Import</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="section-content">
+                <p class="small text-secondary" data-i18n="ds.fixtures_hint">
+                    Templates aus generator/templates/ JSON-Dateien neu in die DB laden.
+                </p>
+                <button class="btn btn-sm btn-outline-warning mt-2" onclick="dsConfigReloadFixtures()">
+                    <i class="bi bi-arrow-repeat me-1"></i>
+                    <span data-i18n="ds.btn_reload_fixtures">Fixtures neu laden</span>
+                </button>
+                <div id="ds-fixtures-result" class="mt-2"></div>
+            </div>
+        </div>
+
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block module_js %}
+<script src="{% static 'abpe_ui/js/mod/mod-doc_studio.js' %}"></script>
+{% endblock %}
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof loadLanguage === 'function') {
+        loadLanguage('{{ current_lang|default:"de" }}', 'doc_studio').then(function() {
+            if (typeof dsInit === 'function') dsInit('config');
+        });
+    } else {
+        if (typeof dsInit === 'function') dsInit('config');
+    }
+});
+</script>
+{% endblock %}

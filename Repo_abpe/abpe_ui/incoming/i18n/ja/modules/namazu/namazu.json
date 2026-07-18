@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "コンサルタント検索 (Namazu)",
+            "placeholder": "名前、スキル、テクノロジー...",
+            "btn": "検索",
+            "max_label": "最大ヒット数"
+        },
+        "results": {
+            "total": "合計ヒット数",
+            "empty": "ヒットが見つかりませんでした",
+            "score": "スコア"
+        },
+        "profile": {
+            "open": "プロフィール",
+            "preview": "データシートプレビュー",
+            "close": "閉じる"
+        },
+        "admin": {
+            "title": "インデックス管理",
+            "imap_title": "IMAPメールボックス",
+            "add_account": "アカウントを追加",
+            "active": "アクティブ",
+            "inactive": "非アクティブ",
+            "html_count": "HTMLファイル",
+            "index_size": "インデックスサイズ",
+            "last_indexed": "最終インデックス日時",
+            "reindex_btn": "再インデックスを開始",
+            "reindex_ok": "再インデックスを開始しました",
+            "reindex_err": "開始中にエラーが発生しました",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "読み込み中..."
+        },
+        "es": {
+            "title": "Elasticsearch検索",
+            "placeholder": "スキル、名前、テクノロジー...",
+            "exclude": "除外:",
+            "exclude_account": "メールボックスを除外",
+            "query_helper": "クエリヘルプ",
+            "examples": "例:",
+            "index": {
+                "consultants": "コンサルタント",
+                "emails": "メール",
+                "profiles": "プロフィール"
+            },
+            "sort": {
+                "placeholder": "並び替え...",
+                "date_desc": "日付 ↓",
+                "date_asc": "日付 ↑",
+                "indexed_desc": "インデックス日時 ↓",
+                "indexed_asc": "インデックス日時 ↑",
+                "attachments": "添付ファイル優先",
+                "from_asc": "送信者 A-Z",
+                "account_asc": "メールボックス A-Z",
+                "name_asc": "名前 A-Z",
+                "status": "ステータス",
+                "available": "利用可能日",
+                "availability": "可用性",
+                "folder_asc": "フォルダ A-Z",
+                "size_desc": "サイズ ↓"
+            },
+            "chips": {
+                "boolean": "ブール演算子:",
+                "wildcards": "ワイルドカード & ファジー:",
+                "fields_email": "フィールド (メール):",
+                "fields_consultant": "フィールド (コンサルタント):",
+                "date_ranges": "日付 & 範囲:",
+                "and": "両方",
+                "or": "いずれか",
+                "not": "除外",
+                "must": "必須",
+                "must_not": "禁止",
+                "wildcard": "ワイルドカード",
+                "one_char": "1文字",
+                "fuzzy": "ファジー",
+                "phrase": "フレーズ",
+                "proximity": "近接",
+                "boost": "ブースト",
+                "with_attachment": "添付ファイルあり",
+                "fulltext": "全文",
+                "name": "名前",
+                "location": "場所",
+                "availability": "可用性",
+                "subject": "件名",
+                "sender": "送信者",
+                "content": "内容",
+                "mailbox": "メールボックス",
+                "folder": "フォルダ"
+            }
+        }
+    }
+}

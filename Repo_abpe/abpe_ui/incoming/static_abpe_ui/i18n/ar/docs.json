@@ -1,0 +1,11 @@
+{
+    "documentation": "التوثيق",
+    "architecture": "الهندسة المعمارية",
+    "user_manual": "دليل المستخدم",
+    "architecture_title": "هندسة بوابة ABpE",
+    "architecture_subtitle": "توثيق البنية المعيارية",
+    "core_components": "المكونات الأساسية",
+    "modules": "الوحدات",
+    "api_endpoints": "نقاط نهاية API",
+    "database_schema": "مخطط قاعدة البيانات"
+}

@@ -1,0 +1,91 @@
+{
+    "toc": {
+        "title": "Inhaltsverzeichnis"
+    },
+    "sections": [
+        {
+            "id": "grundlagen",
+            "number": "1",
+            "title": "Grundlagen & Überblick"
+        },
+        {
+            "id": "modulsystem",
+            "number": "2",
+            "title": "Modul-System"
+        },
+        {
+            "id": "i18n",
+            "number": "3",
+            "title": "Sprach- & Übersetzungssystem"
+        },
+        {
+            "id": "theme",
+            "number": "4",
+            "title": "Theme & Design-System"
+        },
+        {
+            "id": "multiuser",
+            "number": "5",
+            "title": "Multi-User & Berechtigungen"
+        },
+        {
+            "id": "hilfe",
+            "number": "6",
+            "title": "Hilfe-System"
+        },
+        {
+            "id": "sidebar",
+            "number": "7",
+            "title": "Sidebar & Navigation"
+        },
+        {
+            "id": "api",
+            "number": "8",
+            "title": "API & Externe Integration"
+        },
+        {
+            "id": "backup",
+            "number": "9",
+            "title": "Backup & Archiv-System"
+        },
+        {
+            "id": "helper",
+            "number": "10",
+            "title": "Helper & Utility Scripts"
+        },
+        {
+            "id": "responsive",
+            "number": "11",
+            "title": "Responsive Design"
+        },
+        {
+            "id": "verzeichnisse",
+            "number": "12",
+            "title": "Verzeichnisstruktur"
+        },
+        {
+            "id": "workflow",
+            "number": "13",
+            "title": "Entwicklungsworkflow"
+        },
+        {
+            "id": "debugging",
+            "number": "14",
+            "title": "Fehlersuche & Debugging"
+        },
+        {
+            "id": "versionen",
+            "number": "15",
+            "title": "Versionierung & Changelog"
+        },
+        {
+            "id": "anhang",
+            "number": "16",
+            "title": "Anhänge"
+        }
+    ],
+    "version": "Version 3.0",
+    "framework": "Django 5.x",
+    "users": "23.000+ Berater",
+    "chapters": "16 Kapitel"
+}

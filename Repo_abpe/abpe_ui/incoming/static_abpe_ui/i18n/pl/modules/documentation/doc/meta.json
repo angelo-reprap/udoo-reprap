@@ -1,0 +1,91 @@
+{
+    "toc": {
+        "title": "Spis treści"
+    },
+    "sections": [
+        {
+            "id": "grundlagen",
+            "number": "1",
+            "title": "Podstawy i przegląd"
+        },
+        {
+            "id": "modulsystem",
+            "number": "2",
+            "title": "System modułów"
+        },
+        {
+            "id": "i18n",
+            "number": "3",
+            "title": "System językowy i tłumaczeń"
+        },
+        {
+            "id": "theme",
+            "number": "4",
+            "title": "Motyw i system projektowania"
+        },
+        {
+            "id": "multiuser",
+            "number": "5",
+            "title": "Wielu użytkowników i uprawnienia"
+        },
+        {
+            "id": "hilfe",
+            "number": "6",
+            "title": "System pomocy"
+        },
+        {
+            "id": "sidebar",
+            "number": "7",
+            "title": "Panel boczny i nawigacja"
+        },
+        {
+            "id": "api",
+            "number": "8",
+            "title": "API i integracja zewnętrzna"
+        },
+        {
+            "id": "backup",
+            "number": "9",
+            "title": "System kopii zapasowych i archiwizacji"
+        },
+        {
+            "id": "helper",
+            "number": "10",
+            "title": "Skrypty pomocnicze i narzędziowe"
+        },
+        {
+            "id": "responsive",
+            "number": "11",
+            "title": "Projektowanie responsywne"
+        },
+        {
+            "id": "verzeichnisse",
+            "number": "12",
+            "title": "Struktura katalogów"
+        },
+        {
+            "id": "workflow",
+            "number": "13",
+            "title": "Przepływ pracy programistycznej"
+        },
+        {
+            "id": "debugging",
+            "number": "14",
+            "title": "Wyszukiwanie błędów i debugowanie"
+        },
+        {
+            "id": "versionen",
+            "number": "15",
+            "title": "Wersjonowanie i dziennik zmian"
+        },
+        {
+            "id": "anhang",
+            "number": "16",
+            "title": "Załączniki"
+        }
+    ],
+    "version": "Wersja 3.0",
+    "framework": "Django 5.x",
+    "users": "23.000+ doradców",
+    "chapters": "16 rozdziałów"
+}

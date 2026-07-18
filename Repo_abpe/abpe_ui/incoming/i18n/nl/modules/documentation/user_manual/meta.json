@@ -1,0 +1,86 @@
+{
+    "toc": {
+        "title": "Inhoudsopgave"
+    },
+    "sections": [
+        {
+            "id": "einstieg",
+            "number": "1",
+            "title": "Aan de slag & Inloggen"
+        },
+        {
+            "id": "dashboard",
+            "number": "2",
+            "title": "Dashboard & Navigatie"
+        },
+        {
+            "id": "cv_editor",
+            "number": "3",
+            "title": "CV-editor"
+        },
+        {
+            "id": "cv_upload",
+            "number": "4",
+            "title": "CV uploaden & Extraheren"
+        },
+        {
+            "id": "matching",
+            "number": "5",
+            "title": "Matching & Zoeken"
+        },
+        {
+            "id": "email_studio",
+            "number": "6",
+            "title": "E-mailstudio"
+        },
+        {
+            "id": "doc_studio",
+            "number": "7",
+            "title": "Documentstudio"
+        },
+        {
+            "id": "rechnungen",
+            "number": "8",
+            "title": "Facturen"
+        },
+        {
+            "id": "vorlagen",
+            "number": "9",
+            "title": "Sjablonen & Briefpapier"
+        },
+        {
+            "id": "benutzerverwaltung",
+            "number": "10",
+            "title": "Gebruikersbeheer"
+        },
+        {
+            "id": "einstellungen",
+            "number": "11",
+            "title": "Instellingen & Configuratie"
+        },
+        {
+            "id": "sprache",
+            "number": "12",
+            "title": "Taal & Lokalisatie"
+        },
+        {
+            "id": "tipps",
+            "number": "13",
+            "title": "Tips & Sneltoetsen"
+        },
+        {
+            "id": "fehler",
+            "number": "14",
+            "title": "Veelvoorkomende fouten & Oplossingen"
+        },
+        {
+            "id": "glossar",
+            "number": "15",
+            "title": "Verklarende woordenlijst"
+        }
+    ],
+    "version": "Versie 2.0",
+    "framework": "Django 5.x",
+    "chapters": "15 hoofdstukken",
+    "audience": "Eindgebruikers"
+}

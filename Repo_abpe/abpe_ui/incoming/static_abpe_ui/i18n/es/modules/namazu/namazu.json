@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "Búsqueda de consultores (Namazu)",
+            "placeholder": "Nombre, habilidad, tecnología...",
+            "btn": "Buscar",
+            "max_label": "Máx. resultados"
+        },
+        "results": {
+            "total": "Resultados totales",
+            "empty": "No se encontraron resultados",
+            "score": "Puntuación"
+        },
+        "profile": {
+            "open": "Perfil",
+            "preview": "Vista previa de la ficha técnica",
+            "close": "Cerrar"
+        },
+        "admin": {
+            "title": "Gestión del índice",
+            "imap_title": "Buzones IMAP",
+            "add_account": "Agregar cuenta",
+            "active": "activo",
+            "inactive": "inactivo",
+            "html_count": "Archivos HTML",
+            "index_size": "Tamaño del índice",
+            "last_indexed": "Última indexación",
+            "reindex_btn": "Iniciar reindexación",
+            "reindex_ok": "Reindexación iniciada",
+            "reindex_err": "Error al iniciar",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "Cargando..."
+        },
+        "es": {
+            "title": "Búsqueda en Elasticsearch",
+            "placeholder": "Habilidades, nombre, tecnología...",
+            "exclude": "Excluir:",
+            "exclude_account": "Excluir buzón",
+            "query_helper": "Ayuda de consulta",
+            "examples": "Ejemplos:",
+            "index": {
+                "consultants": "Consultores",
+                "emails": "Correos electrónicos",
+                "profiles": "Perfiles"
+            },
+            "sort": {
+                "placeholder": "Ordenar...",
+                "date_desc": "Fecha ↓",
+                "date_asc": "Fecha ↑",
+                "indexed_desc": "Indexado ↓",
+                "indexed_asc": "Indexado ↑",
+                "attachments": "Adjuntos primero",
+                "from_asc": "Remitente A-Z",
+                "account_asc": "Buzón A-Z",
+                "name_asc": "Nombre A-Z",
+                "status": "Estado",
+                "available": "Disponible desde",
+                "availability": "Disponibilidad",
+                "folder_asc": "Carpeta A-Z",
+                "size_desc": "Tamaño ↓"
+            },
+            "chips": {
+                "boolean": "Booleano:",
+                "wildcards": "Comodines y difusos:",
+                "fields_email": "Campos (correos electrónicos):",
+                "fields_consultant": "Campos (consultores):",
+                "date_ranges": "Fecha y rangos:",
+                "and": "ambos",
+                "or": "uno",
+                "not": "excluir",
+                "must": "debe",
+                "must_not": "no debe",
+                "wildcard": "Comodín",
+                "one_char": "un carácter",
+                "fuzzy": "Difuso",
+                "phrase": "Frase",
+                "proximity": "Cercanía",
+                "boost": "Potenciar",
+                "with_attachment": "Con adjunto",
+                "fulltext": "Texto completo",
+                "name": "Nombre",
+                "location": "Ubicación",
+                "availability": "Disponibilidad",
+                "subject": "Asunto",
+                "sender": "Remitente",
+                "content": "Contenido",
+                "mailbox": "Buzón",
+                "folder": "Carpeta"
+            }
+        }
+    }
+}

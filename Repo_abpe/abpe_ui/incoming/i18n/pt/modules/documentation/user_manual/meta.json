@@ -1,0 +1,86 @@
+{
+    "toc": {
+        "title": "Índice"
+    },
+    "sections": [
+        {
+            "id": "einstieg",
+            "number": "1",
+            "title": "Introdução & Login"
+        },
+        {
+            "id": "dashboard",
+            "number": "2",
+            "title": "Painel & Navegação"
+        },
+        {
+            "id": "cv_editor",
+            "number": "3",
+            "title": "Editor de CV"
+        },
+        {
+            "id": "cv_upload",
+            "number": "4",
+            "title": "Upload & Extração de CV"
+        },
+        {
+            "id": "matching",
+            "number": "5",
+            "title": "Correspondência & Pesquisa"
+        },
+        {
+            "id": "email_studio",
+            "number": "6",
+            "title": "Email Studio"
+        },
+        {
+            "id": "doc_studio",
+            "number": "7",
+            "title": "Doc Studio"
+        },
+        {
+            "id": "rechnungen",
+            "number": "8",
+            "title": "Faturas"
+        },
+        {
+            "id": "vorlagen",
+            "number": "9",
+            "title": "Modelos & Papel Timbrado"
+        },
+        {
+            "id": "benutzerverwaltung",
+            "number": "10",
+            "title": "Gestão de Utilizadores"
+        },
+        {
+            "id": "einstellungen",
+            "number": "11",
+            "title": "Configurações & Definições"
+        },
+        {
+            "id": "sprache",
+            "number": "12",
+            "title": "Idioma & Localização"
+        },
+        {
+            "id": "tipps",
+            "number": "13",
+            "title": "Dicas & Atalhos de Teclado"
+        },
+        {
+            "id": "fehler",
+            "number": "14",
+            "title": "Erros Comuns & Soluções"
+        },
+        {
+            "id": "glossar",
+            "number": "15",
+            "title": "Glossário"
+        }
+    ],
+    "version": "Versão 2.0",
+    "framework": "Django 5.x",
+    "chapters": "15 Capítulos",
+    "audience": "Utilizador Final"
+}

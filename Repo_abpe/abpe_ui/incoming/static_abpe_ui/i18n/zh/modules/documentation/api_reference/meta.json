@@ -1,0 +1,17 @@
+{
+    "toc": {
+        "title": "目录"
+    },
+    "sections": [
+        {
+            "id": "uebersicht",
+            "number": "1",
+            "title": "概述"
+        },
+        {
+            "id": "endpoints",
+            "number": "2",
+            "title": "端点"
+        }
+    ]
+}

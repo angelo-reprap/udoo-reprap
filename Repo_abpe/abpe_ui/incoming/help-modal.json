@@ -1,0 +1,22 @@
+{
+    "help_title": "Yardım & İpuçları",
+    "help_portal": "Bu Portal Hakkında",
+    "help_portal_text": "ABpE Portal - Otomatik Danışman Profil Kayıt Sistemi. CV'leri, danışmanları, eşleştirmeyi ve iş akışlarını yönetir.",
+    "help_navigation": "Gezinme",
+    "help_nav1": "Kenar çubuğu: Simgeler fareyle üzerine gelindiğinde görünür",
+    "help_nav2": "Kontrol Paneli: İstatistikler açılıp kapatılabilir",
+    "help_nav3": "Tüm bölümler tıklanarak açılıp kapatılabilir",
+    "help_nav4": "Yukarıdaki arama: Danışmanları, CV'leri ve veri kayıtlarını portal genelinde bulun",
+    "help_language": "Dil & Görünüm",
+    "help_lang_header": "Dil: Sağ üstteki butonlar (DE/EN/ES/IT/FR) veya Ayarlar altında",
+    "help_lang_persist": "Seçilen dil kaydedilir ve bir sonraki girişte yüklenir",
+    "help_theme_toggle": "Açık/Koyu Mod: Sağ üstteki Güneş/Ay butonu veya Ayarlar altında",
+    "help_modules": "Modüller & Kılavuzlar",
+    "help_mod_overview": "Her modülün kendi yardımı olabilir — Modül görünümündeki 'Yardım' butonu",
+    "help_mod_email": "E-posta Stüdyosu: Simülasyonlarla ayrıntılı eğitim (Genel Bakış, Modüller, Değişkenler, Çeviri)",
+    "help_mod_more": "Diğer modüller (Belge Stüdyosu, Eşleştirme, CRM) aşamalı olarak eklenecektir",
+    "help_shortcuts": "Klavye Kısayolları",
+    "help_shortcut_help": "Yardımı aç",
+    "help_shortcut_search": "Arama alanına odaklan",
+    "help_shortcut_stats": "İstatistikleri aç/kapat"
+}

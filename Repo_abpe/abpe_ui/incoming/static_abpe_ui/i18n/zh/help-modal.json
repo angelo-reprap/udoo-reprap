@@ -1,0 +1,22 @@
+{
+    "help_title": "帮助与提示",
+    "help_portal": "关于本门户",
+    "help_portal_text": "ABpE门户 - 自动化顾问档案采集系统。管理简历、顾问、匹配和工作流程。",
+    "help_navigation": "导航",
+    "help_nav1": "侧边栏：悬停时图标可见",
+    "help_nav2": "仪表盘：统计信息可展开/折叠",
+    "help_nav3": "所有部分均可点击展开/折叠",
+    "help_nav4": "顶部搜索：在全门户内查找顾问、简历和数据集",
+    "help_language": "语言与显示",
+    "help_lang_header": "语言：右上角按钮（DE/EN/ES/IT/FR）或通过设置",
+    "help_lang_persist": "所选语言会被保存，下次登录时自动加载",
+    "help_theme_toggle": "亮/暗模式：右上角太阳/月亮按钮或通过设置",
+    "help_modules": "模块与指南",
+    "help_mod_overview": "每个模块可拥有自己的帮助——模块视图中的“帮助”按钮",
+    "help_mod_email": "Email Studio：包含模拟的详细教程（概览、模块、变量、翻译）",
+    "help_mod_more": "其他模块（Doc Studio、匹配、CRM）将逐步补充",
+    "help_shortcuts": "键盘快捷键",
+    "help_shortcut_help": "打开帮助",
+    "help_shortcut_search": "聚焦搜索框",
+    "help_shortcut_stats": "展开/折叠统计信息"
+}

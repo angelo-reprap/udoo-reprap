@@ -1,0 +1,93 @@
+{
+    "namazu": {
+        "search": {
+            "title": "Recherche de conseillers (Namazu)",
+            "placeholder": "Nom, compétence, technologie...",
+            "btn": "Rechercher",
+            "max_label": "Max. résultats"
+        },
+        "results": {
+            "total": "Résultats totaux",
+            "empty": "Aucun résultat trouvé",
+            "score": "Score"
+        },
+        "profile": {
+            "open": "Profil",
+            "preview": "Aperçu de la fiche technique",
+            "close": "Fermer"
+        },
+        "admin": {
+            "title": "Gestion de l'index",
+            "imap_title": "Boîtes aux lettres IMAP",
+            "add_account": "Ajouter un compte",
+            "active": "actif",
+            "inactive": "inactif",
+            "html_count": "Fichiers HTML",
+            "index_size": "Taille de l'index",
+            "last_indexed": "Dernière indexation",
+            "reindex_btn": "Lancer la réindexation",
+            "reindex_ok": "Réindexation lancée",
+            "reindex_err": "Erreur lors du lancement",
+            "log_title": "NMZ.log",
+            "err_title": "NMZ.err",
+            "loading": "Chargement..."
+        },
+        "es": {
+            "title": "Recherche Elasticsearch",
+            "placeholder": "Compétences, nom, technologie...",
+            "exclude": "Exclure :",
+            "exclude_account": "Exclure la boîte aux lettres",
+            "query_helper": "Aide à la requête",
+            "examples": "Exemples :",
+            "index": {
+                "consultants": "Conseillers",
+                "emails": "E-mails",
+                "profiles": "Profils"
+            },
+            "sort": {
+                "placeholder": "Tri...",
+                "date_desc": "Date ↓",
+                "date_asc": "Date ↑",
+                "indexed_desc": "Indexé ↓",
+                "indexed_asc": "Indexé ↑",
+                "attachments": "Pièce jointe en premier",
+                "from_asc": "Expéditeur A-Z",
+                "account_asc": "Boîte aux lettres A-Z",
+                "name_asc": "Nom A-Z",
+                "status": "Statut",
+                "available": "Disponible à partir de",
+                "availability": "Disponibilité",
+                "folder_asc": "Dossier A-Z",
+                "size_desc": "Taille ↓"
+            },
+            "chips": {
+                "boolean": "Booléen :",
+                "wildcards": "Jokers & Flou :",
+                "fields_email": "Champs (E-mails) :",
+                "fields_consultant": "Champs (Conseillers) :",
+                "date_ranges": "Date & Plages :",
+                "and": "les deux",
+                "or": "un",
+                "not": "exclure",
+                "must": "doit",
+                "must_not": "ne doit pas",
+                "wildcard": "Joker",
+                "one_char": "un caractère",
+                "fuzzy": "Flou",
+                "phrase": "Phrase",
+                "proximity": "Proximité",
+                "boost": "Boost",
+                "with_attachment": "Avec pièce jointe",
+                "fulltext": "Texte intégral",
+                "name": "Nom",
+                "location": "Lieu",
+                "availability": "Disponibilité",
+                "subject": "Objet",
+                "sender": "Expéditeur",
+                "content": "Contenu",
+                "mailbox": "Boîte aux lettres",
+                "folder": "Dossier"
+            }
+        }
+    }
+}
