@@ -1112,8 +1112,10 @@ window.ESStudio = (() => {
                 DISCLAIMER: 'bi-info-circle',
                 SIGNATURE: 'bi-pen',
             };
+            let totalMods = 0;
             for (const [type, modules] of Object.entries(grouped)) {
                 if (!modules.length) continue;
+                totalMods += modules.length;
                 let chips = '';
                 for (const m of modules) {
                     const desc   = (m.description || '').replace(/"/g, '&quot;');
@@ -1137,6 +1139,8 @@ window.ESStudio = (() => {
             }
             container.innerHTML = html || `<div class="es-modules-empty">${t('modules_empty', 'Keine Module gefunden')}</div>`;
             container.dataset.loaded = '1';
+            const modBadge = document.getElementById('es-mod-count-badge');
+            if (modBadge) modBadge.textContent = String(totalMods);
             _bindModuleChips(container);
         } catch(e) {
             console.error('Module laden fehlgeschlagen:', e);

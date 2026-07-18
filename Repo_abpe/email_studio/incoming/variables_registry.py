@@ -78,23 +78,16 @@ ALL_VARIABLES: list[dict[str, Any]] = [
     _v('kandidat_name', 'scope', 'Name des Kandidaten (Matching)', 'Max Mustermann',
        scopes=['matching']),
 
-    # ── MeetMe / Telefon ──────────────────────────────────────────────────
-    _v('title', 'meetme', 'Titel / Betreff des Termins (Überschrift)', 'Kurze Abstimmung',
-       scopes=['telefon', 'meetme']),
-    _v('termin_datum', 'meetme', 'Termin-Datum formatiert', 'Montag, der 15.07.2026',
-       scopes=['telefon', 'meetme']),
-    _v('termin_uhrzeit', 'meetme', 'Termin-Uhrzeit formatiert', '14:00 Uhr',
-       scopes=['telefon', 'meetme']),
-    _v('termin_zeit', 'meetme', 'Alias für termin_uhrzeit (Vorschau/Legacy)', '14:00 Uhr',
-       scopes=['telefon', 'meetme']),
-    _v('raum', 'meetme', 'Konferenzraum-Durchwahl', '035',
-       scopes=['telefon', 'meetme']),
-    _v('einwahl_info', 'meetme', 'Einwahlnummer und PIN', 'Einwahl: 06171 8867035, PIN: 0350',
-       scopes=['telefon', 'meetme']),
-    _v('teilnehmer_liste', 'meetme', 'Teilnehmer als Textliste (Plaintext)', 'Max M., +49…',
-       scopes=['telefon', 'meetme']),
+    # ── MeetMe / Telefon (immer in Sidebar; Kontext füllt Werte bei MeetMe-Mails) ──
+    _v('title', 'meetme', 'Titel / Betreff des Termins (Überschrift)', 'Kurze Abstimmung'),
+    _v('termin_datum', 'meetme', 'Termin-Datum formatiert', 'Montag, der 15.07.2026', 'date'),
+    _v('termin_uhrzeit', 'meetme', 'Termin-Uhrzeit formatiert', '14:00 Uhr'),
+    _v('termin_zeit', 'meetme', 'Alias für termin_uhrzeit (Vorschau/Legacy)', '14:00 Uhr'),
+    _v('raum', 'meetme', 'Konferenzraum-Durchwahl', '035'),
+    _v('einwahl_info', 'meetme', 'Einwahlnummer und PIN', 'Einwahl: 06171 8867035, PIN: 0350'),
+    _v('teilnehmer_liste', 'meetme', 'Teilnehmer als Textliste (Plaintext)', 'Max M., +49…'),
     _v('teilnehmer_liste_html', 'meetme', 'Teilnehmer als HTML (z. B. mit <br>)',
-       '<ul><li>Max Mustermann</li></ul>', scopes=['telefon', 'meetme']),
+       '<ul><li>Max Mustermann</li></ul>'),
 
     # ── User-Profil ───────────────────────────────────────────────────────
     _v('sender_name', 'user', 'Name des Absenders (eingeloggter User)', 'Angelo Malaguarnera'),

@@ -10,10 +10,11 @@ from apps.abpe_email_studio.variables_registry import (
 
 class VariablesRegistryTest(unittest.TestCase):
 
-    def test_general_scope_excludes_meetme(self):
+    def test_general_scope_includes_meetme_for_sidebar(self):
         names = {v['name'] for v in get_variables('general', '')}
         self.assertIn('name', names)
-        self.assertNotIn('termin_datum', names)
+        # MeetMe-Platzhalter sind katalogweit sichtbar (Werte kommen aus MeetMe-Kontext)
+        self.assertIn('termin_datum', names)
 
     def test_telefon_scope_includes_meetme(self):
         names = {v['name'] for v in get_variables('telefon', 'meetme_invite_abstimmung')}
@@ -42,9 +43,9 @@ class VariablesRegistryTest(unittest.TestCase):
         groups = get_sidebar_variable_groups('general', '')
         keys = [g['key'] for g in groups]
         self.assertIn('scope', keys)
+        self.assertIn('meetme', keys)
         scope_names = {v['name'] for g in groups if g['key'] == 'scope' for v in g['vars']}
         self.assertIn('vertretung_name', scope_names)
-        self.assertNotIn('meetme', keys)
 
 
 if __name__ == '__main__':
