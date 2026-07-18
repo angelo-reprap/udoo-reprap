@@ -29,6 +29,7 @@
         "mode_user_hint": "From + Reply-To = E-Mail des eingeloggten Users",
         "vars_title": "Variablen",
         "vars_context": "Aus Kontext",
+        "vars_scope": "App-Bereich",
         "vars_meetme": "MeetMe / Telefon",
         "vars_user": "User-Profil",
         "vars_system": "System",

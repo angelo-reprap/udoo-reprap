@@ -34,6 +34,7 @@ copy "$R/api.py" "$B/apps/abpe_email_studio/api.py"
 copy "$R/urls.py" "$B/apps/abpe_email_studio/urls.py"
 copy "$R/renderer.py" "$B/apps/abpe_email_studio/services/renderer.py"
 copy "$R/variables_registry.py" "$B/apps/abpe_email_studio/variables_registry.py"
+copy "$R/views.py" "$B/apps/abpe_email_studio/views.py"
 
 # i18n (de + en minimum; weitere Sprachen aus incoming/i18n/)
 for lang in de en fr it es; do

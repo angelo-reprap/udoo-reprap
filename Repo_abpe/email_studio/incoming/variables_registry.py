@@ -89,3 +89,62 @@ def get_variables(app_scope: str = 'general', identifier: str | None = None) -> 
 
 def get_allowed_var_names(app_scope: str = 'general', identifier: str | None = None) -> set[str]:
     return {v['name'] for v in get_variables(app_scope, identifier)}
+
+
+def _sidebar_item(row: dict[str, Any]) -> dict[str, str]:
+    return {
+        'name': row['name'],
+        'description': row.get('description', ''),
+    }
+
+
+def get_sidebar_variable_groups(
+    app_scope: str = 'general',
+    identifier: str | None = None,
+) -> dict[str, list[dict[str, str]]]:
+    """
+    Variablen-Gruppen für Email Studio Sidebar.
+
+    Keys: context, user, system, scope
+    """
+    scope = (app_scope or 'general').strip() or 'general'
+    variables = get_variables(scope, identifier)
+
+    base_context = {v['name'] for v in _CONTEXT_VARS}
+    base_user = {v['name'] for v in _USER_VARS}
+    base_system = {v['name'] for v in _SYSTEM_VARS}
+    scope_names = {v['name'] for v in _SCOPE_VARS.get(scope, [])}
+
+    groups: dict[str, list[dict[str, str]]] = {
+        'context': [],
+        'user': [],
+        'system': [],
+        'scope': [],
+    }
+
+    seen: set[str] = set()
+    for row in variables:
+        name = row['name']
+        if name in seen:
+            continue
+        seen.add(name)
+        item = _sidebar_item(row)
+        source = row.get('source', 'context')
+
+        if name in scope_names and name not in base_context:
+            groups['scope'].append(item)
+        elif source == 'user' or name in base_user:
+            groups['user'].append(item)
+        elif source in ('system', 'template') or name in base_system:
+            groups['system'].append(item)
+        elif name in base_context or source == 'context':
+            groups['context'].append(item)
+        else:
+            groups['scope'].append(item)
+
+    return groups
+
+
+def variable_count(app_scope: str = 'general', identifier: str | None = None) -> int:
+    """Anzahl verfügbarer Variablen (Sidebar-Badge)."""
+    return len(get_variables(app_scope, identifier))

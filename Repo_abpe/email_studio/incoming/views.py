@@ -18,6 +18,7 @@ from .models import (
     EmailSignature, EmailSenderAccount, EmailQueue,
     TemplateStatus, AppScope, SignatureMode
 )
+from .variables_registry import get_sidebar_variable_groups, variable_count
 
 
 def _load_es_i18n(lang):
@@ -207,6 +208,9 @@ Mit freundlichen Grüßen
         ).order_by('-created_at')
 
     ctx = _base_context(request, 'studio')
+    app_scope = getattr(template, 'app_scope', None) or 'general'
+    ident = getattr(template, 'identifier', None) or ''
+    var_groups = get_sidebar_variable_groups(app_scope, ident or None)
     ctx.update({
         'template':           template,
         'versions':           versions,
@@ -218,27 +222,11 @@ Mit freundlichen Grüßen
         'signature_modes':    SignatureMode.choices,
         'new_mode':           new_mode,
         'edit_lang':          edit_lang,
-        'context_vars': [
-            {'name': 'name'},
-            {'name': 'first_name'},
-            {'name': 'last_name'},
-            {'name': 'email'},
-            {'name': 'cv_link'},
-            {'name': 'cv_version'},
-            {'name': 'created_date'},
-            {'name': 'task_ref'},
-        ],
-        'user_vars': [
-            {'name': 'sender_name'},
-            {'name': 'sender_email'},
-            {'name': 'reply_to'},
-        ],
-        'system_vars': [
-            {'name': 'portal_url'},
-            {'name': 'date'},
-            {'name': 'year'},
-            {'name': 'subject'},
-        ],
+        'context_vars':       var_groups['context'],
+        'user_vars':          var_groups['user'],
+        'system_vars':        var_groups['system'],
+        'scope_vars':         var_groups['scope'],
+        'variable_count':     variable_count(app_scope, ident or None),
     })
     return render(request, 'abpe_ui/modules/email_studio/studio.html', ctx)
 
