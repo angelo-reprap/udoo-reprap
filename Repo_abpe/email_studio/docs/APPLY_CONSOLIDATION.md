@@ -2,6 +2,9 @@
 
 Voraussetzung: Branch `cursor/email-studio-consolidate-modules-7f07` ausgecheckt.
 
+> **Reihenfolge:** erst `--apply-db`, **danach** `RUN-phase1-iststand.sh`.  
+> Phase-1 allein schreibt nur den **Live**-Stand zurück ins Git — ohne Apply geht die Konsolidierung im Snapshot wieder verloren (und rsync kann KI-Fragen überschreiben).
+
 ## 1. Backup (Pflicht)
 
 ```bash

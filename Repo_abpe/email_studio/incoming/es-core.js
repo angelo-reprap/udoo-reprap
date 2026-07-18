@@ -788,7 +788,7 @@ Cordiali saluti, <span style="background:#264f78;">{sender_name}</span><span cla
 &lt;tr&gt;&lt;td style="padding:24px;"&gt;
   &lt;p&gt;Hallo {name},&lt;/p&gt;
   &lt;p&gt;Ihr Profil ist fertig.&lt;/p&gt;
-  <span style="background:#264f78;">{{block:button_blau}}</span>
+  <span style="background:#264f78;">{{block:cta_blau}}</span>
 &lt;/td&gt;&lt;/tr&gt;
 <span style="background:#264f78;">{{block:footer_standard}}</span><span class="es-tut-cur"></span></div>
     </div>
