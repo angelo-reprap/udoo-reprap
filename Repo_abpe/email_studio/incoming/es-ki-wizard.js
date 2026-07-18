@@ -251,7 +251,12 @@ window.ESKiWizard = (() => {
         _readMetaFields();
         _setBusy(true);
         try {
-            const body = refinement ? { refinement } : undefined;
+            const body = {
+                meta: _meta,
+                html_body: _generated?.html_body || '',
+                text_body: _generated?.text_body || '',
+            };
+            if (refinement) body.refinement = refinement;
             const gen = await _api('POST', `/session/${_sessionId}/generate/`, body);
             _generated = gen.generated || {};
             _showPreview();
@@ -300,9 +305,14 @@ window.ESKiWizard = (() => {
             return;
         }
 
-        open();
-        _setBusy(true);
         _showError('');
+        _sessionId = null;
+        _questions = [];
+        _answers = {};
+        _meta = {};
+        _generated = null;
+        _showModal('es-ki-refine-notes');
+        _setBusy(true);
 
         const briefingText = [
             t('ki_refine_intro', 'Bestehende Vorlage verfeinern:'),
@@ -372,13 +382,18 @@ window.ESKiWizard = (() => {
         window.location.href = '/email-studio/studio/?new=blank&from_ki=1';
     }
 
-    function open() {
+    function _showModal(focusId) {
         const modal = document.getElementById('es-ki-wizard-modal');
         if (!modal) return;
-        _reset();
         modal.classList.add('show');
         modal.setAttribute('aria-hidden', 'false');
-        document.getElementById('es-ki-briefing')?.focus();
+        if (focusId) document.getElementById(focusId)?.focus();
+    }
+
+    function open() {
+        if (!document.getElementById('es-ki-wizard-modal')) return;
+        _reset();
+        _showModal('es-ki-briefing');
     }
 
     function close() {

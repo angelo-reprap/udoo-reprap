@@ -122,6 +122,7 @@ WIZARD_PROMPT_DEFAULTS = [
         'user_template': (
             '[[CONTEXT]]\n\nBriefing:\n[[BRIEFING]]\n\nAntworten:\n[[ANSWERS]]\n\n'
             'Metadaten:\n[[META]]\n\n'
+            '[[INSTRUCTION]]\n\n'
             'Gib GENAU dieses JSON zurück:\n'
             '{"html_body": "", "text_body": "", "variables_used": []}'
         ),

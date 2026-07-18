@@ -7,7 +7,11 @@ from django.contrib.auth import get_user_model
 from apps.abpe_ki_wiz.prompt_defaults import WIZARD_PROMPT_DEFAULTS
 from apps.abpe_ki_wiz.registry import get_provider, list_wizard_ids
 from apps.abpe_ki_wiz.services.json_utils import parse_ai_json
-from apps.abpe_ki_wiz.services.orchestrator import _rule_based_analyze
+from apps.abpe_ki_wiz.services.orchestrator import (
+    _build_refine_instruction,
+    _resolve_current_bodies,
+    _rule_based_analyze,
+)
 from apps.abpe_ki_wiz.openapi_schema import build_openapi_schema
 from apps.abpe_ki_wiz.services.deepseek_client import _resolve_pbx_service, _coerce_result
 
@@ -84,6 +88,32 @@ class ProviderTests(TestCase):
         self.assertNotIn('M1', pending)
 
 
+class RefineGenerateTests(TestCase):
+    def test_build_refine_instruction_includes_html(self):
+        instr = _build_refine_instruction(
+            'Bibelzitat einfügen',
+            current_html='<p>Hallo</p>',
+            current_text='Hallo',
+        )
+        self.assertIn('Bibelzitat', instr)
+        self.assertIn('<p>Hallo</p>', instr)
+        self.assertIn('Hallo', instr)
+
+    def test_resolve_current_bodies_prefers_request_payload(self):
+        session = type('S', (), {'result': {'fields': {'html_body': '<p>alt</p>'}}})()
+        html, text = _resolve_current_bodies(session, '<p>neu</p>', 'neu')
+        self.assertEqual(html, '<p>neu</p>')
+        self.assertEqual(text, 'neu')
+
+    def test_resolve_current_bodies_from_session_result(self):
+        session = type('S', (), {
+            'result': {'fields': {'html_body': '<p>session</p>', 'text_body': 'session'}},
+        })()
+        html, text = _resolve_current_bodies(session)
+        self.assertEqual(html, '<p>session</p>')
+        self.assertEqual(text, 'session')
+
+
 class OpenAPISchemaTests(TestCase):
     def test_build_schema_has_session_paths(self):
         schema = build_openapi_schema(base_url='/ki-wizard/')
@@ -95,6 +125,7 @@ class OpenAPISchemaTests(TestCase):
         ref = gen['requestBody']['content']['application/json']['schema']['$ref']
         self.assertEqual(ref, '#/components/schemas/GenerateRequest')
         self.assertIn('refinement', schema['components']['schemas']['GenerateRequest']['properties'])
+        self.assertIn('html_body', schema['components']['schemas']['GenerateRequest']['properties'])
 
 
 class KiWizardApiTests(TestCase):

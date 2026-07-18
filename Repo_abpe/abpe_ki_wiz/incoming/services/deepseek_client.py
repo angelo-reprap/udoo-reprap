@@ -188,7 +188,11 @@ def call_wizard_prompt(
         instruction=instruction,
     )
     system_msg = (prompt.system or '').strip()
-    instr = instruction or prompt.instruction_default or 'Antworte gemäß System-Anweisung.'
+    instr = (instruction or prompt.instruction_default or '').strip()
+    if instr and '[[INSTRUCTION]]' not in (prompt.user_template or ''):
+        user_msg = f'{user_msg}\n\nAnweisung:\n{instr}'
+    if not instr:
+        instr = 'Antworte gemäß System-Anweisung.'
 
     svc, pbx_mod = _resolve_pbx_service()
     if svc is not None:

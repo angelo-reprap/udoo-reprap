@@ -163,10 +163,64 @@ def suggest_meta_session(session: WizardSession) -> dict[str, Any]:
     }
 
 
-def generate_session(session: WizardSession, refinement: str = '') -> dict[str, Any]:
+def _resolve_current_bodies(
+    session: WizardSession,
+    html_body: str = '',
+    text_body: str = '',
+) -> tuple[str, str]:
+    html = (html_body or '').strip()
+    text = (text_body or '').strip()
+    if html:
+        return html, text
+
+    result = session.result or {}
+    fields = result.get('fields') if isinstance(result.get('fields'), dict) else result
+    if isinstance(fields, dict):
+        html = (fields.get('html_body') or '').strip()
+        text = (fields.get('text_body') or text).strip()
+    return html, text
+
+
+def _build_refine_instruction(
+    refinement: str,
+    *,
+    current_html: str = '',
+    current_text: str = '',
+) -> str:
+    parts = [
+        f'Verfeinerung/Korrektur vom User: {refinement}.',
+        'Passe html_body und text_body an; Metadaten nur ändern wenn nötig.',
+        'Behalte gültige {{block:…}} und {variablen} bei.',
+    ]
+    if current_html:
+        parts.append(f'Aktueller html_body (Ausgangsbasis):\n{current_html[:12000]}')
+    if current_text:
+        parts.append(f'Aktueller text_body:\n{current_text[:8000]}')
+    return '\n'.join(parts)
+
+
+def generate_session(
+    session: WizardSession,
+    refinement: str = '',
+    *,
+    meta_override: dict[str, Any] | None = None,
+    html_body: str = '',
+    text_body: str = '',
+) -> dict[str, Any]:
     provider = get_provider(session.wizard_id)
     answers = session.answers or {}
+
+    if meta_override:
+        clean_meta = {
+            k: v for k, v in meta_override.items()
+            if v is not None and v != ''
+        }
+        if clean_meta:
+            session.meta_suggestions = {**(session.meta_suggestions or {}), **clean_meta}
+            session.save(update_fields=['meta_suggestions', 'updated_at'])
+
     meta = session.meta_suggestions or {}
+    current_html, current_text = _resolve_current_bodies(session, html_body, text_body)
     ctx = build_context_json(
         provider,
         answers,
@@ -180,9 +234,10 @@ def generate_session(session: WizardSession, refinement: str = '') -> dict[str, 
     ai_error = ''
     refine_instr = ''
     if refinement:
-        refine_instr = (
-            f'Verfeinerung/Korrektur vom User: {refinement}. '
-            'Passe html_body und text_body an; Metadaten nur ändern wenn nötig.'
+        refine_instr = _build_refine_instruction(
+            refinement,
+            current_html=current_html,
+            current_text=current_text,
         )
     if prompt:
         ds = call_wizard_prompt(
@@ -208,13 +263,22 @@ def generate_session(session: WizardSession, refinement: str = '') -> dict[str, 
         generated = {}
 
     if not generated.get('html_body'):
-        fallback_fn = getattr(provider, 'generate_fallback', None)
-        if callable(fallback_fn):
-            generated = fallback_fn(session.briefing or '', answers, meta)
+        if refinement and current_html:
+            generated = {
+                'html_body': current_html,
+                'text_body': current_text or current_html,
+                'source': 'unchanged',
+            }
             if ai_error:
                 generated['ai_error'] = ai_error
-        elif ai_error:
-            return {'error': ai_error}
+        else:
+            fallback_fn = getattr(provider, 'generate_fallback', None)
+            if callable(fallback_fn):
+                generated = fallback_fn(session.briefing or '', answers, meta)
+                if ai_error:
+                    generated['ai_error'] = ai_error
+            elif ai_error:
+                return {'error': ai_error}
 
     validation = provider.validate_output({**meta, **generated})
     result = provider.apply_result({**meta, **generated}, session_meta=meta)

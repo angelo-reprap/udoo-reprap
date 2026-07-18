@@ -118,5 +118,6 @@ Admin: `/admin/abpe_ki_wiz/wizardprompt/`
 | `curl health` leer | Django kaputt (URL-Import) | `python manage.py check` nach Datei-Kopie |
 | `502 generate` / `no attribute summarize` | CRM `deepseek_pbx` Instanz fehlt | Update auf neuesten Branch — nutzt `deepseek_pbx.summarize` + HTTP-Fallback |
 | `complete=False` bei CLARIFY | Optionale Frage M1 offen | M1 ist optional; alle Pflichtfragen (S1,S2,I1,G1,A1) beantworten |
+| KI-Verfeinern ändert nichts | Generate-Prompt ohne `[[INSTRUCTION]]` / kein Editor-HTML | Branch aktualisieren; `python manage.py sync_wizard_prompts --force --key wiz_email_generate` |
 
 **Reihenfolge:** Dateien kopieren → settings/urls → migrate → sync_wizard_prompts → restart

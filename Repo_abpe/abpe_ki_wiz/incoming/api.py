@@ -215,7 +215,16 @@ class KiWizardSessionGenerateAPI(LoginRequiredMixin, View):
             session = get_session_for_user(sid, request.user)
             data = _json_body(request)
             refinement = (data.get('refinement') or '').strip()
-            result = generate_session(session, refinement=refinement)
+            meta_override = data.get('meta')
+            if not isinstance(meta_override, dict):
+                meta_override = None
+            result = generate_session(
+                session,
+                refinement=refinement,
+                meta_override=meta_override,
+                html_body=(data.get('html_body') or '').strip(),
+                text_body=(data.get('text_body') or '').strip(),
+            )
             if result.get('error'):
                 return JsonResponse(result, status=502)
             return JsonResponse(result)

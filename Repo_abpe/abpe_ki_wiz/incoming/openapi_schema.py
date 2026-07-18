@@ -315,6 +315,18 @@ def build_openapi_schema(*, base_url: str = '/ki-wizard/') -> dict[str, Any]:
                             'description': 'Optional: Verfeinerungs-Anweisung für Neu-Generierung',
                             'example': 'Kürzerer Text, kein Footer, Bibelzitat einfügen',
                         },
+                        'meta': {
+                            'type': 'object',
+                            'description': 'Optional: Metadaten aus dem Modal (name, subject, …)',
+                        },
+                        'html_body': {
+                            'type': 'string',
+                            'description': 'Optional: aktueller HTML-Stand als Ausgangsbasis',
+                        },
+                        'text_body': {
+                            'type': 'string',
+                            'description': 'Optional: aktueller Text-Stand als Ausgangsbasis',
+                        },
                     },
                 },
                 'Session': {
