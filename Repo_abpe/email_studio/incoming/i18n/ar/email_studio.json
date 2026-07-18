@@ -33,6 +33,7 @@
         "vars_meetme": "MeetMe / هاتف",
         "vars_user": "ملف المستخدم",
         "vars_system": "النظام",
+        "vars_status": "حالة النظام",
         "vars_module": "الوحدات",
         "var_example": "مثال",
         "var_click_insert": "انقر على الشريحة = إدراج",

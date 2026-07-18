@@ -31,6 +31,7 @@
         "vars_context": "From Context",
         "vars_user": "User Profile",
         "vars_system": "System",
+        "vars_status": "System Status",
         "vars_legend_context": "blue = from context",
         "vars_legend_user": "green = auto from user",
         "vars_legend_system": "gray = system",

@@ -30,6 +30,7 @@
     "es.vars_context": "Aus Kontext",
     "es.vars_user": "User-Profil",
     "es.vars_system": "System",
+    "es.vars_status": "System-Status",
     "es.vars_legend_context": "blau = aus Kontext",
     "es.vars_legend_user": "grün = auto aus User",
     "es.vars_legend_system": "grau = System",

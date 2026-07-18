@@ -33,6 +33,7 @@
         "vars_meetme": "MeetMe / 电话",
         "vars_user": "用户资料",
         "vars_system": "系统",
+        "vars_status": "系统状态",
         "vars_module": "模块",
         "var_example": "示例",
         "var_click_insert": "点击芯片 = 插入",

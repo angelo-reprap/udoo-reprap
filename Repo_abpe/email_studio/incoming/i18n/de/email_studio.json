@@ -33,6 +33,7 @@
         "vars_meetme": "MeetMe / Telefon",
         "vars_user": "User-Profil",
         "vars_system": "System",
+        "vars_status": "System-Status",
         "vars_module": "Module",
         "var_example": "Beispiel",
         "var_click_insert": "Klick auf Chip = einfügen",
@@ -289,7 +290,7 @@
         "confirm_default": "Sind Sie sicher?",
         "confirm_delete_translation": "Übersetzung wirklich löschen?",
         "module_click_insert": "Klick auf Chip = einfügen"
-  },
+    },
     "help": {
         "title": "Email Studio — Anleitung",
         "close": "Schließen",

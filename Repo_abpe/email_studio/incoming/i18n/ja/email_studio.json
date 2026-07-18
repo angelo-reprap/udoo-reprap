@@ -33,6 +33,7 @@
         "vars_meetme": "MeetMe / 電話",
         "vars_user": "ユーザープロフィール",
         "vars_system": "システム",
+        "vars_status": "システム状態",
         "vars_module": "モジュール",
         "var_example": "例",
         "var_click_insert": "チップをクリック = 挿入",

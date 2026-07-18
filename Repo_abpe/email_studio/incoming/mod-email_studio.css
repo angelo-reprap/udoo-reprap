@@ -468,6 +468,8 @@
 .es-var-chip.user:hover    { background: var(--status-green-bg); }
 .es-var-chip.system  { background: var(--abcona-gray-card); color: var(--text-primary); }
 .es-var-chip.system:hover  { background: var(--abcona-gray-bg); }
+.es-var-chip.status  { background: #fef3c7; color: #92400e; }
+.es-var-chip.status:hover  { background: #fde68a; }
 .es-var-chip.meetme  { background: #fff3e0; color: #9a3412; }
 .es-var-chip.meetme:hover  { background: #ffedd5; }
 .es-var-chip.module  { background: #eef2ff; color: #3730a3; }

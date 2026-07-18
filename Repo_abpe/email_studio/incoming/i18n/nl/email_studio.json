@@ -33,6 +33,7 @@
         "vars_meetme": "MeetMe / Telefoon",
         "vars_user": "Gebruikersprofiel",
         "vars_system": "Systeem",
+        "vars_status": "Systeemstatus",
         "vars_module": "Modules",
         "var_example": "Voorbeeld",
         "var_click_insert": "Klik op chip = invoegen",

@@ -910,6 +910,7 @@ window.ESStudio = (() => {
             scope:   t('vars_scope', 'App-Bereich'),
             user:    t('vars_user', 'Benutzerprofil'),
             system:  t('vars_system', 'System'),
+            status:  t('vars_status', 'System-Status'),
             module:  t('vars_module', 'Module'),
         };
         return map[key] || fallback || key;

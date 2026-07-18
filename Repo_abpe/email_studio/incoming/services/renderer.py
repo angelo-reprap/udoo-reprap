@@ -15,11 +15,17 @@ class EmailRenderer:
 
     def _get_system_vars(self) -> dict:
         now = timezone.now()
-        return {
+        out = {
             'portal_url': 'https://abpe.win.abcona.info',
             'date':       now.strftime('%d.%m.%Y'),
             'year':       str(now.year),
         }
+        try:
+            from .system_status import collect_system_status
+            out.update(collect_system_status(use_cache=True))
+        except Exception as exc:
+            log.debug('system_status unavailable: %s', exc)
+        return out
 
     def _get_user_vars(self, user=None) -> dict:
         if not user:

@@ -12,7 +12,7 @@ from typing import Any
 MEETME_SCOPES = frozenset({'telefon', 'meetme'})
 
 # Reihenfolge der Sidebar-Gruppen
-GROUP_ORDER = ('context', 'meetme', 'scope', 'user', 'system', 'module')
+GROUP_ORDER = ('context', 'meetme', 'scope', 'user', 'system', 'status', 'module')
 
 GROUP_META: dict[str, dict[str, str]] = {
     'context': {'label': 'Aus Kontext', 'label_i18n': 'es.vars_context', 'chip_class': 'context'},
@@ -20,6 +20,7 @@ GROUP_META: dict[str, dict[str, str]] = {
     'scope':   {'label': 'App-Bereich', 'label_i18n': 'es.vars_scope', 'chip_class': 'scope'},
     'user':    {'label': 'Benutzerprofil', 'label_i18n': 'es.vars_user', 'chip_class': 'user'},
     'system':  {'label': 'System', 'label_i18n': 'es.vars_system', 'chip_class': 'system'},
+    'status':  {'label': 'System-Status', 'label_i18n': 'es.vars_status', 'chip_class': 'status'},
     'module':  {'label': 'Module', 'label_i18n': 'es.vars_module', 'chip_class': 'module'},
 }
 
@@ -99,6 +100,18 @@ ALL_VARIABLES: list[dict[str, Any]] = [
     _v('date', 'system', 'Aktuelles Datum', '15.07.2026', 'date'),
     _v('year', 'system', 'Aktuelles Jahr', '2026'),
     _v('subject', 'system', 'Betreff der Vorlage', 'Kurze Abstimmung am …'),
+
+    # ── System-Status (Live-Snapshot: Disk, Django, DB, Celery, Scheduler) ─
+    _v('disk_free', 'status', 'Freier Speicherplatz auf dem Server', '12.4 GB'),
+    _v('disk_used_pct', 'status', 'Belegter Speicherplatz in Prozent', '67%'),
+    _v('django_ok', 'status', 'Django-App erreichbar (OK/FAIL)', 'OK'),
+    _v('db_ok', 'status', 'Datenbank erreichbar (OK/FAIL)', 'OK'),
+    _v('celery_ok', 'status', 'Celery-Worker erreichbar (OK/FAIL)', 'OK'),
+    _v('scheduler_ok', 'status', 'Celery-Beat/Scheduler aktiv (OK/WARN/FAIL)', 'OK'),
+    _v('system_status', 'status', 'Gesamtstatus (aggregiert)', 'OK'),
+    _v('system_status_list', 'status',
+       'Statusliste als mehrzeiliger Text (Disk, Django, DB, Celery, Scheduler)',
+       'Disk frei: 12.4 GB …'),
 
     # ── Module (CTA-Blöcke) ───────────────────────────────────────────────
     _v('button_text', 'module', 'Button-Beschriftung in CTA-Modulen', 'Zum Portal'),

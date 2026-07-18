@@ -45,8 +45,11 @@ class VariablesRegistryTest(unittest.TestCase):
         keys = [g['key'] for g in groups]
         self.assertIn('scope', keys)
         self.assertIn('meetme', keys)
+        self.assertIn('status', keys)
         scope_names = {v['name'] for g in groups if g['key'] == 'scope' for v in g['vars']}
         self.assertIn('vertretung_name', scope_names)
+        status_names = {v['name'] for g in groups if g['key'] == 'status' for v in g['vars']}
+        self.assertIn('disk_free', status_names)
 
 if __name__ == '__main__':
     unittest.main()

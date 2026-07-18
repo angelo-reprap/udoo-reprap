@@ -33,6 +33,7 @@
         "vars_meetme": "MeetMe / Phone",
         "vars_user": "User Profile",
         "vars_system": "System",
+        "vars_status": "System Status",
         "vars_module": "Modules",
         "var_example": "Example",
         "var_click_insert": "Click on chip = insert",

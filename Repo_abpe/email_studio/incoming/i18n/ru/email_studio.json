@@ -33,6 +33,7 @@
         "vars_meetme": "MeetMe / Телефон",
         "vars_user": "Профиль пользователя",
         "vars_system": "Система",
+        "vars_status": "Статус системы",
         "vars_module": "Модули",
         "var_example": "Пример",
         "var_click_insert": "Нажмите на чип = вставить",
