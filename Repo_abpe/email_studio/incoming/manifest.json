@@ -1,10 +1,6 @@
 {
     "files": [
-        "email_studio.json"
-    ],
-    "_help_files": {
-        "_note": "Hilfe-Modal lädt separat /static/email_studio/i18n/help_{lang}.json via es-core.js",
-        "de": "help_de.json",
-        "en": "help_en.json"
-    }
+        "email_studio.json",
+        "email_studio_help.json"
+    ]
 }
