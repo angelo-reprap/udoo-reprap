@@ -9,12 +9,7 @@ KI_WIZARD_SPECTACULAR_SETTINGS = {
     ),
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
-    'SCHEMA_PATH_PREFIX': r'/ki-wizard',
-    'TAGS': [
-        {'name': 'monitoring', 'description': 'Health & Discovery'},
-        {'name': 'wizards', 'description': 'Provider, Katalog, Prompts'},
-        {'name': 'session', 'description': 'Wizard-Session Pipeline'},
-    ],
+    'SCHEMA_PATH_PREFIX': '/ki-wizard/',
     'APPEND_COMPONENTS': {
         'securitySchemes': {
             'sessionAuth': {
@@ -31,5 +26,5 @@ KI_WIZARD_SPECTACULAR_SETTINGS = {
             },
         },
     },
-    'SECURITY': [{'sessionAuth': []}, {'csrfToken': []}],
+    'SECURITY': [{'sessionAuth': [], 'csrfToken': []}],
 }

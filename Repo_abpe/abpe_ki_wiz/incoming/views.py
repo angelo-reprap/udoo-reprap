@@ -1,6 +1,10 @@
-"""Phase 0/1: JSON-Index."""
+"""Phase 0/1: JSON-Index + drf-spectacular Schema."""
 from django.http import JsonResponse
 from django.views import View
+from drf_spectacular.views import SpectacularAPIView
+from rest_framework.permissions import AllowAny
+
+from .schema_settings import KI_WIZARD_SPECTACULAR_SETTINGS
 
 
 class KiWizardIndexView(View):
@@ -31,3 +35,13 @@ class KiWizardIndexView(View):
             'schema_source': 'drf-spectacular',
             'admin': '/admin/abpe_ki_wiz/',
         })
+
+
+class KiWizardSpectacularAPIView(SpectacularAPIView):
+    """OpenAPI Schema — auto-generiert aus DRF @extend_schema."""
+
+    authentication_classes = []
+    permission_classes = [AllowAny]
+    urlconf = 'apps.abpe_ki_wiz.urls_api'
+    custom_settings = KI_WIZARD_SPECTACULAR_SETTINGS
+    serve_public = True

@@ -8,6 +8,7 @@ import uuid
 
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter, extend_schema
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
@@ -44,14 +45,16 @@ log = logging.getLogger('abpe_ki_wiz.api')
 
 SESSION_ID_PARAM = OpenApiParameter(
     name='session_id',
-    type=uuid.UUID,
+    type=OpenApiTypes.UUID,
     location=OpenApiParameter.PATH,
+    required=True,
     description='Wizard-Session UUID',
 )
 WIZARD_ID_PARAM = OpenApiParameter(
     name='wizard_id',
-    type=str,
+    type=OpenApiTypes.STR,
     location=OpenApiParameter.PATH,
+    required=True,
     description='Wizard-ID, z.B. email_template',
 )
 
@@ -148,7 +151,7 @@ class KiWizardPromptListAPI(APIView):
         parameters=[
             OpenApiParameter(
                 name='wizard_id',
-                type=str,
+                type=OpenApiTypes.STR,
                 location=OpenApiParameter.QUERY,
                 required=False,
             ),

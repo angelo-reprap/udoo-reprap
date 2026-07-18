@@ -90,7 +90,10 @@ class GenerateRequestSerializer(serializers.Serializer):
         allow_blank=True,
         help_text='Verfeinerungs-Anweisung für Neu-Generierung',
     )
-    meta = MetaOverrideSerializer(required=False)
+    meta = serializers.JSONField(
+        required=False,
+        help_text='Metadaten aus Modal (name, subject, app_scope, …)',
+    )
     html_body = serializers.CharField(
         required=False,
         allow_blank=True,

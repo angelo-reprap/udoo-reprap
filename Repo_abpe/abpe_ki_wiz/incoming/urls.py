@@ -1,9 +1,8 @@
 """ABpE KI Wizard — URL Konfiguration"""
 from django.urls import path
-from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+from drf_spectacular.views import SpectacularRedocView, SpectacularSwaggerView
 
 from . import views
-from .schema_settings import KI_WIZARD_SPECTACULAR_SETTINGS
 from .urls_api import urlpatterns as api_urlpatterns
 
 app_name = 'ki_wizard'
@@ -12,10 +11,7 @@ urlpatterns = [
     path('', views.KiWizardIndexView.as_view(), name='index'),
     path(
         'api/schema/',
-        SpectacularAPIView.as_view(
-            urlconf='apps.abpe_ki_wiz.urls_api',
-            custom_settings=KI_WIZARD_SPECTACULAR_SETTINGS,
-        ),
+        views.KiWizardSpectacularAPIView.as_view(),
         name='api-schema',
     ),
     path(
