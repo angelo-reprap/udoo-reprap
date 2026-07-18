@@ -101,17 +101,33 @@ ALL_VARIABLES: list[dict[str, Any]] = [
     _v('year', 'system', 'Aktuelles Jahr', '2026'),
     _v('subject', 'system', 'Betreff der Vorlage', 'Kurze Abstimmung am …'),
 
-    # ── System-Status (Live-Snapshot: Disk, Django, DB, Celery, Scheduler) ─
+    # ── System-Status Stufe 1–3 (Live-Snapshot) ───────────────────────────
+    # Host / OS
+    _v('host_name', 'status', 'Hostname des Servers', 'ucs5'),
     _v('disk_free', 'status', 'Freier Speicherplatz auf dem Server', '12.4 GB'),
     _v('disk_used_pct', 'status', 'Belegter Speicherplatz in Prozent', '67%'),
+    _v('load_avg', 'status', 'Load Average (1/5/15 min)', '0.42 0.38 0.31'),
+    _v('uptime', 'status', 'System-Uptime', '12d 4h'),
+    _v('memory_used_pct', 'status', 'Belegter Arbeitsspeicher in Prozent', '61%'),
+    # Django / App
     _v('django_ok', 'status', 'Django-App erreichbar (OK/FAIL)', 'OK'),
+    _v('django_version', 'status', 'Django-Versionsnummer', '5.0.7'),
+    _v('portal_env', 'status', 'Portal-Umgebung (production/debug/…)', 'production'),
     _v('db_ok', 'status', 'Datenbank erreichbar (OK/FAIL)', 'OK'),
+    _v('cache_ok', 'status', 'Django-Cache/Redis erreichbar (OK/FAIL)', 'OK'),
+    # Celery / Jobs
     _v('celery_ok', 'status', 'Celery-Worker erreichbar (OK/FAIL)', 'OK'),
+    _v('celery_workers', 'status', 'Anzahl antwortender Celery-Worker', '2'),
+    _v('celery_queue_depth', 'status', 'Tiefe der Default-Celery-Queue (Redis)', '0'),
     _v('scheduler_ok', 'status', 'Celery-Beat/Scheduler aktiv (OK/WARN/FAIL)', 'OK'),
+    # Darstellung
     _v('system_status', 'status', 'Gesamtstatus (aggregiert)', 'OK'),
     _v('system_status_list', 'status',
-       'Statusliste als mehrzeiliger Text (Disk, Django, DB, Celery, Scheduler)',
+       'Statusliste als mehrzeiliger Text',
        'Disk frei: 12.4 GB …'),
+    _v('system_status_html', 'status',
+       'Status als HTML-Ampeltabelle (für HTML-Mails)',
+       '<table>…</table>', 'html'),
 
     # ── Module (CTA-Blöcke) ───────────────────────────────────────────────
     _v('button_text', 'module', 'Button-Beschriftung in CTA-Modulen', 'Zum Portal'),
