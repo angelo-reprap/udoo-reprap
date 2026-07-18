@@ -1023,6 +1023,7 @@
 .es-module-chip {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 5px;
     padding: 4px 7px;
     border-radius: 5px;
@@ -1034,9 +1035,27 @@
     transition: background 0.1s, border-color 0.1s;
 }
 
+.es-module-chip-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+}
+
+.es-module-chip-icon {
+    font-size: 11px;
+    color: var(--abcona-blue);
+    flex-shrink: 0;
+}
+
 .es-module-chip:hover {
     background: var(--abcona-gray-bg);
     border-color: var(--abcona-blue);
+    color: var(--abcona-blue);
+}
+
+.es-module-chip:hover .es-module-chip-icon {
     color: var(--abcona-blue);
 }
 

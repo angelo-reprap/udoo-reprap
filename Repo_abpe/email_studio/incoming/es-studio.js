@@ -1595,6 +1595,41 @@ window.ESStudio = (() => {
         btn.addEventListener('blur', () => pop.dispose(), { once: true });
     }
 
+    function _showModulePopover(btn, chip) {
+        if (typeof bootstrap === 'undefined' || !bootstrap.Popover) return;
+        const syntax = chip.dataset.syntax || '';
+        const desc   = chip.dataset.modDesc || '';
+        const name   = chip.dataset.modName || '';
+        let content = `<div class="es-var-popover"><strong>${name}</strong>`;
+        if (syntax) {
+            content += `<div class="es-var-popover-example">${syntax}</div>`;
+        }
+        if (desc) content += `<p class="es-var-popover-desc">${desc}</p>`;
+        content += `<div class="es-var-popover-hint">${t('module_click_insert', t('var_click_insert', 'Klick auf Chip = einfügen'))}</div></div>`;
+
+        bootstrap.Popover.getInstance(btn)?.dispose();
+        const pop = new bootstrap.Popover(btn, {
+            html: true,
+            sanitize: false,
+            content,
+            trigger: 'focus',
+            placement: 'right',
+            container: 'body',
+        });
+        pop.show();
+        btn.addEventListener('blur', () => pop.dispose(), { once: true });
+    }
+
+    function _insertModuleSyntax(syntax, chipEl) {
+        if (!syntax) return;
+        if (syntax === '{{block:signature}}') {
+            _insertSignatureBlock();
+        } else {
+            _insertAtCursor(syntax);
+        }
+        ES.copyToClipboard(syntax, chipEl);
+    }
+
     function _insertVariableToken(varName) {
         const token = `{${varName}}`;
         if (_currentMode === 'visual') {
@@ -1651,16 +1686,27 @@ window.ESStudio = (() => {
     /* ══════════════════════════════════════════════════════
      * MODULE-CHIPS
      * ══════════════════════════════════════════════════════ */
-    function _initModuleChips() {
-        document.querySelectorAll('.es-module-chip').forEach(chip => {
-            chip.addEventListener('click', function() {
-                const syntax = this.dataset.syntax;
-                if (!syntax) return;
-                _insertAtCursor(syntax);
-                ES.copyToClipboard(syntax, this);
+    function _bindModuleChips(root) {
+        (root || document).querySelectorAll('.es-module-chip[data-syntax]').forEach(chip => {
+            if (chip.dataset.bound) return;
+            chip.dataset.bound = '1';
+            chip.addEventListener('click', function(e) {
+                if (e.target.closest('.es-var-info-btn')) return;
+                _insertModuleSyntax(this.dataset.syntax, this);
             });
+            const infoBtn = chip.querySelector('.es-var-info-btn');
+            if (infoBtn) {
+                infoBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    _showModulePopover(this, chip);
+                });
+            }
         });
+    }
 
+    function _initModuleChips() {
+        _bindModuleChips(document);
         const modulesPanel = document.getElementById('es-modules-panel-body');
         if (modulesPanel && !modulesPanel.dataset.loaded) {
             _loadModules();
@@ -1693,27 +1739,28 @@ window.ESStudio = (() => {
                 if (!modules.length) continue;
                 let chips = '';
                 for (const m of modules) {
+                    const desc   = (m.description || '').replace(/"/g, '&quot;');
+                    const name   = (m.name || '').replace(/"/g, '&quot;');
+                    const syntax = (m.syntax || '').replace(/"/g, '&quot;');
                     chips += `
-                    <div class="es-module-chip" data-syntax="${m.syntax}" title="${m.description || m.name}">
-                        <i class="bi ${typeIcons[type] || 'bi-puzzle'}" style="font-size:11px;color:var(--abcona-blue)"></i>
-                        <span>${m.name}</span>
+                    <div class="es-module-chip" data-syntax="${syntax}"
+                         data-mod-name="${name}" data-mod-desc="${desc}">
+                        <span class="es-module-chip-label">
+                            <i class="bi ${typeIcons[type] || 'bi-puzzle'} es-module-chip-icon"></i>
+                            <span>${m.name}</span>
+                        </span>
+                        <span class="es-var-chip-actions">
+                            <button type="button" class="es-var-info-btn" title="Info"
+                                    aria-label="Info"><i class="bi bi-info-circle"></i></button>
+                            <i class="bi bi-clipboard es-var-chip-icon"></i>
+                        </span>
                     </div>`;
                 }
                 html += _subGroupAccordionHtml(_moduleGroupLabel(type), chips, modules.length);
             }
             container.innerHTML = html || `<div class="es-modules-empty">${t('modules_empty', 'Keine Module gefunden')}</div>`;
             container.dataset.loaded = '1';
-            container.querySelectorAll('.es-module-chip').forEach(chip => {
-                chip.addEventListener('click', function() {
-                    const syntax = this.dataset.syntax;
-                    if (syntax === '{{block:signature}}') {
-                        _insertSignatureBlock();
-                    } else {
-                        _insertAtCursor(syntax);
-                    }
-                    ES.copyToClipboard(syntax, this);
-                });
-            });
+            _bindModuleChips(container);
         } catch(e) {
             console.error('Module laden fehlgeschlagen:', e);
         }
