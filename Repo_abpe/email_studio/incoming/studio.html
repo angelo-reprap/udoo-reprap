@@ -453,39 +453,43 @@
             <span>
                 <i class="bi bi-braces"></i>
                 <span data-i18n="es.vars_title">Variablen</span>
-                <span class="es-badge es-badge-white">{{ variable_count|default:13 }}</span>
+                <span id="es-var-count-badge" class="es-badge es-badge-white">{{ variable_count }}</span>
+                <span class="es-section-hint"
+                        onclick="event.stopPropagation()"
+                        tabindex="0"
+                        data-bs-toggle="tooltip" data-bs-placement="right"
+                        data-i18n-title="es.hint_vars"
+                        title="Platzhalter {name} — Klick einfügen, (i) zeigt Erklärung.">
+                    <i class="bi bi-question-circle"></i>
+                </span>
             </span>
             <i class="bi bi-chevron-down"></i>
         </div>
-        <div class="section-content">
-            <div class="es-var-group-lbl" data-i18n="es.vars_context">Aus Kontext</div>
-            {% for v in context_vars %}
-            <div class="es-var-chip context" data-var="{{ v.name }}">
-                <span>{{ '{' }}{{ v.name }}{{ '}' }}</span>
-                <i class="bi bi-clipboard es-var-chip-icon"></i>
-            </div>
-            {% endfor %}
-            {% if scope_vars %}
-            <div class="es-var-group-lbl" data-i18n="es.vars_scope">App-Bereich</div>
-            {% for v in scope_vars %}
-            <div class="es-var-chip scope" data-var="{{ v.name }}">
-                <span>{{ '{' }}{{ v.name }}{{ '}' }}</span>
-                <i class="bi bi-clipboard es-var-chip-icon"></i>
-            </div>
-            {% endfor %}
-            {% endif %}
-            <div class="es-var-group-lbl" data-i18n="es.vars_user">User-Profil</div>
-            {% for v in user_vars %}
-            <div class="es-var-chip user" data-var="{{ v.name }}">
-                <span>{{ '{' }}{{ v.name }}{{ '}' }}</span>
-                <i class="bi bi-clipboard es-var-chip-icon"></i>
-            </div>
-            {% endfor %}
-            <div class="es-var-group-lbl" data-i18n="es.vars_system">System</div>
-            {% for v in system_vars %}
-            <div class="es-var-chip system" data-var="{{ v.name }}">
-                <span>{{ '{' }}{{ v.name }}{{ '}' }}</span>
-                <i class="bi bi-clipboard es-var-chip-icon"></i>
+        <div id="es-vars-panel-body" class="section-content">
+            {% for group in variable_groups %}
+            <div class="es-sub-toggle">
+                <div class="es-sub-toggle-hdr" onclick="toggleSection(this)">
+                    <span class="es-sub-toggle-lbl" data-i18n="{{ group.label_i18n }}">{{ group.label }}</span>
+                    <span class="es-sub-toggle-meta">
+                        <span class="es-sub-toggle-count">{{ group.vars|length }}</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </span>
+                </div>
+                <div class="es-sub-toggle-body section-content">
+                    {% for v in group.vars %}
+                    <div class="es-var-chip {{ group.chip_class }}"
+                         data-var="{{ v.name }}"
+                         data-var-desc="{{ v.description }}"
+                         data-var-example="{{ v.example }}">
+                        <span class="es-var-chip-label">{{ '{' }}{{ v.name }}{{ '}' }}</span>
+                        <span class="es-var-chip-actions">
+                            <button type="button" class="es-var-info-btn" title="Info"
+                                    aria-label="Info"><i class="bi bi-info-circle"></i></button>
+                            <i class="bi bi-clipboard es-var-chip-icon"></i>
+                        </span>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
             {% endfor %}
         </div>
@@ -496,6 +500,14 @@
             <span>
                 <i class="bi bi-puzzle"></i>
                 <span data-i18n="es.modules_title">Module</span>
+                <span class="es-section-hint"
+                        onclick="event.stopPropagation()"
+                        tabindex="0"
+                        data-bs-toggle="tooltip" data-bs-placement="right"
+                        data-i18n-title="es.hint_modules"
+                        title="Module/Blöcke — Klick einfügen, (i) zeigt Erklärung.">
+                    <i class="bi bi-question-circle"></i>
+                </span>
             </span>
             <i class="bi bi-chevron-down"></i>
         </div>

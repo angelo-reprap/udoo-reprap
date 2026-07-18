@@ -287,8 +287,9 @@
         "module_grp_DISCLAIMER": "Disclaimer",
         "btn_saveas": "Speichern unter",
         "confirm_default": "Sind Sie sicher?",
-        "confirm_delete_translation": "Übersetzung wirklich löschen?"
-    },
+        "confirm_delete_translation": "Übersetzung wirklich löschen?",
+        "module_click_insert": "Klick auf Chip = einfügen"
+  },
     "help": {
         "title": "Email Studio — Anleitung",
         "close": "Schließen",

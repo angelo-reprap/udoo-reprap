@@ -337,8 +337,10 @@
         "btn_saveas_short": "Copy",
         "duplicate_suffix": "(Copy)",
         "version_prefix": "Version ",
-        "history_template_only": "Milestones only for templates"
-    },
+        "history_template_only": "Milestones only for templates",
+        "vars_scope": "App area",
+        "module_click_insert": "Click chip to insert"
+  },
     "help": {
         "title": "Email Studio — Guide",
         "close": "Close",

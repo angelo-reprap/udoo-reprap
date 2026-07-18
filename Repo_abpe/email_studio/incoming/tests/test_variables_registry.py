@@ -38,6 +38,14 @@ class VariablesRegistryTest(unittest.TestCase):
         n = variable_count('telefon', 'meetme_invite_abstimmung')
         self.assertGreater(n, 15)
 
+    def test_general_scope_group(self):
+        groups = get_sidebar_variable_groups('general', '')
+        keys = [g['key'] for g in groups]
+        self.assertIn('scope', keys)
+        scope_names = {v['name'] for g in groups if g['key'] == 'scope' for v in g['vars']}
+        self.assertIn('vertretung_name', scope_names)
+        self.assertNotIn('meetme', keys)
+
 
 if __name__ == '__main__':
     unittest.main()

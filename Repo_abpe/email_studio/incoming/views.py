@@ -210,7 +210,6 @@ Mit freundlichen Grüßen
     ctx = _base_context(request, 'studio')
     app_scope = getattr(template, 'app_scope', None) or 'general'
     ident = getattr(template, 'identifier', None) or ''
-    var_groups = get_sidebar_variable_groups(app_scope, ident or None)
     ctx.update({
         'template':           template,
         'versions':           versions,
@@ -222,10 +221,7 @@ Mit freundlichen Grüßen
         'signature_modes':    SignatureMode.choices,
         'new_mode':           new_mode,
         'edit_lang':          edit_lang,
-        'context_vars':       var_groups['context'],
-        'user_vars':          var_groups['user'],
-        'system_vars':        var_groups['system'],
-        'scope_vars':         var_groups['scope'],
+        'variable_groups':    get_sidebar_variable_groups(app_scope, ident or None),
         'variable_count':     variable_count(app_scope, ident or None),
     })
     return render(request, 'abpe_ui/modules/email_studio/studio.html', ctx)

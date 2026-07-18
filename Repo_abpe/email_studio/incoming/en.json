@@ -186,5 +186,20 @@
     "help.tab_translate": "Translations",
     "help.tab_tutorial": "Tutorial",
     "es.btn_edit": "Edit",
-    "es.btn_preview": "Preview"
+    "es.btn_preview": "Preview",
+    "es.hint_vars": "Placeholder {name} — click to insert, (i) shows details.",
+    "es.hint_modules": "Modules/blocks — click to insert, (i) shows details.",
+    "es.vars_meetme": "MeetMe / Phone",
+    "es.vars_module": "Modules",
+    "es.vars_scope": "App area",
+    "es.var_example": "Example",
+    "es.var_click_insert": "Click chip to insert",
+    "es.module_click_insert": "Click chip to insert",
+    "es.modules_empty": "No modules found",
+    "es.module_grp_HEADER": "Header",
+    "es.module_grp_FOOTER": "Footer",
+    "es.module_grp_BUTTON": "Button",
+    "es.module_grp_SECTION": "Section",
+    "es.module_grp_DISCLAIMER": "Disclaimer",
+    "es.module_grp_SIGNATURE": "Signature"
 }
