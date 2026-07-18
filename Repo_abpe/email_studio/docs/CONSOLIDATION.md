@@ -6,15 +6,19 @@ Live-DB: **keine Änderungen ohne Review**
 
 ## Ziel-CI (abcona Corporate Layout)
 
+**Verbindlich:** siehe [`EMAIL_LAYOUT_DECLARATION.md`](./EMAIL_LAYOUT_DECLARATION.md) (Abstimmung 2026-07-18).
+
 | Regel | Soll |
 |---|---|
-| Struktur | `{{block:abcona_header_*}}` → Body → `{{block:footer_*}}` oder `{{block:signature}}` |
+| Struktur | `{{block:abcona_header_blau}}` → optional `label_*` → Body → **Signatur XOR Footer** |
+| Header | immer nur blau (`abcona_header_blau`) |
+| Event | `label_info` (blau) / `label_bestaetigt` (grün) / `label_warnung` (rot) |
+| Abschluss | Signatur **oder** Footer (nicht beides) — DE-Impressum |
 | Breite | 600px Tabellen-Layout, Outlook-tauglich, inline CSS |
 | Typografie Body | Arial 14px, Farbe `#333333`, `text-align:left` |
-| Header | „abcona e. K.“, Statusfarbe blau `#163258` / grün `#28a745` / rot `#dc3545` |
-| Footer | gleiche Schriftfamilie wie Body; CI will 14px/`#333333`/links — Ist weicht ab (siehe unten) |
+| TXT | 1:1 aus HTML-Text ableiten |
 
-Quellen: `abpe_ki_wiz/.../providers/email_template.py` → `layout_rules`, `variables_registry.py`, `help_de.json`.
+Quellen: Deklaration, `abpe_ki_wiz/.../layout_rules`, `variables_registry.py`, `help_de.json`.
 
 ---
 
