@@ -48,7 +48,7 @@ def _rule_based_analyze(wizard_id: str, briefing: str) -> dict[str, Any]:
             event_type = 'reminder'
         if re.search(r'absage|cancel', text, re.I):
             event_type = 'cancel'
-        missing = ['I1', 'M1', 'G1', 'A1']
+        missing = ['I1', 'G1', 'A1']
         if re.search(r'aufzählung|liste|bullet', text, re.I):
             pass  # I1 likely answered
         if re.search(r'teilnehmer', text, re.I):
@@ -177,6 +177,7 @@ def generate_session(session: WizardSession) -> dict[str, Any]:
     prompt = get_prompt_by_key(_prompt_key(session.wizard_id, 'generate'))
     generated: dict[str, Any]
 
+    ai_error = ''
     if prompt:
         ds = call_wizard_prompt(
             prompt,
@@ -188,12 +189,25 @@ def generate_session(session: WizardSession) -> dict[str, Any]:
         if ds.success and ds.text:
             try:
                 generated = parse_ai_json(ds.text)
+                generated['source'] = 'ai'
             except ValueError as exc:
-                return {'error': f'Generate JSON ungültig: {exc}', 'raw': ds.text[:500]}
+                ai_error = f'Generate JSON ungültig: {exc}'
+                generated = {}
         else:
-            return {'error': ds.error or 'DeepSeek Generate fehlgeschlagen'}
+            ai_error = ds.error or 'DeepSeek Generate fehlgeschlagen'
+            generated = {}
     else:
-        return {'error': 'Generate-Prompt nicht gefunden'}
+        ai_error = 'Generate-Prompt nicht gefunden'
+        generated = {}
+
+    if not generated.get('html_body'):
+        fallback_fn = getattr(provider, 'generate_fallback', None)
+        if callable(fallback_fn):
+            generated = fallback_fn(session.briefing or '', answers, meta)
+            if ai_error:
+                generated['ai_error'] = ai_error
+        elif ai_error:
+            return {'error': ai_error}
 
     validation = provider.validate_output({**meta, **generated})
     result = provider.apply_result({**meta, **generated}, session_meta=meta)

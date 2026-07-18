@@ -1,13 +1,23 @@
 """DeepSeek-Aufrufe für WizardPrompt (aus WizardPrompt DB, nicht CRM-Defaults)."""
 from __future__ import annotations
 
+import json
 import logging
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, Optional
+
+import requests
+import urllib3
 
 from apps.abpe_ki_wiz.models import WizardPrompt
 
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 log = logging.getLogger('abpe_ki_wiz.deepseek')
+
+SETTINGS_PATH = Path('/opt/abpe/backend/settings.json')
+DEEPSEEK_URL = 'https://api.deepseek.com/v1/chat/completions'
 
 
 @dataclass
@@ -42,6 +52,97 @@ def _coerce_result(result) -> DeepSeekResult:
         t = result.strip()
         return DeepSeekResult(success=bool(t), text=t)
     return DeepSeekResult(success=False, error='Unbekanntes DeepSeek-Antwortformat')
+
+
+def _load_deepseek_config() -> dict[str, Any]:
+    try:
+        if SETTINGS_PATH.exists():
+            cfg = json.loads(SETTINGS_PATH.read_text(encoding='utf-8'))
+            return cfg.get('ai_models', {}).get('deepseek', {}) or {}
+    except Exception as exc:
+        log.warning('DeepSeek settings.json nicht lesbar: %s', exc)
+    return {}
+
+
+def _resolve_pbx_service():
+    """CRM-Instanz deepseek_pbx (Methoden sind auf der Instanz, nicht am Modul)."""
+    try:
+        from apps.abpe_crm.services import deepseek_api_pbx as pbx_mod
+    except ImportError:
+        return None, None
+
+    for attr in ('deepseek_pbx', 'DeepSeekPBXService'):
+        svc = getattr(pbx_mod, attr, None)
+        if svc is None:
+            continue
+        if isinstance(svc, type):
+            try:
+                return svc(), pbx_mod
+            except Exception:
+                continue
+        return svc, pbx_mod
+    return None, pbx_mod
+
+
+def _call_service_method(svc, method_name: str, *args, **kwargs) -> DeepSeekResult | None:
+    fn = getattr(svc, method_name, None)
+    if not callable(fn):
+        return None
+    try:
+        return _coerce_result(fn(*args, **kwargs))
+    except TypeError:
+        try:
+            return _coerce_result(fn(*args))
+        except Exception as exc:
+            log.warning('%s fehlgeschlagen: %s', method_name, exc)
+            return DeepSeekResult(success=False, error=str(exc))
+    except Exception as exc:
+        log.warning('%s fehlgeschlagen: %s', method_name, exc)
+        return DeepSeekResult(success=False, error=str(exc))
+
+
+def _http_chat_completion(system_msg: str, user_msg: str) -> DeepSeekResult:
+    """Direkter DeepSeek-HTTP-Call wie EmailTranslator (Fallback ohne CRM-Wrapper)."""
+    ds_cfg = _load_deepseek_config()
+    api_key = ds_cfg.get('api_key') or ''
+    if not api_key:
+        return DeepSeekResult(success=False, error='DeepSeek API-Key fehlt (settings.json)')
+
+    model = ds_cfg.get('model', 'deepseek-chat')
+    timeout = ds_cfg.get('timeout', 90)
+    temperature = ds_cfg.get('temperature', 0.2)
+    max_tokens = ds_cfg.get('max_tokens', 2500)
+
+    try:
+        resp = requests.post(
+            DEEPSEEK_URL,
+            headers={
+                'Authorization': f'Bearer {api_key}',
+                'Content-Type': 'application/json',
+            },
+            json={
+                'model': model,
+                'temperature': temperature,
+                'max_tokens': max_tokens,
+                'messages': [
+                    {'role': 'system', 'content': system_msg},
+                    {'role': 'user', 'content': user_msg},
+                ],
+            },
+            timeout=timeout,
+            verify=False,
+        )
+        if resp.status_code != 200:
+            return DeepSeekResult(
+                success=False,
+                error=f'HTTP {resp.status_code}: {resp.text[:200]}',
+            )
+        content = resp.json()['choices'][0]['message']['content']
+        text = (content or '').strip()
+        return DeepSeekResult(success=bool(text), text=text)
+    except Exception as exc:
+        log.exception('DeepSeek HTTP-Call fehlgeschlagen')
+        return DeepSeekResult(success=False, error=str(exc))
 
 
 def fill_prompt_template(
@@ -87,39 +188,49 @@ def call_wizard_prompt(
         instruction=instruction,
     )
     system_msg = (prompt.system or '').strip()
-
-    try:
-        from apps.abpe_crm.services import deepseek_api_pbx as pbx
-    except ImportError as exc:
-        log.error('deepseek_api_pbx nicht verfügbar: %s', exc)
-        return DeepSeekResult(success=False, error='DeepSeek-Service nicht installiert')
-
-    # Bevorzugt: dedizierte Chat-API falls vorhanden
-    for method_name in ('wizard_completion', 'chat_completion', 'complete'):
-        fn = getattr(pbx, method_name, None)
-        if callable(fn):
-            try:
-                return _coerce_result(fn(system=system_msg, user=user_msg))
-            except TypeError:
-                try:
-                    return _coerce_result(fn(system_msg, user_msg))
-                except Exception as exc:
-                    log.warning('%s fehlgeschlagen: %s', method_name, exc)
-
-    # Fallback: suggest_with_key mit Wizard-Prompt-Key (wenn in CRM registriert)
-    if hasattr(pbx, 'suggest_with_key'):
-        try:
-            return _coerce_result(
-                pbx.suggest_with_key(user_msg, prompt.key, instruction or prompt.instruction_default)
-            )
-        except Exception as exc:
-            log.warning('suggest_with_key fehlgeschlagen: %s', exc)
-
-    # Letzter Fallback: summarize mit System+User kombiniert
-    combined = f'{system_msg}\n\n{user_msg}'.strip()
     instr = instruction or prompt.instruction_default or 'Antworte gemäß System-Anweisung.'
-    try:
-        return _coerce_result(pbx.summarize(combined, instr))
-    except Exception as exc:
-        log.exception('DeepSeek summarize fehlgeschlagen')
-        return DeepSeekResult(success=False, error=str(exc))
+
+    svc, pbx_mod = _resolve_pbx_service()
+    if svc is not None:
+        for method_name in ('wizard_completion', 'chat_completion', 'complete'):
+            result = _call_service_method(svc, method_name, system=system_msg, user=user_msg)
+            if result is not None and (result.success or result.error):
+                if result.success:
+                    return result
+            result = _call_service_method(svc, method_name, system_msg, user_msg)
+            if result is not None and result.success:
+                return result
+
+        if hasattr(svc, 'suggest_with_key'):
+            result = _call_service_method(
+                svc,
+                'suggest_with_key',
+                user_msg,
+                prompt.key,
+                instr,
+            )
+            if result is not None and result.success:
+                return result
+
+        combined = f'{system_msg}\n\n{user_msg}'.strip()
+        result = _call_service_method(svc, 'summarize', combined, instr)
+        if result is not None and result.success:
+            return result
+
+    # Modul-Level-Fallback (ältere Installationen)
+    if pbx_mod is not None:
+        for method_name in ('wizard_completion', 'chat_completion', 'complete', 'summarize'):
+            fn = getattr(pbx_mod, method_name, None)
+            if callable(fn):
+                try:
+                    coerced = _coerce_result(fn(system=system_msg, user=user_msg))
+                except TypeError:
+                    try:
+                        coerced = _coerce_result(fn(system_msg, user_msg))
+                    except Exception:
+                        continue
+                if coerced.success:
+                    return coerced
+
+    # Letzter Fallback: direkter HTTP-Call
+    return _http_chat_completion(system_msg, user_msg)

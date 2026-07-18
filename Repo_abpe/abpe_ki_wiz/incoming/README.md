@@ -10,7 +10,7 @@ Zentrale Django-App für wiederverwendbare KI-Assistenten (Email Studio, Matchin
 | POST | `/ki-wizard/api/session/<uuid>/analyze/` | — |
 | POST | `/ki-wizard/api/session/<uuid>/clarify/` | `{"answers":{"S1":"telefon",…}}` |
 | POST | `/ki-wizard/api/session/<uuid>/suggest-meta/` | — |
-| POST | `/ki-wizard/api/session/<uuid>/generate/` | — (DeepSeek) |
+| POST | `/ki-wizard/api/session/<uuid>/generate/` | — (DeepSeek, Fallback: rules) |
 | POST | `/ki-wizard/api/session/<uuid>/apply/` | — |
 
 **Test (eingeloggt als Admin im Browser oder curl mit Session-Cookie):**
@@ -105,5 +105,7 @@ Admin: `/admin/abpe_ki_wiz/wizardprompt/`
 | `rsync: incoming failed: No such file` | Branch nicht ausgecheckt | Variante B (frischer Clone) |
 | `Unknown command: sync_wizard_prompts` | App-Code fehlt | Dateien kopieren |
 | `curl health` leer | Django kaputt (URL-Import) | `python manage.py check` nach Datei-Kopie |
+| `502 generate` / `no attribute summarize` | CRM `deepseek_pbx` Instanz fehlt | Update auf neuesten Branch — nutzt `deepseek_pbx.summarize` + HTTP-Fallback |
+| `complete=False` bei CLARIFY | Optionale Frage M1 offen | M1 ist optional; alle Pflichtfragen (S1,S2,I1,G1,A1) beantworten |
 
 **Reihenfolge:** Dateien kopieren → settings/urls → migrate → sync_wizard_prompts → restart

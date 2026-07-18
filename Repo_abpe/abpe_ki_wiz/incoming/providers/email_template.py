@@ -182,6 +182,114 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         allowed_blocks.add('signature')
         return validate_email_template_output(result, allowed_vars, allowed_blocks)
 
+    def _default_meetme_fields(self, answers: dict[str, Any]) -> list[str]:
+        raw = answers.get('M1')
+        if isinstance(raw, list) and raw:
+            return raw
+        if isinstance(raw, str) and raw:
+            return [raw]
+        return ['termin_datum', 'termin_uhrzeit', 'raum', 'einwahl_info', 'title']
+
+    def _render_info_block(self, answers: dict[str, Any]) -> tuple[str, str]:
+        fields = self._default_meetme_fields(answers)
+        labels = {
+            'termin_datum': 'Datum',
+            'termin_uhrzeit': 'Uhrzeit',
+            'raum': 'Raum',
+            'einwahl_info': 'Einwahl',
+            'title': 'Titel',
+        }
+        html_items = ''.join(
+            f'<li><strong>{labels.get(f, f)}:</strong> {{{f}}}</li>'
+            for f in fields
+        )
+        text_items = '\n'.join(
+            f'- {labels.get(f, f)}: {{{f}}}'
+            for f in fields
+        )
+        if answers.get('I1') == 'prose':
+            html = (
+                '<p>Termin: <strong>{termin_datum}</strong> um <strong>{termin_uhrzeit}</strong> '
+                'im Raum <strong>{raum}</strong>.</p>'
+                '<p>Einwahl: {einwahl_info}</p>'
+            )
+            text = (
+                'Termin: {termin_datum} um {termin_uhrzeit} im Raum {raum}.\n'
+                'Einwahl: {einwahl_info}'
+            )
+            return html, text
+        return f'<ul>{html_items}</ul>', text_items
+
+    def generate_fallback(
+        self,
+        briefing: str,
+        answers: dict[str, Any] | None = None,
+        meta: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
+        """Regelbasierte Vorlage wenn DeepSeek ausfällt."""
+        answers = answers or {}
+        meta = meta or {}
+        merged = {**self.default_meta_suggestions(briefing, answers), **meta}
+
+        blocks: list[str] = []
+        if answers.get('L1') and answers.get('L1') != 'none':
+            blocks.append(f'{{{{block:{answers["L1"]}}}}}')
+
+        info_html, info_text = self._render_info_block(answers)
+        intro = (briefing or merged.get('description') or '').strip()
+        blocks.append(
+            '<p>Guten Tag,</p>'
+            f'<p>{intro or "hiermit laden wir Sie zu einer Telefon-Abstimmung ein."}</p>'
+            f'{info_html}'
+        )
+
+        m2 = answers.get('M2') or 'none'
+        if m2 == 'plain':
+            blocks.append('<p><strong>Teilnehmer:</strong></p><p>{teilnehmer_liste}</p>')
+        elif m2 == 'html':
+            blocks.append('{teilnehmer_liste_html}')
+
+        if answers.get('L3') and answers.get('L3') != 'none':
+            blocks.append(f'{{{{block:{answers["L3"]}}}}}')
+
+        sig_mode = answers.get('G1') or merged.get('signature_mode') or 'USER'
+        if sig_mode and sig_mode != 'NONE':
+            blocks.append('{{block:signature}}')
+
+        html_body = (
+            '<table role="presentation" width="600" cellpadding="0" cellspacing="0" '
+            'style="width:600px;max-width:600px;font-family:Arial,sans-serif;font-size:14px;'
+            'color:#333333;">'
+            '<tr><td style="padding:16px 24px;">'
+            + '\n'.join(blocks)
+            + '</td></tr></table>'
+        )
+
+        text_parts = [
+            'Guten Tag,',
+            '',
+            intro or 'Hiermit laden wir Sie zu einer Telefon-Abstimmung ein.',
+            '',
+            info_text,
+        ]
+        if m2 == 'plain':
+            text_parts.extend(['', 'Teilnehmer:', '{teilnehmer_liste}'])
+        elif m2 == 'html':
+            text_parts.extend(['', '{teilnehmer_liste}'])
+
+        variables_used = list(self._default_meetme_fields(answers))
+        if m2 in ('plain', 'html'):
+            variables_used.append('teilnehmer_liste')
+        if m2 == 'html':
+            variables_used.append('teilnehmer_liste_html')
+
+        return {
+            'html_body': html_body,
+            'text_body': '\n'.join(text_parts).strip(),
+            'variables_used': variables_used,
+            'source': 'rules',
+        }
+
     def apply_result(
         self,
         result: dict[str, Any],

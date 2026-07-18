@@ -8,6 +8,7 @@ from apps.abpe_ki_wiz.prompt_defaults import WIZARD_PROMPT_DEFAULTS
 from apps.abpe_ki_wiz.registry import get_provider, list_wizard_ids
 from apps.abpe_ki_wiz.services.json_utils import parse_ai_json
 from apps.abpe_ki_wiz.services.orchestrator import _rule_based_analyze
+from apps.abpe_ki_wiz.services.deepseek_client import _resolve_pbx_service, _coerce_result
 
 User = get_user_model()
 
@@ -29,6 +30,38 @@ class RuleAnalyzeTests(TestCase):
         r = _rule_based_analyze('email_template', 'MeetMe Einladung zur Telefon-Abstimmung')
         self.assertEqual(r['app_scope'], 'telefon')
         self.assertTrue(r['understood'])
+        self.assertNotIn('M1', r['missing_topics'])
+
+
+class GenerateFallbackTests(TestCase):
+    def test_meetme_invite_fallback(self):
+        p = get_provider('email_template')
+        out = p.generate_fallback(
+            'MeetMe Einladung zur Telefon-Abstimmung mit Teilnehmerliste',
+            {
+                'S1': 'telefon', 'S2': 'invite', 'I1': 'bullet_list',
+                'G1': 'USER', 'A1': 'USER', 'M2': 'plain',
+                'L1': 'abcona_header_blau', 'L3': 'none',
+            },
+            {'subject': 'Termin am {termin_datum}'},
+        )
+        self.assertEqual(out['source'], 'rules')
+        self.assertIn('{{block:abcona_header_blau}}', out['html_body'])
+        self.assertIn('{termin_datum}', out['html_body'])
+        self.assertIn('{teilnehmer_liste}', out['text_body'])
+        self.assertIn('{{block:signature}}', out['html_body'])
+
+
+class DeepSeekClientTests(TestCase):
+    def test_coerce_tuple(self):
+        r = _coerce_result((True, '  hello  '))
+        self.assertTrue(r.success)
+        self.assertEqual(r.text, 'hello')
+
+    def test_resolve_pbx_without_crm(self):
+        svc, mod = _resolve_pbx_service()
+        # In Test-Umgebung ohne abpe_crm: beides None oder nur mod
+        self.assertTrue(svc is None or hasattr(svc, 'summarize') or hasattr(svc, '_chat'))
 
 
 class ProviderTests(TestCase):
@@ -90,3 +123,9 @@ class KiWizardApiTests(TestCase):
         meta = self.client.post(f'/ki-wizard/api/session/{sid}/suggest-meta/')
         self.assertEqual(meta.status_code, 200)
         self.assertIn('suggestions', meta.json())
+
+        generate = self.client.post(f'/ki-wizard/api/session/{sid}/generate/')
+        self.assertEqual(generate.status_code, 200)
+        body = generate.json()
+        self.assertIn('generated', body)
+        self.assertTrue(body['generated'].get('html_body'))
