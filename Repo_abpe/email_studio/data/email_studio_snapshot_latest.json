@@ -1,1507 +1,1507 @@
 [
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 1,
-    "fields": {
-      "identifier": "abcona_header_blau",
-      "name": "Header — Blau",
-      "module_type": "HEADER",
-      "description": "Header — Blau",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#163258;padding:22px 28px;text-align:left;\"><span style=\"color:white;font-size:19px;font-weight:600;font-family:Arial,Helvetica,sans-serif;letter-spacing:0.2px;\">abcona e. K.</span></td></tr></tbody></table>",
-      "text_body": "abcona e. K.\n",
-      "preview_bg": "#163258",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-05-18T18:48:42.854Z",
-      "updated_at": "2026-07-17T13:50:34.351Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 2,
-    "fields": {
-      "identifier": "abcona_header_rot",
-      "name": "Header — Rot (Fehler)",
-      "module_type": "HEADER",
-      "description": "Header — Rot (Fehler)",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#dc3545;padding:16px 24px;text-align:center;\"><span style=\"color:white;font-size:18px;font-weight:bold;font-family:Arial,Helvetica,sans-serif;\">abcona e. K.</span></td></tr></tbody></table>",
-      "text_body": "abcona e. K.\n",
-      "preview_bg": "#dc3545",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-05-18T18:48:42.862Z",
-      "updated_at": "2026-07-17T13:50:34.370Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 3,
-    "fields": {
-      "identifier": "abcona_header_gruen",
-      "name": "Header — Grün (Erfolg)",
-      "module_type": "HEADER",
-      "description": "Header — Grün (Erfolg)",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#28a745;padding:16px 24px;text-align:center;\"><span style=\"color:white;font-size:18px;font-weight:bold;font-family:Arial,Helvetica,sans-serif;\">abcona e. K.</span></td></tr></tbody></table>",
-      "text_body": "abcona e. K.\n",
-      "preview_bg": "#28a745",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-05-18T18:48:42.867Z",
-      "updated_at": "2026-07-17T13:50:34.365Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 4,
-    "fields": {
-      "identifier": "footer_standard",
-      "name": "Footer Standard",
-      "module_type": "FOOTER",
-      "description": "Footer Standard",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8fafc;padding:14px 24px;font-size:11px;line-height:1.5;color:#6c757d;text-align:left;font-family:Arial,Helvetica,sans-serif;\">abcona e. K. | active business consulting agency<br>Bornhohl 26<br>D-61449 Steinbach/Ts.<br><br>USt-ID: DE813519516<br>Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>Inhaber: Angelo Malaguarnera</td></tr></tbody></table>",
-      "text_body": "abcona e. K. | active business consulting agency\nBornhohl 26\nD-61449 Steinbach/Ts.\n\nUSt-ID: DE813519516\nAmtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera",
-      "preview_bg": "#f8fafc",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-05-18T18:48:42.884Z",
-      "updated_at": "2026-07-17T13:50:34.423Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 5,
-    "fields": {
-      "identifier": "footer_auto_reply",
-      "name": "Footer Auto-Reply",
-      "module_type": "FOOTER",
-      "description": "Footer Auto-Reply",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8fafc;padding:14px 24px;font-size:11px;line-height:1.5;color:#6c757d;text-align:left;font-family:Arial,Helvetica,sans-serif;\">abcona e. K. | active business consulting agency<br>Bornhohl 26<br>D-61449 Steinbach/Ts.<br><br>USt-ID: DE813519516<br>Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>Inhaber: Angelo Malaguarnera<br><br><strong>Bitte nicht auf diese E-Mail antworten.</strong></td></tr></tbody></table>",
-      "text_body": "abcona e. K. | active business consulting agency\nBornhohl 26\nD-61449 Steinbach/Ts.\n\nUSt-ID: DE813519516\nAmtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera\n\nBitte nicht auf diese E-Mail antworten.",
-      "preview_bg": "#f8fafc",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-05-18T18:48:42.891Z",
-      "updated_at": "2026-07-17T13:50:34.430Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 6,
-    "fields": {
-      "identifier": "cta_blau",
-      "name": "Button — Blau",
-      "module_type": "BUTTON",
-      "description": "Button — Blau",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"padding:16px 24px;\"><a href=\"{button_url}\" style=\"display:inline-block;background:#163258;color:white;padding:10px 24px;border-radius:5px;text-decoration:none;font-weight:600;font-family:Arial,Helvetica,sans-serif;\">{button_text}</a></td></tr></tbody></table>",
-      "text_body": "{button_text}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-05-18T18:48:42.898Z",
-      "updated_at": "2026-07-17T13:50:34.435Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 7,
-    "fields": {
-      "identifier": "cta_gruen",
-      "name": "Button — Grün",
-      "module_type": "BUTTON",
-      "description": "Button — Grün",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"padding:16px 24px;\"><a href=\"{button_url}\" style=\"display:inline-block;background:#28a745;color:white;padding:10px 24px;border-radius:5px;text-decoration:none;font-weight:600;font-family:Arial,Helvetica,sans-serif;\">{button_text}</a></td></tr></tbody></table>",
-      "text_body": "{button_text}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-05-18T18:48:42.918Z",
-      "updated_at": "2026-07-17T13:50:34.442Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 8,
-    "fields": {
-      "identifier": "support_kontakt",
-      "name": "Support Kontakt",
-      "module_type": "SECTION",
-      "description": "Support Kontakt",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"padding:0 24px 16px;font-family:Arial,Helvetica,sans-serif;\"><table style=\"background:#f0f0f0;padding:12px;width:100%;border-radius:5px;text-align:center;font-size:12px;\"><tr><td><strong>Benötigen Sie Hilfe?</strong><br>Angelo Malaguarnera | Inhaber<br>am@abcona.de | +49 178 8886712 | +49 6171 886712<br>abcona e. K. | Bornhohl 26 | 61449 Steinbach</td></tr></table></td></tr></tbody></table>",
-      "text_body": "Benötigen Sie Hilfe?\nAngelo Malaguarnera | Inhaber\nam@abcona.de | +49 178 8886712 | +49 6171 886712\nabcona e. K. | Bornhohl 26 | 61449 Steinbach\n",
-      "preview_bg": "#f0f0f0",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-05-18T18:48:42.934Z",
-      "updated_at": "2026-07-17T13:50:34.448Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 9,
-    "fields": {
-      "identifier": "label_info",
-      "name": "Label — Information",
-      "module_type": "SECTION",
-      "description": "Dezentes Info-Label, direkt unter dem Header einzufuegen.",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"padding:20px 28px 0;\"><span style=\"display:inline-block;background:#e8f0f8;color:#0c447c;font-size:11px;font-weight:500;padding:3px 10px;border-radius:3px;font-family:Arial,sans-serif;\">Information</span></td></tr></tbody></table>",
-      "text_body": "Information\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T09:04:40.449Z",
-      "updated_at": "2026-07-17T12:08:12.976Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 10,
-    "fields": {
-      "identifier": "label_warnung",
-      "name": "Label — Handlungsbedarf",
-      "module_type": "SECTION",
-      "description": "Dezentes Warnungs-Label, direkt unter dem Header einzufuegen.",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"padding:20px 28px 0;\"><span style=\"display:inline-block;background:#f8d7da;color:#721c24;font-size:11px;font-weight:500;padding:3px 10px;border-radius:3px;font-family:Arial,sans-serif;\">Handlungsbedarf</span></td></tr></tbody></table>",
-      "text_body": "Handlungsbedarf\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T09:04:40.518Z",
-      "updated_at": "2026-07-17T12:08:12.992Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 11,
-    "fields": {
-      "identifier": "label_bestaetigt",
-      "name": "Label — Bestätigt",
-      "module_type": "SECTION",
-      "description": "Dezentes Bestaetigungs-Label, direkt unter dem Header einzufuegen.",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"padding:20px 28px 0;\"><span style=\"display:inline-block;background:#d4edda;color:#155724;font-size:11px;font-weight:500;padding:3px 10px;border-radius:3px;font-family:Arial,sans-serif;\">Bestätigt</span></td></tr></tbody></table>",
-      "text_body": "Bestätigt\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T09:04:40.532Z",
-      "updated_at": "2026-07-17T12:08:12.998Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 12,
-    "fields": {
-      "identifier": "quote_highlight",
-      "name": "Hervorhebungs-Zitat",
-      "module_type": "SECTION",
-      "description": "Zentriertes, getoentes Zitat/Hinweis fuer eine einzelne wichtige Aussage.",
-      "html_body": "<div style=\"background:#e8f0f8;padding:18px 20px;border-radius:4px;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-style:italic;color:#0c447c;line-height:1.6;\">{quote_text}</div>",
-      "text_body": "{quote_text}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T14:12:29.971Z",
-      "updated_at": "2026-07-17T14:12:29.971Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 13,
-    "fields": {
-      "identifier": "contact_card",
-      "name": "Kontakt-Karte",
-      "module_type": "SECTION",
-      "description": "Ansprechpartner-Karte mit Initialen-Kreis, Name/Rolle und Kontaktdaten. Feste Felder: contact_initials, contact_name, contact_role, contact_email, contact_phone.",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;padding:14px 16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"width:36px;height:36px;border-radius:50%;background:#163258;color:#fff;text-align:center;vertical-align:middle;font-weight:600;font-size:13px;\">{contact_initials}</td><td style=\"padding-left:14px;line-height:1.6;\"><div style=\"font-weight:600;color:#163258;\">{contact_name} — {contact_role}</div><div>{contact_email} &middot; {contact_phone}</div></td></tr></table></td></tr></tbody></table>",
-      "text_body": "{contact_initials}\n{contact_name} — {contact_role}\n\n{contact_email} · {contact_phone}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T14:12:30.033Z",
-      "updated_at": "2026-07-17T14:12:30.033Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 14,
-    "fields": {
-      "identifier": "stat_box",
-      "name": "Kennzahl-Box",
-      "module_type": "SECTION",
-      "description": "Grosse hervorgehobene Kennzahl mit Beschriftung, z.B. Betrag oder Kennzahl. Feste Felder: stat_value, stat_label.",
-      "html_body": "<div style=\"background:#f8f9fa;border-radius:4px;padding:18px;text-align:center;font-family:Arial,Helvetica,sans-serif;color:#333;\"><div style=\"font-size:28px;font-weight:600;color:#163258;\">{stat_value}</div><div style=\"color:#6c757d;margin-top:4px;font-size:12px;\">{stat_label}</div></div>",
-      "text_body": "{stat_value}\n\n{stat_label}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T14:12:30.061Z",
-      "updated_at": "2026-07-17T14:12:30.061Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 15,
-    "fields": {
-      "identifier": "calendar_card",
-      "name": "Kalender-Karte",
-      "module_type": "SECTION",
-      "description": "Terminanzeige mit Kalenderblatt-Optik. Feste Felder: cal_month, cal_day, cal_title, cal_time, cal_location.",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;padding:14px 16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"background:#163258;color:#fff;border-radius:4px;width:52px;text-align:center;padding:6px 0;\"><div style=\"font-size:10px;text-transform:uppercase;\">{cal_month}</div><div style=\"font-size:20px;font-weight:600;line-height:1.1;\">{cal_day}</div></td><td style=\"padding-left:14px;line-height:1.6;\"><div style=\"font-weight:600;\">{cal_title}</div><div style=\"color:#6c757d;\">{cal_time} &middot; {cal_location}</div></td></tr></table></td></tr></tbody></table>",
-      "text_body": "{cal_month}\n\n{cal_day}\n\n{cal_title}\n\n{cal_time} · {cal_location}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T14:12:30.070Z",
-      "updated_at": "2026-07-17T14:12:30.070Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 16,
-    "fields": {
-      "identifier": "cta_with_secondary",
-      "name": "CTA mit Sekundaerlink",
-      "module_type": "BUTTON",
-      "description": "Haupt-Button plus dezenter Alternativ-Link darunter, z.B. Bestaetigen/Absagen. Feste Felder: button_url, button_text, secondary_url, secondary_text.",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"padding:18px;text-align:center;font-family:Arial,Helvetica,sans-serif;\"><a href=\"{button_url}\" style=\"display:inline-block;background:#163258;color:#fff;padding:10px 22px;border-radius:5px;text-decoration:none;font-weight:600;font-size:12px;\">{button_text}</a><div style=\"margin-top:10px;\"><a href=\"{secondary_url}\" style=\"color:#6c757d;text-decoration:underline;font-size:11px;\">{secondary_text}</a></div></td></tr></tbody></table>",
-      "text_body": "{button_text}\n{secondary_text}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T14:12:30.076Z",
-      "updated_at": "2026-07-17T14:12:30.076Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 17,
-    "fields": {
-      "identifier": "signature_lines",
-      "name": "Unterschriften-Block",
-      "module_type": "SECTION",
-      "description": "Zwei Unterschriftenlinien nebeneinander fuer Vertragsdokumente. Feste Felder: signer_1_label, signer_2_label.",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"padding:16px;width:50%;\"><div style=\"border-top:1px solid #333;padding-top:6px;margin-top:32px;\">{signer_1_label}</div></td><td style=\"padding:16px;width:50%;\"><div style=\"border-top:1px solid #333;padding-top:6px;margin-top:32px;\">{signer_2_label}</div></td></tr></table></td></tr></tbody></table>",
-      "text_body": "{signer_1_label}\n\n{signer_2_label}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T14:12:30.082Z",
-      "updated_at": "2026-07-17T14:12:30.082Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 18,
-    "fields": {
-      "identifier": "fakten_box",
-      "name": "Fakten-Box (3 Zeilen)",
-      "module_type": "SECTION",
-      "description": "Farbrand-Box fuer bis zu 3 Fakten-Zeilen. Feste Felder: fakt_1, fakt_2, fakt_3 (leer lassen als Leerstring, nicht weglassen). Bei abweichender Zeilenzahl direkt im Vorlagen-HTML kopieren und anpassen.",
-      "html_body": "<div style=\"background:#f8f9fa;border-left:3px solid #163258;border-radius:0 4px 4px 0;padding:14px 16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;line-height:1.9;\"><div>{fakt_1}</div><div>{fakt_2}</div><div>{fakt_3}</div></div>",
-      "text_body": "{fakt_1}\n\n{fakt_2}\n\n{fakt_3}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T14:12:30.086Z",
-      "updated_at": "2026-07-17T14:12:30.086Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 19,
-    "fields": {
-      "identifier": "steps_numbered",
-      "name": "Nummerierte-Schritte (3 Schritte)",
-      "module_type": "SECTION",
-      "description": "Nummerierte Kreise fuer Prozess-Erklaerungen. Feste Felder: schritt_1, schritt_2, schritt_3.",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;padding:14px 16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"width:24px;height:24px;background:#163258;color:#fff;border-radius:50%;text-align:center;vertical-align:middle;font-size:11px;\">1</td><td style=\"padding:4px 0 4px 10px;\">{schritt_1}</td></tr><tr><td style=\"width:24px;height:24px;background:#163258;color:#fff;border-radius:50%;text-align:center;vertical-align:middle;font-size:11px;\">2</td><td style=\"padding:4px 0 4px 10px;\">{schritt_2}</td></tr><tr><td style=\"width:24px;height:24px;background:#163258;color:#fff;border-radius:50%;text-align:center;vertical-align:middle;font-size:11px;\">3</td><td style=\"padding:4px 0 4px 10px;\">{schritt_3}</td></tr></table></td></tr></tbody></table>",
-      "text_body": "1{schritt_1}\n\n2{schritt_2}\n\n3{schritt_3}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T14:12:30.092Z",
-      "updated_at": "2026-07-17T14:12:30.092Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 20,
-    "fields": {
-      "identifier": "skill_tags",
-      "name": "Skill-Tag-Liste (4 Tags)",
-      "module_type": "SECTION",
-      "description": "Kompakte Tag-Chips, z.B. fuer CV-Zusammenfassungen. Feste Felder: skill_1, skill_2, skill_3, skill_4.",
-      "html_body": "<div style=\"background:#f8f9fa;border-radius:4px;padding:14px 16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><span style=\"background:#e8f0f8;color:#0c447c;padding:3px 10px;border-radius:3px;margin-right:6px;\">{skill_1}</span><span style=\"background:#e8f0f8;color:#0c447c;padding:3px 10px;border-radius:3px;margin-right:6px;\">{skill_2}</span><span style=\"background:#e8f0f8;color:#0c447c;padding:3px 10px;border-radius:3px;margin-right:6px;\">{skill_3}</span><span style=\"background:#e8f0f8;color:#0c447c;padding:3px 10px;border-radius:3px;\">{skill_4}</span></div>",
-      "text_body": "{skill_1}{skill_2}{skill_3}{skill_4}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T14:12:30.097Z",
-      "updated_at": "2026-07-17T14:12:30.097Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 21,
-    "fields": {
-      "identifier": "doc_attachment_list",
-      "name": "Dokumenten-Anhang-Liste (2 Dokumente)",
-      "module_type": "SECTION",
-      "description": "Anhang-Uebersicht mit Dateinamen, z.B. fuer Vertraege/Rechnungen. Feste Felder: dokument_1, dokument_2.",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;padding:6px 16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"padding:8px 0;border-bottom:1px solid #dee2e6;\">&#9656; {dokument_1}</td></tr><tr><td style=\"padding:8px 0;\">&#9656; {dokument_2}</td></tr></table></td></tr></tbody></table>",
-      "text_body": "▸ {dokument_1}\n\n▸ {dokument_2}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T14:12:30.102Z",
-      "updated_at": "2026-07-17T14:12:30.102Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 22,
-    "fields": {
-      "identifier": "compare_two_col",
-      "name": "Zwei-Spalten-Vergleich",
-      "module_type": "SECTION",
-      "description": "Alt/Neu-Vergleich nebeneinander, z.B. fuer Terminverschiebungen. Feste Felder: vergleich_alt_label, vergleich_alt_wert, vergleich_neu_label, vergleich_neu_wert.",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"padding:12px 16px;width:50%;border-right:1px solid #dee2e6;\"><div style=\"color:#6c757d;font-size:11px;margin-bottom:4px;\">{vergleich_alt_label}</div><div>{vergleich_alt_wert}</div></td><td style=\"padding:12px 16px;width:50%;\"><div style=\"color:#155724;font-size:11px;margin-bottom:4px;\">{vergleich_neu_label}</div><div style=\"font-weight:600;\">{vergleich_neu_wert}</div></td></tr></table></td></tr></tbody></table>",
-      "text_body": "{vergleich_alt_label}\n\n{vergleich_alt_wert}\n\n{vergleich_neu_label}\n\n{vergleich_neu_wert}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T14:12:30.107Z",
-      "updated_at": "2026-07-17T14:12:30.107Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 23,
-    "fields": {
-      "identifier": "price_table",
-      "name": "Preis-Leistungs-Tabelle (2 Positionen)",
-      "module_type": "SECTION",
-      "description": "Rechnungspositionen mit Summenzeile. Feste Felder: position_1_text, position_1_betrag, position_2_text, position_2_betrag, gesamt_betrag.",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr style=\"border-bottom:1px solid #dee2e6;\"><td style=\"padding:8px 16px;\">{position_1_text}</td><td style=\"padding:8px 16px;text-align:right;\">{position_1_betrag}</td></tr><tr style=\"border-bottom:1px solid #dee2e6;\"><td style=\"padding:8px 16px;\">{position_2_text}</td><td style=\"padding:8px 16px;text-align:right;\">{position_2_betrag}</td></tr><tr><td style=\"padding:10px 16px;font-weight:600;color:#163258;\">Gesamt</td><td style=\"padding:10px 16px;text-align:right;font-weight:600;color:#163258;\">{gesamt_betrag}</td></tr></table></td></tr></tbody></table>",
-      "text_body": "{position_1_text}{position_1_betrag}\n\n{position_2_text}{position_2_betrag}\n\nGesamt{gesamt_betrag}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T14:12:30.127Z",
-      "updated_at": "2026-07-17T14:12:30.127Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailmodule",
-    "pk": 24,
-    "fields": {
-      "identifier": "progress_bar",
-      "name": "Fortschritts-Leiste (3 Stufen)",
-      "module_type": "SECTION",
-      "description": "Pipeline-Statusanzeige mit 3 Stufen und Fortschrittsbalken. Feste Felder: stufe_1, stufe_2, stufe_3, progress_percent (Zahl 0-100).",
-      "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;padding:16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"color:#163258;font-weight:600;\">{stufe_1}</td><td style=\"color:#163258;font-weight:600;text-align:center;\">{stufe_2}</td><td style=\"color:#adb5bd;text-align:right;\">{stufe_3}</td></tr></table><div style=\"height:6px;background:#dee2e6;border-radius:3px;overflow:hidden;margin-top:8px;\"><div style=\"width:{progress_percent}%;height:100%;background:#163258;\"></div></div></td></tr></tbody></table>",
-      "text_body": "{stufe_1}{stufe_2}{stufe_3}\n",
-      "preview_bg": "#ffffff",
-      "is_active": true,
-      "created_by": null,
-      "created_at": "2026-07-17T14:12:30.132Z",
-      "updated_at": "2026-07-17T14:12:30.132Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 1,
-    "fields": {
-      "identifier": "cv_generated_berater",
-      "name": "CV fertig — Berater",
-      "description": "Benachrichtigung wenn ein Berater-CV fertig erstellt wurde",
-      "app_scope": "intake",
-      "event_type": "cv_generated",
-      "sender_mode": "USER",
-      "sender_account": null,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "Ihr Berater-Profil ist fertig — {name}",
-      "html_body": "{{block:abcona_header_blau}}\n{{block:label_bestaetigt}}\n<p>Hallo <strong>{name}</strong>,</p>\n<p>Ihr Berater-Profil wurde erfolgreich erstellt.</p>\n<a href=\"{cv_link}\" style=\"display:inline-block;background:#163258;color:white;padding:10px 20px;border-radius:5px;text-decoration:none;font-weight:600;\">Profil ansehen</a>\n<p style=\"margin:16px 0 0;font-size:12px;color:#6c757d;\">Version: {cv_version} &nbsp;·&nbsp; Erstellt am: {created_date}</p>\n{{block:signature}}",
-      "text_body": "abcona e. K.\n\nBestätigt\n\nHallo {name},\n\nIhr Berater-Profil wurde erfolgreich erstellt.\n\nProfil ansehen\n\nVersion: {cv_version}  ·  Erstellt am: {created_date}\n\n{signature}\n",
-      "variables": [
-        {
-          "name": "name",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "cv_link",
-          "type": "url",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "cv_version",
-          "type": "string",
-          "source": "context",
-          "required": false
-        },
-        {
-          "name": "created_date",
-          "type": "date",
-          "source": "context",
-          "required": false
-        },
-        {
-          "name": "sender_name",
-          "type": "string",
-          "source": "user",
-          "required": false
-        },
-        {
-          "name": "sender_email",
-          "type": "email",
-          "source": "user",
-          "required": false
-        }
-      ],
-      "translation_languages": [
-        "it"
-      ],
-      "status": "ACTIVE",
-      "active_version": 6,
-      "include_signature": true,
-      "signature_mode": "USER",
-      "usage_count": 3,
-      "last_used_at": "2026-06-02T09:05:24.131Z",
-      "created_by": null,
-      "created_at": "2026-05-18T11:22:54.471Z",
-      "updated_at": "2026-07-17T12:08:13.079Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 2,
-    "fields": {
-      "identifier": "upload_received",
-      "name": "Upload Bestätigung — Import",
-      "description": "Automatische Bestätigung nach CV-Import via E-Mail",
-      "app_scope": "intake",
-      "event_type": "upload_received",
-      "sender_mode": "AUTO",
-      "sender_account": null,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "ABpE Import Bestätigung: {original_subject}",
-      "html_body": "{{block:abcona_header_blau}}\n{{block:label_bestaetigt}}\n<p>Hallo,</p>\n<p>Ihre E-Mail wurde erfolgreich im ABpE System importiert!</p>\n<div style=\"background:#eef2f5;border-left:3px solid #10b981;border-radius:0 4px 4px 0;padding:14px 16px;font-size:12px;line-height:1.8;\">\n<div><strong>Original Betreff:</strong> {original_subject}</div>\n<div><strong>Import Zeit:</strong> {import_time}</div>\n<div><strong>E-Mail ID:</strong> {email_id}</div>\n<div><strong>Anhänge:</strong> {attachment_count} Datei(en)</div>\n</div>\n<p>Die Verarbeitung läuft nun im Hintergrund:</p>\n<ul style=\"font-size:12px;line-height:1.8;\">\n  <li>PDF wird analysiert</li>\n  <li>Informationen werden extrahiert</li>\n  <li>Daten werden kategorisiert</li>\n  <li>Profil wird erstellt</li>\n</ul>\n<p style=\"font-size:12px;color:#6c757d;\">Sie erhalten keine weiteren Benachrichtigungen zu dieser E-Mail.</p>\n{{block:footer_auto_reply}}",
-      "text_body": "abcona e. K.\n\nBestätigt\n\nHallo,\n\nIhre E-Mail wurde erfolgreich im ABpE System importiert!\n\nOriginal Betreff: {original_subject}\n\nImport Zeit: {import_time}\n\nE-Mail ID: {email_id}\n\nAnhänge: {attachment_count} Datei(en)\n\nDie Verarbeitung läuft nun im Hintergrund:\n\nPDF wird analysiert\n\nInformationen werden extrahiert\n\nDaten werden kategorisiert\n\nProfil wird erstellt\n\nSie erhalten keine weiteren Benachrichtigungen zu dieser E-Mail.\n\nabcona e. K. | active business consulting agency\nBornhohl 26\nD-61449 Steinbach/Ts.\n\nUSt-ID: DE813519516\nAmtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera\n\nBitte nicht auf diese E-Mail antworten.\n",
-      "variables": [
-        {
-          "name": "original_subject",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "import_time",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "email_id",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "attachment_count",
-          "type": "string",
-          "source": "context",
-          "required": true
-        }
-      ],
-      "translation_languages": [],
-      "status": "ACTIVE",
-      "active_version": 4,
-      "include_signature": false,
-      "signature_mode": "NONE",
-      "usage_count": 2,
-      "last_used_at": "2026-05-18T22:08:32.793Z",
-      "created_by": null,
-      "created_at": "2026-05-18T12:20:15.399Z",
-      "updated_at": "2026-07-17T12:02:01.397Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 3,
-    "fields": {
-      "identifier": "upload_error",
-      "name": "Upload Fehler — Import fehlgeschlagen",
-      "description": "Fehler-E-Mail bei fehlgeschlagenem CV-Import (roter Header)",
-      "app_scope": "intake",
-      "event_type": "upload_error",
-      "sender_mode": "AUTO",
-      "sender_account": null,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "CV-Import fehlgeschlagen: {error_code}",
-      "html_body": "{{block:abcona_header_blau}}\n{{block:label_warnung}}\n<p>Hallo {name},</p>\n<p>Ihre E-Mail konnte leider nicht automatisch verarbeitet werden.</p>\n<div style=\"background:#eef2f5;border-left:3px solid #ef4444;border-radius:0 4px 4px 0;padding:14px 16px;font-size:12px;line-height:1.8;\">\n<div><strong>Original Betreff:</strong> {original_subject}</div>\n<div><strong>Import Zeit:</strong> {import_time}</div>\n<div><strong>E-Mail ID:</strong> {email_id}</div>\n<div><strong>Fehlercode:</strong> {error_code}</div>\n</div>\n<div style=\"background:#eef2f5;border-left:3px solid #ef4444;border-radius:0 4px 4px 0;padding:14px 16px;font-size:12px;margin-top:12px;\">\n<strong>Problem:</strong><br>{error_detail}\n</div>\n<div style=\"background:#e8f0f8;border-left:3px solid #163258;border-radius:0 4px 4px 0;padding:14px 16px;font-size:12px;margin-top:12px;\">\n<strong>Lösung:</strong><br>{solution}\n</div>\n<p style=\"font-size:12px;\">Bitte korrigieren Sie die genannten Punkte und senden Sie Ihre Bewerbung erneut.</p>\n{{block:support_kontakt}}\n{{block:footer_auto_reply}}",
-      "text_body": "abcona e. K.\n\nHandlungsbedarf\n\nHallo {name},\n\nIhre E-Mail konnte leider nicht automatisch verarbeitet werden.\n\nOriginal Betreff: {original_subject}\n\nImport Zeit: {import_time}\n\nE-Mail ID: {email_id}\n\nFehlercode: {error_code}\n\nProblem:\n{error_detail}\n\nLösung:\n{solution}\n\nBitte korrigieren Sie die genannten Punkte und senden Sie Ihre Bewerbung erneut.\n\nBenötigen Sie Hilfe?\nAngelo Malaguarnera | Inhaber\nam@abcona.de | +49 178 8886712 | +49 6171 886712\nabcona e. K. | Bornhohl 26 | 61449 Steinbach\n\nabcona e. K. | active business consulting agency\nBornhohl 26\nD-61449 Steinbach/Ts.\n\nUSt-ID: DE813519516\nAmtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera\n\nBitte nicht auf diese E-Mail antworten.\n",
-      "variables": [
-        {
-          "name": "name",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "original_subject",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "import_time",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "email_id",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "error_code",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "error_detail",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "solution",
-          "type": "string",
-          "source": "context",
-          "required": true
-        }
-      ],
-      "translation_languages": [],
-      "status": "ACTIVE",
-      "active_version": 4,
-      "include_signature": false,
-      "signature_mode": "NONE",
-      "usage_count": 2,
-      "last_used_at": "2026-05-18T19:51:35.426Z",
-      "created_by": null,
-      "created_at": "2026-05-18T12:26:52.140Z",
-      "updated_at": "2026-07-17T12:02:01.412Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 4,
-    "fields": {
-      "identifier": "pipeline_success",
-      "name": "Pipeline Erfolg — CV verarbeitet",
-      "description": "Erfolgs-E-Mail nach abgeschlossener CV-Pipeline (grüner Header)",
-      "app_scope": "intake",
-      "event_type": "pipeline_success",
-      "sender_mode": "AUTO",
-      "sender_account": null,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "CV erfolgreich verarbeitet: {name} ({aid})",
-      "html_body": "{{block:abcona_header_blau}}\n{{block:label_bestaetigt}}\n<p>Hallo,</p>\n<p>Ihr CV wurde erfolgreich verarbeitet und ist zur Validierung bereit!</p>\n<div style=\"background:#eef2f5;border-left:3px solid #10b981;border-radius:0 4px 4px 0;padding:14px 16px;font-size:12px;line-height:1.8;\">\n<div><strong>Name:</strong> {name}</div>\n<div><strong>AID:</strong> {aid}</div>\n<div><strong>Projekte:</strong> {projects}</div>\n<div><strong>Skills:</strong> {skills}</div>\n<div><strong>Verarbeitungszeit:</strong> {duration}s</div>\n</div>\n<p style=\"font-size:12px;font-weight:600;\">Links zum Profil:</p>\n<p style=\"font-size:12px;\">\n<a href=\"{de_editor_url}\" style=\"color:#163258;\">DE Editor (Validierung)</a><br>\n<a href=\"{de_html_url}\" style=\"color:#163258;\">DE HTML</a><br>\n<a href=\"{en_html_url}\" style=\"color:#163258;\">EN HTML</a>\n</p>\n<p style=\"font-size:12px;\">Mit freundlichen Grüßen<br>Ihr ABpE System</p>\n{{block:footer_standard}}",
-      "text_body": "abcona e. K.\n\nBestätigt\n\nHallo,\n\nIhr CV wurde erfolgreich verarbeitet und ist zur Validierung bereit!\n\nName: {name}\n\nAID: {aid}\n\nProjekte: {projects}\n\nSkills: {skills}\n\nVerarbeitungszeit: {duration}s\n\nLinks zum Profil:\n\nDE Editor (Validierung)\n\nDE HTML\n\nEN HTML\n\nMit freundlichen Grüßen\nIhr ABpE System\n\nabcona e. K. | active business consulting agency\nBornhohl 26\nD-61449 Steinbach/Ts.\n\nUSt-ID: DE813519516\nAmtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera\n",
-      "variables": [
-        {
-          "name": "name",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "aid",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "projects",
-          "type": "string",
-          "source": "context",
-          "required": false
-        },
-        {
-          "name": "skills",
-          "type": "string",
-          "source": "context",
-          "required": false
-        },
-        {
-          "name": "duration",
-          "type": "string",
-          "source": "context",
-          "required": false
-        },
-        {
-          "name": "de_editor_url",
-          "type": "url",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "de_html_url",
-          "type": "url",
-          "source": "context",
-          "required": false
-        },
-        {
-          "name": "en_html_url",
-          "type": "url",
-          "source": "context",
-          "required": false
-        }
-      ],
-      "translation_languages": [],
-      "status": "ACTIVE",
-      "active_version": 4,
-      "include_signature": false,
-      "signature_mode": "NONE",
-      "usage_count": 4,
-      "last_used_at": "2026-06-11T07:59:42.208Z",
-      "created_by": null,
-      "created_at": "2026-05-18T12:26:52.169Z",
-      "updated_at": "2026-07-17T12:02:01.428Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 5,
-    "fields": {
-      "identifier": "pipeline_error",
-      "name": "Pipeline Fehler — CV-Verarbeitung fehlgeschlagen",
-      "description": "Fehler-E-Mail bei fehlgeschlagener CV-Pipeline",
-      "app_scope": "intake",
-      "event_type": "pipeline_error",
-      "sender_mode": "AUTO",
-      "sender_account": null,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "CV-Verarbeitung fehlgeschlagen {error_code}: {name} ({aid})",
-      "html_body": "{{block:abcona_header_blau}}\n{{block:label_warnung}}\n<p>Hallo {name},</p>\n<p>Die Verarbeitung Ihres CVs ist leider fehlgeschlagen.</p>\n<div style=\"background:#eef2f5;border-left:3px solid #ef4444;border-radius:0 4px 4px 0;padding:14px 16px;font-size:12px;line-height:1.8;\">\n<div><strong>Name:</strong> {name}</div>\n<div><strong>AID:</strong> {aid}</div>\n<div><strong>Fehlercode:</strong> {error_code}</div>\n<div><strong>Details:</strong> {error_detail}</div>\n<div><strong>E-Mail ID:</strong> {email_id}</div>\n</div>\n{{block:support_kontakt}}\n{{block:footer_auto_reply}}",
-      "text_body": "abcona e. K.\n\nHandlungsbedarf\n\nHallo {name},\n\nDie Verarbeitung Ihres CVs ist leider fehlgeschlagen.\n\nName: {name}\n\nAID: {aid}\n\nFehlercode: {error_code}\n\nDetails: {error_detail}\n\nE-Mail ID: {email_id}\n\nBenötigen Sie Hilfe?\nAngelo Malaguarnera | Inhaber\nam@abcona.de | +49 178 8886712 | +49 6171 886712\nabcona e. K. | Bornhohl 26 | 61449 Steinbach\n\nabcona e. K. | active business consulting agency\nBornhohl 26\nD-61449 Steinbach/Ts.\n\nUSt-ID: DE813519516\nAmtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera\n\nBitte nicht auf diese E-Mail antworten.\n",
-      "variables": [
-        {
-          "name": "name",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "aid",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "error_code",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "error_detail",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "email_id",
-          "type": "string",
-          "source": "context",
-          "required": false
-        }
-      ],
-      "translation_languages": [],
-      "status": "ACTIVE",
-      "active_version": 4,
-      "include_signature": false,
-      "signature_mode": "NONE",
-      "usage_count": 0,
-      "last_used_at": null,
-      "created_by": null,
-      "created_at": "2026-05-18T12:26:52.180Z",
-      "updated_at": "2026-07-17T12:02:01.446Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 7,
-    "fields": {
-      "identifier": "cv_generated_berater_copy",
-      "name": "CV fertig — Berater (Kopie)",
-      "description": "Benachrichtigung wenn ein Berater-CV fertig erstellt wurde",
-      "app_scope": "intake",
-      "event_type": "cv_generated",
-      "sender_mode": "USER",
-      "sender_account": null,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "Ihr Berater-Profil ist fertig — {name}",
-      "html_body": "<div>\n                <div>\n                <div>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width\">\n  <title>{subject}</title>\n<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\n <tbody><tr><td align=\"center\" style=\"padding:20px 10px;\">\n  <table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:white;border-radius:8px;overflow:hidden;\">\n   <tbody><tr><td style=\"background:#163258;padding:16px 24px;\">\n    <span style=\"color:white;font-size:18px;font-weight:bold;\">abcona e. K.</span>\n   </td></tr>\n   <tr><td style=\"padding:24px;\">\n    <p style=\"margin:0 0 12px;\">Hallo <strong>{name}</strong>,</p>\n    <p style=\"margin:0 0 16px;\">Ihr Berater-Profil wurde erfolgreich erstellt.</p>\n    <a href=\"{cv_link}\" style=\"display:inline-block;background:#163258;color:white;\n       padding:10px 20px;border-radius:5px;text-decoration:none;font-weight:600;\">\n      Profil ansehen\n    </a>\n    <p style=\"margin:16px 0 0;font-size:12px;color:#6c757d;\">\n      Version: {cv_version} &nbsp;·&nbsp; Erstellt am: {created_date}\n    <br><br></p>\n   </td></tr>\n   <tr><td style=\"background:#f8fafc;padding:12px 24px;font-size:11px;color:#6c757d;\">\n    {sender_name} · {sender_email} · abcona e. K.\n   </td></tr>\n  </tbody></table>\n </td></tr>\n</tbody></table>\n</div></div></div>",
-      "text_body": "{subject}\n\nabcona e. K.\n\nHallo {name},\n\nIhr Berater-Profil wurde erfolgreich erstellt.\n\nProfil ansehen\n\nVersion: {cv_version}  ·  Erstellt am: {created_date}\n\n{sender_name} · {sender_email} · abcona e. K.\n",
-      "variables": [
-        {
-          "name": "name",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "cv_link",
-          "type": "url",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "cv_version",
-          "type": "string",
-          "source": "context",
-          "required": false
-        },
-        {
-          "name": "created_date",
-          "type": "date",
-          "source": "context",
-          "required": false
-        },
-        {
-          "name": "sender_name",
-          "type": "string",
-          "source": "user",
-          "required": false
-        },
-        {
-          "name": "sender_email",
-          "type": "email",
-          "source": "user",
-          "required": false
-        }
-      ],
-      "translation_languages": [
-        "en"
-      ],
-      "status": "DRAFT",
-      "active_version": 7,
-      "include_signature": true,
-      "signature_mode": "USER",
-      "usage_count": 1,
-      "last_used_at": "2026-06-02T08:07:33.089Z",
-      "created_by": 1,
-      "created_at": "2026-05-19T07:39:46.125Z",
-      "updated_at": "2026-07-17T11:10:35.734Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 8,
-    "fields": {
-      "identifier": "crm_manual_email",
-      "name": "CRM — Manuelle E-Mail",
-      "description": "Freie E-Mail aus dem CRM-Modul",
-      "app_scope": "general",
-      "event_type": "crm_manual",
-      "sender_mode": "USER",
-      "sender_account": null,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "{subject}",
-      "html_body": "{{block:abcona_header_blau}}\n<p>{body}</p>\n{{block:signature}}",
-      "text_body": "abcona e. K.\n\n{body}\n\n{signature}\n",
-      "variables": [
-        {
-          "name": "subject",
-          "type": "string",
-          "required": true
-        },
-        {
-          "name": "body",
-          "type": "string",
-          "required": true
-        }
-      ],
-      "translation_languages": [],
-      "status": "ACTIVE",
-      "active_version": 5,
-      "include_signature": true,
-      "signature_mode": "USER",
-      "usage_count": 0,
-      "last_used_at": null,
-      "created_by": null,
-      "created_at": "2026-06-04T15:49:04.525Z",
-      "updated_at": "2026-07-17T12:08:13.066Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 9,
-    "fields": {
-      "identifier": "crm_berater_profilupdate",
-      "name": "CRM — Berater Profilupdate",
-      "description": "Anfrage Verfügbarkeit + Profilupdate an Berater",
-      "app_scope": "general",
-      "event_type": "crm_manual",
-      "sender_mode": "USER",
-      "sender_account": 1,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "Profilupdate & Verfügbarkeitsanfrage — {name}",
-      "html_body": "{{block:abcona_header_blau}}\n{{block:label_info}}\n<p>Hallo {name},</p>\n<p>Wir melden uns, da wir derzeit aktiv nach Experten mit Ihrem Profil suchen und Ihnen gerne <strong>spannende Projekte</strong> vorstellen möchten.</p>\n<p>Dürfen wir fragen:</p>\n<ul>\n  <li>Sind Sie aktuell oder in Kürze wieder verfügbar?</li>\n  <li>Ab wann und in welchem Umfang?</li>\n  <li>Haben sich Ihre Schwerpunkte oder Konditionen geändert?</li>\n</ul>\n<p>Falls Sie uns Ihr aktuelles Profil / CV zusenden möchten, würden wir uns sehr freuen — gerne als PDF an <a href=\"mailto:{sender_email}\">{sender_email}</a>.</p>\n{{block:signature}}",
-      "text_body": "abcona e. K.\n\nInformation\n\nHallo {name},\n\nWir melden uns, da wir derzeit aktiv nach Experten mit Ihrem Profil suchen und Ihnen gerne spannende Projekte vorstellen möchten.\n\nDürfen wir fragen:\n\nSind Sie aktuell oder in Kürze wieder verfügbar?\n\nAb wann und in welchem Umfang?\n\nHaben sich Ihre Schwerpunkte oder Konditionen geändert?\n\nFalls Sie uns Ihr aktuelles Profil / CV zusenden möchten, würden wir uns sehr freuen — gerne als PDF an {sender_email}.\n\n{signature}\n",
-      "variables": [
-        {
-          "name": "first_name",
-          "type": "string",
-          "required": true
-        },
-        {
-          "name": "last_name",
-          "type": "string",
-          "required": true
-        },
-        {
-          "name": "sender_name",
-          "type": "string",
-          "required": false
-        },
-        {
-          "name": "sender_email",
-          "type": "string",
-          "required": false
-        }
-      ],
-      "translation_languages": [],
-      "status": "ACTIVE",
-      "active_version": 7,
-      "include_signature": true,
-      "signature_mode": "USER",
-      "usage_count": 0,
-      "last_used_at": null,
-      "created_by": null,
-      "created_at": "2026-06-04T17:34:48.736Z",
-      "updated_at": "2026-07-17T12:08:13.018Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 10,
-    "fields": {
-      "identifier": "crm_firmenprofil",
-      "name": "CRM — Firmenprofil & Leistungen",
-      "description": "Vorstellung abcona Leistungen an Kunden/Interessenten",
-      "app_scope": "general",
-      "event_type": "crm_manual",
-      "sender_mode": "USER",
-      "sender_account": 1,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "abcona e. K. — Unsere Leistungen für {name}",
-      "html_body": "{{block:abcona_header_blau}}\n{{block:label_info}}\n<p>Sehr geehrter {name},</p>\n<p>vielen Dank für Ihr Interesse an einer Zusammenarbeit mit <strong>abcona e. K.</strong></p>\n<p>Wir sind spezialisiert auf die <strong>Vermittlung von IT-Freelancern und Spezialisten</strong> und unterstützen Unternehmen dabei, die passenden Experten für ihre Projekte zu finden — schnell, zuverlässig und auf Augenhöhe.</p>\n<h3 style=\"color:#1a2744;margin-top:16px\">Unsere Leistungen im Überblick</h3>\n<ul>\n  <li><strong>Freelancer-Vermittlung</strong> — IT, Engineering, Management</li>\n  <li><strong>Projektbesetzung</strong> — kurz- und langfristig</li>\n  <li><strong>Profil-Matching</strong> — aus unserem Netzwerk von {berater_anzahl}+ Experten</li>\n  <li><strong>Schnelle Reaktionszeit</strong> — erste Profile innerhalb von 48 Stunden</li>\n</ul>\n<p>Gerne stellen wir Ihnen passende Profile für Ihre aktuellen oder geplanten Projekte vor.<br>\nHaben Sie konkrete Anforderungen? Schreiben Sie uns einfach zurück oder rufen Sie uns an.</p>\n{{block:signature}}",
-      "text_body": "abcona e. K.\n\nInformation\n\nSehr geehrter {name},\n\nvielen Dank für Ihr Interesse an einer Zusammenarbeit mit abcona e. K.\n\nWir sind spezialisiert auf die Vermittlung von IT-Freelancern und Spezialisten und unterstützen Unternehmen dabei, die passenden Experten für ihre Projekte zu finden — schnell, zuverlässig und auf Augenhöhe.\n\nUnsere Leistungen im Überblick\n\nFreelancer-Vermittlung — IT, Engineering, Management\n\nProjektbesetzung — kurz- und langfristig\n\nProfil-Matching — aus unserem Netzwerk von {berater_anzahl}+ Experten\n\nSchnelle Reaktionszeit — erste Profile innerhalb von 48 Stunden\n\nGerne stellen wir Ihnen passende Profile für Ihre aktuellen oder geplanten Projekte vor.\n\nHaben Sie konkrete Anforderungen? Schreiben Sie uns einfach zurück oder rufen Sie uns an.\n\n{signature}\n",
-      "variables": [
-        {
-          "name": "contact_name",
-          "type": "string",
-          "required": true
-        },
-        {
-          "name": "contact_salutation",
-          "type": "string",
-          "required": false
-        },
-        {
-          "name": "firma_name",
-          "type": "string",
-          "required": false
-        },
-        {
-          "name": "berater_anzahl",
-          "type": "string",
-          "required": false
-        },
-        {
-          "name": "sender_name",
-          "type": "string",
-          "required": false
-        },
-        {
-          "name": "sender_email",
-          "type": "string",
-          "required": false
-        }
-      ],
-      "translation_languages": [],
-      "status": "ACTIVE",
-      "active_version": 9,
-      "include_signature": true,
-      "signature_mode": "USER",
-      "usage_count": 0,
-      "last_used_at": null,
-      "created_by": null,
-      "created_at": "2026-06-04T17:34:48.746Z",
-      "updated_at": "2026-07-17T12:08:13.053Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 11,
-    "fields": {
-      "identifier": "meetme_invite_vertrag",
-      "name": "Einladung — Vertrag",
-      "description": "",
-      "app_scope": "telefon",
-      "event_type": "meetme_invite",
-      "sender_mode": "USER",
-      "sender_account": null,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "Einladung: {title} am {termin_datum}",
-      "html_body": "{{block:abcona_header_blau}}<p>Guten Tag {name},</p><p>hiermit laden wir Sie herzlich zu unserem Termin \"{title}\" ein.</p><p>Termin: {termin_datum} um {termin_uhrzeit}<br>Konferenzraum: {raum}<br>{einwahl_info}</p><p>Am Gespräch nehmen teil:<br>{teilnehmer_liste_html}</p><p>Falls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:<br>E-Mail: office@abcona.de<br>Telefon: 06171 886710<br>Vertrieb: 06171 886712</p><p>Wir freuen uns auf das Gespräch mit Ihnen.</p><p>Viele Grüße</p>",
-      "text_body": "abcona e. K.\n\nGuten Tag {name},\n\nhiermit laden wir Sie herzlich zu unserem Termin \"{title}\" ein.\n\nTermin: {termin_datum} um {termin_uhrzeit}\nKonferenzraum: {raum}\n{einwahl_info}\n\nAm Gespräch nehmen teil:\n{teilnehmer_liste_html}\n\nFalls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:\nE-Mail: office@abcona.de\nTelefon: 06171 886710\nVertrieb: 06171 886712\n\nWir freuen uns auf das Gespräch mit Ihnen.\n\nViele Grüße\n",
-      "variables": [
-        {
-          "name": "name",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "title",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "termin_datum",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "termin_uhrzeit",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "raum",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "einwahl_info",
-          "type": "string",
-          "source": "context",
-          "required": false
-        }
-      ],
-      "translation_languages": [],
-      "status": "ACTIVE",
-      "active_version": 4,
-      "include_signature": false,
-      "signature_mode": "USER",
-      "usage_count": 1,
-      "last_used_at": "2026-07-08T14:46:37.338Z",
-      "created_by": null,
-      "created_at": "2026-07-08T14:46:26.117Z",
-      "updated_at": "2026-07-17T11:10:35.949Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 12,
-    "fields": {
-      "identifier": "meetme_invite_vorstellung",
-      "name": "Einladung — Vorstellung",
-      "description": "",
-      "app_scope": "telefon",
-      "event_type": "meetme_invite",
-      "sender_mode": "USER",
-      "sender_account": null,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "Termin: Vorstellung unseres Beraters am {termin_datum}",
-      "html_body": "{{block:abcona_header_blau}}<p>Guten Tag {name},</p><p>wir möchten Ihnen gerne unseren Berater vorstellen und laden Sie herzlich zu folgendem Termin ein.</p><p>Termin: {termin_datum} um {termin_uhrzeit}<br>Konferenzraum: {raum}<br>{einwahl_info}</p><p>Am Gespräch nehmen teil:<br>{teilnehmer_liste_html}</p><p>Falls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:<br>E-Mail: office@abcona.de<br>Telefon: 06171 886710<br>Vertrieb: 06171 886712</p><p>Wir freuen uns auf das Gespräch mit Ihnen.</p><p>Viele Grüße</p>",
-      "text_body": "abcona e. K.\n\nGuten Tag {name},\n\nwir möchten Ihnen gerne unseren Berater vorstellen und laden Sie herzlich zu folgendem Termin ein.\n\nTermin: {termin_datum} um {termin_uhrzeit}\nKonferenzraum: {raum}\n{einwahl_info}\n\nAm Gespräch nehmen teil:\n{teilnehmer_liste_html}\n\nFalls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:\nE-Mail: office@abcona.de\nTelefon: 06171 886710\nVertrieb: 06171 886712\n\nWir freuen uns auf das Gespräch mit Ihnen.\n\nViele Grüße\n",
-      "variables": [
-        {
-          "name": "name",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "title",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "termin_datum",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "termin_uhrzeit",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "raum",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "einwahl_info",
-          "type": "string",
-          "source": "context",
-          "required": false
-        }
-      ],
-      "translation_languages": [],
-      "status": "ACTIVE",
-      "active_version": 4,
-      "include_signature": false,
-      "signature_mode": "USER",
-      "usage_count": 0,
-      "last_used_at": null,
-      "created_by": null,
-      "created_at": "2026-07-08T14:46:26.429Z",
-      "updated_at": "2026-07-17T11:10:35.968Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 13,
-    "fields": {
-      "identifier": "meetme_invite_abstimmung",
-      "name": "Einladung — Abstimmung",
-      "description": "",
-      "app_scope": "telefon",
-      "event_type": "meetme_invite",
-      "sender_mode": "USER",
-      "sender_account": null,
-      "signature": 1,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "Kurze Abstimmung am {termin_datum}",
-      "html_body": "{{block:abcona_header_blau}}<p>Guten Tag {name},</p><p>wir möchten uns gerne kurz mit Ihnen abstimmen.</p><p>Termin: {termin_datum} um {termin_uhrzeit}<br>Konferenzraum: {raum}<br>{einwahl_info}</p><p>Am Gespräch nehmen teil:<br>{teilnehmer_liste_html}</p><p>Falls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:<br>E-Mail: office@abcona.de<br>Telefon: 06171 886710<br>Vertrieb: 06171 886712</p><p>Wir freuen uns auf das Gespräch mit Ihnen.</p>",
-      "text_body": "abcona e. K.\n\nGuten Tag {name},\n\nwir möchten uns gerne kurz mit Ihnen abstimmen.\n\nTermin: {termin_datum} um {termin_uhrzeit}\nKonferenzraum: {raum}\n{einwahl_info}\n\nAm Gespräch nehmen teil:\n{teilnehmer_liste_html}\n\nFalls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:\nE-Mail: office@abcona.de\nTelefon: 06171 886710\nVertrieb: 06171 886712\n\nWir freuen uns auf das Gespräch mit Ihnen.\n",
-      "variables": [
-        {
-          "name": "name",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "title",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "termin_datum",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "termin_uhrzeit",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "raum",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "einwahl_info",
-          "type": "string",
-          "source": "context",
-          "required": false
-        }
-      ],
-      "translation_languages": [],
-      "status": "ACTIVE",
-      "active_version": 37,
-      "include_signature": true,
-      "signature_mode": "USER",
-      "usage_count": 2,
-      "last_used_at": "2026-07-17T12:05:27.822Z",
-      "created_by": null,
-      "created_at": "2026-07-08T14:46:26.437Z",
-      "updated_at": "2026-07-17T11:10:35.913Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 14,
-    "fields": {
-      "identifier": "meetme_reschedule_standard",
-      "name": "Terminänderung — Standard",
-      "description": "",
-      "app_scope": "telefon",
-      "event_type": "meetme_reschedule",
-      "sender_mode": "TEMPLATE",
-      "sender_account": null,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "Terminänderung: {title}",
-      "html_body": "{{block:abcona_header_blau}}<p>Guten Tag {name},</p><p>der folgende Termin wurde verschoben:</p><p><strong>{title}</strong><br>Neu: {termin_datum} um {termin_uhrzeit}<br>Konferenzraum: {raum}<br>{einwahl_info}</p><p>Am Gespräch nehmen teil:<br>{teilnehmer_liste_html}</p><p>Viele Grüße</p>",
-      "text_body": "abcona e. K.\n\nGuten Tag {name},\n\nder folgende Termin wurde verschoben:\n\n{title}\nNeu: {termin_datum} um {termin_uhrzeit}\nKonferenzraum: {raum}\n{einwahl_info}\n\nAm Gespräch nehmen teil:\n{teilnehmer_liste_html}\n\nViele Grüße\n",
-      "variables": [],
-      "translation_languages": [],
-      "status": "ACTIVE",
-      "active_version": 3,
-      "include_signature": false,
-      "signature_mode": "USER",
-      "usage_count": 0,
-      "last_used_at": null,
-      "created_by": null,
-      "created_at": "2026-07-11T10:51:37.384Z",
-      "updated_at": "2026-07-17T11:10:36.040Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 15,
-    "fields": {
-      "identifier": "meetme_cancel_standard",
-      "name": "Terminabsage — Standard",
-      "description": "",
-      "app_scope": "telefon",
-      "event_type": "meetme_cancel",
-      "sender_mode": "TEMPLATE",
-      "sender_account": null,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "Terminabsage: {title}",
-      "html_body": "{{block:abcona_header_blau}}{{block:label_warnung}}<p>Guten Tag {name},</p><p>der folgende Termin musste leider abgesagt werden:</p><p><strong>{title}</strong><br>{termin_datum} um {termin_uhrzeit}</p><p>Wir melden uns, sobald ein neuer Termin feststeht.</p><p>Viele Grüße</p>",
-      "text_body": "abcona e. K.\nHandlungsbedarf\n\nGuten Tag {name},\n\nder folgende Termin musste leider abgesagt werden:\n\n{title}\n{termin_datum} um {termin_uhrzeit}\n\nWir melden uns, sobald ein neuer Termin feststeht.\n\nViele Grüße\n",
-      "variables": [],
-      "translation_languages": [],
-      "status": "ACTIVE",
-      "active_version": 4,
-      "include_signature": false,
-      "signature_mode": "USER",
-      "usage_count": 0,
-      "last_used_at": null,
-      "created_by": null,
-      "created_at": "2026-07-11T10:51:37.409Z",
-      "updated_at": "2026-07-17T11:10:36.005Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 16,
-    "fields": {
-      "identifier": "meetme_reminder_standard",
-      "name": "Erinnerung — Standard",
-      "description": "",
-      "app_scope": "telefon",
-      "event_type": "meetme_reminder",
-      "sender_mode": "USER",
-      "sender_account": null,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "Erinnerung: {title}",
-      "html_body": "{{block:abcona_header_blau}}<p>Guten Tag {name},</p><p>kurze Erinnerung an folgenden Termin:</p><p><strong>{title}</strong><br>Termin: {termin_datum} um {termin_uhrzeit}<br>Konferenzraum: {raum}<br>{einwahl_info}</p><p>Viele Grüße</p>",
-      "text_body": "abcona e. K.\n\nGuten Tag {name},\n\nkurze Erinnerung an folgenden Termin:\n\n{title}\nTermin: {termin_datum} um {termin_uhrzeit}\nKonferenzraum: {raum}\n{einwahl_info}\n\nViele Grüße\n",
-      "variables": [],
-      "translation_languages": [],
-      "status": "ACTIVE",
-      "active_version": 3,
-      "include_signature": false,
-      "signature_mode": "USER",
-      "usage_count": 0,
-      "last_used_at": null,
-      "created_by": null,
-      "created_at": "2026-07-13T11:08:41.580Z",
-      "updated_at": "2026-07-17T11:10:35.986Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 17,
-    "fields": {
-      "identifier": "meetme_invite_standard",
-      "name": "Einladung — Telefonkonferenz",
-      "description": "Generischer Standard fuer allgemeine Telefonkonferenz-Einladungen",
-      "app_scope": "telefon",
-      "event_type": "meetme_invite",
-      "sender_mode": "USER",
-      "sender_account": null,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "Einladung: Telefonkonferenz {title}",
-      "html_body": "{{block:abcona_header_blau}}<p>Guten Tag {name},</p><p>wir laden Sie herzlich zu einer Telefonkonferenz ein.</p><p>Termin: {termin_datum} um {termin_uhrzeit}<br>Konferenzraum: {raum}<br>{einwahl_info}</p><p>Am Gespraech nehmen teil:<br>{teilnehmer_liste_html}</p><p>Falls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:<br>E-Mail: office@abcona.de<br>Telefon: 06171 886710<br>Vertrieb: 06171 886712</p><p>Wir freuen uns auf das Gespraech mit Ihnen.</p><p>Viele Gruesse</p>",
-      "text_body": "abcona e. K.\n\nGuten Tag {name},\n\nwir laden Sie herzlich zu einer Telefonkonferenz ein.\n\nTermin: {termin_datum} um {termin_uhrzeit}\nKonferenzraum: {raum}\n{einwahl_info}\n\nAm Gespraech nehmen teil:\n{teilnehmer_liste_html}\n\nFalls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:\nE-Mail: office@abcona.de\nTelefon: 06171 886710\nVertrieb: 06171 886712\n\nWir freuen uns auf das Gespraech mit Ihnen.\n\nViele Gruesse\n",
-      "variables": [
-        {
-          "name": "name",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "title",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "termin_datum",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "termin_uhrzeit",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "raum",
-          "type": "string",
-          "source": "context",
-          "required": true
-        },
-        {
-          "name": "einwahl_info",
-          "type": "string",
-          "source": "context",
-          "required": false
-        }
-      ],
-      "translation_languages": [],
-      "status": "ACTIVE",
-      "active_version": 3,
-      "include_signature": false,
-      "signature_mode": "USER",
-      "usage_count": 0,
-      "last_used_at": null,
-      "created_by": null,
-      "created_at": "2026-07-13T16:19:32.009Z",
-      "updated_at": "2026-07-17T11:10:35.931Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailtemplate",
-    "pk": 18,
-    "fields": {
-      "identifier": "test",
-      "name": "Test",
-      "description": "",
-      "app_scope": "general",
-      "event_type": "general",
-      "sender_mode": "TEMPLATE",
-      "sender_account": null,
-      "signature": null,
-      "cc_emails": "",
-      "bcc_emails": "",
-      "subject": "Test",
-      "html_body": "<div>\n                    <div>abcona e. K.</div>\n                </div>\n                <div>\n                    <div data-i18n-placeholder=\"es.wysiwyg_click_to_edit\">\n                        <p>Hallo <strong>{name}</strong>,</p>\n                        <p>Ihr Berater-Profil wurde erfolgreich erstellt.</p>\n                    </div>\n                </div>\n                <div>\n                    <div>\n                        <a href=\"{button_url}\">{button_text}</a>\n                    </div>\n                </div>\n                <div>\n                    <div>\n                        {sender_name} · {sender_email} · abcona e. K.\n                    </div>\n                </div>\n                {{block:signature}}",
-      "text_body": "abcona e. K.\n\nHallo {name},\n\nIhr Berater-Profil wurde erfolgreich erstellt.\n\n{button_text}\n\n{sender_name} · {sender_email} · abcona e. K.\n\n{signature}\n",
-      "variables": [],
-      "translation_languages": [],
-      "status": "DRAFT",
-      "active_version": 1,
-      "include_signature": true,
-      "signature_mode": "USER",
-      "usage_count": 0,
-      "last_used_at": null,
-      "created_by": 1,
-      "created_at": "2026-07-16T12:24:48.090Z",
-      "updated_at": "2026-07-16T12:24:48.090Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailsignature",
-    "pk": 1,
-    "fields": {
-      "name": "Angelo Malaguarnera — Inhaber",
-      "identifier": "sig_angelo_malaguarnera",
-      "html_body": "<div style=\"font-family:Arial,sans-serif;font-size:12px;color:#333;border-top:1px solid #dee2e6;margin-top:16px;padding-top:12px;\">\n<p style=\"margin:0 0 4px;\">Für weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung und verbleibe</p>\n<p style=\"margin:0 0 8px;\">mit freundlichen Grüßen</p>\n<p style=\"margin:0;font-weight:600;color:#163258;\">Angelo Malaguarnera</p>\n<p style=\"margin:0;color:#6c757d;\">Inhaber</p>\n<p style=\"margin:4px 0 0;\">\n  E-Mail: <a href=\"mailto:am@abcona.de\" style=\"color:#163258;\">am@abcona.de</a><br>\n  Mobil: +49 0 178 88867 12<br>\n  Telefon: +49 0 6171 8867 12\n</p>\n<p style=\"margin:8px 0 0;color:#6c757d;font-size:11px;\">\n  abcona e. K. | active business consulting agency<br>\n  Bornhohl 26 | D-61449 Steinbach/Ts.<br>\n  USt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>\n  Inhaber: Angelo Malaguarnera\n</p>\n</div>",
-      "text_body": "--\nFür weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung und verbleibe\n\nmit freundlichen Grüßen\n\nAngelo Malaguarnera\nInhaber\nE-Mail: am@abcona.de\nMobil:    +49 0 178 88867 12\nTelefon: +49 0 6171 8867 12\n\nabcona e. K. | active business consulting agency\nBornhohl 26 | D-61449 Steinbach/Ts.\nUSt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera",
-      "sender_account": null,
-      "is_default": true,
-      "is_public": true,
-      "created_by": null,
-      "created_at": "2026-05-18T12:54:14.845Z",
-      "updated_at": "2026-05-18T12:54:14.845Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailsignature",
-    "pk": 2,
-    "fields": {
-      "name": "Tanja Gramatte — Office",
-      "identifier": "sig_tanja_gramatte",
-      "html_body": "<div style=\"font-family:Arial,sans-serif;font-size:12px;color:#333;border-top:1px solid #dee2e6;margin-top:16px;padding-top:12px;\">\n<p style=\"margin:0 0 4px;\">Für weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung.</p>\n<p style=\"margin:0 0 8px;\">Mit freundlichen Grüßen</p>\n<p style=\"margin:0;font-weight:600;color:#163258;\">Tanja Gramatte</p>\n<p style=\"margin:0;color:#6c757d;\">Office</p>\n<p style=\"margin:4px 0 0;\">\n  E-Mail: <a href=\"mailto:tg@abcona.de\" style=\"color:#163258;\">tg@abcona.de</a>\n</p>\n<p style=\"margin:8px 0 0;color:#6c757d;font-size:11px;\">\n  abcona e. K. | active business consulting agency<br>\n  Bornhohl 26 | D-61449 Steinbach/Ts.<br>\n  Telefon: +49 (0) 6171 8867 12 | Fax: +49 (0) 6171 8867 09<br>\n  E-Mail: <a href=\"mailto:office@abcona.de\" style=\"color:#163258;\">office@abcona.de</a> |\n  <a href=\"http://www.abcona.de\" style=\"color:#163258;\">www.abcona.de</a><br>\n  USt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>\n  Inhaber: Angelo Malaguarnera\n</p>\n</div>",
-      "text_body": "--\nFür weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung.\n\nMit freundlichen Grüßen\n\nTanja Gramatte\nOffice\nE-Mail: tg@abcona.de\n\nabcona e. K. | active business consulting agency\nBornhohl 26 | D-61449 Steinbach/Ts.\nTelefon: +49 (0) 6171 8867 12 | Fax: +49 (0) 6171 8867 09\nE-Mail: office@abcona.de | www.abcona.de\nUSt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera",
-      "sender_account": null,
-      "is_default": false,
-      "is_public": true,
-      "created_by": null,
-      "created_at": "2026-05-18T12:54:14.876Z",
-      "updated_at": "2026-05-18T12:54:14.876Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailsignature",
-    "pk": 3,
-    "fields": {
-      "name": "Annett Michallik",
-      "identifier": "sig_annett_michallik",
-      "html_body": "<div style=\"font-family:Arial,sans-serif;font-size:12px;color:#333;border-top:1px solid #dee2e6;margin-top:16px;padding-top:12px;\">\r\n<p style=\"margin:0 0 4px;\">Für weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung und verbleibe</p>\r\n<p style=\"margin:0 0 8px;\">mit freundlichen Grüßen</p>\r\n<p style=\"margin:0;font-weight:600;color:#163258;\">Annett Michallik</p>\r\n<p style=\"margin:4px 0 0;\">\r\n  E-Mail: <a href=\"mailto:am2@abcona.de\" style=\"color:#163258;\">am2@abcona.de</a><br>\r\n  Mobil: +49 0 178 88867 22<br>\r\n  Telefon: +49 0 6171 88867 22\r\n</p>\r\n<p style=\"margin:8px 0 0;color:#6c757d;font-size:11px;\">\r\n  abcona e. K. | active business consulting agency<br>\r\n  Bornhohl 26 | D-61449 Steinbach/Ts.<br>\r\n  USt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>\r\n  Inhaber: Angelo Malaguarnera\r\n</p>\r\n</div>",
-      "text_body": "--\r\nFür weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung und verbleibe\r\n\r\nmit freundlichen Grüßen\r\n\r\nAnnett Michallik\r\nE-Mail: am2@abcona.de\r\nMobil:    +49 0 178 88867 22\r\nTelefon: +49 0 6171 88867 22\r\n\r\nabcona e. K. | active business consulting agency\r\nBornhohl 26 | D-61449 Steinbach/Ts.\r\nUSt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662\r\nInhaber: Angelo Malaguarnera",
-      "sender_account": null,
-      "is_default": false,
-      "is_public": true,
-      "created_by": null,
-      "created_at": "2026-05-18T12:54:14.881Z",
-      "updated_at": "2026-05-18T13:33:44.079Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailsignature",
-    "pk": 4,
-    "fields": {
-      "name": "Verena Neugebauer — Office",
-      "identifier": "sig_verena_neugebauer",
-      "html_body": "<div style=\"font-family:Arial,sans-serif;font-size:12px;color:#333;border-top:1px solid #dee2e6;margin-top:16px;padding-top:12px;\">\n<p style=\"margin:0 0 4px;\">Für weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung.</p>\n<p style=\"margin:0 0 8px;\">Mit freundlichen Grüßen</p>\n<p style=\"margin:0;font-weight:600;color:#163258;\">Verena Neugebauer</p>\n<p style=\"margin:0;color:#6c757d;\">Office</p>\n<p style=\"margin:4px 0 0;\">\n  E-Mail: <a href=\"mailto:vn@abcona.de\" style=\"color:#163258;\">vn@abcona.de</a>\n</p>\n<p style=\"margin:8px 0 0;color:#6c757d;font-size:11px;\">\n  abcona e. K. | active business consulting agency<br>\n  Bornhohl 26 | D-61449 Steinbach/Ts.<br>\n  Telefon: +49 (0) 6171 8867 12 | Fax: +49 (0) 6171 8867 09<br>\n  E-Mail: <a href=\"mailto:office@abcona.de\" style=\"color:#163258;\">office@abcona.de</a> |\n  <a href=\"http://www.abcona.de\" style=\"color:#163258;\">www.abcona.de</a><br>\n  USt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>\n  Inhaber: Angelo Malaguarnera\n</p>\n</div>",
-      "text_body": "--\nFür weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung.\n\nMit freundlichen Grüßen\n\nVerena Neugebauer\nOffice\nE-Mail: vn@abcona.de\n\nabcona e. K. | active business consulting agency\nBornhohl 26 | D-61449 Steinbach/Ts.\nTelefon: +49 (0) 6171 8867 12 | Fax: +49 (0) 6171 8867 09\nE-Mail: office@abcona.de | www.abcona.de\nUSt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera",
-      "sender_account": null,
-      "is_default": false,
-      "is_public": true,
-      "created_by": null,
-      "created_at": "2026-05-18T12:54:14.886Z",
-      "updated_at": "2026-05-18T12:54:14.886Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailsignature",
-    "pk": 5,
-    "fields": {
-      "name": "Team abcona e.K.",
-      "identifier": "sig_team",
-      "html_body": "<div style=\"font-family:Arial,sans-serif;font-size:12px;color:#333;border-top:1px solid #dee2e6;margin-top:16px;padding-top:12px;\">\r\n<p style=\"margin:0 0 4px;\">Für weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung und verbleibe</p>\r\n<p style=\"margin:0 0 8px;\">mit freundlichen Grüßen</p>\r\n<p style=\"margin:0;font-weight:600;color:#163258;\">Ihr abcona e.K. Team</p>\r\n<p style=\"margin:0;color:#6c757d;\">Inhaber</p>\r\n<p style=\"margin:4px 0 0;\">\r\n  E-Mail: <a href=\"mailto:info@abcona.de\" style=\"color:#163258;\">am@abcona.de</a><br>\r\n  Mobil: +49 0 178 88867 10<br>\r\n  Telefon: +49 0 6171 8867 10\r\n</p>\r\n<p style=\"margin:8px 0 0;color:#6c757d;font-size:11px;\">\r\n  abcona e. K. | active business consulting agency<br>\r\n  Bornhohl 26 | D-61449 Steinbach/Ts.<br>\r\n  USt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>\r\n  Inhaber: Angelo Malaguarnera\r\n</p>\r\n</div>",
-      "text_body": "Für weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung und verbleibe\r\n\r\nmit freundlichen Grüßen\r\n\r\nIhr abcona e.K. Team\r\nE-Mail: info@abcona.de\r\nMobil:    +49 0 178 88867 10\r\nTelefon: +49 0 6171 8867 10\r\n\r\nabcona e. K. | active business consulting agency\r\nBornhohl 26 | D-61449 Steinbach/Ts.\r\nUSt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662\r\nInhaber: Angelo Malaguarnera",
-      "sender_account": null,
-      "is_default": false,
-      "is_public": true,
-      "created_by": null,
-      "created_at": "2026-07-17T08:38:50.897Z",
-      "updated_at": "2026-07-17T08:39:32.507Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailsenderaccount",
-    "pk": 1,
-    "fields": {
-      "email": "am@abcona.de",
-      "display_name": "Angelo Malaguarnera",
-      "sender_mode": "TEMPLATE",
-      "is_default": true,
-      "is_active": true,
-      "description": "",
-      "created_at": "2026-06-04T16:50:18.486Z",
-      "updated_at": "2026-06-04T16:50:18.486Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailsenderaccount",
-    "pk": 2,
-    "fields": {
-      "email": "tg@abcona.de",
-      "display_name": "Tanja Gramatte",
-      "sender_mode": "TEMPLATE",
-      "is_default": false,
-      "is_active": true,
-      "description": "",
-      "created_at": "2026-06-04T16:50:18.533Z",
-      "updated_at": "2026-06-04T16:50:18.533Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailsenderaccount",
-    "pk": 3,
-    "fields": {
-      "email": "vn@abcona.de",
-      "display_name": "Verena Neugebauer",
-      "sender_mode": "TEMPLATE",
-      "is_default": false,
-      "is_active": true,
-      "description": "",
-      "created_at": "2026-06-04T16:50:18.538Z",
-      "updated_at": "2026-06-04T16:50:18.538Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailsenderaccount",
-    "pk": 4,
-    "fields": {
-      "email": "info@abcona.de",
-      "display_name": "abcona e. K.",
-      "sender_mode": "TEMPLATE",
-      "is_default": false,
-      "is_active": true,
-      "description": "",
-      "created_at": "2026-06-04T16:50:18.544Z",
-      "updated_at": "2026-06-04T16:50:18.544Z"
-    }
-  },
-  {
-    "model": "abpe_email_studio.emailsenderaccount",
-    "pk": 5,
-    "fields": {
-      "email": "am2@abcona.de",
-      "display_name": "Annett Michallik",
-      "sender_mode": "TEMPLATE",
-      "is_default": false,
-      "is_active": true,
-      "description": "",
-      "created_at": "2026-06-04T16:55:52.193Z",
-      "updated_at": "2026-06-04T16:55:52.193Z"
-    }
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 1,
+  "fields": {
+    "identifier": "abcona_header_blau",
+    "name": "Header — Blau",
+    "module_type": "HEADER",
+    "description": "Header — Blau",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#163258;padding:22px 28px;text-align:left;\"><span style=\"color:white;font-size:19px;font-weight:600;font-family:Arial,Helvetica,sans-serif;letter-spacing:0.2px;\">abcona e. K.</span></td></tr></tbody></table>",
+    "text_body": "abcona e. K.\n",
+    "preview_bg": "#163258",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-05-18T18:48:42.854Z",
+    "updated_at": "2026-07-18T14:48:20.780Z"
   }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 2,
+  "fields": {
+    "identifier": "abcona_header_rot",
+    "name": "Header — Rot (Fehler)",
+    "module_type": "HEADER",
+    "description": "Header — Rot (Fehler)",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#dc3545;padding:16px 24px;text-align:center;\"><span style=\"color:white;font-size:18px;font-weight:bold;font-family:Arial,Helvetica,sans-serif;\">abcona e. K.</span></td></tr></tbody></table>",
+    "text_body": "abcona e. K.\n",
+    "preview_bg": "#dc3545",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-05-18T18:48:42.862Z",
+    "updated_at": "2026-07-18T14:48:20.809Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 3,
+  "fields": {
+    "identifier": "abcona_header_gruen",
+    "name": "Header — Grün (Erfolg)",
+    "module_type": "HEADER",
+    "description": "Header — Grün (Erfolg)",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#28a745;padding:16px 24px;text-align:center;\"><span style=\"color:white;font-size:18px;font-weight:bold;font-family:Arial,Helvetica,sans-serif;\">abcona e. K.</span></td></tr></tbody></table>",
+    "text_body": "abcona e. K.\n",
+    "preview_bg": "#28a745",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-05-18T18:48:42.867Z",
+    "updated_at": "2026-07-18T14:48:20.819Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 4,
+  "fields": {
+    "identifier": "footer_standard",
+    "name": "Footer Standard",
+    "module_type": "FOOTER",
+    "description": "Footer Standard",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8fafc;padding:14px 24px;font-size:11px;line-height:1.5;color:#6c757d;text-align:left;font-family:Arial,Helvetica,sans-serif;\">abcona e. K. | active business consulting agency<br>Bornhohl 26<br>D-61449 Steinbach/Ts.<br><br>USt-ID: DE813519516<br>Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>Inhaber: Angelo Malaguarnera</td></tr></tbody></table>",
+    "text_body": "abcona e. K. | active business consulting agency\nBornhohl 26\nD-61449 Steinbach/Ts.\n\nUSt-ID: DE813519516\nAmtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera",
+    "preview_bg": "#f8fafc",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-05-18T18:48:42.884Z",
+    "updated_at": "2026-07-18T14:48:20.825Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 5,
+  "fields": {
+    "identifier": "footer_auto_reply",
+    "name": "Footer Auto-Reply",
+    "module_type": "FOOTER",
+    "description": "Footer Auto-Reply",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8fafc;padding:14px 24px;font-size:11px;line-height:1.5;color:#6c757d;text-align:left;font-family:Arial,Helvetica,sans-serif;\">abcona e. K. | active business consulting agency<br>Bornhohl 26<br>D-61449 Steinbach/Ts.<br><br>USt-ID: DE813519516<br>Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>Inhaber: Angelo Malaguarnera<br><br><strong>Bitte nicht auf diese E-Mail antworten.</strong></td></tr></tbody></table>",
+    "text_body": "abcona e. K. | active business consulting agency\nBornhohl 26\nD-61449 Steinbach/Ts.\n\nUSt-ID: DE813519516\nAmtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera\n\nBitte nicht auf diese E-Mail antworten.",
+    "preview_bg": "#f8fafc",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-05-18T18:48:42.891Z",
+    "updated_at": "2026-07-18T14:48:20.831Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 6,
+  "fields": {
+    "identifier": "cta_blau",
+    "name": "Button — Blau",
+    "module_type": "BUTTON",
+    "description": "Button — Blau",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"padding:16px 24px;\"><a href=\"{button_url}\" style=\"display:inline-block;background:#163258;color:white;padding:10px 24px;border-radius:5px;text-decoration:none;font-weight:600;font-family:Arial,Helvetica,sans-serif;\">{button_text}</a></td></tr></tbody></table>",
+    "text_body": "{button_text}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-05-18T18:48:42.898Z",
+    "updated_at": "2026-07-18T14:48:20.838Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 7,
+  "fields": {
+    "identifier": "cta_gruen",
+    "name": "Button — Grün",
+    "module_type": "BUTTON",
+    "description": "Button — Grün",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"padding:16px 24px;\"><a href=\"{button_url}\" style=\"display:inline-block;background:#28a745;color:white;padding:10px 24px;border-radius:5px;text-decoration:none;font-weight:600;font-family:Arial,Helvetica,sans-serif;\">{button_text}</a></td></tr></tbody></table>",
+    "text_body": "{button_text}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-05-18T18:48:42.918Z",
+    "updated_at": "2026-07-18T14:48:20.844Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 8,
+  "fields": {
+    "identifier": "support_kontakt",
+    "name": "Support Kontakt",
+    "module_type": "SECTION",
+    "description": "Support Kontakt",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"padding:0 24px 16px;font-family:Arial,Helvetica,sans-serif;\"><table style=\"background:#f0f0f0;padding:12px;width:100%;border-radius:5px;text-align:center;font-size:12px;\"><tr><td><strong>Benötigen Sie Hilfe?</strong><br>Angelo Malaguarnera | Inhaber<br>am@abcona.de | +49 178 8886712 | +49 6171 886712<br>abcona e. K. | Bornhohl 26 | 61449 Steinbach</td></tr></table></td></tr></tbody></table>",
+    "text_body": "Benötigen Sie Hilfe?\nAngelo Malaguarnera | Inhaber\nam@abcona.de | +49 178 8886712 | +49 6171 886712\nabcona e. K. | Bornhohl 26 | 61449 Steinbach\n",
+    "preview_bg": "#f0f0f0",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-05-18T18:48:42.934Z",
+    "updated_at": "2026-07-18T14:48:20.851Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 9,
+  "fields": {
+    "identifier": "label_info",
+    "name": "Label — Information",
+    "module_type": "SECTION",
+    "description": "Dezentes Info-Label, direkt unter dem Header einzufuegen.",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"padding:20px 28px 0;\"><span style=\"display:inline-block;background:#e8f0f8;color:#0c447c;font-size:11px;font-weight:500;padding:3px 10px;border-radius:3px;font-family:Arial,sans-serif;\">Information</span></td></tr></tbody></table>",
+    "text_body": "Information\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T09:04:40.449Z",
+    "updated_at": "2026-07-18T14:48:20.857Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 10,
+  "fields": {
+    "identifier": "label_warnung",
+    "name": "Label — Handlungsbedarf",
+    "module_type": "SECTION",
+    "description": "Dezentes Warnungs-Label, direkt unter dem Header einzufuegen.",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"padding:20px 28px 0;\"><span style=\"display:inline-block;background:#f8d7da;color:#721c24;font-size:11px;font-weight:500;padding:3px 10px;border-radius:3px;font-family:Arial,sans-serif;\">Handlungsbedarf</span></td></tr></tbody></table>",
+    "text_body": "Handlungsbedarf\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T09:04:40.518Z",
+    "updated_at": "2026-07-18T14:48:20.864Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 11,
+  "fields": {
+    "identifier": "label_bestaetigt",
+    "name": "Label — Bestätigt",
+    "module_type": "SECTION",
+    "description": "Dezentes Bestaetigungs-Label, direkt unter dem Header einzufuegen.",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"padding:20px 28px 0;\"><span style=\"display:inline-block;background:#d4edda;color:#155724;font-size:11px;font-weight:500;padding:3px 10px;border-radius:3px;font-family:Arial,sans-serif;\">Bestätigt</span></td></tr></tbody></table>",
+    "text_body": "Bestätigt\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T09:04:40.532Z",
+    "updated_at": "2026-07-18T14:48:20.870Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 12,
+  "fields": {
+    "identifier": "quote_highlight",
+    "name": "Hervorhebungs-Zitat",
+    "module_type": "SECTION",
+    "description": "Zentriertes, getoentes Zitat/Hinweis fuer eine einzelne wichtige Aussage.",
+    "html_body": "<div style=\"background:#e8f0f8;padding:18px 20px;border-radius:4px;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-style:italic;color:#0c447c;line-height:1.6;\">{quote_text}</div>",
+    "text_body": "{quote_text}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T14:12:29.971Z",
+    "updated_at": "2026-07-18T14:48:20.877Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 13,
+  "fields": {
+    "identifier": "contact_card",
+    "name": "Kontakt-Karte",
+    "module_type": "SECTION",
+    "description": "Ansprechpartner-Karte mit Initialen-Kreis, Name/Rolle und Kontaktdaten. Feste Felder: contact_initials, contact_name, contact_role, contact_email, contact_phone.",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;padding:14px 16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"width:36px;height:36px;border-radius:50%;background:#163258;color:#fff;text-align:center;vertical-align:middle;font-weight:600;font-size:13px;\">{contact_initials}</td><td style=\"padding-left:14px;line-height:1.6;\"><div style=\"font-weight:600;color:#163258;\">{contact_name} — {contact_role}</div><div>{contact_email} &middot; {contact_phone}</div></td></tr></table></td></tr></tbody></table>",
+    "text_body": "{contact_initials}\n{contact_name} — {contact_role}\n\n{contact_email} · {contact_phone}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T14:12:30.033Z",
+    "updated_at": "2026-07-18T14:48:20.883Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 14,
+  "fields": {
+    "identifier": "stat_box",
+    "name": "Kennzahl-Box",
+    "module_type": "SECTION",
+    "description": "Grosse hervorgehobene Kennzahl mit Beschriftung, z.B. Betrag oder Kennzahl. Feste Felder: stat_value, stat_label.",
+    "html_body": "<div style=\"background:#f8f9fa;border-radius:4px;padding:18px;text-align:center;font-family:Arial,Helvetica,sans-serif;color:#333;\"><div style=\"font-size:28px;font-weight:600;color:#163258;\">{stat_value}</div><div style=\"color:#6c757d;margin-top:4px;font-size:12px;\">{stat_label}</div></div>",
+    "text_body": "{stat_value}\n\n{stat_label}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T14:12:30.061Z",
+    "updated_at": "2026-07-18T14:48:20.890Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 15,
+  "fields": {
+    "identifier": "calendar_card",
+    "name": "Kalender-Karte",
+    "module_type": "SECTION",
+    "description": "Terminanzeige mit Kalenderblatt-Optik. Feste Felder: cal_month, cal_day, cal_title, cal_time, cal_location.",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;padding:14px 16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"background:#163258;color:#fff;border-radius:4px;width:52px;text-align:center;padding:6px 0;\"><div style=\"font-size:10px;text-transform:uppercase;\">{cal_month}</div><div style=\"font-size:20px;font-weight:600;line-height:1.1;\">{cal_day}</div></td><td style=\"padding-left:14px;line-height:1.6;\"><div style=\"font-weight:600;\">{cal_title}</div><div style=\"color:#6c757d;\">{cal_time} &middot; {cal_location}</div></td></tr></table></td></tr></tbody></table>",
+    "text_body": "{cal_month}\n\n{cal_day}\n\n{cal_title}\n\n{cal_time} · {cal_location}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T14:12:30.070Z",
+    "updated_at": "2026-07-18T14:48:20.896Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 16,
+  "fields": {
+    "identifier": "cta_with_secondary",
+    "name": "CTA mit Sekundaerlink",
+    "module_type": "BUTTON",
+    "description": "Haupt-Button plus dezenter Alternativ-Link darunter, z.B. Bestaetigen/Absagen. Feste Felder: button_url, button_text, secondary_url, secondary_text.",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"padding:18px;text-align:center;font-family:Arial,Helvetica,sans-serif;\"><a href=\"{button_url}\" style=\"display:inline-block;background:#163258;color:#fff;padding:10px 22px;border-radius:5px;text-decoration:none;font-weight:600;font-size:12px;\">{button_text}</a><div style=\"margin-top:10px;\"><a href=\"{secondary_url}\" style=\"color:#6c757d;text-decoration:underline;font-size:11px;\">{secondary_text}</a></div></td></tr></tbody></table>",
+    "text_body": "{button_text}\n{secondary_text}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T14:12:30.076Z",
+    "updated_at": "2026-07-18T14:48:20.903Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 17,
+  "fields": {
+    "identifier": "signature_lines",
+    "name": "Unterschriften-Block",
+    "module_type": "SECTION",
+    "description": "Zwei Unterschriftenlinien nebeneinander fuer Vertragsdokumente. Feste Felder: signer_1_label, signer_2_label.",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"padding:16px;width:50%;\"><div style=\"border-top:1px solid #333;padding-top:6px;margin-top:32px;\">{signer_1_label}</div></td><td style=\"padding:16px;width:50%;\"><div style=\"border-top:1px solid #333;padding-top:6px;margin-top:32px;\">{signer_2_label}</div></td></tr></table></td></tr></tbody></table>",
+    "text_body": "{signer_1_label}\n\n{signer_2_label}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T14:12:30.082Z",
+    "updated_at": "2026-07-18T14:48:20.911Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 18,
+  "fields": {
+    "identifier": "fakten_box",
+    "name": "Fakten-Box (3 Zeilen)",
+    "module_type": "SECTION",
+    "description": "Farbrand-Box fuer bis zu 3 Fakten-Zeilen. Feste Felder: fakt_1, fakt_2, fakt_3 (leer lassen als Leerstring, nicht weglassen). Bei abweichender Zeilenzahl direkt im Vorlagen-HTML kopieren und anpassen.",
+    "html_body": "<div style=\"background:#f8f9fa;border-left:3px solid #163258;border-radius:0 4px 4px 0;padding:14px 16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;line-height:1.9;\"><div>{fakt_1}</div><div>{fakt_2}</div><div>{fakt_3}</div></div>",
+    "text_body": "{fakt_1}\n\n{fakt_2}\n\n{fakt_3}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T14:12:30.086Z",
+    "updated_at": "2026-07-18T14:48:20.920Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 19,
+  "fields": {
+    "identifier": "steps_numbered",
+    "name": "Nummerierte-Schritte (3 Schritte)",
+    "module_type": "SECTION",
+    "description": "Nummerierte Kreise fuer Prozess-Erklaerungen. Feste Felder: schritt_1, schritt_2, schritt_3.",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;padding:14px 16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"width:24px;height:24px;background:#163258;color:#fff;border-radius:50%;text-align:center;vertical-align:middle;font-size:11px;\">1</td><td style=\"padding:4px 0 4px 10px;\">{schritt_1}</td></tr><tr><td style=\"width:24px;height:24px;background:#163258;color:#fff;border-radius:50%;text-align:center;vertical-align:middle;font-size:11px;\">2</td><td style=\"padding:4px 0 4px 10px;\">{schritt_2}</td></tr><tr><td style=\"width:24px;height:24px;background:#163258;color:#fff;border-radius:50%;text-align:center;vertical-align:middle;font-size:11px;\">3</td><td style=\"padding:4px 0 4px 10px;\">{schritt_3}</td></tr></table></td></tr></tbody></table>",
+    "text_body": "1{schritt_1}\n\n2{schritt_2}\n\n3{schritt_3}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T14:12:30.092Z",
+    "updated_at": "2026-07-18T14:48:20.931Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 20,
+  "fields": {
+    "identifier": "skill_tags",
+    "name": "Skill-Tag-Liste (4 Tags)",
+    "module_type": "SECTION",
+    "description": "Kompakte Tag-Chips, z.B. fuer CV-Zusammenfassungen. Feste Felder: skill_1, skill_2, skill_3, skill_4.",
+    "html_body": "<div style=\"background:#f8f9fa;border-radius:4px;padding:14px 16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><span style=\"background:#e8f0f8;color:#0c447c;padding:3px 10px;border-radius:3px;margin-right:6px;\">{skill_1}</span><span style=\"background:#e8f0f8;color:#0c447c;padding:3px 10px;border-radius:3px;margin-right:6px;\">{skill_2}</span><span style=\"background:#e8f0f8;color:#0c447c;padding:3px 10px;border-radius:3px;margin-right:6px;\">{skill_3}</span><span style=\"background:#e8f0f8;color:#0c447c;padding:3px 10px;border-radius:3px;\">{skill_4}</span></div>",
+    "text_body": "{skill_1}{skill_2}{skill_3}{skill_4}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T14:12:30.097Z",
+    "updated_at": "2026-07-18T14:48:20.944Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 21,
+  "fields": {
+    "identifier": "doc_attachment_list",
+    "name": "Dokumenten-Anhang-Liste (2 Dokumente)",
+    "module_type": "SECTION",
+    "description": "Anhang-Uebersicht mit Dateinamen, z.B. fuer Vertraege/Rechnungen. Feste Felder: dokument_1, dokument_2.",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;padding:6px 16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"padding:8px 0;border-bottom:1px solid #dee2e6;\">&#9656; {dokument_1}</td></tr><tr><td style=\"padding:8px 0;\">&#9656; {dokument_2}</td></tr></table></td></tr></tbody></table>",
+    "text_body": "▸ {dokument_1}\n\n▸ {dokument_2}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T14:12:30.102Z",
+    "updated_at": "2026-07-18T14:48:20.952Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 22,
+  "fields": {
+    "identifier": "compare_two_col",
+    "name": "Zwei-Spalten-Vergleich",
+    "module_type": "SECTION",
+    "description": "Alt/Neu-Vergleich nebeneinander, z.B. fuer Terminverschiebungen. Feste Felder: vergleich_alt_label, vergleich_alt_wert, vergleich_neu_label, vergleich_neu_wert.",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"padding:12px 16px;width:50%;border-right:1px solid #dee2e6;\"><div style=\"color:#6c757d;font-size:11px;margin-bottom:4px;\">{vergleich_alt_label}</div><div>{vergleich_alt_wert}</div></td><td style=\"padding:12px 16px;width:50%;\"><div style=\"color:#155724;font-size:11px;margin-bottom:4px;\">{vergleich_neu_label}</div><div style=\"font-weight:600;\">{vergleich_neu_wert}</div></td></tr></table></td></tr></tbody></table>",
+    "text_body": "{vergleich_alt_label}\n\n{vergleich_alt_wert}\n\n{vergleich_neu_label}\n\n{vergleich_neu_wert}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T14:12:30.107Z",
+    "updated_at": "2026-07-18T14:48:20.960Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 23,
+  "fields": {
+    "identifier": "price_table",
+    "name": "Preis-Leistungs-Tabelle (2 Positionen)",
+    "module_type": "SECTION",
+    "description": "Rechnungspositionen mit Summenzeile. Feste Felder: position_1_text, position_1_betrag, position_2_text, position_2_betrag, gesamt_betrag.",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr style=\"border-bottom:1px solid #dee2e6;\"><td style=\"padding:8px 16px;\">{position_1_text}</td><td style=\"padding:8px 16px;text-align:right;\">{position_1_betrag}</td></tr><tr style=\"border-bottom:1px solid #dee2e6;\"><td style=\"padding:8px 16px;\">{position_2_text}</td><td style=\"padding:8px 16px;text-align:right;\">{position_2_betrag}</td></tr><tr><td style=\"padding:10px 16px;font-weight:600;color:#163258;\">Gesamt</td><td style=\"padding:10px 16px;text-align:right;font-weight:600;color:#163258;\">{gesamt_betrag}</td></tr></table></td></tr></tbody></table>",
+    "text_body": "{position_1_text}{position_1_betrag}\n\n{position_2_text}{position_2_betrag}\n\nGesamt{gesamt_betrag}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T14:12:30.127Z",
+    "updated_at": "2026-07-18T14:48:20.969Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailmodule",
+  "pk": 24,
+  "fields": {
+    "identifier": "progress_bar",
+    "name": "Fortschritts-Leiste (3 Stufen)",
+    "module_type": "SECTION",
+    "description": "Pipeline-Statusanzeige mit 3 Stufen und Fortschrittsbalken. Feste Felder: stufe_1, stufe_2, stufe_3, progress_percent (Zahl 0-100).",
+    "html_body": "<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr><td style=\"background:#f8f9fa;border-radius:4px;padding:16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"color:#163258;font-weight:600;\">{stufe_1}</td><td style=\"color:#163258;font-weight:600;text-align:center;\">{stufe_2}</td><td style=\"color:#adb5bd;text-align:right;\">{stufe_3}</td></tr></table><div style=\"height:6px;background:#dee2e6;border-radius:3px;overflow:hidden;margin-top:8px;\"><div style=\"width:{progress_percent}%;height:100%;background:#163258;\"></div></div></td></tr></tbody></table>",
+    "text_body": "{stufe_1}{stufe_2}{stufe_3}\n",
+    "preview_bg": "#ffffff",
+    "is_active": true,
+    "created_by": null,
+    "created_at": "2026-07-17T14:12:30.132Z",
+    "updated_at": "2026-07-18T14:48:20.977Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 1,
+  "fields": {
+    "identifier": "cv_generated_berater",
+    "name": "CV fertig — Berater",
+    "description": "Benachrichtigung wenn ein Berater-CV fertig erstellt wurde",
+    "app_scope": "intake",
+    "event_type": "cv_generated",
+    "sender_mode": "USER",
+    "sender_account": null,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "Ihr Berater-Profil ist fertig — {name}",
+    "html_body": "{{block:abcona_header_blau}}\n{{block:label_bestaetigt}}\n<p>Hallo <strong>{name}</strong>,</p>\n<p>Ihr Berater-Profil wurde erfolgreich erstellt.</p>\n<a href=\"{cv_link}\" style=\"display:inline-block;background:#163258;color:white;padding:10px 20px;border-radius:5px;text-decoration:none;font-weight:600;\">Profil ansehen</a>\n<p style=\"margin:16px 0 0;font-size:12px;color:#6c757d;\">Version: {cv_version} &nbsp;·&nbsp; Erstellt am: {created_date}</p>\n{{block:signature}}",
+    "text_body": "abcona e. K.\n\nBestätigt\n\nHallo {name},\n\nIhr Berater-Profil wurde erfolgreich erstellt.\n\nProfil ansehen\n\nVersion: {cv_version}  ·  Erstellt am: {created_date}\n\n{signature}\n",
+    "variables": [
+      {
+        "name": "name",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "cv_link",
+        "type": "url",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "cv_version",
+        "type": "string",
+        "source": "context",
+        "required": false
+      },
+      {
+        "name": "created_date",
+        "type": "date",
+        "source": "context",
+        "required": false
+      },
+      {
+        "name": "sender_name",
+        "type": "string",
+        "source": "user",
+        "required": false
+      },
+      {
+        "name": "sender_email",
+        "type": "email",
+        "source": "user",
+        "required": false
+      }
+    ],
+    "translation_languages": [
+      "it"
+    ],
+    "status": "ACTIVE",
+    "active_version": 6,
+    "include_signature": true,
+    "signature_mode": "USER",
+    "usage_count": 3,
+    "last_used_at": "2026-06-02T09:05:24.131Z",
+    "created_by": null,
+    "created_at": "2026-05-18T11:22:54.471Z",
+    "updated_at": "2026-07-18T14:48:21.002Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 2,
+  "fields": {
+    "identifier": "upload_received",
+    "name": "Upload Bestätigung — Import",
+    "description": "Automatische Bestätigung nach CV-Import via E-Mail",
+    "app_scope": "intake",
+    "event_type": "upload_received",
+    "sender_mode": "AUTO",
+    "sender_account": null,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "ABpE Import Bestätigung: {original_subject}",
+    "html_body": "{{block:abcona_header_blau}}\n{{block:label_bestaetigt}}\n<p>Hallo,</p>\n<p>Ihre E-Mail wurde erfolgreich im ABpE System importiert!</p>\n<div style=\"background:#eef2f5;border-left:3px solid #10b981;border-radius:0 4px 4px 0;padding:14px 16px;font-size:12px;line-height:1.8;\">\n<div><strong>Original Betreff:</strong> {original_subject}</div>\n<div><strong>Import Zeit:</strong> {import_time}</div>\n<div><strong>E-Mail ID:</strong> {email_id}</div>\n<div><strong>Anhänge:</strong> {attachment_count} Datei(en)</div>\n</div>\n<p>Die Verarbeitung läuft nun im Hintergrund:</p>\n<ul style=\"font-size:12px;line-height:1.8;\">\n  <li>PDF wird analysiert</li>\n  <li>Informationen werden extrahiert</li>\n  <li>Daten werden kategorisiert</li>\n  <li>Profil wird erstellt</li>\n</ul>\n<p style=\"font-size:12px;color:#6c757d;\">Sie erhalten keine weiteren Benachrichtigungen zu dieser E-Mail.</p>\n{{block:footer_auto_reply}}",
+    "text_body": "abcona e. K.\n\nBestätigt\n\nHallo,\n\nIhre E-Mail wurde erfolgreich im ABpE System importiert!\n\nOriginal Betreff: {original_subject}\n\nImport Zeit: {import_time}\n\nE-Mail ID: {email_id}\n\nAnhänge: {attachment_count} Datei(en)\n\nDie Verarbeitung läuft nun im Hintergrund:\n\nPDF wird analysiert\n\nInformationen werden extrahiert\n\nDaten werden kategorisiert\n\nProfil wird erstellt\n\nSie erhalten keine weiteren Benachrichtigungen zu dieser E-Mail.\n\nabcona e. K. | active business consulting agency\nBornhohl 26\nD-61449 Steinbach/Ts.\n\nUSt-ID: DE813519516\nAmtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera\n\nBitte nicht auf diese E-Mail antworten.\n",
+    "variables": [
+      {
+        "name": "original_subject",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "import_time",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "email_id",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "attachment_count",
+        "type": "string",
+        "source": "context",
+        "required": true
+      }
+    ],
+    "translation_languages": [],
+    "status": "ACTIVE",
+    "active_version": 4,
+    "include_signature": false,
+    "signature_mode": "NONE",
+    "usage_count": 2,
+    "last_used_at": "2026-05-18T22:08:32.793Z",
+    "created_by": null,
+    "created_at": "2026-05-18T12:20:15.399Z",
+    "updated_at": "2026-07-18T14:48:21.018Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 3,
+  "fields": {
+    "identifier": "upload_error",
+    "name": "Upload Fehler — Import fehlgeschlagen",
+    "description": "Fehler-E-Mail bei fehlgeschlagenem CV-Import (roter Header)",
+    "app_scope": "intake",
+    "event_type": "upload_error",
+    "sender_mode": "AUTO",
+    "sender_account": null,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "CV-Import fehlgeschlagen: {error_code}",
+    "html_body": "{{block:abcona_header_blau}}\n{{block:label_warnung}}\n<p>Hallo {name},</p>\n<p>Ihre E-Mail konnte leider nicht automatisch verarbeitet werden.</p>\n<div style=\"background:#eef2f5;border-left:3px solid #ef4444;border-radius:0 4px 4px 0;padding:14px 16px;font-size:12px;line-height:1.8;\">\n<div><strong>Original Betreff:</strong> {original_subject}</div>\n<div><strong>Import Zeit:</strong> {import_time}</div>\n<div><strong>E-Mail ID:</strong> {email_id}</div>\n<div><strong>Fehlercode:</strong> {error_code}</div>\n</div>\n<div style=\"background:#eef2f5;border-left:3px solid #ef4444;border-radius:0 4px 4px 0;padding:14px 16px;font-size:12px;margin-top:12px;\">\n<strong>Problem:</strong><br>{error_detail}\n</div>\n<div style=\"background:#e8f0f8;border-left:3px solid #163258;border-radius:0 4px 4px 0;padding:14px 16px;font-size:12px;margin-top:12px;\">\n<strong>Lösung:</strong><br>{solution}\n</div>\n<p style=\"font-size:12px;\">Bitte korrigieren Sie die genannten Punkte und senden Sie Ihre Bewerbung erneut.</p>\n{{block:support_kontakt}}\n{{block:footer_auto_reply}}",
+    "text_body": "abcona e. K.\n\nHandlungsbedarf\n\nHallo {name},\n\nIhre E-Mail konnte leider nicht automatisch verarbeitet werden.\n\nOriginal Betreff: {original_subject}\n\nImport Zeit: {import_time}\n\nE-Mail ID: {email_id}\n\nFehlercode: {error_code}\n\nProblem:\n{error_detail}\n\nLösung:\n{solution}\n\nBitte korrigieren Sie die genannten Punkte und senden Sie Ihre Bewerbung erneut.\n\nBenötigen Sie Hilfe?\nAngelo Malaguarnera | Inhaber\nam@abcona.de | +49 178 8886712 | +49 6171 886712\nabcona e. K. | Bornhohl 26 | 61449 Steinbach\n\nabcona e. K. | active business consulting agency\nBornhohl 26\nD-61449 Steinbach/Ts.\n\nUSt-ID: DE813519516\nAmtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera\n\nBitte nicht auf diese E-Mail antworten.\n",
+    "variables": [
+      {
+        "name": "name",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "original_subject",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "import_time",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "email_id",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "error_code",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "error_detail",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "solution",
+        "type": "string",
+        "source": "context",
+        "required": true
+      }
+    ],
+    "translation_languages": [],
+    "status": "ACTIVE",
+    "active_version": 4,
+    "include_signature": false,
+    "signature_mode": "NONE",
+    "usage_count": 2,
+    "last_used_at": "2026-05-18T19:51:35.426Z",
+    "created_by": null,
+    "created_at": "2026-05-18T12:26:52.140Z",
+    "updated_at": "2026-07-18T14:48:21.030Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 4,
+  "fields": {
+    "identifier": "pipeline_success",
+    "name": "Pipeline Erfolg — CV verarbeitet",
+    "description": "Erfolgs-E-Mail nach abgeschlossener CV-Pipeline (grüner Header)",
+    "app_scope": "intake",
+    "event_type": "pipeline_success",
+    "sender_mode": "AUTO",
+    "sender_account": null,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "CV erfolgreich verarbeitet: {name} ({aid})",
+    "html_body": "{{block:abcona_header_blau}}\n{{block:label_bestaetigt}}\n<p>Hallo,</p>\n<p>Ihr CV wurde erfolgreich verarbeitet und ist zur Validierung bereit!</p>\n<div style=\"background:#eef2f5;border-left:3px solid #10b981;border-radius:0 4px 4px 0;padding:14px 16px;font-size:12px;line-height:1.8;\">\n<div><strong>Name:</strong> {name}</div>\n<div><strong>AID:</strong> {aid}</div>\n<div><strong>Projekte:</strong> {projects}</div>\n<div><strong>Skills:</strong> {skills}</div>\n<div><strong>Verarbeitungszeit:</strong> {duration}s</div>\n</div>\n<p style=\"font-size:12px;font-weight:600;\">Links zum Profil:</p>\n<p style=\"font-size:12px;\">\n<a href=\"{de_editor_url}\" style=\"color:#163258;\">DE Editor (Validierung)</a><br>\n<a href=\"{de_html_url}\" style=\"color:#163258;\">DE HTML</a><br>\n<a href=\"{en_html_url}\" style=\"color:#163258;\">EN HTML</a>\n</p>\n<p style=\"font-size:12px;\">Mit freundlichen Grüßen<br>Ihr ABpE System</p>\n{{block:footer_standard}}",
+    "text_body": "abcona e. K.\n\nBestätigt\n\nHallo,\n\nIhr CV wurde erfolgreich verarbeitet und ist zur Validierung bereit!\n\nName: {name}\n\nAID: {aid}\n\nProjekte: {projects}\n\nSkills: {skills}\n\nVerarbeitungszeit: {duration}s\n\nLinks zum Profil:\n\nDE Editor (Validierung)\n\nDE HTML\n\nEN HTML\n\nMit freundlichen Grüßen\nIhr ABpE System\n\nabcona e. K. | active business consulting agency\nBornhohl 26\nD-61449 Steinbach/Ts.\n\nUSt-ID: DE813519516\nAmtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera\n",
+    "variables": [
+      {
+        "name": "name",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "aid",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "projects",
+        "type": "string",
+        "source": "context",
+        "required": false
+      },
+      {
+        "name": "skills",
+        "type": "string",
+        "source": "context",
+        "required": false
+      },
+      {
+        "name": "duration",
+        "type": "string",
+        "source": "context",
+        "required": false
+      },
+      {
+        "name": "de_editor_url",
+        "type": "url",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "de_html_url",
+        "type": "url",
+        "source": "context",
+        "required": false
+      },
+      {
+        "name": "en_html_url",
+        "type": "url",
+        "source": "context",
+        "required": false
+      }
+    ],
+    "translation_languages": [],
+    "status": "ACTIVE",
+    "active_version": 4,
+    "include_signature": false,
+    "signature_mode": "NONE",
+    "usage_count": 4,
+    "last_used_at": "2026-06-11T07:59:42.208Z",
+    "created_by": null,
+    "created_at": "2026-05-18T12:26:52.169Z",
+    "updated_at": "2026-07-18T14:48:21.083Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 5,
+  "fields": {
+    "identifier": "pipeline_error",
+    "name": "Pipeline Fehler — CV-Verarbeitung fehlgeschlagen",
+    "description": "Fehler-E-Mail bei fehlgeschlagener CV-Pipeline",
+    "app_scope": "intake",
+    "event_type": "pipeline_error",
+    "sender_mode": "AUTO",
+    "sender_account": null,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "CV-Verarbeitung fehlgeschlagen {error_code}: {name} ({aid})",
+    "html_body": "{{block:abcona_header_blau}}\n{{block:label_warnung}}\n<p>Hallo {name},</p>\n<p>Die Verarbeitung Ihres CVs ist leider fehlgeschlagen.</p>\n<div style=\"background:#eef2f5;border-left:3px solid #ef4444;border-radius:0 4px 4px 0;padding:14px 16px;font-size:12px;line-height:1.8;\">\n<div><strong>Name:</strong> {name}</div>\n<div><strong>AID:</strong> {aid}</div>\n<div><strong>Fehlercode:</strong> {error_code}</div>\n<div><strong>Details:</strong> {error_detail}</div>\n<div><strong>E-Mail ID:</strong> {email_id}</div>\n</div>\n{{block:support_kontakt}}\n{{block:footer_auto_reply}}",
+    "text_body": "abcona e. K.\n\nHandlungsbedarf\n\nHallo {name},\n\nDie Verarbeitung Ihres CVs ist leider fehlgeschlagen.\n\nName: {name}\n\nAID: {aid}\n\nFehlercode: {error_code}\n\nDetails: {error_detail}\n\nE-Mail ID: {email_id}\n\nBenötigen Sie Hilfe?\nAngelo Malaguarnera | Inhaber\nam@abcona.de | +49 178 8886712 | +49 6171 886712\nabcona e. K. | Bornhohl 26 | 61449 Steinbach\n\nabcona e. K. | active business consulting agency\nBornhohl 26\nD-61449 Steinbach/Ts.\n\nUSt-ID: DE813519516\nAmtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera\n\nBitte nicht auf diese E-Mail antworten.\n",
+    "variables": [
+      {
+        "name": "name",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "aid",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "error_code",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "error_detail",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "email_id",
+        "type": "string",
+        "source": "context",
+        "required": false
+      }
+    ],
+    "translation_languages": [],
+    "status": "ACTIVE",
+    "active_version": 4,
+    "include_signature": false,
+    "signature_mode": "NONE",
+    "usage_count": 0,
+    "last_used_at": null,
+    "created_by": null,
+    "created_at": "2026-05-18T12:26:52.180Z",
+    "updated_at": "2026-07-18T14:48:21.096Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 7,
+  "fields": {
+    "identifier": "cv_generated_berater_copy",
+    "name": "CV fertig — Berater (Kopie)",
+    "description": "Benachrichtigung wenn ein Berater-CV fertig erstellt wurde",
+    "app_scope": "intake",
+    "event_type": "cv_generated",
+    "sender_mode": "USER",
+    "sender_account": null,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "Ihr Berater-Profil ist fertig — {name}",
+    "html_body": "<div>\n                <div>\n                <div>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width\">\n  <title>{subject}</title>\n<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\n <tbody><tr><td align=\"center\" style=\"padding:20px 10px;\">\n  <table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:white;border-radius:8px;overflow:hidden;\">\n   <tbody><tr><td style=\"background:#163258;padding:16px 24px;\">\n    <span style=\"color:white;font-size:18px;font-weight:bold;\">abcona e. K.</span>\n   </td></tr>\n   <tr><td style=\"padding:24px;\">\n    <p style=\"margin:0 0 12px;\">Hallo <strong>{name}</strong>,</p>\n    <p style=\"margin:0 0 16px;\">Ihr Berater-Profil wurde erfolgreich erstellt.</p>\n    <a href=\"{cv_link}\" style=\"display:inline-block;background:#163258;color:white;\n       padding:10px 20px;border-radius:5px;text-decoration:none;font-weight:600;\">\n      Profil ansehen\n    </a>\n    <p style=\"margin:16px 0 0;font-size:12px;color:#6c757d;\">\n      Version: {cv_version} &nbsp;·&nbsp; Erstellt am: {created_date}\n    <br><br></p>\n   </td></tr>\n   <tr><td style=\"background:#f8fafc;padding:12px 24px;font-size:11px;color:#6c757d;\">\n    {sender_name} · {sender_email} · abcona e. K.\n   </td></tr>\n  </tbody></table>\n </td></tr>\n</tbody></table>\n</div></div></div>",
+    "text_body": "{subject}\n\nabcona e. K.\n\nHallo {name},\n\nIhr Berater-Profil wurde erfolgreich erstellt.\n\nProfil ansehen\n\nVersion: {cv_version}  ·  Erstellt am: {created_date}\n\n{sender_name} · {sender_email} · abcona e. K.\n",
+    "variables": [
+      {
+        "name": "name",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "cv_link",
+        "type": "url",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "cv_version",
+        "type": "string",
+        "source": "context",
+        "required": false
+      },
+      {
+        "name": "created_date",
+        "type": "date",
+        "source": "context",
+        "required": false
+      },
+      {
+        "name": "sender_name",
+        "type": "string",
+        "source": "user",
+        "required": false
+      },
+      {
+        "name": "sender_email",
+        "type": "email",
+        "source": "user",
+        "required": false
+      }
+    ],
+    "translation_languages": [
+      "en"
+    ],
+    "status": "DRAFT",
+    "active_version": 7,
+    "include_signature": true,
+    "signature_mode": "USER",
+    "usage_count": 1,
+    "last_used_at": "2026-06-02T08:07:33.089Z",
+    "created_by": 1,
+    "created_at": "2026-05-19T07:39:46.125Z",
+    "updated_at": "2026-07-18T14:48:21.108Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 8,
+  "fields": {
+    "identifier": "crm_manual_email",
+    "name": "CRM — Manuelle E-Mail",
+    "description": "Freie E-Mail aus dem CRM-Modul",
+    "app_scope": "general",
+    "event_type": "crm_manual",
+    "sender_mode": "USER",
+    "sender_account": null,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "{subject}",
+    "html_body": "{{block:abcona_header_blau}}\n<p>{body}</p>\n{{block:signature}}",
+    "text_body": "abcona e. K.\n\n{body}\n\n{signature}\n",
+    "variables": [
+      {
+        "name": "subject",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "translation_languages": [],
+    "status": "ACTIVE",
+    "active_version": 5,
+    "include_signature": true,
+    "signature_mode": "USER",
+    "usage_count": 0,
+    "last_used_at": null,
+    "created_by": null,
+    "created_at": "2026-06-04T15:49:04.525Z",
+    "updated_at": "2026-07-18T14:48:21.138Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 9,
+  "fields": {
+    "identifier": "crm_berater_profilupdate",
+    "name": "CRM — Berater Profilupdate",
+    "description": "Anfrage Verfügbarkeit + Profilupdate an Berater",
+    "app_scope": "general",
+    "event_type": "crm_manual",
+    "sender_mode": "USER",
+    "sender_account": 1,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "Profilupdate & Verfügbarkeitsanfrage — {name}",
+    "html_body": "{{block:abcona_header_blau}}\n{{block:label_info}}\n<p>Hallo {name},</p>\n<p>Wir melden uns, da wir derzeit aktiv nach Experten mit Ihrem Profil suchen und Ihnen gerne <strong>spannende Projekte</strong> vorstellen möchten.</p>\n<p>Dürfen wir fragen:</p>\n<ul>\n  <li>Sind Sie aktuell oder in Kürze wieder verfügbar?</li>\n  <li>Ab wann und in welchem Umfang?</li>\n  <li>Haben sich Ihre Schwerpunkte oder Konditionen geändert?</li>\n</ul>\n<p>Falls Sie uns Ihr aktuelles Profil / CV zusenden möchten, würden wir uns sehr freuen — gerne als PDF an <a href=\"mailto:{sender_email}\">{sender_email}</a>.</p>\n{{block:signature}}",
+    "text_body": "abcona e. K.\n\nInformation\n\nHallo {name},\n\nWir melden uns, da wir derzeit aktiv nach Experten mit Ihrem Profil suchen und Ihnen gerne spannende Projekte vorstellen möchten.\n\nDürfen wir fragen:\n\nSind Sie aktuell oder in Kürze wieder verfügbar?\n\nAb wann und in welchem Umfang?\n\nHaben sich Ihre Schwerpunkte oder Konditionen geändert?\n\nFalls Sie uns Ihr aktuelles Profil / CV zusenden möchten, würden wir uns sehr freuen — gerne als PDF an {sender_email}.\n\n{signature}\n",
+    "variables": [
+      {
+        "name": "first_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "last_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "sender_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "sender_email",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "translation_languages": [],
+    "status": "ACTIVE",
+    "active_version": 7,
+    "include_signature": true,
+    "signature_mode": "USER",
+    "usage_count": 0,
+    "last_used_at": null,
+    "created_by": null,
+    "created_at": "2026-06-04T17:34:48.736Z",
+    "updated_at": "2026-07-18T14:48:21.172Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 10,
+  "fields": {
+    "identifier": "crm_firmenprofil",
+    "name": "CRM — Firmenprofil & Leistungen",
+    "description": "Vorstellung abcona Leistungen an Kunden/Interessenten",
+    "app_scope": "general",
+    "event_type": "crm_manual",
+    "sender_mode": "USER",
+    "sender_account": 1,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "abcona e. K. — Unsere Leistungen für {name}",
+    "html_body": "{{block:abcona_header_blau}}\n{{block:label_info}}\n<p>Sehr geehrter {name},</p>\n<p>vielen Dank für Ihr Interesse an einer Zusammenarbeit mit <strong>abcona e. K.</strong></p>\n<p>Wir sind spezialisiert auf die <strong>Vermittlung von IT-Freelancern und Spezialisten</strong> und unterstützen Unternehmen dabei, die passenden Experten für ihre Projekte zu finden — schnell, zuverlässig und auf Augenhöhe.</p>\n<h3 style=\"color:#1a2744;margin-top:16px\">Unsere Leistungen im Überblick</h3>\n<ul>\n  <li><strong>Freelancer-Vermittlung</strong> — IT, Engineering, Management</li>\n  <li><strong>Projektbesetzung</strong> — kurz- und langfristig</li>\n  <li><strong>Profil-Matching</strong> — aus unserem Netzwerk von {berater_anzahl}+ Experten</li>\n  <li><strong>Schnelle Reaktionszeit</strong> — erste Profile innerhalb von 48 Stunden</li>\n</ul>\n<p>Gerne stellen wir Ihnen passende Profile für Ihre aktuellen oder geplanten Projekte vor.<br>\nHaben Sie konkrete Anforderungen? Schreiben Sie uns einfach zurück oder rufen Sie uns an.</p>\n{{block:signature}}",
+    "text_body": "abcona e. K.\n\nInformation\n\nSehr geehrter {name},\n\nvielen Dank für Ihr Interesse an einer Zusammenarbeit mit abcona e. K.\n\nWir sind spezialisiert auf die Vermittlung von IT-Freelancern und Spezialisten und unterstützen Unternehmen dabei, die passenden Experten für ihre Projekte zu finden — schnell, zuverlässig und auf Augenhöhe.\n\nUnsere Leistungen im Überblick\n\nFreelancer-Vermittlung — IT, Engineering, Management\n\nProjektbesetzung — kurz- und langfristig\n\nProfil-Matching — aus unserem Netzwerk von {berater_anzahl}+ Experten\n\nSchnelle Reaktionszeit — erste Profile innerhalb von 48 Stunden\n\nGerne stellen wir Ihnen passende Profile für Ihre aktuellen oder geplanten Projekte vor.\n\nHaben Sie konkrete Anforderungen? Schreiben Sie uns einfach zurück oder rufen Sie uns an.\n\n{signature}\n",
+    "variables": [
+      {
+        "name": "contact_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "contact_salutation",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "firma_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "berater_anzahl",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "sender_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "sender_email",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "translation_languages": [],
+    "status": "ACTIVE",
+    "active_version": 9,
+    "include_signature": true,
+    "signature_mode": "USER",
+    "usage_count": 0,
+    "last_used_at": null,
+    "created_by": null,
+    "created_at": "2026-06-04T17:34:48.746Z",
+    "updated_at": "2026-07-18T14:48:21.230Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 11,
+  "fields": {
+    "identifier": "meetme_invite_vertrag",
+    "name": "Einladung — Vertrag",
+    "description": "",
+    "app_scope": "telefon",
+    "event_type": "meetme_invite",
+    "sender_mode": "USER",
+    "sender_account": null,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "Einladung: {title} am {termin_datum}",
+    "html_body": "{{block:abcona_header_blau}}<p>Guten Tag {name},</p><p>hiermit laden wir Sie herzlich zu unserem Termin \"{title}\" ein.</p><p>Termin: {termin_datum} um {termin_uhrzeit}<br>Konferenzraum: {raum}<br>{einwahl_info}</p><p>Am Gespräch nehmen teil:<br>{teilnehmer_liste_html}</p><p>Falls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:<br>E-Mail: office@abcona.de<br>Telefon: 06171 886710<br>Vertrieb: 06171 886712</p><p>Wir freuen uns auf das Gespräch mit Ihnen.</p><p>Viele Grüße</p>",
+    "text_body": "abcona e. K.\n\nGuten Tag {name},\n\nhiermit laden wir Sie herzlich zu unserem Termin \"{title}\" ein.\n\nTermin: {termin_datum} um {termin_uhrzeit}\nKonferenzraum: {raum}\n{einwahl_info}\n\nAm Gespräch nehmen teil:\n{teilnehmer_liste_html}\n\nFalls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:\nE-Mail: office@abcona.de\nTelefon: 06171 886710\nVertrieb: 06171 886712\n\nWir freuen uns auf das Gespräch mit Ihnen.\n\nViele Grüße\n",
+    "variables": [
+      {
+        "name": "name",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "termin_datum",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "termin_uhrzeit",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "raum",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "einwahl_info",
+        "type": "string",
+        "source": "context",
+        "required": false
+      }
+    ],
+    "translation_languages": [],
+    "status": "ACTIVE",
+    "active_version": 4,
+    "include_signature": false,
+    "signature_mode": "USER",
+    "usage_count": 1,
+    "last_used_at": "2026-07-08T14:46:37.338Z",
+    "created_by": null,
+    "created_at": "2026-07-08T14:46:26.117Z",
+    "updated_at": "2026-07-18T14:48:21.258Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 12,
+  "fields": {
+    "identifier": "meetme_invite_vorstellung",
+    "name": "Einladung — Vorstellung",
+    "description": "",
+    "app_scope": "telefon",
+    "event_type": "meetme_invite",
+    "sender_mode": "USER",
+    "sender_account": null,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "Termin: Vorstellung unseres Beraters am {termin_datum}",
+    "html_body": "{{block:abcona_header_blau}}<p>Guten Tag {name},</p><p>wir möchten Ihnen gerne unseren Berater vorstellen und laden Sie herzlich zu folgendem Termin ein.</p><p>Termin: {termin_datum} um {termin_uhrzeit}<br>Konferenzraum: {raum}<br>{einwahl_info}</p><p>Am Gespräch nehmen teil:<br>{teilnehmer_liste_html}</p><p>Falls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:<br>E-Mail: office@abcona.de<br>Telefon: 06171 886710<br>Vertrieb: 06171 886712</p><p>Wir freuen uns auf das Gespräch mit Ihnen.</p><p>Viele Grüße</p>",
+    "text_body": "abcona e. K.\n\nGuten Tag {name},\n\nwir möchten Ihnen gerne unseren Berater vorstellen und laden Sie herzlich zu folgendem Termin ein.\n\nTermin: {termin_datum} um {termin_uhrzeit}\nKonferenzraum: {raum}\n{einwahl_info}\n\nAm Gespräch nehmen teil:\n{teilnehmer_liste_html}\n\nFalls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:\nE-Mail: office@abcona.de\nTelefon: 06171 886710\nVertrieb: 06171 886712\n\nWir freuen uns auf das Gespräch mit Ihnen.\n\nViele Grüße\n",
+    "variables": [
+      {
+        "name": "name",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "termin_datum",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "termin_uhrzeit",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "raum",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "einwahl_info",
+        "type": "string",
+        "source": "context",
+        "required": false
+      }
+    ],
+    "translation_languages": [],
+    "status": "ACTIVE",
+    "active_version": 4,
+    "include_signature": false,
+    "signature_mode": "USER",
+    "usage_count": 0,
+    "last_used_at": null,
+    "created_by": null,
+    "created_at": "2026-07-08T14:46:26.429Z",
+    "updated_at": "2026-07-18T14:48:21.298Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 13,
+  "fields": {
+    "identifier": "meetme_invite_abstimmung",
+    "name": "Einladung — Abstimmung",
+    "description": "",
+    "app_scope": "telefon",
+    "event_type": "meetme_invite",
+    "sender_mode": "USER",
+    "sender_account": null,
+    "signature": 1,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "Kurze Abstimmung am {termin_datum}",
+    "html_body": "{{block:abcona_header_blau}}<p>Guten Tag {name},</p><p>wir möchten uns gerne kurz mit Ihnen abstimmen.</p><p>Termin: {termin_datum} um {termin_uhrzeit}<br>Konferenzraum: {raum}<br>{einwahl_info}</p><p>Am Gespräch nehmen teil:<br>{teilnehmer_liste_html}</p><p>Falls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:<br>E-Mail: office@abcona.de<br>Telefon: 06171 886710<br>Vertrieb: 06171 886712</p><p>Wir freuen uns auf das Gespräch mit Ihnen.</p>",
+    "text_body": "abcona e. K.\n\nGuten Tag {name},\n\nwir möchten uns gerne kurz mit Ihnen abstimmen.\n\nTermin: {termin_datum} um {termin_uhrzeit}\nKonferenzraum: {raum}\n{einwahl_info}\n\nAm Gespräch nehmen teil:\n{teilnehmer_liste_html}\n\nFalls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:\nE-Mail: office@abcona.de\nTelefon: 06171 886710\nVertrieb: 06171 886712\n\nWir freuen uns auf das Gespräch mit Ihnen.\n",
+    "variables": [
+      {
+        "name": "name",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "termin_datum",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "termin_uhrzeit",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "raum",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "einwahl_info",
+        "type": "string",
+        "source": "context",
+        "required": false
+      }
+    ],
+    "translation_languages": [],
+    "status": "ACTIVE",
+    "active_version": 37,
+    "include_signature": true,
+    "signature_mode": "USER",
+    "usage_count": 2,
+    "last_used_at": "2026-07-17T12:05:27.822Z",
+    "created_by": null,
+    "created_at": "2026-07-08T14:46:26.437Z",
+    "updated_at": "2026-07-18T14:48:21.317Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 14,
+  "fields": {
+    "identifier": "meetme_reschedule_standard",
+    "name": "Terminänderung — Standard",
+    "description": "",
+    "app_scope": "telefon",
+    "event_type": "meetme_reschedule",
+    "sender_mode": "TEMPLATE",
+    "sender_account": null,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "Terminänderung: {title}",
+    "html_body": "{{block:abcona_header_blau}}<p>Guten Tag {name},</p><p>der folgende Termin wurde verschoben:</p><p><strong>{title}</strong><br>Neu: {termin_datum} um {termin_uhrzeit}<br>Konferenzraum: {raum}<br>{einwahl_info}</p><p>Am Gespräch nehmen teil:<br>{teilnehmer_liste_html}</p><p>Viele Grüße</p>",
+    "text_body": "abcona e. K.\n\nGuten Tag {name},\n\nder folgende Termin wurde verschoben:\n\n{title}\nNeu: {termin_datum} um {termin_uhrzeit}\nKonferenzraum: {raum}\n{einwahl_info}\n\nAm Gespräch nehmen teil:\n{teilnehmer_liste_html}\n\nViele Grüße\n",
+    "variables": [],
+    "translation_languages": [],
+    "status": "ACTIVE",
+    "active_version": 3,
+    "include_signature": false,
+    "signature_mode": "USER",
+    "usage_count": 0,
+    "last_used_at": null,
+    "created_by": null,
+    "created_at": "2026-07-11T10:51:37.384Z",
+    "updated_at": "2026-07-18T14:48:21.331Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 15,
+  "fields": {
+    "identifier": "meetme_cancel_standard",
+    "name": "Terminabsage — Standard",
+    "description": "",
+    "app_scope": "telefon",
+    "event_type": "meetme_cancel",
+    "sender_mode": "TEMPLATE",
+    "sender_account": null,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "Terminabsage: {title}",
+    "html_body": "{{block:abcona_header_blau}}{{block:label_warnung}}<p>Guten Tag {name},</p><p>der folgende Termin musste leider abgesagt werden:</p><p><strong>{title}</strong><br>{termin_datum} um {termin_uhrzeit}</p><p>Wir melden uns, sobald ein neuer Termin feststeht.</p><p>Viele Grüße</p>",
+    "text_body": "abcona e. K.\nHandlungsbedarf\n\nGuten Tag {name},\n\nder folgende Termin musste leider abgesagt werden:\n\n{title}\n{termin_datum} um {termin_uhrzeit}\n\nWir melden uns, sobald ein neuer Termin feststeht.\n\nViele Grüße\n",
+    "variables": [],
+    "translation_languages": [],
+    "status": "ACTIVE",
+    "active_version": 4,
+    "include_signature": false,
+    "signature_mode": "USER",
+    "usage_count": 0,
+    "last_used_at": null,
+    "created_by": null,
+    "created_at": "2026-07-11T10:51:37.409Z",
+    "updated_at": "2026-07-18T14:48:21.344Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 16,
+  "fields": {
+    "identifier": "meetme_reminder_standard",
+    "name": "Erinnerung — Standard",
+    "description": "",
+    "app_scope": "telefon",
+    "event_type": "meetme_reminder",
+    "sender_mode": "USER",
+    "sender_account": null,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "Erinnerung: {title}",
+    "html_body": "{{block:abcona_header_blau}}<p>Guten Tag {name},</p><p>kurze Erinnerung an folgenden Termin:</p><p><strong>{title}</strong><br>Termin: {termin_datum} um {termin_uhrzeit}<br>Konferenzraum: {raum}<br>{einwahl_info}</p><p>Viele Grüße</p>",
+    "text_body": "abcona e. K.\n\nGuten Tag {name},\n\nkurze Erinnerung an folgenden Termin:\n\n{title}\nTermin: {termin_datum} um {termin_uhrzeit}\nKonferenzraum: {raum}\n{einwahl_info}\n\nViele Grüße\n",
+    "variables": [],
+    "translation_languages": [],
+    "status": "ACTIVE",
+    "active_version": 3,
+    "include_signature": false,
+    "signature_mode": "USER",
+    "usage_count": 0,
+    "last_used_at": null,
+    "created_by": null,
+    "created_at": "2026-07-13T11:08:41.580Z",
+    "updated_at": "2026-07-18T14:48:21.356Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 17,
+  "fields": {
+    "identifier": "meetme_invite_standard",
+    "name": "Einladung — Telefonkonferenz",
+    "description": "Generischer Standard fuer allgemeine Telefonkonferenz-Einladungen",
+    "app_scope": "telefon",
+    "event_type": "meetme_invite",
+    "sender_mode": "USER",
+    "sender_account": null,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "Einladung: Telefonkonferenz {title}",
+    "html_body": "{{block:abcona_header_blau}}<p>Guten Tag {name},</p><p>wir laden Sie herzlich zu einer Telefonkonferenz ein.</p><p>Termin: {termin_datum} um {termin_uhrzeit}<br>Konferenzraum: {raum}<br>{einwahl_info}</p><p>Am Gespraech nehmen teil:<br>{teilnehmer_liste_html}</p><p>Falls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:<br>E-Mail: office@abcona.de<br>Telefon: 06171 886710<br>Vertrieb: 06171 886712</p><p>Wir freuen uns auf das Gespraech mit Ihnen.</p><p>Viele Gruesse</p>",
+    "text_body": "abcona e. K.\n\nGuten Tag {name},\n\nwir laden Sie herzlich zu einer Telefonkonferenz ein.\n\nTermin: {termin_datum} um {termin_uhrzeit}\nKonferenzraum: {raum}\n{einwahl_info}\n\nAm Gespraech nehmen teil:\n{teilnehmer_liste_html}\n\nFalls der Termin nicht wahrgenommen werden kann oder abgesagt werden muss, informieren Sie uns bitte kurzfristig:\nE-Mail: office@abcona.de\nTelefon: 06171 886710\nVertrieb: 06171 886712\n\nWir freuen uns auf das Gespraech mit Ihnen.\n\nViele Gruesse\n",
+    "variables": [
+      {
+        "name": "name",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "termin_datum",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "termin_uhrzeit",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "raum",
+        "type": "string",
+        "source": "context",
+        "required": true
+      },
+      {
+        "name": "einwahl_info",
+        "type": "string",
+        "source": "context",
+        "required": false
+      }
+    ],
+    "translation_languages": [],
+    "status": "ACTIVE",
+    "active_version": 3,
+    "include_signature": false,
+    "signature_mode": "USER",
+    "usage_count": 0,
+    "last_used_at": null,
+    "created_by": null,
+    "created_at": "2026-07-13T16:19:32.009Z",
+    "updated_at": "2026-07-18T14:48:21.369Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailtemplate",
+  "pk": 18,
+  "fields": {
+    "identifier": "test",
+    "name": "Test",
+    "description": "",
+    "app_scope": "general",
+    "event_type": "general",
+    "sender_mode": "TEMPLATE",
+    "sender_account": null,
+    "signature": null,
+    "cc_emails": "",
+    "bcc_emails": "",
+    "subject": "Test",
+    "html_body": "<div>\n                    <div>abcona e. K.</div>\n                </div>\n                <div>\n                    <div data-i18n-placeholder=\"es.wysiwyg_click_to_edit\">\n                        <p>Hallo <strong>{name}</strong>,</p>\n                        <p>Ihr Berater-Profil wurde erfolgreich erstellt.</p>\n                    </div>\n                </div>\n                <div>\n                    <div>\n                        <a href=\"{button_url}\">{button_text}</a>\n                    </div>\n                </div>\n                <div>\n                    <div>\n                        {sender_name} · {sender_email} · abcona e. K.\n                    </div>\n                </div>\n                {{block:signature}}",
+    "text_body": "abcona e. K.\n\nHallo {name},\n\nIhr Berater-Profil wurde erfolgreich erstellt.\n\n{button_text}\n\n{sender_name} · {sender_email} · abcona e. K.\n\n{signature}\n",
+    "variables": [],
+    "translation_languages": [],
+    "status": "DRAFT",
+    "active_version": 1,
+    "include_signature": true,
+    "signature_mode": "USER",
+    "usage_count": 0,
+    "last_used_at": null,
+    "created_by": 1,
+    "created_at": "2026-07-16T12:24:48.090Z",
+    "updated_at": "2026-07-18T14:48:21.389Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailsignature",
+  "pk": 1,
+  "fields": {
+    "name": "Angelo Malaguarnera — Inhaber",
+    "identifier": "sig_angelo_malaguarnera",
+    "html_body": "<div style=\"font-family:Arial,sans-serif;font-size:12px;color:#333;border-top:1px solid #dee2e6;margin-top:16px;padding-top:12px;\">\n<p style=\"margin:0 0 4px;\">Für weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung und verbleibe</p>\n<p style=\"margin:0 0 8px;\">mit freundlichen Grüßen</p>\n<p style=\"margin:0;font-weight:600;color:#163258;\">Angelo Malaguarnera</p>\n<p style=\"margin:0;color:#6c757d;\">Inhaber</p>\n<p style=\"margin:4px 0 0;\">\n  E-Mail: <a href=\"mailto:am@abcona.de\" style=\"color:#163258;\">am@abcona.de</a><br>\n  Mobil: +49 0 178 88867 12<br>\n  Telefon: +49 0 6171 8867 12\n</p>\n<p style=\"margin:8px 0 0;color:#6c757d;font-size:11px;\">\n  abcona e. K. | active business consulting agency<br>\n  Bornhohl 26 | D-61449 Steinbach/Ts.<br>\n  USt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>\n  Inhaber: Angelo Malaguarnera\n</p>\n</div>",
+    "text_body": "--\nFür weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung und verbleibe\n\nmit freundlichen Grüßen\n\nAngelo Malaguarnera\nInhaber\nE-Mail: am@abcona.de\nMobil:    +49 0 178 88867 12\nTelefon: +49 0 6171 8867 12\n\nabcona e. K. | active business consulting agency\nBornhohl 26 | D-61449 Steinbach/Ts.\nUSt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera",
+    "sender_account": null,
+    "is_default": true,
+    "is_public": true,
+    "created_by": null,
+    "created_at": "2026-05-18T12:54:14.845Z",
+    "updated_at": "2026-05-18T12:54:14.845Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailsignature",
+  "pk": 2,
+  "fields": {
+    "name": "Tanja Gramatte — Office",
+    "identifier": "sig_tanja_gramatte",
+    "html_body": "<div style=\"font-family:Arial,sans-serif;font-size:12px;color:#333;border-top:1px solid #dee2e6;margin-top:16px;padding-top:12px;\">\n<p style=\"margin:0 0 4px;\">Für weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung.</p>\n<p style=\"margin:0 0 8px;\">Mit freundlichen Grüßen</p>\n<p style=\"margin:0;font-weight:600;color:#163258;\">Tanja Gramatte</p>\n<p style=\"margin:0;color:#6c757d;\">Office</p>\n<p style=\"margin:4px 0 0;\">\n  E-Mail: <a href=\"mailto:tg@abcona.de\" style=\"color:#163258;\">tg@abcona.de</a>\n</p>\n<p style=\"margin:8px 0 0;color:#6c757d;font-size:11px;\">\n  abcona e. K. | active business consulting agency<br>\n  Bornhohl 26 | D-61449 Steinbach/Ts.<br>\n  Telefon: +49 (0) 6171 8867 12 | Fax: +49 (0) 6171 8867 09<br>\n  E-Mail: <a href=\"mailto:office@abcona.de\" style=\"color:#163258;\">office@abcona.de</a> |\n  <a href=\"http://www.abcona.de\" style=\"color:#163258;\">www.abcona.de</a><br>\n  USt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>\n  Inhaber: Angelo Malaguarnera\n</p>\n</div>",
+    "text_body": "--\nFür weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung.\n\nMit freundlichen Grüßen\n\nTanja Gramatte\nOffice\nE-Mail: tg@abcona.de\n\nabcona e. K. | active business consulting agency\nBornhohl 26 | D-61449 Steinbach/Ts.\nTelefon: +49 (0) 6171 8867 12 | Fax: +49 (0) 6171 8867 09\nE-Mail: office@abcona.de | www.abcona.de\nUSt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera",
+    "sender_account": null,
+    "is_default": false,
+    "is_public": true,
+    "created_by": null,
+    "created_at": "2026-05-18T12:54:14.876Z",
+    "updated_at": "2026-05-18T12:54:14.876Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailsignature",
+  "pk": 3,
+  "fields": {
+    "name": "Annett Michallik",
+    "identifier": "sig_annett_michallik",
+    "html_body": "<div style=\"font-family:Arial,sans-serif;font-size:12px;color:#333;border-top:1px solid #dee2e6;margin-top:16px;padding-top:12px;\">\r\n<p style=\"margin:0 0 4px;\">Für weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung und verbleibe</p>\r\n<p style=\"margin:0 0 8px;\">mit freundlichen Grüßen</p>\r\n<p style=\"margin:0;font-weight:600;color:#163258;\">Annett Michallik</p>\r\n<p style=\"margin:4px 0 0;\">\r\n  E-Mail: <a href=\"mailto:am2@abcona.de\" style=\"color:#163258;\">am2@abcona.de</a><br>\r\n  Mobil: +49 0 178 88867 22<br>\r\n  Telefon: +49 0 6171 88867 22\r\n</p>\r\n<p style=\"margin:8px 0 0;color:#6c757d;font-size:11px;\">\r\n  abcona e. K. | active business consulting agency<br>\r\n  Bornhohl 26 | D-61449 Steinbach/Ts.<br>\r\n  USt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>\r\n  Inhaber: Angelo Malaguarnera\r\n</p>\r\n</div>",
+    "text_body": "--\r\nFür weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung und verbleibe\r\n\r\nmit freundlichen Grüßen\r\n\r\nAnnett Michallik\r\nE-Mail: am2@abcona.de\r\nMobil:    +49 0 178 88867 22\r\nTelefon: +49 0 6171 88867 22\r\n\r\nabcona e. K. | active business consulting agency\r\nBornhohl 26 | D-61449 Steinbach/Ts.\r\nUSt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662\r\nInhaber: Angelo Malaguarnera",
+    "sender_account": null,
+    "is_default": false,
+    "is_public": true,
+    "created_by": null,
+    "created_at": "2026-05-18T12:54:14.881Z",
+    "updated_at": "2026-05-18T13:33:44.079Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailsignature",
+  "pk": 4,
+  "fields": {
+    "name": "Verena Neugebauer — Office",
+    "identifier": "sig_verena_neugebauer",
+    "html_body": "<div style=\"font-family:Arial,sans-serif;font-size:12px;color:#333;border-top:1px solid #dee2e6;margin-top:16px;padding-top:12px;\">\n<p style=\"margin:0 0 4px;\">Für weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung.</p>\n<p style=\"margin:0 0 8px;\">Mit freundlichen Grüßen</p>\n<p style=\"margin:0;font-weight:600;color:#163258;\">Verena Neugebauer</p>\n<p style=\"margin:0;color:#6c757d;\">Office</p>\n<p style=\"margin:4px 0 0;\">\n  E-Mail: <a href=\"mailto:vn@abcona.de\" style=\"color:#163258;\">vn@abcona.de</a>\n</p>\n<p style=\"margin:8px 0 0;color:#6c757d;font-size:11px;\">\n  abcona e. K. | active business consulting agency<br>\n  Bornhohl 26 | D-61449 Steinbach/Ts.<br>\n  Telefon: +49 (0) 6171 8867 12 | Fax: +49 (0) 6171 8867 09<br>\n  E-Mail: <a href=\"mailto:office@abcona.de\" style=\"color:#163258;\">office@abcona.de</a> |\n  <a href=\"http://www.abcona.de\" style=\"color:#163258;\">www.abcona.de</a><br>\n  USt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>\n  Inhaber: Angelo Malaguarnera\n</p>\n</div>",
+    "text_body": "--\nFür weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung.\n\nMit freundlichen Grüßen\n\nVerena Neugebauer\nOffice\nE-Mail: vn@abcona.de\n\nabcona e. K. | active business consulting agency\nBornhohl 26 | D-61449 Steinbach/Ts.\nTelefon: +49 (0) 6171 8867 12 | Fax: +49 (0) 6171 8867 09\nE-Mail: office@abcona.de | www.abcona.de\nUSt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662\nInhaber: Angelo Malaguarnera",
+    "sender_account": null,
+    "is_default": false,
+    "is_public": true,
+    "created_by": null,
+    "created_at": "2026-05-18T12:54:14.886Z",
+    "updated_at": "2026-05-18T12:54:14.886Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailsignature",
+  "pk": 5,
+  "fields": {
+    "name": "Team abcona e.K.",
+    "identifier": "sig_team",
+    "html_body": "<div style=\"font-family:Arial,sans-serif;font-size:12px;color:#333;border-top:1px solid #dee2e6;margin-top:16px;padding-top:12px;\">\r\n<p style=\"margin:0 0 4px;\">Für weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung und verbleibe</p>\r\n<p style=\"margin:0 0 8px;\">mit freundlichen Grüßen</p>\r\n<p style=\"margin:0;font-weight:600;color:#163258;\">Ihr abcona e.K. Team</p>\r\n<p style=\"margin:0;color:#6c757d;\">Inhaber</p>\r\n<p style=\"margin:4px 0 0;\">\r\n  E-Mail: <a href=\"mailto:info@abcona.de\" style=\"color:#163258;\">am@abcona.de</a><br>\r\n  Mobil: +49 0 178 88867 10<br>\r\n  Telefon: +49 0 6171 8867 10\r\n</p>\r\n<p style=\"margin:8px 0 0;color:#6c757d;font-size:11px;\">\r\n  abcona e. K. | active business consulting agency<br>\r\n  Bornhohl 26 | D-61449 Steinbach/Ts.<br>\r\n  USt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662<br>\r\n  Inhaber: Angelo Malaguarnera\r\n</p>\r\n</div>",
+    "text_body": "Für weitere Wünsche und Fragen stehe ich Ihnen gerne zur Verfügung und verbleibe\r\n\r\nmit freundlichen Grüßen\r\n\r\nIhr abcona e.K. Team\r\nE-Mail: info@abcona.de\r\nMobil:    +49 0 178 88867 10\r\nTelefon: +49 0 6171 8867 10\r\n\r\nabcona e. K. | active business consulting agency\r\nBornhohl 26 | D-61449 Steinbach/Ts.\r\nUSt-ID: DE813519516 | Amtsgericht: Bad Homburg v.d.H. HRA 3662\r\nInhaber: Angelo Malaguarnera",
+    "sender_account": null,
+    "is_default": false,
+    "is_public": true,
+    "created_by": null,
+    "created_at": "2026-07-17T08:38:50.897Z",
+    "updated_at": "2026-07-17T08:39:32.507Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailsenderaccount",
+  "pk": 1,
+  "fields": {
+    "email": "am@abcona.de",
+    "display_name": "Angelo Malaguarnera",
+    "sender_mode": "TEMPLATE",
+    "is_default": true,
+    "is_active": true,
+    "description": "",
+    "created_at": "2026-06-04T16:50:18.486Z",
+    "updated_at": "2026-06-04T16:50:18.486Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailsenderaccount",
+  "pk": 2,
+  "fields": {
+    "email": "tg@abcona.de",
+    "display_name": "Tanja Gramatte",
+    "sender_mode": "TEMPLATE",
+    "is_default": false,
+    "is_active": true,
+    "description": "",
+    "created_at": "2026-06-04T16:50:18.533Z",
+    "updated_at": "2026-06-04T16:50:18.533Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailsenderaccount",
+  "pk": 3,
+  "fields": {
+    "email": "vn@abcona.de",
+    "display_name": "Verena Neugebauer",
+    "sender_mode": "TEMPLATE",
+    "is_default": false,
+    "is_active": true,
+    "description": "",
+    "created_at": "2026-06-04T16:50:18.538Z",
+    "updated_at": "2026-06-04T16:50:18.538Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailsenderaccount",
+  "pk": 4,
+  "fields": {
+    "email": "info@abcona.de",
+    "display_name": "abcona e. K.",
+    "sender_mode": "TEMPLATE",
+    "is_default": false,
+    "is_active": true,
+    "description": "",
+    "created_at": "2026-06-04T16:50:18.544Z",
+    "updated_at": "2026-06-04T16:50:18.544Z"
+  }
+},
+{
+  "model": "abpe_email_studio.emailsenderaccount",
+  "pk": 5,
+  "fields": {
+    "email": "am2@abcona.de",
+    "display_name": "Annett Michallik",
+    "sender_mode": "TEMPLATE",
+    "is_default": false,
+    "is_active": true,
+    "description": "",
+    "created_at": "2026-06-04T16:55:52.193Z",
+    "updated_at": "2026-06-04T16:55:52.193Z"
+  }
+}
 ]
