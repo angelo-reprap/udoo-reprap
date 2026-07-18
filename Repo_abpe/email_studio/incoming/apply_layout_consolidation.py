@@ -181,14 +181,20 @@ def apply_db(rows: list[dict[str, Any]], log: list[str]) -> None:
     import os
     import django
 
-    backend = os.environ.get('ABPE_BACKEND', '/opt/abpe/backend')
-    if str(backend) not in sys.path:
-        sys.path.insert(0, str(backend))
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
+    backend = os.path.abspath(os.environ.get('ABPE_BACKEND', '/opt/abpe/backend'))
+    if backend not in sys.path:
+        sys.path.insert(0, backend)
+    os.chdir(backend)
+    # Gleicher Modulname wie analyze_email_suite.py / Live-manage.py
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'abpe_backend.settings')
+    os.environ.setdefault('DJANGO_LOG_LEVEL', 'ERROR')
+    import logging
+    logging.disable(logging.CRITICAL)
     django.setup()
 
     from apps.abpe_email_studio.models import EmailModule, EmailTemplate
 
+    mod_n = tpl_n = 0
     for row in rows:
         f = row['fields']
         if row['model'] == 'abpe_email_studio.emailmodule':
@@ -199,6 +205,7 @@ def apply_db(rows: list[dict[str, Any]], log: list[str]) -> None:
             obj.html_body = f['html_body']
             obj.text_body = f.get('text_body') or ''
             obj.save(update_fields=['html_body', 'text_body', 'updated_at'])
+            mod_n += 1
         elif row['model'] == 'abpe_email_studio.emailtemplate':
             obj = EmailTemplate.objects.filter(identifier=f['identifier']).first()
             if not obj:
@@ -210,6 +217,8 @@ def apply_db(rows: list[dict[str, Any]], log: list[str]) -> None:
             obj.save(update_fields=[
                 'text_body', 'signature_mode', 'include_signature', 'updated_at',
             ])
+            tpl_n += 1
+    log.append(f'DB gespeichert: {mod_n} Module, {tpl_n} Vorlagen')
 
 
 def main() -> int:
