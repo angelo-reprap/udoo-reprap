@@ -4,6 +4,7 @@ System-Status-Snapshot für Email-Studio-Platzhalter.
 Stufe 1: Disk, Django, DB, Celery, Scheduler, Aggregat
 Stufe 2: Host/OS + Django/App (hostname, load, memory, uptime, version, env, cache)
 Stufe 3: Celery-Details + HTML-Ampel (workers, queue depth, system_status_html)
+Stufe 4: Dienste — SMTP, PBX/AMI, MeetMe (kurz, read-only, keine Secrets)
 
 Kurze Timeouts — darf Versand/Preview nicht blockieren.
 Werte sind Strings für Template-Ersetzung.
@@ -11,9 +12,11 @@ Werte sind Strings für Template-Ersetzung.
 from __future__ import annotations
 
 import html
+import importlib.util
 import logging
 import os
 import shutil
+import smtplib
 import socket
 import time
 from pathlib import Path
@@ -25,6 +28,8 @@ log = logging.getLogger('abpe_email_studio.system_status')
 _CACHE: dict[str, Any] = {'ts': 0.0, 'vars': {}}
 _CACHE_TTL_SEC = 30.0
 _CELERY_INSPECT_TIMEOUT = 0.4
+_SMTP_TIMEOUT = 1.5
+_TCP_TIMEOUT = 0.5
 
 _OK = 'OK'
 _FAIL = 'FAIL'
@@ -261,6 +266,118 @@ def _celery_queue_depth() -> str:
         return _NA
 
 
+def _check_smtp() -> tuple[str, str]:
+    """
+    SMTP connect + optional login — kein Versand, keine Secrets in Rückgabe.
+    → (smtp_ok, smtp_host)
+    """
+    try:
+        from django.conf import settings
+        host = str(getattr(settings, 'EMAIL_HOST', '') or '')
+        if not host:
+            return _NA, _NA
+        port = int(getattr(settings, 'EMAIL_PORT', 587) or 587)
+        use_tls = bool(getattr(settings, 'EMAIL_USE_TLS', True))
+        username = str(getattr(settings, 'EMAIL_HOST_USER', '') or '')
+        password = str(getattr(settings, 'EMAIL_HOST_PASSWORD', '') or '')
+
+        with smtplib.SMTP(host, port, timeout=_SMTP_TIMEOUT) as smtp:
+            smtp.ehlo_or_helo_if_needed()
+            if use_tls:
+                smtp.starttls()
+                smtp.ehlo_or_helo_if_needed()
+            if username and password:
+                smtp.login(username, password)
+        return _OK, host
+    except Exception as exc:
+        log.debug('smtp check failed: %s', exc)
+        try:
+            from django.conf import settings
+            host = str(getattr(settings, 'EMAIL_HOST', '') or '') or _NA
+        except Exception:
+            host = _NA
+        return _FAIL, host
+
+
+def _pbx_endpoint() -> tuple[str, int] | None:
+    """Host/Port aus Settings oder Env — ohne Login/AMI-Auth."""
+    try:
+        from django.conf import settings
+        host = (
+            getattr(settings, 'ASTERISK_AMI_HOST', None)
+            or getattr(settings, 'PBX_HOST', None)
+            or getattr(settings, 'ASTERISK_HOST', None)
+            or os.environ.get('ASTERISK_AMI_HOST')
+            or os.environ.get('PBX_HOST')
+            or os.environ.get('ASTERISK_HOST')
+        )
+        port = (
+            getattr(settings, 'ASTERISK_AMI_PORT', None)
+            or getattr(settings, 'PBX_PORT', None)
+            or os.environ.get('ASTERISK_AMI_PORT')
+            or os.environ.get('PBX_PORT')
+            or 5038
+        )
+        if host:
+            return str(host), int(port)
+    except Exception as exc:
+        log.debug('pbx endpoint resolve failed: %s', exc)
+    return None
+
+
+def _check_pbx() -> tuple[str, str]:
+    """
+    TCP-Connect zum AMI/PBX-Port — kein AMI-Login, kein Originate.
+    → (pbx_ok, pbx_host)
+    """
+    ep = _pbx_endpoint()
+    if not ep:
+        return _NA, _NA
+    host, port = ep
+    try:
+        with socket.create_connection((host, port), timeout=_TCP_TIMEOUT):
+            pass
+        return _OK, f'{host}:{port}'
+    except Exception as exc:
+        log.debug('pbx check failed: %s', exc)
+        return _FAIL, f'{host}:{port}'
+
+
+def _check_meetme() -> str:
+    """
+    MeetMe-App installiert + Health-Route auflösbar.
+    Kein HTTP-Roundtrip, kein Preview-Versand, keine Side-Effects.
+    """
+    if importlib.util.find_spec('apps.abpe_meetme') is None:
+        return _NA
+
+    try:
+        importlib.import_module('apps.abpe_meetme')
+    except Exception as exc:
+        log.debug('meetme import failed: %s', exc)
+        return _FAIL
+
+    # Health-Route vorhanden?
+    try:
+        from django.urls import NoReverseMatch, resolve, reverse
+        for name in ('meetme:api-health', 'meetme:health', 'api-meetme-health'):
+            try:
+                reverse(name)
+                return _OK
+            except NoReverseMatch:
+                continue
+        try:
+            resolve('/meetme/api/health/')
+            return _OK
+        except Exception:
+            pass
+    except Exception as exc:
+        log.debug('meetme url probe failed: %s', exc)
+
+    # App importierbar, aber Health-URL unbekannt → WARN
+    return _WARN
+
+
 def _aggregate(*flags: str) -> str:
     usable = [f for f in flags if f != _NA]
     if not usable:
@@ -307,6 +424,7 @@ def collect_system_status(*, use_cache: bool = True) -> dict[str, str]:
     Stufe 1: disk_*, django_ok, db_ok, celery_ok, scheduler_ok, system_status[_list]
     Stufe 2: host_name, load_avg, uptime, memory_used_pct, django_version, portal_env, cache_ok
     Stufe 3: celery_workers, celery_queue_depth, system_status_html
+    Stufe 4: smtp_ok, smtp_host, pbx_ok, pbx_host, meetme_ok
     """
     now = time.monotonic()
     if use_cache and _CACHE['vars'] and (now - float(_CACHE['ts'])) < _CACHE_TTL_SEC:
@@ -328,10 +446,15 @@ def collect_system_status(*, use_cache: bool = True) -> dict[str, str]:
     scheduler_ok = _check_scheduler()
     celery_queue_depth = _celery_queue_depth()
 
+    smtp_ok, smtp_host = _check_smtp()
+    pbx_ok, pbx_host = _check_pbx()
+    meetme_ok = _check_meetme()
+
     system_status = _aggregate(
         disk_flag, load_flag, mem_flag,
         django_ok, db_ok, cache_ok,
         celery_ok, scheduler_ok,
+        smtp_ok, pbx_ok, meetme_ok,
     )
 
     lines = [
@@ -346,6 +469,9 @@ def collect_system_status(*, use_cache: bool = True) -> dict[str, str]:
         f'Celery Worker: {celery_ok} ({celery_workers})',
         f'Celery Queue: {celery_queue_depth}',
         f'Scheduler/Beat: {scheduler_ok}',
+        f'SMTP: {smtp_ok} ({smtp_host})',
+        f'PBX/AMI: {pbx_ok} ({pbx_host})',
+        f'MeetMe: {meetme_ok}',
         f'Gesamt: {system_status}',
     ]
 
@@ -362,6 +488,9 @@ def collect_system_status(*, use_cache: bool = True) -> dict[str, str]:
         ('Celery Worker', f'{celery_ok} ({celery_workers})', celery_ok),
         ('Celery Queue', celery_queue_depth, _OK if celery_queue_depth not in (_NA, '') else _NA),
         ('Scheduler/Beat', scheduler_ok, scheduler_ok),
+        ('SMTP', f'{smtp_ok} ({smtp_host})', smtp_ok),
+        ('PBX/AMI', f'{pbx_ok} ({pbx_host})', pbx_ok),
+        ('MeetMe', meetme_ok, meetme_ok),
         ('Gesamt', system_status, system_status),
     ]
 
@@ -381,6 +510,11 @@ def collect_system_status(*, use_cache: bool = True) -> dict[str, str]:
         'celery_workers': celery_workers,
         'celery_queue_depth': celery_queue_depth,
         'scheduler_ok': scheduler_ok,
+        'smtp_ok': smtp_ok,
+        'smtp_host': smtp_host,
+        'pbx_ok': pbx_ok,
+        'pbx_host': pbx_host,
+        'meetme_ok': meetme_ok,
         'system_status': system_status,
         'system_status_list': '\n'.join(lines),
         'system_status_html': _status_html_rows(html_rows),

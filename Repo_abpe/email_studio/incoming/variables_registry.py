@@ -120,6 +120,12 @@ ALL_VARIABLES: list[dict[str, Any]] = [
     _v('celery_workers', 'status', 'Anzahl antwortender Celery-Worker', '2'),
     _v('celery_queue_depth', 'status', 'Tiefe der Default-Celery-Queue (Redis)', '0'),
     _v('scheduler_ok', 'status', 'Celery-Beat/Scheduler aktiv (OK/WARN/FAIL)', 'OK'),
+    # Dienste (Stufe 4)
+    _v('smtp_ok', 'status', 'SMTP-Server erreichbar (Connect/Login, kein Versand)', 'OK'),
+    _v('smtp_host', 'status', 'Konfigurierter SMTP-Hostname (ohne Secrets)', 'smtp.example.de'),
+    _v('pbx_ok', 'status', 'PBX/AMI TCP erreichbar (oder n/a wenn nicht konfiguriert)', 'OK'),
+    _v('pbx_host', 'status', 'PBX/AMI Host:Port (ohne Secrets)', 'pbx:5038'),
+    _v('meetme_ok', 'status', 'MeetMe-App/Health-Route verfügbar (OK/WARN/n/a)', 'OK'),
     # Darstellung
     _v('system_status', 'status', 'Gesamtstatus (aggregiert)', 'OK'),
     _v('system_status_list', 'status',
