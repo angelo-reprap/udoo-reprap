@@ -10,9 +10,12 @@ from apps.abpe_ki_wiz.services.json_utils import parse_ai_json
 from apps.abpe_ki_wiz.services.context_fetcher import (
     ABCONA_COMPANY_FALLBACK,
     detect_fact_keys,
+    extract_entity_refs,
     fetch_company_abcona,
     fetch_user_context,
     resolve_facts,
+    search_crm_accounts,
+    search_crm_contacts,
 )
 from apps.abpe_ki_wiz.services.prompt_builder import build_context_payload
 from apps.abpe_ki_wiz.services.orchestrator import (
@@ -172,6 +175,30 @@ class ContextFetcherTests(TestCase):
         payload = build_context_payload(provider, {}, facts=facts)
         self.assertIn('facts', payload)
         self.assertIn('company_abcona', payload['facts'])
+
+    def test_extract_entity_refs_uuid(self):
+        uid = 'a1b2c3d4-e5f6-7890-abcd-ef1234567890'
+        refs = extract_entity_refs(briefing=f'Kontakt {uid} ansprechen')
+        self.assertEqual(refs['contact_crm_id'], uid)
+
+    def test_detect_crm_keys_for_matching_briefing(self):
+        keys = detect_fact_keys(
+            wizard_id='email_template',
+            briefing='Matching-Anschreiben an Berater Müller für Kunde Beispiel GmbH',
+            answers={'S1': 'matching'},
+        )
+        self.assertIn('crm_contact', keys)
+        self.assertIn('crm_account', keys)
+
+    def test_derive_search_query_strips_boilerplate(self):
+        refs = extract_entity_refs(
+            briefing='Erstelle eine Mail an Berater Max Mustermann',
+        )
+        self.assertIn('Max', refs['search_query'])
+
+    def test_search_crm_without_models_returns_empty(self):
+        self.assertEqual(search_crm_contacts('Müller'), [])
+        self.assertEqual(search_crm_accounts('Beispiel'), [])
 
 
 class RefineGenerateTests(TestCase):

@@ -235,6 +235,7 @@ def _build_refine_instruction(
         'Behalte gültige {{block:…}} und {variablen} bei.',
         'Firmenadresse/Impressum: nur facts.company_abcona oder {{block:signature}} — nie erfinden.',
         'User-Absender: facts.user als {sender_name}/{sender_email}.',
+        'CRM-Daten: facts.contact / facts.account / facts.crm_candidates — Werte aus facts.*.variables.',
     ]
     if current_html:
         parts.append(f'Aktueller html_body (Ausgangsbasis):\n{current_html[:12000]}')
