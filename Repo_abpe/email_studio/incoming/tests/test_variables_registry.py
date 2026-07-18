@@ -1,0 +1,43 @@
+"""Tests für variables_registry."""
+import unittest
+
+from apps.abpe_email_studio.variables_registry import (
+    get_variables,
+    get_sidebar_variable_groups,
+    variable_count,
+)
+
+
+class VariablesRegistryTest(unittest.TestCase):
+
+    def test_general_scope_excludes_meetme(self):
+        names = {v['name'] for v in get_variables('general', '')}
+        self.assertIn('name', names)
+        self.assertNotIn('termin_datum', names)
+
+    def test_telefon_scope_includes_meetme(self):
+        names = {v['name'] for v in get_variables('telefon', 'meetme_invite_abstimmung')}
+        for key in (
+            'termin_datum', 'termin_uhrzeit', 'raum', 'einwahl_info',
+            'teilnehmer_liste', 'teilnehmer_liste_html', 'title',
+        ):
+            self.assertIn(key, names, msg=key)
+
+    def test_meetme_identifier_on_general_scope(self):
+        names = {v['name'] for v in get_variables('general', 'meetme_invite_abstimmung')}
+        self.assertIn('termin_datum', names)
+
+    def test_groups_ordered(self):
+        groups = get_sidebar_variable_groups('telefon', 'meetme_invite_abstimmung')
+        keys = [g['key'] for g in groups]
+        self.assertIn('meetme', keys)
+        self.assertEqual(keys.index('context'), 0)
+        self.assertLess(keys.index('meetme'), keys.index('user'))
+
+    def test_variable_count(self):
+        n = variable_count('telefon', 'meetme_invite_abstimmung')
+        self.assertGreater(n, 15)
+
+
+if __name__ == '__main__':
+    unittest.main()
