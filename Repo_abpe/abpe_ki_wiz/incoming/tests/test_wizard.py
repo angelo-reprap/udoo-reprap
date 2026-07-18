@@ -139,24 +139,14 @@ class RefineGenerateTests(TestCase):
 
 
 class SpectacularSchemaTests(TestCase):
-    def test_custom_settings_no_serve_keys(self):
-        from ..schema_settings import KI_WIZARD_SPECTACULAR_SETTINGS
-
-        for key in KI_WIZARD_SPECTACULAR_SETTINGS:
-            self.assertFalse(
-                key.startswith('SERVE_'),
-                msg=f'{key} darf nicht in custom_settings (drf-spectacular)',
-            )
-
-    def test_schema_lists_generate_endpoint(self):
-        r = self.client.get('/ki-wizard/api/schema/')
-        self.assertEqual(r.status_code, 200)
+    def test_global_schema_lists_ki_wizard_generate(self):
+        r = self.client.get('/api/schema/')
+        self.assertEqual(r.status_code, 200, msg=r.content[:500])
         body = r.json()
         self.assertIn('openapi', body)
         paths = body.get('paths', {})
-        generate_paths = [p for p in paths if 'generate' in p]
-        self.assertTrue(generate_paths, msg=f'generate path fehlt in {list(paths)[:5]}')
-        self.assertEqual(body.get('info', {}).get('title'), 'ABpE KI Wizard API')
+        generate_paths = [p for p in paths if '/ki-wizard/' in p and 'generate' in p]
+        self.assertTrue(generate_paths, msg=f'ki-wizard generate fehlt in {list(paths)[:8]}')
 
 
 class KiWizardApiTests(TestCase):
@@ -164,17 +154,17 @@ class KiWizardApiTests(TestCase):
         self.client = Client()
         self.user = User.objects.create_user(username='wiztest', password='testpass123')
 
-    def test_openapi_schema_public(self):
-        r = self.client.get('/ki-wizard/api/schema/')
-        self.assertEqual(r.status_code, 200)
+    def test_global_openapi_schema_includes_ki_wizard_analyze(self):
+        r = self.client.get('/api/schema/')
+        self.assertEqual(r.status_code, 200, msg=r.content[:500])
         body = r.json()
         self.assertIn('openapi', body)
         paths = body.get('paths', {})
-        analyze_paths = [p for p in paths if 'analyze' in p]
+        analyze_paths = [p for p in paths if '/ki-wizard/' in p and 'analyze' in p]
         self.assertTrue(analyze_paths)
 
-    def test_swagger_ui_html(self):
-        r = self.client.get('/ki-wizard/api/docs/')
+    def test_global_swagger_ui_html(self):
+        r = self.client.get('/api/docs/')
         self.assertEqual(r.status_code, 200)
         self.assertIn('text/html', r['Content-Type'])
         body = r.content.decode()
@@ -183,17 +173,12 @@ class KiWizardApiTests(TestCase):
             msg='Spectacular Swagger UI erwartet',
         )
 
-    def test_redoc_html(self):
-        r = self.client.get('/ki-wizard/api/redoc/')
-        self.assertEqual(r.status_code, 200)
-        self.assertIn('text/html', r['Content-Type'])
-
-    def test_index_lists_schema_and_docs(self):
+    def test_index_lists_global_schema_and_docs(self):
         r = self.client.get('/ki-wizard/')
         self.assertEqual(r.status_code, 200)
         api = r.json()['api']
-        self.assertEqual(api['schema'], '/ki-wizard/api/schema/')
-        self.assertEqual(api['docs'], '/ki-wizard/api/docs/')
+        self.assertEqual(api['schema'], '/api/schema/')
+        self.assertEqual(api['docs'], '/api/docs/')
 
     def test_health_phase1(self):
         r = self.client.get('/ki-wizard/api/health/')

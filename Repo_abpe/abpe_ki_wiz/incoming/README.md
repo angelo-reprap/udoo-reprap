@@ -4,17 +4,19 @@ Zentrale Django-App für wiederverwendbare KI-Assistenten (Email Studio, Matchin
 
 ## API-Dokumentation (DRF + drf-spectacular)
 
+OpenAPI/Swagger läuft **zentral** über `abpe_backend/urls.py` — kein separates Schema unter `/ki-wizard/`.
+
 | URL | Beschreibung |
 |-----|--------------|
-| `/ki-wizard/api/schema/` | OpenAPI 3.0 JSON — **auto-generiert** aus DRF `@extend_schema` |
-| `/ki-wizard/api/docs/` | Swagger UI (drf-spectacular) |
-| `/ki-wizard/api/redoc/` | ReDoc (drf-spectacular) |
+| `/api/schema/` | OpenAPI 3.0 JSON (gesamtes Backend inkl. KI-Wizard) |
+| `/api/docs/` | Swagger UI |
+| `/api/redoc/` | ReDoc |
+
+KI-Wizard-Endpunkte erscheinen dort unter Tags `monitoring`, `wizards`, `session` (aus `@extend_schema` in `api.py`).
 
 Implementierung:
 - `api.py` — DRF `APIView` + `@extend_schema`
 - `serializers.py` — Request/Response-Schemas für spectacular
-- `urls_api.py` — nur API-Routen für Schema-Scope
-- `schema_settings.py` — `KI_WIZARD_SPECTACULAR_SETTINGS`
 
 Schema neu generieren: Endpunkte in `api.py` anpassen — kein handgeschriebenes OpenAPI mehr nötig.
 
@@ -107,8 +109,8 @@ supervisorctl restart abpe-django
 
 ```bash
 curl -s http://127.0.0.1:8000/ki-wizard/api/health/
-curl -s http://127.0.0.1:8000/ki-wizard/api/schema/ | python -m json.tool | head
-# Browser: http://127.0.0.1:8000/ki-wizard/api/docs/
+curl -s http://127.0.0.1:8000/api/schema/ | python -m json.tool | grep -i ki-wizard | head
+# Browser: https://abpe.win.abcona.info/api/docs/  (Tag: session / wizards)
 curl -s http://127.0.0.1:8000/ki-wizard/api/wizards/
 ```
 
