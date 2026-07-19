@@ -2774,7 +2774,8 @@
 }
 .es-preview-html {
     width: 100%;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: visible;
     text-align: left;
 }
 .es-preview-html img {

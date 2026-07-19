@@ -23,35 +23,39 @@ class BlocksRegistryTests(SimpleTestCase):
 
     def test_plain_list_to_html(self):
         html = plain_list_to_html('Max, Erika')
-        self.assertIn('<ul', html)
-        self.assertIn('<li>Max</li>', html)
-        self.assertIn('<li>Erika</li>', html)
+        self.assertIn('•', html)
+        self.assertIn('Max', html)
+        self.assertIn('Erika', html)
+        self.assertEqual(html.count('•'), 2)
 
     def test_format_inner_keeps_vars(self):
         html = format_inner_for_module('fmt_aufzaehlung', 'Hund\n{tier_2}\nPferd', html=True)
-        self.assertIn('<li>Hund</li>', html)
-        self.assertIn('<li>{tier_2}</li>', html)
+        self.assertIn('•', html)
+        self.assertIn('Hund', html)
+        self.assertIn('{tier_2}', html)
         self.assertNotIn('&lt;', html)
 
     def test_space_separated_words_become_bullets(self):
         html = format_inner_for_module(
             'fmt_aufzaehlung', 'Pferd Hund Schildkröte', html=True,
         )
-        self.assertIn('<li>Pferd</li>', html)
-        self.assertIn('<li>Hund</li>', html)
-        self.assertIn('<li>Schildkröte</li>', html)
+        self.assertEqual(html.count('•'), 3)
+        self.assertIn('Pferd', html)
+        self.assertIn('Hund', html)
+        self.assertIn('Schildkröte', html)
 
     def test_semicolon_list_becomes_bullets(self):
         html = format_inner_for_module(
             'fmt_aufzaehlung', 'Hund; Katze; Pferd;', html=True,
         )
-        self.assertIn('<li>Hund</li>', html)
-        self.assertIn('<li>Katze</li>', html)
-        self.assertIn('<li>Pferd</li>', html)
+        self.assertEqual(html.count('•'), 3)
+        self.assertIn('Hund', html)
+        self.assertIn('Katze', html)
+        self.assertIn('Pferd', html)
         html2 = format_inner_for_module(
             'fmt_aufzaehlung', 'Hund;Katze;Pferd', html=True,
         )
-        self.assertIn('<li>Katze</li>', html2)
+        self.assertIn('Katze', html2)
 
     def test_format_key_value(self):
         html = format_inner_for_module(
@@ -100,11 +104,11 @@ class RendererContentSlotTests(SimpleTestCase):
             '{{/block}}'
         )
         out = r._resolve_modules(html, {'extra_tier': 'Kaninchen'})
-        self.assertIn('<ul', out)
-        self.assertIn('<li>Hund</li>', out)
-        self.assertIn('<li>Katze</li>', out)
-        self.assertIn('<li>Kaninchen</li>', out)
-        self.assertNotIn('<ul>\nHund', out)
+        self.assertEqual(out.count('•'), 3)
+        self.assertIn('Hund', out)
+        self.assertIn('Katze', out)
+        self.assertIn('Kaninchen', out)
+        self.assertNotIn('{{block:', out)
 
     def test_resolve_key_value_plaintext(self):
         r = EmailRenderer()
@@ -125,7 +129,7 @@ class RendererContentSlotTests(SimpleTestCase):
         out = r._resolve_modules(html, {
             'teilnehmer_liste': 'Max Mustermann, Erika Musterfrau',
         })
-        self.assertIn('<ul>', out)
+        self.assertEqual(out.count('•'), 2)
         self.assertIn('Max Mustermann', out)
         self.assertIn('Erika Musterfrau', out)
 

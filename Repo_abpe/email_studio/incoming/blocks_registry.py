@@ -214,23 +214,40 @@ def format_inner_for_module(module_id: str, content: str, *, html: bool = True) 
     return raw
 
 
+# Immer dasselbe Bullet-Zeichen (E-Mail-sicher, sichtbar in Outlook/Vorschau)
+LIST_BULLET = '•'
+
+
 def plain_list_to_html(plain: str) -> str:
-    """Zeilen oder 'A, B' → <ul><li>…</ul>. Kein HTML vom Nutzer nötig."""
+    """
+    Plaintext → Aufzählung mit festem Bullet ``•``.
+
+    Kein CSS-``list-style`` (wird in Vorschau/Outlook oft abgeschnitten).
+    Stattdessen Tabelle mit sichtbarem Bullet-Zeichen — immer gleich.
+    """
     parts = _list_items(plain)
     if not parts:
         return ''
-    items = ''.join(
-        f'<li style="margin:0 0 6px 0;">{_esc_keep_vars(p)}</li>' for p in parts
+    rows = ''.join(
+        '<tr>'
+        f'<td valign="top" style="padding:0 8px 6px 0;width:14px;'
+        f'font-family:Arial;font-size:14px;color:#333333;line-height:1.5;">'
+        f'{LIST_BULLET}</td>'
+        f'<td valign="top" style="padding:0 0 6px 0;'
+        f'font-family:Arial;font-size:14px;color:#333333;line-height:1.5;">'
+        f'{_esc_keep_vars(p)}</td>'
+        '</tr>'
+        for p in parts
     )
     return (
-        f'<ul style="margin:0;padding-left:22px;list-style-type:disc;'
-        f'font-family:Arial;font-size:14px;color:#333333;">{items}</ul>'
+        '<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+        f'style="border-collapse:collapse;margin:0;">{rows}</table>'
     )
 
 
 def plain_list_to_text(plain: str) -> str:
     parts = _list_items(plain)
-    return '\n'.join(f'• {p}' for p in parts)
+    return '\n'.join(f'{LIST_BULLET} {p}' for p in parts)
 
 
 def key_value_to_html(plain: str) -> str:

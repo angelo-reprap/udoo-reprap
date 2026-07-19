@@ -368,7 +368,7 @@ Der **Modul-Renderer** formatiert (`format_inner_for_module`). Das gilt für **j
 
 | Modul | Eingabe (Beispiel) | Renderer macht |
 |---|---|---|
-| `fmt_aufzaehlung` | **Zeile = Punkt** oder `Hund; Katze; Pferd` | `<ul><li>…` (Bullets setzt der Renderer) |
+| `fmt_aufzaehlung` | **Zeile = Punkt** oder `Hund; Katze; Pferd` | immer `•` vor jedem Punkt (Renderer) |
 | `fmt_key_value` | `Hund: 45 €` | Label fett + Wert |
 | `fmt_tabelle` | `Tier \| Futter` (Pipe) | HTML-Tabelle |
 | `fmt_zwei_spalten` | links / `---` / rechts | 2 Spalten |
@@ -515,7 +515,13 @@ Pferd
 {{/block}}
 ```
 
-Renderer setzt `{{content}}` = generierte `<ul><li>…`.
+Renderer setzt `{{content}}` = Tabelle mit festem Bullet `•` (kein CSS-`list-style`):
+
+```html
+• Pferd
+• Hund
+• Schildkröte
+```
 
 #### `fmt_key_value`
 
