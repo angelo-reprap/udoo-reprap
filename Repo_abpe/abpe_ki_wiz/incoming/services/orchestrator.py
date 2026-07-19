@@ -334,6 +334,32 @@ def generate_session(
             elif ai_error:
                 return {'error': ai_error}
 
+    # MCID: Layout-Vorschläge (KI oder Heuristik) für Vorschau-Nachfrage
+    suggestions = generated.get('layout_suggestions') or []
+    if not isinstance(suggestions, list):
+        suggestions = []
+    if not suggestions:
+        try:
+            from apps.abpe_email_studio.blocks_registry import suggest_blocks_for_text
+            suggestions = suggest_blocks_for_text(
+                f"{session.briefing or ''}\n{generated.get('html_body') or ''}"
+            )
+        except ImportError:
+            suggestions = []
+    # Normalisieren für Frontend
+    norm = []
+    for s in suggestions:
+        if not isinstance(s, dict):
+            continue
+        norm.append({
+            'id': s.get('id') or '',
+            'question': s.get('question') or s.get('question_de') or s.get('name') or '',
+            'syntax': s.get('syntax') or '',
+            'name': s.get('name') or s.get('id') or '',
+            'description': s.get('description') or '',
+        })
+    generated['layout_suggestions'] = norm
+
     validation = provider.validate_output({**meta, **generated})
     result = provider.apply_result({**meta, **generated}, session_meta=meta)
     result['validation'] = {

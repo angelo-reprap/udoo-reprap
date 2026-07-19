@@ -35,8 +35,22 @@
     "required": true,
     "options": [
       {"value": "prose", "label": "Fließtext"},
-      {"value": "bullet_list", "label": "Aufzählung"},
-      {"value": "facts_box", "label": "Fakten-Box (Modul)"}
+      {"value": "bullet_list", "label": "Aufzählung (Format-Modul fmt_aufzaehlung)"},
+      {"value": "key_value", "label": "Label + Wert (fmt_key_value)"},
+      {"value": "facts_box", "label": "Fakten-Box (Modul fakten_box)"},
+      {"value": "table", "label": "Tabelle (fmt_tabelle / Block)"}
+    ]
+  },
+  {
+    "id": "I4",
+    "group": "Inhalt",
+    "question": "Sollen Aufzählungen / von–bis-Listen als Bullet-Liste (Block) erscheinen?",
+    "type": "select",
+    "required": false,
+    "options": [
+      {"value": "ask", "label": "KI soll in der Vorschau nachfragen"},
+      {"value": "yes_block", "label": "Ja — als Block/Aufzählung"},
+      {"value": "prose", "label": "Nein — im Fließtext belassen"}
     ]
   },
   {
@@ -75,8 +89,22 @@
     "show_if": {"S1": ["telefon"]},
     "options": [
       {"value": "none", "label": "Nein"},
-      {"value": "plain", "label": "Plaintext {teilnehmer_liste}"},
-      {"value": "html", "label": "HTML {teilnehmer_liste_html}"}
+      {"value": "block", "label": "Block Teilnehmer ({{block:block_teilnehmer}})"},
+      {"value": "plain", "label": "Plaintext {teilnehmer_liste} (Zwischenvariante)"},
+      {"value": "html", "label": "HTML {teilnehmer_liste_html} (Zwischenvariante)"}
+    ]
+  },
+  {
+    "id": "L4",
+    "group": "Layout",
+    "question": "System-Status / Ampel anzeigen?",
+    "type": "select",
+    "required": false,
+    "show_if": {"S1": ["portal", "general"]},
+    "options": [
+      {"value": "none", "label": "Nein"},
+      {"value": "block", "label": "Block System-Status ({{block:block_system_status}})"},
+      {"value": "html_var", "label": "Variable {system_status_html} (Zwischenvariante)"}
     ]
   },
   {

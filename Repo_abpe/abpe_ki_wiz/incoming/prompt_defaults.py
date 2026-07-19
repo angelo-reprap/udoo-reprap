@@ -117,23 +117,23 @@ WIZARD_PROMPT_DEFAULTS = [
         'description': 'Erzeugt html_body und text_body mit Modulen und Variablen.',
         'app_scope': 'general',
         'system': (
-            'Du erstellst E-Mail-Vorlagen für ABpE Email Studio. '
-            'Respektiere app_scope aus META/ANSWERS: '
-            'general = keine erfundenen MeetMe-Felder; telefon = Termin-Variablen OK. '
-            'CONTEXT.facts enthält verifizierte Firmen-, User- und CRM-Daten — diese NUTZEN, '
-            'nicht erfinden. CRM: facts.contact.variables / facts.account.variables. '
-            'Firmenfooter: {{block:signature}} mit signature_mode TEAM '
-            'oder facts.company_abcona. User-Absender: {sender_name}, {sender_email}. '
-            'Antworte AUSSCHLIESSLICH mit JSON. '
-            'HTML: inline CSS, 600px Tabellen-Layout, Outlook-tauglich. '
-            'Corporate-Layout (CI): zuerst Header-Modul {{block:abcona_header_blau|gruen|rot}}, '
-            'dann Body-Text, dann Footer {{block:footer_standard}} oder {{block:signature}}. '
-            'Header, Body und Footer linksbündig (text-align:left). '
-            'Body und Footer gleiche Schrift (Arial 14px) und Farbe (#333333). '
-            'CONTEXT.catalog.layout_rules beachten. '
-            'Module NUR als {{block:identifier}} aus CONTEXT.catalog.modules. '
-            'Variablen NUR als {name} aus CONTEXT.catalog.variables. '
-            'Kein Markdown, kein erfundenes Datum, keine erfundene Adresse.'
+            'Du erstellst E-Mail-Vorlagen für ABpE Email Studio (MCID). '
+            'Drei Ebenen: Variable={name} nur Rohdaten; '
+            'Modul={{block:id}} nur Format (optional {{block:id}}…{{/block}} mit Inhalt); '
+            'Block=Modul+Variablen aus CONTEXT.catalog.blocks '
+            '(z.B. {{block:block_teilnehmer}}, {{block:block_system_status}}, {{block:block_termin}}). '
+            'Respektiere app_scope: general = keine erfundenen MeetMe-Felder; telefon = Termin OK. '
+            'CONTEXT.facts NUTZEN, nicht erfinden. '
+            'Struktur: {{block:abcona_header_blau}} → optional label_* → Body '
+            '→ {{block:signature}} XOR footer_*. '
+            'Schrift nur Arial 14px #333333, Marke #163258, 600px Tabellen, inline CSS. '
+            'CONTEXT.catalog.layout_rules und CONTEXT.catalog.blocks beachten. '
+            'Format-Module mit Inhalt: {{block:fmt_aufzaehlung}}…{{/block}} usw. '
+            'Wenn ANSWERS.I4=yes_block oder M2=block: Teilnehmer als {{block:block_teilnehmer}}. '
+            'Wenn L4=block: {{block:block_system_status}}. '
+            'Bevorzuge Blocks statt {teilnehmer_liste_html}/{system_status_html}. '
+            'Zusätzlich layout_suggestions[] vorschlagen (Fragen an den Nutzer). '
+            'Antworte AUSSCHLIESSLICH mit JSON. Kein Markdown.'
         ),
         'user_template': (
             '[[CONTEXT]]\n\n'
@@ -142,13 +142,15 @@ WIZARD_PROMPT_DEFAULTS = [
             'Metadaten:\n[[META]]\n\n'
             '[[INSTRUCTION]]\n\n'
             'Gib GENAU dieses JSON zurück:\n'
-            '{"html_body": "", "text_body": "", "variables_used": []}'
+            '{"html_body": "", "text_body": "", "variables_used": [], '
+            '"layout_suggestions": [{"id": "", "question": "", "syntax": ""}]}'
         ),
         'instruction_default': '',
         'checklist_template': (
             'Alle checklist[] Punkte aus CONTEXT einhalten\n'
             'facts._rules beachten (Adressen/Firmendaten)\n'
             '{{block:signature}} wenn signature_mode nicht NONE\n'
+            'Blocks aus CONTEXT.catalog.blocks bevorzugen\n'
             'Keine unbekannten Platzhalter'
         ),
     },

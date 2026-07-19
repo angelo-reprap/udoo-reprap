@@ -555,32 +555,31 @@ Inhalt: Datentabelle (z. B. Check \| Wert \| Status) — gebaut vom **Block-Re
 | ✅ | R6 Paar-Syntax · R7 Studio-Rollen · R8 CI-Tokens · R9 Variable/Modul/Block |
 | ✅ | **R10 Identifier + Hüllen-Skizzen** |
 
-### Umsetzung (Code/UI) — noch offen
+### Umsetzung (Code/UI)
 
 | Status | Thema |
 |---|---|
-| ⬜ | Modul-Renderer + Block-Renderer |
-| ⬜ | Validator Regel 1 |
-| ⬜ | UI Abschnitte vs. Blöcke; Block einfügen |
-| ⬜ | Migration `{…_html}` → Blöcke |
+| ✅ | Modul-Renderer + Block-Renderer (`blocks_registry.py`, `renderer.py`) |
+| ✅ | KI-Katalog `blocks` + Prompt + Fragen I4/M2/L4 |
+| ✅ | KI-Vorschau: Layout-Vorschläge (Nachfrage Aufzählung/Tabelle) |
+| ✅ | HTML-Editor: Align + Listen; i18n de/en Tooltips |
+| ✅ | Sidebar: Format- + Block-Chips mit Paar-Syntax |
+| ⬜ | Validator Regel 1 (Tags/CSS) |
+| ⬜ | Volle Migration `{…_html}` → nur noch Blöcke |
 | ⬜ | Signatur-Formular · Rechte Modul-Reiter |
 | ⬜ | Logo CID/URL · Versand `.ics`/`.vcf` |
-| ⬜ | KI-Prompt an R1–R10 |
-| ⬜ | MCID-Konfigurator-UI verfeinern |
-
-**Fazit:** Fürs **Zielbild / Spezifikation** ist alles zusammen. Als Nächstes kommt die **Implementierung**, kein weiteres Konzept-Kapitel nötig (außer Korrekturen).
+| ⬜ | DB-Module `fmt_*` anlegen (Hüllen-Fallback aktiv) |
 
 ---
 
 ## Nächste Schritte (Umsetzung)
 
 - [x] Konzept R1–R10
-- [ ] Modul-Renderer (`{{block:id}}…{{/block}}`, `{{content}}`)
-- [ ] Block-Renderer (`block_teilnehmer`, `block_system_status`, …)
-- [ ] UI: Abschnitte vs. Blöcke; „Block einfügen“
-- [ ] `{teilnehmer_liste_html}` / `{system_status_html}` → Blöcke
-- [ ] Validator + Modul-Rechte (R7)
+- [x] Modul-Renderer (`{{block:id}}…{{/block}}`, `{{content}}`)
+- [x] Block-Renderer (`block_teilnehmer`, `block_system_status`, `block_termin`)
+- [x] KI: Blocks im Catalog/Prompt + Vorschlags-UI
+- [x] HTML-Editor Align/Listen + i18n de/en
+- [ ] DB-Module `fmt_*` speichern (optional, Fallback vorhanden)
+- [ ] Validator Regel 1 (Tags/CSS)
 - [ ] Signatur-Formular (R7)
 - [ ] Logo CID/URL (R3) · `.ics`/`.vcf` (R4)
-- [ ] KI-Prompt an R1–R10
-- [ ] Konfigurator-UI verfeinern

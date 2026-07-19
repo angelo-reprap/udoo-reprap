@@ -789,12 +789,18 @@
         {# ── HTML-Editor (E-Mail-sicher, Phase 1 Basis) ── #}
         <div id="es-html-editor-wrap" class="es-html-editor-wrap" style="display:none;">
             <div class="es-rich-toolbar">
-                <button type="button" class="es-rich-btn" data-cmd="bold" title="Fett"><i class="bi bi-type-bold"></i></button>
-                <button type="button" class="es-rich-btn" data-cmd="italic" title="Kursiv"><i class="bi bi-type-italic"></i></button>
-                <button type="button" class="es-rich-btn" data-cmd="underline" title="Unterstrichen"><i class="bi bi-type-underline"></i></button>
-                <button type="button" class="es-rich-btn" data-cmd="link" title="Link"><i class="bi bi-link-45deg"></i></button>
-                <button type="button" class="es-rich-btn" data-cmd="color" title="Abcona Blau"><i class="bi bi-palette"></i></button>
-                <span class="es-rich-toolbar-hint" data-i18n="es.html_editor_hint">E-Mail-sicher: nur erlaubte Formatierungen (Phase 4 erweitert)</span>
+                <button type="button" class="es-rich-btn" data-cmd="bold" data-i18n-title="es.fmt_bold" title="Fett"><i class="bi bi-type-bold"></i></button>
+                <button type="button" class="es-rich-btn" data-cmd="italic" data-i18n-title="es.fmt_italic" title="Kursiv"><i class="bi bi-type-italic"></i></button>
+                <button type="button" class="es-rich-btn" data-cmd="underline" data-i18n-title="es.fmt_underline" title="Unterstrichen"><i class="bi bi-type-underline"></i></button>
+                <button type="button" class="es-rich-btn" data-cmd="link" data-i18n-title="es.fmt_link" title="Link"><i class="bi bi-link-45deg"></i></button>
+                <button type="button" class="es-rich-btn" data-cmd="color" data-i18n-title="es.fmt_color" title="Abcona Blau"><i class="bi bi-palette"></i></button>
+                <span class="es-rich-toolbar-sep" aria-hidden="true"></span>
+                <button type="button" class="es-rich-btn" data-cmd="justifyLeft" data-i18n-title="es.fmt_align_left" title="Links"><i class="bi bi-text-left"></i></button>
+                <button type="button" class="es-rich-btn" data-cmd="justifyCenter" data-i18n-title="es.fmt_align_center" title="Mitte"><i class="bi bi-text-center"></i></button>
+                <button type="button" class="es-rich-btn" data-cmd="justifyRight" data-i18n-title="es.fmt_align_right" title="Rechts"><i class="bi bi-text-right"></i></button>
+                <button type="button" class="es-rich-btn" data-cmd="insertUnorderedList" data-i18n-title="es.fmt_ul" title="Aufzählung"><i class="bi bi-list-ul"></i></button>
+                <button type="button" class="es-rich-btn" data-cmd="insertOrderedList" data-i18n-title="es.fmt_ol" title="Nummerierung"><i class="bi bi-list-ol"></i></button>
+                <span class="es-rich-toolbar-hint" data-i18n="es.html_editor_hint">E-Mail-sicher: nur erlaubte Formatierungen (MCID)</span>
             </div>
             <div id="es-rich-editor" class="es-rich-editor" contenteditable="true"></div>
         </div>

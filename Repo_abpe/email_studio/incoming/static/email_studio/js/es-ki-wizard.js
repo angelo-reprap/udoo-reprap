@@ -194,11 +194,82 @@ window.ESKiWizard = (() => {
             }
             src.textContent = label;
         }
+        _renderLayoutSuggestions(_generated?.layout_suggestions || []);
         const warn = document.getElementById('es-ki-preview-warn');
         if (warn) {
             const msg = _generated?.ai_error || '';
             warn.textContent = msg;
             warn.style.display = msg ? 'block' : 'none';
+        }
+    }
+
+    function _renderLayoutSuggestions(items) {
+        const wrap = document.getElementById('es-ki-layout-suggestions');
+        const list = document.getElementById('es-ki-layout-suggestions-list');
+        if (!wrap || !list) return;
+        list.innerHTML = '';
+        if (!items || !items.length) {
+            wrap.style.display = 'none';
+            return;
+        }
+        wrap.style.display = 'block';
+        items.forEach((s, idx) => {
+            const row = document.createElement('div');
+            row.className = 'es-ki-suggest-row';
+            const q = document.createElement('div');
+            q.className = 'es-ki-suggest-q';
+            q.textContent = s.question || s.name || s.id || '';
+            row.appendChild(q);
+            if (s.description) {
+                const d = document.createElement('div');
+                d.className = 'es-ki-hint';
+                d.textContent = s.description;
+                row.appendChild(d);
+            }
+            const actions = document.createElement('div');
+            actions.className = 'es-ki-suggest-actions';
+            const yes = document.createElement('button');
+            yes.type = 'button';
+            yes.className = 'btn btn-sm btn-outline-primary';
+            yes.textContent = t('ki_suggest_yes', 'Ja, übernehmen');
+            yes.addEventListener('click', () => _applyLayoutSuggestion(s));
+            const no = document.createElement('button');
+            no.type = 'button';
+            no.className = 'btn btn-sm btn-outline-secondary';
+            no.textContent = t('ki_suggest_no', 'Nein');
+            no.addEventListener('click', () => {
+                row.remove();
+                if (!list.children.length) wrap.style.display = 'none';
+            });
+            actions.appendChild(yes);
+            actions.appendChild(no);
+            row.appendChild(actions);
+            list.appendChild(row);
+        });
+    }
+
+    function _applyLayoutSuggestion(s) {
+        const syntax = (s && s.syntax) || '';
+        const notes = document.getElementById('es-ki-refine-notes');
+        if (!notes) return;
+        const tip = syntax
+            ? t('ki_suggest_refine', 'Bitte Block einfügen:') + ' ' + syntax
+            : (s.question || s.name || '');
+        notes.value = (notes.value ? notes.value + '\n' : '') + tip;
+        // Direkt in HTML einfügen wenn Syntax bekannt und noch nicht vorhanden
+        if (syntax && _generated && _generated.html_body != null) {
+            const token = syntax.split('\n')[0];
+            if (token && !_generated.html_body.includes(token)) {
+                const close = '{{block:signature}}';
+                const body = _generated.html_body;
+                if (body.includes(close)) {
+                    _generated.html_body = body.replace(close, syntax + '\n' + close);
+                } else {
+                    _generated.html_body = body + '\n' + syntax;
+                }
+                const html = document.getElementById('es-ki-preview-html');
+                if (html) html.innerHTML = _generated.html_body;
+            }
         }
     }
 

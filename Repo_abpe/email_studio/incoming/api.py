@@ -1074,6 +1074,23 @@ class ModuleListAPI(LoginRequiredMixin, View):
         if module_type:
             qs = qs.filter(module_type=module_type)
 
+        try:
+            from .blocks_registry import (
+                block_insert_syntax,
+                get_blocks,
+                get_module_husk,
+                module_insert_syntax,
+                PAIRED_MODULE_IDS,
+            )
+        except ImportError:
+            from apps.abpe_email_studio.blocks_registry import (  # type: ignore
+                block_insert_syntax,
+                get_blocks,
+                get_module_husk,
+                module_insert_syntax,
+                PAIRED_MODULE_IDS,
+            )
+
         grouped = {}
         grouped['SIGNATURE'] = [{
             'id':          0,
@@ -1097,13 +1114,53 @@ class ModuleListAPI(LoginRequiredMixin, View):
                 'name':        m.name,
                 'module_type': m.module_type,
                 'description': m.description,
-                'syntax':      f'{{{{block:{m.identifier}}}}}',
+                'syntax':      module_insert_syntax(m.identifier),
+                'paired':      m.identifier in PAIRED_MODULE_IDS,
                 'preview_bg':  m.preview_bg,
             })
 
+        # MCID Format-Module (Fallback wenn noch nicht in DB)
+        fmt_group = grouped.setdefault('FORMAT', [])
+        existing_ids = {m['identifier'] for lst in grouped.values() for m in lst}
+        for fmt_id in sorted(PAIRED_MODULE_IDS):
+            if fmt_id in existing_ids:
+                continue
+            fmt_group.append({
+                'id': 0,
+                'identifier': fmt_id,
+                'name': fmt_id.replace('fmt_', 'Format: ').replace('_', ' '),
+                'module_type': 'FORMAT',
+                'description': 'MCID Format-Modul mit {{content}}',
+                'syntax': module_insert_syntax(fmt_id),
+                'paired': True,
+                'preview_bg': '#f8f9fa',
+                'is_virtual': True,
+                'husk_html': get_module_husk(fmt_id, 'html'),
+            })
+
+        # MCID Blöcke (Komposition Modul + Variablen)
+        block_group = []
+        for b in get_blocks():
+            block_group.append({
+                'id': 0,
+                'identifier': b['id'],
+                'name': b['name'],
+                'module_type': 'BLOCK',
+                'description': b.get('description') or '',
+                'syntax': block_insert_syntax(b['id']),
+                'paired': bool(b.get('paired')),
+                'module': b.get('module'),
+                'variables': b.get('variables') or [],
+                'preview_bg': '#fff8e6',
+                'is_virtual': True,
+            })
+        if block_group:
+            grouped['BLOCK'] = block_group
+
         return JsonResponse({
             'modules': grouped,
-            'types':   ModuleType.choices,
+            'types':   list(ModuleType.choices) + [('FORMAT', 'Format'), ('BLOCK', 'Block')],
+            'blocks':  block_group,
         })
 
     def post(self, request):

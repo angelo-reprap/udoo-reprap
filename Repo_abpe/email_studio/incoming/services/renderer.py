@@ -37,66 +37,166 @@ class EmailRenderer:
             'reply_to':     user.email or '',
         }
 
+    _PAIRED_BLOCK_RE = re.compile(
+        r'\{\{block:([\w_-]+)\}\}(.*?)\{\{/block\}\}',
+        re.DOTALL,
+    )
+    _SELF_BLOCK_RE = re.compile(r'\{\{block:([\w_-]+)\}\}')
+
     def _render(self, text: str, variables: dict) -> str:
         for key, value in variables.items():
             text = text.replace(f'{{{key}}}', str(value) if value else '')
         return text
 
+    @staticmethod
+    def _fill_content_slot(shell: str, content: str) -> str:
+        if '{{content}}' in (shell or ''):
+            return shell.replace('{{content}}', content or '')
+        return (shell or '') + (content or '')
+
+    def _module_shell(self, identifier: str, *, html: bool) -> str | None:
+        """DB-Modul oder MCID-Fallback-Hülle."""
+        from apps.abpe_email_studio.models import EmailModule
+        try:
+            from apps.abpe_email_studio.blocks_registry import get_module_husk
+        except ImportError:
+            from ..blocks_registry import get_module_husk  # type: ignore
+
+        try:
+            module = EmailModule.objects.filter(
+                identifier=identifier, is_active=True
+            ).first()
+        except Exception:
+            module = None
+        if module:
+            body = module.html_body if html else (module.text_body or '')
+            if body:
+                return body
+        husk = get_module_husk(identifier, 'html' if html else 'text')
+        return husk or None
+
+    def _block_inner_content(self, block_spec: dict, variables: dict, *, html: bool) -> str:
+        try:
+            from apps.abpe_email_studio.blocks_registry import (
+                plain_list_to_html,
+                plain_list_to_text,
+                termin_key_value_html,
+                termin_key_value_text,
+            )
+        except ImportError:
+            from ..blocks_registry import (  # type: ignore
+                plain_list_to_html,
+                plain_list_to_text,
+                termin_key_value_html,
+                termin_key_value_text,
+            )
+
+        bid = block_spec['id']
+        if bid == 'block_teilnehmer':
+            raw = variables.get('teilnehmer_liste_html') or variables.get('teilnehmer_liste') or ''
+            return plain_list_to_html(str(raw)) if html else plain_list_to_text(
+                str(variables.get('teilnehmer_liste') or raw)
+            )
+        if bid == 'block_system_status':
+            return str(variables.get('system_status_html') or variables.get('system_status') or '')
+        if bid == 'block_termin':
+            return termin_key_value_html(variables) if html else termin_key_value_text(variables)
+        legacy = block_spec.get('legacy_html_var') or ''
+        if legacy and variables.get(legacy):
+            return str(variables[legacy])
+        return ''
+
+    def _resolve_one_block(
+        self, identifier: str, content: str, variables: dict, *, html: bool,
+        template=None, user=None, signature_mode=None, signature_id=None,
+        include_signature=None,
+    ) -> str:
+        """Modul- oder Block-Renderer für eine ID (+ optional Inner-Content)."""
+        try:
+            from apps.abpe_email_studio.blocks_registry import get_block
+        except ImportError:
+            from ..blocks_registry import get_block  # type: ignore
+
+        if identifier == 'signature' and template is not None:
+            sig_html = self._resolve_signature_html(
+                template, variables, user,
+                signature_mode=signature_mode,
+                signature_id=signature_id,
+                include_signature=include_signature,
+                dynamic_sig_id=variables.get('signature'),
+            )
+            if html:
+                return sig_html
+            return re.sub(r'<[^>]+>', '', sig_html).strip()
+
+        block_spec = get_block(identifier)
+        if block_spec:
+            inner = (content or '').strip() or self._block_inner_content(
+                block_spec, variables, html=html,
+            )
+            shell = self._module_shell(block_spec['module'], html=html)
+            if shell is None:
+                log.warning('Block-Modul fehlt: %s → %s', identifier, block_spec['module'])
+                return inner if html else (inner or '')
+            return self._render(self._fill_content_slot(shell, inner), variables)
+
+        shell = self._module_shell(identifier, html=html)
+        if shell is not None:
+            filled = self._fill_content_slot(shell, content or '')
+            return self._render(filled, variables)
+
+        if html:
+            log.warning('Modul nicht gefunden: %s', identifier)
+            return f'<!-- Modul nicht gefunden: {identifier} -->'
+        return ''
+
     def _resolve_modules(
         self, html: str, variables: dict, template=None, user=None,
         signature_mode=None, signature_id=None, include_signature=None,
     ) -> str:
-        """Ersetzt {{block:identifier}} durch Modul-HTML."""
-        from apps.abpe_email_studio.models import EmailModule
-        pattern = re.compile(r'\{\{block:([\w_-]+)\}\}')
+        """Ersetzt {{block:id}}…{{/block}} und {{block:id}} (Modul- + Block-Renderer)."""
+        kwargs = dict(
+            template=template, user=user,
+            signature_mode=signature_mode, signature_id=signature_id,
+            include_signature=include_signature,
+        )
 
-        def replace_module(match):
-            identifier = match.group(1)
-            if identifier == 'signature' and template is not None:
-                return self._resolve_signature_html(
-                    template, variables, user,
-                    signature_mode=signature_mode,
-                    signature_id=signature_id,
-                    include_signature=include_signature,
-                    dynamic_sig_id=variables.get('signature'),
-                )
-            module = EmailModule.objects.filter(
-                identifier=identifier, is_active=True
-            ).first()
-            if module:
-                return self._render(module.html_body, variables)
-            log.warning(f'Modul nicht gefunden: {identifier}')
-            return f'<!-- Modul nicht gefunden: {identifier} -->'
+        def replace_paired(match):
+            return self._resolve_one_block(
+                match.group(1), match.group(2), variables, html=True, **kwargs,
+            )
 
-        return pattern.sub(replace_module, html)
+        def replace_self(match):
+            return self._resolve_one_block(
+                match.group(1), '', variables, html=True, **kwargs,
+            )
+
+        out = self._PAIRED_BLOCK_RE.sub(replace_paired, html or '')
+        return self._SELF_BLOCK_RE.sub(replace_self, out)
 
     def _resolve_modules_txt(
         self, text: str, variables: dict, template=None, user=None,
         signature_mode=None, signature_id=None, include_signature=None,
     ) -> str:
-        """Ersetzt {{block:identifier}} durch Modul-TXT."""
-        from apps.abpe_email_studio.models import EmailModule
-        pattern = re.compile(r'\{\{block:([\w_-]+)\}\}')
+        """Ersetzt {{block:id}}…{{/block}} und {{block:id}} für TXT."""
+        kwargs = dict(
+            template=template, user=user,
+            signature_mode=signature_mode, signature_id=signature_id,
+            include_signature=include_signature,
+        )
 
-        def replace_module(match):
-            identifier = match.group(1)
-            if identifier == 'signature' and template is not None:
-                sig_html = self._resolve_signature_html(
-                    template, variables, user,
-                    signature_mode=signature_mode,
-                    signature_id=signature_id,
-                    include_signature=include_signature,
-                    dynamic_sig_id=variables.get('signature'),
-                )
-                return re.sub(r'<[^>]+>', '', sig_html).strip()
-            module = EmailModule.objects.filter(
-                identifier=identifier, is_active=True
-            ).first()
-            if module and module.text_body:
-                return self._render(module.text_body, variables)
-            return ''
+        def replace_paired(match):
+            return self._resolve_one_block(
+                match.group(1), match.group(2), variables, html=False, **kwargs,
+            )
 
-        return pattern.sub(replace_module, text)
+        def replace_self(match):
+            return self._resolve_one_block(
+                match.group(1), '', variables, html=False, **kwargs,
+            )
+
+        out = self._PAIRED_BLOCK_RE.sub(replace_paired, text or '')
+        return self._SELF_BLOCK_RE.sub(replace_self, out)
 
     def _has_signature_block(self, *texts: str) -> bool:
         return any('{{block:signature}}' in (t or '') for t in texts)

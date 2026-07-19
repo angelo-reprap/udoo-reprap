@@ -1055,10 +1055,48 @@ window.ESStudio = (() => {
         if (!syntax) return;
         if (syntax === '{{block:signature}}') {
             _insertSignatureBlock();
+            ES.copyToClipboard(syntax, chipEl);
+            return;
+        }
+        // Paar-Syntax: Cursor zwischen {{block:id}} und {{/block}}
+        if (syntax.includes('{{/block}}')) {
+            _insertPairedBlockSyntax(syntax);
         } else {
             _insertAtCursor(syntax);
         }
         ES.copyToClipboard(syntax, chipEl);
+    }
+
+    function _insertPairedBlockSyntax(syntax) {
+        const openEnd = syntax.indexOf('}}') + 2;
+        const closeStart = syntax.indexOf('{{/block}}');
+        if (openEnd < 2 || closeStart < 0) {
+            _insertAtCursor(syntax);
+            return;
+        }
+        const before = syntax.slice(0, openEnd) + '\n';
+        const after = '\n' + syntax.slice(closeStart);
+        const mid = syntax.slice(openEnd, closeStart).replace(/^\n/, '').replace(/\n$/, '');
+        const ta = document.getElementById('es-html-editor');
+        const rich = document.getElementById('es-rich-editor');
+        if (_currentMode === 'html-editor' && rich) {
+            rich.focus();
+            document.execCommand('insertText', false, before + (mid || '') + after);
+            _syncRichToCode();
+            _schedulePreview();
+            return;
+        }
+        if (ta && (_currentMode === 'code' || _currentMode === 'html-editor')) {
+            const pos = ta.selectionStart || 0;
+            const insert = before + (mid || '') + after;
+            ta.value = ta.value.slice(0, pos) + insert + ta.value.slice(pos);
+            const cursor = pos + before.length + (mid || '').length;
+            ta.selectionStart = ta.selectionEnd = cursor;
+            ta.focus();
+            _schedulePreview();
+            return;
+        }
+        _insertAtCursor(syntax);
     }
 
     function _insertVariableToken(varName) {
@@ -1161,6 +1199,8 @@ window.ESStudio = (() => {
             const grouped = data.modules || {};
             let html      = '';
             const typeIcons = {
+                FORMAT: 'bi-columns-gap',
+                BLOCK: 'bi-collection',
                 HEADER: 'bi-layout-text-window-reverse',
                 FOOTER: 'bi-layout-text-window',
                 BUTTON: 'bi-cursor',

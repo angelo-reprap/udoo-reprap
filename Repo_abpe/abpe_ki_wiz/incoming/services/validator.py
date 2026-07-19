@@ -8,6 +8,7 @@ from apps.abpe_ki_wiz.providers.base import ValidationResult
 
 _VAR_RE = re.compile(r'\{([a-zA-Z_][a-zA-Z0-9_]*)\}')
 _BLOCK_RE = re.compile(r'\{\{block:([a-zA-Z0-9_-]+)\}\}')
+_CLOSE_BLOCK_RE = re.compile(r'\{\{/block\}\}')
 
 
 def extract_vars(text: str) -> set[str]:
@@ -15,7 +16,15 @@ def extract_vars(text: str) -> set[str]:
 
 
 def extract_blocks(text: str) -> set[str]:
+    """Modul-/Block-IDs; schließendes {{/block}} ist kein Identifier."""
     return set(_BLOCK_RE.findall(text or ''))
+
+
+def has_unbalanced_blocks(text: str) -> bool:
+    opens = len(_BLOCK_RE.findall(text or ''))
+    # Paare zählen: jedes {{/block}} schließt eines; Selbstschließer bleiben „offen“ ok
+    closes = len(_CLOSE_BLOCK_RE.findall(text or ''))
+    return closes > opens
 
 
 def validate_email_template_output(

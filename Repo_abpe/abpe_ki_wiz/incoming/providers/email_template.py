@@ -84,6 +84,41 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         except ImportError as exc:
             log.warning('EmailModule nicht verfügbar: %s', exc)
 
+        blocks: list[dict] = []
+        paired_modules: list[str] = []
+        try:
+            from apps.abpe_email_studio.blocks_registry import (
+                PAIRED_MODULE_IDS,
+                block_insert_syntax,
+                get_blocks,
+                module_insert_syntax,
+            )
+            paired_modules = sorted(PAIRED_MODULE_IDS)
+            for b in get_blocks():
+                blocks.append({
+                    'id': b['id'],
+                    'name': b['name'],
+                    'description': b.get('description') or '',
+                    'module': b.get('module'),
+                    'variables': b.get('variables') or [],
+                    'syntax': block_insert_syntax(b['id']),
+                    'paired': bool(b.get('paired')),
+                })
+            # Format-Module als Katalog-Einträge (auch ohne DB)
+            existing = {m.get('identifier') for m in modules}
+            for fmt_id in paired_modules:
+                if fmt_id not in existing:
+                    modules.append({
+                        'identifier': fmt_id,
+                        'name': fmt_id,
+                        'module_type': 'FORMAT',
+                        'description': 'MCID Format-Modul ({{content}})',
+                        'syntax': module_insert_syntax(fmt_id),
+                        'paired': True,
+                    })
+        except ImportError as exc:
+            log.warning('blocks_registry nicht verfügbar: %s', exc)
+
         try:
             from apps.abpe_email_studio.models import (
                 AppScope,
@@ -99,30 +134,42 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         return {
             'variables': variables,
             'modules': modules,
+            'blocks': blocks,
+            'paired_modules': paired_modules,
             'signature_modes': signature_modes,
             'sender_modes': sender_modes,
             'app_scopes': app_scopes,
             'layout_rules': {
                 'width_px': 600,
                 'brand': 'abcona',
-                'font': 'Arial,sans-serif',
+                'font': 'Arial',
                 'font_size_px': 14,
                 'text_color': '#333333',
+                'brand_color': '#163258',
                 'text_align': 'left',
                 'structure': ['header_module', 'event_label', 'body', 'closing'],
                 'header_modules': ['abcona_header_blau'],
                 'event_labels': ['label_info', 'label_bestaetigt', 'label_warnung'],
                 'footer_modules': ['footer_standard', 'footer_auto_reply'],
-                'button_modules': ['cta_blau', 'cta_gruen', 'cta_with_secondary'],
+                'button_modules': ['cta_blau', 'cta_with_secondary'],
+                'format_modules': paired_modules,
                 'default_header': 'abcona_header_blau',
                 # Signatur XOR Footer (DE-Impressum) — siehe EMAIL_LAYOUT_DECLARATION.md
                 'closing_xor': ['signature', 'footer'],
                 'footer_style': 'imprint',
                 'text_fallback': 'html_1to1',
+                'mcid_model': 'variable | modul | block',
+                'paired_syntax': '{{block:id}}…content…{{/block}}',
                 'ci_notes': (
-                    '{{block:abcona_header_blau}} → optional label_info|bestaetigt|warnung → Body '
-                    '→ entweder {{block:signature}} ODER {{block:footer_standard|footer_auto_reply}}. '
-                    'Body: Arial 14px #333 left. TXT 1:1 aus HTML. CTA: cta_blau/cta_gruen.'
+                    'MCID: Variable={name} Rohdaten; Modul={{block:id}} Format; '
+                    'Block=Modul+Variablen (z.B. block_teilnehmer, block_system_status, block_termin). '
+                    'Paar-Syntax für Format: {{block:fmt_aufzaehlung}}…{{/block}} mit {{content}} in der Hülle. '
+                    'Struktur: {{block:abcona_header_blau}} → optional label_* → Body '
+                    '→ {{block:signature}} XOR footer_*. '
+                    'Schrift nur Arial 14px #333; Marke #163258. '
+                    'Bevorzuge CONTEXT.catalog.blocks statt fertiger HTML-Variablen '
+                    '({teilnehmer_liste_html}/{system_status_html} nur Zwischenvariante). '
+                    'Frage bei Listen/Tabellen nach: Aufzählung oder Fließtext?'
                 ),
             },
         }
@@ -236,6 +283,11 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         })
         allowed_blocks = {m['identifier'] for m in catalog.get('modules') or [] if isinstance(m, dict)}
         allowed_blocks.add('signature')
+        for b in catalog.get('blocks') or []:
+            if isinstance(b, dict) and b.get('id'):
+                allowed_blocks.add(b['id'])
+        for fmt_id in catalog.get('paired_modules') or []:
+            allowed_blocks.add(fmt_id)
         return validate_email_template_output(result, allowed_vars, allowed_blocks)
 
     def _default_meetme_fields(self, answers: dict[str, Any]) -> list[str]:
