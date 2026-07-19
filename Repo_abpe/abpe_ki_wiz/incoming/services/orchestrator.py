@@ -334,6 +334,11 @@ def generate_session(
             elif ai_error:
                 return {'error': ai_error}
 
+    # MCID: Bodies säubern (kein Answer-JSON) + Blöcke aus Answers
+    normalize = getattr(provider, 'normalize_generated_bodies', None)
+    if callable(normalize):
+        generated = normalize(generated, answers)
+
     # MCID: Layout-Vorschläge (KI oder Heuristik) für Vorschau-Nachfrage
     suggestions = generated.get('layout_suggestions') or []
     if not isinstance(suggestions, list):
@@ -361,7 +366,10 @@ def generate_session(
     generated['layout_suggestions'] = norm
 
     validation = provider.validate_output({**meta, **generated})
-    result = provider.apply_result({**meta, **generated}, session_meta=meta)
+    result = provider.apply_result(
+        {**meta, **generated, '_answers': answers},
+        session_meta=meta,
+    )
     result['validation'] = {
         'ok': validation.ok,
         'errors': validation.errors,

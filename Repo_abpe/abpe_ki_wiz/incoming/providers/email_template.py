@@ -219,7 +219,13 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         if scope == 'general':
             items.append('Keine MeetMe-Variablen ({termin_datum} etc.) ohne Termin-Kontext')
         if answers.get('I1') == 'bullet_list':
-            items.append('Kerninfos als Aufzählung (<ul> oder Fakten-Box)')
+            items.append('Kerninfos als Aufzählung / {{block:fmt_aufzaehlung}}')
+        if answers.get('I1') == 'key_value':
+            items.append('Termin als {{block:block_termin}}')
+        if answers.get('M2') == 'block':
+            items.append('Teilnehmer als {{block:block_teilnehmer}}')
+        if answers.get('L4') == 'block':
+            items.append('Status als {{block:block_system_status}}')
         g1 = answers.get('G1')
         if g1 and g1 != 'NONE':
             items.append('{{block:signature}} im Body — kein Footer-Modul')
@@ -315,7 +321,8 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
             f'- {labels.get(f, f)}: {{{f}}}'
             for f in fields
         )
-        if answers.get('I1') == 'prose':
+        i1 = answers.get('I1') or 'bullet_list'
+        if i1 == 'prose':
             html = (
                 '<p>Termin: <strong>{termin_datum}</strong> um <strong>{termin_uhrzeit}</strong> '
                 'im Raum <strong>{raum}</strong>.</p>'
@@ -326,7 +333,92 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
                 'Einwahl: {einwahl_info}'
             )
             return html, text
+        if i1 in ('key_value', 'table'):
+            # MCID-Block Termin-Fakten
+            return '{{block:block_termin}}', (
+                'Titel: {title}\nDatum: {termin_datum}\nUhrzeit: {termin_uhrzeit}\n'
+                'Raum: {raum}\nEinwahl: {einwahl_info}'
+            )
+        # bullet_list / facts_box → Aufzählung; optional Format-Modul
+        if i1 == 'bullet_list':
+            return (
+                '{{block:fmt_aufzaehlung}}\n'
+                f'<ul>{html_items}</ul>\n'
+                '{{/block}}'
+            ), text_items
         return f'<ul>{html_items}</ul>', text_items
+
+    @staticmethod
+    def strip_leaked_answers(text: str) -> str:
+        """Entfernt versehentlich eingefügte Klärungs-JSON (z. B. {"I1": "bullet_list"})."""
+        if not text:
+            return ''
+        cleaned = text
+        # Wizard-Antwort-Objekte (auch verkettet)
+        pattern = re.compile(
+            r'\{\s*"[A-Z]\d+"\s*:\s*(?:"[^"]*"|true|false|null|\[[^\]]*\])\s*\}',
+        )
+        for _ in range(20):
+            nxt = pattern.sub('', cleaned)
+            if nxt == cleaned:
+                break
+            cleaned = nxt
+        cleaned = re.sub(r'(?:<p>\s*</p>\s*)+', '', cleaned, flags=re.IGNORECASE)
+        cleaned = re.sub(r'\n{3,}', '\n\n', cleaned)
+        return cleaned.strip()
+
+    def normalize_generated_bodies(
+        self,
+        generated: dict[str, Any],
+        answers: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
+        """MCID: Answers-Leak entfernen + Blöcke statt HTML-Variablen."""
+        answers = answers or {}
+        out = dict(generated)
+        html = self.strip_leaked_answers(out.get('html_body') or '')
+        text = self.strip_leaked_answers(out.get('text_body') or '')
+
+        def _insert_before_closing(body: str, token: str) -> str:
+            if token in body:
+                return body
+            for marker in ('{{block:signature}}', '{{block:footer_standard}}',
+                           '{{block:footer_auto_reply}}'):
+                if marker in body:
+                    return body.replace(marker, token + '\n' + marker)
+            return body + '\n' + token
+
+        m2 = answers.get('M2')
+        if m2 == 'block' or answers.get('I4') == 'yes_block':
+            html = html.replace('{teilnehmer_liste_html}', '{{block:block_teilnehmer}}')
+            html = html.replace(
+                '<p><strong>Teilnehmer:</strong></p><p>{teilnehmer_liste}</p>',
+                '<p><strong>Teilnehmer:</strong></p>\n{{block:block_teilnehmer}}',
+            )
+            # Fließtext-Variable nur ersetzen wenn klar Teilnehmer-Kontext
+            if m2 == 'block':
+                html = re.sub(
+                    r'(Teilnehmer[^<{]{0,40})\{teilnehmer_liste\}',
+                    r'\1{{block:block_teilnehmer}}',
+                    html,
+                    flags=re.IGNORECASE,
+                )
+                html = _insert_before_closing(html, '{{block:block_teilnehmer}}')
+            text = text.replace('{teilnehmer_liste_html}', '{teilnehmer_liste}')
+
+        if answers.get('L4') == 'block':
+            html = html.replace('{system_status_html}', '{{block:block_system_status}}')
+            html = _insert_before_closing(html, '{{block:block_system_status}}')
+
+        if answers.get('I1') in ('key_value',) and answers.get('S1') == 'telefon':
+            # Doppelte Termin-Listen vermeiden wenn Block schon da
+            if '{{block:block_termin}}' not in html and '{termin_datum}' in html:
+                pass  # vorhandene Felder belassen
+            elif '{{block:block_termin}}' not in html:
+                html = _insert_before_closing(html, '{{block:block_termin}}')
+
+        out['html_body'] = html
+        out['text_body'] = text
+        return out
 
     def generate_fallback(
         self,
@@ -367,7 +459,9 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         )
 
         m2 = answers.get('M2') or 'none'
-        if m2 == 'plain':
+        if m2 == 'block':
+            blocks.append('<p><strong>Teilnehmer:</strong></p>\n{{block:block_teilnehmer}}')
+        elif m2 == 'plain':
             blocks.append('<p><strong>Teilnehmer:</strong></p><p>{teilnehmer_liste}</p>')
         elif m2 == 'html':
             blocks.append('{teilnehmer_liste_html}')
@@ -389,23 +483,22 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
             '',
             info_text,
         ]
-        if m2 == 'plain':
+        if m2 in ('plain', 'html', 'block'):
             text_parts.extend(['', 'Teilnehmer:', '{teilnehmer_liste}'])
-        elif m2 == 'html':
-            text_parts.extend(['', '{teilnehmer_liste}'])
 
         variables_used = list(self._default_meetme_fields(answers))
-        if m2 in ('plain', 'html'):
+        if m2 in ('plain', 'html', 'block'):
             variables_used.append('teilnehmer_liste')
         if m2 == 'html':
             variables_used.append('teilnehmer_liste_html')
 
-        return {
+        out = {
             'html_body': html_body,
             'text_body': '\n'.join(text_parts).strip(),
             'variables_used': variables_used,
             'source': 'rules',
         }
+        return self.normalize_generated_bodies(out, answers)
 
     def _generate_fallback_general(
         self,
@@ -511,21 +604,24 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         session_meta: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
         """Struktur für Email Studio Editor (Phase 2 UI paste)."""
+        cleaned = self.normalize_generated_bodies(result, result.get('_answers') or {})
         return {
             'target': 'email_studio',
             'fields': {
-                'name': result.get('name', ''),
-                'identifier': result.get('identifier', ''),
-                'subject': result.get('subject', ''),
-                'description': result.get('description', ''),
-                'app_scope': result.get('app_scope', 'general'),
-                'event_type': result.get('event_type', 'general'),
-                'sender_mode': result.get('sender_mode', 'USER'),
-                'signature_mode': result.get('signature_mode', 'USER'),
-                'status': result.get('status', 'DRAFT'),
-                'html_body': result.get('html_body', ''),
-                'text_body': result.get('text_body', ''),
-                'variables': result.get('variables_used') or [],
+                'name': cleaned.get('name', result.get('name', '')),
+                'identifier': cleaned.get('identifier', result.get('identifier', '')),
+                'subject': cleaned.get('subject', result.get('subject', '')),
+                'description': cleaned.get('description', result.get('description', '')),
+                'app_scope': cleaned.get('app_scope', result.get('app_scope', 'general')),
+                'event_type': cleaned.get('event_type', result.get('event_type', 'general')),
+                'sender_mode': cleaned.get('sender_mode', result.get('sender_mode', 'USER')),
+                'signature_mode': cleaned.get(
+                    'signature_mode', result.get('signature_mode', 'USER'),
+                ),
+                'status': cleaned.get('status', result.get('status', 'DRAFT')),
+                'html_body': cleaned.get('html_body', ''),
+                'text_body': cleaned.get('text_body', ''),
+                'variables': cleaned.get('variables_used') or result.get('variables_used') or [],
             },
             'validation': result.get('validation'),
         }

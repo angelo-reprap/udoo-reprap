@@ -313,6 +313,25 @@ class EmailRenderer:
             'berater_name':    'Tanja Groß',
             'kandidat_name':   'Max Mustermann',
             'betreff':         'Beispiel-Betreff',
+            'title':           'Telefonkonferenz Abstimmung',
+            # Preis-Tabelle / Modul-Vorschau
+            'position_1_text':   'Beratung Tagessatz',
+            'position_1_betrag': '1.200 €',
+            'position_2_text':   'Reisekosten pauschal',
+            'position_2_betrag': '150 €',
+            'gesamt_betrag':     '1.350 €',
+            'stat_value':        '42',
+            'stat_label':        'offene Profile',
+            'fakt_1':            'Reaktionszeit unter 48h',
+            'fakt_2':            'IT-Freelancer Netzwerk',
+            'fakt_3':            'Deutsch & Englisch',
+            'schritt_1':         'Profil prüfen',
+            'schritt_2':         'Termin vereinbaren',
+            'schritt_3':         'Kick-off',
+            'dokument_1':        'CV_Max_Mustermann.pdf',
+            'dokument_2':        'Referenzen.pdf',
+            'button_text':       'Zum Portal',
+            'button_url':        'https://abpe.win.abcona.info',
         }
         # Live System-/Status-Werte gehören in die Vorschau (kein [disk_free]-Fallback)
         vars.update(self._get_system_vars())

@@ -396,6 +396,13 @@ window.ESKiWizard = (() => {
             if (gen.generated?.ai_error) {
                 _generated.ai_error = gen.generated.ai_error;
             }
+            // Antwort-JSON nie im Body belassen (Fallback falls Backend alt)
+            if (_generated.html_body) {
+                _generated.html_body = _stripAnswerJson(_generated.html_body);
+            }
+            if (_generated.text_body) {
+                _generated.text_body = _stripAnswerJson(_generated.text_body);
+            }
             _showPreview();
             _setStep('preview');
             _updatePreviewFooterForRefine();
@@ -523,12 +530,24 @@ window.ESKiWizard = (() => {
         }
     }
 
+    function _stripAnswerJson(text) {
+        if (!text) return '';
+        let out = String(text);
+        const re = /\{\s*"[A-Z]\d+"\s*:\s*(?:"[^"]*"|true|false|null|\[[^\]]*\])\s*\}/g;
+        for (let i = 0; i < 20; i++) {
+            const next = out.replace(re, '');
+            if (next === out) break;
+            out = next;
+        }
+        return out.replace(/(?:<p>\s*<\/p>\s*)+/gi, '').replace(/\n{3,}/g, '\n\n').trim();
+    }
+
     function _runApply() {
         _readMetaFields();
         // Kein _syncFromEditorIfRefine() hier — das würde das verfeinerte
         // _generated mit dem alten Editor-Inhalt überschreiben.
-        const htmlBody = _generated?.html_body || '';
-        const textBody = _generated?.text_body || '';
+        const htmlBody = _stripAnswerJson(_generated?.html_body || '');
+        const textBody = _stripAnswerJson(_generated?.text_body || '');
         if (!htmlBody.trim()) {
             _showError(t('ki_refine_no_content', 'Kein Inhalt zum Übernehmen.'));
             return;
