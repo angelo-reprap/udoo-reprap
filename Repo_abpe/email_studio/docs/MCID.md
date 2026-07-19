@@ -639,6 +639,7 @@ Katze | 30 €
 | ⬜ | Signatur-Formular · Rechte Modul-Reiter |
 | ⬜ | Logo CID/URL · Versand `.ics`/`.vcf` |
 | ⬜ | DB-Module `fmt_*` anlegen (Hüllen-Fallback aktiv) |
+| ⬜ | KI Modul-Generator (Briefing→neues Modul) — geparkt; Header+Adresse jetzt per Seed |
 | ⬜ | **KI Modul-Generator** (Briefing → neues `EmailModule`) — geparkt; Header+Adresse zunächst manuell/`seed_header_adresse.py` |
 
 ---
