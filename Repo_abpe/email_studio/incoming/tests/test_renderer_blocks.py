@@ -198,3 +198,32 @@ class RendererContentSlotTests(SimpleTestCase):
         out = r._resolve_modules('A {{block:fmt_trenner}} B', {})
         self.assertIn('border-top:1px solid #dee2e6', out)
         self.assertNotIn('{{block:fmt_trenner}}', out)
+
+    def test_header_before_list_does_not_swallow_block(self):
+        """Regression: {{block:header}}… darf fmt_aufzaehlung nicht bis {{/block}} fressen."""
+        r = EmailRenderer()
+        html = (
+            '{{block:abcona_header_blau}}\n'
+            '{{block:label_info}}\n'
+            '{{block:fmt_aufzaehlung}}\n'
+            'Hund\n'
+            'Katze\n'
+            'Maus {{/block}}\n'
+            '{{block:fmt_tabelle}} Tier | Kosten\nHund | 50 €\n{{/block}}'
+        )
+        out = r._resolve_modules(html, {'name': 'Max'})
+        self.assertEqual(out.count(LIST_BULLET), 3)
+        self.assertIn('Hund', out)
+        self.assertIn('Katze', out)
+        self.assertIn('Maus', out)
+        self.assertNotIn('{{block:fmt_aufzaehlung}}', out)
+
+    def test_visual_div_header_before_list(self):
+        r = EmailRenderer()
+        html = (
+            '<div>{{block:abcona_header_blau}}</div>'
+            '<div>{{block:fmt_aufzaehlung}}<br>Hund<br>Katze<br>Maus {{/block}}'
+            '{{block:fmt_tabelle}} Tier | Kosten Hund | 50 €{{/block}}</div>'
+        )
+        out = r._resolve_modules(html, {})
+        self.assertEqual(out.count(LIST_BULLET), 3)

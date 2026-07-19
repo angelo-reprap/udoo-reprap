@@ -37,11 +37,37 @@ class EmailRenderer:
             'reply_to':     user.email or '',
         }
 
-    _PAIRED_BLOCK_RE = re.compile(
-        r'\{\{block:([\w_-]+)\}\}(.*?)\{\{/block\}\}',
-        re.DOTALL,
-    )
     _SELF_BLOCK_RE = re.compile(r'\{\{block:([\w_-]+)\}\}')
+
+    @classmethod
+    def _paired_ids(cls) -> frozenset[str]:
+        """Nur echte Paar-Module/Blöcke — sonst verschluckt Header den {{/block}} der Liste."""
+        try:
+            from apps.abpe_email_studio.blocks_registry import (
+                PAIRED_MODULE_IDS,
+                get_blocks,
+            )
+        except ImportError:
+            from ..blocks_registry import PAIRED_MODULE_IDS, get_blocks  # type: ignore
+        ids = set(PAIRED_MODULE_IDS)
+        for b in get_blocks():
+            if b.get('paired'):
+                ids.add(b['id'])
+        # alle fmt_* mit Content-Slot
+        ids.update(i for i in ids if i.startswith('fmt_'))
+        return frozenset(ids)
+
+    @classmethod
+    def _paired_block_re(cls) -> re.Pattern:
+        ids = sorted(cls._paired_ids(), key=len, reverse=True)
+        if not ids:
+            # nie matchen
+            return re.compile(r'(?!)')
+        alt = '|'.join(re.escape(i) for i in ids)
+        return re.compile(
+            r'\{\{block:(' + alt + r')\}\}(.*?)\{\{/block\}\}',
+            re.DOTALL,
+        )
 
     def _render(self, text: str, variables: dict) -> str:
         for key, value in variables.items():
@@ -198,6 +224,8 @@ class EmailRenderer:
             include_signature=include_signature,
         )
 
+        paired_re = self._paired_block_re()
+
         def replace_paired(match):
             return self._resolve_one_block(
                 match.group(1), match.group(2), variables, html=True, **kwargs,
@@ -208,7 +236,7 @@ class EmailRenderer:
                 match.group(1), '', variables, html=True, **kwargs,
             )
 
-        out = self._PAIRED_BLOCK_RE.sub(replace_paired, html or '')
+        out = paired_re.sub(replace_paired, html or '')
         return self._SELF_BLOCK_RE.sub(replace_self, out)
 
     def _resolve_modules_txt(
@@ -221,6 +249,7 @@ class EmailRenderer:
             signature_mode=signature_mode, signature_id=signature_id,
             include_signature=include_signature,
         )
+        paired_re = self._paired_block_re()
 
         def replace_paired(match):
             return self._resolve_one_block(
@@ -232,7 +261,7 @@ class EmailRenderer:
                 match.group(1), '', variables, html=False, **kwargs,
             )
 
-        out = self._PAIRED_BLOCK_RE.sub(replace_paired, text or '')
+        out = paired_re.sub(replace_paired, text or '')
         return self._SELF_BLOCK_RE.sub(replace_self, out)
 
     def _has_signature_block(self, *texts: str) -> bool:

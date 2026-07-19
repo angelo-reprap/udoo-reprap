@@ -89,14 +89,21 @@ else
 fi
 
 echo "=== Smoke ==="
-grep -n "_PAIRED_BLOCK_RE\|blocks_registry\|_fill_content_slot" \
+grep -n "_paired_block_re\|blocks_registry\|_fill_content_slot" \
   "$B/apps/abpe_email_studio/services/renderer.py" | head
-grep -n "block_teilnehmer\|PAIRED_MODULE" \
+grep -n "LIST_BULLET\|_html_to_plain\|fmt_trenner\|block_anhaenge" \
   "$B/apps/abpe_email_studio/blocks_registry.py" | head
 grep -n "es-ki-layout-suggestions\|layout_suggestions" \
   "$B/apps/abpe_email_studio/static/email_studio/js/es-ki-wizard.js" | head
 grep -n "justifyLeft\|insertUnorderedList" \
   "$B/apps/abpe_ui/templates/abpe_ui/modules/email_studio/studio.html" | head
+grep -n "font-size: 14px" \
+  "$B/apps/abpe_ui/static/abpe_ui/css/mod/mod-email_studio.css" | head -3
+# Pflicht: Paar-Regex darf Header nicht bis {{/block}} fressen
+grep -q "_paired_block_re" "$B/apps/abpe_email_studio/services/renderer.py" \
+  || { echo "FAIL: _paired_block_re fehlt im Live-Renderer"; exit 1; }
+grep -q "_html_to_plain" "$B/apps/abpe_email_studio/blocks_registry.py" \
+  || { echo "FAIL: _html_to_plain fehlt"; exit 1; }
 
 supervisorctl restart abpe-django
 echo ""
