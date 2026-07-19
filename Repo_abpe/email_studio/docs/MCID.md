@@ -100,9 +100,65 @@ Früh in Unicode, ein Codepoint, keine Skin-Tones / keine ZWJ-Sequenzen. Darstel
 
 ---
 
+## Zielbild — Baukasten (Format × Inhalt)
+
+Zwei Ebenen, klarer Bezug:
+
+| Ebene | Bedeutung | Beispiele |
+|---|---|---|
+| **Format-Bausteine** | *wie* es aussieht (MCID-Kern) | Aufzählung, Key-Value, Tabelle, 2-Spalten, Hinweisbox, CTA, Trenner |
+| **Inhalts-Bausteine** | *was* hineinkommt — nutzen ein Format | Termin, Anhangsliste, Teilnehmer, Status, Fakten, Header, Signatur |
+
+Beispiel: Inhalts-Baustein **Termin** → Format **Key-Value** oder **2-Spalten**.
+
+### Geplantes Mindest-Set
+
+**Format (8):** Fließtext · Überschrift · Aufzählung · Key-Value · Tabelle · 2-Spalten · Hinweisbox · CTA  
+
+**Rahmen (4):** Header · Badge · Signatur · Footer  
+
+**Inhalt (6):** Termin · Anhangsliste · Teilnehmerliste · Status · Fakten · Schritte  
+
+---
+
+## Regel 3 — Logo / Bild (Header)
+
+| Variante | Bedeutung | Für Header-Logo |
+|---|---|---|
+| `<img>` Remote-URL | Client lädt Bild (oft erst nach „Bilder anzeigen“) | üblich |
+| **CID / eingebettet** | Bild hängt an der Mail (`multipart/related`) | üblich, offline sichtbar |
+| Download-Link (`<a href>`) | Nutzer klickt → Datei | **nicht** für Logo |
+
+- MCID-Header: Logo als **Bild** (URL oder CID), plus Text-Fallback „abcona e. K.“
+- **CID umgeht den Spamfilter nicht.** Entscheidend bleiben Auth (SPF/DKIM/DMARC), Reputation, Textmenge, Links, Volumen.
+- Risiko bei CID: große eingebettete Bilder + wenig Text → schlechter Score. Logo klein halten.
+
+---
+
+## Regel 4 — Kalender (.ics) und Kontakt (.vcf) *(Ziel, später)*
+
+Wir sollen beides anbieten können:
+
+| Format | Datei | Zweck |
+|---|---|---|
+| **iCalendar** | `.ics` | Termin in Outlook / Apple / Google übernehmen |
+| **vCard** | `.vcf` | Kontakt speichern (Person/Firma) — **kein** Termin |
+
+### Spam / Zustellung
+
+- `.ics` / `.vcf` sind **nicht von sich aus Spam** — normale Business-Anhänge.
+- Risiko steigt durch: fehlende Absender-Auth, Massenversand, viele/große Anhänge, falscher MIME-Type, seltsame Dateinamen, Mail fast nur Bild/HTML.
+- Praxis: eine MeetMe-Mail mit **einer** `.ics` (+ optional einer `.vcf`) an bekannte Empfänger ist unkritisch bei korrekter Auth.
+- MIME korrekt: `text/calendar` bzw. `text/vcard` (oder sauberer Attachment-Type), nicht generisches `.bin`.
+- Technisch: Inhalts-Baustein **Termin** (sichtbar in der Mail) + Versand-Logik für `.ics`-Anhang oder -Link; vCard optional getrennt.
+
+---
+
 ## Nächste Schritte (offen)
 
-- [ ] MCID-Mindest-Layout-Set (Header, Text, Liste, Tabelle, CTA, Trenner, Footer …)
-- [ ] Mapping bestehende Module → Regel 1
-- [ ] Validator / KI-Prompt an Regel 1 binden
-- [ ] Icon-Set für abcona final festlegen (Regel 2)
+- [ ] MCID-Mindest-Layout-Set im Detail ausformulieren (HTML-Skizzen je Format-Baustein)
+- [ ] Mapping bestehende Module → Regel 1 + Zielbild Format/Inhalt
+- [ ] Icon-Set für abcona final festlegen (Regel 2, Unicode bevorzugt)
+- [ ] Logo-Strategie festlegen: CID vs. URL (Regel 3)
+- [ ] `.ics` / `.vcf` Erzeugung + Anhang am Versand anbinden (Regel 4)
+- [ ] Validator / KI-Prompt an Regel 1–2 binden
