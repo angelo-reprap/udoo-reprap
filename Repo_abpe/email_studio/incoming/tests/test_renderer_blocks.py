@@ -200,6 +200,27 @@ class RendererContentSlotTests(SimpleTestCase):
         self.assertIn('border-top:1px solid #dee2e6', out)
         self.assertNotIn('{{block:fmt_trenner}}', out)
 
+    def test_resolve_typo_header_adresse_alias(self):
+        """KI-Tippfehler block_…_adrersse → Header Blau + Adresse."""
+        self.assertEqual(
+            resolve_block_identifier('block_abcona_header_blau_adrersse'),
+            'abcona_header_blau_adresse',
+        )
+        self.assertEqual(
+            resolve_block_identifier('block_teilnehmer'),
+            'block_teilnehmer',
+        )
+        r = EmailRenderer()
+        out = r._resolve_modules(
+            '{{block:block_abcona_header_blau_adrersse}}',
+            {},
+        )
+        self.assertIn('#163258', out)
+        self.assertIn('www.abcona.de', out)
+        self.assertIn('info@abcona.de', out)
+        self.assertNotIn('abcona e. K.', out)
+        self.assertNotIn('Modul nicht gefunden', out)
+
     def test_header_before_list_does_not_swallow_block(self):
         """Regression: {{block:header}}… darf fmt_aufzaehlung nicht bis {{/block}} fressen."""
         r = EmailRenderer()

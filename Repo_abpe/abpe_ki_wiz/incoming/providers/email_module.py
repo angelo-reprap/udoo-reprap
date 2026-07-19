@@ -220,13 +220,13 @@ class EmailModuleWizardProvider(WizardDomainProvider):
 
     @staticmethod
     def _fallback_header(with_address: bool) -> tuple[str, str]:
+        # Blauer Streifen ohne Firmenname-Text; optional Kontaktzeile
         html = (
             '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
-            '<tr><td style="background-color:#163258;padding:16px 24px;text-align:left;">'
-            '<span style="color:#ffffff;font-size:18px;font-weight:bold;font-family:Arial;">'
-            'abcona e. K.</span></td></tr>'
+            '<tr><td style="background-color:#163258;padding:12px 24px;font-size:1px;'
+            'line-height:12px;">&nbsp;</td></tr>'
         )
-        text = 'abcona e. K.'
+        text = ''
         if with_address:
             html += (
                 '<tr><td style="background-color:#e8f0f8;padding:10px 24px;text-align:left;'
@@ -238,7 +238,7 @@ class EmailModuleWizardProvider(WizardDomainProvider):
                 '<a href="mailto:info@abcona.de" style="color:#163258;text-decoration:none;">'
                 'info@abcona.de</a></td></tr>'
             )
-            text += '\nwww.abcona.de · 06171 886710 · info@abcona.de'
+            text = 'www.abcona.de · 06171 886710 · info@abcona.de'
         html += '</table>'
         return html, text
 

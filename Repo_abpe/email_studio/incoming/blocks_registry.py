@@ -121,7 +121,7 @@ HEADER_MODULE_META: dict[str, dict[str, str]] = {
     'abcona_header_blau_adresse': {
         'name_de': 'Header Blau + Adresse',
         'name_en': 'Header blue + address',
-        'description': 'abcona e. K. + www.abcona.de · Tel · info@',
+        'description': 'Blauer Streifen + www.abcona.de · Tel · info@',
     },
 }
 
@@ -130,9 +130,8 @@ _MODULE_HUSKS: dict[str, dict[str, str]] = {
     'abcona_header_blau_adresse': {
         'html': (
             '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
-            '<tr><td style="background-color:#163258;padding:16px 24px;text-align:left;">'
-            '<span style="color:#ffffff;font-size:18px;font-weight:bold;font-family:Arial;'
-            'letter-spacing:0.2px;">abcona e. K.</span></td></tr>'
+            '<tr><td style="background-color:#163258;padding:12px 24px;font-size:1px;'
+            'line-height:12px;">&nbsp;</td></tr>'
             '<tr><td style="background-color:#e8f0f8;padding:10px 24px;text-align:left;'
             'font-family:Arial;font-size:12px;line-height:1.5;color:#333333;">'
             '<a href="https://www.abcona.de" style="color:#163258;text-decoration:none;">'
@@ -145,7 +144,7 @@ _MODULE_HUSKS: dict[str, dict[str, str]] = {
             'info@abcona.de</a>'
             '</td></tr></table>'
         ),
-        'text': 'abcona e. K.\nwww.abcona.de · 06171 886710 · info@abcona.de',
+        'text': 'www.abcona.de · 06171 886710 · info@abcona.de',
     },
     'fmt_aufzaehlung': {
         'html': _husk_slot(),

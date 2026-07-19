@@ -104,6 +104,8 @@ class EmailModuleProviderTests(TestCase):
         self.assertIn('#163258', out['html_body'])
         self.assertIn('www.abcona.de', out['html_body'])
         self.assertIn('info@abcona.de', out['text_body'])
+        self.assertNotIn('abcona e. K.', out['html_body'])
+        self.assertNotIn('abcona e. K.', out['text_body'])
         self.assertNotIn('{{block:', out['html_body'])
 
     def test_default_meta_header_adresse(self):
