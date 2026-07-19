@@ -305,44 +305,42 @@ Selbstschließende Module ohne Inhalt bleiben erlaubt (Header, Label, Footer, Si
 
 ## Regel 8 — CI-Tokens *(Vorschlag — zur Freigabe)*
 
-Aus bestehenden abcona-Modulen abgeleitet:
+Verständlich für Sachbearbeitung und Technik. Eine Schriftart: **Arial**.
 
-### Farben
+### Farben (Name · Code · wofür)
 
-| Token | Wert | Nutzung |
-|---|---|---|
-| `color.brand` | `#163258` | Header, CTA, Links, Akzente |
-| `color.brand-soft` | `#e8f0f8` | Label Info-Hintergrund |
-| `color.text` | `#333333` | Fließtext |
-| `color.text-muted` | `#6c757d` | Footer, Meta |
-| `color.surface` | `#f8f9fa` / `#f8fafc` | Boxen, Footer-BG |
-| `color.border` | `#dee2e6` | Linien, Tabellen |
-| `color.ok` | `#28a745` | Erfolg / Label Bestätigt |
-| `color.warn` | `#dc3545` | Warnung / Label Handlungsbedarf |
-| `color.white` | `#ffffff` | Text auf Brand |
-| `color.page-bg` | `#eef2f5` | äußere Mail-Hülle (optional) |
+| Name | Farbe | Code | Wofür |
+|---|---|---|---|
+| **Dunkelblau** | sehr dunkles Blau (Marke) | `#163258` | Header, Button, Links |
+| **Hellblau** | sehr helles Blau | `#e8f0f8` | Label „Information“-Hintergrund |
+| **Dunkelgrau** | fast schwarz | `#333333` | normaler Text |
+| **Mittelgrau** | gedämpftes Grau | `#6c757d` | Footer, Nebentext |
+| **Hellgrau** | leichter Grau-Ton | `#f8f9fa` | Boxen, Flächen |
+| **Randgrau** | helles Linien-Grau | `#dee2e6` | Trennlinien, Tabellenränder |
+| **Grün** | kräftiges Grün | `#28a745` | Erfolg / Label „Bestätigt“ |
+| **Rot** | kräftiges Rot | `#dc3545` | Warnung / Label „Handlungsbedarf“ |
+| **Weiß** | weiß | `#ffffff` | Schrift auf Dunkelblau |
 
-### Typo
+### Schrift
 
-| Token | Wert |
+| | Festlegung |
 |---|---|
-| `font.stack` | `Arial, Helvetica, sans-serif` |
-| `font.size-body` | `13px`–`14px` |
-| `font.size-small` | `11px`–`12px` |
-| `font.size-h` | `18px`–`19px` (Header-Marke) |
-| `font.weight-bold` | `600` / `bold` |
-| `line.height` | `1.5`–`1.7` |
+| Schriftart | **Arial** (nur diese) |
+| Fließtext | **14px** |
+| Klein (Footer, Meta) | **12px** |
+| Header „abcona e. K.“ | **18px**, fett |
+| Zeilenabstand | normal (~1,5) |
 
-### Layout
+### Maße
 
-| Token | Wert |
+| | Festlegung |
 |---|---|
-| `layout.width` | `600px` (Inhalt), mobil `width:100%` + `max-width:600px` |
-| `space.block` | `14px`–`18px` Innenabstand Boxen |
-| `space.section` | `20px`–`28px` horizontal (Header/Footer-Padding) |
-| `space.stack` | `8px`–`12px` zwischen Zeilen in Listen |
+| Mail-Breite | **600px** (auf dem Handy volle Breite, max. 600px) |
+| Innenabstand Box | **16px** |
+| Innenabstand Header/Footer | **24px** links/rechts |
+| Abstand zwischen Zeilen in Listen | **8px** |
 
-Nur Werte aus **Regel 1** (inline CSS). Kein `border-radius` in der MCID-Basis.
+Kein abgerundete Ecken (`border-radius`) in der MCID-Basis.
 
 ---
 
