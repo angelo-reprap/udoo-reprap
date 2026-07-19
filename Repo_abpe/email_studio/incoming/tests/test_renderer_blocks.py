@@ -33,6 +33,14 @@ class BlocksRegistryTests(SimpleTestCase):
         self.assertIn('<li>{tier_2}</li>', html)
         self.assertNotIn('&lt;', html)
 
+    def test_space_separated_words_become_bullets(self):
+        html = format_inner_for_module(
+            'fmt_aufzaehlung', 'Pferd Hund Schildkröte', html=True,
+        )
+        self.assertIn('<li>Pferd</li>', html)
+        self.assertIn('<li>Hund</li>', html)
+        self.assertIn('<li>Schildkröte</li>', html)
+
     def test_format_key_value(self):
         html = format_inner_for_module(
             'fmt_key_value', 'Hund: 45 €\nKatze: 30 €', html=True,

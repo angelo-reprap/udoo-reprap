@@ -219,8 +219,13 @@ def plain_list_to_html(plain: str) -> str:
     parts = _list_items(plain)
     if not parts:
         return ''
-    items = ''.join(f'<li>{_esc_keep_vars(p)}</li>' for p in parts)
-    return f'<ul style="margin:0;padding-left:20px;">{items}</ul>'
+    items = ''.join(
+        f'<li style="margin:0 0 6px 0;">{_esc_keep_vars(p)}</li>' for p in parts
+    )
+    return (
+        f'<ul style="margin:0;padding-left:22px;list-style-type:disc;'
+        f'font-family:Arial;font-size:14px;color:#333333;">{items}</ul>'
+    )
 
 
 def plain_list_to_text(plain: str) -> str:
@@ -250,6 +255,14 @@ def key_value_to_text(plain: str) -> str:
 
 def pipe_table_to_html(plain: str) -> str:
     lines = [ln.strip() for ln in (plain or '').splitlines() if ln.strip()]
+    # Einzeiler: „A | B C | D E | F“ → Zeilen zu je 2 Spalten (Label|Wert)
+    if len(lines) == 1 and lines[0].count('|') >= 3:
+        cells = [c.strip() for c in lines[0].split('|') if c.strip()]
+        if len(cells) >= 4 and len(cells) % 2 == 0:
+            lines = [
+                f'{cells[i]} | {cells[i + 1]}'
+                for i in range(0, len(cells), 2)
+            ]
     if not lines:
         return ''
     rows = [ [c.strip() for c in ln.split('|')] for ln in lines ]
@@ -310,20 +323,38 @@ def hint_to_html(plain: str) -> str:
 
 
 def _list_items(text: str) -> list[str]:
+    """
+    Zeilen → Punkte. Sonst: Komma / Mittelpunkt / Semikolon.
+    Einzeiler ohne Trennzeichen: Wörter untereinander
+    (z. B. „Pferd Hund Schildkröte“ → 3 Bullets).
+    """
     raw = (text or '').strip()
     if not raw:
         return []
-    if '\n' in raw:
-        lines = raw.splitlines()
-    else:
-        lines = re.split(r'\s*,\s*', raw)
-    out = []
-    for line in lines:
+
+    def _clean(line: str) -> str:
         s = line.strip()
-        s = re.sub(r'^[\-\*\u2022\u25B8•▸]+\s*', '', s)
-        if s:
-            out.append(s)
-    return out
+        return re.sub(r'^[\-\*\u2022\u25B8•▸·]+\s*', '', s).strip()
+
+    if '\n' in raw:
+        lines = [_clean(ln) for ln in raw.splitlines()]
+        return [ln for ln in lines if ln]
+
+    # Explizite Trenner
+    for sep in (r'\s*[;·•]\s+', r'\s*,\s+'):
+        parts = [_clean(p) for p in re.split(sep, raw)]
+        parts = [p for p in parts if p]
+        if len(parts) >= 2:
+            return parts
+
+    # „Pferd Hund Schildkröte“ — kurze Wörter, kein Satz
+    if not re.search(r'[.!?]', raw):
+        words = [_clean(w) for w in raw.split()]
+        words = [w for w in words if w]
+        if 2 <= len(words) <= 16 and all(len(w) <= 40 for w in words):
+            return words
+
+    return [_clean(raw)] if _clean(raw) else []
 
 
 def _key_value_rows(plain: str) -> list[tuple[str, str]]:
