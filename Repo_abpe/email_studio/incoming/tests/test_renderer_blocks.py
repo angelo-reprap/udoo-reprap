@@ -1,7 +1,9 @@
-"""Tests: Modul-/Block-Renderer ({{block}}…{{/block}}, {{content}})."""
+"""Tests: Modul-/Block-Renderer ({{block}}…{{/block}}, {{content}}, • Bullets)."""
 from django.test import SimpleTestCase
 
 from apps.abpe_email_studio.blocks_registry import (
+    FORMAT_MODULE_IDS,
+    LIST_BULLET,
     block_insert_syntax,
     format_inner_for_module,
     get_block,
@@ -16,42 +18,66 @@ class BlocksRegistryTests(SimpleTestCase):
     def test_paired_syntax(self):
         syn = module_insert_syntax('fmt_aufzaehlung')
         self.assertIn('{{/block}}', syn)
-        self.assertIn('Hund', syn)
+        self.assertIn('Pferd', syn)
         self.assertNotIn('<ul>', syn)
         self.assertNotIn('{{/block}}', module_insert_syntax('cta_blau'))
+        self.assertEqual(module_insert_syntax('fmt_trenner'), '{{block:fmt_trenner}}')
         self.assertIn('block_teilnehmer', block_insert_syntax('block_teilnehmer'))
+        self.assertIn('fmt_trenner', FORMAT_MODULE_IDS)
 
     def test_plain_list_to_html(self):
         html = plain_list_to_html('Max, Erika')
-        self.assertIn('•', html)
+        self.assertIn(LIST_BULLET, html)
         self.assertIn('Max', html)
         self.assertIn('Erika', html)
-        self.assertEqual(html.count('•'), 2)
+        self.assertEqual(html.count(LIST_BULLET), 2)
+        self.assertIn('font-size:14px', html)
 
     def test_format_inner_keeps_vars(self):
         html = format_inner_for_module('fmt_aufzaehlung', 'Hund\n{tier_2}\nPferd', html=True)
-        self.assertIn('•', html)
+        self.assertIn(LIST_BULLET, html)
         self.assertIn('Hund', html)
         self.assertIn('{tier_2}', html)
         self.assertNotIn('&lt;', html)
+
+    def test_br_from_visual_editor_becomes_bullets(self):
+        """Visual/contenteditable speichert oft <br> statt Newlines."""
+        html = format_inner_for_module(
+            'fmt_aufzaehlung', 'Pferd<br>Hund<br>Katze', html=True,
+        )
+        self.assertEqual(html.count(LIST_BULLET), 3)
+        self.assertIn('Pferd', html)
+        self.assertIn('Katze', html)
+        self.assertIn('font-size:14px', html)
+
+    def test_div_from_visual_editor_becomes_bullets(self):
+        html = format_inner_for_module(
+            'fmt_aufzaehlung',
+            '<div>Pferd</div><div>Hund</div><div>Katze</div>',
+            html=True,
+        )
+        self.assertEqual(html.count(LIST_BULLET), 3)
+
+    def test_ul_legacy_converted_to_bullets(self):
+        html = format_inner_for_module(
+            'fmt_aufzaehlung',
+            '<ul><li>Max</li><li>Erika</li></ul>',
+            html=True,
+        )
+        self.assertEqual(html.count(LIST_BULLET), 2)
+        self.assertIn('Max', html)
 
     def test_space_separated_words_become_bullets(self):
         html = format_inner_for_module(
             'fmt_aufzaehlung', 'Pferd Hund Schildkröte', html=True,
         )
-        self.assertEqual(html.count('•'), 3)
-        self.assertIn('Pferd', html)
-        self.assertIn('Hund', html)
-        self.assertIn('Schildkröte', html)
+        self.assertEqual(html.count(LIST_BULLET), 3)
 
     def test_semicolon_list_becomes_bullets(self):
         html = format_inner_for_module(
             'fmt_aufzaehlung', 'Hund; Katze; Pferd;', html=True,
         )
-        self.assertEqual(html.count('•'), 3)
-        self.assertIn('Hund', html)
-        self.assertIn('Katze', html)
-        self.assertIn('Pferd', html)
+        self.assertEqual(html.count(LIST_BULLET), 3)
         html2 = format_inner_for_module(
             'fmt_aufzaehlung', 'Hund;Katze;Pferd', html=True,
         )
@@ -61,18 +87,22 @@ class BlocksRegistryTests(SimpleTestCase):
         html = format_inner_for_module(
             'fmt_key_value', 'Hund: 45 €\nKatze: 30 €', html=True,
         )
-        self.assertIn('<strong>Hund:</strong>', html)
+        self.assertIn('Hund:', html)
         self.assertIn('45 €', html)
+        self.assertIn('font-size:14px', html)
 
     def test_suggest_blocks(self):
         hits = suggest_blocks_for_text('Einladung Telefonkonferenz mit Teilnehmern')
         ids = {h['id'] for h in hits}
         self.assertIn('block_teilnehmer', ids)
+        hits2 = suggest_blocks_for_text('Bitte die Anhänge und PDF prüfen')
+        self.assertIn('block_anhaenge', {h['id'] for h in hits2})
 
     def test_get_block(self):
         b = get_block('block_system_status')
         self.assertIsNotNone(b)
         self.assertEqual(b['module'], 'fmt_tabelle')
+        self.assertIsNotNone(get_block('block_anhaenge'))
 
 
 class RendererContentSlotTests(SimpleTestCase):
@@ -104,11 +134,23 @@ class RendererContentSlotTests(SimpleTestCase):
             '{{/block}}'
         )
         out = r._resolve_modules(html, {'extra_tier': 'Kaninchen'})
-        self.assertEqual(out.count('•'), 3)
+        self.assertEqual(out.count(LIST_BULLET), 3)
         self.assertIn('Hund', out)
         self.assertIn('Katze', out)
         self.assertIn('Kaninchen', out)
+        self.assertIn('font-size:14px', out)
         self.assertNotIn('{{block:', out)
+
+    def test_resolve_aufzaehlung_with_br(self):
+        r = EmailRenderer()
+        html = (
+            '{{block:fmt_aufzaehlung}}'
+            'Pferd<br>Hund<br>Katze'
+            '{{/block}}'
+        )
+        out = r._resolve_modules(html, {})
+        self.assertEqual(out.count(LIST_BULLET), 3)
+        self.assertIn('Pferd', out)
 
     def test_resolve_key_value_plaintext(self):
         r = EmailRenderer()
@@ -119,7 +161,7 @@ class RendererContentSlotTests(SimpleTestCase):
             '{{/block}}'
         )
         out = r._resolve_modules(html, {'futter_katze': '30 €'})
-        self.assertIn('<strong>Hund:</strong>', out)
+        self.assertIn('Hund:', out)
         self.assertIn('45 €', out)
         self.assertIn('30 €', out)
 
@@ -129,9 +171,18 @@ class RendererContentSlotTests(SimpleTestCase):
         out = r._resolve_modules(html, {
             'teilnehmer_liste': 'Max Mustermann, Erika Musterfrau',
         })
-        self.assertEqual(out.count('•'), 2)
+        self.assertEqual(out.count(LIST_BULLET), 2)
         self.assertIn('Max Mustermann', out)
         self.assertIn('Erika Musterfrau', out)
+
+    def test_resolve_block_anhaenge(self):
+        r = EmailRenderer()
+        out = r._resolve_modules('{{block:block_anhaenge}}', {
+            'dokument_1': 'CV.pdf',
+            'dokument_2': 'Referenzen.pdf',
+        })
+        self.assertEqual(out.count(LIST_BULLET), 2)
+        self.assertIn('CV.pdf', out)
 
     def test_resolve_block_system_status(self):
         r = EmailRenderer()
@@ -141,3 +192,9 @@ class RendererContentSlotTests(SimpleTestCase):
         })
         self.assertIn(table, out)
         self.assertIn('padding:16px 24px', out)
+
+    def test_resolve_trenner(self):
+        r = EmailRenderer()
+        out = r._resolve_modules('A {{block:fmt_trenner}} B', {})
+        self.assertIn('border-top:1px solid #dee2e6', out)
+        self.assertNotIn('{{block:fmt_trenner}}', out)

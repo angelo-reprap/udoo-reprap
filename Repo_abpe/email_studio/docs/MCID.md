@@ -622,10 +622,15 @@ Katze | 30 €
 |---|---|
 | ✅ | Modul-Renderer + Block-Renderer (`blocks_registry.py`, `renderer.py`) |
 | ✅ | **Plaintext→Format für alle `fmt_*`** (`format_inner_for_module`) |
+| ✅ | **CI-Tokens zentral** (Arial 14px, Farben, `•` Bullets) |
+| ✅ | Visual-Editor `<br>`/`<div>` → Plaintext → Format (keine Bullet-Lücke) |
+| ✅ | `fmt_trenner` + `block_anhaenge` |
+| ✅ | Vorschau-Body 14px (nicht UI-11px) |
 | ✅ | KI-Katalog `blocks` + Prompt + Fragen I4/M2/L4 |
 | ✅ | KI-Vorschau: Layout-Vorschläge (Nachfrage Aufzählung/Tabelle) |
 | ✅ | HTML-Editor: Align + Listen; i18n de/en Tooltips |
 | ✅ | Sidebar: Format- + Block-Chips mit Paar-Syntax (Plaintext-Samples) |
+| ⬜ | Bestehende DB-Module (Header/Label/CTA/Footer) auf CI nachziehen |
 | ⬜ | Validator Regel 1 (Tags/CSS) |
 | ⬜ | Volle Migration `{…_html}` → nur noch Blöcke |
 | ⬜ | Signatur-Formular · Rechte Modul-Reiter |
@@ -638,10 +643,12 @@ Katze | 30 €
 
 - [x] Konzept R1–R10
 - [x] Modul-Renderer (`{{block:id}}…{{/block}}`, `{{content}}`)
-- [x] Block-Renderer (`block_teilnehmer`, `block_system_status`, `block_termin`)
-- [x] Konsolidierung: Plaintext/Variablen in jedem Format-Modul
+- [x] Block-Renderer (`block_teilnehmer`, `block_system_status`, `block_termin`, `block_anhaenge`)
+- [x] Konsolidierung: Plaintext/Variablen in jedem Format-Modul + `fmt_trenner`
+- [x] CI: feste `•` Bullets, Arial 14px, Preview-Font
 - [x] KI: Blocks im Catalog/Prompt + Vorschlags-UI
 - [x] HTML-Editor Align/Listen + i18n de/en
+- [ ] DB-Bestandsmodule (Header/CTA/…) CI-Audit
 - [ ] DB-Module `fmt_*` speichern (optional, Fallback vorhanden)
 - [ ] Validator Regel 1 (Tags/CSS)
 - [ ] Signatur-Formular (R7)

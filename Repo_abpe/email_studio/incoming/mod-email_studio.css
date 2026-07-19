@@ -617,7 +617,15 @@
 .es-email-sim-hdr .es-from  { font-size: 10px; color: white; font-weight: 600; }
 .es-email-sim-hdr .es-to    { font-size: 10px; color: rgba(255,255,255,.7); margin-top: 2px; }
 .es-email-sim-hdr .es-subj  { font-size: 11px; color: white; font-weight: 500; margin-top: 3px; }
-.es-email-sim-body          { padding: 12px; font-size: 11px; line-height: 1.7; text-align: left; }
+/* MCID Regel 8: Vorschau-Body wie Mail — Arial 14px, nicht UI-11px */
+.es-email-sim-body {
+    padding: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333333;
+    text-align: left;
+}
 
 /* ── Versionshistorie ── */
 .es-versions { display: flex; flex-direction: column; }

@@ -1076,19 +1076,21 @@ class ModuleListAPI(LoginRequiredMixin, View):
 
         try:
             from .blocks_registry import (
+                FORMAT_MODULE_IDS,
+                PAIRED_MODULE_IDS,
                 block_insert_syntax,
                 get_blocks,
                 get_module_husk,
                 module_insert_syntax,
-                PAIRED_MODULE_IDS,
             )
         except ImportError:
             from apps.abpe_email_studio.blocks_registry import (  # type: ignore
+                FORMAT_MODULE_IDS,
+                PAIRED_MODULE_IDS,
                 block_insert_syntax,
                 get_blocks,
                 get_module_husk,
                 module_insert_syntax,
-                PAIRED_MODULE_IDS,
             )
 
         grouped = {}
@@ -1122,7 +1124,7 @@ class ModuleListAPI(LoginRequiredMixin, View):
         # MCID Format-Module (Fallback wenn noch nicht in DB)
         fmt_group = grouped.setdefault('FORMAT', [])
         existing_ids = {m['identifier'] for lst in grouped.values() for m in lst}
-        for fmt_id in sorted(PAIRED_MODULE_IDS):
+        for fmt_id in sorted(FORMAT_MODULE_IDS):
             if fmt_id in existing_ids:
                 continue
             fmt_group.append({
@@ -1130,9 +1132,9 @@ class ModuleListAPI(LoginRequiredMixin, View):
                 'identifier': fmt_id,
                 'name': fmt_id.replace('fmt_', 'Format: ').replace('_', ' '),
                 'module_type': 'FORMAT',
-                'description': 'MCID Format-Modul mit {{content}}',
+                'description': 'MCID Format-Modul (CI Arial 14px)',
                 'syntax': module_insert_syntax(fmt_id),
-                'paired': True,
+                'paired': fmt_id in PAIRED_MODULE_IDS,
                 'preview_bg': '#f8f9fa',
                 'is_virtual': True,
                 'husk_html': get_module_husk(fmt_id, 'html'),

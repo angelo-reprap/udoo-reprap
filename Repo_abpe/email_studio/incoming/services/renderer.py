@@ -55,13 +55,20 @@ class EmailRenderer:
         return (shell or '') + (content or '')
 
     def _module_shell(self, identifier: str, *, html: bool) -> str | None:
-        """DB-Modul oder MCID-Fallback-Hülle."""
+        """DB-Modul oder MCID-Fallback-Hülle. Paar-Module brauchen {{content}}."""
         from apps.abpe_email_studio.models import EmailModule
         try:
-            from apps.abpe_email_studio.blocks_registry import get_module_husk
+            from apps.abpe_email_studio.blocks_registry import (
+                PAIRED_MODULE_IDS,
+                get_module_husk,
+            )
         except ImportError:
-            from ..blocks_registry import get_module_husk  # type: ignore
+            from ..blocks_registry import (  # type: ignore
+                PAIRED_MODULE_IDS,
+                get_module_husk,
+            )
 
+        husk = get_module_husk(identifier, 'html' if html else 'text')
         try:
             module = EmailModule.objects.filter(
                 identifier=identifier, is_active=True
@@ -71,13 +78,16 @@ class EmailRenderer:
         if module:
             body = module.html_body if html else (module.text_body or '')
             if body:
+                # Format-Paare ohne Slot → Husk (sonst keine Bullets/Formatierung)
+                if identifier in PAIRED_MODULE_IDS and '{{content}}' not in body:
+                    return husk or body
                 return body
-        husk = get_module_husk(identifier, 'html' if html else 'text')
         return husk or None
 
     def _block_inner_content(self, block_spec: dict, variables: dict, *, html: bool) -> str:
         try:
             from apps.abpe_email_studio.blocks_registry import (
+                _html_to_plain,
                 plain_list_to_html,
                 plain_list_to_text,
                 termin_key_value_html,
@@ -85,6 +95,7 @@ class EmailRenderer:
             )
         except ImportError:
             from ..blocks_registry import (  # type: ignore
+                _html_to_plain,
                 plain_list_to_html,
                 plain_list_to_text,
                 termin_key_value_html,
@@ -93,10 +104,20 @@ class EmailRenderer:
 
         bid = block_spec['id']
         if bid == 'block_teilnehmer':
-            raw = variables.get('teilnehmer_liste_html') or variables.get('teilnehmer_liste') or ''
-            return plain_list_to_html(str(raw)) if html else plain_list_to_text(
-                str(variables.get('teilnehmer_liste') or raw)
-            )
+            # Rohdaten bevorzugt — Legacy-HTML → Plaintext → • Bullets
+            raw = variables.get('teilnehmer_liste') or ''
+            if not raw and variables.get('teilnehmer_liste_html'):
+                raw = _html_to_plain(str(variables.get('teilnehmer_liste_html')))
+            return plain_list_to_html(str(raw)) if html else plain_list_to_text(str(raw))
+        if bid == 'block_anhaenge':
+            raw = variables.get('anhaenge_liste') or ''
+            if not raw:
+                docs = [
+                    variables.get(f'dokument_{i}')
+                    for i in (1, 2, 3, 4, 5)
+                ]
+                raw = '\n'.join(str(d) for d in docs if d)
+            return plain_list_to_html(str(raw)) if html else plain_list_to_text(str(raw))
         if bid == 'block_system_status':
             return str(variables.get('system_status_html') or variables.get('system_status') or '')
         if bid == 'block_termin':

@@ -86,14 +86,17 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
 
         blocks: list[dict] = []
         paired_modules: list[str] = []
+        format_modules: list[str] = []
         try:
             from apps.abpe_email_studio.blocks_registry import (
+                FORMAT_MODULE_IDS,
                 PAIRED_MODULE_IDS,
                 block_insert_syntax,
                 get_blocks,
                 module_insert_syntax,
             )
             paired_modules = sorted(PAIRED_MODULE_IDS)
+            format_modules = sorted(FORMAT_MODULE_IDS)
             for b in get_blocks():
                 blocks.append({
                     'id': b['id'],
@@ -106,15 +109,15 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
                 })
             # Format-Module als Katalog-Einträge (auch ohne DB)
             existing = {m.get('identifier') for m in modules}
-            for fmt_id in paired_modules:
+            for fmt_id in format_modules:
                 if fmt_id not in existing:
                     modules.append({
                         'identifier': fmt_id,
                         'name': fmt_id,
                         'module_type': 'FORMAT',
-                        'description': 'MCID Format-Modul ({{content}})',
+                        'description': 'MCID Format-Modul (CI Arial 14px)',
                         'syntax': module_insert_syntax(fmt_id),
-                        'paired': True,
+                        'paired': fmt_id in PAIRED_MODULE_IDS,
                     })
         except ImportError as exc:
             log.warning('blocks_registry nicht verfügbar: %s', exc)
@@ -136,6 +139,7 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
             'modules': modules,
             'blocks': blocks,
             'paired_modules': paired_modules,
+            'format_modules': format_modules,
             'signature_modes': signature_modes,
             'sender_modes': sender_modes,
             'app_scopes': app_scopes,
@@ -152,7 +156,7 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
                 'event_labels': ['label_info', 'label_bestaetigt', 'label_warnung'],
                 'footer_modules': ['footer_standard', 'footer_auto_reply'],
                 'button_modules': ['cta_blau', 'cta_with_secondary'],
-                'format_modules': paired_modules,
+                'format_modules': format_modules,
                 'default_header': 'abcona_header_blau',
                 # Signatur XOR Footer (DE-Impressum) — siehe EMAIL_LAYOUT_DECLARATION.md
                 'closing_xor': ['signature', 'footer'],
