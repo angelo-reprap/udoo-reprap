@@ -253,18 +253,29 @@ window.ESKiWizard = (() => {
         }
         if (html) html.innerHTML = _generated?.html_body || '';
         if (src) {
-            let label = t('ki_source_label', 'Quelle') + ': ' + (_generated?.source || 'ai');
-            if (_generated?.ai_error) {
-                label += ' — ' + _generated.ai_error;
-            }
-            src.textContent = label;
+            const source = _generated?.source || 'ai';
+            const sourceLabel = {
+                ai: 'KI',
+                ai_recovered: 'KI (repariert)',
+                rules: 'Regel-Vorlage',
+                unchanged: 'unverändert',
+                editor: 'Editor',
+            }[source] || source;
+            src.textContent = t('ki_source_label', 'Quelle') + ': ' + sourceLabel;
         }
         _renderLayoutSuggestions(_generated?.layout_suggestions || []);
         const warn = document.getElementById('es-ki-preview-warn');
         if (warn) {
-            const msg = _generated?.ai_error || '';
+            // Ein Hinweis reicht — kein Doppel-Error (Quelle + Warn + Fehlerbox)
+            const msg = _generated?.ai_warning || _generated?.ai_error || '';
             warn.textContent = msg;
             warn.style.display = msg ? 'block' : 'none';
+            warn.classList.toggle('es-ki-warn', !!_generated?.ai_warning && !_generated?.ai_error);
+            warn.classList.toggle('es-ki-error', !!_generated?.ai_error && !_generated?.ai_warning);
+        }
+        // Globale Fehlerbox leeren wenn Vorschau-Inhalt da ist
+        if (_generated?.html_body) {
+            _showError('');
         }
     }
 
@@ -470,6 +481,9 @@ window.ESKiWizard = (() => {
             _generated = gen.generated || {};
             if (gen.generated?.ai_error) {
                 _generated.ai_error = gen.generated.ai_error;
+            }
+            if (gen.generated?.ai_warning) {
+                _generated.ai_warning = gen.generated.ai_warning;
             }
             if (_generated.html_body) {
                 _generated.html_body = _stripAnswerJson(_generated.html_body);

@@ -140,7 +140,10 @@ WIZARD_PROMPT_DEFAULTS = [
             'Wenn L4=block: {{block:block_system_status}}. '
             'Bevorzuge Blocks statt {teilnehmer_liste_html}/{system_status_html}. '
             'Zusätzlich layout_suggestions[] vorschlagen (Fragen an den Nutzer). '
-            'Antworte AUSSCHLIESSLICH mit JSON. Kein Markdown.'
+            'Antworte AUSSCHLIESSLICH mit JSON. Kein Markdown. '
+            'WICHTIG für gültiges JSON: In html_body alle doppelten Anführungszeichen '
+            'als \\" escapen ODER in HTML nur einfache Quotes (style=\'…\'). '
+            'Keine echten Zeilenumbrüche unescaped in JSON-Strings — nutze \\n.'
         ),
         'user_template': (
             '[[CONTEXT]]\n\n'

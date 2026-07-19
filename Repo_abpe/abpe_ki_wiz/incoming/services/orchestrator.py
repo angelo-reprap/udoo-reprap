@@ -337,7 +337,16 @@ def generate_session(
         if ds.success and ds.text:
             try:
                 generated = parse_ai_json(ds.text)
-                generated['source'] = 'ai'
+                if generated.pop('_recovered', False):
+                    generated['source'] = 'ai_recovered'
+                    # Kein harter Fehler — Inhalt wurde aus kaputtem JSON gerettet
+                    ai_error = ''
+                    generated['ai_warning'] = (
+                        'KI-JSON war fehlerhaft (Anführungszeichen im HTML) — '
+                        'Inhalt wurde rekonstruiert. Bitte Vorschau prüfen.'
+                    )
+                else:
+                    generated['source'] = 'ai'
             except ValueError as exc:
                 ai_error = f'Generate JSON ungültig: {exc}'
                 generated = {}
@@ -356,13 +365,23 @@ def generate_session(
                 'source': 'unchanged',
             }
             if ai_error:
-                generated['ai_error'] = ai_error
+                generated['ai_warning'] = (
+                    'KI konnte nicht neu generieren — bisheriger Inhalt bleibt. '
+                    f'({ai_error})'
+                )
+                ai_error = ''
         else:
             fallback_fn = getattr(provider, 'generate_fallback', None)
             if callable(fallback_fn):
                 generated = fallback_fn(session.briefing or '', answers, meta)
                 if ai_error:
-                    generated['ai_error'] = ai_error
+                    generated['ai_warning'] = (
+                        'KI-Antwort ungültig — Regel-Vorlage verwendet. '
+                        'Du kannst übernehmen oder verfeinern.'
+                    )
+                    # technische Detailzeile separat, kein Doppel-Error
+                    generated['ai_error_detail'] = ai_error
+                    ai_error = ''
             elif ai_error:
                 return {'error': ai_error}
 

@@ -42,6 +42,21 @@ class JsonUtilsTests(TestCase):
         raw = '```json\n{"ok": true}\n```'
         self.assertEqual(parse_ai_json(raw), {'ok': True})
 
+    def test_recover_unescaped_quotes_in_html_body(self):
+        """DeepSeek bricht oft an style="…" — muss trotzdem html_body liefern."""
+        raw = (
+            '{\n'
+            '  "html_body": "<table style="width:100%"><tr><td>Hallo {name}</td></tr></table>",\n'
+            '  "text_body": "Hallo {name}",\n'
+            '  "variables_used": ["name"]\n'
+            '}'
+        )
+        data = parse_ai_json(raw)
+        self.assertIn('Hallo {name}', data['html_body'])
+        self.assertIn('width:100%', data['html_body'])
+        self.assertEqual(data['text_body'], 'Hallo {name}')
+        self.assertTrue(data.get('_recovered'))
+
 
 class RuleAnalyzeTests(TestCase):
     def test_meetme_briefing(self):

@@ -58,6 +58,8 @@ backup apps/abpe_ki_wiz/providers/email_module.py
 backup apps/abpe_ki_wiz/apps.py
 backup apps/abpe_ki_wiz/services/orchestrator.py
 backup apps/abpe_ki_wiz/services/validator.py
+backup apps/abpe_ki_wiz/services/json_utils.py
+backup apps/abpe_ki_wiz/services/deepseek_client.py
 backup apps/abpe_ki_wiz/prompt_defaults.py
 backup apps/abpe_ki_wiz/questions/email_template.json
 backup apps/abpe_ki_wiz/questions/email_module.json
@@ -82,6 +84,8 @@ show "$KI/providers/email_module.py"   "$B/apps/abpe_ki_wiz/providers/email_modu
 show "$KI/apps.py"                     "$B/apps/abpe_ki_wiz/apps.py"
 show "$KI/services/orchestrator.py"    "$B/apps/abpe_ki_wiz/services/orchestrator.py"
 show "$KI/services/validator.py"       "$B/apps/abpe_ki_wiz/services/validator.py"
+show "$KI/services/json_utils.py"      "$B/apps/abpe_ki_wiz/services/json_utils.py"
+show "$KI/services/deepseek_client.py" "$B/apps/abpe_ki_wiz/services/deepseek_client.py"
 show "$KI/prompt_defaults.py"          "$B/apps/abpe_ki_wiz/prompt_defaults.py"
 show "$KI/questions/email_template.json" "$B/apps/abpe_ki_wiz/questions/email_template.json"
 show "$KI/questions/email_module.json"   "$B/apps/abpe_ki_wiz/questions/email_module.json"

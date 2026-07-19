@@ -101,7 +101,12 @@ def _call_service_method(svc, method_name: str, *args, **kwargs) -> DeepSeekResu
         return DeepSeekResult(success=False, error=str(exc))
 
 
-def _http_chat_completion(system_msg: str, user_msg: str) -> DeepSeekResult:
+def _http_chat_completion(
+    system_msg: str,
+    user_msg: str,
+    *,
+    max_tokens: int | None = None,
+) -> DeepSeekResult:
     """Direkter DeepSeek-HTTP-Call wie EmailTranslator (Fallback ohne CRM-Wrapper)."""
     ds_cfg = _load_deepseek_config()
     api_key = ds_cfg.get('api_key') or ''
@@ -111,7 +116,8 @@ def _http_chat_completion(system_msg: str, user_msg: str) -> DeepSeekResult:
     model = ds_cfg.get('model', 'deepseek-chat')
     timeout = ds_cfg.get('timeout', 90)
     temperature = ds_cfg.get('temperature', 0.2)
-    max_tokens = ds_cfg.get('max_tokens', 2500)
+    # Generate liefert oft langes HTML — Default höher, sonst Truncation → kaputtes JSON
+    tokens = max_tokens if max_tokens is not None else int(ds_cfg.get('max_tokens', 2500))
 
     try:
         resp = requests.post(
@@ -123,7 +129,7 @@ def _http_chat_completion(system_msg: str, user_msg: str) -> DeepSeekResult:
             json={
                 'model': model,
                 'temperature': temperature,
-                'max_tokens': max_tokens,
+                'max_tokens': tokens,
                 'messages': [
                     {'role': 'system', 'content': system_msg},
                     {'role': 'user', 'content': user_msg},
@@ -237,4 +243,10 @@ def call_wizard_prompt(
                     return coerced
 
     # Letzter Fallback: direkter HTTP-Call
-    return _http_chat_completion(system_msg, user_msg)
+    # Generate-Phasen brauchen mehr Tokens (HTML + JSON), sonst Truncation
+    gen_tokens = None
+    key = (getattr(prompt, 'key', '') or '').lower()
+    phase = (getattr(prompt, 'phase', '') or '').lower()
+    if 'generate' in key or phase == 'generate':
+        gen_tokens = int((_load_deepseek_config() or {}).get('max_tokens_generate', 6000))
+    return _http_chat_completion(system_msg, user_msg, max_tokens=gen_tokens)
