@@ -272,36 +272,107 @@ Selbstschließende Module ohne Inhalt bleiben erlaubt (Header, Label, Footer, Si
 
 ---
 
-## Konfigurator — Deklarationsstand
+## Regel 7 — Studio-Rollen und Editor-Orte
 
-Für ein **MCID-System / Konfigurator** ist das **Zielbild** weitgehend deklariert (Regeln 1–6). Zum Bauen fehlt noch die Feinspezifikation:
+**Entscheidung:** Modul- und Signatur-Editor im Studio **behalten und verfeinern** — nicht alles in den Django Admin schieben.
+
+| Aufgabe | Rolle | Ort im Studio |
+|---|---|---|
+| Vorlage schreiben, Blöcke setzen, Variablen | Sachbearbeiter | Reiter **Vorlage** |
+| Signatur pflegen (Tel, Name, Mail …) | Sachbearbeiter | Reiter **Signatur** (formbasiert) |
+| Module / MCID-Hüllen anpassen oder neu | CI-/Technik (`email_studio_mcid` o. Ä.) | Reiter **Modul** → später MCID-Konfigurator |
+| Roh-DB / Notfall | Admin | Django Admin |
+
+### Signatur (verfeinern)
+
+- Primär **Formularfelder:** Name, Titel, Tel, Mobil, E-Mail, optionale Frei-Zeile  
+- HTML nur unter „Erweitert“  
+- Speichern → DB  
+- Alltag: z. B. Telefonnummer einer Mitarbeiterin ändern ohne Admin
+
+### Modul (verfeinern, absichern)
+
+- Nicht jeder Sachbearbeiter ändert MCID-Hüllen  
+- Speichern nur wenn **Validator (Regel 1)** ok  
+- Immer HTML- + TXT-Vorschau  
+- Später optisch/rechtlich getrennt als **MCID-Konfigurator** (gleiche Studio-Oberfläche, erhöhte Rechte)
+
+### Nicht tun
+
+- Modul-Editor entfernen und nur Admin + Studio-Vorschau → schlechter Workflow für CI-Fixes (z. B. Bullet-Liste / Spam)
+
+---
+
+## Regel 8 — CI-Tokens *(Vorschlag — zur Freigabe)*
+
+Aus bestehenden abcona-Modulen abgeleitet:
+
+### Farben
+
+| Token | Wert | Nutzung |
+|---|---|---|
+| `color.brand` | `#163258` | Header, CTA, Links, Akzente |
+| `color.brand-soft` | `#e8f0f8` | Label Info-Hintergrund |
+| `color.text` | `#333333` | Fließtext |
+| `color.text-muted` | `#6c757d` | Footer, Meta |
+| `color.surface` | `#f8f9fa` / `#f8fafc` | Boxen, Footer-BG |
+| `color.border` | `#dee2e6` | Linien, Tabellen |
+| `color.ok` | `#28a745` | Erfolg / Label Bestätigt |
+| `color.warn` | `#dc3545` | Warnung / Label Handlungsbedarf |
+| `color.white` | `#ffffff` | Text auf Brand |
+| `color.page-bg` | `#eef2f5` | äußere Mail-Hülle (optional) |
+
+### Typo
+
+| Token | Wert |
+|---|---|
+| `font.stack` | `Arial, Helvetica, sans-serif` |
+| `font.size-body` | `13px`–`14px` |
+| `font.size-small` | `11px`–`12px` |
+| `font.size-h` | `18px`–`19px` (Header-Marke) |
+| `font.weight-bold` | `600` / `bold` |
+| `line.height` | `1.5`–`1.7` |
+
+### Layout
+
+| Token | Wert |
+|---|---|
+| `layout.width` | `600px` (Inhalt), mobil `width:100%` + `max-width:600px` |
+| `space.block` | `14px`–`18px` Innenabstand Boxen |
+| `space.section` | `20px`–`28px` horizontal (Header/Footer-Padding) |
+| `space.stack` | `8px`–`12px` zwischen Zeilen in Listen |
+
+Nur Werte aus **Regel 1** (inline CSS). Kein `border-radius` in der MCID-Basis.
+
+---
+
+## Konfigurator — Deklarationsstand
 
 | Status | Thema |
 |---|---|
-| ✅ da | Erlaubte Tags/CSS (R1), Icons (R2), Logo (R3), ICS/VCF (R4), Modul-Soll (R5), Block-Syntax/Editor (R6) |
+| ✅ da | R1 Tags/CSS · R2 Icons · R3 Logo · R4 ICS/VCF · R5 Modul-Soll · R6 Block-Syntax · R7 Studio-Rollen |
 | ✅ da | Format × Inhalt, XOR Signatur/Footer (Layout-Deklaration) |
-| ⬜ fehlt | **CI-Tokens:** Farben, Abstände, Maximalbreite (z. B. 600px), Schriftstack |
-| ⬜ fehlt | **HTML/TXT-Skizzen** je Format-Baustein (wo liegt `{{content}}` in der Hülle?) |
-| ⬜ fehlt | **Identifier-Namen** final (`hinweisbox` vs. `quote_highlight` …) |
-| ⬜ fehlt | **Validator:** Modul-HTML gegen Regel 1 prüfen |
-| ⬜ fehlt | **KI-Prompt / layout_rules** an R1–R6 anbinden |
-| ⬜ fehlt | **UI-Konfigurator:** Module anlegen/bearbeiten, Vorschau, Freigabe |
-| ⬜ fehlt | **Versand:** `.ics`/`.vcf` + Logo-CID konkret |
-| ⬜ fehlt | **Ist→Soll-Migration** der bestehenden DB-Module |
-
-**Fazit:** Konzept/Regeln reichen als Zielbild. Als Nächstes Feinspezifikation (CI-Tokens + Hüllen-Skizzen), dann Implementierung Konfigurator/Renderer.
+| 🟡 Vorschlag | **R8 CI-Tokens** — Freigabe ausstehend |
+| ⬜ fehlt | **HTML/TXT-Skizzen** je Format-Baustein (`{{content}}`) |
+| ⬜ fehlt | **Identifier-Namen** final |
+| ⬜ fehlt | **Validator** gegen Regel 1 |
+| ⬜ fehlt | **KI-Prompt / layout_rules** an R1–R7 |
+| ⬜ fehlt | **UI-Konfigurator** (Verfeinerung Reiter Modul) |
+| ⬜ fehlt | **Versand** `.ics`/`.vcf` + Logo-CID |
+| ⬜ fehlt | **Ist→Soll-Migration** |
 
 ---
 
 ## Nächste Schritte (offen)
 
-- [ ] CI-Tokens festlegen (Farbe, Breite, Abstände, Font)
+- [ ] **CI-Tokens freigeben** (Regel 8) oder anpassen
 - [ ] HTML/TXT-Hüllen-Skizzen je Format-Baustein (`{{content}}`-Slot)
-- [ ] Renderer: `{{block:id}}…{{/block}}` + bestehende Selbstschließer
-- [ ] Visual als Source of Truth an Regel 6 ausrichten
-- [ ] Mapping Ist-Module → Soll (DB / Snapshot)
-- [ ] Icon-Set final (Regel 2)
-- [ ] Logo CID vs. URL (Regel 3)
-- [ ] `.ics` / `.vcf` am Versand (Regel 4)
-- [ ] Validator + KI-Prompt an Regeln 1–6
-- [ ] MCID-Konfigurator-UI
+- [ ] Finale Identifier-Namen
+- [ ] Renderer: `{{block:id}}…{{/block}}` + Selbstschließer
+- [ ] Visual als Source of Truth (R6)
+- [ ] Validator + Rechte am Modul-Reiter (R7)
+- [ ] Signatur-Formular statt Roh-HTML (R7)
+- [ ] Ist→Soll-Migration Module
+- [ ] Logo CID vs. URL (R3) · `.ics`/`.vcf` (R4)
+- [ ] KI-Prompt an R1–R8
+- [ ] MCID-Konfigurator-UI verfeinern
