@@ -303,6 +303,69 @@ Selbstschließende Module ohne Inhalt bleiben erlaubt (Header, Label, Footer, Si
 
 ---
 
+## Regel 9 — Variable · Modul · Block (Architektur)
+
+**Freigegeben als Zielbild.** Klare Trennung, ein Render-Kern mit zwei Spezialisierungen.
+
+| Ebene | Syntax | Aufgabe | Speicher |
+|---|---|---|---|
+| **Variable** | `{name}` | nur Rohdaten, kein Layout | Registry + Aufrufer / System-Services |
+| **Modul** | `{{block:id}}` oder `{{block:id}}…{{/block}}` | nur Format/Hülle (MCID) | DB `EmailModule` (+ Git-Staging sync) |
+| **Block** | benannte Komposition z. B. einfügen als Block | **Modul + gebundene Variablen/Inhalt** | DB (neu) bzw. Konfiguration — nicht als HTML-Variable |
+
+### Namenskonflikt UI
+
+Im Visual gibt es heute „**Block hinzufügen**“ (Text-Block, Button-Block, Signatur, Trennlinie). Das sind **Canvas-Abschnitte** (Editor-UI), **nicht** MCID-**Blöcke** aus dieser Regel.
+
+| Heute UI | MCID-Begriff |
+|---|---|
+| Text-Block / Button-Block / … | Canvas-**Abschnitt** (später umbenennen) |
+| `{{block:cta_blau}}` | **Modul** |
+| `{teilnehmer_liste_html}` (Zwischenvariante) | später **Block** `teilnehmer` |
+| `{system_status_html}` (Zwischenvariante) | später **Block** `system_status` |
+
+### Renderer
+
+```text
+Variable     → einfacher Replace
+Modul        → Modul-Renderer   (Hülle + optional {{content}} / Inner)
+Block        → Block-Renderer   (wählt Modul, bindet Variablen, ruft Modul-Renderer)
+```
+
+- Kein fertiges Layout mehr in HTML-Variablen (Ziel).  
+- Zwischenvariante `{…_html}` darf vorerst bleiben, wird schrittweise zu Blöcken.
+
+### Erstellen & Einfügen
+
+| Was | Wie erstellen | Wie einfügen |
+|---|---|---|
+| Variable | Registry / Service | Sidebar Variablen |
+| Modul | Studio Reiter **Modul** (R7), Validator R1 | Sidebar Module oder Canvas |
+| Block | Studio: Block definieren = Modul + Variablen-Mapping | „Block einfügen“ (neuer Menüpunkt) / Sidebar |
+
+**Nicht** primär per `cat >>` Datei für jeden neuen Block.  
+Git-Dateien unter `Repo_abpe/email_studio/incoming/` = **Staging/Sync** für Entwickler — Runtime-Wahrheit bleibt die **DB** (wie Module/Signaturen heute).
+
+### Modul-Hülle (Skizze)
+
+```html
+<!-- Modul: aufzaehlung — html_body -->
+<table role="presentation" width="100%" …>
+  <tr><td style="…">{{content}}</td></tr>
+</table>
+```
+
+```text
+{{block:aufzaehlung}}
+{punkt_1}
+{punkt_2}
+{{/block}}
+```
+
+Block `teilnehmer` könnte intern Modul `aufzaehlung` + Variable `{teilnehmer_liste}` (Rohdaten) nutzen — statt `{teilnehmer_liste_html}`.
+
+---
+
 ## Regel 8 — CI-Tokens *(freigegeben 2026-07-19)*
 
 Verständlich für Sachbearbeitung und Technik. Eine Schriftart: **Arial**.  
@@ -349,29 +412,30 @@ Kein abgerundete Ecken (`border-radius`) in der MCID-Basis.
 
 | Status | Thema |
 |---|---|
-| ✅ da | R1 Tags/CSS · R2 Icons · R3 Logo · R4 ICS/VCF · R5 Modul-Soll · R6 Block-Syntax · R7 Studio-Rollen |
+| ✅ da | R1–R8 · **R9 Variable/Modul/Block** (Architektur) |
 | ✅ da | Format × Inhalt, XOR Signatur/Footer (Layout-Deklaration) |
-| ✅ da | **R8 CI-Tokens** — freigegeben (Arial, Farbnamen + Codes) |
-| ⬜ fehlt | **HTML/TXT-Skizzen** je Format-Baustein (`{{content}}`) |
-| ⬜ fehlt | **Identifier-Namen** final |
+| ⬜ fehlt | **HTML/TXT-Skizzen** je Format-Modul (`{{content}}`) |
+| ⬜ fehlt | **Identifier-Namen** final (Modul + Block) |
+| ⬜ fehlt | **Modul-Renderer** + **Block-Renderer** (Implementierung) |
 | ⬜ fehlt | **Validator** gegen Regel 1 |
-| ⬜ fehlt | **KI-Prompt / layout_rules** an R1–R7 |
-| ⬜ fehlt | **UI-Konfigurator** (Verfeinerung Reiter Modul) |
+| ⬜ fehlt | **KI-Prompt / layout_rules** an R1–R9 |
+| ⬜ fehlt | **UI:** Canvas „Abschnitt“ vs. MCID-Block; Block einfügen |
 | ⬜ fehlt | **Versand** `.ics`/`.vcf` + Logo-CID |
-| ⬜ fehlt | **Ist→Soll-Migration** |
+| ⬜ fehlt | **Ist→Soll:** `{…_html}` → Blöcke |
 
 ---
 
 ## Nächste Schritte (offen)
 
 - [x] CI-Tokens freigeben (Regel 8)
-- [ ] HTML/TXT-Hüllen-Skizzen je Format-Baustein (`{{content}}`-Slot)
-- [ ] Finale Identifier-Namen
-- [ ] Renderer: `{{block:id}}…{{/block}}` + Selbstschließer
-- [ ] Visual als Source of Truth (R6)
-- [ ] Validator + Rechte am Modul-Reiter (R7)
-- [ ] Signatur-Formular statt Roh-HTML (R7)
-- [ ] Ist→Soll-Migration Module
-- [ ] Logo CID vs. URL (R3) · `.ics`/`.vcf` (R4)
-- [ ] KI-Prompt an R1–R8
+- [x] Architektur Variable / Modul / Block (Regel 9)
+- [ ] HTML/TXT-Hüllen-Skizzen je Format-Modul (`{{content}}`)
+- [ ] Finale Identifier (Module + Blöcke)
+- [ ] Modul-Renderer (`{{block:id}}…{{/block}}`) + Block-Renderer
+- [ ] UI: Abschnitte vs. Blöcke; „Block einfügen“
+- [ ] `{teilnehmer_liste_html}` / `{system_status_html}` → Blöcke migrieren
+- [ ] Validator + Rechte Modul-Reiter (R7)
+- [ ] Signatur-Formular (R7)
+- [ ] Logo CID/URL (R3) · `.ics`/`.vcf` (R4)
+- [ ] KI-Prompt an R1–R9
 - [ ] MCID-Konfigurator-UI verfeinern
