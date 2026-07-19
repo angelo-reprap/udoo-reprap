@@ -3,6 +3,7 @@
 | Datei | Zweck |
 |---|---|
 | `abcona_header_*.html` | Header vereinheitlicht (left, 18px) — optional |
+| `abcona_header_blau_adresse.html` | Header Blau + www / Tel / Mail |
 | `footer_standard.html` / `.txt` | Firmen-Impressum (Deklaration §3) |
 | `footer_auto_reply.html` / `.txt` | Impressum + „Bitte nicht antworten“ |
 

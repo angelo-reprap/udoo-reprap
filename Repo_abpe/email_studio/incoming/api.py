@@ -1104,6 +1104,8 @@ class ModuleListAPI(LoginRequiredMixin, View):
             from .blocks_registry import (
                 FORMAT_MODULE_META,
                 FORMAT_MODULE_ORDER,
+                HEADER_MODULE_META,
+                HEADER_MODULE_ORDER,
                 MODULE_GROUP_ORDER,
                 PAIRED_MODULE_IDS,
                 block_insert_syntax,
@@ -1116,6 +1118,8 @@ class ModuleListAPI(LoginRequiredMixin, View):
             from apps.abpe_email_studio.blocks_registry import (  # type: ignore
                 FORMAT_MODULE_META,
                 FORMAT_MODULE_ORDER,
+                HEADER_MODULE_META,
+                HEADER_MODULE_ORDER,
                 MODULE_GROUP_ORDER,
                 PAIRED_MODULE_IDS,
                 block_insert_syntax,
@@ -1142,6 +1146,29 @@ class ModuleListAPI(LoginRequiredMixin, View):
                 'paired':      m.identifier in PAIRED_MODULE_IDS,
                 'preview_bg':  m.preview_bg,
             })
+
+        # Virtuelle Header-Module (z. B. Blau + Adresse) wenn noch nicht in DB
+        existing_ids = {m['identifier'] for lst in raw.values() for m in lst}
+        header_extra = []
+        for hid in HEADER_MODULE_ORDER:
+            if hid in existing_ids:
+                continue
+            meta = HEADER_MODULE_META.get(hid) or {}
+            name = meta.get('name_en' if lang.startswith('en') else 'name_de') or hid
+            header_extra.append({
+                'id': 0,
+                'identifier': hid,
+                'name': name,
+                'module_type': 'HEADER',
+                'description': meta.get('description') or '',
+                'syntax': module_insert_syntax(hid),
+                'paired': False,
+                'preview_bg': '#163258',
+                'is_virtual': True,
+                'husk_html': get_module_husk(hid, 'html'),
+            })
+        if header_extra:
+            raw['HEADER'] = header_extra + list(raw.get('HEADER') or [])
 
         # MCID Format-Module (feste Reihenfolge, klare Namen)
         fmt_group = []

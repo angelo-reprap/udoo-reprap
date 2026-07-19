@@ -152,7 +152,10 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
                 'brand_color': '#163258',
                 'text_align': 'left',
                 'structure': ['header_module', 'event_label', 'body', 'closing'],
-                'header_modules': ['abcona_header_blau'],
+                'header_modules': [
+                    'abcona_header_blau',
+                    'abcona_header_blau_adresse',
+                ],
                 'event_labels': ['label_info', 'label_bestaetigt', 'label_warnung'],
                 'footer_modules': ['footer_standard', 'footer_auto_reply'],
                 'button_modules': ['cta_blau', 'cta_with_secondary'],

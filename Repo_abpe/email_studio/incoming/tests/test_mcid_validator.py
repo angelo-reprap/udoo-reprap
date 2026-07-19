@@ -56,3 +56,11 @@ class McidValidatorTests(SimpleTestCase):
         ids = [b['id'] for b in BLOCKS]
         self.assertEqual(ids[0], 'block_termin')
         self.assertEqual(ids[-1], 'block_system_status')
+
+    def test_header_adresse_husk(self):
+        husk = get_module_husk('abcona_header_blau_adresse', 'html')
+        self.assertIn('www.abcona.de', husk)
+        self.assertIn('06171 886710', husk)
+        self.assertIn('info@abcona.de', husk)
+        r = self.v.validate(husk, context='module')
+        self.assertTrue(r['ok'], r)

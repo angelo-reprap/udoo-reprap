@@ -80,13 +80,18 @@ show "$KI/services/validator.py"       "$B/apps/abpe_ki_wiz/services/validator.p
 show "$KI/prompt_defaults.py"          "$B/apps/abpe_ki_wiz/prompt_defaults.py"
 show "$KI/questions/email_template.json" "$B/apps/abpe_ki_wiz/questions/email_template.json"
 
-echo "=== 4/4 Prompts sync + Restart ==="
+echo "=== 4/5 Prompts sync + Header-Seed + Restart ==="
 if [[ -f "$B/manage.py" ]]; then
   (
     cd "$B"
     # shellcheck disable=SC1091
     source /opt/abpe/venv311/bin/activate
     python manage.py sync_wizard_prompts --force --wizard-id email_template
+    # Modul Header Blau + Adresse in DB
+    if [[ -f "$REPO/Repo_abpe/email_studio/incoming/seed_header_adresse.py" ]]; then
+      python manage.py shell < "$REPO/Repo_abpe/email_studio/incoming/seed_header_adresse.py" \
+        || echo "WARN: seed_header_adresse fehlgeschlagen"
+    fi
   ) || echo "WARN: sync_wizard_prompts fehlgeschlagen — manuell prüfen"
 else
   echo "WARN: manage.py fehlt"

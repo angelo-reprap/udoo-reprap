@@ -112,8 +112,41 @@ def _husk_slot(extra_td: str = '') -> str:
     )
 
 
+# Virtuelle Header-Module (Sidebar + Husk, bis DB-Eintrag existiert)
+HEADER_MODULE_ORDER: tuple[str, ...] = (
+    'abcona_header_blau_adresse',
+)
+
+HEADER_MODULE_META: dict[str, dict[str, str]] = {
+    'abcona_header_blau_adresse': {
+        'name_de': 'Header Blau + Adresse',
+        'name_en': 'Header blue + address',
+        'description': 'abcona e. K. + www.abcona.de · Tel · info@',
+    },
+}
+
 # Fallback-Hüllen wenn Modul noch nicht in der DB liegt
 _MODULE_HUSKS: dict[str, dict[str, str]] = {
+    'abcona_header_blau_adresse': {
+        'html': (
+            '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
+            '<tr><td style="background-color:#163258;padding:16px 24px;text-align:left;">'
+            '<span style="color:#ffffff;font-size:18px;font-weight:bold;font-family:Arial;'
+            'letter-spacing:0.2px;">abcona e. K.</span></td></tr>'
+            '<tr><td style="background-color:#e8f0f8;padding:10px 24px;text-align:left;'
+            'font-family:Arial;font-size:12px;line-height:1.5;color:#333333;">'
+            '<a href="https://www.abcona.de" style="color:#163258;text-decoration:none;">'
+            'www.abcona.de</a>'
+            '&nbsp;·&nbsp;'
+            '<a href="tel:+496171886710" style="color:#163258;text-decoration:none;">'
+            '06171 886710</a>'
+            '&nbsp;·&nbsp;'
+            '<a href="mailto:info@abcona.de" style="color:#163258;text-decoration:none;">'
+            'info@abcona.de</a>'
+            '</td></tr></table>'
+        ),
+        'text': 'abcona e. K.\nwww.abcona.de · 06171 886710 · info@abcona.de',
+    },
     'fmt_aufzaehlung': {
         'html': _husk_slot(),
         'text': '{{content}}',

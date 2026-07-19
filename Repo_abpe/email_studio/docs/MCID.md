@@ -456,6 +456,7 @@ Selbstschließende Module ohne Slot.
 | Identifier | Rolle | Ist-Mapping | Paar? |
 |---|---|---|---|
 | `abcona_header_blau` | Rahmen Header | gleich | nein |
+| `abcona_header_blau_adresse` | Header + Kontaktzeile (Web/Tel/Mail) | **neu** | nein |
 | `label_info` | Badge Info | gleich | nein |
 | `label_bestaetigt` | Badge OK | gleich | nein |
 | `label_warnung` | Badge Warn | gleich (`label_warnung` / Handlungsbedarf) | nein |
@@ -638,6 +639,7 @@ Katze | 30 €
 | ⬜ | Signatur-Formular · Rechte Modul-Reiter |
 | ⬜ | Logo CID/URL · Versand `.ics`/`.vcf` |
 | ⬜ | DB-Module `fmt_*` anlegen (Hüllen-Fallback aktiv) |
+| ⬜ | **KI Modul-Generator** (Briefing → neues `EmailModule`) — geparkt; Header+Adresse zunächst manuell/`seed_header_adresse.py` |
 
 ---
 
