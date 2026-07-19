@@ -154,11 +154,81 @@ Wir sollen beides anbieten können:
 
 ---
 
+## Regel 5 — Modul-Soll-Set (Baukasten)
+
+Bezug: **Format-Bausteine** × **Inhalts-Bausteine** (siehe Zielbild).  
+Fließtext / Überschrift leben im Vorlagen-Body — kein eigenes Modul.
+
+### Was wir brauchen (Soll)
+
+| Rolle | Baustein | Pflicht? |
+|---|---|---|
+| Rahmen | Header Marke (nur blau) | ja |
+| Rahmen | Badge/Label (Info · OK · Warnung) | ja |
+| Rahmen | Signatur (auswählbar) | ja |
+| Rahmen | Footer Standard / Auto-Reply | ja (XOR Signatur, siehe Layout-Deklaration) |
+| Format | Aufzählung / Key-Value | ja |
+| Format | Datentabelle | ja |
+| Format | 2-Spalten | ja |
+| Format | Hinweisbox / Zitat | ja |
+| Format | CTA (+ optional Sekundärlink) | ja |
+| Inhalt | Termin / Kalender | ja |
+| Inhalt | Anhangsliste | ja |
+| Inhalt | Kontakt / Support | ja |
+| Inhalt | Fakten / Schritte | sinnvoll |
+| Inhalt | Status (Ampel/Tabelle) | später (Variable + Format) |
+| Anhang | `.ics` / `.vcf` | später (Versand, kein HTML-Modul) |
+
+### Bestehende Module — Übernehmen / Streichen / Umbauen
+
+| Modul (Ist) | Entscheidung | Begründung |
+|---|---|---|
+| Header — Blau | **übernehmen** | MCID-Marke |
+| Header — Grün / Rot | **löschen** (als Header) | Event-Farbe nur über Labels |
+| Label — Information / Bestätigt / Handlungsbedarf | **übernehmen** | Badge-Set |
+| Signatur (auswählbar) | **übernehmen** | Pflicht-Rahmen |
+| Unterschriften-Block | **prüfen → eher streichen** oder in Signatur aufgehen | Doppelung |
+| Footer Standard / Auto-Reply | **übernehmen** | XOR Signatur |
+| Button — Blau / Grün | **übernehmen, auf 1 Primär-CTA verdichten** | Grün optional oder weg |
+| CTA mit Sekundärlink | **übernehmen** | sinnvoll |
+| Dokumenten-Anhang-Liste | **übernehmen** | Inhalt Anhänge |
+| Fakten-Box | **übernehmen** | Highlights |
+| Nummerierte Schritte | **übernehmen** | Prozess-Mails |
+| Hervorhebungs-Zitat | **übernehmen** | Hinweisbox-Variante |
+| Kalender-Karte | **übernehmen** | Termin-Inhalt |
+| Kontakt-Karte / Support Kontakt | **übernehmen → zu 1 Kontakt-Baustein** | Doppelung vermeiden |
+| Zwei-Spalten-Vergleich | **übernehmen** | 2-Spalten-Format |
+| Kennzahl-Box | **optional** | selten; später generisches Key-Value |
+| Skill-Tag-Liste | **nur bei CV/CRM-Bedarf** | sonst streichen |
+| Preis-Leistungs-Tabelle | **nur bei Angebot-Mails** | sonst streichen |
+| Fortschritts-Leiste | **streichen / zurückstellen** | Client-unzuverlässig, geringer MCID-Wert |
+
+### Ergänzen (fehlt)
+
+| Neu | Typ | Wofür |
+|---|---|---|
+| Aufzählung (Bullet-Liste) | Format | generische Listen |
+| Key-Value-Liste | Format | Label + Wert |
+| Datentabelle (n×m) | Format | z. B. Check \| Wert \| Status |
+| Hinweisbox Info/Warn/OK | Format | einheitlicher Kasten (Zitat = Variante) |
+| Teilnehmerliste | Inhalt | MeetMe |
+
+### Kompaktes Soll-Set (~12–14 Kernmodule)
+
+**Kern:** Header blau · 3 Labels · Signatur · 2 Footer · CTA (+ Sekundär) · Anhangsliste · Fakten · Schritte · Zitat/Hinweis · Kalender/Termin · Kontakt · 2-Spalten  
+
+**Neu:** Aufzählung · Key-Value · Datentabelle · ggf. Teilnehmerliste  
+
+**Zurückstellen:** Header grün/rot · Fortschritts-Leiste · Skill-Tags / Preis-Tabelle / Kennzahl (nutzungsabhängig)
+
+---
+
 ## Nächste Schritte (offen)
 
-- [ ] MCID-Mindest-Layout-Set im Detail ausformulieren (HTML-Skizzen je Format-Baustein)
-- [ ] Mapping bestehende Module → Regel 1 + Zielbild Format/Inhalt
+- [ ] Einbindung Soll-Module in E-Mail-Vorlage (Reihenfolge, XOR Signatur/Footer)
+- [ ] HTML-Skizzen je Format-Baustein (Regel 1-konform)
+- [ ] Mapping Ist-Module → Soll umsetzen (DB / Snapshot)
 - [ ] Icon-Set für abcona final festlegen (Regel 2, Unicode bevorzugt)
 - [ ] Logo-Strategie festlegen: CID vs. URL (Regel 3)
 - [ ] `.ics` / `.vcf` Erzeugung + Anhang am Versand anbinden (Regel 4)
-- [ ] Validator / KI-Prompt an Regel 1–2 binden
+- [ ] Validator / KI-Prompt an Regel 1–2 + 5 binden
