@@ -303,9 +303,10 @@ Selbstschließende Module ohne Inhalt bleiben erlaubt (Header, Label, Footer, Si
 
 ---
 
-## Regel 8 — CI-Tokens *(Vorschlag — zur Freigabe)*
+## Regel 8 — CI-Tokens *(freigegeben 2026-07-19)*
 
-Verständlich für Sachbearbeitung und Technik. Eine Schriftart: **Arial**.
+Verständlich für Sachbearbeitung und Technik. Eine Schriftart: **Arial**.  
+Farben freigegeben (siehe auch `mcid-ci-farben.png`).
 
 ### Farben (Name · Code · wofür)
 
@@ -350,7 +351,7 @@ Kein abgerundete Ecken (`border-radius`) in der MCID-Basis.
 |---|---|
 | ✅ da | R1 Tags/CSS · R2 Icons · R3 Logo · R4 ICS/VCF · R5 Modul-Soll · R6 Block-Syntax · R7 Studio-Rollen |
 | ✅ da | Format × Inhalt, XOR Signatur/Footer (Layout-Deklaration) |
-| 🟡 Vorschlag | **R8 CI-Tokens** — Freigabe ausstehend |
+| ✅ da | **R8 CI-Tokens** — freigegeben (Arial, Farbnamen + Codes) |
 | ⬜ fehlt | **HTML/TXT-Skizzen** je Format-Baustein (`{{content}}`) |
 | ⬜ fehlt | **Identifier-Namen** final |
 | ⬜ fehlt | **Validator** gegen Regel 1 |
@@ -363,7 +364,7 @@ Kein abgerundete Ecken (`border-radius`) in der MCID-Basis.
 
 ## Nächste Schritte (offen)
 
-- [ ] **CI-Tokens freigeben** (Regel 8) oder anpassen
+- [x] CI-Tokens freigeben (Regel 8)
 - [ ] HTML/TXT-Hüllen-Skizzen je Format-Baustein (`{{content}}`-Slot)
 - [ ] Finale Identifier-Namen
 - [ ] Renderer: `{{block:id}}…{{/block}}` + Selbstschließer
