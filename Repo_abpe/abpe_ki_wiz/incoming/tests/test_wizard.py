@@ -25,6 +25,7 @@ from apps.abpe_ki_wiz.services.orchestrator import (
     _rule_based_analyze,
     suggest_meta_session,
 )
+from apps.abpe_ki_wiz.services.validator import validate_email_module_output
 from apps.abpe_ki_wiz.services.deepseek_client import _resolve_pbx_service, _coerce_result
 
 User = get_user_model()
@@ -56,6 +57,85 @@ class RuleAnalyzeTests(TestCase):
     def test_absence_briefing(self):
         r = _rule_based_analyze('email_template', 'Abwesenheitsnotiz mit Vertretung durch Kollegin')
         self.assertEqual(r['app_scope'], 'general')
+
+    def test_module_header_address_briefing(self):
+        r = _rule_based_analyze(
+            'email_module',
+            'Header Blau erweitern um Adresse www.abcona.de Tel 06171 Mail info@abcona.de',
+        )
+        self.assertEqual(r['module_type_hint'], 'HEADER')
+        self.assertIn('C1', r['missing_topics'])
+        self.assertTrue(r['understood'])
+
+
+class EmailModuleProviderTests(TestCase):
+    def test_provider_registered(self):
+        self.assertIn('email_module', list_wizard_ids())
+        p = get_provider('email_module')
+        self.assertEqual(p.wizard_id, 'email_module')
+        qs = p.get_question_catalog()
+        ids = {q['id'] for q in qs}
+        self.assertEqual(ids, {'T1', 'M1', 'C1'})
+
+    def test_header_address_fallback(self):
+        p = get_provider('email_module')
+        out = p.generate_fallback(
+            'Header mit Adresse: www.abcona.de · 06171 886710 · info@abcona.de',
+            {'T1': 'HEADER', 'M1': 'new', 'C1': 'yes'},
+            {},
+        )
+        self.assertEqual(out['source'], 'rules')
+        self.assertEqual(out['module_type'], 'HEADER')
+        self.assertIn('#163258', out['html_body'])
+        self.assertIn('www.abcona.de', out['html_body'])
+        self.assertIn('info@abcona.de', out['text_body'])
+        self.assertNotIn('{{block:', out['html_body'])
+
+    def test_default_meta_header_adresse(self):
+        p = get_provider('email_module')
+        meta = p.default_meta_suggestions(
+            'Header Blau + Adresse Kontaktleiste',
+            {'T1': 'HEADER', 'M1': 'extend', 'C1': 'yes'},
+        )
+        self.assertEqual(meta['identifier'], 'abcona_header_blau_adresse')
+        self.assertEqual(meta['module_type'], 'HEADER')
+
+    def test_apply_result_targets_module(self):
+        p = get_provider('email_module')
+        applied = p.apply_result(
+            {
+                'name': 'Test',
+                'identifier': 'test_mod',
+                'module_type': 'SECTION',
+                'html_body': '<p>x</p>',
+                'text_body': 'x',
+            },
+            {},
+        )
+        self.assertEqual(applied['target'], 'email_studio_module')
+        self.assertEqual(applied['fields']['identifier'], 'test_mod')
+
+    def test_validator_rejects_flex(self):
+        bad = validate_email_module_output(
+            {
+                'html_body': '<div style="display:flex">x</div>',
+                'text_body': 'x',
+                'identifier': 'bad_mod',
+            },
+            {'name'},
+        )
+        self.assertFalse(bad.ok)
+        self.assertTrue(any('flex' in e.lower() or 'MCID' in e for e in bad.errors))
+
+    def test_module_prompt_defaults_present(self):
+        keys = {row['key'] for row in WIZARD_PROMPT_DEFAULTS}
+        for key in (
+            'wiz_email_module_analyze',
+            'wiz_email_module_clarify',
+            'wiz_email_module_suggest_meta',
+            'wiz_email_module_generate',
+        ):
+            self.assertIn(key, keys)
 
 
 class GeneralFallbackTests(TestCase):

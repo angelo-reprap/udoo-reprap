@@ -627,7 +627,7 @@
                 <i class="bi bi-pen"></i>
                 <span data-i18n="es.entity_signature">Signatur</span>
             </div>
-            <div class="es-entity-tab es-entity-tab-ki" onclick="event.stopPropagation(); ESKiWizard.openRefine();" title="">
+            <div class="es-entity-tab es-entity-tab-ki" onclick="event.stopPropagation(); ESKiWizard.openForCurrentEntity();" title="">
                 <i class="bi bi-stars"></i>
                 <span data-i18n="es.ki_refine_tab">KI verfeinern</span>
             </div>
@@ -644,6 +644,11 @@
                 <button type="button" id="es-entity-module-new" class="btn btn-sm btn-outline-success">
                     <i class="bi bi-plus"></i>
                     <span data-i18n="es.btn_new_module">Neu</span>
+                </button>
+                <button type="button" id="es-entity-module-ki" class="btn btn-sm btn-outline-primary"
+                        onclick="ESKiWizard.openModule()">
+                    <i class="bi bi-stars"></i>
+                    <span data-i18n="es.ki_module_btn">Modul mit KI</span>
                 </button>
             </div>
             <div id="es-entity-signature-ctx" class="es-entity-ctx-panel" style="display:none;">

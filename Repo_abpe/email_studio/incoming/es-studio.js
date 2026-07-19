@@ -238,7 +238,105 @@ window.ESStudio = (() => {
         ES.notify.success('es.ki_applied', t('ki_applied', 'KI-Vorlage übernommen'));
     }
 
+    async function applyModuleWizardResult(fields) {
+        if (!fields) return;
+        if (_currentEntity !== 'module') {
+            _switchEntity('module');
+        }
+        const htmlEl = document.getElementById('es-html-editor');
+        const txtEl = document.getElementById('es-txt-editor');
+        if (htmlEl) htmlEl.value = fields.html_body || '';
+        if (txtEl) txtEl.value = fields.text_body || '';
+
+        const payload = {
+            name: fields.name || t('ki_module_unnamed', 'KI-Modul'),
+            identifier: fields.identifier || ('ki_module_' + Date.now()),
+            module_type: fields.module_type || 'SECTION',
+            description: fields.description || '',
+            html_body: fields.html_body || '',
+            text_body: fields.text_body || '',
+        };
+
+        const existingId = fields.module_id || _entityCache.module.id || null;
+        try {
+            let data;
+            if (existingId) {
+                const r = await fetch(ES.apiUrl(`modules/${existingId}/`), {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': ES.csrf(),
+                    },
+                    body: JSON.stringify(payload),
+                });
+                data = await r.json().catch(() => ({}));
+                if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
+                _entityCache.module = {
+                    id: existingId,
+                    html: payload.html_body,
+                    text: payload.text_body,
+                    identifier: payload.identifier,
+                    name: payload.name,
+                    module_type: payload.module_type,
+                };
+            } else {
+                const r = await fetch(ES.apiUrl('modules/'), {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': ES.csrf(),
+                    },
+                    body: JSON.stringify(payload),
+                });
+                data = await r.json().catch(() => ({}));
+                if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
+                _entityCache.module = {
+                    id: data.id,
+                    html: payload.html_body,
+                    text: payload.text_body,
+                    identifier: data.identifier || payload.identifier,
+                    name: data.name || payload.name,
+                    module_type: payload.module_type,
+                };
+            }
+            await _refreshModuleSelect(_entityCache.module.id);
+            const badge = document.getElementById('es-entity-module-id');
+            if (badge) badge.textContent = _entityCache.module.identifier || '';
+            _syncCodeToCanvas();
+            _schedulePreview();
+            if (typeof _loadModules === 'function') _loadModules(true);
+            ES.notify.success(
+                'es.ki_module_applied',
+                t('ki_module_applied', 'KI-Modul übernommen')
+            );
+        } catch (e) {
+            console.error('KI-Modul übernehmen fehlgeschlagen:', e);
+            // Editor trotzdem befüllen, damit nichts verloren geht
+            Object.assign(_entityCache.module, {
+                html: payload.html_body,
+                text: payload.text_body,
+                identifier: payload.identifier,
+                name: payload.name,
+                module_type: payload.module_type,
+            });
+            _syncCodeToCanvas();
+            _schedulePreview();
+            ES.notify.error('es.error_save', e.message || t('error_save', 'Fehler'));
+        }
+    }
+
     function _applyPendingWizardResult() {
+        const modKey = window.ESKiWizard?.MODULE_STORAGE_KEY || 'es_ki_wizard_module_apply';
+        const modRaw = sessionStorage.getItem(modKey);
+        if (modRaw) {
+            sessionStorage.removeItem(modKey);
+            try {
+                applyModuleWizardResult(JSON.parse(modRaw));
+            } catch (e) {
+                console.error('KI module wizard apply failed', e);
+            }
+            return;
+        }
         const key = window.ESKiWizard?.STORAGE_KEY || 'es_ki_wizard_apply';
         const raw = sessionStorage.getItem(key);
         if (!raw) return;
@@ -380,6 +478,7 @@ window.ESStudio = (() => {
             _entityCache.module = {
                 id, html: data.html_body, text: data.text_body,
                 identifier: data.identifier, name: data.name,
+                module_type: data.module_type || 'SECTION',
             };
             _applyEntityToEditors(_entityCache.module);
             const badge = document.getElementById('es-entity-module-id');
@@ -451,6 +550,7 @@ window.ESStudio = (() => {
             _entityCache.module = {
                 id: data.id, html, text: txt,
                 identifier: data.identifier, name: data.name,
+                module_type: data.module_type || 'SECTION',
             };
             await _refreshModuleSelect(data.id);
             const badge = document.getElementById('es-entity-module-id');
@@ -2223,6 +2323,9 @@ window.ESStudio = (() => {
     return {
         init,
         applyWizardResult,
+        applyModuleWizardResult,
+        getCurrentEntity: () => _currentEntity,
+        getModuleCache: () => ({ ..._entityCache.module }),
         _loadPreview,
         _syncCanvasToCode,
         _syncCodeToCanvas,

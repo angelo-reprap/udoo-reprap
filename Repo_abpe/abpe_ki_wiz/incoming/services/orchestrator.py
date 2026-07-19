@@ -34,11 +34,43 @@ def _prompt_key(wizard_id: str, phase: str) -> str:
         ('email_template', 'clarify'): 'wiz_email_clarify',
         ('email_template', 'suggest_meta'): 'wiz_email_suggest_meta',
         ('email_template', 'generate'): 'wiz_email_generate',
+        ('email_module', 'analyze'): 'wiz_email_module_analyze',
+        ('email_module', 'clarify'): 'wiz_email_module_clarify',
+        ('email_module', 'suggest_meta'): 'wiz_email_module_suggest_meta',
+        ('email_module', 'generate'): 'wiz_email_module_generate',
     }
     return mapping.get((wizard_id, phase), f'wiz_shared_analyze')
 
 
+def _rule_based_analyze_module(briefing: str) -> dict[str, Any]:
+    text = briefing or ''
+    module_type = 'SECTION'
+    if re.search(r'header|kopf|banner|marke', text, re.I):
+        module_type = 'HEADER'
+    elif re.search(r'footer|impressum', text, re.I):
+        module_type = 'FOOTER'
+    elif re.search(r'button|cta|aufruf', text, re.I):
+        module_type = 'BUTTON'
+    elif re.search(r'signatur', text, re.I):
+        module_type = 'SIGNATURE'
+    missing = ['T1', 'M1']
+    if module_type in ('HEADER', 'FOOTER', 'SECTION') and re.search(
+        r'adresse|kontakt|www\.|telefon|info@|06171|abcona\.de', text, re.I,
+    ):
+        missing.append('C1')
+    return {
+        'understood': len(text.strip()) >= 10,
+        'summary': text[:200] + ('…' if len(text) > 200 else ''),
+        'module_type_hint': module_type,
+        'missing_topics': missing,
+        'source': 'rules',
+    }
+
+
 def _rule_based_analyze(wizard_id: str, briefing: str) -> dict[str, Any]:
+    if wizard_id == 'email_module':
+        return _rule_based_analyze_module(briefing)
+
     text = briefing or ''
     app_scope = 'general'
     event_type = 'info'

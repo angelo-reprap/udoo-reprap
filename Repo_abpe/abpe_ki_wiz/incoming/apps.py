@@ -17,3 +17,11 @@ class AbpeKiWizConfig(AppConfig):
             logging.getLogger('abpe_ki_wiz').warning(
                 'EmailTemplateWizardProvider nicht registriert: %s', exc,
             )
+        try:
+            from .providers.email_module import register_email_module_provider
+            register_email_module_provider()
+        except Exception as exc:
+            import logging
+            logging.getLogger('abpe_ki_wiz').warning(
+                'EmailModuleWizardProvider nicht registriert: %s', exc,
+            )

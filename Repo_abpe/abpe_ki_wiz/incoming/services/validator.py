@@ -27,6 +27,35 @@ def has_unbalanced_blocks(text: str) -> bool:
     return closes > opens
 
 
+def validate_email_module_output(
+    result: dict[str, Any],
+    allowed_vars: set[str],
+) -> ValidationResult:
+    """Validierung für wizard_id=email_module (Fragment, keine vollständige Mail)."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    html = result.get('html_body') or ''
+    text = result.get('text_body') or ''
+    if not html.strip():
+        errors.append('html_body ist leer')
+    for var in extract_vars(html + ' ' + text):
+        if var not in allowed_vars:
+            warnings.append(f'Variable {{{var}}} — bitte prüfen')
+    # Module sollen selten andere {{block:}} einbetten
+    nested = extract_blocks(html)
+    if nested:
+        warnings.append(
+            'Modul enthält {{block:…}} — meist unerwünscht in Modul-Fragmenten: '
+            + ', '.join(sorted(nested))
+        )
+    if re.search(r'(?i)border-radius|display:\s*flex|display:\s*grid|<script', html):
+        errors.append('MCID: border-radius / flex / grid / script nicht erlaubt')
+    ident = (result.get('identifier') or '').strip()
+    if ident and not re.fullmatch(r'[a-z][a-z0-9_]{1,59}', ident):
+        warnings.append('identifier sollte snake_case sein (a-z, 0-9, _)')
+    return ValidationResult(ok=not errors, errors=errors, warnings=warnings)
+
+
 def validate_email_template_output(
     result: dict[str, Any],
     allowed_vars: set[str],

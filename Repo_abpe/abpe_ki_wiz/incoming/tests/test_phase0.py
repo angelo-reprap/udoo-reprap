@@ -40,6 +40,13 @@ class ProviderTests(TestCase):
         qs = p.get_question_catalog()
         self.assertGreater(len(qs), 5)
 
+    def test_email_module_provider_registered(self):
+        self.assertIn('email_module', list_wizard_ids())
+        p = get_provider('email_module')
+        self.assertEqual(p.wizard_id, 'email_module')
+        qs = p.get_question_catalog()
+        self.assertGreaterEqual(len(qs), 2)
+
 
 class KiWizardApiTests(TestCase):
     def setUp(self):
@@ -56,6 +63,7 @@ class KiWizardApiTests(TestCase):
         r = self.client.get('/ki-wizard/api/wizards/')
         ids = [w['wizard_id'] for w in r.json()['wizards']]
         self.assertIn('email_template', ids)
+        self.assertIn('email_module', ids)
 
     def test_session_flow_analyze_clarify(self):
         from django.core.management import call_command

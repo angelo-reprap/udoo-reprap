@@ -639,8 +639,8 @@ Katze | 30 €
 | ⬜ | Signatur-Formular · Rechte Modul-Reiter |
 | ⬜ | Logo CID/URL · Versand `.ics`/`.vcf` |
 | ⬜ | DB-Module `fmt_*` anlegen (Hüllen-Fallback aktiv) |
-| ⬜ | KI Modul-Generator (Briefing→neues Modul) — geparkt; Header+Adresse jetzt per Seed |
-| ⬜ | **KI Modul-Generator** (Briefing → neues `EmailModule`) — geparkt; Header+Adresse zunächst manuell/`seed_header_adresse.py` |
+| ✅ | **KI Modul-Assistent** (`wizard_id=email_module`) — neu bauen / erweitern, Studio „Modul mit KI“ |
+| ✅ | Header+Adresse auch per Seed (`abcona_header_blau_adresse`) als Fallback-Beispiel |
 
 ---
 
@@ -655,6 +655,7 @@ Katze | 30 €
 - [x] HTML-Editor Align/Listen + i18n de/en
 - [x] UI-Überblick: Sortierung, Labels, Canvas=Abschnitt
 - [x] Validator Regel 1 (Tags/CSS) + Studio-Button
+- [x] KI Modul-Assistent (`email_module` Provider + Studio-UI)
 - [ ] DB-Bestandsmodule (Header/CTA/…) CI-Audit
 - [ ] DB-Module `fmt_*` speichern (optional, Fallback vorhanden)
 - [ ] Signatur-Formular (R7)

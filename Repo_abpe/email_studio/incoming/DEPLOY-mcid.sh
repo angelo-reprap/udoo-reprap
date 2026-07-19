@@ -54,10 +54,13 @@ backup apps/abpe_ui/static/abpe_ui/css/mod/mod-email_studio.css
 backup apps/abpe_ui/static/abpe_ui/i18n/de/modules/email_studio/email_studio.json
 backup apps/abpe_ui/static/abpe_ui/i18n/en/modules/email_studio/email_studio.json
 backup apps/abpe_ki_wiz/providers/email_template.py
+backup apps/abpe_ki_wiz/providers/email_module.py
+backup apps/abpe_ki_wiz/apps.py
 backup apps/abpe_ki_wiz/services/orchestrator.py
 backup apps/abpe_ki_wiz/services/validator.py
 backup apps/abpe_ki_wiz/prompt_defaults.py
 backup apps/abpe_ki_wiz/questions/email_template.json
+backup apps/abpe_ki_wiz/questions/email_module.json
 
 echo "=== 2/4 Email Studio kopieren ==="
 show "$R/api.py"            "$B/apps/abpe_email_studio/api.py"
@@ -75,10 +78,13 @@ show "$R/i18n/en/email_studio.json" "$B/apps/abpe_ui/static/abpe_ui/i18n/en/modu
 
 echo "=== 3/4 KI-Wiz katalog/prompt/renderer-hooks ==="
 show "$KI/providers/email_template.py" "$B/apps/abpe_ki_wiz/providers/email_template.py"
+show "$KI/providers/email_module.py"   "$B/apps/abpe_ki_wiz/providers/email_module.py"
+show "$KI/apps.py"                     "$B/apps/abpe_ki_wiz/apps.py"
 show "$KI/services/orchestrator.py"    "$B/apps/abpe_ki_wiz/services/orchestrator.py"
 show "$KI/services/validator.py"       "$B/apps/abpe_ki_wiz/services/validator.py"
 show "$KI/prompt_defaults.py"          "$B/apps/abpe_ki_wiz/prompt_defaults.py"
 show "$KI/questions/email_template.json" "$B/apps/abpe_ki_wiz/questions/email_template.json"
+show "$KI/questions/email_module.json"   "$B/apps/abpe_ki_wiz/questions/email_module.json"
 
 echo "=== 4/5 Prompts sync + Header-Seed + Restart ==="
 if [[ -f "$B/manage.py" ]]; then
@@ -87,6 +93,7 @@ if [[ -f "$B/manage.py" ]]; then
     # shellcheck disable=SC1091
     source /opt/abpe/venv311/bin/activate
     python manage.py sync_wizard_prompts --force --wizard-id email_template
+    python manage.py sync_wizard_prompts --force --wizard-id email_module
     # Modul Header Blau + Adresse in DB
     if [[ -f "$REPO/Repo_abpe/email_studio/incoming/seed_header_adresse.py" ]]; then
       python manage.py shell < "$REPO/Repo_abpe/email_studio/incoming/seed_header_adresse.py" \
@@ -102,9 +109,12 @@ grep -n "_paired_block_re\|blocks_registry\|_fill_content_slot" \
   "$B/apps/abpe_email_studio/services/renderer.py" | head
 grep -n "LIST_BULLET\|_html_to_plain\|fmt_trenner\|block_anhaenge" \
   "$B/apps/abpe_email_studio/blocks_registry.py" | head
-grep -n "es-ki-layout-suggestions\|layout_suggestions" \
+grep -n "es-ki-layout-suggestions\|openModule\|email_module" \
   "$B/apps/abpe_email_studio/static/email_studio/js/es-ki-wizard.js" | head
-grep -n "justifyLeft\|insertUnorderedList" \
+grep -n "applyModuleWizardResult\|Modul mit KI\|openForCurrentEntity" \
+  "$B/apps/abpe_email_studio/static/email_studio/js/es-studio.js" \
+  "$B/apps/abpe_ui/templates/abpe_ui/modules/email_studio/studio.html" | head
+grep -n "justifyLeft\|insertUnorderedList\|ki_module_btn" \
   "$B/apps/abpe_ui/templates/abpe_ui/modules/email_studio/studio.html" | head
 grep -n "font-size: 14px" \
   "$B/apps/abpe_ui/static/abpe_ui/css/mod/mod-email_studio.css" | head -3
@@ -122,8 +132,17 @@ grep -q "FORMAT_MODULE_ORDER\|Abschnitt hinzufügen" \
   "$B/apps/abpe_email_studio/blocks_registry.py" \
   "$B/apps/abpe_ui/templates/abpe_ui/modules/email_studio/studio.html" \
   || { echo "FAIL: Sortierung/Abschnitt-UI fehlt"; exit 1; }
+grep -q "EmailModuleWizardProvider\|register_email_module_provider" \
+  "$B/apps/abpe_ki_wiz/providers/email_module.py" \
+  "$B/apps/abpe_ki_wiz/apps.py" \
+  || { echo "FAIL: email_module Provider nicht deployed"; exit 1; }
+grep -q "openModule\|ki_module_btn\|applyModuleWizardResult" \
+  "$B/apps/abpe_email_studio/static/email_studio/js/es-ki-wizard.js" \
+  "$B/apps/abpe_ui/templates/abpe_ui/modules/email_studio/studio.html" \
+  "$B/apps/abpe_email_studio/static/email_studio/js/es-studio.js" \
+  || { echo "FAIL: KI Modul-Assistent UI fehlt"; exit 1; }
 
 supervisorctl restart abpe-django
 echo ""
 echo "MCID-Deploy fertig. Browser: Strg+Shift+R"
-echo "Test: Sidebar Format-Reihenfolge · Button „MCID prüfen“ · Abschnitte"
+echo "Test: Modul-Tab → „Modul mit KI“ · Briefing Header+Adresse · Übernehmen"

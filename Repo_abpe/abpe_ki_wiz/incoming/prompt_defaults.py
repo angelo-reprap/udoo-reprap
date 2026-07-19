@@ -158,6 +158,100 @@ WIZARD_PROMPT_DEFAULTS = [
             'Keine unbekannten Platzhalter'
         ),
     },
+    # ── Email Modul (bauen / erweitern) ───────────────────────────────────────
+    {
+        'key': 'wiz_email_module_analyze',
+        'wizard_id': 'email_module',
+        'phase': 'analyze',
+        'name': 'Email-Modul: Briefing analysieren',
+        'description': 'Erkennt gewünschten Modul-Typ und fehlende Infos.',
+        'app_scope': 'general',
+        'system': (
+            'Du analysierst ein Briefing für ein einzelnes ABpE Email-Modul (MCID). '
+            'Kein vollständiges Mail-Template. '
+            'Erkenne module_type_hint: HEADER|SECTION|BUTTON|FOOTER|SIGNATURE|DISCLAIMER. '
+            'missing_topics nur aus: T1 (Typ), M1 (neu/erweitern), C1 (Firmendaten). '
+            'Antworte AUSSCHLIESSLICH mit JSON.'
+        ),
+        'user_template': (
+            '[[CONTEXT]]\n\nBriefing:\n[[BRIEFING]]\n\n'
+            'Gib GENAU dieses JSON zurück:\n'
+            '{"understood": true, "summary": "", "module_type_hint": "SECTION", '
+            '"missing_topics": ["T1", "M1"]}'
+        ),
+        'instruction_default': '',
+        'checklist_template': '',
+    },
+    {
+        'key': 'wiz_email_module_clarify',
+        'wizard_id': 'email_module',
+        'phase': 'clarify',
+        'name': 'Email-Modul: Klärung',
+        'description': 'Klärfragen für Modul-Generator.',
+        'app_scope': 'general',
+        'system': 'Du hilfst bei Klärfragen für Email-Module. Antworte nur JSON wenn nötig.',
+        'user_template': '[[CONTEXT]]\n\nBriefing:\n[[BRIEFING]]\n\nAntworten:\n[[ANSWERS]]',
+        'instruction_default': '',
+        'checklist_template': '',
+    },
+    {
+        'key': 'wiz_email_module_suggest_meta',
+        'wizard_id': 'email_module',
+        'phase': 'suggest_meta',
+        'name': 'Email-Modul: Metadaten',
+        'description': 'Name, Identifier, module_type vorschlagen.',
+        'app_scope': 'general',
+        'system': (
+            'Du schlägst Metadaten für ein ABpE Email-Modul vor. '
+            'identifier: snake_case, eindeutig, z.B. abcona_header_blau_adresse. '
+            'module_type aus ANSWERS.T1. status immer DRAFT. '
+            'Antworte AUSSCHLIESSLICH mit JSON.'
+        ),
+        'user_template': (
+            '[[CONTEXT]]\n\nBriefing:\n[[BRIEFING]]\n\nAntworten:\n[[ANSWERS]]\n\n'
+            'Gib GENAU dieses JSON zurück:\n'
+            '{"name": "", "identifier": "", "module_type": "SECTION", '
+            '"description": "", "preview_bg": "#f8f9fa", "status": "DRAFT"}'
+        ),
+        'instruction_default': '',
+        'checklist_template': 'identifier snake_case\nstatus DRAFT',
+    },
+    {
+        'key': 'wiz_email_module_generate',
+        'wizard_id': 'email_module',
+        'phase': 'generate',
+        'name': 'Email-Modul: HTML erzeugen',
+        'description': 'Erzeugt html_body/text_body für ein Modul-Fragment.',
+        'app_scope': 'general',
+        'system': (
+            'Du erstellst EIN ABpE Email-Modul (Fragment für {{block:identifier}}), '
+            'keine komplette E-Mail. '
+            'MCID: nur table/tr/td/a/span/p/br/strong/…; nur inline CSS; '
+            'Arial; Marke #163258; Text #333333; Header-Titel 18px bold; '
+            'Meta/Kontakt 12px; Body 14px; kein border-radius, kein flex/grid. '
+            'Firmendaten NUR aus CONTEXT.catalog.company '
+            '(www.abcona.de, 06171 886710, info@abcona.de) — nichts erfinden. '
+            'Wenn ANSWERS.M1=extend: bestehenden HTML-Inhalt aus INSTRUCTION '
+            'erhalten und nur die gewünschte Änderung einbauen. '
+            'Kein {{block:…}} verschachteln, außer ausdrücklich verlangt. '
+            'Antworte AUSSCHLIESSLICH mit JSON.'
+        ),
+        'user_template': (
+            '[[CONTEXT]]\n\n'
+            'Briefing:\n[[BRIEFING]]\n\nAntworten:\n[[ANSWERS]]\n\n'
+            'Metadaten:\n[[META]]\n\n'
+            '[[INSTRUCTION]]\n\n'
+            'Gib GENAU dieses JSON zurück:\n'
+            '{"html_body": "", "text_body": "", "name": "", "identifier": "", '
+            '"module_type": "SECTION", "variables_used": []}'
+        ),
+        'instruction_default': '',
+        'checklist_template': (
+            'checklist[] aus CONTEXT einhalten\n'
+            'Nur Modul-Fragment\n'
+            'company facts nicht halluzinieren'
+        ),
+    },
     # ── Matching (Vorbereitung Phase 3) ───────────────────────────────────────
     {
         'key': 'wiz_matching_berater_analyze',

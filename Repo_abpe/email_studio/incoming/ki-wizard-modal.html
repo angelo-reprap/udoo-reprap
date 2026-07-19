@@ -20,11 +20,11 @@
 
         <div class="es-ki-wizard-body">
             <div id="es-ki-panel-briefing" class="es-ki-panel active">
-                <label class="es-ki-lbl" data-i18n="es.ki_briefing_lbl">Was soll die E-Mail?</label>
+                <label class="es-ki-lbl" id="es-ki-briefing-lbl" data-i18n="es.ki_briefing_lbl">Was soll die E-Mail?</label>
                 <textarea id="es-ki-briefing" class="form-control" rows="5"
                           data-i18n-placeholder="es.ki_briefing_ph"
                           placeholder="z.B. Abwesenheits-Mail mit Vertretung, Weihnachtsgrüße, MeetMe-Einladung …"></textarea>
-                <p class="es-ki-hint" data-i18n="es.ki_briefing_hint">Die KI stellt Rückfragen zu Layout, Signatur und Inhalt.</p>
+                <p class="es-ki-hint" id="es-ki-briefing-hint" data-i18n="es.ki_briefing_hint">Die KI stellt Rückfragen zu Layout, Signatur und Inhalt.</p>
             </div>
 
             <div id="es-ki-panel-clarify" class="es-ki-panel">
@@ -42,12 +42,23 @@
                         <input id="es-ki-meta-identifier" class="form-control form-control-sm" style="font-family:monospace;">
                     </div>
                 </div>
-                <div class="es-ki-field">
+                <div class="es-ki-field" id="es-ki-subject-wrap">
                     <label class="es-ki-lbl" data-i18n="es.label_subject">Betreff</label>
                     <input id="es-ki-meta-subject" class="form-control form-control-sm">
                 </div>
+                <div class="es-ki-field" id="es-ki-module-type-wrap" style="display:none;">
+                    <label class="es-ki-lbl" data-i18n="es.label_module_type">Modul-Typ</label>
+                    <select id="es-ki-meta-module-type" class="form-select form-select-sm">
+                        <option value="HEADER">HEADER</option>
+                        <option value="SECTION">SECTION</option>
+                        <option value="BUTTON">BUTTON</option>
+                        <option value="FOOTER">FOOTER</option>
+                        <option value="SIGNATURE">SIGNATURE</option>
+                        <option value="DISCLAIMER">DISCLAIMER</option>
+                    </select>
+                </div>
                 <div class="es-form-row col2">
-                    <div>
+                    <div id="es-ki-scope-wrap">
                         <label class="es-ki-lbl" data-i18n="es.label_scope">Bereich</label>
                         <select id="es-ki-meta-scope" class="form-select form-select-sm">
                             <option value="telefon">Telefon / PBX</option>
