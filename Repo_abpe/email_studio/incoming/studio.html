@@ -688,9 +688,10 @@
         </div>
 
         {# ── Visual: Block-Canvas (nur Vorlage) ── #}
+        {# Leer starten wenn kein html_body — sonst landet Demo-„abcona e. K.“ in der Vorschau #}
         <div id="es-wysiwyg-wrap" class="es-canvas-wrap">
             <div id="es-canvas" class="es-canvas">
-
+                {% if template and template.html_body %}
                 <div class="es-block" data-block-type="module-header">
                     <span class="es-block-label">{{ '{' }}{ block:abcona_header_blau }{{ '}' }}</span>
                     <div class="es-block-actions">
@@ -757,7 +758,20 @@
                         </div>
                     </div>
                 </div>
-
+                {% else %}
+                {# Leerer Start: ein leerer Textblock — JS füllt bei bestehendem html_body #}
+                <div class="es-block" data-block-type="body">
+                    <div class="es-block-actions">
+                        <button class="es-block-action-btn" data-action="up" data-i18n-title="es.block_up"><i class="bi bi-arrow-up"></i></button>
+                        <button class="es-block-action-btn" data-action="down" data-i18n-title="es.block_down"><i class="bi bi-arrow-down"></i></button>
+                        <button class="es-block-action-btn danger" data-action="delete" data-i18n-title="es.block_delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                    <div class="es-block-body-inner" contenteditable="true"
+                         data-i18n-placeholder="es.wysiwyg_click_to_edit">
+                        <p><br></p>
+                    </div>
+                </div>
+                {% endif %}
             </div>
 
             <div class="es-add-block-wrap">
@@ -820,7 +834,7 @@
                     <i class="bi bi-arrow-clockwise"></i>
                 </button>
             </div>
-            <textarea id="es-html-editor" class="es-code-textarea">{{ template.html_body }}</textarea>
+            <textarea id="es-html-editor" class="es-code-textarea">{% if template %}{{ template.html_body }}{% endif %}</textarea>
         </div>
 
         <div id="es-txt-wrap" class="es-code-area" style="display:none;">

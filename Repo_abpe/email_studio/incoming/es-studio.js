@@ -132,6 +132,11 @@ window.ESStudio = (() => {
 
         _applyPendingWizardResult();
 
+        // Neue/leere Vorlage: sofort leere Vorschau (kein Demo-Inhalt)
+        if (!_templateId) {
+            setTimeout(() => _loadPreview(false), 200);
+        }
+
         /* Nach erstem loadLanguage Module-Labels neu setzen (Race mit DOMContentLoaded) */
         _waitForI18nThenRefresh();
 
@@ -772,20 +777,47 @@ window.ESStudio = (() => {
         const canvas = document.getElementById('es-canvas');
         if (!canvas) return;
 
-        canvas.querySelectorAll('.es-block').forEach(block => {
-            _bindBlock(block);
-        });
-
         const addBtn = document.getElementById('es-add-block-btn');
         if (addBtn) {
             addBtn.addEventListener('click', _showAddBlockMenu);
         }
 
-        // Echter Template-Inhalt aus Textarea in Canvas laden
-        if (document.getElementById('es-html-editor')?.value?.trim()) {
+        const htmlEl = document.getElementById('es-html-editor');
+        const hasCode = !!(htmlEl && htmlEl.value.trim());
+
+        if (hasCode) {
+            // Echter Template-Inhalt → Canvas aus Code, dann zurück syncen
             _syncCodeToCanvas();
+            _syncCanvasToCode();
+        } else {
+            // Leeres Template: Demo-Blöcke (abcona e. K. …) NICHT in Editor/Vorschau übernehmen
+            _resetCanvasEmpty();
+            if (htmlEl) htmlEl.value = '';
         }
-        _syncCanvasToCode();
+
+        canvas.querySelectorAll('.es-block').forEach(block => {
+            _bindBlock(block);
+        });
+    }
+
+    function _resetCanvasEmpty() {
+        const canvas = document.getElementById('es-canvas');
+        if (!canvas) return;
+        canvas.innerHTML = '';
+        const block = document.createElement('div');
+        block.className = 'es-block';
+        block.dataset.blockType = 'body';
+        const placeholderTxt = t('wysiwyg_click_to_edit', 'Klicken zum Bearbeiten');
+        block.innerHTML = `
+            <div class="es-block-actions">
+                <button class="es-block-action-btn" data-action="up" title="${t('block_up','Hoch')}"><i class="bi bi-arrow-up"></i></button>
+                <button class="es-block-action-btn" data-action="down" title="${t('block_down','Runter')}"><i class="bi bi-arrow-down"></i></button>
+                <button class="es-block-action-btn danger" data-action="delete" title="${t('block_delete','Löschen')}"><i class="bi bi-trash"></i></button>
+            </div>
+            <div class="es-block-body-inner" contenteditable="true" data-placeholder="${placeholderTxt}">
+                <p><br></p>
+            </div>`;
+        canvas.appendChild(block);
     }
 
     function _bindBlock(block) {
