@@ -163,8 +163,9 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
                 'ci_notes': (
                     'MCID: Variable={name} Rohdaten; Modul={{block:id}} Format; '
                     'Block=Modul+Variablen (z.B. block_teilnehmer, block_system_status, block_termin). '
-                    'Paar-Syntax: {{block:fmt_aufzaehlung}} Zeile1\\nZeile2 {{/block}} — '
-                    'innen nur Plaintext/{variablen}, Renderer baut Liste/Tabelle. '
+                    'Paar-Syntax Aufzählung: Zeile pro Punkt ODER Semikolon '
+                    '(Hund; Katze; Pferd) in {{block:fmt_aufzaehlung}}…{{/block}}. '
+                    'Innen nur Plaintext/{variablen}, Renderer baut Bullets/Tabelle. '
                     'Struktur: {{block:abcona_header_blau}} → optional label_* → Body '
                     '→ {{block:signature}} XOR footer_*. '
                     'Schrift nur Arial 14px #333; Marke #163258. '

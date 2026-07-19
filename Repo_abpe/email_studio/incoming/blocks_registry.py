@@ -324,30 +324,42 @@ def hint_to_html(plain: str) -> str:
 
 def _list_items(text: str) -> list[str]:
     """
-    Zeilen → Punkte. Sonst: Komma / Mittelpunkt / Semikolon.
-    Einzeiler ohne Trennzeichen: Wörter untereinander
-    (z. B. „Pferd Hund Schildkröte“ → 3 Bullets).
+    MCID Aufzählung — vereinbarte Trenner (Priorität):
+
+    1. Zeilenumbruch (Standard): eine Zeile = ein Bullet
+    2. Semikolon (Einzeiler): ``Hund; Katze; Pferd``
+    3. Komma / Mittelpunkt (Fallback)
+    4. Leerzeichen nur bei kurzen Einzelwörtern (KI-Fallback)
+
+    Der Nutzer tippt keine ``*`` / ``-`` — der Renderer setzt die Bullets.
     """
     raw = (text or '').strip()
     if not raw:
         return []
 
     def _clean(line: str) -> str:
-        s = line.strip()
+        s = line.strip().rstrip(';').strip()
         return re.sub(r'^[\-\*\u2022\u25B8•▸·]+\s*', '', s).strip()
 
     if '\n' in raw:
         lines = [_clean(ln) for ln in raw.splitlines()]
         return [ln for ln in lines if ln]
 
-    # Explizite Trenner
-    for sep in (r'\s*[;·•]\s+', r'\s*,\s+'):
+    # Semikolon = offizielle Einzeiler-Form (auch ohne Leerzeichen, trailing ;)
+    if ';' in raw:
+        parts = [_clean(p) for p in raw.split(';')]
+        parts = [p for p in parts if p]
+        if len(parts) >= 2:
+            return parts
+
+    # Weitere explizite Trenner
+    for sep in (r'\s*[·•]\s*', r'\s*,\s+'):
         parts = [_clean(p) for p in re.split(sep, raw)]
         parts = [p for p in parts if p]
         if len(parts) >= 2:
             return parts
 
-    # „Pferd Hund Schildkröte“ — kurze Wörter, kein Satz
+    # „Pferd Hund Schildkröte“ — kurze Wörter, kein Satz (KI-Fallback)
     if not re.search(r'[.!?]', raw):
         words = [_clean(w) for w in raw.split()]
         words = [w for w in words if w]

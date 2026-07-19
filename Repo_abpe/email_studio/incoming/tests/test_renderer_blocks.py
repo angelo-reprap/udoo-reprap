@@ -41,6 +41,18 @@ class BlocksRegistryTests(SimpleTestCase):
         self.assertIn('<li>Hund</li>', html)
         self.assertIn('<li>Schildkröte</li>', html)
 
+    def test_semicolon_list_becomes_bullets(self):
+        html = format_inner_for_module(
+            'fmt_aufzaehlung', 'Hund; Katze; Pferd;', html=True,
+        )
+        self.assertIn('<li>Hund</li>', html)
+        self.assertIn('<li>Katze</li>', html)
+        self.assertIn('<li>Pferd</li>', html)
+        html2 = format_inner_for_module(
+            'fmt_aufzaehlung', 'Hund;Katze;Pferd', html=True,
+        )
+        self.assertIn('<li>Katze</li>', html2)
+
     def test_format_key_value(self):
         html = format_inner_for_module(
             'fmt_key_value', 'Hund: 45 €\nKatze: 30 €', html=True,

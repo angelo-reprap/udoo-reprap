@@ -368,11 +368,37 @@ Der **Modul-Renderer** formatiert (`format_inner_for_module`). Das gilt für **j
 
 | Modul | Eingabe (Beispiel) | Renderer macht |
 |---|---|---|
-| `fmt_aufzaehlung` | eine Zeile = ein Punkt | `<ul><li>…` |
+| `fmt_aufzaehlung` | **Zeile = Punkt** oder `Hund; Katze; Pferd` | `<ul><li>…` (Bullets setzt der Renderer) |
 | `fmt_key_value` | `Hund: 45 €` | Label fett + Wert |
 | `fmt_tabelle` | `Tier \| Futter` (Pipe) | HTML-Tabelle |
 | `fmt_zwei_spalten` | links / `---` / rechts | 2 Spalten |
 | `fmt_hinweis` | Fließtext | Absatz in Hinweisbox |
+
+#### Vereinbarung `fmt_aufzaehlung` *(2026-07-19)*
+
+| Form | Tippen | Vorschau |
+|---|---|---|
+| **Standard** | eine Zeile = ein Punkt | • Hund<br>• Katze<br>• Pferd |
+| **Einzeiler** | Semikolon `;` | `Hund; Katze; Pferd` → dieselben 3 Bullets |
+
+```text
+{{block:fmt_aufzaehlung}}
+Hund
+Katze
+Pferd
+{{/block}}
+```
+
+gleichwertig:
+
+```text
+{{block:fmt_aufzaehlung}}
+Hund; Katze; Pferd
+{{/block}}
+```
+
+**Nicht nötig:** selbst `*` / `-` tippen — das Modul formatiert.  
+**Nicht empfohlen:** nur Leerzeichen (`Hund Katze Pferd`) — nur KI-Fallback.
 
 Block `teilnehmer` = Modul `fmt_aufzaehlung` + Variable `{teilnehmer_liste}` (Rohdaten) — statt `{teilnehmer_liste_html}`.
 
