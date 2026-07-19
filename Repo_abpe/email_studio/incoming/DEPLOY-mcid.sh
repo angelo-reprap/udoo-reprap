@@ -141,6 +141,10 @@ grep -q "openModule\|ki_module_btn\|applyModuleWizardResult" \
   "$B/apps/abpe_ui/templates/abpe_ui/modules/email_studio/studio.html" \
   "$B/apps/abpe_email_studio/static/email_studio/js/es-studio.js" \
   || { echo "FAIL: KI Modul-Assistent UI fehlt"; exit 1; }
+grep -q "resolve_block_identifier\|BLOCK_ID_ALIASES\|adrersse" \
+  "$B/apps/abpe_email_studio/blocks_registry.py" \
+  "$B/apps/abpe_email_studio/services/renderer.py" \
+  || { echo "FAIL: Block-ID-Alias (adrersse) fehlt"; exit 1; }
 
 supervisorctl restart abpe-django
 echo ""

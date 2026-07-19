@@ -160,9 +160,17 @@ class EmailRenderer:
     ) -> str:
         """Modul- oder Block-Renderer für eine ID (+ optional Inner-Content)."""
         try:
-            from apps.abpe_email_studio.blocks_registry import get_block
+            from apps.abpe_email_studio.blocks_registry import (
+                get_block,
+                resolve_block_identifier,
+            )
         except ImportError:
-            from ..blocks_registry import get_block  # type: ignore
+            from ..blocks_registry import (  # type: ignore
+                get_block,
+                resolve_block_identifier,
+            )
+
+        identifier = resolve_block_identifier(identifier)
 
         if identifier == 'signature' and template is not None:
             sig_html = self._resolve_signature_html(

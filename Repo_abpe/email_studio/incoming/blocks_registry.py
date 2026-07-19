@@ -246,8 +246,47 @@ def get_blocks() -> list[dict[str, Any]]:
     return list(BLOCKS)
 
 
+# Häufige KI-/Tippfehler → kanonische Modul-IDs
+BLOCK_ID_ALIASES: dict[str, str] = {
+    'block_abcona_header_blau_adrersse': 'abcona_header_blau_adresse',
+    'abcona_header_blau_adrersse': 'abcona_header_blau_adresse',
+    'block_abcona_header_blau_adresse': 'abcona_header_blau_adresse',
+    'abcona_header_blau_adrresse': 'abcona_header_blau_adresse',
+}
+
+
+def resolve_block_identifier(identifier: str) -> str:
+    """Kanonische Modul-/Block-ID (Aliases + häufige KI-Fehler)."""
+    ident = (identifier or '').strip()
+    if not ident:
+        return ident
+    if ident in BLOCK_ID_ALIASES:
+        return BLOCK_ID_ALIASES[ident]
+    # Echte Inhalts-Blöcke behalten block_-Prefix (block_teilnehmer …)
+    if get_block(ident):
+        return ident
+    # KI hängt oft block_ vor Header-/DB-Module
+    if ident.startswith('block_'):
+        stripped = ident[6:]
+        if stripped in BLOCK_ID_ALIASES:
+            return BLOCK_ID_ALIASES[stripped]
+        if stripped in _MODULE_HUSKS or stripped in HEADER_MODULE_META:
+            return stripped
+        if 'adrersse' in stripped or 'adrresse' in stripped:
+            fixed = stripped.replace('adrersse', 'adresse').replace('adrresse', 'adresse')
+            if fixed in _MODULE_HUSKS or fixed in HEADER_MODULE_META:
+                return fixed
+    if 'adrersse' in ident or 'adrresse' in ident:
+        fixed = ident.replace('adrersse', 'adresse').replace('adrresse', 'adresse')
+        if fixed in _MODULE_HUSKS or fixed in HEADER_MODULE_META or fixed in BLOCK_ID_ALIASES:
+            return BLOCK_ID_ALIASES.get(fixed, fixed)
+    return ident
+
+
 def get_module_husk(module_id: str, kind: str = 'html') -> str:
-    husk = _MODULE_HUSKS.get(module_id)
+    husk = _MODULE_HUSKS.get(resolve_block_identifier(module_id) if module_id else '')
+    if not husk:
+        husk = _MODULE_HUSKS.get(module_id)
     if not husk:
         return ''
     return husk.get(kind, '')

@@ -9,6 +9,7 @@ from apps.abpe_email_studio.blocks_registry import (
     get_block,
     module_insert_syntax,
     plain_list_to_html,
+    resolve_block_identifier,
     suggest_blocks_for_text,
 )
 from apps.abpe_email_studio.services.renderer import EmailRenderer

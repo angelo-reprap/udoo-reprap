@@ -169,7 +169,12 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
                 'paired_syntax': '{{block:id}}…content…{{/block}}',
                 'ci_notes': (
                     'MCID: Variable={name} Rohdaten; Modul={{block:id}} Format; '
-                    'Block=Modul+Variablen (z.B. block_teilnehmer, block_system_status, block_termin). '
+                    'Inhalts-Blöcke starten mit block_ (nur: block_teilnehmer, '
+                    'block_system_status, block_termin, block_anhaenge). '
+                    'Header-Module OHNE block_-Prefix: '
+                    '{{block:abcona_header_blau}} oder '
+                    '{{block:abcona_header_blau_adresse}} (mit Kontaktzeile). '
+                    'NIEMALS {{block:block_abcona_…}} und kein Tippfehler adrersse. '
                     'Paar-Syntax Aufzählung: Zeile pro Punkt ODER Semikolon '
                     '(Hund; Katze; Pferd) in {{block:fmt_aufzaehlung}}…{{/block}}. '
                     'Innen nur Plaintext/{variablen}, Renderer baut Bullets/Tabelle. '
@@ -427,6 +432,18 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
                 pass  # vorhandene Felder belassen
             elif '{{block:block_termin}}' not in html:
                 html = _insert_before_closing(html, '{{block:block_termin}}')
+
+        # Häufige KI-Fehler bei Header+Adresse korrigieren
+        for bad, good in (
+            ('{{block:block_abcona_header_blau_adrersse}}',
+             '{{block:abcona_header_blau_adresse}}'),
+            ('{{block:abcona_header_blau_adrersse}}',
+             '{{block:abcona_header_blau_adresse}}'),
+            ('{{block:block_abcona_header_blau_adresse}}',
+             '{{block:abcona_header_blau_adresse}}'),
+        ):
+            html = html.replace(bad, good)
+            text = text.replace(bad, good)
 
         out['html_body'] = html
         out['text_body'] = text
