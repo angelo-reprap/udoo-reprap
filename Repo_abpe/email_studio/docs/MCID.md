@@ -52,7 +52,15 @@ Bausteine (Module) dürfen **nur** aus den folgenden Elementen bestehen.
 
 Nur Zeichen, die als **Text** im Client-Font liegen — kein `img`, kein CID, keine Remote-URL, kein SVG, keine Icon-Fonts.
 
-Beispiele (Unicode / HTML-Entity):
+### Übersicht
+
+| Typ | Beispiele | OK? |
+|---|---|---|
+| Unicode / Entities | `•` `&bull;` · `▸` · `→` · `✓` · `✗` · `●` · `–` | **ja** |
+| Emoji (ältere, einfache) | siehe Liste unten | **oft ja** |
+| PNG / JPG / GIF / WebP / SVG / Icon-Fonts / `data:` | — | **nein** (Laden oder Einbetten nötig) |
+
+### Unicode / Entities (zuverlässig)
 
 | Zeichen | Entity / Unicode | typische Nutzung |
 |---|---|---|
@@ -65,9 +73,30 @@ Beispiele (Unicode / HTML-Entity):
 | ■ □ | `&#9632;` `&#9633;` | Marker |
 | – — | `&ndash;` `&mdash;` | Trennstrich |
 
-**Emoji** (z. B. ✅ ⚠️) können funktionieren, sind aber OS-/Client-abhängig und für strenge CI oft ungeeignet.
+### Emoji — die zuverlässigeren („oft ja“)
 
-**Nicht ohne Laden/Einbetten:** PNG/JPG/GIF/WebP, SVG, Font Awesome / Icon-Fonts, `data:`-URIs.
+Früh in Unicode, ein Codepoint, keine Skin-Tones / keine ZWJ-Sequenzen. Darstellung bleibt OS-/Client-abhängig (Apple ≠ Windows ≠ Android), aber Ausfall ist selten.
+
+| Emoji | Nutzung |
+|---|---|
+| ✅ | OK / Erfolg |
+| ❌ | Fehler / Abbruch |
+| ⚠️ | Warnung |
+| ℹ️ | Info |
+| ❗ | Hinweis / wichtig |
+| ✔️ | Check (Textvariante) |
+| ➡️ | Pfeil / weiter |
+| ⭐ | Hervorhebung |
+| 📧 | E-Mail |
+| 📅 | Termin / Kalender |
+| 📎 | Anhang |
+| 🔗 | Link |
+| 👍 | Bestätigung (informell) |
+| 🟢 🟡 🔴 | Statusampel (Farbe je OS unterschiedlich) |
+
+**Für strenge MCID / CI bevorzugen:** Unicode/Entities aus der Tabelle oben (`✓` `✗` `•` `→`), nicht Emoji.
+
+**Vermeiden:** neue Emoji, Flaggen, Personen mit Hautton, kombinierte Sequenzen (👨‍💻), Marken-Logos als Emoji.
 
 ---
 
