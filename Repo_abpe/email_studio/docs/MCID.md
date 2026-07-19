@@ -223,12 +223,85 @@ Fließtext / Überschrift leben im Vorlagen-Body — kein eigenes Modul.
 
 ---
 
+## Regel 6 — Block-Syntax und Editor-Modell
+
+**Lösung:** Format-Baustein mit Inhalt = öffnendes + schließendes Token.
+
+```text
+{{block:hinweisbox}}
+Hier freier Text und {disk_free}.
+{{/block}}
+```
+
+Selbstschließende Module ohne Inhalt bleiben erlaubt (Header, Label, Footer, Signatur):
+
+```text
+{{block:abcona_header_blau}}
+{{block:label_info}}
+…
+{{block:signature}}
+```
+
+### Regeln
+
+| Thema | Festlegung |
+|---|---|
+| Syntax Inhalt | `{{block:<id>}}` … Inhalt … `{{/block}}` |
+| Syntax ohne Inhalt | `{{block:<id>}}` (wie bisher) |
+| Inhalt darf | Freitext + `{variablen}` + Inline-Format (Editor-Toolbar, Regel 1) |
+| Inhalt darf nicht | verschachtelte `{{block:…}}` in v1 (später optional) |
+| Wahrheit | **Visual / Block-Liste** = Source of Truth |
+| HTML-Ansicht | gerendert bzw. serialisierte Tokens + Inner-HTML |
+| TXT-Ansicht | aus derselben Block-Struktur; jedes Modul liefert `html_body` **und** `text_body`-Hülle |
+| TXT „1:1“ | gleicher Inhalt/Reihenfolge — **nicht** gleiches HTML-Markup |
+| HTML-Editor-Toolbar | nur Inline (B/I/U/Link/Farbe/Ausrichtung) im Freitext / Inner-Content |
+| Format-Bausteine | als Module einfügen, **nicht** als Toolbar-Buttons |
+
+### Render-Skizze
+
+1. Vorlage als geordnete Blöcke parsen  
+2. Pro Block: Hülle aus Modul (`html_body` / `text_body`) + Inner-Content einsetzen  
+3. Danach `{variablen}` ersetzen  
+4. HTML- und TXT-Ausgabe getrennt aus Schritt 2–3  
+
+### Migration
+
+- Bestehende `{{block:x}}` ohne Paar bleiben gültig (kein Inner-Content).  
+- Neue Format-Bausteine mit Inhalt nutzen `{{block:x}}…{{/block}}`.  
+- Renderer und KI-Prompts müssen beide Formen verstehen.
+
+---
+
+## Konfigurator — Deklarationsstand
+
+Für ein **MCID-System / Konfigurator** ist das **Zielbild** weitgehend deklariert (Regeln 1–6). Zum Bauen fehlt noch die Feinspezifikation:
+
+| Status | Thema |
+|---|---|
+| ✅ da | Erlaubte Tags/CSS (R1), Icons (R2), Logo (R3), ICS/VCF (R4), Modul-Soll (R5), Block-Syntax/Editor (R6) |
+| ✅ da | Format × Inhalt, XOR Signatur/Footer (Layout-Deklaration) |
+| ⬜ fehlt | **CI-Tokens:** Farben, Abstände, Maximalbreite (z. B. 600px), Schriftstack |
+| ⬜ fehlt | **HTML/TXT-Skizzen** je Format-Baustein (wo liegt `{{content}}` in der Hülle?) |
+| ⬜ fehlt | **Identifier-Namen** final (`hinweisbox` vs. `quote_highlight` …) |
+| ⬜ fehlt | **Validator:** Modul-HTML gegen Regel 1 prüfen |
+| ⬜ fehlt | **KI-Prompt / layout_rules** an R1–R6 anbinden |
+| ⬜ fehlt | **UI-Konfigurator:** Module anlegen/bearbeiten, Vorschau, Freigabe |
+| ⬜ fehlt | **Versand:** `.ics`/`.vcf` + Logo-CID konkret |
+| ⬜ fehlt | **Ist→Soll-Migration** der bestehenden DB-Module |
+
+**Fazit:** Konzept/Regeln reichen als Zielbild. Als Nächstes Feinspezifikation (CI-Tokens + Hüllen-Skizzen), dann Implementierung Konfigurator/Renderer.
+
+---
+
 ## Nächste Schritte (offen)
 
-- [ ] Einbindung Soll-Module in E-Mail-Vorlage (Reihenfolge, XOR Signatur/Footer)
-- [ ] HTML-Skizzen je Format-Baustein (Regel 1-konform)
-- [ ] Mapping Ist-Module → Soll umsetzen (DB / Snapshot)
-- [ ] Icon-Set für abcona final festlegen (Regel 2, Unicode bevorzugt)
-- [ ] Logo-Strategie festlegen: CID vs. URL (Regel 3)
-- [ ] `.ics` / `.vcf` Erzeugung + Anhang am Versand anbinden (Regel 4)
-- [ ] Validator / KI-Prompt an Regel 1–2 + 5 binden
+- [ ] CI-Tokens festlegen (Farbe, Breite, Abstände, Font)
+- [ ] HTML/TXT-Hüllen-Skizzen je Format-Baustein (`{{content}}`-Slot)
+- [ ] Renderer: `{{block:id}}…{{/block}}` + bestehende Selbstschließer
+- [ ] Visual als Source of Truth an Regel 6 ausrichten
+- [ ] Mapping Ist-Module → Soll (DB / Snapshot)
+- [ ] Icon-Set final (Regel 2)
+- [ ] Logo CID vs. URL (Regel 3)
+- [ ] `.ics` / `.vcf` am Versand (Regel 4)
+- [ ] Validator + KI-Prompt an Regeln 1–6
+- [ ] MCID-Konfigurator-UI
