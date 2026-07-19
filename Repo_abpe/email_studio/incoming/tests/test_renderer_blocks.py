@@ -3,6 +3,7 @@ from django.test import SimpleTestCase
 
 from apps.abpe_email_studio.blocks_registry import (
     block_insert_syntax,
+    format_inner_for_module,
     get_block,
     module_insert_syntax,
     plain_list_to_html,
@@ -13,15 +14,31 @@ from apps.abpe_email_studio.services.renderer import EmailRenderer
 
 class BlocksRegistryTests(SimpleTestCase):
     def test_paired_syntax(self):
-        self.assertIn('{{/block}}', module_insert_syntax('fmt_aufzaehlung'))
+        syn = module_insert_syntax('fmt_aufzaehlung')
+        self.assertIn('{{/block}}', syn)
+        self.assertIn('Hund', syn)
+        self.assertNotIn('<ul>', syn)
         self.assertNotIn('{{/block}}', module_insert_syntax('cta_blau'))
         self.assertIn('block_teilnehmer', block_insert_syntax('block_teilnehmer'))
 
     def test_plain_list_to_html(self):
         html = plain_list_to_html('Max, Erika')
-        self.assertIn('<ul>', html)
+        self.assertIn('<ul', html)
         self.assertIn('<li>Max</li>', html)
         self.assertIn('<li>Erika</li>', html)
+
+    def test_format_inner_keeps_vars(self):
+        html = format_inner_for_module('fmt_aufzaehlung', 'Hund\n{tier_2}\nPferd', html=True)
+        self.assertIn('<li>Hund</li>', html)
+        self.assertIn('<li>{tier_2}</li>', html)
+        self.assertNotIn('&lt;', html)
+
+    def test_format_key_value(self):
+        html = format_inner_for_module(
+            'fmt_key_value', 'Hund: 45 €\nKatze: 30 €', html=True,
+        )
+        self.assertIn('<strong>Hund:</strong>', html)
+        self.assertIn('45 €', html)
 
     def test_suggest_blocks(self):
         hits = suggest_blocks_for_text('Einladung Telefonkonferenz mit Teilnehmern')
@@ -52,6 +69,35 @@ class RendererContentSlotTests(SimpleTestCase):
         self.assertIn('#163258', out)
         self.assertNotIn('{{block:', out)
         self.assertNotIn('{{content}}', out)
+
+    def test_resolve_aufzaehlung_plaintext(self):
+        r = EmailRenderer()
+        html = (
+            '{{block:fmt_aufzaehlung}}\n'
+            'Hund\n'
+            'Katze\n'
+            '{extra_tier}\n'
+            '{{/block}}'
+        )
+        out = r._resolve_modules(html, {'extra_tier': 'Kaninchen'})
+        self.assertIn('<ul', out)
+        self.assertIn('<li>Hund</li>', out)
+        self.assertIn('<li>Katze</li>', out)
+        self.assertIn('<li>Kaninchen</li>', out)
+        self.assertNotIn('<ul>\nHund', out)
+
+    def test_resolve_key_value_plaintext(self):
+        r = EmailRenderer()
+        html = (
+            '{{block:fmt_key_value}}\n'
+            'Hund: 45 €\n'
+            'Katze: {futter_katze}\n'
+            '{{/block}}'
+        )
+        out = r._resolve_modules(html, {'futter_katze': '30 €'})
+        self.assertIn('<strong>Hund:</strong>', out)
+        self.assertIn('45 €', out)
+        self.assertIn('30 €', out)
 
     def test_resolve_block_teilnehmer_self_closing(self):
         r = EmailRenderer()

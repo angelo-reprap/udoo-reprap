@@ -129,11 +129,24 @@ class EmailRenderer:
                 return sig_html
             return re.sub(r'<[^>]+>', '', sig_html).strip()
 
+        try:
+            from apps.abpe_email_studio.blocks_registry import (
+                PAIRED_MODULE_IDS,
+                format_inner_for_module,
+            )
+        except ImportError:
+            from ..blocks_registry import (  # type: ignore
+                PAIRED_MODULE_IDS,
+                format_inner_for_module,
+            )
+
         block_spec = get_block(identifier)
         if block_spec:
             inner = (content or '').strip() or self._block_inner_content(
                 block_spec, variables, html=html,
             )
+            # Plaintext/Variablen → Format des gebundenen Moduls
+            inner = format_inner_for_module(block_spec['module'], inner, html=html)
             shell = self._module_shell(block_spec['module'], html=html)
             if shell is None:
                 log.warning('Block-Modul fehlt: %s → %s', identifier, block_spec['module'])
@@ -142,7 +155,10 @@ class EmailRenderer:
 
         shell = self._module_shell(identifier, html=html)
         if shell is not None:
-            filled = self._fill_content_slot(shell, content or '')
+            inner = content or ''
+            if identifier in PAIRED_MODULE_IDS or identifier.startswith('fmt_'):
+                inner = format_inner_for_module(identifier, inner, html=html)
+            filled = self._fill_content_slot(shell, inner)
             return self._render(filled, variables)
 
         if html:

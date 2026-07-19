@@ -356,13 +356,25 @@ Git-Dateien unter `Repo_abpe/email_studio/incoming/` = **Staging/Sync** für Ent
 ```
 
 ```text
-{{block:aufzaehlung}}
-{punkt_1}
-{punkt_2}
+{{block:fmt_aufzaehlung}}
+Hund
+Katze
+{extra_tier}
 {{/block}}
 ```
 
-Block `teilnehmer` könnte intern Modul `aufzaehlung` + Variable `{teilnehmer_liste}` (Rohdaten) nutzen — statt `{teilnehmer_liste_html}`.
+**Wichtig:** Innen nur **Plaintext / Variablen / Zeilen** — kein `<ul>`, `<li>`, `<table>`.  
+Der **Modul-Renderer** formatiert (`format_inner_for_module`). Das gilt für **jedes** `fmt_*`-Modul.
+
+| Modul | Eingabe (Beispiel) | Renderer macht |
+|---|---|---|
+| `fmt_aufzaehlung` | eine Zeile = ein Punkt | `<ul><li>…` |
+| `fmt_key_value` | `Hund: 45 €` | Label fett + Wert |
+| `fmt_tabelle` | `Tier \| Futter` (Pipe) | HTML-Tabelle |
+| `fmt_zwei_spalten` | links / `---` / rechts | 2 Spalten |
+| `fmt_hinweis` | Fließtext | Absatz in Hinweisbox |
+
+Block `teilnehmer` = Modul `fmt_aufzaehlung` + Variable `{teilnehmer_liste}` (Rohdaten) — statt `{teilnehmer_liste_html}`.
 
 ---
 
@@ -467,7 +479,17 @@ Gemeinsamer Textstil: Arial 14px, Dunkelgrau `#333333`, Breite im äußeren Mail
 {{content}}
 ```
 
-Inhalt typisch: `<ul><li>…</li></ul>` bzw. TXT-Zeilen mit `• `.
+**Nutzer-Inhalt (Plaintext):**
+
+```text
+{{block:fmt_aufzaehlung}}
+Hund
+Katze
+Pferd
+{{/block}}
+```
+
+Renderer setzt `{{content}}` = generierte `<ul><li>…`.
 
 #### `fmt_key_value`
 
@@ -479,11 +501,14 @@ Inhalt typisch: `<ul><li>…</li></ul>` bzw. TXT-Zeilen mit `• `.
 </table>
 ```
 
-```text
-{{content}}
-```
+**Nutzer-Inhalt:**
 
-Inhalt: Zeilen `<strong>Label:</strong> Wert<br>` / TXT `Label: Wert`.
+```text
+{{block:fmt_key_value}}
+Hund: 45 €
+Katze: 30 €
+{{/block}}
+```
 
 #### `fmt_tabelle`
 
@@ -495,11 +520,15 @@ Inhalt: Zeilen `<strong>Label:</strong> Wert<br>` / TXT `Label: Wert`.
 </table>
 ```
 
-```text
-{{content}}
-```
+**Nutzer-Inhalt (Spalten mit `|`):**
 
-Inhalt: Datentabelle (z. B. Check \| Wert \| Status) — gebaut vom **Block-Renderer**, nicht als HTML-Variable.
+```text
+{{block:fmt_tabelle}}
+Tier | Futter/Monat
+Hund | 45 €
+Katze | 30 €
+{{/block}}
+```
 
 #### `fmt_zwei_spalten`
 
@@ -560,10 +589,11 @@ Inhalt: Datentabelle (z. B. Check \| Wert \| Status) — gebaut vom **Block-Re
 | Status | Thema |
 |---|---|
 | ✅ | Modul-Renderer + Block-Renderer (`blocks_registry.py`, `renderer.py`) |
+| ✅ | **Plaintext→Format für alle `fmt_*`** (`format_inner_for_module`) |
 | ✅ | KI-Katalog `blocks` + Prompt + Fragen I4/M2/L4 |
 | ✅ | KI-Vorschau: Layout-Vorschläge (Nachfrage Aufzählung/Tabelle) |
 | ✅ | HTML-Editor: Align + Listen; i18n de/en Tooltips |
-| ✅ | Sidebar: Format- + Block-Chips mit Paar-Syntax |
+| ✅ | Sidebar: Format- + Block-Chips mit Paar-Syntax (Plaintext-Samples) |
 | ⬜ | Validator Regel 1 (Tags/CSS) |
 | ⬜ | Volle Migration `{…_html}` → nur noch Blöcke |
 | ⬜ | Signatur-Formular · Rechte Modul-Reiter |
@@ -577,6 +607,7 @@ Inhalt: Datentabelle (z. B. Check \| Wert \| Status) — gebaut vom **Block-Re
 - [x] Konzept R1–R10
 - [x] Modul-Renderer (`{{block:id}}…{{/block}}`, `{{content}}`)
 - [x] Block-Renderer (`block_teilnehmer`, `block_system_status`, `block_termin`)
+- [x] Konsolidierung: Plaintext/Variablen in jedem Format-Modul
 - [x] KI: Blocks im Catalog/Prompt + Vorschlags-UI
 - [x] HTML-Editor Align/Listen + i18n de/en
 - [ ] DB-Module `fmt_*` speichern (optional, Fallback vorhanden)

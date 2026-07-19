@@ -163,7 +163,8 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
                 'ci_notes': (
                     'MCID: Variable={name} Rohdaten; Modul={{block:id}} Format; '
                     'Block=Modul+Variablen (z.B. block_teilnehmer, block_system_status, block_termin). '
-                    'Paar-Syntax für Format: {{block:fmt_aufzaehlung}}…{{/block}} mit {{content}} in der Hülle. '
+                    'Paar-Syntax: {{block:fmt_aufzaehlung}} Zeile1\\nZeile2 {{/block}} — '
+                    'innen nur Plaintext/{variablen}, Renderer baut Liste/Tabelle. '
                     'Struktur: {{block:abcona_header_blau}} → optional label_* → Body '
                     '→ {{block:signature}} XOR footer_*. '
                     'Schrift nur Arial 14px #333; Marke #163258. '
@@ -334,16 +335,19 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
             )
             return html, text
         if i1 in ('key_value', 'table'):
-            # MCID-Block Termin-Fakten
+            # MCID-Block Termin-Fakten (Rohdaten → Format im Renderer)
             return '{{block:block_termin}}', (
                 'Titel: {title}\nDatum: {termin_datum}\nUhrzeit: {termin_uhrzeit}\n'
                 'Raum: {raum}\nEinwahl: {einwahl_info}'
             )
-        # bullet_list / facts_box → Aufzählung; optional Format-Modul
+        # bullet_list: Plaintext-Zeilen im Format-Modul (kein <ul> tippen)
         if i1 == 'bullet_list':
+            plain_lines = '\n'.join(
+                f'{labels.get(f, f)}: {{{f}}}' for f in fields
+            )
             return (
                 '{{block:fmt_aufzaehlung}}\n'
-                f'<ul>{html_items}</ul>\n'
+                f'{plain_lines}\n'
                 '{{/block}}'
             ), text_items
         return f'<ul>{html_items}</ul>', text_items

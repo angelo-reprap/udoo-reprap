@@ -7,6 +7,7 @@ Block    = Modul + gebundene Variablen (Komposition)
 """
 from __future__ import annotations
 
+import re
 from typing import Any
 
 # Module die Inhalt zwischen {{block:id}}…{{/block}} erwarten
@@ -121,8 +122,17 @@ def is_paired_module(module_id: str) -> bool:
 
 
 def module_insert_syntax(module_id: str) -> str:
+    """Einfüge-Syntax: innen nur Plaintext / {variablen}, kein HTML."""
+    samples = {
+        'fmt_aufzaehlung': 'Hund\nKatze\nPferd',
+        'fmt_key_value': 'Hund: 45 €\nKatze: 30 €\nPferd: 120 €',
+        'fmt_tabelle': 'Tier | Futter/Monat\nHund | 45 €\nKatze | 30 €',
+        'fmt_zwei_spalten': 'Links\n---\nRechts',
+        'fmt_hinweis': 'Kurzer Hinweis an den Empfänger.',
+    }
     if is_paired_module(module_id):
-        return f'{{{{block:{module_id}}}}}\n\n{{{{/block}}}}'
+        sample = samples.get(module_id, 'Inhalt hier\noder {variable}')
+        return f'{{{{block:{module_id}}}}}\n{sample}\n{{{{/block}}}}'
     return f'{{{{block:{module_id}}}}}'
 
 
@@ -130,8 +140,9 @@ def block_insert_syntax(block_id: str) -> str:
     b = get_block(block_id)
     if not b:
         return f'{{{{block:{block_id}}}}}'
+    # Inhalts-Blöcke meist selbstschließend (Daten kommen aus Variablen)
     if b.get('paired'):
-        return f'{{{{block:{block_id}}}}}\n\n{{{{/block}}}}'
+        return f'{{{{block:{block_id}}}}}\n{{{{/block}}}}'
     return f'{{{{block:{block_id}}}}}'
 
 
@@ -170,33 +181,185 @@ def _suggest_question_en(b: dict[str, Any]) -> str:
     }.get(b['id'], f'Insert as block “{b["name"]}”?')
 
 
-def plain_list_to_html(plain: str) -> str:
-    """'A, B' oder Zeilen → <ul><li>…</ul>."""
-    text = (plain or '').strip()
-    if not text:
+def _looks_like_html(text: str) -> bool:
+    t = (text or '').strip().lower()
+    return any(tag in t for tag in ('<ul', '<ol', '<li', '<table', '<tr', '<p', '<div', '<br'))
+
+
+def format_inner_for_module(module_id: str, content: str, *, html: bool = True) -> str:
+    """
+    MCID Regel 6/9: Inner-Content ist Plaintext + {variablen}.
+    Das Format-Modul formatiert — der Nutzer tippt kein <ul>/<li>.
+    Bereits vorhandenes HTML (Migration/KI) wird durchgereicht.
+    """
+    raw = (content or '').strip()
+    if not raw:
         return ''
-    if '<' in text and '>' in text:
-        return text
-    parts = [p.strip() for p in re_split_list(text) if p.strip()]
+    if _looks_like_html(raw):
+        return raw
+
+    if module_id == 'fmt_aufzaehlung':
+        return plain_list_to_html(raw) if html else plain_list_to_text(raw)
+    if module_id == 'fmt_key_value':
+        return key_value_to_html(raw) if html else key_value_to_text(raw)
+    if module_id == 'fmt_tabelle':
+        return pipe_table_to_html(raw) if html else pipe_table_to_text(raw)
+    if module_id == 'fmt_zwei_spalten':
+        return two_col_to_html(raw) if html else two_col_to_text(raw)
+    if module_id == 'fmt_hinweis':
+        return hint_to_html(raw) if html else raw
+    # Unbekanntes Format-Modul: Zeilen → <br> / unverändert
+    if html:
+        return '<br>'.join(_esc_keep_vars(line) for line in raw.splitlines() if line.strip())
+    return raw
+
+
+def plain_list_to_html(plain: str) -> str:
+    """Zeilen oder 'A, B' → <ul><li>…</ul>. Kein HTML vom Nutzer nötig."""
+    parts = _list_items(plain)
     if not parts:
         return ''
-    items = ''.join(f'<li>{_esc(p)}</li>' for p in parts)
-    return f'<ul>{items}</ul>'
+    items = ''.join(f'<li>{_esc_keep_vars(p)}</li>' for p in parts)
+    return f'<ul style="margin:0;padding-left:20px;">{items}</ul>'
 
 
 def plain_list_to_text(plain: str) -> str:
-    text = (plain or '').strip()
-    if not text:
-        return ''
-    parts = [p.strip() for p in re_split_list(text) if p.strip()]
+    parts = _list_items(plain)
     return '\n'.join(f'• {p}' for p in parts)
 
 
+def key_value_to_html(plain: str) -> str:
+    rows = _key_value_rows(plain)
+    if not rows:
+        return plain_list_to_html(plain)
+    parts = []
+    for lab, val in rows:
+        parts.append(
+            f'<div style="margin:0 0 8px 0;line-height:1.5;">'
+            f'<strong>{_esc_keep_vars(lab)}:</strong> {_esc_keep_vars(val)}</div>'
+        )
+    return ''.join(parts)
+
+
+def key_value_to_text(plain: str) -> str:
+    rows = _key_value_rows(plain)
+    if not rows:
+        return plain_list_to_text(plain)
+    return '\n'.join(f'{lab}: {val}' for lab, val in rows)
+
+
+def pipe_table_to_html(plain: str) -> str:
+    lines = [ln.strip() for ln in (plain or '').splitlines() if ln.strip()]
+    if not lines:
+        return ''
+    rows = [ [c.strip() for c in ln.split('|')] for ln in lines ]
+    if len(rows) == 1 and len(rows[0]) == 1:
+        return plain_list_to_html(plain)
+    head, *body = rows
+    th = ''.join(
+        f'<th align="left" style="padding:6px 8px;border-bottom:1px solid #dee2e6;'
+        f'font-family:Arial;font-size:12px;color:#333333;">{_esc_keep_vars(c)}</th>'
+        for c in head
+    )
+    trs = [
+        '<tr>' + ''.join(
+            f'<td style="padding:6px 8px;border-bottom:1px solid #dee2e6;'
+            f'font-family:Arial;font-size:14px;color:#333333;">{_esc_keep_vars(c)}</td>'
+            for c in row
+        ) + '</tr>'
+        for row in body
+    ]
+    return (
+        '<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+        'style="border-collapse:collapse;width:100%;">'
+        f'<tr>{th}</tr>{"".join(trs)}</table>'
+    )
+
+
+def pipe_table_to_text(plain: str) -> str:
+    lines = [ln.strip() for ln in (plain or '').splitlines() if ln.strip()]
+    return '\n'.join(lines)
+
+
+def two_col_to_html(plain: str) -> str:
+    left, right = _split_two_cols(plain)
+    return (
+        '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
+        '<tr>'
+        f'<td width="50%" valign="top" style="padding:8px 12px 8px 0;font-family:Arial;'
+        f'font-size:14px;color:#333333;border-right:1px solid #dee2e6;">{_esc_keep_vars(left).replace(chr(10), "<br>")}</td>'
+        f'<td width="50%" valign="top" style="padding:8px 0 8px 12px;font-family:Arial;'
+        f'font-size:14px;color:#333333;">{_esc_keep_vars(right).replace(chr(10), "<br>")}</td>'
+        '</tr></table>'
+    )
+
+
+def two_col_to_text(plain: str) -> str:
+    left, right = _split_two_cols(plain)
+    return f'{left}\n\n{right}'
+
+
+def hint_to_html(plain: str) -> str:
+    paras = [p.strip() for p in re.split(r'\n\s*\n', plain or '') if p.strip()]
+    if not paras:
+        return ''
+    return ''.join(
+        f'<p style="margin:0 0 8px 0;">{_esc_keep_vars(p).replace(chr(10), "<br>")}</p>'
+        for p in paras
+    )
+
+
+def _list_items(text: str) -> list[str]:
+    raw = (text or '').strip()
+    if not raw:
+        return []
+    if '\n' in raw:
+        lines = raw.splitlines()
+    else:
+        lines = re.split(r'\s*,\s*', raw)
+    out = []
+    for line in lines:
+        s = line.strip()
+        s = re.sub(r'^[\-\*\u2022\u25B8•▸]+\s*', '', s)
+        if s:
+            out.append(s)
+    return out
+
+
+def _key_value_rows(plain: str) -> list[tuple[str, str]]:
+    rows: list[tuple[str, str]] = []
+    for line in (plain or '').splitlines():
+        s = line.strip()
+        if not s:
+            continue
+        if '|' in s and s.count('|') == 1:
+            a, b = s.split('|', 1)
+            rows.append((a.strip(), b.strip()))
+            continue
+        if ':' in s:
+            a, b = s.split(':', 1)
+            rows.append((a.strip(), b.strip()))
+            continue
+        rows.append((s, ''))
+    return rows
+
+
+def _split_two_cols(plain: str) -> tuple[str, str]:
+    text = (plain or '').strip()
+    for sep in ('\n---\n', '\n--\n', '\n|\n'):
+        if sep in text:
+            a, b = text.split(sep, 1)
+            return a.strip(), b.strip()
+    parts = [p.strip() for p in text.split('\n\n') if p.strip()]
+    if len(parts) >= 2:
+        return parts[0], '\n\n'.join(parts[1:])
+    lines = text.splitlines()
+    mid = max(1, len(lines) // 2)
+    return '\n'.join(lines[:mid]).strip(), '\n'.join(lines[mid:]).strip()
+
+
 def re_split_list(text: str) -> list[str]:
-    import re
-    if '\n' in text:
-        return text.splitlines()
-    return re.split(r'\s*,\s*', text)
+    return _list_items(text)
 
 
 def _esc(s: str) -> str:
@@ -206,6 +369,12 @@ def _esc(s: str) -> str:
         .replace('>', '&gt;')
         .replace('"', '&quot;')
     )
+
+
+def _esc_keep_vars(s: str) -> str:
+    """HTML-escapen, {variable}-Tokens unangetastet lassen."""
+    parts = re.split(r'(\{[a-zA-Z_][a-zA-Z0-9_]*\})', s or '')
+    return ''.join(p if (p.startswith('{') and p.endswith('}')) else _esc(p) for p in parts)
 
 
 def termin_key_value_html(variables: dict) -> str:
