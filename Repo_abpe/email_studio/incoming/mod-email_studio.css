@@ -605,6 +605,47 @@
     border-color: var(--abcona-blue);
 }
 .es-preview-body { padding: 10px; text-align: left; }
+.es-mcid-validate-row {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.es-mcid-validate-btn {
+    align-self: flex-start;
+    background: none;
+    border: 1px solid var(--border-color, #dee2e6);
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 11px;
+    cursor: pointer;
+    color: var(--text-secondary, #6c757d);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.es-mcid-validate-btn:hover {
+    border-color: var(--abcona-blue, #163258);
+    color: var(--abcona-blue, #163258);
+}
+.es-mcid-validate-result {
+    font-size: 11px;
+    line-height: 1.4;
+    padding: 6px 8px;
+    border-radius: 4px;
+}
+.es-mcid-validate-result.ok {
+    background: #e8f5e9;
+    color: #1b5e20;
+}
+.es-mcid-validate-result.fail {
+    background: #fdecea;
+    color: #b71c1c;
+}
+.es-mcid-error-list {
+    margin: 4px 0 0 16px;
+    padding: 0;
+}
 .es-email-sim {
     border: 1px solid var(--border-color);
     border-radius: 6px;

@@ -41,10 +41,62 @@ PAIRED_MODULE_IDS: frozenset[str] = frozenset({
     'fmt_hinweis',
 })
 
-# Alle Format-Module (inkl. selbstschließend)
-FORMAT_MODULE_IDS: frozenset[str] = PAIRED_MODULE_IDS | frozenset({
+# Sidebar-Reihenfolge Format (MCID Regel 10 / Zielbild)
+FORMAT_MODULE_ORDER: tuple[str, ...] = (
+    'fmt_aufzaehlung',
+    'fmt_key_value',
+    'fmt_tabelle',
+    'fmt_zwei_spalten',
+    'fmt_hinweis',
     'fmt_trenner',
-})
+)
+
+FORMAT_MODULE_IDS: frozenset[str] = frozenset(FORMAT_MODULE_ORDER)
+
+FORMAT_MODULE_META: dict[str, dict[str, str]] = {
+    'fmt_aufzaehlung': {
+        'name_de': 'Aufzählung',
+        'name_en': 'Bullet list',
+        'description': 'Zeile oder Semikolon → • Liste (Arial 14px)',
+    },
+    'fmt_key_value': {
+        'name_de': 'Key-Value',
+        'name_en': 'Key-Value',
+        'description': 'Label: Wert — eine Zeile pro Paar',
+    },
+    'fmt_tabelle': {
+        'name_de': 'Tabelle',
+        'name_en': 'Table',
+        'description': 'Spalten mit | trennen',
+    },
+    'fmt_zwei_spalten': {
+        'name_de': 'Zwei Spalten',
+        'name_en': 'Two columns',
+        'description': 'Links / --- / Rechts',
+    },
+    'fmt_hinweis': {
+        'name_de': 'Hinweisbox',
+        'name_en': 'Callout',
+        'description': 'Hervorgehobener Hinweis',
+    },
+    'fmt_trenner': {
+        'name_de': 'Trenner',
+        'name_en': 'Divider',
+        'description': 'Horizontale Trennlinie',
+    },
+}
+
+# Sidebar-Gruppenreihenfolge
+MODULE_GROUP_ORDER: tuple[str, ...] = (
+    'HEADER',
+    'FORMAT',
+    'BLOCK',
+    'SECTION',
+    'BUTTON',
+    'SIGNATURE',
+    'FOOTER',
+    'DISCLAIMER',
+)
 
 _TD = (
     f'font-family:{CI_FONT};font-size:{CI_SIZE};'
@@ -98,28 +150,8 @@ _MODULE_HUSKS: dict[str, dict[str, str]] = {
     },
 }
 
-# MCID-Blöcke (Kompositionen)
+# MCID-Blöcke (Kompositionen) — Sidebar-Reihenfolge: Termin → Teilnehmer → Anhänge → Status
 BLOCKS: list[dict[str, Any]] = [
-    {
-        'id': 'block_teilnehmer',
-        'name': 'Teilnehmerliste',
-        'description': 'Aufzählung der Gesprächsteilnehmer (MeetMe)',
-        'module': 'fmt_aufzaehlung',
-        'variables': ['teilnehmer_liste', 'teilnehmer_liste_html'],
-        'legacy_html_var': 'teilnehmer_liste_html',
-        'suggest_when': ['teilnehmer', 'meetme', 'konferenz', 'einladung'],
-        'paired': True,
-    },
-    {
-        'id': 'block_system_status',
-        'name': 'System-Status',
-        'description': 'Status als Tabelle (Check / Wert / Status)',
-        'module': 'fmt_tabelle',
-        'variables': ['system_status_html', 'system_status'],
-        'legacy_html_var': 'system_status_html',
-        'suggest_when': ['status', 'system', 'monitoring', 'ampel'],
-        'paired': False,
-    },
     {
         'id': 'block_termin',
         'name': 'Termin-Fakten',
@@ -128,6 +160,16 @@ BLOCKS: list[dict[str, Any]] = [
         'variables': ['termin_datum', 'termin_uhrzeit', 'raum', 'einwahl_info', 'title'],
         'legacy_html_var': '',
         'suggest_when': ['termin', 'datum', 'uhrzeit', 'einladung', 'meetme'],
+        'paired': True,
+    },
+    {
+        'id': 'block_teilnehmer',
+        'name': 'Teilnehmerliste',
+        'description': 'Aufzählung der Gesprächsteilnehmer (MeetMe)',
+        'module': 'fmt_aufzaehlung',
+        'variables': ['teilnehmer_liste', 'teilnehmer_liste_html'],
+        'legacy_html_var': 'teilnehmer_liste_html',
+        'suggest_when': ['teilnehmer', 'meetme', 'konferenz', 'einladung'],
         'paired': True,
     },
     {
@@ -140,7 +182,24 @@ BLOCKS: list[dict[str, Any]] = [
         'suggest_when': ['anhang', 'anlage', 'dokument', 'pdf', 'attachment'],
         'paired': False,
     },
+    {
+        'id': 'block_system_status',
+        'name': 'System-Status',
+        'description': 'Status als Tabelle (Check / Wert / Status)',
+        'module': 'fmt_tabelle',
+        'variables': ['system_status_html', 'system_status'],
+        'legacy_html_var': 'system_status_html',
+        'suggest_when': ['status', 'system', 'monitoring', 'ampel'],
+        'paired': False,
+    },
 ]
+
+
+def format_module_label(fmt_id: str, lang: str = 'de') -> str:
+    meta = FORMAT_MODULE_META.get(fmt_id) or {}
+    if lang.startswith('en'):
+        return meta.get('name_en') or fmt_id
+    return meta.get('name_de') or fmt_id
 
 
 def get_block(block_id: str) -> dict[str, Any] | None:

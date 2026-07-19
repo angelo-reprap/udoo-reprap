@@ -44,6 +44,10 @@ urlpatterns = [
          api.TemplateSendTestAPI.as_view(),          name='api-template-send-test'),
     path('api/templates/<int:pk>/compatibility/',
          api.TemplateCompatibilityAPI.as_view(),     name='api-template-compatibility'),
+    path('api/templates/<int:pk>/mcid-validate/',
+         api.TemplateMcidValidateAPI.as_view(),      name='api-template-mcid-validate'),
+    path('api/mcid-validate/',
+         api.DraftMcidValidateAPI.as_view(),         name='api-mcid-validate'),
 
     # ── Übersetzungen ─────────────────────────────────────────────────────────
     path('api/templates/<int:pk>/translate/',

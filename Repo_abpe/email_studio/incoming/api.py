@@ -477,6 +477,32 @@ class TemplateCompatibilityAPI(LoginRequiredMixin, View):
         return JsonResponse(result)
 
 
+class TemplateMcidValidateAPI(LoginRequiredMixin, View):
+    """GET /api/templates/<pk>/mcid-validate/ — MCID Regel 1."""
+
+    def get(self, request, pk):
+        tpl = get_object_or_404(EmailTemplate, pk=pk)
+        try:
+            from .services.mcid_validator import McidValidator
+        except ImportError:
+            from apps.abpe_email_studio.services.mcid_validator import McidValidator  # type: ignore
+        return JsonResponse(McidValidator().validate(tpl.html_body, context='template'))
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class DraftMcidValidateAPI(LoginRequiredMixin, View):
+    """POST /api/mcid-validate/ — Regel 1 für aktuellen Editor-Inhalt."""
+
+    def post(self, request):
+        data = _json_body(request)
+        html = data.get('html_body') or data.get('html') or ''
+        context = data.get('context') or 'template'
+        try:
+            from .services.mcid_validator import McidValidator
+        except ImportError:
+            from apps.abpe_email_studio.services.mcid_validator import McidValidator  # type: ignore
+        return JsonResponse(McidValidator().validate(html, context=context))
+
 
 # ── Zentraler Versand (für andere Apps) ──────────────────────────────────────
 
@@ -1076,41 +1102,37 @@ class ModuleListAPI(LoginRequiredMixin, View):
 
         try:
             from .blocks_registry import (
-                FORMAT_MODULE_IDS,
+                FORMAT_MODULE_META,
+                FORMAT_MODULE_ORDER,
+                MODULE_GROUP_ORDER,
                 PAIRED_MODULE_IDS,
                 block_insert_syntax,
+                format_module_label,
                 get_blocks,
                 get_module_husk,
                 module_insert_syntax,
             )
         except ImportError:
             from apps.abpe_email_studio.blocks_registry import (  # type: ignore
-                FORMAT_MODULE_IDS,
+                FORMAT_MODULE_META,
+                FORMAT_MODULE_ORDER,
+                MODULE_GROUP_ORDER,
                 PAIRED_MODULE_IDS,
                 block_insert_syntax,
+                format_module_label,
                 get_blocks,
                 get_module_husk,
                 module_insert_syntax,
             )
 
-        grouped = {}
-        grouped['SIGNATURE'] = [{
-            'id':          0,
-            'identifier':  'signature',
-            'name':        'Signatur (auswählbar)',
-            'module_type': 'SIGNATURE',
-            'description': 'Signatur-Quelle links im Panel wählen',
-            'syntax':      '{{block:signature}}',
-            'preview_bg':  '#ffffff',
-            'is_virtual':  True,
-        }]
+        lang = (request.GET.get('lang') or getattr(request, 'LANGUAGE_CODE', None) or 'de')[:2]
+        raw: dict = {}
+
         for m in qs:
             if m.identifier == 'signature':
                 continue
             t = m.module_type
-            if t not in grouped:
-                grouped[t] = []
-            grouped[t].append({
+            raw.setdefault(t, []).append({
                 'id':          m.pk,
                 'identifier':  m.identifier,
                 'name':        m.name,
@@ -1121,26 +1143,30 @@ class ModuleListAPI(LoginRequiredMixin, View):
                 'preview_bg':  m.preview_bg,
             })
 
-        # MCID Format-Module (Fallback wenn noch nicht in DB)
-        fmt_group = grouped.setdefault('FORMAT', [])
-        existing_ids = {m['identifier'] for lst in grouped.values() for m in lst}
-        for fmt_id in sorted(FORMAT_MODULE_IDS):
+        # MCID Format-Module (feste Reihenfolge, klare Namen)
+        fmt_group = []
+        existing_ids = {m['identifier'] for lst in raw.values() for m in lst}
+        for fmt_id in FORMAT_MODULE_ORDER:
             if fmt_id in existing_ids:
+                # DB-Eintrag: Name ggf. belassen, aber Reihenfolge später steuern
                 continue
+            meta = FORMAT_MODULE_META.get(fmt_id) or {}
             fmt_group.append({
                 'id': 0,
                 'identifier': fmt_id,
-                'name': fmt_id.replace('fmt_', 'Format: ').replace('_', ' '),
+                'name': format_module_label(fmt_id, lang),
                 'module_type': 'FORMAT',
-                'description': 'MCID Format-Modul (CI Arial 14px)',
+                'description': meta.get('description') or 'MCID Format-Modul',
                 'syntax': module_insert_syntax(fmt_id),
                 'paired': fmt_id in PAIRED_MODULE_IDS,
                 'preview_bg': '#f8f9fa',
                 'is_virtual': True,
                 'husk_html': get_module_husk(fmt_id, 'html'),
             })
+        if fmt_group:
+            raw['FORMAT'] = fmt_group
 
-        # MCID Blöcke (Komposition Modul + Variablen)
+        # MCID Blöcke (Registry-Reihenfolge)
         block_group = []
         for b in get_blocks():
             block_group.append({
@@ -1157,12 +1183,33 @@ class ModuleListAPI(LoginRequiredMixin, View):
                 'is_virtual': True,
             })
         if block_group:
-            grouped['BLOCK'] = block_group
+            raw['BLOCK'] = block_group
+
+        raw['SIGNATURE'] = [{
+            'id':          0,
+            'identifier':  'signature',
+            'name':        'Signatur (auswählbar)',
+            'module_type': 'SIGNATURE',
+            'description': 'Signatur-Quelle links im Panel wählen',
+            'syntax':      '{{block:signature}}',
+            'preview_bg':  '#ffffff',
+            'is_virtual':  True,
+        }]
+
+        # Stabile Gruppenreihenfolge für Sidebar
+        grouped = {}
+        for key in MODULE_GROUP_ORDER:
+            if key in raw and raw[key]:
+                grouped[key] = raw[key]
+        for key, lst in raw.items():
+            if key not in grouped and lst:
+                grouped[key] = lst
 
         return JsonResponse({
             'modules': grouped,
             'types':   list(ModuleType.choices) + [('FORMAT', 'Format'), ('BLOCK', 'Block')],
             'blocks':  block_group,
+            'group_order': list(MODULE_GROUP_ORDER),
         })
 
     def post(self, request):

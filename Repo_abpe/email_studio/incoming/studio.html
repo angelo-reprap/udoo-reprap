@@ -758,20 +758,20 @@
             <div class="es-add-block-wrap">
                 <button id="es-add-block-btn" class="es-add-block-btn">
                     <i class="bi bi-plus-circle"></i>
-                    <span data-i18n="es.add_block">Block hinzufügen</span>
+                    <span data-i18n="es.add_block">Abschnitt hinzufügen</span>
                 </button>
                 <div id="es-add-block-menu" class="es-add-block-menu">
                     <div onclick="esAddBlock('text')" class="es-module-chip">
                         <i class="bi bi-text-paragraph es-module-chip-icon"></i>
-                        <span data-i18n="es.block_body">Text-Block</span>
+                        <span data-i18n="es.block_body">Text-Abschnitt</span>
                     </div>
                     <div onclick="esAddBlock('button')" class="es-module-chip">
                         <i class="bi bi-cursor es-module-chip-icon"></i>
-                        <span data-i18n="es.block_button">Button-Block</span>
+                        <span data-i18n="es.block_button">Button-Abschnitt</span>
                     </div>
                     <div onclick="esAddBlock('signature')" class="es-module-chip">
                         <i class="bi bi-pen es-module-chip-icon"></i>
-                        <span data-i18n="es.block_signature">Signatur</span>
+                        <span data-i18n="es.block_signature">Signatur-Abschnitt</span>
                     </div>
                     <div onclick="esAddBlock('divider')" class="es-module-chip">
                         <i class="bi bi-dash-lg es-module-chip-icon"></i>
@@ -891,6 +891,14 @@
                     <span class="es-compat-item"><i class="bi bi-check-circle es-icon-green"></i>Apple</span>
                     <span class="es-compat-item"><i class="bi bi-check-circle es-icon-green"></i>TXT</span>
                     <span class="es-compat-item"><i class="bi bi-exclamation-triangle es-icon-yellow"></i>GMX</span>
+                </div>
+                <div class="es-mcid-validate-row">
+                    <button type="button" id="es-mcid-validate-btn" class="es-mcid-validate-btn"
+                            title="MCID Regel 1">
+                        <i class="bi bi-shield-check"></i>
+                        <span data-i18n="es.mcid_validate">MCID prüfen</span>
+                    </button>
+                    <div id="es-mcid-validate-result" class="es-mcid-validate-result" hidden></div>
                 </div>
             </div>
         </div>

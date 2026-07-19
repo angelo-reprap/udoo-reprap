@@ -89,14 +89,14 @@ class EmailTemplateWizardProvider(WizardDomainProvider):
         format_modules: list[str] = []
         try:
             from apps.abpe_email_studio.blocks_registry import (
-                FORMAT_MODULE_IDS,
+                FORMAT_MODULE_ORDER,
                 PAIRED_MODULE_IDS,
                 block_insert_syntax,
                 get_blocks,
                 module_insert_syntax,
             )
-            paired_modules = sorted(PAIRED_MODULE_IDS)
-            format_modules = sorted(FORMAT_MODULE_IDS)
+            paired_modules = [i for i in FORMAT_MODULE_ORDER if i in PAIRED_MODULE_IDS]
+            format_modules = list(FORMAT_MODULE_ORDER)
             for b in get_blocks():
                 blocks.append({
                     'id': b['id'],

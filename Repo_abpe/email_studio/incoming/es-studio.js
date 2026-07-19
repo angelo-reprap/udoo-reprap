@@ -92,6 +92,7 @@ window.ESStudio = (() => {
         _initSignaturePanel();
         _initRestorePopup();
         _initPreviewRefresh();
+        _initMcidValidate();
 
         if (_currentMode === 'visual') {
             _initWysiwyg();
@@ -1197,6 +1198,10 @@ window.ESStudio = (() => {
         try {
             const data    = await ES.api.get(ES.apiUrl('modules/'));
             const grouped = data.modules || {};
+            const groupOrder = data.group_order || [
+                'HEADER', 'FORMAT', 'BLOCK', 'SECTION', 'BUTTON',
+                'SIGNATURE', 'FOOTER', 'DISCLAIMER',
+            ];
             let html      = '';
             const typeIcons = {
                 FORMAT: 'bi-columns-gap',
@@ -1209,7 +1214,12 @@ window.ESStudio = (() => {
                 SIGNATURE: 'bi-pen',
             };
             let totalMods = 0;
-            for (const [type, modules] of Object.entries(grouped)) {
+            const types = [
+                ...groupOrder.filter(t => grouped[t] && grouped[t].length),
+                ...Object.keys(grouped).filter(t => !groupOrder.includes(t) && grouped[t]?.length),
+            ];
+            for (const type of types) {
+                const modules = grouped[type] || [];
                 if (!modules.length) continue;
                 totalMods += modules.length;
                 let chips = '';
@@ -1217,9 +1227,11 @@ window.ESStudio = (() => {
                     const desc   = (m.description || '').replace(/"/g, '&quot;');
                     const name   = (m.name || '').replace(/"/g, '&quot;');
                     const syntax = (m.syntax || '').replace(/"/g, '&quot;');
+                    const idHint = (m.identifier || '').replace(/"/g, '&quot;');
                     chips += `
                     <div class="es-module-chip" data-syntax="${syntax}"
-                         data-mod-name="${name}" data-mod-desc="${desc}">
+                         data-mod-name="${name}" data-mod-desc="${desc}"
+                         title="${idHint}">
                         <span class="es-module-chip-label">
                             <i class="bi ${typeIcons[type] || 'bi-puzzle'} es-module-chip-icon"></i>
                             <span>${m.name}</span>
@@ -1258,6 +1270,57 @@ window.ESStudio = (() => {
         _schedulePreview();
         if (text && text.includes('{{block:signature}}')) {
             _updateSignatureBlockState();
+        }
+    }
+
+    function _initMcidValidate() {
+        const btn = document.getElementById('es-mcid-validate-btn');
+        if (!btn || btn.dataset.bound) return;
+        btn.dataset.bound = '1';
+        btn.addEventListener('click', _runMcidValidate);
+    }
+
+    async function _runMcidValidate() {
+        const out = document.getElementById('es-mcid-validate-result');
+        const btn = document.getElementById('es-mcid-validate-btn');
+        if (_currentMode === 'visual' && _currentEntity === 'template') {
+            _syncCanvasToCode();
+        }
+        const html = document.getElementById('es-html-editor')?.value || '';
+        if (btn) btn.disabled = true;
+        try {
+            const data = await ES.api.post(ES.apiUrl('mcid-validate/'), {
+                html_body: html,
+                context: _currentEntity === 'module' ? 'module' : 'template',
+            });
+            if (!out) return;
+            out.hidden = false;
+            const errs = data.errors || [];
+            const warns = data.warnings || [];
+            if (data.ok) {
+                out.className = 'es-mcid-validate-result ok';
+                out.innerHTML = `<i class="bi bi-check-circle"></i> ${t('mcid_validate_ok', 'MCID Regel 1 OK')}`
+                    + (warns.length ? ` <span class="es-mcid-warn-count">(${warns.length} Hinweise)</span>` : '');
+            } else {
+                out.className = 'es-mcid-validate-result fail';
+                const lines = errs.slice(0, 8).map(e =>
+                    `<li>${(e.message || e.code || '').replace(/</g, '&lt;')}</li>`
+                ).join('');
+                out.innerHTML = `<div><i class="bi bi-x-circle"></i> ${t('mcid_validate_fail', 'MCID-Probleme gefunden')}</div>`
+                    + `<ul class="es-mcid-error-list">${lines}</ul>`;
+            }
+            if (warns.length && data.ok) {
+                out.title = warns.map(w => w.message).join('\n');
+            }
+        } catch (err) {
+            console.error('MCID-Validate fehlgeschlagen:', err);
+            if (out) {
+                out.hidden = false;
+                out.className = 'es-mcid-validate-result fail';
+                out.textContent = String(err.message || err);
+            }
+        } finally {
+            if (btn) btn.disabled = false;
         }
     }
 
@@ -2101,7 +2164,7 @@ window.ESStudio = (() => {
         const addBtn = document.getElementById('es-add-block-btn');
         if (addBtn) {
             const span = addBtn.querySelector('[data-i18n="es.add_block"]');
-            if (span) span.textContent = t('add_block', 'Block hinzufügen');
+            if (span) span.textContent = t('add_block', 'Abschnitt hinzufügen');
         }
     }
 

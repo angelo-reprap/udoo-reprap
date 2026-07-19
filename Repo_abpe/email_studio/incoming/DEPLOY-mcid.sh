@@ -42,7 +42,9 @@ backup() {
 
 echo "=== 1/4 Backup ==="
 backup apps/abpe_email_studio/api.py
+backup apps/abpe_email_studio/urls.py
 backup apps/abpe_email_studio/services/renderer.py
+backup apps/abpe_email_studio/services/mcid_validator.py
 backup apps/abpe_email_studio/blocks_registry.py
 backup apps/abpe_email_studio/static/email_studio/js/es-studio.js
 backup apps/abpe_email_studio/static/email_studio/js/es-ki-wizard.js
@@ -59,8 +61,10 @@ backup apps/abpe_ki_wiz/questions/email_template.json
 
 echo "=== 2/4 Email Studio kopieren ==="
 show "$R/api.py"            "$B/apps/abpe_email_studio/api.py"
+show "$R/urls.py"           "$B/apps/abpe_email_studio/urls.py"
 show "$R/blocks_registry.py" "$B/apps/abpe_email_studio/blocks_registry.py"
 show "$R/services/renderer.py" "$B/apps/abpe_email_studio/services/renderer.py"
+show "$R/services/mcid_validator.py" "$B/apps/abpe_email_studio/services/mcid_validator.py"
 show "$R/static/email_studio/js/es-studio.js" "$B/apps/abpe_email_studio/static/email_studio/js/es-studio.js"
 show "$R/static/email_studio/js/es-ki-wizard.js" "$B/apps/abpe_email_studio/static/email_studio/js/es-ki-wizard.js"
 show "$R/studio.html"       "$B/apps/abpe_ui/templates/abpe_ui/modules/email_studio/studio.html"
@@ -104,8 +108,17 @@ grep -q "_paired_block_re" "$B/apps/abpe_email_studio/services/renderer.py" \
   || { echo "FAIL: _paired_block_re fehlt im Live-Renderer"; exit 1; }
 grep -q "_html_to_plain" "$B/apps/abpe_email_studio/blocks_registry.py" \
   || { echo "FAIL: _html_to_plain fehlt"; exit 1; }
+grep -q "McidValidator\|_initMcidValidate\|mcid-validate" \
+  "$B/apps/abpe_email_studio/services/mcid_validator.py" \
+  "$B/apps/abpe_email_studio/static/email_studio/js/es-studio.js" \
+  "$B/apps/abpe_email_studio/urls.py" \
+  || { echo "FAIL: MCID-Validator nicht vollständig deployed"; exit 1; }
+grep -q "FORMAT_MODULE_ORDER\|Abschnitt hinzufügen" \
+  "$B/apps/abpe_email_studio/blocks_registry.py" \
+  "$B/apps/abpe_ui/templates/abpe_ui/modules/email_studio/studio.html" \
+  || { echo "FAIL: Sortierung/Abschnitt-UI fehlt"; exit 1; }
 
 supervisorctl restart abpe-django
 echo ""
 echo "MCID-Deploy fertig. Browser: Strg+Shift+R"
-echo "Test: Vorlage mit {{block:block_teilnehmer}} oder KI-Vorschau Layout-Vorschläge"
+echo "Test: Sidebar Format-Reihenfolge · Button „MCID prüfen“ · Abschnitte"

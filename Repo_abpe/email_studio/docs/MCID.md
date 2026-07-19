@@ -630,8 +630,10 @@ Katze | 30 €
 | ✅ | KI-Vorschau: Layout-Vorschläge (Nachfrage Aufzählung/Tabelle) |
 | ✅ | HTML-Editor: Align + Listen; i18n de/en Tooltips |
 | ✅ | Sidebar: Format- + Block-Chips mit Paar-Syntax (Plaintext-Samples) |
+| ✅ | Sidebar-Sortierung + klare Namen (Format-Module / Inhalts-Blöcke) |
+| ✅ | Canvas „Abschnitt hinzufügen“ (nicht mehr „Block“) |
+| ✅ | **Validator Regel 1** (`mcid_validator.py`, API + Button „MCID prüfen“) |
 | ⬜ | Bestehende DB-Module (Header/Label/CTA/Footer) auf CI nachziehen |
-| ⬜ | Validator Regel 1 (Tags/CSS) |
 | ⬜ | Volle Migration `{…_html}` → nur noch Blöcke |
 | ⬜ | Signatur-Formular · Rechte Modul-Reiter |
 | ⬜ | Logo CID/URL · Versand `.ics`/`.vcf` |
@@ -648,8 +650,9 @@ Katze | 30 €
 - [x] CI: feste `•` Bullets, Arial 14px, Preview-Font
 - [x] KI: Blocks im Catalog/Prompt + Vorschlags-UI
 - [x] HTML-Editor Align/Listen + i18n de/en
+- [x] UI-Überblick: Sortierung, Labels, Canvas=Abschnitt
+- [x] Validator Regel 1 (Tags/CSS) + Studio-Button
 - [ ] DB-Bestandsmodule (Header/CTA/…) CI-Audit
 - [ ] DB-Module `fmt_*` speichern (optional, Fallback vorhanden)
-- [ ] Validator Regel 1 (Tags/CSS)
 - [ ] Signatur-Formular (R7)
 - [ ] Logo CID/URL (R3) · `.ics`/`.vcf` (R4)
