@@ -408,34 +408,179 @@ Kein abgerundete Ecken (`border-radius`) in der MCID-Basis.
 
 ---
 
-## Konfigurator — Deklarationsstand
+## Regel 10 — Identifier und Hüllen-Skizzen *(Konzept komplett)*
 
-| Status | Thema |
-|---|---|
-| ✅ da | R1–R8 · **R9 Variable/Modul/Block** (Architektur) |
-| ✅ da | Format × Inhalt, XOR Signatur/Footer (Layout-Deklaration) |
-| ⬜ fehlt | **HTML/TXT-Skizzen** je Format-Modul (`{{content}}`) |
-| ⬜ fehlt | **Identifier-Namen** final (Modul + Block) |
-| ⬜ fehlt | **Modul-Renderer** + **Block-Renderer** (Implementierung) |
-| ⬜ fehlt | **Validator** gegen Regel 1 |
-| ⬜ fehlt | **KI-Prompt / layout_rules** an R1–R9 |
-| ⬜ fehlt | **UI:** Canvas „Abschnitt“ vs. MCID-Block; Block einfügen |
-| ⬜ fehlt | **Versand** `.ics`/`.vcf` + Logo-CID |
-| ⬜ fehlt | **Ist→Soll:** `{…_html}` → Blöcke |
+Slot in Hüllen: **`{{content}}`** (Inner aus `{{block:id}}…{{/block}}`).  
+Selbstschließende Module ohne Slot.
+
+### Module — Identifier (Soll)
+
+| Identifier | Rolle | Ist-Mapping | Paar? |
+|---|---|---|---|
+| `abcona_header_blau` | Rahmen Header | gleich | nein |
+| `label_info` | Badge Info | gleich | nein |
+| `label_bestaetigt` | Badge OK | gleich | nein |
+| `label_warnung` | Badge Warn | gleich (`label_warnung` / Handlungsbedarf) | nein |
+| `footer_standard` | Footer | gleich | nein |
+| `footer_auto_reply` | Footer Auto | gleich | nein |
+| `signature` | Signatur (virtuell) | gleich | nein |
+| `cta_blau` | CTA primär | gleich (`cta_gruen` optional/zurück) | nein |
+| `cta_with_secondary` | CTA + Zweitlink | gleich | nein |
+| `fmt_aufzaehlung` | Format Liste | **neu** | ja |
+| `fmt_key_value` | Format Label+Wert | **neu** (ersetzt teils `stat_box`) | ja |
+| `fmt_tabelle` | Format Datentabelle | **neu** | ja |
+| `fmt_zwei_spalten` | Format 2-Spalten | aus `compare_two_col` | ja |
+| `fmt_hinweis` | Format Hinweisbox | aus `quote_highlight` | ja |
+| `fmt_trenner` | Trenner | **neu** / Canvas-Linie | nein |
+| `calendar_card` | Inhalt Termin | gleich | nein / später ja |
+| `doc_attachment_list` | Inhalt Anhänge | gleich | nein / später ja |
+| `contact_card` | Inhalt Kontakt | + `support_kontakt` zusammenführen | nein |
+| `fakten_box` | Inhalt Fakten | gleich | nein / später ja |
+| `steps_numbered` | Inhalt Schritte | gleich | nein / später ja |
+
+**Zurück / nicht Kern:** `abcona_header_gruen`, `abcona_header_rot`, `progress_bar`, `skill_tags`, `price_table`, `signature_lines` (→ Signatur), `cta_gruen` (optional).
+
+### Blöcke — Identifier (Soll, nutzen Module)
+
+| Block-ID | Modul | gebunden / Inhalt | ersetzt heute |
+|---|---|---|---|
+| `block_teilnehmer` | `fmt_aufzaehlung` | Teilnehmer-Rohdaten | `{teilnehmer_liste_html}` |
+| `block_system_status` | `fmt_tabelle` | Status-Zeilen (Check/Wert/Flag) | `{system_status_html}` |
+| `block_termin` | `fmt_key_value` oder `calendar_card` | `{termin_datum}`, `{termin_uhrzeit}`, `{raum}`, … | Fließtext-Mix |
+| `block_anhaenge` | `doc_attachment_list` / `fmt_aufzaehlung` | Dokumentnamen | wie bisher Modul |
+
+### Hüllen-Skizzen (HTML + TXT)
+
+Gemeinsamer Textstil: Arial 14px, Dunkelgrau `#333333`, Breite im äußeren Mail-Wrapper 600px.
+
+#### `fmt_aufzaehlung`
+
+```html
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr><td style="padding:16px 24px;font-family:Arial;font-size:14px;color:#333333;line-height:1.5;">
+    {{content}}
+  </td></tr>
+</table>
+```
+
+```text
+{{content}}
+```
+
+Inhalt typisch: `<ul><li>…</li></ul>` bzw. TXT-Zeilen mit `• `.
+
+#### `fmt_key_value`
+
+```html
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr><td style="padding:16px 24px;font-family:Arial;font-size:14px;color:#333333;">
+    {{content}}
+  </td></tr>
+</table>
+```
+
+```text
+{{content}}
+```
+
+Inhalt: Zeilen `<strong>Label:</strong> Wert<br>` / TXT `Label: Wert`.
+
+#### `fmt_tabelle`
+
+```html
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr><td style="padding:16px 24px;">
+    {{content}}
+  </td></tr>
+</table>
+```
+
+```text
+{{content}}
+```
+
+Inhalt: Datentabelle (z. B. Check \| Wert \| Status) — gebaut vom **Block-Renderer**, nicht als HTML-Variable.
+
+#### `fmt_zwei_spalten`
+
+```html
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr><td style="padding:16px 24px;background-color:#f8f9fa;">
+    {{content}}
+  </td></tr>
+</table>
+```
+
+```text
+{{content}}
+```
+
+#### `fmt_hinweis`
+
+```html
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr><td style="padding:16px 24px;background-color:#f8f9fa;border-left:3px solid #163258;font-family:Arial;font-size:14px;color:#333333;">
+    {{content}}
+  </td></tr>
+</table>
+```
+
+```text
+{{content}}
+```
+
+#### `cta_blau` (ohne Content-Slot, Variablen)
+
+```html
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr><td style="padding:16px 24px;text-align:center;">
+    <a href="{button_url}" style="font-family:Arial;font-size:14px;font-weight:bold;color:#ffffff;background-color:#163258;padding:12px 24px;text-decoration:none;">{button_text}</a>
+  </td></tr>
+</table>
+```
+
+```text
+{button_text}: {button_url}
+```
 
 ---
 
-## Nächste Schritte (offen)
+## Konfigurator — Deklarationsstand
 
-- [x] CI-Tokens freigeben (Regel 8)
-- [x] Architektur Variable / Modul / Block (Regel 9)
-- [ ] HTML/TXT-Hüllen-Skizzen je Format-Modul (`{{content}}`)
-- [ ] Finale Identifier (Module + Blöcke)
-- [ ] Modul-Renderer (`{{block:id}}…{{/block}}`) + Block-Renderer
+### Konzept (Dokumentation) — komplett
+
+| Status | Thema |
+|---|---|
+| ✅ | R1 Tags/CSS · R2 Icons · R3 Logo · R4 ICS/VCF · R5 Modul-Soll |
+| ✅ | R6 Paar-Syntax · R7 Studio-Rollen · R8 CI-Tokens · R9 Variable/Modul/Block |
+| ✅ | **R10 Identifier + Hüllen-Skizzen** |
+
+### Umsetzung (Code/UI) — noch offen
+
+| Status | Thema |
+|---|---|
+| ⬜ | Modul-Renderer + Block-Renderer |
+| ⬜ | Validator Regel 1 |
+| ⬜ | UI Abschnitte vs. Blöcke; Block einfügen |
+| ⬜ | Migration `{…_html}` → Blöcke |
+| ⬜ | Signatur-Formular · Rechte Modul-Reiter |
+| ⬜ | Logo CID/URL · Versand `.ics`/`.vcf` |
+| ⬜ | KI-Prompt an R1–R10 |
+| ⬜ | MCID-Konfigurator-UI verfeinern |
+
+**Fazit:** Fürs **Zielbild / Spezifikation** ist alles zusammen. Als Nächstes kommt die **Implementierung**, kein weiteres Konzept-Kapitel nötig (außer Korrekturen).
+
+---
+
+## Nächste Schritte (Umsetzung)
+
+- [x] Konzept R1–R10
+- [ ] Modul-Renderer (`{{block:id}}…{{/block}}`, `{{content}}`)
+- [ ] Block-Renderer (`block_teilnehmer`, `block_system_status`, …)
 - [ ] UI: Abschnitte vs. Blöcke; „Block einfügen“
-- [ ] `{teilnehmer_liste_html}` / `{system_status_html}` → Blöcke migrieren
-- [ ] Validator + Rechte Modul-Reiter (R7)
+- [ ] `{teilnehmer_liste_html}` / `{system_status_html}` → Blöcke
+- [ ] Validator + Modul-Rechte (R7)
 - [ ] Signatur-Formular (R7)
 - [ ] Logo CID/URL (R3) · `.ics`/`.vcf` (R4)
-- [ ] KI-Prompt an R1–R9
-- [ ] MCID-Konfigurator-UI verfeinern
+- [ ] KI-Prompt an R1–R10
+- [ ] Konfigurator-UI verfeinern
