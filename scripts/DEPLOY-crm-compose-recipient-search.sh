@@ -54,55 +54,17 @@ live_path, src_path = sys.argv[1], sys.argv[2]
 live = open(live_path, encoding='utf-8').read()
 src  = open(src_path, encoding='utf-8').read()
 
-if 'def api_contacts_suggest' in live:
-    print('views.py: api_contacts_suggest schon vorhanden — skip')
-    sys.exit(0)
-
+# Funktion aus Branch extrahieren (mit optionalem @login_required davor)
 m = re.search(
-    r'(?ms)^@login_required\n@login_or_token_required\n@require_http_methods\(\[\'GET\'\]\)\n'
-    r'def api_contacts_suggest\(request\):.*?(?=\n\n@login_required|\n\ndef |\Z)',
+    r'(?ms)^(?:@login_required\n)?@login_or_token_required\n@require_http_methods\(\[\'GET\'\]\)\n'
+    r'def api_contacts_suggest\(request\):.*?(?=\n(?:@login_required\n)?(?:@login_or_token_required\n)?(?:@require_http_methods.*\n)?def |\n\ndef |\Z)',
     src,
 )
-if not m:
-    # fallback: function body until next top-level def after suggest
-    m = re.search(
-        r'(?ms)^@login_required\n@login_or_token_required\n@require_http_methods\(\[\'GET\'\]\)\n'
-        r'def api_contacts_suggest\(request\):.*?(?=\n@login_required\n(?:@login_or_token_required\n)?(?:@require_http_methods.*\n)?def )',
-        src,
-    )
 if not m:
     print('Konnte api_contacts_suggest im Branch-Source nicht finden', file=sys.stderr)
     sys.exit(1)
 
 fn = m.group(0).rstrip() + '\n\n'
-
-# Vor crm_email_compose einfügen
-anchor = re.search(r'(?m)^def crm_email_compose\(request\):', live)
-if not anchor:
-    print('Anker def crm_email_compose fehlt in Live views.py', file=sys.stderr)
-    sys.exit(1)
-
-# Dekoratoren vor crm_email_compose mitnehmen — Funktion davor setzen
-# Suche Start der Decorator-Kette für crm_email_compose
-start = anchor.start()
-prefix = live[:start]
-# ggf. vorangehende @-Zeilen zur Compose-Funktion gehören → davor
-lines_before = prefix.splitlines(True)
-i = len(lines_before) - 1
-while i >= 0 and (lines_before[i].startswith('@') or lines_before[i].strip() == ''):
-    if lines_before[i].startswith('@'):
-        i -= 1
-        continue
-    if lines_before[i].strip() == '':
-        # leere Zeile: weiter nach oben schauen, aber Insert-Punkt hier behalten
-        break
-    break
-# Insert unmittelbar vor den Decorators der Compose-Funktion
-j = i + 1
-while j < len(lines_before) and lines_before[j].strip() == '':
-    j += 1
-insert_at = sum(len(x) for x in lines_before[:j])
-
 block = (
     '# ============================================================\n'
     '# CRM — Empfänger-Suche (Compose / Elasticsearch fuzzy)\n'
@@ -110,6 +72,47 @@ block = (
     + fn
 )
 
+# Bestehende Version ersetzen (inkl. Comment-Header falls vorhanden)
+old = re.search(
+    r'(?ms)^(?:# =+\n# CRM — Empfänger-Suche[^\n]*\n# =+\n\n)?'
+    r'(?:@login_required\n)?@login_or_token_required\n@require_http_methods\(\[\'GET\'\]\)\n'
+    r'def api_contacts_suggest\(request\):.*?(?=\n(?:# =+\n# CRM — E-MAIL COMPOSE|\n(?:@login_required\n)?(?:@login_or_token_required\n)?(?:@require_http_methods.*\n)?def |\n\ndef ))',
+    live,
+)
+# Fallback: ab Comment/Decorators bis crm_email_compose
+if not old:
+    old = re.search(
+        r'(?ms)^(?:# =+\n# CRM — Empfänger-Suche[^\n]*\n# =+\n\n)?'
+        r'(?:@login_required\n)?@login_or_token_required\n@require_http_methods\(\[\'GET\'\]\)\n'
+        r'def api_contacts_suggest\(request\):.*?(?=\n(?:@login_required\n)?(?:@login_or_token_required\n)?(?:@require_http_methods.*\n)?def crm_email_compose)',
+        live,
+    )
+
+if old:
+    new = live[:old.start()] + block + live[old.end():]
+    open(live_path, 'w', encoding='utf-8').write(new)
+    print('views.py: api_contacts_suggest ersetzt')
+    sys.exit(0)
+
+# Neu einfügen vor crm_email_compose
+anchor = re.search(r'(?m)^def crm_email_compose\(request\):', live)
+if not anchor:
+    print('Anker def crm_email_compose fehlt in Live views.py', file=sys.stderr)
+    sys.exit(1)
+
+start = anchor.start()
+prefix = live[:start]
+lines_before = prefix.splitlines(True)
+i = len(lines_before) - 1
+while i >= 0 and (lines_before[i].startswith('@') or lines_before[i].strip() == ''):
+    if lines_before[i].startswith('@'):
+        i -= 1
+        continue
+    break
+j = i + 1
+while j < len(lines_before) and lines_before[j].strip() == '':
+    j += 1
+insert_at = sum(len(x) for x in lines_before[:j])
 new = live[:insert_at] + block + live[insert_at:]
 open(live_path, 'w', encoding='utf-8').write(new)
 print('views.py: api_contacts_suggest eingefügt')
