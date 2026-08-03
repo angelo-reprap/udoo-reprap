@@ -1420,7 +1420,6 @@ def api_email_send(request):
 # CRM — E-MAIL COMPOSE FENSTER
 # ============================================================
 
-@login_required
 @login_or_token_required
 @require_http_methods(['GET'])
 def api_contacts_suggest(request):
@@ -1432,6 +1431,7 @@ def api_contacts_suggest(request):
     import logging as _logging
     import re as _re
 
+    log = _logging.getLogger(__name__)
     q = (request.GET.get('q') or '').strip()
     try:
         limit = max(1, min(20, int(request.GET.get('limit', 8))))
@@ -1441,212 +1441,200 @@ def api_contacts_suggest(request):
     if len(q) < 2:
         return JsonResponse({'results': [], 'q': q})
 
-    fields = [
-        'name^3', 'emails^3', 'phones^2', 'company^2',
-        'city', 'title', 'department', 'notes^0.2',
-        'ogo^0.3', 'gulp^0.3', 'description^0.3',
-    ]
-
-    if _re.search(r'\b(AND|OR|NOT)\b|[:\[\]"~^]', q):
-        query = {
-            'query_string': {
-                'query': q,
-                'fields': fields,
-                'default_operator': 'AND',
-                'type': 'cross_fields',
-                'lenient': True,
-            }
+    def _row_from_contact(c, score=0, company_hint='', city_hint=''):
+        email = ''
+        try:
+            for addr, primary in CrmEmailAddrBeanRel.objects.filter(
+                bean_id=c.crm_id, bean_module='Contacts',
+            ).select_related('email_address').values_list(
+                'email_address__email_address', 'primary_address',
+            )[:5]:
+                if not addr:
+                    continue
+                if primary or not email:
+                    email = addr
+                    if primary:
+                        break
+        except Exception:
+            pass
+        phone = ''
+        try:
+            for p in _get_phones(c.crm_id, 'Contacts'):
+                if p.get('is_primary') or not phone:
+                    phone = p.get('raw') or p.get('norm') or ''
+                    if p.get('is_primary'):
+                        break
+        except Exception:
+            pass
+        company = company_hint or ''
+        if not company:
+            try:
+                link = CrmAccountContacts.objects.filter(contact_id=c.crm_id).first()
+                if link is not None:
+                    acc = getattr(link, 'account', None)
+                    if acc is not None:
+                        company = getattr(acc, 'name', '') or ''
+            except Exception:
+                pass
+        full = ''
+        try:
+            full = (c.full_name or '').strip()
+        except Exception:
+            full = ('%s %s' % (c.first_name or '', c.last_name or '')).strip()
+        return {
+            'crm_id': c.crm_id,
+            'full_name': full,
+            'first_name': c.first_name or '',
+            'last_name': c.last_name or '',
+            'email': email,
+            'phone': phone,
+            'company': company,
+            'city': city_hint or (c.primary_address_city or ''),
+            'score': score or 0,
         }
-    else:
-        query = {
-            'bool': {
-                'should': [
-                    {'multi_match': {
-                        'query': q, 'fields': fields, 'fuzziness': 'AUTO',
-                    }},
-                    {'match_phrase_prefix': {'name': {'query': q, 'boost': 4}}},
-                    {'match_phrase_prefix': {'emails': {'query': q, 'boost': 3}}},
-                    {'match_phrase_prefix': {'company': {'query': q, 'boost': 2}}},
-                ],
-                'minimum_should_match': 1,
-            }
-        }
 
-    hits = []
     try:
-        from elasticsearch import Elasticsearch as _ES
-        _es = _ES(['http://localhost:9200'])
-        _res = _es.search(
-            index='content',
-            size=limit,
-            _source=[
-                'crm_id', 'name', 'emails', 'phones', 'company',
-                'account_name', 'city', 'title', 'kontakt_typ',
-            ],
-            query=query,
-        )
-        hits = _res.get('hits', {}).get('hits', []) or []
-    except Exception as exc:
-        _logging.getLogger(__name__).warning(
-            'api_contacts_suggest ES fehlgeschlagen: %s — ORM-Fallback', exc,
-        )
-        # Fallback: ORM icontains (Name / Stadt / E-Mail)
-        email_ids = list(
-            CrmEmailAddrBeanRel.objects.filter(
-                bean_module='Contacts',
-                email_address__email_address__icontains=q,
-            ).values_list('bean_id', flat=True)[:limit]
-        )
-        qs = (
-            CrmContact.objects
-            .filter(
+        fields = [
+            'name^3', 'emails^3', 'phones^2', 'company^2',
+            'city', 'title', 'department', 'notes^0.2',
+            'ogo^0.3', 'gulp^0.3', 'description^0.3',
+        ]
+        if _re.search(r'\b(AND|OR|NOT)\b|[:\[\]"~^]', q):
+            query = {
+                'query_string': {
+                    'query': q,
+                    'fields': fields,
+                    'default_operator': 'AND',
+                    'type': 'cross_fields',
+                    'lenient': True,
+                }
+            }
+        else:
+            query = {
+                'bool': {
+                    'should': [
+                        {'multi_match': {
+                            'query': q, 'fields': fields, 'fuzziness': 'AUTO',
+                        }},
+                        {'match_phrase_prefix': {'name': {'query': q, 'boost': 4}}},
+                        {'match_phrase_prefix': {'emails': {'query': q, 'boost': 3}}},
+                        {'match_phrase_prefix': {'company': {'query': q, 'boost': 2}}},
+                        # gleiche Basis wie Berater-Suche
+                        {'query_string': {
+                            'query': q,
+                            'fields': fields,
+                            'default_operator': 'AND',
+                            'type': 'cross_fields',
+                            'lenient': True,
+                        }},
+                    ],
+                    'minimum_should_match': 1,
+                }
+            }
+
+        hits = []
+        source = 'orm'
+        try:
+            from elasticsearch import Elasticsearch as _ES
+            _es = _ES(['http://localhost:9200'])
+            body = {
+                'size': limit,
+                'query': query,
+                '_source': [
+                    'crm_id', 'name', 'company', 'account_name', 'city',
+                ],
+            }
+            try:
+                # ES 7.x
+                _res = _es.search(index='content', body=body)
+            except TypeError:
+                # ES 8.x
+                _res = _es.search(
+                    index='content',
+                    size=limit,
+                    query=query,
+                    _source=body['_source'],
+                )
+            hits = (_res.get('hits') or {}).get('hits') or []
+            source = 'es'
+        except Exception as exc:
+            log.warning('api_contacts_suggest ES fehlgeschlagen: %s', exc)
+
+        results = []
+        if hits:
+            crm_ids = []
+            meta = {}
+            for h in hits:
+                src = h.get('_source') or {}
+                cid = src.get('crm_id') or h.get('_id')
+                if not cid:
+                    continue
+                crm_ids.append(cid)
+                meta[cid] = {
+                    'score': h.get('_score') or 0,
+                    'company': (src.get('company') or src.get('account_name') or '').strip(),
+                    'city': (src.get('city') or '').strip(),
+                    'name': (src.get('name') or '').strip(),
+                }
+            by_id = {
+                c.crm_id: c
+                for c in CrmContact.objects.filter(crm_id__in=crm_ids)
+            }
+            for cid in crm_ids:
+                c = by_id.get(cid)
+                m = meta.get(cid) or {}
+                if c:
+                    row = _row_from_contact(
+                        c, score=m.get('score') or 0,
+                        company_hint=m.get('company') or '',
+                        city_hint=m.get('city') or '',
+                    )
+                    if m.get('name') and not row['full_name']:
+                        row['full_name'] = m['name']
+                    results.append(row)
+                else:
+                    # ES-Treffer ohne ORM-Kontakt: trotzdem anzeigen
+                    name = m.get('name') or ''
+                    parts = name.split(None, 1) if name else []
+                    results.append({
+                        'crm_id': cid,
+                        'full_name': name,
+                        'first_name': parts[0] if parts else '',
+                        'last_name': parts[1] if len(parts) > 1 else '',
+                        'email': '',
+                        'phone': '',
+                        'company': m.get('company') or '',
+                        'city': m.get('city') or '',
+                        'score': m.get('score') or 0,
+                    })
+        else:
+            # ORM-Fallback (Name / E-Mail)
+            email_ids = []
+            try:
+                email_ids = list(
+                    CrmEmailAddrBeanRel.objects.filter(
+                        bean_module='Contacts',
+                        email_address__email_address__icontains=q,
+                    ).values_list('bean_id', flat=True)[:limit]
+                )
+            except Exception as exc:
+                log.warning('api_contacts_suggest email-fallback: %s', exc)
+            qs = CrmContact.objects.filter(
                 Q(first_name__icontains=q)
                 | Q(last_name__icontains=q)
                 | Q(primary_address_city__icontains=q)
                 | Q(crm_id__in=email_ids)
-            )
-            .order_by('last_name', 'first_name')[:limit]
+            ).order_by('last_name', 'first_name')[:limit]
+            results = [_row_from_contact(c) for c in qs]
+            source = 'orm'
+
+        return JsonResponse({'results': results, 'q': q, 'source': source})
+    except Exception as exc:
+        log.exception('api_contacts_suggest failed: %s', exc)
+        return JsonResponse(
+            {'results': [], 'q': q, 'error': str(exc)},
+            status=500,
         )
-        results = []
-        for c in qs:
-            emails = list(
-                CrmEmailAddrBeanRel.objects.filter(
-                    bean_id=c.crm_id, bean_module='Contacts',
-                ).select_related('email_address').values_list(
-                    'email_address__email_address', 'primary_address',
-                )[:3]
-            )
-            email = ''
-            for addr, primary in emails:
-                if primary or not email:
-                    email = addr or ''
-                    if primary:
-                        break
-            phones = _get_phones(c.crm_id, 'Contacts')
-            phone = ''
-            for p in phones:
-                if p.get('is_primary') or not phone:
-                    phone = p.get('raw') or p.get('norm') or ''
-                    if p.get('is_primary'):
-                        break
-            company = ''
-            try:
-                link = CrmAccountContacts.objects.filter(
-                    contact_id=c.crm_id,
-                ).select_related('account').first()
-                if link and link.account_id:
-                    company = link.account.name or ''
-            except Exception:
-                pass
-            results.append({
-                'crm_id': c.crm_id,
-                'full_name': c.full_name or '',
-                'first_name': c.first_name or '',
-                'last_name': c.last_name or '',
-                'email': email,
-                'phone': phone,
-                'company': company,
-                'city': c.primary_address_city or '',
-                'score': 0,
-            })
-        return JsonResponse({'results': results, 'q': q, 'source': 'orm'})
-
-    def _first_email(raw):
-        if not raw:
-            return ''
-        if isinstance(raw, str):
-            return raw.strip()
-        if isinstance(raw, dict):
-            return (raw.get('email') or raw.get('address') or '').strip()
-        if isinstance(raw, (list, tuple)):
-            for item in raw:
-                e = _first_email(item)
-                if e:
-                    return e
-        return ''
-
-    def _first_phone(raw):
-        if not raw:
-            return ''
-        if isinstance(raw, str):
-            return raw.strip()
-        if isinstance(raw, dict):
-            return (raw.get('raw') or raw.get('norm') or raw.get('phone') or '').strip()
-        if isinstance(raw, (list, tuple)):
-            for item in raw:
-                p = _first_phone(item)
-                if p:
-                    return p
-        return ''
-
-    crm_ids = []
-    for h in hits:
-        src = h.get('_source') or {}
-        cid = src.get('crm_id') or h.get('_id')
-        if cid:
-            crm_ids.append(cid)
-
-    # ORM-Enrich: fehlende E-Mails / Vor-Nachname nachziehen
-    by_id = {}
-    if crm_ids:
-        for c in CrmContact.objects.filter(crm_id__in=crm_ids):
-            by_id[c.crm_id] = c
-        email_map = {}
-        for bean_id, addr, primary in CrmEmailAddrBeanRel.objects.filter(
-            bean_id__in=crm_ids, bean_module='Contacts',
-        ).select_related('email_address').values_list(
-            'bean_id', 'email_address__email_address', 'primary_address',
-        ):
-            if not addr:
-                continue
-            cur = email_map.get(bean_id)
-            if cur is None or primary:
-                email_map[bean_id] = addr
-        phone_map = {}
-        for cid in crm_ids:
-            phones = _get_phones(cid, 'Contacts')
-            phone = ''
-            for p in phones:
-                if p.get('is_primary') or not phone:
-                    phone = p.get('raw') or p.get('norm') or ''
-                    if p.get('is_primary'):
-                        break
-            phone_map[cid] = phone
-    else:
-        email_map, phone_map = {}, {}
-
-    results = []
-    for h in hits:
-        src = h.get('_source') or {}
-        cid = src.get('crm_id') or h.get('_id') or ''
-        contact = by_id.get(cid)
-        full = (src.get('name') or '').strip()
-        first = contact.first_name if contact else ''
-        last = contact.last_name if contact else ''
-        if contact and not full:
-            full = contact.full_name or ''
-        if not first and full:
-            parts = full.split(None, 1)
-            first = parts[0] if parts else ''
-            last = parts[1] if len(parts) > 1 else last
-        email = _first_email(src.get('emails')) or email_map.get(cid, '')
-        phone = _first_phone(src.get('phones')) or phone_map.get(cid, '')
-        company = (
-            (src.get('company') or src.get('account_name') or '').strip()
-        )
-        results.append({
-            'crm_id': cid,
-            'full_name': full,
-            'first_name': first or '',
-            'last_name': last or '',
-            'email': email,
-            'phone': phone,
-            'company': company,
-            'city': (src.get('city') or '').strip(),
-            'score': h.get('_score') or 0,
-        })
-
-    return JsonResponse({'results': results, 'q': q, 'source': 'es'})
 
 
 def crm_email_compose(request):
