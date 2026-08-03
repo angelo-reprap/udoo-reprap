@@ -1371,9 +1371,11 @@ def api_email_send(request):
         if not tpl:
             return JsonResponse({'error': f'Template nicht gefunden: {template_id}'}, status=404)
 
-        # Template kopieren damit Original nicht verändert wird
+        # Template in-memory kopieren (kein save → DB-Original bleibt).
+        # WICHTIG: pk NICHT auf None setzen — EmailSender/Logs rufen sonst
+        # save(force_update=True) auf und crashen mit
+        # "Cannot force an update in save() with no primary key."
         tpl = copy(tpl)
-        tpl.pk = None  # copy() braucht kein save(), aber FK-Refs bleiben
 
         # Signatur setzen
         if signature_id:
@@ -1868,7 +1870,7 @@ def api_kampagne_send(request):
     for rel in email_rels:
         c = contacts.get(rel.bean_id)
         tpl_copy = copy(tpl)
-        tpl_copy.pk = None
+        # pk behalten — sonst force_update-Crash im EmailSender
         if sender_acc:
             tpl_copy.sender_account = sender_acc
             tpl_copy.sender_mode    = SenderMode.TEMPLATE
