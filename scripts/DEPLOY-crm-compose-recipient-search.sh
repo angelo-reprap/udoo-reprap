@@ -144,6 +144,20 @@ open(path, 'w', encoding='utf-8').write(new)
 print('urls.py: contacts/suggest Route eingefügt')
 PY
 
+# Fix Send-Crash: tpl.pk = None / tpl_copy.pk = None entfernen (Live + Branch-Sync)
+python3 - <<'PY' "$VIEWS_LIVE"
+import re, sys
+path = sys.argv[1]
+text = open(path, encoding='utf-8').read()
+new, n1 = re.subn(r'(?m)^\s*tpl\.pk = None[^\n]*\n', '', text)
+new, n2 = re.subn(r'(?m)^\s*tpl_copy\.pk = None[^\n]*\n', '', new)
+if n1 or n2:
+    open(path, 'w', encoding='utf-8').write(new)
+    print(f'views.py: pk=None entfernt (tpl={n1}, tpl_copy={n2}) — Send-Fix')
+else:
+    print('views.py: kein tpl.pk = None gefunden (ok oder schon gefixt)')
+PY
+
 # Template: Backup ist da — Live-Compose durch Branch-Version ersetzen
 # (An-Feld + Typeahead; Rest entspricht dem Compose-Stand des Branches)
 cp -a "$TMP/email_compose.html" "$TPL_LIVE"
@@ -155,10 +169,11 @@ echo "==> py_compile OK"
 
 # Verify
 echo "==> Verify:"
-grep -n "def api_contacts_suggest\|contacts/suggest\|crm-to-search" \
-  "$VIEWS_LIVE" "$URLS_LIVE" "$TPL_LIVE" | head -20
+grep -n "def api_contacts_suggest\|contacts/suggest\|crm-to-search\|tpl\.pk = None\|tpl_copy\.pk = None" \
+  "$VIEWS_LIVE" "$URLS_LIVE" "$TPL_LIVE" | head -30
 
 echo
 echo "OK. Backup: $BAK"
 echo "Danach Backend reload (z.B. systemctl reload/restart abpe-*) und Browser Hard-Reload."
 echo "Test: /crm/email/compose/ → An-Feld tippen → Treffer mit Name/Mail/Firma/Tel"
+echo "Test: Senden / Test senden darf nicht mehr 'no primary key' werfen."
