@@ -1441,6 +1441,30 @@ def api_contacts_suggest(request):
     if len(q) < 2:
         return JsonResponse({'results': [], 'q': q})
 
+    def _es_str(val):
+        """ES-_source-Felder können str/list/dict sein."""
+        if val is None:
+            return ''
+        if isinstance(val, str):
+            return val.strip()
+        if isinstance(val, (int, float, bool)):
+            return str(val)
+        if isinstance(val, dict):
+            for k in ('name', 'email', 'address', 'raw', 'value', 'title'):
+                if val.get(k):
+                    return _es_str(val.get(k))
+            return ''
+        if isinstance(val, (list, tuple)):
+            for item in val:
+                s = _es_str(item)
+                if s:
+                    return s
+            return ''
+        try:
+            return str(val).strip()
+        except Exception:
+            return ''
+
     def _row_from_contact(c, score=0, company_hint='', city_hint=''):
         email = ''
         try:
@@ -1466,7 +1490,7 @@ def api_contacts_suggest(request):
                         break
         except Exception:
             pass
-        company = company_hint or ''
+        company = _es_str(company_hint)
         if not company:
             try:
                 link = CrmAccountContacts.objects.filter(contact_id=c.crm_id).first()
@@ -1481,6 +1505,10 @@ def api_contacts_suggest(request):
             full = (c.full_name or '').strip()
         except Exception:
             full = ('%s %s' % (c.first_name or '', c.last_name or '')).strip()
+        try:
+            score_f = float(score or 0)
+        except (TypeError, ValueError):
+            score_f = 0.0
         return {
             'crm_id': c.crm_id,
             'full_name': full,
@@ -1489,8 +1517,8 @@ def api_contacts_suggest(request):
             'email': email,
             'phone': phone,
             'company': company,
-            'city': city_hint or (c.primary_address_city or ''),
-            'score': score or 0,
+            'city': _es_str(city_hint) or (c.primary_address_city or ''),
+            'score': score_f,
         }
 
     try:
@@ -1570,11 +1598,15 @@ def api_contacts_suggest(request):
                 if not cid:
                     continue
                 crm_ids.append(cid)
+                try:
+                    score_f = float(h.get('_score') or 0)
+                except (TypeError, ValueError):
+                    score_f = 0.0
                 meta[cid] = {
-                    'score': h.get('_score') or 0,
-                    'company': (src.get('company') or src.get('account_name') or '').strip(),
-                    'city': (src.get('city') or '').strip(),
-                    'name': (src.get('name') or '').strip(),
+                    'score': score_f,
+                    'company': _es_str(src.get('company')) or _es_str(src.get('account_name')),
+                    'city': _es_str(src.get('city')),
+                    'name': _es_str(src.get('name')),
                 }
             by_id = {
                 c.crm_id: c
