@@ -73,6 +73,11 @@ class RadarConsultantItemAdmin(admin.ModelAdmin):
 
 @admin.register(models.Sperrliste)
 class SperrlisteAdmin(admin.ModelAdmin):
-    list_display = ('firma_name', 'richtung', 'seit', 'aktiv', 'angelegt_von')
+    list_display = (
+        'firma_name', 'firma_name_norm', 'crm_account_id',
+        'richtung', 'seit', 'aktiv', 'angelegt_von',
+    )
     list_filter = ('richtung', 'aktiv')
-    search_fields = ('firma_name', 'firma_name_norm')
+    search_fields = ('firma_name', 'firma_name_norm', 'crm_account_id')
+    readonly_fields = ('firma_name_norm',)
+    raw_id_fields = ('angelegt_von',)

@@ -97,7 +97,7 @@ verbose_names, Indizes wie angegeben. JSONField ist Projektstandard.
 | faellig_zeit | TimeField null | optional |
 | prioritaet | Int default 3 | 1 hoch … 5 niedrig |
 | status | Char(15) choices db_index | `offen, erledigt, verworfen, delegiert` |
-| zugewiesen_an | FK auth.User | db_index |
+| zugewiesen_an | FK auth.User **PROTECT** | db_index; bei User-Löschung erst delegieren |
 | ref_type | Char(20) blank db_index | `match, anfrage, berater, firma, ansprechpartner, mail, radar_item` |
 | ref_id | Char(64) blank db_index | UUID/PK als String (modulübergreifend) |
 | quelle | Char(15) choices | `regel, status, manuell, ki, radar, mail` |
@@ -110,7 +110,7 @@ verbose_names, Indizes wie angegeben. JSONField ist Projektstandard.
 | Meta | | Indexe: (status, faellig_am), (zugewiesen_an, status), (ref_type, ref_id) |
 
 ### 2.2 `Aktivitaet` (Historie-Strom, ab Tag 1 geschrieben)
-zeitpunkt (DateTime db_index) · medium (Char: telefon, email, whatsapp, sms,
+zeitpunkt (DateTime db_index, default=now) · medium (Char: telefon, email, whatsapp, sms,
 dokument, post, termin, system, radar) · titel (Char 250) · ref_type/ref_id
 (db_index) · deeplink_url (Char 500) · user (FK null) · details (JSON blank).
 Schreibzugriff NUR über `aktivitaet_service.schreiben()` (eine Zeile pro Modul-Hook).
@@ -148,6 +148,8 @@ beschreibung (Text) · skills (JSON list) · eckdaten (JSON: start, ort, satz,
 dauer, firma) · quick_score (Float null) · top_berater (JSON list) · status
 (Char: neu, interessant, uebernommen, verworfen, gesperrt) db_index ·
 project_request (FK matching_workflow.ProjectRequest null) · eingegangen_am.
+Sortierung: Manager `order_by_score()` = `F(quick_score).desc(nulls_last=True)`,
+dann `-eingegangen_am` (Meta.ordering allein würde in Postgres NULLs zuerst setzen).
 
 ### 2.8 `RadarItemGroup`
 merkmal_hash (Char 64) · titel_norm (Char 250) · anbieter_anzahl (Int, denorm) ·
@@ -162,10 +164,13 @@ match_status (Char: bekannt, unsicher, unbekannt) db_index · consultant
 {feld, alt, neu, quelle, zeit}) · status (neu, bestaetigt, beobachten, verworfen).
 
 ### 2.10 `Sperrliste`
-firma_name (Char 200) · firma_name_norm (Char 200 db_index — GmbH/AG/Interpunktion
-normalisiert) · crm_account (FK abpe_crm.CrmAccount null) · richtung (Char:
+firma_name (Char 200) · firma_name_norm (Char 200 db_index — via
+`services.firma_normalizer.normalize_firma_name` in `save()`; GmbH/AG/Interpunktion
+strippen) · crm_account_id (Char 36 blank db_index — SuiteCRM-UUID, **kein**
+Django-FK auf `abpe_crm.CrmAccount`; Matching-Muster wie
+`ProjectConsultant.crm_email_id`) · richtung (Char:
 die_nicht_mit_uns, wir_nicht_mit_denen, beide) · grund (Text) · seit (Date) ·
-angelegt_von (FK User) · aktiv.
+angelegt_von (FK User **PROTECT**) · aktiv.
 
 ### 2.11 admin.py
 Alle 10 Modelle registriert; list_display/list_filter sinnvoll (Aufgabe:

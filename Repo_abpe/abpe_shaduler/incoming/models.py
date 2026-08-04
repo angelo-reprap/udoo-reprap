@@ -3,11 +3,17 @@ ABpE Shaduler — Modelle (V1-Skelett laut Architektur_zielvorlage.md Kap. 2).
 
 Hinweis: Cross-App-FKs als Strings. Migrationen werden in einer späteren
 Etappe erzeugt (`makemigrations abpe_shaduler`), nicht blind auf Live applied.
+
+CRM-Bezug: SuiteCRM-IDs als CharField(36), kein Django-FK auf abpe_crm
+(Matching-Muster: ProjectConsultant.crm_email_id) — vermeidet Cross-DB-
+Constraints und PK/crm_id-Mismatch.
 """
 import uuid
 
 from django.conf import settings
 from django.db import models
+from django.db.models import F
+from django.utils import timezone
 
 
 class TimeStampedModel(models.Model):
@@ -142,7 +148,7 @@ class Aufgabe(TimeStampedModel):
         max_length=15, choices=Status.choices, default=Status.OFFEN, db_index=True,
     )
     zugewiesen_an = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+        settings.AUTH_USER_MODEL, on_delete=models.PROTECT,
         related_name='shaduler_aufgaben', db_index=True,
     )
     ref_type = models.CharField(max_length=20, blank=True, db_index=True)
@@ -194,7 +200,7 @@ class Aktivitaet(models.Model):
         RADAR = 'radar', 'Radar'
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    zeitpunkt = models.DateTimeField(db_index=True)
+    zeitpunkt = models.DateTimeField(default=timezone.now, db_index=True)
     medium = models.CharField(max_length=20, choices=Medium.choices)
     titel = models.CharField(max_length=250)
     ref_type = models.CharField(max_length=20, blank=True, db_index=True)
@@ -265,6 +271,20 @@ class RadarItemGroup(models.Model):
         return self.titel_norm
 
 
+class RadarItemQuerySet(models.QuerySet):
+    def order_by_score(self):
+        """Postgres: DESC ohne nulls_last setzt NULLs zuerst — ungescorte oben."""
+        return self.order_by(
+            F('quick_score').desc(nulls_last=True),
+            '-eingegangen_am',
+        )
+
+
+class RadarItemManager(models.Manager.from_queryset(RadarItemQuerySet)):
+    def get_queryset(self):
+        return super().get_queryset().order_by_score()
+
+
 class RadarItem(TimeStampedModel):
     class Status(models.TextChoices):
         NEU = 'neu', 'Neu'
@@ -296,10 +316,14 @@ class RadarItem(TimeStampedModel):
     )
     eingegangen_am = models.DateTimeField(auto_now_add=True)
 
+    objects = RadarItemManager()
+
     class Meta:
         verbose_name = 'Radar-Anfrage'
         verbose_name_plural = 'Radar-Anfragen'
-        ordering = ['-quick_score', '-eingegangen_am']
+        # Sortierung über Manager (nulls_last) — Meta.ordering allein setzt
+        # in Postgres NULLs bei DESC zuerst.
+        ordering = ['-eingegangen_am']
 
     def __str__(self):
         return self.headline
@@ -358,12 +382,9 @@ class Sperrliste(TimeStampedModel):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     firma_name = models.CharField(max_length=200)
-    firma_name_norm = models.CharField(max_length=200, db_index=True)
-    crm_account = models.ForeignKey(
-        'abpe_crm.CrmAccount',
-        null=True, blank=True, on_delete=models.SET_NULL,
-        related_name='shaduler_sperren',
-    )
+    firma_name_norm = models.CharField(max_length=200, blank=True, db_index=True)
+    # SuiteCRM Account-ID (UUID), kein Django-FK — siehe Modul-Docstring.
+    crm_account_id = models.CharField(max_length=36, blank=True, db_index=True)
     richtung = models.CharField(max_length=30, choices=Richtung.choices)
     grund = models.TextField(blank=True)
     seit = models.DateField()
@@ -379,3 +400,8 @@ class Sperrliste(TimeStampedModel):
 
     def __str__(self):
         return f'{self.firma_name} ({self.get_richtung_display()})'
+
+    def save(self, *args, **kwargs):
+        from .services.firma_normalizer import normalize_firma_name
+        self.firma_name_norm = normalize_firma_name(self.firma_name)
+        super().save(*args, **kwargs)
