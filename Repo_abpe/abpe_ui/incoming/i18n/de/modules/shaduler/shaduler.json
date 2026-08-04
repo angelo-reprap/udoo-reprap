@@ -1,0 +1,23 @@
+{
+  "shaduler": {
+    "sh.tab_aufgaben": "Aufgaben",
+    "sh.tab_kalender": "Kalender",
+    "sh.tab_posteingang": "Posteingang",
+    "sh.tab_radar_anfragen": "Radar · Anfragen",
+    "sh.tab_radar_berater": "Radar · Berater",
+    "sh.tab_regeln": "Regeln",
+    "sh.loading": "Laden…",
+    "sh.aufgaben_hint": "Aufgaben erscheinen hier, sobald die API angebunden ist.",
+    "sh.regeln_admin_hint": "Regeln vorerst im Django-Admin bearbeiten (ProzessRegel + Schritte).",
+    "sh.tab_stub": "Reiter „",
+    "sh.tab_stub_suffix": "“ — API/UI folgen (V1).",
+    "sh.art_anruf": "Anruf",
+    "sh.art_termin": "Termin",
+    "sh.art_email": "E-Mail",
+    "sh.art_sms_messenger": "SMS / Messenger",
+    "sh.art_dokument": "Dokument",
+    "sh.art_post": "Post",
+    "sh.art_wiedervorlage": "Wiedervorlage",
+    "sh.art_intern": "Intern"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "shaduler": {
+    "sh.tab_aufgaben": "Tasks",
+    "sh.tab_kalender": "Calendar",
+    "sh.tab_posteingang": "Inbox",
+    "sh.tab_radar_anfragen": "Radar · Requests",
+    "sh.tab_radar_berater": "Radar · Consultants",
+    "sh.tab_regeln": "Rules",
+    "sh.loading": "Loading…",
+    "sh.aufgaben_hint": "Tasks will appear here once the API is wired.",
+    "sh.regeln_admin_hint": "Edit rules in Django Admin for now (ProzessRegel + Schritte).",
+    "sh.tab_stub": "Tab \"",
+    "sh.tab_stub_suffix": "\" — API/UI coming (V1).",
+    "sh.art_anruf": "Call",
+    "sh.art_termin": "Meeting",
+    "sh.art_email": "Email",
+    "sh.art_sms_messenger": "SMS / Messenger",
+    "sh.art_dokument": "Document",
+    "sh.art_post": "Mail",
+    "sh.art_wiedervorlage": "Follow-up",
+    "sh.art_intern": "Internal"
+  }
+}
