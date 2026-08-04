@@ -565,7 +565,7 @@ def mail_to_aufgabe(mail_id: str, user, *, art: str = 'email') -> dict[str, Any]
     from apps.abpe_shaduler.models import Aufgabe
 
     # Mail nachladen (knapp)
-    data = list_mails(limit=80, force_imap=mail_id.startswith('db:') is False)
+    data = list_mails(limit=80, force_imap=not str(mail_id).startswith('db:'))
     mail = next((m for m in data.get('results') or [] if m.get('id') == mail_id), None)
     if not mail:
         # minimale Aufgabe trotzdem
