@@ -49,6 +49,17 @@
     "sh.inbox_outlook": "Open in Outlook",
     "sh.inbox_mark_read": "Mark read",
     "sh.inbox_unread": "new",
-    "sh.inbox_all": "All"
+    "sh.inbox_all": "All",
+    "sh.inbox_search": "Search",
+    "sh.inbox_search_ph": "Subject, sender, body …",
+    "sh.inbox_att_all": "Attachments: all",
+    "sh.inbox_att_yes": "with attachment",
+    "sh.inbox_att_no": "without attachment",
+    "sh.inbox_sort_new": "Date: newest",
+    "sh.inbox_sort_old": "Date: oldest",
+    "sh.inbox_only_new": "unread only",
+    "sh.inbox_pick": "Select a mail",
+    "sh.inbox_view_err": "Mail detail unavailable (IMAP/EDMS)",
+    "sh.inbox_open_att": "open"
   }
 }
