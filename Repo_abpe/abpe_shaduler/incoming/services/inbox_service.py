@@ -838,6 +838,8 @@ def view_mail(mail_id: str, user=None) -> dict[str, Any]:
                 'content_type': a.get('content_type') or a.get('type') or '',
             })
 
+    mail_dict = mail_dict or {}
+    crm_info = _crm_resolve(from_, subject=subject)
     return {
         'ok': True,
         'source': 'elasticsearch',
@@ -859,7 +861,13 @@ def view_mail(mail_id: str, user=None) -> dict[str, Any]:
             'uid': str(mail_dict.get('uid') or src.get('uid') or ''),
             'message_id': mail_dict.get('message_id') or src.get('message_id') or '',
         },
-        'crm': mail_dict.get('crm'),
+        'crm': mail_dict.get('crm') or crm_info.get('crm'),
+        'crm_bean_id': mail_dict.get('crm_bean_id') or crm_info.get('crm_bean_id') or '',
+        'crm_bean_module': mail_dict.get('crm_bean_module') or crm_info.get('crm_bean_module') or '',
+        'matching_url': mail_dict.get('matching_url') or crm_info.get('matching_url') or '',
+        'email_studio_url': mail_dict.get('email_studio_url') or crm_info.get('email_studio_url') or '',
+        'mailto_url': mail_dict.get('mailto_url') or crm_info.get('mailto_url') or '',
+        'reply_email': mail_dict.get('reply_email') or crm_info.get('reply_email') or '',
         'hint': 'Volltext aus ES-Index (IMAP-Detail optional über EDMS).',
     }
 
@@ -1542,8 +1550,23 @@ def list_mails(
     }
 
 
-def mail_to_aufgabe(mail_id: str, user, *, art: str = 'email') -> dict[str, Any]:
-    """Erzeugt Aufgabe aus Mail-ID (es:… / db:… oder user:folder:uid)."""
+def mail_to_aufgabe(
+    mail_id: str,
+    user,
+    *,
+    art: str = 'email',
+    due: str = '',
+    faellig_am=None,
+    faellig_zeit=None,
+    notiz: str = '',
+    crm_notiz: bool = True,
+) -> dict[str, Any]:
+    """
+    Erzeugt Aufgabe aus Mail.
+    ``due``: 1h|heute|morgen|+3d|+1w (oder explizit faellig_am/faellig_zeit).
+    ``notiz``: freie Notiz → Beschreibung + optional CRM-Aktivität.
+    """
+    from datetime import datetime as dt_cls, time as time_cls
     from . import aufgaben_service, aktivitaet_service
     from apps.abpe_shaduler.models import Aufgabe
 
@@ -1563,20 +1586,43 @@ def mail_to_aufgabe(mail_id: str, user, *, art: str = 'email') -> dict[str, Any]
             'box': 'Mail',
         }
 
+    # CRM-Links nachziehen, falls Liste sie nicht mitgab
+    if not mail.get('crm_bean_id'):
+        info = _crm_resolve(str(mail.get('from') or ''), subject=str(mail.get('subj') or ''))
+        for k, v in info.items():
+            if v and not mail.get(k):
+                mail[k] = v
+
+    allowed_arts = {c.value for c in Aufgabe.Art}
+    art = (art or 'email').strip().lower()
+    if art not in allowed_arts:
+        art = Aufgabe.Art.EMAIL
+
+    due_date, due_time = _parse_due(due, faellig_am=faellig_am, faellig_zeit=faellig_zeit)
+    notiz = (notiz or '').strip()
+
     titel = (mail.get('subj') or 'Mail-Aufgabe')[:200]
-    beschreibung = (
-        f"Von: {mail.get('from') or '—'}\n"
-        f"Postfach: {mail.get('box') or '—'}\n"
-        f"Preview: {mail.get('prev') or '—'}\n"
-        f"Mail-ID: {mid}"
-    )
+    beschreibung_parts = [
+        f"Von: {mail.get('from') or '—'}",
+        f"Postfach: {mail.get('box') or mail.get('account') or '—'}",
+        f"Preview: {mail.get('prev') or '—'}",
+        f"Mail-ID: {mid}",
+    ]
+    if notiz:
+        beschreibung_parts.insert(0, f"Notiz:\n{notiz}\n")
+    beschreibung = '\n'.join(beschreibung_parts)
+
+    ref_type, ref_id = _crm_ref_from_mail(mail, mid)
+
     aufgabe = aufgaben_service.erstellen(
-        art=art or Aufgabe.Art.EMAIL,
+        art=art,
         titel=titel,
         zugewiesen_an=user,
+        faellig_am=due_date,
+        faellig_zeit=due_time,
         beschreibung=beschreibung,
-        ref_type='mail',
-        ref_id=str(mid)[:64],
+        ref_type=ref_type,
+        ref_id=ref_id,
         quelle=Aufgabe.Quelle.MAIL,
         user=user,
     )
@@ -1586,8 +1632,41 @@ def mail_to_aufgabe(mail_id: str, user, *, art: str = 'email') -> dict[str, Any]
         ref_type='mail',
         ref_id=str(mid)[:64],
         user=user,
-        details={'aufgabe_id': str(aufgabe.pk), 'mail': mail},
+        details={
+            'aufgabe_id': str(aufgabe.pk),
+            'mail_id': mid,
+            'art': art,
+            'due': due or '',
+            'notiz': notiz,
+            'crm_bean_id': mail.get('crm_bean_id') or '',
+            'crm_bean_module': mail.get('crm_bean_module') or '',
+        },
     )
+
+    crm_note_written = False
+    bean_id = str(mail.get('crm_bean_id') or '').strip()
+    if crm_notiz and bean_id and (notiz or titel):
+        crm_ref_type, crm_ref_id = _crm_ref_from_mail(mail, mid)
+        if crm_ref_type != 'mail':
+            note_titel = (notiz or f'Notiz aus Mail: {titel}')[:250]
+            aktivitaet_service.schreiben(
+                medium='email',
+                titel=note_titel,
+                ref_type=crm_ref_type,
+                ref_id=crm_ref_id,
+                user=user,
+                deeplink_url=str(mail.get('matching_url') or '')[:500],
+                details={
+                    'quelle': 'posteingang',
+                    'mail_id': mid,
+                    'aufgabe_id': str(aufgabe.pk),
+                    'from': mail.get('from') or '',
+                    'subject': mail.get('subj') or '',
+                    'crm_bean_module': mail.get('crm_bean_module') or '',
+                },
+            )
+            crm_note_written = True
+
     try:
         mark_read(mid, user)
     except Exception as exc:
@@ -1597,7 +1676,78 @@ def mail_to_aufgabe(mail_id: str, user, *, art: str = 'email') -> dict[str, Any]
         'created': aufgaben_service.serialize(aufgabe),
         'mail_id': mid,
         'unread': False,
+        'crm_notiz': crm_note_written,
+        'ref_type': ref_type,
+        'ref_id': ref_id,
     }
+
+
+def _crm_ref_from_mail(mail: dict, mail_id: str) -> tuple[str, str]:
+    """CRM-Bean → Shaduler ref_type/ref_id; sonst mail."""
+    bean = str((mail or {}).get('crm_bean_id') or '').strip()
+    mod = str((mail or {}).get('crm_bean_module') or '').lower()
+    if not bean:
+        return 'mail', str(mail_id)[:64]
+    if 'contact' in mod:
+        return 'berater', bean[:64]
+    if 'account' in mod:
+        return 'firma', bean[:64]
+    if 'lead' in mod:
+        return 'ansprechpartner', bean[:64]
+    return 'mail', str(mail_id)[:64]
+
+
+def _parse_due(
+    due: str = '',
+    *,
+    faellig_am=None,
+    faellig_zeit=None,
+):
+    """→ (date, time|None). due: 1h|heute|morgen|+3d|+1w."""
+    from datetime import datetime as dt_cls, time as time_cls, timedelta
+
+    now = dj_tz.localtime()
+    # Explizite Werte haben Vorrang
+    parsed_date = None
+    parsed_time = None
+    if faellig_am:
+        if hasattr(faellig_am, 'year'):
+            parsed_date = faellig_am
+        else:
+            try:
+                parsed_date = dt_cls.strptime(str(faellig_am)[:10], '%Y-%m-%d').date()
+            except Exception:
+                parsed_date = None
+    if faellig_zeit:
+        if hasattr(faellig_zeit, 'hour'):
+            parsed_time = faellig_zeit
+        else:
+            s = str(faellig_zeit).strip()
+            for fmt in ('%H:%M:%S', '%H:%M'):
+                try:
+                    parsed_time = dt_cls.strptime(s, fmt).time()
+                    break
+                except Exception:
+                    continue
+    if parsed_date is not None:
+        return parsed_date, parsed_time
+
+    key = (due or '').strip().lower().replace(' ', '')
+    if key in ('1h', '+1h', 'stunde', 'hour'):
+        t = now + timedelta(hours=1)
+        return t.date(), t.time().replace(second=0, microsecond=0)
+    if key in ('2h', '+2h'):
+        t = now + timedelta(hours=2)
+        return t.date(), t.time().replace(second=0, microsecond=0)
+    if key in ('heute', 'today', '0d', '+0d'):
+        return now.date(), None
+    if key in ('morgen', 'tomorrow', '+1d', '1d'):
+        return (now + timedelta(days=1)).date(), None
+    if key in ('+3d', '3d'):
+        return (now + timedelta(days=3)).date(), None
+    if key in ('+1w', '1w', 'woche', 'week'):
+        return (now + timedelta(days=7)).date(), None
+    return now.date(), None
 
 
 def probe() -> dict[str, Any]:

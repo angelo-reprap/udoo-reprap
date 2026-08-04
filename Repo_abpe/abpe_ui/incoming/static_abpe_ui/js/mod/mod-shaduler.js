@@ -653,6 +653,120 @@
     var btn = root.querySelector('.sh-mail-task');
     if (btn) {
       btn.addEventListener('click', function () {
+        openMailTaskChooser(m);
+      });
+    }
+  }
+
+  function closeMailTaskChooser() {
+    var ovl = document.getElementById('sh-mail-task-ovl');
+    if (ovl) ovl.remove();
+  }
+
+  function openMailTaskChooser(m) {
+    closeMailTaskChooser();
+    m = m || {};
+    var hasCrm = !!(m.crm_bean_id);
+    var crmLabel = m.crm && m.crm !== '—' ? m.crm : '';
+    var arts = [
+      { id: 'anruf', label: _t('sh.art_anruf', 'Anruf') },
+      { id: 'wiedervorlage', label: _t('sh.art_wiedervorlage', 'Wiedervorlage') },
+      { id: 'email', label: _t('sh.art_email', 'E-Mail') },
+      { id: 'termin', label: _t('sh.art_termin', 'Termin') },
+      { id: 'dokument', label: _t('sh.art_dokument', 'Dokument') },
+      { id: 'intern', label: _t('sh.art_intern', 'Intern') },
+    ];
+    var dues = [
+      { id: '1h', label: _t('sh.due_1h', 'in 1 Stunde') },
+      { id: 'heute', label: _t('sh.due_heute', 'heute') },
+      { id: 'morgen', label: _t('sh.due_morgen', 'morgen') },
+      { id: '+3d', label: _t('sh.due_3d', 'in 3 Tagen') },
+      { id: '+1w', label: _t('sh.due_1w', 'in 1 Woche') },
+    ];
+    var artBtns = arts.map(function (a, i) {
+      return '<button type="button" class="sh-pick' + (i === 0 ? ' on' : '') + '" data-art="' + a.id + '">' +
+        esc(a.label) + '</button>';
+    }).join('');
+    var dueBtns = dues.map(function (d, i) {
+      return '<button type="button" class="sh-pick' + (i === 1 ? ' on' : '') + '" data-due="' + d.id + '">' +
+        esc(d.label) + '</button>';
+    }).join('');
+    var crmBlock = '';
+    if (hasCrm) {
+      crmBlock =
+        '<label class="sh-mail-crm-note">' +
+        '<input type="checkbox" id="sh-mt-crm" checked> ' +
+        esc(_t('sh.inbox_crm_note', 'Notiz auch am CRM-Kontakt / Firma ablegen')) +
+        (crmLabel ? ' <span class="crm-hint">(' + esc(crmLabel) + ')</span>' : '') +
+        '</label>';
+    } else {
+      crmBlock =
+        '<div class="note">' + esc(_t('sh.inbox_crm_unknown',
+          'Absender nicht im CRM — Notiz nur an der Aufgabe')) + '</div>';
+    }
+    var ovl = document.createElement('div');
+    ovl.className = 'ovl open';
+    ovl.id = 'sh-mail-task-ovl';
+    ovl.innerHTML =
+      '<div class="modal sh-mail-task-modal">' +
+      '<div class="mh">' +
+      '<div class="ico"><i class="bi bi-check2-square"></i></div>' +
+      '<div><b>' + esc(_t('sh.inbox_task', 'Aufgabe erzeugen')) + '</b>' +
+      '<small>' + esc(m.subj || '') + '</small></div>' +
+      '<button type="button" class="x" id="sh-mt-close"><i class="bi bi-x-lg"></i></button>' +
+      '</div>' +
+      '<div class="mb">' +
+      '<div class="excerpt"><div class="lbl">' + esc(_t('sh.inbox_from', 'Von')) + '</div>' +
+      esc(m.from || '—') +
+      (crmLabel ? '<div class="crm-line">' + esc(crmLabel) + '</div>' : '') +
+      '</div>' +
+      '<div class="qlbl">' + esc(_t('sh.inbox_pick_art', 'Art')) + '</div>' +
+      '<div class="sh-pick-row" id="sh-mt-arts">' + artBtns + '</div>' +
+      '<div class="qlbl">' + esc(_t('sh.inbox_pick_due', 'Fälligkeit')) + '</div>' +
+      '<div class="sh-pick-row" id="sh-mt-dues">' + dueBtns + '</div>' +
+      '<div class="inp"><label for="sh-mt-notiz">' + esc(_t('sh.inbox_notiz', 'Notiz')) + '</label>' +
+      '<textarea id="sh-mt-notiz" rows="3" placeholder="' +
+      esc(_t('sh.inbox_notiz_ph', 'Kurz notieren, was zu tun ist …')) + '"></textarea></div>' +
+      crmBlock +
+      '<button type="button" class="primary" id="sh-mt-save">' +
+      '<i class="bi bi-check2"></i> ' + esc(_t('sh.inbox_task_create', 'Aufgabe anlegen')) +
+      '</button>' +
+      '</div></div>';
+    document.body.appendChild(ovl);
+
+    var selectedArt = 'anruf';
+    var selectedDue = 'heute';
+    ovl.querySelectorAll('#sh-mt-arts .sh-pick').forEach(function (b) {
+      b.addEventListener('click', function () {
+        ovl.querySelectorAll('#sh-mt-arts .sh-pick').forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+        selectedArt = b.getAttribute('data-art') || 'email';
+      });
+    });
+    ovl.querySelectorAll('#sh-mt-dues .sh-pick').forEach(function (b) {
+      b.addEventListener('click', function () {
+        ovl.querySelectorAll('#sh-mt-dues .sh-pick').forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+        selectedDue = b.getAttribute('data-due') || 'heute';
+      });
+    });
+    var closeBtn = document.getElementById('sh-mt-close');
+    if (closeBtn) closeBtn.onclick = closeMailTaskChooser;
+    ovl.addEventListener('click', function (ev) {
+      if (ev.target === ovl) closeMailTaskChooser();
+    });
+    var save = document.getElementById('sh-mt-save');
+    if (save) {
+      save.onclick = function () {
+        var ta = document.getElementById('sh-mt-notiz');
+        var crmCb = document.getElementById('sh-mt-crm');
+        var payload = {
+          art: selectedArt,
+          due: selectedDue,
+          notiz: ta ? String(ta.value || '').trim() : '',
+          crm_notiz: crmCb ? !!crmCb.checked : false,
+        };
+        save.disabled = true;
         fetch(api('inbox/' + encodeURIComponent(m.id) + '/aufgabe/'), {
           method: 'POST',
           credentials: 'same-origin',
@@ -661,20 +775,27 @@
             'X-CSRFToken': csrfToken(),
             'X-Requested-With': 'XMLHttpRequest',
           },
-          body: JSON.stringify({ art: 'email' }),
+          body: JSON.stringify(payload),
         })
           .then(function (r) { return r.json(); })
           .then(function (j) {
+            save.disabled = false;
             if (j && j.ok) {
-              toast(_t('sh.toast_mail_task', 'Aufgabe aus Mail erzeugt'));
+              closeMailTaskChooser();
+              var msg = _t('sh.toast_mail_task', 'Aufgabe aus Mail erzeugt');
+              if (j.crm_notiz) msg += ' · ' + _t('sh.toast_crm_note', 'CRM-Notiz gesetzt');
+              toast(msg);
               TASKS = null;
               markMailRead(m.id, document.querySelector('#sh-inbox .ritem.on'));
             } else {
               toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
             }
           })
-          .catch(function () { toast(_t('sh.toast_error', 'Speichern fehlgeschlagen')); });
-      });
+          .catch(function () {
+            save.disabled = false;
+            toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
+          });
+      };
     }
   }
 
@@ -764,9 +885,20 @@
     bindViewerActions(v, m);
   }
 
+  function mergeCrmIntoMail(m, detail) {
+    if (!m || !detail) return m;
+    ['crm', 'crm_bean_id', 'crm_bean_module', 'matching_url', 'email_studio_url',
+      'mailto_url', 'reply_email', 'request_id'].forEach(function (k) {
+      if (detail[k] && !m[k]) m[k] = detail[k];
+      else if (detail[k] && k.indexOf('crm') === 0) m[k] = detail[k];
+    });
+    return m;
+  }
+
   function renderViewerDetail(m, detail, v, opts) {
     if (!v) return;
     opts = opts || {};
+    m = mergeCrmIntoMail(m, detail);
     var vp = detail.view_params || m.view_params || {
       account: m.account, folder: m.folder || 'INBOX', uid: m.uid, message_id: m.message_id,
     };

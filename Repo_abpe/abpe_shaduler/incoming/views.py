@@ -324,11 +324,21 @@ def api_inbox_mark_read(request, mail_id):
 def api_inbox_to_task(request, mail_id):
     from apps.abpe_shaduler.services import inbox_service
     data = _json_body(request)
+    crm_raw = data.get('crm_notiz')
+    if crm_raw is None:
+        crm_notiz = True
+    else:
+        crm_notiz = crm_raw in (True, 1, '1', 'true', 'yes', 'on')
     try:
         result = inbox_service.mail_to_aufgabe(
             mail_id,
             request.user,
             art=data.get('art') or 'email',
+            due=data.get('due') or '',
+            faellig_am=data.get('faellig_am') or None,
+            faellig_zeit=data.get('faellig_zeit') or None,
+            notiz=data.get('notiz') or data.get('note') or '',
+            crm_notiz=crm_notiz,
         )
         return JsonResponse(result, status=201)
     except Exception as exc:

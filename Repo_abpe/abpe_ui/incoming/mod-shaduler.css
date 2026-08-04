@@ -247,6 +247,15 @@ th{background:var(--abcona-gray-card);color:var(--text-secondary);font-size:.74r
 .tog.off::after{right:auto;left:2px}
 .futurenote{padding:14px 16px;font-size:.84rem;color:var(--text-secondary);background:var(--abcona-gray-card);border-top:1px solid var(--border-light)}
 
+.sh-pick-row{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.sh-pick{border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-primary);border-radius:8px;padding:7px 11px;font-size:.8rem;cursor:pointer;line-height:1.2}
+.sh-pick:hover{border-color:var(--abcona-blue-light);color:var(--abcona-blue)}
+.sh-pick.on{border-color:var(--abcona-blue);background:var(--abcona-blue);color:#fff;font-weight:600}
+.sh-mail-task-modal .inp textarea{width:100%;padding:9px 10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-white);color:var(--text-primary);font:inherit;resize:vertical;min-height:72px}
+.sh-mail-crm-note{display:flex;align-items:flex-start;gap:8px;font-size:.82rem;color:var(--text-secondary);margin:4px 0 12px;user-select:none}
+.sh-mail-crm-note .crm-hint{color:var(--abcona-blue-light)}
+.sh-mail-task-modal .crm-line{margin-top:6px;font-size:.8rem;color:var(--abcona-blue-light)}
+.sh-mail-task-modal .excerpt .lbl{font-size:.7rem;text-transform:uppercase;color:var(--text-secondary);margin-bottom:4px}
 /* Modal */
 .ovl{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:9999}
 .ovl.open{display:flex}
