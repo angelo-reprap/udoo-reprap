@@ -178,6 +178,7 @@ body.dark-mode .sources a{color:#8fb3dd}
 @media(max-width:900px){.sh-inbox-viewer{max-height:50vh}}
 .sh-viewer-empty,.sh-viewer-loading{color:var(--text-secondary);padding:48px 16px;text-align:center;font-size:.9rem}
 .sh-viewer-warn{background:#fef3c7;color:#92400e;border-radius:8px;padding:8px 10px;font-size:.8rem;margin:8px 0}
+.sh-viewer-hint{font-size:.72rem;color:var(--text-secondary);margin:0 0 10px}
 body.dark-mode .sh-viewer-warn{background:#78350f;color:#fcd34d}
 .sh-viewer-head{margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border-light)}
 .sh-viewer-head .from{font-weight:600;font-size:.95rem;word-break:break-word}
@@ -195,7 +196,7 @@ body.dark-mode .sh-viewer-warn{background:#78350f;color:#fcd34d}
 .sh-viewer-body pre{white-space:pre-wrap;word-break:break-word;font-family:inherit;margin:0;font-size:.9rem;line-height:1.5}
 /* Fremd-HTML (Marketing-Mails) isolieren und lesbar halten */
 .sh-viewer-body.sh-html{overflow-x:auto;max-width:100%}
-.sh-viewer-body.sh-html,{
+.sh-viewer-body.sh-html{
   font-size:.92rem !important;line-height:1.55 !important;color:var(--text-primary) !important;
   font-family:inherit !important;background:transparent !important
 }

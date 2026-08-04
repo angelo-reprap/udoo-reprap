@@ -435,35 +435,98 @@
     INBOX_SELECTED = m;
     document.querySelectorAll('#sh-inbox .ritem.on').forEach(function (el) { el.classList.remove('on'); });
     if (rowEl) rowEl.classList.add('on');
+    var list = document.getElementById('sh-inbox');
+    if (list && document.activeElement !== list &&
+        !(document.activeElement && /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(document.activeElement.tagName))) {
+      try { list.focus({ preventScroll: true }); } catch (e) { list.focus(); }
+    }
     if (m.unread) markMailRead(m.id, rowEl);
     var v = document.getElementById('sh-inbox-viewer');
     if (!v) return;
     v.innerHTML = '<div class="sh-viewer-loading">' + esc(_t('sh.loading', 'Laden…')) + '</div>';
-    renderViewerActions(m, v);
+
+    // Primär: ES-Detail (zuverlässig). EDMS danach optional für Anhänge.
+    fetch(api('inbox/' + encodeURIComponent(m.id) + '/view/'), {
+      credentials: 'same-origin',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
+    })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (pack) {
+        var j = pack.j || {};
+        if (pack.ok && j.ok) {
+          renderViewerDetail(m, j, v, { source: 'es' });
+          tryEdmsAttachments(m, v, j);
+          return;
+        }
+        tryEdmsFull(m, v, j.error);
+      })
+      .catch(function () { tryEdmsFull(m, v, null); });
+  }
+
+  function tryEdmsFull(m, v, prevErr) {
     var vp = m.view_params || {
       account: m.account, folder: m.folder || 'INBOX', uid: m.uid, message_id: m.message_id,
     };
     if (!(vp.account && vp.folder && (vp.uid || vp.message_id))) {
-      renderViewerFallback(m, v);
+      renderViewerFallback(m, v, prevErr || _t('sh.inbox_view_err', 'Mail-Detail nicht ladbar'));
       return;
     }
+    fetch(edmsViewUrl(vp), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, status: r.status, j: j }; }); })
+      .then(function (pack) {
+        var j = pack.j || {};
+        if (pack.ok && j.ok !== false) {
+          renderViewerDetail(m, j, v, { source: 'edms' });
+          return;
+        }
+        // uid fehlgeschlagen → message_id erneut versuchen
+        if (vp.uid && vp.message_id) {
+          var vp2 = Object.assign({}, vp, { uid: '' });
+          return fetch(edmsViewUrl(vp2), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+            .then(function (r2) { return r2.json().then(function (j2) { return { ok: r2.ok, j: j2 }; }); })
+            .then(function (pack2) {
+              if (pack2.ok && pack2.j && pack2.j.ok !== false) {
+                renderViewerDetail(m, pack2.j, v, { source: 'edms' });
+              } else {
+                renderViewerFallback(m, v, (j && j.error) || prevErr || _t('sh.inbox_view_err', 'Mail-Detail nicht ladbar'));
+              }
+            });
+        }
+        renderViewerFallback(m, v, (j && j.error) || prevErr || _t('sh.inbox_view_err', 'Mail-Detail nicht ladbar'));
+      })
+      .catch(function () {
+        renderViewerFallback(m, v, prevErr || _t('sh.inbox_view_err', 'Mail-Detail nicht ladbar'));
+      });
+  }
+
+  function tryEdmsAttachments(m, v, esDetail) {
+    var atts = (esDetail && esDetail.attachments) || [];
+    if (atts.length) return; // ES hat schon Anhänge-Meta
+    var vp = (esDetail && esDetail.view_params) || m.view_params || {
+      account: m.account, folder: m.folder || 'INBOX', uid: m.uid, message_id: m.message_id,
+    };
+    if (!(vp.account && vp.folder && (vp.uid || vp.message_id))) return;
     fetch(edmsViewUrl(vp), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (pack) {
         var j = pack.j || {};
-        if (!pack.ok || j.ok === false) {
-          renderViewerFallback(m, v, j.error || _t('sh.inbox_view_err', 'Mail-Detail nicht ladbar'));
-          return;
+        if (!pack.ok || j.ok === false) return;
+        var edmsAtts = j.attachments || [];
+        if (!edmsAtts.length) return;
+        // Body aus ES behalten, Anhänge aus EDMS
+        var merged = Object.assign({}, esDetail, {
+          attachments: edmsAtts,
+          hint: undefined,
+          source: 'es+edms',
+        });
+        if (INBOX_SELECTED && INBOX_SELECTED.id === m.id) {
+          renderViewerDetail(m, merged, v, { source: 'es+edms' });
         }
-        renderViewerDetail(m, j, v);
       })
-      .catch(function () {
-        renderViewerFallback(m, v, _t('sh.inbox_view_err', 'Mail-Detail nicht ladbar'));
-      });
+      .catch(function () {});
   }
 
   function renderViewerActions(m, host) {
-    // Platzhalter — actions werden in renderViewerDetail oben eingefügt
     host._mail = m;
   }
 
@@ -517,8 +580,29 @@
     }
   }
 
+  function looksLikeHtml(s) {
+    return /<[a-zA-Z!][\s\S]*>/.test(String(s || ''));
+  }
+
+  function bodyBlockFromDetail(detail, m) {
+    var html = detail.body_html || '';
+    var plain = detail.body_plain || detail.body || '';
+    if (!html && looksLikeHtml(plain)) {
+      html = plain;
+      plain = '';
+    }
+    if (!html && !plain && looksLikeHtml(m.prev)) {
+      html = m.prev;
+    }
+    if (html) {
+      return '<div class="sh-viewer-body sh-html">' + sanitizeMailHtml(html) + '</div>';
+    }
+    return '<div class="sh-viewer-body"><pre>' + esc(plain || m.prev || '') + '</pre></div>';
+  }
+
   function renderViewerFallback(m, v, errMsg) {
     if (!v) return;
+    var body = bodyBlockFromDetail({ body_html: '', body_plain: m.prev || '' }, m);
     v.innerHTML =
       viewerActionsHtml(m) +
       '<div class="sh-viewer-head">' +
@@ -528,14 +612,16 @@
       (m.age ? ' · ' + esc(m.age) : '') +
       (m.crm && m.crm !== '—' ? ' · ' + esc(m.crm) : '') +
       '</div></div>' +
-      (errMsg ? '<div class="sh-viewer-warn">' + esc(errMsg) + '</div>' : '') +
-      '<div class="sh-viewer-body"><pre>' + esc(m.prev || '') + '</pre></div>';
+      (errMsg ? '<div class="sh-viewer-warn">' + esc(errMsg) +
+        ' — ' + esc(_t('sh.inbox_es_fallback', 'Vorschau aus Index')) + '</div>' : '') +
+      body;
     bindViewerActions(v, m);
   }
 
-  function renderViewerDetail(m, detail, v) {
+  function renderViewerDetail(m, detail, v, opts) {
     if (!v) return;
-    var vp = m.view_params || {
+    opts = opts || {};
+    var vp = detail.view_params || m.view_params || {
       account: m.account, folder: m.folder || 'INBOX', uid: m.uid, message_id: m.message_id,
     };
     var atts = detail.attachments || detail.anhange || [];
@@ -545,20 +631,24 @@
         var name = a.filename || a.name || ('anhang_' + i);
         var size = a.size != null ? (' · ' + formatBytes(a.size)) : '';
         var idx = a.index != null ? a.index : i;
+        var canEdms = vp.account && vp.folder && (vp.uid || vp.message_id);
+        if (canEdms) {
+          return (
+            '<a class="sh-att" href="' + esc(edmsAttachUrl(vp, idx, false)) + '" target="_blank" rel="noopener">' +
+            '<i class="bi bi-paperclip"></i> <span class="n">' + esc(name) + '</span>' +
+            '<span class="s">' + esc(size) + '</span>' +
+            '<span class="o">' + esc(_t('sh.inbox_open_att', 'öffnen')) + '</span></a>'
+          );
+        }
         return (
-          '<a class="sh-att" href="' + esc(edmsAttachUrl(vp, idx, false)) + '" target="_blank" rel="noopener">' +
-          '<i class="bi bi-paperclip"></i> <span class="n">' + esc(name) + '</span>' +
-          '<span class="s">' + esc(size) + '</span>' +
-          '<span class="o">' + esc(_t('sh.inbox_open_att', 'öffnen')) + '</span></a>'
+          '<span class="sh-att"><i class="bi bi-paperclip"></i> <span class="n">' + esc(name) + '</span>' +
+          '<span class="s">' + esc(size) + '</span></span>'
         );
       }).join('') + '</div>';
     }
-    var body = detail.body_html || '';
-    var bodyBlock;
-    if (body) {
-      bodyBlock = '<div class="sh-viewer-body sh-html">' + sanitizeMailHtml(body) + '</div>';
-    } else {
-      bodyBlock = '<div class="sh-viewer-body"><pre>' + esc(detail.body_plain || detail.body || m.prev || '') + '</pre></div>';
+    var hint = '';
+    if (opts.source === 'es' && detail.hint) {
+      hint = '<div class="sh-viewer-hint">' + esc(_t('sh.inbox_from_es', 'Anzeige aus Mail-Index')) + '</div>';
     }
     v.innerHTML =
       viewerActionsHtml(m) +
@@ -571,7 +661,7 @@
       (vp.folder ? ' · ' + esc(vp.folder) : '') +
       (m.crm && m.crm !== '—' ? ' · ' + esc(m.crm) : '') +
       '</div></div>' +
-      attHtml + bodyBlock;
+      hint + attHtml + bodyBlockFromDetail(detail, m);
     bindViewerActions(v, m);
   }
 

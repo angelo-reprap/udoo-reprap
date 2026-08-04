@@ -61,6 +61,8 @@
     "sh.inbox_only_new": "nur neu",
     "sh.inbox_pick": "Mail auswählen",
     "sh.inbox_view_err": "Mail-Detail nicht ladbar (IMAP/EDMS)",
-    "sh.inbox_open_att": "öffnen"
+    "sh.inbox_open_att": "öffnen",
+    "sh.inbox_from_es": "Anzeige aus Mail-Index",
+    "sh.inbox_es_fallback": "Vorschau aus Index"
   }
 }

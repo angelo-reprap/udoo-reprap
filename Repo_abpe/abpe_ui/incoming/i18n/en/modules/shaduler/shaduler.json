@@ -60,6 +60,8 @@
     "sh.inbox_only_new": "unread only",
     "sh.inbox_pick": "Select a mail",
     "sh.inbox_view_err": "Mail detail unavailable (IMAP/EDMS)",
-    "sh.inbox_open_att": "open"
+    "sh.inbox_open_att": "open",
+    "sh.inbox_from_es": "Showing indexed mail body",
+    "sh.inbox_es_fallback": "preview from index"
   }
 }

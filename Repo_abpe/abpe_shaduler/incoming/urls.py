@@ -27,6 +27,7 @@ urlpatterns = [
     path('api/ergebnistypen/', views.api_ergebnistypen, name='api_ergebnistypen'),
     path('api/ki/vorschlag/', views.api_ki_vorschlag, name='api_ki_vorschlag'),
     path('api/inbox/', views.api_inbox_list, name='api_inbox_list'),
+    path('api/inbox/<str:mail_id>/view/', views.api_inbox_view, name='api_inbox_view'),
     path('api/inbox/<str:mail_id>/read/', views.api_inbox_mark_read, name='api_inbox_mark_read'),
     path('api/inbox/<str:mail_id>/aufgabe/', views.api_inbox_to_task, name='api_inbox_to_task'),
 

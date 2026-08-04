@@ -634,19 +634,134 @@ def _es_inbox_query(
 
 
 def _fix_mojibake(text: str) -> str:
-    """Häufiges UTF-8-als-Latin1 in ES-Subjects (KlimagerÃ¤t → Klimagerät)."""
-    if not text or 'Ã' not in text and 'Â' not in text:
+    """UTF-8-als-Latin1 + HTML-Entities (KlimagerÃ¤t / &auml; → ä)."""
+    if not text:
         return text
-    try:
-        return text.encode('latin-1').decode('utf-8')
-    except Exception:
-        return text
+    import html as html_mod
+    s = str(text)
+    if 'Ã' in s or 'Â' in s:
+        try:
+            s = s.encode('latin-1').decode('utf-8')
+        except Exception:
+            pass
+    if '&' in s:
+        try:
+            s = html_mod.unescape(s)
+        except Exception:
+            pass
+    return s
+
+
+def _strip_html(text: str) -> str:
+    t = re.sub(r'(?is)<(script|style)[^>]*>.*?</\1>', ' ', text or '')
+    t = re.sub(r'(?is)<br\s*/?>', '\n', t)
+    t = re.sub(r'(?is)</p>', '\n', t)
+    t = re.sub(r'(?s)<[^>]+>', ' ', t)
+    t = _fix_mojibake(t)
+    return re.sub(r'[ \t]+\n', '\n', re.sub(r'[ \t]{2,}', ' ', t)).strip()
 
 
 def _es_preview(src: dict) -> str:
     body = src.get('body') or src.get('snippet') or src.get('preview') or ''
-    text = re.sub(r'\s+', ' ', _fix_mojibake(str(body))).strip()
+    text = _strip_html(str(body)) if '<' in str(body) else _fix_mojibake(str(body))
+    text = re.sub(r'\s+', ' ', text).strip()
     return text[:180] if text else '—'
+
+
+def _split_mail_body(raw: str) -> tuple[str, str]:
+    """→ (body_html, body_plain)."""
+    raw = _fix_mojibake(raw or '')
+    if not raw.strip():
+        return '', ''
+    if re.search(r'<[a-zA-Z!][^>]*>', raw):
+        return raw, _strip_html(raw)
+    return '', raw
+
+
+def view_mail(mail_id: str, user=None) -> dict[str, Any]:
+    """
+    Mail-Detail für den Viewer — primär aus ES (zuverlässig).
+    Liefert gleiches JSON-Shape wie EDMS api_mail_view (soweit möglich).
+    """
+    mid = str(mail_id or '').strip()
+    if not mid:
+        return {'ok': False, 'error': 'mail_id fehlt'}
+
+    src: dict[str, Any] = {}
+    mail_dict: Optional[dict[str, Any]] = None
+
+    if mid.startswith('es:'):
+        doc_id = mid[3:]
+        try:
+            from elasticsearch import Elasticsearch
+            es = Elasticsearch(_es_hosts())
+            hit = es.get(index=_es_mail_index(), id=doc_id)
+            src = hit.get('_source') or {}
+            mail_dict = _hit_to_mail({'_id': doc_id, '_source': src}).as_dict()
+        except Exception as exc:
+            log.warning('view_mail ES get fehlgeschlagen: %s', exc)
+            return {'ok': False, 'error': f'ES: {exc}'}
+    else:
+        # Fallback: Liste durchsuchen
+        data = list_mails(limit=80, user=user)
+        mail_dict = next((m for m in data.get('results') or [] if m.get('id') == mid), None)
+        if not mail_dict:
+            return {'ok': False, 'error': 'Mail nicht gefunden'}
+
+    if user is not None:
+        try:
+            mark_read(mid, user)
+        except Exception:
+            pass
+
+    raw_body = str(
+        src.get('body') or src.get('body_html') or src.get('html')
+        or src.get('snippet') or src.get('preview') or mail_dict.get('prev') or ''
+    )
+    body_html, body_plain = _split_mail_body(raw_body)
+    subject = _fix_mojibake(
+        str(src.get('subject') or mail_dict.get('subj') or '')
+    )
+    from_ = _fix_mojibake(
+        str(src.get('from_addr') or src.get('from') or mail_dict.get('from') or '')
+    )
+    to_ = _fix_mojibake(str(src.get('to_addr') or src.get('to') or ''))
+    date_ = str(src.get('date') or mail_dict.get('received_at') or '')
+
+    atts = []
+    for i, a in enumerate(src.get('attachments') or []):
+        if isinstance(a, dict):
+            atts.append({
+                'index': i,
+                'filename': a.get('filename') or a.get('name') or f'anhang_{i}',
+                'size': a.get('size') or a.get('size_bytes') or 0,
+                'content_type': a.get('content_type') or a.get('type') or '',
+            })
+
+    return {
+        'ok': True,
+        'source': 'elasticsearch',
+        'mail_id': mid,
+        'subject': subject,
+        'from': from_,
+        'to': to_,
+        'date': date_,
+        'body_html': body_html,
+        'body_plain': body_plain,
+        'attachments': atts,
+        'account': mail_dict.get('account') or src.get('account') or '',
+        'folder': mail_dict.get('folder') or src.get('folder') or 'INBOX',
+        'uid': str(mail_dict.get('uid') or src.get('uid') or ''),
+        'message_id': mail_dict.get('message_id') or src.get('message_id') or '',
+        'view_params': mail_dict.get('view_params') or {
+            'account': mail_dict.get('account') or src.get('account') or '',
+            'folder': mail_dict.get('folder') or src.get('folder') or 'INBOX',
+            'uid': str(mail_dict.get('uid') or src.get('uid') or ''),
+            'message_id': mail_dict.get('message_id') or src.get('message_id') or '',
+        },
+        'crm': mail_dict.get('crm'),
+        'hint': 'Volltext aus ES-Index (IMAP-Detail optional über EDMS).',
+    }
 
 
 def _es_unread(src: dict, dt: Optional[datetime] = None) -> bool:
