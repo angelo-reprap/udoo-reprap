@@ -164,4 +164,23 @@ PROZESS_REGELN = [
             },
         ],
     },
+    {
+        'name': 'Zeit ohne Reaktion: Wiedervorlage',
+        'beschreibung': 'Offene Aufgabe länger als 5 Tage ohne Aktivität → Wiedervorlage',
+        'ausloeser_typ': 'zeit_ohne_reaktion',
+        'ausloeser_wert': '5',
+        'schritte': [
+            {
+                'reihenfolge': 1,
+                'aktion_art': 'aufgabe_erzeugen',
+                'parameter': {
+                    'art': 'wiedervorlage',
+                    'titel': 'Nachfassen (keine Reaktion)',
+                    'frist_offset': '+0d',
+                    'prioritaet': 2,
+                },
+                'frist_offset': '+0d',
+            },
+        ],
+    },
 ]
