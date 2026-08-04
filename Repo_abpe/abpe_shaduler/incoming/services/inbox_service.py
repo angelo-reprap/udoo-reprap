@@ -2,8 +2,9 @@
 inbox_service — Posteingang read-only (Architektur Kap. 1 / 6).
 
 Quellen (Reihenfolge):
-  1) ingest_email-DB (EmailMessage / MailAccount), falls App vorhanden
-  2) Direkt-IMAP laut Settings / settings.json (Host z.B. 172.20.3.150)
+  1) Elasticsearch-Index ``abpe_emails`` (von ingest/automail bereits indexiert)
+  2) ingest_email-DB (EmailMessage), falls App vorhanden
+  3) Direkt-IMAP laut Settings / settings.json (Host z.B. 172.20.3.150)
 
 Kein Löschen/Verschieben — nur Header + kurzer Preview.
 """
@@ -429,6 +430,204 @@ def _fetch_imap_account(acc: ImapAccount, limit: int = 25) -> list[InboxMail]:
     return mails
 
 
+def _es_hosts() -> list[str]:
+    cfg = _load_json_settings()
+    es_cfg = cfg.get('elasticsearch') or {}
+    hosts = es_cfg.get('hosts')
+    if not hosts:
+        dsl = getattr(settings, 'ELASTICSEARCH_DSL', None) or {}
+        if isinstance(dsl, dict):
+            hosts = (dsl.get('default') or {}).get('hosts')
+    if not hosts:
+        hosts = getattr(settings, 'ELASTICSEARCH_HOSTS', None)
+    if not hosts:
+        hosts = ['http://localhost:9200']
+    if isinstance(hosts, str):
+        hosts = [hosts]
+    # django-elasticsearch-dsl akzeptiert manchmal "localhost:9200" ohne Schema
+    out = []
+    for h in hosts:
+        h = str(h).strip()
+        if h and '://' not in h:
+            h = f'http://{h}'
+        if h:
+            out.append(h)
+    return out or ['http://localhost:9200']
+
+
+def _es_mail_index() -> str:
+    cfg = _load_json_settings()
+    sh = cfg.get('shaduler') or {}
+    return (
+        sh.get('es_mail_index')
+        or (cfg.get('elasticsearch') or {}).get('mail_index')
+        or getattr(settings, 'SHADULER_ES_MAIL_INDEX', None)
+        or 'abpe_emails'
+    )
+
+
+def _es_inbox_query() -> dict[str, Any]:
+    """Optional: Account-/Folder-Filter aus settings.json → shaduler.es_mail."""
+    cfg = _load_json_settings()
+    sh = (cfg.get('shaduler') or {}).get('es_mail') or {}
+    accounts = sh.get('accounts') or getattr(settings, 'SHADULER_ES_ACCOUNTS', None) or []
+    folder = sh.get('folder')
+    if folder is None:
+        folder = getattr(settings, 'SHADULER_ES_FOLDER', 'INBOX')
+
+    filters: list[dict] = []
+    if accounts:
+        if isinstance(accounts, str):
+            accounts = [accounts]
+        filters.append({'terms': {'account': list(accounts)}})
+    if folder:
+        # folder ist je nach Mapping keyword oder text — beides versuchen
+        filters.append({
+            'bool': {
+                'should': [
+                    {'term': {'folder': folder}},
+                    {'term': {'folder.keyword': folder}},
+                    {'match_phrase': {'folder': folder}},
+                ],
+                'minimum_should_match': 1,
+            }
+        })
+    if filters:
+        return {'bool': {'filter': filters}}
+    return {'match_all': {}}
+
+
+def _es_preview(src: dict) -> str:
+    body = src.get('body') or src.get('snippet') or src.get('preview') or ''
+    text = re.sub(r'\s+', ' ', str(body)).strip()
+    return text[:180] if text else '—'
+
+
+def _es_unread(src: dict) -> bool:
+    if 'unread' in src:
+        return bool(src.get('unread'))
+    if 'seen' in src:
+        return not bool(src.get('seen'))
+    if 'is_read' in src:
+        return not bool(src.get('is_read'))
+    flags = str(src.get('flags') or src.get('flag') or '').lower()
+    if flags:
+        return 'seen' not in flags and '\\seen' not in flags
+    return True
+
+
+def _es_parse_date(raw) -> Optional[datetime]:
+    if raw is None or raw == '':
+        return None
+    if isinstance(raw, datetime):
+        return raw
+    if isinstance(raw, (int, float)):
+        try:
+            return datetime.fromtimestamp(float(raw) / (1000 if raw > 1e12 else 1), tz=timezone.utc)
+        except Exception:
+            return None
+    s = str(raw).strip()
+    dt = parse_datetime(s)
+    if dt:
+        return dt
+    try:
+        return parsedate_to_datetime(s)
+    except Exception:
+        return None
+
+
+def _hit_to_mail(hit: dict) -> InboxMail:
+    src = hit.get('_source') or {}
+    es_id = hit.get('_id') or ''
+    subj = src.get('subject') or '(ohne Betreff)'
+    from_ = src.get('from_addr') or src.get('from') or '—'
+    account = src.get('account') or ''
+    folder = src.get('folder') or 'INBOX'
+    box = account or folder
+    dt = _es_parse_date(src.get('date') or src.get('received_at'))
+    return InboxMail(
+        id=f'es:{es_id}',
+        subj=str(subj),
+        from_=str(from_),
+        box=str(box),
+        age=_age_label(dt) if dt else '',
+        prev=_es_preview(src),
+        unread=_es_unread(src),
+        crm=_crm_hint_for_email(str(from_)),
+        received_at=dt.isoformat() if dt else (str(src.get('date') or '') or None),
+        account=str(account),
+    )
+
+
+def _list_from_elasticsearch(limit: int = 40) -> Optional[list[InboxMail]]:
+    """Liest den bereits indexierten Mail-Index ``abpe_emails`` (read-only)."""
+    try:
+        from elasticsearch import Elasticsearch
+    except ImportError:
+        log.info('elasticsearch-Paket nicht installiert — Skip ES-Quelle')
+        return None
+
+    hosts = _es_hosts()
+    index = _es_mail_index()
+    body = {
+        'size': max(1, min(int(limit), 200)),
+        'query': _es_inbox_query(),
+        'sort': [{'date': {'order': 'desc'}}],
+        '_source': [
+            'subject', 'from_addr', 'to_addr', 'date', 'folder', 'account',
+            'message_id', 'uid', 'has_attachments', 'body', 'snippet', 'preview',
+            'flags', 'unread', 'seen', 'is_read',
+        ],
+    }
+    try:
+        es = Elasticsearch(hosts)
+        res = es.search(index=index, body=body)
+    except Exception as exc:
+        log.warning('ES %s @ %s fehlgeschlagen: %s', index, hosts, exc)
+        return None
+
+    hits = (res.get('hits') or {}).get('hits') or []
+    # Wenn Folder-Filter nichts liefert: ohne Folder nochmal (Accounts behalten)
+    if not hits:
+        cfg = _load_json_settings()
+        sh = (cfg.get('shaduler') or {}).get('es_mail') or {}
+        folder = sh.get('folder', getattr(settings, 'SHADULER_ES_FOLDER', 'INBOX'))
+        if folder:
+            try:
+                body2 = dict(body)
+                body2['query'] = {'match_all': {}}
+                accounts = sh.get('accounts') or []
+                if accounts:
+                    if isinstance(accounts, str):
+                        accounts = [accounts]
+                    body2['query'] = {'bool': {'filter': [{'terms': {'account': list(accounts)}}]}}
+                res2 = es.search(index=index, body=body2)
+                hits = (res2.get('hits') or {}).get('hits') or []
+            except Exception as exc:
+                log.warning('ES Fallback match_all fehlgeschlagen: %s', exc)
+
+    return [_hit_to_mail(h) for h in hits]
+
+
+def _get_es_mail(mail_id: str) -> Optional[dict[str, Any]]:
+    """Einzelne Mail aus ES (id = es:<_id>)."""
+    if not str(mail_id).startswith('es:'):
+        return None
+    doc_id = str(mail_id)[3:]
+    try:
+        from elasticsearch import Elasticsearch
+        es = Elasticsearch(_es_hosts())
+        hit = es.get(index=_es_mail_index(), id=doc_id)
+        if not hit or not hit.get('found', True):
+            # ältere Clients: get wirft oder liefert _source
+            pass
+        mail = _hit_to_mail({'_id': doc_id, '_source': hit.get('_source') or {}})
+        return mail.as_dict()
+    except Exception as exc:
+        log.warning('ES get %s fehlgeschlagen: %s', mail_id, exc)
+        return None
+
+
 def _list_from_ingest_db(limit: int = 40) -> Optional[list[InboxMail]]:
     """Liest bereits ingestete Mails aus der DB, wenn Modell existiert."""
     try:
@@ -499,6 +698,22 @@ def list_mails(limit: int = 40, *, force_imap: bool = False) -> dict[str, Any]:
     Returns: {ok, source, results, accounts, error?}
     """
     if not force_imap:
+        es_mails = _list_from_elasticsearch(limit=limit)
+        if es_mails is not None:
+            # leere Liste zählt als Erfolg (Index erreichbar, nur keine Treffer)
+            boxes: dict[str, int] = {}
+            for m in es_mails:
+                boxes[m.box or m.account or '?'] = boxes.get(m.box or m.account or '?', 0) + 1
+            return {
+                'ok': True,
+                'demo': False,
+                'source': 'elasticsearch',
+                'index': _es_mail_index(),
+                'results': [m.as_dict() for m in es_mails],
+                'accounts': [{'label': k, 'count': v} for k, v in boxes.items()],
+                'unread': sum(1 for m in es_mails if m.unread),
+            }
+
         db_mails = _list_from_ingest_db(limit=limit)
         if db_mails is not None:
             return {
@@ -520,9 +735,9 @@ def list_mails(limit: int = 40, *, force_imap: bool = False) -> dict[str, Any]:
             'accounts': [],
             'unread': 0,
             'error': (
-                'Keine IMAP-Accounts. Bitte SHADULER_IMAP_ACCOUNTS in Settings '
-                'oder settings.json → shaduler.imap_accounts setzen '
-                '(host 172.20.3.150, user, password).'
+                'Keine Mail-Quelle. Elasticsearch (abpe_emails) nicht erreichbar und '
+                'keine IMAP-Accounts. Prüfe ES auf localhost:9200 bzw. settings.json '
+                '→ shaduler.imap_accounts (host 172.20.3.150).'
             ),
         }
 
@@ -560,21 +775,24 @@ def list_mails(limit: int = 40, *, force_imap: bool = False) -> dict[str, Any]:
 
 
 def mail_to_aufgabe(mail_id: str, user, *, art: str = 'email') -> dict[str, Any]:
-    """Erzeugt Aufgabe aus Mail-ID (db:… oder user:folder:uid)."""
+    """Erzeugt Aufgabe aus Mail-ID (es:… / db:… oder user:folder:uid)."""
     from . import aufgaben_service, aktivitaet_service
     from apps.abpe_shaduler.models import Aufgabe
 
-    # Mail nachladen (knapp)
-    data = list_mails(limit=80, force_imap=not str(mail_id).startswith('db:'))
-    mail = next((m for m in data.get('results') or [] if m.get('id') == mail_id), None)
+    mail = None
+    mid = str(mail_id)
+    if mid.startswith('es:'):
+        mail = _get_es_mail(mid)
+    if mail is None:
+        data = list_mails(limit=80, force_imap=not mid.startswith(('db:', 'es:')))
+        mail = next((m for m in data.get('results') or [] if m.get('id') == mid), None)
     if not mail:
-        # minimale Aufgabe trotzdem
         mail = {
-            'id': mail_id,
-            'subj': f'Mail {mail_id}',
+            'id': mid,
+            'subj': f'Mail {mid}',
             'from': '',
             'prev': '',
-            'box': 'IMAP',
+            'box': 'Mail',
         }
 
     titel = (mail.get('subj') or 'Mail-Aufgabe')[:200]
@@ -582,7 +800,7 @@ def mail_to_aufgabe(mail_id: str, user, *, art: str = 'email') -> dict[str, Any]
         f"Von: {mail.get('from') or '—'}\n"
         f"Postfach: {mail.get('box') or '—'}\n"
         f"Preview: {mail.get('prev') or '—'}\n"
-        f"Mail-ID: {mail_id}"
+        f"Mail-ID: {mid}"
     )
     aufgabe = aufgaben_service.erstellen(
         art=art or Aufgabe.Art.EMAIL,
@@ -590,7 +808,7 @@ def mail_to_aufgabe(mail_id: str, user, *, art: str = 'email') -> dict[str, Any]
         zugewiesen_an=user,
         beschreibung=beschreibung,
         ref_type='mail',
-        ref_id=str(mail_id)[:64],
+        ref_id=str(mid)[:64],
         quelle=Aufgabe.Quelle.MAIL,
         user=user,
     )
@@ -598,14 +816,14 @@ def mail_to_aufgabe(mail_id: str, user, *, art: str = 'email') -> dict[str, Any]
         medium='email',
         titel=f'Aufgabe aus Posteingang: {titel}',
         ref_type='mail',
-        ref_id=str(mail_id)[:64],
+        ref_id=str(mid)[:64],
         user=user,
         details={'aufgabe_id': str(aufgabe.pk), 'mail': mail},
     )
     return {
         'ok': True,
         'created': aufgaben_service.serialize(aufgabe),
-        'mail_id': mail_id,
+        'mail_id': mid,
     }
 
 
@@ -618,8 +836,31 @@ def probe() -> dict[str, Any]:
             for m in app.get_models():
                 models_found.append(f'{app.label}.{m.__name__}')
     accounts = get_imap_accounts()
+
+    es_info: dict[str, Any] = {
+        'hosts': _es_hosts(),
+        'index': _es_mail_index(),
+        'reachable': False,
+        'count': None,
+        'error': None,
+    }
+    try:
+        from elasticsearch import Elasticsearch
+        es = Elasticsearch(es_info['hosts'])
+        es_info['reachable'] = bool(es.ping())
+        if es_info['reachable']:
+            try:
+                es_info['count'] = es.count(index=es_info['index']).get('count')
+            except Exception as exc:
+                es_info['error'] = f'count: {exc}'
+        else:
+            es_info['error'] = 'ping failed'
+    except Exception as exc:
+        es_info['error'] = str(exc)[:200]
+
     return {
         'ok': True,
+        'elasticsearch': es_info,
         'ingest_related_models': models_found[:40],
         'accounts': [
             {'host': a.host, 'port': a.port, 'user': a.user, 'folder': a.folder,
@@ -627,6 +868,7 @@ def probe() -> dict[str, Any]:
             for a in accounts
         ],
         'default_host_hint': '172.20.3.150',
+        'source_order': ['elasticsearch:abpe_emails', 'ingest_email_db', 'imap'],
     }
 
 

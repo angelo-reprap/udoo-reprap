@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# Optional: Dateien aus Repo-Branch nach Live rsyncen (Register bleibt manuell).
+# Repo → Live: überschreibt abpe_shaduler (+ ausgewählte Shaduler-UI-Dateien).
+# rsync --delete auf LIVE_APP — Live-only migrations/0*.py bleiben (P-Filter).
+# Berührt NICHT ingest_email / andere Apps. Für ingest_email → Repo: PULL-ingest-email-from-live.sh
 set -euo pipefail
 REPO="${REPO:-/mnt/public/udoo-reprap}"
 BRANCH="${BRANCH:-origin/cursor/abpe-shaduler-scaffold-7f07}"

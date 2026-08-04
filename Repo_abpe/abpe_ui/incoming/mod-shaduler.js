@@ -245,15 +245,27 @@
       .then(function (pack) {
         var data = pack.j || {};
         var c = document.getElementById('sh-inbox');
+        var hint = document.querySelector('[data-pane="posteingang"] .card-h span');
         if (!pack.ok || data.ok === false) {
           if (c) {
             c.innerHTML =
               '<div class="none" style="padding:12px">' +
-              esc(data.error || _t('sh.inbox_error', 'Posteingang nicht erreichbar (IMAP-Config prüfen).')) +
+              esc(data.error || _t('sh.inbox_error', 'Posteingang nicht erreichbar (ES/IMAP prüfen).')) +
               '</div>';
           }
+          if (hint) hint.textContent = _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick');
           refreshStats();
           return;
+        }
+        if (hint) {
+          var src = data.source || '';
+          var boxes = (data.accounts || []).map(function (a) {
+            return (a.label || a.user || '') + (a.count != null ? ' (' + a.count + ')' : '');
+          }).filter(Boolean).join(' · ');
+          var srcLabel = src === 'elasticsearch' ? 'ES' : (src === 'imap' ? 'IMAP' : (src === 'ingest_email_db' ? 'DB' : src));
+          hint.textContent = _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick') +
+            (srcLabel ? ' · ' + srcLabel : '') +
+            (boxes ? ' · ' + boxes : '');
         }
         renderInbox(data.results || []);
         var el = document.getElementById('tb-post');

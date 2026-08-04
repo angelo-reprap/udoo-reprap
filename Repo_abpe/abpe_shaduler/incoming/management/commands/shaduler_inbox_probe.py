@@ -1,29 +1,41 @@
-"""Diagnose Posteingang / IMAP (Host 172.20.3.150)."""
+"""Diagnose Posteingang: Elasticsearch abpe_emails + IMAP (172.20.3.150)."""
 from django.core.management.base import BaseCommand
 
 from apps.abpe_shaduler.services import inbox_service
 
 
 class Command(BaseCommand):
-    help = 'Zeigt ingest_email-Modelle + IMAP-Accounts und testet optional den Abruf.'
+    help = 'Zeigt ES-Index, ingest_email-Modelle + IMAP-Accounts und testet optional den Abruf.'
 
     def add_arguments(self, parser):
         parser.add_argument('--fetch', action='store_true', help='Mails abrufen (limit)')
         parser.add_argument('--limit', type=int, default=10)
-        parser.add_argument('--force-imap', action='store_true', help='DB überspringen, direkt IMAP')
+        parser.add_argument('--force-imap', action='store_true', help='ES/DB überspringen, direkt IMAP')
 
     def handle(self, *args, **options):
         info = inbox_service.probe()
+        self.stdout.write(self.style.NOTICE('source order: ' + ' → '.join(info.get('source_order') or [])))
+
+        es = info.get('elasticsearch') or {}
+        self.stdout.write(self.style.NOTICE('Elasticsearch:'))
+        self.stdout.write(
+            f"  hosts={es.get('hosts')} index={es.get('index')} "
+            f"reachable={es.get('reachable')} count={es.get('count')}"
+        )
+        if es.get('error'):
+            self.stdout.write(self.style.WARNING(f"  error: {es['error']}"))
+
         self.stdout.write(self.style.NOTICE('ingest-related models:'))
         for m in info.get('ingest_related_models') or []:
             self.stdout.write(f'  - {m}')
-        self.stdout.write(self.style.NOTICE('IMAP accounts:'))
+        if not info.get('ingest_related_models'):
+            self.stdout.write('  (keine)')
+
+        self.stdout.write(self.style.NOTICE('IMAP accounts (Fallback):'))
         accs = info.get('accounts') or []
         if not accs:
             self.stdout.write(self.style.WARNING(
-                '  (keine) — setze z.B. in settings.json:\n'
-                '  "shaduler": {"imap_accounts": [{"host":"172.20.3.150","port":993,'
-                '"user":"...","password":"...","folder":"INBOX","ssl":true,"label":"Dispo"}]}'
+                '  (keine) — nur nötig wenn ES ausfällt; settings.json → shaduler.imap_accounts'
             ))
         for a in accs:
             pw = 'yes' if a.get('has_password') else 'NO'

@@ -284,9 +284,9 @@ ES/FR/IT/… per DeepSeek-Lauf (bestehender Prozess).
 | `build_variables(ref_type, ref_id)` (Kontext-Resolver) | **abpe_composer** | 🔶 **wird noch implementiert — Etappe 1!** Bis dahin: whatsapp_service lokal, E-Mail/Doc mit manuell gebautem Dict |
 | `build_whatsapp_link()` | abpe_composer (Ziel) | 🔶 interimsweise in services/whatsapp_service.py, zieht später um |
 | variables_registry (+ Matching-Vokabular) | email_studio → composer | 🔶 Umzug/Erweiterung geplant |
-| IMAP-Konfiguration + EmailMessage | ingest_email | ✅ vorhanden — inbox_service liest read-only mit |
+| IMAP-Konfiguration + EmailMessage | ingest_email | ✅ vorhanden (Live; Pull-Script → Repo) — Fallback |
 | Absender→Person/Firma (CrmEmailAddrBeanRel) | abpe_crm | ✅ vorhanden |
-| ES-Mail-Index | automail_engine signals | ✅ vorhanden (nur lesen) |
+| ES-Mail-Index `abpe_emails` | automail/ingest | ✅ vorhanden — **Posteingang Primärquelle** |
 | MatchingEngine Stage 1+2 (Quick-Score) | matching_workflow/services | ✅ vorhanden — radar_matcher ruft sie |
 | Ollama Skill-Extraktion aus Text | matching_workflow (Tab „Neu") | ✅ vorhanden — als Service aufrufbar machen *(kleiner Refactor)* |
 | Ollama-Embeddings fürs Clustering | ai-Stack | 🔶 **wird noch implementiert** (Fallback: Fuzzy-Score, reicht für V1) |
