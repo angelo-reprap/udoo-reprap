@@ -263,9 +263,27 @@ def api_inbox_list(request):
     except ValueError:
         limit = 40
     force_imap = request.GET.get('imap') == '1'
-    data = inbox_service.list_mails(limit=limit, force_imap=force_imap)
+    account = (request.GET.get('account') or '').strip()
+    data = inbox_service.list_mails(
+        limit=limit,
+        force_imap=force_imap,
+        user=request.user,
+        account=account or None,
+    )
     status = 200 if data.get('ok') else 503
     return JsonResponse(data, status=status)
+
+
+@login_required
+@require_POST
+def api_inbox_mark_read(request, mail_id):
+    from apps.abpe_shaduler.services import inbox_service
+    try:
+        result = inbox_service.mark_read(mail_id, request.user)
+        status = 200 if result.get('ok') else 400
+        return JsonResponse(result, status=status)
+    except Exception as exc:
+        return JsonResponse({'ok': False, 'error': str(exc)}, status=400)
 
 
 @login_required

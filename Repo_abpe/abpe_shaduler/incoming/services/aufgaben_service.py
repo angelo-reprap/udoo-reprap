@@ -263,11 +263,19 @@ def stats(user) -> dict[str, Any]:
         'erledigt_heute': erledigt_heute,
         'badges': {
             'aufgaben': heute + ueber,
-            'posteingang': 0,
+            'posteingang': _inbox_unread_badge(user),
             'radar_anfragen': 0,
             'radar_berater': 0,
         },
     }
+
+
+def _inbox_unread_badge(user) -> int:
+    try:
+        from . import inbox_service
+        return int(inbox_service.unread_count(user) or 0)
+    except Exception:
+        return 0
 
 
 def badge(user) -> int:

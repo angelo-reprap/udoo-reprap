@@ -47,6 +47,9 @@
     "sh.inbox_task": "Aufgabe erzeugen",
     "sh.inbox_matching": "Im Matching öffnen",
     "sh.inbox_reply": "Antworten (Email Studio)",
-    "sh.inbox_outlook": "In Outlook öffnen"
+    "sh.inbox_outlook": "In Outlook öffnen",
+    "sh.inbox_mark_read": "Gelesen",
+    "sh.inbox_unread": "neu",
+    "sh.inbox_all": "Alle"
   }
 }

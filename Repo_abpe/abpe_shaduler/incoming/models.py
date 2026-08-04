@@ -405,3 +405,34 @@ class Sperrliste(TimeStampedModel):
         from .services.firma_normalizer import normalize_firma_name
         self.firma_name_norm = normalize_firma_name(self.firma_name)
         super().save(*args, **kwargs)
+
+
+# ─── Posteingang (ABpE-Gelesen, unabhängig von IMAP \\Seen) ───────────────────
+
+class InboxMailRead(models.Model):
+    """
+    ABpE-eigener Gelesen-Status je User + Mail-ID (es:… / db:… / imap:…).
+    IMAP bleibt read-only — kein \\Seen auf dem Server.
+    """
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+        related_name='shaduler_inbox_reads',
+    )
+    mail_id = models.CharField(max_length=255, db_index=True)
+    read_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        verbose_name = 'Posteingang gelesen'
+        verbose_name_plural = 'Posteingang gelesen'
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'mail_id'], name='shaduler_inboxread_user_mail',
+            ),
+        ]
+        indexes = [
+            models.Index(fields=['user', 'read_at']),
+        ]
+
+    def __str__(self):
+        return f'{self.user_id} · {self.mail_id}'

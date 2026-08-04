@@ -81,3 +81,12 @@ class SperrlisteAdmin(admin.ModelAdmin):
     search_fields = ('firma_name', 'firma_name_norm', 'crm_account_id')
     readonly_fields = ('firma_name_norm',)
     raw_id_fields = ('angelegt_von',)
+
+
+@admin.register(models.InboxMailRead)
+class InboxMailReadAdmin(admin.ModelAdmin):
+    list_display = ('mail_id', 'user', 'read_at')
+    list_filter = ('read_at',)
+    search_fields = ('mail_id',)
+    raw_id_fields = ('user',)
+    date_hierarchy = 'read_at'

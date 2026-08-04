@@ -63,9 +63,10 @@ Radar Anfragen → Radar Berater.
 | Absender→Person/Firma (`CrmEmailAddrBeanRel`) | ✅ vorhanden (abpe_crm) |
 | ES-Index für Mail-Suche | ✅ vorhanden |
 | Email Studio als Antwort-Weg | ✅ vorhanden |
-| `inbox_service` (Header-Leser, ABpE-Gelesen-Status, CRM-Zuordnung) | 🔶 bauen |
-| `api/inbox/` + `api/inbox/<id>/aufgabe/` + Tab-Frontend | 🔶 bauen (Gerüst liegt) |
-| `shaduler_inbox_poll` als SchedulerJob | 🔶 registrieren (Command existiert) |
+| `inbox_service` (Header-Leser, ABpE-Gelesen-Status, CRM-Zuordnung) | ✅ gebaut |
+| `api/inbox/` + `api/inbox/<id>/aufgabe/` + `api/inbox/<id>/read/` + Tab-Frontend | ✅ gebaut |
+| Account-Filter (`?account=`) + Badge aus `api/stats/` | ✅ gebaut |
+| `shaduler_inbox_poll` als SchedulerJob | ✅ registriert |
 | Betreff-basierte Vorgangs-Erkennung | ⬜ später, optional |
 | Exchange/Graph-Deeplink auf Einzelmail | ⬜ später, optional |
 

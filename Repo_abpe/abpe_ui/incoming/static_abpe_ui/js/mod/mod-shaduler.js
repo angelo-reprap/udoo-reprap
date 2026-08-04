@@ -27,10 +27,12 @@
   var cfg = { api_base: '/shaduler/api/', tab: 'aufgaben' };
   var loaded = {};
   var TASKS = [];
-  var STATS = { heute: 0, ueberfaellig: 0, geplant: 0, erledigt_heute: 0 };
+  var STATS = { heute: 0, ueberfaellig: 0, geplant: 0, erledigt_heute: 0, posteingang: 0 };
   var openGroups = { wiedervorlage: true, anruf: true, intern: true };
   var currentTask = null;
   var currentResult = null;
+  var INBOX_ACCOUNT = '';
+  var INBOX_ACCOUNTS = [];
 
   var ARTEN = {
     wiedervorlage: { icon: 'bi-arrow-repeat', cv: '--a-wv', labelKey: 'sh.art_wiedervorlage', label: 'Wiedervorlagen', short: 'wv' },
@@ -90,7 +92,9 @@
         '<div class="card-h"><i class="bi bi-inbox"></i> Posteingang' +
         '<span style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary)">' +
         _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick') +
-        '</span></div><div id="sh-inbox"></div></div></div>'
+        '</span></div>' +
+        '<div class="sh-inbox-filters" id="sh-inbox-filters"></div>' +
+        '<div id="sh-inbox"></div></div></div>'
       );
     }
     if (name === 'radar_anfragen') {
@@ -240,7 +244,9 @@
   }
 
   function loadInbox() {
-    fetch(api('inbox/'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+    var q = 'inbox/?limit=40';
+    if (INBOX_ACCOUNT) q += '&account=' + encodeURIComponent(INBOX_ACCOUNT);
+    fetch(api(q), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (pack) {
         var data = pack.j || {};
@@ -254,25 +260,88 @@
               '</div>';
           }
           if (hint) hint.textContent = _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick');
+          renderInboxFilters([]);
           refreshStats();
           return;
         }
         if (hint) {
           var src = data.source || '';
-          var boxes = (data.accounts || []).map(function (a) {
-            return (a.label || a.user || '') + (a.count != null ? ' (' + a.count + ')' : '');
-          }).filter(Boolean).join(' · ');
           var srcLabel = src === 'elasticsearch' ? 'ES' : (src === 'imap' ? 'IMAP' : (src === 'ingest_email_db' ? 'DB' : src));
           hint.textContent = _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick') +
             (srcLabel ? ' · ' + srcLabel : '') +
-            (boxes ? ' · ' + boxes : '');
+            (data.unread != null ? ' · ' + data.unread + ' ' + _t('sh.inbox_unread', 'neu') : '');
         }
+        INBOX_ACCOUNTS = data.accounts || [];
+        if (data.filter_account) INBOX_ACCOUNT = data.filter_account;
+        renderInboxFilters(INBOX_ACCOUNTS);
         renderInbox(data.results || []);
-        var el = document.getElementById('tb-post');
-        if (el) el.textContent = data.unread != null ? data.unread : (data.results || []).filter(function (m) { return m.unread; }).length;
+        setPostBadge(data.unread != null ? data.unread : (data.results || []).filter(function (m) { return m.unread; }).length);
         refreshStats();
       })
       .catch(function () { renderInbox([]); });
+  }
+
+  function setPostBadge(n) {
+    STATS.posteingang = n || 0;
+    var el = document.getElementById('tb-post');
+    if (el) el.textContent = STATS.posteingang;
+  }
+
+  function renderInboxFilters(accounts) {
+    var f = document.getElementById('sh-inbox-filters');
+    if (!f) return;
+    if (!accounts || !accounts.length) {
+      f.innerHTML = '';
+      return;
+    }
+    var chips =
+      '<button type="button" class="sh-acc-chip' + (!INBOX_ACCOUNT ? ' on' : '') + '" data-account="">' +
+      esc(_t('sh.inbox_all', 'Alle')) + '</button>';
+    accounts.forEach(function (a) {
+      var label = a.label || a.user || '';
+      if (!label) return;
+      var on = INBOX_ACCOUNT && INBOX_ACCOUNT === label;
+      chips +=
+        '<button type="button" class="sh-acc-chip' + (on ? ' on' : '') + '" data-account="' + esc(label) + '">' +
+        esc(label) + (a.count != null ? ' <span class="n">' + a.count + '</span>' : '') +
+        '</button>';
+    });
+    f.innerHTML = chips;
+    f.querySelectorAll('.sh-acc-chip').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        INBOX_ACCOUNT = btn.getAttribute('data-account') || '';
+        loadInbox();
+      });
+    });
+  }
+
+  function markMailRead(id, rowEl) {
+    if (!id) return;
+    fetch(api('inbox/' + encodeURIComponent(id) + '/read/'), {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrfToken(),
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+      body: '{}',
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (!(j && j.ok)) return;
+        if (rowEl) {
+          rowEl.classList.remove('unread');
+          var badge = rowEl.querySelector('.mstat.maybe');
+          if (badge) badge.remove();
+          var hl = rowEl.querySelector('b.hl');
+          if (hl) hl.style.fontWeight = '400';
+          var readBtn = rowEl.querySelector('.sh-mail-read');
+          if (readBtn) readBtn.remove();
+        }
+        if (STATS.posteingang > 0) setPostBadge(STATS.posteingang - 1);
+      })
+      .catch(function () {});
   }
 
   function renderInbox(items) {
@@ -285,26 +354,32 @@
     }
     items.forEach(function (m) {
       var e = document.createElement('div');
-      e.className = 'ritem';
+      e.className = 'ritem' + (m.unread ? ' unread' : '');
+      e.setAttribute('data-mail-id', m.id || '');
       var acts =
         '<button type="button" class="pri sh-mail-task" data-id="' + esc(m.id) + '">' +
         '<i class="bi bi-check2-square"></i> ' + esc(_t('sh.inbox_task', 'Aufgabe erzeugen')) + '</button>';
+      if (m.unread) {
+        acts +=
+          '<button type="button" class="sh-mail-read" data-id="' + esc(m.id) + '">' +
+          '<i class="bi bi-eye"></i> ' + esc(_t('sh.inbox_mark_read', 'Gelesen')) + '</button>';
+      }
       if (m.matching_url) {
         acts +=
-          '<a class="sh-mail-matching" href="' + esc(m.matching_url) + '">' +
+          '<a class="sh-mail-matching" href="' + esc(m.matching_url) + '" data-id="' + esc(m.id) + '">' +
           '<i class="bi bi-diagram-3"></i> ' + esc(_t('sh.inbox_matching', 'Im Matching öffnen')) + '</a>';
       }
       acts +=
-        '<a class="sh-mail-studio" href="' + esc(m.email_studio_url || '/email-studio/studio/') + '">' +
+        '<a class="sh-mail-studio" href="' + esc(m.email_studio_url || '/email-studio/studio/') + '" data-id="' + esc(m.id) + '">' +
         '<i class="bi bi-envelope-at"></i> ' + esc(_t('sh.inbox_reply', 'Antworten (Email Studio)')) + '</a>';
       if (m.mailto_url) {
         acts +=
-          '<a class="sh-mail-outlook" href="' + esc(m.mailto_url) + '">' +
+          '<a class="sh-mail-outlook" href="' + esc(m.mailto_url) + '" data-id="' + esc(m.id) + '">' +
           '<i class="bi bi-box-arrow-up-right"></i> ' + esc(_t('sh.inbox_outlook', 'In Outlook öffnen')) + '</a>';
       }
       e.innerHTML =
         '<div class="top">' +
-        (m.unread ? '<span class="mstat maybe" style="min-width:auto">neu</span>' : '') +
+        (m.unread ? '<span class="mstat maybe" style="min-width:auto">' + esc(_t('sh.inbox_unread', 'neu')) + '</span>' : '') +
         '<b class="hl" style="' + (m.unread ? '' : 'font-weight:400') + '">' + esc(m.subj) + '</b>' +
         '<span class="src">' + esc(m.box) + '</span><span class="age">' + esc(m.age) + '</span></div>' +
         '<div class="meta"><i class="bi bi-person"></i> ' + esc(m.from) +
@@ -316,6 +391,7 @@
     c.querySelectorAll('.sh-mail-task').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var id = btn.getAttribute('data-id');
+        var row = btn.closest('.ritem');
         fetch(api('inbox/' + encodeURIComponent(id) + '/aufgabe/'), {
           method: 'POST',
           credentials: 'same-origin',
@@ -330,12 +406,32 @@
           .then(function (j) {
             if (j && j.ok) {
               toast(_t('sh.toast_mail_task', 'Aufgabe aus Mail erzeugt'));
-              TASKS = null; // Cache leeren
+              TASKS = null;
+              if (row) {
+                row.classList.remove('unread');
+                var badge = row.querySelector('.mstat.maybe');
+                if (badge) badge.remove();
+                var hl = row.querySelector('b.hl');
+                if (hl) hl.style.fontWeight = '400';
+                var readBtn = row.querySelector('.sh-mail-read');
+                if (readBtn) readBtn.remove();
+              }
+              if (STATS.posteingang > 0) setPostBadge(STATS.posteingang - 1);
             } else {
               toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
             }
           })
           .catch(function () { toast(_t('sh.toast_error', 'Speichern fehlgeschlagen')); });
+      });
+    });
+    c.querySelectorAll('.sh-mail-read').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        markMailRead(btn.getAttribute('data-id'), btn.closest('.ritem'));
+      });
+    });
+    c.querySelectorAll('.sh-mail-matching, .sh-mail-studio, .sh-mail-outlook').forEach(function (a) {
+      a.addEventListener('click', function () {
+        markMailRead(a.getAttribute('data-id'), a.closest('.ritem'));
       });
     });
   }
@@ -489,9 +585,10 @@
 
   function refreshStatsFrom(stats) {
     var b = (stats && stats.badges) || {};
+    if (b.posteingang != null) STATS.posteingang = b.posteingang;
     var el;
     el = document.getElementById('tb-a'); if (el) el.textContent = b.aufgaben != null ? b.aufgaben : (STATS.heute + STATS.ueberfaellig);
-    el = document.getElementById('tb-post'); if (el) el.textContent = b.posteingang || 0;
+    el = document.getElementById('tb-post'); if (el) el.textContent = b.posteingang != null ? b.posteingang : (STATS.posteingang || 0);
     el = document.getElementById('tb-ra'); if (el) el.textContent = b.radar_anfragen || 0;
     el = document.getElementById('tb-rb'); if (el) el.textContent = b.radar_berater || 0;
     el = document.getElementById('n-today'); if (el) el.textContent = STATS.heute;
@@ -509,6 +606,9 @@
           ueberfaellig: data.ueberfaellig || 0,
           geplant: data.geplant || 0,
           erledigt_heute: data.erledigt_heute || 0,
+          posteingang: ((data.badges || {}).posteingang != null
+            ? data.badges.posteingang
+            : (STATS.posteingang || 0)),
         };
         refreshStatsFrom(data);
       })
@@ -569,6 +669,7 @@
       geplant: STATS.geplant, erledigt_heute: STATS.erledigt_heute,
       badges: {
         aufgaben: TASKS.filter(function (t) { return t.ueberfaellig || t.bucket === 'heute'; }).length,
+        posteingang: STATS.posteingang || 0,
       },
     });
   }

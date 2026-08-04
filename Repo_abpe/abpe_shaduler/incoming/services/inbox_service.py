@@ -530,7 +530,7 @@ def _es_sane_date_filters() -> list[dict]:
     ]
 
 
-def _es_inbox_query() -> dict[str, Any]:
+def _es_inbox_query(*, account: Optional[str] = None) -> dict[str, Any]:
     """Account-/Folder-/Zeitfenster-Filter aus settings.json → shaduler.es_mail."""
     sh = _es_mail_cfg()
     accounts = sh.get('accounts') or getattr(settings, 'SHADULER_ES_ACCOUNTS', None) or []
@@ -542,7 +542,19 @@ def _es_inbox_query() -> dict[str, Any]:
         days = getattr(settings, 'SHADULER_ES_DAYS', None)
 
     filters: list[dict] = list(_es_sane_date_filters())
-    if accounts:
+    account = (account or '').strip()
+    if account:
+        filters.append({
+            'bool': {
+                'should': [
+                    {'term': {'account': account}},
+                    {'term': {'account.keyword': account}},
+                    {'match_phrase': {'account': account}},
+                ],
+                'minimum_should_match': 1,
+            }
+        })
+    elif accounts:
         if isinstance(accounts, str):
             accounts = [accounts]
         filters.append({'terms': {'account': list(accounts)}})
@@ -583,6 +595,7 @@ def _es_preview(src: dict) -> str:
 
 
 def _es_unread(src: dict, dt: Optional[datetime] = None) -> bool:
+    """Initiale „neu“-Heuristik; ABpE-Gelesen überschreibt später via InboxMailRead."""
     if 'unread' in src:
         return bool(src.get('unread'))
     if 'seen' in src:
@@ -592,7 +605,7 @@ def _es_unread(src: dict, dt: Optional[datetime] = None) -> bool:
     flags = str(src.get('flags') or src.get('flag') or '').lower()
     if flags:
         return 'seen' not in flags and '\\seen' not in flags
-    # Ohne IMAP-Flags: nur frische Mails als „neu“ (ABpE-Gelesen-Status kommt später)
+    # Ohne Flags: frische Mails als neu — Portal-Gelesen kommt aus InboxMailRead
     if dt is not None:
         try:
             now = dj_tz.now()
@@ -602,6 +615,64 @@ def _es_unread(src: dict, dt: Optional[datetime] = None) -> bool:
         except Exception:
             pass
     return False
+
+
+def _read_mail_ids(user) -> set[str]:
+    if user is None or not getattr(user, 'pk', None):
+        return set()
+    try:
+        from apps.abpe_shaduler.models import InboxMailRead
+        return set(
+            InboxMailRead.objects.filter(user=user)
+            .values_list('mail_id', flat=True)[:5000]
+        )
+    except Exception as exc:
+        log.warning('InboxMailRead lesen fehlgeschlagen: %s', exc)
+        return set()
+
+
+def _apply_user_read(mails: list[InboxMail], user) -> list[InboxMail]:
+    """ABpE-Gelesen überschreibt Heuristik/IMAP — IMAP bleibt unverändert."""
+    read_ids = _read_mail_ids(user)
+    if not read_ids:
+        return mails
+    for m in mails:
+        if m.id in read_ids:
+            m.unread = False
+    return mails
+
+
+def mark_read(mail_id: str, user) -> dict[str, Any]:
+    """Markiert Mail als in ABpE gelesen (kein IMAP \\Seen)."""
+    from apps.abpe_shaduler.models import InboxMailRead
+
+    mid = str(mail_id or '').strip()[:255]
+    if not mid:
+        return {'ok': False, 'error': 'mail_id fehlt'}
+    if user is None or not getattr(user, 'pk', None):
+        return {'ok': False, 'error': 'user fehlt'}
+    row, created = InboxMailRead.objects.update_or_create(
+        user=user,
+        mail_id=mid,
+        defaults={'read_at': dj_tz.now()},
+    )
+    return {
+        'ok': True,
+        'mail_id': mid,
+        'unread': False,
+        'created': created,
+        'read_at': row.read_at.isoformat() if row.read_at else None,
+    }
+
+
+def unread_count(user, *, limit: int = 40) -> int:
+    """Badge-Zähler: ungelesen in der aktuellen Posteingang-Liste."""
+    try:
+        data = list_mails(limit=limit, user=user)
+        return int(data.get('unread') or 0)
+    except Exception as exc:
+        log.warning('unread_count fehlgeschlagen: %s', exc)
+        return 0
 
 
 def _es_parse_date(raw) -> Optional[datetime]:
@@ -653,7 +724,9 @@ def _hit_to_mail(hit: dict) -> InboxMail:
     ))
 
 
-def _list_from_elasticsearch(limit: int = 40) -> Optional[list[InboxMail]]:
+def _list_from_elasticsearch(
+    limit: int = 40, *, account: Optional[str] = None,
+) -> Optional[list[InboxMail]]:
     """Liest den bereits indexierten Mail-Index ``abpe_emails`` (read-only)."""
     try:
         from elasticsearch import Elasticsearch
@@ -665,7 +738,7 @@ def _list_from_elasticsearch(limit: int = 40) -> Optional[list[InboxMail]]:
     index = _es_mail_index()
     body = {
         'size': max(1, min(int(limit), 200)),
-        'query': _es_inbox_query(),
+        'query': _es_inbox_query(account=account),
         'sort': [{'date': {'order': 'desc', 'unmapped_type': 'date'}}],
         '_source': [
             'subject', 'from_addr', 'to_addr', 'date', 'folder', 'account',
@@ -682,7 +755,8 @@ def _list_from_elasticsearch(limit: int = 40) -> Optional[list[InboxMail]]:
 
     hits = (res.get('hits') or {}).get('hits') or []
     # Wenn Filter (Folder/days) nichts liefert: nur sane dates (+ Accounts)
-    if not hits:
+    # Nicht bei explizitem Account-Filter — leere Liste ist dann korrekt.
+    if not hits and not (account or '').strip():
         sh = _es_mail_cfg()
         try:
             body2 = dict(body)
@@ -699,6 +773,32 @@ def _list_from_elasticsearch(limit: int = 40) -> Optional[list[InboxMail]]:
             log.warning('ES Fallback fehlgeschlagen: %s', exc)
 
     return [_hit_to_mail(h) for h in hits]
+
+
+def _account_chips(mails: list[InboxMail], *, filter_account: str = '') -> list[dict]:
+    """Postfach-Chips: konfigurierte Accounts + Treffer-Counts."""
+    boxes: dict[str, int] = {}
+    for m in mails:
+        key = (m.account or m.box or '').strip() or '?'
+        boxes[key] = boxes.get(key, 0) + 1
+    configured = _es_mail_cfg().get('accounts') or getattr(settings, 'SHADULER_ES_ACCOUNTS', None) or []
+    if isinstance(configured, str):
+        configured = [configured]
+    for acc in configured:
+        acc = str(acc).strip()
+        if acc and acc not in boxes:
+            boxes[acc] = 0
+    out = []
+    for k, v in sorted(boxes.items(), key=lambda kv: (-kv[1], kv[0].lower())):
+        row: dict[str, Any] = {
+            'label': k,
+            'active': bool(filter_account) and k == filter_account,
+        }
+        # Bei aktivem Filter sind Counts anderer Postfächer unzuverlässig → weglassen
+        if not filter_account or k == filter_account:
+            row['count'] = v
+        out.append(row)
+    return out
 
 
 def _get_es_mail(mail_id: str) -> Optional[dict[str, Any]]:
@@ -766,18 +866,36 @@ def _list_from_ingest_db(limit: int = 40) -> Optional[list[InboxMail]]:
         return None
 
 
-def list_mails(limit: int = 40, *, force_imap: bool = False) -> dict[str, Any]:
+def _filter_by_account(mails: list[InboxMail], account: Optional[str]) -> list[InboxMail]:
+    acc = (account or '').strip().lower()
+    if not acc:
+        return mails
+    out = []
+    for m in mails:
+        keys = {(m.account or '').strip().lower(), (m.box or '').strip().lower()}
+        if acc in keys:
+            out.append(m)
+    return out
+
+
+def list_mails(
+    limit: int = 40,
+    *,
+    force_imap: bool = False,
+    user=None,
+    account: Optional[str] = None,
+) -> dict[str, Any]:
     """
     Haupt-API für den Posteingang.
-    Returns: {ok, source, results, accounts, error?}
+    Returns: {ok, source, results, accounts, unread, error?}
+    ``user`` → ABpE-Gelesen-Overlay; ``account`` → Postfach-Filter.
     """
+    filter_account = (account or '').strip()
+
     if not force_imap:
-        es_mails = _list_from_elasticsearch(limit=limit)
+        es_mails = _list_from_elasticsearch(limit=limit, account=filter_account or None)
         if es_mails is not None:
-            # leere Liste zählt als Erfolg (Index erreichbar, nur keine Treffer)
-            boxes: dict[str, int] = {}
-            for m in es_mails:
-                boxes[m.box or m.account or '?'] = boxes.get(m.box or m.account or '?', 0) + 1
+            es_mails = _apply_user_read(es_mails, user)
             hint = None
             if es_mails:
                 # Wenn neueste Mail > 14 Tage: Indexierung vermutlich stehengeblieben
@@ -802,19 +920,23 @@ def list_mails(limit: int = 40, *, force_imap: bool = False) -> dict[str, Any]:
                 'source': 'elasticsearch',
                 'index': _es_mail_index(),
                 'results': [m.as_dict() for m in es_mails],
-                'accounts': [{'label': k, 'count': v} for k, v in boxes.items()],
+                'accounts': _account_chips(es_mails, filter_account=filter_account),
+                'filter_account': filter_account,
                 'unread': sum(1 for m in es_mails if m.unread),
                 'hint': hint,
             }
 
         db_mails = _list_from_ingest_db(limit=limit)
         if db_mails is not None:
+            db_mails = _apply_user_read(db_mails, user)
+            db_mails = _filter_by_account(db_mails, filter_account)
             return {
                 'ok': True,
                 'demo': False,
                 'source': 'ingest_email_db',
                 'results': [m.as_dict() for m in db_mails],
-                'accounts': [],
+                'accounts': _account_chips(db_mails, filter_account=filter_account),
+                'filter_account': filter_account,
                 'unread': sum(1 for m in db_mails if m.unread),
             }
 
@@ -826,6 +948,7 @@ def list_mails(limit: int = 40, *, force_imap: bool = False) -> dict[str, Any]:
             'source': 'none',
             'results': [],
             'accounts': [],
+            'filter_account': filter_account,
             'unread': 0,
             'error': (
                 'Keine Mail-Quelle. Elasticsearch (abpe_emails) nicht erreichbar und '
@@ -837,6 +960,14 @@ def list_mails(limit: int = 40, *, force_imap: bool = False) -> dict[str, Any]:
     all_mails: list[InboxMail] = []
     errors = []
     for acc in accounts:
+        if filter_account:
+            keys = {
+                (acc.user or '').strip().lower(),
+                (acc.label or '').strip().lower(),
+                (acc.box_label or '').strip().lower(),
+            }
+            if filter_account.lower() not in keys:
+                continue
         try:
             all_mails.extend(_fetch_imap_account(acc, limit=max(5, limit // max(1, len(accounts)))))
         except Exception as exc:
@@ -856,13 +987,19 @@ def list_mails(limit: int = 40, *, force_imap: bool = False) -> dict[str, Any]:
     except Exception:
         pass
 
+    all_mails = _apply_user_read(all_mails, user)
+    sliced = all_mails[:limit]
     return {
         'ok': True,
         'demo': False,
         'source': 'imap',
-        'results': [m.as_dict() for m in all_mails[:limit]],
-        'accounts': [{'host': a.host, 'user': a.user, 'folder': a.folder, 'label': a.label} for a in accounts],
-        'unread': sum(1 for m in all_mails if m.unread),
+        'results': [m.as_dict() for m in sliced],
+        'accounts': _account_chips(sliced, filter_account=filter_account) or [
+            {'host': a.host, 'user': a.user, 'folder': a.folder, 'label': a.label, 'count': 0}
+            for a in accounts
+        ],
+        'filter_account': filter_account,
+        'unread': sum(1 for m in sliced if m.unread),
         'errors': errors,
     }
 
@@ -913,10 +1050,15 @@ def mail_to_aufgabe(mail_id: str, user, *, art: str = 'email') -> dict[str, Any]
         user=user,
         details={'aufgabe_id': str(aufgabe.pk), 'mail': mail},
     )
+    try:
+        mark_read(mid, user)
+    except Exception as exc:
+        log.warning('mark_read nach Aufgabe fehlgeschlagen: %s', exc)
     return {
         'ok': True,
         'created': aufgaben_service.serialize(aufgabe),
         'mail_id': mid,
+        'unread': False,
     }
 
 

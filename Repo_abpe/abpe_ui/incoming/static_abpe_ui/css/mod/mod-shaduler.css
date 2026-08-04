@@ -140,6 +140,14 @@ body.dark-mode .stat-value{color:#e0e0e0}
 .sources.open{display:block}
 .sources a{color:var(--abcona-blue-light);text-decoration:none;display:block;padding:2px 0}
 body.dark-mode .sources a{color:#8fb3dd}
+.racts a{border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-primary);border-radius:8px;padding:6px 12px;font-size:.8rem;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.racts a:hover{border-color:var(--abcona-blue-light);color:var(--abcona-blue)}
+.ritem.unread b.hl{font-weight:600}
+.sh-inbox-filters{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px 0}
+.sh-acc-chip{border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-secondary);border-radius:8px;padding:4px 10px;font-size:.78rem;cursor:pointer}
+.sh-acc-chip .n{opacity:.7;font-weight:600}
+.sh-acc-chip.on{border-color:var(--abcona-blue);background:var(--abcona-blue-alpha);color:var(--abcona-blue);font-weight:600}
+.sh-acc-chip:hover{border-color:var(--abcona-blue-light)}
 .mstat{font-size:.72rem;border-radius:99px;padding:2px 9px;font-weight:600}
 .mstat.known{background:#d1fae5;color:#065f46}
 .mstat.maybe{background:#fef3c7;color:#92400e}

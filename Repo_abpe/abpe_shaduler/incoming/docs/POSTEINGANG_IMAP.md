@@ -116,3 +116,17 @@ cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py shaduler_inbox_pr
 
 UI: `/shaduler/?tab=posteingang` — „Aufgabe erzeugen“ legt eine DB-Aufgabe an.
 API liefert `source: "elasticsearch"` wenn ES greift.
+
+### ABpE-Gelesen + Account-Filter
+
+- `POST /shaduler/api/inbox/<mail_id>/read/` — markiert gelesen (Tabelle `InboxMailRead`, kein IMAP `\\Seen`)
+- `GET /shaduler/api/inbox/?account=<label>` — Postfach-Filter
+- Tab-Badge `posteingang` kommt aus `api/stats/` (echte Ungelesen-Zahl)
+
+Nach Sync auf Live:
+
+```bash
+cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py migrate abpe_shaduler
+supervisorctl restart abpe-django
+```
+
