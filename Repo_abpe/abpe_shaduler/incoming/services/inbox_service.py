@@ -738,8 +738,8 @@ def _plain_to_readable_html(text: str) -> str:
     if len(re.findall(r'\n\s*\n', t)) < 2 and len(t) > 120:
         t = re.sub(r'\s*(-{3,}|_{3,}|\*{3,})\s*', r'\n\n\1\n\n', t)
         t = re.sub(
-            r'(?:^|\n)\s*(Von|From|Gesendet|Sent|An|To|Betreff|Subject|Cc|Bcc)\s*:',
-            r'\n\n\1:',
+            r'(^|[\s>])(Von|From|Gesendet|Sent|An|To|Betreff|Subject|Cc|Bcc)\s*:',
+            r'\1\n\n\2:',
             t,
             flags=re.I,
         )

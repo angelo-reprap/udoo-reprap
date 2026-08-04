@@ -596,7 +596,7 @@
     if (blankCount < 2 && t.length > 120) {
       t = t
         .replace(/\s*(-{3,}|_{3,}|\*{3,})\s*/g, '\n\n$1\n\n')
-        .replace(/(?:^|\n)\s*(Von|From|Gesendet|Sent|An|To|Betreff|Subject|Cc|Bcc)\s*:/gi, '\n\n$1:')
+        .replace(/(^|[\s>])(Von|From|Gesendet|Sent|An|To|Betreff|Subject|Cc|Bcc)\s*:/gi, '$1\n\n$2:')
         .replace(/\s+(Mit freundlichen Grüßen|Viele Grüße|Liebe Grüße|Best regards|Kind regards|Freundliche Grüße)\b/gi, '\n\n$1')
         .replace(/\s+(Hallo\b|Liebe[rn]?\s+\S+|Guten\s+(Tag|Morgen|Abend)\b)/g, '\n\n$1');
     }
