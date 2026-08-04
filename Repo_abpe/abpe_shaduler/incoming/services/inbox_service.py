@@ -520,6 +520,16 @@ def _es_mail_cfg() -> dict[str, Any]:
     return (cfg.get('shaduler') or {}).get('es_mail') or {}
 
 
+def _es_sane_date_filters() -> list[dict]:
+    """
+    Index enthält kaputte Daten (z.B. year 4501) — die gewinnen sonst sort=date:desc.
+    Nur plausible Mail-Daten erlauben.
+    """
+    return [
+        {'range': {'date': {'gte': '2000-01-01', 'lte': 'now+1d'}}},
+    ]
+
+
 def _es_inbox_query() -> dict[str, Any]:
     """Account-/Folder-/Zeitfenster-Filter aus settings.json → shaduler.es_mail."""
     sh = _es_mail_cfg()
@@ -531,7 +541,7 @@ def _es_inbox_query() -> dict[str, Any]:
     if days is None:
         days = getattr(settings, 'SHADULER_ES_DAYS', None)
 
-    filters: list[dict] = []
+    filters: list[dict] = list(_es_sane_date_filters())
     if accounts:
         if isinstance(accounts, str):
             accounts = [accounts]
@@ -553,9 +563,7 @@ def _es_inbox_query() -> dict[str, Any]:
             filters.append({'range': {'date': {'gte': f'now-{d}d/d'}}})
         except Exception:
             pass
-    if filters:
-        return {'bool': {'filter': filters}}
-    return {'match_all': {}}
+    return {'bool': {'filter': filters}}
 
 
 def _fix_mojibake(text: str) -> str:
