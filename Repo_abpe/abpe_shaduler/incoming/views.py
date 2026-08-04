@@ -5,6 +5,7 @@ JSON-APIs liefern vorerst leere/Stub-Antworten; Logik kommt in Services.
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_GET, require_http_methods, require_POST
 
 
@@ -177,3 +178,50 @@ def api_regeln(request):
     if request.method == 'GET':
         return _stub()
     return _stub(status=501)
+
+
+# ─── Webhooks von abpe_scheduler (PUSH) ───────────────────────────────────────
+
+def _scheduler_token_ok(request):
+    """Gleicher Service-Token wie MeetMe → SCHEDULER_SERVICE_TOKEN."""
+    from django.conf import settings
+    expected = getattr(settings, 'SCHEDULER_SERVICE_TOKEN', '') or ''
+    if not expected:
+        return False
+    auth = request.META.get('HTTP_AUTHORIZATION', '')
+    if auth.startswith('Token '):
+        return auth.split(' ', 1)[1].strip() == expected
+    # Fallback: Body/Header
+    return (
+        request.META.get('HTTP_X_SCHEDULER_TOKEN', '') == expected
+        or request.GET.get('token', '') == expected
+    )
+
+
+@csrf_exempt
+@require_POST
+def api_webhook_job(request, job_key):
+    """
+    Callback-Ziel für SchedulerJob (owner_app=abpe_shaduler).
+    URL: /shaduler/api/webhook/<job_key>/
+    """
+    import json as _json
+    from .tasks import JOB_HANDLERS
+
+    if not _scheduler_token_ok(request):
+        return JsonResponse({'ok': False, 'error': 'Unauthorized'}, status=401)
+
+    handler = JOB_HANDLERS.get(job_key)
+    if not handler:
+        return JsonResponse({'ok': False, 'error': f'unknown job_key: {job_key}'}, status=404)
+
+    try:
+        payload = _json.loads(request.body.decode('utf-8') or '{}')
+    except Exception:
+        payload = {}
+
+    try:
+        result = handler(payload if isinstance(payload, dict) else {'raw': payload})
+        return JsonResponse(result if isinstance(result, dict) else {'ok': True, 'result': result})
+    except Exception as exc:
+        return JsonResponse({'ok': False, 'error': str(exc)}, status=500)

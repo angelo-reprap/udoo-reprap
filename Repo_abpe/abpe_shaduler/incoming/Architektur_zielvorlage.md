@@ -10,6 +10,14 @@ und dem Final-Mockup. Änderungen an diesem Dokument nur bewusst und versioniert
 
 - Modulname: **`abpe_shaduler`** — bewusst NICHT `abpe_scheduler` (existiert bereits
   als Cron-Job-Runner mit SchedulerJob/SchedulerJobRun und bleibt unangetastet).
+  **Befund 04.08.2026:** `abpe_scheduler` ist aktiv und wird gebraucht — er ist
+  der Zeitauslöser der MeetMe-Erinnerungen (Payload `delivery_id` →
+  MeetmeReminderDelivery; einziger Nutzer: `abpe_meetme/scheduler_client.py`;
+  `scheduler_loop --interval=5` läuft als Prozess, Läufe SUCCESS).
+  **Konsequenz:** Die vier Shaduler-Beat-Tasks (Kap. 4) werden NICHT über
+  Celery Beat konfiguriert, sondern als wiederkehrende `SchedulerJob`-Einträge
+  über denselben `scheduler_client`-Weg registriert (recurrence.py) —
+  ein Taktgeber im System statt zwei.
 - Sidebar: Icon `check2-square`, Titel "Aufgaben", Order 24 (vor Matching 25).
 - Sechs Reiter: **Aufgaben · Kalender · Posteingang · Radar Anfragen · Radar Berater · Regeln**
 - Rollen: `!berater` (wie Matching — Berater-Gruppe sieht das Modul nicht).

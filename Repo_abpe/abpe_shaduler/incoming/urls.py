@@ -44,4 +44,7 @@ urlpatterns = [
 
     # Regeln
     path('api/regeln/', views.api_regeln, name='api_regeln'),
+
+    # Webhooks von abpe_scheduler (Kap. 0 — kein Celery Beat)
+    path('api/webhook/<str:job_key>/', views.api_webhook_job, name='api_webhook_job'),
 ]
