@@ -104,12 +104,12 @@
         '<span style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary)">' +
         _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick') +
         '</span></div>' +
+        '<div class="sh-inbox-pager sh-inbox-pager-top" id="sh-inbox-pager"></div>' +
         '<div class="sh-inbox-filters" id="sh-inbox-filters"></div>' +
         '<div class="sh-inbox-toolbar" id="sh-inbox-toolbar"></div>' +
         '<div class="sh-inbox-split">' +
         '<div class="sh-inbox-list-wrap">' +
         '<div class="sh-inbox-list" id="sh-inbox" tabindex="0"></div>' +
-        '<div class="sh-inbox-pager" id="sh-inbox-pager"></div>' +
         '</div>' +
         '<div class="sh-inbox-viewer" id="sh-inbox-viewer">' +
         '<div class="sh-viewer-empty">' + esc(_t('sh.inbox_pick', 'Mail auswählen')) + '</div>' +

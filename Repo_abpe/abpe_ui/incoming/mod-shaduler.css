@@ -163,7 +163,8 @@ body.dark-mode .sources a{color:#8fb3dd}
 @media(max-width:900px){.sh-inbox-list-wrap{max-height:none;border-right:none;border-bottom:1px solid var(--border-light)}}
 .sh-inbox-list{overflow:auto;flex:1;min-height:0;outline:none}
 @media(max-width:900px){.sh-inbox-list{max-height:38vh}}
-.sh-inbox-pager{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border-top:1px solid var(--border-light);background:var(--abcona-gray-card);flex-shrink:0}
+.sh-inbox-pager{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:8px 16px;border-bottom:1px solid var(--border-light);background:var(--abcona-gray-card);flex-shrink:0}
+.sh-inbox-pager-top{border-top:none}
 .sh-pager-meta{font-size:.75rem;color:var(--text-secondary)}
 .sh-pager-btns{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
 .sh-pg{min-width:30px;height:28px;padding:0 8px;border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-primary);border-radius:6px;font-size:.78rem;cursor:pointer;line-height:1}

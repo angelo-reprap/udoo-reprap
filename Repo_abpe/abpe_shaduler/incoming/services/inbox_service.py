@@ -1032,7 +1032,7 @@ def _es_account_chips_from_aggs(res: dict, *, filter_account: str = '') -> list[
     boxes: dict[str, int] = {}
     for b in buckets:
         key = str(b.get('key') or '').strip()
-        if not key:
+        if not key or key == '?':
             continue
         try:
             boxes[key] = int(b.get('doc_count') or 0)
@@ -1047,13 +1047,68 @@ def _es_account_chips_from_aggs(res: dict, *, filter_account: str = '') -> list[
             boxes[acc] = 0
     out = []
     for k, v in sorted(boxes.items(), key=lambda kv: (-kv[1], kv[0].lower())):
-        row: dict[str, Any] = {
+        out.append({
             'label': k,
             'active': bool(filter_account) and k == filter_account,
             'count': v,
-        }
-        out.append(row)
+        })
     return out
+
+
+def _es_fetch_account_chips(
+    es,
+    index: str,
+    chip_query: dict,
+    *,
+    filter_account: str = '',
+) -> list[dict]:
+    """
+    Postfach-Chips robust ermitteln.
+    ``account.keyword`` fehlt oft → ``account`` versuchen; sonst Sample + Config.
+    """
+    for field in ('account', 'account.keyword'):
+        try:
+            res = es.search(index=index, body={
+                'size': 0,
+                'track_total_hits': False,
+                'query': chip_query,
+                'aggs': {
+                    'accounts': {
+                        'terms': {'field': field, 'size': 40},
+                    }
+                },
+            })
+            rows = _es_account_chips_from_aggs(res, filter_account=filter_account)
+            if rows:
+                return rows
+        except Exception as exc:
+            log.debug('ES account-agg field=%s: %s', field, exc)
+
+    # Fallback: Sample der Treffer (wie vor Pagination) + konfigurierte Accounts
+    try:
+        res = es.search(index=index, body={
+            'size': 250,
+            'track_total_hits': False,
+            'query': chip_query,
+            'sort': [{'date': {'order': 'desc', 'unmapped_type': 'date'}}],
+            '_source': ['account', 'folder'],
+        })
+        mails = [_hit_to_mail(h) for h in ((res.get('hits') or {}).get('hits') or [])]
+        return _account_chips(mails, filter_account=filter_account)
+    except Exception as exc:
+        log.warning('ES account-chips Fallback fehlgeschlagen: %s', exc)
+
+    configured = _es_mail_cfg().get('accounts') or getattr(settings, 'SHADULER_ES_ACCOUNTS', None) or []
+    if isinstance(configured, str):
+        configured = [configured]
+    return [
+        {
+            'label': str(a).strip(),
+            'active': bool(filter_account) and str(a).strip() == filter_account,
+        }
+        for a in configured
+        if str(a).strip()
+    ]
 
 
 def _list_from_elasticsearch(
@@ -1099,19 +1154,7 @@ def _list_from_elasticsearch(
             'attachment_count', 'attachments', 'body', 'snippet', 'preview',
             'flags', 'unread', 'seen', 'is_read',
         ],
-        'aggs': {
-            'accounts': {
-                'terms': {
-                    'field': 'account.keyword',
-                    'size': 40,
-                    'missing': '?',
-                }
-            }
-        },
     }
-    # Aggregation auf chip_query (ohne Account-Filter) — per post_filter nicht nötig:
-    # separate aggs-Query wäre teurer; wir überschreiben query für aggs via global nicht.
-    # Stattdessen: wenn Account gefiltert, zweite Mini-Suche nur für Aggs.
     try:
         es = Elasticsearch(hosts)
     except Exception as exc:
@@ -1122,18 +1165,8 @@ def _list_from_elasticsearch(
     try:
         res = es.search(index=index, body=body)
     except Exception as exc:
-        # account.keyword fehlt ggf. → mit field=account erneut
         log.warning('ES %s @ %s fehlgeschlagen: %s', index, hosts, exc)
-        try:
-            body_fallback = dict(body)
-            body_fallback['aggs'] = {
-                'accounts': {'terms': {'field': 'account', 'size': 40, 'missing': '?'}}
-            }
-            res = es.search(index=index, body=body_fallback)
-            body = body_fallback
-        except Exception as exc2:
-            log.warning('ES Retry fehlgeschlagen: %s', exc2)
-            return None
+        return None
 
     hits = (res.get('hits') or {}).get('hits') or []
     total = _es_total_hits(res)
@@ -1161,24 +1194,9 @@ def _list_from_elasticsearch(
         except Exception as exc:
             log.warning('ES Fallback fehlgeschlagen: %s', exc)
 
-    account_rows = _es_account_chips_from_aggs(res, filter_account=(account or '').strip())
-    # Bei aktivem Account-Filter: Chip-Counts aus ungefilterter Aggs nachziehen
-    if (account or '').strip():
-        try:
-            agg_body = {
-                'size': 0,
-                'track_total_hits': False,
-                'query': chip_query,
-                'aggs': body.get('aggs') or {
-                    'accounts': {'terms': {'field': 'account.keyword', 'size': 40, 'missing': '?'}}
-                },
-            }
-            agg_res = es.search(index=index, body=agg_body)
-            account_rows = _es_account_chips_from_aggs(
-                agg_res, filter_account=(account or '').strip(),
-            )
-        except Exception:
-            pass
+    account_rows = _es_fetch_account_chips(
+        es, index, chip_query, filter_account=(account or '').strip(),
+    )
 
     return {
         'mails': [_hit_to_mail(h) for h in hits],
