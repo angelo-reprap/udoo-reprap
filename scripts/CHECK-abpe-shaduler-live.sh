@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # Live vs Repo-Check für abpe_shaduler (auf ucs5 ausführen)
+#
+# WICHTIG: vor process-substitution immer erst fetchen, sonst läuft eine
+# veraltete Skript-Version (git show liest den Ref VOR dem Fetch in §6):
+#   cd /mnt/public/udoo-reprap && git fetch origin cursor/abpe-shaduler-scaffold-7f07
+#   bash <(git show origin/cursor/abpe-shaduler-scaffold-7f07:scripts/CHECK-abpe-shaduler-live.sh)
 set -euo pipefail
+CHECK_VERSION=2
 REPO="${REPO:-/mnt/public/udoo-reprap}"
 BACKEND="${BACKEND:-/opt/abpe/backend}"
 PYBIN="${PYBIN:-/opt/abpe/venv311/bin/python}"
@@ -9,6 +15,7 @@ LIVE_UI="${LIVE_UI:-/opt/abpe/backend/apps/abpe_ui}"
 URLS="${URLS:-/opt/abpe/backend/abpe_backend/urls.py}"
 APPS="${APPS:-/opt/abpe/backend/abpe_backend/settings/apps.py}"
 
+echo "CHECK-abpe-shaduler-live.sh v${CHECK_VERSION} (Abschnitte 1–8)"
 echo "=== 1) Register ==="
 grep -n "abpe_shaduler" "$APPS" || echo "FEHLT in apps.py"
 grep -n "shaduler" "$URLS" || echo "FEHLT in urls.py"
@@ -76,9 +83,6 @@ cd "$REPO"
 git fetch origin cursor/abpe-shaduler-scaffold-7f07 2>/dev/null || true
 git rev-parse --short origin/cursor/abpe-shaduler-scaffold-7f07 2>/dev/null \
   && echo "OK remote branch" || echo "MISS remote branch"
-
-BACKEND="${BACKEND:-/opt/abpe/backend}"
-PYBIN="${PYBIN:-/opt/abpe/venv311/bin/python}"
 
 echo
 echo "=== 7) tasks.py Syntax (kein 'function '-Typo) ==="
