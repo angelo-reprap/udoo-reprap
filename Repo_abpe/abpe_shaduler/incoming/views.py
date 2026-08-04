@@ -264,11 +264,24 @@ def api_inbox_list(request):
         limit = 40
     force_imap = request.GET.get('imap') == '1'
     account = (request.GET.get('account') or '').strip()
+    q = (request.GET.get('q') or '').strip()
+    sort = (request.GET.get('sort') or 'date_desc').strip()
+    unread_only = request.GET.get('unread') in ('1', 'true', 'yes')
+    has_att_raw = (request.GET.get('has_attachment') or '').strip().lower()
+    has_attachment = None
+    if has_att_raw in ('1', 'true', 'yes', 'with'):
+        has_attachment = True
+    elif has_att_raw in ('0', 'false', 'no', 'without', 'ohne'):
+        has_attachment = False
     data = inbox_service.list_mails(
         limit=limit,
         force_imap=force_imap,
         user=request.user,
         account=account or None,
+        q=q or None,
+        has_attachment=has_attachment,
+        sort=sort,
+        unread_only=unread_only,
     )
     status = 200 if data.get('ok') else 503
     return JsonResponse(data, status=status)

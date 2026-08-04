@@ -90,9 +90,23 @@ Leseansicht mit einem einzigen neuen Verhalten: **Mail → Aufgabe.**
 Vorbild: CRM/DMS-Mails-Tab (`/crm/dms/` → EDMS).
 
 ### 6.1 Leitidee
-Kein neuer Mail-Renderer. Volltext + Anhänge kommen aus dem **bestehenden
-ES-Mail-Index** über die EDMS-Endpoints; die UI verdrahtet dieselben
-Bausteine wie der DMS-Mails-Tab.
+Zwei Quellen, klar getrennt (PROBE 04.08.2026):
+
+| Schicht | Quelle | Endpoint / Modul |
+|---|---|---|
+| **Liste + Suche + Filter** | Elasticsearch `abpe_emails` | Shaduler `api/inbox/` (Muster wie EDMS `api_person_mails`: `multi_match` auf `subject^2`, `body`) |
+| **Viewer + Anhänge** | **IMAP live** via EDMS | `api_mail_view` / `api_mail_attachment*` — Parameter `account` + `folder` + (`uid` **oder** `message_id`) |
+
+Kein neuer Mail-Renderer. Der Viewer ruft denselben EDMS-Endpoint wie der
+DMS-Mails-Tab; die Liste bleibt Shaduler/ES (Postfach-Überblick, ABpE-Gelesen).
+
+**Wichtig:** `api_mail_view` liest **nicht** den ES-Body — `_imap_fetch_message`.
+Deshalb muss die Inbox-Liste `account`, `folder`, `uid` und/oder `message_id`
+aus dem ES-Hit mitliefern (Felder liegen schon im Index).
+
+**Seen-Flag:** EDMS-Fetch muss `BODY.PEEK` nutzen (wie Inbox-IMAP). Wenn Live
+`FETCH` ohne PEEK setzt → Shaduler-Proxy mit PEEK oder EDMS anpassen; Leitplanke
+„kein \\Seen“ gilt weiter.
 
 ### 6.2 Filterleiste (oben)
 | Filter | UI | Backend |
@@ -121,33 +135,32 @@ Bausteine wie der DMS-Mails-Tab.
 - Listenzeile kompakt; Aktions-Buttons **nur im Viewer**
 - Klick Liste → mark_read + Viewer laden
 
-### 6.4 EDMS-Wiederverwendung (Live-Endpoints)
+### 6.4 EDMS-Wiederverwendung (Live-Endpoints, PROBE bestätigt)
 
-Aus `apps/abpe_edms/urls.py` (ucs5):
+Mount: `apps/abpe_edms/urls.py` (Pfad-Prefix je nach `urls.py`-Include, oft `/edms/`).
 
-| Endpoint | Name | Rolle für Posteingang |
+| Endpoint | Query | Rolle |
 |---|---|---|
-| `GET …/api/mail/view/` | `api_mail_view` | **Viewer-Payload** (Header, Body, Attachments) per ES-Mail-ID |
-| `GET …/api/mail/attachment/` | `api_mail_attachment` | Anhang öffnen/download |
-| `GET …/api/mail/attachment/preview/` | `api_mail_attachment_preview` | Anhang-Vorschau |
-| `GET …/api/person/<crm_id>/mails/` | `api_person_mails` | Referenz: wie DMS die Liste baut (Filter/ES) — optional für CRM-Deeplink |
-
-JS: `mod-dms*.js` — Funktionen für Mail-Render/Fetch (exakte Namen nach
-`PROBE-edms-mail-api.sh` / Import-Slice festnageln).
+| `GET api/mail/view/` | `account`, `folder`, `uid` **oder** `message_id` | JSON: Header + Body(html/plain) + Anhang-Liste |
+| `GET api/mail/attachment/` | dieselben + `index` | Download |
+| `GET api/mail/attachment/preview/` | dieselben + `index` | Inline-Vorschau |
+| `GET api/person/<crm_id>/mails/` | `q`, `size` | Referenz-Suche ES (Person) — Muster für `?q=` |
 
 **Verdrahtung Shaduler:**
-1. Liste bleibt `GET /shaduler/api/inbox/` (erweitert um `q`, `has_attachment`, `sort`, `unread`)
-2. Viewer ruft **EDMS** `GET /edms/api/mail/view/?…` (bzw. den gemounteten Pfad unter `/crm/dms/`) mit der ES-`_id` aus `mail.id` (`es:<id>` → `<id>`)
-3. Anhänge über EDMS attachment-Endpoints
-4. Kein Duplikat des Body-Renderers in `mod-shaduler.js` — EDMS-Renderer
-   extrahieren/teilen oder per gemeinsamer Helper-Funktion aufrufen
+1. `GET /shaduler/api/inbox/?q=&account=&has_attachment=&sort=&unread=` → ES-Liste
+2. Jeder Treffer liefert `view_params`: `{account, folder, uid, message_id}`
+3. Viewer: `GET <edms>/api/mail/view/?account=…&folder=…&uid=…` (same-origin, Session)
+4. Anhänge: gleiche Params + `index` aus der view-Response
+5. JS: DMS-Renderer wiederverwenden — **Datei noch unklar** (`mod-dms*.js` unter
+   `static/abpe_ui/js/mod/` nicht gefunden; Suche auf Live nötig)
 
 ### 6.5 Status v1.1
 
 | Baustein | Status |
 |---|---|
 | Account-Chips + ABpE-Gelesen | ✅ v1.0 |
-| Filter Anhang/Datum/Neu + Suche `?q=` | 🔶 bauen |
-| Zwei-Spalten-Layout Liste\|Viewer | 🔶 bauen |
-| EDMS `api_mail_view` + Attachment wiederverwenden | 🔶 verdrahten (nach Slice-Import) |
-| Gemeinsame JS-Mail-Render-Funktion | 🔶 nach PROBE festlegen |
+| Liste liefert `folder`/`uid`/`message_id`/`has_attachments` | 🔶 |
+| Filter Anhang/Datum/Neu + Suche `?q=` | 🔶 |
+| Zwei-Spalten-Layout Liste\|Viewer | 🔶 |
+| EDMS `api_mail_view` + Attachment verdrahten | 🔶 (Vertrag klar) |
+| DMS-JS-Renderer lokalisieren | ⬜ Live-Suche |

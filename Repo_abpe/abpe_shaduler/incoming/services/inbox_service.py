@@ -44,6 +44,10 @@ class InboxMail:
     crm: str = '—'
     received_at: Optional[str] = None
     account: str = ''
+    folder: str = 'INBOX'
+    uid: str = ''
+    message_id: str = ''
+    has_attachments: bool = False
     reply_email: str = ''
     request_id: str = ''
     matching_url: str = ''
@@ -64,6 +68,17 @@ class InboxMail:
             'crm': self.crm,
             'received_at': self.received_at,
             'account': self.account,
+            'folder': self.folder,
+            'uid': self.uid,
+            'message_id': self.message_id,
+            'has_attachments': self.has_attachments,
+            # EDMS api_mail_view Params (IMAP)
+            'view_params': {
+                'account': self.account,
+                'folder': self.folder or 'INBOX',
+                'uid': self.uid,
+                'message_id': self.message_id,
+            },
             'reply_email': self.reply_email,
             'request_id': self.request_id,
             'matching_url': self.matching_url,
@@ -530,8 +545,13 @@ def _es_sane_date_filters() -> list[dict]:
     ]
 
 
-def _es_inbox_query(*, account: Optional[str] = None) -> dict[str, Any]:
-    """Account-/Folder-/Zeitfenster-Filter aus settings.json → shaduler.es_mail."""
+def _es_inbox_query(
+    *,
+    account: Optional[str] = None,
+    q: Optional[str] = None,
+    has_attachment: Optional[bool] = None,
+) -> dict[str, Any]:
+    """Account-/Folder-/Zeitfenster-/Suche-Filter aus settings + Request."""
     sh = _es_mail_cfg()
     accounts = sh.get('accounts') or getattr(settings, 'SHADULER_ES_ACCOUNTS', None) or []
     folder = sh.get('folder')
@@ -542,6 +562,7 @@ def _es_inbox_query(*, account: Optional[str] = None) -> dict[str, Any]:
         days = getattr(settings, 'SHADULER_ES_DAYS', None)
 
     filters: list[dict] = list(_es_sane_date_filters())
+    must: list[dict] = []
     account = (account or '').strip()
     if account:
         filters.append({
@@ -575,7 +596,41 @@ def _es_inbox_query(*, account: Optional[str] = None) -> dict[str, Any]:
             filters.append({'range': {'date': {'gte': f'now-{d}d/d'}}})
         except Exception:
             pass
-    return {'bool': {'filter': filters}}
+    if has_attachment is True:
+        filters.append({
+            'bool': {
+                'should': [
+                    {'term': {'has_attachments': True}},
+                    {'term': {'has_attachment': True}},
+                    {'range': {'attachment_count': {'gte': 1}}},
+                ],
+                'minimum_should_match': 1,
+            }
+        })
+    elif has_attachment is False:
+        filters.append({
+            'bool': {
+                'must_not': [
+                    {'term': {'has_attachments': True}},
+                    {'term': {'has_attachment': True}},
+                    {'range': {'attachment_count': {'gte': 1}}},
+                ],
+            }
+        })
+    q = (q or '').strip()
+    if q:
+        # gleiches Muster wie EDMS api_person_mails
+        must.append({
+            'multi_match': {
+                'query': q,
+                'fields': ['subject^2', 'body', 'from_addr', 'to_addr'],
+                'operator': 'and',
+            }
+        })
+    bool_q: dict[str, Any] = {'filter': filters}
+    if must:
+        bool_q['must'] = must
+    return {'bool': bool_q}
 
 
 def _fix_mojibake(text: str) -> str:
@@ -711,6 +766,18 @@ def _hit_to_mail(hit: dict) -> InboxMail:
     folder = src.get('folder') or 'INBOX'
     box = account or folder
     dt = _es_parse_date(src.get('date') or src.get('received_at'))
+    uid = src.get('uid')
+    if uid is None:
+        uid = ''
+    else:
+        uid = str(uid)
+    mid = str(src.get('message_id') or '').strip()
+    has_att = bool(
+        src.get('has_attachments')
+        or src.get('has_attachment')
+        or (isinstance(src.get('attachment_count'), (int, float)) and src.get('attachment_count') > 0)
+        or src.get('attachments')
+    )
     return _apply_crm_links(InboxMail(
         id=f'es:{es_id}',
         subj=subj,
@@ -721,11 +788,20 @@ def _hit_to_mail(hit: dict) -> InboxMail:
         unread=_es_unread(src, dt),
         received_at=dt.isoformat() if dt else (str(src.get('date') or '') or None),
         account=str(account),
+        folder=str(folder),
+        uid=uid,
+        message_id=mid,
+        has_attachments=has_att,
     ))
 
 
 def _list_from_elasticsearch(
-    limit: int = 40, *, account: Optional[str] = None,
+    limit: int = 40,
+    *,
+    account: Optional[str] = None,
+    q: Optional[str] = None,
+    has_attachment: Optional[bool] = None,
+    sort: str = 'date_desc',
 ) -> Optional[list[InboxMail]]:
     """Liest den bereits indexierten Mail-Index ``abpe_emails`` (read-only)."""
     try:
@@ -736,13 +812,17 @@ def _list_from_elasticsearch(
 
     hosts = _es_hosts()
     index = _es_mail_index()
+    order = 'asc' if (sort or '').lower() in ('date_asc', 'asc', 'oldest') else 'desc'
     body = {
         'size': max(1, min(int(limit), 200)),
-        'query': _es_inbox_query(account=account),
-        'sort': [{'date': {'order': 'desc', 'unmapped_type': 'date'}}],
+        'query': _es_inbox_query(
+            account=account, q=q, has_attachment=has_attachment,
+        ),
+        'sort': [{'date': {'order': order, 'unmapped_type': 'date'}}],
         '_source': [
             'subject', 'from_addr', 'to_addr', 'date', 'folder', 'account',
-            'message_id', 'uid', 'has_attachments', 'body', 'snippet', 'preview',
+            'message_id', 'uid', 'has_attachments', 'has_attachment',
+            'attachment_count', 'attachments', 'body', 'snippet', 'preview',
             'flags', 'unread', 'seen', 'is_read',
         ],
     }
@@ -754,9 +834,13 @@ def _list_from_elasticsearch(
         return None
 
     hits = (res.get('hits') or {}).get('hits') or []
-    # Wenn Filter (Folder/days) nichts liefert: nur sane dates (+ Accounts)
-    # Nicht bei explizitem Account-Filter — leere Liste ist dann korrekt.
-    if not hits and not (account or '').strip():
+    # Fallback nur ohne Such-/Anhang-/Account-Filter
+    restrictive = bool(
+        (account or '').strip()
+        or (q or '').strip()
+        or has_attachment is not None
+    )
+    if not hits and not restrictive:
         sh = _es_mail_cfg()
         try:
             body2 = dict(body)
@@ -884,18 +968,32 @@ def list_mails(
     force_imap: bool = False,
     user=None,
     account: Optional[str] = None,
+    q: Optional[str] = None,
+    has_attachment: Optional[bool] = None,
+    sort: str = 'date_desc',
+    unread_only: bool = False,
 ) -> dict[str, Any]:
     """
     Haupt-API für den Posteingang.
     Returns: {ok, source, results, accounts, unread, error?}
     ``user`` → ABpE-Gelesen-Overlay; ``account`` → Postfach-Filter.
+    ``q`` / ``has_attachment`` / ``sort`` / ``unread_only`` → Filter.
     """
     filter_account = (account or '').strip()
+    q = (q or '').strip() or None
 
     if not force_imap:
-        es_mails = _list_from_elasticsearch(limit=limit, account=filter_account or None)
+        es_mails = _list_from_elasticsearch(
+            limit=limit,
+            account=filter_account or None,
+            q=q,
+            has_attachment=has_attachment,
+            sort=sort or 'date_desc',
+        )
         if es_mails is not None:
             es_mails = _apply_user_read(es_mails, user)
+            if unread_only:
+                es_mails = [m for m in es_mails if m.unread]
             hint = None
             if es_mails:
                 # Wenn neueste Mail > 14 Tage: Indexierung vermutlich stehengeblieben
@@ -922,6 +1020,10 @@ def list_mails(
                 'results': [m.as_dict() for m in es_mails],
                 'accounts': _account_chips(es_mails, filter_account=filter_account),
                 'filter_account': filter_account,
+                'q': q or '',
+                'sort': sort or 'date_desc',
+                'has_attachment': has_attachment,
+                'unread_only': unread_only,
                 'unread': sum(1 for m in es_mails if m.unread),
                 'hint': hint,
             }
@@ -930,6 +1032,16 @@ def list_mails(
         if db_mails is not None:
             db_mails = _apply_user_read(db_mails, user)
             db_mails = _filter_by_account(db_mails, filter_account)
+            if unread_only:
+                db_mails = [m for m in db_mails if m.unread]
+            if q:
+                ql = q.lower()
+                db_mails = [
+                    m for m in db_mails
+                    if ql in (m.subj or '').lower()
+                    or ql in (m.from_ or '').lower()
+                    or ql in (m.prev or '').lower()
+                ]
             return {
                 'ok': True,
                 'demo': False,
@@ -937,6 +1049,8 @@ def list_mails(
                 'results': [m.as_dict() for m in db_mails],
                 'accounts': _account_chips(db_mails, filter_account=filter_account),
                 'filter_account': filter_account,
+                'q': q or '',
+                'unread_only': unread_only,
                 'unread': sum(1 for m in db_mails if m.unread),
             }
 
