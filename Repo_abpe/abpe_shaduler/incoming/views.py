@@ -37,6 +37,11 @@ def index(request):
 @login_required
 @require_GET
 def api_stats(request):
+    from .demo_data import demo_stats
+    # Solange keine DB-Aufgaben: Demo-Stats (UI-V1)
+    use_demo = request.GET.get('demo', '1') != '0'
+    if use_demo:
+        return JsonResponse(demo_stats())
     return _stub({
         'heute': 0, 'ueberfaellig': 0, 'geplant': 0, 'erledigt_heute': 0,
         'badges': {
@@ -49,6 +54,16 @@ def api_stats(request):
 @login_required
 @require_GET
 def api_aufgaben_list(request):
+    from .demo_data import demo_aufgaben, demo_stats
+    use_demo = request.GET.get('demo', '1') != '0'
+    if use_demo:
+        tasks = demo_aufgaben()
+        return JsonResponse({
+            'ok': True,
+            'demo': True,
+            'results': tasks,
+            'stats': demo_stats(tasks),
+        })
     return _stub()
 
 
