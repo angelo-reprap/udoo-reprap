@@ -185,7 +185,7 @@
 
   function ensureTasks(cb) {
     if (TASKS && TASKS.length) { cb(TASKS); return; }
-    fetch(api('aufgaben/?demo=1'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+    fetch(api('aufgaben/'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
       .then(function (r) { return r.json(); })
       .then(function (data) {
         TASKS = data.results || [];
@@ -358,7 +358,7 @@
   function loadAufgaben() {
     Promise.all([
       fetch(api('stats/'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } }).then(function (r) { return r.json(); }),
-      fetch(api('aufgaben/?demo=1'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } }).then(function (r) { return r.json(); }),
+      fetch(api('aufgaben/'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } }).then(function (r) { return r.json(); }),
     ]).then(function (pair) {
       var stats = pair[0] || {};
       var data = pair[1] || {};
@@ -369,18 +369,26 @@
         geplant: stats.geplant || 0,
         erledigt_heute: stats.erledigt_heute || 0,
       };
-      if (data.demo) {
-        var hint = document.getElementById('sh-demo-hint');
-        if (hint) {
+      var hint = document.getElementById('sh-demo-hint');
+      if (hint) {
+        if (data.demo) {
           hint.style.display = 'block';
           hint.textContent = _t(
             'sh.demo_hint',
-            'Demo-Daten (noch keine Migration) — UI wie Final-Mockup. Später echte Aufgaben aus der DB.'
+            'Demo-Daten — UI wie Final-Mockup.'
           );
+        } else if (!TASKS.length) {
+          hint.style.display = 'block';
+          hint.textContent = _t(
+            'sh.empty_hint',
+            'Keine offenen Aufgaben. Seed: python manage.py seed_shaduler --demo-tasks'
+          );
+        } else {
+          hint.style.display = 'none';
         }
       }
       renderAcc();
-      refreshStatsFrom(stats);
+      refreshStatsFrom(Object.assign({}, stats, data.stats || {}));
     }).catch(function () {
       TASKS = [];
       renderAcc();
@@ -533,20 +541,64 @@
     ovl.style.display = 'flex';
   }
 
+  function csrfToken() {
+    var m = document.cookie.match(/(?:^|; )csrftoken=([^;]+)/);
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+
   function applyResult(r) {
     currentResult = r;
     var fx = document.getElementById('sh-m-fx');
     fx.innerHTML = (r.fx || []).map(function (x) {
       return '<div class="fx-item"><i class="bi bi-check2"></i> ' + esc(x) + '</div>';
     }).join('') || '<div class="none">—</div>';
-    // lokal aus Queue nehmen (Demo)
-    if (currentTask && currentTask.id) {
-      TASKS = TASKS.filter(function (t) { return t.id !== currentTask.id; });
-      STATS.erledigt_heute = (STATS.erledigt_heute || 0) + 1;
-      renderAcc();
+
+    var tid = currentTask && currentTask.id;
+    var isDemo = !tid || String(tid).indexOf('demo') === 0;
+
+    function finishLocal() {
+      if (currentTask && currentTask.id) {
+        TASKS = TASKS.filter(function (t) { return t.id !== currentTask.id; });
+        STATS.erledigt_heute = (STATS.erledigt_heute || 0) + 1;
+        renderAcc();
+        refreshStats();
+      }
+      showPhase('fx');
+      toast(_t('sh.toast_erledigt', isDemo ? 'Aufgabe erledigt (Demo)' : 'Aufgabe erledigt'));
     }
-    showPhase('fx');
-    toast(_t('sh.toast_erledigt', 'Aufgabe erledigt (Demo)'));
+
+    if (isDemo) {
+      finishLocal();
+      return;
+    }
+
+    fetch(api('aufgaben/' + tid + '/ergebnis/'), {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrfToken(),
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+      body: JSON.stringify({
+        code: r.code || '',
+        ergebnis_id: r.id || '',
+        daten: {},
+      }),
+    })
+      .then(function (res) { return res.json().then(function (j) { return { ok: res.ok, j: j }; }); })
+      .then(function (pack) {
+        if (pack.j && pack.j.fx && pack.j.fx.length) {
+          fx.innerHTML = pack.j.fx.map(function (x) {
+            return '<div class="fx-item"><i class="bi bi-check2"></i> ' + esc(x) + '</div>';
+          }).join('');
+        }
+        finishLocal();
+      })
+      .catch(function () {
+        toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
+        showPhase('fx');
+      });
   }
 
   function closeModal() {

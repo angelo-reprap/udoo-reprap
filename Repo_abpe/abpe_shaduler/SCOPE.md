@@ -11,7 +11,7 @@
 | `mod-shaduler.js` + Kalender-JS | ✅ Stub |
 | i18n DE/EN `shaduler.json` | ✅ |
 | `scheduler_client` + Webhooks | ✅ |
-| Migration 0001 | ❌ noch nicht |
+| Migration 0001 | ✅ Live applied |
 | i18n Restsprachen (15) | ❌ später DeepSeek |
 
 ## Portal-Core (bereits auf Live — **nicht** im Shaduler-Patch)

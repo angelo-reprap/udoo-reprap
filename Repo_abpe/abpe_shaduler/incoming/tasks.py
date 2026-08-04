@@ -23,10 +23,15 @@ def shaduler_inbox_poll(payload=None):
     return {'ok': True, 'stub': True, 'job': 'inbox_poll'}
 
 
-def shaduler_prozess_tick(payload=None):
+function shaduler_prozess_tick(payload=None):
     """zeit_ohne_reaktion + fällige Schritte (V1)."""
-    logger.info('shaduler_prozess_tick: stub payload=%s', payload)
-    return {'ok': True, 'stub': True, 'job': 'prozess_tick'}
+    logger.info('shaduler_prozess_tick: payload=%s', payload)
+    try:
+        from .services import prozess_engine
+        return prozess_engine.tick_zeit_ohne_reaktion()
+    except Exception as exc:
+        logger.exception('prozess_tick failed')
+        return {'ok': False, 'error': str(exc)}
 
 
 def shaduler_delegation_notify(payload=None):
