@@ -99,11 +99,35 @@ class Command(BaseCommand):
 
     def _resolve_user(self, username: str):
         if username:
-            return User.objects.filter(username=username).first()
-        return (
+            u = (
+                User.objects.filter(username=username).first()
+                or User.objects.filter(email__iexact=username).first()
+            )
+            if not u:
+                self.stdout.write(self.style.ERROR(f'User nicht gefunden: {username!r}'))
+                self._list_users_hint()
+            return u
+        u = (
             User.objects.filter(is_superuser=True).order_by('id').first()
+            or User.objects.filter(is_staff=True).order_by('id').first()
             or User.objects.order_by('id').first()
         )
+        if not u:
+            self.stdout.write(self.style.ERROR(
+                'Kein User in der DB — bitte mit --user <username> (LDAP-Loginname) angeben.'
+            ))
+            self._list_users_hint()
+        return u
+
+    def _list_users_hint(self):
+        qs = User.objects.order_by('id')[:15]
+        if not qs:
+            self.stdout.write('  (auth_user leer — einmal im Portal einloggen, dann erneut seed)')
+            return
+        self.stdout.write('  Verfügbare User (Auszug):')
+        for u in qs:
+            self.stdout.write(f'    id={u.pk}  username={u.username!r}  staff={u.is_staff}  super={u.is_superuser}')
+        self.stdout.write('  → python manage.py seed_shaduler --demo-tasks --user <username>')
 
     def _seed_demo_tasks(self, user, force: bool = False) -> int:
         from apps.abpe_shaduler.models import Aufgabe
