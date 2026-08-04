@@ -190,7 +190,7 @@ class Migration(migrations.Migration):
                 'verbose_name': 'Aktivität',
                 'verbose_name_plural': 'Aktivitäten',
                 'ordering': ['-zeitpunkt'],
-                'indexes': [models.Index(fields=['ref_type', 'ref_id'], name='abpe_shadul_ref_typ_b8e4f1_idx')],
+                'indexes': [models.Index(fields=['ref_type', 'ref_id'], name='abpe_shadul_ref_typ_b5ad49_idx')],
             },
         ),
         migrations.CreateModel(
