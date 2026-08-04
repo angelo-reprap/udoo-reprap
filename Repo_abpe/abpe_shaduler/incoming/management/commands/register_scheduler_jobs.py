@@ -83,7 +83,15 @@ class Command(BaseCommand):
                     dtstart=now,
                     delivery_mode='PUSH',
                 )
-                self.stdout.write(self.style.SUCCESS(f"  OK {res}"))
+                # Kurzfassung — volle runs-Historie macht die Shell unlesbar
+                jid = res.get('id') if isinstance(res, dict) else None
+                status = res.get('status') if isinstance(res, dict) else None
+                nxt = res.get('next_run_at') if isinstance(res, dict) else None
+                self.stdout.write(
+                    self.style.SUCCESS(
+                        f"  OK id={jid} status={status} next={nxt}"
+                    )
+                )
             except sc.SchedulerClientError as exc:
                 self.stdout.write(self.style.ERROR(f"  FAIL {exc}"))
         if dry:

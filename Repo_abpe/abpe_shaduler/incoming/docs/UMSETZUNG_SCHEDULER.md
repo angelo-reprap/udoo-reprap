@@ -21,3 +21,44 @@ Settings (bereits für MeetMe üblich):
 - `SCHEDULER_SERVICE_TOKEN`
 - `SCHEDULER_API_BASE_URL` (Default `http://localhost:8000/scheduler/api`)
 - optional `SHADULER_CALLBACK_BASE_URL` (Default `http://localhost:8000/shaduler/api`)
+
+Jobs (RRULE):
+
+| job_key | Intervall | Webhook |
+|---------|-----------|---------|
+| `radar_poll` | 5 Min | `/shaduler/api/webhook/radar-poll/` |
+| `inbox_poll` | 2 Min | `/shaduler/api/webhook/inbox-poll/` |
+| `prozess_tick` | 15 Min | `/shaduler/api/webhook/prozess-tick/` |
+| `email_index` | 10 Min | `/shaduler/api/webhook/email-index/` |
+
+## Webhook-Auth prüfen (401 vs. OK)
+
+PUSH vom Scheduler braucht denselben `SCHEDULER_SERVICE_TOKEN` wie Django.
+`register_scheduler_jobs` kann OK sein (Outbound), während Inbound 401 liefert,
+wenn der Scheduler beim PUSH einen anderen/keinen Token mitschickt.
+
+```bash
+# Token aus Django-Settings laden und Webhook manuell treffen:
+cd /opt/abpe/backend && /opt/abpe/venv311/bin/python - <<'PY'
+import django, os, json, urllib.request
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'abpe_backend.settings')
+django.setup()
+from django.conf import settings
+tok = settings.SCHEDULER_SERVICE_TOKEN
+req = urllib.request.Request(
+    'http://127.0.0.1:8000/shaduler/api/webhook/inbox-poll/',
+    data=b'{"job":"inbox_poll"}',
+    headers={
+        'Authorization': f'Token {tok}',
+        'Content-Type': 'application/json',
+    },
+    method='POST',
+)
+with urllib.request.urlopen(req, timeout=60) as r:
+    print(r.status, r.read()[:500])
+PY
+```
+
+Erwartung: HTTP 200 + `{"ok": true, "job": "inbox_poll", ...}`.
+Bei 401: Token in Scheduler-Service und Django angleichen (wie MeetMe).
+Bei `SyntaxError`: `tasks.py` muss `def` (nicht `function`) haben — SYNC + restart.
