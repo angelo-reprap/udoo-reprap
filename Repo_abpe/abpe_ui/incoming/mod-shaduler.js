@@ -454,7 +454,7 @@
       esc(_t('sh.inbox_all', 'Alle')) + '</button>';
     (accounts || []).forEach(function (a) {
       var label = a.label || a.user || '';
-      if (!label) return;
+      if (!label || label === '?') return;
       var on = INBOX_ACCOUNT && INBOX_ACCOUNT === label;
       chips +=
         '<button type="button" class="sh-acc-chip' + (on ? ' on' : '') + '" data-account="' + esc(label) + '">' +

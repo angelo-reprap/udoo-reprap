@@ -28,7 +28,10 @@ cp -a "$SRC" "$LIVE_CMD/index_emails.py"
 echo "OK → $LIVE_CMD/index_emails.py"
 echo "email_settings.json wurde NICHT angefasst (Live-Passwörter bleiben)."
 echo
-echo "Catch-up (INBOX, letzte 90 Tage):"
-echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py index_emails --since-days 90"
+echo "Gelöschte aus ES entfernen (einmal, z.B. angelo INBOX):"
+echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py index_emails --account angelo --folders INBOX --prune-only --prune-orphans"
+echo
+echo "Catch-up (INBOX, letzte 14 Tage):"
+echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py index_emails --since-days 14"
 echo "Dann Probe:"
 echo "  /opt/abpe/venv311/bin/python manage.py shaduler_inbox_probe --fetch --limit 5"

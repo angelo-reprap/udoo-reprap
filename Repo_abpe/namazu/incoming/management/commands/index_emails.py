@@ -185,23 +185,20 @@ def prune_missing_from_es(
     """
     filters: list[dict] = [
         {'term': {'account': account}},
-        {'term': {'folder': folder}},
     ]
     # Ordner-Varianten (INBOX/Inbox)
     if folder.upper() == 'INBOX':
-        filters = [
-            {'term': {'account': account}},
-            {
-                'bool': {
-                    'should': [
-                        {'term': {'folder': 'INBOX'}},
-                        {'term': {'folder': 'Inbox'}},
-                        {'term': {'folder.keyword': 'INBOX'}},
-                    ],
-                    'minimum_should_match': 1,
-                }
-            },
-        ]
+        filters.append({
+            'bool': {
+                'should': [
+                    {'term': {'folder': 'INBOX'}},
+                    {'term': {'folder': 'Inbox'}},
+                ],
+                'minimum_should_match': 1,
+            }
+        })
+    else:
+        filters.append({'term': {'folder': folder}})
     if since_days and since_days > 0:
         since = (datetime.now(timezone.utc) - timedelta(days=int(since_days))).strftime('%Y-%m-%d')
         filters.append({'range': {'date': {'gte': since}}})
