@@ -81,3 +81,73 @@ Radar Anfragen → Radar Berater.
 **Kurzfassung:** Der Posteingang erfindet nichts — er verdrahtet drei
 bestehende Systeme (IMAP-Import, CRM-Zuordnung, Email Studio) zu einer
 Leseansicht mit einem einzigen neuen Verhalten: **Mail → Aufgabe.**
+
+---
+
+## 6. Posteingang v1.1 — Filter · Suche · Zwei-Spalten-Viewer
+
+**Stand 04.08.2026** · Live: 7 Postfächer über ES `abpe_emails`.
+Vorbild: CRM/DMS-Mails-Tab (`/crm/dms/` → EDMS).
+
+### 6.1 Leitidee
+Kein neuer Mail-Renderer. Volltext + Anhänge kommen aus dem **bestehenden
+ES-Mail-Index** über die EDMS-Endpoints; die UI verdrahtet dieselben
+Bausteine wie der DMS-Mails-Tab.
+
+### 6.2 Filterleiste (oben)
+| Filter | UI | Backend |
+|---|---|---|
+| Postfach | Chips `Alle (n) · vertrieb · angelo · …` | `?account=` (bereits da) |
+| Anhang | Dropdown alle / nur mit / ohne | `?has_attachment=1\|0` → ES-Feld |
+| Datum | neueste (Default) / älteste | `?sort=date_desc\|date_asc` |
+| Neu | nur Ungelesene (ABpE) | `?unread=1` + `InboxMailRead` |
+| Suche | Freitext Betreff/Absender/Body | `?q=` → ES `multi_match` auf Index |
+
+### 6.3 Layout
+```
+┌─ Filter + Suche ─────────────────────────────┐
+│ [Alle][vertrieb]…  📎alle▾  Datum▾  □ nur neu │
+│ [Suchen …                         ] [Suchen] │
+├──────────────┬───────────────────────────────┤
+│ Liste        │ Viewer                        │
+│ Betreff      │ Kopf Absender/Empfänger/Datum │
+│ Absender     │ Anhänge-Kacheln (öffnen)      │
+│ Badge·📎·Age │ Body                          │
+│              │ ── Aktionen ──                │
+│              │ Aufgabe · Matching · Studio · │
+│              │ Outlook                       │
+└──────────────┴───────────────────────────────┘
+```
+- Listenzeile kompakt; Aktions-Buttons **nur im Viewer**
+- Klick Liste → mark_read + Viewer laden
+
+### 6.4 EDMS-Wiederverwendung (Live-Endpoints)
+
+Aus `apps/abpe_edms/urls.py` (ucs5):
+
+| Endpoint | Name | Rolle für Posteingang |
+|---|---|---|
+| `GET …/api/mail/view/` | `api_mail_view` | **Viewer-Payload** (Header, Body, Attachments) per ES-Mail-ID |
+| `GET …/api/mail/attachment/` | `api_mail_attachment` | Anhang öffnen/download |
+| `GET …/api/mail/attachment/preview/` | `api_mail_attachment_preview` | Anhang-Vorschau |
+| `GET …/api/person/<crm_id>/mails/` | `api_person_mails` | Referenz: wie DMS die Liste baut (Filter/ES) — optional für CRM-Deeplink |
+
+JS: `mod-dms*.js` — Funktionen für Mail-Render/Fetch (exakte Namen nach
+`PROBE-edms-mail-api.sh` / Import-Slice festnageln).
+
+**Verdrahtung Shaduler:**
+1. Liste bleibt `GET /shaduler/api/inbox/` (erweitert um `q`, `has_attachment`, `sort`, `unread`)
+2. Viewer ruft **EDMS** `GET /edms/api/mail/view/?…` (bzw. den gemounteten Pfad unter `/crm/dms/`) mit der ES-`_id` aus `mail.id` (`es:<id>` → `<id>`)
+3. Anhänge über EDMS attachment-Endpoints
+4. Kein Duplikat des Body-Renderers in `mod-shaduler.js` — EDMS-Renderer
+   extrahieren/teilen oder per gemeinsamer Helper-Funktion aufrufen
+
+### 6.5 Status v1.1
+
+| Baustein | Status |
+|---|---|
+| Account-Chips + ABpE-Gelesen | ✅ v1.0 |
+| Filter Anhang/Datum/Neu + Suche `?q=` | 🔶 bauen |
+| Zwei-Spalten-Layout Liste\|Viewer | 🔶 bauen |
+| EDMS `api_mail_view` + Attachment wiederverwenden | 🔶 verdrahten (nach Slice-Import) |
+| Gemeinsame JS-Mail-Render-Funktion | 🔶 nach PROBE festlegen |
