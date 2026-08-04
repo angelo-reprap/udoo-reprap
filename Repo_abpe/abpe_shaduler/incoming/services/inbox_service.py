@@ -472,7 +472,13 @@ def _crm_resolve(addr: str, *, subject: str = '') -> dict[str, str]:
 
 
 def _crm_bean_display(bean_module: str, bean_id: str) -> tuple[str, str]:
-    """→ (anzeigename, url) für Contacts/Accounts."""
+    """→ (anzeigename, url) für Contacts/Accounts.
+
+    CRM-UI Deep-Links (mod-crm-berater / mod-crm-kunden):
+      Kontakt/Ansprechpartner → /crm/berater/?detail=<crm_id>
+      Firma                   → /crm/kunden/?detail=<crm_id>
+    (?contact= / ?account= werden von der UI ignoriert → leere Detail-Pane.)
+    """
     mod = (bean_module or '').strip()
     bid = (bean_id or '').strip()
     if not bid:
@@ -487,13 +493,13 @@ def _crm_bean_display(bean_module: str, bean_id: str) -> tuple[str, str]:
                     getattr(c, 'full_name', None)
                     or f"{getattr(c, 'first_name', '') or ''} {getattr(c, 'last_name', '') or ''}".strip()
                 )
-                return (name or '').strip(), f'/crm/?contact={bid}'
+                return (name or '').strip(), f'/crm/berater/?detail={bid}'
         if 'Account' in mod:
             A = apps.get_model('abpe_crm', 'CrmAccount')
             a = A.objects.filter(crm_id=bid).first()
             if a:
                 name = str(getattr(a, 'name', '') or '').strip()
-                return name, f'/crm/?account={bid}'
+                return name, f'/crm/kunden/?detail={bid}'
         if 'Lead' in mod:
             try:
                 L = apps.get_model('abpe_crm', 'CrmLead')
@@ -503,7 +509,9 @@ def _crm_bean_display(bean_module: str, bean_id: str) -> tuple[str, str]:
                         getattr(lead, 'full_name', None)
                         or f"{getattr(lead, 'first_name', '') or ''} {getattr(lead, 'last_name', '') or ''}".strip()
                     )
-                    return (name or '').strip(), f'/crm/?lead={bid}'
+                    # Leads haben keine eigene Detail-Seite — Berater-API kann
+                    # Kontakt-ähnliche Datensätze laden; sonst Liste ohne Detail.
+                    return (name or '').strip(), f'/crm/berater/?detail={bid}'
             except Exception:
                 pass
     except Exception as exc:
