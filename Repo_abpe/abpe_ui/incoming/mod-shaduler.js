@@ -159,7 +159,7 @@
   function modalHtml() {
     return (
       '<div class="ovl" id="sh-ovl" style="display:none">' +
-      '<div class="modal">' +
+      '<div class="sh-modal">' +
       '<div class="mh">' +
       '<div class="ico"><i id="sh-m-ico" class="bi bi-telephone"></i></div>' +
       '<div><b id="sh-m-title"></b><small id="sh-m-ref"></small></div>' +
@@ -708,7 +708,7 @@
     ovl.className = 'ovl open';
     ovl.id = 'sh-mail-task-ovl';
     ovl.innerHTML =
-      '<div class="modal sh-mail-task-modal">' +
+      '<div class="sh-modal sh-mail-task-modal">' +
       '<div class="mh">' +
       '<div class="ico"><i class="bi bi-check2-square"></i></div>' +
       '<div><b>' + esc(_t('sh.inbox_task', 'Aufgabe erzeugen')) + '</b>' +

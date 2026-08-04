@@ -257,9 +257,9 @@ th{background:var(--abcona-gray-card);color:var(--text-secondary);font-size:.74r
 .sh-mail-task-modal .crm-line{margin-top:6px;font-size:.8rem;color:var(--abcona-blue-light)}
 .sh-mail-task-modal .excerpt .lbl{font-size:.7rem;text-transform:uppercase;color:var(--text-secondary);margin-bottom:4px}
 /* Modal */
-.ovl{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:9999}
-.ovl.open{display:flex}
-.modal{background:var(--bg-white);border-radius:12px;max-width:520px;width:100%;max-height:92vh;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.ovl{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:10050}
+.ovl.open{display:flex !important}
+.sh-modal{display:block;position:relative;background:var(--bg-white,#fff);border-radius:12px;max-width:520px;width:100%;max-height:92vh;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);z-index:10051}
 .mh{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--abcona-blue);color:#fff}
 .mh .ico{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:rgba(255,255,255,.18)}
 .mh b{font-size:.98rem;display:block}
@@ -293,7 +293,7 @@ body.dark-mode .gentext{background:#064e3b;color:#6ee7b7}
 .stat-value.red{color:var(--status-red,#ef4444)}
 .stat-value.teal{color:var(--a-radar,#14b8a6)}
 .stat-title{font-size:.78rem;color:var(--text-secondary,#64748b);margin-top:4px}
-.mb .primary,.modal .primary{display:block;width:100%;margin-top:10px;background:var(--abcona-blue,#163258);color:#fff;border:0;border-radius:9px;padding:11px 14px;font-weight:600;cursor:pointer}
+.mb .primary,.sh-modal .primary{display:block;width:100%;margin-top:10px;background:var(--abcona-blue,#163258);color:#fff;border:0;border-radius:9px;padding:11px 14px;font-weight:600;cursor:pointer}
 .mb .primary:hover{filter:brightness(1.08)}
 .results{display:flex;flex-direction:column;gap:8px}
 .done-btn{display:inline-flex;align-items:center;gap:6px;background:var(--status-green,#10b981);color:#fff;border:0;border-radius:9px;padding:10px 14px;font-weight:600;cursor:pointer}
