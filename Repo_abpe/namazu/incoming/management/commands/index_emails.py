@@ -38,6 +38,36 @@ def load_settings():
         return json.load(f)
 
 
+def decode_bytes(data: bytes, charset: str | None = None) -> str:
+    """Strict charset cascade — kein errors=replace (sonst `` statt Umlaute)."""
+    if not data:
+        return ''
+    candidates: list[str] = []
+    if charset:
+        cs = charset.strip().lower().replace('"', '')
+        # häufige Aliase
+        aliases = {
+            'unknown-8bit': 'utf-8',
+            'x-unknown': 'utf-8',
+            'default': 'utf-8',
+            'utf8': 'utf-8',
+            'iso8859-1': 'latin-1',
+            'iso-8859-1': 'latin-1',
+            'windows-1252': 'cp1252',
+        }
+        candidates.append(aliases.get(cs, cs))
+    for cs in ('utf-8', 'cp1252', 'latin-1'):
+        if cs not in candidates:
+            candidates.append(cs)
+    for cs in candidates:
+        try:
+            return data.decode(cs)  # strict
+        except (LookupError, UnicodeDecodeError):
+            continue
+    # letzter Fallback: utf-8 replace nur wenn alles scheitert
+    return data.decode('utf-8', errors='replace')
+
+
 def decode_header(value):
     if not value:
         return ''
@@ -46,12 +76,12 @@ def decode_header(value):
         result = []
         for part, charset in parts:
             if isinstance(part, bytes):
-                result.append(part.decode(charset or 'utf-8', errors='replace'))
+                result.append(decode_bytes(part, charset))
             else:
                 result.append(str(part))
-        return ' '.join(result)
+        return ''.join(result).strip()
     except Exception:
-        return str(value)
+        return str(value or '').strip()
 
 
 def get_body(msg, max_len=10000):
@@ -61,17 +91,19 @@ def get_body(msg, max_len=10000):
             if part.get_content_type() == 'text/plain':
                 try:
                     payload = part.get_payload(decode=True) or b''
-                    body += payload.decode(
-                        part.get_content_charset() or 'utf-8', errors='replace'
-                    )
+                    body += decode_bytes(payload, part.get_content_charset())
+                except Exception:
+                    pass
+            elif part.get_content_type() == 'text/html' and not body:
+                try:
+                    payload = part.get_payload(decode=True) or b''
+                    body += decode_bytes(payload, part.get_content_charset())
                 except Exception:
                     pass
     else:
         try:
             payload = msg.get_payload(decode=True) or b''
-            body = payload.decode(
-                msg.get_content_charset() or 'utf-8', errors='replace'
-            )
+            body = decode_bytes(payload, msg.get_content_charset())
         except Exception:
             pass
     return body[:max_len]

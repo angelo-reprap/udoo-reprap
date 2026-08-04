@@ -208,17 +208,82 @@ def get_imap_accounts() -> list[ImapAccount]:
     return []
 
 
+def _decode_bytes(data: bytes, charset: Optional[str] = None) -> str:
+    """Strict charset cascade — kein errors=replace (sonst `` statt Umlaute)."""
+    if not data:
+        return ''
+    candidates: list[str] = []
+    if charset:
+        cs = charset.strip().lower().replace('"', '')
+        aliases = {
+            'unknown-8bit': 'utf-8', 'x-unknown': 'utf-8', 'default': 'utf-8',
+            'utf8': 'utf-8', 'iso8859-1': 'latin-1', 'iso-8859-1': 'latin-1',
+            'windows-1252': 'cp1252',
+        }
+        candidates.append(aliases.get(cs, cs))
+    for cs in ('utf-8', 'cp1252', 'latin-1'):
+        if cs not in candidates:
+            candidates.append(cs)
+    for cs in candidates:
+        try:
+            return data.decode(cs)
+        except (LookupError, UnicodeDecodeError):
+            continue
+    return data.decode('utf-8', errors='replace')
+
+
 def _decode_header(val: Optional[str]) -> str:
     if not val:
         return ''
-    parts = email.header.decode_header(val)
-    out = []
-    for chunk, enc in parts:
-        if isinstance(chunk, bytes):
-            out.append(chunk.decode(enc or 'utf-8', errors='replace'))
-        else:
-            out.append(str(chunk))
-    return ' '.join(out).strip()
+    try:
+        parts = email.header.decode_header(val)
+        out = []
+        for chunk, enc in parts:
+            if isinstance(chunk, bytes):
+                out.append(_decode_bytes(chunk, enc))
+            else:
+                out.append(str(chunk))
+        return ''.join(out).strip()
+    except Exception:
+        return str(val or '').strip()
+
+
+def _fix_mojibake(text: str) -> str:
+    """UTF-8-als-Latin1 + HTML-Entities (KlimagerÃ¤t / &auml; → ä)."""
+    if not text:
+        return text
+    import html as html_mod
+    s = str(text)
+    if 'Ã' in s or 'Â' in s:
+        try:
+            s = s.encode('latin-1').decode('utf-8')
+        except Exception:
+            pass
+    if '&' in s:
+        try:
+            s = html_mod.unescape(s)
+        except Exception:
+            pass
+    return s
+
+
+def _subject_from_html(html: str) -> str:
+    """Betreff aus <title> retten, wenn Index-Subject `` enthält."""
+    if not html:
+        return ''
+    m = re.search(r'(?is)<title[^>]*>(.*?)</title>', html)
+    if not m:
+        return ''
+    return _fix_mojibake(re.sub(r'\s+', ' ', m.group(1))).strip()
+
+
+def _clean_subject(subj: str, *, body_html: str = '') -> str:
+    s = _fix_mojibake(subj or '')
+    if '\ufffd' in s or '' in s:
+        alt = _subject_from_html(body_html)
+        if alt:
+            return alt
+    return s or '(ohne Betreff)'
 
 
 def _age_label(dt: Optional[datetime]) -> str:
@@ -633,25 +698,6 @@ def _es_inbox_query(
     return {'bool': bool_q}
 
 
-def _fix_mojibake(text: str) -> str:
-    """UTF-8-als-Latin1 + HTML-Entities (KlimagerÃ¤t / &auml; → ä)."""
-    if not text:
-        return text
-    import html as html_mod
-    s = str(text)
-    if 'Ã' in s or 'Â' in s:
-        try:
-            s = s.encode('latin-1').decode('utf-8')
-        except Exception:
-            pass
-    if '&' in s:
-        try:
-            s = html_mod.unescape(s)
-        except Exception:
-            pass
-    return s
-
-
 def _strip_html(text: str) -> str:
     t = re.sub(r'(?is)<(script|style)[^>]*>.*?</\1>', ' ', text or '')
     t = re.sub(r'(?is)<br\s*/?>', '\n', t)
@@ -719,8 +765,9 @@ def view_mail(mail_id: str, user=None) -> dict[str, Any]:
         or src.get('snippet') or src.get('preview') or mail_dict.get('prev') or ''
     )
     body_html, body_plain = _split_mail_body(raw_body)
-    subject = _fix_mojibake(
-        str(src.get('subject') or mail_dict.get('subj') or '')
+    subject = _clean_subject(
+        str(src.get('subject') or mail_dict.get('subj') or ''),
+        body_html=body_html or raw_body,
     )
     from_ = _fix_mojibake(
         str(src.get('from_addr') or src.get('from') or mail_dict.get('from') or '')
@@ -875,8 +922,9 @@ def _es_parse_date(raw) -> Optional[datetime]:
 def _hit_to_mail(hit: dict) -> InboxMail:
     src = hit.get('_source') or {}
     es_id = hit.get('_id') or ''
-    subj = _fix_mojibake(str(src.get('subject') or '(ohne Betreff)'))
-    from_ = src.get('from_addr') or src.get('from') or '—'
+    raw_body = str(src.get('body') or src.get('snippet') or src.get('preview') or '')
+    subj = _clean_subject(str(src.get('subject') or ''), body_html=raw_body)
+    from_ = _fix_mojibake(str(src.get('from_addr') or src.get('from') or '—'))
     account = src.get('account') or ''
     folder = src.get('folder') or 'INBOX'
     box = account or folder
