@@ -1,12 +1,13 @@
 """
-inbox_service — Posteingang read-only (Architektur Kap. 1 / 6).
+inbox_service — Posteingang read-only (POSTEINGANG_KONZEPT.md).
 
 Quellen (Reihenfolge):
-  1) Elasticsearch-Index ``abpe_emails`` (von ingest/automail bereits indexiert)
-  2) ingest_email-DB (EmailMessage), falls App vorhanden
-  3) Direkt-IMAP laut Settings / settings.json (Host z.B. 172.20.3.150)
+  1) Elasticsearch-Index ``abpe_emails`` (automail/ingest — Postfächer-Überblick)
+  2) ``ingest_email.EmailMessage`` (bereits ingestete Mails, z.B. CV-Scan)
+  3) Direkt-IMAP read-only aus ``ingest_email.EmailImportConfig``
+     (imap_server/username/password/mailbox — keine zweite Credential-Ablage)
 
-Kein Löschen/Verschieben — nur Header + kurzer Preview.
+Kein Löschen/Verschieben / kein \\Seen — nur Header + ~200 Zeichen Preview.
 """
 from __future__ import annotations
 
@@ -145,106 +146,41 @@ def _accounts_from_settings_json() -> list[ImapAccount]:
 
 
 def _accounts_from_ingest_email() -> list[ImapAccount]:
-    """Liest IMAP aus ingest_email — bevorzugt EmailImportConfig (Konzept)."""
+    """IMAP aus ``ingest_email.EmailImportConfig`` (exakte Felder, Konzept)."""
     try:
-        from django.apps import apps
+        from apps.ingest_email.models import EmailImportConfig
     except Exception:
-        return []
-
-    candidates = [
-        ('ingest_email', 'EmailImportConfig'),
-        ('ingest_email', 'MailAccount'),
-        ('ingest_email', 'EmailAccount'),
-        ('ingest_email', 'ImapAccount'),
-        ('ingest_email', 'Mailbox'),
-        ('abpe_ingest_email', 'EmailImportConfig'),
-        ('abpe_ingest_email', 'MailAccount'),
-        ('abpe_ingest_email', 'EmailAccount'),
-    ]
-    model = None
-    for app_label, model_name in candidates:
         try:
-            model = apps.get_model(app_label, model_name)
-            if model is not None:
-                break
+            from django.apps import apps
+            EmailImportConfig = apps.get_model('ingest_email', 'EmailImportConfig')
         except Exception:
-            continue
-    if model is None:
-        return []
+            return []
 
-    out = []
+    out: list[ImapAccount] = []
     try:
-        qs = model.objects.all()
-        # aktive filtern falls Feld existiert
-        for flag, val in (
-            ('aktiv', True), ('active', True), ('is_active', True),
-            ('enabled', True), ('imap_enabled', True),
-        ):
-            if hasattr(model, flag):
-                qs = qs.filter(**{flag: val})
-                break
+        qs = EmailImportConfig.objects.filter(is_active=True).order_by('name')
         for row in qs[:20]:
-            host = (
-                getattr(row, 'imap_host', None)
-                or getattr(row, 'host', None)
-                or getattr(row, 'server', None)
-                or getattr(row, 'imap_server', None)
-                or '172.20.3.150'
-            )
-            user = (
-                getattr(row, 'username', None)
-                or getattr(row, 'user', None)
-                or getattr(row, 'email', None)
-                or getattr(row, 'imap_user', None)
-                or getattr(row, 'mailbox', None)
-                or ''
-            )
-            password = (
-                getattr(row, 'password', None)
-                or getattr(row, 'imap_password', None)
-                or getattr(row, 'secret', None)
-                or getattr(row, 'imap_pass', None)
-                or ''
-            )
-            port = (
-                getattr(row, 'imap_port', None)
-                or getattr(row, 'port', None)
-                or 993
-            )
-            folder = (
-                getattr(row, 'folder', None)
-                or getattr(row, 'mailbox_folder', None)
-                or getattr(row, 'imap_folder', None)
-                or 'INBOX'
-            )
-            ssl = getattr(row, 'use_ssl', None)
-            if ssl is None:
-                ssl = getattr(row, 'ssl', None)
-            if ssl is None:
-                ssl = getattr(row, 'imap_ssl', True)
-            label = (
-                getattr(row, 'name', None)
-                or getattr(row, 'label', None)
-                or getattr(row, 'display_name', None)
-                or str(user)
-            )
+            user = (row.username or row.email_address or '').strip()
+            host = (row.imap_server or '').strip() or '172.20.3.150'
             if not user:
                 continue
             out.append(ImapAccount(
-                host=str(host),
-                port=int(port),
-                user=str(user),
-                password=str(password or ''),
-                folder=str(folder),
-                ssl=bool(ssl),
-                box_label=str(label),
+                host=host,
+                port=int(row.imap_port or 993),
+                user=user,
+                password=str(row.password or ''),
+                folder=(row.mailbox or 'INBOX').strip() or 'INBOX',
+                ssl=bool(row.use_ssl),
+                box_label=(row.name or row.email_address or user),
                 extra={
-                    'pk': str(getattr(row, 'pk', '')),
-                    'model': f'{model._meta.app_label}.{model.__name__}',
+                    'pk': str(row.pk),
+                    'model': 'ingest_email.EmailImportConfig',
+                    'email_address': row.email_address,
+                    'protocol': row.protocol,
                 },
             ))
     except Exception as exc:
-        log.warning('ingest_email Accounts nicht lesbar: %s', exc)
+        log.warning('EmailImportConfig nicht lesbar: %s', exc)
     return out
 
 
@@ -254,7 +190,6 @@ def get_imap_accounts() -> list[ImapAccount]:
         acc = loader()
         if acc:
             return acc
-    # Fallback: Host bekannt, Credentials fehlen → leere Liste (Probe zeigt Hinweis)
     return []
 
 
@@ -742,65 +677,48 @@ def _get_es_mail(mail_id: str) -> Optional[dict[str, Any]]:
 
 
 def _list_from_ingest_db(limit: int = 40) -> Optional[list[InboxMail]]:
-    """Liest bereits ingestete Mails aus der DB, wenn Modell existiert."""
+    """Liest ``ingest_email.EmailMessage`` (exakte Felder)."""
     try:
-        from django.apps import apps
+        from apps.ingest_email.models import EmailMessage
     except Exception:
-        return None
-
-    model = None
-    for app_label, model_name in (
-        ('ingest_email', 'EmailMessage'),
-        ('ingest_email', 'IngestedEmail'),
-        ('ingest_email', 'MailMessage'),
-        ('abpe_ingest_email', 'EmailMessage'),
-    ):
         try:
-            model = apps.get_model(app_label, model_name)
-            break
+            from django.apps import apps
+            EmailMessage = apps.get_model('ingest_email', 'EmailMessage')
         except Exception:
-            continue
-    if model is None:
-        return None
+            return None
 
     try:
-        qs = model.objects.all()
-        # Sortierung
-        for order in ('-received_at', '-date', '-created_at', '-id'):
-            field = order.lstrip('-')
-            if hasattr(model, field):
-                qs = qs.order_by(order)
-                break
-        rows = list(qs[:limit])
+        qs = (
+            EmailMessage.objects
+            .select_related('config')
+            .order_by('-received_date')[: max(1, min(int(limit), 200))]
+        )
         out: list[InboxMail] = []
-        for row in rows:
-            subj = getattr(row, 'subject', None) or getattr(row, 'betreff', None) or '(ohne Betreff)'
-            from_ = getattr(row, 'from_address', None) or getattr(row, 'sender', None) or getattr(row, 'from_email', None) or '—'
-            box = getattr(row, 'mailbox', None) or getattr(row, 'account_name', None) or 'Inbox'
-            prev = getattr(row, 'preview', None) or getattr(row, 'snippet', None) or getattr(row, 'body_preview', None) or ''
-            if not prev:
-                body = getattr(row, 'body_text', None) or getattr(row, 'text', None) or ''
-                prev = re.sub(r'\s+', ' ', str(body)).strip()[:180]
-            unread = getattr(row, 'is_unread', None)
-            if unread is None:
-                unread = not bool(getattr(row, 'is_read', False))
-            dt = getattr(row, 'received_at', None) or getattr(row, 'date', None) or getattr(row, 'created_at', None)
-            if isinstance(dt, str):
-                dt = parse_datetime(dt)
+        for row in qs:
+            cfg = getattr(row, 'config', None)
+            box = (
+                (cfg.name if cfg else None)
+                or (cfg.email_address if cfg else None)
+                or row.to_email
+                or 'Inbox'
+            )
+            prev = re.sub(r'\s+', ' ', str(row.body_plain or '')).strip()[:180]
+            dt = row.received_date
+            unread = (row.status or '') == 'NEW'
             out.append(_apply_crm_links(InboxMail(
                 id=f'db:{row.pk}',
-                subj=str(subj),
-                from_=str(from_),
+                subj=str(row.subject or '(ohne Betreff)'),
+                from_=str(row.from_email or '—'),
                 box=str(box),
                 age=_age_label(dt) if isinstance(dt, datetime) else '',
-                prev=str(prev) or '—',
-                unread=bool(unread),
+                prev=prev or '—',
+                unread=unread,
                 received_at=dt.isoformat() if isinstance(dt, datetime) else None,
-                account=str(box),
+                account=str(getattr(cfg, 'email_address', None) or box),
             )))
         return out
     except Exception as exc:
-        log.warning('ingest_email DB-Liste fehlgeschlagen: %s', exc)
+        log.warning('EmailMessage-Liste fehlgeschlagen: %s', exc)
         return None
 
 

@@ -31,27 +31,23 @@ Optional filtern:
 
 Pfad: `/opt/abpe/backend/settings.json`
 
-## IMAP-Fallback (172.20.3.150)
+## IMAP aus EmailImportConfig (keine zweite Credential-Ablage)
 
-Nur wenn ES nicht erreichbar:
+Felder (Live-Modell):
 
-```json
-{
-  "shaduler": {
-    "imap_accounts": [
-      {
-        "host": "172.20.3.150",
-        "port": 993,
-        "ssl": true,
-        "user": "DISPO_USER",
-        "password": "…",
-        "folder": "INBOX",
-        "label": "Dispo"
-      }
-    ]
-  }
-}
-```
+| Feld | Bedeutung |
+|------|-----------|
+| `imap_server` / `imap_port` / `use_ssl` | Server |
+| `username` / `password` | Login |
+| `mailbox` | Ordner (Default `INBOX`) |
+| `name` / `email_address` | Anzeige |
+| `is_active` | nur aktive Configs |
+
+Fallback nur wenn keine aktive Config: `settings.json` → `shaduler.imap_accounts`.
+
+## DB-Quelle EmailMessage
+
+`status=NEW` → Badge „neu“; Preview aus `body_plain`[:180]; Sortierung `-received_date`.
 
 ## ingest_email ins Repo holen (Live → Repo)
 
