@@ -14,7 +14,9 @@ trap 'rm -rf "$TMP"' EXIT
 git archive "$BRANCH" Repo_abpe/abpe_shaduler/incoming Repo_abpe/abpe_ui/incoming | tar -x -C "$TMP"
 
 mkdir -p "$LIVE_APP"
+# P = protect: Live-only migrations/0*.py nicht löschen (makemigrations auf Live)
 rsync -a --delete \
+  --filter='P migrations/0*.py' \
   "$TMP/Repo_abpe/abpe_shaduler/incoming/" \
   "$LIVE_APP/"
 
