@@ -43,6 +43,14 @@ JOBS = [
         'rrule': 'FREQ=MINUTELY;INTERVAL=15',
         'payload': {'job': 'prozess_tick'},
     },
+    {
+        'job_key': 'email_index',
+        'owner_type': 'system',
+        'owner_ref': 'namazu',
+        'webhook': 'email-index',
+        'rrule': 'FREQ=MINUTELY;INTERVAL=10',
+        'payload': {'job': 'email_index', 'since_days': 3},
+    },
 ]
 
 

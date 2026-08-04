@@ -1,18 +1,29 @@
 """
-Management Command: E-Mails von Zimbra IMAP in Elasticsearch indizieren
-Usage: python manage.py index_emails
-       python manage.py index_emails --account vertrieb
-       python manage.py index_emails --reset
+Management Command: E-Mails von Zimbra IMAP in Elasticsearch indizieren.
+
+Usage:
+  python manage.py index_emails
+  python manage.py index_emails --account vertrieb
+  python manage.py index_emails --since-days 14
+  python manage.py index_emails --all-folders --since-days 90
+  python manage.py index_emails --reset   # Index löschen + neu anlegen (Achtung!)
+
+Hinweis: email_settings.json liegt neben diesem Command auf Live und enthält
+Passwörter — Repo-Kopie ist redacted; SYNC darf sie NICHT überschreiben.
 """
-import imaplib
+from __future__ import annotations
+
 import email
 import email.header
 import hashlib
+import imaplib
 import json
 import logging
-from datetime import datetime
+import re
+from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
+from typing import Any, Optional
 
 from django.core.management.base import BaseCommand
 from elasticsearch import helpers
@@ -21,9 +32,11 @@ logger = logging.getLogger(__name__)
 
 SETTINGS_FILE = Path(__file__).parent / 'email_settings.json'
 
+
 def load_settings():
-    with open(SETTINGS_FILE) as f:
+    with open(SETTINGS_FILE, encoding='utf-8') as f:
         return json.load(f)
+
 
 def decode_header(value):
     if not value:
@@ -37,8 +50,9 @@ def decode_header(value):
             else:
                 result.append(str(part))
         return ' '.join(result)
-    except:
+    except Exception:
         return str(value)
+
 
 def get_body(msg, max_len=10000):
     body = ''
@@ -46,17 +60,22 @@ def get_body(msg, max_len=10000):
         for part in msg.walk():
             if part.get_content_type() == 'text/plain':
                 try:
-                    body += part.get_payload(decode=True).decode(
-                        part.get_content_charset() or 'utf-8', errors='replace')
-                except:
+                    payload = part.get_payload(decode=True) or b''
+                    body += payload.decode(
+                        part.get_content_charset() or 'utf-8', errors='replace'
+                    )
+                except Exception:
                     pass
     else:
         try:
-            body = msg.get_payload(decode=True).decode(
-                msg.get_content_charset() or 'utf-8', errors='replace')
-        except:
+            payload = msg.get_payload(decode=True) or b''
+            body = payload.decode(
+                msg.get_content_charset() or 'utf-8', errors='replace'
+            )
+        except Exception:
             pass
     return body[:max_len]
+
 
 def has_attachments(msg):
     if msg.is_multipart():
@@ -65,14 +84,60 @@ def has_attachments(msg):
                 return True
     return False
 
-def fetch_folder(account, password, folder, es, cfg):
+
+def sane_date_iso(raw: Any) -> Optional[str]:
+    """
+    Nur plausible Mail-Daten (2000–2100). Verhindert Index-Müll wie 4501-01-01,
+    der sort=date:desc kaputt macht.
+    """
+    if raw is None or raw == '':
+        return None
+    dt: Optional[datetime] = None
+    if isinstance(raw, datetime):
+        dt = raw
+    else:
+        s = str(raw).strip()
+        if not s:
+            return None
+        try:
+            dt = parsedate_to_datetime(s)
+        except Exception:
+            try:
+                # IMAP INTERNALDATE: 03-Jun-2026 12:00:00 +0200
+                dt = datetime.strptime(s, '%d-%b-%Y %H:%M:%S %z')
+            except Exception:
+                return None
+    if dt is None:
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    if dt.year < 2000 or dt.year > 2100:
+        logger.warning('skip insane date year=%s raw=%r', dt.year, raw)
+        return None
+    return dt.isoformat()
+
+
+def _parse_internaldate(meta: bytes) -> Optional[str]:
+    """Extrahiert INTERNALDATE aus IMAP FETCH-Metadaten."""
+    try:
+        text = meta.decode('utf-8', errors='replace') if isinstance(meta, bytes) else str(meta)
+        m = re.search(r'INTERNALDATE "([^"]+)"', text)
+        if m:
+            return sane_date_iso(m.group(1))
+    except Exception:
+        pass
+    return None
+
+
+def fetch_folder(account, password, folder, es, cfg, *, since_days: Optional[int] = None):
     indexed = 0
-    errors  = 0
-    es_index   = cfg['indexing']['es_index']
+    errors = 0
+    skipped_bad_date = 0
+    es_index = cfg['indexing']['es_index']
     batch_size = cfg['indexing']['batch_size']
-    max_body   = cfg['indexing']['max_body_length']
-    host       = cfg['imap']['host']
-    port       = cfg['imap']['port']
+    max_body = cfg['indexing']['max_body_length']
+    host = cfg['imap']['host']
+    port = cfg['imap']['port']
 
     try:
         m = imaplib.IMAP4_SSL(host, port)
@@ -80,59 +145,64 @@ def fetch_folder(account, password, folder, es, cfg):
         r, data = m.select(f'"{folder}"', readonly=True)
         if r != 'OK':
             m.logout()
-            return 0, 0
-        total = int(data[0].decode())
-        if total == 0:
-            m.logout()
-            return 0, 0
+            return 0, 0, 0
 
-        r, data = m.search(None, 'ALL')
-        if r != 'OK':
+        if since_days and since_days > 0:
+            since = (datetime.now(timezone.utc) - timedelta(days=int(since_days))).strftime('%d-%b-%Y')
+            r, data = m.search(None, f'(SINCE {since})')
+        else:
+            r, data = m.search(None, 'ALL')
+        if r != 'OK' or not data or not data[0]:
             m.logout()
-            return 0, 0
+            return 0, 0, 0
 
-        uids = data[0].split()
+        seqs = data[0].split()
         docs = []
+        first_errors: list[str] = []
 
-        for uid in uids:
+        for seq in seqs:
             try:
-                r, data = m.fetch(uid, '(RFC822)')
-                if r != 'OK' or not data[0]:
+                r, data = m.fetch(seq, '(RFC822 INTERNALDATE)')
+                if r != 'OK' or not data or not data[0]:
                     continue
-                raw = data[0][1]
+                # data[0] = (b'… INTERNALDATE "…" RFC822 {n}', raw_bytes)
+                meta = data[0][0] if isinstance(data[0], tuple) else b''
+                raw = data[0][1] if isinstance(data[0], tuple) else None
+                if not isinstance(raw, (bytes, bytearray)):
+                    continue
+
                 msg = email.message_from_bytes(raw)
-
-                subject  = decode_header(msg.get('Subject', ''))
-                from_    = decode_header(msg.get('From', ''))
-                to_      = decode_header(msg.get('To', ''))
+                subject = decode_header(msg.get('Subject', ''))
+                from_ = decode_header(msg.get('From', ''))
+                to_ = decode_header(msg.get('To', ''))
                 date_str = msg.get('Date', '')
-                msg_id   = msg.get('Message-ID', '') or hashlib.md5(raw[:200]).hexdigest()
+                msg_id = msg.get('Message-ID', '') or hashlib.md5(raw[:200]).hexdigest()
 
-                try:
-                    date = parsedate_to_datetime(date_str).isoformat() if date_str else None
-                except:
-                    date = None
+                date = sane_date_iso(date_str) or _parse_internaldate(meta)
+                if date is None:
+                    skipped_bad_date += 1
 
-                body   = get_body(msg, max_body)
-                doc_id = hashlib.md5(f"{account}{folder}{msg_id}".encode()).hexdigest()
+                body = get_body(msg, max_body)
+                size_bytes = len(raw)  # FIX: war undefiniert → jeder Lauf crashte still
+                doc_id = hashlib.md5(f'{account}{folder}{msg_id}'.encode()).hexdigest()
 
                 docs.append({
                     '_index': es_index,
-                    '_id':    doc_id,
+                    '_id': doc_id,
                     '_source': {
-                        'account':         account,
-                        'folder':          folder,
-                        'message_id':      msg_id,
-                        'subject':         subject,
-                        'from_addr':       from_,
-                        'to_addr':         to_,
-                        'date':            date,
-                        'body':            body,
+                        'account': account,
+                        'folder': folder,
+                        'message_id': msg_id,
+                        'subject': subject,
+                        'from_addr': from_,
+                        'to_addr': to_,
+                        'date': date,
+                        'body': body,
                         'has_attachments': has_attachments(msg),
-                        'size_bytes':      size_bytes,
-                        'indexed_at':      datetime.utcnow().isoformat(),
-                        'uid':             uid.decode() if isinstance(uid, bytes) else str(uid),
-                    }
+                        'size_bytes': size_bytes,
+                        'indexed_at': datetime.now(timezone.utc).isoformat(),
+                        'uid': seq.decode() if isinstance(seq, bytes) else str(seq),
+                    },
                 })
 
                 if len(docs) >= batch_size:
@@ -142,6 +212,8 @@ def fetch_folder(account, password, folder, es, cfg):
 
             except Exception as e:
                 errors += 1
+                if len(first_errors) < 5:
+                    first_errors.append(str(e)[:160])
                 continue
 
         if docs:
@@ -149,48 +221,70 @@ def fetch_folder(account, password, folder, es, cfg):
             indexed += ok
 
         m.logout()
+        for err in first_errors:
+            logger.warning('%s/%s sample error: %s', account, folder, err)
     except Exception as e:
-        logger.error(f"{account}/{folder}: {e}")
+        logger.error('%s/%s: %s', account, folder, e)
 
-    return indexed, errors
+    return indexed, errors, skipped_bad_date
+
+
+def _folder_name(raw_line: bytes) -> Optional[str]:
+    try:
+        parts = raw_line.decode()
+        if '"' in parts:
+            return parts.split('"')[-2]
+        return parts.split()[-1]
+    except Exception:
+        return None
 
 
 class Command(BaseCommand):
     help = 'E-Mails von Zimbra IMAP in Elasticsearch indizieren'
 
     def add_arguments(self, parser):
-        parser.add_argument('--account', type=str, default=None)
-        parser.add_argument('--reset',   action='store_true')
+        parser.add_argument('--account', type=str, default=None,
+                            help='Nur dieses Konto (z.B. vertrieb)')
+        parser.add_argument('--reset', action='store_true',
+                            help='Index löschen und neu anlegen')
+        parser.add_argument('--since-days', type=int, default=14,
+                            help='Nur Mails der letzten N Tage (0=alle). Default 14.')
+        parser.add_argument('--all-folders', action='store_true',
+                            help='Alle Ordner (sonst nur INBOX)')
+        parser.add_argument('--folders', type=str, default='INBOX',
+                            help='Kommagetrennte Ordnerliste (Default INBOX)')
 
     def handle(self, *args, **options):
         from apps.abpe_search.services.search_service import get_es_client
-        es  = get_es_client()
+        es = get_es_client()
         cfg = load_settings()
 
-        es_index   = cfg['indexing']['es_index']
-        host       = cfg['imap']['host']
-        port       = cfg['imap']['port']
+        es_index = cfg['indexing']['es_index']
+        host = cfg['imap']['host']
+        port = cfg['imap']['port']
+        since_days = options['since_days']
 
         ES_MAPPING = {
             'mappings': {
                 'properties': {
-                    'account':         {'type': 'keyword'},
-                    'folder':          {'type': 'keyword'},
-                    'message_id':      {'type': 'keyword'},
-                    'subject':         {'type': 'text', 'analyzer': 'german'},
-                    'from_addr':       {'type': 'keyword'},
-                    'to_addr':         {'type': 'text'},
-                    'date':            {'type': 'date'},
-                    'body':            {'type': 'text', 'analyzer': 'german'},
+                    'account': {'type': 'keyword'},
+                    'folder': {'type': 'keyword'},
+                    'message_id': {'type': 'keyword'},
+                    'subject': {'type': 'text', 'analyzer': 'german'},
+                    'from_addr': {'type': 'keyword'},
+                    'to_addr': {'type': 'text'},
+                    'date': {'type': 'date'},
+                    'body': {'type': 'text', 'analyzer': 'german'},
                     'has_attachments': {'type': 'boolean'},
-                    'size_bytes':      {'type': 'long'},
-                    'indexed_at':      {'type': 'date'},
+                    'size_bytes': {'type': 'long'},
+                    'indexed_at': {'type': 'date'},
+                    'uid': {'type': 'keyword'},
                 }
             },
             'settings': {
-                'number_of_shards':   1,
+                'number_of_shards': 1,
                 'number_of_replicas': 0,
-            }
+            },
         }
 
         if options['reset'] and es.indices.exists(index=es_index):
@@ -201,24 +295,41 @@ class Command(BaseCommand):
             es.indices.create(index=es_index, body=ES_MAPPING)
             self.stdout.write(f'✓ Index {es_index} angelegt')
 
-        # Accounts aus JSON — gefiltert nach enabled + optional --account
         accounts = {
             user: data
             for user, data in cfg['accounts'].items()
             if data.get('enabled', False)
             and data.get('password', '')
+            and data.get('password') != '***REDACTED***'
             and (options['account'] is None or user == options['account'])
         }
 
         if not accounts:
-            self.stdout.write('❌ Keine aktiven Accounts gefunden')
+            self.stdout.write(self.style.ERROR(
+                'Keine aktiven Accounts (enabled+password). '
+                'Live-email_settings.json prüfen — Repo-Kopie ist redacted.'
+            ))
             return
 
+        want_folders = None
+        if not options['all_folders']:
+            want_folders = {
+                f.strip() for f in (options['folders'] or 'INBOX').split(',') if f.strip()
+            }
+
         total_indexed = 0
-        start = datetime.now()
+        total_errors = 0
+        total_bad = 0
+        start = datetime.now(timezone.utc)
+
+        self.stdout.write(
+            f'IMAP {host}:{port} → ES {es_index} | '
+            f'since_days={since_days} folders='
+            f'{"ALL" if options["all_folders"] else sorted(want_folders or [])}'
+        )
 
         for account, data in accounts.items():
-            password    = data['password']
+            password = data['password']
             description = data.get('description', account)
             self.stdout.write(f'\n📬 {account} ({description})...')
 
@@ -228,20 +339,33 @@ class Command(BaseCommand):
                 r, folders = m.list()
                 m.logout()
             except Exception as e:
-                self.stdout.write(f'  ❌ Login fehler: {e}')
+                self.stdout.write(self.style.ERROR(f'  ❌ Login fehler: {e}'))
                 continue
 
-            for f in folders:
-                try:
-                    parts = f.decode()
-                    fname = parts.split('"')[-2] if '"' in parts else parts.split()[-1]
-                except:
+            for f in folders or []:
+                fname = _folder_name(f)
+                if not fname:
                     continue
+                if want_folders is not None and fname not in want_folders:
+                    # Zimbra: manchmal INBOX vs Inbox
+                    if not any(fname.upper() == w.upper() for w in want_folders):
+                        continue
 
-                indexed, errors = fetch_folder(account, password, fname, es, cfg)
-                if indexed > 0:
-                    self.stdout.write(f'  ✓ {fname}: {indexed} indiziert')
+                indexed, errors, bad = fetch_folder(
+                    account, password, fname, es, cfg, since_days=since_days or None,
+                )
+                total_errors += errors
+                total_bad += bad
+                if indexed > 0 or errors or bad:
+                    self.stdout.write(
+                        f'  ✓ {fname}: {indexed} indiziert'
+                        f'{f"  errors={errors}" if errors else ""}'
+                        f'{f"  bad_dates={bad}" if bad else ""}'
+                    )
                     total_indexed += indexed
 
-        elapsed = (datetime.now() - start).seconds
-        self.stdout.write(f'\n✅ Fertig: {total_indexed} E-Mails in {elapsed}s')
+        elapsed = int((datetime.now(timezone.utc) - start).total_seconds())
+        self.stdout.write(self.style.SUCCESS(
+            f'\n✅ Fertig: {total_indexed} E-Mails in {elapsed}s '
+            f'(errors={total_errors}, skipped_bad_date={total_bad})'
+        ))

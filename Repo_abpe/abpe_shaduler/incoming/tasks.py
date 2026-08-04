@@ -36,7 +36,7 @@ def shaduler_inbox_poll(payload=None):
         return {'ok': False, 'error': str(exc)}
 
 
-function shaduler_prozess_tick(payload=None):
+def shaduler_prozess_tick(payload=None):
     """zeit_ohne_reaktion + fällige Schritte (V1)."""
     logger.info('shaduler_prozess_tick: payload=%s', payload)
     try:
@@ -44,6 +44,32 @@ function shaduler_prozess_tick(payload=None):
         return prozess_engine.tick_zeit_ohne_reaktion()
     except Exception as exc:
         logger.exception('prozess_tick failed')
+        return {'ok': False, 'error': str(exc)}
+
+
+def shaduler_email_index(payload=None):
+    """Namazu IMAP→ES Indexer (abpe_emails). Default: INBOX, letzte N Tage."""
+    payload = payload or {}
+    since = int(payload.get('since_days') or 3)
+    account = payload.get('account')
+    logger.info('shaduler_email_index: since_days=%s account=%s', since, account)
+    try:
+        from django.core.management import call_command
+        from io import StringIO
+        out = StringIO()
+        kwargs = {'since_days': since, 'stdout': out}
+        if account:
+            kwargs['account'] = account
+        call_command('index_emails', **kwargs)
+        text = out.getvalue()
+        return {
+            'ok': True,
+            'job': 'email_index',
+            'since_days': since,
+            'log_tail': text[-800:],
+        }
+    except Exception as exc:
+        logger.exception('email_index failed')
         return {'ok': False, 'error': str(exc)}
 
 
@@ -61,6 +87,8 @@ JOB_HANDLERS = {
     'inbox_poll': shaduler_inbox_poll,
     'prozess-tick': shaduler_prozess_tick,
     'prozess_tick': shaduler_prozess_tick,
+    'email-index': shaduler_email_index,
+    'email_index': shaduler_email_index,
     'delegation-notify': shaduler_delegation_notify,
     'delegation_notify': shaduler_delegation_notify,
 }
