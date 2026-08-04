@@ -90,3 +90,15 @@ python manage.py makemigrations abpe_shaduler
 - Sidebar: Modul „Aufgaben“ (order 24) sichtbar für Nicht-Berater
 - `https://…/shaduler/` öffnet Reiter-Gerüst
 - `GET /shaduler/api/stats/` → JSON Stub `{ok, stub, badges…}`
+
+## 6) Periodik über abpe_scheduler (kein Celery Beat)
+
+Nach Register + Token (gleicher `SCHEDULER_SERVICE_TOKEN` wie MeetMe):
+
+```bash
+python manage.py register_scheduler_jobs --dry-run
+python manage.py register_scheduler_jobs
+```
+
+Webhooks: `POST /shaduler/api/webhook/radar-poll/` (etc.) — siehe
+`incoming/docs/UMSETZUNG_SCHEDULER.md`.

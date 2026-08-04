@@ -16,31 +16,19 @@
 
 ## Architektur (Frozen LLD)
 
-Quelle: `Architektur_zielvorlage.md` im App-Ordner.
+Quelle: `incoming/Architektur_zielvorlage.md` (Update 04.08.2026 inkl. Kap.-0-Befund
+zu `abpe_scheduler` / MeetMe).
 
 - 6 Reiter: Aufgaben · Kalender · Posteingang · Radar Anfragen · Radar Berater · Regeln
-- 10 Modelle, Services-Fassaden, Celery-Tasks, Signals auf Matching
-- Schwester-App `abpe_composer` = eigene Etappe (hier nur Schnittstelle)
+- 10 Modelle, Services-Fassaden, Signals auf Matching
+- **Periodik über `abpe_scheduler` (SchedulerJob + Webhook), nicht Celery Beat**
+  → siehe `incoming/docs/UMSETZUNG_SCHEDULER.md`
+- Schwester-App `abpe_composer` = eigene Etappe
 - V1 = Aufgaben+Ergebnis+Aktivität+Regeln+Admin+i18n DE/EN
-
-## Mockup
-
-`docs/mockup_final.html` — 3 Uploads waren byte-identisch (ein Final).  
-CSS-Komponenten nach `mod-shaduler.css` übernommen (Akzent-Variablen `--a-*`).
-
-## Repo-Konvention
-
-| Live | Repo-Export |
-|------|-------------|
-| `/opt/abpe/backend/apps/abpe_shaduler/` | `Repo_abpe/abpe_shaduler/incoming/` |
-| `abpe_ui/.../modules/shaduler/` | `Repo_abpe/abpe_ui/incoming/modules/shaduler/` |
-| `abpe_ui/static/.../mod-shaduler.*` | `Repo_abpe/abpe_ui/incoming/mod-shaduler.*` (+ `static_abpe_ui/`) |
-
-Matching-Django-App ist im Git kaum als `incoming/` exportiert — Shaduler-Scaffold folgt MeetMe/Email-Studio-Muster + Architektur.
 
 ## Bewusst nicht gemacht
 
 - Kein Eintrag in Live-`apps.py` / `urls.py` (dein nano)
 - Keine Migration applied
-- Keine Celery-Beat-Einträge
-- Kein Umbau `abpe_scheduler` / Matching
+- Keine Umbauten an `abpe_scheduler` / Matching / MeetMe
+- Celery-Beat-Einträge: bewusst **nicht** (Kap. 0)

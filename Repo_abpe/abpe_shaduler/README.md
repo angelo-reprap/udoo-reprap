@@ -20,7 +20,8 @@
 ## Status
 
 - Modelle (10) + Admin + URL-Gerüst + Stub-APIs + Portal-Index: **vorhanden**
-- Services / Celery / Signals: **Stubs**
+- **Taktgeber:** `scheduler_client.py` + Webhooks → `abpe_scheduler` (Kap. 0), **kein** Celery Beat
+- Services / Signals: **Stubs**
 - Migrationen: **noch nicht erzeugt** (`makemigrations` erst nach Register + Review)
 - Live-Register (`apps.py` / `urls.py`): **manuell per nano** — siehe `SETUP_NANO.md`
 
