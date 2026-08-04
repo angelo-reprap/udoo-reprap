@@ -26,6 +26,13 @@ class Command(BaseCommand):
             f"  newest_date={es.get('newest_date')} account={es.get('newest_account')} "
             f"subj={es.get('newest_subject')!r}"
         )
+        if es.get('bad_future_dates') is not None:
+            self.stdout.write(
+                self.style.WARNING(
+                    f"  bad_future_dates(>2100)={es.get('bad_future_dates')} "
+                    f"— Indexer schreibt kaputte Daten (z.B. 4501); namazu prüfen"
+                )
+            )
         if es.get('top_accounts'):
             tops = ', '.join(
                 f"{a.get('account')}={a.get('count')}" for a in (es.get('top_accounts') or [])[:8]

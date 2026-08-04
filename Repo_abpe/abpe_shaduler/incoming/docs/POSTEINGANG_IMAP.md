@@ -32,8 +32,22 @@ Optional filtern:
 
 `days` blendet ältere Treffer aus; ohne Treffer fällt der Service auf ungefiltert zurück.
 
-Wenn Probe `newest_date` ~Wochen alt zeigt: Mail-Indexer (automail) prüfen —
-der Posteingang liest nur den Index, er füllt ihn nicht.
+## Wer befüllt `abpe_emails`?
+
+**Nicht der Shaduler.** Indexer sitzt unter Live `apps/namazu` (IMAP → ES),
+gesteuert über `email_settings.json` + Management-Command / SchedulerJob —
+nicht Celery-Beat.
+
+Ins Repo holen:
+
+```bash
+cd /mnt/public/udoo-reprap && git fetch origin cursor/abpe-shaduler-scaffold-7f07
+bash <(git show origin/cursor/abpe-shaduler-scaffold-7f07:scripts/PULL-namazu-mail-indexer-from-live.sh)
+# commit/push, dann Cloud Agent repariert Date-Parsing
+```
+
+Bekannter Index-Bug: `date=4501-01-01…` (kaputte Werte). Der Posteingang
+filtert sie aus (`2000 ≤ date ≤ now+1d`). Root-Cause im namazu-Indexer fixen.
 
 ## IMAP aus EmailImportConfig (keine zweite Credential-Ablage)
 

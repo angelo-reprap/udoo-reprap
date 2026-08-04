@@ -608,20 +608,27 @@ def _es_parse_date(raw) -> Optional[datetime]:
     if raw is None or raw == '':
         return None
     if isinstance(raw, datetime):
-        return raw
-    if isinstance(raw, (int, float)):
+        dt = raw
+    elif isinstance(raw, (int, float)):
         try:
-            return datetime.fromtimestamp(float(raw) / (1000 if raw > 1e12 else 1), tz=timezone.utc)
+            dt = datetime.fromtimestamp(float(raw) / (1000 if raw > 1e12 else 1), tz=timezone.utc)
         except Exception:
             return None
-    s = str(raw).strip()
-    dt = parse_datetime(s)
-    if dt:
-        return dt
-    try:
-        return parsedate_to_datetime(s)
-    except Exception:
+    else:
+        s = str(raw).strip()
+        dt = parse_datetime(s)
+        if not dt:
+            try:
+                dt = parsedate_to_datetime(s)
+            except Exception:
+                return None
+    if dt is None:
         return None
+    # Kaputte Index-Daten (z.B. 4501-01-01) verwerfen
+    year = dt.year
+    if year < 2000 or year > 2100:
+        return None
+    return dt
 
 
 def _hit_to_mail(hit: dict) -> InboxMail:
@@ -674,18 +681,18 @@ def _list_from_elasticsearch(limit: int = 40) -> Optional[list[InboxMail]]:
         return None
 
     hits = (res.get('hits') or {}).get('hits') or []
-    # Wenn Filter (Folder/days) nichts liefert: ohne Folder/days, Accounts behalten
+    # Wenn Filter (Folder/days) nichts liefert: nur sane dates (+ Accounts)
     if not hits:
         sh = _es_mail_cfg()
         try:
             body2 = dict(body)
-            filters = []
+            filters = list(_es_sane_date_filters())
             accounts = sh.get('accounts') or []
             if accounts:
                 if isinstance(accounts, str):
                     accounts = [accounts]
                 filters.append({'terms': {'account': list(accounts)}})
-            body2['query'] = {'bool': {'filter': filters}} if filters else {'match_all': {}}
+            body2['query'] = {'bool': {'filter': filters}}
             res2 = es.search(index=index, body=body2)
             hits = (res2.get('hits') or {}).get('hits') or []
         except Exception as exc:
@@ -950,7 +957,7 @@ def probe() -> dict[str, Any]:
                         'size': 1,
                         'sort': [{'date': {'order': 'desc', 'unmapped_type': 'date'}}],
                         '_source': ['date', 'account', 'subject', 'folder'],
-                        'query': {'match_all': {}},
+                        'query': {'bool': {'filter': _es_sane_date_filters()}},
                     },
                 )
                 hits = (sample.get('hits') or {}).get('hits') or []
@@ -959,6 +966,15 @@ def probe() -> dict[str, Any]:
                     es_info['newest_date'] = src.get('date')
                     es_info['newest_account'] = src.get('account')
                     es_info['newest_subject'] = (src.get('subject') or '')[:80]
+                # Anzahl kaputter Future-Dates (Diagnose Indexer)
+                try:
+                    bad = es.count(
+                        index=es_info['index'],
+                        body={'query': {'range': {'date': {'gt': '2100-01-01'}}}},
+                    ).get('count')
+                    es_info['bad_future_dates'] = bad
+                except Exception:
+                    es_info['bad_future_dates'] = None
             except Exception as exc:
                 es_info['error'] = (es_info.get('error') or '') + f' sample: {exc}'
             try:
