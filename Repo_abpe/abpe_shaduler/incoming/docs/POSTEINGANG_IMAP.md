@@ -55,14 +55,32 @@ Nur wenn ES nicht erreichbar:
 
 ## ingest_email ins Repo holen (Live → Repo)
 
-Cloud Agent kann Live nicht lesen. Auf **ucs5**:
+**Zuerst fetch** (sonst kennt `origin/…` das Script nicht):
 
 ```bash
-bash <(git -C /mnt/public/udoo-reprap show origin/cursor/abpe-shaduler-scaffold-7f07:scripts/PULL-ingest-email-from-live.sh)
+cd /mnt/public/udoo-reprap
+git fetch origin cursor/abpe-shaduler-scaffold-7f07
+bash <(git show origin/cursor/abpe-shaduler-scaffold-7f07:scripts/PULL-ingest-email-from-live.sh)
 # danach commit/push laut Script-Ausgabe
 ```
 
+Ohne Script (gleicher Effekt):
+
+```bash
+mkdir -p /mnt/public/udoo-reprap/Repo_abpe/ingest_email/incoming
+rsync -a --delete --exclude '__pycache__/' --exclude '*.pyc' \
+  /opt/abpe/backend/apps/ingest_email/ \
+  /mnt/public/udoo-reprap/Repo_abpe/ingest_email/incoming/
+cd /mnt/public/udoo-reprap
+git checkout cursor/abpe-shaduler-scaffold-7f07
+git pull origin cursor/abpe-shaduler-scaffold-7f07
+git add Repo_abpe/ingest_email/incoming
+git commit -m 'Import: ingest_email von Live nach Repo'
+git push -u origin cursor/abpe-shaduler-scaffold-7f07
+```
+
 Das kopiert `/opt/abpe/backend/apps/ingest_email/` → `Repo_abpe/ingest_email/incoming/`.
+IMAP-Zugänge kommen aus **`EmailImportConfig`** (Konzept).
 
 ## SYNC vs. PULL (wichtig)
 

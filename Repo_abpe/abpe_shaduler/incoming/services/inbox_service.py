@@ -43,6 +43,13 @@ class InboxMail:
     crm: str = '—'
     received_at: Optional[str] = None
     account: str = ''
+    reply_email: str = ''
+    request_id: str = ''
+    matching_url: str = ''
+    email_studio_url: str = ''
+    mailto_url: str = ''
+    crm_bean_id: str = ''
+    crm_bean_module: str = ''
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -56,6 +63,13 @@ class InboxMail:
             'crm': self.crm,
             'received_at': self.received_at,
             'account': self.account,
+            'reply_email': self.reply_email,
+            'request_id': self.request_id,
+            'matching_url': self.matching_url,
+            'email_studio_url': self.email_studio_url,
+            'mailto_url': self.mailto_url,
+            'crm_bean_id': self.crm_bean_id,
+            'crm_bean_module': self.crm_bean_module,
         }
 
 
@@ -131,17 +145,19 @@ def _accounts_from_settings_json() -> list[ImapAccount]:
 
 
 def _accounts_from_ingest_email() -> list[ImapAccount]:
-    """Versucht typische ingest_email-Modelle zu finden."""
+    """Liest IMAP aus ingest_email — bevorzugt EmailImportConfig (Konzept)."""
     try:
         from django.apps import apps
     except Exception:
         return []
 
     candidates = [
+        ('ingest_email', 'EmailImportConfig'),
         ('ingest_email', 'MailAccount'),
         ('ingest_email', 'EmailAccount'),
         ('ingest_email', 'ImapAccount'),
         ('ingest_email', 'Mailbox'),
+        ('abpe_ingest_email', 'EmailImportConfig'),
         ('abpe_ingest_email', 'MailAccount'),
         ('abpe_ingest_email', 'EmailAccount'),
     ]
@@ -160,39 +176,56 @@ def _accounts_from_ingest_email() -> list[ImapAccount]:
     try:
         qs = model.objects.all()
         # aktive filtern falls Feld existiert
-        if hasattr(model, 'aktiv'):
-            qs = qs.filter(aktiv=True)
-        elif hasattr(model, 'active'):
-            qs = qs.filter(active=True)
-        elif hasattr(model, 'is_active'):
-            qs = qs.filter(is_active=True)
+        for flag, val in (
+            ('aktiv', True), ('active', True), ('is_active', True),
+            ('enabled', True), ('imap_enabled', True),
+        ):
+            if hasattr(model, flag):
+                qs = qs.filter(**{flag: val})
+                break
         for row in qs[:20]:
             host = (
                 getattr(row, 'imap_host', None)
                 or getattr(row, 'host', None)
                 or getattr(row, 'server', None)
+                or getattr(row, 'imap_server', None)
                 or '172.20.3.150'
             )
             user = (
                 getattr(row, 'username', None)
                 or getattr(row, 'user', None)
                 or getattr(row, 'email', None)
+                or getattr(row, 'imap_user', None)
+                or getattr(row, 'mailbox', None)
                 or ''
             )
             password = (
                 getattr(row, 'password', None)
                 or getattr(row, 'imap_password', None)
                 or getattr(row, 'secret', None)
+                or getattr(row, 'imap_pass', None)
                 or ''
             )
-            port = getattr(row, 'imap_port', None) or getattr(row, 'port', None) or 993
-            folder = getattr(row, 'folder', None) or getattr(row, 'mailbox', None) or 'INBOX'
+            port = (
+                getattr(row, 'imap_port', None)
+                or getattr(row, 'port', None)
+                or 993
+            )
+            folder = (
+                getattr(row, 'folder', None)
+                or getattr(row, 'mailbox_folder', None)
+                or getattr(row, 'imap_folder', None)
+                or 'INBOX'
+            )
             ssl = getattr(row, 'use_ssl', None)
             if ssl is None:
-                ssl = getattr(row, 'ssl', True)
+                ssl = getattr(row, 'ssl', None)
+            if ssl is None:
+                ssl = getattr(row, 'imap_ssl', True)
             label = (
                 getattr(row, 'name', None)
                 or getattr(row, 'label', None)
+                or getattr(row, 'display_name', None)
                 or str(user)
             )
             if not user:
@@ -205,7 +238,10 @@ def _accounts_from_ingest_email() -> list[ImapAccount]:
                 folder=str(folder),
                 ssl=bool(ssl),
                 box_label=str(label),
-                extra={'pk': str(getattr(row, 'pk', ''))},
+                extra={
+                    'pk': str(getattr(row, 'pk', '')),
+                    'model': f'{model._meta.app_label}.{model.__name__}',
+                },
             ))
     except Exception as exc:
         log.warning('ingest_email Accounts nicht lesbar: %s', exc)
@@ -213,7 +249,8 @@ def _accounts_from_ingest_email() -> list[ImapAccount]:
 
 
 def get_imap_accounts() -> list[ImapAccount]:
-    for loader in (_accounts_from_django_settings, _accounts_from_settings_json, _accounts_from_ingest_email):
+    # Konzept: Zugangsdaten nur aus EmailImportConfig — danach erst Fallbacks
+    for loader in (_accounts_from_ingest_email, _accounts_from_django_settings, _accounts_from_settings_json):
         acc = loader()
         if acc:
             return acc
@@ -277,15 +314,46 @@ def _preview_text(msg: email.message.Message, limit: int = 180) -> str:
     return text
 
 
-def _crm_hint_for_email(addr: str) -> str:
-    """Optional: SuiteCRM-Zuordnung über abpe_crm Spiegel."""
-    if not addr or '@' not in addr:
-        return '—'
-    email_addr = addr.strip().lower()
-    # From: Name <mail@x>
-    m = re.search(r'<([^>]+)>', email_addr)
+def _extract_email(addr: str) -> str:
+    if not addr:
+        return ''
+    s = addr.strip()
+    m = re.search(r'<([^>]+)>', s)
     if m:
-        email_addr = m.group(1).strip().lower()
+        return m.group(1).strip().lower()
+    if '@' in s:
+        return s.strip().lower().strip('<>')
+    return ''
+
+
+def _request_id_from_subject(subj: str) -> str:
+    if not subj:
+        return ''
+    m = re.search(r'#\s*(\d{3,})', subj)
+    return m.group(1) if m else ''
+
+
+def _crm_resolve(addr: str, *, subject: str = '') -> dict[str, str]:
+    """Absender → CrmEmailAddrBeanRel + Deeplinks (Konzept Kap. 2.2 / 3)."""
+    email_addr = _extract_email(addr)
+    request_id = _request_id_from_subject(subject)
+    out = {
+        'crm': '—',
+        'crm_bean_id': '',
+        'crm_bean_module': '',
+        'reply_email': email_addr,
+        'request_id': request_id,
+        'matching_url': f'/matching/?request={request_id}' if request_id else '',
+        'email_studio_url': (
+            f'/email-studio/studio/?to={email_addr}' if email_addr else '/email-studio/studio/'
+        ),
+        'mailto_url': (
+            f'mailto:{email_addr}?subject={_mailto_subject(subject)}' if email_addr else ''
+        ),
+    }
+    if not email_addr:
+        return out
+
     try:
         from django.apps import apps
         EmailAddr = None
@@ -299,32 +367,79 @@ def _crm_hint_for_email(addr: str) -> str:
             except Exception:
                 continue
         if EmailAddr is None:
-            return '—'
-        row = EmailAddr.objects.filter(email_address__iexact=email_addr).first()
+            return out
+
+        row = None
+        if hasattr(EmailAddr, 'email_address'):
+            row = EmailAddr.objects.filter(email_address__iexact=email_addr).first()
         if not row:
-            # Feldvarianten
             for field in ('email', 'address'):
                 if hasattr(EmailAddr, field):
                     row = EmailAddr.objects.filter(**{f'{field}__iexact': email_addr}).first()
                     if row:
                         break
         if not row:
-            return '—'
-        # Bean-Rel falls vorhanden
+            return out
+
+        bean_module = ''
+        bean_id = ''
         try:
             Rel = apps.get_model('abpe_crm', 'CrmEmailAddrBeanRel')
-            link = Rel.objects.filter(email_address_id=row.pk).first() or Rel.objects.filter(
-                **{'email_address__email_address__iexact': email_addr}
-            ).first()
+            link = Rel.objects.filter(email_address_id=getattr(row, 'pk', None) or getattr(row, 'crm_id', None)).first()
+            if link is None and hasattr(Rel, 'email_address'):
+                link = Rel.objects.filter(email_address__email_address__iexact=email_addr).first()
             if link:
-                bean = getattr(link, 'bean_module', '') or getattr(link, 'bean_type', '')
-                bean_id = getattr(link, 'bean_id', '') or ''
-                return f'{bean} {str(bean_id)[:8]}'.strip() or 'CRM'
+                bean_module = str(
+                    getattr(link, 'bean_module', '')
+                    or getattr(link, 'bean_type', '')
+                    or getattr(link, 'module', '')
+                    or ''
+                )
+                bean_id = str(getattr(link, 'bean_id', '') or '')
         except Exception:
             pass
-        return 'CRM'
+
+        # Anzeige: Modul-Kurzname + optional Anfrage aus Betreff
+        mod_label = bean_module.replace('Contacts', 'Berater').replace('Accounts', 'Firma') or 'CRM'
+        parts = [mod_label]
+        if request_id:
+            parts.append(f'Anfrage #{request_id}')
+        elif bean_id:
+            parts.append(str(bean_id)[:8])
+        out['crm'] = ' · '.join(parts)
+        out['crm_bean_id'] = bean_id
+        out['crm_bean_module'] = bean_module
+        if not out['matching_url'] and bean_id:
+            out['matching_url'] = f'/matching/?crm_id={bean_id}'
     except Exception:
-        return '—'
+        pass
+    return out
+
+
+def _mailto_subject(subj: str) -> str:
+    from urllib.parse import quote
+    s = (subj or '').strip()
+    if s and not s.lower().startswith('re:'):
+        s = f'Re: {s}'
+    return quote(s[:120])
+
+
+def _apply_crm_links(mail: InboxMail) -> InboxMail:
+    info = _crm_resolve(mail.from_, subject=mail.subj)
+    mail.crm = info['crm']
+    mail.crm_bean_id = info['crm_bean_id']
+    mail.crm_bean_module = info['crm_bean_module']
+    mail.reply_email = info['reply_email']
+    mail.request_id = info['request_id']
+    mail.matching_url = info['matching_url']
+    mail.email_studio_url = info['email_studio_url']
+    mail.mailto_url = info['mailto_url']
+    return mail
+
+
+def _crm_hint_for_email(addr: str) -> str:
+    """Rückwärtskompatibel: nur Label-String."""
+    return _crm_resolve(addr).get('crm') or '—'
 
 
 def _fetch_imap_account(acc: ImapAccount, limit: int = 25) -> list[InboxMail]:
@@ -407,7 +522,7 @@ def _fetch_imap_account(acc: ImapAccount, limit: int = 25) -> list[InboxMail]:
                 prev = _preview_text(msg)
 
             mid = f"{acc.user}:{acc.folder}:{uid.decode() if isinstance(uid, bytes) else uid}"
-            mails.append(InboxMail(
+            mails.append(_apply_crm_links(InboxMail(
                 id=mid,
                 subj=subj or '(ohne Betreff)',
                 from_=from_ or '—',
@@ -415,10 +530,9 @@ def _fetch_imap_account(acc: ImapAccount, limit: int = 25) -> list[InboxMail]:
                 age=_age_label(dt),
                 prev=prev or '—',
                 unread=unread,
-                crm=_crm_hint_for_email(from_),
                 received_at=dt.isoformat() if dt else None,
                 account=acc.user,
-            ))
+            )))
     except Exception as exc:
         log.exception('IMAP fetch %s@%s fehlgeschlagen: %s', acc.user, acc.host, exc)
     finally:
@@ -545,7 +659,7 @@ def _hit_to_mail(hit: dict) -> InboxMail:
     folder = src.get('folder') or 'INBOX'
     box = account or folder
     dt = _es_parse_date(src.get('date') or src.get('received_at'))
-    return InboxMail(
+    return _apply_crm_links(InboxMail(
         id=f'es:{es_id}',
         subj=str(subj),
         from_=str(from_),
@@ -553,10 +667,9 @@ def _hit_to_mail(hit: dict) -> InboxMail:
         age=_age_label(dt) if dt else '',
         prev=_es_preview(src),
         unread=_es_unread(src),
-        crm=_crm_hint_for_email(str(from_)),
         received_at=dt.isoformat() if dt else (str(src.get('date') or '') or None),
         account=str(account),
-    )
+    ))
 
 
 def _list_from_elasticsearch(limit: int = 40) -> Optional[list[InboxMail]]:
@@ -674,7 +787,7 @@ def _list_from_ingest_db(limit: int = 40) -> Optional[list[InboxMail]]:
             dt = getattr(row, 'received_at', None) or getattr(row, 'date', None) or getattr(row, 'created_at', None)
             if isinstance(dt, str):
                 dt = parse_datetime(dt)
-            out.append(InboxMail(
+            out.append(_apply_crm_links(InboxMail(
                 id=f'db:{row.pk}',
                 subj=str(subj),
                 from_=str(from_),
@@ -682,10 +795,9 @@ def _list_from_ingest_db(limit: int = 40) -> Optional[list[InboxMail]]:
                 age=_age_label(dt) if isinstance(dt, datetime) else '',
                 prev=str(prev) or '—',
                 unread=bool(unread),
-                crm=_crm_hint_for_email(str(from_)),
                 received_at=dt.isoformat() if isinstance(dt, datetime) else None,
                 account=str(box),
-            ))
+            )))
         return out
     except Exception as exc:
         log.warning('ingest_email DB-Liste fehlgeschlagen: %s', exc)

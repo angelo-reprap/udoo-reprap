@@ -3,9 +3,9 @@
 #
 # Auf ucs5 (Share-Repo) ausführen — Cloud Agent hat keinen SSH auf Live.
 #
-#   bash /mnt/public/udoo-reprap/scripts/PULL-ingest-email-from-live.sh
-#   # oder nach fetch des Branch:
-#   bash <(git -C /mnt/public/udoo-reprap show origin/cursor/abpe-shaduler-scaffold-7f07:scripts/PULL-ingest-email-from-live.sh)
+# WICHTIG: zuerst fetch, sonst kennt origin/… das Script noch nicht:
+#   cd /mnt/public/udoo-reprap && git fetch origin cursor/abpe-shaduler-scaffold-7f07
+#   bash <(git show origin/cursor/abpe-shaduler-scaffold-7f07:scripts/PULL-ingest-email-from-live.sh)
 #
 # Danach committen/pushen auf dem Branch, damit der Cloud Agent die Quellen hat.
 set -euo pipefail

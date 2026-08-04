@@ -286,16 +286,31 @@
     items.forEach(function (m) {
       var e = document.createElement('div');
       e.className = 'ritem';
+      var acts =
+        '<button type="button" class="pri sh-mail-task" data-id="' + esc(m.id) + '">' +
+        '<i class="bi bi-check2-square"></i> ' + esc(_t('sh.inbox_task', 'Aufgabe erzeugen')) + '</button>';
+      if (m.matching_url) {
+        acts +=
+          '<a class="sh-mail-matching" href="' + esc(m.matching_url) + '">' +
+          '<i class="bi bi-diagram-3"></i> ' + esc(_t('sh.inbox_matching', 'Im Matching öffnen')) + '</a>';
+      }
+      acts +=
+        '<a class="sh-mail-studio" href="' + esc(m.email_studio_url || '/email-studio/studio/') + '">' +
+        '<i class="bi bi-envelope-at"></i> ' + esc(_t('sh.inbox_reply', 'Antworten (Email Studio)')) + '</a>';
+      if (m.mailto_url) {
+        acts +=
+          '<a class="sh-mail-outlook" href="' + esc(m.mailto_url) + '">' +
+          '<i class="bi bi-box-arrow-up-right"></i> ' + esc(_t('sh.inbox_outlook', 'In Outlook öffnen')) + '</a>';
+      }
       e.innerHTML =
         '<div class="top">' +
         (m.unread ? '<span class="mstat maybe" style="min-width:auto">neu</span>' : '') +
         '<b class="hl" style="' + (m.unread ? '' : 'font-weight:400') + '">' + esc(m.subj) + '</b>' +
         '<span class="src">' + esc(m.box) + '</span><span class="age">' + esc(m.age) + '</span></div>' +
         '<div class="meta"><i class="bi bi-person"></i> ' + esc(m.from) +
-        (m.crm && m.crm !== '—' ? ' · <span style="color:var(--abcona-blue-light)"><i class="bi bi-link-45deg"></i>' + esc(m.crm) + '</span>' : '') +
+        (m.crm && m.crm !== '—' ? ' · <span style="color:var(--abcona-blue-light)"><i class="bi bi-link-45deg"></i> ' + esc(m.crm) + '</span>' : '') +
         '</div><div class="meta" style="font-style:italic">„' + esc(m.prev) + '”</div>' +
-        '<div class="racts"><button type="button" class="pri sh-mail-task" data-id="' + esc(m.id) + '">' +
-        '<i class="bi bi-check2-square"></i> Aufgabe erzeugen</button></div>';
+        '<div class="racts">' + acts + '</div>';
       c.appendChild(e);
     });
     c.querySelectorAll('.sh-mail-task').forEach(function (btn) {
