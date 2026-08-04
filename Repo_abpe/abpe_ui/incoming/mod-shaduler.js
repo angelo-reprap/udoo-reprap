@@ -581,7 +581,46 @@
   }
 
   function looksLikeHtml(s) {
-    return /<[a-zA-Z!][\s\S]*>/.test(String(s || ''));
+    var t = String(s || '');
+    // echte Tags — nicht <email@domain> aus Plaintext-Headern
+    return /<\s*(html|body|div|p|br|table|tr|td|span|font|h[1-6]|ul|ol|li|blockquote|hr|img|a)\b/i.test(t)
+      || /<\s*!(DOCTYPE|----)/i.test(t);
+  }
+
+  function plainToReadableHtml(text) {
+    var t = String(text || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim();
+    if (!t) return '';
+    t = t.replace(/[ \t]+\n/g, '\n');
+    // Wenig echte Absätze (Index/Quelltext ohne Leerzeilen): Soft-Breaks an typischen Mail-Markern
+    var blankCount = (t.match(/\n\s*\n/g) || []).length;
+    if (blankCount < 2 && t.length > 120) {
+      t = t
+        .replace(/\s*(-{3,}|_{3,}|\*{3,})\s*/g, '\n\n$1\n\n')
+        .replace(/(?:^|\n)\s*(Von|From|Gesendet|Sent|An|To|Betreff|Subject|Cc|Bcc)\s*:/gi, '\n\n$1:')
+        .replace(/\s+(Mit freundlichen Grüßen|Viele Grüße|Liebe Grüße|Best regards|Kind regards|Freundliche Grüße)\b/gi, '\n\n$1')
+        .replace(/\s+(Hallo\b|Liebe[rn]?\s+\S+|Guten\s+(Tag|Morgen|Abend)\b)/g, '\n\n$1');
+    }
+    var paras = t.split(/\n\s*\n+/);
+    var out = [];
+    for (var i = 0; i < paras.length; i++) {
+      var p = paras[i].trim();
+      if (!p) continue;
+      out.push('<p class="sh-p">' + esc(p).replace(/\n/g, '<br>\n') + '</p>');
+    }
+    return out.join('\n');
+  }
+
+  function enhanceHtmlBreaks(html) {
+    var s = String(html || '');
+    var blocks = (s.match(/<(br|p|div|tr|li|h[1-6]|hr)\b/gi) || []).length;
+    // Flaches HTML ohne Absätze, aber mit Newlines → Umbrüche sichtbar machen
+    if (blocks < 2 && /\n/.test(s)) {
+      s = s.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+      s = s.replace(/\n{2,}/g, '</p><p class="sh-p">');
+      s = s.replace(/\n/g, '<br>\n');
+      if (s.indexOf('<p') < 0) s = '<p class="sh-p">' + s + '</p>';
+    }
+    return s;
   }
 
   function bodyBlockFromDetail(detail, m) {
@@ -594,10 +633,19 @@
     if (!html && !plain && looksLikeHtml(m.prev)) {
       html = m.prev;
     }
-    if (html) {
-      return '<div class="sh-viewer-body sh-html">' + sanitizeMailHtml(html) + '</div>';
+    if (!html && !plain && m.prev) {
+      plain = m.prev;
     }
-    return '<div class="sh-viewer-body"><pre>' + esc(plain || m.prev || '') + '</pre></div>';
+    if (html) {
+      if (!looksLikeHtml(html)) {
+        // fälschlich als HTML markierter Plaintext
+        return '<div class="sh-viewer-body sh-readable">' + plainToReadableHtml(html) + '</div>';
+      }
+      return '<div class="sh-viewer-body sh-html">' +
+        enhanceHtmlBreaks(sanitizeMailHtml(html)) + '</div>';
+    }
+    return '<div class="sh-viewer-body sh-readable">' +
+      plainToReadableHtml(plain || '') + '</div>';
   }
 
   function renderViewerFallback(m, v, errMsg) {

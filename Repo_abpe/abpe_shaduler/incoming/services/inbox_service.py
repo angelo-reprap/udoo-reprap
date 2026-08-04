@@ -279,7 +279,8 @@ def _subject_from_html(html: str) -> str:
 
 def _clean_subject(subj: str, *, body_html: str = '') -> str:
     s = _fix_mojibake(subj or '')
-    if '\ufffd' in s or '' in s:
+    # U+FFFD = Fehlerzeichen von errors='replace' beim Indexieren
+    if '\ufffd' in s:
         alt = _subject_from_html(body_html)
         if alt:
             return alt
@@ -714,14 +715,66 @@ def _es_preview(src: dict) -> str:
     return text[:180] if text else '—'
 
 
+def _looks_like_html(raw: str) -> bool:
+    """Echte HTML-Mails — nicht Plaintext mit <email@x.de>-Klammern."""
+    if not raw:
+        return False
+    if re.search(r'(?is)<\s*(html|body|div|p|br|table|tr|td|span|font|h[1-6]|ul|ol|li|blockquote|hr)\b', raw):
+        return True
+    if re.search(r'(?is)<\s*!(DOCTYPE|----)', raw):
+        return True
+    return False
+
+
+def _plain_to_readable_html(text: str) -> str:
+    """Plaintext → Absätze + Zeilenumbrüche (lesbar, nicht perfekt)."""
+    import html as html_mod
+    t = (text or '').replace('\r\n', '\n').replace('\r', '\n').strip()
+    if not t:
+        return ''
+    # Soft-Wraps / lange Leerzeichenketten entschärfen
+    t = re.sub(r'[ \t]+\n', '\n', t)
+    # Wenig echte Absätze: Soft-Breaks an typischen Mail-Markern
+    if len(re.findall(r'\n\s*\n', t)) < 2 and len(t) > 120:
+        t = re.sub(r'\s*(-{3,}|_{3,}|\*{3,})\s*', r'\n\n\1\n\n', t)
+        t = re.sub(
+            r'(?:^|\n)\s*(Von|From|Gesendet|Sent|An|To|Betreff|Subject|Cc|Bcc)\s*:',
+            r'\n\n\1:',
+            t,
+            flags=re.I,
+        )
+        t = re.sub(
+            r'\s+(Mit freundlichen Grüßen|Viele Grüße|Liebe Grüße|Best regards|Kind regards|Freundliche Grüße)\b',
+            r'\n\n\1',
+            t,
+            flags=re.I,
+        )
+        t = re.sub(
+            r'\s+(Hallo\b|Liebe[rn]?\s+\S+|Guten\s+(?:Tag|Morgen|Abend)\b)',
+            r'\n\n\1',
+            t,
+        )
+    paras = re.split(r'\n\s*\n+', t)
+    chunks = []
+    for p in paras:
+        p = p.strip()
+        if not p:
+            continue
+        esc = html_mod.escape(p)
+        esc = esc.replace('\n', '<br>\n')
+        chunks.append(f'<p class="sh-p">{esc}</p>')
+    return '\n'.join(chunks)
+
+
 def _split_mail_body(raw: str) -> tuple[str, str]:
     """→ (body_html, body_plain)."""
     raw = _fix_mojibake(raw or '')
     if not raw.strip():
         return '', ''
-    if re.search(r'<[a-zA-Z!][^>]*>', raw):
+    if _looks_like_html(raw):
         return raw, _strip_html(raw)
-    return '', raw
+    # Plaintext als lesbares HTML ausliefern (Absätze)
+    return _plain_to_readable_html(raw), raw
 
 
 def view_mail(mail_id: str, user=None) -> dict[str, Any]:

@@ -194,12 +194,17 @@ body.dark-mode .sh-viewer-warn{background:#78350f;color:#fcd34d}
 .sh-att .o{color:var(--abcona-blue-light);margin-left:4px}
 .sh-viewer-body{font-size:.92rem;line-height:1.55;color:var(--text-primary)}
 .sh-viewer-body pre{white-space:pre-wrap;word-break:break-word;font-family:inherit;margin:0;font-size:.9rem;line-height:1.5}
-/* Fremd-HTML (Marketing-Mails) isolieren und lesbar halten */
+.sh-viewer-body .sh-p{margin:0 0 .9em;line-height:1.55;word-break:break-word}
+.sh-viewer-body .sh-p:last-child{margin-bottom:0}
+.sh-viewer-body.sh-readable{max-width:52rem}
 .sh-viewer-body.sh-html{overflow-x:auto;max-width:100%}
 .sh-viewer-body.sh-html{
   font-size:.92rem !important;line-height:1.55 !important;color:var(--text-primary) !important;
   font-family:inherit !important;background:transparent !important
 }
+.sh-viewer-body.sh-html .sh-p{margin:0 0 .9em;line-height:1.55}
+.sh-viewer-body.sh-html p,.sh-viewer-body.sh-html div{margin:0 0 .55em;line-height:1.5}
+.sh-viewer-body.sh-html br{content:"";display:block;margin-bottom:.15em}
 .sh-viewer-body.sh-html *{max-width:100% !important;box-sizing:border-box}
 .sh-viewer-body.sh-html img{max-width:100% !important;height:auto !important}
 .sh-viewer-body.sh-html table{width:100% !important;max-width:100% !important;border-collapse:collapse}
