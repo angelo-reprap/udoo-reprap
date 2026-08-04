@@ -7,6 +7,7 @@ Intervalle (Architektur Kap. 4 / Kap. 0):
   prozess_tick    alle 15 Min
   delegation_notify — on-demand (hier optional als seltener Tick)
 
+schedule_type: ONCE | RECURRING  (RRULE-String → Feld rrule_string)
 Voraussetzung: SCHEDULER_SERVICE_TOKEN + erreichbare scheduler/api.
 """
 from datetime import datetime, timezone
@@ -16,7 +17,7 @@ from django.core.management.base import BaseCommand
 from apps.abpe_shaduler import scheduler_client as sc
 
 
-# RRULE: minutely intervals
+# RECURRING + RRULE minutely intervals
 JOBS = [
     {
         'job_key': 'radar_poll',
@@ -46,7 +47,7 @@ JOBS = [
 
 
 class Command(BaseCommand):
-    help = 'Shaduler-Periodik als SchedulerJob (RRULE) bei abpe_scheduler anlegen.'
+    help = 'Shaduler-Periodik als SchedulerJob (RECURRING/RRULE) bei abpe_scheduler anlegen.'
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -59,7 +60,7 @@ class Command(BaseCommand):
         now = datetime.now(timezone.utc)
         for spec in JOBS:
             cb = sc.build_callback_url(spec['webhook'])
-            self.stdout.write(f"→ {spec['job_key']}: {spec['rrule']} → {cb}")
+            self.stdout.write(f"→ {spec['job_key']}: RECURRING {spec['rrule']} → {cb}")
             if dry:
                 continue
             try:
@@ -67,7 +68,7 @@ class Command(BaseCommand):
                     owner_type=spec['owner_type'],
                     owner_ref=spec['owner_ref'],
                     job_key=spec['job_key'],
-                    schedule_type='RRULE',
+                    schedule_type='RECURRING',
                     callback_url=cb,
                     payload=spec['payload'],
                     rrule_string=spec['rrule'],

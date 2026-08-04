@@ -14,7 +14,7 @@ das ist veraltet gegenüber Kap. 0. Umsetzung im Repo:
 | `scheduler_client.py` | HTTP-Client → `/scheduler/api/jobs/create/` (`owner_app=abpe_shaduler`) |
 | `tasks.py` | Handler-Funktionen (kein Celery-Beat) |
 | `api/webhook/<job_key>/` | PUSH-Callback vom Scheduler |
-| `manage.py register_scheduler_jobs` | RRULE-Jobs anlegen (5 / 2 / 15 Min) |
+| `manage.py register_scheduler_jobs` | RECURRING-Jobs (RRULE 5 / 2 / 15 Min) |
 
 Settings (bereits für MeetMe üblich):
 

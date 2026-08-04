@@ -5,7 +5,7 @@
 | Name | Rolle |
 |------|--------|
 | **`abpe_shaduler`** | Neu — Aufgaben / Kalender / Inbox / Radar / Regeln (dieses Modul) |
-| **`abpe_scheduler`** | Bestehend — Job-Timer (ONCE/RRULE), URL `/scheduler/` — **unangetastet** |
+| **`abpe_scheduler`** | Bestehend — Job-Timer (ONCE/RECURRING + rrule_string), URL `/scheduler/` — **unangetastet** |
 | User-Tipp `abpe_shadular` | Vermutlich Tippfehler → Architektur = **shaduler** |
 
 ## Live (ucs5) — bereits vorhanden
