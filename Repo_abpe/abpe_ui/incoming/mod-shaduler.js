@@ -733,7 +733,7 @@
       '<div class="mh">' +
       '<div class="ico"><i class="bi bi-check2-square"></i></div>' +
       '<div><b>' + esc(_t('sh.inbox_task', 'Aufgabe erzeugen')) + '</b>' +
-      '<small>' + esc(m.subj || '') + '</small></div>' +
+      '<small class="sh-mt-subj">' + esc(m.subj || '') + '</small></div>' +
       '<button type="button" class="x" id="sh-mt-close"><i class="bi bi-x-lg"></i></button>' +
       '</div>' +
       '<div class="mb">' +
