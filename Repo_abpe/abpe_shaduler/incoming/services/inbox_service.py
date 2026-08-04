@@ -515,14 +515,21 @@ def _es_mail_index() -> str:
     )
 
 
-def _es_inbox_query() -> dict[str, Any]:
-    """Optional: Account-/Folder-Filter aus settings.json → shaduler.es_mail."""
+def _es_mail_cfg() -> dict[str, Any]:
     cfg = _load_json_settings()
-    sh = (cfg.get('shaduler') or {}).get('es_mail') or {}
+    return (cfg.get('shaduler') or {}).get('es_mail') or {}
+
+
+def _es_inbox_query() -> dict[str, Any]:
+    """Account-/Folder-/Zeitfenster-Filter aus settings.json → shaduler.es_mail."""
+    sh = _es_mail_cfg()
     accounts = sh.get('accounts') or getattr(settings, 'SHADULER_ES_ACCOUNTS', None) or []
     folder = sh.get('folder')
     if folder is None:
         folder = getattr(settings, 'SHADULER_ES_FOLDER', 'INBOX')
+    days = sh.get('days')
+    if days is None:
+        days = getattr(settings, 'SHADULER_ES_DAYS', None)
 
     filters: list[dict] = []
     if accounts:
@@ -530,7 +537,6 @@ def _es_inbox_query() -> dict[str, Any]:
             accounts = [accounts]
         filters.append({'terms': {'account': list(accounts)}})
     if folder:
-        # folder ist je nach Mapping keyword oder text — beides versuchen
         filters.append({
             'bool': {
                 'should': [
@@ -541,18 +547,34 @@ def _es_inbox_query() -> dict[str, Any]:
                 'minimum_should_match': 1,
             }
         })
+    if days:
+        try:
+            d = max(1, int(days))
+            filters.append({'range': {'date': {'gte': f'now-{d}d/d'}}})
+        except Exception:
+            pass
     if filters:
         return {'bool': {'filter': filters}}
     return {'match_all': {}}
 
 
+def _fix_mojibake(text: str) -> str:
+    """Häufiges UTF-8-als-Latin1 in ES-Subjects (KlimagerÃ¤t → Klimagerät)."""
+    if not text or 'Ã' not in text and 'Â' not in text:
+        return text
+    try:
+        return text.encode('latin-1').decode('utf-8')
+    except Exception:
+        return text
+
+
 def _es_preview(src: dict) -> str:
     body = src.get('body') or src.get('snippet') or src.get('preview') or ''
-    text = re.sub(r'\s+', ' ', str(body)).strip()
+    text = re.sub(r'\s+', ' ', _fix_mojibake(str(body))).strip()
     return text[:180] if text else '—'
 
 
-def _es_unread(src: dict) -> bool:
+def _es_unread(src: dict, dt: Optional[datetime] = None) -> bool:
     if 'unread' in src:
         return bool(src.get('unread'))
     if 'seen' in src:
@@ -562,7 +584,16 @@ def _es_unread(src: dict) -> bool:
     flags = str(src.get('flags') or src.get('flag') or '').lower()
     if flags:
         return 'seen' not in flags and '\\seen' not in flags
-    return True
+    # Ohne IMAP-Flags: nur frische Mails als „neu“ (ABpE-Gelesen-Status kommt später)
+    if dt is not None:
+        try:
+            now = dj_tz.now()
+            if dj_tz.is_naive(dt):
+                dt = dj_tz.make_aware(dt, timezone.utc)
+            return (now - dt).total_seconds() < 48 * 3600
+        except Exception:
+            pass
+    return False
 
 
 def _es_parse_date(raw) -> Optional[datetime]:
@@ -588,7 +619,7 @@ def _es_parse_date(raw) -> Optional[datetime]:
 def _hit_to_mail(hit: dict) -> InboxMail:
     src = hit.get('_source') or {}
     es_id = hit.get('_id') or ''
-    subj = src.get('subject') or '(ohne Betreff)'
+    subj = _fix_mojibake(str(src.get('subject') or '(ohne Betreff)'))
     from_ = src.get('from_addr') or src.get('from') or '—'
     account = src.get('account') or ''
     folder = src.get('folder') or 'INBOX'
@@ -596,12 +627,12 @@ def _hit_to_mail(hit: dict) -> InboxMail:
     dt = _es_parse_date(src.get('date') or src.get('received_at'))
     return _apply_crm_links(InboxMail(
         id=f'es:{es_id}',
-        subj=str(subj),
+        subj=subj,
         from_=str(from_),
         box=str(box),
         age=_age_label(dt) if dt else '',
         prev=_es_preview(src),
-        unread=_es_unread(src),
+        unread=_es_unread(src, dt),
         received_at=dt.isoformat() if dt else (str(src.get('date') or '') or None),
         account=str(account),
     ))
@@ -620,7 +651,7 @@ def _list_from_elasticsearch(limit: int = 40) -> Optional[list[InboxMail]]:
     body = {
         'size': max(1, min(int(limit), 200)),
         'query': _es_inbox_query(),
-        'sort': [{'date': {'order': 'desc'}}],
+        'sort': [{'date': {'order': 'desc', 'unmapped_type': 'date'}}],
         '_source': [
             'subject', 'from_addr', 'to_addr', 'date', 'folder', 'account',
             'message_id', 'uid', 'has_attachments', 'body', 'snippet', 'preview',
@@ -635,24 +666,22 @@ def _list_from_elasticsearch(limit: int = 40) -> Optional[list[InboxMail]]:
         return None
 
     hits = (res.get('hits') or {}).get('hits') or []
-    # Wenn Folder-Filter nichts liefert: ohne Folder nochmal (Accounts behalten)
+    # Wenn Filter (Folder/days) nichts liefert: ohne Folder/days, Accounts behalten
     if not hits:
-        cfg = _load_json_settings()
-        sh = (cfg.get('shaduler') or {}).get('es_mail') or {}
-        folder = sh.get('folder', getattr(settings, 'SHADULER_ES_FOLDER', 'INBOX'))
-        if folder:
-            try:
-                body2 = dict(body)
-                body2['query'] = {'match_all': {}}
-                accounts = sh.get('accounts') or []
-                if accounts:
-                    if isinstance(accounts, str):
-                        accounts = [accounts]
-                    body2['query'] = {'bool': {'filter': [{'terms': {'account': list(accounts)}}]}}
-                res2 = es.search(index=index, body=body2)
-                hits = (res2.get('hits') or {}).get('hits') or []
-            except Exception as exc:
-                log.warning('ES Fallback match_all fehlgeschlagen: %s', exc)
+        sh = _es_mail_cfg()
+        try:
+            body2 = dict(body)
+            filters = []
+            accounts = sh.get('accounts') or []
+            if accounts:
+                if isinstance(accounts, str):
+                    accounts = [accounts]
+                filters.append({'terms': {'account': list(accounts)}})
+            body2['query'] = {'bool': {'filter': filters}} if filters else {'match_all': {}}
+            res2 = es.search(index=index, body=body2)
+            hits = (res2.get('hits') or {}).get('hits') or []
+        except Exception as exc:
+            log.warning('ES Fallback fehlgeschlagen: %s', exc)
 
     return [_hit_to_mail(h) for h in hits]
 
@@ -888,17 +917,39 @@ def probe() -> dict[str, Any]:
     except Exception as exc:
         es_info['error'] = str(exc)[:200]
 
+    cfg_info: dict[str, Any] = {'active': 0, 'total': 0, 'error': None}
+    msg_info: dict[str, Any] = {'total': 0, 'new': 0, 'error': None}
+    try:
+        from apps.ingest_email.models import EmailImportConfig, EmailMessage
+        cfg_info['total'] = EmailImportConfig.objects.count()
+        cfg_info['active'] = EmailImportConfig.objects.filter(is_active=True).count()
+        msg_info['total'] = EmailMessage.objects.count()
+        msg_info['new'] = EmailMessage.objects.filter(status='NEW').count()
+    except Exception as exc:
+        cfg_info['error'] = str(exc)[:200]
+        msg_info['error'] = str(exc)[:200]
+
     return {
         'ok': True,
         'elasticsearch': es_info,
+        'email_import_config': cfg_info,
+        'email_message': msg_info,
         'ingest_related_models': models_found[:40],
         'accounts': [
-            {'host': a.host, 'port': a.port, 'user': a.user, 'folder': a.folder,
-             'ssl': a.ssl, 'label': a.label, 'has_password': bool(a.password)}
+            {
+                'host': a.host, 'port': a.port, 'user': a.user, 'folder': a.folder,
+                'ssl': a.ssl, 'label': a.label, 'has_password': bool(a.password),
+                'source': (a.extra or {}).get('model') or 'fallback',
+                'email_address': (a.extra or {}).get('email_address') or '',
+            }
             for a in accounts
         ],
         'default_host_hint': '172.20.3.150',
-        'source_order': ['elasticsearch:abpe_emails', 'ingest_email_db', 'imap'],
+        'source_order': [
+            'elasticsearch:abpe_emails',
+            'ingest_email.EmailMessage',
+            'imap:EmailImportConfig',
+        ],
     }
 
 
