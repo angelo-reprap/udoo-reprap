@@ -1011,15 +1011,64 @@ def _hit_to_mail(hit: dict) -> InboxMail:
     ))
 
 
+def _es_total_hits(res: dict) -> int:
+    total = (res.get('hits') or {}).get('total')
+    if isinstance(total, dict):
+        try:
+            return int(total.get('value') or 0)
+        except Exception:
+            return 0
+    try:
+        return int(total or 0)
+    except Exception:
+        return 0
+
+
+def _es_account_chips_from_aggs(res: dict, *, filter_account: str = '') -> list[dict]:
+    """Postfach-Chips aus ES-Terms-Aggregation (unabhängig von der Seite)."""
+    buckets = (
+        ((res.get('aggregations') or {}).get('accounts') or {}).get('buckets') or []
+    )
+    boxes: dict[str, int] = {}
+    for b in buckets:
+        key = str(b.get('key') or '').strip()
+        if not key:
+            continue
+        try:
+            boxes[key] = int(b.get('doc_count') or 0)
+        except Exception:
+            boxes[key] = 0
+    configured = _es_mail_cfg().get('accounts') or getattr(settings, 'SHADULER_ES_ACCOUNTS', None) or []
+    if isinstance(configured, str):
+        configured = [configured]
+    for acc in configured:
+        acc = str(acc).strip()
+        if acc and acc not in boxes:
+            boxes[acc] = 0
+    out = []
+    for k, v in sorted(boxes.items(), key=lambda kv: (-kv[1], kv[0].lower())):
+        row: dict[str, Any] = {
+            'label': k,
+            'active': bool(filter_account) and k == filter_account,
+            'count': v,
+        }
+        out.append(row)
+    return out
+
+
 def _list_from_elasticsearch(
     limit: int = 40,
     *,
+    offset: int = 0,
     account: Optional[str] = None,
     q: Optional[str] = None,
     has_attachment: Optional[bool] = None,
     sort: str = 'date_desc',
-) -> Optional[list[InboxMail]]:
-    """Liest den bereits indexierten Mail-Index ``abpe_emails`` (read-only)."""
+) -> Optional[dict[str, Any]]:
+    """
+    Liest den Mail-Index ``abpe_emails`` (read-only).
+    → {mails, total, accounts} oder None bei Ausfall.
+    """
     try:
         from elasticsearch import Elasticsearch
     except ImportError:
@@ -1029,11 +1078,20 @@ def _list_from_elasticsearch(
     hosts = _es_hosts()
     index = _es_mail_index()
     order = 'asc' if (sort or '').lower() in ('date_asc', 'asc', 'oldest') else 'desc'
+    size = max(1, min(int(limit), 200))
+    frm = max(0, int(offset or 0))
+    query = _es_inbox_query(
+        account=account, q=q, has_attachment=has_attachment,
+    )
+    # Chips: gleiche Filter, aber ohne Account — Counts über alle Postfächer
+    chip_query = _es_inbox_query(
+        account=None, q=q, has_attachment=has_attachment,
+    )
     body = {
-        'size': max(1, min(int(limit), 200)),
-        'query': _es_inbox_query(
-            account=account, q=q, has_attachment=has_attachment,
-        ),
+        'from': frm,
+        'size': size,
+        'track_total_hits': True,
+        'query': query,
         'sort': [{'date': {'order': order, 'unmapped_type': 'date'}}],
         '_source': [
             'subject', 'from_addr', 'to_addr', 'date', 'folder', 'account',
@@ -1041,22 +1099,51 @@ def _list_from_elasticsearch(
             'attachment_count', 'attachments', 'body', 'snippet', 'preview',
             'flags', 'unread', 'seen', 'is_read',
         ],
+        'aggs': {
+            'accounts': {
+                'terms': {
+                    'field': 'account.keyword',
+                    'size': 40,
+                    'missing': '?',
+                }
+            }
+        },
     }
+    # Aggregation auf chip_query (ohne Account-Filter) — per post_filter nicht nötig:
+    # separate aggs-Query wäre teurer; wir überschreiben query für aggs via global nicht.
+    # Stattdessen: wenn Account gefiltert, zweite Mini-Suche nur für Aggs.
     try:
         es = Elasticsearch(hosts)
-        res = es.search(index=index, body=body)
     except Exception as exc:
-        log.warning('ES %s @ %s fehlgeschlagen: %s', index, hosts, exc)
+        log.warning('ES Client %s fehlgeschlagen: %s', hosts, exc)
         return None
 
+    res = None
+    try:
+        res = es.search(index=index, body=body)
+    except Exception as exc:
+        # account.keyword fehlt ggf. → mit field=account erneut
+        log.warning('ES %s @ %s fehlgeschlagen: %s', index, hosts, exc)
+        try:
+            body_fallback = dict(body)
+            body_fallback['aggs'] = {
+                'accounts': {'terms': {'field': 'account', 'size': 40, 'missing': '?'}}
+            }
+            res = es.search(index=index, body=body_fallback)
+            body = body_fallback
+        except Exception as exc2:
+            log.warning('ES Retry fehlgeschlagen: %s', exc2)
+            return None
+
     hits = (res.get('hits') or {}).get('hits') or []
+    total = _es_total_hits(res)
     # Fallback nur ohne Such-/Anhang-/Account-Filter
     restrictive = bool(
         (account or '').strip()
         or (q or '').strip()
         or has_attachment is not None
     )
-    if not hits and not restrictive:
+    if not hits and not restrictive and frm == 0:
         sh = _es_mail_cfg()
         try:
             body2 = dict(body)
@@ -1069,10 +1156,35 @@ def _list_from_elasticsearch(
             body2['query'] = {'bool': {'filter': filters}}
             res2 = es.search(index=index, body=body2)
             hits = (res2.get('hits') or {}).get('hits') or []
+            total = _es_total_hits(res2)
+            res = res2
         except Exception as exc:
             log.warning('ES Fallback fehlgeschlagen: %s', exc)
 
-    return [_hit_to_mail(h) for h in hits]
+    account_rows = _es_account_chips_from_aggs(res, filter_account=(account or '').strip())
+    # Bei aktivem Account-Filter: Chip-Counts aus ungefilterter Aggs nachziehen
+    if (account or '').strip():
+        try:
+            agg_body = {
+                'size': 0,
+                'track_total_hits': False,
+                'query': chip_query,
+                'aggs': body.get('aggs') or {
+                    'accounts': {'terms': {'field': 'account.keyword', 'size': 40, 'missing': '?'}}
+                },
+            }
+            agg_res = es.search(index=index, body=agg_body)
+            account_rows = _es_account_chips_from_aggs(
+                agg_res, filter_account=(account or '').strip(),
+            )
+        except Exception:
+            pass
+
+    return {
+        'mails': [_hit_to_mail(h) for h in hits],
+        'total': total,
+        'accounts': account_rows,
+    }
 
 
 def _account_chips(mails: list[InboxMail], *, filter_account: str = '') -> list[dict]:
@@ -1188,31 +1300,76 @@ def list_mails(
     has_attachment: Optional[bool] = None,
     sort: str = 'date_desc',
     unread_only: bool = False,
+    page: int = 1,
+    page_size: Optional[int] = None,
 ) -> dict[str, Any]:
     """
     Haupt-API für den Posteingang.
-    Returns: {ok, source, results, accounts, unread, error?}
-    ``user`` → ABpE-Gelesen-Overlay; ``account`` → Postfach-Filter.
-    ``q`` / ``has_attachment`` / ``sort`` / ``unread_only`` → Filter.
+    Returns: {ok, source, results, accounts, unread, page, page_size, total, pages, …}
+    ``page`` / ``page_size`` → seitenweises Laden (Standard page_size=20, erlaubt 5/10/20/50).
     """
     filter_account = (account or '').strip()
     q = (q or '').strip() or None
 
+    allowed_sizes = (5, 10, 20, 50)
+    try:
+        ps = int(page_size if page_size is not None else limit or 20)
+    except Exception:
+        ps = 20
+    if ps not in allowed_sizes:
+        # nächste erlaubte Größe (oder 20)
+        ps = min(allowed_sizes, key=lambda s: abs(s - ps))
+    try:
+        page = max(1, int(page or 1))
+    except Exception:
+        page = 1
+    offset = (page - 1) * ps
+
+    def _page_meta(total: int) -> dict[str, Any]:
+        total = max(0, int(total or 0))
+        pages = max(1, (total + ps - 1) // ps) if total else 1
+        if page > pages and total:
+            # Caller kann korrigieren — wir liefern meta ehrlich
+            pass
+        return {
+            'page': page,
+            'page_size': ps,
+            'total': total,
+            'pages': pages,
+        }
+
     if not force_imap:
-        es_mails = _list_from_elasticsearch(
-            limit=limit,
-            account=filter_account or None,
-            q=q,
-            has_attachment=has_attachment,
-            sort=sort or 'date_desc',
-        )
-        if es_mails is not None:
-            es_mails = _apply_user_read(es_mails, user)
+        if unread_only:
+            # ABpE-Gelesen ist user-spezifisch → Fenster laden, dann seitenweise schneiden
+            es_pack = _list_from_elasticsearch(
+                limit=500,
+                offset=0,
+                account=filter_account or None,
+                q=q,
+                has_attachment=has_attachment,
+                sort=sort or 'date_desc',
+            )
+        else:
+            es_pack = _list_from_elasticsearch(
+                limit=ps,
+                offset=offset,
+                account=filter_account or None,
+                q=q,
+                has_attachment=has_attachment,
+                sort=sort or 'date_desc',
+            )
+        if es_pack is not None:
+            es_mails = _apply_user_read(list(es_pack.get('mails') or []), user)
+            total = int(es_pack.get('total') or 0)
             if unread_only:
                 es_mails = [m for m in es_mails if m.unread]
+                total = len(es_mails)
+                es_mails = es_mails[offset: offset + ps]
+            account_rows = es_pack.get('accounts') or _account_chips(
+                es_mails, filter_account=filter_account,
+            )
             hint = None
             if es_mails:
-                # Wenn neueste Mail > 14 Tage: Indexierung vermutlich stehengeblieben
                 try:
                     newest = es_mails[0].received_at
                     dt = _es_parse_date(newest) if newest else None
@@ -1228,13 +1385,35 @@ def list_mails(
                             )
                 except Exception:
                     pass
+            meta = _page_meta(total)
+            # Seite korrigieren wenn out of range
+            if meta['page'] > meta['pages'] and total > 0:
+                page = meta['pages']
+                offset = (page - 1) * ps
+                if unread_only:
+                    # schon geschnitten — selten; UI soll page resetten
+                    pass
+                else:
+                    es_pack2 = _list_from_elasticsearch(
+                        limit=ps,
+                        offset=offset,
+                        account=filter_account or None,
+                        q=q,
+                        has_attachment=has_attachment,
+                        sort=sort or 'date_desc',
+                    )
+                    if es_pack2 is not None:
+                        es_mails = _apply_user_read(list(es_pack2.get('mails') or []), user)
+                        account_rows = es_pack2.get('accounts') or account_rows
+                meta = _page_meta(total)
+                meta['page'] = page
             return {
                 'ok': True,
                 'demo': False,
                 'source': 'elasticsearch',
                 'index': _es_mail_index(),
                 'results': [m.as_dict() for m in es_mails],
-                'accounts': _account_chips(es_mails, filter_account=filter_account),
+                'accounts': account_rows,
                 'filter_account': filter_account,
                 'q': q or '',
                 'sort': sort or 'date_desc',
@@ -1242,9 +1421,10 @@ def list_mails(
                 'unread_only': unread_only,
                 'unread': sum(1 for m in es_mails if m.unread),
                 'hint': hint,
+                **meta,
             }
 
-        db_mails = _list_from_ingest_db(limit=limit)
+        db_mails = _list_from_ingest_db(limit=500)
         if db_mails is not None:
             db_mails = _apply_user_read(db_mails, user)
             db_mails = _filter_by_account(db_mails, filter_account)
@@ -1258,16 +1438,19 @@ def list_mails(
                     or ql in (m.from_ or '').lower()
                     or ql in (m.prev or '').lower()
                 ]
+            total = len(db_mails)
+            sliced = db_mails[offset: offset + ps]
             return {
                 'ok': True,
                 'demo': False,
                 'source': 'ingest_email_db',
-                'results': [m.as_dict() for m in db_mails],
+                'results': [m.as_dict() for m in sliced],
                 'accounts': _account_chips(db_mails, filter_account=filter_account),
                 'filter_account': filter_account,
                 'q': q or '',
                 'unread_only': unread_only,
-                'unread': sum(1 for m in db_mails if m.unread),
+                'unread': sum(1 for m in sliced if m.unread),
+                **_page_meta(total),
             }
 
     accounts = get_imap_accounts()
@@ -1280,6 +1463,7 @@ def list_mails(
             'accounts': [],
             'filter_account': filter_account,
             'unread': 0,
+            **_page_meta(0),
             'error': (
                 'Keine Mail-Quelle. Elasticsearch (abpe_emails) nicht erreichbar und '
                 'keine IMAP-Accounts. Prüfe ES auf localhost:9200 bzw. settings.json '
@@ -1299,11 +1483,13 @@ def list_mails(
             if filter_account.lower() not in keys:
                 continue
         try:
-            all_mails.extend(_fetch_imap_account(acc, limit=max(5, limit // max(1, len(accounts)))))
+            # genug für aktuelle Seite + Puffer
+            all_mails.extend(
+                _fetch_imap_account(acc, limit=max(ps + offset, 25))
+            )
         except Exception as exc:
             errors.append(f'{acc.label}: {exc}')
 
-    # neueste zuerst
     def _sort_key(m: InboxMail):
         if m.received_at:
             try:
@@ -1313,24 +1499,28 @@ def list_mails(
         return datetime.min.replace(tzinfo=timezone.utc)
 
     try:
-        all_mails.sort(key=_sort_key, reverse=True)
+        all_mails.sort(key=_sort_key, reverse=(sort or 'date_desc') != 'date_asc')
     except Exception:
         pass
 
     all_mails = _apply_user_read(all_mails, user)
-    sliced = all_mails[:limit]
+    if unread_only:
+        all_mails = [m for m in all_mails if m.unread]
+    total = len(all_mails)
+    sliced = all_mails[offset: offset + ps]
     return {
         'ok': True,
         'demo': False,
         'source': 'imap',
         'results': [m.as_dict() for m in sliced],
-        'accounts': _account_chips(sliced, filter_account=filter_account) or [
+        'accounts': _account_chips(all_mails, filter_account=filter_account) or [
             {'host': a.host, 'user': a.user, 'folder': a.folder, 'label': a.label, 'count': 0}
             for a in accounts
         ],
         'filter_account': filter_account,
         'unread': sum(1 for m in sliced if m.unread),
         'errors': errors,
+        **_page_meta(total),
     }
 
 

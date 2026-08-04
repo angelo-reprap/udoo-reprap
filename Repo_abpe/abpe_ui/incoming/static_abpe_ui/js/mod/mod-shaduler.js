@@ -37,6 +37,10 @@
   var INBOX_SORT = 'date_desc';
   var INBOX_ATTACH = ''; // '' | '1' | '0'
   var INBOX_UNREAD = false;
+  var INBOX_PAGE = 1;
+  var INBOX_PAGE_SIZE = 20;
+  var INBOX_TOTAL = 0;
+  var INBOX_PAGES = 1;
   var INBOX_ITEMS = [];
   var INBOX_SELECTED = null;
   var EDMS_API = '/edms/api/';
@@ -103,7 +107,10 @@
         '<div class="sh-inbox-filters" id="sh-inbox-filters"></div>' +
         '<div class="sh-inbox-toolbar" id="sh-inbox-toolbar"></div>' +
         '<div class="sh-inbox-split">' +
+        '<div class="sh-inbox-list-wrap">' +
         '<div class="sh-inbox-list" id="sh-inbox" tabindex="0"></div>' +
+        '<div class="sh-inbox-pager" id="sh-inbox-pager"></div>' +
+        '</div>' +
         '<div class="sh-inbox-viewer" id="sh-inbox-viewer">' +
         '<div class="sh-viewer-empty">' + esc(_t('sh.inbox_pick', 'Mail auswählen')) + '</div>' +
         '</div></div></div></div>'
@@ -255,9 +262,14 @@
     });
   }
 
+  function inboxResetPage() {
+    INBOX_PAGE = 1;
+  }
+
   function loadInbox() {
     renderInboxToolbar();
-    var q = 'inbox/?limit=60';
+    var q = 'inbox/?page=' + encodeURIComponent(INBOX_PAGE) +
+      '&page_size=' + encodeURIComponent(INBOX_PAGE_SIZE);
     if (INBOX_ACCOUNT) q += '&account=' + encodeURIComponent(INBOX_ACCOUNT);
     if (INBOX_Q) q += '&q=' + encodeURIComponent(INBOX_Q);
     if (INBOX_SORT) q += '&sort=' + encodeURIComponent(INBOX_SORT);
@@ -278,6 +290,7 @@
           }
           if (hint) hint.textContent = _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick');
           renderInboxFilters([]);
+          renderInboxPager({ total: 0, page: 1, pages: 1, page_size: INBOX_PAGE_SIZE });
           showViewerEmpty();
           refreshStats();
           return;
@@ -285,19 +298,39 @@
         if (hint) {
           var src = data.source || '';
           var srcLabel = src === 'elasticsearch' ? 'ES' : (src === 'imap' ? 'IMAP' : (src === 'ingest_email_db' ? 'DB' : src));
+          var totalLbl = data.total != null ? (' · ' + data.total + ' ' + _t('sh.inbox_mails', 'Mails')) : '';
           hint.textContent = _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick') +
-            (srcLabel ? ' · ' + srcLabel : '') +
+            (srcLabel ? ' · ' + srcLabel : '') + totalLbl +
             (data.unread != null ? ' · ' + data.unread + ' ' + _t('sh.inbox_unread', 'neu') : '');
         }
         INBOX_ACCOUNTS = data.accounts || [];
         if (data.filter_account) INBOX_ACCOUNT = data.filter_account;
         INBOX_ITEMS = data.results || [];
+        INBOX_TOTAL = data.total != null ? Number(data.total) : INBOX_ITEMS.length;
+        INBOX_PAGES = data.pages != null ? Math.max(1, Number(data.pages)) : 1;
+        if (data.page != null) INBOX_PAGE = Math.max(1, Number(data.page));
+        if (data.page_size != null) INBOX_PAGE_SIZE = Number(data.page_size) || INBOX_PAGE_SIZE;
+        if (INBOX_PAGE > INBOX_PAGES && INBOX_TOTAL > 0) {
+          INBOX_PAGE = INBOX_PAGES;
+          loadInbox();
+          return;
+        }
         renderInboxFilters(INBOX_ACCOUNTS);
         renderInbox(INBOX_ITEMS);
+        renderInboxPager({
+          total: INBOX_TOTAL,
+          page: INBOX_PAGE,
+          pages: INBOX_PAGES,
+          page_size: INBOX_PAGE_SIZE,
+        });
         setPostBadge(data.unread != null ? data.unread : INBOX_ITEMS.filter(function (m) { return m.unread; }).length);
         refreshStats();
       })
-      .catch(function () { renderInbox([]); showViewerEmpty(); });
+      .catch(function () {
+        renderInbox([]);
+        renderInboxPager({ total: 0, page: 1, pages: 1, page_size: INBOX_PAGE_SIZE });
+        showViewerEmpty();
+      });
   }
 
   function setPostBadge(n) {
@@ -309,6 +342,11 @@
   function renderInboxToolbar() {
     var t = document.getElementById('sh-inbox-toolbar');
     if (!t) return;
+    var sizes = [5, 10, 20, 50];
+    var sizeOpts = sizes.map(function (n) {
+      return '<option value="' + n + '"' + (INBOX_PAGE_SIZE === n ? ' selected' : '') + '>' +
+        n + '</option>';
+    }).join('');
     t.innerHTML =
       '<form class="sh-inbox-search" id="sh-inbox-search">' +
       '<input type="search" id="sh-inbox-q" value="' + esc(INBOX_Q) + '" ' +
@@ -329,6 +367,8 @@
       '<option value="date_asc"' + (INBOX_SORT === 'date_asc' ? ' selected' : '') + '>' +
       esc(_t('sh.inbox_sort_old', 'Datum: älteste')) + '</option>' +
       '</select>' +
+      '<label class="sh-inbox-pagesize"><span>' + esc(_t('sh.inbox_per_page', 'Anzeigen')) + '</span> ' +
+      '<select id="sh-inbox-pagesize">' + sizeOpts + '</select></label>' +
       '<label class="sh-inbox-unread"><input type="checkbox" id="sh-inbox-unread"' +
       (INBOX_UNREAD ? ' checked' : '') + '> ' + esc(_t('sh.inbox_only_new', 'nur neu')) + '</label>' +
       '</div>';
@@ -338,15 +378,72 @@
         e.preventDefault();
         var inp = document.getElementById('sh-inbox-q');
         INBOX_Q = inp ? String(inp.value || '').trim() : '';
+        inboxResetPage();
         loadInbox();
       });
     }
     var att = document.getElementById('sh-inbox-attach');
-    if (att) att.addEventListener('change', function () { INBOX_ATTACH = att.value; loadInbox(); });
+    if (att) att.addEventListener('change', function () {
+      INBOX_ATTACH = att.value; inboxResetPage(); loadInbox();
+    });
     var sort = document.getElementById('sh-inbox-sort');
-    if (sort) sort.addEventListener('change', function () { INBOX_SORT = sort.value || 'date_desc'; loadInbox(); });
+    if (sort) sort.addEventListener('change', function () {
+      INBOX_SORT = sort.value || 'date_desc'; inboxResetPage(); loadInbox();
+    });
+    var psz = document.getElementById('sh-inbox-pagesize');
+    if (psz) psz.addEventListener('change', function () {
+      INBOX_PAGE_SIZE = parseInt(psz.value, 10) || 20;
+      inboxResetPage();
+      loadInbox();
+    });
     var un = document.getElementById('sh-inbox-unread');
-    if (un) un.addEventListener('change', function () { INBOX_UNREAD = !!un.checked; loadInbox(); });
+    if (un) un.addEventListener('change', function () {
+      INBOX_UNREAD = !!un.checked; inboxResetPage(); loadInbox();
+    });
+  }
+
+  function renderInboxPager(meta) {
+    var el = document.getElementById('sh-inbox-pager');
+    if (!el) return;
+    meta = meta || {};
+    var total = Math.max(0, Number(meta.total) || 0);
+    var page = Math.max(1, Number(meta.page) || 1);
+    var pages = Math.max(1, Number(meta.pages) || 1);
+    var size = Math.max(1, Number(meta.page_size) || INBOX_PAGE_SIZE);
+    if (!total) {
+      el.innerHTML = '<span class="sh-pager-meta">' + esc(_t('sh.inbox_leer', 'Keine Mails')) + '</span>';
+      return;
+    }
+    var from = (page - 1) * size + 1;
+    var to = Math.min(total, page * size);
+    var win = 5;
+    var start = Math.max(1, page - Math.floor(win / 2));
+    var end = Math.min(pages, start + win - 1);
+    start = Math.max(1, end - win + 1);
+    var nums = '';
+    for (var i = start; i <= end; i++) {
+      nums += '<button type="button" class="sh-pg' + (i === page ? ' on' : '') + '" data-page="' + i + '">' + i + '</button>';
+    }
+    el.innerHTML =
+      '<span class="sh-pager-meta">' + esc(from + '–' + to + ' / ' + total) + '</span>' +
+      '<div class="sh-pager-btns">' +
+      '<button type="button" class="sh-pg" data-page="' + (page - 1) + '"' +
+      (page <= 1 ? ' disabled' : '') + ' aria-label="prev">&lt;</button>' +
+      nums +
+      '<button type="button" class="sh-pg" data-page="' + (page + 1) + '"' +
+      (page >= pages ? ' disabled' : '') + ' aria-label="next">&gt;</button>' +
+      '</div>';
+    el.querySelectorAll('.sh-pg').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (btn.disabled) return;
+        var p = parseInt(btn.getAttribute('data-page'), 10);
+        if (!p || p < 1 || p > pages || p === INBOX_PAGE) return;
+        INBOX_PAGE = p;
+        loadInbox();
+        var list = document.getElementById('sh-inbox');
+        if (list) list.scrollTop = 0;
+      });
+    });
   }
 
   function renderInboxFilters(accounts) {
@@ -368,6 +465,7 @@
     f.querySelectorAll('.sh-acc-chip').forEach(function (btn) {
       btn.addEventListener('click', function () {
         INBOX_ACCOUNT = btn.getAttribute('data-account') || '';
+        inboxResetPage();
         loadInbox();
       });
     });

@@ -259,9 +259,14 @@ def api_inbox_list(request):
         from .demo_data import demo_inbox
         return JsonResponse({'ok': True, 'demo': True, 'results': demo_inbox()})
     try:
-        limit = int(request.GET.get('limit') or 40)
+        page = int(request.GET.get('page') or 1)
     except ValueError:
-        limit = 40
+        page = 1
+    try:
+        raw_size = request.GET.get('page_size') or request.GET.get('limit') or 20
+        page_size = int(raw_size)
+    except ValueError:
+        page_size = 20
     force_imap = request.GET.get('imap') == '1'
     account = (request.GET.get('account') or '').strip()
     q = (request.GET.get('q') or '').strip()
@@ -274,7 +279,9 @@ def api_inbox_list(request):
     elif has_att_raw in ('0', 'false', 'no', 'without', 'ohne'):
         has_attachment = False
     data = inbox_service.list_mails(
-        limit=limit,
+        limit=page_size,
+        page=page,
+        page_size=page_size,
         force_imap=force_imap,
         user=request.user,
         account=account or None,
