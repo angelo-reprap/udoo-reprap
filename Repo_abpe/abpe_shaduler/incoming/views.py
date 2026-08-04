@@ -320,6 +320,21 @@ def api_inbox_mark_read(request, mail_id):
 
 
 @login_required
+@require_GET
+def api_inbox_crm_lookup(request):
+    """Absender-E-Mail → CRM Kontakt/Firma (für Aufgabe-Dialog)."""
+    from apps.abpe_shaduler.services import inbox_service
+    email = (request.GET.get('email') or request.GET.get('from') or '').strip()
+    if not email:
+        return JsonResponse({'ok': False, 'found': False, 'error': 'email fehlt'}, status=400)
+    try:
+        info = inbox_service.crm_lookup(email)
+        return JsonResponse({'ok': True, **info})
+    except Exception as exc:
+        return JsonResponse({'ok': False, 'found': False, 'error': str(exc)}, status=400)
+
+
+@login_required
 @require_POST
 def api_inbox_to_task(request, mail_id):
     from apps.abpe_shaduler.services import inbox_service
@@ -339,6 +354,7 @@ def api_inbox_to_task(request, mail_id):
             faellig_zeit=data.get('faellig_zeit') or None,
             notiz=data.get('notiz') or data.get('note') or '',
             crm_notiz=crm_notiz,
+            dauer_min=data.get('dauer_min') or data.get('dauer') or None,
         )
         return JsonResponse(result, status=201)
     except Exception as exc:

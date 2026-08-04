@@ -55,6 +55,8 @@ class InboxMail:
     mailto_url: str = ''
     crm_bean_id: str = ''
     crm_bean_module: str = ''
+    crm_name: str = ''
+    crm_url: str = ''
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -86,6 +88,9 @@ class InboxMail:
             'mailto_url': self.mailto_url,
             'crm_bean_id': self.crm_bean_id,
             'crm_bean_module': self.crm_bean_module,
+            'crm_name': self.crm_name,
+            'crm_url': self.crm_url,
+            'crm_found': bool(self.crm_bean_id),
         }
 
 
@@ -350,13 +355,16 @@ def _request_id_from_subject(subj: str) -> str:
 
 
 def _crm_resolve(addr: str, *, subject: str = '') -> dict[str, str]:
-    """Absender → CrmEmailAddrBeanRel + Deeplinks (Konzept Kap. 2.2 / 3)."""
+    """Absender → CrmEmailAddrBeanRel + Kontakt/Firma-Name + Deeplinks."""
     email_addr = _extract_email(addr)
     request_id = _request_id_from_subject(subject)
     out = {
         'crm': '—',
         'crm_bean_id': '',
         'crm_bean_module': '',
+        'crm_name': '',
+        'crm_url': '',
+        'crm_found': False,
         'reply_email': email_addr,
         'request_id': request_id,
         'matching_url': f'/matching/?request={request_id}' if request_id else '',
@@ -388,6 +396,8 @@ def _crm_resolve(addr: str, *, subject: str = '') -> dict[str, str]:
         row = None
         if hasattr(EmailAddr, 'email_address'):
             row = EmailAddr.objects.filter(email_address__iexact=email_addr).first()
+        if not row and hasattr(EmailAddr, 'email_address_caps'):
+            row = EmailAddr.objects.filter(email_address_caps__iexact=email_addr.upper()).first()
         if not row:
             for field in ('email', 'address'):
                 if hasattr(EmailAddr, field):
@@ -401,9 +411,21 @@ def _crm_resolve(addr: str, *, subject: str = '') -> dict[str, str]:
         bean_id = ''
         try:
             Rel = apps.get_model('abpe_crm', 'CrmEmailAddrBeanRel')
-            link = Rel.objects.filter(email_address_id=getattr(row, 'pk', None) or getattr(row, 'crm_id', None)).first()
+            ea_key = getattr(row, 'crm_id', None) or getattr(row, 'pk', None)
+            link = None
+            qs = Rel.objects.all()
+            # SuiteCRM-Spiegel: FK oft auf crm_id, nicht Django-pk
+            if ea_key is not None:
+                qs1 = qs.filter(email_address_id=ea_key)
+                if hasattr(Rel, 'primary_address'):
+                    qs1 = qs1.order_by('-primary_address')
+                link = qs1.first()
             if link is None and hasattr(Rel, 'email_address'):
-                link = Rel.objects.filter(email_address__email_address__iexact=email_addr).first()
+                link = (
+                    Rel.objects.filter(email_address__email_address__iexact=email_addr)
+                    .order_by('-primary_address' if hasattr(Rel, 'primary_address') else 'pk')
+                    .first()
+                )
             if link:
                 bean_module = str(
                     getattr(link, 'bean_module', '')
@@ -412,24 +434,96 @@ def _crm_resolve(addr: str, *, subject: str = '') -> dict[str, str]:
                     or ''
                 )
                 bean_id = str(getattr(link, 'bean_id', '') or '')
-        except Exception:
-            pass
+        except Exception as exc:
+            log.debug('CRM Rel-Lookup: %s', exc)
 
-        # Anzeige: Modul-Kurzname + optional Anfrage aus Betreff
-        mod_label = bean_module.replace('Contacts', 'Berater').replace('Accounts', 'Firma') or 'CRM'
+        crm_name = ''
+        crm_url = ''
+        if bean_id:
+            crm_name, crm_url = _crm_bean_display(bean_module, bean_id)
+
+        mod_label = (
+            bean_module.replace('Contacts', 'Kontakt')
+            .replace('Accounts', 'Firma')
+            .replace('Leads', 'Lead')
+            or 'CRM'
+        )
         parts = [mod_label]
-        if request_id:
+        if crm_name:
+            parts.append(crm_name)
+        elif request_id:
             parts.append(f'Anfrage #{request_id}')
         elif bean_id:
             parts.append(str(bean_id)[:8])
-        out['crm'] = ' · '.join(parts)
+        out['crm'] = ' · '.join(parts) if bean_id or crm_name else '—'
         out['crm_bean_id'] = bean_id
         out['crm_bean_module'] = bean_module
+        out['crm_name'] = crm_name
+        out['crm_url'] = crm_url
+        out['crm_found'] = bool(bean_id)
         if not out['matching_url'] and bean_id:
             out['matching_url'] = f'/matching/?crm_id={bean_id}'
-    except Exception:
-        pass
+        if crm_url and bean_id:
+            # Matching behalten; crm_url für Direktlink
+            pass
+    except Exception as exc:
+        log.debug('CRM resolve fehlgeschlagen: %s', exc)
     return out
+
+
+def _crm_bean_display(bean_module: str, bean_id: str) -> tuple[str, str]:
+    """→ (anzeigename, url) für Contacts/Accounts."""
+    mod = (bean_module or '').strip()
+    bid = (bean_id or '').strip()
+    if not bid:
+        return '', ''
+    try:
+        from django.apps import apps
+        if 'Contact' in mod:
+            C = apps.get_model('abpe_crm', 'CrmContact')
+            c = C.objects.filter(crm_id=bid).first()
+            if c:
+                name = (
+                    getattr(c, 'full_name', None)
+                    or f"{getattr(c, 'first_name', '') or ''} {getattr(c, 'last_name', '') or ''}".strip()
+                )
+                return (name or '').strip(), f'/crm/?contact={bid}'
+        if 'Account' in mod:
+            A = apps.get_model('abpe_crm', 'CrmAccount')
+            a = A.objects.filter(crm_id=bid).first()
+            if a:
+                name = str(getattr(a, 'name', '') or '').strip()
+                return name, f'/crm/?account={bid}'
+        if 'Lead' in mod:
+            try:
+                L = apps.get_model('abpe_crm', 'CrmLead')
+                lead = L.objects.filter(crm_id=bid).first()
+                if lead:
+                    name = (
+                        getattr(lead, 'full_name', None)
+                        or f"{getattr(lead, 'first_name', '') or ''} {getattr(lead, 'last_name', '') or ''}".strip()
+                    )
+                    return (name or '').strip(), f'/crm/?lead={bid}'
+            except Exception:
+                pass
+    except Exception as exc:
+        log.debug('CRM bean display: %s', exc)
+    return '', ''
+
+
+def crm_lookup(addr: str) -> dict[str, Any]:
+    """Öffentlicher Lookup Absender-E-Mail → CRM-Datensatz (für UI-Dialog)."""
+    info = _crm_resolve(addr or '')
+    return {
+        'email': info.get('reply_email') or _extract_email(addr),
+        'found': bool(info.get('crm_found') and info.get('crm_bean_id')),
+        'crm': info.get('crm') or '—',
+        'crm_name': info.get('crm_name') or '',
+        'crm_bean_id': info.get('crm_bean_id') or '',
+        'crm_bean_module': info.get('crm_bean_module') or '',
+        'crm_url': info.get('crm_url') or '',
+        'matching_url': info.get('matching_url') or '',
+    }
 
 
 def _mailto_subject(subj: str) -> str:
@@ -445,6 +539,8 @@ def _apply_crm_links(mail: InboxMail) -> InboxMail:
     mail.crm = info['crm']
     mail.crm_bean_id = info['crm_bean_id']
     mail.crm_bean_module = info['crm_bean_module']
+    mail.crm_name = info.get('crm_name') or ''
+    mail.crm_url = info.get('crm_url') or ''
     mail.reply_email = info['reply_email']
     mail.request_id = info['request_id']
     mail.matching_url = info['matching_url']
@@ -838,7 +934,6 @@ def view_mail(mail_id: str, user=None) -> dict[str, Any]:
                 'content_type': a.get('content_type') or a.get('type') or '',
             })
 
-    mail_dict = mail_dict or {}
     crm_info = _crm_resolve(from_, subject=subject)
     return {
         'ok': True,
@@ -864,6 +959,11 @@ def view_mail(mail_id: str, user=None) -> dict[str, Any]:
         'crm': mail_dict.get('crm') or crm_info.get('crm'),
         'crm_bean_id': mail_dict.get('crm_bean_id') or crm_info.get('crm_bean_id') or '',
         'crm_bean_module': mail_dict.get('crm_bean_module') or crm_info.get('crm_bean_module') or '',
+        'crm_name': mail_dict.get('crm_name') or crm_info.get('crm_name') or '',
+        'crm_url': mail_dict.get('crm_url') or crm_info.get('crm_url') or '',
+        'crm_found': bool(
+            mail_dict.get('crm_bean_id') or crm_info.get('crm_bean_id')
+        ),
         'matching_url': mail_dict.get('matching_url') or crm_info.get('matching_url') or '',
         'email_studio_url': mail_dict.get('email_studio_url') or crm_info.get('email_studio_url') or '',
         'mailto_url': mail_dict.get('mailto_url') or crm_info.get('mailto_url') or '',
@@ -1560,13 +1660,14 @@ def mail_to_aufgabe(
     faellig_zeit=None,
     notiz: str = '',
     crm_notiz: bool = True,
+    dauer_min=None,
 ) -> dict[str, Any]:
     """
     Erzeugt Aufgabe aus Mail.
     ``due``: 1h|heute|morgen|+3d|+1w (oder explizit faellig_am/faellig_zeit).
     ``notiz``: freie Notiz → Beschreibung + optional CRM-Aktivität.
+    ``dauer_min``: optionale Dauer in Minuten (in Beschreibung + details).
     """
-    from datetime import datetime as dt_cls, time as time_cls
     from . import aufgaben_service, aktivitaet_service
     from apps.abpe_shaduler.models import Aufgabe
 
@@ -1600,6 +1701,12 @@ def mail_to_aufgabe(
 
     due_date, due_time = _parse_due(due, faellig_am=faellig_am, faellig_zeit=faellig_zeit)
     notiz = (notiz or '').strip()
+    try:
+        dauer_min = int(dauer_min) if dauer_min not in (None, '', False) else None
+        if dauer_min is not None and dauer_min <= 0:
+            dauer_min = None
+    except Exception:
+        dauer_min = None
 
     titel = (mail.get('subj') or 'Mail-Aufgabe')[:200]
     beschreibung_parts = [
@@ -1610,6 +1717,10 @@ def mail_to_aufgabe(
     ]
     if notiz:
         beschreibung_parts.insert(0, f"Notiz:\n{notiz}\n")
+    if dauer_min:
+        beschreibung_parts.append(f"Dauer: {dauer_min} Min")
+    if mail.get('crm_name'):
+        beschreibung_parts.append(f"CRM: {mail.get('crm_name')} ({mail.get('crm_bean_module') or ''})")
     beschreibung = '\n'.join(beschreibung_parts)
 
     ref_type, ref_id = _crm_ref_from_mail(mail, mid)
@@ -1638,8 +1749,10 @@ def mail_to_aufgabe(
             'art': art,
             'due': due or '',
             'notiz': notiz,
+            'dauer_min': dauer_min,
             'crm_bean_id': mail.get('crm_bean_id') or '',
             'crm_bean_module': mail.get('crm_bean_module') or '',
+            'crm_name': mail.get('crm_name') or '',
         },
     )
 
@@ -1655,7 +1768,7 @@ def mail_to_aufgabe(
                 ref_type=crm_ref_type,
                 ref_id=crm_ref_id,
                 user=user,
-                deeplink_url=str(mail.get('matching_url') or '')[:500],
+                deeplink_url=str(mail.get('matching_url') or mail.get('crm_url') or '')[:500],
                 details={
                     'quelle': 'posteingang',
                     'mail_id': mid,
@@ -1663,6 +1776,8 @@ def mail_to_aufgabe(
                     'from': mail.get('from') or '',
                     'subject': mail.get('subj') or '',
                     'crm_bean_module': mail.get('crm_bean_module') or '',
+                    'crm_name': mail.get('crm_name') or '',
+                    'dauer_min': dauer_min,
                 },
             )
             crm_note_written = True
@@ -1679,6 +1794,7 @@ def mail_to_aufgabe(
         'crm_notiz': crm_note_written,
         'ref_type': ref_type,
         'ref_id': ref_id,
+        'crm_name': mail.get('crm_name') or '',
     }
 
 
