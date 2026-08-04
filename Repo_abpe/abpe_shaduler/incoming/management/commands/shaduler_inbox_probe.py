@@ -1,11 +1,11 @@
-"""Diagnose Posteingang: Elasticsearch abpe_emails + IMAP (172.20.3.150)."""
+"""Diagnose Posteingang: Elasticsearch abpe_emails + IMAP (EmailImportConfig)."""
 from django.core.management.base import BaseCommand
 
 from apps.abpe_shaduler.services import inbox_service
 
 
 class Command(BaseCommand):
-    help = 'Zeigt ES-Index, ingest_email-Modelle + IMAP-Accounts und testet optional den Abruf.'
+    help = 'Zeigt ES-Index, EmailImportConfig + IMAP und testet optional den Abruf.'
 
     def add_arguments(self, parser):
         parser.add_argument('--fetch', action='store_true', help='Mails abrufen (limit)')
@@ -22,27 +22,40 @@ class Command(BaseCommand):
             f"  hosts={es.get('hosts')} index={es.get('index')} "
             f"reachable={es.get('reachable')} count={es.get('count')}"
         )
+        self.stdout.write(
+            f"  newest_date={es.get('newest_date')} account={es.get('newest_account')} "
+            f"subj={es.get('newest_subject')!r}"
+        )
+        if es.get('top_accounts'):
+            tops = ', '.join(
+                f"{a.get('account')}={a.get('count')}" for a in (es.get('top_accounts') or [])[:8]
+            )
+            self.stdout.write(f'  top_accounts: {tops}')
         if es.get('error'):
             self.stdout.write(self.style.WARNING(f"  error: {es['error']}"))
 
-        self.stdout.write(self.style.NOTICE('ingest-related models:'))
-        for m in info.get('ingest_related_models') or []:
-            self.stdout.write(f'  - {m}')
-        if not info.get('ingest_related_models'):
-            self.stdout.write('  (keine)')
+        cfg = info.get('email_import_config') or {}
+        msg = info.get('email_message') or {}
+        self.stdout.write(self.style.NOTICE('EmailImportConfig / EmailMessage:'))
+        self.stdout.write(
+            f"  configs active={cfg.get('active')}/{cfg.get('total')}  "
+            f"messages total={msg.get('total')} new={msg.get('new')}"
+        )
+        if cfg.get('error'):
+            self.stdout.write(self.style.WARNING(f"  config error: {cfg['error']}"))
 
-        self.stdout.write(self.style.NOTICE('IMAP accounts (Fallback):'))
+        self.stdout.write(self.style.NOTICE('IMAP accounts (EmailImportConfig):'))
         accs = info.get('accounts') or []
         if not accs:
-            self.stdout.write(self.style.WARNING(
-                '  (keine) — nur nötig wenn ES ausfällt; settings.json → shaduler.imap_accounts'
-            ))
+            self.stdout.write(self.style.WARNING('  (keine aktiven EmailImportConfig)'))
         for a in accs:
             pw = 'yes' if a.get('has_password') else 'NO'
             self.stdout.write(
                 f"  - {a.get('label')}  {a.get('user')}@{a.get('host')}:{a.get('port')} "
-                f"folder={a.get('folder')} ssl={a.get('ssl')} password={pw}"
+                f"folder={a.get('folder')} ssl={a.get('ssl')} password={pw} "
+                f"[{a.get('source')}]"
             )
+
         if options['fetch']:
             data = inbox_service.list_mails(
                 limit=options['limit'],
@@ -52,6 +65,8 @@ class Command(BaseCommand):
                 f"source={data.get('source')} ok={data.get('ok')} "
                 f"n={len(data.get('results') or [])} unread={data.get('unread')}"
             ))
+            if data.get('hint'):
+                self.stdout.write(self.style.WARNING(f"  hint: {data['hint']}"))
             if data.get('error'):
                 self.stdout.write(self.style.ERROR(data['error']))
             for err in data.get('errors') or []:

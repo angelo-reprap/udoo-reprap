@@ -763,6 +763,24 @@ def list_mails(limit: int = 40, *, force_imap: bool = False) -> dict[str, Any]:
             boxes: dict[str, int] = {}
             for m in es_mails:
                 boxes[m.box or m.account or '?'] = boxes.get(m.box or m.account or '?', 0) + 1
+            hint = None
+            if es_mails:
+                # Wenn neueste Mail > 14 Tage: Indexierung vermutlich stehengeblieben
+                try:
+                    newest = es_mails[0].received_at
+                    dt = _es_parse_date(newest) if newest else None
+                    if dt:
+                        now = dj_tz.now()
+                        if dj_tz.is_naive(dt):
+                            dt = dj_tz.make_aware(dt, timezone.utc)
+                        age_days = (now - dt).total_seconds() / 86400
+                        if age_days > 14:
+                            hint = (
+                                f'Neueste indexierte Mail ist ~{int(age_days)} Tage alt — '
+                                'Mail-Indexer (automail/ingest) prüfen.'
+                            )
+                except Exception:
+                    pass
             return {
                 'ok': True,
                 'demo': False,
@@ -771,6 +789,7 @@ def list_mails(limit: int = 40, *, force_imap: bool = False) -> dict[str, Any]:
                 'results': [m.as_dict() for m in es_mails],
                 'accounts': [{'label': k, 'count': v} for k, v in boxes.items()],
                 'unread': sum(1 for m in es_mails if m.unread),
+                'hint': hint,
             }
 
         db_mails = _list_from_ingest_db(limit=limit)
@@ -901,6 +920,10 @@ def probe() -> dict[str, Any]:
         'index': _es_mail_index(),
         'reachable': False,
         'count': None,
+        'newest_date': None,
+        'newest_account': None,
+        'newest_subject': None,
+        'top_accounts': [],
         'error': None,
     }
     try:
@@ -912,6 +935,39 @@ def probe() -> dict[str, Any]:
                 es_info['count'] = es.count(index=es_info['index']).get('count')
             except Exception as exc:
                 es_info['error'] = f'count: {exc}'
+            try:
+                sample = es.search(
+                    index=es_info['index'],
+                    body={
+                        'size': 1,
+                        'sort': [{'date': {'order': 'desc', 'unmapped_type': 'date'}}],
+                        '_source': ['date', 'account', 'subject', 'folder'],
+                        'query': {'match_all': {}},
+                    },
+                )
+                hits = (sample.get('hits') or {}).get('hits') or []
+                if hits:
+                    src = hits[0].get('_source') or {}
+                    es_info['newest_date'] = src.get('date')
+                    es_info['newest_account'] = src.get('account')
+                    es_info['newest_subject'] = (src.get('subject') or '')[:80]
+            except Exception as exc:
+                es_info['error'] = (es_info.get('error') or '') + f' sample: {exc}'
+            try:
+                agg = es.search(
+                    index=es_info['index'],
+                    body={
+                        'size': 0,
+                        'aggs': {'acc': {'terms': {'field': 'account', 'size': 12}}},
+                    },
+                )
+                buckets = (((agg.get('aggregations') or {}).get('acc') or {}).get('buckets')) or []
+                es_info['top_accounts'] = [
+                    {'account': b.get('key'), 'count': b.get('doc_count')} for b in buckets
+                ]
+            except Exception:
+                # account ggf. text ohne keyword — ignorieren
+                pass
         else:
             es_info['error'] = 'ping failed'
     except Exception as exc:

@@ -23,13 +23,17 @@ Optional filtern:
     "es_mail_index": "abpe_emails",
     "es_mail": {
       "folder": "INBOX",
-      "accounts": ["vertrieb@", "angelo@"]
+      "accounts": ["angelo", "vertrieb", "sg"],
+      "days": 30
     }
   }
 }
 ```
 
-Pfad: `/opt/abpe/backend/settings.json`
+`days` blendet ältere Treffer aus; ohne Treffer fällt der Service auf ungefiltert zurück.
+
+Wenn Probe `newest_date` ~Wochen alt zeigt: Mail-Indexer (automail) prüfen —
+der Posteingang liest nur den Index, er füllt ihn nicht.
 
 ## IMAP aus EmailImportConfig (keine zweite Credential-Ablage)
 
