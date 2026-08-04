@@ -106,6 +106,14 @@ def api_aufgaben_fuer_ref(request, typ, ref_id):
 @login_required
 @require_GET
 def api_kalender(request):
+    from .demo_data import demo_aufgaben
+    use_demo = request.GET.get('demo', '1') != '0'
+    if use_demo:
+        return JsonResponse({
+            'ok': True, 'demo': True,
+            'view': request.GET.get('view', 'monat'),
+            'results': demo_aufgaben(),
+        })
     return _stub({'view': request.GET.get('view', 'week')})
 
 
@@ -118,6 +126,10 @@ def api_ergebnistypen(request):
 @login_required
 @require_GET
 def api_inbox_list(request):
+    from .demo_data import demo_inbox
+    use_demo = request.GET.get('demo', '1') != '0'
+    if use_demo:
+        return JsonResponse({'ok': True, 'demo': True, 'results': demo_inbox()})
     return _stub()
 
 
@@ -130,6 +142,10 @@ def api_inbox_to_task(request, mail_id):
 @login_required
 @require_GET
 def api_radar_items(request):
+    from .demo_data import demo_radar_anfragen
+    use_demo = request.GET.get('demo', '1') != '0'
+    if use_demo:
+        return JsonResponse({'ok': True, 'demo': True, 'results': demo_radar_anfragen()})
     return _stub()
 
 
@@ -166,6 +182,10 @@ def api_radar_group_merge(request, pk):
 @login_required
 @require_GET
 def api_radar_consultants(request):
+    from .demo_data import demo_radar_berater
+    use_demo = request.GET.get('demo', '1') != '0'
+    if use_demo:
+        return JsonResponse({'ok': True, 'demo': True, 'results': demo_radar_berater()})
     return _stub()
 
 

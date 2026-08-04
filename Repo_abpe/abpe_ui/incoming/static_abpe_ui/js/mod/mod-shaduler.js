@@ -81,6 +81,40 @@
         modalHtml()
       );
     }
+    if (name === 'kalender') {
+      return '<div class="sh-pane" data-pane="kalender"><div id="sh-cal-root"></div></div>' + modalHtml();
+    }
+    if (name === 'posteingang') {
+      return (
+        '<div class="sh-pane" data-pane="posteingang"><div class="sh-card">' +
+        '<div class="card-h"><i class="bi bi-inbox"></i> Posteingang' +
+        '<span style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary)">' +
+        _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick') +
+        '</span></div><div id="sh-inbox"></div></div></div>'
+      );
+    }
+    if (name === 'radar_anfragen') {
+      return (
+        '<div class="sh-pane" data-pane="radar_anfragen">' +
+        '<div class="stats-grid">' +
+        '<div class="stat-card"><div class="stat-value teal" id="r-new">0</div><div class="stat-title">neue Treffer</div></div>' +
+        '<div class="stat-card"><div class="stat-value teal" id="r-best">—</div><div class="stat-title">bester Score</div></div>' +
+        '<div class="stat-card"><div class="stat-value">5 Min</div><div class="stat-title">Poll-Takt</div></div>' +
+        '<div class="stat-card"><div class="stat-value">2</div><div class="stat-title">gesperrt gefiltert</div></div>' +
+        '</div>' +
+        '<div class="sh-card"><div class="card-h"><i class="bi bi-broadcast"></i> Projektausschreibungen</div>' +
+        '<div id="sh-radar-a"></div></div></div>'
+      );
+    }
+    if (name === 'radar_berater') {
+      return (
+        '<div class="sh-pane" data-pane="radar_berater"><div class="sh-card">' +
+        '<div class="card-h"><i class="bi bi-person-bounding-box"></i> Berater-Profile</div>' +
+        '<div class="paste"><input id="sh-radar-paste" placeholder="Talentfinder: Profil-URL oder Text …">' +
+        '<button type="button" id="sh-radar-paste-btn"><i class="bi bi-plus-lg"></i></button></div>' +
+        '<div id="sh-radar-b"></div></div></div>'
+      );
+    }
     if (name === 'regeln') {
       return (
         '<div class="sh-pane" data-pane="regeln"><div class="sh-card">' +
@@ -135,8 +169,181 @@
     if (name === 'aufgaben') {
       bindModal();
       loadAufgaben();
+    } else if (name === 'kalender') {
+      bindModal();
+      loadKalender();
+    } else if (name === 'posteingang') {
+      loadInbox();
+    } else if (name === 'radar_anfragen') {
+      loadRadarA();
+    } else if (name === 'radar_berater') {
+      loadRadarB();
     } else {
       refreshStats();
+    }
+  }
+
+  function ensureTasks(cb) {
+    if (TASKS && TASKS.length) { cb(TASKS); return; }
+    fetch(api('aufgaben/?demo=1'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        TASKS = data.results || [];
+        cb(TASKS);
+      })
+      .catch(function () { cb([]); });
+  }
+
+  function loadKalender() {
+    ensureTasks(function (tasks) {
+      if (global.ShadulerCal && typeof global.ShadulerCal.render === 'function') {
+        global.ShadulerCal.render(document.getElementById('sh-cal-root'), tasks, {
+          arten: ARTEN,
+          order: ORDER,
+          today: 3,
+          onOpenTask: openModal,
+        });
+      }
+      refreshStats();
+    });
+  }
+
+  function loadInbox() {
+    fetch(api('inbox/?demo=1'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        renderInbox(data.results || []);
+        refreshStats();
+      })
+      .catch(function () { renderInbox([]); });
+  }
+
+  function renderInbox(items) {
+    var c = document.getElementById('sh-inbox');
+    if (!c) return;
+    c.innerHTML = '';
+    if (!items.length) {
+      c.innerHTML = '<div class="none" style="padding:12px">' + esc(_t('sh.inbox_leer', 'Keine Mails')) + '</div>';
+      return;
+    }
+    items.forEach(function (m) {
+      var e = document.createElement('div');
+      e.className = 'ritem';
+      e.innerHTML =
+        '<div class="top">' +
+        (m.unread ? '<span class="mstat maybe" style="min-width:auto">neu</span>' : '') +
+        '<b class="hl" style="' + (m.unread ? '' : 'font-weight:400') + '">' + esc(m.subj) + '</b>' +
+        '<span class="src">' + esc(m.box) + '</span><span class="age">' + esc(m.age) + '</span></div>' +
+        '<div class="meta"><i class="bi bi-person"></i> ' + esc(m.from) +
+        (m.crm && m.crm !== '—' ? ' · <span style="color:var(--abcona-blue-light)"><i class="bi bi-link-45deg"></i>' + esc(m.crm) + '</span>' : '') +
+        '</div><div class="meta" style="font-style:italic">„' + esc(m.prev) + '”</div>' +
+        '<div class="racts"><button type="button" class="pri sh-mail-task" data-id="' + esc(m.id) + '">' +
+        '<i class="bi bi-check2-square"></i> Aufgabe erzeugen</button></div>';
+      c.appendChild(e);
+    });
+    c.querySelectorAll('.sh-mail-task').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        toast(_t('sh.toast_mail_task', 'Aufgabe aus Mail erzeugt (Demo)'));
+      });
+    });
+  }
+
+  function loadRadarA() {
+    fetch(api('radar/anfragen/?demo=1'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        renderRadarA(data.results || []);
+        refreshStats();
+      })
+      .catch(function () { renderRadarA([]); });
+  }
+
+  function renderRadarA(items) {
+    var c = document.getElementById('sh-radar-a');
+    if (!c) return;
+    c.innerHTML = '';
+    var best = 0;
+    items.forEach(function (r) {
+      if (r.score > best) best = r.score;
+      var e = document.createElement('div');
+      e.className = 'ritem';
+      e.innerHTML =
+        '<div class="top"><span class="score ' + (r.score < 75 ? 'mid' : '') + '">' + esc(r.score) + '%</span>' +
+        '<b class="hl">' + esc(r.headline) + '</b>' +
+        (r.grp > 1 ? '<span class="grp"><i class="bi bi-stack"></i> ' + r.grp + ' Anbieter</span>' : '') +
+        (r.sources || []).map(function (s) { return '<span class="src">' + esc(s) + '</span>'; }).join('') +
+        '<span class="age">' + esc(r.age) + '</span></div>' +
+        '<div class="meta">' + esc(r.meta) + '</div>' +
+        '<div class="chips">' + (r.top || []).map(function (t, i) {
+          return '<span class="chip ' + (i === 0 ? 'top' : '') + '"><i class="bi bi-person"></i> ' + esc(t) + '</span>';
+        }).join('') + '</div>' +
+        '<div class="racts">' +
+        '<button type="button" class="pri sh-take"><i class="bi bi-diagram-3"></i> Übernehmen → Matching</button>' +
+        '<button type="button" class="sh-dismiss"><i class="bi bi-x-lg"></i> Verwerfen</button></div>';
+      c.appendChild(e);
+      e.querySelector('.sh-take').onclick = function () {
+        toast(_t('sh.toast_takeover', 'Anfrage übernommen — Matching läuft (Demo)'));
+        e.remove();
+        var n = document.getElementById('r-new');
+        if (n) n.textContent = c.querySelectorAll('.ritem').length;
+      };
+      e.querySelector('.sh-dismiss').onclick = function () {
+        toast(_t('sh.toast_dismiss', 'Verworfen (Demo)'));
+        e.remove();
+        var n = document.getElementById('r-new');
+        if (n) n.textContent = c.querySelectorAll('.ritem').length;
+      };
+    });
+    var el = document.getElementById('r-new'); if (el) el.textContent = items.length;
+    el = document.getElementById('r-best'); if (el) el.textContent = best ? (best + '%') : '—';
+    el = document.getElementById('tb-ra'); if (el) el.textContent = items.length;
+  }
+
+  function loadRadarB() {
+    fetch(api('radar/berater/?demo=1'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        renderRadarB(data.results || []);
+        refreshStats();
+      })
+      .catch(function () { renderRadarB([]); });
+  }
+
+  function renderRadarB(items) {
+    var c = document.getElementById('sh-radar-b');
+    if (!c) return;
+    c.innerHTML = '';
+    var lbl = { known: '✔ im Bestand', maybe: '? unsicher', new: 'neu entdeckt' };
+    items.forEach(function (r) {
+      var e = document.createElement('div');
+      e.className = 'ritem';
+      var acts = '';
+      if (r.st === 'maybe') {
+        acts = '<button type="button" class="pri sh-confirm"><i class="bi bi-check2"></i> Verknüpfen</button>';
+      } else if (r.st === 'new') {
+        acts = '<button type="button" class="pri"><i class="bi bi-eye"></i> Beobachten</button>' +
+          '<button type="button" class="sh-dismiss"><i class="bi bi-x-lg"></i> Verwerfen</button>';
+      } else {
+        acts = '<button type="button"><i class="bi bi-person-badge"></i> Profil öffnen</button>';
+      }
+      e.innerHTML =
+        '<div class="top"><span class="mstat ' + esc(r.st) + '">' + esc(lbl[r.st] || r.st) + '</span>' +
+        '<b class="hl">' + esc(r.name) + '</b><span class="src">' + esc(r.src) + '</span></div>' +
+        '<div class="meta">' + esc(r.meta) + '</div>' +
+        '<div class="meta" style="color:var(--status-green)"><i class="bi bi-info-circle"></i> ' + esc(r.note) + '</div>' +
+        '<div class="racts">' + acts + '</div>';
+      c.appendChild(e);
+      var conf = e.querySelector('.sh-confirm');
+      if (conf) conf.onclick = function () { toast(_t('sh.toast_link', 'Profil verknüpft (Demo)')); };
+      var dis = e.querySelector('.sh-dismiss');
+      if (dis) dis.onclick = function () { e.remove(); toast(_t('sh.toast_dismiss', 'Verworfen (Demo)')); };
+    });
+    var el = document.getElementById('tb-rb'); if (el) el.textContent = items.length;
+    var pasteBtn = document.getElementById('sh-radar-paste-btn');
+    if (pasteBtn) {
+      pasteBtn.onclick = function () {
+        toast(_t('sh.toast_paste', 'Parsing + Abgleich (Demo)'));
+      };
     }
   }
 
