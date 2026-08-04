@@ -50,6 +50,17 @@
     "sh.inbox_outlook": "In Outlook öffnen",
     "sh.inbox_mark_read": "Gelesen",
     "sh.inbox_unread": "neu",
-    "sh.inbox_all": "Alle"
+    "sh.inbox_all": "Alle",
+    "sh.inbox_search": "Suchen",
+    "sh.inbox_search_ph": "Betreff, Absender, Text …",
+    "sh.inbox_att_all": "Anhang: alle",
+    "sh.inbox_att_yes": "nur mit Anhang",
+    "sh.inbox_att_no": "ohne Anhang",
+    "sh.inbox_sort_new": "Datum: neueste",
+    "sh.inbox_sort_old": "Datum: älteste",
+    "sh.inbox_only_new": "nur neu",
+    "sh.inbox_pick": "Mail auswählen",
+    "sh.inbox_view_err": "Mail-Detail nicht ladbar (IMAP/EDMS)",
+    "sh.inbox_open_att": "öffnen"
   }
 }

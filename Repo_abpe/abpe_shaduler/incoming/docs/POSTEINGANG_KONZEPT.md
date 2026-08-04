@@ -159,8 +159,8 @@ Mount: `apps/abpe_edms/urls.py` (Pfad-Prefix je nach `urls.py`-Include, oft `/ed
 | Baustein | Status |
 |---|---|
 | Account-Chips + ABpE-Gelesen | ✅ v1.0 |
-| Liste liefert `folder`/`uid`/`message_id`/`has_attachments` | 🔶 |
-| Filter Anhang/Datum/Neu + Suche `?q=` | 🔶 |
-| Zwei-Spalten-Layout Liste\|Viewer | 🔶 |
-| EDMS `api_mail_view` + Attachment verdrahten | 🔶 (Vertrag klar) |
-| DMS-JS-Renderer lokalisieren | ⬜ Live-Suche |
+| Liste liefert `folder`/`uid`/`message_id`/`has_attachments` | ✅ |
+| Filter Anhang/Datum/Neu + Suche `?q=` | ✅ |
+| Zwei-Spalten-Layout Liste\|Viewer | ✅ |
+| EDMS `api_mail_view` + Attachment verdrahten | ✅ `/edms/api/mail/view/` |
+| DMS-JS-Renderer lokalisieren | ⬜ optional (`mod-namazu` Alias) |

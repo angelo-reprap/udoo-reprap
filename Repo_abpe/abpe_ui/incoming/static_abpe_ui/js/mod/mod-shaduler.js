@@ -33,6 +33,13 @@
   var currentResult = null;
   var INBOX_ACCOUNT = '';
   var INBOX_ACCOUNTS = [];
+  var INBOX_Q = '';
+  var INBOX_SORT = 'date_desc';
+  var INBOX_ATTACH = ''; // '' | '1' | '0'
+  var INBOX_UNREAD = false;
+  var INBOX_ITEMS = [];
+  var INBOX_SELECTED = null;
+  var EDMS_API = '/edms/api/';
 
   var ARTEN = {
     wiedervorlage: { icon: 'bi-arrow-repeat', cv: '--a-wv', labelKey: 'sh.art_wiedervorlage', label: 'Wiedervorlagen', short: 'wv' },
@@ -93,8 +100,13 @@
         '<span style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary)">' +
         _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick') +
         '</span></div>' +
+        '<div class="sh-inbox-toolbar" id="sh-inbox-toolbar"></div>' +
         '<div class="sh-inbox-filters" id="sh-inbox-filters"></div>' +
-        '<div id="sh-inbox"></div></div></div>'
+        '<div class="sh-inbox-split">' +
+        '<div class="sh-inbox-list" id="sh-inbox"></div>' +
+        '<div class="sh-inbox-viewer" id="sh-inbox-viewer">' +
+        '<div class="sh-viewer-empty">' + esc(_t('sh.inbox_pick', 'Mail auswählen')) + '</div>' +
+        '</div></div></div></div>'
       );
     }
     if (name === 'radar_anfragen') {
@@ -244,8 +256,13 @@
   }
 
   function loadInbox() {
-    var q = 'inbox/?limit=40';
+    renderInboxToolbar();
+    var q = 'inbox/?limit=60';
     if (INBOX_ACCOUNT) q += '&account=' + encodeURIComponent(INBOX_ACCOUNT);
+    if (INBOX_Q) q += '&q=' + encodeURIComponent(INBOX_Q);
+    if (INBOX_SORT) q += '&sort=' + encodeURIComponent(INBOX_SORT);
+    if (INBOX_ATTACH !== '') q += '&has_attachment=' + encodeURIComponent(INBOX_ATTACH);
+    if (INBOX_UNREAD) q += '&unread=1';
     fetch(api(q), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (pack) {
@@ -261,6 +278,7 @@
           }
           if (hint) hint.textContent = _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick');
           renderInboxFilters([]);
+          showViewerEmpty();
           refreshStats();
           return;
         }
@@ -273,12 +291,13 @@
         }
         INBOX_ACCOUNTS = data.accounts || [];
         if (data.filter_account) INBOX_ACCOUNT = data.filter_account;
+        INBOX_ITEMS = data.results || [];
         renderInboxFilters(INBOX_ACCOUNTS);
-        renderInbox(data.results || []);
-        setPostBadge(data.unread != null ? data.unread : (data.results || []).filter(function (m) { return m.unread; }).length);
+        renderInbox(INBOX_ITEMS);
+        setPostBadge(data.unread != null ? data.unread : INBOX_ITEMS.filter(function (m) { return m.unread; }).length);
         refreshStats();
       })
-      .catch(function () { renderInbox([]); });
+      .catch(function () { renderInbox([]); showViewerEmpty(); });
   }
 
   function setPostBadge(n) {
@@ -287,17 +306,56 @@
     if (el) el.textContent = STATS.posteingang;
   }
 
+  function renderInboxToolbar() {
+    var t = document.getElementById('sh-inbox-toolbar');
+    if (!t) return;
+    t.innerHTML =
+      '<form class="sh-inbox-search" id="sh-inbox-search">' +
+      '<input type="search" id="sh-inbox-q" value="' + esc(INBOX_Q) + '" ' +
+      'placeholder="' + esc(_t('sh.inbox_search_ph', 'Betreff, Absender, Text …')) + '" />' +
+      '<button type="submit" class="pri"><i class="bi bi-search"></i> ' +
+      esc(_t('sh.inbox_search', 'Suchen')) + '</button></form>' +
+      '<div class="sh-inbox-opts">' +
+      '<select id="sh-inbox-attach">' +
+      '<option value="">' + esc(_t('sh.inbox_att_all', 'Anhang: alle')) + '</option>' +
+      '<option value="1"' + (INBOX_ATTACH === '1' ? ' selected' : '') + '>' +
+      esc(_t('sh.inbox_att_yes', 'nur mit Anhang')) + '</option>' +
+      '<option value="0"' + (INBOX_ATTACH === '0' ? ' selected' : '') + '>' +
+      esc(_t('sh.inbox_att_no', 'ohne Anhang')) + '</option>' +
+      '</select>' +
+      '<select id="sh-inbox-sort">' +
+      '<option value="date_desc"' + (INBOX_SORT === 'date_desc' ? ' selected' : '') + '>' +
+      esc(_t('sh.inbox_sort_new', 'Datum: neueste')) + '</option>' +
+      '<option value="date_asc"' + (INBOX_SORT === 'date_asc' ? ' selected' : '') + '>' +
+      esc(_t('sh.inbox_sort_old', 'Datum: älteste')) + '</option>' +
+      '</select>' +
+      '<label class="sh-inbox-unread"><input type="checkbox" id="sh-inbox-unread"' +
+      (INBOX_UNREAD ? ' checked' : '') + '> ' + esc(_t('sh.inbox_only_new', 'nur neu')) + '</label>' +
+      '</div>';
+    var form = document.getElementById('sh-inbox-search');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var inp = document.getElementById('sh-inbox-q');
+        INBOX_Q = inp ? String(inp.value || '').trim() : '';
+        loadInbox();
+      });
+    }
+    var att = document.getElementById('sh-inbox-attach');
+    if (att) att.addEventListener('change', function () { INBOX_ATTACH = att.value; loadInbox(); });
+    var sort = document.getElementById('sh-inbox-sort');
+    if (sort) sort.addEventListener('change', function () { INBOX_SORT = sort.value || 'date_desc'; loadInbox(); });
+    var un = document.getElementById('sh-inbox-unread');
+    if (un) un.addEventListener('change', function () { INBOX_UNREAD = !!un.checked; loadInbox(); });
+  }
+
   function renderInboxFilters(accounts) {
     var f = document.getElementById('sh-inbox-filters');
     if (!f) return;
-    if (!accounts || !accounts.length) {
-      f.innerHTML = '';
-      return;
-    }
     var chips =
       '<button type="button" class="sh-acc-chip' + (!INBOX_ACCOUNT ? ' on' : '') + '" data-account="">' +
       esc(_t('sh.inbox_all', 'Alle')) + '</button>';
-    accounts.forEach(function (a) {
+    (accounts || []).forEach(function (a) {
       var label = a.label || a.user || '';
       if (!label) return;
       var on = INBOX_ACCOUNT && INBOX_ACCOUNT === label;
@@ -334,65 +392,107 @@
           rowEl.classList.remove('unread');
           var badge = rowEl.querySelector('.mstat.maybe');
           if (badge) badge.remove();
-          var hl = rowEl.querySelector('b.hl');
+          var hl = rowEl.querySelector('.hl');
           if (hl) hl.style.fontWeight = '400';
-          var readBtn = rowEl.querySelector('.sh-mail-read');
-          if (readBtn) readBtn.remove();
         }
-        if (STATS.posteingang > 0) setPostBadge(STATS.posteingang - 1);
+        var item = INBOX_ITEMS.filter(function (m) { return m.id === id; })[0];
+        if (item && item.unread) {
+          item.unread = false;
+          if (STATS.posteingang > 0) setPostBadge(STATS.posteingang - 1);
+        }
       })
       .catch(function () {});
   }
 
-  function renderInbox(items) {
-    var c = document.getElementById('sh-inbox');
-    if (!c) return;
-    c.innerHTML = '';
-    if (!items.length) {
-      c.innerHTML = '<div class="none" style="padding:12px">' + esc(_t('sh.inbox_leer', 'Keine Mails')) + '</div>';
+  function showViewerEmpty() {
+    var v = document.getElementById('sh-inbox-viewer');
+    if (!v) return;
+    v.innerHTML = '<div class="sh-viewer-empty">' + esc(_t('sh.inbox_pick', 'Mail auswählen')) + '</div>';
+    INBOX_SELECTED = null;
+  }
+
+  function edmsViewUrl(vp) {
+    vp = vp || {};
+    var qs = 'account=' + encodeURIComponent(vp.account || '') +
+      '&folder=' + encodeURIComponent(vp.folder || 'INBOX');
+    if (vp.uid) qs += '&uid=' + encodeURIComponent(vp.uid);
+    else if (vp.message_id) qs += '&message_id=' + encodeURIComponent(vp.message_id);
+    return EDMS_API + 'mail/view/?' + qs;
+  }
+
+  function edmsAttachUrl(vp, index, preview) {
+    vp = vp || {};
+    var qs = 'account=' + encodeURIComponent(vp.account || '') +
+      '&folder=' + encodeURIComponent(vp.folder || 'INBOX') +
+      '&index=' + encodeURIComponent(String(index));
+    if (vp.uid) qs += '&uid=' + encodeURIComponent(vp.uid);
+    else if (vp.message_id) qs += '&message_id=' + encodeURIComponent(vp.message_id);
+    return EDMS_API + (preview ? 'mail/attachment/preview/?' : 'mail/attachment/?') + qs;
+  }
+
+  function openInboxMail(m, rowEl) {
+    if (!m) return;
+    INBOX_SELECTED = m;
+    document.querySelectorAll('#sh-inbox .ritem.on').forEach(function (el) { el.classList.remove('on'); });
+    if (rowEl) rowEl.classList.add('on');
+    if (m.unread) markMailRead(m.id, rowEl);
+    var v = document.getElementById('sh-inbox-viewer');
+    if (!v) return;
+    v.innerHTML = '<div class="sh-viewer-loading">' + esc(_t('sh.loading', 'Laden…')) + '</div>';
+    renderViewerActions(m, v);
+    var vp = m.view_params || {
+      account: m.account, folder: m.folder || 'INBOX', uid: m.uid, message_id: m.message_id,
+    };
+    if (!(vp.account && vp.folder && (vp.uid || vp.message_id))) {
+      renderViewerFallback(m, v);
       return;
     }
-    items.forEach(function (m) {
-      var e = document.createElement('div');
-      e.className = 'ritem' + (m.unread ? ' unread' : '');
-      e.setAttribute('data-mail-id', m.id || '');
-      var acts =
-        '<button type="button" class="pri sh-mail-task" data-id="' + esc(m.id) + '">' +
-        '<i class="bi bi-check2-square"></i> ' + esc(_t('sh.inbox_task', 'Aufgabe erzeugen')) + '</button>';
-      if (m.unread) {
-        acts +=
-          '<button type="button" class="sh-mail-read" data-id="' + esc(m.id) + '">' +
-          '<i class="bi bi-eye"></i> ' + esc(_t('sh.inbox_mark_read', 'Gelesen')) + '</button>';
-      }
-      if (m.matching_url) {
-        acts +=
-          '<a class="sh-mail-matching" href="' + esc(m.matching_url) + '" data-id="' + esc(m.id) + '">' +
-          '<i class="bi bi-diagram-3"></i> ' + esc(_t('sh.inbox_matching', 'Im Matching öffnen')) + '</a>';
-      }
+    fetch(edmsViewUrl(vp), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (pack) {
+        var j = pack.j || {};
+        if (!pack.ok || j.ok === false) {
+          renderViewerFallback(m, v, j.error || _t('sh.inbox_view_err', 'Mail-Detail nicht ladbar'));
+          return;
+        }
+        renderViewerDetail(m, j, v);
+      })
+      .catch(function () {
+        renderViewerFallback(m, v, _t('sh.inbox_view_err', 'Mail-Detail nicht ladbar'));
+      });
+  }
+
+  function renderViewerActions(m, host) {
+    // Platzhalter — actions werden in renderViewerDetail oben eingefügt
+    host._mail = m;
+  }
+
+  function viewerActionsHtml(m) {
+    var acts =
+      '<button type="button" class="pri sh-mail-task" data-id="' + esc(m.id) + '">' +
+      '<i class="bi bi-check2-square"></i> ' + esc(_t('sh.inbox_task', 'Aufgabe erzeugen')) + '</button>';
+    if (m.matching_url) {
       acts +=
-        '<a class="sh-mail-studio" href="' + esc(m.email_studio_url || '/email-studio/studio/') + '" data-id="' + esc(m.id) + '">' +
-        '<i class="bi bi-envelope-at"></i> ' + esc(_t('sh.inbox_reply', 'Antworten (Email Studio)')) + '</a>';
-      if (m.mailto_url) {
-        acts +=
-          '<a class="sh-mail-outlook" href="' + esc(m.mailto_url) + '" data-id="' + esc(m.id) + '">' +
-          '<i class="bi bi-box-arrow-up-right"></i> ' + esc(_t('sh.inbox_outlook', 'In Outlook öffnen')) + '</a>';
-      }
-      e.innerHTML =
-        '<div class="top">' +
-        (m.unread ? '<span class="mstat maybe" style="min-width:auto">' + esc(_t('sh.inbox_unread', 'neu')) + '</span>' : '') +
-        '<b class="hl" style="' + (m.unread ? '' : 'font-weight:400') + '">' + esc(m.subj) + '</b>' +
-        '<span class="src">' + esc(m.box) + '</span><span class="age">' + esc(m.age) + '</span></div>' +
-        '<div class="meta"><i class="bi bi-person"></i> ' + esc(m.from) +
-        (m.crm && m.crm !== '—' ? ' · <span style="color:var(--abcona-blue-light)"><i class="bi bi-link-45deg"></i> ' + esc(m.crm) + '</span>' : '') +
-        '</div><div class="meta" style="font-style:italic">„' + esc(m.prev) + '”</div>' +
-        '<div class="racts">' + acts + '</div>';
-      c.appendChild(e);
-    });
-    c.querySelectorAll('.sh-mail-task').forEach(function (btn) {
+        '<a class="sh-mail-matching" href="' + esc(m.matching_url) + '">' +
+        '<i class="bi bi-diagram-3"></i> ' + esc(_t('sh.inbox_matching', 'Im Matching öffnen')) + '</a>';
+    }
+    acts +=
+      '<a class="sh-mail-studio" href="' + esc(m.email_studio_url || '/email-studio/studio/') + '">' +
+      '<i class="bi bi-envelope-at"></i> ' + esc(_t('sh.inbox_reply', 'Antworten (Email Studio)')) + '</a>';
+    if (m.mailto_url) {
+      acts +=
+        '<a class="sh-mail-outlook" href="' + esc(m.mailto_url) + '">' +
+        '<i class="bi bi-box-arrow-up-right"></i> ' + esc(_t('sh.inbox_outlook', 'In Outlook öffnen')) + '</a>';
+    }
+    return '<div class="racts sh-viewer-acts">' + acts + '</div>';
+  }
+
+  function bindViewerActions(root, m) {
+    if (!root) return;
+    var btn = root.querySelector('.sh-mail-task');
+    if (btn) {
       btn.addEventListener('click', function () {
-        var id = btn.getAttribute('data-id');
-        var row = btn.closest('.ritem');
-        fetch(api('inbox/' + encodeURIComponent(id) + '/aufgabe/'), {
+        fetch(api('inbox/' + encodeURIComponent(m.id) + '/aufgabe/'), {
           method: 'POST',
           credentials: 'same-origin',
           headers: {
@@ -407,32 +507,117 @@
             if (j && j.ok) {
               toast(_t('sh.toast_mail_task', 'Aufgabe aus Mail erzeugt'));
               TASKS = null;
-              if (row) {
-                row.classList.remove('unread');
-                var badge = row.querySelector('.mstat.maybe');
-                if (badge) badge.remove();
-                var hl = row.querySelector('b.hl');
-                if (hl) hl.style.fontWeight = '400';
-                var readBtn = row.querySelector('.sh-mail-read');
-                if (readBtn) readBtn.remove();
-              }
-              if (STATS.posteingang > 0) setPostBadge(STATS.posteingang - 1);
+              markMailRead(m.id, document.querySelector('#sh-inbox .ritem.on'));
             } else {
               toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
             }
           })
           .catch(function () { toast(_t('sh.toast_error', 'Speichern fehlgeschlagen')); });
       });
-    });
-    c.querySelectorAll('.sh-mail-read').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        markMailRead(btn.getAttribute('data-id'), btn.closest('.ritem'));
-      });
-    });
-    c.querySelectorAll('.sh-mail-matching, .sh-mail-studio, .sh-mail-outlook').forEach(function (a) {
-      a.addEventListener('click', function () {
-        markMailRead(a.getAttribute('data-id'), a.closest('.ritem'));
-      });
+    }
+  }
+
+  function renderViewerFallback(m, v, errMsg) {
+    if (!v) return;
+    v.innerHTML =
+      viewerActionsHtml(m) +
+      '<div class="sh-viewer-head">' +
+      '<div class="from">' + esc(m.from || '—') + '</div>' +
+      '<div class="subj">' + esc(m.subj || '') + '</div>' +
+      '<div class="meta">' + esc(m.box || m.account || '') +
+      (m.age ? ' · ' + esc(m.age) : '') +
+      (m.crm && m.crm !== '—' ? ' · ' + esc(m.crm) : '') +
+      '</div></div>' +
+      (errMsg ? '<div class="sh-viewer-warn">' + esc(errMsg) + '</div>' : '') +
+      '<div class="sh-viewer-body"><pre>' + esc(m.prev || '') + '</pre></div>';
+    bindViewerActions(v, m);
+  }
+
+  function renderViewerDetail(m, detail, v) {
+    if (!v) return;
+    var vp = m.view_params || {
+      account: m.account, folder: m.folder || 'INBOX', uid: m.uid, message_id: m.message_id,
+    };
+    var atts = detail.attachments || detail.anhange || [];
+    var attHtml = '';
+    if (atts.length) {
+      attHtml = '<div class="sh-viewer-atts">' + atts.map(function (a, i) {
+        var name = a.filename || a.name || ('anhang_' + i);
+        var size = a.size != null ? (' · ' + formatBytes(a.size)) : '';
+        var idx = a.index != null ? a.index : i;
+        return (
+          '<a class="sh-att" href="' + esc(edmsAttachUrl(vp, idx, false)) + '" target="_blank" rel="noopener">' +
+          '<i class="bi bi-paperclip"></i> <span class="n">' + esc(name) + '</span>' +
+          '<span class="s">' + esc(size) + '</span>' +
+          '<span class="o">' + esc(_t('sh.inbox_open_att', 'öffnen')) + '</span></a>'
+        );
+      }).join('') + '</div>';
+    }
+    var body = detail.body_html || '';
+    var bodyBlock;
+    if (body) {
+      bodyBlock = '<div class="sh-viewer-body sh-html">' + sanitizeMailHtml(body) + '</div>';
+    } else {
+      bodyBlock = '<div class="sh-viewer-body"><pre>' + esc(detail.body_plain || detail.body || m.prev || '') + '</pre></div>';
+    }
+    v.innerHTML =
+      viewerActionsHtml(m) +
+      '<div class="sh-viewer-head">' +
+      '<div class="from">' + esc(detail.from || detail.from_ || m.from || '—') + '</div>' +
+      (detail.to || detail.to_ ? '<div class="to">an ' + esc(detail.to || detail.to_) + '</div>' : '') +
+      '<div class="subj">' + esc(detail.subject || detail.subj || m.subj || '') + '</div>' +
+      '<div class="meta">' +
+      esc(detail.date || detail.date_ || m.received_at || m.age || '') +
+      (vp.folder ? ' · ' + esc(vp.folder) : '') +
+      (m.crm && m.crm !== '—' ? ' · ' + esc(m.crm) : '') +
+      '</div></div>' +
+      attHtml + bodyBlock;
+    bindViewerActions(v, m);
+  }
+
+  function formatBytes(n) {
+    n = Number(n) || 0;
+    if (n < 1024) return n + ' B';
+    if (n < 1048576) return (n / 1024).toFixed(1) + ' KB';
+    return (n / 1048576).toFixed(1) + ' MB';
+  }
+
+  function sanitizeMailHtml(html) {
+    // leichtes Sanitize: Scripts/iframes raus, Rest als HTML (wie DMS)
+    var s = String(html || '');
+    s = s.replace(/<script[\s\S]*?<\/script>/gi, '');
+    s = s.replace(/<iframe[\s\S]*?<\/iframe>/gi, '');
+    s = s.replace(/\son\w+\s*=\s*(['"]).*?\1/gi, '');
+    s = s.replace(/\son\w+\s*=\s*[^\s>]+/gi, '');
+    return s;
+  }
+
+  function renderInbox(items) {
+    var c = document.getElementById('sh-inbox');
+    if (!c) return;
+    c.innerHTML = '';
+    if (!items.length) {
+      c.innerHTML = '<div class="none" style="padding:12px">' + esc(_t('sh.inbox_leer', 'Keine Mails')) + '</div>';
+      showViewerEmpty();
+      return;
+    }
+    items.forEach(function (m) {
+      var e = document.createElement('div');
+      e.className = 'ritem compact' + (m.unread ? ' unread' : '') +
+        (INBOX_SELECTED && INBOX_SELECTED.id === m.id ? ' on' : '');
+      e.setAttribute('data-mail-id', m.id || '');
+      e.innerHTML =
+        '<div class="top">' +
+        (m.unread ? '<span class="mstat maybe">' + esc(_t('sh.inbox_unread', 'neu')) + '</span>' : '') +
+        (m.has_attachments ? '<span class="att" title="Anhang"><i class="bi bi-paperclip"></i></span>' : '') +
+        '<b class="hl" style="' + (m.unread ? '' : 'font-weight:400') + '">' + esc(m.subj) + '</b>' +
+        '<span class="age">' + esc(m.age) + '</span></div>' +
+        '<div class="meta">' + esc(m.from) +
+        ' · <span class="src">' + esc(m.box || m.account || '') + '</span>' +
+        (m.crm && m.crm !== '—' ? ' · ' + esc(m.crm) : '') +
+        '</div>';
+      e.addEventListener('click', function () { openInboxMail(m, e); });
+      c.appendChild(e);
     });
   }
 

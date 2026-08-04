@@ -1,45 +1,25 @@
-# EDMS Mail-Schnittstellen (aus Live-PROBE 04.08.2026)
+# EDMS Mail-Schnittstellen (PROBE 04.08.2026, ucs5)
 
-## URLs (`abpe_edms/urls.py`)
+## Mount
+- API: `/edms/api/...` (`path('edms/', include('apps.abpe_edms.urls'))`)
+- UI-Seite CRM: `/crm/dms/` (`abpe_crm` → `views.edms`)
 
-```
-api/person/<crm_id>/mails/     → api_person_mails   (ES-Liste je Person)
-api/mail/view/                 → api_mail_view      (IMAP Detail)
-api/mail/attachment/           → api_mail_attachment
-api/mail/attachment/preview/   → api_mail_attachment_preview
-```
+## Endpoints
 
-## api_mail_view — Viewer
+| Pfad | Params | Quelle |
+|---|---|---|
+| `GET /edms/api/mail/view/` | `account`, `folder`, `uid` **oder** `message_id` | IMAP `_imap_fetch_message` |
+| `GET /edms/api/mail/attachment/` | + `index` | IMAP Download |
+| `GET /edms/api/mail/attachment/preview/` | + `index` | IMAP Preview |
+| `GET /edms/api/person/<crm_id>/mails/` | `q`, `size` | ES `abpe_emails` |
 
-**Pflicht-Query:** `account` + `folder` + (`uid` **oder** `message_id`)
+## JS (nicht mod-dms*)
+Treffer: `mod-namazu.js` nutzt `/api/email/view/` (Namazu/Automail-Alias,
+gleiche Query-Form: `account`+`folder`+`message_id`).
 
-```
-GET …/api/mail/view/?account=vertrieb&folder=INBOX&uid=12345
-GET …/api/mail/view/?account=vertrieb&folder=INBOX&message_id=<…>
-```
+Posteingang verdrahtet **direkt** `/edms/api/mail/view/` mit `view_params`
+aus der Shaduler-Inbox-Liste.
 
-Intern: `_imap_fetch_message(account, folder, uid, message_id)` → MIME walk →
-JSON Header + body_html/body_plain + attachments[].
-
-**Nicht** ES-`_id`. Posteingang muss uid/message_id aus dem Index mitgeben.
-
-## api_mail_attachment(+preview)
-
-Gleiche Identifikation + `index` (0-basiert aus view-Response).
-
-## api_person_mails — Suchmuster für Inbox `?q=`
-
-ES `abpe_emails`, `multi_match` auf `subject^2`, `body`, `operator: and`.
-Zusätzlich Adress-Match über `from_addr` / `to_addr` (Person) — im Posteingang
-stattdessen Account/Folder-Filter.
-
-## JS
-
-`mod-dms*.js` unter `static/abpe_ui/js/mod/` **nicht gefunden** (PROBE §3/4 leer).
-Live nachsuchen:
-
-```bash
-find /opt/abpe/backend/apps/abpe_ui -iname '*dms*' 2>/dev/null | head -40
-grep -rn "mail/view\|api/mail" /opt/abpe/backend/apps/abpe_ui --include='*.js' --include='*.html' 2>/dev/null | head -40
-grep -rn "edms" /opt/abpe/backend/abpe_backend/urls.py /opt/abpe/backend/apps/*/urls.py 2>/dev/null | head -20
-```
+## PEEK
+`_imap_fetch_message` existiert (views.py:1129). Ob `BODY.PEEK` — bei Bedarf
+einzeln prüfen. Leitplanke: kein `\\Seen` setzen.
