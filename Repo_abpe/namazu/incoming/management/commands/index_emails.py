@@ -7,9 +7,14 @@ Usage:
   python manage.py index_emails --since-days 14
   python manage.py index_emails --all-folders --since-days 90
   python manage.py index_emails --reset   # Index löschen + neu anlegen (Achtung!)
+  python manage.py index_emails --account angelo --prune-orphans
+      # gelöschte INBOX-Mails aus ES entfernen (volle Ordner-Abgleich)
 
 Hinweis: email_settings.json liegt neben diesem Command auf Live und enthält
 Passwörter — Repo-Kopie ist redacted; SYNC darf sie NICHT überschreiben.
+
+Löschen: Standard-Lauf prune't nur im since-days-Fenster. Für Outlook-Löschungen
+älterer Mails einmal ``--prune-orphans`` (oder ``--since-days 0``) laufen lassen.
 """
 from __future__ import annotations
 
@@ -36,6 +41,10 @@ SETTINGS_FILE = Path(__file__).parent / 'email_settings.json'
 def load_settings():
     with open(SETTINGS_FILE, encoding='utf-8') as f:
         return json.load(f)
+
+
+def make_doc_id(account: str, folder: str, msg_id: str) -> str:
+    return hashlib.md5(f'{account}{folder}{msg_id}'.encode()).hexdigest()
 
 
 def decode_bytes(data: bytes, charset: str | None = None) -> str:
@@ -161,15 +170,139 @@ def _parse_internaldate(meta: bytes) -> Optional[str]:
     return None
 
 
-def fetch_folder(account, password, folder, es, cfg, *, since_days: Optional[int] = None):
+def prune_missing_from_es(
+    es,
+    es_index: str,
+    account: str,
+    folder: str,
+    live_doc_ids: set[str],
+    *,
+    since_days: Optional[int] = None,
+) -> int:
+    """
+    Löscht ES-Docs für account+folder, die nicht mehr in ``live_doc_ids`` sind.
+    Mit since_days nur Docs im gleichen Datumsfenster (sicher bei Teil-Index).
+    """
+    filters: list[dict] = [
+        {'term': {'account': account}},
+        {'term': {'folder': folder}},
+    ]
+    # Ordner-Varianten (INBOX/Inbox)
+    if folder.upper() == 'INBOX':
+        filters = [
+            {'term': {'account': account}},
+            {
+                'bool': {
+                    'should': [
+                        {'term': {'folder': 'INBOX'}},
+                        {'term': {'folder': 'Inbox'}},
+                        {'term': {'folder.keyword': 'INBOX'}},
+                    ],
+                    'minimum_should_match': 1,
+                }
+            },
+        ]
+    if since_days and since_days > 0:
+        since = (datetime.now(timezone.utc) - timedelta(days=int(since_days))).strftime('%Y-%m-%d')
+        filters.append({'range': {'date': {'gte': since}}})
+
+    query = {'bool': {'filter': filters}}
+    to_delete: list[dict] = []
+    try:
+        for hit in helpers.scan(
+            es,
+            index=es_index,
+            query={'query': query},
+            _source=False,
+            size=500,
+        ):
+            hid = hit.get('_id')
+            if hid and hid not in live_doc_ids:
+                to_delete.append({
+                    '_op_type': 'delete',
+                    '_index': es_index,
+                    '_id': hid,
+                })
+    except Exception as exc:
+        logger.warning('prune scan %s/%s: %s', account, folder, exc)
+        return 0
+
+    if not to_delete:
+        return 0
+    deleted = 0
+    try:
+        for i in range(0, len(to_delete), 500):
+            ok, _ = helpers.bulk(es, to_delete[i:i + 500], raise_on_error=False)
+            deleted += ok
+    except Exception as exc:
+        logger.warning('prune bulk %s/%s: %s', account, folder, exc)
+    return deleted
+
+
+def collect_live_doc_ids_headers(
+    account: str,
+    password: str,
+    folder: str,
+    cfg: dict,
+) -> set[str]:
+    """Alle Message-IDs im Ordner (nur Header) → doc_ids. Für --prune-orphans."""
+    host = cfg['imap']['host']
+    port = cfg['imap']['port']
+    live: set[str] = set()
+    try:
+        m = imaplib.IMAP4_SSL(host, port)
+        m.login(account, password)
+        r, _ = m.select(f'"{folder}"', readonly=True)
+        if r != 'OK':
+            m.logout()
+            return live
+        r, data = m.search(None, 'ALL')
+        if r != 'OK' or not data or not data[0]:
+            m.logout()
+            return live
+        seqs = data[0].split()
+        for seq in seqs:
+            try:
+                r, data = m.fetch(seq, '(BODY.PEEK[HEADER.FIELDS (MESSAGE-ID)])')
+                if r != 'OK' or not data or not data[0]:
+                    continue
+                raw = data[0][1] if isinstance(data[0], tuple) else None
+                if not isinstance(raw, (bytes, bytearray)):
+                    continue
+                msg = email.message_from_bytes(raw)
+                msg_id = (msg.get('Message-ID') or '').strip()
+                if not msg_id:
+                    # ohne Message-ID: gleicher Fallback wie beim Index (Hash Header-Bytes)
+                    msg_id = hashlib.md5(raw[:200]).hexdigest()
+                live.add(make_doc_id(account, folder, msg_id))
+            except Exception:
+                continue
+        m.logout()
+    except Exception as exc:
+        logger.error('collect_live_doc_ids %s/%s: %s', account, folder, exc)
+    return live
+
+
+def fetch_folder(
+    account,
+    password,
+    folder,
+    es,
+    cfg,
+    *,
+    since_days: Optional[int] = None,
+    prune: bool = True,
+):
     indexed = 0
     errors = 0
     skipped_bad_date = 0
+    pruned = 0
     es_index = cfg['indexing']['es_index']
     batch_size = cfg['indexing']['batch_size']
     max_body = cfg['indexing']['max_body_length']
     host = cfg['imap']['host']
     port = cfg['imap']['port']
+    live_doc_ids: set[str] = set()
 
     try:
         m = imaplib.IMAP4_SSL(host, port)
@@ -177,7 +310,7 @@ def fetch_folder(account, password, folder, es, cfg, *, since_days: Optional[int
         r, data = m.select(f'"{folder}"', readonly=True)
         if r != 'OK':
             m.logout()
-            return 0, 0, 0
+            return 0, 0, 0, 0
 
         if since_days and since_days > 0:
             since = (datetime.now(timezone.utc) - timedelta(days=int(since_days))).strftime('%d-%b-%Y')
@@ -185,8 +318,13 @@ def fetch_folder(account, password, folder, es, cfg, *, since_days: Optional[int
         else:
             r, data = m.search(None, 'ALL')
         if r != 'OK' or not data or not data[0]:
+            # leerer Ordner / keine Treffer im Fenster → ggf. alles im Fenster prune'n
             m.logout()
-            return 0, 0, 0
+            if prune:
+                pruned = prune_missing_from_es(
+                    es, es_index, account, folder, set(), since_days=since_days,
+                )
+            return 0, 0, 0, pruned
 
         seqs = data[0].split()
         docs = []
@@ -215,8 +353,9 @@ def fetch_folder(account, password, folder, es, cfg, *, since_days: Optional[int
                     skipped_bad_date += 1
 
                 body = get_body(msg, max_body)
-                size_bytes = len(raw)  # FIX: war undefiniert → jeder Lauf crashte still
-                doc_id = hashlib.md5(f'{account}{folder}{msg_id}'.encode()).hexdigest()
+                size_bytes = len(raw)
+                doc_id = make_doc_id(account, folder, msg_id)
+                live_doc_ids.add(doc_id)
 
                 docs.append({
                     '_index': es_index,
@@ -255,10 +394,17 @@ def fetch_folder(account, password, folder, es, cfg, *, since_days: Optional[int
         m.logout()
         for err in first_errors:
             logger.warning('%s/%s sample error: %s', account, folder, err)
+
+        if prune:
+            # since_days=0 / None → voller Ordner-Abgleich (live_doc_ids = komplette Suche)
+            pruned = prune_missing_from_es(
+                es, es_index, account, folder, live_doc_ids,
+                since_days=since_days if (since_days and since_days > 0) else None,
+            )
     except Exception as e:
         logger.error('%s/%s: %s', account, folder, e)
 
-    return indexed, errors, skipped_bad_date
+    return indexed, errors, skipped_bad_date, pruned
 
 
 def _folder_name(raw_line: bytes) -> Optional[str]:
@@ -272,7 +418,7 @@ def _folder_name(raw_line: bytes) -> Optional[str]:
 
 
 class Command(BaseCommand):
-    help = 'E-Mails von Zimbra IMAP in Elasticsearch indizieren'
+    help = 'E-Mails von Zimbra IMAP in Elasticsearch indizieren (+ optionales Prune gelöschter)'
 
     def add_arguments(self, parser):
         parser.add_argument('--account', type=str, default=None,
@@ -285,6 +431,22 @@ class Command(BaseCommand):
                             help='Alle Ordner (sonst nur INBOX)')
         parser.add_argument('--folders', type=str, default='INBOX',
                             help='Kommagetrennte Ordnerliste (Default INBOX)')
+        parser.add_argument('--no-prune', action='store_true',
+                            help='Keine ES-Löschung fehlender Mails im Index-Fenster')
+        parser.add_argument(
+            '--prune-orphans',
+            action='store_true',
+            help=(
+                'Volle Ordner-Abgleich: IMAP ALL (nur Message-ID) vs ES — '
+                'entfernt gelöschte Mails auch außerhalb von since-days. '
+                'Einmal nach großen Outlook-Löschungen empfohlen.'
+            ),
+        )
+        parser.add_argument(
+            '--prune-only',
+            action='store_true',
+            help='Nur --prune-orphans ausführen, nicht neu indexieren',
+        )
 
     def handle(self, *args, **options):
         from apps.abpe_search.services.search_service import get_es_client
@@ -295,6 +457,8 @@ class Command(BaseCommand):
         host = cfg['imap']['host']
         port = cfg['imap']['port']
         since_days = options['since_days']
+        do_prune = not options['no_prune']
+        prune_orphans = bool(options['prune_orphans'] or options['prune_only'])
 
         ES_MAPPING = {
             'mappings': {
@@ -352,12 +516,14 @@ class Command(BaseCommand):
         total_indexed = 0
         total_errors = 0
         total_bad = 0
+        total_pruned = 0
         start = datetime.now(timezone.utc)
 
         self.stdout.write(
             f'IMAP {host}:{port} → ES {es_index} | '
             f'since_days={since_days} folders='
-            f'{"ALL" if options["all_folders"] else sorted(want_folders or [])}'
+            f'{"ALL" if options["all_folders"] else sorted(want_folders or [])} | '
+            f'prune={do_prune} prune_orphans={prune_orphans}'
         )
 
         for account, data in accounts.items():
@@ -383,21 +549,39 @@ class Command(BaseCommand):
                     if not any(fname.upper() == w.upper() for w in want_folders):
                         continue
 
-                indexed, errors, bad = fetch_folder(
-                    account, password, fname, es, cfg, since_days=since_days or None,
+                if prune_orphans:
+                    self.stdout.write(f'  🧹 {fname}: orphan-prune (IMAP ALL vs ES)…')
+                    live = collect_live_doc_ids_headers(account, password, fname, cfg)
+                    pruned = prune_missing_from_es(
+                        es, es_index, account, fname, live, since_days=None,
+                    )
+                    total_pruned += pruned
+                    self.stdout.write(
+                        f'  ✓ {fname}: orphan-prune live={len(live)} entfernt={pruned}'
+                    )
+                    if options['prune_only']:
+                        continue
+
+                indexed, errors, bad, pruned = fetch_folder(
+                    account, password, fname, es, cfg,
+                    since_days=since_days or None,
+                    prune=do_prune and not prune_orphans,
+                    # orphan-Lauf hat schon voll geprunt → kein Doppel-Prune im Fenster
                 )
                 total_errors += errors
                 total_bad += bad
-                if indexed > 0 or errors or bad:
+                total_pruned += pruned
+                if indexed > 0 or errors or bad or pruned:
                     self.stdout.write(
                         f'  ✓ {fname}: {indexed} indiziert'
                         f'{f"  errors={errors}" if errors else ""}'
                         f'{f"  bad_dates={bad}" if bad else ""}'
+                        f'{f"  pruned={pruned}" if pruned else ""}'
                     )
                     total_indexed += indexed
 
         elapsed = int((datetime.now(timezone.utc) - start).total_seconds())
         self.stdout.write(self.style.SUCCESS(
             f'\n✅ Fertig: {total_indexed} E-Mails in {elapsed}s '
-            f'(errors={total_errors}, skipped_bad_date={total_bad})'
+            f'(errors={total_errors}, skipped_bad_date={total_bad}, pruned={total_pruned})'
         ))
