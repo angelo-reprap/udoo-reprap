@@ -18,9 +18,22 @@ def shaduler_radar_poll(payload=None):
 
 
 def shaduler_inbox_poll(payload=None):
-    """IMAP Header+Preview (V1.1)."""
-    logger.info('shaduler_inbox_poll: stub payload=%s', payload)
-    return {'ok': True, 'stub': True, 'job': 'inbox_poll'}
+    """IMAP Header+Preview (V1.1) — warmt den Abruf / zählt Unread."""
+    logger.info('shaduler_inbox_poll: payload=%s', payload)
+    try:
+        from .services import inbox_service
+        data = inbox_service.list_mails(limit=30)
+        return {
+            'ok': bool(data.get('ok')),
+            'job': 'inbox_poll',
+            'source': data.get('source'),
+            'count': len(data.get('results') or []),
+            'unread': data.get('unread', 0),
+            'error': data.get('error'),
+        }
+    except Exception as exc:
+        logger.exception('inbox_poll failed')
+        return {'ok': False, 'error': str(exc)}
 
 
 function shaduler_prozess_tick(payload=None):

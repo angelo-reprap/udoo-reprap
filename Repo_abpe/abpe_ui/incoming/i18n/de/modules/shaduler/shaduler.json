@@ -39,6 +39,9 @@
     "sh.fx_historie": "Historie-Eintrag",
     "sh.fx_snooze": "Fälligkeit +1 Tag",
     "sh.toast_erledigt": "Aufgabe erledigt",
-    "sh.toast_error": "Speichern fehlgeschlagen"
+    "sh.toast_error": "Speichern fehlgeschlagen",
+    "sh.inbox_error": "Posteingang nicht erreichbar (IMAP-Config prüfen).",
+    "sh.toast_mail_task": "Aufgabe aus Mail erzeugt",
+    "sh.inbox_hint": "Verwalten bleibt Outlook · Lese-Überblick"
   }
 }

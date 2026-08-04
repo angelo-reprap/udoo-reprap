@@ -240,10 +240,24 @@
   }
 
   function loadInbox() {
-    fetch(api('inbox/?demo=1'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
+    fetch(api('inbox/'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (pack) {
+        var data = pack.j || {};
+        var c = document.getElementById('sh-inbox');
+        if (!pack.ok || data.ok === false) {
+          if (c) {
+            c.innerHTML =
+              '<div class="none" style="padding:12px">' +
+              esc(data.error || _t('sh.inbox_error', 'Posteingang nicht erreichbar (IMAP-Config prüfen).')) +
+              '</div>';
+          }
+          refreshStats();
+          return;
+        }
         renderInbox(data.results || []);
+        var el = document.getElementById('tb-post');
+        if (el) el.textContent = data.unread != null ? data.unread : (data.results || []).filter(function (m) { return m.unread; }).length;
         refreshStats();
       })
       .catch(function () { renderInbox([]); });
@@ -274,7 +288,27 @@
     });
     c.querySelectorAll('.sh-mail-task').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        toast(_t('sh.toast_mail_task', 'Aufgabe aus Mail erzeugt (Demo)'));
+        var id = btn.getAttribute('data-id');
+        fetch(api('inbox/' + encodeURIComponent(id) + '/aufgabe/'), {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken(),
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({ art: 'email' }),
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (j) {
+            if (j && j.ok) {
+              toast(_t('sh.toast_mail_task', 'Aufgabe aus Mail erzeugt'));
+              TASKS = null; // Cache leeren
+            } else {
+              toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
+            }
+          })
+          .catch(function () { toast(_t('sh.toast_error', 'Speichern fehlgeschlagen')); });
       });
     });
   }

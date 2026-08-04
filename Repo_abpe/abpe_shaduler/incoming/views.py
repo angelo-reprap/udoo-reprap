@@ -254,17 +254,34 @@ def api_ki_vorschlag(request):
 @login_required
 @require_GET
 def api_inbox_list(request):
-    from .demo_data import demo_inbox
-    use_demo = request.GET.get('demo', '1') != '0'
-    if use_demo:
+    from apps.abpe_shaduler.services import inbox_service
+    if request.GET.get('demo') == '1':
+        from .demo_data import demo_inbox
         return JsonResponse({'ok': True, 'demo': True, 'results': demo_inbox()})
-    return _stub()
+    try:
+        limit = int(request.GET.get('limit') or 40)
+    except ValueError:
+        limit = 40
+    force_imap = request.GET.get('imap') == '1'
+    data = inbox_service.list_mails(limit=limit, force_imap=force_imap)
+    status = 200 if data.get('ok') else 503
+    return JsonResponse(data, status=status)
 
 
 @login_required
 @require_POST
 def api_inbox_to_task(request, mail_id):
-    return _stub({'mail_id': mail_id}, status=501)
+    from apps.abpe_shaduler.services import inbox_service
+    data = _json_body(request)
+    try:
+        result = inbox_service.mail_to_aufgabe(
+            mail_id,
+            request.user,
+            art=data.get('art') or 'email',
+        )
+        return JsonResponse(result, status=201)
+    except Exception as exc:
+        return JsonResponse({'ok': False, 'error': str(exc)}, status=400)
 
 
 @login_required

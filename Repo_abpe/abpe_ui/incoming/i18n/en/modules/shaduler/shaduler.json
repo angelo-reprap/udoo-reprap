@@ -38,6 +38,9 @@
     "sh.fx_historie": "History entry",
     "sh.fx_snooze": "Due date +1 day",
     "sh.toast_erledigt": "Task completed",
-    "sh.toast_error": "Save failed"
+    "sh.toast_error": "Save failed",
+    "sh.inbox_error": "Inbox unavailable (check IMAP config).",
+    "sh.toast_mail_task": "Task created from mail",
+    "sh.inbox_hint": "Manage in Outlook · read-only overview"
   }
 }
