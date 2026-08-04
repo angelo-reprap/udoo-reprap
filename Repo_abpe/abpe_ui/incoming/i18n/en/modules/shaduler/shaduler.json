@@ -9,6 +9,7 @@
     "sh.loading": "Loading…",
     "sh.regeln_admin_hint": "Edit rules in Django Admin for now (ProzessRegel + Schritte).",
     "sh.regeln_admin_link": "Open Admin",
+    "sh.regeln_leer": "No rules yet — seed or admin.",
     "sh.tab_stub": "Tab coming in a later stage:",
     "sh.art_anruf": "Calls",
     "sh.art_termin": "Meetings",
@@ -24,7 +25,8 @@
     "sh.stat_erledigt": "done today",
     "sh.alle": "All",
     "sh.keine_aufgaben": "no open tasks",
-    "sh.demo_hint": "Demo data (no migration yet) — UI matches the final mockup. Real DB tasks later.",
+    "sh.demo_hint": "Forced demo data (?demo=1) — not the live DB.",
+    "sh.empty_hint": "No open tasks. Seed: python manage.py seed_shaduler --demo-tasks --user <name>",
     "sh.popup_ergebnis": "How did it go?",
     "sh.popup_erledigt": "Done — automatic effects:",
     "sh.popup_weiter": "Continue",
@@ -35,6 +37,7 @@
     "sh.erg_snooze": "Later (+1 day)",
     "sh.fx_historie": "History entry",
     "sh.fx_snooze": "Due date +1 day",
-    "sh.toast_erledigt": "Task completed (demo)"
+    "sh.toast_erledigt": "Task completed",
+    "sh.toast_error": "Save failed"
   }
 }

@@ -180,6 +180,22 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
         'termin': ('Termin öffnen', ''),
         'intern': ('Erledigen', ''),
     }.get(aufgabe.art, ('Erledigen', ''))
+
+    whatsapp_url = ''
+    if aufgabe.art == Aufgabe.Art.SMS_MESSENGER:
+        from .whatsapp_service import build_whatsapp_link
+        phone = ''
+        if isinstance(aufgabe.ergebnis_daten, dict):
+            phone = aufgabe.ergebnis_daten.get('phone') or aufgabe.ergebnis_daten.get('tel') or ''
+        # optional in beschreibung: "tel:+49123..."
+        if not phone and 'tel:' in (aufgabe.beschreibung or '').lower():
+            import re
+            m = re.search(r'tel:([+\d\s\-()/]+)', aufgabe.beschreibung or '', re.I)
+            if m:
+                phone = m.group(1)
+        text = aufgabe.beschreibung or aufgabe.titel
+        whatsapp_url = build_whatsapp_link(phone, text) if phone else ''
+
     return {
         'id': str(aufgabe.pk),
         'art': aufgabe.art,
@@ -197,9 +213,12 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
         'ueberfaellig': b == 'ueberfaellig',
         'bucket': b,
         'day': aufgabe.faellig_am.day,
+        'month': aufgabe.faellig_am.month,
+        'year': aufgabe.faellig_am.year,
         'zeit': aufgabe.faellig_zeit.strftime('%H:%M') if aufgabe.faellig_zeit else None,
         'action_label': action[0],
         'action_note': action[1],
+        'whatsapp_url': whatsapp_url,
         'excerpt': {
             'stand': (aufgabe.beschreibung or '')[:240],
             'hist': hist,

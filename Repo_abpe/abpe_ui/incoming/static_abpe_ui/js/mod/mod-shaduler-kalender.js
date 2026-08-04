@@ -1,10 +1,9 @@
-/* mod-shaduler-kalender.js — Tag/Woche/Monat/Jahr */
+/* mod-shaduler-kalender.js — Tag/Woche/Monat/Jahr (echte faellig_am-Daten) */
 (function (global) {
   'use strict';
 
-  var TODAY = 3; // Demo: 03.08.2026
   var calView = 'monat';
-  var selDay = TODAY;
+  var cursor = null; // Date at month start focus
   var ARTEN = null;
   var ORDER = null;
   var onOpenTask = null;
@@ -14,6 +13,30 @@
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
+  function parseDay(t) {
+    if (t && t.faellig_am) {
+      var p = String(t.faellig_am).slice(0, 10).split('-');
+      if (p.length === 3) return new Date(+p[0], +p[1] - 1, +p[2]);
+    }
+    if (t && t.day) {
+      var now = new Date();
+      return new Date(now.getFullYear(), now.getMonth(), +t.day);
+    }
+    return null;
+  }
+
+  function sameDay(a, b) {
+    return a && b && a.getFullYear() === b.getFullYear()
+      && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+  }
+
+  function startOfWeek(d) {
+    var x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    var day = (x.getDay() + 6) % 7; // Mo=0
+    x.setDate(x.getDate() - day);
+    return x;
+  }
+
   function render(root, tasks, opts) {
     if (!root) return;
     opts = opts || {};
@@ -21,8 +44,12 @@
     ORDER = opts.order || Object.keys(ARTEN);
     onOpenTask = opts.onOpenTask || function () {};
     if (opts.view) calView = opts.view;
-    if (opts.today != null) TODAY = opts.today;
-    if (opts.selDay != null) selDay = opts.selDay;
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    if (!cursor) {
+      cursor = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    }
+    if (opts.selDate) cursor = new Date(opts.selDate);
 
     root.innerHTML =
       '<div class="sh-card">' +
@@ -47,15 +74,22 @@
       });
     });
     root.querySelector('#sh-cal-prev').onclick = function () {
-      if (calView === 'tag') selDay = Math.max(1, selDay - 1);
+      if (calView === 'tag') cursor.setDate(cursor.getDate() - 1);
+      else if (calView === 'woche') cursor.setDate(cursor.getDate() - 7);
+      else if (calView === 'monat') cursor.setMonth(cursor.getMonth() - 1);
+      else cursor.setFullYear(cursor.getFullYear() - 1);
       paint(tasks);
     };
     root.querySelector('#sh-cal-next').onclick = function () {
-      if (calView === 'tag') selDay = Math.min(31, selDay + 1);
+      if (calView === 'tag') cursor.setDate(cursor.getDate() + 1);
+      else if (calView === 'woche') cursor.setDate(cursor.getDate() + 7);
+      else if (calView === 'monat') cursor.setMonth(cursor.getMonth() + 1);
+      else cursor.setFullYear(cursor.getFullYear() + 1);
       paint(tasks);
     };
     root.querySelector('#sh-cal-today').onclick = function () {
-      selDay = TODAY;
+      cursor = new Date();
+      cursor.setHours(0, 0, 0, 0);
       calView = 'tag';
       paint(tasks);
     };
@@ -71,23 +105,35 @@
       b.classList.toggle('on', b.getAttribute('data-v') === calView);
     });
     body.innerHTML = '';
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var months = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    var monthsShort = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
+    var dows = ['Mo','Di','Mi','Do','Fr','Sa','So'];
+
+    function tasksOn(d) {
+      return tasks.filter(function (t) {
+        var td = parseDay(t);
+        return td && sameDay(td, d);
+      });
+    }
 
     if (calView === 'monat') {
-      title.textContent = 'August 2026';
+      title.textContent = months[cursor.getMonth()] + ' ' + cursor.getFullYear();
       var g = document.createElement('div');
       g.className = 'grid';
-      ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'].forEach(function (d) {
+      dows.forEach(function (d) {
         g.innerHTML += '<div class="dow">' + d + '</div>';
       });
-      for (var i = 27; i <= 31; i++) {
-        g.innerHTML += '<div class="day other"><span class="num">' + i + '</span></div>';
-      }
-      for (var d = 1; d <= 31; d++) {
-        (function (day) {
+      var first = new Date(cursor.getFullYear(), cursor.getMonth(), 1);
+      var start = startOfWeek(first);
+      for (var i = 0; i < 42; i++) {
+        (function (offset) {
+          var day = new Date(start.getFullYear(), start.getMonth(), start.getDate() + offset);
+          var inMonth = day.getMonth() === cursor.getMonth();
+          var list = tasksOn(day);
           var byArt = {};
-          tasks.filter(function (t) { return t.day === day; }).forEach(function (t) {
-            byArt[t.art] = (byArt[t.art] || 0) + 1;
-          });
+          list.forEach(function (t) { byArt[t.art] = (byArt[t.art] || 0) + 1; });
           var badges = '';
           ORDER.forEach(function (a) {
             if (byArt[a] && ARTEN[a]) {
@@ -96,43 +142,67 @@
                 '<i class="bi ' + ARTEN[a].icon + '"></i>' + byArt[a] + '</span>';
             }
           });
-          var hasOv = tasks.some(function (t) { return t.ueberfaellig && t.day === day; });
+          var hasOv = list.some(function (t) { return t.ueberfaellig; });
           var e = document.createElement('div');
-          e.className = 'day' + (day === TODAY ? ' today' : '');
+          e.className = 'day' + (inMonth ? '' : ' other') + (sameDay(day, today) ? ' today' : '');
           e.innerHTML =
-            '<span class="num">' + day + '</span>' +
+            '<span class="num">' + day.getDate() + '</span>' +
             (hasOv ? '<span class="dot-ov"></span>' : '') +
             '<div class="badges">' + badges + '</div>';
-          e.onclick = function () { selDay = day; calView = 'tag'; paint(tasks); };
+          e.onclick = function () {
+            cursor = new Date(day);
+            calView = 'tag';
+            paint(tasks);
+          };
           g.appendChild(e);
-        })(d);
+        })(i);
       }
       body.appendChild(g);
     } else if (calView === 'woche') {
-      title.textContent = 'KW 32 · 03.–09.08.2026';
+      var ws = startOfWeek(cursor);
+      var we = new Date(ws.getFullYear(), ws.getMonth(), ws.getDate() + 6);
+      title.textContent =
+        String(ws.getDate()).padStart(2, '0') + '.' + String(ws.getMonth() + 1).padStart(2, '0') +
+        '. – ' +
+        String(we.getDate()).padStart(2, '0') + '.' + String(we.getMonth() + 1).padStart(2, '0') +
+        '.' + we.getFullYear();
       var w = document.createElement('div');
       w.className = 'week';
-      ['Mo 3', 'Di 4', 'Mi 5', 'Do 6', 'Fr 7', 'Sa 8', 'So 9'].forEach(function (lbl, i) {
-        var day = 3 + i;
-        var list = tasks.filter(function (t) { return t.day === day; });
-        var e = document.createElement('div');
-        e.className = 'wday';
-        e.innerHTML =
-          '<h4>' + lbl + '</h4>' +
-          list.map(function (t) {
-            var a = ARTEN[t.art] || {};
-            return (
-              '<div class="wev" style="--evc:var(' + (a.cv || '--a-allg') + ')">' +
-              (t.zeit ? esc(t.zeit) + ' ' : '') + esc(t.titel) + '</div>'
-            );
-          }).join('');
-        e.onclick = function () { selDay = day; calView = 'tag'; paint(tasks); };
-        w.appendChild(e);
-      });
+      for (var di = 0; di < 7; di++) {
+        (function (offset) {
+          var day = new Date(ws.getFullYear(), ws.getMonth(), ws.getDate() + offset);
+          var list = tasksOn(day);
+          var e = document.createElement('div');
+          e.className = 'wday' + (sameDay(day, today) ? ' today' : '');
+          e.innerHTML =
+            '<h4>' + dows[offset] + ' ' + day.getDate() + '</h4>' +
+            list.map(function (t) {
+              var a = ARTEN[t.art] || {};
+              return (
+                '<div class="wev" style="--evc:var(' + (a.cv || '--a-allg') + ')" data-id="' + esc(t.id) + '">' +
+                (t.zeit ? esc(t.zeit) + ' ' : '') + esc(t.titel) + '</div>'
+              );
+            }).join('');
+          e.querySelectorAll('.wev').forEach(function (el) {
+            el.addEventListener('click', function (ev) {
+              ev.stopPropagation();
+              var t = tasks.find(function (x) { return String(x.id) === el.getAttribute('data-id'); });
+              if (t) onOpenTask(t);
+            });
+          });
+          e.onclick = function () { cursor = new Date(day); calView = 'tag'; paint(tasks); };
+          w.appendChild(e);
+        })(di);
+      }
       body.appendChild(w);
     } else if (calView === 'tag') {
-      title.textContent = (selDay === TODAY ? 'Heute · ' : '') + String(selDay).padStart(2, '0') + '.08.2026';
-      var list = tasks.filter(function (t) { return t.day === selDay; });
+      var isToday = sameDay(cursor, today);
+      title.textContent =
+        (isToday ? 'Heute · ' : '') +
+        String(cursor.getDate()).padStart(2, '0') + '.' +
+        String(cursor.getMonth() + 1).padStart(2, '0') + '.' +
+        cursor.getFullYear();
+      var list = tasksOn(cursor);
       var noTime = list.filter(function (t) { return !t.zeit; });
       if (noTime.length) {
         var r0 = document.createElement('div');
@@ -165,6 +235,9 @@
           }).join('') + '</div>';
         body.appendChild(r);
       }
+      if (!list.length) {
+        body.innerHTML += '<div class="none" style="padding:12px">Keine Aufgaben an diesem Tag</div>';
+      }
       body.querySelectorAll('.dayev').forEach(function (el) {
         el.addEventListener('click', function () {
           var t = tasks.find(function (x) { return String(x.id) === el.getAttribute('data-id'); });
@@ -172,21 +245,29 @@
         });
       });
     } else {
-      title.textContent = '2026';
+      title.textContent = String(cursor.getFullYear());
       var y = document.createElement('div');
       y.style.cssText = 'display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:14px';
-      ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'].forEach(function (m, i) {
-        var card = document.createElement('div');
-        card.className = 'stat-card';
-        card.style.cursor = 'pointer';
-        card.innerHTML =
-          '<b>' + m + '</b><div class="stat-value" style="font-size:1.3rem">' +
-          (i === 7 ? tasks.length : '–') + '</div>';
-        if (i === 7) {
-          card.onclick = function () { calView = 'monat'; paint(tasks); };
-        }
-        y.appendChild(card);
-      });
+      for (var mi = 0; mi < 12; mi++) {
+        (function (mIdx) {
+          var count = tasks.filter(function (t) {
+            var td = parseDay(t);
+            return td && td.getFullYear() === cursor.getFullYear() && td.getMonth() === mIdx;
+          }).length;
+          var card = document.createElement('div');
+          card.className = 'stat-card';
+          card.style.cursor = 'pointer';
+          card.innerHTML =
+            '<b>' + monthsShort[mIdx] + '</b><div class="stat-value" style="font-size:1.3rem">' +
+            (count || '–') + '</div>';
+          card.onclick = function () {
+            cursor = new Date(cursor.getFullYear(), mIdx, 1);
+            calView = 'monat';
+            paint(tasks);
+          };
+          y.appendChild(card);
+        })(mi);
+      }
       body.appendChild(y);
     }
   }

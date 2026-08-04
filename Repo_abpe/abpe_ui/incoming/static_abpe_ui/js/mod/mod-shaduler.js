@@ -118,9 +118,12 @@
     if (name === 'regeln') {
       return (
         '<div class="sh-pane" data-pane="regeln"><div class="sh-card">' +
-        '<p class="sh-hint" data-i18n="sh.regeln_admin_hint">Regeln vorerst im Django-Admin (ProzessRegel + Schritte).</p>' +
-        '<p><a href="/admin/abpe_shaduler/prozessregel/" target="_blank" rel="noopener">' +
-        _t('sh.regeln_admin_link', 'Zum Admin öffnen') + '</a></p></div></div>'
+        '<div class="card-h"><i class="bi bi-sliders"></i> ' + _t('sh.tab_regeln', 'Regeln') +
+        '<a href="/admin/abpe_shaduler/prozessregel/" target="_blank" rel="noopener" ' +
+        'style="margin-left:auto;font-size:.8rem;font-weight:500">' +
+        _t('sh.regeln_admin_link', 'Zum Admin öffnen') + '</a></div>' +
+        '<p class="sh-hint" data-i18n="sh.regeln_admin_hint">Regeln vorerst im Django-Admin.</p>' +
+        '<div id="sh-regeln-list"></div></div></div>'
       );
     }
     return (
@@ -178,9 +181,38 @@
       loadRadarA();
     } else if (name === 'radar_berater') {
       loadRadarB();
+    } else if (name === 'regeln') {
+      loadRegeln();
     } else {
       refreshStats();
     }
+  }
+
+  function loadRegeln() {
+    fetch(api('regeln/'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var c = document.getElementById('sh-regeln-list');
+        if (!c) return;
+        var rows = data.results || [];
+        if (!rows.length) {
+          c.innerHTML = '<div class="none" style="padding:8px">' + esc(_t('sh.regeln_leer', 'Noch keine Regeln — Seed oder Admin.')) + '</div>';
+          return;
+        }
+        c.innerHTML = rows.map(function (r) {
+          return (
+            '<div class="ritem" style="margin-bottom:8px">' +
+            '<div class="top"><b class="hl">' + esc(r.name) + '</b>' +
+            '<span class="src">' + esc(r.ausloeser_typ) + '=' + esc(r.ausloeser_wert) + '</span></div>' +
+            '<div class="meta">' + esc(String(r.schritte)) + ' Schritte</div></div>'
+          );
+        }).join('');
+        refreshStats();
+      })
+      .catch(function () {
+        var c = document.getElementById('sh-regeln-list');
+        if (c) c.innerHTML = '<div class="none">Fehler beim Laden</div>';
+      });
   }
 
   function ensureTasks(cb) {
@@ -200,7 +232,6 @@
         global.ShadulerCal.render(document.getElementById('sh-cal-root'), tasks, {
           arten: ARTEN,
           order: ORDER,
-          today: 3,
           onOpenTask: openModal,
         });
       }
@@ -523,6 +554,15 @@
     document.getElementById('sh-m-excerpt').innerHTML = html || '<div class="none">' + esc(_t('sh.kein_auszug', 'Kein Auszug')) + '</div>';
     document.getElementById('sh-m-action').textContent = t.action_label || _t('sh.erledigen', 'Erledigen');
     document.getElementById('sh-m-actnote').textContent = t.action_note || '';
+    var actBtn = document.getElementById('sh-m-action');
+    if (actBtn) {
+      actBtn.onclick = function () {
+        if (t.whatsapp_url) {
+          window.open(t.whatsapp_url, '_blank', 'noopener');
+        }
+        showPhase('res');
+      };
+    }
     var results = t.results || [
       { label: _t('sh.erg_erledigt', 'Erledigt ✓'), sub: '', fx: [_t('sh.fx_historie', 'Historie-Eintrag')] },
       { label: _t('sh.erg_snooze', 'Später (+1 Tag)'), sub: '', fx: [_t('sh.fx_snooze', 'Fälligkeit +1 Tag')] },

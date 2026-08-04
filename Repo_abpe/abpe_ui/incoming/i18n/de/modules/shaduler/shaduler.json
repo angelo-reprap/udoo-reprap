@@ -10,6 +10,7 @@
     "sh.aufgaben_hint": "Aufgaben erscheinen hier, sobald die API angebunden ist.",
     "sh.regeln_admin_hint": "Regeln vorerst im Django-Admin bearbeiten (ProzessRegel + Schritte).",
     "sh.regeln_admin_link": "Zum Admin öffnen",
+    "sh.regeln_leer": "Noch keine Regeln — Seed oder Admin.",
     "sh.tab_stub": "Reiter folgt in der nächsten Etappe:",
     "sh.art_anruf": "Anrufe",
     "sh.art_termin": "Termine",
@@ -25,7 +26,8 @@
     "sh.stat_erledigt": "heute erledigt",
     "sh.alle": "Alle",
     "sh.keine_aufgaben": "keine offenen Aufgaben",
-    "sh.demo_hint": "Demo-Daten (noch keine Migration) — UI wie Final-Mockup. Später echte Aufgaben aus der DB.",
+    "sh.demo_hint": "Erzwungene Demo-Daten (?demo=1) — nicht die Live-DB.",
+    "sh.empty_hint": "Keine offenen Aufgaben. Seed: python manage.py seed_shaduler --demo-tasks --user <name>",
     "sh.popup_ergebnis": "Wie ist es ausgegangen?",
     "sh.popup_erledigt": "Erledigt — automatisch passiert:",
     "sh.popup_weiter": "Weiter",
@@ -36,6 +38,7 @@
     "sh.erg_snooze": "Später (+1 Tag)",
     "sh.fx_historie": "Historie-Eintrag",
     "sh.fx_snooze": "Fälligkeit +1 Tag",
-    "sh.toast_erledigt": "Aufgabe erledigt (Demo)"
+    "sh.toast_erledigt": "Aufgabe erledigt",
+    "sh.toast_error": "Speichern fehlgeschlagen"
   }
 }

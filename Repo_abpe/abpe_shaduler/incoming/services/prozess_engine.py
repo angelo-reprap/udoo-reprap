@@ -118,5 +118,73 @@ def on_status(instance, alt: str, neu: str, user=None) -> list[Aufgabe]:
 
 
 def tick_zeit_ohne_reaktion() -> dict:
-    """Scheduler-Job prozess_tick — Stub-Zähler für V1."""
-    return {'ok': True, 'checked': 0, 'created': 0}
+    """
+    Scheduler-Job prozess_tick (V1):
+      - offene überfällige Aufgaben zählen
+      - Regeln ausloeser_typ=zeit_ohne_reaktion: wenn Aufgabe länger als N Tage
+        offen ohne Aktivität → Folgeaufgabe laut Regel (max. 1× pro Aufgabe/Regel)
+    """
+    from . import aktivitaet_service
+    from apps.abpe_shaduler.models import Aktivitaet
+
+    today = timezone.localdate()
+    offen = Aufgabe.objects.filter(status=Aufgabe.Status.OFFEN)
+    overdue = offen.filter(faellig_am__lt=today).count()
+
+    created = []
+    checked = 0
+    rules = list(ProzessRegel.objects.filter(aktiv=True, ausloeser_typ='zeit_ohne_reaktion'))
+    for regel in rules:
+        try:
+            days = int(''.join(ch for ch in (regel.ausloeser_wert or '5') if ch.isdigit()) or '5')
+        except ValueError:
+            days = 5
+        cutoff = today - timedelta(days=days)
+        qs = offen.filter(faellig_am__lte=cutoff)
+        for aufgabe in qs.select_related('zugewiesen_an')[:50]:
+            checked += 1
+            # schon Folge aus dieser Regel?
+            if Aufgabe.objects.filter(
+                parent=aufgabe, regel=regel, status=Aufgabe.Status.OFFEN,
+            ).exists():
+                continue
+            last = (
+                Aktivitaet.objects
+                .filter(details__aufgabe_id=str(aufgabe.pk))
+                .order_by('-zeitpunkt')
+                .first()
+            )
+            if last and last.zeitpunkt.date() >= cutoff:
+                continue
+            user = aufgabe.zugewiesen_an
+            if not user:
+                continue
+            neu = run_regel(
+                regel,
+                user=user,
+                ref_type=aufgabe.ref_type,
+                ref_id=aufgabe.ref_id,
+                parent=aufgabe,
+            )
+            if neu:
+                created.extend(neu)
+                aktivitaet_service.schreiben(
+                    medium='system',
+                    titel=f'Zeit ohne Reaktion ({days}d): {regel.name}',
+                    ref_type=aufgabe.ref_type,
+                    ref_id=aufgabe.ref_id,
+                    user=user,
+                    details={
+                        'aufgabe_id': str(aufgabe.pk),
+                        'regel_id': str(regel.pk),
+                        'created': [str(a.pk) for a in neu],
+                    },
+                )
+
+    return {
+        'ok': True,
+        'overdue': overdue,
+        'checked': checked,
+        'created': len(created),
+        'created_ids': [str(a.pk) for a in created],
+    }
