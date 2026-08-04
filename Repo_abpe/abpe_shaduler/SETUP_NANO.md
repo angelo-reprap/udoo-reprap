@@ -57,13 +57,14 @@ Zeile ergänzen (z. B. neben Matching / vor `abpe_ui`-Block):
 nano /opt/abpe/backend/abpe_backend/urls.py
 ```
 
-Eintrag (sinnvoll neben `matching/` / vor `scheduler/`):
+Eintrag **VOR** dem Catch-all `path('', include('apps.abpe_ui.urls'))`
+(z. B. direkt nach `meetme/` / vor `edms/`):
 
 ```python
     path('shaduler/', include('apps.abpe_shaduler.urls', namespace='abpe_shaduler')),
 ```
 
-`include` muss bereits importiert sein (`from django.urls import path, include`).
+**Nicht** ans Dateiende unter `path('', …)` — sonst greift das Portal zuerst und `/shaduler/` kommt nie an.
 
 ## 4) Check (noch ohne migrate)
 

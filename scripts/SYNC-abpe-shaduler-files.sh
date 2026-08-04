@@ -36,6 +36,13 @@ for lang in de en; do
     "$LIVE_UI/static/abpe_ui/i18n/$lang/modules/shaduler/"
 done
 
-echo "OK — Dateien sync. Jetzt nano laut Repo_abpe/abpe_shaduler/SETUP_NANO.md"
+echo "OK — Dateien sync."
+echo
+echo "WICHTIG urls.py: path('shaduler/', …) MUSS VOR path('', include('apps.abpe_ui.urls')) stehen!"
+echo "Aktuell oft falsch am Dateiende — sonst matched abpe_ui alles und /shaduler/ kommt nie an."
+echo
+echo "Register (falls noch nicht):"
 echo "  apps.py  → 'apps.abpe_shaduler'"
-echo "  urls.py  → path('shaduler/', include(...))"
+echo "  urls.py  → path('shaduler/', include('apps.abpe_shaduler.urls', namespace='abpe_shaduler')),"
+echo
+echo "Danach: bash scripts/CHECK-abpe-shaduler-live.sh && supervisorctl restart abpe-django"
