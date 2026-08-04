@@ -95,15 +95,15 @@
     }
     if (name === 'posteingang') {
       return (
-        '<div class="sh-pane" data-pane="posteingang"><div class="sh-card">' +
+        '<div class="sh-pane" data-pane="posteingang"><div class="sh-card sh-inbox-card">' +
         '<div class="card-h"><i class="bi bi-inbox"></i> Posteingang' +
         '<span style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary)">' +
         _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick') +
         '</span></div>' +
-        '<div class="sh-inbox-toolbar" id="sh-inbox-toolbar"></div>' +
         '<div class="sh-inbox-filters" id="sh-inbox-filters"></div>' +
+        '<div class="sh-inbox-toolbar" id="sh-inbox-toolbar"></div>' +
         '<div class="sh-inbox-split">' +
-        '<div class="sh-inbox-list" id="sh-inbox"></div>' +
+        '<div class="sh-inbox-list" id="sh-inbox" tabindex="0"></div>' +
         '<div class="sh-inbox-viewer" id="sh-inbox-viewer">' +
         '<div class="sh-viewer-empty">' + esc(_t('sh.inbox_pick', 'Mail auswählen')) + '</div>' +
         '</div></div></div></div>'
@@ -583,12 +583,15 @@
   }
 
   function sanitizeMailHtml(html) {
-    // leichtes Sanitize: Scripts/iframes raus, Rest als HTML (wie DMS)
     var s = String(html || '');
     s = s.replace(/<script[\s\S]*?<\/script>/gi, '');
+    s = s.replace(/<style[\s\S]*?<\/style>/gi, '');
     s = s.replace(/<iframe[\s\S]*?<\/iframe>/gi, '');
+    s = s.replace(/<link[\s\S]*?>/gi, '');
     s = s.replace(/\son\w+\s*=\s*(['"]).*?\1/gi, '');
     s = s.replace(/\son\w+\s*=\s*[^\s>]+/gi, '');
+    s = s.replace(/\s(style|width|height|bgcolor|background|color)\s*=\s*(['"])[\s\S]*?\2/gi, '');
+    s = s.replace(/<(html|body|head)[^>]*>/gi, '').replace(/<\/(html|body|head)>/gi, '');
     return s;
   }
 
@@ -601,23 +604,60 @@
       showViewerEmpty();
       return;
     }
-    items.forEach(function (m) {
+    items.forEach(function (m, idx) {
       var e = document.createElement('div');
       e.className = 'ritem compact' + (m.unread ? ' unread' : '') +
         (INBOX_SELECTED && INBOX_SELECTED.id === m.id ? ' on' : '');
       e.setAttribute('data-mail-id', m.id || '');
+      e.setAttribute('data-idx', String(idx));
+      e.setAttribute('role', 'option');
       e.innerHTML =
-        '<div class="top">' +
+        '<div class="row1">' +
+        '<span class="marks">' +
         (m.unread ? '<span class="mstat maybe">' + esc(_t('sh.inbox_unread', 'neu')) + '</span>' : '') +
         (m.has_attachments ? '<span class="att" title="Anhang"><i class="bi bi-paperclip"></i></span>' : '') +
-        '<b class="hl" style="' + (m.unread ? '' : 'font-weight:400') + '">' + esc(m.subj) + '</b>' +
+        '</span>' +
+        '<b class="hl">' + esc(m.subj) + '</b>' +
         '<span class="age">' + esc(m.age) + '</span></div>' +
-        '<div class="meta">' + esc(m.from) +
-        ' · <span class="src">' + esc(m.box || m.account || '') + '</span>' +
-        (m.crm && m.crm !== '—' ? ' · ' + esc(m.crm) : '') +
+        '<div class="row2">' +
+        '<span class="from">' + esc(shortFrom(m.from)) + '</span>' +
+        '<span class="src">' + esc(m.box || m.account || '') + '</span>' +
+        (m.crm && m.crm !== '—' ? '<span class="crm">' + esc(m.crm) + '</span>' : '') +
         '</div>';
       e.addEventListener('click', function () { openInboxMail(m, e); });
       c.appendChild(e);
+    });
+    bindInboxKeys(c);
+  }
+
+  function shortFrom(from) {
+    var s = String(from || '').trim();
+    var m = s.match(/^"?([^"<]+)"?\s*</);
+    if (m) return m[1].trim();
+    return s.length > 42 ? s.slice(0, 40) + '…' : s;
+  }
+
+  function bindInboxKeys(listEl) {
+    if (!listEl || listEl._keysBound) return;
+    listEl._keysBound = true;
+    listEl.addEventListener('keydown', function (ev) {
+      if (ev.key !== 'ArrowDown' && ev.key !== 'ArrowUp' && ev.key !== 'j' && ev.key !== 'k') return;
+      if (ev.target && (ev.target.tagName === 'INPUT' || ev.target.tagName === 'TEXTAREA' || ev.target.tagName === 'SELECT')) return;
+      ev.preventDefault();
+      var rows = Array.prototype.slice.call(listEl.querySelectorAll('.ritem.compact'));
+      if (!rows.length) return;
+      var cur = listEl.querySelector('.ritem.on');
+      var i = cur ? rows.indexOf(cur) : -1;
+      var down = (ev.key === 'ArrowDown' || ev.key === 'j');
+      var next = down ? Math.min(rows.length - 1, i + 1) : Math.max(0, i < 0 ? 0 : i - 1);
+      var row = rows[next];
+      if (!row) return;
+      var id = row.getAttribute('data-mail-id');
+      var mail = INBOX_ITEMS.filter(function (m) { return m.id === id; })[0];
+      if (mail) {
+        openInboxMail(mail, row);
+        row.scrollIntoView({ block: 'nearest' });
+      }
     });
   }
 
