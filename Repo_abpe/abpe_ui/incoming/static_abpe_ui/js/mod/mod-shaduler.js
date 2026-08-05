@@ -43,6 +43,9 @@
   var INBOX_PAGES = 1;
   var INBOX_ITEMS = [];
   var INBOX_SELECTED = null;
+  var INBOX_POLL_MS = 60000;
+  var inboxPollTimer = null;
+  var inboxPollInFlight = false;
   var EDMS_API = '/edms/api/';
 
   var ARTEN = {
@@ -190,6 +193,7 @@
   function loadTab(name) {
     var body = document.getElementById('shaduler-tab-body');
     if (!body) return;
+    stopInboxPoll();
     body.innerHTML = paneHtml(name);
     applyI18n(body);
     if (name === 'aufgaben') {
@@ -200,6 +204,7 @@
       loadKalender();
     } else if (name === 'posteingang') {
       loadInbox();
+      startInboxPoll();
     } else if (name === 'radar_anfragen') {
       loadRadarA();
     } else if (name === 'radar_berater') {
@@ -266,8 +271,41 @@
     INBOX_PAGE = 1;
   }
 
-  function loadInbox() {
-    renderInboxToolbar();
+  function inboxIsBusy() {
+    // Aufgabe-Dialog / andere Overlays / aktive Eingabe → kein Soft-Reload
+    if (document.getElementById('sh-mail-task-ovl')) return true;
+    var ovl = document.getElementById('sh-ovl');
+    if (ovl && ovl.style.display && ovl.style.display !== 'none') return true;
+    if (document.querySelector('.ovl.open')) return true;
+    var ae = document.activeElement;
+    if (ae && /^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName)) {
+      if (ae.closest && (ae.closest('#shaduler-root') || ae.closest('#sh-mail-task-ovl'))) return true;
+    }
+    return false;
+  }
+
+  function startInboxPoll() {
+    stopInboxPoll();
+    inboxPollTimer = setInterval(function () {
+      var tab = document.querySelector('#shaduler-root .mtab.on');
+      if (!tab || tab.getAttribute('data-t') !== 'posteingang') return;
+      loadInbox({ soft: true });
+    }, INBOX_POLL_MS);
+  }
+
+  function stopInboxPoll() {
+    if (inboxPollTimer) {
+      clearInterval(inboxPollTimer);
+      inboxPollTimer = null;
+    }
+  }
+
+  function loadInbox(opts) {
+    opts = opts || {};
+    var soft = !!opts.soft;
+    if (soft && (inboxIsBusy() || inboxPollInFlight)) return;
+    if (!soft) renderInboxToolbar();
+    inboxPollInFlight = true;
     var q = 'inbox/?page=' + encodeURIComponent(INBOX_PAGE) +
       '&page_size=' + encodeURIComponent(INBOX_PAGE_SIZE);
     if (INBOX_ACCOUNT) q += '&account=' + encodeURIComponent(INBOX_ACCOUNT);
@@ -278,10 +316,13 @@
     fetch(api(q), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (pack) {
+        inboxPollInFlight = false;
+        if (soft && inboxIsBusy()) return;
         var data = pack.j || {};
         var c = document.getElementById('sh-inbox');
         var hint = document.querySelector('[data-pane="posteingang"] .card-h span');
         if (!pack.ok || data.ok === false) {
+          if (soft) return; // Viewer / Dialog nicht anfassen
           if (c) {
             c.innerHTML =
               '<div class="none" style="padding:12px">' +
@@ -312,11 +353,17 @@
         if (data.page_size != null) INBOX_PAGE_SIZE = Number(data.page_size) || INBOX_PAGE_SIZE;
         if (INBOX_PAGE > INBOX_PAGES && INBOX_TOTAL > 0) {
           INBOX_PAGE = INBOX_PAGES;
-          loadInbox();
+          inboxPollInFlight = false;
+          loadInbox(opts);
           return;
         }
-        renderInboxFilters(INBOX_ACCOUNTS);
-        renderInbox(INBOX_ITEMS);
+        // Soft: Filter-Chips nicht neu bauen (Fokus bleibt); Auswahl-Objekt aktualisieren
+        if (!soft) renderInboxFilters(INBOX_ACCOUNTS);
+        if (INBOX_SELECTED && INBOX_SELECTED.id) {
+          var fresh = INBOX_ITEMS.filter(function (m) { return m.id === INBOX_SELECTED.id; })[0];
+          if (fresh) INBOX_SELECTED = fresh;
+        }
+        renderInbox(INBOX_ITEMS, { soft: soft });
         renderInboxPager({
           total: INBOX_TOTAL,
           page: INBOX_PAGE,
@@ -327,6 +374,8 @@
         refreshStats();
       })
       .catch(function () {
+        inboxPollInFlight = false;
+        if (soft) return;
         renderInbox([]);
         renderInboxPager({ total: 0, page: 1, pages: 1, page_size: INBOX_PAGE_SIZE });
         showViewerEmpty();
@@ -1064,13 +1113,16 @@
     return s;
   }
 
-  function renderInbox(items) {
+  function renderInbox(items, opts) {
+    opts = opts || {};
+    var soft = !!opts.soft;
     var c = document.getElementById('sh-inbox');
     if (!c) return;
     c.innerHTML = '';
     if (!items.length) {
       c.innerHTML = '<div class="none" style="padding:12px">' + esc(_t('sh.inbox_leer', 'Keine Mails')) + '</div>';
-      showViewerEmpty();
+      // Soft-Poll: Viewer / Auswahl nicht zerstören (z.B. Filter leer, Dialog offen)
+      if (!soft) showViewerEmpty();
       return;
     }
     items.forEach(function (m, idx) {
