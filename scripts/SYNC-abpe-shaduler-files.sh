@@ -34,24 +34,36 @@ cp -a "$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler.js" \
 cp -a "$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler-kalender.js" \
   "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler-kalender.js"
 
+# Browser lädt oft STATIC_ROOT — parallel dorthin kopieren (collectstatic optional)
+STATICFILES="${STATICFILES:-/opt/abpe/backend/staticfiles}"
+if [[ -d "$STATICFILES" ]]; then
+  mkdir -p "$STATICFILES/abpe_ui/css/mod" "$STATICFILES/abpe_ui/js/mod"
+  cp -a "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css" \
+    "$STATICFILES/abpe_ui/css/mod/mod-shaduler.css"
+  cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js" \
+    "$STATICFILES/abpe_ui/js/mod/mod-shaduler.js"
+  cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler-kalender.js" \
+    "$STATICFILES/abpe_ui/js/mod/mod-shaduler-kalender.js"
+  echo "OK — auch nach $STATICFILES/abpe_ui/… kopiert"
+fi
+
 for lang in de en; do
   mkdir -p "$LIVE_UI/static/abpe_ui/i18n/$lang/modules/shaduler"
   cp -a "$TMP/Repo_abpe/abpe_ui/incoming/i18n/$lang/modules/shaduler/." \
     "$LIVE_UI/static/abpe_ui/i18n/$lang/modules/shaduler/"
+  if [[ -d "$STATICFILES" ]]; then
+    mkdir -p "$STATICFILES/abpe_ui/i18n/$lang/modules/shaduler"
+    cp -a "$LIVE_UI/static/abpe_ui/i18n/$lang/modules/shaduler/." \
+      "$STATICFILES/abpe_ui/i18n/$lang/modules/shaduler/" 2>/dev/null || true
+  fi
 done
 
 echo "OK — Dateien sync."
 echo
-echo "Static: Portal nutzt oft STATIC_ROOT — danach:"
-echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py collectstatic --noinput"
+echo "Scheduler-Jobs neu registrieren (Callback mit ?token= gegen 401):"
+echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py register_scheduler_jobs"
 echo "  supervisorctl restart abpe-django abpe-celery"
 echo
-echo "WICHTIG urls.py: path('shaduler/', …) MUSS VOR path('', include('apps.abpe_ui.urls')) stehen!"
-echo "Aktuell oft falsch am Dateiende — sonst matched abpe_ui alles und /shaduler/ kommt nie an."
+echo "Optional zusätzlich: collectstatic --noinput"
 echo
-echo "Register (falls noch nicht):"
-echo "  apps.py  → 'apps.abpe_shaduler'"
-echo "  urls.py  → path('shaduler/', include('apps.abpe_shaduler.urls', namespace='abpe_shaduler')),"
-echo
-echo "Danach: bash scripts/CHECK-abpe-shaduler-live.sh"
-echo "Diagnose Soft-Poll/Indexer: bash scripts/PROBE-shaduler-inbox-refresh.sh"
+echo "Diagnose: bash scripts/PROBE-shaduler-inbox-refresh.sh"

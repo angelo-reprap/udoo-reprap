@@ -38,9 +38,19 @@ def _headers():
 
 
 def build_callback_url(path):
-    """path z.B. 'radar-poll' → …/shaduler/api/webhook/radar-poll/"""
+    """path z.B. 'radar-poll' → …/shaduler/api/webhook/radar-poll/?token=…
+
+    abpe_scheduler POSTet ohne Authorization-Header (timeout=15).
+    Token deshalb als Query-Param — api_webhook_job akzeptiert GET token=.
+    """
+    from urllib.parse import urlencode
+
     path = path.strip('/')
-    return f"{_callback_base_url().rstrip('/')}/webhook/{path}/"
+    url = f"{_callback_base_url().rstrip('/')}/webhook/{path}/"
+    token = getattr(settings, 'SCHEDULER_SERVICE_TOKEN', '') or ''
+    if token:
+        url = f"{url}?{urlencode({'token': token})}"
+    return url
 
 
 def upsert_job(

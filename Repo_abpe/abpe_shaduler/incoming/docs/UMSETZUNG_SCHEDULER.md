@@ -29,11 +29,11 @@ Jobs (RRULE):
 | `radar_poll` | 5 Min | `/shaduler/api/webhook/radar-poll/` |
 | `inbox_poll` | 2 Min | `/shaduler/api/webhook/inbox-poll/` |
 | `prozess_tick` | 15 Min | `/shaduler/api/webhook/prozess-tick/` |
-| `email_index` | **1 Min** | `/shaduler/api/webhook/email-index/` |
+| `email_index` | **1 Min** | `/shaduler/api/webhook/email-index/?token=…` |
 
-**Timeout:** `abpe_scheduler` POSTet mit `timeout=15`. Der Indexer läuft deshalb
-**asynchron via Celery** (`abpe_shaduler.email_index_run`) — Webhook antwortet sofort.
-Nach Deploy: `supervisorctl restart abpe-django abpe-celery`.
+**Timeout:** `abpe_scheduler` POSTet mit `timeout=15` und **ohne** `Authorization`-Header.
+Deshalb enthält die Callback-URL `?token=` (siehe `scheduler_client.build_callback_url`).
+Indexer läuft async via Celery. Nach Token-Fix: `register_scheduler_jobs` erneut.
 
 ## Webhook-Auth prüfen (401 vs. OK)
 
