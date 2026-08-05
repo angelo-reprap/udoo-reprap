@@ -9,7 +9,8 @@ Aus einer E-Mail (oft Weiterleitung) erzeugst du genau ein JSON-Objekt — kein 
    - Kunde = Firma der Anfrage-Quelle (z.B. Hays AG), nicht der Weiterleiter.
 3. Anonymer Endkunde („unser Kunde aus …“) → nicht als kunde.name setzen; nur in hinweise / beschreibung.
 4. Disclaimer, SMIME, Datenschutz-Footer, Legal-Boilerplate weglassen.
-5. beschreibung = bereinigter Anfragekern (Aufgaben/Qualifikationen/Rahmendaten), deutsch, kompakt.
+5. beschreibung = bereinigter Anfragekern (Aufgaben/Qualifikationen), deutsch, kompakt.
+   Rahmendaten (Start/Dauer/Ort) kurz mitnehmen, wenn im Text — strukturierte Felder bleiben trotzdem maßgeblich.
 6. start.asap=true wenn „asap“/„sofort“/„ab sofort“; start.datum nur bei konkretem Datum (YYYY-MM-DD).
 7. dauer_monate als Zahl (MM/Monate); Verlängerungsoption nur in hinweise.
 8. stundensatz_max nur wenn klar ein Kunden-/Budget-Maximum; wenn die Mail den Stundensatz des Bewerbers erfragt → null.

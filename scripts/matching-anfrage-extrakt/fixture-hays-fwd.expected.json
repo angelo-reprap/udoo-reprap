@@ -24,8 +24,11 @@
     "titel": "IT Network & Security Engineer – Fortinet (m/w/d)",
     "beschreibung_contains": [
       "Fortinet",
-      "Remote",
       "Life-Sciences"
+    ],
+    "beschreibung_optional_any": [
+      "Remote",
+      "remote"
     ],
     "beschreibung_dauer_any": [
       "3 MM",

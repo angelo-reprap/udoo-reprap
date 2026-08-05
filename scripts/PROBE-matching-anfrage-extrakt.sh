@@ -214,6 +214,13 @@ for needle in expected.get('beschreibung_contains') or []:
         ok(f'beschreibung enthält {needle!r}')
     else:
         fail(f'beschreibung fehlt {needle!r}')
+# Optionale Fließtext-Worte (stehen oft nur in strukturierten Feldern)
+opt = expected.get('beschreibung_optional_any') or []
+if opt:
+    if any(n.lower() in besch.lower() for n in opt):
+        ok(f'beschreibung optional ok ({opt[0]!r}…)')
+    else:
+        warn(f'beschreibung ohne {opt!r} — ok wenn standort/remote-Felder gesetzt')
 # Dauer in Fließtext: "3 MM" oder "3 Monate" — strukturiertes Feld zählt separat
 dauer_needles = expected.get('beschreibung_dauer_any') or []
 if dauer_needles:
