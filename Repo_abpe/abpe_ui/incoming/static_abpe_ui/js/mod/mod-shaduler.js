@@ -128,15 +128,23 @@
     }
     if (name === 'radar_anfragen') {
       return (
-        '<div class="sh-pane" data-pane="radar_anfragen">' +
-        '<div class="stats-grid">' +
-        '<div class="stat-card"><div class="stat-value teal" id="r-new">0</div><div class="stat-title">neue Treffer</div></div>' +
-        '<div class="stat-card"><div class="stat-value teal" id="r-best">—</div><div class="stat-title">bester Score</div></div>' +
-        '<div class="stat-card"><div class="stat-value">5 Min</div><div class="stat-title">Poll-Takt</div></div>' +
-        '<div class="stat-card"><div class="stat-value">2</div><div class="stat-title">gesperrt gefiltert</div></div>' +
+        '<div class="sh-pane" data-pane="radar_anfragen"><div class="sh-card sh-inbox-card sh-radar-card">' +
+        '<div class="card-h"><i class="bi bi-broadcast"></i> ' +
+        esc(_t('sh.tab_radar_a', 'Radar — Anfragen')) +
+        '<span class="sh-inbox-meta" style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px">' +
+        '<span id="sh-radar-hint">' + esc(_t('sh.radar_hint', 'Freelancermap · heutige Projekte')) + '</span>' +
+        '<span id="r-new" class="sh-radar-count">0</span>' +
+        '<button type="button" class="sh-inbox-refresh" id="sh-radar-refresh" title="' +
+        esc(_t('sh.radar_refresh', 'Aktualisieren')) + '">' +
+        '<i class="bi bi-arrow-clockwise"></i></button>' +
+        '</span></div>' +
+        '<div class="sh-inbox-split">' +
+        '<div class="sh-inbox-list-wrap">' +
+        '<div class="sh-inbox-list" id="sh-radar-list" tabindex="0"></div>' +
         '</div>' +
-        '<div class="sh-card"><div class="card-h"><i class="bi bi-broadcast"></i> Projektausschreibungen</div>' +
-        '<div id="sh-radar-a"></div></div></div>'
+        '<div class="sh-inbox-viewer" id="sh-radar-viewer">' +
+        '<div class="sh-viewer-empty">' + esc(_t('sh.radar_pick', 'Projekt auswählen')) + '</div>' +
+        '</div></div></div></div>'
       );
     }
     if (name === 'radar_berater') {
@@ -1330,7 +1338,12 @@
           showMsg(false, _t('sh.inbox_reply_err_email', 'Bitte gültige E-Mail eingeben'));
           return;
         }
-        var existing = recipHost && recipHost.querySelector('.sh-mr-recip[data-email="' + em.replace(/"/g, '') + '"]');
+        var existing = null;
+        if (recipHost) {
+          recipHost.querySelectorAll('.sh-mr-recip').forEach(function (row) {
+            if ((row.getAttribute('data-email') || '') === em) existing = row;
+          });
+        }
         if (existing) {
           var sel = existing.querySelector('.sh-mr-role');
           if (sel) sel.value = role;
@@ -2020,55 +2033,336 @@
     });
   }
 
+  var RADAR_ITEMS = [];
+  var RADAR_SELECTED = null;
+
   function loadRadarA() {
-    fetch(api('radar/anfragen/?demo=1'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+    var list = document.getElementById('sh-radar-list');
+    var viewer = document.getElementById('sh-radar-viewer');
+    if (list) list.innerHTML = '<div class="sh-viewer-loading">' + esc(_t('sh.loading', 'Laden…')) + '</div>';
+    if (viewer) {
+      viewer.innerHTML = '<div class="sh-viewer-empty">' + esc(_t('sh.radar_pick', 'Projekt auswählen')) + '</div>';
+    }
+    var btn = document.getElementById('sh-radar-refresh');
+    if (btn) {
+      btn.onclick = function () {
+        loadRadarA();
+      };
+    }
+    fetch(api('radar/anfragen/?demo=0&today=1&refresh=1&pages=1'), {
+      credentials: 'same-origin',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
+    })
       .then(function (r) { return r.json(); })
       .then(function (data) {
-        renderRadarA(data.results || []);
+        RADAR_ITEMS = data.results || [];
+        renderRadarA(RADAR_ITEMS);
+        var hint = document.getElementById('sh-radar-hint');
+        if (hint) {
+          hint.textContent = data.demo
+            ? _t('sh.radar_demo', 'Demo')
+            : _t('sh.radar_hint', 'Freelancermap · heutige Projekte') +
+              (data.fetched != null ? (' · ' + data.fetched + ' gelesen') : '');
+        }
         refreshStats();
       })
-      .catch(function () { renderRadarA([]); });
+      .catch(function () {
+        RADAR_ITEMS = [];
+        renderRadarA([]);
+        toast(_t('sh.radar_err', 'Radar konnte nicht geladen werden'));
+      });
   }
 
   function renderRadarA(items) {
-    var c = document.getElementById('sh-radar-a');
+    var c = document.getElementById('sh-radar-list');
     if (!c) return;
     c.innerHTML = '';
-    var best = 0;
+    if (!items.length) {
+      c.innerHTML = '<div class="sh-viewer-empty">' +
+        esc(_t('sh.radar_empty', 'Keine neuen Projekte für heute')) + '</div>';
+    }
     items.forEach(function (r) {
-      if (r.score > best) best = r.score;
       var e = document.createElement('div');
-      e.className = 'ritem';
+      e.className = 'ritem' + (RADAR_SELECTED && RADAR_SELECTED.id === r.id ? ' on' : '');
+      e.setAttribute('data-id', r.id);
       e.innerHTML =
-        '<div class="top"><span class="score ' + (r.score < 75 ? 'mid' : '') + '">' + esc(r.score) + '%</span>' +
-        '<b class="hl">' + esc(r.headline) + '</b>' +
-        (r.grp > 1 ? '<span class="grp"><i class="bi bi-stack"></i> ' + r.grp + ' Anbieter</span>' : '') +
-        (r.sources || []).map(function (s) { return '<span class="src">' + esc(s) + '</span>'; }).join('') +
-        '<span class="age">' + esc(r.age) + '</span></div>' +
-        '<div class="meta">' + esc(r.meta) + '</div>' +
-        '<div class="chips">' + (r.top || []).map(function (t, i) {
-          return '<span class="chip ' + (i === 0 ? 'top' : '') + '"><i class="bi bi-person"></i> ' + esc(t) + '</span>';
-        }).join('') + '</div>' +
-        '<div class="racts">' +
-        '<button type="button" class="pri sh-take"><i class="bi bi-diagram-3"></i> Übernehmen → Matching</button>' +
-        '<button type="button" class="sh-dismiss"><i class="bi bi-x-lg"></i> Verwerfen</button></div>';
+        '<div class="top">' +
+        '<b class="hl">' + esc(r.headline || '') + '</b>' +
+        (r.sources || []).map(function (s) {
+          return '<span class="src">' + esc(s) + '</span>';
+        }).join('') +
+        (r.age ? '<span class="age">' + esc(r.age) + '</span>' : '') +
+        '</div>' +
+        '<div class="meta">' + esc(r.meta || '') + '</div>' +
+        (r.contact || r.company
+          ? '<div class="meta">' + esc([r.contact, r.company].filter(Boolean).join(' · ')) + '</div>'
+          : '');
+      e.onclick = function () {
+        openRadarItem(r, e);
+      };
       c.appendChild(e);
-      e.querySelector('.sh-take').onclick = function () {
-        toast(_t('sh.toast_takeover', 'Anfrage übernommen — Matching läuft (Demo)'));
-        e.remove();
-        var n = document.getElementById('r-new');
-        if (n) n.textContent = c.querySelectorAll('.ritem').length;
-      };
-      e.querySelector('.sh-dismiss').onclick = function () {
-        toast(_t('sh.toast_dismiss', 'Verworfen (Demo)'));
-        e.remove();
-        var n = document.getElementById('r-new');
-        if (n) n.textContent = c.querySelectorAll('.ritem').length;
-      };
     });
-    var el = document.getElementById('r-new'); if (el) el.textContent = items.length;
-    el = document.getElementById('r-best'); if (el) el.textContent = best ? (best + '%') : '—';
-    el = document.getElementById('tb-ra'); if (el) el.textContent = items.length;
+    var el = document.getElementById('r-new');
+    if (el) el.textContent = String(items.length);
+    el = document.getElementById('tb-ra');
+    if (el) el.textContent = items.length;
+  }
+
+  function openRadarItem(r, rowEl) {
+    RADAR_SELECTED = r;
+    document.querySelectorAll('#sh-radar-list .ritem.on').forEach(function (el) {
+      el.classList.remove('on');
+    });
+    if (rowEl) rowEl.classList.add('on');
+    var v = document.getElementById('sh-radar-viewer');
+    if (!v) return;
+    v.innerHTML = '<div class="sh-viewer-loading">' + esc(_t('sh.loading', 'Laden…')) + '</div>';
+
+    function paint(item) {
+      var eck = item.eckdaten || {};
+      var body = item.beschreibung || '';
+      var url = item.external_url || eck.url || '';
+      var acts =
+        '<div class="racts sh-viewer-acts">' +
+        '<button type="button" class="pri sh-radar-task">' +
+        '<i class="bi bi-check2-square"></i> ' + esc(_t('sh.inbox_task', 'Aufgabe erzeugen')) +
+        '</button>' +
+        '<button type="button" class="sh-radar-matching">' +
+        '<i class="bi bi-diagram-3"></i> ' + esc(_t('sh.inbox_matching', 'Matching')) +
+        '</button>' +
+        '<button type="button" class="sh-radar-archive">' +
+        '<i class="bi bi-archive"></i> ' + esc(_t('sh.radar_archive', 'Archivieren')) +
+        '</button>' +
+        (url
+          ? '<a class="sh-radar-ext" href="' + esc(url) + '" target="_blank" rel="noopener">' +
+            '<i class="bi bi-box-arrow-up-right"></i> ' +
+            esc(_t('sh.radar_open_fm', 'Auf Freelancermap öffnen')) + '</a>'
+          : '') +
+        '</div>';
+
+      var metaBits = [
+        eck.industry,
+        eck.city,
+        eck.remote_percent != null
+          ? (eck.remote_percent >= 100 ? '100% Remote' : (eck.remote_percent + '% Remote'))
+          : '',
+        eck.beginning ? ('Start ' + eck.beginning) : '',
+        eck.duration_text,
+      ].filter(Boolean);
+
+      v.innerHTML =
+        acts +
+        '<div class="sh-viewer-head">' +
+        '<div class="from">' + esc(eck.company || item.company || '—') +
+        (eck.contact || item.contact ? (' · ' + esc(eck.contact || item.contact)) : '') +
+        '</div>' +
+        '<div class="subj">' + esc(item.headline || '') + '</div>' +
+        '<div class="meta">' + esc(metaBits.join(' · ')) +
+        (eck.created ? ' · ' + esc(String(eck.created).replace('T', ' ').slice(0, 16)) : '') +
+        '</div></div>' +
+        (url
+          ? '<div class="sh-radar-frame-wrap">' +
+            '<iframe class="sh-radar-frame" src="' + esc(url) + '" title="Freelancermap"></iframe>' +
+            '<div class="sh-radar-frame-note">' +
+            esc(_t('sh.radar_frame_note',
+              'Falls der Frame blockiert: Text unten oder „Auf Freelancermap öffnen“.')) +
+            '</div></div>'
+          : '') +
+        '<div class="sh-viewer-body sh-readable">' +
+        plainToReadableHtml(body) +
+        '</div>';
+
+      var taskBtn = v.querySelector('.sh-radar-task');
+      if (taskBtn) {
+        taskBtn.onclick = function () {
+          openRadarTaskChooser(item);
+        };
+      }
+      var matchBtn = v.querySelector('.sh-radar-matching');
+      if (matchBtn) {
+        matchBtn.onclick = function () {
+          openMatchingFromRadar(item);
+        };
+      }
+      var archBtn = v.querySelector('.sh-radar-archive');
+      if (archBtn) {
+        archBtn.onclick = function () {
+          archiveRadarItem(item);
+        };
+      }
+    }
+
+    // Detail nachladen (falls nur Listen-Stub)
+    fetch(api('radar/anfragen/' + encodeURIComponent(r.id) + '/'), {
+      credentials: 'same-origin',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
+    })
+      .then(function (resp) { return resp.json(); })
+      .then(function (j) {
+        if (j && j.ok && j.item) {
+          paint(j.item);
+        } else {
+          paint(r);
+        }
+      })
+      .catch(function () { paint(r); });
+  }
+
+  function openMatchingFromRadar(item) {
+    var eck = item.eckdaten || {};
+    var text = [
+      item.headline || '',
+      '',
+      item.meta || '',
+      (eck.company ? ('Firma: ' + eck.company) : ''),
+      (eck.contact ? ('Ansprechpartner: ' + eck.contact) : ''),
+      (item.external_url ? ('URL: ' + item.external_url) : ''),
+      '',
+      item.beschreibung || '',
+    ].filter(function (x, i, a) {
+      // drop duplicate empties
+      return !(x === '' && a[i - 1] === '');
+    }).join('\n');
+    try {
+      sessionStorage.setItem('matching_ki_from_mail', JSON.stringify({
+        email_text: text,
+        subject: item.headline || '',
+        outer_from: eck.contact || eck.company || 'freelancermap',
+        from_mail: '',
+      }));
+    } catch (e) { /* ignore */ }
+    window.location.href = '/matching/?tab=neu';
+  }
+
+  function archiveRadarItem(item) {
+    fetch(api('radar/anfragen/' + encodeURIComponent(item.id) + '/verwerfen/'), {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrfToken(),
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+      body: '{}',
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j && j.ok) {
+          toast(_t('sh.radar_archived', 'Archiviert'));
+          RADAR_ITEMS = RADAR_ITEMS.filter(function (x) { return x.id !== item.id; });
+          RADAR_SELECTED = null;
+          renderRadarA(RADAR_ITEMS);
+          var v = document.getElementById('sh-radar-viewer');
+          if (v) {
+            v.innerHTML = '<div class="sh-viewer-empty">' +
+              esc(_t('sh.radar_pick', 'Projekt auswählen')) + '</div>';
+          }
+        } else {
+          toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
+        }
+      })
+      .catch(function () {
+        toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
+      });
+  }
+
+  function openRadarTaskChooser(item) {
+    // Wiederverwendet Aufgabe-Popup-Muster mit Mail-ähnlichem Stub
+    var fakeMail = {
+      id: 'radar:' + item.id,
+      subj: item.headline || '',
+      from: (item.eckdaten && item.eckdaten.contact) || item.contact || item.company || 'Radar',
+      reply_email: '',
+      prev: item.beschreibung || '',
+      crm_name: (item.eckdaten && item.eckdaten.company) || item.company || '',
+    };
+    // Fallback: manuelle Aufgabe über api/aufgaben/create
+    closeMailTaskChooser();
+    var dueDef = tomorrowDueDateTime();
+    var ovl = document.createElement('div');
+    ovl.className = 'ovl open';
+    ovl.id = 'sh-mail-task-ovl';
+    ovl.innerHTML =
+      '<div class="sh-modal sh-mail-task-modal">' +
+      '<div class="mh">' +
+      '<div class="ico"><i class="bi bi-check2-square"></i></div>' +
+      '<div><b>' + esc(_t('sh.inbox_task', 'Aufgabe erzeugen')) + '</b>' +
+      '<small class="sh-mt-subj">' + esc(item.headline || '') + '</small></div>' +
+      '<button type="button" class="x" id="sh-mt-close"><i class="bi bi-x-lg"></i></button></div>' +
+      '<div class="mb">' +
+      '<div class="excerpt"><div class="lbl">Radar</div>' + esc(item.meta || '') + '</div>' +
+      '<div class="qlbl">' + esc(_t('sh.inbox_pick_art', 'Art')) + '</div>' +
+      '<div class="sh-pick-row" id="sh-mt-arts">' +
+      '<button type="button" class="sh-pick on" data-art="wiedervorlage"><i class="bi bi-arrow-repeat"></i> Wiedervorlage</button>' +
+      '<button type="button" class="sh-pick" data-art="anruf"><i class="bi bi-telephone"></i> Anruf</button>' +
+      '<button type="button" class="sh-pick" data-art="email"><i class="bi bi-envelope"></i> E-Mail</button>' +
+      '<button type="button" class="sh-pick" data-art="intern"><i class="bi bi-briefcase"></i> Intern</button>' +
+      '</div>' +
+      '<div class="qlbl">' + esc(_t('sh.inbox_pick_due', 'Fälligkeit')) + '</div>' +
+      '<div class="sh-due-grid">' +
+      '<div class="inp"><label>Tag</label><input type="date" id="sh-mt-date" value="' + esc(dueDef.date) + '"></div>' +
+      '<div class="inp"><label>Uhrzeit</label><input type="time" id="sh-mt-time" value="' + esc(dueDef.time) + '"></div>' +
+      '</div>' +
+      '<div class="inp"><label>Notiz</label><textarea id="sh-mt-notiz" rows="3">' +
+      esc('Radar: ' + (item.headline || '') + (item.external_url ? ('\n' + item.external_url) : '')) +
+      '</textarea></div>' +
+      '<button type="button" class="primary" id="sh-mt-save"><i class="bi bi-check2"></i> Aufgabe anlegen</button>' +
+      '</div></div>';
+    document.body.appendChild(ovl);
+    var selectedArt = 'wiedervorlage';
+    ovl.querySelectorAll('#sh-mt-arts .sh-pick').forEach(function (b) {
+      b.addEventListener('click', function () {
+        ovl.querySelectorAll('#sh-mt-arts .sh-pick').forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+        selectedArt = b.getAttribute('data-art') || 'wiedervorlage';
+      });
+    });
+    document.getElementById('sh-mt-close').onclick = closeMailTaskChooser;
+    ovl.addEventListener('click', function (ev) {
+      if (ev.target === ovl) closeMailTaskChooser();
+    });
+    document.getElementById('sh-mt-save').onclick = function () {
+      var notiz = (document.getElementById('sh-mt-notiz') || {}).value || '';
+      var dateEl = document.getElementById('sh-mt-date');
+      var timeEl = document.getElementById('sh-mt-time');
+      var save = document.getElementById('sh-mt-save');
+      save.disabled = true;
+      fetch(api('aufgaben/create/'), {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrfToken(),
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        body: JSON.stringify({
+          art: selectedArt,
+          titel: (item.headline || 'Radar-Anfrage').slice(0, 240),
+          beschreibung: notiz,
+          ref_type: 'radar_item',
+          ref_id: String(item.id),
+          quelle: 'radar',
+          faellig_am: dateEl ? dateEl.value : '',
+          faellig_zeit: timeEl ? timeEl.value : '',
+        }),
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          save.disabled = false;
+          if (j && j.ok) {
+            closeMailTaskChooser();
+            toast(_t('sh.toast_mail_task', 'Aufgabe erzeugt'));
+          } else {
+            toast(j.error || _t('sh.toast_error', 'Speichern fehlgeschlagen'));
+          }
+        })
+        .catch(function () {
+          save.disabled = false;
+          toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
+        });
+    };
+    // silence unused
+    void fakeMail;
   }
 
   function loadRadarB() {

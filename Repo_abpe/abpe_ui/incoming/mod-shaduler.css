@@ -414,3 +414,10 @@ body.dark-mode #sh-m-erledigt{color:#6ee7b7}
   .sh-mr-recip{flex-direction:column;align-items:stretch}
   .sh-mr-recip .sh-mr-role{width:100%;flex-basis:auto}
 }
+
+/* Radar Anfragen — Posteingang-Layout */
+.sh-radar-count{display:inline-flex;min-width:1.4em;justify-content:center;padding:1px 7px;border-radius:999px;background:rgba(22,50,88,.1);font-weight:600}
+.sh-radar-frame-wrap{margin:10px 0 12px;border:1px solid var(--border-color);border-radius:10px;overflow:hidden;background:var(--bg-white)}
+.sh-radar-frame{width:100%;height:280px;border:0;display:block;background:#fff}
+.sh-radar-frame-note{font-size:.72rem;color:var(--text-secondary);padding:6px 10px;border-top:1px solid var(--border-light,#e2e8f0)}
+.sh-radar-card .sh-inbox-list .ritem .hl{font-size:.86rem;line-height:1.3}

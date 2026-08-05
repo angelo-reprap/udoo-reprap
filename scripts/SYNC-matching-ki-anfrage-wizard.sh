@@ -24,8 +24,7 @@ git archive "$BRANCH" \
   Repo_abpe/abpe_ui/incoming/mod-matching.js \
   Repo_abpe/abpe_ui/incoming/mod-shaduler.js \
   Repo_abpe/abpe_ui/incoming/mod-shaduler.css \
-  Repo_abpe/abpe_shaduler/incoming/views.py \
-  Repo_abpe/abpe_shaduler/incoming/urls.py \
+  Repo_abpe/abpe_shaduler/incoming \
   | tar -x -C "$TMP"
 
 # Guard: Prompt-Default muss im Archive sein
@@ -56,13 +55,17 @@ fi
 echo "OK — prompt_defaults enthält wiz_matching_anfrage_generate"
 
 
-# ── Shaduler API (ack-send An/CC/BCC) ────────────────────────────────────────
+# ── Shaduler (Radar Freelancermap + Inbox-Ack) ───────────────────────────────
 LIVE_SH="${LIVE_SH:-/opt/abpe/backend/apps/abpe_shaduler}"
-if [[ -f "$TMP/Repo_abpe/abpe_shaduler/incoming/views.py" ]]; then
+if [[ -d "$TMP/Repo_abpe/abpe_shaduler/incoming" ]]; then
   mkdir -p "$LIVE_SH"
-  cp -a "$TMP/Repo_abpe/abpe_shaduler/incoming/views.py" "$LIVE_SH/views.py"
-  cp -a "$TMP/Repo_abpe/abpe_shaduler/incoming/urls.py" "$LIVE_SH/urls.py"
-  echo "OK — abpe_shaduler views/urls (ack-send) → $LIVE_SH"
+  rsync -a \
+    --exclude '__pycache__/' \
+    --exclude '*.pyc' \
+    --exclude 'migrations/0*.py' \
+    "$TMP/Repo_abpe/abpe_shaduler/incoming/" \
+    "$LIVE_SH/"
+  echo "OK — abpe_shaduler → $LIVE_SH (Radar + Ack-Send)"
 fi
 
 # ── Matching UI ──────────────────────────────────────────────────────────────
@@ -119,7 +122,7 @@ if not p:
 echo
 echo "Restart: supervisorctl restart abpe-django"
 echo "UI Matching: Button „KI-Anfragen-Wizard“ links neben „+ Neue Anfrage“"
-echo "UI Posteingang: Matching; Antworten → Empfänger An/CC/BCC + Bestätigung + Aufgabe"
+echo "UI: Matching; Posteingang Antworten An/CC/BCC; Radar Anfragen = Freelancermap"
 echo "API: POST /ki-wizard/api/matching-anfrage/extract/"
 echo "Browser: Ctrl+F5 (mod-matching.js + mod-shaduler.js/css)"
 

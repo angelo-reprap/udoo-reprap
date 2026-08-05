@@ -35,9 +35,11 @@ urlpatterns = [
 
     # Radar Anfragen
     path('api/radar/anfragen/', views.api_radar_items, name='api_radar_items'),
-    path('api/radar/anfragen/<uuid:pk>/uebernehmen/', views.api_radar_takeover, name='api_radar_takeover'),
-    path('api/radar/anfragen/<uuid:pk>/verwerfen/', views.api_radar_dismiss, name='api_radar_dismiss'),
-    path('api/radar/anfragen/<uuid:pk>/sperren/', views.api_radar_block, name='api_radar_block'),
+    path('api/radar/anfragen/refresh/', views.api_radar_refresh, name='api_radar_refresh'),
+    path('api/radar/anfragen/<str:pk>/', views.api_radar_item_detail, name='api_radar_item_detail'),
+    path('api/radar/anfragen/<str:pk>/uebernehmen/', views.api_radar_takeover, name='api_radar_takeover'),
+    path('api/radar/anfragen/<str:pk>/verwerfen/', views.api_radar_dismiss, name='api_radar_dismiss'),
+    path('api/radar/anfragen/<str:pk>/sperren/', views.api_radar_block, name='api_radar_block'),
     path('api/radar/gruppe/<uuid:pk>/trennen/', views.api_radar_group_split, name='api_radar_group_split'),
     path('api/radar/gruppe/<uuid:pk>/mergen/', views.api_radar_group_merge, name='api_radar_group_merge'),
 

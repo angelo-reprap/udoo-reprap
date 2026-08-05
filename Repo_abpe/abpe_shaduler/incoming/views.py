@@ -494,29 +494,95 @@ def api_inbox_ack_send(request, mail_id):
 @login_required
 @require_GET
 def api_radar_items(request):
-    from .demo_data import demo_radar_anfragen
-    use_demo = request.GET.get('demo', '1') != '0'
+    """
+    Radar Anfragen.
+    demo=1 → Demo-Daten.
+    demo=0 (Default) → Freelancermap live (+ DB Persistenz).
+    """
+    use_demo = request.GET.get('demo', '0') == '1'
     if use_demo:
+        from .demo_data import demo_radar_anfragen
         return JsonResponse({'ok': True, 'demo': True, 'results': demo_radar_anfragen()})
-    return _stub()
+
+    from apps.abpe_shaduler.services import radar_fetcher
+    today_only = request.GET.get('today', '1') != '0'
+    persist = request.GET.get('persist', '1') != '0'
+    refresh = request.GET.get('refresh', '1') != '0'
+    try:
+        pages = max(1, min(5, int(request.GET.get('pages') or 1)))
+    except (TypeError, ValueError):
+        pages = 1
+    status = (request.GET.get('status') or 'neu').strip()
+    data = radar_fetcher.list_anfragen(
+        use_live_fetch=refresh,
+        today_only=today_only,
+        persist=persist,
+        pages=pages,
+        status=status,
+    )
+    return JsonResponse(data)
+
+
+@login_required
+@require_GET
+def api_radar_item_detail(request, pk):
+    from apps.abpe_shaduler.services import radar_fetcher
+    item = radar_fetcher.get_item(str(pk))
+    if not item:
+        return JsonResponse({'ok': False, 'error': 'nicht gefunden'}, status=404)
+    return JsonResponse({'ok': True, 'item': item})
 
 
 @login_required
 @require_POST
 def api_radar_takeover(request, pk):
-    return _stub({'id': str(pk)}, status=501)
+    """Interessant markieren (Matching-Vorbereitung)."""
+    from apps.abpe_shaduler.services import radar_fetcher
+    result = radar_fetcher.set_status(str(pk), 'interessant')
+    if not result.get('ok'):
+        return JsonResponse(result, status=404)
+    return JsonResponse(result)
 
 
 @login_required
 @require_POST
 def api_radar_dismiss(request, pk):
-    return _stub({'id': str(pk)}, status=501)
+    """Archivieren / verwerfen."""
+    from apps.abpe_shaduler.services import radar_fetcher
+    result = radar_fetcher.set_status(str(pk), 'verworfen')
+    if not result.get('ok'):
+        return JsonResponse(result, status=404)
+    return JsonResponse(result)
 
 
 @login_required
 @require_POST
 def api_radar_block(request, pk):
-    return _stub({'id': str(pk)}, status=501)
+    from apps.abpe_shaduler.services import radar_fetcher
+    result = radar_fetcher.set_status(str(pk), 'gesperrt')
+    if not result.get('ok'):
+        return JsonResponse(result, status=404)
+    return JsonResponse(result)
+
+
+@login_required
+@require_POST
+def api_radar_refresh(request):
+    """Manueller Poll Freelancermap."""
+    from apps.abpe_shaduler.services import radar_fetcher
+    data = _json_body(request)
+    try:
+        pages = max(1, min(5, int(data.get('pages') or request.GET.get('pages') or 1)))
+    except (TypeError, ValueError):
+        pages = 1
+    today_only = str(data.get('today', request.GET.get('today', '1'))).lower() not in (
+        '0', 'false', 'no',
+    )
+    try:
+        info = radar_fetcher.poll_once(pages=pages, today_only=today_only)
+        return JsonResponse(info)
+    except Exception as exc:
+        return JsonResponse({'ok': False, 'error': str(exc)}, status=500)
 
 
 @login_required
