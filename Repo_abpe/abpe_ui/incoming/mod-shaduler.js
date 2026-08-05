@@ -2202,6 +2202,9 @@
               ' · ' + radarDaysLabel(RADAR_DAYS) +
               (lsLbl ? (' · ' + lsLbl) : '') +
               (parts.length ? (' · ' + parts.join(', ')) : '') +
+              (data.raw_count != null && data.count != null && data.raw_count > data.count
+                ? (' · ' + data.count + '/' + data.raw_count + ' dedup')
+                : '') +
               (doRefresh && data.fetched != null ? (' · ' + data.fetched + ' gelesen') : '');
         }
         refreshStats();
@@ -2238,19 +2241,51 @@
       var e = document.createElement('div');
       e.className = 'ritem' + (RADAR_SELECTED && RADAR_SELECTED.id === r.id ? ' on' : '');
       e.setAttribute('data-id', r.id);
+      var grpN = Number(r.grp || r.anbieter_anzahl || 1) || 1;
+      var links = r.group_links || [];
+      var srcHtml = (r.sources || []).map(function (s) {
+        return '<span class="src">' + esc(s) + '</span>';
+      }).join('');
+      var grpHtml = grpN > 1
+        ? ('<span class="grp" data-grp-toggle="1" title="' +
+          esc(_t('sh.radar_grp_title', 'Gleiche Anfrage auf mehreren Börsen')) + '">' +
+          '<i class="bi bi-stack"></i> ' + grpN + ' ' +
+          esc(_t('sh.radar_anbieter', 'Anbieter')) + '</span>')
+        : '';
+      var linksHtml = '';
+      if (grpN > 1 && links.length) {
+        linksHtml = '<div class="sources">' + links.map(function (lk) {
+          var label = (lk.source || '') + (lk.company ? (' · ' + lk.company) : '');
+          var href = lk.url || '#';
+          return '<a href="' + esc(href) + '" target="_blank" rel="noopener" data-peer="' +
+            esc(lk.id || '') + '"><i class="bi bi-box-arrow-up-right"></i> ' +
+            esc(label || lk.headline || href) + '</a>';
+        }).join('') + '</div>';
+      }
       e.innerHTML =
         '<div class="top">' +
         '<b class="hl">' + esc(r.headline || '') + '</b>' +
-        (r.sources || []).map(function (s) {
-          return '<span class="src">' + esc(s) + '</span>';
-        }).join('') +
+        grpHtml + srcHtml +
         (r.age ? '<span class="age">' + esc(r.age) + '</span>' : '') +
         '</div>' +
         '<div class="meta">' + esc(r.meta || '') + '</div>' +
         (r.contact || r.company
           ? '<div class="meta">' + esc([r.contact, r.company].filter(Boolean).join(' · ')) + '</div>'
-          : '');
-      e.onclick = function () {
+          : '') +
+        linksHtml;
+      e.onclick = function (ev) {
+        var t = ev.target;
+        if (t && t.closest && t.closest('[data-grp-toggle]')) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          var box = e.querySelector('.sources');
+          if (box) box.classList.toggle('open');
+          return;
+        }
+        if (t && t.closest && t.closest('.sources a')) {
+          ev.stopPropagation();
+          return;
+        }
         openRadarItem(r, e);
       };
       c.appendChild(e);
@@ -2353,6 +2388,23 @@
         srcName,
       ].filter(Boolean);
 
+      var grpN = Number((r && (r.grp || r.anbieter_anzahl)) || item.grp || 1) || 1;
+      var links = (r && r.group_links) || item.group_links || [];
+      var grpBar = '';
+      if (grpN > 1 && links.length) {
+        grpBar =
+          '<div class="sh-radar-ext-bar sh-radar-grp-bar">' +
+          '<span class="grp"><i class="bi bi-stack"></i> ' + grpN + ' ' +
+          esc(_t('sh.radar_anbieter', 'Anbieter')) + '</span> ' +
+          links.map(function (lk) {
+            var href = lk.url || '#';
+            var lab = lk.source || href;
+            return '<a class="sh-radar-ext-link" href="' + esc(href) +
+              '" target="_blank" rel="noopener">' + esc(lab) + '</a>';
+          }).join(' · ') +
+          '</div>';
+      }
+
       v.innerHTML =
         acts +
         '<div class="sh-viewer-head">' +
@@ -2363,6 +2415,7 @@
         '<div class="meta">' + esc(metaBits.join(' · ')) +
         (eck.created ? ' · ' + esc(String(eck.created).replace('T', ' ').slice(0, 16)) : '') +
         '</div></div>' +
+        grpBar +
         (url
           ? '<div class="sh-radar-ext-bar">' +
             '<a class="sh-radar-ext-link" href="' + esc(url) + '" target="_blank" rel="noopener">' +

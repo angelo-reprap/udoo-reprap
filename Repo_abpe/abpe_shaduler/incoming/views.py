@@ -609,13 +609,26 @@ def api_radar_refresh(request):
 @login_required
 @require_POST
 def api_radar_group_split(request, pk):
-    return _stub({'id': str(pk)}, status=501)
+    from apps.abpe_shaduler.services import radar_grouper
+    result = radar_grouper.split_group(pk)
+    if not result.get('ok'):
+        return JsonResponse(result, status=404)
+    return JsonResponse(result)
 
 
 @login_required
 @require_POST
 def api_radar_group_merge(request, pk):
-    return _stub({'id': str(pk)}, status=501)
+    """Manuell mergen: Body {item_ids: […]} — pk = bestehende Gruppe oder erstes Item."""
+    from apps.abpe_shaduler.services import radar_grouper
+    data = _json_body(request)
+    item_ids = data.get('item_ids') or data.get('ids') or []
+    if isinstance(item_ids, str):
+        item_ids = [x.strip() for x in item_ids.split(',') if x.strip()]
+    result = radar_grouper.merge_items(list(item_ids), group_id=str(pk) if pk else None)
+    if not result.get('ok'):
+        return JsonResponse(result, status=400)
+    return JsonResponse(result)
 
 
 @login_required

@@ -122,6 +122,7 @@ if not p:
 echo
 echo "Restart: supervisorctl restart abpe-django"
 echo "Optional (Radar ES einmalig): $PYBIN manage.py radar_reindex --status neu"
+echo "Optional (Radar Dedup):       $PYBIN manage.py radar_regroup --days 14"
 echo "UI Matching: Button „KI-Anfragen-Wizard“ links neben „+ Neue Anfrage“"
 echo "UI: Matching; Posteingang Antworten; Radar = FM+Gulp (Suche/Zeitraum/Sort/Quelle)"
 echo "API: POST /ki-wizard/api/matching-anfrage/extract/"

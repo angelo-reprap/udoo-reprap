@@ -870,6 +870,14 @@ def persist_items(
     except Exception as exc:
         log.warning('radar index after persist failed: %s', exc)
 
+    grouped = {}
+    try:
+        from . import radar_grouper
+        grouped = radar_grouper.regroup_touched(touched)
+    except Exception as exc:
+        log.warning('radar group after persist failed: %s', exc)
+        grouped = {'ok': False, 'error': str(exc)}
+
     return {
         'ok': True,
         'source': source_name,
@@ -878,6 +886,7 @@ def persist_items(
         'archived': archived,
         'fetched': len(items),
         'indexed': indexed,
+        'grouped': grouped,
     }
 
 
@@ -887,6 +896,12 @@ def serialize_db_item(obj) -> dict:
     created = _parse_dt(eck.get('created')) or (
         obj.eingegangen_am.replace(tzinfo=None) if getattr(obj, 'eingegangen_am', None) else None
     )
+    grp_n = 1
+    if getattr(obj, 'gruppe_id', None) and getattr(obj, 'gruppe', None):
+        try:
+            grp_n = max(1, int(obj.gruppe.anbieter_anzahl or 1))
+        except Exception:
+            grp_n = 1
     return {
         'id': str(obj.pk),
         'external_id': eck.get('project_id') or '',
@@ -908,7 +923,8 @@ def serialize_db_item(obj) -> dict:
         'age': _format_age(created),
         'sources': [source],
         'score': obj.quick_score,
-        'grp': 1,
+        'grp': grp_n,
+        'gruppe_id': str(obj.gruppe_id) if getattr(obj, 'gruppe_id', None) else None,
         'top': obj.top_berater or [],
         'status': obj.status,
         'external_url': obj.external_url,
@@ -1036,7 +1052,7 @@ def list_anfragen(
                         continue
                 objs = {
                     str(o.pk): o
-                    for o in RadarItem.objects.filter(pk__in=uuids).select_related('quelle')
+                    for o in RadarItem.objects.filter(pk__in=uuids).select_related('quelle', 'gruppe')
                 }
                 results = [serialize_db_item(objs[str(u)]) for u in uuids if str(u) in objs]
             except Exception as exc:
@@ -1074,7 +1090,7 @@ def list_anfragen(
                     | Q(eckdaten__city__icontains=q)
                 )
             order = 'eingegangen_am' if sort in ('date_asc', 'asc', 'oldest') else '-eingegangen_am'
-            qs = qs.select_related('quelle').order_by(order)[:limit]
+            qs = qs.select_related('quelle', 'gruppe').order_by(order)[:limit]
             results = [serialize_db_item(o) for o in qs]
             list_source = 'db'
         except Exception as exc:
@@ -1106,10 +1122,19 @@ def list_anfragen(
                 reverse=True,
             )
 
+    # Cross-Source-Dedup: eine Zeile pro RadarItemGroup
+    raw_count = len(results)
+    try:
+        from . import radar_grouper
+        results = radar_grouper.collapse_serialized(results, source_filter=source)
+    except Exception as exc:
+        log.warning('radar collapse failed: %s', exc)
+
     if not by_src:
         for it in results:
-            s = ((it.get('sources') or ['?'])[0]) or '?'
-            by_src[s] = by_src.get(s, 0) + 1
+            for s in (it.get('sources') or ['?']):
+                s = s or '?'
+                by_src[s] = by_src.get(s, 0) + 1
 
     return {
         'ok': True,
@@ -1123,9 +1148,12 @@ def list_anfragen(
         'by_source': by_src,
         'results': results,
         'count': len(results),
-        'total': es_total if es_total is not None else len(results),
+        'total': len(results),
+        'raw_count': raw_count,
+        'es_total': es_total,
         'fetched': len(fetched),
         'persist': persist_info,
+        'dedup': True,
     }
 
 
