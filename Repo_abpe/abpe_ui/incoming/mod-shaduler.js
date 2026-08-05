@@ -1515,11 +1515,57 @@
     var act = document.getElementById('sh-m-action');
     var ovl = document.getElementById('sh-ovl');
     if (close) close.onclick = closeModal;
-    if (done) done.onclick = closeModal;
+    if (done) done.onclick = onWeiter;
     if (act) act.onclick = function () { showPhase('res'); };
     if (ovl) ovl.addEventListener('click', function (e) {
       if (e.target === ovl) closeModal();
     });
+  }
+
+  function crmDetailUrl(t, tab) {
+    if (!t) return '';
+    var base = '';
+    if (t.crm_url) {
+      base = String(t.crm_url);
+    } else if (t.ref_id) {
+      if (t.ref_type === 'berater' || t.ref_type === 'ansprechpartner') {
+        base = '/crm/berater/?detail=' + encodeURIComponent(t.ref_id);
+      } else if (t.ref_type === 'firma') {
+        base = '/crm/kunden/?detail=' + encodeURIComponent(t.ref_id);
+      }
+    }
+    if (!base) return '';
+    if (tab) {
+      base += (base.indexOf('?') >= 0 ? '&' : '?') + 'tab=' + encodeURIComponent(tab);
+    }
+    return base;
+  }
+
+  function onWeiter() {
+    var t = currentTask;
+    var url = '';
+    // Nach Erledigt → CRM Notizen (neues Fenster); nach Snooze nur schließen
+    var lastAction = (t && t._lastAction) || '';
+    if (lastAction !== 'snooze') {
+      url = crmDetailUrl(t, 'notizen');
+    }
+    closeModal();
+    if (url) {
+      window.open(url, '_blank', 'noopener');
+    }
+  }
+
+  function updateWeiterButton(action) {
+    var done = document.getElementById('sh-m-done');
+    if (!done) return;
+    var hasCrm = !!crmDetailUrl(currentTask, 'notizen');
+    if (action === 'snooze' || !hasCrm) {
+      done.innerHTML = _t('sh.popup_weiter', 'Weiter') + ' <i class="bi bi-arrow-right"></i>';
+    } else {
+      done.innerHTML = _t('sh.popup_crm_notizen', 'CRM Notizen öffnen') +
+        ' <i class="bi bi-box-arrow-up-right"></i>';
+    }
+    done.onclick = onWeiter;
   }
 
   function showPhase(which) {
@@ -1681,6 +1727,7 @@
 
     function finishLocal(action) {
       action = action || (isSnooze ? 'snooze' : 'erledigt');
+      if (currentTask) currentTask._lastAction = action;
       if (currentTask && currentTask.id) {
         if (action === 'snooze') {
           // Task bleibt, Liste neu laden
@@ -1701,6 +1748,15 @@
           : ('<i class="bi bi-check-circle" style="color:var(--status-green)"></i> ' +
             _t('sh.popup_erledigt', 'Erledigt — automatisch passiert:'));
       }
+      // CRM-Hinweis in FX-Liste, wenn Weiter dorthin führt
+      if (action !== 'snooze' && crmDetailUrl(currentTask, 'notizen')) {
+        var fxEl = document.getElementById('sh-m-fx');
+        if (fxEl && fxEl.innerHTML.indexOf('CRM') < 0) {
+          fxEl.innerHTML += '<div class="fx-item"><i class="bi bi-box-arrow-up-right"></i> ' +
+            esc(_t('sh.fx_crm_notizen', 'Weiter → CRM Notizen (neues Fenster)')) + '</div>';
+        }
+      }
+      updateWeiterButton(action);
       toast(action === 'snooze'
         ? _t('sh.toast_verschoben', 'Aufgabe verschoben')
         : _t('sh.toast_erledigt', isDemo ? 'Aufgabe erledigt (Demo)' : 'Aufgabe erledigt'));

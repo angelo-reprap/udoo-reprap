@@ -170,6 +170,12 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
     ref_label = ''
     if aufgabe.ref_type or aufgabe.ref_id:
         ref_label = f'{aufgabe.ref_type} {aufgabe.ref_id}'.strip()
+    crm_url = ''
+    if aufgabe.ref_id:
+        if aufgabe.ref_type in ('berater', 'ansprechpartner'):
+            crm_url = f'/crm/berater/?detail={aufgabe.ref_id}'
+        elif aufgabe.ref_type == 'firma':
+            crm_url = f'/crm/kunden/?detail={aufgabe.ref_id}'
     action = {
         'anruf': ('Anrufen', 'Click-to-dial — dein Telefon klingelt zuerst.'),
         'email': ('Vorschau & senden', 'E-Mail-Studio — vorbefüllt.'),
@@ -207,6 +213,7 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
         'ref_type': aufgabe.ref_type,
         'ref_id': aufgabe.ref_id,
         'ref_label': ref_label,
+        'crm_url': crm_url,
         'faellig_am': aufgabe.faellig_am.isoformat(),
         'faellig_zeit': aufgabe.faellig_zeit.strftime('%H:%M') if aufgabe.faellig_zeit else None,
         'due_label': due_label(aufgabe, today),

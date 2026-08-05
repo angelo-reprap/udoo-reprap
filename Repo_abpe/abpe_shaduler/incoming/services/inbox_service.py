@@ -471,6 +471,62 @@ def _crm_resolve(addr: str, *, subject: str = '') -> dict[str, str]:
     return out
 
 
+def _write_crm_note(
+    *,
+    bean_module: str,
+    bean_id: str,
+    note_text: str,
+    note_type: str = 'email',
+    user=None,
+) -> bool:
+    """Schreibt echte CRM-Notiz (CrmContactNote) — wie /crm/api/note/save/.
+
+    Shaduler-Aktivität allein erscheint nicht im Reiter „Notizen“.
+    """
+    text = (note_text or '').strip()
+    bid = (bean_id or '').strip()
+    if not text or not bid:
+        return False
+    try:
+        from django.apps import apps
+
+        Note = apps.get_model('abpe_crm', 'CrmContactNote')
+        Contact = apps.get_model('abpe_crm', 'CrmContact')
+        Account = apps.get_model('abpe_crm', 'CrmAccount')
+    except LookupError:
+        log.warning('abpe_crm nicht verfügbar — CRM-Notiz übersprungen')
+        return False
+
+    mod = (bean_module or '').lower()
+    contact = None
+    account = None
+    try:
+        if 'account' in mod:
+            account = Account.objects.filter(crm_id=bid).first()
+        else:
+            # Contacts / Leads / Ansprechpartner → Berater-Notiz
+            contact = Contact.objects.filter(crm_id=bid).first()
+            if contact is None and 'lead' not in mod:
+                account = Account.objects.filter(crm_id=bid).first()
+        if contact is None and account is None:
+            log.info('CRM-Notiz: Bean %s/%s nicht gefunden', bean_module, bid)
+            return False
+        username = ''
+        if user is not None:
+            username = getattr(user, 'username', '') or str(user)
+        Note.objects.create(
+            contact=contact,
+            account=account,
+            note_text=text[:8000],
+            note_type=(note_type or 'email')[:32],
+            created_by=username[:150],
+        )
+        return True
+    except Exception as exc:
+        log.warning('CRM-Notiz schreiben fehlgeschlagen: %s', exc)
+        return False
+
+
 def _crm_bean_display(bean_module: str, bean_id: str) -> tuple[str, str]:
     """→ (anzeigename, url) für Contacts/Accounts.
 
@@ -1766,10 +1822,15 @@ def mail_to_aufgabe(
 
     crm_note_written = False
     bean_id = str(mail.get('crm_bean_id') or '').strip()
-    if crm_notiz and bean_id and (notiz or titel):
+    bean_mod = str(mail.get('crm_bean_module') or '').strip()
+    # Nur bei ausgefüllter Notiz + Checkbox → echte CRM-Notiz (Reiter Notizen)
+    if crm_notiz and bean_id and notiz:
         crm_ref_type, crm_ref_id = _crm_ref_from_mail(mail, mid)
         if crm_ref_type != 'mail':
-            note_titel = (notiz or f'Notiz aus Mail: {titel}')[:250]
+            note_body = notiz
+            if titel:
+                note_body = f'{notiz}\n\n— aus Mail: {titel}'
+            note_titel = notiz[:250]
             aktivitaet_service.schreiben(
                 medium='email',
                 titel=note_titel,
@@ -1783,12 +1844,19 @@ def mail_to_aufgabe(
                     'aufgabe_id': str(aufgabe.pk),
                     'from': mail.get('from') or '',
                     'subject': mail.get('subj') or '',
-                    'crm_bean_module': mail.get('crm_bean_module') or '',
+                    'crm_bean_module': bean_mod,
                     'crm_name': mail.get('crm_name') or '',
                     'dauer_min': dauer_min,
+                    'note_text': notiz,
                 },
             )
-            crm_note_written = True
+            crm_note_written = _write_crm_note(
+                bean_module=bean_mod,
+                bean_id=bean_id,
+                note_text=note_body,
+                note_type='email',
+                user=user,
+            )
 
     try:
         mark_read(mid, user)
