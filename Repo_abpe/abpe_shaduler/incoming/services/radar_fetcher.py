@@ -1122,10 +1122,36 @@ def list_anfragen(
                 reverse=True,
             )
 
-    # Cross-Source-Dedup: eine Zeile pro RadarItemGroup
+    # Cross-Source-Dedup: fehlende Gruppen nachziehen, dann kollabieren
     raw_count = len(results)
     try:
         from . import radar_grouper
+        need = [r for r in results if not r.get('gruppe_id')]
+        if need and list_source in ('elasticsearch', 'db'):
+            try:
+                from apps.abpe_shaduler.models import RadarItem
+                import uuid as _uuid
+                pks = []
+                for r in need[:200]:
+                    try:
+                        pks.append(_uuid.UUID(str(r['id'])))
+                    except Exception:
+                        pass
+                if pks:
+                    touched = list(
+                        RadarItem.objects.filter(pk__in=pks).select_related('quelle', 'gruppe')
+                    )
+                    radar_grouper.regroup_touched(touched)
+                    # gruppe_id in Results aktualisieren
+                    refreshed = {
+                        str(o.pk): str(o.gruppe_id) if o.gruppe_id else None
+                        for o in RadarItem.objects.filter(pk__in=pks).only('id', 'gruppe_id')
+                    }
+                    for r in results:
+                        if not r.get('gruppe_id') and r.get('id') in refreshed:
+                            r['gruppe_id'] = refreshed[r['id']]
+            except Exception as exc:
+                log.warning('radar lazy regroup failed: %s', exc)
         results = radar_grouper.collapse_serialized(results, source_filter=source)
     except Exception as exc:
         log.warning('radar collapse failed: %s', exc)
