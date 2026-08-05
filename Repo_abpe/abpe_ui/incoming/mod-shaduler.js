@@ -2161,12 +2161,12 @@
         (eck.created ? ' · ' + esc(String(eck.created).replace('T', ' ').slice(0, 16)) : '') +
         '</div></div>' +
         (url
-          ? '<div class="sh-radar-frame-wrap">' +
-            '<iframe class="sh-radar-frame" src="' + esc(url) + '" title="Freelancermap"></iframe>' +
-            '<div class="sh-radar-frame-note">' +
-            esc(_t('sh.radar_frame_note',
-              'Falls der Frame blockiert: Text unten oder „Auf Freelancermap öffnen“.')) +
-            '</div></div>'
+          ? '<div class="sh-radar-ext-bar">' +
+            '<a class="sh-radar-ext-link" href="' + esc(url) + '" target="_blank" rel="noopener">' +
+            '<i class="bi bi-box-arrow-up-right"></i> ' +
+            esc(_t('sh.radar_open_fm', 'Auf Freelancermap öffnen')) +
+            '</a>' +
+            '<span class="sh-radar-ext-url">' + esc(url) + '</span></div>'
           : '') +
         '<div class="sh-viewer-body sh-readable">' +
         plainToReadableHtml(body) +
