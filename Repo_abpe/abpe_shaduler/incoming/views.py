@@ -512,6 +512,10 @@ def api_radar_items(request):
         pages = max(1, min(5, int(request.GET.get('pages') or 1)))
     except (TypeError, ValueError):
         pages = 1
+    try:
+        recent_days = max(1, min(14, int(request.GET.get('days') or 2)))
+    except (TypeError, ValueError):
+        recent_days = 2
     status = (request.GET.get('status') or 'neu').strip()
     data = radar_fetcher.list_anfragen(
         use_live_fetch=refresh,
@@ -519,6 +523,7 @@ def api_radar_items(request):
         persist=persist,
         pages=pages,
         status=status,
+        recent_days=recent_days,
     )
     return JsonResponse(data)
 

@@ -12,7 +12,7 @@ import hashlib
 import json
 import logging
 import re
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from html import unescape
 from http.cookiejar import CookieJar
 from typing import Any, Optional
@@ -302,17 +302,36 @@ def fetch_html(url: str = FM_LIST_URL, *, timeout: int = 25) -> str:
         return resp.read().decode(charset, errors='replace')
 
 
+def _in_recent_window(created: Optional[datetime], day: date, recent_days: int) -> tuple[bool, bool]:
+    """
+    Returns (include, is_older_than_window).
+    is_older_than_window → DATE_DESC kann abbrechen.
+    """
+    if not created:
+        return False, False
+    recent_days = max(1, int(recent_days or 1))
+    oldest = day - timedelta(days=recent_days - 1)
+    d = created.date()
+    if d < oldest:
+        return False, True
+    if d > day:
+        return False, False
+    return True, False
+
+
 def fetch_freelancermap_projects(
     *,
     pages: int = 1,
     today_only: bool = True,
     day: Optional[date] = None,
+    recent_days: int = 2,
 ) -> list[dict]:
     """
     Lädt 1..N Listenseiten und gibt normalisierte Projekte zurück.
-    today_only: nur Einträge mit created == day (Default: heute).
+    today_only: nur Einträge im Fenster [day-(recent_days-1) .. day] (Default: heute+gestern).
     """
     day = day or date.today()
+    recent_days = max(1, int(recent_days or 1))
     out: list[dict] = []
     seen: set[str] = set()
     for page in range(1, max(1, int(pages)) + 1):
@@ -333,9 +352,8 @@ def fetch_freelancermap_projects(
                 continue
             if today_only:
                 created = _parse_dt(item.get('raw_created') or (item.get('eckdaten') or {}).get('created'))
-                if not created:
-                    continue
-                if created.date() != day:
+                include, _older = _in_recent_window(created, day, recent_days)
+                if not include:
                     continue
             seen.add(pid)
             out.append(item)
@@ -507,15 +525,17 @@ def fetch_gulp_projects(
     page_size: int = 20,
     today_only: bool = True,
     day: Optional[date] = None,
+    recent_days: int = 2,
 ) -> list[dict]:
     """
     Lädt Gulp-Projekte via REST search (DATE_DESC).
-    today_only: nur originalPublicationDate == day.
+    today_only: Fenster [day-(recent_days-1) .. day] (Default: heute+gestern).
 
     Hinweis: Gulp-API sortiert bei limit>=50 unzuverlässig (neueste fehlen) —
     daher page_size default 20.
     """
     day = day or date.today()
+    recent_days = max(1, int(recent_days or 1))
     opener, jar = _gulp_opener()
     try:
         token = _gulp_csrf_token(opener, jar)
@@ -566,17 +586,15 @@ def fetch_gulp_projects(
                 continue
             created = _parse_dt(item.get('raw_created') or (item.get('eckdaten') or {}).get('created'))
             if today_only:
-                if not created:
-                    continue
-                if created.date() < day:
+                include, older = _in_recent_window(created, day, recent_days)
+                if older:
                     stop_old = True
                     continue
-                if created.date() > day:
+                if not include:
                     continue
                 page_had_match = True
             seen.add(pid)
             out.append(item)
-        # Wenn ganze Seite älter als day → keine weiteren Seiten
         if today_only and stop_old and not page_had_match:
             break
     out.sort(key=lambda x: x.get('raw_created') or '', reverse=True)
@@ -696,19 +714,23 @@ def list_anfragen(
     persist: bool = True,
     pages: int = 1,
     status: str = 'neu',
+    recent_days: int = 2,
 ) -> dict:
     """
     Primärer Einstieg für API.
     1) Optional live von Freelancermap + Gulp holen + persistieren
     2) Aus DB lesen (Status neu), Fallback: Live-Liste ohne DB
     """
+    recent_days = max(1, min(14, int(recent_days or 2)))
     fetched: list[dict] = []
     persist_info: dict = {}
     if use_live_fetch:
         fm_items: list[dict] = []
         gulp_items: list[dict] = []
         try:
-            fm_items = fetch_freelancermap_projects(pages=pages, today_only=today_only)
+            fm_items = fetch_freelancermap_projects(
+                pages=pages, today_only=today_only, recent_days=recent_days,
+            )
             if persist:
                 try:
                     persist_info['freelancermap'] = persist_items(
@@ -725,7 +747,10 @@ def list_anfragen(
         try:
             # Gulp: mehr Seiten à 20 (API-Limit>30 lässt Neueste weg)
             gulp_pages = max(3, min(6, int(pages) + 2))
-            gulp_items = fetch_gulp_projects(pages=gulp_pages, page_size=20, today_only=today_only)
+            gulp_items = fetch_gulp_projects(
+                pages=gulp_pages, page_size=20,
+                today_only=today_only, recent_days=recent_days,
+            )
             if persist:
                 try:
                     persist_info['gulp'] = persist_items(
@@ -742,6 +767,7 @@ def list_anfragen(
         fetched = fm_items + gulp_items
         persist_info['ok'] = True
         persist_info['fetched'] = len(fetched)
+        persist_info['recent_days'] = recent_days
 
     results: list[dict] = []
     try:
@@ -763,10 +789,18 @@ def list_anfragen(
     if not results and fetched:
         results = fetched
 
+    # Counts per source for UI
+    by_src = {}
+    for it in results:
+        s = ((it.get('sources') or ['?'])[0]) or '?'
+        by_src[s] = by_src.get(s, 0) + 1
+
     return {
         'ok': True,
         'demo': False,
         'source': '+'.join(ANFRAGEN_SOURCES),
+        'recent_days': recent_days,
+        'by_source': by_src,
         'results': results,
         'count': len(results),
         'fetched': len(fetched),
@@ -840,15 +874,21 @@ def set_status(item_id: str, status: str) -> dict:
     return {'ok': True, 'item': serialize_db_item(obj)}
 
 
-def poll_once(*, pages: int = 1, today_only: bool = True) -> dict:
+def poll_once(*, pages: int = 1, today_only: bool = True, recent_days: int = 2) -> dict:
     """Für Scheduler / management command — FM + Gulp."""
-    fm_items = fetch_freelancermap_projects(pages=pages, today_only=today_only)
+    recent_days = max(1, min(14, int(recent_days or 2)))
+    fm_items = fetch_freelancermap_projects(
+        pages=pages, today_only=today_only, recent_days=recent_days,
+    )
     fm_info = persist_items(
         fm_items, archive_older=today_only,
         source_name=SOURCE_NAME, source_url=SOURCE_URL,
     )
     gulp_pages = max(3, min(6, int(pages) + 2))
-    gulp_items = fetch_gulp_projects(pages=gulp_pages, page_size=20, today_only=today_only)
+    gulp_items = fetch_gulp_projects(
+        pages=gulp_pages, page_size=20,
+        today_only=today_only, recent_days=recent_days,
+    )
     gulp_info = persist_items(
         gulp_items, archive_older=today_only,
         source_name=GULP_SOURCE_NAME, source_url=GULP_LIST_URL,
@@ -856,6 +896,7 @@ def poll_once(*, pages: int = 1, today_only: bool = True) -> dict:
     return {
         'ok': True,
         'source': '+'.join(ANFRAGEN_SOURCES),
+        'recent_days': recent_days,
         'freelancermap': fm_info,
         'gulp': gulp_info,
         'fetched': len(fm_items) + len(gulp_items),

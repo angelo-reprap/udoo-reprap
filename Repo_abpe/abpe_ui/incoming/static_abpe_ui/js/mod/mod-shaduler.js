@@ -131,8 +131,14 @@
         '<div class="sh-pane" data-pane="radar_anfragen"><div class="sh-card sh-inbox-card sh-radar-card">' +
         '<div class="card-h"><i class="bi bi-broadcast"></i> ' +
         esc(_t('sh.tab_radar_a', 'Radar — Anfragen')) +
-        '<span class="sh-inbox-meta" style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px">' +
-        '<span id="sh-radar-hint">' + esc(_t('sh.radar_hint', 'Freelancermap + Gulp · heutige Projekte')) + '</span>' +
+        '<span class="sh-inbox-meta" style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px;flex-wrap:wrap">' +
+        '<span id="sh-radar-hint">' + esc(_t('sh.radar_hint', 'Freelancermap + Gulp · heute/gestern')) + '</span>' +
+        '<label class="sh-inbox-pagesize sh-radar-pagesize"><span>' +
+        esc(_t('sh.inbox_per_page', 'Anzeigen')) + '</span> ' +
+        '<select id="sh-radar-pagesize">' +
+        '<option value="5">5</option><option value="10">10</option>' +
+        '<option value="20" selected>20</option><option value="50">50</option>' +
+        '</select></label>' +
         '<span id="r-new" class="sh-radar-count">0</span>' +
         '<button type="button" class="sh-inbox-refresh" id="sh-radar-refresh" title="' +
         esc(_t('sh.radar_refresh', 'Aktualisieren')) + '">' +
@@ -140,6 +146,7 @@
         '</span></div>' +
         '<div class="sh-inbox-split">' +
         '<div class="sh-inbox-list-wrap">' +
+        '<div class="sh-inbox-pager sh-inbox-pager-top" id="sh-radar-pager"></div>' +
         '<div class="sh-inbox-list" id="sh-radar-list" tabindex="0"></div>' +
         '</div>' +
         '<div class="sh-inbox-viewer" id="sh-radar-viewer">' +
@@ -2035,6 +2042,12 @@
 
   var RADAR_ITEMS = [];
   var RADAR_SELECTED = null;
+  var RADAR_PAGE = 1;
+  var RADAR_PAGE_SIZE = 20;
+  try {
+    var _rps = parseInt(localStorage.getItem('sh_radar_page_size') || '20', 10);
+    if ([5, 10, 20, 50].indexOf(_rps) >= 0) RADAR_PAGE_SIZE = _rps;
+  } catch (e) { /* ignore */ }
 
   function loadRadarA() {
     var list = document.getElementById('sh-radar-list');
@@ -2049,19 +2062,34 @@
         loadRadarA();
       };
     }
-    fetch(api('radar/anfragen/?demo=0&today=1&refresh=1&pages=1'), {
+    var psz = document.getElementById('sh-radar-pagesize');
+    if (psz) {
+      psz.value = String(RADAR_PAGE_SIZE);
+      psz.onchange = function () {
+        RADAR_PAGE_SIZE = parseInt(psz.value, 10) || 20;
+        RADAR_PAGE = 1;
+        try { localStorage.setItem('sh_radar_page_size', String(RADAR_PAGE_SIZE)); } catch (e2) { /* ignore */ }
+        renderRadarA(RADAR_ITEMS);
+      };
+    }
+    fetch(api('radar/anfragen/?demo=0&today=1&refresh=1&pages=1&days=2'), {
       credentials: 'same-origin',
       headers: { 'X-Requested-With': 'XMLHttpRequest' },
     })
       .then(function (r) { return r.json(); })
       .then(function (data) {
         RADAR_ITEMS = data.results || [];
+        RADAR_PAGE = 1;
         renderRadarA(RADAR_ITEMS);
         var hint = document.getElementById('sh-radar-hint');
         if (hint) {
+          var by = data.by_source || {};
+          var parts = [];
+          Object.keys(by).forEach(function (k) { parts.push(k + ': ' + by[k]); });
           hint.textContent = data.demo
             ? _t('sh.radar_demo', 'Demo')
-            : _t('sh.radar_hint', 'Freelancermap + Gulp · heutige Projekte') +
+            : _t('sh.radar_hint', 'Freelancermap + Gulp · heute/gestern') +
+              (parts.length ? (' · ' + parts.join(', ')) : '') +
               (data.fetched != null ? (' · ' + data.fetched + ' gelesen') : '');
         }
         refreshStats();
@@ -2076,12 +2104,21 @@
   function renderRadarA(items) {
     var c = document.getElementById('sh-radar-list');
     if (!c) return;
+    items = items || [];
+    var total = items.length;
+    var size = Math.max(1, RADAR_PAGE_SIZE || 20);
+    var pages = Math.max(1, Math.ceil(total / size) || 1);
+    if (RADAR_PAGE > pages) RADAR_PAGE = pages;
+    if (RADAR_PAGE < 1) RADAR_PAGE = 1;
+    var start = (RADAR_PAGE - 1) * size;
+    var slice = items.slice(start, start + size);
+
     c.innerHTML = '';
-    if (!items.length) {
+    if (!total) {
       c.innerHTML = '<div class="sh-viewer-empty">' +
-        esc(_t('sh.radar_empty', 'Keine neuen Projekte für heute')) + '</div>';
+        esc(_t('sh.radar_empty', 'Keine neuen Projekte (heute/gestern)')) + '</div>';
     }
-    items.forEach(function (r) {
+    slice.forEach(function (r) {
       var e = document.createElement('div');
       e.className = 'ritem' + (RADAR_SELECTED && RADAR_SELECTED.id === r.id ? ' on' : '');
       e.setAttribute('data-id', r.id);
@@ -2103,9 +2140,54 @@
       c.appendChild(e);
     });
     var el = document.getElementById('r-new');
-    if (el) el.textContent = String(items.length);
+    if (el) el.textContent = String(total);
     el = document.getElementById('tb-ra');
-    if (el) el.textContent = items.length;
+    if (el) el.textContent = total;
+    renderRadarPager({ total: total, page: RADAR_PAGE, pages: pages, page_size: size });
+  }
+
+  function renderRadarPager(meta) {
+    var el = document.getElementById('sh-radar-pager');
+    if (!el) return;
+    meta = meta || {};
+    var total = Math.max(0, Number(meta.total) || 0);
+    var page = Math.max(1, Number(meta.page) || 1);
+    var pages = Math.max(1, Number(meta.pages) || 1);
+    var size = Math.max(1, Number(meta.page_size) || RADAR_PAGE_SIZE);
+    if (!total) {
+      el.innerHTML = '<span class="sh-pager-meta">' +
+        esc(_t('sh.radar_empty', 'Keine Projekte')) + '</span>';
+      return;
+    }
+    var from = (page - 1) * size + 1;
+    var to = Math.min(total, page * size);
+    var win = 5;
+    var startPg = Math.max(1, page - Math.floor(win / 2));
+    var endPg = Math.min(pages, startPg + win - 1);
+    startPg = Math.max(1, endPg - win + 1);
+    var nums = '';
+    for (var i = startPg; i <= endPg; i++) {
+      nums += '<button type="button" class="sh-pg' + (i === page ? ' on' : '') +
+        '" data-page="' + i + '">' + i + '</button>';
+    }
+    el.innerHTML =
+      '<span class="sh-pager-meta">' + esc(from + '–' + to + ' / ' + total) + '</span>' +
+      '<div class="sh-pager-btns">' +
+      '<button type="button" class="sh-pg" data-page="' + (page - 1) + '"' +
+      (page <= 1 ? ' disabled' : '') + ' aria-label="prev">&lt;</button>' +
+      nums +
+      '<button type="button" class="sh-pg" data-page="' + (page + 1) + '"' +
+      (page >= pages ? ' disabled' : '') + ' aria-label="next">&gt;</button>' +
+      '</div>';
+    el.querySelectorAll('.sh-pg').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (btn.disabled) return;
+        var p = parseInt(btn.getAttribute('data-page'), 10);
+        if (!p || p < 1 || p > pages || p === RADAR_PAGE) return;
+        RADAR_PAGE = p;
+        renderRadarA(RADAR_ITEMS);
+      });
+    });
   }
 
   function openRadarItem(r, rowEl) {

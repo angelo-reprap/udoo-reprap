@@ -422,3 +422,6 @@ body.dark-mode #sh-m-erledigt{color:#6ee7b7}
 .sh-radar-ext-link:hover{text-decoration:underline}
 .sh-radar-ext-url{font-size:.72rem;color:var(--text-secondary);word-break:break-all}
 .sh-radar-card .sh-inbox-list .ritem .hl{font-size:.86rem;line-height:1.3}
+.sh-radar-pagesize{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;margin:0}
+.sh-radar-pagesize select{padding:3px 6px;border:1px solid var(--border-color);border-radius:6px;background:var(--bg-white);font:inherit}
+.sh-radar-card .sh-inbox-pager{margin:0 0 6px}
