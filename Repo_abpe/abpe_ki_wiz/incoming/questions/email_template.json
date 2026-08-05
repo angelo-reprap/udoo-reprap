@@ -1,0 +1,172 @@
+[
+  {
+    "id": "S1",
+    "group": "Einordnung",
+    "question": "In welchem App-Bereich wird die Vorlage verwendet?",
+    "type": "select",
+    "required": true,
+    "options": [
+      {"value": "telefon", "label": "Telefon / PBX / MeetMe"},
+      {"value": "matching", "label": "Matching"},
+      {"value": "intake", "label": "Intake / CV Upload"},
+      {"value": "general", "label": "Allgemein"},
+      {"value": "portal", "label": "Portal / System"}
+    ]
+  },
+  {
+    "id": "S2",
+    "group": "Einordnung",
+    "question": "Welcher Event-Typ trifft am ehesten zu?",
+    "type": "select",
+    "required": true,
+    "options": [
+      {"value": "invite", "label": "Einladung"},
+      {"value": "reminder", "label": "Erinnerung"},
+      {"value": "confirm", "label": "Bestätigung"},
+      {"value": "cancel", "label": "Absage"},
+      {"value": "info", "label": "Information"}
+    ]
+  },
+  {
+    "id": "I1",
+    "group": "Inhalt",
+    "question": "Wie sollen Kerninformationen dargestellt werden?",
+    "type": "select",
+    "required": true,
+    "options": [
+      {"value": "prose", "label": "Fließtext"},
+      {"value": "bullet_list", "label": "Aufzählung (Format-Modul fmt_aufzaehlung)"},
+      {"value": "key_value", "label": "Label + Wert (fmt_key_value)"},
+      {"value": "facts_box", "label": "Fakten-Box (Modul fakten_box)"},
+      {"value": "table", "label": "Tabelle (fmt_tabelle / Block)"}
+    ]
+  },
+  {
+    "id": "I4",
+    "group": "Inhalt",
+    "question": "Sollen Aufzählungen / von–bis-Listen als Bullet-Liste (Block) erscheinen?",
+    "type": "select",
+    "required": false,
+    "options": [
+      {"value": "ask", "label": "KI soll in der Vorschau nachfragen"},
+      {"value": "yes_block", "label": "Ja — als Block/Aufzählung"},
+      {"value": "prose", "label": "Nein — im Fließtext belassen"}
+    ]
+  },
+  {
+    "id": "I3",
+    "group": "Inhalt",
+    "question": "Welcher Ton?",
+    "type": "select",
+    "required": false,
+    "options": [
+      {"value": "formal", "label": "Formell"},
+      {"value": "neutral", "label": "Neutral geschäftlich"},
+      {"value": "friendly", "label": "Freundlich"}
+    ]
+  },
+  {
+    "id": "M1",
+    "group": "MeetMe",
+    "question": "Welche Termin-Infos müssen in die Mail?",
+    "type": "multiselect",
+    "required": false,
+    "show_if": {"S1": ["telefon"]},
+    "options": [
+      {"value": "termin_datum", "label": "Datum {termin_datum}"},
+      {"value": "termin_uhrzeit", "label": "Uhrzeit {termin_uhrzeit}"},
+      {"value": "raum", "label": "Raum {raum}"},
+      {"value": "einwahl_info", "label": "Einwahl {einwahl_info}"},
+      {"value": "title", "label": "Titel {title}"}
+    ]
+  },
+  {
+    "id": "M2",
+    "group": "MeetMe",
+    "question": "Teilnehmerliste anzeigen?",
+    "type": "select",
+    "required": false,
+    "show_if": {"S1": ["telefon"]},
+    "options": [
+      {"value": "none", "label": "Nein"},
+      {"value": "block", "label": "Block Teilnehmer ({{block:block_teilnehmer}})"},
+      {"value": "plain", "label": "Plaintext {teilnehmer_liste} (Zwischenvariante)"},
+      {"value": "html", "label": "HTML {teilnehmer_liste_html} (Zwischenvariante)"}
+    ]
+  },
+  {
+    "id": "L4",
+    "group": "Layout",
+    "question": "System-Status / Ampel anzeigen?",
+    "type": "select",
+    "required": false,
+    "show_if": {"S1": ["portal", "general"]},
+    "options": [
+      {"value": "none", "label": "Nein"},
+      {"value": "block", "label": "Block System-Status ({{block:block_system_status}})"},
+      {"value": "html_var", "label": "Variable {system_status_html} (Zwischenvariante)"}
+    ]
+  },
+  {
+    "id": "L1",
+    "group": "Layout",
+    "question": "Corporate Header (Marke)?",
+    "type": "select",
+    "required": false,
+    "options": [
+      {"value": "abcona_header_blau", "label": "Header — Blau (abcona e. K.)"},
+      {"value": "none", "label": "Keiner (nicht empfohlen)"}
+    ]
+  },
+  {
+    "id": "L2",
+    "group": "Layout",
+    "question": "Event-Badge unter dem Header?",
+    "type": "select",
+    "required": false,
+    "options": [
+      {"value": "none", "label": "Keines"},
+      {"value": "label_info", "label": "Info — blau"},
+      {"value": "label_bestaetigt", "label": "Bestätigung — grün"},
+      {"value": "label_warnung", "label": "Alert — rot"}
+    ]
+  },
+  {
+    "id": "L3",
+    "group": "Layout",
+    "question": "Button / CTA?",
+    "type": "select",
+    "required": false,
+    "options": [
+      {"value": "none", "label": "Keiner"},
+      {"value": "cta_blau", "label": "Button — Blau (cta_blau)"},
+      {"value": "cta_gruen", "label": "Button — Grün (cta_gruen)"}
+    ]
+  },
+  {
+    "id": "G1",
+    "group": "Signatur",
+    "question": "Signatur-Modus? (XOR Footer: bei NONE kommt Firmen-Footer)",
+    "type": "select",
+    "required": true,
+    "options": [
+      {"value": "USER", "label": "Absender (User) — kein Footer"},
+      {"value": "TEAM", "label": "Team / Ihr abcona e. K. Team — kein Footer"},
+      {"value": "NONE", "label": "Keine Signatur → Footer-Impressum"},
+      {"value": "FIXED", "label": "Feste Signatur — kein Footer"},
+      {"value": "DYNAMIC", "label": "Beim Versand wählbar — kein Footer"}
+    ]
+  },
+  {
+    "id": "A1",
+    "group": "Absender",
+    "question": "Absender-Modus?",
+    "type": "select",
+    "required": true,
+    "options": [
+      {"value": "USER", "label": "User (eingeloggt)"},
+      {"value": "TEMPLATE", "label": "Template (feste Adresse)"},
+      {"value": "AUTO", "label": "Auto / System"}
+    ]
+  }
+]

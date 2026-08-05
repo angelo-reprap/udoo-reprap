@@ -1,0 +1,40 @@
+[
+  {
+    "id": "T1",
+    "group": "Modul",
+    "type": "select",
+    "required": true,
+    "question": "Welche Art von Modul?",
+    "options": [
+      {"value": "HEADER", "label": "Header (oben, Marke)"},
+      {"value": "SECTION", "label": "Inhalt / Abschnitt"},
+      {"value": "BUTTON", "label": "Button / CTA"},
+      {"value": "FOOTER", "label": "Footer / Impressum"},
+      {"value": "SIGNATURE", "label": "Signatur"},
+      {"value": "DISCLAIMER", "label": "Disclaimer / Hinweis"}
+    ]
+  },
+  {
+    "id": "M1",
+    "group": "Modul",
+    "type": "select",
+    "required": true,
+    "question": "Ausgangspunkt?",
+    "options": [
+      {"value": "new", "label": "Neues Modul von Grund auf"},
+      {"value": "extend", "label": "Bestehendes Modul erweitern / anpassen"}
+    ]
+  },
+  {
+    "id": "C1",
+    "group": "Modul",
+    "type": "select",
+    "required": false,
+    "question": "Soll Firmendaten (abcona Web/Tel/Mail) enthalten sein?",
+    "options": [
+      {"value": "yes", "label": "Ja — www.abcona.de · 06171 886710 · info@abcona.de"},
+      {"value": "no", "label": "Nein / nicht nötig"}
+    ],
+    "show_if": {"T1": ["HEADER", "FOOTER", "SECTION"]}
+  }
+]

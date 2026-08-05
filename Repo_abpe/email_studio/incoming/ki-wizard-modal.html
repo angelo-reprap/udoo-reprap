@@ -1,0 +1,125 @@
+{# KI-Wizard Modal — Landing + Editor (global in studio.html) #}
+<div id="es-ki-wizard-modal" class="es-ki-wizard-wrap" aria-hidden="true">
+    <div class="es-ki-wizard-box" role="dialog" aria-modal="true" aria-labelledby="es-ki-wizard-title">
+        <div class="es-ki-wizard-hdr">
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-stars"></i>
+                <span id="es-ki-wizard-title" data-i18n="es.ki_title">KI-Vorlage generieren</span>
+            </div>
+            <button type="button" class="es-ki-wizard-close" onclick="ESKiWizard.close()" aria-label="Close">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <div class="es-ki-wizard-steps">
+            <span class="es-ki-step active" data-step="briefing" data-i18n="es.ki_step_briefing">Briefing</span>
+            <span class="es-ki-step" data-step="clarify" data-i18n="es.ki_step_clarify">Klärung</span>
+            <span class="es-ki-step" data-step="meta" data-i18n="es.ki_step_meta">Metadaten</span>
+            <span class="es-ki-step" data-step="preview" data-i18n="es.ki_step_preview">Vorschau</span>
+        </div>
+
+        <div class="es-ki-wizard-body">
+            <div id="es-ki-panel-briefing" class="es-ki-panel active">
+                <label class="es-ki-lbl" id="es-ki-briefing-lbl" data-i18n="es.ki_briefing_lbl">Was soll die E-Mail?</label>
+                <textarea id="es-ki-briefing" class="form-control" rows="5"
+                          data-i18n-placeholder="es.ki_briefing_ph"
+                          placeholder="z.B. Abwesenheits-Mail mit Vertretung, Weihnachtsgrüße, MeetMe-Einladung …"></textarea>
+                <p class="es-ki-hint" id="es-ki-briefing-hint" data-i18n="es.ki_briefing_hint">Die KI stellt Rückfragen zu Layout, Signatur und Inhalt.</p>
+            </div>
+
+            <div id="es-ki-panel-clarify" class="es-ki-panel">
+                <div id="es-ki-questions" class="es-ki-questions"></div>
+            </div>
+
+            <div id="es-ki-panel-meta" class="es-ki-panel">
+                <div class="es-form-row col2">
+                    <div>
+                        <label class="es-ki-lbl" data-i18n="es.label_name">Name</label>
+                        <input id="es-ki-meta-name" class="form-control form-control-sm">
+                    </div>
+                    <div>
+                        <label class="es-ki-lbl" data-i18n="es.label_identifier">Identifier</label>
+                        <input id="es-ki-meta-identifier" class="form-control form-control-sm" style="font-family:monospace;">
+                    </div>
+                </div>
+                <div class="es-ki-field" id="es-ki-subject-wrap">
+                    <label class="es-ki-lbl" data-i18n="es.label_subject">Betreff</label>
+                    <input id="es-ki-meta-subject" class="form-control form-control-sm">
+                </div>
+                <div class="es-ki-field" id="es-ki-module-type-wrap" style="display:none;">
+                    <label class="es-ki-lbl" data-i18n="es.label_module_type">Modul-Typ</label>
+                    <select id="es-ki-meta-module-type" class="form-select form-select-sm">
+                        <option value="HEADER">HEADER</option>
+                        <option value="SECTION">SECTION</option>
+                        <option value="BUTTON">BUTTON</option>
+                        <option value="FOOTER">FOOTER</option>
+                        <option value="SIGNATURE">SIGNATURE</option>
+                        <option value="DISCLAIMER">DISCLAIMER</option>
+                    </select>
+                </div>
+                <div class="es-form-row col2">
+                    <div id="es-ki-scope-wrap">
+                        <label class="es-ki-lbl" data-i18n="es.label_scope">Bereich</label>
+                        <select id="es-ki-meta-scope" class="form-select form-select-sm">
+                            <option value="telefon">Telefon / PBX</option>
+                            <option value="matching">Matching</option>
+                            <option value="general">Allgemein</option>
+                            <option value="portal">Portal</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="es-ki-lbl" data-i18n="es.col_status">Status</label>
+                        <select id="es-ki-meta-status" class="form-select form-select-sm">
+                            <option value="DRAFT" data-i18n="es.status_draft">Entwurf</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="es-ki-panel-preview" class="es-ki-panel">
+                <div id="es-ki-preview-subject" class="es-ki-preview-subject"></div>
+                <div id="es-ki-preview-html" class="es-ki-preview-html"></div>
+                <p id="es-ki-preview-source" class="es-ki-hint"></p>
+                {# MCID: Vorschläge Module/Blöcke (Nachfrage Aufzählung/Tabelle …) #}
+                <div id="es-ki-layout-suggestions" class="es-ki-layout-suggestions" style="display:none;">
+                    <div class="es-ki-lbl" data-i18n="es.ki_layout_suggest_title">Layout-Vorschläge</div>
+                    <p class="es-ki-hint" data-i18n="es.ki_layout_suggest_hint">
+                        Soll ein Abschnitt als Aufzählung, Tabelle oder Block dargestellt werden?
+                    </p>
+                    <div id="es-ki-layout-suggestions-list"></div>
+                </div>
+                <p id="es-ki-preview-warn" class="es-ki-warn" style="display:none;font-size:12px;"></p>
+                <div id="es-ki-refine-wrap" class="es-ki-refine-wrap">
+                    <label class="es-ki-lbl" data-i18n="es.ki_refine_lbl">Anpassung / Verfeinerung</label>
+                    <textarea id="es-ki-refine-notes" class="form-control form-control-sm" rows="3"
+                              data-i18n-placeholder="es.ki_refine_ph"
+                              placeholder="z.B. Vertretung als eigene Variable, kürzerer Text, kein Footer"></textarea>
+                    <button type="button" class="btn btn-sm btn-outline-primary mt-2" onclick="ESKiWizard.refine()">
+                        <i class="bi bi-arrow-repeat"></i>
+                        <span data-i18n="es.ki_refine_btn">Neu generieren</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="es-ki-error" class="es-ki-error" style="display:none;"></div>
+            <div id="es-ki-loading" class="es-ki-loading" style="display:none;">
+                <div class="spinner-border spinner-border-sm text-primary"></div>
+                <span data-i18n="es.ki_loading">KI arbeitet…</span>
+            </div>
+        </div>
+
+        <div class="es-ki-wizard-footer">
+            <button type="button" class="btn btn-sm btn-outline-secondary" id="es-ki-btn-back"
+                    onclick="ESKiWizard.back()" style="display:none;">
+                <span data-i18n="es.ki_btn_back">Zurück</span>
+            </button>
+            <div class="es-ki-footer-spacer"></div>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="ESKiWizard.close()">
+                <span data-i18n="es.btn_cancel">Abbrechen</span>
+            </button>
+            <button type="button" class="btn btn-sm btn-primary" id="es-ki-btn-next" onclick="ESKiWizard.next()">
+                <span data-i18n="es.ki_btn_next">Weiter</span>
+            </button>
+        </div>
+    </div>
+</div>
