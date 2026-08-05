@@ -180,6 +180,16 @@
       '<div class="excerpt" id="sh-m-excerpt"></div>' +
       '<button type="button" class="primary" id="sh-m-action"></button>' +
       '<div class="note" id="sh-m-actnote"></div>' +
+      '<div class="sh-m-quick" id="sh-m-quick">' +
+      '<button type="button" class="sh-m-qbtn" id="sh-m-erledigt">' +
+      '<i class="bi bi-check2-circle"></i> ' + _t('sh.erg_erledigt', 'Erledigt') + '</button>' +
+      '<button type="button" class="sh-m-qbtn" id="sh-m-verschieben">' +
+      '<i class="bi bi-calendar-plus"></i> ' + _t('sh.verschieben', 'Verschieben') + '</button>' +
+      '</div>' +
+      '<div class="sh-m-snooze" id="sh-m-snooze" style="display:none">' +
+      '<div class="qlbl">' + _t('sh.verschieben_wahl', 'Verschieben um') + '</div>' +
+      '<div class="sh-pick-row" id="sh-m-snooze-opts"></div>' +
+      '</div>' +
       '</div>' +
       '<div class="phase" id="sh-ph-res" style="display:none">' +
       '<div class="qlbl">' + _t('sh.popup_ergebnis', 'Wie ist es ausgegangen?') + '</div>' +
@@ -1520,6 +1530,39 @@
       el.classList.toggle('on', on);
       el.style.display = on ? '' : 'none';
     });
+    if (which !== 'act') {
+      var snoozeBox = document.getElementById('sh-m-snooze');
+      if (snoozeBox) snoozeBox.style.display = 'none';
+    }
+  }
+
+  function findResultByCode(code) {
+    var list = (currentTask && currentTask.results) || [];
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].code === code) return list[i];
+    }
+    if (code === 'erledigt') {
+      return { code: 'erledigt', label: _t('sh.erg_erledigt', 'Erledigt ✓'), fx: [_t('sh.fx_historie', 'Historie-Eintrag')] };
+    }
+    if (code === 'snooze') {
+      return { code: 'snooze', label: _t('sh.erg_snooze', 'Verschoben'), fx: [_t('sh.fx_snooze', 'Fälligkeit verschoben')] };
+    }
+    return { code: code, label: code, fx: [] };
+  }
+
+  function dialTaskPhone(t) {
+    if (!t) return false;
+    var phone = '';
+    if (t.phone) phone = t.phone;
+    if (!phone && t.excerpt && t.excerpt.phone) phone = t.excerpt.phone;
+    if (!phone && t.beschreibung) {
+      var m = String(t.beschreibung).match(/tel:([+\d\s\-()/]+)/i);
+      if (m) phone = m[1];
+    }
+    phone = String(phone || '').replace(/[^\d+]/g, '');
+    if (!phone) return false;
+    window.location.href = 'tel:' + phone;
+    return true;
   }
 
   function openModal(t) {
@@ -1541,18 +1584,68 @@
     document.getElementById('sh-m-excerpt').innerHTML = html || '<div class="none">' + esc(_t('sh.kein_auszug', 'Kein Auszug')) + '</div>';
     document.getElementById('sh-m-action').textContent = t.action_label || _t('sh.erledigen', 'Erledigen');
     document.getElementById('sh-m-actnote').textContent = t.action_note || '';
+
+    var snoozeBox = document.getElementById('sh-m-snooze');
+    if (snoozeBox) snoozeBox.style.display = 'none';
+
     var actBtn = document.getElementById('sh-m-action');
     if (actBtn) {
       actBtn.onclick = function () {
         if (t.whatsapp_url) {
           window.open(t.whatsapp_url, '_blank', 'noopener');
+        } else if (t.art === 'anruf') {
+          dialTaskPhone(t);
         }
+        // Nach Kanal-Aktion → Ergebniswahl (Nicht erreicht / …)
         showPhase('res');
       };
     }
+
+    var btnErledigt = document.getElementById('sh-m-erledigt');
+    if (btnErledigt) {
+      btnErledigt.onclick = function () {
+        applyResult(findResultByCode('erledigt'));
+      };
+    }
+    var btnVerschieben = document.getElementById('sh-m-verschieben');
+    if (btnVerschieben) {
+      btnVerschieben.onclick = function () {
+        var box = document.getElementById('sh-m-snooze');
+        var opts = document.getElementById('sh-m-snooze-opts');
+        if (!box || !opts) {
+          applyResult(Object.assign({}, findResultByCode('snooze'), { daten: { days: 1 } }));
+          return;
+        }
+        if (box.style.display === 'block') {
+          box.style.display = 'none';
+          return;
+        }
+        var choices = [
+          { days: 1, label: _t('sh.snooze_1d', '+1 Tag') },
+          { days: 2, label: _t('sh.snooze_2d', '+2 Tage') },
+          { days: 7, label: _t('sh.snooze_1w', '+1 Woche') },
+        ];
+        opts.innerHTML = '';
+        choices.forEach(function (c) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'sh-pick';
+          b.textContent = c.label;
+          b.addEventListener('click', function () {
+            applyResult(Object.assign({}, findResultByCode('snooze'), {
+              label: _t('sh.erg_snooze', 'Verschoben') + ' (' + c.label + ')',
+              daten: { days: c.days },
+            }));
+          });
+          opts.appendChild(b);
+        });
+        box.style.display = 'block';
+      };
+    }
+
     var results = t.results || [
-      { label: _t('sh.erg_erledigt', 'Erledigt ✓'), sub: '', fx: [_t('sh.fx_historie', 'Historie-Eintrag')] },
-      { label: _t('sh.erg_snooze', 'Später (+1 Tag)'), sub: '', fx: [_t('sh.fx_snooze', 'Fälligkeit +1 Tag')] },
+      { code: 'erledigt', label: _t('sh.erg_erledigt', 'Erledigt ✓'), sub: '', fx: [_t('sh.fx_historie', 'Historie-Eintrag')] },
+      { code: 'snooze', label: _t('sh.erg_snooze', 'Später (+1 Tag)'), sub: '', fx: [_t('sh.fx_snooze', 'Fälligkeit +1 Tag')], daten: { days: 1 } },
     ];
     var box = document.getElementById('sh-m-results');
     box.innerHTML = '';
@@ -1582,20 +1675,39 @@
 
     var tid = currentTask && currentTask.id;
     var isDemo = !tid || String(tid).indexOf('demo') === 0;
+    var isSnooze = (r.code === 'snooze') || /snooze|später|verschob/i.test(String(r.label || ''));
+    var daten = r.daten && typeof r.daten === 'object' ? r.daten : {};
+    if (isSnooze && daten.days == null) daten.days = 1;
 
-    function finishLocal() {
+    function finishLocal(action) {
+      action = action || (isSnooze ? 'snooze' : 'erledigt');
       if (currentTask && currentTask.id) {
-        TASKS = TASKS.filter(function (t) { return t.id !== currentTask.id; });
-        STATS.erledigt_heute = (STATS.erledigt_heute || 0) + 1;
-        renderAcc();
-        refreshStats();
+        if (action === 'snooze') {
+          // Task bleibt, Liste neu laden
+          loadAufgaben();
+        } else {
+          TASKS = TASKS.filter(function (t) { return t.id !== currentTask.id; });
+          STATS.erledigt_heute = (STATS.erledigt_heute || 0) + 1;
+          renderAcc();
+          refreshStats();
+        }
       }
       showPhase('fx');
-      toast(_t('sh.toast_erledigt', isDemo ? 'Aufgabe erledigt (Demo)' : 'Aufgabe erledigt'));
+      var fxTitle = document.querySelector('#sh-ph-fx .qlbl');
+      if (fxTitle) {
+        fxTitle.innerHTML = action === 'snooze'
+          ? ('<i class="bi bi-calendar-check" style="color:var(--abcona-blue)"></i> ' +
+            _t('sh.popup_verschoben', 'Verschoben — automatisch passiert:'))
+          : ('<i class="bi bi-check-circle" style="color:var(--status-green)"></i> ' +
+            _t('sh.popup_erledigt', 'Erledigt — automatisch passiert:'));
+      }
+      toast(action === 'snooze'
+        ? _t('sh.toast_verschoben', 'Aufgabe verschoben')
+        : _t('sh.toast_erledigt', isDemo ? 'Aufgabe erledigt (Demo)' : 'Aufgabe erledigt'));
     }
 
     if (isDemo) {
-      finishLocal();
+      finishLocal(isSnooze ? 'snooze' : 'erledigt');
       return;
     }
 
@@ -1608,23 +1720,26 @@
         'X-Requested-With': 'XMLHttpRequest',
       },
       body: JSON.stringify({
-        code: r.code || '',
+        code: r.code || (isSnooze ? 'snooze' : 'erledigt'),
         ergebnis_id: r.id || '',
-        daten: {},
+        daten: daten,
       }),
     })
       .then(function (res) { return res.json().then(function (j) { return { ok: res.ok, j: j }; }); })
       .then(function (pack) {
+        if (!pack.ok) {
+          toast((pack.j && (pack.j.error || pack.j.detail)) || _t('sh.toast_error', 'Speichern fehlgeschlagen'));
+          return;
+        }
         if (pack.j && pack.j.fx && pack.j.fx.length) {
           fx.innerHTML = pack.j.fx.map(function (x) {
             return '<div class="fx-item"><i class="bi bi-check2"></i> ' + esc(x) + '</div>';
           }).join('');
         }
-        finishLocal();
+        finishLocal((pack.j && pack.j.action) || (isSnooze ? 'snooze' : 'erledigt'));
       })
       .catch(function () {
         toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
-        showPhase('fx');
       });
   }
 

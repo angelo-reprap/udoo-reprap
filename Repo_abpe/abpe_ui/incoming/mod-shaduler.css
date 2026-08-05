@@ -321,6 +321,20 @@ body.dark-mode .gentext{background:#064e3b;color:#6ee7b7}
 .stat-title{font-size:.78rem;color:var(--text-secondary,#64748b);margin-top:4px}
 .mb .primary,.sh-modal .primary{display:block;width:100%;margin-top:10px;background:var(--abcona-blue,#163258);color:#fff;border:0;border-radius:9px;padding:11px 14px;font-weight:600;cursor:pointer}
 .mb .primary:hover{filter:brightness(1.08)}
+/* Schnellaktionen unter dem Primär-Button (Erledigt / Verschieben) */
+.sh-m-quick{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.sh-m-qbtn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  border:1px solid var(--border-color,#e2e8f0);background:var(--bg-white,#fff);
+  color:var(--text-primary,#1e1e1e);border-radius:9px;padding:10px 12px;
+  font-size:.88rem;font-weight:600;cursor:pointer;line-height:1.2;
+}
+.sh-m-qbtn:hover{border-color:var(--abcona-blue-light,#3b82f6);background:var(--abcona-blue-alpha,rgba(22,50,88,.06))}
+#sh-m-erledigt{border-color:var(--status-green,#10b981);color:#047857}
+#sh-m-erledigt:hover{background:rgba(16,185,129,.08);border-color:var(--status-green,#10b981)}
+body.dark-mode #sh-m-erledigt{color:#6ee7b7}
+.sh-m-snooze{margin-top:10px;padding-top:4px}
+.sh-m-snooze .qlbl{font-size:.82rem;font-weight:600;margin:0 0 8px;color:var(--text-secondary,#64748b)}
 .results{display:flex;flex-direction:column;gap:8px}
 .done-btn{display:inline-flex;align-items:center;gap:6px;background:var(--status-green,#10b981);color:#fff;border:0;border-radius:9px;padding:10px 14px;font-weight:600;cursor:pointer}
 .fx-item{display:flex;gap:8px;padding:3px 0}
