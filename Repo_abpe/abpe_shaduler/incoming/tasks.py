@@ -6,13 +6,17 @@ Architektur Kap. 0: KEIN Celery Beat — periodische Läufe als SchedulerJob
 
 Wichtig: abpe_scheduler POST mit timeout=15s. Lange Jobs (email_index)
 dürfen im Webhook NICHT synchron laufen → Celery-Queue, sofort 200.
+Celery down → Thread-Fallback (nicht sync im Request).
+Indexer-Fehler → Celery-Retry 60s / 120s / 180s.
 """
 import logging
+import threading
 
 logger = logging.getLogger(__name__)
 
 EMAIL_INDEX_LOCK = 'shaduler:email_index:lock'
 EMAIL_INDEX_LOCK_TTL = 600  # Sekunden — verhindert parallele IMAP-Läufe
+EMAIL_INDEX_RETRY_BASE = 60  # 60 → 120 → 180
 
 
 def shaduler_radar_poll(payload=None):
@@ -67,12 +71,20 @@ def _email_index_kwargs(payload=None):
     }
 
 
-def shaduler_email_index(payload=None):
-    """Webhook: sofort 200, Index-Lauf asynchron via Celery.
+def _email_index_thread(**kw):
+    """Daemon-Thread wenn Celery/Broker nicht erreichbar — Webhook bleibt <15s."""
+    def _run():
+        try:
+            _email_index_sync(**kw)
+        except Exception:
+            logger.exception('email_index thread fallback failed')
+    t = threading.Thread(target=_run, name='shaduler-email-index', daemon=True)
+    t.start()
+    return t.name
 
-    Scheduler-Client-Timeout ist 15s — synchroner IMAP/ES-Lauf schlägt sonst
-    fehl (Probe: newest_date bleibt stehen).
-    """
+
+def shaduler_email_index(payload=None):
+    """Webhook: sofort 200, Index-Lauf asynchron via Celery (sonst Thread)."""
     kw = _email_index_kwargs(payload)
     logger.info(
         'shaduler_email_index: queue since_days=%s account=%s folders=%s incremental=%s',
@@ -84,13 +96,23 @@ def shaduler_email_index(payload=None):
             'ok': True,
             'job': 'email_index',
             'queued': True,
+            'via': 'celery',
             'task_id': getattr(async_result, 'id', None),
             **{k: v for k, v in kw.items() if k != 'account' or v},
         }
     except Exception as exc:
-        # Celery down → synchroner Fallback (kann am 15s-Timeout scheitern)
-        logger.warning('email_index Celery unavailable, sync fallback: %s', exc)
-        return _email_index_sync(**kw)
+        # Celery/Broker down → Thread, nicht sync im HTTP-Request (15s-Timeout)
+        logger.warning('email_index Celery unavailable, thread fallback: %s', exc)
+        name = _email_index_thread(**kw)
+        return {
+            'ok': True,
+            'job': 'email_index',
+            'queued': True,
+            'via': 'thread',
+            'thread': name,
+            'celery_error': str(exc)[:200],
+            **{k: v for k, v in kw.items() if k != 'account' or v},
+        }
 
 
 def _email_index_sync(*, since_days=2, account=None, folders='INBOX', incremental=True):
@@ -129,22 +151,51 @@ def _email_index_sync(*, since_days=2, account=None, folders='INBOX', incrementa
 
 try:
     from celery import shared_task
+    from celery.exceptions import SoftTimeLimitExceeded
 
-    @shared_task(name='abpe_shaduler.email_index_run', ignore_result=True)
-    def email_index_run(since_days=2, account=None, folders='INBOX', incremental=True):
-        """Celery: IMAP→ES Indexer (darf länger als Scheduler-Webhook-Timeout laufen)."""
+    @shared_task(
+        bind=True,
+        name='abpe_shaduler.email_index_run',
+        ignore_result=True,
+        max_retries=3,
+        soft_time_limit=540,
+        time_limit=600,
+    )
+    def email_index_run(self, since_days=2, account=None, folders='INBOX', incremental=True):
+        """Celery: IMAP→ES. Bei Fehler Retry nach 60 / 120 / 180 Sekunden."""
         logger.info(
-            'email_index_run start since_days=%s account=%s folders=%s incremental=%s',
-            since_days, account, folders, incremental,
+            'email_index_run start try=%s since_days=%s account=%s folders=%s incremental=%s',
+            getattr(self.request, 'retries', 0), since_days, account, folders, incremental,
         )
-        result = _email_index_sync(
-            since_days=since_days,
-            account=account,
-            folders=folders,
-            incremental=incremental,
+        try:
+            result = _email_index_sync(
+                since_days=since_days,
+                account=account,
+                folders=folders,
+                incremental=incremental,
+            )
+        except SoftTimeLimitExceeded as exc:
+            result = {'ok': False, 'error': f'soft_time_limit: {exc}'}
+        except Exception as exc:
+            result = {'ok': False, 'error': str(exc)}
+
+        if result.get('ok') or result.get('skipped') == 'lock':
+            logger.info(
+                'email_index_run done: %s',
+                {k: result.get(k) for k in ('ok', 'skipped', 'error')},
+            )
+            return result
+
+        retries = int(getattr(self.request, 'retries', 0) or 0)
+        countdown = EMAIL_INDEX_RETRY_BASE * (retries + 1)  # 60, 120, 180
+        logger.warning(
+            'email_index_run fail try=%s next_in=%ss err=%s',
+            retries, countdown, (result.get('error') or '')[:160],
         )
-        logger.info('email_index_run done: %s', {k: result.get(k) for k in ('ok', 'skipped', 'error')})
-        return result
+        raise self.retry(
+            countdown=countdown,
+            exc=RuntimeError(result.get('error') or 'email_index failed'),
+        )
 
 except Exception:  # pragma: no cover — Celery optional beim Import
     def email_index_run(**kwargs):  # type: ignore

@@ -35,6 +35,13 @@ Jobs (RRULE):
 Deshalb enthält die Callback-URL `?token=` (siehe `scheduler_client.build_callback_url`).
 Indexer läuft async via Celery. Nach Token-Fix: `register_scheduler_jobs` erneut.
 
+**Härte (email_index):**
+- Celery-Retry bei Fehler: 60s → 120s → 180s (`max_retries=3`)
+- Celery/Broker down → Daemon-Thread-Fallback (Webhook bleibt schnell)
+- Soft-Poll UI: Pause bei Dialog/Hidden-Tab; Fehler-Backoff 60→120→180; Refresh-Button
+
+Supervisor restartet Celery bei Crash — kein Auto-Restart aus dem Webhook nötig.
+
 ## Webhook-Auth prüfen (401 vs. OK)
 
 PUSH vom Scheduler braucht denselben `SCHEDULER_SERVICE_TOKEN` wie Django.

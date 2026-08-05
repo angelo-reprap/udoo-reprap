@@ -165,6 +165,10 @@ body.dark-mode .sources a{color:#8fb3dd}
 @media(max-width:900px){.sh-inbox-list{max-height:38vh}}
 .sh-inbox-pager{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:8px 16px;border-bottom:1px solid var(--border-light);background:var(--abcona-gray-card);flex-shrink:0}
 .sh-inbox-pager-top{border-top:none}
+.sh-inbox-fresh{font-size:.72rem;opacity:.85}
+.sh-inbox-fresh.stale{color:var(--status-yellow,#f59e0b);opacity:1}
+.sh-inbox-refresh{border:1px solid var(--border-color,#dee2e6);background:var(--bg-white,#fff);color:var(--abcona-blue,#163258);border-radius:6px;padding:2px 8px;font-size:.85rem;line-height:1.2;cursor:pointer}
+.sh-inbox-refresh:hover{background:var(--abcona-blue-alpha,rgba(22,50,88,.08))}
 .sh-pager-meta{font-size:.75rem;color:var(--text-secondary)}
 .sh-pager-btns{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
 .sh-pg{min-width:30px;height:28px;padding:0 8px;border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-primary);border-radius:6px;font-size:.78rem;cursor:pointer;line-height:1}

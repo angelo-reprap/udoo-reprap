@@ -44,8 +44,11 @@
   var INBOX_ITEMS = [];
   var INBOX_SELECTED = null;
   var INBOX_POLL_MS = 60000;
+  var INBOX_POLL_MS_MAX = 180000;
   var inboxPollTimer = null;
   var inboxPollInFlight = false;
+  var inboxPollBackoffMs = INBOX_POLL_MS;
+  var inboxLastOkAt = null;
   var EDMS_API = '/edms/api/';
 
   var ARTEN = {
@@ -104,8 +107,12 @@
       return (
         '<div class="sh-pane" data-pane="posteingang"><div class="sh-card sh-inbox-card">' +
         '<div class="card-h"><i class="bi bi-inbox"></i> Posteingang' +
-        '<span style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary)">' +
-        _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick') +
+        '<span class="sh-inbox-meta" style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px">' +
+        '<span id="sh-inbox-hint">' + _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick') + '</span>' +
+        '<span id="sh-inbox-fresh" class="sh-inbox-fresh" title=""></span>' +
+        '<button type="button" class="sh-inbox-refresh" id="sh-inbox-refresh" title="' +
+        esc(_t('sh.inbox_refresh', 'Liste aktualisieren')) + '">' +
+        '<i class="bi bi-arrow-clockwise"></i></button>' +
         '</span></div>' +
         '<div class="sh-inbox-pager sh-inbox-pager-top" id="sh-inbox-pager"></div>' +
         '<div class="sh-inbox-filters" id="sh-inbox-filters"></div>' +
@@ -284,18 +291,71 @@
     return false;
   }
 
-  function startInboxPoll() {
+  function inboxTabActive() {
+    var tab = document.querySelector('#shaduler-root .mtab.on');
+    return !!(tab && tab.getAttribute('data-t') === 'posteingang');
+  }
+
+  function updateInboxFresh(ok) {
+    var el = document.getElementById('sh-inbox-fresh');
+    if (!el) return;
+    if (ok) {
+      inboxLastOkAt = new Date();
+      inboxPollBackoffMs = INBOX_POLL_MS;
+      el.classList.remove('stale');
+    } else {
+      el.classList.add('stale');
+    }
+    if (!inboxLastOkAt) {
+      el.textContent = '';
+      return;
+    }
+    var hh = String(inboxLastOkAt.getHours()).padStart(2, '0');
+    var mm = String(inboxLastOkAt.getMinutes()).padStart(2, '0');
+    el.textContent = ok
+      ? (_t('sh.inbox_fresh', 'aktualisiert') + ' ' + hh + ':' + mm)
+      : (_t('sh.inbox_stale', 'veraltet') + ' · ' + hh + ':' + mm);
+  }
+
+  function scheduleInboxPoll(delayMs) {
     stopInboxPoll();
-    inboxPollTimer = setInterval(function () {
-      var tab = document.querySelector('#shaduler-root .mtab.on');
-      if (!tab || tab.getAttribute('data-t') !== 'posteingang') return;
+    if (!inboxTabActive()) return;
+    var ms = Math.max(INBOX_POLL_MS, Math.min(INBOX_POLL_MS_MAX, delayMs || inboxPollBackoffMs));
+    inboxPollTimer = setTimeout(function () {
+      inboxPollTimer = null;
+      if (!inboxTabActive()) return;
+      if (document.visibilityState === 'hidden') {
+        scheduleInboxPoll(INBOX_POLL_MS);
+        return;
+      }
       loadInbox({ soft: true });
-    }, INBOX_POLL_MS);
+    }, ms);
+  }
+
+  function startInboxPoll() {
+    inboxPollBackoffMs = INBOX_POLL_MS;
+    scheduleInboxPoll(INBOX_POLL_MS);
+    var btn = document.getElementById('sh-inbox-refresh');
+    if (btn && !btn._bound) {
+      btn._bound = true;
+      btn.addEventListener('click', function () {
+        inboxPollBackoffMs = INBOX_POLL_MS;
+        loadInbox({ soft: false });
+      });
+    }
+    if (!document._shInboxVisBound) {
+      document._shInboxVisBound = true;
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'visible' && inboxTabActive()) {
+          scheduleInboxPoll(2000);
+        }
+      });
+    }
   }
 
   function stopInboxPoll() {
     if (inboxPollTimer) {
-      clearInterval(inboxPollTimer);
+      clearTimeout(inboxPollTimer);
       inboxPollTimer = null;
     }
   }
@@ -303,7 +363,11 @@
   function loadInbox(opts) {
     opts = opts || {};
     var soft = !!opts.soft;
-    if (soft && (inboxIsBusy() || inboxPollInFlight)) return;
+    if (soft && inboxPollInFlight) return;
+    if (soft && inboxIsBusy()) {
+      scheduleInboxPoll(inboxPollBackoffMs);
+      return;
+    }
     if (!soft) renderInboxToolbar();
     inboxPollInFlight = true;
     var q = 'inbox/?page=' + encodeURIComponent(INBOX_PAGE) +
@@ -317,12 +381,21 @@
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (pack) {
         inboxPollInFlight = false;
-        if (soft && inboxIsBusy()) return;
+        if (soft && inboxIsBusy()) {
+          scheduleInboxPoll(inboxPollBackoffMs);
+          return;
+        }
         var data = pack.j || {};
         var c = document.getElementById('sh-inbox');
-        var hint = document.querySelector('[data-pane="posteingang"] .card-h span');
+        var hint = document.getElementById('sh-inbox-hint') ||
+          document.querySelector('[data-pane="posteingang"] .card-h #sh-inbox-hint');
         if (!pack.ok || data.ok === false) {
-          if (soft) return; // Viewer / Dialog nicht anfassen
+          if (soft) {
+            inboxPollBackoffMs = Math.min(INBOX_POLL_MS_MAX, inboxPollBackoffMs * 2);
+            updateInboxFresh(false);
+            scheduleInboxPoll(inboxPollBackoffMs);
+            return;
+          }
           if (c) {
             c.innerHTML =
               '<div class="none" style="padding:12px">' +
@@ -357,7 +430,6 @@
           loadInbox(opts);
           return;
         }
-        // Soft: Filter-Chips nicht neu bauen (Fokus bleibt); Auswahl-Objekt aktualisieren
         if (!soft) renderInboxFilters(INBOX_ACCOUNTS);
         if (INBOX_SELECTED && INBOX_SELECTED.id) {
           var fresh = INBOX_ITEMS.filter(function (m) { return m.id === INBOX_SELECTED.id; })[0];
@@ -372,10 +444,17 @@
         });
         setPostBadge(data.unread != null ? data.unread : INBOX_ITEMS.filter(function (m) { return m.unread; }).length);
         refreshStats();
+        updateInboxFresh(true);
+        if (inboxTabActive()) scheduleInboxPoll(INBOX_POLL_MS);
       })
       .catch(function () {
         inboxPollInFlight = false;
-        if (soft) return;
+        if (soft) {
+          inboxPollBackoffMs = Math.min(INBOX_POLL_MS_MAX, inboxPollBackoffMs * 2);
+          updateInboxFresh(false);
+          scheduleInboxPoll(inboxPollBackoffMs);
+          return;
+        }
         renderInbox([]);
         renderInboxPager({ total: 0, page: 1, pages: 1, page_size: INBOX_PAGE_SIZE });
         showViewerEmpty();
