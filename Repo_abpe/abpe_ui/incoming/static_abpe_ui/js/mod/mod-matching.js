@@ -1234,10 +1234,13 @@ window.Matching = (function() {
         searchAccounts(n);
         if (typeof _searchAccountsAny === 'function') {
             _searchAccountsAny(n).then(hits => {
-                const exact = (hits || []).filter(h =>
-                    String(h.name || '').trim().toLowerCase() === n.toLowerCase()
-                );
-                const pool = exact.length ? exact : (hits || []);
+                const exact = _findExactFirm(hits, n);
+                if (exact) {
+                    // Bereits vorhandene Duplikate (gleicher Norm-Name) → ersten nehmen, nicht neu
+                    _pickCrmAccount(exact);
+                    return;
+                }
+                const pool = hits || [];
                 if (pool.length === 1) {
                     _pickCrmAccount(pool[0]);
                     return;
@@ -1548,6 +1551,10 @@ window.Matching = (function() {
         const n = (name || '').trim();
         const msg = document.getElementById('mnc-msg');
         if (!n) return;
+        if (_accountCreateInflight[_normFirmName(n)]) {
+            if (msg) { msg.style.color = '#2563eb'; msg.textContent = 'Firma wird bereits angelegt…'; }
+            return;
+        }
         if (msg) { msg.style.color = '#2563eb'; msg.textContent = 'Löse Firma auf…'; }
         const email = ((document.getElementById('mnc-email') || {}).value || '').trim()
             || _val('new-contact-email') || '';
@@ -1561,7 +1568,12 @@ window.Matching = (function() {
             _setVal('new-customer', n);
             _setVal('new-crm-account-id', id);
             _setFirmaLinkedHint(true);
-            if (msg) { msg.style.color = '#059669'; msg.textContent = '✓ Firma verknüpft'; }
+            if (msg) {
+                msg.style.color = '#059669';
+                msg.textContent = email
+                    ? '✓ Firma verknüpft (E-Mail gesetzt)'
+                    : '✓ Firma verknüpft';
+            }
         }).catch(e => {
             if (msg) { msg.style.color = '#ef4444'; msg.textContent = e.message || String(e); }
         });
@@ -1788,10 +1800,19 @@ window.Matching = (function() {
         opts = opts || {};
         const n = (name || '').trim();
         if (!n) return Promise.resolve('');
+        const cached = _accountIdByNorm[_normFirmName(n)];
+        if (cached) {
+            const firma = document.getElementById('mnc-firma');
+            const firmaId = document.getElementById('mnc-firma-id');
+            if (firma && !firma.value) firma.value = n;
+            if (firmaId) firmaId.value = cached;
+            _setVal('new-customer', n);
+            _setVal('new-crm-account-id', cached);
+            _setFirmaLinkedHint(true);
+            return Promise.resolve(cached);
+        }
         return _searchAccountsAny(n).then(hits => {
-            const exact = hits.find(h =>
-                String(h.name || '').trim().toLowerCase() === n.toLowerCase()
-            );
+            const exact = _findExactFirm(hits, n);
             if (exact && opts.autoSelectExact !== false) {
                 const id = _firmIdOf(exact);
                 const nm = exact.name || n;
@@ -1801,6 +1822,7 @@ window.Matching = (function() {
                 if (firmaId) firmaId.value = id;
                 _setVal('new-customer', nm);
                 _setVal('new-crm-account-id', id);
+                _rememberAccountId(n, id);
                 _setFirmaLinkedHint(!!id);
                 const box = document.getElementById('mnc-firma-results');
                 if (box) box.style.display = 'none';
@@ -1812,17 +1834,23 @@ window.Matching = (function() {
         });
     }
 
-    // Dedup: parallele Creates derselben Firma teilen sich ein Promise
+    // Dedup: parallele Creates derselben Firma teilen sich ein Promise;
+    // Session-Cache verhindert Doppel-Anlagen bei ES-Lag nach dem ersten Create.
     const _accountCreateInflight = {};
+    const _accountIdByNorm = {};
 
     function _normFirmName(name) {
         return String(name || '')
             .toLowerCase()
+            .replace(/[.,/&+]/g, ' ')
+            .replace(/\b(gmbh|mbh|ag|se|kg|ug|ltd|inc|corp|co|e\.?\s*k\.?)\b/g, ' ')
             .replace(/\s+/g, ' ')
-            .replace(/\s*(gmbh|ag|se|kg|ug|e\.?\s*k\.?)\s*$/i, function (m) {
-                return ' ' + m.trim().toLowerCase().replace(/\s+/g, '');
-            })
             .trim();
+    }
+
+    function _rememberAccountId(name, id) {
+        const key = _normFirmName(name);
+        if (key && id) _accountIdByNorm[key] = String(id);
     }
 
     function _findExactFirm(hits, name) {
@@ -1841,13 +1869,26 @@ window.Matching = (function() {
 
     function _attachAccountEmail(accountId, email) {
         const em = String(email || '').trim();
-        if (!accountId || !em) return Promise.resolve();
+        if (!accountId || !em || em.indexOf('@') < 0) return Promise.resolve();
         return fetch('/crm/api/account/' + encodeURIComponent(accountId) + '/update/', {
             method: 'POST',
             credentials: 'same-origin',
             headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
             body: JSON.stringify({ action: 'email_add', email: em, primaer: true }),
         }).then(r => r.json().catch(() => ({}))).catch(() => ({}));
+    }
+
+    function _writeAccountIdsToForm(name, id) {
+        if (!id) return;
+        _rememberAccountId(name, id);
+        const firmaId = document.getElementById('mnc-firma-id');
+        if (firmaId) firmaId.value = id;
+        _setVal('new-crm-account-id', id);
+        if (name) {
+            const firma = document.getElementById('mnc-firma');
+            if (firma && !String(firma.value || '').trim()) firma.value = name;
+            if (!_val('new-customer')) _setVal('new-customer', name);
+        }
     }
 
     function _ensureCrmAccount(name, createIfMissing, opts) {
@@ -1857,20 +1898,24 @@ window.Matching = (function() {
         const existing = (
             ((document.getElementById('mnc-firma-id') || {}).value || '').trim()
             || _val('new-crm-account-id')
+            || _accountIdByNorm[_normFirmName(n)]
             || ''
         );
         if (existing) {
+            _writeAccountIdsToForm(n, existing);
             if (opts.email) _attachAccountEmail(existing, opts.email);
             return Promise.resolve(existing);
         }
 
         const key = _normFirmName(n);
+        if (!key) return Promise.resolve('');
         if (_accountCreateInflight[key]) return _accountCreateInflight[key];
 
         const run = _searchAccountsAny(n).then(hits => {
             const hit = _findExactFirm(hits, n);
             if (hit) {
                 const id = _firmIdOf(hit);
+                _writeAccountIdsToForm(hit.name || n, id);
                 if (opts.email) _attachAccountEmail(id, opts.email);
                 return id;
             }
@@ -1887,9 +1932,17 @@ window.Matching = (function() {
 
             // Nochmal suchen kurz vor Create (Race / ES-Lag)
             return _searchAccountsAny(n).then(hits2 => {
+                // Session-Cache kann inzwischen gefüllt sein (paralleler Pfad)
+                const cached2 = _accountIdByNorm[key];
+                if (cached2) {
+                    _writeAccountIdsToForm(n, cached2);
+                    if (opts.email) _attachAccountEmail(cached2, opts.email);
+                    return cached2;
+                }
                 const hit2 = _findExactFirm(hits2, n);
                 if (hit2) {
                     const id2 = _firmIdOf(hit2);
+                    _writeAccountIdsToForm(hit2.name || n, id2);
                     if (opts.email) _attachAccountEmail(id2, opts.email);
                     return id2;
                 }
@@ -1901,10 +1954,12 @@ window.Matching = (function() {
                     body: JSON.stringify({
                         name: n,
                         city: opts.city || '',
+                        email: opts.email || undefined,
                     }),
                 }).then(r => r.json()).then(x => {
                     const id = x.crm_id || x.id || '';
                     if (!id) throw new Error(x.error || 'Firma anlegen fehlgeschlagen');
+                    _writeAccountIdsToForm(n, id);
                     if (opts.email) {
                         return _attachAccountEmail(id, opts.email).then(() => id);
                     }
