@@ -97,7 +97,7 @@ def resolve_crm_suggestions(fields: dict[str, Any]) -> dict[str, Any]:
         return out
 
     customer = (fields.get('customer_name') or '').strip()
-    contact = (fields.get('contact_name') || '').strip()
+    contact = (fields.get('contact_name') or '').strip()
     email = (fields.get('contact_email') or '').strip()
     phone = (fields.get('contact_phone') or '').strip()
 
