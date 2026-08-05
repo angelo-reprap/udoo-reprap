@@ -4,10 +4,6 @@
 # Auf ucs5:
 #   cd /mnt/public/udoo-reprap && git fetch origin
 #   bash scripts/SYNC-matching-ki-anfrage-wizard.sh
-#
-# Danach:
-#   cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py sync_wizard_prompts --wizard-id matching_anfrage
-#   supervisorctl restart abpe-django
 set -euo pipefail
 
 REPO="${REPO:-/mnt/public/udoo-reprap}"
@@ -15,6 +11,8 @@ BRANCH="${BRANCH:-origin/cursor/matching-ki-anfrage-wizard-7f07}"
 LIVE_KI="${LIVE_KI:-/opt/abpe/backend/apps/abpe_ki_wiz}"
 LIVE_UI="${LIVE_UI:-/opt/abpe/backend/apps/abpe_ui}"
 STATICFILES="${STATICFILES:-/opt/abpe/backend/staticfiles}"
+BACKEND="${BACKEND:-/opt/abpe/backend}"
+PYBIN="${PYBIN:-/opt/abpe/venv311/bin/python}"
 
 cd "$REPO"
 git fetch origin cursor/matching-ki-anfrage-wizard-7f07 || true
@@ -26,6 +24,14 @@ git archive "$BRANCH" \
   Repo_abpe/abpe_ui/incoming/mod-matching.js \
   | tar -x -C "$TMP"
 
+# Guard: Prompt-Default muss im Archive sein
+if ! grep -q "wiz_matching_anfrage_generate" \
+  "$TMP/Repo_abpe/abpe_ki_wiz/incoming/prompt_defaults.py"; then
+  echo "FEHLER: Branch $BRANCH enthält wiz_matching_anfrage_generate nicht."
+  echo "  git -C $REPO fetch origin && git -C $REPO rev-parse $BRANCH"
+  exit 1
+fi
+
 # ── abpe_ki_wiz (kein --delete: Live kann zusätzliche Dateien haben) ─────────
 mkdir -p "$LIVE_KI"
 rsync -a \
@@ -34,6 +40,16 @@ rsync -a \
   "$TMP/Repo_abpe/abpe_ki_wiz/incoming/" \
   "$LIVE_KI/"
 echo "OK — abpe_ki_wiz → $LIVE_KI"
+
+# pycache invalidieren, damit Django Defaults neu lädt
+find "$LIVE_KI" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+find "$LIVE_KI" -name '*.pyc' -delete 2>/dev/null || true
+
+if ! grep -q "wiz_matching_anfrage_generate" "$LIVE_KI/prompt_defaults.py"; then
+  echo "FEHLER: $LIVE_KI/prompt_defaults.py ohne wiz_matching_anfrage_generate nach rsync"
+  exit 1
+fi
+echo "OK — prompt_defaults enthält wiz_matching_anfrage_generate"
 
 # ── Matching UI ──────────────────────────────────────────────────────────────
 mkdir -p "$LIVE_UI/static/abpe_ui/js/mod"
@@ -48,13 +64,23 @@ if [[ -d "$STATICFILES" ]]; then
   echo "OK — auch nach $STATICFILES/abpe_ui/js/mod/ kopiert"
 fi
 
+# ── Prompt in DB ─────────────────────────────────────────────────────────────
 echo
-echo "Prompts in DB (falls noch nicht):"
-echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py sync_wizard_prompts --wizard-id matching_anfrage"
-echo "  # Prompt-Text aktualisieren: … sync_wizard_prompts --wizard-id matching_anfrage --force"
+echo "→ sync_wizard_prompts --wizard-id matching_anfrage"
+cd "$BACKEND"
+"$PYBIN" manage.py sync_wizard_prompts --wizard-id matching_anfrage
+"$PYBIN" manage.py shell -c "
+from apps.abpe_ki_wiz.models import WizardPrompt
+from apps.abpe_ki_wiz.prompt_defaults import WIZARD_PROMPT_DEFAULTS
+keys=[r['key'] for r in WIZARD_PROMPT_DEFAULTS if r.get('wizard_id')=='matching_anfrage']
+print('defaults:', keys)
+p=WizardPrompt.objects.filter(key='wiz_matching_anfrage_generate').first()
+print('db:', p.key if p else 'FEHLT', 'aktiv='+str(getattr(p,'aktiv',None)), 'sys_len='+str(len(getattr(p,'system','') or '')))
+if not p:
+    raise SystemExit(2)
+"
+
 echo
-echo "Restart:"
-echo "  supervisorctl restart abpe-django"
-echo
-echo "UI: Matching → Tab „Neue Anfrage“ → Button links neben „+ Neue Anfrage“"
+echo "Restart: supervisorctl restart abpe-django"
+echo "UI: Matching → Button „KI-Anfragen-Wizard“ links neben „+ Neue Anfrage“"
 echo "API: POST /ki-wizard/api/matching-anfrage/extract/"
