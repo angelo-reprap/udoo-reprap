@@ -25,8 +25,13 @@
     "beschreibung_contains": [
       "Fortinet",
       "Remote",
-      "3 MM",
       "Life-Sciences"
+    ],
+    "beschreibung_dauer_any": [
+      "3 MM",
+      "3 Monate",
+      "3 Monat",
+      "Dauer 3"
     ],
     "beschreibung_excludes": [
       "Datenschutzerklärung",

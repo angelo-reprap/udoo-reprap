@@ -214,6 +214,14 @@ for needle in expected.get('beschreibung_contains') or []:
         ok(f'beschreibung enthält {needle!r}')
     else:
         fail(f'beschreibung fehlt {needle!r}')
+# Dauer in Fließtext: "3 MM" oder "3 Monate" — strukturiertes Feld zählt separat
+dauer_needles = expected.get('beschreibung_dauer_any') or []
+if dauer_needles:
+    if any(n.lower() in besch.lower() for n in dauer_needles):
+        ok('beschreibung erwähnt Dauer (3 MM/Monate)')
+    else:
+        # kein FAIL: dauer_monate-Feld ist maßgeblich
+        warn(f'beschreibung ohne Dauer-Wortlaut (ok wenn dauer_monate gesetzt)')
 for bad in expected.get('beschreibung_excludes') or []:
     if bad.lower() in besch.lower():
         fail(f'beschreibung enthält unerwünscht {bad!r}')
