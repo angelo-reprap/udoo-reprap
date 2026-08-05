@@ -1122,6 +1122,11 @@ window.Matching = (function() {
         const fill = () => {
             // Textfelder = KI-Extrakt aus Anfrage-Text (nicht aus CRM-DB).
             // CRM-IDs erst nach Match setzen — gelöschte Firmen bleiben weg.
+            // Session-Cache leeren: sonst würden gelöschte IDs aus dem vorherigen
+            // Anlegen wiederverwendet, obwohl die Firma in der DB weg ist.
+            Object.keys(_accountIdByNorm).forEach(function (k) {
+                delete _accountIdByNorm[k];
+            });
             _setVal('new-crm-account-id', '');
             _setVal('new-crm-contact-id', '');
             clearCustomerLink();
