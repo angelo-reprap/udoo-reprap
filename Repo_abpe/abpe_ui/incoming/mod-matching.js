@@ -1284,6 +1284,7 @@ window.Matching = (function() {
                   <div style="font-size:11px;opacity:.7;margin-top:4px">
                     ${_kiT('firma_help', 'Suche (CRM/Elastic) — Treffer wählen oder „Neue Firma“.')}
                   </div>
+                  <div id="mnc-firma-linked" style="display:none;font-size:11px;margin-top:4px;font-weight:500"></div>
                 </div>
               </div>
               <div style="display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:center">
@@ -1320,6 +1321,7 @@ window.Matching = (function() {
         let firmTimer = null;
         firmaInp.addEventListener('input', function() {
             modal.querySelector('#mnc-firma-id').value = '';
+            _setFirmaLinkedHint(false);
             clearTimeout(firmTimer);
             const q = firmaInp.value.trim();
             firmTimer = setTimeout(function() { _searchFirmaForPopup(q); }, 280);
@@ -1331,6 +1333,10 @@ window.Matching = (function() {
 
         setTimeout(function() {
             (document.getElementById('mnc-lastname') || document.getElementById('mnc-email'))?.focus();
+            // Firma automatisch auflösen (Treffer wählen / ID setzen)
+            if (firmName && firmName.length >= 2) {
+                _resolveFirmaForPopup(firmName, { autoSelectExact: true, showList: !firmId });
+            }
         }, 80);
     }
 
@@ -1372,6 +1378,9 @@ window.Matching = (function() {
                 el.addEventListener('click', function() {
                     document.getElementById('mnc-firma').value = el.dataset.name || '';
                     document.getElementById('mnc-firma-id').value = el.dataset.id || '';
+                    _setVal('new-customer', el.dataset.name || '');
+                    _setVal('new-crm-account-id', el.dataset.id || '');
+                    _setFirmaLinkedHint(!!el.dataset.id);
                     box.style.display = 'none';
                 });
             });
@@ -1418,7 +1427,8 @@ window.Matching = (function() {
             if (res) res.style.display = 'none';
             _setVal('new-customer', n);
             _setVal('new-crm-account-id', id);
-            if (msg) { msg.style.color = '#059669'; msg.textContent = '✓ Firma angelegt'; }
+            _setFirmaLinkedHint(true);
+            if (msg) { msg.style.color = '#059669'; msg.textContent = '✓ Firma angelegt und verknüpft'; }
         })
         .catch(e => {
             if (msg) { msg.style.color = '#ef4444'; msg.textContent = e.message || String(e); }
@@ -1458,6 +1468,7 @@ window.Matching = (function() {
         let accountId = ((document.getElementById('mnc-firma-id') || {}).value || '').trim()
             || _val('new-crm-account-id') || '';
         const msg = document.getElementById('mnc-msg');
+        const saveBtn = document.getElementById('mnc-save');
 
         if (!last) {
             if (msg) { msg.style.color = '#ef4444'; msg.textContent = 'Nachname ist Pflichtfeld.'; }
@@ -1470,23 +1481,32 @@ window.Matching = (function() {
             return;
         }
         if (msg) { msg.style.color = '#2563eb'; msg.textContent = 'Lege Kontakt an…'; }
+        if (saveBtn) saveBtn.disabled = true;
 
+        // Firma mit Name aber ohne ID → suchen oder anlegen, dann verknüpfen
         const ensureAccount = () => {
             if (accountId) return Promise.resolve(accountId);
             if (!firmName) return Promise.resolve('');
+            if (msg) msg.textContent = 'Löse Firma „' + firmName + '“ auf…';
             return _ensureCrmAccount(firmName, true).then(id => {
-                if (id) {
-                    accountId = id;
-                    const el = document.getElementById('mnc-firma-id');
-                    if (el) el.value = id;
-                    _setVal('new-customer', firmName);
-                    _setVal('new-crm-account-id', id);
+                if (!id) {
+                    throw new Error(
+                        'Firma „' + firmName + '“ konnte nicht verknüpft werden. '
+                        + 'Bitte Treffer wählen oder „Neue Firma“ klicken.'
+                    );
                 }
-                return id || '';
+                accountId = id;
+                const el = document.getElementById('mnc-firma-id');
+                if (el) el.value = id;
+                _setVal('new-customer', firmName);
+                _setVal('new-crm-account-id', id);
+                _setFirmaLinkedHint(true);
+                return id;
             });
         };
 
         ensureAccount().then(accId => {
+            if (msg) msg.textContent = 'Lege Kontakt an…';
             return fetch('/crm/api/berater/new/', {
                 method: 'POST',
                 credentials: 'same-origin',
@@ -1498,10 +1518,10 @@ window.Matching = (function() {
                 }),
             }).then(r => r.json()).then(d => {
                 if (!d.ok || !d.crm_id) throw new Error(d.error || 'Anlegen fehlgeschlagen');
-                const crmId = d.crm_id;
-                const steps = [];
+                return d.crm_id;
+            }).then(async crmId => {
                 if (phone) {
-                    steps.push(fetch('/crm/api/contact/' + crmId + '/update/', {
+                    await fetch('/crm/api/contact/' + crmId + '/update/', {
                         method: 'POST',
                         credentials: 'same-origin',
                         headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
@@ -1511,25 +1531,33 @@ window.Matching = (function() {
                             field_name: 'phone_office',
                             bean_module: 'Contacts',
                         }),
-                    }));
+                    });
                 }
                 if (email) {
-                    steps.push(fetch('/crm/api/contact/' + crmId + '/update/', {
+                    await fetch('/crm/api/contact/' + crmId + '/update/', {
                         method: 'POST',
                         credentials: 'same-origin',
                         headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
                         body: JSON.stringify({ action: 'email_add', email: email }),
-                    }));
+                    });
                 }
                 if (accId) {
-                    steps.push(fetch('/crm/api/contact/' + crmId + '/link-account/', {
+                    if (msg) msg.textContent = 'Verknüpfe Firma…';
+                    const lr = await fetch('/crm/api/contact/' + crmId + '/link-account/', {
                         method: 'POST',
                         credentials: 'same-origin',
                         headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
                         body: JSON.stringify({ account_crm_id: accId }),
-                    }));
+                    });
+                    const ld = await lr.json().catch(() => ({}));
+                    if (!lr.ok || (ld.ok === false)) {
+                        throw new Error(
+                            ld.error || ld.message
+                            || ('Firma-Verknüpfung fehlgeschlagen (HTTP ' + lr.status + ')')
+                        );
+                    }
                 }
-                return Promise.all(steps).then(() => crmId);
+                return crmId;
             });
         }).then(crmId => {
             const full = [first, last].filter(Boolean).join(' ');
@@ -1541,36 +1569,122 @@ window.Matching = (function() {
             if (accountId) _setVal('new-crm-account-id', accountId);
             if (msg) {
                 msg.style.color = '#059669';
-                msg.innerHTML = '✓ Angelegt. <a href="/crm/berater/?detail=' + encodeURIComponent(crmId)
+                msg.innerHTML = '✓ Angelegt'
+                    + (accountId ? ' und Firma verknüpft' : '')
+                    + '. <a href="/crm/berater/?detail=' + encodeURIComponent(crmId)
                     + '" target="_blank" rel="noopener">Im CRM öffnen</a>';
             }
-            setTimeout(closeNewContactPopup, 900);
+            setTimeout(closeNewContactPopup, 1100);
         }).catch(e => {
             if (msg) { msg.style.color = '#ef4444'; msg.textContent = e.message || String(e); }
+            if (saveBtn) saveBtn.disabled = false;
+        });
+    }
+
+    function _setFirmaLinkedHint(ok) {
+        const hint = document.getElementById('mnc-firma-linked');
+        if (!hint) return;
+        if (ok) {
+            hint.style.display = '';
+            hint.style.color = '#059669';
+            hint.textContent = '✓ Firma verknüpft';
+        } else {
+            hint.style.display = '';
+            hint.style.color = '#b45309';
+            hint.textContent = '⚠ Firma noch nicht verknüpft — Treffer wählen oder Neue Firma';
+        }
+    }
+
+    function _normalizeFirmHits(d) {
+        if (!d) return [];
+        if (Array.isArray(d.results)) return d.results;
+        if (Array.isArray(d.accounts)) return d.accounts;
+        if (Array.isArray(d.items)) return d.items;
+        if (Array.isArray(d)) return d;
+        return [];
+    }
+
+    function _firmIdOf(h) {
+        return (h && (h.crm_id || h.id || h.account_crm_id || '')) + '';
+    }
+
+    function _searchAccountsAny(q) {
+        const urls = [
+            API + 'crm/accounts/?q=' + encodeURIComponent(q),
+            '/crm/api/kunden/?q=' + encodeURIComponent(q) + '&limit=10',
+        ];
+        return fetch(urls[0], { credentials: 'same-origin' })
+            .then(r => r.ok ? r.json() : Promise.reject())
+            .then(d => {
+                const hits = _normalizeFirmHits(d);
+                if (hits.length) return hits;
+                return fetch(urls[1], { credentials: 'same-origin' })
+                    .then(r => r.ok ? r.json() : {})
+                    .then(d2 => _normalizeFirmHits(d2));
+            })
+            .catch(() => fetch(urls[1], { credentials: 'same-origin' })
+                .then(r => r.ok ? r.json() : {})
+                .then(d => _normalizeFirmHits(d))
+                .catch(() => []));
+    }
+
+    function _resolveFirmaForPopup(name, opts) {
+        opts = opts || {};
+        const n = (name || '').trim();
+        if (!n) return Promise.resolve('');
+        return _searchAccountsAny(n).then(hits => {
+            const exact = hits.find(h =>
+                String(h.name || '').trim().toLowerCase() === n.toLowerCase()
+            );
+            if (exact && opts.autoSelectExact !== false) {
+                const id = _firmIdOf(exact);
+                const nm = exact.name || n;
+                const firma = document.getElementById('mnc-firma');
+                const firmaId = document.getElementById('mnc-firma-id');
+                if (firma) firma.value = nm;
+                if (firmaId) firmaId.value = id;
+                _setVal('new-customer', nm);
+                _setVal('new-crm-account-id', id);
+                _setFirmaLinkedHint(!!id);
+                const box = document.getElementById('mnc-firma-results');
+                if (box) box.style.display = 'none';
+                return id;
+            }
+            if (opts.showList !== false) _searchFirmaForPopup(n);
+            _setFirmaLinkedHint(false);
+            return '';
         });
     }
 
     function _ensureCrmAccount(name, createIfMissing) {
         const n = (name || '').trim();
         if (!n) return Promise.resolve('');
-        const existing = _val('new-crm-account-id');
+        const existing = (
+            ((document.getElementById('mnc-firma-id') || {}).value || '').trim()
+            || _val('new-crm-account-id')
+            || ''
+        );
         if (existing) return Promise.resolve(existing);
-        return fetch(API + 'crm/accounts/?q=' + encodeURIComponent(n), { credentials: 'same-origin' })
-            .then(r => r.json())
-            .then(d => {
-                const hits = d.results || [];
-                const exact = hits.find(h => (h.name || '').toLowerCase() === n.toLowerCase());
-                if (exact) return exact.id || exact.crm_id || '';
-                if (hits.length === 1) return hits[0].id || hits[0].crm_id || '';
-                if (!createIfMissing) return '';
-                return fetch('/crm/api/kunden/new/', {
-                    method: 'POST',
-                    credentials: 'same-origin',
-                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
-                    body: JSON.stringify({ name: n }),
-                }).then(r => r.json()).then(x => (x.ok && (x.crm_id || x.id)) ? (x.crm_id || x.id) : '');
-            })
-            .catch(() => '');
+
+        return _searchAccountsAny(n).then(hits => {
+            const exact = hits.find(h =>
+                String(h.name || '').trim().toLowerCase() === n.toLowerCase()
+            );
+            if (exact) return _firmIdOf(exact);
+            if (hits.length === 1) return _firmIdOf(hits[0]);
+            if (!createIfMissing) return '';
+            return fetch('/crm/api/kunden/new/', {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+                body: JSON.stringify({ name: n }),
+            }).then(r => r.json()).then(x => {
+                if (x.ok && (x.crm_id || x.id)) return x.crm_id || x.id;
+                // mancher Endpunkt liefert nur crm_id ohne ok
+                if (x.crm_id || x.id) return x.crm_id || x.id;
+                throw new Error(x.error || 'Firma anlegen fehlgeschlagen');
+            });
+        });
     }
 
     function _esc(s) {
