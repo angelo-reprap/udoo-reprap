@@ -512,18 +512,34 @@ def api_radar_items(request):
         pages = max(1, min(5, int(request.GET.get('pages') or 1)))
     except (TypeError, ValueError):
         pages = 1
-    try:
-        recent_days = max(1, min(14, int(request.GET.get('days') or 2)))
-    except (TypeError, ValueError):
+    # days=0 → alle; Default 2 (heute+gestern)
+    raw_days = request.GET.get('days')
+    if raw_days is None or raw_days == '':
         recent_days = 2
+    else:
+        try:
+            recent_days = max(0, min(365, int(raw_days)))
+        except (TypeError, ValueError):
+            recent_days = 2
     status = (request.GET.get('status') or 'neu').strip()
+    q = (request.GET.get('q') or '').strip()
+    source = (request.GET.get('source') or request.GET.get('quelle') or '').strip()
+    sort = (request.GET.get('sort') or 'date_desc').strip()
+    try:
+        limit = max(1, min(500, int(request.GET.get('limit') or 300)))
+    except (TypeError, ValueError):
+        limit = 300
     data = radar_fetcher.list_anfragen(
         use_live_fetch=refresh,
-        today_only=today_only,
+        today_only=today_only if recent_days > 0 else False,
         persist=persist,
         pages=pages,
         status=status,
         recent_days=recent_days,
+        q=q,
+        source=source,
+        sort=sort,
+        limit=limit,
     )
     return JsonResponse(data)
 

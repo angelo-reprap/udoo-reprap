@@ -132,18 +132,13 @@
         '<div class="card-h"><i class="bi bi-broadcast"></i> ' +
         esc(_t('sh.tab_radar_a', 'Radar — Anfragen')) +
         '<span class="sh-inbox-meta" style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px;flex-wrap:wrap">' +
-        '<span id="sh-radar-hint">' + esc(_t('sh.radar_hint', 'Freelancermap + Gulp · heute/gestern')) + '</span>' +
-        '<label class="sh-inbox-pagesize sh-radar-pagesize"><span>' +
-        esc(_t('sh.inbox_per_page', 'Anzeigen')) + '</span> ' +
-        '<select id="sh-radar-pagesize">' +
-        '<option value="5">5</option><option value="10">10</option>' +
-        '<option value="20" selected>20</option><option value="50">50</option>' +
-        '</select></label>' +
+        '<span id="sh-radar-hint">' + esc(_t('sh.radar_hint', 'Freelancermap + Gulp')) + '</span>' +
         '<span id="r-new" class="sh-radar-count">0</span>' +
         '<button type="button" class="sh-inbox-refresh" id="sh-radar-refresh" title="' +
-        esc(_t('sh.radar_refresh', 'Aktualisieren')) + '">' +
+        esc(_t('sh.radar_refresh', 'Quellen aktualisieren')) + '">' +
         '<i class="bi bi-arrow-clockwise"></i></button>' +
         '</span></div>' +
+        '<div class="sh-inbox-toolbar" id="sh-radar-toolbar"></div>' +
         '<div class="sh-inbox-split">' +
         '<div class="sh-inbox-list-wrap">' +
         '<div class="sh-inbox-pager sh-inbox-pager-top" id="sh-radar-pager"></div>' +
@@ -2044,12 +2039,126 @@
   var RADAR_SELECTED = null;
   var RADAR_PAGE = 1;
   var RADAR_PAGE_SIZE = 20;
+  var RADAR_Q = '';
+  var RADAR_DAYS = 2; // 0 = alle; 1/2/7/30
+  var RADAR_SORT = 'date_desc';
+  var RADAR_SOURCE = ''; // '' | freelancermap | gulp
+  var RADAR_BOOTSTRAPPED = false;
   try {
     var _rps = parseInt(localStorage.getItem('sh_radar_page_size') || '20', 10);
     if ([5, 10, 20, 50].indexOf(_rps) >= 0) RADAR_PAGE_SIZE = _rps;
+    var _rd = parseInt(localStorage.getItem('sh_radar_days') || '2', 10);
+    if ([0, 1, 2, 7, 30].indexOf(_rd) >= 0) RADAR_DAYS = _rd;
+    var _rs = localStorage.getItem('sh_radar_sort') || 'date_desc';
+    if (_rs === 'date_asc' || _rs === 'date_desc') RADAR_SORT = _rs;
+    var _rq = localStorage.getItem('sh_radar_source') || '';
+    if (_rq === 'freelancermap' || _rq === 'gulp' || _rq === '') RADAR_SOURCE = _rq;
   } catch (e) { /* ignore */ }
 
-  function loadRadarA() {
+  function radarDaysLabel(d) {
+    if (d === 0) return _t('sh.radar_days_all', 'alle');
+    if (d === 1) return _t('sh.radar_days_1', 'heute');
+    if (d === 2) return _t('sh.radar_days_2', '2 Tage');
+    if (d === 7) return _t('sh.radar_days_7', '7 Tage');
+    if (d === 30) return _t('sh.radar_days_30', '30 Tage');
+    return String(d) + 'd';
+  }
+
+  function renderRadarToolbar() {
+    var t = document.getElementById('sh-radar-toolbar');
+    if (!t) return;
+    var sizes = [5, 10, 20, 50];
+    var sizeOpts = sizes.map(function (n) {
+      return '<option value="' + n + '"' + (RADAR_PAGE_SIZE === n ? ' selected' : '') + '>' +
+        n + '</option>';
+    }).join('');
+    var dayOpts = [
+      [1, _t('sh.radar_days_1', 'heute')],
+      [2, _t('sh.radar_days_2', '2 Tage')],
+      [7, _t('sh.radar_days_7', '7 Tage')],
+      [30, _t('sh.radar_days_30', '30 Tage')],
+      [0, _t('sh.radar_days_all', 'alle')],
+    ].map(function (p) {
+      return '<option value="' + p[0] + '"' + (RADAR_DAYS === p[0] ? ' selected' : '') + '>' +
+        esc(p[1]) + '</option>';
+    }).join('');
+    t.innerHTML =
+      '<form class="sh-inbox-search" id="sh-radar-search">' +
+      '<input type="search" id="sh-radar-q" value="' + esc(RADAR_Q) + '" ' +
+      'placeholder="' + esc(_t('sh.radar_search_ph', 'Titel, Skills, Firma, Stadt …')) + '" />' +
+      '<button type="submit" class="pri"><i class="bi bi-search"></i> ' +
+      esc(_t('sh.inbox_search', 'Suchen')) + '</button></form>' +
+      '<div class="sh-inbox-opts">' +
+      '<select id="sh-radar-days" title="' + esc(_t('sh.radar_zeitraum', 'Zeitraum')) + '">' +
+      dayOpts +
+      '</select>' +
+      '<select id="sh-radar-sort">' +
+      '<option value="date_desc"' + (RADAR_SORT === 'date_desc' ? ' selected' : '') + '>' +
+      esc(_t('sh.inbox_sort_new', 'Datum: neueste')) + '</option>' +
+      '<option value="date_asc"' + (RADAR_SORT === 'date_asc' ? ' selected' : '') + '>' +
+      esc(_t('sh.inbox_sort_old', 'Datum: älteste')) + '</option>' +
+      '</select>' +
+      '<select id="sh-radar-source">' +
+      '<option value="">' + esc(_t('sh.radar_src_all', 'Quelle: alle')) + '</option>' +
+      '<option value="freelancermap"' + (RADAR_SOURCE === 'freelancermap' ? ' selected' : '') + '>' +
+      esc(_t('sh.radar_src_fm', 'Freelancermap')) + '</option>' +
+      '<option value="gulp"' + (RADAR_SOURCE === 'gulp' ? ' selected' : '') + '>' +
+      esc(_t('sh.radar_src_gulp', 'Gulp')) + '</option>' +
+      '</select>' +
+      '<label class="sh-inbox-pagesize sh-radar-pagesize"><span>' +
+      esc(_t('sh.inbox_per_page', 'Anzeigen')) + '</span> ' +
+      '<select id="sh-radar-pagesize">' + sizeOpts + '</select></label>' +
+      '</div>';
+
+    var form = document.getElementById('sh-radar-search');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var inp = document.getElementById('sh-radar-q');
+        RADAR_Q = inp ? String(inp.value || '').trim() : '';
+        RADAR_PAGE = 1;
+        loadRadarA({ refresh: false });
+      });
+    }
+    var days = document.getElementById('sh-radar-days');
+    if (days) days.addEventListener('change', function () {
+      RADAR_DAYS = parseInt(days.value, 10);
+      if ([0, 1, 2, 7, 30].indexOf(RADAR_DAYS) < 0) RADAR_DAYS = 2;
+      try { localStorage.setItem('sh_radar_days', String(RADAR_DAYS)); } catch (e2) { /* ignore */ }
+      RADAR_PAGE = 1;
+      loadRadarA({ refresh: false });
+    });
+    var sort = document.getElementById('sh-radar-sort');
+    if (sort) sort.addEventListener('change', function () {
+      RADAR_SORT = sort.value || 'date_desc';
+      try { localStorage.setItem('sh_radar_sort', RADAR_SORT); } catch (e3) { /* ignore */ }
+      RADAR_PAGE = 1;
+      loadRadarA({ refresh: false });
+    });
+    var src = document.getElementById('sh-radar-source');
+    if (src) src.addEventListener('change', function () {
+      RADAR_SOURCE = src.value || '';
+      try { localStorage.setItem('sh_radar_source', RADAR_SOURCE); } catch (e4) { /* ignore */ }
+      RADAR_PAGE = 1;
+      loadRadarA({ refresh: false });
+    });
+    var psz = document.getElementById('sh-radar-pagesize');
+    if (psz) psz.addEventListener('change', function () {
+      RADAR_PAGE_SIZE = parseInt(psz.value, 10) || 20;
+      RADAR_PAGE = 1;
+      try { localStorage.setItem('sh_radar_page_size', String(RADAR_PAGE_SIZE)); } catch (e5) { /* ignore */ }
+      renderRadarA(RADAR_ITEMS);
+    });
+  }
+
+  function loadRadarA(opts) {
+    opts = opts || {};
+    var doRefresh = opts.refresh !== false;
+    if (!RADAR_BOOTSTRAPPED) {
+      doRefresh = true;
+      RADAR_BOOTSTRAPPED = true;
+    }
+    renderRadarToolbar();
     var list = document.getElementById('sh-radar-list');
     var viewer = document.getElementById('sh-radar-viewer');
     if (list) list.innerHTML = '<div class="sh-viewer-loading">' + esc(_t('sh.loading', 'Laden…')) + '</div>';
@@ -2059,20 +2168,17 @@
     var btn = document.getElementById('sh-radar-refresh');
     if (btn) {
       btn.onclick = function () {
-        loadRadarA();
+        loadRadarA({ refresh: true });
       };
     }
-    var psz = document.getElementById('sh-radar-pagesize');
-    if (psz) {
-      psz.value = String(RADAR_PAGE_SIZE);
-      psz.onchange = function () {
-        RADAR_PAGE_SIZE = parseInt(psz.value, 10) || 20;
-        RADAR_PAGE = 1;
-        try { localStorage.setItem('sh_radar_page_size', String(RADAR_PAGE_SIZE)); } catch (e2) { /* ignore */ }
-        renderRadarA(RADAR_ITEMS);
-      };
-    }
-    fetch(api('radar/anfragen/?demo=0&today=1&refresh=1&pages=1&days=2'), {
+    var q = 'radar/anfragen/?demo=0&today=1&pages=1' +
+      '&refresh=' + (doRefresh ? '1' : '0') +
+      '&days=' + encodeURIComponent(String(RADAR_DAYS)) +
+      '&sort=' + encodeURIComponent(RADAR_SORT || 'date_desc') +
+      '&limit=300';
+    if (RADAR_Q) q += '&q=' + encodeURIComponent(RADAR_Q);
+    if (RADAR_SOURCE) q += '&source=' + encodeURIComponent(RADAR_SOURCE);
+    fetch(api(q), {
       credentials: 'same-origin',
       headers: { 'X-Requested-With': 'XMLHttpRequest' },
     })
@@ -2085,12 +2191,18 @@
         if (hint) {
           var by = data.by_source || {};
           var parts = [];
-          Object.keys(by).forEach(function (k) { parts.push(k + ': ' + by[k]); });
+          Object.keys(by).forEach(function (k) {
+            if (k) parts.push(k + ': ' + by[k]);
+          });
+          var ls = data.list_source || '';
+          var lsLbl = ls === 'elasticsearch' ? 'ES' : (ls === 'db' ? 'DB' : ls);
           hint.textContent = data.demo
             ? _t('sh.radar_demo', 'Demo')
-            : _t('sh.radar_hint', 'Freelancermap + Gulp · heute/gestern') +
+            : _t('sh.radar_hint', 'Freelancermap + Gulp') +
+              ' · ' + radarDaysLabel(RADAR_DAYS) +
+              (lsLbl ? (' · ' + lsLbl) : '') +
               (parts.length ? (' · ' + parts.join(', ')) : '') +
-              (data.fetched != null ? (' · ' + data.fetched + ' gelesen') : '');
+              (doRefresh && data.fetched != null ? (' · ' + data.fetched + ' gelesen') : '');
         }
         refreshStats();
       })
@@ -2116,7 +2228,11 @@
     c.innerHTML = '';
     if (!total) {
       c.innerHTML = '<div class="sh-viewer-empty">' +
-        esc(_t('sh.radar_empty', 'Keine neuen Projekte (heute/gestern)')) + '</div>';
+        esc(_t('sh.radar_empty', 'Keine Projekte')) +
+        ' (' + esc(radarDaysLabel(RADAR_DAYS)) +
+        (RADAR_Q ? ' · „' + esc(RADAR_Q) + '“' : '') +
+        (RADAR_SOURCE ? ' · ' + esc(RADAR_SOURCE) : '') +
+        ')</div>';
     }
     slice.forEach(function (r) {
       var e = document.createElement('div');

@@ -810,6 +810,7 @@ def persist_items(
     created = 0
     updated = 0
     hashes = []
+    touched = []
     for it in items:
         dedup = it['dedup_hash']
         hashes.append(dedup)
@@ -830,15 +831,17 @@ def persist_items(
             obj.save()
             updated += 1
         else:
-            RadarItem.objects.create(
+            obj = RadarItem.objects.create(
                 quelle=src,
                 dedup_hash=dedup,
                 status=RadarItem.Status.NEU,
                 **fields,
             )
             created += 1
+        touched.append(obj)
 
     archived = 0
+    archived_ids: list = []
     if archive_older:
         # Alles andere „neu“ von dieser Quelle, das heute nicht mehr kam → archivieren
         qs = RadarItem.objects.filter(quelle=src, status=RadarItem.Status.NEU)
@@ -847,11 +850,25 @@ def persist_items(
         # nur Items, die älter als heute Mitternacht sind
         start = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
         qs = qs.filter(eingegangen_am__lt=start)
+        archived_ids = list(qs.values_list('pk', flat=True)[:2000])
         archived = qs.update(status=RadarItem.Status.VERWORFEN)
 
     src.letzter_lauf = timezone.now()
     src.letzter_status = f'ok +{created}/~{updated}/arch {archived}'
     src.save(update_fields=['letzter_lauf', 'letzter_status'])
+
+    indexed = 0
+    try:
+        from . import radar_index
+        info = radar_index.index_items(touched, refresh=True)
+        indexed = int(info.get('indexed') or 0)
+        for pk in archived_ids:
+            try:
+                radar_index.delete_item(str(pk))
+            except Exception:
+                pass
+    except Exception as exc:
+        log.warning('radar index after persist failed: %s', exc)
 
     return {
         'ok': True,
@@ -860,6 +877,7 @@ def persist_items(
         'updated': updated,
         'archived': archived,
         'fetched': len(items),
+        'indexed': indexed,
     }
 
 
@@ -909,13 +927,32 @@ def list_anfragen(
     pages: int = 1,
     status: str = 'neu',
     recent_days: int = 2,
+    q: str = '',
+    source: str = '',
+    sort: str = 'date_desc',
+    limit: int = 300,
 ) -> dict:
     """
     Primärer Einstieg für API.
-    1) Optional live von Freelancermap + Gulp holen + persistieren
-    2) Aus DB lesen (Status neu), Fallback: Live-Liste ohne DB
+    1) Optional live von Freelancermap + Gulp holen + persistieren (+ ES-Index)
+    2) Suche bevorzugt über ES (q / Zeitraum / Quelle / Sort)
+    3) Fallback: DB
     """
-    recent_days = max(1, min(14, int(recent_days or 2)))
+    # days=0 → alle; sonst 1..365 (UI: 1/2/7/30)
+    try:
+        recent_days = int(recent_days)
+    except (TypeError, ValueError):
+        recent_days = 2
+    if recent_days < 0:
+        recent_days = 0
+    recent_days = min(365, recent_days)
+    fetch_days = recent_days if recent_days > 0 else 2
+    fetch_days = max(1, min(30, fetch_days))
+    q = (q or '').strip()
+    source = (source or '').strip().lower()
+    sort = (sort or 'date_desc').strip().lower()
+    limit = max(1, min(500, int(limit or 300)))
+
     fetched: list[dict] = []
     persist_info: dict = {}
     if use_live_fetch:
@@ -923,12 +960,12 @@ def list_anfragen(
         gulp_items: list[dict] = []
         try:
             fm_items = fetch_freelancermap_projects(
-                pages=pages, today_only=today_only, recent_days=recent_days,
+                pages=pages, today_only=today_only, recent_days=fetch_days,
             )
             if persist:
                 try:
                     persist_info['freelancermap'] = persist_items(
-                        fm_items, archive_older=today_only,
+                        fm_items, archive_older=today_only and recent_days > 0 and recent_days <= 2,
                         source_name=SOURCE_NAME, source_url=SOURCE_URL,
                     )
                 except Exception as exc:
@@ -939,16 +976,15 @@ def list_anfragen(
             persist_info['freelancermap'] = {'ok': False, 'error': str(exc)}
 
         try:
-            # Gulp: mehr Seiten à 20 (API-Limit>30 lässt Neueste weg)
             gulp_pages = max(3, min(6, int(pages) + 2))
             gulp_items = fetch_gulp_projects(
                 pages=gulp_pages, page_size=20,
-                today_only=today_only, recent_days=recent_days,
+                today_only=today_only, recent_days=fetch_days,
             )
             if persist:
                 try:
                     persist_info['gulp'] = persist_items(
-                        gulp_items, archive_older=today_only,
+                        gulp_items, archive_older=today_only and recent_days > 0 and recent_days <= 2,
                         source_name=GULP_SOURCE_NAME, source_url=GULP_LIST_URL,
                     )
                 except Exception as exc:
@@ -964,39 +1000,130 @@ def list_anfragen(
         persist_info['recent_days'] = recent_days
 
     results: list[dict] = []
+    list_source = 'db'
+    by_src: dict = {}
+    es_total = None
+
+    # ── ES-Suche ────────────────────────────────────────────────────────────
     try:
-        from apps.abpe_shaduler.models import RadarItem, RadarSource
-        src_ids = list(
-            RadarSource.objects.filter(name__in=ANFRAGEN_SOURCES).values_list('pk', flat=True)
+        from . import radar_index
+        es_pack = radar_index.search(
+            q=q,
+            days=recent_days if recent_days > 0 else None,
+            source=source,
+            status=status,
+            sort=sort,
+            limit=limit,
         )
-        qs = RadarItem.objects.all()
-        if src_ids:
-            qs = qs.filter(quelle_id__in=src_ids)
-        if status:
-            qs = qs.filter(status=status)
-        qs = qs.select_related('quelle').order_by('-eingegangen_am')[:300]
-        results = [serialize_db_item(o) for o in qs]
     except Exception as exc:
-        log.warning('DB list failed, fallback live: %s', exc)
-        results = fetched
+        log.warning('radar ES search error: %s', exc)
+        es_pack = None
 
-    if not results and fetched:
-        results = fetched
+    if es_pack and es_pack.get('ids') is not None:
+        list_source = 'elasticsearch'
+        by_src = es_pack.get('by_source') or {}
+        es_total = es_pack.get('total')
+        ids = es_pack.get('ids') or []
+        if ids:
+            try:
+                from apps.abpe_shaduler.models import RadarItem
+                import uuid as _uuid
+                uuids = []
+                for i in ids:
+                    try:
+                        uuids.append(_uuid.UUID(str(i)))
+                    except Exception:
+                        continue
+                objs = {
+                    str(o.pk): o
+                    for o in RadarItem.objects.filter(pk__in=uuids).select_related('quelle')
+                }
+                results = [serialize_db_item(objs[str(u)]) for u in uuids if str(u) in objs]
+            except Exception as exc:
+                log.warning('hydrate ES radar ids failed: %s', exc)
+                results = []
+        else:
+            results = []
 
-    # Counts per source for UI
-    by_src = {}
-    for it in results:
-        s = ((it.get('sources') or ['?'])[0]) or '?'
-        by_src[s] = by_src.get(s, 0) + 1
+    # ── DB-Fallback ─────────────────────────────────────────────────────────
+    if list_source != 'elasticsearch':
+        try:
+            from apps.abpe_shaduler.models import RadarItem, RadarSource
+            from datetime import timedelta
+            from django.utils import timezone as dj_tz
+            src_qs = RadarSource.objects.filter(name__in=ANFRAGEN_SOURCES)
+            if source:
+                src_qs = src_qs.filter(name=source)
+            src_ids = list(src_qs.values_list('pk', flat=True))
+            qs = RadarItem.objects.all()
+            if src_ids:
+                qs = qs.filter(quelle_id__in=src_ids)
+            elif source:
+                qs = qs.none()
+            if status:
+                qs = qs.filter(status=status)
+            if recent_days > 0:
+                since = dj_tz.now() - timedelta(days=recent_days)
+                qs = qs.filter(eingegangen_am__gte=since)
+            if q:
+                from django.db.models import Q
+                qs = qs.filter(
+                    Q(headline__icontains=q)
+                    | Q(beschreibung__icontains=q)
+                    | Q(eckdaten__company__icontains=q)
+                    | Q(eckdaten__city__icontains=q)
+                )
+            order = 'eingegangen_am' if sort in ('date_asc', 'asc', 'oldest') else '-eingegangen_am'
+            qs = qs.select_related('quelle').order_by(order)[:limit]
+            results = [serialize_db_item(o) for o in qs]
+            list_source = 'db'
+        except Exception as exc:
+            log.warning('DB list failed, fallback live: %s', exc)
+            results = fetched
+            list_source = 'live'
+
+    if not results and fetched and not q and not source and list_source != 'elasticsearch':
+        results = fetched
+        list_source = 'live'
+
+    # Client-side refine nur für DB/Live (ES liefert schon gefiltert/sortiert)
+    if list_source != 'elasticsearch':
+        if source:
+            results = [
+                r for r in results
+                if ((r.get('sources') or [''])[0] or '').lower() == source
+            ]
+        if sort in ('date_asc', 'asc', 'oldest'):
+            results = sorted(
+                results,
+                key=lambda r: r.get('raw_created') or r.get('eingegangen_am') or '',
+                reverse=False,
+            )
+        else:
+            results = sorted(
+                results,
+                key=lambda r: r.get('raw_created') or r.get('eingegangen_am') or '',
+                reverse=True,
+            )
+
+    if not by_src:
+        for it in results:
+            s = ((it.get('sources') or ['?'])[0]) or '?'
+            by_src[s] = by_src.get(s, 0) + 1
 
     return {
         'ok': True,
         'demo': False,
         'source': '+'.join(ANFRAGEN_SOURCES),
+        'list_source': list_source,
         'recent_days': recent_days,
+        'q': q,
+        'filter_source': source,
+        'sort': sort,
         'by_source': by_src,
         'results': results,
         'count': len(results),
+        'total': es_total if es_total is not None else len(results),
         'fetched': len(fetched),
         'persist': persist_info,
     }
