@@ -1131,8 +1131,11 @@ window.Matching = (function() {
             if (fields.rate_max != null) _setVal('new-rate-max', String(fields.rate_max));
             else _setVal('new-rate-max', '');
 
-            // Firma in CRM vorschlagen / vorbelegen
+            // Firma: KI-Wert behalten; CRM-ID nur bei eindeutigem Treffer
             const accounts = crm.account_matches || [];
+            if (fields.customer_name) {
+                _setVal('new-customer', fields.customer_name);
+            }
             if (accounts.length === 1) {
                 _setVal('new-customer', accounts[0].name || fields.customer_name || '');
                 _setVal('new-crm-account-id', accounts[0].crm_id || '');
@@ -1140,16 +1143,26 @@ window.Matching = (function() {
                 searchAccounts(fields.customer_name);
             }
 
+            // Kontakt: KI-Werte sind maßgeblich.
+            // CRM nur übernehmen bei sicherem Treffer (Backend filtert Fuzzy raus).
             const contacts = crm.contact_matches || [];
-            if (contacts.length === 1) {
-                _setVal('new-contact', contacts[0].full_name || fields.contact_name || '');
+            const conf = crm.contact_match_confidence || 'none';
+            if (contacts.length === 1 && (conf === 'email' || conf === 'name')) {
                 _setVal('new-crm-contact-id', contacts[0].crm_id || '');
-                if (contacts[0].email) _setVal('new-contact-email', contacts[0].email);
-                if (contacts[0].phone) _setVal('new-contact-phone', contacts[0].phone);
+                // Name/E-Mail/Tel nur ergänzen wenn KI leer — nie KI mit anderem Kontakt überschreiben
+                if (!_val('new-contact') && contacts[0].full_name) {
+                    _setVal('new-contact', contacts[0].full_name);
+                }
+                if (!_val('new-contact-email') && contacts[0].email) {
+                    _setVal('new-contact-email', contacts[0].email);
+                }
+                if (!_val('new-contact-phone') && contacts[0].phone) {
+                    _setVal('new-contact-phone', contacts[0].phone);
+                }
                 _hideCrmSuggest();
             } else if (contacts.length > 1) {
                 _showCrmContactPick(contacts);
-            } else if (fields.contact_name) {
+            } else if (fields.contact_name && (crm.contact_missing || crm.suggest_create_contact || !contacts.length)) {
                 _hideCrmSuggest();
                 openNewContactPopup(fields, crm);
             } else {

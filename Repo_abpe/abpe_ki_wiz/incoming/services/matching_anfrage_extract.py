@@ -7,6 +7,8 @@ DeepSeek only — kein Ollama.
 from __future__ import annotations
 
 import logging
+import re
+import unicodedata
 from typing import Any
 
 from apps.abpe_ki_wiz.providers.matching_anfrage import (
@@ -44,10 +46,38 @@ def build_user_email_payload(
     return '\n'.join(parts)
 
 
+def _fold(s: str) -> str:
+    s = unicodedata.normalize('NFKD', s or '')
+    s = ''.join(c for c in s if not unicodedata.combining(c))
+    return re.sub(r'[^a-z0-9]+', ' ', s.lower()).strip()
+
+
+def _name_parts(s: str) -> list[str]:
+    return [p for p in _fold(s).split() if p]
+
+
+def _confident_contact(m: dict[str, Any], name: str, email: str) -> bool:
+    """Nur sichere Treffer — verhindert Fuzzy „Treder“→„Teufel“."""
+    m_email = (m.get('email') or '').strip().lower()
+    if email and m_email and m_email == email.lower().strip():
+        return True
+    want = _name_parts(name)
+    got = _name_parts(m.get('full_name') or '')
+    if not want or not got:
+        return False
+    # Nachname muss exakt matchen
+    if want[-1] != got[-1]:
+        return False
+    # Vorname wenn vorhanden ebenfalls
+    if len(want) >= 2 and len(got) >= 2 and want[0] != got[0]:
+        return False
+    return True
+
+
 def resolve_crm_suggestions(fields: dict[str, Any]) -> dict[str, Any]:
     """
     Prüft SuiteCRM auf Firma/Ansprechpartner.
-    Kein zweiter KI-Wizard — nur Lookup + Hinweis zum Anlegen.
+    Nur sichere Treffer (E-Mail exakt oder Vor+Nachname) — keine Fuzzy-Falschzuordnung.
     """
     out: dict[str, Any] = {
         'account_matches': [],
@@ -55,6 +85,7 @@ def resolve_crm_suggestions(fields: dict[str, Any]) -> dict[str, Any]:
         'contact_missing': False,
         'suggest_create_contact': False,
         'contact_needs_email_or_phone': False,
+        'contact_match_confidence': 'none',
     }
     try:
         from apps.abpe_ki_wiz.services.context_fetcher import (
@@ -66,41 +97,54 @@ def resolve_crm_suggestions(fields: dict[str, Any]) -> dict[str, Any]:
         return out
 
     customer = (fields.get('customer_name') or '').strip()
-    contact = (fields.get('contact_name') or '').strip()
+    contact = (fields.get('contact_name') || '').strip()
     email = (fields.get('contact_email') or '').strip()
     phone = (fields.get('contact_phone') or '').strip()
 
     if customer:
         try:
-            out['account_matches'] = search_crm_accounts(customer, limit=5) or []
+            accounts = search_crm_accounts(customer, limit=8) or []
+            cust_f = _fold(customer)
+            exact_acc = [a for a in accounts if _fold(a.get('name') or '') == cust_f]
+            out['account_matches'] = exact_acc or accounts
         except Exception as exc:
             log.warning('Account-Suche fehlgeschlagen: %s', exc)
 
-    matches: list[dict[str, Any]] = []
+    raw: list[dict[str, Any]] = []
     if email:
         try:
-            matches = search_crm_contacts(email, limit=5) or []
+            raw = search_crm_contacts(email, limit=8) or []
         except Exception as exc:
             log.warning('Kontakt-Suche (E-Mail) fehlgeschlagen: %s', exc)
-    if not matches and contact:
+    if contact:
         try:
-            matches = search_crm_contacts(contact, limit=5) or []
+            by_name = search_crm_contacts(contact, limit=8) or []
+            seen = {m.get('crm_id') for m in raw}
+            for m in by_name:
+                if m.get('crm_id') not in seen:
+                    raw.append(m)
         except Exception as exc:
             log.warning('Kontakt-Suche (Name) fehlgeschlagen: %s', exc)
 
-    # E-Mail-Match bevorzugen wenn vorhanden
-    if email and matches:
+    confident = [m for m in raw if _confident_contact(m, contact, email)]
+    if email:
         email_l = email.lower()
-        exact = [
-            m for m in matches
-            if (m.get('email') or '').lower() == email_l
-            or email_l in (m.get('full_name') or '').lower()
-        ]
-        if exact:
-            matches = exact + [m for m in matches if m not in exact]
+        confident.sort(
+            key=lambda m: 0 if (m.get('email') or '').lower() == email_l else 1,
+        )
 
-    out['contact_matches'] = matches
-    out['contact_missing'] = bool(contact) and len(matches) == 0
+    out['contact_matches'] = confident
+    if confident:
+        out['contact_match_confidence'] = (
+            'email' if email and any(
+                (m.get('email') or '').lower() == email.lower() for m in confident
+            ) else 'name'
+        )
+        out['contact_missing'] = False
+    else:
+        out['contact_missing'] = bool(contact)
+        out['contact_match_confidence'] = 'none'
+
     has_reach = bool(email or phone)
     out['contact_needs_email_or_phone'] = bool(contact) and not has_reach
     out['suggest_create_contact'] = (

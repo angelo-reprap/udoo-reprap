@@ -110,3 +110,25 @@ class MatchingAnfrageAsapTests(TestCase):
         })
         self.assertTrue(fields['start_asap'])
         self.assertEqual(fields['start_date'], date.today().isoformat())
+
+
+class MatchingAnfrageCrmMatchTests(TestCase):
+    def test_teufel_not_confused_with_treder(self):
+        from apps.abpe_ki_wiz.services.matching_anfrage_extract import _confident_contact
+        teufel = {
+            'crm_id': 'x',
+            'full_name': 'Tristan Teufel',
+            'email': 'info@teufel-it.de',
+        }
+        self.assertFalse(_confident_contact(
+            teufel, 'Tristan Treder', 'tristan.treder@hays.de',
+        ))
+        self.assertTrue(_confident_contact(
+            {
+                'crm_id': 'y',
+                'full_name': 'Tristan Treder',
+                'email': 'tristan.treder@hays.de',
+            },
+            'Tristan Treder',
+            'tristan.treder@hays.de',
+        ))
