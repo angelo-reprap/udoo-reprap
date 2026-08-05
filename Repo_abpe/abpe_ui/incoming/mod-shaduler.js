@@ -178,6 +178,13 @@
       '<div class="mb">' +
       '<div class="phase on" id="sh-ph-act">' +
       '<div class="excerpt" id="sh-m-excerpt"></div>' +
+      '<div class="sh-m-wa" id="sh-m-wa" style="display:none">' +
+      '<label class="qlbl" for="sh-m-wa-text">' + _t('sh.wa_nachricht', 'Nachricht') + '</label>' +
+      '<textarea id="sh-m-wa-text" class="sh-m-wa-text" rows="5"></textarea>' +
+      '<button type="button" class="primary wa" id="sh-m-wa-send">' +
+      '<i class="bi bi-whatsapp"></i> ' + _t('sh.wa_versenden', 'Versenden') + '</button>' +
+      '<div class="note" id="sh-m-wa-note"></div>' +
+      '</div>' +
       '<button type="button" class="primary" id="sh-m-action"></button>' +
       '<div class="note" id="sh-m-actnote"></div>' +
       '<div class="sh-m-quick" id="sh-m-quick">' +
@@ -1611,6 +1618,81 @@
     return true;
   }
 
+  function buildWhatsAppLink(phone, text) {
+    var digits = String(phone || '').replace(/\D/g, '');
+    if (!digits) return '';
+    var url = 'https://wa.me/' + digits;
+    if (text) url += '?text=' + encodeURIComponent(text);
+    return url;
+  }
+
+  function waDefaultText(t) {
+    if (!t) return '';
+    if (t.wa_text) return String(t.wa_text);
+    if (t.gentext) return String(t.gentext);
+    var b = String(t.beschreibung || '').trim();
+    // Mail-artige Beschreibung nicht als WA-Text nehmen
+    if (b && !/^Von:\s/i.test(b) && !/^Notiz:\s/i.test(b) && b.indexOf('Mail-ID:') < 0) {
+      return b.replace(/\n?tel:[^\n]+/ig, '').trim();
+    }
+    return String(t.titel || '');
+  }
+
+  function setupWhatsAppCompose(t) {
+    var waBox = document.getElementById('sh-m-wa');
+    var waText = document.getElementById('sh-m-wa-text');
+    var waSend = document.getElementById('sh-m-wa-send');
+    var waNote = document.getElementById('sh-m-wa-note');
+    var actBtn = document.getElementById('sh-m-action');
+    var actNote = document.getElementById('sh-m-actnote');
+    var isWa = t && (t.art === 'sms_messenger' || t.whatsapp_url || t.wa);
+    if (!waBox) return false;
+    if (!isWa) {
+      waBox.style.display = 'none';
+      if (actBtn) actBtn.style.display = '';
+      return false;
+    }
+    waBox.style.display = 'block';
+    if (actBtn) actBtn.style.display = 'none';
+    if (actNote) actNote.style.display = 'none';
+    if (waText) waText.value = waDefaultText(t);
+    var phone = t.phone || '';
+    if (!phone && t.whatsapp_url) {
+      var pm = String(t.whatsapp_url).match(/wa\.me\/(\d+)/);
+      if (pm) phone = pm[1];
+    }
+    if (waNote) {
+      waNote.textContent = phone
+        ? _t('sh.wa_hint', 'Öffnet WhatsApp mit dem Text — danach Ergebnis wählen.')
+        : _t('sh.wa_no_phone', 'Keine Telefonnummer — bitte in CRM hinterlegen oder Text kopieren.');
+    }
+    if (waSend) {
+      waSend.className = 'primary wa';
+      waSend.onclick = function () {
+        var text = waText ? waText.value.trim() : '';
+        var url = buildWhatsAppLink(phone, text) || t.whatsapp_url || '';
+        if (url) {
+          // Text ggf. neu einsetzen (falls nur Base-URL vorhanden)
+          if (phone) url = buildWhatsAppLink(phone, text);
+          window.open(url, '_blank', 'noopener');
+        } else if (text) {
+          // Kein Phone: Text in Zwischenablage, Nutzer kann manuell senden
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text);
+              toast(_t('sh.wa_copied', 'Text kopiert — keine Telefonnummer'));
+            }
+          } catch (e) { /* ignore */ }
+        } else {
+          toast(_t('sh.wa_empty', 'Bitte Nachricht eingeben'));
+          return;
+        }
+        showPhase('res');
+      };
+    }
+    return true;
+  }
+
   function openModal(t) {
     currentTask = t;
     currentResult = null;
@@ -1621,21 +1703,33 @@
     if (ico) ico.className = 'bi ' + art.icon;
     document.getElementById('sh-m-title').textContent = t.titel || '';
     document.getElementById('sh-m-ref').textContent = t.ref_label || '';
+    var isWa = t && (t.art === 'sms_messenger' || t.whatsapp_url || t.wa);
     var ex = t.excerpt || {};
     var html = '';
-    if (ex.stand) html += '<div><b>' + esc(_t('sh.stand', 'Stand')) + ':</b> ' + esc(ex.stand) + '</div>';
+    if (!isWa && ex.stand) html += '<div><b>' + esc(_t('sh.stand', 'Stand')) + ':</b> ' + esc(ex.stand) + '</div>';
     if (ex.hist && ex.hist.length) {
       html += '<ul>' + ex.hist.map(function (h) { return '<li>' + esc(h) + '</li>'; }).join('') + '</ul>';
     }
-    document.getElementById('sh-m-excerpt').innerHTML = html || '<div class="none">' + esc(_t('sh.kein_auszug', 'Kein Auszug')) + '</div>';
+    var excerptEl = document.getElementById('sh-m-excerpt');
+    if (html) {
+      excerptEl.style.display = '';
+      excerptEl.innerHTML = html;
+    } else {
+      excerptEl.style.display = isWa ? 'none' : '';
+      excerptEl.innerHTML = isWa ? '' : ('<div class="none">' + esc(_t('sh.kein_auszug', 'Kein Auszug')) + '</div>');
+    }
     document.getElementById('sh-m-action').textContent = t.action_label || _t('sh.erledigen', 'Erledigen');
     document.getElementById('sh-m-actnote').textContent = t.action_note || '';
+    document.getElementById('sh-m-actnote').style.display = '';
 
     var snoozeBox = document.getElementById('sh-m-snooze');
     if (snoozeBox) snoozeBox.style.display = 'none';
 
+    var isWaCompose = setupWhatsAppCompose(t);
+
     var actBtn = document.getElementById('sh-m-action');
-    if (actBtn) {
+    if (actBtn && !isWaCompose) {
+      actBtn.style.display = '';
       actBtn.onclick = function () {
         if (t.whatsapp_url) {
           window.open(t.whatsapp_url, '_blank', 'noopener');

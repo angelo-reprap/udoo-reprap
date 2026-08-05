@@ -1,6 +1,7 @@
 """aufgaben_service — Fassade: erstellen, erledigen, fuer_ref, badge (Kap. 1)."""
 from __future__ import annotations
 
+import logging
 from datetime import date, timedelta
 from typing import Any, Optional
 
@@ -10,6 +11,42 @@ from django.utils import timezone
 from apps.abpe_shaduler.models import Aufgabe, ErgebnisTyp
 
 from . import aktivitaet_service
+
+log = logging.getLogger('abpe_shaduler.aufgaben')
+
+
+def _crm_phone_for_ref(ref_type: str, ref_id: str) -> str:
+    """Telefon aus CRM (CrmPhoneBeanRel) für Berater/Firma."""
+    bid = (ref_id or '').strip()
+    if not bid:
+        return ''
+    if ref_type in ('berater', 'ansprechpartner'):
+        mod = 'Contacts'
+    elif ref_type == 'firma':
+        mod = 'Accounts'
+    else:
+        return ''
+    try:
+        from django.apps import apps
+
+        Rel = apps.get_model('abpe_crm', 'CrmPhoneBeanRel')
+        qs = (
+            Rel.objects.filter(bean_id=bid, bean_module=mod)
+            .select_related('phone')
+            .order_by('-is_primary', 'field_name')
+        )
+        for rel in qs:
+            phone = getattr(rel, 'phone', None)
+            raw = (
+                getattr(phone, 'phone_raw', None)
+                or getattr(phone, 'phone_norm', None)
+                or ''
+            )
+            if raw:
+                return str(raw)
+    except Exception as exc:
+        log.debug('CRM-Phone lookup fehlgeschlagen: %s', exc)
+    return ''
 
 
 def _today() -> date:
@@ -179,7 +216,7 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
     action = {
         'anruf': ('Anrufen', 'Click-to-dial — dein Telefon klingelt zuerst.'),
         'email': ('Vorschau & senden', 'E-Mail-Studio — vorbefüllt.'),
-        'sms_messenger': ('In WhatsApp öffnen', 'Text vorbefüllt — nur Senden.'),
+        'sms_messenger': ('Versenden', 'Text prüfen — dann WhatsApp öffnen.'),
         'wiedervorlage': ('Geprüft — entscheiden', 'Reine Wiedervorlage.'),
         'dokument': ('Dokument bearbeiten', ''),
         'post': ('Post-Vorgang', ''),
@@ -188,19 +225,30 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
     }.get(aufgabe.art, ('Erledigen', ''))
 
     whatsapp_url = ''
+    phone = ''
+    wa_text = ''
     if aufgabe.art == Aufgabe.Art.SMS_MESSENGER:
         from .whatsapp_service import build_whatsapp_link
-        phone = ''
         if isinstance(aufgabe.ergebnis_daten, dict):
-            phone = aufgabe.ergebnis_daten.get('phone') or aufgabe.ergebnis_daten.get('tel') or ''
-        # optional in beschreibung: "tel:+49123..."
+            phone = (
+                aufgabe.ergebnis_daten.get('phone')
+                or aufgabe.ergebnis_daten.get('tel')
+                or ''
+            )
         if not phone and 'tel:' in (aufgabe.beschreibung or '').lower():
             import re
             m = re.search(r'tel:([+\d\s\-()/]+)', aufgabe.beschreibung or '', re.I)
             if m:
                 phone = m.group(1)
-        text = aufgabe.beschreibung or aufgabe.titel
-        whatsapp_url = build_whatsapp_link(phone, text) if phone else ''
+        if not phone and aufgabe.ref_id:
+            phone = _crm_phone_for_ref(aufgabe.ref_type, aufgabe.ref_id)
+        beschr = (aufgabe.beschreibung or '').strip()
+        if beschr and not beschr.lower().startswith('von:') and 'mail-id:' not in beschr.lower():
+            import re as _re
+            wa_text = _re.sub(r'\n?tel:[^\n]+', '', beschr, flags=_re.I).strip()
+        if not wa_text:
+            wa_text = aufgabe.titel or ''
+        whatsapp_url = build_whatsapp_link(phone, wa_text) if phone else ''
 
     return {
         'id': str(aufgabe.pk),
@@ -226,6 +274,8 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
         'action_label': action[0],
         'action_note': action[1],
         'whatsapp_url': whatsapp_url,
+        'phone': phone,
+        'wa_text': wa_text,
         'excerpt': {
             'stand': (aufgabe.beschreibung or '')[:240],
             'hist': hist,

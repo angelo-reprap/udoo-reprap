@@ -299,6 +299,16 @@ th{background:var(--abcona-gray-card);color:var(--text-secondary);font-size:.74r
 body.dark-mode .gentext{background:#064e3b;color:#6ee7b7}
 .primary{width:100%;padding:12px;border:none;border-radius:9px;background:var(--abcona-blue);color:#fff;font-size:.95rem;font-weight:600}
 .primary.wa{background:var(--a-wa)}
+.sh-m-wa{margin:0 0 12px}
+.sh-m-wa .qlbl{font-size:.82rem;font-weight:600;margin:0 0 6px;color:var(--text-secondary,#64748b)}
+.sh-m-wa-text{
+  display:block;width:100%;box-sizing:border-box;min-height:110px;resize:vertical;
+  border:1px solid var(--border-color,#e2e8f0);border-radius:9px;padding:10px 12px;
+  font:inherit;font-size:.9rem;line-height:1.45;background:var(--bg-white,#fff);
+  color:var(--text-primary,#1e1e1e);margin-bottom:10px;
+}
+.sh-m-wa-text:focus{outline:2px solid rgba(37,211,102,.35);border-color:var(--a-wa,#25d366)}
+#sh-m-wa-send{margin-top:0}
 .phase{display:none}.phase.on{display:block}
 .qlbl{font-weight:600;margin:4px 0 10px;font-size:.95rem}
 .results{display:flex;flex-direction:column;gap:8px}
