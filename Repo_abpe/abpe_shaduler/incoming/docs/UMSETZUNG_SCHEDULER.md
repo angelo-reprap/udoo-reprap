@@ -31,6 +31,10 @@ Jobs (RRULE):
 | `prozess_tick` | 15 Min | `/shaduler/api/webhook/prozess-tick/` |
 | `email_index` | **1 Min** | `/shaduler/api/webhook/email-index/` |
 
+**Timeout:** `abpe_scheduler` POSTet mit `timeout=15`. Der Indexer läuft deshalb
+**asynchron via Celery** (`abpe_shaduler.email_index_run`) — Webhook antwortet sofort.
+Nach Deploy: `supervisorctl restart abpe-django abpe-celery`.
+
 ## Webhook-Auth prüfen (401 vs. OK)
 
 PUSH vom Scheduler braucht denselben `SCHEDULER_SERVICE_TOKEN` wie Django.

@@ -45,17 +45,20 @@ Danach Index + Index neu (optional Catch-up):
 
 ## Periodik
 
-Scheduler-Job `email_index`: **jede Minute**, INBOX, `--since-days 2 --incremental`
-(nur neue Message-IDs voll laden). Registrieren:
+Scheduler-Job `email_index`: **jede Minute**, INBOX, `--since-days 2 --incremental`.
+Webhook queued Celery-Task (Scheduler-HTTP-Timeout = 15s — synchron würde abbrechen).
 
 ```bash
 cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py register_scheduler_jobs
+supervisorctl restart abpe-django abpe-celery
 ```
 
-Webhook-Test:
+Manuell (ohne Scheduler):
 
 ```bash
-# siehe UMSETZUNG_SCHEDULER.md — POST /shaduler/api/webhook/email-index/
+/opt/abpe/venv311/bin/python manage.py index_emails --since-days 2 --folders INBOX --incremental
 ```
+
+Webhook-Test: siehe `UMSETZUNG_SCHEDULER.md`.
 
 Für historische Geister weiterhin gelegentlich `--prune-orphans`.
