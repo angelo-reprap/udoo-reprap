@@ -1,0 +1,183 @@
+"""
+Signal-Handler für automatische Verarbeitung von CV-E-Mails
+Prüft zuerst: Formular, Anhang, Dateityp, Vorname/Nachname
+Erst bei Erfolg: Auto-Reply (grün) + Pipeline
+Bei Fehler: Error-Reply (rot) + KEINE Auto-Reply
+"""
+
+import logging
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from .models import EmailMessage
+from .auto_reply import send_import_confirmation
+from .error_reply import PipelineErrorReply
+
+logger = logging.getLogger(__name__)
+
+def send_error_email(to_email, error_code, error_detail, email_id, name=""):
+    """Sendet eine Fehler-E-Mail mit Begründung (ROT)"""
+    try:
+        reply = PipelineErrorReply()
+        subject = f"❌ CV-Import fehlgeschlagen: {error_code}"
+        data = {
+            'name': name or "unbekannt",
+            'aid': '',
+            'email_id': email_id,
+            'error': error_code,
+            'error_detail': error_detail,
+        }
+        return reply.send_error(to_email, data, subject)
+    except Exception as e:
+        logger.error(f"Fehler beim Senden der Fehler-E-Mail: {e}")
+        return False
+
+@receiver(post_save, sender=EmailMessage)
+def process_email_on_import(sender, instance, created, **kwargs):
+    """
+    Verarbeitet importierte E-Mails:
+    1. Prüft auf CV-Formular im Body
+    2. Prüft auf Anhänge
+    3. Prüft Dateityp (PDF/DOC/DOCX)
+    4. Extrahiert Vorname + Nachname
+    5. Bei Erfolg: Auto-Reply (grün) + Pipeline
+    6. Bei Fehler: Error-Reply (rot) + KEINE Pipeline
+    """
+    # Race Condition Fix: Signal feuert 2x
+    # 1. EmailMessage.create() → created=True, noch KEINE Attachments in DB
+    # 2. email_obj.save() nach Attachments → created=False, has_attachments=True
+    # Wir reagieren auf das zweite save()
+    if created:
+        return  # Attachments noch nicht gespeichert
+
+    # Nur unverarbeitete E-Mails (status=NEW)
+    if instance.status != 'NEW':
+        return
+
+    logger.info(f"📧 Prüfe E-Mail {instance.id}: {instance.subject[:50]}")
+    
+    # ============================================================
+    # SCHRITT 1: Prüfung - Ist das CV-Formular im Body?
+    # ============================================================
+    has_form = False
+    body = instance.body_plain or ''
+    
+    if 'Vorname *' in body and 'Nachname *' in body:
+        has_form = True
+    
+    if not has_form:
+        error_msg = "Die E-Mail enthält kein gültiges CV-Formular. Bitte verwenden Sie das Formular mit den Feldern 'Vorname *' und 'Nachname *'."
+        logger.warning(f"❌ E-Mail {instance.id}: Kein Formular im Body")
+        send_error_email(
+            to_email=instance.from_email,
+            error_code="FORMULAR_FEHLT",
+            error_detail=error_msg,
+            email_id=instance.id
+        )
+        return  # ⬅️ KEINE Auto-Reply, KEINE Pipeline
+    
+    logger.info(f"✅ E-Mail {instance.id}: Formular erkannt")
+    
+    # ============================================================
+    # SCHRITT 2: Prüfung - Ist ein Anhang vorhanden?
+    # ============================================================
+    if not instance.has_attachments:
+        error_msg = "Die E-Mail enthält keinen Anhang. Bitte hängen Sie Ihren CV als PDF, DOC oder DOCX an."
+        logger.warning(f"❌ E-Mail {instance.id}: Kein Anhang")
+        send_error_email(
+            to_email=instance.from_email,
+            error_code="KEIN_ANHANG",
+            error_detail=error_msg,
+            email_id=instance.id
+        )
+        return  # ⬅️ KEINE Auto-Reply, KEINE Pipeline
+    
+    logger.info(f"✅ E-Mail {instance.id}: Anhang vorhanden ({instance.attachment_count} Dateien)")
+    
+    # ============================================================
+    # SCHRITT 3: Prüfung - Ist der Anhang PDF, DOC oder DOCX?
+    # ============================================================
+    valid_attachments = []
+    invalid_types = []
+    
+    for att in instance.attachments.all():
+        # Prüfe anhand der Datei-Endung (sicherer als content_type)
+        filename_lower = att.filename.lower()
+        if filename_lower.endswith('.pdf') or filename_lower.endswith('.doc') or filename_lower.endswith('.docx'):
+            valid_attachments.append(att)
+        else:
+            invalid_types.append(f"{att.filename} (Endung: {filename_lower.split('.')[-1] if '.' in filename_lower else 'keine'})")
+    
+    if not valid_attachments:
+        error_msg = f"Die E-Mail enthält keine gültige CV-Datei. Unterstützte Formate: PDF, DOC, DOCX. Gefunden: {', '.join(invalid_types) if invalid_types else 'keine'}"
+        logger.warning(f"❌ E-Mail {instance.id}: Kein PDF/DOC/DOCX")
+        send_error_email(
+            to_email=instance.from_email,
+            error_code="UNGUELTIGER_DATEITYP",
+            error_detail=error_msg,
+            email_id=instance.id
+        )
+        return  # ⬅️ KEINE Auto-Reply, KEINE Pipeline
+    
+    logger.info(f"✅ E-Mail {instance.id}: Gültige Anhänge: {len(valid_attachments)}")
+    
+    # ============================================================
+    # SCHRITT 4: Prüfung - Vorname und Nachname extrahierbar?
+    # ============================================================
+    from .cv_parser import extract_cv_data
+    cv_data = extract_cv_data(body)
+    
+    vorname = cv_data.get('vorname', '').strip()
+    nachname = cv_data.get('nachname', '').strip()
+    full_name = f"{vorname} {nachname}".strip()
+    
+    if not vorname:
+        error_msg = "Das Feld 'Vorname' ist nicht ausgefüllt. Bitte tragen Sie Ihren Vornamen in das Formular ein (Format: [Ihr Vorname])."
+        logger.warning(f"❌ E-Mail {instance.id}: Vorname fehlt")
+        send_error_email(
+            to_email=instance.from_email,
+            error_code="VORNAME_FEHLT",
+            error_detail=error_msg,
+            email_id=instance.id,
+            name=""
+        )
+        return  # ⬅️ KEINE Auto-Reply, KEINE Pipeline
+    
+    if not nachname:
+        error_msg = "Das Feld 'Nachname' ist nicht ausgefüllt. Bitte tragen Sie Ihren Nachnamen in das Formular ein (Format: [Ihr Nachname])."
+        logger.warning(f"❌ E-Mail {instance.id}: Nachname fehlt")
+        send_error_email(
+            to_email=instance.from_email,
+            error_code="NACHNAME_FEHLT",
+            error_detail=error_msg,
+            email_id=instance.id,
+            name=vorname
+        )
+        return  # ⬅️ KEINE Auto-Reply, KEINE Pipeline
+    
+    logger.info(f"✅ E-Mail {instance.id}: Vorname/Nachname erkannt: {full_name}")
+    
+    # ============================================================
+    # SCHRITT 5: ALLE PRÜFUNGEN BESTANDEN → Auto-Reply (GRÜN) + PIPELINE
+    # ============================================================
+    logger.info(f"🚀 Starte CV-Pipeline für {full_name} (E-Mail {instance.id})")
+    
+    # Auto-Reply senden (grün) - JETZT ERST, nach allen Prüfungen!
+    send_import_confirmation(instance)
+    
+    # Pipeline starten
+    from .tasks import process_cv_email_task
+    process_cv_email_task.delay(instance.id)
+    
+    logger.info(f"✅ Pipeline-Task gestartet für E-Mail {instance.id}")
+
+# Signal aktivieren
+def connect_auto_reply_signals():
+    """Verbinde die Auto-Reply Signals"""
+    try:
+        from django.apps import apps
+        if apps.is_installed('ingest_email'):
+            logger.info("✅ Auto-Reply Signals aktiviert")
+            return True
+    except Exception as e:
+        logger.error(f"❌ Fehler beim Verbinden von Auto-Reply Signals: {e}")
+    return False
