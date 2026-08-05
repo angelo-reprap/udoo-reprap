@@ -28,6 +28,11 @@ cp -a "$SRC" "$LIVE_CMD/index_emails.py"
 echo "OK → $LIVE_CMD/index_emails.py"
 echo "email_settings.json wurde NICHT angefasst (Live-Passwörter bleiben)."
 echo
+echo "Shaduler SYNC + Job auf 1 Min setzen:"
+echo "  bash scripts/SYNC-abpe-shaduler-files.sh"
+echo "  supervisorctl restart abpe-django"
+echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py register_scheduler_jobs"
+echo
 echo "Gelöschte aus ES entfernen (einmal, z.B. angelo INBOX):"
 echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py index_emails --account angelo --folders INBOX --prune-only --prune-orphans"
 echo
