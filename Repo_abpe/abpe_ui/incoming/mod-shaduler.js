@@ -132,7 +132,7 @@
         '<div class="card-h"><i class="bi bi-broadcast"></i> ' +
         esc(_t('sh.tab_radar_a', 'Radar — Anfragen')) +
         '<span class="sh-inbox-meta" style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px;flex-wrap:wrap">' +
-        '<span id="sh-radar-hint">' + esc(_t('sh.radar_hint', 'Freelancermap + Gulp')) + '</span>' +
+        '<span id="sh-radar-hint">' + esc(_t('sh.radar_hint', 'Freelancermap + Gulp + Hays')) + '</span>' +
         '<span id="r-new" class="sh-radar-count">0</span>' +
         '<button type="button" class="sh-inbox-refresh" id="sh-radar-refresh" title="' +
         esc(_t('sh.radar_refresh', 'Quellen aktualisieren')) + '">' +
@@ -2052,7 +2052,7 @@
     var _rs = localStorage.getItem('sh_radar_sort') || 'date_desc';
     if (_rs === 'date_asc' || _rs === 'date_desc') RADAR_SORT = _rs;
     var _rq = localStorage.getItem('sh_radar_source') || '';
-    if (_rq === 'freelancermap' || _rq === 'gulp' || _rq === '') RADAR_SOURCE = _rq;
+    if (_rq === 'freelancermap' || _rq === 'gulp' || _rq === 'hays' || _rq === '') RADAR_SOURCE = _rq;
   } catch (e) { /* ignore */ }
 
   function radarDaysLabel(d) {
@@ -2104,6 +2104,8 @@
       esc(_t('sh.radar_src_fm', 'Freelancermap')) + '</option>' +
       '<option value="gulp"' + (RADAR_SOURCE === 'gulp' ? ' selected' : '') + '>' +
       esc(_t('sh.radar_src_gulp', 'Gulp')) + '</option>' +
+      '<option value="hays"' + (RADAR_SOURCE === 'hays' ? ' selected' : '') + '>' +
+      esc(_t('sh.radar_src_hays', 'Hays')) + '</option>' +
       '</select>' +
       '<label class="sh-inbox-pagesize sh-radar-pagesize"><span>' +
       esc(_t('sh.inbox_per_page', 'Anzeigen')) + '</span> ' +
@@ -2198,7 +2200,7 @@
           var lsLbl = ls === 'elasticsearch' ? 'ES' : (ls === 'db' ? 'DB' : ls);
           hint.textContent = data.demo
             ? _t('sh.radar_demo', 'Demo')
-            : _t('sh.radar_hint', 'Freelancermap + Gulp') +
+            : _t('sh.radar_hint', 'Freelancermap + Gulp + Hays') +
               ' · ' + radarDaysLabel(RADAR_DAYS) +
               (lsLbl ? (' · ' + lsLbl) : '') +
               (parts.length ? (' · ' + parts.join(', ')) : '') +
@@ -2356,9 +2358,12 @@
       var body = item.beschreibung || '';
       var url = item.external_url || eck.url || '';
       var srcName = ((item.sources || [])[0] || eck.source || 'freelancermap') + '';
-      var openLabel = srcName.toLowerCase().indexOf('gulp') >= 0
+      var srcLow = srcName.toLowerCase();
+      var openLabel = srcLow.indexOf('gulp') >= 0
         ? _t('sh.radar_open_gulp', 'Auf Gulp öffnen')
-        : _t('sh.radar_open_fm', 'Auf Freelancermap öffnen');
+        : (srcLow.indexOf('hays') >= 0
+          ? _t('sh.radar_open_hays', 'Auf Hays öffnen')
+          : _t('sh.radar_open_fm', 'Auf Freelancermap öffnen'));
       var acts =
         '<div class="racts sh-viewer-acts">' +
         '<button type="button" class="pri sh-radar-task">' +

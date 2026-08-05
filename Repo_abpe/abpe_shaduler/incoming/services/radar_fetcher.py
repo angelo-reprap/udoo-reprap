@@ -50,7 +50,19 @@ GULP_DETAIL_API_PATH = {
     'EXTERNAL': 'external',
     'LEGACY': 'legacy',
 }
-ANFRAGEN_SOURCES = (SOURCE_NAME, GULP_SOURCE_NAME)
+
+# Hays Jobsuche (Liferay HTML + JobPosting JSON-LD)
+HAYS_SOURCE_NAME = 'hays'
+HAYS_LIST_URL = (
+    'https://www.hays.de/jobsuche/stellenangebote-jobs/'
+    's/IT/1/j/Contracting/3/p/1?e=false&pt=false&ij=false&sortOrder=createdAt'
+)
+HAYS_SPECIALISM = 'IT'       # /s/IT/1
+HAYS_SPECIALISM_ID = '1'
+HAYS_JOBTYPE = 'Contracting'  # /j/Contracting/3
+HAYS_JOBTYPE_ID = '3'
+
+ANFRAGEN_SOURCES = (SOURCE_NAME, GULP_SOURCE_NAME, HAYS_SOURCE_NAME)
 
 _TAG_RE = re.compile(r'<[^>]+>')
 _WS_RE = re.compile(r'\s+')
@@ -792,6 +804,306 @@ def fetch_gulp_projects(
     return out
 
 
+def ensure_hays_source():
+    return ensure_source(HAYS_SOURCE_NAME, HAYS_LIST_URL)
+
+
+def _hays_list_url(page: int = 1, *, query: str = '') -> str:
+    page = max(1, int(page or 1))
+    q = (query or '').strip()
+    base = (
+        f'https://www.hays.de/jobsuche/stellenangebote-jobs/'
+        f's/{HAYS_SPECIALISM}/{HAYS_SPECIALISM_ID}/'
+        f'j/{HAYS_JOBTYPE}/{HAYS_JOBTYPE_ID}/p/{page}'
+    )
+    params = 'e=false&pt=false&ij=false&sortOrder=createdAt'
+    if q:
+        from urllib.parse import quote
+        params = f'q={quote(q)}&' + params
+    return f'{base}?{params}'
+
+
+def _hays_ref_from_url(url: str) -> str:
+    """…-888822/1 → 888822/1"""
+    m = re.search(r'-(\d+)/(\d+)/?$', (url or '').rstrip('/'))
+    if m:
+        return f'{m.group(1)}/{m.group(2)}'
+    m = re.search(r'-(\d+)(?:/|$)', url or '')
+    return m.group(1) if m else ''
+
+
+def parse_hays_list_html(html: str) -> list[dict]:
+    """SSR-Karten aus Hays-Suchseite."""
+    parts = re.split(r'(?=<div class="search__result border-radius-10")', html or '')
+    cards = [p for p in parts if p.startswith('<div class="search__result border-radius-10"')]
+    out: list[dict] = []
+    for c in cards:
+        jid_m = re.search(r'data-job-id="\s*([^"]+)"', c)
+        jid = (jid_m.group(1).strip() if jid_m else '')
+        title_m = re.search(r'<h4 class="search__result__header__title">(.*?)</h4>', c, re.S)
+        title = ''
+        if title_m:
+            title = _WS_RE.sub(' ', unescape(_TAG_RE.sub(' ', title_m.group(1)))).strip()
+        link_m = re.search(
+            r'href="(https://www\.hays\.de/jobsuche/stellenangebote-jobs-detail[^"]+)"', c,
+        )
+        url = link_m.group(1) if link_m else ''
+        teaser_m = re.search(r'class="search__result__teaser"[^>]*>(.*?)</div>', c, re.S)
+        teaser = ''
+        if teaser_m:
+            teaser = _WS_RE.sub(' ', unescape(_TAG_RE.sub(' ', teaser_m.group(1)))).strip()
+        city = ''
+        typ = ''
+        loc_m = re.search(
+            r'search__result__job__attribute__location[^>]*>.*?>\s*([^<]+)', c, re.S,
+        )
+        if loc_m:
+            city = _WS_RE.sub(' ', unescape(loc_m.group(1))).strip()
+        typ_m = re.search(
+            r'search__result__job__attribute__type[^>]*>.*?>\s*([^<]+)', c, re.S,
+        )
+        if typ_m:
+            typ = _WS_RE.sub(' ', unescape(typ_m.group(1))).strip()
+        prosp_m = re.search(r'search__result__prospectnumber[^>]*>\s*([^<]+)', c)
+        prosp = ''
+        if prosp_m:
+            prosp = _WS_RE.sub(' ', unescape(prosp_m.group(1))).strip()
+            prosp = re.sub(r'(?i)^referenznummer:\s*', '', prosp).strip()
+        ref = prosp or _hays_ref_from_url(url)
+        if not title and not url:
+            continue
+        out.append({
+            'id': jid or ref,
+            'title': title,
+            'url': url,
+            'teaser': teaser,
+            'city': city,
+            'contract_type': typ,
+            'reference': ref,
+        })
+    return out
+
+
+def fetch_hays_job_detail(url: str) -> Optional[dict]:
+    """Detailseite → JobPosting JSON-LD (+ Sektionen)."""
+    if not url:
+        return None
+    try:
+        req = Request(url, headers={
+            'User-Agent': FM_UA,
+            'Accept': 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8',
+            'Accept-Language': 'de-DE,de;q=0.9,en;q=0.8',
+        })
+        html = urlopen(req, timeout=25).read().decode('utf-8', 'replace')
+    except (HTTPError, URLError, TimeoutError, OSError) as exc:
+        log.warning('hays detail fetch failed: %s', exc)
+        return None
+    m = re.search(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        html, re.S | re.I,
+    )
+    ld: dict = {}
+    if m:
+        try:
+            ld = json.loads(m.group(1))
+        except json.JSONDecodeError:
+            ld = {}
+    sections: dict[str, str] = {}
+    for t, b in re.findall(
+        r'h-job-detail__listing-title[^>]*>(.*?)</[^>]+>\s*'
+        r'<div[^>]*h-job-detail__listing-body[^>]*>(.*?)</div>',
+        html, re.S,
+    ):
+        key = _WS_RE.sub(' ', unescape(_TAG_RE.sub(' ', t))).strip().lower()
+        body = _WS_RE.sub(' ', unescape(_TAG_RE.sub(' ', b))).strip()
+        if key and body:
+            sections[key] = body
+    return {'ld': ld, 'sections': sections, 'url': url}
+
+
+def normalize_hays_project(
+    raw: dict,
+    *,
+    detail: Optional[dict] = None,
+    source: str = HAYS_SOURCE_NAME,
+) -> dict:
+    """Hays-Karte (+ optional Detail) → Radar-Dict."""
+    ld = (detail or {}).get('ld') or {}
+    sections = (detail or {}).get('sections') or {}
+    pid = str(raw.get('reference') or raw.get('id') or '').strip()
+    if not pid and isinstance(ld.get('identifier'), dict):
+        pid = str(ld['identifier'].get('value') or '').strip()
+    title = str(ld.get('title') or raw.get('title') or '').strip()
+    url = str(ld.get('url') or raw.get('url') or '').strip()
+    if url.startswith('http://'):
+        url = 'https://' + url[len('http://'):]
+    city = str(raw.get('city') or '').strip()
+    loc = ld.get('jobLocation') or {}
+    addr = loc.get('address') if isinstance(loc, dict) else {}
+    if isinstance(addr, dict) and addr.get('addressLocality'):
+        city = str(addr.get('addressLocality') or city).strip()
+    created = _parse_dt(ld.get('datePosted'))
+    desc = str(ld.get('description') or '').strip()
+    if not desc:
+        parts = []
+        for k in ('aufgaben', 'profil', 'benefits'):
+            if sections.get(k):
+                parts.append(sections[k])
+        desc = '\n\n'.join(parts) if parts else str(raw.get('teaser') or '')
+    # Skills: nur bekannte Tech-/Methoden-Tokens aus Profil
+    skills: list[str] = []
+    profile = sections.get('profil') or str(ld.get('experienceRequirements') or '')
+    skill_re = re.compile(
+        r'\b(?:'
+        r'SAP(?:\s*[A-Z0-9/]+)?|SAFe|ABAP|Fiori|S/?4HANA|HANA|'
+        r'Java(?:Script)?|TypeScript|Python|Go|Rust|C\+\+|C#|\.NET|PHP|'
+        r'React|Angular|Vue\.?js|Node\.?js|Spring(?:\s*Boot)?|'
+        r'AWS|Azure|GCP|Kubernetes|K8s|Docker|Terraform|Ansible|'
+        r'Scrum|Kanban|DevOps|CI/?CD|Kafka|Spark|Databricks|Snowflake|'
+        r'Power\s*BI|Tableau|Salesforce|ServiceNow|Jira|Confluence|'
+        r'Linux|Windows|Active\s*Directory|M365|Microsoft\s*365|'
+        r'IBP|PP/?DS|BW/?4|BTP|CPI|PI/?PO'
+        r')\b',
+        re.I,
+    )
+    for m in skill_re.finditer(profile):
+        t = re.sub(r'\s+', ' ', m.group(0)).strip()
+        # canonical casing for common ones
+        key = t.lower()
+        if key and key not in {s.lower() for s in skills} and len(skills) < 16:
+            skills.append(t)
+    industry = str(ld.get('industry') or '').strip()
+    contract = str(raw.get('contract_type') or '').strip()
+    emp = ld.get('employmentType') or []
+    if isinstance(emp, list) and emp:
+        contract = contract or ', '.join(str(x) for x in emp)
+    company = 'Hays'
+    if isinstance(ld.get('hiringOrganization'), dict):
+        company = str(ld['hiringOrganization'].get('name') or company)
+    dedup = hashlib.sha256(f'{source}:{pid or url}:{title}'.encode('utf-8')).hexdigest()
+
+    meta_parts = []
+    if city:
+        meta_parts.append(city)
+    if contract:
+        meta_parts.append(contract)
+    if industry:
+        meta_parts.append(industry)
+    if pid:
+        meta_parts.append(f'Ref {pid}')
+
+    eckdaten = {
+        'project_id': pid,
+        'slug': '',
+        'company': company,
+        'contact': '',
+        'contact_first': '',
+        'contact_last': '',
+        'city': city,
+        'country': (addr.get('addressCountry') if isinstance(addr, dict) else '') or 'DE',
+        'remote_percent': 100 if re.search(r'\bremote\b', f'{title} {city} {desc}', re.I) else None,
+        'beginning': '',
+        'duration': '',
+        'duration_text': '',
+        'industry': industry,
+        'contract_type': contract,
+        'created': created.isoformat() if created else str(ld.get('datePosted') or ''),
+        'source': source,
+        'url': url,
+        'hays_job_id': str(raw.get('id') or ''),
+        'detail_enriched': bool(ld),
+    }
+    age = _format_age(created)
+    return {
+        'id': f'hays-{pid}' if pid else dedup[:16],
+        'external_id': pid,
+        'dedup_hash': dedup,
+        'headline': title or f'Hays {pid}',
+        'beschreibung': desc,
+        'beschreibung_html': '',
+        'skills': skills,
+        'eckdaten': eckdaten,
+        'meta': ' · '.join(meta_parts),
+        'age': age,
+        'sources': [source],
+        'score': None,
+        'grp': 1,
+        'top': [],
+        'status': 'neu',
+        'external_url': url,
+        'eingegangen_am': created.isoformat() if created else None,
+        'company': company,
+        'contact': '',
+        'city': city,
+        'raw_created': created.isoformat() if created else None,
+    }
+
+
+def fetch_hays_projects(
+    *,
+    pages: int = 2,
+    today_only: bool = True,
+    recent_days: int = 2,
+    query: str = '',
+    enrich_details: bool = True,
+) -> list[dict]:
+    """
+    Hays IT/Contracting, Sortierung Neueste (createdAt).
+    Detail (JSON-LD) liefert datePosted — bei Datumsfenster Early-Stop.
+    """
+    pages = max(1, min(8, int(pages or 2)))
+    recent_days = max(1, min(30, int(recent_days or 2)))
+    cutoff_date = date.today() - timedelta(days=recent_days - 1)
+    out: list[dict] = []
+    seen: set[str] = set()
+
+    for page in range(1, pages + 1):
+        url = _hays_list_url(page, query=query)
+        try:
+            req = Request(url, headers={
+                'User-Agent': FM_UA,
+                'Accept': 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8',
+                'Accept-Language': 'de-DE,de;q=0.9',
+            })
+            html = urlopen(req, timeout=30).read().decode('utf-8', 'replace')
+        except (HTTPError, URLError, TimeoutError, OSError) as exc:
+            log.warning('hays list page %s failed: %s', page, exc)
+            break
+        cards = parse_hays_list_html(html)
+        if not cards:
+            break
+        page_had_match = False
+        stop_old = False
+        for card in cards:
+            key = card.get('id') or card.get('url') or card.get('title')
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            detail = None
+            if enrich_details and card.get('url'):
+                detail = fetch_hays_job_detail(card['url'])
+            item = normalize_hays_project(card, detail=detail)
+            created = _parse_dt((item.get('eckdaten') or {}).get('created')) or _parse_dt(
+                item.get('raw_created')
+            )
+            if today_only and created:
+                if created.date() < cutoff_date:
+                    stop_old = True
+                    continue
+                page_had_match = True
+            elif today_only and not created:
+                # ohne Datum nur aufnehmen wenn Fenster großzügig / erste Seiten
+                page_had_match = True
+            out.append(item)
+        if today_only and stop_old and not page_had_match:
+            break
+        if today_only and stop_old:
+            break
+
+    out.sort(key=lambda x: x.get('raw_created') or '', reverse=True)
+    return out
+
+
 def persist_items(
     items: list[dict],
     *,
@@ -950,7 +1262,7 @@ def list_anfragen(
 ) -> dict:
     """
     Primärer Einstieg für API.
-    1) Optional live von Freelancermap + Gulp holen + persistieren (+ ES-Index)
+    1) Optional live von Freelancermap + Gulp + Hays holen + persistieren (+ ES-Index)
     2) Suche bevorzugt über ES (q / Zeitraum / Quelle / Sort)
     3) Fallback: DB
     """
@@ -974,6 +1286,7 @@ def list_anfragen(
     if use_live_fetch:
         fm_items: list[dict] = []
         gulp_items: list[dict] = []
+        hays_items: list[dict] = []
         try:
             fm_items = fetch_freelancermap_projects(
                 pages=pages, today_only=today_only, recent_days=fetch_days,
@@ -1010,7 +1323,28 @@ def list_anfragen(
             log.warning('gulp live fetch failed: %s', exc)
             persist_info['gulp'] = {'ok': False, 'error': str(exc)}
 
-        fetched = fm_items + gulp_items
+        try:
+            hays_pages = max(2, min(5, int(pages) + 1))
+            hays_items = fetch_hays_projects(
+                pages=hays_pages,
+                today_only=today_only,
+                recent_days=fetch_days,
+                enrich_details=True,
+            )
+            if persist:
+                try:
+                    persist_info['hays'] = persist_items(
+                        hays_items, archive_older=today_only and recent_days > 0 and recent_days <= 2,
+                        source_name=HAYS_SOURCE_NAME, source_url=HAYS_LIST_URL,
+                    )
+                except Exception as exc:
+                    log.warning('persist hays failed: %s', exc)
+                    persist_info['hays'] = {'ok': False, 'error': str(exc)}
+        except Exception as exc:
+            log.warning('hays live fetch failed: %s', exc)
+            persist_info['hays'] = {'ok': False, 'error': str(exc)}
+
+        fetched = fm_items + gulp_items + hays_items
         persist_info['ok'] = True
         persist_info['fetched'] = len(fetched)
         persist_info['recent_days'] = recent_days
@@ -1184,7 +1518,7 @@ def list_anfragen(
 
 
 def get_item(item_id: str) -> Optional[dict]:
-    """Detail per UUID oder fm-/gulp-<projectId>."""
+    """Detail per UUID oder fm-/gulp-/hays-<projectId>."""
     # Live/DB UUID
     try:
         from apps.abpe_shaduler.models import RadarItem
@@ -1197,7 +1531,7 @@ def get_item(item_id: str) -> Optional[dict]:
             obj = None
         if not obj:
             pid = str(item_id)
-            for prefix in ('fm-', 'gulp-'):
+            for prefix in ('fm-', 'gulp-', 'hays-'):
                 if pid.startswith(prefix):
                     pid = pid[len(prefix):]
                     break
@@ -1206,7 +1540,7 @@ def get_item(item_id: str) -> Optional[dict]:
             item = serialize_db_item(obj)
             src = ((item.get('sources') or [''])[0] or '').lower()
             eck = item.get('eckdaten') or {}
-            needs = (
+            needs_gulp = (
                 src == 'gulp'
                 and (
                     not eck.get('detail_enriched')
@@ -1214,9 +1548,15 @@ def get_item(item_id: str) -> Optional[dict]:
                     or (item.get('beschreibung') or '').rstrip().endswith('...')
                 )
             )
-            if needs:
+            needs_hays = (
+                src == 'hays'
+                and (
+                    not eck.get('detail_enriched')
+                    or len(item.get('beschreibung') or '') < 200
+                )
+            )
+            if needs_gulp:
                 item = enrich_gulp_item(item)
-                # Persist volle Beschreibung für Matching/UI
                 try:
                     obj.beschreibung = item.get('beschreibung') or obj.beschreibung
                     obj.skills = item.get('skills') or obj.skills
@@ -1228,6 +1568,30 @@ def get_item(item_id: str) -> Optional[dict]:
                     ])
                 except Exception as exc:
                     log.debug('persist enriched gulp detail: %s', exc)
+            elif needs_hays and (item.get('external_url') or eck.get('url')):
+                try:
+                    detail = fetch_hays_job_detail(item.get('external_url') or eck.get('url'))
+                    if detail and detail.get('ld'):
+                        raw = {
+                            'id': eck.get('hays_job_id') or '',
+                            'reference': eck.get('project_id') or '',
+                            'title': item.get('headline') or '',
+                            'url': item.get('external_url') or eck.get('url') or '',
+                            'teaser': '',
+                            'city': item.get('city') or eck.get('city') or '',
+                            'contract_type': eck.get('contract_type') or '',
+                        }
+                        item = normalize_hays_project(raw, detail=detail)
+                        obj.beschreibung = item.get('beschreibung') or obj.beschreibung
+                        obj.skills = item.get('skills') or obj.skills
+                        obj.headline = (item.get('headline') or obj.headline or '')[:250]
+                        obj.external_url = item.get('external_url') or obj.external_url
+                        obj.eckdaten = item.get('eckdaten') or obj.eckdaten
+                        obj.save(update_fields=[
+                            'beschreibung', 'skills', 'headline', 'external_url', 'eckdaten', 'updated_at',
+                        ])
+                except Exception as exc:
+                    log.debug('persist enriched hays detail: %s', exc)
             return item
     except Exception as exc:
         log.debug('get_item db: %s', exc)
@@ -1236,8 +1600,9 @@ def get_item(item_id: str) -> Optional[dict]:
     try:
         items = fetch_freelancermap_projects(pages=2, today_only=False)
         items += fetch_gulp_projects(pages=2, today_only=False, enrich_details=True)
+        items += fetch_hays_projects(pages=1, today_only=False, enrich_details=True)
         pid = str(item_id)
-        for prefix in ('fm-', 'gulp-'):
+        for prefix in ('fm-', 'gulp-', 'hays-'):
             if pid.startswith(prefix):
                 pid = pid[len(prefix):]
                 break
@@ -1259,7 +1624,7 @@ def set_status(item_id: str, status: str) -> dict:
         obj = None
     if not obj:
         pid = str(item_id)
-        for prefix in ('fm-', 'gulp-'):
+        for prefix in ('fm-', 'gulp-', 'hays-'):
             if pid.startswith(prefix):
                 pid = pid[len(prefix):]
                 break
@@ -1274,7 +1639,7 @@ def set_status(item_id: str, status: str) -> dict:
 
 
 def poll_once(*, pages: int = 1, today_only: bool = True, recent_days: int = 2) -> dict:
-    """Für Scheduler / management command — FM + Gulp."""
+    """Für Scheduler / management command — FM + Gulp + Hays."""
     recent_days = max(1, min(14, int(recent_days or 2)))
     fm_items = fetch_freelancermap_projects(
         pages=pages, today_only=today_only, recent_days=recent_days,
@@ -1292,15 +1657,27 @@ def poll_once(*, pages: int = 1, today_only: bool = True, recent_days: int = 2) 
         gulp_items, archive_older=today_only,
         source_name=GULP_SOURCE_NAME, source_url=GULP_LIST_URL,
     )
+    hays_pages = max(2, min(5, int(pages) + 1))
+    hays_items = fetch_hays_projects(
+        pages=hays_pages,
+        today_only=today_only,
+        recent_days=recent_days,
+        enrich_details=True,
+    )
+    hays_info = persist_items(
+        hays_items, archive_older=today_only,
+        source_name=HAYS_SOURCE_NAME, source_url=HAYS_LIST_URL,
+    )
     return {
         'ok': True,
         'source': '+'.join(ANFRAGEN_SOURCES),
         'recent_days': recent_days,
         'freelancermap': fm_info,
         'gulp': gulp_info,
-        'fetched': len(fm_items) + len(gulp_items),
+        'hays': hays_info,
+        'fetched': len(fm_items) + len(gulp_items) + len(hays_items),
         'items_sample': [
             {'id': i.get('external_id'), 'headline': i.get('headline'), 'sources': i.get('sources')}
-            for i in (fm_items[:3] + gulp_items[:3])
+            for i in (fm_items[:2] + gulp_items[:2] + hays_items[:2])
         ],
     }
