@@ -1,9 +1,10 @@
 """
-Radar-Fetcher — Freelancermap HTML/JSON auslesen.
+Radar-Fetcher — Freelancermap + Gulp.
 
-Liest die eingebetteten application/json-Blöcke der Projektliste
-(https://www.freelancermap.de/projekte) und normalisiert sie zu Radar-Items.
-Optional: Persistenz in RadarItem / RadarSource.
+- Freelancermap: eingebettete application/json-Blöcke der Projektliste
+- Gulp: POST /gulp2/rest/internal/projects/search (CSRF-Cookie + x-trust)
+
+Persistenz in RadarItem / RadarSource.
 """
 from __future__ import annotations
 
@@ -13,9 +14,11 @@ import logging
 import re
 from datetime import date, datetime, timedelta
 from html import unescape
+from http.cookiejar import CookieJar
 from typing import Any, Optional
+from urllib.error import HTTPError, URLError
 from urllib.parse import urljoin
-from urllib.request import Request, urlopen
+from urllib.request import HTTPCookieProcessor, Request, build_opener, urlopen
 
 log = logging.getLogger('abpe_shaduler.radar_fetcher')
 
@@ -26,6 +29,20 @@ FM_UA = (
 )
 SOURCE_NAME = 'freelancermap'
 SOURCE_URL = FM_LIST_URL
+
+GULP_SOURCE_NAME = 'gulp'
+GULP_LIST_URL = 'https://www.gulp.de/gulp2/g/projekte?order=DATE_DESC&query=&page=1'
+GULP_CSRF_URL = 'https://www.gulp.de/gulp2/rest/internal/system/csrf'
+GULP_SEARCH_URL = 'https://www.gulp.de/gulp2/rest/internal/projects/search'
+GULP_CSRF_COOKIE = 'LzA8Jg9Oe2'
+GULP_CSRF_HEADER = 'x-trust'
+GULP_TYPE_PATH = {
+    'TALENT_FINDER': 'talentfinder',
+    'AGENCY': 'agentur',
+    'DIREKT': 'direkt',
+    'EXTERNAL': 'external',
+}
+ANFRAGEN_SOURCES = (SOURCE_NAME, GULP_SOURCE_NAME)
 
 _TAG_RE = re.compile(r'<[^>]+>')
 _WS_RE = re.compile(r'\s+')
@@ -328,21 +345,251 @@ def fetch_freelancermap_projects(
 
 def ensure_freelancermap_source():
     """RadarSource freelancermap anlegen/holen."""
+    return ensure_source(SOURCE_NAME, SOURCE_URL)
+
+
+def ensure_source(name: str, url: str = ''):
+    """RadarSource anlegen/holen."""
     from apps.abpe_shaduler.models import RadarSource
     src, _ = RadarSource.objects.get_or_create(
-        name=SOURCE_NAME,
+        name=name,
         defaults={
             'typ': RadarSource.Typ.HTML_PUBLIC,
-            'url': SOURCE_URL,
+            'url': url or '',
             'ziel': RadarSource.Ziel.ANFRAGEN,
             'intervall_min': 5,
             'aktiv': True,
         },
     )
+    if url and src.url != url:
+        src.url = url
+        src.save(update_fields=['url'])
     return src
 
 
-def persist_items(items: list[dict], *, archive_older: bool = True) -> dict:
+def ensure_gulp_source():
+    return ensure_source(GULP_SOURCE_NAME, GULP_LIST_URL)
+
+
+def _gulp_opener():
+    jar = CookieJar()
+    return build_opener(HTTPCookieProcessor(jar)), jar
+
+
+def _gulp_csrf_token(opener, jar) -> str:
+    req = Request(GULP_CSRF_URL, headers={
+        'User-Agent': FM_UA,
+        'Accept': 'application/json, text/plain, */*',
+        'Referer': GULP_LIST_URL,
+    })
+    opener.open(req, timeout=20).read()
+    for c in jar:
+        if c.name == GULP_CSRF_COOKIE and c.value:
+            return c.value
+    raise RuntimeError('Gulp CSRF-Cookie fehlt')
+
+
+def _gulp_project_url(raw: dict) -> str:
+    url = str(raw.get('url') or '').strip()
+    if url.startswith('http'):
+        return url
+    pid = str(raw.get('id') or '').strip()
+    typ = str(raw.get('type') or '').strip().upper()
+    path = GULP_TYPE_PATH.get(typ, typ.lower() if typ else 'projekte')
+    if pid and path != 'external':
+        return f'https://www.gulp.de/gulp2/g/projekte/{path}/{pid}'
+    return url or GULP_LIST_URL
+
+
+def normalize_gulp_project(raw: dict, *, source: str = GULP_SOURCE_NAME) -> dict:
+    """Gulp search-hit → UI-/DB-Dict (gleiches Schema wie Freelancermap)."""
+    pid = str(raw.get('id') or raw.get('idInIndex') or '').strip()
+    title = str(raw.get('title') or '').strip()
+    desc = str(raw.get('description') or '').strip()
+    company = str(raw.get('companyName') or '').strip()
+    city = str(raw.get('location') or '').strip()
+    created = _parse_dt(raw.get('originalPublicationDate'))
+    remote = 100 if raw.get('isRemoteWorkPossible') else None
+    if city and re.search(r'\bremote\b', city, re.I):
+        remote = 100
+    start = str(raw.get('startDate') or '').strip()
+    duration = raw.get('duration')
+    duration_text = str(duration).strip() if duration not in (None, '') else ''
+    skills = []
+    for s in (raw.get('skills') or []):
+        if isinstance(s, str) and s.strip():
+            skills.append(s.strip())
+        elif isinstance(s, dict):
+            name = s.get('name') or s.get('label') or ''
+            if name:
+                skills.append(str(name).strip())
+    url = _gulp_project_url(raw)
+    typ = str(raw.get('type') or '').strip()
+    dedup = hashlib.sha256(f'{source}:{pid or url}:{title}'.encode('utf-8')).hexdigest()
+
+    meta_parts = []
+    if start:
+        meta_parts.append(f'Start {start}')
+    if duration_text:
+        meta_parts.append(duration_text)
+    if city:
+        meta_parts.append(city)
+    if remote is not None:
+        meta_parts.append('100% Remote' if remote >= 100 else f'{remote}% Remote')
+    if company:
+        meta_parts.append(company)
+    if typ:
+        meta_parts.append(typ)
+
+    eckdaten = {
+        'project_id': pid,
+        'slug': '',
+        'company': company,
+        'contact': '',
+        'contact_first': '',
+        'contact_last': '',
+        'city': city,
+        'country': '',
+        'remote_percent': remote,
+        'beginning': start,
+        'duration': duration,
+        'duration_text': duration_text,
+        'industry': '',
+        'contract_type': typ,
+        'created': created.isoformat() if created else str(raw.get('originalPublicationDate') or ''),
+        'source': source,
+        'url': url,
+        'gulp_type': typ,
+    }
+
+    age = ''
+    if created:
+        try:
+            delta = datetime.now(created.tzinfo) - created if created.tzinfo else datetime.now() - created
+            mins = int(delta.total_seconds() // 60)
+            if mins < 60:
+                age = f'vor {max(mins, 0)} Min'
+            elif mins < 60 * 24:
+                age = f'vor {mins // 60} Std'
+            else:
+                age = f'vor {mins // (60 * 24)} T'
+        except Exception:
+            age = ''
+
+    return {
+        'id': f'gulp-{pid}' if pid else dedup[:16],
+        'external_id': pid,
+        'dedup_hash': dedup,
+        'headline': title or f'Gulp {pid}',
+        'beschreibung': desc,
+        'beschreibung_html': '',
+        'skills': skills,
+        'eckdaten': eckdaten,
+        'meta': ' · '.join(meta_parts),
+        'age': age,
+        'sources': [source],
+        'score': None,
+        'grp': 1,
+        'top': [],
+        'status': 'neu',
+        'external_url': url,
+        'eingegangen_am': created.isoformat() if created else None,
+        'company': company,
+        'contact': '',
+        'city': city,
+        'raw_created': created.isoformat() if created else None,
+    }
+
+
+def fetch_gulp_projects(
+    *,
+    pages: int = 3,
+    page_size: int = 20,
+    today_only: bool = True,
+    day: Optional[date] = None,
+) -> list[dict]:
+    """
+    Lädt Gulp-Projekte via REST search (DATE_DESC).
+    today_only: nur originalPublicationDate == day.
+
+    Hinweis: Gulp-API sortiert bei limit>=50 unzuverlässig (neueste fehlen) —
+    daher page_size default 20.
+    """
+    day = day or date.today()
+    opener, jar = _gulp_opener()
+    try:
+        token = _gulp_csrf_token(opener, jar)
+    except Exception as exc:
+        log.warning('gulp csrf failed: %s', exc)
+        return []
+
+    out: list[dict] = []
+    seen: set[str] = set()
+    stop_old = False
+    limit = max(10, min(30, int(page_size)))  # >30: API liefert oft ohne neueste
+    for page in range(1, max(1, int(pages)) + 1):
+        if stop_old:
+            break
+        body = json.dumps({
+            'query': '',
+            'page': page,
+            'limit': limit,
+            'order': 'DATE_DESC',
+            'language': 'DE',
+        }).encode('utf-8')
+        req = Request(GULP_SEARCH_URL, data=body, method='POST', headers={
+            'User-Agent': FM_UA,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Origin': 'https://www.gulp.de',
+            'Referer': GULP_LIST_URL,
+            GULP_CSRF_HEADER: token,
+        })
+        try:
+            with opener.open(req, timeout=30) as resp:
+                raw = resp.read().decode('utf-8', errors='replace')
+            data = json.loads(raw)
+        except (HTTPError, URLError, TimeoutError, json.JSONDecodeError, OSError) as exc:
+            log.warning('gulp search failed page=%s: %s', page, exc)
+            break
+        projects = data.get('projects') if isinstance(data, dict) else None
+        if not isinstance(projects, list) or not projects:
+            log.info('gulp page=%s: keine Projekte', page)
+            break
+        page_had_match = False
+        for raw_p in projects:
+            if not isinstance(raw_p, dict):
+                continue
+            item = normalize_gulp_project(raw_p)
+            pid = item.get('external_id') or item['id']
+            if pid in seen:
+                continue
+            created = _parse_dt(item.get('raw_created') or (item.get('eckdaten') or {}).get('created'))
+            if today_only:
+                if not created:
+                    continue
+                if created.date() < day:
+                    stop_old = True
+                    continue
+                if created.date() > day:
+                    continue
+                page_had_match = True
+            seen.add(pid)
+            out.append(item)
+        # Wenn ganze Seite älter als day → keine weiteren Seiten
+        if today_only and stop_old and not page_had_match:
+            break
+    out.sort(key=lambda x: x.get('raw_created') or '', reverse=True)
+    return out
+
+
+def persist_items(
+    items: list[dict],
+    *,
+    archive_older: bool = True,
+    source_name: str = SOURCE_NAME,
+    source_url: str = SOURCE_URL,
+) -> dict:
     """
     Upsert RadarItem. archive_older: ältere „neu“-Items derselben Quelle → verworfen
     (Tages-Archiv-Idee: nur heutige bleiben aktiv sichtbar).
@@ -350,7 +597,7 @@ def persist_items(items: list[dict], *, archive_older: bool = True) -> dict:
     from django.utils import timezone
     from apps.abpe_shaduler.models import RadarItem
 
-    src = ensure_freelancermap_source()
+    src = ensure_source(source_name, source_url)
     created = 0
     updated = 0
     hashes = []
@@ -399,7 +646,7 @@ def persist_items(items: list[dict], *, archive_older: bool = True) -> dict:
 
     return {
         'ok': True,
-        'source': SOURCE_NAME,
+        'source': source_name,
         'created': created,
         'updated': updated,
         'archived': archived,
@@ -409,6 +656,7 @@ def persist_items(items: list[dict], *, archive_older: bool = True) -> dict:
 
 def serialize_db_item(obj) -> dict:
     eck = obj.eckdaten or {}
+    source = eck.get('source') or (obj.quelle.name if obj.quelle_id else SOURCE_NAME)
     return {
         'id': str(obj.pk),
         'external_id': eck.get('project_id') or '',
@@ -428,7 +676,7 @@ def serialize_db_item(obj) -> dict:
             ] if x
         ]),
         'age': '',
-        'sources': [SOURCE_NAME],
+        'sources': [source],
         'score': obj.quick_score,
         'grp': 1,
         'top': obj.top_berater or [],
@@ -451,34 +699,62 @@ def list_anfragen(
 ) -> dict:
     """
     Primärer Einstieg für API.
-    1) Optional live von freelancermap holen + persistieren
+    1) Optional live von Freelancermap + Gulp holen + persistieren
     2) Aus DB lesen (Status neu), Fallback: Live-Liste ohne DB
     """
     fetched: list[dict] = []
     persist_info: dict = {}
     if use_live_fetch:
+        fm_items: list[dict] = []
+        gulp_items: list[dict] = []
         try:
-            fetched = fetch_freelancermap_projects(pages=pages, today_only=today_only)
+            fm_items = fetch_freelancermap_projects(pages=pages, today_only=today_only)
             if persist:
                 try:
-                    persist_info = persist_items(fetched, archive_older=today_only)
+                    persist_info['freelancermap'] = persist_items(
+                        fm_items, archive_older=today_only,
+                        source_name=SOURCE_NAME, source_url=SOURCE_URL,
+                    )
                 except Exception as exc:
-                    log.warning('persist RadarItem failed: %s', exc)
-                    persist_info = {'ok': False, 'error': str(exc)}
+                    log.warning('persist FM failed: %s', exc)
+                    persist_info['freelancermap'] = {'ok': False, 'error': str(exc)}
         except Exception as exc:
-            log.warning('live fetch failed: %s', exc)
-            persist_info = {'ok': False, 'error': str(exc)}
+            log.warning('FM live fetch failed: %s', exc)
+            persist_info['freelancermap'] = {'ok': False, 'error': str(exc)}
+
+        try:
+            # Gulp: mehr Seiten à 20 (API-Limit>30 lässt Neueste weg)
+            gulp_pages = max(3, min(6, int(pages) + 2))
+            gulp_items = fetch_gulp_projects(pages=gulp_pages, page_size=20, today_only=today_only)
+            if persist:
+                try:
+                    persist_info['gulp'] = persist_items(
+                        gulp_items, archive_older=today_only,
+                        source_name=GULP_SOURCE_NAME, source_url=GULP_LIST_URL,
+                    )
+                except Exception as exc:
+                    log.warning('persist gulp failed: %s', exc)
+                    persist_info['gulp'] = {'ok': False, 'error': str(exc)}
+        except Exception as exc:
+            log.warning('gulp live fetch failed: %s', exc)
+            persist_info['gulp'] = {'ok': False, 'error': str(exc)}
+
+        fetched = fm_items + gulp_items
+        persist_info['ok'] = True
+        persist_info['fetched'] = len(fetched)
 
     results: list[dict] = []
     try:
         from apps.abpe_shaduler.models import RadarItem, RadarSource
-        src = RadarSource.objects.filter(name=SOURCE_NAME).first()
+        src_ids = list(
+            RadarSource.objects.filter(name__in=ANFRAGEN_SOURCES).values_list('pk', flat=True)
+        )
         qs = RadarItem.objects.all()
-        if src:
-            qs = qs.filter(quelle=src)
+        if src_ids:
+            qs = qs.filter(quelle_id__in=src_ids)
         if status:
             qs = qs.filter(status=status)
-        qs = qs.order_by('-eingegangen_am')[:200]
+        qs = qs.select_related('quelle').order_by('-eingegangen_am')[:300]
         results = [serialize_db_item(o) for o in qs]
     except Exception as exc:
         log.warning('DB list failed, fallback live: %s', exc)
@@ -490,7 +766,7 @@ def list_anfragen(
     return {
         'ok': True,
         'demo': False,
-        'source': SOURCE_NAME,
+        'source': '+'.join(ANFRAGEN_SOURCES),
         'results': results,
         'count': len(results),
         'fetched': len(fetched),
@@ -499,23 +775,25 @@ def list_anfragen(
 
 
 def get_item(item_id: str) -> Optional[dict]:
-    """Detail per UUID oder fm-<projectId>."""
+    """Detail per UUID oder fm-/gulp-<projectId>."""
     # Live/DB UUID
     try:
         from apps.abpe_shaduler.models import RadarItem
         import uuid as _uuid
         try:
             uid = _uuid.UUID(str(item_id))
-            obj = RadarItem.objects.filter(pk=uid).first()
+            obj = RadarItem.objects.filter(pk=uid).select_related('quelle').first()
             if obj:
                 return serialize_db_item(obj)
         except Exception:
             pass
         # eckdaten.project_id
         pid = str(item_id)
-        if pid.startswith('fm-'):
-            pid = pid[3:]
-        obj = RadarItem.objects.filter(eckdaten__project_id=pid).first()
+        for prefix in ('fm-', 'gulp-'):
+            if pid.startswith(prefix):
+                pid = pid[len(prefix):]
+                break
+        obj = RadarItem.objects.filter(eckdaten__project_id=pid).select_related('quelle').first()
         if obj:
             return serialize_db_item(obj)
     except Exception as exc:
@@ -524,9 +802,12 @@ def get_item(item_id: str) -> Optional[dict]:
     # Live-Nachladen: Listenseite + Filter
     try:
         items = fetch_freelancermap_projects(pages=2, today_only=False)
+        items += fetch_gulp_projects(pages=2, today_only=False)
         pid = str(item_id)
-        if pid.startswith('fm-'):
-            pid = pid[3:]
+        for prefix in ('fm-', 'gulp-'):
+            if pid.startswith(prefix):
+                pid = pid[len(prefix):]
+                break
         for it in items:
             if str(it.get('external_id')) == pid or str(it.get('id')) == str(item_id):
                 return it
@@ -544,7 +825,11 @@ def set_status(item_id: str, status: str) -> dict:
     except Exception:
         obj = None
     if not obj:
-        pid = str(item_id)[3:] if str(item_id).startswith('fm-') else str(item_id)
+        pid = str(item_id)
+        for prefix in ('fm-', 'gulp-'):
+            if pid.startswith(prefix):
+                pid = pid[len(prefix):]
+                break
         obj = RadarItem.objects.filter(eckdaten__project_id=pid).first()
     if not obj:
         return {'ok': False, 'error': 'nicht gefunden'}
@@ -556,10 +841,26 @@ def set_status(item_id: str, status: str) -> dict:
 
 
 def poll_once(*, pages: int = 1, today_only: bool = True) -> dict:
-    """Für Scheduler / management command."""
-    items = fetch_freelancermap_projects(pages=pages, today_only=today_only)
-    info = persist_items(items, archive_older=today_only)
-    info['items_sample'] = [
-        {'id': i.get('external_id'), 'headline': i.get('headline')} for i in items[:5]
-    ]
-    return info
+    """Für Scheduler / management command — FM + Gulp."""
+    fm_items = fetch_freelancermap_projects(pages=pages, today_only=today_only)
+    fm_info = persist_items(
+        fm_items, archive_older=today_only,
+        source_name=SOURCE_NAME, source_url=SOURCE_URL,
+    )
+    gulp_pages = max(3, min(6, int(pages) + 2))
+    gulp_items = fetch_gulp_projects(pages=gulp_pages, page_size=20, today_only=today_only)
+    gulp_info = persist_items(
+        gulp_items, archive_older=today_only,
+        source_name=GULP_SOURCE_NAME, source_url=GULP_LIST_URL,
+    )
+    return {
+        'ok': True,
+        'source': '+'.join(ANFRAGEN_SOURCES),
+        'freelancermap': fm_info,
+        'gulp': gulp_info,
+        'fetched': len(fm_items) + len(gulp_items),
+        'items_sample': [
+            {'id': i.get('external_id'), 'headline': i.get('headline'), 'sources': i.get('sources')}
+            for i in (fm_items[:3] + gulp_items[:3])
+        ],
+    }

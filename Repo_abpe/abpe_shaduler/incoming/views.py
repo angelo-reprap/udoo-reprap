@@ -497,7 +497,7 @@ def api_radar_items(request):
     """
     Radar Anfragen.
     demo=1 → Demo-Daten.
-    demo=0 (Default) → Freelancermap live (+ DB Persistenz).
+    demo=0 (Default) → Freelancermap + Gulp live (+ DB Persistenz).
     """
     use_demo = request.GET.get('demo', '0') == '1'
     if use_demo:
@@ -568,7 +568,7 @@ def api_radar_block(request, pk):
 @login_required
 @require_POST
 def api_radar_refresh(request):
-    """Manueller Poll Freelancermap."""
+    """Manueller Poll Freelancermap + Gulp."""
     from apps.abpe_shaduler.services import radar_fetcher
     data = _json_body(request)
     try:

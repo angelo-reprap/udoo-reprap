@@ -132,7 +132,7 @@
         '<div class="card-h"><i class="bi bi-broadcast"></i> ' +
         esc(_t('sh.tab_radar_a', 'Radar — Anfragen')) +
         '<span class="sh-inbox-meta" style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px">' +
-        '<span id="sh-radar-hint">' + esc(_t('sh.radar_hint', 'Freelancermap · heutige Projekte')) + '</span>' +
+        '<span id="sh-radar-hint">' + esc(_t('sh.radar_hint', 'Freelancermap + Gulp · heutige Projekte')) + '</span>' +
         '<span id="r-new" class="sh-radar-count">0</span>' +
         '<button type="button" class="sh-inbox-refresh" id="sh-radar-refresh" title="' +
         esc(_t('sh.radar_refresh', 'Aktualisieren')) + '">' +
@@ -2061,7 +2061,7 @@
         if (hint) {
           hint.textContent = data.demo
             ? _t('sh.radar_demo', 'Demo')
-            : _t('sh.radar_hint', 'Freelancermap · heutige Projekte') +
+            : _t('sh.radar_hint', 'Freelancermap + Gulp · heutige Projekte') +
               (data.fetched != null ? (' · ' + data.fetched + ' gelesen') : '');
         }
         refreshStats();
@@ -2122,6 +2122,10 @@
       var eck = item.eckdaten || {};
       var body = item.beschreibung || '';
       var url = item.external_url || eck.url || '';
+      var srcName = ((item.sources || [])[0] || eck.source || 'freelancermap') + '';
+      var openLabel = srcName.toLowerCase().indexOf('gulp') >= 0
+        ? _t('sh.radar_open_gulp', 'Auf Gulp öffnen')
+        : _t('sh.radar_open_fm', 'Auf Freelancermap öffnen');
       var acts =
         '<div class="racts sh-viewer-acts">' +
         '<button type="button" class="pri sh-radar-task">' +
@@ -2136,7 +2140,7 @@
         (url
           ? '<a class="sh-radar-ext" href="' + esc(url) + '" target="_blank" rel="noopener">' +
             '<i class="bi bi-box-arrow-up-right"></i> ' +
-            esc(_t('sh.radar_open_fm', 'Auf Freelancermap öffnen')) + '</a>'
+            esc(openLabel) + '</a>'
           : '') +
         '</div>';
 
@@ -2148,6 +2152,7 @@
           : '',
         eck.beginning ? ('Start ' + eck.beginning) : '',
         eck.duration_text,
+        srcName,
       ].filter(Boolean);
 
       v.innerHTML =
@@ -2164,7 +2169,7 @@
           ? '<div class="sh-radar-ext-bar">' +
             '<a class="sh-radar-ext-link" href="' + esc(url) + '" target="_blank" rel="noopener">' +
             '<i class="bi bi-box-arrow-up-right"></i> ' +
-            esc(_t('sh.radar_open_fm', 'Auf Freelancermap öffnen')) +
+            esc(openLabel) +
             '</a>' +
             '<span class="sh-radar-ext-url">' + esc(url) + '</span></div>'
           : '') +
@@ -2227,7 +2232,7 @@
       sessionStorage.setItem('matching_ki_from_mail', JSON.stringify({
         email_text: text,
         subject: item.headline || '',
-        outer_from: eck.contact || eck.company || 'freelancermap',
+        outer_from: eck.contact || eck.company || ((item.sources || [])[0] || 'radar'),
         from_mail: '',
       }));
     } catch (e) { /* ignore */ }
