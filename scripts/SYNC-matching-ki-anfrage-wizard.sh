@@ -68,7 +68,7 @@ fi
 echo
 echo "→ sync_wizard_prompts --wizard-id matching_anfrage"
 cd "$BACKEND"
-"$PYBIN" manage.py sync_wizard_prompts --wizard-id matching_anfrage
+"$PYBIN" manage.py sync_wizard_prompts --wizard-id matching_anfrage --force
 "$PYBIN" manage.py shell -c "
 from apps.abpe_ki_wiz.models import WizardPrompt
 from apps.abpe_ki_wiz.prompt_defaults import WIZARD_PROMPT_DEFAULTS

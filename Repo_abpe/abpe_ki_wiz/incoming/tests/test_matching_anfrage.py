@@ -95,5 +95,18 @@ class MatchingAnfragePayloadTests(TestCase):
             outer_from='A <a@b.de>',
         )
         self.assertIn('Betreff: WG: Test', text)
-        self.assertIn('Äußerer Absender: A <a@b.de>', text)
+        self.assertIn('Weiterleitung von / äußerer Absender', text)
+        self.assertIn('A <a@b.de>', text)
         self.assertIn('Body text hier', text)
+
+
+class MatchingAnfrageAsapTests(TestCase):
+    def test_asap_sets_today(self):
+        from datetime import date
+        fields = map_extract_to_form_fields({
+            'start': {'asap': True, 'datum': None},
+            'kunde': {}, 'ansprechpartner': {}, 'weiterleitung': {},
+            'beschreibung': 'x', 'skills': [], 'hinweise': [],
+        })
+        self.assertTrue(fields['start_asap'])
+        self.assertEqual(fields['start_date'], date.today().isoformat())

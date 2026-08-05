@@ -874,6 +874,7 @@ window.Matching = (function() {
 
     const KI_API = '/ki-wizard/api/';
     let _kiLastExtract = null;
+    let _kiCrmPickList = [];
 
     function _skillHint() {
         const v = _t('matching.skill_hint');
@@ -1178,12 +1179,13 @@ window.Matching = (function() {
     function _showCrmContactPick(contacts) {
         const box = document.getElementById('matching-crm-suggest');
         if (!box) return;
+        _kiCrmPickList = contacts || [];
         box.style.display = 'block';
         box.innerHTML = '<strong>' + _kiT('crm_pick', 'Ansprechpartner in CRM — bitte wählen:') + '</strong>'
             + '<div style="margin-top:8px;display:grid;gap:4px">'
-            + contacts.map(c =>
+            + _kiCrmPickList.map((c, i) =>
                 `<button type="button" class="matching-btn-sm" style="text-align:left"
-                    onclick="Matching.pickCrmContact(${JSON.stringify(c).replace(/"/g, '&quot;')})">
+                    onclick="Matching.pickCrmContactIndex(${i})">
                     <strong>${_esc(c.full_name || '')}</strong>
                     · ${_esc(c.email || '—')} · ${_esc(c.phone || '')}
                  </button>`
@@ -1241,6 +1243,10 @@ window.Matching = (function() {
         // Account-ID nachziehen falls erst später gesetzt
         const acc = document.getElementById('crm-suggest-account');
         if (acc && !acc.value) acc.value = _val('new-crm-account-id') || '';
+    }
+
+    function pickCrmContactIndex(i) {
+        pickCrmContact(_kiCrmPickList[i]);
     }
 
     function pickCrmContact(c) {
@@ -1821,7 +1827,7 @@ window.Matching = (function() {
         kanbanDragStart, kanbanDrop, kanbanCardClick,
         closeProject, sendContract, sendPlacementStart, savePlacementDetails,
         openKiWizard, closeKiWizard, runKiExtract, applyKiExtract,
-        pickCrmContact, hideCrmSuggest, createCrmContactFromSuggest,
+        pickCrmContact, pickCrmContactIndex, hideCrmSuggest, createCrmContactFromSuggest,
     };
 
 })();
