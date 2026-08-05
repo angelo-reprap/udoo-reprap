@@ -396,3 +396,21 @@ body.dark-mode #sh-m-erledigt{color:#6ee7b7}
 .sh-mr-msg{margin:8px 0;padding:8px 10px;border-radius:8px;font-size:.85rem}
 .sh-mr-msg.ok{background:rgba(16,185,129,.12);color:#047857}
 .sh-mr-msg.err{background:rgba(239,68,68,.1);color:#b91c1c}
+
+/* Empfänger-Auswahl An/CC/BCC */
+.sh-mr-recips{display:flex;flex-direction:column;gap:6px;max-height:180px;overflow:auto;padding:6px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-white)}
+.sh-mr-recip{display:flex;align-items:center;gap:10px;justify-content:space-between}
+.sh-mr-recip-main{min-width:0;flex:1;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px}
+.sh-mr-recip-main .em{font-size:.84rem;word-break:break-all}
+.sh-mr-recip-main .nm{font-size:.8rem;color:var(--text-secondary)}
+.sh-mr-recip-main .src{font-size:.68rem;text-transform:uppercase;letter-spacing:.03em;color:var(--abcona-blue-light,#3b82f6);opacity:.9}
+.sh-mr-recip .sh-mr-role{flex:0 0 88px;padding:6px 8px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-white);font:inherit;font-size:.8rem}
+.sh-mr-add-row{align-items:end;grid-template-columns:1fr 100px auto}
+.sh-mr-add-row .sh-mr-span2{grid-column:auto}
+.sh-mr-add-btn{border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-primary);border-radius:8px;padding:9px 12px;cursor:pointer;white-space:nowrap}
+.sh-mr-add-btn:hover{border-color:var(--abcona-blue-light)}
+@media(max-width:560px){
+  .sh-mr-add-row{grid-template-columns:1fr}
+  .sh-mr-recip{flex-direction:column;align-items:stretch}
+  .sh-mr-recip .sh-mr-role{width:100%;flex-basis:auto}
+}

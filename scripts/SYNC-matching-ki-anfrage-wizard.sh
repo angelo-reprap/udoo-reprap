@@ -24,6 +24,8 @@ git archive "$BRANCH" \
   Repo_abpe/abpe_ui/incoming/mod-matching.js \
   Repo_abpe/abpe_ui/incoming/mod-shaduler.js \
   Repo_abpe/abpe_ui/incoming/mod-shaduler.css \
+  Repo_abpe/abpe_shaduler/incoming/views.py \
+  Repo_abpe/abpe_shaduler/incoming/urls.py \
   | tar -x -C "$TMP"
 
 # Guard: Prompt-Default muss im Archive sein
@@ -52,6 +54,16 @@ if ! grep -q "wiz_matching_anfrage_generate" "$LIVE_KI/prompt_defaults.py"; then
   exit 1
 fi
 echo "OK — prompt_defaults enthält wiz_matching_anfrage_generate"
+
+
+# ── Shaduler API (ack-send An/CC/BCC) ────────────────────────────────────────
+LIVE_SH="${LIVE_SH:-/opt/abpe/backend/apps/abpe_shaduler}"
+if [[ -f "$TMP/Repo_abpe/abpe_shaduler/incoming/views.py" ]]; then
+  mkdir -p "$LIVE_SH"
+  cp -a "$TMP/Repo_abpe/abpe_shaduler/incoming/views.py" "$LIVE_SH/views.py"
+  cp -a "$TMP/Repo_abpe/abpe_shaduler/incoming/urls.py" "$LIVE_SH/urls.py"
+  echo "OK — abpe_shaduler views/urls (ack-send) → $LIVE_SH"
+fi
 
 # ── Matching UI ──────────────────────────────────────────────────────────────
 mkdir -p "$LIVE_UI/static/abpe_ui/js/mod"
@@ -107,7 +119,7 @@ if not p:
 echo
 echo "Restart: supervisorctl restart abpe-django"
 echo "UI Matching: Button „KI-Anfragen-Wizard“ links neben „+ Neue Anfrage“"
-echo "UI Posteingang: Matching → KI-Wizard; Antworten → Bestätigung + Aufgabe (Wiedervorlage)"
+echo "UI Posteingang: Matching; Antworten → Empfänger An/CC/BCC + Bestätigung + Aufgabe"
 echo "API: POST /ki-wizard/api/matching-anfrage/extract/"
 echo "Browser: Ctrl+F5 (mod-matching.js + mod-shaduler.js/css)"
 

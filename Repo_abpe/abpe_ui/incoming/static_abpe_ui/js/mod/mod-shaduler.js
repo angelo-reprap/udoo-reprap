@@ -1004,20 +1004,193 @@
     ).trim().toLowerCase();
   }
 
+  var EMAIL_ADDR_RE = /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/g;
+
+  function normalizeEmailAddr(email) {
+    return String(email || '').trim().toLowerCase().replace(/^<|>$/g, '');
+  }
+
+  function isIgnorableEmail(email) {
+    email = normalizeEmailAddr(email);
+    if (!email || email.indexOf('@') < 0) return true;
+    return /^(noreply|no-reply|donotreply|mailer-daemon|postmaster|notifications?)@/i.test(email);
+  }
+
+  function guessNameNearEmail(text, email) {
+    var s = String(text || '');
+    var idx = s.toLowerCase().indexOf(String(email || '').toLowerCase());
+    if (idx < 0) return '';
+    var before = s.slice(Math.max(0, idx - 80), idx).replace(/\s+/g, ' ').trim();
+    // "Tristan Treder <email>" or "Tristan Treder\nemail"
+    var m = before.match(/([A-ZÄÖÜ][a-zäöüßA-ZÄÖÜ\-]+(?:\s+[A-ZÄÖÜ][a-zäöüßA-ZÄÖÜ\-]+){0,3})\s*[<\(\[:]?\s*$/);
+    if (m) return m[1].trim();
+    m = before.match(/([A-ZÄÖÜ][a-zäöüßA-ZÄÖÜ\-]+,\s*[A-ZÄÖÜ][a-zäöüßA-ZÄÖÜ\-]+)\s*$/);
+    if (m) {
+      var parts = m[1].split(',').map(function (x) { return x.trim(); });
+      if (parts.length >= 2) return parts[1] + ' ' + parts[0];
+      return m[1];
+    }
+    return '';
+  }
+
+  function addEmailCandidate(map, email, name, source) {
+    email = normalizeEmailAddr(email);
+    if (isIgnorableEmail(email)) return;
+    if (!map[email]) {
+      map[email] = { email: email, name: '', sources: [] };
+    }
+    if (name && !map[email].name) map[email].name = String(name).trim();
+    if (source && map[email].sources.indexOf(source) < 0) {
+      map[email].sources.push(source);
+    }
+  }
+
+  function harvestEmailsFromText(map, text, source) {
+    var s = String(text || '');
+    if (!s) return;
+    // Name <email>
+    var named = /([^<>\n\r,;"]{2,60})\s*<\s*([a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,})\s*>/g;
+    var nm;
+    while ((nm = named.exec(s))) {
+      addEmailCandidate(map, nm[2], String(nm[1]).replace(/^[\s"']+|[\s"']+$/g, ''), source);
+    }
+    var re = new RegExp(EMAIL_ADDR_RE.source, 'g');
+    var m;
+    while ((m = re.exec(s))) {
+      var em = m[0];
+      var guessed = guessNameNearEmail(s, em);
+      addEmailCandidate(map, em, guessed, source);
+    }
+  }
+
+  function collectMailEmailCandidates(m, detail) {
+    detail = detail || (m && m._detail) || {};
+    var map = {};
+    var fromName = parseDisplayNameFromFrom(detail.from || detail.from_ || (m && m.from) || '');
+    addEmailCandidate(map, detail.from || detail.from_ || (m && m.from), fromName, 'from');
+    addEmailCandidate(map, m && m.reply_email, fromName, 'from');
+    harvestEmailsFromText(map, detail.to || detail.to_ || '', 'to');
+    harvestEmailsFromText(map, detail.cc || detail.cc_ || '', 'cc');
+    harvestEmailsFromText(map, detail.bcc || detail.bcc_ || '', 'bcc');
+    harvestEmailsFromText(map, detail.reply_to || detail.replyto || '', 'reply_to');
+    var body = detail.body_plain || detail.body || detail.text || '';
+    if (!body && detail.body_html) {
+      try {
+        var tmp = document.createElement('div');
+        tmp.innerHTML = detail.body_html;
+        body = tmp.innerText || tmp.textContent || '';
+      } catch (e) { body = String(detail.body_html || ''); }
+    }
+    if (!body && m && m.prev) body = m.prev;
+    harvestEmailsFromText(map, body, 'body');
+    harvestEmailsFromText(map, (m && m.subj) || detail.subject || '', 'subject');
+
+    var list = Object.keys(map).map(function (k) { return map[k]; });
+    list.sort(function (a, b) {
+      function score(c) {
+        var s = 0;
+        if (c.sources.indexOf('body') >= 0) s += 8;
+        if (c.sources.indexOf('to') >= 0) s += 4;
+        if (c.sources.indexOf('cc') >= 0) s += 2;
+        if (c.sources.indexOf('from') >= 0) s += 1;
+        if (!/@abcona\.de$/i.test(c.email)) s += 5;
+        if (c.name) s += 1;
+        return s;
+      }
+      return score(b) - score(a);
+    });
+    return list;
+  }
+
+  function pickDefaultRecipientRoles(candidates, outerFromEmail) {
+    var roles = {}; // email -> 'to'|'cc'|'bcc'|''
+    var outer = normalizeEmailAddr(outerFromEmail);
+    candidates.forEach(function (c) { roles[c.email] = ''; });
+
+    var preferred = candidates.filter(function (c) {
+      return !/@abcona\.de$/i.test(c.email) && c.email !== outer;
+    });
+    // Body-Kontakte (z.B. Hays) vor dem äußeren Weiterleiter
+    var bodyExt = preferred.filter(function (c) { return c.sources.indexOf('body') >= 0; });
+    var toPick = (bodyExt[0] || preferred[0] || candidates[0] || null);
+    if (toPick) roles[toPick.email] = 'to';
+
+    // Weiterleiter als CC-Vorschlag, wenn An jemand anderes ist
+    if (outer && roles[outer] === '' && toPick && toPick.email !== outer) {
+      roles[outer] = 'cc';
+    }
+    return roles;
+  }
+
+  function sourceLabel(sources) {
+    var map = {
+      from: _t('sh.inbox_reply_src_from', 'Von'),
+      to: _t('sh.inbox_reply_src_to', 'An'),
+      cc: _t('sh.inbox_reply_src_cc', 'CC'),
+      bcc: 'BCC',
+      body: _t('sh.inbox_reply_src_body', 'Text'),
+      reply_to: 'Reply-To',
+      subject: _t('sh.inbox_reply_src_subj', 'Betreff'),
+      manual: _t('sh.inbox_reply_src_manual', 'Manuell'),
+    };
+    return (sources || []).map(function (s) { return map[s] || s; }).join(', ');
+  }
+
   function openMailReplyComposer(m) {
     closeMailReplyComposer();
     m = m || {};
-    var toEmail = m.reply_email || extractEmailFromFrom(m.from) || '';
+
+    function launch(detail) {
+      m._detail = detail || m._detail || {};
+      _openMailReplyComposerWithDetail(m, m._detail);
+    }
+
+    if (m._detail && (m._detail.body_plain || m._detail.body_html || m._detail.body)) {
+      launch(m._detail);
+      return;
+    }
+    ensureMailDetail(m, function (detail) {
+      launch(detail || {});
+    });
+  }
+
+  function _openMailReplyComposerWithDetail(m, detail) {
+    var outerFromEmail = normalizeEmailAddr(
+      m.reply_email || extractEmailFromFrom(detail.from || detail.from_ || m.from) || ''
+    );
+    var candidates = collectMailEmailCandidates(m, detail);
+    var roles = pickDefaultRecipientRoles(candidates, outerFromEmail);
+
+    var defaultTo = candidates.filter(function (c) { return roles[c.email] === 'to'; })[0];
     var crmName = String(m.crm_name || '').trim();
-    var fromName = parseDisplayNameFromFrom(m.from);
-    var contactName = crmName || fromName;
+    var fromName = parseDisplayNameFromFrom(detail.from || detail.from_ || m.from);
+    var contactName = (defaultTo && defaultTo.name) || crmName || fromName;
     var nameParts = guessContactFirstLast(contactName);
-    // Nachname für „Herr/Frau X“ bevorzugen, sonst voller Name
     var nameForAnrede = nameParts.last || nameParts.display || contactName;
-    var subjRaw = String(m.subj || '').trim();
+    var subjRaw = String(detail.subject || detail.subj || m.subj || '').trim();
     var subject = subjRaw
       ? (/^re\s*:/i.test(subjRaw) ? subjRaw : ('Re: ' + subjRaw))
       : _t('sh.inbox_reply_subj', 'Ihre Anfrage — Eingangsbestätigung');
+
+    var recipRows = candidates.map(function (c) {
+      var role = roles[c.email] || '';
+      function opt(v, label) {
+        return '<option value="' + v + '"' + (role === v ? ' selected' : '') + '>' + esc(label) + '</option>';
+      }
+      return (
+        '<div class="sh-mr-recip" data-email="' + esc(c.email) + '">' +
+        '<div class="sh-mr-recip-main">' +
+        '<b class="em">' + esc(c.email) + '</b>' +
+        (c.name ? '<span class="nm">' + esc(c.name) + '</span>' : '') +
+        '<span class="src">' + esc(sourceLabel(c.sources)) + '</span></div>' +
+        '<select class="sh-mr-role" aria-label="Rolle">' +
+        opt('', '—') +
+        opt('to', _t('sh.inbox_reply_role_to', 'An')) +
+        opt('cc', _t('sh.inbox_reply_role_cc', 'CC')) +
+        opt('bcc', _t('sh.inbox_reply_role_bcc', 'BCC')) +
+        '</select></div>'
+      );
+    }).join('');
 
     var ovl = document.createElement('div');
     ovl.className = 'ovl open';
@@ -1031,9 +1204,26 @@
       '<button type="button" class="x" id="sh-mr-close"><i class="bi bi-x-lg"></i></button>' +
       '</div>' +
       '<div class="mb">' +
+      '<div class="inp sh-mr-span">' +
+      '<label>' + esc(_t('sh.inbox_reply_recips', 'Empfänger (erkannte Adressen)')) + '</label>' +
+      '<div id="sh-mr-recips" class="sh-mr-recips">' +
+      (recipRows || '<div class="note">' + esc(_t('sh.inbox_reply_no_emails', 'Keine Adressen erkannt')) + '</div>') +
+      '</div></div>' +
+      '<div class="sh-mr-grid sh-mr-add-row">' +
+      '<div class="inp sh-mr-span2"><label for="sh-mr-add-email">' +
+      esc(_t('sh.inbox_reply_add', 'Weitere Adresse')) + '</label>' +
+      '<input type="email" id="sh-mr-add-email" placeholder="name@firma.de"></div>' +
+      '<div class="inp"><label for="sh-mr-add-role">' + esc(_t('sh.inbox_reply_role', 'Als')) + '</label>' +
+      '<select id="sh-mr-add-role">' +
+      '<option value="to">' + esc(_t('sh.inbox_reply_role_to', 'An')) + '</option>' +
+      '<option value="cc">CC</option>' +
+      '<option value="bcc">BCC</option>' +
+      '</select></div>' +
+      '<div class="inp sh-mr-add-btn-wrap"><label>&nbsp;</label>' +
+      '<button type="button" class="sh-mr-add-btn" id="sh-mr-add-btn">' +
+      '<i class="bi bi-plus-lg"></i> ' + esc(_t('sh.inbox_reply_add_btn', 'Hinzufügen')) +
+      '</button></div></div>' +
       '<div class="sh-mr-grid">' +
-      '<div class="inp sh-mr-span"><label for="sh-mr-to">' + esc(_t('sh.inbox_reply_to', 'An')) + '</label>' +
-      '<input type="email" id="sh-mr-to" value="' + esc(toEmail) + '"></div>' +
       '<div class="inp"><label for="sh-mr-anrede">' + esc(_t('sh.inbox_reply_anrede', 'Anrede')) + '</label>' +
       '<select id="sh-mr-anrede">' +
       '<option value="herr">' + esc(_t('sh.anrede_herr', 'Herr')) + '</option>' +
@@ -1070,6 +1260,7 @@
     var anredeEl = document.getElementById('sh-mr-anrede');
     var nameEl = document.getElementById('sh-mr-name');
     var bodyTouched = false;
+    var nameTouched = false;
 
     function refreshBodyFromTpl() {
       if (!bodyEl || bodyTouched) return;
@@ -1080,14 +1271,101 @@
     }
     refreshBodyFromTpl();
     if (anredeEl) anredeEl.addEventListener('change', refreshBodyFromTpl);
-    if (nameEl) nameEl.addEventListener('input', refreshBodyFromTpl);
+    if (nameEl) {
+      nameEl.addEventListener('input', function () {
+        nameTouched = true;
+        refreshBodyFromTpl();
+      });
+    }
     if (bodyEl) {
       bodyEl.addEventListener('input', function () { bodyTouched = true; });
+    }
+
+    function selectedBuckets() {
+      var to = [];
+      var cc = [];
+      var bcc = [];
+      var host = document.getElementById('sh-mr-recips');
+      if (!host) return { to: to, cc: cc, bcc: bcc };
+      host.querySelectorAll('.sh-mr-recip').forEach(function (row) {
+        var em = row.getAttribute('data-email') || '';
+        var sel = row.querySelector('.sh-mr-role');
+        var role = sel ? sel.value : '';
+        if (!em || !role) return;
+        if (role === 'to') to.push(em);
+        else if (role === 'cc') cc.push(em);
+        else if (role === 'bcc') bcc.push(em);
+      });
+      return { to: to, cc: cc, bcc: bcc };
+    }
+
+    function syncNameFromTo() {
+      if (nameTouched || !nameEl) return;
+      var buckets = selectedBuckets();
+      var toEm = buckets.to[0];
+      if (!toEm) return;
+      var hit = candidates.filter(function (c) { return c.email === toEm; })[0];
+      if (hit && hit.name) {
+        var parts = guessContactFirstLast(hit.name);
+        nameEl.value = parts.last || parts.display || hit.name;
+        refreshBodyFromTpl();
+      }
+    }
+
+    var recipHost = document.getElementById('sh-mr-recips');
+    if (recipHost) {
+      recipHost.addEventListener('change', function (ev) {
+        if (ev.target && ev.target.classList.contains('sh-mr-role')) syncNameFromTo();
+      });
+    }
+
+    var addBtn = document.getElementById('sh-mr-add-btn');
+    if (addBtn) {
+      addBtn.onclick = function () {
+        var inp = document.getElementById('sh-mr-add-email');
+        var roleEl = document.getElementById('sh-mr-add-role');
+        var em = normalizeEmailAddr(inp && inp.value);
+        var role = (roleEl && roleEl.value) || 'to';
+        if (isIgnorableEmail(em) || em.indexOf('@') < 0) {
+          showMsg(false, _t('sh.inbox_reply_err_email', 'Bitte gültige E-Mail eingeben'));
+          return;
+        }
+        var existing = recipHost && recipHost.querySelector('.sh-mr-recip[data-email="' + em.replace(/"/g, '') + '"]');
+        if (existing) {
+          var sel = existing.querySelector('.sh-mr-role');
+          if (sel) sel.value = role;
+        } else {
+          candidates.push({ email: em, name: '', sources: ['manual'] });
+          var row = document.createElement('div');
+          row.className = 'sh-mr-recip';
+          row.setAttribute('data-email', em);
+          row.innerHTML =
+            '<div class="sh-mr-recip-main"><b class="em">' + esc(em) + '</b>' +
+            '<span class="src">' + esc(sourceLabel(['manual'])) + '</span></div>' +
+            '<select class="sh-mr-role">' +
+            '<option value="">—</option>' +
+            '<option value="to"' + (role === 'to' ? ' selected' : '') + '>' + esc(_t('sh.inbox_reply_role_to', 'An')) + '</option>' +
+            '<option value="cc"' + (role === 'cc' ? ' selected' : '') + '>CC</option>' +
+            '<option value="bcc"' + (role === 'bcc' ? ' selected' : '') + '>BCC</option>' +
+            '</select>';
+          if (recipHost) {
+            var emptyNote = recipHost.querySelector('.note');
+            if (emptyNote) emptyNote.remove();
+            recipHost.appendChild(row);
+          }
+        }
+        if (inp) inp.value = '';
+        syncNameFromTo();
+        showMsg(true, '');
+        var msg = document.getElementById('sh-mr-msg');
+        if (msg) msg.style.display = 'none';
+      };
     }
 
     function showMsg(ok, text) {
       var el = document.getElementById('sh-mr-msg');
       if (!el) return;
+      if (!text) { el.style.display = 'none'; return; }
       el.style.display = 'block';
       el.className = 'sh-mr-msg ' + (ok ? 'ok' : 'err');
       el.textContent = text;
@@ -1153,7 +1431,6 @@
             return '<option value="' + esc(String(s.id)) + '"' +
               (s.is_default ? ' selected' : '') + '>' + esc(s.name || s.identifier || '') + '</option>';
           }).join('');
-        // Signatur passend zum Absender bevorzugen
         function syncSigToSender() {
           if (!sigSel || !senderSel) return;
           var sid = senderSel.value;
@@ -1170,17 +1447,19 @@
     var sendBtn = document.getElementById('sh-mr-send');
     if (sendBtn) {
       sendBtn.onclick = function () {
-        var to = (document.getElementById('sh-mr-to') || {}).value || '';
+        var buckets = selectedBuckets();
         var subj = (document.getElementById('sh-mr-subj') || {}).value || '';
         var bodyTxt = (document.getElementById('sh-mr-body') || {}).value || '';
         var senderId = (document.getElementById('sh-mr-sender') || {}).value || '';
         var sigId = (document.getElementById('sh-mr-sig') || {}).value || '';
         var cName = (document.getElementById('sh-mr-name') || {}).value || contactName || '';
 
-        to = String(to).trim();
         subj = String(subj).trim();
         bodyTxt = String(bodyTxt).trim();
-        if (!to) { showMsg(false, _t('sh.inbox_reply_err_to', 'Empfänger fehlt')); return; }
+        if (!buckets.to.length) {
+          showMsg(false, _t('sh.inbox_reply_err_to', 'Bitte mindestens eine Adresse als „An“ wählen'));
+          return;
+        }
         if (!subj) { showMsg(false, _t('sh.inbox_reply_err_subj', 'Betreff fehlt')); return; }
         if (!bodyTxt) { showMsg(false, _t('sh.inbox_reply_err_body', 'Nachricht fehlt')); return; }
 
@@ -1188,7 +1467,34 @@
         sendBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> …';
         showMsg(true, _t('sh.inbox_reply_sending', 'Wird gesendet …'));
 
-        fetch('/crm/api/email/send/', {
+        var sendUrl = m.id
+          ? api('inbox/' + encodeURIComponent(m.id) + '/ack-send/')
+          : '/crm/api/email/send/';
+        var payload = m.id
+          ? {
+              to: buckets.to,
+              cc: buckets.cc,
+              bcc: buckets.bcc,
+              subject: subj,
+              body: bodyTextToHtml(bodyTxt),
+              contact_name: cName,
+              signature_id: sigId || null,
+              sender_id: senderId || null,
+              crm_id: m.crm_bean_id || '',
+              template_identifier: 'crm_manual_email',
+            }
+          : {
+              template_identifier: 'crm_manual_email',
+              to_email: buckets.to[0],
+              subject: subj,
+              body: bodyTextToHtml(bodyTxt),
+              contact_name: cName,
+              signature_id: sigId || null,
+              sender_id: senderId || null,
+              crm_id: m.crm_bean_id || '',
+            };
+
+        fetch(sendUrl, {
           method: 'POST',
           credentials: 'same-origin',
           headers: {
@@ -1196,29 +1502,20 @@
             'X-CSRFToken': csrfToken(),
             'X-Requested-With': 'XMLHttpRequest',
           },
-          body: JSON.stringify({
-            template_identifier: 'crm_manual_email',
-            to_email: to,
-            subject: subj,
-            body: bodyTextToHtml(bodyTxt),
-            contact_name: cName,
-            signature_id: sigId || null,
-            sender_id: senderId || null,
-            crm_id: m.crm_bean_id || '',
-            app_reference: 'shaduler_inbox_ack',
-          }),
+          body: JSON.stringify(payload),
         })
           .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
           .then(function (pack) {
             var j = pack.j || {};
-            if (pack.ok && (j.success !== false) && !j.error) {
+            if (pack.ok && (j.ok !== false) && (j.success !== false) && !j.error) {
               closeMailReplyComposer();
               toast(_t('sh.inbox_reply_sent', 'Bestätigung gesendet'));
               markMailRead(m.id, document.querySelector('#sh-inbox .ritem.on'));
               openMailTaskChooser(m, {
                 defaultArt: 'wiedervorlage',
                 notiz: _t('sh.inbox_reply_task_notiz', 'Auf E-Mail geantwortet am') +
-                  ' ' + formatReplyStamp(new Date()),
+                  ' ' + formatReplyStamp(new Date()) +
+                  (buckets.to.length ? (' → ' + buckets.to.join(', ')) : ''),
                 due: tomorrowDueDateTime(),
                 titleHint: _t('sh.inbox_reply_task_title', 'Nach Bestätigung — Wiedervorlage'),
               });
