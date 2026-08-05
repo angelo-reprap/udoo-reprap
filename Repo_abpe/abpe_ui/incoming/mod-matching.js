@@ -237,7 +237,21 @@ window.Matching = (function() {
                            placeholder="${_t('matching.contact_placeholder')}"
                            oninput="Matching.searchContacts(this.value)">
                     <div id="new-contact-results" style="display:none"></div>
+                    <input type="hidden" id="new-crm-contact-id">
                 </div>
+                <div class="matching-form-group">
+                    <label class="matching-form-label">${_kiT('contact_email', 'E-Mail Ansprechpartner')}</label>
+                    <input class="matching-form-input" id="new-contact-email" type="email"
+                           placeholder="name@firma.de">
+                </div>
+                <div class="matching-form-group">
+                    <label class="matching-form-label">${_kiT('contact_phone', 'Telefon Ansprechpartner')}</label>
+                    <input class="matching-form-input" id="new-contact-phone" type="tel"
+                           placeholder="+49 …">
+                </div>
+            </div>
+            <div id="matching-crm-suggest" style="display:none;margin-top:10px;padding:12px;
+                 border-radius:8px;border:1px solid #f59e0b;background:rgba(245,158,11,.08);font-size:13px">
             </div>
         </div>
         <div class="matching-section-head" onclick="toggleSection(this)">
@@ -941,9 +955,12 @@ window.Matching = (function() {
                         <input class="matching-form-input" id="matching-ki-subject" style="width:100%">
                     </div>
                     <div>
-                        <label class="matching-form-label">${_kiT('ki_from', 'Äußerer Absender (optional)')}</label>
+                        <label class="matching-form-label">${_kiT('ki_from', 'Weiterleitung von (optional)')}</label>
                         <input class="matching-form-input" id="matching-ki-from" style="width:100%"
                                placeholder="Name &lt;mail@…&gt;">
+                        <div style="font-size:11px;opacity:.7;margin-top:4px">
+                            ${_kiT('ki_from_help', 'Nur der Weiterleitende (z.B. Karsten Bär) — nicht der Auftraggeber/Ansprechpartner.')}
+                        </div>
                     </div>
                 </div>
                 <label class="matching-form-label">${_kiT('ki_email', 'E-Mail-Inhalt')}</label>
@@ -1049,15 +1066,27 @@ window.Matching = (function() {
         .then(d => {
             _kiLastExtract = d;
             const fields = d.fields || {};
+            const crm = d.crm || {};
             const lines = [
                 (d.success ? '✓' : '⚠') + ' ' + (d.source || '') + (d.prompt_key ? ' · ' + d.prompt_key : ''),
                 fields.customer_name ? 'Kunde: ' + fields.customer_name : '',
                 fields.contact_name ? 'Ansprechpartner: ' + fields.contact_name : '',
+                fields.contact_email ? 'E-Mail: ' + fields.contact_email : '',
+                fields.contact_phone ? 'Telefon: ' + fields.contact_phone : '',
                 fields.title ? 'Titel: ' + fields.title : '',
                 fields.duration_months != null ? 'Dauer: ' + fields.duration_months + ' Mon.' : '',
                 fields.location ? 'Standort: ' + fields.location : '',
-                fields.start_date ? 'Start: ' + fields.start_date : (fields.start_asap ? 'Start: asap' : ''),
+                fields.start_date
+                    ? ('Start: ' + fields.start_date + (fields.start_asap ? ' (asap→sofort)' : ''))
+                    : (fields.start_asap ? 'Start: asap' : ''),
             ].filter(Boolean);
+            if (crm.contact_missing) {
+                lines.push(crm.suggest_create_contact
+                    ? '⚠ Ansprechpartner nicht in CRM — Anlegen vorschlagen'
+                    : '⚠ Ansprechpartner nicht in CRM (E-Mail/Telefon ergänzen)');
+            } else if ((crm.contact_matches || []).length) {
+                lines.push('✓ Ansprechpartner in CRM gefunden');
+            }
             if (prev) {
                 prev.textContent = lines.join('\n');
                 prev.style.display = 'block';
@@ -1085,18 +1114,45 @@ window.Matching = (function() {
     function applyKiExtract() {
         const d = _kiLastExtract || {};
         const fields = d.fields || {};
+        const crm = d.crm || {};
         _activateTab('neu');
-        // Formular ggf. neu rendern lassen, dann befüllen
         const fill = () => {
             _setVal('new-customer', fields.customer_name || '');
             _setVal('new-contact', fields.contact_name || '');
+            _setVal('new-contact-email', fields.contact_email || '');
+            _setVal('new-contact-phone', fields.contact_phone || '');
             _setVal('new-title', fields.title || '');
             _setVal('new-description', fields.description || '');
             if (fields.start_date) _setVal('new-start', fields.start_date);
+            else if (fields.start_asap) _setVal('new-start', _todayISO());
             if (fields.duration_months != null) _setVal('new-duration', String(fields.duration_months));
             _setVal('new-location', fields.location || '');
             if (fields.rate_max != null) _setVal('new-rate-max', String(fields.rate_max));
             else _setVal('new-rate-max', '');
+
+            // Firma in CRM vorschlagen / vorbelegen
+            const accounts = crm.account_matches || [];
+            if (accounts.length === 1) {
+                _setVal('new-customer', accounts[0].name || fields.customer_name || '');
+                _setVal('new-crm-account-id', accounts[0].crm_id || '');
+            } else if (fields.customer_name) {
+                searchAccounts(fields.customer_name);
+            }
+
+            const contacts = crm.contact_matches || [];
+            if (contacts.length === 1) {
+                _setVal('new-contact', contacts[0].full_name || fields.contact_name || '');
+                _setVal('new-crm-contact-id', contacts[0].crm_id || '');
+                if (contacts[0].email) _setVal('new-contact-email', contacts[0].email);
+                if (contacts[0].phone) _setVal('new-contact-phone', contacts[0].phone);
+                _hideCrmSuggest();
+            } else if (contacts.length > 1) {
+                _showCrmContactPick(contacts);
+            } else if (fields.contact_name) {
+                _showCrmContactCreateSuggest(fields, crm);
+            } else {
+                _hideCrmSuggest();
+            }
             closeKiWizard();
         };
         const content = document.getElementById('content-neu');
@@ -1106,6 +1162,233 @@ window.Matching = (function() {
             fill();
         }
     }
+
+    function _todayISO() {
+        const d = new Date();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return d.getFullYear() + '-' + m + '-' + day;
+    }
+
+    function _hideCrmSuggest() {
+        const box = document.getElementById('matching-crm-suggest');
+        if (box) { box.style.display = 'none'; box.innerHTML = ''; }
+    }
+
+    function _showCrmContactPick(contacts) {
+        const box = document.getElementById('matching-crm-suggest');
+        if (!box) return;
+        box.style.display = 'block';
+        box.innerHTML = '<strong>' + _kiT('crm_pick', 'Ansprechpartner in CRM — bitte wählen:') + '</strong>'
+            + '<div style="margin-top:8px;display:grid;gap:4px">'
+            + contacts.map(c =>
+                `<button type="button" class="matching-btn-sm" style="text-align:left"
+                    onclick="Matching.pickCrmContact(${JSON.stringify(c).replace(/"/g, '&quot;')})">
+                    <strong>${_esc(c.full_name || '')}</strong>
+                    · ${_esc(c.email || '—')} · ${_esc(c.phone || '')}
+                 </button>`
+            ).join('')
+            + '</div>';
+    }
+
+    function _showCrmContactCreateSuggest(fields, crm) {
+        const box = document.getElementById('matching-crm-suggest');
+        if (!box) return;
+        const name = fields.contact_name || '';
+        const email = fields.contact_email || '';
+        const phone = fields.contact_phone || '';
+        const needs = !(email || phone);
+        box.style.display = 'block';
+        box.innerHTML = `
+            <strong><i class="bi bi-person-plus"></i>
+              ${_kiT('crm_missing', 'Ansprechpartner nicht in CRM gefunden')}
+            </strong>
+            <p style="margin:6px 0 10px;opacity:.9">
+              ${_kiT('crm_missing_help',
+                'DeepSeek schlägt vor, den Kontakt anzulegen (mind. Name + E-Mail oder Telefon).')}
+              ${needs ? ' <span style="color:#b45309">' + _kiT('crm_need_reach', 'Bitte E-Mail oder Telefon ergänzen.') + '</span>' : ''}
+            </p>
+            <div class="matching-form-grid" style="margin-bottom:8px">
+              <div class="matching-form-group">
+                <label class="matching-form-label">Name</label>
+                <input class="matching-form-input" id="crm-suggest-name" value="${_escAttr(name)}">
+              </div>
+              <div class="matching-form-group">
+                <label class="matching-form-label">Firma (Account-ID)</label>
+                <input class="matching-form-input" id="crm-suggest-account"
+                       value="${_escAttr(_val('new-crm-account-id') || '')}"
+                       placeholder="wird aus Kunde übernommen">
+              </div>
+              <div class="matching-form-group">
+                <label class="matching-form-label">E-Mail</label>
+                <input class="matching-form-input" id="crm-suggest-email" value="${_escAttr(email)}">
+              </div>
+              <div class="matching-form-group">
+                <label class="matching-form-label">Telefon</label>
+                <input class="matching-form-input" id="crm-suggest-phone" value="${_escAttr(phone)}">
+              </div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button type="button" class="matching-btn-primary" onclick="Matching.createCrmContactFromSuggest()">
+                <i class="bi bi-person-check"></i> ${_kiT('crm_create', 'In CRM anlegen')}
+              </button>
+              <button type="button" class="matching-btn-sm" onclick="Matching.hideCrmSuggest()">
+                ${_kiT('crm_skip', 'Später')}
+              </button>
+            </div>
+            <div id="crm-suggest-msg" style="margin-top:8px;font-size:12px"></div>
+        `;
+        // Account-ID nachziehen falls erst später gesetzt
+        const acc = document.getElementById('crm-suggest-account');
+        if (acc && !acc.value) acc.value = _val('new-crm-account-id') || '';
+    }
+
+    function pickCrmContact(c) {
+        if (!c) return;
+        _setVal('new-contact', c.full_name || '');
+        _setVal('new-crm-contact-id', c.crm_id || '');
+        if (c.email) _setVal('new-contact-email', c.email);
+        if (c.phone) _setVal('new-contact-phone', c.phone);
+        _hideCrmSuggest();
+    }
+
+    function hideCrmSuggest() { _hideCrmSuggest(); }
+
+    function _splitName(full) {
+        const parts = String(full || '').trim().split(/\s+/).filter(Boolean);
+        if (!parts.length) return { first: '', last: '' };
+        if (parts.length === 1) return { first: '', last: parts[0] };
+        return { first: parts.slice(0, -1).join(' '), last: parts[parts.length - 1] };
+    }
+
+    function createCrmContactFromSuggest() {
+        const name = (document.getElementById('crm-suggest-name') || {}).value || '';
+        const email = (document.getElementById('crm-suggest-email') || {}).value || '';
+        const phone = (document.getElementById('crm-suggest-phone') || {}).value || '';
+        let accountId = (document.getElementById('crm-suggest-account') || {}).value
+            || _val('new-crm-account-id') || '';
+        const msg = document.getElementById('crm-suggest-msg');
+        const { first, last } = _splitName(name);
+        if (!last) {
+            if (msg) { msg.style.color = '#ef4444'; msg.textContent = 'Name/Nachname fehlt'; }
+            return;
+        }
+        if (!email && !phone) {
+            if (msg) {
+                msg.style.color = '#ef4444';
+                msg.textContent = 'E-Mail oder Telefon ist Pflicht zum Anlegen.';
+            }
+            return;
+        }
+        if (msg) { msg.style.color = '#2563eb'; msg.textContent = 'Lege Kontakt an…'; }
+
+        const ensureAccount = accountId
+            ? Promise.resolve(accountId)
+            : _ensureCrmAccount(_val('new-customer') || '').then(id => {
+                if (id) {
+                    _setVal('new-crm-account-id', id);
+                    const el = document.getElementById('crm-suggest-account');
+                    if (el) el.value = id;
+                }
+                return id;
+            });
+
+        ensureAccount.then(accId => {
+            return fetch('/crm/api/berater/new/', {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+                body: JSON.stringify({
+                    salutation: 'Hr.',
+                    first_name: first,
+                    last_name: last,
+                }),
+            }).then(r => r.json()).then(d => {
+                if (!d.ok || !d.crm_id) throw new Error(d.error || 'Anlegen fehlgeschlagen');
+                const crmId = d.crm_id;
+                const steps = [];
+                if (phone) {
+                    steps.push(fetch('/crm/api/contact/' + crmId + '/update/', {
+                        method: 'POST',
+                        credentials: 'same-origin',
+                        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+                        body: JSON.stringify({
+                            action: 'phone_add',
+                            nummer: phone,
+                            field_name: 'phone_office',
+                            bean_module: 'Contacts',
+                        }),
+                    }));
+                }
+                if (email) {
+                    steps.push(fetch('/crm/api/contact/' + crmId + '/update/', {
+                        method: 'POST',
+                        credentials: 'same-origin',
+                        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+                        body: JSON.stringify({ action: 'email_add', email: email }),
+                    }));
+                }
+                if (accId) {
+                    steps.push(fetch('/crm/api/contact/' + crmId + '/link-account/', {
+                        method: 'POST',
+                        credentials: 'same-origin',
+                        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+                        body: JSON.stringify({ account_crm_id: accId }),
+                    }));
+                }
+                return Promise.all(steps).then(() => crmId);
+            });
+        }).then(crmId => {
+            _setVal('new-contact', name);
+            _setVal('new-contact-email', email);
+            _setVal('new-contact-phone', phone);
+            _setVal('new-crm-contact-id', crmId);
+            if (msg) {
+                msg.style.color = '#059669';
+                msg.innerHTML = '✓ Angelegt. <a href="/crm/berater/?detail=' + encodeURIComponent(crmId)
+                    + '" target="_blank" rel="noopener">Im CRM öffnen</a>';
+            }
+            setTimeout(_hideCrmSuggest, 2500);
+        }).catch(e => {
+            if (msg) { msg.style.color = '#ef4444'; msg.textContent = e.message || String(e); }
+        });
+    }
+
+    function _ensureCrmAccount(name) {
+        const n = (name || '').trim();
+        if (!n) return Promise.resolve('');
+        // Wenn schon ID gesetzt
+        const existing = _val('new-crm-account-id');
+        if (existing) return Promise.resolve(existing);
+        return fetch(API + 'crm/accounts/?q=' + encodeURIComponent(n), { credentials: 'same-origin' })
+            .then(r => r.json())
+            .then(d => {
+                const hits = d.results || [];
+                const exact = hits.find(h => (h.name || '').toLowerCase() === n.toLowerCase());
+                if (exact) return exact.id || exact.crm_id || '';
+                if (hits.length === 1) return hits[0].id || hits[0].crm_id || '';
+                // Optional neu anlegen
+                return fetch('/crm/api/kunden/new/', {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+                    body: JSON.stringify({ name: n }),
+                }).then(r => r.json()).then(x => (x.ok && (x.crm_id || x.id)) ? (x.crm_id || x.id) : '');
+            })
+            .catch(() => '');
+    }
+
+    function _esc(s) {
+        return String(s == null ? '' : s)
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+    function _escAttr(s) {
+        return _esc(s).replace(/"/g, '&quot;');
+    }
+
+    // ──────────────────────────────────────────────────
+    // AKTIONEN
+    // ──────────────────────────────────────────────────
 
     function _setVal(id, val) {
         const el = document.getElementById(id);
@@ -1133,7 +1416,6 @@ window.Matching = (function() {
                     outer_from: params.get('outer_from') || (stored && stored.outer_from) || '',
                     from_mail: fromMail || (stored && stored.from_mail) || '',
                 });
-                // Optional: Mail-Inhalt nachladen wenn nur ID gesetzt
                 if (fromMail && !(emailText || (stored && stored.email_text))) {
                     _loadMailIntoKiWizard(fromMail);
                 }
@@ -1142,6 +1424,8 @@ window.Matching = (function() {
             console.warn('Matching deeplink:', e);
         }
     }
+
+    function newRequest() { switchTab('neu'); }
 
     function _loadMailIntoKiWizard(mailId) {
         // Best-effort: Shaduler/EDMS Endpunkte — scheitert still, User kann Text einfügen
@@ -1169,12 +1453,6 @@ window.Matching = (function() {
         };
         tryNext(0);
     }
-
-    // ──────────────────────────────────────────────────
-    // AKTIONEN
-    // ──────────────────────────────────────────────────
-
-    function newRequest() { switchTab('neu'); }
 
     function switchTab(tabId) {
         _activateTab(tabId);
@@ -1231,7 +1509,10 @@ window.Matching = (function() {
             description:     _val('new-description'),
             customer_name:   _val('new-customer'),
             contact_name:    _val('new-contact'),
+            contact_email:   _val('new-contact-email'),
+            contact_phone:   _val('new-contact-phone'),
             crm_account_id:  _val('new-crm-account-id'),
+            crm_contact_id:  _val('new-crm-contact-id'),
             start_date:      _val('new-start') || null,
             duration_months: parseInt(_val('new-duration')) || 0,
             location:        _val('new-location'),
@@ -1540,6 +1821,7 @@ window.Matching = (function() {
         kanbanDragStart, kanbanDrop, kanbanCardClick,
         closeProject, sendContract, sendPlacementStart, savePlacementDetails,
         openKiWizard, closeKiWizard, runKiExtract, applyKiExtract,
+        pickCrmContact, hideCrmSuggest, createCrmContactFromSuggest,
     };
 
 })();

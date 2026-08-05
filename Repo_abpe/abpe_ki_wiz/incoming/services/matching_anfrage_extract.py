@@ -34,12 +34,79 @@ def build_user_email_payload(
     if subject:
         parts.append(f'Betreff: {subject}')
     if outer_from:
-        parts.append(f'Äußerer Absender: {outer_from}')
+        parts.append(
+            f'Weiterleitung von / äußerer Absender (nicht der Auftraggeber): {outer_from}'
+        )
     if subject or outer_from:
         parts.append('')
     parts.append('E-Mail-Inhalt:')
     parts.append(email_text or '')
     return '\n'.join(parts)
+
+
+def resolve_crm_suggestions(fields: dict[str, Any]) -> dict[str, Any]:
+    """
+    Prüft SuiteCRM auf Firma/Ansprechpartner.
+    Kein zweiter KI-Wizard — nur Lookup + Hinweis zum Anlegen.
+    """
+    out: dict[str, Any] = {
+        'account_matches': [],
+        'contact_matches': [],
+        'contact_missing': False,
+        'suggest_create_contact': False,
+        'contact_needs_email_or_phone': False,
+    }
+    try:
+        from apps.abpe_ki_wiz.services.context_fetcher import (
+            search_crm_accounts,
+            search_crm_contacts,
+        )
+    except Exception as exc:
+        log.warning('CRM-Lookup nicht verfügbar: %s', exc)
+        return out
+
+    customer = (fields.get('customer_name') or '').strip()
+    contact = (fields.get('contact_name') or '').strip()
+    email = (fields.get('contact_email') or '').strip()
+    phone = (fields.get('contact_phone') or '').strip()
+
+    if customer:
+        try:
+            out['account_matches'] = search_crm_accounts(customer, limit=5) or []
+        except Exception as exc:
+            log.warning('Account-Suche fehlgeschlagen: %s', exc)
+
+    matches: list[dict[str, Any]] = []
+    if email:
+        try:
+            matches = search_crm_contacts(email, limit=5) or []
+        except Exception as exc:
+            log.warning('Kontakt-Suche (E-Mail) fehlgeschlagen: %s', exc)
+    if not matches and contact:
+        try:
+            matches = search_crm_contacts(contact, limit=5) or []
+        except Exception as exc:
+            log.warning('Kontakt-Suche (Name) fehlgeschlagen: %s', exc)
+
+    # E-Mail-Match bevorzugen wenn vorhanden
+    if email and matches:
+        email_l = email.lower()
+        exact = [
+            m for m in matches
+            if (m.get('email') or '').lower() == email_l
+            or email_l in (m.get('full_name') or '').lower()
+        ]
+        if exact:
+            matches = exact + [m for m in matches if m not in exact]
+
+    out['contact_matches'] = matches
+    out['contact_missing'] = bool(contact) and len(matches) == 0
+    has_reach = bool(email or phone)
+    out['contact_needs_email_or_phone'] = bool(contact) and not has_reach
+    out['suggest_create_contact'] = (
+        out['contact_missing'] and bool(contact) and has_reach
+    )
+    return out
 
 
 def extract_matching_anfrage(
@@ -72,11 +139,13 @@ def extract_matching_anfrage(
     if not ds.success or not ds.text:
         fallback = provider.generate_fallback(text)
         applied = provider.apply_result(fallback)
+        fields = applied.get('fields') or map_extract_to_form_fields(fallback)
         return {
             'success': False,
             'error': ds.error or 'DeepSeek Extraktion fehlgeschlagen',
             'extract': fallback,
-            'fields': applied.get('fields') or map_extract_to_form_fields(fallback),
+            'fields': fields,
+            'crm': resolve_crm_suggestions(fields),
             'prompt_key': PROMPT_KEY,
             'source': 'rules',
         }
@@ -87,12 +156,14 @@ def extract_matching_anfrage(
         log.warning('Matching-Anfrage JSON parse failed: %s', exc)
         fallback = provider.generate_fallback(text)
         applied = provider.apply_result(fallback)
+        fields = applied.get('fields') or map_extract_to_form_fields(fallback)
         return {
             'success': False,
             'error': f'KI-Antwort kein gültiges JSON: {exc}',
             'raw': (ds.text or '')[:2000],
             'extract': fallback,
-            'fields': applied.get('fields') or map_extract_to_form_fields(fallback),
+            'fields': fields,
+            'crm': resolve_crm_suggestions(fields),
             'prompt_key': PROMPT_KEY,
             'source': 'rules',
         }
@@ -100,10 +171,13 @@ def extract_matching_anfrage(
     extract['source'] = 'ai'
     validation = provider.validate_output(extract)
     applied = provider.apply_result(extract)
+    fields = applied.get('fields') or map_extract_to_form_fields(extract)
+    crm = resolve_crm_suggestions(fields)
     return {
         'success': True,
         'extract': extract,
-        'fields': applied.get('fields') or map_extract_to_form_fields(extract),
+        'fields': fields,
+        'crm': crm,
         'validation': {
             'ok': validation.ok,
             'errors': validation.errors,

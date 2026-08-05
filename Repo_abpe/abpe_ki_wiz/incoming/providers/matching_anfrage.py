@@ -110,7 +110,7 @@ class MatchingAnfrageWizardProvider(WizardDomainProvider):
         text = (briefing or '').strip()
         return {
             'kunde': {'name': None, 'email_domain': None, 'confidence': 0.0},
-            'ansprechpartner': {'name': None, 'email': None, 'confidence': 0.0},
+            'ansprechpartner': {'name': None, 'email': None, 'phone': None, 'confidence': 0.0},
             'weiterleitung': {'ja': False, 'von': None, 'email': None},
             'titel': None,
             'beschreibung': text[:4000] if text else None,
@@ -127,6 +127,8 @@ class MatchingAnfrageWizardProvider(WizardDomainProvider):
 
 def map_extract_to_form_fields(extract: dict[str, Any] | None) -> dict[str, Any]:
     """Extrakt-JSON → Matching create/form Payload."""
+    from datetime import date
+
     data = extract if isinstance(extract, dict) else {}
     kunde = data.get('kunde') if isinstance(data.get('kunde'), dict) else {}
     ap = data.get('ansprechpartner') if isinstance(data.get('ansprechpartner'), dict) else {}
@@ -150,8 +152,14 @@ def map_extract_to_form_fields(extract: dict[str, Any] | None) -> dict[str, Any]
             'Weiterleitung von: '
             + ', '.join(x for x in [wl.get('von'), wl.get('email')] if x)
         )
-    if start.get('asap') and not start.get('datum'):
-        notes.append('Start: asap / ab sofort')
+    start_asap = bool(start.get('asap'))
+    start_date = start.get('datum') or None
+    # Kein konkretes Datum + asap → Formular-Default = heute („sofort“)
+    if not start_date and start_asap:
+        start_date = date.today().isoformat()
+        notes.append('Start: asap / ab sofort (Formular: heutiges Datum)')
+    elif start_asap and start_date:
+        notes.append(f'Start: asap / ab sofort ({start_date})')
     for h in hinweise:
         if h and str(h) not in notes:
             notes.append(str(h))
@@ -178,10 +186,11 @@ def map_extract_to_form_fields(extract: dict[str, Any] | None) -> dict[str, Any]
         'customer_name': kunde.get('name') or '',
         'contact_name': ap.get('name') or '',
         'contact_email': ap.get('email') or '',
+        'contact_phone': ap.get('phone') or ap.get('telefon') or '',
         'title': data.get('titel') or '',
         'description': description,
-        'start_date': start.get('datum') or None,
-        'start_asap': bool(start.get('asap')),
+        'start_date': start_date,
+        'start_asap': start_asap,
         'duration_months': dauer_int,
         'location': location or '',
         'rate_max': rate_int,
