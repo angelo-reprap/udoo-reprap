@@ -42,6 +42,10 @@ done
 
 echo "OK — Dateien sync."
 echo
+echo "Static: Portal nutzt oft STATIC_ROOT — danach:"
+echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py collectstatic --noinput"
+echo "  supervisorctl restart abpe-django abpe-celery"
+echo
 echo "WICHTIG urls.py: path('shaduler/', …) MUSS VOR path('', include('apps.abpe_ui.urls')) stehen!"
 echo "Aktuell oft falsch am Dateiende — sonst matched abpe_ui alles und /shaduler/ kommt nie an."
 echo
@@ -49,4 +53,5 @@ echo "Register (falls noch nicht):"
 echo "  apps.py  → 'apps.abpe_shaduler'"
 echo "  urls.py  → path('shaduler/', include('apps.abpe_shaduler.urls', namespace='abpe_shaduler')),"
 echo
-echo "Danach: bash scripts/CHECK-abpe-shaduler-live.sh && supervisorctl restart abpe-django"
+echo "Danach: bash scripts/CHECK-abpe-shaduler-live.sh"
+echo "Diagnose Soft-Poll/Indexer: bash scripts/PROBE-shaduler-inbox-refresh.sh"
