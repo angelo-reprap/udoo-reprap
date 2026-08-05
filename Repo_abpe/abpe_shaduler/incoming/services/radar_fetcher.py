@@ -40,7 +40,15 @@ GULP_TYPE_PATH = {
     'TALENT_FINDER': 'talentfinder',
     'AGENCY': 'agentur',
     'DIREKT': 'direkt',
+    'EXTERNAL': 'extern',
+}
+# Detail-REST: type.toLowerCase() der Angular-App — Talentfinder läuft über „direkt“
+GULP_DETAIL_API_PATH = {
+    'TALENT_FINDER': 'direkt',
+    'DIREKT': 'direkt',
+    'AGENCY': 'agency',
     'EXTERNAL': 'external',
+    'LEGACY': 'legacy',
 }
 ANFRAGEN_SOURCES = (SOURCE_NAME, GULP_SOURCE_NAME)
 
@@ -205,19 +213,7 @@ def normalize_project(raw: dict, *, source: str = SOURCE_NAME) -> dict:
         'url': url,
     }
 
-    age = ''
-    if created:
-        try:
-            delta = datetime.now(created.tzinfo) - created if created.tzinfo else datetime.now() - created
-            mins = int(delta.total_seconds() // 60)
-            if mins < 60:
-                age = f'vor {max(mins, 0)} Min'
-            elif mins < 60 * 24:
-                age = f'vor {mins // 60} Std'
-            else:
-                age = f'vor {mins // (60 * 24)} T'
-        except Exception:
-            age = ''
+    age = _format_age(created)
 
     return {
         'id': f'fm-{pid}' if pid else dedup[:16],
@@ -300,6 +296,203 @@ def fetch_html(url: str = FM_LIST_URL, *, timeout: int = 25) -> str:
     with urlopen(req, timeout=timeout) as resp:
         charset = resp.headers.get_content_charset() or 'utf-8'
         return resp.read().decode(charset, errors='replace')
+
+
+def _format_age(created: Optional[datetime], *, today: Optional[date] = None) -> str:
+    """
+    Heute: „vor X Min“ / „vor X Std“.
+    Nicht heute (gestern/älter): Datum „04.08.2026“.
+    """
+    if not created:
+        return ''
+    today = today or date.today()
+    try:
+        created_d = created.date()
+    except Exception:
+        return ''
+    if created_d != today:
+        return created.strftime('%d.%m.%Y')
+    try:
+        now = datetime.now(created.tzinfo) if created.tzinfo else datetime.now()
+        mins = int((now - created).total_seconds() // 60)
+        if mins < 0:
+            mins = 0
+        if mins < 60:
+            return f'vor {mins} Min'
+        hours = mins // 60
+        if hours < 24:
+            return f'vor {hours} Std'
+        return created.strftime('%d.%m.%Y')
+    except Exception:
+        return created.strftime('%d.%m.%Y')
+
+
+def _skills_from_raw(raw: dict) -> list[str]:
+    skills: list[str] = []
+    for key in ('mustHaveSkills', 'niceToHaveSkills', 'skills'):
+        arr = raw.get(key) or []
+        if not isinstance(arr, list):
+            continue
+        for s in arr:
+            if isinstance(s, str) and s.strip():
+                skills.append(s.strip())
+            elif isinstance(s, dict):
+                name = s.get('name') or s.get('label') or ''
+                if name:
+                    skills.append(str(name).strip())
+    # dedupe preserve order
+    seen: set[str] = set()
+    out: list[str] = []
+    for s in skills:
+        k = s.lower()
+        if k in seen:
+            continue
+        seen.add(k)
+        out.append(s)
+    return out
+
+
+def _build_gulp_beschreibung(raw: dict) -> str:
+    """Volle Detail-Beschreibung inkl. Must/Nice-Have Skills."""
+    parts: list[str] = []
+    desc = str(raw.get('description') or '').strip()
+    if desc:
+        parts.append(desc)
+    must = raw.get('mustHaveSkills') or []
+    if isinstance(must, list) and must:
+        parts.append('Must-Have Skills')
+        for s in must:
+            if isinstance(s, str) and s.strip():
+                parts.append(f'- {s.strip()}')
+    nice = raw.get('niceToHaveSkills') or []
+    if isinstance(nice, list) and nice:
+        parts.append('Nice-to-Have Skills')
+        for s in nice:
+            if isinstance(s, str) and s.strip():
+                parts.append(f'- {s.strip()}')
+    return '\n'.join(parts).strip()
+
+
+def _gulp_detail_api_type(typ: str) -> str:
+    t = str(typ or '').strip().upper()
+    return GULP_DETAIL_API_PATH.get(t, t.lower() if t else 'direkt')
+
+
+def fetch_gulp_project_detail(
+    project_id: str,
+    typ: str = 'TALENT_FINDER',
+    *,
+    opener=None,
+    token: str = '',
+) -> Optional[dict]:
+    """GET /gulp2/rest/internal/projects/{apiType}/{id}?language=DE"""
+    pid = str(project_id or '').strip()
+    if not pid:
+        return None
+    api_type = _gulp_detail_api_type(typ)
+    url = f'https://www.gulp.de/gulp2/rest/internal/projects/{api_type}/{pid}?language=DE'
+    own_opener = opener is None
+    jar = None
+    if own_opener:
+        opener, jar = _gulp_opener()
+        try:
+            token = _gulp_csrf_token(opener, jar)
+        except Exception as exc:
+            log.warning('gulp detail csrf failed: %s', exc)
+            return None
+    if not token:
+        return None
+    req = Request(url, headers={
+        'User-Agent': FM_UA,
+        'Accept': 'application/json',
+        'Origin': 'https://www.gulp.de',
+        'Referer': _gulp_project_url({'id': pid, 'type': typ, 'url': ''}),
+        GULP_CSRF_HEADER: token,
+    })
+    try:
+        with opener.open(req, timeout=25) as resp:
+            data = json.loads(resp.read().decode('utf-8', errors='replace'))
+        return data if isinstance(data, dict) and data.get('id') else None
+    except Exception as exc:
+        log.warning('gulp detail failed %s/%s: %s', api_type, pid, exc)
+        return None
+
+
+def enrich_gulp_item(item: dict, *, opener=None, token: str = '') -> dict:
+    """List-Hit mit Detail-API anreichern (volle Beschreibung + Skills)."""
+    if not item:
+        return item
+    eck = item.get('eckdaten') or {}
+    if eck.get('detail_enriched'):
+        return item
+    pid = item.get('external_id') or eck.get('project_id') or ''
+    typ = eck.get('gulp_type') or eck.get('contract_type') or 'TALENT_FINDER'
+    detail = fetch_gulp_project_detail(pid, typ, opener=opener, token=token)
+    if not detail:
+        return item
+    desc = _build_gulp_beschreibung(detail)
+    if desc:
+        item['beschreibung'] = desc
+    skills = _skills_from_raw(detail)
+    if skills:
+        item['skills'] = skills
+    company = str(detail.get('companyName') or '').strip()
+    if company:
+        item['company'] = company
+        eck['company'] = company
+    city = str(detail.get('location') or '').strip()
+    if city:
+        item['city'] = city
+        eck['city'] = city
+    start = str(detail.get('startDate') or detail.get('externalStartDateText') or '').strip()
+    if start:
+        eck['beginning'] = start
+    duration = detail.get('duration') or detail.get('externalWorkloadText') or ''
+    if duration not in (None, ''):
+        eck['duration'] = duration
+        eck['duration_text'] = str(duration).strip()
+    remote = detail.get('remoteWorkPossible')
+    if remote is True or detail.get('isRemoteWorkPossible') is True:
+        eck['remote_percent'] = 100
+    elif detail.get('percentWorkload') is not None:
+        try:
+            eck['workload_percent'] = int(detail.get('percentWorkload'))
+        except Exception:
+            pass
+    created = _parse_dt(detail.get('originalPublicationDate'))
+    if created:
+        eck['created'] = created.isoformat()
+        item['raw_created'] = created.isoformat()
+        item['age'] = _format_age(created)
+    title = str(detail.get('title') or '').strip()
+    if title:
+        item['headline'] = title
+    url = str(detail.get('url') or eck.get('url') or item.get('external_url') or '').strip()
+    if url:
+        item['external_url'] = url
+        eck['url'] = url
+    eck['detail_enriched'] = True
+    eck['must_have_skills'] = [
+        s for s in (detail.get('mustHaveSkills') or []) if isinstance(s, str)
+    ]
+    eck['nice_have_skills'] = [
+        s for s in (detail.get('niceToHaveSkills') or []) if isinstance(s, str)
+    ]
+    item['eckdaten'] = eck
+    # meta neu
+    meta_parts = []
+    if eck.get('beginning'):
+        meta_parts.append(f"Start {eck['beginning']}")
+    if eck.get('duration_text'):
+        meta_parts.append(str(eck['duration_text']))
+    if eck.get('city'):
+        meta_parts.append(eck['city'])
+    if eck.get('remote_percent') is not None:
+        meta_parts.append('100% Remote' if eck['remote_percent'] >= 100 else f"{eck['remote_percent']}% Remote")
+    if eck.get('company'):
+        meta_parts.append(eck['company'])
+    item['meta'] = ' · '.join(meta_parts)
+    return item
 
 
 def _in_recent_window(created: Optional[datetime], day: date, recent_days: int) -> tuple[bool, bool]:
@@ -480,19 +673,7 @@ def normalize_gulp_project(raw: dict, *, source: str = GULP_SOURCE_NAME) -> dict
         'gulp_type': typ,
     }
 
-    age = ''
-    if created:
-        try:
-            delta = datetime.now(created.tzinfo) - created if created.tzinfo else datetime.now() - created
-            mins = int(delta.total_seconds() // 60)
-            if mins < 60:
-                age = f'vor {max(mins, 0)} Min'
-            elif mins < 60 * 24:
-                age = f'vor {mins // 60} Std'
-            else:
-                age = f'vor {mins // (60 * 24)} T'
-        except Exception:
-            age = ''
+    age = _format_age(created)
 
     return {
         'id': f'gulp-{pid}' if pid else dedup[:16],
@@ -526,10 +707,12 @@ def fetch_gulp_projects(
     today_only: bool = True,
     day: Optional[date] = None,
     recent_days: int = 2,
+    enrich_details: bool = True,
 ) -> list[dict]:
     """
     Lädt Gulp-Projekte via REST search (DATE_DESC).
     today_only: Fenster [day-(recent_days-1) .. day] (Default: heute+gestern).
+    enrich_details: Detail-API für volle Beschreibung + Skills nachladen.
 
     Hinweis: Gulp-API sortiert bei limit>=50 unzuverlässig (neueste fehlen) —
     daher page_size default 20.
@@ -597,6 +780,14 @@ def fetch_gulp_projects(
             out.append(item)
         if today_only and stop_old and not page_had_match:
             break
+
+    if enrich_details and out:
+        for i, item in enumerate(out):
+            try:
+                out[i] = enrich_gulp_item(item, opener=opener, token=token)
+            except Exception as exc:
+                log.warning('gulp enrich failed %s: %s', item.get('external_id'), exc)
+
     out.sort(key=lambda x: x.get('raw_created') or '', reverse=True)
     return out
 
@@ -675,6 +866,9 @@ def persist_items(
 def serialize_db_item(obj) -> dict:
     eck = obj.eckdaten or {}
     source = eck.get('source') or (obj.quelle.name if obj.quelle_id else SOURCE_NAME)
+    created = _parse_dt(eck.get('created')) or (
+        obj.eingegangen_am.replace(tzinfo=None) if getattr(obj, 'eingegangen_am', None) else None
+    )
     return {
         'id': str(obj.pk),
         'external_id': eck.get('project_id') or '',
@@ -693,7 +887,7 @@ def serialize_db_item(obj) -> dict:
                 eck.get('company'),
             ] if x
         ]),
-        'age': '',
+        'age': _format_age(created),
         'sources': [source],
         'score': obj.quick_score,
         'grp': 1,
@@ -814,29 +1008,53 @@ def get_item(item_id: str) -> Optional[dict]:
     try:
         from apps.abpe_shaduler.models import RadarItem
         import uuid as _uuid
+        obj = None
         try:
             uid = _uuid.UUID(str(item_id))
             obj = RadarItem.objects.filter(pk=uid).select_related('quelle').first()
-            if obj:
-                return serialize_db_item(obj)
         except Exception:
-            pass
-        # eckdaten.project_id
-        pid = str(item_id)
-        for prefix in ('fm-', 'gulp-'):
-            if pid.startswith(prefix):
-                pid = pid[len(prefix):]
-                break
-        obj = RadarItem.objects.filter(eckdaten__project_id=pid).select_related('quelle').first()
+            obj = None
+        if not obj:
+            pid = str(item_id)
+            for prefix in ('fm-', 'gulp-'):
+                if pid.startswith(prefix):
+                    pid = pid[len(prefix):]
+                    break
+            obj = RadarItem.objects.filter(eckdaten__project_id=pid).select_related('quelle').first()
         if obj:
-            return serialize_db_item(obj)
+            item = serialize_db_item(obj)
+            src = ((item.get('sources') or [''])[0] or '').lower()
+            eck = item.get('eckdaten') or {}
+            needs = (
+                src == 'gulp'
+                and (
+                    not eck.get('detail_enriched')
+                    or len(item.get('beschreibung') or '') < 400
+                    or (item.get('beschreibung') or '').rstrip().endswith('...')
+                )
+            )
+            if needs:
+                item = enrich_gulp_item(item)
+                # Persist volle Beschreibung für Matching/UI
+                try:
+                    obj.beschreibung = item.get('beschreibung') or obj.beschreibung
+                    obj.skills = item.get('skills') or obj.skills
+                    obj.headline = (item.get('headline') or obj.headline or '')[:250]
+                    obj.external_url = item.get('external_url') or obj.external_url
+                    obj.eckdaten = item.get('eckdaten') or obj.eckdaten
+                    obj.save(update_fields=[
+                        'beschreibung', 'skills', 'headline', 'external_url', 'eckdaten', 'updated_at',
+                    ])
+                except Exception as exc:
+                    log.debug('persist enriched gulp detail: %s', exc)
+            return item
     except Exception as exc:
         log.debug('get_item db: %s', exc)
 
     # Live-Nachladen: Listenseite + Filter
     try:
         items = fetch_freelancermap_projects(pages=2, today_only=False)
-        items += fetch_gulp_projects(pages=2, today_only=False)
+        items += fetch_gulp_projects(pages=2, today_only=False, enrich_details=True)
         pid = str(item_id)
         for prefix in ('fm-', 'gulp-'):
             if pid.startswith(prefix):
