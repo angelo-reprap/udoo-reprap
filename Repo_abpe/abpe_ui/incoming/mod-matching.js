@@ -1320,7 +1320,12 @@ window.Matching = (function() {
 
     function _hideCrmSuggest() {
         const box = document.getElementById('matching-crm-suggest');
-        if (box) { box.style.display = 'none'; box.innerHTML = ''; }
+        if (box) {
+            box.style.display = 'none';
+            box.innerHTML = '';
+            box.style.borderColor = '#f59e0b';
+            box.style.background = 'rgba(245,158,11,.08)';
+        }
     }
 
     function _showCrmContactPick(contacts) {
