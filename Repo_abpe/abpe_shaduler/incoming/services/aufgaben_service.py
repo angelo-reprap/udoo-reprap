@@ -2,8 +2,10 @@
 from __future__ import annotations
 
 import logging
+import re
 from datetime import date, timedelta
 from typing import Any, Optional
+from uuid import UUID
 
 from django.db.models import Q
 from django.utils import timezone
@@ -14,18 +16,206 @@ from . import aktivitaet_service
 
 log = logging.getLogger('abpe_shaduler.aufgaben')
 
+_PHONE_LABELS = {
+    'phone_mobile': 'Mobil',
+    'phone_work': 'Büro',
+    'phone_home': 'Privat',
+    'phone_other': 'Sonst.',
+    'phone_fax': 'Fax',
+    'whatsapp': 'WhatsApp',
+}
 
-def _crm_phone_for_ref(ref_type: str, ref_id: str) -> str:
-    """Telefon aus CRM (CrmPhoneBeanRel) für Berater/Firma."""
+
+def normalize_de_phone(raw: str) -> tuple[str, bool]:
+    """Normalisiert auf 0049… und prüft Länge (Mobil/Festnetz DE).
+
+    Akzeptiert +49…, 0049…, 0… (national). Rückgabe: (norm, ok).
+    """
+    s = re.sub(r'[^\d+]', '', (raw or '').strip())
+    if not s:
+        return '', False
+    if s.startswith('+'):
+        s = '00' + s[1:]
+    if s.startswith('0049'):
+        norm = s
+    elif s.startswith('49') and len(s) >= 11:
+        norm = '00' + s
+    elif s.startswith('0') and not s.startswith('00'):
+        norm = '0049' + s[1:]
+    else:
+        # reine Digits ohne Ländervorwahl — nur ok wenn schon 0049-Länge
+        norm = s
+    ok = bool(re.match(r'^0049\d{6,13}$', norm))
+    return norm, ok
+
+
+def phone_to_wa_digits(raw: str) -> str:
+    """wa.me braucht Ländervorwahl ohne 00/+ → 4917…"""
+    norm, ok = normalize_de_phone(raw)
+    if not ok:
+        digits = re.sub(r'\D', '', raw or '')
+        if digits.startswith('00'):
+            digits = digits[2:]
+        return digits
+    return norm[2:] if norm.startswith('00') else norm
+
+
+def _looks_like_crm_uuid(value: str) -> bool:
+    v = (value or '').strip()
+    if not v:
+        return False
+    try:
+        UUID(v)
+        return True
+    except Exception:
+        pass
+    # SuiteCRM oft ohne Bindestriche
+    hexish = v.replace('-', '')
+    return len(hexish) == 32 and all(c in '0123456789abcdefABCDEF' for c in hexish)
+
+
+def _name_hint_from_aufgabe(aufgabe: Optional[Aufgabe] = None, titel: str = '') -> str:
+    """z.B. „Termin-Erinnerung an T. Lorenz“ → Lorenz."""
+    text = titel or (getattr(aufgabe, 'titel', '') if aufgabe else '') or ''
+    m = re.search(r'\ban\s+(.+)$', text.strip(), re.I)
+    if m:
+        name = m.group(1).strip()
+        # „T. Lorenz“ / „Hr. Lorenz“ → Nachname bevorzugt
+        parts = re.split(r'\s+', name)
+        if parts:
+            return parts[-1].strip('.,')
+    return ''
+
+
+def _resolve_contact_crm_id(
+    ref_type: str,
+    ref_id: str,
+    *,
+    name_hint: str = '',
+) -> str:
+    """UUID nutzen; sonst Name/Slug → CRM crm_id (ORM, optional ES)."""
     bid = (ref_id or '').strip()
-    if not bid:
+    if not bid and not name_hint:
         return ''
-    if ref_type in ('berater', 'ansprechpartner'):
+    if ref_type not in ('berater', 'ansprechpartner', ''):
+        return bid if _looks_like_crm_uuid(bid) else ''
+    if bid and _looks_like_crm_uuid(bid):
+        return bid
+
+    try:
+        from django.apps import apps
+
+        Contact = apps.get_model('abpe_crm', 'CrmContact')
+    except LookupError:
+        return bid
+
+    queries = []
+    for term in (bid, name_hint):
+        term = (term or '').strip()
+        if not term or _looks_like_crm_uuid(term):
+            continue
+        queries.append(term)
+
+    for term in queries:
+        try:
+            qs = Contact.objects.filter(
+                Q(last_name__iexact=term)
+                | Q(last_name__icontains=term)
+                | Q(first_name__icontains=term)
+            )
+            # „lorenz“ exakt bevorzugen
+            exact = qs.filter(last_name__iexact=term).first()
+            c = exact or qs.first()
+            if c and getattr(c, 'crm_id', None):
+                return str(c.crm_id)
+        except Exception as exc:
+            log.debug('CRM name resolve fehlgeschlagen: %s', exc)
+
+    # Elasticsearch Index „content“ (phones/name indexed)
+    for term in queries:
+        crm_id = _es_resolve_contact_id(term)
+        if crm_id:
+            return crm_id
+    return bid
+
+
+def _es_resolve_contact_id(q: str) -> str:
+    q = (q or '').strip()
+    if not q:
+        return ''
+    try:
+        from elasticsearch import Elasticsearch
+
+        from .inbox_service import _es_hosts
+
+        es = Elasticsearch(_es_hosts(), request_timeout=4)
+        body = {
+            'size': 5,
+            '_source': ['crm_id', 'name', 'phones'],
+            'query': {
+                'bool': {
+                    'should': [
+                        {'match_phrase_prefix': {'name': {'query': q, 'boost': 4}}},
+                        {'multi_match': {
+                            'query': q,
+                            'fields': ['name^3', 'phones^2', 'emails'],
+                            'fuzziness': 'AUTO',
+                        }},
+                    ],
+                    'minimum_should_match': 1,
+                }
+            },
+        }
+        res = es.search(index='content', body=body)
+        for hit in (res.get('hits') or {}).get('hits') or []:
+            src = hit.get('_source') or {}
+            cid = src.get('crm_id') or ''
+            if cid:
+                return str(cid)
+    except Exception as exc:
+        log.debug('ES contact resolve fehlgeschlagen: %s', exc)
+    return ''
+
+
+def _crm_phones_for_ref(
+    ref_type: str,
+    ref_id: str,
+    *,
+    name_hint: str = '',
+) -> list[dict[str, Any]]:
+    """Alle CRM-Telefone + WhatsApp-Feld; Mobil zuerst."""
+    bid = _resolve_contact_crm_id(ref_type, ref_id, name_hint=name_hint)
+    if not bid:
+        return []
+    if ref_type in ('berater', 'ansprechpartner', ''):
         mod = 'Contacts'
     elif ref_type == 'firma':
         mod = 'Accounts'
     else:
-        return ''
+        return []
+
+    out: list[dict[str, Any]] = []
+    seen: set[str] = set()
+
+    def _add(raw: str, field_name: str, *, is_primary: bool = False, label: str = '') -> None:
+        raw = (raw or '').strip()
+        if not raw:
+            return
+        norm, ok = normalize_de_phone(raw)
+        key = norm or re.sub(r'\D', '', raw)
+        if not key or key in seen:
+            return
+        seen.add(key)
+        out.append({
+            'raw': raw,
+            'norm': norm if ok else '',
+            'ok': ok,
+            'field_name': field_name,
+            'label': label or _PHONE_LABELS.get(field_name, field_name or 'Tel'),
+            'is_primary': bool(is_primary),
+            'is_mobile': field_name in ('phone_mobile', 'whatsapp'),
+        })
+
     try:
         from django.apps import apps
 
@@ -42,10 +232,42 @@ def _crm_phone_for_ref(ref_type: str, ref_id: str) -> str:
                 or getattr(phone, 'phone_norm', None)
                 or ''
             )
-            if raw:
-                return str(raw)
+            _add(
+                str(raw),
+                getattr(rel, 'field_name', '') or 'phone_other',
+                is_primary=bool(getattr(rel, 'is_primary', False)),
+                label=getattr(rel, 'label', '') or '',
+            )
     except Exception as exc:
-        log.debug('CRM-Phone lookup fehlgeschlagen: %s', exc)
+        log.debug('CRM-Phones lookup fehlgeschlagen: %s', exc)
+
+    if mod == 'Contacts':
+        try:
+            from django.apps import apps
+
+            Contact = apps.get_model('abpe_crm', 'CrmContact')
+            c = Contact.objects.filter(crm_id=bid).first()
+            if c:
+                wa = getattr(c, 'whatsapp_number', None) or ''
+                if wa:
+                    _add(str(wa), 'whatsapp', is_primary=True, label='WhatsApp')
+        except Exception as exc:
+            log.debug('CRM whatsapp_number fehlgeschlagen: %s', exc)
+
+    # Mobil / WhatsApp zuerst
+    out.sort(key=lambda p: (0 if p.get('is_mobile') else 1, 0 if p.get('is_primary') else 1))
+    return out
+
+
+def _crm_phone_for_ref(ref_type: str, ref_id: str, *, name_hint: str = '') -> str:
+    """Eine bevorzugte Nummer (Mobil/WhatsApp zuerst)."""
+    phones = _crm_phones_for_ref(ref_type, ref_id, name_hint=name_hint)
+    for p in phones:
+        if p.get('is_mobile') and (p.get('norm') or p.get('raw')):
+            return p.get('norm') or p.get('raw') or ''
+    for p in phones:
+        if p.get('norm') or p.get('raw'):
+            return p.get('norm') or p.get('raw') or ''
     return ''
 
 
@@ -210,7 +432,12 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
     crm_url = ''
     if aufgabe.ref_id:
         if aufgabe.ref_type in ('berater', 'ansprechpartner'):
-            crm_url = f'/crm/berater/?detail={aufgabe.ref_id}'
+            resolved = _resolve_contact_crm_id(
+                aufgabe.ref_type,
+                aufgabe.ref_id,
+                name_hint=_name_hint_from_aufgabe(aufgabe),
+            ) or aufgabe.ref_id
+            crm_url = f'/crm/berater/?detail={resolved}'
         elif aufgabe.ref_type == 'firma':
             crm_url = f'/crm/kunden/?detail={aufgabe.ref_id}'
     action = {
@@ -227,8 +454,10 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
     whatsapp_url = ''
     phone = ''
     wa_text = ''
+    phones: list[dict[str, Any]] = []
     if aufgabe.art == Aufgabe.Art.SMS_MESSENGER:
         from .whatsapp_service import build_whatsapp_link
+        name_hint = _name_hint_from_aufgabe(aufgabe)
         if isinstance(aufgabe.ergebnis_daten, dict):
             phone = (
                 aufgabe.ergebnis_daten.get('phone')
@@ -236,19 +465,27 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
                 or ''
             )
         if not phone and 'tel:' in (aufgabe.beschreibung or '').lower():
-            import re
             m = re.search(r'tel:([+\d\s\-()/]+)', aufgabe.beschreibung or '', re.I)
             if m:
                 phone = m.group(1)
+        phones = _crm_phones_for_ref(
+            aufgabe.ref_type, aufgabe.ref_id, name_hint=name_hint,
+        )
         if not phone and aufgabe.ref_id:
-            phone = _crm_phone_for_ref(aufgabe.ref_type, aufgabe.ref_id)
+            phone = _crm_phone_for_ref(
+                aufgabe.ref_type, aufgabe.ref_id, name_hint=name_hint,
+            )
+        if phone:
+            norm, ok = normalize_de_phone(phone)
+            if ok:
+                phone = norm
         beschr = (aufgabe.beschreibung or '').strip()
         if beschr and not beschr.lower().startswith('von:') and 'mail-id:' not in beschr.lower():
-            import re as _re
-            wa_text = _re.sub(r'\n?tel:[^\n]+', '', beschr, flags=_re.I).strip()
+            wa_text = re.sub(r'\n?tel:[^\n]+', '', beschr, flags=re.I).strip()
         if not wa_text:
             wa_text = aufgabe.titel or ''
-        whatsapp_url = build_whatsapp_link(phone, wa_text) if phone else ''
+        wa_digits = phone_to_wa_digits(phone) if phone else ''
+        whatsapp_url = build_whatsapp_link(wa_digits, wa_text) if wa_digits else ''
 
     return {
         'id': str(aufgabe.pk),
@@ -275,6 +512,7 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
         'action_note': action[1],
         'whatsapp_url': whatsapp_url,
         'phone': phone,
+        'phones': phones,
         'wa_text': wa_text,
         'excerpt': {
             'stand': (aufgabe.beschreibung or '')[:240],

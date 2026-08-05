@@ -179,6 +179,10 @@
       '<div class="phase on" id="sh-ph-act">' +
       '<div class="excerpt" id="sh-m-excerpt"></div>' +
       '<div class="sh-m-wa" id="sh-m-wa" style="display:none">' +
+      '<label class="qlbl" for="sh-m-wa-phone">' + _t('sh.wa_telefon', 'Telefon') + '</label>' +
+      '<input type="tel" id="sh-m-wa-phone" class="sh-m-wa-phone" placeholder="0049…" autocomplete="tel" />' +
+      '<div class="sh-m-wa-phone-meta" id="sh-m-wa-phone-meta"></div>' +
+      '<div class="sh-pick-row" id="sh-m-wa-phone-sugs"></div>' +
       '<label class="qlbl" for="sh-m-wa-text">' + _t('sh.wa_nachricht', 'Nachricht') + '</label>' +
       '<textarea id="sh-m-wa-text" class="sh-m-wa-text" rows="5"></textarea>' +
       '<button type="button" class="primary wa" id="sh-m-wa-send">' +
@@ -1619,11 +1623,29 @@
   }
 
   function buildWhatsAppLink(phone, text) {
-    var digits = String(phone || '').replace(/\D/g, '');
+    var digits = normalizeWaPhone(phone).waDigits;
     if (!digits) return '';
     var url = 'https://wa.me/' + digits;
     if (text) url += '?text=' + encodeURIComponent(text);
     return url;
+  }
+
+  /** DE-Nummern → 0049… prüfen; waDigits ohne führende 00. */
+  function normalizeWaPhone(raw) {
+    var s = String(raw || '').replace(/[^\d+]/g, '');
+    if (!s) return { norm: '', ok: false, waDigits: '' };
+    if (s.charAt(0) === '+') s = '00' + s.slice(1);
+    var norm = s;
+    if (s.indexOf('0049') === 0) {
+      norm = s;
+    } else if (s.indexOf('49') === 0 && s.length >= 11) {
+      norm = '00' + s;
+    } else if (s.charAt(0) === '0' && s.indexOf('00') !== 0) {
+      norm = '0049' + s.slice(1);
+    }
+    var ok = /^0049\d{6,13}$/.test(norm);
+    var waDigits = ok ? norm.replace(/^00/, '') : s.replace(/^00/, '').replace(/^\+/, '');
+    return { norm: ok ? norm : s, ok: ok, waDigits: waDigits };
   }
 
   function waDefaultText(t) {
@@ -1641,6 +1663,9 @@
   function setupWhatsAppCompose(t) {
     var waBox = document.getElementById('sh-m-wa');
     var waText = document.getElementById('sh-m-wa-text');
+    var waPhone = document.getElementById('sh-m-wa-phone');
+    var waMeta = document.getElementById('sh-m-wa-phone-meta');
+    var waSugs = document.getElementById('sh-m-wa-phone-sugs');
     var waSend = document.getElementById('sh-m-wa-send');
     var waNote = document.getElementById('sh-m-wa-note');
     var actBtn = document.getElementById('sh-m-action');
@@ -1656,37 +1681,110 @@
     if (actBtn) actBtn.style.display = 'none';
     if (actNote) actNote.style.display = 'none';
     if (waText) waText.value = waDefaultText(t);
+
     var phone = t.phone || '';
     if (!phone && t.whatsapp_url) {
       var pm = String(t.whatsapp_url).match(/wa\.me\/(\d+)/);
-      if (pm) phone = pm[1];
+      if (pm) phone = '00' + pm[1];
     }
+    var phones = Array.isArray(t.phones) ? t.phones.slice() : [];
+    // Mobil zuerst in Vorschlägen
+    phones.sort(function (a, b) {
+      return (b.is_mobile ? 1 : 0) - (a.is_mobile ? 1 : 0);
+    });
+
+    function setPhoneValue(val, fromSug) {
+      if (!waPhone) return;
+      var n = normalizeWaPhone(val);
+      waPhone.value = n.ok ? n.norm : String(val || '');
+      updatePhoneMeta();
+      if (fromSug && waSugs) {
+        waSugs.querySelectorAll('.sh-pick').forEach(function (el) {
+          el.classList.toggle('on', el.getAttribute('data-phone') === waPhone.value
+            || normalizeWaPhone(el.getAttribute('data-phone')).norm === n.norm);
+        });
+      }
+    }
+
+    function updatePhoneMeta() {
+      if (!waPhone || !waMeta) return;
+      var raw = waPhone.value.trim();
+      waPhone.classList.remove('ok', 'bad');
+      waMeta.classList.remove('ok', 'bad');
+      if (!raw) {
+        waMeta.textContent = _t('sh.wa_phone_hint', 'Format: 0049… (Mobil bevorzugt)');
+        return false;
+      }
+      var n = normalizeWaPhone(raw);
+      if (n.ok) {
+        waPhone.classList.add('ok');
+        waMeta.classList.add('ok');
+        waPhone.value = n.norm;
+        waMeta.textContent = _t('sh.wa_phone_ok', 'OK — ') + n.norm;
+        return true;
+      }
+      waPhone.classList.add('bad');
+      waMeta.classList.add('bad');
+      waMeta.textContent = _t('sh.wa_phone_bad', 'Ungültig — bitte 0049… (z.B. 0049171…)');
+      return false;
+    }
+
+    if (waSugs) {
+      waSugs.innerHTML = '';
+      var mobiles = phones.filter(function (p) { return p.is_mobile || p.field_name === 'phone_mobile' || p.field_name === 'whatsapp'; });
+      var show = mobiles.length ? mobiles : phones;
+      if (show.length) {
+        var lbl = document.createElement('div');
+        lbl.className = 'qlbl';
+        lbl.style.cssText = 'width:100%;margin:0 0 4px;font-size:.75rem';
+        lbl.textContent = _t('sh.wa_vorschlag', 'Vorschlag aus CRM');
+        waSugs.appendChild(lbl);
+      }
+      show.forEach(function (p) {
+        var raw = p.norm || p.raw || '';
+        if (!raw) return;
+        var n = normalizeWaPhone(raw);
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'sh-pick' + (p.is_mobile || p.field_name === 'phone_mobile' || p.field_name === 'whatsapp' ? ' mobile' : '');
+        b.setAttribute('data-phone', n.ok ? n.norm : raw);
+        b.innerHTML = '<i class="bi bi-phone"></i> ' + esc(p.label || 'Mobil') + ': ' + esc(n.ok ? n.norm : raw);
+        b.addEventListener('click', function () {
+          setPhoneValue(raw, true);
+        });
+        waSugs.appendChild(b);
+      });
+    }
+
+    if (waPhone) {
+      setPhoneValue(phone || (phones[0] && (phones[0].norm || phones[0].raw)) || '', false);
+      waPhone.oninput = function () { updatePhoneMeta(); };
+      waPhone.onchange = function () { updatePhoneMeta(); };
+    }
+
     if (waNote) {
-      waNote.textContent = phone
-        ? _t('sh.wa_hint', 'Öffnet WhatsApp mit dem Text — danach Ergebnis wählen.')
-        : _t('sh.wa_no_phone', 'Keine Telefonnummer — bitte in CRM hinterlegen oder Text kopieren.');
+      waNote.textContent = _t('sh.wa_hint', 'Öffnet WhatsApp mit dem Text — danach Ergebnis wählen.');
     }
     if (waSend) {
       waSend.className = 'primary wa';
       waSend.onclick = function () {
         var text = waText ? waText.value.trim() : '';
-        var url = buildWhatsAppLink(phone, text) || t.whatsapp_url || '';
-        if (url) {
-          // Text ggf. neu einsetzen (falls nur Base-URL vorhanden)
-          if (phone) url = buildWhatsAppLink(phone, text);
-          window.open(url, '_blank', 'noopener');
-        } else if (text) {
-          // Kein Phone: Text in Zwischenablage, Nutzer kann manuell senden
-          try {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-              navigator.clipboard.writeText(text);
-              toast(_t('sh.wa_copied', 'Text kopiert — keine Telefonnummer'));
-            }
-          } catch (e) { /* ignore */ }
-        } else {
+        if (!updatePhoneMeta()) {
+          toast(_t('sh.wa_phone_required', 'Bitte gültige Telefonnummer (0049…) eintragen'));
+          if (waPhone) waPhone.focus();
+          return;
+        }
+        var n = normalizeWaPhone(waPhone.value);
+        var url = buildWhatsAppLink(n.norm, text);
+        if (!url) {
+          toast(_t('sh.wa_phone_required', 'Bitte gültige Telefonnummer (0049…) eintragen'));
+          return;
+        }
+        if (!text) {
           toast(_t('sh.wa_empty', 'Bitte Nachricht eingeben'));
           return;
         }
+        window.open(url, '_blank', 'noopener');
         showPhase('res');
       };
     }
