@@ -1877,17 +1877,32 @@ window.Matching = (function() {
     function _loadMailIntoKiWizard(mailId) {
         // Best-effort: Shaduler/EDMS Endpunkte — scheitert still, User kann Text einfügen
         const paths = [
+            '/shaduler/api/inbox/' + encodeURIComponent(mailId) + '/view/',
             '/shaduler/api/inbox/' + encodeURIComponent(mailId) + '/',
             '/edms/api/mail/' + encodeURIComponent(mailId) + '/',
         ];
+        const pickBody = (d) => {
+            const plain = d.body_plain || d.body || d.text || d.content || d.email_text || '';
+            const html = d.body_html || d.html || '';
+            if (plain && !/<\s*(html|body|div|p|br|table)\b/i.test(plain)) return String(plain).trim();
+            if (html) {
+                try {
+                    const el = document.createElement('div');
+                    el.innerHTML = html;
+                    return String(el.innerText || el.textContent || '').trim();
+                } catch (_) { /* ignore */ }
+            }
+            return String(plain || '').trim();
+        };
         const tryNext = (i) => {
             if (i >= paths.length) return;
             fetch(paths[i], { credentials: 'same-origin' })
                 .then(r => r.ok ? r.json() : Promise.reject())
                 .then(d => {
-                    const body = d.body || d.text || d.content || d.email_text || '';
-                    const sub = d.subject || '';
-                    const from = d.from || d.outer_from || d.sender || '';
+                    if (d && d.ok === false) return tryNext(i + 1);
+                    const body = pickBody(d || {});
+                    const sub = d.subject || d.subj || '';
+                    const from = d.from || d.from_ || d.outer_from || d.sender || '';
                     if (!body) return tryNext(i + 1);
                     const emailEl = document.getElementById('matching-ki-email');
                     const subEl = document.getElementById('matching-ki-subject');
