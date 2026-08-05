@@ -45,5 +45,17 @@ Danach Index + Index neu (optional Catch-up):
 
 ## Periodik
 
-Scheduler-Job `email_index`: alle 10 Min, `--since-days 3`, INBOX — prune't im Fenster.
-Für historische Geister braucht es weiterhin gelegentlich `--prune-orphans`.
+Scheduler-Job `email_index`: **jede Minute**, INBOX, `--since-days 2 --incremental`
+(nur neue Message-IDs voll laden). Registrieren:
+
+```bash
+cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py register_scheduler_jobs
+```
+
+Webhook-Test:
+
+```bash
+# siehe UMSETZUNG_SCHEDULER.md — POST /shaduler/api/webhook/email-index/
+```
+
+Für historische Geister weiterhin gelegentlich `--prune-orphans`.

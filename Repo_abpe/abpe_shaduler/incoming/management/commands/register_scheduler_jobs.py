@@ -5,6 +5,7 @@ Intervalle (Architektur Kap. 4 / Kap. 0):
   radar_poll      alle 5 Min
   inbox_poll      alle 2 Min
   prozess_tick    alle 15 Min
+  email_index     alle 1 Min  (IMAP→ES, inkrementell)
   delegation_notify — on-demand (hier optional als seltener Tick)
 
 schedule_type: ONCE | RECURRING  (RRULE-String → Feld rrule_string)
@@ -48,8 +49,14 @@ JOBS = [
         'owner_type': 'system',
         'owner_ref': 'namazu',
         'webhook': 'email-index',
-        'rrule': 'FREQ=MINUTELY;INTERVAL=10',
-        'payload': {'job': 'email_index', 'since_days': 3},
+        # Jede Minute — Indexer läuft inkrementell (nur neue Message-IDs).
+        'rrule': 'FREQ=MINUTELY;INTERVAL=1',
+        'payload': {
+            'job': 'email_index',
+            'since_days': 2,
+            'folders': 'INBOX',
+            'incremental': True,
+        },
     },
 ]
 

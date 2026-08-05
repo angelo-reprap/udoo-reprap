@@ -48,16 +48,28 @@ def shaduler_prozess_tick(payload=None):
 
 
 def shaduler_email_index(payload=None):
-    """Namazu IMAP→ES Indexer (abpe_emails). Default: INBOX, letzte N Tage."""
+    """Namazu IMAP→ES Indexer (abpe_emails). Default: INBOX, inkrementell, 1‑Min-Takt."""
     payload = payload or {}
-    since = int(payload.get('since_days') or 3)
+    since = int(payload.get('since_days') or 2)
     account = payload.get('account')
-    logger.info('shaduler_email_index: since_days=%s account=%s', since, account)
+    folders = str(payload.get('folders') or 'INBOX')
+    incremental = payload.get('incremental', True)
+    if isinstance(incremental, str):
+        incremental = incremental.strip().lower() not in ('0', 'false', 'no', 'off')
+    logger.info(
+        'shaduler_email_index: since_days=%s account=%s folders=%s incremental=%s',
+        since, account, folders, incremental,
+    )
     try:
         from django.core.management import call_command
         from io import StringIO
         out = StringIO()
-        kwargs = {'since_days': since, 'stdout': out}
+        kwargs = {
+            'since_days': since,
+            'folders': folders,
+            'incremental': bool(incremental),
+            'stdout': out,
+        }
         if account:
             kwargs['account'] = account
         call_command('index_emails', **kwargs)
@@ -66,6 +78,8 @@ def shaduler_email_index(payload=None):
             'ok': True,
             'job': 'email_index',
             'since_days': since,
+            'folders': folders,
+            'incremental': bool(incremental),
             'log_tail': text[-800:],
         }
     except Exception as exc:

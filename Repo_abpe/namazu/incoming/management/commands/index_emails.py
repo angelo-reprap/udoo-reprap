@@ -280,6 +280,27 @@ def collect_live_doc_ids_headers(
     return live
 
 
+def existing_es_ids(es, es_index: str, doc_ids: list[str]) -> set[str]:
+    """Welche doc_ids existieren bereits in ES (mget, chunks)."""
+    found: set[str] = set()
+    if not doc_ids:
+        return found
+    for i in range(0, len(doc_ids), 500):
+        chunk = doc_ids[i:i + 500]
+        try:
+            # ES 7 body=… / ES 8 ids=…
+            try:
+                resp = es.mget(index=es_index, ids=chunk, _source=False)
+            except TypeError:
+                resp = es.mget(index=es_index, body={'ids': chunk}, _source=False)
+            for doc in resp.get('docs') or []:
+                if doc.get('found') and doc.get('_id'):
+                    found.add(doc['_id'])
+        except Exception as exc:
+            logger.warning('mget %s: %s', es_index, exc)
+    return found
+
+
 def fetch_folder(
     account,
     password,
@@ -289,10 +310,12 @@ def fetch_folder(
     *,
     since_days: Optional[int] = None,
     prune: bool = True,
+    incremental: bool = False,
 ):
     indexed = 0
     errors = 0
     skipped_bad_date = 0
+    skipped_existing = 0
     pruned = 0
     es_index = cfg['indexing']['es_index']
     batch_size = cfg['indexing']['batch_size']
@@ -327,7 +350,37 @@ def fetch_folder(
         docs = []
         first_errors: list[str] = []
 
-        for seq in seqs:
+        # Inkrementell: Message-IDs zuerst, schon indizierte überspringen (1‑Min-Takt)
+        need_full: list = list(seqs)
+        if incremental and seqs:
+            seq_to_doc: dict = {}
+            for seq in seqs:
+                try:
+                    r, data = m.fetch(seq, '(BODY.PEEK[HEADER.FIELDS (MESSAGE-ID)])')
+                    if r != 'OK' or not data or not data[0]:
+                        continue
+                    raw_h = data[0][1] if isinstance(data[0], tuple) else None
+                    if not isinstance(raw_h, (bytes, bytearray)):
+                        continue
+                    msg_h = email.message_from_bytes(raw_h)
+                    msg_id = (msg_h.get('Message-ID') or '').strip()
+                    if not msg_id:
+                        msg_id = hashlib.md5(raw_h[:200]).hexdigest()
+                    doc_id = make_doc_id(account, folder, msg_id)
+                    seq_to_doc[seq] = doc_id
+                    live_doc_ids.add(doc_id)
+                except Exception as e:
+                    errors += 1
+                    if len(first_errors) < 5:
+                        first_errors.append(f'hdr:{e}'[:160])
+            already = existing_es_ids(es, es_index, list(seq_to_doc.values()))
+            need_full = [s for s, did in seq_to_doc.items() if did not in already]
+            skipped_existing = len(seq_to_doc) - len(need_full)
+            for seq in seqs:
+                if seq not in seq_to_doc:
+                    need_full.append(seq)
+
+        for seq in need_full:
             try:
                 r, data = m.fetch(seq, '(RFC822 INTERNALDATE)')
                 if r != 'OK' or not data or not data[0]:
@@ -391,9 +444,15 @@ def fetch_folder(
         m.logout()
         for err in first_errors:
             logger.warning('%s/%s sample error: %s', account, folder, err)
+        if skipped_existing:
+            logger.info(
+                '%s/%s incremental: skipped_existing=%s new=%s',
+                account, folder, skipped_existing, indexed,
+            )
 
         if prune:
             # since_days=0 / None → voller Ordner-Abgleich (live_doc_ids = komplette Suche)
+            # Inkrementell: live_doc_ids enthält alle Message-IDs aus dem Fenster.
             pruned = prune_missing_from_es(
                 es, es_index, account, folder, live_doc_ids,
                 since_days=since_days if (since_days and since_days > 0) else None,
@@ -444,6 +503,14 @@ class Command(BaseCommand):
             action='store_true',
             help='Nur --prune-orphans ausführen, nicht neu indexieren',
         )
+        parser.add_argument(
+            '--incremental',
+            action='store_true',
+            help=(
+                'Nur neue Message-IDs voll laden (Header-Scan + ES-mget). '
+                'Für 1‑Min-Scheduler; bestehende Docs werden übersprungen.'
+            ),
+        )
 
     def handle(self, *args, **options):
         from apps.abpe_search.services.search_service import get_es_client
@@ -456,6 +523,7 @@ class Command(BaseCommand):
         since_days = options['since_days']
         do_prune = not options['no_prune']
         prune_orphans = bool(options['prune_orphans'] or options['prune_only'])
+        incremental = bool(options['incremental'])
 
         ES_MAPPING = {
             'mappings': {
@@ -520,7 +588,7 @@ class Command(BaseCommand):
             f'IMAP {host}:{port} → ES {es_index} | '
             f'since_days={since_days} folders='
             f'{"ALL" if options["all_folders"] else sorted(want_folders or [])} | '
-            f'prune={do_prune} prune_orphans={prune_orphans}'
+            f'prune={do_prune} prune_orphans={prune_orphans} incremental={incremental}'
         )
 
         for account, data in accounts.items():
@@ -563,6 +631,7 @@ class Command(BaseCommand):
                     account, password, fname, es, cfg,
                     since_days=since_days or None,
                     prune=do_prune and not prune_orphans,
+                    incremental=incremental,
                     # orphan-Lauf hat schon voll geprunt → kein Doppel-Prune im Fenster
                 )
                 total_errors += errors

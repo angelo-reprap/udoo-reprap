@@ -29,7 +29,7 @@ Jobs (RRULE):
 | `radar_poll` | 5 Min | `/shaduler/api/webhook/radar-poll/` |
 | `inbox_poll` | 2 Min | `/shaduler/api/webhook/inbox-poll/` |
 | `prozess_tick` | 15 Min | `/shaduler/api/webhook/prozess-tick/` |
-| `email_index` | 10 Min | `/shaduler/api/webhook/email-index/` |
+| `email_index` | **1 Min** | `/shaduler/api/webhook/email-index/` |
 
 ## Webhook-Auth prüfen (401 vs. OK)
 
