@@ -1131,16 +1131,21 @@ window.Matching = (function() {
             if (fields.rate_max != null) _setVal('new-rate-max', String(fields.rate_max));
             else _setVal('new-rate-max', '');
 
-            // Firma: KI-Wert behalten; CRM-ID nur bei eindeutigem Treffer
-            const accounts = crm.account_matches || [];
-            if (fields.customer_name) {
-                _setVal('new-customer', fields.customer_name);
+            // Firma: aus KI, sonst aus Titel ableiten; CRM-ID auflösen
+            let customerName = (fields.customer_name || '').trim();
+            if (!customerName) {
+                customerName = _deriveCustomerFromTitle(fields.title || _val('new-title') || '');
+                if (customerName) fields.customer_name = customerName;
             }
+            if (customerName) {
+                _setVal('new-customer', customerName);
+            }
+            const accounts = crm.account_matches || [];
             if (accounts.length === 1) {
-                _setVal('new-customer', accounts[0].name || fields.customer_name || '');
-                _setVal('new-crm-account-id', accounts[0].crm_id || '');
-            } else if (fields.customer_name) {
-                searchAccounts(fields.customer_name);
+                _setVal('new-customer', accounts[0].name || customerName || '');
+                _setVal('new-crm-account-id', accounts[0].crm_id || accounts[0].id || '');
+            } else if (customerName) {
+                _linkCustomerOnApply(customerName);
             }
 
             // Kontakt: KI-Werte sind maßgeblich.
@@ -1183,6 +1188,51 @@ window.Matching = (function() {
         const m = String(d.getMonth() + 1).padStart(2, '0');
         const day = String(d.getDate()).padStart(2, '0');
         return d.getFullYear() + '-' + m + '-' + day;
+    }
+
+    function _deriveCustomerFromTitle(title) {
+        const t = String(title || '').trim();
+        if (!t) return '';
+        const seps = [' - ', ' – ', ' — ', ' | ', ': '];
+        for (let i = 0; i < seps.length; i++) {
+            const sep = seps[i];
+            if (t.indexOf(sep) >= 0) {
+                const left = t.split(sep)[0].trim();
+                if (_looksLikeCompany(left)) return left;
+            }
+        }
+        const m = t.match(/\b([A-ZÄÖÜ][\wÄÖÜäöüß.& -]{1,50}?\b(?:AG|GmbH|SE|KG))\b/);
+        return m ? m[1].trim() : '';
+    }
+
+    function _looksLikeCompany(name) {
+        const s = String(name || '').trim();
+        if (s.length < 2 || s.length > 90) return false;
+        if (/\b(engineer|berater|consultant|developer|manager|specialist)\b/i.test(s)) return false;
+        if (/\b(AG|GmbH|SE|KG|Ltd|Inc|UG)\b/i.test(s)) return true;
+        return /^[A-ZÄÖÜ0-9][\wÄÖÜäöüß.&' -]{1,70}$/.test(s);
+    }
+
+    function _linkCustomerOnApply(name) {
+        const n = String(name || '').trim();
+        if (!n) return;
+        _setVal('new-customer', n);
+        // Sofort Dropdown anzeigen + ID setzen wenn exakter Treffer
+        searchAccounts(n);
+        if (typeof _searchAccountsAny === 'function') {
+            _searchAccountsAny(n).then(hits => {
+                const exact = (hits || []).find(h =>
+                    String(h.name || '').trim().toLowerCase() === n.toLowerCase()
+                );
+                const pick = exact || ((hits || []).length === 1 ? hits[0] : null);
+                if (pick) {
+                    _setVal('new-customer', pick.name || n);
+                    _setVal('new-crm-account-id', pick.crm_id || pick.id || '');
+                    const res = document.getElementById('new-customer-results');
+                    if (res) res.style.display = 'none';
+                }
+            }).catch(() => {});
+        }
     }
 
     function _hideCrmSuggest() {

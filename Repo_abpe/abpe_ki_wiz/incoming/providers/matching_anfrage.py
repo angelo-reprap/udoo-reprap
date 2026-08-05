@@ -125,6 +125,63 @@ class MatchingAnfrageWizardProvider(WizardDomainProvider):
         }
 
 
+def _looks_like_company(name: str) -> bool:
+    import re
+    s = (name or '').strip()
+    if len(s) < 2 or len(s) > 90:
+        return False
+    if re.search(
+        r'\b(engineer|berater|consultant|developer|manager|specialist|architekt)\b',
+        s,
+        re.I,
+    ):
+        return False
+    if re.search(r'\b(AG|GmbH|SE|KG|Ltd|Inc|UG|Co\.?\s*KG|e\.?\s*V\.?)\b', s, re.I):
+        return True
+    # Kurzer Eigenname ohne Job-Wörter
+    return bool(re.match(r'^[A-ZÄÖÜ0-9][\wÄÖÜäöüß.&\' -]{1,70}$', s))
+
+
+def derive_customer_name(extract: dict[str, Any] | None) -> str:
+    """Fallback wenn kunde.name leer: Titel-Prefix, E-Mail-Domain-Hinweis."""
+    data = extract if isinstance(extract, dict) else {}
+    kunde = data.get('kunde') if isinstance(data.get('kunde'), dict) else {}
+    name = (kunde.get('name') or '').strip()
+    if name:
+        return name
+
+    title = (data.get('titel') or '').strip()
+    for sep in (' - ', ' – ', ' — ', ' | ', ': '):
+        if sep in title:
+            left = title.split(sep, 1)[0].strip()
+            if _looks_like_company(left):
+                return left
+
+    ap = data.get('ansprechpartner') if isinstance(data.get('ansprechpartner'), dict) else {}
+    email = (ap.get('email') or '').strip()
+    domain = (kunde.get('email_domain') or '').strip()
+    if not domain and '@' in email:
+        domain = email.split('@', 1)[1].strip().lower()
+    # hays.de → Hays (nur als schwacher Fallback, AG oft im Titel)
+    if domain and '.' in domain:
+        base = domain.split('.')[0]
+        if base and base.isalpha() and len(base) >= 3:
+            guess = base[:1].upper() + base[1:]
+            # nur wenn Titel die Firma enthält
+            if title and guess.lower() in title.lower():
+                # bevorzuge längeren Titel-Treffer mit Rechtsform
+                import re
+                m = re.search(
+                    rf'({re.escape(guess)}[^-\u2013\u2014|]{{0,40}}?\b(?:AG|GmbH|SE|KG)\b)',
+                    title,
+                    re.I,
+                )
+                if m:
+                    return m.group(1).strip()
+                return guess
+    return ''
+
+
 def map_extract_to_form_fields(extract: dict[str, Any] | None) -> dict[str, Any]:
     """Extrakt-JSON → Matching create/form Payload."""
     from datetime import date
@@ -182,8 +239,15 @@ def map_extract_to_form_fields(extract: dict[str, Any] | None) -> dict[str, Any]
     except (TypeError, ValueError):
         rate_int = None
 
+    customer_name = derive_customer_name(data)
+    email_domain = (kunde.get('email_domain') or '').strip()
+    if not email_domain:
+        ap_email = (ap.get('email') or '').strip()
+        if '@' in ap_email:
+            email_domain = ap_email.split('@', 1)[1].strip().lower()
+
     return {
-        'customer_name': kunde.get('name') or '',
+        'customer_name': customer_name,
         'contact_name': ap.get('name') or '',
         'contact_email': ap.get('email') or '',
         'contact_phone': ap.get('phone') or ap.get('telefon') or '',
@@ -197,7 +261,7 @@ def map_extract_to_form_fields(extract: dict[str, Any] | None) -> dict[str, Any]
         'skills': skills,
         'hinweise': hinweise,
         'weiterleitung': wl,
-        'kunde_email_domain': kunde.get('email_domain') or '',
+        'kunde_email_domain': email_domain,
     }
 
 
