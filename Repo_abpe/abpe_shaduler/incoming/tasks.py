@@ -20,14 +20,22 @@ EMAIL_INDEX_RETRY_BASE = 60  # 60 → 120 → 180
 
 
 def shaduler_radar_poll(payload=None):
-    """Aktive RadarSources — Freelancermap HTML-Poll."""
+    """Aktive RadarSources — Freelancermap + Gulp HTML/REST-Poll."""
     logger.info('shaduler_radar_poll: payload=%s', payload)
     payload = payload or {}
     try:
         from .services import radar_fetcher
         pages = int(payload.get('pages') or 1)
         today_only = str(payload.get('today', '1')).lower() not in ('0', 'false', 'no')
-        return radar_fetcher.poll_once(pages=max(1, min(5, pages)), today_only=today_only)
+        try:
+            days = max(1, min(14, int(payload.get('days') or 2)))
+        except (TypeError, ValueError):
+            days = 2
+        return radar_fetcher.poll_once(
+            pages=max(1, min(5, pages)),
+            today_only=today_only,
+            recent_days=days,
+        )
     except Exception as exc:
         logger.exception('radar_poll failed')
         return {'ok': False, 'error': str(exc), 'job': 'radar_poll'}
