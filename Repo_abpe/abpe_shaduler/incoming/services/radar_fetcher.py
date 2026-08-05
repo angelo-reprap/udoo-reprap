@@ -12,7 +12,7 @@ import hashlib
 import json
 import logging
 import re
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
 from html import unescape
 from http.cookiejar import CookieJar
 from typing import Any, Optional
