@@ -76,6 +76,8 @@ class TasksSyntaxTests(unittest.TestCase):
         self.assertNotIn('\nfunction ', text)
         self.assertIn('def shaduler_prozess_tick', text)
         self.assertIn('def shaduler_email_index', text)
+        self.assertIn('email_index_run', text)
+        self.assertIn('queued', text)
 
 
 if __name__ == '__main__':
