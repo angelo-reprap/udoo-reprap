@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "fixture": "fixture-hays-fwd.txt",
+    "subject": "WG: Hays AG - IT Network & Security Engineer – Fortinet (m/w/d)",
+    "outer_from": "Bär, Karsten <baer.karsten@baer-consulting.bayern>",
+    "notes": "Klassische Weiterleitung: Kunde=Hays, nicht baer consulting; Endkunde anonym; Satz null."
+  },
+  "expected": {
+    "kunde": {
+      "name": "Hays AG",
+      "email_domain": "hays.de",
+      "confidence": 0.9
+    },
+    "ansprechpartner": {
+      "name": "Tristan Treder",
+      "email": "tristan.treder@hays.de",
+      "confidence": 0.95
+    },
+    "weiterleitung": {
+      "ja": true,
+      "von": "Karsten Bär",
+      "email": "baer.karsten@baer-consulting.bayern"
+    },
+    "titel": "IT Network & Security Engineer – Fortinet (m/w/d)",
+    "beschreibung_contains": [
+      "Fortinet",
+      "Remote",
+      "3 MM",
+      "Life-Sciences"
+    ],
+    "beschreibung_excludes": [
+      "Datenschutzerklärung",
+      "smime",
+      "baer consulting",
+      "USt-IdNr. DE185265359"
+    ],
+    "start": { "asap": true, "datum": null },
+    "dauer_monate": 3,
+    "standort": "Remote",
+    "remote": true,
+    "stundensatz_max": null,
+    "skills_must_include_any": [
+      "Fortinet",
+      "FortiGate",
+      "Firewall",
+      "VPN",
+      "Security"
+    ],
+    "hinweise_any": [
+      "Endkunde",
+      "anonym",
+      "Life-Sciences",
+      "MedTech",
+      "Weiterleitung",
+      "Stundensatz"
+    ]
+  }
+}
