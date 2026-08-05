@@ -1150,7 +1150,8 @@ window.Matching = (function() {
             } else if (contacts.length > 1) {
                 _showCrmContactPick(contacts);
             } else if (fields.contact_name) {
-                _showCrmContactCreateSuggest(fields, crm);
+                _hideCrmSuggest();
+                openNewContactPopup(fields, crm);
             } else {
                 _hideCrmSuggest();
             }
@@ -1194,55 +1195,221 @@ window.Matching = (function() {
     }
 
     function _showCrmContactCreateSuggest(fields, crm) {
-        const box = document.getElementById('matching-crm-suggest');
+        openNewContactPopup(fields, crm);
+    }
+
+    function openNewContactPopup(fields, crm) {
+        fields = fields || {};
+        crm = crm || {};
+        closeNewContactPopup();
+
+        const split = _splitName(fields.contact_name || _val('new-contact') || '');
+        const emailPrefill = fields.contact_email || _val('new-contact-email') || '';
+        const phonePrefill = fields.contact_phone || _val('new-contact-phone') || '';
+        const firmPrefill = fields.customer_name || _val('new-customer') || '';
+        const firmIdPrefill = _val('new-crm-account-id') || '';
+        const accounts = crm.account_matches || [];
+        let firmName = firmPrefill;
+        let firmId = firmIdPrefill;
+        if (!firmId && accounts.length === 1) {
+            firmName = accounts[0].name || firmName;
+            firmId = accounts[0].crm_id || '';
+        }
+
+        const modal = document.createElement('div');
+        modal.id = 'matching-new-contact-modal';
+        modal.style.cssText = [
+            'position:fixed', 'inset:0', 'z-index:10060',
+            'background:rgba(15,23,42,0.5)', 'display:flex',
+            'align-items:flex-start', 'justify-content:center', 'padding:48px 16px 16px',
+        ].join(';');
+
+        modal.innerHTML = `
+          <div role="dialog" aria-modal="true" style="
+              background:var(--bs-body-bg,#fff);color:var(--bs-body-color,#111);
+              width:min(480px,100%);border-radius:12px;overflow:hidden;
+              box-shadow:0 20px 60px rgba(0,0,0,.28)">
+            <div style="background:#163258;padding:14px 18px;display:flex;align-items:center;justify-content:space-between">
+              <div style="display:flex;align-items:center;gap:10px;color:#fff;font-weight:600;font-size:14px">
+                <i class="bi bi-person-plus"></i> ${_kiT('new_contact_title', 'Neuer Kontakt')}
+              </div>
+              <button type="button" id="mnc-close" style="background:rgba(255,255,255,.15);border:none;color:#fff;
+                width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:16px;line-height:1">&times;</button>
+            </div>
+            <div style="padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+              <p style="margin:0;font-size:12px;opacity:.8">
+                ${_kiT('new_contact_help', 'Ansprechpartner nicht in CRM — bitte anlegen (Nachname + E-Mail Pflicht).')}
+              </p>
+              <div style="display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:center">
+                <label style="font-size:12px;opacity:.75">Anrede</label>
+                <select id="mnc-salutation" class="matching-form-input" style="width:100%">
+                  <option value="Hr.">Hr.</option>
+                  <option value="Fr.">Fr.</option>
+                  <option value="">—</option>
+                </select>
+              </div>
+              <div style="display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:center">
+                <label style="font-size:12px;opacity:.75">Vorname</label>
+                <input id="mnc-firstname" class="matching-form-input" style="width:100%"
+                       placeholder="optional" value="${_escAttr(split.first)}">
+              </div>
+              <div style="display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:center">
+                <label style="font-size:12px;opacity:.75">Nachname <span style="color:#dc3545">*</span></label>
+                <input id="mnc-lastname" class="matching-form-input" style="width:100%;border-color:#163258"
+                       placeholder="Pflicht" value="${_escAttr(split.last)}">
+              </div>
+              <div style="display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:start">
+                <label style="font-size:12px;opacity:.75;padding-top:8px">Firma</label>
+                <div style="position:relative">
+                  <input id="mnc-firma" class="matching-form-input" style="width:100%"
+                         placeholder="suchen oder neue Firma…"
+                         value="${_escAttr(firmName)}" autocomplete="off">
+                  <input type="hidden" id="mnc-firma-id" value="${_escAttr(firmId)}">
+                  <div id="mnc-firma-results" style="display:none;position:absolute;left:0;right:0;top:100%;z-index:2;
+                       background:#fff;border:1px solid #dde3ec;border-radius:6px;max-height:160px;overflow:auto;
+                       box-shadow:0 8px 20px rgba(0,0,0,.12)"></div>
+                  <div style="font-size:11px;opacity:.7;margin-top:4px">
+                    ${_kiT('firma_help', 'Suche (CRM/Elastic) — Treffer wählen oder „Neue Firma“.')}
+                  </div>
+                </div>
+              </div>
+              <div style="display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:center">
+                <label style="font-size:12px;opacity:.75">E-Mail <span style="color:#dc3545">*</span></label>
+                <input id="mnc-email" type="email" class="matching-form-input" style="width:100%;border-color:#163258"
+                       placeholder="name@firma.de" value="${_escAttr(emailPrefill)}">
+              </div>
+              <div style="display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:center">
+                <label style="font-size:12px;opacity:.75">Telefon</label>
+                <input id="mnc-phone" type="tel" class="matching-form-input" style="width:100%"
+                       placeholder="optional" value="${_escAttr(phonePrefill)}">
+              </div>
+              <div id="mnc-msg" style="font-size:12px;min-height:18px;text-align:center"></div>
+            </div>
+            <div style="padding:12px 18px;border-top:1px solid rgba(0,0,0,.08);display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap">
+              <button type="button" class="matching-btn-sm" id="mnc-cancel">Abbrechen</button>
+              <button type="button" class="matching-btn-primary" id="mnc-save">
+                <i class="bi bi-person-check"></i> Anlegen
+              </button>
+            </div>
+          </div>`;
+
+        document.body.appendChild(modal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeNewContactPopup();
+        });
+        modal.querySelector('#mnc-close').addEventListener('click', closeNewContactPopup);
+        modal.querySelector('#mnc-cancel').addEventListener('click', closeNewContactPopup);
+        modal.querySelector('#mnc-save').addEventListener('click', function() {
+            createCrmContactFromSuggest();
+        });
+
+        const firmaInp = modal.querySelector('#mnc-firma');
+        let firmTimer = null;
+        firmaInp.addEventListener('input', function() {
+            modal.querySelector('#mnc-firma-id').value = '';
+            clearTimeout(firmTimer);
+            const q = firmaInp.value.trim();
+            firmTimer = setTimeout(function() { _searchFirmaForPopup(q); }, 280);
+        });
+        firmaInp.addEventListener('focus', function() {
+            const q = firmaInp.value.trim();
+            if (q.length >= 2) _searchFirmaForPopup(q);
+        });
+
+        setTimeout(function() {
+            (document.getElementById('mnc-lastname') || document.getElementById('mnc-email'))?.focus();
+        }, 80);
+    }
+
+    function closeNewContactPopup() {
+        document.getElementById('matching-new-contact-modal')?.remove();
+    }
+
+    function _searchFirmaForPopup(q) {
+        const box = document.getElementById('mnc-firma-results');
         if (!box) return;
-        const name = fields.contact_name || '';
-        const email = fields.contact_email || '';
-        const phone = fields.contact_phone || '';
-        const needs = !(email || phone);
-        box.style.display = 'block';
-        box.innerHTML = `
-            <strong><i class="bi bi-person-plus"></i>
-              ${_kiT('crm_missing', 'Ansprechpartner nicht in CRM gefunden')}
-            </strong>
-            <p style="margin:6px 0 10px;opacity:.9">
-              ${_kiT('crm_missing_help',
-                'DeepSeek schlägt vor, den Kontakt anzulegen (mind. Name + E-Mail oder Telefon).')}
-              ${needs ? ' <span style="color:#b45309">' + _kiT('crm_need_reach', 'Bitte E-Mail oder Telefon ergänzen.') + '</span>' : ''}
-            </p>
-            <div class="matching-form-grid" style="margin-bottom:8px">
-              <div class="matching-form-group">
-                <label class="matching-form-label">Name</label>
-                <input class="matching-form-input" id="crm-suggest-name" value="${_escAttr(name)}">
-              </div>
-              <div class="matching-form-group">
-                <label class="matching-form-label">Firma (Account-ID)</label>
-                <input class="matching-form-input" id="crm-suggest-account"
-                       value="${_escAttr(_val('new-crm-account-id') || '')}"
-                       placeholder="wird aus Kunde übernommen">
-              </div>
-              <div class="matching-form-group">
-                <label class="matching-form-label">E-Mail</label>
-                <input class="matching-form-input" id="crm-suggest-email" value="${_escAttr(email)}">
-              </div>
-              <div class="matching-form-group">
-                <label class="matching-form-label">Telefon</label>
-                <input class="matching-form-input" id="crm-suggest-phone" value="${_escAttr(phone)}">
-              </div>
-            </div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap">
-              <button type="button" class="matching-btn-primary" onclick="Matching.createCrmContactFromSuggest()">
-                <i class="bi bi-person-check"></i> ${_kiT('crm_create', 'In CRM anlegen')}
-              </button>
-              <button type="button" class="matching-btn-sm" onclick="Matching.hideCrmSuggest()">
-                ${_kiT('crm_skip', 'Später')}
-              </button>
-            </div>
-            <div id="crm-suggest-msg" style="margin-top:8px;font-size:12px"></div>
-        `;
-        // Account-ID nachziehen falls erst später gesetzt
-        const acc = document.getElementById('crm-suggest-account');
-        if (acc && !acc.value) acc.value = _val('new-crm-account-id') || '';
+        if (!q || q.length < 2) { box.style.display = 'none'; box.innerHTML = ''; return; }
+
+        const urls = [
+            API + 'crm/accounts/?q=' + encodeURIComponent(q),
+            '/crm/api/kunden/?q=' + encodeURIComponent(q) + '&limit=10',
+        ];
+
+        const render = (hits) => {
+            const rows = (hits || []).map(h => {
+                const id = h.crm_id || h.id || '';
+                const name = h.name || '';
+                const city = h.city || h.billing_address_city || '';
+                return `<div class="mnc-firm-hit" data-id="${_escAttr(id)}" data-name="${_escAttr(name)}"
+                            style="padding:7px 10px;font-size:12px;cursor:pointer"
+                            onmouseover="this.style.background='#f0f4fa'"
+                            onmouseout="this.style.background=''">
+                          <strong>${_esc(name)}</strong>${city ? ' · ' + _esc(city) : ''}
+                        </div>`;
+            }).join('');
+            box.innerHTML = rows
+                + `<div class="mnc-firm-new" style="padding:8px 10px;font-size:12px;cursor:pointer;
+                      border-top:1px solid #eee;color:#163258;font-weight:500"
+                      onmouseover="this.style.background='#f0f4fa'"
+                      onmouseout="this.style.background=''">
+                     <i class="bi bi-plus-circle"></i> Neue Firma „${_esc(q)}“ anlegen
+                   </div>`;
+            box.style.display = 'block';
+            box.querySelectorAll('.mnc-firm-hit').forEach(el => {
+                el.addEventListener('click', function() {
+                    document.getElementById('mnc-firma').value = el.dataset.name || '';
+                    document.getElementById('mnc-firma-id').value = el.dataset.id || '';
+                    box.style.display = 'none';
+                });
+            });
+            box.querySelector('.mnc-firm-new')?.addEventListener('click', function() {
+                _createFirmaForPopup(q);
+            });
+        };
+
+        fetch(urls[0], { credentials: 'same-origin' })
+            .then(r => r.ok ? r.json() : Promise.reject())
+            .then(d => {
+                const hits = d.results || d.accounts || d.items || [];
+                if (hits.length) { render(hits); return null; }
+                return fetch(urls[1], { credentials: 'same-origin' })
+                    .then(r => r.ok ? r.json() : {})
+                    .then(d2 => render(d2.results || d2.accounts || d2.items || []));
+            })
+            .catch(() => {
+                fetch(urls[1], { credentials: 'same-origin' })
+                    .then(r => r.ok ? r.json() : {})
+                    .then(d => render(d.results || d.accounts || d.items || []))
+                    .catch(() => render([]));
+            });
+    }
+
+    function _createFirmaForPopup(name) {
+        const n = (name || '').trim();
+        const msg = document.getElementById('mnc-msg');
+        if (!n) return;
+        if (msg) { msg.style.color = '#2563eb'; msg.textContent = 'Lege Firma an…'; }
+        fetch('/crm/api/kunden/new/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+            body: JSON.stringify({ name: n }),
+        })
+        .then(r => r.json())
+        .then(d => {
+            if (!d.ok && !(d.crm_id || d.id)) throw new Error(d.error || 'Firma anlegen fehlgeschlagen');
+            const id = d.crm_id || d.id;
+            document.getElementById('mnc-firma').value = n;
+            document.getElementById('mnc-firma-id').value = id;
+            const res = document.getElementById('mnc-firma-results');
+            if (res) res.style.display = 'none';
+            _setVal('new-customer', n);
+            _setVal('new-crm-account-id', id);
+            if (msg) { msg.style.color = '#059669'; msg.textContent = '✓ Firma angelegt'; }
+        })
+        .catch(e => {
+            if (msg) { msg.style.color = '#ef4444'; msg.textContent = e.message || String(e); }
+        });
     }
 
     function pickCrmContactIndex(i) {
@@ -1256,6 +1423,7 @@ window.Matching = (function() {
         if (c.email) _setVal('new-contact-email', c.email);
         if (c.phone) _setVal('new-contact-phone', c.phone);
         _hideCrmSuggest();
+        closeNewContactPopup();
     }
 
     function hideCrmSuggest() { _hideCrmSuggest(); }
@@ -1268,44 +1436,50 @@ window.Matching = (function() {
     }
 
     function createCrmContactFromSuggest() {
-        const name = (document.getElementById('crm-suggest-name') || {}).value || '';
-        const email = (document.getElementById('crm-suggest-email') || {}).value || '';
-        const phone = (document.getElementById('crm-suggest-phone') || {}).value || '';
-        let accountId = (document.getElementById('crm-suggest-account') || {}).value
+        const salutation = (document.getElementById('mnc-salutation') || {}).value || 'Hr.';
+        const first = ((document.getElementById('mnc-firstname') || {}).value || '').trim();
+        const last = ((document.getElementById('mnc-lastname') || {}).value || '').trim();
+        const email = ((document.getElementById('mnc-email') || {}).value || '').trim();
+        const phone = ((document.getElementById('mnc-phone') || {}).value || '').trim();
+        let firmName = ((document.getElementById('mnc-firma') || {}).value || '').trim();
+        let accountId = ((document.getElementById('mnc-firma-id') || {}).value || '').trim()
             || _val('new-crm-account-id') || '';
-        const msg = document.getElementById('crm-suggest-msg');
-        const { first, last } = _splitName(name);
+        const msg = document.getElementById('mnc-msg');
+
         if (!last) {
-            if (msg) { msg.style.color = '#ef4444'; msg.textContent = 'Name/Nachname fehlt'; }
+            if (msg) { msg.style.color = '#ef4444'; msg.textContent = 'Nachname ist Pflichtfeld.'; }
+            document.getElementById('mnc-lastname')?.focus();
             return;
         }
-        if (!email && !phone) {
-            if (msg) {
-                msg.style.color = '#ef4444';
-                msg.textContent = 'E-Mail oder Telefon ist Pflicht zum Anlegen.';
-            }
+        if (!email) {
+            if (msg) { msg.style.color = '#ef4444'; msg.textContent = 'E-Mail ist Pflichtfeld.'; }
+            document.getElementById('mnc-email')?.focus();
             return;
         }
         if (msg) { msg.style.color = '#2563eb'; msg.textContent = 'Lege Kontakt an…'; }
 
-        const ensureAccount = accountId
-            ? Promise.resolve(accountId)
-            : _ensureCrmAccount(_val('new-customer') || '').then(id => {
+        const ensureAccount = () => {
+            if (accountId) return Promise.resolve(accountId);
+            if (!firmName) return Promise.resolve('');
+            return _ensureCrmAccount(firmName, true).then(id => {
                 if (id) {
-                    _setVal('new-crm-account-id', id);
-                    const el = document.getElementById('crm-suggest-account');
+                    accountId = id;
+                    const el = document.getElementById('mnc-firma-id');
                     if (el) el.value = id;
+                    _setVal('new-customer', firmName);
+                    _setVal('new-crm-account-id', id);
                 }
-                return id;
+                return id || '';
             });
+        };
 
-        ensureAccount.then(accId => {
+        ensureAccount().then(accId => {
             return fetch('/crm/api/berater/new/', {
                 method: 'POST',
                 credentials: 'same-origin',
                 headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
                 body: JSON.stringify({
-                    salutation: 'Hr.',
+                    salutation: salutation,
                     first_name: first,
                     last_name: last,
                 }),
@@ -1345,25 +1519,27 @@ window.Matching = (function() {
                 return Promise.all(steps).then(() => crmId);
             });
         }).then(crmId => {
-            _setVal('new-contact', name);
+            const full = [first, last].filter(Boolean).join(' ');
+            _setVal('new-contact', full);
             _setVal('new-contact-email', email);
             _setVal('new-contact-phone', phone);
             _setVal('new-crm-contact-id', crmId);
+            if (firmName) _setVal('new-customer', firmName);
+            if (accountId) _setVal('new-crm-account-id', accountId);
             if (msg) {
                 msg.style.color = '#059669';
                 msg.innerHTML = '✓ Angelegt. <a href="/crm/berater/?detail=' + encodeURIComponent(crmId)
                     + '" target="_blank" rel="noopener">Im CRM öffnen</a>';
             }
-            setTimeout(_hideCrmSuggest, 2500);
+            setTimeout(closeNewContactPopup, 900);
         }).catch(e => {
             if (msg) { msg.style.color = '#ef4444'; msg.textContent = e.message || String(e); }
         });
     }
 
-    function _ensureCrmAccount(name) {
+    function _ensureCrmAccount(name, createIfMissing) {
         const n = (name || '').trim();
         if (!n) return Promise.resolve('');
-        // Wenn schon ID gesetzt
         const existing = _val('new-crm-account-id');
         if (existing) return Promise.resolve(existing);
         return fetch(API + 'crm/accounts/?q=' + encodeURIComponent(n), { credentials: 'same-origin' })
@@ -1373,7 +1549,7 @@ window.Matching = (function() {
                 const exact = hits.find(h => (h.name || '').toLowerCase() === n.toLowerCase());
                 if (exact) return exact.id || exact.crm_id || '';
                 if (hits.length === 1) return hits[0].id || hits[0].crm_id || '';
-                // Optional neu anlegen
+                if (!createIfMissing) return '';
                 return fetch('/crm/api/kunden/new/', {
                     method: 'POST',
                     credentials: 'same-origin',
