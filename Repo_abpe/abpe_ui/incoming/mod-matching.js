@@ -1957,7 +1957,7 @@ window.Matching = (function() {
                     `<div style="padding:5px 8px;font-size:12px;cursor:pointer;border-radius:4px"
                           onmouseover="this.style.background='#f0f4fa'"
                           onmouseout="this.style.background=''"
-                          onclick="document.getElementById('new-customer').value='${r.name}';document.getElementById('new-crm-account-id').value='${r.id}';document.getElementById('new-customer-results').style.display='none'">
+                          onclick="document.getElementById('new-customer').value='${(r.name||'').replace(/'/g,"\\'")}';document.getElementById('new-crm-account-id').value='${r.crm_id||r.id||''}';document.getElementById('new-customer-results').style.display='none'">
                         <strong>${r.name}</strong> ${r.city ? '· '+r.city : ''}
                     </div>`
                 ).join('');
