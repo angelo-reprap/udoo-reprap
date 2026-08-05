@@ -132,3 +132,12 @@ class MatchingAnfrageCrmMatchTests(TestCase):
             'Tristan Treder',
             'tristan.treder@hays.de',
         ))
+
+    def test_customer_from_title_fallback(self):
+        from apps.abpe_ki_wiz.providers.matching_anfrage import derive_customer_name
+        name = derive_customer_name({
+            'kunde': {'name': None},
+            'titel': 'Hays AG - IT Network & Security Engineer – Fortinet (m/w/d)',
+            'ansprechpartner': {'email': 'tristan.treder@hays.de'},
+        })
+        self.assertEqual(name, 'Hays AG')
