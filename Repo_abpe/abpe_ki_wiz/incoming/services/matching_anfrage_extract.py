@@ -77,7 +77,8 @@ def _confident_contact(m: dict[str, Any], name: str, email: str) -> bool:
 def resolve_crm_suggestions(fields: dict[str, Any]) -> dict[str, Any]:
     """
     Prüft SuiteCRM auf Firma/Ansprechpartner.
-    Nur sichere Treffer (E-Mail exakt oder Vor+Nachname) — keine Fuzzy-Falschzuordnung.
+    Nur sichere Kontakt-Treffer; bei mehreren Firmen (z.B. Hays AG Berlin/Mannheim)
+    alle Vorschläge mit Stadt zurückgeben — UI lässt wählen.
     """
     out: dict[str, Any] = {
         'account_matches': [],
@@ -86,6 +87,8 @@ def resolve_crm_suggestions(fields: dict[str, Any]) -> dict[str, Any]:
         'suggest_create_contact': False,
         'contact_needs_email_or_phone': False,
         'contact_match_confidence': 'none',
+        'preferred_account_crm_id': '',
+        'account_needs_choice': False,
     }
     try:
         from apps.abpe_ki_wiz.services.context_fetcher import (
@@ -100,15 +103,6 @@ def resolve_crm_suggestions(fields: dict[str, Any]) -> dict[str, Any]:
     contact = (fields.get('contact_name') or '').strip()
     email = (fields.get('contact_email') or '').strip()
     phone = (fields.get('contact_phone') or '').strip()
-
-    if customer:
-        try:
-            accounts = search_crm_accounts(customer, limit=8) or []
-            cust_f = _fold(customer)
-            exact_acc = [a for a in accounts if _fold(a.get('name') or '') == cust_f]
-            out['account_matches'] = exact_acc or accounts
-        except Exception as exc:
-            log.warning('Account-Suche fehlgeschlagen: %s', exc)
 
     raw: list[dict[str, Any]] = []
     if email:
@@ -133,7 +127,33 @@ def resolve_crm_suggestions(fields: dict[str, Any]) -> dict[str, Any]:
             key=lambda m: 0 if (m.get('email') or '').lower() == email_l else 1,
         )
 
+    # Verknüpfte Firma am Kontakt anreichern (falls schon in CRM)
+    preferred_account = ''
+    try:
+        from apps.abpe_crm.models import CrmAccountContacts
+        for m in confident:
+            cid = m.get('crm_id') or ''
+            if not cid:
+                continue
+            link = (
+                CrmAccountContacts.objects
+                .filter(contact_id=cid)
+                .select_related('account')
+                .first()
+            )
+            if link and link.account_id:
+                m['account_crm_id'] = link.account_id
+                m['company_name'] = (link.account.name if link.account else '') or ''
+                m['company_city'] = (
+                    (link.account.billing_address_city if link.account else '') or ''
+                )
+                if not preferred_account:
+                    preferred_account = link.account_id
+    except Exception as exc:
+        log.warning('Kontakt→Firma Anreicherung fehlgeschlagen: %s', exc)
+
     out['contact_matches'] = confident
+    out['preferred_account_crm_id'] = preferred_account
     if confident:
         out['contact_match_confidence'] = (
             'email' if email and any(
@@ -144,6 +164,24 @@ def resolve_crm_suggestions(fields: dict[str, Any]) -> dict[str, Any]:
     else:
         out['contact_missing'] = bool(contact)
         out['contact_match_confidence'] = 'none'
+
+    if customer:
+        try:
+            accounts = search_crm_accounts(customer, limit=12) or []
+            cust_f = _fold(customer)
+            exact_acc = [a for a in accounts if _fold(a.get('name') or '') == cust_f]
+            # Wenn Name exakt mehrfach (Hays AG Berlin/Mannheim): alle exakten behalten
+            matches = exact_acc if exact_acc else accounts
+            # Preferred (vom Kontakt) nach vorne
+            if preferred_account:
+                matches = sorted(
+                    matches,
+                    key=lambda a: 0 if (a.get('crm_id') or a.get('id')) == preferred_account else 1,
+                )
+            out['account_matches'] = matches
+            out['account_needs_choice'] = len(matches) > 1
+        except Exception as exc:
+            log.warning('Account-Suche fehlgeschlagen: %s', exc)
 
     has_reach = bool(email or phone)
     out['contact_needs_email_or_phone'] = bool(contact) and not has_reach

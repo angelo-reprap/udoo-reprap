@@ -227,9 +227,10 @@ window.Matching = (function() {
                     <label class="matching-form-label">${_t('matching.neu_customer')}</label>
                     <input class="matching-form-input" id="new-customer"
                            placeholder="${_t('matching.customer_placeholder')}"
-                           oninput="Matching.searchAccounts(this.value)">
+                           oninput="Matching.searchAccounts(this.value);Matching.clearCustomerLink()">
                     <div id="new-customer-results" style="display:none"></div>
                     <input type="hidden" id="new-crm-account-id">
+                    <div id="new-customer-linked" style="display:none;font-size:11px;margin-top:4px;color:#059669"></div>
                 </div>
                 <div class="matching-form-group">
                     <label class="matching-form-label">${_t('matching.neu_contact')}</label>
@@ -875,6 +876,7 @@ window.Matching = (function() {
     const KI_API = '/ki-wizard/api/';
     let _kiLastExtract = null;
     let _kiCrmPickList = [];
+    let _kiCrmAccountPickList = [];
 
     function _skillHint() {
         const v = _t('matching.skill_hint');
@@ -1131,7 +1133,7 @@ window.Matching = (function() {
             if (fields.rate_max != null) _setVal('new-rate-max', String(fields.rate_max));
             else _setVal('new-rate-max', '');
 
-            // Firma: aus KI, sonst aus Titel ableiten; CRM-ID auflösen
+            // Firma: aus KI, sonst aus Titel; bei mehreren Hays AG → Auswahl
             let customerName = (fields.customer_name || '').trim();
             if (!customerName) {
                 customerName = _deriveCustomerFromTitle(fields.title || _val('new-title') || '');
@@ -1141,9 +1143,21 @@ window.Matching = (function() {
                 _setVal('new-customer', customerName);
             }
             const accounts = crm.account_matches || [];
+            const prefId = crm.preferred_account_crm_id || '';
             if (accounts.length === 1) {
-                _setVal('new-customer', accounts[0].name || customerName || '');
-                _setVal('new-crm-account-id', accounts[0].crm_id || accounts[0].id || '');
+                _pickCrmAccount(accounts[0]);
+            } else if (accounts.length > 1) {
+                // Kontakt schon an eine Firma gehängt? → vorwählen, trotzdem Liste zeigen
+                const pref = prefId
+                    ? accounts.find(a => (a.crm_id || a.id) === prefId)
+                    : null;
+                if (pref) _pickCrmAccount(pref);
+                _showCrmAccountPick(accounts, {
+                    preferredId: prefId,
+                    note: pref
+                        ? 'Mehrere „' + customerName + '“ in ABpE CRM — aktuell verknüpft mit Kontakt vorgeschlagen:'
+                        : 'Mehrere „' + customerName + '“ in ABpE CRM — bitte Standort wählen:',
+                });
             } else if (customerName) {
                 _linkCustomerOnApply(customerName);
             }
@@ -1217,22 +1231,91 @@ window.Matching = (function() {
         const n = String(name || '').trim();
         if (!n) return;
         _setVal('new-customer', n);
-        // Sofort Dropdown anzeigen + ID setzen wenn exakter Treffer
         searchAccounts(n);
         if (typeof _searchAccountsAny === 'function') {
             _searchAccountsAny(n).then(hits => {
-                const exact = (hits || []).find(h =>
+                const exact = (hits || []).filter(h =>
                     String(h.name || '').trim().toLowerCase() === n.toLowerCase()
                 );
-                const pick = exact || ((hits || []).length === 1 ? hits[0] : null);
-                if (pick) {
-                    _setVal('new-customer', pick.name || n);
-                    _setVal('new-crm-account-id', pick.crm_id || pick.id || '');
-                    const res = document.getElementById('new-customer-results');
-                    if (res) res.style.display = 'none';
+                const pool = exact.length ? exact : (hits || []);
+                if (pool.length === 1) {
+                    _pickCrmAccount(pool[0]);
+                    return;
+                }
+                if (pool.length > 1) {
+                    _showCrmAccountPick(pool, {
+                        note: 'Mehrere Treffer für „' + n + '“ in ABpE CRM — bitte wählen:',
+                    });
                 }
             }).catch(() => {});
         }
+    }
+
+    function _pickCrmAccount(a) {
+        if (!a) return;
+        const id = a.crm_id || a.id || '';
+        const name = a.name || _val('new-customer') || '';
+        const city = a.city || a.billing_address_city || '';
+        _setVal('new-customer', name);
+        _setVal('new-crm-account-id', id);
+        const res = document.getElementById('new-customer-results');
+        if (res) res.style.display = 'none';
+        _setCustomerLinkedHint(name, city, id);
+    }
+
+    function _setCustomerLinkedHint(name, city, id) {
+        const el = document.getElementById('new-customer-linked');
+        if (!el) return;
+        if (!id) {
+            el.style.display = 'none';
+            el.textContent = '';
+            return;
+        }
+        el.style.display = '';
+        el.style.color = '#059669';
+        el.innerHTML = '✓ verknüpft: <strong>' + _esc(name || '') + '</strong>'
+            + (city ? ' · ' + _esc(city) : '')
+            + ' <span style="opacity:.6">(' + _esc(String(id).slice(0, 8)) + '…)</span>';
+    }
+
+    function clearCustomerLink() {
+        _setVal('new-crm-account-id', '');
+        _setCustomerLinkedHint('', '', '');
+    }
+
+    function _showCrmAccountPick(accounts, opts) {
+        opts = opts || {};
+        const box = document.getElementById('matching-crm-suggest');
+        if (!box) return;
+        _kiCrmAccountPickList = accounts || [];
+        const pref = opts.preferredId || '';
+        box.style.display = 'block';
+        box.style.borderColor = '#2563eb';
+        box.style.background = 'rgba(37,99,235,.06)';
+        box.innerHTML = '<strong><i class="bi bi-building"></i> '
+            + _esc(opts.note || 'Firma in ABpE CRM wählen:')
+            + '</strong>'
+            + '<div style="margin-top:8px;display:grid;gap:4px">'
+            + _kiCrmAccountPickList.map((a, i) => {
+                const id = a.crm_id || a.id || '';
+                const city = a.city || a.billing_address_city || '';
+                const isPref = pref && id === pref;
+                return `<button type="button" class="matching-btn-sm" style="text-align:left;${isPref ? 'border-color:#2563eb;font-weight:600' : ''}"
+                    onclick="Matching.pickCrmAccountIndex(${i})">
+                    <strong>${_esc(a.name || '')}</strong>
+                    ${city ? ' · ' + _esc(city) : ''}
+                    ${isPref ? ' · <span style="color:#2563eb">vom Kontakt</span>' : ''}
+                 </button>`;
+            }).join('')
+            + '</div>'
+            + '<div style="margin-top:8px">'
+            + '<button type="button" class="matching-btn-sm" onclick="Matching.hideCrmSuggest()">'
+            + 'Später wählen</button></div>';
+    }
+
+    function pickCrmAccountIndex(i) {
+        _pickCrmAccount(_kiCrmAccountPickList[i]);
+        _hideCrmSuggest();
     }
 
     function _hideCrmSuggest() {
@@ -1957,11 +2040,15 @@ window.Matching = (function() {
                     `<div style="padding:5px 8px;font-size:12px;cursor:pointer;border-radius:4px"
                           onmouseover="this.style.background='#f0f4fa'"
                           onmouseout="this.style.background=''"
-                          onclick="document.getElementById('new-customer').value='${(r.name||'').replace(/'/g,"\\'")}';document.getElementById('new-crm-account-id').value='${r.crm_id||r.id||''}';document.getElementById('new-customer-results').style.display='none'">
+                          onclick="Matching.pickAccountFromSearch('${(r.crm_id||r.id||'').replace(/'/g,"\\'")}','${(r.name||'').replace(/'/g,"\\'")}','${(r.city||'').replace(/'/g,"\\'")}')">
                         <strong>${r.name}</strong> ${r.city ? '· '+r.city : ''}
                     </div>`
                 ).join('');
             });
+    }
+
+    function pickAccountFromSearch(id, name, city) {
+        _pickCrmAccount({ crm_id: id, id: id, name: name, city: city });
     }
 
     function searchContacts(val) {
@@ -2182,6 +2269,7 @@ window.Matching = (function() {
         openKiWizard, closeKiWizard, runKiExtract, applyKiExtract,
         pickCrmContact, pickCrmContactIndex, hideCrmSuggest, createCrmContactFromSuggest,
         openNewContactPopup, closeNewContactPopup,
+        pickCrmAccountIndex, clearCustomerLink, pickAccountFromSearch,
     };
 
 })();
