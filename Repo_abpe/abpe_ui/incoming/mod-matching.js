@@ -1120,6 +1120,11 @@ window.Matching = (function() {
         const crm = d.crm || {};
         _activateTab('neu');
         const fill = () => {
+            // Textfelder = KI-Extrakt aus Anfrage-Text (nicht aus CRM-DB).
+            // CRM-IDs erst nach Match setzen — gelöschte Firmen bleiben weg.
+            _setVal('new-crm-account-id', '');
+            _setVal('new-crm-contact-id', '');
+            clearCustomerLink();
             _setVal('new-customer', fields.customer_name || '');
             _setVal('new-contact', fields.contact_name || '');
             _setVal('new-contact-email', fields.contact_email || '');
@@ -1160,6 +1165,8 @@ window.Matching = (function() {
                 });
             } else if (customerName) {
                 _linkCustomerOnApply(customerName);
+            } else {
+                clearCustomerLink();
             }
 
             // Kontakt: KI-Werte sind maßgeblich.
@@ -1249,8 +1256,15 @@ window.Matching = (function() {
                     _showCrmAccountPick(pool, {
                         note: 'Mehrere Treffer für „' + n + '“ in ABpE CRM — bitte wählen:',
                     });
+                    return;
                 }
-            }).catch(() => {});
+                // Kein CRM-Treffer (gelöscht / neu) — Text bleibt, Hinweis anzeigen
+                _setCustomerExtractHint(n);
+            }).catch(() => {
+                _setCustomerExtractHint(n);
+            });
+        } else {
+            _setCustomerExtractHint(n);
         }
     }
 
@@ -1276,9 +1290,18 @@ window.Matching = (function() {
         }
         el.style.display = '';
         el.style.color = '#059669';
-        el.innerHTML = '✓ verknüpft: <strong>' + _esc(name || '') + '</strong>'
+        el.innerHTML = '✓ CRM verknüpft: <strong>' + _esc(name || '') + '</strong>'
             + (city ? ' · ' + _esc(city) : '')
             + ' <span style="opacity:.6">(' + _esc(String(id).slice(0, 8)) + '…)</span>';
+    }
+
+    function _setCustomerExtractHint(name) {
+        const el = document.getElementById('new-customer-linked');
+        if (!el) return;
+        el.style.display = '';
+        el.style.color = '#b45309';
+        el.innerHTML = 'ℹ aus Anfrage-Text: <strong>' + _esc(name || '') + '</strong>'
+            + ' — noch nicht in CRM (gelöscht oder neu)';
     }
 
     function clearCustomerLink() {
