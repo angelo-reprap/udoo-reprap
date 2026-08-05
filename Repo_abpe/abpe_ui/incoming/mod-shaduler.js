@@ -862,16 +862,18 @@
     closeMailTaskChooser();
     m = m || {};
     var arts = [
-      { id: 'anruf', label: _t('sh.art_anruf', 'Anruf') },
-      { id: 'wiedervorlage', label: _t('sh.art_wiedervorlage', 'Wiedervorlage') },
-      { id: 'email', label: _t('sh.art_email', 'E-Mail') },
-      { id: 'termin', label: _t('sh.art_termin', 'Termin') },
-      { id: 'dokument', label: _t('sh.art_dokument', 'Dokument') },
-      { id: 'intern', label: _t('sh.art_intern', 'Intern') },
+      { id: 'anruf', label: _t('sh.art_anruf', 'Anruf'), icon: 'bi-telephone' },
+      { id: 'sms_messenger', label: _t('sh.art_sms_messenger_short', 'WhatsApp'), icon: 'bi-whatsapp' },
+      { id: 'wiedervorlage', label: _t('sh.art_wiedervorlage', 'Wiedervorlage'), icon: 'bi-arrow-repeat' },
+      { id: 'email', label: _t('sh.art_email', 'E-Mail'), icon: 'bi-envelope' },
+      { id: 'post', label: _t('sh.art_post', 'Post'), icon: 'bi-mailbox' },
+      { id: 'termin', label: _t('sh.art_termin', 'Termin'), icon: 'bi-calendar-event' },
+      { id: 'dokument', label: _t('sh.art_dokument', 'Dokument'), icon: 'bi-file-earmark-text' },
+      { id: 'intern', label: _t('sh.art_intern', 'Intern'), icon: 'bi-briefcase' },
     ];
     var artBtns = arts.map(function (a, i) {
       return '<button type="button" class="sh-pick' + (i === 0 ? ' on' : '') + '" data-art="' + a.id + '">' +
-        esc(a.label) + '</button>';
+        (a.icon ? '<i class="bi ' + a.icon + '"></i> ' : '') + esc(a.label) + '</button>';
     }).join('');
     var dueDef = defaultDueDateTime();
     var ovl = document.createElement('div');
