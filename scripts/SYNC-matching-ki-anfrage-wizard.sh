@@ -23,6 +23,7 @@ git archive "$BRANCH" \
   Repo_abpe/abpe_ki_wiz/incoming \
   Repo_abpe/abpe_ui/incoming/mod-matching.js \
   Repo_abpe/abpe_ui/incoming/mod-shaduler.js \
+  Repo_abpe/abpe_ui/incoming/mod-shaduler.css \
   | tar -x -C "$TMP"
 
 # Guard: Prompt-Default muss im Archive sein
@@ -61,7 +62,14 @@ echo "OK — mod-matching.js → $LIVE_UI/static/abpe_ui/js/mod/"
 if [[ -f "$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler.js" ]]; then
   cp -a "$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler.js" \
     "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js"
-  echo "OK — mod-shaduler.js (Matching-Button Posteingang) → $LIVE_UI/static/abpe_ui/js/mod/"
+  echo "OK — mod-shaduler.js (Matching + Antworten) → $LIVE_UI/static/abpe_ui/js/mod/"
+fi
+
+if [[ -f "$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler.css" ]]; then
+  mkdir -p "$LIVE_UI/static/abpe_ui/css/mod"
+  cp -a "$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler.css" \
+    "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css"
+  echo "OK — mod-shaduler.css → $LIVE_UI/static/abpe_ui/css/mod/"
 fi
 
 if [[ -d "$STATICFILES" ]]; then
@@ -72,7 +80,12 @@ if [[ -d "$STATICFILES" ]]; then
     cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js" \
       "$STATICFILES/abpe_ui/js/mod/mod-shaduler.js"
   fi
-  echo "OK — auch nach $STATICFILES/abpe_ui/js/mod/ kopiert"
+  if [[ -f "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css" ]]; then
+    mkdir -p "$STATICFILES/abpe_ui/css/mod"
+    cp -a "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css" \
+      "$STATICFILES/abpe_ui/css/mod/mod-shaduler.css"
+  fi
+  echo "OK — auch nach $STATICFILES/abpe_ui/… kopiert"
 fi
 
 # ── Prompt in DB ─────────────────────────────────────────────────────────────
@@ -94,6 +107,8 @@ if not p:
 echo
 echo "Restart: supervisorctl restart abpe-django"
 echo "UI Matching: Button „KI-Anfragen-Wizard“ links neben „+ Neue Anfrage“"
-echo "UI Posteingang: Button „Matching“ öffnet KI-Wizard mit kompletter E-Mail"
+echo "UI Posteingang: Matching → KI-Wizard; Antworten → Bestätigung + Aufgabe (Wiedervorlage)"
 echo "API: POST /ki-wizard/api/matching-anfrage/extract/"
-echo "Browser: Ctrl+F5 (mod-matching.js + mod-shaduler.js)"
+echo "Browser: Ctrl+F5 (mod-matching.js + mod-shaduler.js/css)"
+
+echo "Optional Email-Studio-Vorlage: manage.py shell < scripts/ensure-inbox-anfrage-bestaetigung-template.py"

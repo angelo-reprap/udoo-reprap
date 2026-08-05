@@ -785,8 +785,8 @@
       '<button type="button" class="sh-mail-matching" data-id="' + esc(m.id || '') + '">' +
       '<i class="bi bi-diagram-3"></i> ' + esc(_t('sh.inbox_matching', 'Matching')) + '</button>';
     acts +=
-      '<a class="sh-mail-studio" href="' + esc(m.email_studio_url || '/email-studio/studio/') + '">' +
-      '<i class="bi bi-envelope-at"></i> ' + esc(_t('sh.inbox_reply', 'Antworten (Email Studio)')) + '</a>';
+      '<button type="button" class="sh-mail-reply" data-id="' + esc(m.id || '') + '">' +
+      '<i class="bi bi-envelope-at"></i> ' + esc(_t('sh.inbox_reply', 'Antworten (Email Studio)')) + '</button>';
     if (m.mailto_url) {
       acts +=
         '<a class="sh-mail-outlook" href="' + esc(m.mailto_url) + '">' +
@@ -903,11 +903,340 @@
         openMatchingKiWizardFromMail(m);
       });
     }
+    var replyBtn = root.querySelector('.sh-mail-reply');
+    if (replyBtn) {
+      replyBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openMailReplyComposer(m);
+      });
+    }
   }
 
   function closeMailTaskChooser() {
     var ovl = document.getElementById('sh-mail-task-ovl');
     if (ovl) ovl.remove();
+  }
+
+  function closeMailReplyComposer() {
+    var ovl = document.getElementById('sh-mail-reply-ovl');
+    if (ovl) ovl.remove();
+  }
+
+  function parseDisplayNameFromFrom(from) {
+    var s = String(from || '').trim();
+    if (!s) return '';
+    var m = s.match(/^"?([^"<]+)"?\s*</);
+    var n = m ? m[1].trim() : '';
+    if (!n) return '';
+    if (n.indexOf(',') >= 0) {
+      var parts = n.split(',').map(function (x) { return x.trim(); }).filter(Boolean);
+      if (parts.length >= 2) return parts[1] + ' ' + parts[0];
+    }
+    return n;
+  }
+
+  function guessContactFirstLast(fullName) {
+    var n = String(fullName || '').trim();
+    if (!n) return { first: '', last: '', display: '' };
+    var parts = n.split(/\s+/).filter(Boolean);
+    if (parts.length === 1) return { first: '', last: parts[0], display: parts[0] };
+    return {
+      first: parts[0],
+      last: parts.slice(1).join(' '),
+      display: n,
+    };
+  }
+
+  function buildAnfrageAckBody(anrede, name) {
+    var n = String(name || '').trim();
+    var greet;
+    if (anrede === 'frau') {
+      greet = n ? ('Sehr geehrte Frau ' + n + ',') : 'Sehr geehrte Damen und Herren,';
+    } else if (anrede === 'damen') {
+      greet = 'Sehr geehrte Damen und Herren,';
+    } else if (anrede === 'neutral') {
+      greet = n ? ('Sehr geehrte/r ' + n + ',') : 'Sehr geehrte Damen und Herren,';
+    } else {
+      greet = n ? ('Sehr geehrter Herr ' + n + ',') : 'Sehr geehrte Damen und Herren,';
+    }
+    return (
+      greet + '\n\n' +
+      'vielen Dank für Ihre Anfrage.\n\n' +
+      'Wir werden Ihnen diesbezüglich schnellstmöglich Beratervorschläge unterbreiten.\n\n' +
+      'Mit freundlichen Grüßen'
+    );
+  }
+
+  function bodyTextToHtml(text) {
+    return String(text || '')
+      .replace(/\r\n/g, '\n')
+      .replace(/\r/g, '\n')
+      .split('\n')
+      .map(function (line) { return esc(line); })
+      .join('<br>\n');
+  }
+
+  function formatReplyStamp(d) {
+    d = d || new Date();
+    var dd = String(d.getDate()).padStart(2, '0');
+    var mm = String(d.getMonth() + 1).padStart(2, '0');
+    var yyyy = d.getFullYear();
+    var hh = String(d.getHours()).padStart(2, '0');
+    var mi = String(d.getMinutes()).padStart(2, '0');
+    return dd + '.' + mm + '.' + yyyy + ', ' + hh + ':' + mi;
+  }
+
+  function tomorrowDueDateTime() {
+    var d = new Date();
+    d.setDate(d.getDate() + 1);
+    d.setHours(9, 0, 0, 0);
+    return {
+      date: d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'),
+      time: '09:00',
+    };
+  }
+
+  function currentUserEmailHint() {
+    var cfg = window.ABPE_CONFIG || {};
+    return String(
+      (cfg.user && (cfg.user.email || cfg.user.username)) ||
+      cfg.user_email || cfg.email || cfg.username || ''
+    ).trim().toLowerCase();
+  }
+
+  function openMailReplyComposer(m) {
+    closeMailReplyComposer();
+    m = m || {};
+    var toEmail = m.reply_email || extractEmailFromFrom(m.from) || '';
+    var crmName = String(m.crm_name || '').trim();
+    var fromName = parseDisplayNameFromFrom(m.from);
+    var contactName = crmName || fromName;
+    var nameParts = guessContactFirstLast(contactName);
+    // Nachname für „Herr/Frau X“ bevorzugen, sonst voller Name
+    var nameForAnrede = nameParts.last || nameParts.display || contactName;
+    var subjRaw = String(m.subj || '').trim();
+    var subject = subjRaw
+      ? (/^re\s*:/i.test(subjRaw) ? subjRaw : ('Re: ' + subjRaw))
+      : _t('sh.inbox_reply_subj', 'Ihre Anfrage — Eingangsbestätigung');
+
+    var ovl = document.createElement('div');
+    ovl.className = 'ovl open';
+    ovl.id = 'sh-mail-reply-ovl';
+    ovl.innerHTML =
+      '<div class="sh-modal sh-mail-reply-modal">' +
+      '<div class="mh">' +
+      '<div class="ico"><i class="bi bi-envelope-at"></i></div>' +
+      '<div><b>' + esc(_t('sh.inbox_reply', 'Antworten (Email Studio)')) + '</b>' +
+      '<small class="sh-mt-subj">' + esc(_t('sh.inbox_reply_tpl', 'Vorlage: Anfrage-Bestätigung')) + '</small></div>' +
+      '<button type="button" class="x" id="sh-mr-close"><i class="bi bi-x-lg"></i></button>' +
+      '</div>' +
+      '<div class="mb">' +
+      '<div class="sh-mr-grid">' +
+      '<div class="inp sh-mr-span"><label for="sh-mr-to">' + esc(_t('sh.inbox_reply_to', 'An')) + '</label>' +
+      '<input type="email" id="sh-mr-to" value="' + esc(toEmail) + '"></div>' +
+      '<div class="inp"><label for="sh-mr-anrede">' + esc(_t('sh.inbox_reply_anrede', 'Anrede')) + '</label>' +
+      '<select id="sh-mr-anrede">' +
+      '<option value="herr">' + esc(_t('sh.anrede_herr', 'Herr')) + '</option>' +
+      '<option value="frau">' + esc(_t('sh.anrede_frau', 'Frau')) + '</option>' +
+      '<option value="damen">' + esc(_t('sh.anrede_damen', 'Damen und Herren')) + '</option>' +
+      '<option value="neutral">' + esc(_t('sh.anrede_neutral', 'Sehr geehrte/r')) + '</option>' +
+      '</select></div>' +
+      '<div class="inp"><label for="sh-mr-name">' + esc(_t('sh.inbox_reply_name', 'Name')) + '</label>' +
+      '<input type="text" id="sh-mr-name" value="' + esc(nameForAnrede) + '"></div>' +
+      '</div>' +
+      '<div class="inp"><label for="sh-mr-subj">' + esc(_t('sh.inbox_reply_subject', 'Betreff')) + '</label>' +
+      '<input type="text" id="sh-mr-subj" value="' + esc(subject) + '"></div>' +
+      '<div class="sh-mr-grid">' +
+      '<div class="inp"><label for="sh-mr-sender">' + esc(_t('sh.inbox_reply_sender', 'Absender')) + '</label>' +
+      '<select id="sh-mr-sender"><option value="">…</option></select></div>' +
+      '<div class="inp"><label for="sh-mr-sig">' + esc(_t('sh.inbox_reply_sig', 'Signatur')) + '</label>' +
+      '<select id="sh-mr-sig"><option value="">' + esc(_t('sh.inbox_reply_sig_none', '— keine —')) + '</option></select></div>' +
+      '</div>' +
+      '<div class="inp"><label for="sh-mr-body">' + esc(_t('sh.inbox_reply_body', 'Nachricht')) + '</label>' +
+      '<textarea id="sh-mr-body" rows="10"></textarea></div>' +
+      '<div id="sh-mr-msg" class="sh-mr-msg" style="display:none"></div>' +
+      '<div class="sh-mr-actions">' +
+      '<button type="button" class="sh-mr-cancel" id="sh-mr-cancel">' +
+      esc(_t('sh.inbox_reply_cancel', 'Abbrechen')) + '</button>' +
+      '<button type="button" class="primary" id="sh-mr-send">' +
+      '<i class="bi bi-send"></i> ' + esc(_t('sh.inbox_reply_send', 'Senden & Aufgabe')) +
+      '</button></div>' +
+      '<div class="note">' + esc(_t('sh.inbox_reply_hint',
+        'Nach dem Versand öffnet sich „Aufgabe erzeugen“ (Standard: Wiedervorlage).')) +
+      '</div></div></div>';
+    document.body.appendChild(ovl);
+
+    var bodyEl = document.getElementById('sh-mr-body');
+    var anredeEl = document.getElementById('sh-mr-anrede');
+    var nameEl = document.getElementById('sh-mr-name');
+    var bodyTouched = false;
+
+    function refreshBodyFromTpl() {
+      if (!bodyEl || bodyTouched) return;
+      bodyEl.value = buildAnfrageAckBody(
+        anredeEl ? anredeEl.value : 'herr',
+        nameEl ? nameEl.value : ''
+      );
+    }
+    refreshBodyFromTpl();
+    if (anredeEl) anredeEl.addEventListener('change', refreshBodyFromTpl);
+    if (nameEl) nameEl.addEventListener('input', refreshBodyFromTpl);
+    if (bodyEl) {
+      bodyEl.addEventListener('input', function () { bodyTouched = true; });
+    }
+
+    function showMsg(ok, text) {
+      var el = document.getElementById('sh-mr-msg');
+      if (!el) return;
+      el.style.display = 'block';
+      el.className = 'sh-mr-msg ' + (ok ? 'ok' : 'err');
+      el.textContent = text;
+    }
+
+    var closeBtn = document.getElementById('sh-mr-close');
+    var cancelBtn = document.getElementById('sh-mr-cancel');
+    if (closeBtn) closeBtn.onclick = closeMailReplyComposer;
+    if (cancelBtn) cancelBtn.onclick = closeMailReplyComposer;
+    ovl.addEventListener('click', function (ev) {
+      if (ev.target === ovl) closeMailReplyComposer();
+    });
+
+    // Absender + Signaturen laden
+    var senderSel = document.getElementById('sh-mr-sender');
+    var sigSel = document.getElementById('sh-mr-sig');
+    var userHint = currentUserEmailHint();
+    var boxHint = String(m.account || m.box || '').trim().toLowerCase();
+
+    Promise.all([
+      fetch('/email-studio/api/senders/', { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+        .then(function (r) { return r.ok ? r.json() : { senders: [] }; })
+        .catch(function () { return { senders: [] }; }),
+      fetch('/email-studio/api/signatures/', { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+        .then(function (r) { return r.ok ? r.json() : { signatures: [] }; })
+        .catch(function () { return { signatures: [] }; }),
+    ]).then(function (pack) {
+      var senders = (pack[0] && pack[0].senders) || [];
+      var sigs = (pack[1] && pack[1].signatures) || [];
+      senders = senders.filter(function (s) { return s.is_active !== false; });
+
+      if (senderSel) {
+        senderSel.innerHTML = senders.map(function (s) {
+          var label = (s.display_name || s.email || '') +
+            (s.email ? ' <' + s.email + '>' : '');
+          return '<option value="' + esc(String(s.id)) + '">' + esc(label) + '</option>';
+        }).join('') || '<option value="">' + esc(_t('sh.inbox_reply_no_sender', 'Kein Absender')) + '</option>';
+
+        var pick = '';
+        senders.forEach(function (s) {
+          var em = String(s.email || '').toLowerCase();
+          if (userHint && em === userHint) pick = String(s.id);
+        });
+        if (!pick && boxHint) {
+          senders.forEach(function (s) {
+            var em = String(s.email || '').toLowerCase();
+            if (em === boxHint || em.indexOf(boxHint) === 0 || boxHint.indexOf(em.split('@')[0]) >= 0) {
+              pick = String(s.id);
+            }
+          });
+        }
+        if (!pick) {
+          senders.forEach(function (s) {
+            if (s.is_default) pick = String(s.id);
+          });
+        }
+        if (pick) senderSel.value = pick;
+      }
+
+      if (sigSel) {
+        sigSel.innerHTML = '<option value="">' + esc(_t('sh.inbox_reply_sig_none', '— keine —')) + '</option>' +
+          sigs.map(function (s) {
+            return '<option value="' + esc(String(s.id)) + '"' +
+              (s.is_default ? ' selected' : '') + '>' + esc(s.name || s.identifier || '') + '</option>';
+          }).join('');
+        // Signatur passend zum Absender bevorzugen
+        function syncSigToSender() {
+          if (!sigSel || !senderSel) return;
+          var sid = senderSel.value;
+          var match = sigs.filter(function (s) {
+            return String(s.sender_account_id || '') === String(sid);
+          })[0];
+          if (match) sigSel.value = String(match.id);
+        }
+        senderSel && senderSel.addEventListener('change', syncSigToSender);
+        syncSigToSender();
+      }
+    });
+
+    var sendBtn = document.getElementById('sh-mr-send');
+    if (sendBtn) {
+      sendBtn.onclick = function () {
+        var to = (document.getElementById('sh-mr-to') || {}).value || '';
+        var subj = (document.getElementById('sh-mr-subj') || {}).value || '';
+        var bodyTxt = (document.getElementById('sh-mr-body') || {}).value || '';
+        var senderId = (document.getElementById('sh-mr-sender') || {}).value || '';
+        var sigId = (document.getElementById('sh-mr-sig') || {}).value || '';
+        var cName = (document.getElementById('sh-mr-name') || {}).value || contactName || '';
+
+        to = String(to).trim();
+        subj = String(subj).trim();
+        bodyTxt = String(bodyTxt).trim();
+        if (!to) { showMsg(false, _t('sh.inbox_reply_err_to', 'Empfänger fehlt')); return; }
+        if (!subj) { showMsg(false, _t('sh.inbox_reply_err_subj', 'Betreff fehlt')); return; }
+        if (!bodyTxt) { showMsg(false, _t('sh.inbox_reply_err_body', 'Nachricht fehlt')); return; }
+
+        sendBtn.disabled = true;
+        sendBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> …';
+        showMsg(true, _t('sh.inbox_reply_sending', 'Wird gesendet …'));
+
+        fetch('/crm/api/email/send/', {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken(),
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({
+            template_identifier: 'crm_manual_email',
+            to_email: to,
+            subject: subj,
+            body: bodyTextToHtml(bodyTxt),
+            contact_name: cName,
+            signature_id: sigId || null,
+            sender_id: senderId || null,
+            crm_id: m.crm_bean_id || '',
+            app_reference: 'shaduler_inbox_ack',
+          }),
+        })
+          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (pack) {
+            var j = pack.j || {};
+            if (pack.ok && (j.success !== false) && !j.error) {
+              closeMailReplyComposer();
+              toast(_t('sh.inbox_reply_sent', 'Bestätigung gesendet'));
+              markMailRead(m.id, document.querySelector('#sh-inbox .ritem.on'));
+              openMailTaskChooser(m, {
+                defaultArt: 'wiedervorlage',
+                notiz: _t('sh.inbox_reply_task_notiz', 'Auf E-Mail geantwortet am') +
+                  ' ' + formatReplyStamp(new Date()),
+                due: tomorrowDueDateTime(),
+                titleHint: _t('sh.inbox_reply_task_title', 'Nach Bestätigung — Wiedervorlage'),
+              });
+            } else {
+              sendBtn.disabled = false;
+              sendBtn.innerHTML = '<i class="bi bi-send"></i> ' +
+                esc(_t('sh.inbox_reply_send', 'Senden & Aufgabe'));
+              showMsg(false, j.error || _t('sh.inbox_reply_err_send', 'Senden fehlgeschlagen'));
+            }
+          })
+          .catch(function () {
+            sendBtn.disabled = false;
+            sendBtn.innerHTML = '<i class="bi bi-send"></i> ' +
+              esc(_t('sh.inbox_reply_send', 'Senden & Aufgabe'));
+            showMsg(false, _t('sh.inbox_reply_err_send', 'Senden fehlgeschlagen'));
+          });
+      };
+    }
   }
 
   function extractEmailFromFrom(from) {
@@ -956,9 +1285,11 @@
     }
   }
 
-  function openMailTaskChooser(m) {
+  function openMailTaskChooser(m, opts) {
     closeMailTaskChooser();
     m = m || {};
+    opts = opts || {};
+    var defaultArt = opts.defaultArt || 'anruf';
     var arts = [
       { id: 'anruf', label: _t('sh.art_anruf', 'Anruf'), icon: 'bi-telephone' },
       { id: 'sms_messenger', label: _t('sh.art_sms_messenger_short', 'WhatsApp'), icon: 'bi-whatsapp' },
@@ -969,11 +1300,13 @@
       { id: 'dokument', label: _t('sh.art_dokument', 'Dokument'), icon: 'bi-file-earmark-text' },
       { id: 'intern', label: _t('sh.art_intern', 'Intern'), icon: 'bi-briefcase' },
     ];
-    var artBtns = arts.map(function (a, i) {
-      return '<button type="button" class="sh-pick' + (i === 0 ? ' on' : '') + '" data-art="' + a.id + '">' +
+    var artBtns = arts.map(function (a) {
+      return '<button type="button" class="sh-pick' + (a.id === defaultArt ? ' on' : '') + '" data-art="' + a.id + '">' +
         (a.icon ? '<i class="bi ' + a.icon + '"></i> ' : '') + esc(a.label) + '</button>';
     }).join('');
-    var dueDef = defaultDueDateTime();
+    var dueDef = opts.due || defaultDueDateTime();
+    var notizPrefill = opts.notiz != null ? String(opts.notiz) : '';
+    var titleMain = opts.titleHint || _t('sh.inbox_task', 'Aufgabe erzeugen');
     var ovl = document.createElement('div');
     ovl.className = 'ovl open';
     ovl.id = 'sh-mail-task-ovl';
@@ -981,7 +1314,7 @@
       '<div class="sh-modal sh-mail-task-modal">' +
       '<div class="mh">' +
       '<div class="ico"><i class="bi bi-check2-square"></i></div>' +
-      '<div><b>' + esc(_t('sh.inbox_task', 'Aufgabe erzeugen')) + '</b>' +
+      '<div><b>' + esc(titleMain) + '</b>' +
       '<small class="sh-mt-subj">' + esc(m.subj || '') + '</small></div>' +
       '<button type="button" class="x" id="sh-mt-close"><i class="bi bi-x-lg"></i></button>' +
       '</div>' +
@@ -1015,14 +1348,15 @@
       '</div>' +
       '<div class="inp"><label for="sh-mt-notiz">' + esc(_t('sh.inbox_notiz', 'Notiz')) + '</label>' +
       '<textarea id="sh-mt-notiz" rows="3" placeholder="' +
-      esc(_t('sh.inbox_notiz_ph', 'Kurz notieren, was zu tun ist …')) + '"></textarea></div>' +
+      esc(_t('sh.inbox_notiz_ph', 'Kurz notieren, was zu tun ist …')) + '">' +
+      esc(notizPrefill) + '</textarea></div>' +
       '<button type="button" class="primary" id="sh-mt-save">' +
       '<i class="bi bi-check2"></i> ' + esc(_t('sh.inbox_task_create', 'Aufgabe anlegen')) +
       '</button>' +
       '</div></div>';
     document.body.appendChild(ovl);
 
-    var selectedArt = 'anruf';
+    var selectedArt = defaultArt;
     var crmInfo = {
       found: !!(m.crm_bean_id || m.crm_found),
       crm_bean_id: m.crm_bean_id || '',
