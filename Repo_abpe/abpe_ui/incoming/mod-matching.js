@@ -2004,6 +2004,7 @@ window.Matching = (function() {
         closeProject, sendContract, sendPlacementStart, savePlacementDetails,
         openKiWizard, closeKiWizard, runKiExtract, applyKiExtract,
         pickCrmContact, pickCrmContactIndex, hideCrmSuggest, createCrmContactFromSuggest,
+        openNewContactPopup, closeNewContactPopup,
     };
 
 })();
