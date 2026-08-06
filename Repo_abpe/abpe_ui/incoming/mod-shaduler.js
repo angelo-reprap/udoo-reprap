@@ -161,11 +161,14 @@
         esc(_t('sh.radar_b_refresh', 'Gulp aktualisieren')) + '">' +
         '<i class="bi bi-arrow-clockwise"></i></button>' +
         '</span></div>' +
-        '<div class="paste" style="display:flex;gap:8px;padding:8px 12px;border-bottom:1px solid var(--border-color,#eee)">' +
-        '<input id="sh-radar-paste" class="matching-form-input" style="flex:1" ' +
+        '<div class="paste" style="display:flex;gap:8px;padding:8px 12px;border-bottom:1px solid var(--border-color,#eee);flex-wrap:wrap">' +
+        '<input id="sh-radar-paste" class="matching-form-input" style="flex:1;min-width:160px" ' +
         'placeholder="' + esc(_t('sh.radar_b_paste_ph', 'Gulp-ID oder Talentfinder-URL …')) + '">' +
         '<button type="button" class="matching-btn-sm" id="sh-radar-paste-btn">' +
-        '<i class="bi bi-plus-lg"></i> ' + esc(_t('sh.radar_b_paste', 'Übernehmen')) + '</button></div>' +
+        '<i class="bi bi-plus-lg"></i> ' + esc(_t('sh.radar_b_paste', 'Übernehmen')) + '</button>' +
+        '<button type="button" class="matching-btn-sm" id="sh-radar-b-seed" title="' +
+        esc(_t('sh.radar_b_seed_title', 'CRM-Kontakte mit gulp_id in Radar laden')) + '">' +
+        '<i class="bi bi-database-down"></i> ' + esc(_t('sh.radar_b_seed', 'CRM-Seed')) + '</button></div>' +
         '<div class="sh-inbox-toolbar" id="sh-radar-b-toolbar"></div>' +
         '<div class="sh-inbox-split">' +
         '<div class="sh-inbox-list-wrap">' +
@@ -2735,12 +2738,47 @@
           });
       };
     }
+    var seedBtn = document.getElementById('sh-radar-b-seed');
+    if (seedBtn && !seedBtn.dataset.bound) {
+      seedBtn.dataset.bound = '1';
+      seedBtn.onclick = function () {
+        seedBtn.disabled = true;
+        seedBtn.classList.add('busy');
+        fetch(api('radar/berater/seed/'), {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({ limit: 500, reindex: true }),
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            seedBtn.disabled = false;
+            seedBtn.classList.remove('busy');
+            if (!d.ok) {
+              toast(d.error || _t('sh.toast_error', 'CRM-Seed fehlgeschlagen'));
+              return;
+            }
+            toast(_t('sh.radar_b_seed_ok', 'CRM-Seed') + ': ' +
+              (d.seeded || 0) + ' / CRM gulp_id: ' + (d.crm_with_gulp != null ? d.crm_with_gulp : '?'));
+            loadRadarB({ soft: true });
+          })
+          .catch(function () {
+            seedBtn.disabled = false;
+            seedBtn.classList.remove('busy');
+            toast(_t('sh.toast_error', 'CRM-Seed fehlgeschlagen'));
+          });
+      };
+    }
     var q = 'radar/berater/?demo=0&status=' + encodeURIComponent(RADAR_B_STATUS || 'neu') +
       '&refresh=' + (doRefresh ? '1' : '0') +
       '&days=' + encodeURIComponent(String(RADAR_B_DAYS)) +
       '&sort=' + encodeURIComponent(RADAR_B_SORT || 'date_desc') +
       '&available=' + (RADAR_B_AVAIL ? '1' : '0') +
-      '&limit=300';
+      '&seed=1&limit=300';
     if (RADAR_B_Q) q += '&q=' + encodeURIComponent(RADAR_B_Q);
     if (RADAR_B_SOURCE) q += '&source=' + encodeURIComponent(RADAR_B_SOURCE);
     if (RADAR_B_MATCH) q += '&match=' + encodeURIComponent(RADAR_B_MATCH);
@@ -2761,6 +2799,7 @@
           Object.keys(by).forEach(function (k) { if (k) parts.push(k + ': ' + by[k]); });
           var ls = data.list_source || '';
           var lsLbl = ls === 'elasticsearch' ? 'ES' : (ls === 'db' ? 'DB' : ls);
+          var seed = data.seed || (data.persist && data.persist.auto_seed) || null;
           hint.textContent = data.demo
             ? _t('sh.radar_demo', 'Demo')
             : _t('sh.radar_b_hint', 'Gulp Talentfinder') +
@@ -2768,7 +2807,15 @@
               (lsLbl ? (' · ' + lsLbl) : '') +
               (parts.length ? (' · ' + parts.join(', ')) : '') +
               (data.gulp_session === false ? ' · ohne Gulp-Login' : '') +
+              (seed && seed.seeded != null ? (' · Seed ' + seed.seeded) : '') +
               (doRefresh && data.fetched != null ? (' · ' + data.fetched + ' gelesen') : '');
+          if (seed && seed.seeded) {
+            toast(_t('sh.radar_b_seed_ok', 'CRM-Seed') + ': ' + seed.seeded);
+          } else if (seed && seed.ok === false) {
+            toast(seed.error || 'CRM-Seed fehlgeschlagen');
+          } else if (!RADAR_B_ITEMS.length && seed && seed.crm_with_gulp === 0) {
+            toast(_t('sh.radar_b_no_crm_gulp', 'Keine CRM-Kontakte mit gulp_id_c'));
+          }
         }
         refreshStats();
       })
@@ -2896,7 +2943,7 @@
     if (!total) {
       c.innerHTML = '<div class="sh-viewer-empty">' +
         esc(_t('sh.radar_b_empty', 'Keine Berater')) +
-        ' — ' + esc(_t('sh.radar_b_empty_hint', 'Gulp-ID einfügen oder CRM-Seed')) + '</div>';
+        ' — ' + esc(_t('sh.radar_b_empty_hint', '„CRM-Seed“ oder Gulp-ID einfügen')) + '</div>';
     }
     var lbl = { known: '✔ CRM', maybe: '? unsicher', new: 'neu' };
     slice.forEach(function (r) {

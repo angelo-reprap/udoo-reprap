@@ -353,11 +353,19 @@ def list_berater(
     limit: int = 300,
     refresh: bool = False,
     available_only: bool = True,
+    auto_seed: bool = False,
 ) -> dict[str, Any]:
     from apps.abpe_shaduler.models import RadarConsultantItem
 
     fetched = 0
     persist_info: dict[str, Any] = {}
+    seed_info: dict[str, Any] = {}
+
+    # Leere Radar-Tabelle → einmal CRM-Seed (z. B. nach frischem Deploy)
+    if auto_seed and not RadarConsultantItem.objects.exists():
+        seed_info = seed_from_crm(limit=max(limit, 500))
+        persist_info['auto_seed'] = seed_info
+
     if refresh:
         pack = gulp.fetch_experts_list(page=0, size=40, available_only=available_only)
         persist_info['gulp_fetch'] = {
@@ -463,6 +471,7 @@ def list_berater(
         'es_total': es_total,
         'fetched': fetched if refresh else None,
         'persist': persist_info,
+        'seed': seed_info or None,
         'gulp_session': gulp.has_gulp_session(),
         'available_only': available_only,
     }
@@ -501,31 +510,92 @@ def paste_berater(text: str) -> dict[str, Any]:
 def seed_from_crm(*, limit: int = 500) -> dict[str, Any]:
     """CRM-Kontakte mit gulp_id_c → Radar (bekannt)."""
     try:
-        from apps.abpe_crm.models import CrmContact
+        from apps.abpe_crm.models import CrmContact, CrmContactCstm
     except Exception as exc:
         return {'ok': False, 'error': f'CRM nicht verfügbar: {exc}'}
-    qs = (
-        CrmContact.objects
-        .select_related('cstm')
-        .exclude(cstm__gulp_id_c__isnull=True)
-        .exclude(cstm__gulp_id_c='')
-        .order_by('-date_modified')[:limit]
-    )
-    n_ok = n_err = 0
-    for c in qs:
-        gid = (getattr(c.cstm, 'gulp_id_c', '') or '').strip()
+
+    # Diagnose: wie viele gulp_ids in CRM?
+    try:
+        crm_with_gulp = (
+            CrmContactCstm.objects
+            .exclude(gulp_id_c__isnull=True)
+            .exclude(gulp_id_c='')
+            .exclude(gulp_id_c__regex=r'^\s*$')
+            .count()
+        )
+    except Exception:
+        try:
+            crm_with_gulp = (
+                CrmContactCstm.objects
+                .exclude(gulp_id_c__isnull=True)
+                .exclude(gulp_id_c='')
+                .count()
+            )
+        except Exception as exc:
+            return {'ok': False, 'error': f'CRM cstm query failed: {exc}', 'crm_with_gulp': 0}
+
+    # order_by: Feld heißt crm_date_modified (nicht date_modified)
+    try:
+        qs = (
+            CrmContact.objects
+            .select_related('cstm')
+            .exclude(cstm__gulp_id_c__isnull=True)
+            .exclude(cstm__gulp_id_c='')
+            .order_by('-crm_date_modified', '-id')[:limit]
+        )
+        rows = list(qs)
+    except Exception as exc_orm:
+        log.warning('seed ORM path failed (%s) — fallback Cstm', exc_orm)
+        rows = []
+        try:
+            cstms = (
+                CrmContactCstm.objects
+                .select_related('contact')
+                .exclude(gulp_id_c__isnull=True)
+                .exclude(gulp_id_c='')
+                .order_by('-id')[:limit]
+            )
+            for cstm in cstms:
+                c = getattr(cstm, 'contact', None)
+                if c is None:
+                    continue
+                # attach cstm for loop below
+                c._seed_cstm = cstm
+                rows.append(c)
+        except Exception as exc2:
+            return {
+                'ok': False,
+                'error': f'seed failed: {exc_orm} / {exc2}',
+                'crm_with_gulp': crm_with_gulp,
+            }
+
+    n_ok = n_err = n_skip = 0
+    for c in rows:
+        cstm = getattr(c, '_seed_cstm', None) or getattr(c, 'cstm', None)
+        gid = (getattr(cstm, 'gulp_id_c', '') or '').strip() if cstm else ''
         if not gid:
+            n_skip += 1
             continue
+        profil = (getattr(cstm, 'gulp_profil_c', None) or '') if cstm else ''
+        desc = (c.description or '') or profil
         try:
             upsert_berater({
                 'gulp_id': gid,
                 'name': c.full_name or gulp.placeholder_name(gid),
                 'first_name': c.first_name or '',
                 'last_name': c.last_name or '',
-                'ort': c.primary_address_city or '',
-                'verfuegbar_ab': getattr(c.cstm, 'verfuegbar_ab_c', None),
-                'beschreibung': (c.description or '')[:4000],
-                'profil_url': gulp.profil_url_for_gulp_id(gid),
+                'ort': (
+                    c.primary_address_city
+                    or (getattr(cstm, 'einsatzort_stadt_c', None) if cstm else '')
+                    or ''
+                ),
+                'verfuegbar_ab': getattr(cstm, 'verfuegbar_ab_c', None) if cstm else None,
+                'beschreibung': (desc or '')[:4000],
+                'cv_text': (profil or desc or '')[:50000],
+                'profil_url': (
+                    (getattr(cstm, 'web_profil1_location_c', None) if cstm else None)
+                    or gulp.profil_url_for_gulp_id(gid)
+                ),
                 'source': 'crm_seed',
                 'skills': [],
             }, apply_crm=False)
@@ -533,7 +603,14 @@ def seed_from_crm(*, limit: int = 500) -> dict[str, Any]:
         except Exception as exc:
             log.warning('seed crm %s: %s', gid, exc)
             n_err += 1
-    return {'ok': True, 'seeded': n_ok, 'errors': n_err}
+    return {
+        'ok': True,
+        'seeded': n_ok,
+        'errors': n_err,
+        'skipped': n_skip,
+        'crm_with_gulp': crm_with_gulp,
+        'scanned': len(rows),
+    }
 
 
 def set_status(pk: str, status: str) -> dict[str, Any]:

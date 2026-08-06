@@ -650,6 +650,7 @@ def api_radar_consultants(request):
     except ValueError:
         limit = 300
     available_only = request.GET.get('available', '1') != '0'
+    auto_seed = request.GET.get('seed', '1') != '0'
     result = rbs.list_berater(
         q=(request.GET.get('q') or '').strip(),
         days=days,
@@ -660,6 +661,7 @@ def api_radar_consultants(request):
         limit=limit,
         refresh=request.GET.get('refresh') == '1',
         available_only=available_only,
+        auto_seed=auto_seed,
     )
     return JsonResponse(result)
 
@@ -677,6 +679,27 @@ def api_radar_consultant_confirm(request, pk):
 def api_radar_consultant_dismiss(request, pk):
     from .services import radar_berater_service as rbs
     result = rbs.set_status(str(pk), 'verworfen')
+    return JsonResponse(result, status=200 if result.get('ok') else 400)
+
+
+@login_required
+@require_http_methods(['POST'])
+def api_radar_berater_seed(request):
+    """CRM gulp_id_c → Radar + optional Reindex."""
+    from .services import radar_berater_service as rbs
+    from .services import radar_berater_index as idx
+    try:
+        payload = json.loads(request.body.decode('utf-8') or '{}')
+    except Exception:
+        payload = {}
+    try:
+        limit = int(payload.get('limit') or request.POST.get('limit') or 500)
+    except ValueError:
+        limit = 500
+    do_reindex = payload.get('reindex', True) is not False
+    result = rbs.seed_from_crm(limit=limit)
+    if do_reindex and result.get('ok'):
+        result['reindex'] = idx.reindex_all(limit=limit)
     return JsonResponse(result, status=200 if result.get('ok') else 400)
 
 
