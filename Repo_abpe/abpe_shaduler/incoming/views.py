@@ -718,11 +718,24 @@ def api_radar_berater_seed(request):
 def api_radar_berater_reindex(request):
     """Manueller Index-Update: CRM-Sync + ES (wie 30-Min-Job)."""
     from .services import radar_berater_service as rbs
+    from .services import radar_berater_index as rbi
     try:
         payload = json.loads(request.body.decode('utf-8') or '{}')
     except Exception:
         payload = {}
-    result = rbs.sync_crm_index(limit=0, reindex=payload.get('reindex', True) is not False)
+    # Nur ES-Reindex (ohne langen CRM-Scan), wenn sync=0
+    if str(payload.get('sync', '1')).lower() in ('0', 'false', 'no'):
+        result = rbi.reindex_all(
+            limit=int(payload.get('limit') or 0) or 0,
+            active_only=True,
+            recreate=bool(payload.get('recreate')),
+        )
+        return JsonResponse(result, status=200 if result.get('ok') else 400)
+    result = rbs.sync_crm_index(
+        limit=0,
+        reindex=payload.get('reindex', True) is not False,
+        recreate_index=bool(payload.get('recreate')),
+    )
     return JsonResponse(result, status=200 if result.get('ok') else 400)
 
 

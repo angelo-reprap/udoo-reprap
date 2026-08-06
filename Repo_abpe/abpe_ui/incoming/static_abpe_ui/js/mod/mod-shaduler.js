@@ -2838,13 +2838,26 @@
           Object.keys(by).forEach(function (k) { if (k) parts.push(k + ': ' + by[k]); });
           var ls = data.list_source || '';
           var lsLbl = ls === 'elasticsearch' ? 'ES' : (ls === 'db' ? 'DB' : ls);
+          var ei = data.es_info || {};
+          var esNote = '';
+          if (ls !== 'elasticsearch') {
+            if (ei.search_error) esNote = ' · ES-Fehler';
+            else if (ei.fallback === 'empty_index') esNote = ' · ES leer';
+            else if (ei.fallback === 'es_unavailable') esNote = ' · ES offline';
+            else if (ei.count != null) esNote = ' · ES docs: ' + ei.count;
+          } else if (ei.count != null && data.es_total != null && ei.count !== data.es_total) {
+            esNote = ' · Index ' + ei.count;
+          }
           hint.textContent = data.demo
             ? _t('sh.radar_demo', 'Demo')
             : _t('sh.radar_b_hint', 'Gulp Talentfinder') +
               (lsLbl ? (' · ' + lsLbl) : '') +
               (data.es_total != null ? (' · ' + data.es_total) : '') +
               (parts.length ? (' · ' + parts.join(', ')) : '') +
-              ' · Liste ES / Detail DB';
+              esNote +
+              (ls === 'elasticsearch'
+                ? ' · Liste ES / Detail DB'
+                : ' · Fallback DB (Detail DB)');
         }
         refreshStats();
       })

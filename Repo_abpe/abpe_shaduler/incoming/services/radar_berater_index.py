@@ -2,6 +2,8 @@
 Radar-Berater Elasticsearch-Index (abpe_radar_berater).
 
 Liste/Suche → ES (leicht). Detail → DB.
+
+Hinweis: ES-Client-API wie Radar-Anfragen (body=), damit ES7 + ES8 funktionieren.
 """
 from __future__ import annotations
 
@@ -44,10 +46,10 @@ BERATER_INDEX_MAPPING = {
             'meta': {'type': 'keyword', 'index': False},
             'note': {'type': 'keyword', 'index': False},
             'profil_url': {'type': 'keyword', 'index': False},
-            'verfuegbar_ab': {'type': 'date'},
-            'satz': {'type': 'float'},
-            'eingegangen_am': {'type': 'date'},
-            'updated_at': {'type': 'date'},
+            'verfuegbar_ab': {'type': 'date', 'ignore_malformed': True},
+            'satz': {'type': 'float', 'ignore_malformed': True},
+            'eingegangen_am': {'type': 'date', 'ignore_malformed': True},
+            'updated_at': {'type': 'date', 'ignore_malformed': True},
             'deleted': {'type': 'boolean'},
             'cv_versions': {'type': 'integer'},
         }
@@ -99,22 +101,103 @@ def get_es():
     except ImportError:
         log.info('elasticsearch-Paket fehlt — Berater-Index Skip')
         return None
-    return Elasticsearch(_es_hosts(), verify_certs=False)
+    try:
+        return Elasticsearch(_es_hosts(), verify_certs=False)
+    except TypeError:
+        # ältere Client-Version ohne verify_certs
+        try:
+            return Elasticsearch(_es_hosts())
+        except Exception as exc:
+            log.warning('ES Client fehlgeschlagen: %s', exc)
+            return None
+    except Exception as exc:
+        log.warning('ES Client fehlgeschlagen: %s', exc)
+        return None
 
 
-def ensure_index(es=None) -> bool:
+def _es_index(es, *, index: str, id: str, doc: dict, refresh: bool = False) -> None:
+    """ES7 (body=) und ES8 (document=) kompatibel indexieren."""
+    try:
+        es.index(index=index, id=id, body=doc, refresh=refresh)
+    except TypeError:
+        es.index(index=index, id=id, document=doc, refresh=refresh)
+
+
+def _es_search(es, *, index: str, body: dict):
+    try:
+        return es.search(index=index, body=body)
+    except TypeError:
+        # ES8: body aufgelöst in query/size/…
+        kwargs = {k: v for k, v in body.items() if k in (
+            'query', 'size', 'from', 'sort', 'aggs', 'aggregations', '_source',
+            'track_total_hits',
+        )}
+        return es.search(index=index, **kwargs)
+
+
+def _es_create_index(es, name: str) -> None:
+    try:
+        es.indices.create(index=name, body=BERATER_INDEX_MAPPING)
+    except TypeError:
+        es.indices.create(
+            index=name,
+            settings=BERATER_INDEX_MAPPING.get('settings'),
+            mappings=BERATER_INDEX_MAPPING.get('mappings'),
+        )
+
+
+def ensure_index(es=None, *, recreate: bool = False) -> bool:
     es = es or get_es()
     if not es:
         return False
     name = index_name()
     try:
-        if not es.indices.exists(index=name):
-            es.indices.create(index=name, body=BERATER_INDEX_MAPPING)
+        exists = es.indices.exists(index=name)
+        if exists and recreate:
+            try:
+                es.indices.delete(index=name, ignore=[404])
+            except TypeError:
+                es.indices.delete(index=name, ignore_unavailable=True)
+            exists = False
+        if not exists:
+            _es_create_index(es, name)
             log.info('created berater index %s', name)
         return True
     except Exception as exc:
+        try:
+            if es.indices.exists(index=name):
+                return True
+        except Exception:
+            pass
         log.warning('ensure berater index failed: %s', exc)
         return False
+
+
+def index_stats(es=None) -> dict[str, Any]:
+    """Diagnose: Hosts, Indexname, Doc-Count."""
+    hosts = _es_hosts()
+    name = index_name()
+    out: dict[str, Any] = {
+        'hosts': hosts,
+        'index': name,
+        'ok': False,
+        'exists': False,
+        'count': None,
+        'error': None,
+    }
+    es = es or get_es()
+    if not es:
+        out['error'] = 'no_es_client'
+        return out
+    try:
+        out['exists'] = bool(es.indices.exists(index=name))
+        if out['exists']:
+            res = es.count(index=name)
+            out['count'] = res.get('count') if isinstance(res, dict) else getattr(res, 'count', None)
+        out['ok'] = True
+    except Exception as exc:
+        out['error'] = str(exc)[:400]
+    return out
 
 
 def _iso(val) -> Optional[str]:
@@ -125,7 +208,13 @@ def _iso(val) -> Optional[str]:
     from datetime import date
     if isinstance(val, date):
         return val.isoformat()
-    return str(val)
+    s = str(val).strip()
+    if not s:
+        return None
+    # nur ISO-ähnlich in date-Felder — kaputte Strings → None
+    if len(s) >= 10 and s[0:4].isdigit() and s[4] in '-/':
+        return s.replace('/', '-')
+    return None
 
 
 def _list_meta(obj) -> str:
@@ -153,7 +242,7 @@ def doc_from_obj(obj) -> dict[str, Any]:
     skills = [str(s).strip() for s in skills if str(s).strip()]
     st_map = {'bekannt': 'known', 'unsicher': 'maybe', 'unbekannt': 'new'}
     deleted = bool(getattr(obj, 'deleted_at', None)) or obj.status == 'geloescht'
-    return {
+    doc = {
         'name': obj.name or '',
         # Volltext für Suche (gekürzt), nicht für Listen-Payload nötig
         'beschreibung': (obj.beschreibung or '')[:12000],
@@ -166,8 +255,8 @@ def doc_from_obj(obj) -> dict[str, Any]:
         'status': obj.status or 'neu',
         'match_status': obj.match_status or 'unbekannt',
         'st': st_map.get(obj.match_status, 'new'),
-        'meta': _list_meta(obj),
-        'note': _list_note(obj),
+        'meta': _list_meta(obj)[:512],
+        'note': _list_note(obj)[:512],
         'profil_url': obj.profil_url or '',
         'verfuegbar_ab': _iso(obj.verfuegbar_ab),
         'satz': float(obj.satz) if obj.satz is not None else None,
@@ -176,14 +265,22 @@ def doc_from_obj(obj) -> dict[str, Any]:
         'deleted': deleted,
         'cv_versions': len(obj.cv_versions or []),
     }
+    # None-Werte raus — manchen ES-Versionen unangenehm bei date/float
+    return {k: v for k, v in doc.items() if v is not None}
 
 
-def index_one(obj) -> bool:
-    es = get_es()
+def index_one(obj, *, es=None, refresh: bool = False) -> bool:
+    es = es or get_es()
     if not es or not ensure_index(es):
         return False
     try:
-        es.index(index=index_name(), id=str(obj.pk), document=doc_from_obj(obj))
+        _es_index(
+            es,
+            index=index_name(),
+            id=str(obj.pk),
+            doc=doc_from_obj(obj),
+            refresh=refresh,
+        )
         return True
     except Exception as exc:
         log.warning('index berater %s: %s', obj.pk, exc)
@@ -195,7 +292,10 @@ def delete_one(pk) -> bool:
     if not es:
         return False
     try:
-        es.delete(index=index_name(), id=str(pk), ignore=[404])
+        try:
+            es.delete(index=index_name(), id=str(pk), ignore=[404])
+        except TypeError:
+            es.delete(index=index_name(), id=str(pk))
         return True
     except Exception as exc:
         log.warning('delete berater ES %s: %s', pk, exc)
@@ -214,8 +314,25 @@ def search(
     include_deleted: bool = False,
 ) -> Optional[dict[str, Any]]:
     es = get_es()
-    if not es or not ensure_index(es):
+    if not es:
         return None
+    name = index_name()
+    try:
+        if not es.indices.exists(index=name):
+            log.info('berater index %s fehlt', name)
+            return {
+                'hits': [],
+                'ids': [],
+                'total': 0,
+                'by_source': {},
+                'source': 'elasticsearch',
+                'index_missing': True,
+                'error': f'index_missing:{name}',
+            }
+    except Exception as exc:
+        log.warning('berater index exists check failed: %s', exc)
+        return None
+
     filters: list[dict] = []
     if not include_deleted:
         filters.append({
@@ -260,6 +377,7 @@ def search(
     order = 'asc' if sort in ('date_asc', 'asc', 'oldest') else 'desc'
     body = {
         'size': max(1, min(10000, int(limit))),
+        'track_total_hits': True,
         '_source': [
             'name', 'gulp_id', 'ort', 'source', 'status', 'match_status', 'st',
             'meta', 'note', 'verfuegbar_ab', 'satz', 'crm_contact_id',
@@ -276,10 +394,17 @@ def search(
         },
     }
     try:
-        res = es.search(index=index_name(), body=body)
+        res = _es_search(es, index=name, body=body)
     except Exception as exc:
         log.warning('berater search failed: %s', exc)
-        return None
+        return {
+            'hits': [],
+            'ids': [],
+            'total': 0,
+            'by_source': {},
+            'source': 'elasticsearch',
+            'error': str(exc)[:400],
+        }
     hits_raw = res.get('hits', {}).get('hits') or []
     hits = []
     for h in hits_raw:
@@ -304,23 +429,83 @@ def search(
     }
 
 
-def reindex_all(*, limit: int = 50000, active_only: bool = True) -> dict[str, Any]:
+def reindex_all(
+    *,
+    limit: int = 50000,
+    active_only: bool = True,
+    recreate: bool = False,
+) -> dict[str, Any]:
     from apps.abpe_shaduler.models import RadarConsultantItem
     es = get_es()
-    if not es or not ensure_index(es):
-        return {'ok': False, 'error': 'ES unavailable'}
+    stats_before = index_stats(es)
+    if not es or not ensure_index(es, recreate=recreate):
+        return {
+            'ok': False,
+            'error': 'ES unavailable',
+            'stats': stats_before,
+        }
     qs = RadarConsultantItem.objects.select_related('quelle').all()
     if active_only:
         qs = qs.filter(deleted_at__isnull=True).exclude(status='geloescht')
-    n = 0
-    errors = 0
     if limit and limit > 0:
         rows = list(qs[:limit])
     else:
-        rows = qs.iterator(chunk_size=200)
-    for obj in rows:
-        if index_one(obj):
-            n += 1
-        else:
-            errors += 1
-    return {'ok': True, 'indexed': n, 'errors': errors, 'index': index_name()}
+        rows = list(qs.iterator(chunk_size=500))
+
+    name = index_name()
+    n = 0
+    errors = 0
+    sample_err = None
+
+    # Bulk wenn helpers verfügbar
+    try:
+        from elasticsearch.helpers import bulk
+        actions = [
+            {
+                '_op_type': 'index',
+                '_index': name,
+                '_id': str(obj.pk),
+                '_source': doc_from_obj(obj),
+            }
+            for obj in rows
+        ]
+        # chunked
+        chunk = 400
+        for i in range(0, len(actions), chunk):
+            part = actions[i:i + chunk]
+            ok_count, errs = bulk(es, part, raise_on_error=False, refresh=False)
+            n += int(ok_count or 0)
+            if isinstance(errs, list) and errs:
+                errors += len(errs)
+                if sample_err is None and errs:
+                    sample_err = str(errs[0])[:300]
+            elif errs:
+                errors += 1
+    except Exception as exc_bulk:
+        log.warning('berater bulk failed (%s) — fallback single', exc_bulk)
+        n = 0
+        errors = 0
+        for obj in rows:
+            if index_one(obj, es=es, refresh=False):
+                n += 1
+            else:
+                errors += 1
+                if sample_err is None:
+                    sample_err = 'index_one failed'
+
+    try:
+        es.indices.refresh(index=name)
+    except Exception as exc:
+        log.warning('berater refresh failed: %s', exc)
+
+    stats_after = index_stats(es)
+    return {
+        'ok': errors == 0 and n > 0,
+        'indexed': n,
+        'errors': errors,
+        'scanned': len(rows),
+        'index': name,
+        'sample_error': sample_err,
+        'stats_before': stats_before,
+        'stats_after': stats_after,
+    }

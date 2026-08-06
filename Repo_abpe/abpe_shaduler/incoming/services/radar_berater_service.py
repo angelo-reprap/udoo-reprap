@@ -441,6 +441,11 @@ def list_berater(
     results: list[dict] = []
     by_src: dict = {}
     es_total = None
+    es_info: dict[str, Any] = {}
+    try:
+        es_info = berater_index.index_stats()
+    except Exception:
+        es_info = {}
     try:
         es_pack = berater_index.search(
             q=q,
@@ -455,19 +460,40 @@ def list_berater(
     except Exception as exc:
         log.warning('berater ES search error: %s', exc)
         es_pack = None
+        es_info['search_error'] = str(exc)[:400]
 
-    if es_pack and es_pack.get('hits') is not None:
+    es_doc_count = es_info.get('count')
+    if not isinstance(es_doc_count, int):
+        es_doc_count = None
+
+    if es_pack is not None and es_pack.get('hits') is not None:
+        if es_pack.get('error'):
+            es_info['search_error'] = es_pack.get('error')
         hits = es_pack.get('hits') or []
         list_source = 'elasticsearch'
         by_src = es_pack.get('by_source') or {}
         es_total = es_pack.get('total')
         results = [serialize_list_hit(h) for h in hits]
-        # Leerer Index bei vorhandener DB → Fallback
-        if not results and not q and (es_total is None or es_total == 0):
+        # Nur bei wirklich leerem Index (oder Index fehlt) auf DB fallen —
+        # nicht wenn Filter 0 Hits liefert, aber Docs im Index sind.
+        index_empty = (
+            es_pack.get('index_missing')
+            or (es_doc_count == 0)
+            or (
+                not results
+                and not q
+                and (es_total is None or es_total == 0)
+                and (es_doc_count is None or es_doc_count == 0)
+            )
+        )
+        if index_empty and not q:
             if RadarConsultantItem.objects.filter(deleted_at__isnull=True).exists():
                 list_source = 'db'
                 by_src = {}
-                es_total = None
+                es_total = es_doc_count
+                es_info['fallback'] = 'empty_index'
+    elif es_pack is None:
+        es_info['fallback'] = 'es_unavailable'
 
     if list_source != 'elasticsearch':
         qs = (
@@ -519,6 +545,7 @@ def list_berater(
         'by_source': by_src,
         'list_source': list_source,
         'es_total': es_total,
+        'es_info': es_info,
         'fetched': fetched if refresh else None,
         'persist': persist_info,
         'seed': seed_info or None,
@@ -562,7 +589,12 @@ def seed_from_crm(*, limit: int = 0) -> dict[str, Any]:
     return sync_crm_index(limit=limit, reindex=True)
 
 
-def sync_crm_index(*, limit: int = 0, reindex: bool = True) -> dict[str, Any]:
+def sync_crm_index(
+    *,
+    limit: int = 0,
+    reindex: bool = True,
+    recreate_index: bool = False,
+) -> dict[str, Any]:
     """
     Vollsync: alle CRM-Kontakte mit gulp_id_c → Radar.
     Fehlende gulp_ids in Radar → soft-delete (deleted_at + status geloescht).
@@ -699,6 +731,7 @@ def sync_crm_index(*, limit: int = 0, reindex: bool = True) -> dict[str, Any]:
         reindex_info = berater_index.reindex_all(
             limit=0 if take <= 0 else max(take, n_ok + 100),
             active_only=True,
+            recreate=recreate_index,
         )
 
     return {

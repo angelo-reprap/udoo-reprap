@@ -10,6 +10,14 @@ settings.json → shaduler.gulp_talentfinder:
     "cookies": { "JSESSION_ID_DIREKT": "...", "remember-me-dir": "..." },
     "cookie_header": "JSESSION_ID_DIREKT=...; remember-me-dir=..."
   }
+
+GEPLANT — „Gulp aktualisieren“ (noch nicht gebaut):
+  A) Server-Download via bestehende CV-Extractor-Cookies (GULPImporter /
+     apps/cv_extractor/services/url_gu_importer.py): gulpId→hash, API,
+     PDF …/PDF, Extract txt, Version in Radar/matching-raw.
+     Existenz-Check (?gulpId= → 0 Treffer = „nicht mehr in Gulp“),
+     Frische („Zuletzt geändert“), Version aus PDF/DOCX (HTML nur Check).
+  B) Später volle CV-Pipeline. Radar bleibt News/Deltas, kein CRM-Spiegel.
 """
 from __future__ import annotations
 

@@ -14,20 +14,43 @@ class Command(BaseCommand):
         parser.add_argument('--no-reindex', action='store_true')
         parser.add_argument('--seed', action='store_true', default=True)
         parser.add_argument('--no-seed', action='store_true')
+        parser.add_argument(
+            '--recreate-index',
+            action='store_true',
+            help='ES-Index löschen und neu anlegen vor Reindex',
+        )
+        parser.add_argument(
+            '--es-stats',
+            action='store_true',
+            help='Nur ES-Diagnose (Hosts/Count) ausgeben',
+        )
 
     def handle(self, *args, **options):
         from apps.abpe_shaduler.services import radar_berater_service as rbs
         from apps.abpe_shaduler.services import radar_berater_index as idx
 
+        if options.get('es_stats'):
+            self.stdout.write(str(idx.index_stats()))
+            return
+
         do_seed = not options.get('no_seed')
         do_reindex = not options.get('no_reindex')
         lim = options['limit']
+        recreate = bool(options.get('recreate_index'))
 
         if do_seed:
             self.stdout.write('CRM-Sync (gulp_id_c) …')
-            res = rbs.sync_crm_index(limit=lim if lim and lim > 0 else 0, reindex=do_reindex)
+            res = rbs.sync_crm_index(limit=lim if lim and lim > 0 else 0, reindex=False)
             self.stdout.write(str(res))
+            if do_reindex:
+                self.stdout.write('Reindex ES …')
+                re_lim = lim if lim and lim > 0 else 0
+                self.stdout.write(str(idx.reindex_all(
+                    limit=re_lim, active_only=True, recreate=recreate,
+                )))
         elif do_reindex:
             self.stdout.write('Reindex ES …')
             re_lim = lim if lim and lim > 0 else 0
-            self.stdout.write(str(idx.reindex_all(limit=re_lim, active_only=True)))
+            self.stdout.write(str(idx.reindex_all(
+                limit=re_lim, active_only=True, recreate=recreate,
+            )))
