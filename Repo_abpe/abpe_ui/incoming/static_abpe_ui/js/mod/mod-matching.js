@@ -2742,6 +2742,7 @@ window.Matching = (function() {
         openKiWizard, closeKiWizard, runKiExtract, applyKiExtract,
         pickCrmContact, pickCrmContactIndex, hideCrmSuggest, createCrmContactFromSuggest,
         openNewContactPopup, closeNewContactPopup,
+        runFirmaWebEnrich, applyFirmaWebEnrichToCrm,
         pickCrmAccountIndex, clearCustomerLink, pickAccountFromSearch,
     };
 
