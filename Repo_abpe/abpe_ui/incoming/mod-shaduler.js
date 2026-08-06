@@ -158,7 +158,7 @@
         '<span id="sh-radar-b-hint">' + esc(_t('sh.radar_b_hint', 'Gulp Talentfinder')) + '</span>' +
         '<span id="r-b-new" class="sh-radar-count">0</span>' +
         '<button type="button" class="sh-inbox-refresh" id="sh-radar-b-refresh" title="' +
-        esc(_t('sh.radar_b_refresh', 'Gulp aktualisieren')) + '">' +
+        esc(_t('sh.radar_b_refresh', 'Index aktualisieren (CRM→ES)')) + '">' +
         '<i class="bi bi-arrow-clockwise"></i></button>' +
         '</span></div>' +
         '<div class="paste" style="display:flex;gap:8px;padding:8px 12px;border-bottom:1px solid var(--border-color,#eee);flex-wrap:wrap">' +
@@ -2694,7 +2694,6 @@
 
   function loadRadarB(opts) {
     opts = opts || {};
-    var doRefresh = opts.refresh === true;
     var soft = !!opts.soft;
     renderRadarBToolbar();
     var list = document.getElementById('sh-radar-b-list');
@@ -2706,9 +2705,41 @@
       }
     }
     var btn = document.getElementById('sh-radar-b-refresh');
-    if (btn) {
-      btn.onclick = function () { loadRadarB({ refresh: true }); };
-      if (doRefresh) { btn.disabled = true; btn.classList.add('busy'); }
+    if (btn && !btn.dataset.bound) {
+      btn.dataset.bound = '1';
+      btn.onclick = function () {
+        btn.disabled = true;
+        btn.classList.add('busy');
+        fetch(api('radar/berater/reindex/'), {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({ reindex: true }),
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            btn.disabled = false;
+            btn.classList.remove('busy');
+            if (!d.ok) {
+              toast(d.error || _t('sh.toast_error', 'Index-Update fehlgeschlagen'));
+              return;
+            }
+            toast(_t('sh.radar_b_reindex_ok', 'Index') + ': ' +
+              (d.seeded || 0) + ' sync' +
+              (d.deleted != null ? (', −' + d.deleted) : '') +
+              (d.reindex && d.reindex.indexed != null ? (', ES ' + d.reindex.indexed) : ''));
+            loadRadarB({ soft: true });
+          })
+          .catch(function () {
+            btn.disabled = false;
+            btn.classList.remove('busy');
+            toast(_t('sh.toast_error', 'Index-Update fehlgeschlagen'));
+          });
+      };
     }
     var pasteBtn = document.getElementById('sh-radar-paste-btn');
     if (pasteBtn && !pasteBtn.dataset.bound) {
@@ -2783,11 +2814,11 @@
       };
     }
     var q = 'radar/berater/?demo=0&status=' + encodeURIComponent(RADAR_B_STATUS || 'neu') +
-      '&refresh=' + (doRefresh ? '1' : '0') +
+      '&refresh=0' +
       '&days=' + encodeURIComponent(String(RADAR_B_DAYS)) +
       '&sort=' + encodeURIComponent(RADAR_B_SORT || 'date_desc') +
       '&available=' + (RADAR_B_AVAIL ? '1' : '0') +
-      '&seed=1&limit=5000';
+      '&seed=1&limit=10000';
     if (RADAR_B_Q) q += '&q=' + encodeURIComponent(RADAR_B_Q);
     if (RADAR_B_SOURCE) q += '&source=' + encodeURIComponent(RADAR_B_SOURCE);
     if (RADAR_B_MATCH) q += '&match=' + encodeURIComponent(RADAR_B_MATCH);
@@ -2797,7 +2828,6 @@
     })
       .then(function (r) { return r.json(); })
       .then(function (data) {
-        if (btn) { btn.disabled = false; btn.classList.remove('busy'); }
         RADAR_B_ITEMS = data.results || [];
         if (!soft) RADAR_B_PAGE = 1;
         renderRadarB(RADAR_B_ITEMS);
@@ -2808,28 +2838,17 @@
           Object.keys(by).forEach(function (k) { if (k) parts.push(k + ': ' + by[k]); });
           var ls = data.list_source || '';
           var lsLbl = ls === 'elasticsearch' ? 'ES' : (ls === 'db' ? 'DB' : ls);
-          var seed = data.seed || (data.persist && data.persist.auto_seed) || null;
           hint.textContent = data.demo
             ? _t('sh.radar_demo', 'Demo')
             : _t('sh.radar_b_hint', 'Gulp Talentfinder') +
-              (RADAR_B_AVAIL ? ' · verfügbar/neu' : ' · alle') +
               (lsLbl ? (' · ' + lsLbl) : '') +
+              (data.es_total != null ? (' · ' + data.es_total) : '') +
               (parts.length ? (' · ' + parts.join(', ')) : '') +
-              (data.gulp_session === false ? ' · ohne Gulp-Login' : '') +
-              (seed && seed.seeded != null ? (' · Seed ' + seed.seeded) : '') +
-              (doRefresh && data.fetched != null ? (' · ' + data.fetched + ' gelesen') : '');
-          if (seed && seed.seeded) {
-            toast(_t('sh.radar_b_seed_ok', 'CRM-Seed') + ': ' + seed.seeded);
-          } else if (seed && seed.ok === false) {
-            toast(seed.error || 'CRM-Seed fehlgeschlagen');
-          } else if (!RADAR_B_ITEMS.length && seed && seed.crm_with_gulp === 0) {
-            toast(_t('sh.radar_b_no_crm_gulp', 'Keine CRM-Kontakte mit gulp_id_c'));
-          }
+              ' · Liste ES / Detail DB';
         }
         refreshStats();
       })
       .catch(function () {
-        if (btn) { btn.disabled = false; btn.classList.remove('busy'); }
         RADAR_B_ITEMS = [];
         renderRadarB([]);
         toast(_t('sh.radar_err', 'Radar konnte nicht geladen werden'));
@@ -2993,72 +3012,95 @@
     });
     if (rowEl) rowEl.classList.add('on');
     var v = document.getElementById('sh-radar-b-viewer');
-    if (!v) return;
-    var skills = (r.skills || []).map(function (s) {
-      return '<span class="src" style="margin:2px">' + esc(s) + '</span>';
-    }).join(' ');
-    var acts =
-      '<div class="racts sh-viewer-acts">' +
-      (function () {
-        var gulpUrl = r.gulp_id
-          ? ('https://www.gulp.de/talentfinder/app/experten?gulpId=' +
-            encodeURIComponent(String(r.gulp_id)))
-          : '';
-        return gulpUrl
+    if (!v || !r || !r.id) return;
+
+    function paint(item) {
+      item = item || r;
+      var skills = (item.skills || []).map(function (s) {
+        return '<span class="src" style="margin:2px">' + esc(s) + '</span>';
+      }).join(' ');
+      var gulpUrl = item.gulp_id
+        ? ('https://www.gulp.de/talentfinder/app/experten?gulpId=' +
+          encodeURIComponent(String(item.gulp_id)))
+        : '';
+      var acts =
+        '<div class="racts sh-viewer-acts">' +
+        (gulpUrl
           ? '<a class="sh-radar-ext" href="' + esc(gulpUrl) + '" target="_blank" rel="noopener">' +
             '<i class="bi bi-box-arrow-up-right"></i> Gulp</a>'
-          : '';
-      })() +
-      (r.crm_url
-        ? '<a class="sh-radar-ext" href="' + esc(r.crm_url) + '" target="_blank" rel="noopener">' +
-          '<i class="bi bi-person-badge"></i> CRM</a>'
-        : '<button type="button" disabled id="sh-radar-b-crm-hint">' +
-          esc(_t('sh.radar_b_crm_later', 'CRM-Anlage folgt')) + '</button>') +
-      '<button type="button" class="pri" id="sh-radar-b-ok">' +
-      '<i class="bi bi-check2"></i> ' + esc(_t('sh.radar_b_confirm', 'Bestätigen')) + '</button>' +
-      '<button type="button" id="sh-radar-b-no">' +
-      '<i class="bi bi-x-lg"></i> ' + esc(_t('sh.radar_b_dismiss', 'Verwerfen')) + '</button>' +
-      '</div>';
-    v.innerHTML =
-      acts +
-      '<div class="sh-viewer-head">' +
-      '<div class="from">' + esc(r.name || '') +
-      (r.gulp_id ? ' · Gulp ' + esc(r.gulp_id) : '') + '</div>' +
-      '<div class="meta">' + esc(r.meta || '') + '</div>' +
-      '<div class="meta">' + esc(r.note || '') +
-      (r.cv_versions ? (' · CV-Versionen: ' + esc(String(r.cv_versions))) : '') +
-      '</div></div>' +
-      (skills ? '<div style="margin:8px 0">' + skills + '</div>' : '') +
-      '<div class="sh-viewer-body sh-readable" style="white-space:pre-wrap">' +
-      esc((r.beschreibung || '').slice(0, 4000) || '—') + '</div>';
-    var ok = document.getElementById('sh-radar-b-ok');
-    var no = document.getElementById('sh-radar-b-no');
-    if (ok) ok.onclick = function () {
-      fetch(api('radar/berater/' + encodeURIComponent(r.id) + '/bestaetigen/'), {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: {
-          'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
-          'X-Requested-With': 'XMLHttpRequest',
-        },
-      }).then(function (res) { return res.json(); }).then(function (d) {
-        toast(d.ok ? _t('sh.toast_link', 'Bestätigt') : (d.error || 'Fehler'));
-        loadRadarB({ soft: true });
+          : '') +
+        (item.crm_url
+          ? '<a class="sh-radar-ext" href="' + esc(item.crm_url) + '" target="_blank" rel="noopener">' +
+            '<i class="bi bi-person-badge"></i> CRM</a>'
+          : '<button type="button" disabled>' +
+            esc(_t('sh.radar_b_crm_later', 'CRM-Anlage folgt')) + '</button>') +
+        '<button type="button" class="pri" id="sh-radar-b-ok">' +
+        '<i class="bi bi-check2"></i> ' + esc(_t('sh.radar_b_confirm', 'Bestätigen')) + '</button>' +
+        '<button type="button" id="sh-radar-b-no">' +
+        '<i class="bi bi-x-lg"></i> ' + esc(_t('sh.radar_b_dismiss', 'Verwerfen')) + '</button>' +
+        '</div>';
+      v.innerHTML =
+        acts +
+        '<div class="sh-viewer-head">' +
+        '<div class="from">' + esc(item.name || '') +
+        (item.gulp_id ? ' · Gulp ' + esc(item.gulp_id) : '') + '</div>' +
+        '<div class="meta">' + esc(item.meta || '') + '</div>' +
+        '<div class="meta">' + esc(item.note || '') +
+        (item.cv_versions ? (' · CV-Versionen: ' + esc(String(item.cv_versions))) : '') +
+        ' · ' + esc(_t('sh.radar_b_from_db', 'Detail aus DB')) +
+        '</div></div>' +
+        (skills ? '<div style="margin:8px 0">' + skills + '</div>' : '') +
+        '<div class="sh-viewer-body sh-readable" style="white-space:pre-wrap">' +
+        esc((item.beschreibung || '').slice(0, 4000) || '—') + '</div>';
+      var ok = document.getElementById('sh-radar-b-ok');
+      var no = document.getElementById('sh-radar-b-no');
+      if (ok) ok.onclick = function () {
+        fetch(api('radar/berater/' + encodeURIComponent(item.id) + '/bestaetigen/'), {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+        }).then(function (res) { return res.json(); }).then(function (d) {
+          toast(d.ok ? _t('sh.toast_link', 'Bestätigt') : (d.error || 'Fehler'));
+          loadRadarB({ soft: true });
+        });
+      };
+      if (no) no.onclick = function () {
+        fetch(api('radar/berater/' + encodeURIComponent(item.id) + '/verwerfen/'), {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+        }).then(function (res) { return res.json(); }).then(function (d) {
+          toast(d.ok ? _t('sh.toast_dismiss', 'Verworfen') : (d.error || 'Fehler'));
+          loadRadarB({ soft: true });
+        });
+      };
+    }
+
+    // Liste = ES (ohne Text) → Detail aus DB laden
+    v.innerHTML = '<div class="sh-viewer-loading">' + esc(_t('sh.loading', 'Laden…')) + '</div>';
+    fetch(api('radar/berater/' + encodeURIComponent(r.id) + '/?chars=4000'), {
+      credentials: 'same-origin',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (d) {
+        if (d && d.ok && d.item) {
+          paint(d.item);
+        } else {
+          paint(r);
+          toast(d && d.error ? d.error : _t('sh.radar_b_detail_err', 'Detail nicht geladen'));
+        }
+      })
+      .catch(function () {
+        paint(r);
+        toast(_t('sh.radar_b_detail_err', 'Detail nicht geladen'));
       });
-    };
-    if (no) no.onclick = function () {
-      fetch(api('radar/berater/' + encodeURIComponent(r.id) + '/verwerfen/'), {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: {
-          'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
-          'X-Requested-With': 'XMLHttpRequest',
-        },
-      }).then(function (res) { return res.json(); }).then(function (d) {
-        toast(d.ok ? _t('sh.toast_dismiss', 'Verworfen') : (d.error || 'Fehler'));
-        loadRadarB({ soft: true });
-      });
-    };
   }
 
   function applyI18n(root) {

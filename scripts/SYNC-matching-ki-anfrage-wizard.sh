@@ -151,10 +151,15 @@ echo
 echo "→ migrate abpe_shaduler"
 cd "$BACKEND"
 "$PYBIN" manage.py migrate abpe_shaduler --noinput
-echo "Hinweis: CRM-Seed / Reindex nur manuell bei Bedarf:"
+echo "Hinweis: CRM-Vollindex manuell / alle 30 Min via Scheduler:"
 echo "  $PYBIN manage.py radar_berater_seed --reindex"
-echo "  (oder UI-Button CRM-Seed — nicht bei jedem SYNC)"
+echo "  $PYBIN manage.py register_scheduler_jobs   # inkl. radar_berater_index 30 Min"
+echo "  UI: ↻ = Index aktualisieren (CRM→ES); Liste=ES, Detail=DB"
 echo "  Gulp-Login: settings.json → shaduler.gulp_talentfinder.cookies"
+echo
+echo "Restart: supervisorctl restart abpe-django"
+echo "Optional (Radar Anfragen ES): $PYBIN manage.py radar_reindex --status neu"
+echo "Optional (Radar Dedup):       $PYBIN manage.py radar_regroup --days 14"
 echo "UI Matching: Button „KI-Anfragen-Wizard“ links neben „+ Neue Anfrage“"
 echo "UI Firma: Neuer Kontakt → „Aus Web anreichern“ (Homepage/Impressum)"
 echo "UI: Matching; Posteingang Antworten; Radar Anfragen = FM+Gulp+Hays"

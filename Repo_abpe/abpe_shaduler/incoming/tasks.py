@@ -218,6 +218,21 @@ except Exception:  # pragma: no cover — Celery optional beim Import
         return _email_index_sync(**kwargs)
 
 
+def shaduler_radar_berater_index(payload=None):
+    """CRM gulp_id → Radar + Soft-Delete + ES (alle 30 Min)."""
+    logger.info('shaduler_radar_berater_index: payload=%s', payload)
+    payload = payload or {}
+    try:
+        from .services import radar_berater_service as rbs
+        return rbs.sync_crm_index(
+            limit=0,
+            reindex=str(payload.get('reindex', '1')).lower() not in ('0', 'false', 'no'),
+        )
+    except Exception as exc:
+        logger.exception('radar_berater_index failed')
+        return {'ok': False, 'error': str(exc), 'job': 'radar_berater_index'}
+
+
 def shaduler_delegation_notify(payload=None):
     """Benachrichtigungs-Mail bei Delegation (on-demand / Job)."""
     logger.info('shaduler_delegation_notify: stub payload=%s', payload)
@@ -228,6 +243,8 @@ def shaduler_delegation_notify(payload=None):
 JOB_HANDLERS = {
     'radar-poll': shaduler_radar_poll,
     'radar_poll': shaduler_radar_poll,
+    'radar-berater-index': shaduler_radar_berater_index,
+    'radar_berater_index': shaduler_radar_berater_index,
     'inbox-poll': shaduler_inbox_poll,
     'inbox_poll': shaduler_inbox_poll,
     'prozess-tick': shaduler_prozess_tick,

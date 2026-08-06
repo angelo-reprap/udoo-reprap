@@ -1,5 +1,7 @@
 """
 Radar-Berater Elasticsearch-Index (abpe_radar_berater).
+
+Liste/Suche → ES (leicht). Detail → DB.
 """
 from __future__ import annotations
 
@@ -38,11 +40,16 @@ BERATER_INDEX_MAPPING = {
             'source': {'type': 'keyword'},
             'status': {'type': 'keyword'},
             'match_status': {'type': 'keyword'},
+            'st': {'type': 'keyword'},
+            'meta': {'type': 'keyword', 'index': False},
+            'note': {'type': 'keyword', 'index': False},
             'profil_url': {'type': 'keyword', 'index': False},
             'verfuegbar_ab': {'type': 'date'},
             'satz': {'type': 'float'},
             'eingegangen_am': {'type': 'date'},
             'updated_at': {'type': 'date'},
+            'deleted': {'type': 'boolean'},
+            'cv_versions': {'type': 'integer'},
         }
     },
 }
@@ -121,12 +128,35 @@ def _iso(val) -> Optional[str]:
     return str(val)
 
 
+def _list_meta(obj) -> str:
+    return ' · '.join(x for x in [
+        f'Gulp {obj.gulp_id}' if obj.gulp_id else '',
+        obj.ort or '',
+        f'ab {obj.verfuegbar_ab.isoformat()}' if obj.verfuegbar_ab else '',
+        f'{obj.satz} €' if obj.satz is not None else '',
+    ] if x)
+
+
+def _list_note(obj) -> str:
+    if getattr(obj, 'deleted_at', None):
+        return 'gelöscht (CRM)'
+    if obj.match_status == 'bekannt':
+        cid = obj.crm_contact_id or ''
+        return '✔ CRM ' + (cid[:8] + '…' if cid else '')
+    if (obj.name or '').startswith('Gulp '):
+        return 'Platzhalter — optional in CRM anlegen'
+    return 'neu / unbekannt'
+
+
 def doc_from_obj(obj) -> dict[str, Any]:
     skills = obj.skills if isinstance(obj.skills, list) else []
     skills = [str(s).strip() for s in skills if str(s).strip()]
+    st_map = {'bekannt': 'known', 'unsicher': 'maybe', 'unbekannt': 'new'}
+    deleted = bool(getattr(obj, 'deleted_at', None)) or obj.status == 'geloescht'
     return {
         'name': obj.name or '',
-        'beschreibung': obj.beschreibung or '',
+        # Volltext für Suche (gekürzt), nicht für Listen-Payload nötig
+        'beschreibung': (obj.beschreibung or '')[:12000],
         'skills': skills,
         'skills_text': ' '.join(skills),
         'ort': obj.ort or '',
@@ -135,11 +165,16 @@ def doc_from_obj(obj) -> dict[str, Any]:
         'source': (obj.quelle.name if getattr(obj, 'quelle_id', None) else 'gulp'),
         'status': obj.status or 'neu',
         'match_status': obj.match_status or 'unbekannt',
+        'st': st_map.get(obj.match_status, 'new'),
+        'meta': _list_meta(obj),
+        'note': _list_note(obj),
         'profil_url': obj.profil_url or '',
         'verfuegbar_ab': _iso(obj.verfuegbar_ab),
         'satz': float(obj.satz) if obj.satz is not None else None,
         'eingegangen_am': _iso(obj.eingegangen_am) or _iso(obj.created_at),
         'updated_at': _iso(obj.updated_at),
+        'deleted': deleted,
+        'cv_versions': len(obj.cv_versions or []),
     }
 
 
@@ -155,6 +190,18 @@ def index_one(obj) -> bool:
         return False
 
 
+def delete_one(pk) -> bool:
+    es = get_es()
+    if not es:
+        return False
+    try:
+        es.delete(index=index_name(), id=str(pk), ignore=[404])
+        return True
+    except Exception as exc:
+        log.warning('delete berater ES %s: %s', pk, exc)
+        return False
+
+
 def search(
     *,
     q: str = '',
@@ -163,13 +210,24 @@ def search(
     status: Optional[str] = None,
     match_status: Optional[str] = None,
     sort: str = 'date_desc',
-    limit: int = 300,
+    limit: int = 5000,
+    include_deleted: bool = False,
 ) -> Optional[dict[str, Any]]:
     es = get_es()
     if not es or not ensure_index(es):
         return None
     filters: list[dict] = []
-    if status:
+    if not include_deleted:
+        filters.append({
+            'bool': {
+                'should': [
+                    {'term': {'deleted': False}},
+                    {'bool': {'must_not': {'exists': {'field': 'deleted'}}}},
+                ],
+                'minimum_should_match': 1,
+            }
+        })
+    if status and status != 'all':
         filters.append({'term': {'status': status}})
     if match_status:
         filters.append({'term': {'match_status': match_status}})
@@ -202,6 +260,11 @@ def search(
     order = 'asc' if sort in ('date_asc', 'asc', 'oldest') else 'desc'
     body = {
         'size': max(1, min(10000, int(limit))),
+        '_source': [
+            'name', 'gulp_id', 'ort', 'source', 'status', 'match_status', 'st',
+            'meta', 'note', 'verfuegbar_ab', 'satz', 'crm_contact_id',
+            'eingegangen_am', 'updated_at', 'cv_versions', 'deleted', 'skills',
+        ],
         'query': {'bool': {'must': must, 'filter': filters}},
         'sort': [
             {'eingegangen_am': {'order': order, 'unmapped_type': 'date', 'missing': '_last'}},
@@ -217,8 +280,12 @@ def search(
     except Exception as exc:
         log.warning('berater search failed: %s', exc)
         return None
-    hits = res.get('hits', {}).get('hits') or []
-    ids = [h.get('_id') for h in hits if h.get('_id')]
+    hits_raw = res.get('hits', {}).get('hits') or []
+    hits = []
+    for h in hits_raw:
+        src = dict(h.get('_source') or {})
+        src['id'] = h.get('_id')
+        hits.append(src)
     total = res.get('hits', {}).get('total', {})
     if isinstance(total, dict):
         total_n = total.get('value')
@@ -229,22 +296,29 @@ def search(
     )
     by_source = {b['key']: b['doc_count'] for b in buckets if b.get('key')}
     return {
-        'ids': ids,
+        'hits': hits,
+        'ids': [h['id'] for h in hits if h.get('id')],
         'total': total_n,
         'by_source': by_source,
         'source': 'elasticsearch',
     }
 
 
-def reindex_all(*, limit: int = 5000) -> dict[str, Any]:
+def reindex_all(*, limit: int = 50000, active_only: bool = True) -> dict[str, Any]:
     from apps.abpe_shaduler.models import RadarConsultantItem
     es = get_es()
     if not es or not ensure_index(es):
         return {'ok': False, 'error': 'ES unavailable'}
-    qs = RadarConsultantItem.objects.select_related('quelle').all()[:limit]
+    qs = RadarConsultantItem.objects.select_related('quelle').all()
+    if active_only:
+        qs = qs.filter(deleted_at__isnull=True).exclude(status='geloescht')
     n = 0
     errors = 0
-    for obj in qs:
+    if limit and limit > 0:
+        rows = list(qs[:limit])
+    else:
+        rows = qs.iterator(chunk_size=200)
+    for obj in rows:
         if index_one(obj):
             n += 1
         else:

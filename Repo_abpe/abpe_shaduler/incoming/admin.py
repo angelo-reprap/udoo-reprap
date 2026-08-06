@@ -65,14 +65,9 @@ class RadarItemGroupAdmin(admin.ModelAdmin):
 
 
 @admin.register(models.RadarConsultantItem)
-class RadarConsultantItemAdmin(admin.ModelAdmin):
-    list_display = (
-        'name', 'gulp_id', 'match_status', 'status', 'ort',
-        'crm_contact_id', 'verfuegbar_ab', 'updated_at',
-    )
-    list_filter = ('match_status', 'status')
-    search_fields = ('name', 'gulp_id', 'profil_url', 'dedup_hash', 'crm_contact_id', 'ort')
-    readonly_fields = ('dedup_hash', 'auto_update_log', 'cv_versions')
+class RadarConsultantItemAdmin(django.contrib.admin.ModelAdmin if False else object):
+    pass
+
 
 
 @admin.register(models.Sperrliste)

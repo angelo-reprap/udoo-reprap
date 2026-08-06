@@ -58,6 +58,14 @@ JOBS = [
             'incremental': True,
         },
     },
+    {
+        'job_key': 'radar_berater_index',
+        'owner_type': 'system',
+        'owner_ref': 'shaduler',
+        'webhook': 'radar-berater-index',
+        'rrule': 'FREQ=MINUTELY;INTERVAL=30',
+        'payload': {'job': 'radar_berater_index', 'reindex': True},
+    },
 ]
 
 

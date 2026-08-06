@@ -246,6 +246,11 @@ def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
     # Immer Talentfinder-URL aus gulp_id — nie Homepage/Xing/etc.
     obj.profil_url = gulp.profil_url_for_gulp_id(gulp_id) or (item.get('profil_url') or '')
     obj.name = name
+    # Re-Aktivierung wenn CRM gulp_id wieder da
+    if getattr(obj, 'deleted_at', None) or obj.status == RadarConsultantItem.Status.GELOESCHT:
+        obj.deleted_at = None
+        if obj.status == RadarConsultantItem.Status.GELOESCHT:
+            obj.status = RadarConsultantItem.Status.NEU
     if skills:
         obj.skills = skills
     if ort:
@@ -296,13 +301,18 @@ def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
     return obj
 
 
-def serialize_berater(obj) -> dict[str, Any]:
+def serialize_berater(obj, *, detail: bool = False, preview_chars: int = 4000) -> dict[str, Any]:
     eck = obj.eckdaten or {}
     st_map = {
         'bekannt': 'known',
         'unsicher': 'maybe',
         'unbekannt': 'new',
     }
+    body = obj.beschreibung or ''
+    if detail:
+        body = body[: max(0, int(preview_chars or 4000))]
+    else:
+        body = ''  # Liste ohne Volltext
     return {
         'id': str(obj.pk),
         'name': obj.name or gulp.placeholder_name(obj.gulp_id),
@@ -314,7 +324,7 @@ def serialize_berater(obj) -> dict[str, Any]:
         'city': obj.ort or '',
         'verfuegbar_ab': obj.verfuegbar_ab.isoformat() if obj.verfuegbar_ab else None,
         'satz': float(obj.satz) if obj.satz is not None else None,
-        'beschreibung': obj.beschreibung or '',
+        'beschreibung': body,
         'profil_url': (
             gulp.profil_url_for_gulp_id(obj.gulp_id)
             if obj.gulp_id
@@ -331,6 +341,7 @@ def serialize_berater(obj) -> dict[str, Any]:
         'updated_at': obj.updated_at.isoformat() if obj.updated_at else None,
         'cv_versions': len(obj.cv_versions or []),
         'cv_latest_chars': (obj.cv_versions or [{}])[-1].get('chars') if obj.cv_versions else None,
+        'deleted': bool(getattr(obj, 'deleted_at', None)),
         'meta': ' · '.join(x for x in [
             f'Gulp {obj.gulp_id}' if obj.gulp_id else '',
             obj.ort or '',
@@ -338,13 +349,63 @@ def serialize_berater(obj) -> dict[str, Any]:
             f'{obj.satz} €' if obj.satz is not None else '',
         ] if x),
         'note': (
-            '✔ CRM ' + (obj.crm_contact_id[:8] + '…' if obj.crm_contact_id else '')
-            if obj.match_status == 'bekannt'
-            else ('Platzhalter — optional in CRM anlegen' if (obj.name or '').startswith('Gulp ')
-                  else 'neu / unbekannt')
+            'gelöscht (CRM)' if getattr(obj, 'deleted_at', None)
+            else (
+                '✔ CRM ' + (obj.crm_contact_id[:8] + '…' if obj.crm_contact_id else '')
+                if obj.match_status == 'bekannt'
+                else ('Platzhalter — optional in CRM anlegen' if (obj.name or '').startswith('Gulp ')
+                      else 'neu / unbekannt')
+            )
         ),
-        'eckdaten': eck,
+        'eckdaten': eck if detail else {},
     }
+
+
+def serialize_list_hit(hit: dict[str, Any]) -> dict[str, Any]:
+    """Leichter Listeneintrag aus ES-_source (ohne beschreibung)."""
+    cid = hit.get('crm_contact_id') or ''
+    return {
+        'id': str(hit.get('id') or ''),
+        'name': hit.get('name') or gulp.placeholder_name(hit.get('gulp_id') or ''),
+        'gulp_id': hit.get('gulp_id') or '',
+        'src': hit.get('source') or 'gulp',
+        'sources': [hit.get('source') or 'gulp'],
+        'skills': hit.get('skills') or [],
+        'ort': hit.get('ort') or '',
+        'city': hit.get('ort') or '',
+        'verfuegbar_ab': hit.get('verfuegbar_ab'),
+        'satz': hit.get('satz'),
+        'beschreibung': '',
+        'profil_url': (
+            gulp.profil_url_for_gulp_id(hit.get('gulp_id') or '')
+            if hit.get('gulp_id') else ''
+        ),
+        'match_status': hit.get('match_status') or 'unbekannt',
+        'st': hit.get('st') or 'new',
+        'status': hit.get('status') or 'neu',
+        'crm_contact_id': cid,
+        'crm_url': f'/crm/berater/?detail={cid}' if cid else '',
+        'eingegangen_am': hit.get('eingegangen_am'),
+        'updated_at': hit.get('updated_at'),
+        'cv_versions': hit.get('cv_versions') or 0,
+        'deleted': bool(hit.get('deleted')),
+        'meta': hit.get('meta') or '',
+        'note': hit.get('note') or '',
+        'eckdaten': {},
+    }
+
+
+def get_berater_detail(pk: str, *, preview_chars: int = 4000) -> dict[str, Any]:
+    from apps.abpe_shaduler.models import RadarConsultantItem
+    import uuid
+    try:
+        uid = uuid.UUID(str(pk))
+    except Exception:
+        return {'ok': False, 'error': 'invalid id'}
+    obj = RadarConsultantItem.objects.select_related('quelle').filter(pk=uid).first()
+    if not obj:
+        return {'ok': False, 'error': 'not found'}
+    return {'ok': True, 'item': serialize_berater(obj, detail=True, preview_chars=preview_chars)}
 
 
 def list_berater(
@@ -367,28 +428,15 @@ def list_berater(
     seed_info: dict[str, Any] = {}
 
     # Leere Radar-Tabelle → einmal CRM-Seed (z. B. nach frischem Deploy)
-    if auto_seed and not RadarConsultantItem.objects.exists():
-        seed_info = seed_from_crm(limit=0)  # alle mit gulp_id
+    if auto_seed and not RadarConsultantItem.objects.filter(deleted_at__isnull=True).exists():
+        seed_info = sync_crm_index(limit=0, reindex=True)
         persist_info['auto_seed'] = seed_info
 
     if refresh:
-        pack = gulp.fetch_experts_list(page=0, size=40, available_only=available_only)
-        persist_info['gulp_fetch'] = {
-            'ok': pack.get('ok'),
-            'error': pack.get('error'),
-            'needs_auth': pack.get('needs_auth'),
-            'count': len(pack.get('results') or []),
-        }
-        if pack.get('ok'):
-            for it in pack.get('results') or []:
-                try:
-                    upsert_berater(it, apply_crm=True)
-                    fetched += 1
-                except Exception as exc:
-                    log.warning('upsert berater failed: %s', exc)
-        persist_info['fetched'] = fetched
+        # Manueller Refresh = CRM→Radar→ES Sync (nicht Gulp-Login-Liste)
+        persist_info['crm_sync'] = sync_crm_index(limit=0, reindex=True)
 
-    # ES first
+    # ES first — Liste direkt aus Hits (ohne DB-Hydrate)
     list_source = 'db'
     results: list[dict] = []
     by_src: dict = {}
@@ -402,36 +450,32 @@ def list_berater(
             match_status=match_status or None,
             sort=sort,
             limit=limit,
+            include_deleted=False,
         )
     except Exception as exc:
         log.warning('berater ES search error: %s', exc)
         es_pack = None
 
-    if es_pack and es_pack.get('ids') is not None:
+    if es_pack and es_pack.get('hits') is not None:
+        hits = es_pack.get('hits') or []
         list_source = 'elasticsearch'
         by_src = es_pack.get('by_source') or {}
         es_total = es_pack.get('total')
-        ids = es_pack.get('ids') or []
-        if ids:
-            import uuid as _uuid
-            uuids = []
-            for i in ids:
-                try:
-                    uuids.append(_uuid.UUID(str(i)))
-                except Exception:
-                    continue
-            objs = {
-                str(o.pk): o
-                for o in RadarConsultantItem.objects.filter(pk__in=uuids).select_related('quelle')
-            }
-            results = [serialize_berater(objs[str(u)]) for u in uuids if str(u) in objs]
-        if not results:
-            list_source = 'db'
-            by_src = {}
-            es_total = None
+        results = [serialize_list_hit(h) for h in hits]
+        # Leerer Index bei vorhandener DB → Fallback
+        if not results and not q and (es_total is None or es_total == 0):
+            if RadarConsultantItem.objects.filter(deleted_at__isnull=True).exists():
+                list_source = 'db'
+                by_src = {}
+                es_total = None
 
     if list_source != 'elasticsearch':
-        qs = RadarConsultantItem.objects.select_related('quelle').all()
+        qs = (
+            RadarConsultantItem.objects
+            .select_related('quelle')
+            .filter(deleted_at__isnull=True)
+            .exclude(status='geloescht')
+        )
         if status and status != 'all':
             qs = qs.filter(status=status)
         if match_status:
@@ -456,11 +500,12 @@ def list_berater(
         else:
             qs = qs.order_by('-eingegangen_am', '-updated_at')
         rows = list(qs[:limit])
-        results = [serialize_berater(o) for o in rows]
+        results = [serialize_berater(o, detail=False) for o in rows]
         list_source = 'db'
-        # by_source
         agg = (
-            RadarConsultantItem.objects.filter(quelle__name__in=BERATER_SOURCES)
+            RadarConsultantItem.objects
+            .filter(quelle__name__in=BERATER_SOURCES, deleted_at__isnull=True)
+            .exclude(status='geloescht')
             .values('quelle__name')
             .annotate(c=Count('id'))
         )
@@ -513,34 +558,35 @@ def paste_berater(text: str) -> dict[str, Any]:
 
 
 def seed_from_crm(*, limit: int = 0) -> dict[str, Any]:
-    """CRM-Kontakte mit gulp_id_c → Radar (bekannt). limit=0 → alle."""
+    """Alias: CRM gulp_id → Radar + Soft-Delete fehlender + ES."""
+    return sync_crm_index(limit=limit, reindex=True)
+
+
+def sync_crm_index(*, limit: int = 0, reindex: bool = True) -> dict[str, Any]:
+    """
+    Vollsync: alle CRM-Kontakte mit gulp_id_c → Radar.
+    Fehlende gulp_ids in Radar → soft-delete (deleted_at + status geloescht).
+    Optional ES-Reindex aktiver Einträge.
+    """
+    from apps.abpe_shaduler.models import RadarConsultantItem
+
     try:
         from apps.abpe_crm.models import CrmContact, CrmContactCstm
     except Exception as exc:
         return {'ok': False, 'error': f'CRM nicht verfügbar: {exc}'}
 
-    # Diagnose: wie viele gulp_ids in CRM?
     try:
         crm_with_gulp = (
             CrmContactCstm.objects
             .exclude(gulp_id_c__isnull=True)
             .exclude(gulp_id_c='')
-            .exclude(gulp_id_c__regex=r'^\s*$')
             .count()
         )
-    except Exception:
-        try:
-            crm_with_gulp = (
-                CrmContactCstm.objects
-                .exclude(gulp_id_c__isnull=True)
-                .exclude(gulp_id_c='')
-                .count()
-            )
-        except Exception as exc:
-            return {'ok': False, 'error': f'CRM cstm query failed: {exc}', 'crm_with_gulp': 0}
+    except Exception as exc:
+        return {'ok': False, 'error': f'CRM cstm query failed: {exc}', 'crm_with_gulp': 0}
 
     take = int(limit or 0)
-    # order_by: Feld heißt crm_date_modified (nicht date_modified)
+    seen_gids: set[str] = set()
     try:
         qs = (
             CrmContact.objects
@@ -551,7 +597,7 @@ def seed_from_crm(*, limit: int = 0) -> dict[str, Any]:
         )
         rows = list(qs[:take] if take > 0 else qs)
     except Exception as exc_orm:
-        log.warning('seed ORM path failed (%s) — fallback Cstm', exc_orm)
+        log.warning('sync ORM path failed (%s) — fallback Cstm', exc_orm)
         rows = []
         try:
             cstms = (
@@ -561,18 +607,18 @@ def seed_from_crm(*, limit: int = 0) -> dict[str, Any]:
                 .exclude(gulp_id_c='')
                 .order_by('-id')
             )
-            cstms = cstms[:take] if take > 0 else cstms
+            if take > 0:
+                cstms = cstms[:take]
             for cstm in cstms:
                 c = getattr(cstm, 'contact', None)
                 if c is None:
                     continue
-                # attach cstm for loop below
                 c._seed_cstm = cstm
                 rows.append(c)
         except Exception as exc2:
             return {
                 'ok': False,
-                'error': f'seed failed: {exc_orm} / {exc2}',
+                'error': f'sync failed: {exc_orm} / {exc2}',
                 'crm_with_gulp': crm_with_gulp,
             }
 
@@ -583,8 +629,18 @@ def seed_from_crm(*, limit: int = 0) -> dict[str, Any]:
         if not gid:
             n_skip += 1
             continue
+        seen_gids.add(gid)
         profil = (getattr(cstm, 'gulp_profil_c', None) or '') if cstm else ''
         desc = (c.description or '') or profil
+        kond = (getattr(cstm, 'konditionen_c', None) or '') if cstm else ''
+        satz = None
+        if kond:
+            m = re.search(r'(\d+(?:[.,]\d+)?)', str(kond))
+            if m:
+                try:
+                    satz = float(m.group(1).replace(',', '.'))
+                except ValueError:
+                    satz = None
         try:
             upsert_berater({
                 'gulp_id': gid,
@@ -597,24 +653,64 @@ def seed_from_crm(*, limit: int = 0) -> dict[str, Any]:
                     or ''
                 ),
                 'verfuegbar_ab': getattr(cstm, 'verfuegbar_ab_c', None) if cstm else None,
-                'beschreibung': (desc or '')[:4000],
-                'cv_text': (profil or desc or '')[:50000],
+                'satz': satz,
+                'beschreibung': (desc or '')[:80000],
+                'cv_text': (profil or desc or '')[:80000],
                 'profil_url': gulp.profil_url_for_gulp_id(gid),
-                'source': 'crm_seed',
+                'source': 'crm_sync',
                 'skills': [],
             }, apply_crm=False)
             n_ok += 1
         except Exception as exc:
-            log.warning('seed crm %s: %s', gid, exc)
+            log.warning('sync crm %s: %s', gid, exc)
             n_err += 1
+
+    # Soft-Delete nur bei Vollsync (limit=0): gulp_id nicht mehr in CRM
+    n_del = 0
+    if take <= 0:
+        active = (
+            RadarConsultantItem.objects
+            .filter(deleted_at__isnull=True)
+            .exclude(gulp_id='')
+            .exclude(status='geloescht')
+        )
+        for obj in active.iterator(chunk_size=500):
+            gid = (obj.gulp_id or '').strip()
+            if not gid or gid in seen_gids:
+                continue
+            obj.deleted_at = timezone.now()
+            obj.status = RadarConsultantItem.Status.GELOESCHT
+            log_rows = list(obj.auto_update_log or [])
+            log_rows.append({
+                'at': timezone.now().isoformat(),
+                'action': 'crm_soft_delete',
+                'gulp_id': gid,
+            })
+            obj.auto_update_log = log_rows[-50:]
+            obj.save(update_fields=['deleted_at', 'status', 'auto_update_log', 'updated_at'])
+            try:
+                berater_index.index_one(obj)
+            except Exception:
+                berater_index.delete_one(obj.pk)
+            n_del += 1
+
+    reindex_info = None
+    if reindex:
+        reindex_info = berater_index.reindex_all(
+            limit=0 if take <= 0 else max(take, n_ok + 100),
+            active_only=True,
+        )
+
     return {
         'ok': True,
         'seeded': n_ok,
         'errors': n_err,
         'skipped': n_skip,
+        'deleted': n_del,
         'crm_with_gulp': crm_with_gulp,
         'scanned': len(rows),
         'limit': take,
+        'reindex': reindex_info,
     }
 
 
@@ -632,4 +728,4 @@ def set_status(pk: str, status: str) -> dict[str, Any]:
         berater_index.index_one(obj)
     except Exception:
         pass
-    return {'ok': True, 'item': serialize_berater(obj)}
+    return {'ok': True, 'item': serialize_berater(obj, detail=False)}

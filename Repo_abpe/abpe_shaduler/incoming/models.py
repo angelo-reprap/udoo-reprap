@@ -340,6 +340,7 @@ class RadarConsultantItem(TimeStampedModel):
         BESTAETIGT = 'bestaetigt', 'Bestätigt'
         BEOBACHTEN = 'beobachten', 'Beobachten'
         VERWORFEN = 'verworfen', 'Verworfen'
+        GELOESCHT = 'geloescht', 'Gelöscht (CRM)'
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     quelle = models.ForeignKey(RadarSource, on_delete=models.CASCADE, related_name='consultant_items')
@@ -372,6 +373,8 @@ class RadarConsultantItem(TimeStampedModel):
     eingegangen_am = models.DateTimeField(null=True, blank=True, db_index=True)
     # CV-Versionen: [{at, source, hash, text|url, note}]
     cv_versions = models.JSONField(default=list, blank=True)
+    # Soft-Delete wenn CRM gulp_id entfernt / Kontakt weg
+    deleted_at = models.DateTimeField(null=True, blank=True, db_index=True)
 
     class Meta:
         verbose_name = 'Radar-Berater'

@@ -668,6 +668,18 @@ def api_radar_consultants(request):
 
 
 @login_required
+@require_GET
+def api_radar_consultant_detail(request, pk):
+    from .services import radar_berater_service as rbs
+    try:
+        chars = int(request.GET.get('chars') or 4000)
+    except ValueError:
+        chars = 4000
+    result = rbs.get_berater_detail(str(pk), preview_chars=max(500, min(20000, chars)))
+    return JsonResponse(result, status=200 if result.get('ok') else 404)
+
+
+@login_required
 @require_POST
 def api_radar_consultant_confirm(request, pk):
     from .services import radar_berater_service as rbs
@@ -686,9 +698,8 @@ def api_radar_consultant_dismiss(request, pk):
 @login_required
 @require_http_methods(['POST'])
 def api_radar_berater_seed(request):
-    """CRM gulp_id_c → Radar + optional Reindex."""
+    """CRM gulp_id_c → Radar + Soft-Delete + Reindex."""
     from .services import radar_berater_service as rbs
-    from .services import radar_berater_index as idx
     try:
         payload = json.loads(request.body.decode('utf-8') or '{}')
     except Exception:
@@ -698,10 +709,20 @@ def api_radar_berater_seed(request):
     except ValueError:
         limit = 0
     do_reindex = payload.get('reindex', True) is not False
-    result = rbs.seed_from_crm(limit=limit)
-    if do_reindex and result.get('ok'):
-        re_lim = limit if limit and limit > 0 else 50000
-        result['reindex'] = idx.reindex_all(limit=re_lim)
+    result = rbs.sync_crm_index(limit=limit, reindex=do_reindex)
+    return JsonResponse(result, status=200 if result.get('ok') else 400)
+
+
+@login_required
+@require_http_methods(['POST'])
+def api_radar_berater_reindex(request):
+    """Manueller Index-Update: CRM-Sync + ES (wie 30-Min-Job)."""
+    from .services import radar_berater_service as rbs
+    try:
+        payload = json.loads(request.body.decode('utf-8') or '{}')
+    except Exception:
+        payload = {}
+    result = rbs.sync_crm_index(limit=0, reindex=payload.get('reindex', True) is not False)
     return JsonResponse(result, status=200 if result.get('ok') else 400)
 
 

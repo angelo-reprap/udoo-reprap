@@ -553,7 +553,9 @@ def stats(user) -> dict[str, Any]:
     try:
         from apps.abpe_shaduler.models import RadarItem, RadarConsultantItem
         radar_a = RadarItem.objects.filter(status='neu').count()
-        radar_b = RadarConsultantItem.objects.filter(status='neu').count()
+        radar_b = RadarConsultantItem.objects.filter(
+            status='neu', deleted_at__isnull=True,
+        ).count()
     except Exception:
         pass
     return {
