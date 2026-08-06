@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
-# Repo → Live: abpe_ki_wiz + Matching-UI (KI-Anfragen-Wizard)
+# Repo → Live: abpe_ki_wiz + Matching-UI + Shaduler (Radar Anfragen/Berater)
 #
-# Auf ucs5:
-#   cd /mnt/public/udoo-reprap && git fetch origin
-#   bash scripts/SYNC-matching-ki-anfrage-wizard.sh
+# Auf ucs5 (erst fetch, dann Script — sonst läuft eine alte Script-Version):
+#   cd /mnt/public/udoo-reprap
+#   git fetch origin cursor/matching-ki-anfrage-wizard-7f07
+#   bash <(git show origin/cursor/matching-ki-anfrage-wizard-7f07:scripts/SYNC-matching-ki-anfrage-wizard.sh)
+#   supervisorctl restart abpe-django
+#   # Browser: Ctrl+F5
 set -euo pipefail
 
 REPO="${REPO:-/mnt/public/udoo-reprap}"
