@@ -549,6 +549,13 @@ def stats(user) -> dict[str, Any]:
         status=Aufgabe.Status.ERLEDIGT,
         erledigt_am__date=today,
     ).count()
+    radar_a = radar_b = 0
+    try:
+        from apps.abpe_shaduler.models import RadarItem, RadarConsultantItem
+        radar_a = RadarItem.objects.filter(status='neu').count()
+        radar_b = RadarConsultantItem.objects.filter(status='neu').count()
+    except Exception:
+        pass
     return {
         'ok': True,
         'demo': False,
@@ -559,8 +566,8 @@ def stats(user) -> dict[str, Any]:
         'badges': {
             'aufgaben': heute + ueber,
             'posteingang': _inbox_unread_badge(user),
-            'radar_anfragen': 0,
-            'radar_berater': 0,
+            'radar_anfragen': radar_a,
+            'radar_berater': radar_b,
         },
     }
 

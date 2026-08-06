@@ -635,28 +635,64 @@ def api_radar_group_merge(request, pk):
 @require_GET
 def api_radar_consultants(request):
     from .demo_data import demo_radar_berater
-    use_demo = request.GET.get('demo', '1') != '0'
+    from .services import radar_berater_service as rbs
+
+    use_demo = request.GET.get('demo', '0') == '1'
     if use_demo:
         return JsonResponse({'ok': True, 'demo': True, 'results': demo_radar_berater()})
-    return _stub()
+
+    try:
+        days = int(request.GET.get('days') or '0')
+    except ValueError:
+        days = 0
+    try:
+        limit = int(request.GET.get('limit') or '300')
+    except ValueError:
+        limit = 300
+    available_only = request.GET.get('available', '1') != '0'
+    result = rbs.list_berater(
+        q=(request.GET.get('q') or '').strip(),
+        days=days,
+        source=(request.GET.get('source') or '').strip().lower(),
+        status=(request.GET.get('status') or 'neu').strip(),
+        match_status=(request.GET.get('match') or '').strip(),
+        sort=(request.GET.get('sort') or 'date_desc').strip(),
+        limit=limit,
+        refresh=request.GET.get('refresh') == '1',
+        available_only=available_only,
+    )
+    return JsonResponse(result)
 
 
 @login_required
 @require_POST
 def api_radar_consultant_confirm(request, pk):
-    return _stub({'id': str(pk)}, status=501)
+    from .services import radar_berater_service as rbs
+    result = rbs.set_status(str(pk), 'bestaetigt')
+    return JsonResponse(result, status=200 if result.get('ok') else 400)
 
 
 @login_required
 @require_POST
 def api_radar_consultant_dismiss(request, pk):
-    return _stub({'id': str(pk)}, status=501)
+    from .services import radar_berater_service as rbs
+    result = rbs.set_status(str(pk), 'verworfen')
+    return JsonResponse(result, status=200 if result.get('ok') else 400)
 
 
 @login_required
 @require_http_methods(['POST'])
 def api_radar_paste(request):
-    return _stub(status=501)
+    from .services import radar_berater_service as rbs
+    try:
+        payload = json.loads(request.body.decode('utf-8') or '{}')
+    except Exception:
+        payload = {}
+    text = (payload.get('text') or payload.get('url') or request.POST.get('text') or '').strip()
+    if not text:
+        return JsonResponse({'ok': False, 'error': 'text/url fehlt'}, status=400)
+    result = rbs.paste_berater(text)
+    return JsonResponse(result, status=200 if result.get('ok') else 400)
 
 
 @login_required

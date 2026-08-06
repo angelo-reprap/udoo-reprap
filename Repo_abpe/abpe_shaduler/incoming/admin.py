@@ -66,9 +66,13 @@ class RadarItemGroupAdmin(admin.ModelAdmin):
 
 @admin.register(models.RadarConsultantItem)
 class RadarConsultantItemAdmin(admin.ModelAdmin):
-    list_display = ('name', 'match_status', 'status', 'ort', 'match_confidence')
+    list_display = (
+        'name', 'gulp_id', 'match_status', 'status', 'ort',
+        'crm_contact_id', 'verfuegbar_ab', 'updated_at',
+    )
     list_filter = ('match_status', 'status')
-    search_fields = ('name', 'profil_url', 'dedup_hash')
+    search_fields = ('name', 'gulp_id', 'profil_url', 'dedup_hash', 'crm_contact_id', 'ort')
+    readonly_fields = ('dedup_hash', 'auto_update_log', 'cv_versions')
 
 
 @admin.register(models.Sperrliste)

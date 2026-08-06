@@ -151,11 +151,30 @@
     }
     if (name === 'radar_berater') {
       return (
-        '<div class="sh-pane" data-pane="radar_berater"><div class="sh-card">' +
-        '<div class="card-h"><i class="bi bi-person-bounding-box"></i> Berater-Profile</div>' +
-        '<div class="paste"><input id="sh-radar-paste" placeholder="Talentfinder: Profil-URL oder Text …">' +
-        '<button type="button" id="sh-radar-paste-btn"><i class="bi bi-plus-lg"></i></button></div>' +
-        '<div id="sh-radar-b"></div></div></div>'
+        '<div class="sh-pane" data-pane="radar_berater"><div class="sh-card sh-inbox-card sh-radar-card">' +
+        '<div class="card-h"><i class="bi bi-person-bounding-box"></i> ' +
+        esc(_t('sh.tab_radar_b', 'Radar — Berater')) +
+        '<span class="sh-inbox-meta" style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px;flex-wrap:wrap">' +
+        '<span id="sh-radar-b-hint">' + esc(_t('sh.radar_b_hint', 'Gulp Talentfinder')) + '</span>' +
+        '<span id="r-b-new" class="sh-radar-count">0</span>' +
+        '<button type="button" class="sh-inbox-refresh" id="sh-radar-b-refresh" title="' +
+        esc(_t('sh.radar_b_refresh', 'Gulp aktualisieren')) + '">' +
+        '<i class="bi bi-arrow-clockwise"></i></button>' +
+        '</span></div>' +
+        '<div class="paste" style="display:flex;gap:8px;padding:8px 12px;border-bottom:1px solid var(--border-color,#eee)">' +
+        '<input id="sh-radar-paste" class="matching-form-input" style="flex:1" ' +
+        'placeholder="' + esc(_t('sh.radar_b_paste_ph', 'Gulp-ID oder Talentfinder-URL …')) + '">' +
+        '<button type="button" class="matching-btn-sm" id="sh-radar-paste-btn">' +
+        '<i class="bi bi-plus-lg"></i> ' + esc(_t('sh.radar_b_paste', 'Übernehmen')) + '</button></div>' +
+        '<div class="sh-inbox-toolbar" id="sh-radar-b-toolbar"></div>' +
+        '<div class="sh-inbox-split">' +
+        '<div class="sh-inbox-list-wrap">' +
+        '<div class="sh-inbox-pager sh-inbox-pager-top" id="sh-radar-b-pager"></div>' +
+        '<div class="sh-inbox-list" id="sh-radar-b-list" tabindex="0"></div>' +
+        '</div>' +
+        '<div class="sh-inbox-viewer" id="sh-radar-b-viewer">' +
+        '<div class="sh-viewer-empty">' + esc(_t('sh.radar_b_pick', 'Berater auswählen')) + '</div>' +
+        '</div></div></div></div>'
       );
     }
     if (name === 'regeln') {
@@ -2661,52 +2680,318 @@
     void fakeMail;
   }
 
-  function loadRadarB() {
-    fetch(api('radar/berater/?demo=1'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+  function loadRadarB(opts) {
+    opts = opts || {};
+    var doRefresh = opts.refresh === true;
+    var soft = !!opts.soft;
+    renderRadarBToolbar();
+    var list = document.getElementById('sh-radar-b-list');
+    var viewer = document.getElementById('sh-radar-b-viewer');
+    if (!soft) {
+      if (list) list.innerHTML = '<div class="sh-viewer-loading">' + esc(_t('sh.loading', 'Laden…')) + '</div>';
+      if (viewer) {
+        viewer.innerHTML = '<div class="sh-viewer-empty">' + esc(_t('sh.radar_b_pick', 'Berater auswählen')) + '</div>';
+      }
+    }
+    var btn = document.getElementById('sh-radar-b-refresh');
+    if (btn) {
+      btn.onclick = function () { loadRadarB({ refresh: true }); };
+      if (doRefresh) { btn.disabled = true; btn.classList.add('busy'); }
+    }
+    var pasteBtn = document.getElementById('sh-radar-paste-btn');
+    if (pasteBtn && !pasteBtn.dataset.bound) {
+      pasteBtn.dataset.bound = '1';
+      pasteBtn.onclick = function () {
+        var inp = document.getElementById('sh-radar-paste');
+        var text = inp ? String(inp.value || '').trim() : '';
+        if (!text) { toast(_t('sh.radar_b_paste_need', 'Gulp-ID oder URL eingeben')); return; }
+        pasteBtn.disabled = true;
+        fetch(api('radar/berater/einfuegen/'), {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({ text: text }),
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            pasteBtn.disabled = false;
+            if (!d.ok) {
+              toast(d.error || _t('sh.toast_error', 'Fehler'));
+              return;
+            }
+            if (inp) inp.value = '';
+            toast(d.fetched
+              ? _t('sh.radar_b_paste_ok', 'Profil übernommen')
+              : _t('sh.radar_b_paste_placeholder', 'Platzhalter angelegt (Gulp-Login für Details)'));
+            loadRadarB({ soft: true });
+          })
+          .catch(function () {
+            pasteBtn.disabled = false;
+            toast(_t('sh.toast_error', 'Fehler'));
+          });
+      };
+    }
+    var q = 'radar/berater/?demo=0&status=' + encodeURIComponent(RADAR_B_STATUS || 'neu') +
+      '&refresh=' + (doRefresh ? '1' : '0') +
+      '&days=' + encodeURIComponent(String(RADAR_B_DAYS)) +
+      '&sort=' + encodeURIComponent(RADAR_B_SORT || 'date_desc') +
+      '&available=' + (RADAR_B_AVAIL ? '1' : '0') +
+      '&limit=300';
+    if (RADAR_B_Q) q += '&q=' + encodeURIComponent(RADAR_B_Q);
+    if (RADAR_B_SOURCE) q += '&source=' + encodeURIComponent(RADAR_B_SOURCE);
+    if (RADAR_B_MATCH) q += '&match=' + encodeURIComponent(RADAR_B_MATCH);
+    fetch(api(q), {
+      credentials: 'same-origin',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
+    })
       .then(function (r) { return r.json(); })
       .then(function (data) {
-        renderRadarB(data.results || []);
+        if (btn) { btn.disabled = false; btn.classList.remove('busy'); }
+        RADAR_B_ITEMS = data.results || [];
+        if (!soft) RADAR_B_PAGE = 1;
+        renderRadarB(RADAR_B_ITEMS);
+        var hint = document.getElementById('sh-radar-b-hint');
+        if (hint) {
+          var by = data.by_source || {};
+          var parts = [];
+          Object.keys(by).forEach(function (k) { if (k) parts.push(k + ': ' + by[k]); });
+          var ls = data.list_source || '';
+          var lsLbl = ls === 'elasticsearch' ? 'ES' : (ls === 'db' ? 'DB' : ls);
+          hint.textContent = data.demo
+            ? _t('sh.radar_demo', 'Demo')
+            : _t('sh.radar_b_hint', 'Gulp Talentfinder') +
+              (RADAR_B_AVAIL ? ' · verfügbar/neu' : ' · alle') +
+              (lsLbl ? (' · ' + lsLbl) : '') +
+              (parts.length ? (' · ' + parts.join(', ')) : '') +
+              (data.gulp_session === false ? ' · ohne Gulp-Login' : '') +
+              (doRefresh && data.fetched != null ? (' · ' + data.fetched + ' gelesen') : '');
+        }
         refreshStats();
       })
-      .catch(function () { renderRadarB([]); });
+      .catch(function () {
+        if (btn) { btn.disabled = false; btn.classList.remove('busy'); }
+        RADAR_B_ITEMS = [];
+        renderRadarB([]);
+        toast(_t('sh.radar_err', 'Radar konnte nicht geladen werden'));
+      });
+  }
+
+  var RADAR_B_ITEMS = [];
+  var RADAR_B_SELECTED = null;
+  var RADAR_B_PAGE = 1;
+  var RADAR_B_PAGE_SIZE = 20;
+  var RADAR_B_Q = '';
+  var RADAR_B_DAYS = 0;
+  var RADAR_B_SORT = 'date_desc';
+  var RADAR_B_SOURCE = 'gulp';
+  var RADAR_B_STATUS = 'neu';
+  var RADAR_B_MATCH = '';
+  var RADAR_B_AVAIL = true;
+  try {
+    var _bps = parseInt(localStorage.getItem('sh_radar_b_page_size') || '20', 10);
+    if ([5, 10, 20, 50].indexOf(_bps) >= 0) RADAR_B_PAGE_SIZE = _bps;
+    var _bd = parseInt(localStorage.getItem('sh_radar_b_days') || '0', 10);
+    if ([0, 1, 2, 7, 30].indexOf(_bd) >= 0) RADAR_B_DAYS = _bd;
+  } catch (eB) { /* ignore */ }
+
+  function renderRadarBToolbar() {
+    var t = document.getElementById('sh-radar-b-toolbar');
+    if (!t) return;
+    var sizes = [5, 10, 20, 50];
+    var sizeOpts = sizes.map(function (n) {
+      return '<option value="' + n + '"' + (RADAR_B_PAGE_SIZE === n ? ' selected' : '') + '>' + n + '</option>';
+    }).join('');
+    var dayOpts = [
+      [0, _t('sh.radar_days_all', 'alle')],
+      [1, _t('sh.radar_days_1', 'heute')],
+      [2, _t('sh.radar_days_2', '2 Tage')],
+      [7, _t('sh.radar_days_7', '7 Tage')],
+      [30, _t('sh.radar_days_30', '30 Tage')],
+    ].map(function (p) {
+      return '<option value="' + p[0] + '"' + (RADAR_B_DAYS === p[0] ? ' selected' : '') + '>' + esc(p[1]) + '</option>';
+    }).join('');
+    t.innerHTML =
+      '<form class="sh-inbox-search" id="sh-radar-b-search">' +
+      '<input type="search" id="sh-radar-b-q" value="' + esc(RADAR_B_Q) + '" ' +
+      'placeholder="' + esc(_t('sh.radar_b_search_ph', 'Name, Gulp-ID, Skills, Ort …')) + '" />' +
+      '<button type="submit" class="pri"><i class="bi bi-search"></i> ' +
+      esc(_t('sh.inbox_search', 'Suchen')) + '</button></form>' +
+      '<div class="sh-inbox-opts">' +
+      '<select id="sh-radar-b-days">' + dayOpts + '</select>' +
+      '<select id="sh-radar-b-sort">' +
+      '<option value="date_desc"' + (RADAR_B_SORT === 'date_desc' ? ' selected' : '') + '>' +
+      esc(_t('sh.inbox_sort_new', 'Datum: neueste')) + '</option>' +
+      '<option value="date_asc"' + (RADAR_B_SORT === 'date_asc' ? ' selected' : '') + '>' +
+      esc(_t('sh.inbox_sort_old', 'Datum: älteste')) + '</option>' +
+      '</select>' +
+      '<select id="sh-radar-b-match">' +
+      '<option value="">' + esc(_t('sh.radar_b_match_all', 'Match: alle')) + '</option>' +
+      '<option value="bekannt"' + (RADAR_B_MATCH === 'bekannt' ? ' selected' : '') + '>bekannt (CRM)</option>' +
+      '<option value="unbekannt"' + (RADAR_B_MATCH === 'unbekannt' ? ' selected' : '') + '>unbekannt</option>' +
+      '</select>' +
+      '<select id="sh-radar-b-avail">' +
+      '<option value="1"' + (RADAR_B_AVAIL ? ' selected' : '') + '>' + esc(_t('sh.radar_b_avail', 'verfügbar/neu')) + '</option>' +
+      '<option value="0"' + (!RADAR_B_AVAIL ? ' selected' : '') + '>' + esc(_t('sh.radar_b_allvis', 'alle sichtbaren')) + '</option>' +
+      '</select>' +
+      '<label class="sh-inbox-pagesize"><span>' + esc(_t('sh.inbox_per_page', 'Anzeigen')) + '</span> ' +
+      '<select id="sh-radar-b-pagesize">' + sizeOpts + '</select></label>' +
+      '</div>';
+    var form = document.getElementById('sh-radar-b-search');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var inp = document.getElementById('sh-radar-b-q');
+        RADAR_B_Q = inp ? String(inp.value || '').trim() : '';
+        RADAR_B_PAGE = 1;
+        loadRadarB({ soft: true });
+      });
+    }
+    var days = document.getElementById('sh-radar-b-days');
+    if (days) days.onchange = function () {
+      RADAR_B_DAYS = parseInt(days.value, 10) || 0;
+      try { localStorage.setItem('sh_radar_b_days', String(RADAR_B_DAYS)); } catch (e2) {}
+      RADAR_B_PAGE = 1;
+      loadRadarB({ soft: true });
+    };
+    var sort = document.getElementById('sh-radar-b-sort');
+    if (sort) sort.onchange = function () {
+      RADAR_B_SORT = sort.value || 'date_desc';
+      loadRadarB({ soft: true });
+    };
+    var match = document.getElementById('sh-radar-b-match');
+    if (match) match.onchange = function () {
+      RADAR_B_MATCH = match.value || '';
+      loadRadarB({ soft: true });
+    };
+    var avail = document.getElementById('sh-radar-b-avail');
+    if (avail) avail.onchange = function () {
+      RADAR_B_AVAIL = avail.value !== '0';
+      loadRadarB({ soft: true });
+    };
+    var psz = document.getElementById('sh-radar-b-pagesize');
+    if (psz) psz.onchange = function () {
+      RADAR_B_PAGE_SIZE = parseInt(psz.value, 10) || 20;
+      RADAR_B_PAGE = 1;
+      try { localStorage.setItem('sh_radar_b_page_size', String(RADAR_B_PAGE_SIZE)); } catch (e3) {}
+      renderRadarB(RADAR_B_ITEMS);
+    };
   }
 
   function renderRadarB(items) {
-    var c = document.getElementById('sh-radar-b');
+    var c = document.getElementById('sh-radar-b-list');
     if (!c) return;
+    items = items || [];
+    var total = items.length;
+    var size = Math.max(1, RADAR_B_PAGE_SIZE || 20);
+    var pages = Math.max(1, Math.ceil(total / size) || 1);
+    if (RADAR_B_PAGE > pages) RADAR_B_PAGE = pages;
+    if (RADAR_B_PAGE < 1) RADAR_B_PAGE = 1;
+    var start = (RADAR_B_PAGE - 1) * size;
+    var slice = items.slice(start, start + size);
     c.innerHTML = '';
-    var lbl = { known: '✔ im Bestand', maybe: '? unsicher', new: 'neu entdeckt' };
-    items.forEach(function (r) {
-      var e = document.createElement('div');
-      e.className = 'ritem';
-      var acts = '';
-      if (r.st === 'maybe') {
-        acts = '<button type="button" class="pri sh-confirm"><i class="bi bi-check2"></i> Verknüpfen</button>';
-      } else if (r.st === 'new') {
-        acts = '<button type="button" class="pri"><i class="bi bi-eye"></i> Beobachten</button>' +
-          '<button type="button" class="sh-dismiss"><i class="bi bi-x-lg"></i> Verwerfen</button>';
-      } else {
-        acts = '<button type="button"><i class="bi bi-person-badge"></i> Profil öffnen</button>';
-      }
-      e.innerHTML =
-        '<div class="top"><span class="mstat ' + esc(r.st) + '">' + esc(lbl[r.st] || r.st) + '</span>' +
-        '<b class="hl">' + esc(r.name) + '</b><span class="src">' + esc(r.src) + '</span></div>' +
-        '<div class="meta">' + esc(r.meta) + '</div>' +
-        '<div class="meta" style="color:var(--status-green)"><i class="bi bi-info-circle"></i> ' + esc(r.note) + '</div>' +
-        '<div class="racts">' + acts + '</div>';
-      c.appendChild(e);
-      var conf = e.querySelector('.sh-confirm');
-      if (conf) conf.onclick = function () { toast(_t('sh.toast_link', 'Profil verknüpft (Demo)')); };
-      var dis = e.querySelector('.sh-dismiss');
-      if (dis) dis.onclick = function () { e.remove(); toast(_t('sh.toast_dismiss', 'Verworfen (Demo)')); };
-    });
-    var el = document.getElementById('tb-rb'); if (el) el.textContent = items.length;
-    var pasteBtn = document.getElementById('sh-radar-paste-btn');
-    if (pasteBtn) {
-      pasteBtn.onclick = function () {
-        toast(_t('sh.toast_paste', 'Parsing + Abgleich (Demo)'));
-      };
+    if (!total) {
+      c.innerHTML = '<div class="sh-viewer-empty">' +
+        esc(_t('sh.radar_b_empty', 'Keine Berater')) +
+        ' — ' + esc(_t('sh.radar_b_empty_hint', 'Gulp-ID einfügen oder CRM-Seed')) + '</div>';
     }
+    var lbl = { known: '✔ CRM', maybe: '? unsicher', new: 'neu' };
+    slice.forEach(function (r) {
+      var e = document.createElement('div');
+      e.className = 'ritem' + (RADAR_B_SELECTED && RADAR_B_SELECTED.id === r.id ? ' on' : '');
+      e.setAttribute('data-id', r.id);
+      e.innerHTML =
+        '<div class="top"><span class="mstat ' + esc(r.st || 'new') + '">' +
+        esc(lbl[r.st] || r.match_status || r.st) + '</span>' +
+        '<b class="hl">' + esc(r.name || '') + '</b>' +
+        '<span class="src">' + esc(r.src || 'gulp') + '</span></div>' +
+        '<div class="meta">' + esc(r.meta || '') + '</div>' +
+        '<div class="meta" style="color:var(--status-green)">' + esc(r.note || '') + '</div>';
+      e.onclick = function () { openRadarBeraterItem(r, e); };
+      c.appendChild(e);
+    });
+    var countEl = document.getElementById('r-b-new');
+    if (countEl) countEl.textContent = String(total);
+    var pager = document.getElementById('sh-radar-b-pager');
+    if (pager) {
+      pager.innerHTML = '<span>' + (total ? (start + 1) : 0) + '–' +
+        Math.min(start + size, total) + ' / ' + total + '</span> ' +
+        '<button type="button" id="sh-radar-b-prev"' + (RADAR_B_PAGE <= 1 ? ' disabled' : '') + '>&lt;</button>' +
+        '<span>' + RADAR_B_PAGE + ' / ' + pages + '</span>' +
+        '<button type="button" id="sh-radar-b-next"' + (RADAR_B_PAGE >= pages ? ' disabled' : '') + '>&gt;</button>';
+      var prev = document.getElementById('sh-radar-b-prev');
+      var next = document.getElementById('sh-radar-b-next');
+      if (prev) prev.onclick = function () { RADAR_B_PAGE--; renderRadarB(RADAR_B_ITEMS); };
+      if (next) next.onclick = function () { RADAR_B_PAGE++; renderRadarB(RADAR_B_ITEMS); };
+    }
+  }
+
+  function openRadarBeraterItem(r, rowEl) {
+    RADAR_B_SELECTED = r;
+    document.querySelectorAll('#sh-radar-b-list .ritem.on').forEach(function (el) {
+      el.classList.remove('on');
+    });
+    if (rowEl) rowEl.classList.add('on');
+    var v = document.getElementById('sh-radar-b-viewer');
+    if (!v) return;
+    var skills = (r.skills || []).map(function (s) {
+      return '<span class="src" style="margin:2px">' + esc(s) + '</span>';
+    }).join(' ');
+    v.innerHTML =
+      '<div class="sh-viewer-head"><b>' + esc(r.name || '') + '</b>' +
+      (r.gulp_id ? ' <span class="src">Gulp ' + esc(r.gulp_id) + '</span>' : '') + '</div>' +
+      '<div class="sh-viewer-meta">' + esc(r.meta || '') + '</div>' +
+      '<div class="sh-viewer-meta">' + esc(r.note || '') + '</div>' +
+      (skills ? '<div style="margin:8px 0">' + skills + '</div>' : '') +
+      '<div class="sh-viewer-body" style="white-space:pre-wrap">' +
+      esc((r.beschreibung || '').slice(0, 4000) || '—') + '</div>' +
+      '<div class="racts" style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">' +
+      (r.profil_url
+        ? '<a class="matching-btn-sm" href="' + esc(r.profil_url) + '" target="_blank" rel="noopener">' +
+          '<i class="bi bi-box-arrow-up-right"></i> Gulp</a>'
+        : '') +
+      (r.crm_url
+        ? '<a class="matching-btn-sm" href="' + esc(r.crm_url) + '" target="_blank" rel="noopener">' +
+          '<i class="bi bi-person-badge"></i> CRM</a>'
+        : '<button type="button" class="matching-btn-sm" id="sh-radar-b-crm-hint" disabled>' +
+          esc(_t('sh.radar_b_crm_later', 'CRM-Anlage folgt')) + '</button>') +
+      '<button type="button" class="matching-btn-sm" id="sh-radar-b-ok">' +
+      '<i class="bi bi-check2"></i> Bestätigen</button>' +
+      '<button type="button" class="matching-btn-sm" id="sh-radar-b-no">' +
+      '<i class="bi bi-x-lg"></i> Verwerfen</button>' +
+      (r.cv_versions ? '<span class="src">CV-Versionen: ' + esc(String(r.cv_versions)) + '</span>' : '') +
+      '</div>';
+    var ok = document.getElementById('sh-radar-b-ok');
+    var no = document.getElementById('sh-radar-b-no');
+    if (ok) ok.onclick = function () {
+      fetch(api('radar/berater/' + encodeURIComponent(r.id) + '/bestaetigen/'), {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+      }).then(function (res) { return res.json(); }).then(function (d) {
+        toast(d.ok ? _t('sh.toast_link', 'Bestätigt') : (d.error || 'Fehler'));
+        loadRadarB({ soft: true });
+      });
+    };
+    if (no) no.onclick = function () {
+      fetch(api('radar/berater/' + encodeURIComponent(r.id) + '/verwerfen/'), {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+      }).then(function (res) { return res.json(); }).then(function (d) {
+        toast(d.ok ? _t('sh.toast_dismiss', 'Verworfen') : (d.error || 'Fehler'));
+        loadRadarB({ soft: true });
+      });
+    };
   }
 
   function applyI18n(root) {

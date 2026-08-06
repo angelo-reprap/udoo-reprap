@@ -128,11 +128,15 @@ for k in ('wiz_matching_anfrage_generate','wiz_firma_web_enrich'):
 
 echo
 echo "Restart: supervisorctl restart abpe-django"
-echo "Optional (Radar ES einmalig): $PYBIN manage.py radar_reindex --status neu"
+echo "Optional (Radar Anfragen ES): $PYBIN manage.py radar_reindex --status neu"
 echo "Optional (Radar Dedup):       $PYBIN manage.py radar_regroup --days 14"
+echo "Optional (Radar Berater):     $PYBIN manage.py migrate abpe_shaduler"
+echo "Optional (Radar Berater):     $PYBIN manage.py radar_berater_seed --reindex"
+echo "  Gulp-Login: settings.json → shaduler.gulp_talentfinder.cookies"
 echo "UI Matching: Button „KI-Anfragen-Wizard“ links neben „+ Neue Anfrage“"
 echo "UI Firma: Neuer Kontakt → „Aus Web anreichern“ (Homepage/Impressum)"
-echo "UI: Matching; Posteingang Antworten; Radar = FM+Gulp+Hays (Suche/Zeitraum/Sort/Quelle/Dedup)"
+echo "UI: Matching; Posteingang Antworten; Radar Anfragen = FM+Gulp+Hays"
+echo "UI: Radar Berater = Gulp (Suche/verfügbar/Match/Paste Gulp-ID; CRM gulp_id_c)"
 echo "API: POST /ki-wizard/api/matching-anfrage/extract/"
 echo "API: POST /ki-wizard/api/firma-web/enrich/"
 echo "Browser: Ctrl+F5 (mod-matching.js + mod-shaduler.js/css)"

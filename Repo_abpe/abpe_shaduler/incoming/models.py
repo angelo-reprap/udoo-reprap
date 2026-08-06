@@ -364,6 +364,14 @@ class RadarConsultantItem(TimeStampedModel):
     status = models.CharField(
         max_length=20, choices=Status.choices, default=Status.NEU, db_index=True,
     )
+    # Phase-1 Erweiterungen (Gulp Talentfinder)
+    gulp_id = models.CharField(max_length=32, blank=True, db_index=True)
+    crm_contact_id = models.CharField(max_length=36, blank=True, db_index=True)
+    beschreibung = models.TextField(blank=True)
+    eckdaten = models.JSONField(default=dict, blank=True)
+    eingegangen_am = models.DateTimeField(null=True, blank=True, db_index=True)
+    # CV-Versionen: [{at, source, hash, text|url, note}]
+    cv_versions = models.JSONField(default=list, blank=True)
 
     class Meta:
         verbose_name = 'Radar-Berater'
