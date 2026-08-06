@@ -23,6 +23,8 @@ from .serializers import (
     ClarifyRequestSerializer,
     ClarifyResponseSerializer,
     ErrorSerializer,
+    FirmaWebEnrichRequestSerializer,
+    FirmaWebEnrichResponseSerializer,
     GenerateRequestSerializer,
     GenerateResponseSerializer,
     HealthResponseSerializer,
@@ -42,6 +44,7 @@ from .services.orchestrator import (
     suggest_meta_session,
 )
 from .services.matching_anfrage_extract import extract_matching_anfrage
+from .services.firma_web_enrich import enrich_firma_from_web
 from .services.session_store import create_session, get_session_for_user, session_to_dict
 
 log = logging.getLogger('abpe_ki_wiz.api')
@@ -448,4 +451,47 @@ class KiWizardMatchingAnfrageExtractAPI(APIView):
             return Response(result)
         except Exception as exc:
             log.exception('matching_anfrage extract failed')
+            return Response({'error': str(exc)}, status=500)
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class KiWizardFirmaWebEnrichAPI(APIView):
+    """
+    POST /ki-wizard/api/firma-web/enrich/
+    Firmenname → öffentliche Website/Impressum → Stammdaten-Vorschlag.
+    Schreibt nichts ins CRM — UI bestätigt und speichert.
+    """
+
+    permission_classes = [IsAuthenticated]
+
+    @extend_schema(
+        tags=['matching'],
+        summary='Firma aus Web anreichern',
+        request=FirmaWebEnrichRequestSerializer,
+        responses={
+            200: FirmaWebEnrichResponseSerializer,
+            400: ErrorSerializer,
+            401: ErrorSerializer,
+            502: FirmaWebEnrichResponseSerializer,
+            500: ErrorSerializer,
+        },
+    )
+    def post(self, request):
+        serializer = FirmaWebEnrichRequestSerializer(data=request.data or {})
+        if not serializer.is_valid():
+            first = next(iter(serializer.errors.values()))
+            msg = first[0] if isinstance(first, (list, tuple)) else first
+            return Response({'error': str(msg)}, status=400)
+
+        data = serializer.validated_data
+        try:
+            result = enrich_firma_from_web(
+                data['company_name'],
+                homepage_url=(data.get('homepage_url') or '').strip(),
+            )
+            if not result.get('success'):
+                return Response(result, status=502 if result.get('homepage') else 400)
+            return Response(result)
+        except Exception as exc:
+            log.exception('firma_web enrich failed')
             return Response({'error': str(exc)}, status=500)

@@ -269,4 +269,52 @@ WIZARD_PROMPT_DEFAULTS = [
             'Kein Markdown außerhalb JSON'
         ),
     },
+    # ── Firma Web Enrich (Matching / CRM) ─────────────────────────────────────
+    {
+        'key': 'wiz_firma_web_enrich',
+        'wizard_id': 'firma_web',
+        'phase': 'generate',
+        'name': 'Firma: Web-Anreicherung',
+        'description': (
+            'Extrahiert Website, Adresse, Tel, E-Mail und Kurznotiz aus '
+            'öffentlichen Firmen-Seiten (Impressum/About) — on-demand.'
+        ),
+        'app_scope': 'matching',
+        'system': (
+            'Du extrahierst Firmenstammdaten aus öffentlichen Webseiten '
+            '(Impressum, About, Kontakt).\n'
+            'Antworte AUSSCHLIESSLICH mit einem JSON-Objekt — kein Markdown.\n'
+            'Keine Halluzinationen: nur was im Text oder im Regex-Hinweis steht.\n'
+            'Unbekannt = null oder [].\n'
+            'E-Mails/Telefone aus Seiteninhalt oder Regex-Hinweis übernehmen.\n'
+            'contacts nur wenn klar als Person mit Rolle genannt '
+            '(z.B. Geschäftsführer im Impressum) — nicht erfinden.\n'
+            'summary_de: 2–4 Sätze Firmennotiz auf Deutsch, sachlich.\n'
+            '\n'
+            'Schema:\n'
+            '{\n'
+            '  "website": string|null,\n'
+            '  "legal_name": string|null,\n'
+            '  "street": string|null,\n'
+            '  "zip": string|null,\n'
+            '  "city": string|null,\n'
+            '  "country": string|null,\n'
+            '  "emails": string[],\n'
+            '  "phones": string[],\n'
+            '  "contacts": [{"name": "", "role": "", "email": null, "phone": null}],\n'
+            '  "summary_de": string|null,\n'
+            '  "sources": string[]\n'
+            '}'
+        ),
+        'user_template': (
+            '[[BRIEFING]]\n\n'
+            'Antworte NUR mit dem JSON-Objekt gemäß System-Schema.'
+        ),
+        'instruction_default': 'Nur JSON. Nur öffentliche Fakten. Nichts erfinden.',
+        'checklist_template': (
+            'Impressum bevorzugen\n'
+            'Regex-Hinweis nutzen wenn KI unsicher\n'
+            'Kein Markdown'
+        ),
+    },
 ]

@@ -317,11 +317,6 @@ window.Matching = (function() {
             const curId = _val('new-crm-account-id');
             // Verknüpfung nur lösen wenn Name nicht mehr zum verknüpften passt
             if (curId) {
-                const linkedName = (
-                    (document.getElementById('new-customer-linked') || {}).textContent || ''
-                );
-                // linked hint enthält Namen — robuster: Norm-Vergleich mit aktuellem Wert
-                // vs. zuletzt gesetztem Kundenamen in hidden/cache
                 const cached = _accountIdByNorm[_normFirmName(q)];
                 if (cached && cached === curId) {
                     // Name noch exakt derselbe Account → Link behalten, Liste zu
@@ -1329,6 +1324,7 @@ window.Matching = (function() {
         const city = a.city || a.billing_address_city || '';
         _setVal('new-customer', name);
         _setVal('new-crm-account-id', id);
+        _rememberAccountId(name, id);
         const res = document.getElementById('new-customer-results');
         if (res) res.style.display = 'none';
         _setCustomerLinkedHint(name, city, id);
@@ -1503,6 +1499,13 @@ window.Matching = (function() {
                     ${_kiT('firma_help', 'Suche (CRM/Elastic) — Treffer wählen oder „Neue Firma“.')}
                   </div>
                   <div id="mnc-firma-linked" style="display:none;font-size:11px;margin-top:4px;font-weight:500"></div>
+                  <button type="button" class="matching-btn-sm" id="mnc-firma-web"
+                          style="margin-top:6px;font-size:11px;padding:3px 8px"
+                          title="${_escAttr(_kiT('firma_web_title', 'Homepage/Impressum öffentlich auslesen'))}">
+                    <i class="bi bi-globe2"></i> ${_kiT('firma_web_btn', 'Aus Web anreichern')}
+                  </button>
+                  <div id="mnc-firma-web-panel" style="display:none;margin-top:8px;padding:10px;
+                       border:1px solid #c7d2fe;border-radius:8px;background:#f8fafc;font-size:12px"></div>
                 </div>
               </div>
               <div style="display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:center">
@@ -1533,6 +1536,9 @@ window.Matching = (function() {
         modal.querySelector('#mnc-cancel').addEventListener('click', closeNewContactPopup);
         modal.querySelector('#mnc-save').addEventListener('click', function() {
             createCrmContactFromSuggest();
+        });
+        modal.querySelector('#mnc-firma-web')?.addEventListener('click', function() {
+            runFirmaWebEnrich();
         });
 
         const firmaInp = modal.querySelector('#mnc-firma');
@@ -1638,6 +1644,188 @@ window.Matching = (function() {
                     .then(d => render(d.results || d.accounts || d.items || []))
                     .catch(() => render([]));
             });
+    }
+
+    function runFirmaWebEnrich() {
+        const name = ((document.getElementById('mnc-firma') || {}).value || '').trim()
+            || _val('new-customer') || '';
+        const panel = document.getElementById('mnc-firma-web-panel');
+        const btn = document.getElementById('mnc-firma-web');
+        const msg = document.getElementById('mnc-msg');
+        if (!name || name.length < 2) {
+            if (msg) { msg.style.color = '#ef4444'; msg.textContent = 'Bitte Firmenname eingeben.'; }
+            return;
+        }
+        if (panel) {
+            panel.style.display = 'block';
+            panel.innerHTML = '<span style="color:#2563eb"><i class="bi bi-hourglass-split"></i> Suche Homepage / Impressum…</span>';
+        }
+        if (btn) btn.disabled = true;
+        fetch(KI_API + 'firma-web/enrich/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' },
+            body: JSON.stringify({ company_name: name }),
+        })
+            .then(r => r.json().then(d => ({ ok: r.ok, status: r.status, d })))
+            .then(({ ok, d }) => {
+                if (btn) btn.disabled = false;
+                if (!ok || !d.success) {
+                    const err = (d && (d.error || d.warning)) || 'Anreicherung fehlgeschlagen';
+                    if (panel) {
+                        panel.innerHTML = '<div style="color:#b45309">' + _esc(err) + '</div>'
+                            + _firmaWebHitsHtml(d && d.search_hits);
+                    }
+                    return;
+                }
+                window._mncFirmaWebLast = d;
+                _renderFirmaWebPanel(d);
+            })
+            .catch(e => {
+                if (btn) btn.disabled = false;
+                if (panel) {
+                    panel.innerHTML = '<div style="color:#ef4444">' + _esc(e.message || String(e)) + '</div>';
+                }
+            });
+    }
+
+    function _firmaWebHitsHtml(hits) {
+        const list = hits || [];
+        if (!list.length) return '';
+        return '<div style="margin-top:6px;opacity:.8">Treffer: '
+            + list.slice(0, 3).map(h => '<div>· ' + _esc((h.title || '').slice(0, 50))
+                + ' <a href="' + _escAttr(h.url || '#') + '" target="_blank" rel="noopener">Link</a></div>').join('')
+            + '</div>';
+    }
+
+    function _renderFirmaWebPanel(d) {
+        const panel = document.getElementById('mnc-firma-web-panel');
+        if (!panel) return;
+        const e = (d && d.enrich) || {};
+        const accountId = ((document.getElementById('mnc-firma-id') || {}).value || '').trim()
+            || _val('new-crm-account-id') || '';
+        const addr = [e.street, [e.zip, e.city].filter(Boolean).join(' ')].filter(Boolean).join(', ');
+        const emails = (e.emails || []).join(', ');
+        const phones = (e.phones || []).join(', ');
+        const contacts = (e.contacts || []).filter(c => c && c.name).map(c =>
+            _esc(c.name) + (c.role ? ' (' + _esc(c.role) + ')' : '')
+        ).join('; ');
+        panel.style.display = 'block';
+        panel.innerHTML =
+            '<div style="font-weight:600;margin-bottom:6px"><i class="bi bi-globe2"></i> Web-Vorschlag'
+            + (d.seconds != null ? ' <span style="font-weight:400;opacity:.7">(' + d.seconds + 's)</span>' : '')
+            + '</div>'
+            + '<div style="display:grid;gap:3px">'
+            + '<div><b>Website:</b> ' + (e.website
+                ? '<a href="' + _escAttr(e.website) + '" target="_blank" rel="noopener">' + _esc(e.website) + '</a>'
+                : '—') + '</div>'
+            + '<div><b>Adresse:</b> ' + _esc(addr || '—') + '</div>'
+            + '<div><b>E-Mail:</b> ' + _esc(emails || '—') + '</div>'
+            + '<div><b>Telefon:</b> ' + _esc(phones || '—') + '</div>'
+            + (contacts ? '<div><b>Personen:</b> ' + contacts + '</div>' : '')
+            + (e.summary_de ? '<div style="margin-top:4px"><b>Notiz:</b> ' + _esc(e.summary_de) + '</div>' : '')
+            + '</div>'
+            + '<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">'
+            + '<button type="button" class="matching-btn-primary" id="mnc-firma-web-apply" '
+            + (accountId ? '' : 'disabled title="Zuerst Firma verknüpfen"')
+            + ' style="font-size:11px;padding:4px 10px">'
+            + '<i class="bi bi-cloud-upload"></i> In CRM übernehmen</button>'
+            + '<button type="button" class="matching-btn-sm" id="mnc-firma-web-fill-mail" '
+            + 'style="font-size:11px;padding:4px 10px"'
+            + ((e.emails || [])[0] ? '' : ' disabled') + '>'
+            + 'E-Mail ins Formular</button>'
+            + '<button type="button" class="matching-btn-sm" id="mnc-firma-web-dismiss" '
+            + 'style="font-size:11px;padding:4px 10px">Schließen</button>'
+            + '</div>'
+            + (accountId ? '' : '<div style="margin-top:4px;color:#b45309;font-size:11px">'
+                + 'Firma zuerst verknüpfen/anlegen, dann CRM übernehmen.</div>');
+        panel.querySelector('#mnc-firma-web-apply')?.addEventListener('click', function () {
+            applyFirmaWebEnrichToCrm();
+        });
+        panel.querySelector('#mnc-firma-web-fill-mail')?.addEventListener('click', function () {
+            const em = (((window._mncFirmaWebLast || {}).enrich || {}).emails || [])[0];
+            if (em) {
+                const inp = document.getElementById('mnc-email');
+                if (inp && !String(inp.value || '').trim()) inp.value = em;
+            }
+        });
+        panel.querySelector('#mnc-firma-web-dismiss')?.addEventListener('click', function () {
+            panel.style.display = 'none';
+        });
+    }
+
+    function applyFirmaWebEnrichToCrm() {
+        const d = window._mncFirmaWebLast || {};
+        const e = d.enrich || {};
+        const accountId = ((document.getElementById('mnc-firma-id') || {}).value || '').trim()
+            || _val('new-crm-account-id') || '';
+        const msg = document.getElementById('mnc-msg');
+        const panel = document.getElementById('mnc-firma-web-panel');
+        if (!accountId) {
+            if (msg) { msg.style.color = '#b45309'; msg.textContent = 'Firma zuerst verknüpfen.'; }
+            return;
+        }
+        if (msg) { msg.style.color = '#2563eb'; msg.textContent = 'Schreibe Stammdaten ins CRM…'; }
+        const body = {
+            action: 'update',
+            website: e.website || '',
+            billing_address_street: e.street || '',
+            billing_address_postalcode: e.zip || '',
+            billing_address_city: e.city || '',
+            billing_address_country: e.country || (e.city ? 'Deutschland' : ''),
+            description: e.summary_de || '',
+        };
+        const chain = fetch('/crm/api/account/' + encodeURIComponent(accountId) + '/update/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+            body: JSON.stringify(body),
+        }).then(r => r.json().catch(() => ({})));
+
+        const emails = e.emails || [];
+        const phones = e.phones || [];
+        let p = chain;
+        emails.slice(0, 2).forEach(function (em, i) {
+            p = p.then(function () {
+                return fetch('/crm/api/account/' + encodeURIComponent(accountId) + '/update/', {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+                    body: JSON.stringify({ action: 'email_add', email: em, primaer: i === 0 }),
+                }).then(r => r.json().catch(() => ({})));
+            });
+        });
+        phones.slice(0, 2).forEach(function (ph) {
+            p = p.then(function () {
+                return fetch('/crm/api/account/' + encodeURIComponent(accountId) + '/update/', {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+                    body: JSON.stringify({
+                        action: 'phone_add',
+                        nummer: ph,
+                        field_name: 'phone_office',
+                    }),
+                }).then(r => r.json().catch(() => ({})));
+            });
+        });
+        p.then(function () {
+            if (msg) {
+                msg.style.color = '#059669';
+                msg.textContent = '✓ Firma aus Web in CRM übernommen';
+            }
+            if (panel) {
+                const note = document.createElement('div');
+                note.style.cssText = 'margin-top:6px;color:#059669;font-weight:500';
+                note.textContent = '✓ In CRM gespeichert';
+                panel.appendChild(note);
+            }
+        }).catch(function (err) {
+            if (msg) {
+                msg.style.color = '#ef4444';
+                msg.textContent = err.message || String(err);
+            }
+        });
     }
 
     function _createFirmaForPopup(name) {

@@ -34,6 +34,11 @@ if ! grep -q "wiz_matching_anfrage_generate" \
   echo "  git -C $REPO fetch origin && git -C $REPO rev-parse $BRANCH"
   exit 1
 fi
+if ! grep -q "wiz_firma_web_enrich" \
+  "$TMP/Repo_abpe/abpe_ki_wiz/incoming/prompt_defaults.py"; then
+  echo "FEHLER: Branch $BRANCH enthält wiz_firma_web_enrich nicht."
+  exit 1
+fi
 
 # ── abpe_ki_wiz (kein --delete: Live kann zusätzliche Dateien haben) ─────────
 mkdir -p "$LIVE_KI"
@@ -105,18 +110,20 @@ fi
 
 # ── Prompt in DB ─────────────────────────────────────────────────────────────
 echo
-echo "→ sync_wizard_prompts --wizard-id matching_anfrage"
+echo "→ sync_wizard_prompts (matching_anfrage + firma_web)"
 cd "$BACKEND"
 "$PYBIN" manage.py sync_wizard_prompts --wizard-id matching_anfrage --force
+"$PYBIN" manage.py sync_wizard_prompts --wizard-id firma_web --force
 "$PYBIN" manage.py shell -c "
 from apps.abpe_ki_wiz.models import WizardPrompt
 from apps.abpe_ki_wiz.prompt_defaults import WIZARD_PROMPT_DEFAULTS
-keys=[r['key'] for r in WIZARD_PROMPT_DEFAULTS if r.get('wizard_id')=='matching_anfrage']
+keys=[r['key'] for r in WIZARD_PROMPT_DEFAULTS if r.get('wizard_id') in ('matching_anfrage','firma_web')]
 print('defaults:', keys)
-p=WizardPrompt.objects.filter(key='wiz_matching_anfrage_generate').first()
-print('db:', p.key if p else 'FEHLT', 'aktiv='+str(getattr(p,'aktiv',None)), 'sys_len='+str(len(getattr(p,'system','') or '')))
-if not p:
-    raise SystemExit(2)
+for k in ('wiz_matching_anfrage_generate','wiz_firma_web_enrich'):
+    p=WizardPrompt.objects.filter(key=k).first()
+    print('db:', k, '→', ('aktiv='+str(getattr(p,'aktiv',None)) if p else 'FEHLT'))
+    if not p:
+        raise SystemExit(2)
 "
 
 echo
@@ -124,8 +131,10 @@ echo "Restart: supervisorctl restart abpe-django"
 echo "Optional (Radar ES einmalig): $PYBIN manage.py radar_reindex --status neu"
 echo "Optional (Radar Dedup):       $PYBIN manage.py radar_regroup --days 14"
 echo "UI Matching: Button „KI-Anfragen-Wizard“ links neben „+ Neue Anfrage“"
+echo "UI Firma: Neuer Kontakt → „Aus Web anreichern“ (Homepage/Impressum)"
 echo "UI: Matching; Posteingang Antworten; Radar = FM+Gulp+Hays (Suche/Zeitraum/Sort/Quelle/Dedup)"
 echo "API: POST /ki-wizard/api/matching-anfrage/extract/"
+echo "API: POST /ki-wizard/api/firma-web/enrich/"
 echo "Browser: Ctrl+F5 (mod-matching.js + mod-shaduler.js/css)"
 
 echo "Optional Email-Studio-Vorlage: manage.py shell < scripts/ensure-inbox-anfrage-bestaetigung-template.py"

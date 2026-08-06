@@ -21,6 +21,11 @@ urlpatterns = [
         name='api-matching-anfrage-extract',
     ),
     path(
+        'api/firma-web/enrich/',
+        api.KiWizardFirmaWebEnrichAPI.as_view(),
+        name='api-firma-web-enrich',
+    ),
+    path(
         'api/wizards/<str:wizard_id>/session/',
         api.KiWizardSessionCreateAPI.as_view(),
         name='api-session-create',

@@ -165,3 +165,30 @@ class MatchingAnfrageExtractResponseSerializer(serializers.Serializer):
     source = serializers.CharField(required=False, allow_blank=True)
     error = serializers.CharField(required=False, allow_blank=True)
     raw = serializers.CharField(required=False, allow_blank=True)
+
+
+class FirmaWebEnrichRequestSerializer(serializers.Serializer):
+    company_name = serializers.CharField(
+        min_length=2,
+        max_length=200,
+        help_text='Firmenname (z.B. Constaff GmbH)',
+    )
+    homepage_url = serializers.CharField(
+        required=False,
+        allow_blank=True,
+        max_length=500,
+        help_text='Optional: bekannte Homepage-URL',
+    )
+
+
+class FirmaWebEnrichResponseSerializer(serializers.Serializer):
+    success = serializers.BooleanField()
+    company = serializers.CharField(required=False, allow_blank=True)
+    homepage = serializers.CharField(required=False, allow_blank=True)
+    enrich = serializers.JSONField(required=False)
+    pages = serializers.JSONField(required=False)
+    regex = serializers.JSONField(required=False)
+    search_hits = serializers.JSONField(required=False)
+    seconds = serializers.FloatField(required=False)
+    error = serializers.CharField(required=False, allow_blank=True)
+    warning = serializers.CharField(required=False, allow_blank=True)
