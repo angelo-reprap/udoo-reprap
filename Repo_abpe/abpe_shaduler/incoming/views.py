@@ -646,9 +646,10 @@ def api_radar_consultants(request):
     except ValueError:
         days = 0
     try:
-        limit = int(request.GET.get('limit') or '300')
+        limit = int(request.GET.get('limit') or '5000')
+        limit = max(1, min(10000, limit))
     except ValueError:
-        limit = 300
+        limit = 5000
     available_only = request.GET.get('available', '1') != '0'
     auto_seed = request.GET.get('seed', '1') != '0'
     result = rbs.list_berater(
@@ -693,13 +694,14 @@ def api_radar_berater_seed(request):
     except Exception:
         payload = {}
     try:
-        limit = int(payload.get('limit') or request.POST.get('limit') or 500)
+        limit = int(payload.get('limit') or request.POST.get('limit') or 0)
     except ValueError:
-        limit = 500
+        limit = 0
     do_reindex = payload.get('reindex', True) is not False
     result = rbs.seed_from_crm(limit=limit)
     if do_reindex and result.get('ok'):
-        result['reindex'] = idx.reindex_all(limit=limit)
+        re_lim = limit if limit and limit > 0 else 50000
+        result['reindex'] = idx.reindex_all(limit=re_lim)
     return JsonResponse(result, status=200 if result.get('ok') else 400)
 
 

@@ -2752,7 +2752,7 @@
             'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
             'X-Requested-With': 'XMLHttpRequest',
           },
-          body: JSON.stringify({ limit: 500, reindex: true }),
+          body: JSON.stringify({ limit: 0, reindex: true }),
         })
           .then(function (r) { return r.json(); })
           .then(function (d) {
@@ -2778,7 +2778,7 @@
       '&days=' + encodeURIComponent(String(RADAR_B_DAYS)) +
       '&sort=' + encodeURIComponent(RADAR_B_SORT || 'date_desc') +
       '&available=' + (RADAR_B_AVAIL ? '1' : '0') +
-      '&seed=1&limit=300';
+      '&seed=1&limit=5000';
     if (RADAR_B_Q) q += '&q=' + encodeURIComponent(RADAR_B_Q);
     if (RADAR_B_SOURCE) q += '&source=' + encodeURIComponent(RADAR_B_SOURCE);
     if (RADAR_B_MATCH) q += '&match=' + encodeURIComponent(RADAR_B_MATCH);

@@ -350,7 +350,7 @@ def list_berater(
     status: str = 'neu',
     match_status: str = '',
     sort: str = 'date_desc',
-    limit: int = 300,
+    limit: int = 5000,
     refresh: bool = False,
     available_only: bool = True,
     auto_seed: bool = False,
@@ -363,7 +363,7 @@ def list_berater(
 
     # Leere Radar-Tabelle → einmal CRM-Seed (z. B. nach frischem Deploy)
     if auto_seed and not RadarConsultantItem.objects.exists():
-        seed_info = seed_from_crm(limit=max(limit, 500))
+        seed_info = seed_from_crm(limit=0)  # alle mit gulp_id
         persist_info['auto_seed'] = seed_info
 
     if refresh:
@@ -507,8 +507,8 @@ def paste_berater(text: str) -> dict[str, Any]:
     }
 
 
-def seed_from_crm(*, limit: int = 500) -> dict[str, Any]:
-    """CRM-Kontakte mit gulp_id_c → Radar (bekannt)."""
+def seed_from_crm(*, limit: int = 0) -> dict[str, Any]:
+    """CRM-Kontakte mit gulp_id_c → Radar (bekannt). limit=0 → alle."""
     try:
         from apps.abpe_crm.models import CrmContact, CrmContactCstm
     except Exception as exc:
@@ -534,6 +534,7 @@ def seed_from_crm(*, limit: int = 500) -> dict[str, Any]:
         except Exception as exc:
             return {'ok': False, 'error': f'CRM cstm query failed: {exc}', 'crm_with_gulp': 0}
 
+    take = int(limit or 0)
     # order_by: Feld heißt crm_date_modified (nicht date_modified)
     try:
         qs = (
@@ -541,9 +542,9 @@ def seed_from_crm(*, limit: int = 500) -> dict[str, Any]:
             .select_related('cstm')
             .exclude(cstm__gulp_id_c__isnull=True)
             .exclude(cstm__gulp_id_c='')
-            .order_by('-crm_date_modified', '-id')[:limit]
+            .order_by('-crm_date_modified', '-id')
         )
-        rows = list(qs)
+        rows = list(qs[:take] if take > 0 else qs)
     except Exception as exc_orm:
         log.warning('seed ORM path failed (%s) — fallback Cstm', exc_orm)
         rows = []
@@ -553,8 +554,9 @@ def seed_from_crm(*, limit: int = 500) -> dict[str, Any]:
                 .select_related('contact')
                 .exclude(gulp_id_c__isnull=True)
                 .exclude(gulp_id_c='')
-                .order_by('-id')[:limit]
+                .order_by('-id')
             )
+            cstms = cstms[:take] if take > 0 else cstms
             for cstm in cstms:
                 c = getattr(cstm, 'contact', None)
                 if c is None:

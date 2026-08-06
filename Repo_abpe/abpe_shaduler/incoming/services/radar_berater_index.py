@@ -201,7 +201,7 @@ def search(
         must.append({'match_all': {}})
     order = 'asc' if sort in ('date_asc', 'asc', 'oldest') else 'desc'
     body = {
-        'size': max(1, min(1000, int(limit))),
+        'size': max(1, min(10000, int(limit))),
         'query': {'bool': {'must': must, 'filter': filters}},
         'sort': [
             {'eingegangen_am': {'order': order, 'unmapped_type': 'date', 'missing': '_last'}},
