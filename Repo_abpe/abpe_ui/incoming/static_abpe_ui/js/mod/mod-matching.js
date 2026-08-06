@@ -227,7 +227,7 @@ window.Matching = (function() {
                     <label class="matching-form-label">${_t('matching.neu_customer')}</label>
                     <input class="matching-form-input" id="new-customer"
                            placeholder="${_t('matching.customer_placeholder')}"
-                           oninput="Matching.searchAccounts(this.value);Matching.clearCustomerLink()">
+                           autocomplete="off">
                     <div id="new-customer-results" style="display:none"></div>
                     <input type="hidden" id="new-crm-account-id">
                     <div id="new-customer-linked" style="display:none;font-size:11px;margin-top:4px;color:#059669"></div>
@@ -303,11 +303,60 @@ window.Matching = (function() {
             </button>
         </div>`;
         content.dataset.loaded = '1';
+        _bindCustomerField();
     }
 
-    // ──────────────────────────────────────────────────
-    // PLACEHOLDERS
-    // ──────────────────────────────────────────────────
+    function _bindCustomerField() {
+        const inp = document.getElementById('new-customer');
+        if (!inp || inp.dataset.bound === '1') return;
+        inp.dataset.bound = '1';
+        let t = null;
+        inp.addEventListener('input', function () {
+            clearTimeout(t);
+            const q = (inp.value || '').trim();
+            const curId = _val('new-crm-account-id');
+            // Verknüpfung nur lösen wenn Name nicht mehr zum verknüpften passt
+            if (curId) {
+                const linkedName = (
+                    (document.getElementById('new-customer-linked') || {}).textContent || ''
+                );
+                // linked hint enthält Namen — robuster: Norm-Vergleich mit aktuellem Wert
+                // vs. zuletzt gesetztem Kundenamen in hidden/cache
+                const cached = _accountIdByNorm[_normFirmName(q)];
+                if (cached && cached === curId) {
+                    // Name noch exakt derselbe Account → Link behalten, Liste zu
+                    const res = document.getElementById('new-customer-results');
+                    if (res) res.style.display = 'none';
+                    return;
+                }
+                clearCustomerLink();
+            }
+            t = setTimeout(function () {
+                if (q.length < 2) return;
+                _resolveCustomerField(q);
+            }, 280);
+        });
+        inp.addEventListener('focus', function () {
+            const q = (inp.value || '').trim();
+            if (_val('new-crm-account-id')) return; // schon verknüpft → keine Liste
+            if (q.length >= 2) searchAccounts(q);
+        });
+    }
+
+    function _resolveCustomerField(q) {
+        const n = (q || '').trim();
+        if (n.length < 2) return;
+        _searchAccountsAny(n).then(hits => {
+            const exact = _findExactFirm(hits, n);
+            if (exact) {
+                _pickCrmAccount(exact);
+                return;
+            }
+            // Mehrere / unklar → Trefferliste (Stadt nur Anzeige)
+            searchAccounts(n);
+            if (!(hits || []).length) clearCustomerLink();
+        }).catch(() => searchAccounts(n));
+    }
 
     function _renderShortlistPlaceholder(content, loading) {
         if (loading) loading.style.display = 'none';
@@ -2256,16 +2305,23 @@ window.Matching = (function() {
     function filterAnfragen() { searchAnfragen(''); }
 
     function searchAccounts(val) {
-        if (val.length < 2) return;
+        if ((val || '').length < 2) return;
         fetch(API + 'crm/accounts/?q=' + encodeURIComponent(val), { credentials: 'same-origin' })
             .then(r => r.json())
             .then(d => {
                 const res = document.getElementById('new-customer-results');
                 if (!res) return;
-                if (!d.results?.length) { res.style.display = 'none'; return; }
+                const hits = d.results || [];
+                // Exact-/Einzeltreffer sofort verknüpfen (Stadt nicht nötig)
+                const exact = _findExactFirm(hits, val);
+                if (exact) {
+                    _pickCrmAccount(exact);
+                    return;
+                }
+                if (!hits.length) { res.style.display = 'none'; return; }
                 res.style.display = 'block';
                 res.style.cssText = 'background:white;border:1px solid #dde3ec;border-radius:6px;padding:4px;max-height:150px;overflow-y:auto;';
-                res.innerHTML = d.results.map(r =>
+                res.innerHTML = hits.map(r =>
                     `<div style="padding:5px 8px;font-size:12px;cursor:pointer;border-radius:4px"
                           onmouseover="this.style.background='#f0f4fa'"
                           onmouseout="this.style.background=''"
