@@ -169,6 +169,7 @@ body.dark-mode .sources a{color:#8fb3dd}
 .sh-inbox-fresh.stale{color:var(--status-yellow,#f59e0b);opacity:1}
 .sh-inbox-refresh{border:1px solid var(--border-color,#dee2e6);background:var(--bg-white,#fff);color:var(--abcona-blue,#163258);border-radius:6px;padding:2px 8px;font-size:.85rem;line-height:1.2;cursor:pointer}
 .sh-inbox-refresh:hover{background:var(--abcona-blue-alpha,rgba(22,50,88,.08))}
+.sh-inbox-refresh.busy,.sh-inbox-refresh:disabled{opacity:.55;cursor:wait}
 .sh-pager-meta{font-size:.75rem;color:var(--text-secondary)}
 .sh-pager-btns{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
 .sh-pg{min-width:30px;height:28px;padding:0 8px;border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-primary);border-radius:6px;font-size:.78rem;cursor:pointer;line-height:1}

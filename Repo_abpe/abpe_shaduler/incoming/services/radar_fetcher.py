@@ -1329,7 +1329,8 @@ def list_anfragen(
                 pages=hays_pages,
                 today_only=today_only,
                 recent_days=fetch_days,
-                enrich_details=True,
+                # Liste schnell — volle Beschreibung beim Öffnen (get_item)
+                enrich_details=False,
             )
             if persist:
                 try:
@@ -1394,6 +1395,11 @@ def list_anfragen(
                 results = []
         else:
             results = []
+        # Leerer Index, 0 Treffer oder Hydrate-Fail → DB (sonst wirkt Radar „tot“)
+        if not results:
+            list_source = 'db'
+            by_src = {}
+            es_total = None
 
     # ── DB-Fallback ─────────────────────────────────────────────────────────
     if list_source != 'elasticsearch':

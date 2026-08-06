@@ -2042,8 +2042,10 @@
   var RADAR_Q = '';
   var RADAR_DAYS = 2; // 0 = alle; 1/2/7/30
   var RADAR_SORT = 'date_desc';
-  var RADAR_SOURCE = ''; // '' | freelancermap | gulp
+  var RADAR_SOURCE = ''; // '' | freelancermap | gulp | hays
   var RADAR_BOOTSTRAPPED = false;
+  var RADAR_LOADING = false;
+  var RADAR_BG_REFRESH_MS = 5 * 60 * 1000; // Hintergrund-Live max alle 5 Min
   try {
     var _rps = parseInt(localStorage.getItem('sh_radar_page_size') || '20', 10);
     if ([5, 10, 20, 50].indexOf(_rps) >= 0) RADAR_PAGE_SIZE = _rps;
@@ -2053,6 +2055,8 @@
     if (_rs === 'date_asc' || _rs === 'date_desc') RADAR_SORT = _rs;
     var _rq = localStorage.getItem('sh_radar_source') || '';
     if (_rq === 'freelancermap' || _rq === 'gulp' || _rq === 'hays' || _rq === '') RADAR_SOURCE = _rq;
+    var _rqq = localStorage.getItem('sh_radar_q');
+    if (_rqq != null) RADAR_Q = String(_rqq);
   } catch (e) { /* ignore */ }
 
   function radarDaysLabel(d) {
@@ -2118,8 +2122,9 @@
         e.preventDefault();
         var inp = document.getElementById('sh-radar-q');
         RADAR_Q = inp ? String(inp.value || '').trim() : '';
+        try { localStorage.setItem('sh_radar_q', RADAR_Q); } catch (eQ) { /* ignore */ }
         RADAR_PAGE = 1;
-        loadRadarA({ refresh: false });
+        loadRadarA({ soft: true });
       });
     }
     var days = document.getElementById('sh-radar-days');
@@ -2128,21 +2133,21 @@
       if ([0, 1, 2, 7, 30].indexOf(RADAR_DAYS) < 0) RADAR_DAYS = 2;
       try { localStorage.setItem('sh_radar_days', String(RADAR_DAYS)); } catch (e2) { /* ignore */ }
       RADAR_PAGE = 1;
-      loadRadarA({ refresh: false });
+      loadRadarA({ soft: true });
     });
     var sort = document.getElementById('sh-radar-sort');
     if (sort) sort.addEventListener('change', function () {
       RADAR_SORT = sort.value || 'date_desc';
       try { localStorage.setItem('sh_radar_sort', RADAR_SORT); } catch (e3) { /* ignore */ }
       RADAR_PAGE = 1;
-      loadRadarA({ refresh: false });
+      loadRadarA({ soft: true });
     });
     var src = document.getElementById('sh-radar-source');
     if (src) src.addEventListener('change', function () {
       RADAR_SOURCE = src.value || '';
       try { localStorage.setItem('sh_radar_source', RADAR_SOURCE); } catch (e4) { /* ignore */ }
       RADAR_PAGE = 1;
-      loadRadarA({ refresh: false });
+      loadRadarA({ soft: true });
     });
     var psz = document.getElementById('sh-radar-pagesize');
     if (psz) psz.addEventListener('change', function () {
@@ -2155,23 +2160,30 @@
 
   function loadRadarA(opts) {
     opts = opts || {};
-    var doRefresh = opts.refresh !== false;
-    if (!RADAR_BOOTSTRAPPED) {
-      doRefresh = true;
-      RADAR_BOOTSTRAPPED = true;
-    }
+    // Standard: ES/DB (schnell). Live-Fetch nur per ↻ oder Hintergrund.
+    var doRefresh = opts.refresh === true;
+    var soft = !!opts.soft;
+    // Parallele Live-Fetches vermeiden; Filter/Suche (soft) trotzdem erlauben
+    if (RADAR_LOADING && doRefresh) return;
+    if (RADAR_LOADING && !soft && !doRefresh) return;
     renderRadarToolbar();
     var list = document.getElementById('sh-radar-list');
     var viewer = document.getElementById('sh-radar-viewer');
-    if (list) list.innerHTML = '<div class="sh-viewer-loading">' + esc(_t('sh.loading', 'Laden…')) + '</div>';
-    if (viewer) {
-      viewer.innerHTML = '<div class="sh-viewer-empty">' + esc(_t('sh.radar_pick', 'Projekt auswählen')) + '</div>';
+    if (!soft) {
+      if (list) list.innerHTML = '<div class="sh-viewer-loading">' + esc(_t('sh.loading', 'Laden…')) + '</div>';
+      if (viewer) {
+        viewer.innerHTML = '<div class="sh-viewer-empty">' + esc(_t('sh.radar_pick', 'Projekt auswählen')) + '</div>';
+      }
     }
     var btn = document.getElementById('sh-radar-refresh');
     if (btn) {
       btn.onclick = function () {
         loadRadarA({ refresh: true });
       };
+      if (doRefresh) {
+        btn.disabled = true;
+        btn.classList.add('busy');
+      }
     }
     var q = 'radar/anfragen/?demo=0&today=1&pages=1' +
       '&refresh=' + (doRefresh ? '1' : '0') +
@@ -2180,14 +2192,18 @@
       '&limit=300';
     if (RADAR_Q) q += '&q=' + encodeURIComponent(RADAR_Q);
     if (RADAR_SOURCE) q += '&source=' + encodeURIComponent(RADAR_SOURCE);
+    RADAR_LOADING = true;
     fetch(api(q), {
       credentials: 'same-origin',
       headers: { 'X-Requested-With': 'XMLHttpRequest' },
     })
       .then(function (r) { return r.json(); })
       .then(function (data) {
+        RADAR_LOADING = false;
+        if (btn) { btn.disabled = false; btn.classList.remove('busy'); }
         RADAR_ITEMS = data.results || [];
-        RADAR_PAGE = 1;
+        if (!soft) RADAR_PAGE = 1;
+        RADAR_BOOTSTRAPPED = true;
         renderRadarA(RADAR_ITEMS);
         var hint = document.getElementById('sh-radar-hint');
         if (hint) {
@@ -2197,7 +2213,7 @@
             if (k) parts.push(k + ': ' + by[k]);
           });
           var ls = data.list_source || '';
-          var lsLbl = ls === 'elasticsearch' ? 'ES' : (ls === 'db' ? 'DB' : ls);
+          var lsLbl = ls === 'elasticsearch' ? 'ES' : (ls === 'db' ? 'DB' : (ls === 'live' ? 'Live' : ls));
           hint.textContent = data.demo
             ? _t('sh.radar_demo', 'Demo')
             : _t('sh.radar_hint', 'Freelancermap + Gulp + Hays') +
@@ -2210,11 +2226,30 @@
               (doRefresh && data.fetched != null ? (' · ' + data.fetched + ' gelesen') : '');
         }
         refreshStats();
+        if (doRefresh) {
+          try { sessionStorage.setItem('sh_radar_live_at', String(Date.now())); } catch (e2) { /* ignore */ }
+        }
+        // Sanfter Hintergrund-Live-Fetch max alle 5 Min (nicht bei Filterwechseln)
+        if (!doRefresh && !soft) {
+          try {
+            var lastLive = parseInt(sessionStorage.getItem('sh_radar_live_at') || '0', 10);
+            if (!lastLive || (Date.now() - lastLive) > RADAR_BG_REFRESH_MS) {
+              sessionStorage.setItem('sh_radar_live_at', String(Date.now()));
+              setTimeout(function () {
+                loadRadarA({ refresh: true, soft: true });
+              }, 1200);
+            }
+          } catch (eBg) { /* ignore */ }
+        }
       })
       .catch(function () {
-        RADAR_ITEMS = [];
-        renderRadarA([]);
-        toast(_t('sh.radar_err', 'Radar konnte nicht geladen werden'));
+        RADAR_LOADING = false;
+        if (btn) { btn.disabled = false; btn.classList.remove('busy'); }
+        if (!soft) {
+          RADAR_ITEMS = [];
+          renderRadarA([]);
+          toast(_t('sh.radar_err', 'Radar konnte nicht geladen werden'));
+        }
       });
   }
 

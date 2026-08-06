@@ -11,6 +11,7 @@ Index-Name (settings.json / Django):
 from __future__ import annotations
 
 import logging
+import re
 from datetime import datetime
 from typing import Any, Optional
 
@@ -130,6 +131,7 @@ def ensure_index(es=None) -> bool:
 
 
 def _parse_iso(val) -> Optional[str]:
+    """Nur gültige ISO-Daten für ES date-Felder — sonst None."""
     if val is None or val == '':
         return None
     if isinstance(val, datetime):
@@ -137,7 +139,31 @@ def _parse_iso(val) -> Optional[str]:
     s = str(val).strip()
     if not s:
         return None
-    return s
+    # schon ISO-ähnlich
+    if re.match(r'^\d{4}-\d{2}-\d{2}', s):
+        return s
+    # DE-Datum dd.mm.yyyy[ hh:mm[:ss]]
+    m = re.match(
+        r'^(\d{1,2})\.(\d{1,2})\.(\d{4})(?:[ T](\d{1,2}):(\d{2})(?::(\d{2}))?)?',
+        s,
+    )
+    if m:
+        d, mo, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        hh, mi, ss = int(m.group(4) or 0), int(m.group(5) or 0), int(m.group(6) or 0)
+        try:
+            return datetime(y, mo, d, hh, mi, ss).isoformat()
+        except ValueError:
+            return None
+    # epoch ms/s
+    if s.isdigit():
+        try:
+            n = int(s)
+            if n > 10_000_000_000:
+                n = n / 1000.0
+            return datetime.utcfromtimestamp(n).isoformat() + 'Z'
+        except (ValueError, OSError, OverflowError):
+            return None
+    return None
 
 
 def doc_from_radar_item(obj) -> dict[str, Any]:
@@ -148,7 +174,12 @@ def doc_from_radar_item(obj) -> dict[str, Any]:
     if not isinstance(skills, list):
         skills = []
     skills = [str(s).strip() for s in skills if str(s).strip()]
-    published = _parse_iso(eck.get('created')) or _parse_iso(getattr(obj, 'eingegangen_am', None))
+    published = (
+        _parse_iso(eck.get('created'))
+        or _parse_iso(getattr(obj, 'eingegangen_am', None))
+        or _parse_iso(getattr(obj, 'updated_at', None))
+    )
+    eing = _parse_iso(getattr(obj, 'eingegangen_am', None)) or published
     return {
         'headline': obj.headline or '',
         'beschreibung': obj.beschreibung or '',
@@ -157,13 +188,13 @@ def doc_from_radar_item(obj) -> dict[str, Any]:
         'company': eck.get('company') or '',
         'city': eck.get('city') or '',
         'contact': eck.get('contact') or '',
-        'source': source or '',
+        'source': (source or '').strip().lower(),
         'status': obj.status or 'neu',
         'external_url': obj.external_url or eck.get('url') or '',
         'project_id': eck.get('project_id') or '',
         'dedup_hash': obj.dedup_hash or '',
         'published_at': published,
-        'eingegangen_am': _parse_iso(getattr(obj, 'eingegangen_am', None)),
+        'eingegangen_am': eing,
         'updated_at': _parse_iso(getattr(obj, 'updated_at', None)),
     }
 
@@ -270,9 +301,27 @@ def search(
         filters.append({'term': {'source': source.strip().lower()}})
     if days is not None and int(days) > 0:
         d = max(1, min(365, int(days)))
-        filters.append({'range': {'published_at': {'gte': f'now-{d}d/d', 'lte': 'now+1d'}}})
+        # published_at ODER eingegangen_am — Index oft nur eins gesetzt
+        filters.append({
+            'bool': {
+                'should': [
+                    {'range': {'published_at': {'gte': f'now-{d}d/d', 'lte': 'now+1d'}}},
+                    {'range': {'eingegangen_am': {'gte': f'now-{d}d/d', 'lte': 'now+1d'}}},
+                ],
+                'minimum_should_match': 1,
+            }
+        })
     else:
-        filters.append({'range': {'published_at': {'gte': '2000-01-01', 'lte': 'now+1d'}}})
+        filters.append({
+            'bool': {
+                'should': [
+                    {'range': {'published_at': {'gte': '2000-01-01', 'lte': 'now+1d'}}},
+                    {'range': {'eingegangen_am': {'gte': '2000-01-01', 'lte': 'now+1d'}}},
+                    {'bool': {'must_not': {'exists': {'field': 'published_at'}}}},
+                ],
+                'minimum_should_match': 1,
+            }
+        })
 
     q = (q or '').strip()
     if q:
@@ -301,7 +350,8 @@ def search(
             }
         },
         'sort': [
-            {'published_at': {'order': order, 'unmapped_type': 'date'}},
+            {'published_at': {'order': order, 'unmapped_type': 'date', 'missing': '_last'}},
+            {'eingegangen_am': {'order': order, 'unmapped_type': 'date', 'missing': '_last'}},
             {'_id': 'asc'},
         ],
         'aggs': {
