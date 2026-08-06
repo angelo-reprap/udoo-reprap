@@ -1430,7 +1430,6 @@ window.Matching = (function() {
         crm = crm || {};
         closeNewContactPopup();
 
-        const split = _splitName(fields.contact_name || _val('new-contact') || '');
         const emailPrefill = fields.contact_email || _val('new-contact-email') || '';
         const phonePrefill = fields.contact_phone || _val('new-contact-phone') || '';
         const firmPrefill = fields.customer_name || _val('new-customer') || '';
@@ -1442,6 +1441,18 @@ window.Matching = (function() {
             firmName = accounts[0].name || firmName;
             firmId = accounts[0].crm_id || '';
         }
+
+        // Person ≠ Firma: wenn Name wie Firma aussieht, aus E-Mail ableiten (bob@bobmichaels.ai)
+        let contactRaw = fields.contact_name || _val('new-contact') || '';
+        let split = _splitName(contactRaw);
+        const fromMail = _nameFromEmail(emailPrefill);
+        if (_personNameLooksLikeCompany(contactRaw, firmName) && fromMail.full) {
+            split = { first: fromMail.first, last: fromMail.last };
+            contactRaw = fromMail.full;
+        } else if ((!split.last || _personNameLooksLikeCompany(split.last, firmName)) && fromMail.last) {
+            split = { first: fromMail.first || split.first, last: fromMail.last };
+        }
+        const salutationGuess = _guessSalutation(split.first, fields.contact_salutation || '');
 
         const modal = document.createElement('div');
         modal.id = 'matching-new-contact-modal';
@@ -1470,9 +1481,9 @@ window.Matching = (function() {
               <div style="display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:center">
                 <label style="font-size:12px;opacity:.75">Anrede</label>
                 <select id="mnc-salutation" class="matching-form-input" style="width:100%">
-                  <option value="Hr.">Hr.</option>
-                  <option value="Fr.">Fr.</option>
-                  <option value="">—</option>
+                  <option value="Hr."${salutationGuess === 'Hr.' ? ' selected' : ''}>Hr.</option>
+                  <option value="Fr."${salutationGuess === 'Fr.' ? ' selected' : ''}>Fr.</option>
+                  <option value=""${!salutationGuess ? ' selected' : ''}>—</option>
                 </select>
               </div>
               <div style="display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:center">
@@ -1892,10 +1903,74 @@ window.Matching = (function() {
         return { first: parts.slice(0, -1).join(' '), last: parts[parts.length - 1] };
     }
 
+    function _guessSalutation(firstName, hint) {
+        const h = String(hint || '').trim();
+        if (h === 'Hr.' || h === 'Fr.') return h;
+        const f = String(firstName || '').trim().toLowerCase();
+        if (!f) return 'Hr.';
+        // häufige DE-Vornamen (kurz, ohne Anspruch auf Vollständigkeit)
+        const female = {
+            anna:1, anne:1, angela:1, anja:1, birgit:1, britta:1, caroline:1, claudia:1,
+            daniela:1, diana:1, eva:1, franziska:1, gabriele:1, heike:1, ina:1, julia:1,
+            karin:1, katharina:1, katrin:1, laura:1, lea:1, lena:1, lisa:1, maria:1,
+            martina:1, monika:1, nadine:1, nicole:1, petra:1, sabine:1, sandra:1,
+            sarah:1, silke:1, stefanie:1, susanne:1, tanja:1, ulrike:1, vanessa:1,
+        };
+        if (female[f]) return 'Fr.';
+        return 'Hr.';
+    }
+
+    /** bob@bobmichaels.ai → Bob Michaels; bob.michaels@x.de → Bob Michaels */
+    function _nameFromEmail(email) {
+        const m = String(email || '').trim().toLowerCase().match(/^([^@]+)@([^@]+)$/);
+        if (!m) return { first: '', last: '', full: '' };
+        const cap = function (s) {
+            s = String(s || '');
+            return s ? (s.charAt(0).toUpperCase() + s.slice(1).toLowerCase()) : '';
+        };
+        const localParts = m[1]
+            .replace(/[0-9]+/g, ' ')
+            .replace(/[._+\-]+/g, ' ')
+            .trim()
+            .split(/\s+/)
+            .filter(function (p) { return /^[a-zäöüß]{2,}$/i.test(p); });
+        if (localParts.length >= 2) {
+            const first = localParts.slice(0, -1).map(cap).join(' ');
+            const last = cap(localParts[localParts.length - 1]);
+            return { first: first, last: last, full: (first + ' ' + last).trim() };
+        }
+        const domainCore = (m[2].split('.')[0] || '').replace(/[^a-z0-9äöüß]/gi, '');
+        if (localParts.length === 1) {
+            const firstRaw = localParts[0].toLowerCase();
+            if (domainCore.indexOf(firstRaw) === 0 && domainCore.length > firstRaw.length + 1) {
+                const rest = domainCore.slice(firstRaw.length);
+                if (rest.length >= 2 && /^[a-zäöüß]+$/i.test(rest)) {
+                    return {
+                        first: cap(firstRaw),
+                        last: cap(rest),
+                        full: cap(firstRaw) + ' ' + cap(rest),
+                    };
+                }
+            }
+            return { first: '', last: cap(firstRaw), full: cap(firstRaw) };
+        }
+        return { first: '', last: '', full: '' };
+    }
+
+    function _personNameLooksLikeCompany(name, firmName) {
+        const n = String(name || '').trim();
+        if (!n) return false;
+        if (_looksLikeCompany(n)) return true;
+        const nn = _normFirmName(n);
+        const fn = _normFirmName(firmName);
+        if (nn && fn && (nn === fn || fn.indexOf(nn) >= 0 || nn.indexOf(fn) >= 0)) return true;
+        return false;
+    }
+
     function createCrmContactFromSuggest() {
         const salutation = (document.getElementById('mnc-salutation') || {}).value || 'Hr.';
-        const first = ((document.getElementById('mnc-firstname') || {}).value || '').trim();
-        const last = ((document.getElementById('mnc-lastname') || {}).value || '').trim();
+        let first = ((document.getElementById('mnc-firstname') || {}).value || '').trim();
+        let last = ((document.getElementById('mnc-lastname') || {}).value || '').trim();
         const email = ((document.getElementById('mnc-email') || {}).value || '').trim();
         const phone = ((document.getElementById('mnc-phone') || {}).value || '').trim();
         let firmName = ((document.getElementById('mnc-firma') || {}).value || '').trim();
@@ -1903,6 +1978,31 @@ window.Matching = (function() {
             || _val('new-crm-account-id') || '';
         const msg = document.getElementById('mnc-msg');
         const saveBtn = document.getElementById('mnc-save');
+
+        // Schutz: Firmenname nicht als Person speichern (a2a Experts + bob@…)
+        const fullTry = (first + ' ' + last).trim();
+        if (_personNameLooksLikeCompany(fullTry, firmName) || _personNameLooksLikeCompany(last, firmName)) {
+            const fromMail = _nameFromEmail(email);
+            if (fromMail.last) {
+                first = fromMail.first;
+                last = fromMail.last;
+                const fi = document.getElementById('mnc-firstname');
+                const la = document.getElementById('mnc-lastname');
+                if (fi) fi.value = first;
+                if (la) la.value = last;
+                if (msg) {
+                    msg.style.color = '#b45309';
+                    msg.textContent = 'Name wirkte wie Firmenname — aus E-Mail gesetzt: ' + fromMail.full;
+                }
+            } else {
+                if (msg) {
+                    msg.style.color = '#ef4444';
+                    msg.textContent = 'Nachname sieht nach Firma aus — bitte Personennamen eintragen (nicht „' + firmName + '“).';
+                }
+                document.getElementById('mnc-lastname')?.focus();
+                return;
+            }
+        }
 
         if (!last) {
             if (msg) { msg.style.color = '#ef4444'; msg.textContent = 'Nachname ist Pflichtfeld.'; }
@@ -1968,21 +2068,23 @@ window.Matching = (function() {
                         body: JSON.stringify({
                             action: 'phone_add',
                             nummer: phone,
-                            field_name: 'phone_office',
-                            bean_module: 'Contacts',
+                            field_name: 'phone_mobile',
                         }),
-                    }).catch(() => {});
+                    });
                 }
                 if (email) {
                     await fetch('/crm/api/contact/' + crmId + '/update/', {
                         method: 'POST',
                         credentials: 'same-origin',
                         headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
-                        body: JSON.stringify({ action: 'email_add', email: email }),
-                    }).catch(() => {});
+                        body: JSON.stringify({
+                            action: 'email_add',
+                            email: email,
+                            primaer: true,
+                        }),
+                    });
                 }
                 if (accId) {
-                    if (msg) msg.textContent = 'Verknüpfe Firma…';
                     const lr = await fetch('/crm/api/contact/' + crmId + '/link-account/', {
                         method: 'POST',
                         credentials: 'same-origin',
@@ -1990,43 +2092,34 @@ window.Matching = (function() {
                         body: JSON.stringify({ account_crm_id: accId }),
                     });
                     const ld = await lr.json().catch(() => ({}));
-                    if (!lr.ok || (ld.ok === false)) {
+                    if (!lr.ok || ld.ok === false) {
                         throw new Error(
-                            ld.error || ld.message
+                            (ld && ld.error)
                             || ('Firma-Verknüpfung fehlgeschlagen (HTTP ' + lr.status + ')')
                         );
                     }
-                    // Firmen-E-Mail setzen (oft info@…), wenn noch leer
-                    if (email) {
-                        await fetch('/crm/api/account/' + encodeURIComponent(accId) + '/update/', {
-                            method: 'POST',
-                            credentials: 'same-origin',
-                            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
-                            body: JSON.stringify({ action: 'email_add', email: email, primaer: true }),
-                        }).catch(() => {});
-                    }
                 }
-                return crmId;
+                _setVal('new-contact', (first + ' ' + last).trim());
+                _setVal('new-crm-contact-id', crmId);
+                if (email) _setVal('new-contact-email', email);
+                if (phone) _setVal('new-contact-phone', phone);
+                if (firmName) _setVal('new-customer', firmName);
+                if (accountId) _setVal('new-crm-account-id', accountId);
+                if (msg) {
+                    msg.style.color = '#059669';
+                    msg.innerHTML = '✓ Kontakt angelegt'
+                        + (accountId ? ' und Firma verknüpft' : '')
+                        + '. <a href="/crm/berater/?detail=' + encodeURIComponent(crmId)
+                        + '" target="_blank" rel="noopener">Im CRM öffnen</a>';
+                }
+                setTimeout(function () {
+                    closeNewContactPopup();
+                    _hideCrmSuggest();
+                }, 1100);
             });
-        }).then(crmId => {
-            const full = [first, last].filter(Boolean).join(' ');
-            _setVal('new-contact', full);
-            _setVal('new-contact-email', email);
-            _setVal('new-contact-phone', phone);
-            _setVal('new-crm-contact-id', crmId);
-            if (firmName) _setVal('new-customer', firmName);
-            if (accountId) _setVal('new-crm-account-id', accountId);
-            if (msg) {
-                msg.style.color = '#059669';
-                msg.innerHTML = '✓ Angelegt'
-                    + (accountId ? ' und Firma verknüpft' : '')
-                    + '. <a href="/crm/berater/?detail=' + encodeURIComponent(crmId)
-                    + '" target="_blank" rel="noopener">Im CRM öffnen</a>';
-            }
-            setTimeout(closeNewContactPopup, 1100);
         }).catch(e => {
-            if (msg) { msg.style.color = '#ef4444'; msg.textContent = e.message || String(e); }
             if (saveBtn) saveBtn.disabled = false;
+            if (msg) { msg.style.color = '#ef4444'; msg.textContent = e.message || String(e); }
         });
     }
 

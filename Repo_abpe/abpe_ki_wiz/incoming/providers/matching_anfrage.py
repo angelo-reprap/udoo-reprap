@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+import re
 from typing import Any
 
 from apps.abpe_ki_wiz.providers.base import ValidationResult, WizardDomainProvider
@@ -16,6 +17,33 @@ _REQUIRED_TOP_KEYS = (
     'start', 'dauer_monate', 'standort', 'remote', 'stundensatz_max',
     'skills', 'hinweise',
 )
+
+
+def _person_name_from_email(email: str) -> str:
+    """bob@bobmichaels.ai → Bob Michaels; bob.michaels@x.de → Bob Michaels."""
+    m = re.match(r'^([^@]+)@([^@]+)$', (email or '').strip().lower())
+    if not m:
+        return ''
+    local = re.sub(r'[0-9]+', ' ', m.group(1))
+    local_parts = [
+        p for p in re.split(r'[._+\-\s]+', local)
+        if re.fullmatch(r'[a-zäöüß]{2,}', p, re.I)
+    ]
+
+    def cap(s: str) -> str:
+        return s[:1].upper() + s[1:].lower() if s else ''
+
+    if len(local_parts) >= 2:
+        return ' '.join(cap(p) for p in local_parts)
+    if len(local_parts) == 1:
+        first = local_parts[0].lower()
+        domain_core = re.sub(r'[^a-z0-9äöüß]', '', (m.group(2).split('.')[0] or ''), flags=re.I)
+        if domain_core.startswith(first) and len(domain_core) > len(first) + 1:
+            rest = domain_core[len(first):]
+            if re.fullmatch(r'[a-zäöüß]{2,}', rest, re.I):
+                return f'{cap(first)} {cap(rest)}'
+        return cap(first)
+    return ''
 
 
 class MatchingAnfrageWizardProvider(WizardDomainProvider):
@@ -241,15 +269,30 @@ def map_extract_to_form_fields(extract: dict[str, Any] | None) -> dict[str, Any]
 
     customer_name = derive_customer_name(data)
     email_domain = (kunde.get('email_domain') or '').strip()
-    if not email_domain:
-        ap_email = (ap.get('email') or '').strip()
-        if '@' in ap_email:
-            email_domain = ap_email.split('@', 1)[1].strip().lower()
+    ap_email = (ap.get('email') or '').strip()
+    if not email_domain and '@' in ap_email:
+        email_domain = ap_email.split('@', 1)[1].strip().lower()
+
+    contact_name = (ap.get('name') or '').strip()
+    # Nie Firmenname als Person übernehmen (a2a Experts + bob@…)
+    if contact_name and customer_name:
+        cn = re.sub(r'[^a-z0-9]+', ' ', contact_name.lower()).strip()
+        fn = re.sub(r'[^a-z0-9]+', ' ', customer_name.lower()).strip()
+        if cn == fn or cn in fn or fn in cn:
+            contact_name = ''
+    if contact_name and re.search(
+        r'\b(gmbh|ag|se|kg|ug|ltd|inc|experts?|consulting|solutions?)\b',
+        contact_name,
+        re.I,
+    ):
+        contact_name = ''
+    if not contact_name and ap_email:
+        contact_name = _person_name_from_email(ap_email)
 
     return {
         'customer_name': customer_name,
-        'contact_name': ap.get('name') or '',
-        'contact_email': ap.get('email') or '',
+        'contact_name': contact_name,
+        'contact_email': ap_email,
         'contact_phone': ap.get('phone') or ap.get('telefon') or '',
         'title': data.get('titel') or '',
         'description': description,

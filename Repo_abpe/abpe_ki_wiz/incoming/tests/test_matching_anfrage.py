@@ -141,3 +141,29 @@ class MatchingAnfrageCrmMatchTests(TestCase):
             'ansprechpartner': {'email': 'tristan.treder@hays.de'},
         })
         self.assertEqual(name, 'Hays AG')
+
+    def test_contact_name_not_company_uses_email(self):
+        from apps.abpe_ki_wiz.providers.matching_anfrage import map_extract_to_form_fields
+        fields = map_extract_to_form_fields({
+            'kunde': {'name': 'a2a Experts', 'confidence': 0.9},
+            'ansprechpartner': {
+                'name': 'a2a Experts',
+                'email': 'bob@bobmichaels.ai',
+                'phone': None,
+                'confidence': 0.5,
+            },
+            'weiterleitung': {'ja': False},
+            'titel': 'Role',
+            'beschreibung': 'x'*30,
+            'start': {'asap': True, 'datum': None},
+            'dauer_monate': 6,
+            'standort': 'FFM',
+            'remote': False,
+            'stundensatz_max': None,
+            'skills': [],
+            'hinweise': [],
+        })
+        self.assertEqual(fields['customer_name'], 'a2a Experts')
+        self.assertEqual(fields['contact_name'], 'Bob Michaels')
+        self.assertEqual(fields['contact_email'], 'bob@bobmichaels.ai')
+
