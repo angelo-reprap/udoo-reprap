@@ -243,7 +243,8 @@ def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
         )
 
     obj.gulp_id = gulp_id
-    obj.profil_url = item.get('profil_url') or gulp.profil_url_for_gulp_id(gulp_id)
+    # Immer Talentfinder-URL aus gulp_id — nie Homepage/Xing/etc.
+    obj.profil_url = gulp.profil_url_for_gulp_id(gulp_id) or (item.get('profil_url') or '')
     obj.name = name
     if skills:
         obj.skills = skills
@@ -314,7 +315,11 @@ def serialize_berater(obj) -> dict[str, Any]:
         'verfuegbar_ab': obj.verfuegbar_ab.isoformat() if obj.verfuegbar_ab else None,
         'satz': float(obj.satz) if obj.satz is not None else None,
         'beschreibung': obj.beschreibung or '',
-        'profil_url': obj.profil_url or '',
+        'profil_url': (
+            gulp.profil_url_for_gulp_id(obj.gulp_id)
+            if obj.gulp_id
+            else (obj.profil_url or '')
+        ),
         'match_status': obj.match_status,
         'st': st_map.get(obj.match_status, 'new'),
         'status': obj.status,
@@ -594,10 +599,7 @@ def seed_from_crm(*, limit: int = 0) -> dict[str, Any]:
                 'verfuegbar_ab': getattr(cstm, 'verfuegbar_ab_c', None) if cstm else None,
                 'beschreibung': (desc or '')[:4000],
                 'cv_text': (profil or desc or '')[:50000],
-                'profil_url': (
-                    (getattr(cstm, 'web_profil1_location_c', None) if cstm else None)
-                    or gulp.profil_url_for_gulp_id(gid)
-                ),
+                'profil_url': gulp.profil_url_for_gulp_id(gid),
                 'source': 'crm_seed',
                 'skills': [],
             }, apply_crm=False)
@@ -612,6 +614,7 @@ def seed_from_crm(*, limit: int = 0) -> dict[str, Any]:
         'skipped': n_skip,
         'crm_with_gulp': crm_with_gulp,
         'scanned': len(rows),
+        'limit': take,
     }
 
 

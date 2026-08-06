@@ -2999,10 +2999,16 @@
     }).join(' ');
     var acts =
       '<div class="racts sh-viewer-acts">' +
-      (r.profil_url
-        ? '<a class="sh-radar-ext" href="' + esc(r.profil_url) + '" target="_blank" rel="noopener">' +
-          '<i class="bi bi-box-arrow-up-right"></i> Gulp</a>'
-        : '') +
+      (function () {
+        var gulpUrl = r.gulp_id
+          ? ('https://www.gulp.de/talentfinder/app/experten?gulpId=' +
+            encodeURIComponent(String(r.gulp_id)))
+          : '';
+        return gulpUrl
+          ? '<a class="sh-radar-ext" href="' + esc(gulpUrl) + '" target="_blank" rel="noopener">' +
+            '<i class="bi bi-box-arrow-up-right"></i> Gulp</a>'
+          : '';
+      })() +
       (r.crm_url
         ? '<a class="sh-radar-ext" href="' + esc(r.crm_url) + '" target="_blank" rel="noopener">' +
           '<i class="bi bi-person-badge"></i> CRM</a>'

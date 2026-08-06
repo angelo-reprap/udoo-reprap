@@ -146,18 +146,14 @@ for k in ('wiz_matching_anfrage_generate','wiz_firma_web_enrich'):
         raise SystemExit(2)
 "
 
-# ── Migrate + Radar-Berater Seed (im Backend-Verzeichnis) ────────────────────
+# ── Migrate (kein automatischer Voll-Seed — Bestand schon da) ────────────────
 echo
-echo "→ migrate abpe_shaduler + radar_berater_seed"
+echo "→ migrate abpe_shaduler"
 cd "$BACKEND"
 "$PYBIN" manage.py migrate abpe_shaduler --noinput
-"$PYBIN" manage.py radar_berater_seed --reindex || \
-  echo "HINWEIS: radar_berater_seed fehlgeschlagen (CRM/ES?) — manuell prüfen"
-
-echo
-echo "Restart: supervisorctl restart abpe-django"
-echo "Optional (Radar Anfragen ES): $PYBIN manage.py radar_reindex --status neu"
-echo "Optional (Radar Dedup):       $PYBIN manage.py radar_regroup --days 14"
+echo "Hinweis: CRM-Seed / Reindex nur manuell bei Bedarf:"
+echo "  $PYBIN manage.py radar_berater_seed --reindex"
+echo "  (oder UI-Button CRM-Seed — nicht bei jedem SYNC)"
 echo "  Gulp-Login: settings.json → shaduler.gulp_talentfinder.cookies"
 echo "UI Matching: Button „KI-Anfragen-Wizard“ links neben „+ Neue Anfrage“"
 echo "UI Firma: Neuer Kontakt → „Aus Web anreichern“ (Homepage/Impressum)"
