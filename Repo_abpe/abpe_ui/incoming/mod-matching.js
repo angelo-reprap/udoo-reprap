@@ -1488,15 +1488,31 @@ window.Matching = (function() {
 
         const firmaInp = modal.querySelector('#mnc-firma');
         let firmTimer = null;
+        if (firmId) _setFirmaLinkedHint(true);
+        else if (firmName) _setFirmaLinkedHint(false);
         firmaInp.addEventListener('input', function() {
-            modal.querySelector('#mnc-firma-id').value = '';
-            _setFirmaLinkedHint(false);
             clearTimeout(firmTimer);
             const q = firmaInp.value.trim();
-            firmTimer = setTimeout(function() { _searchFirmaForPopup(q); }, 280);
+            const prevId = (modal.querySelector('#mnc-firma-id').value || '').trim();
+            // Verknüpfung nur lösen, wenn der Name sich wirklich ändert
+            const stillSame = prevId && _normFirmName(q) === _normFirmName(
+                (_val('new-customer') || firmName || q)
+            );
+            if (!stillSame) {
+                modal.querySelector('#mnc-firma-id').value = '';
+                _setFirmaLinkedHint(false);
+            }
+            firmTimer = setTimeout(function() {
+                if (q.length < 2) return;
+                // Exact/Einzeltreffer automatisch verknüpfen (Stadt nicht nötig)
+                _resolveFirmaForPopup(q, { autoSelectExact: true, showList: true });
+            }, 280);
         });
         firmaInp.addEventListener('focus', function() {
             const q = firmaInp.value.trim();
+            const id = (modal.querySelector('#mnc-firma-id').value || '').trim();
+            // Bereits verknüpft → Liste nicht aufdrängen
+            if (id) return;
             if (q.length >= 2) _searchFirmaForPopup(q);
         });
 
@@ -1884,14 +1900,30 @@ window.Matching = (function() {
     function _findExactFirm(hits, name) {
         const want = _normFirmName(name);
         if (!want) return null;
-        const exact = (hits || []).filter(h => _normFirmName(h.name) === want);
-        if (exact.length) return exact[0];
-        // Einziger Treffer und Name enthält Query / umgekehrt
-        if ((hits || []).length === 1) {
-            const only = hits[0];
+        const list = hits || [];
+        // 1) Exakter Norm-Name (Stadt spielt keine Rolle)
+        const exact = list.filter(h => _normFirmName(h.name) === want);
+        if (exact.length === 1) return exact[0];
+        if (exact.length > 1) {
+            // Mehrere mit gleichem Namen → aktiven bevorzugen, sonst ersten
+            const active = exact.find(h => {
+                const st = String(h.status || h.account_status || '').toLowerCase();
+                return st && st !== 'passiv' && st !== 'inactive';
+            });
+            return active || exact[0];
+        }
+        // 2) Einziger Treffer insgesamt und Name enthält Query / umgekehrt
+        if (list.length === 1) {
+            const only = list[0];
             const hn = _normFirmName(only.name);
             if (hn.indexOf(want) >= 0 || want.indexOf(hn) >= 0) return only;
         }
+        // 3) Einziger Treffer, dessen Norm-Name mit Query beginnt (z. B. „Constaff“ → Constaff GmbH)
+        const starts = list.filter(h => {
+            const hn = _normFirmName(h.name);
+            return hn === want || hn.indexOf(want) === 0 || want.indexOf(hn) === 0;
+        });
+        if (starts.length === 1) return starts[0];
         return null;
     }
 
