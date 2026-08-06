@@ -60,17 +60,34 @@ fi
 echo "OK — prompt_defaults enthält wiz_matching_anfrage_generate"
 
 
-# ── Shaduler (Radar Freelancermap + Inbox-Ack) ───────────────────────────────
+# ── Shaduler (Radar Freelancermap + Inbox-Ack + Berater) ─────────────────────
 LIVE_SH="${LIVE_SH:-/opt/abpe/backend/apps/abpe_shaduler}"
 if [[ -d "$TMP/Repo_abpe/abpe_shaduler/incoming" ]]; then
   mkdir -p "$LIVE_SH"
+  # Code ohne Migrationen (Live-History nicht überschreiben) …
   rsync -a \
     --exclude '__pycache__/' \
     --exclude '*.pyc' \
-    --exclude 'migrations/0*.py' \
+    --exclude 'migrations/' \
     "$TMP/Repo_abpe/abpe_shaduler/incoming/" \
     "$LIVE_SH/"
-  echo "OK — abpe_shaduler → $LIVE_SH (Radar + Ack-Send)"
+  # … neue Migrationen gezielt nachziehen (fehlende Dateien + geänderte)
+  mkdir -p "$LIVE_SH/migrations"
+  if [[ -f "$LIVE_SH/migrations/__init__.py" ]] || \
+     [[ -f "$TMP/Repo_abpe/abpe_shaduler/incoming/migrations/__init__.py" ]]; then
+    cp -n "$TMP/Repo_abpe/abpe_shaduler/incoming/migrations/__init__.py" \
+      "$LIVE_SH/migrations/__init__.py" 2>/dev/null || true
+  fi
+  for mig in "$TMP"/Repo_abpe/abpe_shaduler/incoming/migrations/0*.py; do
+    [[ -f "$mig" ]] || continue
+    base=$(basename "$mig")
+    if [[ ! -f "$LIVE_SH/migrations/$base" ]]; then
+      cp -a "$mig" "$LIVE_SH/migrations/$base"
+      echo "OK — Migration neu: $base"
+    fi
+  done
+  find "$LIVE_SH" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+  echo "OK — abpe_shaduler → $LIVE_SH (Radar Anfragen + Berater)"
 fi
 
 # ── Matching UI ──────────────────────────────────────────────────────────────
@@ -126,12 +143,18 @@ for k in ('wiz_matching_anfrage_generate','wiz_firma_web_enrich'):
         raise SystemExit(2)
 "
 
+# ── Migrate + Radar-Berater Seed (im Backend-Verzeichnis) ────────────────────
+echo
+echo "→ migrate abpe_shaduler + radar_berater_seed"
+cd "$BACKEND"
+"$PYBIN" manage.py migrate abpe_shaduler --noinput
+"$PYBIN" manage.py radar_berater_seed --reindex || \
+  echo "HINWEIS: radar_berater_seed fehlgeschlagen (CRM/ES?) — manuell prüfen"
+
 echo
 echo "Restart: supervisorctl restart abpe-django"
 echo "Optional (Radar Anfragen ES): $PYBIN manage.py radar_reindex --status neu"
 echo "Optional (Radar Dedup):       $PYBIN manage.py radar_regroup --days 14"
-echo "Optional (Radar Berater):     $PYBIN manage.py migrate abpe_shaduler"
-echo "Optional (Radar Berater):     $PYBIN manage.py radar_berater_seed --reindex"
 echo "  Gulp-Login: settings.json → shaduler.gulp_talentfinder.cookies"
 echo "UI Matching: Button „KI-Anfragen-Wizard“ links neben „+ Neue Anfrage“"
 echo "UI Firma: Neuer Kontakt → „Aus Web anreichern“ (Homepage/Impressum)"
@@ -140,5 +163,4 @@ echo "UI: Radar Berater = Gulp (Suche/verfügbar/Match/Paste Gulp-ID; CRM gulp_i
 echo "API: POST /ki-wizard/api/matching-anfrage/extract/"
 echo "API: POST /ki-wizard/api/firma-web/enrich/"
 echo "Browser: Ctrl+F5 (mod-matching.js + mod-shaduler.js/css)"
-
 echo "Optional Email-Studio-Vorlage: manage.py shell < scripts/ensure-inbox-anfrage-bestaetigung-template.py"
