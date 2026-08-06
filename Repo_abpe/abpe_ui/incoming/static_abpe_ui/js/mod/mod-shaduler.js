@@ -584,46 +584,20 @@
   }
 
   function renderInboxPager(meta) {
-    var el = document.getElementById('sh-inbox-pager');
-    if (!el) return;
-    meta = meta || {};
-    var total = Math.max(0, Number(meta.total) || 0);
-    var page = Math.max(1, Number(meta.page) || 1);
-    var pages = Math.max(1, Number(meta.pages) || 1);
-    var size = Math.max(1, Number(meta.page_size) || INBOX_PAGE_SIZE);
-    if (!total) {
-      el.innerHTML = '<span class="sh-pager-meta">' + esc(_t('sh.inbox_leer', 'Keine Mails')) + '</span>';
-      return;
-    }
-    var from = (page - 1) * size + 1;
-    var to = Math.min(total, page * size);
-    var win = 5;
-    var start = Math.max(1, page - Math.floor(win / 2));
-    var end = Math.min(pages, start + win - 1);
-    start = Math.max(1, end - win + 1);
-    var nums = '';
-    for (var i = start; i <= end; i++) {
-      nums += '<button type="button" class="sh-pg' + (i === page ? ' on' : '') + '" data-page="' + i + '">' + i + '</button>';
-    }
-    el.innerHTML =
-      '<span class="sh-pager-meta">' + esc(from + '–' + to + ' / ' + total) + '</span>' +
-      '<div class="sh-pager-btns">' +
-      '<button type="button" class="sh-pg" data-page="' + (page - 1) + '"' +
-      (page <= 1 ? ' disabled' : '') + ' aria-label="prev">&lt;</button>' +
-      nums +
-      '<button type="button" class="sh-pg" data-page="' + (page + 1) + '"' +
-      (page >= pages ? ' disabled' : '') + ' aria-label="next">&gt;</button>' +
-      '</div>';
-    el.querySelectorAll('.sh-pg').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        if (btn.disabled) return;
-        var p = parseInt(btn.getAttribute('data-page'), 10);
-        if (!p || p < 1 || p > pages || p === INBOX_PAGE) return;
+    renderShPager({
+      elId: 'sh-inbox-pager',
+      total: meta && meta.total,
+      page: meta && meta.page,
+      pages: meta && meta.pages,
+      page_size: meta && meta.page_size,
+      emptyLabel: _t('sh.inbox_leer', 'Keine Mails'),
+      onPage: function (p) {
+        if (p === INBOX_PAGE) return;
         INBOX_PAGE = p;
         loadInbox();
         var list = document.getElementById('sh-inbox');
         if (list) list.scrollTop = 0;
-      });
+      },
     });
   }
 
@@ -2357,18 +2331,37 @@
   }
 
   function renderRadarPager(meta) {
-    var el = document.getElementById('sh-radar-pager');
+    renderShPager({
+      elId: 'sh-radar-pager',
+      total: meta && meta.total,
+      page: meta && meta.page,
+      pages: meta && meta.pages,
+      page_size: meta && meta.page_size,
+      emptyLabel: _t('sh.radar_empty', 'Keine Projekte'),
+      onPage: function (p) {
+        if (p === RADAR_PAGE) return;
+        RADAR_PAGE = p;
+        renderRadarA(RADAR_ITEMS);
+      },
+    });
+  }
+
+  /** Pagination: First << | < 1 2 3 4 5 > | >> Last  (<< >> = ±5 Seiten) */
+  function renderShPager(opts) {
+    opts = opts || {};
+    var el = document.getElementById(opts.elId || '');
     if (!el) return;
-    meta = meta || {};
-    var total = Math.max(0, Number(meta.total) || 0);
-    var page = Math.max(1, Number(meta.page) || 1);
-    var pages = Math.max(1, Number(meta.pages) || 1);
-    var size = Math.max(1, Number(meta.page_size) || RADAR_PAGE_SIZE);
+    var total = Math.max(0, Number(opts.total) || 0);
+    var page = Math.max(1, Number(opts.page) || 1);
+    var pages = Math.max(1, Number(opts.pages) || 1);
+    var size = Math.max(1, Number(opts.page_size) || 20);
+    var onPage = typeof opts.onPage === 'function' ? opts.onPage : function () {};
     if (!total) {
       el.innerHTML = '<span class="sh-pager-meta">' +
-        esc(_t('sh.radar_empty', 'Keine Projekte')) + '</span>';
+        esc(opts.emptyLabel || _t('sh.radar_empty', 'Keine Einträge')) + '</span>';
       return;
     }
+    page = Math.min(page, pages);
     var from = (page - 1) * size + 1;
     var to = Math.min(total, page * size);
     var win = 5;
@@ -2380,22 +2373,38 @@
       nums += '<button type="button" class="sh-pg' + (i === page ? ' on' : '') +
         '" data-page="' + i + '">' + i + '</button>';
     }
+    var jumpBack = Math.max(1, page - 5);
+    var jumpFwd = Math.min(pages, page + 5);
+    function btn(label, pageNum, aria, extraClass) {
+      var dis = false;
+      if (aria === 'first' || aria === 'jump-back' || aria === 'prev') {
+        dis = page <= 1;
+      } else if (aria === 'next' || aria === 'jump-fwd' || aria === 'last') {
+        dis = page >= pages;
+      }
+      return '<button type="button" class="sh-pg' + (extraClass ? (' ' + extraClass) : '') +
+        '" data-page="' + pageNum + '" aria-label="' + aria + '"' +
+        (dis ? ' disabled' : '') + '>' + label + '</button>';
+    }
     el.innerHTML =
       '<span class="sh-pager-meta">' + esc(from + '–' + to + ' / ' + total) + '</span>' +
       '<div class="sh-pager-btns">' +
-      '<button type="button" class="sh-pg" data-page="' + (page - 1) + '"' +
-      (page <= 1 ? ' disabled' : '') + ' aria-label="prev">&lt;</button>' +
+      btn(esc(_t('sh.pager_first', 'First')), 1, 'first', 'sh-pg-nav') +
+      btn('&laquo;', jumpBack, 'jump-back', 'sh-pg-nav') +
+      '<span class="sh-pg-sep" aria-hidden="true">|</span>' +
+      btn('&lt;', Math.max(1, page - 1), 'prev', 'sh-pg-nav') +
       nums +
-      '<button type="button" class="sh-pg" data-page="' + (page + 1) + '"' +
-      (page >= pages ? ' disabled' : '') + ' aria-label="next">&gt;</button>' +
+      btn('&gt;', Math.min(pages, page + 1), 'next', 'sh-pg-nav') +
+      '<span class="sh-pg-sep" aria-hidden="true">|</span>' +
+      btn('&raquo;', jumpFwd, 'jump-fwd', 'sh-pg-nav') +
+      btn(esc(_t('sh.pager_last', 'Last')), pages, 'last', 'sh-pg-nav') +
       '</div>';
-    el.querySelectorAll('.sh-pg').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        if (btn.disabled) return;
-        var p = parseInt(btn.getAttribute('data-page'), 10);
-        if (!p || p < 1 || p > pages || p === RADAR_PAGE) return;
-        RADAR_PAGE = p;
-        renderRadarA(RADAR_ITEMS);
+    el.querySelectorAll('.sh-pg').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (b.disabled) return;
+        var p = parseInt(b.getAttribute('data-page'), 10);
+        if (!p || p < 1 || p > pages) return;
+        onPage(p);
       });
     });
   }
@@ -2962,18 +2971,19 @@
     });
     var countEl = document.getElementById('r-b-new');
     if (countEl) countEl.textContent = String(total);
-    var pager = document.getElementById('sh-radar-b-pager');
-    if (pager) {
-      pager.innerHTML = '<span>' + (total ? (start + 1) : 0) + '–' +
-        Math.min(start + size, total) + ' / ' + total + '</span> ' +
-        '<button type="button" id="sh-radar-b-prev"' + (RADAR_B_PAGE <= 1 ? ' disabled' : '') + '>&lt;</button>' +
-        '<span>' + RADAR_B_PAGE + ' / ' + pages + '</span>' +
-        '<button type="button" id="sh-radar-b-next"' + (RADAR_B_PAGE >= pages ? ' disabled' : '') + '>&gt;</button>';
-      var prev = document.getElementById('sh-radar-b-prev');
-      var next = document.getElementById('sh-radar-b-next');
-      if (prev) prev.onclick = function () { RADAR_B_PAGE--; renderRadarB(RADAR_B_ITEMS); };
-      if (next) next.onclick = function () { RADAR_B_PAGE++; renderRadarB(RADAR_B_ITEMS); };
-    }
+    renderShPager({
+      elId: 'sh-radar-b-pager',
+      total: total,
+      page: RADAR_B_PAGE,
+      pages: pages,
+      page_size: size,
+      emptyLabel: _t('sh.radar_b_empty', 'Keine Berater'),
+      onPage: function (p) {
+        if (p === RADAR_B_PAGE) return;
+        RADAR_B_PAGE = p;
+        renderRadarB(RADAR_B_ITEMS);
+      },
+    });
   }
 
   function openRadarBeraterItem(r, rowEl) {
@@ -2987,30 +2997,34 @@
     var skills = (r.skills || []).map(function (s) {
       return '<span class="src" style="margin:2px">' + esc(s) + '</span>';
     }).join(' ');
-    v.innerHTML =
-      '<div class="sh-viewer-head"><b>' + esc(r.name || '') + '</b>' +
-      (r.gulp_id ? ' <span class="src">Gulp ' + esc(r.gulp_id) + '</span>' : '') + '</div>' +
-      '<div class="sh-viewer-meta">' + esc(r.meta || '') + '</div>' +
-      '<div class="sh-viewer-meta">' + esc(r.note || '') + '</div>' +
-      (skills ? '<div style="margin:8px 0">' + skills + '</div>' : '') +
-      '<div class="sh-viewer-body" style="white-space:pre-wrap">' +
-      esc((r.beschreibung || '').slice(0, 4000) || '—') + '</div>' +
-      '<div class="racts" style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">' +
+    var acts =
+      '<div class="racts sh-viewer-acts">' +
       (r.profil_url
-        ? '<a class="matching-btn-sm" href="' + esc(r.profil_url) + '" target="_blank" rel="noopener">' +
+        ? '<a class="sh-radar-ext" href="' + esc(r.profil_url) + '" target="_blank" rel="noopener">' +
           '<i class="bi bi-box-arrow-up-right"></i> Gulp</a>'
         : '') +
       (r.crm_url
-        ? '<a class="matching-btn-sm" href="' + esc(r.crm_url) + '" target="_blank" rel="noopener">' +
+        ? '<a class="sh-radar-ext" href="' + esc(r.crm_url) + '" target="_blank" rel="noopener">' +
           '<i class="bi bi-person-badge"></i> CRM</a>'
-        : '<button type="button" class="matching-btn-sm" id="sh-radar-b-crm-hint" disabled>' +
+        : '<button type="button" disabled id="sh-radar-b-crm-hint">' +
           esc(_t('sh.radar_b_crm_later', 'CRM-Anlage folgt')) + '</button>') +
-      '<button type="button" class="matching-btn-sm" id="sh-radar-b-ok">' +
-      '<i class="bi bi-check2"></i> Bestätigen</button>' +
-      '<button type="button" class="matching-btn-sm" id="sh-radar-b-no">' +
-      '<i class="bi bi-x-lg"></i> Verwerfen</button>' +
-      (r.cv_versions ? '<span class="src">CV-Versionen: ' + esc(String(r.cv_versions)) + '</span>' : '') +
+      '<button type="button" class="pri" id="sh-radar-b-ok">' +
+      '<i class="bi bi-check2"></i> ' + esc(_t('sh.radar_b_confirm', 'Bestätigen')) + '</button>' +
+      '<button type="button" id="sh-radar-b-no">' +
+      '<i class="bi bi-x-lg"></i> ' + esc(_t('sh.radar_b_dismiss', 'Verwerfen')) + '</button>' +
       '</div>';
+    v.innerHTML =
+      acts +
+      '<div class="sh-viewer-head">' +
+      '<div class="from">' + esc(r.name || '') +
+      (r.gulp_id ? ' · Gulp ' + esc(r.gulp_id) : '') + '</div>' +
+      '<div class="meta">' + esc(r.meta || '') + '</div>' +
+      '<div class="meta">' + esc(r.note || '') +
+      (r.cv_versions ? (' · CV-Versionen: ' + esc(String(r.cv_versions))) : '') +
+      '</div></div>' +
+      (skills ? '<div style="margin:8px 0">' + skills + '</div>' : '') +
+      '<div class="sh-viewer-body sh-readable" style="white-space:pre-wrap">' +
+      esc((r.beschreibung || '').slice(0, 4000) || '—') + '</div>';
     var ok = document.getElementById('sh-radar-b-ok');
     var no = document.getElementById('sh-radar-b-no');
     if (ok) ok.onclick = function () {

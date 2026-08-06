@@ -173,6 +173,8 @@ body.dark-mode .sources a{color:#8fb3dd}
 .sh-pager-meta{font-size:.75rem;color:var(--text-secondary)}
 .sh-pager-btns{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
 .sh-pg{min-width:30px;height:28px;padding:0 8px;border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-primary);border-radius:6px;font-size:.78rem;cursor:pointer;line-height:1}
+.sh-pg-nav{min-width:auto;padding:0 9px;font-size:.72rem}
+.sh-pg-sep{color:var(--text-secondary);opacity:.55;font-size:.75rem;padding:0 2px;user-select:none}
 .sh-pg:hover:not(:disabled){border-color:var(--abcona-blue-light);color:var(--abcona-blue)}
 .sh-pg.on{border-color:var(--abcona-blue);background:var(--abcona-blue);color:#fff;font-weight:600}
 .sh-pg:disabled{opacity:.4;cursor:default}
