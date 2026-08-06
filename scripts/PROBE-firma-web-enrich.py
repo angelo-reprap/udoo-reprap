@@ -247,7 +247,8 @@ def load_deepseek_key() -> tuple[str, str]:
     return key, model
 
 
-def deepseek_extract(company: str, pages: list[dict], api_key: str, model: str) -> dict | None:
+def deepseek_extract(company: str, pages: list[dict], api_key: str, model: str,
+                     regex_hint: dict | None = None) -> dict | None:
     chunks = []
     for p in pages:
         if p.get('text'):
@@ -255,13 +256,22 @@ def deepseek_extract(company: str, pages: list[dict], api_key: str, model: str) 
     blob = '\n\n'.join(chunks)[:35000]
     if not blob.strip():
         return None
+    hint = ''
+    if regex_hint:
+        hint = (
+            '\nBereits per Regex aus dem HTML gefunden (bevorzugen/übernehmen wenn stimmig):\n'
+            + json.dumps(regex_hint, ensure_ascii=False) + '\n'
+        )
     system = (
         'Du extrahierst Firmenstammdaten aus öffentlichen Webseiten (Impressum/About/Kontakt). '
         'Antworte NUR mit JSON. Keine Halluzinationen — nur was im Text steht. '
-        'Unbekannt = null oder [].'
+        'Unbekannt = null oder []. '
+        'E-Mails/Telefone aus dem Seiteninhalt oder dem Regex-Hinweis übernehmen. '
+        'contacts nur wenn klar als Person mit Rolle genannt (z.B. Geschäftsführer im Impressum).'
     )
     user = (
-        f'Firma: {company}\n\n'
+        f'Firma: {company}\n'
+        f'{hint}\n'
         'Extrahiere:\n'
         '{\n'
         '  "website": "kanonische Homepage URL oder null",\n'
@@ -392,7 +402,29 @@ def enrich_company(company: str, api_key: str, model: str) -> dict:
     result['regex_merged'] = merged
 
     if api_key:
-        ki = deepseek_extract(company, pages, api_key, model)
+        ki = deepseek_extract(company, pages, api_key, model, regex_hint=merged)
+        # Regex als Fallback, wenn KI Felder leer lässt (z.B. JS-Sites)
+        if isinstance(ki, dict) and not ki.get('error'):
+            if not ki.get('emails') and merged.get('emails'):
+                ki['emails'] = merged['emails']
+            if not ki.get('phones') and merged.get('phones'):
+                ki['phones'] = merged['phones']
+            if (not ki.get('street') or not ki.get('city')) and merged.get('addresses'):
+                # "Straße 1, 12345 Stadt"
+                m = re.match(
+                    r'^(.+?),\s*(\d{5})\s+(.+)$',
+                    merged['addresses'][0],
+                )
+                if m:
+                    ki.setdefault('street', m.group(1))
+                    ki.setdefault('zip', m.group(2))
+                    ki.setdefault('city', m.group(3))
+                    if not ki.get('street'):
+                        ki['street'] = m.group(1)
+                    if not ki.get('zip'):
+                        ki['zip'] = m.group(2)
+                    if not ki.get('city'):
+                        ki['city'] = m.group(3)
         result['deepseek'] = ki
         result['deepseek_used'] = True
     else:
