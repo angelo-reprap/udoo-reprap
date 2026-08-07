@@ -351,8 +351,8 @@ def doc_from_obj(obj) -> dict[str, Any]:
     deleted = bool(getattr(obj, 'deleted_at', None)) or obj.status == 'geloescht'
     doc = {
         'name': obj.name or '',
-        # Volltext für Suche (gekürzt), nicht für Listen-Payload nötig
-        'beschreibung': (obj.beschreibung or '')[:12000],
+        # Suche braucht Text, Liste nicht — kurz halten für schnellen Bulk
+        'beschreibung': (obj.beschreibung or '')[:4000],
         'skills': skills,
         'skills_text': ' '.join(skills),
         'ort': obj.ort or '',
@@ -549,8 +549,8 @@ def reindex_all(
     recreate: bool = False,
 ) -> dict[str, Any]:
     """
-    Reindex. recreate=True baut in Temp-Index und tauscht erst am Ende
-    (Live-Index bleibt bis dahin erreichbar).
+    Reindex. recreate=True schreibt zuerst in Temp-Index; Live bleibt bis
+    der Temp fertig ist, dann kurzer Swap (kein Delete-first).
     """
     from apps.abpe_shaduler.models import RadarConsultantItem
     es = get_es()
@@ -561,7 +561,17 @@ def reindex_all(
             'error': 'ES unavailable',
             'stats': stats_before,
         }
-    qs = RadarConsultantItem.objects.select_related('quelle').all()
+    qs = (
+        RadarConsultantItem.objects
+        .select_related('quelle')
+        .only(
+            'id', 'name', 'beschreibung', 'skills', 'ort', 'gulp_id',
+            'crm_contact_id', 'status', 'match_status', 'profil_url',
+            'verfuegbar_ab', 'satz', 'eingegangen_am', 'updated_at',
+            'created_at', 'deleted_at', 'cv_versions', 'quelle_id',
+            'quelle__name',
+        )
+    )
     if active_only:
         qs = qs.filter(deleted_at__isnull=True).exclude(status='geloescht')
     if limit and limit > 0:
@@ -578,13 +588,13 @@ def reindex_all(
         try:
             _es_create_index(es, temp)
             target = temp
-            print(f'  → rebuild into {temp} (live {live} bleibt bis Swap)', flush=True)
+            print(f'  → rebuild into {temp} (live bleibt online)', flush=True)
         except Exception as exc:
-            log.warning('temp index create failed (%s) — in-place reindex', exc)
+            log.warning('temp index create failed (%s) — in-place', exc)
             temp = None
             target = live
 
-    print(f'  → indexing {len(rows)} docs into {target} …', flush=True)
+    print(f'  → indexing {len(rows)} docs → {target} …', flush=True)
     n, errors, sample_err = _bulk_index(es, target, rows, chunk=200)
 
     try:
@@ -592,53 +602,53 @@ def reindex_all(
     except Exception as exc:
         log.warning('berater refresh failed: %s', exc)
 
-    # Temp → Live Swap (ohne Downtime-Fenster durch Delete-first)
-    if temp and target == temp and n > 0:
+    if temp and target == temp:
+        if n <= 0:
+            _delete_index_quiet(es, temp)
+            return {
+                'ok': False,
+                'error': 'temp index empty',
+                'indexed': n,
+                'errors': errors,
+                'sample_error': sample_err,
+                'stats_before': stats_before,
+            }
+        # Kurzer Swap erst wenn Temp voll: Live löschen, Temp→Live per reindex
+        print(f'  → swap {temp} → {live} …', flush=True)
         try:
-            # Live umbenennen/löschen, Temp auf Live-Namen
-            old_bak = f'{live}__old'
-            _delete_index_quiet(es, old_bak)
-            if bool(es.indices.exists(index=live)):
-                try:
-                    es.indices.clone(index=live, target=old_bak)
-                except Exception:
-                    pass
-                _delete_index_quiet(es, live)
-            # Temp → live via reindex API oder clone
+            _delete_index_quiet(es, live)
+            _es_create_index(es, live)
             try:
-                es.indices.clone(index=temp, target=live)
-                _delete_index_quiet(es, temp)
-                _delete_index_quiet(es, old_bak)
-                print(f'  → swapped {temp} → {live}', flush=True)
-            except Exception as exc_clone:
-                # Fallback: reindex temp→live
-                log.warning('clone swap failed (%s) — reindex API', exc_clone)
-                if not bool(es.indices.exists(index=live)):
-                    _es_create_index(es, live)
-                try:
-                    es.reindex(
-                        body={'source': {'index': temp}, 'dest': {'index': live}},
-                        wait_for_completion=True,
-                        request_timeout=600,
-                    )
-                except TypeError:
-                    es.reindex(
-                        source={'index': temp},
-                        dest={'index': live},
-                        wait_for_completion=True,
-                    )
-                _delete_index_quiet(es, temp)
-                _delete_index_quiet(es, old_bak)
-                print(f'  → reindex-swapped {temp} → {live}', flush=True)
+                es.reindex(
+                    body={
+                        'source': {'index': temp},
+                        'dest': {'index': live},
+                    },
+                    wait_for_completion=True,
+                    request_timeout=900,
+                )
+            except TypeError:
+                es.reindex(
+                    source={'index': temp},
+                    dest={'index': live},
+                    wait_for_completion=True,
+                )
+            try:
+                es.indices.refresh(index=live)
+            except Exception:
+                pass
+            _delete_index_quiet(es, temp)
+            print('  → swap ok', flush=True)
         except Exception as exc_swap:
-            log.warning('swap failed: %s — left data in %s', exc_swap, temp)
+            log.warning('swap failed: %s', exc_swap)
+            # Temp behalten als Rettung
             return {
                 'ok': False,
                 'error': f'swap failed: {exc_swap}',
                 'indexed': n,
                 'errors': errors,
                 'temp_index': temp,
-                'index': live,
+                'hint': f'Index liegt in {temp} — manuell: POST /_reindex',
                 'sample_error': sample_err,
                 'stats_before': stats_before,
                 'stats_after': index_stats(es, sample=False),
@@ -651,7 +661,7 @@ def reindex_all(
         'errors': errors,
         'scanned': len(rows),
         'index': live,
-        'recreate': recreate,
+        'recreate': bool(recreate),
         'sample_error': sample_err,
         'stats_before': stats_before,
         'stats_after': stats_after,
