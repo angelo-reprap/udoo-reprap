@@ -2843,6 +2843,7 @@
           if (ls !== 'elasticsearch') {
             if (ei.search_error) esNote = ' · ES-Fehler';
             else if (ei.fallback === 'empty_index') esNote = ' · ES leer';
+            else if (ei.fallback === 'filter_miss') esNote = ' · ES-Filter 0 → DB';
             else if (ei.fallback === 'es_unavailable') esNote = ' · ES offline';
             else if (ei.count != null) esNote = ' · ES docs: ' + ei.count;
           } else if (ei.count != null && data.es_total != null && ei.count !== data.es_total) {
@@ -2982,9 +2983,20 @@
     var slice = items.slice(start, start + size);
     c.innerHTML = '';
     if (!total) {
+      var emptyExtra = '';
+      try {
+        var hintEl = document.getElementById('sh-radar-b-hint');
+        if (hintEl && /Index\s+\d+/.test(hintEl.textContent || '')) {
+          emptyExtra = '<div style="margin-top:8px;opacity:.75">' +
+            esc(_t('sh.radar_b_filter_empty',
+              'Index hat Einträge, aktueller Filter trifft 0. Bitte „alle sichtbaren“ wählen oder ↻.')) +
+            '</div>';
+        }
+      } catch (eEmpty) { /* ignore */ }
       c.innerHTML = '<div class="sh-viewer-empty">' +
         esc(_t('sh.radar_b_empty', 'Keine Berater')) +
-        ' — ' + esc(_t('sh.radar_b_empty_hint', '„CRM-Seed“ oder Gulp-ID einfügen')) + '</div>';
+        ' — ' + esc(_t('sh.radar_b_empty_hint', '„CRM-Seed“ oder Gulp-ID einfügen')) +
+        emptyExtra + '</div>';
     }
     var lbl = { known: '✔ CRM', maybe: '? unsicher', new: 'neu' };
     slice.forEach(function (r) {

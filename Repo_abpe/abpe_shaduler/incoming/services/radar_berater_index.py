@@ -46,10 +46,10 @@ BERATER_INDEX_MAPPING = {
             'meta': {'type': 'keyword', 'index': False},
             'note': {'type': 'keyword', 'index': False},
             'profil_url': {'type': 'keyword', 'index': False},
-            'verfuegbar_ab': {'type': 'date', 'ignore_malformed': True},
-            'satz': {'type': 'float', 'ignore_malformed': True},
-            'eingegangen_am': {'type': 'date', 'ignore_malformed': True},
-            'updated_at': {'type': 'date', 'ignore_malformed': True},
+            'verfuegbar_ab': {'type': 'date'},
+            'satz': {'type': 'float'},
+            'eingegangen_am': {'type': 'date'},
+            'updated_at': {'type': 'date'},
             'deleted': {'type': 'boolean'},
             'cv_versions': {'type': 'integer'},
         }
@@ -173,8 +173,8 @@ def ensure_index(es=None, *, recreate: bool = False) -> bool:
         return False
 
 
-def index_stats(es=None) -> dict[str, Any]:
-    """Diagnose: Hosts, Indexname, Doc-Count."""
+def index_stats(es=None, *, sample: bool = True) -> dict[str, Any]:
+    """Diagnose: Hosts, Indexname, Doc-Count, optional Sample + Status/Source-Aggs."""
     hosts = _es_hosts()
     name = index_name()
     out: dict[str, Any] = {
@@ -184,6 +184,10 @@ def index_stats(es=None) -> dict[str, Any]:
         'exists': False,
         'count': None,
         'error': None,
+        'sample': None,
+        'by_status': {},
+        'by_source': {},
+        'by_deleted': {},
     }
     es = es or get_es()
     if not es:
@@ -194,6 +198,32 @@ def index_stats(es=None) -> dict[str, Any]:
         if out['exists']:
             res = es.count(index=name)
             out['count'] = res.get('count') if isinstance(res, dict) else getattr(res, 'count', None)
+            if sample:
+                try:
+                    body = {
+                        'size': 1,
+                        'query': {'match_all': {}},
+                        'aggs': {
+                            'by_status': {'terms': {'field': 'status', 'size': 20}},
+                            'by_source': {'terms': {'field': 'source', 'size': 20}},
+                            'by_deleted': {'terms': {'field': 'deleted', 'size': 5}},
+                        },
+                    }
+                    sres = _es_search(es, index=name, body=body)
+                    hits = (sres.get('hits') or {}).get('hits') or []
+                    if hits:
+                        src = dict(hits[0].get('_source') or {})
+                        src['_id'] = hits[0].get('_id')
+                        # kurz halten
+                        if 'beschreibung' in src:
+                            src['beschreibung'] = str(src.get('beschreibung') or '')[:120]
+                        out['sample'] = src
+                    aggs = sres.get('aggregations') or {}
+                    for key in ('by_status', 'by_source', 'by_deleted'):
+                        buckets = (aggs.get(key) or {}).get('buckets') or []
+                        out[key] = {str(b.get('key')): b.get('doc_count') for b in buckets}
+                except Exception as exc_s:
+                    out['sample_error'] = str(exc_s)[:300]
         out['ok'] = True
     except Exception as exc:
         out['error'] = str(exc)[:400]
@@ -251,9 +281,11 @@ def doc_from_obj(obj) -> dict[str, Any]:
         'ort': obj.ort or '',
         'gulp_id': obj.gulp_id or '',
         'crm_contact_id': obj.crm_contact_id or '',
-        'source': (obj.quelle.name if getattr(obj, 'quelle_id', None) else 'gulp'),
-        'status': obj.status or 'neu',
-        'match_status': obj.match_status or 'unbekannt',
+        'source': (
+            (obj.quelle.name if getattr(obj, 'quelle_id', None) else 'gulp') or 'gulp'
+        ).strip().lower(),
+        'status': str(obj.status or 'neu').strip().lower() or 'neu',
+        'match_status': str(obj.match_status or 'unbekannt').strip().lower() or 'unbekannt',
         'st': st_map.get(obj.match_status, 'new'),
         'meta': _list_meta(obj)[:512],
         'note': _list_note(obj)[:512],
@@ -262,10 +294,11 @@ def doc_from_obj(obj) -> dict[str, Any]:
         'satz': float(obj.satz) if obj.satz is not None else None,
         'eingegangen_am': _iso(obj.eingegangen_am) or _iso(obj.created_at),
         'updated_at': _iso(obj.updated_at),
-        'deleted': deleted,
+        'deleted': bool(deleted),
         'cv_versions': len(obj.cv_versions or []),
     }
     # None-Werte raus — manchen ES-Versionen unangenehm bei date/float
+    # (deleted=False und cv_versions=0 bleiben erhalten)
     return {k: v for k, v in doc.items() if v is not None}
 
 
@@ -335,19 +368,12 @@ def search(
 
     filters: list[dict] = []
     if not include_deleted:
-        filters.append({
-            'bool': {
-                'should': [
-                    {'term': {'deleted': False}},
-                    {'bool': {'must_not': {'exists': {'field': 'deleted'}}}},
-                ],
-                'minimum_should_match': 1,
-            }
-        })
+        # Alles außer explizit deleted=true (fehlt das Feld → sichtbar)
+        filters.append({'bool': {'must_not': [{'term': {'deleted': True}}]}})
     if status and status != 'all':
-        filters.append({'term': {'status': status}})
+        filters.append({'term': {'status': str(status).strip().lower()}})
     if match_status:
-        filters.append({'term': {'match_status': match_status}})
+        filters.append({'term': {'match_status': str(match_status).strip().lower()}})
     if source:
         filters.append({'term': {'source': source.strip().lower()}})
     if days is not None and int(days) > 0:

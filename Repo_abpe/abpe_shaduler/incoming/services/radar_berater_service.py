@@ -437,13 +437,19 @@ def list_berater(
         persist_info['crm_sync'] = sync_crm_index(limit=0, reindex=True)
 
     # ES first — Liste direkt aus Hits (ohne DB-Hydrate)
+    # verfügbar/neu → status=neu; alle sichtbaren → status=all
+    if available_only and (not status or status == 'neu'):
+        status = 'neu'
+    elif not available_only and status == 'neu':
+        status = 'all'
+
     list_source = 'db'
     results: list[dict] = []
     by_src: dict = {}
     es_total = None
     es_info: dict[str, Any] = {}
     try:
-        es_info = berater_index.index_stats()
+        es_info = berater_index.index_stats(sample=False)
     except Exception:
         es_info = {}
     try:
@@ -472,8 +478,6 @@ def list_berater(
         by_src = es_pack.get('by_source') or {}
         es_total = es_pack.get('total')
         results = [serialize_list_hit(h) for h in hits]
-        # Nur bei wirklich leerem Index (oder Index fehlt) auf DB fallen —
-        # nicht wenn Filter 0 Hits liefert, aber Docs im Index sind.
         index_empty = (
             es_pack.get('index_missing')
             or (es_doc_count == 0)
@@ -484,12 +488,27 @@ def list_berater(
                 and (es_doc_count is None or es_doc_count == 0)
             )
         )
+        # Index hat Docs, Filter (status/source) trifft 0 → DB-Fallback
+        # (verhindert leere Liste bei Mapping-/Feld-Mismatch)
+        filter_miss = (
+            not results
+            and not q
+            and (es_total == 0 or es_total is None)
+            and isinstance(es_doc_count, int)
+            and es_doc_count > 0
+        )
         if index_empty and not q:
             if RadarConsultantItem.objects.filter(deleted_at__isnull=True).exists():
                 list_source = 'db'
                 by_src = {}
                 es_total = es_doc_count
                 es_info['fallback'] = 'empty_index'
+        elif filter_miss:
+            list_source = 'db'
+            by_src = {}
+            es_info['fallback'] = 'filter_miss'
+            es_info['es_filter_total'] = es_total
+            es_total = es_doc_count
     else:
         if es_pack and es_pack.get('error'):
             es_info['search_error'] = es_pack.get('error')
