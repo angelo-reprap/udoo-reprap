@@ -715,6 +715,34 @@ def api_radar_berater_seed(request):
 
 @login_required
 @require_http_methods(['POST'])
+def api_radar_berater_gulp_refresh(request):
+    """
+    Gulp aktualisieren: Existenz-Check + Verfügbarkeit/Satz.
+    Body: {limit?: 50, ids?: [uuid…], delay?: 0.35}
+    """
+    from .services import radar_berater_service as rbs
+    try:
+        payload = json.loads(request.body.decode('utf-8') or '{}')
+    except Exception:
+        payload = {}
+    try:
+        limit = int(payload.get('limit') or 50)
+    except (TypeError, ValueError):
+        limit = 50
+    try:
+        delay = float(payload.get('delay') if payload.get('delay') is not None else 0.35)
+    except (TypeError, ValueError):
+        delay = 0.35
+    ids = payload.get('ids') if isinstance(payload.get('ids'), list) else None
+    result = rbs.refresh_from_gulp(limit=limit, ids=ids, delay_s=delay)
+    status = 200 if result.get('ok') else 400
+    if result.get('needs_auth'):
+        status = 401
+    return JsonResponse(result, status=status)
+
+
+@login_required
+@require_http_methods(['POST'])
 def api_radar_berater_reindex(request):
     """Manueller Index-Update: CRM-Sync + ES (wie 30-Min-Job)."""
     from .services import radar_berater_service as rbs

@@ -339,6 +339,9 @@ def _list_meta(obj) -> str:
 def _list_note(obj) -> str:
     if getattr(obj, 'deleted_at', None):
         return 'gelöscht (CRM)'
+    eck = obj.eckdaten or {}
+    if eck.get('gulp_status') == 'gone':
+        return 'nicht mehr in Gulp'
     if obj.match_status == 'bekannt':
         cid = obj.crm_contact_id or ''
         return '✔ CRM ' + (cid[:8] + '…' if cid else '')

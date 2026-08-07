@@ -168,7 +168,11 @@
         '<i class="bi bi-plus-lg"></i> ' + esc(_t('sh.radar_b_paste', 'Übernehmen')) + '</button>' +
         '<button type="button" class="matching-btn-sm" id="sh-radar-b-seed" title="' +
         esc(_t('sh.radar_b_seed_title', 'CRM-Kontakte mit gulp_id in Radar laden')) + '">' +
-        '<i class="bi bi-database-down"></i> ' + esc(_t('sh.radar_b_seed', 'CRM-Seed')) + '</button></div>' +
+        '<i class="bi bi-database-down"></i> ' + esc(_t('sh.radar_b_seed', 'CRM-Seed')) + '</button>' +
+        '<button type="button" class="matching-btn-sm" id="sh-radar-b-gulp-refresh" title="' +
+        esc(_t('sh.radar_b_gulp_title', 'Gulp: Existenz + Verfügbarkeit prüfen (Batch)')) + '">' +
+        '<i class="bi bi-cloud-arrow-down"></i> ' +
+        esc(_t('sh.radar_b_gulp_refresh', 'Gulp aktualisieren')) + '</button></div>' +
         '<div class="sh-inbox-toolbar" id="sh-radar-b-toolbar"></div>' +
         '<div class="sh-inbox-split">' +
         '<div class="sh-inbox-list-wrap">' +
@@ -2813,7 +2817,57 @@
           });
       };
     }
-    var q = 'radar/berater/?demo=0&status=' + encodeURIComponent(RADAR_B_STATUS || 'neu') +
+    var gulpBtn = document.getElementById('sh-radar-b-gulp-refresh');
+    if (gulpBtn && !gulpBtn.dataset.bound) {
+      gulpBtn.dataset.bound = '1';
+      gulpBtn.onclick = function () {
+        gulpBtn.disabled = true;
+        gulpBtn.classList.add('busy');
+        toast(_t('sh.radar_b_gulp_run', 'Gulp-Check läuft (max. 50) …'));
+        fetch(api('radar/berater/gulp-aktualisieren/'), {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({ limit: 50, delay: 0.35 }),
+        })
+          .then(function (r) {
+            return r.json().then(function (j) { return { ok: r.ok, status: r.status, j: j }; });
+          })
+          .then(function (pack) {
+            gulpBtn.disabled = false;
+            gulpBtn.classList.remove('busy');
+            var d = pack.j || {};
+            if (d.needs_auth || pack.status === 401) {
+              toast(d.error || _t('sh.radar_b_gulp_auth', 'Gulp-Login fehlt (Cookies in settings.json)'));
+              return;
+            }
+            if (!d.ok && d.error) {
+              toast(d.error);
+              return;
+            }
+            toast(
+              _t('sh.radar_b_gulp_ok', 'Gulp') + ': ' +
+              (d.scanned || 0) + ' geprüft · ' +
+              (d.updated || 0) + ' geändert · ' +
+              (d.unchanged || 0) + ' gleich · ' +
+              (d.gone || 0) + ' weg · ' +
+              (d.errors || 0) + ' Fehler'
+            );
+            loadRadarB({ soft: true });
+          })
+          .catch(function () {
+            gulpBtn.disabled = false;
+            gulpBtn.classList.remove('busy');
+            toast(_t('sh.toast_error', 'Gulp-Update fehlgeschlagen'));
+          });
+      };
+    }
+    var statusParam = RADAR_B_AVAIL ? 'neu' : 'all';
+    var q = 'radar/berater/?demo=0&status=' + encodeURIComponent(statusParam) +
       '&refresh=0' +
       '&days=' + encodeURIComponent(String(RADAR_B_DAYS)) +
       '&sort=' + encodeURIComponent(RADAR_B_SORT || 'date_desc') +

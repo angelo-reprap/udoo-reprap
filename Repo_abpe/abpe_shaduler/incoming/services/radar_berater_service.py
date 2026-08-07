@@ -1,11 +1,13 @@
 """
-Radar Berater — Persistenz, CRM-Match (gulp_id), Liste, Paste, CRM-Seed.
+Radar Berater — Persistenz, CRM-Match (gulp_id), Liste, Paste, CRM-Seed,
+Gulp-Aktualisieren (Existenz + Verfügbarkeit).
 """
 from __future__ import annotations
 
 import hashlib
 import logging
 import re
+import time
 from datetime import date, datetime, timedelta
 from decimal import Decimal, InvalidOperation
 from typing import Any, Optional
@@ -351,12 +353,17 @@ def serialize_berater(obj, *, detail: bool = False, preview_chars: int = 4000) -
         'note': (
             'gelöscht (CRM)' if getattr(obj, 'deleted_at', None)
             else (
-                '✔ CRM ' + (obj.crm_contact_id[:8] + '…' if obj.crm_contact_id else '')
-                if obj.match_status == 'bekannt'
-                else ('Platzhalter — optional in CRM anlegen' if (obj.name or '').startswith('Gulp ')
-                      else 'neu / unbekannt')
+                'nicht mehr in Gulp'
+                if (eck.get('gulp_status') == 'gone')
+                else (
+                    '✔ CRM ' + (obj.crm_contact_id[:8] + '…' if obj.crm_contact_id else '')
+                    if obj.match_status == 'bekannt'
+                    else ('Platzhalter — optional in CRM anlegen' if (obj.name or '').startswith('Gulp ')
+                          else 'neu / unbekannt')
+                )
             )
         ),
+        'gulp_status': eck.get('gulp_status') or 'ok',
         'eckdaten': eck if detail else {},
     }
 
@@ -364,6 +371,7 @@ def serialize_berater(obj, *, detail: bool = False, preview_chars: int = 4000) -
 def serialize_list_hit(hit: dict[str, Any]) -> dict[str, Any]:
     """Leichter Listeneintrag aus ES-_source (ohne beschreibung)."""
     cid = hit.get('crm_contact_id') or ''
+    note = hit.get('note') or ''
     return {
         'id': str(hit.get('id') or ''),
         'name': hit.get('name') or gulp.placeholder_name(hit.get('gulp_id') or ''),
@@ -390,7 +398,8 @@ def serialize_list_hit(hit: dict[str, Any]) -> dict[str, Any]:
         'cv_versions': hit.get('cv_versions') or 0,
         'deleted': bool(hit.get('deleted')),
         'meta': hit.get('meta') or '',
-        'note': hit.get('note') or '',
+        'note': note,
+        'gulp_status': 'gone' if 'nicht mehr in Gulp' in str(note) else 'ok',
         'eckdaten': {},
     }
 
@@ -603,6 +612,198 @@ def paste_berater(text: str) -> dict[str, Any]:
         'needs_auth': packed.get('needs_auth'),
         'fetch_error': packed.get('error'),
     }
+
+
+def _mark_gulp_gone(obj) -> dict[str, Any]:
+    """Profil nicht mehr in Gulp — markieren, nicht CRM-löschen."""
+    eck = dict(obj.eckdaten or {})
+    eck['gulp_status'] = 'gone'
+    eck['gulp_checked_at'] = timezone.now().isoformat()
+    obj.eckdaten = eck
+    log_rows = list(obj.auto_update_log or [])
+    log_rows.append({
+        'at': timezone.now().isoformat(),
+        'action': 'gulp_gone',
+        'gulp_id': obj.gulp_id,
+    })
+    obj.auto_update_log = log_rows[-50:]
+    obj.save(update_fields=['eckdaten', 'auto_update_log', 'updated_at'])
+    try:
+        berater_index.index_one(obj)
+    except Exception as exc:
+        log.warning('ES index after gulp_gone: %s', exc)
+    return {'action': 'gone', 'gulp_id': obj.gulp_id, 'id': str(obj.pk)}
+
+
+def _mark_gulp_ok(obj, packed: dict) -> dict[str, Any]:
+    """Profil gefunden → Verfügbarkeit/Satz/Ort updaten, gone-Flag löschen."""
+    before = {
+        'verfuegbar_ab': obj.verfuegbar_ab.isoformat() if obj.verfuegbar_ab else None,
+        'satz': float(obj.satz) if obj.satz is not None else None,
+        'ort': obj.ort or '',
+        'gulp_status': (obj.eckdaten or {}).get('gulp_status'),
+    }
+    item = {
+        'gulp_id': obj.gulp_id,
+        'name': packed.get('name') or obj.name,
+        'profil_url': packed.get('profil_url') or gulp.profil_url_for_gulp_id(obj.gulp_id),
+        'skills': packed.get('skills') or [],
+        'ort': packed.get('ort') or '',
+        'verfuegbar_ab': packed.get('verfuegbar_ab'),
+        'satz': packed.get('satz'),
+        'beschreibung': packed.get('beschreibung') or '',
+        'cv_text': packed.get('cv_text') or '',
+        'first_name': packed.get('first_name') or '',
+        'last_name': packed.get('last_name') or '',
+        'source': 'gulp_refresh',
+        'mongo_id': packed.get('mongo_id') or '',
+    }
+    obj = upsert_berater(item, apply_crm=False)
+    eck = dict(obj.eckdaten or {})
+    eck['gulp_status'] = 'ok'
+    eck['gulp_checked_at'] = timezone.now().isoformat()
+    changed = []
+    after_v = obj.verfuegbar_ab.isoformat() if obj.verfuegbar_ab else None
+    after_s = float(obj.satz) if obj.satz is not None else None
+    if before['verfuegbar_ab'] != after_v:
+        changed.append('verfuegbar_ab')
+    if before['satz'] != after_s:
+        changed.append('satz')
+    if before['ort'] != (obj.ort or '') and (packed.get('ort') or ''):
+        changed.append('ort')
+    if before['gulp_status'] == 'gone':
+        changed.append('gulp_status')
+    eck['gulp_last_changes'] = changed
+    obj.eckdaten = eck
+    log_rows = list(obj.auto_update_log or [])
+    log_rows.append({
+        'at': timezone.now().isoformat(),
+        'action': 'gulp_refresh',
+        'gulp_id': obj.gulp_id,
+        'changed': changed,
+        'verfuegbar_ab': after_v,
+        'satz': after_s,
+    })
+    obj.auto_update_log = log_rows[-50:]
+    obj.save(update_fields=['eckdaten', 'auto_update_log', 'updated_at'])
+    try:
+        berater_index.index_one(obj)
+    except Exception as exc:
+        log.warning('ES index after gulp_refresh: %s', exc)
+    return {
+        'action': 'updated' if changed else 'unchanged',
+        'gulp_id': obj.gulp_id,
+        'id': str(obj.pk),
+        'changed': changed,
+        'verfuegbar_ab': after_v,
+        'satz': after_s,
+    }
+
+
+def refresh_one_from_gulp(obj) -> dict[str, Any]:
+    """Eine RadarConsultantItem-Zeile gegen Gulp prüfen."""
+    gid = (obj.gulp_id or '').strip()
+    if not gid:
+        return {'action': 'skip', 'error': 'keine gulp_id', 'id': str(obj.pk)}
+    packed = gulp.fetch_expert_by_gulp_id(gid)
+    if packed.get('needs_auth'):
+        return {
+            'action': 'auth',
+            'error': packed.get('error') or 'Gulp-Session fehlt',
+            'needs_auth': True,
+            'gulp_id': gid,
+            'id': str(obj.pk),
+        }
+    if packed.get('not_found'):
+        return _mark_gulp_gone(obj)
+    if not packed.get('ok'):
+        return {
+            'action': 'error',
+            'error': packed.get('error') or 'fetch failed',
+            'gulp_id': gid,
+            'id': str(obj.pk),
+        }
+    return _mark_gulp_ok(obj, packed)
+
+
+def refresh_from_gulp(
+    *,
+    limit: int = 50,
+    ids: Optional[list] = None,
+    delay_s: float = 0.35,
+) -> dict[str, Any]:
+    """
+    Batch: Existenz + Verfügbarkeit/Satz aus Gulp.
+    Default limit=50 (Gulp nicht hammern). ids= optional UUID-Liste.
+    """
+    from apps.abpe_shaduler.models import RadarConsultantItem
+    import uuid as _uuid
+
+    if not gulp.has_gulp_session():
+        return {
+            'ok': False,
+            'error': 'Gulp-Session fehlt (settings.json → shaduler.gulp_talentfinder.cookies)',
+            'needs_auth': True,
+        }
+
+    qs = (
+        RadarConsultantItem.objects
+        .filter(deleted_at__isnull=True)
+        .exclude(status='geloescht')
+        .exclude(gulp_id='')
+        .order_by('-updated_at')
+    )
+    if ids:
+        uuids = []
+        for x in ids:
+            try:
+                uuids.append(_uuid.UUID(str(x)))
+            except Exception:
+                continue
+        qs = qs.filter(pk__in=uuids)
+    take = max(1, min(500, int(limit or 50)))
+    rows = list(qs[:take])
+
+    stats = {
+        'ok': True,
+        'scanned': 0,
+        'updated': 0,
+        'unchanged': 0,
+        'gone': 0,
+        'errors': 0,
+        'auth_stop': False,
+        'results': [],
+        'limit': take,
+        'gulp_session': True,
+    }
+    for i, obj in enumerate(rows):
+        stats['scanned'] += 1
+        try:
+            res = refresh_one_from_gulp(obj)
+        except Exception as exc:
+            log.warning('gulp refresh %s: %s', obj.gulp_id, exc)
+            res = {'action': 'error', 'error': str(exc)[:200], 'gulp_id': obj.gulp_id, 'id': str(obj.pk)}
+        action = res.get('action')
+        if action == 'auth':
+            stats['auth_stop'] = True
+            stats['needs_auth'] = True
+            stats['error'] = res.get('error')
+            stats['results'].append(res)
+            break
+        if action == 'gone':
+            stats['gone'] += 1
+        elif action == 'updated':
+            stats['updated'] += 1
+        elif action == 'unchanged':
+            stats['unchanged'] += 1
+        else:
+            stats['errors'] += 1
+        if len(stats['results']) < 30:
+            stats['results'].append(res)
+        if delay_s and i + 1 < len(rows):
+            time.sleep(max(0.0, float(delay_s)))
+
+    return stats
 
 
 def seed_from_crm(*, limit: int = 0) -> dict[str, Any]:

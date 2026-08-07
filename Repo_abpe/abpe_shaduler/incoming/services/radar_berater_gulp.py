@@ -11,13 +11,11 @@ settings.json → shaduler.gulp_talentfinder:
     "cookie_header": "JSESSION_ID_DIREKT=...; remember-me-dir=..."
   }
 
-GEPLANT — „Gulp aktualisieren“ (noch nicht gebaut):
-  A) Server-Download via bestehende CV-Extractor-Cookies (GULPImporter /
-     apps/cv_extractor/services/url_gu_importer.py): gulpId→hash, API,
-     PDF …/PDF, Extract txt, Version in Radar/matching-raw.
-     Existenz-Check (?gulpId= → 0 Treffer = „nicht mehr in Gulp“),
-     Frische („Zuletzt geändert“), Version aus PDF/DOCX (HTML nur Check).
-  B) Später volle CV-Pipeline. Radar bleibt News/Deltas, kein CRM-Spiegel.
+GEPLANT — „Gulp aktualisieren“:
+  A) ✅ Existenz-Check + Verfügbarkeit/Satz via profiles/search
+     (0 Treffer = gulp_status=gone). Batch-API + UI-Button.
+  B) Später: PDF/DOCX via GULPImporter, volle CV-Pipeline.
+     Radar = News/Deltas, kein CRM-Spiegel.
 """
 from __future__ import annotations
 
@@ -142,7 +140,11 @@ def _request(
 def fetch_expert_by_gulp_id(gulp_id: str) -> dict[str, Any]:
     """
     Lädt ein Experten-Profil (braucht Session).
-    Gibt {ok, gulp_id, name, skills, ort, verfuegbar_ab, satz, beschreibung, raw, error?}
+
+    Returns u.a.:
+      ok, gulp_id, name, skills, ort, verfuegbar_ab, satz, …
+      not_found=True  → API 200, 0 Treffer (Profil weg)
+      needs_auth=True → keine Cookies / 401/403
     """
     gid = str(gulp_id or '').strip()
     if not gid:
@@ -156,8 +158,8 @@ def fetch_expert_by_gulp_id(gulp_id: str) -> dict[str, Any]:
             'needs_auth': True,
         }
 
-    # Numeric ID → UI löst Mongo-ID auf; API oft über expert-profiles/{mongoId}
-    # Versuch 1: Search by gulpId
+    saw_ok_empty = False
+    last_http = None
     payloads = [
         {'gulpId': gid, 'page': 0, 'size': 5},
         {'query': gid, 'page': 0, 'size': 5},
@@ -174,20 +176,52 @@ def fetch_expert_by_gulp_id(gulp_id: str) -> dict[str, Any]:
                 'Referer': TF_EXPERTEN,
             },
         )
-        if code == 200:
-            try:
-                data = json.loads(raw.decode('utf-8', errors='replace'))
-            except Exception:
-                data = None
-            parsed = _normalize_search_hit(data, prefer_gulp_id=gid)
-            if parsed:
-                parsed['ok'] = True
-                parsed['profil_url'] = parsed.get('profil_url') or profil_url_for_gulp_id(gid)
-                return parsed
+        last_http = code
+        if code in (401, 403):
+            return {
+                'ok': False,
+                'error': f'Nicht autorisiert (HTTP {code}) — Gulp-Cookies prüfen',
+                'gulp_id': gid,
+                'profil_url': profil_url_for_gulp_id(gid),
+                'needs_auth': True,
+            }
+        if code != 200:
+            continue
+        try:
+            data = json.loads(raw.decode('utf-8', errors='replace'))
+        except Exception:
+            continue
+        hits = _extract_hit_list(data)
+        if not hits and isinstance(data, dict) and (data.get('gulpId') or data.get('id')):
+            hits = [data]
+        if not hits:
+            saw_ok_empty = True
+            continue
+        parsed = _normalize_search_hit(data, prefer_gulp_id=gid)
+        if parsed:
+            parsed['ok'] = True
+            parsed['not_found'] = False
+            parsed['profil_url'] = parsed.get('profil_url') or profil_url_for_gulp_id(gid)
+            return parsed
 
-    # Versuch 2: secure expert-profiles by mongo id
+    # Mongo-ID Direktzugriff
     if re.fullmatch(r'[a-f0-9]{24}', gid, re.I):
         code, _u, raw = _request(f'{TF_PROFILE_API}/{gid}')
+        if code in (401, 403):
+            return {
+                'ok': False,
+                'error': f'Nicht autorisiert (HTTP {code})',
+                'gulp_id': gid,
+                'needs_auth': True,
+            }
+        if code == 404:
+            return {
+                'ok': False,
+                'error': 'Profil nicht mehr in Gulp',
+                'gulp_id': gid,
+                'profil_url': profil_url_for_gulp_id(gid),
+                'not_found': True,
+            }
         if code == 200:
             try:
                 data = json.loads(raw.decode('utf-8', errors='replace'))
@@ -195,15 +229,25 @@ def fetch_expert_by_gulp_id(gulp_id: str) -> dict[str, Any]:
                 return {'ok': False, 'error': f'JSON: {exc}', 'gulp_id': gid}
             parsed = normalize_expert_profile(data)
             parsed['ok'] = True
+            parsed['not_found'] = False
             return parsed
-        return {'ok': False, 'error': f'Profil HTTP {code}', 'gulp_id': gid, 'raw': raw[:500]}
+        return {'ok': False, 'error': f'Profil HTTP {code}', 'gulp_id': gid}
+
+    if saw_ok_empty:
+        return {
+            'ok': False,
+            'error': 'Profil nicht mehr in Gulp (0 Treffer)',
+            'gulp_id': gid,
+            'profil_url': profil_url_for_gulp_id(gid),
+            'not_found': True,
+        }
 
     return {
         'ok': False,
-        'error': 'Profil nicht ladbar (Login/API). Radar-Eintrag mit Platzhalter möglich.',
+        'error': f'Profil nicht ladbar (HTTP {last_http}) — Login/API prüfen',
         'gulp_id': gid,
         'profil_url': profil_url_for_gulp_id(gid),
-        'needs_auth': True,
+        'needs_auth': last_http in (401, 403, None) and not has_gulp_session(),
     }
 
 
