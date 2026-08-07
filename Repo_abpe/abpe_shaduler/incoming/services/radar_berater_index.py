@@ -351,8 +351,8 @@ def doc_from_obj(obj) -> dict[str, Any]:
     deleted = bool(getattr(obj, 'deleted_at', None)) or obj.status == 'geloescht'
     doc = {
         'name': obj.name or '',
-        # Suche braucht Text, Liste nicht — kurz halten für schnellen Bulk
-        'beschreibung': (obj.beschreibung or '')[:4000],
+        # Volltext für ES-Suche (Liste lädt beschreibung nicht; Detail kommt aus DB)
+        'beschreibung': obj.beschreibung or '',
         'skills': skills,
         'skills_text': ' '.join(skills),
         'ort': obj.ort or '',
