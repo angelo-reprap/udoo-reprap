@@ -787,6 +787,7 @@ def refresh_from_gulp(
         if action == 'auth':
             stats['auth_stop'] = True
             stats['needs_auth'] = True
+            stats['ok'] = False
             stats['error'] = res.get('error')
             stats['results'].append(res)
             break
