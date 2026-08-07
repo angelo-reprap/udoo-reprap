@@ -147,21 +147,24 @@ def _es_create_index(es, name: str) -> None:
 
 
 def ensure_index(es=None, *, recreate: bool = False) -> bool:
+    """
+    Index sicherstellen.
+    recreate=True legt Mapping neu an — OHNE den Live-Index vorher zu löschen
+    (sonst ist die UI minutenlang ohne ES). Stattdessen: temp-Index + Alias-Swap
+    erfolgt in reindex_all(); hier nur create-if-missing.
+    """
     es = es or get_es()
     if not es:
         return False
     name = index_name()
     try:
-        exists = es.indices.exists(index=name)
-        if exists and recreate:
-            try:
-                es.indices.delete(index=name, ignore=[404])
-            except TypeError:
-                es.indices.delete(index=name, ignore_unavailable=True)
-            exists = False
+        exists = bool(es.indices.exists(index=name))
         if not exists:
             _es_create_index(es, name)
             log.info('created berater index %s', name)
+        elif recreate:
+            # Mapping-Drift: nur loggen — echter Neuaufbau in reindex_all via temp
+            log.info('berater index %s exists — recreate via temp index in reindex_all', name)
         return True
     except Exception as exc:
         try:
@@ -171,6 +174,80 @@ def ensure_index(es=None, *, recreate: bool = False) -> bool:
             pass
         log.warning('ensure berater index failed: %s', exc)
         return False
+
+
+def _delete_index_quiet(es, name: str) -> None:
+    try:
+        es.indices.delete(index=name, ignore=[404])
+    except TypeError:
+        try:
+            es.indices.delete(index=name, ignore_unavailable=True)
+        except Exception:
+            pass
+    except Exception:
+        pass
+
+
+def _bulk_index(es, name: str, rows, *, chunk: int = 200) -> tuple[int, int, Optional[str]]:
+    """Bulk-index rows → (indexed, errors, sample_error). Progress via log."""
+    n = 0
+    errors = 0
+    sample_err = None
+    total = len(rows)
+    try:
+        from elasticsearch.helpers import bulk
+    except ImportError:
+        for i, obj in enumerate(rows, 1):
+            if index_one(obj, es=es, refresh=False):
+                n += 1
+            else:
+                errors += 1
+                if sample_err is None:
+                    sample_err = 'index_one failed'
+            if i % 500 == 0 or i == total:
+                log.info('berater reindex progress %s/%s (single)', i, total)
+        return n, errors, sample_err
+
+    actions = []
+    for obj in rows:
+        actions.append({
+            '_op_type': 'index',
+            '_index': name,
+            '_id': str(obj.pk),
+            '_source': doc_from_obj(obj),
+        })
+    for i in range(0, len(actions), chunk):
+        part = actions[i:i + chunk]
+        try:
+            ok_count, errs = bulk(es, part, raise_on_error=False, refresh=False)
+            n += int(ok_count or 0)
+            if isinstance(errs, list) and errs:
+                errors += len(errs)
+                if sample_err is None and errs:
+                    sample_err = str(errs[0])[:300]
+            elif errs:
+                errors += 1
+        except Exception as exc:
+            log.warning('berater bulk chunk failed: %s — single fallback', exc)
+            for action in part:
+                try:
+                    _es_index(
+                        es,
+                        index=name,
+                        id=action['_id'],
+                        doc=action['_source'],
+                        refresh=False,
+                    )
+                    n += 1
+                except Exception as exc2:
+                    errors += 1
+                    if sample_err is None:
+                        sample_err = str(exc2)[:300]
+        done = min(i + chunk, len(actions))
+        if done % 400 == 0 or done == len(actions):
+            log.info('berater reindex progress %s/%s', done, total)
+            print(f'  … indexed {done}/{total}', flush=True)
+    return n, errors, sample_err
 
 
 def index_stats(es=None, *, sample: bool = True) -> dict[str, Any]:
@@ -368,8 +445,17 @@ def search(
 
     filters: list[dict] = []
     if not include_deleted:
-        # Alles außer explizit deleted=true (fehlt das Feld → sichtbar)
-        filters.append({'bool': {'must_not': [{'term': {'deleted': True}}]}})
+        # ES bool-Aggs zeigen 0/1 — term false/true und 0/1 abdecken
+        filters.append({
+            'bool': {
+                'should': [
+                    {'term': {'deleted': False}},
+                    {'term': {'deleted': 0}},
+                    {'bool': {'must_not': {'exists': {'field': 'deleted'}}}},
+                ],
+                'minimum_should_match': 1,
+            }
+        })
     if status and status != 'all':
         filters.append({'term': {'status': str(status).strip().lower()}})
     if match_status:
@@ -401,6 +487,7 @@ def search(
     else:
         must.append({'match_all': {}})
     order = 'asc' if sort in ('date_asc', 'asc', 'oldest') else 'desc'
+    # ES 8: Sortierung nach _id ist verboten → gulp_id als Tiebreaker
     body = {
         'size': max(1, min(10000, int(limit))),
         'track_total_hits': True,
@@ -413,7 +500,7 @@ def search(
         'sort': [
             {'eingegangen_am': {'order': order, 'unmapped_type': 'date', 'missing': '_last'}},
             {'updated_at': {'order': order, 'unmapped_type': 'date', 'missing': '_last'}},
-            {'_id': 'asc'},
+            {'gulp_id': {'order': 'asc', 'unmapped_type': 'keyword', 'missing': '_last'}},
         ],
         'aggs': {
             'by_source': {'terms': {'field': 'source', 'size': 20}},
@@ -461,10 +548,14 @@ def reindex_all(
     active_only: bool = True,
     recreate: bool = False,
 ) -> dict[str, Any]:
+    """
+    Reindex. recreate=True baut in Temp-Index und tauscht erst am Ende
+    (Live-Index bleibt bis dahin erreichbar).
+    """
     from apps.abpe_shaduler.models import RadarConsultantItem
     es = get_es()
-    stats_before = index_stats(es)
-    if not es or not ensure_index(es, recreate=recreate):
+    stats_before = index_stats(es, sample=False)
+    if not es or not ensure_index(es, recreate=False):
         return {
             'ok': False,
             'error': 'ES unavailable',
@@ -478,59 +569,89 @@ def reindex_all(
     else:
         rows = list(qs.iterator(chunk_size=500))
 
-    name = index_name()
-    n = 0
-    errors = 0
-    sample_err = None
+    live = index_name()
+    target = live
+    temp = None
+    if recreate:
+        temp = f'{live}__rebuild'
+        _delete_index_quiet(es, temp)
+        try:
+            _es_create_index(es, temp)
+            target = temp
+            print(f'  → rebuild into {temp} (live {live} bleibt bis Swap)', flush=True)
+        except Exception as exc:
+            log.warning('temp index create failed (%s) — in-place reindex', exc)
+            temp = None
+            target = live
 
-    # Bulk wenn helpers verfügbar
-    try:
-        from elasticsearch.helpers import bulk
-        actions = [
-            {
-                '_op_type': 'index',
-                '_index': name,
-                '_id': str(obj.pk),
-                '_source': doc_from_obj(obj),
-            }
-            for obj in rows
-        ]
-        # chunked
-        chunk = 400
-        for i in range(0, len(actions), chunk):
-            part = actions[i:i + chunk]
-            ok_count, errs = bulk(es, part, raise_on_error=False, refresh=False)
-            n += int(ok_count or 0)
-            if isinstance(errs, list) and errs:
-                errors += len(errs)
-                if sample_err is None and errs:
-                    sample_err = str(errs[0])[:300]
-            elif errs:
-                errors += 1
-    except Exception as exc_bulk:
-        log.warning('berater bulk failed (%s) — fallback single', exc_bulk)
-        n = 0
-        errors = 0
-        for obj in rows:
-            if index_one(obj, es=es, refresh=False):
-                n += 1
-            else:
-                errors += 1
-                if sample_err is None:
-                    sample_err = 'index_one failed'
+    print(f'  → indexing {len(rows)} docs into {target} …', flush=True)
+    n, errors, sample_err = _bulk_index(es, target, rows, chunk=200)
 
     try:
-        es.indices.refresh(index=name)
+        es.indices.refresh(index=target)
     except Exception as exc:
         log.warning('berater refresh failed: %s', exc)
 
-    stats_after = index_stats(es)
+    # Temp → Live Swap (ohne Downtime-Fenster durch Delete-first)
+    if temp and target == temp and n > 0:
+        try:
+            # Live umbenennen/löschen, Temp auf Live-Namen
+            old_bak = f'{live}__old'
+            _delete_index_quiet(es, old_bak)
+            if bool(es.indices.exists(index=live)):
+                try:
+                    es.indices.clone(index=live, target=old_bak)
+                except Exception:
+                    pass
+                _delete_index_quiet(es, live)
+            # Temp → live via reindex API oder clone
+            try:
+                es.indices.clone(index=temp, target=live)
+                _delete_index_quiet(es, temp)
+                _delete_index_quiet(es, old_bak)
+                print(f'  → swapped {temp} → {live}', flush=True)
+            except Exception as exc_clone:
+                # Fallback: reindex temp→live
+                log.warning('clone swap failed (%s) — reindex API', exc_clone)
+                if not bool(es.indices.exists(index=live)):
+                    _es_create_index(es, live)
+                try:
+                    es.reindex(
+                        body={'source': {'index': temp}, 'dest': {'index': live}},
+                        wait_for_completion=True,
+                        request_timeout=600,
+                    )
+                except TypeError:
+                    es.reindex(
+                        source={'index': temp},
+                        dest={'index': live},
+                        wait_for_completion=True,
+                    )
+                _delete_index_quiet(es, temp)
+                _delete_index_quiet(es, old_bak)
+                print(f'  → reindex-swapped {temp} → {live}', flush=True)
+        except Exception as exc_swap:
+            log.warning('swap failed: %s — left data in %s', exc_swap, temp)
+            return {
+                'ok': False,
+                'error': f'swap failed: {exc_swap}',
+                'indexed': n,
+                'errors': errors,
+                'temp_index': temp,
+                'index': live,
+                'sample_error': sample_err,
+                'stats_before': stats_before,
+                'stats_after': index_stats(es, sample=False),
+            }
+
+    stats_after = index_stats(es, sample=True)
     return {
         'ok': errors == 0 and n > 0,
         'indexed': n,
         'errors': errors,
         'scanned': len(rows),
-        'index': name,
+        'index': live,
+        'recreate': recreate,
         'sample_error': sample_err,
         'stats_before': stats_before,
         'stats_after': stats_after,
