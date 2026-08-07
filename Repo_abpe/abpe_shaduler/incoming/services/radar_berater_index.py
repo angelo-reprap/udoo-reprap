@@ -124,15 +124,18 @@ def _es_index(es, *, index: str, id: str, doc: dict, refresh: bool = False) -> N
 
 
 def _es_search(es, *, index: str, body: dict):
+    """ES8 zuerst (kwargs), ES7-Fallback (body=)."""
+    kwargs = {k: v for k, v in body.items() if k in (
+        'query', 'size', 'from_', 'from', 'sort', 'aggs', 'aggregations',
+        '_source', 'track_total_hits',
+    )}
+    # 'from' ist Keyword in Python — Client akzeptiert from_
+    if 'from' in kwargs and 'from_' not in kwargs:
+        kwargs['from_'] = kwargs.pop('from')
     try:
-        return es.search(index=index, body=body)
-    except TypeError:
-        # ES8: body aufgelöst in query/size/…
-        kwargs = {k: v for k, v in body.items() if k in (
-            'query', 'size', 'from', 'sort', 'aggs', 'aggregations', '_source',
-            'track_total_hits',
-        )}
         return es.search(index=index, **kwargs)
+    except TypeError:
+        return es.search(index=index, body=body)
 
 
 def _es_create_index(es, name: str) -> None:
@@ -445,12 +448,11 @@ def search(
 
     filters: list[dict] = []
     if not include_deleted:
-        # ES bool-Aggs zeigen 0/1 — term false/true und 0/1 abdecken
+        # Nur boolean false — term 0 auf boolean-Feld kann unter ES8 die Query killen
         filters.append({
             'bool': {
                 'should': [
                     {'term': {'deleted': False}},
-                    {'term': {'deleted': 0}},
                     {'bool': {'must_not': {'exists': {'field': 'deleted'}}}},
                 ],
                 'minimum_should_match': 1,
