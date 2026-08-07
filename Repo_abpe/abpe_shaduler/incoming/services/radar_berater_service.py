@@ -466,9 +466,7 @@ def list_berater(
     if not isinstance(es_doc_count, int):
         es_doc_count = None
 
-    if es_pack is not None and es_pack.get('hits') is not None:
-        if es_pack.get('error'):
-            es_info['search_error'] = es_pack.get('error')
+    if es_pack is not None and es_pack.get('hits') is not None and not es_pack.get('error'):
         hits = es_pack.get('hits') or []
         list_source = 'elasticsearch'
         by_src = es_pack.get('by_source') or {}
@@ -492,8 +490,12 @@ def list_berater(
                 by_src = {}
                 es_total = es_doc_count
                 es_info['fallback'] = 'empty_index'
-    elif es_pack is None:
-        es_info['fallback'] = 'es_unavailable'
+    else:
+        if es_pack and es_pack.get('error'):
+            es_info['search_error'] = es_pack.get('error')
+            es_info['fallback'] = 'search_error'
+        elif es_pack is None:
+            es_info['fallback'] = 'es_unavailable'
 
     if list_source != 'elasticsearch':
         qs = (
