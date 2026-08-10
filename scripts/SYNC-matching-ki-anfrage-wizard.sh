@@ -18,7 +18,7 @@ BACKEND="${BACKEND:-/opt/abpe/backend}"
 PYBIN="${PYBIN:-/opt/abpe/venv311/bin/python}"
 
 cd "$REPO"
-git fetch origin cursor/matching-ki-anfrage-wizard-7f07 || true
+git fetch origin "${BRANCH#origin/}" || true
 
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
@@ -159,7 +159,9 @@ echo "  Gulp-Login: settings.json → shaduler.gulp_talentfinder.cookies"
 echo "  FM-Login:   settings.json → shaduler.freelancermap  ODER data/url/fl/.session_cookies.json"
 echo "              (ohne Session: Liste ok, Stundensätze oft leer)"
 echo
-echo "Restart: supervisorctl restart abpe-django"
+echo "Restart: supervisorctl restart abpe-django abpe-celery"
+echo "PFLICHT Taktgeber: bash scripts/ENSURE-abpe-scheduler-loop.sh"
+echo "Jobs: $PYBIN manage.py register_scheduler_jobs  # radar_poll alle 3 Min (async Celery)"
 echo "Optional (Radar Anfragen ES): $PYBIN manage.py radar_reindex --status neu"
 echo "Optional (Radar Dedup):       $PYBIN manage.py radar_regroup --days 14"
 echo "UI Matching: Button „KI-Anfragen-Wizard“ links neben „+ Neue Anfrage“"

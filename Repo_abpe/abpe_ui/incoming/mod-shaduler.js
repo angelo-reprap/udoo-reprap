@@ -279,6 +279,7 @@
       startInboxPoll();
     } else if (name === 'radar_anfragen') {
       loadRadarA();
+      startRadarPoll();
     } else if (name === 'radar_berater') {
       loadRadarB();
     } else if (name === 'regeln') {
@@ -2053,7 +2054,11 @@
   var RADAR_SOURCE = ''; // '' | freelancermap | gulp | hays
   var RADAR_BOOTSTRAPPED = false;
   var RADAR_LOADING = false;
-  var RADAR_BG_REFRESH_MS = 5 * 60 * 1000; // Hintergrund-Live max alle 5 Min
+  var RADAR_BG_REFRESH_MS = 3 * 60 * 1000; // Live-Fetch max alle 3 Min
+  var RADAR_POLL_MS = 60000; // Soft-Poll ES/DB alle 60s wenn Tab aktiv
+  var RADAR_POLL_MS_MAX = 180000;
+  var radarPollTimer = null;
+  var radarPollBackoffMs = RADAR_POLL_MS;
   try {
     var _rps = parseInt(localStorage.getItem('sh_radar_page_size') || '20', 10);
     if ([5, 10, 20, 50].indexOf(_rps) >= 0) RADAR_PAGE_SIZE = _rps;
@@ -2166,6 +2171,51 @@
     });
   }
 
+  function radarTabActive() {
+    var tab = document.querySelector('#shaduler-root .mtab.on');
+    return !!(tab && tab.getAttribute('data-t') === 'radar_anfragen');
+  }
+
+  function stopRadarPoll() {
+    if (radarPollTimer) {
+      clearTimeout(radarPollTimer);
+      radarPollTimer = null;
+    }
+  }
+
+  function scheduleRadarPoll(delayMs) {
+    stopRadarPoll();
+    if (!radarTabActive()) return;
+    var ms = Math.max(RADAR_POLL_MS, Math.min(RADAR_POLL_MS_MAX, delayMs || radarPollBackoffMs));
+    radarPollTimer = setTimeout(function () {
+      radarPollTimer = null;
+      if (!radarTabActive()) return;
+      if (document.visibilityState === 'hidden') {
+        scheduleRadarPoll(RADAR_POLL_MS);
+        return;
+      }
+      // Alle ~3 Min Live (FM), sonst Soft ES/DB — neue Projekte vom Scheduler sichtbar machen
+      var doLive = false;
+      try {
+        var lastLive = parseInt(sessionStorage.getItem('sh_radar_live_at') || '0', 10);
+        doLive = !lastLive || (Date.now() - lastLive) > RADAR_BG_REFRESH_MS;
+      } catch (eLive) { /* ignore */ }
+      if (doLive) {
+        try { sessionStorage.setItem('sh_radar_live_at', String(Date.now())); } catch (eSet) { /* ignore */ }
+        loadRadarA({ refresh: true, soft: true });
+      } else {
+        loadRadarA({ soft: true });
+      }
+      radarPollBackoffMs = RADAR_POLL_MS;
+      scheduleRadarPoll(RADAR_POLL_MS);
+    }, ms);
+  }
+
+  function startRadarPoll() {
+    radarPollBackoffMs = RADAR_POLL_MS;
+    scheduleRadarPoll(RADAR_POLL_MS);
+  }
+
   function loadRadarA(opts) {
     opts = opts || {};
     // Standard: ES/DB (schnell). Live-Fetch nur per ↻ oder Hintergrund.
@@ -2237,7 +2287,7 @@
         if (doRefresh) {
           try { sessionStorage.setItem('sh_radar_live_at', String(Date.now())); } catch (e2) { /* ignore */ }
         }
-        // Sanfter Hintergrund-Live-Fetch max alle 5 Min (nicht bei Filterwechseln)
+        // Sanfter Hintergrund-Live-Fetch max alle 3 Min (nicht bei Filterwechseln)
         if (!doRefresh && !soft) {
           try {
             var lastLive = parseInt(sessionStorage.getItem('sh_radar_live_at') || '0', 10);
