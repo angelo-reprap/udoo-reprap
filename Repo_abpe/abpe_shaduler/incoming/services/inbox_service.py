@@ -1725,12 +1725,14 @@ def mail_to_aufgabe(
     notiz: str = '',
     crm_notiz: bool = True,
     dauer_min=None,
+    titel: str = '',
 ) -> dict[str, Any]:
     """
     Erzeugt Aufgabe aus Mail.
     ``due``: 1h|heute|morgen|+3d|+1w (oder explizit faellig_am/faellig_zeit).
     ``notiz``: freie Notiz → Beschreibung + optional CRM-Aktivität.
     ``dauer_min``: optionale Dauer in Minuten (in Beschreibung + details).
+    ``titel``: optionaler freier Betreff (sonst Mail-Subject).
     """
     from . import aufgaben_service, aktivitaet_service
     from apps.abpe_shaduler.models import Aufgabe
@@ -1772,7 +1774,8 @@ def mail_to_aufgabe(
     except Exception:
         dauer_min = None
 
-    titel = (mail.get('subj') or 'Mail-Aufgabe')[:200]
+    titel = (titel or '').strip() or (mail.get('subj') or 'Mail-Aufgabe')
+    titel = titel[:200]
     beschreibung_parts = [
         f"Von: {mail.get('from') or '—'}",
         f"Postfach: {mail.get('box') or mail.get('account') or '—'}",

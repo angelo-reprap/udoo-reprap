@@ -90,20 +90,61 @@ def api_aufgaben_list(request):
 @login_required
 @require_POST
 def api_aufgabe_create(request):
+    from datetime import datetime as dt_cls
+
     data = _json_body(request)
     art = data.get('art') or Aufgabe.Art.INTERN
-    titel = (data.get('titel') or '').strip()
+    titel = (data.get('titel') or data.get('subject') or data.get('betreff') or '').strip()
     if not titel:
         return JsonResponse({'ok': False, 'error': 'titel required'}, status=400)
+
+    faellig_am = data.get('faellig_am') or None
+    faellig_zeit = data.get('faellig_zeit') or None
+    parsed_date = None
+    parsed_time = None
+    if faellig_am:
+        try:
+            if hasattr(faellig_am, 'year'):
+                parsed_date = faellig_am
+            else:
+                parsed_date = dt_cls.strptime(str(faellig_am)[:10], '%Y-%m-%d').date()
+        except Exception:
+            parsed_date = None
+    if faellig_zeit:
+        try:
+            if hasattr(faellig_zeit, 'hour'):
+                parsed_time = faellig_zeit
+            else:
+                s = str(faellig_zeit).strip()
+                if len(s) >= 5:
+                    parsed_time = dt_cls.strptime(s[:5], '%H:%M').time()
+        except Exception:
+            parsed_time = None
+
+    beschreibung = (data.get('beschreibung') or data.get('notiz') or data.get('note') or '').strip()
+    dauer_min = data.get('dauer_min') or data.get('dauer') or None
+    try:
+        dauer_min = int(dauer_min) if dauer_min not in (None, '', False) else None
+        if dauer_min is not None and dauer_min <= 0:
+            dauer_min = None
+    except Exception:
+        dauer_min = None
+    if dauer_min:
+        beschreibung = (
+            (beschreibung + '\n\n' if beschreibung else '') + f'Dauer: {dauer_min} Min'
+        ).strip()
+
     aufgabe = aufgaben_service.erstellen(
         art=art,
         titel=titel,
         zugewiesen_an=request.user,
-        beschreibung=data.get('beschreibung') or '',
+        beschreibung=beschreibung,
         kanal=data.get('kanal') or '',
         ref_type=data.get('ref_type') or '',
         ref_id=data.get('ref_id') or '',
         prioritaet=int(data.get('prioritaet') or 3),
+        faellig_am=parsed_date,
+        faellig_zeit=parsed_time,
         user=request.user,
     )
     return JsonResponse({
@@ -355,6 +396,7 @@ def api_inbox_to_task(request, mail_id):
             notiz=data.get('notiz') or data.get('note') or '',
             crm_notiz=crm_notiz,
             dauer_min=data.get('dauer_min') or data.get('dauer') or None,
+            titel=data.get('titel') or data.get('subject') or data.get('betreff') or '',
         )
         return JsonResponse(result, status=201)
     except Exception as exc:
