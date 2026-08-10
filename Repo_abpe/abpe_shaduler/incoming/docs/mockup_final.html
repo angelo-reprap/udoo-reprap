@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABpE Portal — Scheduler-Modul (Final-Mockup)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+:root{
+  --abcona-blue:#163258; --abcona-blue-dark:#0f2442; --abcona-blue-light:#1e4a7a;
+  --abcona-gray-bg:#eef2f5; --abcona-gray-card:#f8fafc;
+  --status-green:#10b981; --status-yellow:#f59e0b; --status-red:#ef4444;
+  --radius:12px; --text-primary:#1e1e1e; --text-secondary:#6c757d;
+  --border-color:#dee2e6; --bg-white:#fff; --border-light:#e9ecef;
+  --abcona-blue-alpha:rgba(22,50,88,.08);
+  --a-wv:#f59e0b; --a-anruf:#1e4a7a; --a-email:#3a5fa8; --a-doc:#6c757d;
+  --a-post:#7a4fa0; --a-wa:#25d366; --a-allg:#495057; --a-radar:#0e7490;
+}
+body.dark-mode{
+  --abcona-blue:#3a3a3a; --abcona-blue-dark:#2a2a2a; --abcona-blue-light:#4a4a4a;
+  --abcona-gray-bg:#0f0f0f; --abcona-gray-card:#1a1a1a;
+  --text-primary:#e0e0e0; --text-secondary:#a0a0a0; --border-color:#333;
+  --bg-white:#1a1a1a; --border-light:#333; --abcona-blue-alpha:rgba(255,255,255,.08);
+  --a-anruf:#5b84b5; --a-email:#6c8fd0; --a-doc:#8a939b; --a-allg:#7d868e; --a-radar:#22a3bf;
+}
+*{box-sizing:border-box;margin:0;padding:0;transition:background-color .2s,color .2s,border-color .2s}
+body{font-family:"Segoe UI",system-ui,sans-serif;background:var(--abcona-gray-bg);color:var(--text-primary);font-size:15px}
+button{font-family:inherit;cursor:pointer}
+.topbar{position:fixed;top:0;left:0;right:0;height:60px;background:var(--abcona-blue);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:999}
+.logo-area{display:flex;align-items:center;gap:12px;color:#fff;font-weight:600}
+.logo-mark{width:35px;height:35px;border-radius:8px;background:#fff;color:var(--abcona-blue);display:flex;align-items:center;justify-content:center;font-weight:800}
+.header-right{display:flex;align-items:center;gap:14px;color:#cbd5e0}
+.header-right .hbtn{background:none;border:none;color:#cbd5e0;font-size:1.05rem}
+.sidebar{position:fixed;left:0;top:60px;bottom:0;width:60px;background:var(--abcona-blue);transition:width .3s;z-index:1000;overflow-x:hidden}
+.sidebar:hover{width:240px}
+.nav-link{color:#cbd5e0;padding:12px 20px;white-space:nowrap;display:flex;align-items:center;gap:12px;border-radius:12px;margin:4px 8px;text-decoration:none}
+.nav-link i{font-size:1.2rem;min-width:24px}
+.nav-link span{opacity:0;transition:opacity .2s}
+.sidebar:hover .nav-link span{opacity:1}
+.nav-link:hover{background:var(--abcona-blue-light);color:#fff}
+.nav-link.active{background:var(--abcona-blue-dark);color:#fff}
+.main-content{margin-left:60px;padding:76px 20px 20px}
+
+/* Modul-Reiter */
+.modtabs{display:flex;gap:2px;background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius);padding:6px;margin-bottom:14px;flex-wrap:wrap}
+.mtab{border:none;background:none;color:var(--text-secondary);padding:9px 16px;border-radius:8px;font-size:.9rem;display:flex;align-items:center;gap:8px}
+.mtab .b{background:var(--status-red);color:#fff;border-radius:99px;font-size:.68rem;padding:1px 7px;font-weight:700}
+.mtab .b.teal{background:var(--a-radar)}
+.mtab:hover{background:var(--abcona-blue-alpha)}
+.mtab.on{background:var(--abcona-blue);color:#fff}
+.view{display:none}.view.on{display:block}
+
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px}
+@media(max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+.stat-card{background:var(--abcona-gray-card);border-radius:var(--radius);padding:13px;text-align:center;border:1px solid var(--border-light)}
+.stat-value{font-size:1.8rem;font-weight:700;color:var(--abcona-blue)}
+body.dark-mode .stat-value{color:#e0e0e0}
+.stat-value.red{color:var(--status-red)} .stat-value.teal{color:var(--a-radar)}
+.stat-title{font-size:.82rem;color:var(--text-secondary)}
+.card{background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden}
+.card-h{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border-light);font-weight:600;font-size:.95rem}
+
+/* Ziehharmonika */
+.acc-head{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--border-light);cursor:pointer;user-select:none;background:var(--abcona-gray-card)}
+.acc-head:hover{background:var(--abcona-blue-alpha)}
+.acc-head .gi{width:30px;height:30px;border-radius:8px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.acc-head b{font-size:.92rem;flex:1}
+.acc-head .cnt{font-size:.8rem;color:var(--text-secondary)}
+.acc-head .cnt .ovd{color:var(--status-red);font-weight:700}
+.acc-head .car{color:var(--text-secondary);transition:transform .2s;font-size:.85rem}
+.acc.open .car{transform:rotate(90deg)}
+.acc-body{display:none;border-bottom:1px solid var(--border-light)}
+.acc.open .acc-body{display:block}
+.acc-body .none{padding:9px 16px;color:var(--text-secondary);font-size:.82rem;font-style:italic}
+.task{display:flex;align-items:center;gap:10px;padding:9px 14px 9px 18px;border-top:1px solid var(--border-light);cursor:pointer;animation:slidein .3s}
+.task:hover{background:var(--abcona-blue-alpha)}
+.task .tx{flex:1;min-width:0}
+.task .tx b{font-size:.86rem;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.task .tx small{color:var(--text-secondary);font-size:.76rem;display:block}
+.task .due{font-size:.74rem;color:var(--text-secondary);white-space:nowrap}
+.task.ov .due{color:var(--status-red);font-weight:600}
+@keyframes slidein{from{opacity:0;transform:translateY(-6px)}to{opacity:1}}
+
+/* Kalender */
+.viewsw{display:flex;gap:4px;margin-left:auto}
+.viewsw button{border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-secondary);border-radius:7px;padding:4px 11px;font-size:.8rem}
+.viewsw button.on{background:var(--abcona-blue);border-color:var(--abcona-blue);color:#fff}
+.cal-nav{display:flex;align-items:center;gap:8px;padding:10px 16px;border-bottom:1px solid var(--border-light)}
+.cal-nav b{flex:1;font-size:.95rem}
+.cal-nav button{border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-secondary);border-radius:6px;min-width:26px;height:26px}
+.grid{display:grid;grid-template-columns:repeat(7,1fr)}
+.dow{padding:7px 0;text-align:center;font-size:.72rem;color:var(--text-secondary);border-bottom:1px solid var(--border-light);text-transform:uppercase}
+.day{min-height:78px;border-right:1px solid var(--border-light);border-bottom:1px solid var(--border-light);padding:5px;position:relative;cursor:pointer}
+.day:hover{background:var(--abcona-blue-alpha)}
+.day:nth-child(7n){border-right:none}
+.day.other{background:var(--abcona-gray-card);color:var(--text-secondary)}
+.day.today .num{background:var(--abcona-blue);color:#fff}
+.day .num{font-size:.78rem;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%}
+.badges{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+.bdg{min-width:20px;height:18px;border-radius:5px;color:#fff;font-size:.66rem;display:flex;align-items:center;justify-content:center;padding:0 4px;gap:2px}
+.dot-ov{position:absolute;top:7px;right:7px;width:8px;height:8px;border-radius:50%;background:var(--status-red)}
+.hourrow{display:flex;border-bottom:1px solid var(--border-light);min-height:40px}
+.hourrow .hh{width:56px;padding:6px 8px;font-size:.74rem;color:var(--text-secondary);border-right:1px solid var(--border-light)}
+.hourrow .hc{flex:1;padding:4px 8px;display:flex;flex-direction:column;gap:4px}
+.dayev{border-left:4px solid var(--evc);background:var(--abcona-gray-card);border-radius:0 8px 8px 0;padding:5px 9px;font-size:.82rem;cursor:pointer}
+.week{display:grid;grid-template-columns:repeat(7,1fr)}
+.wday{border-right:1px solid var(--border-light);min-height:150px;padding:6px;cursor:pointer}
+.wday:last-child{border-right:none}
+.wday h4{font-size:.76rem;color:var(--text-secondary);margin-bottom:6px;text-align:center}
+.wev{border-left:3px solid var(--evc);background:var(--abcona-gray-card);border-radius:0 6px 6px 0;padding:3px 6px;font-size:.7rem;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Radar */
+.ritem{border-bottom:1px solid var(--border-light);padding:12px 16px;animation:slidein .3s}
+.ritem:hover{background:var(--abcona-blue-alpha)}
+.ritem .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.score{min-width:52px;height:30px;border-radius:8px;background:var(--a-radar);color:#fff;font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+.score.mid{background:var(--status-yellow)}
+.ritem b.hl{font-size:.92rem;flex:1;min-width:200px}
+.src{font-size:.72rem;background:var(--abcona-gray-card);border:1px solid var(--border-light);border-radius:99px;padding:2px 9px;color:var(--text-secondary)}
+.grp{font-size:.72rem;background:var(--abcona-blue);color:#fff;border-radius:99px;padding:2px 9px;cursor:pointer}
+.age{font-size:.72rem;color:var(--text-secondary);white-space:nowrap}
+.meta{font-size:.8rem;color:var(--text-secondary);margin:6px 0 8px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.chip{font-size:.74rem;border:1px solid var(--border-color);border-radius:99px;padding:2px 10px;color:var(--text-secondary)}
+.chip.top{border-color:var(--status-green);color:var(--status-green);font-weight:600}
+.racts{display:flex;gap:8px;flex-wrap:wrap}
+.racts button{border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-primary);border-radius:8px;padding:6px 12px;font-size:.8rem}
+.racts button.pri{background:var(--abcona-blue);border-color:var(--abcona-blue);color:#fff;font-weight:600}
+.racts button:hover{border-color:var(--abcona-blue-light)}
+.sources{display:none;margin-top:8px;border-left:3px solid var(--abcona-blue-light);padding-left:10px;font-size:.8rem}
+.sources.open{display:block}
+.sources a{color:var(--abcona-blue-light);text-decoration:none;display:block;padding:2px 0}
+body.dark-mode .sources a{color:#8fb3dd}
+.mstat{font-size:.72rem;border-radius:99px;padding:2px 9px;font-weight:600}
+.mstat.known{background:#d1fae5;color:#065f46}
+.mstat.maybe{background:#fef3c7;color:#92400e}
+.mstat.new{background:var(--abcona-blue-alpha);color:var(--text-secondary)}
+body.dark-mode .mstat.known{background:#064e3b;color:#6ee7b7}
+body.dark-mode .mstat.maybe{background:#78350f;color:#fcd34d}
+.paste{display:flex;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border-light);background:var(--abcona-gray-card)}
+.paste input{flex:1;padding:9px 12px;border:1px solid var(--border-color);border-radius:8px;font-size:.85rem;background:var(--bg-white);color:var(--text-primary)}
+.paste button{border:none;background:var(--abcona-blue);color:#fff;border-radius:8px;padding:0 16px;font-size:.85rem}
+.toast{position:fixed;bottom:22px;right:22px;background:var(--abcona-blue);color:#fff;border-radius:10px;padding:12px 18px;font-size:.88rem;box-shadow:0 10px 30px rgba(0,0,0,.3);display:none;z-index:10000;max-width:340px}
+.toast.on{display:block;animation:slidein .3s}
+
+/* Regeln */
+table{width:100%;border-collapse:collapse;font-size:.86rem}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--border-light)}
+th{background:var(--abcona-gray-card);color:var(--text-secondary);font-size:.74rem;text-transform:uppercase;letter-spacing:.04em}
+.pill{font-size:.72rem;border-radius:99px;padding:2px 9px;color:#fff}
+.tog{width:36px;height:20px;border-radius:99px;background:var(--status-green);position:relative;display:inline-block;cursor:pointer}
+.tog::after{content:'';position:absolute;top:2px;right:2px;width:16px;height:16px;border-radius:50%;background:#fff}
+.tog.off{background:var(--border-color)}
+.tog.off::after{right:auto;left:2px}
+.futurenote{padding:14px 16px;font-size:.84rem;color:var(--text-secondary);background:var(--abcona-gray-card);border-top:1px solid var(--border-light)}
+
+/* Modal */
+.ovl{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:9999}
+.ovl.open{display:flex}
+.modal{background:var(--bg-white);border-radius:12px;max-width:520px;width:100%;max-height:92vh;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.mh{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--abcona-blue);color:#fff}
+.mh .ico{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:rgba(255,255,255,.18)}
+.mh b{font-size:.98rem;display:block}
+.mh small{color:rgba(255,255,255,.75)}
+.mh .x{margin-left:auto;border:none;background:none;font-size:1.1rem;color:#fff}
+.mb{padding:16px 18px}
+.excerpt{background:var(--abcona-gray-card);border:1px solid var(--border-light);border-radius:9px;padding:10px 12px;font-size:.85rem;margin-bottom:14px}
+.excerpt .lbl{font-size:.7rem;text-transform:uppercase;color:var(--text-secondary);margin-bottom:4px}
+.excerpt li{margin-left:16px;color:var(--text-secondary)}
+.gentext{background:#d1fae5;border:1px solid var(--status-green);border-radius:9px;padding:10px 12px;font-size:.88rem;margin-bottom:14px;white-space:pre-line;color:#065f46}
+body.dark-mode .gentext{background:#064e3b;color:#6ee7b7}
+.primary{width:100%;padding:12px;border:none;border-radius:9px;background:var(--abcona-blue);color:#fff;font-size:.95rem;font-weight:600}
+.primary.wa{background:var(--a-wa)}
+.phase{display:none}.phase.on{display:block}
+.qlbl{font-weight:600;margin:4px 0 10px;font-size:.95rem}
+.results{display:flex;flex-direction:column;gap:8px}
+.rbtn{text-align:left;border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-primary);border-radius:9px;padding:10px 12px;font-size:.9rem}
+.rbtn:hover{border-color:var(--abcona-blue-light);background:var(--abcona-blue-alpha)}
+.rbtn small{display:block;color:var(--text-secondary);font-size:.78rem}
+.inp{margin:12px 0}
+.inp label{font-size:.82rem;color:var(--text-secondary);display:block;margin-bottom:4px}
+.inp input{width:100%;padding:9px 10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-white);color:var(--text-primary)}
+.fx{border-left:4px solid var(--status-green);background:var(--abcona-gray-card);border-radius:0 9px 9px 0;padding:10px 12px;font-size:.86rem;margin-bottom:14px}
+.fx div{display:flex;gap:8px;padding:3px 0}
+.done-btn{width:100%;padding:11px;border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-primary);border-radius:9px}
+.note{font-size:.78rem;color:var(--text-secondary);margin-top:10px;text-align:center}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo-area"><div class="logo-mark">a</div><span>ABpE Portal</span></div>
+  <div class="header-right">
+    <button class="hbtn" onclick="document.body.classList.toggle('dark-mode')"><i class="bi bi-sun"></i></button>
+    <span style="font-size:.85rem"><i class="bi bi-person-circle"></i> angelo</span>
+  </div>
+</div>
+<nav class="sidebar">
+  <div style="margin-top:12px">
+    <a class="nav-link" href="#"><i class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+    <a class="nav-link" href="#"><i class="bi bi-people"></i><span>CRM</span></a>
+    <a class="nav-link" href="#"><i class="bi bi-diagram-3"></i><span>Matching</span></a>
+    <a class="nav-link active" href="#"><i class="bi bi-check2-square"></i><span>Aufgaben</span></a>
+    <a class="nav-link" href="#"><i class="bi bi-envelope"></i><span>Email Studio</span></a>
+    <a class="nav-link" href="#"><i class="bi bi-file-earmark-text"></i><span>Doc Studio</span></a>
+  </div>
+</nav>
+
+<main class="main-content">
+
+  <div class="modtabs">
+    <button class="mtab on" data-t="aufgaben"><i class="bi bi-list-task"></i> Aufgaben <span class="b" id="tb-a">0</span></button>
+    <button class="mtab" data-t="kalender"><i class="bi bi-calendar3"></i> Kalender</button>
+    <button class="mtab" data-t="post"><i class="bi bi-inbox"></i> Posteingang <span class="b" style="background:var(--a-email)">3</span></button>
+    <button class="mtab" data-t="radar-a"><i class="bi bi-broadcast"></i> Radar · Anfragen <span class="b teal" id="tb-ra">3</span></button>
+    <button class="mtab" data-t="radar-b"><i class="bi bi-person-bounding-box"></i> Radar · Berater <span class="b teal" id="tb-rb">3</span></button>
+    <button class="mtab" data-t="regeln"><i class="bi bi-gear-wide-connected"></i> Regeln</button>
+  </div>
+
+  <!-- ── TAB AUFGABEN ── -->
+  <div class="view on" id="v-aufgaben">
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-value" id="n-today">0</div><div class="stat-title">heute fällig</div></div>
+      <div class="stat-card"><div class="stat-value red" id="n-ov">0</div><div class="stat-title">überfällig</div></div>
+      <div class="stat-card"><div class="stat-value" id="n-plan">0</div><div class="stat-title">geplant</div></div>
+      <div class="stat-card"><div class="stat-value" id="n-done">0</div><div class="stat-title">heute erledigt</div></div>
+    </div>
+    <div class="card"><div id="acc"></div></div>
+  </div>
+
+  <!-- ── TAB KALENDER ── -->
+  <div class="view" id="v-kalender">
+    <div class="card">
+      <div class="card-h"><i class="bi bi-calendar3"></i> Kalender
+        <div class="viewsw" id="vsw">
+          <button data-v="tag">Tag</button><button data-v="woche">Woche</button>
+          <button data-v="monat" class="on">Monat</button><button data-v="jahr">Jahr</button>
+        </div>
+      </div>
+      <div class="cal-nav"><button onclick="nav(-1)"><i class="bi bi-chevron-left"></i></button><b id="cal-title"></b><button onclick="nav(1)"><i class="bi bi-chevron-right"></i></button><button style="padding:0 10px;font-size:.78rem" onclick="selDay=3;renderCal()">Heute</button></div>
+      <div id="cal-body"></div>
+    </div>
+  </div>
+
+  <!-- ── TAB POSTEINGANG ── -->
+  <div class="view" id="v-post">
+    <div class="card">
+      <div class="card-h"><i class="bi bi-inbox"></i> Posteingang — Lese-Überblick
+        <span style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary)">Verwalten bleibt Outlook · Postfächer: vertrieb@ (2) · angelo@ (1)</span>
+      </div>
+      <div id="inbox"></div>
+    </div>
+  </div>
+
+  <!-- ── TAB RADAR ANFRAGEN ── -->
+  <div class="view" id="v-radar-a">
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-value teal" id="r-new">3</div><div class="stat-title">neue Treffer</div></div>
+      <div class="stat-card"><div class="stat-value teal">87%</div><div class="stat-title">bester Score</div></div>
+      <div class="stat-card"><div class="stat-value">5 Min</div><div class="stat-title">Poll-Takt (RSS/HTML)</div></div>
+      <div class="stat-card"><div class="stat-value">2</div><div class="stat-title">gesperrte gefiltert 🚫</div></div>
+    </div>
+    <div class="card"><div class="card-h"><i class="bi bi-broadcast"></i> Projektausschreibungen — nach Score</div><div id="radarA"></div></div>
+  </div>
+
+  <!-- ── TAB RADAR BERATER ── -->
+  <div class="view" id="v-radar-b">
+    <div class="card">
+      <div class="card-h"><i class="bi bi-person-bounding-box"></i> Berater-Profile auf den Börsen</div>
+      <div class="paste">
+        <input placeholder="Talentfinder: Profil-URL oder Profiltext hier einfügen … (Parsing + Abgleich automatisch)">
+        <button><i class="bi bi-plus-lg"></i></button>
+      </div>
+      <div id="radarB"></div>
+    </div>
+  </div>
+
+  <!-- ── TAB REGELN ── -->
+  <div class="view" id="v-regeln">
+    <div class="card">
+      <div class="card-h"><i class="bi bi-gear-wide-connected"></i> Wiedervorlage- & Prozess-Regeln <span style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary)">DB-konfiguriert, kein Code</span></div>
+      <table>
+        <thead><tr><th>Auslöser</th><th>Wirkung</th><th>Frist</th><th>aktiv</th></tr></thead>
+        <tbody>
+          <tr><td>Status → „Angebot gesendet"</td><td><span class="pill" style="background:var(--a-wv)">Wiedervorlage</span> Nachfassen</td><td>+3 Tage</td><td><span class="tog"></span></td></tr>
+          <tr><td>Status → „Vertrag gesendet (Post)"</td><td><span class="pill" style="background:var(--a-wv)">Wiedervorlage</span> Eingang prüfen</td><td>+5 Tage</td><td><span class="tog"></span></td></tr>
+          <tr><td>Anruf „nicht erreicht"</td><td><span class="pill" style="background:var(--a-anruf)">Anruf</span> erneut · dann <span class="pill" style="background:var(--a-email)">Auto-Mail</span></td><td>+1 Tag · 2 Versuche</td><td><span class="tog"></span></td></tr>
+          <tr><td>„Berater kennenlernen"</td><td><span class="pill" style="background:var(--a-wv)">Wiedervorlage</span></td><td>+30 Tage</td><td><span class="tog"></span></td></tr>
+          <tr><td>„Noch im Projekt bis X"</td><td><span class="pill" style="background:var(--a-wv)">Wiedervorlage</span> vor Projektende</td><td>−4 Wochen</td><td><span class="tog"></span></td></tr>
+          <tr><td>Radar-Score ≥ 85%</td><td><span class="pill" style="background:var(--a-wa)">WhatsApp</span> an Angelo (optional)</td><td>sofort</td><td><span class="tog off"></span></td></tr>
+        </tbody>
+      </table>
+      <div class="futurenote"><i class="bi bi-stars"></i> <b>Später:</b> Workflow-Generator bzw. KI-Wizard (abpe_ki_wiz) — Regeln und ganze Prozessketten im Dialog erstellen: „Wenn Angebot 5 Tage ohne Antwort, dann erst WhatsApp, dann Anruf-Aufgabe."</div>
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<!-- Aufgaben-Popup -->
+<div class="ovl" id="ovl">
+  <div class="modal">
+    <div class="mh">
+      <div class="ico"><i id="m-ico" class="bi bi-telephone"></i></div>
+      <div><b id="m-title"></b><small id="m-ref"></small></div>
+      <button class="x" onclick="closeModal()"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="mb">
+      <div class="phase on" id="ph-act">
+        <div class="excerpt" id="m-excerpt"></div>
+        <div class="gentext" id="m-gentext" style="display:none"></div>
+        <button class="primary" id="m-action" onclick="doAction()"></button>
+        <div class="note" id="m-actnote"></div>
+      </div>
+      <div class="phase" id="ph-res">
+        <div class="qlbl">Wie ist es ausgegangen?</div>
+        <div class="results" id="m-results"></div>
+        <div class="inp" id="m-input" style="display:none">
+          <label id="m-input-lbl"></label><input id="m-input-val" type="text">
+          <button class="primary" style="margin-top:10px" onclick="applyResult()">Übernehmen</button>
+        </div>
+      </div>
+      <div class="phase" id="ph-fx">
+        <div class="qlbl"><i class="bi bi-check-circle" style="color:var(--status-green)"></i> Erledigt — automatisch passiert:</div>
+        <div class="fx" id="m-fx"></div>
+        <button class="done-btn" onclick="closeModal()">Weiter <i class="bi bi-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const TODAY=3;
+const ARTEN={
+  wv:{icon:'bi-arrow-repeat',cv:'--a-wv',label:'Wiedervorlagen'},
+  anruf:{icon:'bi-telephone',cv:'--a-anruf',label:'Anrufe'},
+  email:{icon:'bi-envelope',cv:'--a-email',label:'E-Mails'},
+  doc:{icon:'bi-file-earmark-text',cv:'--a-doc',label:'Dokumente'},
+  post:{icon:'bi-mailbox',cv:'--a-post',label:'Post'},
+  wa:{icon:'bi-whatsapp',cv:'--a-wa',label:'WhatsApp'},
+  allg:{icon:'bi-briefcase',cv:'--a-allg',label:'Allgemeines'},
+};
+const ORDER=['wv','anruf','email','doc','post','wa','allg'];
+let seq=100,done=0,current=null,currentResult=null,calView='monat',selDay=TODAY;
+let openGroups=new Set(['wv','anruf','allg']);
+
+let TASKS=[
+ {id:1,art:'anruf',day:1,ov:true,due:'seit 31.07.',title:'Nachfassen: Angebot #2481 — Hays (M. Weber)',ref:'Anfrage #2481 · 3 Profile gesendet',
+  excerpt:{stand:'Angebot mit 3 Profilen am 29.07. gesendet.',hist:['01.08. Nachfass-Mail an Kunde','29.07. Angebot gesendet','27.07. Interesse aller 3 Berater']},
+  action:'Anrufen (Durchwahl 12)',ai:'bi-telephone-outbound',actnote:'Click-to-dial — dein Telefon klingelt zuerst.',
+  results:[
+   {label:'Angebot angenommen 🎉',sub:'Kunde wählt einen Berater',input:{lbl:'Berater + Startdatum',val:'S. Krüger · 01.09.2026'},
+    fx:['Kanban: Krüger → „Vermittelt"','Neue Aufgabe: Vertrag erstellen','Historie-Eintrag'],
+    followup:{art:'doc',day:3,title:'Vertrag erstellen: S. Krüger / Hays',ref:'Vorlage „Vermittlungsvertrag"',due:'heute'}},
+   {label:'In Prüfung',sub:'Wiedervorlage +3 Tage',fx:['Status „in Prüfung"','Wiedervorlage 06.08.','Historie'],
+    followup:{art:'wv',day:6,title:'2. Nachfassen: Angebot #2481',ref:'Anfrage #2481',due:'06.08.'}},
+   {label:'Nicht erreicht',sub:'Kaskade laut Regel',fx:['Erneut anrufen morgen','Historie: Versuch 1'],
+    followup:{art:'anruf',day:4,title:'2. Versuch: Nachfassen #2481',ref:'danach Auto-Mail',due:'morgen'}},
+   {label:'Abgelehnt',sub:'Grund erfassen',input:{lbl:'Grund',val:'Anderer Anbieter'},fx:['Anfrage → „verloren"','Vorgang zu','Historie'],followup:null}]},
+ {id:3,art:'wa',day:3,zeit:'11:00',due:'heute 11:00',title:'Termin-Erinnerung an T. Lorenz',ref:'Interview morgen 10:00 · Bechtle',
+  gentext:'Hallo Herr Lorenz, kurze Erinnerung an Ihr Interview morgen um 10:00 Uhr bei Bechtle. Viele Grüße, Angelo (abcona)',
+  action:'In WhatsApp öffnen',ai:'bi-whatsapp',wa:true,actnote:'Text vorbefüllt — nur Senden drücken.',
+  results:[{label:'Wurde versendet ✓',sub:'',fx:['Historie: WhatsApp an Lorenz'],followup:null},{label:'Verworfen',sub:'',fx:['geschlossen'],followup:null}]},
+ {id:4,art:'wv',day:3,due:'heute',title:'Vertragseingang R. Simon prüfen',ref:'per Post 28.07. (+5 Tage)',
+  excerpt:{stand:'Vertrag am 28.07. per Post gesendet.',hist:['28.07. Postversand bestätigt']},
+  action:'Geprüft — entscheiden',ai:'bi-eye',actnote:'Reine Wiedervorlage.',
+  results:[{label:'Eingegangen ✓',sub:'Vorgang zu',fx:['„Vertrag eingegangen"','Vorgang abgeschlossen'],followup:null},
+   {label:'Nicht da — nachfassen',sub:'erzeugt Anruf',fx:['Anruf Vertragsklärung (heute)'],
+    followup:{art:'anruf',day:3,title:'Vertragsklärung: R. Simon',ref:'Match #874',due:'heute'}}]},
+ {id:5,art:'email',day:3,due:'heute',title:'Absagen: 2 Berater (#2440)',ref:'Massenaktion · „Absage Berater"',
+  excerpt:{stand:'#2440 vermittelt — 2 Absagen offen.',hist:['01.08. Roth vermittelt']},
+  action:'Vorschau & senden',ai:'bi-send',actnote:'Email Studio — alles vorbefüllt.',
+  results:[{label:'Gesendet ✓',sub:'',fx:['2× gesendet','beide → „Absage"','Vorgänge zu'],followup:null}]},
+ {id:7,art:'allg',day:3,due:'heute',title:'Druckerkartuschen bestellen',ref:'Intern · Büro',
+  excerpt:{stand:'Schwarz + Cyan fast leer.',hist:[]},action:'Erledigen',ai:'bi-check2',actnote:'',
+  results:[{label:'Erledigt ✓',sub:'',fx:['Historie (Intern)'],followup:null}]},
+ {id:8,art:'allg',day:5,zeit:'09:30',due:'05.08. 09:30',title:'Werkstatttermin Fuhrpark',ref:'Intern · Inspektion'},
+ {id:6,art:'wv',day:10,due:'10.08.',title:'Bestandspflege: Fa. Bechtle',ref:'Rahmenvertrag ansprechen'},
+];
+
+const CHAIN={
+ 'Vertrag erstellen: S. Krüger / Hays':{
+  excerpt:{stand:'Vorlage „Vermittlungsvertrag" — Composer hat befüllt:',hist:['{{berater_name}} → S. Krüger','{{firma}} → Hays AG · {{satz}} → 98 €/h','{{start}} → 01.09.2026']},
+  action:'Dokument erzeugen (Doc Studio)',ai:'bi-file-earmark-plus',actnote:'Composer füllt — nichts tippen.',
+  results:[
+   {label:'Erstellt — per Post',sub:'PDF im EDMS',fx:['PDF + EDMS','Aufgabe: drucken & versenden'],
+    followup:{art:'post',day:3,title:'Vertrag versenden: Krüger/Hays',ref:'drucken · kuvertieren · frankieren',due:'heute'}},
+   {label:'Erstellt — per E-Mail',sub:'',fx:['PDF + EDMS','E-Mail-Aufgabe'],
+    followup:{art:'email',day:3,title:'Vertrag per E-Mail: Krüger/Hays',ref:'Anhang: Vertrag.pdf',due:'heute'}},
+   {label:'Nur ablegen',sub:'',fx:['PDF im EDMS'],followup:null}]},
+ 'Vertrag versenden: Krüger/Hays':{
+  excerpt:{stand:'PDF bereit. Drucken, kuvertieren, Post.',hist:[]},
+  action:'Versendet bestätigen',ai:'bi-check2-circle',actnote:'„Eingang prüfen" folgt automatisch.',
+  results:[{label:'Bestätigen ✓',sub:'WV +5 Tage',fx:['„Vertrag gesendet (Post)"','Eingang prüfen 08.08.'],
+   followup:{art:'wv',day:8,title:'Eingang prüfen: Vertrag Krüger',ref:'gesendet per Post',due:'08.08.'}}]},
+};
+
+/* ── Radar-Daten ── */
+let RADAR_A=[
+ {score:87,hl:'SAP S/4HANA Migration — Senior Consultant (m/w/d)',src:['freelancermap','GULP','XING'],grp:3,age:'vor 4 Min',
+  meta:'Start 01.10. · 8 Monate · Stuttgart/Remote · bis 105 €/h',top:['S. Krüger 94%','M. Hoffmann 89%','A. Weber 85%']},
+ {score:74,hl:'Java Backend Entwickler — Zahlungsverkehr',src:['freelancermap'],grp:1,age:'vor 18 Min',
+  meta:'Start asap · 6 Monate · Frankfurt · Satz n/a',top:['K. Brandt 91%','T. Lorenz 78%']},
+ {score:62,hl:'DevOps Engineer AWS/K8s — Logistikplattform',src:['GULP','XING'],grp:2,age:'vor 41 Min',
+  meta:'Start 15.09. · 12 Monate · Remote',top:['R. Simon 81%']},
+];
+let RADAR_B=[
+ {st:'known',name:'M. Hoffmann',meta:'SAP FI/CO · Ludwigsburg · 98 €/h · verfügbar ab 01.09.',src:'freelancermap',
+  note:'Auto-Update: verfügbar_ab + Satz am Profil aktualisiert (Quelle: fm, heute)'},
+ {st:'maybe',name:'Anonymes Profil #4471',meta:'Java/Spring · Raum Frankfurt · 92 €/h · ab sofort',src:'freelancermap',
+  note:'Vermutlich: K. Brandt (Skills+Ort+Satz 88% ähnlich)'},
+ {st:'new',name:'Anonymes Profil #4519',meta:'Rust/Embedded · München · 110 €/h · ab 01.11.',src:'Talentfinder (eingefügt)',
+  note:'Nicht im Bestand — beobachten oder Kontakt über Börse'},
+];
+
+/* ── Tabs ── */
+document.querySelectorAll('.mtab').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.mtab').forEach(x=>x.classList.remove('on'));
+  document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  document.getElementById('v-'+b.dataset.t).classList.add('on');
+});
+
+/* ── Aufgaben ── */
+function renderAcc(){
+  const c=document.getElementById('acc');c.innerHTML='';
+  const head=document.createElement('div');head.className='acc-head';
+  head.innerHTML=`<span class="gi" style="background:var(--abcona-blue)"><i class="bi bi-collection"></i></span><b>Alle</b><span class="cnt">(${TASKS.length})</span>`;
+  c.appendChild(head);
+  ORDER.forEach(art=>{
+    const a=ARTEN[art],list=TASKS.filter(t=>t.art===art).sort((x,y)=>(y.ov?1:0)-(x.ov?1:0)||x.day-y.day);
+    const ov=list.filter(t=>t.ov).length;
+    const acc=document.createElement('div');acc.className='acc'+(openGroups.has(art)?' open':'');
+    acc.innerHTML=`<div class="acc-head"><span class="gi" style="background:var(${a.cv})"><i class="bi ${a.icon}"></i></span><b>${a.label}</b>
+      <span class="cnt">(${list.length})${ov?` <span class="ovd">· ${ov} <i class="bi bi-exclamation-triangle-fill"></i></span>`:''}</span>
+      <span class="car"><i class="bi bi-chevron-right"></i></span></div>
+      <div class="acc-body">${list.length?'':'<div class="none">keine offenen Aufgaben</div>'}</div>`;
+    acc.querySelector('.acc-head').onclick=()=>{openGroups.has(art)?openGroups.delete(art):openGroups.add(art);renderAcc();};
+    const body=acc.querySelector('.acc-body');
+    list.forEach(t=>{
+      const el=document.createElement('div');el.className='task'+(t.ov?' ov':'');
+      el.innerHTML=`<div class="tx"><b>${t.title}</b><small>${t.ref}</small></div><span class="due">${t.ov?'<i class="bi bi-exclamation-triangle-fill"></i> ':''}${t.due}</span>`;
+      el.onclick=()=>openModal(t);body.appendChild(el);
+    });
+    c.appendChild(acc);
+  });
+  document.getElementById('n-today').textContent=TASKS.filter(t=>!t.ov&&t.day===TODAY).length;
+  document.getElementById('n-ov').textContent=TASKS.filter(t=>t.ov).length;
+  document.getElementById('n-plan').textContent=TASKS.filter(t=>t.day>TODAY).length;
+  document.getElementById('n-done').textContent=done;
+  document.getElementById('tb-a').textContent=TASKS.filter(t=>t.day<=TODAY||t.ov).length;
+}
+
+/* ── Kalender ── */
+document.querySelectorAll('#vsw button').forEach(b=>b.onclick=()=>{calView=b.dataset.v;renderCal();});
+function nav(d){if(calView==='tag'){selDay=Math.min(31,Math.max(1,selDay+d));}renderCal();}
+function renderCal(){
+  document.querySelectorAll('#vsw button').forEach(b=>b.classList.toggle('on',b.dataset.v===calView));
+  const body=document.getElementById('cal-body'),title=document.getElementById('cal-title');body.innerHTML='';
+  if(calView==='monat'){
+    title.textContent='August 2026';
+    const g=document.createElement('div');g.className='grid';
+    ['Mo','Di','Mi','Do','Fr','Sa','So'].forEach(d=>g.innerHTML+=`<div class="dow">${d}</div>`);
+    for(let i=27;i<=31;i++)g.innerHTML+=`<div class="day other"><span class="num">${i}</span></div>`;
+    for(let d=1;d<=31;d++){
+      const byArt={};TASKS.filter(t=>t.day===d).forEach(t=>byArt[t.art]=(byArt[t.art]||0)+1);
+      let b='';ORDER.forEach(a=>{if(byArt[a])b+=`<span class="bdg" style="background:var(${ARTEN[a].cv})"><i class="bi ${ARTEN[a].icon}"></i>${byArt[a]}</span>`;});
+      const hasOv=TASKS.some(t=>t.ov&&t.day===d);
+      const e=document.createElement('div');e.className='day'+(d===TODAY?' today':'');
+      e.innerHTML=`<span class="num">${d}</span>${hasOv?'<span class="dot-ov"></span>':''}<div class="badges">${b}</div>`;
+      e.onclick=()=>{selDay=d;calView='tag';renderCal();};
+      g.appendChild(e);
+    }
+    body.appendChild(g);
+  } else if(calView==='woche'){
+    title.textContent='KW 32 · 03.–09.08.2026';
+    const w=document.createElement('div');w.className='week';
+    ['Mo 3','Di 4','Mi 5','Do 6','Fr 7','Sa 8','So 9'].forEach((lbl,i)=>{
+      const d=3+i,list=TASKS.filter(t=>t.day===d);
+      const e=document.createElement('div');e.className='wday';
+      e.innerHTML=`<h4>${lbl}</h4>`+list.map(t=>`<div class="wev" style="--evc:var(${ARTEN[t.art].cv})">${t.zeit?t.zeit+' ':''}${t.title}</div>`).join('');
+      e.onclick=()=>{selDay=d;calView='tag';renderCal();};
+      w.appendChild(e);
+    });
+    body.appendChild(w);
+  } else if(calView==='tag'){
+    title.textContent=(selDay===TODAY?'Heute · ':'')+String(selDay).padStart(2,'0')+'.08.2026';
+    const list=TASKS.filter(t=>t.day===selDay),noTime=list.filter(t=>!t.zeit);
+    if(noTime.length){
+      const r=document.createElement('div');r.className='hourrow';
+      r.innerHTML=`<div class="hh">ohne<br>Zeit</div><div class="hc">${noTime.map(t=>`<div class="dayev" style="--evc:var(${ARTEN[t.art].cv})" data-id="${t.id}"><b>${t.title}</b> <small>· ${t.ref}</small></div>`).join('')}</div>`;
+      body.appendChild(r);
+    }
+    for(let h=8;h<=18;h++){
+      const evs=list.filter(t=>t.zeit&&parseInt(t.zeit)===h);
+      const r=document.createElement('div');r.className='hourrow';
+      r.innerHTML=`<div class="hh">${String(h).padStart(2,'0')}:00</div><div class="hc">${evs.map(t=>`<div class="dayev" style="--evc:var(${ARTEN[t.art].cv})" data-id="${t.id}"><b>${t.zeit} ${t.title}</b></div>`).join('')}</div>`;
+      body.appendChild(r);
+    }
+    body.querySelectorAll('.dayev').forEach(e=>e.onclick=()=>openModal(TASKS.find(t=>t.id==e.dataset.id)));
+  } else {
+    title.textContent='2026';
+    const y=document.createElement('div');y.style.cssText='display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:14px';
+    ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'].forEach((m,i)=>{
+      y.innerHTML+=`<div class="stat-card" style="cursor:pointer" ${i===7?'onclick="calView=\'monat\';renderCal()"':''}><b>${m}</b><div class="stat-value" style="font-size:1.3rem">${i===7?TASKS.length:'–'}</div></div>`;
+    });
+    body.appendChild(y);
+  }
+}
+
+/* ── Radar Anfragen ── */
+function renderRadarA(){
+  const c=document.getElementById('radarA');c.innerHTML='';
+  RADAR_A.forEach((r,idx)=>{
+    const e=document.createElement('div');e.className='ritem';
+    e.innerHTML=`<div class="top">
+      <span class="score ${r.score<75?'mid':''}">${r.score}%</span>
+      <b class="hl">${r.hl}</b>
+      ${r.grp>1?`<span class="grp" onclick="this.closest('.ritem').querySelector('.sources').classList.toggle('open')"><i class="bi bi-stack"></i> ${r.grp} Anbieter</span>`:''}
+      ${r.src.map(s=>`<span class="src">${s}</span>`).join('')}
+      <span class="age">${r.age}</span></div>
+      <div class="meta">${r.meta}</div>
+      <div class="chips">${r.top.map((t,i)=>`<span class="chip ${i===0?'top':''}"><i class="bi bi-person"></i> ${t}</span>`).join('')}</div>
+      <div class="sources">${r.src.map(s=>`<a href="#"><i class="bi bi-box-arrow-up-right"></i> Ausschreibung bei ${s} öffnen</a>`).join('')}</div>
+      <div class="racts">
+        <button class="pri" onclick="takeover(${idx})"><i class="bi bi-diagram-3"></i> Übernehmen → Matching</button>
+        <button onclick="dismissA(${idx})"><i class="bi bi-x-lg"></i> Verwerfen</button>
+        <button title="Firma sperren"><i class="bi bi-slash-circle"></i> Firma sperren</button>
+      </div>`;
+    c.appendChild(e);
+  });
+  document.getElementById('r-new').textContent=RADAR_A.length;
+  document.getElementById('tb-ra').textContent=RADAR_A.length;
+}
+function takeover(i){
+  const r=RADAR_A[i];
+  RADAR_A.splice(i,1);renderRadarA();
+  TASKS.unshift({id:++seq,art:'wv',day:TODAY,due:'heute',title:'Shortlist prüfen: '+r.hl.split('—')[0].trim(),ref:'Radar-Übernahme · Matching läuft (async)'});
+  openGroups.add('wv');renderAcc();renderCal();
+  toast(`<i class="bi bi-check-circle"></i> Anfrage erstellt (Quelle: Börse, ${r.grp} Anbieter als Kontakte). Matching läuft — Aufgabe „Shortlist prüfen" liegt in deiner Queue.`);
+}
+function dismissA(i){RADAR_A.splice(i,1);renderRadarA();toast('<i class="bi bi-x-circle"></i> Verworfen — wird nicht erneut angezeigt (Dedup).');}
+
+/* ── Radar Berater ── */
+function renderRadarB(){
+  const c=document.getElementById('radarB');c.innerHTML='';
+  const lbl={known:'✔ im Bestand',maybe:'? unsicher',new:'neu entdeckt'};
+  RADAR_B.forEach((r,idx)=>{
+    const e=document.createElement('div');e.className='ritem';
+    let acts='';
+    if(r.st==='maybe')acts=`<button class="pri" onclick="confirmB(${idx})"><i class="bi bi-check2"></i> Ja, ist K. Brandt — verknüpfen</button><button onclick="RADAR_B[${idx}].st='new';RADAR_B[${idx}].note='Als eigenständig markiert';renderRadarB()">Nein, jemand anderes</button>`;
+    else if(r.st==='new')acts=`<button class="pri"><i class="bi bi-eye"></i> Beobachten</button><button><i class="bi bi-chat-dots"></i> Kontakt über Börse</button><button onclick="RADAR_B.splice(${idx},1);renderRadarB()"><i class="bi bi-x-lg"></i> Verwerfen</button>`;
+    else acts=`<button><i class="bi bi-person-badge"></i> Profil öffnen (CRM)</button>`;
+    e.innerHTML=`<div class="top">
+      <span class="mstat ${r.st}">${lbl[r.st]}</span>
+      <b class="hl">${r.name}</b>
+      <span class="src">${r.src}</span></div>
+      <div class="meta">${r.meta}</div>
+      <div class="meta" style="color:var(--status-green)"><i class="bi bi-info-circle"></i> ${r.note}</div>
+      <div class="racts">${acts}</div>`;
+    c.appendChild(e);
+  });
+  document.getElementById('tb-rb').textContent=RADAR_B.length;
+}
+function confirmB(i){
+  RADAR_B[i].st='known';RADAR_B[i].name='K. Brandt';
+  RADAR_B[i].note='Verknüpft · Auto-Update: Satz 92 €/h + verfügbar ab sofort (Quelle: fm, heute)';
+  renderRadarB();toast('<i class="bi bi-link-45deg"></i> Profil verknüpft — Verfügbarkeit & Satz aktualisiert.');
+}
+
+/* ── Popup-Flow ── */
+function openModal(t){
+  if(!t)return;current=t;currentResult=null;
+  if(!t.results){t.results=[{label:'Erledigt ✓',sub:'',fx:['Historie-Eintrag'],followup:null}];t.excerpt=t.excerpt||{stand:t.ref,hist:[]};t.action=t.action||'Erledigen';t.ai=t.ai||'bi-check2';t.actnote=t.actnote||'';}
+  const a=ARTEN[t.art];
+  document.getElementById('m-ico').className='bi '+a.icon;
+  document.getElementById('m-title').textContent=t.title;
+  document.getElementById('m-ref').textContent=t.ref+' · fällig '+t.due;
+  const ex=document.getElementById('m-excerpt'),gt=document.getElementById('m-gentext');
+  if(t.gentext){ex.style.display='none';gt.style.display='block';gt.textContent=t.gentext;}
+  else{gt.style.display='none';ex.style.display='block';
+    ex.innerHTML=`<div class="lbl">Vorgangs-Auszug</div><div>${t.excerpt.stand}</div>
+    <ul style="margin-top:6px">${t.excerpt.hist.map(h=>`<li>${h}</li>`).join('')}</ul>`;}
+  const ab=document.getElementById('m-action');
+  ab.innerHTML=`<i class="bi ${t.ai}"></i> ${t.action}`;ab.className='primary'+(t.wa?' wa':'');
+  document.getElementById('m-actnote').textContent=t.actnote;
+  showPhase('ph-act');document.getElementById('m-input').style.display='none';
+  document.getElementById('ovl').classList.add('open');
+}
+function showPhase(id){document.querySelectorAll('.phase').forEach(p=>p.classList.remove('on'));document.getElementById(id).classList.add('on');}
+function doAction(){
+  const rc=document.getElementById('m-results');rc.innerHTML='';
+  current.results.forEach(r=>{
+    const b=document.createElement('button');b.className='rbtn';
+    b.innerHTML=`${r.label}<small>${r.sub||''}</small>`;
+    b.onclick=()=>{currentResult=r;
+      if(r.input){document.getElementById('m-input-lbl').textContent=r.input.lbl;
+        document.getElementById('m-input-val').value=r.input.val;
+        document.getElementById('m-input').style.display='block';}
+      else applyResult();};
+    rc.appendChild(b);
+  });
+  showPhase('ph-res');
+}
+function applyResult(){
+  const r=currentResult;
+  document.getElementById('m-fx').innerHTML=r.fx.map(f=>`<div><i class="bi bi-check2" style="color:var(--status-green)"></i>${f}</div>`).join('');
+  showPhase('ph-fx');
+  TASKS=TASKS.filter(t=>t!==current);done++;
+  if(r.followup){const f={id:++seq,ov:false,...r.followup};const ch=CHAIN[f.title];if(ch)Object.assign(f,ch);TASKS.unshift(f);openGroups.add(f.art);}
+  renderAcc();renderCal();
+}
+function closeModal(){document.getElementById('ovl').classList.remove('open');}
+let toastT=null;
+function toast(html){const t=document.getElementById('toast');t.innerHTML=html;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('on'),4200);}
+
+/* ── Posteingang ── */
+let INBOX=[
+ {unread:true,box:'vertrieb@',from:'K. Brandt',crm:'Berater · Anfrage #2477',subj:'Re: Projektanfrage Java Backend — Rückfrage zum Satz',age:'07:41',
+  prev:'Guten Morgen Herr Malaguarnera, beim genannten Rahmen hätte ich eine Frage zur Remote-Regelung …'},
+ {unread:true,box:'vertrieb@',from:'M. Weber (Hays AG)',crm:'Ansprechpartner · Anfrage #2481',subj:'AW: Angebot — interne Abstimmung heute',age:'07:12',
+  prev:'…wir stimmen uns heute Vormittag intern ab und melden uns bis Mittag mit einer Entscheidung.'},
+ {unread:false,box:'angelo@',from:'freelancermap',crm:'—',subj:'5 neue Projekte für Ihre Suche „SAP Berater"',age:'gestern 22:03',
+  prev:'Ihre gespeicherte Suche hat neue Treffer … (läuft parallel bereits in den Radar)'},
+];
+function renderInbox(){
+  const c=document.getElementById('inbox');c.innerHTML='';
+  INBOX.forEach((m,idx)=>{
+    const e=document.createElement('div');e.className='ritem';
+    e.innerHTML=`<div class="top">
+      ${m.unread?'<span class="mstat maybe" style="min-width:auto">neu</span>':''}
+      <b class="hl" style="${m.unread?'':'font-weight:400'}">${m.subj}</b>
+      <span class="src">${m.box}</span><span class="age">${m.age}</span></div>
+      <div class="meta"><i class="bi bi-person"></i> ${m.from}${m.crm!=='—'?` · <span style="color:var(--abcona-blue-light)"><i class="bi bi-link-45deg"></i>${m.crm}</span>`:''}</div>
+      <div class="meta" style="font-style:italic">„${m.prev}"</div>
+      <div class="racts">
+        <button class="pri" onclick="mailTask(${idx})"><i class="bi bi-check2-square"></i> Aufgabe erzeugen</button>
+        <button><i class="bi bi-diagram-3"></i> Im Matching öffnen</button>
+        <button><i class="bi bi-reply"></i> Antworten (Email Studio)</button>
+        <button><i class="bi bi-envelope-arrow-up"></i> In Outlook öffnen</button>
+      </div>`;
+    c.appendChild(e);
+  });
+}
+function mailTask(idx){
+  const m=INBOX[idx];m.unread=false;renderInbox();
+  TASKS.unshift({id:++seq,art:'anruf',day:TODAY,due:'heute',title:'Rückruf zu Mail: '+m.from.split('(')[0].trim(),ref:m.crm!=='—'?m.crm:'aus Posteingang',
+   excerpt:{stand:'Aus E-Mail erzeugt: „'+m.subj+'"',hist:[m.age+' Mail eingegangen']},
+   action:'Anrufen (Durchwahl 12)',ai:'bi-telephone-outbound',actnote:'Click-to-dial.',
+   results:[{label:'Erledigt ✓',sub:'',fx:['Historie-Eintrag'],followup:null}]});
+  openGroups.add('anruf');renderAcc();renderCal();
+  toast('<i class="bi bi-check-circle"></i> Aufgabe „Rückruf" erzeugt — liegt in deiner Queue.');
+}
+
+renderAcc();renderCal();renderRadarA();renderRadarB();renderInbox();
+</script>
+</body>
+</html>
