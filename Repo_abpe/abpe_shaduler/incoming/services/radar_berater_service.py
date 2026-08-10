@@ -822,6 +822,206 @@ def refresh_from_gulp(
     return stats
 
 
+def sync_available_from_gulp(
+    *,
+    limit: int = 40,
+    pages: int = 2,
+    page_size: int = 20,
+    delay_s: float = 0.35,
+    enrich: bool = True,
+) -> dict[str, Any]:
+    """
+    Talentfinder „aktuell verfügbar“ einlesen.
+
+    - bekannte Gulp-ID (Radar/CRM): Verfügbarkeit/Satz/Skills aktualisieren;
+      CRM verfuegbar_ab_c mitziehen
+    - unbekannte: neuer Radar-Eintrag mit möglichst reichem Profil
+    """
+    from apps.abpe_shaduler.models import RadarConsultantItem
+
+    if not gulp.has_gulp_session():
+        return {
+            'ok': False,
+            'error': (
+                'Gulp-Session fehlt — CV-Extractor Session erneuern '
+                '(data/url/gu/.session_cookies.json)'
+            ),
+            'needs_auth': True,
+            'session': gulp.gulp_session_info(),
+        }
+
+    take = max(1, min(200, int(limit or 40)))
+    pages = max(1, min(10, int(pages or 2)))
+    page_size = max(5, min(50, int(page_size or 20)))
+
+    stats = {
+        'ok': True,
+        'scanned': 0,
+        'created': 0,
+        'updated': 0,
+        'crm_updated': 0,
+        'skipped': 0,
+        'errors': 0,
+        'auth_stop': False,
+        'results': [],
+        'limit': take,
+        'pages': pages,
+        'tf_total': None,
+        'gulp_session': True,
+    }
+
+    seen: set[str] = set()
+    for page in range(pages):
+        if stats['scanned'] >= take:
+            break
+        listed = gulp.fetch_experts_list(
+            page=page,
+            size=page_size,
+            available_only=True,
+        )
+        if listed.get('needs_auth'):
+            stats['ok'] = False
+            stats['auth_stop'] = True
+            stats['needs_auth'] = True
+            stats['error'] = listed.get('error') or 'Gulp-Session ungültig'
+            break
+        if not listed.get('ok'):
+            stats['ok'] = False
+            stats['error'] = listed.get('error') or 'Suche fehlgeschlagen'
+            stats['errors'] += 1
+            break
+        if stats['tf_total'] is None and listed.get('total') is not None:
+            stats['tf_total'] = listed.get('total')
+
+        hits = listed.get('results') or []
+        if not hits:
+            break
+
+        for hit in hits:
+            if stats['scanned'] >= take:
+                break
+            gid = str(hit.get('gulp_id') or '').strip()
+            mid = str(hit.get('mongo_id') or '').strip()
+            if gid and gid in seen:
+                stats['skipped'] += 1
+                continue
+
+            packed = dict(hit)
+            if enrich and (mid or gid):
+                if delay_s:
+                    time.sleep(max(0.0, float(delay_s)))
+                detail = gulp.fetch_expert_by_gulp_id(gid or mid, mongo_id=mid)
+                if detail.get('needs_auth'):
+                    stats['ok'] = False
+                    stats['auth_stop'] = True
+                    stats['needs_auth'] = True
+                    stats['error'] = detail.get('error') or 'Gulp-Session ungültig'
+                    stats['results'].append({
+                        'action': 'auth',
+                        'gulp_id': gid,
+                        'error': stats['error'],
+                    })
+                    return stats
+                if detail.get('ok'):
+                    for k, v in hit.items():
+                        if k == 'raw':
+                            continue
+                        if detail.get(k) in (None, '', [], {}):
+                            detail[k] = v
+                    packed = detail
+                    gid = str(packed.get('gulp_id') or gid or '').strip()
+                    mid = str(packed.get('mongo_id') or mid or '').strip()
+
+            if not gid:
+                stats['skipped'] += 1
+                continue
+            if gid in seen:
+                stats['skipped'] += 1
+                continue
+            seen.add(gid)
+
+            stats['scanned'] += 1
+            existed = (
+                RadarConsultantItem.objects
+                .filter(gulp_id=gid)
+                .exists()
+            )
+            crm_before = find_crm_by_gulp_id(gid)
+            before_v = None
+            if crm_before and crm_before.get('verfuegbar_ab'):
+                bv = crm_before['verfuegbar_ab']
+                before_v = bv.isoformat() if hasattr(bv, 'isoformat') else str(bv)
+
+            try:
+                obj = upsert_berater({
+                    'gulp_id': gid,
+                    'name': packed.get('name') or gulp.placeholder_name(gid),
+                    'profil_url': packed.get('profil_url') or gulp.profil_url_for_gulp_id(gid),
+                    'skills': packed.get('skills') or [],
+                    'ort': packed.get('ort') or '',
+                    'verfuegbar_ab': packed.get('verfuegbar_ab'),
+                    'satz': packed.get('satz'),
+                    'beschreibung': packed.get('beschreibung') or '',
+                    'cv_text': packed.get('cv_text') or '',
+                    'first_name': packed.get('first_name') or '',
+                    'last_name': packed.get('last_name') or '',
+                    'source': 'gulp_available',
+                    'mongo_id': mid or packed.get('mongo_id') or '',
+                    'eckdaten': {
+                        'availability_percent': packed.get('availability_percent'),
+                        'remote': packed.get('remote'),
+                        'gulp_status': 'ok',
+                        'gulp_checked_at': timezone.now().isoformat(),
+                        'from_available_sync': True,
+                    },
+                }, apply_crm=True)
+            except Exception as exc:
+                log.warning('available sync %s: %s', gid, exc)
+                stats['errors'] += 1
+                if len(stats['results']) < 40:
+                    stats['results'].append({
+                        'action': 'error',
+                        'gulp_id': gid,
+                        'error': str(exc)[:200],
+                    })
+                continue
+
+            action = 'created' if not existed else 'updated'
+            if action == 'created':
+                stats['created'] += 1
+            else:
+                stats['updated'] += 1
+
+            crm_touched = False
+            if obj.crm_contact_id and packed.get('verfuegbar_ab'):
+                crm_after = find_crm_by_gulp_id(gid)
+                after_v = None
+                if crm_after and crm_after.get('verfuegbar_ab'):
+                    av = crm_after['verfuegbar_ab']
+                    after_v = av.isoformat() if hasattr(av, 'isoformat') else str(av)
+                if after_v and after_v != before_v:
+                    stats['crm_updated'] += 1
+                    crm_touched = True
+                elif after_v and not before_v:
+                    stats['crm_updated'] += 1
+                    crm_touched = True
+
+            if len(stats['results']) < 40:
+                stats['results'].append({
+                    'action': action,
+                    'gulp_id': gid,
+                    'id': str(obj.pk),
+                    'crm': bool(obj.crm_contact_id),
+                    'crm_availability': crm_touched,
+                    'verfuegbar_ab': packed.get('verfuegbar_ab'),
+                    'satz': packed.get('satz'),
+                    'name': (obj.name or '')[:80],
+                    'skills_n': len(obj.skills or []),
+                })
+
+    return stats
+
+
 def seed_from_crm(*, limit: int = 0) -> dict[str, Any]:
     """Alias: CRM gulp_id → Radar + Soft-Delete fehlender + ES."""
     return sync_crm_index(limit=limit, reindex=True)

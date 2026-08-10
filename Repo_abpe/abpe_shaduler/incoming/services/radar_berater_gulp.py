@@ -730,8 +730,11 @@ def fetch_experts_list(
     available_only: bool = True,
 ) -> dict[str, Any]:
     """
-    Listensuche Talentfinder (Session nötig).
-    available_only=True → Filter soweit die API mitmacht.
+    Talentfinder Listen-Suche (wie UI /experten).
+
+    POST …/expert-profiles/search?pageIndex=&pageSize=
+    Body analog GULPImporter / Search-UI (sortOrder UPDATED_DATE).
+    available_only: availabilityDate=heute (Filter „verfügbar ab“).
     """
     if not has_gulp_session():
         return {
@@ -741,58 +744,87 @@ def fetch_experts_list(
             'results': [],
         }
 
-    bodies = []
+    page = max(0, int(page or 0))
+    size = max(1, min(50, int(size or 20)))
+    qs = urllib.parse.urlencode({'pageIndex': page, 'pageSize': size})
+    url = f'{TF_PROFILE_API}/search?{qs}'
+
+    # Wie Talentfinder-UI: zuletzt geändert; Verfügbarkeit = ab heute
+    body: dict[str, Any] = {
+        'mId': None,
+        'sortOrder': 'UPDATED_DATE',
+        'availabilityPercent': 20,
+        'remote': False,
+        'searchOnlyInRecentProjects': False,
+        'searchTerm': None,
+    }
     if available_only:
-        bodies += [
-            {'page': page, 'size': size, 'onlyAvailable': True},
-            {'page': page, 'size': size, 'availability': 'AVAILABLE'},
-            {'page': page, 'size': size, 'filters': {'available': True}},
-        ]
-    bodies.append({'page': page, 'size': size, 'query': ''})
+        body['availabilityDate'] = date.today().isoformat()
 
-    last_err = ''
-    for body in bodies:
-        code, _u, raw = _request(
-            GULP2_PROFILES_SEARCH,
-            method='POST',
-            data=json.dumps(body).encode('utf-8'),
-            headers={
-                'Content-Type': 'application/json',
-                'Origin': 'https://www.gulp.de',
-                'Referer': TF_EXPERTEN,
-            },
-        )
-        if code in (401, 403):
-            return {
-                'ok': False,
-                'error': f'Nicht autorisiert (HTTP {code}) — Gulp-Cookies prüfen',
-                'needs_auth': True,
-                'results': [],
-            }
-        if code != 200:
-            last_err = f'HTTP {code}: {raw[:200]!r}'
-            continue
-        try:
-            data = json.loads(raw.decode('utf-8', errors='replace'))
-        except Exception as exc:
-            last_err = str(exc)
-            continue
-        items = _extract_hit_list(data)
-        out = []
-        for hit in items:
-            n = normalize_expert_profile(hit)
-            if n.get('gulp_id') or n.get('name'):
-                out.append(n)
+    code, _u, raw = _request(
+        url,
+        method='POST',
+        data=json.dumps(body).encode('utf-8'),
+        headers={
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Origin': 'https://www.gulp.de',
+            'Referer': TF_EXPERTEN,
+        },
+    )
+    if code in (401, 403):
         return {
-            'ok': True,
-            'results': out,
-            'page': page,
-            'size': size,
-            'available_only': available_only,
-            'raw_count': len(items),
+            'ok': False,
+            'error': f'Nicht autorisiert (HTTP {code}) — Gulp-Cookies prüfen',
+            'needs_auth': True,
+            'results': [],
+            'http': code,
         }
+    if code != 200 or not raw:
+        return {
+            'ok': False,
+            'error': f'Suche HTTP {code}',
+            'results': [],
+            'http': code,
+        }
+    try:
+        data = json.loads(raw.decode('utf-8', errors='replace'))
+    except Exception as exc:
+        return {'ok': False, 'error': f'JSON: {exc}', 'results': []}
 
-    return {'ok': False, 'error': last_err or 'Suche fehlgeschlagen', 'results': []}
+    items = _extract_hit_list(data)
+    out = []
+    for hit in items:
+        n = normalize_expert_profile(hit if isinstance(hit, dict) else {})
+        if n.get('gulp_id') or n.get('mongo_id'):
+            out.append(n)
+
+    total = None
+    if isinstance(data, dict):
+        for k in ('totalElements', 'total', 'totalCount', 'count'):
+            if data.get(k) is not None:
+                try:
+                    total = int(data[k])
+                except (TypeError, ValueError):
+                    total = None
+                break
+        # verschachtelt
+        if total is None and isinstance(data.get('page'), dict):
+            try:
+                total = int(data['page'].get('totalElements'))
+            except (TypeError, ValueError, AttributeError):
+                pass
+
+    return {
+        'ok': True,
+        'results': out,
+        'page': page,
+        'size': size,
+        'available_only': available_only,
+        'raw_count': len(items),
+        'total': total,
+        'http': code,
+    }
 
 
 def _extract_hit_list(data: Any) -> list:
@@ -928,6 +960,16 @@ def normalize_expert_profile(raw: dict) -> dict[str, Any]:
         ]
     else:
         skills = []
+    # competenceCategories → Skill-Namen ergänzen
+    cats = profile.get('competenceCategories') or raw.get('competenceCategories') or []
+    if isinstance(cats, list):
+        for cat in cats:
+            if not isinstance(cat, dict):
+                continue
+            for c in (cat.get('competences') or []):
+                nm = (c.get('name') if isinstance(c, dict) else str(c) or '').strip()
+                if nm and nm not in skills:
+                    skills.append(nm)
 
     ort = (
         raw.get('city')
@@ -956,21 +998,48 @@ def normalize_expert_profile(raw: dict) -> dict[str, Any]:
         or profile.get('dayRate')
         or profile.get('hourlyRate')
     )
-    desc = (
-        profile.get('coreCompetence')
-        or profile.get('competencesText')
-        or raw.get('profileText')
-        or raw.get('description')
-        or raw.get('summary')
-        or raw.get('about')
-        or ''
-    )
+    # Beschreibung so reich wie möglich (Headline + Text + Projekte)
+    desc_parts: list[str] = []
+    for part in (
+        profile.get('coreCompetence'),
+        profile.get('competencesText'),
+        profile.get('rolesComment'),
+        raw.get('profileText'),
+        raw.get('description'),
+        raw.get('summary'),
+        raw.get('about'),
+    ):
+        t = re.sub(r'<[^>]+>', ' ', str(part or ''))
+        t = re.sub(r'\s+', ' ', t).strip()
+        if t and t not in desc_parts:
+            desc_parts.append(t)
+    projects = profile.get('projects') or raw.get('projects') or []
+    if isinstance(projects, list) and projects:
+        proj_lines = []
+        for proj in projects[:12]:
+            if not isinstance(proj, dict):
+                continue
+            period = ' – '.join(
+                x for x in [str(proj.get('from') or '').strip(), str(proj.get('to') or '').strip()] if x
+            )
+            title = (proj.get('title') or proj.get('role') or '').strip()
+            cust = (proj.get('customerName') or '').strip()
+            line = ' · '.join(x for x in [period, title, cust] if x)
+            if line:
+                proj_lines.append(line)
+        if proj_lines:
+            desc_parts.append('Projekte:\n' + '\n'.join(proj_lines))
+    desc = '\n\n'.join(desc_parts)
     cv_text = (
         profile.get('projectsText')
         or raw.get('cvText')
         or raw.get('curriculum')
         or ''
     )
+    avail_pct = profile.get('availabilityPercent') or raw.get('availabilityPercent')
+    remote = profile.get('remoteWorkPossible')
+    if remote is None:
+        remote = raw.get('remote') or profile.get('remote')
     url = ''
     if mongo:
         url = f'{TF_EXPERTEN}/{mongo}'
@@ -983,13 +1052,15 @@ def normalize_expert_profile(raw: dict) -> dict[str, Any]:
         'name': display,
         'first_name': str(first or '').strip(),
         'last_name': str(last or '').strip(),
-        'skills': skills[:40],
+        'skills': skills[:80],
         'ort': str(ort or '').strip(),
         'verfuegbar_ab': verfuegbar.isoformat() if isinstance(verfuegbar, date) else None,
         'satz': satz,
         'beschreibung': str(desc or '')[:8000],
         'cv_text': str(cv_text or '')[:50000] if cv_text else '',
         'profil_url': url,
+        'availability_percent': avail_pct,
+        'remote': bool(remote) if remote is not None else None,
         'raw': {k: raw[k] for k in list(raw)[:40]},  # truncated keys only
         'source': 'gulp',
     }

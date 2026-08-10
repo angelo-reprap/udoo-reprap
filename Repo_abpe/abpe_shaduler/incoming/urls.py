@@ -48,6 +48,7 @@ urlpatterns = [
     path('api/radar/berater/seed/', views.api_radar_berater_seed, name='api_radar_berater_seed'),
     path('api/radar/berater/reindex/', views.api_radar_berater_reindex, name='api_radar_berater_reindex'),
     path('api/radar/berater/gulp-aktualisieren/', views.api_radar_berater_gulp_refresh, name='api_radar_berater_gulp_refresh'),
+    path('api/radar/berater/gulp-verfuegbar/', views.api_radar_berater_gulp_available, name='api_radar_berater_gulp_available'),
     path('api/radar/berater/<uuid:pk>/', views.api_radar_consultant_detail, name='api_radar_consultant_detail'),
     path('api/radar/berater/<uuid:pk>/bestaetigen/', views.api_radar_consultant_confirm, name='api_radar_consultant_confirm'),
     path('api/radar/berater/<uuid:pk>/verwerfen/', views.api_radar_consultant_dismiss, name='api_radar_consultant_dismiss'),

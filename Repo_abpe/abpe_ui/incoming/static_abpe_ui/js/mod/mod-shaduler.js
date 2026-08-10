@@ -172,7 +172,11 @@
         '<button type="button" class="matching-btn-sm" id="sh-radar-b-gulp-refresh" title="' +
         esc(_t('sh.radar_b_gulp_title', 'Gulp: Existenz + Verfügbarkeit prüfen (Batch)')) + '">' +
         '<i class="bi bi-cloud-arrow-down"></i> ' +
-        esc(_t('sh.radar_b_gulp_refresh', 'Gulp aktualisieren')) + '</button></div>' +
+        esc(_t('sh.radar_b_gulp_refresh', 'Gulp aktualisieren')) + '</button>' +
+        '<button type="button" class="matching-btn-sm" id="sh-radar-b-gulp-available" title="' +
+        esc(_t('sh.radar_b_gulp_av_title', 'Talentfinder: aktuell verfügbare Berater einlesen')) + '">' +
+        '<i class="bi bi-people"></i> ' +
+        esc(_t('sh.radar_b_gulp_available', 'Verfügbare von Gulp')) + '</button></div>' +
         '<div class="sh-inbox-toolbar" id="sh-radar-b-toolbar"></div>' +
         '<div class="sh-inbox-split">' +
         '<div class="sh-inbox-list-wrap">' +
@@ -2880,6 +2884,69 @@
           });
       };
     }
+    var availBtn = document.getElementById('sh-radar-b-gulp-available');
+    if (availBtn && !availBtn.dataset.bound) {
+      availBtn.dataset.bound = '1';
+      availBtn.dataset.labelHtml = availBtn.innerHTML;
+      availBtn.onclick = function () {
+        if (availBtn.disabled) return;
+        availBtn.disabled = true;
+        availBtn.classList.add('busy');
+        availBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> ' +
+          esc(_t('sh.radar_b_gulp_av_busy', 'Verfügbare laden…'));
+        var hintEl = document.getElementById('sh-radar-b-hint');
+        var hintPrev = hintEl ? hintEl.textContent : '';
+        if (hintEl) {
+          hintEl.textContent = _t('sh.radar_b_gulp_av_run', 'Talentfinder verfügbar → Radar…');
+        }
+        toast(_t('sh.radar_b_gulp_av_run', 'Talentfinder verfügbar → Radar…'), 10000);
+        fetch(api('radar/berater/gulp-verfuegbar/'), {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({ limit: 40, pages: 2, page_size: 20, delay: 0.35, enrich: true }),
+        })
+          .then(function (r) {
+            return r.json().then(function (j) { return { ok: r.ok, status: r.status, j: j }; });
+          })
+          .then(function (pack) {
+            availBtn.disabled = false;
+            availBtn.classList.remove('busy');
+            availBtn.innerHTML = availBtn.dataset.labelHtml || availBtn.innerHTML;
+            var d = pack.j || {};
+            if (hintEl && hintPrev) hintEl.textContent = hintPrev;
+            if (d.needs_auth || pack.status === 401) {
+              toast(d.error || _t('sh.radar_b_gulp_auth', 'Gulp-Login fehlt — CV-Extractor Session erneuern'), 6000);
+              return;
+            }
+            if (!d.ok && d.error) {
+              toast(d.error, 6000);
+              return;
+            }
+            toast(
+              _t('sh.radar_b_gulp_av_ok', 'Verfügbare') + ': ' +
+              (d.scanned || 0) + ' geprüft · ' +
+              (d.created || 0) + ' neu · ' +
+              (d.updated || 0) + ' aktualisiert · ' +
+              (d.crm_updated || 0) + ' CRM · ' +
+              (d.errors || 0) + ' Fehler',
+              8000
+            );
+            loadRadarB({ soft: true });
+          })
+          .catch(function () {
+            availBtn.disabled = false;
+            availBtn.classList.remove('busy');
+            availBtn.innerHTML = availBtn.dataset.labelHtml || availBtn.innerHTML;
+            if (hintEl && hintPrev) hintEl.textContent = hintPrev;
+            toast(_t('sh.toast_error', 'Verfügbare-Sync fehlgeschlagen'), 5000);
+          });
+      };
+    }
     var statusParam = RADAR_B_AVAIL ? 'neu' : 'all';
     var q = 'radar/berater/?demo=0&status=' + encodeURIComponent(statusParam) +
       '&refresh=0' +
@@ -3215,7 +3282,6 @@
             } else {
               toast(_t('sh.radar_b_gulp_ok', 'Gulp') + ': ' + (act || 'ok'), 4000);
             }
-            openRadarBeraterItem({ id: item.id, gulp_id: item.gulp_id, name: item.name }, null);
             loadRadarB({ soft: true, reselectId: item.id });
           })
           .catch(function () {

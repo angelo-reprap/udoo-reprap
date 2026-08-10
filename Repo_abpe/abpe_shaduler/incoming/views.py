@@ -743,6 +743,48 @@ def api_radar_berater_gulp_refresh(request):
 
 @login_required
 @require_http_methods(['POST'])
+def api_radar_berater_gulp_available(request):
+    """
+    Talentfinder „aktuell verfügbar“ einlesen.
+    Body: {limit?: 40, pages?: 2, page_size?: 20, delay?: 0.35, enrich?: true}
+    """
+    from .services import radar_berater_service as rbs
+    try:
+        payload = json.loads(request.body.decode('utf-8') or '{}')
+    except Exception:
+        payload = {}
+    try:
+        limit = int(payload.get('limit') or 40)
+    except (TypeError, ValueError):
+        limit = 40
+    try:
+        pages = int(payload.get('pages') or 2)
+    except (TypeError, ValueError):
+        pages = 2
+    try:
+        page_size = int(payload.get('page_size') or 20)
+    except (TypeError, ValueError):
+        page_size = 20
+    try:
+        delay = float(payload.get('delay') if payload.get('delay') is not None else 0.35)
+    except (TypeError, ValueError):
+        delay = 0.35
+    enrich = payload.get('enrich', True) is not False
+    result = rbs.sync_available_from_gulp(
+        limit=limit,
+        pages=pages,
+        page_size=page_size,
+        delay_s=delay,
+        enrich=enrich,
+    )
+    status = 200 if result.get('ok') else 400
+    if result.get('needs_auth'):
+        status = 401
+    return JsonResponse(result, status=status)
+
+
+@login_required
+@require_http_methods(['POST'])
 def api_radar_berater_reindex(request):
     """Manueller Index-Update: CRM-Sync + ES (wie 30-Min-Job)."""
     from .services import radar_berater_service as rbs
