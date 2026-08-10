@@ -705,7 +705,9 @@ def refresh_one_from_gulp(obj) -> dict[str, Any]:
     gid = (obj.gulp_id or '').strip()
     if not gid:
         return {'action': 'skip', 'error': 'keine gulp_id', 'id': str(obj.pk)}
-    packed = gulp.fetch_expert_by_gulp_id(gid)
+    eck = obj.eckdaten or {}
+    mongo = str(eck.get('mongo_id') or eck.get('profileId') or '').strip()
+    packed = gulp.fetch_expert_by_gulp_id(gid, mongo_id=mongo)
     if packed.get('needs_auth'):
         return {
             'action': 'auth',
@@ -713,6 +715,7 @@ def refresh_one_from_gulp(obj) -> dict[str, Any]:
             'needs_auth': True,
             'gulp_id': gid,
             'id': str(obj.pk),
+            'probe': packed.get('probe'),
         }
     if packed.get('not_found'):
         return _mark_gulp_gone(obj)
@@ -723,6 +726,12 @@ def refresh_one_from_gulp(obj) -> dict[str, Any]:
             'gulp_id': gid,
             'id': str(obj.pk),
         }
+    # Mongo-ID merken für nächste Runde
+    if packed.get('mongo_id'):
+        eck = dict(obj.eckdaten or {})
+        eck['mongo_id'] = packed['mongo_id']
+        obj.eckdaten = eck
+        obj.save(update_fields=['eckdaten', 'updated_at'])
     return _mark_gulp_ok(obj, packed)
 
 

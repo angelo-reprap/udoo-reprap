@@ -22,14 +22,18 @@ class Command(BaseCommand):
             '--session-info', action='store_true',
             help='Nur Cookie-Quelle anzeigen (settings / CV-Extractor-Datei)',
         )
+        parser.add_argument(
+            '--probe', action='store_true',
+            help='Login-Test wie CV-Extractor (Talentfinder secure API)',
+        )
 
     def handle(self, *args, **options):
         from apps.abpe_shaduler.models import RadarConsultantItem
         from apps.abpe_shaduler.services import radar_berater_service as rbs
         from apps.abpe_shaduler.services import radar_berater_gulp as gulp
 
-        info = gulp.gulp_session_info()
-        if options.get('session_info'):
+        if options.get('probe') or options.get('session_info'):
+            info = gulp.probe_session() if options.get('probe') else gulp.gulp_session_info()
             safe = {k: v for k, v in info.items() if k != 'cookie_header'}
             if info.get('cookie_header'):
                 safe['cookie_keys'] = [
@@ -38,6 +42,7 @@ class Command(BaseCommand):
             self.stdout.write(str(safe))
             return
 
+        info = gulp.gulp_session_info()
         if info.get('ok'):
             self.stdout.write(
                 f"Gulp-Session: ja (Quelle: {info.get('source')}"
