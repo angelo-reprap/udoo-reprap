@@ -294,27 +294,54 @@
   function renderArtDefaultsEditor() {
     var host = document.getElementById('sh-art-defaults');
     if (!host) return;
+
+    function numCell(art, key, label, val) {
+      return (
+        '<label class="sh-art-def-cell">' +
+        '<span>' + esc(label) + '</span>' +
+        '<input type="number" min="0" max="99" step="1" inputmode="numeric" ' +
+        'class="sh-art-def-num" data-art="' + esc(art) + '" data-key="' + key + '" ' +
+        'value="' + esc(String(val)) + '" aria-label="' + esc(label) + '">' +
+        '</label>'
+      );
+    }
+
+    var head =
+      '<div class="sh-art-def-row sh-art-def-row--head">' +
+      '<div class="sh-art-def-name"></div>' +
+      '<div class="sh-art-def-nums">' +
+      '<span>Woche</span><span>Tag</span><span>Stunde</span><span>Minute</span>' +
+      '</div></div>';
+
     var rows = TASK_ART_DEFAULT_ORDER.map(function (art) {
       var label = TASK_ART_DEFAULT_LABELS[art] || art;
-      var val = formatArtDefaultLabel(getArtDefaults(art));
+      var def = getArtDefaults(art);
+      var en = !!def.enabled;
       return (
         '<div class="sh-art-def-row" data-art="' + esc(art) + '">' +
-        '<div class="sh-art-def-name">' + esc(label) + '</div>' +
-        '<input type="text" class="sh-art-def-input" data-art="' + esc(art) + '" ' +
-        'value="' + esc(val) + '" ' +
-        'placeholder="1 Std · 2 Tage · kein Default" ' +
-        'aria-label="Default für ' + esc(label) + '">' +
-        '</div>'
+        '<div class="sh-art-def-name">' +
+        '<div>' + esc(label) + '</div>' +
+        '<label class="sh-art-def-none">' +
+        '<input type="checkbox" class="sh-art-def-enabled" data-art="' + esc(art) + '"' +
+        (en ? '' : ' checked') + '> kein Default</label>' +
+        '</div>' +
+        '<div class="sh-art-def-nums' + (en ? '' : ' is-off') + '">' +
+        numCell(art, 'weeks', 'Woche', def.weeks) +
+        numCell(art, 'days', 'Tag', def.days) +
+        numCell(art, 'hours', 'Stunde', def.hours) +
+        numCell(art, 'minutes', 'Minute', def.minutes) +
+        '</div></div>'
       );
     }).join('');
+
     host.innerHTML =
       '<div class="sh-art-defaults-h">' +
       '<b>' + esc(_t('sh.art_defaults_title', 'Neue Aufgabe — Defaults je Art')) + '</b>' +
       '<span class="sh-art-defaults-hint">' +
       esc(_t('sh.art_defaults_hint',
-        'Beim Klick auf die Art werden Tag / Uhrzeit / Dauer vorausgefüllt — danach wie gewohnt editierbar.')) +
+        'Offset ab jetzt: Woche + Tag + Stunde + Minute → Fälligkeit. Danach im Dialog weiter editierbar.')) +
       '</span></div>' +
-      '<div class="sh-art-def-list">' + rows + '</div>' +
+      '<div class="sh-art-def-list">' + head + rows + '</div>' +
       '<div class="sh-art-def-actions">' +
       '<button type="button" class="sh-btn sh-btn-primary" id="sh-art-def-save">' +
       esc(_t('sh.art_defaults_save', 'Defaults speichern')) + '</button>' +
@@ -322,29 +349,60 @@
       esc(_t('sh.art_defaults_reset', 'Werkseinstellungen')) + '</button>' +
       '<span class="sh-art-def-status" id="sh-art-def-status"></span></div>';
 
+    function syncRowEnabled(row) {
+      if (!row) return;
+      var cb = row.querySelector('.sh-art-def-enabled');
+      var nums = row.querySelector('.sh-art-def-nums');
+      var off = !!(cb && cb.checked);
+      if (nums) nums.classList.toggle('is-off', off);
+      row.querySelectorAll('.sh-art-def-num').forEach(function (inp) {
+        inp.disabled = off;
+      });
+    }
+
+    host.querySelectorAll('.sh-art-def-row[data-art]').forEach(syncRowEnabled);
+    host.querySelectorAll('.sh-art-def-enabled').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        syncRowEnabled(cb.closest('.sh-art-def-row'));
+      });
+    });
+
     var status = document.getElementById('sh-art-def-status');
     var saveBtn = document.getElementById('sh-art-def-save');
     var resetBtn = document.getElementById('sh-art-def-reset');
+
     if (saveBtn) {
       saveBtn.onclick = function () {
         var next = {};
-        var ok = true;
-        host.querySelectorAll('.sh-art-def-input').forEach(function (inp) {
-          var art = inp.getAttribute('data-art');
-          var parsed = parseArtDefaultInput(inp.value);
-          if (!parsed) {
-            ok = false;
-            inp.classList.add('is-bad');
+        host.querySelectorAll('.sh-art-def-row[data-art]').forEach(function (row) {
+          var art = row.getAttribute('data-art');
+          var none = !!(row.querySelector('.sh-art-def-enabled') || {}).checked;
+          if (none) {
+            next[art] = { weeks: 0, days: 0, hours: 0, minutes: 0, enabled: false };
             return;
           }
-          inp.classList.remove('is-bad');
-          next[art] = parsed;
-          inp.value = formatArtDefaultLabel(parsed);
+          var read = function (key) {
+            var el = row.querySelector('.sh-art-def-num[data-key="' + key + '"]');
+            var n = el ? parseInt(el.value, 10) : 0;
+            if (isNaN(n) || n < 0) n = 0;
+            if (el) el.value = String(n);
+            return n;
+          };
+          var pack = {
+            weeks: read('weeks'),
+            days: read('days'),
+            hours: read('hours'),
+            minutes: read('minutes'),
+            enabled: true,
+          };
+          if (pack.weeks + pack.days + pack.hours + pack.minutes === 0) {
+            pack.enabled = false;
+            var cb = row.querySelector('.sh-art-def-enabled');
+            if (cb) cb.checked = true;
+            syncRowEnabled(row);
+          }
+          next[art] = pack;
         });
-        if (!ok) {
-          if (status) status.textContent = 'Ungültig — z. B. „1 Std“, „2 Tage“, „1 Tag · 30 Min“ oder „kein Default“.';
-          return;
-        }
         saveArtDefaultsOverride(next);
         if (status) status.textContent = 'Gespeichert. Gilt ab der nächsten „Neue Aufgabe“.';
       };
@@ -352,12 +410,9 @@
     if (resetBtn) {
       resetBtn.onclick = function () {
         saveArtDefaultsOverride(null);
-        host.querySelectorAll('.sh-art-def-input').forEach(function (inp) {
-          var art = inp.getAttribute('data-art');
-          inp.classList.remove('is-bad');
-          inp.value = formatArtDefaultLabel(getArtDefaults(art));
-        });
-        if (status) status.textContent = 'Werkseinstellungen wiederhergestellt.';
+        renderArtDefaultsEditor();
+        var st = document.getElementById('sh-art-def-status');
+        if (st) st.textContent = 'Werkseinstellungen wiederhergestellt.';
       };
     }
   }
@@ -1661,17 +1716,17 @@
     return { date: yyyy + '-' + mm + '-' + dd, time: hh + ':' + mi };
   }
 
-  // Defaults pro Aufgaben-Art → Fälligkeit (Tag / Dauer). Im Dialog weiter editierbar.
-  // Überschreibbar unter Regeln → „Aufgaben-Defaults“ (localStorage).
+  // Defaults pro Aufgaben-Art: Offset ab jetzt = Woche + Tag + Stunde + Minute.
+  // Unter Regeln einstellbar (Zahlfelder). Termin = „kein Default“.
   var TASK_ART_DEFAULTS_BASE = {
-    anruf: { days: null, dauer_min: 60 },          // 1 h
-    sms_messenger: { days: null, dauer_min: 60 },   // WhatsApp 1 h
-    wiedervorlage: { days: 1, dauer_min: null },    // +1 Tag
-    email: { days: null, dauer_min: 120 },           // 2 h
-    post: { days: 2, dauer_min: null },             // +2 Tage
-    termin: { days: null, dauer_min: null },         // kein Default
-    dokument: { days: 1, dauer_min: null },          // +1 Tag
-    intern: { days: 1, dauer_min: null },            // +1 Tag
+    anruf: { weeks: 0, days: 0, hours: 1, minutes: 0, enabled: true },
+    sms_messenger: { weeks: 0, days: 0, hours: 1, minutes: 0, enabled: true },
+    wiedervorlage: { weeks: 0, days: 1, hours: 0, minutes: 0, enabled: true },
+    email: { weeks: 0, days: 0, hours: 2, minutes: 0, enabled: true },
+    post: { weeks: 0, days: 2, hours: 0, minutes: 0, enabled: true },
+    termin: { weeks: 0, days: 0, hours: 0, minutes: 0, enabled: false },
+    dokument: { weeks: 0, days: 1, hours: 0, minutes: 0, enabled: true },
+    intern: { weeks: 0, days: 1, hours: 0, minutes: 0, enabled: true },
   };
   var TASK_ART_DEFAULT_LABELS = {
     anruf: 'Anruf',
@@ -1687,11 +1742,58 @@
     'anruf', 'sms_messenger', 'wiedervorlage', 'email',
     'post', 'termin', 'dokument', 'intern',
   ];
+  var ART_DEFAULTS_LS_KEY = 'sh_task_art_defaults_v2';
+
+  function nzInt(v, fallback) {
+    var n = parseInt(v, 10);
+    return isNaN(n) || n < 0 ? (fallback || 0) : n;
+  }
+
+  /** Altes Format {days, dauer_min} → Woche/Tag/Std/Min. */
+  function migrateLegacyArtDefault(raw) {
+    if (!raw || typeof raw !== 'object') {
+      return { weeks: 0, days: 0, hours: 0, minutes: 0, enabled: false };
+    }
+    if (raw.weeks != null || raw.hours != null || raw.minutes != null || raw.enabled === false || raw.enabled === true) {
+      var weeks = nzInt(raw.weeks, 0);
+      var days = nzInt(raw.days, 0);
+      var hours = nzInt(raw.hours, 0);
+      var minutes = nzInt(raw.minutes, 0);
+      var enabled = raw.enabled !== false && (weeks + days + hours + minutes > 0 || raw.enabled === true);
+      if (raw.enabled === false) enabled = false;
+      return { weeks: weeks, days: days, hours: hours, minutes: minutes, enabled: enabled };
+    }
+    // legacy: days + dauer_min
+    var legDays = raw.days != null && raw.days !== '' ? nzInt(raw.days, 0) : 0;
+    var dur = raw.dauer_min != null && raw.dauer_min !== '' ? nzInt(raw.dauer_min, 0) : 0;
+    if (raw.days == null && raw.dauer_min == null) {
+      return { weeks: 0, days: 0, hours: 0, minutes: 0, enabled: false };
+    }
+    return {
+      weeks: 0,
+      days: (raw.days != null && raw.days !== '') ? legDays : 0,
+      hours: Math.floor(dur / 60),
+      minutes: dur % 60,
+      enabled: !!(dur || (raw.days != null && raw.days !== '')),
+    };
+  }
 
   function loadArtDefaultsOverride() {
     try {
-      var raw = localStorage.getItem('sh_task_art_defaults');
-      if (!raw) return {};
+      var raw = localStorage.getItem(ART_DEFAULTS_LS_KEY);
+      if (!raw) {
+        // einmalig aus v1 migrieren
+        var old = localStorage.getItem('sh_task_art_defaults');
+        if (!old) return {};
+        var o1 = JSON.parse(old);
+        if (!o1 || typeof o1 !== 'object') return {};
+        var migrated = {};
+        Object.keys(o1).forEach(function (k) {
+          migrated[k] = migrateLegacyArtDefault(o1[k]);
+        });
+        localStorage.setItem(ART_DEFAULTS_LS_KEY, JSON.stringify(migrated));
+        return migrated;
+      }
       var o = JSON.parse(raw);
       return o && typeof o === 'object' ? o : {};
     } catch (e) {
@@ -1702,20 +1804,18 @@
   function saveArtDefaultsOverride(map) {
     try {
       if (!map || !Object.keys(map).length) {
-        localStorage.removeItem('sh_task_art_defaults');
+        localStorage.removeItem(ART_DEFAULTS_LS_KEY);
       } else {
-        localStorage.setItem('sh_task_art_defaults', JSON.stringify(map));
+        localStorage.setItem(ART_DEFAULTS_LS_KEY, JSON.stringify(map));
       }
     } catch (e) { /* ignore */ }
   }
 
   function getArtDefaults(art) {
-    var base = TASK_ART_DEFAULTS_BASE[art] || { days: null, dauer_min: null };
-    var over = loadArtDefaultsOverride()[art] || {};
-    return {
-      days: over.days !== undefined ? over.days : base.days,
-      dauer_min: over.dauer_min !== undefined ? over.dauer_min : base.dauer_min,
-    };
+    var base = migrateLegacyArtDefault(TASK_ART_DEFAULTS_BASE[art]);
+    var overRaw = loadArtDefaultsOverride()[art];
+    if (!overRaw) return base;
+    return migrateLegacyArtDefault(overRaw);
   }
 
   function formatDauerLabel(min) {
@@ -1723,43 +1823,12 @@
     if (!m || m < 1) return '';
     if (m % 60 === 0) return String(m / 60) + ' Std';
     if (m === 90) return '1,5 Std';
+    if (m > 60) {
+      var h = Math.floor(m / 60);
+      var r = m % 60;
+      return h + ' Std ' + r + ' Min';
+    }
     return String(m) + ' Min';
-  }
-
-  function formatArtDefaultLabel(def) {
-    if (!def) return 'kein Default';
-    var hasDays = def.days != null && def.days !== '' && !isNaN(Number(def.days));
-    var hasDur = def.dauer_min != null && def.dauer_min !== '' && !isNaN(Number(def.dauer_min));
-    if (!hasDays && !hasDur) return 'kein Default';
-    var parts = [];
-    if (hasDays) {
-      var d = parseInt(def.days, 10) || 0;
-      parts.push(d === 1 ? '1 Tag' : (d === 0 ? 'heute' : String(d) + ' Tage'));
-    }
-    if (hasDur) parts.push(formatDauerLabel(def.dauer_min) || (String(def.dauer_min) + ' Min'));
-    return parts.join(' · ');
-  }
-
-  function parseArtDefaultInput(text) {
-    var t = String(text || '').trim().toLowerCase().replace(/,/g, '.');
-    if (!t || t === '-' || t === '—' || t === 'kein' || t === 'kein default' || t === 'none') {
-      return { days: null, dauer_min: null };
-    }
-    var days = null;
-    var dauer = null;
-    var dayM = t.match(/(\d+)\s*(?:tage?|days?|d)\b/);
-    if (dayM) days = Math.max(0, parseInt(dayM[1], 10));
-    else if (/\bheute\b/.test(t)) days = 0;
-    else if (/\bmorgen\b/.test(t)) days = 1;
-    var hM = t.match(/(\d+(?:\.\d+)?)\s*(?:h|std|stunde|stunden)\b/);
-    if (hM) dauer = Math.max(1, Math.round(parseFloat(hM[1]) * 60));
-    var minM = t.match(/(\d+)\s*(?:min|minute|minuten)\b/);
-    if (minM) dauer = Math.max(1, parseInt(minM[1], 10));
-    if (days === null && dauer === null) {
-      // reine Zahl: bei >= 24 eher Tage, sonst Minuten (nur wenn eindeutig mit Einheit fehlt → ablehnen)
-      return null;
-    }
-    return { days: days, dauer_min: dauer };
   }
 
   function ymdFromDate(d) {
@@ -1774,30 +1843,37 @@
     var timeEl = document.getElementById('sh-mt-time');
     var dauerEl = document.getElementById('sh-mt-dauer');
     if (!dateEl && !timeEl && !dauerEl) return;
+    if (!def || !def.enabled) return; // Termin / kein Default
 
-    var hasDays = def.days != null && def.days !== '' && !isNaN(Number(def.days));
-    var hasDur = def.dauer_min != null && def.dauer_min !== '' && !isNaN(Number(def.dauer_min));
-    if (!hasDays && !hasDur) return; // Termin / kein Default → Felder unverändert
+    var weeks = nzInt(def.weeks, 0);
+    var days = nzInt(def.days, 0);
+    var hours = nzInt(def.hours, 0);
+    var minutes = nzInt(def.minutes, 0);
+    if (weeks + days + hours + minutes === 0) return;
 
-    if (hasDays) {
-      var d = new Date();
-      d.setHours(9, 0, 0, 0);
-      d.setDate(d.getDate() + Math.max(0, parseInt(def.days, 10) || 0));
-      if (dateEl) dateEl.value = ymdFromDate(d);
-      if (timeEl) timeEl.value = '09:00';
+    var d = new Date();
+    d.setDate(d.getDate() + weeks * 7 + days);
+    d.setHours(d.getHours() + hours);
+    d.setMinutes(d.getMinutes() + minutes, 0, 0);
+    if (dateEl) dateEl.value = ymdFromDate(d);
+    if (timeEl) {
+      timeEl.value = String(d.getHours()).padStart(2, '0') + ':' +
+        String(d.getMinutes()).padStart(2, '0');
     }
+
     if (dauerEl) {
-      if (hasDur) {
-        var v = String(parseInt(def.dauer_min, 10) || '');
-        if (v && !Array.prototype.some.call(dauerEl.options, function (o) { return o.value === v; })) {
+      var durMin = hours * 60 + minutes;
+      if (durMin > 0) {
+        var v = String(durMin);
+        if (!Array.prototype.some.call(dauerEl.options, function (o) { return o.value === v; })) {
           var opt = document.createElement('option');
           opt.value = v;
           opt.textContent = formatDauerLabel(v) || (v + ' Min');
           dauerEl.appendChild(opt);
         }
         dauerEl.value = v;
-      } else if (hasDays) {
-        // Nur Tage (Wiedervorlage/Post/…) → Dauer leer, weiter editierbar
+      } else {
+        // nur Woche/Tag → Dauer leer lassen
         dauerEl.value = '';
       }
     }
