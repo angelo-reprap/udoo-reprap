@@ -282,6 +282,7 @@
       startRadarPoll();
     } else if (name === 'radar_berater') {
       loadRadarB();
+      startRadarBPoll();
     } else if (name === 'regeln') {
       loadRegeln();
     } else {
@@ -2770,9 +2771,15 @@
     if (btn && !btn.dataset.bound) {
       btn.dataset.bound = '1';
       btn.onclick = function () {
+        // ↻ = FM „Aktuellste“ nachziehen (nicht nur CRM-Reindex)
         btn.disabled = true;
         btn.classList.add('busy');
-        fetch(api('radar/berater/reindex/'), {
+        var hintEl = document.getElementById('sh-radar-b-hint');
+        var hintPrev = hintEl ? hintEl.textContent : '';
+        if (hintEl) {
+          hintEl.textContent = _t('sh.radar_b_fl_av_run', 'Freelancermap verfügbar → Radar…');
+        }
+        fetch(api('radar/berater/fl-verfuegbar/'), {
           method: 'POST',
           credentials: 'same-origin',
           headers: {
@@ -2780,26 +2787,31 @@
             'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
             'X-Requested-With': 'XMLHttpRequest',
           },
-          body: JSON.stringify({ reindex: true }),
+          body: JSON.stringify({ limit: 48, pages: 2, delay: 0.1 }),
         })
           .then(function (r) { return r.json(); })
           .then(function (d) {
             btn.disabled = false;
             btn.classList.remove('busy');
-            if (!d.ok) {
-              toast(d.error || _t('sh.toast_error', 'Index-Update fehlgeschlagen'));
+            if (hintEl && hintPrev) hintEl.textContent = hintPrev;
+            if (!d.ok && d.error) {
+              toast(d.error || _t('sh.toast_error', 'Aktualisieren fehlgeschlagen'), 6000);
+              loadRadarB({ soft: true });
               return;
             }
-            toast(_t('sh.radar_b_reindex_ok', 'Index') + ': ' +
-              (d.seeded || 0) + ' sync' +
-              (d.deleted != null ? (', −' + d.deleted) : '') +
-              (d.reindex && d.reindex.indexed != null ? (', ES ' + d.reindex.indexed) : ''));
+            toast(
+              _t('sh.radar_b_fl_av_ok', 'Freelancermap') + ': ' +
+              (d.scanned || 0) + ' · +' + (d.created || 0) + ' / ~' + (d.updated || 0),
+              6000
+            );
             loadRadarB({ soft: true });
           })
           .catch(function () {
             btn.disabled = false;
             btn.classList.remove('busy');
-            toast(_t('sh.toast_error', 'Index-Update fehlgeschlagen'));
+            if (hintEl && hintPrev) hintEl.textContent = hintPrev;
+            toast(_t('sh.toast_error', 'Aktualisieren fehlgeschlagen'));
+            loadRadarB({ soft: true });
           });
       };
     }
@@ -3144,12 +3156,45 @@
   var RADAR_B_STATUS = 'neu';
   var RADAR_B_MATCH = '';
   var RADAR_B_AVAIL = true;
+  var RADAR_B_POLL_MS = 90000;
+  var radarBPollTimer = null;
   try {
     var _bps = parseInt(localStorage.getItem('sh_radar_b_page_size') || '20', 10);
     if ([5, 10, 20, 50].indexOf(_bps) >= 0) RADAR_B_PAGE_SIZE = _bps;
     var _bd = parseInt(localStorage.getItem('sh_radar_b_days') || '0', 10);
     if ([0, 1, 2, 7, 30].indexOf(_bd) >= 0) RADAR_B_DAYS = _bd;
   } catch (eB) { /* ignore */ }
+
+  function radarBTabActive() {
+    var tab = document.querySelector('#shaduler-root .mtab.on');
+    return !!(tab && tab.getAttribute('data-t') === 'radar_berater');
+  }
+
+  function stopRadarBPoll() {
+    if (radarBPollTimer) {
+      clearTimeout(radarBPollTimer);
+      radarBPollTimer = null;
+    }
+  }
+
+  function scheduleRadarBPoll(delayMs) {
+    stopRadarBPoll();
+    if (!radarBTabActive()) return;
+    radarBPollTimer = setTimeout(function () {
+      radarBPollTimer = null;
+      if (!radarBTabActive()) return;
+      if (document.visibilityState === 'hidden') {
+        scheduleRadarBPoll(RADAR_B_POLL_MS);
+        return;
+      }
+      loadRadarB({ soft: true });
+      scheduleRadarBPoll(RADAR_B_POLL_MS);
+    }, Math.max(30000, delayMs || RADAR_B_POLL_MS));
+  }
+
+  function startRadarBPoll() {
+    scheduleRadarBPoll(RADAR_B_POLL_MS);
+  }
 
   function renderRadarBToolbar() {
     var t = document.getElementById('sh-radar-b-toolbar');
