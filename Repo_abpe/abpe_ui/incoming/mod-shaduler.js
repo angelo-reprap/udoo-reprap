@@ -434,9 +434,14 @@
           var src = data.source || '';
           var srcLabel = src === 'elasticsearch' ? 'ES' : (src === 'imap' ? 'IMAP' : (src === 'ingest_email_db' ? 'DB' : src));
           var totalLbl = data.total != null ? (' · ' + data.total + ' ' + _t('sh.inbox_mails', 'Mails')) : '';
+          var staleHint = (data.hint && String(data.hint).trim())
+            ? (' · ⚠ ' + String(data.hint).trim())
+            : '';
           hint.textContent = _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick') +
             (srcLabel ? ' · ' + srcLabel : '') + totalLbl +
-            (data.unread != null ? ' · ' + data.unread + ' ' + _t('sh.inbox_unread', 'neu') : '');
+            (data.unread != null ? ' · ' + data.unread + ' ' + _t('sh.inbox_unread', 'neu') : '') +
+            staleHint;
+          if (staleHint) hint.title = String(data.hint);
         }
         INBOX_ACCOUNTS = data.accounts || [];
         if (data.filter_account) INBOX_ACCOUNT = data.filter_account;

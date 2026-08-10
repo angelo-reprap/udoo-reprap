@@ -1568,10 +1568,11 @@ def list_mails(
                         if dj_tz.is_naive(dt):
                             dt = dj_tz.make_aware(dt, timezone.utc)
                         age_days = (now - dt).total_seconds() / 86400
-                        if age_days > 14:
+                        if age_days > 2:
                             hint = (
                                 f'Neueste indexierte Mail ist ~{int(age_days)} Tage alt — '
-                                'Mail-Indexer (automail/ingest) prüfen.'
+                                'Mail-Indexer prüfen: '
+                                'manage.py index_emails --since-days 14'
                             )
                 except Exception:
                     pass

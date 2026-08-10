@@ -53,14 +53,12 @@ JOBS = [
         'rrule': 'FREQ=MINUTELY;INTERVAL=1',
         'payload': {
             'job': 'email_index',
-            'since_days': 2,
+            'since_days': 7,
             'folders': 'INBOX',
             'incremental': True,
         },
     },
 ]
-
-
 class Command(BaseCommand):
     help = 'Shaduler-Periodik als SchedulerJob (RECURRING/RRULE) bei abpe_scheduler anlegen.'
 

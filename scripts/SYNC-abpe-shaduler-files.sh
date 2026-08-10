@@ -4,12 +4,12 @@
 # Berührt NICHT ingest_email / andere Apps. Für ingest_email → Repo: PULL-ingest-email-from-live.sh
 set -euo pipefail
 REPO="${REPO:-/mnt/public/udoo-reprap}"
-BRANCH="${BRANCH:-origin/cursor/abpe-shaduler-scaffold-7f07}"
+BRANCH="${BRANCH:-origin/cursor/posteingang-es-stale-7f07}"
 LIVE_APP="${LIVE_APP:-/opt/abpe/backend/apps/abpe_shaduler}"
 LIVE_UI="${LIVE_UI:-/opt/abpe/backend/apps/abpe_ui}"
 
 cd "$REPO"
-git fetch origin cursor/abpe-shaduler-scaffold-7f07 || true
+git fetch origin cursor/posteingang-es-stale-7f07 || true
 
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT

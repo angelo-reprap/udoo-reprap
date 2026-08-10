@@ -338,15 +338,28 @@ def fetch_folder(
         else:
             r, data = m.search(None, 'ALL')
         if r != 'OK' or not data or not data[0]:
-            # leerer Ordner / keine Treffer im Fenster → ggf. alles im Fenster prune'n
+            # Leere SINCE-Suche ≠ „alles gelöscht“.
+            # Früher: prune mit live_doc_ids=set() hat das gesamte since_days-Fenster
+            # aus ES gelöscht (Symptom: neueste Mail „vor 3 Tagen“ bei since_days=2).
             m.logout()
-            if prune:
-                pruned = prune_missing_from_es(
-                    es, es_index, account, folder, set(), since_days=since_days,
+            if r != 'OK':
+                logger.warning(
+                    '%s/%s: IMAP SEARCH nicht OK (%s) — kein Prune',
+                    account, folder, r,
                 )
-            return 0, 0, 0, pruned
+            else:
+                logger.info(
+                    '%s/%s: keine Mails im Fenster since_days=%s — kein Prune',
+                    account, folder, since_days,
+                )
+            return 0, 0, 0, 0
 
         seqs = data[0].split()
+        # Abwehrmassnahme: nie mit leerem live-Set prunen
+        if not seqs:
+            m.logout()
+            logger.info('%s/%s: leere seqs — kein Prune', account, folder)
+            return 0, 0, 0, 0
         docs = []
         first_errors: list[str] = []
 
@@ -453,10 +466,18 @@ def fetch_folder(
         if prune:
             # since_days=0 / None → voller Ordner-Abgleich (live_doc_ids = komplette Suche)
             # Inkrementell: live_doc_ids enthält alle Message-IDs aus dem Fenster.
-            pruned = prune_missing_from_es(
-                es, es_index, account, folder, live_doc_ids,
-                since_days=since_days if (since_days and since_days > 0) else None,
-            )
+            # Nie mit leerem Set prunen (würde Fenster leeren).
+            if not live_doc_ids:
+                logger.warning(
+                    '%s/%s: prune übersprungen — live_doc_ids leer '
+                    '(IMAP/Header-Fehler?)',
+                    account, folder,
+                )
+            else:
+                pruned = prune_missing_from_es(
+                    es, es_index, account, folder, live_doc_ids,
+                    since_days=since_days if (since_days and since_days > 0) else None,
+                )
     except Exception as e:
         logger.error('%s/%s: %s', account, folder, e)
 

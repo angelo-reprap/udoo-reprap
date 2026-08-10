@@ -2,11 +2,11 @@
 # Repo → Live: nur namazu index_emails.py (NICHT email_settings.json — Passwörter!).
 set -euo pipefail
 REPO="${REPO:-/mnt/public/udoo-reprap}"
-BRANCH="${BRANCH:-origin/cursor/abpe-shaduler-scaffold-7f07}"
+BRANCH="${BRANCH:-origin/cursor/posteingang-es-stale-7f07}"
 LIVE_CMD="${LIVE_CMD:-/opt/abpe/backend/apps/namazu/management/commands}"
 
 cd "$REPO"
-git fetch origin cursor/abpe-shaduler-scaffold-7f07 || true
+git fetch origin cursor/posteingang-es-stale-7f07 || true
 
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
@@ -28,15 +28,14 @@ cp -a "$SRC" "$LIVE_CMD/index_emails.py"
 echo "OK → $LIVE_CMD/index_emails.py"
 echo "email_settings.json wurde NICHT angefasst (Live-Passwörter bleiben)."
 echo
-echo "Shaduler SYNC + Job auf 1 Min setzen:"
-echo "  bash scripts/SYNC-abpe-shaduler-files.sh"
-echo "  supervisorctl restart abpe-django"
+echo "Wichtig: leere IMAP-SINCE-Suche prunt NICHT mehr das ES-Fenster."
+echo
+echo "Shaduler SYNC + Job (since_days=7) setzen:"
+echo "  bash <(git show origin/cursor/posteingang-es-stale-7f07:scripts/SYNC-abpe-shaduler-files.sh)"
+echo "  supervisorctl restart abpe-django abpe-celery"
 echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py register_scheduler_jobs"
 echo
-echo "Gelöschte aus ES entfernen (einmal, z.B. angelo INBOX):"
-echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py index_emails --account angelo --folders INBOX --prune-only --prune-orphans"
-echo
-echo "Catch-up (INBOX, letzte 14 Tage):"
-echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py index_emails --since-days 14"
+echo "Catch-up (stellt die letzten Tage wieder her):"
+echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py index_emails --since-days 14 --folders INBOX --no-prune"
 echo "Dann Probe:"
 echo "  /opt/abpe/venv311/bin/python manage.py shaduler_inbox_probe --fetch --limit 5"

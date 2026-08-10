@@ -57,7 +57,7 @@ def shaduler_prozess_tick(payload=None):
 
 def _email_index_kwargs(payload=None):
     payload = payload or {}
-    since = int(payload.get('since_days') or 2)
+    since = int(payload.get('since_days') or 7)
     account = payload.get('account')
     folders = str(payload.get('folders') or 'INBOX')
     incremental = payload.get('incremental', True)
@@ -115,7 +115,7 @@ def shaduler_email_index(payload=None):
         }
 
 
-def _email_index_sync(*, since_days=2, account=None, folders='INBOX', incremental=True):
+def _email_index_sync(*, since_days=7, account=None, folders='INBOX', incremental=True):
     from django.core.cache import cache
     from django.core.management import call_command
     from io import StringIO
@@ -161,7 +161,7 @@ try:
         soft_time_limit=540,
         time_limit=600,
     )
-    def email_index_run(self, since_days=2, account=None, folders='INBOX', incremental=True):
+    def email_index_run(self, since_days=7, account=None, folders='INBOX', incremental=True):
         """Celery: IMAP→ES. Bei Fehler Retry nach 60 / 120 / 180 Sekunden."""
         logger.info(
             'email_index_run start try=%s since_days=%s account=%s folders=%s incremental=%s',
