@@ -229,6 +229,12 @@ def _request(
     cookie = _cookie_header()
     if cookie:
         h['Cookie'] = cookie
+        # XSRF aus Session-Cookies (CV-Extractor speichert XSRF-TOKEN mit)
+        m = re.search(r'(?:^|;\s*)XSRF-TOKEN=([^;]+)', cookie)
+        if m:
+            tok = urllib.parse.unquote(m.group(1).strip())
+            h.setdefault('X-XSRF-TOKEN', tok)
+            h.setdefault('x-xsrf-token', tok)
     if headers:
         h.update(headers)
     req = urllib.request.Request(url, data=data, headers=h, method=method)
@@ -240,6 +246,265 @@ def _request(
         return int(e.code), url, body
     except Exception as exc:
         return 0, url, str(exc).encode('utf-8', errors='replace')
+
+
+def _resolve_mongo_id(gid: str) -> tuple[Optional[str], list[dict]]:
+    """
+    Numerische gulpId → Mongo-Profil-ID über Talentfinder-APIs.
+    Returns (mongo_id|None, steps[{url,code,…}]).
+    """
+    steps: list[dict] = []
+    csrf = ''
+    hdr = _cookie_header()
+    m = re.search(r'(?:^|;\s*)XSRF-TOKEN=([^;]+)', hdr or '')
+    if m:
+        csrf = urllib.parse.unquote(m.group(1).strip())
+
+    # GET/POST Varianten unter talentfinder/app/api/secure/
+    candidates = [
+        ('GET', f'{TF_PROFILE_API}?gulpId={urllib.parse.quote(gid)}', None),
+        ('GET', f'{TF_BASE}/api/secure/experts?gulpId={urllib.parse.quote(gid)}', None),
+        ('GET', f'{TF_BASE}/api/secure/expert-search?gulpId={urllib.parse.quote(gid)}', None),
+        ('GET', f'{TF_BASE}/api/secure/expert-profiles/search?gulpId={urllib.parse.quote(gid)}', None),
+        (
+            'POST',
+            f'{TF_BASE}/api/secure/expert-profiles/search',
+            {'gulpId': gid, 'page': 0, 'size': 5},
+        ),
+        (
+            'POST',
+            f'{TF_BASE}/api/secure/experts/search',
+            {'gulpId': gid, 'query': gid, 'page': 0, 'size': 5},
+        ),
+    ]
+    for method, url, body in candidates:
+        headers = {
+            'Referer': TF_EXPERTEN,
+            'Origin': 'https://www.gulp.de',
+        }
+        if csrf:
+            headers['X-XSRF-TOKEN'] = csrf
+        raw_body = json.dumps(body).encode('utf-8') if body is not None else None
+        if body is not None:
+            headers['Content-Type'] = 'application/json'
+        code, _u, raw = _request(url, method=method, data=raw_body, headers=headers)
+        steps.append({'url': url, 'method': method, 'code': code})
+        if code != 200 or not raw:
+            continue
+        try:
+            data = json.loads(raw.decode('utf-8', errors='replace'))
+        except Exception:
+            continue
+        # direktes Profil
+        if isinstance(data, dict) and (data.get('id') or data.get('gulpId')):
+            n = normalize_expert_profile(data)
+            mid = str(data.get('id') or n.get('mongo_id') or '')
+            if re.fullmatch(r'[a-f0-9]{24}', mid, re.I):
+                return mid, steps
+            if n.get('gulp_id') == gid or str(data.get('gulpId')) == gid:
+                if mid:
+                    return mid, steps
+        parsed = _normalize_search_hit(data, prefer_gulp_id=gid)
+        if parsed:
+            mid = str(parsed.get('mongo_id') or '')
+            if re.fullmatch(r'[a-f0-9]{24}', mid, re.I):
+                return mid, steps
+        # id in Liste
+        for hit in _extract_hit_list(data):
+            if not isinstance(hit, dict):
+                continue
+            hid = str(hit.get('id') or hit.get('profileId') or '')
+            hgid = str(hit.get('gulpId') or hit.get('gulp_id') or hit.get('numericId') or '')
+            if hgid and hgid != gid and len(_extract_hit_list(data)) > 1:
+                continue
+            if re.fullmatch(r'[a-f0-9]{24}', hid, re.I):
+                return hid, steps
+    return None, steps
+
+
+def fetch_expert_by_gulp_id(gulp_id: str, *, mongo_id: str = '') -> dict[str, Any]:
+    """
+    Lädt Experten-Profil mit CV-Extractor-Session.
+
+    Reihenfolge:
+      1) secure expert-profiles/{mongoId}
+      2) gulpId → mongoId über Talentfinder secure search
+      3) HTML ?gulpId=
+      4) gulp2 nur Fallback (oft 403 — zählt NICHT als Session-tot)
+    needs_auth nur wenn probe_session() fehlschlägt.
+    """
+    gid = str(gulp_id or '').strip()
+    mid = str(mongo_id or '').strip()
+    steps: list[dict] = []
+    if not gid:
+        return {'ok': False, 'error': 'gulp_id fehlt'}
+    if not has_gulp_session():
+        return {
+            'ok': False,
+            'error': (
+                'Gulp-Session fehlt — CV-Extractor Session erneuern '
+                '(data/url/gu/.session_cookies.json) oder settings.json'
+            ),
+            'gulp_id': gid,
+            'profil_url': profil_url_for_gulp_id(gid),
+            'needs_auth': True,
+        }
+
+    if not mid and re.fullmatch(r'[a-f0-9]{24}', gid, re.I):
+        mid = gid
+
+    def _load_by_mongo(mongo: str) -> Optional[dict]:
+        code, _u, raw = _request(
+            f'{TF_PROFILE_API}/{mongo}',
+            headers={'Referer': TF_EXPERTEN, 'Origin': 'https://www.gulp.de'},
+        )
+        steps.append({'url': f'{TF_PROFILE_API}/{mongo}', 'code': code})
+        if code == 404:
+            return {
+                'ok': False,
+                'error': 'Profil nicht mehr in Gulp',
+                'gulp_id': gid,
+                'mongo_id': mongo,
+                'profil_url': profil_url_for_gulp_id(gid),
+                'not_found': True,
+            }
+        if code != 200:
+            return None
+        try:
+            data = json.loads(raw.decode('utf-8', errors='replace'))
+        except Exception as exc:
+            return {'ok': False, 'error': f'JSON: {exc}', 'gulp_id': gid}
+        parsed = normalize_expert_profile(data)
+        parsed['ok'] = True
+        parsed['not_found'] = False
+        parsed['mongo_id'] = mongo
+        return parsed
+
+    if mid:
+        got = _load_by_mongo(mid)
+        if got is not None:
+            return got
+
+    # Numerische ID → Mongo über Talentfinder
+    if not mid:
+        resolved, res_steps = _resolve_mongo_id(gid)
+        steps.extend(res_steps)
+        if resolved:
+            mid = resolved
+            got = _load_by_mongo(mid)
+            if got is not None:
+                return got
+
+    # HTML Talentfinder
+    code, _final_url, raw = _request(
+        profil_url_for_gulp_id(gid),
+        headers={
+            'Accept': 'text/html,application/xhtml+xml,application/json',
+            'Referer': 'https://www.gulp.de/',
+            'Origin': 'https://www.gulp.de',
+        },
+    )
+    steps.append({'url': profil_url_for_gulp_id(gid), 'code': code})
+    if code == 200 and raw:
+        html = raw.decode('utf-8', errors='replace')
+        parsed = _parse_experten_html(html, prefer_gulp_id=gid)
+        if parsed:
+            mongo2 = parsed.get('mongo_id') or ''
+            if mongo2:
+                got = _load_by_mongo(mongo2)
+                if got is not None:
+                    return got
+            parsed['ok'] = True
+            parsed['not_found'] = False
+            parsed['profil_url'] = parsed.get('profil_url') or profil_url_for_gulp_id(gid)
+            return parsed
+        if any(x in html.lower() for x in (
+            'keine treffer', 'keine ergebnisse', '0 ergebnisse', 'keine experten',
+        )):
+            return {
+                'ok': False,
+                'error': 'Profil nicht mehr in Gulp (0 Treffer)',
+                'gulp_id': gid,
+                'profil_url': profil_url_for_gulp_id(gid),
+                'not_found': True,
+                'steps': steps,
+            }
+
+    # gulp2 Fallback (häufig 403 mit Talentfinder-Cookies — kein Auth-Kill)
+    csrf = _gulp2_csrf_token()
+    saw_ok_empty = False
+    for body in (
+        {'gulpId': gid, 'page': 0, 'size': 5},
+        {'query': gid, 'page': 0, 'size': 5},
+        {'filters': {'gulpId': gid}, 'page': 0, 'size': 5},
+    ):
+        headers = {
+            'Content-Type': 'application/json',
+            'Origin': 'https://www.gulp.de',
+            'Referer': TF_EXPERTEN,
+        }
+        if csrf:
+            headers['x-trust'] = csrf
+            headers['X-XSRF-TOKEN'] = csrf
+        code, _u, raw = _request(
+            GULP2_PROFILES_SEARCH,
+            method='POST',
+            data=json.dumps(body).encode('utf-8'),
+            headers=headers,
+        )
+        steps.append({'url': GULP2_PROFILES_SEARCH, 'code': code, 'body_keys': list(body)})
+        if code != 200:
+            continue
+        try:
+            data = json.loads(raw.decode('utf-8', errors='replace'))
+        except Exception:
+            continue
+        hits = _extract_hit_list(data)
+        if not hits:
+            saw_ok_empty = True
+            continue
+        parsed = _normalize_search_hit(data, prefer_gulp_id=gid)
+        if parsed:
+            parsed['ok'] = True
+            parsed['not_found'] = False
+            parsed['profil_url'] = parsed.get('profil_url') or profil_url_for_gulp_id(gid)
+            return parsed
+
+    if saw_ok_empty:
+        return {
+            'ok': False,
+            'error': 'Profil nicht mehr in Gulp (0 Treffer)',
+            'gulp_id': gid,
+            'profil_url': profil_url_for_gulp_id(gid),
+            'not_found': True,
+            'steps': steps,
+        }
+
+    # Auth nur wenn Probe wirklich tot
+    probe = probe_session()
+    if not probe.get('login_test'):
+        return {
+            'ok': False,
+            'error': probe.get('hint') or 'Gulp-Session ungültig',
+            'gulp_id': gid,
+            'profil_url': profil_url_for_gulp_id(gid),
+            'needs_auth': True,
+            'probe': {k: probe.get(k) for k in ('login_test', 'http', 'source', 'path')},
+            'steps': steps,
+        }
+
+    return {
+        'ok': False,
+        'error': (
+            f'Profil gulpId={gid} nicht über Talentfinder auflösbar '
+            f'(Session ok). steps={[s.get("code") for s in steps]}'
+        ),
+        'gulp_id': gid,
+        'profil_url': profil_url_for_gulp_id(gid),
+        'needs_auth': False,
+        'steps': steps,
+        'probe': {k: probe.get(k) for k in ('login_test', 'http')},
+    }
 
 
 def _gulp2_csrf_token() -> str:
@@ -379,199 +644,6 @@ def _parse_experten_html(html: str, prefer_gulp_id: str = '') -> Optional[dict]:
         'beschreibung': '',
         'profil_url': profil_url_for_gulp_id(prefer_gulp_id),
         'source': 'html',
-    }
-
-
-def fetch_expert_by_gulp_id(gulp_id: str, *, mongo_id: str = '') -> dict[str, Any]:
-    """
-    Lädt Experten-Profil mit CV-Extractor-Session.
-
-    Reihenfolge (wie CV-Extractor, nicht gulp2-only):
-      1) Talentfinder secure expert-profiles/{mongoId}
-      2) Talentfinder HTML ?gulpId=
-      3) gulp2 profiles/search (+ CSRF falls möglich)
-    """
-    gid = str(gulp_id or '').strip()
-    mid = str(mongo_id or '').strip()
-    if not gid:
-        return {'ok': False, 'error': 'gulp_id fehlt'}
-    if not has_gulp_session():
-        return {
-            'ok': False,
-            'error': (
-                'Gulp-Session fehlt — CV-Extractor Session erneuern '
-                '(data/url/gu/.session_cookies.json) oder settings.json'
-            ),
-            'gulp_id': gid,
-            'profil_url': profil_url_for_gulp_id(gid),
-            'needs_auth': True,
-        }
-
-    # Session-Probe einmalig soft (nur wenn klar tot → sofort auth)
-    # Mongo-Direktzugriff
-    if not mid and re.fullmatch(r'[a-f0-9]{24}', gid, re.I):
-        mid = gid
-
-    last_http = None
-    auth_hit = False
-
-    if mid:
-        code, _u, raw = _request(
-            f'{TF_PROFILE_API}/{mid}',
-            headers={
-                'Referer': TF_EXPERTEN,
-                'Origin': 'https://www.gulp.de',
-            },
-        )
-        last_http = code
-        if code in (401, 403):
-            auth_hit = True
-        elif code == 404:
-            return {
-                'ok': False,
-                'error': 'Profil nicht mehr in Gulp',
-                'gulp_id': gid,
-                'mongo_id': mid,
-                'profil_url': profil_url_for_gulp_id(gid),
-                'not_found': True,
-            }
-        elif code == 200:
-            try:
-                data = json.loads(raw.decode('utf-8', errors='replace'))
-            except Exception as exc:
-                return {'ok': False, 'error': f'JSON: {exc}', 'gulp_id': gid}
-            parsed = normalize_expert_profile(data)
-            parsed['ok'] = True
-            parsed['not_found'] = False
-            parsed['mongo_id'] = mid
-            return parsed
-
-    # HTML Talentfinder (gleiche Cookies wie CV-Extractor)
-    code, final_url, raw = _request(
-        profil_url_for_gulp_id(gid),
-        headers={
-            'Accept': 'text/html,application/xhtml+xml,application/json',
-            'Referer': 'https://www.gulp.de/',
-            'Origin': 'https://www.gulp.de',
-        },
-    )
-    last_http = code if last_http is None else last_http
-    if code in (401, 403):
-        auth_hit = True
-    elif code == 200:
-        html = raw.decode('utf-8', errors='replace')
-        parsed = _parse_experten_html(html, prefer_gulp_id=gid)
-        if parsed:
-            # ggf. Mongo nachziehen und Secure-API
-            mongo2 = parsed.get('mongo_id') or ''
-            if mongo2 and mongo2 != mid:
-                code2, _u2, raw2 = _request(
-                    f'{TF_PROFILE_API}/{mongo2}',
-                    headers={'Referer': TF_EXPERTEN, 'Origin': 'https://www.gulp.de'},
-                )
-                if code2 == 200:
-                    try:
-                        data = json.loads(raw2.decode('utf-8', errors='replace'))
-                        parsed = normalize_expert_profile(data)
-                    except Exception:
-                        pass
-                elif code2 == 404:
-                    return {
-                        'ok': False,
-                        'error': 'Profil nicht mehr in Gulp',
-                        'gulp_id': gid,
-                        'not_found': True,
-                    }
-            parsed['ok'] = True
-            parsed['not_found'] = False
-            parsed['profil_url'] = parsed.get('profil_url') or profil_url_for_gulp_id(gid)
-            return parsed
-        # Leere Liste / kein Profil erkennbar
-        if any(x in html.lower() for x in (
-            'keine treffer', 'keine ergebnisse', '0 ergebnisse', 'keine experten',
-        )):
-            return {
-                'ok': False,
-                'error': 'Profil nicht mehr in Gulp (0 Treffer)',
-                'gulp_id': gid,
-                'profil_url': profil_url_for_gulp_id(gid),
-                'not_found': True,
-            }
-
-    # gulp2 Search + CSRF (Fallback)
-    csrf = _gulp2_csrf_token()
-    payloads = [
-        {'gulpId': gid, 'page': 0, 'size': 5},
-        {'query': gid, 'page': 0, 'size': 5},
-        {'filters': {'gulpId': gid}, 'page': 0, 'size': 5},
-    ]
-    saw_ok_empty = False
-    for body in payloads:
-        headers = {
-            'Content-Type': 'application/json',
-            'Origin': 'https://www.gulp.de',
-            'Referer': TF_EXPERTEN,
-        }
-        if csrf:
-            headers['x-trust'] = csrf
-            headers['X-XSRF-TOKEN'] = csrf
-        code, _u, raw = _request(
-            GULP2_PROFILES_SEARCH,
-            method='POST',
-            data=json.dumps(body).encode('utf-8'),
-            headers=headers,
-        )
-        last_http = code
-        if code in (401, 403):
-            auth_hit = True
-            continue
-        if code != 200:
-            continue
-        try:
-            data = json.loads(raw.decode('utf-8', errors='replace'))
-        except Exception:
-            continue
-        hits = _extract_hit_list(data)
-        if not hits and isinstance(data, dict) and (data.get('gulpId') or data.get('id')):
-            hits = [data]
-        if not hits:
-            saw_ok_empty = True
-            continue
-        parsed = _normalize_search_hit(data, prefer_gulp_id=gid)
-        if parsed:
-            parsed['ok'] = True
-            parsed['not_found'] = False
-            parsed['profil_url'] = parsed.get('profil_url') or profil_url_for_gulp_id(gid)
-            return parsed
-
-    if saw_ok_empty:
-        return {
-            'ok': False,
-            'error': 'Profil nicht mehr in Gulp (0 Treffer)',
-            'gulp_id': gid,
-            'profil_url': profil_url_for_gulp_id(gid),
-            'not_found': True,
-        }
-
-    if auth_hit:
-        probe = probe_session()
-        return {
-            'ok': False,
-            'error': (
-                probe.get('hint')
-                or f'Nicht autorisiert (HTTP {last_http}) — Gulp-Session erneuern'
-            ),
-            'gulp_id': gid,
-            'profil_url': profil_url_for_gulp_id(gid),
-            'needs_auth': True,
-            'probe': {k: probe.get(k) for k in ('login_test', 'http', 'source', 'path')},
-        }
-
-    return {
-        'ok': False,
-        'error': f'Profil nicht ladbar (HTTP {last_http})',
-        'gulp_id': gid,
-        'profil_url': profil_url_for_gulp_id(gid),
     }
 
 
