@@ -12,13 +12,13 @@ settings.json → shaduler.gulp_talentfinder:
   }
 
 GEPLANT — „Gulp aktualisieren“:
-  A) ✅ Existenz-Check + Verfügbarkeit/Satz via Talentfinder
-     POST /api/secure/expert-profiles/search (Body mId=gulpId)
-     → GET /api/secure/expert-profiles/{mongoId}
+  A) ✅ Existenz-Check + Verfügbarkeit/Satz — Logik wie CV-Extractor
+     GULPImporter (_resolve_gulp_id / _fetch_profile), aber lokal in
+     radar_berater_gulp (cv_extractor bleibt unverändert):
+     POST …/expert-profiles/search (Body mId) → GET …/{mongoId}
      (0 Treffer = gulp_status=gone). Batch-API + UI-Button.
-     Session: settings.json ODER CV-Extractor
-     data/url/gu/.session_cookies.json (Chrome-Extension).
-  B) Später: PDF/DOCX via GULPImporter, volle CV-Pipeline.
+     Session: settings.json ODER data/url/gu/.session_cookies.json.
+  B) Später: PDF/DOCX / volle CV-Pipeline (weiterhin nur CV-Extractor).
      Radar = News/Deltas, kein CRM-Spiegel.
 """
 from __future__ import annotations
@@ -272,99 +272,101 @@ def _mongo_id_from_hit(hit: Any) -> str:
 
 def _search_by_gulp_mid(gid: str) -> dict[str, Any]:
     """
-    Offizielle Talentfinder-Suche (UI: ?gulpId= → Body-Feld mId).
+    gulpId → Mongo — Logik wie GULPImporter._resolve_gulp_id
+    (cv_extractor unverändert; hier nur nachgebaut).
 
-    POST /api/secure/expert-profiles/search?pageIndex=&pageSize=
-    Body: { mId, sortOrder, … }
-
-    Returns:
-      ok, mongo_id?, empty? (200 + 0 Treffer = gone), steps, hit?
+    POST …/expert-profiles/search?pageIndex=0&pageSize=5
+    Body: mId + sortOrder UPDATED_DATE (wie Importer).
     """
     steps: list[dict] = []
     qs = urllib.parse.urlencode({'pageIndex': 0, 'pageSize': 5})
     url = f'{TF_PROFILE_API}/search?{qs}'
-    # Minimal wie Angular SearchConfiguration (chunk-5STKLOCF / Search-Page)
-    bodies = [
-        {
-            'mId': str(gid),
-            'sortOrder': 'BEST_MATCH',
-            'remote': False,
-            'availabilityPercent': 20,
-            'searchOnlyInRecentProjects': False,
-        },
-        {'mId': str(gid)},
-    ]
-    headers_base = {
+    # Exakt wie url_gu_importer.GULPImporter._resolve_gulp_id
+    body = {
+        'mId': str(gid),
+        'sortOrder': 'UPDATED_DATE',
+        'availabilityPercent': 20,
+        'remote': False,
+        'searchOnlyInRecentProjects': False,
+        'searchTerm': None,
+    }
+    headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
         'Referer': f'{TF_EXPERTEN}?gulpId={urllib.parse.quote(gid)}',
         'Origin': 'https://www.gulp.de',
-        'Content-Type': 'application/json',
     }
-    last_code = 0
-    for body in bodies:
-        code, _u, raw = _request(
-            url,
-            method='POST',
-            data=json.dumps(body).encode('utf-8'),
-            headers=headers_base,
-        )
-        last_code = code
-        steps.append({
-            'url': url,
-            'method': 'POST',
-            'code': code,
-            'body_keys': sorted(body.keys()),
-        })
-        if code != 200 or not raw:
-            continue
-        try:
-            data = json.loads(raw.decode('utf-8', errors='replace'))
-        except Exception as exc:
-            steps[-1]['json_err'] = str(exc)[:120]
-            continue
-        hits = _extract_hit_list(data)
-        if not hits:
-            return {
-                'ok': True,
-                'empty': True,
-                'mongo_id': '',
-                'hit': None,
-                'steps': steps,
-                'http': code,
-            }
-        mid = ''
-        chosen = None
+    code, _u, raw = _request(
+        url,
+        method='POST',
+        data=json.dumps(body).encode('utf-8'),
+        headers=headers,
+    )
+    steps.append({
+        'url': url,
+        'method': 'POST',
+        'code': code,
+        'like': 'GULPImporter._resolve_gulp_id',
+    })
+    if code != 200 or not raw:
+        return {
+            'ok': False,
+            'empty': False,
+            'mongo_id': '',
+            'hit': None,
+            'steps': steps,
+            'http': code,
+            'error': f'search HTTP {code}' if code else 'search failed',
+        }
+    try:
+        data = json.loads(raw.decode('utf-8', errors='replace'))
+    except Exception as exc:
+        steps[-1]['json_err'] = str(exc)[:120]
+        return {
+            'ok': False,
+            'empty': False,
+            'mongo_id': '',
+            'hit': None,
+            'steps': steps,
+            'http': code,
+            'error': 'JSON',
+        }
+    hits = _extract_hit_list(data)
+    if not hits:
+        return {
+            'ok': True,
+            'empty': True,
+            'mongo_id': '',
+            'hit': None,
+            'steps': steps,
+            'http': code,
+        }
+    # Wie Importer: objects[0].profile.id
+    chosen = hits[0] if isinstance(hits[0], dict) else None
+    mid = _mongo_id_from_hit(chosen) if chosen else ''
+    if not mid:
         for hit in hits:
             mid = _mongo_id_from_hit(hit)
             if mid:
                 chosen = hit
                 break
-        if not mid:
-            # 200 mit Treffern, aber ohne erkennbare Mongo-ID
-            return {
-                'ok': False,
-                'empty': False,
-                'mongo_id': '',
-                'hit': hits[0] if hits else None,
-                'steps': steps,
-                'http': code,
-                'error': 'search hit ohne profile.id',
-            }
+    if not mid:
         return {
-            'ok': True,
+            'ok': False,
             'empty': False,
-            'mongo_id': mid,
+            'mongo_id': '',
             'hit': chosen,
             'steps': steps,
             'http': code,
+            'error': 'search hit ohne profile.id',
         }
     return {
-        'ok': False,
+        'ok': True,
         'empty': False,
-        'mongo_id': '',
-        'hit': None,
+        'mongo_id': mid,
+        'hit': chosen,
         'steps': steps,
-        'http': last_code,
-        'error': f'search HTTP {last_code}' if last_code else 'search failed',
+        'http': code,
     }
 
 
@@ -386,13 +388,12 @@ def _resolve_mongo_id(gid: str) -> tuple[Optional[str], list[dict], bool]:
 
 def fetch_expert_by_gulp_id(gulp_id: str, *, mongo_id: str = '') -> dict[str, Any]:
     """
-    Lädt Experten-Profil mit CV-Extractor-Session.
+    Lädt Experten-Profil (Session wie CV-Extractor).
 
-    Reihenfolge:
-      1) secure expert-profiles/{mongoId}
-      2) gulpId → mongoId über Talentfinder secure search
-      3) HTML ?gulpId=
-      4) gulp2 nur Fallback (oft 403 — zählt NICHT als Session-tot)
+    Logik analog GULPImporter — ohne Import/Änderung an cv_extractor:
+      1) GET expert-profiles/{mongoId}
+      2) POST search mId (=gulpId) → mongoId → GET
+      3) HTML / gulp2 nur Fallback
     needs_auth nur wenn probe_session() fehlschlägt.
     """
     gid = str(gulp_id or '').strip()
@@ -861,6 +862,7 @@ def normalize_expert_profile(raw: dict) -> dict[str, Any]:
         or raw.get('gulp_id')
         or raw.get('numericId')
         or expert.get('gulpId')
+        or expert.get('mId')  # wie GULPImporter
         or profile.get('gulpId')
         or ''
     ).strip()
