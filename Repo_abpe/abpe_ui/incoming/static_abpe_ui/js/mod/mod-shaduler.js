@@ -333,6 +333,13 @@
           arten: ARTEN,
           order: ORDER,
           onOpenTask: openModal,
+          onCreateEntry: function (due) {
+            openFreeTaskChooser({
+              defaultArt: 'termin',
+              titleHint: _t('sh.cal_new', 'Neuer Kalender-Eintrag'),
+              due: due || null,
+            });
+          },
         });
       }
       refreshStats();
@@ -1841,6 +1848,9 @@
               }
               if (cfg.tab === 'aufgaben') {
                 loadAufgaben();
+              } else if (cfg.tab === 'kalender') {
+                TASKS = null;
+                loadKalender();
               } else {
                 TASKS = null;
               }

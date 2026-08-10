@@ -100,6 +100,7 @@ body.dark-mode .stat-value{color:#e0e0e0}
 .viewsw{display:flex;gap:4px;margin-left:auto}
 .viewsw button{border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-secondary);border-radius:7px;padding:4px 11px;font-size:.8rem}
 .viewsw button.on{background:var(--abcona-blue);border-color:var(--abcona-blue);color:#fff}
+.card-h .sh-cal-new{margin-left:10px;flex-shrink:0}
 .cal-nav{display:flex;align-items:center;gap:8px;padding:10px 16px;border-bottom:1px solid var(--border-light)}
 .cal-nav b{flex:1;font-size:.95rem}
 .cal-nav button{border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-secondary);border-radius:6px;min-width:26px;height:26px}
