@@ -146,55 +146,96 @@ def _cookies_from_session_file(path: str) -> str:
     return '; '.join(parts) if parts else ''
 
 
-def fl_session_info() -> dict[str, Any]:
-    """Diagnose: woher die FM-Session kommt."""
+def _cookie_names(header: str) -> list[str]:
+    names: list[str] = []
+    for part in (header or '').split(';'):
+        part = part.strip()
+        if not part or '=' not in part:
+            continue
+        names.append(part.split('=', 1)[0].strip())
+    return names
+
+
+def _session_payload(
+    *,
+    ok: bool,
+    source: Optional[str],
+    path: Optional[str],
+    cookie_header: str = '',
+    include_secrets: bool = False,
+    hint: Optional[str] = None,
+    tried_files: Optional[list[str]] = None,
+) -> dict[str, Any]:
+    """Diagnose ohne Cookie-Werte (Secrets nur intern / explizit)."""
+    out: dict[str, Any] = {
+        'ok': ok,
+        'source': source,
+        'path': path,
+        'cookie_names': _cookie_names(cookie_header) if cookie_header else [],
+        'cookies_n': len(_cookie_names(cookie_header)) if cookie_header else 0,
+    }
+    if hint:
+        out['hint'] = hint
+    if tried_files is not None:
+        out['tried_files'] = tried_files
+    if include_secrets:
+        out['cookie_header'] = cookie_header or ''
+    return out
+
+
+def fl_session_info(*, include_secrets: bool = False) -> dict[str, Any]:
+    """Diagnose: woher die FM-Session kommt (ohne Cookie-Werte)."""
     cfg = _load_fl_cfg()
     if cfg.get('cookie_header'):
         h = str(cfg['cookie_header']).strip()
         if h:
-            return {
-                'ok': True,
-                'source': 'settings.cookie_header',
-                'path': None,
-                'cookie_header': h,
-            }
+            return _session_payload(
+                ok=True,
+                source='settings.cookie_header',
+                path=None,
+                cookie_header=h,
+                include_secrets=include_secrets,
+            )
     cookies = cfg.get('cookies') or {}
     if isinstance(cookies, dict) and cookies:
         h = '; '.join(f'{k}={v}' for k, v in cookies.items() if v)
         if h:
-            return {
-                'ok': True,
-                'source': 'settings.cookies',
-                'path': None,
-                'cookie_header': h,
-            }
+            return _session_payload(
+                ok=True,
+                source='settings.cookies',
+                path=None,
+                cookie_header=h,
+                include_secrets=include_secrets,
+            )
     for path in _fl_cookie_paths(cfg):
         if not os.path.isfile(path):
             continue
         h = _cookies_from_session_file(path)
         if h:
-            return {
-                'ok': True,
-                'source': 'session_file',
-                'path': path,
-                'cookie_header': h,
-            }
-    return {
-        'ok': False,
-        'source': None,
-        'path': None,
-        'cookie_header': '',
-        'hint': (
+            return _session_payload(
+                ok=True,
+                source='session_file',
+                path=path,
+                cookie_header=h,
+                include_secrets=include_secrets,
+            )
+    return _session_payload(
+        ok=False,
+        source=None,
+        path=None,
+        cookie_header='',
+        include_secrets=include_secrets,
+        hint=(
             'Keine Freelancermap-Session. settings.json → shaduler.freelancermap '
             '(cookie_header/cookies/session_file) oder '
             'data/url/fl/.session_cookies.json (Chrome-Extension / CV-Login).'
         ),
-        'tried_files': _fl_cookie_paths(cfg),
-    }
+        tried_files=_fl_cookie_paths(cfg),
+    )
 
 
 def _cookie_header() -> str:
-    return fl_session_info().get('cookie_header') or ''
+    return fl_session_info(include_secrets=True).get('cookie_header') or ''
 
 
 def has_fl_session() -> bool:
@@ -261,15 +302,54 @@ def _html_to_text(html: str) -> str:
 def _rate_from_payment(pay: Any) -> Optional[float]:
     if not isinstance(pay, dict):
         return None
-    for k in ('hourlyRate', 'hourRate', 'rate', 'price', 'amount', 'stundensatz'):
+    for k in (
+        'hourlyRate', 'hourRate', 'rate', 'price', 'amount',
+        'stundensatz', 'hour_rate', 'hourly_rate',
+    ):
         v = pay.get(k)
         if v is None or v == '':
             continue
         try:
-            return float(str(v).replace(',', '.'))
+            n = float(str(v).replace(',', '.').replace('€', '').strip())
         except (TypeError, ValueError):
             continue
+        if n > 0:
+            return n
     return None
+
+
+def _rate_from_raw(raw: dict) -> Optional[float]:
+    """paymentInformation oder Top-Level-Felder."""
+    if not isinstance(raw, dict):
+        return None
+    for key in ('paymentInformation', 'payment', 'payment_information'):
+        r = _rate_from_payment(raw.get(key))
+        if r is not None:
+            return r
+    for k in ('hourlyRate', 'hourRate', 'stundensatz', 'hourly_rate'):
+        v = raw.get(k)
+        if v is None or v == '':
+            continue
+        try:
+            n = float(str(v).replace(',', '.').replace('€', '').strip())
+        except (TypeError, ValueError):
+            continue
+        if n > 0:
+            return n
+    return None
+
+
+def _is_masked_name(val: str) -> bool:
+    """Soft-Anonym: anonymous / **** / nur Maskierungszeichen."""
+    t = (val or '').strip()
+    if not t:
+        return True
+    low = t.lower()
+    if low in ('anonymous', 'anonym', 'n/a', '-', 'null', 'none'):
+        return True
+    if re.fullmatch(r'[\*\u2022·.•\u00d7xX]+', t):
+        return True
+    return False
 
 
 def normalize_freelancer(raw: dict) -> dict[str, Any]:
@@ -281,9 +361,9 @@ def normalize_freelancer(raw: dict) -> dict[str, Any]:
     user = raw.get('user') if isinstance(raw.get('user'), dict) else {}
     first = str(user.get('firstName') or '').strip()
     last = str(user.get('lastName') or '').strip()
-    if first.lower() == 'anonymous':
+    if _is_masked_name(first):
         first = ''
-    if last.lower() == 'anonymous':
+    if _is_masked_name(last):
         last = ''
     title = str(raw.get('title') or '').strip()
     display = ' '.join(x for x in [first, last] if x).strip() or title or (
@@ -344,7 +424,7 @@ def normalize_freelancer(raw: dict) -> dict[str, Any]:
     elif avail_code_i in AVAIL_OK or (isinstance(avail_pct, (int, float)) and avail_pct > 0):
         verfuegbar = date.today()
 
-    satz = _rate_from_payment(raw.get('paymentInformation'))
+    satz = _rate_from_raw(raw)
 
     desc_parts: list[str] = []
     if title:
@@ -487,8 +567,17 @@ def fetch_freelancers_list(
             'ok': sess.get('ok'),
             'source': sess.get('source'),
             'path': sess.get('path'),
+            'cookie_names': sess.get('cookie_names') or [],
+            'cookies_n': sess.get('cookies_n') or 0,
         },
         'rates_with_value': rates_n,
+        'hint': (
+            'Session gesetzt, aber keine Stundensätze in der Suche — '
+            'Cookies ggf. abgelaufen oder kein Business-Account. '
+            'Session neu exportieren (Extension → data/url/fl/.session_cookies.json).'
+            if (sess.get('ok') and rates_n == 0 and out)
+            else None
+        ),
     }
 
 
@@ -599,22 +688,149 @@ def _person_from_ldjson(html: str) -> dict[str, str]:
 
 
 def _merge_soft_anonym_names(profile: dict, html: str) -> dict:
-    """Wenn user.firstName/lastName == anonymous → ld+json Person mergen."""
+    """Wenn user-Namen maskiert (anonymous/****) → ld+json Person mergen."""
     user = profile.get('user') if isinstance(profile.get('user'), dict) else {}
     first = str(user.get('firstName') or '').strip()
     last = str(user.get('lastName') or '').strip()
-    if first.lower() != 'anonymous' and last.lower() != 'anonymous':
+    if not _is_masked_name(first) and not _is_masked_name(last):
         return profile
     person = _person_from_ldjson(html)
     if not person:
         return profile
+    # ld+json kann ebenfalls maskiert sein
+    pf = person.get('first_name') or ''
+    pl = person.get('last_name') or ''
+    if _is_masked_name(pf) and _is_masked_name(pl):
+        return profile
     user = dict(user)
-    if first.lower() == 'anonymous' and person.get('first_name'):
-        user['firstName'] = person['first_name']
-    if last.lower() == 'anonymous' and person.get('last_name'):
-        user['lastName'] = person['last_name']
+    if _is_masked_name(first) and pf and not _is_masked_name(pf):
+        user['firstName'] = pf
+    if _is_masked_name(last) and pl and not _is_masked_name(pl):
+        user['lastName'] = pl
     out = dict(profile)
     out['user'] = user
+    return out
+
+
+def _search_ajax(
+    *,
+    query: str = '',
+    page: int = 1,
+    available_only: bool = False,
+    countries: Optional[list[int]] = None,
+) -> dict[str, Any]:
+    """Rohe Freelancer-Suche (Ajax) — für Enrich nach ID/Slug."""
+    page = max(1, int(page or 1))
+    countries = countries or [1, 2, 3]
+    params: list[tuple[str, str]] = [
+        ('pagenr', str(page)),
+        ('sort', '1'),
+        ('locale', 'de'),
+        ('currentPlatform', '1'),
+        ('placeOfWorkMode', 'travel'),
+        ('attachments', '0'),
+        ('permanentJobs', '0'),
+        ('employeeLeasingJobs', '0'),
+        ('maxDailyRate', '0'),
+        ('maxHourlyRate', '0'),
+        ('profileUpdate', '0'),
+        ('mostRecentProfiles', '0'),
+        ('excludeDachRegion', '0'),
+        ('excludeUnavailable', '1' if available_only else '0'),
+        ('excludeMemolist', '0'),
+        ('query', query or ''),
+    ]
+    for i, cid in enumerate(countries):
+        params.append((f'countries[{i}]', str(cid)))
+    url = FM_SEARCH_AJAX + '?' + urllib.parse.urlencode(params)
+    code, raw = _request(url)
+    if code != 200 or not raw:
+        return {'ok': False, 'http': code, 'freelancers': [], 'url': url}
+    try:
+        data = json.loads(raw.decode('utf-8', errors='replace'))
+    except Exception as exc:
+        return {'ok': False, 'http': code, 'error': str(exc), 'freelancers': [], 'url': url}
+    freelancers = data.get('freelancers') if isinstance(data, dict) else []
+    if not isinstance(freelancers, list):
+        freelancers = []
+    return {
+        'ok': True,
+        'http': code,
+        'freelancers': freelancers,
+        'url': url,
+        'average_price': data.get('averagePrice') if isinstance(data, dict) else None,
+    }
+
+
+def _find_search_hit(*, fm_id: str = '', slug: str = '') -> Optional[dict]:
+    """
+    Business-Suche: Stundensätze stecken oft nur in Search-Ajax, nicht in ProfileShow.
+    """
+    fm_id = str(fm_id or '').strip()
+    slug = (slug or '').strip().strip('/')
+    queries: list[str] = []
+    if fm_id:
+        queries.append(fm_id)
+    if slug:
+        queries.append(slug)
+        # Slug ohne trailing ID: product-owner-205265 → product owner
+        base = _RE_SLUG_ID.sub('', slug).replace('-', ' ').strip()
+        if base and base not in queries:
+            queries.append(base)
+    seen_q: set[str] = set()
+    for q in queries:
+        if not q or q in seen_q:
+            continue
+        seen_q.add(q)
+        res = _search_ajax(query=q, page=1, available_only=False)
+        if not res.get('ok'):
+            continue
+        for hit in res.get('freelancers') or []:
+            if not isinstance(hit, dict):
+                continue
+            hid = str(hit.get('id') or '').strip()
+            hslug = str(hit.get('slug') or '').strip()
+            if (fm_id and hid == fm_id) or (slug and hslug == slug):
+                return hit
+    return None
+
+
+def _enrich_item_from_search(item: dict[str, Any]) -> dict[str, Any]:
+    """Satz/Namen aus Search-Ajax nachziehen (mit Session → Business-Raten)."""
+    if not isinstance(item, dict):
+        return item
+    need_rate = item.get('satz') is None
+    need_name = _is_masked_name(item.get('first_name') or '') and _is_masked_name(
+        item.get('last_name') or ''
+    )
+    # Name nur Platzhalter/Titel ok — wenn first/last leer und name == title, trotzdem Search versuchen für Satz
+    if not need_rate and not need_name:
+        return item
+    hit = _find_search_hit(fm_id=item.get('fm_id') or '', slug=item.get('fm_slug') or '')
+    if not hit:
+        return item
+    enriched = normalize_freelancer(hit)
+    out = dict(item)
+    if need_rate and enriched.get('satz') is not None:
+        out['satz'] = enriched['satz']
+    if need_name:
+        if enriched.get('first_name'):
+            out['first_name'] = enriched['first_name']
+        if enriched.get('last_name'):
+            out['last_name'] = enriched['last_name']
+        if enriched.get('name') and (
+            _is_masked_name(out.get('name') or '')
+            or (out.get('name') or '').startswith('FM ')
+            or out.get('name') == out.get('title')
+        ):
+            # echte Namen bevorzugen, sonst Search-Display behalten wenn besser
+            if enriched.get('first_name') or enriched.get('last_name'):
+                out['name'] = enriched['name']
+            elif enriched.get('name') and not _is_masked_name(enriched['name']):
+                out['name'] = enriched['name']
+    if enriched.get('skills') and not out.get('skills'):
+        out['skills'] = enriched['skills']
+    out['_enriched_from_search'] = True
     return out
 
 
@@ -625,7 +841,7 @@ def fetch_profile(
 ) -> dict[str, Any]:
     """
     Profilseite laden + ProfileShow parsen → normalize_freelancer.
-    Session-Cookies optional (Sätze/Namen vollständiger mit Business-Login).
+    Stundensätze: oft nur in Search-Ajax mit Business-Session → Enrich.
     """
     slug = (slug or '').strip().strip('/')
     fm_id = str(fm_id or '').strip()
@@ -637,7 +853,6 @@ def fetch_profile(
         urls.append(profil_url_for(slug=slug, fm_id=fm_id))
     if fm_id:
         urls.append(f'{FM_BASE}/freelancer?id={urllib.parse.quote(fm_id)}')
-        # Manche Deep-Links enden nur mit der numerischen ID im Slug-Pfad
         if not slug:
             urls.append(f'{FM_BASE}/profil/{urllib.parse.quote(fm_id)}')
 
@@ -664,6 +879,7 @@ def fetch_profile(
             item['fm_id'] = fm_id
         if not item.get('fm_slug') and slug:
             item['fm_slug'] = slug
+        item = _enrich_item_from_search(item)
         return {
             'ok': True,
             'item': item,
@@ -671,53 +887,21 @@ def fetch_profile(
             'url': url,
             'fl_session': has_fl_session(),
             'needs_auth': False,
+            'enriched_from_search': bool(item.get('_enriched_from_search')),
         }
 
-    # Fallback: gezielte Query-Suche nach ID
-    if fm_id:
-        params: list[tuple[str, str]] = [
-            ('pagenr', '1'),
-            ('sort', '1'),
-            ('locale', 'de'),
-            ('currentPlatform', '1'),
-            ('placeOfWorkMode', 'travel'),
-            ('attachments', '0'),
-            ('permanentJobs', '0'),
-            ('employeeLeasingJobs', '0'),
-            ('maxDailyRate', '0'),
-            ('maxHourlyRate', '0'),
-            ('profileUpdate', '0'),
-            ('mostRecentProfiles', '0'),
-            ('excludeDachRegion', '0'),
-            ('excludeUnavailable', '0'),
-            ('excludeMemolist', '0'),
-            ('query', fm_id),
-            ('countries[0]', '1'),
-            ('countries[1]', '2'),
-            ('countries[2]', '3'),
-        ]
-        url = FM_SEARCH_AJAX + '?' + urllib.parse.urlencode(params)
-        code, raw = _request(url)
-        if code == 200 and raw:
-            try:
-                data = json.loads(raw.decode('utf-8', errors='replace'))
-            except Exception:
-                data = {}
-            freelancers = data.get('freelancers') if isinstance(data, dict) else []
-            if isinstance(freelancers, list):
-                for hit in freelancers:
-                    if not isinstance(hit, dict):
-                        continue
-                    if str(hit.get('id') or '').strip() == fm_id:
-                        item = normalize_freelancer(hit)
-                        return {
-                            'ok': True,
-                            'item': item,
-                            'http': code,
-                            'url': url,
-                            'fl_session': has_fl_session(),
-                            'from_search': True,
-                        }
+    # Fallback: gezielte Query-Suche nach ID/Slug
+    hit = _find_search_hit(fm_id=fm_id, slug=slug)
+    if hit:
+        item = normalize_freelancer(hit)
+        return {
+            'ok': True,
+            'item': item,
+            'http': 200,
+            'url': 'search/ajax',
+            'fl_session': has_fl_session(),
+            'from_search': True,
+        }
 
     return {
         'ok': False,

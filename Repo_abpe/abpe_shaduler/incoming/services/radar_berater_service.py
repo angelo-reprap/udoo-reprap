@@ -1323,6 +1323,8 @@ def sync_available_from_fl(
             'source': sess.get('source'),
             'path': sess.get('path'),
             'hint': sess.get('hint'),
+            'cookie_names': sess.get('cookie_names') or [],
+            'cookies_n': sess.get('cookies_n') or 0,
         },
         'rates_with_value': 0,
     }
