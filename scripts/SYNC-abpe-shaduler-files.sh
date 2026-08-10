@@ -60,13 +60,13 @@ done
 
 echo "OK — Dateien sync."
 echo
-echo "Periodik braucht abpe-scheduler-loop (ohne ihn feuert email_index nie):"
-echo "  supervisorctl start abpe-scheduler-loop"
-echo "  supervisorctl status abpe-django abpe-celery abpe-scheduler-loop"
-echo
 echo "Scheduler-Jobs neu registrieren (email_index alle 3 Min, since_days=1, incremental):"
 echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py register_scheduler_jobs"
 echo "  supervisorctl restart abpe-django abpe-celery"
+echo
+echo "PFLICHT — Taktgeber muss RUNNING bleiben (autostart+autorestart):"
+echo "  bash <(git show origin/cursor/posteingang-index-3min-7f07:scripts/ENSURE-abpe-scheduler-loop.sh)"
+echo "  supervisorctl status abpe-django abpe-celery abpe-scheduler-loop"
 echo
 echo "Optional zusätzlich: collectstatic --noinput"
 echo

@@ -42,6 +42,19 @@ Indexer läuft async via Celery. Nach Token-Fix: `register_scheduler_jobs` erneu
 
 Supervisor restartet Celery bei Crash — kein Auto-Restart aus dem Webhook nötig.
 
+**PFLICHT — `abpe-scheduler-loop`:** Ohne diesen Prozess feuert kein `email_index`
+(und keine MeetMe-Reminder). Status `STOPPED Not started` = nie gestartet
+(oft `autostart=false`). Dauerhaft:
+
+```bash
+bash scripts/ENSURE-abpe-scheduler-loop.sh
+# setzt autostart=true + autorestart=true, startet den Loop, verifiziert RUNNING
+supervisorctl status abpe-django abpe-celery abpe-scheduler-loop
+```
+
+Nach jedem `supervisorctl restart abpe-django` den Loop prüfen — Django-Restart
+startet den Loop nicht mit, wenn er vorher STOPPED war.
+
 ## Webhook-Auth prüfen (401 vs. OK)
 
 PUSH vom Scheduler braucht denselben `SCHEDULER_SERVICE_TOKEN` wie Django.

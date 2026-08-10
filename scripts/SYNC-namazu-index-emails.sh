@@ -32,10 +32,10 @@ echo "Wichtig: leere IMAP-SINCE-Suche prunt NICHT mehr das ES-Fenster."
 echo
 echo "Shaduler SYNC + Job (alle 3 Min, since_days=1, incremental) setzen:"
 echo "  bash <(git show origin/cursor/posteingang-index-3min-7f07:scripts/SYNC-abpe-shaduler-files.sh)"
-echo "  supervisorctl start abpe-scheduler-loop   # MUSS RUNNING sein — sonst kein Periodik-Trigger"
 echo "  supervisorctl restart abpe-django abpe-celery"
 echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py register_scheduler_jobs"
-echo "  supervisorctl status abpe-django abpe-celery abpe-scheduler-loop"
+echo "  bash <(git show origin/cursor/posteingang-index-3min-7f07:scripts/ENSURE-abpe-scheduler-loop.sh)"
+echo "  # ENSURE setzt autostart=true/autorestart=true und startet den Loop — MUSS RUNNING bleiben"
 echo
 echo "Catch-up (stellt die letzten Tage wieder her):"
 echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py index_emails --since-days 14 --folders INBOX --no-prune"

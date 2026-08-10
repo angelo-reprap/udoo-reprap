@@ -13,7 +13,8 @@ Ablauf email_index:
   3) UI liest ES (↻ / Soft-Poll) — zeigt aktuelle Treffer
 
 Voraussetzung: SCHEDULER_SERVICE_TOKEN + erreichbare scheduler/api
-  und: supervisorctl start abpe-scheduler-loop  (muss RUNNING sein!)
+  und: abpe-scheduler-loop dauerhaft RUNNING (autostart+autorestart).
+  Fix: bash scripts/ENSURE-abpe-scheduler-loop.sh
 """
 from datetime import datetime, timezone
 

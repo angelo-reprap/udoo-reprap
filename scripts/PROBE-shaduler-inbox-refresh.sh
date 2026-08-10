@@ -62,6 +62,12 @@ echo
 echo "=== 4) Supervisor ==="
 supervisorctl status abpe-django abpe-celery abpe-scheduler-loop 2>/dev/null \
   || supervisorctl status all 2>/dev/null | _grep 'abpe-(django|celery|scheduler)' || true
+if supervisorctl status abpe-scheduler-loop 2>/dev/null | grep -q RUNNING; then
+  echo "OK abpe-scheduler-loop RUNNING"
+else
+  echo "FAIL: abpe-scheduler-loop NICHT RUNNING — ohne Taktgeber kein email_index!"
+  echo "  Fix: bash <(git -C /mnt/public/udoo-reprap show origin/cursor/posteingang-index-3min-7f07:scripts/ENSURE-abpe-scheduler-loop.sh)"
+fi
 echo
 
 echo "=== 5) Celery Task ==="
