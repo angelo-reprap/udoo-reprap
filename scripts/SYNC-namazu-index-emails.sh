@@ -2,11 +2,11 @@
 # Repo → Live: nur namazu index_emails.py (NICHT email_settings.json — Passwörter!).
 set -euo pipefail
 REPO="${REPO:-/mnt/public/udoo-reprap}"
-BRANCH="${BRANCH:-origin/cursor/posteingang-es-stale-7f07}"
+BRANCH="${BRANCH:-origin/cursor/posteingang-index-3min-7f07}"
 LIVE_CMD="${LIVE_CMD:-/opt/abpe/backend/apps/namazu/management/commands}"
 
 cd "$REPO"
-git fetch origin cursor/posteingang-es-stale-7f07 || true
+git fetch origin cursor/posteingang-index-3min-7f07 || true
 
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
@@ -30,10 +30,12 @@ echo "email_settings.json wurde NICHT angefasst (Live-Passwörter bleiben)."
 echo
 echo "Wichtig: leere IMAP-SINCE-Suche prunt NICHT mehr das ES-Fenster."
 echo
-echo "Shaduler SYNC + Job (since_days=7) setzen:"
-echo "  bash <(git show origin/cursor/posteingang-es-stale-7f07:scripts/SYNC-abpe-shaduler-files.sh)"
+echo "Shaduler SYNC + Job (alle 3 Min, since_days=1, incremental) setzen:"
+echo "  bash <(git show origin/cursor/posteingang-index-3min-7f07:scripts/SYNC-abpe-shaduler-files.sh)"
+echo "  supervisorctl start abpe-scheduler-loop   # MUSS RUNNING sein — sonst kein Periodik-Trigger"
 echo "  supervisorctl restart abpe-django abpe-celery"
 echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py register_scheduler_jobs"
+echo "  supervisorctl status abpe-django abpe-celery abpe-scheduler-loop"
 echo
 echo "Catch-up (stellt die letzten Tage wieder her):"
 echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py index_emails --since-days 14 --folders INBOX --no-prune"

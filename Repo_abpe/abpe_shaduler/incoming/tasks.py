@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 EMAIL_INDEX_LOCK = 'shaduler:email_index:lock'
 EMAIL_INDEX_LOCK_TTL = 600  # Sekunden — verhindert parallele IMAP-Läufe
 EMAIL_INDEX_RETRY_BASE = 60  # 60 → 120 → 180
-
+EMAIL_INDEX_LAST_OK = 'shaduler:email_index:last_ok'
 
 def shaduler_radar_poll(payload=None):
     """Aktive RadarSources rss/html abarbeiten (V2)."""
@@ -57,7 +57,8 @@ def shaduler_prozess_tick(payload=None):
 
 def _email_index_kwargs(payload=None):
     payload = payload or {}
-    since = int(payload.get('since_days') or 7)
+    # Default 1 Tag: 3‑Min-Takt prüft Tagesfenster; incremental = nur neue IDs.
+    since = int(payload.get('since_days') or 1)
     account = payload.get('account')
     folders = str(payload.get('folders') or 'INBOX')
     incremental = payload.get('incremental', True)
@@ -115,9 +116,10 @@ def shaduler_email_index(payload=None):
         }
 
 
-def _email_index_sync(*, since_days=7, account=None, folders='INBOX', incremental=True):
+def _email_index_sync(*, since_days=1, account=None, folders='INBOX', incremental=True):
     from django.core.cache import cache
     from django.core.management import call_command
+    from django.utils import timezone
     from io import StringIO
 
     if not cache.add(EMAIL_INDEX_LOCK, '1', EMAIL_INDEX_LOCK_TTL):
@@ -134,12 +136,15 @@ def _email_index_sync(*, since_days=7, account=None, folders='INBOX', incrementa
             kwargs['account'] = account
         call_command('index_emails', **kwargs)
         text = out.getvalue()
+        now_iso = timezone.now().isoformat()
+        cache.set(EMAIL_INDEX_LAST_OK, now_iso, 86400)
         return {
             'ok': True,
             'job': 'email_index',
             'since_days': since_days,
             'folders': folders,
             'incremental': bool(incremental),
+            'last_ok': now_iso,
             'log_tail': text[-800:],
         }
     except Exception as exc:
@@ -161,7 +166,7 @@ try:
         soft_time_limit=540,
         time_limit=600,
     )
-    def email_index_run(self, since_days=7, account=None, folders='INBOX', incremental=True):
+    def email_index_run(self, since_days=1, account=None, folders='INBOX', incremental=True):
         """Celery: IMAP→ES. Bei Fehler Retry nach 60 / 120 / 180 Sekunden."""
         logger.info(
             'email_index_run start try=%s since_days=%s account=%s folders=%s incremental=%s',

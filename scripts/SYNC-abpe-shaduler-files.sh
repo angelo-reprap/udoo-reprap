@@ -4,12 +4,12 @@
 # Berührt NICHT ingest_email / andere Apps. Für ingest_email → Repo: PULL-ingest-email-from-live.sh
 set -euo pipefail
 REPO="${REPO:-/mnt/public/udoo-reprap}"
-BRANCH="${BRANCH:-origin/cursor/posteingang-es-stale-7f07}"
+BRANCH="${BRANCH:-origin/cursor/posteingang-index-3min-7f07}"
 LIVE_APP="${LIVE_APP:-/opt/abpe/backend/apps/abpe_shaduler}"
 LIVE_UI="${LIVE_UI:-/opt/abpe/backend/apps/abpe_ui}"
 
 cd "$REPO"
-git fetch origin cursor/posteingang-es-stale-7f07 || true
+git fetch origin cursor/posteingang-index-3min-7f07 || true
 
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
@@ -60,7 +60,11 @@ done
 
 echo "OK — Dateien sync."
 echo
-echo "Scheduler-Jobs neu registrieren (Callback mit ?token= gegen 401):"
+echo "Periodik braucht abpe-scheduler-loop (ohne ihn feuert email_index nie):"
+echo "  supervisorctl start abpe-scheduler-loop"
+echo "  supervisorctl status abpe-django abpe-celery abpe-scheduler-loop"
+echo
+echo "Scheduler-Jobs neu registrieren (email_index alle 3 Min, since_days=1, incremental):"
 echo "  cd /opt/abpe/backend && /opt/abpe/venv311/bin/python manage.py register_scheduler_jobs"
 echo "  supervisorctl restart abpe-django abpe-celery"
 echo

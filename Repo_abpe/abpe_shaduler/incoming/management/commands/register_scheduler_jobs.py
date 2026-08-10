@@ -5,11 +5,15 @@ Intervalle (Architektur Kap. 4 / Kap. 0):
   radar_poll      alle 5 Min
   inbox_poll      alle 2 Min
   prozess_tick    alle 15 Min
-  email_index     alle 1 Min  (IMAP→ES, inkrementell)
-  delegation_notify — on-demand (hier optional als seltener Tick)
+  email_index     alle 3 Min  (IMAP→ES, inkrementell: nur neue Message-IDs)
 
-schedule_type: ONCE | RECURRING  (RRULE-String → Feld rrule_string)
-Voraussetzung: SCHEDULER_SERVICE_TOKEN + erreichbare scheduler/api.
+Ablauf email_index:
+  1) abpe-scheduler-loop triggert Webhook alle 3 Min
+  2) Celery: IMAP SINCE ~1 Tag, indexiert nur Message-IDs die noch nicht in ES sind
+  3) UI liest ES (↻ / Soft-Poll) — zeigt aktuelle Treffer
+
+Voraussetzung: SCHEDULER_SERVICE_TOKEN + erreichbare scheduler/api
+  und: supervisorctl start abpe-scheduler-loop  (muss RUNNING sein!)
 """
 from datetime import datetime, timezone
 
@@ -49,16 +53,20 @@ JOBS = [
         'owner_type': 'system',
         'owner_ref': 'namazu',
         'webhook': 'email-index',
-        # Jede Minute — Indexer läuft inkrementell (nur neue Message-IDs).
-        'rrule': 'FREQ=MINUTELY;INTERVAL=1',
+        # Alle 3 Min — inkrementell (nur neue Message-IDs im SINCE-Fenster).
+        'rrule': 'FREQ=MINUTELY;INTERVAL=3',
         'payload': {
             'job': 'email_index',
-            'since_days': 7,
+            # IMAP SINCE ist tagesgenau; 1 Tag reicht für den 3‑Min-Takt.
+            # Schon indexierte Message-IDs werden übersprungen (incremental).
+            'since_days': 1,
             'folders': 'INBOX',
             'incremental': True,
         },
     },
 ]
+
+
 class Command(BaseCommand):
     help = 'Shaduler-Periodik als SchedulerJob (RECURRING/RRULE) bei abpe_scheduler anlegen.'
 
