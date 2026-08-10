@@ -725,6 +725,7 @@ def refresh_one_from_gulp(obj) -> dict[str, Any]:
             'error': packed.get('error') or 'fetch failed',
             'gulp_id': gid,
             'id': str(obj.pk),
+            'steps': packed.get('steps'),
         }
     # Mongo-ID merken für nächste Runde
     if packed.get('mongo_id'):

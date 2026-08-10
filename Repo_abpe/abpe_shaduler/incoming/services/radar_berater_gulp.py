@@ -12,7 +12,9 @@ settings.json → shaduler.gulp_talentfinder:
   }
 
 GEPLANT — „Gulp aktualisieren“:
-  A) ✅ Existenz-Check + Verfügbarkeit/Satz via profiles/search
+  A) ✅ Existenz-Check + Verfügbarkeit/Satz via Talentfinder
+     POST /api/secure/expert-profiles/search (Body mId=gulpId)
+     → GET /api/secure/expert-profiles/{mongoId}
      (0 Treffer = gulp_status=gone). Batch-API + UI-Button.
      Session: settings.json ODER CV-Extractor
      data/url/gu/.session_cookies.json (Chrome-Extension).
@@ -248,78 +250,138 @@ def _request(
         return 0, url, str(exc).encode('utf-8', errors='replace')
 
 
-def _resolve_mongo_id(gid: str) -> tuple[Optional[str], list[dict]]:
+def _mongo_id_from_hit(hit: Any) -> str:
+    """Talentfinder-Hit → profile.id (24-hex Mongo)."""
+    if not isinstance(hit, dict):
+        return ''
+    profile = hit.get('profile') if isinstance(hit.get('profile'), dict) else {}
+    for cand in (
+        profile.get('id'),
+        hit.get('profileId'),
+        hit.get('id'),
+        (hit.get('expertProfileId') or {}).get('profileId')
+        if isinstance(hit.get('expertProfileId'), dict) else None,
+    ):
+        mid = str(cand or '').strip()
+        if re.fullmatch(r'[a-f0-9]{24}', mid, re.I):
+            return mid
+    n = normalize_expert_profile(hit)
+    mid = str(n.get('mongo_id') or '').strip()
+    return mid if re.fullmatch(r'[a-f0-9]{24}', mid, re.I) else ''
+
+
+def _search_by_gulp_mid(gid: str) -> dict[str, Any]:
     """
-    Numerische gulpId → Mongo-Profil-ID über Talentfinder-APIs.
-    Returns (mongo_id|None, steps[{url,code,…}]).
+    Offizielle Talentfinder-Suche (UI: ?gulpId= → Body-Feld mId).
+
+    POST /api/secure/expert-profiles/search?pageIndex=&pageSize=
+    Body: { mId, sortOrder, … }
+
+    Returns:
+      ok, mongo_id?, empty? (200 + 0 Treffer = gone), steps, hit?
     """
     steps: list[dict] = []
-    csrf = ''
-    hdr = _cookie_header()
-    m = re.search(r'(?:^|;\s*)XSRF-TOKEN=([^;]+)', hdr or '')
-    if m:
-        csrf = urllib.parse.unquote(m.group(1).strip())
-
-    # GET/POST Varianten unter talentfinder/app/api/secure/
-    candidates = [
-        ('GET', f'{TF_PROFILE_API}?gulpId={urllib.parse.quote(gid)}', None),
-        ('GET', f'{TF_BASE}/api/secure/experts?gulpId={urllib.parse.quote(gid)}', None),
-        ('GET', f'{TF_BASE}/api/secure/expert-search?gulpId={urllib.parse.quote(gid)}', None),
-        ('GET', f'{TF_BASE}/api/secure/expert-profiles/search?gulpId={urllib.parse.quote(gid)}', None),
-        (
-            'POST',
-            f'{TF_BASE}/api/secure/expert-profiles/search',
-            {'gulpId': gid, 'page': 0, 'size': 5},
-        ),
-        (
-            'POST',
-            f'{TF_BASE}/api/secure/experts/search',
-            {'gulpId': gid, 'query': gid, 'page': 0, 'size': 5},
-        ),
+    qs = urllib.parse.urlencode({'pageIndex': 0, 'pageSize': 5})
+    url = f'{TF_PROFILE_API}/search?{qs}'
+    # Minimal wie Angular SearchConfiguration (chunk-5STKLOCF / Search-Page)
+    bodies = [
+        {
+            'mId': str(gid),
+            'sortOrder': 'BEST_MATCH',
+            'remote': False,
+            'availabilityPercent': 20,
+            'searchOnlyInRecentProjects': False,
+        },
+        {'mId': str(gid)},
     ]
-    for method, url, body in candidates:
-        headers = {
-            'Referer': TF_EXPERTEN,
-            'Origin': 'https://www.gulp.de',
-        }
-        if csrf:
-            headers['X-XSRF-TOKEN'] = csrf
-        raw_body = json.dumps(body).encode('utf-8') if body is not None else None
-        if body is not None:
-            headers['Content-Type'] = 'application/json'
-        code, _u, raw = _request(url, method=method, data=raw_body, headers=headers)
-        steps.append({'url': url, 'method': method, 'code': code})
+    headers_base = {
+        'Referer': f'{TF_EXPERTEN}?gulpId={urllib.parse.quote(gid)}',
+        'Origin': 'https://www.gulp.de',
+        'Content-Type': 'application/json',
+    }
+    last_code = 0
+    for body in bodies:
+        code, _u, raw = _request(
+            url,
+            method='POST',
+            data=json.dumps(body).encode('utf-8'),
+            headers=headers_base,
+        )
+        last_code = code
+        steps.append({
+            'url': url,
+            'method': 'POST',
+            'code': code,
+            'body_keys': sorted(body.keys()),
+        })
         if code != 200 or not raw:
             continue
         try:
             data = json.loads(raw.decode('utf-8', errors='replace'))
-        except Exception:
+        except Exception as exc:
+            steps[-1]['json_err'] = str(exc)[:120]
             continue
-        # direktes Profil
-        if isinstance(data, dict) and (data.get('id') or data.get('gulpId')):
-            n = normalize_expert_profile(data)
-            mid = str(data.get('id') or n.get('mongo_id') or '')
-            if re.fullmatch(r'[a-f0-9]{24}', mid, re.I):
-                return mid, steps
-            if n.get('gulp_id') == gid or str(data.get('gulpId')) == gid:
-                if mid:
-                    return mid, steps
-        parsed = _normalize_search_hit(data, prefer_gulp_id=gid)
-        if parsed:
-            mid = str(parsed.get('mongo_id') or '')
-            if re.fullmatch(r'[a-f0-9]{24}', mid, re.I):
-                return mid, steps
-        # id in Liste
-        for hit in _extract_hit_list(data):
-            if not isinstance(hit, dict):
-                continue
-            hid = str(hit.get('id') or hit.get('profileId') or '')
-            hgid = str(hit.get('gulpId') or hit.get('gulp_id') or hit.get('numericId') or '')
-            if hgid and hgid != gid and len(_extract_hit_list(data)) > 1:
-                continue
-            if re.fullmatch(r'[a-f0-9]{24}', hid, re.I):
-                return hid, steps
-    return None, steps
+        hits = _extract_hit_list(data)
+        if not hits:
+            return {
+                'ok': True,
+                'empty': True,
+                'mongo_id': '',
+                'hit': None,
+                'steps': steps,
+                'http': code,
+            }
+        mid = ''
+        chosen = None
+        for hit in hits:
+            mid = _mongo_id_from_hit(hit)
+            if mid:
+                chosen = hit
+                break
+        if not mid:
+            # 200 mit Treffern, aber ohne erkennbare Mongo-ID
+            return {
+                'ok': False,
+                'empty': False,
+                'mongo_id': '',
+                'hit': hits[0] if hits else None,
+                'steps': steps,
+                'http': code,
+                'error': 'search hit ohne profile.id',
+            }
+        return {
+            'ok': True,
+            'empty': False,
+            'mongo_id': mid,
+            'hit': chosen,
+            'steps': steps,
+            'http': code,
+        }
+    return {
+        'ok': False,
+        'empty': False,
+        'mongo_id': '',
+        'hit': None,
+        'steps': steps,
+        'http': last_code,
+        'error': f'search HTTP {last_code}' if last_code else 'search failed',
+    }
+
+
+def _resolve_mongo_id(gid: str) -> tuple[Optional[str], list[dict], bool]:
+    """
+    Numerische gulpId → Mongo-Profil-ID.
+    Returns (mongo_id|None, steps, empty_confirmed).
+    empty_confirmed=True → Talentfinder-Suche 200 mit 0 Treffern (gone).
+    """
+    searched = _search_by_gulp_mid(gid)
+    steps = list(searched.get('steps') or [])
+    if searched.get('empty'):
+        return None, steps, True
+    mid = str(searched.get('mongo_id') or '').strip()
+    if mid:
+        return mid, steps, False
+    return None, steps, False
 
 
 def fetch_expert_by_gulp_id(gulp_id: str, *, mongo_id: str = '') -> dict[str, Any]:
@@ -385,17 +447,28 @@ def fetch_expert_by_gulp_id(gulp_id: str, *, mongo_id: str = '') -> dict[str, An
         if got is not None:
             return got
 
-    # Numerische ID → Mongo über Talentfinder
+    # Numerische ID → Mongo über Talentfinder (offiziell: search mId)
     if not mid:
-        resolved, res_steps = _resolve_mongo_id(gid)
+        resolved, res_steps, empty = _resolve_mongo_id(gid)
         steps.extend(res_steps)
+        if empty:
+            return {
+                'ok': False,
+                'error': 'Profil nicht mehr in Gulp (0 Treffer)',
+                'gulp_id': gid,
+                'profil_url': profil_url_for_gulp_id(gid),
+                'not_found': True,
+                'steps': steps,
+            }
         if resolved:
             mid = resolved
             got = _load_by_mongo(mid)
             if got is not None:
+                if got.get('ok') and not got.get('gulp_id'):
+                    got['gulp_id'] = gid
                 return got
 
-    # HTML Talentfinder
+    # HTML Talentfinder (SPA-Shell — selten mit Daten; Fallback)
     code, _final_url, raw = _request(
         profil_url_for_gulp_id(gid),
         headers={
@@ -413,6 +486,8 @@ def fetch_expert_by_gulp_id(gulp_id: str, *, mongo_id: str = '') -> dict[str, An
             if mongo2:
                 got = _load_by_mongo(mongo2)
                 if got is not None:
+                    if got.get('ok') and not got.get('gulp_id'):
+                        got['gulp_id'] = gid
                     return got
             parsed['ok'] = True
             parsed['not_found'] = False
@@ -724,21 +799,28 @@ def _extract_hit_list(data: Any) -> list:
         return data
     if not isinstance(data, dict):
         return []
-    for key in ('content', 'results', 'items', 'profiles', 'data', 'hits'):
+    # Talentfinder search: { objects: [ {expert, profile}, … ] }
+    for key in ('objects', 'content', 'results', 'items', 'profiles', 'data', 'hits'):
         v = data.get(key)
         if isinstance(v, list):
             return v
         if isinstance(v, dict) and isinstance(v.get('content'), list):
             return v['content']
+        if isinstance(v, dict) and isinstance(v.get('objects'), list):
+            return v['objects']
     return []
 
 
 def _normalize_search_hit(data: Any, prefer_gulp_id: str = '') -> Optional[dict]:
     items = _extract_hit_list(data)
-    if not items and isinstance(data, dict) and (data.get('gulpId') or data.get('id')):
+    if not items and isinstance(data, dict) and (
+        data.get('gulpId') or data.get('id') or data.get('expert') or data.get('profile')
+    ):
         items = [data]
     for hit in items:
         n = normalize_expert_profile(hit)
+        if prefer_gulp_id and not n.get('gulp_id'):
+            n['gulp_id'] = prefer_gulp_id
         if prefer_gulp_id and str(n.get('gulp_id') or '') != str(prefer_gulp_id):
             # trotzdem nehmen wenn nur ein Treffer
             if len(items) > 1:
@@ -748,42 +830,92 @@ def _normalize_search_hit(data: Any, prefer_gulp_id: str = '') -> Optional[dict]
 
 
 def normalize_expert_profile(raw: dict) -> dict[str, Any]:
-    """Gulp Expert JSON → flaches Radar-Dict."""
+    """Gulp Expert JSON → flaches Radar-Dict (auch Talentfinder {expert,profile})."""
     if not isinstance(raw, dict):
         return {}
+
+    expert = raw.get('expert') if isinstance(raw.get('expert'), dict) else {}
+    profile = raw.get('profile') if isinstance(raw.get('profile'), dict) else {}
+    personal = (
+        expert.get('personalData')
+        if isinstance(expert.get('personalData'), dict)
+        else (raw.get('personalData') if isinstance(raw.get('personalData'), dict) else {})
+    )
+    addr = (
+        expert.get('address')
+        if isinstance(expert.get('address'), dict)
+        else (raw.get('address') if isinstance(raw.get('address'), dict) else {})
+    )
+    pay = (
+        profile.get('expectedPayment')
+        if isinstance(profile.get('expectedPayment'), dict)
+        else (
+            raw.get('expectedPayment')
+            if isinstance(raw.get('expectedPayment'), dict)
+            else {}
+        )
+    )
+
     gulp_id = str(
         raw.get('gulpId')
         or raw.get('gulp_id')
         or raw.get('numericId')
+        or expert.get('gulpId')
+        or profile.get('gulpId')
         or ''
     ).strip()
-    mongo = str(raw.get('id') or raw.get('profileId') or '').strip()
+    # expert.id ist oft die numerische Gulp-ID
+    if not gulp_id:
+        eid = str(expert.get('id') or '').strip()
+        if eid.isdigit():
+            gulp_id = eid
+
+    mongo = str(
+        profile.get('id')
+        or raw.get('profileId')
+        or ''
+    ).strip()
+    if not re.fullmatch(r'[a-f0-9]{24}', mongo, re.I):
+        cand = str(raw.get('id') or '').strip()
+        mongo = cand if re.fullmatch(r'[a-f0-9]{24}', cand, re.I) else ''
     if not gulp_id and mongo:
         gulp_id = mongo
 
     name_obj = raw.get('name') if isinstance(raw.get('name'), dict) else {}
     first = (
-        raw.get('firstName')
+        personal.get('firstName')
+        or raw.get('firstName')
         or raw.get('firstname')
         or name_obj.get('first')
         or ''
     )
     last = (
-        raw.get('lastName')
+        personal.get('lastName')
+        or raw.get('lastName')
         or raw.get('lastname')
         or name_obj.get('last')
         or ''
     )
+    # Expert-Model hat .name als Property — API liefert ggf. schon string
+    expert_name = expert.get('name') if isinstance(expert.get('name'), str) else ''
     display = (
         raw.get('displayName')
         or raw.get('fullName')
+        or expert_name
         or ' '.join(x for x in [str(first or '').strip(), str(last or '').strip()] if x)
         or ''
     )
     if not display and gulp_id:
         display = placeholder_name(gulp_id)
 
-    skills = raw.get('skills') or raw.get('skillNames') or raw.get('topSkills') or []
+    skills = (
+        profile.get('topSkills')
+        or profile.get('additionalSkills')
+        or raw.get('skills')
+        or raw.get('skillNames')
+        or raw.get('topSkills')
+        or []
+    )
     if isinstance(skills, str):
         skills = [s.strip() for s in skills.split(',') if s.strip()]
     if isinstance(skills, list):
@@ -795,7 +927,6 @@ def normalize_expert_profile(raw: dict) -> dict[str, Any]:
     else:
         skills = []
 
-    addr = raw.get('address') if isinstance(raw.get('address'), dict) else {}
     ort = (
         raw.get('city')
         or raw.get('location')
@@ -804,27 +935,45 @@ def normalize_expert_profile(raw: dict) -> dict[str, Any]:
         or ''
     )
     avail = (
-        raw.get('availableFrom')
+        profile.get('availableFrom')
+        or profile.get('availableFromDate')
+        or profile.get('availabilityDate')
+        or raw.get('availableFrom')
         or raw.get('availabilityDate')
         or raw.get('verfuegbarAb')
         or raw.get('available_from')
+        or expert.get('availableFrom')
     )
     verfuegbar = _parse_date(avail)
     satz = _parse_rate(
-        raw.get('dayRate')
+        (pay.get('rate') if pay else None)
+        or raw.get('dayRate')
         or raw.get('hourlyRate')
         or raw.get('rate')
         or raw.get('satz')
+        or profile.get('dayRate')
+        or profile.get('hourlyRate')
     )
     desc = (
-        raw.get('profileText')
+        profile.get('coreCompetence')
+        or profile.get('competencesText')
+        or raw.get('profileText')
         or raw.get('description')
         or raw.get('summary')
         or raw.get('about')
         or ''
     )
-    cv_text = raw.get('cvText') or raw.get('curriculum') or ''
-    url = profil_url_for_gulp_id(gulp_id) if gulp_id else ''
+    cv_text = (
+        profile.get('projectsText')
+        or raw.get('cvText')
+        or raw.get('curriculum')
+        or ''
+    )
+    url = ''
+    if mongo:
+        url = f'{TF_EXPERTEN}/{mongo}'
+    elif gulp_id:
+        url = profil_url_for_gulp_id(gulp_id)
 
     return {
         'gulp_id': gulp_id,
