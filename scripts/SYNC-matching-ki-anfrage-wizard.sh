@@ -27,6 +27,7 @@ git archive "$BRANCH" \
   Repo_abpe/abpe_ui/incoming/mod-matching.js \
   Repo_abpe/abpe_ui/incoming/mod-shaduler.js \
   Repo_abpe/abpe_ui/incoming/mod-shaduler.css \
+  Repo_abpe/abpe_ui/incoming/mod-shaduler-kalender.js \
   Repo_abpe/abpe_shaduler/incoming \
   | tar -x -C "$TMP"
 
@@ -105,6 +106,12 @@ if [[ -f "$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler.js" ]]; then
   echo "OK — mod-shaduler.js (Matching + Antworten) → $LIVE_UI/static/abpe_ui/js/mod/"
 fi
 
+if [[ -f "$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler-kalender.js" ]]; then
+  cp -a "$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler-kalender.js" \
+    "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler-kalender.js"
+  echo "OK — mod-shaduler-kalender.js → $LIVE_UI/static/abpe_ui/js/mod/"
+fi
+
 if [[ -f "$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler.css" ]]; then
   mkdir -p "$LIVE_UI/static/abpe_ui/css/mod"
   cp -a "$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler.css" \
@@ -119,6 +126,10 @@ if [[ -d "$STATICFILES" ]]; then
   if [[ -f "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js" ]]; then
     cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js" \
       "$STATICFILES/abpe_ui/js/mod/mod-shaduler.js"
+  fi
+  if [[ -f "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler-kalender.js" ]]; then
+    cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler-kalender.js" \
+      "$STATICFILES/abpe_ui/js/mod/mod-shaduler-kalender.js"
   fi
   if [[ -f "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css" ]]; then
     mkdir -p "$STATICFILES/abpe_ui/css/mod"
