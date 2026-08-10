@@ -2820,10 +2820,20 @@
     var gulpBtn = document.getElementById('sh-radar-b-gulp-refresh');
     if (gulpBtn && !gulpBtn.dataset.bound) {
       gulpBtn.dataset.bound = '1';
+      gulpBtn.dataset.labelHtml = gulpBtn.innerHTML;
       gulpBtn.onclick = function () {
+        if (gulpBtn.disabled) return;
         gulpBtn.disabled = true;
         gulpBtn.classList.add('busy');
-        toast(_t('sh.radar_b_gulp_run', 'Gulp-Check läuft (max. 50) …'));
+        gulpBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> ' +
+          esc(_t('sh.radar_b_gulp_busy', 'Gulp läuft…'));
+        var hintEl = document.getElementById('sh-radar-b-hint');
+        var hintPrev = hintEl ? hintEl.textContent : '';
+        if (hintEl) {
+          hintEl.textContent = _t('sh.radar_b_gulp_run', 'Gulp-Check läuft (max. 50) …');
+        }
+        toast(_t('sh.radar_b_gulp_run', 'Gulp-Check läuft (max. 50) …'), 8000);
+        var selId = RADAR_B_SELECTED && RADAR_B_SELECTED.id ? RADAR_B_SELECTED.id : null;
         fetch(api('radar/berater/gulp-aktualisieren/'), {
           method: 'POST',
           credentials: 'same-origin',
@@ -2840,29 +2850,33 @@
           .then(function (pack) {
             gulpBtn.disabled = false;
             gulpBtn.classList.remove('busy');
+            gulpBtn.innerHTML = gulpBtn.dataset.labelHtml || gulpBtn.innerHTML;
             var d = pack.j || {};
+            if (hintEl && hintPrev) hintEl.textContent = hintPrev;
             if (d.needs_auth || pack.status === 401) {
-              toast(d.error || _t('sh.radar_b_gulp_auth', 'Gulp-Login fehlt — CV-Extractor Session erneuern'));
+              toast(d.error || _t('sh.radar_b_gulp_auth', 'Gulp-Login fehlt — CV-Extractor Session erneuern'), 6000);
               return;
             }
             if (!d.ok && d.error) {
-              toast(d.error);
+              toast(d.error, 6000);
               return;
             }
-            toast(
+            var msg =
               _t('sh.radar_b_gulp_ok', 'Gulp') + ': ' +
               (d.scanned || 0) + ' geprüft · ' +
               (d.updated || 0) + ' geändert · ' +
               (d.unchanged || 0) + ' gleich · ' +
               (d.gone || 0) + ' weg · ' +
-              (d.errors || 0) + ' Fehler'
-            );
-            loadRadarB({ soft: true });
+              (d.errors || 0) + ' Fehler';
+            toast(msg, 7000);
+            loadRadarB({ soft: true, reselectId: selId });
           })
           .catch(function () {
             gulpBtn.disabled = false;
             gulpBtn.classList.remove('busy');
-            toast(_t('sh.toast_error', 'Gulp-Update fehlgeschlagen'));
+            gulpBtn.innerHTML = gulpBtn.dataset.labelHtml || gulpBtn.innerHTML;
+            if (hintEl && hintPrev) hintEl.textContent = hintPrev;
+            toast(_t('sh.toast_error', 'Gulp-Update fehlgeschlagen'), 5000);
           });
       };
     }
@@ -2915,6 +2929,21 @@
                 : ' · Fallback DB (Detail DB)');
         }
         refreshStats();
+        if (opts.reselectId) {
+          var hit = null;
+          for (var ri = 0; ri < RADAR_B_ITEMS.length; ri++) {
+            if (String(RADAR_B_ITEMS[ri].id) === String(opts.reselectId)) {
+              hit = RADAR_B_ITEMS[ri];
+              break;
+            }
+          }
+          if (hit) {
+            var rowEl = document.querySelector(
+              '#sh-radar-b-list .ritem[data-id="' + String(hit.id).replace(/"/g, '') + '"]'
+            );
+            openRadarBeraterItem(hit, rowEl);
+          }
+        }
       })
       .catch(function () {
         RADAR_B_ITEMS = [];
@@ -3108,6 +3137,12 @@
           ? '<a class="sh-radar-ext" href="' + esc(gulpUrl) + '" target="_blank" rel="noopener">' +
             '<i class="bi bi-box-arrow-up-right"></i> Gulp</a>'
           : '') +
+        (item.gulp_id
+          ? '<button type="button" id="sh-radar-b-gulp-one" title="' +
+            esc(_t('sh.radar_b_gulp_one_title', 'Diesen Berater bei Gulp prüfen')) + '">' +
+            '<i class="bi bi-cloud-arrow-down"></i> ' +
+            esc(_t('sh.radar_b_gulp_one', 'Gulp prüfen')) + '</button>'
+          : '') +
         (item.crm_url
           ? '<a class="sh-radar-ext" href="' + esc(item.crm_url) + '" target="_blank" rel="noopener">' +
             '<i class="bi bi-person-badge"></i> CRM</a>'
@@ -3125,6 +3160,9 @@
         (item.gulp_id ? ' · Gulp ' + esc(item.gulp_id) : '') + '</div>' +
         '<div class="meta">' + esc(item.meta || '') + '</div>' +
         '<div class="meta">' + esc(item.note || '') +
+        (item.verfuegbar_ab ? (' · ab ' + esc(String(item.verfuegbar_ab))) : '') +
+        (item.satz != null && item.satz !== '' ? (' · ' + esc(String(item.satz)) + ' €') : '') +
+        (item.ort ? (' · ' + esc(String(item.ort))) : '') +
         (item.cv_versions ? (' · CV-Versionen: ' + esc(String(item.cv_versions))) : '') +
         ' · ' + esc(_t('sh.radar_b_from_db', 'Detail aus DB')) +
         '</div></div>' +
@@ -3133,6 +3171,59 @@
         esc((item.beschreibung || '').slice(0, 4000) || '—') + '</div>';
       var ok = document.getElementById('sh-radar-b-ok');
       var no = document.getElementById('sh-radar-b-no');
+      var gulpOne = document.getElementById('sh-radar-b-gulp-one');
+      if (gulpOne) gulpOne.onclick = function () {
+        if (gulpOne.disabled) return;
+        gulpOne.disabled = true;
+        gulpOne.classList.add('busy');
+        var prev = gulpOne.innerHTML;
+        gulpOne.innerHTML = '<i class="bi bi-hourglass-split"></i> …';
+        toast(_t('sh.radar_b_gulp_one_run', 'Gulp prüft diesen Berater…'), 5000);
+        fetch(api('radar/berater/gulp-aktualisieren/'), {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({ ids: [item.id], limit: 1, delay: 0 }),
+        })
+          .then(function (res) {
+            return res.json().then(function (j) { return { status: res.status, j: j }; });
+          })
+          .then(function (pack) {
+            gulpOne.disabled = false;
+            gulpOne.classList.remove('busy');
+            gulpOne.innerHTML = prev;
+            var d = pack.j || {};
+            if (d.needs_auth || pack.status === 401) {
+              toast(d.error || _t('sh.radar_b_gulp_auth', 'Gulp-Login fehlt — CV-Extractor Session erneuern'), 6000);
+              return;
+            }
+            var row = (d.results && d.results[0]) || {};
+            var act = row.action || '';
+            if (act === 'updated') {
+              toast(_t('sh.radar_b_gulp_one_upd', 'Aktualisiert') +
+                (row.changed && row.changed.length ? (': ' + row.changed.join(', ')) : ''), 6000);
+            } else if (act === 'unchanged') {
+              toast(_t('sh.radar_b_gulp_one_same', 'Unverändert (Gulp ok)'), 4000);
+            } else if (act === 'gone') {
+              toast(_t('sh.radar_b_gulp_one_gone', 'Nicht mehr in Gulp'), 6000);
+            } else if (d.error || row.error) {
+              toast(d.error || row.error, 6000);
+            } else {
+              toast(_t('sh.radar_b_gulp_ok', 'Gulp') + ': ' + (act || 'ok'), 4000);
+            }
+            loadRadarB({ soft: true, reselectId: item.id });
+          })
+          .catch(function () {
+            gulpOne.disabled = false;
+            gulpOne.classList.remove('busy');
+            gulpOne.innerHTML = prev;
+            toast(_t('sh.toast_error', 'Gulp-Update fehlgeschlagen'), 5000);
+          });
+      };
       if (ok) ok.onclick = function () {
         fetch(api('radar/berater/' + encodeURIComponent(item.id) + '/bestaetigen/'), {
           method: 'POST',
@@ -3798,12 +3889,14 @@
     currentTask = null;
   }
 
-  function toast(msg) {
+  function toast(msg, ms) {
     var el = document.getElementById('sh-toast');
     if (!el) return;
     el.innerHTML = '<i class="bi bi-check2-circle"></i> ' + esc(msg);
     el.classList.add('on');
-    setTimeout(function () { el.classList.remove('on'); }, 2200);
+    if (toast._timer) clearTimeout(toast._timer);
+    var wait = (typeof ms === 'number' && ms > 0) ? ms : 3200;
+    toast._timer = setTimeout(function () { el.classList.remove('on'); }, wait);
   }
 
   function init(userCfg) {

@@ -240,8 +240,9 @@ body.dark-mode .mstat.maybe{background:#78350f;color:#fcd34d}
 .paste{display:flex;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border-light);background:var(--abcona-gray-card)}
 .paste input{flex:1;padding:9px 12px;border:1px solid var(--border-color);border-radius:8px;font-size:.85rem;background:var(--bg-white);color:var(--text-primary)}
 .paste button{border:none;background:var(--abcona-blue);color:#fff;border-radius:8px;padding:0 16px;font-size:.85rem}
-.toast{position:fixed;bottom:22px;right:22px;background:var(--abcona-blue);color:#fff;border-radius:10px;padding:12px 18px;font-size:.88rem;box-shadow:0 10px 30px rgba(0,0,0,.3);display:none;z-index:10000;max-width:340px}
+.toast{position:fixed;bottom:22px;right:22px;background:var(--abcona-blue);color:#fff;border-radius:10px;padding:12px 18px;font-size:.88rem;box-shadow:0 10px 30px rgba(0,0,0,.3);display:none;z-index:10000;max-width:420px}
 .toast.on{display:block;animation:slidein .3s}
+#sh-radar-b-gulp-refresh.busy,#sh-radar-b-gulp-one.busy{opacity:.7;cursor:wait}
 
 /* Regeln */
 table{width:100%;border-collapse:collapse;font-size:.86rem}
