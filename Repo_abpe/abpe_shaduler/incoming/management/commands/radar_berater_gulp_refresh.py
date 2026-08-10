@@ -18,15 +18,38 @@ class Command(BaseCommand):
             '--gulp-id', type=str, default='',
             help='Nur diese eine Gulp-ID prüfen',
         )
+        parser.add_argument(
+            '--session-info', action='store_true',
+            help='Nur Cookie-Quelle anzeigen (settings / CV-Extractor-Datei)',
+        )
 
     def handle(self, *args, **options):
         from apps.abpe_shaduler.models import RadarConsultantItem
         from apps.abpe_shaduler.services import radar_berater_service as rbs
         from apps.abpe_shaduler.services import radar_berater_gulp as gulp
 
-        self.stdout.write(
-            'Gulp-Session: ' + ('ja' if gulp.has_gulp_session() else 'NEIN — Cookies setzen!')
-        )
+        info = gulp.gulp_session_info()
+        if options.get('session_info'):
+            safe = {k: v for k, v in info.items() if k != 'cookie_header'}
+            if info.get('cookie_header'):
+                safe['cookie_keys'] = [
+                    p.split('=', 1)[0] for p in info['cookie_header'].split('; ') if p
+                ]
+            self.stdout.write(str(safe))
+            return
+
+        if info.get('ok'):
+            self.stdout.write(
+                f"Gulp-Session: ja (Quelle: {info.get('source')}"
+                + (f", Datei: {info.get('path')}" if info.get('path') else '')
+                + ')'
+            )
+        else:
+            self.stdout.write('Gulp-Session: NEIN')
+            self.stdout.write(info.get('hint') or '')
+            if info.get('tried_files'):
+                self.stdout.write('Geprüft: ' + ', '.join(info['tried_files']))
+
         gid = (options.get('gulp_id') or '').strip()
         if gid:
             obj = (

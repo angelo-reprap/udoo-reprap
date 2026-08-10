@@ -14,6 +14,8 @@ settings.json → shaduler.gulp_talentfinder:
 GEPLANT — „Gulp aktualisieren“:
   A) ✅ Existenz-Check + Verfügbarkeit/Satz via profiles/search
      (0 Treffer = gulp_status=gone). Batch-API + UI-Button.
+     Session: settings.json ODER CV-Extractor
+     data/url/gu/.session_cookies.json (Chrome-Extension).
   B) Später: PDF/DOCX via GULPImporter, volle CV-Pipeline.
      Radar = News/Deltas, kein CRM-Spiegel.
 """
@@ -56,14 +58,128 @@ def _load_tf_cfg() -> dict:
         return {}
 
 
+def _cv_extractor_cookie_paths(cfg: Optional[dict] = None) -> list[str]:
+    """Kandidaten: CV-Extractor Session-Datei (Chrome-Extension → gu-session)."""
+    cfg = cfg if cfg is not None else _load_tf_cfg()
+    out: list[str] = []
+    custom = (cfg.get('session_file') or cfg.get('cookies_file') or '').strip()
+    if custom:
+        out.append(custom)
+    # Live-Standard + relative zum Backend-CWD
+    out.extend([
+        '/opt/abpe/backend/data/url/gu/.session_cookies.json',
+        'data/url/gu/.session_cookies.json',
+        '/opt/abpe/backend/apps/cv_extractor/data/url/gu/.session_cookies.json',
+    ])
+    # Dedup, Reihenfolge behalten
+    seen = set()
+    uniq = []
+    for p in out:
+        if p and p not in seen:
+            seen.add(p)
+            uniq.append(p)
+    return uniq
+
+
+def _cookies_from_cv_session_file(path: str) -> str:
+    """
+    Liest data/url/gu/.session_cookies.json (Format CV-Extractor / Extension):
+      { "cookies": [ {"name":"JSESSION_ID_DIREKT","value":"..."}, ... ] }
+    oder { "cookies": { "JSESSION_ID_DIREKT": "..." } }
+    """
+    try:
+        with open(path, encoding='utf-8') as f:
+            data = json.load(f)
+    except Exception:
+        return ''
+    if not isinstance(data, dict):
+        return ''
+    raw = data.get('cookies') or data.get('gulp_cookies') or []
+    prefer = ('JSESSION_ID_DIREKT', 'remember-me-dir', 'JSESSIONID', 'remember-me')
+    parts: list[str] = []
+    if isinstance(raw, dict):
+        for k in prefer:
+            v = raw.get(k)
+            if v:
+                parts.append(f'{k}={v}')
+        for k, v in raw.items():
+            if k in prefer or not v:
+                continue
+            parts.append(f'{k}={v}')
+    elif isinstance(raw, list):
+        by_name = {}
+        for c in raw:
+            if not isinstance(c, dict):
+                continue
+            n = (c.get('name') or '').strip()
+            v = c.get('value')
+            if n and v is not None and str(v) != '':
+                by_name[n] = str(v)
+        for k in prefer:
+            if k in by_name:
+                parts.append(f'{k}={by_name[k]}')
+        for k, v in by_name.items():
+            if k in prefer:
+                continue
+            # nur gulp.de-relevante Rest-Cookies weglassen wenn schon genug
+            if k.lower().startswith('jsession') or 'remember' in k.lower():
+                parts.append(f'{k}={v}')
+    header = '; '.join(parts)
+    # Mindestens eine Session-ID
+    if 'JSESSION' not in header.upper() and 'remember-me' not in header.lower():
+        return ''
+    return header
+
+
 def _cookie_header() -> str:
+    """settings.json zuerst, sonst CV-Extractor .session_cookies.json."""
+    info = gulp_session_info()
+    return info.get('cookie_header') or ''
+
+
+def gulp_session_info() -> dict[str, Any]:
+    """Diagnose: woher die Session kommt."""
     cfg = _load_tf_cfg()
     if cfg.get('cookie_header'):
-        return str(cfg['cookie_header']).strip()
+        h = str(cfg['cookie_header']).strip()
+        if h:
+            return {
+                'ok': True,
+                'source': 'settings.cookie_header',
+                'path': None,
+                'cookie_header': h,
+            }
     cookies = cfg.get('cookies') or {}
     if isinstance(cookies, dict) and cookies:
-        return '; '.join(f'{k}={v}' for k, v in cookies.items() if v)
-    return ''
+        h = '; '.join(f'{k}={v}' for k, v in cookies.items() if v)
+        if h:
+            return {
+                'ok': True,
+                'source': 'settings.cookies',
+                'path': None,
+                'cookie_header': h,
+            }
+    for path in _cv_extractor_cookie_paths(cfg):
+        h = _cookies_from_cv_session_file(path)
+        if h:
+            return {
+                'ok': True,
+                'source': 'cv_extractor.session_file',
+                'path': path,
+                'cookie_header': h,
+            }
+    return {
+        'ok': False,
+        'source': None,
+        'path': None,
+        'cookie_header': '',
+        'hint': (
+            'Keine Gulp-Session. Entweder settings.json → shaduler.gulp_talentfinder '
+            'oder CV-Extractor Session erneuern '
+            '(→ data/url/gu/.session_cookies.json via Chrome-Extension).'
+        ),
+        'tried_files': _cv_extractor_cookie_paths(cfg),
+    }
 
 
 def has_gulp_session() -> bool:

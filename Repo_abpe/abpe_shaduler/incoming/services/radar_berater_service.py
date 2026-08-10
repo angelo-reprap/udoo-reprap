@@ -742,8 +742,13 @@ def refresh_from_gulp(
     if not gulp.has_gulp_session():
         return {
             'ok': False,
-            'error': 'Gulp-Session fehlt (settings.json → shaduler.gulp_talentfinder.cookies)',
+            'error': (
+                'Gulp-Session fehlt — CV-Extractor Session erneuern '
+                '(data/url/gu/.session_cookies.json) oder settings.json → '
+                'shaduler.gulp_talentfinder'
+            ),
             'needs_auth': True,
+            'session': gulp.gulp_session_info(),
         }
 
     qs = (
