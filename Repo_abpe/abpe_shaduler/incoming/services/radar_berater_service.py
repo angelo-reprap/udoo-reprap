@@ -27,23 +27,45 @@ BERATER_SOURCES = ('gulp', 'freelancermap')
 
 
 def _ensure_source(name: str = SOURCE_NAME):
+    """RadarSource für Berater — robust gegen Duplikate (name+ziel)."""
+    from django.db.models import Count
+
     from apps.abpe_shaduler.models import RadarSource
+
     url = gulp.TF_EXPERTEN if name == SOURCE_NAME else fl.FM_LIST
-    typ = (
-        RadarSource.Typ.HTML_PUBLIC
-        if name == SOURCE_NAME_FL
-        else RadarSource.Typ.HTML_PUBLIC
+    typ = RadarSource.Typ.HTML_PUBLIC
+    ziel = RadarSource.Ziel.BERATER
+    qs = RadarSource.objects.filter(name=name, ziel=ziel)
+    src = (
+        qs.annotate(_n=Count('consultant_items', distinct=True))
+        .order_by('-aktiv', '-_n', 'created_at')
+        .first()
     )
-    src, _ = RadarSource.objects.get_or_create(
-        name=name,
-        ziel=RadarSource.Ziel.BERATER,
-        defaults={
-            'typ': typ,
-            'url': url,
-            'aktiv': True,
-            'intervall_min': 30,
-        },
-    )
+    if src is None:
+        src = RadarSource.objects.create(
+            name=name,
+            ziel=ziel,
+            typ=typ,
+            url=url,
+            aktiv=True,
+            intervall_min=30,
+        )
+    else:
+        dup_ids = list(qs.exclude(pk=src.pk).values_list('pk', flat=True))
+        if dup_ids:
+            RadarSource.objects.filter(pk__in=dup_ids).update(
+                aktiv=False,
+                letzter_status='duplikat-deaktiviert',
+            )
+        updates = []
+        if url and src.url != url:
+            src.url = url
+            updates.append('url')
+        if not src.aktiv:
+            src.aktiv = True
+            updates.append('aktiv')
+        if updates:
+            src.save(update_fields=updates)
     return src
 
 

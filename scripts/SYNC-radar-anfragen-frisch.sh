@@ -29,6 +29,7 @@ bash <(git show "$BRANCH:scripts/ENSURE-abpe-scheduler-loop.sh")
 
 echo
 echo "=== Catch-up Radar (einmal Live-Poll) ==="
+"$PYBIN" manage.py radar_dedupe_sources --apply 2>/dev/null || true
 "$PYBIN" manage.py radar_run_once --pages 2 --days 2 2>/dev/null \
   || "$PYBIN" - <<'PY'
 import django, os

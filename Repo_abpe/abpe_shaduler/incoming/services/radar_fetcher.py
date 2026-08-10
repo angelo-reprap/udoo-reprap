@@ -567,26 +567,54 @@ def fetch_freelancermap_projects(
 
 
 def ensure_freelancermap_source():
-    """RadarSource freelancermap anlegen/holen."""
+    """RadarSource freelancermap (Anfragen) anlegen/holen."""
     return ensure_source(SOURCE_NAME, SOURCE_URL)
 
 
-def ensure_source(name: str, url: str = ''):
-    """RadarSource anlegen/holen."""
+def ensure_source(name: str, url: str = '', *, ziel=None):
+    """RadarSource anlegen/holen — robust gegen Duplikate (name+ziel).
+
+    Live-Fehler: get_or_create(name=…) traf Anfragen+Berater (gleicher Name)
+    → MultipleObjectsReturned. Lookup immer name+ziel; bei Duplikaten
+    kanonische Quelle behalten, Rest deaktivieren.
+    """
+    from django.db.models import Count
+
     from apps.abpe_shaduler.models import RadarSource
-    src, _ = RadarSource.objects.get_or_create(
-        name=name,
-        defaults={
-            'typ': RadarSource.Typ.HTML_PUBLIC,
-            'url': url or '',
-            'ziel': RadarSource.Ziel.ANFRAGEN,
-            'intervall_min': 5,
-            'aktiv': True,
-        },
+
+    ziel = ziel or RadarSource.Ziel.ANFRAGEN
+    defaults = {
+        'typ': RadarSource.Typ.HTML_PUBLIC,
+        'url': url or '',
+        'intervall_min': 5,
+        'aktiv': True,
+    }
+
+    qs = RadarSource.objects.filter(name=name, ziel=ziel)
+    src = (
+        qs.annotate(_item_n=Count('items', distinct=True))
+        .order_by('-aktiv', '-_item_n', 'created_at')
+        .first()
     )
-    if url and src.url != url:
-        src.url = url
-        src.save(update_fields=['url'])
+    if src is None:
+        src = RadarSource.objects.create(name=name, ziel=ziel, **defaults)
+    else:
+        # Weitere Duplikate (gleicher name+ziel) stilllegen — Poll nicht blockieren
+        dup_ids = list(qs.exclude(pk=src.pk).values_list('pk', flat=True))
+        if dup_ids:
+            RadarSource.objects.filter(pk__in=dup_ids).update(
+                aktiv=False,
+                letzter_status='duplikat-deaktiviert',
+            )
+        updates = []
+        if url and src.url != url:
+            src.url = url
+            updates.append('url')
+        if not src.aktiv:
+            src.aktiv = True
+            updates.append('aktiv')
+        if updates:
+            src.save(update_fields=updates)
     return src
 
 
