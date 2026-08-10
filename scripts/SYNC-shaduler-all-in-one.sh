@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Vor größeren Fixes: erst Live→Repo mit PULL-shaduler-from-live.sh,
+# sonst überschreibt dieser SYNC den echten UCS5-Stand.
 # ═══════════════════════════════════════════════════════════════════════════
 # EINZIGER Shaduler-Voll-Deploy — Aufgaben + Kalender + Posteingang + Radar
 #
