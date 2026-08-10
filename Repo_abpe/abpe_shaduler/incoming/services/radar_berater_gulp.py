@@ -205,8 +205,25 @@ def profil_url_for_gulp_id(gulp_id: str) -> str:
     if not gid:
         return ''
     if re.fullmatch(r'[a-f0-9]{24}', gid, re.I):
-        return f'{TF_PROFILE_API}/{gid}'
+        return f'{TF_EXPERTEN}/{gid}'
     return f'{TF_EXPERTEN}?gulpId={urllib.parse.quote(gid)}'
+
+
+def kontakt_url_for(*, gulp_id: str = '', mongo_id: str = '') -> str:
+    """
+    Talentfinder „Kontaktieren“ (~50 € / Anfrage).
+    Route: /experten/{mongoId}/kontaktieren
+    """
+    mid = str(mongo_id or '').strip()
+    gid = str(gulp_id or '').strip()
+    if re.fullmatch(r'[a-f0-9]{24}', mid, re.I):
+        return f'{TF_EXPERTEN}/{mid}/kontaktieren'
+    if re.fullmatch(r'[a-f0-9]{24}', gid, re.I):
+        return f'{TF_EXPERTEN}/{gid}/kontaktieren'
+    if gid:
+        # ohne Mongo: Profil mit gulpId — Kontakt von dort
+        return f'{TF_EXPERTEN}?gulpId={urllib.parse.quote(gid)}'
+    return ''
 
 
 def placeholder_name(gulp_id: str) -> str:

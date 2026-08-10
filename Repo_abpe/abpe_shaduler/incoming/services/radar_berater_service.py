@@ -212,8 +212,13 @@ def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
     if crm and crm.get('full_name'):
         name = crm['full_name']
     elif not name or name.lower().startswith('gulp '):
-        # Platzhalter wenn neu / ohne Profilname
-        name = gulp.placeholder_name(gulp_id)
+        # Headline aus Beschreibung (Talentfinder anonymisiert oft den Namen)
+        desc0 = (item.get('beschreibung') or '').strip()
+        first_line = desc0.split('\n')[0].strip() if desc0 else ''
+        if first_line and len(first_line) > 8 and not first_line.lower().startswith('projekte'):
+            name = first_line[:120]
+        else:
+            name = gulp.placeholder_name(gulp_id)
 
     skills = item.get('skills') if isinstance(item.get('skills'), list) else []
     ort = (item.get('ort') or '').strip()
@@ -315,10 +320,26 @@ def serialize_berater(obj, *, detail: bool = False, preview_chars: int = 4000) -
         body = body[: max(0, int(preview_chars or 4000))]
     else:
         body = ''  # Liste ohne Volltext
+    mongo = str(eck.get('mongo_id') or '').strip()
+    profil = ''
+    if mongo and re.fullmatch(r'[a-f0-9]{24}', mongo, re.I):
+        profil = f'https://www.gulp.de/talentfinder/app/experten/{mongo}'
+    elif obj.gulp_id:
+        profil = gulp.profil_url_for_gulp_id(obj.gulp_id)
+    else:
+        profil = obj.profil_url or ''
+    kontakt = gulp.kontakt_url_for(gulp_id=obj.gulp_id or '', mongo_id=mongo)
+    # Listen-Titel: erste Zeile der Beschreibung, wenn Name nur Platzhalter
+    display_name = obj.name or gulp.placeholder_name(obj.gulp_id)
+    if (display_name or '').startswith('Gulp ') and (obj.beschreibung or '').strip():
+        first_line = (obj.beschreibung or '').strip().split('\n')[0].strip()
+        if first_line and len(first_line) > 8:
+            display_name = first_line[:120]
     return {
         'id': str(obj.pk),
-        'name': obj.name or gulp.placeholder_name(obj.gulp_id),
+        'name': display_name,
         'gulp_id': obj.gulp_id or '',
+        'mongo_id': mongo,
         'src': (obj.quelle.name if obj.quelle_id else 'gulp'),
         'sources': [obj.quelle.name] if obj.quelle_id else ['gulp'],
         'skills': obj.skills or [],
@@ -327,11 +348,8 @@ def serialize_berater(obj, *, detail: bool = False, preview_chars: int = 4000) -
         'verfuegbar_ab': obj.verfuegbar_ab.isoformat() if obj.verfuegbar_ab else None,
         'satz': float(obj.satz) if obj.satz is not None else None,
         'beschreibung': body,
-        'profil_url': (
-            gulp.profil_url_for_gulp_id(obj.gulp_id)
-            if obj.gulp_id
-            else (obj.profil_url or '')
-        ),
+        'profil_url': profil,
+        'kontakt_url': kontakt,
         'match_status': obj.match_status,
         'st': st_map.get(obj.match_status, 'new'),
         'status': obj.status,
@@ -372,10 +390,20 @@ def serialize_list_hit(hit: dict[str, Any]) -> dict[str, Any]:
     """Leichter Listeneintrag aus ES-_source (ohne beschreibung)."""
     cid = hit.get('crm_contact_id') or ''
     note = hit.get('note') or ''
+    mongo = str(hit.get('mongo_id') or '').strip()
+    gid = hit.get('gulp_id') or ''
+    kontakt = hit.get('kontakt_url') or gulp.kontakt_url_for(gulp_id=gid, mongo_id=mongo)
+    profil = hit.get('profil_url') or ''
+    if not profil:
+        if mongo and re.fullmatch(r'[a-f0-9]{24}', mongo, re.I):
+            profil = f'https://www.gulp.de/talentfinder/app/experten/{mongo}'
+        elif gid:
+            profil = gulp.profil_url_for_gulp_id(gid)
     return {
         'id': str(hit.get('id') or ''),
-        'name': hit.get('name') or gulp.placeholder_name(hit.get('gulp_id') or ''),
-        'gulp_id': hit.get('gulp_id') or '',
+        'name': hit.get('name') or gulp.placeholder_name(gid),
+        'gulp_id': gid,
+        'mongo_id': mongo,
         'src': hit.get('source') or 'gulp',
         'sources': [hit.get('source') or 'gulp'],
         'skills': hit.get('skills') or [],
@@ -384,10 +412,8 @@ def serialize_list_hit(hit: dict[str, Any]) -> dict[str, Any]:
         'verfuegbar_ab': hit.get('verfuegbar_ab'),
         'satz': hit.get('satz'),
         'beschreibung': '',
-        'profil_url': (
-            gulp.profil_url_for_gulp_id(hit.get('gulp_id') or '')
-            if hit.get('gulp_id') else ''
-        ),
+        'profil_url': profil,
+        'kontakt_url': kontakt,
         'match_status': hit.get('match_status') or 'unbekannt',
         'st': hit.get('st') or 'new',
         'status': hit.get('status') or 'neu',

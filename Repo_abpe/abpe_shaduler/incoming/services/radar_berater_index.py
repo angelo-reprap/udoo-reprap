@@ -8,6 +8,7 @@ Hinweis: ES-Client-API wie Radar-Anfragen (body=), damit ES7 + ES8 funktionieren
 from __future__ import annotations
 
 import logging
+import re
 from datetime import datetime
 from typing import Any, Optional
 
@@ -363,6 +364,7 @@ def doc_from_obj(obj) -> dict[str, Any]:
         'skills_text': ' '.join(skills),
         'ort': obj.ort or '',
         'gulp_id': obj.gulp_id or '',
+        'mongo_id': str((obj.eckdaten or {}).get('mongo_id') or ''),
         'crm_contact_id': obj.crm_contact_id or '',
         'source': (
             (obj.quelle.name if getattr(obj, 'quelle_id', None) else 'gulp') or 'gulp'
@@ -373,6 +375,16 @@ def doc_from_obj(obj) -> dict[str, Any]:
         'meta': _list_meta(obj)[:512],
         'note': _list_note(obj)[:512],
         'profil_url': obj.profil_url or '',
+        'kontakt_url': (
+            f'https://www.gulp.de/talentfinder/app/experten/'
+            f'{str((obj.eckdaten or {}).get("mongo_id") or "").strip()}/kontaktieren'
+            if re.fullmatch(
+                r'[a-f0-9]{24}',
+                str((obj.eckdaten or {}).get('mongo_id') or '').strip(),
+                re.I,
+            )
+            else ''
+        ),
         'verfuegbar_ab': _iso(obj.verfuegbar_ab),
         'satz': float(obj.satz) if obj.satz is not None else None,
         'eingegangen_am': _iso(obj.eingegangen_am) or _iso(obj.created_at),

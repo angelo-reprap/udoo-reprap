@@ -3194,15 +3194,27 @@
       var skills = (item.skills || []).map(function (s) {
         return '<span class="src" style="margin:2px">' + esc(s) + '</span>';
       }).join(' ');
-      var gulpUrl = item.gulp_id
+      var gulpUrl = item.profil_url || (item.gulp_id
         ? ('https://www.gulp.de/talentfinder/app/experten?gulpId=' +
           encodeURIComponent(String(item.gulp_id)))
-        : '';
+        : '');
+      var kontaktUrl = item.kontakt_url || '';
+      if (!kontaktUrl && item.mongo_id) {
+        kontaktUrl = 'https://www.gulp.de/talentfinder/app/experten/' +
+          encodeURIComponent(String(item.mongo_id)) + '/kontaktieren';
+      }
       var acts =
         '<div class="racts sh-viewer-acts">' +
         (gulpUrl
           ? '<a class="sh-radar-ext" href="' + esc(gulpUrl) + '" target="_blank" rel="noopener">' +
             '<i class="bi bi-box-arrow-up-right"></i> Gulp</a>'
+          : '') +
+        (kontaktUrl
+          ? '<a class="sh-radar-ext pri" href="' + esc(kontaktUrl) +
+            '" target="_blank" rel="noopener" title="' +
+            esc(_t('sh.radar_b_kontakt_title', 'Über Gulp anschreiben (kostenpflichtig, ca. 50 €)')) + '">' +
+            '<i class="bi bi-envelope"></i> ' +
+            esc(_t('sh.radar_b_kontakt', 'Anschreiben')) + '</a>'
           : '') +
         (item.gulp_id
           ? '<button type="button" id="sh-radar-b-gulp-one" title="' +
