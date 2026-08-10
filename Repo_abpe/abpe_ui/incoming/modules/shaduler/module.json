@@ -1,0 +1,62 @@
+{
+    "id": "shaduler",
+    "title": "Aufgaben",
+    "titles": {
+        "de": "Aufgaben",
+        "en": "Tasks",
+        "fr": "Tâches",
+        "it": "Attività",
+        "es": "Tareas",
+        "nl": "Taken",
+        "pl": "Zadania",
+        "pt": "Tarefas",
+        "ru": "Задачи",
+        "tr": "Görevler",
+        "hu": "Feladatok",
+        "ar": "المهام",
+        "ja": "タスク",
+        "ko": "작업",
+        "zh": "任务"
+    },
+    "icon": "check2-square",
+    "route": "/shaduler/",
+    "order": 24,
+    "enabled": true,
+    "roles": ["!berater"],
+    "static": {
+        "css": ["mod/mod-shaduler.css"],
+        "js": ["mod/mod-shaduler.js", "mod/mod-shaduler-kalender.js"]
+    },
+    "subpages": [
+        {
+            "id": "aufgaben",
+            "title": "Aufgaben",
+            "titles": { "de": "Aufgaben", "en": "Tasks" },
+            "route": "/shaduler/?tab=aufgaben"
+        },
+        {
+            "id": "kalender",
+            "title": "Kalender",
+            "titles": { "de": "Kalender", "en": "Calendar" },
+            "route": "/shaduler/?tab=kalender"
+        },
+        {
+            "id": "posteingang",
+            "title": "Posteingang",
+            "titles": { "de": "Posteingang", "en": "Inbox" },
+            "route": "/shaduler/?tab=posteingang"
+        },
+        {
+            "id": "radar",
+            "title": "Radar",
+            "titles": { "de": "Radar", "en": "Radar" },
+            "route": "/shaduler/?tab=radar_anfragen"
+        },
+        {
+            "id": "regeln",
+            "title": "Regeln",
+            "titles": { "de": "Regeln", "en": "Rules" },
+            "route": "/shaduler/?tab=regeln"
+        }
+    ]
+}
