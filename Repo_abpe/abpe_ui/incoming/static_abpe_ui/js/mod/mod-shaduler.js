@@ -29,6 +29,10 @@
   var TASKS = [];
   var STATS = { heute: 0, ueberfaellig: 0, geplant: 0, erledigt_heute: 0, posteingang: 0 };
   var openGroups = { wiedervorlage: true, anruf: true, intern: true };
+  var FILTER_NEUE = false;
+  try {
+    FILTER_NEUE = global.localStorage.getItem('shaduler.aufgaben.neue') === '1';
+  } catch (e0) {}
   var currentTask = null;
   var currentResult = null;
   var INBOX_ACCOUNT = '';
@@ -3519,19 +3523,42 @@
   function renderAcc() {
     var c = document.getElementById('sh-acc');
     if (!c) return;
+    var visible = FILTER_NEUE
+      ? TASKS.filter(function (t) { return !!t.is_new; })
+      : TASKS;
+    var neueN = TASKS.filter(function (t) { return !!t.is_new; }).length;
     c.innerHTML = '';
     var head = document.createElement('div');
-    head.className = 'acc-head';
+    head.className = 'acc-head acc-head-alle';
     head.innerHTML =
       '<span class="gi" style="background:var(--abcona-blue,#163258)"><i class="bi bi-collection"></i></span>' +
       '<b>' + esc(_t('sh.alle', 'Alle')) + '</b>' +
-      '<span class="cnt">(' + TASKS.length + ')</span>';
+      '<label class="sh-neue-sw' + (FILTER_NEUE ? ' on' : '') + '" title="' +
+      esc(_t('sh.neue_aufgaben_hint', 'Nur in den letzten 48 Std. angelegte Aufgaben')) + '">' +
+      '<span class="sh-neue-lbl">' + esc(_t('sh.neue_aufgaben', 'neue Aufgaben')) +
+      (neueN ? ' · ' + neueN : '') + '</span>' +
+      '<input type="checkbox" id="sh-neue-toggle"' + (FILTER_NEUE ? ' checked' : '') + '>' +
+      '<span class="sh-neue-track" aria-hidden="true"><span class="sh-neue-knob"></span></span>' +
+      '</label>' +
+      '<span class="cnt">(' + visible.length + ')</span>';
     c.appendChild(head);
+    var tog = head.querySelector('#sh-neue-toggle');
+    var sw = head.querySelector('.sh-neue-sw');
+    if (tog && sw) {
+      sw.addEventListener('click', function (e) { e.stopPropagation(); });
+      tog.addEventListener('change', function () {
+        FILTER_NEUE = !!tog.checked;
+        try {
+          global.localStorage.setItem('shaduler.aufgaben.neue', FILTER_NEUE ? '1' : '0');
+        } catch (e1) {}
+        renderAcc();
+      });
+    }
 
     ORDER.forEach(function (art) {
       var a = ARTEN[art];
       if (!a) return;
-      var list = TASKS.filter(function (t) { return t.art === art; });
+      var list = visible.filter(function (t) { return t.art === art; });
       var ov = list.filter(function (t) { return t.ueberfaellig; }).length;
       var open = !!openGroups[art];
       var acc = document.createElement('div');
@@ -3545,7 +3572,11 @@
         (ov ? ' <span class="ovd">· ' + ov + ' <i class="bi bi-exclamation-triangle-fill"></i></span>' : '') +
         '</span><span class="car"><i class="bi bi-chevron-right"></i></span></div>' +
         '<div class="acc-body">' +
-        (list.length ? '' : '<div class="none">' + esc(_t('sh.keine_aufgaben', 'keine offenen Aufgaben')) + '</div>') +
+        (list.length ? '' : '<div class="none">' + esc(
+          FILTER_NEUE
+            ? _t('sh.keine_neuen_aufgaben', 'keine neuen Aufgaben')
+            : _t('sh.keine_aufgaben', 'keine offenen Aufgaben')
+        ) + '</div>') +
         '</div>';
       acc.querySelector('.acc-head').addEventListener('click', function () {
         openGroups[art] = !openGroups[art];
@@ -3554,9 +3585,10 @@
       var body = acc.querySelector('.acc-body');
       list.forEach(function (t) {
         var el = document.createElement('div');
-        el.className = 'task' + (t.ueberfaellig ? ' ov' : '');
+        el.className = 'task' + (t.ueberfaellig ? ' ov' : '') + (t.is_new ? ' neu' : '');
         el.innerHTML =
           '<div class="tx"><b>' + esc(t.titel) + '</b><small>' + esc(t.ref_label || t.ref_type || '') + '</small></div>' +
+          (t.is_new ? '<span class="sh-neu-pill">' + esc(_t('sh.neu', 'neu')) + '</span>' : '') +
           '<span class="due">' + (t.ueberfaellig ? '<i class="bi bi-exclamation-triangle-fill"></i> ' : '') +
           esc(t.due_label || '') + '</span>';
         el.addEventListener('click', function () { openModal(t); });
