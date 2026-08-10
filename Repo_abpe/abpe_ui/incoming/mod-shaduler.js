@@ -155,7 +155,7 @@
         '<div class="card-h"><i class="bi bi-person-bounding-box"></i> ' +
         esc(_t('sh.tab_radar_b', 'Radar — Berater')) +
         '<span class="sh-inbox-meta" style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px;flex-wrap:wrap">' +
-        '<span id="sh-radar-b-hint">' + esc(_t('sh.radar_b_hint', 'Gulp Talentfinder')) + '</span>' +
+        '<span id="sh-radar-b-hint">' + esc(_t('sh.radar_b_hint', 'Gulp / Freelancermap')) + '</span>' +
         '<span id="r-b-new" class="sh-radar-count">0</span>' +
         '<button type="button" class="sh-inbox-refresh" id="sh-radar-b-refresh" title="' +
         esc(_t('sh.radar_b_refresh', 'Index aktualisieren (CRM→ES)')) + '">' +
@@ -176,7 +176,11 @@
         '<button type="button" class="matching-btn-sm" id="sh-radar-b-gulp-available" title="' +
         esc(_t('sh.radar_b_gulp_av_title', 'Talentfinder: aktuell verfügbare Berater einlesen')) + '">' +
         '<i class="bi bi-people"></i> ' +
-        esc(_t('sh.radar_b_gulp_available', 'Verfügbare von Gulp')) + '</button></div>' +
+        esc(_t('sh.radar_b_gulp_available', 'Verfügbare von Gulp')) + '</button>' +
+        '<button type="button" class="matching-btn-sm" id="sh-radar-b-fl-available" title="' +
+        esc(_t('sh.radar_b_fl_av_title', 'Freelancermap: verfügbare Freelancer einlesen')) + '">' +
+        '<i class="bi bi-people-fill"></i> ' +
+        esc(_t('sh.radar_b_fl_available', 'Verfügbare von Freelancermap')) + '</button></div>' +
         '<div class="sh-inbox-toolbar" id="sh-radar-b-toolbar"></div>' +
         '<div class="sh-inbox-split">' +
         '<div class="sh-inbox-list-wrap">' +
@@ -2947,6 +2951,66 @@
           });
       };
     }
+    var flAvailBtn = document.getElementById('sh-radar-b-fl-available');
+    if (flAvailBtn && !flAvailBtn.dataset.bound) {
+      flAvailBtn.dataset.bound = '1';
+      flAvailBtn.dataset.labelHtml = flAvailBtn.innerHTML;
+      flAvailBtn.onclick = function () {
+        if (flAvailBtn.disabled) return;
+        flAvailBtn.disabled = true;
+        flAvailBtn.classList.add('busy');
+        flAvailBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> ' +
+          esc(_t('sh.radar_b_fl_av_busy', 'FM Verfügbare laden…'));
+        var hintEl = document.getElementById('sh-radar-b-hint');
+        var hintPrev = hintEl ? hintEl.textContent : '';
+        if (hintEl) {
+          hintEl.textContent = _t('sh.radar_b_fl_av_run', 'Freelancermap verfügbar → Radar…');
+        }
+        toast(_t('sh.radar_b_fl_av_run', 'Freelancermap verfügbar → Radar…'), 10000);
+        fetch(api('radar/berater/fl-verfuegbar/'), {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({ limit: 36, pages: 2, delay: 0.15 }),
+        })
+          .then(function (r) {
+            return r.json().then(function (j) { return { ok: r.ok, status: r.status, j: j }; });
+          })
+          .then(function (pack) {
+            flAvailBtn.disabled = false;
+            flAvailBtn.classList.remove('busy');
+            flAvailBtn.innerHTML = flAvailBtn.dataset.labelHtml || flAvailBtn.innerHTML;
+            var d = pack.j || {};
+            if (hintEl && hintPrev) hintEl.textContent = hintPrev;
+            if (!d.ok && d.error) {
+              toast(d.error, 6000);
+              return;
+            }
+            toast(
+              _t('sh.radar_b_fl_av_ok', 'Freelancermap') + ': ' +
+              (d.scanned || 0) + ' geprüft · ' +
+              (d.created || 0) + ' neu · ' +
+              (d.updated || 0) + ' aktualisiert · ' +
+              (d.crm_updated || 0) + ' CRM · ' +
+              (d.errors || 0) + ' Fehler' +
+              (d.fm_total != null ? (' · FM ' + d.fm_total) : ''),
+              8000
+            );
+            loadRadarB({ soft: true });
+          })
+          .catch(function () {
+            flAvailBtn.disabled = false;
+            flAvailBtn.classList.remove('busy');
+            flAvailBtn.innerHTML = flAvailBtn.dataset.labelHtml || flAvailBtn.innerHTML;
+            if (hintEl && hintPrev) hintEl.textContent = hintPrev;
+            toast(_t('sh.toast_error', 'Freelancermap-Sync fehlgeschlagen'), 5000);
+          });
+      };
+    }
     var statusParam = RADAR_B_AVAIL ? 'neu' : 'all';
     var q = 'radar/berater/?demo=0&status=' + encodeURIComponent(statusParam) +
       '&refresh=0' +
@@ -2986,7 +3050,7 @@
           }
           hint.textContent = data.demo
             ? _t('sh.radar_demo', 'Demo')
-            : _t('sh.radar_b_hint', 'Gulp Talentfinder') +
+            : _t('sh.radar_b_hint', 'Gulp / Freelancermap') +
               (lsLbl ? (' · ' + lsLbl) : '') +
               (data.es_total != null ? (' · ' + data.es_total) : '') +
               (parts.length ? (' · ' + parts.join(', ')) : '') +
@@ -3026,7 +3090,7 @@
   var RADAR_B_Q = '';
   var RADAR_B_DAYS = 0;
   var RADAR_B_SORT = 'date_desc';
-  var RADAR_B_SOURCE = 'gulp';
+  var RADAR_B_SOURCE = '';
   var RADAR_B_STATUS = 'neu';
   var RADAR_B_MATCH = '';
   var RADAR_B_AVAIL = true;
@@ -3056,7 +3120,7 @@
     t.innerHTML =
       '<form class="sh-inbox-search" id="sh-radar-b-search">' +
       '<input type="search" id="sh-radar-b-q" value="' + esc(RADAR_B_Q) + '" ' +
-      'placeholder="' + esc(_t('sh.radar_b_search_ph', 'Name, Gulp-ID, Skills, Ort …')) + '" />' +
+      'placeholder="' + esc(_t('sh.radar_b_search_ph', 'Name, Gulp-/FM-ID, Skills, Ort …')) + '" />' +
       '<button type="submit" class="pri"><i class="bi bi-search"></i> ' +
       esc(_t('sh.inbox_search', 'Suchen')) + '</button></form>' +
       '<div class="sh-inbox-opts">' +
@@ -3071,6 +3135,11 @@
       '<option value="">' + esc(_t('sh.radar_b_match_all', 'Match: alle')) + '</option>' +
       '<option value="bekannt"' + (RADAR_B_MATCH === 'bekannt' ? ' selected' : '') + '>bekannt (CRM)</option>' +
       '<option value="unbekannt"' + (RADAR_B_MATCH === 'unbekannt' ? ' selected' : '') + '>unbekannt</option>' +
+      '</select>' +
+      '<select id="sh-radar-b-source" title="Quelle">' +
+      '<option value="">' + esc(_t('sh.radar_b_src_all', 'Quelle: alle')) + '</option>' +
+      '<option value="gulp"' + (RADAR_B_SOURCE === 'gulp' ? ' selected' : '') + '>Gulp</option>' +
+      '<option value="freelancermap"' + (RADAR_B_SOURCE === 'freelancermap' ? ' selected' : '') + '>Freelancermap</option>' +
       '</select>' +
       '<select id="sh-radar-b-avail">' +
       '<option value="1"' + (RADAR_B_AVAIL ? ' selected' : '') + '>' + esc(_t('sh.radar_b_avail', 'verfügbar/neu')) + '</option>' +
@@ -3104,6 +3173,12 @@
     var match = document.getElementById('sh-radar-b-match');
     if (match) match.onchange = function () {
       RADAR_B_MATCH = match.value || '';
+      loadRadarB({ soft: true });
+    };
+    var srcSel = document.getElementById('sh-radar-b-source');
+    if (srcSel) srcSel.onchange = function () {
+      RADAR_B_SOURCE = srcSel.value || '';
+      RADAR_B_PAGE = 1;
       loadRadarB({ soft: true });
     };
     var avail = document.getElementById('sh-radar-b-avail');
@@ -3198,21 +3273,29 @@
         ? ('https://www.gulp.de/talentfinder/app/experten?gulpId=' +
           encodeURIComponent(String(item.gulp_id)))
         : '');
+      var isFm = !!(item.fm_id || (item.src || '').toLowerCase() === 'freelancermap');
+      var portalLabel = isFm ? 'Freelancermap' : 'Gulp';
       var kontaktUrl = item.kontakt_url || '';
-      if (!kontaktUrl && item.mongo_id) {
+      if (!kontaktUrl && item.mongo_id && !isFm) {
         kontaktUrl = 'https://www.gulp.de/talentfinder/app/experten/' +
           encodeURIComponent(String(item.mongo_id)) + '/kontaktieren';
       }
+      if (!kontaktUrl && isFm && item.profil_url) {
+        kontaktUrl = item.profil_url;
+      }
+      var kontaktTitle = isFm
+        ? _t('sh.radar_b_kontakt_fm_title', 'Über Freelancermap anschreiben (Login nötig)')
+        : _t('sh.radar_b_kontakt_title', 'Über Gulp anschreiben (kostenpflichtig, ca. 50 €)');
       var acts =
         '<div class="racts sh-viewer-acts">' +
         (gulpUrl
           ? '<a class="sh-radar-ext" href="' + esc(gulpUrl) + '" target="_blank" rel="noopener">' +
-            '<i class="bi bi-box-arrow-up-right"></i> Gulp</a>'
+            '<i class="bi bi-box-arrow-up-right"></i> ' + esc(portalLabel) + '</a>'
           : '') +
         (kontaktUrl
           ? '<a class="sh-radar-ext pri" href="' + esc(kontaktUrl) +
             '" target="_blank" rel="noopener" title="' +
-            esc(_t('sh.radar_b_kontakt_title', 'Über Gulp anschreiben (kostenpflichtig, ca. 50 €)')) + '">' +
+            esc(kontaktTitle) + '">' +
             '<i class="bi bi-envelope"></i> ' +
             esc(_t('sh.radar_b_kontakt', 'Anschreiben')) + '</a>'
           : '') +
@@ -3236,7 +3319,8 @@
         acts +
         '<div class="sh-viewer-head">' +
         '<div class="from">' + esc(item.name || '') +
-        (item.gulp_id ? ' · Gulp ' + esc(item.gulp_id) : '') + '</div>' +
+        (item.gulp_id ? ' · Gulp ' + esc(item.gulp_id) : '') +
+        (item.fm_id ? ' · FM ' + esc(String(item.fm_id)) : '') + '</div>' +
         '<div class="meta">' + esc(item.meta || '') + '</div>' +
         '<div class="meta">' + esc(item.note || '') +
         (item.verfuegbar_ab ? (' · ab ' + esc(String(item.verfuegbar_ab))) : '') +

@@ -785,6 +785,38 @@ def api_radar_berater_gulp_available(request):
 
 @login_required
 @require_http_methods(['POST'])
+def api_radar_berater_fl_available(request):
+    """
+    Freelancermap „verfügbare Freelancer“ einlesen (öffentlich).
+    Body: {limit?: 36, pages?: 2, delay?: 0.15}
+    """
+    from .services import radar_berater_service as rbs
+    try:
+        payload = json.loads(request.body.decode('utf-8') or '{}')
+    except Exception:
+        payload = {}
+    try:
+        limit = int(payload.get('limit') or 36)
+    except (TypeError, ValueError):
+        limit = 36
+    try:
+        pages = int(payload.get('pages') or 2)
+    except (TypeError, ValueError):
+        pages = 2
+    try:
+        delay = float(payload.get('delay') if payload.get('delay') is not None else 0.15)
+    except (TypeError, ValueError):
+        delay = 0.15
+    result = rbs.sync_available_from_fl(
+        limit=limit,
+        pages=pages,
+        delay_s=delay,
+    )
+    return JsonResponse(result, status=200 if result.get('ok') else 400)
+
+
+@login_required
+@require_http_methods(['POST'])
 def api_radar_berater_reindex(request):
     """Manueller Index-Update: CRM-Sync + ES (wie 30-Min-Job)."""
     from .services import radar_berater_service as rbs

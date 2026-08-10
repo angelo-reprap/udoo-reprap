@@ -39,6 +39,9 @@ BERATER_INDEX_MAPPING = {
             'skills_text': {'type': 'text', 'analyzer': 'de_text'},
             'ort': {'type': 'keyword'},
             'gulp_id': {'type': 'keyword'},
+            'fm_id': {'type': 'keyword'},
+            'fm_slug': {'type': 'keyword'},
+            'mongo_id': {'type': 'keyword'},
             'crm_contact_id': {'type': 'keyword'},
             'source': {'type': 'keyword'},
             'status': {'type': 'keyword'},
@@ -47,6 +50,7 @@ BERATER_INDEX_MAPPING = {
             'meta': {'type': 'keyword', 'index': False},
             'note': {'type': 'keyword', 'index': False},
             'profil_url': {'type': 'keyword', 'index': False},
+            'kontakt_url': {'type': 'keyword', 'index': False},
             'verfuegbar_ab': {'type': 'date'},
             'satz': {'type': 'float'},
             'eingegangen_am': {'type': 'date'},
@@ -329,8 +333,14 @@ def _iso(val) -> Optional[str]:
 
 
 def _list_meta(obj) -> str:
+    eck = obj.eckdaten or {}
+    fm_id = str(eck.get('fm_id') or '').strip()
+    id_meta = (
+        f'Gulp {obj.gulp_id}' if obj.gulp_id
+        else (f'FM {fm_id}' if fm_id else '')
+    )
     return ' · '.join(x for x in [
-        f'Gulp {obj.gulp_id}' if obj.gulp_id else '',
+        id_meta,
         obj.ort or '',
         f'ab {obj.verfuegbar_ab.isoformat()}' if obj.verfuegbar_ab else '',
         f'{obj.satz} €' if obj.satz is not None else '',
@@ -346,9 +356,28 @@ def _list_note(obj) -> str:
     if obj.match_status == 'bekannt':
         cid = obj.crm_contact_id or ''
         return '✔ CRM ' + (cid[:8] + '…' if cid else '')
-    if (obj.name or '').startswith('Gulp '):
+    if (obj.name or '').startswith(('Gulp ', 'FM ')):
         return 'Platzhalter — optional in CRM anlegen'
     return 'neu / unbekannt'
+
+
+def _kontakt_url_for_obj(obj) -> str:
+    eck = obj.eckdaten or {}
+    mongo = str(eck.get('mongo_id') or '').strip()
+    fm_id = str(eck.get('fm_id') or '').strip()
+    fm_slug = str(eck.get('fm_slug') or '').strip()
+    src = (
+        (obj.quelle.name if getattr(obj, 'quelle_id', None) else '') or ''
+    ).strip().lower()
+    if src == 'freelancermap' or (fm_id and not obj.gulp_id):
+        if fm_slug:
+            return f'https://www.freelancermap.de/profil/{fm_slug}'
+        if fm_id:
+            return f'https://www.freelancermap.de/freelancer?id={fm_id}'
+        return obj.profil_url or ''
+    if re.fullmatch(r'[a-f0-9]{24}', mongo, re.I):
+        return f'https://www.gulp.de/talentfinder/app/experten/{mongo}/kontaktieren'
+    return ''
 
 
 def doc_from_obj(obj) -> dict[str, Any]:
@@ -356,6 +385,12 @@ def doc_from_obj(obj) -> dict[str, Any]:
     skills = [str(s).strip() for s in skills if str(s).strip()]
     st_map = {'bekannt': 'known', 'unsicher': 'maybe', 'unbekannt': 'new'}
     deleted = bool(getattr(obj, 'deleted_at', None)) or obj.status == 'geloescht'
+    eck = obj.eckdaten or {}
+    fm_id = str(eck.get('fm_id') or '').strip()
+    fm_slug = str(eck.get('fm_slug') or '').strip()
+    src = (
+        (obj.quelle.name if getattr(obj, 'quelle_id', None) else 'gulp') or 'gulp'
+    ).strip().lower()
     doc = {
         'name': obj.name or '',
         # Volltext für ES-Suche (Liste lädt beschreibung nicht; Detail kommt aus DB)
@@ -364,27 +399,18 @@ def doc_from_obj(obj) -> dict[str, Any]:
         'skills_text': ' '.join(skills),
         'ort': obj.ort or '',
         'gulp_id': obj.gulp_id or '',
-        'mongo_id': str((obj.eckdaten or {}).get('mongo_id') or ''),
+        'fm_id': fm_id,
+        'fm_slug': fm_slug,
+        'mongo_id': str(eck.get('mongo_id') or ''),
         'crm_contact_id': obj.crm_contact_id or '',
-        'source': (
-            (obj.quelle.name if getattr(obj, 'quelle_id', None) else 'gulp') or 'gulp'
-        ).strip().lower(),
+        'source': src,
         'status': str(obj.status or 'neu').strip().lower() or 'neu',
         'match_status': str(obj.match_status or 'unbekannt').strip().lower() or 'unbekannt',
         'st': st_map.get(obj.match_status, 'new'),
         'meta': _list_meta(obj)[:512],
         'note': _list_note(obj)[:512],
         'profil_url': obj.profil_url or '',
-        'kontakt_url': (
-            f'https://www.gulp.de/talentfinder/app/experten/'
-            f'{str((obj.eckdaten or {}).get("mongo_id") or "").strip()}/kontaktieren'
-            if re.fullmatch(
-                r'[a-f0-9]{24}',
-                str((obj.eckdaten or {}).get('mongo_id') or '').strip(),
-                re.I,
-            )
-            else ''
-        ),
+        'kontakt_url': _kontakt_url_for_obj(obj),
         'verfuegbar_ab': _iso(obj.verfuegbar_ab),
         'satz': float(obj.satz) if obj.satz is not None else None,
         'eingegangen_am': _iso(obj.eingegangen_am) or _iso(obj.created_at),
@@ -496,7 +522,10 @@ def search(
         must.append({
             'multi_match': {
                 'query': q,
-                'fields': ['name^3', 'skills_text^2', 'beschreibung', 'ort', 'gulp_id^4'],
+                'fields': [
+                    'name^3', 'skills_text^2', 'beschreibung', 'ort',
+                    'gulp_id^4', 'fm_id^4',
+                ],
                 'type': 'best_fields',
                 'operator': 'and',
             }
@@ -504,20 +533,22 @@ def search(
     else:
         must.append({'match_all': {}})
     order = 'asc' if sort in ('date_asc', 'asc', 'oldest') else 'desc'
-    # ES 8: Sortierung nach _id ist verboten → gulp_id als Tiebreaker
+    # ES 8: Sortierung nach _id ist verboten → gulp_id/fm_id als Tiebreaker
     body = {
         'size': max(1, min(10000, int(limit))),
         'track_total_hits': True,
         '_source': [
-            'name', 'gulp_id', 'ort', 'source', 'status', 'match_status', 'st',
-            'meta', 'note', 'verfuegbar_ab', 'satz', 'crm_contact_id',
-            'eingegangen_am', 'updated_at', 'cv_versions', 'deleted', 'skills',
+            'name', 'gulp_id', 'fm_id', 'fm_slug', 'mongo_id', 'ort', 'source',
+            'status', 'match_status', 'st', 'meta', 'note', 'verfuegbar_ab',
+            'satz', 'crm_contact_id', 'eingegangen_am', 'updated_at',
+            'cv_versions', 'deleted', 'skills', 'profil_url', 'kontakt_url',
         ],
         'query': {'bool': {'must': must, 'filter': filters}},
         'sort': [
             {'eingegangen_am': {'order': order, 'unmapped_type': 'date', 'missing': '_last'}},
             {'updated_at': {'order': order, 'unmapped_type': 'date', 'missing': '_last'}},
             {'gulp_id': {'order': 'asc', 'unmapped_type': 'keyword', 'missing': '_last'}},
+            {'fm_id': {'order': 'asc', 'unmapped_type': 'keyword', 'missing': '_last'}},
         ],
         'aggs': {
             'by_source': {'terms': {'field': 'source', 'size': 20}},

@@ -16,22 +16,30 @@ from django.db.models import Count, Q
 from django.utils import timezone
 
 from . import radar_berater_gulp as gulp
+from . import radar_berater_fl as fl
 from . import radar_berater_index as berater_index
 
 log = logging.getLogger('abpe_shaduler.radar_berater')
 
 SOURCE_NAME = 'gulp'
-BERATER_SOURCES = ('gulp',)
+SOURCE_NAME_FL = 'freelancermap'
+BERATER_SOURCES = ('gulp', 'freelancermap')
 
 
-def _ensure_source():
+def _ensure_source(name: str = SOURCE_NAME):
     from apps.abpe_shaduler.models import RadarSource
+    url = gulp.TF_EXPERTEN if name == SOURCE_NAME else fl.FM_LIST
+    typ = (
+        RadarSource.Typ.HTML_PUBLIC
+        if name == SOURCE_NAME_FL
+        else RadarSource.Typ.HTML_PUBLIC
+    )
     src, _ = RadarSource.objects.get_or_create(
-        name=SOURCE_NAME,
+        name=name,
         ziel=RadarSource.Ziel.BERATER,
         defaults={
-            'typ': RadarSource.Typ.HTML_PUBLIC,
-            'url': gulp.TF_EXPERTEN,
+            'typ': typ,
+            'url': url,
             'aktiv': True,
             'intervall_min': 30,
         },
@@ -41,6 +49,10 @@ def _ensure_source():
 
 def _dedup(gulp_id: str) -> str:
     return hashlib.sha256(f'gulp:{gulp_id}'.encode('utf-8')).hexdigest()
+
+
+def _dedup_fm(fm_id: str) -> str:
+    return hashlib.sha256(f'fm:{fm_id}'.encode('utf-8')).hexdigest()
 
 
 def _parse_date(val) -> Optional[date]:
@@ -107,6 +119,58 @@ def find_crm_by_gulp_id(gulp_id: str) -> Optional[dict[str, Any]]:
         return None
 
 
+def find_crm_by_fm(fm_id: str = '', slug: str = '', profil_url: str = '') -> Optional[dict[str, Any]]:
+    """CRM-Lookup über freelancermap_profil_c (URL/Slug/ID)."""
+    fid = str(fm_id or '').strip()
+    slug = str(slug or '').strip().strip('/')
+    profil_url = str(profil_url or '').strip()
+    needles = []
+    if profil_url:
+        needles.append(profil_url)
+    if slug:
+        needles.append(f'/profil/{slug}')
+        needles.append(slug)
+    if fid:
+        needles.append(fid)
+    if not needles:
+        return None
+    try:
+        from apps.abpe_crm.models import CrmContact
+    except Exception:
+        return None
+    try:
+        c = None
+        for n in needles:
+            c = (
+                CrmContact.objects
+                .select_related('cstm')
+                .filter(cstm__freelancermap_profil_c__icontains=n)
+                .first()
+            )
+            if c:
+                break
+        if not c:
+            return None
+        cstm = getattr(c, 'cstm', None)
+        return {
+            'crm_id': c.crm_id,
+            'first_name': c.first_name or '',
+            'last_name': c.last_name or '',
+            'full_name': c.full_name or '',
+            'gulp_id': getattr(cstm, 'gulp_id_c', '') if cstm else '',
+            'freelancermap_profil': getattr(cstm, 'freelancermap_profil_c', '') if cstm else '',
+            'verfuegbar_ab': getattr(cstm, 'verfuegbar_ab_c', None) if cstm else None,
+            'konditionen': getattr(cstm, 'konditionen_c', '') if cstm else '',
+            'kontakt_status': getattr(cstm, 'kontakt_status_c', '') if cstm else '',
+            'city': c.primary_address_city or '',
+            'title': c.title or '',
+            'description': c.description or '',
+        }
+    except Exception as exc:
+        log.warning('CRM FM lookup failed: %s', exc)
+        return None
+
+
 def _fill_missing_crm(crm_id: str, patch: dict[str, Any], log_rows: list) -> list:
     """Fehlende CRM-Felder nachziehen (leere füllen, Verfügbarkeit aktualisieren)."""
     try:
@@ -150,10 +214,20 @@ def _fill_missing_crm(crm_id: str, patch: dict[str, Any], log_rows: list) -> lis
             if patch.get('gulp_id') and not (getattr(cstm, 'gulp_id_c', '') or '').strip():
                 cstm.gulp_id_c = str(patch['gulp_id'])[:16]
                 cstm_changed.append('gulp_id_c')
+            if patch.get('freelancermap_profil') and hasattr(cstm, 'freelancermap_profil_c'):
+                cur_fm = (getattr(cstm, 'freelancermap_profil_c', '') or '').strip()
+                new_fm = str(patch['freelancermap_profil']).strip()
+                if new_fm and not cur_fm:
+                    cstm.freelancermap_profil_c = new_fm[:255]
+                    cstm_changed.append('freelancermap_profil_c')
+            if hasattr(cstm, 'freelancermap_last_updated_c') and patch.get('freelancermap_touch'):
+                from django.utils import timezone as dj_tz
+                cstm.freelancermap_last_updated_c = dj_tz.now()
+                cstm_changed.append('freelancermap_last_updated_c')
             if patch.get('konditionen') and not (getattr(cstm, 'konditionen_c', '') or '').strip():
                 cstm.konditionen_c = str(patch['konditionen'])[:255]
                 cstm_changed.append('konditionen_c')
-            if hasattr(cstm, 'gulp_last_updated_c'):
+            if hasattr(cstm, 'gulp_last_updated_c') and patch.get('gulp_id'):
                 from django.utils import timezone as dj_tz
                 cstm.gulp_last_updated_c = dj_tz.now()
                 cstm_changed.append('gulp_last_updated_c')
@@ -195,30 +269,60 @@ def _append_cv_version(obj, text: str, source: str = 'gulp') -> None:
 
 
 def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
-    """Item-Dict → RadarConsultantItem (+ optional CRM update)."""
+    """Item-Dict → RadarConsultantItem (+ optional CRM update). Gulp- oder FM-ID."""
     from apps.abpe_shaduler.models import RadarConsultantItem
 
-    src = _ensure_source()
     gulp_id = str(item.get('gulp_id') or '').strip()
-    if not gulp_id:
-        raise ValueError('gulp_id required')
-    dedup = _dedup(gulp_id)
-    obj = RadarConsultantItem.objects.filter(quelle=src, dedup_hash=dedup).first()
-    if not obj:
-        obj = RadarConsultantItem.objects.filter(gulp_id=gulp_id).first()
+    fm_id = str(item.get('fm_id') or '').strip()
+    fm_slug = str(item.get('fm_slug') or '').strip()
+    source_name = str(
+        item.get('source_name')
+        or (SOURCE_NAME_FL if (fm_id and not gulp_id) else SOURCE_NAME)
+    ).strip() or SOURCE_NAME
+    src = _ensure_source(source_name)
 
-    crm = find_crm_by_gulp_id(gulp_id)
+    if not gulp_id and not fm_id:
+        raise ValueError('gulp_id oder fm_id required')
+
+    if gulp_id:
+        dedup = _dedup(gulp_id)
+        obj = RadarConsultantItem.objects.filter(quelle=src, dedup_hash=dedup).first()
+        if not obj:
+            obj = RadarConsultantItem.objects.filter(gulp_id=gulp_id).first()
+        crm = find_crm_by_gulp_id(gulp_id)
+    else:
+        dedup = _dedup_fm(fm_id)
+        obj = RadarConsultantItem.objects.filter(quelle=src, dedup_hash=dedup).first()
+        if not obj:
+            # Fallback: eckdaten.fm_id
+            obj = (
+                RadarConsultantItem.objects
+                .filter(quelle=src, eckdaten__fm_id=fm_id)
+                .first()
+            )
+        crm = find_crm_by_fm(
+            fm_id=fm_id,
+            slug=fm_slug,
+            profil_url=item.get('profil_url') or '',
+        )
+
     name = (item.get('name') or '').strip()
     if crm and crm.get('full_name'):
         name = crm['full_name']
-    elif not name or name.lower().startswith('gulp '):
-        # Headline aus Beschreibung (Talentfinder anonymisiert oft den Namen)
+    elif not name or name.lower().startswith('gulp ') or name.lower().startswith('fm '):
+        # Headline aus Beschreibung / title
+        title = (item.get('title') or '').strip()
         desc0 = (item.get('beschreibung') or '').strip()
         first_line = desc0.split('\n')[0].strip() if desc0 else ''
-        if first_line and len(first_line) > 8 and not first_line.lower().startswith('projekte'):
+        if title and len(title) > 3:
+            name = title[:120]
+        elif first_line and len(first_line) > 8 and not first_line.lower().startswith('projekte'):
             name = first_line[:120]
         else:
-            name = gulp.placeholder_name(gulp_id)
+            name = (
+                gulp.placeholder_name(gulp_id) if gulp_id
+                else (f'FM {fm_id}' if fm_id else 'Berater')
+            )
 
     skills = item.get('skills') if isinstance(item.get('skills'), list) else []
     ort = (item.get('ort') or '').strip()
@@ -229,12 +333,17 @@ def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
     beschreibung = (item.get('beschreibung') or '').strip()
     eck = dict(item.get('eckdaten') or {})
     eck.update({
-        'gulp_id': gulp_id,
-        'mongo_id': item.get('mongo_id') or '',
+        'source': item.get('source') or source_name,
         'first_name': item.get('first_name') or '',
         'last_name': item.get('last_name') or '',
-        'source': item.get('source') or 'gulp',
     })
+    if gulp_id:
+        eck['gulp_id'] = gulp_id
+        eck['mongo_id'] = item.get('mongo_id') or eck.get('mongo_id') or ''
+    if fm_id:
+        eck['fm_id'] = fm_id
+        eck['fm_slug'] = fm_slug
+        eck['fm_user_id'] = item.get('fm_user_id') or ''
     if crm:
         eck['crm_status'] = crm.get('kontakt_status') or ''
 
@@ -244,16 +353,22 @@ def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
         obj = RadarConsultantItem(
             quelle=src,
             dedup_hash=dedup,
-            gulp_id=gulp_id,
+            gulp_id=gulp_id or '',
             status=RadarConsultantItem.Status.NEU,
             eingegangen_am=timezone.now(),
         )
 
-    obj.gulp_id = gulp_id
-    # Immer Talentfinder-URL aus gulp_id — nie Homepage/Xing/etc.
-    obj.profil_url = gulp.profil_url_for_gulp_id(gulp_id) or (item.get('profil_url') or '')
+    if gulp_id:
+        obj.gulp_id = gulp_id
+    # Profil-URL
+    if item.get('profil_url'):
+        obj.profil_url = item['profil_url']
+    elif gulp_id:
+        obj.profil_url = gulp.profil_url_for_gulp_id(gulp_id)
+    elif fm_id:
+        obj.profil_url = fl.profil_url_for(slug=fm_slug, fm_id=fm_id)
+
     obj.name = name
-    # Re-Aktivierung wenn CRM gulp_id wieder da
     if getattr(obj, 'deleted_at', None) or obj.status == RadarConsultantItem.Status.GELOESCHT:
         obj.deleted_at = None
         if obj.status == RadarConsultantItem.Status.GELOESCHT:
@@ -273,22 +388,29 @@ def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
         obj.eingegangen_am = timezone.now()
 
     if item.get('cv_text'):
-        _append_cv_version(obj, item['cv_text'], source=item.get('source') or 'gulp')
+        _append_cv_version(obj, item['cv_text'], source=item.get('source') or source_name)
 
     if crm:
         obj.match_status = RadarConsultantItem.MatchStatus.BEKANNT
         obj.crm_contact_id = crm['crm_id']
         obj.match_confidence = 1.0
         if apply_crm:
-            log_rows = _fill_missing_crm(crm['crm_id'], {
+            patch = {
                 'first_name': item.get('first_name') or '',
                 'last_name': item.get('last_name') or '',
                 'city': ort,
                 'description': beschreibung,
                 'verfuegbar_ab': verfuegbar.isoformat() if verfuegbar else None,
-                'gulp_id': gulp_id,
                 'konditionen': str(satz) if satz is not None else '',
-            }, log_rows)
+            }
+            if gulp_id:
+                patch['gulp_id'] = gulp_id
+            if fm_id:
+                patch['freelancermap_profil'] = (
+                    item.get('profil_url') or fl.profil_url_for(slug=fm_slug, fm_id=fm_id)
+                )
+                patch['freelancermap_touch'] = True
+            log_rows = _fill_missing_crm(crm['crm_id'], patch, log_rows)
     else:
         if not obj.crm_contact_id:
             obj.match_status = RadarConsultantItem.MatchStatus.UNBEKANNT
@@ -297,7 +419,8 @@ def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
     log_rows.append({
         'at': timezone.now().isoformat(),
         'action': 'upsert_create' if created else 'upsert_update',
-        'gulp_id': gulp_id,
+        'gulp_id': gulp_id or '',
+        'fm_id': fm_id or '',
     })
     obj.auto_update_log = log_rows[-50:]
     obj.save()
@@ -321,27 +444,50 @@ def serialize_berater(obj, *, detail: bool = False, preview_chars: int = 4000) -
     else:
         body = ''  # Liste ohne Volltext
     mongo = str(eck.get('mongo_id') or '').strip()
+    fm_id = str(eck.get('fm_id') or '').strip()
+    fm_slug = str(eck.get('fm_slug') or '').strip()
+    src_name = (obj.quelle.name if obj.quelle_id else '') or (
+        SOURCE_NAME_FL if fm_id and not obj.gulp_id else SOURCE_NAME
+    )
+    is_fm = src_name == SOURCE_NAME_FL or bool(fm_id and not obj.gulp_id)
     profil = ''
-    if mongo and re.fullmatch(r'[a-f0-9]{24}', mongo, re.I):
+    kontakt = ''
+    if is_fm:
+        profil = obj.profil_url or fl.profil_url_for(slug=fm_slug, fm_id=fm_id)
+        kontakt = fl.kontakt_url_for(slug=fm_slug, fm_id=fm_id)
+    elif mongo and re.fullmatch(r'[a-f0-9]{24}', mongo, re.I):
         profil = f'https://www.gulp.de/talentfinder/app/experten/{mongo}'
+        kontakt = gulp.kontakt_url_for(gulp_id=obj.gulp_id or '', mongo_id=mongo)
     elif obj.gulp_id:
         profil = gulp.profil_url_for_gulp_id(obj.gulp_id)
+        kontakt = gulp.kontakt_url_for(gulp_id=obj.gulp_id or '', mongo_id=mongo)
     else:
         profil = obj.profil_url or ''
-    kontakt = gulp.kontakt_url_for(gulp_id=obj.gulp_id or '', mongo_id=mongo)
+        kontakt = gulp.kontakt_url_for(gulp_id=obj.gulp_id or '', mongo_id=mongo)
     # Listen-Titel: erste Zeile der Beschreibung, wenn Name nur Platzhalter
-    display_name = obj.name or gulp.placeholder_name(obj.gulp_id)
-    if (display_name or '').startswith('Gulp ') and (obj.beschreibung or '').strip():
+    display_name = obj.name or (
+        gulp.placeholder_name(obj.gulp_id) if obj.gulp_id
+        else (f'FM {fm_id}' if fm_id else 'Berater')
+    )
+    if (
+        (display_name or '').startswith('Gulp ') or (display_name or '').startswith('FM ')
+    ) and (obj.beschreibung or '').strip():
         first_line = (obj.beschreibung or '').strip().split('\n')[0].strip()
         if first_line and len(first_line) > 8:
             display_name = first_line[:120]
+    id_meta = (
+        f'FM {fm_id}' if is_fm and fm_id
+        else (f'Gulp {obj.gulp_id}' if obj.gulp_id else '')
+    )
     return {
         'id': str(obj.pk),
         'name': display_name,
         'gulp_id': obj.gulp_id or '',
+        'fm_id': fm_id,
+        'fm_slug': fm_slug,
         'mongo_id': mongo,
-        'src': (obj.quelle.name if obj.quelle_id else 'gulp'),
-        'sources': [obj.quelle.name] if obj.quelle_id else ['gulp'],
+        'src': src_name,
+        'sources': [src_name],
         'skills': obj.skills or [],
         'ort': obj.ort or '',
         'city': obj.ort or '',
@@ -363,7 +509,7 @@ def serialize_berater(obj, *, detail: bool = False, preview_chars: int = 4000) -
         'cv_latest_chars': (obj.cv_versions or [{}])[-1].get('chars') if obj.cv_versions else None,
         'deleted': bool(getattr(obj, 'deleted_at', None)),
         'meta': ' · '.join(x for x in [
-            f'Gulp {obj.gulp_id}' if obj.gulp_id else '',
+            id_meta,
             obj.ort or '',
             f'ab {obj.verfuegbar_ab.isoformat()}' if obj.verfuegbar_ab else '',
             f'{obj.satz} €' if obj.satz is not None else '',
@@ -376,8 +522,11 @@ def serialize_berater(obj, *, detail: bool = False, preview_chars: int = 4000) -
                 else (
                     '✔ CRM ' + (obj.crm_contact_id[:8] + '…' if obj.crm_contact_id else '')
                     if obj.match_status == 'bekannt'
-                    else ('Platzhalter — optional in CRM anlegen' if (obj.name or '').startswith('Gulp ')
-                          else 'neu / unbekannt')
+                    else (
+                        'Platzhalter — optional in CRM anlegen'
+                        if (obj.name or '').startswith(('Gulp ', 'FM '))
+                        else 'neu / unbekannt'
+                    )
                 )
             )
         ),
@@ -392,20 +541,35 @@ def serialize_list_hit(hit: dict[str, Any]) -> dict[str, Any]:
     note = hit.get('note') or ''
     mongo = str(hit.get('mongo_id') or '').strip()
     gid = hit.get('gulp_id') or ''
-    kontakt = hit.get('kontakt_url') or gulp.kontakt_url_for(gulp_id=gid, mongo_id=mongo)
+    fm_id = str(hit.get('fm_id') or '').strip()
+    fm_slug = str(hit.get('fm_slug') or '').strip()
+    src = (hit.get('source') or ('freelancermap' if fm_id and not gid else 'gulp')).strip().lower()
+    is_fm = src == SOURCE_NAME_FL or bool(fm_id and not gid)
+    kontakt = hit.get('kontakt_url') or ''
     profil = hit.get('profil_url') or ''
-    if not profil:
-        if mongo and re.fullmatch(r'[a-f0-9]{24}', mongo, re.I):
-            profil = f'https://www.gulp.de/talentfinder/app/experten/{mongo}'
-        elif gid:
-            profil = gulp.profil_url_for_gulp_id(gid)
+    if is_fm:
+        if not profil:
+            profil = fl.profil_url_for(slug=fm_slug, fm_id=fm_id)
+        if not kontakt:
+            kontakt = fl.kontakt_url_for(slug=fm_slug, fm_id=fm_id)
+    else:
+        kontakt = kontakt or gulp.kontakt_url_for(gulp_id=gid, mongo_id=mongo)
+        if not profil:
+            if mongo and re.fullmatch(r'[a-f0-9]{24}', mongo, re.I):
+                profil = f'https://www.gulp.de/talentfinder/app/experten/{mongo}'
+            elif gid:
+                profil = gulp.profil_url_for_gulp_id(gid)
     return {
         'id': str(hit.get('id') or ''),
-        'name': hit.get('name') or gulp.placeholder_name(gid),
+        'name': hit.get('name') or (
+            gulp.placeholder_name(gid) if gid else (f'FM {fm_id}' if fm_id else 'Berater')
+        ),
         'gulp_id': gid,
+        'fm_id': fm_id,
+        'fm_slug': fm_slug,
         'mongo_id': mongo,
-        'src': hit.get('source') or 'gulp',
-        'sources': [hit.get('source') or 'gulp'],
+        'src': src,
+        'sources': [src],
         'skills': hit.get('skills') or [],
         'ort': hit.get('ort') or '',
         'city': hit.get('ort') or '',
@@ -1043,6 +1207,152 @@ def sync_available_from_gulp(
                     'satz': packed.get('satz'),
                     'name': (obj.name or '')[:80],
                     'skills_n': len(obj.skills or []),
+                })
+
+    return stats
+
+
+def sync_available_from_fl(
+    *,
+    limit: int = 36,
+    pages: int = 2,
+    delay_s: float = 0.15,
+) -> dict[str, Any]:
+    """
+    Freelancermap „verfügbare Freelancer“ einlesen (öffentliche Suche).
+
+    - bekannt (Radar/CRM via freelancermap_profil_c): aktualisieren
+    - neu: Radar-Eintrag mit Titel/Skills/Projekten
+    """
+    from apps.abpe_shaduler.models import RadarConsultantItem
+
+    take = max(1, min(200, int(limit or 36)))
+    pages = max(1, min(10, int(pages or 2)))
+
+    stats = {
+        'ok': True,
+        'scanned': 0,
+        'created': 0,
+        'updated': 0,
+        'crm_updated': 0,
+        'skipped': 0,
+        'errors': 0,
+        'results': [],
+        'limit': take,
+        'pages': pages,
+        'fm_total': None,
+        'source': 'freelancermap',
+    }
+
+    seen: set[str] = set()
+    for page in range(1, pages + 1):
+        if stats['scanned'] >= take:
+            break
+        listed = fl.fetch_freelancers_list(page=page, available_only=True)
+        if not listed.get('ok'):
+            stats['ok'] = False
+            stats['error'] = listed.get('error') or 'FM Suche fehlgeschlagen'
+            stats['errors'] += 1
+            break
+        if stats['fm_total'] is None and listed.get('total') is not None:
+            stats['fm_total'] = listed.get('total')
+
+        hits = listed.get('results') or []
+        if not hits:
+            break
+
+        for hit in hits:
+            if stats['scanned'] >= take:
+                break
+            fid = str(hit.get('fm_id') or '').strip()
+            if not fid:
+                stats['skipped'] += 1
+                continue
+            if fid in seen:
+                stats['skipped'] += 1
+                continue
+            seen.add(fid)
+
+            stats['scanned'] += 1
+            existed = (
+                RadarConsultantItem.objects
+                .filter(dedup_hash=_dedup_fm(fid))
+                .exists()
+            )
+            crm_before = find_crm_by_fm(
+                fm_id=fid,
+                slug=hit.get('fm_slug') or '',
+                profil_url=hit.get('profil_url') or '',
+            )
+            before_v = None
+            if crm_before and crm_before.get('verfuegbar_ab'):
+                bv = crm_before['verfuegbar_ab']
+                before_v = bv.isoformat() if hasattr(bv, 'isoformat') else str(bv)
+
+            try:
+                obj = upsert_berater({
+                    **hit,
+                    'source': 'freelancermap_available',
+                    'source_name': SOURCE_NAME_FL,
+                    'eckdaten': {
+                        'availability_percent': hit.get('availability_percent'),
+                        'availability_code': hit.get('availability_code'),
+                        'anonym': hit.get('anonym'),
+                        'from_available_sync': True,
+                        'checked_at': timezone.now().isoformat(),
+                    },
+                }, apply_crm=True)
+            except Exception as exc:
+                log.warning('FM available sync %s: %s', fid, exc)
+                stats['errors'] += 1
+                if len(stats['results']) < 40:
+                    stats['results'].append({
+                        'action': 'error',
+                        'fm_id': fid,
+                        'error': str(exc)[:200],
+                    })
+                continue
+
+            action = 'created' if not existed else 'updated'
+            if action == 'created':
+                stats['created'] += 1
+            else:
+                stats['updated'] += 1
+
+            crm_touched = False
+            if obj.crm_contact_id:
+                if not crm_before:
+                    stats['crm_updated'] += 1
+                    crm_touched = True
+                elif hit.get('verfuegbar_ab'):
+                    crm_after = find_crm_by_fm(
+                        fm_id=fid,
+                        slug=hit.get('fm_slug') or '',
+                        profil_url=hit.get('profil_url') or '',
+                    )
+                    after_v = None
+                    if crm_after and crm_after.get('verfuegbar_ab'):
+                        av = crm_after['verfuegbar_ab']
+                        after_v = av.isoformat() if hasattr(av, 'isoformat') else str(av)
+                    if after_v and after_v != before_v:
+                        stats['crm_updated'] += 1
+                        crm_touched = True
+
+            if delay_s:
+                time.sleep(max(0.0, float(delay_s)))
+
+            if len(stats['results']) < 40:
+                stats['results'].append({
+                    'action': action,
+                    'fm_id': fid,
+                    'id': str(obj.pk),
+                    'crm': bool(obj.crm_contact_id),
+                    'crm_availability': crm_touched,
+                    'verfuegbar_ab': hit.get('verfuegbar_ab'),
+                    'satz': hit.get('satz'),
+                    'name': (obj.name or '')[:80],
+                    'skills_n': len(obj.skills or []),
+                    'profil_url': hit.get('profil_url') or '',
                 })
 
     return stats
