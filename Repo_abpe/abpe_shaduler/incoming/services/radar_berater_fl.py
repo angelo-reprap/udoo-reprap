@@ -1,8 +1,20 @@
 """
-Freelancermap — Radar Berater (Phase 1).
+Freelancermap — Radar Berater (Phase 1 + Stufe B).
 
-Öffentliche Suche (kein Login nötig für Liste):
+Suche:
   GET /freelancer/search/ajax?…&excludeUnavailable=1
+  Ohne Session: Liste ok, Stundensätze oft null.
+  Mit Business-Session: paymentInformation.hourlyRate gesetzt.
+
+Profil (Paste / Enrich):
+  GET /profil/{slug} → <script data-component-name="ProfileShow">…</script>
+  Optional ld+json Person bei Soft-Anonym (firstName/lastName == anonymous).
+
+Session (wie Gulp, Pfad fl statt gu):
+  settings.json → shaduler.freelancermap
+    cookie_header | cookies | session_file
+  ODER data/url/fl/.session_cookies.json
+    { "cookies": [ {"name":"…","value":"…"}, … ] }
 
 Profil-URL: https://www.freelancermap.de/profil/{slug}
 CRM: freelancermap_profil_c / freelancermap_last_updated_c
@@ -13,6 +25,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import re
 import ssl
 import urllib.error
@@ -20,6 +33,8 @@ import urllib.parse
 import urllib.request
 from datetime import date, datetime
 from typing import Any, Optional
+
+from django.conf import settings
 
 log = logging.getLogger('abpe_shaduler.radar_berater_fl')
 
@@ -37,6 +52,20 @@ FM_SEARCH_AJAX = f'{FM_BASE}/freelancer/search/ajax'
 # 3=Verfügbar, 2=Teilweise, 20/40/60/80=% , 1=nicht verfügbar (mit until)
 AVAIL_OK = {2, 3, 20, 40, 60, 80}
 
+_RE_PROFIL_SLUG = re.compile(
+    r'(?:https?://)?(?:www\.)?freelancermap\.de/profil/([A-Za-z0-9][A-Za-z0-9\-_/]*)',
+    re.I,
+)
+_RE_SLUG_ID = re.compile(r'-(\d{4,8})$')
+_RE_PROFILE_SHOW = re.compile(
+    r'<script[^>]*\bdata-component-name=["\']ProfileShow["\'][^>]*>(.*?)</script>',
+    re.I | re.DOTALL,
+)
+_RE_LD_JSON = re.compile(
+    r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+    re.I | re.DOTALL,
+)
+
 
 def profil_url_for(*, slug: str = '', fm_id: str = '') -> str:
     slug = (slug or '').strip().strip('/')
@@ -53,27 +82,152 @@ def kontakt_url_for(*, slug: str = '', fm_id: str = '') -> str:
     return profil_url_for(slug=slug, fm_id=fm_id)
 
 
+def _load_fl_cfg() -> dict:
+    try:
+        path = getattr(settings, 'ABPE_SETTINGS_PATH', None) or '/opt/abpe/backend/settings.json'
+        with open(path, encoding='utf-8') as f:
+            cfg = json.load(f)
+        return (cfg.get('shaduler') or {}).get('freelancermap') or {}
+    except Exception:
+        return {}
+
+
+def _fl_cookie_paths(cfg: Optional[dict] = None) -> list[str]:
+    """Kandidaten: CV-Extractor / Extension Session-Datei (fl)."""
+    cfg = cfg if cfg is not None else _load_fl_cfg()
+    out: list[str] = []
+    custom = (cfg.get('session_file') or cfg.get('cookies_file') or '').strip()
+    if custom:
+        out.append(custom)
+    out.extend([
+        '/opt/abpe/backend/data/url/fl/.session_cookies.json',
+        'data/url/fl/.session_cookies.json',
+        '/opt/abpe/backend/apps/cv_extractor/data/url/fl/.session_cookies.json',
+    ])
+    seen: set[str] = set()
+    uniq: list[str] = []
+    for p in out:
+        if p and p not in seen:
+            seen.add(p)
+            uniq.append(p)
+    return uniq
+
+
+def _cookies_from_session_file(path: str) -> str:
+    """
+    Liest data/url/fl/.session_cookies.json:
+      { "cookies": [ {"name":"…","value":"…"}, … ] }
+    Alle Cookies übernehmen (Business-Login → Stundensätze).
+    """
+    try:
+        with open(path, encoding='utf-8') as f:
+            data = json.load(f)
+    except Exception:
+        return ''
+    if not isinstance(data, dict):
+        return ''
+    raw = data.get('cookies') or data.get('fl_cookies') or data.get('fm_cookies') or []
+    parts: list[str] = []
+    if isinstance(raw, dict):
+        for k, v in raw.items():
+            if not k or v is None or str(v) == '':
+                continue
+            parts.append(f'{k}={v}')
+    elif isinstance(raw, list):
+        for c in raw:
+            if not isinstance(c, dict):
+                continue
+            n = (c.get('name') or '').strip()
+            v = c.get('value')
+            if not n or v is None or str(v) == '':
+                continue
+            parts.append(f'{n}={v}')
+    # FM: kein JSESSION-Pflicht — jede nicht-leere Cookie-Menge zählt
+    return '; '.join(parts) if parts else ''
+
+
+def fl_session_info() -> dict[str, Any]:
+    """Diagnose: woher die FM-Session kommt."""
+    cfg = _load_fl_cfg()
+    if cfg.get('cookie_header'):
+        h = str(cfg['cookie_header']).strip()
+        if h:
+            return {
+                'ok': True,
+                'source': 'settings.cookie_header',
+                'path': None,
+                'cookie_header': h,
+            }
+    cookies = cfg.get('cookies') or {}
+    if isinstance(cookies, dict) and cookies:
+        h = '; '.join(f'{k}={v}' for k, v in cookies.items() if v)
+        if h:
+            return {
+                'ok': True,
+                'source': 'settings.cookies',
+                'path': None,
+                'cookie_header': h,
+            }
+    for path in _fl_cookie_paths(cfg):
+        if not os.path.isfile(path):
+            continue
+        h = _cookies_from_session_file(path)
+        if h:
+            return {
+                'ok': True,
+                'source': 'session_file',
+                'path': path,
+                'cookie_header': h,
+            }
+    return {
+        'ok': False,
+        'source': None,
+        'path': None,
+        'cookie_header': '',
+        'hint': (
+            'Keine Freelancermap-Session. settings.json → shaduler.freelancermap '
+            '(cookie_header/cookies/session_file) oder '
+            'data/url/fl/.session_cookies.json (Chrome-Extension / CV-Login).'
+        ),
+        'tried_files': _fl_cookie_paths(cfg),
+    }
+
+
+def _cookie_header() -> str:
+    return fl_session_info().get('cookie_header') or ''
+
+
+def has_fl_session() -> bool:
+    return bool(_cookie_header())
+
+
 def _request(
     url: str,
     *,
     headers: Optional[dict] = None,
     timeout: int = 30,
+    use_cookies: bool = True,
+    accept: str = 'application/json, text/plain, */*',
 ) -> tuple[int, bytes]:
     h = {
         'User-Agent': UA,
-        'Accept': 'application/json, text/plain, */*',
+        'Accept': accept,
         'Accept-Language': 'de-DE,de;q=0.9',
         'X-Requested-With': 'XMLHttpRequest',
         'Referer': FM_LIST,
     }
+    if use_cookies:
+        cookie = _cookie_header()
+        if cookie:
+            h['Cookie'] = cookie
     if headers:
         h.update(headers)
     req = urllib.request.Request(url, headers=h, method='GET')
     try:
         with urllib.request.urlopen(req, timeout=timeout, context=CTX) as resp:
-            return int(resp.status), resp.read(1_500_000)
+            return int(resp.status), resp.read(2_500_000)
     except urllib.error.HTTPError as e:
-        body = e.read(80_000) if e.fp else b''
+        body = e.read(120_000) if e.fp else b''
         return int(e.code), body
     except Exception as exc:
         return 0, str(exc).encode('utf-8', errors='replace')
@@ -317,6 +471,8 @@ def fetch_freelancers_list(
         total = int(data.get('count')) if isinstance(data, dict) and data.get('count') is not None else None
     except (TypeError, ValueError):
         total = None
+    sess = fl_session_info()
+    rates_n = sum(1 for r in out if r.get('satz') is not None)
     return {
         'ok': True,
         'results': out,
@@ -326,9 +482,255 @@ def fetch_freelancers_list(
         'average_price': data.get('averagePrice') if isinstance(data, dict) else None,
         'http': code,
         'needs_auth': False,
+        'fl_session': bool(sess.get('ok')),
+        'fl_session_info': {
+            'ok': sess.get('ok'),
+            'source': sess.get('source'),
+            'path': sess.get('path'),
+        },
+        'rates_with_value': rates_n,
     }
 
 
-def has_fl_session() -> bool:
-    """Liste ist öffentlich — immer True (Session optional später für Sätze/Namen)."""
-    return True
+def parse_fm_ref(text: str) -> dict[str, str]:
+    """
+    Extrahiert fm_slug / fm_id aus URL oder Freitext.
+    Beispiele:
+      https://www.freelancermap.de/profil/product-owner-205265
+      product-owner-205265
+      205265
+    """
+    s = (text or '').strip()
+    if not s:
+        return {}
+    slug = ''
+    fm_id = ''
+    m = _RE_PROFIL_SLUG.search(s)
+    if m:
+        slug = m.group(1).strip().strip('/')
+    elif re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9\-_]{2,120}', s) and not s.isdigit():
+        # Bare slug (enthält typischerweise Bindestrich + ID)
+        if '-' in s or not s.isdigit():
+            slug = s.strip().strip('/')
+    if slug:
+        mid = _RE_SLUG_ID.search(slug)
+        if mid:
+            fm_id = mid.group(1)
+    if not fm_id:
+        m2 = re.fullmatch(r'(\d{4,8})', s)
+        if m2:
+            fm_id = m2.group(1)
+        else:
+            m3 = re.search(r'[?&]id=(\d{4,8})\b', s, re.I)
+            if m3:
+                fm_id = m3.group(1)
+            else:
+                m4 = re.search(r'\bFM[-\s]?ID\s*[:=]?\s*(\d{4,8})\b', s, re.I)
+                if m4:
+                    fm_id = m4.group(1)
+    if not slug and not fm_id:
+        return {}
+    return {'fm_slug': slug, 'fm_id': fm_id}
+
+
+def _profile_from_html(html: str) -> Optional[dict]:
+    """ProfileShow-JSON aus Profil-HTML extrahieren."""
+    if not html:
+        return None
+    m = _RE_PROFILE_SHOW.search(html)
+    if not m:
+        return None
+    raw = (m.group(1) or '').strip()
+    if not raw:
+        return None
+    try:
+        data = json.loads(raw)
+    except Exception:
+        return None
+    if not isinstance(data, dict):
+        return None
+    profile = data.get('profile') if isinstance(data.get('profile'), dict) else data
+    if not isinstance(profile, dict):
+        return None
+    if not (profile.get('id') or profile.get('slug')):
+        return None
+    return profile
+
+
+def _person_from_ldjson(html: str) -> dict[str, str]:
+    """Optional echte Namen aus ld+json Person (bei Soft-Anonym)."""
+    out: dict[str, str] = {}
+    if not html:
+        return out
+    for m in _RE_LD_JSON.finditer(html):
+        raw = (m.group(1) or '').strip()
+        if not raw:
+            continue
+        try:
+            data = json.loads(raw)
+        except Exception:
+            continue
+        candidates = data if isinstance(data, list) else [data]
+        for obj in candidates:
+            if not isinstance(obj, dict):
+                continue
+            typ = obj.get('@type') or obj.get('type') or ''
+            typ_s = typ if isinstance(typ, str) else (
+                typ[0] if isinstance(typ, list) and typ else ''
+            )
+            if str(typ_s).lower() not in ('person',):
+                continue
+            given = str(obj.get('givenName') or '').strip()
+            family = str(obj.get('familyName') or '').strip()
+            name = str(obj.get('name') or '').strip()
+            if given:
+                out['first_name'] = given
+            if family:
+                out['last_name'] = family
+            if name and (not given or not family):
+                parts = name.split(None, 1)
+                if parts and not given:
+                    out['first_name'] = parts[0]
+                if len(parts) > 1 and not family:
+                    out['last_name'] = parts[1]
+            if out:
+                return out
+    return out
+
+
+def _merge_soft_anonym_names(profile: dict, html: str) -> dict:
+    """Wenn user.firstName/lastName == anonymous → ld+json Person mergen."""
+    user = profile.get('user') if isinstance(profile.get('user'), dict) else {}
+    first = str(user.get('firstName') or '').strip()
+    last = str(user.get('lastName') or '').strip()
+    if first.lower() != 'anonymous' and last.lower() != 'anonymous':
+        return profile
+    person = _person_from_ldjson(html)
+    if not person:
+        return profile
+    user = dict(user)
+    if first.lower() == 'anonymous' and person.get('first_name'):
+        user['firstName'] = person['first_name']
+    if last.lower() == 'anonymous' and person.get('last_name'):
+        user['lastName'] = person['last_name']
+    out = dict(profile)
+    out['user'] = user
+    return out
+
+
+def fetch_profile(
+    *,
+    slug: str = '',
+    fm_id: str = '',
+) -> dict[str, Any]:
+    """
+    Profilseite laden + ProfileShow parsen → normalize_freelancer.
+    Session-Cookies optional (Sätze/Namen vollständiger mit Business-Login).
+    """
+    slug = (slug or '').strip().strip('/')
+    fm_id = str(fm_id or '').strip()
+    if not slug and not fm_id:
+        return {'ok': False, 'error': 'slug oder fm_id erforderlich'}
+
+    urls: list[str] = []
+    if slug:
+        urls.append(profil_url_for(slug=slug, fm_id=fm_id))
+    if fm_id:
+        urls.append(f'{FM_BASE}/freelancer?id={urllib.parse.quote(fm_id)}')
+        # Manche Deep-Links enden nur mit der numerischen ID im Slug-Pfad
+        if not slug:
+            urls.append(f'{FM_BASE}/profil/{urllib.parse.quote(fm_id)}')
+
+    last_err = ''
+    last_http = 0
+    for url in urls:
+        code, raw = _request(
+            url,
+            accept='text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            timeout=45,
+        )
+        last_http = code
+        if code != 200 or not raw:
+            last_err = f'HTTP {code} für {url}'
+            continue
+        html = raw.decode('utf-8', errors='replace')
+        profile = _profile_from_html(html)
+        if not profile:
+            last_err = f'Kein ProfileShow in {url}'
+            continue
+        profile = _merge_soft_anonym_names(profile, html)
+        item = normalize_freelancer(profile)
+        if not item.get('fm_id') and fm_id:
+            item['fm_id'] = fm_id
+        if not item.get('fm_slug') and slug:
+            item['fm_slug'] = slug
+        return {
+            'ok': True,
+            'item': item,
+            'http': code,
+            'url': url,
+            'fl_session': has_fl_session(),
+            'needs_auth': False,
+        }
+
+    # Fallback: gezielte Query-Suche nach ID
+    if fm_id:
+        params: list[tuple[str, str]] = [
+            ('pagenr', '1'),
+            ('sort', '1'),
+            ('locale', 'de'),
+            ('currentPlatform', '1'),
+            ('placeOfWorkMode', 'travel'),
+            ('attachments', '0'),
+            ('permanentJobs', '0'),
+            ('employeeLeasingJobs', '0'),
+            ('maxDailyRate', '0'),
+            ('maxHourlyRate', '0'),
+            ('profileUpdate', '0'),
+            ('mostRecentProfiles', '0'),
+            ('excludeDachRegion', '0'),
+            ('excludeUnavailable', '0'),
+            ('excludeMemolist', '0'),
+            ('query', fm_id),
+            ('countries[0]', '1'),
+            ('countries[1]', '2'),
+            ('countries[2]', '3'),
+        ]
+        url = FM_SEARCH_AJAX + '?' + urllib.parse.urlencode(params)
+        code, raw = _request(url)
+        if code == 200 and raw:
+            try:
+                data = json.loads(raw.decode('utf-8', errors='replace'))
+            except Exception:
+                data = {}
+            freelancers = data.get('freelancers') if isinstance(data, dict) else []
+            if isinstance(freelancers, list):
+                for hit in freelancers:
+                    if not isinstance(hit, dict):
+                        continue
+                    if str(hit.get('id') or '').strip() == fm_id:
+                        item = normalize_freelancer(hit)
+                        return {
+                            'ok': True,
+                            'item': item,
+                            'http': code,
+                            'url': url,
+                            'fl_session': has_fl_session(),
+                            'from_search': True,
+                        }
+
+    return {
+        'ok': False,
+        'error': last_err or 'Profil nicht gefunden',
+        'http': last_http,
+        'fl_session': has_fl_session(),
+        'needs_auth': (last_http in (401, 403)) and not has_fl_session(),
+    }
+
+
+def fetch_profile_by_text(text: str) -> dict[str, Any]:
+    """Paste-Helfer: URL/Slug/ID → fetch_profile."""
+    ref = parse_fm_ref(text)
+    if not ref:
+        return {'ok': False, 'error': 'Keine Freelancermap-URL/ID erkannt'}
+    return fetch_profile(slug=ref.get('fm_slug') or '', fm_id=ref.get('fm_id') or '')

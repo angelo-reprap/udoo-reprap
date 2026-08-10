@@ -163,7 +163,7 @@
         '</span></div>' +
         '<div class="paste" style="display:flex;gap:8px;padding:8px 12px;border-bottom:1px solid var(--border-color,#eee);flex-wrap:wrap">' +
         '<input id="sh-radar-paste" class="matching-form-input" style="flex:1;min-width:160px" ' +
-        'placeholder="' + esc(_t('sh.radar_b_paste_ph', 'Gulp-ID oder Talentfinder-URL …')) + '">' +
+        'placeholder="' + esc(_t('sh.radar_b_paste_ph', 'Gulp-ID / Talentfinder- oder Freelancermap-URL …')) + '">' +
         '<button type="button" class="matching-btn-sm" id="sh-radar-paste-btn">' +
         '<i class="bi bi-plus-lg"></i> ' + esc(_t('sh.radar_b_paste', 'Übernehmen')) + '</button>' +
         '<button type="button" class="matching-btn-sm" id="sh-radar-b-seed" title="' +
@@ -2759,7 +2759,7 @@
       pasteBtn.onclick = function () {
         var inp = document.getElementById('sh-radar-paste');
         var text = inp ? String(inp.value || '').trim() : '';
-        if (!text) { toast(_t('sh.radar_b_paste_need', 'Gulp-ID oder URL eingeben')); return; }
+        if (!text) { toast(_t('sh.radar_b_paste_need', 'Gulp- oder Freelancermap-URL/ID eingeben')); return; }
         pasteBtn.disabled = true;
         fetch(api('radar/berater/einfuegen/'), {
           method: 'POST',
@@ -2781,7 +2781,7 @@
             if (inp) inp.value = '';
             toast(d.fetched
               ? _t('sh.radar_b_paste_ok', 'Profil übernommen')
-              : _t('sh.radar_b_paste_placeholder', 'Platzhalter angelegt (Gulp-Login für Details)'));
+              : _t('sh.radar_b_paste_placeholder', 'Platzhalter angelegt (Gulp-/FM-Login für Details)'));
             loadRadarB({ soft: true });
           })
           .catch(function () {
@@ -3220,7 +3220,7 @@
       } catch (eEmpty) { /* ignore */ }
       c.innerHTML = '<div class="sh-viewer-empty">' +
         esc(_t('sh.radar_b_empty', 'Keine Berater')) +
-        ' — ' + esc(_t('sh.radar_b_empty_hint', '„CRM-Seed“ oder Gulp-ID einfügen')) +
+        ' — ' + esc(_t('sh.radar_b_empty_hint', '„CRM-Seed“ oder Gulp-/FM-URL einfügen')) +
         emptyExtra + '</div>';
     }
     var lbl = { known: '✔ CRM', maybe: '? unsicher', new: 'neu' };

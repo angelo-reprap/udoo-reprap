@@ -770,14 +770,86 @@ def list_berater(
         'persist': persist_info,
         'seed': seed_info or None,
         'gulp_session': gulp.has_gulp_session(),
+        'fl_session': fl.has_fl_session(),
         'available_only': available_only,
     }
 
 
 def paste_berater(text: str) -> dict[str, Any]:
-    gid = gulp.parse_gulp_id(text)
+    """Gulp-ID/URL oder Freelancermap-Profil-URL/Slug/ID → Radar (+ CRM-Match)."""
+    s = (text or '').strip()
+    if not s:
+        return {'ok': False, 'error': 'Keine Gulp- oder Freelancermap-URL/ID erkannt'}
+
+    # Freelancermap zuerst, wenn URL/Slug klar FM ist (sonst Gulp-Zahlen-ID)
+    fm_ref = fl.parse_fm_ref(s)
+    looks_fm = bool(
+        fm_ref
+        and (
+            'freelancermap' in s.lower()
+            or '/profil/' in s.lower()
+            or fm_ref.get('fm_slug')
+        )
+    )
+    gid = gulp.parse_gulp_id(s)
+
+    if looks_fm or (fm_ref and not gid):
+        packed = fl.fetch_profile(
+            slug=fm_ref.get('fm_slug') or '',
+            fm_id=fm_ref.get('fm_id') or '',
+        )
+        hit = packed.get('item') if isinstance(packed.get('item'), dict) else {}
+        fid = str(hit.get('fm_id') or fm_ref.get('fm_id') or '').strip()
+        slug = str(hit.get('fm_slug') or fm_ref.get('fm_slug') or '').strip()
+        if not fid and not slug:
+            return {
+                'ok': False,
+                'error': packed.get('error') or 'Keine Freelancermap-ID erkannt',
+                'fl_session': fl.has_fl_session(),
+                'needs_auth': packed.get('needs_auth'),
+            }
+        item = {
+            'fm_id': fid,
+            'fm_slug': slug,
+            'gulp_id': '',
+            'name': hit.get('name') or (f'FM {fid}' if fid else 'Freelancermap'),
+            'profil_url': hit.get('profil_url') or fl.profil_url_for(slug=slug, fm_id=fid),
+            'kontakt_url': hit.get('kontakt_url') or fl.kontakt_url_for(slug=slug, fm_id=fid),
+            'skills': hit.get('skills') or [],
+            'ort': hit.get('ort') or '',
+            'verfuegbar_ab': hit.get('verfuegbar_ab'),
+            'satz': hit.get('satz'),
+            'beschreibung': hit.get('beschreibung') or '',
+            'cv_text': hit.get('cv_text') or '',
+            'first_name': hit.get('first_name') or '',
+            'last_name': hit.get('last_name') or '',
+            'title': hit.get('title') or '',
+            'source': SOURCE_NAME_FL,
+            'source_name': SOURCE_NAME_FL,
+            'eckdaten': {
+                'availability_percent': hit.get('availability_percent'),
+                'availability_code': hit.get('availability_code'),
+                'anonym': hit.get('anonym'),
+                'from_paste': True,
+                'checked_at': timezone.now().isoformat(),
+            },
+        }
+        obj = upsert_berater(item, apply_crm=True)
+        return {
+            'ok': True,
+            'item': serialize_berater(obj),
+            'fetched': bool(packed.get('ok')),
+            'needs_auth': packed.get('needs_auth'),
+            'fetch_error': packed.get('error') if not packed.get('ok') else None,
+            'fl_session': fl.has_fl_session(),
+            'source': SOURCE_NAME_FL,
+        }
+
     if not gid:
-        return {'ok': False, 'error': 'Keine Gulp-ID in Eingabe erkannt'}
+        return {
+            'ok': False,
+            'error': 'Keine Gulp- oder Freelancermap-URL/ID erkannt',
+        }
     packed = gulp.fetch_expert_by_gulp_id(gid)
     item = {
         'gulp_id': gid,
@@ -801,6 +873,8 @@ def paste_berater(text: str) -> dict[str, Any]:
         'fetched': bool(packed.get('ok')),
         'needs_auth': packed.get('needs_auth'),
         'fetch_error': packed.get('error'),
+        'gulp_session': gulp.has_gulp_session(),
+        'source': 'gulp',
     }
 
 
@@ -1229,6 +1303,7 @@ def sync_available_from_fl(
     take = max(1, min(200, int(limit or 36)))
     pages = max(1, min(10, int(pages or 2)))
 
+    sess = fl.fl_session_info()
     stats = {
         'ok': True,
         'scanned': 0,
@@ -1242,6 +1317,14 @@ def sync_available_from_fl(
         'pages': pages,
         'fm_total': None,
         'source': 'freelancermap',
+        'fl_session': bool(sess.get('ok')),
+        'fl_session_info': {
+            'ok': sess.get('ok'),
+            'source': sess.get('source'),
+            'path': sess.get('path'),
+            'hint': sess.get('hint'),
+        },
+        'rates_with_value': 0,
     }
 
     seen: set[str] = set()
@@ -1341,6 +1424,9 @@ def sync_available_from_fl(
             if delay_s:
                 time.sleep(max(0.0, float(delay_s)))
 
+            if hit.get('satz') is not None:
+                stats['rates_with_value'] += 1
+
             if len(stats['results']) < 40:
                 stats['results'].append({
                     'action': action,
@@ -1354,6 +1440,12 @@ def sync_available_from_fl(
                     'skills_n': len(obj.skills or []),
                     'profil_url': hit.get('profil_url') or '',
                 })
+
+    if not stats.get('fl_session'):
+        stats['hint'] = (
+            (sess.get('hint') or '')
+            + ' Ohne Session sind Stundensätze in der Suche oft leer.'
+        ).strip()
 
     return stats
 
