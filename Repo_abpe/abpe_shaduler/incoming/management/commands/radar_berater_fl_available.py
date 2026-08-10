@@ -56,4 +56,9 @@ class Command(BaseCommand):
             pages=options['pages'],
             delay_s=options['delay'],
         )
+        rates = res.get('rates_with_value')
+        if rates is not None:
+            self.stdout.write(f"rates_with_value={rates} fl_session={res.get('fl_session')}")
+        if res.get('hint'):
+            self.stdout.write(self.style.WARNING(str(res['hint'])))
         self.stdout.write(str(res))
