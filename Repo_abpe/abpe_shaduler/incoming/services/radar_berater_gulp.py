@@ -268,7 +268,10 @@ def fetch_expert_by_gulp_id(gulp_id: str) -> dict[str, Any]:
     if not has_gulp_session():
         return {
             'ok': False,
-            'error': 'Gulp-Session fehlt (settings.json → shaduler.gulp_talentfinder.cookies)',
+            'error': (
+                'Gulp-Session fehlt — CV-Extractor Session erneuern '
+                '(data/url/gu/.session_cookies.json) oder settings.json'
+            ),
             'gulp_id': gid,
             'profil_url': profil_url_for_gulp_id(gid),
             'needs_auth': True,

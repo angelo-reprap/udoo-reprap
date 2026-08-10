@@ -2842,7 +2842,7 @@
             gulpBtn.classList.remove('busy');
             var d = pack.j || {};
             if (d.needs_auth || pack.status === 401) {
-              toast(d.error || _t('sh.radar_b_gulp_auth', 'Gulp-Login fehlt (Cookies in settings.json)'));
+              toast(d.error || _t('sh.radar_b_gulp_auth', 'Gulp-Login fehlt — CV-Extractor Session erneuern'));
               return;
             }
             if (!d.ok && d.error) {
