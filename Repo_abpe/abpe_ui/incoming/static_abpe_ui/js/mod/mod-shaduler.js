@@ -335,6 +335,13 @@
           arten: ARTEN,
           order: ORDER,
           onOpenTask: openModal,
+          onCreateEntry: function (due) {
+            openFreeTaskChooser({
+              defaultArt: 'termin',
+              titleHint: _t('sh.cal_new', 'Neuer Kalender-Eintrag'),
+              due: due || null,
+            });
+          },
         });
       }
       refreshStats();
@@ -1607,11 +1614,24 @@
     }
   }
 
+  function openFreeTaskChooser(opts) {
+    opts = opts || {};
+    openMailTaskChooser({}, {
+      free: true,
+      defaultArt: opts.defaultArt || 'termin',
+      titleHint: opts.titleHint || _t('sh.task_new', 'Neue Aufgabe'),
+      titel: opts.titel || '',
+      notiz: opts.notiz || '',
+      due: opts.due,
+    });
+  }
+
   function openMailTaskChooser(m, opts) {
     closeMailTaskChooser();
     m = m || {};
     opts = opts || {};
-    var defaultArt = opts.defaultArt || 'anruf';
+    var freeMode = !!(opts.free || !m.id);
+    var defaultArt = opts.defaultArt || (freeMode ? 'termin' : 'anruf');
     var arts = [
       { id: 'anruf', label: _t('sh.art_anruf', 'Anruf'), icon: 'bi-telephone' },
       { id: 'sms_messenger', label: _t('sh.art_sms_messenger_short', 'WhatsApp'), icon: 'bi-whatsapp' },
@@ -1628,7 +1648,10 @@
     }).join('');
     var dueDef = opts.due || defaultDueDateTime();
     var notizPrefill = opts.notiz != null ? String(opts.notiz) : '';
-    var titleMain = opts.titleHint || _t('sh.inbox_task', 'Aufgabe erzeugen');
+    var titelPrefill = (opts.titel != null ? String(opts.titel) : (m.subj || '')).trim();
+    var titleMain = opts.titleHint || (freeMode
+      ? _t('sh.task_new', 'Neue Aufgabe')
+      : _t('sh.inbox_task', 'Aufgabe erzeugen'));
     var ovl = document.createElement('div');
     ovl.className = 'ovl open';
     ovl.id = 'sh-mail-task-ovl';
@@ -1637,14 +1660,22 @@
       '<div class="mh">' +
       '<div class="ico"><i class="bi bi-check2-square"></i></div>' +
       '<div><b>' + esc(titleMain) + '</b>' +
-      '<small class="sh-mt-subj">' + esc(m.subj || '') + '</small></div>' +
+      (freeMode
+        ? '<small>' + esc(_t('sh.task_free_hint', 'Freier Betreff — z. B. Zahnarzt, Rückruf …')) + '</small>'
+        : '') +
+      '</div>' +
       '<button type="button" class="x" id="sh-mt-close"><i class="bi bi-x-lg"></i></button>' +
       '</div>' +
       '<div class="mb">' +
-      '<div class="excerpt"><div class="lbl">' + esc(_t('sh.inbox_from', 'Von')) + '</div>' +
-      esc(m.from || '—') +
-      '<div id="sh-mt-crm-box" class="sh-crm-box"><div class="note">' +
-      esc(_t('sh.inbox_crm_loading', 'CRM wird geprüft …')) + '</div></div></div>' +
+      '<div class="inp"><label for="sh-mt-titel">' + esc(_t('sh.task_betreff', 'Betreff')) + '</label>' +
+      '<input type="text" id="sh-mt-titel" maxlength="200" value="' + esc(titelPrefill) + '" ' +
+      'placeholder="' + esc(_t('sh.task_betreff_ph', 'z. B. Zahnarzt, Rückruf Müller …')) + '"></div>' +
+      (freeMode
+        ? ''
+        : ('<div class="excerpt"><div class="lbl">' + esc(_t('sh.inbox_from', 'Von')) + '</div>' +
+          esc(m.from || '—') +
+          '<div id="sh-mt-crm-box" class="sh-crm-box"><div class="note">' +
+          esc(_t('sh.inbox_crm_loading', 'CRM wird geprüft …')) + '</div></div></div>')) +
       '<div class="qlbl">' + esc(_t('sh.inbox_pick_art', 'Art')) + '</div>' +
       '<div class="sh-pick-row" id="sh-mt-arts">' + artBtns + '</div>' +
       '<div class="qlbl">' + esc(_t('sh.inbox_pick_due', 'Fälligkeit')) + '</div>' +
@@ -1679,41 +1710,50 @@
     document.body.appendChild(ovl);
 
     var selectedArt = defaultArt;
-    var crmInfo = {
-      found: !!(m.crm_bean_id || m.crm_found),
-      crm_bean_id: m.crm_bean_id || '',
-      crm_bean_module: m.crm_bean_module || '',
-      crm_name: m.crm_name || '',
-      crm: m.crm || '',
-      crm_url: m.crm_url || '',
-      matching_url: m.matching_url || '',
-    };
-    var crmBox = document.getElementById('sh-mt-crm-box');
-    if (crmInfo.found) renderCrmBlock(crmBox, crmInfo);
-    else if (crmBox) {
-      // Live-Lookup Absender
-      var email = m.reply_email || extractEmailFromFrom(m.from);
-      if (email) {
-        fetch(api('inbox/crm-lookup/?email=' + encodeURIComponent(email)), {
-          credentials: 'same-origin',
-          headers: { 'X-Requested-With': 'XMLHttpRequest' },
-        })
-          .then(function (r) { return r.json(); })
-          .then(function (j) {
-            if (j && j.ok && j.found) {
-              crmInfo = j;
-              m.crm_bean_id = j.crm_bean_id;
-              m.crm_bean_module = j.crm_bean_module;
-              m.crm_name = j.crm_name;
-              m.crm = j.crm;
-              m.crm_url = j.crm_url;
-              if (j.matching_url) m.matching_url = j.matching_url;
-            }
-            renderCrmBlock(crmBox, j && j.ok ? j : { found: false });
+    var titelEl = document.getElementById('sh-mt-titel');
+    if (titelEl) {
+      setTimeout(function () {
+        titelEl.focus();
+        if (!titelPrefill) titelEl.select();
+      }, 30);
+    }
+
+    if (!freeMode) {
+      var crmInfo = {
+        found: !!(m.crm_bean_id || m.crm_found),
+        crm_bean_id: m.crm_bean_id || '',
+        crm_bean_module: m.crm_bean_module || '',
+        crm_name: m.crm_name || '',
+        crm: m.crm || '',
+        crm_url: m.crm_url || '',
+        matching_url: m.matching_url || '',
+      };
+      var crmBox = document.getElementById('sh-mt-crm-box');
+      if (crmInfo.found) renderCrmBlock(crmBox, crmInfo);
+      else if (crmBox) {
+        var email = m.reply_email || extractEmailFromFrom(m.from);
+        if (email) {
+          fetch(api('inbox/crm-lookup/?email=' + encodeURIComponent(email)), {
+            credentials: 'same-origin',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
           })
-          .catch(function () { renderCrmBlock(crmBox, { found: false }); });
-      } else {
-        renderCrmBlock(crmBox, { found: false });
+            .then(function (r) { return r.json(); })
+            .then(function (j) {
+              if (j && j.ok && j.found) {
+                crmInfo = j;
+                m.crm_bean_id = j.crm_bean_id;
+                m.crm_bean_module = j.crm_bean_module;
+                m.crm_name = j.crm_name;
+                m.crm = j.crm;
+                m.crm_url = j.crm_url;
+                if (j.matching_url) m.matching_url = j.matching_url;
+              }
+              renderCrmBlock(crmBox, j && j.ok ? j : { found: false });
+            })
+            .catch(function () { renderCrmBlock(crmBox, { found: false }); });
+        } else {
+          renderCrmBlock(crmBox, { found: false });
+        }
       }
     }
 
@@ -1763,16 +1803,28 @@
         var dateEl = document.getElementById('sh-mt-date');
         var timeEl = document.getElementById('sh-mt-time');
         var dauerEl = document.getElementById('sh-mt-dauer');
+        var titel = (document.getElementById('sh-mt-titel') || {}).value || '';
+        titel = String(titel).trim();
+        if (!titel) {
+          toast(_t('sh.task_betreff_need', 'Bitte einen Betreff eingeben'));
+          if (titelEl) titelEl.focus();
+          return;
+        }
         var payload = {
           art: selectedArt,
+          titel: titel,
           faellig_am: dateEl ? dateEl.value : '',
           faellig_zeit: timeEl ? timeEl.value : '',
           dauer_min: dauerEl && dauerEl.value ? parseInt(dauerEl.value, 10) : null,
           notiz: ta ? String(ta.value || '').trim() : '',
+          beschreibung: ta ? String(ta.value || '').trim() : '',
           crm_notiz: crmCb ? !!crmCb.checked : false,
         };
         save.disabled = true;
-        fetch(api('inbox/' + encodeURIComponent(m.id) + '/aufgabe/'), {
+        var url = freeMode
+          ? api('aufgaben/create/')
+          : api('inbox/' + encodeURIComponent(m.id) + '/aufgabe/');
+        fetch(url, {
           method: 'POST',
           credentials: 'same-origin',
           headers: {
@@ -1787,14 +1839,25 @@
             save.disabled = false;
             if (j && j.ok) {
               closeMailTaskChooser();
-              var msg = _t('sh.toast_mail_task', 'Aufgabe aus Mail erzeugt');
+              var msg = freeMode
+                ? _t('sh.toast_task_created', 'Aufgabe angelegt')
+                : _t('sh.toast_mail_task', 'Aufgabe aus Mail erzeugt');
               if (j.crm_notiz) msg += ' · ' + _t('sh.toast_crm_note', 'CRM-Notiz gesetzt');
               if (j.crm_name) msg += ' · ' + j.crm_name;
               toast(msg);
-              TASKS = null;
-              markMailRead(m.id, document.querySelector('#sh-inbox .ritem.on'));
+              if (!freeMode) {
+                markMailRead(m.id, document.querySelector('#sh-inbox .ritem.on'));
+              }
+              if (cfg.tab === 'aufgaben') {
+                loadAufgaben();
+              } else if (cfg.tab === 'kalender') {
+                TASKS = null;
+                loadKalender();
+              } else {
+                TASKS = null;
+              }
             } else {
-              toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
+              toast((j && j.error) || _t('sh.toast_error', 'Speichern fehlgeschlagen'));
             }
           })
           .catch(function () {
@@ -3616,12 +3679,22 @@
     if (!c) return;
     c.innerHTML = '';
     var head = document.createElement('div');
-    head.className = 'acc-head';
+    head.className = 'acc-head acc-head-alle';
     head.innerHTML =
       '<span class="gi" style="background:var(--abcona-blue,#163258)"><i class="bi bi-collection"></i></span>' +
       '<b>' + esc(_t('sh.alle', 'Alle')) + '</b>' +
+      '<button type="button" class="sh-neue-btn" id="sh-task-new" title="' +
+      esc(_t('sh.task_new_hint', 'Aufgabe mit freiem Betreff anlegen')) + '">' +
+      '<i class="bi bi-plus-lg"></i> ' + esc(_t('sh.task_new', 'Neue Aufgabe')) + '</button>' +
       '<span class="cnt">(' + TASKS.length + ')</span>';
     c.appendChild(head);
+    var newBtn = head.querySelector('#sh-task-new');
+    if (newBtn) {
+      newBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        openFreeTaskChooser({ defaultArt: 'termin' });
+      });
+    }
 
     ORDER.forEach(function (art) {
       var a = ARTEN[art];

@@ -519,7 +519,25 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
             'hist': hist,
         },
         'results': ergebnisse_fuer(aufgabe),
+        'created_at': (
+            aufgabe.created_at.isoformat() if getattr(aufgabe, 'created_at', None) else None
+        ),
+        'is_new': _aufgabe_is_new(aufgabe),
     }
+
+
+def _aufgabe_is_new(aufgabe: Aufgabe, *, hours: int = 48) -> bool:
+    """Neu = in den letzten ``hours`` Stunden angelegt (noch offen)."""
+    created = getattr(aufgabe, 'created_at', None)
+    if not created or aufgabe.status != Aufgabe.Status.OFFEN:
+        return False
+    now = timezone.now()
+    if timezone.is_naive(created):
+        created = timezone.make_aware(created, timezone.get_current_timezone())
+    try:
+        return created >= (now - timedelta(hours=max(1, int(hours))))
+    except Exception:
+        return False
 
 
 def liste(
