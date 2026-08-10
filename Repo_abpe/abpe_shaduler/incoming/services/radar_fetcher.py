@@ -1142,6 +1142,9 @@ def persist_items(
     """
     Upsert RadarItem. archive_older: ältere „neu“-Items derselben Quelle → verworfen
     (Tages-Archiv-Idee: nur heutige bleiben aktiv sichtbar).
+
+    eingegangen_am = Projekt-Publikationsdatum (nicht Importzeit!) — sonst sortiert
+    „neueste zuerst“ nach Batch-Insert verkehrt (letzte Zeile = späteste auto_now_add).
     """
     from django.utils import timezone
     from apps.abpe_shaduler.models import RadarItem
@@ -1154,7 +1157,16 @@ def persist_items(
     for it in items:
         dedup = it['dedup_hash']
         hashes.append(dedup)
-        obj = RadarItem.objects.filter(quelle=src, dedup_hash=dedup).first()
+        pub_dt = _parse_dt(
+            it.get('raw_created')
+            or it.get('eingegangen_am')
+            or (it.get('eckdaten') or {}).get('created')
+        )
+        if pub_dt is not None and timezone.is_naive(pub_dt):
+            try:
+                pub_dt = timezone.make_aware(pub_dt, timezone.get_current_timezone())
+            except Exception:
+                pub_dt = timezone.make_aware(pub_dt, timezone.utc)
         fields = {
             'external_url': it.get('external_url') or '',
             'headline': (it.get('headline') or '')[:250],
@@ -1162,12 +1174,18 @@ def persist_items(
             'skills': it.get('skills') or [],
             'eckdaten': it.get('eckdaten') or {},
         }
+        obj = RadarItem.objects.filter(quelle=src, dedup_hash=dedup).first()
         if obj:
             for k, v in fields.items():
                 setattr(obj, k, v)
             if obj.status == RadarItem.Status.VERWORFEN:
                 # wieder sichtbar wenn erneut am heutigen Tag gefunden
                 obj.status = RadarItem.Status.NEU
+            # Publikationsdatum nachziehen (älterer Import-Zeitstempel korrigieren)
+            if pub_dt and (not obj.eingegangen_am or abs(
+                (obj.eingegangen_am - pub_dt).total_seconds()
+            ) > 60):
+                obj.eingegangen_am = pub_dt
             obj.save()
             updated += 1
         else:
@@ -1177,6 +1195,10 @@ def persist_items(
                 status=RadarItem.Status.NEU,
                 **fields,
             )
+            # auto_now_add setzt Importzeit — Publikationsdatum per UPDATE setzen
+            if pub_dt:
+                RadarItem.objects.filter(pk=obj.pk).update(eingegangen_am=pub_dt)
+                obj.eingegangen_am = pub_dt
             created += 1
         touched.append(obj)
 
@@ -1242,6 +1264,12 @@ def serialize_db_item(obj) -> dict:
             grp_n = max(1, int(obj.gruppe.anbieter_anzahl or 1))
         except Exception:
             grp_n = 1
+    raw_created = None
+    if created:
+        try:
+            raw_created = created.isoformat()
+        except Exception:
+            raw_created = str(created)
     return {
         'id': str(obj.pk),
         'external_id': eck.get('project_id') or '',
@@ -1268,11 +1296,34 @@ def serialize_db_item(obj) -> dict:
         'top': obj.top_berater or [],
         'status': obj.status,
         'external_url': obj.external_url,
+        'raw_created': raw_created,
         'eingegangen_am': obj.eingegangen_am.isoformat() if obj.eingegangen_am else None,
         'company': eck.get('company') or '',
         'contact': eck.get('contact') or '',
         'city': eck.get('city') or '',
     }
+
+
+def _sort_key_published(r: dict) -> datetime:
+    """Sortierschlüssel: Publikationsdatum (nicht Importzeit)."""
+    dt = _parse_dt(
+        r.get('raw_created')
+        or (r.get('eckdaten') or {}).get('created')
+        or r.get('eingegangen_am')
+    )
+    if dt is None:
+        return datetime.min
+    if dt.tzinfo is not None:
+        try:
+            return dt.replace(tzinfo=None)
+        except Exception:
+            return datetime.min
+    return dt
+
+
+def _apply_date_sort(results: list[dict], sort: str) -> list[dict]:
+    asc = (sort or '').lower() in ('date_asc', 'asc', 'oldest')
+    return sorted(results, key=_sort_key_published, reverse=not asc)
 
 
 def list_anfragen(
@@ -1477,18 +1528,7 @@ def list_anfragen(
                 r for r in results
                 if ((r.get('sources') or [''])[0] or '').lower() == source
             ]
-        if sort in ('date_asc', 'asc', 'oldest'):
-            results = sorted(
-                results,
-                key=lambda r: r.get('raw_created') or r.get('eingegangen_am') or '',
-                reverse=False,
-            )
-        else:
-            results = sorted(
-                results,
-                key=lambda r: r.get('raw_created') or r.get('eingegangen_am') or '',
-                reverse=True,
-            )
+        results = _apply_date_sort(results, sort)
 
     # Cross-Source-Dedup: fehlende Gruppen nachziehen, dann kollabieren
     raw_count = len(results)
@@ -1521,6 +1561,8 @@ def list_anfragen(
             except Exception as exc:
                 log.warning('radar lazy regroup failed: %s', exc)
         results = radar_grouper.collapse_serialized(results, source_filter=source)
+        # Collapse kann Reihenfolge zerstören (Singles ans Ende) — neu sortieren
+        results = _apply_date_sort(results, sort)
     except Exception as exc:
         log.warning('radar collapse failed: %s', exc)
 
