@@ -1,0 +1,99 @@
+{
+  "imap": {
+    "host": "172.20.3.150",
+    "port": 993,
+    "ssl": true
+  },
+  "accounts": {
+    "vertrieb": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "abcona | Vertrieb"
+    },
+    "office": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "abcona | Office"
+    },
+    "rechnung": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "Rechnung Gruppe"
+    },
+    "zentrale": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "Zentrale Gruppe"
+    },
+    "am": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "Angelo Malaguarnera"
+    },
+    "am2": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "Annett Michallik"
+    },
+    "angelo": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "Angelo privat"
+    },
+    "me": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "Martin Endres"
+    },
+    "sg": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "Simone Grimm"
+    },
+    "vn": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "Verena Neugebauer"
+    },
+    "ka": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "Kerstin Beyert"
+    },
+    "kb": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "Beate Klumpf"
+    },
+    "tg": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "Tanja Gramatte"
+    },
+    "sk": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "Sinran Kaur-Panesar"
+    },
+    "personal": {
+      "password": "***REDACTED***",
+      "enabled": true,
+      "description": "Personal Gruppe"
+    },
+    "ssch": {
+      "password": "***REDACTED***",
+      "enabled": false,
+      "description": "Sascha Schneider — PW unbekannt"
+    },
+    "rz": {
+      "password": "***REDACTED***",
+      "enabled": false,
+      "description": "Roberto Zablotsky — PW unbekannt"
+    }
+  },
+  "indexing": {
+    "batch_size": 100,
+    "es_index": "abpe_emails",
+    "max_body_length": 10000
+  }
+}

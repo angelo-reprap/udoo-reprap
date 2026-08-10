@@ -1,0 +1,131 @@
+import json
+import os
+import re
+import shutil
+from datetime import datetime
+from django.conf import settings
+
+def extract_cv_data(body):
+    """Extrahiert CV-Daten aus dem E-Mail Body"""
+    data = {}
+    patterns = {
+        'vorname': r'Vorname\s+\*\s*:\s*\[\s*(.*?)\s*\]',
+        'nachname': r'Nachname\s+\*\s*:\s*\[\s*(.*?)\s*\]',
+        'email': r'E-Mail\s*:\s*\[\s*(.*?)\s*\]',
+        'telefon': r'Telefon\s*:\s*\[\s*(.*?)\s*\]',
+        'mobil': r'Mobil\s*:\s*\[\s*(.*?)\s*\]',
+        'allgemeine_url': r'Allgemeine URL\s*:\s*\[\s*(.*?)\s*\]',
+        'freelancermap_url': r'Freelancermap URL\s*:\s*\[\s*(.*?)\s*\]',
+        'gulp_url': r'Gulp URL\s*:\s*\[\s*(.*?)\s*\]',
+        'gulp_id': r'Gulp ID\s*:\s*\[\s*(.*?)\s*\]',
+        'strasse': r'Strasse\s*:\s*\[\s*(.*?)\s*\]',
+        'hausnummer': r'Hausnummer\s*:\s*\[\s*(.*?)\s*\]',
+        'plz': r'PLZ\s*:\s*\[\s*(.*?)\s*\]',
+        'ort': r'Ort\s*:\s*\[\s*(.*?)\s*\]',
+        'land': r'Land\s*:\s*\[\s*(.*?)\s*\]',
+        'geburtsdatum': r'Geburtsdatum\s*:\s*\[\s*(.*?)\s*\]',
+        'nationalitaet': r'Nationalität\s*:\s*\[\s*(.*?)\s*\]',
+        'sprachen': r'Sprachen\s*:\s*\[\s*(.*?)\s*\]',
+    }
+    for key, pattern in patterns.items():
+        match = re.search(pattern, body, re.IGNORECASE | re.MULTILINE)
+        if match:
+            value = match.group(1).strip()
+            if value:
+                data[key] = value
+    return data
+
+def process_cv_email(email):
+    """Verarbeitet eine CV-E-Mail: Extrahiert Daten, speichert Dateien, startet Pipeline"""
+
+    # CV-Daten extrahieren
+    cv_data = extract_cv_data(email.body_plain or '')
+
+    # Verzeichnisname: nachname_vorname
+    if cv_data.get('nachname') and cv_data.get('vorname'):
+        dir_name = f"{cv_data['nachname'].lower()}_{cv_data['vorname'].lower()}"
+    else:
+        dir_name = f"email_{email.id}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+
+    base_path = os.path.join(settings.BASE_DIR, 'data', 'email')
+
+    # E-Mail im IN Verzeichnis speichern
+    in_dir = os.path.join(base_path, 'in', dir_name)
+    os.makedirs(in_dir, exist_ok=True)
+
+    email_json = {
+        'id': email.id,
+        'subject': email.subject,
+        'from_email': email.from_email,
+        'to_email': email.to_email,
+        'received_at': email.created_at.isoformat() if email.created_at else None,
+        'body_plain': email.body_plain,
+        'body_html': email.body_html,
+        'extracted_cv_data': cv_data,
+        'attachments': [],
+        'status': 'processing',
+        'processed_at': datetime.now().isoformat(),
+    }
+
+    json_path = os.path.join(in_dir, 'email.json')
+    with open(json_path, 'w', encoding='utf-8') as f:
+        json.dump(email_json, f, indent=2, ensure_ascii=False)
+
+    # Attachments kopieren
+    attachment_files = []
+    for att in email.attachments.all():
+        if att.file_path:
+            src = os.path.join(settings.MEDIA_ROOT, att.file_path)
+            if os.path.exists(src):
+                dst = os.path.join(in_dir, att.filename)
+                shutil.copy2(src, dst)
+                email_json['attachments'].append(att.filename)
+                attachment_files.append(dst)
+                print(f'📎 Anhang kopiert: {att.filename} von {src}')
+            else:
+                print(f'⚠️ Datei nicht gefunden: {src}')
+        else:
+            print(f'⚠️ Kein file_path für Attachment: {att.filename}')
+
+    # JSON mit Attachment-Info aktualisieren
+    with open(json_path, 'w', encoding='utf-8') as f:
+        json.dump(email_json, f, indent=2, ensure_ascii=False)
+
+    # ⚠️ KEINE E-MAIL HIER SENDEN - Das macht erst enrich_consultant_task nach Pipeline-Ende!
+    # Pipeline starten (asynchron)
+    pipeline_result = start_cv_pipeline(email, cv_data, attachment_files)
+
+    return {
+        'success': True,
+        'directory': in_dir,
+        'cv_data': cv_data,
+        'attachments': attachment_files,
+        'pipeline': pipeline_result
+    }
+
+def start_cv_pipeline(email, cv_data, attachment_paths):
+    """Startet die CV-Pipeline mit den extrahierten Daten"""
+    from apps.cv_extractor.models import UploadedPDF
+    from apps.cv_extractor.tasks import process_pdf_task
+
+    results = []
+    for attachment_path in attachment_paths:
+        if attachment_path and attachment_path.lower().endswith(('.pdf', '.doc', '.docx')):
+            # UploadedPDF mit from_email erstellen
+            uploaded = UploadedPDF.objects.create(
+                file=attachment_path,
+                first_name=cv_data.get('vorname', ''),
+                last_name=cv_data.get('nachname', ''),
+                status='pending',
+                from_email=email.from_email or '',
+            )
+            process_pdf_task.delay(uploaded.id)
+            results.append({'success': True, 'upload_id': uploaded.id, 'file': attachment_path})
+
+    if results:
+        return {'success': True, 'uploads': results}
+    return {'success': False, 'error': 'Keine CV-Datei (PDF/DOC/DOCX) gefunden'}
+
+# ❌ FUNKTIONEN ENTFERNT: send_pipeline_success_email und send_pipeline_error_email
+# Die Erfolgs-E-Mail wird jetzt ausschließlich in enrich_consultant_task gesendet,
+# nachdem die Pipeline vollständig abgeschlossen ist (Stufe 1 + Stufe 2).
