@@ -3,13 +3,13 @@
 # Ohne diesen Prozess: kein email_index, kein radar_poll, keine MeetMe-Reminder.
 #
 # Usage (ucs5):
-#   bash <(git -C /mnt/public/udoo-reprap show origin/cursor/radar-anfragen-frisch-7f07:scripts/ENSURE-abpe-scheduler-loop.sh)
+#   bash <(git -C /mnt/public/udoo-reprap show origin/cursor/shaduler-all-in-one-7f07:scripts/ENSURE-abpe-scheduler-loop.sh)
 #   # oder lokal im Repo-Checkout:
 #   bash scripts/ENSURE-abpe-scheduler-loop.sh
 set -euo pipefail
 
 REPO="${REPO:-/mnt/public/udoo-reprap}"
-BRANCH="${BRANCH:-origin/cursor/radar-anfragen-frisch-7f07}"
+BRANCH="${BRANCH:-origin/cursor/shaduler-all-in-one-7f07}"
 BACKEND="${BACKEND:-/opt/abpe/backend}"
 PYBIN="${PYBIN:-/opt/abpe/venv311/bin/python}"
 LIVE_CMD="${LIVE_CMD:-/opt/abpe/backend/apps/abpe_scheduler/management/commands}"

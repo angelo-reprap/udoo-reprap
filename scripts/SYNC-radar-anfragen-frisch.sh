@@ -1,19 +1,21 @@
 #!/usr/bin/env bash
+# ⚠ TEIL-SYNC: kann „Neue Aufgabe“ / andere Features überschreiben!
+# Bevorzugt: scripts/SYNC-shaduler-all-in-one.sh (Branch cursor/shaduler-all-in-one-7f07)
 # Radar Anfragen frisch halten: Shaduler + UI + scheduler-loop + Jobs.
 # Basiert auf Matching-Sync, Branch = radar-anfragen-frisch.
 #
 # ucs5:
-#   cd /mnt/public/udoo-reprap && git fetch origin cursor/radar-anfragen-frisch-7f07
-#   bash <(git show origin/cursor/radar-anfragen-frisch-7f07:scripts/SYNC-radar-anfragen-frisch.sh)
+#   cd /mnt/public/udoo-reprap && git fetch origin cursor/shaduler-all-in-one-7f07
+#   bash <(git show origin/cursor/shaduler-all-in-one-7f07:scripts/SYNC-radar-anfragen-frisch.sh)
 set -euo pipefail
 
 REPO="${REPO:-/mnt/public/udoo-reprap}"
-export BRANCH="${BRANCH:-origin/cursor/radar-anfragen-frisch-7f07}"
+export BRANCH="${BRANCH:-origin/cursor/shaduler-all-in-one-7f07}"
 BACKEND="${BACKEND:-/opt/abpe/backend}"
 PYBIN="${PYBIN:-/opt/abpe/venv311/bin/python}"
 
 cd "$REPO"
-git fetch origin cursor/radar-anfragen-frisch-7f07 || true
+git fetch origin cursor/shaduler-all-in-one-7f07 || true
 
 # Wiederverwendet Matching-Sync (gleiche Artefakte, anderer Branch via BRANCH=)
 bash <(git show "$BRANCH:scripts/SYNC-matching-ki-anfrage-wizard.sh")

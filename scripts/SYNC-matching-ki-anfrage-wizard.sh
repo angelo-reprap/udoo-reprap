@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# ⚠ TEIL-SYNC: kann „Neue Aufgabe“ / andere Features überschreiben!
+# Bevorzugt: scripts/SYNC-shaduler-all-in-one.sh (Branch cursor/shaduler-all-in-one-7f07)
 # Repo → Live: abpe_ki_wiz + Matching-UI + Shaduler (Radar Anfragen/Berater)
 #
 # Auf ucs5 (erst fetch, dann Script — sonst läuft eine alte Script-Version):

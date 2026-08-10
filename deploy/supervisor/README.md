@@ -17,8 +17,8 @@ bleibt er wieder STOPPED.
 ## Fix (ucs5, einmalig + dauerhaft)
 
 ```bash
-cd /mnt/public/udoo-reprap && git fetch origin cursor/radar-anfragen-frisch-7f07
-bash <(git show origin/cursor/radar-anfragen-frisch-7f07:scripts/ENSURE-abpe-scheduler-loop.sh)
+cd /mnt/public/udoo-reprap && git fetch origin cursor/shaduler-all-in-one-7f07
+bash <(git show origin/cursor/shaduler-all-in-one-7f07:scripts/ENSURE-abpe-scheduler-loop.sh)
 supervisorctl status abpe-django abpe-celery abpe-scheduler-loop
 ```
 
