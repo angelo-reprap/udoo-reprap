@@ -14,6 +14,16 @@
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
+  function _t(key, fallback) {
+    if (global.Shaduler && typeof global.Shaduler._t === 'function') {
+      try {
+        var v = global.Shaduler._t(key, fallback);
+        if (v && v !== key) return v;
+      } catch (e) { /* ignore */ }
+    }
+    return fallback || key;
+  }
+
   function ymd(d) {
     if (!d) return '';
     return d.getFullYear() + '-' +
@@ -62,21 +72,23 @@
 
     root.innerHTML =
       '<div class="sh-card">' +
-      '<div class="card-h"><i class="bi bi-calendar3"></i> Kalender' +
+      '<div class="card-h"><i class="bi bi-calendar3"></i> ' + esc(_t('sh.cal_title', 'Kalender')) +
       '<div class="viewsw" id="sh-vsw">' +
-      '<button type="button" data-v="tag">Tag</button>' +
-      '<button type="button" data-v="woche">Woche</button>' +
-      '<button type="button" data-v="monat" class="on">Monat</button>' +
-      '<button type="button" data-v="jahr">Jahr</button>' +
+      '<button type="button" data-v="tag">' + esc(_t('sh.cal_view_day', 'Tag')) + '</button>' +
+      '<button type="button" data-v="woche">' + esc(_t('sh.cal_view_week', 'Woche')) + '</button>' +
+      '<button type="button" data-v="monat" class="on">' + esc(_t('sh.cal_view_month', 'Monat')) + '</button>' +
+      '<button type="button" data-v="jahr">' + esc(_t('sh.cal_view_year', 'Jahr')) + '</button>' +
       '</div>' +
-      '<button type="button" class="sh-neue-btn sh-cal-new" id="sh-cal-new" title="Neuer Kalender-Eintrag">' +
-      '<i class="bi bi-plus-lg"></i> Neuer Eintrag</button>' +
+      '<button type="button" class="sh-neue-btn sh-cal-new" id="sh-cal-new" title="' +
+      esc(_t('sh.cal_new', 'Neuer Kalender-Eintrag')) + '">' +
+      '<i class="bi bi-plus-lg"></i> ' + esc(_t('sh.cal_new_btn', 'Neuer Eintrag')) + '</button>' +
       '</div>' +
       '<div class="cal-nav">' +
       '<button type="button" id="sh-cal-prev"><i class="bi bi-chevron-left"></i></button>' +
       '<b id="sh-cal-title"></b>' +
       '<button type="button" id="sh-cal-next"><i class="bi bi-chevron-right"></i></button>' +
-      '<button type="button" id="sh-cal-today" style="padding:0 10px;font-size:.78rem">Heute</button>' +
+      '<button type="button" id="sh-cal-today" style="padding:0 10px;font-size:.78rem">' +
+      esc(_t('sh.cal_today', 'Heute')) + '</button>' +
       '</div><div id="sh-cal-body"></div></div>';
 
     root.querySelectorAll('#sh-vsw button').forEach(function (b) {
@@ -134,9 +146,22 @@
     body.innerHTML = '';
     var today = new Date();
     today.setHours(0, 0, 0, 0);
-    var months = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
-    var monthsShort = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
-    var dows = ['Mo','Di','Mi','Do','Fr','Sa','So'];
+    var months = [
+      _t('sh.month_01', 'Januar'), _t('sh.month_02', 'Februar'), _t('sh.month_03', 'März'),
+      _t('sh.month_04', 'April'), _t('sh.month_05', 'Mai'), _t('sh.month_06', 'Juni'),
+      _t('sh.month_07', 'Juli'), _t('sh.month_08', 'August'), _t('sh.month_09', 'September'),
+      _t('sh.month_10', 'Oktober'), _t('sh.month_11', 'November'), _t('sh.month_12', 'Dezember'),
+    ];
+    var monthsShort = [
+      _t('sh.month_short_01', 'Jan'), _t('sh.month_short_02', 'Feb'), _t('sh.month_short_03', 'Mär'),
+      _t('sh.month_short_04', 'Apr'), _t('sh.month_short_05', 'Mai'), _t('sh.month_short_06', 'Jun'),
+      _t('sh.month_short_07', 'Jul'), _t('sh.month_short_08', 'Aug'), _t('sh.month_short_09', 'Sep'),
+      _t('sh.month_short_10', 'Okt'), _t('sh.month_short_11', 'Nov'), _t('sh.month_short_12', 'Dez'),
+    ];
+    var dows = [
+      _t('sh.dow_mo', 'Mo'), _t('sh.dow_di', 'Di'), _t('sh.dow_mi', 'Mi'),
+      _t('sh.dow_do', 'Do'), _t('sh.dow_fr', 'Fr'), _t('sh.dow_sa', 'Sa'), _t('sh.dow_so', 'So'),
+    ];
 
     function tasksOn(d) {
       return tasks.filter(function (t) {
@@ -225,7 +250,7 @@
     } else if (calView === 'tag') {
       var isToday = sameDay(cursor, today);
       title.textContent =
-        (isToday ? 'Heute · ' : '') +
+        (isToday ? _t('sh.cal_today_prefix', 'Heute · ') : '') +
         String(cursor.getDate()).padStart(2, '0') + '.' +
         String(cursor.getMonth() + 1).padStart(2, '0') + '.' +
         cursor.getFullYear();
@@ -235,7 +260,8 @@
         var r0 = document.createElement('div');
         r0.className = 'hourrow';
         r0.innerHTML =
-          '<div class="hh">ohne<br>Zeit</div><div class="hc">' +
+          '<div class="hh">' + esc(_t('sh.cal_no_time', 'ohne Zeit')).replace(/ /g, '<br>') +
+          '</div><div class="hc">' +
           noTime.map(function (t) {
             var a = ARTEN[t.art] || {};
             return (
@@ -263,7 +289,8 @@
         body.appendChild(r);
       }
       if (!list.length) {
-        body.innerHTML += '<div class="none" style="padding:12px">Keine Aufgaben an diesem Tag</div>';
+        body.innerHTML += '<div class="none" style="padding:12px">' +
+          esc(_t('sh.cal_no_tasks', 'Keine Aufgaben an diesem Tag')) + '</div>';
       }
       body.querySelectorAll('.dayev').forEach(function (el) {
         el.addEventListener('click', function () {

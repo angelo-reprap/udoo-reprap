@@ -31,6 +31,118 @@
     });
   }
 
+  function pad2(n) {
+    return String(n).padStart(2, '0');
+  }
+
+  /** Fälligkeitslabel aus Datum/Zeit (nicht Backend-DE). */
+  function formatDueLabel(t) {
+    if (!t) return '';
+    var raw = t.faellig_am ? String(t.faellig_am).slice(0, 10) : '';
+    var parts = raw.split('-');
+    if (parts.length !== 3) return t.due_label || '';
+    var y = +parts[0];
+    var m = +parts[1];
+    var d = +parts[2];
+    if (!y || !m || !d) return t.due_label || '';
+    var due = new Date(y, m - 1, d);
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var dm = pad2(d) + '.' + pad2(m) + '.';
+    if (t.ueberfaellig || due < today) {
+      return _t('sh.due_seit', 'seit {date}').replace('{date}', dm);
+    }
+    if (due.getTime() === today.getTime()) {
+      if (t.faellig_zeit) {
+        return _t('sh.due_heute_time', 'heute {time}').replace('{time}', String(t.faellig_zeit));
+      }
+      return _t('sh.due_heute', 'heute');
+    }
+    return dm + y;
+  }
+
+  /** Relatives Alter aus ISO-Timestamp (nicht Backend-DE „vor X Min“). */
+  function formatRelativeAge(r) {
+    if (!r) return '';
+    var iso = r.raw_created || r.eingegangen_am ||
+      (r.eckdaten && (r.eckdaten.created || r.eckdaten.originalPublicationDate)) || '';
+    if (!iso) return r.age || '';
+    var created = new Date(iso);
+    if (isNaN(created.getTime())) return r.age || '';
+    var now = new Date();
+    var today0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var created0 = new Date(created.getFullYear(), created.getMonth(), created.getDate());
+    if (created0.getTime() !== today0.getTime()) {
+      return pad2(created.getDate()) + '.' + pad2(created.getMonth() + 1) + '.' + created.getFullYear();
+    }
+    var mins = Math.floor((now.getTime() - created.getTime()) / 60000);
+    if (mins < 0) mins = 0;
+    if (mins < 60) {
+      return _t('sh.age_min', 'vor {n} Min').replace('{n}', String(mins));
+    }
+    var hours = Math.floor(mins / 60);
+    if (hours < 24) {
+      return _t('sh.age_hour', 'vor {n} Std').replace('{n}', String(hours));
+    }
+    return pad2(created.getDate()) + '.' + pad2(created.getMonth() + 1) + '.' + created.getFullYear();
+  }
+
+  function formatBeraterStatus(st) {
+    var map = {
+      known: _t('sh.radar_b_st_known', '✔ CRM'),
+      maybe: _t('sh.radar_b_st_maybe', '? unsicher'),
+      new: _t('sh.radar_b_st_new', 'neu'),
+    };
+    return map[st] || st || _t('sh.radar_b_st_new', 'neu');
+  }
+
+  function formatBeraterNote(r) {
+    if (!r) return '';
+    if (r.deleted) return _t('sh.radar_b_note_deleted', 'gelöscht (CRM)');
+    if (r.gulp_status === 'gone' || /nicht mehr in Gulp/i.test(String(r.note || ''))) {
+      return _t('sh.radar_b_note_gone', 'nicht mehr in Gulp');
+    }
+    if (r.match_status === 'bekannt' || r.st === 'known') {
+      var cid = String(r.crm_contact_id || '');
+      var short = cid ? (cid.slice(0, 8) + '…') : '';
+      return _t('sh.radar_b_note_crm', '✔ CRM {id}').replace('{id}', short).replace(/\s+$/, '');
+    }
+    var name = String(r.name || '');
+    if (/^(Gulp |FM )/.test(name)) {
+      return _t('sh.radar_b_note_placeholder', 'Platzhalter — optional in CRM anlegen');
+    }
+    // Backend liefert oft DE „neu / unbekannt“ — immer lokal neu aufbauen
+    return _t('sh.radar_b_note_new', 'neu / unbekannt');
+  }
+
+  function settingKeyToI18n(prefix, key) {
+    return 'sh.' + prefix + '_' + String(key || '').replace(/\./g, '_');
+  }
+
+  function settingLabel(r) {
+    if (!r) return '';
+    return _t(settingKeyToI18n('set_label', r.key), r.label || r.key);
+  }
+
+  function settingDesc(r) {
+    if (!r) return '';
+    var k = settingKeyToI18n('set_desc', r.key);
+    try {
+      var parts = String(k).split('.');
+      var obj = global.i18nData || {};
+      for (var i = 0; i < parts.length; i++) {
+        if (!obj || typeof obj !== 'object') { obj = null; break; }
+        obj = obj[parts[i]];
+      }
+      if (typeof obj === 'string' && obj) return obj;
+    } catch (e) { /* ignore */ }
+    return r.description || '';
+  }
+
+  function settingGroupLabel(group, fallback) {
+    return _t('sh.set_group_' + String(group || 'other'), fallback || group || '');
+  }
+
   var cfg = { api_base: '/shaduler/api/', tab: 'aufgaben' };
   var loaded = {};
   var TASKS = [];
@@ -464,17 +576,23 @@
     var byGroup = {};
     (rows || []).forEach(function (r) {
       var g = r.group || 'other';
-      if (!byGroup[g]) byGroup[g] = { label: r.group_label || g, items: [] };
+      if (!byGroup[g]) {
+        byGroup[g] = {
+          label: settingGroupLabel(g, r.group_label || g),
+          items: [],
+        };
+      }
       byGroup[g].items.push(r);
     });
     var groupsHtml = Object.keys(byGroup).map(function (g) {
       var grp = byGroup[g];
       var items = grp.items.map(function (r) {
+        var desc = settingDesc(r);
         return (
           '<div class="sh-set-row" data-key="' + esc(r.key) + '">' +
           '<div class="sh-set-meta">' +
-          '<div class="sh-set-label">' + esc(r.label || r.key) + '</div>' +
-          (r.description ? '<div class="sh-set-desc">' + esc(r.description) + '</div>' : '') +
+          '<div class="sh-set-label">' + esc(settingLabel(r)) + '</div>' +
+          (desc ? '<div class="sh-set-desc">' + esc(desc) + '</div>' : '') +
           '<code class="sh-set-key">' + esc(r.key) + '</code></div>' +
           '<input type="url" class="sh-set-input" data-key="' + esc(r.key) + '" ' +
           'value="' + esc(r.value || '') + '" spellcheck="false">' +
@@ -2857,7 +2975,8 @@
         '<div class="top">' +
         '<b class="hl">' + esc(r.headline || '') + '</b>' +
         grpHtml + srcHtml +
-        (r.age ? '<span class="age">' + esc(r.age) + '</span>' : '') +
+        (r.age || r.raw_created || r.eingegangen_am
+          ? '<span class="age">' + esc(formatRelativeAge(r)) + '</span>' : '') +
         '</div>' +
         '<div class="meta">' + esc(r.meta || '') + '</div>' +
         (r.contact || r.company
@@ -3644,8 +3763,10 @@
       '</select>' +
       '<select id="sh-radar-b-match">' +
       '<option value="">' + esc(_t('sh.radar_b_match_all', 'Match: alle')) + '</option>' +
-      '<option value="bekannt"' + (RADAR_B_MATCH === 'bekannt' ? ' selected' : '') + '>bekannt (CRM)</option>' +
-      '<option value="unbekannt"' + (RADAR_B_MATCH === 'unbekannt' ? ' selected' : '') + '>unbekannt</option>' +
+      '<option value="bekannt"' + (RADAR_B_MATCH === 'bekannt' ? ' selected' : '') + '>' +
+      esc(_t('sh.radar_b_match_known', 'bekannt (CRM)')) + '</option>' +
+      '<option value="unbekannt"' + (RADAR_B_MATCH === 'unbekannt' ? ' selected' : '') + '>' +
+      esc(_t('sh.radar_b_match_unknown', 'unbekannt')) + '</option>' +
       '</select>' +
       '<select id="sh-radar-b-source" title="Quelle">' +
       '<option value="">' + esc(_t('sh.radar_b_src_all', 'Quelle: alle')) + '</option>' +
@@ -3734,18 +3855,22 @@
         ' — ' + esc(_t('sh.radar_b_empty_hint', '„CRM-Seed“ oder Gulp-/FM-URL einfügen')) +
         emptyExtra + '</div>';
     }
-    var lbl = { known: '✔ CRM', maybe: '? unsicher', new: 'neu' };
+    var lbl = {
+      known: formatBeraterStatus('known'),
+      maybe: formatBeraterStatus('maybe'),
+      new: formatBeraterStatus('new'),
+    };
     slice.forEach(function (r) {
       var e = document.createElement('div');
       e.className = 'ritem' + (RADAR_B_SELECTED && RADAR_B_SELECTED.id === r.id ? ' on' : '');
       e.setAttribute('data-id', r.id);
       e.innerHTML =
         '<div class="top"><span class="mstat ' + esc(r.st || 'new') + '">' +
-        esc(lbl[r.st] || r.match_status || r.st) + '</span>' +
+        esc(lbl[r.st] || formatBeraterStatus(r.st) || r.match_status || r.st) + '</span>' +
         '<b class="hl">' + esc(r.name || '') + '</b>' +
         '<span class="src">' + esc(r.src || 'gulp') + '</span></div>' +
         '<div class="meta">' + esc(r.meta || '') + '</div>' +
-        '<div class="meta" style="color:var(--status-green)">' + esc(r.note || '') + '</div>';
+        '<div class="meta" style="color:var(--status-green)">' + esc(formatBeraterNote(r)) + '</div>';
       e.onclick = function () { openRadarBeraterItem(r, e); };
       c.appendChild(e);
     });
@@ -4083,7 +4208,7 @@
         el.innerHTML =
           '<div class="tx"><b>' + esc(t.titel) + '</b><small>' + esc(t.ref_label || t.ref_type || '') + '</small></div>' +
           '<span class="due">' + (t.ueberfaellig ? '<i class="bi bi-exclamation-triangle-fill"></i> ' : '') +
-          esc(t.due_label || '') + '</span>';
+          esc(formatDueLabel(t)) + '</span>';
         el.addEventListener('click', function () { openModal(t); });
         body.appendChild(el);
       });
