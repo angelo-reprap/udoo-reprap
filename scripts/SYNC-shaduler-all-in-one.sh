@@ -58,6 +58,8 @@ need_strings=(
   "sh-art-defaults"
   "Einstellungen"
   "radar.fm.list_url"
+  "loadLanguage"
+  "onLanguageChanged"
 )
 for s in "${need_strings[@]}"; do
   if ! grep -Rq -- "$s" "$TMP/Repo_abpe" 2>/dev/null; then
