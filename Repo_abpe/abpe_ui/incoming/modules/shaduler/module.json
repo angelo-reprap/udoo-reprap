@@ -16,52 +16,162 @@
         "ar": "المهام",
         "ja": "タスク",
         "ko": "작업",
-        "zh": "任务"
+        "zh": "任务",
+        "en_US.UTF-8": "Tasks"
     },
     "icon": "check2-square",
     "route": "/shaduler/",
     "order": 24,
     "enabled": true,
-    "roles": ["!berater"],
+    "roles": [
+        "!berater"
+    ],
     "static": {
-        "css": ["mod/mod-shaduler.css"],
-        "js": ["mod/mod-shaduler.js", "mod/mod-shaduler-kalender.js"]
+        "css": [
+            "mod/mod-shaduler.css"
+        ],
+        "js": [
+            "mod/mod-shaduler.js",
+            "mod/mod-shaduler-kalender.js"
+        ]
     },
     "subpages": [
         {
             "id": "aufgaben",
             "title": "Aufgaben",
-            "titles": { "de": "Aufgaben", "en": "Tasks" },
+            "titles": {
+                "de": "Aufgaben",
+                "en": "Tasks",
+                "en_US.UTF-8": "Tasks",
+                "ar": "المهام",
+                "es": "Tareas",
+                "fr": "Tâches",
+                "hu": "Feladatok",
+                "it": "Attività",
+                "ja": "タスク",
+                "ko": "작업",
+                "nl": "Taken",
+                "pl": "Zadania",
+                "pt": "Tarefas",
+                "ru": "Задачи",
+                "tr": "Görevler",
+                "zh": "任务"
+            },
             "route": "/shaduler/?tab=aufgaben"
         },
         {
             "id": "kalender",
             "title": "Kalender",
-            "titles": { "de": "Kalender", "en": "Calendar" },
+            "titles": {
+                "de": "Kalender",
+                "en": "Calendar",
+                "en_US.UTF-8": "Calendar",
+                "ar": "التقويم",
+                "es": "Calendario",
+                "fr": "Calendrier",
+                "hu": "Naptár",
+                "it": "Calendario",
+                "ja": "カレンダー",
+                "ko": "달력",
+                "nl": "Kalender",
+                "pl": "Kalendarz",
+                "pt": "Calendário",
+                "ru": "Календарь",
+                "tr": "Takvim",
+                "zh": "日历"
+            },
             "route": "/shaduler/?tab=kalender"
         },
         {
             "id": "posteingang",
             "title": "Posteingang",
-            "titles": { "de": "Posteingang", "en": "Inbox" },
+            "titles": {
+                "de": "Posteingang",
+                "en": "Inbox",
+                "en_US.UTF-8": "Inbox",
+                "ar": "صندوق الوارد",
+                "es": "Bandeja de entrada",
+                "fr": "Boîte de réception",
+                "hu": "Bejövő",
+                "it": "Posta in arrivo",
+                "ja": "受信トレイ",
+                "ko": "받은 편지함",
+                "nl": "Postvak IN",
+                "pl": "Skrzynka odbiorcza",
+                "pt": "Caixa de entrada",
+                "ru": "Входящие",
+                "tr": "Gelen Kutusu",
+                "zh": "收件箱"
+            },
             "route": "/shaduler/?tab=posteingang"
         },
         {
             "id": "radar",
             "title": "Radar",
-            "titles": { "de": "Radar", "en": "Radar" },
+            "titles": {
+                "de": "Radar",
+                "en": "Radar",
+                "en_US.UTF-8": "Radar",
+                "ar": "الرادار",
+                "es": "Radar",
+                "fr": "Radar",
+                "hu": "Radar",
+                "it": "Radar",
+                "ja": "レーダー",
+                "ko": "레이더",
+                "nl": "Radar",
+                "pl": "Radar",
+                "pt": "Radar",
+                "ru": "Радар",
+                "tr": "Radar",
+                "zh": "雷达"
+            },
             "route": "/shaduler/?tab=radar_anfragen"
         },
         {
             "id": "regeln",
             "title": "Regeln",
-            "titles": { "de": "Regeln", "en": "Rules" },
+            "titles": {
+                "de": "Regeln",
+                "en": "Rules",
+                "en_US.UTF-8": "Rules",
+                "ar": "القواعد",
+                "es": "Reglas",
+                "fr": "Règles",
+                "hu": "Szabályok",
+                "it": "Regole",
+                "ja": "ルール",
+                "ko": "규칙",
+                "nl": "Regels",
+                "pl": "Zasady",
+                "pt": "Regras",
+                "ru": "Правила",
+                "tr": "Kurallar",
+                "zh": "规则"
+            },
             "route": "/shaduler/?tab=regeln"
         },
         {
             "id": "einstellungen",
             "title": "Einstellungen",
-            "titles": { "de": "Einstellungen", "en": "Settings" },
+            "titles": {
+                "de": "Einstellungen",
+                "en": "Settings",
+                "en_US.UTF-8": "Settings",
+                "ar": "الإعدادات",
+                "es": "Configuración",
+                "fr": "Paramètres",
+                "hu": "Beállítások",
+                "it": "Impostazioni",
+                "ja": "設定",
+                "ko": "설정",
+                "nl": "Instellingen",
+                "pl": "Ustawienia",
+                "pt": "Configurações",
+                "ru": "Настройки",
+                "tr": "Ayarlar",
+                "zh": "设置"
+            },
             "route": "/shaduler/?tab=einstellungen"
         }
     ]
