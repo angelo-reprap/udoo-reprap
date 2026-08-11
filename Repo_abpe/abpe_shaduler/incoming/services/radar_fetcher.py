@@ -57,6 +57,45 @@ HAYS_LIST_URL = (
     'https://www.hays.de/jobsuche/stellenangebote-jobs/'
     's/IT/1/j/Contracting/3/p/1?e=false&pt=false&ij=false&sortOrder=createdAt'
 )
+
+
+def _cfg(key: str, default: str) -> str:
+    """DB-Einstellung mit Hardcode-Fallback (Shaduler → Einstellungen)."""
+    try:
+        from .settings_service import get_setting
+        return get_setting(key, default) or default
+    except Exception:
+        return default
+
+
+def fm_list_url() -> str:
+    return _cfg('radar.fm.list_url', FM_LIST_URL)
+
+
+def fm_base_url() -> str:
+    return _cfg('radar.fm.base_url', 'https://www.freelancermap.de')
+
+
+def gulp_list_url() -> str:
+    return _cfg('radar.gulp.list_url', GULP_LIST_URL)
+
+
+def gulp_csrf_url() -> str:
+    return _cfg('radar.gulp.csrf_url', GULP_CSRF_URL)
+
+
+def gulp_search_url() -> str:
+    return _cfg('radar.gulp.search_url', GULP_SEARCH_URL)
+
+
+def gulp_base_url() -> str:
+    return _cfg('radar.gulp.base_url', 'https://www.gulp.de')
+
+
+def hays_list_url() -> str:
+    return _cfg('radar.hays.list_url', HAYS_LIST_URL)
+
+
 HAYS_SPECIALISM = 'IT'       # /s/IT/1
 HAYS_SPECIALISM_ID = '1'
 HAYS_JOBTYPE = 'Contracting'  # /j/Contracting/3
@@ -119,14 +158,14 @@ def _project_url(raw: dict) -> str:
     if isinstance(links, dict):
         proj = links.get('project') or ''
         if proj:
-            return urljoin('https://www.freelancermap.de', proj)
+            return urljoin(fm_base_url(), proj)
     pid = raw.get('id') or raw.get('pid')
     if pid:
-        return f'https://www.freelancermap.de/projekte?id={pid}'
+        return f"{fm_base_url()}/projekte?id={pid}"
     slug = raw.get('slug') or ''
     if slug:
-        return f'https://www.freelancermap.de/projekt/{slug}'
-    return FM_LIST_URL
+        return f"{fm_base_url()}/projekt/{slug}"
+    return fm_list_url()
 
 
 def _remote_pct(raw: dict) -> Optional[int]:
@@ -299,7 +338,9 @@ def extract_projects_from_html(html: str) -> list[dict]:
     return projects
 
 
-def fetch_html(url: str = FM_LIST_URL, *, timeout: int = 25) -> str:
+def fetch_html(url: str = None, *, timeout: int = 25) -> str:
+    if not url:
+        url = fm_list_url()
     req = Request(url, headers={
         'User-Agent': FM_UA,
         'Accept': 'text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8',
@@ -402,7 +443,7 @@ def fetch_gulp_project_detail(
     if not pid:
         return None
     api_type = _gulp_detail_api_type(typ)
-    url = f'https://www.gulp.de/gulp2/rest/internal/projects/{api_type}/{pid}?language=DE'
+    url = f"{gulp_base_url()}/gulp2/rest/internal/projects/{api_type}/{pid}?language=DE"
     own_opener = opener is None
     jar = None
     if own_opener:
@@ -417,7 +458,7 @@ def fetch_gulp_project_detail(
     req = Request(url, headers={
         'User-Agent': FM_UA,
         'Accept': 'application/json',
-        'Origin': 'https://www.gulp.de',
+        'Origin': gulp_base_url(),
         'Referer': _gulp_project_url({'id': pid, 'type': typ, 'url': ''}),
         GULP_CSRF_HEADER: token,
     })
@@ -540,7 +581,8 @@ def fetch_freelancermap_projects(
     out: list[dict] = []
     seen: set[str] = set()
     for page in range(1, max(1, int(pages)) + 1):
-        url = FM_LIST_URL if page == 1 else f'{FM_LIST_URL}?pagenr={page}#list'
+        base = fm_list_url()
+        url = base if page == 1 else f'{base}?pagenr={page}#list'
         try:
             html = fetch_html(url)
         except Exception as exc:
@@ -568,7 +610,7 @@ def fetch_freelancermap_projects(
 
 def ensure_freelancermap_source():
     """RadarSource freelancermap (Anfragen) anlegen/holen."""
-    return ensure_source(SOURCE_NAME, SOURCE_URL)
+    return ensure_source(SOURCE_NAME, fm_list_url())
 
 
 def ensure_source(name: str, url: str = '', *, ziel=None):
@@ -619,7 +661,7 @@ def ensure_source(name: str, url: str = '', *, ziel=None):
 
 
 def ensure_gulp_source():
-    return ensure_source(GULP_SOURCE_NAME, GULP_LIST_URL)
+    return ensure_source(GULP_SOURCE_NAME, gulp_list_url())
 
 
 def _gulp_opener():
@@ -628,10 +670,10 @@ def _gulp_opener():
 
 
 def _gulp_csrf_token(opener, jar) -> str:
-    req = Request(GULP_CSRF_URL, headers={
+    req = Request(gulp_csrf_url(), headers={
         'User-Agent': FM_UA,
         'Accept': 'application/json, text/plain, */*',
-        'Referer': GULP_LIST_URL,
+        'Referer': gulp_list_url(),
     })
     opener.open(req, timeout=20).read()
     for c in jar:
@@ -648,8 +690,8 @@ def _gulp_project_url(raw: dict) -> str:
     typ = str(raw.get('type') or '').strip().upper()
     path = GULP_TYPE_PATH.get(typ, typ.lower() if typ else 'projekte')
     if pid and path != 'external':
-        return f'https://www.gulp.de/gulp2/g/projekte/{path}/{pid}'
-    return url or GULP_LIST_URL
+        return f"{gulp_base_url()}/gulp2/g/projekte/{path}/{pid}"
+    return url or gulp_list_url()
 
 
 def normalize_gulp_project(raw: dict, *, source: str = GULP_SOURCE_NAME) -> dict:
@@ -780,12 +822,12 @@ def fetch_gulp_projects(
             'order': 'DATE_DESC',
             'language': 'DE',
         }).encode('utf-8')
-        req = Request(GULP_SEARCH_URL, data=body, method='POST', headers={
+        req = Request(gulp_search_url(), data=body, method='POST', headers={
             'User-Agent': FM_UA,
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Origin': 'https://www.gulp.de',
-            'Referer': GULP_LIST_URL,
+            'Origin': gulp_base_url(),
+            'Referer': gulp_list_url(),
             GULP_CSRF_HEADER: token,
         })
         try:
@@ -833,7 +875,7 @@ def fetch_gulp_projects(
 
 
 def ensure_hays_source():
-    return ensure_source(HAYS_SOURCE_NAME, HAYS_LIST_URL)
+    return ensure_source(HAYS_SOURCE_NAME, hays_list_url())
 
 
 def _hays_list_url(page: int = 1, *, query: str = '') -> str:
@@ -1137,7 +1179,7 @@ def persist_items(
     *,
     archive_older: bool = True,
     source_name: str = SOURCE_NAME,
-    source_url: str = SOURCE_URL,
+    source_url: str = None,
 ) -> dict:
     """
     Upsert RadarItem. archive_older: ältere „neu“-Items derselben Quelle → verworfen
@@ -1149,7 +1191,7 @@ def persist_items(
     from django.utils import timezone
     from apps.abpe_shaduler.models import RadarItem
 
-    src = ensure_source(source_name, source_url)
+    src = ensure_source(source_name, source_url or '')
     created = 0
     updated = 0
     hashes = []
@@ -1374,7 +1416,7 @@ def list_anfragen(
                 try:
                     persist_info['freelancermap'] = persist_items(
                         fm_items, archive_older=today_only and recent_days > 0 and recent_days <= 2,
-                        source_name=SOURCE_NAME, source_url=SOURCE_URL,
+                        source_name=SOURCE_NAME, source_url=fm_list_url(),
                     )
                 except Exception as exc:
                     log.warning('persist FM failed: %s', exc)
@@ -1393,7 +1435,7 @@ def list_anfragen(
                 try:
                     persist_info['gulp'] = persist_items(
                         gulp_items, archive_older=today_only and recent_days > 0 and recent_days <= 2,
-                        source_name=GULP_SOURCE_NAME, source_url=GULP_LIST_URL,
+                        source_name=GULP_SOURCE_NAME, source_url=gulp_list_url(),
                     )
                 except Exception as exc:
                     log.warning('persist gulp failed: %s', exc)
@@ -1415,7 +1457,7 @@ def list_anfragen(
                 try:
                     persist_info['hays'] = persist_items(
                         hays_items, archive_older=today_only and recent_days > 0 and recent_days <= 2,
-                        source_name=HAYS_SOURCE_NAME, source_url=HAYS_LIST_URL,
+                        source_name=HAYS_SOURCE_NAME, source_url=hays_list_url(),
                     )
                 except Exception as exc:
                     log.warning('persist hays failed: %s', exc)
@@ -1722,7 +1764,7 @@ def poll_once(*, pages: int = 1, today_only: bool = True, recent_days: int = 2) 
     )
     fm_info = persist_items(
         fm_items, archive_older=today_only,
-        source_name=SOURCE_NAME, source_url=SOURCE_URL,
+        source_name=SOURCE_NAME, source_url=fm_list_url(),
     )
     gulp_pages = max(3, min(6, int(pages) + 2))
     gulp_items = fetch_gulp_projects(
@@ -1731,7 +1773,7 @@ def poll_once(*, pages: int = 1, today_only: bool = True, recent_days: int = 2) 
     )
     gulp_info = persist_items(
         gulp_items, archive_older=today_only,
-        source_name=GULP_SOURCE_NAME, source_url=GULP_LIST_URL,
+        source_name=GULP_SOURCE_NAME, source_url=gulp_list_url(),
     )
     hays_pages = max(2, min(5, int(pages) + 1))
     hays_items = fetch_hays_projects(
@@ -1742,7 +1784,7 @@ def poll_once(*, pages: int = 1, today_only: bool = True, recent_days: int = 2) 
     )
     hays_info = persist_items(
         hays_items, archive_older=today_only,
-        source_name=HAYS_SOURCE_NAME, source_url=HAYS_LIST_URL,
+        source_name=HAYS_SOURCE_NAME, source_url=hays_list_url(),
     )
     return {
         'ok': True,

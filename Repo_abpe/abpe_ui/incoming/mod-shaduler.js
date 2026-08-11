@@ -195,13 +195,22 @@
     if (name === 'regeln') {
       return (
         '<div class="sh-pane" data-pane="regeln"><div class="sh-card">' +
-        '<div class="card-h"><i class="bi bi-sliders"></i> ' + _t('sh.tab_regeln', 'Regeln') +
-        '<a href="/admin/abpe_shaduler/prozessregel/" target="_blank" rel="noopener" ' +
-        'style="margin-left:auto;font-size:.8rem;font-weight:500">' +
-        _t('sh.regeln_admin_link', 'Zum Admin öffnen') + '</a></div>' +
+        '<div class="card-h"><i class="bi bi-gear-wide-connected"></i> ' + _t('sh.tab_regeln', 'Regeln') +
+        '</div>' +
         '<div id="sh-art-defaults" class="sh-art-defaults"></div>' +
-        '<p class="sh-hint" data-i18n="sh.regeln_admin_hint">Automations-Regeln vorerst im Django-Admin.</p>' +
-        '<div id="sh-regeln-list"></div></div></div>'
+        '<p class="sh-hint" data-i18n="sh.regeln_matching_hint">' +
+        esc(_t('sh.regeln_matching_hint',
+          'Automations-Regeln (Angebot/Vertrag/…) gehören zum Matching — nicht hier.')) +
+        '</p></div></div>'
+      );
+    }
+    if (name === 'einstellungen') {
+      return (
+        '<div class="sh-pane" data-pane="einstellungen"><div class="sh-card">' +
+        '<div class="card-h"><i class="bi bi-sliders"></i> ' +
+        esc(_t('sh.tab_einstellungen', 'Einstellungen')) + '</div>' +
+        '<div id="sh-settings-paths" class="sh-settings-paths"></div>' +
+        '</div></div>'
       );
     }
     return (
@@ -286,6 +295,8 @@
       startRadarBPoll();
     } else if (name === 'regeln') {
       loadRegeln();
+    } else if (name === 'einstellungen') {
+      loadEinstellungen();
     } else {
       refreshStats();
     }
@@ -419,30 +430,117 @@
 
   function loadRegeln() {
     renderArtDefaultsEditor();
-    fetch(api('regeln/'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+  }
+
+  function loadEinstellungen() {
+    var host = document.getElementById('sh-settings-paths');
+    if (!host) return;
+    host.innerHTML = '<div class="sh-loading">' + esc(_t('sh.loading', 'Laden…')) + '</div>';
+    fetch(api('settings/'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
       .then(function (r) { return r.json(); })
       .then(function (data) {
-        var c = document.getElementById('sh-regeln-list');
-        if (!c) return;
-        var rows = data.results || [];
-        if (!rows.length) {
-          c.innerHTML = '<div class="none" style="padding:8px">' + esc(_t('sh.regeln_leer', 'Noch keine Automations-Regeln — Seed oder Admin.')) + '</div>';
-          return;
-        }
-        c.innerHTML = rows.map(function (r) {
-          return (
-            '<div class="ritem" style="margin-bottom:8px">' +
-            '<div class="top"><b class="hl">' + esc(r.name) + '</b>' +
-            '<span class="src">' + esc(r.ausloeser_typ) + '=' + esc(r.ausloeser_wert) + '</span></div>' +
-            '<div class="meta">' + esc(String(r.schritte)) + ' Schritte</div></div>'
-          );
-        }).join('');
-        refreshStats();
+        renderSettingsEditor(host, (data && data.results) || []);
       })
       .catch(function () {
-        var c = document.getElementById('sh-regeln-list');
-        if (c) c.innerHTML = '<div class="none">Fehler beim Laden</div>';
+        host.innerHTML = '<div class="none">' + esc(_t('sh.toast_error', 'Speichern fehlgeschlagen')) + '</div>';
       });
+  }
+
+  function renderSettingsEditor(host, rows) {
+    if (!host) return;
+    var byGroup = {};
+    (rows || []).forEach(function (r) {
+      var g = r.group || 'other';
+      if (!byGroup[g]) byGroup[g] = { label: r.group_label || g, items: [] };
+      byGroup[g].items.push(r);
+    });
+    var groupsHtml = Object.keys(byGroup).map(function (g) {
+      var grp = byGroup[g];
+      var items = grp.items.map(function (r) {
+        return (
+          '<div class="sh-set-row" data-key="' + esc(r.key) + '">' +
+          '<div class="sh-set-meta">' +
+          '<div class="sh-set-label">' + esc(r.label || r.key) + '</div>' +
+          (r.description ? '<div class="sh-set-desc">' + esc(r.description) + '</div>' : '') +
+          '<code class="sh-set-key">' + esc(r.key) + '</code></div>' +
+          '<input type="url" class="sh-set-input" data-key="' + esc(r.key) + '" ' +
+          'value="' + esc(r.value || '') + '" spellcheck="false">' +
+          '</div>'
+        );
+      }).join('');
+      return (
+        '<div class="sh-set-group">' +
+        '<div class="sh-set-group-h">' + esc(grp.label) + '</div>' +
+        items + '</div>'
+      );
+    }).join('');
+
+    host.innerHTML =
+      '<div class="sh-art-defaults-h">' +
+      '<b>' + esc(_t('sh.settings_paths_title', 'Quellen-Pfade (Radar)')) + '</b>' +
+      '<span class="sh-art-defaults-hint">' +
+      esc(_t('sh.settings_paths_hint',
+        'URLs für Freelancermap, Gulp und Hays — änderbar ohne Code-Deploy.')) +
+      '</span></div>' +
+      '<div class="sh-set-list">' + groupsHtml + '</div>' +
+      '<div class="sh-art-def-actions">' +
+      '<button type="button" class="sh-btn sh-btn-primary" id="sh-set-save">' +
+      esc(_t('sh.settings_save', 'Speichern')) + '</button>' +
+      '<button type="button" class="sh-btn" id="sh-set-reset">' +
+      esc(_t('sh.settings_reset', 'Werkswerte')) + '</button>' +
+      '<span class="sh-art-def-status" id="sh-set-status"></span></div>';
+
+    var status = document.getElementById('sh-set-status');
+    var saveBtn = document.getElementById('sh-set-save');
+    var resetBtn = document.getElementById('sh-set-reset');
+    function postSettings(body) {
+      return fetch(api('settings/'), {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'X-CSRFToken': csrfToken(),
+        },
+        body: JSON.stringify(body),
+      }).then(function (r) { return r.json(); });
+    }
+    if (saveBtn) {
+      saveBtn.onclick = function () {
+        var settings = {};
+        host.querySelectorAll('.sh-set-input').forEach(function (inp) {
+          settings[inp.getAttribute('data-key')] = inp.value;
+        });
+        saveBtn.disabled = true;
+        postSettings({ settings: settings })
+          .then(function (d) {
+            saveBtn.disabled = false;
+            if (d && d.ok) {
+              if (status) status.textContent = _t('sh.settings_saved', 'Einstellungen gespeichert.');
+              if (d.results) renderSettingsEditor(host, d.results);
+            } else if (status) {
+              status.textContent = (d && d.error) || _t('sh.toast_error', 'Speichern fehlgeschlagen');
+            }
+          })
+          .catch(function () {
+            saveBtn.disabled = false;
+            if (status) status.textContent = _t('sh.toast_error', 'Speichern fehlgeschlagen');
+          });
+      };
+    }
+    if (resetBtn) {
+      resetBtn.onclick = function () {
+        resetBtn.disabled = true;
+        postSettings({ reset: true })
+          .then(function (d) {
+            resetBtn.disabled = false;
+            if (d && d.results) renderSettingsEditor(host, d.results);
+            var st = document.getElementById('sh-set-status');
+            if (st) st.textContent = _t('sh.settings_reset', 'Werkswerte');
+          })
+          .catch(function () { resetBtn.disabled = false; });
+      };
+    }
   }
 
   function ensureTasks(cb) {
