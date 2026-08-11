@@ -44,42 +44,10 @@ UA = (
 CTX = ssl.create_default_context()
 
 TF_BASE = 'https://www.gulp.de/talentfinder/app'
-TF_EXPERTEN = f'{TF_BASE}/experten'  # runtime: tf_base()
+TF_EXPERTEN = f'{TF_BASE}/experten'
 TF_PROFILE_API = f'{TF_BASE}/api/secure/expert-profiles'
 GULP2_PROFILES_SEARCH = 'https://www.gulp.de/gulp2/rest/internal/profiles/search'
 GULP2_CSRF = 'https://www.gulp.de/gulp2/rest/internal/system/csrf'
-
-def _cfg(key: str, default: str) -> str:
-    try:
-        from .settings_service import get_setting
-        return get_setting(key, default) or default
-    except Exception:
-        return default
-
-
-def tf_base() -> str:
-    return _cfg('radar.gulp.tf_base', TF_BASE).rstrip('/')
-
-
-def tf_experten() -> str:
-    return tf_experten()
-
-
-def tf_profile_api() -> str:
-    return tf_base() + '/api/secure/expert-profiles'
-
-
-def gulp2_profiles_search() -> str:
-    return _cfg('radar.gulp.profiles_search', GULP2_PROFILES_SEARCH)
-
-
-def gulp2_csrf() -> str:
-    return _cfg('radar.gulp.csrf_url', GULP2_CSRF)
-
-
-def gulp_base() -> str:
-    return _cfg('radar.gulp.base_url', 'https://www.gulp.de').rstrip('/')
-
 
 
 def _load_tf_cfg() -> dict:
@@ -237,8 +205,8 @@ def profil_url_for_gulp_id(gulp_id: str) -> str:
     if not gid:
         return ''
     if re.fullmatch(r'[a-f0-9]{24}', gid, re.I):
-        return f'{tf_experten()}/{gid}'
-    return f'{tf_experten()}?gulpId={urllib.parse.quote(gid)}'
+        return f'{TF_EXPERTEN}/{gid}'
+    return f'{TF_EXPERTEN}?gulpId={urllib.parse.quote(gid)}'
 
 
 def kontakt_url_for(*, gulp_id: str = '', mongo_id: str = '') -> str:
@@ -249,12 +217,12 @@ def kontakt_url_for(*, gulp_id: str = '', mongo_id: str = '') -> str:
     mid = str(mongo_id or '').strip()
     gid = str(gulp_id or '').strip()
     if re.fullmatch(r'[a-f0-9]{24}', mid, re.I):
-        return f'{tf_experten()}/{mid}/kontaktieren'
+        return f'{TF_EXPERTEN}/{mid}/kontaktieren'
     if re.fullmatch(r'[a-f0-9]{24}', gid, re.I):
-        return f'{tf_experten()}/{gid}/kontaktieren'
+        return f'{TF_EXPERTEN}/{gid}/kontaktieren'
     if gid:
         # ohne Mongo: Profil mit gulpId — Kontakt von dort
-        return f'{tf_experten()}?gulpId={urllib.parse.quote(gid)}'
+        return f'{TF_EXPERTEN}?gulpId={urllib.parse.quote(gid)}'
     return ''
 
 
@@ -329,7 +297,7 @@ def _search_by_gulp_mid(gid: str) -> dict[str, Any]:
     """
     steps: list[dict] = []
     qs = urllib.parse.urlencode({'pageIndex': 0, 'pageSize': 5})
-    url = f'{tf_profile_api()}/search?{qs}'
+    url = f'{TF_PROFILE_API}/search?{qs}'
     # Exakt wie url_gu_importer.GULPImporter._resolve_gulp_id
     body = {
         'mId': str(gid),
@@ -342,8 +310,8 @@ def _search_by_gulp_mid(gid: str) -> dict[str, Any]:
     headers = {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Referer': f'{tf_experten()}?gulpId={urllib.parse.quote(gid)}',
-        'Origin': gulp_base(),
+        'Referer': f'{TF_EXPERTEN}?gulpId={urllib.parse.quote(gid)}',
+        'Origin': 'https://www.gulp.de',
     }
     code, _u, raw = _request(
         url,
@@ -467,10 +435,10 @@ def fetch_expert_by_gulp_id(gulp_id: str, *, mongo_id: str = '') -> dict[str, An
 
     def _load_by_mongo(mongo: str) -> Optional[dict]:
         code, _u, raw = _request(
-            f'{tf_profile_api()}/{mongo}',
-            headers={'Referer': tf_experten(), 'Origin': gulp_base()},
+            f'{TF_PROFILE_API}/{mongo}',
+            headers={'Referer': TF_EXPERTEN, 'Origin': 'https://www.gulp.de'},
         )
-        steps.append({'url': f'{tf_profile_api()}/{mongo}', 'code': code})
+        steps.append({'url': f'{TF_PROFILE_API}/{mongo}', 'code': code})
         if code == 404:
             return {
                 'ok': False,
@@ -523,8 +491,8 @@ def fetch_expert_by_gulp_id(gulp_id: str, *, mongo_id: str = '') -> dict[str, An
         profil_url_for_gulp_id(gid),
         headers={
             'Accept': 'text/html,application/xhtml+xml,application/json',
-            'Referer': gulp_base() + '/',
-            'Origin': gulp_base(),
+            'Referer': 'https://www.gulp.de/',
+            'Origin': 'https://www.gulp.de',
         },
     )
     steps.append({'url': profil_url_for_gulp_id(gid), 'code': code})
@@ -565,19 +533,19 @@ def fetch_expert_by_gulp_id(gulp_id: str, *, mongo_id: str = '') -> dict[str, An
     ):
         headers = {
             'Content-Type': 'application/json',
-            'Origin': gulp_base(),
-            'Referer': tf_experten(),
+            'Origin': 'https://www.gulp.de',
+            'Referer': TF_EXPERTEN,
         }
         if csrf:
             headers['x-trust'] = csrf
             headers['X-XSRF-TOKEN'] = csrf
         code, _u, raw = _request(
-            gulp2_profiles_search(),
+            GULP2_PROFILES_SEARCH,
             method='POST',
             data=json.dumps(body).encode('utf-8'),
             headers=headers,
         )
-        steps.append({'url': gulp2_profiles_search(), 'code': code, 'body_keys': list(body)})
+        steps.append({'url': GULP2_PROFILES_SEARCH, 'code': code, 'body_keys': list(body)})
         if code != 200:
             continue
         try:
@@ -635,8 +603,8 @@ def fetch_expert_by_gulp_id(gulp_id: str, *, mongo_id: str = '') -> dict[str, An
 def _gulp2_csrf_token() -> str:
     """Wie Radar-Anfragen: CSRF-Cookie für gulp2 REST."""
     code, _u, _raw = _request(
-        gulp2_csrf(),
-        headers={'Referer': gulp_base() + '/gulp2/g/projekte'},
+        GULP2_CSRF,
+        headers={'Referer': 'https://www.gulp.de/gulp2/g/projekte'},
     )
     # Token steckt oft im Set-Cookie der Response — wir bekommen ihn nicht über urllib leicht.
     # Fallback: Cookie-Header aus Session nach CSRF-Call neu lesen hilft nicht.
@@ -672,12 +640,12 @@ def probe_session() -> dict[str, Any]:
     if not info.get('ok'):
         return {**info, 'login_test': False, 'http': None}
     # Feste Probe-URL (wie CV-Extractor); 404 bei fremdem Profil ok, 403 = Auth tot
-    probe_url = f'{tf_profile_api()}/540e2fc4e4b04404f785de0c'
+    probe_url = f'{TF_PROFILE_API}/540e2fc4e4b04404f785de0c'
     code, _u, raw = _request(
         probe_url,
         headers={
-            'Referer': tf_experten(),
-            'Origin': gulp_base(),
+            'Referer': TF_EXPERTEN,
+            'Origin': 'https://www.gulp.de',
         },
     )
     # 200 = eingeloggt; 404 = Auth ok, Profil fremd/weg; 401/403 = Session tot
@@ -796,7 +764,7 @@ def fetch_experts_list(
     page = max(0, int(page or 0))
     size = max(1, min(50, int(size or 20)))
     qs = urllib.parse.urlencode({'pageIndex': page, 'pageSize': size})
-    url = f'{tf_profile_api()}/search?{qs}'
+    url = f'{TF_PROFILE_API}/search?{qs}'
 
     # Wie Talentfinder-UI: zuletzt geändert; Verfügbarkeit = ab heute
     body: dict[str, Any] = {
@@ -817,8 +785,8 @@ def fetch_experts_list(
         headers={
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Origin': gulp_base(),
-            'Referer': tf_experten(),
+            'Origin': 'https://www.gulp.de',
+            'Referer': TF_EXPERTEN,
         },
     )
     if code in (401, 403):
@@ -1091,7 +1059,7 @@ def normalize_expert_profile(raw: dict) -> dict[str, Any]:
         remote = raw.get('remote') or profile.get('remote')
     url = ''
     if mongo:
-        url = f'{tf_experten()}/{mongo}'
+        url = f'{TF_EXPERTEN}/{mongo}'
     elif gulp_id:
         url = profil_url_for_gulp_id(gulp_id)
 

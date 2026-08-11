@@ -94,11 +94,3 @@ class InboxMailReadAdmin(admin.ModelAdmin):
     search_fields = ('mail_id',)
     raw_id_fields = ('user',)
     date_hierarchy = 'read_at'
-
-
-@admin.register(models.ShadulerSetting)
-class ShadulerSettingAdmin(admin.ModelAdmin):
-    list_display = ('key', 'group', 'label', 'value', 'updated_at')
-    list_filter = ('group',)
-    search_fields = ('key', 'label', 'value', 'description')
-    readonly_fields = ('created_at', 'updated_at')

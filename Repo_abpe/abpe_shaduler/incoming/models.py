@@ -447,26 +447,3 @@ class InboxMailRead(models.Model):
 
     def __str__(self):
         return f'{self.user_id} · {self.mail_id}'
-
-
-# ─── Einstellungen (editierbare Pfade / URLs) ─────────────────────────────────
-
-class ShadulerSetting(TimeStampedModel):
-    """
-    Key/Value-Einstellungen für Radar-Quellen-URLs u. ä.
-    Editierbar unter Shaduler → Einstellungen (ohne Code-Deploy).
-    """
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    key = models.CharField(max_length=120, unique=True, db_index=True)
-    value = models.TextField(blank=True)
-    label = models.CharField(max_length=160, blank=True)
-    group = models.CharField(max_length=40, blank=True, db_index=True)
-    description = models.CharField(max_length=255, blank=True)
-
-    class Meta:
-        verbose_name = 'Einstellung'
-        verbose_name_plural = 'Einstellungen'
-        ordering = ['group', 'key']
-
-    def __str__(self):
-        return f'{self.key}={self.value[:60]}'

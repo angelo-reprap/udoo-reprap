@@ -55,9 +55,8 @@ urlpatterns = [
     path('api/radar/berater/<uuid:pk>/verwerfen/', views.api_radar_consultant_dismiss, name='api_radar_consultant_dismiss'),
     path('api/radar/berater/einfuegen/', views.api_radar_paste, name='api_radar_paste'),
 
-    # Regeln / Einstellungen
+    # Regeln
     path('api/regeln/', views.api_regeln, name='api_regeln'),
-    path('api/settings/', views.api_settings, name='api_settings'),
 
     # Webhooks von abpe_scheduler (Kap. 0 — kein Celery Beat)
     path('api/webhook/<str:job_key>/', views.api_webhook_job, name='api_webhook_job'),

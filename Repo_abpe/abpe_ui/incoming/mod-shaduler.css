@@ -312,16 +312,6 @@ th{background:var(--abcona-gray-card);color:var(--text-secondary);font-size:.74r
 .sh-art-def-status{font-size:.78rem;color:var(--text-secondary)}
 .sh-btn{appearance:none;border:1px solid var(--border-color);background:var(--bg-white);color:var(--text-primary);border-radius:8px;padding:7px 12px;font:inherit;font-size:.85rem;cursor:pointer}
 .sh-btn-primary{background:var(--abcona-blue,#163258);border-color:var(--abcona-blue,#163258);color:#fff;font-weight:600}
-/* Einstellungen: Quellen-Pfade */
-.sh-settings-paths{padding:12px 16px 16px}
-.sh-set-list{display:flex;flex-direction:column;gap:16px}
-.sh-set-group-h{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--text-secondary);margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid var(--border-light)}
-.sh-set-row{display:grid;grid-template-columns:minmax(160px,220px) 1fr;gap:10px;align-items:start;margin-bottom:10px}
-@media(max-width:720px){.sh-set-row{grid-template-columns:1fr}}
-.sh-set-label{font-size:.88rem;font-weight:600}
-.sh-set-desc{font-size:.75rem;color:var(--text-secondary);margin-top:2px;line-height:1.35}
-.sh-set-key{display:inline-block;margin-top:4px;font-size:.68rem;color:var(--text-secondary);background:var(--abcona-gray-card,#f3f4f6);padding:1px 6px;border-radius:4px}
-.sh-set-input{width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-white);color:var(--text-primary);font:inherit;font-size:.82rem;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 .sh-crm-box{margin-top:8px}
 .sh-crm-hit{background:var(--abcona-blue-alpha,#e8eef5);border:1px solid var(--border-light);border-radius:8px;padding:8px 10px;margin-top:6px}
 .sh-crm-hit-top{font-size:.85rem;color:var(--text-primary)}
