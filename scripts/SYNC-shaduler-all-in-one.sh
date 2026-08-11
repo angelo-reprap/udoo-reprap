@@ -114,18 +114,23 @@ if [[ -d "$STATICFILES" ]]; then
   echo "OK — auch nach $STATICFILES kopiert"
 fi
 
-for lang in de en; do
-  if [[ -d "$TMP/Repo_abpe/abpe_ui/incoming/i18n/$lang/modules/shaduler" ]]; then
+# Alle Sprachen aus Repo → Live (de/en/ar/fr/…)
+if [[ -d "$TMP/Repo_abpe/abpe_ui/incoming/i18n" ]]; then
+  for lang_dir in "$TMP/Repo_abpe/abpe_ui/incoming/i18n"/*; do
+    [[ -d "$lang_dir" ]] || continue
+    lang=$(basename "$lang_dir")
+    src="$lang_dir/modules/shaduler"
+    [[ -d "$src" ]] || continue
     mkdir -p "$LIVE_UI/static/abpe_ui/i18n/$lang/modules/shaduler"
-    cp -a "$TMP/Repo_abpe/abpe_ui/incoming/i18n/$lang/modules/shaduler/." \
-      "$LIVE_UI/static/abpe_ui/i18n/$lang/modules/shaduler/"
+    cp -a "$src/." "$LIVE_UI/static/abpe_ui/i18n/$lang/modules/shaduler/"
     if [[ -d "$STATICFILES" ]]; then
       mkdir -p "$STATICFILES/abpe_ui/i18n/$lang/modules/shaduler"
       cp -a "$LIVE_UI/static/abpe_ui/i18n/$lang/modules/shaduler/." \
         "$STATICFILES/abpe_ui/i18n/$lang/modules/shaduler/" 2>/dev/null || true
     fi
-  fi
-done
+    echo "  + i18n/$lang/modules/shaduler"
+  done
+fi
 echo "OK — UI Shaduler"
 
 # Guard Live: Buttons müssen angekommen sein

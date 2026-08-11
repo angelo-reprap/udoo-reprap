@@ -57,11 +57,20 @@ window.ABPE_CONFIG.module_id = 'shaduler';
 <script>
 (function () {
   function applyI18n() {
-    if (typeof window._t !== 'function') return;
-    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    if (window.Shaduler && typeof window.Shaduler.applyI18n === 'function') {
+      window.Shaduler.applyI18n();
+      return;
+    }
+    var data = window.i18nData || {};
+    document.querySelectorAll('#shaduler-root [data-i18n]').forEach(function (el) {
       var k = el.getAttribute('data-i18n');
-      var v = window._t(k, el.textContent);
-      if (v) el.textContent = v;
+      var parts = String(k || '').split('.');
+      var obj = data;
+      for (var i = 0; i < parts.length; i++) {
+        if (!obj || typeof obj !== 'object') { obj = null; break; }
+        obj = obj[parts[i]];
+      }
+      if (typeof obj === 'string' && obj) el.textContent = obj;
     });
   }
   document.addEventListener('languageChanged', applyI18n);

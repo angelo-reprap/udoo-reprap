@@ -2,26 +2,33 @@
 (function (global) {
   'use strict';
 
+  // Portal _resolveKey: "sh.tab_kalender" → i18nData.sh.tab_kalender
+  // JSON muss { "sh": { "tab_kalender": "…" } } sein (siehe bin/i18n_fix_structure.py).
   function _t(key, fallback) {
     try {
-      if (typeof global.loadLanguage === 'function' && global.ABPE_I18N) {
-        /* portal _t often on window */
+      var parts = String(key || '').split('.');
+      var obj = global.i18nData || {};
+      for (var i = 0; i < parts.length; i++) {
+        if (!obj || typeof obj !== 'object') { obj = null; break; }
+        obj = obj[parts[i]];
       }
-    } catch (e) {}
-    if (global.Shaduler && global.Shaduler.__portal_t) {
+      if (typeof obj === 'string' && obj) return obj;
+    } catch (e) { /* ignore */ }
+    if (global.Shaduler && typeof global.Shaduler.__portal_t === 'function') {
       try {
         var v = global.Shaduler.__portal_t(key, fallback);
         if (v && v !== key) return v;
-      } catch (e2) {}
-    }
-    var portalT = Object.getOwnPropertyDescriptor(global, '_t');
-    if (portalT && typeof portalT.value === 'function' && portalT.value !== _t) {
-      try {
-        var r = portalT.value(key, fallback);
-        if (r && r !== key) return r;
-      } catch (e3) {}
+      } catch (e2) { /* ignore */ }
     }
     return fallback || key;
+  }
+
+  function applyDomI18n() {
+    document.querySelectorAll('#shaduler-root [data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      var v = _t(k, el.textContent);
+      if (v && v !== k) el.textContent = v;
+    });
   }
 
   var cfg = { api_base: '/shaduler/api/', tab: 'aufgaben' };
@@ -4597,13 +4604,25 @@
         setTab(btn.getAttribute('data-t'));
       });
     });
+    applyDomI18n();
     setTab(cfg.tab || 'aufgaben');
+
+    if (!init._langBound) {
+      init._langBound = true;
+      document.addEventListener('languageChanged', function () {
+        applyDomI18n();
+        // Tab-Inhalt neu rendern (dynamische _t-Strings)
+        loaded = {};
+        setTab(cfg.tab || 'aufgaben');
+      });
+    }
   }
 
   global.Shaduler = {
     init: init,
     setTab: setTab,
     refreshStats: refreshStats,
+    applyI18n: applyDomI18n,
     _t: _t,
   };
 })(window);

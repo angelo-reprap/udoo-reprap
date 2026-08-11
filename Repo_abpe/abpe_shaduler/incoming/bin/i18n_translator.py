@@ -362,6 +362,13 @@ def _translate_file(args: tuple) -> tuple[str, bool, str]:
     if not isinstance(translated, dict):
         return rel, False, f"Ungültiger Rückgabetyp: {type(translated)}"
 
+    # Portal-Loader: { "sh": { "tab_…": "…" } } — nie "sh.tab_…" als Key-String
+    try:
+        from i18n_fix_structure import convert as _fix_convert
+        translated = _fix_convert(translated)
+    except Exception:
+        pass
+
     if _write_json(tgt_file, translated):
         return rel, True, f"übersetzt ({len(json.dumps(translated))} chars)"
     return rel, False, "Schreibfehler"

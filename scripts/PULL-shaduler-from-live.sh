@@ -119,14 +119,21 @@ if [[ -f "$LIVE_UI/templates/abpe_ui/modules/shaduler/module.json" ]]; then
     "$DEST_UI/modules/shaduler/module.json"
   echo "  + modules/shaduler/module.json"
 fi
-for lang in de en; do
-  src="$LIVE_UI/static/abpe_ui/i18n/$lang/modules/shaduler"
-  if [[ -d "$src" ]]; then
-    mkdir -p "$DEST_UI/i18n/$lang/modules/shaduler"
-    cp -a "$src/." "$DEST_UI/i18n/$lang/modules/shaduler/"
-    echo "  + i18n/$lang/modules/shaduler"
-  fi
-done
+# Alle Portal-Sprachen (nicht nur de/en)
+if [[ -d "$LIVE_UI/static/abpe_ui/i18n" ]]; then
+  for lang_dir in "$LIVE_UI/static/abpe_ui/i18n"/*; do
+    [[ -d "$lang_dir" ]] || continue
+    lang=$(basename "$lang_dir")
+    src="$lang_dir/modules/shaduler"
+    if [[ -d "$src" ]]; then
+      mkdir -p "$DEST_UI/i18n/$lang/modules/shaduler"
+      mkdir -p "$DEST_UI/static_abpe_ui/i18n/$lang/modules/shaduler"
+      cp -a "$src/." "$DEST_UI/i18n/$lang/modules/shaduler/"
+      cp -a "$src/." "$DEST_UI/static_abpe_ui/i18n/$lang/modules/shaduler/"
+      echo "  + i18n/$lang/modules/shaduler"
+    fi
+  done
+fi
 
 # ── 3) namazu index_emails (keine Passwörter) ──────────────────────────────
 echo
