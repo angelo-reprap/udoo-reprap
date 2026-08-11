@@ -114,7 +114,7 @@ window.Matching = (function() {
             case 'anfragen':  _loadAnfragen(content, loading); break;
             case 'neu':       _renderNeu(content, loading); break;
             case 'shortlist': _loadShortlistTab(content, loading); break;
-            case 'kanban':    _renderKanbanPlaceholder(content, loading); break;
+            case 'kanban':    _loadKanbanTab(content, loading); break;
             case 'abschluss': _renderAbschlussPlaceholder(content, loading); break;
             case 'archiv':    _loadArchiv(content, loading); break;
             case 'crm':       _renderCrmPlaceholder(content, loading); break;
@@ -359,10 +359,21 @@ window.Matching = (function() {
             _loadShortlistForProject(projectId, content);
             return;
         }
-        _loadShortlistPicker(content, loading);
+        _loadRequestPicker(content, loading, {
+            targetTab: 'shortlist',
+            hint: _kiT('shortlist_pick_hint', 'Anfrage wählen — Shortlist öffnen'),
+            icon: 'bi-funnel',
+            listId: 'shortlist-pick-list',
+        });
     }
 
-    function _loadShortlistPicker(content, loading) {
+    /** Gemeinsame Anfragen-Liste (Betreff) für Shortlist / Kanban / … */
+    function _loadRequestPicker(content, loading, opts) {
+        opts = opts || {};
+        const targetTab = opts.targetTab || 'shortlist';
+        const hint = opts.hint || _kiT('request_pick_hint', 'Anfrage wählen');
+        const icon = opts.icon || 'bi-list-ul';
+        const listId = opts.listId || 'request-pick-list';
         if (loading) loading.style.display = 'flex';
         fetch(API + 'requests/?page=1&per_page=50', { credentials: 'same-origin' })
             .then(r => r.json())
@@ -373,12 +384,11 @@ window.Matching = (function() {
                     content.dataset.loaded = '1';
                     return;
                 }
-                const pickHint = _kiT('shortlist_pick_hint', 'Anfrage wählen — Shortlist öffnen');
                 let html = `
                 <div style="margin-bottom:10px;font-size:12px;color:#888">
-                    <i class="bi bi-funnel"></i> ${_esc(pickHint)}
+                    <i class="bi ${icon}"></i> ${_esc(hint)}
                 </div>
-                <div id="shortlist-pick-list">`;
+                <div id="${listId}">`;
 
                 if (!d.results || d.results.length === 0) {
                     html += `<div style="padding:30px;text-align:center;color:#888">
@@ -392,7 +402,7 @@ window.Matching = (function() {
                         const title = p.title || p.project_number || '—';
                         html += `
                         <div class="matching-card" style="cursor:pointer"
-                             onclick="Matching.openProject('${p.id}','shortlist')">
+                             onclick="Matching.openProject('${p.id}','${targetTab}')">
                             <div style="display:flex;align-items:center;gap:8px">
                                 <div class="matching-prio ${prioClass}"></div>
                                 <div style="min-width:90px;font-size:10px;color:#888">${_esc(p.project_number || '')}</div>
@@ -417,32 +427,66 @@ window.Matching = (function() {
     }
 
     function pickShortlistRequest() {
+        pickRequestForTab('shortlist');
+    }
+
+    function pickKanbanRequest() {
+        pickRequestForTab('kanban');
+    }
+
+    function pickRequestForTab(tabId) {
         if (window.MATCHING_CONFIG) window.MATCHING_CONFIG.activeProject = null;
-        const content = document.getElementById('content-shortlist');
+        const content = document.getElementById('content-' + tabId);
+        const loading = document.getElementById('loading-' + tabId);
         if (content) {
             content.dataset.loaded = '0';
             content.innerHTML = '';
-            _loadShortlistPicker(content, document.getElementById('loading-shortlist'));
+            if (tabId === 'kanban') {
+                _loadRequestPicker(content, loading, {
+                    targetTab: 'kanban',
+                    hint: _kiT('kanban_pick_hint', 'Anfrage wählen — Workflow-Board öffnen'),
+                    icon: 'bi-kanban',
+                    listId: 'kanban-pick-list',
+                });
+            } else {
+                _loadRequestPicker(content, loading, {
+                    targetTab: 'shortlist',
+                    hint: _kiT('shortlist_pick_hint', 'Anfrage wählen — Shortlist öffnen'),
+                    icon: 'bi-funnel',
+                    listId: 'shortlist-pick-list',
+                });
+            }
         }
-        switchTab('shortlist');
+        switchTab(tabId);
     }
 
-    function _renderKanbanPlaceholder(content, loading) {
-        _loadKanban(content, loading);
+    function _loadKanbanTab(content, loading) {
+        const projectId = window.MATCHING_CONFIG && window.MATCHING_CONFIG.activeProject;
+        if (projectId) {
+            _loadKanban(content, loading);
+            return;
+        }
+        _loadRequestPicker(content, loading, {
+            targetTab: 'kanban',
+            hint: _kiT('kanban_pick_hint', 'Anfrage wählen — Workflow-Board öffnen'),
+            icon: 'bi-kanban',
+            listId: 'kanban-pick-list',
+        });
     }
 
     function _loadKanban(content, loading) {
         const projectId = window.MATCHING_CONFIG.activeProject;
         if (!projectId) {
-            if (loading) loading.style.display = 'none';
-            content.innerHTML = `<div style="padding:30px;text-align:center;color:#888">
-                <i class="bi bi-kanban" style="font-size:32px;display:block;margin-bottom:8px"></i>
-                ${_t('matching.no_kanban')}
-            </div>`;
-            content.dataset.loaded = '1';
+            _loadRequestPicker(content, loading, {
+                targetTab: 'kanban',
+                hint: _kiT('kanban_pick_hint', 'Anfrage wählen — Workflow-Board öffnen'),
+                icon: 'bi-kanban',
+                listId: 'kanban-pick-list',
+            });
             return;
         }
 
+        if (loading) loading.style.display = 'flex';
         fetch(API + 'requests/' + projectId + '/kanban/', { credentials: 'same-origin' })
             .then(r => r.json())
             .then(d => {
@@ -452,9 +496,15 @@ window.Matching = (function() {
                     return;
                 }
 
+                const projLabel = [d.project_number, d.project_title].filter(Boolean).join(' · ');
                 let html = `
-                <div style="margin-bottom:10px;font-size:12px;color:#888">
-                    ${d.project_number} · ${d.project_title} · ${d.total} ${_t('matching.matches_count')}
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+                    <button type="button" class="matching-btn-sm" onclick="Matching.pickKanbanRequest()">
+                        <i class="bi bi-list-ul"></i> ${_esc(_kiT('kanban_pick_back', 'Anfragen'))}
+                    </button>
+                    <div style="font-size:12px;color:#888;flex:1;min-width:120px">
+                        ${_esc(projLabel)} · ${d.total} ${_t('matching.matches_count')}
+                    </div>
                 </div>
                 <div class="matching-kanban-wrap" id="kanban-board">`;
 
@@ -2898,7 +2948,7 @@ window.Matching = (function() {
 
     return {
         init, applyI18n, switchTab, newRequest,
-        openProject, runMatching, saveNewRequest,
+        openProject, pickShortlistRequest, pickKanbanRequest, runMatching, saveNewRequest,
         updateThreshold, sendAllAboveThreshold,
         toggleArchiveDetail, searchAnfragen, filterAnfragen,
         searchAccounts, searchContacts, call, sendEmail,
