@@ -55,6 +55,9 @@ need_strings=(
   "startRadarBPoll"
   "mostRecentProfiles"
   "radar_poll_run"
+  "sh-art-defaults"
+  "Einstellungen"
+  "radar.fm.list_url"
 )
 for s in "${need_strings[@]}"; do
   if ! grep -Rq -- "$s" "$TMP/Repo_abpe" 2>/dev/null; then
