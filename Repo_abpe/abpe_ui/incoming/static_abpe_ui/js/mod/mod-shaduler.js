@@ -4609,13 +4609,18 @@
 
     if (!init._langBound) {
       init._langBound = true;
+      // Primär: Template ruft loadLanguage(..., 'shaduler') und dann onLanguageChanged.
+      // Fallback falls languageChanged ohne Template-Handler kommt:
       document.addEventListener('languageChanged', function () {
-        applyDomI18n();
-        // Tab-Inhalt neu rendern (dynamische _t-Strings)
-        loaded = {};
-        setTab(cfg.tab || 'aufgaben');
+        if (init._langFromTemplate) return;
+        onLanguageChanged();
       });
     }
+  }
+
+  function onLanguageChanged() {
+    applyDomI18n();
+    setTab(cfg.tab || 'aufgaben');
   }
 
   global.Shaduler = {
@@ -4623,6 +4628,7 @@
     setTab: setTab,
     refreshStats: refreshStats,
     applyI18n: applyDomI18n,
+    onLanguageChanged: onLanguageChanged,
     _t: _t,
   };
 })(window);

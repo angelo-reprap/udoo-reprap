@@ -55,31 +55,56 @@ window.ABPE_CONFIG.module_id = 'shaduler';
 <script src="{% static 'abpe_ui/js/mod/mod-shaduler.js' %}"></script>
 <script src="{% static 'abpe_ui/js/mod/mod-shaduler-kalender.js' %}"></script>
 <script>
+/**
+ * Wie namazu / cv_editor / Matching:
+ *   1) loadLanguage(lang, 'shaduler') → setzt Portal-_currentModuleId + lädt modules/shaduler/*.json
+ *   2) erst dann Shaduler.init()
+ *   3) languageChanged → Modul-JSON neu laden + UI neu rendern
+ */
 (function () {
-  function applyI18n() {
-    if (window.Shaduler && typeof window.Shaduler.applyI18n === 'function') {
-      window.Shaduler.applyI18n();
-      return;
-    }
-    var data = window.i18nData || {};
-    document.querySelectorAll('#shaduler-root [data-i18n]').forEach(function (el) {
-      var k = el.getAttribute('data-i18n');
-      var parts = String(k || '').split('.');
-      var obj = data;
-      for (var i = 0; i < parts.length; i++) {
-        if (!obj || typeof obj !== 'object') { obj = null; break; }
-        obj = obj[parts[i]];
-      }
-      if (typeof obj === 'string' && obj) el.textContent = obj;
-    });
+  var MODULE_ID = 'shaduler';
+
+  function currentLang() {
+    return (window.ABPE_CONFIG && window.ABPE_CONFIG.current_lang)
+      || '{{ current_lang|default:"de" }}'
+      || 'de';
   }
-  document.addEventListener('languageChanged', applyI18n);
-  document.addEventListener('DOMContentLoaded', function () {
+
+  function bootShaduler() {
     if (window.Shaduler && typeof window.Shaduler.init === 'function') {
       window.Shaduler.init(window.SHADULER_CONFIG || {});
     }
-    applyI18n();
+    if (typeof applyTranslations === 'function') applyTranslations();
+    if (window.Shaduler && typeof window.Shaduler.applyI18n === 'function') {
+      window.Shaduler.applyI18n();
+    }
+  }
+
+  function reloadShadulerUi() {
+    if (typeof applyTranslations === 'function') applyTranslations();
+    if (window.Shaduler && typeof window.Shaduler.onLanguageChanged === 'function') {
+      window.Shaduler.onLanguageChanged();
+    } else if (window.Shaduler && typeof window.Shaduler.applyI18n === 'function') {
+      window.Shaduler.applyI18n();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof loadLanguage === 'function') {
+      loadLanguage(currentLang(), MODULE_ID).then(bootShaduler).catch(bootShaduler);
+    } else {
+      bootShaduler();
+    }
   });
+
+  document.addEventListener('languageChanged', function (e) {
+    var lang = (e && e.detail && e.detail.language) || currentLang();
+    if (typeof loadLanguage === 'function') {
+      loadLanguage(lang, MODULE_ID).then(reloadShadulerUi).catch(reloadShadulerUi);
+    } else {
+      reloadShadulerUi();
+    }
+  }, { capture: true });
 })();
 </script>
 {% endblock %}

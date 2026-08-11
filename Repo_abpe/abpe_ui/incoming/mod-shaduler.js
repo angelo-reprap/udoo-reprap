@@ -4606,16 +4606,12 @@
     });
     applyDomI18n();
     setTab(cfg.tab || 'aufgaben');
+  }
 
-    if (!init._langBound) {
-      init._langBound = true;
-      document.addEventListener('languageChanged', function () {
-        applyDomI18n();
-        // Tab-Inhalt neu rendern (dynamische _t-Strings)
-        loaded = {};
-        setTab(cfg.tab || 'aufgaben');
-      });
-    }
+  /** Nach loadLanguage(lang, 'shaduler') — Tabs + dynamische Panels neu. */
+  function onLanguageChanged() {
+    applyDomI18n();
+    setTab(cfg.tab || 'aufgaben');
   }
 
   global.Shaduler = {
@@ -4623,6 +4619,7 @@
     setTab: setTab,
     refreshStats: refreshStats,
     applyI18n: applyDomI18n,
+    onLanguageChanged: onLanguageChanged,
     _t: _t,
   };
 })(window);
