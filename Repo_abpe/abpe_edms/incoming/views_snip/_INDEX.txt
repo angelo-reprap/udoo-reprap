@@ -1,0 +1,4 @@
+OK api_mail_attachment ← views.py:1302-1340 (39 Zeilen)
+OK api_mail_attachment_preview ← views.py:1364-1426 (63 Zeilen)
+OK api_mail_view ← views.py:1208-1284 (77 Zeilen)
+OK api_person_mails ← views.py:1037-1115 (79 Zeilen)

@@ -1,0 +1,110 @@
+{% extends "abpe_ui/base.html" %}
+{% load static %}
+
+{% block title %}{% firstof titles.shaduler "Aufgaben" %}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'abpe_ui/css/mod/mod-shaduler.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="shaduler-root" data-tab="{{ active_tab }}">
+  <div class="modtabs" role="tablist">
+    <button type="button" class="mtab {% if active_tab == 'aufgaben' %}on{% endif %}" data-t="aufgaben">
+      <i class="bi bi-list-task"></i> <span data-i18n="sh.tab_aufgaben">Aufgaben</span>
+      <span class="b" id="tb-a">0</span>
+    </button>
+    <button type="button" class="mtab {% if active_tab == 'kalender' %}on{% endif %}" data-t="kalender">
+      <i class="bi bi-calendar3"></i> <span data-i18n="sh.tab_kalender">Kalender</span>
+    </button>
+    <button type="button" class="mtab {% if active_tab == 'posteingang' %}on{% endif %}" data-t="posteingang">
+      <i class="bi bi-inbox"></i> <span data-i18n="sh.tab_posteingang">Posteingang</span>
+      <span class="b" id="tb-post" style="background:var(--a-email,#3b82f6)">0</span>
+    </button>
+    <button type="button" class="mtab {% if active_tab == 'radar_anfragen' %}on{% endif %}" data-t="radar_anfragen">
+      <i class="bi bi-broadcast"></i> <span data-i18n="sh.tab_radar_anfragen">Radar · Anfragen</span>
+      <span class="b teal" id="tb-ra">0</span>
+    </button>
+    <button type="button" class="mtab {% if active_tab == 'radar_berater' %}on{% endif %}" data-t="radar_berater">
+      <i class="bi bi-person-bounding-box"></i> <span data-i18n="sh.tab_radar_berater">Radar · Berater</span>
+      <span class="b teal" id="tb-rb">0</span>
+    </button>
+    <button type="button" class="mtab {% if active_tab == 'regeln' %}on{% endif %}" data-t="regeln">
+      <i class="bi bi-gear-wide-connected"></i> <span data-i18n="sh.tab_regeln">Regeln</span>
+    </button>
+    <button type="button" class="mtab {% if active_tab == 'einstellungen' %}on{% endif %}" data-t="einstellungen">
+      <i class="bi bi-sliders"></i> <span data-i18n="sh.tab_einstellungen">Einstellungen</span>
+    </button>
+  </div>
+
+  <div id="shaduler-tab-body" class="sh-tab-body">
+    <div class="sh-loading" data-i18n="sh.loading">Laden…</div>
+  </div>
+</div>
+
+<script>
+window.SHADULER_CONFIG = {{ shaduler_config_json|safe }};
+</script>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+window.ABPE_CONFIG = window.ABPE_CONFIG || {};
+window.ABPE_CONFIG.module_id = 'shaduler';
+</script>
+<script src="{% static 'abpe_ui/js/mod/mod-shaduler.js' %}"></script>
+<script src="{% static 'abpe_ui/js/mod/mod-shaduler-kalender.js' %}"></script>
+<script>
+/**
+ * Wie namazu / cv_editor / Matching:
+ *   1) loadLanguage(lang, 'shaduler') → setzt Portal-_currentModuleId + lädt modules/shaduler/*.json
+ *   2) erst dann Shaduler.init()
+ *   3) languageChanged → Modul-JSON neu laden + UI neu rendern
+ */
+(function () {
+  var MODULE_ID = 'shaduler';
+
+  function currentLang() {
+    return (window.ABPE_CONFIG && window.ABPE_CONFIG.current_lang)
+      || '{{ current_lang|default:"de" }}'
+      || 'de';
+  }
+
+  function bootShaduler() {
+    if (window.Shaduler && typeof window.Shaduler.init === 'function') {
+      window.Shaduler.init(window.SHADULER_CONFIG || {});
+    }
+    if (typeof applyTranslations === 'function') applyTranslations();
+    if (window.Shaduler && typeof window.Shaduler.applyI18n === 'function') {
+      window.Shaduler.applyI18n();
+    }
+  }
+
+  function reloadShadulerUi() {
+    if (typeof applyTranslations === 'function') applyTranslations();
+    if (window.Shaduler && typeof window.Shaduler.onLanguageChanged === 'function') {
+      window.Shaduler.onLanguageChanged();
+    } else if (window.Shaduler && typeof window.Shaduler.applyI18n === 'function') {
+      window.Shaduler.applyI18n();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof loadLanguage === 'function') {
+      loadLanguage(currentLang(), MODULE_ID).then(bootShaduler).catch(bootShaduler);
+    } else {
+      bootShaduler();
+    }
+  });
+
+  document.addEventListener('languageChanged', function (e) {
+    var lang = (e && e.detail && e.detail.language) || currentLang();
+    if (typeof loadLanguage === 'function') {
+      loadLanguage(lang, MODULE_ID).then(reloadShadulerUi).catch(reloadShadulerUi);
+    } else {
+      reloadShadulerUi();
+    }
+  }, { capture: true });
+})();
+</script>
+{% endblock %}
