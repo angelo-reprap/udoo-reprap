@@ -2861,6 +2861,7 @@ window.Matching = (function() {
             contacted: 'angeschrieben',
             written: 'angeschrieben',
             interest: 'interesse',
+            interested: 'interesse',
             at_client: 'beim_kunden',
             client: 'beim_kunden',
             placed: 'vermittelt',
@@ -2868,6 +2869,42 @@ window.Matching = (function() {
             decline: 'absage',
         };
         return aliases[s] || s;
+    }
+
+    function _phoneFieldLabel(fieldName) {
+        const fn = String(fieldName || '').toLowerCase();
+        const map = {
+            phone_mobile: 'Mobil',
+            mobile: 'Mobil',
+            handy: 'Mobil',
+            phone_work: 'Büro',
+            phone_office: 'Büro',
+            office: 'Büro',
+            buero: 'Büro',
+            phone_fax: 'Fax',
+            fax: 'Fax',
+            phone_home: 'Privat',
+            phone_other: 'Tel',
+            phone: 'Tel',
+            telefon: 'Tel',
+        };
+        return map[fn] || (fieldName ? String(fieldName) : 'Tel');
+    }
+
+    function _fixText(s) {
+        // Häufige Mojibake-Korrektur (z.B. "K??ln" / "KÃ¶ln" → "Köln")
+        let t = String(s || '');
+        if (!t) return '';
+        try {
+            if (/Ã.|Â./.test(t)) {
+                t = decodeURIComponent(escape(t));
+            }
+        } catch (e) { /* ignore */ }
+        return t
+            .replace(/K\?\?ln/gi, 'Köln')
+            .replace(/M\?\?nchen/gi, 'München')
+            .replace(/D\?\?sseldorf/gi, 'Düsseldorf')
+            .replace(/N\?\?rnberg/gi, 'Nürnberg');
     }
 
     function _stageMailTpl(stage, variant) {
@@ -2922,10 +2959,12 @@ window.Matching = (function() {
     function _pickPhone(list, fallback) {
         if (fallback) return fallback;
         if (!list || !list.length) return '';
-        const pref = list.find(p => /mobil|mobile|handy/i.test(p.label || ''))
-            || list.find(p => /büro|buero|office|arbeit/i.test(p.label || ''))
-            || list[0];
-        return (pref && (pref.number || pref.nummer || pref.value || pref.phone)) || '';
+        const nonFax = list.filter(p => !/fax/i.test(p.label || ''));
+        const pool = nonFax.length ? nonFax : list;
+        const pref = pool.find(p => /mobil|mobile|handy/i.test(p.label || ''))
+            || pool.find(p => /büro|buero|office|arbeit|work/i.test(p.label || ''))
+            || pool[0];
+        return (pref && (pref.number || pref.nummer || pref.raw || pref.value || pref.phone)) || '';
     }
 
     function _pickEmail(list, fallback) {
@@ -2939,15 +2978,25 @@ window.Matching = (function() {
         if (!raw || typeof raw !== 'object') return base;
         const c = raw.contact || raw.berater || raw.item || raw.data || raw.result || raw;
         const phones = [];
+        const seen = {};
         const pushPhone = (num, label) => {
             const n = String(num || '').trim();
-            if (!n) return;
+            if (!n || n === '—' || n === '-') return;
+            const key = n.replace(/[^\d+]/g, '');
+            if (key && seen[key]) return;
+            if (key) seen[key] = true;
             phones.push({ label: label || 'Tel', number: n });
         };
         if (Array.isArray(c.phones)) {
             c.phones.forEach(p => {
-                if (typeof p === 'string') pushPhone(p, 'Tel');
-                else pushPhone(p.nummer || p.number || p.phone || p.value, p.label || p.field_name || p.typ || 'Tel');
+                if (typeof p === 'string') {
+                    pushPhone(p, 'Tel');
+                    return;
+                }
+                // CRM-Berater-API: { field_name, raw, norm, ... }
+                const num = p.raw || p.phone_raw || p.norm || p.nummer || p.number
+                    || p.phone || p.value || p.display || '';
+                pushPhone(num, _phoneFieldLabel(p.field_name || p.label || p.typ || p.type));
             });
         }
         pushPhone(c.phone_mobile || c.mobile || c.handy, 'Mobil');
@@ -2958,31 +3007,40 @@ window.Matching = (function() {
         const emails = [];
         const pushMail = (em) => {
             const e = String(em || '').trim();
-            if (e && e.indexOf('@') > 0) emails.push(e);
+            if (e && e.indexOf('@') > 0 && emails.indexOf(e) < 0) emails.push(e);
         };
         if (Array.isArray(c.emails)) {
-            c.emails.forEach(e => pushMail(typeof e === 'string' ? e : (e.email || e.value)));
+            c.emails.forEach(e => pushMail(typeof e === 'string' ? e : (e.email || e.value || e.raw)));
         }
         pushMail(c.email || c.mail || c.email_primary);
 
         const addr = c.address || c.hauptadresse || c.primary_address || {};
-        const city = c.city || c.ort || addr.city || addr.ort || addr.town || '';
-        const street = addr.street || addr.strasse || addr.line1 || c.street || '';
+        const city = _fixText(c.city || c.ort || addr.city || addr.ort || addr.town || '');
+        const street = _fixText(addr.street || addr.strasse || addr.line1 || c.street || '');
         const zip = addr.zip || addr.plz || addr.postal_code || c.zip || '';
         const country = addr.country || addr.land || c.country || '';
         const addressLine = [street, [zip, city].filter(Boolean).join(' '), country].filter(Boolean).join(', ');
+        const eck = c.eckdaten || {};
+
+        const mergedPhones = phones.length
+            ? phones
+            : (base.phones || []).slice();
+        // bestehende Nummern behalten, neue ergänzen
+        if (phones.length && base.phones && base.phones.length) {
+            (base.phones || []).forEach(bp => pushPhone(bp.number || bp.raw, bp.label));
+        }
 
         return Object.assign({}, base, {
             name: c.full_name || c.name || [c.first_name || c.vorname, c.last_name || c.nachname].filter(Boolean).join(' ') || base.name,
-            location: city || base.location || '',
+            location: city || _fixText(base.location) || '',
             address: addressLine || base.address || '',
-            phone: _pickPhone(phones, base.phone),
-            email: _pickEmail(emails, base.email),
-            phones: phones.length ? phones : (base.phones || []),
+            phone: _pickPhone(mergedPhones, base.phone),
+            email: _pickEmail(emails.length ? emails : (base.emails || []), base.email),
+            phones: mergedPhones,
             emails: emails.length ? emails : (base.emails || []),
             crm_contact_id: c.crm_id || c.id || c.contact_id || base.crm_contact_id || '',
-            gulp_id: c.gulp_id || c.gulpId || (c.eckdaten && c.eckdaten.gulp_id) || base.gulp_id || '',
-            rate: c.rate || c.konditionen || c.satz || c.hourly_rate || base.rate || '',
+            gulp_id: c.gulp_id || c.gulpId || eck.gulp_id || base.gulp_id || '',
+            rate: c.rate || c.konditionen || eck.konditionen || c.satz || c.hourly_rate || base.rate || '',
             crm_status: c.status || c.crm_status || base.crm_status || '',
             crm_type: c.type || c.typ || c.contact_type || base.crm_type || '',
             company: c.account_name || c.firma || c.company || base.company || '',
@@ -3000,22 +3058,22 @@ window.Matching = (function() {
         const out = Object.assign({ phones: [], emails: [] }, detail);
         const id = out.crm_contact_id;
         const name = out.name || '';
+        // Berater-Detail zuerst (autoritativ für Telefon: phones[].raw)
         const urls = [];
         if (id) {
-            urls.push('/crm/api/contact/' + encodeURIComponent(id) + '/');
             urls.push('/crm/api/berater/' + encodeURIComponent(id) + '/');
             urls.push('/crm/api/berater/detail/?id=' + encodeURIComponent(id));
+            urls.push('/crm/api/contact/' + encodeURIComponent(id) + '/');
             urls.push('/crm/api/contacts/' + encodeURIComponent(id) + '/');
             urls.push(API + 'crm/contacts/' + encodeURIComponent(id) + '/');
         }
         if (name && name.length >= 2) {
-            urls.push(API + 'crm/contacts/?q=' + encodeURIComponent(name));
             urls.push('/crm/api/berater/?q=' + encodeURIComponent(name) + '&limit=5');
+            urls.push(API + 'crm/contacts/?q=' + encodeURIComponent(name));
         }
 
         function mergeHit(d) {
             if (!d) return;
-            // list response?
             const list = d.results || d.items || d.contacts || d.berater;
             if (Array.isArray(list) && list.length) {
                 const q = name.toLowerCase();
@@ -3026,17 +3084,22 @@ window.Matching = (function() {
             Object.assign(out, _normalizeCrmPayload(d, out));
         }
 
+        function hasPhones() {
+            return !!(out.phone || (out.phones && out.phones.length));
+        }
+
         let chain = Promise.resolve();
-        urls.forEach(u => {
+        urls.forEach((u, idx) => {
             chain = chain.then(() => {
-                // schon genug Daten? trotzdem CRM-ID/Phones nachziehen wenn leer
-                if (out.phone && out.email && out.crm_contact_id && (out.phones || []).length) {
+                // Nach erstem erfolgreichen Berater-Hit mit Telefon: restliche optional überspringen
+                if (idx > 0 && hasPhones() && out.crm_contact_id) {
                     return null;
                 }
                 return _jsonGet(u).then(mergeHit);
             });
         });
         return chain.then(() => {
+            out.location = _fixText(out.location);
             out.phone = _pickPhone(out.phones, out.phone);
             out.email = _pickEmail(out.emails, out.email);
             return out;
@@ -3122,7 +3185,7 @@ window.Matching = (function() {
 
         const phoneHtml = phones.length
             ? phones.map(p => {
-                const num = p.number || p.nummer || '';
+                const num = p.number || p.nummer || p.raw || '';
                 return `<div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
                   <span style="color:#888;min-width:48px">${_esc(p.label || 'Tel')}</span>
                   <b style="flex:1">${_esc(num)}</b>
@@ -3170,7 +3233,7 @@ window.Matching = (function() {
               </span>
               <span style="color:#888">Stand</span><span>${_esc(_stageLabel(stage))}</span>
               ${detail.company ? '<span style="color:#888">Firma</span><span>' + _esc(detail.company) + '</span>' : ''}
-              <span style="color:#888">Ort</span><span>${_esc(detail.location || detail.address || '—')}</span>
+              <span style="color:#888">Ort</span><span>${_esc(_fixText(detail.location || detail.address || '—'))}</span>
               ${detail.address && detail.location && detail.address.indexOf(detail.location) < 0
                 ? '<span style="color:#888">Adresse</span><span>' + _esc(detail.address) + '</span>' : ''}
               ${detail.gulp_id ? '<span style="color:#888">Gulp-ID</span><span>' + _esc(String(detail.gulp_id)) + '</span>' : ''}
