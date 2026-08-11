@@ -94,10 +94,20 @@ if [[ -d "$TMP/Repo_abpe/abpe_shaduler/incoming" ]]; then
 fi
 
 # ── Matching UI ──────────────────────────────────────────────────────────────
+if ! grep -q "phone_raw" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
+  || ! grep -q "_fetchBeraterDetail" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js"; then
+  echo "FEHLER: mod-matching.js ohne CRM-Telefon/E-Mail-Fix (phone_raw / _fetchBeraterDetail)"
+  exit 1
+fi
 mkdir -p "$LIVE_UI/static/abpe_ui/js/mod"
 cp -a "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
   "$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js"
 echo "OK — mod-matching.js → $LIVE_UI/static/abpe_ui/js/mod/"
+# Guard: Live-Datei enthält den Fix
+if ! grep -q "_fetchBeraterDetail" "$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js"; then
+  echo "FEHLER: Live mod-matching.js ohne _fetchBeraterDetail nach Copy"
+  exit 1
+fi
 
 if [[ -f "$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler.js" ]]; then
   cp -a "$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler.js" \
