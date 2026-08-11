@@ -12,7 +12,11 @@ Aufruf:
   python3 apps/abpe_shaduler/bin/i18n_translator.py --check
   python3 apps/abpe_shaduler/bin/i18n_translator.py --lang en
   python3 apps/abpe_shaduler/bin/i18n_translator.py --force
+  python3 apps/abpe_shaduler/bin/i18n_translator.py --wipe
   python3 apps/abpe_shaduler/bin/i18n_translator.py --modules-only
+
+API-Key: settings.json → ai_models.deepseek.api_key  oder Env DEEPSEEK_API_KEY
+Wipe: löscht modules/shaduler/shaduler.json aller Zielsprachen, dann Neuübersetzung aus DE.
 
 Sprachdatei (Live):
   /opt/abpe/backend/apps/abpe_ui/static/abpe_ui/i18n/de/modules/shaduler/shaduler.json
@@ -81,10 +85,30 @@ log = logging.getLogger("shaduler_i18n_translator")
 
 
 def _load_api_key() -> Optional[str]:
+    import os
+
+    for env_name in ("DEEPSEEK_API_KEY", "SHADULER_DEEPSEEK_API_KEY"):
+        key = (os.environ.get(env_name) or "").strip()
+        if key:
+            return key
     if SETTINGS.exists():
         cfg = json.loads(SETTINGS.read_text(encoding="utf-8"))
         return cfg.get("ai_models", {}).get("deepseek", {}).get("api_key")
     return None
+
+
+def wipe_target_packs(i18n_dir: Path, target_langs: list[str]) -> int:
+    """Löscht modules/shaduler/shaduler.json der Zielsprachen (DE bleibt)."""
+    removed = 0
+    for lang in target_langs:
+        if lang == REF_LANG:
+            continue
+        path = shaduler_json(lang, i18n_dir)
+        if path.is_file():
+            path.unlink()
+            removed += 1
+            log.info("  🗑  gelöscht: %s", path)
+    return removed
 
 
 def _deepseek_translate(
@@ -483,13 +507,22 @@ def run(args) -> None:
         print(f"DE-Referenz: {shaduler_json(REF_LANG, i18n_dir)}")
         sys.exit(0 if total_issues == 0 else 1)
 
+    if args.wipe:
+        log.info("\n── Wipe Nicht-DE Shaduler-Pakete ──────────────────────")
+        n = wipe_target_packs(i18n_dir, target_langs)
+        log.info("  %s Datei(en) entfernt — Neuübersetzung aus DE", n)
+        args.force = True
+
     if total_issues == 0 and not args.force:
         print("\n✅ Shaduler-Sprachen vollständig — nichts zu tun.")
         return
 
     api_key = _load_api_key()
     if not api_key:
-        log.error("Kein Deepseek API-Key in settings.json!")
+        log.error(
+            "Kein Deepseek API-Key! Setze DEEPSEEK_API_KEY oder "
+            "ai_models.deepseek.api_key in settings.json"
+        )
         sys.exit(1)
     log.info("Deepseek API-Key: sk-...%s", api_key[-8:])
 
@@ -534,6 +567,11 @@ if __name__ == "__main__":
     parser.add_argument("--check", action="store_true", help="Nur Konsistenz prüfen")
     parser.add_argument("--lang", type=str, default=None, help="Nur eine Sprache")
     parser.add_argument("--force", action="store_true", help="Alles neu übersetzen")
+    parser.add_argument(
+        "--wipe",
+        action="store_true",
+        help="Nicht-DE shaduler.json löschen und aus DE neu übersetzen (--force)",
+    )
     parser.add_argument(
         "--modules-only",
         action="store_true",
