@@ -547,26 +547,34 @@ window.Matching = (function() {
                              draggable="${draggable}"
                              data-match-id="${card.id}"
                              data-score="${card.match_score}"
+                             data-stage="${_escAttr(col.id)}"
+                             data-name="${_escAttr(card.name || '')}"
+                             data-location="${_escAttr(card.location || '')}"
+                             data-phone="${_escAttr(card.phone || card.telefon || card.mobile || '')}"
+                             data-email="${_escAttr(card.email || card.mail || '')}"
+                             data-crm="${_escAttr(card.crm_contact_id || card.crm_id || card.consultant_crm_id || '')}"
                              ondragstart="${isBelowThreshold ? '' : `Matching.kanbanDragStart(event,'${card.id}')`}"
                              onclick="Matching.kanbanCardClick('${card.id}')">
                             <div style="display:flex;justify-content:space-between;align-items:start">
-                                <div style="font-weight:700">${card.name}</div>
+                                <div style="font-weight:700;color:var(--abcona-blue);text-decoration:underline;text-underline-offset:2px">${_esc(card.name || '')}</div>
                                 <div style="font-weight:700;color:${scoreColor};font-size:10px">
                                     ${Math.round(card.match_score*100)}%
                                 </div>
                             </div>
-                            <div style="font-size:10px;color:#888;margin-top:2px">${card.location}</div>
+                            <div style="font-size:10px;color:#888;margin-top:2px">${_esc(card.location || '')}</div>
                             ${alertHtml}
                             ${reserveHtml}
                             <div style="display:flex;justify-content:space-between;margin-top:5px">
                                 ${daysHtml}
                                 <div style="display:flex;gap:3px">
                                     <button class="matching-btn-sm matching-btn-call" style="font-size:9px;padding:2px 5px"
+                                            title="${_esc(_kiT('btn_call', 'Anrufen'))}"
                                             onclick="event.stopPropagation();Matching.call('${card.id}')">
                                         <i class="bi bi-telephone"></i>
                                     </button>
                                     <button class="matching-btn-sm matching-btn-mail" style="font-size:9px;padding:2px 5px"
-                                            onclick="event.stopPropagation();Matching.sendEmail('${card.id}')">
+                                            title="${_esc(_kiT('btn_email', 'E-Mail'))}"
+                                            onclick="event.stopPropagation();Matching.sendEmail('${card.id}','${_escAttr(col.id)}')">
                                         <i class="bi bi-envelope"></i>
                                     </button>
                                 </div>
@@ -2760,32 +2768,434 @@ window.Matching = (function() {
             });
     }
 
-    function call(matchId, phoneNumber) {
-        // Nummer holen — entweder übergeben oder via Prompt
-        let phone = phoneNumber || prompt(_t('matching.err_phone_prompt'));
-        if (!phone) return;
+    // ── Stage → Standard-Mail (nächste Aktion laut Workflow) ──────────────
+    // shortlist → Anschreiben | angeschrieben → Interesse | interesse → Beim Kunden
+    // beim_kunden → Interview | interview → Vermittelt|Absage | vermittelt → Start
+    const STAGE_MAIL = {
+        shortlist: {
+            nextStatus: 'angeschrieben',
+            actionKey: 'anschreiben',
+            label: 'Anschreiben',
+            subject: 'Anfrage {project} — passt das für Sie?',
+            body:
+                'Guten Tag {name},\n\n' +
+                'zu unserer aktuellen Kundenanfrage „{project}“ ({customer}) möchten wir Sie gerne anfragen.\n' +
+                'Passt das thematisch zu Ihrem Profil?\n\n' +
+                'Viele Grüße',
+        },
+        angeschrieben: {
+            nextStatus: 'interesse',
+            actionKey: 'interesse',
+            label: 'Interesse / Verfügbarkeit',
+            subject: 'Nachfrage Verfügbarkeit — {project}',
+            body:
+                'Guten Tag {name},\n\n' +
+                'kurze Nachfrage zu „{project}“ ({customer}):\n' +
+                'Besteht Interesse, und wann wären Sie verfügbar (ab Datum / Stunden pro Woche)?\n\n' +
+                'Viele Grüße',
+        },
+        interesse: {
+            nextStatus: 'beim_kunden',
+            actionKey: 'vorstellen',
+            label: 'Beim Kunden vorstellen',
+            subject: 'Vorstellung beim Kunden — {project}',
+            body:
+                'Guten Tag {name},\n\n' +
+                'wir möchten Sie dem Kunden zu „{project}“ ({customer}) vorstellen.\n' +
+                'Dürfen wir Ihr Profil (anonymisiert/mit CV) weiterleiten?\n\n' +
+                'Viele Grüße',
+        },
+        beim_kunden: {
+            nextStatus: 'interview',
+            actionKey: 'interview',
+            label: 'Interview koordinieren',
+            subject: 'Interview-Koordination — {project}',
+            body:
+                'Guten Tag {name},\n\n' +
+                'der Kunde zu „{project}“ ({customer}) möchte Sie kennenlernen.\n' +
+                'Welche Termine passen Ihnen diese Woche (Datum/Uhrzeit, Tel. oder Video)?\n\n' +
+                'Viele Grüße',
+        },
+        interview: {
+            nextStatus: 'vermittelt',
+            actionKey: 'vermittelt',
+            label: 'Vermittlung / Start',
+            subject: 'Vermittlung — Startabstimmung {project}',
+            body:
+                'Guten Tag {name},\n\n' +
+                'zur Vermittlung „{project}“ ({customer}):\n' +
+                'Bitte teilen Sie uns Ihren Wunsch-Starttermin und den Ansprechpartner vor Ort mit.\n\n' +
+                'Viele Grüße',
+        },
+        vermittelt: {
+            nextStatus: null,
+            actionKey: 'start',
+            label: 'Start-Info',
+            subject: 'Startinfo — {project}',
+            body:
+                'Guten Tag {name},\n\n' +
+                'zur Aufnahme bei „{project}“ ({customer}):\n' +
+                '• Start: {start}\n' +
+                '• Ort / Remote: {location}\n' +
+                '• Ansprechpartner Kunde: bitte melden Sie sich bei Bedarf über uns.\n\n' +
+                'Viel Erfolg und viele Grüße',
+        },
+        absage: {
+            nextStatus: null,
+            actionKey: 'absage',
+            label: 'Absage',
+            subject: 'Rückmeldung zur Anfrage {project}',
+            body:
+                'Guten Tag {name},\n\n' +
+                'vielen Dank für Ihr Interesse an „{project}“ ({customer}).\n' +
+                'Leider hat sich der Kunde anderweitig entschieden. Wir melden uns gerne bei passenden Folgeanfragen.\n\n' +
+                'Freundliche Grüße',
+        },
+    };
 
-        // Nummer bereinigen
-        let clean = phone.replace(/[^\d+]/g, '').replace(/^\+/, '00');
-        if (clean.length < 6) { alert(_t('matching.call_invalid')); return; }
-
-        // Webdial Config aus MATCHING_CONFIG oder ABPE_CONFIG
-        const wdCfg = window.MATCHING_CONFIG?.webdial || window.ABPE_CONFIG?.webdial || {};
-        const cgi     = wdCfg.url      || 'http://172.20.3.120/cgi-bin/webdial.cgi';
-        const from    = wdCfg.from     || '12';
-        const channel = wdCfg.channel  || 'SIP/12';
-        const context = wdCfg.context  || 'from-internal';
-        const timeout = wdCfg.timeout  || 10;
-
-        // Browser-seitiger Anruf via window.open (Issabel Bookmarklet-Methode)
-        const url = `${cgi}?from=${from}&channel=${channel}&context=${context}&timeout=${timeout}&to=${clean}`;
-        window.open(url, 'webdial', 'height=100,width=100');
-
-        console.log(`📞 Click-to-Call: ${from} → ${clean}`);
+    function _normStage(stage) {
+        const s = String(stage || '').toLowerCase().trim()
+            .replace(/\s+/g, '_').replace(/-/g, '_');
+        const aliases = {
+            short: 'shortlist',
+            contacted: 'angeschrieben',
+            written: 'angeschrieben',
+            interest: 'interesse',
+            at_client: 'beim_kunden',
+            client: 'beim_kunden',
+            placed: 'vermittelt',
+            rejected: 'absage',
+            decline: 'absage',
+        };
+        return aliases[s] || s;
     }
 
-    function sendEmail(matchId) {
-        alert(_t('matching.email_phase2'));
+    function _stageMailTpl(stage, variant) {
+        const st = _normStage(stage);
+        if (st === 'interview' && variant === 'absage') return STAGE_MAIL.absage;
+        return STAGE_MAIL[st] || STAGE_MAIL.shortlist;
+    }
+
+    function _projectContext() {
+        const cfgP = window.MATCHING_CONFIG || {};
+        const labelEl = document.querySelector('#content-kanban [style*="font-size:12px"]');
+        const raw = (labelEl && labelEl.textContent) || '';
+        const parts = raw.split('·').map(x => x.trim()).filter(Boolean);
+        return {
+            projectId: cfgP.activeProject || '',
+            project: parts[1] || parts[0] || 'Anfrage',
+            projectNumber: parts[0] || '',
+            customer: cfgP.activeCustomer || '',
+            location: '',
+            start: '',
+        };
+    }
+
+    function _fillTpl(str, vars) {
+        return String(str || '').replace(/\{(\w+)\}/g, function (_, k) {
+            return vars[k] != null && vars[k] !== '' ? String(vars[k]) : '';
+        });
+    }
+
+    function _cardEl(matchId) {
+        return document.querySelector('.matching-card[data-match-id="' + matchId + '"]');
+    }
+
+    function _matchFromCard(matchId) {
+        const el = _cardEl(matchId);
+        if (!el) return { id: matchId };
+        return {
+            id: matchId,
+            name: el.getAttribute('data-name') || '',
+            location: el.getAttribute('data-location') || '',
+            phone: el.getAttribute('data-phone') || '',
+            email: el.getAttribute('data-email') || '',
+            crm_contact_id: el.getAttribute('data-crm') || '',
+            stage: el.getAttribute('data-stage') || '',
+            match_score: parseFloat(el.getAttribute('data-score') || '0') || 0,
+        };
+    }
+
+    function _fetchMatchDetail(matchId) {
+        const base = _matchFromCard(matchId);
+        const urls = [
+            API + 'match/' + matchId + '/',
+            API + 'match/' + matchId + '/detail/',
+            API + 'matches/' + matchId + '/',
+        ];
+        function tryOne(i) {
+            if (i >= urls.length) return Promise.resolve(base);
+            return fetch(urls[i], { credentials: 'same-origin' })
+                .then(r => r.ok ? r.json() : null)
+                .then(d => {
+                    if (!d || d.success === false) return tryOne(i + 1);
+                    const m = d.match || d.consultant || d.result || d;
+                    return {
+                        id: matchId,
+                        name: m.name || m.full_name || base.name,
+                        location: m.location || m.city || base.location,
+                        phone: m.phone || m.telefon || m.mobile || m.phone_mobile || base.phone,
+                        email: m.email || m.mail || base.email,
+                        crm_contact_id: m.crm_contact_id || m.crm_id || m.consultant_crm_id || base.crm_contact_id,
+                        stage: m.status || m.stage || base.stage,
+                        match_score: m.match_score != null ? m.match_score : base.match_score,
+                        skills: m.matched_skills || m.skills || [],
+                        aid: m.aid || m.consultant_aid || '',
+                    };
+                })
+                .catch(() => tryOne(i + 1));
+        }
+        return tryOne(0);
+    }
+
+    function _closeContactPopup() {
+        const ov = document.getElementById('matching-contact-ovl');
+        if (ov) ov.remove();
+    }
+
+    function _openContactPopup(detail) {
+        _closeContactPopup();
+        const stage = _normStage(detail.stage);
+        const tpl = _stageMailTpl(stage);
+        const scorePct = Math.round((detail.match_score || 0) * 100);
+        const crmUrl = detail.crm_contact_id
+            ? ('/crm/berater/?detail=' + encodeURIComponent(detail.crm_contact_id))
+            : '';
+        const skills = (detail.skills || []).slice(0, 8).join(' · ');
+
+        const ov = document.createElement('div');
+        ov.id = 'matching-contact-ovl';
+        ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10050;display:flex;align-items:center;justify-content:center;padding:16px';
+        ov.onclick = function (e) { if (e.target === ov) _closeContactPopup(); };
+        ov.innerHTML = `
+        <div style="background:#fff;border-radius:10px;max-width:440px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);overflow:hidden">
+          <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff">
+            <i class="bi bi-person-badge"></i>
+            <b style="flex:1">${_esc(detail.name || 'Kontakt')}</b>
+            <button type="button" style="background:transparent;border:0;color:#fff;font-size:18px;cursor:pointer"
+                    onclick="Matching.closeContactPopup()">×</button>
+          </div>
+          <div style="padding:14px;font-size:12px;line-height:1.5">
+            <div style="display:grid;grid-template-columns:90px 1fr;gap:6px 10px;margin-bottom:12px">
+              <span style="color:#888">Score</span><span><b>${scorePct}%</b> · ${_esc(stage || '—')}</span>
+              <span style="color:#888">Ort</span><span>${_esc(detail.location || '—')}</span>
+              <span style="color:#888">Telefon</span><span>${_esc(detail.phone || '—')}</span>
+              <span style="color:#888">E-Mail</span><span>${_esc(detail.email || '—')}</span>
+              ${skills ? '<span style="color:#888">Skills</span><span>' + _esc(skills) + '</span>' : ''}
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <button type="button" class="matching-btn-primary" style="font-size:11px"
+                      onclick="Matching.call('${detail.id}')">
+                <i class="bi bi-telephone"></i> ${_esc(_kiT('btn_call', 'Anrufen'))}
+              </button>
+              <button type="button" class="matching-btn-primary" style="font-size:11px"
+                      onclick="Matching.sendEmail('${detail.id}','${_escAttr(stage)}')">
+                <i class="bi bi-envelope"></i> ${_esc(tpl.label)}
+              </button>
+              ${stage === 'interview' ? `
+              <button type="button" class="matching-btn-sm" style="font-size:11px"
+                      onclick="Matching.sendEmail('${detail.id}','interview','absage')">
+                <i class="bi bi-x-circle"></i> Absage
+              </button>` : ''}
+              ${crmUrl ? `
+              <a class="matching-btn-sm" style="font-size:11px;text-decoration:none;display:inline-flex;align-items:center"
+                 href="${_escAttr(crmUrl)}" target="_blank" rel="noopener">
+                <i class="bi bi-box-arrow-up-right"></i> CRM
+              </a>` : ''}
+            </div>
+          </div>
+        </div>`;
+        document.body.appendChild(ov);
+    }
+
+    function closeContactPopup() { _closeContactPopup(); }
+
+    function kanbanCardClick(matchId) {
+        _fetchMatchDetail(matchId).then(_openContactPopup);
+    }
+
+    function call(matchId, phoneNumber) {
+        const run = function (phone) {
+            if (!phone) {
+                phone = prompt(_kiT('err_phone_prompt', 'Telefonnummer eingeben:'));
+            }
+            if (!phone) return;
+            let clean = String(phone).replace(/[^\d+]/g, '').replace(/^\+/, '00');
+            if (clean.length < 6) {
+                alert(_t('matching.call_invalid') !== 'matching.call_invalid'
+                    ? _t('matching.call_invalid')
+                    : 'Ungültige Nummer');
+                return;
+            }
+            const wdCfg = window.MATCHING_CONFIG?.webdial || window.ABPE_CONFIG?.webdial || {};
+            const cgi = wdCfg.url || 'http://172.20.3.120/cgi-bin/webdial.cgi';
+            const from = wdCfg.from || '12';
+            const channel = wdCfg.channel || 'SIP/12';
+            const context = wdCfg.context || 'from-internal';
+            const timeout = wdCfg.timeout || 10;
+            const url = `${cgi}?from=${from}&channel=${channel}&context=${context}&timeout=${timeout}&to=${clean}`;
+            window.open(url, 'webdial', 'height=100,width=100');
+        };
+        if (phoneNumber) { run(phoneNumber); return; }
+        _fetchMatchDetail(matchId).then(d => run(d.phone || ''));
+    }
+
+    function sendEmail(matchId, stage, variant) {
+        _fetchMatchDetail(matchId).then(detail => {
+            const st = _normStage(stage || detail.stage);
+            const tpl = _stageMailTpl(st, variant);
+            const ctx = Object.assign(_projectContext(), {
+                name: detail.name || '',
+                location: detail.location || '',
+                start: '',
+            });
+            if (!ctx.customer) ctx.customer = '';
+            const subject = _fillTpl(tpl.subject, ctx);
+            const body = _fillTpl(tpl.body, ctx);
+            _openStageMailComposer({
+                matchId: matchId,
+                detail: detail,
+                stage: st,
+                variant: variant || '',
+                nextStatus: variant === 'absage' ? 'absage' : tpl.nextStatus,
+                actionLabel: tpl.label,
+                to: detail.email || '',
+                subject: subject,
+                body: body,
+            });
+        });
+    }
+
+    function _closeStageMailComposer() {
+        const ov = document.getElementById('matching-mail-ovl');
+        if (ov) ov.remove();
+    }
+
+    function _openStageMailComposer(opts) {
+        _closeStageMailComposer();
+        const ov = document.createElement('div');
+        ov.id = 'matching-mail-ovl';
+        ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10060;display:flex;align-items:center;justify-content:center;padding:16px';
+        ov.onclick = function (e) { if (e.target === ov) _closeStageMailComposer(); };
+        ov.innerHTML = `
+        <div style="background:#fff;border-radius:10px;max-width:560px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);max-height:90vh;overflow:auto">
+          <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff">
+            <i class="bi bi-envelope"></i>
+            <b style="flex:1">${_esc(opts.actionLabel || 'E-Mail')} — ${_esc(opts.detail.name || '')}</b>
+            <button type="button" style="background:transparent;border:0;color:#fff;font-size:18px;cursor:pointer"
+                    onclick="document.getElementById('matching-mail-ovl')?.remove()">×</button>
+          </div>
+          <div style="padding:14px;display:grid;gap:8px">
+            <label style="font-size:11px;color:#666">An
+              <input id="mm-to" class="matching-form-input" style="width:100%;margin-top:3px"
+                     type="email" value="${_escAttr(opts.to)}">
+            </label>
+            <label style="font-size:11px;color:#666">Betreff
+              <input id="mm-subj" class="matching-form-input" style="width:100%;margin-top:3px"
+                     value="${_escAttr(opts.subject)}">
+            </label>
+            <label style="font-size:11px;color:#666">Nachricht
+              <textarea id="mm-body" class="matching-form-textarea" rows="10"
+                        style="width:100%;margin-top:3px;font-family:inherit">${_esc(opts.body)}</textarea>
+            </label>
+            <div id="mm-msg" style="font-size:11px;min-height:16px"></div>
+            <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
+              <button type="button" class="matching-btn-sm"
+                      onclick="document.getElementById('matching-mail-ovl')?.remove()">Abbrechen</button>
+              <button type="button" class="matching-btn-primary" id="mm-send"
+                      onclick="Matching.submitStageMail()">
+                <i class="bi bi-send"></i> Senden${opts.nextStatus ? ' & Status' : ''}
+              </button>
+            </div>
+          </div>
+        </div>`;
+        document.body.appendChild(ov);
+        window._matchingMailDraft = opts;
+        const toEl = document.getElementById('mm-to');
+        if (toEl && !toEl.value) toEl.focus();
+    }
+
+    function _bodyTextToHtml(txt) {
+        return '<div>' + _esc(txt).replace(/\n/g, '<br>') + '</div>';
+    }
+
+    function submitStageMail() {
+        const draft = window._matchingMailDraft || {};
+        const to = ((document.getElementById('mm-to') || {}).value || '').trim();
+        const subj = ((document.getElementById('mm-subj') || {}).value || '').trim();
+        const body = ((document.getElementById('mm-body') || {}).value || '').trim();
+        const msg = document.getElementById('mm-msg');
+        const sendBtn = document.getElementById('mm-send');
+        function show(ok, text) {
+            if (!msg) return;
+            msg.style.color = ok ? '#155724' : '#b91c1c';
+            msg.textContent = text || '';
+        }
+        if (!to || to.indexOf('@') < 0) { show(false, 'Bitte gültige E-Mail (An) angeben'); return; }
+        if (!subj) { show(false, 'Betreff fehlt'); return; }
+        if (!body) { show(false, 'Nachricht fehlt'); return; }
+        if (sendBtn) { sendBtn.disabled = true; sendBtn.innerHTML = '…'; }
+        show(true, 'Wird gesendet …');
+
+        const payload = {
+            template_identifier: 'crm_manual_email',
+            to_email: to,
+            subject: subj,
+            body: _bodyTextToHtml(body),
+            contact_name: (draft.detail && draft.detail.name) || '',
+            crm_id: (draft.detail && draft.detail.crm_contact_id) || '',
+        };
+
+        fetch('/crm/api/email/send/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrf(),
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            body: JSON.stringify(payload),
+        })
+        .then(r => r.json().then(j => ({ ok: r.ok, j: j })))
+        .then(pack => {
+            const j = pack.j || {};
+            if (!(pack.ok && j.ok !== false && j.success !== false && !j.error)) {
+                throw new Error(j.error || 'Senden fehlgeschlagen');
+            }
+            const next = draft.nextStatus;
+            if (next && draft.matchId) {
+                return fetch(API + 'match/' + draft.matchId + '/move/', {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrf(),
+                    },
+                    body: JSON.stringify({ status: next }),
+                }).then(() => next);
+            }
+            return null;
+        })
+        .then(moved => {
+            _closeStageMailComposer();
+            _closeContactPopup();
+            if (moved) {
+                // Board neu laden
+                const content = document.getElementById('content-kanban');
+                if (content) {
+                    content.dataset.loaded = '0';
+                    _loadKanban(content, document.getElementById('loading-kanban'));
+                }
+            }
+            alert(_kiT('mail_sent', 'E-Mail gesendet') + (moved ? (' → ' + moved) : ''));
+        })
+        .catch(err => {
+            if (sendBtn) {
+                sendBtn.disabled = false;
+                sendBtn.innerHTML = '<i class="bi bi-send"></i> Senden';
+            }
+            show(false, err.message || String(err));
+        });
     }
 
     function closeProject(projectId) {
@@ -2908,11 +3318,6 @@ window.Matching = (function() {
         });
     }
 
-    function kanbanCardClick(matchId) {
-        // Detail-Modal öffnen — später implementieren
-        console.log('Kanban card click:', matchId);
-    }
-
     // ──────────────────────────────────────────────────
     // HILFSFUNKTIONEN
     // ──────────────────────────────────────────────────
@@ -2953,6 +3358,7 @@ window.Matching = (function() {
         toggleArchiveDetail, searchAnfragen, filterAnfragen,
         searchAccounts, searchContacts, call, sendEmail,
         kanbanDragStart, kanbanDrop, kanbanCardClick,
+        closeContactPopup, submitStageMail,
         closeProject, sendContract, sendPlacementStart, savePlacementDetails,
         openKiWizard, closeKiWizard, runKiExtract, applyKiExtract,
         pickCrmContact, pickCrmContactIndex, hideCrmSuggest, createCrmContactFromSuggest,
