@@ -1911,9 +1911,12 @@
       free: true,
       defaultArt: opts.defaultArt || 'termin',
       titleHint: opts.titleHint || _t('sh.task_new', 'Neue Aufgabe'),
+      subtitle: opts.subtitle || '',
       titel: opts.titel || '',
       notiz: opts.notiz || '',
       due: opts.due,
+      radarMeta: opts.radarMeta || '',
+      extraPayload: opts.extraPayload || null,
     });
   }
 
@@ -1943,6 +1946,14 @@
     var titleMain = opts.titleHint || (freeMode
       ? _t('sh.task_new', 'Neue Aufgabe')
       : _t('sh.inbox_task', 'Aufgabe erzeugen'));
+    var headerSub = '';
+    if (opts.subtitle) {
+      headerSub = '<small class="sh-mt-subj">' + esc(String(opts.subtitle)) + '</small>';
+    } else if (freeMode) {
+      headerSub = '<small>' + esc(_t('sh.task_free_hint', 'Freier Betreff — z. B. Zahnarzt, Rückruf …')) + '</small>';
+    }
+    var radarMeta = opts.radarMeta ? String(opts.radarMeta) : '';
+    var extraPayload = (opts.extraPayload && typeof opts.extraPayload === 'object') ? opts.extraPayload : null;
     var ovl = document.createElement('div');
     ovl.className = 'ovl open';
     ovl.id = 'sh-mail-task-ovl';
@@ -1950,17 +1961,16 @@
       '<div class="sh-modal sh-mail-task-modal">' +
       '<div class="mh">' +
       '<div class="ico"><i class="bi bi-check2-square"></i></div>' +
-      '<div><b>' + esc(titleMain) + '</b>' +
-      (freeMode
-        ? '<small>' + esc(_t('sh.task_free_hint', 'Freier Betreff — z. B. Zahnarzt, Rückruf …')) + '</small>'
-        : '') +
-      '</div>' +
+      '<div><b>' + esc(titleMain) + '</b>' + headerSub + '</div>' +
       '<button type="button" class="x" id="sh-mt-close"><i class="bi bi-x-lg"></i></button>' +
       '</div>' +
       '<div class="mb">' +
       '<div class="inp"><label for="sh-mt-titel">' + esc(_t('sh.task_betreff', 'Betreff')) + '</label>' +
       '<input type="text" id="sh-mt-titel" maxlength="200" value="' + esc(titelPrefill) + '" ' +
       'placeholder="' + esc(_t('sh.task_betreff_ph', 'z. B. Zahnarzt, Rückruf Müller …')) + '"></div>' +
+      (radarMeta
+        ? ('<div class="excerpt"><div class="lbl">Radar</div>' + esc(radarMeta) + '</div>')
+        : '') +
       (freeMode
         ? ''
         : ('<div class="excerpt"><div class="lbl">' + esc(_t('sh.inbox_from', 'Von')) + '</div>' +
@@ -2114,6 +2124,11 @@
           beschreibung: ta ? String(ta.value || '').trim() : '',
           crm_notiz: crmCb ? !!crmCb.checked : false,
         };
+        if (extraPayload) {
+          Object.keys(extraPayload).forEach(function (k) {
+            payload[k] = extraPayload[k];
+          });
+        }
         save.disabled = true;
         var url = freeMode
           ? api('aufgaben/create/')
@@ -3014,104 +3029,23 @@
   }
 
   function openRadarTaskChooser(item) {
-    // Wiederverwendet Aufgabe-Popup-Muster mit Mail-ähnlichem Stub
-    var fakeMail = {
-      id: 'radar:' + item.id,
-      subj: item.headline || '',
-      from: (item.eckdaten && item.eckdaten.contact) || item.contact || item.company || 'Radar',
-      reply_email: '',
-      prev: item.beschreibung || '',
-      crm_name: (item.eckdaten && item.eckdaten.company) || item.company || '',
-    };
-    // Fallback: manuelle Aufgabe über api/aufgaben/create
-    closeMailTaskChooser();
-    var dueDef = tomorrowDueDateTime();
-    var ovl = document.createElement('div');
-    ovl.className = 'ovl open';
-    ovl.id = 'sh-mail-task-ovl';
-    ovl.innerHTML =
-      '<div class="sh-modal sh-mail-task-modal">' +
-      '<div class="mh">' +
-      '<div class="ico"><i class="bi bi-check2-square"></i></div>' +
-      '<div><b>' + esc(_t('sh.inbox_task', 'Aufgabe erzeugen')) + '</b>' +
-      '<small class="sh-mt-subj">' + esc(item.headline || '') + '</small></div>' +
-      '<button type="button" class="x" id="sh-mt-close"><i class="bi bi-x-lg"></i></button></div>' +
-      '<div class="mb">' +
-      '<div class="excerpt"><div class="lbl">Radar</div>' + esc(item.meta || '') + '</div>' +
-      '<div class="qlbl">' + esc(_t('sh.inbox_pick_art', 'Art')) + '</div>' +
-      '<div class="sh-pick-row" id="sh-mt-arts">' +
-      '<button type="button" class="sh-pick on" data-art="wiedervorlage"><i class="bi bi-arrow-repeat"></i> Wiedervorlage</button>' +
-      '<button type="button" class="sh-pick" data-art="anruf"><i class="bi bi-telephone"></i> Anruf</button>' +
-      '<button type="button" class="sh-pick" data-art="email"><i class="bi bi-envelope"></i> E-Mail</button>' +
-      '<button type="button" class="sh-pick" data-art="intern"><i class="bi bi-briefcase"></i> Intern</button>' +
-      '</div>' +
-      '<div class="qlbl">' + esc(_t('sh.inbox_pick_due', 'Fälligkeit')) + '</div>' +
-      '<div class="sh-due-grid">' +
-      '<div class="inp"><label>Tag</label><input type="date" id="sh-mt-date" value="' + esc(dueDef.date) + '"></div>' +
-      '<div class="inp"><label>Uhrzeit</label><input type="time" id="sh-mt-time" value="' + esc(dueDef.time) + '"></div>' +
-      '</div>' +
-      '<div class="inp"><label>Notiz</label><textarea id="sh-mt-notiz" rows="3">' +
-      esc('Radar: ' + (item.headline || '') + (item.external_url ? ('\n' + item.external_url) : '')) +
-      '</textarea></div>' +
-      '<button type="button" class="primary" id="sh-mt-save"><i class="bi bi-check2"></i> Aufgabe anlegen</button>' +
-      '</div></div>';
-    document.body.appendChild(ovl);
-    var selectedArt = 'wiedervorlage';
-    ovl.querySelectorAll('#sh-mt-arts .sh-pick').forEach(function (b) {
-      b.addEventListener('click', function () {
-        ovl.querySelectorAll('#sh-mt-arts .sh-pick').forEach(function (x) { x.classList.remove('on'); });
-        b.classList.add('on');
-        selectedArt = b.getAttribute('data-art') || 'wiedervorlage';
-        applyArtDueDefaults(selectedArt);
-      });
+    item = item || {};
+    var headline = item.headline || '';
+    var notiz = 'Radar: ' + headline + (item.external_url ? ('\n' + item.external_url) : '');
+    openMailTaskChooser({}, {
+      free: true,
+      defaultArt: 'wiedervorlage',
+      titleHint: _t('sh.inbox_task', 'Aufgabe erzeugen'),
+      subtitle: headline,
+      titel: (headline || 'Radar-Anfrage').slice(0, 200),
+      notiz: notiz,
+      radarMeta: item.meta || '',
+      extraPayload: {
+        ref_type: 'radar_item',
+        ref_id: String(item.id || ''),
+        quelle: 'radar',
+      },
     });
-    applyArtDueDefaults(selectedArt);
-    document.getElementById('sh-mt-close').onclick = closeMailTaskChooser;
-    ovl.addEventListener('click', function (ev) {
-      if (ev.target === ovl) closeMailTaskChooser();
-    });
-    document.getElementById('sh-mt-save').onclick = function () {
-      var notiz = (document.getElementById('sh-mt-notiz') || {}).value || '';
-      var dateEl = document.getElementById('sh-mt-date');
-      var timeEl = document.getElementById('sh-mt-time');
-      var save = document.getElementById('sh-mt-save');
-      save.disabled = true;
-      fetch(api('aufgaben/create/'), {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFToken': csrfToken(),
-          'X-Requested-With': 'XMLHttpRequest',
-        },
-        body: JSON.stringify({
-          art: selectedArt,
-          titel: (item.headline || 'Radar-Anfrage').slice(0, 240),
-          beschreibung: notiz,
-          ref_type: 'radar_item',
-          ref_id: String(item.id),
-          quelle: 'radar',
-          faellig_am: dateEl ? dateEl.value : '',
-          faellig_zeit: timeEl ? timeEl.value : '',
-        }),
-      })
-        .then(function (r) { return r.json(); })
-        .then(function (j) {
-          save.disabled = false;
-          if (j && j.ok) {
-            closeMailTaskChooser();
-            toast(_t('sh.toast_mail_task', 'Aufgabe erzeugt'));
-          } else {
-            toast(j.error || _t('sh.toast_error', 'Speichern fehlgeschlagen'));
-          }
-        })
-        .catch(function () {
-          save.disabled = false;
-          toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
-        });
-    };
-    // silence unused
-    void fakeMail;
   }
 
   function loadRadarB(opts) {
