@@ -48,6 +48,26 @@ FM_BASE = 'https://www.freelancermap.de'
 FM_LIST = f'{FM_BASE}/freelancer'
 FM_SEARCH_AJAX = f'{FM_BASE}/freelancer/search/ajax'
 
+def _cfg(key: str, default: str) -> str:
+    try:
+        from .settings_service import get_setting
+        return get_setting(key, default) or default
+    except Exception:
+        return default
+
+
+def fm_base() -> str:
+    return _cfg('radar.fm.base_url', FM_BASE).rstrip('/')
+
+
+def fm_list() -> str:
+    return fm_base() + '/freelancer'
+
+
+def fm_search_ajax() -> str:
+    return fm_base() + '/freelancer/search/ajax'
+
+
 # availability.* aus FM-Übersetzungen
 # 3=Verfügbar, 2=Teilweise, 20/40/60/80=% , 1=nicht verfügbar (mit until)
 AVAIL_OK = {2, 3, 20, 40, 60, 80}
@@ -70,11 +90,11 @@ _RE_LD_JSON = re.compile(
 def profil_url_for(*, slug: str = '', fm_id: str = '') -> str:
     slug = (slug or '').strip().strip('/')
     if slug:
-        return f'{FM_BASE}/profil/{slug}'
+        return f'{fm_base()}/profil/{slug}'
     fid = str(fm_id or '').strip()
     if fid:
-        return f'{FM_BASE}/freelancer?id={urllib.parse.quote(fid)}'
-    return FM_LIST
+        return f'{fm_base()}/freelancer?id={urllib.parse.quote(fid)}'
+    return fm_list()
 
 
 def kontakt_url_for(*, slug: str = '', fm_id: str = '') -> str:
@@ -255,7 +275,7 @@ def _request(
         'Accept': accept,
         'Accept-Language': 'de-DE,de;q=0.9',
         'X-Requested-With': 'XMLHttpRequest',
-        'Referer': FM_LIST,
+        'Referer': fm_list(),
     }
     if use_cookies:
         cookie = _cookie_header()
@@ -525,7 +545,7 @@ def fetch_freelancers_list(
     for i, cid in enumerate(countries):
         params.append((f'countries[{i}]', str(cid)))
 
-    url = FM_SEARCH_AJAX + '?' + urllib.parse.urlencode(params)
+    url = fm_search_ajax() + '?' + urllib.parse.urlencode(params)
     code, raw = _request(url)
     if code != 200 or not raw:
         return {
@@ -745,7 +765,7 @@ def _search_ajax(
     ]
     for i, cid in enumerate(countries):
         params.append((f'countries[{i}]', str(cid)))
-    url = FM_SEARCH_AJAX + '?' + urllib.parse.urlencode(params)
+    url = fm_search_ajax() + '?' + urllib.parse.urlencode(params)
     code, raw = _request(url)
     if code != 200 or not raw:
         return {'ok': False, 'http': code, 'freelancers': [], 'url': url}
@@ -855,9 +875,9 @@ def fetch_profile(
     if slug:
         urls.append(profil_url_for(slug=slug, fm_id=fm_id))
     if fm_id:
-        urls.append(f'{FM_BASE}/freelancer?id={urllib.parse.quote(fm_id)}')
+        urls.append(f'{fm_base()}/freelancer?id={urllib.parse.quote(fm_id)}')
         if not slug:
-            urls.append(f'{FM_BASE}/profil/{urllib.parse.quote(fm_id)}')
+            urls.append(f'{fm_base()}/profil/{urllib.parse.quote(fm_id)}')
 
     last_err = ''
     last_http = 0

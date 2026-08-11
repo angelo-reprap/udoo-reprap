@@ -920,6 +920,32 @@ def api_regeln(request):
     return _stub(status=501)
 
 
+@login_required
+@require_http_methods(['GET', 'POST'])
+def api_settings(request):
+    """Quellen-Pfade (Gulp/FM/Hays) — editierbar ohne Code-Deploy."""
+    from .services import settings_service
+
+    if request.method == 'GET':
+        return JsonResponse({'ok': True, 'results': settings_service.list_settings()})
+
+    try:
+        body = json.loads(request.body.decode('utf-8') or '{}')
+    except Exception:
+        body = {}
+
+    if body.get('reset'):
+        keys = body.get('keys') if isinstance(body.get('keys'), list) else None
+        return JsonResponse(settings_service.reset_to_defaults(keys))
+
+    updates = body.get('settings') if isinstance(body.get('settings'), dict) else body
+    if not isinstance(updates, dict):
+        return JsonResponse({'ok': False, 'error': 'settings object required'}, status=400)
+    # ignore control keys
+    updates = {k: v for k, v in updates.items() if k not in ('reset', 'keys', 'ok')}
+    return JsonResponse(settings_service.set_settings(updates))
+
+
 # ─── Webhooks von abpe_scheduler (PUSH) ───────────────────────────────────────
 
 def _scheduler_token_ok(request):
