@@ -2913,7 +2913,134 @@ window.Matching = (function() {
             crm_contact_id: el.getAttribute('data-crm') || '',
             stage: el.getAttribute('data-stage') || '',
             match_score: parseFloat(el.getAttribute('data-score') || '0') || 0,
+            phones: [],
+            emails: [],
+            skills: [],
         };
+    }
+
+    function _pickPhone(list, fallback) {
+        if (fallback) return fallback;
+        if (!list || !list.length) return '';
+        const pref = list.find(p => /mobil|mobile|handy/i.test(p.label || ''))
+            || list.find(p => /büro|buero|office|arbeit/i.test(p.label || ''))
+            || list[0];
+        return (pref && (pref.number || pref.nummer || pref.value || pref.phone)) || '';
+    }
+
+    function _pickEmail(list, fallback) {
+        if (fallback) return fallback;
+        if (!list || !list.length) return '';
+        const e = list[0];
+        return typeof e === 'string' ? e : (e.email || e.value || e.address || '');
+    }
+
+    function _normalizeCrmPayload(raw, base) {
+        if (!raw || typeof raw !== 'object') return base;
+        const c = raw.contact || raw.berater || raw.item || raw.data || raw.result || raw;
+        const phones = [];
+        const pushPhone = (num, label) => {
+            const n = String(num || '').trim();
+            if (!n) return;
+            phones.push({ label: label || 'Tel', number: n });
+        };
+        if (Array.isArray(c.phones)) {
+            c.phones.forEach(p => {
+                if (typeof p === 'string') pushPhone(p, 'Tel');
+                else pushPhone(p.nummer || p.number || p.phone || p.value, p.label || p.field_name || p.typ || 'Tel');
+            });
+        }
+        pushPhone(c.phone_mobile || c.mobile || c.handy, 'Mobil');
+        pushPhone(c.phone_office || c.phone_work || c.buero || c.office, 'Büro');
+        pushPhone(c.phone_fax || c.fax, 'Fax');
+        pushPhone(c.phone || c.telefon, 'Tel');
+
+        const emails = [];
+        const pushMail = (em) => {
+            const e = String(em || '').trim();
+            if (e && e.indexOf('@') > 0) emails.push(e);
+        };
+        if (Array.isArray(c.emails)) {
+            c.emails.forEach(e => pushMail(typeof e === 'string' ? e : (e.email || e.value)));
+        }
+        pushMail(c.email || c.mail || c.email_primary);
+
+        const addr = c.address || c.hauptadresse || c.primary_address || {};
+        const city = c.city || c.ort || addr.city || addr.ort || addr.town || '';
+        const street = addr.street || addr.strasse || addr.line1 || c.street || '';
+        const zip = addr.zip || addr.plz || addr.postal_code || c.zip || '';
+        const country = addr.country || addr.land || c.country || '';
+        const addressLine = [street, [zip, city].filter(Boolean).join(' '), country].filter(Boolean).join(', ');
+
+        return Object.assign({}, base, {
+            name: c.full_name || c.name || [c.first_name || c.vorname, c.last_name || c.nachname].filter(Boolean).join(' ') || base.name,
+            location: city || base.location || '',
+            address: addressLine || base.address || '',
+            phone: _pickPhone(phones, base.phone),
+            email: _pickEmail(emails, base.email),
+            phones: phones.length ? phones : (base.phones || []),
+            emails: emails.length ? emails : (base.emails || []),
+            crm_contact_id: c.crm_id || c.id || c.contact_id || base.crm_contact_id || '',
+            gulp_id: c.gulp_id || c.gulpId || (c.eckdaten && c.eckdaten.gulp_id) || base.gulp_id || '',
+            rate: c.rate || c.konditionen || c.satz || c.hourly_rate || base.rate || '',
+            crm_status: c.status || c.crm_status || base.crm_status || '',
+            crm_type: c.type || c.typ || c.contact_type || base.crm_type || '',
+            company: c.account_name || c.firma || c.company || base.company || '',
+            aid: c.aid || base.aid || '',
+        });
+    }
+
+    function _jsonGet(url) {
+        return fetch(url, { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+            .then(r => r.ok ? r.json() : null)
+            .catch(() => null);
+    }
+
+    function _enrichFromCrm(detail) {
+        const out = Object.assign({ phones: [], emails: [] }, detail);
+        const id = out.crm_contact_id;
+        const name = out.name || '';
+        const urls = [];
+        if (id) {
+            urls.push('/crm/api/contact/' + encodeURIComponent(id) + '/');
+            urls.push('/crm/api/berater/' + encodeURIComponent(id) + '/');
+            urls.push('/crm/api/berater/detail/?id=' + encodeURIComponent(id));
+            urls.push('/crm/api/contacts/' + encodeURIComponent(id) + '/');
+            urls.push(API + 'crm/contacts/' + encodeURIComponent(id) + '/');
+        }
+        if (name && name.length >= 2) {
+            urls.push(API + 'crm/contacts/?q=' + encodeURIComponent(name));
+            urls.push('/crm/api/berater/?q=' + encodeURIComponent(name) + '&limit=5');
+        }
+
+        function mergeHit(d) {
+            if (!d) return;
+            // list response?
+            const list = d.results || d.items || d.contacts || d.berater;
+            if (Array.isArray(list) && list.length) {
+                const q = name.toLowerCase();
+                const exact = list.find(x => String(x.full_name || x.name || '').toLowerCase() === q) || list[0];
+                Object.assign(out, _normalizeCrmPayload(exact, out));
+                return;
+            }
+            Object.assign(out, _normalizeCrmPayload(d, out));
+        }
+
+        let chain = Promise.resolve();
+        urls.forEach(u => {
+            chain = chain.then(() => {
+                // schon genug Daten? trotzdem CRM-ID/Phones nachziehen wenn leer
+                if (out.phone && out.email && out.crm_contact_id && (out.phones || []).length) {
+                    return null;
+                }
+                return _jsonGet(u).then(mergeHit);
+            });
+        });
+        return chain.then(() => {
+            out.phone = _pickPhone(out.phones, out.phone);
+            out.email = _pickEmail(out.emails, out.email);
+            return out;
+        });
     }
 
     function _fetchMatchDetail(matchId) {
@@ -2937,15 +3064,39 @@ window.Matching = (function() {
                         phone: m.phone || m.telefon || m.mobile || m.phone_mobile || base.phone,
                         email: m.email || m.mail || base.email,
                         crm_contact_id: m.crm_contact_id || m.crm_id || m.consultant_crm_id || base.crm_contact_id,
-                        stage: m.status || m.stage || base.stage,
+                        // Board-Spalte hat Vorrang vor API-Status (z.B. "interested")
+                        stage: base.stage || m.status || m.stage || '',
                         match_score: m.match_score != null ? m.match_score : base.match_score,
                         skills: m.matched_skills || m.skills || [],
+                        match_reason: m.match_reason || m.reason || '',
                         aid: m.aid || m.consultant_aid || '',
+                        gulp_id: m.gulp_id || '',
+                        rate: m.rate || m.satz || '',
+                        phones: [],
+                        emails: [],
                     };
                 })
                 .catch(() => tryOne(i + 1));
         }
-        return tryOne(0);
+        return tryOne(0).then(_enrichFromCrm).then(d => {
+            window._matchingContactCache = window._matchingContactCache || {};
+            window._matchingContactCache[matchId] = d;
+            return d;
+        });
+    }
+
+    function _stageLabel(stage) {
+        const map = {
+            shortlist: 'Shortlist',
+            angeschrieben: 'Angeschrieben',
+            interesse: 'Interesse',
+            beim_kunden: 'Beim Kunden',
+            interview: 'Interview',
+            vermittelt: 'Vermittelt',
+            absage: 'Absage',
+        };
+        const st = _normStage(stage);
+        return map[st] || stage || '—';
     }
 
     function _closeContactPopup() {
@@ -2961,32 +3112,81 @@ window.Matching = (function() {
         const crmUrl = detail.crm_contact_id
             ? ('/crm/berater/?detail=' + encodeURIComponent(detail.crm_contact_id))
             : '';
-        const skills = (detail.skills || []).slice(0, 8).join(' · ');
+        const skills = (detail.skills || []).slice(0, 10).join(' · ');
+        const phones = (detail.phones && detail.phones.length)
+            ? detail.phones
+            : (detail.phone ? [{ label: 'Tel', number: detail.phone }] : []);
+        const emails = (detail.emails && detail.emails.length)
+            ? detail.emails
+            : (detail.email ? [detail.email] : []);
+
+        const phoneHtml = phones.length
+            ? phones.map(p => {
+                const num = p.number || p.nummer || '';
+                return `<div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
+                  <span style="color:#888;min-width:48px">${_esc(p.label || 'Tel')}</span>
+                  <b style="flex:1">${_esc(num)}</b>
+                  <button type="button" class="matching-btn-sm" style="font-size:10px;padding:2px 6px"
+                          onclick="Matching.call('${detail.id}','${_escAttr(num)}')">
+                    <i class="bi bi-telephone"></i>
+                  </button>
+                </div>`;
+            }).join('')
+            : '<span style="color:#aaa">—</span>';
+
+        const mailHtml = emails.length
+            ? emails.map(em => {
+                const e = typeof em === 'string' ? em : (em.email || '');
+                return `<div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
+                  <span style="flex:1;word-break:break-all">${_esc(e)}</span>
+                  <button type="button" class="matching-btn-sm" style="font-size:10px;padding:2px 6px"
+                          onclick="Matching.sendEmail('${detail.id}','${_escAttr(stage)}')">
+                    <i class="bi bi-envelope"></i>
+                  </button>
+                </div>`;
+            }).join('')
+            : '<span style="color:#aaa">— keine E-Mail im CRM</span>';
 
         const ov = document.createElement('div');
         ov.id = 'matching-contact-ovl';
         ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10050;display:flex;align-items:center;justify-content:center;padding:16px';
         ov.onclick = function (e) { if (e.target === ov) _closeContactPopup(); };
         ov.innerHTML = `
-        <div style="background:#fff;border-radius:10px;max-width:440px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);overflow:hidden">
+        <div style="background:#fff;border-radius:10px;max-width:520px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);overflow:hidden;max-height:92vh;display:flex;flex-direction:column">
           <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff">
             <i class="bi bi-person-badge"></i>
-            <b style="flex:1">${_esc(detail.name || 'Kontakt')}</b>
+            <div style="flex:1;min-width:0">
+              <b style="display:block;font-size:14px">${_esc(detail.name || 'Kontakt')}</b>
+              <span style="font-size:11px;opacity:.85">${_esc(_stageLabel(stage))} · ${scorePct}%</span>
+            </div>
             <button type="button" style="background:transparent;border:0;color:#fff;font-size:18px;cursor:pointer"
                     onclick="Matching.closeContactPopup()">×</button>
           </div>
-          <div style="padding:14px;font-size:12px;line-height:1.5">
-            <div style="display:grid;grid-template-columns:90px 1fr;gap:6px 10px;margin-bottom:12px">
-              <span style="color:#888">Score</span><span><b>${scorePct}%</b> · ${_esc(stage || '—')}</span>
-              <span style="color:#888">Ort</span><span>${_esc(detail.location || '—')}</span>
-              <span style="color:#888">Telefon</span><span>${_esc(detail.phone || '—')}</span>
-              <span style="color:#888">E-Mail</span><span>${_esc(detail.email || '—')}</span>
+          <div style="padding:14px;font-size:12px;line-height:1.45;overflow:auto">
+            <div style="display:grid;grid-template-columns:100px 1fr;gap:7px 12px;margin-bottom:12px">
+              <span style="color:#888">Matching</span>
+              <span><b>${scorePct}%</b>
+                ${detail.match_reason ? ' · <i style="color:#666">' + _esc(detail.match_reason) + '</i>' : ''}
+              </span>
+              <span style="color:#888">Stand</span><span>${_esc(_stageLabel(stage))}</span>
+              ${detail.company ? '<span style="color:#888">Firma</span><span>' + _esc(detail.company) + '</span>' : ''}
+              <span style="color:#888">Ort</span><span>${_esc(detail.location || detail.address || '—')}</span>
+              ${detail.address && detail.location && detail.address.indexOf(detail.location) < 0
+                ? '<span style="color:#888">Adresse</span><span>' + _esc(detail.address) + '</span>' : ''}
+              ${detail.gulp_id ? '<span style="color:#888">Gulp-ID</span><span>' + _esc(String(detail.gulp_id)) + '</span>' : ''}
+              ${detail.aid ? '<span style="color:#888">AID</span><span>' + _esc(String(detail.aid)) + '</span>' : ''}
+              ${detail.rate ? '<span style="color:#888">Kondition</span><span>' + _esc(String(detail.rate)) + (String(detail.rate).indexOf('€') >= 0 ? '' : ' €') + '</span>' : ''}
+              ${detail.crm_type ? '<span style="color:#888">Typ</span><span>' + _esc(detail.crm_type) + '</span>' : ''}
+              ${detail.crm_status ? '<span style="color:#888">CRM-Status</span><span>' + _esc(detail.crm_status) + '</span>' : ''}
               ${skills ? '<span style="color:#888">Skills</span><span>' + _esc(skills) + '</span>' : ''}
+              <span style="color:#888">Telefon</span><div>${phoneHtml}</div>
+              <span style="color:#888">E-Mail</span><div>${mailHtml}</div>
             </div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <div style="display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid #e8edf4;padding-top:12px">
               <button type="button" class="matching-btn-primary" style="font-size:11px"
+                      ${detail.phone ? '' : 'disabled title="Keine Nummer"'}
                       onclick="Matching.call('${detail.id}')">
-                <i class="bi bi-telephone"></i> ${_esc(_kiT('btn_call', 'Anrufen'))}
+                <i class="bi bi-telephone"></i> Anrufen
               </button>
               <button type="button" class="matching-btn-primary" style="font-size:11px"
                       onclick="Matching.sendEmail('${detail.id}','${_escAttr(stage)}')">
@@ -2998,10 +3198,11 @@ window.Matching = (function() {
                 <i class="bi bi-x-circle"></i> Absage
               </button>` : ''}
               ${crmUrl ? `
-              <a class="matching-btn-sm" style="font-size:11px;text-decoration:none;display:inline-flex;align-items:center"
+              <a class="matching-btn-sm" style="font-size:11px;text-decoration:none;display:inline-flex;align-items:center;gap:4px"
                  href="${_escAttr(crmUrl)}" target="_blank" rel="noopener">
-                <i class="bi bi-box-arrow-up-right"></i> CRM
-              </a>` : ''}
+                <i class="bi bi-box-arrow-up-right"></i> Im CRM öffnen
+              </a>` : `
+              <span style="font-size:11px;color:#b45309;align-self:center">Kein CRM-Link — Name-Suche ohne Treffer</span>`}
             </div>
           </div>
         </div>`;
@@ -3011,10 +3212,16 @@ window.Matching = (function() {
     function closeContactPopup() { _closeContactPopup(); }
 
     function kanbanCardClick(matchId) {
+        const ov = document.createElement('div');
+        ov.id = 'matching-contact-ovl';
+        ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:10050;display:flex;align-items:center;justify-content:center';
+        ov.innerHTML = '<div style="background:#fff;padding:20px 28px;border-radius:8px;font-size:13px;color:#666"><i class="bi bi-hourglass-split"></i> Kontakt wird geladen…</div>';
+        document.body.appendChild(ov);
         _fetchMatchDetail(matchId).then(_openContactPopup);
     }
 
     function call(matchId, phoneNumber) {
+        const cached = (window._matchingContactCache || {})[matchId];
         const run = function (phone) {
             if (!phone) {
                 phone = prompt(_kiT('err_phone_prompt', 'Telefonnummer eingeben:'));
@@ -3037,19 +3244,23 @@ window.Matching = (function() {
             window.open(url, 'webdial', 'height=100,width=100');
         };
         if (phoneNumber) { run(phoneNumber); return; }
+        if (cached && cached.phone) { run(cached.phone); return; }
         _fetchMatchDetail(matchId).then(d => run(d.phone || ''));
     }
 
     function sendEmail(matchId, stage, variant) {
-        _fetchMatchDetail(matchId).then(detail => {
+        const start = (window._matchingContactCache || {})[matchId]
+            ? Promise.resolve(window._matchingContactCache[matchId])
+            : _fetchMatchDetail(matchId);
+        start.then(detail => {
             const st = _normStage(stage || detail.stage);
             const tpl = _stageMailTpl(st, variant);
             const ctx = Object.assign(_projectContext(), {
                 name: detail.name || '',
-                location: detail.location || '',
+                location: detail.location || detail.address || '',
                 start: '',
             });
-            if (!ctx.customer) ctx.customer = '';
+            if (!ctx.customer) ctx.customer = detail.company || '';
             const subject = _fillTpl(tpl.subject, ctx);
             const body = _fillTpl(tpl.body, ctx);
             _openStageMailComposer({
@@ -3059,7 +3270,7 @@ window.Matching = (function() {
                 variant: variant || '',
                 nextStatus: variant === 'absage' ? 'absage' : tpl.nextStatus,
                 actionLabel: tpl.label,
-                to: detail.email || '',
+                to: detail.email || _pickEmail(detail.emails, ''),
                 subject: subject,
                 body: body,
             });
