@@ -113,7 +113,7 @@ window.Matching = (function() {
         switch(tabId) {
             case 'anfragen':  _loadAnfragen(content, loading); break;
             case 'neu':       _renderNeu(content, loading); break;
-            case 'shortlist': _renderShortlistPlaceholder(content, loading); break;
+            case 'shortlist': _loadShortlistTab(content, loading); break;
             case 'kanban':    _renderKanbanPlaceholder(content, loading); break;
             case 'abschluss': _renderAbschlussPlaceholder(content, loading); break;
             case 'archiv':    _loadArchiv(content, loading); break;
@@ -353,13 +353,78 @@ window.Matching = (function() {
         }).catch(() => searchAccounts(n));
     }
 
-    function _renderShortlistPlaceholder(content, loading) {
-        if (loading) loading.style.display = 'none';
-        content.innerHTML = `<div style="padding:30px;text-align:center;color:#888">
-            <i class="bi bi-funnel" style="font-size:32px;display:block;margin-bottom:8px"></i>
-            ${_t('matching.no_shortlist')}
-        </div>`;
-        content.dataset.loaded = '1';
+    function _loadShortlistTab(content, loading) {
+        const projectId = window.MATCHING_CONFIG && window.MATCHING_CONFIG.activeProject;
+        if (projectId) {
+            _loadShortlistForProject(projectId, content);
+            return;
+        }
+        _loadShortlistPicker(content, loading);
+    }
+
+    function _loadShortlistPicker(content, loading) {
+        if (loading) loading.style.display = 'flex';
+        fetch(API + 'requests/?page=1&per_page=50', { credentials: 'same-origin' })
+            .then(r => r.json())
+            .then(d => {
+                if (loading) loading.style.display = 'none';
+                if (!d.success) {
+                    content.innerHTML = '<p class="text-danger">' + _t('matching.err_load') + '</p>';
+                    content.dataset.loaded = '1';
+                    return;
+                }
+                const pickHint = _kiT('shortlist_pick_hint', 'Anfrage wählen — Shortlist öffnen');
+                let html = `
+                <div style="margin-bottom:10px;font-size:12px;color:#888">
+                    <i class="bi bi-funnel"></i> ${_esc(pickHint)}
+                </div>
+                <div id="shortlist-pick-list">`;
+
+                if (!d.results || d.results.length === 0) {
+                    html += `<div style="padding:30px;text-align:center;color:#888">
+                        ${_t('matching.no_requests')}
+                        <a href="#" onclick="Matching.switchTab('neu');return false;">${_t('matching.first_request')} →</a>
+                    </div>`;
+                } else {
+                    for (const p of d.results) {
+                        const prioClass = 'prio-' + (p.priority || 3);
+                        const pillClass = _statusPill(p.status);
+                        const title = p.title || p.project_number || '—';
+                        html += `
+                        <div class="matching-card" style="cursor:pointer"
+                             onclick="Matching.openProject('${p.id}','shortlist')">
+                            <div style="display:flex;align-items:center;gap:8px">
+                                <div class="matching-prio ${prioClass}"></div>
+                                <div style="min-width:90px;font-size:10px;color:#888">${_esc(p.project_number || '')}</div>
+                                <div style="flex:1;font-weight:700;font-size:13px">${_esc(title)}</div>
+                                <div style="font-size:11px;color:#666;min-width:90px">${_esc(p.customer_name || '')}</div>
+                                <span class="matching-pill ${pillClass}">${_statusLabel(p.status)}</span>
+                                <i class="bi bi-chevron-right" style="color:#aaa;font-size:12px"></i>
+                            </div>
+                        </div>`;
+                    }
+                }
+                html += '</div>';
+                content.innerHTML = html;
+                content.dataset.loaded = '1';
+            })
+            .catch(e => {
+                if (loading) loading.style.display = 'none';
+                content.innerHTML = '<p style="color:#ef4444;padding:20px">' +
+                    _t('matching.err_connection') + ': ' + _esc(e.message || String(e)) + '</p>';
+                content.dataset.loaded = '1';
+            });
+    }
+
+    function pickShortlistRequest() {
+        if (window.MATCHING_CONFIG) window.MATCHING_CONFIG.activeProject = null;
+        const content = document.getElementById('content-shortlist');
+        if (content) {
+            content.dataset.loaded = '0';
+            content.innerHTML = '';
+            _loadShortlistPicker(content, document.getElementById('loading-shortlist'));
+        }
+        switchTab('shortlist');
     }
 
     function _renderKanbanPlaceholder(content, loading) {
@@ -800,7 +865,14 @@ window.Matching = (function() {
                 }
 
                 const threshold = d.threshold || 0.5;
+                const projLabel = [d.project_number, d.project_title || d.title].filter(Boolean).join(' · ');
                 let html = `
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+                    <button type="button" class="matching-btn-sm" onclick="Matching.pickShortlistRequest()">
+                        <i class="bi bi-list-ul"></i> ${_esc(_kiT('shortlist_pick_back', 'Anfragen'))}
+                    </button>
+                    <div style="font-size:12px;color:#888;flex:1;min-width:120px">${_esc(projLabel)}</div>
+                </div>
                 <div class="matching-threshold-bar">
                     <span class="matching-form-label">${_t('matching.threshold_label')}:</span>
                     <input type="range" min="0" max="100" value="${Math.round(threshold*100)}"
@@ -2826,7 +2898,7 @@ window.Matching = (function() {
 
     return {
         init, applyI18n, switchTab, newRequest,
-        openProject, runMatching, saveNewRequest,
+        openProject, pickShortlistRequest, runMatching, saveNewRequest,
         updateThreshold, sendAllAboveThreshold,
         toggleArchiveDetail, searchAnfragen, filterAnfragen,
         searchAccounts, searchContacts, call, sendEmail,
