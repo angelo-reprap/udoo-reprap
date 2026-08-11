@@ -106,7 +106,8 @@
     if (name === 'posteingang') {
       return (
         '<div class="sh-pane" data-pane="posteingang"><div class="sh-card sh-inbox-card">' +
-        '<div class="card-h"><i class="bi bi-inbox"></i> Posteingang' +
+        '<div class="card-h"><i class="bi bi-inbox"></i> ' +
+        esc(_t('sh.inbox_tab_title', 'Posteingang')) +
         '<span class="sh-inbox-meta" style="margin-left:auto;font-weight:400;font-size:.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px">' +
         '<span id="sh-inbox-hint">' + _t('sh.inbox_hint', 'Verwalten bleibt Outlook · Lese-Überblick') + '</span>' +
         '<span id="sh-inbox-fresh" class="sh-inbox-fresh" title=""></span>' +
@@ -325,7 +326,7 @@
       '</div></div>';
 
     var rows = TASK_ART_DEFAULT_ORDER.map(function (art) {
-      var label = TASK_ART_DEFAULT_LABELS[art] || art;
+      var label = _t(TASK_ART_DEFAULT_LABEL_KEYS[art] || '', TASK_ART_DEFAULT_LABELS[art] || art);
       var def = getArtDefaults(art);
       var en = !!def.enabled;
       return (
@@ -415,7 +416,12 @@
           next[art] = pack;
         });
         saveArtDefaultsOverride(next);
-        if (status) status.textContent = 'Gespeichert. Gilt ab der nächsten „Neue Aufgabe“.';
+        if (status) {
+          status.textContent = _t(
+            'sh.art_defaults_saved',
+            'Gespeichert. Gilt ab der nächsten „Neue Aufgabe“.'
+          );
+        }
       };
     }
     if (resetBtn) {
@@ -423,7 +429,7 @@
         saveArtDefaultsOverride(null);
         renderArtDefaultsEditor();
         var st = document.getElementById('sh-art-def-status');
-        if (st) st.textContent = 'Werkseinstellungen wiederhergestellt.';
+        if (st) st.textContent = _t('sh.art_defaults_restored', 'Werkseinstellungen wiederhergestellt.');
       };
     }
   }
@@ -1203,20 +1209,20 @@
   function buildAnfrageAckBody(anrede, name) {
     var n = String(name || '').trim();
     var greet;
-    if (anrede === 'frau') {
-      greet = n ? ('Sehr geehrte Frau ' + n + ',') : 'Sehr geehrte Damen und Herren,';
-    } else if (anrede === 'damen') {
-      greet = 'Sehr geehrte Damen und Herren,';
-    } else if (anrede === 'neutral') {
-      greet = n ? ('Sehr geehrte/r ' + n + ',') : 'Sehr geehrte Damen und Herren,';
+    if (anrede === 'frau' && n) {
+      greet = _t('sh.reply_greet_frau', 'Sehr geehrte Frau {name},').replace('{name}', n);
+    } else if (anrede === 'herr' && n) {
+      greet = _t('sh.reply_greet_herr', 'Sehr geehrter Herr {name},').replace('{name}', n);
+    } else if (anrede === 'neutral' && n) {
+      greet = _t('sh.reply_greet_neutral_name', 'Sehr geehrte/r {name},').replace('{name}', n);
     } else {
-      greet = n ? ('Sehr geehrter Herr ' + n + ',') : 'Sehr geehrte Damen und Herren,';
+      greet = _t('sh.reply_greet_all', 'Sehr geehrte Damen und Herren,');
     }
     return (
       greet + '\n\n' +
-      'vielen Dank für Ihre Anfrage.\n\n' +
-      'Wir werden Ihnen diesbezüglich schnellstmöglich Beratervorschläge unterbreiten.\n\n' +
-      'Mit freundlichen Grüßen'
+      _t('sh.reply_tpl_thanks', 'vielen Dank für Ihre Anfrage.\n\n') +
+      _t('sh.reply_tpl_body', 'Wir werden Ihnen diesbezüglich schnellstmöglich Beratervorschläge unterbreiten.\n\n') +
+      _t('sh.reply_tpl_regards', 'Mit freundlichen Grüßen')
     );
   }
 
@@ -1836,6 +1842,16 @@
     dokument: 'Dokument',
     intern: 'Intern',
   };
+  var TASK_ART_DEFAULT_LABEL_KEYS = {
+    anruf: 'sh.art_anruf_one',
+    sms_messenger: 'sh.art_sms_messenger_short',
+    wiedervorlage: 'sh.art_wiedervorlage_one',
+    email: 'sh.art_email_one',
+    post: 'sh.art_post',
+    termin: 'sh.art_termin_one',
+    dokument: 'sh.art_dokument_one',
+    intern: 'sh.art_intern_one',
+  };
   var TASK_ART_DEFAULT_ORDER = [
     'anruf', 'sms_messenger', 'wiedervorlage', 'email',
     'post', 'termin', 'dokument', 'intern',
@@ -2067,7 +2083,7 @@
       '<input type="text" id="sh-mt-titel" maxlength="200" value="' + esc(titelPrefill) + '" ' +
       'placeholder="' + esc(_t('sh.task_betreff_ph', 'z. B. Zahnarzt, Rückruf Müller …')) + '"></div>' +
       (radarMeta
-        ? ('<div class="excerpt"><div class="lbl">Radar</div>' + esc(radarMeta) + '</div>')
+        ? ('<div class="excerpt"><div class="lbl">' + esc(_t('sh.radar_lbl', 'Radar')) + '</div>' + esc(radarMeta) + '</div>')
         : '') +
       (freeMode
         ? ''
@@ -2750,9 +2766,11 @@
               (lsLbl ? (' · ' + lsLbl) : '') +
               (parts.length ? (' · ' + parts.join(', ')) : '') +
               (data.raw_count != null && data.count != null && data.raw_count > data.count
-                ? (' · ' + data.count + '/' + data.raw_count + ' dedup')
+                ? (' · ' + data.count + '/' + data.raw_count + ' ' + _t('sh.radar_dedup', 'dedup'))
                 : '') +
-              (doRefresh && data.fetched != null ? (' · ' + data.fetched + ' gelesen') : '');
+              (doRefresh && data.fetched != null
+                ? (' · ' + data.fetched + ' ' + _t('sh.radar_gelesen', 'gelesen'))
+                : '');
         }
         refreshStats();
         if (doRefresh) {
@@ -3129,14 +3147,14 @@
   function openRadarTaskChooser(item) {
     item = item || {};
     var headline = item.headline || '';
-    var notiz = 'Radar: ' + headline + (item.external_url ? ('\n' + item.external_url) : '');
     openMailTaskChooser({}, {
       free: true,
       defaultArt: 'wiedervorlage',
       titleHint: _t('sh.inbox_task', 'Aufgabe erzeugen'),
       subtitle: headline,
-      titel: (headline || 'Radar-Anfrage').slice(0, 200),
-      notiz: notiz,
+      titel: (headline || _t('sh.radar_task_fallback', 'Radar-Anfrage')).slice(0, 200),
+      notiz: (_t('sh.radar_notiz_prefix', 'Radar:') + ' ' + headline +
+        (item.external_url ? ('\n' + item.external_url) : '')),
       radarMeta: item.meta || '',
       extraPayload: {
         ref_type: 'radar_item',
@@ -3324,11 +3342,11 @@
             }
             var msg =
               _t('sh.radar_b_gulp_ok', 'Gulp') + ': ' +
-              (d.scanned || 0) + ' geprüft · ' +
-              (d.updated || 0) + ' geändert · ' +
-              (d.unchanged || 0) + ' gleich · ' +
-              (d.gone || 0) + ' weg · ' +
-              (d.errors || 0) + ' Fehler';
+              (d.scanned || 0) + ' ' + _t('sh.stat_checked', 'geprüft') + ' · ' +
+              (d.updated || 0) + ' ' + _t('sh.stat_changed', 'geändert') + ' · ' +
+              (d.unchanged || 0) + ' ' + _t('sh.stat_same', 'gleich') + ' · ' +
+              (d.gone || 0) + ' ' + _t('sh.stat_gone', 'weg') + ' · ' +
+              (d.errors || 0) + ' ' + _t('sh.stat_errors', 'Fehler');
             toast(msg, 7000);
             loadRadarB({ soft: true, reselectId: selId });
           })
@@ -3386,11 +3404,11 @@
             }
             toast(
               _t('sh.radar_b_gulp_av_ok', 'Verfügbare') + ': ' +
-              (d.scanned || 0) + ' geprüft · ' +
-              (d.created || 0) + ' neu · ' +
-              (d.updated || 0) + ' aktualisiert · ' +
+              (d.scanned || 0) + ' ' + _t('sh.stat_checked', 'geprüft') + ' · ' +
+              (d.created || 0) + ' ' + _t('sh.stat_new', 'neu') + ' · ' +
+              (d.updated || 0) + ' ' + _t('sh.stat_updated', 'aktualisiert') + ' · ' +
               (d.crm_updated || 0) + ' CRM · ' +
-              (d.errors || 0) + ' Fehler',
+              (d.errors || 0) + ' ' + _t('sh.stat_errors', 'Fehler'),
               8000
             );
             loadRadarB({ soft: true });
@@ -3445,11 +3463,11 @@
             }
             toast(
               _t('sh.radar_b_fl_av_ok', 'Freelancermap') + ': ' +
-              (d.scanned || 0) + ' geprüft · ' +
-              (d.created || 0) + ' neu · ' +
-              (d.updated || 0) + ' aktualisiert · ' +
+              (d.scanned || 0) + ' ' + _t('sh.stat_checked', 'geprüft') + ' · ' +
+              (d.created || 0) + ' ' + _t('sh.stat_new', 'neu') + ' · ' +
+              (d.updated || 0) + ' ' + _t('sh.stat_updated', 'aktualisiert') + ' · ' +
               (d.crm_updated || 0) + ' CRM · ' +
-              (d.errors || 0) + ' Fehler' +
+              (d.errors || 0) + ' ' + _t('sh.stat_errors', 'Fehler') +
               (d.fm_total != null ? (' · FM ' + d.fm_total) : ''),
               8000
             );
@@ -3493,10 +3511,10 @@
           var ei = data.es_info || {};
           var esNote = '';
           if (ls !== 'elasticsearch') {
-            if (ei.search_error) esNote = ' · ES-Fehler';
-            else if (ei.fallback === 'empty_index') esNote = ' · ES leer';
-            else if (ei.fallback === 'filter_miss') esNote = ' · ES-Filter 0 → DB';
-            else if (ei.fallback === 'es_unavailable') esNote = ' · ES offline';
+            if (ei.search_error) esNote = ' · ' + _t('sh.es_error', 'ES-Fehler');
+            else if (ei.fallback === 'empty_index') esNote = ' · ' + _t('sh.radar_b_es_empty', 'ES leer');
+            else if (ei.fallback === 'filter_miss') esNote = ' · ' + _t('sh.radar_b_es_filter0', 'ES-Filter 0 → DB');
+            else if (ei.fallback === 'es_unavailable') esNote = ' · ' + _t('sh.radar_b_es_offline', 'ES offline');
             else if (ei.count != null) esNote = ' · ES docs: ' + ei.count;
           } else if (ei.count != null && data.es_total != null && ei.count !== data.es_total) {
             esNote = ' · Index ' + ei.count;
@@ -3509,8 +3527,8 @@
               (parts.length ? (' · ' + parts.join(', ')) : '') +
               esNote +
               (ls === 'elasticsearch'
-                ? ' · Liste ES / Detail DB'
-                : ' · Fallback DB (Detail DB)');
+                ? ' · ' + _t('sh.radar_b_list_es', 'Liste ES / Detail DB')
+                : ' · ' + _t('sh.radar_b_fallback_db', 'Fallback DB (Detail DB)'));
         }
         refreshStats();
         if (opts.reselectId) {
@@ -3809,10 +3827,14 @@
         (item.fm_id ? ' · FM ' + esc(String(item.fm_id)) : '') + '</div>' +
         '<div class="meta">' + esc(item.meta || '') + '</div>' +
         '<div class="meta">' + esc(item.note || '') +
-        (item.verfuegbar_ab ? (' · ab ' + esc(String(item.verfuegbar_ab))) : '') +
+        (item.verfuegbar_ab
+          ? (' · ' + esc(_t('sh.radar_b_ab', 'ab')) + ' ' + esc(String(item.verfuegbar_ab)))
+          : '') +
         (item.satz != null && item.satz !== '' ? (' · ' + esc(String(item.satz)) + ' €') : '') +
         (item.ort ? (' · ' + esc(String(item.ort))) : '') +
-        (item.cv_versions ? (' · CV-Versionen: ' + esc(String(item.cv_versions))) : '') +
+        (item.cv_versions
+          ? (' · ' + esc(_t('sh.radar_b_cv_versions', 'CV-Versionen')) + ': ' + esc(String(item.cv_versions)))
+          : '') +
         ' · ' + esc(_t('sh.radar_b_from_db', 'Detail aus DB')) +
         '</div></div>' +
         (skills ? '<div style="margin:8px 0">' + skills + '</div>' : '') +
@@ -3882,7 +3904,7 @@
             'X-Requested-With': 'XMLHttpRequest',
           },
         }).then(function (res) { return res.json(); }).then(function (d) {
-          toast(d.ok ? _t('sh.toast_link', 'Bestätigt') : (d.error || 'Fehler'));
+          toast(d.ok ? _t('sh.toast_link', 'Bestätigt') : (d.error || _t('sh.stat_errors', 'Fehler')));
           loadRadarB({ soft: true });
         });
       };
@@ -3895,7 +3917,7 @@
             'X-Requested-With': 'XMLHttpRequest',
           },
         }).then(function (res) { return res.json(); }).then(function (d) {
-          toast(d.ok ? _t('sh.toast_dismiss', 'Verworfen') : (d.error || 'Fehler'));
+          toast(d.ok ? _t('sh.toast_dismiss', 'Verworfen') : (d.error || _t('sh.stat_errors', 'Fehler')));
           loadRadarB({ soft: true });
         });
       };
