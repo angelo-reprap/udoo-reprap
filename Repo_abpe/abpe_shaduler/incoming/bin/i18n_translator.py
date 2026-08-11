@@ -27,6 +27,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import re
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -51,6 +52,12 @@ from _paths import (  # noqa: E402
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 MAX_WORKERS = 10
+# ISO-ähnlich: en, zh, pt-br — kein Locale en_US.UTF-8
+_LANG_CODE_RE = re.compile(r"^[a-z]{2}(-[a-z]{2})?$")
+
+
+def _is_valid_lang_code(code: str) -> bool:
+    return bool(_LANG_CODE_RE.match(str(code or "").strip()))
 
 LANG_NAMES = {
     "de": "German", "en": "English", "fr": "French", "it": "Italian",
@@ -95,20 +102,6 @@ def _load_api_key() -> Optional[str]:
         cfg = json.loads(SETTINGS.read_text(encoding="utf-8"))
         return cfg.get("ai_models", {}).get("deepseek", {}).get("api_key")
     return None
-
-
-def wipe_target_packs(i18n_dir: Path, target_langs: list[str]) -> int:
-    """Löscht modules/shaduler/shaduler.json der Zielsprachen (DE bleibt)."""
-    removed = 0
-    for lang in target_langs:
-        if lang == REF_LANG:
-            continue
-        path = shaduler_json(lang, i18n_dir)
-        if path.is_file():
-            path.unlink()
-            removed += 1
-            log.info("  🗑  gelöscht: %s", path)
-    return removed
 
 
 def _deepseek_translate(
@@ -250,11 +243,51 @@ def discover_languages(i18n_dir: Path) -> list[str]:
     if not i18n_dir.exists():
         log.error("i18n-Verzeichnis nicht gefunden: %s", i18n_dir)
         sys.exit(1)
-    return sorted(
-        d.name
-        for d in i18n_dir.iterdir()
-        if d.is_dir() and not d.name.startswith(".")
-    )
+    langs = []
+    for d in i18n_dir.iterdir():
+        if not d.is_dir() or d.name.startswith("."):
+            continue
+        if not _is_valid_lang_code(d.name):
+            log.warning("Ignoriere ungültigen Sprachordner: %s", d.name)
+            continue
+        langs.append(d.name)
+    return sorted(langs)
+
+
+def purge_invalid_lang_dirs(i18n_dir: Path) -> int:
+    """Entfernt Locale-Müll wie en_US.UTF-8 unter i18n/."""
+    removed = 0
+    if not i18n_dir.is_dir():
+        return 0
+    for d in list(i18n_dir.iterdir()):
+        if not d.is_dir() or d.name.startswith("."):
+            continue
+        if _is_valid_lang_code(d.name):
+            continue
+        import shutil
+
+        shutil.rmtree(d, ignore_errors=True)
+        removed += 1
+        log.info("  🗑  ungültiger Ordner: %s", d.name)
+    return removed
+
+
+def wipe_target_packs(i18n_dir: Path, target_langs: list[str]) -> int:
+    """Löscht modules/shaduler/shaduler.json der Zielsprachen (DE bleibt)."""
+    removed = 0
+    removed += purge_invalid_lang_dirs(i18n_dir)
+    for lang in target_langs:
+        if lang == REF_LANG:
+            continue
+        if not _is_valid_lang_code(lang):
+            log.warning("Überspringe ungültigen Sprachcode: %s", lang)
+            continue
+        path = shaduler_json(lang, i18n_dir)
+        if path.is_file():
+            path.unlink()
+            removed += 1
+            log.info("  🗑  gelöscht: %s", path)
+    return removed
 
 
 def check_consistency(i18n_dir: Path, languages: list[str]) -> dict:
