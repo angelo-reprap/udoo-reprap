@@ -2970,13 +2970,28 @@ window.Matching = (function() {
     function _pickEmail(list, fallback) {
         if (fallback) return fallback;
         if (!list || !list.length) return '';
-        const e = list[0];
-        return typeof e === 'string' ? e : (e.email || e.value || e.address || '');
+        const objs = list.map(e => (typeof e === 'string' ? { email: e } : e));
+        const pref = objs.find(e => e && e.primary) || objs[0];
+        return (pref && (pref.email || pref.value || pref.address || pref.raw)) || '';
+    }
+
+    function _crmIdFrom(c, fallback) {
+        // Sugar-crm_id hat Vorrang vor internem DB-id (Detail-URL braucht crm_id)
+        const cid = c && (c.crm_id || c.contact_id || c.consultant_crm_id);
+        if (cid) return String(cid);
+        return fallback ? String(fallback) : '';
     }
 
     function _normalizeCrmPayload(raw, base) {
         if (!raw || typeof raw !== 'object') return base;
-        const c = raw.contact || raw.berater || raw.item || raw.data || raw.result || raw;
+        // Detail-Payload ist flach {crm_id, phones, emails, cstm, ...} — nicht hinter .data verstecken,
+        // wenn phones/emails schon top-level liegen.
+        let c = raw;
+        if (!Array.isArray(raw.phones) && !Array.isArray(raw.emails) && !raw.crm_id) {
+            c = raw.contact || raw.berater || raw.item || raw.data || raw.result || raw;
+        }
+        const cstm = c.cstm || {};
+        const eck = c.eckdaten || {};
         const phones = [];
         const seen = {};
         const pushPhone = (num, label) => {
@@ -2993,7 +3008,7 @@ window.Matching = (function() {
                     pushPhone(p, 'Tel');
                     return;
                 }
-                // CRM-Berater-API: { field_name, raw, norm, ... }
+                // Live-CRM: { field_name, raw, norm, label, is_primary }
                 const num = p.raw || p.phone_raw || p.norm || p.nummer || p.number
                     || p.phone || p.value || p.display || '';
                 pushPhone(num, _phoneFieldLabel(p.field_name || p.label || p.typ || p.type));
@@ -3005,14 +3020,29 @@ window.Matching = (function() {
         pushPhone(c.phone || c.telefon, 'Tel');
 
         const emails = [];
-        const pushMail = (em) => {
+        const pushMail = (em, primary) => {
             const e = String(em || '').trim();
-            if (e && e.indexOf('@') > 0 && emails.indexOf(e) < 0) emails.push(e);
+            if (!e || e.indexOf('@') < 0) return;
+            const existing = emails.find(x => x.email === e);
+            if (existing) {
+                if (primary) existing.primary = true;
+                return;
+            }
+            emails.push({ email: e, primary: !!primary });
         };
         if (Array.isArray(c.emails)) {
-            c.emails.forEach(e => pushMail(typeof e === 'string' ? e : (e.email || e.value || e.raw)));
+            // Primär zuerst
+            const sorted = c.emails.slice().sort((a, b) => {
+                if (typeof a === 'object' && a && a.primary) return -1;
+                if (typeof b === 'object' && b && b.primary) return 1;
+                return 0;
+            });
+            sorted.forEach(e => {
+                if (typeof e === 'string') pushMail(e, false);
+                else pushMail(e.email || e.value || e.raw, !!(e && e.primary));
+            });
         }
-        pushMail(c.email || c.mail || c.email_primary);
+        pushMail(c.email || c.mail || c.email_primary, !emails.length);
 
         const addr = c.address || c.hauptadresse || c.primary_address || {};
         const city = _fixText(c.city || c.ort || addr.city || addr.ort || addr.town || '');
@@ -3020,30 +3050,27 @@ window.Matching = (function() {
         const zip = addr.zip || addr.plz || addr.postal_code || c.zip || '';
         const country = addr.country || addr.land || c.country || '';
         const addressLine = [street, [zip, city].filter(Boolean).join(' '), country].filter(Boolean).join(', ');
-        const eck = c.eckdaten || {};
 
-        const mergedPhones = phones.length
-            ? phones
-            : (base.phones || []).slice();
-        // bestehende Nummern behalten, neue ergänzen
-        if (phones.length && base.phones && base.phones.length) {
-            (base.phones || []).forEach(bp => pushPhone(bp.number || bp.raw, bp.label));
-        }
+        (base.phones || []).forEach(bp => pushPhone(bp.number || bp.raw, bp.label));
+        const mergedEmails = emails.length ? emails : (base.emails || []).map(e =>
+            typeof e === 'string' ? { email: e } : e
+        );
 
+        const account = c.account || {};
         return Object.assign({}, base, {
             name: c.full_name || c.name || [c.first_name || c.vorname, c.last_name || c.nachname].filter(Boolean).join(' ') || base.name,
             location: city || _fixText(base.location) || '',
             address: addressLine || base.address || '',
-            phone: _pickPhone(mergedPhones, base.phone),
-            email: _pickEmail(emails.length ? emails : (base.emails || []), base.email),
-            phones: mergedPhones,
-            emails: emails.length ? emails : (base.emails || []),
-            crm_contact_id: c.crm_id || c.id || c.contact_id || base.crm_contact_id || '',
-            gulp_id: c.gulp_id || c.gulpId || eck.gulp_id || base.gulp_id || '',
-            rate: c.rate || c.konditionen || eck.konditionen || c.satz || c.hourly_rate || base.rate || '',
-            crm_status: c.status || c.crm_status || base.crm_status || '',
-            crm_type: c.type || c.typ || c.contact_type || base.crm_type || '',
-            company: c.account_name || c.firma || c.company || base.company || '',
+            phone: _pickPhone(phones, base.phone),
+            email: _pickEmail(mergedEmails, base.email),
+            phones: phones.length ? phones : (base.phones || []),
+            emails: mergedEmails,
+            crm_contact_id: _crmIdFrom(c, base.crm_contact_id),
+            gulp_id: c.gulp_id || c.gulpId || cstm.gulp_id || eck.gulp_id || base.gulp_id || '',
+            rate: c.rate || c.konditionen || cstm.konditionen || eck.konditionen || c.satz || c.hourly_rate || base.rate || '',
+            crm_status: c.status || c.crm_status || cstm.kontakt_status || base.crm_status || '',
+            crm_type: c.type || c.typ || c.contact_type || cstm.kontakt_typ || base.crm_type || '',
+            company: c.account_name || account.name || c.firma || c.company || base.company || '',
             aid: c.aid || base.aid || '',
         });
     }
@@ -3054,54 +3081,84 @@ window.Matching = (function() {
             .catch(() => null);
     }
 
-    function _enrichFromCrm(detail) {
-        const out = Object.assign({ phones: [], emails: [] }, detail);
-        const id = out.crm_contact_id;
-        const name = out.name || '';
-        // Berater-Detail zuerst (autoritativ für Telefon: phones[].raw)
-        const urls = [];
-        if (id) {
-            urls.push('/crm/api/berater/' + encodeURIComponent(id) + '/');
-            urls.push('/crm/api/berater/detail/?id=' + encodeURIComponent(id));
-            urls.push('/crm/api/contact/' + encodeURIComponent(id) + '/');
-            urls.push('/crm/api/contacts/' + encodeURIComponent(id) + '/');
-            urls.push(API + 'crm/contacts/' + encodeURIComponent(id) + '/');
+    function _mergeCrmHit(out, d, nameHint) {
+        if (!d) return;
+        const list = d.results || d.items || d.contacts || d.berater;
+        if (Array.isArray(list) && list.length) {
+            const q = String(nameHint || out.name || '').toLowerCase();
+            const gulp = String(out.gulp_id || '');
+            const exact = list.find(x => String(x.full_name || x.name || '').toLowerCase() === q)
+                || (gulp && list.find(x => String(x.gulp_id || '') === gulp))
+                || list[0];
+            Object.assign(out, _normalizeCrmPayload(exact, out));
+            return;
         }
-        if (name && name.length >= 2) {
-            urls.push('/crm/api/berater/?q=' + encodeURIComponent(name) + '&limit=5');
-            urls.push(API + 'crm/contacts/?q=' + encodeURIComponent(name));
-        }
-
-        function mergeHit(d) {
-            if (!d) return;
-            const list = d.results || d.items || d.contacts || d.berater;
-            if (Array.isArray(list) && list.length) {
-                const q = name.toLowerCase();
-                const exact = list.find(x => String(x.full_name || x.name || '').toLowerCase() === q) || list[0];
-                Object.assign(out, _normalizeCrmPayload(exact, out));
-                return;
-            }
+        // Detail-Response muss crm_id oder phones/emails haben
+        if (d.crm_id || Array.isArray(d.phones) || Array.isArray(d.emails) || d.full_name || d.cstm) {
             Object.assign(out, _normalizeCrmPayload(d, out));
         }
+    }
 
-        function hasPhones() {
-            return !!(out.phone || (out.phones && out.phones.length));
-        }
+    function _needsCrmContact(out) {
+        const hasPhone = !!(out.phone || (out.phones && out.phones.length));
+        const hasMail = !!(out.email || (out.emails && out.emails.length));
+        return !hasPhone || !hasMail;
+    }
 
-        let chain = Promise.resolve();
-        urls.forEach((u, idx) => {
-            chain = chain.then(() => {
-                // Nach erstem erfolgreichen Berater-Hit mit Telefon: restliche optional überspringen
-                if (idx > 0 && hasPhones() && out.crm_contact_id) {
-                    return null;
-                }
-                return _jsonGet(u).then(mergeHit);
+    function _fetchBeraterDetail(crmId) {
+        if (!crmId) return Promise.resolve(null);
+        const url = '/crm/api/berater/' + encodeURIComponent(crmId) + '/';
+        return _jsonGet(url);
+    }
+
+    function _enrichFromCrm(detail) {
+        const out = Object.assign({ phones: [], emails: [] }, detail);
+        const name = out.name || '';
+        const gulp = out.gulp_id ? String(out.gulp_id) : '';
+
+        // 1) Berater-Detail, falls crm_id schon bekannt
+        let chain = _fetchBeraterDetail(out.crm_contact_id).then(d => _mergeCrmHit(out, d, name));
+
+        // 2) Suche nach Name / Gulp — Listenzeile hat Tel, aber oft KEINE E-Mails
+        chain = chain.then(() => {
+            if (!_needsCrmContact(out) && out.crm_contact_id) return null;
+            const searches = [];
+            if (name && name.length >= 2) {
+                searches.push('/crm/api/berater/?q=' + encodeURIComponent(name) + '&per_page=5');
+            }
+            if (gulp) {
+                searches.push('/crm/api/berater/?q=' + encodeURIComponent(gulp) + '&per_page=5');
+            }
+            let s = Promise.resolve();
+            searches.forEach(u => {
+                s = s.then(() => {
+                    if (!_needsCrmContact(out) && out.crm_contact_id) return null;
+                    return _jsonGet(u).then(d => _mergeCrmHit(out, d, name));
+                });
             });
+            return s;
         });
+
+        // 3) Nach Listen-Treffer: Detail NACHLADEN (E-Mails nur im Detail)
+        chain = chain.then(() => {
+            if (!out.crm_contact_id) return null;
+            if (!_needsCrmContact(out)) return null;
+            return _fetchBeraterDetail(out.crm_contact_id).then(d => _mergeCrmHit(out, d, name));
+        });
+
         return chain.then(() => {
             out.location = _fixText(out.location);
             out.phone = _pickPhone(out.phones, out.phone);
             out.email = _pickEmail(out.emails, out.email);
+            // Karte/Cache mit CRM-Daten aktualisieren
+            try {
+                const el = _cardEl(out.id);
+                if (el) {
+                    if (out.phone) el.setAttribute('data-phone', out.phone);
+                    if (out.email) el.setAttribute('data-email', out.email);
+                    if (out.crm_contact_id) el.setAttribute('data-crm', out.crm_contact_id);
+                }
+            } catch (e) { /* ignore */ }
             return out;
         });
     }
