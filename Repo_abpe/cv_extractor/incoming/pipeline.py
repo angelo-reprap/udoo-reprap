@@ -355,6 +355,7 @@ class CvExtractionPipeline:
             r2  = gen.generate('aid-short',   consultant)
             logger.info(f"HTML Profil:   {r1['url']}")
             logger.info(f"HTML Kurzprofil: {r2['url']}")
+            # Publish nach /mnt/public/.../neu/cv/ läuft in HTMLGenerator (aid-profile)
             return r1['url']
         except Exception as e:
             logger.error(f"HTML-Generierung fehlgeschlagen: {e}")

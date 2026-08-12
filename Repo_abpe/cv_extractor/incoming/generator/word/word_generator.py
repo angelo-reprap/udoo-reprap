@@ -708,7 +708,7 @@ class WordGenerator:
             "other_content":   [oc.content for oc in consultant.other_content.all()],
         }
 
-    def generate(self, consultant, aid=None, version=None):
+    def generate(self, consultant, aid=None, version=None, skip_publish=False):
         aid  = aid or consultant.aid
         data = self.get_consultant_data(consultant)
         data["aid"]      = aid
@@ -716,9 +716,12 @@ class WordGenerator:
         data["date"]     = timezone.now().strftime("%-d. %B %Y")
         doc = Document()
         self.builder.build(doc, data, self.logo_path)
-        last     = (consultant.last_name  or "").lower()
-        first    = (consultant.first_name or "").lower()
-        dir_name = (last + "_" + first).strip("_") or aid.lower()
+        # Gleicher Ordner wie HTML (consultant_dir), sonst findet Publish das DOCX nicht
+        dir_name = (getattr(consultant, 'consultant_dir', '') or '').strip()
+        if not dir_name:
+            last     = (consultant.last_name  or "").lower()
+            first    = (consultant.first_name or "").lower()
+            dir_name = (last + "_" + first).strip("_") or aid.lower()
         tgt_dir  = os.path.join(self.target_dir, dir_name)
         os.makedirs(tgt_dir, exist_ok=True)
         filename = aid + self.filename_suffix + ".docx"
@@ -729,6 +732,22 @@ class WordGenerator:
             url = settings.MEDIA_URL + relative
         except ValueError:
             url = filepath
+
+        if not skip_publish:
+            try:
+                from apps.cv_extractor.services.aid_profile_publish import (
+                    publish_consultant_outputs,
+                )
+                # make_word=False: DOCX liegt schon; nur spiegeln + PDF
+                publish_consultant_outputs(
+                    consultant, make_word=False, make_pdf=True,
+                )
+            except Exception as e:
+                import logging
+                logging.getLogger(__name__).warning(
+                    "AID-Profile Publish nach Word fehlgeschlagen: %s", e,
+                )
+
         return {"filepath": filepath, "url": url, "filename": filename, "directory": dir_name}
 
     def generate_to_bytes(self, consultant, aid=None):

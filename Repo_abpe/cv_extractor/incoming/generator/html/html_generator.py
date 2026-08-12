@@ -1,9 +1,12 @@
 import os
 import json
+import logging
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils import timezone
 from apps.cv_extractor.models import Consultant
+
+logger = logging.getLogger(__name__)
 
 
 class HTMLGenerator:
@@ -248,7 +251,7 @@ class HTMLGenerator:
             'date':            timezone.now(),
         }
 
-    def generate(self, template_name, consultant, aid=None, version=None):
+    def generate(self, template_name, consultant, aid=None, version=None, skip_publish=False):
         template_config = self.config['templates'].get(template_name)
         if not template_config:
             raise ValueError(f"Template {template_name} nicht gefunden")
@@ -291,6 +294,21 @@ class HTMLGenerator:
             url = f"/{relative_path}"
         except ValueError:
             url = filepath
+
+        # Nach Hauptprofil: Spiegel nach /mnt/public/.../neu/cv/ (HTML+DOCX+PDF)
+        if template_name == 'aid-profile' and not skip_publish:
+            try:
+                from apps.cv_extractor.services.aid_profile_publish import (
+                    publish_consultant_outputs,
+                )
+                published = publish_consultant_outputs(consultant)
+                if published.get('success'):
+                    logger.info(
+                        "AID-Profile publiziert: %s → %s",
+                        consultant.aid, published.get('neu_cv'),
+                    )
+            except Exception as e:
+                logger.warning("AID-Profile Publish fehlgeschlagen: %s", e)
 
         return {'filepath': filepath, 'url': url, 'filename': filename, 'directory': dir_name}
 
