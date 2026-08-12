@@ -19,6 +19,11 @@ from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 
+from apps.cv_extractor.generator.cv_display_utils import (
+    format_education_line,
+    looks_like_course,
+)
+
 
 def _rgb(hex_str):
     h = hex_str.lstrip("#")
@@ -646,10 +651,13 @@ class WordGenerator:
 
         education = []
         for edu in consultant.education.filter(education_type="degree").order_by("-sort_order"):
-            desc = (edu.degree or edu.description or "").strip()
-            inst = (edu.institution or "").strip()
-            if inst and inst.lower() not in desc.lower():
-                desc = (desc + " @ " + inst) if desc else inst
+            desc = format_education_line(
+                edu.degree or "",
+                edu.institution or "",
+                edu.description or "",
+            )
+            if not desc:
+                continue
             education.append({"period": edu.period or "", "description": desc})
 
         # Fallback: consultant.degree wenn keine Education-Zeilen
@@ -667,20 +675,18 @@ class WordGenerator:
                 return True
             return bool(__import__('re').match(r'(?i)^qualifikationsprofil\s*:\s*aid-', x))
 
-        trainings_keywords = ['kurs', 'schulung', 'engineer', 'administrator',
-                               'analyst', 'core', 'operator', 'training', 'support', 'zertifiziert']
         all_cert_names = [
             cert.certification.name
             for cert in consultant.certifications.all().select_related('certification')
             if cert.certification and cert.certification.name
         ]
         courses = [
-            n for n in all_cert_names
-            if not _is_noise(n) and any(kw in n.lower() for kw in trainings_keywords)
-        ]
-        courses += [
             e.degree for e in consultant.education.filter(education_type='course')
             if e.degree and not _is_noise(e.degree)
+        ]
+        courses += [
+            n for n in all_cert_names
+            if not _is_noise(n) and looks_like_course(n)
         ]
         courses = list(dict.fromkeys(courses))
         course_set = {c.lower() for c in courses}

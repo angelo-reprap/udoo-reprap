@@ -32,6 +32,7 @@ FILES=(
   extractors/aid_regex_extractor.py
   generator/word/word_generator.py
   generator/html/html_generator.py
+  generator/cv_display_utils.py
   enricher/main_extracted_to_db.py
   services/main_post_processor.py
   services/aid_profile_publish.py

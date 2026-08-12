@@ -5,6 +5,11 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils import timezone
 from apps.cv_extractor.models import Consultant
+from apps.cv_extractor.generator.cv_display_utils import (
+    format_education_line,
+    looks_like_course,
+    make_html_offline_friendly,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -55,11 +60,13 @@ class HTMLGenerator:
         # Ausbildung
         education = []
         for edu in consultant.education.filter(education_type='degree').order_by('-sort_order'):
-            desc = (edu.degree or edu.description or '').strip()
-            inst = (edu.institution or '').strip()
-            # Institution nicht doppelt anhängen wenn schon im Degree-Text
-            if inst and inst.lower() not in desc.lower():
-                desc = f"{desc} @ {inst}" if desc else inst
+            desc = format_education_line(
+                edu.degree or '',
+                edu.institution or '',
+                edu.description or '',
+            )
+            if not desc:
+                continue
             education.append({
                 'period':      edu.period or '',
                 'description': desc,
@@ -85,19 +92,21 @@ class HTMLGenerator:
                 return True
             return bool(__import__('re').match(r'(?i)^qualifikationsprofil\s*:\s*aid-', x))
 
-        trainings_keywords = [
-            'kurs', 'schulung', 'engineer', 'administrator',
-            'analyst', 'core', 'operator', 'training', 'support',
-        ]
         all_cert_names = [
             cert.certification.name
             for cert in consultant.certifications.all().select_related('certification')
             if cert.certification and cert.certification.name
         ]
+        # Kurse: education_type=course + echte Kurs-Namen (nicht MCSE/CCNA-Zertifikate)
         trainings = [
-            n for n in all_cert_names
-            if not _is_noise(n) and any(kw in n.lower() for kw in trainings_keywords)
+            e.degree for e in consultant.education.filter(education_type='course')
+            if e.degree and not _is_noise(e.degree)
         ]
+        trainings += [
+            n for n in all_cert_names
+            if not _is_noise(n) and looks_like_course(n)
+        ]
+        trainings = list(dict.fromkeys(trainings))
         course_set = {t.lower() for t in trainings}
         certifications = [
             n for n in all_cert_names
@@ -299,6 +308,10 @@ class HTMLGenerator:
             template_path = f"{template_config['source_dir']}/template.html"
 
         html_content = render_to_string(template_path, context)
+        # Offline/file:// tauglich (neu/cv Share ohne Webserver)
+        html_content = make_html_offline_friendly(
+            html_content, settings.BASE_DIR, language=lang,
+        )
 
         dir_name = consultant.consultant_dir or f"{consultant.last_name.lower()}_{consultant.first_name.lower()}"
         if not dir_name.strip('_'):
