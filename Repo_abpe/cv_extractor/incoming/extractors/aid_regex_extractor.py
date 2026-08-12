@@ -365,23 +365,56 @@ class AidRegexExtractor:
     # ── Ausbildung ────────────────────────────────────────────────────────────
 
     def _extract_ausbildung(self, text: str) -> List[dict]:
-        """Extrahiert Ausbildung aus 'Ausbildung:' Zeile(n)."""
+        """
+        Extrahiert Ausbildung aus 'Ausbildung:' Block.
+        Unterstützt mehrere Zeilen mit Zeitraum, z.B.:
+          1985 - 1989 Studium zum Dipl.-Ing. für Maschinenwesen
+          1997 - 1998 Ausbildung Netzwerkadministrator
+        """
         results = []
-        # Einzeilig: "Ausbildung: Diplom Informatik"
-        m = re.search(r'(?im)^\s*Ausbildung\s*:\s*(.+?)(?=\n\s*\n|\n\s*[A-ZÄÖÜ]|$)', text, re.DOTALL)
-        if m:
-            raw = m.group(1).strip()
-            # Mehrere Ausbildungen können durch Zeilenumbrüche getrennt sein
-            for line in raw.splitlines():
-                line = line.strip()
-                if not line:
-                    continue
-                results.append({
-                    'degree':         line,
-                    'institution':    '',
-                    'period':         '',
-                    'education_type': 'degree',
-                })
+        # Block bis nächste Sektion (Fachbereiche / Zertifizierungen / leer+Header)
+        m = re.search(
+            r'(?im)^\s*Ausbildung\s*:\s*(.+?)'
+            r'(?=\n\s*(?:Fachbereiche|Zertifizierungen|Examen|Schulungen|'
+            r'Branchen|Programmiersprachen|Persönliche\s+Daten|'
+            r'Berufliche\s+Erfahrungen?)\b|\Z)',
+            text, re.DOTALL,
+        )
+        if not m:
+            return results
+        raw = m.group(1).strip()
+        # Fortsetzungszeilen an vorherige hängen wenn kein neues Jahr
+        lines = []
+        for line in raw.splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            line = re.sub(r'^[-•\*\u2022]\s*', '', line).strip()
+            if not line:
+                continue
+            if lines and not re.match(r'^\d{4}\b', line):
+                lines[-1] = (lines[-1] + ' ' + line).strip()
+            else:
+                lines.append(line)
+        for line in lines:
+            period = ''
+            degree = line
+            pm = re.match(
+                r'^(\d{4}\s*[-–—]\s*(?:\d{4}|heute|dato))\s+(.+)$',
+                line, re.IGNORECASE,
+            )
+            if pm:
+                period = re.sub(r'\s+', ' ', pm.group(1)).strip()
+                degree = pm.group(2).strip()
+            if len(degree) < 3:
+                continue
+            results.append({
+                'degree': degree[:200],
+                'institution': '',
+                'period': period[:100],
+                'description': '',
+                'education_type': 'degree',
+            })
         return results
 
     # ── Skill-Tabellen ────────────────────────────────────────────────────────
@@ -817,10 +850,15 @@ class AidRegexExtractor:
         if m:
             proj['company'] = m.group(1).strip()
         else:
-            # Fallback: 'Auftraggeber:' oder 'Kunde:'
-            m = re.search(r'(?im)^\s*(?:Auftraggeber|Kunde)\s*:\s*(.+?)$', block)
+            # abcona: Kunde / Branche:
+            m = re.search(r'(?im)^\s*Kunde\s*/\s*Branche\s*:\s*(.+?)$', block)
             if m:
                 proj['company'] = m.group(1).strip()
+            else:
+                # Fallback: 'Auftraggeber:' oder 'Kunde:'
+                m = re.search(r'(?im)^\s*(?:Auftraggeber|Kunde)\s*:\s*(.+?)$', block)
+                if m:
+                    proj['company'] = m.group(1).strip()
 
         # Projektbeschreibung → title
         m = re.search(
@@ -831,8 +869,11 @@ class AidRegexExtractor:
             title = ' '.join(m.group(1).split())  # Whitespace normalisieren
             proj['title'] = title[:300]
 
-        # Position / Rolle
-        m = re.search(r'(?im)^\s*(?:Position|Rolle|Projektrolle|Funktion)\s*:\s*(.+?)$', block)
+        # Position / Rolle (inkl. abcona Rolle / Position)
+        m = re.search(
+            r'(?im)^\s*(?:Rolle\s*/\s*Position|Position|Rolle|Projektrolle|Funktion)\s*:\s*(.+?)$',
+            block,
+        )
         if m:
             proj['role'] = m.group(1).strip()
 
@@ -886,24 +927,48 @@ class AidRegexExtractor:
 
             proj = {'period': period_str, 'activities': [], 'technologies': []}
 
-            lines = [l.strip() for l in block.splitlines() if l.strip()]
-            # Erste nicht-leere Zeile nach Periode = Firma (oft bold in PDF)
-            for line in lines[1:4]:
-                if (not re.match(r'^\d{1,2}[./]', line) and
-                        not re.match(r'(?i)^(Branche|Aufgaben?|Kenntnisse|System)', line) and
-                        len(line) > 3):
-                    proj['company'] = line
-                    break
-
-            # Branche
-            m = re.search(r'(?im)^\s*Branche\s*:\s*(.+?)$', block)
+            # abcona-Labels zuerst (zuverlässiger als „erste Zeile = Firma“)
+            m = re.search(
+                r'(?im)^\s*Kunde\s*/\s*Branche\s*:\s*(.+?)\s*$', block
+            )
             if m:
-                proj['industry'] = m.group(1).strip()
-
-            # Position/Rolle
-            m = re.search(r'(?im)^\s*(?:Position|Rolle|Projektrolle|Funktion)\s*:\s*(.+?)$', block)
+                proj['company'] = m.group(1).strip()
+            m = re.search(
+                r'(?im)^\s*Rolle\s*/\s*Position\s*:\s*(.+?)\s*$', block
+            )
             if m:
                 proj['role'] = m.group(1).strip()
+
+            lines = [l.strip() for l in block.splitlines() if l.strip()]
+            # Fallback: erste Zeile nach Periode = Firma (wenn kein Kunde-Label)
+            if not proj.get('company'):
+                for line in lines[1:4]:
+                    if re.match(
+                        r'(?i)^(kunde\s*/\s*branche|rolle\s*/\s*position|'
+                        r'branche|aufgaben?|kenntnisse|system|projektt)',
+                        line,
+                    ):
+                        continue
+                    if (not re.match(r'^\d{1,2}[./]', line) and
+                            not re.match(r'(?i)^(Branche|Aufgaben?|Kenntnisse|System)', line) and
+                            len(line) > 3):
+                        proj['company'] = line
+                        break
+
+            # Branche (ohne Kunde/)
+            if not proj.get('industry'):
+                m = re.search(r'(?im)^\s*Branche\s*:\s*(.+?)$', block)
+                if m:
+                    proj['industry'] = m.group(1).strip()
+
+            # Position/Rolle Fallback
+            if not proj.get('role'):
+                m = re.search(
+                    r'(?im)^\s*(?:Position|Rolle|Projektrolle|Funktion)\s*:\s*(.+?)$',
+                    block,
+                )
+                if m:
+                    proj['role'] = m.group(1).strip()
 
             # Systemumgebung
             m = re.search(r'(?im)^\s*Systemumgebung\s*:\s*(.+?)(?:\n\s*\n|$)', block, re.DOTALL)

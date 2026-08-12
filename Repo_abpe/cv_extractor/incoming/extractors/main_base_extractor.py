@@ -108,6 +108,45 @@ class MasterBaseExtractor:
         return {}
 
 
+def _regex_fill_experience_from_text(text: str, data: dict) -> dict:
+    """
+    Regex-Overlay auf LLM-Projekt-JSON (allgemein, Label-basiert).
+    Füllt company/role wenn im Quelltext 'Kunde / Branche:' bzw.
+    'Rolle / Position:' stehen — LLM-Ergebnis hat Vorrang nur wenn schon gesetzt
+    und nicht wie eine Rolle aussieht.
+    """
+    if not isinstance(data, dict) or not text:
+        return data
+    out = dict(data)
+    role_hint = re.compile(
+        r'(experte|expertin|engineer|administrator|berater|consultant|'
+        r'entwickler|architekt|spezialist|analyst|operator)',
+        re.IGNORECASE,
+    )
+
+    m = re.search(r'(?im)^\s*Kunde\s*/\s*Branche\s*:\s*(.+?)\s*$', text)
+    if m:
+        company = m.group(1).strip()
+        cur = (out.get('company') or '').strip()
+        if company and (not cur or role_hint.search(cur)):
+            out['company'] = company[:200]
+
+    m = re.search(r'(?im)^\s*Rolle\s*/\s*Position\s*:\s*(.+?)\s*$', text)
+    if m:
+        role = m.group(1).strip()
+        if role:
+            out['role'] = role[:200]
+
+    m = re.search(
+        r'(?im)^\s*(?:Position|Rolle|Projektrolle|Funktion)\s*:\s*(.+?)\s*$',
+        text,
+    )
+    if m and not (out.get('role') or '').strip():
+        out['role'] = m.group(1).strip()[:200]
+
+    return out
+
+
 def gruppe_to_volltext(gruppe: dict, block_by_nr: dict) -> str:
     """Gibt den vollstaendigen Text einer Gruppe zurueck."""
     lines = []
@@ -176,6 +215,64 @@ def _parse_skill_items_from_text(text: str) -> List[str]:
                 items.append(clean)
 
     return items
+
+
+def _norm_education_items(items, default_type='degree'):
+    """Strings/Dicts → education_type degree|course; degree-Feld setzen."""
+    out = []
+    for edu in items or []:
+        if isinstance(edu, str):
+            edu = {'degree': edu.strip(), 'education_type': default_type}
+        elif isinstance(edu, dict):
+            edu = dict(edu)
+        else:
+            continue
+        degree = (edu.get('degree') or edu.get('name') or '').strip()
+        if not degree:
+            degree = (edu.get('description') or '').strip()
+        if not degree:
+            continue
+        edu['degree'] = degree
+        et = (edu.get('education_type') or default_type or 'degree').strip().lower()
+        if et in ('schulung', 'schulungen', 'course', 'training', 'kurs'):
+            et = 'course'
+        elif et not in ('degree', 'course', 'certification'):
+            et = default_type
+        edu['education_type'] = et
+        out.append(edu)
+    return out
+
+
+def _is_section_noise_name(name: str) -> bool:
+    n = (name or '').strip().lower()
+    if not n or len(n) < 3:
+        return True
+    noise = (
+        'zertifizierungen', 'schulungen', 'schulungen / kurse', 'schulungen/kurse',
+        'examen', 'examen | prüfungen', 'examen|prüfungen', 'ausbildung',
+        'fachbereiche', 'branchen', 'persönliche daten',
+    )
+    return n in noise or n.rstrip(':') in noise
+
+
+def _merge_education(existing, incoming):
+    """Dedup merge education lists by (degree.lower, education_type)."""
+    merged = list(existing or [])
+    seen = {
+        ((e.get('degree') or '').strip().lower(), e.get('education_type') or 'degree')
+        for e in merged if isinstance(e, dict)
+    }
+    added = 0
+    for e in incoming or []:
+        if not isinstance(e, dict):
+            continue
+        key = ((e.get('degree') or '').strip().lower(), e.get('education_type') or 'degree')
+        if key in seen or not key[0]:
+            continue
+        merged.append(e)
+        seen.add(key)
+        added += 1
+    return merged, added
 
 
 def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
@@ -296,6 +393,11 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
                 if name and name.lower().rstrip(':') not in _noise:
                     cleaned.append(c if isinstance(c, dict) else {'name': name})
             pre_json['extracted_data']['certifications'] = cleaned
+        if aid_extracted.get('education'):
+            # Regex-Ausbildung vorbelegen (LLM/PERSONAL darf später ergänzen, nicht löschen)
+            pre_json['extracted_data']['education'] = _norm_education_items(
+                aid_extracted['education'], default_type='degree'
+            )
 
     # ── Gruppen-Indizes aufbauen ──────────────────────────────────────────────
     label_gruppen  = defaultdict(list)
@@ -342,52 +444,19 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
             results[label] = data
             print(f"    {label}: ✅" if data else f"    {label}: ❌ leer")
 
-    def _norm_education_items(items, default_type='degree'):
-        """Strings/Dicts → education_type degree|course; degree-Feld setzen."""
-        out = []
-        for edu in items or []:
-            if isinstance(edu, str):
-                edu = {'degree': edu.strip(), 'education_type': default_type}
-            elif isinstance(edu, dict):
-                edu = dict(edu)
-            else:
-                continue
-            degree = (edu.get('degree') or edu.get('name') or '').strip()
-            if not degree:
-                degree = (edu.get('description') or '').strip()
-            if not degree:
-                continue
-            edu['degree'] = degree
-            et = (edu.get('education_type') or default_type or 'degree').strip().lower()
-            if et in ('schulung', 'schulungen', 'course', 'training', 'kurs'):
-                et = 'course'
-            elif et not in ('degree', 'course', 'certification'):
-                et = default_type
-            edu['education_type'] = et
-            out.append(edu)
-        return out
-
-    def _is_section_noise_name(name: str) -> bool:
-        n = (name or '').strip().lower()
-        if not n or len(n) < 3:
-            return True
-        noise = (
-            'zertifizierungen', 'schulungen', 'schulungen / kurse', 'schulungen/kurse',
-            'examen', 'examen | prüfungen', 'examen|prüfungen', 'ausbildung',
-            'fachbereiche', 'branchen', 'persönliche daten',
-        )
-        return n in noise or n.rstrip(':') in noise
-
     # ── Ergebnisse einfügen ───────────────────────────────────────────────────
     if results.get('PERSONAL'):
         pre_json['extracted_data']['personal'] = results['PERSONAL']
-        # personal.education → extracted_data.education übernehmen wenn leer
+        # personal.education mergen (Regex-Ausbildung aus Schritt 0 behalten)
         personal_edu = _norm_education_items(
             results['PERSONAL'].get('education', []), default_type='degree'
         )
-        if personal_edu and not pre_json['extracted_data']['education']:
-            pre_json['extracted_data']['education'] = personal_edu
-            print(f"    education aus personal übernommen: {len(personal_edu)} Einträge")
+        if personal_edu:
+            merged, added = _merge_education(
+                pre_json['extracted_data'].get('education'), personal_edu
+            )
+            pre_json['extracted_data']['education'] = merged
+            print(f"    education aus personal gemerged: +{added} (gesamt {len(merged)})")
         # personal.languages normalisieren: Strings → [{name, level}]
         raw_langs = results['PERSONAL'].get('languages', [])
         norm_langs = []
@@ -422,7 +491,7 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
         pre_json['extracted_data']['certifications'] = clean_certs
 
     if results.get('SCHULUNGEN'):
-        # WICHTIG: nicht überschreiben — Ausbildung (degree) aus PERSONAL behalten
+        # WICHTIG: nicht überschreiben — Ausbildung (degree) behalten
         d = results['SCHULUNGEN']
         courses = _norm_education_items(
             d.get('education', d.get('schulungen', [])), default_type='course'
@@ -430,20 +499,9 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
         for c in courses:
             c['education_type'] = 'course'
         existing = list(pre_json['extracted_data'].get('education') or [])
-        seen = {
-            ((e.get('degree') or '').strip().lower(), e.get('education_type') or 'degree')
-            for e in existing if isinstance(e, dict)
-        }
-        added = 0
-        for c in courses:
-            key = ((c.get('degree') or '').strip().lower(), 'course')
-            if key in seen:
-                continue
-            existing.append(c)
-            seen.add(key)
-            added += 1
-        pre_json['extracted_data']['education'] = existing
-        print(f"    schulungen gemerged: +{added} courses (education gesamt {len(existing)})")
+        merged, added = _merge_education(existing, courses)
+        pre_json['extracted_data']['education'] = merged
+        print(f"    schulungen gemerged: +{added} courses (education gesamt {len(merged)})")
     if results.get('BRANCHEN') and not pre_json['extracted_data']['industries']:
         pre_json['extracted_data']['industries'] = \
             results['BRANCHEN'].get('industries', [])
@@ -492,9 +550,24 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
             text = gruppe_to_volltext(g, block_by_nr)
             if not text.strip():
                 return lg['index'], {}
-            return lg['index'], MasterBaseExtractor(
+            data = MasterBaseExtractor(
                 'main_extract_experience', consultant_type
             ).extract(text)
+            # Regex-Overlay: abcona-Labels Kunde/Rolle nachziehen
+            if isinstance(data, dict):
+                if 'experience' in data and isinstance(data['experience'], dict):
+                    data['experience'] = _regex_fill_experience_from_text(
+                        text, data['experience']
+                    )
+                elif data.get('period') or data.get('company') or data.get('role'):
+                    data = _regex_fill_experience_from_text(text, data)
+                elif isinstance(data.get('experience'), list):
+                    data['experience'] = [
+                        _regex_fill_experience_from_text(text, e)
+                        if isinstance(e, dict) else e
+                        for e in data['experience']
+                    ]
+            return lg['index'], data
 
         all_exp  = []
         proj_map = {}

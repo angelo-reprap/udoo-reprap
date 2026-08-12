@@ -125,7 +125,14 @@ class MainPipelineController:
                 aid_extracted['focus_areas']    = aid_regex_extractor._extract_fachbereiche(full_text)
                 aid_extracted['industries']     = aid_regex_extractor._extract_branchen(full_text)
                 aid_extracted['certifications'] = aid_regex_extractor._extract_zertifikate(full_text)
-                logger.info(f"[MainPipeline] Schritt 1b: headline={bool(aid_extracted['headline'])} | fachbereiche={len(aid_extracted['focus_areas'])} | branchen={len(aid_extracted['industries'])} | zertifikate={len(aid_extracted['certifications'])}")
+                aid_extracted['education']      = aid_regex_extractor._extract_ausbildung(full_text)
+                logger.info(
+                    f"[MainPipeline] Schritt 1b: headline={bool(aid_extracted['headline'])} | "
+                    f"fachbereiche={len(aid_extracted['focus_areas'])} | "
+                    f"branchen={len(aid_extracted['industries'])} | "
+                    f"zertifikate={len(aid_extracted['certifications'])} | "
+                    f"ausbildung={len(aid_extracted.get('education') or [])}"
+                )
             else:
                 logger.info(f"[MainPipeline] Schritt 1b: kein abcona-Profil → normale Pipeline")
         except Exception as e:
