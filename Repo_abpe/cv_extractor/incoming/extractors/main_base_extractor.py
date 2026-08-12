@@ -255,24 +255,121 @@ def _is_section_noise_name(name: str) -> bool:
     return n in noise or n.rstrip(':') in noise
 
 
+def _norm_edu_period(period: str) -> str:
+    """'1985 - 1989' / '1985–1989' → '1985-1989'."""
+    p = (period or '').strip().lower()
+    p = p.replace('–', '-').replace('—', '-')
+    p = re.sub(r'\s+', '', p)
+    return p
+
+
 def _merge_education(existing, incoming):
-    """Dedup merge education lists by (degree.lower, education_type)."""
-    merged = list(existing or [])
-    seen = {
-        ((e.get('degree') or '').strip().lower(), e.get('education_type') or 'degree')
-        for e in merged if isinstance(e, dict)
-    }
+    """
+    Dedup merge education lists.
+    - gleicher degree+type → skip
+    - gleiche Periode + type=degree → behalte längere Beschreibung
+      (z.B. LLM 'Dipl.-Ing. …' vs Regex 'Studium zum Dipl.-Ing. …')
+    """
+    merged = [dict(e) for e in (existing or []) if isinstance(e, dict)]
     added = 0
+
+    def _find_dup(e):
+        degree = (e.get('degree') or '').strip()
+        if not degree:
+            return None
+        et = e.get('education_type') or 'degree'
+        deg_l = degree.lower()
+        per = _norm_edu_period(e.get('period'))
+        for i, m in enumerate(merged):
+            if (m.get('education_type') or 'degree') != et:
+                continue
+            mdeg = (m.get('degree') or '').strip().lower()
+            if not mdeg:
+                continue
+            if mdeg == deg_l:
+                return i
+            mper = _norm_edu_period(m.get('period'))
+            if et == 'degree' and per and mper and per == mper:
+                # gleiche Periode: Substring / kürzere Variante
+                if deg_l in mdeg or mdeg in deg_l:
+                    return i
+        return None
+
     for e in incoming or []:
         if not isinstance(e, dict):
             continue
-        key = ((e.get('degree') or '').strip().lower(), e.get('education_type') or 'degree')
-        if key in seen or not key[0]:
+        e = dict(e)
+        degree = (e.get('degree') or '').strip()
+        if not degree:
             continue
-        merged.append(e)
-        seen.add(key)
-        added += 1
+        idx = _find_dup(e)
+        if idx is None:
+            merged.append(e)
+            added += 1
+            continue
+        # Reicherer Eintrag gewinnt (längerer degree-Text; Periode nachziehen)
+        old = merged[idx]
+        old_deg = (old.get('degree') or '').strip()
+        if len(degree) > len(old_deg):
+            old['degree'] = degree
+        if e.get('period') and not (old.get('period') or '').strip():
+            old['period'] = e.get('period')
+        if e.get('institution') and not (old.get('institution') or '').strip():
+            old['institution'] = e.get('institution')
     return merged, added
+
+
+def _finalize_education(items):
+    """Abschluss-Dedup: degrees nach Periode kollabieren, courses nach Name."""
+    degrees, courses = [], []
+    for e in items or []:
+        if not isinstance(e, dict):
+            continue
+        e = dict(e)
+        if (e.get('education_type') or 'degree') == 'course':
+            courses.append(e)
+        else:
+            degrees.append(e)
+
+    by_period = {}
+    no_period = []
+    for e in degrees:
+        per = _norm_edu_period(e.get('period'))
+        deg = (e.get('degree') or '').strip()
+        if not deg:
+            continue
+        if not per:
+            no_period.append(e)
+            continue
+        prev = by_period.get(per)
+        if not prev or len(deg) > len((prev.get('degree') or '').strip()):
+            by_period[per] = e
+
+    # no_period: drop if substring of a period-entry degree
+    kept_np = []
+    period_degs = [(p.get('degree') or '').strip().lower() for p in by_period.values()]
+    for e in no_period:
+        deg_l = (e.get('degree') or '').strip().lower()
+        if any(deg_l in pd or pd in deg_l for pd in period_degs if pd):
+            continue
+        kept_np.append(e)
+
+    # courses exact dedup
+    seen_c, courses_out = set(), []
+    for e in courses:
+        k = (e.get('degree') or '').strip().lower()
+        if not k or k in seen_c:
+            continue
+        seen_c.add(k)
+        courses_out.append(e)
+
+    # stabile Reihenfolge: degrees mit Periode (Jahr aufsteigend), dann Rest, dann courses
+    def _year_key(e):
+        m = re.search(r'(\d{4})', e.get('period') or '')
+        return int(m.group(1)) if m else 9999
+
+    deg_out = sorted(by_period.values(), key=_year_key) + kept_np
+    return deg_out + courses_out
 
 
 def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
@@ -502,6 +599,16 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
         merged, added = _merge_education(existing, courses)
         pre_json['extracted_data']['education'] = merged
         print(f"    schulungen gemerged: +{added} courses (education gesamt {len(merged)})")
+
+    # Ausbildung final dedup (gleiche Periode → eine Zeile)
+    before = len(pre_json['extracted_data'].get('education') or [])
+    pre_json['extracted_data']['education'] = _finalize_education(
+        pre_json['extracted_data'].get('education')
+    )
+    after = len(pre_json['extracted_data']['education'])
+    if before != after:
+        print(f"    education finalized: {before} → {after}")
+
     if results.get('BRANCHEN') and not pre_json['extracted_data']['industries']:
         pre_json['extracted_data']['industries'] = \
             results['BRANCHEN'].get('industries', [])
