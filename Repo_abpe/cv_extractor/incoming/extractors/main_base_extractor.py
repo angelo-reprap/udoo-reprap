@@ -286,7 +286,16 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
         if aid_extracted.get('industries'):
             pre_json['extracted_data']['industries'] = aid_extracted['industries']
         if aid_extracted.get('certifications'):
-            pre_json['extracted_data']['certifications'] = aid_extracted['certifications']
+            _noise = {
+                'zertifizierungen', 'schulungen', 'schulungen / kurse', 'schulungen/kurse',
+                'examen', 'examen | prüfungen', 'examen|prüfungen',
+            }
+            cleaned = []
+            for c in aid_extracted['certifications']:
+                name = (c.get('name') if isinstance(c, dict) else str(c) or '').strip()
+                if name and name.lower().rstrip(':') not in _noise:
+                    cleaned.append(c if isinstance(c, dict) else {'name': name})
+            pre_json['extracted_data']['certifications'] = cleaned
 
     # ── Gruppen-Indizes aufbauen ──────────────────────────────────────────────
     label_gruppen  = defaultdict(list)
