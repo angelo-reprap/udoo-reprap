@@ -33,6 +33,13 @@ SKIP_DIRS = {
     'neu',  # nie neu/ als Letter-Bucket
 }
 
+# Keine Berater-Profile (Ordner unter Letter-Bucket)
+SKIP_PERSON_DIRS = {
+    'audit', 'neu',
+    'Neuer Ordner', 'Neuer Ordner (2)', 'Neuer Ordner (3)',
+    'ada',  # Unterordner mit fremden Profilen, kein eigener Berater
+}
+
 
 def resolve_aid_profile_root() -> Path:
     env = os.environ.get('AID_PROFILE_ROOT', '').strip()
@@ -49,22 +56,47 @@ def resolve_aid_profile_root() -> Path:
 
 def get_best_pdf(folder: Path):
     """
-    Neuestes deutsches AID-*.pdf nach Änderungsdatum (mtime).
-    Englische Versionen (_engl, _en., -en., _en_) werden ausgeschlossen.
-    Unterordner neu/cv/ wird ignoriert (nur Dateien direkt im Person-Ordner).
-    Fallback: neuestes beliebiges deutsches PDF.
+    Neuestes deutsches AID-*.pdf direkt im Person-Ordner (mtime).
+
+    Ausgeschlossen:
+      - Englisch (_engl, _en., -en., _en_, _Englisch)
+      - Alt-/Lösch-Varianten (_alt, löschen, alt im Namen)
+      - Unterordner (alt/, AID_alt/, neu/cv/, …) — nur folder/*.pdf
+    Fallback: neuestes beliebiges deutsches PDF im Ordner.
     """
-    def is_german(p):
+    def is_german(p: Path) -> bool:
         n = p.name.lower()
-        return not any(x in n for x in ['engl', '_en.', '-en.', '_en_'])
+        return not any(x in n for x in (
+            'engl', '_en.', '-en.', '_en_', 'englisch',
+        ))
 
-    aid_pdfs = [p for p in folder.glob('AID-*.pdf') if is_german(p)]
+    def is_junk_variant(p: Path) -> bool:
+        n = p.name.lower()
+        return any(x in n for x in (
+            '_alt', '-alt', 'löschen', 'loeschen', ' delete',
+        ))
+
+    def score(p: Path):
+        # höher = besser: mtime, dann „sauberer“ AID-Name
+        mtime = p.stat().st_mtime
+        clean = 1 if re.match(
+            r'(?i)^AID-[A-Za-z]{1,5}_\d+\.\d+\.\d+\.\d+\.pdf$', p.name
+        ) else 0
+        return (mtime, clean)
+
+    aid_pdfs = [
+        p for p in folder.glob('AID-*.pdf')
+        if p.is_file() and is_german(p) and not is_junk_variant(p)
+    ]
     if aid_pdfs:
-        return sorted(aid_pdfs, key=lambda p: p.stat().st_mtime, reverse=True)[0]
+        return sorted(aid_pdfs, key=score, reverse=True)[0]
 
-    all_pdfs = [p for p in folder.glob('*.pdf') if is_german(p)]
+    all_pdfs = [
+        p for p in folder.glob('*.pdf')
+        if p.is_file() and is_german(p) and not is_junk_variant(p)
+    ]
     if all_pdfs:
-        return sorted(all_pdfs, key=lambda p: p.stat().st_mtime, reverse=True)[0]
+        return sorted(all_pdfs, key=score, reverse=True)[0]
 
     return None
 
@@ -144,7 +176,9 @@ class Command(BaseCommand):
             for person_dir in sorted(letter_dir.iterdir()):
                 if not person_dir.is_dir():
                     continue
-                if person_dir.name in ('neu',):
+                if person_dir.name in ('neu',) or person_dir.name in SKIP_PERSON_DIRS:
+                    continue
+                if person_dir.name.lower().startswith('neuer ordner'):
                     continue
                 if dir_filter and person_dir.name != dir_filter:
                     continue

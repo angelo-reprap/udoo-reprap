@@ -1163,6 +1163,12 @@ class AidRegexExtractor:
                 if acts:
                     proj['activities'] = acts
 
+        # Abschluß/Abschluss (häufig bei Weiterbildung) → Activity erzwingen
+        self._append_abschluss_activities(proj, block)
+
+        # Weiterbildung ohne Bullets: Titel als Activity behalten (darf nicht wegfallen)
+        self._ensure_weiterbildung_content(proj)
+
         # Mindest-Validierung: period muss vorhanden sein
         if not proj.get('period'):
             return None
@@ -1241,9 +1247,46 @@ class AidRegexExtractor:
             if bullets:
                 proj['activities'] = [b.strip() for b in bullets if len(b.strip()) > 5]
 
+            self._append_abschluss_activities(proj, block)
+            self._ensure_weiterbildung_content(proj)
+
             projekte.append(proj)
 
         return projekte
+
+    def _append_abschluss_activities(self, proj: dict, block: str) -> None:
+        """Abschluß/Abschluss-Zeilen (z.B. CCVP nach Weiterbildung) → activities."""
+        acts = list(proj.get('activities') or [])
+        for m in re.finditer(r'(?im)^\s*Abschlu[sß]\s*:\s*(.+?)\s*$', block):
+            val = re.sub(r'\s+', ' ', m.group(1)).strip()
+            if not val:
+                continue
+            line = f'Abschluss: {val}'
+            if line not in acts and val not in acts:
+                acts.append(line)
+        if acts:
+            proj['activities'] = acts
+
+    def _ensure_weiterbildung_content(self, proj: dict) -> None:
+        """
+        Weiterbildung-Einträge dürfen nie inhaltsleer werden.
+        Ohne Bullets: Titel (Lehrgangstext) als Activity.
+        """
+        company = (proj.get('company') or '').strip().lower()
+        title = (proj.get('title') or '').strip()
+        is_wb = (
+            'weiterbildung' in company
+            or bool(re.search(r'(?i)\b(lehrgang|weiterbildung)\b', title))
+        )
+        if not is_wb:
+            return
+        acts = list(proj.get('activities') or [])
+        if not acts and title:
+            acts = [title]
+        if not (proj.get('company') or '').strip():
+            proj['company'] = 'Weiterbildung'
+        if acts:
+            proj['activities'] = acts
 
     # ── Hilfsmethoden ─────────────────────────────────────────────────────────
 

@@ -39,6 +39,7 @@ FILES=(
   services/main_pipeline_controller.py
   services/main_labeler.py
   management/commands/import_aid_profiles.py
+  management/commands/compare_aid_neu_cv.py
   management/commands/patch_prompt_template.py
   management/commands/fix_html_offline.py
   static/cv_extractor/html/aid-profile/style.css
