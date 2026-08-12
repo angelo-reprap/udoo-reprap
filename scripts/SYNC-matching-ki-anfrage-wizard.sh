@@ -1,18 +1,30 @@
 #!/usr/bin/env bash
 # Repo → Live: abpe_ki_wiz + Matching-UI + Shaduler (Radar Anfragen/Berater)
 #
-# VORHER auf ucs5 immer Live→Repo ziehen (sonst gehen Live-Fixes verloren):
-#   bash <(git show origin/cursor/matching-ki-anfrage-wizard-7f07:scripts/PULL-matching-from-live.sh) --push
+# ╔══════════════════════════════════════════════════════════════════════════╗
+# ║  PFLICHT: Zuerst Live → Repo pullen (sonst löscht SYNC Live-Fixes).     ║
+# ║                                                                          ║
+# ║  Auf ucs5:                                                               ║
+# ║    cd /mnt/public/udoo-reprap                                            ║
+# ║    git fetch origin cursor/matching-ki-anfrage-wizard-7f07               ║
+# ║    bash <(git show origin/cursor/matching-ki-anfrage-wizard-7f07:\        ║
+# ║      scripts/PULL-matching-from-live.sh) --push                          ║
+# ║                                                                          ║
+# ║  Danach Cloud-Agent: git pull — erst dann Features / SYNC.               ║
+# ╚══════════════════════════════════════════════════════════════════════════╝
 #
-# Auf ucs5 (erst fetch, dann Script — sonst läuft eine alte Script-Version):
+# SYNC (nach Pull + Cloud-Änderungen):
 #   cd /mnt/public/udoo-reprap
 #   git fetch origin cursor/matching-ki-anfrage-wizard-7f07
 #   bash <(git show origin/cursor/matching-ki-anfrage-wizard-7f07:scripts/SYNC-matching-ki-anfrage-wizard.sh)
 #   supervisorctl restart abpe-django
 #   # Browser: Ctrl+F5
 #
+# Notfall ohne Pull-Stamp:  FORCE_WITHOUT_PULL=1 bash …/SYNC-….sh
+#
 # Regeln:
 # - CRM views/models: kein Blind-Overwrite; timestamped *.bak-before-matching-sync-*
+# - CRM views Full-Replace nur mit REPLACE_CRM_VIEWS=1 (Default: AUS)
 # - DB-Spalten/Terms-Tabelle werden per ensure-matching-terms-db.py erzwungen
 # - manage.py check muss grün sein, sonst Abbruch vor Restart-Hinweis
 set -euo pipefail
@@ -24,9 +36,47 @@ LIVE_UI="${LIVE_UI:-/opt/abpe/backend/apps/abpe_ui}"
 STATICFILES="${STATICFILES:-/opt/abpe/backend/staticfiles}"
 BACKEND="${BACKEND:-/opt/abpe/backend}"
 PYBIN="${PYBIN:-/opt/abpe/venv311/bin/python}"
+FORCE_WITHOUT_PULL="${FORCE_WITHOUT_PULL:-0}"
+REPLACE_CRM_VIEWS="${REPLACE_CRM_VIEWS:-0}"
+MAX_PULL_AGE_HOURS="${MAX_PULL_AGE_HOURS:-72}"
 
 cd "$REPO"
 git fetch origin cursor/matching-ki-anfrage-wizard-7f07 || true
+
+# ── Guard: frischer Live→Repo Pull erforderlich ─────────────────────────────
+STAMP="$REPO/Repo_abpe/.live-pull-stamp"
+# Stamp aus Branch (nach Cloud-Pull) ODER Working-Tree
+if [[ ! -f "$STAMP" ]]; then
+  git show "$BRANCH:Repo_abpe/.live-pull-stamp" > "$STAMP" 2>/dev/null || true
+fi
+if [[ ! -f "$STAMP" ]]; then
+  if [[ "$FORCE_WITHOUT_PULL" != "1" ]]; then
+    echo "════════════════════════════════════════════════════════════"
+    echo "ABBRUCH: Kein Live→Repo-Stamp (Repo_abpe/.live-pull-stamp)."
+    echo
+    echo "Zuerst auf ucs5 Live nach Git ziehen:"
+    echo "  bash <(git show origin/cursor/matching-ki-anfrage-wizard-7f07:scripts/PULL-matching-from-live.sh) --push"
+    echo
+    echo "Notfall (nicht empfohlen): FORCE_WITHOUT_PULL=1 $0"
+    echo "════════════════════════════════════════════════════════════"
+    exit 2
+  fi
+  echo "WARN: FORCE_WITHOUT_PULL=1 — Sync ohne Live-Pull-Stamp"
+else
+  stamp_ts=$(grep -E '^ts=' "$STAMP" | head -1 | cut -d= -f2- || true)
+  if [[ -n "$stamp_ts" ]]; then
+    # ts=YYYYMMDD-HHMMSS
+    stamp_epoch=$(date -d "${stamp_ts:0:4}-${stamp_ts:4:2}-${stamp_ts:6:2} ${stamp_ts:9:2}:${stamp_ts:11:2}:${stamp_ts:13:2}" +%s 2>/dev/null || echo 0)
+    now_epoch=$(date +%s)
+    age_h=$(( (now_epoch - stamp_epoch) / 3600 ))
+    echo "Live-Pull-Stamp: $stamp_ts (Alter ~${age_h}h) — $(head -3 "$STAMP" | tr '\n' ' ')"
+    if [[ "$stamp_epoch" -gt 0 && "$age_h" -gt "$MAX_PULL_AGE_HOURS" && "$FORCE_WITHOUT_PULL" != "1" ]]; then
+      echo "ABBRUCH: Live-Pull älter als ${MAX_PULL_AGE_HOURS}h. Bitte erneut PULL --push."
+      echo "  FORCE_WITHOUT_PULL=1 zum Überschreiben."
+      exit 2
+    fi
+  fi
+fi
 
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
@@ -194,12 +244,15 @@ if [[ -d "$TMP/Repo_abpe/abpe_crm/incoming" && -d "$LIVE_CRM" ]]; then
     cp -a "$LIVE_CRM_VIEWS" "$LIVE_CRM/views.py.bak-before-matching-sync-$ts"
     cp -a "$LIVE_CRM_VIEWS" "$LIVE_CRM/views.py.bak-before-matching-sync"
 
-    if [[ "$SKIP_VIEWS_COPY" -eq 0 && "$NEED_RECOVERY" -eq 1 ]]; then
+    if [[ "$REPLACE_CRM_VIEWS" == "1" && "$SKIP_VIEWS_COPY" -eq 0 && "$NEED_RECOVERY" -eq 1 ]]; then
       cp -a "$REPO_CRM_VIEWS" "$LIVE_CRM_VIEWS"
-      echo "OK — abpe_crm/views.py ersetzt (Backup: views.py.bak-before-matching-sync-$ts)"
-    elif [[ "$SKIP_VIEWS_COPY" -eq 0 && "$NEED_RECOVERY" -eq 0 ]]; then
+      echo "OK — abpe_crm/views.py ersetzt (REPLACE_CRM_VIEWS=1, Backup: views.py.bak-before-matching-sync-$ts)"
+    elif [[ "$NEED_RECOVERY" -eq 0 ]]; then
       echo "OK — abpe_crm/views.py unverändert (Live ok, Backup: views.py.bak-before-matching-sync-$ts)"
     else
+      if [[ "$REPLACE_CRM_VIEWS" != "1" && "$NEED_RECOVERY" -eq 1 ]]; then
+        echo "→ CRM views: nur chirurgisch (Full-Replace aus — setze REPLACE_CRM_VIEWS=1 falls nötig)"
+      fi
       echo "→ CRM views: chirurgisch (kein Full-Replace); Backup: views.py.bak-before-matching-sync-$ts"
       if _crm_urls_need api_contacts_suggest && ! _crm_view_has "$LIVE_CRM_VIEWS" api_contacts_suggest; then
         if _crm_view_has "$REPO_CRM_VIEWS" api_contacts_suggest; then

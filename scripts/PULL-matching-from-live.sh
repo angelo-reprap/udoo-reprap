@@ -263,6 +263,22 @@ check "UI saveMatchTerms" "$DEST_UI/mod-matching.js" "saveMatchTerms"
 check "UI phone_raw" "$DEST_UI/mod-matching.js" "phone_raw"
 check "KI matching_anfrage" "$DEST_KI/prompt_defaults.py" "wiz_matching_anfrage_generate"
 
+# ── Stamp: SYNC darf nur nach frischem Live-Pull laufen ─────────────────────
+STAMP="$REPO/Repo_abpe/.live-pull-stamp"
+{
+  echo "ts=$TS"
+  echo "iso=$(date -Iseconds)"
+  echo "host=$(hostname -f 2>/dev/null || hostname)"
+  echo "branch=$(git -C "$REPO" branch --show-current 2>/dev/null || echo '?')"
+  echo "backup=$BAK_DIR"
+  echo "crm_views_lines=$(wc -l < "$DEST_CRM/views.py" 2>/dev/null || echo 0)"
+  echo "crm_has_contacts_suggest=$(grep -c 'def api_contacts_suggest' "$DEST_CRM/views.py" 2>/dev/null || echo 0)"
+  echo "crm_has_berater_cv=$(grep -c 'def api_berater_cv' "$DEST_CRM/views.py" 2>/dev/null || echo 0)"
+  echo "ui_has_fillSkills=$(grep -c 'fillSkillsFromText' "$DEST_UI/mod-matching.js" 2>/dev/null || echo 0)"
+  echo "ui_has_saveMatchTerms=$(grep -c 'saveMatchTerms' "$DEST_UI/mod-matching.js" 2>/dev/null || echo 0)"
+} > "$STAMP"
+echo "OK Stamp → $STAMP"
+
 # .gitignore für Backups im Share
 GITIGNORE="$REPO/.gitignore"
 touch "$GITIGNORE"
@@ -283,10 +299,19 @@ if [[ "$DO_PUSH" -eq 1 ]]; then
     Repo_abpe/abpe_ki_wiz \
     Repo_abpe/abpe_ui \
     Repo_abpe/abpe_matching_workflow \
+    Repo_abpe/.live-pull-stamp \
     .gitignore \
     2>/dev/null || true
   if git -C "$REPO" diff --cached --quiet; then
-    echo "Nichts zu committen (Working tree = Live?)."
+    # Stamp trotzdem committen falls nur Stamp neu
+    git -C "$REPO" add Repo_abpe/.live-pull-stamp 2>/dev/null || true
+    if git -C "$REPO" diff --cached --quiet; then
+      echo "Nichts zu committen (Working tree = Live?)."
+    else
+      git -C "$REPO" commit -m "pull(live): Matching/CRM/Shaduler/KI Stand von ucs5 ($TS)"
+      git -C "$REPO" push -u origin "$(git -C "$REPO" branch --show-current)"
+      echo "OK gepusht"
+    fi
   else
     git -C "$REPO" commit -m "pull(live): Matching/CRM/Shaduler/KI Stand von ucs5 ($TS)"
     git -C "$REPO" push -u origin "$(git -C "$REPO" branch --show-current)"
@@ -298,9 +323,9 @@ else
   echo "Prüfen:"
   echo "  cd $REPO && git status -sb && git diff --stat | head"
   echo
-  echo "Committen + pushen:"
+  echo "Committen + pushen (wichtig — Cloud-Agent braucht den Push):"
   echo "  git add Repo_abpe/abpe_crm Repo_abpe/abpe_shaduler Repo_abpe/abpe_ki_wiz Repo_abpe/abpe_ui"
-  echo "  git add Repo_abpe/abpe_matching_workflow 2>/dev/null || true"
+  echo "  git add Repo_abpe/abpe_matching_workflow Repo_abpe/.live-pull-stamp 2>/dev/null || true"
   echo "  git commit -m 'pull(live): Matching/CRM/Shaduler/KI Stand von ucs5'"
   echo "  git push -u origin $BRANCH"
   echo
@@ -313,3 +338,6 @@ echo "Live-Backup bleibt unter: $BAK_DIR"
 echo "Rollback Live z.B.:"
 echo "  tar -xzf $BAK_DIR/abpe_crm.tar.gz -C /opt/abpe/backend/apps/"
 echo "======== Ende PULL ========"
+echo
+echo ">>> Nächster Schritt für Cloud-Agent: git pull auf dem Branch,"
+echo ">>> DANN erst wieder Features. SYNC ohne Stamp → Abbruch."
