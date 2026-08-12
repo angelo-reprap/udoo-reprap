@@ -661,7 +661,9 @@ class WordGenerator:
         }
         def _is_noise(n: str) -> bool:
             x = (n or "").strip().lower().rstrip(':')
-            return (not x) or x in _section_noise
+            if (not x) or x in _section_noise:
+                return True
+            return bool(__import__('re').match(r'(?i)^qualifikationsprofil\s*:\s*aid-', x))
 
         trainings_keywords = ['kurs', 'schulung', 'engineer', 'administrator',
                                'analyst', 'core', 'operator', 'training', 'support', 'zertifiziert']

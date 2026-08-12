@@ -245,15 +245,17 @@ def _norm_education_items(items, default_type='degree'):
 
 
 def _is_section_noise_name(name: str) -> bool:
-    n = (name or '').strip().lower()
+    n = (name or '').strip().lower().rstrip(':')
     if not n or len(n) < 3:
+        return True
+    if re.match(r'(?i)^qualifikationsprofil\s*:\s*aid-', n):
         return True
     noise = (
         'zertifizierungen', 'schulungen', 'schulungen / kurse', 'schulungen/kurse',
         'examen', 'examen | prüfungen', 'examen|prüfungen', 'ausbildung',
         'fachbereiche', 'branchen', 'persönliche daten',
     )
-    return n in noise or n.rstrip(':') in noise
+    return n in noise
 
 
 def _norm_edu_period(period: str) -> str:
@@ -476,21 +478,23 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
         if aid_extracted.get('headline'):
             pre_json['metadata']['headline'] = aid_extracted['headline']
             pre_json['extracted_data'].setdefault('personal', {})['headline'] = aid_extracted['headline']
-        if aid_extracted.get('focus_areas'):
-            pre_json['extracted_data']['focus_areas'] = aid_extracted['focus_areas']
-        if aid_extracted.get('industries'):
-            pre_json['extracted_data']['industries'] = aid_extracted['industries']
         if aid_extracted.get('certifications'):
-            _noise = {
-                'zertifizierungen', 'schulungen', 'schulungen / kurse', 'schulungen/kurse',
-                'examen', 'examen | prüfungen', 'examen|prüfungen',
-            }
             cleaned = []
             for c in aid_extracted['certifications']:
                 name = (c.get('name') if isinstance(c, dict) else str(c) or '').strip()
-                if name and name.lower().rstrip(':') not in _noise:
+                if name and not _is_section_noise_name(name):
                     cleaned.append(c if isinstance(c, dict) else {'name': name})
             pre_json['extracted_data']['certifications'] = cleaned
+        if aid_extracted.get('industries'):
+            pre_json['extracted_data']['industries'] = [
+                i for i in aid_extracted['industries']
+                if isinstance(i, str) and not _is_section_noise_name(i)
+            ]
+        if aid_extracted.get('focus_areas'):
+            pre_json['extracted_data']['focus_areas'] = [
+                f for f in aid_extracted['focus_areas']
+                if isinstance(f, str) and not _is_section_noise_name(f) and len(f) > 3
+            ]
         if aid_extracted.get('education'):
             # Regex-Ausbildung vorbelegen (LLM/PERSONAL darf später ergänzen, nicht löschen)
             pre_json['extracted_data']['education'] = _norm_education_items(

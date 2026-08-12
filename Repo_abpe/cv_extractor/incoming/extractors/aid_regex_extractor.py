@@ -83,6 +83,25 @@ SECTION_ENDERS = re.compile(
     r')\s*$'
 )
 
+# PDF-Symbol-Bullets (Wingdings/Symbol) + übliche Aufzählungszeichen
+BULLET_PREFIX_RE = re.compile(
+    r'^[\-\*\u2022\u25aa\u25cf\u25e6\u00b7•●○■▪▫►➢→'
+    r'\uf09f\uf0b7\uf0a7\uf0d8\uf0a0]+\s*',
+    re.UNICODE,
+)
+
+# Seitenkopf aus abcona-PDFs (leakt sonst in Branchen/Skills/Tech)
+PAGE_HEADER_RE = re.compile(
+    r'(?im)^\s*Qualifikationsprofil\s*:\s*AID-[a-z]{2}_[^\n]*$'
+)
+
+SECTION_NOISE_NAMES = {
+    'zertifizierungen', 'schulungen', 'schulungen / kurse', 'schulungen/kurse',
+    'examen', 'examen | prüfungen', 'examen|prüfungen', 'ausbildung',
+    'fachbereiche', 'branchen', 'persönliche daten', 'berufliche erfahrungen',
+    'programmiersprachen', 'betriebssysteme', 'hardware', 'datenkommunikation',
+}
+
 
 class AidRegexExtractor:
     """
@@ -117,6 +136,44 @@ class AidRegexExtractor:
             return first, last
         return '', dir_name.capitalize()
 
+    # ── Text-Helpers (allgemein für alle AID-Profile) ─────────────────────────
+
+    def _strip_page_headers(self, text: str) -> str:
+        """Entfernt abcona-Seitenköpfe aus dem PDF-Text."""
+        return PAGE_HEADER_RE.sub('', text or '')
+
+    def _is_page_header(self, line: str) -> bool:
+        return bool(PAGE_HEADER_RE.match((line or '').strip()))
+
+    def _is_section_noise(self, name: str) -> bool:
+        n = (name or '').strip().lower().rstrip(':')
+        if not n or len(n) < 2:
+            return True
+        if self._is_page_header(name):
+            return True
+        return n in SECTION_NOISE_NAMES
+
+    def _strip_bullet(self, line: str) -> Tuple[str, bool]:
+        """Entfernt Bullet-Prefix. Returns (clean, had_bullet)."""
+        raw = (line or '').strip()
+        if not raw:
+            return '', False
+        m = BULLET_PREFIX_RE.match(raw)
+        if m:
+            return raw[m.end():].strip(), True
+        # Sub-Bullets: "o Text" / "○ Text"
+        m2 = re.match(r'^[oO]\s+(.+)$', raw)
+        if m2:
+            return m2.group(1).strip(), True
+        return raw, False
+
+    def _clean_item(self, line: str) -> str:
+        clean, _ = self._strip_bullet(line)
+        clean = re.sub(r'\s+', ' ', clean).strip()
+        if self._is_section_noise(clean):
+            return ''
+        return clean
+
     def extract(self, text: str,
                 first_name: str = '',
                 last_name:  str = '',
@@ -135,6 +192,9 @@ class AidRegexExtractor:
             return {'is_aid_profile': False, 'pre_json': None, 'coverage': 0.0}
 
         logger.info(f"[AidRegex] abcona-Profil erkannt: {first_name} {last_name}")
+
+        # Seitenköpfe entfernen (leaken sonst in Branchen/Tech/Certs)
+        text = self._strip_page_headers(text)
 
         # Name aus Verzeichnis wenn nicht übergeben
         if dir_name and (not first_name or not last_name):
@@ -177,11 +237,13 @@ class AidRegexExtractor:
             pre_json['extracted_data']['certifications'] = zertifikate
             filled.append('zertifikate')
 
-        # 6. Ausbildung
+        # 6. Ausbildung + Schulungen/Kurse
         ausbildung = self._extract_ausbildung(text)
-        if ausbildung:
-            pre_json['extracted_data']['education'] = ausbildung
-            # Degree-Fallback
+        schulungen = self._extract_schulungen(text)
+        education = list(ausbildung) + list(schulungen)
+        if education:
+            pre_json['extracted_data']['education'] = education
+            # Degree-Fallback (nur saubere Ausbildung, nicht Schulung)
             for edu in ausbildung:
                 if edu.get('education_type') == 'degree' and edu.get('degree'):
                     if not pre_json['extracted_data']['personal'].get('degree'):
@@ -200,6 +262,14 @@ class AidRegexExtractor:
         if projekte:
             pre_json['extracted_data']['experience'] = projekte
             filled.append(f'projekte({len(projekte)})')
+
+        # 8b. Format-A ohne Skill-Tabellen: Tech aus Projekten nachziehen
+        if not skill_ablage and projekte:
+            harvested = self._harvest_skills_from_projects(projekte)
+            if harvested:
+                pre_json['extracted_data']['skill_ablage'] = harvested
+                filled.append(f'skills_from_proj({len(harvested)})')
+                skill_ablage = harvested
 
         # Coverage berechnen
         coverage = len(filled) / 8.0
@@ -308,14 +378,16 @@ class AidRegexExtractor:
             r'Branchen?',
             r'Persönliche\s+St.rken?',
             r'TOP\s+Kenntnisse',
+            r'Programmiersprachen?',
+            r'Schulungen?\s*/\s*Kurse',
         ])
 
         if not block:
             return []
 
-        items = self._parse_list_items(block)
-        # Fachbereiche sind meist kurze Begriffe (< 100 Zeichen)
-        return [i for i in items if len(i) < 150 and len(i) > 3]
+        items = self._parse_list_items(block, merge_wraps=True)
+        # Fachbereiche: kurze Stichworte ODER 1–2 längere Absätze (Format A)
+        return [i for i in items if 3 < len(i) < 400 and not self._is_section_noise(i)]
 
     # ── Branchen ──────────────────────────────────────────────────────────────
 
@@ -326,10 +398,32 @@ class AidRegexExtractor:
             r'Berufliche\s+Erfahrungen?',
             r'Zertifizierungen?(?:\s*[\|/].*)?',
             r'Produkte',
+            r'Hardware',
+            r'Datenkommunikation',
+            r'Schulungen?\s*/\s*Kurse',
         ])
         if not block:
             return []
-        return self._parse_list_items(block)
+        items = self._parse_list_items(block, merge_wraps=True)
+        out = []
+        for item in items:
+            if self._is_section_noise(item):
+                continue
+            # Komma-Liste in einer Zeile → einzeln
+            if ',' in item and len(item) > 40:
+                parts = [p.strip() for p in item.split(',') if p.strip()]
+                if len(parts) >= 2 and all(len(p) < 60 for p in parts):
+                    out.extend(parts)
+                    continue
+            out.append(item)
+        # Dedup
+        seen, final = set(), []
+        for i in out:
+            lw = i.lower()
+            if lw not in seen and 2 < len(i) < 80:
+                seen.add(lw)
+                final.append(i)
+        return final
 
     # ── Zertifikate ───────────────────────────────────────────────────────────
 
@@ -343,76 +437,208 @@ class AidRegexExtractor:
                 r'Betriebssysteme',
                 r'Programmiersprachen?',
                 r'Fachbereiche',
+                r'Examen(?:\s*[\|/].*)?',
+                r'Schulungen?\s*/\s*Kurse',
+                r'Hardware',
+                r'Datenkommunikation',
             ]
         )
         if not block:
             return []
 
         certs = []
+        seen = set()
         for line in block.splitlines():
-            line = line.strip()
+            line = self._clean_item(line)
             if not line or len(line) < 3:
                 continue
             # Datum am Anfang entfernen: "0/2022 Azure Architekt" → "Azure Architekt"
             line = re.sub(r'^\d{1,2}/\d{4}\s+', '', line)
             line = re.sub(r'^\d{4}\s+', '', line)
-            # Bullet entfernen
-            line = re.sub(r'^[-•\*\u2022]\s*', '', line).strip()
-            if len(line) >= 3:
-                certs.append({'name': line, 'issuer': '', 'date_obtained': ''})
+            if self._is_section_noise(line) or len(line) < 3:
+                continue
+            # Komma-Liste kurzer Cert-Codes: "CCNA, CCDA, CCNP" → einzeln
+            parts = [p.strip() for p in line.split(',') if p.strip()]
+            if (len(parts) >= 2 and all(len(p) <= 40 for p in parts)
+                    and all(re.match(r'^[A-Za-z0-9][A-Za-z0-9 \-+/&.]{1,39}$', p) for p in parts)):
+                line_parts = parts
+            else:
+                line_parts = [line]
+            for name in line_parts:
+                lw = name.lower()
+                if lw in seen or self._is_section_noise(name):
+                    continue
+                seen.add(lw)
+                certs.append({'name': name, 'issuer': '', 'date_obtained': ''})
         return certs
+
+    def _extract_schulungen(self, text: str) -> List[dict]:
+        """
+        Extrahiert 'Schulungen / Kurse' als education_type=course.
+        (Getrennt von Zertifizierungen, damit Kurse nicht als Cert landen.)
+        """
+        # Bevorzugt explizite Sektion "Schulungen / Kurse" (Troschke-Stil).
+        # Bare "Schulungen" nur wenn nicht Teil von "Zertifizierungen | Schulungen".
+        block = self._extract_block(text,
+            start_patterns=[
+                r'Schulungen?\s*/\s*Kurse\s*$',
+            ],
+            stop_patterns=[
+                r'Branchen?',
+                r'Berufliche\s+Erfahrungen?',
+                r'Programmiersprachen?',
+                r'Betriebssysteme',
+                r'Hardware',
+                r'Datenkommunikation',
+                r'Zertifizierungen?',
+                r'Fachbereiche',
+                r'Produkte',
+                r'Zeitraum\s*:',
+                r'Firma\s*/\s*Institut\s*:',
+                r'Netzwerkgrundlagen',
+            ]
+        )
+        if not block:
+            # Inline-Unterabschnitt "Schulungen" (z.B. am Profilende vor Projekten)
+            m = re.search(
+                r'(?im)^\s*Schulungen\s*$',
+                text,
+            )
+            if m:
+                # Nicht die kombinierte Zertifizierungen|Schulungen-Zeile
+                line_start = text.rfind('\n', 0, m.start()) + 1
+                header_line = text[line_start:m.end()]
+                if 'zertifizierung' in header_line.lower():
+                    block = ''
+                else:
+                    rest = text[m.end():]
+                    stop = re.search(
+                        r'(?im)^\s*(?:Zeitraum\s*:|Firma\s*/|Berufliche\s+Erfahrungen?|'
+                        r'Programmiersprachen?|Betriebssysteme|Hardware|Branchen?|'
+                        r'Netzwerkgrundlagen|Kunde\s*/|Projektbeschreibung\s*:)',
+                        rest,
+                    )
+                    block = rest[:stop.start()] if stop else rest[:500]
+
+        if not block:
+            return []
+        courses = []
+        seen = set()
+        for line in block.splitlines():
+            line = self._clean_item(line)
+            if not line or len(line) < 3 or self._is_section_noise(line):
+                continue
+            # Projekt-Labels nie als Kurs
+            if re.match(
+                r'(?i)^(zeitraum|firma|institut|projektbeschreibung|position|'
+                r'rolle|systemumgebung|kunde)\b',
+                line,
+            ):
+                break
+            lw = line.lower()
+            if lw in seen:
+                continue
+            seen.add(lw)
+            courses.append({
+                'degree': line[:200],
+                'institution': '',
+                'period': '',
+                'description': '',
+                'education_type': 'course',
+            })
+        return courses
 
     # ── Ausbildung ────────────────────────────────────────────────────────────
 
     def _extract_ausbildung(self, text: str) -> List[dict]:
         """
         Extrahiert Ausbildung aus 'Ausbildung:' Block.
-        Unterstützt mehrere Zeilen mit Zeitraum, z.B.:
-          1985 - 1989 Studium zum Dipl.-Ing. für Maschinenwesen
-          1997 - 1998 Ausbildung Netzwerkadministrator
+        Unterstützt:
+          - Zeitraum-Range: 1985 - 1989 Studium …
+          - Einzeljahr: 1999 Ausbildung zum …
+          - Curriculum-Bullets unter dem Eintrag → description (nicht degree)
+          - Soft-Wrap ohne Bullet → an degree anhängen
         """
         results = []
-        # Block bis nächste Sektion (Fachbereiche / Zertifizierungen / leer+Header)
+        # Block bis nächste Sektion (Fachbereiche / Zertifizierungen / …)
         m = re.search(
             r'(?im)^\s*Ausbildung\s*:\s*(.+?)'
             r'(?=\n\s*(?:Fachbereiche|Zertifizierungen|Examen|Schulungen|'
             r'Branchen|Programmiersprachen|Persönliche\s+Daten|'
-            r'Berufliche\s+Erfahrungen?)\b|\Z)',
+            r'Berufliche\s+Erfahrungen?|Betriebssysteme|Hardware)\b|\Z)',
             text, re.DOTALL,
         )
         if not m:
             return results
         raw = m.group(1).strip()
-        # Fortsetzungszeilen an vorherige hängen wenn kein neues Jahr
-        lines = []
+
+        entries = []  # {degree, period, description_parts}
         for line in raw.splitlines():
             line = line.strip()
-            if not line:
+            if not line or self._is_page_header(line):
                 continue
-            line = re.sub(r'^[-•\*\u2022]\s*', '', line).strip()
-            if not line:
+            clean, had_bullet = self._strip_bullet(line)
+            if not clean:
                 continue
-            if lines and not re.match(r'^\d{4}\b', line):
-                lines[-1] = (lines[-1] + ' ' + line).strip()
-            else:
-                lines.append(line)
-        for line in lines:
-            period = ''
-            degree = line
+            if self._is_section_noise(clean):
+                continue
+
+            # Neuer Eintrag: Jahres-Range oder Einzeljahr am Anfang
             pm = re.match(
                 r'^(\d{4}\s*[-–—]\s*(?:\d{4}|heute|dato))\s+(.+)$',
-                line, re.IGNORECASE,
+                clean, re.IGNORECASE,
             )
-            if pm:
-                period = re.sub(r'\s+', ' ', pm.group(1)).strip()
-                degree = pm.group(2).strip()
+            sm = None if pm else re.match(r'^(\d{4})\s+(.+)$', clean)
+            if pm or sm:
+                period = re.sub(r'\s+', ' ', (pm or sm).group(1)).strip()
+                degree = (pm or sm).group(2).strip()
+                entries.append({
+                    'degree': degree,
+                    'period': period,
+                    'description_parts': [],
+                })
+                continue
+
+            if not entries:
+                # Erster Eintrag ohne Jahr (z.B. Nowka)
+                entries.append({
+                    'degree': clean,
+                    'period': '',
+                    'description_parts': [],
+                })
+                continue
+
+            # Bullet unter Ausbildung = Curriculum/Schwerpunkt, nicht Degree
+            if had_bullet:
+                # Skill-Header-Noise in Ausbildung-Bullets verwerfen
+                if re.match(
+                    r'(?i)^(programmiersprachen?|betriebssysteme|hardware|'
+                    r'datenbanken|netzwerk|fachbereiche)\b',
+                    clean,
+                ):
+                    # "Programmiersprachen Cobol, C/C++" → als description behalten
+                    # (Inhalt ist relevant), nur reine Header droppen
+                    if re.match(
+                        r'(?i)^(programmiersprachen?|betriebssysteme|hardware|'
+                        r'datenbanken|netzwerk|fachbereiche)\s*$',
+                        clean,
+                    ):
+                        continue
+                entries[-1]['description_parts'].append(clean)
+                continue
+
+            # Soft-Wrap: an degree anhängen
+            entries[-1]['degree'] = (entries[-1]['degree'] + ' ' + clean).strip()
+
+        for e in entries:
+            degree = re.sub(r'\s+', ' ', e['degree']).strip()
             if len(degree) < 3:
                 continue
             results.append({
                 'degree': degree[:200],
                 'institution': '',
-                'period': period[:100],
-                'description': '',
+                'period': (e['period'] or '')[:100],
+                'description': '; '.join(e['description_parts'])[:300],
                 'education_type': 'degree',
             })
         return results
@@ -759,8 +985,8 @@ class AidRegexExtractor:
                 continue
 
             # Einzelne Zeile
-            clean = re.sub(r'^[-•\*\u2022\u25aa]\s*', '', line).strip()
-            if clean and len(clean) >= 2:
+            clean, _ = self._strip_bullet(line)
+            if clean and len(clean) >= 2 and not self._is_page_header(clean) and not self._is_section_noise(clean):
                 items.append(clean)
 
         return items
@@ -860,9 +1086,12 @@ class AidRegexExtractor:
                 if m:
                     proj['company'] = m.group(1).strip()
 
-        # Projektbeschreibung → title
+        # Projektbeschreibung → title (ohne Activity-Bullets)
         m = re.search(
-            r'(?im)^\s*Projektbeschreibung\s*:\s*(.+?)(?=\n\s*(?:Systemumgebung|Position|Rolle|Zeitraum|Firma)\s*:|$)',
+            r'(?im)^\s*Projektbeschreibung\s*:\s*(.+?)'
+            r'(?=\n\s*(?:Systemumgebung|Position|Rolle|Zeitraum|Firma|Kunde|'
+            r'Protokolle|Technologien)\s*:|'
+            r'\n\s*[-•\*\u2022\u25aa\uf0b7\uf09f]|$)',
             block, re.DOTALL
         )
         if m:
@@ -882,25 +1111,57 @@ class AidRegexExtractor:
         if m:
             proj['industry'] = m.group(1).strip()
 
-        # Systemumgebung → technologies[]
-        m = re.search(
-            r'(?im)^\s*Systemumgebung\s*:\s*(.+?)(?=\n\s*(?:Position|Rolle|Zeitraum|Firma|$))',
-            block, re.DOTALL
-        )
-        if m:
-            raw_techs = m.group(1).strip()
-            techs = self._parse_tech_list(raw_techs)
+        # Systemumgebung / Protokolle/Technologien → technologies[]
+        tech_parts = []
+        for label in (
+            r'Systemumgebung',
+            r'Protokolle\s*/\s*Technologien',
+            r'Technologien\s*/\s*Umfeld',
+            r'Technologien\s*/?\s*Umfeld',
+            r'Kenntnisse',
+        ):
+            m = re.search(
+                rf'(?im)^\s*{label}\s*:\s*(.+?)'
+                r'(?=\n\s*(?:Position|Rolle|Zeitraum|Firma|Kunde|Systemumgebung|'
+                r'Protokolle\s*/|Technologien\s*/|Kenntnisse|Projektbeschreibung)\s*:|\Z)',
+                block, re.DOTALL,
+            )
+            if m:
+                tech_parts.append(m.group(1).strip())
+        if tech_parts:
+            techs = self._parse_tech_list('\n'.join(tech_parts))
             if techs:
                 proj['technologies'] = techs
 
-        # activities: aus Projektbeschreibung wenn Bullets vorhanden
-        if proj.get('title'):
+        # activities: Bullet-Liste unter Projektbeschreibung (inkl. Soft-Wraps)
+        act_block = ''
+        m_act = re.search(
+            r'(?is)(?:^|\n)\s*Projektbeschreibung\s*:\s*.*?\n(.*?)'
+            r'(?=\n\s*(?:Systemumgebung|Protokolle\s*/\s*Technologien|'
+            r'Technologien\s*/|Position|Rolle|Zeitraum|Firma|Kunde)\s*:|\Z)',
+            block,
+        )
+        if m_act:
+            act_block = m_act.group(1)
+        if act_block:
+            acts = self._parse_list_items(act_block, merge_wraps=True)
+            acts = [a for a in acts if len(a) > 5]
+            if acts:
+                proj['activities'] = acts
+        else:
             bullets = re.findall(
-                r'(?m)^[\s]*[-•\*\u2022\u25aa]\s*(.+?)$',
-                block
+                r'(?m)^[\s]*[-•\*\u2022\u25aa\uf0b7\uf09f]\s*(.+?)$',
+                block,
             )
             if bullets:
-                proj['activities'] = [b.strip() for b in bullets if len(b.strip()) > 5]
+                acts = []
+                for b in bullets:
+                    clean, _ = self._strip_bullet(b.strip())
+                    clean = re.sub(r'\s+', ' ', clean).strip()
+                    if len(clean) > 5 and not self._is_page_header(clean):
+                        acts.append(clean)
+                if acts:
+                    proj['activities'] = acts
 
         # Mindest-Validierung: period muss vorhanden sein
         if not proj.get('period'):
@@ -1027,38 +1288,112 @@ class AidRegexExtractor:
             block = start_content + '\n' + block
         return block.strip()
 
-    def _parse_list_items(self, block: str) -> List[str]:
-        """Parst Bullet- oder Zeilenliste."""
+    def _parse_list_items(self, block: str, merge_wraps: bool = False) -> List[str]:
+        """Parst Bullet- oder Zeilenliste; optional Soft-Wraps zusammenführen."""
+        wrap_tails = {
+            'von', 'und', 'oder', 'der', 'die', 'den', 'dem', 'des', 'mit', 'für',
+            'zum', 'zur', 'im', 'in', 'am', 'an', 'auf', 'bei', 'sowie', 'inkl',
+            'inklusive', 'bzw', 'als', 'nach', 'vor', 'über', 'unter', 'zu',
+            'notwendigen', 'verschiedenen', 'diversen', 'neuen', 'eigenen',
+        }
         items = []
         for line in block.splitlines():
-            line = line.strip()
-            if not line or len(line) < 3:
+            raw = line.strip()
+            if not raw or self._is_page_header(raw):
                 continue
-            # Bullet entfernen
-            line = re.sub(r'^[-•\*\u2022\u25aa\-]\s*', '', line).strip()
-            if line and len(line) >= 3:
-                items.append(line)
+            clean, had_bullet = self._strip_bullet(raw)
+            if not clean or len(clean) < 3 or self._is_section_noise(clean):
+                continue
+            if merge_wraps and items and not had_bullet:
+                prev = items[-1]
+                # Silbentrennung am Zeilenende
+                if prev.endswith('-'):
+                    # Compound behalten (Server-Hardware), sonst Soft-Hyphen entfernen
+                    if re.match(r'^[A-ZÄÖÜ0-9]', clean):
+                        items[-1] = prev + clean
+                    else:
+                        items[-1] = prev[:-1] + clean
+                    continue
+                last_word = prev.split()[-1].lower().strip(',;:') if prev.split() else ''
+                # Fortsetzung: langer Absatz, Komma, oder typisches Wrap-Wort
+                if not re.search(r'[.!;]$', prev) and (
+                    len(prev) >= 40
+                    or prev.rstrip().endswith(',')
+                    or last_word in wrap_tails
+                ):
+                    items[-1] = (prev + ' ' + clean).strip()
+                    continue
+            items.append(clean)
         return items
 
     def _parse_tech_list(self, raw: str) -> List[str]:
         """Parst Technologie-Liste (komma- oder newline-getrennt)."""
-        # Zeilenumbrüche durch Komma ersetzen
+        # Label-Prefixe entfernen
+        raw = re.sub(
+            r'(?i)\b(?:Hardware|Software|Protokolle(?:\s*/\s*Technologien)?|'
+            r'Technologien(?:\s*/\s*Umfeld)?|Umfeld)\s*:\s*',
+            '', raw or '',
+        )
+        # Soft-Wrap an Bindestrich am Zeilenende zusammenführen
+        raw = re.sub(r'-\s*\n\s*', '', raw)
         raw = raw.replace('\n', ', ')
         parts = re.split(r'[,;/]', raw)
         techs = []
-        seen  = set()
+        seen = set()
+        skip = {
+            'und', 'oder', 'with', 'and', 'etc', 'u.a.', 'z.b.',
+            'protokolle', 'technologien', 'hardware', 'software', 'umfeld',
+        }
         for p in parts:
             p = p.strip().rstrip('.,;')
-            # Zu kurz, zu lang, oder Stopword
+            p = re.sub(r'\s+', ' ', p)
+            if self._is_page_header(p) or self._is_section_noise(p):
+                continue
             if len(p) < 2 or len(p) > 100:
                 continue
-            if p.lower() in {'und', 'oder', 'with', 'and', 'etc', 'u.a.', 'z.b.'}:
+            if p.lower() in skip:
+                continue
+            # Abgeschnittene Fragmente wie "WS-" verwerfen
+            if re.match(r'^[\w.+#]+\-$', p):
                 continue
             lw = p.lower()
             if lw not in seen:
                 seen.add(lw)
                 techs.append(p)
         return techs
+
+    def _harvest_skills_from_projects(self, projekte: List[dict]) -> List[dict]:
+        """
+        Wenn keine Skill-Tabellen existieren (Format A): Technologien aus
+        Projekten als skill_ablage mit Heuristik-Kategorien ableiten.
+        """
+        seen = set()
+        out = []
+        hardware_hint = re.compile(
+            r'(?i)\b(juniper|cisco|huawei|forti|checkpoint|nexus|asr|mx\d|'
+            r'ptx|srx|catalyst|firewall|switch|router|f5|palo\s*alto)\b'
+        )
+        proto_hint = re.compile(
+            r'(?i)\b(mpls|bgp|isis|ospf|vrf|qos|ipv[46]|tcp/?ip|vpn|vlan|'
+            r'ethernet|stp|eigrp|rip|snmp|tacacs|radius)\b'
+        )
+        for proj in projekte or []:
+            for t in proj.get('technologies') or []:
+                name = (t or '').strip()
+                if not name or len(name) < 2:
+                    continue
+                lw = name.lower()
+                if lw in seen:
+                    continue
+                seen.add(lw)
+                if hardware_hint.search(name):
+                    cat = 'Hardware'
+                elif proto_hint.search(name):
+                    cat = 'Netzwerkprotokolle'
+                else:
+                    cat = 'Sonstige Skills'
+                out.append({'name': name, 'category': cat})
+        return out
 
     def _make_pre_json_skeleton(self, first_name: str, last_name: str) -> dict:
         """Erstellt leeres pre_json Skelett — gleiche Struktur wie labeled_to_prejson."""

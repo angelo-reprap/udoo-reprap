@@ -120,12 +120,27 @@ class MainPipelineController:
                     if isinstance(item, dict) and item.get('name') and item.get('category'):
                         aid_skill_categories[item['name']] = item['category']
                 logger.info(f"[MainPipeline] Schritt 1b: {len(aid_skill_categories)} Skills vorkategorisiert")
-                # Zusaetzlich: Headline, Fachbereiche, Branchen, Zertifikate per Regex
-                aid_extracted['headline']       = aid_regex_extractor._extract_headline(full_text)
-                aid_extracted['focus_areas']    = aid_regex_extractor._extract_fachbereiche(full_text)
-                aid_extracted['industries']     = aid_regex_extractor._extract_branchen(full_text)
-                aid_extracted['certifications'] = aid_regex_extractor._extract_zertifikate(full_text)
-                aid_extracted['education']      = aid_regex_extractor._extract_ausbildung(full_text)
+                # Zusaetzlich: Headline, Fachbereiche, Branchen, Zertifikate, Ausbildung per Regex
+                full_text_clean = aid_regex_extractor._strip_page_headers(full_text)
+                aid_extracted['headline']       = aid_regex_extractor._extract_headline(full_text_clean)
+                aid_extracted['focus_areas']    = aid_regex_extractor._extract_fachbereiche(full_text_clean)
+                aid_extracted['industries']     = aid_regex_extractor._extract_branchen(full_text_clean)
+                aid_extracted['certifications'] = aid_regex_extractor._extract_zertifikate(full_text_clean)
+                aid_extracted['education']      = (
+                    list(aid_regex_extractor._extract_ausbildung(full_text_clean) or [])
+                    + list(aid_regex_extractor._extract_schulungen(full_text_clean) or [])
+                )
+                # Format-A: Skills aus Projekten nachziehen wenn Tabellen fehlen
+                if not aid_skill_categories:
+                    projekte = aid_regex_extractor._extract_projekte(full_text_clean)
+                    harvested = aid_regex_extractor._harvest_skills_from_projects(projekte)
+                    for item in harvested:
+                        if item.get('name') and item.get('category'):
+                            aid_skill_categories[item['name']] = item['category']
+                    if harvested:
+                        logger.info(
+                            f"[MainPipeline] Schritt 1b: {len(harvested)} Skills aus Projekten geerntet"
+                        )
                 logger.info(
                     f"[MainPipeline] Schritt 1b: headline={bool(aid_extracted['headline'])} | "
                     f"fachbereiche={len(aid_extracted['focus_areas'])} | "
