@@ -18,6 +18,15 @@ _REQUIRED_TOP_KEYS = (
     'skills', 'hinweise',
 )
 
+# Soft-/Zusatzskills → niedrigere Matching-Priorität (nice-to-have)
+_NICE_SKILL_RE = re.compile(
+    r'^(agile(\s+methoden)?|scrum|kanban|coaching|mentoring|'
+    r'knowledge\s*transfer|wissenstransfer|kommunikation|'
+    r'teamarbeit|präsentation|deutsch|englisch|'
+    r'führerschein|reisebereitschaft)$',
+    re.I,
+)
+
 
 def _person_name_from_email(email: str) -> str:
     """bob@bobmichaels.ai → Bob Michaels; bob.michaels@x.de → Bob Michaels."""
@@ -61,7 +70,8 @@ class MatchingAnfrageWizardProvider(WizardDomainProvider):
             'fields': [
                 'kunde', 'ansprechpartner', 'weiterleitung',
                 'titel', 'beschreibung', 'start', 'dauer_monate',
-                'standort', 'remote', 'stundensatz_max', 'skills', 'hinweise',
+                'standort', 'remote', 'stundensatz_max',
+                'skills_required', 'skills_nice', 'skills', 'hinweise',
             ],
             'form_map': {
                 'kunde.name': 'new-customer',
@@ -72,6 +82,7 @@ class MatchingAnfrageWizardProvider(WizardDomainProvider):
                 'dauer_monate': 'new-duration',
                 'standort': 'new-location',
                 'stundensatz_max': 'new-rate-max',
+                'skills': 'new-skills',
             },
         }
 
@@ -93,6 +104,7 @@ class MatchingAnfrageWizardProvider(WizardDomainProvider):
             'Weiterleitungen: Kunde/AP aus innerem Teil',
             'Nur JSON, kein Markdown',
             'stundensatz_max nur bei klarem Kundenbudget',
+            'Skills: Qualifikationen priorisieren (Muss vor Nice-to-have)',
         ]
 
     def validate_output(self, result: dict[str, Any]) -> ValidationResult:
@@ -109,9 +121,10 @@ class MatchingAnfrageWizardProvider(WizardDomainProvider):
         start = result.get('start')
         if start is not None and not isinstance(start, dict):
             errors.append('start muss Objekt sein')
-        skills = result.get('skills')
-        if skills is not None and not isinstance(skills, list):
-            errors.append('skills muss Array sein')
+        for sk_key in ('skills', 'skills_required', 'skills_nice'):
+            val = result.get(sk_key)
+            if val is not None and not isinstance(val, list):
+                errors.append(f'{sk_key} muss Array sein')
         return ValidationResult(ok=not errors, errors=errors, warnings=warnings)
 
     def apply_result(
@@ -134,8 +147,9 @@ class MatchingAnfrageWizardProvider(WizardDomainProvider):
         answers: dict[str, Any] | None = None,
         meta: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
-        """Minimaler Fallback ohne KI — leeres Schema + Rohtext."""
+        """Minimaler Fallback ohne KI — leeres Schema + Rohtext + Skill-Heuristik."""
         text = (briefing or '').strip()
+        heur = extract_skills_from_text(text)
         return {
             'kunde': {'name': None, 'email_domain': None, 'confidence': 0.0},
             'ansprechpartner': {'name': None, 'email': None, 'phone': None, 'confidence': 0.0},
@@ -147,7 +161,9 @@ class MatchingAnfrageWizardProvider(WizardDomainProvider):
             'standort': None,
             'remote': None,
             'stundensatz_max': None,
-            'skills': [],
+            'skills_required': heur.get('skills_required') or [],
+            'skills_nice': heur.get('skills_nice') or [],
+            'skills': heur.get('skills') or [],
             'hinweise': ['KI-Extraktion fehlgeschlagen — Rohtext übernommen'],
             'source': 'rules',
         }
@@ -168,6 +184,228 @@ def _looks_like_company(name: str) -> bool:
         return True
     # Kurzer Eigenname ohne Job-Wörter
     return bool(re.match(r'^[A-ZÄÖÜ0-9][\wÄÖÜäöüß.&\' -]{1,70}$', s))
+
+
+def _clean_skill_token(raw: str) -> str:
+    s = (raw or '').strip()
+    s = re.sub(r'^[\s•\-\*–—·]+', '', s)
+    s = re.sub(r'[\s.;:]+$', '', s)
+    s = re.sub(r'\s+', ' ', s).strip()
+    if len(s) < 2 or len(s) > 80:
+        return ''
+    # Keine ganzen Sätze
+    if s.count(' ') > 8 or s.endswith('.'):
+        return ''
+    low = s.lower()
+    if low in {
+        'remote', 'deutschland', 'vollzeit', 'freiberuflich', 'asap',
+        'interessiert', 'kurzbeschreibung', 'rahmeninformationen',
+    }:
+        return ''
+    return s
+
+
+def _split_skill_line(line: str) -> list[str]:
+    """Eine Qualifikationszeile → Tokens; Klammern aufklappen."""
+    line = (line or '').strip()
+    if not line:
+        return []
+    line = re.sub(r'^[\s•\-\*–—·\d.)]+', '', line).strip()
+    if not line:
+        return []
+    out: list[str] = []
+    # „Mainframe-Entwicklung (COBOL, PL/I oder Assembler)“
+    m = re.match(r'^(.+?)\s*\(([^)]+)\)\s*$', line)
+    if m:
+        head = _clean_skill_token(m.group(1))
+        if head:
+            out.append(head)
+        inner = m.group(2)
+        for part in re.split(r'[,;]|(\s+oder\s+|\s+und\s+|\s+or\s+|\s+and\s+)', inner, flags=re.I):
+            if not part or re.fullmatch(r'\s*(oder|und|or|and)\s*', part or '', re.I):
+                continue
+            tok = _clean_skill_token(part)
+            if tok:
+                out.append(tok)
+        return out
+
+    parts: list[str] = []
+    if ',' in line or ';' in line:
+        parts = [p for p in re.split(r'[,;]', line) if p and p.strip()]
+    else:
+        parts = [line]
+
+    for part in parts:
+        # „Mentoring und Knowledge Transfer“ → zwei Tokens
+        sub = re.split(r'\s+oder\s+|\s+und\s+|\s+or\s+|\s+and\s+', part, flags=re.I)
+        if len(sub) > 1 and all(len(_clean_skill_token(x) or x.strip()) <= 40 for x in sub):
+            for s in sub:
+                tok = _clean_skill_token(s)
+                if tok:
+                    out.append(tok)
+        else:
+            tok = _clean_skill_token(part)
+            if tok:
+                out.append(tok)
+    return out
+
+
+def _is_nice_skill(name: str) -> bool:
+    return bool(_NICE_SKILL_RE.match((name or '').strip()))
+
+
+def extract_skills_from_text(text: str) -> dict[str, list[str]]:
+    """
+    Heuristik: Skills aus Anfrage-Text ohne KI.
+    Quellen: „• Skills: …“, „Ihre Qualifikationen“-Listen, Bullet-Tech-Zeilen.
+    Reihenfolge: Muss-Skills zuerst, Nice-to-have danach.
+    """
+    raw = text or ''
+    required: list[str] = []
+    nice: list[str] = []
+    seen: set[str] = set()
+
+    def _add(token: str, force_nice: bool = False) -> None:
+        tok = _clean_skill_token(token)
+        if not tok:
+            return
+        key = tok.lower()
+        if key in seen:
+            return
+        seen.add(key)
+        if force_nice or _is_nice_skill(tok):
+            nice.append(tok)
+        else:
+            required.append(tok)
+
+    # 1) Explizite „• Skills: …“ / „Skills: …“ Zeile (oft vom Wizard angehängt)
+    for m in re.finditer(
+        r'(?:^|\n)\s*(?:[•\-\*–—]\s*)?Skills\s*:\s*(.+?)(?=\n\s*(?:[•\-\*–—]\s*)?[A-ZÄÖÜ]|\n\n|\Z)',
+        raw,
+        re.I | re.S,
+    ):
+        chunk = m.group(1).strip()
+        # eine Zeile bevorzugen
+        first_line = chunk.split('\n', 1)[0]
+        for tok in _split_skill_line(first_line.replace('•', ',')):
+            _add(tok)
+
+    # 2) Abschnitt „Ihre Qualifikationen“ / „Must-have“ / „Anforderungen“
+    sec = re.search(
+        r'(?:Ihre\s+Qualifikationen|Qualifikationen|Must[- ]?haves?|'
+        r'Anforderungen|Skills\s*/\s*Tools|Technologien)\s*[:\n]+'
+        r'(.+?)(?=\n\s*(?:Ihre\s+Aufgaben|Aufgaben|Kurzbeschreibung|'
+        r'Nice[- ]?to[- ]?haves?|Interessiert|Rahmeninformationen|'
+        r'Wir\s+freuen|Ansprechpartner)\b|\Z)',
+        raw,
+        re.I | re.S,
+    )
+    if sec:
+        block = sec.group(1)
+        for line in block.splitlines():
+            line = line.strip()
+            if not line or len(line) < 2:
+                continue
+            if re.match(r'^(referenz|einsatzort|starttermin|arbeitszeit|dauer|sprachen)\b', line, re.I):
+                continue
+            for tok in _split_skill_line(line):
+                _add(tok)
+
+    # 3) Nice-to-have Abschnitt
+    nice_sec = re.search(
+        r'(?:Nice[- ]?to[- ]?haves?|Wünschenswert|von\s+Vorteil)\s*[:\n]+'
+        r'(.+?)(?=\n\s*(?:Ihre\s+Aufgaben|Aufgaben|Kurzbeschreibung|Interessiert)\b|\Z)',
+        raw,
+        re.I | re.S,
+    )
+    if nice_sec:
+        for line in nice_sec.group(1).splitlines():
+            for tok in _split_skill_line(line):
+                _add(tok, force_nice=True)
+
+    skills = required + [s for s in nice if s.lower() not in {x.lower() for x in required}]
+    return {
+        'skills_required': required[:18],
+        'skills_nice': nice[:12],
+        'skills': skills[:20],
+    }
+
+
+def normalize_skills_from_extract(extract: dict[str, Any] | None) -> dict[str, Any]:
+    """
+    skills_required + skills_nice + skills → geordnete Listen + weights.
+    Falls KI nichts liefert: Heuristik aus beschreibung.
+    """
+    data = extract if isinstance(extract, dict) else {}
+
+    def _as_list(val: Any) -> list[str]:
+        if isinstance(val, list):
+            out = []
+            for item in val:
+                if isinstance(item, dict):
+                    name = item.get('name') or item.get('skill') or ''
+                else:
+                    name = item
+                tok = _clean_skill_token(str(name) if name is not None else '')
+                if tok:
+                    out.append(tok)
+            return out
+        if isinstance(val, str) and val.strip():
+            return [t for p in re.split(r'[,;|\n]+', val) if (t := _clean_skill_token(p))]
+        return []
+
+    required = _as_list(data.get('skills_required'))
+    nice = _as_list(data.get('skills_nice'))
+    plain = _as_list(data.get('skills'))
+
+    if not required and not nice and not plain:
+        heur = extract_skills_from_text(
+            (data.get('beschreibung') or '') + '\n' + (data.get('titel') or '')
+        )
+        required = heur['skills_required']
+        nice = heur['skills_nice']
+        plain = heur['skills']
+
+    # plain ohne Aufteilung: Softskills ans Ende
+    if plain and not required and not nice:
+        for s in plain:
+            if _is_nice_skill(s):
+                nice.append(s)
+            else:
+                required.append(s)
+        plain = []
+
+    seen: set[str] = set()
+    req_out: list[str] = []
+    nice_out: list[str] = []
+
+    def _push(lst: list[str], token: str) -> None:
+        key = token.lower()
+        if key in seen:
+            return
+        seen.add(key)
+        lst.append(token)
+
+    for s in required:
+        (_push(nice_out, s) if _is_nice_skill(s) else _push(req_out, s))
+    for s in plain:
+        if s.lower() in seen:
+            continue
+        (_push(nice_out, s) if _is_nice_skill(s) else _push(req_out, s))
+    for s in nice:
+        _push(nice_out, s)
+
+    skills = req_out + nice_out
+    weights = (
+        [{'name': s, 'weight': 1.0} for s in req_out]
+        + [{'name': s, 'weight': 0.55} for s in nice_out]
+    )
+    return {
+        'skills_required': req_out[:18],
+        'skills_nice': nice_out[:12],
+        'skills': skills[:20],
+        'required_skills': weights[:20],
+    }
 
 
 def derive_customer_name(extract: dict[str, Any] | None) -> str:
@@ -230,7 +468,11 @@ def map_extract_to_form_fields(extract: dict[str, Any] | None) -> dict[str, Any]
 
     description = data.get('beschreibung') or ''
     hinweise = data.get('hinweise') if isinstance(data.get('hinweise'), list) else []
-    skills = data.get('skills') if isinstance(data.get('skills'), list) else []
+    skill_pack = normalize_skills_from_extract(data)
+    skills = skill_pack['skills']
+    skills_required = skill_pack['skills_required']
+    skills_nice = skill_pack['skills_nice']
+    required_skills = skill_pack['required_skills']
     notes: list[str] = []
     if wl.get('ja') and (wl.get('von') or wl.get('email')):
         notes.append(
@@ -248,7 +490,9 @@ def map_extract_to_form_fields(extract: dict[str, Any] | None) -> dict[str, Any]
     for h in hinweise:
         if h and str(h) not in notes:
             notes.append(str(h))
-    if skills:
+    # Skills nicht nochmal in die Beschreibung hängen, wenn schon „Skills:“ drin —
+    # Matching-Feld ist die Quelle; Bullet nur als Lesenotiz wenn Beschreibung noch keine hat.
+    if skills and not re.search(r'(?:^|\n)\s*(?:[•\-\*–—]\s*)?Skills\s*:', description or '', re.I):
         notes.append('Skills: ' + ', '.join(str(s) for s in skills[:20] if s))
 
     if notes:
@@ -302,6 +546,9 @@ def map_extract_to_form_fields(extract: dict[str, Any] | None) -> dict[str, Any]
         'location': location or '',
         'rate_max': rate_int,
         'skills': skills,
+        'skills_required': skills_required,
+        'skills_nice': skills_nice,
+        'required_skills': required_skills,
         'hinweise': hinweise,
         'weiterleitung': wl,
         'kunde_email_domain': email_domain,

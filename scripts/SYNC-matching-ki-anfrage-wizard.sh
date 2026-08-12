@@ -334,8 +334,9 @@ fi
 if ! grep -q "phone_raw" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
   || ! grep -q "_fetchBeraterDetail" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
   || ! grep -q "matching-avail-box" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
-  || ! grep -q "saveMatchTerms" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js"; then
-  echo "FEHLER: mod-matching.js ohne CRM Tel/E-Mail/Verfügbarkeit/Terms-Fix"
+  || ! grep -q "saveMatchTerms" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
+  || ! grep -q "fillSkillsFromText" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js"; then
+  echo "FEHLER: mod-matching.js ohne CRM/Terms/Skills-from-Text-Fix"
   exit 1
 fi
 mkdir -p "$LIVE_UI/static/abpe_ui/js/mod"

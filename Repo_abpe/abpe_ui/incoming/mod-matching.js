@@ -282,10 +282,17 @@ window.Matching = (function() {
                 </div>
                 <div class="matching-form-group span2">
                     <label class="matching-form-label">${_kiT('neu_skills', 'Skills (für Matching)')}</label>
-                    <input class="matching-form-input" id="new-skills"
-                           placeholder="${_escAttr(_kiT('skills_placeholder', 'z.B. Fortinet, Firewall, Network Security'))}">
+                    <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+                        <input class="matching-form-input" id="new-skills" style="flex:1;min-width:180px"
+                               placeholder="${_escAttr(_kiT('skills_placeholder', 'z.B. Fortinet, Firewall, Network Security'))}">
+                        <button type="button" class="matching-btn-sm" id="btn-skills-from-text"
+                                title="${_escAttr(_kiT('skills_from_text_title', 'Skills aus Anfrage-Text übernehmen (Qualifikationen / Skills-Zeile)'))}"
+                                onclick="Matching.fillSkillsFromText()">
+                            <i class="bi bi-magic"></i> ${_esc(_kiT('skills_from_text', 'aus Text'))}
+                        </button>
+                    </div>
                     <div style="font-size:10px;color:#888;margin-top:4px">
-                        ${_esc(_kiT('skills_hint', 'Ohne Skills matcht die Engine fast alle Berater mit ähnlichem Score — Mist-Ergebnisse.'))}
+                        ${_esc(_kiT('skills_hint', 'Ohne Skills matcht die Engine fast alle Berater mit ähnlichem Score — Mist-Ergebnisse. Muss-Skills zuerst, Nice-to-have danach.'))}
                     </div>
                     <input type="hidden" id="new-skills-json" value="">
                 </div>
@@ -1284,6 +1291,22 @@ window.Matching = (function() {
                     ? ('Start: ' + fields.start_date + (fields.start_asap ? ' (asap→sofort)' : ''))
                     : (fields.start_asap ? 'Start: asap' : ''),
             ].filter(Boolean);
+            const skReq = Array.isArray(fields.skills_required) ? fields.skills_required : [];
+            const skNice = Array.isArray(fields.skills_nice) ? fields.skills_nice : [];
+            const skAll = Array.isArray(fields.skills) ? fields.skills : [];
+            if (skReq.length || skNice.length || skAll.length) {
+                if (skReq.length) {
+                    lines.push('Skills (Muss): ' + skReq.map(s => (typeof s === 'string' ? s : (s && s.name) || '')).filter(Boolean).join(', '));
+                }
+                if (skNice.length) {
+                    lines.push('Skills (Nice): ' + skNice.map(s => (typeof s === 'string' ? s : (s && s.name) || '')).filter(Boolean).join(', '));
+                }
+                if (!skReq.length && !skNice.length && skAll.length) {
+                    lines.push('Skills: ' + skAll.map(s => (typeof s === 'string' ? s : (s && s.name) || '')).filter(Boolean).join(', '));
+                }
+            } else {
+                lines.push('⚠ Keine Skills erkannt — bitte manuell oder „aus Text“');
+            }
             if (crm.contact_missing) {
                 lines.push(crm.suggest_create_contact
                     ? '⚠ Ansprechpartner nicht in CRM — Anlegen vorschlagen'
@@ -1345,12 +1368,32 @@ window.Matching = (function() {
             else _setVal('new-rate-max', '');
 
             // Skills aus KI — ohne die matcht die Engine Blindlinge (~70% überall)
+            // Reihenfolge: Muss zuerst, Nice-to-have danach; Gewichte in JSON
             const skillsArr = Array.isArray(fields.skills)
                 ? fields.skills.map(s => (typeof s === 'string' ? s : (s && s.name) || '')).filter(Boolean)
                 : [];
-            _setVal('new-skills', skillsArr.join(', '));
+            const weighted = Array.isArray(fields.required_skills) && fields.required_skills.length
+                ? fields.required_skills
+                : [
+                    ...(Array.isArray(fields.skills_required) ? fields.skills_required : []).map(s => ({
+                        name: typeof s === 'string' ? s : (s && s.name) || '', weight: 1.0,
+                    })),
+                    ...(Array.isArray(fields.skills_nice) ? fields.skills_nice : []).map(s => ({
+                        name: typeof s === 'string' ? s : (s && s.name) || '', weight: 0.55,
+                    })),
+                ].filter(x => x.name);
+            const names = weighted.length
+                ? weighted.map(x => x.name).filter(Boolean)
+                : skillsArr;
+            _setVal('new-skills', names.join(', '));
             const sj = document.getElementById('new-skills-json');
-            if (sj) sj.value = JSON.stringify(skillsArr);
+            if (sj) {
+                sj.value = JSON.stringify(
+                    weighted.length
+                        ? weighted
+                        : names.map(name => ({ name: name, weight: 1.0 }))
+                );
+            }
 
             // Firma: aus KI, sonst aus Titel; bei mehreren Hays AG → Auswahl
             let customerName = (fields.customer_name || '').trim();
@@ -2769,11 +2812,19 @@ window.Matching = (function() {
                 </div>
                 <div class="matching-form-group span2">
                     <label class="matching-form-label">${_kiT('neu_skills', 'Skills (für Matching)')}</label>
-                    <input class="matching-form-input" id="new-skills" value="${_escAttr(skillsStr)}"
-                           placeholder="${_escAttr(_kiT('skills_placeholder', 'z.B. Mainframe, Cloud, Architecture'))}">
+                    <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+                        <input class="matching-form-input" id="new-skills" style="flex:1;min-width:180px"
+                               value="${_escAttr(skillsStr)}"
+                               placeholder="${_escAttr(_kiT('skills_placeholder', 'z.B. Mainframe, Cloud, Architecture'))}">
+                        <button type="button" class="matching-btn-sm"
+                                title="${_escAttr(_kiT('skills_from_text_title', 'Skills aus Anfrage-Text übernehmen (Qualifikationen / Skills-Zeile)'))}"
+                                onclick="Matching.fillSkillsFromText({force:true})">
+                            <i class="bi bi-magic"></i> ${_esc(_kiT('skills_from_text', 'aus Text'))}
+                        </button>
+                    </div>
                     <input type="hidden" id="new-skills-json" value="${_escAttr(JSON.stringify(skills))}">
                     <div style="font-size:10px;color:#888;margin-top:4px">
-                        ${_esc(_kiT('skills_hint', 'Ohne Skills matcht die Engine oft Blindlinge (~70%).'))}
+                        ${_esc(_kiT('skills_hint', 'Ohne Skills matcht die Engine oft Blindlinge (~70%). Muss zuerst, Nice-to-have danach.'))}
                     </div>
                 </div>
                 <div class="matching-form-group">
@@ -2807,6 +2858,10 @@ window.Matching = (function() {
         </div>`;
         content.dataset.loaded = '1';
         _bindCustomerField();
+        // Bestehende Anfragen: Skills oft nur im Text („• Skills:“ / Qualifikationen), Feld leer
+        if (!skillsStr) {
+            setTimeout(function () { fillSkillsFromText({ silent: true }); }, 0);
+        }
     }
 
     function saveRequestEdit() {
@@ -2815,7 +2870,8 @@ window.Matching = (function() {
             alert(_kiT('edit_no_id', 'Keine Anfrage-ID — bitte neu öffnen.'));
             return;
         }
-        const skills = _parseSkillsInput();
+        const parsed = _parseSkillsInput();
+        const skillNames = _skillNamesFromParsed(parsed);
         const payload = {
             title:           _val('new-title'),
             description:     _val('new-description'),
@@ -2829,9 +2885,9 @@ window.Matching = (function() {
             duration_months: parseInt(_val('new-duration')) || 0,
             location:        _val('new-location'),
             rate_max:        parseInt(_val('new-rate-max')) || null,
-            skills:          skills,
-            required_skills: skills.map(name => ({ name: name, weight: 1.0 })),
-            extracted_technologies: skills,
+            skills:          skillNames,
+            required_skills: parsed,
+            extracted_technologies: skillNames,
         };
         if (!payload.title || !payload.customer_name) {
             alert(_t('matching.err_title_required'));
@@ -2848,7 +2904,7 @@ window.Matching = (function() {
                 if (msg) {
                     msg.style.color = '#059669';
                     msg.textContent = '✓ Gespeichert'
-                        + (skills.length ? (' · ' + skills.length + ' Skills') : ' · ⚠ keine Skills');
+                        + (skillNames.length ? (' · ' + skillNames.length + ' Skills') : ' · ⚠ keine Skills');
                 }
                 const c = document.getElementById('content-anfragen');
                 if (c) c.dataset.loaded = '0';
@@ -2918,19 +2974,168 @@ window.Matching = (function() {
      * 1) versucht DELETE/POST clear-Endpoint
      * 2) startet match mit reset=true
      */
+    function _cleanSkillToken(raw) {
+        let s = String(raw || '').trim();
+        s = s.replace(/^[\s•\-\*–—·]+/, '').replace(/[\s.;:]+$/, '').replace(/\s+/g, ' ').trim();
+        if (s.length < 2 || s.length > 80) return '';
+        if ((s.match(/ /g) || []).length > 8) return '';
+        const low = s.toLowerCase();
+        if (/^(remote|deutschland|vollzeit|freiberuflich|asap|interessiert|kurzbeschreibung|rahmeninformationen)$/i.test(low)) {
+            return '';
+        }
+        return s;
+    }
+
+    function _isNiceSkill(name) {
+        return /^(agile(\s+methoden)?|scrum|kanban|coaching|mentoring|knowledge\s*transfer|wissenstransfer|kommunikation|teamarbeit|präsentation|deutsch|englisch|führerschein|reisebereitschaft)$/i.test(
+            String(name || '').trim()
+        );
+    }
+
+    function _splitSkillLine(line) {
+        line = String(line || '').trim().replace(/^[\s•\-\*–—·\d.)]+/, '').trim();
+        if (!line) return [];
+        const out = [];
+        const m = line.match(/^(.+?)\s*\(([^)]+)\)\s*$/);
+        if (m) {
+            const head = _cleanSkillToken(m[1]);
+            if (head) out.push(head);
+            m[2].split(/[,;]|\s+oder\s+|\s+und\s+|\s+or\s+|\s+and\s+/i).forEach(part => {
+                const tok = _cleanSkillToken(part);
+                if (tok) out.push(tok);
+            });
+            return out;
+        }
+        const parts = /[,;]/.test(line) ? line.split(/[,;]/) : [line];
+        parts.forEach(part => {
+            const sub = String(part).split(/\s+oder\s+|\s+und\s+|\s+or\s+|\s+and\s+/i);
+            if (sub.length > 1 && sub.every(x => (_cleanSkillToken(x) || String(x).trim()).length <= 40)) {
+                sub.forEach(s => {
+                    const tok = _cleanSkillToken(s);
+                    if (tok) out.push(tok);
+                });
+            } else {
+                const tok = _cleanSkillToken(part);
+                if (tok) out.push(tok);
+            }
+        });
+        return out;
+    }
+
+    /** Skills aus Anfrage-Text: „• Skills:“, Qualifikationen-Liste, Nice-to-have. */
+    function _extractSkillsFromText(text) {
+        const raw = String(text || '');
+        const required = [];
+        const nice = [];
+        const seen = {};
+
+        function add(token, forceNice) {
+            const tok = _cleanSkillToken(token);
+            if (!tok) return;
+            const key = tok.toLowerCase();
+            if (seen[key]) return;
+            seen[key] = true;
+            if (forceNice || _isNiceSkill(tok)) nice.push(tok);
+            else required.push(tok);
+        }
+
+        const skillsLineRe = /(?:^|\n)\s*(?:[•\-\*–—]\s*)?Skills\s*:\s*(.+?)(?=\n\s*(?:[•\-\*–—]\s*)?[A-ZÄÖÜ]|\n\n|$)/gi;
+        let m;
+        while ((m = skillsLineRe.exec(raw)) !== null) {
+            const firstLine = m[1].split('\n')[0];
+            _splitSkillLine(firstLine.replace(/•/g, ',')).forEach(t => add(t));
+        }
+
+        const secRe = /(?:Ihre\s+Qualifikationen|Qualifikationen|Must[- ]?haves?|Anforderungen|Skills\s*\/\s*Tools|Technologien)\s*[:\n]+([\s\S]+?)(?=\n\s*(?:Ihre\s+Aufgaben|Aufgaben|Kurzbeschreibung|Nice[- ]?to[- ]?haves?|Interessiert|Rahmeninformationen|Wir\s+freuen|Ansprechpartner)\b|$)/i;
+        const sec = raw.match(secRe);
+        if (sec) {
+            sec[1].split(/\n/).forEach(line => {
+                line = line.trim();
+                if (!line || /^(referenz|einsatzort|starttermin|arbeitszeit|dauer|sprachen)\b/i.test(line)) return;
+                _splitSkillLine(line).forEach(t => add(t));
+            });
+        }
+
+        const niceRe = /(?:Nice[- ]?to[- ]?haves?|Wünschenswert|von\s+Vorteil)\s*[:\n]+([\s\S]+?)(?=\n\s*(?:Ihre\s+Aufgaben|Aufgaben|Kurzbeschreibung|Interessiert)\b|$)/i;
+        const niceSec = raw.match(niceRe);
+        if (niceSec) {
+            niceSec[1].split(/\n/).forEach(line => {
+                _splitSkillLine(line).forEach(t => add(t, true));
+            });
+        }
+
+        return {
+            skills_required: required.slice(0, 18),
+            skills_nice: nice.slice(0, 12),
+            skills: required.concat(nice).slice(0, 20),
+            required_skills: required.map(name => ({ name: name, weight: 1.0 }))
+                .concat(nice.map(name => ({ name: name, weight: 0.55 })))
+                .slice(0, 20),
+        };
+    }
+
+    function fillSkillsFromText(opts) {
+        opts = opts || {};
+        const cur = (_val('new-skills') || '').trim();
+        if (cur && !opts.force) {
+            if (!opts.silent) {
+                // schon befüllt — nur bei force überschreiben
+            }
+            return cur.split(/[,;|\n]+/).map(s => s.trim()).filter(Boolean);
+        }
+        const text = _val('new-description') || '';
+        const pack = _extractSkillsFromText(text);
+        const names = pack.skills || [];
+        if (!names.length) {
+            if (!opts.silent) {
+                alert(_kiT('skills_from_text_empty', 'Im Anfrage-Text keine Skills/Qualifikationen gefunden.'));
+            }
+            return [];
+        }
+        _setVal('new-skills', names.join(', '));
+        const sj = document.getElementById('new-skills-json');
+        if (sj) sj.value = JSON.stringify(pack.required_skills || names.map(n => ({ name: n, weight: 1.0 })));
+        return names;
+    }
+
     function _parseSkillsInput() {
         let fromJson = [];
         try {
             const raw = _val('new-skills-json');
             if (raw) fromJson = JSON.parse(raw);
         } catch (_) {}
-        if (Array.isArray(fromJson) && fromJson.length) {
-            return fromJson.map(s => String(s).trim()).filter(Boolean);
-        }
-        return (_val('new-skills') || '')
+        const typed = (_val('new-skills') || '')
             .split(/[,;|\n]+/)
             .map(s => s.trim())
             .filter(Boolean);
+
+        // JSON mit weights, wenn Feldinhalt dazu passt
+        if (Array.isArray(fromJson) && fromJson.length) {
+            const jsonNames = fromJson.map(s => {
+                if (typeof s === 'string') return s.trim();
+                return (s && s.name) ? String(s.name).trim() : '';
+            }).filter(Boolean);
+            const same = typed.length === jsonNames.length
+                && typed.every((t, i) => t.toLowerCase() === jsonNames[i].toLowerCase());
+            if (same || !typed.length) {
+                return fromJson.map(s => {
+                    if (typeof s === 'string') return { name: s.trim(), weight: 1.0 };
+                    return {
+                        name: String((s && s.name) || '').trim(),
+                        weight: (s && typeof s.weight === 'number') ? s.weight : 1.0,
+                    };
+                }).filter(x => x.name);
+            }
+        }
+        // manuell getippt: erste Hälfte / Nicht-Soft = weight 1.0
+        return typed.map(name => ({
+            name: name,
+            weight: _isNiceSkill(name) ? 0.55 : 1.0,
+        }));
+    }
+
+    function _skillNamesFromParsed(parsed) {
+        return (parsed || []).map(s => (typeof s === 'string' ? s : (s && s.name) || '')).filter(Boolean);
     }
 
     function rematch(projectId) {
@@ -2998,7 +3203,8 @@ window.Matching = (function() {
     }
 
     function saveNewRequest() {
-        const skills = _parseSkillsInput();
+        const parsed = _parseSkillsInput();
+        const skillNames = _skillNamesFromParsed(parsed);
         const data = {
             title:           _val('new-title'),
             description:     _val('new-description'),
@@ -3013,15 +3219,15 @@ window.Matching = (function() {
             location:        _val('new-location'),
             rate_max:        parseInt(_val('new-rate-max')) || null,
             // Matching-Engine: ohne Skills → req_score=1.0 für alle → Mist-Shortlist
-            skills:          skills,
-            required_skills: skills.map(name => ({ name: name, weight: 1.0 })),
-            extracted_technologies: skills,
+            skills:          skillNames,
+            required_skills: parsed,
+            extracted_technologies: skillNames,
         };
         if (!data.title || !data.customer_name) {
             alert(_t('matching.err_title_required'));
             return;
         }
-        if (!skills.length) {
+        if (!skillNames.length) {
             const cont = confirm(
                 _kiT(
                     'skills_missing_warn',
@@ -4703,6 +4909,7 @@ window.Matching = (function() {
         _normDatePublic: _normDate,
         closeProject, sendContract, sendPlacementStart, savePlacementDetails,
         openKiWizard, closeKiWizard, runKiExtract, applyKiExtract,
+        fillSkillsFromText,
         pickCrmContact, pickCrmContactIndex, hideCrmSuggest, createCrmContactFromSuggest,
         openNewContactPopup, closeNewContactPopup,
         runFirmaWebEnrich, applyFirmaWebEnrichToCrm,

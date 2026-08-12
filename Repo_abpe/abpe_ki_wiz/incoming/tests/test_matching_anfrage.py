@@ -29,6 +29,8 @@ class MatchingAnfrageProviderTests(TestCase):
         row = next(r for r in WIZARD_PROMPT_DEFAULTS if r['key'] == PROMPT_KEY)
         self.assertEqual(row['wizard_id'], 'matching_anfrage')
         self.assertIn('Weiterleitungen', row['system'])
+        self.assertIn('skills_required', row['system'])
+        self.assertIn('skills_nice', row['system'])
         self.assertIn('[[BRIEFING]]', row['user_template'])
 
     def test_orchestrator_prompt_key(self):
@@ -110,6 +112,98 @@ class MatchingAnfrageAsapTests(TestCase):
         })
         self.assertTrue(fields['start_asap'])
         self.assertEqual(fields['start_date'], date.today().isoformat())
+
+
+class MatchingAnfrageSkillsTests(TestCase):
+    SAMPLE = (
+        'Solution Architect – Mainframe Replatforming & Cloud Advisory (m/w/d)\n'
+        'Rahmeninformationen\nReferenz:179691\nEinsatzort:Remote\n'
+        'Ihre Qualifikationen\n'
+        ' - Mainframe-Entwicklung (COBOL, PL/I oder Assembler)\n'
+        ' - Mainframe-Architekturen\n'
+        ' - Rocket Enterprise Tools\n'
+        ' - Mainframe-Replatforming und Modernisierung\n'
+        ' - Cloud Advisory und Zielarchitekturen\n'
+        ' - Agile Methoden\n'
+        ' - DevOps\n'
+        ' - CI/CD-Pipelines\n'
+        ' - Infrastructure as Code (IaC)\n'
+        ' - Coaching, Mentoring und Knowledge Transfer\n'
+        'Ihre Aufgaben\n'
+        ' - Konzeption von Replatforming-Lösungen\n'
+        'Kurzbeschreibung\n'
+        ' - Beratung und Konzeption.\n'
+    )
+
+    def test_extract_skills_from_qualifikationen(self):
+        from apps.abpe_ki_wiz.providers.matching_anfrage import extract_skills_from_text
+        pack = extract_skills_from_text(self.SAMPLE)
+        skills_l = [s.lower() for s in pack['skills']]
+        self.assertIn('cobol', skills_l)
+        self.assertIn('pl/i', skills_l)
+        self.assertIn('assembler', skills_l)
+        self.assertTrue(
+            any('mainframe' in s for s in skills_l),
+            pack['skills'],
+        )
+        # Softskills nach hinten / nice
+        nice_l = [s.lower() for s in pack['skills_nice']]
+        self.assertTrue(
+            any('agile' in s for s in nice_l)
+            or any('coaching' in s for s in nice_l),
+            pack,
+        )
+        # COBOL vor Coaching in Gesamtliste
+        if 'cobol' in skills_l and any('coaching' in s for s in skills_l):
+            self.assertLess(
+                skills_l.index('cobol'),
+                next(i for i, s in enumerate(skills_l) if 'coaching' in s),
+            )
+
+    def test_extract_skills_bullet_line(self):
+        from apps.abpe_ki_wiz.providers.matching_anfrage import extract_skills_from_text
+        text = (
+            'Rolle X\n\n---\n'
+            '• Skills: Mainframe-Entwicklung, COBOL, PL/I, Assembler, '
+            'Cloud Advisory, Agile Methoden, Coaching\n'
+        )
+        pack = extract_skills_from_text(text)
+        self.assertIn('COBOL', pack['skills'])
+        self.assertTrue(any('Agile' in s for s in pack['skills_nice']) or
+                        any(s.lower() == 'agile methoden' for s in pack['skills_nice']))
+
+    def test_map_skills_required_nice_weights(self):
+        fields = map_extract_to_form_fields({
+            'kunde': {}, 'ansprechpartner': {}, 'weiterleitung': {}, 'start': {},
+            'beschreibung': 'x',
+            'skills_required': ['COBOL', 'PL/I', 'Assembler'],
+            'skills_nice': ['Coaching', 'Agile Methoden'],
+            'skills': [],
+            'hinweise': [],
+        })
+        self.assertEqual(fields['skills'][:3], ['COBOL', 'PL/I', 'Assembler'])
+        self.assertIn('Coaching', fields['skills'])
+        weights = {r['name']: r['weight'] for r in fields['required_skills']}
+        self.assertEqual(weights['COBOL'], 1.0)
+        self.assertEqual(weights['Coaching'], 0.55)
+
+    def test_map_falls_back_to_beschreibung_heuristik(self):
+        fields = map_extract_to_form_fields({
+            'kunde': {}, 'ansprechpartner': {}, 'weiterleitung': {}, 'start': {},
+            'beschreibung': self.SAMPLE,
+            'skills': [],
+            'hinweise': [],
+        })
+        self.assertTrue(any('COBOL' == s or 'cobol' == s.lower() for s in fields['skills']))
+        self.assertTrue(len(fields['skills']) >= 5)
+
+    def test_fallback_provider_extracts_skills(self):
+        p = MatchingAnfrageWizardProvider()
+        fb = p.generate_fallback(self.SAMPLE)
+        skills_l = [s.lower() for s in fb['skills']]
+        self.assertIn('cobol', skills_l)
+        self.assertIn('pl/i', skills_l)
+        self.assertTrue(fb['skills_required'])
 
 
 class MatchingAnfrageCrmMatchTests(TestCase):

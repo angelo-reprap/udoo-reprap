@@ -14,7 +14,9 @@ from typing import Any
 from apps.abpe_ki_wiz.providers.matching_anfrage import (
     PROMPT_KEY,
     MatchingAnfrageWizardProvider,
+    extract_skills_from_text,
     map_extract_to_form_fields,
+    normalize_skills_from_extract,
 )
 from apps.abpe_ki_wiz.services.deepseek_client import call_wizard_prompt
 from apps.abpe_ki_wiz.services.json_utils import parse_ai_json
@@ -251,6 +253,32 @@ def extract_matching_anfrage(
         }
 
     extract['source'] = 'ai'
+    # Skills nachziehen / priorisieren: KI + Heuristik aus Rohtext (Qualifikationen)
+    pack = normalize_skills_from_extract(extract)
+    heur = extract_skills_from_text(text)
+    if not pack.get('skills') and heur.get('skills'):
+        extract['skills_required'] = heur['skills_required']
+        extract['skills_nice'] = heur['skills_nice']
+        extract['skills'] = heur['skills']
+    else:
+        # Vorhandene KI-Skills behalten; fehlende Muss-Skills aus Heuristik ergänzen
+        seen = {s.lower() for s in (pack.get('skills') or [])}
+        req = list(pack.get('skills_required') or [])
+        nice = list(pack.get('skills_nice') or [])
+        for s in heur.get('skills_required') or []:
+            if s.lower() not in seen:
+                req.append(s)
+                seen.add(s.lower())
+        for s in heur.get('skills_nice') or []:
+            if s.lower() not in seen:
+                nice.append(s)
+                seen.add(s.lower())
+        if not req and not nice and pack.get('skills'):
+            req = list(pack['skills'])
+        extract['skills_required'] = req
+        extract['skills_nice'] = nice
+        extract['skills'] = req + [s for s in nice if s.lower() not in {x.lower() for x in req}]
+
     validation = provider.validate_output(extract)
     applied = provider.apply_result(extract)
     fields = applied.get('fields') or map_extract_to_form_fields(extract)

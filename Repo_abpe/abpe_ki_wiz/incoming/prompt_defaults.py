@@ -231,7 +231,18 @@ WIZARD_PROMPT_DEFAULTS = [
             'Verlängerungsoptionen gehören in hinweise, nicht in die Zahl.\n'
             '8. stundensatz_max nur setzen, wenn klar ein Kunden- oder Projektbudget genannt ist. '
             'Wird der Stundensatz des Bewerbers erfragt → null.\n'
-            '9. skills: 5–15 kurze, relevante Stichworte aus Anforderungen/Technologien/Rolle.\n'
+            '9. Skills (Matching-kritisch — ohne Skills matcht die Engine Blindlinge):\n'
+            '   - Extrahiere aus Abschnitten wie „Ihre Qualifikationen“, „Anforderungen“, '
+            '„Must-have“, „Skills“, Technologie-Tags und aus Klammern '
+            '(z.B. „Mainframe-Entwicklung (COBOL, PL/I oder Assembler)“ → '
+            'Mainframe-Entwicklung, COBOL, PL/I, Assembler).\n'
+            '   - skills_required: Muss-Anforderungen / Kerntechnologien zuerst '
+            '(z.B. COBOL, PL/I, Assembler, Mainframe-Architekturen, Rocket Enterprise Tools, '
+            'Cloud Advisory, DevOps, CI/CD, Infrastructure as Code).\n'
+            '   - skills_nice: Soft-/Zusatzskills danach '
+            '(z.B. Agile Methoden, Coaching, Mentoring, Knowledge Transfer).\n'
+            '   - skills: geordnete Gesamtliste = skills_required zuerst, dann skills_nice '
+            '(5–18 kurze Stichworte, keine ganzen Sätze, Duplikate vermeiden).\n'
             '10. confidence je Block zwischen 0.0 und 1.0 (wie sicher die Zuordnung ist).\n'
             '11. ansprechpartner.email und ansprechpartner.phone aus der Signatur des '
             'inneren Absenders (Zeilen E:/T:/Tel./Mail) — exakt übernehmen, nichts vertauschen.\n'
@@ -257,6 +268,8 @@ WIZARD_PROMPT_DEFAULTS = [
             '  "standort": string|null,\n'
             '  "remote": boolean|null,\n'
             '  "stundensatz_max": number|null,\n'
+            '  "skills_required": string[],\n'
+            '  "skills_nice": string[],\n'
             '  "skills": string[],\n'
             '  "hinweise": string[]\n'
             '}'
@@ -265,10 +278,14 @@ WIZARD_PROMPT_DEFAULTS = [
             '[[BRIEFING]]\n\n'
             'Antworte NUR mit dem JSON-Objekt gemäß System-Schema.'
         ),
-        'instruction_default': 'Nur JSON. Nichts erfinden. Weiterleitungen korrekt trennen.',
+        'instruction_default': (
+            'Nur JSON. Nichts erfinden. Weiterleitungen korrekt trennen. '
+            'Skills aus Qualifikationen priorisieren (Muss vor Nice-to-have).'
+        ),
         'checklist_template': (
             'Nur Fakten aus dem Text\n'
             'Weiterleitung: Kunde/AP aus innerem Teil\n'
+            'Skills: Qualifikationen → skills_required, Softskills → skills_nice\n'
             'Kein Markdown außerhalb JSON'
         ),
     },
