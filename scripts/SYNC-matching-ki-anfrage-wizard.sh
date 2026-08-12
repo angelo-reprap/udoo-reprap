@@ -99,22 +99,29 @@ fi
 # ── CRM (Stammdaten Verfügbarkeit/Konditionen) ───────────────────────────────
 LIVE_CRM="${LIVE_CRM:-/opt/abpe/backend/apps/abpe_crm}"
 if [[ -d "$TMP/Repo_abpe/abpe_crm/incoming" && -d "$LIVE_CRM" ]]; then
-  # models/views gezielt (kein Full-Rsync — Live hat mehr Dateien)
+  # Safety: nie eine views.py ohne api_berater_cv ausrollen (älterer Export)
+  if [[ -f "$TMP/Repo_abpe/abpe_crm/incoming/views.py" ]]; then
+    if ! grep -q "def api_berater_cv" "$TMP/Repo_abpe/abpe_crm/incoming/views.py"; then
+      echo "FEHLER: Repo CRM views.py ohne api_berater_cv — Abbruch (Live würde kaputtgehen)"
+      exit 1
+    fi
+    if ! grep -q "satz_remote_c" "$TMP/Repo_abpe/abpe_crm/incoming/views.py"; then
+      echo "FEHLER: CRM views.py ohne satz_remote_c"
+      exit 1
+    fi
+    # Backup Live vor Überschreiben
+    cp -a "$LIVE_CRM/views.py" "$LIVE_CRM/views.py.bak-before-matching-sync" 2>/dev/null || true
+    cp -a "$TMP/Repo_abpe/abpe_crm/incoming/views.py" "$LIVE_CRM/views.py"
+    echo "OK — abpe_crm/views.py (mit api_berater_cv + Terms)"
+  fi
   if [[ -f "$TMP/Repo_abpe/abpe_crm/incoming/models.py" ]]; then
     if ! grep -q "verfuegbar_tage_pro_woche_c" "$TMP/Repo_abpe/abpe_crm/incoming/models.py"; then
       echo "FEHLER: CRM models.py ohne verfuegbar_tage_pro_woche_c"
       exit 1
     fi
+    cp -a "$LIVE_CRM/models.py" "$LIVE_CRM/models.py.bak-before-matching-sync" 2>/dev/null || true
     cp -a "$TMP/Repo_abpe/abpe_crm/incoming/models.py" "$LIVE_CRM/models.py"
     echo "OK — abpe_crm/models.py"
-  fi
-  if [[ -f "$TMP/Repo_abpe/abpe_crm/incoming/views.py" ]]; then
-    if ! grep -q "satz_remote_c" "$TMP/Repo_abpe/abpe_crm/incoming/views.py"; then
-      echo "FEHLER: CRM views.py ohne satz_remote_c"
-      exit 1
-    fi
-    cp -a "$TMP/Repo_abpe/abpe_crm/incoming/views.py" "$LIVE_CRM/views.py"
-    echo "OK — abpe_crm/views.py"
   fi
   mkdir -p "$LIVE_CRM/migrations"
   if [[ -f "$LIVE_CRM/migrations/__init__.py" ]] || \
