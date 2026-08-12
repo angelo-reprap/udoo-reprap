@@ -29,11 +29,13 @@ MSG_PREFIX="${MSG_PREFIX:-cv_extractor fidelity Fix1-4}"
 # (Publish + Import gegen Doppel-Pipeline / EN-Spam)
 FILES=(
   extractors/main_base_extractor.py
+  extractors/aid_regex_extractor.py
   generator/word/word_generator.py
   generator/html/html_generator.py
   enricher/main_extracted_to_db.py
   services/main_post_processor.py
   services/aid_profile_publish.py
+  services/main_pipeline_controller.py
   management/commands/import_aid_profiles.py
 )
 
