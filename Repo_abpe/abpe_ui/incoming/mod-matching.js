@@ -3072,7 +3072,49 @@ window.Matching = (function() {
             crm_type: c.type || c.typ || c.contact_type || cstm.kontakt_typ || base.crm_type || '',
             company: c.account_name || account.name || c.firma || c.company || base.company || '',
             aid: c.aid || base.aid || '',
+            available_from: _normDate(
+                c.verfuegbar_ab || c.verfuegbar || c.available_from
+                || cstm.verfuegbar_ab || eck.verfuegbar_ab || base.available_from || ''
+            ),
+            freelancermap: c.freelancermap || cstm.freelancermap
+                || (Array.isArray(cstm.web_profiles)
+                    ? ((cstm.web_profiles.find(w => /freelance/i.test(w.typ || '')) || {}).url || '')
+                    : '')
+                || base.freelancermap || '',
         });
+    }
+
+    function _normDate(v) {
+        if (!v) return '';
+        if (typeof v === 'object' && v.isoformat) return String(v.isoformat()).slice(0, 10);
+        const s = String(v).trim();
+        if (!s) return '';
+        // ISO oder DE dd.mm.yyyy
+        const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+        if (iso) return iso[1] + '-' + iso[2] + '-' + iso[3];
+        const de = s.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+        if (de) {
+            return de[3] + '-' + de[2].padStart(2, '0') + '-' + de[1].padStart(2, '0');
+        }
+        return s.slice(0, 10);
+    }
+
+    function _fmtDate(v) {
+        const d = _normDate(v);
+        if (!d || d.length < 10) return '—';
+        const m = d.match(/^(\d{4})-(\d{2})-(\d{2})/);
+        if (!m) return d;
+        return m[3] + '.' + m[2] + '.' + m[1];
+    }
+
+    function _dateTone(crm, other) {
+        const a = _normDate(crm);
+        const b = _normDate(other);
+        if (!b) return { label: 'keine Angabe', color: '#888' };
+        if (!a) return { label: 'neu', color: '#0d9488' };
+        if (a === b) return { label: 'gleich', color: '#16a34a' };
+        if (b > a) return { label: 'später als CRM', color: '#d97706' };
+        return { label: 'früher als CRM', color: '#dc2626' };
     }
 
     function _jsonGet(url) {
@@ -3192,6 +3234,9 @@ window.Matching = (function() {
                         aid: m.aid || m.consultant_aid || '',
                         gulp_id: m.gulp_id || '',
                         rate: m.rate || m.satz || '',
+                        available_from: _normDate(m.verfuegbar_ab || m.available_from || m.available || ''),
+                        freelancermap: m.freelancermap || m.freelancermap_profil || m.fm_url || '',
+                        cv_editor_url: m.cv_editor_url || m.cv_url || '',
                         phones: [],
                         emails: [],
                     };
@@ -3224,6 +3269,232 @@ window.Matching = (function() {
         if (ov) ov.remove();
     }
 
+    function _csrfHdr() {
+        return csrf() || (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '';
+    }
+
+    function _jsonPost(url, body) {
+        return fetch(url, {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': _csrfHdr(),
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            body: JSON.stringify(body || {}),
+        }).then(r => r.json().catch(() => ({ ok: false, error: 'HTTP ' + r.status })))
+          .catch(e => ({ ok: false, error: String(e && e.message || e) }));
+    }
+
+    function _availRowHtml(label, dateVal, tone) {
+        const t = tone || { label: '', color: '#888' };
+        return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:3px">
+          <span style="color:#888;min-width:36px">${_esc(label)}</span>
+          <b style="min-width:84px">${_esc(_fmtDate(dateVal))}</b>
+          ${t.label ? `<span style="font-size:10px;color:${t.color}">${_esc(t.label)}</span>` : ''}
+        </div>`;
+    }
+
+    function _renderAvailBox(el, detail, live) {
+        if (!el) return;
+        const crm = detail.available_from || '';
+        const gulp = (live && live.gulp) || {};
+        const fm = (live && live.fm) || {};
+        let body = _availRowHtml('CRM', crm, { label: crm ? 'Datenbank' : 'kein Datum', color: '#888' });
+        if (detail.gulp_id) {
+            if (gulp.loading) {
+                body += `<div style="font-size:11px;color:#888;margin:2px 0"><i class="bi bi-hourglass-split"></i> Gulp wird geprüft…</div>`;
+            } else if (gulp.error) {
+                body += `<div style="font-size:11px;color:#b45309;margin:2px 0">Gulp: ${_esc(gulp.error)}</div>`;
+            } else {
+                body += _availRowHtml('Gulp', gulp.date, _dateTone(crm, gulp.date));
+            }
+        } else {
+            body += `<div style="font-size:11px;color:#aaa;margin:2px 0">Gulp: keine ID</div>`;
+        }
+        if (detail.freelancermap) {
+            if (fm.loading) {
+                body += `<div style="font-size:11px;color:#888;margin:2px 0"><i class="bi bi-hourglass-split"></i> Freelancermap wird geprüft…</div>`;
+            } else if (fm.error) {
+                body += `<div style="font-size:11px;color:#b45309;margin:2px 0">FM: ${_esc(fm.error)}</div>`;
+            } else {
+                body += _availRowHtml('FM', fm.date, _dateTone(crm, fm.date));
+            }
+        } else {
+            body += `<div style="font-size:11px;color:#aaa;margin:2px 0">FM: nicht verknüpft</div>`;
+        }
+        if (live && live.note) {
+            body += `<div style="font-size:10px;color:#666;margin-top:4px">${_esc(live.note)}</div>`;
+        }
+        el.innerHTML = body;
+    }
+
+    function _fetchSourceAvailability(text) {
+        return _jsonPost('/shaduler/api/radar/berater/einfuegen/', { text: text })
+            .then(d => {
+                if (!d || !d.ok) {
+                    const err = (d && (d.error || d.fetch_error)) || 'Abfrage fehlgeschlagen';
+                    const auth = d && (d.needs_auth || d.gulp_session === false || d.fl_session === false);
+                    return {
+                        ok: false,
+                        error: auth ? (err + ' (Login/Session prüfen)') : err,
+                        date: '',
+                        source: d && d.source,
+                    };
+                }
+                const item = d.item || {};
+                return {
+                    ok: true,
+                    date: _normDate(item.verfuegbar_ab || ''),
+                    source: d.source || item.source || '',
+                    name: item.name || '',
+                    fetched: !!d.fetched,
+                    error: d.fetch_error || '',
+                };
+            });
+    }
+
+    function _startAvailabilityCompare(detail) {
+        const box = document.getElementById('matching-avail-box');
+        if (!box) return;
+        const live = { gulp: null, fm: null, note: '' };
+        const jobs = [];
+
+        if (detail.gulp_id) {
+            live.gulp = { loading: true };
+            _renderAvailBox(box, detail, live);
+            jobs.push(
+                _fetchSourceAvailability(String(detail.gulp_id)).then(r => {
+                    live.gulp = r.ok
+                        ? { date: r.date, error: r.fetched ? '' : (r.error || 'ohne Live-Daten') }
+                        : { date: '', error: r.error || 'Fehler' };
+                    _renderAvailBox(box, detail, live);
+                    // Cache aktualisieren
+                    if (r.ok && r.date) {
+                        detail.available_gulp = r.date;
+                        const cache = window._matchingContactCache || {};
+                        if (cache[detail.id]) cache[detail.id].available_gulp = r.date;
+                    }
+                })
+            );
+        }
+
+        if (detail.freelancermap) {
+            live.fm = { loading: true };
+            _renderAvailBox(box, detail, live);
+            jobs.push(
+                _fetchSourceAvailability(String(detail.freelancermap)).then(r => {
+                    live.fm = r.ok
+                        ? { date: r.date, error: r.fetched ? '' : (r.error || 'ohne Live-Daten') }
+                        : { date: '', error: r.error || 'Fehler' };
+                    _renderAvailBox(box, detail, live);
+                    if (r.ok && r.date) {
+                        detail.available_fm = r.date;
+                        const cache = window._matchingContactCache || {};
+                        if (cache[detail.id]) cache[detail.id].available_fm = r.date;
+                    }
+                })
+            );
+        }
+
+        if (!jobs.length) {
+            live.note = 'Keine externe Quelle (Gulp-ID / FM-Profil) zum Abgleich.';
+            _renderAvailBox(box, detail, live);
+            return;
+        }
+
+        Promise.all(jobs).then(() => {
+            const crm = _normDate(detail.available_from);
+            const g = live.gulp && live.gulp.date;
+            const f = live.fm && live.fm.date;
+            const diffs = [];
+            if (g && crm && g !== crm) diffs.push('Gulp≠CRM');
+            if (f && crm && f !== crm) diffs.push('FM≠CRM');
+            if (g && f && g !== f) diffs.push('Gulp≠FM');
+            live.note = diffs.length
+                ? ('Abweichung: ' + diffs.join(', ') + ' — ggf. CRM/CV prüfen')
+                : 'Quellen stimmen mit CRM überein (soweit geliefert).';
+            _renderAvailBox(box, detail, live);
+        });
+    }
+
+    function _cvUrlFor(detail) {
+        if (detail.cv_editor_url) return detail.cv_editor_url;
+        if (detail.crm_contact_id) {
+            return '/crm/api/berater/' + encodeURIComponent(detail.crm_contact_id) + '/cv/';
+        }
+        return '';
+    }
+
+    function openCv(matchId) {
+        const detail = (window._matchingContactCache || {})[matchId];
+        const go = function (d) {
+            const url = _cvUrlFor(d || {});
+            if (!url) {
+                alert('Kein CV-Link — bitte zuerst im CRM öffnen.');
+                return;
+            }
+            window.open(url, '_blank', 'noopener');
+        };
+        if (detail) go(detail);
+        else _fetchMatchDetail(matchId).then(go);
+    }
+
+    function createCvTask(matchId, kind) {
+        const detail = (window._matchingContactCache || {})[matchId];
+        const run = function (d) {
+            const name = (d && d.name) || 'Berater';
+            const kinds = {
+                pruefen: {
+                    titel: 'CV prüfen — ' + name,
+                    beschreibung: 'CV gegen Anfrage/Profil prüfen.\n'
+                        + (d.gulp_id ? ('Gulp-ID: ' + d.gulp_id + '\n') : '')
+                        + (d.freelancermap ? ('FM: ' + d.freelancermap + '\n') : '')
+                        + (d.available_from ? ('CRM verfügbar ab: ' + _fmtDate(d.available_from) + '\n') : '')
+                        + (d.available_gulp ? ('Gulp verfügbar ab: ' + _fmtDate(d.available_gulp) + '\n') : '')
+                        + (d.available_fm ? ('FM verfügbar ab: ' + _fmtDate(d.available_fm) + '\n') : ''),
+                },
+                aktualisieren: {
+                    titel: 'CV aktualisieren — ' + name,
+                    beschreibung: 'CV aus Gulp/FM/CRM aktualisieren bzw. neu generieren.\n'
+                        + (d.gulp_id ? ('Gulp-ID: ' + d.gulp_id + '\n') : '')
+                        + (d.freelancermap ? ('FM: ' + d.freelancermap + '\n') : ''),
+                },
+                generieren: {
+                    titel: 'CV generieren — ' + name,
+                    beschreibung: 'CV neu erzeugen (CV-Extractor / CRM).\n'
+                        + (d.crm_contact_id ? ('CRM: ' + d.crm_contact_id + '\n') : ''),
+                },
+            };
+            const k = kinds[kind] || kinds.pruefen;
+            const statusEl = document.getElementById('matching-cv-task-msg');
+            if (statusEl) {
+                statusEl.style.color = '#666';
+                statusEl.textContent = 'Aufgabe wird angelegt…';
+            }
+            _jsonPost('/shaduler/api/aufgaben/create/', {
+                art: 'dokument',
+                titel: k.titel.slice(0, 240),
+                beschreibung: k.beschreibung,
+                ref_type: 'berater',
+                ref_id: String(d.crm_contact_id || d.gulp_id || matchId),
+                prioritaet: 3,
+            }).then(res => {
+                if (!statusEl) return;
+                if (res && res.ok) {
+                    statusEl.style.color = '#16a34a';
+                    statusEl.textContent = 'Aufgabe angelegt: ' + k.titel;
+                } else {
+                    statusEl.style.color = '#dc2626';
+                    statusEl.textContent = 'Aufgabe fehlgeschlagen: ' + ((res && res.error) || 'unbekannt');
+                }
+            });
+        };
+        if (detail) run(detail);
+        else _fetchMatchDetail(matchId).then(run);
+    }
+
     function _openContactPopup(detail) {
         _closeContactPopup();
         const stage = _normStage(detail.stage);
@@ -3239,6 +3510,7 @@ window.Matching = (function() {
         const emails = (detail.emails && detail.emails.length)
             ? detail.emails
             : (detail.email ? [detail.email] : []);
+        const cvUrl = _cvUrlFor(detail);
 
         const phoneHtml = phones.length
             ? phones.map(p => {
@@ -3294,6 +3566,7 @@ window.Matching = (function() {
               ${detail.address && detail.location && detail.address.indexOf(detail.location) < 0
                 ? '<span style="color:#888">Adresse</span><span>' + _esc(detail.address) + '</span>' : ''}
               ${detail.gulp_id ? '<span style="color:#888">Gulp-ID</span><span>' + _esc(String(detail.gulp_id)) + '</span>' : ''}
+              ${detail.freelancermap ? '<span style="color:#888">FM</span><span style="word-break:break-all">' + _esc(String(detail.freelancermap)) + '</span>' : ''}
               ${detail.aid ? '<span style="color:#888">AID</span><span>' + _esc(String(detail.aid)) + '</span>' : ''}
               ${detail.rate ? '<span style="color:#888">Kondition</span><span>' + _esc(String(detail.rate)) + (String(detail.rate).indexOf('€') >= 0 ? '' : ' €') + '</span>' : ''}
               ${detail.crm_type ? '<span style="color:#888">Typ</span><span>' + _esc(detail.crm_type) + '</span>' : ''}
@@ -3302,6 +3575,15 @@ window.Matching = (function() {
               <span style="color:#888">Telefon</span><div>${phoneHtml}</div>
               <span style="color:#888">E-Mail</span><div>${mailHtml}</div>
             </div>
+
+            <div style="border:1px solid #e8edf4;border-radius:8px;padding:10px 12px;margin-bottom:12px;background:#f8fafc">
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;font-weight:600;font-size:12px;color:#163258">
+                <i class="bi bi-calendar2-check"></i> Verfügbarkeit
+                <span style="font-weight:400;font-size:10px;color:#888;margin-left:auto">CRM · Gulp · FM</span>
+              </div>
+              <div id="matching-avail-box"></div>
+            </div>
+
             <div style="display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid #e8edf4;padding-top:12px">
               <button type="button" class="matching-btn-primary" style="font-size:11px"
                       ${detail.phone ? '' : 'disabled title="Keine Nummer"'}
@@ -3317,6 +3599,19 @@ window.Matching = (function() {
                       onclick="Matching.sendEmail('${detail.id}','interview','absage')">
                 <i class="bi bi-x-circle"></i> Absage
               </button>` : ''}
+              ${cvUrl ? `
+              <button type="button" class="matching-btn-sm" style="font-size:11px"
+                      onclick="Matching.openCv('${detail.id}')">
+                <i class="bi bi-file-earmark-text"></i> CV öffnen
+              </button>` : ''}
+              <button type="button" class="matching-btn-sm" style="font-size:11px"
+                      onclick="Matching.createCvTask('${detail.id}','pruefen')">
+                <i class="bi bi-clipboard-check"></i> Aufgabe: CV prüfen
+              </button>
+              <button type="button" class="matching-btn-sm" style="font-size:11px"
+                      onclick="Matching.createCvTask('${detail.id}','aktualisieren')">
+                <i class="bi bi-arrow-repeat"></i> Aufgabe: CV aktualisieren
+              </button>
               ${crmUrl ? `
               <a class="matching-btn-sm" style="font-size:11px;text-decoration:none;display:inline-flex;align-items:center;gap:4px"
                  href="${_escAttr(crmUrl)}" target="_blank" rel="noopener">
@@ -3324,9 +3619,15 @@ window.Matching = (function() {
               </a>` : `
               <span style="font-size:11px;color:#b45309;align-self:center">Kein CRM-Link — Name-Suche ohne Treffer</span>`}
             </div>
+            <div id="matching-cv-task-msg" style="font-size:11px;min-height:14px;margin-top:8px"></div>
           </div>
         </div>`;
         document.body.appendChild(ov);
+        _renderAvailBox(document.getElementById('matching-avail-box'), detail, {
+            gulp: detail.gulp_id ? { loading: true } : null,
+            fm: detail.freelancermap ? { loading: true } : null,
+        });
+        _startAvailabilityCompare(detail);
     }
 
     function closeContactPopup() { _closeContactPopup(); }
@@ -3689,7 +3990,7 @@ window.Matching = (function() {
         toggleArchiveDetail, searchAnfragen, filterAnfragen,
         searchAccounts, searchContacts, call, sendEmail,
         kanbanDragStart, kanbanDrop, kanbanCardClick,
-        closeContactPopup, submitStageMail,
+        closeContactPopup, submitStageMail, openCv, createCvTask,
         closeProject, sendContract, sendPlacementStart, savePlacementDetails,
         openKiWizard, closeKiWizard, runKiExtract, applyKiExtract,
         pickCrmContact, pickCrmContactIndex, hideCrmSuggest, createCrmContactFromSuggest,
