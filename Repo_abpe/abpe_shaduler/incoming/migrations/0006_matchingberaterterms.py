@@ -1,12 +1,12 @@
 from django.db import migrations, models
-import django.utils.timezone
 import uuid
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('abpe_shaduler', '0004_radarconsultantitem_deleted_at'),
+        # Live hat parallel 0005_shadulersetting — wir hängen dahinter, nicht neben 0004.
+        ('abpe_shaduler', '0005_shadulersetting'),
     ]
 
     operations = [

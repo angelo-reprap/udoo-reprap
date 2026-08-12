@@ -1,7 +1,7 @@
 """CRM-Stammdaten: eingeschränkte Verfügbarkeit + Remote/vor-Ort-Sätze.
 
-Echte DB-Spalten (kein JSON). models.py ist Quelle der Felder;
-diese Migration legt nur fehlende Spalten an (IF NOT EXISTS).
+Echte DB-Spalten (kein JSON). Läuft nach Live-Leaf 0017_crmusersettings_timezone.
+Spalten per ADD COLUMN IF NOT EXISTS (idempotent).
 """
 from django.db import migrations, connection
 
@@ -36,12 +36,11 @@ def _noop(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
-    """
-    Standalone: keine Dependency auf ältere abpe_crm-Migrationen
-    (Repo hatte bisher keine). Bei Konflikt auf Live: migrate --fake.
-    """
 
-    dependencies = []
+    dependencies = [
+        # Live-Leaf auf ucs5 (siehe migrate-Konflikt-Meldung)
+        ('abpe_crm', '0017_crmusersettings_timezone'),
+    ]
 
     operations = [
         migrations.RunPython(_add_columns, _noop),
