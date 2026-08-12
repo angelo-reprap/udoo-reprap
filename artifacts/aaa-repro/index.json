@@ -1,0 +1,4645 @@
+{
+  "letter": "aaa",
+  "root": "/mnt/public/Berater/AID_profile",
+  "created": "2026-08-12T17:36:53",
+  "avg_score": 51.2,
+  "rows": [
+    {
+      "dir": "Abersfelder_Alexander",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/Abersfelder_Alexander/AID-aa_2.2.3.2.pdf",
+      "orig_name": "AID-aa_2.2.3.2.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/Abersfelder_Alexander/neu/cv/AID-aa_1.1.3.5.pdf",
+      "neu_name": "AID-aa_1.1.3.5.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (1)"
+      ],
+      "score": 91.5,
+      "orig_chars": 6270,
+      "neu_chars": 6354,
+      "orig_periods": 17,
+      "neu_periods": 17,
+      "missing_periods": [
+        "2005"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "aalderen_martin",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/aalderen_martin/AID-mva_3.5.1.7.pdf",
+      "orig_name": "AID-mva_3.5.1.7.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/aalderen_martin/neu/cv/AID-ma_5.1.5.3.pdf",
+      "neu_name": "AID-ma_5.1.5.3.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (2)"
+      ],
+      "score": 77.9,
+      "orig_chars": 7153,
+      "neu_chars": 4828,
+      "orig_periods": 7,
+      "neu_periods": 7,
+      "missing_periods": [
+        "1/2023 – 8/2023",
+        "2023"
+      ],
+      "extra_periods": [
+        "01/2023 – 08/2023",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": false,
+        "Fachbereiche": false,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": false,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "aalderks_karsten",
+      "orig": null,
+      "orig_name": null,
+      "neu": null,
+      "neu_name": null,
+      "status": "no_orig",
+      "flags": [
+        "kein Original-AID-PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "abanum_eddy",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/abanum_eddy/AID-ea_2.1.4.1.pdf",
+      "orig_name": "AID-ea_2.1.4.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/abanum_eddy/neu/cv/AID-ea_1.2.3.3.pdf",
+      "neu_name": "AID-ea_1.2.3.3.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (21)"
+      ],
+      "score": 53.0,
+      "orig_chars": 17676,
+      "neu_chars": 17876,
+      "orig_periods": 30,
+      "neu_periods": 27,
+      "missing_periods": [
+        "01/2014 - 09/2014",
+        "02/2024 - 08/2024",
+        "04/2024",
+        "06/2013 - 11/2013",
+        "06/2018 - 07/2019",
+        "07/2019 - 12/2020",
+        "09/2009 – 09/2012",
+        "09/2024 - 03/2025",
+        "10/2015 - 10/2017",
+        "11/2017 - 07/2018",
+        "11/2021",
+        "11/2021 - 10/2022",
+        "11/2022 - 11/2023",
+        "11/2023 - 03/2024",
+        "12/2014 - 09/2015",
+        "1988 – 1991",
+        "2007 – 2009",
+        "2010 - 2011",
+        "2020",
+        "2025"
+      ],
+      "extra_periods": [
+        "01/2014 – 09/2014",
+        "02/2024 – 08/2024",
+        "04/2024 – heute",
+        "06/2013 – 11/2013",
+        "06/2018 – 07/2019",
+        "07/2019 – 12/2020",
+        "09/2024 – 03/2025",
+        "10/2015 – 10/2017",
+        "11/2017 – 07/2018",
+        "11/2021 – 10/2022",
+        "11/2022 – 11/2023",
+        "11/2023 – 03/2024",
+        "12/2014 – 09/2015",
+        "12/2020 – 11/2021",
+        "2010 – 2011",
+        "2026",
+        "9200-\n9400",
+        "9200-9400"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "abbady_brahim",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/abbady_brahim/AID-ba_1.4.6.1.pdf",
+      "orig_name": "AID-ba_1.4.6.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/abbady_brahim/neu/cv/AID-ba_1.2.3.5.pdf",
+      "neu_name": "AID-ba_1.2.3.5.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (3)"
+      ],
+      "score": 91.7,
+      "orig_chars": 12569,
+      "neu_chars": 14379,
+      "orig_periods": 54,
+      "neu_periods": 54,
+      "missing_periods": [
+        "07/2021 – dato",
+        "2020",
+        "2600 - 7300"
+      ],
+      "extra_periods": [
+        "07/2021 – heute",
+        "2026",
+        "7300"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "abu-rasched_hossam",
+      "orig": null,
+      "orig_name": null,
+      "neu": null,
+      "neu_name": null,
+      "status": "no_orig",
+      "flags": [
+        "kein Original-AID-PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "abu_alhasan_usama",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/abu_alhasan_usama/AID-uaa_1.9.4.6.pdf",
+      "orig_name": "AID-uaa_1.9.4.6.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "acar_oezcan",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/acar_oezcan/AID-oea_1.4.5.1.pdf",
+      "orig_name": "AID-oea_1.4.5.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/acar_oezcan/neu/cv/AID-oa_2.3.4.1.pdf",
+      "neu_name": "AID-oa_2.3.4.1.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (9)"
+      ],
+      "score": 79.1,
+      "orig_chars": 25642,
+      "neu_chars": 14650,
+      "orig_periods": 34,
+      "neu_periods": 26,
+      "missing_periods": [
+        "1997",
+        "1998",
+        "1999",
+        "2001",
+        "2002",
+        "2003",
+        "2004",
+        "2009",
+        "2011"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "ackermann_stefan",
+      "orig": null,
+      "orig_name": null,
+      "neu": null,
+      "neu_name": null,
+      "status": "no_orig",
+      "flags": [
+        "kein Original-AID-PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "adamczyk_peter",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/adamczyk_peter/AID-pa_2.1.4.2.pdf",
+      "orig_name": "AID-pa_2.1.4.2.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/adamczyk_peter/neu/cv/AID-pa_2.1.3.0.pdf",
+      "neu_name": "AID-pa_2.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (19)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 55.5,
+      "orig_chars": 19462,
+      "neu_chars": 7623,
+      "orig_periods": 33,
+      "neu_periods": 15,
+      "missing_periods": [
+        "01/2003 – 04/2003",
+        "01/2004 – 12/2004",
+        "03/1998 – 08/1998",
+        "04/2001 – 06/2001",
+        "04/2002 – 05/2002",
+        "04/2003 – 06/2003",
+        "05/1996 – 04/1999",
+        "05/1999 – 09/1999",
+        "06/2001 – 07/2001",
+        "06/2002 – 08/2002",
+        "07/2003 – 08/2003",
+        "08/2002 – 10/2002",
+        "09/2000 – 03/2001",
+        "09/2001 – 02/2002",
+        "10/2003 – 12/2003",
+        "10/2007 – 03/2008",
+        "1991 – 1993",
+        "2002",
+        "2008"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "adebiyi_olawale",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/adebiyi_olawale/AID-oa_3.1.7.0.pdf",
+      "orig_name": "AID-oa_3.1.7.0.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/adebiyi_olawale/neu/cv/AID-oa_5.1.3.0.pdf",
+      "neu_name": "AID-oa_5.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (2)"
+      ],
+      "score": 89.0,
+      "orig_chars": 16801,
+      "neu_chars": 13404,
+      "orig_periods": 20,
+      "neu_periods": 19,
+      "missing_periods": [
+        "2017",
+        "5000"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "adler_jochen",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/adler_jochen/AID-ja_2.3.7.2.pdf",
+      "orig_name": "AID-ja_2.3.7.2.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/adler_jochen/neu/cv/AID-ja_5.1.4.0.pdf",
+      "neu_name": "AID-ja_5.1.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (18)"
+      ],
+      "score": 59.0,
+      "orig_chars": 10197,
+      "neu_chars": 8292,
+      "orig_periods": 30,
+      "neu_periods": 28,
+      "missing_periods": [
+        "01/2001 - 05/2001",
+        "01/2003 - 04/2003",
+        "03/2004 - 05/2004",
+        "04/2002 - 07/2002",
+        "07/1996 - 06/1999",
+        "07/1999 - 09/1999",
+        "07/2000 - 10/2000",
+        "07/2004 - 08/2004",
+        "08/2002 - 12/2002",
+        "09/2004 - 10/2004",
+        "10/1999 - 06/2000",
+        "10/2001 - 12/2001",
+        "11/2000 - 12/2000",
+        "11/2004 - 02/2006",
+        "12/2003 - 01/2004",
+        "1992 - 1993",
+        "2000",
+        "2006"
+      ],
+      "extra_periods": [
+        "01/2003 – 04/2003",
+        "03/2004 – 05/2004",
+        "04/2002 – 07/2002",
+        "07/1996 – 06/1999",
+        "07/1999 – 09/1999",
+        "07/2000 – 10/2000",
+        "07/2004 – 08/2004",
+        "08/2002 – 12/2002",
+        "09/2004 – 10/2004",
+        "10/1999 – 05/2001",
+        "10/2001 – 12/2001",
+        "11/2000 – 12/2000",
+        "11/2004 – 02/2006",
+        "12/2003 – 01/2004",
+        "1992 – 1993",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "adler_viktor",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/adler_viktor/AID-va_1.2.4.1.pdf",
+      "orig_name": "AID-va_1.2.4.1.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "adolph_karl_ernst",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/adolph_karl_ernst/AID-kea_2.8.4.1.pdf",
+      "orig_name": "AID-kea_2.8.4.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/adolph_karl_ernst/neu/cv/AID-ka_2.1.3.0.pdf",
+      "neu_name": "AID-ka_2.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (3)"
+      ],
+      "score": 90.7,
+      "orig_chars": 25285,
+      "neu_chars": 21717,
+      "orig_periods": 42,
+      "neu_periods": 42,
+      "missing_periods": [
+        "01/2011 - 05/2011",
+        "07/2010 - 01/2011",
+        "2011"
+      ],
+      "extra_periods": [
+        "01/2011 – 05/2011",
+        "07/2010 – 01/2011",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "adt_joachim",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/adt_joachim/AID-ja_2.1.7.3.pdf",
+      "orig_name": "AID-ja_2.1.7.3.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/adt_joachim/neu/cv/AID-ja_4.1.3.0.pdf",
+      "neu_name": "AID-ja_4.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (10)"
+      ],
+      "score": 63.400000000000006,
+      "orig_chars": 18340,
+      "neu_chars": 11319,
+      "orig_periods": 19,
+      "neu_periods": 16,
+      "missing_periods": [
+        "2000 -2003",
+        "2008",
+        "2009",
+        "2010",
+        "2015",
+        "2016",
+        "2018",
+        "2019",
+        "2020",
+        "2021"
+      ],
+      "extra_periods": [
+        "01/2019 – 12/2019",
+        "2000-2003",
+        "2008 – 2010",
+        "2008 – 2012",
+        "2009 – 2016",
+        "2015 – 2018",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": false,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "aevermann_matthias",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/aevermann_matthias/AID-mae_2.3.7.9.pdf",
+      "orig_name": "AID-mae_2.3.7.9.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/aevermann_matthias/neu/cv/AID-ma_1.1.3.0.pdf",
+      "neu_name": "AID-ma_1.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (47)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 43.0,
+      "orig_chars": 30010,
+      "neu_chars": 4077,
+      "orig_periods": 60,
+      "neu_periods": 14,
+      "missing_periods": [
+        "01/1999 – 08/2002",
+        "01/2002 – 03/2002",
+        "01/2002 – 12/2002",
+        "01/2005",
+        "01/2011",
+        "01/2011 – 02/2011",
+        "02/2001",
+        "02/2003 – 03/2003",
+        "03/2002 – 04/2002",
+        "03/2010 – 05/2010",
+        "03/2014",
+        "04/2004",
+        "04/2010",
+        "05/2003 – 09/2003",
+        "05/2006",
+        "06/2001 – 08/2001",
+        "06/2002 – 08/2002",
+        "06/2003 – 07/2003",
+        "06/2012",
+        "07/2002"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": false,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "ahmad_ahmad",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/ahmad_ahmad/Fraunhofer.pdf",
+      "orig_name": "Fraunhofer.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "ahmad_ataul_wadood",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/ahmad_ataul_wadood/AID-ama_1.3.7.2.pdf",
+      "orig_name": "AID-ama_1.3.7.2.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/ahmad_ataul_wadood/neu/cv/AID-aa_1.2.3.0.pdf",
+      "neu_name": "AID-aa_1.2.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Weiterbildung fehlt in neu",
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (16)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 20.6,
+      "orig_chars": 12005,
+      "neu_chars": 2189,
+      "orig_periods": 20,
+      "neu_periods": 5,
+      "missing_periods": [
+        "01/2002 – 05/2002",
+        "02/1997 – 09/1997",
+        "02/2007 – 06/2007",
+        "02/2008 – 12/2008",
+        "02/2009 – 06/2009",
+        "07/2003 – 07/2003",
+        "07/2007 – 07/2007",
+        "08/2001 – 12/2001",
+        "08/2003 – 10/2004",
+        "08/2007 – 01/2008",
+        "09/1999 – 04/2001",
+        "11/2004 – 10/2005",
+        "11/2005 – 12/2006",
+        "12/1998 – 08/1999",
+        "2000",
+        "2009"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": true
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": true,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "ahmad_huebsch_masroor",
+      "orig": null,
+      "orig_name": null,
+      "neu": null,
+      "neu_name": null,
+      "status": "no_orig",
+      "flags": [
+        "kein Original-AID-PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "ahmad_mashhood",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/ahmad_mashhood/AID-ma_2.7.1.4.pdf",
+      "orig_name": "AID-ma_2.7.1.4.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/ahmad_mashhood/neu/cv/AID-ma_1.2.3.0.pdf",
+      "neu_name": "AID-ma_1.2.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (11)"
+      ],
+      "score": 68.6,
+      "orig_chars": 20102,
+      "neu_chars": 9230,
+      "orig_periods": 25,
+      "neu_periods": 15,
+      "missing_periods": [
+        "02/2024 – 10/2024",
+        "02/2025 - Heute",
+        "03/2021 – 08/2022",
+        "05/2024 – 12/2024",
+        "09/2017 – 09/2020",
+        "10/2016 – 09/2017",
+        "10/2020 – 08/2022",
+        "10/2023 – heute",
+        "1000",
+        "2100",
+        "5500"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": false,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": false,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "ahmad_masroor",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/ahmad_masroor/AID-ma_1.8.5.4.pdf",
+      "orig_name": "AID-ma_1.8.5.4.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/ahmad_masroor/neu/cv/AID-ma_2.3.3.0.pdf",
+      "neu_name": "AID-ma_2.3.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (13)"
+      ],
+      "score": 57.9,
+      "orig_chars": 23150,
+      "neu_chars": 16781,
+      "orig_periods": 21,
+      "neu_periods": 20,
+      "missing_periods": [
+        "01/2007 - 03/2007",
+        "03/2004",
+        "03/2006 - 07/2006",
+        "04/2008 - 05/2008",
+        "05/2008 - 09/2009",
+        "05/2011 - 05/2012",
+        "05/2012 - dato",
+        "07/2005 - 03/2006",
+        "08/2007 - 04/2008",
+        "09/2006 - 03/2009",
+        "1999 - 2002",
+        "2003",
+        "2016"
+      ],
+      "extra_periods": [
+        "01/2007 – 03/2007",
+        "03/2006 – 07/2006",
+        "04/2008 – 05/2008",
+        "05/2008 – 09/2009",
+        "05/2011 – 05/2012",
+        "05/2012 – heute",
+        "07/2005 – 03/2006",
+        "08/2007 – 04/2008",
+        "09/2003 – 03/2004",
+        "09/2006 – 03/2009",
+        "1999 – 2002",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "ahmad_mohsin_piracon",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/ahmad_mohsin_piracon/AID-ma_2.0.8.1.pdf",
+      "orig_name": "AID-ma_2.0.8.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/ahmad_mohsin_piracon/neu/cv/AID-ma_1.2.2.0.pdf",
+      "neu_name": "AID-ma_1.2.2.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (5)"
+      ],
+      "score": 65.0,
+      "orig_chars": 4481,
+      "neu_chars": 1852,
+      "orig_periods": 10,
+      "neu_periods": 6,
+      "missing_periods": [
+        "02/2009 – 04/2010",
+        "06/2010 – 12/2014",
+        "08/2004 – 10/2005",
+        "2015",
+        "6500"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "ahmad_shezam",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/ahmad_shezam/AID-sa_2.8.1.8.pdf",
+      "orig_name": "AID-sa_2.8.1.8.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/ahmad_shezam/neu/cv/AID-sa_5.2.3.0.pdf",
+      "neu_name": "AID-sa_5.2.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (7)"
+      ],
+      "score": 48.3,
+      "orig_chars": 4296,
+      "neu_chars": 1866,
+      "orig_periods": 12,
+      "neu_periods": 6,
+      "missing_periods": [
+        "2013 - 2014",
+        "2014 - 2015",
+        "2016",
+        "2018 -2019",
+        "2020",
+        "3650",
+        "6505"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "ahmad_shujah",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/ahmad_shujah/AID-sa_2.3.7.1.pdf",
+      "orig_name": "AID-sa_2.3.7.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/ahmad_shujah/neu/cv/AID-sa_5.1.4.0.pdf",
+      "neu_name": "AID-sa_5.1.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (3)"
+      ],
+      "score": 89.4,
+      "orig_chars": 22861,
+      "neu_chars": 20939,
+      "orig_periods": 32,
+      "neu_periods": 30,
+      "missing_periods": [
+        "10/2015",
+        "2008",
+        "2016"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": false,
+        "Fachbereiche": false,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": false,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": false,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "ahouama_séverin",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/ahouama_séverin/AID-sra_1.9.4.2.pdf",
+      "orig_name": "AID-sra_1.9.4.2.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/ahouama_séverin/neu/cv/AID-sa_5.2.3.0.pdf",
+      "neu_name": "AID-sa_5.2.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (8)"
+      ],
+      "score": 73.2,
+      "orig_chars": 5703,
+      "neu_chars": 6255,
+      "orig_periods": 22,
+      "neu_periods": 17,
+      "missing_periods": [
+        "01/2010",
+        "04/2013 – dato",
+        "05/2011",
+        "11/2011",
+        "1997 – 2002",
+        "2002 – 2006",
+        "2011 – 2013",
+        "2014"
+      ],
+      "extra_periods": [
+        "04/2013 – heute",
+        "2013",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": true
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": true
+      },
+      "weiterbildung_orig": true,
+      "weiterbildung_neu": true
+    },
+    {
+      "dir": "aires_paolo",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/aires_paolo/AID-pa_2.4.1.1.pdf",
+      "orig_name": "AID-pa_2.4.1.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/aires_paolo/neu/cv/AID-pa_1.1.3.0.pdf",
+      "neu_name": "AID-pa_1.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (6)"
+      ],
+      "score": 72.5,
+      "orig_chars": 8904,
+      "neu_chars": 9042,
+      "orig_periods": 16,
+      "neu_periods": 13,
+      "missing_periods": [
+        "04/2007 – dato",
+        "07/2014 – dato",
+        "2009",
+        "2011",
+        "2013",
+        "2017"
+      ],
+      "extra_periods": [
+        "04/2007 – heute",
+        "07/2014 – heute",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "akay_emel",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/akay_emel/AID-ea_1.3.7.2.pdf",
+      "orig_name": "AID-ea_1.3.7.2.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/akay_emel/neu/cv/AID-ea_2.1.3.0.pdf",
+      "neu_name": "AID-ea_2.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (5)"
+      ],
+      "score": 57.5,
+      "orig_chars": 4507,
+      "neu_chars": 4141,
+      "orig_periods": 8,
+      "neu_periods": 13,
+      "missing_periods": [
+        "02/2001 - 03/2001",
+        "04/1999 - 01/2000",
+        "07/2001- 01/2002",
+        "08/2000 - 01/2001",
+        "2005"
+      ],
+      "extra_periods": [
+        "02/1999 – 03/1999",
+        "02/2001 – 03/2001",
+        "03/1999 – 04/1999",
+        "04/1999 – 01/2000",
+        "07/1998 – 09/1998",
+        "07/2001 – 01/2002",
+        "08/2000 – 01/2001",
+        "09/1998 – 02/1999",
+        "12/1997 – 06/1998",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "akortsu_martin",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/akortsu_martin/AID-ma_2.4.8.3.pdf",
+      "orig_name": "AID-ma_2.4.8.3.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "al-kenani_muhanned",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/al-kenani_muhanned/AID-mak_2.1.9.1.pdf",
+      "orig_name": "AID-mak_2.1.9.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/al-kenani_muhanned/neu/cv/AID-ma_1.2.2.0.pdf",
+      "neu_name": "AID-ma_1.2.2.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (53)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 35.2,
+      "orig_chars": 19323,
+      "neu_chars": 4634,
+      "orig_periods": 58,
+      "neu_periods": 9,
+      "missing_periods": [
+        "01/2007 - 04/2008",
+        "01/2010 - 06/2010",
+        "01/2015",
+        "02/2006",
+        "02/2019 - 04/2019",
+        "03/2002",
+        "03/2003",
+        "03/2012 - 11/2015",
+        "04/2000 - 05/2002",
+        "04/2004 - 12/2006",
+        "04/2008",
+        "04/2022",
+        "04/2022 – 06/2022",
+        "05/2019 - 06/2019",
+        "05/2022 – 10/2023",
+        "06/2002 - 03/2004",
+        "06/2003",
+        "06/2013",
+        "06/2018",
+        "06/2021 - 12/2021"
+      ],
+      "extra_periods": [
+        "04/2004 – 12/2006",
+        "07/2019 – 09/2019",
+        "2003",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": true
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": true
+      },
+      "weiterbildung_orig": true,
+      "weiterbildung_neu": true
+    },
+    {
+      "dir": "albaum_friedhelm",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/albaum_friedhelm/AID-fa_2.4.7.2.pdf",
+      "orig_name": "AID-fa_2.4.7.2.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/albaum_friedhelm/neu/cv/AID-fa_2.1.4.0.pdf",
+      "neu_name": "AID-fa_2.1.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (19)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 45.2,
+      "orig_chars": 21429,
+      "neu_chars": 7802,
+      "orig_periods": 31,
+      "neu_periods": 14,
+      "missing_periods": [
+        "01/1981 – 12/1995",
+        "01/1996 – 12/1996",
+        "01/1997 – 12/1997",
+        "01/1998 – 12/1998",
+        "01/1999 – 09/1999",
+        "01/2005 – 04/2005",
+        "01/2008 – 05/2008",
+        "03/2009 – dato",
+        "05/2005 – 03/2006",
+        "05/2008 – 08/2008",
+        "10/1999 – 02/2002",
+        "1970 – 1976",
+        "1976 – 1977",
+        "2009",
+        "2010",
+        "9021",
+        "9200",
+        "9400",
+        "9672"
+      ],
+      "extra_periods": [
+        "03/2009 – heute",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "albers_frank",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/albers_frank/AID-fa_3.6.1.7.pdf",
+      "orig_name": "AID-fa_3.6.1.7.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/albers_frank/neu/cv/AID-fa_1.1.3.0.pdf",
+      "neu_name": "AID-fa_1.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (39)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 15.8,
+      "orig_chars": 24929,
+      "neu_chars": 2725,
+      "orig_periods": 44,
+      "neu_periods": 6,
+      "missing_periods": [
+        "01/2007 – 06/2007",
+        "01/2010 – 03/2010",
+        "01/2014 – dato",
+        "02/2007 – 03/2007",
+        "03/2004 – 07/2004",
+        "04/2006 – 08/2006",
+        "04/2007 – 08/2009",
+        "04/2010 – 10/2010",
+        "05/2013 – 08/2014",
+        "06/2007 – 06/2009",
+        "07/2005 – 03/2006",
+        "08/2004 – 08/2005",
+        "08/2004 – 09/2004",
+        "08/2004 – 09/2005",
+        "08/2012 – 12/2012",
+        "10/2010 – dato",
+        "10/2011 – 04/2012",
+        "10/2011 – dato",
+        "11/2010",
+        "12/2004 – 02/2005"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": false,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "albrecht_jörg",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/albrecht_jörg/AID-ja_2.4.4.2.pdf",
+      "orig_name": "AID-ja_2.4.4.2.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/albrecht_jörg/neu/cv/AID-ja_1.1.3.0.pdf",
+      "neu_name": "AID-ja_1.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Abschluss-Zeile fehlt in neu",
+        "Perioden fehlen (16)"
+      ],
+      "score": 39.5,
+      "orig_chars": 12544,
+      "neu_chars": 10444,
+      "orig_periods": 19,
+      "neu_periods": 19,
+      "missing_periods": [
+        "01/1998 - 06/1998",
+        "01/1999 - 10/1999",
+        "02/2003 - 04/2003",
+        "03/1995 - 06/1995",
+        "04/2004 - dato",
+        "05/2003 - 06/2003",
+        "07/1995 - 06/1997",
+        "07/1997 - 12/1997",
+        "07/1998 - 12/1998",
+        "07/2003 - 03/2004",
+        "10/2001 - 09/2002",
+        "10/2002 - 01/2003",
+        "11/1999 - 11/2000",
+        "12/2000 - 09/2001",
+        "1995",
+        "2006"
+      ],
+      "extra_periods": [
+        "01/1998 – 06/1998",
+        "01/1999 – 10/1999",
+        "02/2003 – 04/2003",
+        "03/1995 – 06/1995",
+        "04/2004 – heute",
+        "05/2003 – 06/2003",
+        "07/1995 – 06/1997",
+        "07/1997 – 12/1997",
+        "07/1998 – 12/1998",
+        "07/2003 – 03/2004",
+        "10/2001 – 09/2002",
+        "10/2002 – 01/2003",
+        "11/1999 – 11/2000",
+        "12/2000 – 09/2001",
+        "2001",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "albrecht_michael",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/albrecht_michael/AID-ma_1.2.9.1.pdf",
+      "orig_name": "AID-ma_1.2.9.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/albrecht_michael/neu/cv/AID-ma_1.1.2.0.pdf",
+      "neu_name": "AID-ma_1.1.2.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (8)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 53.1,
+      "orig_chars": 14096,
+      "neu_chars": 5021,
+      "orig_periods": 13,
+      "neu_periods": 6,
+      "missing_periods": [
+        "01/2011 – 07/2012",
+        "04/1999 – 03/2005",
+        "04/2010 – dato",
+        "07/2012 – 07/2014",
+        "08/2008 – 04/2010",
+        "08/2014 – 07/2015",
+        "11/2010 – 03/2011",
+        "2015"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "aldikacti_turgay",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/aldikacti_turgay/AID-ta_3.1.4.1.pdf",
+      "orig_name": "AID-ta_3.1.4.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/aldikacti_turgay/neu/cv/AID-ta_1.1.3.0.pdf",
+      "neu_name": "AID-ta_1.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (26)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 21.200000000000003,
+      "orig_chars": 15766,
+      "neu_chars": 2419,
+      "orig_periods": 29,
+      "neu_periods": 4,
+      "missing_periods": [
+        "02/2009",
+        "02/2013 - 06/2013",
+        "03/2015 - 04/2015",
+        "04/2010 - 07/2010",
+        "04/2011 - 03/2012",
+        "04/2015 - 06/2015",
+        "05/2016 - dato",
+        "06/2012 - 08/2012",
+        "06/2015 - 07/2015",
+        "07/2007-09/2008",
+        "07/2013 - 12/2013",
+        "07/2015 - 10/2015",
+        "08/2010 - 03/2011",
+        "09/2014 - 10/2014",
+        "10/2014 - 11/2014",
+        "10/2015 - 03/2016",
+        "11/2014 - 02/2015",
+        "12/2013 - 09/2014",
+        "1976",
+        "2005"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "aledawud_reza",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/aledawud_reza/AID-ra_2.6.7.1.pdf",
+      "orig_name": "AID-ra_2.6.7.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/aledawud_reza/neu/cv/AID-ra_2.3.3.0.pdf",
+      "neu_name": "AID-ra_2.3.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (26)"
+      ],
+      "score": 51.7,
+      "orig_chars": 23482,
+      "neu_chars": 20945,
+      "orig_periods": 36,
+      "neu_periods": 33,
+      "missing_periods": [
+        "01/2009 - 02/2009",
+        "01/2014 - 05/2014",
+        "01/2016 - 03/2016",
+        "02/2002 - 08/2003",
+        "02/2006 - 04/2006",
+        "02/2008 - 01/2009",
+        "02/2013 - 12/2013",
+        "03/2001 - 12/2001",
+        "03/2009 - 06/2009",
+        "04/1993 -03/1999",
+        "04/2006 - 03/2007",
+        "04/2007 - 09/2007",
+        "04/2011 - 09/2011",
+        "05/2014 - 11/2015",
+        "06/2009- 08/2010",
+        "06/2012 - 12/2012",
+        "07/2000 - 09/2000",
+        "09/1999 -08/2002",
+        "09/2007 - 12/2007",
+        "09/2010 - 12/2010"
+      ],
+      "extra_periods": [
+        "01/2009 – 02/2009",
+        "01/2014 – 05/2014",
+        "01/2016 – 03/2016",
+        "02/2002 – 08/2003",
+        "02/2006 – 04/2006",
+        "02/2008 – 01/2009",
+        "02/2013 – 12/2013",
+        "03/2001 – 12/2001",
+        "04/1993-03/1999",
+        "04/2005 – 11/2005",
+        "04/2006 – 03/2007",
+        "04/2007 – 09/2007",
+        "04/2011 – 09/2011",
+        "05/2014 – 11/2015",
+        "06/2012 – 12/2012",
+        "07/2000 – 09/2000",
+        "09/1999-08/2002",
+        "09/2007 – 12/2007",
+        "10/1982-01/1985",
+        "10/2004 – 04/2005"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "alekseev_sergej",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/alekseev_sergej/AID-as_2.5.5.5.pdf",
+      "orig_name": "AID-as_2.5.5.5.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/alekseev_sergej/neu/cv/AID-sa_1.1.4.0.pdf",
+      "neu_name": "AID-sa_1.1.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Abschluss-Zeile fehlt in neu",
+        "Perioden fehlen (9)"
+      ],
+      "score": 37.0,
+      "orig_chars": 10386,
+      "neu_chars": 4529,
+      "orig_periods": 12,
+      "neu_periods": 4,
+      "missing_periods": [
+        "1973",
+        "1996",
+        "1999",
+        "1999 - 2006",
+        "2003",
+        "2006",
+        "2007",
+        "2009 - 2010",
+        "2010"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "aleth_joerg",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/aleth_joerg/AID-ja_3.4.7.1.pdf",
+      "orig_name": "AID-ja_3.4.7.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/aleth_joerg/neu/cv/AID-ja_1.1.4.0.pdf",
+      "neu_name": "AID-ja_1.1.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (21)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 2.5,
+      "orig_chars": 11432,
+      "neu_chars": 1483,
+      "orig_periods": 24,
+      "neu_periods": 4,
+      "missing_periods": [
+        "01/2009 – 07/2009",
+        "01/2011 – 03/2011",
+        "01/2013 – 11/2014",
+        "02/2015 – 04/2015",
+        "03/2011",
+        "04/2008 – 09/2008",
+        "04/2011 – 08/2011",
+        "05/2015 – dato",
+        "06/2012 – 12/2012",
+        "08/2003 – 03/2008",
+        "09/2009 – 12/2010",
+        "09/2011 – 05/2012",
+        "10/2008 – 01/2009",
+        "12/2014 – 01/2015",
+        "1965",
+        "2007",
+        "2008",
+        "2009",
+        "2010",
+        "2012"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": false,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": false,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "alfke_martin",
+      "orig": null,
+      "orig_name": null,
+      "neu": null,
+      "neu_name": null,
+      "status": "no_orig",
+      "flags": [
+        "kein Original-AID-PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "algermissen_jan",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/algermissen_jan/AID-ja_2.4.7.1.pdf",
+      "orig_name": "AID-ja_2.4.7.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/algermissen_jan/neu/cv/AID-ja_2.3.2.0.pdf",
+      "neu_name": "AID-ja_2.3.2.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (27)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 36.0,
+      "orig_chars": 13322,
+      "neu_chars": 2126,
+      "orig_periods": 30,
+      "neu_periods": 4,
+      "missing_periods": [
+        "01/1999 – 04/1999",
+        "01/2004",
+        "02/2000 – 02/2001",
+        "02/2002 – 03/2002",
+        "02/2004 – 03/2005",
+        "02/2006 – 04/2006",
+        "04/2002",
+        "04/2004",
+        "05/2003 – 07/2003",
+        "06/2002 – 07/2002",
+        "06/2005 – 09/2005",
+        "07/2002",
+        "08/2003",
+        "09/2003 – 12/2003",
+        "10/2006 – 02/2006",
+        "11/2002 – 04/2003",
+        "11/2002 – 12/2002",
+        "11/2003 – 01/2004",
+        "12/1999 – 07/2001",
+        "12/2001"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "alhaeuser_dirk",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/alhaeuser_dirk/AID-da_1.3.5.2.pdf",
+      "orig_name": "AID-da_1.3.5.2.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/alhaeuser_dirk/neu/cv/AID-da_2.3.3.0.pdf",
+      "neu_name": "AID-da_2.3.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (15)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 12.100000000000001,
+      "orig_chars": 4776,
+      "neu_chars": 1181,
+      "orig_periods": 17,
+      "neu_periods": 4,
+      "missing_periods": [
+        "01/2000 – 04/2000",
+        "05/1999 – 09/1999",
+        "05/2000 – 06/2000",
+        "06/2000 – 08/2000",
+        "09/1999 – 10/1999",
+        "09/2000 – 11/2001",
+        "09/2004 – 12/2004",
+        "10/1999 – 11/1999",
+        "11/1999 – 01/2000",
+        "11/2001 – 06/2003",
+        "11/2003 – 04/2004",
+        "1969",
+        "1998",
+        "2004",
+        "9816"
+      ],
+      "extra_periods": [
+        "2026",
+        "8867"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": false,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "alieff_alexander",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/alieff_alexander/AID-aa_2.2.0.3.pdf",
+      "orig_name": "AID-aa_2.2.0.3.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "alker_manfred",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/alker_manfred/AID-ma_3.3.3.6.pdf",
+      "orig_name": "AID-ma_3.3.3.6.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/alker_manfred/neu/cv/AID-ma_2.1.3.0.pdf",
+      "neu_name": "AID-ma_2.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (20)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 27.799999999999997,
+      "orig_chars": 62700,
+      "neu_chars": 16521,
+      "orig_periods": 23,
+      "neu_periods": 10,
+      "missing_periods": [
+        "01/2003 - 08/2004",
+        "01/2006 - 12/2006",
+        "01/2007 - 05/2008",
+        "01/2008 - 12/2008",
+        "01/2009 - 03/2009",
+        "02/2010 - 11/2010",
+        "04/2009 - 12/2009",
+        "05/1999 - 07/2001",
+        "05/2008 - 12/2008",
+        "06/1996 - 06/1999",
+        "06/2004 - 12/2005",
+        "08/2001 - 09/2002",
+        "08/2002 - 12/2002",
+        "09/2001 - 10/2001",
+        "09/2002",
+        "10/1995 - 06/1996",
+        "10/2007",
+        "11/1999 - 02/2001",
+        "12/2010-08/2011",
+        "2012"
+      ],
+      "extra_periods": [
+        "01/2007 – 05/2008",
+        "05/1999 – 07/2001",
+        "06/1996 – 06/1999",
+        "08/2001 – 09/2002",
+        "10/1995 – 06/1996",
+        "11/1999 – 02/2001",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "allam_said",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/allam_said/AID-sa_1.4.2.8.pdf",
+      "orig_name": "AID-sa_1.4.2.8.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/allam_said/neu/cv/AID-sa_5.2.3.0.pdf",
+      "neu_name": "AID-sa_5.2.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (9)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 45.0,
+      "orig_chars": 7004,
+      "neu_chars": 2484,
+      "orig_periods": 12,
+      "neu_periods": 4,
+      "missing_periods": [
+        "03/2001 – 08/2003",
+        "03/2012 – 06/2014",
+        "09/2003 – 08/2006",
+        "09/2006 – 02/2010",
+        "09/2014 – 10/2014",
+        "10/2010 – 05/2011",
+        "11/2014 – 03/2015",
+        "1970",
+        "2015"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "allinger_kurt_dr",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/allinger_kurt_dr/AID-ka_3.8.0.3.pdf",
+      "orig_name": "AID-ka_3.8.0.3.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/allinger_kurt_dr/neu/cv/AID-ka_5.1.4.0.pdf",
+      "neu_name": "AID-ka_5.1.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (29)"
+      ],
+      "score": 46.7,
+      "orig_chars": 18329,
+      "neu_chars": 11389,
+      "orig_periods": 36,
+      "neu_periods": 20,
+      "missing_periods": [
+        "1164 – 1177",
+        "1724 – 1731",
+        "1974",
+        "1975",
+        "1978",
+        "1978 - 2004",
+        "1980",
+        "1981",
+        "1982",
+        "1984",
+        "1986",
+        "1988 - 1990",
+        "1989",
+        "1990 - 1994",
+        "1993",
+        "1994 - 1995",
+        "1996 - 1997",
+        "1997 - 1999",
+        "1998 - 1999",
+        "2000 - 2001"
+      ],
+      "extra_periods": [
+        "1988 – 1990",
+        "1990 – 1994",
+        "1994 – 1995",
+        "1996 – 1997",
+        "1997 – 1999",
+        "1998 – 1999",
+        "2000 – 2001",
+        "2003 – 2004",
+        "2004 – 2005",
+        "2005 – 2007",
+        "2007 – 2009",
+        "2009 – 2010",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "althen_andreas",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/althen_andreas/AID-aa_3.1.8.9.pdf",
+      "orig_name": "AID-aa_3.1.8.9.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/althen_andreas/neu/cv/AID-aa_2.3.4.0.pdf",
+      "neu_name": "AID-aa_2.3.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Abschluss-Zeile fehlt in neu",
+        "Perioden fehlen (48)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 31.700000000000003,
+      "orig_chars": 21529,
+      "neu_chars": 2049,
+      "orig_periods": 54,
+      "neu_periods": 7,
+      "missing_periods": [
+        "01/1996",
+        "01/1999 – 03/1999",
+        "01/2000 – 03/2000",
+        "01/2001 – 03/2001",
+        "02/1994 – 08/1994",
+        "02/1995 – 05/1995",
+        "02/1997 – 03/1997",
+        "02/2001 – 03/2001",
+        "02/2002",
+        "02/2006 – 03/2006",
+        "03/1993 – 04/1993",
+        "03/1997 – 05/1997",
+        "03/2000 – 06/2000",
+        "03/2002 – 04/2002",
+        "03/2003 – 05/2003",
+        "03/2006 – 05/2006",
+        "04/2001 – 05/2001",
+        "05/1993",
+        "05/1995",
+        "05/2003 – 07/2003"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "amaoui_faouzi",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/amaoui_faouzi/AID-fa_3.2.7.1.pdf",
+      "orig_name": "AID-fa_3.2.7.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/amaoui_faouzi/neu/cv/AID-fa_1.1.2.0.pdf",
+      "neu_name": "AID-fa_1.1.2.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Abschluss-Zeile fehlt in neu",
+        "Perioden fehlen (16)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 20.5,
+      "orig_chars": 14799,
+      "neu_chars": 2799,
+      "orig_periods": 17,
+      "neu_periods": 6,
+      "missing_periods": [
+        "01/2007 – 07/2009",
+        "02/2002",
+        "03/2006 – 06/2006",
+        "04/2002",
+        "05/2002 – 10/2003",
+        "07/2001 – 02/2002",
+        "07/2005 - dato",
+        "09/1998 – 06/2001",
+        "10/2003 - dato",
+        "11/2004 – 06/2005",
+        "1978",
+        "1995",
+        "2000",
+        "2002",
+        "2003",
+        "2009"
+      ],
+      "extra_periods": [
+        "06/2015 – 08/2015",
+        "1972",
+        "2008",
+        "2012",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "ambacher_joachim",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/ambacher_joachim/AID-ja_2.4.7.2.pdf",
+      "orig_name": "AID-ja_2.4.7.2.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "amberg_eric",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/amberg_eric/AID-ea_2.3.4.6.pdf",
+      "orig_name": "AID-ea_2.3.4.6.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/amberg_eric/neu/cv/AID-ea_5.2.4.0.pdf",
+      "neu_name": "AID-ea_5.2.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (5)"
+      ],
+      "score": 82.0,
+      "orig_chars": 14432,
+      "neu_chars": 10290,
+      "orig_periods": 23,
+      "neu_periods": 21,
+      "missing_periods": [
+        "01/2009 – dato",
+        "11/2015 – dato",
+        "2004",
+        "2005",
+        "2023"
+      ],
+      "extra_periods": [
+        "01/2009 – heute",
+        "11/2015 – heute",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "amin_sabah",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/amin_sabah/AID-as_2.6.7.3.pdf",
+      "orig_name": "AID-as_2.6.7.3.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/amin_sabah/neu/cv/AID-sa_1.1.3.0.pdf",
+      "neu_name": "AID-sa_1.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (46)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 22.0,
+      "orig_chars": 20894,
+      "neu_chars": 4405,
+      "orig_periods": 49,
+      "neu_periods": 4,
+      "missing_periods": [
+        "01/2001 – 09/2001",
+        "01/2006 – 12/2006",
+        "01/2007 – 10/2007",
+        "01/2008 – 03/2008",
+        "01/2015 – 11/2015",
+        "02/2000 – 03/2000",
+        "02/2009 – 06/2010",
+        "02/2011 – 09/2011",
+        "02/2012 – 03/2012",
+        "02/2018 – 06/2018",
+        "03/1999",
+        "03/2002 – 12/2004",
+        "04/2005 – 12/2005",
+        "04/2008 – 07/2008",
+        "04/2009 – 09/2009",
+        "04/2012 – 09/2012",
+        "04/2014 – 06/2014",
+        "05/1999 – 10/1999",
+        "05/2013 – 02/2014",
+        "05/2017 – 05/2017"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "amiri_nariman",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/amiri_nariman/AID-na_2.1.9.3.pdf",
+      "orig_name": "AID-na_2.1.9.3.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "amistadi_daniela",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/amistadi_daniela/AID-da_1.2.4.2.pdf",
+      "orig_name": "AID-da_1.2.4.2.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/amistadi_daniela/neu/cv/AID-da_1.1.3.0.pdf",
+      "neu_name": "AID-da_1.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (9)"
+      ],
+      "score": 61.2,
+      "orig_chars": 14634,
+      "neu_chars": 16008,
+      "orig_periods": 16,
+      "neu_periods": 15,
+      "missing_periods": [
+        "03/2001 - 04/2001",
+        "04/2000 - 06/2000",
+        "05/2001 - 04/2002",
+        "05/2004 - 06/2004",
+        "06/2003 - 04/2004",
+        "11/2002 - 05/2003",
+        "2003",
+        "2004",
+        "9816"
+      ],
+      "extra_periods": [
+        "03/2001 – 04/2001",
+        "04/2000 – 06/2000",
+        "05/2001 – 04/2002",
+        "05/2004 – 06/2004",
+        "06/2003 – 04/2004",
+        "11/2002 – 05/2003",
+        "2026",
+        "8867"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": false,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": true
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": true
+      },
+      "weiterbildung_orig": true,
+      "weiterbildung_neu": true
+    },
+    {
+      "dir": "amouzou_eyram_kokouvi",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/amouzou_eyram_kokouvi/AID-eka_2.3.9.9.pdf",
+      "orig_name": "AID-eka_2.3.9.9.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/amouzou_eyram_kokouvi/neu/cv/AID-ea_5.2.3.0-en.pdf",
+      "neu_name": "AID-ea_5.2.3.0-en.pdf",
+      "status": "compared",
+      "flags": [
+        "Weiterbildung fehlt in neu",
+        "Perioden fehlen (6)"
+      ],
+      "score": 42.7,
+      "orig_chars": 15619,
+      "neu_chars": 16007,
+      "orig_periods": 49,
+      "neu_periods": 46,
+      "missing_periods": [
+        "04/2015 – 08/2015",
+        "05/2020 – dato",
+        "09/2000",
+        "10/2015 – 08/2016",
+        "10/2018 – 02/2019",
+        "2023"
+      ],
+      "extra_periods": [
+        "05/2020 – heute",
+        "07/2000 – 09/2000",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": true
+      },
+      "neu_sections": {
+        "Persönliche Daten": false,
+        "Fachbereiche": false,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": false,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": true,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "amri_manochehr",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/amri_manochehr/AID-ma_2.1.0.3.pdf",
+      "orig_name": "AID-ma_2.1.0.3.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/amri_manochehr/neu/cv/AID-ma_1.1.3.0.pdf",
+      "neu_name": "AID-ma_1.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Weiterbildung fehlt in neu",
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (42)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 17.1,
+      "orig_chars": 19833,
+      "neu_chars": 3385,
+      "orig_periods": 63,
+      "neu_periods": 22,
+      "missing_periods": [
+        "01/2012 - 11/2012",
+        "02/2007 – 04/2007",
+        "02/2016 - 04/2017",
+        "04/2018 - 08/2018",
+        "05/2005 - 02/2006",
+        "05/2006 - 04/2007",
+        "05/2006 – 01/2007",
+        "05/2017 - 02/2018",
+        "05/2019 - 12/2019",
+        "05/2021 - 08/2021",
+        "07/2010 - 08/2011",
+        "08/2014 - 02/2015",
+        "08/2015 - 02/2016",
+        "08/2021 - 11/2021",
+        "09/2011 - 12/2011",
+        "09/2018 - 10/2018",
+        "09/2020 - 01/2021",
+        "11/2012 - 12/2013",
+        "11/2018 - 04/2019",
+        "12/2013 - 03/2014"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": true
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": true,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "amri_masoud",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/amri_masoud/AID-ma_1.8.4.9.pdf",
+      "orig_name": "AID-ma_1.8.4.9.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/amri_masoud/neu/cv/AID-ma_2.3.3.0.pdf",
+      "neu_name": "AID-ma_2.3.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (42)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 6.399999999999999,
+      "orig_chars": 43040,
+      "neu_chars": 2715,
+      "orig_periods": 43,
+      "neu_periods": 2,
+      "missing_periods": [
+        "01/1995 – 04/1996",
+        "01/2004 – 05/2004",
+        "01/2007 – 05/2007",
+        "01/2010 – 05/2010",
+        "02/1994 – 06/1994",
+        "02/2001 – 06/2001",
+        "02/2008 – 01/2009",
+        "02/2009 – 04/2009",
+        "02/2015 – 02/2016",
+        "03/2006 – 05/2006",
+        "05/1996 – 06/1996",
+        "05/1997 – 11/1998",
+        "05/1999 – 10/1999",
+        "05/2009 – 07/2009",
+        "05/2013 – 11/2013",
+        "06/1996 – 03/1997",
+        "06/2006 – 09/2006",
+        "06/2007 – 12/2007",
+        "06/2010 – 11/2010",
+        "07/1998 – 09/1998"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": false,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "anacker_ellen",
+      "orig": null,
+      "orig_name": null,
+      "neu": null,
+      "neu_name": null,
+      "status": "no_orig",
+      "flags": [
+        "kein Original-AID-PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "anderer_bernd",
+      "orig": null,
+      "orig_name": null,
+      "neu": null,
+      "neu_name": null,
+      "status": "no_orig",
+      "flags": [
+        "kein Original-AID-PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "anders_Frank",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/anders_Frank/AID-fa_3.2.7.1.pdf",
+      "orig_name": "AID-fa_3.2.7.1.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "anders_gerd",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/anders_gerd/AID-ga_4.8.1.6.pdf",
+      "orig_name": "AID-ga_4.8.1.6.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/anders_gerd/neu/cv/AID-ga_1.2.3.0.pdf",
+      "neu_name": "AID-ga_1.2.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (4)"
+      ],
+      "score": 80.0,
+      "orig_chars": 12513,
+      "neu_chars": 12710,
+      "orig_periods": 16,
+      "neu_periods": 16,
+      "missing_periods": [
+        "2008 - 2009",
+        "2012 - 2013",
+        "2013 - 2014",
+        "2015"
+      ],
+      "extra_periods": [
+        "2008 – 2009",
+        "2012 – 2013",
+        "2013 – 2014",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "andersen_daniel",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/andersen_daniel/AID-da_2.7.1.5.pdf",
+      "orig_name": "AID-da_2.7.1.5.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/andersen_daniel/neu/cv/AID-da_1.1.3.0.pdf",
+      "neu_name": "AID-da_1.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (26)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 31.1,
+      "orig_chars": 29184,
+      "neu_chars": 3182,
+      "orig_periods": 33,
+      "neu_periods": 8,
+      "missing_periods": [
+        "01/2014 – 10/2014",
+        "02/2001 – 05/2002",
+        "02/2003 – 10/2003",
+        "02/2007 – 06/2007",
+        "04/2008 – 02/2009",
+        "04/2009 – 04/2011",
+        "04/2011 – 12/2011",
+        "06/2012 – 08/2012",
+        "06/2013 – 12/2013",
+        "09/2006 – 01/2007",
+        "09/2007 – 04/2008",
+        "10/2004 – 10/2007",
+        "10/2012 – 06/2013",
+        "11/2002 – 08/2004",
+        "12/2005 – 02/2008",
+        "12/2011 – 10/2012",
+        "1500",
+        "1997 - 2001",
+        "2002",
+        "2003"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "andreadakis_georgios",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/andreadakis_georgios/AID-ga_3.1.8.1.pdf",
+      "orig_name": "AID-ga_3.1.8.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/andreadakis_georgios/neu/cv/AID-ga_2.3.3.0.pdf",
+      "neu_name": "AID-ga_2.3.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (34)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 19.9,
+      "orig_chars": 26814,
+      "neu_chars": 2645,
+      "orig_periods": 37,
+      "neu_periods": 5,
+      "missing_periods": [
+        "01/1996 – 06/1996",
+        "01/1997",
+        "01/2001 – 04/2001",
+        "01/2002 – 06/2002",
+        "01/2004 – 12/2006",
+        "01/2007 – 06/2007",
+        "02/1995 – 12/1995",
+        "02/2011 – dato",
+        "03/1997 – 05/1997",
+        "04/2000 – 05/2000",
+        "05/2001 – 08/2001",
+        "05/2009 – 10/2009",
+        "06/1997",
+        "06/1998 – 08/1999",
+        "06/2000 – 07/2000",
+        "07/1996 – 08/1996",
+        "07/1997",
+        "07/2002 – 08/2002",
+        "08/1997 – 05/1998",
+        "08/2000 – 12/2000"
+      ],
+      "extra_periods": [
+        "1989 - 1994",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "andreas_rolf",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/andreas_rolf/AID-ra_2.6.8.1.pdf",
+      "orig_name": "AID-ra_2.6.8.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/andreas_rolf/neu/cv/AID-ra_4.1.4.0.pdf",
+      "neu_name": "AID-ra_4.1.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (9)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 54.0,
+      "orig_chars": 22636,
+      "neu_chars": 2747,
+      "orig_periods": 15,
+      "neu_periods": 7,
+      "missing_periods": [
+        "1999",
+        "2000",
+        "2002",
+        "2003",
+        "2005",
+        "2006",
+        "2007",
+        "2008",
+        "2009"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "ankaoglu_ercan",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/ankaoglu_ercan/AID-ea_2.8.6.4.pdf",
+      "orig_name": "AID-ea_2.8.6.4.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/ankaoglu_ercan/neu/cv/AID-ea_5.1.3.0.pdf",
+      "neu_name": "AID-ea_5.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (18)"
+      ],
+      "score": 57.8,
+      "orig_chars": 15349,
+      "neu_chars": 6278,
+      "orig_periods": 29,
+      "neu_periods": 13,
+      "missing_periods": [
+        "01/2002 - 05/2002",
+        "01/2003 - 12/2003",
+        "01/2004 - 12/2004",
+        "01/2005 - 12/2005",
+        "01/2006 - 12/2006",
+        "01/2007 - 12/2007",
+        "01/2008 - 12/2008",
+        "01/2009 - 02/2010",
+        "03/2010 - 10/2010",
+        "04/2011 - 07/2011",
+        "06/2002 - 08/2002",
+        "07/2001 - 12/2001",
+        "08/2011 - dato",
+        "09/2002 - 12/2002",
+        "11/2010 - 03/2011",
+        "1962",
+        "1984",
+        "2012"
+      ],
+      "extra_periods": [
+        "09/2002 – 12/2002",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "antonakakis_konstantin",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/antonakakis_konstantin/AID-ka_2.3.7.2.pdf",
+      "orig_name": "AID-ka_2.3.7.2.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "antoni_andreas",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/antoni_andreas/AID-aa_3.4.5.1.pdf",
+      "orig_name": "AID-aa_3.4.5.1.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "appmeier_uwe",
+      "orig": null,
+      "orig_name": null,
+      "neu": null,
+      "neu_name": null,
+      "status": "no_orig",
+      "flags": [
+        "kein Original-AID-PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "arbor_link",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/arbor_link/AID-aj_2.1.7.9.pdf",
+      "orig_name": "AID-aj_2.1.7.9.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/arbor_link/neu/cv/AID-la_4.1.3.0.pdf",
+      "neu_name": "AID-la_4.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (8)"
+      ],
+      "score": 58.1,
+      "orig_chars": 4488,
+      "neu_chars": 2312,
+      "orig_periods": 13,
+      "neu_periods": 6,
+      "missing_periods": [
+        "04/1996 – 09/2003",
+        "04/2022 – heute",
+        "09/2003 – 04/2006",
+        "10/1987 – 10/1991",
+        "10/2015 – 06/2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "arda_franco",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/arda_franco/AID-fa_2.9.4.1.pdf",
+      "orig_name": "AID-fa_2.9.4.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/arda_franco/neu/cv/AID-fa_5.4.3.0.pdf",
+      "neu_name": "AID-fa_5.4.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (7)"
+      ],
+      "score": 56.8,
+      "orig_chars": 5888,
+      "neu_chars": 3277,
+      "orig_periods": 11,
+      "neu_periods": 9,
+      "missing_periods": [
+        "2000 - 2008",
+        "2008 - 2016",
+        "2016",
+        "2020",
+        "2021",
+        "2023",
+        "3000"
+      ],
+      "extra_periods": [
+        "01/2020 – 07/2020",
+        "05/2022 – 07/2022",
+        "06/2023 – heute",
+        "11/2022 – 12/2022",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "arendar_andreas",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/arendar_andreas/AID-aa_2.3.7.2.pdf",
+      "orig_name": "AID-aa_2.3.7.2.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "arends_gerrit",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/arends_gerrit/AID-ga_2.4.4.1.pdf",
+      "orig_name": "AID-ga_2.4.4.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/arends_gerrit/neu/cv/AID-ga_1.2.3.0.pdf",
+      "neu_name": "AID-ga_1.2.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (77)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 36.3,
+      "orig_chars": 16318,
+      "neu_chars": 4480,
+      "orig_periods": 86,
+      "neu_periods": 10,
+      "missing_periods": [
+        "01/2004 – 12/2011",
+        "01/2007 – 12/2007",
+        "01/2008 – 10/2011",
+        "01/2010 – 03/2010",
+        "01/2010 – dato",
+        "01/2012 – 03/2013",
+        "01/2013 – 12/2013",
+        "01/2014 – 07/2014",
+        "01/2014 – dato",
+        "02/2010",
+        "02/2010 – 03/2010",
+        "02/2012",
+        "02/2013 – 10/2013",
+        "03/2008 – 08/2008",
+        "03/2010 – 12/2012",
+        "03/2011 – 11/2013",
+        "03/2014 – 04/2014",
+        "03/2014 – dato",
+        "04/2012",
+        "04/2013 – 12/2013"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": false,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "arends_heinz",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/arends_heinz/AID-ha_2.6.9.1.pdf",
+      "orig_name": "AID-ha_2.6.9.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/arends_heinz/neu/cv/AID-ha_2.5.3.0.pdf",
+      "neu_name": "AID-ha_2.5.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (27)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 24.299999999999997,
+      "orig_chars": 10400,
+      "neu_chars": 2330,
+      "orig_periods": 30,
+      "neu_periods": 4,
+      "missing_periods": [
+        "03/2010 - dato",
+        "09/2008",
+        "10/2008 - 09/2009",
+        "10/2009 - 12/2009",
+        "1965",
+        "1985",
+        "1986",
+        "1990 – 1996",
+        "1995 - 1996",
+        "1996 – 2003",
+        "1997",
+        "1998 - 2000",
+        "2000",
+        "2000 - 2003",
+        "2002",
+        "2005 - 2006",
+        "2006",
+        "2006 - 2007",
+        "2007",
+        "2011"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "aribogan_osman",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/aribogan_osman/AID-oa_1.3.5.8.pdf",
+      "orig_name": "AID-oa_1.3.5.8.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/aribogan_osman/neu/cv/AID-oa_1.2.3.0.pdf",
+      "neu_name": "AID-oa_1.2.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (9)"
+      ],
+      "score": 68.0,
+      "orig_chars": 6911,
+      "neu_chars": 4808,
+      "orig_periods": 20,
+      "neu_periods": 13,
+      "missing_periods": [
+        "01/2000",
+        "04/2001",
+        "05/2007",
+        "06/2007",
+        "08/2007",
+        "09/2001",
+        "10/2007 – dato",
+        "1992 - 1996",
+        "2008"
+      ],
+      "extra_periods": [
+        "10/2007 – heute",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "arif_asif",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/arif_asif/AID-aa_2.6.1.5.pdf",
+      "orig_name": "AID-aa_2.6.1.5.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/arif_asif/neu/cv/AID-aa_1.2.3.0-en.pdf",
+      "neu_name": "AID-aa_1.2.3.0-en.pdf",
+      "status": "compared",
+      "flags": [
+        "Weiterbildung fehlt in neu",
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (8)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 0.0,
+      "orig_chars": 5228,
+      "neu_chars": 1696,
+      "orig_periods": 10,
+      "neu_periods": 3,
+      "missing_periods": [
+        "01/2001 – 08/2008",
+        "01/2010 – 05/2010",
+        "01/2011 – dato",
+        "05/2000 – 10/2000",
+        "06/2010 – 01/2011",
+        "09/2008 – 12/2009",
+        "1976",
+        "2013"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": true
+      },
+      "neu_sections": {
+        "Persönliche Daten": false,
+        "Fachbereiche": false,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": false,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": true,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "armborst_christian",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/armborst_christian/AID-ca_2.9.3.7.pdf",
+      "orig_name": "AID-ca_2.9.3.7.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "arndt_guenter",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/arndt_guenter/AID-ga_3.1.7.4.pdf",
+      "orig_name": "AID-ga_3.1.7.4.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/arndt_guenter/neu/cv/AID-ga_2.1.3.0.pdf",
+      "neu_name": "AID-ga_2.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (13)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 57.5,
+      "orig_chars": 12557,
+      "neu_chars": 4584,
+      "orig_periods": 24,
+      "neu_periods": 13,
+      "missing_periods": [
+        "02/2000 – 04/2003",
+        "02/2009 – 12/2012",
+        "02/2014",
+        "03/2006 – 12/2007",
+        "05/2003 – 07/2005",
+        "07/1993 – 06/1998",
+        "07/1998 – 01/2000",
+        "09/2005",
+        "10/2005 – 02/2006",
+        "11/2013 - heute",
+        "12/2007 – 12/2008",
+        "2003",
+        "2014"
+      ],
+      "extra_periods": [
+        "11/2013 – heute",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "arnold_ethan",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/arnold_ethan/AID-ea_2.3.1.2.pdf",
+      "orig_name": "AID-ea_2.3.1.2.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/arnold_ethan/neu/cv/AID-ea_1.1.3.0.pdf",
+      "neu_name": "AID-ea_1.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (20)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 50.0,
+      "orig_chars": 8612,
+      "neu_chars": 3420,
+      "orig_periods": 30,
+      "neu_periods": 12,
+      "missing_periods": [
+        "01/2003 - 06/2004",
+        "01/2008 – 08/2008",
+        "06/1998 - 10/1998",
+        "06/2001 - 09/2001",
+        "06/2004 - 06/2006",
+        "06/2009 - 11/2009",
+        "07/1999 - 09/1999",
+        "07/2006 - 10/2007",
+        "08/1997 - 10/1997",
+        "09/2008 – 04/2009",
+        "10/1998 - 03/1999",
+        "10/1999 - 08/2000",
+        "10/2001 - 12/2002",
+        "11/2007",
+        "1973",
+        "1983",
+        "1984",
+        "1995",
+        "2003",
+        "2009"
+      ],
+      "extra_periods": [
+        "08/1997 – 10/1997",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "arnold_guenther",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/arnold_guenther/AID-ga_1 2 2 6.pdf",
+      "orig_name": "AID-ga_1 2 2 6.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/arnold_guenther/neu/cv/AID-ga_2.3.3.0.pdf",
+      "neu_name": "AID-ga_2.3.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (18)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 43.0,
+      "orig_chars": 9929,
+      "neu_chars": 1613,
+      "orig_periods": 23,
+      "neu_periods": 6,
+      "missing_periods": [
+        "01/1998 – 12/1998",
+        "01/2012 – 04/2012",
+        "03/2007 – 04/2007",
+        "03/2008 – 04/2011",
+        "03/2013 – dato",
+        "05/1996 – 08/1996",
+        "05/2000 – 12/2000",
+        "06/2001 – 12/2001",
+        "09/2002 – 11/2002",
+        "10/2007 – 02/2008",
+        "10/2009 – 01/2010",
+        "11/2003 – 01/2004",
+        "11/2006 – 02/2007",
+        "1991",
+        "1992",
+        "1993",
+        "1994",
+        "2013"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "arnold_ingo",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/arnold_ingo/AID-ia_2.4.7.2.pdf",
+      "orig_name": "AID-ia_2.4.7.2.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/arnold_ingo/neu/cv/AID-ia_2.1.5.0-en.pdf",
+      "neu_name": "AID-ia_2.1.5.0-en.pdf",
+      "status": "compared",
+      "flags": [
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (1)"
+      ],
+      "score": 44.0,
+      "orig_chars": 2718,
+      "neu_chars": 2570,
+      "orig_periods": 10,
+      "neu_periods": 10,
+      "missing_periods": [
+        "2005"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": false,
+        "Fachbereiche": false,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": false,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "arnold_jens",
+      "orig": null,
+      "orig_name": null,
+      "neu": null,
+      "neu_name": null,
+      "status": "no_orig",
+      "flags": [
+        "kein Original-AID-PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "arulanatham_prince",
+      "orig": null,
+      "orig_name": null,
+      "neu": null,
+      "neu_name": null,
+      "status": "no_orig",
+      "flags": [
+        "kein Original-AID-PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "arz_gregor",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/arz_gregor/AID-ga_3.0.6.7.pdf",
+      "orig_name": "AID-ga_3.0.6.7.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/arz_gregor/neu/cv/AID-ga_2.3.2.0.pdf",
+      "neu_name": "AID-ga_2.3.2.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (14)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 43.3,
+      "orig_chars": 12427,
+      "neu_chars": 4585,
+      "orig_periods": 18,
+      "neu_periods": 9,
+      "missing_periods": [
+        "01/2016 - 03/2016",
+        "01/2017 - 03/2017",
+        "02/2015 - 06/2015",
+        "04/2016",
+        "04/2017 - 06/2017",
+        "05/2016 - 09/2016",
+        "05/2018 - 08/2019",
+        "06/2014 - 01/2015",
+        "07/2015 - 12/2015",
+        "07/2017 - 04/2018",
+        "08/2002 - 07/2011",
+        "08/2011 - 05/2014",
+        "09/2016 - 11/2016",
+        "2019"
+      ],
+      "extra_periods": [
+        "01/2017 – 03/2017",
+        "05/2016 – 09/2016",
+        "05/2018 – 08/2019",
+        "09/2016 – 11/2016",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "asadpoor_majid",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/asadpoor_majid/AID-ma_1.2.7.1.pdf",
+      "orig_name": "AID-ma_1.2.7.1.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "aschenbrenner_juergen",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/aschenbrenner_juergen/AID-ja_1.4.4.7.pdf",
+      "orig_name": "AID-ja_1.4.4.7.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/aschenbrenner_juergen/neu/cv/AID-ja_2.3.4.0.pdf",
+      "neu_name": "AID-ja_2.3.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (24)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 22.9,
+      "orig_chars": 14747,
+      "neu_chars": 2756,
+      "orig_periods": 26,
+      "neu_periods": 3,
+      "missing_periods": [
+        "03/2002 – 07/2006",
+        "04/1999 – 04/2001",
+        "05/2001 – 12/2001",
+        "05/2013 – 09/2015",
+        "07/2007 – 09/2008",
+        "07/2010",
+        "10/2006 – 06/2007",
+        "10/2008 – 10/2009",
+        "10/2010 – 04/2013",
+        "10/2015 – 04/2016",
+        "11/2009 – 06/2010",
+        "1967",
+        "1990 - 1997",
+        "1999",
+        "2001",
+        "2002",
+        "2004",
+        "2006",
+        "2008",
+        "2009"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "aseev_alexander",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/aseev_alexander/AID-aa_1.9.6.2.pdf",
+      "orig_name": "AID-aa_1.9.6.2.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "ashrafi_ahad",
+      "orig": null,
+      "orig_name": null,
+      "neu": null,
+      "neu_name": null,
+      "status": "no_orig",
+      "flags": [
+        "kein Original-AID-PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "askar_ali",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/askar_ali/AID-aa_1.4.5.4.pdf",
+      "orig_name": "AID-aa_1.4.5.4.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/askar_ali/neu/cv/AID-aa_2.3.2.0.pdf",
+      "neu_name": "AID-aa_2.3.2.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (3)"
+      ],
+      "score": 73.2,
+      "orig_chars": 15736,
+      "neu_chars": 12570,
+      "orig_periods": 13,
+      "neu_periods": 13,
+      "missing_periods": [
+        "03/2019",
+        "11/2020 - 04/2022",
+        "2025"
+      ],
+      "extra_periods": [
+        "03/2019 – heute",
+        "11/2020 – 04/2022",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": false,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "assmann_marc",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/assmann_marc/AID-ma_1.9.6.7.pdf",
+      "orig_name": "AID-ma_1.9.6.7.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/assmann_marc/neu/cv/AID-ma_2.3.2.0.pdf",
+      "neu_name": "AID-ma_2.3.2.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (28)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 42.0,
+      "orig_chars": 12002,
+      "neu_chars": 3976,
+      "orig_periods": 35,
+      "neu_periods": 13,
+      "missing_periods": [
+        "01/2001 - 10/2001",
+        "01/2005 - 03/2005",
+        "01/2006 - 03/2006",
+        "01/2008 - 04/2009",
+        "02/2002 - 05/2002",
+        "02/2004 - 05/2004",
+        "02/2007 - 08/2010",
+        "04/2003 - 08/2003",
+        "04/2006",
+        "05/2006 - 07/2006",
+        "05/2008 - 09/2012",
+        "06/2009 - 09/2011",
+        "06/2011 - 04/2012",
+        "08/2002 - 02/2003",
+        "08/2005 - 09/2005",
+        "08/2006 - 10/2006",
+        "08/2009 - 07/2011",
+        "08/2011 - 10/2012",
+        "09/2001 - 05/2005",
+        "09/2005"
+      ],
+      "extra_periods": [
+        "01/2001 – 10/2001",
+        "02/2002 – 05/2002",
+        "04/2003 – 08/2003",
+        "10/2011 – 10/2012",
+        "12/2011 – 05/2012",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "astheimer_andreas",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/astheimer_andreas/AID-aa_2.4.3.2.pdf",
+      "orig_name": "AID-aa_2.4.3.2.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "atalik_erdinc",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/atalik_erdinc/AID-ea_2.9.2.4.pdf",
+      "orig_name": "AID-ea_2.9.2.4.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/atalik_erdinc/neu/cv/AID-ea_1.1.3.0.pdf",
+      "neu_name": "AID-ea_1.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (22)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 41.1,
+      "orig_chars": 19071,
+      "neu_chars": 4611,
+      "orig_periods": 27,
+      "neu_periods": 7,
+      "missing_periods": [
+        "01/2000 - 12/2000",
+        "01/2001 - 02/2006",
+        "01/2007 - 03/2007",
+        "01/2008 - 03/2008",
+        "02/2010 - 03/2011",
+        "03/1998 - 12/2000",
+        "03/2006 - 08/2007",
+        "03/2007 - 12/2007",
+        "03/2008 - 07/2008",
+        "04/2010 - 02/2011",
+        "05/2011 - 05/2011",
+        "06/2010 - 10/2011",
+        "08/1996 - 09/1997",
+        "08/2008 - 02/2009",
+        "11/2009 - 03/2010",
+        "1987 - 1988",
+        "1989 - 1994",
+        "1991 - 1995",
+        "1995 - 1995",
+        "1997 - 1998"
+      ],
+      "extra_periods": [
+        "1995 – 1995",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "atchatchloui_iradj",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/atchatchloui_iradj/AID-ia_2.5.1.0.pdf",
+      "orig_name": "AID-ia_2.5.1.0.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/atchatchloui_iradj/neu/cv/AID-ia_1.1.4.0.pdf",
+      "neu_name": "AID-ia_1.1.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (6)"
+      ],
+      "score": 67.3,
+      "orig_chars": 15842,
+      "neu_chars": 11101,
+      "orig_periods": 13,
+      "neu_periods": 12,
+      "missing_periods": [
+        "04/2002 - 08/2007",
+        "05/2016 - dato",
+        "08/2001 - 12/2001",
+        "09/2007 - 01/2008",
+        "09/2008 - 04/2015",
+        "2017"
+      ],
+      "extra_periods": [
+        "05/2016 – heute",
+        "08/2001 – 12/2001",
+        "09/2007 – 01/2008",
+        "09/2008 – 04/2015",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": true
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": true
+      },
+      "weiterbildung_orig": true,
+      "weiterbildung_neu": true
+    },
+    {
+      "dir": "ateia_samy",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/ateia_samy/AID-sat_1.8.4.2.pdf",
+      "orig_name": "AID-sat_1.8.4.2.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/ateia_samy/neu/cv/AID-sa_2.3.2.0.pdf",
+      "neu_name": "AID-sa_2.3.2.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (9)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 21.0,
+      "orig_chars": 5197,
+      "neu_chars": 1904,
+      "orig_periods": 10,
+      "neu_periods": 2,
+      "missing_periods": [
+        "02/2017 – 03/2019",
+        "02/2018 – 03/2019",
+        "07/2018 – 03/2019",
+        "1986",
+        "2006",
+        "2007 – 2012",
+        "2012 – 2016",
+        "2012 – 2017",
+        "2019"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "athanasiadis_georgios",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/athanasiadis_georgios/AID-ga_2.9.1.4.pdf",
+      "orig_name": "AID-ga_2.9.1.4.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "attenberger_margit",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/attenberger_margit/AID-ma_1.3.7.2.pdf",
+      "orig_name": "AID-ma_1.3.7.2.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/attenberger_margit/neu/cv/AID-ma_2.1.4.0.pdf",
+      "neu_name": "AID-ma_2.1.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (10)"
+      ],
+      "score": 35.0,
+      "orig_chars": 2649,
+      "neu_chars": 1191,
+      "orig_periods": 10,
+      "neu_periods": 2,
+      "missing_periods": [
+        "04/2000 - 07/2001",
+        "07/2003 - 10/2003",
+        "08/2001 - 11/2001",
+        "10/1999 - 03/2000",
+        "10/2003",
+        "11/2001 - 06/2003",
+        "1972",
+        "1999",
+        "2004",
+        "9816"
+      ],
+      "extra_periods": [
+        "2026",
+        "8867"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": false,
+        "Fachbereiche": false,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": false,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "augst_michael",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/augst_michael/AID-ma_1.3.5.2.pdf",
+      "orig_name": "AID-ma_1.3.5.2.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "augustin_rolf",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/augustin_rolf/AID-ra_1.6.4.8.pdf",
+      "orig_name": "AID-ra_1.6.4.8.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/augustin_rolf/neu/cv/AID-ra_5.1.4.0.pdf",
+      "neu_name": "AID-ra_5.1.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (2)"
+      ],
+      "score": 84.1,
+      "orig_chars": 7333,
+      "neu_chars": 6331,
+      "orig_periods": 11,
+      "neu_periods": 10,
+      "missing_periods": [
+        "1988",
+        "2007"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "augustin_sven",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/augustin_sven/AID-sa_2.8.4.7.pdf",
+      "orig_name": "AID-sa_2.8.4.7.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/augustin_sven/neu/cv/AID-sa_1.2.3.0.pdf",
+      "neu_name": "AID-sa_1.2.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Sektion Berufliche Erfahrungen fehlt",
+        "Perioden fehlen (22)",
+        "neu-Text deutlich kürzer"
+      ],
+      "score": 11.600000000000001,
+      "orig_chars": 7888,
+      "neu_chars": 1083,
+      "orig_periods": 23,
+      "neu_periods": 2,
+      "missing_periods": [
+        "03/2019 - 03/2020",
+        "04/2001 - 03/2004",
+        "04/2014 - 03/2018",
+        "06/2004 - 06/2005",
+        "06/2005 - 03/2012",
+        "07/2018 - 01/2019",
+        "08/1997 - 12/2000",
+        "09/1991 - 09/1994",
+        "09/2000 - 03/2001",
+        "10/1989 - 12/1989",
+        "10/1990 - 09/1991",
+        "10/1994 - 09/1998",
+        "10/2013",
+        "11/2012 - 04/2014",
+        "12/1989 - 06/1990",
+        "12/2001 - 03/2004",
+        "1971",
+        "2000",
+        "2001",
+        "2002"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": false,
+        "Branchen": true,
+        "Berufliche Erfahrungen": false,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "aust_christian",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/aust_christian/AID-ca_1.4.5.1.pdf",
+      "orig_name": "AID-ca_1.4.5.1.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/aust_christian/neu/cv/AID-ca_5.1.3.0.pdf",
+      "neu_name": "AID-ca_5.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (1)"
+      ],
+      "score": 93.3,
+      "orig_chars": 13261,
+      "neu_chars": 10396,
+      "orig_periods": 36,
+      "neu_periods": 36,
+      "missing_periods": [
+        "2010"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": false,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "auster_joachim",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/auster_joachim/AID-jba_1.2.7.3.pdf",
+      "orig_name": "AID-jba_1.2.7.3.pdf",
+      "neu": null,
+      "neu_name": null,
+      "status": "no_neu",
+      "flags": [
+        "kein neu/cv PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "austermuehle_stefan",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/austermuehle_stefan/AID-sa_2.3.7.9.pdf",
+      "orig_name": "AID-sa_2.3.7.9.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/austermuehle_stefan/neu/cv/AID-sa_1.1.3.0.pdf",
+      "neu_name": "AID-sa_1.1.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (17)"
+      ],
+      "score": 69.5,
+      "orig_chars": 16351,
+      "neu_chars": 17112,
+      "orig_periods": 40,
+      "neu_periods": 41,
+      "missing_periods": [
+        "02/1995 - 05/1995",
+        "02/1996 - 01/1997",
+        "04/1997 - 09/1997",
+        "04/2002 - 05/2002",
+        "05/1999 - 11/1999",
+        "05/2000 - 02/2002",
+        "06/1994 - 12/1994",
+        "06/2006 - dato",
+        "07/1996 - 03/1999",
+        "07/2002 - 08/2005",
+        "08/2005 - 01/2007",
+        "10/1997 - 06/1998",
+        "10/1998 - 12/1998",
+        "10/2006 - 03/2009",
+        "12/1995 - 12/1996",
+        "12/1999 - 02/2000",
+        "2009"
+      ],
+      "extra_periods": [
+        "02/1995 – 05/1995",
+        "02/1996 – 01/1997",
+        "04/1997 – 09/1997",
+        "04/2002 – 05/2002",
+        "05/1999 – 11/1999",
+        "05/2000 – 02/2002",
+        "06/1994 – 12/1994",
+        "06/2006 – heute",
+        "07/1996 – 03/1999",
+        "07/2002 – 08/2005",
+        "08/2005 – 01/2007",
+        "10/1997 – 06/1998",
+        "10/1998 – 12/1998",
+        "10/2006 – 03/2009",
+        "12/1995 – 12/1996",
+        "12/1999 – 02/2000",
+        "2003",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "avagyan_sabine",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/avagyan_sabine/AID-sa_1.4.1.9.pdf",
+      "orig_name": "AID-sa_1.4.1.9.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/avagyan_sabine/neu/cv/AID-sa_4.1.4.0.pdf",
+      "neu_name": "AID-sa_4.1.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (2)"
+      ],
+      "score": 87.0,
+      "orig_chars": 17679,
+      "neu_chars": 10088,
+      "orig_periods": 15,
+      "neu_periods": 15,
+      "missing_periods": [
+        "02/2011 – dato",
+        "2011"
+      ],
+      "extra_periods": [
+        "02/2011 – heute",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "ayaou_mohamed",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/ayaou_mohamed/AID-ma_1.5.1.7.pdf",
+      "orig_name": "AID-ma_1.5.1.7.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/ayaou_mohamed/neu/cv/AID-ma_1.1.2.0.pdf",
+      "neu_name": "AID-ma_1.1.2.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (3)"
+      ],
+      "score": 88.3,
+      "orig_chars": 12909,
+      "neu_chars": 15179,
+      "orig_periods": 27,
+      "neu_periods": 28,
+      "missing_periods": [
+        "08/2016",
+        "11/2020",
+        "2025"
+      ],
+      "extra_periods": [
+        "04/2016 – 08/2016",
+        "06/2020 – 11/2020",
+        "06/2024 – heute",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": false,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "aydin_andac",
+      "orig": null,
+      "orig_name": null,
+      "neu": null,
+      "neu_name": null,
+      "status": "no_orig",
+      "flags": [
+        "kein Original-AID-PDF"
+      ],
+      "score": null
+    },
+    {
+      "dir": "ayoub_ibrahim",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/ayoub_ibrahim/AID-ia_2.1.7.4.pdf",
+      "orig_name": "AID-ia_2.1.7.4.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/ayoub_ibrahim/neu/cv/AID-ia_1.1.4.0.pdf",
+      "neu_name": "AID-ia_1.1.4.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (1)"
+      ],
+      "score": 91.8,
+      "orig_chars": 10005,
+      "neu_chars": 8684,
+      "orig_periods": 19,
+      "neu_periods": 19,
+      "missing_periods": [
+        "2008"
+      ],
+      "extra_periods": [
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "azemi_abdiladi",
+      "orig": "/mnt/public/Berater/AID_profile/aaa/azemi_abdiladi/AID-aa_2.7.4.9.pdf",
+      "orig_name": "AID-aa_2.7.4.9.pdf",
+      "neu": "/mnt/public/Berater/AID_profile/aaa/azemi_abdiladi/neu/cv/AID-aa_5.2.3.0.pdf",
+      "neu_name": "AID-aa_5.2.3.0.pdf",
+      "status": "compared",
+      "flags": [
+        "Perioden fehlen (2)"
+      ],
+      "score": 87.5,
+      "orig_chars": 12904,
+      "neu_chars": 10336,
+      "orig_periods": 16,
+      "neu_periods": 16,
+      "missing_periods": [
+        "03/2016 - 01/2017",
+        "2022"
+      ],
+      "extra_periods": [
+        "03/2016 – 01/2017",
+        "2026"
+      ],
+      "orig_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": false,
+        "Weiterbildung": false
+      },
+      "neu_sections": {
+        "Persönliche Daten": true,
+        "Fachbereiche": true,
+        "Zertifizierungen": true,
+        "Schulungen": true,
+        "Branchen": true,
+        "Berufliche Erfahrungen": true,
+        "Technische Kenntnisse": true,
+        "Weiterbildung": false
+      },
+      "weiterbildung_orig": false,
+      "weiterbildung_neu": false
+    },
+    {
+      "dir": "oeztuerk_aykut",
+      "orig": null,
+      "orig_name": null,
+      "neu": null,
+      "neu_name": null,
+      "status": "no_orig",
+      "flags": [
+        "kein Original-AID-PDF"
+      ],
+      "score": null
+    }
+  ]
+}
