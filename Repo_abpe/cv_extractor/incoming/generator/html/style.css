@@ -367,7 +367,7 @@ li::before {
     position: relative;
 }
 .cert-list li::before {
-    content: "\2022";
+    content: '•';
     color: var(--brand);
     font-size: 11pt;
     font-weight: bold;
@@ -447,7 +447,7 @@ li::before {
     position: relative;
 }
 .exp-details ul li::before {
-    content: "\2022";
+    content: '•';
     color: var(--brand);
     font-weight: bold;
     position: absolute;

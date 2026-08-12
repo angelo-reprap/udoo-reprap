@@ -6,6 +6,7 @@ Bestehende AID-HTMLs offline-fähig machen (CSS/JS/Logo einbetten).
   python3 manage.py fix_html_offline --dir nowka_matthias
   python3 manage.py fix_html_offline --neu-cv   # nur Share neu/cv
   python3 manage.py fix_html_offline --all
+  python3 manage.py fix_html_offline --dir nowka_matthias --neu-cv --force
 """
 from pathlib import Path
 
@@ -24,10 +25,15 @@ class Command(BaseCommand):
             '--neu-cv', action='store_true',
             help='Auch/nur Dateien unter AID_profile/.../neu/cv patchen',
         )
+        parser.add_argument(
+            '--force', action='store_true',
+            help='Inline-CSS/JS auch bei bereits offline HTML neu einbetten',
+        )
         parser.add_argument('--dry-run', action='store_true')
 
     def handle(self, *args, **opts):
         from apps.cv_extractor.generator.cv_display_utils import (
+            _has_broken_css_bullets,
             is_html_offline,
             make_html_offline_friendly,
         )
@@ -89,20 +95,38 @@ class Command(BaseCommand):
 
         fixed = 0
         skipped = 0
+        force = bool(opts['force'])
         for path, lang, _cdir, _last in targets:
             raw = path.read_text(encoding='utf-8', errors='replace')
-            if is_html_offline(raw):
+            broken = _has_broken_css_bullets(raw)
+            already = is_html_offline(raw)
+            # Offline ohne Force nur anfassen, wenn Bullets kaputt sind
+            # (repair läuft in make_html_offline_friendly auch ohne force)
+            if already and not force and not broken:
                 skipped += 1
                 continue
-            new = make_html_offline_friendly(raw, base_dir=str(base), language=lang)
+            use_force = force or (already and broken)
+            new = make_html_offline_friendly(
+                raw, base_dir=str(base), language=lang, force=use_force,
+            )
             if opts['dry_run']:
-                self.stdout.write(f'DRY-RUN would fix {path}')
+                self.stdout.write(
+                    f'DRY-RUN would fix {path}'
+                    + (' [broken-bullets]' if broken else '')
+                    + (' [force]' if use_force else '')
+                )
                 continue
             if new == raw:
                 self.stderr.write(f'WARN unchanged (Assets?): {path}')
                 continue
             path.write_text(new, encoding='utf-8')
             fixed += 1
-            self.stdout.write(self.style.SUCCESS(f'FIXED {path}'))
+            note = []
+            if broken:
+                note.append('bullets')
+            if use_force:
+                note.append('force')
+            suffix = f" ({', '.join(note)})" if note else ''
+            self.stdout.write(self.style.SUCCESS(f'FIXED {path}{suffix}'))
 
-        self.stdout.write(f'Done: fixed={fixed} already_offline={skipped} total={len(targets)}')
+        self.stdout.write(f'Done: fixed={fixed} already_ok={skipped} total={len(targets)}')

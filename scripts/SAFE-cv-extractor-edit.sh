@@ -41,6 +41,7 @@ FILES=(
   management/commands/import_aid_profiles.py
   management/commands/patch_prompt_template.py
   management/commands/fix_html_offline.py
+  static/cv_extractor/html/aid-profile/style.css
 )
 
 cmd="${1:-help}"

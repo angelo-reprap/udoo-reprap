@@ -155,27 +155,70 @@ def resolve_aid_assets(base_dir: str = '') -> dict:
 
 
 def is_html_offline(html: str) -> bool:
-    """True wenn keine absoluten /static|/data Asset-Links mehr nötig sind."""
+    """True wenn CSS/JS nicht mehr über /static geladen werden müssen."""
     if not html:
         return False
     if re.search(r'href=["\']/static/[^"\']*aid-profile/style\.css', html, re.I):
         return False
     if re.search(r'src=["\']/static/[^"\']*aid-profile/script', html, re.I):
         return False
-    if re.search(r'src=["\']/(?:data|media)/cv/adds/logo_abcona\.png', html, re.I):
-        return False
-    return '<style>' in html.lower()
+    # Inline-CSS ist Pflichtmerkmal
+    return '<style' in html.lower()
+
+
+def repair_broken_css_bullets(html: str) -> str:
+    """
+    Repariert kaputte Pseudo-Bullets aus re.sub-Oktal-Escape.
+
+    Ursache: CSS ``content: "\\2022"`` in ``re.sub``-Replacement → Python
+    interpretiert ``\\202`` als Oktal (U+0082) + Literal ``2`` → Anzeige ``☐2``.
+    """
+    if not html or '\x82' not in html:
+        return html
+    # content: "\x822"  bzw. content: '\x822'
+    out = re.sub(r'content:\s*(["\'])\x822\1', r"content: '•'", html)
+    return out
+
+
+def _has_broken_css_bullets(html: str) -> bool:
+    return bool(html and '\x82' in html and re.search(r'content:\s*["\']\x822', html))
+
+
+def _re_sub_literal(pattern: str, replacement: str, text: str,
+                    count: int = 0, flags: int = 0) -> tuple:
+    """
+    re.subn mit Literal-Replacement (kein Backslash-/Gruppen-Parsing).
+
+    Wichtig: CSS/JS mit ``\\2022`` o.ä. dürfen nicht durch re.sub als Escape
+    interpretiert werden.
+    """
+    def _repl(_m: re.Match) -> str:
+        return replacement
+
+    return re.subn(pattern, _repl, text, count=count, flags=flags)
 
 
 def make_html_offline_friendly(html: str, base_dir: str = '',
-                               language: str = 'de') -> str:
+                               language: str = 'de',
+                               force: bool = False) -> str:
     """
     Ersetzt absolute /static und /data Pfade durch Inline-CSS/JS und Data-URI-Logo.
     Damit file:// und Share-Pfade (X:/…/neu/cv/*.html) ohne Webserver funktionieren.
+
+    force=True: vorhandenes Inline-CSS/JS neu einbetten (z.B. nach CSS-Fix).
     """
     if not html:
         return html
-    if is_html_offline(html):
+
+    # Immer zuerst bekannte Bullet-Korruption heilen (auch schon-offline)
+    repaired_bullets = False
+    repaired = repair_broken_css_bullets(html)
+    if repaired != html:
+        html = repaired
+        repaired_bullets = True
+        logger.info('Offline-HTML: kaputte CSS-Bullets (\\x82+2) repariert')
+
+    if is_html_offline(html) and not force:
         return html
 
     assets = resolve_aid_assets(base_dir)
@@ -184,32 +227,59 @@ def make_html_offline_friendly(html: str, base_dir: str = '',
 
     css = _read_text(assets['style']) if assets.get('style') else ''
     if css:
-        new_out, n = re.subn(
-            r'<link[^>]+href=["\'][^"\']*cv_extractor/html/aid-profile/style\.css[^"\']*["\'][^>]*>\s*',
-            f'<style type="text/css">\n{css}\n</style>\n',
-            out,
-            count=1,
-            flags=re.IGNORECASE,
-        )
-        if n:
-            out = new_out
-            changed.append('css')
-        else:
-            # Fallback: nach <head> / charset einfügen und Link entfernen
-            out = re.sub(
-                r'<link[^>]+href=["\'][^"\']*aid-profile/style\.css[^"\']*["\'][^>]*>\s*',
-                '',
-                out,
-                flags=re.IGNORECASE,
-            )
-            out = re.sub(
-                r'(</head>)',
-                f'<style type="text/css">\n{css}\n</style>\n\\1',
+        style_tag = f'<style type="text/css">\n{css}\n</style>\n'
+        if force and is_html_offline(out):
+            # erstes aid-profile-ähnliches <style> ersetzen
+            new_out, n = _re_sub_literal(
+                r'<style\b[^>]*>[\s\S]*?</style>\s*',
+                style_tag,
                 out,
                 count=1,
                 flags=re.IGNORECASE,
             )
-            changed.append('css-fallback')
+            if n:
+                out = new_out
+                changed.append('css-refresh')
+            else:
+                new_out, n = _re_sub_literal(
+                    r'(</head>)',
+                    style_tag + '</head>',
+                    out,
+                    count=1,
+                    flags=re.IGNORECASE,
+                )
+                if n:
+                    out = new_out
+                    changed.append('css-refresh-fallback')
+        else:
+            new_out, n = _re_sub_literal(
+                r'<link[^>]+href=["\'][^"\']*cv_extractor/html/aid-profile/style\.css[^"\']*["\'][^>]*>\s*',
+                style_tag,
+                out,
+                count=1,
+                flags=re.IGNORECASE,
+            )
+            if n:
+                out = new_out
+                changed.append('css')
+            else:
+                # Fallback: Link entfernen, Style vor </head>
+                out = re.sub(
+                    r'<link[^>]+href=["\'][^"\']*aid-profile/style\.css[^"\']*["\'][^>]*>\s*',
+                    '',
+                    out,
+                    flags=re.IGNORECASE,
+                )
+                new_out, n = _re_sub_literal(
+                    r'(</head>)',
+                    style_tag + '</head>',
+                    out,
+                    count=1,
+                    flags=re.IGNORECASE,
+                )
+                if n:
+                    out = new_out
+                changed.append('css-fallback')
     else:
         logger.warning(
             'Offline-HTML: style.css nicht gefunden (gesucht unter %s)',
@@ -222,39 +292,61 @@ def make_html_offline_friendly(html: str, base_dir: str = '',
     if not js and assets.get('script'):
         js = _read_text(assets['script'])
     if js:
-        new_out, n = re.subn(
-            r'<script[^>]+src=["\'][^"\']*cv_extractor/html/aid-profile/script(?:-en)?\.js[^"\']*["\'][^>]*>\s*</script>\s*',
-            f'<script type="text/javascript">\n{js}\n</script>\n',
-            out,
-            count=1,
-            flags=re.IGNORECASE,
-        )
-        if n:
-            out = new_out
-            changed.append('js')
-        else:
-            out = re.sub(
-                r'<script[^>]+src=["\'][^"\']*aid-profile/script(?:-en)?\.js[^"\']*["\'][^>]*>\s*</script>\s*',
-                '',
-                out,
-                flags=re.IGNORECASE,
-            )
-            out = re.sub(
-                r'(</head>)',
-                f'<script type="text/javascript">\n{js}\n</script>\n\\1',
+        script_tag = f'<script type="text/javascript">\n{js}\n</script>\n'
+        if force and '<script' in out.lower():
+            # Inline-Script mit Page-Reorg ersetzen (aid-profile)
+            new_out, n = _re_sub_literal(
+                r'<script\b[^>]*>[\s\S]*?reorganizeExpPages[\s\S]*?</script>\s*',
+                script_tag,
                 out,
                 count=1,
                 flags=re.IGNORECASE,
             )
-            changed.append('js-fallback')
+            if n:
+                out = new_out
+                changed.append('js-refresh')
+        if 'js-refresh' not in changed:
+            new_out, n = _re_sub_literal(
+                r'<script[^>]+src=["\'][^"\']*cv_extractor/html/aid-profile/script(?:-en)?\.js[^"\']*["\'][^>]*>\s*</script>\s*',
+                script_tag,
+                out,
+                count=1,
+                flags=re.IGNORECASE,
+            )
+            if n:
+                out = new_out
+                changed.append('js')
+            elif not force:
+                out = re.sub(
+                    r'<script[^>]+src=["\'][^"\']*aid-profile/script(?:-en)?\.js[^"\']*["\'][^>]*>\s*</script>\s*',
+                    '',
+                    out,
+                    flags=re.IGNORECASE,
+                )
+                new_out, n = _re_sub_literal(
+                    r'(</head>)',
+                    script_tag + '</head>',
+                    out,
+                    count=1,
+                    flags=re.IGNORECASE,
+                )
+                if n:
+                    out = new_out
+                changed.append('js-fallback')
     else:
         logger.warning('Offline-HTML: script.js nicht gefunden')
 
     logo_uri = _file_as_data_uri(assets['logo']) if assets.get('logo') else None
     if logo_uri:
+        def _logo_repl_path(m: re.Match) -> str:
+            return f'{m.group(1)}{logo_uri}{m.group(3)}'
+
+        def _logo_repl_any(m: re.Match) -> str:
+            return f'{m.group(1)}{logo_uri}{m.group(2)}'
+
         new_out, n = re.subn(
             r'(<img\b[^>]*\bsrc=["\'])(/?(?:data|media)/cv/adds/logo_abcona\.png)(["\'])',
-            rf'\1{logo_uri}\3',
+            _logo_repl_path,
             out,
             flags=re.IGNORECASE,
         )
@@ -262,10 +354,9 @@ def make_html_offline_friendly(html: str, base_dir: str = '',
             out = new_out
             changed.append('logo')
         else:
-            # src= irgendwo mit logo_abcona
             new_out, n = re.subn(
                 r'(<img\b[^>]*\bsrc=["\'])[^"\']*logo_abcona\.png(["\'])',
-                rf'\1{logo_uri}\2',
+                _logo_repl_any,
                 out,
                 count=1,
                 flags=re.IGNORECASE,
@@ -278,8 +369,10 @@ def make_html_offline_friendly(html: str, base_dir: str = '',
 
     if changed:
         logger.info('Offline-HTML Assets eingebettet: %s', ', '.join(changed))
-    else:
-        logger.warning('Offline-HTML: keine Assets eingebettet — Datei bleibt server-abhängig')
+    elif not repaired_bullets and out == html:
+        logger.warning(
+            'Offline-HTML: keine Assets eingebettet — Datei bleibt server-abhängig'
+        )
 
     return out
 
