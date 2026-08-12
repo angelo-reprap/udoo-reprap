@@ -95,8 +95,9 @@ fi
 
 # ── Matching UI ──────────────────────────────────────────────────────────────
 if ! grep -q "phone_raw" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
-  || ! grep -q "_fetchBeraterDetail" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js"; then
-  echo "FEHLER: mod-matching.js ohne CRM-Telefon/E-Mail-Fix (phone_raw / _fetchBeraterDetail)"
+  || ! grep -q "_fetchBeraterDetail" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
+  || ! grep -q "matching-avail-box" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js"; then
+  echo "FEHLER: mod-matching.js ohne CRM Tel/E-Mail/Verfügbarkeit-Fix"
   exit 1
 fi
 mkdir -p "$LIVE_UI/static/abpe_ui/js/mod"
