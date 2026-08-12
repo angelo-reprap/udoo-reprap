@@ -1,0 +1,17 @@
+{
+    "crm": {
+        "default_sort": "last_name",
+        "per_page": 20,
+        "sync_interval_minutes": 60,
+        "whatsapp_enabled": true,
+        "show_do_not_call_warning": true,
+        "document_upload_path": "/opt/abpe/backend/data/crm/documents",
+        "mysql": {
+            "host": "172.20.3.150",
+            "port": 3306,
+            "user": "suitecrm",
+            "password": "3b135fd9a867a884509a13d6ceb8dd5e460f963be10e07619767301f9b9087c7",
+            "database": "suitecrm"
+        }
+    }
+}

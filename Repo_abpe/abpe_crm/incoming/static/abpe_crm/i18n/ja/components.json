@@ -1,0 +1,19 @@
+{
+    "component_actions_upload_pdf": "PDFをアップロード",
+    "component_actions_add_consultant": "コンサルタントを作成",
+    "component_actions_start_matching": "マッチングを開始",
+    "component_actions_contact": "コンサルタントに連絡",
+    "component_stats_consultants": "コンサルタント",
+    "component_stats_emails": "メール",
+    "component_stats_projects": "プロジェクト",
+    "component_stats_matches": "マッチング",
+    "component_system_django": "Django",
+    "component_system_celery": "Celery",
+    "component_system_postgresql": "PostgreSQL",
+    "component_system_cpu": "CPU",
+    "component_system_ram": "RAM",
+    "component_system_gpu": "GPU",
+    "component_recent_consultants_title": "最近のコンサルタント",
+    "component_recent_emails_title": "最近のメール",
+    "component_show_all": "すべて表示 →"
+}

@@ -1,0 +1,176 @@
+{% extends 'abpe_ui/base.html' %}
+{% load static %}
+
+{% block module_css %}
+<link href="{% static 'abpe_ui/css/mod/mod-matching.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+{# ═══ languageChanged HIER — nicht in extra_js (Anhang A.17) ═══ #}
+<script>
+document.addEventListener('languageChanged', function(e) {
+    if (typeof loadLanguage === 'function') {
+        loadLanguage(e.detail.language, 'matching').then(() => {
+            // Alle Content-Divs zurücksetzen → neu rendern beim nächsten Tab-Klick
+            ['anfragen','neu','shortlist','kanban','abschluss','archiv','crm','reporting'].forEach(tab => {
+                const c = document.getElementById('content-' + tab);
+                if (c) c.dataset.loaded = '0';
+            });
+            // Aktiven Tab sofort neu rendern
+            const activeTab = document.querySelector('.matching-tab.active');
+            if (activeTab && activeTab.dataset.tab && window.Matching) {
+                window.Matching.switchTab(activeTab.dataset.tab);
+            }
+        });
+    }
+});
+</script>
+
+{# ═══ MATCHING_CONFIG + i18n INLINE — kein async, kein Timing-Problem ═══ #}
+<script>
+(function() {
+    const d = {{ matching_i18n|safe }};
+    window.i18nData = window.i18nData || {};
+    Object.assign(window.i18nData, d);
+})();
+
+window.MATCHING_CONFIG = {
+        webdial: {
+            url:     '{{ webdial_url|default:"http://172.20.3.120/cgi-bin/webdial.cgi" }}',
+            from:    '{{ user_phone_ext|default:"12" }}',
+            channel: 'SIP/{{ user_phone_ext|default:"12" }}',
+            context: 'from-internal',
+            timeout: 10,
+        },
+    lang:        '{{ current_lang|default:"de" }}',
+    isAdmin:     {{ user.is_staff|yesno:"true,false" }},
+    csrfToken:   '{{ csrf_token }}',
+    apiUrl:      '/matching/api/',
+    activeTab:   '{{ active_tab|default:"anfragen" }}',
+    projectId:   '{{ active_project_id|default:"" }}',
+    debug:       {{ debug|yesno:"true,false" }},
+    cfg:         {{ matching_cfg|safe }},
+};
+</script>
+
+<div class="matching-module-wrap">
+
+    {# ═══ TAB-LEISTE ═══ #}
+    <div class="matching-tabs" id="matchingTabs">
+        <a href="/matching/?tab=anfragen"
+           class="matching-tab {% if active_tab == 'anfragen' %}active{% endif %}"
+           data-tab="anfragen">
+            <i class="bi bi-list-ul"></i>
+            <span data-i18n="matching.tab_anfragen">Anfragen</span>
+            <span class="matching-tab-badge" id="badge-anfragen"></span>
+        </a>
+        <a href="/matching/?tab=neu"
+           class="matching-tab {% if active_tab == 'neu' %}active{% endif %}"
+           data-tab="neu">
+            <i class="bi bi-plus-circle"></i>
+            <span data-i18n="matching.tab_neu">Neue Anfrage</span>
+        </a>
+        <a href="/matching/?tab=shortlist{% if active_project_id %}?project={{ active_project_id }}{% endif %}"
+           class="matching-tab {% if active_tab == 'shortlist' %}active{% endif %}"
+           data-tab="shortlist">
+            <i class="bi bi-funnel"></i>
+            <span data-i18n="matching.tab_shortlist">Shortlist</span>
+            <span class="matching-tab-badge" id="badge-shortlist"></span>
+        </a>
+        <a href="/matching/?tab=kanban"
+           class="matching-tab {% if active_tab == 'kanban' %}active{% endif %}"
+           data-tab="kanban">
+            <i class="bi bi-kanban"></i>
+            <span data-i18n="matching.tab_kanban">Workflow-Board</span>
+        </a>
+        <a href="/matching/?tab=abschluss"
+           class="matching-tab {% if active_tab == 'abschluss' %}active{% endif %}"
+           data-tab="abschluss">
+            <i class="bi bi-check2-circle"></i>
+            <span data-i18n="matching.tab_abschluss">Projektabschluss</span>
+        </a>
+        <a href="/matching/?tab=archiv"
+           class="matching-tab {% if active_tab == 'archiv' %}active{% endif %}"
+           data-tab="archiv">
+            <i class="bi bi-archive"></i>
+            <span data-i18n="matching.tab_archiv">Archiv</span>
+        </a>
+        <a href="/matching/?tab=crm"
+           class="matching-tab {% if active_tab == 'crm' %}active{% endif %}"
+           data-tab="crm">
+            <i class="bi bi-building"></i>
+            <span data-i18n="matching.tab_crm">CRM & Kontakte</span>
+        </a>
+        {% if user.is_staff %}
+        <a href="/matching/?tab=reporting"
+           class="matching-tab {% if active_tab == 'reporting' %}active{% endif %}"
+           data-tab="reporting">
+            <i class="bi bi-bar-chart"></i>
+            <span data-i18n="matching.tab_reporting">Reporting</span>
+        </a>
+        {% endif %}
+
+        <div class="matching-tab-spacer"></div>
+
+        {# Tools rechts #}
+        <div class="matching-tab-tools">
+            <button class="matching-btn-primary" onclick="window.Matching.newRequest()">
+                <i class="bi bi-plus-lg"></i>
+                <span data-i18n="matching.btn_new">Neue Anfrage</span>
+            </button>
+        </div>
+    </div>
+
+    {# ═══ STATS LEISTE ═══ #}
+    <div class="matching-stats-bar" id="matchingStatsBar">
+        <div class="matching-stat">
+            <span class="matching-stat-val" id="stat-open">—</span>
+            <span class="matching-stat-lbl" data-i18n="matching.stat_open">Offen</span>
+        </div>
+        <div class="matching-stat">
+            <span class="matching-stat-val" id="stat-contacted">—</span>
+            <span class="matching-stat-lbl" data-i18n="matching.stat_contacted">Angeschrieben</span>
+        </div>
+        <div class="matching-stat">
+            <span class="matching-stat-val" id="stat-progress">—</span>
+            <span class="matching-stat-lbl" data-i18n="matching.stat_progress">Im Gespräch</span>
+        </div>
+        <div class="matching-stat">
+            <span class="matching-stat-val" id="stat-placed">—</span>
+            <span class="matching-stat-lbl" data-i18n="matching.stat_placed">Vermittelt</span>
+        </div>
+        <div class="matching-stat">
+            <span class="matching-stat-val" id="stat-followup" style="color:#ef4444"></span>
+            <span class="matching-stat-lbl" data-i18n="matching.stat_followup">Nachfassen</span>
+        </div>
+    </div>
+
+    {# ═══ TAB-CONTENT ═══ #}
+    <div class="matching-content" id="matchingContent">
+        {% block matching_content %}{% endblock %}
+    </div>
+
+</div>
+{% endblock %}
+
+{% block module_js %}
+<script src="{% static 'abpe_ui/js/mod/mod-matching.js' %}"></script>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof loadLanguage === 'function') {
+        loadLanguage('{{ current_lang|default:"de" }}', 'matching').then(() => {
+            if (window.Matching && typeof window.Matching.init === 'function') {
+                window.Matching.init();
+            }
+        });
+    } else {
+        if (window.Matching && typeof window.Matching.init === 'function') {
+            window.Matching.init();
+        }
+    }
+});
+</script>
+{% endblock %}

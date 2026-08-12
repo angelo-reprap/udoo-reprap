@@ -1,0 +1,229 @@
+{% extends "abpe_matching_workflow/base.html" %}
+
+{% block title %}{{ consultant.full_name }} - Beraterdetail{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>
+        <i class="fas fa-user me-3"></i>{{ consultant.full_name }}
+        <small class="text-muted fs-6 ms-2">{{ consultant.title }}</small>
+    </h1>
+    <div>
+        <a href="/admin/abpe_matching_workflow/consultant/{{ consultant.id }}/change/" 
+           class="btn btn-outline-primary" target="_blank">
+            <i class="fas fa-edit me-2"></i>Bearbeiten
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Linke Spalte: Persönliche Daten & Kontakt -->
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="fas fa-address-card me-2 text-primary"></i>Persönliche Daten</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <td><strong>Name:</strong></td>
+                        <td>{{ consultant.full_name }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Titel:</strong></td>
+                        <td>{{ consultant.title|default:"-" }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>E-Mail:</strong></td>
+                        <td><a href="mailto:{{ consultant.email }}">{{ consultant.email }}</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Telefon:</strong></td>
+                        <td>{{ consultant.phone|default:"-" }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mobil:</strong></td>
+                        <td>{{ consultant.mobile|default:"-" }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="fas fa-chart-line me-2 text-success"></i>Status & Verfügbarkeit</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <td><strong>Status:</strong></td>
+                        <td>
+                            <span class="status-badge" style="background: 
+                                {% if consultant.status == 'active' %}#27ae60
+                                {% elif consultant.status == 'passive' %}#f39c12
+                                {% else %}#95a5a6{% endif %}; color: white;">
+                                {{ consultant.get_status_display }}
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Verfügbar ab:</strong></td>
+                        <td>{{ consultant.available_from|date:"d.m.Y"|default:"sofort" }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kündigungsfrist:</strong></td>
+                        <td>{{ consultant.notice_period_days }} Tage</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Max. Auslastung:</strong></td>
+                        <td>{{ consultant.max_workload }}%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="fas fa-euro-sign me-2 text-warning"></i>Konditionen</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <td><strong>Tagessatz:</strong></td>
+                        <td>
+                            {% if consultant.daily_rate_min and consultant.daily_rate_max %}
+                                {{ consultant.daily_rate_min }} - {{ consultant.daily_rate_max }} €
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stundensatz:</strong></td>
+                        <td>
+                            {% if consultant.hourly_rate_min and consultant.hourly_rate_max %}
+                                {{ consultant.hourly_rate_min }} - {{ consultant.hourly_rate_max }} €
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rechte Spalte: Skills & Erfahrung -->
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="fas fa-code me-2 text-info"></i>Zusammenfassung</h5>
+            </div>
+            <div class="card-body">
+                <p>{{ consultant.summary|linebreaks|default:"Keine Zusammenfassung vorhanden." }}</p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="fas fa-tools me-2 text-danger"></i>Skills</h5>
+            </div>
+            <div class="card-body">
+                {% for skill in consultant.skills_list %}
+                <span class="badge bg-secondary me-2 mb-2 p-2">{{ skill }}</span>
+                {% empty %}
+                <span class="text-muted">Keine Skills erfasst</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0"><i class="fas fa-briefcase me-2 text-primary"></i>Branchen</h5>
+                    </div>
+                    <div class="card-body">
+                        {% for industry in consultant.industries %}
+                        <span class="badge bg-info me-2 mb-2 p-2">{{ industry }}</span>
+                        {% empty %}
+                        <span class="text-muted">Keine Branchen erfasst</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0"><i class="fas fa-certificate me-2 text-warning"></i>Zertifikate</h5>
+                    </div>
+                    <div class="card-body">
+                        {% for cert in consultant.certifications %}
+                        <span class="badge bg-success me-2 mb-2 p-2">{{ cert }}</span>
+                        {% empty %}
+                        <span class="text-muted">Keine Zertifikate erfasst</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="fas fa-project-diagram me-2 text-secondary"></i>Projekthistorie</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Projekt</th>
+                                <th>Kunde</th>
+                                <th>Status</th>
+                                <th>Match</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for pc in projects %}
+                            <tr>
+                                <td>
+                                    <strong>{{ pc.project.title|truncatechars:40 }}</strong><br>
+                                    <small class="text-muted">{{ pc.project.project_number }}</small>
+                                </td>
+                                <td>{{ pc.project.customer_name|truncatechars:25 }}</td>
+                                <td>
+                                    <span class="status-badge" style="background: #eee;">
+                                        {{ pc.get_status_display }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge badge-match" style="background: 
+                                        {% if pc.match_score > 0.8 %}#27ae60
+                                        {% elif pc.match_score > 0.6 %}#f39c12
+                                        {% else %}#e74c3c{% endif %}">
+                                        {{ pc.match_score|floatformat:0 }}%
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="{% url 'abpe_matching_workflow:project_detail' pc.project.id %}" 
+                                       class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="5" class="text-center text-muted py-3">
+                                    Keine Projekthistorie vorhanden
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

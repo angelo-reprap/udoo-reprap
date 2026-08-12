@@ -1,0 +1,160 @@
+{% load static %}
+<div id="pbx-root" class="crm-full-panel" style="margin-bottom:12px">
+  <div class="section-header" style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--abcona-blue);color:#fff">
+    <i class="bi bi-telephone-fill"></i>
+    <span style="font-size:13px;font-weight:600" data-i18n="pbx_title">Telefonanlage</span>
+    <span id="pbx-call-count" class="pbx-count">—</span>
+  </div>
+
+  <!-- Reiter -->
+  <div class="pbx-tabbar">
+    <button class="pbx-tabbtn pbx-tab-active" data-tab="hud"><i class="bi bi-grid-3x3-gap-fill"></i> <span data-i18n="pbx_tab_hud">HUD</span></button>
+    <button class="pbx-tabbtn" data-tab="konf"><i class="bi bi-collection-fill"></i> <span data-i18n="pbx_tab_konf">Konferenz</span></button>
+    <button class="pbx-tabbtn" data-tab="vm"><i class="bi bi-voicemail"></i> <span data-i18n="pbx_tab_vm">Voicemail</span></button>
+    <button class="pbx-tabbtn" data-tab="wavnotes"><i class="bi bi-mic-fill"></i> <span data-i18n="pbx_tab_wavnotes">WAV-Notizen</span></button>
+    <button class="pbx-tabbtn" data-tab="cdr"><i class="bi bi-list-ul"></i> <span data-i18n="pbx_tab_cdr">Anrufliste</span></button>
+    <button class="pbx-tabbtn" data-tab="park"><i class="bi bi-p-square-fill"></i> <span data-i18n="pbx_tab_park">Parken</span></button>
+    <button class="pbx-tabbtn" data-tab="queue"><i class="bi bi-people-fill"></i> <span data-i18n="pbx_tab_queue">Queues</span></button>
+    <button class="pbx-tabbtn" data-tab="stats"><i class="bi bi-bar-chart-fill"></i> <span data-i18n="pbx_tab_stats">Statistik</span></button>
+  </div>
+
+  <!-- HUD -->
+  <div id="pbx-panel-hud" class="pbx-panel">
+    <div class="pbx-secttl"><i class="bi bi-telephone-outbound"></i> <span data-i18n="pbx_dial_head">Wählen · Click-to-Dial</span></div>
+    <div class="pbx-dialbar">
+      <label class="pbx-lbl" data-i18n="pbx_from">Von</label>
+      <select id="pbx-dial-ext" class="pbx-select"></select>
+      <div class="pbx-dial-wrap">
+        <input id="pbx-dial-input" class="pbx-input" type="text" autocomplete="off" data-i18n-placeholder="pbx_dial_ph" placeholder="Kontakt suchen oder Nummer…">
+        <div id="pbx-dial-results" class="pbx-dial-results"></div>
+      </div>
+      <button class="pbx-act pbx-act-green" onclick="PBX.dialGo()"><i class="bi bi-telephone-outbound"></i> <span data-i18n="pbx_dial">Anrufen</span></button>
+    </div>
+
+    <div class="pbx-secttl"><i class="bi bi-broadcast"></i> <span data-i18n="pbx_active_head">Aktive Gespräche</span></div>
+    <div id="pbx-callstrip" class="pbx-callstrip"></div>
+
+    <div class="pbx-secttl"><i class="bi bi-grid"></i> <span data-i18n="pbx_ext_head">Nebenstellen</span></div>
+    <div id="pbx-extgrid" class="pbx-grid pbx-grid-ext"></div>
+  </div>
+
+  <!-- Konferenz -->
+  <div id="pbx-panel-konf" class="pbx-panel" style="display:none">
+
+    <!-- Meetme Sub-Tabs: Reiter 1 (Planung) / Reiter 2 (Live-Cockpit) -->
+    <div class="pbx-subtabbar">
+      <button class="pbx-subtabbtn pbx-subtab-active" data-subtab="planung" onclick="PBX.meetmeSwitchSubtab('planung')">
+        <i class="bi bi-calendar-event"></i> <span data-i18n="pbx_subtab_planung">Planung</span>
+      </button>
+      <button class="pbx-subtabbtn" data-subtab="cockpit" onclick="PBX.meetmeSwitchSubtab('cockpit')">
+        <i class="bi bi-collection-fill"></i> <span data-i18n="pbx_subtab_cockpit">Live-Cockpit</span>
+      </button>
+    </div>
+
+    <!-- Reiter 1: MeetMe-Planung -->
+    <div id="pbx-meetme-planung" class="pbx-subpanel">
+      <div class="pbx-meetme-toolbar">
+        <div id="pbx-meetme-strip" class="pbx-meetme-strip"></div>
+        <button class="pbx-act pbx-act-green" onclick="PBX.meetmeShowNewModal()">
+          <i class="bi bi-plus-lg"></i> <span data-i18n="pbx_meetme_new">Neuer Termin</span>
+        </button>
+      </div>
+      <div id="pbx-meetme-detail" class="pbx-meetme-detail"></div>
+      <div id="pbx-meetme-archive" class="pbx-mm-archive-wrap" data-open="0" style="display:none"></div>
+    </div>
+
+    <!-- Reiter 2: Live-Cockpit (bestehend, unveraendert) -->
+    <div id="pbx-meetme-cockpit" class="pbx-subpanel" style="display:none">
+      <div class="pbx-hint" data-i18n="pbx_konf_hint">Live-Konferenz-Cockpit.</div>
+      <div id="pbx-confwrap"></div>
+    </div>
+
+  </div>
+
+  <!-- Voicemail -->
+  <div id="pbx-panel-vm" class="pbx-panel" style="display:none">
+    <div class="pbx-secttl"><i class="bi bi-voicemail"></i> <span data-i18n="pbx_vm_head">Mailboxen</span></div>
+    <div id="pbx-vmgrid" class="pbx-grid pbx-grid-vm"></div>
+  </div>
+
+  <!-- WAV-Notizen (neu, Platzhalter) -->
+  <div id="pbx-panel-wavnotes" class="pbx-panel" style="display:none">
+    <div class="pbx-secttl"><i class="bi bi-mic-fill"></i> <span data-i18n="pbx_wavnotes_head">WAV-Notizen</span></div>
+    <div class="pbx-hint" data-i18n="pbx_wavnotes_hint">
+      Alle Voicemail-WAV-Dateien zentral abspielbar, unabhängig von Kontakt-Zuordnung.
+      Manuelle Telefonnachricht-Erstellung folgt.
+    </div>
+    <div id="pbx-wavnotesgrid" class="pbx-grid pbx-grid-wavnotes"></div>
+  </div>
+
+  <!-- Anrufliste -->
+  <div id="pbx-panel-cdr" class="pbx-panel" style="display:none">
+    <div class="crm-filter-bar" style="flex-wrap:wrap;align-items:center">
+      <select id="pbx-cdr-ext-filter"><option value="">Alle Nebenstellen</option></select>
+      <select id="pbx-cdr-mode-filter">
+        <option value="all">Alle Anrufe</option>
+        <option value="incoming">Eingehend</option>
+        <option value="outgoing">Ausgehend</option>
+        <option value="missed">Verpasst</option>
+        <option value="answered">Angenommen</option>
+      </select>
+      <select id="pbx-cdr-range-filter">
+        <option value="7">Letzte 7 Tage</option>
+        <option value="30" selected>Letzte 30 Tage</option>
+        <option value="90">Letzte 90 Tage</option>
+      </select>
+      <button class="pbx-act pbx-act-gray" id="pbx-cdr-daterange-toggle" onclick="PBX.toggleCdrDateRange()">
+        <i class="bi bi-calendar-range"></i> Zeitraum wählen…
+      </button>
+      <div id="pbx-cdr-daterange" style="display:none;gap:6px;align-items:center">
+        <input type="date" id="pbx-cdr-date-from">
+        <span style="color:var(--text-secondary)">–</span>
+        <input type="date" id="pbx-cdr-date-to">
+        <button class="pbx-act pbx-act-gray" style="padding:5px 8px" onclick="PBX.clearCdrDateRange()" title="Zeitraum verwerfen"><i class="bi bi-x"></i></button>
+      </div>
+      <label style="display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--text-secondary);white-space:nowrap">
+        <input type="checkbox" id="pbx-cdr-hide-system" style="width:auto">Systemeinträge ausblenden
+      </label>
+      <div style="flex:1"></div>
+      <button class="pbx-act pbx-act-gray" onclick="PBX.resetCdrFilters()"><i class="bi bi-x-circle"></i> Zurücksetzen</button>
+    </div>
+    <div class="pbx-tablewrap">
+      <table class="pbx-cdr">
+        <thead>
+          <tr>
+            <th class="pbx-cdr-sortable" data-sort="calldate" onclick="PBX.sortCdr('calldate')">
+              <span data-i18n="pbx_col_time">Zeit</span> <i id="pbx-cdr-sort-calldate" class="bi bi-chevron-down"></i>
+            </th>
+            <th data-i18n="pbx_col_dir">Richtung</th>
+            <th data-i18n="pbx_col_number">Nummer</th>
+            <th data-i18n="pbx_col_contact">Kontakt</th>
+            <th data-i18n="pbx_col_status">Status</th>
+            <th class="pbx-cdr-sortable" data-sort="billsec" onclick="PBX.sortCdr('billsec')">
+              <span data-i18n="pbx_col_dur">Dauer</span> <i id="pbx-cdr-sort-billsec" class="bi bi-arrow-down-up"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="pbx-cdr-tbody">
+          <tr><td colspan="6" class="pbx-empty" data-i18n="pbx_loading">Lade…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Parken -->
+  <div id="pbx-panel-park" class="pbx-panel" style="display:none">
+    <div class="pbx-secttl"><i class="bi bi-p-square"></i> <span data-i18n="pbx_park_head">Parkplätze</span></div>
+    <div id="pbx-parkgrid" class="pbx-grid pbx-grid-park"></div>
+  </div>
+
+  <!-- Queues -->
+  <div id="pbx-panel-queue" class="pbx-panel" style="display:none">
+    <div class="pbx-secttl"><i class="bi bi-people"></i> <span data-i18n="pbx_queue_head">Warteschlangen</span></div>
+    <div id="pbx-queuegrid" class="pbx-grid pbx-grid-queue"></div>
+  </div>
+
+  <!-- Statistik -->
+  <div id="pbx-panel-stats" class="pbx-panel" style="display:none">
+    <div id="pbx-stats" class="pbx-statgrid"></div>
+  </div>
+</div>

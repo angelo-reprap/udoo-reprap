@@ -1,0 +1,17 @@
+<div class="crm-sidebar-nav">
+    <a href="{% url 'abpe_crm:berater' %}" class="crm-nav-item {% if tab == 'berater' %}active{% endif %}" title="Berater">
+        <i class="bi bi-people"></i>
+    </a>
+    <a href="{% url 'abpe_crm:kunden' %}" class="crm-nav-item {% if tab == 'kunden' %}active{% endif %}" title="Kunden">
+        <i class="bi bi-building"></i>
+    </a>
+    <a href="{% url 'abpe_crm:emails' %}" class="crm-nav-item {% if tab == 'emails' %}active{% endif %}" title="E-Mails">
+        <i class="bi bi-envelope"></i>
+    </a>
+    <a href="{% url 'abpe_crm:dokumente' %}" class="crm-nav-item {% if tab == 'dokumente' %}active{% endif %}" title="Dokumente">
+        <i class="bi bi-file-text"></i>
+    </a>
+    <a href="{% url 'abpe_crm:reporting' %}" class="crm-nav-item {% if tab == 'reporting' %}active{% endif %}" title="Reporting">
+        <i class="bi bi-bar-chart"></i>
+    </a>
+</div>

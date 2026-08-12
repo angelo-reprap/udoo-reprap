@@ -1,0 +1,122 @@
+{% load static %}
+<div class="crm-topbar">
+    <div class="logo-area">
+        <span data-i18n="abpe_crm_label">ABpE CRM</span>
+    </div>
+    <div class="crm-search-wrap">
+        <div class="search-container">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" 
+                   id="crm-global-search" 
+                   class="search-input" 
+                   placeholder="{% if tab == 'berater' %}Name, Skills, Gulp-ID...{% elif tab == 'kunden' %}Firma, Stadt...{% elif tab == 'emails' %}E-Mail suchen...{% elif tab == 'dokumente' %}Titel, Berater...{% else %}Suchen...{% endif %}"
+                   autocomplete="off" />
+        </div>
+        <select id="crm-sort" class="crm-sort-select">
+            {% if tab == 'berater' %}
+            <option value="last_name">Name A-Z</option>
+            <option value="verfuegbar">Verfügbarkeit</option>
+            <option value="-verfuegbar">Verfügbarkeit ↓</option>
+            <option value="modified">Zuletzt geändert</option>
+            {% elif tab == 'kunden' %}
+            <option value="name">Name A-Z</option>
+            <option value="status">Status</option>
+            <option value="modified">Zuletzt geändert</option>
+            {% elif tab == 'emails' %}
+            <option value="email_address">E-Mail A-Z</option>
+            <option value="modified">Zuletzt geändert</option>
+            {% elif tab == 'dokumente' %}
+            <option value="-created_at">Datum ↓</option>
+            <option value="created_at">Datum ↑</option>
+            <option value="title">Titel A-Z</option>
+            <option value="doc_type">Typ</option>
+            {% endif %}
+        </select>
+        <select id="crm-per-page" class="crm-sort-select">
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+        <button id="crm-search-btn" class="crm-search-btn">
+            <i class="bi bi-lightning-charge-fill"></i> <span data-i18n="suchen_btn">Suchen</span>
+        </button>
+        <button id="crm-help-btn" class="crm-help-btn" onclick="toggleCrmQueryHelp()">
+            <i class="bi bi-question-circle"></i> <span data-i18n="query_hilfe_btn">Query-Hilfe</span>
+        </button>
+    </div>
+    <div class="header-right">
+        <button class="help-btn" onclick="toggleHelp()">
+            <i class="bi bi-question-circle"></i> <span data-i18n="hilfe_btn">Hilfe</span>
+        </button>
+    </div>
+</div>
+
+<div id="crm-query-help" class="crm-query-help" style="display:none">
+    <div class="qh-section">
+        <span class="qh-label" data-i18n="boolean">Boolean</span>:
+        <span class="qh-tag">AND</span><span class="qh-text" data-i18n="beide">beide</span>
+        <span class="qh-tag">OR</span><span class="qh-text" data-i18n="eines">eines</span>
+        <span class="qh-tag">NOT</span><span class="qh-text" data-i18n="ausschliessen">ausschließen</span>
+        <span class="qh-tag">+</span><span class="qh-text" data-i18n="muss">muss</span>
+        <span class="qh-tag">-</span><span class="qh-text" data-i18n="darf_nicht">darf nicht</span>
+    </div>
+    <div class="qh-section">
+        <span class="qh-label" data-i18n="wildcards">Wildcards</span>:
+        <span class="qh-tag">*</span><span class="qh-text" data-i18n="wildcard">Wildcard</span>
+        <span class="qh-tag">?</span><span class="qh-text" data-i18n="ein_zeichen">ein Zeichen</span>
+        <span class="qh-tag">~</span><span class="qh-text" data-i18n="fuzzy">Fuzzy</span>
+        <span class="qh-tag">"..."</span><span class="qh-text" data-i18n="phrase">Phrase</span>
+        <span class="qh-tag">^3</span><span class="qh-text" data-i18n="boost">Boost</span>
+    </div>
+    {% if tab == 'berater' %}
+    <div class="qh-section">
+        <span class="qh-label" data-i18n="felder">Felder</span>:
+        <span class="qh-tag">full_name:</span>
+        <span class="qh-tag">location:</span>
+        <span class="qh-tag">availability:</span>
+        <span class="qh-tag">gulp_id:</span>
+        <span class="qh-tag">kontakt_status:</span>
+    </div>
+    <div class="qh-section">
+        <span class="qh-label" data-i18n="beispiele">Beispiele</span>:
+        <span class="qh-example">java AND python</span>
+        <span class="qh-example">location:München</span>
+        <span class="qh-example">verfuegbar:sofort</span>
+        <span class="qh-example">gulp_id:21778</span>
+    </div>
+    {% elif tab == 'kunden' %}
+    <div class="qh-section">
+        <span class="qh-label" data-i18n="felder">Felder</span>:
+        <span class="qh-tag">name:</span>
+        <span class="qh-tag">city:</span>
+        <span class="qh-tag">status:</span>
+        <span class="qh-tag">kunden_nr:</span>
+    </div>
+    <div class="qh-section">
+        <span class="qh-label" data-i18n="beispiele">Beispiele</span>:
+        <span class="qh-example">BMW OR Siemens</span>
+        <span class="qh-example">city:München</span>
+        <span class="qh-example">status:aktiv</span>
+    </div>
+    {% elif tab == 'emails' %}
+    <div class="qh-section">
+        <span class="qh-label" data-i18n="felder">Felder</span>:
+        <span class="qh-tag">email_address:</span>
+        <span class="qh-tag">bean_module:</span>
+    </div>
+    {% elif tab == 'dokumente' %}
+    <div class="qh-section">
+        <span class="qh-label" data-i18n="felder">Felder</span>:
+        <span class="qh-tag">title:</span>
+        <span class="qh-tag">doc_type:</span>
+        <span class="qh-tag">contact:</span>
+        <span class="qh-tag">account:</span>
+    </div>
+    <div class="qh-section">
+        <span class="qh-label" data-i18n="beispiele">Beispiele</span>:
+        <span class="qh-example">doc_type:vertrag</span>
+        <span class="qh-example">doc_type:rechnung</span>
+        <span class="qh-example">contact:Maier</span>
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,478 @@
+{% extends "abpe_matching_workflow/base.html" %}
+
+{% block title %}{{ project.title }} - Projektdetail{% endblock %}
+
+{% block extra_css %}
+<style>
+    .match-card {
+        border-left: 4px solid transparent;
+        transition: all 0.3s;
+    }
+    .match-card:hover {
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    }
+    .match-card.match-high { border-left-color: #27ae60; }
+    .match-card.match-medium { border-left-color: #f39c12; }
+    .match-card.match-low { border-left-color: #e74c3c; }
+    
+    .timeline {
+        position: relative;
+        padding-left: 30px;
+    }
+    .timeline-item {
+        position: relative;
+        padding-bottom: 20px;
+        border-left: 2px solid #3498db;
+        padding-left: 20px;
+        margin-left: 10px;
+    }
+    .timeline-item:before {
+        content: '';
+        position: absolute;
+        left: -9px;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #3498db;
+        border: 2px solid white;
+    }
+    .timeline-date {
+        font-size: 0.85em;
+        color: #7f8c8d;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>
+        <i class="fas fa-project-diagram me-3"></i>{{ project.title }}
+        <small class="text-muted fs-6 ms-2">{{ project.project_number }}</small>
+    </h1>
+    <div>
+        <button class="btn btn-success me-2" onclick="findMatches('{{ project.id }}')">
+            <i class="fas fa-search me-2"></i>Matches finden
+        </button>
+        <a href="/admin/abpe_matching_workflow/projectrequest/{{ project.id }}/change/" 
+           class="btn btn-outline-primary" target="_blank">
+            <i class="fas fa-edit me-2"></i>Bearbeiten
+        </a>
+    </div>
+</div>
+
+<!-- Projekt-Info -->
+<div class="row mb-4">
+    <div class="col-md-8">
+        <div class="card h-100">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="fas fa-info-circle me-2 text-primary"></i>Projektdetails</h5>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Kunde:</div>
+                    <div class="col-md-9">{{ project.customer_name }}</div>
+                </div>
+                {% if project.customer_contact_person %}
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Ansprechpartner:</div>
+                    <div class="col-md-9">{{ project.customer_contact_person }}</div>
+                </div>
+                {% endif %}
+                {% if project.customer_email %}
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">E-Mail:</div>
+                    <div class="col-md-9">
+                        <a href="mailto:{{ project.customer_email }}">{{ project.customer_email }}</a>
+                    </div>
+                </div>
+                {% endif %}
+                {% if project.customer_phone %}
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Telefon:</div>
+                    <div class="col-md-9">{{ project.customer_phone }}</div>
+                </div>
+                {% endif %}
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Beschreibung:</div>
+                    <div class="col-md-9">{{ project.description|linebreaks }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="fas fa-calendar me-2 text-success"></i>Rahmendaten</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <td>Status:</td>
+                        <td>
+                            <span class="status-badge status-{{ project.status }}">
+                                {{ project.get_status_display }}
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Priorität:</td>
+                        <td>
+                            {% if project.priority == 1 %}
+                                <span class="badge bg-danger">Hoch</span>
+                            {% elif project.priority == 2 %}
+                                <span class="badge bg-warning">Mittel</span>
+                            {% else %}
+                                <span class="badge bg-secondary">Niedrig</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Start:</td>
+                        <td><strong>{{ project.start_date|default:"k.A."|date:"d.m.Y" }}</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Dauer:</td>
+                        <td><strong>{{ project.duration_months }} Monate</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Ort:</td>
+                        <td>
+                            <strong>
+                                {% if project.remote_possible %}
+                                <i class="fas fa-globe text-info me-1" title="Remote möglich"></i>
+                                {% endif %}
+                                {{ project.location|default:"k.A." }}
+                            </strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Auslastung:</td>
+                        <td><strong>{{ project.workload_percent }}%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Stundensatz:</td>
+                        <td>
+                            <strong>
+                                {% if project.rate_min and project.rate_max %}
+                                {{ project.rate_min }} - {{ project.rate_max }} €
+                                {% else %}
+                                k.A.
+                                {% endif %}
+                            </strong>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benötigte Skills -->
+<div class="card mb-4">
+    <div class="card-header bg-white">
+        <h5 class="mb-0"><i class="fas fa-code me-2 text-warning"></i>Benötigte Skills</h5>
+    </div>
+    <div class="card-body">
+        {% for skill in project.extracted_technologies %}
+        <span class="badge bg-secondary me-2 mb-2 p-2">{{ skill }}</span>
+        {% empty %}
+        <span class="text-muted">Keine Skills erfasst</span>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Matching-Bereich -->
+<div class="card">
+    <div class="card-header bg-white">
+        <ul class="nav nav-tabs card-header-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#matches">
+                    <i class="fas fa-code-branch me-2"></i>Gefundene Berater ({{ matches|length }})
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#history">
+                    <i class="fas fa-history me-2"></i>Verlauf
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="card-body">
+        <div class="tab-content">
+            <!-- Alle Matches -->
+            <div class="tab-pane active" id="matches">
+                <div class="row">
+                    {% for match in matches %}
+                    <div class="col-md-6 mb-3">
+                        <div class="card match-card 
+                            {% if match.match_score > 0.8 %}match-high
+                            {% elif match.match_score > 0.6 %}match-medium
+                            {% else %}match-low{% endif %}">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div>
+                                        <h6 class="mb-1">
+                                            <strong>{{ match.consultant.full_name }}</strong>
+                                        </h6>
+                                        <small class="text-muted">{{ match.consultant.title }}</small>
+                                    </div>
+                                    <span class="badge badge-match" style="background: 
+                                        {% if match.match_score > 0.8 %}#27ae60
+                                        {% elif match.match_score > 0.6 %}#f39c12
+                                        {% else %}#e74c3c{% endif %};">
+                                        {{ match.match_score|floatformat:0 }}%
+                                    </span>
+                                </div>
+                                
+                                <div class="mb-2">
+                                    {% for skill in match.match_details.matching_skills|slice:":5" %}
+                                    <span class="badge bg-success me-1">{{ skill }}</span>
+                                    {% empty %}
+                                    {% for skill in match.consultant.skills_list|slice:":3" %}
+                                    <span class="badge bg-secondary me-1">{{ skill }}</span>
+                                    {% endfor %}
+                                    {% endfor %}
+                                </div>
+                                
+                                <div class="small text-muted mb-2">
+                                    <i class="fas fa-calendar me-1"></i> 
+                                    Verfügbar: {{ match.consultant.available_from|default:"kurzfristig"|date:"d.m.Y" }}
+                                    {% if match.consultant.remote_only %}
+                                    <span class="ms-2"><i class="fas fa-globe"></i> nur Remote</span>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <span class="status-badge" style="background: #e9ecef;">
+                                        {{ match.get_status_display }}
+                                    </span>
+                                    <div>
+                                        <button class="btn btn-sm btn-outline-primary me-1" 
+                                                onclick="showMatchDetails('{{ match.id }}')"
+                                                title="Details">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-success me-1" 
+                                                onclick="sendEmail('{{ match.id }}')"
+                                                title="E-Mail senden">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
+                                        <div class="btn-group">
+                                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" 
+                                                    data-bs-toggle="dropdown">
+                                                <i class="fas fa-chevron-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#" onclick="updateStatus('{{ match.id }}', 'interested')">
+                                                    <i class="fas fa-check text-success me-2"></i>Interessiert
+                                                </a></li>
+                                                <li><a class="dropdown-item" href="#" onclick="updateStatus('{{ match.id }}', 'not_interested')">
+                                                    <i class="fas fa-times text-danger me-2"></i>Nicht interessiert
+                                                </a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item" href="#" onclick="updateStatus('{{ match.id }}', 'interview_scheduled')">
+                                                    <i class="fas fa-calendar text-primary me-2"></i>Interview geplant
+                                                </a></li>
+                                                <li><a class="dropdown-item" href="#" onclick="updateStatus('{{ match.id }}', 'accepted')">
+                                                    <i class="fas fa-thumbs-up text-success me-2"></i>Zusage
+                                                </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-12 text-center text-muted py-5">
+                        <i class="fas fa-users fa-4x mb-3"></i>
+                        <h5>Keine Berater gefunden</h5>
+                        <p class="mb-3">Klicken Sie auf "Matches finden", um passende Berater zu suchen.</p>
+                        <button class="btn btn-primary" onclick="findMatches('{{ project.id }}')">
+                            <i class="fas fa-search me-2"></i>Matches finden
+                        </button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Verlauf -->
+            <div class="tab-pane" id="history">
+                <div class="timeline">
+                    {% for match in matches %}
+                        {% for event in match.status_history %}
+                        <div class="timeline-item">
+                            <div class="d-flex justify-content-between">
+                                <strong>{{ event.from|default:"-" }} → {{ event.to }}</strong>
+                                <span class="timeline-date">{{ event.at|date:"d.m.Y H:i" }}</span>
+                            </div>
+                            <div class="small">{{ match.consultant.full_name }}</div>
+                            {% if event.note %}
+                            <div class="text-muted small mt-1">{{ event.note }}</div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    {% empty %}
+                    <p class="text-muted text-center py-4">Keine Verlaufseinträge vorhanden</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- E-Mail Modal -->
+<div class="modal fade" id="emailModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">E-Mail an Berater</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="emailForm">
+                    <div class="mb-3">
+                        <label class="form-label">Betreff</label>
+                        <input type="text" class="form-control" id="emailSubject" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">E-Mail-Text</label>
+                        <textarea class="form-control" id="emailBody" rows="12" style="font-family: monospace;"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
+                <button type="button" class="btn btn-primary" onclick="sendEmailConfirm()">
+                    <i class="fas fa-paper-plane me-2"></i>Senden
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentMatchId = null;
+    
+    function findMatches(projectId) {
+        const btn = event.target.closest('button');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Suche...';
+        btn.disabled = true;
+        
+        fetch(`/matching/api/project/${projectId}/find-matches/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                alert('Fehler bei der Suche');
+            }
+        })
+        .finally(() => {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        });
+    }
+    
+    function showMatchDetails(matchId) {
+        // Könnte später ein Modal mit Details öffnen
+        window.open(`/admin/abpe_matching_workflow/projectconsultant/${matchId}/change/`, '_blank');
+    }
+    
+    function sendEmail(matchId) {
+        currentMatchId = matchId;
+        
+        fetch(`/matching/api/match/${matchId}/get-email-preview/`, {
+            method: 'GET',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('emailSubject').value = data.subject || 'Projektanfrage: {{ project.title }}';
+            document.getElementById('emailBody').value = data.body || 'E-Mail wird geladen...';
+            
+            const modal = new bootstrap.Modal(document.getElementById('emailModal'));
+            modal.show();
+        })
+        .catch(() => {
+            document.getElementById('emailSubject').value = 'Projektanfrage: {{ project.title }}';
+            document.getElementById('emailBody').value = 'Sehr geehrte/r ...\n\nE-Mail konnte nicht geladen werden. Bitte manuell erstellen.';
+            
+            const modal = new bootstrap.Modal(document.getElementById('emailModal'));
+            modal.show();
+        });
+    }
+    
+    function sendEmailConfirm() {
+        if (!currentMatchId) return;
+        
+        const btn = event.target;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Wird gesendet...';
+        btn.disabled = true;
+        
+        fetch(`/matching/api/match/${currentMatchId}/send-email/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                custom_text: document.getElementById('emailBody').value
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('✅ E-Mail wurde gesendet!');
+                location.reload();
+            } else {
+                alert('❌ Fehler beim Senden: ' + (data.error || 'Unbekannter Fehler'));
+            }
+        })
+        .catch(error => {
+            alert('❌ Fehler: ' + error);
+        })
+        .finally(() => {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        });
+    }
+    
+    function updateStatus(matchId, status) {
+        if (!confirm(`Status ändern zu "${status}"?`)) return;
+        
+        fetch(`/matching/api/match/${matchId}/update-status/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                status: status,
+                note: 'Manuelle Statusänderung'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                alert('Fehler beim Status-Update');
+            }
+        });
+    }
+</script>
+{% endblock %}
