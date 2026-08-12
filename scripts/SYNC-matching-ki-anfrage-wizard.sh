@@ -31,6 +31,7 @@ git archive "$BRANCH" \
   Repo_abpe/abpe_crm/incoming/models.py \
   Repo_abpe/abpe_crm/incoming/views.py \
   Repo_abpe/abpe_crm/incoming/migrations \
+  scripts/ensure-matching-terms-db.py \
   | tar -x -C "$TMP"
 
 # Guard: Prompt-Default muss im Archive sein
@@ -70,6 +71,15 @@ echo "OK — prompt_defaults enthält wiz_matching_anfrage_generate"
 LIVE_SH="${LIVE_SH:-/opt/abpe/backend/apps/abpe_shaduler}"
 if [[ -d "$TMP/Repo_abpe/abpe_shaduler/incoming" ]]; then
   mkdir -p "$LIVE_SH"
+  ts=$(date +%Y%m%d-%H%M%S)
+  if [[ -f "$LIVE_SH/views.py" ]]; then
+    cp -a "$LIVE_SH/views.py" "$LIVE_SH/views.py.bak-before-matching-sync-$ts"
+    cp -a "$LIVE_SH/views.py" "$LIVE_SH/views.py.bak-before-matching-sync"
+  fi
+  if [[ -f "$LIVE_SH/models.py" ]]; then
+    cp -a "$LIVE_SH/models.py" "$LIVE_SH/models.py.bak-before-matching-sync-$ts"
+    cp -a "$LIVE_SH/models.py" "$LIVE_SH/models.py.bak-before-matching-sync"
+  fi
   # Code ohne Migrationen (Live-History nicht überschreiben) …
   rsync -a \
     --exclude '__pycache__/' \
@@ -145,7 +155,7 @@ if [[ -d "$TMP/Repo_abpe/abpe_crm/incoming" && -d "$LIVE_CRM" ]]; then
         | sed 's/^views\.//' | sort -u)
     fi
 
-    # Recovery: Live kaputt (z.B. nach altem SYNC) — fehlende Pflicht-Handler?
+    # Recovery / Harden: fehlende Handler ODER noch ohne Terms-Defer-Schutz
     NEED_RECOVERY=0
     for must in api_berater_cv api_contacts_suggest; do
       if _crm_urls_need "$must" && ! _crm_view_has "$LIVE_CRM_VIEWS" "$must"; then
@@ -153,27 +163,26 @@ if [[ -d "$TMP/Repo_abpe/abpe_crm/incoming" && -d "$LIVE_CRM" ]]; then
         NEED_RECOVERY=1
       fi
     done
-    # Terms-Felder in Live?
     if ! grep -q "satz_remote_c" "$LIVE_CRM_VIEWS"; then
       echo "WARN: Live views.py ohne satz_remote_c → Terms-Patch nötig"
       NEED_RECOVERY=1
     fi
+    if ! grep -q "_CRM_TERMS_DEFER" "$LIVE_CRM_VIEWS"; then
+      echo "WARN: Live views.py ohne _CRM_TERMS_DEFER → Harden nötig"
+      NEED_RECOVERY=1
+    fi
 
     ts=$(date +%Y%m%d-%H%M%S)
-    cp -a "$LIVE_CRM_VIEWS" "$LIVE_CRM/views.py.bak-before-matching-sync-$ts" 2>/dev/null || true
-    # stabile Latest-Bak für schnelles Rollback
-    cp -a "$LIVE_CRM_VIEWS" "$LIVE_CRM/views.py.bak-before-matching-sync" 2>/dev/null || true
+    cp -a "$LIVE_CRM_VIEWS" "$LIVE_CRM/views.py.bak-before-matching-sync-$ts"
+    cp -a "$LIVE_CRM_VIEWS" "$LIVE_CRM/views.py.bak-before-matching-sync"
 
     if [[ "$SKIP_VIEWS_COPY" -eq 0 && "$NEED_RECOVERY" -eq 1 ]]; then
-      # Repo deckt Live-urls ab und Live ist unvollständig → Full-Replace ok
       cp -a "$REPO_CRM_VIEWS" "$LIVE_CRM_VIEWS"
-      echo "OK — abpe_crm/views.py ersetzt (Recovery: CV + suggest + Terms)"
+      echo "OK — abpe_crm/views.py ersetzt (Backup: views.py.bak-before-matching-sync-$ts)"
     elif [[ "$SKIP_VIEWS_COPY" -eq 0 && "$NEED_RECOVERY" -eq 0 ]]; then
-      # Live schon ok + Repo kompatibel: nur Terms nachziehen falls nötig (bereits ok)
-      echo "OK — abpe_crm/views.py unverändert (Live ok, kein Replace)"
+      echo "OK — abpe_crm/views.py unverändert (Live ok, Backup: views.py.bak-before-matching-sync-$ts)"
     else
-      # Live-urls braucht mehr als Repo → nur fehlende Snippets injizieren
-      echo "→ CRM views: chirurgisch (kein Full-Replace)"
+      echo "→ CRM views: chirurgisch (kein Full-Replace); Backup: views.py.bak-before-matching-sync-$ts"
       if _crm_urls_need api_contacts_suggest && ! _crm_view_has "$LIVE_CRM_VIEWS" api_contacts_suggest; then
         if _crm_view_has "$REPO_CRM_VIEWS" api_contacts_suggest; then
           # Funktion aus Repo extrahieren und vor crm_email_compose / Dateiende einfügen
@@ -219,16 +228,59 @@ PY
     fi
   fi
 
-  if [[ -f "$TMP/Repo_abpe/abpe_crm/incoming/models.py" ]]; then
-    if ! grep -q "verfuegbar_tage_pro_woche_c" "$TMP/Repo_abpe/abpe_crm/incoming/models.py"; then
-      echo "FEHLER: CRM models.py ohne verfuegbar_tage_pro_woche_c"
-      exit 1
-    fi
-    # models.py: nur ersetzen wenn Live die Terms-Felder noch nicht hat
-    if ! grep -q "verfuegbar_tage_pro_woche_c" "$LIVE_CRM/models.py" 2>/dev/null; then
-      cp -a "$LIVE_CRM/models.py" "$LIVE_CRM/models.py.bak-before-matching-sync" 2>/dev/null || true
-      cp -a "$TMP/Repo_abpe/abpe_crm/incoming/models.py" "$LIVE_CRM/models.py"
-      echo "OK — abpe_crm/models.py (Terms-Felder ergänzt)"
+  # models.py: NIE Full-Replace — nur fehlende Terms-Felder chirurgisch einfügen
+  if [[ -f "$LIVE_CRM/models.py" ]]; then
+    ts=$(date +%Y%m%d-%H%M%S)
+    cp -a "$LIVE_CRM/models.py" "$LIVE_CRM/models.py.bak-before-matching-sync-$ts"
+    cp -a "$LIVE_CRM/models.py" "$LIVE_CRM/models.py.bak-before-matching-sync"
+    if ! grep -q "verfuegbar_tage_pro_woche_c" "$LIVE_CRM/models.py"; then
+      "$PYBIN" - "$LIVE_CRM/models.py" <<'PY'
+import re, sys
+path = sys.argv[1]
+text = open(path, encoding="utf-8").read()
+if "verfuegbar_tage_pro_woche_c" in text:
+    print("skip models: already has terms fields")
+    raise SystemExit(0)
+block = '''
+    # Eingeschränkte Verfügbarkeit (Stammdaten / Default) — Matching Terms
+    verfuegbar_tage_pro_woche_c = models.PositiveSmallIntegerField(
+                                    null=True, blank=True,
+                                    help_text='Max. Einsatztage pro Woche (1–7)')
+    verfuegbar_hinweis_c        = models.CharField(
+                                    max_length=255, blank=True, null=True,
+                                    help_text='z.B. nur Mo–Mi, keine Reise')
+'''
+# konditionen_c bleibt; Sätze danach
+rates = '''
+    # Mehrere Konditionen (Stammdaten / Default) — Matching Terms
+    satz_remote_c               = models.DecimalField(
+                                    max_digits=8, decimal_places=2, null=True, blank=True,
+                                    help_text='Stundensatz Remote €')
+    satz_vor_ort_c              = models.DecimalField(
+                                    max_digits=8, decimal_places=2, null=True, blank=True,
+                                    help_text='Stundensatz vor Ort €')
+'''
+# Nach verfuegbar_ab_c einfügen
+pat = r"(verfuegbar_ab_c\s*=\s*models\.DateField\([^\n]*\n)"
+m = re.search(pat, text)
+if not m:
+    raise SystemExit("verfuegbar_ab_c nicht in Live models.py — Abbruch")
+text = text[:m.end()] + block + text[m.end():]
+# Nach konditionen_c einfügen (falls vorhanden), sonst nach hinweis-Block
+if "satz_remote_c" not in text:
+    m2 = re.search(r"(konditionen_c\s*=\s*models\.CharField\([^\n]*\n)", text)
+    if m2:
+        text = text[:m2.end()] + rates + text[m2.end():]
+    else:
+        # hinter verfuegbar_hinweis_c
+        m3 = re.search(r"(verfuegbar_hinweis_c\s*=\s*models\.CharField\([\s\S]*?\)\n)", text)
+        if not m3:
+            raise SystemExit("kein Insert-Punkt für satz_remote_c")
+        text = text[:m3.end()] + rates + text[m3.end():]
+open(path, "w", encoding="utf-8").write(text)
+print("patched models.py Terms fields")
+PY
+      echo "OK — abpe_crm/models.py chirurgisch (Terms-Felder)"
     else
       echo "OK — abpe_crm/models.py unverändert (Terms-Felder bereits vorhanden)"
     fi
@@ -315,15 +367,39 @@ for k in ('wiz_matching_anfrage_generate','wiz_firma_web_enrich'):
         raise SystemExit(2)
 "
 
-# ── Migrate (kein automatischer Voll-Seed — Bestand schon da) ────────────────
+# ── DB sicherstellen (Spalten + Terms-Tabelle) — MUSS vor Restart ────────────
 echo
-echo "→ migrate abpe_shaduler + abpe_crm (Terms / Verfügbarkeit)"
+echo "→ ensure-matching-terms-db (ADD COLUMN IF NOT EXISTS + migrate)"
 cd "$BACKEND"
-"$PYBIN" manage.py migrate abpe_shaduler --noinput
-"$PYBIN" manage.py migrate abpe_crm --noinput || {
-  echo "Hinweis: abpe_crm-Migration ggf. manuell prüfen (Tabelle contacts_cstm / abpe_crm_crmcontactcstm)"
-  "$PYBIN" manage.py migrate abpe_crm --noinput 2>&1 | tail -20 || true
+ENSURE_PY="${TMP}/scripts/ensure-matching-terms-db.py"
+if [[ ! -f "$ENSURE_PY" ]]; then
+  # Fallback: aus Repo-Working-Tree / git show
+  if [[ -f "$REPO/scripts/ensure-matching-terms-db.py" ]]; then
+    ENSURE_PY="$REPO/scripts/ensure-matching-terms-db.py"
+  else
+    mkdir -p "$TMP/scripts"
+    git -C "$REPO" show "$BRANCH:scripts/ensure-matching-terms-db.py" \
+      > "$TMP/scripts/ensure-matching-terms-db.py"
+    ENSURE_PY="$TMP/scripts/ensure-matching-terms-db.py"
+  fi
+fi
+BACKEND="$BACKEND" "$PYBIN" "$ENSURE_PY"
+ENSURE_RC=$?
+if [[ "$ENSURE_RC" -ne 0 ]]; then
+  echo "FEHLER: DB-Ensure fehlgeschlagen (exit $ENSURE_RC)."
+  echo "  Ohne Spalten/Tabelle liefern /crm/api/berater/ und /matching/terms/ 500."
+  echo "  Rollback-Beispiel: cp -a $LIVE_CRM/models.py.bak-before-matching-sync $LIVE_CRM/models.py"
+  exit "$ENSURE_RC"
+fi
+
+# ── Django-Check ─────────────────────────────────────────────────────────────
+echo
+echo "→ manage.py check"
+"$PYBIN" manage.py check || {
+  echo "FEHLER: manage.py check fehlgeschlagen — Django nicht restarten bis behoben"
+  exit 1
 }
+
 echo "Hinweis: CRM-Vollindex manuell / alle 30 Min via Scheduler:"
 echo "  $PYBIN manage.py radar_berater_seed --reindex"
 echo "  $PYBIN manage.py register_scheduler_jobs   # inkl. radar_berater_index 30 Min"
@@ -335,6 +411,7 @@ echo
 echo "Restart: supervisorctl restart abpe-django"
 echo "API Match-Terms: GET/POST /shaduler/api/matching/terms/<match_uuid>/"
 echo "CRM-Felder: verfuegbar_tage_pro_woche_c, verfuegbar_hinweis_c, satz_remote_c, satz_vor_ort_c"
+echo "Backups: $LIVE_CRM/*.bak-before-matching-sync[-TIMESTAMP]"
 echo "Optional (Radar Anfragen ES): $PYBIN manage.py radar_reindex --status neu"
 echo "Optional (Radar Dedup):       $PYBIN manage.py radar_regroup --days 14"
 echo "UI Matching: Button „KI-Anfragen-Wizard“ links neben „+ Neue Anfrage“"

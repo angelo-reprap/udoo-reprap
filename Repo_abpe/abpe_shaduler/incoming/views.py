@@ -934,7 +934,14 @@ def api_matching_terms(request, match_id):
         return JsonResponse({'ok': False, 'error': 'match_id muss UUID sein'}, status=400)
 
     if request.method == 'GET':
-        obj = MatchingBeraterTerms.objects.filter(match_id=mid).first()
+        try:
+            obj = MatchingBeraterTerms.objects.filter(match_id=mid).first()
+        except Exception as exc:
+            # Tabelle fehlt (Migration noch nicht) — UI darf trotzdem öffnen
+            return JsonResponse({
+                'ok': True, 'terms': None,
+                'warning': f'MatchingBeraterTerms nicht verfügbar: {exc}',
+            })
         return JsonResponse({'ok': True, 'terms': _ser(obj) if obj else None})
 
     data = _json_body(request)
@@ -960,9 +967,15 @@ def api_matching_terms(request, match_id):
         return JsonResponse({'ok': False, 'error': f'Ungültiger Wert ({exc})'}, status=400)
 
     fields['updated_by'] = getattr(request.user, 'username', '') or str(request.user.pk)
-    obj, _created = MatchingBeraterTerms.objects.update_or_create(
-        match_id=mid, defaults=fields,
-    )
+    try:
+        obj, _created = MatchingBeraterTerms.objects.update_or_create(
+            match_id=mid, defaults=fields,
+        )
+    except Exception as exc:
+        return JsonResponse({
+            'ok': False,
+            'error': f'MatchingBeraterTerms speichern fehlgeschlagen: {exc}',
+        }, status=503)
 
     # Optional: auch CRM-Stammdaten (Default) überschreiben
     also_crm = bool(data.get('also_crm') or data.get('save_crm_default'))

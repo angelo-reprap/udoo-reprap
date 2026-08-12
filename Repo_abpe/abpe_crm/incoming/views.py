@@ -70,6 +70,27 @@ from .models import (
 # HELPERS
 # ============================================================
 
+# Matching-Terms auf CrmContactCstm — bei select_related deferren,
+# damit fehlende DB-Spalten die Berater-Liste nicht mit 500 killen.
+_CRM_TERMS_DEFER = (
+    'cstm__verfuegbar_tage_pro_woche_c',
+    'cstm__verfuegbar_hinweis_c',
+    'cstm__satz_remote_c',
+    'cstm__satz_vor_ort_c',
+)
+
+
+def _cstm_get(cstm, attr, default=None):
+    """Sicheres Lesen optionaler CSTM-Felder (fehlende Spalte → default)."""
+    if cstm is None:
+        return default
+    try:
+        val = getattr(cstm, attr)
+    except Exception:
+        return default
+    return default if val is None else val
+
+
 def _lang(request):
     return request.session.get('language', 'de')
 
@@ -158,7 +179,9 @@ def api_berater_list(request):
     page      = int(request.GET.get('page', 1))
     per_page  = int(request.GET.get('per_page', 20))
 
-    qs = CrmContact.objects.select_related('cstm').all()
+    # Terms-Spalten deferren: fehlen sie in der DB (Migration noch nicht),
+    # darf die Liste trotzdem laden — Zugriff in _berater_row ist abgesichert.
+    qs = CrmContact.objects.select_related('cstm').defer(*_CRM_TERMS_DEFER)
 
     matched_ids = []
     if q:
@@ -243,7 +266,10 @@ def api_berater_list(request):
 @require_http_methods(['GET'])
 def api_berater_detail(request, crm_id):
     """Berater Detail — alle Felder"""
-    c = get_object_or_404(CrmContact, crm_id=crm_id)
+    c = get_object_or_404(
+        CrmContact.objects.select_related('cstm').defer(*_CRM_TERMS_DEFER),
+        crm_id=crm_id,
+    )
     cstm = getattr(c, 'cstm', None)
 
     emails = list(
@@ -315,13 +341,11 @@ def api_berater_detail(request, crm_id):
             'kontakt_typ':    cstm.kontakt_typ_c if cstm else '',
             'kontakt_status': cstm.kontakt_status_c if cstm else '',
             'verfuegbar_ab':  str(cstm.verfuegbar_ab_c) if cstm and cstm.verfuegbar_ab_c else '',
-            'verfuegbar_tage_pro_woche': (
-                cstm.verfuegbar_tage_pro_woche_c if cstm and cstm.verfuegbar_tage_pro_woche_c is not None else None
-            ),
-            'verfuegbar_hinweis': cstm.verfuegbar_hinweis_c if cstm else '',
+            'verfuegbar_tage_pro_woche': _cstm_get(cstm, 'verfuegbar_tage_pro_woche_c'),
+            'verfuegbar_hinweis': _cstm_get(cstm, 'verfuegbar_hinweis_c', '') or '',
             'konditionen':    cstm.konditionen_c if cstm else '',
-            'satz_remote':    str(cstm.satz_remote_c) if cstm and cstm.satz_remote_c is not None else '',
-            'satz_vor_ort':   str(cstm.satz_vor_ort_c) if cstm and cstm.satz_vor_ort_c is not None else '',
+            'satz_remote':    (lambda v: str(v) if v is not None else '')(_cstm_get(cstm, 'satz_remote_c')),
+            'satz_vor_ort':   (lambda v: str(v) if v is not None else '')(_cstm_get(cstm, 'satz_vor_ort_c')),
             'gulp_id':        cstm.gulp_id_c if cstm else '',
             'gulp_updated':   str(cstm.gulp_last_updated_c) if cstm and cstm.gulp_last_updated_c else '',
             'skill_priority': cstm.skill_priority_c if cstm else '',
@@ -2541,6 +2565,8 @@ def _berater_row(c):
     """Zeilen-Dict fuer Berater-Liste. Von api_berater_list UND
     api_favoriten_list genutzt (kein Duplikat der Feldliste)."""
     cstm = getattr(c, 'cstm', None)
+    _remote = _cstm_get(cstm, 'satz_remote_c')
+    _onsite = _cstm_get(cstm, 'satz_vor_ort_c')
     return {
         'id':           c.id,
         'crm_id':       c.crm_id,
@@ -2551,13 +2577,11 @@ def _berater_row(c):
         'city':         c.primary_address_city or '',
         'status':       cstm.kontakt_status_c if cstm else '',
         'verfuegbar':   str(cstm.verfuegbar_ab_c) if cstm and cstm.verfuegbar_ab_c else '',
-        'verfuegbar_tage_pro_woche': (
-            cstm.verfuegbar_tage_pro_woche_c if cstm and cstm.verfuegbar_tage_pro_woche_c is not None else None
-        ),
-        'verfuegbar_hinweis': cstm.verfuegbar_hinweis_c if cstm else '',
+        'verfuegbar_tage_pro_woche': _cstm_get(cstm, 'verfuegbar_tage_pro_woche_c'),
+        'verfuegbar_hinweis': _cstm_get(cstm, 'verfuegbar_hinweis_c', '') or '',
         'konditionen':  cstm.konditionen_c if cstm else '',
-        'satz_remote':  str(cstm.satz_remote_c) if cstm and cstm.satz_remote_c is not None else '',
-        'satz_vor_ort': str(cstm.satz_vor_ort_c) if cstm and cstm.satz_vor_ort_c is not None else '',
+        'satz_remote':  str(_remote) if _remote is not None else '',
+        'satz_vor_ort': str(_onsite) if _onsite is not None else '',
         'gulp_id':      cstm.gulp_id_c if cstm else '',
     }
 
@@ -2597,7 +2621,7 @@ def api_favoriten_list(request):
         results = [_kunden_row(by_id[i]) for i in ids if i in by_id]
     else:
         ids = list(settings_obj.favoriten_berater or [])
-        qs = CrmContact.objects.select_related('cstm').filter(crm_id__in=ids)
+        qs = CrmContact.objects.select_related('cstm').defer(*_CRM_TERMS_DEFER).filter(crm_id__in=ids)
         by_id = {c.crm_id: c for c in qs}
         results = [_berater_row(by_id[i]) for i in ids if i in by_id]
 
