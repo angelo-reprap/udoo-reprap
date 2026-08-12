@@ -137,6 +137,7 @@ FIRST_WORD_TO_SKILL_CAT = {
 SKILL_CATEGORIES = [
     'architecture_pattern', 'business_software', 'ci_cd_tool', 'cloud_platform',
     'communication_tool', 'database', 'data_format', 'data_management',
+    'datenkommunikation',
     'development_environment', 'devops_tool', 'documentation_tool', 'framework',
     'hardware', 'identity_management', 'it_infrastructure', 'methodology',
     'monitoring_tool', 'network_protocol', 'operating_system', 'programming_languages',
