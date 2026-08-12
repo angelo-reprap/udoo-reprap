@@ -7,6 +7,9 @@
 #   3) Repo ändern (Cloud/Agent) → SYNC nur diese Dateien
 #   4) Test Troschke → ggf. -restore
 #
+# WICHTIG: Nie `prepare` NACH Agent-Fixes committen, bevor `deploy` lief —
+# sonst überschreibt Live (alt) die neuen Patches im Repo (siehe c381628).
+#
 # Aufruf auf ucs5:
 #   cd /mnt/public/udoo-reprap && bash scripts/SAFE-cv-extractor-edit.sh prepare
 #   # … Agent ändert im Repo …
@@ -23,12 +26,15 @@ BR="${BR:-python3 Archiv/backup_restore.py}"
 MSG_PREFIX="${MSG_PREFIX:-cv_extractor fidelity Fix1-4}"
 
 # Nur diese Dateien — kein models.py, keine Migrations
+# (Publish + Import gegen Doppel-Pipeline / EN-Spam)
 FILES=(
   extractors/main_base_extractor.py
   generator/word/word_generator.py
   generator/html/html_generator.py
   enricher/main_extracted_to_db.py
   services/main_post_processor.py
+  services/aid_profile_publish.py
+  management/commands/import_aid_profiles.py
 )
 
 cmd="${1:-help}"
