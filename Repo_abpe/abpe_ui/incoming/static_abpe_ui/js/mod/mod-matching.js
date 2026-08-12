@@ -3270,7 +3270,20 @@ window.Matching = (function() {
     }
 
     function _csrfHdr() {
-        return csrf() || (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '';
+        let t = csrf();
+        if (!t) {
+            const m = document.cookie.match(/(?:^|; )csrftoken=([^;]+)/);
+            t = m ? decodeURIComponent(m[1]) : '';
+        }
+        if (!t) {
+            const meta = document.querySelector('meta[name="csrf-token"],meta[name="csrfmiddlewaretoken"]');
+            if (meta) t = meta.getAttribute('content') || '';
+        }
+        if (!t) {
+            const inp = document.querySelector('input[name="csrfmiddlewaretoken"]');
+            if (inp) t = inp.value || '';
+        }
+        return t || '';
     }
 
     function _jsonPost(url, body) {
@@ -3283,8 +3296,19 @@ window.Matching = (function() {
                 'X-Requested-With': 'XMLHttpRequest',
             },
             body: JSON.stringify(body || {}),
-        }).then(r => r.json().catch(() => ({ ok: false, error: 'HTTP ' + r.status })))
-          .catch(e => ({ ok: false, error: String(e && e.message || e) }));
+        }).then(async r => {
+            let data = null;
+            try { data = await r.json(); } catch (e) { data = null; }
+            if (!r.ok) {
+                return {
+                    ok: false,
+                    error: (data && (data.error || data.detail)) || ('HTTP ' + r.status),
+                    status: r.status,
+                };
+            }
+            if (data && typeof data === 'object') return data;
+            return { ok: true };
+        }).catch(e => ({ ok: false, error: String(e && e.message || e) }));
     }
 
     function _availRowHtml(label, dateVal, tone, adoptBtn) {
@@ -3448,43 +3472,51 @@ window.Matching = (function() {
         });
     }
 
-    function _saveAvailabilityToCrm(detail, isoDate) {
+    function _saveCrmFields(detail, fields, msgEl) {
         const crmId = detail && detail.crm_contact_id;
-        const date = _normDate(isoDate);
-        const msg = document.getElementById('matching-avail-msg');
+        const msg = msgEl || document.getElementById('matching-avail-msg');
         if (!crmId) {
             if (msg) { msg.style.color = '#dc2626'; msg.textContent = 'Kein CRM-Kontakt — Speichern nicht möglich.'; }
             return Promise.resolve({ ok: false });
         }
+        const payload = Object.assign({ action: 'update' }, fields || {});
+        if (msg) { msg.style.color = '#666'; msg.textContent = 'Speichere im CRM…'; }
+        return _jsonPost('/crm/api/contact/' + encodeURIComponent(crmId) + '/update/', payload)
+            .then(res => {
+                if (res && res.ok !== false && !res.error) {
+                    return { ok: true, res: res };
+                }
+                if (msg) {
+                    msg.style.color = '#dc2626';
+                    msg.textContent = 'Speichern fehlgeschlagen: '
+                        + ((res && res.error) || (res && res.status === 403 ? 'CSRF/Login' : 'unbekannt'));
+                }
+                return { ok: false, res: res };
+            });
+    }
+
+    function _saveAvailabilityToCrm(detail, isoDate) {
+        const date = _normDate(isoDate);
+        const msg = document.getElementById('matching-avail-msg');
         if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-            if (msg) { msg.style.color = '#dc2626'; msg.textContent = 'Bitte gültiges Datum wählen (TT.MM.JJJJ).'; }
+            if (msg) { msg.style.color = '#dc2626'; msg.textContent = 'Bitte Datum wählen oder als TT.MM.JJJJ eingeben.'; }
             return Promise.resolve({ ok: false });
         }
-        if (msg) { msg.style.color = '#666'; msg.textContent = 'Speichere Verfügbarkeit…'; }
-        return _jsonPost('/crm/api/contact/' + encodeURIComponent(crmId) + '/update/', {
-            action: 'update',
-            verfuegbar_ab_c: date,
-        }).then(res => {
-            if (res && res.ok !== false && !res.error) {
-                detail.available_from = date;
-                const cache = window._matchingContactCache || {};
-                if (cache[detail.id]) cache[detail.id].available_from = date;
-                const inp = document.getElementById('matching-avail-input');
-                if (inp) inp.value = date;
-                if (msg) {
-                    msg.style.color = '#16a34a';
-                    msg.textContent = 'CRM gespeichert: verfügbar ab ' + _fmtDate(date);
-                }
-                const live = (window._matchingAvailLive || {})[detail.id] || { gulp: null, fm: null, note: '' };
-                live.note = 'CRM aktualisiert auf ' + _fmtDate(date);
-                _renderAvailBox(document.getElementById('matching-avail-box'), detail, live);
-                return { ok: true, date: date };
-            }
+        return _saveCrmFields(detail, { verfuegbar_ab_c: date }, msg).then(r => {
+            if (!r.ok) return r;
+            detail.available_from = date;
+            const cache = window._matchingContactCache || {};
+            if (cache[detail.id]) cache[detail.id].available_from = date;
+            const inp = document.getElementById('matching-avail-input');
+            if (inp) inp.value = date;
             if (msg) {
-                msg.style.color = '#dc2626';
-                msg.textContent = 'Speichern fehlgeschlagen: ' + ((res && res.error) || 'unbekannt');
+                msg.style.color = '#16a34a';
+                msg.textContent = 'CRM gespeichert: verfügbar ab ' + _fmtDate(date);
             }
-            return { ok: false };
+            const live = (window._matchingAvailLive || {})[detail.id] || { gulp: null, fm: null, note: '' };
+            live.note = 'CRM aktualisiert auf ' + _fmtDate(date);
+            _renderAvailBox(document.getElementById('matching-avail-box'), detail, live);
+            return { ok: true, date: date };
         });
     }
 
@@ -3503,11 +3535,39 @@ window.Matching = (function() {
         let date = '';
         if (source === 'gulp') date = (live.gulp && live.gulp.date) || (detail && detail.available_gulp) || '';
         else if (source === 'fm') date = (live.fm && live.fm.date) || (detail && detail.available_fm) || '';
-        else date = source; // ISO direkt
+        else date = source;
         const run = function (d) {
             const inp = document.getElementById('matching-avail-input');
             if (inp && date) inp.value = _normDate(date);
             return _saveAvailabilityToCrm(d, date);
+        };
+        if (detail) return run(detail);
+        return _fetchMatchDetail(matchId).then(run);
+    }
+
+    function saveRate(matchId) {
+        const detail = (window._matchingContactCache || {})[matchId];
+        const inp = document.getElementById('matching-rate-input');
+        const msg = document.getElementById('matching-rate-msg') || document.getElementById('matching-avail-msg');
+        const raw = inp ? String(inp.value || '').trim() : '';
+        const run = function (d) {
+            if (!raw) {
+                if (msg) { msg.style.color = '#dc2626'; msg.textContent = 'Bitte Kondition/Preis eingeben.'; }
+                return Promise.resolve({ ok: false });
+            }
+            return _saveCrmFields(d, { konditionen_c: raw }, msg).then(r => {
+                if (!r.ok) return r;
+                d.rate = raw;
+                const cache = window._matchingContactCache || {};
+                if (cache[d.id]) cache[d.id].rate = raw;
+                const shown = document.getElementById('matching-rate-shown');
+                if (shown) shown.textContent = raw + (raw.indexOf('€') >= 0 || /eur/i.test(raw) ? '' : ' €');
+                if (msg) {
+                    msg.style.color = '#16a34a';
+                    msg.textContent = 'CRM gespeichert: Kondition ' + raw;
+                }
+                return { ok: true };
+            });
         };
         if (detail) return run(detail);
         return _fetchMatchDetail(matchId).then(run);
