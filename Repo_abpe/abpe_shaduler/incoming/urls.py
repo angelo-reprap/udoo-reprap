@@ -57,6 +57,11 @@ urlpatterns = [
 
     # Matching: anfrage-spezifische Verfügbarkeit / Konditionen
     path('api/matching/terms/<uuid:match_id>/', views.api_matching_terms, name='api_matching_terms'),
+    path(
+        'api/matching/shortlist/reset/<uuid:project_id>/',
+        views.api_matching_shortlist_reset,
+        name='api_matching_shortlist_reset',
+    ),
 
     # Regeln
     path('api/regeln/', views.api_regeln, name='api_regeln'),

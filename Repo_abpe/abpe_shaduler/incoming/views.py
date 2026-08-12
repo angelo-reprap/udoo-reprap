@@ -1017,6 +1017,124 @@ def api_matching_terms(request, match_id):
     return JsonResponse({'ok': True, 'terms': _ser(obj), 'crm_updated': crm_ok})
 
 
+@login_required
+@require_http_methods(['POST'])
+def api_matching_shortlist_reset(request, project_id):
+    """
+    Shortlist-Treffer einer Anfrage löschen (+ optional Skills setzen).
+
+    POST /shaduler/api/matching/shortlist/reset/<project_uuid>/
+    body: {
+      keep_workflow: true,
+      skills: ["Fortinet", ...],          # optional
+      required_skills: [{name, weight}],  # optional
+      extracted_technologies: [...],      # optional
+    }
+    """
+    try:
+        from apps.abpe_matching_workflow.models import ProjectRequest, ProjectConsultant
+    except Exception as exc:
+        return JsonResponse({
+            'ok': False,
+            'error': f'abpe_matching_workflow nicht geladen: {exc}',
+        }, status=503)
+
+    try:
+        from apps.abpe_matching_workflow.models import MatchResult
+    except Exception:
+        MatchResult = None
+
+    data = _json_body(request)
+    keep_workflow = data.get('keep_workflow', True)
+
+    project = ProjectRequest.objects.filter(id=project_id).first()
+    if not project:
+        return JsonResponse({'ok': False, 'error': 'Anfrage nicht gefunden'}, status=404)
+
+    # Skills nachziehen — ohne die matcht die Engine Blindlinge
+    skills_in = data.get('skills') or data.get('extracted_technologies') or []
+    if isinstance(skills_in, str):
+        skills_in = [s.strip() for s in skills_in.replace(';', ',').split(',') if s.strip()]
+    if not isinstance(skills_in, list):
+        skills_in = []
+    skills_in = [str(s).strip() for s in skills_in if str(s).strip()]
+
+    req = data.get('required_skills')
+    if isinstance(req, list) and req:
+        project.required_skills = req
+    elif skills_in:
+        project.required_skills = [{'name': s, 'weight': 1.0} for s in skills_in]
+
+    if skills_in and hasattr(project, 'extracted_technologies'):
+        project.extracted_technologies = skills_in
+
+    skills_saved = False
+    if skills_in or (isinstance(req, list) and req):
+        update_fields = ['required_skills']
+        if hasattr(project, 'extracted_technologies') and skills_in:
+            update_fields.append('extracted_technologies')
+        try:
+            project.save(update_fields=update_fields)
+            skills_saved = True
+        except Exception:
+            project.save()
+            skills_saved = True
+
+    KEEP = {
+        'contacted', 'interested', 'not_interested', 'unavailable',
+        'offer_prepared', 'offer_sent',
+        'client_interested', 'client_not_interested', 'client_no_feedback',
+        'interview_scheduled', 'interview_done', 'interview_cancelled',
+        'accepted', 'rejected', 'placed',
+        'followup_sent', 'reminder_sent',
+        'angeschrieben', 'interesse', 'beim_kunden', 'vermittelt', 'absage',
+    }
+
+    qs = ProjectConsultant.objects.filter(project=project)
+    if keep_workflow:
+        qs = qs.exclude(status__in=KEEP)
+        # Falls Live andere Status nutzt und exclude nichts trifft: nur identified
+        if qs.count() == 0:
+            qs = ProjectConsultant.objects.filter(project=project, status='identified')
+
+    deleted_count, _ = qs.delete()
+
+    match_results_deleted = 0
+    if MatchResult is not None:
+        try:
+            match_results_deleted, _ = MatchResult.objects.filter(project=project).delete()
+        except Exception:
+            match_results_deleted = 0
+
+    skill_names = []
+    try:
+        for s in (project.required_skills or []):
+            if isinstance(s, dict) and s.get('name'):
+                skill_names.append(s['name'])
+            elif isinstance(s, str) and s.strip():
+                skill_names.append(s.strip())
+    except Exception:
+        pass
+
+    warning = None
+    if not skill_names:
+        warning = (
+            'Anfrage hat keine required_skills — Matching liefert oft nutzlose '
+            '~70%-Treffer. Skills im Prompt mitgeben oder Anfrage neu anlegen.'
+        )
+
+    return JsonResponse({
+        'ok': True,
+        'project_id': str(project.id),
+        'project_number': getattr(project, 'project_number', '') or '',
+        'deleted': deleted_count,
+        'match_results_deleted': match_results_deleted,
+        'skills_saved': skills_saved,
+        'skills': skill_names,
+        'warning': warning,
+    })
+
+
 # ─── Webhooks von abpe_scheduler (PUSH) ───────────────────────────────────────
 
 def _scheduler_token_ok(request):

@@ -275,6 +275,15 @@ window.Matching = (function() {
                     <input class="matching-form-input" id="new-title"
                            placeholder="${_t('matching.title_placeholder')}">
                 </div>
+                <div class="matching-form-group span2">
+                    <label class="matching-form-label">${_kiT('neu_skills', 'Skills (für Matching)')}</label>
+                    <input class="matching-form-input" id="new-skills"
+                           placeholder="${_escAttr(_kiT('skills_placeholder', 'z.B. Fortinet, Firewall, Network Security'))}">
+                    <div style="font-size:10px;color:#888;margin-top:4px">
+                        ${_esc(_kiT('skills_hint', 'Ohne Skills matcht die Engine fast alle Berater mit ähnlichem Score — Mist-Ergebnisse.'))}
+                    </div>
+                    <input type="hidden" id="new-skills-json" value="">
+                </div>
                 <div class="matching-form-group">
                     <label class="matching-form-label">${_t('matching.neu_start_label')}</label>
                     <input class="matching-form-input" type="date" id="new-start">
@@ -1321,6 +1330,14 @@ window.Matching = (function() {
             _setVal('new-location', fields.location || '');
             if (fields.rate_max != null) _setVal('new-rate-max', String(fields.rate_max));
             else _setVal('new-rate-max', '');
+
+            // Skills aus KI — ohne die matcht die Engine Blindlinge (~70% überall)
+            const skillsArr = Array.isArray(fields.skills)
+                ? fields.skills.map(s => (typeof s === 'string' ? s : (s && s.name) || '')).filter(Boolean)
+                : [];
+            _setVal('new-skills', skillsArr.join(', '));
+            const sj = document.getElementById('new-skills-json');
+            if (sj) sj.value = JSON.stringify(skillsArr);
 
             // Firma: aus KI, sonst aus Titel; bei mehreren Hays AG → Auswahl
             let customerName = (fields.customer_name || '').trim();
@@ -2683,6 +2700,21 @@ window.Matching = (function() {
      * 1) versucht DELETE/POST clear-Endpoint
      * 2) startet match mit reset=true
      */
+    function _parseSkillsInput() {
+        let fromJson = [];
+        try {
+            const raw = _val('new-skills-json');
+            if (raw) fromJson = JSON.parse(raw);
+        } catch (_) {}
+        if (Array.isArray(fromJson) && fromJson.length) {
+            return fromJson.map(s => String(s).trim()).filter(Boolean);
+        }
+        return (_val('new-skills') || '')
+            .split(/[,;|\n]+/)
+            .map(s => s.trim())
+            .filter(Boolean);
+    }
+
     function rematch(projectId) {
         if (!projectId) projectId = window.MATCHING_CONFIG.activeProject;
         if (!projectId) {
@@ -2698,28 +2730,57 @@ window.Matching = (function() {
         );
         if (!ok) return;
 
-        const headers = { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' };
-        // Best-effort clear: mehrere mögliche Live-Endpunkte
-        const clears = [
-            fetch(API + 'requests/' + projectId + '/shortlist/clear/', {
-                method: 'POST', credentials: 'same-origin', headers,
-                body: JSON.stringify({ reset: true }),
-            }).catch(() => null),
-            fetch(API + 'requests/' + projectId + '/shortlist/', {
-                method: 'DELETE', credentials: 'same-origin', headers,
-            }).catch(() => null),
-            fetch(API + 'requests/' + projectId + '/matches/reset/', {
-                method: 'POST', credentials: 'same-origin', headers,
-                body: JSON.stringify({ keep_workflow: true }),
-            }).catch(() => null),
-        ];
+        let skillsHint = (_val('new-skills') || '').trim();
+        if (!skillsHint && _kiLastExtract && _kiLastExtract.fields) {
+            const sk = _kiLastExtract.fields.skills;
+            if (Array.isArray(sk) && sk.length) {
+                skillsHint = sk.map(s => (typeof s === 'string' ? s : (s && s.name) || '')).filter(Boolean).join(', ');
+            }
+        }
+        const skillsRaw = window.prompt(
+            _kiT(
+                'rematch_skills_prompt',
+                'Skills für dieses Matching (kommagetrennt).\nLeer = nur Shortlist löschen / vorhandene Skills behalten.\nOhne Skills = oft nutzlose ~70%-Treffer.'
+            ),
+            skillsHint
+        );
+        const skills = (skillsRaw == null)
+            ? null
+            : String(skillsRaw).split(/[,;|\n]+/).map(s => s.trim()).filter(Boolean);
 
-        Promise.all(clears).finally(() => {
-            runMatching(projectId, { reset: true });
+        const headers = { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' };
+        const body = { keep_workflow: true, reset: true };
+        if (skills && skills.length) {
+            body.skills = skills;
+            body.required_skills = skills.map(name => ({ name: name, weight: 1.0 }));
+            body.extracted_technologies = skills;
+        }
+
+        fetch('/shaduler/api/matching/shortlist/reset/' + encodeURIComponent(projectId) + '/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers,
+            body: JSON.stringify(body),
+        })
+        .then(async r => {
+            let d = {};
+            try { d = await r.json(); } catch (_) {}
+            if (!r.ok || d.ok === false) {
+                throw new Error((d && d.error) || ('Shortlist-Reset HTTP ' + r.status));
+            }
+            if (d.warning) console.warn('Shortlist-Reset:', d.warning);
+            console.info('Shortlist-Reset:', d);
+            return d;
+        })
+        .then(() => runMatching(projectId, { reset: true }))
+        .catch(e => {
+            console.error(e);
+            alert(_kiT('rematch_reset_fail', 'Shortlist-Reset fehlgeschlagen') + ': ' + (e.message || e));
         });
     }
 
     function saveNewRequest() {
+        const skills = _parseSkillsInput();
         const data = {
             title:           _val('new-title'),
             description:     _val('new-description'),
@@ -2733,10 +2794,26 @@ window.Matching = (function() {
             duration_months: parseInt(_val('new-duration')) || 0,
             location:        _val('new-location'),
             rate_max:        parseInt(_val('new-rate-max')) || null,
+            // Matching-Engine: ohne Skills → req_score=1.0 für alle → Mist-Shortlist
+            skills:          skills,
+            required_skills: skills.map(name => ({ name: name, weight: 1.0 })),
+            extracted_technologies: skills,
         };
         if (!data.title || !data.customer_name) {
             alert(_t('matching.err_title_required'));
             return;
+        }
+        if (!skills.length) {
+            const cont = confirm(
+                _kiT(
+                    'skills_missing_warn',
+                    'Keine Skills gesetzt — Matching liefert dann oft nutzlose Treffer mit ähnlichem Score.\nTrotzdem speichern?'
+                )
+            );
+            if (!cont) {
+                document.getElementById('new-skills')?.focus();
+                return;
+            }
         }
         fetch(API + 'requests/create/', {
             method: 'POST',
