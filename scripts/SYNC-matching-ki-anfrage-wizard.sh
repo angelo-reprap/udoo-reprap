@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
 # Repo → Live: abpe_ki_wiz + Matching-UI + Shaduler (Radar Anfragen/Berater)
 #
+# VORHER auf ucs5 immer Live→Repo ziehen (sonst gehen Live-Fixes verloren):
+#   bash <(git show origin/cursor/matching-ki-anfrage-wizard-7f07:scripts/PULL-matching-from-live.sh) --push
+#
 # Auf ucs5 (erst fetch, dann Script — sonst läuft eine alte Script-Version):
 #   cd /mnt/public/udoo-reprap
 #   git fetch origin cursor/matching-ki-anfrage-wizard-7f07
 #   bash <(git show origin/cursor/matching-ki-anfrage-wizard-7f07:scripts/SYNC-matching-ki-anfrage-wizard.sh)
 #   supervisorctl restart abpe-django
 #   # Browser: Ctrl+F5
+#
+# Regeln:
+# - CRM views/models: kein Blind-Overwrite; timestamped *.bak-before-matching-sync-*
+# - DB-Spalten/Terms-Tabelle werden per ensure-matching-terms-db.py erzwungen
+# - manage.py check muss grün sein, sonst Abbruch vor Restart-Hinweis
 set -euo pipefail
 
 REPO="${REPO:-/mnt/public/udoo-reprap}"
