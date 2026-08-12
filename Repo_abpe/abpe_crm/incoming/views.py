@@ -974,14 +974,33 @@ def api_contact_link_account(request, crm_id):
 def api_contact_update(request, crm_id):
     """Universeller Update-Endpoint für CrmContact + CrmContactCstm"""
     import json
+    from django.db.utils import DatabaseError, OperationalError, ProgrammingError
+
     c = get_object_or_404(CrmContact, crm_id=crm_id)
-    cstm = getattr(c, 'cstm', None)
     try:
         data = json.loads(request.body)
     except Exception:
         return JsonResponse({'ok': False, 'error': 'Invalid JSON'}, status=400)
 
     action = data.get('action', 'update')
+
+    # CSTM erst laden wenn nötig — und Terms-Spalten deferren,
+    # sonst 500 auf email_add/phone_add wenn Migration noch fehlt.
+    def _load_cstm():
+        try:
+            return (
+                CrmContactCstm.objects
+                .defer(
+                    'verfuegbar_tage_pro_woche_c',
+                    'verfuegbar_hinweis_c',
+                    'satz_remote_c',
+                    'satz_vor_ort_c',
+                )
+                .filter(contact_id=crm_id)
+                .first()
+            )
+        except (ProgrammingError, OperationalError, DatabaseError):
+            return None
 
     # ── Direkte Felder auf CrmContact ──────────────────────
     CONTACT_FIELDS = [
@@ -1001,7 +1020,28 @@ def api_contact_update(request, crm_id):
         'gulp_profil_c','ogo_description_c','freelancermap_profil_c','xing_profile_c',
     ]
 
+    try:
+        return _api_contact_update_actions(
+            request, crm_id, c, data, action, CONTACT_FIELDS, CSTM_FIELDS, _load_cstm,
+        )
+    except (ProgrammingError, OperationalError, DatabaseError) as exc:
+        return JsonResponse(
+            {'ok': False, 'error': f'DB-Fehler: {exc}'},
+            status=500,
+        )
+    except Exception as exc:
+        return JsonResponse(
+            {'ok': False, 'error': str(exc)},
+            status=500,
+        )
+
+
+def _api_contact_update_actions(
+    request, crm_id, c, data, action, CONTACT_FIELDS, CSTM_FIELDS, _load_cstm,
+):
+    """Action-Body von api_contact_update (eigene Funktion für try/except)."""
     if action == 'update':
+        cstm = _load_cstm()
         changed = False
         for field in CONTACT_FIELDS:
             if field in data:
@@ -1013,7 +1053,13 @@ def api_contact_update(request, crm_id):
         # Cstm ggf. anlegen, wenn Stammdaten-Felder gesetzt werden
         if cstm is None and any(f in data for f in CSTM_FIELDS):
             from apps.abpe_crm.models import CrmContactCstm
-            cstm, _ = CrmContactCstm.objects.get_or_create(contact_id=crm_id)
+            try:
+                cstm, _ = CrmContactCstm.objects.get_or_create(contact_id=crm_id)
+            except Exception as exc:
+                return JsonResponse(
+                    {'ok': False, 'error': f'CSTM anlegen fehlgeschlagen: {exc}'},
+                    status=500,
+                )
 
         if cstm:
             from decimal import Decimal, InvalidOperation
@@ -1040,21 +1086,36 @@ def api_contact_update(request, crm_id):
                             )
                 elif field == 'verfuegbar_ab_c' and val == '':
                     val = None
-                setattr(cstm, field, val)
-                cstm_changed = True
+                try:
+                    setattr(cstm, field, val)
+                    cstm_changed = True
+                except Exception as exc:
+                    return JsonResponse(
+                        {'ok': False, 'error': f'Feld {field}: {exc}'},
+                        status=500,
+                    )
             if 'konditionen_c' not in data and (
                 'satz_remote_c' in data or 'satz_vor_ort_c' in data
             ):
                 parts = []
-                if cstm.satz_remote_c is not None:
-                    parts.append(f'{cstm.satz_remote_c} remote')
-                if cstm.satz_vor_ort_c is not None:
-                    parts.append(f'{cstm.satz_vor_ort_c} vor Ort')
+                try:
+                    if getattr(cstm, 'satz_remote_c', None) is not None:
+                        parts.append(f'{cstm.satz_remote_c} remote')
+                    if getattr(cstm, 'satz_vor_ort_c', None) is not None:
+                        parts.append(f'{cstm.satz_vor_ort_c} vor Ort')
+                except Exception:
+                    parts = []
                 if parts:
                     cstm.konditionen_c = ' / '.join(parts) + ' €'
                     cstm_changed = True
             if cstm_changed:
-                cstm.save()
+                try:
+                    cstm.save()
+                except Exception as exc:
+                    return JsonResponse(
+                        {'ok': False, 'error': f'CSTM speichern: {exc}'},
+                        status=500,
+                    )
 
     # ── Web-Profile ────────────────────────────────────────
     elif action == 'webprofile_add':
@@ -1247,10 +1308,17 @@ def api_berater_new(request):
         first_name=first_name,
         last_name=last_name,
     )
-    CrmContactCstm.objects.get_or_create(
-        contact_id=crm_id,
-        defaults={'kontakt_typ_c': 'berater', 'kontakt_status_c': 'passiv'},
-    )
+    try:
+        CrmContactCstm.objects.get_or_create(
+            contact_id=crm_id,
+            defaults={'kontakt_typ_c': 'berater', 'kontakt_status_c': 'passiv'},
+        )
+    except Exception as exc:
+        # Terms-Spalten fehlen ggf. noch — Kontakt trotzdem nutzbar
+        import logging
+        logging.getLogger(__name__).warning(
+            'api_berater_new: CSTM anlegen fehlgeschlagen (%s): %s', crm_id, exc,
+        )
 
     # Optional: Telefonnummer mit anlegen (Muster wie phone_add)
     phone_raw = data.get('phone', '').strip()

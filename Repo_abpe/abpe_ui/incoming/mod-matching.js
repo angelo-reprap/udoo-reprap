@@ -2190,28 +2190,33 @@ window.Matching = (function() {
                 return d.crm_id;
             }).then(async crmId => {
                 // Fallback falls berater/new E-Mail/Tel nicht mitgenommen hat
-                if (phone) {
-                    await fetch('/crm/api/contact/' + crmId + '/update/', {
+                async function _contactUpdate(payload) {
+                    const r = await fetch('/crm/api/contact/' + crmId + '/update/', {
                         method: 'POST',
                         credentials: 'same-origin',
                         headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
-                        body: JSON.stringify({
-                            action: 'phone_add',
-                            nummer: phone,
-                            field_name: 'phone_mobile',
-                        }),
+                        body: JSON.stringify(payload),
+                    });
+                    const d = await r.json().catch(() => ({}));
+                    if (!r.ok || d.ok === false) {
+                        throw new Error(
+                            (d && d.error) || ('Kontakt-Update fehlgeschlagen (HTTP ' + r.status + ')')
+                        );
+                    }
+                    return d;
+                }
+                if (phone) {
+                    await _contactUpdate({
+                        action: 'phone_add',
+                        nummer: phone,
+                        field_name: 'phone_mobile',
                     });
                 }
                 if (email) {
-                    await fetch('/crm/api/contact/' + crmId + '/update/', {
-                        method: 'POST',
-                        credentials: 'same-origin',
-                        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
-                        body: JSON.stringify({
-                            action: 'email_add',
-                            email: email,
-                            primaer: true,
-                        }),
+                    await _contactUpdate({
+                        action: 'email_add',
+                        email: email,
+                        primaer: true,
                     });
                 }
                 if (accId) {
@@ -2620,17 +2625,43 @@ window.Matching = (function() {
             credentials: 'same-origin',
             headers: { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' },
         })
-        .then(r => r.json())
+        .then(async r => {
+            let d = {};
+            try { d = await r.json(); } catch (_) {}
+            if (!r.ok) {
+                throw new Error(
+                    (d && (d.error || d.detail)) || ('Matching HTTP ' + r.status)
+                );
+            }
+            return d;
+        })
         .then(d => {
             if (d.success) {
                 alert(_t('matching.matching_started'));
                 const content = document.getElementById('content-shortlist');
                 if (content) content.dataset.loaded = '0';
-                setTimeout(() => _loadShortlistForProject(projectId,
-                    document.getElementById('content-shortlist')), 3000);
+                // Matching läuft async — Shortlist mehrfach nachladen
+                const delays = [2000, 5000, 10000, 20000];
+                delays.forEach(ms => {
+                    setTimeout(() => {
+                        const el = document.getElementById('content-shortlist');
+                        if (el) {
+                            el.dataset.loaded = '0';
+                            _loadShortlistForProject(projectId, el);
+                        }
+                    }, ms);
+                });
             } else {
-                alert(_t('matching.matching_error'));
+                alert(
+                    _t('matching.matching_error')
+                    + (d.error ? (': ' + d.error) : '')
+                    + (d.message ? (': ' + d.message) : '')
+                );
             }
+        })
+        .catch(e => {
+            console.error('Matching starten fehlgeschlagen:', e);
+            alert(_t('matching.matching_error') + ': ' + (e.message || e));
         });
     }
 
