@@ -939,6 +939,14 @@ window.Matching = (function() {
                         <i class="bi bi-list-ul"></i> ${_esc(_kiT('shortlist_pick_back', 'Anfragen'))}
                     </button>
                     <div style="font-size:12px;color:#888;flex:1;min-width:120px">${_esc(projLabel)}</div>
+                    ${(d.required_skills || d.skills || []).length
+                        ? `<div style="font-size:11px;color:#163258;max-width:420px">
+                             <strong>Skills:</strong> ${_esc((d.required_skills || d.skills || []).map(s =>
+                               typeof s === 'string' ? s : (s && s.name) || ''
+                             ).filter(Boolean).slice(0, 12).join(', '))}
+                           </div>`
+                        : `<div style="font-size:11px;color:#b45309">⚠ ${_esc(_kiT('no_skills_on_project', 'Keine Skills an der Anfrage — Matching oft Mist. „Erneut matchen“ + Skills eingeben.'))}</div>`
+                    }
                 </div>
                 <div class="matching-threshold-bar">
                     <span class="matching-form-label">${_t('matching.threshold_label')}:</span>
