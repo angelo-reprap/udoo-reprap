@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<style>
+/* CSS wird hier direkt eingebettet für Druckbarkeit */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px 40px;
+  color: #000;
+  font-size: 12pt;
+  line-height: 1.4;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10pt;
+  color: #808080;
+  margin-bottom: 20px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+}
+
+.agency {
+  color: #808080;
+  font-size: 10pt;
+  margin-top: 5px;
+}
+
+.id {
+  color: #0000FF;
+  font-size: 18pt;
+  margin: 10px 0 5px 0;
+}
+
+.focus {
+  color: #0000FF;
+  font-size: 14pt;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  margin: 5px 0;
+  font-size: 12pt;
+}
+
+.company {
+  color: #0000FF;
+}
+
+.stand {
+  font-size: 10pt;
+  color: #808080;
+  margin-top: 20px;
+}
+
+.section h3 {
+  font-size: 14pt;
+  margin: 20px 0 10px 0;
+}
+
+.personal-table td:first-child {
+  font-weight: bold;
+  width: 150px;
+  padding-right: 10px;
+}
+
+.bullet-list {
+  list-style: none;
+  padding-left: 0;
+}
+.bullet-list li {
+  list-style-type: none;
+  position: relative;
+  padding-left: 10px;
+  margin: 5px 0;
+}
+.bullet-list li:before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.cert-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cert-images img {
+  width: 150px;
+  height: auto;
+}
+
+.experience {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.experience p {
+  margin: 5px 0;
+}
+
+.experience b {
+  font-weight: bold;
+  color: #163258;
+}
+
+.page {
+  page-break-after: always;
+  margin-bottom: 20px;
+}
+
+/* Druckoptimierung */
+@media print {
+  body { margin: 0; padding: 0; }
+  .page { page-break-after: always; margin: 0; padding: 1cm; }
+  .no-print { display: none; }
+}
+</style>
+<title>{{ aid }} - Qualifikationsprofil</title>
+</head>
+<body>
+
+<!-- Seite 1: Titelblatt -->
+<div class="page">
+  <div class="page-header">
+    <span class="qual-profile">Qualifikationsprofil: {{ aid }}</span>
+    <span class="website">www.abcona.de</span>
+    <span class="header-right">Seite 1 von ?</span>
+  </div>
+
+  <div class="header">
+    <img src="/media/cv/adds/logo_abcona.png" alt="ABCoNA Logo" class="logo" onerror="this.style.display='none'">
+    <p class="agency">active business consulting agency</p>
+    <h1 class="id">{{ aid }}</h1>
+    <h2 class="focus">Schwerpunkt: {{ focus_title|default:"IT-Berater" }}</h2>
+  </div>
+
+  <div class="contact">
+    <p class="company">abcona e. K.</p>
+    <p class="address">Bornhohl 26, 61449 Steinbach</p>
+    <p class="phone">Telefon +49 (0) 61 71 - 8867 - 00</p>
+    <p class="fax">Fax +49 (0) 61 71 - 8867 - 09</p>
+    <p class="email">E-Mail office@abcona.de</p>
+    <p class="website">Internet <a href="http://www.abcona.de">http://www.abcona.de</a></p>
+  </div>
+
+  <p class="stand">Stand: {{ date|date:"d. F Y" }}</p>
+</div>
+
+<!-- Seite 2: Persönliche Daten & Ausbildung -->
+<div class="page">
+  <div class="page-header">
+    <span class="qual-profile">Qualifikationsprofil: {{ aid }}</span>
+    <span class="website">www.abcona.de</span>
+    <span class="header-right">Seite 2 von ?</span>
+  </div>
+
+  <div class="section">
+    <h3>Persönliche Daten</h3>
+    <table class="personal-table">
+      <tr><td>Name:</td><td>{{ first_name }} {{ last_name }}</td></tr>
+      <tr><td>Geburtsjahr:</td><td>{{ birth_year|default:"-" }}</td></tr>
+      <tr><td>Staatsangehörigkeit:</td><td>{{ nationality|default:"Deutsch" }}</td></tr>
+      <tr><td>Sprachen:</td><td>{{ languages|join:", " }}</td></tr>
+      <tr><td>verfügbar:</td><td>{{ availability|default:"nach Absprache" }}</td></tr>
+      <tr><td>Einsatzort:</td><td>{{ location|default:"nach Absprache" }}</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h3>Ausbildung:</h3>
+    {% for edu in education %}
+    <p><strong>{{ edu.year_from }} - {{ edu.year_to }}</strong> {{ edu.description }}</p>
+    {% empty %}
+    <p>Keine Angaben</p>
+    {% endfor %}
+  </div>
+
+  <div class="section">
+    <h3>Fachbereiche</h3>
+    <ul class="bullet-list">
+    {% for skill in competences %}
+      <li>{{ skill }}</li>
+    {% empty %}
+      <li>Keine Angaben</li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Zertifizierungen</h3>
+    <ul class="bullet-list">
+    {% for cert in certifications %}
+      <li>{{ cert }}</li>
+    {% empty %}
+      <li>Keine Angaben</li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Branchen</h3>
+    <ul class="bullet-list">
+    {% for industry in industries %}
+      <li>{{ industry }}</li>
+    {% empty %}
+      <li>Keine Angaben</li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Programmiersprachen</h3>
+    <ul class="bullet-list">
+    {% for lang in programming_languages %}
+      <li>{{ lang }}</li>
+    {% empty %}
+      <li>-</li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Betriebssysteme</h3>
+    <ul class="bullet-list">
+    {% for os in operating_systems %}
+      <li>{{ os }}</li>
+    {% empty %}
+      <li>-</li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Hardware</h3>
+    <ul class="bullet-list">
+    {% for hw in hardware %}
+      <li>{{ hw }}</li>
+    {% empty %}
+      <li>-</li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Produkte | Standards | Erfahrungen</h3>
+    <ul class="bullet-list">
+    {% for prod in products %}
+      <li>{{ prod }}</li>
+    {% empty %}
+      <li>Keine Angaben</li>
+    {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<!-- Seite 3+: Berufliche Erfahrungen -->
+<div class="page">
+  <div class="page-header">
+    <span class="qual-profile">Qualifikationsprofil: {{ aid }}</span>
+    <span class="website">www.abcona.de</span>
+    <span class="header-right">Seite 3 von ?</span>
+  </div>
+
+  <div class="section">
+    <h3>Berufliche Erfahrungen</h3>
+    {% for exp in experiences %}
+    <div class="experience">
+      <p><b>Zeitraum:</b> {{ exp.period }}</p>
+      <p><b>Kunde / Branche:</b> {{ exp.client }}</p>
+      <p><b>Rolle / Position:</b> {{ exp.role|default:"-" }}</p>
+      <p><b>Projekttätigkeiten:</b></p>
+      <ul class="bullet-list">
+      {% for activity in exp.activities %}
+        <li>{{ activity }}</li>
+      {% endfor %}
+      </ul>
+      <p><b>Technologien / Umfeld:</b> {{ exp.technologies|join:", " }}</p>
+    </div>
+    {% empty %}
+    <p>Keine Erfahrungen vorhanden</p>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+/**
+ * template.js - Interaktive Features für den CV
+ */
+(function() {
+    'use strict';
+
+    function updateAllPageNumbers() {
+        const pages = document.querySelectorAll('.page');
+        const totalPages = pages.length;
+
+        if (totalPages > 0) {
+            pages.forEach((page, index) => {
+                const currentPage = index + 1;
+                const header = page.querySelector('.page-header');
+                if (header) {
+                    const right = header.querySelector('.header-right');
+                    if (right) {
+                        right.innerHTML = right.innerHTML.replace(
+                            /Seite \d+ von \d+/,
+                            `Seite ${currentPage} von ${totalPages}`
+                        );
+                    }
+                }
+            });
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateAllPageNumbers();
+    });
+
+    window.addEventListener('beforeprint', function() {
+        updateAllPageNumbers();
+    });
+})();
+</script>
+</body>
+</html>

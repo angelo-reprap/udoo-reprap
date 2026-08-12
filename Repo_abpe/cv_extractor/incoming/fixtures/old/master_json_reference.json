@@ -1,0 +1,559 @@
+{
+  "_comment": "MASTER-JSON: Vollstaendiger angereicherter Datensatz nach Enricher-Durchlauf. Kombination aus PRE-JSON + LLM-Enricher-Ergebnissen.",
+  "metadata": {
+    "aid": "AID-tt_1.2.4.2",
+    "version": "1.2.4.2",
+    "consultant_dir": "troschke_thomas",
+    "first_name": "Thomas",
+    "last_name": "Troschke",
+    "headline": "Security Engineer, Firewall-Experte, VPN-Experte, Netzwerkspezialist",
+    "source": {
+      "type": "upload",
+      "filename": "AID-tt_1.2.4.2_neu.pdf",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-04-17T10:00:00"
+    },
+    "pipeline": {
+      "version": "5.0",
+      "step": "enriched",
+      "extractor": "cv_extractor",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 12,
+      "has_personal": true,
+      "has_skills": true,
+      "has_experience": true,
+      "total_experience_years": 28,
+      "skill_count": 45,
+      "project_count": 12
+    }
+  },
+  "extracted_data": {
+    "_comment": "Unveraendert aus PRE-JSON - was die Pipeline extrahiert hat",
+    "personal": {
+      "first_name": "Thomas",
+      "last_name": "Troschke",
+      "birth_year": 1965,
+      "nationality": "Deutsch",
+      "languages": [
+        "Deutsch",
+        "Englisch"
+      ],
+      "email": "",
+      "phone": "",
+      "location": "nach Absprache",
+      "availability": "nach Absprache",
+      "degree": "Dipl.-Ing.",
+      "edv_experience_since": 1997,
+      "headline": "Security Engineer, Firewall-Experte, VPN-Experte, Netzwerkspezialist",
+      "summary": ""
+    },
+    "professional": {
+      "total_experience_years": 28
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [
+        "Azure",
+        "Zscaler"
+      ],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [
+        "Ansible"
+      ],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Checkpoint VSX",
+        "Checkpoint Appliances",
+        "Cisco Nexus 5K",
+        "Cisco Nexus 9K",
+        "Fortigate Firewalls",
+        "FortiSwitch",
+        "FortiAP",
+        "FortiAnalyzer 4000B",
+        "Fortimanager 300E",
+        "FortiAuthenticator"
+      ],
+      "identity_management": [
+        "FortiAuthenticator",
+        "FortiToken"
+      ],
+      "it_infrastructure": [
+        "TCP/IP",
+        "VPN",
+        "Internet",
+        "Intranet",
+        "Ethernet"
+      ],
+      "methodology": [],
+      "monitoring_tool": [
+        "Skybox Security",
+        "AlgoSec",
+        "Tufin"
+      ],
+      "network_protocol": [
+        "BGP",
+        "EIGRP",
+        "RIP",
+        "OSPF",
+        "TCP/IP",
+        "VPN"
+      ],
+      "operating_system": [
+        "Linux",
+        "Cisco IOS",
+        "NX-OS",
+        "FortiOS",
+        "ArubaOS-CX"
+      ],
+      "programming_languages": [
+        "YAML",
+        "Python",
+        "Bash",
+        "Shell"
+      ],
+      "project_management": [],
+      "security_tool": [
+        "Fortigate",
+        "Checkpoint",
+        "PaloAlto",
+        "F5 Big-IP",
+        "Zscaler",
+        "McAfee WebGateway",
+        "Skybox Security",
+        "AlgoSec",
+        "Tufin",
+        "OPSWAT MetaDefender"
+      ],
+      "soft_skill": [],
+      "special_concept": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": [
+        "Proxmox"
+      ]
+    },
+    "certifications": [
+      {
+        "name": "FCA Cybersecurity",
+        "issuer": "Fortinet",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "Fortinet Certified Professional Security Operations",
+        "issuer": "Fortinet",
+        "date_obtained": "",
+        "expiry_date": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "01/2025 – 10/2025",
+        "title": "",
+        "company": "Bundesministerium",
+        "industry": "Oeffentlicher Dienst",
+        "role": "Netzwerk-Experte",
+        "location": "",
+        "activities": [
+          "Administration, Konfiguration und Optimierung der Fortigate-Firewall-Umgebung",
+          "Betrieb und Feintuning von F5 Big-IP Loadbalancer VE HA",
+          "Regelwerk Administration Checkpoint Maestro",
+          "Automatisierung von wiederkehrenden Aufgaben mittels Ansible auf F5"
+        ],
+        "technologies": [
+          "Fortigate",
+          "F5 Big-IP Loadbalancer VE",
+          "Checkpoint Maestro",
+          "Cisco Nexus 9K",
+          "Ansible"
+        ]
+      }
+    ],
+    "industries": [
+      "Banken",
+      "Versicherungen",
+      "Logistik",
+      "Industrie",
+      "Telekommunikation"
+    ],
+    "focus_areas": [
+      "Netzwerksicherheit",
+      "Netzwerkadministration WAN/LAN",
+      "Routing, Switching, VPN",
+      "Firewalls",
+      "Loadbalancing"
+    ],
+    "focus_experience": [
+      "OPSWAT MetaDefender/Icap Server",
+      "Check Point Maestro",
+      "F5 Big-IP VE Loadbalancer",
+      "Zscaler",
+      "Fortigate"
+    ],
+    "education": [
+      {
+        "degree": "Dipl.-Ing. Maschinenwesen",
+        "institution": "",
+        "period": "1985 - 1989",
+        "description": "Studium zum Dipl.-Ing. fuer Maschinenwesen",
+        "education_type": "degree",
+        "issuer": ""
+      }
+    ],
+    "other": ""
+  },
+  "normalized": {
+    "_comment": "Enricher Stufe 1 (synchron): Bereinigt, normalisiert, dedupliziert",
+    "personal": {
+      "first_name": "Thomas",
+      "last_name": "Troschke",
+      "full_name": "Thomas Troschke",
+      "birth_year": 1965,
+      "nationality": "Deutsch",
+      "languages": [
+        "Deutsch",
+        "Englisch"
+      ],
+      "email": "",
+      "phone": "",
+      "location": "nach Absprache",
+      "edv_experience_since": 1997,
+      "availability": "nach Absprache"
+    },
+    "professional": {
+      "headline": "Security Engineer, Firewall-Experte, VPN-Experte, Netzwerkspezialist",
+      "summary": "Erfahrener Security Engineer mit 28 Jahren IT-Erfahrung und Spezialisierung auf Firewall-Technologien (Fortigate, Checkpoint, PaloAlto) sowie Netzwerksicherheit. Nachgewiesene Expertise in komplexen Enterprise-Umgebungen bei Banken, Bundesbehoerden und Telekommunikationsunternehmen.",
+      "total_experience_years": 28,
+      "availability": "nach Absprache"
+    },
+    "skills": {
+      "_comment": "Gleiche Struktur wie extracted_data.skills, bereinigt + dedupliziert",
+      "security_tool": [
+        "Fortigate",
+        "Checkpoint",
+        "PaloAlto",
+        "F5 Big-IP",
+        "Zscaler",
+        "OPSWAT MetaDefender"
+      ],
+      "hardware": [
+        "Fortigate Firewalls",
+        "Cisco Nexus 9K",
+        "F5 Big-IP",
+        "FortiAnalyzer"
+      ],
+      "network_protocol": [
+        "BGP",
+        "OSPF",
+        "EIGRP",
+        "TCP/IP",
+        "VPN"
+      ],
+      "operating_system": [
+        "FortiOS",
+        "Cisco IOS",
+        "Linux"
+      ],
+      "devops_tool": [
+        "Ansible"
+      ],
+      "monitoring_tool": [
+        "Skybox Security",
+        "AlgoSec"
+      ],
+      "cloud_platform": [
+        "Azure",
+        "Zscaler"
+      ],
+      "programming_languages": [
+        "Python",
+        "YAML",
+        "Bash"
+      ]
+    },
+    "certifications": [
+      {
+        "name": "FCA Cybersecurity",
+        "issuer": "Fortinet",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "Fortinet Certified Professional",
+        "issuer": "Fortinet",
+        "date_obtained": "",
+        "expiry_date": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "01/2025 – 10/2025",
+        "title": "",
+        "company": "Bundesministerium",
+        "role": "Netzwerk-Experte",
+        "activities": [
+          "Fortigate-Firewall Administration",
+          "F5 Loadbalancer Betrieb"
+        ],
+        "technologies": [
+          "Fortigate",
+          "F5 Big-IP",
+          "Checkpoint",
+          "Ansible"
+        ]
+      }
+    ],
+    "industries": [
+      "Banken",
+      "Versicherungen",
+      "Telekommunikation",
+      "Oeffentlicher Dienst"
+    ],
+    "focus_areas": [
+      "Netzwerksicherheit",
+      "Firewall-Administration",
+      "VPN",
+      "Loadbalancing"
+    ],
+    "education": [
+      {
+        "degree": "Dipl.-Ing. Maschinenwesen",
+        "institution": "",
+        "period": "1985-1989"
+      }
+    ]
+  },
+  "matching": {
+    "_comment": "LLM Stufe 2 (parallel): Matching-Daten fuer spaeteres Selektion-Modul",
+    "overall_score": 0.85,
+    "skill_match_score": 0.9,
+    "role_match_score": 0.85,
+    "industry_match_score": 0.8,
+    "preferred_roles": [
+      "Netzwerk-Experte",
+      "Firewall-Administrator",
+      "Security Engineer",
+      "Network Security Consultant"
+    ],
+    "preferred_industries": [
+      "Banken",
+      "Versicherungen",
+      "Oeffentlicher Dienst",
+      "Telekommunikation"
+    ],
+    "preferred_locations": [
+      "nach Absprache",
+      "bundesweit"
+    ],
+    "min_experience_years": 20,
+    "must_have_skills": [
+      "Fortigate",
+      "Checkpoint",
+      "F5 Big-IP",
+      "Netzwerksicherheit",
+      "VPN",
+      "Firewall"
+    ],
+    "nice_to_have_skills": [
+      "PaloAlto",
+      "Ansible",
+      "Zscaler",
+      "Azure"
+    ],
+    "role_classification": {
+      "role_code": 1,
+      "role_name": "Administrator",
+      "landscape_code": 2,
+      "landscape_name": "Netzwerk/Security",
+      "level_code": 5,
+      "level_name": "Master"
+    }
+  },
+  "searchable_text": "Thomas Troschke Security Engineer Firewall-Experte VPN-Experte Netzwerkspezialist Fortigate Checkpoint PaloAlto F5 Big-IP Zscaler Azure Ansible BGP OSPF EIGRP VPN Cisco Nexus FortiOS Linux Banken Versicherungen Telekommunikation FCA Cybersecurity Fortinet Certified Professional",
+  "facets": {
+    "_comment": "Enricher Stufe 1: Ableitungen fuer Filter und Suche",
+    "industries": [
+      "Banken",
+      "Versicherungen",
+      "Telekommunikation",
+      "Oeffentlicher Dienst"
+    ],
+    "roles": [
+      "Netzwerk-Experte",
+      "Firewall-Security Experte",
+      "Network Security Experte"
+    ],
+    "skill_categories": [
+      "security_tool",
+      "hardware",
+      "network_protocol",
+      "operating_system",
+      "devops_tool",
+      "monitoring_tool",
+      "cloud_platform",
+      "programming_languages"
+    ],
+    "top_skills": [
+      "Fortigate",
+      "Checkpoint",
+      "F5 Big-IP",
+      "PaloAlto",
+      "Zscaler",
+      "BGP",
+      "Ansible",
+      "Cisco Nexus",
+      "VPN",
+      "FortiOS"
+    ],
+    "locations": [
+      "nach Absprache"
+    ],
+    "certifications": [
+      "FCA Cybersecurity",
+      "Fortinet Certified Professional"
+    ],
+    "experience_years_range": "25-30",
+    "availability": "nach Absprache",
+    "languages": [
+      "Deutsch",
+      "Englisch"
+    ],
+    "degree": "Dipl.-Ing."
+  },
+  "skill_graph": {
+    "_comment": "LLM Stufe 2: Skill-Netzwerk fuer spaeteres Matching. Nodes = gewichtete Skills, Edges = Relationen.",
+    "nodes": [
+      {
+        "id": "Fortigate",
+        "category": "security_tool",
+        "weight": 0.95,
+        "years": 15
+      },
+      {
+        "id": "Checkpoint",
+        "category": "security_tool",
+        "weight": 0.9,
+        "years": 12
+      },
+      {
+        "id": "F5 Big-IP",
+        "category": "security_tool",
+        "weight": 0.85,
+        "years": 10
+      },
+      {
+        "id": "PaloAlto",
+        "category": "security_tool",
+        "weight": 0.75,
+        "years": 5
+      },
+      {
+        "id": "Zscaler",
+        "category": "cloud_platform",
+        "weight": 0.7,
+        "years": 3
+      },
+      {
+        "id": "Ansible",
+        "category": "devops_tool",
+        "weight": 0.65,
+        "years": 3
+      },
+      {
+        "id": "BGP",
+        "category": "network_protocol",
+        "weight": 0.8,
+        "years": 15
+      },
+      {
+        "id": "Cisco Nexus",
+        "category": "hardware",
+        "weight": 0.75,
+        "years": 8
+      },
+      {
+        "id": "FortiOS",
+        "category": "operating_system",
+        "weight": 0.9,
+        "years": 15
+      },
+      {
+        "id": "Python",
+        "category": "programming_languages",
+        "weight": 0.5,
+        "years": 3
+      }
+    ],
+    "edges": [],
+    "_info": {
+      "nodes": "LLM Stufe 2: weight + years pro Skill",
+      "edges": "LEER – global in SkillRelation DB-Tabelle"
+    }
+  },
+  "statistics": {
+    "_comment": "Enricher: Berechnete Kennzahlen",
+    "total_experience_years": 28,
+    "total_months": 336,
+    "project_count": 12,
+    "skill_count": 45,
+    "unique_skill_categories": 8,
+    "certification_count": 4,
+    "top_skills": [
+      "Fortigate",
+      "Checkpoint",
+      "F5 Big-IP",
+      "BGP",
+      "PaloAlto",
+      "Cisco Nexus",
+      "Zscaler",
+      "Ansible",
+      "FortiOS",
+      "VPN"
+    ],
+    "top_certifications": [
+      "FCA Cybersecurity",
+      "Fortinet Certified Professional Security Operations"
+    ],
+    "demand_index": 0.91
+  },
+  "audit": {
+    "created_by": "cv_extractor",
+    "created_at": "2026-04-17T10:00:00",
+    "source_file": "AID-tt_1.2.4.2_neu.pdf",
+    "enriched_at": "2026-04-17T10:05:00",
+    "enriched_by": "deepseek-chat",
+    "steps_completed": [
+      "extraction",
+      "db_save",
+      "html_generation",
+      "normalization",
+      "facets",
+      "searchable_text",
+      "llm_summary",
+      "llm_matching",
+      "skill_graph",
+      "statistics",
+      "elasticsearch_index"
+    ]
+  },
+  "_extensions": {},
+  "_info": {
+    "beschreibung": "MASTER-JSON Beispiel (AID-tt) – vollstaendig angereicherter Datensatz",
+    "placement_hourly_rate": "NICHT hier – manuelle Felder am Consultant Model (consultant.hourly_rate, consultant.placement_text)"
+  }
+}

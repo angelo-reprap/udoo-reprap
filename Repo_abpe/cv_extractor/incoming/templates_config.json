@@ -1,0 +1,51 @@
+{
+  "templates": {
+    "aid-profile": {
+      "name": "AID Qualifikationsprofil",
+      "source_dir": "cv_extractor/html/aid-profile",
+      "target_dir": "data/html_out",
+      "filename_suffix": "",
+      "description": "Vollstaendiges Qualifikationsprofil"
+    },
+    "aid-short": {
+      "name": "AID Kurzprofil",
+      "source_dir": "cv_extractor/html/aid-short",
+      "target_dir": "data/html_out",
+      "filename_suffix": "-short",
+      "description": "Kurzes Profil (1-2 Seiten)"
+    },
+    "aid-word": {
+      "name": "AID Word Qualifikationsprofil",
+      "target_dir": "data/doc_out",
+      "filename_suffix": "",
+      "description": "Word-Dokument Qualifikationsprofil (.docx)",
+      "format": "docx",
+      "logo_path": "data/cv/adds/logo_abcona.png"
+    },
+    "aid-word-short": {
+      "name": "AID Word Kurzprofil",
+      "source_dir": "apps/cv_extractor/templates/cv_extractor/html/aid-short",
+      "target_dir": "data/doc_out",
+      "filename_suffix": "-short",
+      "description": "Word Kurzprofil (.docx)",
+      "format": "docx",
+      "logo_path": "data/cv/adds/logo_abcona.png"
+    },
+    "aid-word-en": {
+      "name": "AID Word Qualifikationsprofil (EN)",
+      "target_dir": "data/doc_out",
+      "filename_suffix": "-en",
+      "description": "Word-Dokument Qualifikationsprofil English (.docx)",
+      "format": "docx",
+      "logo_path": "data/cv/adds/logo_abcona.png"
+    },
+    "aid-word-short-en": {
+      "name": "AID Word Kurzprofil (EN)",
+      "target_dir": "data/doc_out",
+      "filename_suffix": "-en-short",
+      "description": "Word Kurzprofil English (.docx)",
+      "format": "docx",
+      "logo_path": "data/cv/adds/logo_abcona.png"
+    }
+  }
+}

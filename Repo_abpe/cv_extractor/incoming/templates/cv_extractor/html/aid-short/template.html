@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'cv_extractor/html/aid-short/style.css' %}">
+<script src="{% static 'cv_extractor/html/aid-short/script.js' %}" defer></script>
+<title>{{ aid }} - Kurzprofil</title>
+</head>
+<body>
+<div class="pdf-container">
+
+  <div class="page" id="page1">
+    <div class="page-header">
+      <div class="header-left">Kurzprofil: {{ aid }}</div>
+      <div class="header-right">www.abcona.de · Seite 1 von ?</div>
+    </div>
+    <div class="cover-page">
+      <div class="cover-logo-container">
+        <img src="/data/cv/adds/logo_abcona.png" alt="active business consulting agency" class="cover-logo">
+      </div>
+      <div class="cover-id">{{ aid }}</div>
+      <h1 class="cover-title">{{ personal.headline|default:"IT-Berater" }}</h1>
+      <div class="cover-contact">
+        <span>abcona e. K.</span>
+        <span>active business consulting agency</span>
+        <span>Bornhohl 26</span>
+        <span>61449 Steinbach</span>
+        <span>Telefon {{ personal.phone|default:"+49 (0) 61 71 - 8867 - 00" }}</span>
+        <span>E-Mail {{ personal.email|default:"office@abcona.de" }}</span>
+      </div>
+      <div class="cover-date">Stand: {{ date|date:"d. F Y" }}</div>
+    </div>
+  </div>
+
+  <div class="page" id="page2">
+    <div class="page-header">
+      <div class="header-left">Kurzprofil: {{ aid }}</div>
+      <div class="header-right">www.abcona.de · Seite 2 von ?</div>
+    </div>
+    <div class="section personal-section">
+      <h2 class="section-title">Persönliche Daten</h2>
+      <div class="personal-grid">
+        <div class="personal-item"><span class="label">Name:</span> <span class="value">{{ personal.full_name }}</span></div>
+        <div class="personal-item"><span class="label">Geburtsjahr:</span> <span class="value">{{ personal.birth_year|default:"-" }}</span></div>
+        <div class="personal-item"><span class="label">Sprachen:</span> <span class="value">{{ languages|join:", " }}</span></div>
+        <div class="personal-item"><span class="label">Verfügbar:</span> <span class="value">{{ personal.availability|default:"nach Absprache" }}</span></div>
+      </div>
+    </div>
+    <div class="section">
+      <h2 class="section-title">Kernkompetenzen</h2>
+      <ul class="competence-list">
+        {% for skill in all_skills|slice:":10" %}
+        <li>{{ skill }}</li>
+        {% empty %}
+        <li>Keine Angaben</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="section">
+      <h2 class="section-title">Letzte Projekte</h2>
+      {% for exp in experiences|slice:":5" %}
+      <div class="experience-item">
+        <div class="exp-header">
+          <span class="exp-date">{{ exp.period }}</span>
+          <span class="exp-client">{{ exp.company }}</span>
+        </div>
+        <div class="exp-role">{{ exp.role|default:"-" }}</div>
+      </div>
+      {% empty %}
+      <div class="experience-item">Keine Projekte vorhanden</div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,237 @@
+"""
+master_base_extractor.py - Universeller Extraktor fuer Master-Pipeline
+Wie base_extractor.py aber:
+- Kein 3000 Zeichen Limit
+- Alle Placeholder: {text}, {consultant_type}
+- Nutzt deepseek_service (robust, kein Array-Problem)
+- Gibt immer Dict zurueck
+"""
+import json
+import re
+import time
+from typing import Dict, Any, Optional
+from apps.cv_extractor.services.deepseek_service import deepseek_service
+
+
+class MasterBaseExtractor:
+    """Extraktor fuer Master-Pipeline — laedt Prompt aus DB, sendet an LLM."""
+
+    def __init__(self, stage: str, consultant_type: str = "IT-Freelancer"):
+        self.stage           = stage
+        self.consultant_type = consultant_type
+        self._prompt_text    = None
+
+    def _load_prompt(self) -> Optional[str]:
+        if self._prompt_text is not None:
+            return self._prompt_text
+        try:
+            from apps.cv_extractor.models import PromptTemplate
+            pt = PromptTemplate.objects.get(stage=self.stage, is_active=True)
+            self._prompt_text = pt.prompt_text
+            return self._prompt_text
+        except Exception as e:
+            print(f"⚠️ Prompt nicht gefunden: {self.stage} → {e}")
+            return None
+
+    def extract(self, text: str) -> Dict[str, Any]:
+        """Sendet Text an LLM und gibt JSON zurueck."""
+        if not text or len(text.strip()) < 5:
+            return {}
+
+        prompt_text = self._load_prompt()
+        if not prompt_text:
+            return {}
+
+        # Alle Placeholder ersetzen — kein Zeichenlimit!
+        prompt = prompt_text
+        prompt = prompt.replace("{text}",            text)
+        prompt = prompt.replace("{consultant_type}", self.consultant_type)
+        # JSON-Beispiele entescapen ({{ → { und }} → })
+        prompt = prompt.replace('{{', '{').replace('}}', '}')
+
+        from apps.cv_extractor.services.deepseek_api_label import deepseek_label_api
+        res = deepseek_label_api.extract(
+            prompt,
+            system_prompt="Du bist ein praeziser CV-Analyst. Antworte nur mit JSON."
+        )
+        if res.success and res.data:
+            if isinstance(res.data, dict):
+                return res.data
+            if isinstance(res.data, list) and res.data:
+                return res.data[0] if isinstance(res.data[0], dict) else {}
+        print(f"❌ {self.stage}: {getattr(res,'error','leer')} | raw={getattr(res,'raw_response','')[:80]}")
+        return {}
+
+
+def gruppe_to_volltext(gruppe: dict, block_by_nr: dict) -> str:
+    """Gibt den VOLLSTAENDIGEN Text einer Gruppe zurueck (alle Zeilen, kein Limit)."""
+    lines = []
+    for nr in gruppe.get('blocks', []):
+        b = block_by_nr.get(nr)
+        if b:
+            lines.extend(b['lines'])
+    return '\n'.join(l for l in lines if l.strip())
+
+
+def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
+                        consultant_type: str = "IT-Freelancer") -> dict:
+    """
+    Konvertiert gelabelte Gruppen in pre_json Struktur.
+    Alle Extraktionen parallel.
+    """
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    from datetime import datetime
+
+    # pre_json Skelett
+    pre_json = {
+        "metadata": {
+            "aid": "", "version": "", "consultant_dir": "",
+            "first_name": "", "last_name": "", "headline": "",
+            "pipeline": {"version": "6.0", "step": "extraction",
+                         "extractor": "master_pipeline", "model": "deepseek-chat"}
+        },
+        "extracted_data": {
+            "personal":         {},
+            "professional":     {"total_experience_years": 0},
+            "skills":           {
+                "architecture_pattern": [], "business_software": [],
+                "ci_cd_tool": [], "cloud_platform": [], "communication_tool": [],
+                "database": [], "data_format": [], "data_management": [],
+                "development_environment": [], "devops_tool": [],
+                "documentation_tool": [], "framework": [], "hardware": [],
+                "identity_management": [], "it_infrastructure": [],
+                "methodology": [], "monitoring_tool": [], "network_protocol": [],
+                "operating_system": [], "programming_languages": [],
+                "project_management": [], "security_tool": [], "soft_skill": [],
+                "special_concept": [], "testing_tool": [], "version_control": [],
+                "virtualization": []
+            },
+            "certifications":    [],
+            "experience":        [],
+            "industries":        [],
+            "focus_areas":       [],
+            "focus_experience":  [],
+            "education":         [],
+            "other":             ""
+        },
+        "audit": {
+            "created_by": "master_pipeline",
+            "created_at": datetime.now().isoformat(),
+            "steps_completed": []
+        }
+    }
+
+    # Gruppen nach Label gruppieren
+    from collections import defaultdict
+    label_gruppen = defaultdict(list)
+    skill_gruppen = {}  # index → skill_cat
+
+    for lg in labeled:
+        label_gruppen[lg.label].append(lg)
+        if lg.label == 'SKILLS' and lg.skill_cat:
+            skill_gruppen[lg.index] = lg.skill_cat
+
+    # Gruppen-Index → Gruppe mapping
+    gruppen_by_idx = {i+1: g for i, g in enumerate(gruppen)}
+
+    # ── SKILLS: direkt aus Text, kein LLM ────────────────────────────────────
+    print("  SKILLS: direkt aus Blöcken...")
+    for lg in label_gruppen.get('SKILLS', []):
+        cat = skill_gruppen.get(lg.index)
+        if not cat: continue
+        g = gruppen_by_idx.get(lg.index)
+        if not g: continue
+        text = gruppe_to_volltext(g, block_by_nr)
+        items = []
+        for line in text.split('\n'):
+            line = line.strip().lstrip('•·▪►-').strip()
+            if not line or len(line) < 2: continue
+            # Erste Zeile ist oft Überschrift → überspringen
+            if line.endswith(':') and len(line) < 30: continue
+            for part in line.split(','):
+                part = part.strip()
+                if part and len(part) > 1:
+                    items.append(part)
+        if cat in pre_json['extracted_data']['skills']:
+            pre_json['extracted_data']['skills'][cat].extend(items)
+            # Deduplizieren
+            pre_json['extracted_data']['skills'][cat] = list(
+                dict.fromkeys(pre_json['extracted_data']['skills'][cat])
+            )
+            print(f"    {cat}: {len(items)} Skills")
+
+    # ── LLM-Extraktionen parallel ─────────────────────────────────────────────
+    STAGE_MAP = {
+        'PERSONAL':     'fl_extract_personal',
+        'FACHBEREICHE': 'fl_extract_fachbereiche',
+        'ZERTIFIKATE':  'fl_extract_zertifikate',
+        'SCHULUNGEN':   'fl_extract_schulungen',
+        'BRANCHEN':     'fl_extract_branchen',
+        'FOCUS_EXP':    'fl_extract_focus_exp',
+        'PROJECT':      'fl_extract_experience',
+        'OTHER':        'fl_extract_sonstiges',
+    }
+
+    tasks = []
+    for label, stage in STAGE_MAP.items():
+        grps = label_gruppen.get(label, [])
+        if not grps: continue
+        # Text aller Gruppen dieses Labels zusammenführen
+        full_text = ''
+        for lg in grps:
+            g = gruppen_by_idx.get(lg.index)
+            if g:
+                full_text += gruppe_to_volltext(g, block_by_nr) + '\n\n'
+        if full_text.strip():
+            tasks.append((label, stage, full_text.strip()))
+
+    print(f"  LLM: {len(tasks)} Extraktionen parallel...")
+
+    def run_extraction(task):
+        label, stage, text = task
+        ext = MasterBaseExtractor(stage, consultant_type)
+        result = ext.extract(text)
+        return label, result
+
+    results = {}
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        futures = {executor.submit(run_extraction, t): t[0] for t in tasks}
+        for future in as_completed(futures):
+            label, data = future.result()
+            results[label] = data
+            print(f"    {label}: ✅" if data else f"    {label}: ❌ leer")
+
+    # ── Ergebnisse in pre_json einfügen ───────────────────────────────────────
+    if results.get('PERSONAL'):
+        pre_json['extracted_data']['personal'] = results['PERSONAL']
+
+    if results.get('FACHBEREICHE'):
+        d = results['FACHBEREICHE']
+        pre_json['extracted_data']['focus_areas'] = d.get('focus_areas', [])
+
+    if results.get('ZERTIFIKATE'):
+        d = results['ZERTIFIKATE']
+        pre_json['extracted_data']['certifications'] = d.get('certifications', [])
+
+    if results.get('SCHULUNGEN'):
+        d = results['SCHULUNGEN']
+        pre_json['extracted_data']['education'] = d.get('education', d.get('schulungen', []))
+
+    if results.get('BRANCHEN'):
+        d = results['BRANCHEN']
+        pre_json['extracted_data']['industries'] = d.get('industries', [])
+
+    if results.get('FOCUS_EXP'):
+        d = results['FOCUS_EXP']
+        pre_json['extracted_data']['focus_experience'] = d.get('focus_experience', [])
+
+    if results.get('PROJECT'):
+        d = results['PROJECT']
+        pre_json['extracted_data']['experience'] = d.get('experience', [])
+
+    if results.get('OTHER'):
+        d = results['OTHER']
+        pre_json['extracted_data']['other'] = str(d)
+
+    pre_json['audit']['steps_completed'] = list(results.keys()) + ['SKILLS']
+    return pre_json

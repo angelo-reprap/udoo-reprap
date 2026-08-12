@@ -1,0 +1,218 @@
+{
+  "_comment": "PRE-JSON: Ergebnis der CV-Extraktion (pipeline.py Stufe 1). Wird in consultant.extracted_json_export gespeichert. Niemals als Datei - nur DB.",
+  "metadata": {
+    "aid": "AID-tt_1.2.4.2",
+    "version": "1.2.4.2",
+    "consultant_dir": "troschke_thomas",
+    "first_name": "Thomas",
+    "last_name": "Troschke",
+    "headline": "Security Engineer, Firewall-Experte, VPN-Experte, Netzwerkspezialist",
+    "source": {
+      "type": "upload",
+      "filename": "AID-tt_1.2.4.2_neu.pdf",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-04-17T10:00:00"
+    },
+    "pipeline": {
+      "version": "5.0",
+      "step": "extraction",
+      "extractor": "cv_extractor",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": true,
+      "has_skills": true,
+      "has_experience": true
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Thomas",
+      "last_name": "Troschke",
+      "birth_year": 1965,
+      "nationality": "Deutsch",
+      "languages": ["Deutsch", "Englisch"],
+      "email": "",
+      "phone": "",
+      "location": "nach Absprache",
+      "availability": "nach Absprache",
+      "degree": "Dipl.-Ing.",
+      "edv_experience_since": 1997,
+      "headline": "Security Engineer, Firewall-Experte, VPN-Experte, Netzwerkspezialist",
+      "summary": ""
+    },
+    "professional": {
+      "total_experience_years": 0
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": ["Azure", "Zscaler"],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": ["Ansible"],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Checkpoint VSX",
+        "Checkpoint Appliances",
+        "Cisco Nexus 5K",
+        "Cisco Nexus 9K",
+        "Fortigate Firewalls",
+        "FortiSwitch",
+        "FortiAP",
+        "FortiAnalyzer 4000B",
+        "Fortimanager 300E",
+        "FortiAuthenticator"
+      ],
+      "identity_management": ["FortiAuthenticator", "FortiToken"],
+      "it_infrastructure": ["TCP/IP", "VPN", "Internet", "Intranet", "Ethernet"],
+      "methodology": [],
+      "monitoring_tool": ["Skybox Security", "AlgoSec", "Tufin"],
+      "network_protocol": [
+        "BGP", "EIGRP", "RIP", "OSPF", "TCP/IP", "VPN", "Ethernet"
+      ],
+      "operating_system": ["Linux", "Cisco IOS", "NX-OS", "FortiOS", "ArubaOS-CX"],
+      "programming_languages": ["YAML", "Python", "Bash", "Shell"],
+      "project_management": [],
+      "security_tool": [
+        "Fortigate", "Checkpoint", "PaloAlto", "F5 Big-IP",
+        "Zscaler", "McAfee WebGateway", "Skybox Security",
+        "AlgoSec", "Tufin", "OPSWAT MetaDefender"
+      ],
+      "soft_skill": [],
+      "special_concept": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": ["Proxmox"]
+    },
+    "certifications": [
+      {
+        "name": "FCA Cybersecurity",
+        "issuer": "Fortinet",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "Fortinet Certified Professional Security Operations",
+        "issuer": "Fortinet",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "Network Security 7.6 Support Engineer",
+        "issuer": "Fortinet",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "SD-WAN 7.6 Core Administrator",
+        "issuer": "Fortinet",
+        "date_obtained": "",
+        "expiry_date": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "11/2025 – dato",
+        "title": "Fortinet Certified Professional",
+        "company": "Fortinet Training Institut",
+        "industry": "",
+        "role": "",
+        "location": "",
+        "activities": [
+          "Kurs FCP - FortiAnalyzer 7.4",
+          "Kurs FCP - FortiManager 7.6",
+          "Kurs FCP - FortiGate 7.4 Administrator",
+          "Kurs FCA - FortiGate 7.6 Operator"
+        ],
+        "technologies": []
+      },
+      {
+        "period": "01/2025 – 10/2025",
+        "title": "",
+        "company": "Bundesministerium",
+        "industry": "",
+        "role": "Netzwerk-Experte",
+        "location": "",
+        "activities": [
+          "Administration, Konfiguration und Optimierung der Fortigate-Firewall-Umgebung",
+          "Betrieb und Feintuning von F5 Big-IP Loadbalancer VE HA",
+          "Regelwerk Administration Checkpoint Maestro",
+          "Netzwerkbetrieb in einer Umgebung mit Cisco Nexus 9000 Switches",
+          "Automatisierung von wiederkehrenden Aufgaben mittels Ansible auf F5"
+        ],
+        "technologies": [
+          "Fortigate", "F5 Big-IP Loadbalancer VE", "OPSWAT MetaDefender Core",
+          "Checkpoint Maestro", "Cisco Nexus 9K", "Proxmox", "Ansible"
+        ]
+      }
+    ],
+    "industries": [
+      "Banken", "Versicherungen", "Logistik", "Industrie",
+      "Luftfahrt", "Telekommunikation"
+    ],
+    "focus_areas": [
+      "Netzwerksicherheit",
+      "Netzwerkadministration WAN/LAN",
+      "Routing, Switching, VPN",
+      "Firewalls",
+      "Konzepte, Analysen, Migration",
+      "Loadbalancing"
+    ],
+    "focus_experience": [
+      "OPSWAT MetaDefender/Icap Server",
+      "Check Point Maestro",
+      "Check Point VPN-1/FW-1",
+      "Cisco Security Manager",
+      "Fortimanager",
+      "Fortigate",
+      "PaloAlto",
+      "F5 Big-IP VE Loadbalancer",
+      "Zscaler",
+      "Azure",
+      "Skybox Security",
+      "McAfee WebGateway"
+    ],
+    "education": [
+      {
+        "degree": "Dipl.-Ing. Maschinenwesen",
+        "institution": "",
+        "period": "1985 - 1989",
+        "description": "Studium zum Dipl.-Ing. für Maschinenwesen",
+        "education_type": "degree",
+        "issuer": ""
+      },
+      {
+        "degree": "Netzwerkadministrator",
+        "institution": "",
+        "period": "1997 - 1998",
+        "description": "Ausbildung Netzwerkadministrator",
+        "education_type": "degree",
+        "issuer": ""
+      }
+    ],
+    "other": ""
+  },
+  "audit": {
+    "created_by": "cv_extractor",
+    "created_at": "2026-04-17T10:00:00",
+    "source_file": "AID-tt_1.2.4.2_neu.pdf",
+    "steps_completed": [
+      "focus_experience", "experience", "certifications",
+      "focus_areas", "industries", "personal",
+      "kopf", "skills", "other", "post_processor"
+    ]
+  }
+}

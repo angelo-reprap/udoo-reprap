@@ -1,0 +1,44 @@
+{
+  "brand": {
+    "blue": "163258",
+    "gray": "606060",
+    "black": "000000",
+    "box_bg": "F9FAFB",
+    "box_border": "E5E7EB",
+    "tech_bg": "F3F4F6"
+  },
+  "fonts": {
+    "body": "Arial",
+    "size_body": 10,
+    "size_small": 9,
+    "size_heading": 13,
+    "size_subheading": 10,
+    "size_aid": 24,
+    "size_headline": 14,
+    "size_header": 8
+  },
+  "layout": {
+    "margin_cm": 1.8,
+    "top_margin_cm": 1.5,
+    "bottom_margin_cm": 1.5
+  },
+  "sections": {
+    "order": ["page1", "page2", "experiences", "products", "skills"],
+    "show_products": true,
+    "show_skills": true,
+    "show_courses": true,
+    "show_certifications": true,
+    "show_industries": true,
+    "experiences_per_page": 99,
+    "page_break_after_page1": true,
+    "page_break_after_page2": true,
+    "page_break_after_experiences": true,
+    "page_break_after_products": true
+  },
+  "header": {
+    "show_aid": true,
+    "show_url": true,
+    "show_page_number": true,
+    "url": "www.abcona.de"
+  }
+}

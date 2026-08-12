@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Upload – ABpE</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root { --blue:#163258; --blue2:#1e4a76; --green:#27ae60; --red:#e74c3c; --amber:#f39c12; }
+body { background:#f5f7fa; font-family:'Segoe UI',sans-serif; padding:30px 20px; }
+.wrap { max-width:1400px; margin:0 auto; }
+.card { background:white; border-radius:14px; box-shadow:0 4px 24px rgba(0,0,0,.12); overflow:hidden; margin-bottom:20px; }
+.card-head { background:linear-gradient(135deg,var(--blue) 0%,var(--blue2) 100%); color:white; padding:18px 24px; display:flex; justify-content:space-between; align-items:center; }
+.card-head h1 { font-size:1.35rem; margin:0; }
+.card-head p  { font-size:.8rem; margin:4px 0 0; opacity:.85; }
+.cols { display:grid; grid-template-columns:1fr 1.1fr 1.1fr; gap:20px; padding:22px; }
+@media(max-width:1100px){ .cols { grid-template-columns:1fr; } }
+.panel { background:#f8f9fa; border-radius:10px; padding:18px; }
+.panel h3 { font-size:.95rem; font-weight:600; color:var(--blue); margin-bottom:14px; padding-bottom:7px; border-bottom:2px solid var(--blue); display:flex; align-items:center; gap:7px; }
+.fg { margin-bottom:12px; }
+.fg label { display:block; font-size:.78rem; font-weight:600; color:var(--blue); margin-bottom:4px; }
+.fg input, .fg select { width:100%; padding:7px 11px; border:1.5px solid #dde1e7; border-radius:7px; font-size:.85rem; transition:border-color .2s; background:white; }
+.fg input:focus, .fg select:focus { outline:none; border-color:var(--blue); }
+.fg small { font-size:.68rem; color:#6c757d; margin-top:2px; display:block; }
+.dropzone { border:2.5px dashed #b0c4de; border-radius:10px; padding:28px 18px; text-align:center; cursor:pointer; background:white; transition:all .25s; margin-bottom:12px; }
+.dropzone:hover, .dropzone.over { border-color:var(--blue); background:#eaf0fa; }
+.dropzone i { font-size:2.2rem; color:var(--blue); }
+.dropzone h4 { font-size:.95rem; margin:6px 0 3px; }
+.url-dropzone { border:2px dashed #b0c4de; border-radius:8px; padding:16px; text-align:center; cursor:pointer; background:white; transition:all .25s; }
+.url-dropzone:hover, .url-dropzone.over { border-color:var(--green); background:#eafaf1; }
+.pdf-badge { display:none; background:#eaf0fa; border-radius:8px; padding:10px; margin-top:10px; align-items:center; gap:10px; }
+.pdf-badge.show { display:flex; animation:fadeIn .25s; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+.progress { height:4px; border-radius:2px; margin:8px 0; display:none; }
+.progress.show { display:block; }
+.btn-up { background:var(--blue); color:white; border:none; padding:9px 20px; border-radius:7px; cursor:pointer; font-size:.88rem; font-weight:600; width:100%; transition:background .2s; }
+.btn-up:hover { background:var(--blue2); }
+.btn-up:disabled { opacity:.5; cursor:not-allowed; }
+.btn-home { background:rgba(255,255,255,0.15); color:white; border:1px solid rgba(255,255,255,0.4); padding:8px 16px; border-radius:6px; font-size:.88em; font-weight:500; text-decoration:none; display:inline-flex; align-items:center; gap:6px; transition:background .2s; }
+.btn-home:hover { background:rgba(255,255,255,0.3); color:white; }
+.dupe-box { background:white; border-radius:8px; padding:12px; max-height:320px; overflow-y:auto; }
+.person-card { border:1.5px solid #e0e6ee; border-radius:8px; padding:10px; margin-bottom:8px; cursor:pointer; transition:all .2s; }
+.person-card:hover { border-color:var(--blue); background:#eaf0fa; }
+.person-card.sel { border:2px solid var(--blue); background:#eaf0fa; }
+.tbl-wrap { padding:20px 22px; border-top:1px solid #e5e9f0; }
+.tbl-bar { display:flex; gap:12px; margin-bottom:14px; flex-wrap:wrap; }
+.tbl-bar input, .tbl-bar select { padding:8px 12px; border:1.5px solid #dde1e7; border-radius:7px; font-size:.85rem; }
+.tbl-bar input { flex:2; min-width:200px; }
+table { width:100%; border-collapse:collapse; font-size:.84rem; }
+th { background:var(--blue); color:white; padding:10px 12px; text-align:left; white-space:nowrap; }
+td { padding:9px 12px; border-bottom:1px solid #e8ecf0; vertical-align:middle; }
+tr:hover td { background:#f5f8ff; }
+.dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:5px; }
+.dot-ok   { background:var(--green); box-shadow:0 0 4px var(--green); }
+.dot-proc { background:var(--amber); animation:pulse .9s infinite; }
+.dot-fail { background:var(--red); }
+.dot-wait { background:#aaa; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.45} }
+.badge-status { font-size:.72rem; padding:3px 9px; border-radius:12px; font-weight:600; }
+.bs-ok   { background:#d4edda; color:#155724; }
+.bs-proc { background:#fff3cd; color:#856404; }
+.bs-fail { background:#f8d7da; color:#721c24; }
+.bs-wait { background:#e9ecef; color:#495057; }
+.btn-edit { font-size:.75rem; padding:4px 10px; border-radius:6px; background:var(--blue); color:white; border:none; cursor:pointer; white-space:nowrap; }
+.btn-edit:hover { background:var(--blue2); }
+.btn-edit:disabled { opacity:.4; cursor:default; }
+.btn-delete { font-size:.75rem; padding:5px 12px; border-radius:6px; background:#dc3545; color:white; border:none; cursor:pointer; white-space:nowrap; margin-left:4px; }
+.btn-delete:hover { background:#b02a37; }
+.divider { border:none; border-top:1.5px solid #e0e6ee; margin:14px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="card">
+
+  <div class="card-head">
+    <div>
+      <h1><i class="fas fa-file-pdf"></i> CV Upload &amp; Management</h1>
+      <p>PDF / Word hochladen · URL Import · automatische Extraktion · Übersicht aller CVs</p>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <a href="/cv-extractor/" class="btn-home"><i class="fas fa-home"></i> Übersicht</a>
+      <span id="sys-status" class="badge bg-success fs-6"><i class="fas fa-check-circle"></i> System bereit</span>
+    </div>
+  </div>
+
+  <div class="cols">
+
+    <!-- Spalte 1: Personendaten -->
+    <div class="panel">
+      <h3><i class="fas fa-user-circle"></i> Personendaten</h3>
+      <div class="fg">
+        <label>Vorname <span style="color:var(--red)">*</span></label>
+        <input id="fn" type="text" placeholder="Thomas" autocomplete="off">
+      </div>
+      <div class="fg">
+        <label>Nachname <span style="color:var(--red)">*</span></label>
+        <input id="ln" type="text" placeholder="Troschke" autocomplete="off">
+      </div>
+      <div class="fg">
+        <label>E-Mail</label>
+        <input id="email" type="text" placeholder="a@firma.de;b@web.de">
+        <small>Mehrere mit Semikolon (;)</small>
+      </div>
+      <div class="fg">
+        <label>Telefon</label>
+        <input id="phone" type="text" placeholder="+49 123;+49 456">
+        <small>Mehrere mit Semikolon (;)</small>
+      </div>
+      <div class="fg">
+        <label>Website</label>
+        <input id="website" type="text" placeholder="https://firma.de;https://linkedin.com/in/x">
+        <small>Mehrere mit Semikolon (;)</small>
+      </div>
+      <div class="fg">
+        <label>Adresse</label>
+        <input id="address" type="text" placeholder="Musterstr. 1, 12345 Berlin">
+      </div>
+    </div>
+
+    <!-- Spalte 2: PDF Upload + URL Import -->
+    <div class="panel">
+
+      <!-- PDF Upload -->
+      <h3><i class="fas fa-cloud-upload-alt"></i> PDF / Word Upload</h3>
+      <div class="dropzone" id="dz">
+        <i class="fas fa-file-upload"></i>
+        <h4>PDF oder Word hier ablegen oder klicken</h4>
+        <small>Max. 50 MB · PDF, DOC, DOCX</small>
+        <input type="file" id="fi" accept=".pdf,.doc,.docx" style="display:none">
+      </div>
+      <div class="pdf-badge" id="pdf-badge">
+        <i class="fas fa-file-pdf" style="font-size:1.4rem;color:var(--red)"></i>
+        <div style="flex:1">
+          <div id="pdf-name" style="font-weight:600;font-size:.85rem"></div>
+          <div id="pdf-meta" style="font-size:.72rem;color:#6c757d"></div>
+        </div>
+        <i class="fas fa-check-circle" style="color:var(--green)"></i>
+      </div>
+      <div class="progress" id="prog">
+        <div class="progress-bar bg-primary" id="prog-bar" style="width:0%"></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:12px;">
+        <button class="btn-up" id="up-btn" disabled>
+          <i class="fas fa-upload"></i> Hochladen &amp; Verarbeiten
+        </button>
+        <button class="btn btn-secondary btn-sm" id="rst-btn" style="display:none;white-space:nowrap">
+          <i class="fas fa-redo"></i> Reset
+        </button>
+      </div>
+
+      <hr class="divider">
+
+      <!-- URL Import -->
+      <h3><i class="fas fa-link"></i> URL Import</h3>
+
+      <!-- Einzelne URL -->
+      <div style="margin-bottom:10px;">
+        <div style="display:flex;gap:6px;margin-bottom:6px;">
+          <input id="url-input" type="text"
+            style="flex:1;padding:7px 10px;border:1.5px solid #dde1e7;border-radius:7px;font-size:.82rem;"
+            placeholder="URL oder GULP-ID (z.B. 103796)..."
+            oninput="autoDetectPlatform(this.value)">
+          <select id="url-platform"
+            style="width:140px;padding:7px;border:1.5px solid #dde1e7;border-radius:7px;font-size:.78rem;background:white;">
+          </select>
+        </div>
+        <div style="display:flex;gap:6px;">
+          <button onclick="importSingleUrl()" id="url-import-btn"
+            style="flex:1;background:var(--green);color:white;border:none;padding:8px;
+                   border-radius:7px;font-size:.82rem;font-weight:600;cursor:pointer;">
+            <i class="fas fa-download"></i> Importieren
+          </button>
+          <button onclick="toggleBatch()" id="batch-toggle-btn"
+            title="Mehrere URLs / Batch Import"
+            style="background:#6c757d;color:white;border:none;padding:8px 12px;
+                   border-radius:7px;font-size:.78rem;cursor:pointer;">
+            <i class="fas fa-list"></i>
+          </button>
+          <button onclick="handleSessionBtn()" id="flm-session-btn"
+            title="freelancermap Session / Login"
+            style="background:#6c757d;color:white;border:none;padding:8px 12px;
+                   border-radius:7px;font-size:.78rem;cursor:pointer;">
+            <i class="fas fa-key"></i>
+          </button>
+        </div>
+        <div id="url-result" style="display:none;margin-top:8px;padding:8px;background:white;
+             border-radius:7px;border:1px solid #e0e6ee;font-size:.78rem;"></div>
+      </div>
+
+      <!-- Batch Import (ausklappbar) -->
+      <div id="batch-area" style="display:none;">
+        <hr class="divider">
+        <div style="font-size:.78rem;font-weight:600;color:var(--blue);margin-bottom:8px;">
+          <i class="fas fa-list"></i> Batch Import — mehrere URLs
+        </div>
+
+        <!-- Drag & Drop für CSV/TXT -->
+        <div class="url-dropzone" id="url-dz"
+             onclick="document.getElementById('csv-file').click()"
+             ondragover="event.preventDefault();this.classList.add('over')"
+             ondragleave="this.classList.remove('over')"
+             ondrop="handleCsvDrop(event)">
+          <i class="fas fa-file-csv" style="font-size:1.6rem;color:var(--green);display:block;margin-bottom:6px;"></i>
+          <div style="font-size:.82rem;font-weight:600;color:var(--blue);">CSV / TXT hier ablegen oder klicken</div>
+          <div style="font-size:.7rem;color:#6c757d;margin-top:3px;">Eine URL pro Zeile · max. 100 URLs</div>
+          <input type="file" id="csv-file" accept=".csv,.txt" style="display:none" onchange="loadUrlFile(this)">
+        </div>
+
+        <!-- Textarea -->
+        <textarea id="url-batch" rows="4"
+          style="width:100%;font-size:.75rem;font-family:monospace;border:1.5px solid #dde1e7;
+                 border-radius:7px;padding:7px;resize:vertical;box-sizing:border-box;margin-top:8px;"
+          placeholder="https://www.freelancermap.de/profil/person-a&#10;https://www.freelancermap.de/profil/person-b&#10;https://www.xing.com/profile/person-c"
+          oninput="updateBatchCount()"></textarea>
+
+        <div style="display:flex;gap:6px;align-items:center;margin-top:6px;">
+          <button onclick="importBatch()"
+            style="flex:1;background:var(--green);color:white;border:none;padding:8px;
+                   border-radius:7px;font-size:.82rem;font-weight:600;cursor:pointer;">
+            <i class="fas fa-download"></i> Alle importieren
+          </button>
+          <span id="batch-count" style="font-size:.72rem;color:#6c757d;white-space:nowrap;min-width:60px;text-align:right;"></span>
+        </div>
+
+        <div style="margin-top:8px;padding:8px;background:#eafaf1;border-radius:7px;
+             border:1px solid #c3e6cb;font-size:.7rem;color:#155724;line-height:1.6;">
+          <i class="fas fa-info-circle"></i>
+          <strong>Hinweise:</strong><br>
+          · Eine URL pro Zeile<br>
+          · Plattform wird automatisch erkannt (freelancermap, XING, LinkedIn, GULP)<br>
+          · CSV: erste Spalte = URL, weitere Spalten werden ignoriert<br>
+          · PDFs werden bei unterstützten Plattformen automatisch heruntergeladen<br>
+          · Bei Fehler wird die nächste URL verarbeitet
+        </div>
+
+        <!-- Queue -->
+        <div id="url-queue" style="display:none;margin-top:10px;">
+          <div style="font-size:.75rem;font-weight:600;color:var(--blue);margin-bottom:6px;">
+            <i class="fas fa-tasks"></i> Import-Warteschlange
+          </div>
+          <div id="url-queue-list"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Spalte 3: Dublettenprüfung -->
+    <div class="panel">
+      <h3><i class="fas fa-search"></i> Dublettenprüfung</h3>
+      <div class="dupe-box" id="dupe-box">
+        <div class="text-muted text-center py-3" style="font-size:.82rem">
+          <i class="fas fa-info-circle fa-2x mb-2 d-block"></i>
+          Vorname + Nachname + PDF eingeben,<br>dann erfolgt die automatische Prüfung.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cols -->
+
+  <!-- Tabelle -->
+  <div class="tbl-wrap">
+    <div class="tbl-bar">
+      <input id="search" placeholder="🔍 Suche nach Name, AID, Status …">
+      <select id="sort">
+        <option value="newest">Neueste zuerst</option>
+        <option value="oldest">Älteste zuerst</option>
+        <option value="ln_asc">Nachname A–Z</option>
+        <option value="ln_desc">Nachname Z–A</option>
+        <option value="status">Nach Status</option>
+      </select>
+      <button class="btn btn-outline-primary btn-sm" onclick="loadUploads()">
+        <i class="fas fa-sync-alt"></i> Aktualisieren
+      </button>
+    </div>
+    <div style="overflow-x:auto;max-height:420px;overflow-y:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Nachname</th><th>Vorname</th><th>AID</th><th>Version</th>
+            <th>Status</th><th>Hochgeladen</th><th>Update</th><th>Valid</th><th>Aktionen</th>
+          </tr>
+        </thead>
+        <tbody id="tbl-body">
+          <tr><td colspan="9" class="text-center py-3">
+            <i class="fas fa-spinner fa-spin"></i> Lade …
+          </td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<input type="hidden" id="sel-dir">
+<input type="hidden" id="sel-ver">
+<input type="hidden" id="sel-act">
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" id="csrf">
+
+<script>
+let selFile    = null;
+let allPersons = [];
+let uploads    = [];
+let dupeTimer;
+let pollTimer;
+
+const $ = id => document.getElementById(id);
+const csrf = () => $('csrf').value;
+
+// ── Plattformen ───────────────────────────────────────────────────────────────
+let PLATFORMS = [];
+
+async function loadPlatforms() {
+  try {
+    const r = await fetch('/cv-extractor/api/url-platforms/');
+    const d = await r.json();
+    if (d.success) {
+      PLATFORMS = d.platforms.filter(p => p.enabled);
+      initPlatformDropdowns();
+    }
+  } catch(e) {
+    // Fallback
+    PLATFORMS = [
+      { code:'fl', label:'freelancermap.de', pattern:'freelancermap.de', enabled:true },
+      { code:'gu', label:'GULP',             pattern:'gulp.de',          enabled:true },
+      { code:'other', label:'Andere',        pattern:'',                 enabled:true },
+    ];
+    initPlatformDropdowns();
+  }
+}
+
+function initPlatformDropdowns() {
+  const sel = $('url-platform');
+  if (!sel) return;
+  PLATFORMS.filter(p => p.enabled).forEach(p => {
+    const opt = document.createElement('option');
+    opt.value = p.code;
+    opt.textContent = p.label;
+    sel.appendChild(opt);
+  });
+  // Schlüssel-Button initial verstecken
+  const btn = document.getElementById('flm-session-btn');
+  if (btn) btn.style.display = 'none';
+  // Dropdown-Change → Button ein/ausblenden
+  sel.addEventListener('change', () => {
+    const show = sel.value === 'fl' || sel.value === 'gu';
+    if (btn) btn.style.display = show ? 'inline-block' : 'none';
+    if (show) checkSessionStatus(sel.value);
+  });
+  // Session-Status beim Laden prüfen
+  checkSessionStatus();
+}
+
+function autoDetectPlatform(url) {
+  const sel = $('url-platform');
+  if (!sel) return;
+  // Reine Zahl → GULP-ID
+  if (/^\d+$/.test(url.trim())) {
+    sel.value = 'gu';
+    const btn = document.getElementById('flm-session-btn');
+    if (btn) btn.style.display = 'inline-block';
+    checkSessionStatus('gu');
+    return;
+  }
+  const found = PLATFORMS.find(p => p.pattern && url.includes(p.pattern));
+  sel.value = found ? found.code : 'other';
+  const btn = document.getElementById('flm-session-btn');
+  const showBtn = found && (found.code === 'fl' || found.code === 'gu');
+  if (btn) btn.style.display = showBtn ? 'inline-block' : 'none';
+  if (showBtn) checkSessionStatus(found.code);
+}
+
+function toggleBatch() {
+  const a = $('batch-area');
+  const b = $('batch-toggle-btn');
+  const open = a.style.display === 'none' || a.style.display === '';
+  a.style.display = open ? 'block' : 'none';
+  b.style.background = open ? 'var(--blue)' : '#6c757d';
+}
+
+function handleCsvDrop(e) {
+  e.preventDefault();
+  $('url-dz').classList.remove('over');
+  const file = e.dataTransfer.files[0];
+  if (file) loadUrlFile({files:[file]});
+}
+
+function loadUrlFile(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const lines = e.target.result.split('\n')
+      .map(l => l.split(',')[0].trim())
+      .filter(l => l.startsWith('http'));
+    $('url-batch').value = lines.join('\n');
+    updateBatchCount();
+  };
+  reader.readAsText(file);
+}
+
+function updateBatchCount() {
+  const lines = ($('url-batch').value || '').split('\n')
+    .map(l => l.trim()).filter(l => l.startsWith('http'));
+  $('batch-count').textContent = lines.length ? `${lines.length} URL${lines.length>1?'s':''}` : '';
+}
+
+// ── Einzelimport ──────────────────────────────────────────────────────────────
+async function importSingleUrl() {
+  let url        = $('url-input').value.trim();
+  const platform = $('url-platform').value;
+  if (!url) { alert('Bitte URL oder GULP-ID eingeben'); return; }
+  // Reine Zahl bei GULP → gulpId URL bauen
+  if (platform === 'gu' && /^\d+$/.test(url)) {
+    url = `https://www.gulp.de/talentfinder/app/experten?gulpId=${url}`;
+  }
+
+  const btn = $('url-import-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Importiere …';
+
+  const res = $('url-result');
+  res.style.display = 'block';
+  res.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Hole Profildaten …';
+
+  try {
+    const r = await fetch('/cv-extractor/api/import-url/', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','X-CSRFToken':csrf()},
+      body: JSON.stringify({url, platform, cookies:{}})
+    });
+    const d = await r.json();
+    if (d.success) {
+      res.innerHTML = `
+        <div style="display:flex;gap:10px;align-items:start;">
+          <i class="fas fa-check-circle" style="color:var(--green);margin-top:2px;"></i>
+          <div style="flex:1;">
+            <strong>${d.name}</strong><br>
+            <span style="color:#6c757d;font-size:.72rem;">
+              <i class="fas fa-folder"></i> ${d.dir} ·
+              <i class="fas fa-key"></i> ${d.keywords} Keywords
+              ${d.downloaded>0?` · <i class="fas fa-file-pdf"></i> ${d.downloaded} PDF(s)`:''}
+            </span>
+          </div>
+        </div>`;
+      // Sofort in Pipeline jagen (gu = GULP DB Import)
+      if (platform === 'gu' && d.dir) {
+        const dirName = d.dir.split('/').pop();
+        const dbRes = await fetch('/cv-extractor/api/import-url-to-db/', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json','X-CSRFToken':csrf()},
+          body: JSON.stringify({dir_name: dirName, platform: platform})
+        });
+        const dbData = await dbRes.json();
+        if (dbData.success) {
+          res.innerHTML += `<br><span style="color:var(--green)">
+            <i class="fas fa-cog fa-spin"></i> Pipeline läuft …
+            ${dbData.editor_url ? `<a href="${dbData.editor_url}" target="_blank" 
+            style="margin-left:8px;background:var(--blue);color:white;padding:3px 10px;
+            border-radius:5px;text-decoration:none;font-size:.75rem;">
+            <i class="fas fa-edit"></i> Editor</a>` : ''}
+          </span>`;
+        }
+      }
+      loadUploads();
+      // Name automatisch in Felder eintragen
+      if (d.name) {
+        const parts = d.name.trim().split(' ');
+        const fn = $('fn'), ln = $('ln');
+        if (fn && ln) {
+          if (parts.length >= 2) {
+            fn.value = parts[0];
+            ln.value = parts.slice(1).join(' ');
+          } else {
+            fn.value = d.name;
+          }
+        }
+      }
+    } else if (d.name_missing) {
+      // Kein Name gefunden → Popup anzeigen
+      showNameMissingPopup(d, platform, res);
+    } else if (d.name_missing) {
+      // Kein Name gefunden → Popup anzeigen
+      showNameMissingPopup(d, platform, res);
+    } else if (d.name_missing) {
+      // Kein Name gefunden → Popup anzeigen
+      showNameMissingPopup(d, platform, res);
+    } else {
+      res.innerHTML = `<div style="color:var(--red);"><i class="fas fa-times-circle"></i> ${d.error}</div>`;
+    }
+  } catch(e) {
+    res.innerHTML = `<div style="color:var(--red);"><i class="fas fa-times-circle"></i> ${e.message}</div>`;
+  }
+  btn.disabled = false;
+  btn.innerHTML = '<i class="fas fa-download"></i> Importieren';
+}
+
+// ── Batch Import ──────────────────────────────────────────────────────────────
+async function importBatch() {
+  const lines = ($('url-batch').value || '').split('\n')
+    .map(l => l.trim()).filter(l => l.startsWith('http'));
+  if (!lines.length) { alert('Keine URLs eingegeben'); return; }
+
+  $('url-queue').style.display = 'block';
+  const qList = $('url-queue-list');
+
+  const items = lines.map(url => {
+    const p = PLATFORMS.find(pl => pl.pattern && url.includes(pl.pattern));
+    return { url, label: p ? p.label : 'Andere', code: p ? p.code : 'other', status:'wartend', name:'' };
+  });
+
+  const render = () => {
+    qList.innerHTML = items.map((it,i) => `
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;
+           background:white;border:1px solid #e0e6ee;margin-bottom:4px;font-size:.75rem;">
+        <div style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${it.url}">
+          ${it.name || it.url.replace(/^https?:\/\/[^/]+/,'').substring(0,45) || it.url}
+        </div>
+        <div style="color:#6c757d;width:110px;text-align:right;white-space:nowrap;">${it.label}</div>
+        <div style="width:80px;text-align:right;">
+          ${{wartend:'<span class="badge-status bs-wait">wartend</span>',
+             läuft:'<span class="badge-status bs-proc"><i class="fas fa-spinner fa-spin"></i></span>',
+             fertig:'<span class="badge-status bs-ok">✅ fertig</span>',
+             fehler:'<span class="badge-status bs-fail">❌ Fehler</span>'}[it.status]||''}
+        </div>
+      </div>`).join('');
+  };
+
+  render();
+
+  for (let i = 0; i < items.length; i++) {
+    items[i].status = 'läuft';
+    render();
+    try {
+      const r = await fetch('/cv-extractor/api/import-url/', {
+        method:'POST',
+        headers:{'Content-Type':'application/json','X-CSRFToken':csrf()},
+        body: JSON.stringify({url:items[i].url, platform:items[i].code, cookies:{}})
+      });
+      const d = await r.json();
+      items[i].status = d.success ? 'fertig' : 'fehler';
+      items[i].name   = d.name || '';
+    } catch(e) { items[i].status = 'fehler'; }
+    render();
+    if (i < items.length-1) await new Promise(r => setTimeout(r,1500));
+  }
+  loadUploads();
+}
+
+// ── PDF Upload ────────────────────────────────────────────────────────────────
+function fmtBytes(b) {
+  if (!b) return '';
+  const k=1024, s=['B','KB','MB'];
+  const i=Math.floor(Math.log(b)/Math.log(k));
+  return (b/Math.pow(k,i)).toFixed(1)+' '+s[i];
+}
+function fmtDate(iso) {
+  if (!iso) return '–';
+  const d=new Date(iso);
+  return d.toLocaleDateString('de-DE')+' '+d.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+}
+function esc(s) { return (s||'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m])); }
+function incVersion(v) {
+  const p=(v||'1.0.0.0').split('.');
+  if(p.length===4){p[3]=String(parseInt(p[3])+1);return p.join('.');}
+  return '1.0.0.1';
+}
+function triggerDupe(){clearTimeout(dupeTimer);dupeTimer=setTimeout(checkDupe,450);}
+
+async function checkDupe(){
+  const fn=$('fn').value.trim(), ln=$('ln').value.trim();
+  if(!fn||!ln||!selFile){
+    $('dupe-box').innerHTML=`<div class="text-muted text-center py-3" style="font-size:.82rem">
+      <i class="fas fa-info-circle fa-2x mb-2 d-block"></i>
+      Vorname + Nachname + PDF eingeben,<br>dann erfolgt die automatische Prüfung.</div>`;
+    $('up-btn').disabled=true;return;
+  }
+  $('dupe-box').innerHTML='<div class="text-center py-3"><i class="fas fa-spinner fa-spin"></i> Prüfe …</div>';
+  try{
+    const r=await fetch('/cv-extractor/api/check-duplicate/',{
+      method:'POST',headers:{'Content-Type':'application/json','X-CSRFToken':csrf()},
+      body:JSON.stringify({first_name:fn,last_name:ln})
+    });
+    showDupe(await r.json(),fn,ln);
+  }catch(e){
+    $('dupe-box').innerHTML=`<div class="alert alert-danger">Fehler: ${esc(e.message)}</div>`;
+    $('up-btn').disabled=true;
+  }
+}
+
+function showDupe(data,fn,ln){
+  if(!data.success){$('dupe-box').innerHTML=`<div class="alert alert-danger">${esc(data.error)}</div>`;$('up-btn').disabled=true;return;}
+  const persons=data.persons||[]; allPersons=persons;
+  const baseDir=`${ln.toLowerCase()}_${fn.toLowerCase()}`;
+  if(!persons.length){
+    $('dupe-box').innerHTML=`
+      <div class="alert alert-success mb-2">
+        <i class="fas fa-user-plus"></i> <strong>Neue Person</strong><br>
+        Verzeichnis: <code>${esc(baseDir)}</code><br>Version: <code>1.0.0.0</code>
+      </div>
+      <button class="btn btn-primary w-100 btn-sm" onclick="selectNew('${esc(baseDir)}','new_person')">
+        <i class="fas fa-check"></i> Als neue Person anlegen
+      </button>`;return;
+  }
+  let html=`<div class="alert alert-info mb-2" style="font-size:.8rem">
+    <i class="fas fa-users"></i> <strong>${persons.length} Person(en) gefunden</strong></div>`;
+  persons.forEach((p,i)=>{
+    const nextV=incVersion(p.latest_version);
+    html+=`<div class="person-card" id="pc-${i}" onclick="selectPerson(${i})">
+      <div style="display:flex;justify-content:space-between;align-items:start;">
+        <div><strong>${esc(fn)} ${esc(ln)}</strong><br>
+        <code style="font-size:.75rem">${esc(p.directory)}</code></div>
+        <span class="badge bg-secondary">v${esc(p.latest_version||'–')}</span>
+      </div>
+      <button class="btn btn-sm btn-primary w-100 mt-2" onclick="event.stopPropagation();selectPerson(${i})">
+        <i class="fas fa-plus-circle"></i> Neue Version (→ ${esc(nextV)})
+      </button></div>`;
+  });
+  html+=`<div class="mt-2"><button class="btn btn-outline-secondary w-100 btn-sm"
+    onclick="selectNew('${esc(baseDir)}-${persons.length+1}','new_person')">
+    <i class="fas fa-plus"></i> Als neuen Namensvetter anlegen
+  </button></div>`;
+  $('dupe-box').innerHTML=html; $('up-btn').disabled=true;
+}
+
+function selectPerson(i){
+  document.querySelectorAll('.person-card').forEach(c=>c.classList.remove('sel'));
+  document.getElementById(`pc-${i}`)?.classList.add('sel');
+  const p=allPersons[i];
+  $('sel-dir').value=p.directory; $('sel-ver').value=incVersion(p.latest_version);
+  $('sel-act').value='new_version'; $('up-btn').disabled=false;
+}
+function selectNew(dir,action){
+  $('sel-dir').value=dir; $('sel-ver').value='1.0.0.0';
+  $('sel-act').value=action; $('up-btn').disabled=false;
+  document.querySelectorAll('.person-card').forEach(c=>c.classList.remove('sel'));
+}
+
+function handleFile(file){
+  const ext=file.name.toLowerCase().split('.').pop();
+  if(!['pdf','doc','docx'].includes(ext)){alert('Nur PDF, DOC oder DOCX!');return;}
+  selFile=file;
+  $('pdf-name').textContent=file.name; $('pdf-meta').textContent=fmtBytes(file.size);
+  $('pdf-badge').classList.add('show'); $('up-btn').disabled=true; checkDupe();
+}
+
+$('dz').addEventListener('click',()=>$('fi').click());
+$('dz').addEventListener('dragover',e=>{e.preventDefault();$('dz').classList.add('over');});
+$('dz').addEventListener('dragleave',()=>$('dz').classList.remove('over'));
+$('dz').addEventListener('drop',e=>{e.preventDefault();$('dz').classList.remove('over');if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0]);});
+$('fi').addEventListener('change',e=>{if(e.target.files[0])handleFile(e.target.files[0]);});
+$('fn').addEventListener('input',triggerDupe);
+$('ln').addEventListener('input',triggerDupe);
+$('up-btn').addEventListener('click',uploadPDF);
+
+async function uploadPDF(){
+  if(!selFile)return;
+  $('up-btn').disabled=true;
+  $('up-btn').innerHTML='<i class="fas fa-spinner fa-spin"></i> Wird hochgeladen …';
+  $('prog').classList.add('show'); $('prog-bar').style.width='10%';
+  const fd=new FormData();
+  fd.append('pdf_file',selFile); fd.append('first_name',$('fn').value.trim());
+  fd.append('last_name',$('ln').value.trim()); fd.append('email',$('email').value.trim());
+  fd.append('phone',$('phone').value.trim()); fd.append('website',$('website').value.trim());
+  fd.append('address',$('address').value.trim()); fd.append('target_directory',$('sel-dir').value);
+  fd.append('target_version',$('sel-ver').value); fd.append('action_type',$('sel-act').value);
+  let pct=10;
+  const sim=setInterval(()=>{pct=Math.min(pct+8,88);$('prog-bar').style.width=pct+'%';},1500);
+  try{
+    const r=await fetch('/cv-extractor/api/upload/async/',{method:'POST',headers:{'X-CSRFToken':csrf()},body:fd});
+    const d=await r.json(); clearInterval(sim); $('prog-bar').style.width='100%';
+    if(d.success){
+      $('up-btn').innerHTML='<i class="fas fa-check"></i> Hochgeladen – wird verarbeitet …';
+      $('rst-btn').style.display='block';
+      $('pdf-meta').textContent='Hochgeladen · Verarbeitung läuft …';
+      loadUploads(); startPolling(d.upload_id);
+    }else{throw new Error(d.error||'Upload fehlgeschlagen');}
+  }catch(e){
+    clearInterval(sim); alert('Fehler: '+e.message);
+    $('up-btn').disabled=false;
+    $('up-btn').innerHTML='<i class="fas fa-upload"></i> Hochladen & Verarbeiten';
+    $('prog').classList.remove('show');
+  }
+}
+
+$('rst-btn').addEventListener('click',()=>{
+  selFile=null; allPersons=[];
+  ['fn','ln','email','phone','website','address','sel-dir','sel-ver','sel-act'].forEach(id=>{$(id)&&($(id).value='');});
+  $('fi').value='';
+  $('pdf-badge').classList.remove('show'); $('pdf-name').textContent=''; $('pdf-meta').textContent='';
+  $('prog').classList.remove('show'); $('prog-bar').style.width='0%';
+  $('up-btn').disabled=true; $('up-btn').innerHTML='<i class="fas fa-upload"></i> Hochladen & Verarbeiten';
+  $('rst-btn').style.display='none';
+  $('dupe-box').innerHTML=`<div class="text-muted text-center py-3" style="font-size:.82rem">
+    <i class="fas fa-info-circle fa-2x mb-2 d-block"></i>
+    Vorname + Nachname + PDF eingeben,<br>dann erfolgt die automatische Prüfung.</div>`;
+});
+
+function startPolling(uploadId){
+  clearInterval(pollTimer);
+  pollTimer=setInterval(async()=>{
+    try{
+      const r=await fetch(`/cv-extractor/api/upload/${uploadId}/status/`);
+      const d=await r.json();
+      if(d.success&&(d.status==='completed'||d.status==='failed')){
+        clearInterval(pollTimer); loadUploads();
+        if(d.status==='completed'&&d.aid)
+          $('pdf-meta').innerHTML=`✅ Fertig – <a href="/cv-extractor/editor/${d.aid}/" target="_blank">Editor öffnen</a>`;
+      }else{loadUploads();}
+    }catch(e){}
+  },3000);
+}
+
+async function loadUploads(){
+  try{
+    const r=await fetch('/cv-extractor/api/uploads/?limit=100');
+    const d=await r.json();
+    if(d.success){uploads=d.uploads||[];renderTable();}
+  }catch(e){}
+}
+
+function renderTable(){
+  const term=$('search').value.toLowerCase(), sort=$('sort').value;
+  let rows=uploads.filter(u=>!term||(u.last_name||'').toLowerCase().includes(term)||(u.first_name||'').toLowerCase().includes(term)||(u.aid||'').toLowerCase().includes(term)||(u.status||'').toLowerCase().includes(term));
+  rows.sort((a,b)=>{
+    if(sort==='newest')return new Date(b.created_at)-new Date(a.created_at);
+    if(sort==='oldest')return new Date(a.created_at)-new Date(b.created_at);
+    if(sort==='ln_asc')return(a.last_name||'').localeCompare(b.last_name||'');
+    if(sort==='ln_desc')return(b.last_name||'').localeCompare(a.last_name||'');
+    if(sort==='status')return(a.status||'').localeCompare(b.status||'');
+    return 0;
+  });
+  const sm={completed:{dot:'dot-ok',badge:'bs-ok',label:'Abgeschlossen'},profile_ready:{dot:'dot-ok',badge:'bs-ok',label:'Abgeschlossen'},processing:{dot:'dot-proc',badge:'bs-proc',label:'Verarbeitung'},failed:{dot:'dot-fail',badge:'bs-fail',label:'Fehler'},uploaded:{dot:'dot-wait',badge:'bs-wait',label:'Hochgeladen'}};
+  if(!rows.length){$('tbl-body').innerHTML='<tr><td colspan="9" class="text-center py-3">Keine Einträge</td></tr>';return;}
+  $('tbl-body').innerHTML=rows.map(u=>{
+    const s=sm[u.status]||sm.uploaded;
+    const editDisabled=!u.aid?'disabled title="Noch nicht verfügbar"':'';
+    const editHref=u.editor_url?`onclick="window.open('${esc(u.editor_url)}','_blank')"` :'';
+    return `<tr>
+      <td><strong>${esc(u.last_name||'–')}</strong></td>
+      <td>${esc(u.first_name||'–')}</td>
+      <td><code>${esc(u.aid||'–')}</code></td>
+      <td>${esc(u.version||'–')}</td>
+      <td><span class="dot ${s.dot}"></span><span class="badge-status ${s.badge}">${s.label}</span>
+        ${u.error_message?`<br><small class="text-danger">${esc(u.error_message.substring(0,60))}</small>`:''}</td>
+      <td style="font-size:.78rem;color:#6c757d">${fmtDate(u.created_at)}</td>
+      <td>${u.action_type==='new_version'?'<span style="font-size:.72rem;padding:3px 8px;border-radius:10px;background:#cfe2ff;color:#084298;font-weight:600;">↑ Update</span>':''}</td>
+      <td style="text-align:center">${u.aid?`<span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:${u.pipeline_step==='validated'?'#d4edda':'#f8d7da'};color:${u.pipeline_step==='validated'?'#155724':'#721c24'};font-size:13px;font-weight:700;">${u.pipeline_step==='validated'?'✓':'✗'}</span>`:'–'}</td>
+      <td style="white-space:nowrap">
+        <button class="btn-edit" ${editDisabled} ${editHref}><i class="fas fa-edit"></i> Editor</button>
+        ${u.aid?`<button class="btn-delete" onclick="deleteConsultant('${esc(u.aid)}','${esc(u.first_name)} ${esc(u.last_name)}')"><i class="fas fa-trash"></i> Löschen</button>`:''}
+      </td></tr>`;
+  }).join('');
+}
+
+$('search').addEventListener('input',renderTable);
+$('sort').addEventListener('change',renderTable);
+
+async function deleteConsultant(aid,name){
+  const cn=prompt(`⚠️ LÖSCHEN bestätigen\n\nBerater: ${name}\nAID: ${aid}\n\nBitte vollständigen Namen eingeben:`);
+  if(!cn)return;
+  const r=await fetch(`/cv-extractor/api/cv-editor/${aid}/delete/`,{
+    method:'DELETE',headers:{'Content-Type':'application/json','X-CSRFToken':csrf()},
+    body:JSON.stringify({confirm_name:cn})
+  });
+  const d=await r.json();
+  if(d.success){alert(`✅ ${name} wurde gelöscht.`);loadUploads();}
+  else alert('Fehler: '+d.error);
+}
+
+// Init
+loadPlatforms();
+loadUploads();
+setInterval(loadUploads,30000);
+</script>
+<!-- freelancermap Session Modal -->
+<div id="flm-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);
+     z-index:9999;padding:20px;">
+  <div style="background:white;border-radius:14px;max-width:460px;margin:80px auto;
+       padding:24px;box-shadow:0 8px 40px rgba(0,0,0,.3);">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+      <h2 style="margin:0;font-size:1.1rem;color:var(--blue);">
+        <i class="fas fa-key"></i> freelancermap Session
+      </h2>
+      <button onclick="closeSessionModal()"
+        style="background:none;border:none;font-size:1.4rem;cursor:pointer;color:#6c757d;">✕</button>
+    </div>
+    <!-- Status -->
+    <div id="flm-status" style="margin-bottom:16px;"></div>
+    <!-- Aktion bei inaktiver Session -->
+    <div id="flm-action" style="display:none;text-align:center;padding:10px 0;">
+      <button onclick="callExtensionFromModal()" id="flm-ext-btn"
+        style="background:var(--blue);color:white;border:none;padding:12px 24px;
+               border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;width:100%;">
+        <i class="fas fa-sync"></i> Session jetzt erneuern (ABpE Extension)
+      </button>
+      <div id="flm-ext-result" style="margin-top:10px;font-size:.8rem;"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Session Modal
+const EXTENSION_ID = 'pccckjkmnkmhakbgdgodhbfcdoldcbjn';
+
+async function checkSessionStatus() {
+  try {
+    const r = await fetch('/cv-extractor/api/flm-session/');
+    const d = await r.json();
+    const btn = document.getElementById('flm-session-btn');
+    if (btn) {
+      if (d.has_session) {
+        btn.style.background = '#28a745';
+        btn.title = 'Session aktiv — klicken für Details';
+      } else {
+        // Session abgelaufen → Extension automatisch aufrufen
+        btn.style.background = '#ffc107'; // gelb = läuft
+        btn.title = 'Session wird erneuert...';
+        await autoRenewSession(btn);
+      }
+    }
+    return d;
+  } catch(e) { return null; }
+}
+
+async function autoRenewSession(btn) {
+  const platform = btn.getAttribute('data-platform') || 'fl';
+  // Versuch 1: Extension vorhanden?
+  if (typeof chrome === 'undefined' || !chrome.runtime) {
+    setSessionError(btn,
+      'ERROR 1: ABpE Extension nicht installiert oder deaktiviert.',
+      'Bitte Admin informieren: Extension "ABpE Session Helper" im Chrome installieren und aktivieren.'
+    );
+    return;
+  }
+
+  let res;
+  try {
+    res = await new Promise((resolve, reject) => {
+      chrome.runtime.sendMessage(EXTENSION_ID, {action: 'getCookies'}, (r) => {
+        if (chrome.runtime.lastError) return reject(new Error(chrome.runtime.lastError.message));
+        resolve(r);
+      });
+    });
+  } catch(e) {
+    setSessionError(btn,
+      'ERROR 1: Extension nicht erreichbar — ' + e.message,
+      'Bitte Admin informieren: Extension deaktiviert oder falsche Extension-ID.'
+    );
+    return;
+  }
+
+  // Versuch 2: Cookies gefunden?
+  if (!res) {
+    setSessionError(btn,
+      'ERROR 2: Extension hat keine Antwort geliefert.',
+      'Bitte Admin informieren: background.js der Extension prüfen.'
+    );
+    return;
+  }
+  if (!res.success && res.error && res.error.includes('PHPSESSID')) {
+    setSessionError(btn,
+      'ERROR 2: Session-Cookies nicht gefunden (PHPSESSID/REMEMBERME fehlen).',
+      'Bitte auf freelancermap.de einloggen — Cookies sind nicht im Browser vorhanden.'
+    );
+    return;
+  }
+
+  // Versuch 3: Übertragung erfolgreich?
+  if (!res.success) {
+    setSessionError(btn,
+      'ERROR 3: Cookies gefunden aber Übertragung fehlgeschlagen — ' + (res.error || 'Unbekannter Fehler'),
+      'Bitte Admin informieren: Server-Verbindung oder API-Endpoint prüfen.'
+    );
+    return;
+  }
+
+  // Alles OK
+  btn.style.background = '#28a745';
+  btn.title = 'Session aktiv — klicken für Details';
+  console.log('[ABpE] Session automatisch erneuert ✅');
+}
+
+function setSessionError(btn, debugMsg, adminMsg) {
+  btn.style.background = '#dc3545';
+  btn.title = debugMsg;
+  console.error('[ABpE Session] ' + debugMsg);
+  console.warn('[ABpE Session] ' + adminMsg);
+  // Debug-Info im Button-Tooltip + Console
+  btn.setAttribute('data-error', debugMsg);
+  btn.setAttribute('data-admin', adminMsg);
+}
+
+async function handleSessionBtn() {
+  const sel = document.getElementById('url-platform');
+  const platform = sel ? sel.value : 'fl';
+  const d = await checkSessionStatus(platform);
+  openSessionModal(d, platform);
+}
+
+async function openSessionModal(d = null, platform = 'fl') {
+  const apiUrl = platform === 'gu'
+    ? '/cv-extractor/api/gu-session/'
+    : '/cv-extractor/api/flm-session/';
+  if (!d) {
+    try {
+      const r = await fetch(apiUrl);
+      d = await r.json();
+    } catch(e) { d = {has_session: false}; }
+  }
+  document.getElementById('flm-modal').style.display = 'block';
+  const status = document.getElementById('flm-status');
+  const action = document.getElementById('flm-action');
+
+  if (d.has_session) {
+    status.innerHTML = `
+      <div style="background:var(--color-background-success,#d4edda);border-radius:8px;padding:12px;
+                  color:var(--color-text-success,#155724);font-size:.85rem;">
+        <i class="fas fa-check-circle"></i>
+        <strong>Session aktiv</strong> — ${d.cookie_count} Cookies gespeichert
+        ${d.has_remember ? '(inkl. REMEMBERME ✅)' : '(ohne REMEMBERME ⚠️)'}<br>
+        <small style="opacity:.75;">Gespeichert: ${d.saved_at ? new Date(d.saved_at).toLocaleString('de-DE') : '?'}</small>
+      </div>`;
+    action.style.display = 'none';
+  } else {
+    // Error-Details aus Button lesen falls vorhanden
+    const btn = document.getElementById('flm-session-btn');
+    const errorMsg  = btn ? btn.getAttribute('data-error') : null;
+    const adminMsg  = btn ? btn.getAttribute('data-admin') : null;
+
+    let errorBlock = '';
+    if (errorMsg) {
+      errorBlock = `
+        <div style="background:var(--color-background-warning,#fff3cd);border-radius:8px;
+                    padding:12px;color:var(--color-text-warning,#856404);font-size:.83rem;margin-top:10px;">
+          <div style="font-weight:600;margin-bottom:4px;">${errorMsg}</div>
+        </div>`;
+    }
+    let adminBlock = '';
+    if (adminMsg) {
+      adminBlock = `
+        <div style="font-size:.78rem;color:var(--color-text-secondary,#6c757d);padding:8px 12px;
+                    border:0.5px solid var(--color-border-tertiary,#dde1e7);border-radius:8px;margin-top:8px;">
+          ${adminMsg}
+        </div>`;
+    }
+
+    status.innerHTML = `
+      <div style="background:var(--color-background-danger,#f8d7da);border-radius:8px;padding:12px;
+                  color:var(--color-text-danger,#721c24);font-size:.85rem;">
+        <i class="fas fa-times-circle"></i>
+        <strong>Session nicht aktiv</strong> — PDFs können nicht heruntergeladen werden.
+      </div>
+      ${errorBlock}
+      ${adminBlock}`;
+    action.style.display = 'block';
+  }
+}
+
+async function callExtensionFromModal() {
+  const btn = document.getElementById('flm-ext-btn');
+  const result = document.getElementById('flm-ext-result');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Extension wird aufgerufen...';
+  result.innerHTML = '';
+  try {
+    const res = await new Promise((resolve, reject) => {
+      if (typeof chrome === 'undefined' || !chrome.runtime)
+        return reject(new Error('ABpE Extension nicht installiert'));
+      chrome.runtime.sendMessage(EXTENSION_ID, {action: 'getCookies'}, (r) => {
+        if (chrome.runtime.lastError) return reject(new Error(chrome.runtime.lastError.message));
+        resolve(r);
+      });
+    });
+    if (res && res.success) {
+      result.innerHTML = '<span style="color:green;"><i class="fas fa-check"></i> Erfolgreich!</span>';
+      await checkSessionStatus();
+      setTimeout(() => closeSessionModal(), 1500);
+    } else {
+      result.innerHTML = `<span style="color:red;"><i class="fas fa-times"></i> ${res ? res.error : 'Fehler'}</span><br><small>Bitte Admin kontaktieren.</small>`;
+    }
+  } catch(e) {
+    result.innerHTML = `<span style="color:red;"><i class="fas fa-times"></i> ${e.message}</span><br><small>Bitte Admin kontaktieren.</small>`;
+  }
+  btn.disabled = false;
+  btn.innerHTML = '<i class="fas fa-sync"></i> Session jetzt erneuern (ABpE Extension)';
+}
+
+function closeSessionModal() {
+  document.getElementById('flm-modal').style.display = 'none';
+}
+
+// Modal schließen wenn außerhalb geklickt
+document.getElementById('flm-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeSessionModal();
+});
+</script>
+
+<!-- Name-Missing Modal -->
+<div id="name-missing-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;padding:20px;align-items:center;justify-content:center;">
+  <div style="background:white;border-radius:14px;max-width:460px;width:100%;margin:auto;padding:24px;box-shadow:0 8px 40px rgba(0,0,0,.3);">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+      <div style="width:36px;height:36px;border-radius:50%;background:#fff3cd;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <i class="fas fa-exclamation" style="color:#856404;font-size:.9rem;"></i>
+      </div>
+      <div>
+        <div style="font-weight:600;font-size:.95rem;color:var(--blue);">Kein Name gefunden</div>
+        <div style="font-size:.75rem;color:#6c757d;" id="nm-subtitle">GULP ID: –</div>
+      </div>
+    </div>
+
+    <div style="background:#f8f9fa;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:.8rem;border-left:3px solid #ffc107;">
+      Verzeichnis wird gespeichert als:<br>
+      <code id="nm-dir-preview" style="font-size:.75rem;color:#163258;"></code><br>
+      <span style="color:#6c757d;margin-top:4px;display:block;">Möchten Sie lieber den Namen nachtragen, wenn bekannt?</span>
+    </div>
+
+    <!-- Aufklappbares Namensformular -->
+    <div id="nm-form-wrap" style="display:none;margin-bottom:14px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+        <div>
+          <label style="font-size:.72rem;font-weight:600;color:var(--blue);display:block;margin-bottom:3px;">Vorname</label>
+          <input type="text" id="nm-first" placeholder="Vorname" oninput="nmUpdatePreview()"
+            style="width:100%;padding:7px 10px;border:1.5px solid #dde1e7;border-radius:7px;font-size:.85rem;box-sizing:border-box;">
+        </div>
+        <div>
+          <label style="font-size:.72rem;font-weight:600;color:var(--blue);display:block;margin-bottom:3px;">Nachname</label>
+          <input type="text" id="nm-last" placeholder="Nachname" oninput="nmUpdatePreview()"
+            style="width:100%;padding:7px 10px;border:1.5px solid #dde1e7;border-radius:7px;font-size:.85rem;box-sizing:border-box;">
+        </div>
+      </div>
+      <div id="nm-name-preview" style="display:none;background:#eafaf1;border-radius:7px;padding:6px 10px;font-size:.75rem;color:#155724;">
+        Verzeichnis: <code id="nm-name-preview-text" style="font-size:.72rem;"></code>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <button onclick="nmToggleForm()" id="nm-toggle-btn"
+        style="padding:9px 14px;border-radius:7px;cursor:pointer;background:#e8f4fd;border:1px solid #b8d8f5;color:var(--blue);font-size:.82rem;font-weight:600;text-align:left;">
+        <i class="fas fa-pencil-alt"></i> Ja, Namen jetzt eintragen
+      </button>
+      <div style="display:flex;gap:8px;">
+        <button onclick="nmSaveAnonymous()"
+          style="flex:1;padding:9px;border-radius:7px;cursor:pointer;background:#f8f9fa;border:1px solid #dee2e6;color:#6c757d;font-size:.82rem;">
+          Ohne Namen speichern
+        </button>
+        <button onclick="nmSaveWithName()" id="nm-confirm-btn" disabled
+          style="flex:1.2;padding:9px;border-radius:7px;cursor:pointer;background:#d4edda;border:1px solid #c3e6cb;color:#155724;font-size:.82rem;font-weight:600;opacity:.4;">
+          <i class="fas fa-check"></i> Mit Namen speichern
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let _nmData = {};
+let _nmPlatform = '';
+let _nmRes = null;
+let _nmFormOpen = false;
+
+function showNameMissingPopup(d, platform, resEl) {
+  _nmData     = d;
+  _nmPlatform = platform;
+  _nmRes      = resEl;
+  _nmFormOpen = false;
+
+  document.getElementById('nm-subtitle').textContent =
+    `GULP ID: ${d.gulp_id || '–'} · Session: ${(d.hash_id||'').substring(0,8)}`;
+  document.getElementById('nm-dir-preview').textContent = d.provisional_dir || d.hash_id;
+  document.getElementById('nm-form-wrap').style.display  = 'none';
+  document.getElementById('nm-name-preview').style.display = 'none';
+  document.getElementById('nm-toggle-btn').innerHTML =
+    '<i class="fas fa-pencil-alt"></i> Ja, Namen jetzt eintragen';
+  document.getElementById('nm-first').value = '';
+  document.getElementById('nm-last').value  = '';
+  document.getElementById('nm-confirm-btn').disabled = true;
+  document.getElementById('nm-confirm-btn').style.opacity = '.4';
+
+  const modal = document.getElementById('name-missing-modal');
+  modal.style.display = 'flex';
+}
+
+function nmToggleForm() {
+  _nmFormOpen = !_nmFormOpen;
+  document.getElementById('nm-form-wrap').style.display = _nmFormOpen ? 'block' : 'none';
+  document.getElementById('nm-toggle-btn').innerHTML = _nmFormOpen
+    ? '<i class="fas fa-times"></i> Kein Name bekannt'
+    : '<i class="fas fa-pencil-alt"></i> Ja, Namen jetzt eintragen';
+  if (_nmFormOpen) document.getElementById('nm-first').focus();
+  if (!_nmFormOpen) {
+    document.getElementById('nm-name-preview').style.display = 'none';
+    document.getElementById('nm-confirm-btn').disabled = true;
+    document.getElementById('nm-confirm-btn').style.opacity = '.4';
+  }
+}
+
+function nmUpdatePreview() {
+  const f = document.getElementById('nm-first').value.trim();
+  const l = document.getElementById('nm-last').value.trim();
+  const prev = document.getElementById('nm-name-preview');
+  const prevText = document.getElementById('nm-name-preview-text');
+  const btn  = document.getElementById('nm-confirm-btn');
+  if (f && l) {
+    prevText.textContent = l.toLowerCase() + '_' + f.toLowerCase();
+    prev.style.display = 'block';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  } else {
+    prev.style.display = 'none';
+    btn.disabled = true;
+    btn.style.opacity = '.4';
+  }
+}
+
+async function nmSaveAnonymous() {
+  document.getElementById('name-missing-modal').style.display = 'none';
+  await nmRunPipeline(_nmData.provisional_dir, '', '');
+}
+
+async function nmSaveWithName() {
+  const f = document.getElementById('nm-first').value.trim();
+  const l = document.getElementById('nm-last').value.trim();
+  if (!f || !l) return;
+  document.getElementById('name-missing-modal').style.display = 'none';
+  // Verzeichnis umbenennen: provisional → nachname_vorname
+  const newDir = l.toLowerCase() + '_' + f.toLowerCase();
+  await nmRunPipeline(_nmData.provisional_dir, f, l, newDir);
+}
+
+async function nmRunPipeline(dirName, firstName, lastName, newDirName) {
+  if (!_nmRes) return;
+  _nmRes.style.display = 'block';
+  _nmRes.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Hole Profildaten …';
+
+  // Schritt 1: Import-URL nochmal aufrufen um Verzeichnis zu erstellen
+  // diesmal mit overrideName damit korrekter Verzeichnisname verwendet wird
+  const targetDir = newDirName || dirName;
+  try {
+    const importRes = await fetch('/cv-extractor/api/import-url/', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':csrf()},
+      body: JSON.stringify({
+        url:        _nmData.url,
+        platform:   _nmPlatform,
+        cookies:    {},
+        force_dir:  targetDir,
+        first_name: firstName,
+        last_name:  lastName,
+      })
+    });
+    const importData = await importRes.json();
+    if (!importData.success && !importData.name_missing) {
+      _nmRes.innerHTML = `<div style="color:var(--red);"><i class="fas fa-times-circle"></i> ${importData.error||'Import fehlgeschlagen'}</div>`;
+      return;
+    }
+    // Verzeichnis aus Import-Ergebnis übernehmen
+    if (importData.dir) {
+      dirName = importData.dir.split('/').pop();
+    }
+  } catch(e) {
+    _nmRes.innerHTML = `<div style="color:var(--red);"><i class="fas fa-times-circle"></i> ${e.message}</div>`;
+    return;
+  }
+
+  _nmRes.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Pipeline läuft …';
+
+  // DB-Import starten
+  try {
+    const dbRes = await fetch('/cv-extractor/api/import-url-to-db/', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':csrf()},
+      body: JSON.stringify({
+        dir_name:   dirName,
+        platform:   _nmPlatform,
+        first_name: firstName,
+        last_name:  lastName,
+      })
+    });
+    const dbData = await dbRes.json();
+    if (dbData.success) {
+      _nmRes.innerHTML = `
+        <div style="display:flex;gap:10px;align-items:start;">
+          <i class="fas fa-check-circle" style="color:var(--green);margin-top:2px;"></i>
+          <div style="flex:1;">
+            <strong>${firstName ? firstName+' '+lastName : dirName}</strong><br>
+            <span style="color:#6c757d;font-size:.72rem;">
+              <i class="fas fa-folder"></i> ${dirName}
+            </span>
+            ${dbData.editor_url ? `<a href="${dbData.editor_url}" target="_blank"
+              style="margin-left:8px;background:var(--blue);color:white;padding:3px 10px;
+              border-radius:5px;text-decoration:none;font-size:.75rem;">
+              <i class="fas fa-edit"></i> Editor</a>` : ''}
+          </div>
+        </div>`;
+    } else {
+      _nmRes.innerHTML = `<div style="color:var(--red);"><i class="fas fa-times-circle"></i> ${dbData.error}</div>`;
+    }
+  } catch(e) {
+    _nmRes.innerHTML = `<div style="color:var(--red);"><i class="fas fa-times-circle"></i> ${e.message}</div>`;
+  }
+  loadUploads();
+
+  // Name in Felder eintragen
+  if (firstName && lastName) {
+    const fn = $('fn'), ln = $('ln');
+    if (fn) fn.value = firstName;
+    if (ln) ln.value = lastName;
+  }
+}
+
+// Modal schliessen wenn außerhalb geklickt
+document.getElementById('name-missing-modal').addEventListener('click', function(e) {
+  if (e.target === this) this.style.display = 'none';
+});
+</script>
+
+<!-- Name-Missing Modal -->
+<div id="name-missing-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;padding:20px;align-items:center;justify-content:center;">
+  <div style="background:white;border-radius:14px;max-width:460px;width:100%;margin:auto;padding:24px;box-shadow:0 8px 40px rgba(0,0,0,.3);">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+      <div style="width:36px;height:36px;border-radius:50%;background:#fff3cd;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <i class="fas fa-exclamation" style="color:#856404;font-size:.9rem;"></i>
+      </div>
+      <div>
+        <div style="font-weight:600;font-size:.95rem;color:var(--blue);">Kein Name gefunden</div>
+        <div style="font-size:.75rem;color:#6c757d;" id="nm-subtitle">GULP ID: –</div>
+      </div>
+    </div>
+
+    <div style="background:#f8f9fa;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:.8rem;border-left:3px solid #ffc107;">
+      Verzeichnis wird gespeichert als:<br>
+      <code id="nm-dir-preview" style="font-size:.75rem;color:#163258;"></code><br>
+      <span style="color:#6c757d;margin-top:4px;display:block;">Möchten Sie lieber den Namen nachtragen, wenn bekannt?</span>
+    </div>
+
+    <!-- Aufklappbares Namensformular -->
+    <div id="nm-form-wrap" style="display:none;margin-bottom:14px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+        <div>
+          <label style="font-size:.72rem;font-weight:600;color:var(--blue);display:block;margin-bottom:3px;">Vorname</label>
+          <input type="text" id="nm-first" placeholder="Vorname" oninput="nmUpdatePreview()"
+            style="width:100%;padding:7px 10px;border:1.5px solid #dde1e7;border-radius:7px;font-size:.85rem;box-sizing:border-box;">
+        </div>
+        <div>
+          <label style="font-size:.72rem;font-weight:600;color:var(--blue);display:block;margin-bottom:3px;">Nachname</label>
+          <input type="text" id="nm-last" placeholder="Nachname" oninput="nmUpdatePreview()"
+            style="width:100%;padding:7px 10px;border:1.5px solid #dde1e7;border-radius:7px;font-size:.85rem;box-sizing:border-box;">
+        </div>
+      </div>
+      <div id="nm-name-preview" style="display:none;background:#eafaf1;border-radius:7px;padding:6px 10px;font-size:.75rem;color:#155724;">
+        Verzeichnis: <code id="nm-name-preview-text" style="font-size:.72rem;"></code>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <button onclick="nmToggleForm()" id="nm-toggle-btn"
+        style="padding:9px 14px;border-radius:7px;cursor:pointer;background:#e8f4fd;border:1px solid #b8d8f5;color:var(--blue);font-size:.82rem;font-weight:600;text-align:left;">
+        <i class="fas fa-pencil-alt"></i> Ja, Namen jetzt eintragen
+      </button>
+      <div style="display:flex;gap:8px;">
+        <button onclick="nmSaveAnonymous()"
+          style="flex:1;padding:9px;border-radius:7px;cursor:pointer;background:#f8f9fa;border:1px solid #dee2e6;color:#6c757d;font-size:.82rem;">
+          Ohne Namen speichern
+        </button>
+        <button onclick="nmSaveWithName()" id="nm-confirm-btn" disabled
+          style="flex:1.2;padding:9px;border-radius:7px;cursor:pointer;background:#d4edda;border:1px solid #c3e6cb;color:#155724;font-size:.82rem;font-weight:600;opacity:.4;">
+          <i class="fas fa-check"></i> Mit Namen speichern
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let _nmData = {};
+let _nmPlatform = '';
+let _nmRes = null;
+let _nmFormOpen = false;
+
+function showNameMissingPopup(d, platform, resEl) {
+  _nmData     = d;
+  _nmPlatform = platform;
+  _nmRes      = resEl;
+  _nmFormOpen = false;
+
+  document.getElementById('nm-subtitle').textContent =
+    `GULP ID: ${d.gulp_id || '–'} · Session: ${(d.hash_id||'').substring(0,8)}`;
+  document.getElementById('nm-dir-preview').textContent = d.provisional_dir || d.hash_id;
+  document.getElementById('nm-form-wrap').style.display  = 'none';
+  document.getElementById('nm-name-preview').style.display = 'none';
+  document.getElementById('nm-toggle-btn').innerHTML =
+    '<i class="fas fa-pencil-alt"></i> Ja, Namen jetzt eintragen';
+  document.getElementById('nm-first').value = '';
+  document.getElementById('nm-last').value  = '';
+  document.getElementById('nm-confirm-btn').disabled = true;
+  document.getElementById('nm-confirm-btn').style.opacity = '.4';
+
+  const modal = document.getElementById('name-missing-modal');
+  modal.style.display = 'flex';
+}
+
+function nmToggleForm() {
+  _nmFormOpen = !_nmFormOpen;
+  document.getElementById('nm-form-wrap').style.display = _nmFormOpen ? 'block' : 'none';
+  document.getElementById('nm-toggle-btn').innerHTML = _nmFormOpen
+    ? '<i class="fas fa-times"></i> Kein Name bekannt'
+    : '<i class="fas fa-pencil-alt"></i> Ja, Namen jetzt eintragen';
+  if (_nmFormOpen) document.getElementById('nm-first').focus();
+  if (!_nmFormOpen) {
+    document.getElementById('nm-name-preview').style.display = 'none';
+    document.getElementById('nm-confirm-btn').disabled = true;
+    document.getElementById('nm-confirm-btn').style.opacity = '.4';
+  }
+}
+
+function nmUpdatePreview() {
+  const f = document.getElementById('nm-first').value.trim();
+  const l = document.getElementById('nm-last').value.trim();
+  const prev = document.getElementById('nm-name-preview');
+  const prevText = document.getElementById('nm-name-preview-text');
+  const btn  = document.getElementById('nm-confirm-btn');
+  if (f && l) {
+    prevText.textContent = l.toLowerCase() + '_' + f.toLowerCase();
+    prev.style.display = 'block';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  } else {
+    prev.style.display = 'none';
+    btn.disabled = true;
+    btn.style.opacity = '.4';
+  }
+}
+
+async function nmSaveAnonymous() {
+  document.getElementById('name-missing-modal').style.display = 'none';
+  await nmRunPipeline(_nmData.provisional_dir, '', '');
+}
+
+async function nmSaveWithName() {
+  const f = document.getElementById('nm-first').value.trim();
+  const l = document.getElementById('nm-last').value.trim();
+  if (!f || !l) return;
+  document.getElementById('name-missing-modal').style.display = 'none';
+  // Verzeichnis umbenennen: provisional → nachname_vorname
+  const newDir = l.toLowerCase() + '_' + f.toLowerCase();
+  await nmRunPipeline(_nmData.provisional_dir, f, l, newDir);
+}
+
+async function nmRunPipeline(dirName, firstName, lastName, newDirName) {
+  if (!_nmRes) return;
+  _nmRes.style.display = 'block';
+  _nmRes.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Hole Profildaten …';
+
+  // Schritt 1: Import-URL nochmal aufrufen um Verzeichnis zu erstellen
+  // diesmal mit overrideName damit korrekter Verzeichnisname verwendet wird
+  const targetDir = newDirName || dirName;
+  try {
+    const importRes = await fetch('/cv-extractor/api/import-url/', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':csrf()},
+      body: JSON.stringify({
+        url:        _nmData.url,
+        platform:   _nmPlatform,
+        cookies:    {},
+        force_dir:  targetDir,
+        first_name: firstName,
+        last_name:  lastName,
+      })
+    });
+    const importData = await importRes.json();
+    if (!importData.success && !importData.name_missing) {
+      _nmRes.innerHTML = `<div style="color:var(--red);"><i class="fas fa-times-circle"></i> ${importData.error||'Import fehlgeschlagen'}</div>`;
+      return;
+    }
+    // Verzeichnis aus Import-Ergebnis übernehmen
+    if (importData.dir) {
+      dirName = importData.dir.split('/').pop();
+    }
+  } catch(e) {
+    _nmRes.innerHTML = `<div style="color:var(--red);"><i class="fas fa-times-circle"></i> ${e.message}</div>`;
+    return;
+  }
+
+  _nmRes.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Pipeline läuft …';
+
+  // DB-Import starten
+  try {
+    const dbRes = await fetch('/cv-extractor/api/import-url-to-db/', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':csrf()},
+      body: JSON.stringify({
+        dir_name:   dirName,
+        platform:   _nmPlatform,
+        first_name: firstName,
+        last_name:  lastName,
+      })
+    });
+    const dbData = await dbRes.json();
+    if (dbData.success) {
+      _nmRes.innerHTML = `
+        <div style="display:flex;gap:10px;align-items:start;">
+          <i class="fas fa-check-circle" style="color:var(--green);margin-top:2px;"></i>
+          <div style="flex:1;">
+            <strong>${firstName ? firstName+' '+lastName : dirName}</strong><br>
+            <span style="color:#6c757d;font-size:.72rem;">
+              <i class="fas fa-folder"></i> ${dirName}
+            </span>
+            ${dbData.editor_url ? `<a href="${dbData.editor_url}" target="_blank"
+              style="margin-left:8px;background:var(--blue);color:white;padding:3px 10px;
+              border-radius:5px;text-decoration:none;font-size:.75rem;">
+              <i class="fas fa-edit"></i> Editor</a>` : ''}
+          </div>
+        </div>`;
+    } else {
+      _nmRes.innerHTML = `<div style="color:var(--red);"><i class="fas fa-times-circle"></i> ${dbData.error}</div>`;
+    }
+  } catch(e) {
+    _nmRes.innerHTML = `<div style="color:var(--red);"><i class="fas fa-times-circle"></i> ${e.message}</div>`;
+  }
+  loadUploads();
+
+  // Name in Felder eintragen
+  if (firstName && lastName) {
+    const fn = $('fn'), ln = $('ln');
+    if (fn) fn.value = firstName;
+    if (ln) ln.value = lastName;
+  }
+}
+
+// Modal schliessen wenn außerhalb geklickt
+document.getElementById('name-missing-modal').addEventListener('click', function(e) {
+  if (e.target === this) this.style.display = 'none';
+});
+</script>
+
+<!-- Name-Missing Modal -->
+<div id="name-missing-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;padding:20px;align-items:center;justify-content:center;">
+  <div style="background:white;border-radius:14px;max-width:460px;width:100%;margin:auto;padding:24px;box-shadow:0 8px 40px rgba(0,0,0,.3);">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+      <div style="width:36px;height:36px;border-radius:50%;background:#fff3cd;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <i class="fas fa-exclamation" style="color:#856404;font-size:.9rem;"></i>
+      </div>
+      <div>
+        <div style="font-weight:600;font-size:.95rem;color:var(--blue);">Kein Name gefunden</div>
+        <div style="font-size:.75rem;color:#6c757d;" id="nm-subtitle">GULP ID: –</div>
+      </div>
+    </div>
+
+    <div style="background:#f8f9fa;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:.8rem;border-left:3px solid #ffc107;">
+      Verzeichnis wird gespeichert als:<br>
+      <code id="nm-dir-preview" style="font-size:.75rem;color:#163258;"></code><br>
+      <span style="color:#6c757d;margin-top:4px;display:block;">Möchten Sie lieber den Namen nachtragen, wenn bekannt?</span>
+    </div>
+
+    <!-- Aufklappbares Namensformular -->
+    <div id="nm-form-wrap" style="display:none;margin-bottom:14px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+        <div>
+          <label style="font-size:.72rem;font-weight:600;color:var(--blue);display:block;margin-bottom:3px;">Vorname</label>
+          <input type="text" id="nm-first" placeholder="Vorname" oninput="nmUpdatePreview()"
+            style="width:100%;padding:7px 10px;border:1.5px solid #dde1e7;border-radius:7px;font-size:.85rem;box-sizing:border-box;">
+        </div>
+        <div>
+          <label style="font-size:.72rem;font-weight:600;color:var(--blue);display:block;margin-bottom:3px;">Nachname</label>
+          <input type="text" id="nm-last" placeholder="Nachname" oninput="nmUpdatePreview()"
+            style="width:100%;padding:7px 10px;border:1.5px solid #dde1e7;border-radius:7px;font-size:.85rem;box-sizing:border-box;">
+        </div>
+      </div>
+      <div id="nm-name-preview" style="display:none;background:#eafaf1;border-radius:7px;padding:6px 10px;font-size:.75rem;color:#155724;">
+        Verzeichnis: <code id="nm-name-preview-text" style="font-size:.72rem;"></code>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <button onclick="nmToggleForm()" id="nm-toggle-btn"
+        style="padding:9px 14px;border-radius:7px;cursor:pointer;background:#e8f4fd;border:1px solid #b8d8f5;color:var(--blue);font-size:.82rem;font-weight:600;text-align:left;">
+        <i class="fas fa-pencil-alt"></i> Ja, Namen jetzt eintragen
+      </button>
+      <div style="display:flex;gap:8px;">
+        <button onclick="nmSaveAnonymous()"
+          style="flex:1;padding:9px;border-radius:7px;cursor:pointer;background:#f8f9fa;border:1px solid #dee2e6;color:#6c757d;font-size:.82rem;">
+          Ohne Namen speichern
+        </button>
+        <button onclick="nmSaveWithName()" id="nm-confirm-btn" disabled
+          style="flex:1.2;padding:9px;border-radius:7px;cursor:pointer;background:#d4edda;border:1px solid #c3e6cb;color:#155724;font-size:.82rem;font-weight:600;opacity:.4;">
+          <i class="fas fa-check"></i> Mit Namen speichern
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let _nmData = {};
+let _nmPlatform = '';
+let _nmRes = null;
+let _nmFormOpen = false;
+
+function showNameMissingPopup(d, platform, resEl) {
+  _nmData     = d;
+  _nmPlatform = platform;
+  _nmRes      = resEl;
+  _nmFormOpen = false;
+
+  document.getElementById('nm-subtitle').textContent =
+    `GULP ID: ${d.gulp_id || '–'} · Session: ${(d.hash_id||'').substring(0,8)}`;
+  document.getElementById('nm-dir-preview').textContent = d.provisional_dir || d.hash_id;
+  document.getElementById('nm-form-wrap').style.display  = 'none';
+  document.getElementById('nm-name-preview').style.display = 'none';
+  document.getElementById('nm-toggle-btn').innerHTML =
+    '<i class="fas fa-pencil-alt"></i> Ja, Namen jetzt eintragen';
+  document.getElementById('nm-first').value = '';
+  document.getElementById('nm-last').value  = '';
+  document.getElementById('nm-confirm-btn').disabled = true;
+  document.getElementById('nm-confirm-btn').style.opacity = '.4';
+
+  const modal = document.getElementById('name-missing-modal');
+  modal.style.display = 'flex';
+}
+
+function nmToggleForm() {
+  _nmFormOpen = !_nmFormOpen;
+  document.getElementById('nm-form-wrap').style.display = _nmFormOpen ? 'block' : 'none';
+  document.getElementById('nm-toggle-btn').innerHTML = _nmFormOpen
+    ? '<i class="fas fa-times"></i> Kein Name bekannt'
+    : '<i class="fas fa-pencil-alt"></i> Ja, Namen jetzt eintragen';
+  if (_nmFormOpen) document.getElementById('nm-first').focus();
+  if (!_nmFormOpen) {
+    document.getElementById('nm-name-preview').style.display = 'none';
+    document.getElementById('nm-confirm-btn').disabled = true;
+    document.getElementById('nm-confirm-btn').style.opacity = '.4';
+  }
+}
+
+function nmUpdatePreview() {
+  const f = document.getElementById('nm-first').value.trim();
+  const l = document.getElementById('nm-last').value.trim();
+  const prev = document.getElementById('nm-name-preview');
+  const prevText = document.getElementById('nm-name-preview-text');
+  const btn  = document.getElementById('nm-confirm-btn');
+  if (f && l) {
+    prevText.textContent = l.toLowerCase() + '_' + f.toLowerCase();
+    prev.style.display = 'block';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  } else {
+    prev.style.display = 'none';
+    btn.disabled = true;
+    btn.style.opacity = '.4';
+  }
+}
+
+async function nmSaveAnonymous() {
+  document.getElementById('name-missing-modal').style.display = 'none';
+  await nmRunPipeline(_nmData.provisional_dir, '', '');
+}
+
+async function nmSaveWithName() {
+  const f = document.getElementById('nm-first').value.trim();
+  const l = document.getElementById('nm-last').value.trim();
+  if (!f || !l) return;
+  document.getElementById('name-missing-modal').style.display = 'none';
+  // Verzeichnis umbenennen: provisional → nachname_vorname
+  const newDir = l.toLowerCase() + '_' + f.toLowerCase();
+  await nmRunPipeline(_nmData.provisional_dir, f, l, newDir);
+}
+
+async function nmRunPipeline(dirName, firstName, lastName, newDirName) {
+  if (!_nmRes) return;
+  _nmRes.style.display = 'block';
+  _nmRes.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Hole Profildaten …';
+
+  // Schritt 1: Import-URL nochmal aufrufen um Verzeichnis zu erstellen
+  // diesmal mit overrideName damit korrekter Verzeichnisname verwendet wird
+  const targetDir = newDirName || dirName;
+  try {
+    const importRes = await fetch('/cv-extractor/api/import-url/', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':csrf()},
+      body: JSON.stringify({
+        url:        _nmData.url,
+        platform:   _nmPlatform,
+        cookies:    {},
+        force_dir:  targetDir,
+        first_name: firstName,
+        last_name:  lastName,
+      })
+    });
+    const importData = await importRes.json();
+    if (!importData.success && !importData.name_missing) {
+      _nmRes.innerHTML = `<div style="color:var(--red);"><i class="fas fa-times-circle"></i> ${importData.error||'Import fehlgeschlagen'}</div>`;
+      return;
+    }
+    // Verzeichnis aus Import-Ergebnis übernehmen
+    if (importData.dir) {
+      dirName = importData.dir.split('/').pop();
+    }
+  } catch(e) {
+    _nmRes.innerHTML = `<div style="color:var(--red);"><i class="fas fa-times-circle"></i> ${e.message}</div>`;
+    return;
+  }
+
+  _nmRes.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Pipeline läuft …';
+
+  // DB-Import starten
+  try {
+    const dbRes = await fetch('/cv-extractor/api/import-url-to-db/', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':csrf()},
+      body: JSON.stringify({
+        dir_name:   dirName,
+        platform:   _nmPlatform,
+        first_name: firstName,
+        last_name:  lastName,
+      })
+    });
+    const dbData = await dbRes.json();
+    if (dbData.success) {
+      _nmRes.innerHTML = `
+        <div style="display:flex;gap:10px;align-items:start;">
+          <i class="fas fa-check-circle" style="color:var(--green);margin-top:2px;"></i>
+          <div style="flex:1;">
+            <strong>${firstName ? firstName+' '+lastName : dirName}</strong><br>
+            <span style="color:#6c757d;font-size:.72rem;">
+              <i class="fas fa-folder"></i> ${dirName}
+            </span>
+            ${dbData.editor_url ? `<a href="${dbData.editor_url}" target="_blank"
+              style="margin-left:8px;background:var(--blue);color:white;padding:3px 10px;
+              border-radius:5px;text-decoration:none;font-size:.75rem;">
+              <i class="fas fa-edit"></i> Editor</a>` : ''}
+          </div>
+        </div>`;
+    } else {
+      _nmRes.innerHTML = `<div style="color:var(--red);"><i class="fas fa-times-circle"></i> ${dbData.error}</div>`;
+    }
+  } catch(e) {
+    _nmRes.innerHTML = `<div style="color:var(--red);"><i class="fas fa-times-circle"></i> ${e.message}</div>`;
+  }
+  loadUploads();
+
+  // Name in Felder eintragen
+  if (firstName && lastName) {
+    const fn = $('fn'), ln = $('ln');
+    if (fn) fn.value = firstName;
+    if (ln) ln.value = lastName;
+  }
+}
+
+// Modal schliessen wenn außerhalb geklickt
+document.getElementById('name-missing-modal').addEventListener('click', function(e) {
+  if (e.target === this) this.style.display = 'none';
+});
+</script>
+
+</body>
+</html>

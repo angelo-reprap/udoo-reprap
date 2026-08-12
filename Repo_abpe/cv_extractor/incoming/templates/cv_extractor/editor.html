@@ -1,0 +1,742 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Editor - {{ consultant.first_name }} {{ consultant.last_name }}</title>
+    <link rel="stylesheet" href="{% static 'cv_extractor/editor/editor.css' %}">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+</head>
+<body>
+    <div id="cv-editor" class="editor-container" data-consultant-id="{{ consultant.id }}" data-aid="{{ consultant.aid }}" data-consultant-dir="{{ consultant.consultant_dir }}" data-first-name="{{ consultant.first_name }}" data-last-name="{{ consultant.last_name }}" data-pdf-filename="{{ pdf_filename }}">
+        
+        <!-- KOPFBEREICH (immer sichtbar) -->
+        <div class="header-section">
+            <div class="header-title">
+                <h1>🧾 CV Editor - {{ consultant.first_name }} {{ consultant.last_name }}</h1>
+                <div class="header-nav" style="display:flex;gap:8px;align-items:center;">
+                    <button type="button" id="btn-validate" onclick="toggleValidate()"
+                        style="padding:6px 14px;border-radius:6px;border:2px solid #27ae60;background:transparent;color:#27ae60;cursor:pointer;font-size:.82rem;font-weight:600;">
+                        ⬜ Validieren
+                    </button>
+                    <button type="button" id="btn-show-name" onclick="toggleShowName()"
+                        style="padding:6px 14px;border-radius:6px;border:2px solid rgba(255,255,255,0.6);background:transparent;color:rgba(255,255,255,0.8);cursor:pointer;font-size:.82rem;font-weight:600;">
+                        {% if consultant.show_name %}✅ Name sichtbar{% else %}⬜ Anonymisiert{% endif %}
+                    </button>
+                    <input type="hidden" id="show_name" value="{% if consultant.show_name %}true{% else %}false{% endif %}">
+                    <button type="button" onclick="deleteConsultant()"
+                        style="padding:6px 14px;border-radius:6px;border:2px solid #dc3545;background:transparent;color:#dc3545;cursor:pointer;font-size:.82rem;font-weight:600;">
+                        🗑 Löschen
+                    </button>
+                    <a href="/cv-extractor/upload/" class="btn-home" style="border-color:rgba(255,255,255,0.4);background:rgba(255,255,255,0.15);">☁️ PDF hochladen</a>
+                    <a href="/cv-extractor/" class="btn-home">🏠 Übersicht</a>
+                </div>
+            </div>
+            
+            <!-- Viewer Buttons -->
+            <div class="viewer-buttons">
+                <button type="button" class="btn-viewer" id="btn-pdf">📄 PDF anzeigen</button>
+                <button type="button" class="btn-viewer" id="btn-txt">📝 TXT anzeigen</button>
+                <button type="button" class="btn-viewer" id="btn-html">🌐 HTML Profil DE</button>
+                <button type="button" class="btn-viewer" id="btn-html-en"
+                    style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.4);color:white;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:.82rem;">
+                    🌐 HTML Profil EN
+                </button>
+                <div class="btn-word-group">
+                    <button type="button" class="btn-word" id="btn-word"><span class="btn-word-icon">📄</span> Word generieren</button>
+                    <select id="word-template-select" class="word-template-select">
+                        <option value="aid-word">Vorlage: Standard (DE)</option>
+                        <option value="aid-word-short">Vorlage: Kurz (DE)</option>
+                        <option value="aid-word-en">Vorlage: Standard (EN)</option>
+                        <option value="aid-word-short-en">Vorlage: Kurz (EN)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Kontaktformular -->
+            <div class="header-collapse-toggle" id="header-toggle" onclick="toggleHeaderForm()" style="cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:10px 0 6px;">
+                <span style="font-size:.82em;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:6px;">
+                    <span id="header-toggle-icon" style="font-size:.75em;">▶</span>
+                    <span id="header-toggle-label">Formular einblenden</span>
+                </span>
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <button class="save-btn" onclick="event.stopPropagation();window.cvEditor&&window.cvEditor.saveSection('personal')" style="background:#27ae60;border-color:#1e7e34;border-radius:6px;min-width:200px;">💾 Kopf speichern</button>
+                    <span style="color:rgba(255,255,255,.7);font-size:.8em;">▶</span>
+                </div>
+            </div>
+            <div id="header-form-content" style="display:none;">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Vorname</label>
+                    <input type="text" id="first_name" value="{{ consultant.first_name|default:'' }}">
+                </div>
+                <div class="form-group">
+                    <label>Nachname</label>
+                    <input type="text" id="last_name" value="{{ consultant.last_name|default:'' }}">
+                </div>
+                <div class="form-group">
+                    <label>Titel / Headline</label>
+                    <input type="text" id="headline" value="{{ consultant.headline|default:'' }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>E-Mail</label>
+                    <input type="email" id="email" value="{{ consultant.email|default:'' }}">
+                </div>
+                <div class="form-group">
+                    <label>Telefon</label>
+                    <input type="text" id="phone" value="{{ consultant.phone|default:'' }}">
+                </div>
+                <div class="form-group">
+                    <label>Standort</label>
+                    <input type="text" id="location" value="{{ consultant.location|default:'' }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Firma</label>
+                    <input type="text" id="company" value="{{ consultant.company|default:'' }}">
+                </div>
+                <div class="form-group">
+                    <label>Adresse</label>
+                    <input type="text" id="address" value="{{ consultant.address|default:'' }}">
+                </div>
+                <div class="form-group">
+                    <label>Website</label>
+                    <input type="text" id="website" value="{{ consultant.website|default:'' }}">
+                </div>
+            </div>
+            </div><!-- /header-form-content -->
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 1. PERSÖNLICHE DATEN + AUSBILDUNG (collapsible, ZU) -->
+        <!-- ============================================================ -->
+        <div class="collapse-section" data-section-type="personal">
+            <div class="collapse-header">
+                <div class="collapse-title">
+                    <span class="icon">📋</span>
+                    PERSÖNLICHE DATEN + AUSBILDUNG
+                </div>
+                <div class="header-buttons">
+                    <button class="save-btn" data-section="personal">💾 Persönlich speichern</button>
+                    <span class="toggle-icon">▶</span>
+                </div>
+            </div>
+            <div class="collapse-content">
+                <div class="content-inner">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Geburtsjahr</label>
+                            <input type="number" id="birth_year" value="{{ consultant.birth_year|default:'' }}">
+                        </div>
+                        <div class="form-group">
+                            <label>Nationalität</label>
+                            <input type="text" id="nationality" value="{{ consultant.nationality|default:'Deutsch' }}">
+                        </div>
+                        <div class="form-group">
+                            <label>EDV Erfahrung seit</label>
+                            <input type="number" id="edv_since" value="{{ consultant.edv_experience_since|default:'' }}">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Verfügbarkeit</label>
+                            <input type="text" id="availability" value="{{ consultant.availability|default:'nach Absprache' }}">
+                        </div>
+                        <div class="form-group">
+                            <label>Stand (Datum)</label>
+                            <input type="text" id="stand" value="{{ consultant.stand|default:'' }}">
+                        </div>
+
+                    </div>
+                    
+                    <!-- Sprachen -->
+                    <div class="form-group">
+                        <label>Sprachen</label>
+                        <div class="tag-input-container" id="languages-container">
+                            <div class="tags-container">
+                                {% for lang in consultant.languages.all %}
+                                <div class="tag">
+                                    <span>{{ lang.language.name }}{% if lang.level %} ({{ lang.level }}){% endif %}</span>
+                                    <span class="remove">×</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <input type="text" class="tag-input" placeholder="Sprache hinzufügen (z.B. Englisch (C1))">
+                            <button type="button" class="add-tag-btn">+</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Ausbildung -->
+                    <div class="form-group">
+                        <label>Ausbildung</label>
+                        <div id="education-container">
+                            {% for edu in consultant.education.all %}
+                            <div class="education-item" style="display: flex; gap: 8px; margin-bottom: 8px;">
+                                <input type="text" value="{{ edu.degree }}" placeholder="Abschluss" style="flex: 2;">
+                                <input type="text" value="{{ edu.institution }}" placeholder="Institution" style="flex: 2;">
+                                <input type="text" value="{{ edu.period }}" placeholder="Zeitraum" style="flex: 1;">
+                                <button class="btn-remove">✗</button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <button class="btn-add" id="add-education">+ Ausbildung hinzufügen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 2. BRANCHEN (collapsible, ZU) -->
+        <!-- ============================================================ -->
+        <div class="collapse-section" data-section-type="branchen">
+            <div class="collapse-header">
+                <div class="collapse-title">
+                    <span class="icon">🏢</span>
+                    BRANCHEN
+                </div>
+                <div class="header-buttons">
+                    <button class="save-btn" data-section="branchen">💾 Branchen speichern</button>
+                    <span class="toggle-icon">▶</span>
+                </div>
+            </div>
+            <div class="collapse-content">
+                <div class="content-inner">
+                    <div class="tag-input-container" id="branchen-container">
+                        <div class="tags-container" id="branchen-tags">
+                            {% for ind in consultant.industries.all %}
+                            <div class="tag">
+                                <span>{{ ind.industry.name }}</span>
+                                <span class="remove">×</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <input type="text" class="tag-input" placeholder="Branche hinzufügen">
+                        <button type="button" class="add-tag-btn">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 3. FACHBEREICHE (collapsible, ZU) -->
+        <!-- ============================================================ -->
+        <div class="collapse-section" data-section-type="fachbereiche">
+            <div class="collapse-header">
+                <div class="collapse-title">
+                    <span class="icon">🔧</span>
+                    FACHBEREICHE
+                </div>
+                <div class="header-buttons">
+                    <button class="save-btn" data-section="fachbereiche">💾 Fachbereiche speichern</button>
+                    <span class="toggle-icon">▶</span>
+                </div>
+            </div>
+            <div class="collapse-content">
+                <div class="content-inner">
+                    <div class="tag-input-container" id="fachbereiche-container">
+                        <div class="tags-container" id="fachbereiche-tags">
+                            {% for fa in consultant.focus_areas.all %}
+                            <div class="tag">
+                                <span>{{ fa.focus_area.name }}</span>
+                                <span class="remove">×</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <input type="text" class="tag-input" placeholder="Fachbereich hinzufügen">
+                        <button type="button" class="add-tag-btn">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 4. SCHULUNGEN / KURSE (collapsible, ZU) -->
+        <!-- ============================================================ -->
+        <div class="collapse-section" data-section-type="schulungen">
+            <div class="collapse-header">
+                <div class="collapse-title">
+                    <span class="icon">📚</span>
+                    SCHULUNGEN / KURSE
+                </div>
+                <div class="header-buttons">
+                    <button class="save-btn" data-section="schulungen">💾 Schulungen speichern</button>
+                    <span class="toggle-icon">▶</span>
+                </div>
+            </div>
+            <div class="collapse-content">
+                <div class="content-inner">
+                    <div class="tag-input-container" id="schulungen-container">
+                        <div class="tags-container" id="schulungen-tags">
+                            {% for edu in consultant.education.all %}
+                                {% if edu.education_type == 'course' %}
+                                <div class="tag">
+                                    <span>{{ edu.degree }}</span>
+                                    <span class="remove">×</span>
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <input type="text" class="tag-input" placeholder="Schulung/Kurs hinzufügen">
+                        <button type="button" class="add-tag-btn">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 5. ZERTIFIZIERUNGEN (collapsible, ZU) -->
+        <!-- ============================================================ -->
+        <div class="collapse-section" data-section-type="zertifikate">
+            <div class="collapse-header">
+                <div class="collapse-title">
+                    <span class="icon">📜</span>
+                    ZERTIFIZIERUNGEN
+                </div>
+                <div class="header-buttons">
+                    <button class="save-btn" data-section="zertifikate">💾 Zertifikate speichern</button>
+                    <span class="toggle-icon">▶</span>
+                </div>
+            </div>
+            <div class="collapse-content">
+                <div class="content-inner">
+                    <div class="tag-input-container" id="zertifikate-container">
+                        <div class="tags-container" id="zertifikate-tags">
+                            {% for cert in consultant.certifications.all %}
+                            <div class="tag">
+                                <span>{{ cert.certification.name }}</span>
+                                <span class="remove">×</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <input type="text" class="tag-input" placeholder="Zertifikat hinzufügen">
+                        <button type="button" class="add-tag-btn">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 6. PRODUKTE | STANDARDS | ERFAHRUNGEN (collapsible, ZU) -->
+        <!-- ============================================================ -->
+        <div class="collapse-section" data-section-type="produkte">
+            <div class="collapse-header">
+                <div class="collapse-title">
+                    <span class="icon">📦</span>
+                    PRODUKTE | STANDARDS | ERFAHRUNGEN
+                </div>
+                <div class="header-buttons">
+                    <button class="save-btn" data-section="produkte">💾 Produkte speichern</button>
+                    <span class="toggle-icon">▶</span>
+                </div>
+            </div>
+            <div class="collapse-content">
+                <div class="content-inner">
+                    <div class="tag-input-container" id="produkte-container">
+                        <div class="tags-container" id="produkte-tags">
+                            {% for item in consultant.focus_experience_items.all %}
+                            <div class="tag">
+                                <span>{{ item.name }}</span>
+                                <span class="remove">×</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <input type="text" class="tag-input" placeholder="Produkt/Standard hinzufügen">
+                        <button type="button" class="add-tag-btn">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 7. SKILLS (nur befüllte Kategorien) -->
+        <!-- ============================================================ -->
+        <div class="collapse-section" data-section-type="skills">
+            <div class="collapse-header">
+                <div class="collapse-title">
+                    <span class="icon">🔧</span>
+                    SKILLS ({{ consultant_skills_by_cat|length }} Kategorien)
+                </div>
+                <div class="header-buttons">
+                    <button class="save-btn" data-section="skills">💾 Skills speichern</button>
+                    <span class="toggle-icon">▶</span>
+                </div>
+            </div>
+            <div class="collapse-content">
+                <div class="content-inner">
+                    <div class="skills-container" id="skills-container">
+                        {% for cat_name, skills in consultant_skills_by_cat.items %}
+                        <div class="skill-category" data-category-name="{{ cat_name }}">
+                            <div class="skill-cat-header">
+                                <div class="skill-cat-title">
+                                    <span style="font-size:16px">📁</span>
+                                    {{ cat_name }}
+                                    <span class="skill-count-badge">{{ skills|length }}</span>
+                                </div>
+                                <span class="skill-cat-toggle">▶</span>
+                            </div>
+                            <div class="skill-cat-content">
+                                <div class="skill-tags">
+                                    {% for skill_name in skills %}
+                                    <div class="skill-tag">
+                                        <span>{{ skill_name }}</span>
+                                        <span class="remove">×</span>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="add-skill">
+                                    <input type="text" class="add-skill-input" placeholder="Skill hinzufügen...">
+                                    <button class="add-skill-btn">+ Hinzufügen</button>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Neue Kategorie hinzufügen -->
+                    <div class="add-category-row">
+                        <div class="add-cat-hint">+ Neue Kategorie hinzufügen</div>
+                        <div class="add-cat-controls">
+                            <select id="new-cat-select">
+                                <option value="">— Kategorie auswählen —</option>
+                                {% for category in skill_categories %}
+                                <option value="{{ category.name }}">{{ category.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <button id="add-cat-btn">+ Kategorie anlegen</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 8. BERUFLICHE ERFAHRUNGEN (Projekte, collapsible ZU) -->
+        <!-- ============================================================ -->
+        <div class="collapse-section" data-section-type="projects">
+            <div class="collapse-header">
+                <div class="collapse-title">
+                    <span class="icon">💼</span>
+                    BERUFLICHE ERFAHRUNGEN ({{ consultant.experience.count }} Projekte)
+                </div>
+                <div class="header-buttons">
+                    <button class="save-btn" data-section="projects">💾 Projekte speichern</button>
+                    <span class="toggle-icon">▶</span>
+                </div>
+            </div>
+            <div class="collapse-content">
+                <div class="content-inner">
+                    <div class="projects-container" id="projects-container">
+                        {% for exp in consultant.experience.all|dictsort:"sort_order" %}
+                        <div class="project-item" data-project-id="{{ exp.id }}">
+                            <div class="project-header">
+                                <div class="project-title">
+                                    <span class="project-period">{{ exp.period|default:"-" }}</span>
+                                    <span class="project-company">{{ exp.company|default:"-" }}</span>
+                                    <span class="project-role">{{ exp.role|default:exp.title|default:"" }}</span>
+                                </div>
+                                <span class="toggle-icon">▶</span>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-field">
+                                    <label>Zeitraum</label>
+                                    <input type="text" class="project-period-input" value="{{ exp.period|default:'' }}">
+                                </div>
+                                <div class="project-field">
+                                    <label>Firma / Kunde</label>
+                                    <input type="text" class="project-company-input" value="{{ exp.company|default:'' }}">
+                                </div>
+                                <div class="project-field">
+                                    <label>Rolle / Position</label>
+                                    <input type="text" class="project-role-input" value="{{ exp.role|default:exp.title|default:'' }}">
+                                </div>
+                                <div class="project-field">
+                                    <label>Aufgaben / Tätigkeiten</label>
+                                    <div class="project-activities">
+                                        {% for act in exp.activities.all|dictsort:"sort_order" %}
+                                        <div class="activity-item">
+                                            <input type="text" value="{{ act.activity_text }}">
+                                            <button class="btn-remove">✗</button>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    <button class="btn-add add-activity-btn">+ Aktivität hinzufügen</button>
+                                </div>
+                                <div class="project-field">
+                                    <label>Technologien</label>
+                                    <div class="tag-input-container">
+                                        <div class="tags-container project-tech-tags">
+                                            {% for tech in exp.technologies.all %}
+                                            <div class="tag">
+                                                <span>{{ tech.skill.name }}</span>
+                                                <span class="remove">×</span>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        <input type="text" class="tag-input" placeholder="Technologie hinzufügen">
+                                        <button type="button" class="add-tag-btn">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button class="btn-add" id="add-project" style="margin-top: 15px;">+ Neues Projekt</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="{% static 'cv_extractor/editor/editor.js' %}"></script>
+<script>
+(function(){
+  const aid       = document.getElementById('cv-editor').dataset.aid;
+  const firstName = document.getElementById('cv-editor').dataset.firstName;
+  const lastName  = document.getElementById('cv-editor').dataset.lastName;
+
+  function csrf() {
+    return document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('csrftoken='))?.split('=')[1]||'';
+  }
+
+  // Validierungs-Status beim Laden setzen
+
+
+  fetch(`/cv-extractor/api/uploads/?limit=200`)
+    .then(r=>r.json()).then(d=>{
+      const c = (d.uploads||[]).find(u=>u.aid===aid);
+      if (c && c.pipeline_step==='validated') {
+        const btn = document.getElementById('btn-validate');
+        if (btn) { btn.textContent='✅ Validiert'; btn.style.background='#27ae60'; btn.style.color='white'; }
+      }
+    }).catch(()=>{});
+
+  window.toggleValidate = async function() {
+    const btn = document.getElementById('btn-validate');
+    const isValid = btn.textContent.includes('Validiert') && !btn.textContent.includes('⬜');
+    const r = await fetch(`/cv-extractor/api/cv-editor/${aid}/validate/`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json','X-CSRFToken':csrf()},
+      body: JSON.stringify({validated: !isValid})
+    });
+    const d = await r.json();
+    if (d.success) {
+      if (!isValid) { btn.textContent='✅ Validiert'; btn.style.background='#27ae60'; btn.style.color='white'; }
+      else          { btn.textContent='⬜ Validieren'; btn.style.background='transparent'; btn.style.color='#27ae60'; }
+    } else alert('Fehler: ' + d.error);
+  };
+
+  window.toggleShowName = function() {
+    const btn = document.getElementById('btn-show-name');
+    const inp = document.getElementById('show_name');
+    const isOn = inp.value === 'true';
+    if (!isOn) {
+      inp.value = 'true';
+      btn.textContent = '⬜ Anonymisiert';
+      btn.style.background = 'rgba(255,255,255,0.2)';
+      btn.style.color = 'white';
+      btn.style.border = '2px solid white';
+    } else {
+      inp.value = 'false';
+      btn.textContent = '✅ Name sichtbar';
+      btn.style.background = 'transparent';
+      btn.style.color = 'rgba(255,255,255,0.8)';
+      btn.style.border = '2px solid rgba(255,255,255,0.6)';
+    }
+  };
+
+  window.deleteConsultant = async function() {
+    const confirm_name = prompt(
+      `⚠️ LÖSCHEN bestätigen\n\nBerater: ${firstName} ${lastName}\nAID: ${aid}\n\nBitte vollständigen Namen eingeben:`
+    );
+    if (!confirm_name) return;
+    const r = await fetch(`/cv-extractor/api/cv-editor/${aid}/delete/`, {
+      method:'DELETE',
+      headers:{'Content-Type':'application/json','X-CSRFToken':csrf()},
+      body: JSON.stringify({confirm_name})
+    });
+    const d = await r.json();
+    if (d.success) { alert(`✅ ${firstName} ${lastName} wurde gelöscht.`); window.location='/cv-extractor/'; }
+    else alert('Fehler: ' + d.error);
+  };
+})();
+</script>
+</body>
+</html>
+
+<!-- ============================================================ -->
+<!-- SKILL MOVE POPUP -->
+<!-- ============================================================ -->
+<div id="skill-move-overlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:9999;align-items:center;justify-content:center;">
+    <div style="background:#1e2a3a;border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:28px;min-width:380px;max-width:480px;color:white;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+        <h3 style="margin:0 0 6px;font-size:1.1rem;">📦 Skill verschieben</h3>
+        <p style="margin:0 0 18px;color:rgba(255,255,255,0.6);font-size:.85rem;">
+            Skill: <strong id="move-skill-name" style="color:#4fc3f7;"></strong><br>
+            Aktuelle Kategorie: <strong id="move-skill-from" style="color:#ffb74d;"></strong>
+        </p>
+
+        <label style="font-size:.85rem;color:rgba(255,255,255,0.7);">Ziel-Kategorie:</label>
+        <select id="move-skill-target" style="width:100%;margin:8px 0 20px;padding:10px;border-radius:6px;border:1px solid rgba(255,255,255,0.2);background:#2a3a4a;color:white;font-size:.9rem;">
+            {% for category in skill_categories %}
+            <option value="{{ category.name }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+
+        <div style="display:flex;gap:10px;margin-bottom:10px;">
+            <button onclick="moveSkill('consultant')"
+                style="flex:1;padding:10px;border-radius:6px;border:none;background:#27ae60;color:white;cursor:pointer;font-size:.85rem;font-weight:600;">
+                👤 Nur für diesen Berater
+            </button>
+            <button onclick="moveSkill('both')"
+                style="flex:1;padding:10px;border-radius:6px;border:none;background:#e67e22;color:white;cursor:pointer;font-size:.85rem;font-weight:600;">
+                🌍 Generell für alle
+            </button>
+        </div>
+        <button onclick="closeSkillMovePopup()"
+            style="width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.2);background:transparent;color:rgba(255,255,255,0.6);cursor:pointer;font-size:.85rem;">
+            Abbrechen
+        </button>
+    </div>
+</div>
+
+<script>
+(function(){
+    const aid = document.getElementById('cv-editor').dataset.aid;
+
+    function csrf() {
+        return document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('csrftoken='))?.split('=')[1]||'';
+    }
+
+    // Skill-Tag Klick → Popup öffnen
+    document.addEventListener('click', function(e) {
+        const tag = e.target.closest('.skill-tag');
+        if (!tag) return;
+        if (e.target.classList.contains('remove')) return; // Löschen-X ignorieren
+
+        const skillName   = tag.querySelector('span:first-child')?.textContent?.trim();
+        const catEl       = tag.closest('.skill-category');
+        const fromCat     = catEl?.dataset?.categoryName || '';
+
+        if (!skillName) return;
+
+        // Popup befüllen
+        document.getElementById('move-skill-name').textContent = skillName;
+        document.getElementById('move-skill-from').textContent = fromCat;
+
+        // Dropdown: aktuelle Kategorie ausblenden
+        const sel = document.getElementById('move-skill-target');
+        Array.from(sel.options).forEach(opt => {
+            opt.style.display = opt.value === fromCat ? 'none' : '';
+        });
+        // Ersten sichtbaren auswählen
+        const firstVisible = Array.from(sel.options).find(o => o.style.display !== 'none');
+        if (firstVisible) sel.value = firstVisible.value;
+
+        // Tag + Kategorie merken
+        window._moveSkillTag  = tag;
+        window._moveSkillFrom = fromCat;
+        window._moveSkillName = skillName;
+
+        // Popup anzeigen
+        const overlay = document.getElementById('skill-move-overlay');
+        overlay.style.display = 'flex';
+    });
+
+    window.closeSkillMovePopup = function() {
+        document.getElementById('skill-move-overlay').style.display = 'none';
+        window._moveSkillTag  = null;
+        window._moveSkillName = null;
+        window._moveSkillFrom = null;
+    };
+
+    window.moveSkill = async function(scope) {
+        const skillName  = window._moveSkillName;
+        const fromCat    = window._moveSkillFrom;
+        const toCat      = document.getElementById('move-skill-target').value;
+        const tag        = window._moveSkillTag;
+
+        if (!skillName || !toCat || toCat === fromCat) {
+            alert('Bitte eine andere Ziel-Kategorie wählen.');
+            return;
+        }
+
+        try {
+            const r = await fetch(`/cv-extractor/api/cv-editor/${aid}/move-skill/`, {
+                method: 'POST',
+                headers: {'Content-Type':'application/json','X-CSRFToken':csrf()},
+                body: JSON.stringify({skill_name: skillName, to_category: toCat, scope: scope})
+            });
+            const d = await r.json();
+
+            if (d.success) {
+                // Tag in neue Kategorie verschieben (DOM)
+                let targetCat = document.querySelector(`.skill-category[data-category-name="${toCat}"]`);
+
+                if (!targetCat) {
+                    // Kategorie existiert noch nicht im DOM → neu anlegen
+                    targetCat = document.createElement('div');
+                    targetCat.className = 'skill-category';
+                    targetCat.dataset.categoryName = toCat;
+                    targetCat.innerHTML = `
+                        <div class="skill-cat-header">
+                            <div class="skill-cat-title"><span style="font-size:16px">📁</span> ${toCat} <span class="skill-count-badge">0</span></div>
+                            <span class="skill-cat-toggle">▶</span>
+                        </div>
+                        <div class="skill-cat-content open">
+                            <div class="skill-tags"></div>
+                            <div class="add-skill">
+                                <input type="text" class="add-skill-input" placeholder="Skill hinzufügen...">
+                                <button class="add-skill-btn">+ Hinzufügen</button>
+                            </div>
+                        </div>`;
+                    document.getElementById('skills-container').appendChild(targetCat);
+                    // Toggle-Handler für neue Kategorie
+                    const _h = targetCat.querySelector('.skill-cat-header');
+                    const _c = targetCat.querySelector('.skill-cat-content');
+                    const _t = targetCat.querySelector('.skill-cat-toggle');
+                    _t.classList.add('open');
+                    _h.addEventListener('click', function(e) { e.stopPropagation(); _c.classList.toggle('open'); _t.classList.toggle('open'); });
+                    // Add-Skill Handler
+                    const _addBtn = targetCat.querySelector('.add-skill-btn');
+                    const _input  = targetCat.querySelector('.add-skill-input');
+                    const _tags   = targetCat.querySelector('.skill-tags');
+                    _addBtn.addEventListener('click', (e) => { e.stopPropagation(); if (_input.value.trim()) { window.cvEditor.addSkillTag(_tags, _input.value.trim()); window.cvEditor._updateBadge(targetCat); _input.value = ''; _input.focus(); } });
+                    _input.addEventListener('keypress', (e) => { if (e.key !== 'Enter') return; e.preventDefault(); if (_input.value.trim()) { window.cvEditor.addSkillTag(_tags, _input.value.trim()); window.cvEditor._updateBadge(targetCat); _input.value = ''; } });
+                }
+
+                // Tag verschieben
+                const targetTags = targetCat.querySelector('.skill-tags');
+                tag.remove();
+                targetTags.appendChild(tag);
+
+                // Badges aktualisieren
+                [fromCat, toCat].forEach(cat => {
+                    const el = document.querySelector(`.skill-category[data-category-name="${cat}"]`);
+                    if (el) {
+                        const badge = el.querySelector('.skill-count-badge');
+                        if (badge) badge.textContent = el.querySelectorAll('.skill-tag').length;
+                    }
+                });
+
+                closeSkillMovePopup();
+                const msg = scope === 'both' ? `✅ "${skillName}" → ${toCat} (Berater + Global)` : `✅ "${skillName}" → ${toCat} (nur dieser Berater)`;
+                if (window.cvEditor?.showToast) window.cvEditor.showToast(msg, 'success');
+                else alert(msg);
+            } else {
+                alert('Fehler: ' + d.error);
+            }
+        } catch(err) {
+            alert('Netzwerkfehler: ' + err.message);
+        }
+    };
+
+    // Overlay schließen bei Klick außerhalb
+    document.getElementById('skill-move-overlay').addEventListener('click', function(e) {
+        if (e.target === this) closeSkillMovePopup();
+    });
+})();
+</script>

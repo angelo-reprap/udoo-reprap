@@ -1,0 +1,363 @@
+{
+  "_info": {
+    "beschreibung": "MASTER-JSON Struktur – vollstaendiger angereicherter Datensatz",
+    "pipeline_step": "enriched",
+    "stufe_1_synchron_kein_llm": [
+      "normalized.personal (bereinigt, full_name)",
+      "normalized.professional (ohne summary)",
+      "normalized.skills (dedupliziert)",
+      "normalized.certifications",
+      "normalized.experience",
+      "normalized.industries + focus_areas + education",
+      "searchable_text (flacher String fuer ES)",
+      "facets (Filter-Werte)",
+      "statistics (berechnet: years/count)",
+      "metadata.statistics",
+      "audit.enriched_at",
+      "self_learning: TrainingTerm Frequenzen erhoehen",
+      "self_learning: PromptTemplate Beispiele ab frequency>=3"
+    ],
+    "stufe_2_parallel_llm_deepseek": [
+      "normalized.professional.summary (LLM 3 Saetze)",
+      "matching.preferred_roles (LLM aus Projekten)",
+      "matching.preferred_industries (LLM aus Branchen)",
+      "matching.must_have_skills (LLM Top-Skills)",
+      "matching.nice_to_have_skills",
+      "matching.role_classification (LLM: role/landscape/level Codes)",
+      "matching.overall_score",
+      "statistics.total_experience_years (edv_experience_since oder LLM-Schaetzung)",
+      "statistics.demand_index (aus ES Skill-Frequenzen)",
+      "skill_graph.nodes (LLM: weight aus Projekthaeufigkeit)",
+      "SkillRelation Tabelle: edges ab frequency>=2 (belongs_to/related/domain)"
+    ],
+    "manuelle_felder_am_consultant_model": [
+      "consultant.hourly_rate (Stundensatz, manuell)",
+      "consultant.placement_text (default: nach Absprache, manuell)",
+      "NICHT im Master-JSON"
+    ],
+    "nicht_im_json_sondern_in_db_tabellen": [
+      "SkillRelation (edges global fuer alle Consultants)",
+      "ConsultantStatistics (Spiegel von statistics)",
+      "ConsultantMatching (Spiegel von matching)",
+      "TrainingTerm (Skill-Haeufigkeiten)",
+      "PromptTemplate (Extraktion-Prompts)"
+    ]
+  },
+
+  "metadata": {
+    "aid": "",
+    "version": "",
+    "consultant_dir": "",
+    "first_name": "",
+    "last_name": "",
+    "headline": "",
+    "source": {
+      "type": "",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": ""
+    },
+    "pipeline": {
+      "version": "5.0",
+      "step": "enriched",
+      "extractor": "cv_extractor",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false,
+      "total_experience_years": 0,
+      "skill_count": 0,
+      "project_count": 0
+    }
+  },
+
+  "extracted_data": {
+    "_info": "Unveraendert aus PRE-JSON – was pipeline.py extrahiert hat",
+
+    "personal": {
+      "first_name": "",
+      "last_name": "",
+      "birth_year": null,
+      "nationality": "",
+      "languages": [],
+      "email": "",
+      "phone": "",
+      "location": "",
+      "availability": "",
+      "degree": "",
+      "edv_experience_since": null,
+      "headline": "",
+      "summary": ""
+    },
+
+    "professional": {
+      "total_experience_years": 0
+    },
+
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [],
+      "programming_languages": [],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+
+    "certifications": [
+      {
+        "name": "",
+        "issuer": "",
+        "date_obtained": "",
+        "expiry_date": ""
+      }
+    ],
+
+    "experience": [
+      {
+        "period": "",
+        "title": "",
+        "company": "",
+        "industry": "",
+        "role": "",
+        "location": "",
+        "activities": [],
+        "technologies": []
+      },
+      {
+        "period": "",
+        "title": "",
+        "company": "",
+        "industry": "",
+        "role": "",
+        "location": "",
+        "activities": [],
+        "technologies": []
+      }
+    ],
+
+    "industries": [],
+    "focus_areas": [],
+    "focus_experience": [],
+
+    "education": [
+      {
+        "degree": "",
+        "institution": "",
+        "period": "",
+        "description": "",
+        "education_type": "degree",
+        "issuer": ""
+      }
+    ],
+
+    "other": ""
+  },
+
+  "normalized": {
+    "_info": "Enricher Stufe 1: bereinigt, dedupliziert, normalisiert",
+
+    "personal": {
+      "first_name": "",
+      "last_name": "",
+      "full_name": "",
+      "birth_year": null,
+      "nationality": "",
+      "languages": [],
+      "email": "",
+      "phone": "",
+      "location": "",
+      "edv_experience_since": null,
+      "availability": ""
+    },
+
+    "professional": {
+      "headline": "",
+      "summary": "",
+      "total_experience_years": 0,
+      "availability": ""
+    },
+
+    "skills": {
+      "_info": "Gleiche Struktur wie extracted_data.skills – bereinigt + dedupliziert",
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [],
+      "programming_languages": [],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+
+    "certifications": [
+      {
+        "name": "",
+        "issuer": "",
+        "date_obtained": "",
+        "expiry_date": ""
+      }
+    ],
+
+    "experience": [
+      {
+        "period": "",
+        "title": "",
+        "company": "",
+        "role": "",
+        "activities": [],
+        "technologies": []
+      },
+      {
+        "period": "",
+        "title": "",
+        "company": "",
+        "role": "",
+        "activities": [],
+        "technologies": []
+      }
+    ],
+
+    "industries": [],
+    "focus_areas": [],
+
+    "education": [
+      {
+        "degree": "",
+        "institution": "",
+        "period": ""
+      }
+    ]
+  },
+
+  "matching": {
+    "_info": "LLM Stufe 2: Matching-Daten fuer spaeteres Selektions-Modul. Spiegel in ConsultantMatching Tabelle.",
+
+    "overall_score": 0.0,
+    "skill_match_score": 0.0,
+    "role_match_score": 0.0,
+    "industry_match_score": 0.0,
+
+    "preferred_roles": [],
+    "preferred_industries": [],
+    "preferred_locations": [],
+    "min_experience_years": 0,
+
+    "must_have_skills": [],
+    "nice_to_have_skills": [],
+
+    "role_classification": {
+      "_info": "AID-Klassifikation: role/landscape/level Codes fuer AID-Generierung",
+      "role_code": 0,
+      "role_name": "",
+      "landscape_code": 0,
+      "landscape_name": "",
+      "level_code": 0,
+      "level_name": ""
+    }
+  },
+
+  "searchable_text": "",
+
+  "facets": {
+    "_info": "Enricher Stufe 1: Ableitungen fuer ElasticSearch Filter",
+    "industries": [],
+    "roles": [],
+    "skill_categories": [],
+    "top_skills": [],
+    "locations": [],
+    "certifications": [],
+    "experience_years_range": "",
+    "availability": "",
+    "languages": [],
+    "degree": ""
+  },
+
+  "skill_graph": {
+    "_info": {
+      "nodes": "LLM Stufe 2: Skill-Gewichtungen pro Consultant (weight=Intensitaet, years=null wenn nicht ableitbar)",
+      "edges": "LEER im JSON – global in SkillRelation DB-Tabelle (ab frequency>=2: belongs_to/related/domain)"
+    },
+    "nodes": [
+      {
+        "id": "",
+        "category": "",
+        "weight": 0.0,
+        "years": null
+      }
+    ],
+    "edges": []
+  },
+
+  "statistics": {
+    "_info": "Enricher: Berechnete Kennzahlen. Spiegel in ConsultantStatistics Tabelle. KEIN placement/hourly_rate (manuelle Consultant-Felder).",
+    "total_experience_years": 0,
+    "total_months": 0,
+    "project_count": 0,
+    "skill_count": 0,
+    "unique_skill_categories": 0,
+    "certification_count": 0,
+    "top_skills": [],
+    "top_certifications": [],
+    "demand_index": 0.0
+  },
+
+  "audit": {
+    "created_by": "cv_extractor",
+    "created_at": "",
+    "source_file": "",
+    "enriched_at": "",
+    "enriched_by": "deepseek-chat",
+    "steps_completed": []
+  },
+
+  "_extensions": {}
+}

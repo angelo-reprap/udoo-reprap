@@ -1,0 +1,744 @@
+"""
+word_generator.py v5.0
+Alle Werte aus word_style.json — keine hardcodierten Werte.
+"""
+
+import io
+import json
+import os
+import re
+from collections import defaultdict
+
+from django.conf import settings
+from django.utils import timezone
+
+from docx import Document
+from docx.shared import Pt, Cm, RGBColor
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.table import WD_TABLE_ALIGNMENT
+from docx.oxml.ns import qn
+from docx.oxml import OxmlElement
+
+
+def _rgb(hex_str):
+    h = hex_str.lstrip("#")
+    return RGBColor(int(h[0:2],16), int(h[2:4],16), int(h[4:6],16))
+
+def _cell_bg(cell, hex_color):
+    tc = cell._tc; tcPr = tc.get_or_add_tcPr()
+    shd = OxmlElement("w:shd")
+    shd.set(qn("w:val"), "clear"); shd.set(qn("w:color"), "auto")
+    shd.set(qn("w:fill"), hex_color.lstrip("#"))
+    tcPr.append(shd)
+
+def _cell_borders_all(cell, color, size):
+    tc = cell._tc; tcPr = tc.get_or_add_tcPr()
+    bdr = OxmlElement("w:tcBorders")
+    for side in ("top","left","bottom","right"):
+        el = OxmlElement("w:"+side)
+        el.set(qn("w:val"), "single"); el.set(qn("w:sz"), str(size))
+        el.set(qn("w:space"), "0"); el.set(qn("w:color"), color.lstrip("#"))
+        bdr.append(el)
+    tcPr.append(bdr)
+
+def _cell_borders_none(cell):
+    tc = cell._tc; tcPr = tc.get_or_add_tcPr()
+    bdr = OxmlElement("w:tcBorders")
+    for side in ("top","left","bottom","right","insideH","insideV"):
+        el = OxmlElement("w:"+side); el.set(qn("w:val"), "nil"); bdr.append(el)
+    tcPr.append(bdr)
+
+def _cell_left_border_only(cell, color, size):
+    tc = cell._tc; tcPr = tc.get_or_add_tcPr()
+    for old in tcPr.findall(qn("w:tcBorders")): tcPr.remove(old)
+    bdr = OxmlElement("w:tcBorders")
+    for side in ("top","right","bottom","insideH","insideV"):
+        el = OxmlElement("w:"+side); el.set(qn("w:val"), "nil"); bdr.append(el)
+    left = OxmlElement("w:left")
+    left.set(qn("w:val"), "single"); left.set(qn("w:sz"), str(size))
+    left.set(qn("w:space"), "4"); left.set(qn("w:color"), color.lstrip("#"))
+    bdr.append(left); tcPr.append(bdr)
+    tbl = tc.getparent().getparent()
+    tblPr = tbl.find(qn("w:tblPr"))
+    if tblPr is not None:
+        for old in tblPr.findall(qn("w:tblBorders")): tblPr.remove(old)
+        tblBdr = OxmlElement("w:tblBorders")
+        for side in ("top","left","bottom","right","insideH","insideV"):
+            el = OxmlElement("w:"+side); el.set(qn("w:val"), "nil"); tblBdr.append(el)
+        tblPr.append(tblBdr)
+
+def _cell_margin(cell, top=60, bottom=60, left=120, right=120):
+    tc = cell._tc; tcPr = tc.get_or_add_tcPr()
+    mar = OxmlElement("w:tcMar")
+    for name, val in (("top",top),("bottom",bottom),("left",left),("right",right)):
+        el = OxmlElement("w:"+name); el.set(qn("w:w"), str(val))
+        el.set(qn("w:type"), "dxa"); mar.append(el)
+    tcPr.append(mar)
+
+def _col_width(cell, dxa):
+    tc = cell._tc; tcPr = tc.get_or_add_tcPr()
+    tcW = OxmlElement("w:tcW"); tcW.set(qn("w:w"), str(dxa))
+    tcW.set(qn("w:type"), "dxa"); tcPr.append(tcW)
+
+def _tbl_width(table, dxa):
+    tbl = table._tbl
+    tblPr = tbl.find(qn("w:tblPr"))
+    if tblPr is None: tblPr = OxmlElement("w:tblPr"); tbl.insert(0, tblPr)
+    tblW = OxmlElement("w:tblW"); tblW.set(qn("w:w"), str(dxa))
+    tblW.set(qn("w:type"), "dxa"); tblPr.append(tblW)
+
+def _tbl_borders_none(table):
+    tbl = table._tbl
+    tblPr = tbl.find(qn("w:tblPr"))
+    if tblPr is None: tblPr = OxmlElement("w:tblPr"); tbl.insert(0, tblPr)
+    for old in tblPr.findall(qn("w:tblBorders")): tblPr.remove(old)
+    tblBdr = OxmlElement("w:tblBorders")
+    for side in ("top","left","bottom","right","insideH","insideV"):
+        el = OxmlElement("w:"+side); el.set(qn("w:val"), "nil"); tblBdr.append(el)
+    tblPr.append(tblBdr)
+
+def _para_border_bottom(para, color, size, style="single"):
+    pPr = para._p.get_or_add_pPr(); pBdr = OxmlElement("w:pBdr")
+    bot = OxmlElement("w:bottom")
+    bot.set(qn("w:val"), style); bot.set(qn("w:sz"), str(size))
+    bot.set(qn("w:space"), "4"); bot.set(qn("w:color"), color.lstrip("#"))
+    pBdr.append(bot); pPr.append(pBdr)
+
+def _para_border_top(para, color, size, style="dashed", space=4):
+    pPr = para._p.get_or_add_pPr(); pBdr = OxmlElement("w:pBdr")
+    top = OxmlElement("w:top")
+    top.set(qn("w:val"), style); top.set(qn("w:sz"), str(size))
+    top.set(qn("w:space"), str(int(space))); top.set(qn("w:color"), color.lstrip("#"))
+    pBdr.append(top); pPr.append(pBdr)
+
+def _para_left_bar(para, color, size):
+    pPr = para._p.get_or_add_pPr(); pBdr = OxmlElement("w:pBdr")
+    left = OxmlElement("w:left")
+    left.set(qn("w:val"), "single"); left.set(qn("w:sz"), str(size))
+    left.set(qn("w:space"), "8"); left.set(qn("w:color"), color.lstrip("#"))
+    pBdr.append(left); pPr.append(pBdr)
+
+def _run_bg(run, hex_color):
+    rPr = run._r.get_or_add_rPr()
+    shd = OxmlElement("w:shd"); shd.set(qn("w:val"), "clear")
+    shd.set(qn("w:color"), "auto"); shd.set(qn("w:fill"), hex_color.lstrip("#"))
+    rPr.append(shd)
+
+def _r(para, text, font, size=10, bold=False, italic=False, color=None):
+    r = para.add_run(text)
+    r.font.name = font; r.font.size = Pt(size)
+    r.bold = bold; r.italic = italic
+    r.font.color.rgb = _rgb(color) if color else _rgb("163258")
+    return r
+
+
+class CVBuilder:
+
+    def __init__(self, style: dict):
+        self.s    = style
+        self.C    = style["colors"]
+        self.FONT = style["font"]["family"]
+        self.TBL  = style["word_specific"]["tbl_width_dxa"]
+        self.HALF = style["word_specific"]["half_width_dxa"]
+
+    # Übersetzungs-Labels DE/EN
+    LABELS = {
+        'de': {
+            'schwerpunkt':        'Schwerpunkt: ',
+            'stand':              'Stand: ',
+            'persoenliche_daten': 'Persönliche Daten',
+            'name':               'Name:',
+            'geburtsjahr':        'Geburtsjahr:',
+            'nationalitaet':      'Staatsangehörigkeit:',
+            'sprachen':           'Sprachen:',
+            'edv_seit':           'EDV Erfahrung seit:',
+            'verfuegbar':         'verfügbar:',
+            'einsatzort':         'Einsatzort:',
+            'ausbildung':         'Ausbildung:',
+            'zertifizierungen':   'Zertifizierungen',
+            'schulungen':         'Schulungen / Kurse',
+            'fachbereiche':       'Fachbereiche',
+            'branchen':           'Branchen',
+            'produkte':           'Produkte | Standards | Erfahrungen',
+            'erfahrungen':        'Berufliche Erfahrungen',
+            'technologien':       'Technologien: ',
+            'kenntnisse':         'Technische Kenntnisse',
+            'sonstige_informationen': 'Sonstige Informationen',
+        },
+        'en': {
+            'schwerpunkt':        'Focus: ',
+            'stand':              'Date: ',
+            'persoenliche_daten': 'Personal Data',
+            'name':               'Name:',
+            'geburtsjahr':        'Year of birth:',
+            'nationalitaet':      'Nationality:',
+            'sprachen':           'Languages:',
+            'edv_seit':           'IT Experience since:',
+            'verfuegbar':         'Available:',
+            'einsatzort':         'Location:',
+            'ausbildung':         'Education:',
+            'zertifizierungen':   'Certifications',
+            'schulungen':         'Training / Courses',
+            'fachbereiche':       'Areas of Expertise',
+            'branchen':           'Industries',
+            'produkte':           'Products | Standards | Experience',
+            'erfahrungen':        'Professional Experience',
+            'technologien':       'Technologies: ',
+            'kenntnisse':         'Technical Skills',
+            'sonstige_informationen': 'Other Information',
+        }
+    }
+
+    # Kontakt-Labels (Deckblatt)
+    CONTACT_LABELS = {
+        'de': {
+            'telefon': 'Telefon +49 (0) 61 71 - 8867 - 00',
+            'fax':     'Fax +49 (0) 61 71 - 8867 - 09',
+            'seite':   'Seite ',
+            'von':     ' von ',
+        },
+        'en': {
+            'telefon': 'Phone +49 (0) 61 71 - 8867 - 00',
+            'fax':     'Fax +49 (0) 61 71 - 8867 - 09',
+            'seite':   'Page ',
+            'von':     ' of ',
+        }
+    }
+
+    def clbl(self, key, lang='de'):
+        return self.CONTACT_LABELS.get(lang, self.CONTACT_LABELS['de']).get(key, key)
+
+    def lbl(self, key, lang='de'):
+        """Label in der richtigen Sprache zurückgeben."""
+        return self.LABELS.get(lang, self.LABELS['de']).get(key, key)
+
+    def r(self, para, text, size=10, bold=False, italic=False, color=None):
+        return _r(para, text, self.FONT, size, bold, italic, color or self.C["brand"])
+
+    def section_title(self, doc, text):
+        st = self.s["section_title"]
+        p = doc.add_paragraph()
+        p.paragraph_format.space_before = Pt(st["space_before_pt"])
+        p.paragraph_format.space_after  = Pt(st["space_after_pt"])
+        self.r(p, text, size=st["font_size_pt"], bold=st["bold"])
+        _para_border_bottom(p, self.C["brand"], st["border_sz"], st["border_style"])
+
+    def setup_header(self, section, aid, lang="de"):
+        h = self.s["header"]
+        hdr  = section.header
+        para = hdr.paragraphs[0] if hdr.paragraphs else hdr.add_paragraph()
+        para.clear()
+        para.paragraph_format.space_before = Pt(0)
+        para.paragraph_format.space_after  = Pt(h["space_after_pt"])
+        pPr = para._p.get_or_add_pPr()
+        tabs = OxmlElement("w:tabs")
+        for pos, align in ((h["tab_center_dxa"],"center"),(h["tab_right_dxa"],"right")):
+            tab = OxmlElement("w:tab")
+            tab.set(qn("w:val"), align); tab.set(qn("w:pos"), str(pos))
+            tabs.append(tab)
+        pPr.append(tabs)
+        self.r(para, h["label"] + ": " + aid, size=h["font_size_pt"])
+        self.r(para, "\t" + h["url"],         size=h["font_size_pt"])
+        self.r(para, "\tSeite ",              size=h["font_size_pt"])
+        for ftype, instr in [("begin"," PAGE "),("separate",None),("end",None)]:
+            fld = OxmlElement("w:fldChar"); fld.set(qn("w:fldCharType"), ftype)
+            r = para.add_run(); r._r.append(fld)
+            r.font.size = Pt(h["font_size_pt"]); r.font.color.rgb = _rgb(self.C["brand"])
+            if instr:
+                ins = OxmlElement("w:instrText"); ins.text = instr; r._r.append(ins)
+        self.r(para, self.clbl("von", lang), size=h["font_size_pt"])
+        for ftype, instr in [("begin"," NUMPAGES "),("separate",None),("end",None)]:
+            fld = OxmlElement("w:fldChar"); fld.set(qn("w:fldCharType"), ftype)
+            r = para.add_run(); r._r.append(fld)
+            r.font.size = Pt(h["font_size_pt"]); r.font.color.rgb = _rgb(self.C["brand"])
+            if instr:
+                ins = OxmlElement("w:instrText"); ins.text = instr; r._r.append(ins)
+        _para_border_bottom(para, self.C["brand"], h["border_sz"], h["border_style"])
+
+    def build_page1(self, doc, data, logo_path):
+        cv = self.s["cover"]
+        pers    = data["personal"]
+        company = data["company"]
+        addr    = company.get("address", "Bornhohl 26, 61449 Steinbach")
+        if logo_path and os.path.exists(logo_path):
+            p = doc.add_paragraph()
+            p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            p.paragraph_format.space_before = Pt(cv["logo_space_before_pt"])
+            p.paragraph_format.space_after  = Pt(0)
+            p.add_run().add_picture(logo_path, height=Cm(cv["logo_height_cm"]))
+            p.paragraph_format.space_after = Pt(cv["logo_space_after_pt"])
+        else:
+            p = doc.add_paragraph()
+            p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            p.paragraph_format.space_before = Pt(cv["logo_space_before_pt"])
+            p.paragraph_format.space_after  = Pt(cv["logo_space_after_pt"])
+            self.r(p, "[Logo]", size=9, italic=True, color=self.C["text_light"])
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p.paragraph_format.space_before = Pt(cv["aid_space_before_pt"])
+        p.paragraph_format.space_after  = Pt(cv["aid_space_after_pt"])
+        self.r(p, data["aid"], size=cv["aid_font_size_pt"], bold=cv["aid_bold"])
+        if pers.get("headline"):
+            p = doc.add_paragraph()
+            p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            p.paragraph_format.space_before = Pt(cv["headline_space_before_pt"])
+            p.paragraph_format.space_after  = Pt(cv["headline_space_after_pt"])
+            self.r(p, self.lbl("schwerpunkt", data.get("language","de")) + pers["headline"],
+                   size=cv["headline_font_size_pt"], bold=cv["headline_bold"])
+        tbl = doc.add_table(rows=1, cols=1)
+        tbl.alignment = WD_TABLE_ALIGNMENT.LEFT
+        _tbl_width(tbl, self.TBL)
+        cell = tbl.cell(0, 0)
+        _cell_left_border_only(cell, self.C["brand"], cv["contact_border_left_sz"])
+        _cell_bg(cell, self.C["bg_light"])
+        _cell_margin(cell,
+            top=cv["contact_padding_top_dxa"], bottom=cv["contact_padding_top_dxa"],
+            left=cv["contact_padding_side_dxa"], right=cv["contact_padding_side_dxa"])
+        lines = [
+            (company.get("name","abcona e. K."), cv["contact_name_size_pt"],   True,  False, cv["contact_name_space_after_pt"]),
+            ("active business consulting agency", cv["contact_sub_size_pt"],   False, True,  cv["contact_sub_space_after_pt"]),
+            (addr,                                cv["contact_body_size_pt"],  False, False, cv["contact_addr_space_after_pt"]),
+            (self.clbl("telefon", data.get("language","de")), cv["contact_body_size_pt"], False, False, cv["contact_tel_space_after_pt"]),
+            (self.clbl("fax", data.get("language","de")),     cv["contact_body_size_pt"], False, False, cv["contact_fax_space_after_pt"]),
+            ("E-Mail office@abcona.de",            cv["contact_body_size_pt"], False, False, cv["contact_mail_space_after_pt"]),
+            ("Internet http://www.abcona.de",      cv["contact_body_size_pt"], False, False, cv["contact_web_space_after_pt"]),
+        ]
+        first = True
+        for text, size, bold, italic, sa in lines:
+            cp = cell.paragraphs[0] if first else cell.add_paragraph()
+            first = False
+            cp.paragraph_format.space_after = Pt(sa)
+            self.r(cp, text, size=size, bold=bold, italic=italic)
+        sp = doc.add_paragraph()
+        sp.paragraph_format.space_after = Pt(cv["date_spacer_pt"])
+        sp.paragraph_format.space_before = Pt(0)
+        for r in sp.runs:
+            r.font.size = Pt(1)
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+        p.paragraph_format.space_before = Pt(0)
+        p.paragraph_format.space_after  = Pt(0)
+        _para_border_top(p, self.C["border_dot"], cv["date_border_top_sz"], cv["date_border_style"], cv.get("date_padding_top_pt", 4))
+        self.r(p, self.lbl("stand", data.get("language","de")) + data["date"], size=cv["date_font_size_pt"],
+               italic=cv["date_italic"], color=self.C["text_light"])
+
+    def build_page2(self, doc, data):
+        p2    = self.s["personal"]
+        tc    = self.s["two_column"]
+        pers  = data["personal"]
+        langs = data["languages"]
+        edu   = data["education"]
+        sp = doc.add_paragraph()
+        sp.paragraph_format.space_before = Pt(0)
+        sp.paragraph_format.space_after  = Pt(self.s["section_title"].get("page_top_spacer_pt", 8))
+        self.section_title(doc, self.lbl("persoenliche_daten", data.get("language","de")))
+        rows = [
+            (self.lbl("name", data.get("language","de")),                (pers.get("first_name","")+" "+pers.get("last_name","")).strip() or "-"),
+            (self.lbl("geburtsjahr", data.get("language","de")),         str(pers.get("birth_year") or "-")),
+            (self.lbl("nationalitaet", data.get("language","de")), pers.get("nationality") or "Deutsch"),
+            (self.lbl("sprachen", data.get("language","de")),            ", ".join(langs) if langs else "-"),
+            (self.lbl("edv_seit", data.get("language","de")),  str(pers.get("edv_experience_since") or "-")),
+            (self.lbl("verfuegbar", data.get("language","de")),           pers.get("availability") or "nach Absprache"),
+            (self.lbl("einsatzort", data.get("language","de")),          pers.get("location") or "nach Absprache"),
+        ]
+        if edu:
+            edu_lines = []
+            for e in edu:
+                line = (e.get("period") or "")
+                if e.get("description"): line += (" · " if line else "") + e["description"]
+                if line: edu_lines.append(line)
+            if edu_lines: rows.append((self.lbl("ausbildung", data.get("language","de")), "\n".join(edu_lines)))
+        tbl = doc.add_table(rows=len(rows), cols=2)
+        tbl.alignment = WD_TABLE_ALIGNMENT.LEFT
+        _tbl_width(tbl, self.TBL)
+        _tbl_borders_none(tbl)
+        for i, (label, value) in enumerate(rows):
+            lc = tbl.rows[i].cells[0]; vc = tbl.rows[i].cells[1]
+            _cell_borders_none(lc); _cell_borders_none(vc)
+            _col_width(lc, p2["col_label_dxa"]); _col_width(vc, p2["col_value_dxa"])
+            _cell_margin(lc, top=p2["cell_top_dxa"], bottom=p2["cell_bot_dxa"], left=0, right=p2["cell_inner_dxa"])
+            _cell_margin(vc, top=p2["cell_top_dxa"], bottom=p2["cell_bot_dxa"], left=p2["cell_inner_dxa"], right=0)
+            from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
+            lc.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.TOP
+            vc.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.TOP
+            _cell_bg(lc, self.C["bg_light"]); _cell_bg(vc, self.C["bg_light"])
+            lp = lc.paragraphs[0]
+            self.r(lp, label, size=p2["font_size_pt"], bold=p2["label_bold"])
+            lp.paragraph_format.space_after = Pt(0)
+            if p2.get("line_height_pt"):
+                lp.paragraph_format.line_spacing = Pt(p2["line_height_pt"])
+            _para_border_bottom(lp, self.C["border_dot"], p2["border_sz"], p2["border_style"])
+            vlines = [l for l in value.split("\n") if l.strip()]
+            for j, vl in enumerate(vlines):
+                vp = vc.paragraphs[0] if j == 0 else vc.add_paragraph()
+                self.r(vp, vl, size=p2["font_size_pt"])
+                vp.paragraph_format.space_after = Pt(0)
+                if p2.get("line_height_pt"):
+                    vp.paragraph_format.line_spacing = Pt(p2["line_height_pt"])
+                if j == len(vlines)-1:
+                    _para_border_bottom(vp, self.C["border_dot"], p2["border_sz"], p2["border_style"])
+        empty_row = tbl.add_row()
+        for cell in empty_row.cells:
+            _cell_bg(cell, self.C["bg_light"])
+            _cell_borders_none(cell)
+            _cell_margin(cell, top=int(6*20), bottom=0, left=0, right=0)
+            ep = cell.paragraphs[0]
+            ep.paragraph_format.space_after = Pt(0)
+        doc.add_paragraph().paragraph_format.space_after = Pt(p2["margin_bot_pt"])
+        certs   = data.get("certifications", [])
+        courses = data.get("courses", [])
+        if certs or courses:
+            th = doc.add_table(rows=1, cols=2)
+            th.alignment = WD_TABLE_ALIGNMENT.LEFT
+            _tbl_width(th, self.TBL)
+            _tbl_borders_none(th)
+            lc = th.rows[0].cells[0]; rc = th.rows[0].cells[1]
+            for c in (lc, rc): _cell_borders_none(c); _col_width(c, self.HALF)
+            _cell_margin(lc, top=0, bottom=tc["item_top_dxa"], left=0, right=tc["item_gap_dxa"])
+            _cell_margin(rc, top=0, bottom=tc["item_top_dxa"], left=tc["item_gap_dxa"], right=0)
+            lp = lc.paragraphs[0]
+            self.r(lp, self.lbl("zertifizierungen", data.get("language","de")), size=tc["title_size_pt"], bold=tc["title_bold"])
+            _para_border_bottom(lp, self.C["brand"], tc["title_border_sz"])
+            rp = rc.paragraphs[0]
+            self.r(rp, self.lbl("schulungen", data.get("language","de")), size=tc["title_size_pt"], bold=tc["title_bold"])
+            _para_border_bottom(rp, self.C["brand"], tc["title_border_sz"])
+            max_r = max(len(certs), len(courses), 1)
+            ti = doc.add_table(rows=max_r, cols=2)
+            ti.alignment = WD_TABLE_ALIGNMENT.LEFT
+            _tbl_width(ti, self.TBL)
+            _tbl_borders_none(ti)
+            for i in range(max_r):
+                lc2 = ti.rows[i].cells[0]; rc2 = ti.rows[i].cells[1]
+                for c in (lc2, rc2): _cell_borders_none(c); _col_width(c, self.HALF)
+                if i < len(certs):
+                    _cell_margin(lc2, top=tc["item_top_dxa"], bottom=tc["item_bot_dxa"], left=0, right=tc["item_gap_dxa"])
+                    lp2 = lc2.paragraphs[0]
+                    rb = lp2.add_run("• "); rb.font.name=self.FONT; rb.font.size=Pt(tc["bullet_size_pt"]); rb.font.color.rgb=_rgb(self.C["brand"])
+                    self.r(lp2, certs[i], size=tc["text_size_pt"])
+                else:
+                    _cell_margin(lc2, top=0, bottom=0, left=0, right=0)
+                if i < len(courses):
+                    _cell_margin(rc2, top=tc["item_top_dxa"], bottom=tc["item_bot_dxa"], left=tc["item_gap_dxa"], right=0)
+                    rp2 = rc2.paragraphs[0]
+                    rb2 = rp2.add_run("• "); rb2.font.name=self.FONT; rb2.font.size=Pt(tc["bullet_size_pt"]); rb2.font.color.rgb=_rgb(self.C["brand"])
+                    self.r(rp2, courses[i], size=tc["text_size_pt"])
+                else:
+                    _cell_margin(rc2, top=0, bottom=0, left=0, right=0)
+
+    def build_page3(self, doc, data):
+        li  = self.s["list"]
+        pr  = self.s["product"]
+        ind = self.s["industry"]
+        focus      = data.get("focus_areas", [])
+        industries = data.get("industries", [])
+        products   = data.get("products", [])
+
+        if focus:
+            self._section_title_keep(doc, self.lbl("fachbereiche", data.get("language","de")))
+            for fa in focus:
+                p = doc.add_paragraph()
+                p.paragraph_format.space_after = Pt(li["padding_top_pt"])
+                p.paragraph_format.left_indent = Cm(0.3)
+                p.paragraph_format.keep_with_next = True
+                rb = p.add_run("• "); rb.font.name=self.FONT; rb.font.size=Pt(li["bullet_size_pt"]); rb.font.color.rgb=_rgb(self.C["brand"])
+                self.r(p, fa, size=li["font_size_pt"])
+            if doc.paragraphs:
+                doc.paragraphs[-1].paragraph_format.keep_with_next = False
+                doc.paragraphs[-1].paragraph_format.space_after = Pt(16)
+
+        if industries:
+            self._section_title_keep(doc, self.lbl("branchen", data.get("language","de")))
+            p = doc.add_paragraph()
+            p.paragraph_format.space_after = Pt(ind["space_after_pt"])
+            p.paragraph_format.keep_with_next = False
+            self.r(p, ", ".join(industries), size=ind["font_size_pt"])
+
+        if products:
+            self._section_title_keep(doc, self.lbl("produkte", data.get("language","de")))
+            for idx, prod in enumerate(products):
+                p = doc.add_paragraph()
+                p.paragraph_format.space_after = Pt(li["padding_top_pt"])
+                p.paragraph_format.left_indent = Cm(0.3)
+                if idx == 0:
+                    p.paragraph_format.keep_with_next = True
+                rb = p.add_run("• "); rb.font.name=self.FONT; rb.font.size=Pt(li["bullet_size_pt"]); rb.font.color.rgb=_rgb(self.C["brand"])
+                self.r(p, prod, size=li["font_size_pt"])
+
+    def build_experiences(self, doc, data):
+        ex   = self.s["experience"]
+        exps = data.get("experiences", [])
+        if not exps: return
+        self.section_title(doc, self.lbl("erfahrungen", data.get("language","de")))
+        for exp in exps:
+            tbl = doc.add_table(rows=1, cols=1)
+            tbl.alignment = WD_TABLE_ALIGNMENT.LEFT
+            _tbl_width(tbl, self.TBL)
+            trPr = tbl.rows[0]._tr.get_or_add_trPr()
+            cantSplit = OxmlElement("w:cantSplit")
+            cantSplit.set(qn("w:val"), "1")
+            trPr.append(cantSplit)
+            cell = tbl.cell(0, 0)
+            _cell_bg(cell, self.C["bg_light"])
+            _cell_borders_all(cell, self.C["border"], ex["box_border_sz"])
+            pad = int(ex["box_padding_pt"] * 20)
+            _cell_margin(cell, top=pad, bottom=pad, left=pad, right=pad)
+            p = cell.paragraphs[0]
+            p.paragraph_format.space_after = Pt(ex["date_space_after_pt"])
+            pPr = p._p.get_or_add_pPr()
+            tabs = OxmlElement("w:tabs")
+            tab = OxmlElement("w:tab")
+            tab.set(qn("w:val"), "right"); tab.set(qn("w:pos"), str(ex["tab_right_dxa"]))
+            tabs.append(tab); pPr.append(tabs)
+            period = exp.get("period") or ""
+            rd = p.add_run(period)
+            rd.font.name=self.FONT; rd.font.size=Pt(ex["date_font_size_pt"])
+            rd.bold=ex["date_bold"]; rd.font.color.rgb=_rgb(self.C["white"])
+            _run_bg(rd, self.C["brand"])
+            p.add_run("\t").font.size = Pt(ex["date_font_size_pt"])
+            rc = p.add_run(exp.get("company") or "")
+            rc.font.name=self.FONT; rc.font.size=Pt(ex["client_font_size_pt"])
+            rc.bold=ex["client_bold"]; rc.font.color.rgb=_rgb(self.C["brand"])
+            if exp.get("role"):
+                p2 = cell.add_paragraph()
+                p2.paragraph_format.space_after = Pt(ex["role_space_after_pt"])
+                self.r(p2, exp["role"], size=ex["role_font_size_pt"], bold=ex["role_bold"])
+            for act in (exp.get("activities") or []):
+                p3 = cell.add_paragraph()
+                p3.paragraph_format.left_indent       = Cm(ex["activity_indent_cm"])
+                p3.paragraph_format.first_line_indent = Cm(-ex["activity_hanging_cm"])
+                p3.paragraph_format.space_after = Pt(ex["activity_space_after_pt"])
+                rb = p3.add_run("• "); rb.font.name=self.FONT
+                rb.font.size=Pt(ex["activity_bullet_size_pt"]); rb.font.color.rgb=_rgb(self.C["brand"])
+                self.r(p3, act, size=ex["activity_font_size_pt"])
+            techs = exp.get("technologies") or []
+            if techs:
+                p4 = cell.add_paragraph()
+                p4.paragraph_format.space_before = Pt(ex["tech_space_before_pt"])
+                p4.paragraph_format.space_after  = Pt(0)
+                p4.paragraph_format.left_indent  = Cm(ex["tech_indent_cm"])
+                _para_left_bar(p4, self.C["brand"], ex["tech_border_left_sz"])
+                self.r(p4, self.lbl("technologien", data.get("language","de")), size=ex["tech_font_size_pt"], bold=True)
+                self.r(p4, ", ".join(techs),  size=ex["tech_font_size_pt"])
+            doc.add_paragraph().paragraph_format.space_after = Pt(ex["item_space_after_pt"])
+
+    def build_skills(self, doc, data):
+        sk       = self.s["skills"]
+        sections = data.get("skills_sections", [])
+        if not sections: return
+        self.section_title(doc, self.lbl("kenntnisse", data.get("language","de")))
+        for sec in sections:
+            if not sec.get("skills"): continue
+            p = doc.add_paragraph()
+            p.paragraph_format.space_before = Pt(sk["title_space_before_pt"])
+            p.paragraph_format.space_after  = Pt(sk["title_space_after_pt"])
+            self.r(p, sec["name"], size=sk["title_font_size_pt"], bold=sk["title_bold"])
+            _para_border_bottom(p, self.C["border_dot"], sk["title_border_bot_sz"], sk["title_border_style"])
+            p2 = doc.add_paragraph()
+            p2.paragraph_format.left_indent = Cm(sk["text_indent_pt"] / 28.35)
+            p2.paragraph_format.space_after = Pt(sk["text_space_after_pt"])
+            p2.paragraph_format.line_spacing = Pt(sk["text_line_height"] * sk["text_font_size_pt"])
+            _para_left_bar(p2, self.C["border_dot"], sk["text_border_left_sz"])
+            self.r(p2, sk["separator"].join(sec["skills"]), size=sk["text_font_size_pt"])
+
+    def _section_title_keep(self, doc, title):
+        st = self.s["section_title"]
+        p = doc.add_paragraph()
+        p.paragraph_format.space_before = Pt(st["space_before_pt"])
+        p.paragraph_format.space_after  = Pt(st["space_after_pt"])
+        p.paragraph_format.keep_with_next = True
+        run = p.add_run(title)
+        run.font.name = self.FONT
+        run.font.size = Pt(st["font_size_pt"])
+        run.bold = st["bold"]
+        run.font.color.rgb = _rgb(self.C["brand"])
+        _para_border_bottom(p, self.C["brand"], st["border_sz"])
+
+    def _page_break(self, doc):
+        last_para = doc.paragraphs[-1]
+        run = last_para.add_run()
+        br  = OxmlElement("w:br")
+        br.set(qn("w:type"), "page")
+        run._r.append(br)
+
+    def build_other_content(self, doc, data):
+        """Sonstige Informationen (Other Content)"""
+        other_content = data.get("other_content", [])
+        if not other_content:
+            return
+        self.section_title(doc, self.lbl("sonstige_informationen", data.get("language","de")))
+        for item in other_content:
+            p = doc.add_paragraph()
+            p.paragraph_format.left_indent = Cm(0.3)
+            p.paragraph_format.space_after = Pt(4)
+            for line in item.split('\n'):
+                self.r(p, line, size=self.s["skills"]["text_font_size_pt"])
+                p.add_run().add_break()
+
+    def build(self, doc, data, logo_path):
+        pg = self.s["page"]
+        for section in doc.sections:
+            section.page_width    = Cm(pg["width_cm"])
+            section.page_height   = Cm(pg["height_cm"])
+            section.left_margin   = Cm(pg["margin_left_cm"])
+            section.right_margin  = Cm(pg["margin_right_cm"])
+            section.top_margin    = Cm(pg["margin_top_cm"])
+            section.header_distance = Cm(pg.get("header_distance_cm", 1.5))
+            section.bottom_margin = Cm(pg["margin_bottom_cm"])
+            self.setup_header(section, data["aid"], data.get("language","de"))
+        doc.styles["Normal"].font.name = self.FONT
+        doc.styles["Normal"].font.size = Pt(self.s["font"]["size_body_pt"])
+        self.build_page1(doc, data, logo_path)
+        self._page_break(doc)
+        self.build_page2(doc, data)
+        self.build_page3(doc, data)
+        self.build_other_content(doc, data)
+        self._page_break(doc)
+        self.build_experiences(doc, data)
+        self._page_break(doc)
+        self.build_skills(doc, data)
+        return doc
+
+
+class WordGenerator:
+    CONFIG_PATH = "apps/cv_extractor/templates_config.json"
+    STYLE_PATH  = "apps/cv_extractor/templates/cv_extractor/html/aid-profile/word_style.json"
+
+    def __init__(self, template_key="aid-word", config_path=None):
+        self.template_key = template_key
+        cfg_path = config_path or os.path.join(settings.BASE_DIR, self.CONFIG_PATH)
+        with open(cfg_path, "r", encoding="utf-8") as f:
+            full_config = json.load(f)
+        self.config = full_config["templates"].get(template_key, {})
+        style_path = os.path.join(settings.BASE_DIR, self.STYLE_PATH)
+        with open(style_path, "r", encoding="utf-8") as f:
+            style = json.load(f)
+        self.builder         = CVBuilder(style)
+        self.target_dir      = os.path.join(settings.BASE_DIR, self.config.get("target_dir", "data/doc_out"))
+        self.logo_path       = os.path.join(settings.BASE_DIR, self.config.get("logo_path", "data/cv/adds/logo_abcona.png"))
+        self.filename_suffix = self.config.get("filename_suffix", "")
+
+    def get_consultant_data(self, consultant):
+        personal = {
+            "first_name":           consultant.first_name or "",
+            "last_name":            consultant.last_name or "",
+            "birth_year":           consultant.birth_year,
+            "nationality":          consultant.nationality or "Deutsch",
+            "location":             consultant.location or "nach Absprache",
+            "availability":         consultant.availability or "nach Absprache",
+            "edv_experience_since": consultant.edv_experience_since,
+            "headline":             consultant.headline or "",
+        }
+        company = {
+            "name":    consultant.company or "abcona e. K.",
+            "address": consultant.address or "Bornhohl 26, 61449 Steinbach",
+            "website": consultant.website or "http://www.abcona.de",
+        }
+        languages = []
+        for lang in consultant.languages.all().select_related("language"):
+            level = (" (" + lang.get_level_display() + ")") if lang.level else ""
+            languages.append(lang.language.name + level)
+        if not languages: languages = ["Deutsch", "Englisch"]
+
+        education = []
+        for edu in consultant.education.filter(education_type="degree").order_by("-sort_order"):
+            desc = edu.degree or edu.description or ""
+            if edu.institution: desc += " @ " + edu.institution
+            education.append({"period": edu.period or "", "description": desc})
+
+        trainings_keywords = ['kurs', 'schulung', 'engineer', 'administrator',
+                               'analyst', 'core', 'operator', 'training', 'support', 'zertifiziert']
+        courses = [
+            cert.certification.name
+            for cert in consultant.certifications.all().select_related('certification')
+            if any(kw in cert.certification.name.lower() for kw in trainings_keywords)
+        ] or []
+        courses += [e.degree for e in consultant.education.filter(education_type='course') if e.degree]
+        courses = list(dict.fromkeys(courses))
+        focus_areas    = [fa.focus_area.name for fa in consultant.focus_areas.all().select_related("focus_area")]
+        certifications = [c.certification.name for c in consultant.certifications.all().select_related("certification")]
+        products       = [fi.name for fi in consultant.focus_experience_items.all()]
+        industries     = [i.industry.name for i in consultant.industries.all().select_related("industry")]
+
+        skills_by_cat = {}
+        cat_weights   = defaultdict(list)
+        for cs in consultant.skills.all().select_related("skill", "skill__category"):
+            name = cs.skill.name
+            cat  = cs.skill.category.name if cs.skill.category else "other"
+            skills_by_cat.setdefault(cat, []).append(name)
+            if cat not in ("IT-Infrastruktur", "other"):
+                cat_weights[cat].append(cs.weight)
+
+        sorted_cats = sorted(
+            [(cat, sum(w)/len(w), skills_by_cat.get(cat,[]))
+             for cat, w in cat_weights.items() if skills_by_cat.get(cat)],
+            key=lambda x: x[1], reverse=True
+        )
+        skills_sections = [
+            {"name": cat, "skills": list(dict.fromkeys(skills))}
+            for cat, _, skills in sorted_cats if skills
+        ]
+
+        experiences = []
+        for exp in consultant.experience.all().prefetch_related("activities", "technologies__skill"):
+            experiences.append({
+                "period":       exp.period or "",
+                "company":      exp.company or "",
+                "role":         exp.role or exp.title or "",
+                "activities":   [a.activity_text for a in exp.activities.all()],
+                "technologies": [t.skill.name for t in exp.technologies.all()],
+            })
+
+        def sort_key(e):
+            m = re.search(r"(\d{2})/(\d{4})", (e["period"] or "")[:15])
+            return (int(m.group(2)), int(m.group(1))) if m else (0, 0)
+        experiences.sort(key=sort_key, reverse=True)
+
+        return {
+            "personal":        personal,
+            "company":         company,
+            "languages":       languages,
+            "education":       [e for e in education if e.get("period") or e.get("description")],
+            "courses":         courses,
+            "focus_areas":     focus_areas,
+            "certifications":  certifications,
+            "products":        products,
+            "industries":      industries,
+            "experiences":     experiences,
+            "skills_sections": skills_sections,
+            "other_content":   [oc.content for oc in consultant.other_content.all()],
+        }
+
+    def generate(self, consultant, aid=None, version=None):
+        aid  = aid or consultant.aid
+        data = self.get_consultant_data(consultant)
+        data["aid"]      = aid
+        data["language"] = getattr(consultant, 'language', 'de') or 'de'
+        data["date"]     = timezone.now().strftime("%-d. %B %Y")
+        doc = Document()
+        self.builder.build(doc, data, self.logo_path)
+        last     = (consultant.last_name  or "").lower()
+        first    = (consultant.first_name or "").lower()
+        dir_name = (last + "_" + first).strip("_") or aid.lower()
+        tgt_dir  = os.path.join(self.target_dir, dir_name)
+        os.makedirs(tgt_dir, exist_ok=True)
+        filename = aid + self.filename_suffix + ".docx"
+        filepath = os.path.join(tgt_dir, filename)
+        doc.save(filepath)
+        try:
+            relative = os.path.relpath(filepath, settings.MEDIA_ROOT)
+            url = settings.MEDIA_URL + relative
+        except ValueError:
+            url = filepath
+        return {"filepath": filepath, "url": url, "filename": filename, "directory": dir_name}
+
+    def generate_to_bytes(self, consultant, aid=None):
+        aid  = aid or consultant.aid
+        data = self.get_consultant_data(consultant)
+        data["aid"]      = aid
+        data["language"] = getattr(consultant, 'language', 'de') or 'de'
+        data["date"]     = timezone.now().strftime("%-d. %B %Y")
+        doc = Document()
+        self.builder.build(doc, data, self.logo_path)
+        buf = io.BytesIO()
+        doc.save(buf)
+        return buf.getvalue()
