@@ -40,6 +40,7 @@ FILES=(
   services/main_labeler.py
   management/commands/import_aid_profiles.py
   management/commands/patch_prompt_template.py
+  management/commands/fix_html_offline.py
 )
 
 cmd="${1:-help}"

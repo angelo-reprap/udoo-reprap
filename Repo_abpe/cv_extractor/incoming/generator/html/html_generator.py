@@ -309,9 +309,19 @@ class HTMLGenerator:
 
         html_content = render_to_string(template_path, context)
         # Offline/file:// tauglich (neu/cv Share ohne Webserver)
-        html_content = make_html_offline_friendly(
-            html_content, settings.BASE_DIR, language=lang,
-        )
+        try:
+            html_content = make_html_offline_friendly(
+                html_content, settings.BASE_DIR, language=lang,
+            )
+            from apps.cv_extractor.generator.cv_display_utils import is_html_offline
+            if not is_html_offline(html_content):
+                logger.warning(
+                    'HTMLGenerator: Offline-Embed unvollständig für %s '
+                    '(Assets fehlen? Publish versucht es erneut)',
+                    aid,
+                )
+        except Exception as e:
+            logger.warning('HTMLGenerator Offline-Embed fehlgeschlagen: %s', e)
 
         dir_name = consultant.consultant_dir or f"{consultant.last_name.lower()}_{consultant.first_name.lower()}"
         if not dir_name.strip('_'):

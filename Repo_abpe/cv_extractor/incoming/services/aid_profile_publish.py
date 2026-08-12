@@ -151,6 +151,40 @@ def _copy_into(src: Path, dest_dir: Path) -> Optional[Path]:
         return None
 
 
+def _publish_html_offline(src: Path, dest_dir: Path, language: str = 'de') -> Optional[Path]:
+    """
+    HTML nach neu/cv schreiben — immer offline-fähig (CSS/JS/Logo eingebettet).
+    Auch wenn die Quelle in data/html_out noch /static-Links hat.
+    """
+    if not src.is_file():
+        return None
+    dest = dest_dir / src.name
+    try:
+        from apps.cv_extractor.generator.cv_display_utils import (
+            is_html_offline,
+            make_html_offline_friendly,
+        )
+        html = src.read_text(encoding='utf-8')
+        if not is_html_offline(html):
+            html = make_html_offline_friendly(
+                html, base_dir=str(settings.BASE_DIR), language=language,
+            )
+        dest.write_text(html, encoding='utf-8')
+        _chmod_path(dest, is_dir=False)
+        _chown_path(dest)
+        if not is_html_offline(html):
+            logger.warning(
+                'Publish HTML noch nicht offline (%s) — CSS/Logo ggf. fehlend',
+                dest.name,
+            )
+        else:
+            logger.info('Publish HTML offline-fähig: %s', dest)
+        return dest
+    except Exception as e:
+        logger.warning(f'Offline-HTML Publish fehlgeschlagen, Fallback Copy: {e}')
+        return _copy_into(src, dest_dir)
+
+
 def _libreoffice_to_pdf(src: Path, out_dir: Path) -> Optional[Path]:
     """DOCX/HTML → PDF via LibreOffice headless."""
     if not src.is_file():
@@ -233,9 +267,12 @@ def publish_consultant_outputs(
         html_dir = base / 'data' / 'html_out' / cdir
         doc_dir = base / 'data' / 'doc_out' / cdir
 
-        # HTML kopieren (Haupt + short)
+        # HTML → neu/cv (offline-fähig, auch wenn html_out noch /static hat)
         for name in (f'{aid}.html', f'{aid}-short.html', f'{aid}-en.html', f'{aid}-en-short.html'):
-            p = _copy_into(html_dir / name, dest_dir)
+            src_html = html_dir / name
+            if not src_html.is_file():
+                continue
+            p = _publish_html_offline(src_html, dest_dir, language=lang)
             if p:
                 out['files'].append(str(p))
 
