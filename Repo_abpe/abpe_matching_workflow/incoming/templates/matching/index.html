@@ -1,0 +1,33 @@
+{% extends 'matching/base.html' %}
+{% load static %}
+
+{% block title %}Matching{% endblock %}
+
+{% block matching_content %}
+<div id="tab-anfragen" class="matching-tab-panel">
+    {% include 'matching/tabs/anfragen.html' %}
+</div>
+<div id="tab-neu" class="matching-tab-panel" style="display:none">
+    {% include 'matching/tabs/neu.html' %}
+</div>
+<div id="tab-shortlist" class="matching-tab-panel" style="display:none">
+    {% include 'matching/tabs/shortlist.html' %}
+</div>
+<div id="tab-kanban" class="matching-tab-panel" style="display:none">
+    {% include 'matching/tabs/kanban.html' %}
+</div>
+<div id="tab-abschluss" class="matching-tab-panel" style="display:none">
+    {% include 'matching/tabs/abschluss.html' %}
+</div>
+<div id="tab-archiv" class="matching-tab-panel" style="display:none">
+    {% include 'matching/tabs/archiv.html' %}
+</div>
+<div id="tab-crm" class="matching-tab-panel" style="display:none">
+    {% include 'matching/tabs/crm.html' %}
+</div>
+{% if user.is_staff %}
+<div id="tab-reporting" class="matching-tab-panel" style="display:none">
+    {% include 'matching/tabs/reporting.html' %}
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends "abpe_matching_workflow/base.html" %}
+
+{% block title %}Projekte - ABPE Matching{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1><i class="fas fa-project-diagram me-3"></i>Projekte</h1>
+    <div>
+        <a href="{% url 'abpe_matching_workflow:project_create' %}" class="btn btn-primary">
+            <i class="fas fa-plus me-2"></i>Neues Projekt
+        </a>
+    </div>
+</div>
+
+<!-- Filter -->
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-3">
+                <input type="text" name="search" class="form-control" placeholder="Suche..." value="{{ request.GET.search }}">
+            </div>
+            <div class="col-md-2">
+                <select name="status" class="form-select">
+                    <option value="">Alle Status</option>
+                    {% for status_code, status_name in status_choices %}
+                    <option value="{{ status_code }}" {% if request.GET.status == status_code %}selected{% endif %}>
+                        {{ status_name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="fas fa-search me-2"></i>Filtern
+                </button>
+            </div>
+            <div class="col-md-2">
+                <a href="{% url 'abpe_matching_workflow:project_list' %}" class="btn btn-outline-secondary w-100">
+                    <i class="fas fa-times me-2"></i>Zurücksetzen
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Projekte Tabelle -->
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover datatable">
+                <thead>
+                    <tr>
+                        <th>Projekt-Nr.</th>
+                        <th>Titel</th>
+                        <th>Kunde</th>
+                        <th>Start</th>
+                        <th>Ort</th>
+                        <th>Berater</th>
+                        <th>Status</th>
+                        <th>Match Ø</th>
+                        <th>Aktionen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for project in projects %}
+                    <tr>
+                        <td><strong>{{ project.project_number }}</strong></td>
+                        <td>{{ project.title|truncatechars:40 }}</td>
+                        <td>{{ project.customer_name|truncatechars:25 }}</td>
+                        <td>{{ project.start_date|default:"k.A."|date:"d.m.Y" }}</td>
+                        <td>
+                            {% if project.remote_possible %}
+                                <i class="fas fa-globe text-info me-1" title="Remote möglich"></i>
+                            {% endif %}
+                            {{ project.location|default:"k.A." }}
+                        </td>
+                        <td>
+                            <span class="badge bg-secondary">{{ project.consultants.count }}</span>
+                        </td>
+                        <td>
+                            <span class="status-badge status-{{ project.status }}">
+                                {{ project.get_status_display }}
+                            </span>
+                        </td>
+                        <td>
+                            {% with avg=project.consultants.all|dictsort:"match_score"|last %}
+                                {% if avg %}
+                                <span class="badge badge-match" style="background: 
+                                    {% if avg.match_score > 0.8 %}#27ae60
+                                    {% elif avg.match_score > 0.6 %}#f39c12
+                                    {% else %}#e74c3c{% endif %}">
+                                    {{ avg.match_score|floatformat:0 }}%
+                                </span>
+                                {% else %}
+                                <span class="text-muted">-</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                        <td>
+                            <a href="{% url 'abpe_matching_workflow:project_detail' project.id %}" 
+                               class="btn btn-sm btn-outline-primary" title="Details">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="/admin/abpe_matching_workflow/projectrequest/{{ project.id }}/change/" 
+                               class="btn btn-sm btn-outline-secondary" title="Bearbeiten" target="_blank">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="9" class="text-center text-muted py-4">
+                            <i class="fas fa-folder-open fa-3x mb-3"></i><br>
+                            Keine Projekte gefunden
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

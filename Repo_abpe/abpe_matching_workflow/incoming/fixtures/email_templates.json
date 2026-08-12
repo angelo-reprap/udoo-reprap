@@ -1,0 +1,182 @@
+[
+{
+  "model": "abpe_matching_workflow.emailtemplate",
+  "pk": "42b424f6-7ab5-4b90-956c-fac1a715fd40",
+  "fields": {
+    "name": "Nicht erreicht — Rückrufbitte",
+    "template_type": "consultant_no_feedback",
+    "subject": "Ich habe versucht Sie zu erreichen — {berater_name}",
+    "body": "Sehr geehrte/r {berater_anrede} {berater_name},\n\nich habe heute versucht, Sie telefonisch zu erreichen, leider ohne Erfolg.\n\nEs geht um das Projekt **{projekt_titel}** — ich würde mich sehr über einen kurzen Austausch freuen.\n\nDarf ich Sie zu einem anderen Zeitpunkt anrufen? Oder können Sie mir einen passenden Termin nennen?\n\nAlternativ können Sie mich jederzeit unter {absender_telefon} erreichen.\n\nMit freundlichen Grüßen\n{absender_name}\n{absender_email}\nabcona e.K.",
+    "use_ollama": false,
+    "ollama_prompt_template": "",
+    "is_active": true,
+    "sort_order": 25,
+    "created_at": "2026-05-20T21:07:26.092Z"
+  }
+},
+{
+  "model": "abpe_matching_workflow.emailtemplate",
+  "pk": "438d7d3c-2480-46d1-92bd-5d3c1aedc1c5",
+  "fields": {
+    "name": "Bulk-Absage nicht vermittelte Berater",
+    "template_type": "consultant_rejection",
+    "subject": "Rückmeldung Projekt {projekt_titel}",
+    "body": "Sehr geehrte/r {berater_anrede} {berater_name},\n\nvielen Dank für Ihre Zeit und Ihr Interesse am Projekt **{projekt_titel}**.\n\nDer Kunde hat sich entschieden und leider nicht für Sie als Kandidaten entschieden. {absage_begruendung}\n\nWir schätzen Ihre Zusammenarbeit sehr und werden uns bei passenden Projekten gerne wieder an Sie wenden.\n\n{verfuegbarkeit_hinweis}\n\nMit freundlichen Grüßen\n{absender_name}\n{absender_email}\nabcona e.K.",
+    "use_ollama": false,
+    "ollama_prompt_template": "",
+    "is_active": true,
+    "sort_order": 42,
+    "created_at": "2026-05-20T21:09:07.532Z"
+  }
+},
+{
+  "model": "abpe_matching_workflow.emailtemplate",
+  "pk": "5af03117-1e45-4f29-9728-9fab7c5bae07",
+  "fields": {
+    "name": "Berater nicht mehr verfügbar — Info an Kunde",
+    "template_type": "consultant_unavailable",
+    "subject": "Information: Berater [{projekt_nummer}] nicht mehr verfügbar",
+    "body": "Sehr geehrte/r {kunde_anrede} {kunde_name},\n\nich muss Sie leider informieren, dass der vorgeschlagene Berater **{berater_name}** für das Projekt **{projekt_titel}** nicht mehr zur Verfügung steht.\n\n{unavailable_grund}\n\nSelbstverständlich suchen wir umgehend nach einem geeigneten Ersatz und werden Ihnen schnellstmöglich einen neuen Kandidaten vorschlagen.\n\nWir bitten um Ihr Verständnis.\n\nMit freundlichen Grüßen\n{absender_name}\n{absender_email}\nabcona e.K.",
+    "use_ollama": false,
+    "ollama_prompt_template": "",
+    "is_active": true,
+    "sort_order": 45,
+    "created_at": "2026-05-20T21:07:26.122Z"
+  }
+},
+{
+  "model": "abpe_matching_workflow.emailtemplate",
+  "pk": "5db38c64-aa83-4841-ae05-5d308868ed6d",
+  "fields": {
+    "name": "Berater wieder verfügbar — Info an Kunde",
+    "template_type": "availability_alert",
+    "subject": "Berater {berater_name} wieder verfügbar — {projekt_titel}",
+    "body": "Sehr geehrte/r {kunde_anrede} {kunde_name},\n\nSie erinnern sich vielleicht an unser Projekt **{projekt_titel}** vom {projekt_datum}.\n\nDamals hatte unser Berater **{berater_name}** Ihr Interesse geweckt. Ich freue mich, Ihnen mitteilen zu dürfen, dass er/sie ab sofort wieder verfügbar ist.\n\nFalls Sie aktuell ein ähnliches Projekt haben oder Bedarf an seinem/ihrem Profil besteht, stehe ich gerne für ein Gespräch zur Verfügung.\n\nMit freundlichen Grüßen\n{absender_name}\n{absender_email}\nabcona e.K.",
+    "use_ollama": true,
+    "ollama_prompt_template": "Erstelle eine persönliche Reaktivierungs-Mail an Kunde {kunde_name}. Berater {berater_name} ist wieder verfügbar. Bezug auf früheres Projekt {projekt_titel}. Ton: freundlich, nicht aufdringlich.",
+    "is_active": true,
+    "sort_order": 55,
+    "created_at": "2026-05-20T21:07:26.166Z"
+  }
+},
+{
+  "model": "abpe_matching_workflow.emailtemplate",
+  "pk": "a35ba855-db22-49ef-898e-3899cf14949d",
+  "fields": {
+    "name": "Absage an Berater",
+    "template_type": "consultant_rejection",
+    "subject": "Rückmeldung: {projekt_titel}",
+    "body": "Sehr geehrte/r {berater_anrede} {berater_name},\n\nvielen Dank für Ihr Interesse am Projekt **{projekt_titel}**.\n\nLeider hat sich der Kunde für einen anderen Kandidaten entschieden. {absage_begruendung}\n\nWir halten Ihr Profil weiterhin in unserer Datenbank und werden uns bei passenden Projekten gerne wieder an Sie wenden.\n\nMit freundlichen Grüßen\n{absender_name}\n{absender_email}\nabcona e.K.",
+    "use_ollama": false,
+    "ollama_prompt_template": "",
+    "is_active": true,
+    "sort_order": 40,
+    "created_at": "2026-05-20T21:07:26.116Z"
+  }
+},
+{
+  "model": "abpe_matching_workflow.emailtemplate",
+  "pk": "aef5dafa-4b2f-4c9c-b438-de9ea7de6716",
+  "fields": {
+    "name": "Berater kontaktieren",
+    "template_type": "consultant_contact",
+    "subject": "[{projekt_nummer}] Projektanfrage — {projekt_titel}",
+    "body": "Sehr geehrte/r {berater_anrede} {berater_name},\n\nich wende mich heute an Sie, da wir ein interessantes Projekt haben, das sehr gut zu Ihrem Profil passt.\n\n**Projekt:** {projekt_titel}\n**Kunde:** {kunde_name} (vertraulich)\n**Standort:** {standort}\n**Zeitraum:** {startdatum} — {dauer}\n**Auslastung:** {auslastung}%\n**Stundensatz:** {stundensatz_von}–{stundensatz_bis} €/h\n\n**Anforderungen:**\n{anforderungen}\n\nWürden Sie Interesse an diesem Projekt haben? Falls ja, können wir gerne kurzfristig telefonieren.\n\nBitte teilen Sie mir kurz mit:\n- Sind Sie ab {startdatum} verfügbar?\n- Passt der Stundensatz?\n- Haben Sie Interesse?\n\nMit freundlichen Grüßen\n{absender_name}\n{absender_email}\nabcona e.K.",
+    "use_ollama": true,
+    "ollama_prompt_template": "Erstelle eine professionelle Kontaktmail für Berater {berater_name} zum Projekt {projekt_titel}. Betone die passenden Skills: {matched_skills}. Ton: professionell, direkt, nicht zu lang.",
+    "is_active": true,
+    "sort_order": 10,
+    "created_at": "2026-05-20T21:07:26.069Z"
+  }
+},
+{
+  "model": "abpe_matching_workflow.emailtemplate",
+  "pk": "b56dee1e-ce88-4d26-9dae-1cd2a321ee1a",
+  "fields": {
+    "name": "Projektstart — Info an Berater",
+    "template_type": "placement_start",
+    "subject": "Projektstart — {projekt_titel} bei {kunde_name}",
+    "body": "Sehr geehrte/r {berater_anrede} {berater_name},\n\nherzlichen Glückwunsch! Wir freuen uns, Ihnen mitteilen zu dürfen, dass Sie für das Projekt ausgewählt wurden.\n\n**Projektdetails:**\n- **Kunde:** {kunde_name}\n- **Projekt:** {projekt_titel}\n- **Startdatum:** {startdatum}\n- **Stundensatz:** {stundensatz} €/h\n- **Laufzeit:** bis {enddatum}\n\n**Infos zum ersten Tag:**\n- **Ansprechpartner vor Ort:** {ansprechpartner_vor_ort}\n- **Adresse:** {adresse}\n- {erste_tag_infos}\n\nBei Fragen stehe ich Ihnen jederzeit zur Verfügung.\n\nMit freundlichen Grüßen\n{absender_name}\n{absender_email}\nabcona e.K.",
+    "use_ollama": false,
+    "ollama_prompt_template": "",
+    "is_active": true,
+    "sort_order": 50,
+    "created_at": "2026-05-20T21:07:26.135Z"
+  }
+},
+{
+  "model": "abpe_matching_workflow.emailtemplate",
+  "pk": "b5ef1d11-f65d-456e-a15b-2dc20df22149",
+  "fields": {
+    "name": "Absage an Kunde",
+    "template_type": "client_rejection",
+    "subject": "Rückmeldung: Projekt {projekt_titel}",
+    "body": "Sehr geehrte/r {kunde_anrede} {kunde_name},\n\nvielen Dank für Ihr Vertrauen in unsere Dienstleistungen.\n\nLeider konnten wir für Ihr Projekt **{projekt_titel}** keinen passenden Berater finden. {absage_begruendung}\n\nWir werden Ihre Anforderungen im Hinterkopf behalten und uns melden, sobald ein geeigneter Kandidat verfügbar ist.\n\nMit freundlichen Grüßen\n{absender_name}\n{absender_email}\nabcona e.K.",
+    "use_ollama": false,
+    "ollama_prompt_template": "",
+    "is_active": true,
+    "sort_order": 65,
+    "created_at": "2026-05-20T21:09:07.524Z"
+  }
+},
+{
+  "model": "abpe_matching_workflow.emailtemplate",
+  "pk": "cc67c493-4573-4c5e-b5d0-db83d5158ee4",
+  "fields": {
+    "name": "Interview-Anfrage an Kunde",
+    "template_type": "interview_request",
+    "subject": "[{projekt_nummer}] Interview-Anfrage — {berater_name}",
+    "body": "Sehr geehrte/r {kunde_anrede} {kunde_name},\n\nder Berater **{berater_name}** hat Interesse an Ihrem Projekt **{projekt_titel}** bekundet.\n\nWären Sie bereit, ein kurzes Kennenlerngespräch zu führen?\n\n**Vorgeschlagene Termine:**\n{interview_termine}\n\nDas Gespräch kann per Teams, Telefon oder persönlich stattfinden — ganz nach Ihrem Wunsch.\n\nMit freundlichen Grüßen\n{absender_name}\n{absender_email}\nabcona e.K.",
+    "use_ollama": false,
+    "ollama_prompt_template": "",
+    "is_active": true,
+    "sort_order": 60,
+    "created_at": "2026-05-20T21:09:07.511Z"
+  }
+},
+{
+  "model": "abpe_matching_workflow.emailtemplate",
+  "pk": "d27263f7-9a59-4578-8848-d7b1703555b5",
+  "fields": {
+    "name": "Beratervorschlag an Kunde",
+    "template_type": "client_offer",
+    "subject": "[{projekt_nummer}] Beratervorschlag — {projekt_titel}",
+    "body": "Sehr geehrte/r {kunde_anrede} {kunde_name},\n\nvielen Dank für Ihre Projektanfrage. Ich freue mich, Ihnen passende Kandidaten vorstellen zu dürfen.\n\n**Ihr Projekt:** {projekt_titel}\n\n---\n\n**Vorgeschlagene Berater:**\n\n{berater_liste}\n\n---\n\nAlle Kandidaten sind zeitnah verfügbar und entsprechen Ihren Anforderungen.\n\nGerne sende ich Ihnen die vollständigen Profile zu oder vereinbare Vorstellungsgespräche.\n\nBei Rückfragen stehe ich Ihnen jederzeit zur Verfügung.\n\nMit freundlichen Grüßen\n{absender_name}\n{absender_email}\nabcona e.K.",
+    "use_ollama": true,
+    "ollama_prompt_template": "Erstelle einen professionellen Beratervorschlag für Kunde {kunde_name} zum Projekt {projekt_titel}. Berater: {berater_liste}. Ton: professionell, überzeugend.",
+    "is_active": true,
+    "sort_order": 30,
+    "created_at": "2026-05-20T21:07:26.098Z"
+  }
+},
+{
+  "model": "abpe_matching_workflow.emailtemplate",
+  "pk": "e242cffa-84db-49c8-baac-07681f164090",
+  "fields": {
+    "name": "Kunde Nachfrage",
+    "template_type": "client_followup",
+    "subject": "Nachfrage: Beratervorschlag [{projekt_nummer}]",
+    "body": "Sehr geehrte/r {kunde_anrede} {kunde_name},\n\nich wollte kurz nachfragen, ob Sie unseren Beratervorschlag für **{projekt_titel}** erhalten haben und ob Sie Feedback dazu haben.\n\nHaben die vorgeschlagenen Kandidaten Ihr Interesse geweckt? Gerne arrangiere ich Vorstellungsgespräche oder sende weitere Profile.\n\nMit freundlichen Grüßen\n{absender_name}\n{absender_email}\nabcona e.K.",
+    "use_ollama": false,
+    "ollama_prompt_template": "",
+    "is_active": true,
+    "sort_order": 35,
+    "created_at": "2026-05-20T21:07:26.111Z"
+  }
+},
+{
+  "model": "abpe_matching_workflow.emailtemplate",
+  "pk": "e5e059cb-4172-4621-9876-7fb1d6e515a4",
+  "fields": {
+    "name": "Berater Nachfrage",
+    "template_type": "consultant_followup",
+    "subject": "Nachfrage: [{projekt_nummer}] {projekt_titel}",
+    "body": "Sehr geehrte/r {berater_anrede} {berater_name},\n\nich hatte Ihnen vor einigen **{projekt_gesendet_zeit}** eine Anfrage bezüglich des Projekts **{projekt_titel}** gesendet.\n\nDa ich noch keine Rückmeldung erhalten habe, erlaube ich mir, kurz nachzufragen.\n\nHaben Sie Interesse an diesem Projekt? Ich freue mich über eine kurze Rückmeldung.\n\nFalls Sie derzeit keine Zeit für ein Gespräch haben — kein Problem, nennen Sie mir bitte einen geeigneten Termin.\n\nMit freundlichen Grüßen\n{absender_name}\n{absender_email}\nabcona e.K.",
+    "use_ollama": false,
+    "ollama_prompt_template": "",
+    "is_active": true,
+    "sort_order": 20,
+    "created_at": "2026-05-20T21:07:26.079Z"
+  }
+}
+]

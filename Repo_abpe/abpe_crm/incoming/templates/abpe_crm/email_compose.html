@@ -1,0 +1,761 @@
+{% extends "abpe_ui/modules/email_studio/base.html" %}
+{% load static %}
+
+{% block title %}E-Mail verfassen{% endblock %}
+
+{% block tab_tools %}
+<span style="font-size:11px;color:var(--text-secondary)" data-i18n="email_compose_crm_label">CRM E-Mail</span>
+{% endblock %}
+
+{% block es_content %}
+<div class="container-fluid px-0">
+
+{# ═══ CRM SEND BAR ═══ #}
+<div id="crm-send-bar" style="
+    background:var(--abcona-dark-card,#1e2d4a);
+    border-bottom:1px solid rgba(255,255,255,.1);
+    padding:10px 16px;
+    display:flex; flex-wrap:wrap; gap:10px; align-items:flex-end;
+">
+    <div style="display:flex;flex-direction:column;gap:3px;min-width:260px;flex:2;position:relative">
+        <label style="font-size:10px;color:rgba(255,255,255,.5);font-weight:600;text-transform:uppercase;letter-spacing:.4px" data-i18n="email_an">An</label>
+        {% if recipients %}
+        <select id="crm-to-sel"
+                style="padding:6px 10px;font-size:12px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:rgba(255,255,255,.08);color:#fff">
+            {% for r in recipients %}
+            <option value="{{ r.email }}" style="background:#1e2d4a">{{ r.name }} &lt;{{ r.email }}&gt;</option>
+            {% endfor %}
+            <option value="__manual__" style="background:#1e2d4a" data-i18n="email_manuell_eingeben">— Manuell / Suche —</option>
+        </select>
+        {% endif %}
+        <div id="crm-to-search-wrap" style="{% if recipients %}display:none;{% endif %}position:relative;margin-top:{% if recipients %}4px{% else %}0{% endif %}">
+            <input id="crm-to-search" type="text" autocomplete="off"
+                   value="{% if contact_name %}{{ contact_name }}{% elif to_email %}{{ to_email }}{% endif %}"
+                   placeholder="Name, Firma, Tel, E-Mail …" data-i18n-placeholder="email_empfaenger_suche"
+                   style="width:100%;padding:6px 10px;font-size:12px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:rgba(255,255,255,.08);color:#fff;box-sizing:border-box">
+            <div id="crm-to-suggest" role="listbox" style="
+                display:none;position:absolute;left:0;right:0;top:100%;z-index:40;
+                margin-top:4px;max-height:280px;overflow:auto;
+                background:#1a2740;border:1px solid rgba(255,255,255,.2);border-radius:8px;
+                box-shadow:0 8px 24px rgba(0,0,0,.45);
+            "></div>
+        </div>
+        <input id="crm-to" type="{% if recipients %}hidden{% else %}email{% endif %}" value="{{ to_email }}"
+               placeholder="empfaenger@firma.de"
+               style="{% if recipients %}{% else %}display:none;{% endif %}padding:6px 10px;font-size:12px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:rgba(255,255,255,.08);color:#fff">
+        <div id="crm-to-picked" style="font-size:11px;color:rgba(255,255,255,.65);min-height:14px;margin-top:2px">
+            {% if to_email %}<span style="color:#86efac">{{ to_email }}</span>{% endif %}
+        </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:3px;min-width:180px;flex:1">
+        <label style="font-size:10px;color:rgba(255,255,255,.5);font-weight:600;text-transform:uppercase;letter-spacing:.4px" data-i18n="email_absender">Absender</label>
+        <select id="crm-sender" onchange="document.getElementById('crm-sender-manual-row').style.display=this.value=='__manual__'?'flex':'none';if(typeof ESStudio!=='undefined')ESStudio._loadPreview();_renderSubject();"
+                style="padding:6px 10px;font-size:12px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:rgba(255,255,255,.08);color:#fff">
+            <option value="" style="background:#1e2d4a" data-i18n="email_user_eingeloggt">— User (eingeloggt) —</option>
+            {% for s in senders %}
+            <option value="{{ s.pk }}" style="background:#1e2d4a" {% if s.is_default %}selected{% endif %}>
+                {{ s.display_name }} &lt;{{ s.email }}&gt;
+            </option>
+            {% endfor %}
+            <option value="__manual__" style="background:#1e2d4a" data-i18n="email_manuell_eingeben">— Manuell eingeben —</option>
+        </select>
+        <div id="crm-sender-manual-row" style="display:none;gap:4px;margin-top:4px">
+            <input id="crm-sender-name" type="text" placeholder="Name" data-i18n-placeholder="email_name_placeholder"
+                   style="flex:1;padding:5px 8px;font-size:11px;border:1px solid rgba(255,255,255,.2);border-radius:5px;background:rgba(255,255,255,.08);color:#fff">
+            <input id="crm-sender-email" type="email" placeholder="email@firma.de"
+                   style="flex:1;padding:5px 8px;font-size:11px;border:1px solid rgba(255,255,255,.2);border-radius:5px;background:rgba(255,255,255,.08);color:#fff">
+        </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:3px;min-width:180px;flex:1">
+        <label style="font-size:10px;color:rgba(255,255,255,.5);font-weight:600;text-transform:uppercase;letter-spacing:.4px" data-i18n="email_signatur">Signatur</label>
+        <select id="crm-signature" style="padding:6px 10px;font-size:12px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:rgba(255,255,255,.08);color:#fff">
+            <option value="" style="background:#1e2d4a" data-i18n="email_keine_signatur">— Keine Signatur —</option>
+            {% for sig in signatures %}
+            <option value="{{ sig.pk }}" style="background:#1e2d4a" {% if sig.is_default %}selected{% endif %}>{{ sig.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:3px;min-width:180px;flex:1">
+        <label style="font-size:10px;color:rgba(255,255,255,.5);font-weight:600;text-transform:uppercase;letter-spacing:.4px" data-i18n="email_vorlage">Vorlage</label>
+        <select id="crm-template-sel" style="padding:6px 10px;font-size:12px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:rgba(255,255,255,.08);color:#fff">
+            {% for tpl in templates %}
+            <option value="{{ tpl.pk }}" data-identifier="{{ tpl.identifier }}"
+                    style="background:#1e2d4a"
+                    {% if template and tpl.pk == template.pk %}selected{% endif %}>
+                {{ tpl.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-end">
+        <button id="crm-send-btn" style="
+            background:#10b981;color:#fff;border:none;border-radius:6px;
+            padding:7px 20px;font-size:12px;font-weight:600;cursor:pointer;
+            white-space:nowrap;
+        ">
+            <i class="bi bi-send"></i> <span data-i18n="email_senden">Senden</span>
+        </button>
+        <button onclick="window.close()" style="
+            background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);
+            border:1px solid rgba(255,255,255,.15);border-radius:6px;
+            padding:7px 14px;font-size:12px;cursor:pointer;
+        ">
+            <i class="bi bi-x"></i>
+        </button>
+    </div>
+    <div id="crm-send-msg" style="width:100%;display:none"></div>
+</div>
+
+{# ═══ BETREFF BAR ═══ #}
+<div style="padding:8px 16px;border-bottom:1px solid var(--border-color);background:var(--card-background,#fff)">
+    <div style="display:flex;align-items:center;gap:10px">
+        <label style="font-size:11px;color:var(--text-muted);font-weight:600;white-space:nowrap" data-i18n="email_betreff">Betreff</label>
+        <input id="es-subject-input" type="text"
+               value="{% if template %}{{ template.subject }}{% endif %}"
+               placeholder="Betreff eingeben..." data-i18n-placeholder="email_betreff_placeholder"
+               style="flex:1;padding:5px 8px;font-size:13px;border:1px solid var(--border-color);border-radius:5px;background:var(--input-bg,#fff);color:var(--text-primary)">
+    </div>
+</div>
+
+{# ═══ EMAIL STUDIO LAYOUT (aus studio.html übernommen) ═══ #}
+<div class="es-studio-layout">
+
+{# SIDEBAR #}
+<div class="es-studio-sidebar">
+    <div class="toggle-section">
+        <div class="section-header open" onclick="toggleSection(this)">
+            <span><i class="bi bi-braces"></i> <span data-i18n="email_variablen">Variablen</span> <span class="es-badge es-badge-white">9</span></span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="section-content open">
+            <div class="es-var-group-lbl" data-i18n="email_kontakt">Kontakt</div>
+            {% for v in context_vars %}
+            <div class="es-var-chip context" data-var="{{ v.name }}">
+                <span>{{ '{' }}{{ v.name }}{{ '}' }}</span>
+                <i class="bi bi-clipboard es-var-chip-icon"></i>
+            </div>
+            {% endfor %}
+            <div class="es-var-group-lbl" data-i18n="email_absender">Absender</div>
+            {% for v in user_vars %}
+            <div class="es-var-chip user" data-var="{{ v.name }}">
+                <span>{{ '{' }}{{ v.name }}{{ '}' }}</span>
+                <i class="bi bi-clipboard es-var-chip-icon"></i>
+            </div>
+            {% endfor %}
+            <div class="es-var-group-lbl" data-i18n="email_system">System</div>
+            {% for v in system_vars %}
+            <div class="es-var-chip system" data-var="{{ v.name }}">
+                <span>{{ '{' }}{{ v.name }}{{ '}' }}</span>
+                <i class="bi bi-clipboard es-var-chip-icon"></i>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="toggle-section">
+        <div class="section-header" onclick="toggleSection(this);if(this.classList.contains('open'))ESStudio.showPanel('mods')">
+            <span><i class="bi bi-puzzle"></i> <span data-i18n="email_module">Module</span></span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div id="es-modules-panel-body" class="section-content">
+            <div class="es-loading-spinner"><div class="spinner-border spinner-border-sm text-primary"></div></div>
+        </div>
+    </div>
+    <div class="toggle-section">
+        <div class="section-header" onclick="toggleSection(this)">
+            <span><i class="bi bi-pen"></i> <span data-i18n="email_signatur">Signatur</span></span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="section-content">
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">
+                <span data-i18n="email_signatur_hinweis">Signatur wird beim Senden automatisch angehängt — Auswahl oben in der Leiste.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# EDITOR #}
+<div class="es-editor-area toggle-section">
+    <div class="section-header open" onclick="toggleSection(this)">
+        <span><i class="bi bi-pencil-square"></i> <span data-i18n="email_editor_title">HTML-Editor · Variablen · Vorschau</span></span>
+        <i class="bi bi-chevron-down"></i>
+    </div>
+    <div class="section-content open" style="padding:0;display:flex;flex-direction:column;flex:1;overflow:hidden">
+        <div class="es-editor-tab-bar">
+            <div class="es-editor-tab active" data-mode="visual"><i class="bi bi-eye"></i> <span data-i18n="email_tab_visuell">Visuell</span></div>
+            <div class="es-editor-tab" data-mode="code"><i class="bi bi-code-slash"></i> <span data-i18n="email_tab_code">Code</span></div>
+            <div class="es-editor-tab" data-mode="txt"><i class="bi bi-align-left"></i> <span data-i18n="email_tab_txt">TXT</span></div>
+        </div>
+        <div id="es-wysiwyg-wrap" class="es-canvas-wrap">
+            <div id="es-canvas" class="es-canvas">
+                <div class="es-block" data-block-type="body">
+                    <div class="es-block-actions">
+                        <button class="es-block-action-btn" data-action="up"><i class="bi bi-arrow-up"></i></button>
+                        <button class="es-block-action-btn" data-action="down"><i class="bi bi-arrow-down"></i></button>
+                        <button class="es-block-action-btn danger" data-action="delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                    <div class="es-block-body-inner" contenteditable="true" data-placeholder="Nachricht eingeben..." data-i18n-placeholder="email_nachricht_placeholder">
+                        <p><span data-i18n="email_gruss">Sehr geehrte</span>{% if contact_name %} {{ contact_name }}{% endif %},</p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="es-add-block-wrap">
+                <button id="es-add-block-btn" class="es-add-block-btn">
+                    <i class="bi bi-plus-circle"></i> <span data-i18n="email_block_hinzufuegen">Block hinzufügen</span>
+                </button>
+                <div id="es-add-block-menu" class="es-add-block-menu">
+                    <div onclick="esAddBlock('text')" class="es-module-chip"><i class="bi bi-text-paragraph es-module-chip-icon"></i> <span data-i18n="email_block_text">Text-Block</span></div>
+                    <div onclick="esAddBlock('button')" class="es-module-chip"><i class="bi bi-cursor es-module-chip-icon"></i> <span data-i18n="email_block_button">Button-Block</span></div>
+                    <div onclick="esAddBlock('divider')" class="es-module-chip"><i class="bi bi-dash-lg es-module-chip-icon"></i> <span data-i18n="email_block_divider">Trennlinie</span></div>
+                </div>
+            </div>
+        </div>
+        <div id="es-code-wrap" class="es-code-area" style="display:none">
+            <textarea id="es-html-editor" class="es-code-textarea">{% if template %}{{ template.html_body }}{% endif %}</textarea>
+        </div>
+        <div id="es-txt-wrap" class="es-code-area" style="display:none">
+            <textarea id="es-txt-editor" class="es-code-textarea">{% if template %}{{ template.text_body }}{% endif %}</textarea>
+        </div>
+    </div>
+</div>
+
+{# VORSCHAU #}
+<div class="es-preview-col toggle-section">
+    <div class="section-header open" onclick="toggleSection(this)">
+        <span><i class="bi bi-eye"></i> <span data-i18n="email_vorschau">Vorschau</span></span>
+        <i class="bi bi-chevron-down"></i>
+    </div>
+    <div class="section-content open">
+        <div class="es-preview-hdr">
+            <span class="es-preview-hdr-title" data-i18n="email_vorschau">Vorschau</span>
+        </div>
+        <div class="es-preview-body">
+            <div class="es-email-sim">
+                <div class="es-email-sim-hdr">
+                    <div class="es-from"><span data-i18n="email_von">Von:</span> <span id="es-preview-from">{{ request.user.email }}</span></div>
+                    <div class="es-to"><span data-i18n="email_preview_an">An:</span> <span id="es-preview-to">{{ to_email }}</span></div>
+                    <div class="es-subj"><span id="es-preview-subject" data-i18n="email_preview_betreff">Betreff</span></div>
+                </div>
+                <div id="es-preview-body" class="es-email-sim-body"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>{# es-studio-layout #}
+
+</div>{# container #}
+
+<script>
+(function() {
+
+    function _t(key, fb) {
+        if (typeof window.t === 'function') return window.t(key);
+        if (window.i18nData && window.i18nData[key]) return window.i18nData[key];
+        return fb || key;
+    }
+    const CRM_COMPOSE = {
+        crm_id:  '{{ crm_id }}',
+        csrf:    '{{ csrf_token }}',
+    };
+
+    // Vorschau-Variablen aus Compose-Bar befüllen
+    function _getPreviewVars() {
+        const cd = window._crmContactData || {};
+        return {
+            subject:      document.getElementById('es-subject-input').value || '',
+            body:         document.getElementById('es-html-editor') ? document.getElementById('es-html-editor').value : '',
+            name:         cd.name       || window._crmContactName || '',
+            first_name:   cd.first_name || '',
+            last_name:    cd.last_name  || '',
+            email:        cd.email      || (document.getElementById('crm-to') ? document.getElementById('crm-to').value : ''),
+            sender_name:  (function(){ var el=document.getElementById('crm-sender'); if(!el) return ''; var opt=el.options[el.selectedIndex]; return opt ? opt.text.split('<')[0].trim() : ''; })(),
+            sender_email: (function(){ var el=document.getElementById('crm-sender'); if(!el) return ''; var opt=el.options[el.selectedIndex]; var m=opt ? opt.text.match(/<([^>]+)>/) : null; return m ? m[1] : ''; })(),
+            date:         new Date().toLocaleDateString('de-DE'),
+            year:         new Date().getFullYear().toString(),
+        };
+    }
+
+    // ESStudio._collectTestVars überschreiben
+    document.addEventListener('DOMContentLoaded', function() {
+        document.title = _t('email_compose_title', document.title);
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+            var k = el.getAttribute('data-i18n-placeholder');
+            var v = _t(k, el.getAttribute('data-placeholder') || el.placeholder);
+            if (el.hasAttribute('data-placeholder')) el.setAttribute('data-placeholder', v);
+            if (el.placeholder !== undefined) el.placeholder = v;
+        });
+        setTimeout(function() {
+            if (typeof ESStudio !== 'undefined') {
+                // Preview-Vars injizieren
+                const origLoad = ESStudio._loadPreview.bind(ESStudio);
+                ESStudio._loadPreview = async function() {
+                    const tplId = window.ES_CONFIG && window.ES_CONFIG.templateId;
+                    if (!tplId) return;
+                    if (typeof ESStudio._syncCanvasToCode === 'function') ESStudio._syncCanvasToCode();
+                    const subject = document.getElementById('es-subject-input');
+                    const preview = document.getElementById('es-preview-subject');
+                    if (subject && preview) preview.textContent = subject.value;
+                    const toEl = document.getElementById('es-preview-to');
+                    const toInp = document.getElementById('crm-to');
+                    if (toEl && toInp) toEl.textContent = toInp.value;
+                    try {
+                        // Variablen direkt client-seitig ersetzen
+                    const vars = _getPreviewVars();
+                    if (typeof ESStudio !== 'undefined') ESStudio._syncCanvasToCode();
+                    let rawHtml = document.getElementById('es-html-editor') ? document.getElementById('es-html-editor').value : '';
+                    if (!rawHtml) { return; }
+                    // Variablen ersetzen
+                    Object.keys(vars).forEach(function(k) {
+                        rawHtml = rawHtml.split('{' + k + '}').join(vars[k]);
+                    });
+                    const bodyEl2 = document.getElementById('es-preview-body');
+                    if (bodyEl2) {
+                        let iframe2 = bodyEl2.querySelector('iframe');
+                        if (!iframe2) {
+                            bodyEl2.innerHTML = '';
+                            iframe2 = document.createElement('iframe');
+                            iframe2.style.cssText = 'width:100%;height:300px;border:none;display:block';
+                            iframe2.sandbox = 'allow-same-origin';
+                            bodyEl2.appendChild(iframe2);
+                        }
+                        const doc2 = iframe2.contentDocument || iframe2.contentWindow.document;
+                        doc2.open(); doc2.write(rawHtml); doc2.close();
+                        requestAnimationFrame(function() {
+                            try { const h = doc2.body.scrollHeight; if(h>50) iframe2.style.height=(h+20)+'px'; } catch(e){}
+                        });
+                    }
+                    return;
+                    const resp = await fetch('/email-studio/api/templates/' + tplId + '/preview/', {
+                            method: 'POST',
+                            headers: {'Content-Type':'application/json','X-CSRFToken':'{{ csrf_token }}'},
+                            body: JSON.stringify({variables: _getPreviewVars(), mode: 'html'})
+                        });
+                        const data = await resp.json();
+                        if (data.html) {
+                            const bodyEl = document.getElementById('es-preview-body');
+                            if (!bodyEl) return;
+                            let iframe = bodyEl.querySelector('iframe');
+                            if (!iframe) {
+                                bodyEl.innerHTML = '';
+                                iframe = document.createElement('iframe');
+                                iframe.style.cssText = 'width:100%;height:300px;border:none;display:block';
+                                iframe.sandbox = 'allow-same-origin';
+                                bodyEl.appendChild(iframe);
+                            }
+                            const doc = iframe.contentDocument || iframe.contentWindow.document;
+                            doc.open(); doc.write(data.html.replace(/<script[\s\S]*?<\/script>/gi,'')); doc.close();
+                            requestAnimationFrame(function() {
+                                try { const h = doc.body.scrollHeight; if(h>50) iframe.style.height=(h+20)+'px'; } catch(e){}
+                            });
+                        }
+                    } catch(e) { console.warn('Preview fehlgeschlagen:', e); }
+                };
+                // Sofort laden
+                ESStudio._loadPreview();
+            }
+        }, 500);
+    });
+
+    // Recipients-Daten aus Django-Kontext
+    const CRM_RECIPIENTS = {{ recipients|safe }} || [];
+
+    // Kontakt-Daten via API nachladen
+    async function _loadContactData(crmId) {
+        if (!crmId) return null;
+        try {
+            const resp = await fetch('/crm/api/berater/' + crmId + '/', {
+                headers: {'X-Requested-With': 'XMLHttpRequest'}
+            });
+            if (!resp.ok) return null;
+            return await resp.json();
+        } catch(e) { return null; }
+    }
+
+    async function _applyRecipient(r) {
+        if (!r) return;
+        window._crmCurrentRecipient = r;
+        window._crmContactName = r.name || r.full_name || '';
+
+        const toInp = document.getElementById('crm-to');
+        const email = r.email || '';
+        if (toInp && email) toInp.value = email;
+        if (r.crm_id) CRM_COMPOSE.crm_id = r.crm_id;
+
+        const picked = document.getElementById('crm-to-picked');
+        if (picked) {
+            const bits = [];
+            if (r.full_name || r.name) bits.push(r.full_name || r.name);
+            if (r.company) bits.push(r.company);
+            if (r.phone) bits.push(r.phone);
+            picked.innerHTML = email
+                ? '<span style="color:#86efac">' + _esc(email) + '</span>'
+                    + (bits.length ? ' <span style="opacity:.7">· ' + _esc(bits.join(' · ')) + '</span>' : '')
+                : '<span style="color:#fbbf24">' + _t('email_keine_email', 'Keine E-Mail am Kontakt') + '</span>';
+        }
+        const searchInp = document.getElementById('crm-to-search');
+        if (searchInp && (r.full_name || r.name || email)) {
+            searchInp.value = (r.full_name || r.name || '') + (email ? ' <' + email + '>' : '');
+        }
+
+        // Kontakt-API aufrufen wenn crm_id vorhanden
+        if (r.crm_id) {
+            const contact = await _loadContactData(r.crm_id);
+            if (contact) {
+                const primaryEmail = (contact.emails || []).find(function(e) { return e.primary; })
+                    || (contact.emails || [])[0];
+                const emailResolved = primaryEmail ? primaryEmail.email : (r.email || '');
+                if (toInp && emailResolved) toInp.value = emailResolved;
+                window._crmContactData = {
+                    first_name:   contact.first_name  || r.first_name || '',
+                    last_name:    contact.last_name   || r.last_name  || '',
+                    name:         contact.full_name   || r.name || r.full_name || '',
+                    salutation:   contact.salutation  || '',
+                    title:        contact.title       || r.title || '',
+                    email:        emailResolved,
+                    phone_mobile: contact.phone_mobile || '',
+                    phone_work:   contact.phone_work   || '',
+                    firma_name:   contact.account ? contact.account.name : (r.company || window._crmFirmaName || ''),
+                    city:         contact.address ? contact.address.city : (r.city || ''),
+                    gulp_id:      contact.cstm ? contact.cstm.gulp_id : '',
+                    verfuegbar:   contact.cstm ? contact.cstm.verfuegbar_ab : '',
+                };
+                window._crmContactName = window._crmContactData.name;
+                if (picked && emailResolved) {
+                    picked.innerHTML = '<span style="color:#86efac">' + _esc(emailResolved) + '</span>'
+                        + (window._crmContactData.firma_name
+                            ? ' <span style="opacity:.7">· ' + _esc(window._crmContactData.firma_name) + '</span>'
+                            : '');
+                }
+            }
+        } else {
+            window._crmContactData = {
+                first_name: r.first_name || '',
+                last_name:  r.last_name  || '',
+                name:       r.name || r.full_name || '',
+                email:      r.email || '',
+                firma_name: r.company || window._crmFirmaName || '',
+            };
+        }
+        if (typeof ESStudio !== 'undefined') ESStudio._loadPreview();
+        _renderSubject();
+    }
+
+    function _esc(s) {
+        return String(s || '').replace(/[&<>"']/g, function(c) {
+            return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+        });
+    }
+
+    function _getSelectedRecipient() {
+        const sel = document.getElementById('crm-to-sel');
+        if (!sel || sel.value === '__manual__') return null;
+        return CRM_RECIPIENTS.find(function(r) { return r.email === sel.value; }) || null;
+    }
+
+    // Firma-Name aus URL
+    window._crmFirmaName = '{{ firma_name|escapejs }}';
+
+    // ── Empfänger-Suche (Elasticsearch fuzzy) ──
+    (function initRecipientSuggest() {
+        const searchInp = document.getElementById('crm-to-search');
+        const suggestEl = document.getElementById('crm-to-suggest');
+        const wrap = document.getElementById('crm-to-search-wrap');
+        const toInp = document.getElementById('crm-to');
+        if (!searchInp || !suggestEl) return;
+
+        let timer = null;
+        let activeIdx = -1;
+        let lastItems = [];
+
+        function hideSuggest() {
+            suggestEl.style.display = 'none';
+            suggestEl.innerHTML = '';
+            activeIdx = -1;
+        }
+
+        function renderItems(items) {
+            lastItems = items || [];
+            activeIdx = -1;
+            if (!lastItems.length) {
+                suggestEl.innerHTML = '<div style="padding:10px 12px;font-size:12px;color:rgba(255,255,255,.55)">'
+                    + _t('email_keine_treffer', 'Keine Treffer') + '</div>';
+                suggestEl.style.display = 'block';
+                return;
+            }
+            suggestEl.innerHTML = lastItems.map(function(it, i) {
+                const name = it.full_name || ((it.first_name || '') + ' ' + (it.last_name || '')).trim() || '—';
+                const meta = [it.company, it.phone, it.city].filter(Boolean).join(' · ');
+                const mail = it.email || '';
+                return '<button type="button" data-idx="' + i + '" role="option" style="'
+                    + 'display:block;width:100%;text-align:left;border:0;cursor:pointer;'
+                    + 'padding:9px 12px;background:transparent;color:#fff;border-bottom:1px solid rgba(255,255,255,.08)">'
+                    + '<div style="font-size:13px;font-weight:600">' + _esc(name) + '</div>'
+                    + (mail ? '<div style="font-size:11px;color:#86efac">' + _esc(mail) + '</div>' : '')
+                    + (meta ? '<div style="font-size:11px;color:rgba(255,255,255,.55)">' + _esc(meta) + '</div>' : '')
+                    + '</button>';
+            }).join('');
+            suggestEl.style.display = 'block';
+            suggestEl.querySelectorAll('[data-idx]').forEach(function(btn) {
+                btn.addEventListener('mousedown', function(e) {
+                    e.preventDefault();
+                    const idx = parseInt(btn.getAttribute('data-idx'), 10);
+                    if (lastItems[idx]) {
+                        _applyRecipient(lastItems[idx]);
+                        hideSuggest();
+                    }
+                });
+            });
+        }
+
+        function runSearch(q) {
+            if (!q || q.length < 2) { hideSuggest(); return; }
+            // Bereits gewähltes "Name <mail>" nicht erneut gegen ES schicken
+            if (/<[^>]+@[^>]+>/.test(q)) { hideSuggest(); return; }
+            fetch('/crm/api/contacts/suggest/?q=' + encodeURIComponent(q) + '&limit=8', {
+                headers: {'X-Requested-With': 'XMLHttpRequest'}
+            }).then(function(r) { return r.json(); })
+              .then(function(data) { renderItems(data.results || []); })
+              .catch(function() { hideSuggest(); });
+        }
+
+        searchInp.addEventListener('input', function() {
+            const q = searchInp.value.trim();
+            // Freitext-E-Mail erlauben
+            if (q.indexOf('@') > 0 && q.indexOf(' ') < 0) {
+                if (toInp) toInp.value = q;
+                const picked = document.getElementById('crm-to-picked');
+                if (picked) picked.innerHTML = '<span style="color:#86efac">' + _esc(q) + '</span>';
+            }
+            clearTimeout(timer);
+            timer = setTimeout(function() { runSearch(q); }, 220);
+        });
+
+        searchInp.addEventListener('keydown', function(e) {
+            const buttons = suggestEl.querySelectorAll('[data-idx]');
+            if (e.key === 'Escape') { hideSuggest(); return; }
+            if (e.key === 'ArrowDown' && buttons.length) {
+                e.preventDefault();
+                activeIdx = Math.min(activeIdx + 1, buttons.length - 1);
+                buttons.forEach(function(b, i) {
+                    b.style.background = i === activeIdx ? 'rgba(255,255,255,.12)' : 'transparent';
+                });
+            }
+            if (e.key === 'ArrowUp' && buttons.length) {
+                e.preventDefault();
+                activeIdx = Math.max(activeIdx - 1, 0);
+                buttons.forEach(function(b, i) {
+                    b.style.background = i === activeIdx ? 'rgba(255,255,255,.12)' : 'transparent';
+                });
+            }
+            if (e.key === 'Enter' && activeIdx >= 0 && lastItems[activeIdx]) {
+                e.preventDefault();
+                _applyRecipient(lastItems[activeIdx]);
+                hideSuggest();
+            }
+        });
+
+        searchInp.addEventListener('blur', function() {
+            setTimeout(hideSuggest, 150);
+        });
+
+        // Kunden-Dropdown: Suche ein-/ausblenden
+        const toSelEl = document.getElementById('crm-to-sel');
+        if (toSelEl && wrap) {
+            toSelEl.addEventListener('change', function() {
+                if (toSelEl.value === '__manual__') {
+                    wrap.style.display = 'block';
+                    if (toInp) { toInp.type = 'hidden'; toInp.value = ''; }
+                    searchInp.focus();
+                } else {
+                    wrap.style.display = 'none';
+                    hideSuggest();
+                    const r = _getSelectedRecipient();
+                    if (r) _applyRecipient(r);
+                }
+            });
+        }
+    })();
+
+    // Initial-Empfänger laden (ohne zweiten change-Listener — der sitzt in initRecipientSuggest)
+    (function initInitialRecipient() {
+        const toSelEl = document.getElementById('crm-to-sel');
+        if (toSelEl) {
+            const firstR = CRM_RECIPIENTS[0];
+            if (firstR) {
+                setTimeout(function() { _applyRecipient(firstR); }, 300);
+            }
+            return;
+        }
+        // Berater-Modus: crm_id aus URL
+        const urlCrmId = '{{ crm_id|escapejs }}';
+        if (urlCrmId) {
+            setTimeout(function() {
+                _applyRecipient({
+                    crm_id:     urlCrmId,
+                    name:       '{{ contact_name|escapejs }}',
+                    full_name:  '{{ contact_name|escapejs }}',
+                    email:      '{{ to_email|escapejs }}',
+                    first_name: '{{ contact_name|escapejs }}'.split(' ')[0] || '',
+                    last_name:  '{{ contact_name|escapejs }}'.split(' ').slice(1).join(' ') || '',
+                });
+            }, 300);
+        }
+    })();
+
+    // Betreff-Änderung → Vorschau aktualisieren (mit Variablen ersetzen)
+    function _renderSubject() {
+        const subj = document.getElementById('es-subject-input');
+        const prev = document.getElementById('es-preview-subject');
+        if (!subj || !prev) return;
+        const vars = _getPreviewVars();
+        let s = subj.value;
+        Object.keys(vars).forEach(function(k) { s = s.split('{'+k+'}').join(vars[k]); });
+        prev.textContent = s;
+    }
+    document.addEventListener('languageChanged', function() {
+            document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');var v=_t(k);if(v&&v!==k)el.textContent=v;});
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){var k=el.getAttribute('data-i18n-placeholder');var v=_t(k,el.placeholder);if(el.hasAttribute('data-placeholder'))el.setAttribute('data-placeholder',v);el.placeholder=v;});
+            document.title=_t('email_compose_title',document.title);
+        });
+    document.getElementById('es-subject-input').addEventListener('input', _renderSubject);
+    setTimeout(_renderSubject, 600);
+
+    // Vorlage wechseln → Editor neu laden
+    document.getElementById('crm-template-sel').addEventListener('change', function() {
+        const pk = this.value;
+        if (!pk) return;
+        fetch('/email-studio/api/templates/' + pk + '/', {
+            headers: {'X-Requested-With': 'XMLHttpRequest'}
+        }).then(function(r) { return r.json(); })
+          .then(function(data) {
+              const tpl = data.template;
+              if (!tpl) return;
+              const subj = document.getElementById('es-subject-input');
+              if (subj && tpl.subject) subj.value = tpl.subject;
+              const editor = document.getElementById('es-html-editor');
+              if (editor) {
+                  editor.value = tpl.html_body || '';
+                  if (typeof ESStudio !== 'undefined') {
+                      ESStudio._syncCodeToCanvas();
+                      ESStudio._loadPreview();
+                  }
+              }
+          });
+    });
+
+    function _resolveToEmail() {
+        const toSel = document.getElementById('crm-to-sel');
+        const toHidden = document.getElementById('crm-to');
+        const searchInp = document.getElementById('crm-to-search');
+        let to = '';
+        if (toSel && toSel.value && toSel.value !== '__manual__') {
+            to = toSel.value.trim();
+        } else if (toHidden && toHidden.value) {
+            to = toHidden.value.trim();
+        }
+        // "Name <mail@x.de>" aus Suchfeld parsen
+        if (!to && searchInp) {
+            const raw = searchInp.value.trim();
+            const m = raw.match(/<([^>]+@[^>]+)>/);
+            if (m) to = m[1].trim();
+            else if (raw.indexOf('@') > 0 && raw.indexOf(' ') < 0) to = raw;
+        }
+        return to;
+    }
+
+    // Senden
+    document.getElementById('crm-send-btn').addEventListener('click', async function() {
+        const to = _resolveToEmail();
+        const senderSel = document.getElementById('crm-sender');
+        const sender = senderSel && senderSel.value !== '__manual__' ? senderSel.value : '';
+        // Manueller Absender → als sender_name/email in Variablen
+        const senderManualName  = document.getElementById('crm-sender-name')  ? document.getElementById('crm-sender-name').value.trim()  : '';
+        const senderManualEmail = document.getElementById('crm-sender-email') ? document.getElementById('crm-sender-email').value.trim() : '';
+        const sig     = document.getElementById('crm-signature').value;
+        const subject = document.getElementById('es-subject-input').value.trim();
+        const msgEl   = document.getElementById('crm-send-msg');
+
+        // HTML aus Editor holen
+        if (typeof ESStudio !== 'undefined') ESStudio._syncCanvasToCode();
+        const body = document.getElementById('es-html-editor').value.trim();
+
+        msgEl.style.display = 'none';
+
+        if (!to)      { _msg('error', _t('email_fehler_empfaenger', 'Empfänger fehlt')); return; }
+        if (!subject) { _msg('error', _t('email_fehler_betreff', 'Betreff fehlt')); return; }
+        if (!body)    { _msg('error', _t('email_fehler_nachricht', 'Nachricht fehlt')); return; }
+
+        this.disabled = true;
+        this.innerHTML = '<i class="bi bi-hourglass"></i> ' + _t('email_senden_laden', 'Senden...');
+
+        try {
+            const resp = await fetch('/crm/api/email/send/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken':  CRM_COMPOSE.csrf,
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+                body: JSON.stringify({
+                    template_identifier: document.getElementById('crm-template-sel').options[
+                        document.getElementById('crm-template-sel').selectedIndex
+                    ].dataset.identifier || 'crm_manual_email',
+                    to_email:     to,
+                    subject:      subject,
+                    body:         body,
+                    contact_name: window._crmContactName || '',
+                    crm_id:       CRM_COMPOSE.crm_id,
+                    signature_id: sig,
+                    sender_id:    sender,
+                }),
+            });
+            const result = await resp.json();
+            if (result.success) {
+                _msg('ok', _t('email_gesendet_ok', '✓ E-Mail gesendet!'));
+                this.innerHTML = '<i class="bi bi-check-lg"></i> ' + _t('email_gesendet_btn', 'Gesendet');
+                setTimeout(function() { window.close(); }, 1800);
+            } else {
+                _msg('error', result.error || _t('email_fehler_senden', 'Fehler beim Senden'));
+                this.disabled = false;
+                this.innerHTML = '<i class="bi bi-send"></i> ' + _t('email_senden', 'Senden');
+            }
+        } catch(e) {
+            _msg('error', _t('email_netzwerkfehler', 'Netzwerkfehler'));
+            this.disabled = false;
+            this.innerHTML = '<i class="bi bi-send"></i> ' + _t('email_senden', 'Senden');
+        }
+    });
+
+    function _msg(type, text) {
+        const el = document.getElementById('crm-send-msg');
+        el.style.display = 'block';
+        el.style.color   = type === 'ok' ? '#10b981' : '#f87171';
+        el.textContent   = text;
+    }
+})();
+</script>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>window.ABPE_CONFIG=window.ABPE_CONFIG||{};window.ABPE_CONFIG.module_id='crm_emails';window.ABPE_CONFIG.tab='emails';</script>
+<script>
+async function _refreshComposeI18n(lang) {
+    lang = lang || window.ABPE_CONFIG?.current_lang || 'de';
+    if (typeof window.loadLanguage !== 'function') return;
+    await window.loadLanguage(lang, 'email_studio');
+    if (typeof window.loadCrmI18nSupplement === 'function') await window.loadCrmI18nSupplement(lang, 'crm_emails');
+    if (typeof window.applyTranslations === 'function') window.applyTranslations();
+    const lbl = document.getElementById('es-help-btn-label');
+    if (lbl && window.i18nData?.es?.help_btn) lbl.textContent = window.i18nData.es.help_btn;
+}
+document.addEventListener('DOMContentLoaded', function() {
+    _refreshComposeI18n('{{ current_lang|default:"de" }}');
+});
+document.addEventListener('languageChanged', function(e) {
+    if (e.detail && e.detail.language) _refreshComposeI18n(e.detail.language);
+}, {capture: true});
+</script>
+<script src="{% static 'email_studio/js/es-studio.js' %}"></script>
+{% endblock %}

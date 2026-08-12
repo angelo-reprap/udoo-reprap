@@ -1,0 +1,10 @@
+ts=20260812-112256
+iso=2026-08-12T11:23:01+02:00
+host=ucs5.win.abcona.info
+branch=cursor/matching-ki-anfrage-wizard-7f07
+backup=/opt/abpe/backups/matching-live-20260812-112256
+crm_views_lines=2659
+crm_has_contacts_suggest=1
+crm_has_berater_cv=1
+ui_has_fillSkills=5
+ui_has_saveMatchTerms=6

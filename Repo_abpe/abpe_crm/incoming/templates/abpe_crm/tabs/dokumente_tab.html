@@ -1,0 +1,24 @@
+<div class="crm-full-panel">
+    <div class="section-header open">
+        <i class="bi bi-file-text"></i> <span data-i18n="dokumente">Dokumente</span>
+        <button class="crm-new-btn" onclick="crmUploadDokument()">
+            <i class="bi bi-upload"></i> <span data-i18n="dokument_hochladen">Dokument hochladen</span>
+        </button>
+        <i class="bi bi-chevron-down"></i>
+    </div>
+    <div class="section-content open">
+        <div class="crm-filter-bar">
+            <select id="filter-doc-type" onchange="crmSearch()">
+                <option value=""><span data-i18n="alle_typen">Alle Typen</span></option>
+                <option value="cv">CV</option>
+                <option value="contract"><span data-i18n="vertrag">Vertrag</span></option>
+                <option value="invoice"><span data-i18n="rechnung">Rechnung</span></option>
+                <option value="offer"><span data-i18n="angebot">Angebot</span></option>
+                <option value="email"><span data-i18n="e_mail">E-Mail</span></option>
+                <option value="other"><span data-i18n="sonstiges">Sonstiges</span></option>
+            </select>
+        </div>
+        <div id="crm-list" class="crm-list"></div>
+        <div id="crm-pagination" class="crm-pagination"></div>
+    </div>
+</div>

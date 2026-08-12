@@ -70,27 +70,6 @@ from .models import (
 # HELPERS
 # ============================================================
 
-# Matching-Terms auf CrmContactCstm — bei select_related deferren,
-# damit fehlende DB-Spalten die Berater-Liste nicht mit 500 killen.
-_CRM_TERMS_DEFER = (
-    'cstm__verfuegbar_tage_pro_woche_c',
-    'cstm__verfuegbar_hinweis_c',
-    'cstm__satz_remote_c',
-    'cstm__satz_vor_ort_c',
-)
-
-
-def _cstm_get(cstm, attr, default=None):
-    """Sicheres Lesen optionaler CSTM-Felder (fehlende Spalte → default)."""
-    if cstm is None:
-        return default
-    try:
-        val = getattr(cstm, attr)
-    except Exception:
-        return default
-    return default if val is None else val
-
-
 def _lang(request):
     return request.session.get('language', 'de')
 
@@ -179,9 +158,7 @@ def api_berater_list(request):
     page      = int(request.GET.get('page', 1))
     per_page  = int(request.GET.get('per_page', 20))
 
-    # Terms-Spalten deferren: fehlen sie in der DB (Migration noch nicht),
-    # darf die Liste trotzdem laden — Zugriff in _berater_row ist abgesichert.
-    qs = CrmContact.objects.select_related('cstm').defer(*_CRM_TERMS_DEFER)
+    qs = CrmContact.objects.select_related('cstm').all()
 
     matched_ids = []
     if q:
@@ -266,10 +243,7 @@ def api_berater_list(request):
 @require_http_methods(['GET'])
 def api_berater_detail(request, crm_id):
     """Berater Detail — alle Felder"""
-    c = get_object_or_404(
-        CrmContact.objects.select_related('cstm').defer(*_CRM_TERMS_DEFER),
-        crm_id=crm_id,
-    )
+    c = get_object_or_404(CrmContact, crm_id=crm_id)
     cstm = getattr(c, 'cstm', None)
 
     emails = list(
@@ -341,11 +315,7 @@ def api_berater_detail(request, crm_id):
             'kontakt_typ':    cstm.kontakt_typ_c if cstm else '',
             'kontakt_status': cstm.kontakt_status_c if cstm else '',
             'verfuegbar_ab':  str(cstm.verfuegbar_ab_c) if cstm and cstm.verfuegbar_ab_c else '',
-            'verfuegbar_tage_pro_woche': _cstm_get(cstm, 'verfuegbar_tage_pro_woche_c'),
-            'verfuegbar_hinweis': _cstm_get(cstm, 'verfuegbar_hinweis_c', '') or '',
             'konditionen':    cstm.konditionen_c if cstm else '',
-            'satz_remote':    (lambda v: str(v) if v is not None else '')(_cstm_get(cstm, 'satz_remote_c')),
-            'satz_vor_ort':   (lambda v: str(v) if v is not None else '')(_cstm_get(cstm, 'satz_vor_ort_c')),
             'gulp_id':        cstm.gulp_id_c if cstm else '',
             'gulp_updated':   str(cstm.gulp_last_updated_c) if cstm and cstm.gulp_last_updated_c else '',
             'skill_priority': cstm.skill_priority_c if cstm else '',
@@ -510,10 +480,11 @@ def api_kunden_detail(request, crm_id):
         .values('id', 'note_text', 'note_type', 'created_by', 'created_at')[:10]
     )
 
-    from apps.abpe_edms.models import CrmDocument as _EdmsCrmDocument, OwnerType as _EdmsOwnerType
+    from apps.abpe_edms.models import CrmDocument as _EdmsCrmDocument
+    from apps.abpe_edms.owner_rollup import related_crm_ids_for_entity
+    _rollup_ids = related_crm_ids_for_entity(crm_id)
     _docs_qs = _EdmsCrmDocument.objects.filter(
-        owners__owner_crm_id=crm_id,
-        owners__owner_type=_EdmsOwnerType.ACCOUNT,
+        owners__owner_crm_id__in=_rollup_ids,
         in_trash=False,
     ).select_related('doctype').order_by('-document_date', '-created_at').distinct()[:20]
     docs = [{
@@ -994,10 +965,7 @@ def api_contact_update(request, crm_id):
         'whatsapp_number',
     ]
     CSTM_FIELDS = [
-        'kontakt_typ_c','kontakt_status_c','verfuegbar_ab_c',
-        'verfuegbar_tage_pro_woche_c','verfuegbar_hinweis_c',
-        'konditionen_c','satz_remote_c','satz_vor_ort_c',
-        'skill_priority_c','gulp_id_c','einsatzort_stadt_c','einsatzort_region_c','einsatzort_plz_c',
+        'kontakt_typ_c','kontakt_status_c','verfuegbar_ab_c','konditionen_c','skill_priority_c','gulp_id_c','einsatzort_stadt_c','einsatzort_region_c','einsatzort_plz_c',
         'gulp_profil_c','ogo_description_c','freelancermap_profil_c','xing_profile_c',
     ]
 
@@ -1010,48 +978,11 @@ def api_contact_update(request, crm_id):
         if changed:
             c.save()
 
-        # Cstm ggf. anlegen, wenn Stammdaten-Felder gesetzt werden
-        if cstm is None and any(f in data for f in CSTM_FIELDS):
-            from apps.abpe_crm.models import CrmContactCstm
-            cstm, _ = CrmContactCstm.objects.get_or_create(contact_id=crm_id)
-
         if cstm:
-            from decimal import Decimal, InvalidOperation
             cstm_changed = False
-            NUMERIC_CSTM = {
-                'verfuegbar_tage_pro_woche_c': int,
-                'satz_remote_c': Decimal,
-                'satz_vor_ort_c': Decimal,
-            }
             for field in CSTM_FIELDS:
-                if field not in data:
-                    continue
-                val = data[field]
-                if field in NUMERIC_CSTM:
-                    if val is None or val == '':
-                        val = None
-                    else:
-                        try:
-                            val = NUMERIC_CSTM[field](str(val).replace(',', '.').strip())
-                        except (InvalidOperation, ValueError, TypeError):
-                            return JsonResponse(
-                                {'ok': False, 'error': f'Ungültiger Wert für {field}'},
-                                status=400,
-                            )
-                elif field == 'verfuegbar_ab_c' and val == '':
-                    val = None
-                setattr(cstm, field, val)
-                cstm_changed = True
-            if 'konditionen_c' not in data and (
-                'satz_remote_c' in data or 'satz_vor_ort_c' in data
-            ):
-                parts = []
-                if cstm.satz_remote_c is not None:
-                    parts.append(f'{cstm.satz_remote_c} remote')
-                if cstm.satz_vor_ort_c is not None:
-                    parts.append(f'{cstm.satz_vor_ort_c} vor Ort')
-                if parts:
-                    cstm.konditionen_c = ' / '.join(parts) + ' €'
+                if field in data:
+                    setattr(cstm, field, data[field])
                     cstm_changed = True
             if cstm_changed:
                 cstm.save()
@@ -1513,6 +1444,10 @@ def api_email_send(request):
 # CRM — E-MAIL COMPOSE FENSTER
 # ============================================================
 
+# ============================================================
+# CRM — Empfänger-Suche (Compose / Elasticsearch fuzzy)
+# ============================================================
+
 @login_required
 @login_or_token_required
 @require_http_methods(['GET'])
@@ -1740,7 +1675,6 @@ def api_contacts_suggest(request):
         })
 
     return JsonResponse({'results': results, 'q': q, 'source': 'es'})
-
 
 @login_required
 def crm_email_compose(request):
@@ -2126,6 +2060,7 @@ def api_crm_user_settings(request):
             s.language = data['language']
             request.session['language'] = data['language']
         if 'theme'              in data: s.theme             = data['theme']
+        if 'timezone'           in data: s.timezone          = data['timezone']
         if 'phone_enabled'      in data: s.phone_enabled     = bool(data['phone_enabled'])
         if 'phone_extension'    in data: s.phone_extension   = data['phone_extension']
         if 'phone_pin'          in data: s.phone_pin         = data['phone_pin']
@@ -2147,6 +2082,7 @@ def api_crm_user_settings(request):
     return JsonResponse({'success': True, 'data': {
         'language':           s.language,
         'theme':              s.theme,
+        'timezone':           s.timezone or 'Europe/Berlin',
         'phone_enabled':      s.phone_enabled,
         'phone_extension':    s.phone_extension,
         'phone_pin':          s.phone_pin,
@@ -2565,8 +2501,6 @@ def _berater_row(c):
     """Zeilen-Dict fuer Berater-Liste. Von api_berater_list UND
     api_favoriten_list genutzt (kein Duplikat der Feldliste)."""
     cstm = getattr(c, 'cstm', None)
-    _remote = _cstm_get(cstm, 'satz_remote_c')
-    _onsite = _cstm_get(cstm, 'satz_vor_ort_c')
     return {
         'id':           c.id,
         'crm_id':       c.crm_id,
@@ -2577,11 +2511,7 @@ def _berater_row(c):
         'city':         c.primary_address_city or '',
         'status':       cstm.kontakt_status_c if cstm else '',
         'verfuegbar':   str(cstm.verfuegbar_ab_c) if cstm and cstm.verfuegbar_ab_c else '',
-        'verfuegbar_tage_pro_woche': _cstm_get(cstm, 'verfuegbar_tage_pro_woche_c'),
-        'verfuegbar_hinweis': _cstm_get(cstm, 'verfuegbar_hinweis_c', '') or '',
         'konditionen':  cstm.konditionen_c if cstm else '',
-        'satz_remote':  str(_remote) if _remote is not None else '',
-        'satz_vor_ort': str(_onsite) if _onsite is not None else '',
         'gulp_id':      cstm.gulp_id_c if cstm else '',
     }
 
@@ -2621,7 +2551,7 @@ def api_favoriten_list(request):
         results = [_kunden_row(by_id[i]) for i in ids if i in by_id]
     else:
         ids = list(settings_obj.favoriten_berater or [])
-        qs = CrmContact.objects.select_related('cstm').defer(*_CRM_TERMS_DEFER).filter(crm_id__in=ids)
+        qs = CrmContact.objects.select_related('cstm').filter(crm_id__in=ids)
         by_id = {c.crm_id: c for c in qs}
         results = [_berater_row(by_id[i]) for i in ids if i in by_id]
 
