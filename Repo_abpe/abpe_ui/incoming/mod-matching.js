@@ -3523,7 +3523,9 @@ window.Matching = (function() {
     function saveAvailability(matchId) {
         const detail = (window._matchingContactCache || {})[matchId];
         const inp = document.getElementById('matching-avail-input');
-        const raw = inp ? inp.value : '';
+        const txt = document.getElementById('matching-avail-text');
+        let raw = inp ? inp.value : '';
+        if ((!raw || !String(raw).trim()) && txt && txt.value) raw = txt.value;
         const run = function (d) { return _saveAvailabilityToCrm(d, raw); };
         if (detail) return run(detail);
         return _fetchMatchDetail(matchId).then(run);
@@ -3722,20 +3724,51 @@ window.Matching = (function() {
               ${detail.gulp_id ? '<span style="color:#888">Gulp-ID</span><span>' + _esc(String(detail.gulp_id)) + '</span>' : ''}
               ${detail.freelancermap ? '<span style="color:#888">FM</span><span style="word-break:break-all">' + _esc(String(detail.freelancermap)) + '</span>' : ''}
               ${detail.aid ? '<span style="color:#888">AID</span><span>' + _esc(String(detail.aid)) + '</span>' : ''}
-              ${detail.rate ? '<span style="color:#888">Kondition</span><span>' + _esc(String(detail.rate)) + (String(detail.rate).indexOf('€') >= 0 ? '' : ' €') + '</span>' : ''}
+              <span style="color:#888">Kondition</span>
+              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+                <span id="matching-rate-shown" style="min-width:72px">${_esc(detail.rate ? (String(detail.rate) + (String(detail.rate).indexOf('€') >= 0 || /eur/i.test(String(detail.rate)) ? '' : ' €')) : '—')}</span>
+                <input type="text" id="matching-rate-input" value="${_escAttr(detail.rate || '')}"
+                       placeholder="z.B. 100 €" inputmode="decimal"
+                       style="font-size:11px;padding:3px 6px;border:1px solid #cbd5e1;border-radius:4px;width:110px"
+                       onclick="event.stopPropagation()" onmousedown="event.stopPropagation()">
+                <button type="button" class="matching-btn-sm" style="font-size:10px;padding:2px 8px"
+                        onclick="event.stopPropagation();Matching.saveRate('${detail.id}')"
+                        ${detail.crm_contact_id ? '' : 'disabled title="Kein CRM-Kontakt"'}>
+                  <i class="bi bi-save"></i> Preis speichern
+                </button>
+              </div>
               ${detail.crm_type ? '<span style="color:#888">Typ</span><span>' + _esc(detail.crm_type) + '</span>' : ''}
               ${detail.crm_status ? '<span style="color:#888">CRM-Status</span><span>' + _esc(detail.crm_status) + '</span>' : ''}
               ${skills ? '<span style="color:#888">Skills</span><span>' + _esc(skills) + '</span>' : ''}
               <span style="color:#888">Telefon</span><div>${phoneHtml}</div>
               <span style="color:#888">E-Mail</span><div>${mailHtml}</div>
             </div>
+            <div id="matching-rate-msg" style="font-size:10px;min-height:0;margin:-4px 0 8px"></div>
 
-            <div style="border:1px solid #e8edf4;border-radius:8px;padding:10px 12px;margin-bottom:12px;background:#f8fafc">
-              <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;font-weight:600;font-size:12px;color:#163258">
+            <div style="border:1px solid #e8edf4;border-radius:8px;padding:10px 12px;margin-bottom:12px;background:#f8fafc"
+                 onclick="event.stopPropagation()" onmousedown="event.stopPropagation()">
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;font-weight:600;font-size:12px;color:#163258;flex-wrap:wrap">
                 <i class="bi bi-calendar2-check"></i> Verfügbarkeit
-                <span style="font-weight:400;font-size:10px;color:#888;margin-left:auto">CRM · Gulp · FM</span>
+                <span style="font-weight:400;font-size:10px;color:#888">CRM · Gulp · FM</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+                <label style="font-size:10px;color:#888;min-width:70px">Nachtragen</label>
+                <input type="date" id="matching-avail-input" value="${_escAttr(_normDate(detail.available_from) || '')}"
+                       style="font-size:11px;padding:3px 6px;border:1px solid #cbd5e1;border-radius:4px"
+                       title="Verfügbarkeit manuell setzen">
+                <input type="text" id="matching-avail-text" value=""
+                       placeholder="oder TT.MM.JJJJ"
+                       style="font-size:11px;padding:3px 6px;border:1px solid #cbd5e1;border-radius:4px;width:110px"
+                       title="Freitext-Datum"
+                       onchange="(function(el){var d=Matching._normDatePublic&&Matching._normDatePublic(el.value);var i=document.getElementById('matching-avail-input');if(d&&i)i.value=d;})(this)">
+                <button type="button" class="matching-btn-sm" style="font-size:10px;padding:2px 8px"
+                        onclick="Matching.saveAvailability('${detail.id}')"
+                        ${detail.crm_contact_id ? '' : 'disabled title="Kein CRM-Kontakt"'}>
+                  <i class="bi bi-save"></i> Speichern
+                </button>
               </div>
               <div id="matching-avail-box"></div>
+              <div id="matching-avail-msg" style="font-size:10px;min-height:14px;margin-top:4px"></div>
             </div>
 
             <div style="display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid #e8edf4;padding-top:12px">
@@ -4145,6 +4178,8 @@ window.Matching = (function() {
         searchAccounts, searchContacts, call, sendEmail,
         kanbanDragStart, kanbanDrop, kanbanCardClick,
         closeContactPopup, submitStageMail, openCv, createCvTask,
+        saveAvailability, adoptAvailability, saveRate,
+        _normDatePublic: _normDate,
         closeProject, sendContract, sendPlacementStart, savePlacementDetails,
         openKiWizard, closeKiWizard, runKiExtract, applyKiExtract,
         pickCrmContact, pickCrmContactIndex, hideCrmSuggest, createCrmContactFromSuggest,
