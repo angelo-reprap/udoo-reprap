@@ -942,6 +942,11 @@ window.Matching = (function() {
                     <span id="threshold-count" style="font-size:10px;color:#888">
                         ${d.above_threshold} ${_t('matching.above_threshold_full')}
                     </span>
+                    <button type="button" class="matching-btn-sm"
+                            title="${_escAttr(_kiT('rematch_title', 'Shortlist löschen und Matching neu starten'))}"
+                            onclick="Matching.rematch('${projectId}')">
+                        <i class="bi bi-arrow-repeat"></i> ${_esc(_kiT('btn_rematch', 'Erneut matchen'))}
+                    </button>
                     <button class="matching-btn-primary" style="margin-left:auto"
                             onclick="Matching.sendAllAboveThreshold()">
                         ${_t('matching.btn_send_all_count')} (${d.above_threshold}) ↗
@@ -2618,12 +2623,20 @@ window.Matching = (function() {
         }
     }
 
-    function runMatching(projectId) {
+    function runMatching(projectId, opts) {
+        opts = opts || {};
         if (!projectId) projectId = window.MATCHING_CONFIG.activeProject;
+        const body = {};
+        if (opts.reset) {
+            body.reset = true;
+            body.clear = true;
+            body.force = true;
+        }
         fetch(API + 'requests/' + projectId + '/match/', {
             method: 'POST',
             credentials: 'same-origin',
             headers: { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
         })
         .then(async r => {
             let d = {};
@@ -2662,6 +2675,47 @@ window.Matching = (function() {
         .catch(e => {
             console.error('Matching starten fehlgeschlagen:', e);
             alert(_t('matching.matching_error') + ': ' + (e.message || e));
+        });
+    }
+
+    /**
+     * Shortlist resetten und Matching neu starten.
+     * 1) versucht DELETE/POST clear-Endpoint
+     * 2) startet match mit reset=true
+     */
+    function rematch(projectId) {
+        if (!projectId) projectId = window.MATCHING_CONFIG.activeProject;
+        if (!projectId) {
+            alert(_kiT('rematch_no_project', 'Keine Anfrage gewählt.'));
+            return;
+        }
+        const ok = confirm(
+            _kiT(
+                'rematch_confirm',
+                'Shortlist für diese Anfrage löschen und Matching erneut ausführen?\n'
+                + 'Bereits im Workflow-Board weitergeschobene Berater bleiben erhalten.'
+            )
+        );
+        if (!ok) return;
+
+        const headers = { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' };
+        // Best-effort clear: mehrere mögliche Live-Endpunkte
+        const clears = [
+            fetch(API + 'requests/' + projectId + '/shortlist/clear/', {
+                method: 'POST', credentials: 'same-origin', headers,
+                body: JSON.stringify({ reset: true }),
+            }).catch(() => null),
+            fetch(API + 'requests/' + projectId + '/shortlist/', {
+                method: 'DELETE', credentials: 'same-origin', headers,
+            }).catch(() => null),
+            fetch(API + 'requests/' + projectId + '/matches/reset/', {
+                method: 'POST', credentials: 'same-origin', headers,
+                body: JSON.stringify({ keep_workflow: true }),
+            }).catch(() => null),
+        ];
+
+        Promise.all(clears).finally(() => {
+            runMatching(projectId, { reset: true });
         });
     }
 
