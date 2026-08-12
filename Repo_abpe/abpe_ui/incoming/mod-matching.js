@@ -3287,28 +3287,49 @@ window.Matching = (function() {
           .catch(e => ({ ok: false, error: String(e && e.message || e) }));
     }
 
-    function _availRowHtml(label, dateVal, tone) {
+    function _availRowHtml(label, dateVal, tone, adoptBtn) {
         const t = tone || { label: '', color: '#888' };
-        return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:3px">
+        return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;flex-wrap:wrap">
           <span style="color:#888;min-width:36px">${_esc(label)}</span>
           <b style="min-width:84px">${_esc(_fmtDate(dateVal))}</b>
           ${t.label ? `<span style="font-size:10px;color:${t.color}">${_esc(t.label)}</span>` : ''}
+          ${adoptBtn || ''}
         </div>`;
+    }
+
+    function _adoptBtnHtml(matchId, source, dateVal) {
+        const d = _normDate(dateVal);
+        if (!d) return '';
+        return `<button type="button" class="matching-btn-sm" style="font-size:10px;padding:2px 7px"
+                  title="Datum ins CRM übernehmen"
+                  onclick="Matching.adoptAvailability('${_escAttr(matchId)}','${_escAttr(source)}')">
+                  <i class="bi bi-download"></i> Übernehmen
+                </button>`;
     }
 
     function _renderAvailBox(el, detail, live) {
         if (!el) return;
+        const matchId = detail.id || '';
         const crm = detail.available_from || '';
         const gulp = (live && live.gulp) || {};
         const fm = (live && live.fm) || {};
+        // Live-State merken für Übernehmen-Buttons
+        window._matchingAvailLive = window._matchingAvailLive || {};
+        window._matchingAvailLive[matchId] = live || {};
+
         let body = _availRowHtml('CRM', crm, { label: crm ? 'Datenbank' : 'kein Datum', color: '#888' });
         if (detail.gulp_id) {
             if (gulp.loading) {
                 body += `<div style="font-size:11px;color:#888;margin:2px 0"><i class="bi bi-hourglass-split"></i> Gulp wird geprüft…</div>`;
-            } else if (gulp.error) {
+            } else if (gulp.error && !gulp.date) {
                 body += `<div style="font-size:11px;color:#b45309;margin:2px 0">Gulp: ${_esc(gulp.error)}</div>`;
             } else {
-                body += _availRowHtml('Gulp', gulp.date, _dateTone(crm, gulp.date));
+                const tone = _dateTone(crm, gulp.date);
+                const showAdopt = gulp.date && _normDate(gulp.date) !== _normDate(crm);
+                body += _availRowHtml(
+                    'Gulp', gulp.date, tone,
+                    showAdopt ? _adoptBtnHtml(matchId, 'gulp', gulp.date) : ''
+                );
             }
         } else {
             body += `<div style="font-size:11px;color:#aaa;margin:2px 0">Gulp: keine ID</div>`;
@@ -3316,10 +3337,15 @@ window.Matching = (function() {
         if (detail.freelancermap) {
             if (fm.loading) {
                 body += `<div style="font-size:11px;color:#888;margin:2px 0"><i class="bi bi-hourglass-split"></i> Freelancermap wird geprüft…</div>`;
-            } else if (fm.error) {
+            } else if (fm.error && !fm.date) {
                 body += `<div style="font-size:11px;color:#b45309;margin:2px 0">FM: ${_esc(fm.error)}</div>`;
             } else {
-                body += _availRowHtml('FM', fm.date, _dateTone(crm, fm.date));
+                const tone = _dateTone(crm, fm.date);
+                const showAdopt = fm.date && _normDate(fm.date) !== _normDate(crm);
+                body += _availRowHtml(
+                    'FM', fm.date, tone,
+                    showAdopt ? _adoptBtnHtml(matchId, 'fm', fm.date) : ''
+                );
             }
         } else {
             body += `<div style="font-size:11px;color:#aaa;margin:2px 0">FM: nicht verknüpft</div>`;
@@ -3370,12 +3396,13 @@ window.Matching = (function() {
                         ? { date: r.date, error: r.fetched ? '' : (r.error || 'ohne Live-Daten') }
                         : { date: '', error: r.error || 'Fehler' };
                     _renderAvailBox(box, detail, live);
-                    // Cache aktualisieren
                     if (r.ok && r.date) {
                         detail.available_gulp = r.date;
                         const cache = window._matchingContactCache || {};
                         if (cache[detail.id]) cache[detail.id].available_gulp = r.date;
                     }
+                    const inp = document.getElementById('matching-avail-input');
+                    if (inp && !inp.value && r.ok && r.date) inp.value = r.date;
                 })
             );
         }
@@ -3409,14 +3436,81 @@ window.Matching = (function() {
             const g = live.gulp && live.gulp.date;
             const f = live.fm && live.fm.date;
             const diffs = [];
-            if (g && crm && g !== crm) diffs.push('Gulp≠CRM');
-            if (f && crm && f !== crm) diffs.push('FM≠CRM');
+            if (g && !crm) diffs.push('Gulp neu, CRM leer');
+            else if (g && crm && g !== crm) diffs.push('Gulp≠CRM');
+            if (f && !crm) diffs.push('FM neu, CRM leer');
+            else if (f && crm && f !== crm) diffs.push('FM≠CRM');
             if (g && f && g !== f) diffs.push('Gulp≠FM');
             live.note = diffs.length
-                ? ('Abweichung: ' + diffs.join(', ') + ' — ggf. CRM/CV prüfen')
+                ? ('Abweichung: ' + diffs.join(', ') + ' — „Übernehmen“ oder Datum speichern')
                 : 'Quellen stimmen mit CRM überein (soweit geliefert).';
             _renderAvailBox(box, detail, live);
         });
+    }
+
+    function _saveAvailabilityToCrm(detail, isoDate) {
+        const crmId = detail && detail.crm_contact_id;
+        const date = _normDate(isoDate);
+        const msg = document.getElementById('matching-avail-msg');
+        if (!crmId) {
+            if (msg) { msg.style.color = '#dc2626'; msg.textContent = 'Kein CRM-Kontakt — Speichern nicht möglich.'; }
+            return Promise.resolve({ ok: false });
+        }
+        if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+            if (msg) { msg.style.color = '#dc2626'; msg.textContent = 'Bitte gültiges Datum wählen (TT.MM.JJJJ).'; }
+            return Promise.resolve({ ok: false });
+        }
+        if (msg) { msg.style.color = '#666'; msg.textContent = 'Speichere Verfügbarkeit…'; }
+        return _jsonPost('/crm/api/contact/' + encodeURIComponent(crmId) + '/update/', {
+            action: 'update',
+            verfuegbar_ab_c: date,
+        }).then(res => {
+            if (res && res.ok !== false && !res.error) {
+                detail.available_from = date;
+                const cache = window._matchingContactCache || {};
+                if (cache[detail.id]) cache[detail.id].available_from = date;
+                const inp = document.getElementById('matching-avail-input');
+                if (inp) inp.value = date;
+                if (msg) {
+                    msg.style.color = '#16a34a';
+                    msg.textContent = 'CRM gespeichert: verfügbar ab ' + _fmtDate(date);
+                }
+                const live = (window._matchingAvailLive || {})[detail.id] || { gulp: null, fm: null, note: '' };
+                live.note = 'CRM aktualisiert auf ' + _fmtDate(date);
+                _renderAvailBox(document.getElementById('matching-avail-box'), detail, live);
+                return { ok: true, date: date };
+            }
+            if (msg) {
+                msg.style.color = '#dc2626';
+                msg.textContent = 'Speichern fehlgeschlagen: ' + ((res && res.error) || 'unbekannt');
+            }
+            return { ok: false };
+        });
+    }
+
+    function saveAvailability(matchId) {
+        const detail = (window._matchingContactCache || {})[matchId];
+        const inp = document.getElementById('matching-avail-input');
+        const raw = inp ? inp.value : '';
+        const run = function (d) { return _saveAvailabilityToCrm(d, raw); };
+        if (detail) return run(detail);
+        return _fetchMatchDetail(matchId).then(run);
+    }
+
+    function adoptAvailability(matchId, source) {
+        const detail = (window._matchingContactCache || {})[matchId];
+        const live = (window._matchingAvailLive || {})[matchId] || {};
+        let date = '';
+        if (source === 'gulp') date = (live.gulp && live.gulp.date) || (detail && detail.available_gulp) || '';
+        else if (source === 'fm') date = (live.fm && live.fm.date) || (detail && detail.available_fm) || '';
+        else date = source; // ISO direkt
+        const run = function (d) {
+            const inp = document.getElementById('matching-avail-input');
+            if (inp && date) inp.value = _normDate(date);
+            return _saveAvailabilityToCrm(d, date);
+        };
+        if (detail) return run(detail);
+        return _fetchMatchDetail(matchId).then(run);
     }
 
     function _cvUrlFor(detail) {
