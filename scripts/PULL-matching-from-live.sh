@@ -2,20 +2,20 @@
 # ═══════════════════════════════════════════════════════════════════════════
 # Live → Repo: Matching/CRM/Shaduler/KI-Wiz von UCS5 ins Git ziehen
 #
-# 1) Sichert Live-Filesystem (timestamped tar unter /opt/abpe/backups/)
-# 2) rsync Live → Repo_abpe/… (ohne Secrets/__pycache__/Backups)
-# 3) Optional: commit + push
+# Schnell (Default):
+#   - Nur kritische Dateien sichern (~KB, kein 1.4G CRM-Tar)
+#   - rsync ohne node_modules / softphone-electron / Symlinks
+#   - optional --push
 #
-# Auf ucs5 (IMMER erst PULL, bevor Cloud/SYNC Live überschreibt):
+# Auf ucs5:
 #   cd /mnt/public/udoo-reprap
 #   git fetch origin cursor/matching-ki-anfrage-wizard-7f07
-#   git checkout cursor/matching-ki-anfrage-wizard-7f07
-#   git pull origin cursor/matching-ki-anfrage-wizard-7f07
-#   bash <(git show origin/cursor/matching-ki-anfrage-wizard-7f07:scripts/PULL-matching-from-live.sh)
-#   # oder mit Commit:
-#   bash <(git show origin/cursor/matching-ki-anfrage-wizard-7f07:scripts/PULL-matching-from-live.sh) --push
+#   bash <(git show origin/cursor/matching-ki-anfrage-wizard-7f07:scripts/LIVE-FIRST-pull.sh)
 #
-# Danach Cloud-Agent auf DIESEM Stand weiterarbeiten.
+# Flags:
+#   --push           commit + push nach Pull
+#   --no-backup      gar kein Backup
+#   --full-backup    schwere App-Tars (langsam, nur Notfall)
 # ═══════════════════════════════════════════════════════════════════════════
 set -euo pipefail
 
@@ -29,11 +29,15 @@ LIVE_MATCH="${LIVE_MATCH:-/opt/abpe/backend/apps/abpe_matching_workflow}"
 STATICFILES="${STATICFILES:-/opt/abpe/backend/staticfiles}"
 BACKUP_ROOT="${BACKUP_ROOT:-/opt/abpe/backups}"
 DO_PUSH=0
+DO_BACKUP=1
+FULL_BACKUP=0
 for arg in "$@"; do
   case "$arg" in
     --push|--commit) DO_PUSH=1 ;;
+    --no-backup) DO_BACKUP=0 ;;
+    --full-backup) FULL_BACKUP=1 ;;
     -h|--help)
-      sed -n '2,25p' "$0" 2>/dev/null || true
+      sed -n '2,22p' "$0" 2>/dev/null || true
       exit 0
       ;;
   esac
@@ -41,7 +45,7 @@ done
 
 TS=$(date +%Y%m%d-%H%M%S)
 echo "======== PULL Matching Live → Repo $TS ========"
-echo "Repo: $REPO  Branch: $BRANCH  push=$DO_PUSH"
+echo "Repo: $REPO  Branch: $BRANCH  push=$DO_PUSH  backup=$DO_BACKUP full=$FULL_BACKUP"
 
 if [[ ! -d "$REPO/.git" ]]; then
   echo "FAIL: $REPO ist kein Git-Repo"
@@ -65,63 +69,68 @@ else
 fi
 git pull origin "$BRANCH" 2>/dev/null || true
 
-# ── 0) Filesystem-Backup (vor jedem Pull) ───────────────────────────────────
-echo
-echo "=== 0) Live-Backup → $BACKUP_ROOT ==="
-mkdir -p "$BACKUP_ROOT"
-BAK_DIR="$BACKUP_ROOT/matching-live-$TS"
-mkdir -p "$BAK_DIR"
-# Manifest
-{
-  echo "ts=$TS"
-  echo "host=$(hostname -f 2>/dev/null || hostname)"
-  echo "branch=$BRANCH"
-  date -Iseconds
-  supervisorctl status abpe-django 2>/dev/null || true
-} > "$BAK_DIR/MANIFEST.txt"
+BAK_DIR=""
+# ── 0) Leichtes Backup (Default) — KEINE 1.4G CRM-Tars ─────────────────────
+if [[ "$DO_BACKUP" -eq 1 ]]; then
+  echo
+  echo "=== 0) Leichtes Live-Backup → $BACKUP_ROOT (nur kritische Dateien) ==="
+  mkdir -p "$BACKUP_ROOT"
+  BAK_DIR="$BACKUP_ROOT/matching-live-$TS"
+  mkdir -p "$BAK_DIR/crm" "$BAK_DIR/shaduler" "$BAK_DIR/ki_wiz" "$BAK_DIR/ui_mod"
+  {
+    echo "ts=$TS"
+    echo "host=$(hostname -f 2>/dev/null || hostname)"
+    echo "branch=$BRANCH"
+    echo "mode=$([ "$FULL_BACKUP" -eq 1 ] && echo full || echo light)"
+    date -Iseconds
+    supervisorctl status abpe-django 2>/dev/null || true
+  } > "$BAK_DIR/MANIFEST.txt"
 
-tar_one() {
-  local name="$1" src="$2"
-  if [[ ! -d "$src" ]]; then
-    echo "  skip $name (fehlt)"
-    return 0
+  # Kritische Einzeldateien (schnell, klein)
+  for f in urls.py views.py models.py apps.py admin.py; do
+    [[ -f "$LIVE_CRM/$f" ]] && cp -a "$LIVE_CRM/$f" "$BAK_DIR/crm/$f" || true
+    [[ -f "$LIVE_SH/$f" ]] && cp -a "$LIVE_SH/$f" "$BAK_DIR/shaduler/$f" || true
+    [[ -f "$LIVE_KI/$f" ]] && cp -a "$LIVE_KI/$f" "$BAK_DIR/ki_wiz/$f" || true
+  done
+  [[ -f "$LIVE_KI/prompt_defaults.py" ]] && cp -a "$LIVE_KI/prompt_defaults.py" "$BAK_DIR/ki_wiz/" || true
+  for name in mod-matching.js mod-shaduler.js; do
+    [[ -f "$LIVE_UI/static/abpe_ui/js/mod/$name" ]] \
+      && cp -a "$LIVE_UI/static/abpe_ui/js/mod/$name" "$BAK_DIR/ui_mod/" || true
+  done
+  [[ -f "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css" ]] \
+    && cp -a "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css" "$BAK_DIR/ui_mod/" || true
+
+  if [[ "$FULL_BACKUP" -eq 1 ]]; then
+    echo "  (full-backup: schwere Tars — langsam)"
+    tar_one() {
+      local name="$1" src="$2"
+      [[ -d "$src" ]] || return 0
+      local out="$BAK_DIR/${name}.tar.gz"
+      tar -czf "$out" \
+        --exclude='__pycache__' --exclude='*.pyc' --exclude='.session*' \
+        --exclude='node_modules' --exclude='softphone-electron' \
+        -C "$(dirname "$src")" "$(basename "$src")" 2>/dev/null \
+        || tar -czf "$out" \
+          --exclude='__pycache__' --exclude='*.pyc' \
+          --exclude='node_modules' --exclude='softphone-electron' \
+          -C "$(dirname "$src")" "$(basename "$src")"
+      echo "  OK $out ($(du -h "$out" | awk '{print $1}'))"
+    }
+    tar_one abpe_crm "$LIVE_CRM"
+    tar_one abpe_shaduler "$LIVE_SH"
+    tar_one abpe_ki_wiz "$LIVE_KI"
+    [[ -d "$LIVE_MATCH" ]] && tar_one abpe_matching_workflow "$LIVE_MATCH"
   fi
-  local out="$BAK_DIR/${name}.tar.gz"
-  tar -czf "$out" \
-    --exclude='__pycache__' \
-    --exclude='*.pyc' \
-    --exclude='.session*' \
-    -C "$(dirname "$src")" "$(basename "$src")"
-  echo "  OK $out ($(du -h "$out" | awk '{print $1}'))"
-}
 
-tar_one abpe_crm "$LIVE_CRM"
-tar_one abpe_shaduler "$LIVE_SH"
-tar_one abpe_ki_wiz "$LIVE_KI"
-# UI nur Matching/Shaduler-Module (nicht ganzes Portal)
-if [[ -d "$LIVE_UI/static/abpe_ui/js/mod" ]]; then
-  mkdir -p "$BAK_DIR/ui_mod"
-  cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js" "$BAK_DIR/ui_mod/" 2>/dev/null || true
-  cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js" "$BAK_DIR/ui_mod/" 2>/dev/null || true
-  cp -a "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css" "$BAK_DIR/ui_mod/" 2>/dev/null || true
-  echo "  OK ui_mod/*.js/css"
+  ln -sfn "$BAK_DIR" "$BACKUP_ROOT/matching-live-latest" 2>/dev/null || true
+  echo "OK Backup: $BAK_DIR ($(du -sh "$BAK_DIR" 2>/dev/null | awk '{print $1}'))"
+  echo "  (Rollback z.B.: cp -a $BAK_DIR/crm/views.py $LIVE_CRM/views.py)"
+else
+  echo
+  echo "=== 0) Backup übersprungen (--no-backup) ==="
 fi
-if [[ -d "$LIVE_MATCH" ]]; then
-  tar_one abpe_matching_workflow "$LIVE_MATCH"
-fi
-# urls.py Snapshot (kritisch — oft neuer als Repo-Export)
-if [[ -f "$LIVE_CRM/urls.py" ]]; then
-  cp -a "$LIVE_CRM/urls.py" "$BAK_DIR/abpe_crm.urls.py"
-fi
-if [[ -f "$LIVE_CRM/views.py" ]]; then
-  cp -a "$LIVE_CRM/views.py" "$BAK_DIR/abpe_crm.views.py"
-fi
-if [[ -f "$LIVE_CRM/models.py" ]]; then
-  cp -a "$LIVE_CRM/models.py" "$BAK_DIR/abpe_crm.models.py"
-fi
-ln -sfn "$BAK_DIR" "$BACKUP_ROOT/matching-live-latest"
-echo "OK Backup: $BAK_DIR (Symlink matching-live-latest)"
 
+# /mnt/public ist oft CIFS/NFS → keine Symlinks. node_modules nie mitziehen.
 RSYNC_EXCLUDES=(
   --exclude '__pycache__/'
   --exclude '*.pyc'
@@ -134,50 +143,61 @@ RSYNC_EXCLUDES=(
   --exclude '*secret*'
   --exclude 'email_settings.json'
   --exclude '.git/'
+  --exclude 'node_modules/'
+  --exclude 'softphone-electron/'
+  --exclude 'static/softphone-electron/'
+  --exclude '.bin/'
+  --exclude '*.map'
 )
 
-# ── 1) CRM (voll — urls/views/models/templates/i18n/…) ─────────────────────
+# rsync: keine Symlinks auf Share; Exit 23 (partial) nicht fatal wenn Kern da
+rsync_safe() {
+  local src="$1" dest="$2"
+  shift 2 || true
+  set +e
+  rsync -a --no-links "${RSYNC_EXCLUDES[@]}" "$@" "$src" "$dest"
+  local rc=$?
+  set -e
+  # 0=ok, 23=partial (Symlinks/Attrs) — ok wenn Zieldateien da
+  if [[ "$rc" -eq 0 || "$rc" -eq 23 ]]; then
+    return 0
+  fi
+  echo "FEHLER: rsync exit $rc ($src → $dest)"
+  return "$rc"
+}
+
+# ── 1) CRM (ohne softphone/node_modules) ───────────────────────────────────
 echo
 echo "=== 1) abpe_crm Live → Repo ==="
 DEST_CRM="$REPO/Repo_abpe/abpe_crm/incoming"
 mkdir -p "$DEST_CRM"
-# Repo-Backup vor Überschreiben
 if [[ -d "$DEST_CRM" ]] && [[ -n "$(ls -A "$DEST_CRM" 2>/dev/null || true)" ]]; then
   mkdir -p "$REPO/_repo_backups"
-  tar -czf "$REPO/_repo_backups/abpe_crm-incoming-before-pull-$TS.tar.gz" \
-    -C "$REPO/Repo_abpe/abpe_crm" incoming 2>/dev/null || true
-  echo "  Repo-Backup: _repo_backups/abpe_crm-incoming-before-pull-$TS.tar.gz"
+  # leicht: nur views/urls/models, kein Full-Tar von softphone
+  tar -czf "$REPO/_repo_backups/abpe_crm-core-before-pull-$TS.tar.gz" \
+    -C "$DEST_CRM" urls.py views.py models.py 2>/dev/null || true
 fi
-rsync -a "${RSYNC_EXCLUDES[@]}" "$LIVE_CRM/" "$DEST_CRM/"
-# Terms-Migration behalten/ergänzen falls Live sie noch nicht hatte
+rsync_safe "$LIVE_CRM/" "$DEST_CRM/"
 mkdir -p "$DEST_CRM/migrations"
 touch "$DEST_CRM/migrations/__init__.py"
-if [[ ! -f "$DEST_CRM/migrations/0001_berater_verfuegbarkeit_konditionen.py" ]]; then
-  if git -C "$REPO" cat-file -e "HEAD:Repo_abpe/abpe_crm/incoming/migrations/0001_berater_verfuegbarkeit_konditionen.py" 2>/dev/null; then
-    git -C "$REPO" show "HEAD:Repo_abpe/abpe_crm/incoming/migrations/0001_berater_verfuegbarkeit_konditionen.py" \
-      > "$DEST_CRM/migrations/0001_berater_verfuegbarkeit_konditionen.py"
-    echo "  + Terms-Migration aus HEAD wiederhergestellt"
+# Kern prüfen
+for must in urls.py views.py models.py; do
+  if [[ ! -f "$DEST_CRM/$must" ]]; then
+    echo "FEHLER: $DEST_CRM/$must fehlt nach rsync"
+    exit 1
   fi
-fi
-echo "OK → $DEST_CRM ($(find "$DEST_CRM" -type f | wc -l) Dateien)"
+done
+echo "OK → $DEST_CRM (views=$(wc -l < "$DEST_CRM/views.py") Z)"
 
 # ── 2) Shaduler ────────────────────────────────────────────────────────────
 echo
 echo "=== 2) abpe_shaduler Live → Repo ==="
 DEST_SH="$REPO/Repo_abpe/abpe_shaduler/incoming"
 mkdir -p "$DEST_SH"
-if [[ -d "$DEST_SH" ]] && [[ -n "$(ls -A "$DEST_SH" 2>/dev/null || true)" ]]; then
-  mkdir -p "$REPO/_repo_backups"
-  tar -czf "$REPO/_repo_backups/abpe_shaduler-incoming-before-pull-$TS.tar.gz" \
-    -C "$REPO/Repo_abpe/abpe_shaduler" incoming 2>/dev/null || true
-fi
-# Migrationen auf Live nicht blind löschen: ohne --delete auf migrations/
-rsync -a "${RSYNC_EXCLUDES[@]}" --exclude 'migrations/' "$LIVE_SH/" "$DEST_SH/"
+rsync_safe "$LIVE_SH/" "$DEST_SH/" --exclude 'migrations/'
 mkdir -p "$DEST_SH/migrations"
-if [[ -f "$LIVE_SH/migrations/__init__.py" ]]; then
-  cp -n "$LIVE_SH/migrations/__init__.py" "$DEST_SH/migrations/__init__.py" 2>/dev/null || true
-fi
-# Live-Migrationen nachziehen (neu + geändert)
+[[ -f "$LIVE_SH/migrations/__init__.py" ]] \
+  && cp -n "$LIVE_SH/migrations/__init__.py" "$DEST_SH/migrations/__init__.py" 2>/dev/null || true
 for mig in "$LIVE_SH"/migrations/0*.py; do
   [[ -f "$mig" ]] || continue
   cp -a "$mig" "$DEST_SH/migrations/$(basename "$mig")"
@@ -189,7 +209,7 @@ echo
 echo "=== 3) abpe_ki_wiz Live → Repo ==="
 DEST_KI="$REPO/Repo_abpe/abpe_ki_wiz/incoming"
 mkdir -p "$DEST_KI"
-rsync -a "${RSYNC_EXCLUDES[@]}" "$LIVE_KI/" "$DEST_KI/"
+rsync_safe "$LIVE_KI/" "$DEST_KI/"
 echo "OK → $DEST_KI"
 
 # ── 4) Matching UI ─────────────────────────────────────────────────────────
@@ -202,13 +222,12 @@ copy_ui() {
   local src="$1" dest="$2"
   if [[ -f "$src" ]]; then
     cp -a "$src" "$dest"
-    echo "  + $(basename "$dest")  ($(wc -l < "$src") Z, $(stat -c %y "$src" 2>/dev/null | cut -d. -f1))"
+    echo "  + $(basename "$dest")  ($(wc -l < "$src") Z)"
   else
     echo "  FEHLT $src"
   fi
 }
 
-# Bevorzugt App-Static; Fallback staticfiles
 for name in mod-matching.js mod-shaduler.js; do
   if [[ -f "$LIVE_UI/static/abpe_ui/js/mod/$name" ]]; then
     copy_ui "$LIVE_UI/static/abpe_ui/js/mod/$name" "$DEST_UI/$name"
@@ -228,49 +247,45 @@ elif [[ -f "$STATICFILES/abpe_ui/css/mod/mod-shaduler.css" ]]; then
   copy_ui "$STATICFILES/abpe_ui/css/mod/mod-shaduler.css" "$DEST_UI/static_abpe_ui/css/mod/mod-shaduler.css"
 fi
 
-# ── 5) Matching-Workflow (live-only, falls vorhanden) ──────────────────────
+# ── 5) Matching-Workflow (optional) ────────────────────────────────────────
 echo
 echo "=== 5) abpe_matching_workflow (optional) ==="
 if [[ -d "$LIVE_MATCH" ]]; then
   DEST_M="$REPO/Repo_abpe/abpe_matching_workflow/incoming"
   mkdir -p "$DEST_M"
-  rsync -a "${RSYNC_EXCLUDES[@]}" "$LIVE_MATCH/" "$DEST_M/"
+  rsync_safe "$LIVE_MATCH/" "$DEST_M/"
   echo "OK → $DEST_M"
 else
   echo "skip (Live-App nicht vorhanden — ok)"
 fi
 
-# ── 6) Sanity / Feature-Report ──────────────────────────────────────────────
+# ── 6) Feature-Report ──────────────────────────────────────────────────────
 echo
 echo "=== 6) Feature-Report ==="
 check() {
   local label="$1" file="$2" pat="$3"
-  if [[ -f "$file" ]] && grep -q -- "$pat" "$file"; then
+  if [[ -f "$file" ]] && grep -qE -- "$pat" "$file"; then
     echo "  OK  $label"
   else
     echo "  FEHLT $label  ($file ~ $pat)"
   fi
 }
-check "CRM urls.py" "$DEST_CRM/urls.py" "api_contacts_suggest\|api_berater"
+check "CRM urls.py" "$DEST_CRM/urls.py" "api_contacts_suggest|api_berater"
 check "CRM views api_contacts_suggest" "$DEST_CRM/views.py" "def api_contacts_suggest"
 check "CRM views api_berater_cv" "$DEST_CRM/views.py" "def api_berater_cv"
 check "CRM Terms satz_remote" "$DEST_CRM/views.py" "satz_remote_c"
-check "CRM Terms defer" "$DEST_CRM/views.py" "_CRM_TERMS_DEFER"
-check "CRM models Terms" "$DEST_CRM/models.py" "verfuegbar_tage_pro_woche_c"
 check "Shaduler MatchingBeraterTerms" "$DEST_SH/models.py" "class MatchingBeraterTerms"
-check "Shaduler api_matching_terms" "$DEST_SH/views.py" "def api_matching_terms"
 check "UI saveMatchTerms" "$DEST_UI/mod-matching.js" "saveMatchTerms"
 check "UI phone_raw" "$DEST_UI/mod-matching.js" "phone_raw"
 check "KI matching_anfrage" "$DEST_KI/prompt_defaults.py" "wiz_matching_anfrage_generate"
 
-# ── Stamp: SYNC darf nur nach frischem Live-Pull laufen ─────────────────────
 STAMP="$REPO/Repo_abpe/.live-pull-stamp"
 {
   echo "ts=$TS"
   echo "iso=$(date -Iseconds)"
   echo "host=$(hostname -f 2>/dev/null || hostname)"
   echo "branch=$(git -C "$REPO" branch --show-current 2>/dev/null || echo '?')"
-  echo "backup=$BAK_DIR"
+  echo "backup=${BAK_DIR:-none}"
   echo "crm_views_lines=$(wc -l < "$DEST_CRM/views.py" 2>/dev/null || echo 0)"
   echo "crm_has_contacts_suggest=$(grep -c 'def api_contacts_suggest' "$DEST_CRM/views.py" 2>/dev/null || echo 0)"
   echo "crm_has_berater_cv=$(grep -c 'def api_berater_cv' "$DEST_CRM/views.py" 2>/dev/null || echo 0)"
@@ -279,16 +294,19 @@ STAMP="$REPO/Repo_abpe/.live-pull-stamp"
 } > "$STAMP"
 echo "OK Stamp → $STAMP"
 
-# .gitignore für Backups im Share
 GITIGNORE="$REPO/.gitignore"
 touch "$GITIGNORE"
 grep -qxF '_repo_backups/' "$GITIGNORE" 2>/dev/null || echo '_repo_backups/' >> "$GITIGNORE"
 grep -qxF '_live_backups/' "$GITIGNORE" 2>/dev/null || echo '_live_backups/' >> "$GITIGNORE"
+# Softphone/node_modules nie committen
+grep -qxF 'Repo_abpe/abpe_crm/incoming/static/softphone-electron/' "$GITIGNORE" 2>/dev/null \
+  || echo 'Repo_abpe/abpe_crm/incoming/static/softphone-electron/' >> "$GITIGNORE"
+grep -qxF '**/node_modules/' "$GITIGNORE" 2>/dev/null || echo '**/node_modules/' >> "$GITIGNORE"
 
 echo
 echo "=== git status (Auszug) ==="
 git -C "$REPO" status -sb | head -40
-git -C "$REPO" diff --stat | tail -20 || true
+git -C "$REPO" diff --stat | tail -25 || true
 
 if [[ "$DO_PUSH" -eq 1 ]]; then
   echo
@@ -302,8 +320,10 @@ if [[ "$DO_PUSH" -eq 1 ]]; then
     Repo_abpe/.live-pull-stamp \
     .gitignore \
     2>/dev/null || true
+  # softphone nie stagen
+  git -C "$REPO" reset -q -- \
+    'Repo_abpe/abpe_crm/incoming/static/softphone-electron' 2>/dev/null || true
   if git -C "$REPO" diff --cached --quiet; then
-    # Stamp trotzdem committen falls nur Stamp neu
     git -C "$REPO" add Repo_abpe/.live-pull-stamp 2>/dev/null || true
     if git -C "$REPO" diff --cached --quiet; then
       echo "Nichts zu committen (Working tree = Live?)."
@@ -319,25 +339,10 @@ if [[ "$DO_PUSH" -eq 1 ]]; then
   fi
 else
   echo
-  echo "======== Fertig: Dateien im Repo, noch NICHT committed ========"
-  echo "Prüfen:"
-  echo "  cd $REPO && git status -sb && git diff --stat | head"
-  echo
-  echo "Committen + pushen (wichtig — Cloud-Agent braucht den Push):"
-  echo "  git add Repo_abpe/abpe_crm Repo_abpe/abpe_shaduler Repo_abpe/abpe_ki_wiz Repo_abpe/abpe_ui"
-  echo "  git add Repo_abpe/abpe_matching_workflow Repo_abpe/.live-pull-stamp 2>/dev/null || true"
-  echo "  git commit -m 'pull(live): Matching/CRM/Shaduler/KI Stand von ucs5'"
-  echo "  git push -u origin $BRANCH"
-  echo
-  echo "Oder erneut mit --push:"
-  echo "  bash scripts/PULL-matching-from-live.sh --push"
+  echo "Fertig ohne Commit. Mit --push committen, oder:"
+  echo "  git add Repo_abpe/… Repo_abpe/.live-pull-stamp && git commit && git push"
 fi
 
 echo
-echo "Live-Backup bleibt unter: $BAK_DIR"
-echo "Rollback Live z.B.:"
-echo "  tar -xzf $BAK_DIR/abpe_crm.tar.gz -C /opt/abpe/backend/apps/"
 echo "======== Ende PULL ========"
-echo
-echo ">>> Nächster Schritt für Cloud-Agent: git pull auf dem Branch,"
-echo ">>> DANN erst wieder Features. SYNC ohne Stamp → Abbruch."
+echo ">>> Cloud-Agent: git pull origin $BRANCH — dann weiter."
