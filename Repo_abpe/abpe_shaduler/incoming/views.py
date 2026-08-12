@@ -878,6 +878,132 @@ def api_regeln(request):
     return _stub(status=501)
 
 
+@login_required
+@require_http_methods(['GET', 'POST', 'PUT', 'PATCH'])
+def api_matching_terms(request, match_id):
+    """Anfrage-spezifische Verfügbarkeit/Konditionen (MatchingBeraterTerms)."""
+    from decimal import Decimal, InvalidOperation
+    from datetime import date as date_cls
+
+    from apps.abpe_shaduler.models import MatchingBeraterTerms
+
+    def _ser(obj):
+        return {
+            'match_id': str(obj.match_id),
+            'project_id': obj.project_id or '',
+            'crm_contact_id': obj.crm_contact_id or '',
+            'avail_from': obj.avail_from.isoformat() if obj.avail_from else '',
+            'avail_days_per_week': obj.avail_days_per_week,
+            'avail_note': obj.avail_note or '',
+            'rate_remote': str(obj.rate_remote) if obj.rate_remote is not None else '',
+            'rate_onsite': str(obj.rate_onsite) if obj.rate_onsite is not None else '',
+            'rate_note': obj.rate_note or '',
+            'updated_at': obj.updated_at.isoformat() if obj.updated_at else '',
+            'updated_by': obj.updated_by or '',
+        }
+
+    def _parse_date(v):
+        if v is None or v == '':
+            return None
+        if isinstance(v, date_cls):
+            return v
+        s = str(v).strip()
+        if not s:
+            return None
+        return date_cls.fromisoformat(s[:10])
+
+    def _parse_dec(v):
+        if v is None or v == '':
+            return None
+        try:
+            return Decimal(str(v).replace(',', '.').strip())
+        except (InvalidOperation, ValueError):
+            raise ValueError('decimal')
+
+    def _parse_days(v):
+        if v is None or v == '':
+            return None
+        n = int(v)
+        if n < 1 or n > 7:
+            raise ValueError('days')
+        return n
+
+    try:
+        mid = match_id if hasattr(match_id, 'hex') else __import__('uuid').UUID(str(match_id))
+    except Exception:
+        return JsonResponse({'ok': False, 'error': 'match_id muss UUID sein'}, status=400)
+
+    if request.method == 'GET':
+        obj = MatchingBeraterTerms.objects.filter(match_id=mid).first()
+        return JsonResponse({'ok': True, 'terms': _ser(obj) if obj else None})
+
+    data = _json_body(request)
+    try:
+        fields = {}
+        if 'avail_from' in data:
+            fields['avail_from'] = _parse_date(data.get('avail_from'))
+        if 'avail_days_per_week' in data:
+            fields['avail_days_per_week'] = _parse_days(data.get('avail_days_per_week'))
+        if 'avail_note' in data:
+            fields['avail_note'] = str(data.get('avail_note') or '')[:255]
+        if 'rate_remote' in data:
+            fields['rate_remote'] = _parse_dec(data.get('rate_remote'))
+        if 'rate_onsite' in data:
+            fields['rate_onsite'] = _parse_dec(data.get('rate_onsite'))
+        if 'rate_note' in data:
+            fields['rate_note'] = str(data.get('rate_note') or '')[:255]
+        if 'project_id' in data:
+            fields['project_id'] = str(data.get('project_id') or '')[:64]
+        if 'crm_contact_id' in data:
+            fields['crm_contact_id'] = str(data.get('crm_contact_id') or '')[:36]
+    except ValueError as exc:
+        return JsonResponse({'ok': False, 'error': f'Ungültiger Wert ({exc})'}, status=400)
+
+    fields['updated_by'] = getattr(request.user, 'username', '') or str(request.user.pk)
+    obj, _created = MatchingBeraterTerms.objects.update_or_create(
+        match_id=mid, defaults=fields,
+    )
+
+    # Optional: auch CRM-Stammdaten (Default) überschreiben
+    also_crm = bool(data.get('also_crm') or data.get('save_crm_default'))
+    crm_id = obj.crm_contact_id or str(data.get('crm_contact_id') or '')
+    crm_ok = None
+    if also_crm and crm_id:
+        try:
+            from apps.abpe_crm.models import CrmContactCstm
+            cstm = CrmContactCstm.objects.filter(contact_id=crm_id).first()
+            if cstm:
+                if 'avail_from' in fields:
+                    cstm.verfuegbar_ab_c = fields['avail_from']
+                if 'avail_days_per_week' in fields:
+                    cstm.verfuegbar_tage_pro_woche_c = fields['avail_days_per_week']
+                if 'avail_note' in fields:
+                    cstm.verfuegbar_hinweis_c = fields['avail_note'] or None
+                if 'rate_remote' in fields:
+                    cstm.satz_remote_c = fields['rate_remote']
+                if 'rate_onsite' in fields:
+                    cstm.satz_vor_ort_c = fields['rate_onsite']
+                parts = []
+                if cstm.satz_remote_c is not None:
+                    parts.append(f'{cstm.satz_remote_c} remote')
+                if cstm.satz_vor_ort_c is not None:
+                    parts.append(f'{cstm.satz_vor_ort_c} vor Ort')
+                if parts:
+                    cstm.konditionen_c = ' / '.join(parts) + ' €'
+                cstm.save()
+                crm_ok = True
+            else:
+                crm_ok = False
+        except Exception as exc:
+            crm_ok = False
+            return JsonResponse({
+                'ok': True, 'terms': _ser(obj), 'crm_updated': False,
+                'crm_error': str(exc),
+            })
+
+    return JsonResponse({'ok': True, 'terms': _ser(obj), 'crm_updated': crm_ok})
+
+
 # ─── Webhooks von abpe_scheduler (PUSH) ───────────────────────────────────────
 
 def _scheduler_token_ok(request):

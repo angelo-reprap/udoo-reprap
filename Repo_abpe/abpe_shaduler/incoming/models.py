@@ -447,3 +447,49 @@ class InboxMailRead(models.Model):
 
     def __str__(self):
         return f'{self.user_id} · {self.mail_id}'
+
+
+# ─── Matching: anfrage-spezifische Verfügbarkeit / Konditionen ────────────────
+
+class MatchingBeraterTerms(TimeStampedModel):
+    """
+    Anfrage-/Match-spezifische Verfügbarkeit und Konditionen.
+
+    Bewusst eigene Tabelle (echte Spalten, kein JSON) — Matching-Workflow
+    liegt live-only; match_id = ProjectConsultant.id (UUID).
+    CRM-Stammdaten (Default) bleiben auf CrmContactCstm.
+    """
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    match_id = models.UUIDField(unique=True, db_index=True,
+                                help_text='abpe_matching_workflow.ProjectConsultant.id')
+    project_id = models.CharField(max_length=64, blank=True, default='', db_index=True,
+                                  help_text='ProjectRequest.id oder project_number')
+    crm_contact_id = models.CharField(max_length=36, blank=True, default='', db_index=True)
+
+    avail_from = models.DateField(null=True, blank=True,
+                                  help_text='Verfügbar ab (für diese Anfrage)')
+    avail_days_per_week = models.PositiveSmallIntegerField(
+        null=True, blank=True, help_text='Tage/Woche (1–7)')
+    avail_note = models.CharField(max_length=255, blank=True, default='',
+                                  help_text='z.B. nur Mo–Mi')
+
+    rate_remote = models.DecimalField(
+        max_digits=8, decimal_places=2, null=True, blank=True,
+        help_text='Stundensatz Remote € (diese Anfrage)')
+    rate_onsite = models.DecimalField(
+        max_digits=8, decimal_places=2, null=True, blank=True,
+        help_text='Stundensatz vor Ort € (diese Anfrage)')
+    rate_note = models.CharField(max_length=255, blank=True, default='')
+
+    updated_by = models.CharField(max_length=80, blank=True, default='')
+
+    class Meta:
+        verbose_name = 'Matching-Berater-Konditionen'
+        verbose_name_plural = 'Matching-Berater-Konditionen'
+        indexes = [
+            models.Index(fields=['crm_contact_id', 'updated_at']),
+            models.Index(fields=['project_id']),
+        ]
+
+    def __str__(self):
+        return f'terms:{self.match_id}'

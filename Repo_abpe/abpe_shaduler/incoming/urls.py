@@ -55,6 +55,9 @@ urlpatterns = [
     path('api/radar/berater/<uuid:pk>/verwerfen/', views.api_radar_consultant_dismiss, name='api_radar_consultant_dismiss'),
     path('api/radar/berater/einfuegen/', views.api_radar_paste, name='api_radar_paste'),
 
+    # Matching: anfrage-spezifische Verfügbarkeit / Konditionen
+    path('api/matching/terms/<uuid:match_id>/', views.api_matching_terms, name='api_matching_terms'),
+
     # Regeln
     path('api/regeln/', views.api_regeln, name='api_regeln'),
 

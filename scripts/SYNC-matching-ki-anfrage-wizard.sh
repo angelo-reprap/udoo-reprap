@@ -28,6 +28,9 @@ git archive "$BRANCH" \
   Repo_abpe/abpe_ui/incoming/mod-shaduler.js \
   Repo_abpe/abpe_ui/incoming/mod-shaduler.css \
   Repo_abpe/abpe_shaduler/incoming \
+  Repo_abpe/abpe_crm/incoming/models.py \
+  Repo_abpe/abpe_crm/incoming/views.py \
+  Repo_abpe/abpe_crm/incoming/migrations \
   | tar -x -C "$TMP"
 
 # Guard: Prompt-Default muss im Archive sein
@@ -93,11 +96,49 @@ if [[ -d "$TMP/Repo_abpe/abpe_shaduler/incoming" ]]; then
   echo "OK — abpe_shaduler → $LIVE_SH (Radar Anfragen + Berater)"
 fi
 
+# ── CRM (Stammdaten Verfügbarkeit/Konditionen) ───────────────────────────────
+LIVE_CRM="${LIVE_CRM:-/opt/abpe/backend/apps/abpe_crm}"
+if [[ -d "$TMP/Repo_abpe/abpe_crm/incoming" && -d "$LIVE_CRM" ]]; then
+  # models/views gezielt (kein Full-Rsync — Live hat mehr Dateien)
+  if [[ -f "$TMP/Repo_abpe/abpe_crm/incoming/models.py" ]]; then
+    if ! grep -q "verfuegbar_tage_pro_woche_c" "$TMP/Repo_abpe/abpe_crm/incoming/models.py"; then
+      echo "FEHLER: CRM models.py ohne verfuegbar_tage_pro_woche_c"
+      exit 1
+    fi
+    cp -a "$TMP/Repo_abpe/abpe_crm/incoming/models.py" "$LIVE_CRM/models.py"
+    echo "OK — abpe_crm/models.py"
+  fi
+  if [[ -f "$TMP/Repo_abpe/abpe_crm/incoming/views.py" ]]; then
+    if ! grep -q "satz_remote_c" "$TMP/Repo_abpe/abpe_crm/incoming/views.py"; then
+      echo "FEHLER: CRM views.py ohne satz_remote_c"
+      exit 1
+    fi
+    cp -a "$TMP/Repo_abpe/abpe_crm/incoming/views.py" "$LIVE_CRM/views.py"
+    echo "OK — abpe_crm/views.py"
+  fi
+  mkdir -p "$LIVE_CRM/migrations"
+  if [[ -f "$LIVE_CRM/migrations/__init__.py" ]] || \
+     [[ -f "$TMP/Repo_abpe/abpe_crm/incoming/migrations/__init__.py" ]]; then
+    cp -n "$TMP/Repo_abpe/abpe_crm/incoming/migrations/__init__.py" \
+      "$LIVE_CRM/migrations/__init__.py" 2>/dev/null || true
+  fi
+  for mig in "$TMP"/Repo_abpe/abpe_crm/incoming/migrations/0*.py; do
+    [[ -f "$mig" ]] || continue
+    base=$(basename "$mig")
+    if [[ ! -f "$LIVE_CRM/migrations/$base" ]]; then
+      cp -a "$mig" "$LIVE_CRM/migrations/$base"
+      echo "OK — CRM Migration neu: $base"
+    fi
+  done
+  find "$LIVE_CRM" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+fi
+
 # ── Matching UI ──────────────────────────────────────────────────────────────
 if ! grep -q "phone_raw" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
   || ! grep -q "_fetchBeraterDetail" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
-  || ! grep -q "matching-avail-box" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js"; then
-  echo "FEHLER: mod-matching.js ohne CRM Tel/E-Mail/Verfügbarkeit-Fix"
+  || ! grep -q "matching-avail-box" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
+  || ! grep -q "saveMatchTerms" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js"; then
+  echo "FEHLER: mod-matching.js ohne CRM Tel/E-Mail/Verfügbarkeit/Terms-Fix"
   exit 1
 fi
 mkdir -p "$LIVE_UI/static/abpe_ui/js/mod"
@@ -159,9 +200,13 @@ for k in ('wiz_matching_anfrage_generate','wiz_firma_web_enrich'):
 
 # ── Migrate (kein automatischer Voll-Seed — Bestand schon da) ────────────────
 echo
-echo "→ migrate abpe_shaduler"
+echo "→ migrate abpe_shaduler + abpe_crm (Terms / Verfügbarkeit)"
 cd "$BACKEND"
 "$PYBIN" manage.py migrate abpe_shaduler --noinput
+"$PYBIN" manage.py migrate abpe_crm --noinput || {
+  echo "Hinweis: abpe_crm-Migration ggf. manuell prüfen (Tabelle contacts_cstm / abpe_crm_crmcontactcstm)"
+  "$PYBIN" manage.py migrate abpe_crm --noinput 2>&1 | tail -20 || true
+}
 echo "Hinweis: CRM-Vollindex manuell / alle 30 Min via Scheduler:"
 echo "  $PYBIN manage.py radar_berater_seed --reindex"
 echo "  $PYBIN manage.py register_scheduler_jobs   # inkl. radar_berater_index 30 Min"
@@ -171,6 +216,8 @@ echo "  FM-Login:   settings.json → shaduler.freelancermap  ODER data/url/fl/.
 echo "              (ohne Session: Liste ok, Stundensätze oft leer)"
 echo
 echo "Restart: supervisorctl restart abpe-django"
+echo "API Match-Terms: GET/POST /shaduler/api/matching/terms/<match_uuid>/"
+echo "CRM-Felder: verfuegbar_tage_pro_woche_c, verfuegbar_hinweis_c, satz_remote_c, satz_vor_ort_c"
 echo "Optional (Radar Anfragen ES): $PYBIN manage.py radar_reindex --status neu"
 echo "Optional (Radar Dedup):       $PYBIN manage.py radar_regroup --days 14"
 echo "UI Matching: Button „KI-Anfragen-Wizard“ links neben „+ Neue Anfrage“"

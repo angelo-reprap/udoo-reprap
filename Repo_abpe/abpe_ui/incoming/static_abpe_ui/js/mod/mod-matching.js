@@ -3076,6 +3076,14 @@ window.Matching = (function() {
                 c.verfuegbar_ab || c.verfuegbar || c.available_from
                 || cstm.verfuegbar_ab || eck.verfuegbar_ab || base.available_from || ''
             ),
+            avail_days_per_week: (
+                c.verfuegbar_tage_pro_woche != null ? c.verfuegbar_tage_pro_woche
+                : (cstm.verfuegbar_tage_pro_woche != null ? cstm.verfuegbar_tage_pro_woche
+                    : (base.avail_days_per_week != null ? base.avail_days_per_week : null))
+            ),
+            avail_note: c.verfuegbar_hinweis || cstm.verfuegbar_hinweis || base.avail_note || '',
+            rate_remote: c.satz_remote || cstm.satz_remote || base.rate_remote || '',
+            rate_onsite: c.satz_vor_ort || cstm.satz_vor_ort || base.rate_onsite || '',
             freelancermap: c.freelancermap || cstm.freelancermap
                 || (Array.isArray(cstm.web_profiles)
                     ? ((cstm.web_profiles.find(w => /freelance/i.test(w.typ || '')) || {}).url || '')
@@ -3243,7 +3251,7 @@ window.Matching = (function() {
                 })
                 .catch(() => tryOne(i + 1));
         }
-        return tryOne(0).then(_enrichFromCrm).then(d => {
+        return tryOne(0).then(_enrichFromCrm).then(_loadMatchTerms).then(d => {
             window._matchingContactCache = window._matchingContactCache || {};
             window._matchingContactCache[matchId] = d;
             return d;
@@ -3521,14 +3529,145 @@ window.Matching = (function() {
     }
 
     function saveAvailability(matchId) {
+        return saveMatchTerms(matchId, { focus: 'avail' });
+    }
+
+    function saveRate(matchId) {
+        return saveMatchTerms(matchId, { focus: 'rate' });
+    }
+
+    function saveMatchTerms(matchId, opts) {
+        opts = opts || {};
         const detail = (window._matchingContactCache || {})[matchId];
-        const inp = document.getElementById('matching-avail-input');
-        const txt = document.getElementById('matching-avail-text');
-        let raw = inp ? inp.value : '';
-        if ((!raw || !String(raw).trim()) && txt && txt.value) raw = txt.value;
-        const run = function (d) { return _saveAvailabilityToCrm(d, raw); };
+        const msg = document.getElementById('matching-terms-msg')
+            || document.getElementById('matching-avail-msg')
+            || document.getElementById('matching-rate-msg');
+        const alsoCrm = !!(document.getElementById('matching-terms-also-crm') || {}).checked;
+
+        const availInp = document.getElementById('matching-avail-input');
+        const availTxt = document.getElementById('matching-avail-text');
+        let availRaw = availInp ? availInp.value : '';
+        if ((!availRaw || !String(availRaw).trim()) && availTxt && availTxt.value) {
+            availRaw = availTxt.value;
+        }
+        const daysEl = document.getElementById('matching-avail-days');
+        const noteEl = document.getElementById('matching-avail-note');
+        const remoteEl = document.getElementById('matching-rate-remote');
+        const onsiteEl = document.getElementById('matching-rate-onsite');
+        const rateNoteEl = document.getElementById('matching-rate-note');
+
+        const payload = {
+            crm_contact_id: (detail && detail.crm_contact_id) || '',
+            project_id: (window.MATCHING_CONFIG && window.MATCHING_CONFIG.activeProject) || '',
+            also_crm: alsoCrm,
+            avail_from: _normDate(availRaw) || '',
+            avail_days_per_week: daysEl && daysEl.value !== '' ? daysEl.value : '',
+            avail_note: noteEl ? noteEl.value.trim() : '',
+            rate_remote: remoteEl ? remoteEl.value.trim() : '',
+            rate_onsite: onsiteEl ? onsiteEl.value.trim() : '',
+            rate_note: rateNoteEl ? rateNoteEl.value.trim() : '',
+        };
+
+        if (opts.focus === 'avail' && !payload.avail_from && payload.avail_days_per_week === '' && !payload.avail_note) {
+            if (msg) { msg.style.color = '#dc2626'; msg.textContent = 'Bitte Verfügbarkeit (Datum/Tage/Hinweis) setzen.'; }
+            return Promise.resolve({ ok: false });
+        }
+        if (opts.focus === 'rate' && !payload.rate_remote && !payload.rate_onsite && !payload.rate_note) {
+            if (msg) { msg.style.color = '#dc2626'; msg.textContent = 'Bitte Remote- und/oder Vor-Ort-Satz eingeben.'; }
+            return Promise.resolve({ ok: false });
+        }
+
+        const run = function (d) {
+            if (!d || !d.id) {
+                if (msg) { msg.style.color = '#dc2626'; msg.textContent = 'Kein Match geladen.'; }
+                return Promise.resolve({ ok: false });
+            }
+            payload.crm_contact_id = payload.crm_contact_id || d.crm_contact_id || '';
+            if (msg) { msg.style.color = '#666'; msg.textContent = 'Speichere Konditionen…'; }
+
+            // 1) immer Match-Tabelle (Shaduler)
+            return _jsonPost('/shaduler/api/matching/terms/' + encodeURIComponent(d.id) + '/', payload)
+                .then(res => {
+                    if (!res || res.ok === false) {
+                        if (msg) {
+                            msg.style.color = '#dc2626';
+                            msg.textContent = 'Match-Speichern fehlgeschlagen: ' + ((res && res.error) || 'unbekannt');
+                        }
+                        return { ok: false };
+                    }
+                    const t = res.terms || payload;
+                    d.available_from = _normDate(t.avail_from) || d.available_from;
+                    d.avail_days_per_week = t.avail_days_per_week != null && t.avail_days_per_week !== ''
+                        ? t.avail_days_per_week : d.avail_days_per_week;
+                    d.avail_note = t.avail_note != null ? t.avail_note : d.avail_note;
+                    d.rate_remote = t.rate_remote != null ? t.rate_remote : d.rate_remote;
+                    d.rate_onsite = t.rate_onsite != null ? t.rate_onsite : d.rate_onsite;
+                    d.rate_note = t.rate_note != null ? t.rate_note : d.rate_note;
+                    // Anzeige-String
+                    const parts = [];
+                    if (d.rate_remote) parts.push(d.rate_remote + ' remote');
+                    if (d.rate_onsite) parts.push(d.rate_onsite + ' vor Ort');
+                    if (parts.length) d.rate = parts.join(' / ') + ' €';
+                    const cache = window._matchingContactCache || {};
+                    if (cache[d.id]) Object.assign(cache[d.id], d);
+
+                    let crmPart = '';
+                    if (alsoCrm && d.crm_contact_id && res.crm_updated !== true) {
+                        // Fallback: direkt CRM patchen
+                        return _saveCrmFields(d, {
+                            verfuegbar_ab_c: d.available_from || '',
+                            verfuegbar_tage_pro_woche_c: d.avail_days_per_week != null ? d.avail_days_per_week : '',
+                            verfuegbar_hinweis_c: d.avail_note || '',
+                            satz_remote_c: d.rate_remote || '',
+                            satz_vor_ort_c: d.rate_onsite || '',
+                        }, msg).then(crmRes => {
+                            crmPart = crmRes.ok ? ' · CRM-Default aktualisiert' : ' · CRM-Default fehlgeschlagen';
+                            if (msg) {
+                                msg.style.color = crmRes.ok ? '#16a34a' : '#d97706';
+                                msg.textContent = 'Match gespeichert' + crmPart;
+                            }
+                            const live = (window._matchingAvailLive || {})[d.id] || { gulp: null, fm: null, note: '' };
+                            live.note = 'Match-Konditionen gespeichert' + crmPart;
+                            _renderAvailBox(document.getElementById('matching-avail-box'), d, live);
+                            return { ok: true };
+                        });
+                    }
+                    if (msg) {
+                        msg.style.color = '#16a34a';
+                        msg.textContent = 'Match gespeichert'
+                            + (res.crm_updated ? ' · CRM-Default aktualisiert' : (alsoCrm ? '' : ' (nur diese Anfrage)'));
+                    }
+                    const live = (window._matchingAvailLive || {})[d.id] || { gulp: null, fm: null, note: '' };
+                    live.note = msg ? msg.textContent : '';
+                    _renderAvailBox(document.getElementById('matching-avail-box'), d, live);
+                    return { ok: true };
+                });
+        };
         if (detail) return run(detail);
         return _fetchMatchDetail(matchId).then(run);
+    }
+
+    function _loadMatchTerms(detail) {
+        if (!detail || !detail.id) return Promise.resolve(detail);
+        return _jsonGet('/shaduler/api/matching/terms/' + encodeURIComponent(detail.id) + '/')
+            .then(res => {
+                if (!res || !res.ok || !res.terms) return detail;
+                const t = res.terms;
+                if (t.avail_from) detail.available_from = _normDate(t.avail_from);
+                if (t.avail_days_per_week != null && t.avail_days_per_week !== '') {
+                    detail.avail_days_per_week = t.avail_days_per_week;
+                }
+                if (t.avail_note) detail.avail_note = t.avail_note;
+                if (t.rate_remote) detail.rate_remote = t.rate_remote;
+                if (t.rate_onsite) detail.rate_onsite = t.rate_onsite;
+                if (t.rate_note) detail.rate_note = t.rate_note;
+                const parts = [];
+                if (detail.rate_remote) parts.push(detail.rate_remote + ' remote');
+                if (detail.rate_onsite) parts.push(detail.rate_onsite + ' vor Ort');
+                if (parts.length) detail.rate = parts.join(' / ') + ' €';
+                return detail;
+            })
+            .catch(() => detail);
     }
 
     function adoptAvailability(matchId, source) {
@@ -3541,35 +3680,9 @@ window.Matching = (function() {
         const run = function (d) {
             const inp = document.getElementById('matching-avail-input');
             if (inp && date) inp.value = _normDate(date);
-            return _saveAvailabilityToCrm(d, date);
-        };
-        if (detail) return run(detail);
-        return _fetchMatchDetail(matchId).then(run);
-    }
-
-    function saveRate(matchId) {
-        const detail = (window._matchingContactCache || {})[matchId];
-        const inp = document.getElementById('matching-rate-input');
-        const msg = document.getElementById('matching-rate-msg') || document.getElementById('matching-avail-msg');
-        const raw = inp ? String(inp.value || '').trim() : '';
-        const run = function (d) {
-            if (!raw) {
-                if (msg) { msg.style.color = '#dc2626'; msg.textContent = 'Bitte Kondition/Preis eingeben.'; }
-                return Promise.resolve({ ok: false });
-            }
-            return _saveCrmFields(d, { konditionen_c: raw }, msg).then(r => {
-                if (!r.ok) return r;
-                d.rate = raw;
-                const cache = window._matchingContactCache || {};
-                if (cache[d.id]) cache[d.id].rate = raw;
-                const shown = document.getElementById('matching-rate-shown');
-                if (shown) shown.textContent = raw + (raw.indexOf('€') >= 0 || /eur/i.test(raw) ? '' : ' €');
-                if (msg) {
-                    msg.style.color = '#16a34a';
-                    msg.textContent = 'CRM gespeichert: Kondition ' + raw;
-                }
-                return { ok: true };
-            });
+            const also = document.getElementById('matching-terms-also-crm');
+            if (also) also.checked = true;
+            return saveMatchTerms(d.id, { focus: 'avail' });
         };
         if (detail) return run(detail);
         return _fetchMatchDetail(matchId).then(run);
@@ -3725,17 +3838,24 @@ window.Matching = (function() {
               ${detail.freelancermap ? '<span style="color:#888">FM</span><span style="word-break:break-all">' + _esc(String(detail.freelancermap)) + '</span>' : ''}
               ${detail.aid ? '<span style="color:#888">AID</span><span>' + _esc(String(detail.aid)) + '</span>' : ''}
               <span style="color:#888">Kondition</span>
-              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
-                <span id="matching-rate-shown" style="min-width:72px">${_esc(detail.rate ? (String(detail.rate) + (String(detail.rate).indexOf('€') >= 0 || /eur/i.test(String(detail.rate)) ? '' : ' €')) : '—')}</span>
-                <input type="text" id="matching-rate-input" value="${_escAttr(detail.rate || '')}"
-                       placeholder="z.B. 100 €" inputmode="decimal"
-                       style="font-size:11px;padding:3px 6px;border:1px solid #cbd5e1;border-radius:4px;width:110px"
-                       onclick="event.stopPropagation()" onmousedown="event.stopPropagation()">
-                <button type="button" class="matching-btn-sm" style="font-size:10px;padding:2px 8px"
-                        onclick="event.stopPropagation();Matching.saveRate('${detail.id}')"
-                        ${detail.crm_contact_id ? '' : 'disabled title="Kein CRM-Kontakt"'}>
-                  <i class="bi bi-save"></i> Preis speichern
-                </button>
+              <div style="display:grid;gap:4px">
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+                  <span style="color:#888;min-width:52px;font-size:10px">Remote</span>
+                  <input type="text" id="matching-rate-remote" value="${_escAttr(detail.rate_remote || '')}"
+                         placeholder="€" inputmode="decimal"
+                         style="font-size:11px;padding:3px 6px;border:1px solid #cbd5e1;border-radius:4px;width:72px"
+                         onclick="event.stopPropagation()">
+                  <span style="color:#888;min-width:52px;font-size:10px">vor Ort</span>
+                  <input type="text" id="matching-rate-onsite" value="${_escAttr(detail.rate_onsite || '')}"
+                         placeholder="€" inputmode="decimal"
+                         style="font-size:11px;padding:3px 6px;border:1px solid #cbd5e1;border-radius:4px;width:72px"
+                         onclick="event.stopPropagation()">
+                </div>
+                <input type="text" id="matching-rate-note" value="${_escAttr(detail.rate_note || '')}"
+                       placeholder="Hinweis Preis (Reise, Spesen…)"
+                       style="font-size:11px;padding:3px 6px;border:1px solid #cbd5e1;border-radius:4px;width:100%;box-sizing:border-box"
+                       onclick="event.stopPropagation()">
+                <div style="font-size:10px;color:#888">${_esc(detail.rate ? ('Anzeige: ' + detail.rate) : '')}</div>
               </div>
               ${detail.crm_type ? '<span style="color:#888">Typ</span><span>' + _esc(detail.crm_type) + '</span>' : ''}
               ${detail.crm_status ? '<span style="color:#888">CRM-Status</span><span>' + _esc(detail.crm_status) + '</span>' : ''}
@@ -3743,32 +3863,53 @@ window.Matching = (function() {
               <span style="color:#888">Telefon</span><div>${phoneHtml}</div>
               <span style="color:#888">E-Mail</span><div>${mailHtml}</div>
             </div>
-            <div id="matching-rate-msg" style="font-size:10px;min-height:0;margin:-4px 0 8px"></div>
 
             <div style="border:1px solid #e8edf4;border-radius:8px;padding:10px 12px;margin-bottom:12px;background:#f8fafc"
                  onclick="event.stopPropagation()" onmousedown="event.stopPropagation()">
               <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;font-weight:600;font-size:12px;color:#163258;flex-wrap:wrap">
-                <i class="bi bi-calendar2-check"></i> Verfügbarkeit
-                <span style="font-weight:400;font-size:10px;color:#888">CRM · Gulp · FM</span>
+                <i class="bi bi-calendar2-check"></i> Verfügbarkeit & Konditionen
+                <span style="font-weight:400;font-size:10px;color:#888">Match · CRM · Gulp · FM</span>
               </div>
-              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:8px">
-                <label style="font-size:10px;color:#888;min-width:70px">Nachtragen</label>
-                <input type="date" id="matching-avail-input" value="${_escAttr(_normDate(detail.available_from) || '')}"
-                       style="font-size:11px;padding:3px 6px;border:1px solid #cbd5e1;border-radius:4px"
-                       title="Verfügbarkeit manuell setzen">
-                <input type="text" id="matching-avail-text" value=""
-                       placeholder="oder TT.MM.JJJJ"
-                       style="font-size:11px;padding:3px 6px;border:1px solid #cbd5e1;border-radius:4px;width:110px"
-                       title="Freitext-Datum"
-                       onchange="(function(el){var d=Matching._normDatePublic&&Matching._normDatePublic(el.value);var i=document.getElementById('matching-avail-input');if(d&&i)i.value=d;})(this)">
-                <button type="button" class="matching-btn-sm" style="font-size:10px;padding:2px 8px"
-                        onclick="Matching.saveAvailability('${detail.id}')"
-                        ${detail.crm_contact_id ? '' : 'disabled title="Kein CRM-Kontakt"'}>
-                  <i class="bi bi-save"></i> Speichern
-                </button>
+              <div style="display:grid;gap:6px;margin-bottom:8px">
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+                  <label style="font-size:10px;color:#888;min-width:70px">Ab</label>
+                  <input type="date" id="matching-avail-input" value="${_escAttr(_normDate(detail.available_from) || '')}"
+                         style="font-size:11px;padding:3px 6px;border:1px solid #cbd5e1;border-radius:4px">
+                  <input type="text" id="matching-avail-text" value="" placeholder="oder TT.MM.JJJJ"
+                         style="font-size:11px;padding:3px 6px;border:1px solid #cbd5e1;border-radius:4px;width:110px"
+                         onchange="(function(el){var d=Matching._normDatePublic&&Matching._normDatePublic(el.value);var i=document.getElementById('matching-avail-input');if(d&&i)i.value=d;})(this)">
+                  <label style="font-size:10px;color:#888">Tage/Wo</label>
+                  <input type="number" id="matching-avail-days" min="1" max="7" step="1"
+                         value="${_escAttr(detail.avail_days_per_week != null ? detail.avail_days_per_week : '')}"
+                         style="font-size:11px;padding:3px 6px;border:1px solid #cbd5e1;border-radius:4px;width:56px">
+                </div>
+                <input type="text" id="matching-avail-note" value="${_escAttr(detail.avail_note || '')}"
+                       placeholder="Hinweis Verfügbarkeit (nur Mo–Mi, keine Reise…)"
+                       style="font-size:11px;padding:3px 6px;border:1px solid #cbd5e1;border-radius:4px;width:100%;box-sizing:border-box">
+                <label style="font-size:11px;display:flex;align-items:center;gap:6px;color:#334155">
+                  <input type="checkbox" id="matching-terms-also-crm" ${detail.crm_contact_id ? '' : 'disabled'}>
+                  Auch als CRM-Default speichern
+                </label>
+                <div style="display:flex;gap:6px;flex-wrap:wrap">
+                  <button type="button" class="matching-btn-sm" style="font-size:10px;padding:2px 8px"
+                          onclick="Matching.saveMatchTerms('${detail.id}')"
+                          ${detail.id ? '' : 'disabled'}>
+                    <i class="bi bi-save"></i> Für diese Anfrage speichern
+                  </button>
+                  <button type="button" class="matching-btn-sm" style="font-size:10px;padding:2px 8px"
+                          onclick="Matching.saveAvailability('${detail.id}')">
+                    Nur Verfügbarkeit
+                  </button>
+                  <button type="button" class="matching-btn-sm" style="font-size:10px;padding:2px 8px"
+                          onclick="Matching.saveRate('${detail.id}')">
+                    Nur Preise
+                  </button>
+                </div>
               </div>
               <div id="matching-avail-box"></div>
-              <div id="matching-avail-msg" style="font-size:10px;min-height:14px;margin-top:4px"></div>
+              <div id="matching-terms-msg" style="font-size:10px;min-height:14px;margin-top:4px"></div>
+              <div id="matching-avail-msg" style="display:none"></div>
+              <div id="matching-rate-msg" style="display:none"></div>
             </div>
 
             <div style="display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid #e8edf4;padding-top:12px">
@@ -4178,7 +4319,7 @@ window.Matching = (function() {
         searchAccounts, searchContacts, call, sendEmail,
         kanbanDragStart, kanbanDrop, kanbanCardClick,
         closeContactPopup, submitStageMail, openCv, createCvTask,
-        saveAvailability, adoptAvailability, saveRate,
+        saveAvailability, adoptAvailability, saveRate, saveMatchTerms,
         _normDatePublic: _normDate,
         closeProject, sendContract, sendPlacementStart, savePlacementDetails,
         openKiWizard, closeKiWizard, runKiExtract, applyKiExtract,
