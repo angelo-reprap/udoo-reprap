@@ -24,6 +24,7 @@ SKILL_CAT_TO_DB = {
     'operating_system':        'Betriebssysteme',
     'database':                'Datenbanken',
     'hardware':                'Hardware',
+    'datenkommunikation':      'Datenkommunikation',  # abcona-PDF-Header 1:1
     'network_protocol':        'Netzwerkprotokolle',
     'it_infrastructure':       'IT-Infrastruktur',
     'methodology':             'Methoden',

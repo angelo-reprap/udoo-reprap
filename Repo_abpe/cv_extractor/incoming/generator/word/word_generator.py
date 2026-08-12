@@ -693,7 +693,10 @@ class WordGenerator:
         cat_weights   = defaultdict(list)
         for cs in consultant.skills.all().select_related("skill", "skill__category"):
             name = cs.skill.name
-            cat  = cs.skill.category.name if cs.skill.category else "other"
+            # Wie HTML: consultantskill.category_name hat Vorrang (PDF-Layout)
+            cat = (cs.category_name or
+                   (cs.skill.category.name if cs.skill.category else None) or
+                   "other")
             skills_by_cat.setdefault(cat, []).append(name)
             if cat not in ("IT-Infrastruktur", "other"):
                 cat_weights[cat].append(cs.weight)

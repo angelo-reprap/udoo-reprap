@@ -105,7 +105,7 @@ FIRST_WORD_TO_SKILL_CAT = {
     'datenbanken':           'database',
     'datenbank':             'database',
     'hardware':              'hardware',
-    'datenkommunikation':    'network_protocol',
+    'datenkommunikation':    'datenkommunikation',  # Anzeige: Datenkommunikation
     'netzwerk':              'network_protocol',
     'netzwerkprotokolle':    'network_protocol',
     'webserver':             'it_infrastructure',
