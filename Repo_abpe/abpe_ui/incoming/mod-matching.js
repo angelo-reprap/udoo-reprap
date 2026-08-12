@@ -4398,7 +4398,7 @@ window.Matching = (function() {
 
     return {
         init, applyI18n, switchTab, newRequest,
-        openProject, pickShortlistRequest, pickKanbanRequest, runMatching, saveNewRequest,
+        openProject, pickShortlistRequest, pickKanbanRequest, runMatching, rematch, saveNewRequest,
         updateThreshold, sendAllAboveThreshold,
         toggleArchiveDetail, searchAnfragen, filterAnfragen,
         searchAccounts, searchContacts, call, sendEmail,

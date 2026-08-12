@@ -108,8 +108,18 @@ if [[ -d "$TMP/Repo_abpe/abpe_shaduler/incoming" ]]; then
     if [[ ! -f "$LIVE_SH/migrations/$base" ]]; then
       cp -a "$mig" "$LIVE_SH/migrations/$base"
       echo "OK — Migration neu: $base"
+    elif [[ "$base" == *matchingberaterterms* ]]; then
+      cp -a "$mig" "$LIVE_SH/migrations/$base"
+      echo "OK — Migration aktualisiert: $base"
     fi
   done
+  # Alte kollidierende Leaf entfernen (0005_matching… parallel zu 0005_shadulersetting)
+  if [[ -f "$LIVE_SH/migrations/0005_matchingberaterterms.py" ]]; then
+    mv -f "$LIVE_SH/migrations/0005_matchingberaterterms.py" \
+      "$LIVE_SH/migrations/0005_matchingberaterterms.py.bak-conflict-$ts" 2>/dev/null \
+      || rm -f "$LIVE_SH/migrations/0005_matchingberaterterms.py"
+    echo "OK — kollidierende 0005_matchingberaterterms.py entfernt"
+  fi
   find "$LIVE_SH" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
   echo "OK — abpe_shaduler → $LIVE_SH (Radar Anfragen + Berater)"
 fi
@@ -305,8 +315,18 @@ PY
     if [[ ! -f "$LIVE_CRM/migrations/$base" ]]; then
       cp -a "$mig" "$LIVE_CRM/migrations/$base"
       echo "OK — CRM Migration neu: $base"
+    elif [[ "$base" == *berater_verfuegbarkeit* ]]; then
+      cp -a "$mig" "$LIVE_CRM/migrations/$base"
+      echo "OK — CRM Migration aktualisiert: $base"
     fi
   done
+  # Alte kollidierende 0001_berater… (parallel zu 0017_…) entfernen
+  if [[ -f "$LIVE_CRM/migrations/0001_berater_verfuegbarkeit_konditionen.py" ]]; then
+    mv -f "$LIVE_CRM/migrations/0001_berater_verfuegbarkeit_konditionen.py" \
+      "$LIVE_CRM/migrations/0001_berater_verfuegbarkeit_konditionen.py.bak-conflict" 2>/dev/null \
+      || rm -f "$LIVE_CRM/migrations/0001_berater_verfuegbarkeit_konditionen.py"
+    echo "OK — kollidierende CRM 0001_berater_verfuegbarkeit_konditionen.py entfernt"
+  fi
   find "$LIVE_CRM" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
 fi
 
