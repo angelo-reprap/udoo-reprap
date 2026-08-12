@@ -62,8 +62,6 @@ class HTMLGenerator:
                 'period':      edu.period or '',
                 'description': desc,
             })
-        if not education and (consultant.degree or '').strip():
-            education.append({'period': '', 'description': consultant.degree.strip()})
 
         # Fachbereiche
         focus_areas = [
@@ -71,35 +69,20 @@ class HTMLGenerator:
             for fa in consultant.focus_areas.all().select_related('focus_area')
         ]
 
-        # Zertifizierungen / Schulungen — getrennt, ohne Sektions-Header
-        _section_noise = {
-            'zertifizierungen', 'schulungen', 'schulungen / kurse', 'schulungen/kurse',
-            'examen', 'examen | prüfungen', 'examen|prüfungen', 'ausbildung',
-            'fachbereiche', 'branchen', 'persönliche daten',
-        }
-        def _is_noise(n: str) -> bool:
-            x = (n or '').strip().lower().rstrip(':')
-            return (not x) or x in _section_noise
-
-        trainings_keywords = [
-            'kurs', 'schulung', 'engineer', 'administrator',
-            'analyst', 'core', 'operator', 'training', 'support',
-        ]
-        all_cert_names = [
+        # Zertifizierungen
+        certifications = [
             cert.certification.name
             for cert in consultant.certifications.all().select_related('certification')
-            if cert.certification and cert.certification.name
-        ]
-        trainings = [
-            n for n in all_cert_names
-            if not _is_noise(n) and any(kw in n.lower() for kw in trainings_keywords)
-        ]
-        course_set = {t.lower() for t in trainings}
-        certifications = [
-            n for n in all_cert_names
-            if not _is_noise(n) and n.lower() not in course_set
         ]
         products = [fi.name for fi in consultant.focus_experience_items.all()]
+        trainings = [
+            cert.certification.name
+            for cert in consultant.certifications.all().select_related('certification')
+            if any(kw in cert.certification.name.lower()
+                   for kw in ['kurs', 'schulung', 'engineer', 'administrator',
+                               'analyst', 'core', 'operator', 'training', 'support'])
+        ] or []
+
         # Branchen
         industries = [
             ind.industry.name
@@ -235,13 +218,12 @@ class HTMLGenerator:
             if skills
         ]
 
-        # Schulungen aus Education + trainings (Dedup)
+        # Schulungen aus Education
         schulungen = [
             edu.degree
             for edu in consultant.education.filter(education_type='course')
-            if edu.degree and not _is_noise(edu.degree)
+            if edu.degree
         ]
-        courses = list(dict.fromkeys(schulungen + trainings))
 
         # Sonstige Inhalte (OtherContent)
         from apps.cv_extractor.models import OtherContent
@@ -260,7 +242,7 @@ class HTMLGenerator:
             'focus_areas':     focus_areas,
             'certifications':  certifications,
             'products':        products,
-            'courses':         courses,
+            'courses':         schulungen or trainings,
             'industries':      industries,
             'experiences':     experiences,
             'skills_sections': skills_sections,

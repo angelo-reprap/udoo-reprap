@@ -332,13 +332,8 @@ class CVBuilder:
         sp.paragraph_format.space_before = Pt(0)
         sp.paragraph_format.space_after  = Pt(self.s["section_title"].get("page_top_spacer_pt", 8))
         self.section_title(doc, self.lbl("persoenliche_daten", data.get("language","de")))
-        # Anonym: AID statt Klarname (Layout unverändert — nur Zelleninhalt)
-        if data.get("show_name"):
-            name_val = (pers.get("first_name", "") + " " + pers.get("last_name", "")).strip() or "-"
-        else:
-            name_val = (data.get("aid") or "").strip() or "-"
         rows = [
-            (self.lbl("name", data.get("language","de")),                name_val),
+            (self.lbl("name", data.get("language","de")),                (pers.get("first_name","")+" "+pers.get("last_name","")).strip() or "-"),
             (self.lbl("geburtsjahr", data.get("language","de")),         str(pers.get("birth_year") or "-")),
             (self.lbl("nationalitaet", data.get("language","de")), pers.get("nationality") or "Deutsch"),
             (self.lbl("sprachen", data.get("language","de")),            ", ".join(langs) if langs else "-"),
@@ -650,42 +645,17 @@ class WordGenerator:
             if edu.institution: desc += " @ " + edu.institution
             education.append({"period": edu.period or "", "description": desc})
 
-        # Fallback: consultant.degree wenn keine Education-Zeilen
-        if not education and (consultant.degree or "").strip():
-            education.append({"period": "", "description": consultant.degree.strip()})
-
-        _section_noise = {
-            'zertifizierungen', 'schulungen', 'schulungen / kurse', 'schulungen/kurse',
-            'examen', 'examen | prüfungen', 'examen|prüfungen', 'ausbildung',
-            'fachbereiche', 'branchen', 'persönliche daten',
-        }
-        def _is_noise(n: str) -> bool:
-            x = (n or "").strip().lower().rstrip(':')
-            return (not x) or x in _section_noise
-
         trainings_keywords = ['kurs', 'schulung', 'engineer', 'administrator',
                                'analyst', 'core', 'operator', 'training', 'support', 'zertifiziert']
-        all_cert_names = [
+        courses = [
             cert.certification.name
             for cert in consultant.certifications.all().select_related('certification')
-            if cert.certification and cert.certification.name
-        ]
-        courses = [
-            n for n in all_cert_names
-            if not _is_noise(n) and any(kw in n.lower() for kw in trainings_keywords)
-        ]
-        courses += [
-            e.degree for e in consultant.education.filter(education_type='course')
-            if e.degree and not _is_noise(e.degree)
-        ]
+            if any(kw in cert.certification.name.lower() for kw in trainings_keywords)
+        ] or []
+        courses += [e.degree for e in consultant.education.filter(education_type='course') if e.degree]
         courses = list(dict.fromkeys(courses))
-        course_set = {c.lower() for c in courses}
-        # Echte Zertifikate: nicht in courses, keine Sektions-Header
-        certifications = [
-            n for n in all_cert_names
-            if not _is_noise(n) and n.lower() not in course_set
-        ]
         focus_areas    = [fa.focus_area.name for fa in consultant.focus_areas.all().select_related("focus_area")]
+        certifications = [c.certification.name for c in consultant.certifications.all().select_related("certification")]
         products       = [fi.name for fi in consultant.focus_experience_items.all()]
         industries     = [i.industry.name for i in consultant.industries.all().select_related("industry")]
 
@@ -736,7 +706,6 @@ class WordGenerator:
             "experiences":     experiences,
             "skills_sections": skills_sections,
             "other_content":   [oc.content for oc in consultant.other_content.all()],
-            "show_name":       bool(getattr(consultant, "show_name", False)),
         }
 
     def generate(self, consultant, aid=None, version=None, skip_publish=False):

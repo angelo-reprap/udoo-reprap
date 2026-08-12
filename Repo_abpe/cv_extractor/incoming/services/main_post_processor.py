@@ -112,38 +112,9 @@ class MainPostProcessor:
 
     def _clean_roles(self, exps: List[dict]) -> Tuple[List[dict], List[str]]:
         fixes = []
-        # Typische Rollen-Wörter (abcona: Rolle landete fälschlich in company)
-        role_hint = re.compile(
-            r'(experte|expertin|engineer|administrator|berater|consultant|'
-            r'entwickler|architekt|spezialist|analyst|operator|manager|'
-            r'consultant|lead|senior|junior)',
-            re.IGNORECASE,
-        )
         for exp in exps:
             role  = (exp.get('role',  '') or '').strip()
             title = (exp.get('title', '') or '').strip()
-            company = (exp.get('company', '') or '').strip()
-
-            # company sieht aus wie Jobtitel, role leer → tauschen
-            if company and not role and role_hint.search(company) and len(company) < 80:
-                exp['role'] = company
-                exp['company'] = ''
-                fixes.append(f"ROLLE aus COMPANY: '{company}'")
-                role = company
-                company = ''
-
-            # role enthält "Kunde / Branche"-Rest und company leer
-            if role and not company:
-                m = re.match(
-                    r'^(?:kunde\s*/\s*branche|kunde|customer)\s*:\s*(.+)$',
-                    role, re.IGNORECASE,
-                )
-                if m:
-                    exp['company'] = m.group(1).strip()[:200]
-                    exp['role'] = title or ''
-                    fixes.append(f"COMPANY aus ROLE-Label: '{exp['company']}'")
-                    role = exp.get('role', '') or ''
-
             if not role and title:
                 exp['role'] = title
                 fixes.append(f"ROLLE aus TITLE: '{title}'")
@@ -152,6 +123,7 @@ class MainPostProcessor:
                 exp['role'] = role[:100].rsplit(' ', 1)[0]
                 fixes.append(f"ROLLE gekuerzt: '{exp['role']}'")
         return exps, fixes
+
     # ── 2. Technologien bereinigen ────────────────────────────────────────
 
     def _clean_technologies(self, exps: List[dict]) -> Tuple[List[dict], List[str]]:

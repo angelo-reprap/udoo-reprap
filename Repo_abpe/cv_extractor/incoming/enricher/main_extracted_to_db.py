@@ -213,14 +213,12 @@ class MainExtractedToDB:
         for edu in (extracted.get('education') or []):
             if not edu:
                 continue
-            degree = (edu.get('degree') or edu.get('name') or edu.get('description') or '').strip()
+            degree = (edu.get('degree') or edu.get('name') or '').strip()
             if not degree:
                 continue
             edu_type = edu.get('education_type', 'degree')
             if edu_type not in ('degree', 'course', 'certification'):
                 edu_type = 'degree'
-            if str(edu_type).lower() in ('schulung', 'schulungen', 'training', 'kurs'):
-                edu_type = 'course'
             Education.objects.create(
                 consultant    = consultant,
                 degree        = degree[:200],
@@ -240,14 +238,6 @@ class MainExtractedToDB:
                     consultant.save(update_fields=['degree', 'updated_at'])
                     break
 
-        # Fallback: personal.degree → Education-Zeile wenn keine degree-Einträge
-        if (consultant.degree and
-                not consultant.education.filter(education_type='degree').exists()):
-            Education.objects.create(
-                consultant=consultant,
-                degree=consultant.degree[:200],
-                education_type='degree',
-            )
         # ── Projekte ──────────────────────────────────────────────────────────
         # ExperienceTechnology wird NICHT hier geschrieben
         # → kommt vom skill_normalizer in main_db_importer
