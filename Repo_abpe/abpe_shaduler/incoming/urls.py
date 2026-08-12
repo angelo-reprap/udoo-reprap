@@ -62,6 +62,11 @@ urlpatterns = [
         views.api_matching_shortlist_reset,
         name='api_matching_shortlist_reset',
     ),
+    path(
+        'api/matching/request/<uuid:project_id>/',
+        views.api_matching_request,
+        name='api_matching_request',
+    ),
 
     # Regeln
     path('api/regeln/', views.api_regeln, name='api_regeln'),

@@ -172,11 +172,12 @@ window.Matching = (function() {
                         html += `
                         <div class="matching-card" style="cursor:pointer">
                             <div style="display:flex;align-items:center;gap:8px"
-                                 onclick="Matching.openProject('${p.id}','shortlist')">
+                                 onclick="Matching.openRequestEdit('${p.id}')"
+                                 title="${_escAttr(_kiT('open_request_edit', 'Anfrage öffnen / bearbeiten'))}">
                                 <div class="matching-prio ${prioClass}"></div>
-                                <div style="min-width:100px;font-size:10px;color:#888">${p.project_number}</div>
-                                <div style="flex:1;font-weight:700;font-size:12px">${p.title}</div>
-                                <div style="font-size:11px;color:#666;min-width:100px">${p.customer_name}</div>
+                                <div style="min-width:100px;font-size:10px;color:#888">${_esc(p.project_number || '')}</div>
+                                <div style="flex:1;font-weight:700;font-size:12px;color:var(--abcona-blue);text-decoration:underline;text-underline-offset:2px">${_esc(p.title || '—')}</div>
+                                <div style="font-size:11px;color:#666;min-width:100px">${_esc(p.customer_name || '')}</div>
                                 <span class="matching-pill ${pillClass}">${_statusLabel(p.status)}</span>
                                 <div style="font-size:10px;color:#888;min-width:50px;text-align:right">
                                     ${p.match_count ? p.match_count + _t('matching.matches_count') : '—'}
@@ -184,6 +185,10 @@ window.Matching = (function() {
                             </div>
                             <div style="display:flex;gap:4px;margin-top:6px;justify-content:flex-end"
                                  onclick="event.stopPropagation()">
+                                <button class="matching-btn-sm" style="font-size:10px"
+                                        onclick="event.stopPropagation();Matching.openRequestEdit('${p.id}')">
+                                    <i class="bi bi-pencil"></i> ${_esc(_kiT('btn_edit_request', 'Bearbeiten'))}
+                                </button>
                                 <button class="matching-btn-sm" style="font-size:10px"
                                         onclick="event.stopPropagation();Matching.openProject('${p.id}','shortlist')">
                                     <i class="bi bi-funnel"></i> ${_t('matching.tab_shortlist')}
@@ -2648,6 +2653,211 @@ window.Matching = (function() {
         }
     }
 
+    /**
+     * Anfrage öffnen / bearbeiten (Klick auf Titel in Anfragen-Liste).
+     */
+    function openRequestEdit(projectId) {
+        if (!projectId) return;
+        window.MATCHING_CONFIG.activeProject = projectId;
+        const content = document.getElementById('content-neu');
+        const loading = document.getElementById('loading-neu');
+        if (loading) loading.style.display = 'flex';
+        switchTab('neu');
+
+        _jsonGet('/shaduler/api/matching/request/' + encodeURIComponent(projectId) + '/')
+            .then(d => {
+                if (loading) loading.style.display = 'none';
+                if (!d || (!d.ok && !d.success) || !d.request) {
+                    throw new Error((d && d.error) || 'Anfrage konnte nicht geladen werden');
+                }
+                _renderRequestEditForm(content, d.request);
+            })
+            .catch(e => {
+                if (loading) loading.style.display = 'none';
+                // Fallback: Matching-API Detail, falls vorhanden
+                fetch(API + 'requests/' + encodeURIComponent(projectId) + '/', {
+                    credentials: 'same-origin',
+                })
+                .then(r => r.json().then(d => ({ ok: r.ok, d })))
+                .then(({ ok, d }) => {
+                    const req = (d && (d.request || d.result || d)) || null;
+                    if (ok && req && (req.id || req.title)) {
+                        _renderRequestEditForm(content, req);
+                        return;
+                    }
+                    throw e;
+                })
+                .catch(err => {
+                    if (content) {
+                        content.innerHTML = '<p style="color:#ef4444;padding:20px">'
+                            + _esc(err.message || String(err)) + '</p>';
+                        content.dataset.loaded = '1';
+                    }
+                });
+            });
+    }
+
+    function _renderRequestEditForm(content, req) {
+        if (!content) return;
+        const skills = Array.isArray(req.skills)
+            ? req.skills
+            : (Array.isArray(req.required_skills)
+                ? req.required_skills.map(s => (typeof s === 'string' ? s : (s && s.name) || '')).filter(Boolean)
+                : []);
+        const skillsStr = skills.join(', ');
+        const rateMax = (req.rate_max != null && req.rate_max !== '') ? String(req.rate_max) : '';
+        const duration = (req.duration_months != null) ? String(req.duration_months) : '';
+        const start = req.start_date || '';
+        const num = req.project_number || '';
+
+        content.innerHTML = `
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap">
+            <button type="button" class="matching-btn-sm" onclick="Matching.switchTab('anfragen')">
+                <i class="bi bi-arrow-left"></i> ${_esc(_kiT('back_to_requests', 'Anfragen'))}
+            </button>
+            <div style="font-size:13px;font-weight:700;flex:1">
+                ${_esc(_kiT('edit_request_title', 'Anfrage bearbeiten'))}
+                ${num ? ' · <span style="color:#888;font-weight:500">' + _esc(num) + '</span>' : ''}
+            </div>
+            <button type="button" class="matching-btn-sm"
+                    onclick="Matching.openProject('${req.id}','shortlist')">
+                <i class="bi bi-funnel"></i> Shortlist
+            </button>
+        </div>
+        <input type="hidden" id="edit-request-id" value="${_escAttr(req.id || '')}">
+        <div class="matching-section-head" onclick="toggleSection(this)">
+            ${_t('matching.section_customer')} <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="matching-section-body">
+            <div class="matching-form-grid">
+                <div class="matching-form-group">
+                    <label class="matching-form-label">${_t('matching.neu_customer')}</label>
+                    <input class="matching-form-input" id="new-customer"
+                           value="${_escAttr(req.customer_name || '')}">
+                    <input type="hidden" id="new-crm-account-id" value="${_escAttr(req.crm_account_id || '')}">
+                </div>
+                <div class="matching-form-group">
+                    <label class="matching-form-label">${_t('matching.neu_contact')}</label>
+                    <input class="matching-form-input" id="new-contact"
+                           value="${_escAttr(req.contact_name || '')}">
+                    <input type="hidden" id="new-crm-contact-id" value="${_escAttr(req.crm_contact_id || '')}">
+                </div>
+                <div class="matching-form-group">
+                    <label class="matching-form-label">${_kiT('contact_email', 'E-Mail Ansprechpartner')}</label>
+                    <input class="matching-form-input" id="new-contact-email" type="email"
+                           value="${_escAttr(req.contact_email || '')}">
+                </div>
+                <div class="matching-form-group">
+                    <label class="matching-form-label">${_kiT('contact_phone', 'Telefon Ansprechpartner')}</label>
+                    <input class="matching-form-input" id="new-contact-phone" type="tel"
+                           value="${_escAttr(req.contact_phone || '')}">
+                </div>
+            </div>
+        </div>
+        <div class="matching-section-head" onclick="toggleSection(this)">
+            ${_t('matching.section_details')} <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="matching-section-body">
+            <div class="matching-form-grid">
+                <div class="matching-form-group span2">
+                    <label class="matching-form-label">${_t('matching.neu_text')}</label>
+                    <textarea class="matching-form-textarea" id="new-description">${_esc(req.description || '')}</textarea>
+                </div>
+                <div class="matching-form-group span2">
+                    <label class="matching-form-label">${_t('matching.neu_title')}</label>
+                    <input class="matching-form-input" id="new-title" value="${_escAttr(req.title || '')}">
+                </div>
+                <div class="matching-form-group span2">
+                    <label class="matching-form-label">${_kiT('neu_skills', 'Skills (für Matching)')}</label>
+                    <input class="matching-form-input" id="new-skills" value="${_escAttr(skillsStr)}"
+                           placeholder="${_escAttr(_kiT('skills_placeholder', 'z.B. Mainframe, Cloud, Architecture'))}">
+                    <input type="hidden" id="new-skills-json" value="${_escAttr(JSON.stringify(skills))}">
+                    <div style="font-size:10px;color:#888;margin-top:4px">
+                        ${_esc(_kiT('skills_hint', 'Ohne Skills matcht die Engine oft Blindlinge (~70%).'))}
+                    </div>
+                </div>
+                <div class="matching-form-group">
+                    <label class="matching-form-label">${_t('matching.neu_start_label')}</label>
+                    <input class="matching-form-input" type="date" id="new-start" value="${_escAttr(start)}">
+                </div>
+                <div class="matching-form-group">
+                    <label class="matching-form-label">${_t('matching.neu_duration_label')}</label>
+                    <input class="matching-form-input" type="number" id="new-duration" value="${_escAttr(duration)}">
+                </div>
+                <div class="matching-form-group">
+                    <label class="matching-form-label">${_t('matching.neu_location')}</label>
+                    <input class="matching-form-input" id="new-location" value="${_escAttr(req.location || '')}">
+                </div>
+                <div class="matching-form-group">
+                    <label class="matching-form-label">${_t('matching.neu_rate_label')}</label>
+                    <input class="matching-form-input" type="number" id="new-rate-max" value="${_escAttr(rateMax)}">
+                </div>
+            </div>
+        </div>
+        <div id="edit-request-msg" style="font-size:12px;min-height:18px;margin-top:6px"></div>
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px;flex-wrap:wrap">
+            <button class="matching-btn-sm" onclick="Matching.switchTab('anfragen')">${_t('matching.btn_cancel')}</button>
+            <button class="matching-btn-sm"
+                    onclick="Matching.openProject('${req.id}','shortlist')">
+                <i class="bi bi-funnel"></i> ${_esc(_kiT('save_then_shortlist', 'Zur Shortlist'))}
+            </button>
+            <button class="matching-btn-primary" onclick="Matching.saveRequestEdit()">
+                <i class="bi bi-save"></i> ${_esc(_kiT('btn_save_request', 'Speichern'))}
+            </button>
+        </div>`;
+        content.dataset.loaded = '1';
+        _bindCustomerField();
+    }
+
+    function saveRequestEdit() {
+        const id = _val('edit-request-id');
+        if (!id) {
+            alert(_kiT('edit_no_id', 'Keine Anfrage-ID — bitte neu öffnen.'));
+            return;
+        }
+        const skills = _parseSkillsInput();
+        const payload = {
+            title:           _val('new-title'),
+            description:     _val('new-description'),
+            customer_name:   _val('new-customer'),
+            contact_name:    _val('new-contact'),
+            contact_email:   _val('new-contact-email'),
+            contact_phone:   _val('new-contact-phone'),
+            crm_account_id:  _val('new-crm-account-id'),
+            crm_contact_id:  _val('new-crm-contact-id'),
+            start_date:      _val('new-start') || null,
+            duration_months: parseInt(_val('new-duration')) || 0,
+            location:        _val('new-location'),
+            rate_max:        parseInt(_val('new-rate-max')) || null,
+            skills:          skills,
+            required_skills: skills.map(name => ({ name: name, weight: 1.0 })),
+            extracted_technologies: skills,
+        };
+        if (!payload.title || !payload.customer_name) {
+            alert(_t('matching.err_title_required'));
+            return;
+        }
+        const msg = document.getElementById('edit-request-msg');
+        if (msg) { msg.style.color = '#2563eb'; msg.textContent = 'Speichere…'; }
+
+        _jsonPost('/shaduler/api/matching/request/' + encodeURIComponent(id) + '/', payload)
+            .then(d => {
+                if (!d || (!d.ok && !d.success)) {
+                    throw new Error((d && d.error) || 'Speichern fehlgeschlagen');
+                }
+                if (msg) {
+                    msg.style.color = '#059669';
+                    msg.textContent = '✓ Gespeichert'
+                        + (skills.length ? (' · ' + skills.length + ' Skills') : ' · ⚠ keine Skills');
+                }
+                const c = document.getElementById('content-anfragen');
+                if (c) c.dataset.loaded = '0';
+            })
+            .catch(e => {
+                if (msg) { msg.style.color = '#ef4444'; msg.textContent = e.message || String(e); }
+            });
+    }
+
     function runMatching(projectId, opts) {
         opts = opts || {};
         if (!projectId) projectId = window.MATCHING_CONFIG.activeProject;
@@ -4483,7 +4693,7 @@ window.Matching = (function() {
 
     return {
         init, applyI18n, switchTab, newRequest,
-        openProject, pickShortlistRequest, pickKanbanRequest, runMatching, rematch, saveNewRequest,
+        openProject, openRequestEdit, saveRequestEdit, pickShortlistRequest, pickKanbanRequest, runMatching, rematch, saveNewRequest,
         updateThreshold, sendAllAboveThreshold,
         toggleArchiveDetail, searchAnfragen, filterAnfragen,
         searchAccounts, searchContacts, call, sendEmail,

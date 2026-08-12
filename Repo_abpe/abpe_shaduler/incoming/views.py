@@ -1135,6 +1135,169 @@ def api_matching_shortlist_reset(request, project_id):
     })
 
 
+def _serialize_project_request(p):
+    """ProjectRequest → JSON für UI-Bearbeitung."""
+    skills = []
+    try:
+        for s in (p.required_skills or []):
+            if isinstance(s, dict) and s.get('name'):
+                skills.append(s['name'])
+            elif isinstance(s, str) and s.strip():
+                skills.append(s.strip())
+    except Exception:
+        skills = []
+    tech = []
+    try:
+        tech = list(getattr(p, 'extracted_technologies', None) or [])
+    except Exception:
+        tech = []
+    if not skills and tech:
+        skills = [str(t) for t in tech if t]
+
+    def _d(v):
+        if not v:
+            return ''
+        try:
+            return v.isoformat()[:10]
+        except Exception:
+            return str(v)[:10]
+
+    return {
+        'id': str(p.id),
+        'project_number': getattr(p, 'project_number', '') or '',
+        'title': p.title or '',
+        'description': p.description or '',
+        'customer_name': p.customer_name or '',
+        'contact_name': getattr(p, 'customer_contact_person', '') or '',
+        'contact_email': getattr(p, 'customer_email', '') or '',
+        'contact_phone': getattr(p, 'customer_phone', '') or '',
+        'crm_account_id': getattr(p, 'crm_account_id', '') or '',
+        'crm_contact_id': getattr(p, 'crm_contact_id', '') or '',
+        'location': getattr(p, 'location', '') or '',
+        'start_date': _d(getattr(p, 'start_date', None)),
+        'duration_months': getattr(p, 'duration_months', 0) or 0,
+        'rate_max': getattr(p, 'rate_max', None),
+        'remote_possible': bool(getattr(p, 'remote_possible', False)),
+        'status': getattr(p, 'status', '') or '',
+        'skills': skills,
+        'required_skills': p.required_skills or [],
+        'extracted_technologies': tech,
+        'shortlist_threshold': getattr(p, 'shortlist_threshold', 0.5),
+    }
+
+
+@login_required
+@require_http_methods(['GET', 'POST', 'PUT', 'PATCH'])
+def api_matching_request(request, project_id):
+    """
+    Anfrage lesen / speichern (Bearbeiten aus Anfragen-Liste).
+
+    GET  /shaduler/api/matching/request/<uuid>/
+    POST/PUT/PATCH …  body: Felder wie create + skills
+    """
+    try:
+        from apps.abpe_matching_workflow.models import ProjectRequest
+    except Exception as exc:
+        return JsonResponse({
+            'ok': False, 'success': False,
+            'error': f'abpe_matching_workflow nicht geladen: {exc}',
+        }, status=503)
+
+    project = ProjectRequest.objects.filter(id=project_id).first()
+    if not project:
+        return JsonResponse({
+            'ok': False, 'success': False, 'error': 'Anfrage nicht gefunden',
+        }, status=404)
+
+    if request.method == 'GET':
+        return JsonResponse({
+            'ok': True, 'success': True,
+            'request': _serialize_project_request(project),
+        })
+
+    data = _json_body(request)
+
+    # Einfache Stammdaten
+    str_map = {
+        'title': 'title',
+        'description': 'description',
+        'customer_name': 'customer_name',
+        'contact_name': 'customer_contact_person',
+        'customer_contact_person': 'customer_contact_person',
+        'contact_email': 'customer_email',
+        'customer_email': 'customer_email',
+        'contact_phone': 'customer_phone',
+        'customer_phone': 'customer_phone',
+        'crm_account_id': 'crm_account_id',
+        'crm_contact_id': 'crm_contact_id',
+        'location': 'location',
+        'status': 'status',
+    }
+    for src, dst in str_map.items():
+        if src in data and hasattr(project, dst):
+            setattr(project, dst, data.get(src) if data.get(src) is not None else '')
+
+    if 'duration_months' in data:
+        try:
+            project.duration_months = int(data.get('duration_months') or 0)
+        except (TypeError, ValueError):
+            pass
+    if 'rate_max' in data and hasattr(project, 'rate_max'):
+        v = data.get('rate_max')
+        if v in (None, ''):
+            project.rate_max = None
+        else:
+            try:
+                project.rate_max = int(v)
+            except (TypeError, ValueError):
+                pass
+    if 'remote_possible' in data and hasattr(project, 'remote_possible'):
+        project.remote_possible = bool(data.get('remote_possible'))
+    if 'shortlist_threshold' in data and hasattr(project, 'shortlist_threshold'):
+        try:
+            project.shortlist_threshold = float(data.get('shortlist_threshold'))
+        except (TypeError, ValueError):
+            pass
+
+    if 'start_date' in data:
+        from datetime import date as date_cls
+        v = data.get('start_date')
+        if not v:
+            project.start_date = None
+        else:
+            try:
+                project.start_date = date_cls.fromisoformat(str(v)[:10])
+            except Exception:
+                pass
+
+    # Skills
+    skills_in = data.get('skills') or data.get('extracted_technologies')
+    if isinstance(skills_in, str):
+        skills_in = [s.strip() for s in skills_in.replace(';', ',').split(',') if s.strip()]
+    if isinstance(skills_in, list):
+        skills_in = [str(s).strip() for s in skills_in if str(s).strip()]
+        if 'required_skills' in data and isinstance(data.get('required_skills'), list):
+            project.required_skills = data['required_skills']
+        else:
+            project.required_skills = [{'name': s, 'weight': 1.0} for s in skills_in]
+        if hasattr(project, 'extracted_technologies'):
+            project.extracted_technologies = skills_in
+    elif 'required_skills' in data and isinstance(data.get('required_skills'), list):
+        project.required_skills = data['required_skills']
+
+    try:
+        project.save()
+    except Exception as exc:
+        return JsonResponse({
+            'ok': False, 'success': False, 'error': str(exc),
+        }, status=500)
+
+    return JsonResponse({
+        'ok': True, 'success': True,
+        'request': _serialize_project_request(project),
+    })
+
+
 # ─── Webhooks von abpe_scheduler (PUSH) ───────────────────────────────────────
 
 def _scheduler_token_ok(request):
