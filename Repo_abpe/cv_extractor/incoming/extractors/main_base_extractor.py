@@ -286,7 +286,16 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
         if aid_extracted.get('industries'):
             pre_json['extracted_data']['industries'] = aid_extracted['industries']
         if aid_extracted.get('certifications'):
-            pre_json['extracted_data']['certifications'] = aid_extracted['certifications']
+            _noise = {
+                'zertifizierungen', 'schulungen', 'schulungen / kurse', 'schulungen/kurse',
+                'examen', 'examen | prüfungen', 'examen|prüfungen',
+            }
+            cleaned = []
+            for c in aid_extracted['certifications']:
+                name = (c.get('name') if isinstance(c, dict) else str(c) or '').strip()
+                if name and name.lower().rstrip(':') not in _noise:
+                    cleaned.append(c if isinstance(c, dict) else {'name': name})
+            pre_json['extracted_data']['certifications'] = cleaned
 
     # ── Gruppen-Indizes aufbauen ──────────────────────────────────────────────
     label_gruppen  = defaultdict(list)
@@ -333,11 +342,49 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
             results[label] = data
             print(f"    {label}: ✅" if data else f"    {label}: ❌ leer")
 
+    def _norm_education_items(items, default_type='degree'):
+        """Strings/Dicts → education_type degree|course; degree-Feld setzen."""
+        out = []
+        for edu in items or []:
+            if isinstance(edu, str):
+                edu = {'degree': edu.strip(), 'education_type': default_type}
+            elif isinstance(edu, dict):
+                edu = dict(edu)
+            else:
+                continue
+            degree = (edu.get('degree') or edu.get('name') or '').strip()
+            if not degree:
+                degree = (edu.get('description') or '').strip()
+            if not degree:
+                continue
+            edu['degree'] = degree
+            et = (edu.get('education_type') or default_type or 'degree').strip().lower()
+            if et in ('schulung', 'schulungen', 'course', 'training', 'kurs'):
+                et = 'course'
+            elif et not in ('degree', 'course', 'certification'):
+                et = default_type
+            edu['education_type'] = et
+            out.append(edu)
+        return out
+
+    def _is_section_noise_name(name: str) -> bool:
+        n = (name or '').strip().lower()
+        if not n or len(n) < 3:
+            return True
+        noise = (
+            'zertifizierungen', 'schulungen', 'schulungen / kurse', 'schulungen/kurse',
+            'examen', 'examen | prüfungen', 'examen|prüfungen', 'ausbildung',
+            'fachbereiche', 'branchen', 'persönliche daten',
+        )
+        return n in noise or n.rstrip(':') in noise
+
     # ── Ergebnisse einfügen ───────────────────────────────────────────────────
     if results.get('PERSONAL'):
         pre_json['extracted_data']['personal'] = results['PERSONAL']
         # personal.education → extracted_data.education übernehmen wenn leer
-        personal_edu = results['PERSONAL'].get('education', [])
+        personal_edu = _norm_education_items(
+            results['PERSONAL'].get('education', []), default_type='degree'
+        )
         if personal_edu and not pre_json['extracted_data']['education']:
             pre_json['extracted_data']['education'] = personal_edu
             print(f"    education aus personal übernommen: {len(personal_edu)} Einträge")
@@ -358,14 +405,45 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
             results['FACHBEREICHE'].get('focus_areas', [])
 
     if results.get('ZERTIFIKATE') and not pre_json['extracted_data']['certifications']:
-        pre_json['extracted_data']['certifications'] = \
-            results['ZERTIFIKATE'].get('certifications', [])
+        raw_certs = results['ZERTIFIKATE'].get('certifications', []) or []
+        clean_certs = []
+        for c in raw_certs:
+            if isinstance(c, str):
+                name = c.strip()
+                item = {'name': name}
+            elif isinstance(c, dict):
+                item = dict(c)
+                name = (item.get('name') or '').strip()
+            else:
+                continue
+            if name and not _is_section_noise_name(name):
+                item['name'] = name
+                clean_certs.append(item)
+        pre_json['extracted_data']['certifications'] = clean_certs
 
     if results.get('SCHULUNGEN'):
+        # WICHTIG: nicht überschreiben — Ausbildung (degree) aus PERSONAL behalten
         d = results['SCHULUNGEN']
-        pre_json['extracted_data']['education'] = \
-            d.get('education', d.get('schulungen', []))
-
+        courses = _norm_education_items(
+            d.get('education', d.get('schulungen', [])), default_type='course'
+        )
+        for c in courses:
+            c['education_type'] = 'course'
+        existing = list(pre_json['extracted_data'].get('education') or [])
+        seen = {
+            ((e.get('degree') or '').strip().lower(), e.get('education_type') or 'degree')
+            for e in existing if isinstance(e, dict)
+        }
+        added = 0
+        for c in courses:
+            key = ((c.get('degree') or '').strip().lower(), 'course')
+            if key in seen:
+                continue
+            existing.append(c)
+            seen.add(key)
+            added += 1
+        pre_json['extracted_data']['education'] = existing
+        print(f"    schulungen gemerged: +{added} courses (education gesamt {len(existing)})")
     if results.get('BRANCHEN') and not pre_json['extracted_data']['industries']:
         pre_json['extracted_data']['industries'] = \
             results['BRANCHEN'].get('industries', [])

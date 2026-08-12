@@ -182,17 +182,20 @@ class Command(BaseCommand):
                         Path(settings.BASE_DIR) / 'data'
                     )
 
-                    upload = UploadedPDF.objects.create(
-                        file=str(rel_path),
-                        filename=pdf.name,
-                        first_name=first_name,
-                        last_name=last_name,
-                        target_directory=dir_name,
-                        action_type='aid_import',
-                        status='uploaded',
-                    )
-
+                    # WICHTIG: Signal start_pipeline_on_new_pdf startet bei
+                    # status='uploaded' automatisch Celery. Deshalb:
+                    #   --sync  → status=processing (kein Signal), dann sync call
+                    #   async   → status=uploaded, NUR Signal (kein .delay())
                     if sync_mode:
+                        upload = UploadedPDF.objects.create(
+                            file=str(rel_path),
+                            filename=pdf.name,
+                            first_name=first_name,
+                            last_name=last_name,
+                            target_directory=dir_name,
+                            action_type='aid_import',
+                            status='processing',
+                        )
                         result = process_pdf_task(upload.id)
                         if result.get('success'):
                             stats['ok'] += 1
@@ -213,10 +216,18 @@ class Command(BaseCommand):
                                 f"    ❌ {result.get('error', '?')[:100]}"
                             )
                     else:
-                        process_pdf_task.delay(upload.id)
+                        UploadedPDF.objects.create(
+                            file=str(rel_path),
+                            filename=pdf.name,
+                            first_name=first_name,
+                            last_name=last_name,
+                            target_directory=dir_name,
+                            action_type='aid_import',
+                            status='uploaded',  # Signal startet Celery einmal
+                        )
                         stats['ok'] += 1
                         self.stdout.write(
-                            '    ⏳ Task gestartet → upload.html → neu/cv/'
+                            '    ⏳ Signal → Celery → upload.html → neu/cv/'
                         )
 
                 except Exception as e:

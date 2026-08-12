@@ -210,6 +210,14 @@ def publish_consultant_outputs(
         aid = getattr(consultant, 'aid', '') or ''
         cdir = getattr(consultant, 'consultant_dir', '') or ''
         last = getattr(consultant, 'last_name', '') or ''
+        lang = (getattr(consultant, 'language', 'de') or 'de').lower()
+
+        # EN-Profile nicht nach neu/cv spiegeln (sonst AID-…-en.pdf + Doppelung)
+        if lang == 'en' or str(aid).lower().endswith('-en'):
+            out['error'] = f'EN-Skip: {aid} (nur data/html_out, kein neu/cv)'
+            logger.info(out['error'])
+            return out
+
         if not cdir:
             first = (getattr(consultant, 'first_name', '') or '').lower()
             last_l = last.lower()
