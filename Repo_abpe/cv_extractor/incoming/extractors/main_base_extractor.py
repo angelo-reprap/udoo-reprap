@@ -266,12 +266,105 @@ def _norm_edu_period(period: str) -> str:
     return p
 
 
+_EDU_STOP = {
+    'zum', 'zur', 'und', 'oder', 'der', 'die', 'das', 'den', 'dem', 'des',
+    'bei', 'von', 'vom', 'für', 'mit', 'aus', 'als', 'the', 'and', 'for',
+    'germany', 'deutschland', 'studium', 'ausbildung', 'fernstudium',
+}
+
+
+def _edu_sig_tokens(text: str) -> set:
+    """Signifikante Tokens für Education-Overlap (allgemein)."""
+    raw = re.findall(r'[A-Za-zÄÖÜäöüß0-9]{3,}', (text or '').lower())
+    return {t for t in raw if t not in _EDU_STOP}
+
+
+def _edu_full_text(e: dict) -> str:
+    parts = [
+        (e.get('degree') or '').strip(),
+        (e.get('institution') or '').strip(),
+        (e.get('description') or '').strip(),
+    ]
+    return ' '.join(p for p in parts if p)
+
+
+def _edu_is_same_degree(a: dict, b: dict) -> bool:
+    """
+    True wenn a/b denselben Ausbildungsabschluss beschreiben.
+    Deckt u.a. LLM-Kurzform 'Programmierer'+Institution vs.
+    Regex-Langform 'Fernstudium Programmierer ILS Hamburg, Germany'.
+    """
+    da = (a.get('degree') or '').strip().lower()
+    db = (b.get('degree') or '').strip().lower()
+    if not da or not db:
+        return False
+    if da == db:
+        return True
+    if da in db or db in da:
+        return True
+
+    ia = (a.get('institution') or '').strip().lower()
+    ib = (b.get('institution') or '').strip().lower()
+    full_a = f'{da} {ia}'.strip()
+    full_b = f'{db} {ib}'.strip()
+    if full_a and full_b and (full_a in full_b or full_b in full_a):
+        return True
+
+    # Institution der einen Seite steckt in Degree der anderen + Token-Overlap
+    if ia and len(ia) >= 3 and ia in db:
+        ta, tb = _edu_sig_tokens(da), _edu_sig_tokens(db)
+        if ta and tb and (ta <= tb or tb <= ta or len(ta & tb) >= max(1, min(len(ta), len(tb)))):
+            return True
+    if ib and len(ib) >= 3 and ib in da:
+        ta, tb = _edu_sig_tokens(da), _edu_sig_tokens(db)
+        if ta and tb and (ta <= tb or tb <= ta or len(ta & tb) >= max(1, min(len(ta), len(tb)))):
+            return True
+
+    ta, tb = _edu_sig_tokens(full_a), _edu_sig_tokens(full_b)
+    if not ta or not tb:
+        return False
+    inter = ta & tb
+    # starker Overlap: kürzere Tokenmenge fast ganz in längerer
+    shorter, longer = (ta, tb) if len(ta) <= len(tb) else (tb, ta)
+    if len(shorter) >= 1 and shorter <= longer:
+        return True
+    if len(shorter) >= 2 and len(inter) >= max(2, int(0.7 * len(shorter))):
+        return True
+    return False
+
+
+def _edu_prefer_richer(keep: dict, other: dict) -> dict:
+    """Reicht keep mit Feldern aus other an; längerer degree gewinnt."""
+    out = dict(keep)
+    kd = (out.get('degree') or '').strip()
+    od = (other.get('degree') or '').strip()
+    if len(od) > len(kd):
+        out['degree'] = od
+        kd = od
+    if other.get('period') and not (out.get('period') or '').strip():
+        out['period'] = other.get('period')
+    # Institution nur wenn nicht schon im Degree-Text
+    inst = (other.get('institution') or out.get('institution') or '').strip()
+    if inst and inst.lower() not in kd.lower():
+        out['institution'] = inst
+    else:
+        # Institution redundant → leeren (verhindert "Degree @ Institution"-Doppelung)
+        cur_inst = (out.get('institution') or '').strip()
+        if cur_inst and cur_inst.lower() in (out.get('degree') or '').lower():
+            out['institution'] = ''
+    odsc = (other.get('description') or '').strip()
+    kdsc = (out.get('description') or '').strip()
+    if odsc and odsc.lower() not in kdsc.lower():
+        out['description'] = (kdsc + '; ' + odsc).strip('; ') if kdsc else odsc
+    return out
+
+
 def _merge_education(existing, incoming):
     """
     Dedup merge education lists.
-    - gleicher degree+type → skip
+    - gleicher degree+type → skip/anreichern
     - gleiche Periode + type=degree → behalte längere Beschreibung
-      (z.B. LLM 'Dipl.-Ing. …' vs Regex 'Studium zum Dipl.-Ing. …')
+    - semantischer Overlap (Kurzform+Institution vs. Langform) → anreichern
     """
     merged = [dict(e) for e in (existing or []) if isinstance(e, dict)]
     added = 0
@@ -291,9 +384,10 @@ def _merge_education(existing, incoming):
                 continue
             if mdeg == deg_l:
                 return i
+            if et == 'degree' and _edu_is_same_degree(e, m):
+                return i
             mper = _norm_edu_period(m.get('period'))
             if et == 'degree' and per and mper and per == mper:
-                # gleiche Periode: Substring / kürzere Variante
                 if deg_l in mdeg or mdeg in deg_l:
                     return i
         return None
@@ -305,25 +399,21 @@ def _merge_education(existing, incoming):
         degree = (e.get('degree') or '').strip()
         if not degree:
             continue
+        # Institution im Degree → nicht separat halten
+        inst = (e.get('institution') or '').strip()
+        if inst and inst.lower() in degree.lower():
+            e['institution'] = ''
         idx = _find_dup(e)
         if idx is None:
             merged.append(e)
             added += 1
             continue
-        # Reicherer Eintrag gewinnt (längerer degree-Text; Periode nachziehen)
-        old = merged[idx]
-        old_deg = (old.get('degree') or '').strip()
-        if len(degree) > len(old_deg):
-            old['degree'] = degree
-        if e.get('period') and not (old.get('period') or '').strip():
-            old['period'] = e.get('period')
-        if e.get('institution') and not (old.get('institution') or '').strip():
-            old['institution'] = e.get('institution')
+        merged[idx] = _edu_prefer_richer(merged[idx], e)
     return merged, added
 
 
 def _finalize_education(items):
-    """Abschluss-Dedup: degrees nach Periode kollabieren, courses nach Name."""
+    """Abschluss-Dedup: Periode, semantischer Overlap, redundante Institution."""
     degrees, courses = [], []
     for e in items or []:
         if not isinstance(e, dict):
@@ -341,21 +431,49 @@ def _finalize_education(items):
         deg = (e.get('degree') or '').strip()
         if not deg:
             continue
+        # Institution redundant zum Degree entfernen
+        inst = (e.get('institution') or '').strip()
+        if inst and inst.lower() in deg.lower():
+            e['institution'] = ''
         if not per:
             no_period.append(e)
             continue
         prev = by_period.get(per)
-        if not prev or len(deg) > len((prev.get('degree') or '').strip()):
+        if not prev:
             by_period[per] = e
+        else:
+            by_period[per] = _edu_prefer_richer(prev, e)
 
-    # no_period: drop if substring of a period-entry degree
+    # no_period: drop/merge if same as period-entry OR other no_period
     kept_np = []
-    period_degs = [(p.get('degree') or '').strip().lower() for p in by_period.values()]
+    period_entries = list(by_period.values())
     for e in no_period:
-        deg_l = (e.get('degree') or '').strip().lower()
-        if any(deg_l in pd or pd in deg_l for pd in period_degs if pd):
+        # gegen Perioden-Einträge
+        hit = None
+        for i, p in enumerate(period_entries):
+            if _edu_is_same_degree(e, p):
+                hit = ('period', i)
+                break
+        if hit:
+            period_entries[hit[1]] = _edu_prefer_richer(period_entries[hit[1]], e)
+            # sync back into by_period
+            per = _norm_edu_period(period_entries[hit[1]].get('period'))
+            if per:
+                by_period[per] = period_entries[hit[1]]
             continue
-        kept_np.append(e)
+        # gegen bereits behaltene no_period
+        merged_into = False
+        for i, k in enumerate(kept_np):
+            if _edu_is_same_degree(e, k):
+                # längeren Degree behalten
+                if len((e.get('degree') or '')) >= len((k.get('degree') or '')):
+                    kept_np[i] = _edu_prefer_richer(e, k)
+                else:
+                    kept_np[i] = _edu_prefer_richer(k, e)
+                merged_into = True
+                break
+        if not merged_into:
+            kept_np.append(e)
 
     # courses exact dedup
     seen_c, courses_out = set(), []
@@ -366,7 +484,6 @@ def _finalize_education(items):
         seen_c.add(k)
         courses_out.append(e)
 
-    # stabile Reihenfolge: degrees mit Periode (Jahr aufsteigend), dann Rest, dann courses
     def _year_key(e):
         m = re.search(r'(\d{4})', e.get('period') or '')
         return int(m.group(1)) if m else 9999

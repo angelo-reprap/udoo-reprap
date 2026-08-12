@@ -38,6 +38,7 @@ FILES=(
   services/main_pipeline_controller.py
   services/main_labeler.py
   management/commands/import_aid_profiles.py
+  management/commands/patch_prompt_template.py
 )
 
 cmd="${1:-help}"

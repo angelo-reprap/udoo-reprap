@@ -55,9 +55,11 @@ class HTMLGenerator:
         # Ausbildung
         education = []
         for edu in consultant.education.filter(education_type='degree').order_by('-sort_order'):
-            desc = edu.degree or edu.description or ''
-            if edu.institution:
-                desc += f" @ {edu.institution}"
+            desc = (edu.degree or edu.description or '').strip()
+            inst = (edu.institution or '').strip()
+            # Institution nicht doppelt anhängen wenn schon im Degree-Text
+            if inst and inst.lower() not in desc.lower():
+                desc = f"{desc} @ {inst}" if desc else inst
             education.append({
                 'period':      edu.period or '',
                 'description': desc,

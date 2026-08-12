@@ -646,8 +646,10 @@ class WordGenerator:
 
         education = []
         for edu in consultant.education.filter(education_type="degree").order_by("-sort_order"):
-            desc = edu.degree or edu.description or ""
-            if edu.institution: desc += " @ " + edu.institution
+            desc = (edu.degree or edu.description or "").strip()
+            inst = (edu.institution or "").strip()
+            if inst and inst.lower() not in desc.lower():
+                desc = (desc + " @ " + inst) if desc else inst
             education.append({"period": edu.period or "", "description": desc})
 
         # Fallback: consultant.degree wenn keine Education-Zeilen
