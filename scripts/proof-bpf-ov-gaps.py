@@ -37,7 +37,7 @@ def main() -> int:
         spans = ctrl._normalize_spans(r.spans)
         return '\n'.join(ctrl._spans_to_aid_lines(spans))
 
-    # ── bpf: alle Perioden inkl. älteste drei + 12/2004 ──
+    # ── bpf: DE-Monate + numerisch inkl. älteste drei + 12/2004 ──
     bpf = aid._strip_page_headers(full('AID-bpf_1.6.4.7.pdf'))
     bpf_projs = aid._extract_projekte(bpf)
     starts = []
@@ -45,10 +45,27 @@ def main() -> int:
         m = re.search(r'(\d{1,2}/\d{4})', p.get('period') or '')
         if m:
             starts.append(m.group(1))
-    need = ['04/1990', '01/1990', '07/1989', '12/2004', '09/2006']
+    need = [
+        '03/2021', '09/2018', '02/2014', '01/2013', '05/2012',
+        '04/1990', '01/1990', '07/1989', '12/2004', '09/2006',
+    ]
     missing = [n for n in need if n not in starts]
-    (ok if len(bpf_projs) >= 18 and not missing else fail).append(
-        f'bpf projects={len(bpf_projs)} missing={missing}'
+    companies = ' '.join((p.get('company') or '') for p in bpf_projs).lower()
+    company_need = ['st. gallen', 'deutsche bahn', 'ekom21', 'ge money', 'krone']
+    company_miss = [c for c in company_need if c not in companies]
+    (ok if len(bpf_projs) >= 28 and not missing and not company_miss else fail).append(
+        f'bpf projects={len(bpf_projs)} missing={missing} company_miss={company_miss}'
+    )
+
+    skills, allg_br = aid._extract_allgemeine_kenntnisse(bpf)
+    skill_names = ' '.join(s.get('name') or '' for s in skills).lower()
+    skill_need = ['cobol', 'natural', 'adabas', 'z/os']
+    skill_miss = [s for s in skill_need if s not in skill_names]
+    (ok if len(skills) >= 20 and not skill_miss else fail).append(
+        f'bpf allg skills={len(skills)} miss={skill_miss}'
+    )
+    (ok if len(allg_br) >= 5 and any('bank' in b.lower() for b in allg_br) else fail).append(
+        f'bpf allg branchen={allg_br}'
     )
 
     edu = aid._extract_ausbildung(bpf)

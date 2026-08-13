@@ -116,6 +116,34 @@ NIVEAU_ONLY_RE = re.compile(
     r'(?i)^(sehr\s+gute|fortgeschrittene|gute|grund)\s*kenntnisse$'
 )
 
+# Deutsche Monatsnamen (bpf: „März 2021 – März 2022“)
+DE_MONTHS = {
+    'januar': 1, 'jan': 1,
+    'februar': 2, 'feb': 2,
+    'märz': 3, 'maerz': 3, 'mrz': 3, 'mär': 3,
+    'april': 4, 'apr': 4,
+    'mai': 5,
+    'juni': 6, 'jun': 6,
+    'juli': 7, 'jul': 7,
+    'august': 8, 'aug': 8,
+    'september': 9, 'sep': 9, 'sept': 9,
+    'oktober': 10, 'okt': 10,
+    'november': 11, 'nov': 11,
+    'dezember': 12, 'dez': 12,
+}
+# Non-capturing: sonst bindet \s+\d{4} nur an die letzte Alternative (Dez)
+DE_MONTH_ALT = (
+    r'(?:Januar|Februar|M[äa]rz|April|Mai|Juni|Juli|August|'
+    r'September|Oktober|November|Dezember|'
+    r'Jan|Feb|Mrz|Apr|Jun|Jul|Aug|Sep|Sept|Okt|Nov|Dez)'
+)
+
+# bpf-Footer: nicht in letztes Projekt ziehen
+WEITERE_PROJEKTE_RE = re.compile(
+    r'(?im)^\s*Weitere\s+Projekte\s+und\s+Auftraggeber\b'
+)
+
+
 class AidRegexExtractor:
     """
     Regex-Extraktor für abcona-eigene Qualifikationsprofile.
@@ -271,8 +299,15 @@ class AidRegexExtractor:
             pre_json['extracted_data']['focus_areas'] = fachbereiche
             filled.append('fachbereiche')
 
-        # 4. Branchen
+        # 4. Branchen (+ bpf Branchenkenntnisse aus Allgemeine Kenntnisse)
         branchen = self._extract_branchen(text)
+        allg_skills, allg_branchen = self._extract_allgemeine_kenntnisse(text)
+        if allg_branchen:
+            seen_b = {b.lower() for b in branchen}
+            for b in allg_branchen:
+                if b.lower() not in seen_b:
+                    branchen.append(b)
+                    seen_b.add(b.lower())
         if branchen:
             pre_json['extracted_data']['industries'] = branchen
             filled.append('branchen')
@@ -297,8 +332,15 @@ class AidRegexExtractor:
                     break
             filled.append('ausbildung')
 
-        # 7. Skill-Tabellen → skill_ablage
+        # 7. Skill-Tabellen → skill_ablage (+ bpf Allgemeine Kenntnisse)
         skill_ablage = self._extract_skill_tables(text)
+        if allg_skills:
+            seen_s = {(s.get('name') or '').lower() for s in skill_ablage}
+            for s in allg_skills:
+                lw = (s.get('name') or '').lower()
+                if lw and lw not in seen_s:
+                    skill_ablage.append(s)
+                    seen_s.add(lw)
         if skill_ablage:
             pre_json['extracted_data']['skill_ablage'] = skill_ablage
             filled.append(f'skills({len(skill_ablage)})')
@@ -480,6 +522,122 @@ class AidRegexExtractor:
                 seen.add(lw)
                 final.append(i)
         return final
+
+    def _extract_allgemeine_kenntnisse(self, text: str):
+        """
+        bpf „Allgemeine Kenntnisse“ → (skills[], branchen[]).
+        Unterblöcke: Betriebssysteme, DB/DC, Programmiersprachen, Methoden,
+        Branchenkenntnisse, Sonstige Kenntnisse.
+        Span-Text: Header oft same-line mit Inhalt („Betriebssysteme   Mainframe: …“).
+        """
+        m = re.search(
+            r'(?is)Allgemeine\s+Kenntnisse\s*(.*?)'
+            r'(?=Durchgef[üu]hrte\s+Projekte|Berufliche\s+Erfahrungen?|\Z)',
+            text or '',
+        )
+        if not m:
+            return [], []
+        body = m.group(1)
+        headers = [
+            (r'Betriebssysteme', 'Betriebssysteme'),
+            (r'DB/?DC-Systeme', 'Datenbanken'),
+            (r'Programmiersprachen?', 'Programmiersprachen'),
+            (r'Methoden\s+und\s+Werkzeuge', 'Methoden'),
+            (r'Branchenkenntnisse', '_branchen'),
+            (r'Sonstige\s+Kenntnisse', 'Sonstige Skills'),
+        ]
+        # (start, content_start, cat, same_line_rest)
+        positions = []
+        for pat, cat in headers:
+            hm = re.search(rf'(?im)^[ \t]*{pat}\b[ \t]*(.*)$', body)
+            if hm:
+                positions.append((hm.start(), hm.end(), cat, (hm.group(1) or '').strip()))
+        positions.sort(key=lambda x: x[0])
+
+        skills: List[dict] = []
+        branchen: List[str] = []
+        seen_s: set = set()
+
+        for i, (_start, content_start, cat, same_line) in enumerate(positions):
+            block_end = positions[i + 1][0] if i + 1 < len(positions) else len(body)
+            block = ((same_line + '\n') if same_line else '') + body[content_start:block_end]
+            if cat == '_branchen':
+                for line in block.splitlines():
+                    line = line.strip().rstrip(',')
+                    if not line or self._is_page_header(line) or self._is_section_noise(line):
+                        continue
+                    # „Bank ca. 14 Jahre, ZV, …“ → Bank
+                    bm = re.match(
+                        r'^(.+?)\s+ca\.\s*\d+',
+                        line, re.IGNORECASE,
+                    )
+                    name = (bm.group(1) if bm else line).strip().rstrip(',')
+                    name = re.split(r'\s*,\s*', name)[0].strip()
+                    if 2 < len(name) < 60 and name.lower() not in {b.lower() for b in branchen}:
+                        branchen.append(name)
+                continue
+
+            for raw in self._parse_allg_skill_lines(block):
+                lw = raw.lower()
+                if lw in seen_s or self._is_section_noise(raw):
+                    continue
+                if re.search(r'(?i)weitere\s+projekte|auftraggeber', raw):
+                    continue
+                seen_s.add(lw)
+                skills.append({'name': raw, 'category': cat})
+
+        return skills, branchen
+
+    def _parse_allg_skill_lines(self, block: str) -> List[str]:
+        """Zeilen aus Allgemeine-Kenntnisse-Unterblock → Skill-Namen."""
+        items: List[str] = []
+        for line in (block or '').splitlines():
+            line = line.strip().rstrip(',')
+            if not line or len(line) < 2:
+                continue
+            if self._is_page_header(line) or self._is_section_noise(line):
+                continue
+            # „30 Jahre Erfahrung mit Cobol“ → Cobol
+            em = re.match(
+                r'(?i)^\d+\s+Jahre?\s+Erfahrung\s+mit\s+(.+)$',
+                line,
+            )
+            if em:
+                items.append(em.group(1).strip())
+                continue
+            # „Mainframe: MVS, z/OS“ → Prefixe behalten oder splitten
+            if ':' in line and not line.endswith(':'):
+                prefix, rest = line.split(':', 1)
+                prefix, rest = prefix.strip(), rest.strip()
+                if rest and ',' in rest:
+                    for part in rest.split(','):
+                        p = part.strip().rstrip('.,;')
+                        if p:
+                            label = f'{prefix}: {p}' if len(prefix) < 40 else p
+                            items.append(label)
+                    continue
+                if rest:
+                    items.append(line if len(line) < 80 else rest)
+                    continue
+            if ',' in line and len(line.split(',')) >= 2:
+                for part in line.split(','):
+                    p = part.strip().rstrip('.,;')
+                    if not p or len(p) < 2:
+                        continue
+                    if re.match(r'(?i)^(usw\.?|auch\b)', p):
+                        continue
+                    items.append(p)
+                continue
+            # Fließtext / lange Beschreibungen kürzen
+            if len(line) > 90:
+                continue
+            if re.match(r'(?i)^(tätigkeit|erstellung|qualität|modul|datenmigration)\b', line):
+                # Methoden-Fließtext als Skill behalten wenn kurz genug
+                if len(line) <= 60:
+                    items.append(line)
+                continue
+            items.append(line)
+        return items
 
     # ── Zertifikate ───────────────────────────────────────────────────────────
 
@@ -1037,13 +1195,15 @@ class AidRegexExtractor:
         next_section = re.compile(
             r'(?im)^\s*('
             r'Programmiersprachen?|Betriebssysteme|Datenbanken|Hardware|'
-            r'Datenkommunikation|Webserver|Middleware|Methoden|Tools?|'
+            r'Datenkommunikation|Webserver|Middleware|Methoden(?:\s+und\s+Werkzeuge)?|Tools?|'
+            r'DB/?DC-Systeme|Branchenkenntnisse|Sonstige\s+Kenntnisse|'
             r'Netzwerk(?:protokolle)?|Standards?|Verfahren|Entwicklungstools?|'
             r'Softwaretechnologien?|Modellierungstools?|Spezialkenntnisse|'
             r'Application|'
             + FOCUS_PRODUCTS_HEADER + r'|'
             r'Erfahrungen?\s+im\s+Bereich|'
-            r'Berufliche\s+Erfahrungen?|Projektübersicht|Zeitraum\s*:'
+            r'Berufliche\s+Erfahrungen?|Durchgef[üu]hrte\s+Projekte|'
+            r'Projektübersicht|Zeitraum\s*:'
             r')\s*$'
         )
         end_m = next_section.search(rest)
@@ -1094,51 +1254,121 @@ class AidRegexExtractor:
 
     # ── Projekte ──────────────────────────────────────────────────────────────
 
+    def _normalize_period_token(self, token: str) -> str:
+        """'März 2021' / 'Ende 2009' / '03/2021' → '03/2021' bzw. '12/2009'."""
+        t = re.sub(r'\s+', ' ', (token or '').strip())
+        if not t:
+            return ''
+        low = t.lower()
+        if low in ('heute', 'dato', 'aktuell', 'laufend'):
+            return 'dato'
+        m = re.match(r'(?i)^ende\s+(\d{4})$', t)
+        if m:
+            return f'12/{m.group(1)}'
+        m = re.match(rf'(?i)^({DE_MONTH_ALT})\s+(\d{{4}})$', t)
+        if m:
+            key = m.group(1).lower()
+            num = DE_MONTHS.get(key)
+            if num is None and 'ä' in key:
+                num = DE_MONTHS.get(key.replace('ä', 'ae'))
+            if num is None and key == 'maerz':
+                num = 3
+            if num:
+                return f'{num:02d}/{m.group(2)}'
+        m = re.match(r'^(\d{1,2})[./](\d{4})$', t)
+        if m:
+            return f'{int(m.group(1)):02d}/{m.group(2)}'
+        m = re.match(r'^(\d{4})$', t)
+        if m:
+            return m.group(1)
+        return t
+
+    def _format_period(self, start: str, end: str = '') -> str:
+        s = self._normalize_period_token(start)
+        e = self._normalize_period_token(end) if end else ''
+        if s and e:
+            return f'{s} – {e}'
+        return s or end
+
+    def _match_period_line(self, line: str):
+        """Parst Periodenzeile → (period_norm, company_same_line) oder None."""
+        raw = (line or '').strip()
+        if not raw:
+            return None
+        m = re.match(
+            r'(?i)^(\d{1,2}[./]\d{4})\s*[-\u2013\u2014]+\s*'
+            r'(\d{1,2}[./]\d{4}|heute|dato|aktuell|laufend)\s*(.*)$',
+            raw,
+        )
+        if m:
+            return self._format_period(m.group(1), m.group(2)), (m.group(3) or '').strip()
+        m = re.match(
+            rf'(?i)^({DE_MONTH_ALT}\s+\d{{4}})\s*[-\u2013\u2014]+\s*'
+            rf'({DE_MONTH_ALT}\s+\d{{4}}|Ende\s+\d{{4}}|heute|dato)\s*(.*)$',
+            raw,
+        )
+        if m:
+            return self._format_period(m.group(1), m.group(2)), (m.group(3) or '').strip()
+        m = re.match(
+            rf'(?i)^Seit\s+(?:({DE_MONTH_ALT})\s+)?(\d{{4}})'
+            rf'(?:\s+parallel)?\s*(.*)$',
+            raw,
+        )
+        if m:
+            start = f'{m.group(1)} {m.group(2)}' if m.group(1) else m.group(2)
+            return self._format_period(start, 'dato'), (m.group(3) or '').strip()
+        # bpf: alleinstehende Periode „12/2004“ (Firma nächste Zeile)
+        m = re.match(r'^(\d{1,2}[./]\d{4})\s*$', raw)
+        if m:
+            return self._format_period(m.group(1)), ''
+        m = re.match(r'^(\d{1,2}[./]\d{4})\s{2,}(.+)$', raw)
+        if m:
+            return self._format_period(m.group(1)), (m.group(2) or '').strip()
+        return None
+
+    def _projects_region_start(self, text: str) -> int:
+        """Zeichenoffset Start der Projektregion (oder -1)."""
+        for pat in (
+            r'(?im)^\s*Berufliche\s+Erfahrungen?\s*$',
+            r'(?im)^\s*Durchgef[üu]hrte\s+Projekte\s*$',
+            r'(?im)^\s*Zeitraum\s*:',
+        ):
+            m = re.search(pat, text)
+            if m:
+                return m.start()
+        pos = 0
+        for line in text.splitlines(keepends=True):
+            if self._match_period_line(line.rstrip('\r\n')):
+                return pos
+            pos += len(line)
+        return -1
+
     def _extract_projekte(self, text: str) -> List[dict]:
         """
-        Extrahiert Projekte aus dem 'Berufliche Erfahrungen' Block.
-
-        Unterstützt:
-        Format A (tabellarisch): Zeitraum: / Firma/Institut: …
-        Format B: MM/YYYY – MM/YYYY am Zeilenanfang (Firma gleiche Zeile oder darunter)
-        Format bpf: wie B, oft ohne 'Berufliche Erfahrungen'-Header
+        Extrahiert Projekte (Format A oder B/bpf mit DE-Monaten).
+        Start: Berufliche Erfahrungen | Durchgeführte Projekte | erste Periode.
         """
-        projekte = []
-
-        # Ab 'Berufliche Erfahrungen' / Zeitraum: / erster Perioden-Zeile
-        berufl_m = re.search(
-            r'(?im)^\s*Berufliche\s+Erfahrungen?\s*$', text
-        )
-        if not berufl_m:
-            berufl_m = re.search(r'(?im)^\s*Zeitraum\s*:', text)
-        if not berufl_m:
-            # bpf u.ä.: erste Perioden-Zeile mit Range oder Einzelmonat+Firma
-            berufl_m = re.search(
-                r'(?m)^\s*\d{1,2}[./]\d{4}\s*[-\u2013\u2014]+\s*'
-                r'(?:\d{1,2}[./]\d{4}|heute|dato|aktuell|laufend)\b',
-                text,
-            )
-        if not berufl_m:
-            berufl_m = re.search(
-                r'(?m)^\s*\d{1,2}[./]\d{4}\s{2,}\S+',
-                text,
-            )
-        if not berufl_m:
+        start = self._projects_region_start(text or '')
+        if start < 0:
             return []
 
-        proj_text = text[berufl_m.start():]
+        proj_text = text[start:]
+        footer = ''
+        w = WEITERE_PROJEKTE_RE.search(proj_text)
+        if w:
+            footer = proj_text[w.start():]
+            proj_text = proj_text[:w.start()]
 
         has_format_a = bool(re.search(r'(?im)^\s*Zeitraum\s*:', proj_text))
-        has_format_b = bool(re.search(
-            r'(?m)^\s*\d{1,2}[./]\d{4}\s*[-\u2013\u2014]+\s*'
-            r'(?:\d{1,2}[./]\d{4}|heute|dato|aktuell|laufend)\b',
-            proj_text,
-        )) or bool(re.search(r'(?m)^\s*\d{1,2}[./]\d{4}\s{2,}\S+', proj_text))
+        has_format_b = any(self._match_period_line(ln) for ln in proj_text.splitlines())
 
+        projekte: List[dict] = []
         if has_format_a:
             projekte = self._extract_projekte_format_a(proj_text)
         if not projekte and has_format_b:
             projekte = self._extract_projekte_format_b(proj_text)
+        if footer:
+            projekte.extend(self._extract_weitere_projekte(footer))
 
         logger.debug(f"[AidRegex] {len(projekte)} Projekte extrahiert")
         return projekte
@@ -1303,83 +1533,71 @@ class AidRegexExtractor:
 
     def _extract_projekte_format_b(self, text: str) -> List[dict]:
         """
-        Format B / bpf: Zeitraum am Zeilenanfang.
-          MM/YYYY – MM/YYYY              (Firma nächste Zeile)
-          MM/YYYY – MM/YYYY   Firma AG   (Firma gleiche Zeile — bpf)
-          MM/YYYY   Firma AG             (Einzelmonat — z.B. 12/2004)
+        Format B / bpf: Zeitraum am Zeilenanfang (numerisch ODER deutscher Monat).
         """
         projekte = []
-        # Range zuerst, dann Einzelmonat mit Folgetext (sonst false positives)
-        DATE_PAT = re.compile(
-            r'(?m)^\s*(?:'
-            r'((?:\d{1,2}[./]\d{4})\s*[-\u2013\u2014]+\s*'
-            r'(?:\d{1,2}[./]\d{4}|heute|dato|aktuell|laufend))\s*(.*?)\s*$'
-            r'|'
-            r'((?:\d{1,2}[./]\d{4}))\s{2,}(.+?)\s*$'
-            r')',
-            re.IGNORECASE,
-        )
-        hits = list(DATE_PAT.finditer(text))
-        positions = []
-        for m in hits:
-            if m.group(1):
-                period_str = re.sub(r'\s+', ' ', m.group(1)).strip()
-                same_company = (m.group(2) or '').strip()
-            else:
-                period_str = (m.group(3) or '').strip()
-                same_company = (m.group(4) or '').strip()
-            positions.append((m.start(), period_str, same_company))
+        lines_with_pos = []
+        pos = 0
+        for line in (text or '').splitlines(keepends=True):
+            lines_with_pos.append((pos, line.rstrip('\r\n')))
+            pos += len(line)
 
-        for i, (pos, period_str, same_company) in enumerate(positions):
+        positions = []
+        for off, line in lines_with_pos:
+            got = self._match_period_line(line)
+            if got:
+                period_str, same_company = got
+                positions.append((off, period_str, same_company, line))
+
+        for i, (off, period_str, same_company, _hdr) in enumerate(positions):
             end = positions[i + 1][0] if i + 1 < len(positions) else len(text)
-            block = text[pos:end]
+            block = text[off:end]
             proj = {'period': period_str, 'activities': [], 'technologies': []}
 
-            if same_company and not self._is_section_noise(same_company):
-                # Soft-wrap: Firma über zwei Zeilen (bpf „Einzelhandel und\nDienstleistung“)
-                first_lines = [l.strip() for l in block.splitlines() if l.strip()]
+            if same_company and not self._is_section_noise(same_company) \
+                    and not self._is_page_header(same_company):
                 company = same_company
-                if (
-                    len(first_lines) >= 2
-                    and not re.match(r'^\d{1,2}[./]', first_lines[1])
-                    and not re.match(
-                        r'(?i)^(kunde\s*/|rolle\s*/|branche|aufgaben?|kenntnisse|'
-                        r'system|position|analyse|programm|migration|entwicklung|'
-                        r'wartung|erstellung|beratung|design|systementwick)',
-                        first_lines[1],
-                    )
-                    and len(first_lines[1]) < 60
-                    and not first_lines[1][0:1].islower()
-                ):
-                    # nur kurze Fortsetzungszeilen an Firma hängen
-                    if re.match(r'(?i)^(dienstleistung|frankfurt|berlin|dortmund|'
-                                r'karlsruhe|hannover|gmbh|ag\b)', first_lines[1]):
-                        company = (company + ' ' + first_lines[1]).strip()
+                first_lines = [
+                    l.strip() for l in block.splitlines()
+                    if l.strip() and not self._is_page_header(l.strip())
+                ]
+                if len(first_lines) >= 2:
+                    nxt = first_lines[1]
+                    if (
+                        not self._match_period_line(nxt)
+                        and len(nxt) < 60
+                        and re.match(
+                            r'(?i)^(dienstleistung|frankfurt|berlin|dortmund|'
+                            r'karlsruhe|hannover|nürnberg|nuernberg|kassel|'
+                            r'kiel|aachen|schweiz|gmbh|ag\b)',
+                            nxt,
+                        )
+                    ):
+                        company = (company + ' ' + nxt).strip()
                 proj['company'] = company.rstrip(',')
 
-            m = re.search(
-                r'(?im)^\s*Kunde\s*/\s*Branche\s*:\s*(.+?)\s*$', block
-            )
+            m = re.search(r'(?im)^\s*Kunde\s*/\s*Branche\s*:\s*(.+?)\s*$', block)
             if m:
                 proj['company'] = m.group(1).strip()
-            m = re.search(
-                r'(?im)^\s*Rolle\s*/\s*Position\s*:\s*(.+?)\s*$', block
-            )
+            m = re.search(r'(?im)^\s*Rolle\s*/\s*Position\s*:\s*(.+?)\s*$', block)
             if m:
                 proj['role'] = m.group(1).strip()
 
-            lines = [l.strip() for l in block.splitlines() if l.strip()]
+            lines = [
+                l.strip() for l in block.splitlines()
+                if l.strip() and not self._is_page_header(l.strip())
+            ]
             if not proj.get('company'):
                 for line in lines[1:4]:
+                    if self._match_period_line(line):
+                        break
                     if re.match(
-                        r'(?i)^(kunde\s*/\s*branche|rolle\s*/\s*position|'
-                        r'branche|aufgaben?|kenntnisse|system|projektt)',
+                        r'(?i)^(kunde\s*/|rolle\s*/|branche|aufgaben?|kenntnisse|'
+                        r'system|projektt|seither|seite\s+\d|www\.)',
                         line,
                     ):
                         continue
-                    if (not re.match(r'^\d{1,2}[./]', line) and
-                            not re.match(r'(?i)^(Branche|Aufgaben?|Kenntnisse|System)', line) and
-                            len(line) > 3):
+                    if len(line) > 3:
                         proj['company'] = line
                         break
 
@@ -1403,20 +1621,19 @@ class AidRegexExtractor:
             if m:
                 proj['technologies'] = self._parse_tech_list(m.group(1))
 
-            # bpf: Tech oft als Komma-Zeile ohne Label (Cobol, MVS, …)
             if not proj.get('technologies'):
                 tech_lines = []
                 for line in lines[1:]:
-                    if re.match(r'^\d{1,2}[./]', line):
+                    if self._match_period_line(line):
                         break
-                    # typische Tech-Zeile: kurze Tokens, Komma, wenig Verben
                     if (
                         ',' in line
                         and len(line) < 120
                         and not re.search(
                             r'(?i)\b(analyse|programmierung|migration|'
                             r'entwicklung|beratung|erstellung|anpassung|'
-                            r'wartung|betreuung|optimierung)\b',
+                            r'wartung|betreuung|optimierung|fusion|'
+                            r'redesign|unterstützung|dozent)\b',
                             line,
                         )
                     ):
@@ -1428,34 +1645,41 @@ class AidRegexExtractor:
             if bullets:
                 proj['activities'] = [b.strip() for b in bullets if len(b.strip()) > 5]
             else:
-                # bpf: Fließtext-Zeilen als activities (ohne Firma/Tech)
                 acts = []
-                skip_company = (proj.get('company') or '').lower()
+                company_l = (proj.get('company') or '').lower()
                 for line in lines[1:]:
-                    if re.match(r'^\d{1,2}[./]', line):
+                    if self._match_period_line(line):
                         break
                     low = line.lower()
-                    if skip_company and low in skip_company:
-                        continue
-                    if line in (proj.get('technologies') or []):
+                    if company_l and (low == company_l or low in company_l):
                         continue
                     if (
                         ',' in line
                         and len(line) < 120
                         and not re.search(
                             r'(?i)\b(analyse|programmierung|migration|'
-                            r'entwicklung|beratung)\b',
+                            r'entwicklung|beratung|fusion|redesign|'
+                            r'unterstützung)\b',
                             line,
                         )
                     ):
-                        continue  # tech-zeile
+                        continue
                     if len(line) > 5 and not self._is_section_noise(line):
                         acts.append(line)
                 if acts:
                     proj['activities'] = acts[:12]
-                    # erste Non-Firma-Zeile oft Titel
-                    if acts and not proj.get('title'):
+                    if not proj.get('title'):
                         proj['title'] = acts[0][:300]
+
+            # „Seit … Zertifizierter …“ → company/title sinnvoll setzen
+            if same_company and not proj.get('title'):
+                if re.search(r'(?i)zertifiziert|betreuung|reisen', same_company):
+                    proj['title'] = same_company[:300]
+                    if not proj.get('company') or proj.get('company') == same_company:
+                        if re.search(r'(?i)altersvorsorge|versicherung|finanz', same_company):
+                            proj['company'] = 'Finanzdienstleistung / Altersvorsorge'
+                        elif re.search(r'(?i)betreuung|kunden', same_company):
+                            proj['company'] = 'Diverse Kunden'
 
             self._append_abschluss_activities(proj, block)
             self._ensure_weiterbildung_content(proj)
@@ -1464,6 +1688,60 @@ class AidRegexExtractor:
                 projekte.append(proj)
 
         return projekte
+
+    def _extract_weitere_projekte(self, footer: str) -> List[dict]:
+        """Footer „Weitere Projekte und Auftraggeber …“ → grobe Einträge."""
+        if not footer:
+            return []
+        # Seitenköpfe raus; Header-Prefix strippen (Firma kann same-line stehen)
+        clean_lines = []
+        for ln in footer.splitlines():
+            s = ln.strip()
+            if not s or self._is_page_header(s):
+                continue
+            if re.match(r'(?i)^(seite\s+\d|www\.|qualifikationsprofil)', s):
+                continue
+            if WEITERE_PROJEKTE_RE.match(s):
+                s = WEITERE_PROJEKTE_RE.sub('', s).strip(' ,;')
+                if not s:
+                    continue
+            clean_lines.append(s)
+        blob = '\n'.join(clean_lines)
+
+        out: List[dict] = []
+        # Explizite Firmen (bpf-Footer)
+        for m in re.finditer(
+            r'(?is)\b(Krone\s+AG|Cap\s+Gemini(?:\s+Berlin)?(?:\s+GmbH)?|'
+            r'Umweltbundesamt)\b([^0-9]{0,200}?)(\d{4})\s*[–\-]\s*(\d{4})',
+            blob,
+        ):
+            company = re.sub(r'\s+', ' ', m.group(1)).strip()
+            role_bits = re.sub(r'\s+', ' ', m.group(2)).strip(' ,;')
+            proj = {
+                'period': f'{m.group(3)} – {m.group(4)}',
+                'company': company[:200],
+                'title': 'Weitere Projekte / früher',
+                'activities': [],
+            }
+            if role_bits and len(role_bits) < 80:
+                # z.B. "Systemanalytiker und Programmierer"
+                role = re.sub(
+                    r'(?i)\b(ims|dl/i|cics|cobol|pl/i|assembler|natural)\b.*',
+                    '',
+                    role_bits,
+                ).strip(' ,;')
+                if role and len(role) > 3:
+                    proj['role'] = role[:120]
+            out.append(proj)
+
+        seen, final = set(), []
+        for p in out:
+            key = ((p.get('period') or ''), (p.get('company') or '').lower())
+            if key in seen:
+                continue
+            seen.add(key)
+            final.append(p)
+        return final[:8]
 
     def _append_abschluss_activities(self, proj: dict, block: str) -> None:
         """Abschluß/Abschluss-Zeilen (z.B. CCVP nach Weiterbildung) → activities."""
