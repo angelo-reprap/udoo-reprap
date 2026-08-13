@@ -332,6 +332,74 @@ def _merge_str_lists(seed, llm) -> list:
     return out
 
 
+def _merge_personal(seed, llm) -> dict:
+    """R0/P3: Regex-Personal behalten, LLM füllt Lücken (kein Seed-Wipe)."""
+    out = dict(seed or {}) if isinstance(seed, dict) else {}
+    llm = llm if isinstance(llm, dict) else {}
+    for k, v in llm.items():
+        if k == 'education':
+            continue  # education separat gemerged
+        if v in (None, '', [], {}):
+            continue
+        if k == 'languages':
+            merged_langs, seen = [], set()
+            for src in (out.get('languages') or [], v if isinstance(v, list) else []):
+                for lang in src:
+                    if isinstance(lang, dict):
+                        name = (lang.get('name') or '').strip()
+                        item = {
+                            'name': name,
+                            'level': (lang.get('level') or ''),
+                        }
+                    elif isinstance(lang, str) and lang.strip():
+                        name = lang.strip()
+                        item = {'name': name, 'level': ''}
+                    else:
+                        continue
+                    if not name:
+                        continue
+                    key = name.lower()
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    merged_langs.append(item)
+            if merged_langs:
+                out['languages'] = merged_langs
+            continue
+        cur = out.get(k)
+        if cur in (None, '', [], {}):
+            out[k] = v
+        # sonst Seed behalten (AID-Regex ist für Geburtsjahr etc. zuverlässig)
+    return out
+
+
+def _norm_focus_experience(items) -> list:
+    """focus_experience → [{name, category, sort_order}, ...]."""
+    norm = []
+    for idx, item in enumerate(items or []):
+        if isinstance(item, dict):
+            name = (item.get('name') or '').strip()
+            if not name or _is_section_noise_name(name):
+                continue
+            norm.append({
+                'name':       name,
+                'category':   (item.get('category') or 'product_standard'),
+                'sort_order': item.get('sort_order', idx),
+            })
+        elif isinstance(item, str) and item.strip():
+            name = item.strip()
+            if _is_section_noise_name(name):
+                continue
+            norm.append({
+                'name':       name,
+                'category':   'product_standard',
+                'sort_order': idx,
+            })
+    for i, fe in enumerate(norm):
+        fe['sort_order'] = i
+    return norm
+
+
 def _merge_named_dicts(seed, llm) -> list:
     """P3: Zertifikate u.ä. — Seed + LLM nach name mergen."""
     out = []
@@ -690,6 +758,10 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
 
     # ── Schritt 0: Regex-Werte vorbelegen (aid_extracted) ───────────────────────
     if aid_extracted:
+        if aid_extracted.get('personal'):
+            pre_json['extracted_data']['personal'] = _merge_personal(
+                {}, aid_extracted['personal']
+            )
         if aid_extracted.get('headline'):
             pre_json['metadata']['headline'] = aid_extracted['headline']
             pre_json['extracted_data'].setdefault('personal', {})['headline'] = aid_extracted['headline']
@@ -710,6 +782,10 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
                 f for f in aid_extracted['focus_areas']
                 if isinstance(f, str) and not _is_section_noise_name(f) and len(f) > 3
             ]
+        if aid_extracted.get('focus_experience'):
+            pre_json['extracted_data']['focus_experience'] = _norm_focus_experience(
+                aid_extracted['focus_experience']
+            )
         if aid_extracted.get('education'):
             # Regex-Ausbildung vorbelegen (LLM/PERSONAL darf später ergänzen, nicht löschen)
             pre_json['extracted_data']['education'] = _norm_education_items(
@@ -763,7 +839,13 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
 
     # ── Ergebnisse einfügen ───────────────────────────────────────────────────
     if results.get('PERSONAL'):
-        pre_json['extracted_data']['personal'] = results['PERSONAL']
+        seeded_p = pre_json['extracted_data'].get('personal') or {}
+        merged_p = _merge_personal(seeded_p, results['PERSONAL'])
+        pre_json['extracted_data']['personal'] = merged_p
+        if seeded_p:
+            print(
+                f"    personal gemerged: seed_keys={len(seeded_p)} → {len(merged_p)}"
+            )
         # personal.education mergen (Regex-Ausbildung aus Schritt 0 behalten)
         personal_edu = _norm_education_items(
             results['PERSONAL'].get('education', []), default_type='degree'
@@ -774,12 +856,14 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
             )
             pre_json['extracted_data']['education'] = merged
             print(f"    education aus personal gemerged: +{added} (gesamt {len(merged)})")
-        # personal.languages normalisieren: Strings → [{name, level}]
-        raw_langs = results['PERSONAL'].get('languages', [])
+        # personal.languages sicher als [{name, level}]
+        raw_langs = merged_p.get('languages', [])
         norm_langs = []
         for lang in raw_langs:
             if isinstance(lang, dict):
-                norm_langs.append({"name": lang.get("name", "").strip(), "level": lang.get("level", "")})
+                name = (lang.get("name") or "").strip()
+                if name:
+                    norm_langs.append({"name": name, "level": lang.get("level", "")})
             elif isinstance(lang, str) and lang.strip():
                 norm_langs.append({"name": lang.strip(), "level": ""})
         if norm_langs:
@@ -833,23 +917,25 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
             print(f"    branchen gemerged: seed={len(seeded_i)} + llm → {len(merged_i)}")
 
     if results.get('FOCUS_EXP'):
-        raw_focus = results['FOCUS_EXP'].get('focus_experience', [])
-        norm_focus = []
-        for idx, item in enumerate(raw_focus):
-            if isinstance(item, dict):
-                norm_focus.append({
-                    "name":       item.get("name", "").strip(),
-                    "category":   item.get("category", "product_standard"),
-                    "sort_order": item.get("sort_order", idx),
-                })
-            elif isinstance(item, str) and item.strip():
-                norm_focus.append({
-                    "name":       item.strip(),
-                    "category":   "product_standard",
-                    "sort_order": idx,
-                })
-        pre_json['extracted_data']['focus_experience'] = norm_focus
-        print(f"    focus_experience normalisiert: {len(norm_focus)} Einträge")
+        llm_focus = _norm_focus_experience(
+            results['FOCUS_EXP'].get('focus_experience', [])
+        )
+        seeded_fe = pre_json['extracted_data'].get('focus_experience') or []
+        merged_fe = _merge_named_dicts(seeded_fe, llm_focus)
+        # sort_order neu nummerieren; Kategorie default
+        for i, fe in enumerate(merged_fe):
+            fe.setdefault('category', 'product_standard')
+            fe['sort_order'] = i
+        pre_json['extracted_data']['focus_experience'] = merged_fe
+        print(
+            f"    focus_experience gemerged: seed={len(seeded_fe)} + llm={len(llm_focus)} "
+            f"→ {len(merged_fe)}"
+        )
+    elif pre_json['extracted_data'].get('focus_experience'):
+        print(
+            f"    focus_experience aus Regex-Seed: "
+            f"{len(pre_json['extracted_data']['focus_experience'])} Einträge"
+        )
 
     if results.get('OTHER'):
         other_raw = results['OTHER']

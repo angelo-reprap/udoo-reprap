@@ -165,7 +165,7 @@ class MainPipelineController:
         # Für abcona-Profile: Skills direkt aus PDF-Struktur mit korrekter
         # Kategorie extrahieren — Normalizer-LLM wird für Skills bypassed
         aid_skill_categories = {}  # {skill_name: category} aus PDF-Layout
-        aid_extracted = {}         # {headline, focus_areas, industries, certifications, education}
+        aid_extracted = {}         # personal, headline, focus_*, industries, certifications, education
         try:
             lines_text = _spans_to_aid_lines(spans)
             full_text = '\n'.join(lines_text)
@@ -201,6 +201,10 @@ class MainPipelineController:
                     f"[MainPipeline] Schritt 1b: {len(aid_skill_categories)} Skills vorkategorisiert"
                     + (f" ({dup_skills} Duplikat-Überschreibungen)" if dup_skills else "")
                 )
+                # R0: Personal aus Regex (nicht nur extract()-API)
+                aid_extracted['personal'] = aid_regex_extractor._extract_personal(
+                    full_text_clean, first_name, last_name
+                )
                 aid_extracted['headline']       = aid_regex_extractor._extract_headline(full_text_clean)
                 aid_extracted['focus_areas']    = aid_regex_extractor._extract_fachbereiche(full_text_clean)
                 aid_extracted['industries']     = aid_regex_extractor._extract_branchen(full_text_clean)
@@ -208,6 +212,10 @@ class MainPipelineController:
                 aid_extracted['education']      = (
                     list(aid_regex_extractor._extract_ausbildung(full_text_clean) or [])
                     + list(aid_regex_extractor._extract_schulungen(full_text_clean) or [])
+                )
+                # R3/R7: Produkte|Standards → focus_experience (nicht Skills)
+                aid_extracted['focus_experience'] = (
+                    aid_regex_extractor._extract_focus_experience(full_text_clean) or []
                 )
                 # Format-A: Skills aus Projekten nachziehen wenn Tabellen fehlen
                 if not aid_skill_categories:
@@ -222,10 +230,12 @@ class MainPipelineController:
                         )
                 logger.info(
                     f"[MainPipeline] Schritt 1b: headline={bool(aid_extracted.get('headline'))} | "
+                    f"personal={bool(aid_extracted.get('personal'))} | "
                     f"fachbereiche={len(aid_extracted.get('focus_areas') or [])} | "
                     f"branchen={len(aid_extracted.get('industries') or [])} | "
                     f"zertifikate={len(aid_extracted.get('certifications') or [])} | "
-                    f"ausbildung={len(aid_extracted.get('education') or [])}"
+                    f"ausbildung={len(aid_extracted.get('education') or [])} | "
+                    f"focus_exp={len(aid_extracted.get('focus_experience') or [])}"
                 )
             else:
                 logger.info(f"[MainPipeline] Schritt 1b: kein abcona-Profil → normale Pipeline")

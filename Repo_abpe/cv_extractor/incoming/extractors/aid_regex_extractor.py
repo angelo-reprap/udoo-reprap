@@ -65,10 +65,14 @@ SKILL_SECTIONS = [
     (r'Modellierungstools?',       'Dokumentationstools',      'structured'),
     (r'Spezialkenntnisse',         'Sonstige Skills',          'structured'),
     (r'Application',               'Business Software',        'structured'),
-    (r'Produkte?\s*\|?\s*Standards?(?:\s*\|?\s*Erfahrungen?)?',
-                                   'Sonstige Skills',          'ablage'),
+    # Produkte|Standards|Erfahrungen → focus_experience (nicht skill_ablage)
     (r'Erfahrungen?\s+im\s+Bereich', 'Sonstige Skills',       'ablage'),
 ]
+
+# abcona-Block „Produkte | Standards | Erfahrungen“ → FocusExperience
+FOCUS_PRODUCTS_HEADER = (
+    r'Produkte?\s*\|?\s*Standards?(?:\s*\|?\s*Erfahrungen?)?'
+)
 
 # Bekannte Abschnitts-Trennner die eine Skill-Sektion beenden
 SECTION_ENDERS = re.compile(
@@ -286,6 +290,12 @@ class AidRegexExtractor:
             pre_json['extracted_data']['skill_ablage'] = skill_ablage
             filled.append(f'skills({len(skill_ablage)})')
 
+        # 7b. Produkte | Standards | Erfahrungen → focus_experience
+        focus_exp = self._extract_focus_experience(text)
+        if focus_exp:
+            pre_json['extracted_data']['focus_experience'] = focus_exp
+            filled.append(f'focus_exp({len(focus_exp)})')
+
         # 8. Projekte
         projekte = self._extract_projekte(text)
         if projekte:
@@ -301,7 +311,7 @@ class AidRegexExtractor:
                 skill_ablage = harvested
 
         # Coverage berechnen
-        coverage = len(filled) / 8.0
+        coverage = len(filled) / 9.0
         pre_json['audit']['regex_extractor'] = {
             'filled':   filled,
             'coverage': round(coverage, 2),
@@ -501,6 +511,53 @@ class AidRegexExtractor:
                 certs.append({'name': name, 'issuer': '', 'date_obtained': ''})
         return certs
 
+    def _extract_focus_experience(self, text: str) -> List[dict]:
+        """
+        Extrahiert „Produkte | Standards | Erfahrungen“ → focus_experience[].
+        Gehört nicht in skill_ablage (R3/R7).
+        """
+        block = self._extract_block(
+            text,
+            start_patterns=[FOCUS_PRODUCTS_HEADER, r'Produkte\s*/\s*Standards?'],
+            stop_patterns=[
+                r'Berufliche\s+Erfahrungen?',
+                r'Projektübersicht',
+                r'Zeitraum\s*:',
+                r'Programmiersprachen?',
+                r'Betriebssysteme',
+                r'Hardware',
+                r'Datenkommunikation',
+                r'Branchen?',
+                r'Zertifizierungen?(?:\s*[\|/].*)?',
+                r'Schulungen?\s*/\s*Kurse',
+            ],
+        )
+        if not block:
+            # Fallback: gleiche Header-Logik wie Skill-Sektionen
+            block = self._extract_skill_section(text, FOCUS_PRODUCTS_HEADER)
+        if not block:
+            return []
+
+        items = self._parse_skill_items(block)
+        out, seen = [], set()
+        for name in items:
+            clean = (name or '').strip()
+            if not clean or len(clean) < 2 or self._is_section_noise(clean):
+                continue
+            # Header-Reste verwerfen
+            if re.match(r'(?i)^produkte?\b', clean) and 'standard' in clean.lower():
+                continue
+            lw = clean.lower()
+            if lw in seen:
+                continue
+            seen.add(lw)
+            out.append({
+                'name':       clean[:500],
+                'category':   'product_standard',
+                'sort_order': len(out),
+            })
+        return out
+
     def _extract_schulungen(self, text: str) -> List[dict]:
         """
         Extrahiert 'Schulungen / Kurse' als education_type=course.
@@ -696,37 +753,64 @@ class AidRegexExtractor:
     def _extract_skill_tables_by_y(self, spans: list) -> list:
         """
         Y-Abstand-basierte Skill-Extraktion aus Span-Liste.
-        Jeder Span hat: text, y, x, sz, bold
+        Zeilenjoin wie _spans_to_aid_lines: gleiche gerundete Y (+ page/col),
+        verschiedene Y nie verkleben (kein abs(diff)>3).
         """
         all_skills = []
         seen_lower = set()
 
         STOP = re.compile(
             r'^(berufliche\s+erfahrungen?|zeitraum\s*:|period\s*:|'
-            r'firma\s*/|customer\s*:|projektübersicht)',
+            r'firma\s*/|customer\s*:|projektübersicht|'
+            r'produkte?\s*\|?\s*standards?)',
             re.IGNORECASE
         )
 
-        # Alle Zeilen aufbauen (y-gruppiert)
+        def _col_key(s):
+            c = s.get('column_id', -1)
+            try:
+                c = int(c)
+            except (TypeError, ValueError):
+                c = -1
+            return c if c >= 0 else 99
+
+        # Zeilen wie Controller-1b: page/col/y exakt (nach /3-Rundung)
         lines = []
-        prev_y = -999
+        last_y = last_page = last_col = None
         cur_line_spans = []
-        for s in sorted(spans, key=lambda x: (x.get('page',1), round(x.get('y',0)/3)*3, x.get('x',0))):
-            t = s.get('text','').strip()
+        sorted_spans = sorted(
+            spans or [],
+            key=lambda x: (
+                _col_key(x),
+                int(x.get('page', 1) or 1),
+                round(float(x.get('y', 0) or 0) / 3) * 3,
+                float(x.get('x', 0) or 0),
+            ),
+        )
+        for s in sorted_spans:
+            t = (s.get('text') or '').strip()
             if not t:
                 continue
-            y = round(s.get('y', 0) / 3) * 3
-            if abs(y - prev_y) > 3:
+            pg = int(s.get('page', 1) or 1)
+            y = round(float(s.get('y', 0) or 0) / 3) * 3
+            col = _col_key(s)
+            new_line = (
+                last_page is None
+                or pg != last_page
+                or col != last_col
+                or y != last_y
+            )
+            if new_line:
                 if cur_line_spans:
                     lines.append(cur_line_spans)
                 cur_line_spans = [s]
-                prev_y = y
+                last_y, last_page, last_col = y, pg, col
             else:
                 cur_line_spans.append(s)
         if cur_line_spans:
             lines.append(cur_line_spans)
 
-        # Header-Mapping
+        # Header-Mapping (Produkte|Standards bewusst nicht — → focus_experience)
         HEADER_TO_CAT = {
             'betriebssysteme':     'Betriebssysteme',
             'betriebsysteme':      'Betriebssysteme',
@@ -916,41 +1000,6 @@ class AidRegexExtractor:
                     })
         return all_skills
 
-    def _extract_skill_tables_UNUSED(self, text: str) -> List[dict]:
-        """
-        Extrahiert alle Skill-Tabellen (Betriebssysteme, Programmiersprachen, etc.)
-        und gibt Liste von Dicts zurück → skill_ablage MIT Kategorie-Info.
-
-        Format: [{"name": "Linux", "category": "Betriebssysteme"}, ...]
-
-        Damit wird der LLM-SkillNormalizer für abcona-Profile BYPASSED —
-        die Kategorie kommt direkt aus dem PDF-Layout, nicht vom LLM.
-        Linux landet in Betriebssysteme, NICHT in DevOps Tools!
-        """
-        all_skills = []
-        seen_lower = set()
-
-        for pattern, category, mode in SKILL_SECTIONS:
-            block = self._extract_skill_section(text, pattern)
-            if not block:
-                continue
-
-            items = self._parse_skill_items(block)
-            for item in items:
-                item_clean = item.strip()
-                if not item_clean or len(item_clean) < 2:
-                    continue
-                lw = item_clean.lower()
-                if lw not in seen_lower:
-                    seen_lower.add(lw)
-                    all_skills.append({
-                        'name':     item_clean,
-                        'category': category,
-                    })
-
-        logger.debug(f"[AidRegex] skill_ablage: {len(all_skills)} Skills mit Kategorie")
-        return all_skills
-
     def _extract_skill_section(self, text: str, section_pattern: str) -> str:
         """Extrahiert Inhalt einer Skill-Sektion bis zur nächsten Sektion."""
         # Sektion-Header finden
@@ -964,14 +1013,16 @@ class AidRegexExtractor:
         start = m.end()
         rest  = text[start:]
 
-        # Nächste Skill-Sektion oder Berufliche Erfahrungen als Ende
+        # Nächste Skill-Sektion, Produkte|Standards oder Berufliche Erfahrungen
         next_section = re.compile(
             r'(?im)^\s*('
             r'Programmiersprachen?|Betriebssysteme|Datenbanken|Hardware|'
             r'Datenkommunikation|Webserver|Middleware|Methoden|Tools?|'
             r'Netzwerk(?:protokolle)?|Standards?|Verfahren|Entwicklungstools?|'
             r'Softwaretechnologien?|Modellierungstools?|Spezialkenntnisse|'
-            r'Application|Produkte|Erfahrungen?\s+im\s+Bereich|'
+            r'Application|'
+            + FOCUS_PRODUCTS_HEADER + r'|'
+            r'Erfahrungen?\s+im\s+Bereich|'
             r'Berufliche\s+Erfahrungen?|Projektübersicht|Zeitraum\s*:'
             r')\s*$'
         )
@@ -1209,11 +1260,24 @@ class AidRegexExtractor:
         # Weiterbildung ohne Bullets: Titel als Activity behalten (darf nicht wegfallen)
         self._ensure_weiterbildung_content(proj)
 
-        # Mindest-Validierung: period muss vorhanden sein
-        if not proj.get('period'):
+        # R1: wie _usable_experience — Firma/Rolle/Acts/Tech ohne period behalten
+        if not self._usable_project(proj):
             return None
 
         return proj
+
+    def _usable_project(self, proj: dict) -> bool:
+        """True wenn das Projekt mindestens ein sinnvolles Feld hat."""
+        if not isinstance(proj, dict):
+            return False
+        return bool(
+            (proj.get('period') or '').strip()
+            or (proj.get('company') or '').strip()
+            or (proj.get('role') or '').strip()
+            or (proj.get('title') or '').strip()
+            or proj.get('activities')
+            or proj.get('technologies')
+        )
 
     def _extract_projekte_format_b(self, text: str) -> List[dict]:
         """

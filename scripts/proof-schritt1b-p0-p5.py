@@ -74,11 +74,19 @@ def main() -> int:
     r = pdf_mod.PDFExtractor().extract(str(sample))
     spans = ctrl._normalize_spans(r.spans)
     full = '\n'.join(ctrl._spans_to_aid_lines(spans))
-    skills = aid.aid_regex_extractor._extract_skill_tables(
-        aid.aid_regex_extractor._strip_page_headers(full)
+    clean = aid.aid_regex_extractor._strip_page_headers(full)
+    skills = aid.aid_regex_extractor._extract_skill_tables(clean)
+    focus = aid.aid_regex_extractor._extract_focus_experience(clean)
+    # Produkte|Standards zählen als focus_experience, nicht mehr als Skills (≥50 war inkl. Produkte)
+    opswat_as_skill = any('opswat' in (s.get('name') or '').lower() for s in skills)
+    sanity = (
+        aid.aid_regex_extractor.is_aid_profile(full)
+        and len(skills) >= 30
+        and len(focus) >= 10
+        and not opswat_as_skill
     )
-    (ok if aid.aid_regex_extractor.is_aid_profile(full) and len(skills) >= 50 else fail).append(
-        f'SANITY skills={len(skills)}'
+    (ok if sanity else fail).append(
+        f'SANITY skills={len(skills)} focus={len(focus)} opswat_skill={opswat_as_skill}'
     )
 
     report = {'ok': ok, 'fail': fail}
