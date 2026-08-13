@@ -37,6 +37,8 @@ FILES=(
   services/main_post_processor.py
   services/aid_profile_publish.py
   services/main_pipeline_controller.py
+  services/main_pdf_extractor.py
+  services/main_word_extractor.py
   services/main_labeler.py
   management/commands/import_aid_profiles.py
   management/commands/compare_aid_neu_cv.py

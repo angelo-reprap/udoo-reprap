@@ -4,7 +4,8 @@ services/main_word_extractor.py
 Universeller DOCX/DOC-Extractor fuer die main_pipeline.
 
 Unterstützte Formate:
-  .docx  → direkt via python-docx (im RAM)
+  .docx  → LibreOffice → PDF → main_pdf_extractor (echte Geometrie);
+            Fallback: python-docx (synthetische Y, Tabellen-column_id)
   .doc   → LibreOffice → tmp PDF → main_pdf_extractor → Spans im RAM
             Temp-PDF wird nach Extraktion sofort gelöscht.
 
@@ -140,9 +141,18 @@ class WordExtractor:
             )
         suffix = path_obj.suffix.lower()
         if suffix == '.docx':
+            # Bevorzugt echte Seiten-Geometrie via LibreOffice→PDF (wie .doc).
+            # Fallback: python-docx (synthetische Y-Koordinaten).
+            lo = self._extract_via_libreoffice_pdf(path_obj, source_format='docx')
+            if lo.ok and lo.spans:
+                return lo
+            if lo.error:
+                logger.warning(
+                    f"[WordExtractor] DOCX→PDF fehlgeschlagen, Fallback python-docx: {lo.error}"
+                )
             return self._extract_docx(path_obj)
         elif suffix == '.doc':
-            return self._extract_doc_via_libreoffice(path_obj)
+            return self._extract_via_libreoffice_pdf(path_obj, source_format='doc')
         else:
             return WordExtractResult(
                 ok=False,
@@ -197,11 +207,30 @@ class WordExtractor:
                                   round(time.time() - start, 3))
 
     def _extract_doc_via_libreoffice(self, path_obj: Path) -> WordExtractResult:
+        """Alias — historischer Name für .doc."""
+        return self._extract_via_libreoffice_pdf(path_obj, source_format='doc')
+
+    def _extract_via_libreoffice_pdf(self, path_obj: Path,
+                                     source_format: str = 'doc') -> WordExtractResult:
+        """DOC/DOCX → LibreOffice PDF → main_pdf_extractor (echte Geometrie)."""
         start = time.time()
+        lo_bin = None
+        for candidate in ('libreoffice', 'soffice'):
+            from shutil import which
+            if which(candidate):
+                lo_bin = candidate
+                break
+        if not lo_bin:
+            return WordExtractResult(
+                ok=False,
+                error='LibreOffice/soffice nicht im PATH',
+                filename=path_obj.name, source_format=source_format,
+            )
+
         with tempfile.TemporaryDirectory(prefix='abpe_doc_') as tmp_dir:
             tmp_path = Path(tmp_dir)
             lo_result = subprocess.run(
-                ['libreoffice', '--headless', '--nofirststartwizard',
+                [lo_bin, '--headless', '--nofirststartwizard',
                  '--norestore', '--convert-to', 'pdf',
                  str(path_obj), '--outdir', str(tmp_path)],
                 capture_output=True, text=True, timeout=120,
@@ -209,39 +238,47 @@ class WordExtractor:
             if lo_result.returncode != 0:
                 return WordExtractResult(
                     ok=False,
-                    error=f'LibreOffice Exit {lo_result.returncode}: {lo_result.stderr[:300]}',
-                    filename=path_obj.name, source_format='doc',
+                    error=f'LibreOffice Exit {lo_result.returncode}: {(lo_result.stderr or "")[:300]}',
+                    filename=path_obj.name, source_format=source_format,
                 )
             pdf_name = path_obj.stem + '.pdf'
             pdf_path = tmp_path / pdf_name
             if not pdf_path.exists():
                 pdfs = list(tmp_path.glob('*.pdf'))
                 if not pdfs:
-                    return WordExtractResult(ok=False, error='LibreOffice: kein PDF erzeugt',
-                                             filename=path_obj.name, source_format='doc')
+                    return WordExtractResult(
+                        ok=False, error='LibreOffice: kein PDF erzeugt',
+                        filename=path_obj.name, source_format=source_format,
+                    )
                 pdf_path = pdfs[0]
 
             lo_duration = round(time.time() - start, 2)
-            logger.info(f"[WordExtractor] DOC→PDF: {path_obj.name} → {pdf_path.name} in {lo_duration}s")
+            logger.info(
+                f"[WordExtractor] {source_format.upper()}→PDF: "
+                f"{path_obj.name} → {pdf_path.name} in {lo_duration}s"
+            )
 
-            # ── main_pdf_extractor verwenden (nicht alten pdf_extractor) ──
             try:
                 from apps.cv_extractor.services.main_pdf_extractor import PDFExtractor
                 pdf_result = PDFExtractor().extract(str(pdf_path))
             except Exception as e:
-                return WordExtractResult(ok=False,
-                    error=f'main_pdf_extractor nach DOC-Konvertierung: {e}',
-                    filename=path_obj.name, source_format='doc')
+                return WordExtractResult(
+                    ok=False,
+                    error=f'main_pdf_extractor nach {source_format.upper()}-Konvertierung: {e}',
+                    filename=path_obj.name, source_format=source_format,
+                )
 
             spans:    List[dict] = []
             headings: List[str]  = []
             for s in (pdf_result.spans or []):
-                text = (s.text or '').strip()
+                text = (getattr(s, 'text', None) or '').strip()
                 if not text:
                     continue
                 bold   = bool(getattr(s, 'bold',   False))
                 size   = float(getattr(s, 'size',  DEFAULT_SIZE))
                 is_hdg = bold and size >= HEADING_SIZE_MIN
+                x0 = float(getattr(s, 'x0', 0) or 0)
+                x1 = float(getattr(s, 'x1', 0) or 0)
                 span = {
                     'page':      int(getattr(s, 'page', 1)),
                     'y':         int(getattr(s, 'y',    0)),
@@ -251,9 +288,10 @@ class WordExtractor:
                     'italic':    bool(getattr(s, 'italic', False)),
                     'font':      str(getattr(s, 'font',   'Arial')),
                     'text':      text,
-                    'width':     float(getattr(s, 'x1', 0) or 0)
-                                  - float(getattr(s, 'x0', 0) or 0),
+                    'width':     x1 - x0 if x1 > x0 else 0.0,
                     'column_id': int(getattr(s, 'column_id', -1)),
+                    'x0':        x0,
+                    'x1':        x1,
                 }
                 spans.append(span)
                 if is_hdg:
@@ -263,10 +301,11 @@ class WordExtractor:
             result = self._build_result(
                 spans, [], headings,
                 getattr(pdf_result, 'page_count', 1),
-                path_obj.name, 'doc', total_duration,
+                path_obj.name, source_format, total_duration,
             )
             result.meta['lo_duration_s'] = lo_duration
             result.meta['lo_stderr']     = lo_result.stderr[:200] if lo_result.stderr else ''
+            result.meta['via']           = 'libreoffice_pdf'
             return result
 
     def _para_to_span(self, para_element, doc, page: int, y: int):
@@ -322,6 +361,11 @@ class WordExtractor:
         all_rows:  List[List[str]]  = []
         row_spans: List[List[dict]] = []
         raw_lines: List[str]        = []
+        n_cols = 0
+        try:
+            n_cols = max((len(row.cells) for row in table.rows), default=0)
+        except Exception:
+            n_cols = 0
         for row in table.rows:
             row_texts:     List[str]  = []
             row_span_list: List[dict] = []
@@ -331,11 +375,13 @@ class WordExtractor:
                     continue
                 row_texts.append(cell_text)
                 raw_lines.append(cell_text)
+                # Mehrspaltige Tabellen: column_id = Spaltenindex (Fast-Path-Geometrie)
+                col_id = col_idx if n_cols >= 2 else -1
                 row_span_list.append({
                     'page': page, 'y': y, 'x': col_idx * 100,
                     'size': DEFAULT_SIZE, 'bold': False, 'italic': False,
                     'font': 'Arial', 'text': cell_text, 'width': 0.0,
-                    'column_id': -1,
+                    'column_id': col_id,
                 })
             if row_texts:
                 all_rows.append(row_texts)

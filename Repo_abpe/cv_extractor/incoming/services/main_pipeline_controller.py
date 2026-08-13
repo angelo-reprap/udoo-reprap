@@ -23,6 +23,46 @@ from pathlib import Path
 logger = logging.getLogger(__name__)
 
 
+def _span_get(span, key, default=None):
+    """PDF liefert ExtractedSpan (Attribute), Word liefert dict — beides lesen."""
+    if isinstance(span, dict):
+        return span.get(key, default)
+    return getattr(span, key, default)
+
+
+def _normalize_spans(raw_spans) -> list:
+    """Einheitliches Span-Dict für Detector/Labeler/Fill."""
+    spans = []
+    for s in raw_spans or []:
+        text = _span_get(s, 'text', '') or ''
+        if not str(text).strip():
+            continue
+        x0 = float(_span_get(s, 'x0', 0.0) or 0.0)
+        x1 = float(_span_get(s, 'x1', 0.0) or 0.0)
+        width = float(_span_get(s, 'width', 0.0) or 0.0)
+        if width <= 0 and x1 > x0:
+            width = x1 - x0
+        size = float(_span_get(s, 'size', 12.0) or 12.0)
+        spans.append({
+            'page':      int(_span_get(s, 'page', 1) or 1),
+            'y':         float(_span_get(s, 'y', 0) or 0),
+            'x':         float(_span_get(s, 'x', 0) or 0),
+            'size':      size,
+            'sz':        size,
+            'bold':      bool(_span_get(s, 'bold', False)),
+            'italic':    bool(_span_get(s, 'italic', False)),
+            'font':      str(_span_get(s, 'font', '') or ''),
+            'text':      str(text),
+            'width':     width,
+            'column_id': int(_span_get(s, 'column_id', -1) if _span_get(s, 'column_id', -1) is not None else -1),
+            'x0':        x0,
+            'y0':        0.0,
+            'x1':        x1,
+            'y1':        0.0,
+        })
+    return spans
+
+
 class MainPipelineController:
 
     def run(self, pdf_path: str, first_name: str, last_name: str,
@@ -56,27 +96,9 @@ class MainPipelineController:
             if not result.spans:
                 return {'success': False, 'error': 'Keine Spans extrahiert'}
 
-            spans = []
-            for s in result.spans:
-                if not s.text or not s.text.strip():
-                    continue
-                spans.append({
-                    'page':      s.page,
-                    'y':         float(s.y),
-                    'x':         float(s.x),
-                    'size':      s.size,
-                    'sz':        s.size,
-                    'bold':      s.bold,
-                    'italic':    s.italic,
-                    'font':      getattr(s, 'font', ''),
-                    'text':      s.text,
-                    'width':     float(getattr(s, 'x1', 0) or 0) - float(getattr(s, 'x0', 0) or 0),
-                    'column_id': getattr(s, 'column_id', -1),
-                    'x0':        float(getattr(s, 'x0', 0.0) or 0.0),
-                    'y0':        0.0,
-                    'x1':        float(getattr(s, 'x1', 0.0) or 0.0),
-                    'y1':        0.0,
-                })
+            spans = _normalize_spans(result.spans)
+            if not spans:
+                return {'success': False, 'error': 'Keine Spans extrahiert'}
             logger.info(f"[MainPipeline] Spans: {len(spans)}")
         except Exception as e:
             return {'success': False, 'error': f'Span-Extraktion: {e}'}

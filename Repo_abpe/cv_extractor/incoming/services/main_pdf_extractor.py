@@ -352,13 +352,23 @@ class PDFExtractor:
                     continue
 
                 key = (data['block_num'][i], data['par_num'][i], data['line_num'][i])
+                left = data['left'][i]
+                top = data['top'][i]
+                width = data['width'][i]
+                height = data['height'][i]
                 if key not in line_map:
                     line_map[key] = {
                         'words': [],
-                        'x':     data['left'][i],
-                        'y':     data['top'][i],
-                        'h':     data['height'][i],
+                        'x':     left,
+                        'y':     top,
+                        'h':     height,
+                        'right': left + width,
                     }
+                else:
+                    line_map[key]['h'] = max(line_map[key]['h'], height)
+                    line_map[key]['right'] = max(line_map[key]['right'], left + width)
+                    line_map[key]['x'] = min(line_map[key]['x'], left)
+                    line_map[key]['y'] = min(line_map[key]['y'], top)
                 line_map[key]['words'].append(word)
 
             # ExtractedSpan pro Zeile bauen
@@ -372,6 +382,7 @@ class PDFExtractor:
                 x = round(ln['x'] / scale)
                 y = round(ln['y'] / scale)
                 h = ln['h'] / scale
+                w = max(1.0, (ln['right'] - ln['x']) / scale)
 
                 # Schriftgroesse aus Zeilenhoehe schaetzen
                 size = round(h * 0.75, 1)
@@ -391,7 +402,7 @@ class PDFExtractor:
                     page=pnum + 1,
                     x0=float(x),
                     y0=float(y),
-                    x1=float(x + round(ln['h'] / scale)),
+                    x1=float(x + round(w)),
                     y1=float(y + round(h)),
                     origin_x=float(x),
                     origin_y=float(y),
@@ -466,6 +477,8 @@ class PDFExtractor:
                 logger.info(f"[OCR] Kein Text-Layer in {pdf_path} – starte OCR-Fallback")
                 ocr_spans = self._ocr_fallback(doc)
                 if ocr_spans:
+                    # Wie Text-Layer: Spalten trennen + Zeilen mergen
+                    ocr_spans = self._detect_columns_and_merge(ocr_spans)
                     full_text = "\n".join(s.text for s in ocr_spans)
                     result = ExtractionResult(
                         text=full_text,
@@ -482,7 +495,7 @@ class PDFExtractor:
                     # Header/Footer-Erkennung auch fuer OCR
                     self._detect_and_remove_headers_footers(result)
                     result.processing_time = time.time() - start
-                    logger.info(f"[OCR] Fertig: {len(ocr_spans)} Spans, "
+                    logger.info(f"[OCR] Fertig: {len(result.spans)} Spans, "
                                 f"{result.processing_time:.1f}s")
                     return result
                 else:
