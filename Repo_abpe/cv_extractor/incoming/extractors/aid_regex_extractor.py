@@ -37,7 +37,7 @@ logger = logging.getLogger(__name__)
 
 ABCONA_SIGNALS = [
     re.compile(r'abcona',              re.IGNORECASE),
-    re.compile(r'AID-[a-z]{2}_\d+'),
+    re.compile(r'AID-[a-z]{2,4}_\d+'),  # tt_… und kea_/mva_/…
     re.compile(r'Bornhohl',            re.IGNORECASE),
     re.compile(r'office@abcona\.de',   re.IGNORECASE),
     re.compile(r'Pers.nliche\s+Daten', re.IGNORECASE | re.MULTILINE),
@@ -92,7 +92,7 @@ BULLET_PREFIX_RE = re.compile(
 
 # Seitenkopf aus abcona-PDFs (leakt sonst in Branchen/Skills/Tech)
 PAGE_HEADER_RE = re.compile(
-    r'(?im)^\s*Qualifikationsprofil\s*:\s*AID-[a-z]{2}_[^\n]*$'
+    r'(?im)^\s*Qualifikationsprofil\s*:\s*AID-[a-z]{2,4}_[^\n]*$'
 )
 
 SECTION_NOISE_NAMES = {

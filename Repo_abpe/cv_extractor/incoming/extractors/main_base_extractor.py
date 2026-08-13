@@ -314,6 +314,48 @@ def _is_section_noise_name(name: str) -> bool:
     return n in noise
 
 
+def _merge_str_lists(seed, llm) -> list:
+    """P3: Regex-Seed behalten, LLM-Einträge ergänzen (keine LLM-Sperre)."""
+    out = []
+    seen = set()
+    for item in list(seed or []) + list(llm or []):
+        if not isinstance(item, str):
+            continue
+        name = item.strip()
+        if not name or _is_section_noise_name(name):
+            continue
+        key = name.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(name)
+    return out
+
+
+def _merge_named_dicts(seed, llm) -> list:
+    """P3: Zertifikate u.ä. — Seed + LLM nach name mergen."""
+    out = []
+    seen = set()
+    for c in list(seed or []) + list(llm or []):
+        if isinstance(c, str):
+            name = c.strip()
+            item = {'name': name}
+        elif isinstance(c, dict):
+            item = dict(c)
+            name = (item.get('name') or '').strip()
+        else:
+            continue
+        if not name or _is_section_noise_name(name):
+            continue
+        key = name.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        item['name'] = name
+        out.append(item)
+    return out
+
+
 def _norm_edu_period(period: str) -> str:
     """'1985 - 1989' / '1985–1989' → '1985-1989'."""
     p = (period or '').strip().lower()
@@ -744,26 +786,21 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
             pre_json['extracted_data']['personal']['languages'] = norm_langs
             print(f"    languages normalisiert: {len(norm_langs)} Einträge")
 
-    if results.get('FACHBEREICHE') and not pre_json['extracted_data']['focus_areas']:
-        pre_json['extracted_data']['focus_areas'] = \
-            results['FACHBEREICHE'].get('focus_areas', [])
+    if results.get('FACHBEREICHE'):
+        llm_fa = results['FACHBEREICHE'].get('focus_areas', []) or []
+        seeded = pre_json['extracted_data'].get('focus_areas') or []
+        merged_fa = _merge_str_lists(seeded, llm_fa)
+        pre_json['extracted_data']['focus_areas'] = merged_fa
+        if seeded and llm_fa:
+            print(f"    fachbereiche gemerged: seed={len(seeded)} + llm → {len(merged_fa)}")
 
-    if results.get('ZERTIFIKATE') and not pre_json['extracted_data']['certifications']:
+    if results.get('ZERTIFIKATE'):
         raw_certs = results['ZERTIFIKATE'].get('certifications', []) or []
-        clean_certs = []
-        for c in raw_certs:
-            if isinstance(c, str):
-                name = c.strip()
-                item = {'name': name}
-            elif isinstance(c, dict):
-                item = dict(c)
-                name = (item.get('name') or '').strip()
-            else:
-                continue
-            if name and not _is_section_noise_name(name):
-                item['name'] = name
-                clean_certs.append(item)
-        pre_json['extracted_data']['certifications'] = clean_certs
+        seeded_c = pre_json['extracted_data'].get('certifications') or []
+        merged_c = _merge_named_dicts(seeded_c, raw_certs)
+        pre_json['extracted_data']['certifications'] = merged_c
+        if seeded_c and raw_certs:
+            print(f"    zertifikate gemerged: seed={len(seeded_c)} + llm → {len(merged_c)}")
 
     if results.get('SCHULUNGEN'):
         # WICHTIG: nicht überschreiben — Ausbildung (degree) behalten
@@ -787,9 +824,13 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
     if before != after:
         print(f"    education finalized: {before} → {after}")
 
-    if results.get('BRANCHEN') and not pre_json['extracted_data']['industries']:
-        pre_json['extracted_data']['industries'] = \
-            results['BRANCHEN'].get('industries', [])
+    if results.get('BRANCHEN'):
+        llm_ind = results['BRANCHEN'].get('industries', []) or []
+        seeded_i = pre_json['extracted_data'].get('industries') or []
+        merged_i = _merge_str_lists(seeded_i, llm_ind)
+        pre_json['extracted_data']['industries'] = merged_i
+        if seeded_i and llm_ind:
+            print(f"    branchen gemerged: seed={len(seeded_i)} + llm → {len(merged_i)}")
 
     if results.get('FOCUS_EXP'):
         raw_focus = results['FOCUS_EXP'].get('focus_experience', [])

@@ -63,6 +63,64 @@ def _normalize_spans(raw_spans) -> list:
     return spans
 
 
+def _spans_to_aid_lines(spans) -> list:
+    """
+    Spans → Zeilen für AID-Regex (Schritt 1b).
+
+    P0: gleiche gerundete Y = eine Zeile; verschiedene Y nie verkleben
+        (vorher abs(diff)>3 merge bei Diff==3).
+    P1: column_id in Sortierung und Zeilentrennung (Mehrspalter).
+    """
+    def _col_key(s):
+        c = s.get('column_id', -1)
+        try:
+            c = int(c)
+        except (TypeError, ValueError):
+            c = -1
+        # unbekannte Spalte nach bekannten, Lesereihenfolge col0→col1
+        return c if c >= 0 else 99
+
+    sorted_spans = sorted(
+        spans or [],
+        key=lambda s: (
+            _col_key(s),
+            int(s.get('page', 1) or 1),
+            round(float(s.get('y', 0) or 0) / 3) * 3,
+            float(s.get('x', 0) or 0),
+        ),
+    )
+    lines_text = []
+    last_y = None
+    last_page = None
+    last_col = None
+    cur_line = []
+    for s in sorted_spans:
+        t = (s.get('text') or '').strip()
+        if not t:
+            continue
+        pg = int(s.get('page', 1) or 1)
+        y = round(float(s.get('y', 0) or 0) / 3) * 3
+        col = _col_key(s)
+        new_line = (
+            last_page is None
+            or pg != last_page
+            or col != last_col
+            or y != last_y
+        )
+        if new_line:
+            if cur_line:
+                lines_text.append(' '.join(cur_line))
+            cur_line = [t]
+            last_y = y
+            last_page = pg
+            last_col = col
+        else:
+            cur_line.append(t)
+    if cur_line:
+        lines_text.append(' '.join(cur_line))
+    return lines_text
+
+
 class MainPipelineController:
 
     def run(self, pdf_path: str, first_name: str, last_name: str,
@@ -107,43 +165,42 @@ class MainPipelineController:
         # Für abcona-Profile: Skills direkt aus PDF-Struktur mit korrekter
         # Kategorie extrahieren — Normalizer-LLM wird für Skills bypassed
         aid_skill_categories = {}  # {skill_name: category} aus PDF-Layout
-        aid_extracted = {}         # {headline, focus_areas, industries, certifications}
+        aid_extracted = {}         # {headline, focus_areas, industries, certifications, education}
         try:
-            # Spans mit Zeilenumbrüchen zusammenführen — Regex braucht Struktur!
-            # Gleiche Y-Position = gleiche Zeile, neue Y = neue Zeile
-            sorted_spans = sorted(spans, key=lambda s: (s.get('page',1), round(s.get('y',0)/3)*3, s.get('x',0)))
-            lines_text = []
-            last_y = -999
-            last_page = -1
-            cur_line = []
-            for s in sorted_spans:
-                t = s.get('text','').strip()
-                if not t:
-                    continue
-                pg = s.get('page', 1)
-                y  = round(s.get('y', 0) / 3) * 3
-                if pg != last_page or abs(y - last_y) > 3:
-                    if cur_line:
-                        lines_text.append(' '.join(cur_line))
-                    cur_line = [t]
-                    last_y = y
-                    last_page = pg
-                else:
-                    cur_line.append(t)
-            if cur_line:
-                lines_text.append(' '.join(cur_line))
+            lines_text = _spans_to_aid_lines(spans)
             full_text = '\n'.join(lines_text)
-            from apps.cv_extractor.extractors.aid_regex_extractor import aid_regex_extractor
-            if aid_regex_extractor.is_aid_profile(full_text):
-                logger.info(f"[MainPipeline] Schritt 1b: abcona-Profil erkannt → Skill-Kategorien aus PDF")
-                skill_ablage = aid_regex_extractor._extract_skill_tables(full_text)
-                # skill_ablage ist jetzt List[dict] mit name + category
-                for item in skill_ablage:
-                    if isinstance(item, dict) and item.get('name') and item.get('category'):
-                        aid_skill_categories[item['name']] = item['category']
-                logger.info(f"[MainPipeline] Schritt 1b: {len(aid_skill_categories)} Skills vorkategorisiert")
-                # Zusaetzlich: Headline, Fachbereiche, Branchen, Zertifikate, Ausbildung per Regex
+            from apps.cv_extractor.extractors.aid_regex_extractor import (
+                aid_regex_extractor,
+                ABCONA_SIGNALS,
+            )
+            signal_hits = sum(1 for p in ABCONA_SIGNALS if p.search(full_text))
+            is_aid = signal_hits >= 3
+            logger.info(
+                f"[MainPipeline] Schritt 1b: lines={len(lines_text)} chars={len(full_text)} "
+                f"aid_signals={signal_hits}/5 is_aid={is_aid}"
+            )
+            if is_aid:
+                logger.info(f"[MainPipeline] Schritt 1b: abcona-Profil erkannt → Fast-Path")
+                # P2: erst Header strippen, dann Skills/Sektionen
                 full_text_clean = aid_regex_extractor._strip_page_headers(full_text)
+                skill_ablage = aid_regex_extractor._extract_skill_tables(full_text_clean)
+                dup_skills = 0
+                for item in skill_ablage:
+                    if not (isinstance(item, dict) and item.get('name') and item.get('category')):
+                        continue
+                    name = item['name']
+                    cat = item['category']
+                    if name in aid_skill_categories and aid_skill_categories[name] != cat:
+                        dup_skills += 1
+                        logger.info(
+                            f"[MainPipeline] Schritt 1b: Skill-Duplikat '{name}': "
+                            f"{aid_skill_categories[name]} → {cat}"
+                        )
+                    aid_skill_categories[name] = cat
+                logger.info(
+                    f"[MainPipeline] Schritt 1b: {len(aid_skill_categories)} Skills vorkategorisiert"
+                    + (f" ({dup_skills} Duplikat-Überschreibungen)" if dup_skills else "")
+                )
                 aid_extracted['headline']       = aid_regex_extractor._extract_headline(full_text_clean)
                 aid_extracted['focus_areas']    = aid_regex_extractor._extract_fachbereiche(full_text_clean)
                 aid_extracted['industries']     = aid_regex_extractor._extract_branchen(full_text_clean)
@@ -164,16 +221,19 @@ class MainPipelineController:
                             f"[MainPipeline] Schritt 1b: {len(harvested)} Skills aus Projekten geerntet"
                         )
                 logger.info(
-                    f"[MainPipeline] Schritt 1b: headline={bool(aid_extracted['headline'])} | "
-                    f"fachbereiche={len(aid_extracted['focus_areas'])} | "
-                    f"branchen={len(aid_extracted['industries'])} | "
-                    f"zertifikate={len(aid_extracted['certifications'])} | "
+                    f"[MainPipeline] Schritt 1b: headline={bool(aid_extracted.get('headline'))} | "
+                    f"fachbereiche={len(aid_extracted.get('focus_areas') or [])} | "
+                    f"branchen={len(aid_extracted.get('industries') or [])} | "
+                    f"zertifikate={len(aid_extracted.get('certifications') or [])} | "
                     f"ausbildung={len(aid_extracted.get('education') or [])}"
                 )
             else:
                 logger.info(f"[MainPipeline] Schritt 1b: kein abcona-Profil → normale Pipeline")
         except Exception as e:
-            logger.warning(f"[MainPipeline] Schritt 1b Fehler (nicht kritisch): {e}")
+            # P4: kein halber Fast-Path in Group/Label/Fill
+            aid_skill_categories = {}
+            aid_extracted = {}
+            logger.warning(f"[MainPipeline] Schritt 1b Fehler (nicht kritisch, Fast-Path verworfen): {e}")
 
         # ── Schritt 2: Spans → Gruppen ─────────────────────────────────────
         try:
