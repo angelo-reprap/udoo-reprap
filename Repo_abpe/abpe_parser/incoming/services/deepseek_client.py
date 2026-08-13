@@ -27,6 +27,7 @@ class DeepSeekResult:
     raw_response: str = ''
     processing_time: float = 0.0
     usage: Dict[str, int] = field(default_factory=dict)
+    finish_reason: Optional[str] = None
 
 
 class DeepSeekClient:
@@ -34,7 +35,7 @@ class DeepSeekClient:
         self.api_key: Optional[str] = None
         self.model = 'deepseek-chat'
         self.base_url = 'https://api.deepseek.com/v1/chat/completions'
-        self.timeout = 120
+        self.timeout = 180
         self._load_config()
 
     def _load_config(self) -> None:
@@ -93,16 +94,22 @@ class DeepSeekClient:
             )
             r.raise_for_status()
             body = r.json()
-            content = body['choices'][0]['message']['content']
+            choice = (body.get('choices') or [{}])[0]
+            content = (choice.get('message') or {}).get('content') or ''
+            finish_reason = choice.get('finish_reason')
             usage = body.get('usage') or {}
             data = _parse_json_content(content)
             if data is None:
+                err = 'JSON parse failed'
+                if finish_reason == 'length':
+                    err += ' (finish_reason=length — max_tokens zu klein)'
                 return DeepSeekResult(
                     False,
-                    error='JSON parse failed',
+                    error=err,
                     raw_response=content,
                     processing_time=time.time() - start,
                     usage=usage,
+                    finish_reason=finish_reason,
                 )
             return DeepSeekResult(
                 True,
@@ -110,6 +117,7 @@ class DeepSeekClient:
                 raw_response=content,
                 processing_time=time.time() - start,
                 usage=usage,
+                finish_reason=finish_reason,
             )
         except Exception as e:
             return DeepSeekResult(

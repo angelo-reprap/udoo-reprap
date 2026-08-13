@@ -58,22 +58,27 @@ def run_pipeline(
         'parse_meta': {
             'text_chars': parse.get('text_chars'),
             'truncated': parse.get('truncated'),
+            'token_capped': parse.get('token_capped'),
+            'finish_reason': parse.get('finish_reason'),
             'processing_time': parse.get('processing_time'),
             'usage': parse.get('usage'),
+            'debug': parse.get('debug'),
         },
         'resume': parse.get('data'),
+        'raw_llm': parse.get('raw_llm'),
         'analysis': {},
     }
 
-    if not result['success'] or not result['resume']:
-        return result
-
-    resume = result['resume']
+    resume = result.get('resume')
+    # Score auch bei partial/fail (zeigt leere Coverage)
     analysis: Dict[str, Any] = {}
-
-    if do_score:
+    if resume and do_score:
         analysis['coverage'] = coverage_report(resume)
         analysis['quality'] = score_resume(resume)
+        result['analysis'] = analysis
+
+    if not result['success'] or not resume:
+        return result
 
     # JD laden
     jd = (jd_text or '').strip()
