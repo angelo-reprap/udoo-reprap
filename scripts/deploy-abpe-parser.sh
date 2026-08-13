@@ -22,8 +22,13 @@ LIVE="${LIVE:-/opt/abpe/backend/apps/abpe_parser}"
 
 cd "$REPO"
 git fetch origin "$BRANCH"
-git checkout "$BRANCH"
-git pull origin "$BRANCH" || true
+# Shared-Mount: immer exakt Remote-Branch (kein divergentes pull.rebase-Drama)
+if git show-ref --verify --quiet "refs/heads/$BRANCH"; then
+  git checkout "$BRANCH"
+else
+  git checkout -b "$BRANCH" "origin/$BRANCH"
+fi
+git reset --hard "origin/$BRANCH"
 
 if [[ ! -d "$SRC" ]]; then
   echo "FAIL: Quelle fehlt: $SRC"
