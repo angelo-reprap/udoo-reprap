@@ -214,7 +214,10 @@ def _period_key(exp) -> str:
     """
     Normalisierter Zeitraum für Dedup.
     Start+Ende (sonst kollidieren 01/2000–12/2000 und 01/2000–03/2000).
-    Company-Suffix: zwei „Seit 2005 parallel“-Projekte nicht zusammenwerfen.
+
+    MM/YYYY-Perioden: nur Datum (LLM „Öffentlicher Dienst“ vs Seed
+    „…, Karlsruhe“ sonst Doppel-Projekte → AID-pp_1.1.2.3).
+    Freitext/nur-Jahr: Company-Suffix (zwei × „2005 – dato“).
     """
     if not isinstance(exp, dict):
         return ''
@@ -222,22 +225,24 @@ def _period_key(exp) -> str:
     p = p.replace('—', '–').replace('-', '–')
     company = re.sub(r'\s+', ' ', (exp.get('company') or '').strip().lower())[:48]
     dates = re.findall(r'(\d{1,2})[./](\d{4})', p)
-    if not dates:
-        # Jahr-Range „1980 – 1984“ / Freitext „2005 – dato“
-        years = re.findall(r'(?<!\d)(\d{4})(?!\d)', p)
-        if len(years) >= 2:
-            base = f'{years[0]}–{years[1]}'
-        elif years:
-            base = years[0]
-            if re.search(r'(heute|dato|aktuell|laufend|parallel)', p):
-                base += '–dato'
-        else:
-            base = re.sub(r'\s+', ' ', p)
-    else:
+    if dates:
         parts = [f"{int(d[0]):02d}/{d[1]}" for d in dates[:2]]
         if re.search(r'(heute|dato|aktuell|laufend)', p):
             parts.append('dato')
-        base = '–'.join(parts)
+        return '–'.join(parts)
+
+    # Jahr-Range „1980 – 1984“ / Freitext „2005 – dato“
+    years = re.findall(r'(?<!\d)(\d{4})(?!\d)', p)
+    if len(years) >= 2:
+        base = f'{years[0]}–{years[1]}'
+        # reine Jahresranges ohne Monatsdatum: Datum reicht zum Dedup
+        return base
+    if years:
+        base = years[0]
+        if re.search(r'(heute|dato|aktuell|laufend|parallel)', p):
+            base += '–dato'
+        return f'{base}|{company}' if company else base
+    base = re.sub(r'\s+', ' ', p)
     return f'{base}|{company}' if company else base
 
 

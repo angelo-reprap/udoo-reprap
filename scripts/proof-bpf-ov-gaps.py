@@ -76,15 +76,29 @@ def main() -> int:
     )
     (ok if edu_ok else fail).append(f'bpf edu={edu}')
 
-    # Merge stellt fehlende LLM-Perioden wieder her
+    # Merge stellt fehlende LLM-Perioden wieder her (ohne MM/YYYY-Duplikate)
     llm_fake = [
         p for p in bpf_projs
         if not re.search(r'\b(04/1990|01/1990|07/1989)\b', p.get('period') or '')
     ]
-    merged = base._merge_experience(bpf_projs, llm_fake)
+    # simuliert LLM mit leicht anderer Company (früher → Doppelprojekt)
+    llm_variant = []
+    for p in llm_fake:
+        q = dict(p)
+        if q.get('company'):
+            q['company'] = (q['company'].split(',')[0]).strip()
+        llm_variant.append(q)
+    merged = base._merge_experience(bpf_projs, llm_variant)
     (ok if len(merged) == len(bpf_projs) else fail).append(
-        f'merge seed={len(bpf_projs)} llm={len(llm_fake)} → {len(merged)}'
+        f'merge seed={len(bpf_projs)} llm={len(llm_variant)} → {len(merged)}'
     )
+    # zwei „2005 – dato“ bleiben getrennt
+    y2005 = [
+        p for p in merged
+        if re.search(r'(?i)^2005\s*[–\-]|dato', p.get('period') or '')
+        and '2005' in (p.get('period') or '')
+    ]
+    (ok if len(y2005) >= 2 else fail).append(f'merge keeps two 2005-parallel={len(y2005)}')
     (ok if "aid_extracted['experience']" in ctrl_src or 'experience' in ctrl_src and '_extract_projekte' in ctrl_src else fail).append(
         'controller seeds experience'
     )
