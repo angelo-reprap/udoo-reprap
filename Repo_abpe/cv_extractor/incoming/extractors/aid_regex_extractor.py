@@ -142,6 +142,35 @@ class AidRegexExtractor:
         """Entfernt abcona-Seitenköpfe aus dem PDF-Text."""
         return PAGE_HEADER_RE.sub('', text or '')
 
+    def _labeled_value(self, block: str, label_re: str) -> str:
+        """
+        Wert nach Label-Zeile: zuerst gleiche Zeile nach ':' ,
+        sonst die nächste nicht-leere Zeile (solange sie kein neues Label ist).
+
+        Wichtig für Format A mit Zeilenumbruch nach dem Label, z.B.:
+          Zeitraum:
+           11/2015 – dato
+          Firma/Institut:
+           Allianz, Zürich
+        """
+        if not block or not label_re:
+            return ''
+        m = re.search(rf'(?im)^\s*(?:{label_re})\s*:\s*(.*)$', block)
+        if not m:
+            return ''
+        same = (m.group(1) or '').strip()
+        if same:
+            return same
+        for line in block[m.end():].splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            # Nächstes Label (Wort…:) → kein Wert unter diesem Label
+            if re.match(r'^[A-Za-zÄÖÜäöü0-9][^:\n]{0,80}:\s*', line):
+                return ''
+            return line
+        return ''
+
     def _is_page_header(self, line: str) -> bool:
         return bool(PAGE_HEADER_RE.match((line or '').strip()))
 
@@ -1066,55 +1095,58 @@ class AidRegexExtractor:
         """Parst einen einzelnen Projekt-Block im Format A."""
         proj = {}
 
-        # Zeitraum
-        m = re.search(r'(?im)^\s*Zeitraum\s*:\s*(.+?)$', block)
-        if m:
-            proj['period'] = m.group(1).strip()
+        # Zeitraum (gleiche Zeile oder nächste Zeile)
+        period = self._labeled_value(block, r'Zeitraum|Period')
+        if period:
+            proj['period'] = period
 
-        # Firma/Institut (verschiedene Schreibweisen)
-        m = re.search(r'(?im)^\s*Firma\s*/?\s*Institut\s*:\s*(.+?)$', block)
-        if m:
-            proj['company'] = m.group(1).strip()
-        else:
-            # abcona: Kunde / Branche:
-            m = re.search(r'(?im)^\s*Kunde\s*/\s*Branche\s*:\s*(.+?)$', block)
-            if m:
-                proj['company'] = m.group(1).strip()
-            else:
-                # Fallback: 'Auftraggeber:' oder 'Kunde:'
-                m = re.search(r'(?im)^\s*(?:Auftraggeber|Kunde)\s*:\s*(.+?)$', block)
-                if m:
-                    proj['company'] = m.group(1).strip()
+        # Firma/Institut / Kunde (gleiche Zeile oder nächste Zeile)
+        company = (
+            self._labeled_value(block, r'Firma\s*/?\s*Institut')
+            or self._labeled_value(block, r'Kunde\s*/\s*Branche')
+            or self._labeled_value(block, r'Auftraggeber|Kunde|Customer')
+        )
+        if company:
+            proj['company'] = company
 
         # Projektbeschreibung → title (ohne Activity-Bullets)
         m = re.search(
             r'(?im)^\s*Projektbeschreibung\s*:\s*(.+?)'
             r'(?=\n\s*(?:Systemumgebung|Position|Rolle|Zeitraum|Firma|Kunde|'
-            r'Protokolle|Technologien)\s*:|'
+            r'Protokolle|Technologien|Eingesetzte)\s*:|'
             r'\n\s*[-•\*\u2022\u25aa\uf0b7\uf09f]|$)',
             block, re.DOTALL
         )
         if m:
             title = ' '.join(m.group(1).split())  # Whitespace normalisieren
-            proj['title'] = title[:300]
+            if title:
+                proj['title'] = title[:300]
+        if not proj.get('title'):
+            # Label allein, Text beginnt nächste Zeile
+            title = self._labeled_value(block, r'Projektbeschreibung')
+            if title:
+                proj['title'] = title[:300]
 
         # Position / Rolle (inkl. abcona Rolle / Position)
-        m = re.search(
-            r'(?im)^\s*(?:Rolle\s*/\s*Position|Position|Rolle|Projektrolle|Funktion)\s*:\s*(.+?)$',
-            block,
+        role = (
+            self._labeled_value(block, r'Rolle\s*/\s*Position')
+            or self._labeled_value(block, r'Position|Rolle|Projektrolle|Funktion')
         )
-        if m:
-            proj['role'] = m.group(1).strip()
+        if role:
+            proj['role'] = role
 
         # Branche
-        m = re.search(r'(?im)^\s*Branche\s*:\s*(.+?)$', block)
-        if m:
-            proj['industry'] = m.group(1).strip()
+        industry = self._labeled_value(block, r'Branche')
+        if industry:
+            proj['industry'] = industry
 
-        # Systemumgebung / Protokolle/Technologien → technologies[]
+        # Systemumgebung / Produkte / Tools → technologies[]
         tech_parts = []
         for label in (
             r'Systemumgebung',
+            r'Eingesetzte\s+Produkte',
+            r'Eingesetzte\s+Tools\s*/\s*Software',
+            r'Eingesetzte\s+Tools',
             r'Protokolle\s*/\s*Technologien',
             r'Technologien\s*/\s*Umfeld',
             r'Technologien\s*/?\s*Umfeld',
@@ -1123,11 +1155,19 @@ class AidRegexExtractor:
             m = re.search(
                 rf'(?im)^\s*{label}\s*:\s*(.+?)'
                 r'(?=\n\s*(?:Position|Rolle|Zeitraum|Firma|Kunde|Systemumgebung|'
-                r'Protokolle\s*/|Technologien\s*/|Kenntnisse|Projektbeschreibung)\s*:|\Z)',
+                r'Eingesetzte\s+|Protokolle\s*/|Technologien\s*/|Kenntnisse|'
+                r'Projektbeschreibung)\s*:|\Z)',
                 block, re.DOTALL,
             )
             if m:
-                tech_parts.append(m.group(1).strip())
+                chunk = (m.group(1) or '').strip()
+                if chunk:
+                    tech_parts.append(chunk)
+                else:
+                    # leeres Label → Folgetext bis zum nächsten Label
+                    val = self._labeled_value(block, label)
+                    if val:
+                        tech_parts.append(val)
         if tech_parts:
             techs = self._parse_tech_list('\n'.join(tech_parts))
             if techs:

@@ -109,12 +109,31 @@ class MasterBaseExtractor:
         return {}
 
 
+def _labeled_value_from_text(text: str, label_re: str) -> str:
+    """Label-Wert: gleiche Zeile nach ':', sonst nächste nicht-leere Nicht-Label-Zeile."""
+    if not text or not label_re:
+        return ''
+    m = re.search(rf'(?im)^\s*(?:{label_re})\s*:\s*(.*)$', text)
+    if not m:
+        return ''
+    same = (m.group(1) or '').strip()
+    if same:
+        return same
+    for line in text[m.end():].splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if re.match(r'^[A-Za-zÄÖÜäöü0-9][^:\n]{0,80}:\s*', line):
+            return ''
+        return line
+    return ''
+
+
 def _regex_fill_experience_from_text(text: str, data: dict) -> dict:
     """
     Regex-Overlay auf LLM-Projekt-JSON (allgemein, Label-basiert).
-    Füllt company/role wenn im Quelltext 'Kunde / Branche:' bzw.
-    'Rolle / Position:' stehen — LLM-Ergebnis hat Vorrang nur wenn schon gesetzt
-    und nicht wie eine Rolle aussieht.
+    Füllt period/company/role aus AID-Labels (auch wenn Wert in der nächsten Zeile steht).
+    LLM-Werte behalten Vorrang wenn bereits sinnvoll gesetzt.
     """
     if not isinstance(data, dict) or not text:
         return data
@@ -125,26 +144,63 @@ def _regex_fill_experience_from_text(text: str, data: dict) -> dict:
         re.IGNORECASE,
     )
 
-    m = re.search(r'(?im)^\s*Kunde\s*/\s*Branche\s*:\s*(.+?)\s*$', text)
-    if m:
-        company = m.group(1).strip()
+    if not (out.get('period') or '').strip():
+        period = _labeled_value_from_text(text, r'Zeitraum|Period')
+        if period:
+            out['period'] = period[:80]
+
+    company = (
+        _labeled_value_from_text(text, r'Kunde\s*/\s*Branche')
+        or _labeled_value_from_text(text, r'Firma\s*/?\s*Institut')
+        or _labeled_value_from_text(text, r'Auftraggeber|Kunde|Customer')
+    )
+    if company:
         cur = (out.get('company') or '').strip()
-        if company and (not cur or role_hint.search(cur)):
+        if not cur or role_hint.search(cur):
             out['company'] = company[:200]
 
-    m = re.search(r'(?im)^\s*Rolle\s*/\s*Position\s*:\s*(.+?)\s*$', text)
-    if m:
-        role = m.group(1).strip()
-        if role:
-            out['role'] = role[:200]
-
-    m = re.search(
-        r'(?im)^\s*(?:Position|Rolle|Projektrolle|Funktion)\s*:\s*(.+?)\s*$',
-        text,
+    role = (
+        _labeled_value_from_text(text, r'Rolle\s*/\s*Position')
+        or _labeled_value_from_text(text, r'Position|Rolle|Projektrolle|Funktion')
     )
-    if m and not (out.get('role') or '').strip():
-        out['role'] = m.group(1).strip()[:200]
+    if role and not (out.get('role') or '').strip():
+        out['role'] = role[:200]
 
+    return out
+
+
+def _usable_experience(exp) -> bool:
+    """True wenn das Projekt mindestens ein sinnvolles Feld hat."""
+    if not isinstance(exp, dict):
+        return False
+    return bool(
+        (exp.get('period') or '').strip()
+        or (exp.get('company') or '').strip()
+        or (exp.get('role') or '').strip()
+        or (exp.get('title') or '').strip()
+        or exp.get('activities')
+        or exp.get('technologies')
+    )
+
+
+def _aid_regex_project_fallback(text: str, exp: dict) -> dict:
+    """Format-A Regex füllt fehlende Felder nach (z.B. Zeitraum in nächster Zeile)."""
+    out = dict(exp) if isinstance(exp, dict) else {}
+    if not (text or '').strip():
+        return out
+    try:
+        from apps.cv_extractor.extractors.aid_regex_extractor import aid_regex_extractor
+        regex_proj = aid_regex_extractor._parse_projekt_block_a(text)
+    except Exception:
+        regex_proj = None
+    if not isinstance(regex_proj, dict):
+        return out
+    for key, val in regex_proj.items():
+        if not val:
+            continue
+        cur = out.get(key)
+        if cur in (None, '', [], {}):
+            out[key] = val
     return out
 
 
@@ -782,20 +838,32 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
             data = MasterBaseExtractor(
                 'main_extract_experience', consultant_type
             ).extract(text)
-            # Regex-Overlay: abcona-Labels Kunde/Rolle nachziehen
-            if isinstance(data, dict):
-                if 'experience' in data and isinstance(data['experience'], dict):
-                    data['experience'] = _regex_fill_experience_from_text(
-                        text, data['experience']
+            # Regex-Overlay + Format-A Fallback (Zeitraum/Firma oft nächste Zeile)
+            if not isinstance(data, dict):
+                data = {}
+            if 'experience' in data and isinstance(data['experience'], dict):
+                exp = _regex_fill_experience_from_text(text, data['experience'])
+                exp = _aid_regex_project_fallback(text, exp)
+                data['experience'] = exp
+            elif isinstance(data.get('experience'), list):
+                filled = []
+                for e in data['experience']:
+                    if not isinstance(e, dict):
+                        continue
+                    e2 = _regex_fill_experience_from_text(text, e)
+                    e2 = _aid_regex_project_fallback(text, e2)
+                    filled.append(e2)
+                if not filled:
+                    fb = _aid_regex_project_fallback(
+                        text, _regex_fill_experience_from_text(text, {})
                     )
-                elif data.get('period') or data.get('company') or data.get('role'):
-                    data = _regex_fill_experience_from_text(text, data)
-                elif isinstance(data.get('experience'), list):
-                    data['experience'] = [
-                        _regex_fill_experience_from_text(text, e)
-                        if isinstance(e, dict) else e
-                        for e in data['experience']
-                    ]
+                    if _usable_experience(fb):
+                        filled = [fb]
+                data['experience'] = filled
+            else:
+                exp = _regex_fill_experience_from_text(text, data)
+                exp = _aid_regex_project_fallback(text, exp)
+                data = exp
             return lg['index'], data
 
         all_exp  = []
@@ -810,14 +878,24 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
         for lg in proj_gruppen:
             data = proj_map.get(lg['index'], {})
             if not data:
+                # LLM leer → reiner Format-A Fallback aus Gruppentext
+                g = gruppen_by_idx.get(lg['index'])
+                if not g:
+                    continue
+                text = gruppe_to_volltext(g, block_by_nr)
+                fb = _aid_regex_project_fallback(
+                    text, _regex_fill_experience_from_text(text, {})
+                )
+                if _usable_experience(fb):
+                    all_exp.append(fb)
                 continue
             if isinstance(data, list):
-                all_exp.extend(data)
+                all_exp.extend(e for e in data if _usable_experience(e))
             elif isinstance(data, dict):
                 exp = data.get('experience', data)
                 if isinstance(exp, list):
-                    all_exp.extend(exp)
-                elif isinstance(exp, dict) and exp.get('period'):
+                    all_exp.extend(e for e in exp if _usable_experience(e))
+                elif isinstance(exp, dict) and _usable_experience(exp):
                     all_exp.append(exp)
 
         pre_json['extracted_data']['experience'] = all_exp
