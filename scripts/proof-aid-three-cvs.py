@@ -35,10 +35,11 @@ CVS = [
         'last': 'Pfirrmann',
         'expect': {
             'is_aid': True,
-            'min_projects': 1,
-            'min_skills': 5,
+            'min_projects': 18,  # Format-B/bpf inkl. 07/1989–04/1990
+            'min_skills': 0,     # inline-Kenntnisse, oft erst via LLM
             'min_focus': 0,
             'birth_year': None,  # optional
+            'must_periods': ['07/1989', '01/1990', '04/1990', '12/2004'],
         },
     },
     {
@@ -49,10 +50,10 @@ CVS = [
         'last': 'Vogelgesang',
         'expect': {
             'is_aid': True,
-            'min_projects': 1,
-            'min_skills': 5,
-            'min_focus': 0,
-            'birth_year': None,
+            'min_projects': 7,
+            'min_skills': 0,     # Kenntnisse liegen in focus_experience
+            'min_focus': 10,
+            'birth_year': 1969,
         },
     },
 ]
@@ -94,6 +95,9 @@ def analyze(ctrl, aid, pdf_mod, cv: dict) -> dict:
     }
     if exp.get('birth_year') is not None:
         checks['birth_year'] = personal.get('birth_year') == exp['birth_year']
+    if exp.get('must_periods'):
+        blob = ' '.join(p.get('period') or '' for p in projects)
+        checks['must_periods'] = all(mp in blob for mp in exp['must_periods'])
 
     return {
         'id': cv['id'],

@@ -184,13 +184,19 @@ def _usable_experience(exp) -> bool:
 
 
 def _aid_regex_project_fallback(text: str, exp: dict) -> dict:
-    """Format-A Regex füllt fehlende Felder nach (z.B. Zeitraum in nächster Zeile)."""
+    """Format-A/B Regex füllt fehlende Felder nach (Zeitraum gleiche/nächste Zeile)."""
     out = dict(exp) if isinstance(exp, dict) else {}
     if not (text or '').strip():
         return out
+    regex_proj = None
     try:
         from apps.cv_extractor.extractors.aid_regex_extractor import aid_regex_extractor
         regex_proj = aid_regex_extractor._parse_projekt_block_a(text)
+        if not isinstance(regex_proj, dict) or not _usable_experience(regex_proj):
+            # bpf / Format B: MM/YYYY – MM/YYYY Firma auf einer Zeile
+            b_list = aid_regex_extractor._extract_projekte_format_b(text)
+            if b_list:
+                regex_proj = b_list[0]
     except Exception:
         regex_proj = None
     if not isinstance(regex_proj, dict):
@@ -201,6 +207,51 @@ def _aid_regex_project_fallback(text: str, exp: dict) -> dict:
         cur = out.get(key)
         if cur in (None, '', [], {}):
             out[key] = val
+    return out
+
+
+def _period_key(exp) -> str:
+    """
+    Normalisierter Zeitraum für Dedup.
+    Start+Ende (sonst kollidieren 01/2000–12/2000 und 01/2000–03/2000).
+    """
+    if not isinstance(exp, dict):
+        return ''
+    p = (exp.get('period') or '').strip().lower()
+    p = p.replace('—', '–').replace('-', '–')
+    dates = re.findall(r'(\d{1,2})[./](\d{4})', p)
+    if not dates:
+        # Einzelmonat / Freitext
+        return re.sub(r'\s+', ' ', p)
+    parts = [f"{int(d[0]):02d}/{d[1]}" for d in dates[:2]]
+    if re.search(r'(heute|dato|aktuell|laufend)', p):
+        parts.append('dato')
+    return '–'.join(parts)
+
+
+def _period_sort_key(exp) -> tuple:
+    m = re.search(r'(\d{1,2})[./](\d{4})', (exp.get('period') or '') if isinstance(exp, dict) else '')
+    if not m:
+        return (0, 0)
+    return (int(m.group(2)), int(m.group(1)))
+
+
+def _merge_experience(seed, llm) -> list:
+    """
+    LLM-Projekte behalten, Regex-Seed ergänzt fehlende Perioden
+    (z.B. älteste bpf-Projekte die Group/LLM verloren hat).
+    Reihenfolge: neueste zuerst.
+    """
+    out, seen = [], set()
+    for e in list(llm or []) + list(seed or []):
+        if not _usable_experience(e):
+            continue
+        key = _period_key(e)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        out.append(e)
+    out.sort(key=_period_sort_key, reverse=True)
     return out
 
 
@@ -306,10 +357,17 @@ def _is_section_noise_name(name: str) -> bool:
         return True
     if re.match(r'(?i)^qualifikationsprofil\s*:\s*aid-', n):
         return True
+    if re.match(r'(?i)^(sehr\s+gute|fortgeschrittene|gute|grund)\s*kenntnisse$', n):
+        return True
+    if 'produkte' in n and 'standard' in n:
+        return True
     noise = (
         'zertifizierungen', 'schulungen', 'schulungen / kurse', 'schulungen/kurse',
         'examen', 'examen | prüfungen', 'examen|prüfungen', 'ausbildung',
         'fachbereiche', 'branchen', 'persönliche daten',
+        'programmiersprachen', 'programmiersprache', 'betriebssysteme',
+        'allgemeine kenntnisse', 'technische kenntnisse', 'sonstige skills',
+        'datenbanken', 'hardware', 'datenkommunikation',
     )
     return n in noise
 
@@ -786,6 +844,11 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
             pre_json['extracted_data']['focus_experience'] = _norm_focus_experience(
                 aid_extracted['focus_experience']
             )
+        if aid_extracted.get('experience'):
+            # Regex-Projekte vorbelegen — LLM ergänzt, fehlende Perioden bleiben (bpf)
+            pre_json['extracted_data']['experience'] = [
+                e for e in aid_extracted['experience'] if _usable_experience(e)
+            ]
         if aid_extracted.get('education'):
             # Regex-Ausbildung vorbelegen (LLM/PERSONAL darf später ergänzen, nicht löschen)
             pre_json['extracted_data']['education'] = _norm_education_items(
@@ -1025,8 +1088,24 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
                 elif isinstance(exp, dict) and _usable_experience(exp):
                     all_exp.append(exp)
 
-        pre_json['extracted_data']['experience'] = all_exp
-        print(f"  {len(all_exp)} Projekte extrahiert")
+        seeded_exp = pre_json['extracted_data'].get('experience') or []
+        merged_exp = _merge_experience(seeded_exp, all_exp)
+        pre_json['extracted_data']['experience'] = merged_exp
+        if seeded_exp and len(merged_exp) != len(all_exp):
+            print(
+                f"  {len(merged_exp)} Projekte extrahiert "
+                f"(llm={len(all_exp)} + regex-seed fehlende Perioden)"
+            )
+        else:
+            print(f"  {len(merged_exp)} Projekte extrahiert")
+    elif pre_json['extracted_data'].get('experience'):
+        # Keine PROJECT-Labels — Regex-Seed behalten (bpf ohne Group-Treffer)
+        seeded_exp = [
+            e for e in pre_json['extracted_data']['experience'] if _usable_experience(e)
+        ]
+        seeded_exp.sort(key=_period_sort_key, reverse=True)
+        pre_json['extracted_data']['experience'] = seeded_exp
+        print(f"  {len(seeded_exp)} Projekte aus Regex-Seed (keine PROJECT-Labels)")
 
     # ── Schritt 3: HEADER → Name + Headline ──────────────────────────────────
     header_gruppen = [lg for lg in labeled if lg['label'] == 'HEADER']

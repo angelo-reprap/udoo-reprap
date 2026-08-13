@@ -103,9 +103,18 @@ SECTION_NOISE_NAMES = {
     'zertifizierungen', 'schulungen', 'schulungen / kurse', 'schulungen/kurse',
     'examen', 'examen | prüfungen', 'examen|prüfungen', 'ausbildung',
     'fachbereiche', 'branchen', 'persönliche daten', 'berufliche erfahrungen',
-    'programmiersprachen', 'betriebssysteme', 'hardware', 'datenkommunikation',
+    'programmiersprachen', 'programmiersprache', 'betriebssysteme', 'betriebsysteme',
+    'hardware', 'datenkommunikation', 'datenbanken', 'allgemeine kenntnisse',
+    'technische kenntnisse', 'sonstige skills', 'sonstige kenntnisse',
+    'produkte | standards | erfahrungen', 'produkte|standards|erfahrungen',
+    'sehr gute kenntnisse', 'fortgeschrittene kenntnisse', 'grundkenntnisse',
+    'gute kenntnisse', 'netzwerkprotokolle', 'business software',
 }
 
+# reine Niveau-Zeilen in Produkte|Standards (kein Produktname)
+NIVEAU_ONLY_RE = re.compile(
+    r'(?i)^(sehr\s+gute|fortgeschrittene|gute|grund)\s*kenntnisse$'
+)
 
 class AidRegexExtractor:
     """
@@ -183,6 +192,10 @@ class AidRegexExtractor:
         if not n or len(n) < 2:
             return True
         if self._is_page_header(name):
+            return True
+        if NIVEAU_ONLY_RE.match(n):
+            return True
+        if 'produkte' in n and 'standard' in n:
             return True
         return n in SECTION_NOISE_NAMES
 
@@ -436,10 +449,12 @@ class AidRegexExtractor:
             r'Programmiersprachen?',
             r'Berufliche\s+Erfahrungen?',
             r'Zertifizierungen?(?:\s*[\|/].*)?',
+            r'Produkte?\s*\|?\s*Standards?',
             r'Produkte',
             r'Hardware',
             r'Datenkommunikation',
             r'Schulungen?\s*/\s*Kurse',
+            r'Allgemeine\s+Kenntnisse',
         ])
         if not block:
             return []
@@ -455,9 +470,11 @@ class AidRegexExtractor:
                     out.extend(parts)
                     continue
             out.append(item)
-        # Dedup
+        # Dedup + Noise (Produkte|Standards / Niveau nie als Branche)
         seen, final = set(), []
         for i in out:
+            if self._is_section_noise(i):
+                continue
             lw = i.lower()
             if lw not in seen and 2 < len(i) < 80:
                 seen.add(lw)
@@ -551,6 +568,8 @@ class AidRegexExtractor:
             if lw in seen:
                 continue
             seen.add(lw)
+            if NIVEAU_ONLY_RE.match(clean):
+                continue
             out.append({
                 'name':       clean[:500],
                 'category':   'product_standard',
@@ -651,7 +670,8 @@ class AidRegexExtractor:
             r'(?im)^\s*Ausbildung\s*:\s*(.+?)'
             r'(?=\n\s*(?:Fachbereiche|Zertifizierungen|Examen|Schulungen|'
             r'Branchen|Programmiersprachen|Persönliche\s+Daten|'
-            r'Berufliche\s+Erfahrungen?|Betriebssysteme|Hardware)\b|\Z)',
+            r'Berufliche\s+Erfahrungen?|Betriebssysteme|Hardware|'
+            r'Allgemeine\s+Kenntnisse|Technische\s+Kenntnisse)\b|\Z)',
             text, re.DOTALL,
         )
         if not m:
@@ -1069,7 +1089,8 @@ class AidRegexExtractor:
             if clean and len(clean) >= 2 and not self._is_page_header(clean) and not self._is_section_noise(clean):
                 items.append(clean)
 
-        return items
+        # Kategorie-Header nie als Skill-Name
+        return [i for i in items if not self._is_section_noise(i)]
 
     # ── Projekte ──────────────────────────────────────────────────────────────
 
@@ -1077,41 +1098,42 @@ class AidRegexExtractor:
         """
         Extrahiert Projekte aus dem 'Berufliche Erfahrungen' Block.
 
-        Unterstützt zwei Hauptformate:
-        Format A (tabellarisch):
-            Zeitraum:           MM/YYYY – MM/YYYY
-            Firma/Institut:     Firma AG
-            Projektbeschreibung: Projektname
-            Systemumgebung:     Java, Spring, ...
-            Position:           Senior Developer
-
-        Format B (Fließtext mit Bold-Header):
-            MM/YYYY – MM/YYYY  [bold]
-            Firma GmbH         [bold]
-            Branche: Energie
-            Aufgaben:
-            • Tätigkeit 1
+        Unterstützt:
+        Format A (tabellarisch): Zeitraum: / Firma/Institut: …
+        Format B: MM/YYYY – MM/YYYY am Zeilenanfang (Firma gleiche Zeile oder darunter)
+        Format bpf: wie B, oft ohne 'Berufliche Erfahrungen'-Header
         """
         projekte = []
 
-        # Ab 'Berufliche Erfahrungen' suchen
+        # Ab 'Berufliche Erfahrungen' / Zeitraum: / erster Perioden-Zeile
         berufl_m = re.search(
             r'(?im)^\s*Berufliche\s+Erfahrungen?\s*$', text
         )
         if not berufl_m:
-            # Fallback: ab erster Zeitraum:-Zeile
             berufl_m = re.search(r'(?im)^\s*Zeitraum\s*:', text)
+        if not berufl_m:
+            # bpf u.ä.: erste Perioden-Zeile mit Range oder Einzelmonat+Firma
+            berufl_m = re.search(
+                r'(?m)^\s*\d{1,2}[./]\d{4}\s*[-\u2013\u2014]+\s*'
+                r'(?:\d{1,2}[./]\d{4}|heute|dato|aktuell|laufend)\b',
+                text,
+            )
+        if not berufl_m:
+            berufl_m = re.search(
+                r'(?m)^\s*\d{1,2}[./]\d{4}\s{2,}\S+',
+                text,
+            )
         if not berufl_m:
             return []
 
         proj_text = text[berufl_m.start():]
 
-        # Format erkennen
         has_format_a = bool(re.search(r'(?im)^\s*Zeitraum\s*:', proj_text))
         has_format_b = bool(re.search(
-            r'(?m)^\s*\d{1,2}[./]\d{4}\s*[-\u2013\u2014]+\s*\d{1,2}[./]\d{4}',
-            proj_text
-        ))
+            r'(?m)^\s*\d{1,2}[./]\d{4}\s*[-\u2013\u2014]+\s*'
+            r'(?:\d{1,2}[./]\d{4}|heute|dato|aktuell|laufend)\b',
+            proj_text,
+        )) or bool(re.search(r'(?m)^\s*\d{1,2}[./]\d{4}\s{2,}\S+', proj_text))
 
         if has_format_a:
             projekte = self._extract_projekte_format_a(proj_text)
@@ -1281,24 +1303,60 @@ class AidRegexExtractor:
 
     def _extract_projekte_format_b(self, text: str) -> List[dict]:
         """
-        Format B: Fließtext mit Zeitraum als standalone Zeile.
-        Pattern: MM/YYYY – MM/YYYY am Zeilenanfang
+        Format B / bpf: Zeitraum am Zeilenanfang.
+          MM/YYYY – MM/YYYY              (Firma nächste Zeile)
+          MM/YYYY – MM/YYYY   Firma AG   (Firma gleiche Zeile — bpf)
+          MM/YYYY   Firma AG             (Einzelmonat — z.B. 12/2004)
         """
         projekte = []
+        # Range zuerst, dann Einzelmonat mit Folgetext (sonst false positives)
         DATE_PAT = re.compile(
-            r'(?m)^\s*(\d{1,2}[./]\d{4})\s*[-\u2013\u2014]+\s*'
-            r'(\d{1,2}[./]\d{4}|heute|dato|aktuell|laufend)\s*$',
-            re.IGNORECASE
+            r'(?m)^\s*(?:'
+            r'((?:\d{1,2}[./]\d{4})\s*[-\u2013\u2014]+\s*'
+            r'(?:\d{1,2}[./]\d{4}|heute|dato|aktuell|laufend))\s*(.*?)\s*$'
+            r'|'
+            r'((?:\d{1,2}[./]\d{4}))\s{2,}(.+?)\s*$'
+            r')',
+            re.IGNORECASE,
         )
-        positions = [(m.start(), m.group(0).strip()) for m in DATE_PAT.finditer(text)]
+        hits = list(DATE_PAT.finditer(text))
+        positions = []
+        for m in hits:
+            if m.group(1):
+                period_str = re.sub(r'\s+', ' ', m.group(1)).strip()
+                same_company = (m.group(2) or '').strip()
+            else:
+                period_str = (m.group(3) or '').strip()
+                same_company = (m.group(4) or '').strip()
+            positions.append((m.start(), period_str, same_company))
 
-        for i, (pos, period_str) in enumerate(positions):
-            end   = positions[i+1][0] if i+1 < len(positions) else len(text)
+        for i, (pos, period_str, same_company) in enumerate(positions):
+            end = positions[i + 1][0] if i + 1 < len(positions) else len(text)
             block = text[pos:end]
-
             proj = {'period': period_str, 'activities': [], 'technologies': []}
 
-            # abcona-Labels zuerst (zuverlässiger als „erste Zeile = Firma“)
+            if same_company and not self._is_section_noise(same_company):
+                # Soft-wrap: Firma über zwei Zeilen (bpf „Einzelhandel und\nDienstleistung“)
+                first_lines = [l.strip() for l in block.splitlines() if l.strip()]
+                company = same_company
+                if (
+                    len(first_lines) >= 2
+                    and not re.match(r'^\d{1,2}[./]', first_lines[1])
+                    and not re.match(
+                        r'(?i)^(kunde\s*/|rolle\s*/|branche|aufgaben?|kenntnisse|'
+                        r'system|position|analyse|programm|migration|entwicklung|'
+                        r'wartung|erstellung|beratung|design|systementwick)',
+                        first_lines[1],
+                    )
+                    and len(first_lines[1]) < 60
+                    and not first_lines[1][0:1].islower()
+                ):
+                    # nur kurze Fortsetzungszeilen an Firma hängen
+                    if re.match(r'(?i)^(dienstleistung|frankfurt|berlin|dortmund|'
+                                r'karlsruhe|hannover|gmbh|ag\b)', first_lines[1]):
+                        company = (company + ' ' + first_lines[1]).strip()
+                proj['company'] = company.rstrip(',')
+
             m = re.search(
                 r'(?im)^\s*Kunde\s*/\s*Branche\s*:\s*(.+?)\s*$', block
             )
@@ -1311,7 +1369,6 @@ class AidRegexExtractor:
                 proj['role'] = m.group(1).strip()
 
             lines = [l.strip() for l in block.splitlines() if l.strip()]
-            # Fallback: erste Zeile nach Periode = Firma (wenn kein Kunde-Label)
             if not proj.get('company'):
                 for line in lines[1:4]:
                     if re.match(
@@ -1326,13 +1383,11 @@ class AidRegexExtractor:
                         proj['company'] = line
                         break
 
-            # Branche (ohne Kunde/)
             if not proj.get('industry'):
                 m = re.search(r'(?im)^\s*Branche\s*:\s*(.+?)$', block)
                 if m:
                     proj['industry'] = m.group(1).strip()
 
-            # Position/Rolle Fallback
             if not proj.get('role'):
                 m = re.search(
                     r'(?im)^\s*(?:Position|Rolle|Projektrolle|Funktion)\s*:\s*(.+?)$',
@@ -1341,20 +1396,72 @@ class AidRegexExtractor:
                 if m:
                     proj['role'] = m.group(1).strip()
 
-            # Systemumgebung
-            m = re.search(r'(?im)^\s*Systemumgebung\s*:\s*(.+?)(?:\n\s*\n|$)', block, re.DOTALL)
+            m = re.search(
+                r'(?im)^\s*Systemumgebung\s*:\s*(.+?)(?:\n\s*\n|$)',
+                block, re.DOTALL,
+            )
             if m:
                 proj['technologies'] = self._parse_tech_list(m.group(1))
 
-            # Aufgaben / Bullets
+            # bpf: Tech oft als Komma-Zeile ohne Label (Cobol, MVS, …)
+            if not proj.get('technologies'):
+                tech_lines = []
+                for line in lines[1:]:
+                    if re.match(r'^\d{1,2}[./]', line):
+                        break
+                    # typische Tech-Zeile: kurze Tokens, Komma, wenig Verben
+                    if (
+                        ',' in line
+                        and len(line) < 120
+                        and not re.search(
+                            r'(?i)\b(analyse|programmierung|migration|'
+                            r'entwicklung|beratung|erstellung|anpassung|'
+                            r'wartung|betreuung|optimierung)\b',
+                            line,
+                        )
+                    ):
+                        tech_lines.append(line)
+                if tech_lines:
+                    proj['technologies'] = self._parse_tech_list('\n'.join(tech_lines))
+
             bullets = re.findall(r'(?m)^[\s]*[-•\*\u2022\u25aa]\s*(.+?)$', block)
             if bullets:
                 proj['activities'] = [b.strip() for b in bullets if len(b.strip()) > 5]
+            else:
+                # bpf: Fließtext-Zeilen als activities (ohne Firma/Tech)
+                acts = []
+                skip_company = (proj.get('company') or '').lower()
+                for line in lines[1:]:
+                    if re.match(r'^\d{1,2}[./]', line):
+                        break
+                    low = line.lower()
+                    if skip_company and low in skip_company:
+                        continue
+                    if line in (proj.get('technologies') or []):
+                        continue
+                    if (
+                        ',' in line
+                        and len(line) < 120
+                        and not re.search(
+                            r'(?i)\b(analyse|programmierung|migration|'
+                            r'entwicklung|beratung)\b',
+                            line,
+                        )
+                    ):
+                        continue  # tech-zeile
+                    if len(line) > 5 and not self._is_section_noise(line):
+                        acts.append(line)
+                if acts:
+                    proj['activities'] = acts[:12]
+                    # erste Non-Firma-Zeile oft Titel
+                    if acts and not proj.get('title'):
+                        proj['title'] = acts[0][:300]
 
             self._append_abschluss_activities(proj, block)
             self._ensure_weiterbildung_content(proj)
 
-            projekte.append(proj)
+            if self._usable_project(proj):
+                projekte.append(proj)
 
         return projekte
 

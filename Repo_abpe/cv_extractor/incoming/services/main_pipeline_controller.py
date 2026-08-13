@@ -217,9 +217,11 @@ class MainPipelineController:
                 aid_extracted['focus_experience'] = (
                     aid_regex_extractor._extract_focus_experience(full_text_clean) or []
                 )
-                # Format-A: Skills aus Projekten nachziehen wenn Tabellen fehlen
-                if not aid_skill_categories:
-                    projekte = aid_regex_extractor._extract_projekte(full_text_clean)
+                # Experience-Seed (Format A/B/bpf) — Fill mergt fehlende Perioden nach
+                projekte = aid_regex_extractor._extract_projekte(full_text_clean) or []
+                aid_extracted['experience'] = projekte
+                # Format-A/B: Skills aus Projekten nachziehen wenn Tabellen fehlen
+                if not aid_skill_categories and projekte:
                     harvested = aid_regex_extractor._harvest_skills_from_projects(projekte)
                     for item in harvested:
                         if item.get('name') and item.get('category'):
@@ -235,7 +237,8 @@ class MainPipelineController:
                     f"branchen={len(aid_extracted.get('industries') or [])} | "
                     f"zertifikate={len(aid_extracted.get('certifications') or [])} | "
                     f"ausbildung={len(aid_extracted.get('education') or [])} | "
-                    f"focus_exp={len(aid_extracted.get('focus_experience') or [])}"
+                    f"focus_exp={len(aid_extracted.get('focus_experience') or [])} | "
+                    f"projekte={len(aid_extracted.get('experience') or [])}"
                 )
             else:
                 logger.info(f"[MainPipeline] Schritt 1b: kein abcona-Profil → normale Pipeline")
