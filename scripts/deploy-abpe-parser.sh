@@ -45,4 +45,9 @@ echo "OK: $SRC → $LIVE"
 echo
 echo "Noch nötig (einmalig):"
 echo "  1) INSTALLED_APPS += 'apps.abpe_parser.apps.AbpeParserConfig'"
-echo "  2) python manage.py abpe_parse_resume <pdf> --out /tmp/out.json"
+echo "  2) Tests:"
+echo "     python manage.py abpe_parse_resume <pdf> --out /tmp/out.json"
+echo "     python manage.py abpe_parse_resume <pdf> --full --jd stelle.txt --out /tmp/full.json"
+echo
+echo "Features: Parse(Schema) + Coverage/Score + optional JD-Match + Suggestions"
+echo "Backend: DeepSeek API (settings.json → ai_models.deepseek) — kein Ollama"
