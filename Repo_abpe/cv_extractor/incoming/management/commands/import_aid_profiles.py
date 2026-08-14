@@ -232,17 +232,35 @@ class Command(BaseCommand):
                         )
                         result = process_pdf_task(upload.id)
                         if result.get('success'):
-                            stats['ok'] += 1
-                            self.stdout.write(
-                                f"    ✅ {result.get('aid', '?')}"
-                            )
                             neu = person_dir / 'neu' / 'cv'
-                            if neu.is_dir():
+                            neu_pdfs = (
+                                sorted(neu.glob('AID-*.pdf'))
+                                if neu.is_dir() else []
+                            )
+                            if neu_pdfs:
+                                stats['ok'] += 1
+                                self.stdout.write(
+                                    f"    ✅ {result.get('aid', '?')}"
+                                )
                                 files = sorted(
                                     p.name for p in neu.iterdir() if p.is_file()
                                 )
                                 self.stdout.write(
-                                    f"    📁 neu/cv: {', '.join(files) or '(leer)'}"
+                                    f"    📁 neu/cv: {', '.join(files)}"
+                                )
+                            else:
+                                # Pipeline OK, aber Publish fehlt → kein Import-OK
+                                stats['error'] += 1
+                                self.stdout.write(
+                                    f"    ❌ {result.get('aid', '?')} — "
+                                    f"Pipeline OK, aber kein neu/cv AID-*.pdf "
+                                    f"unter {neu}"
+                                )
+                                self.stderr.write(
+                                    self.style.ERROR(
+                                        f'no_neu_cv: {dir_name} '
+                                        f'(aid={result.get("aid", "?")})'
+                                    )
                                 )
                         else:
                             stats['error'] += 1

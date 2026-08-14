@@ -39,12 +39,60 @@ def _norm(s: str) -> str:
 
 
 def _periods(text: str) -> list:
+    """Roh-Treffer (Ranges + Einzelmonate + Jahreszahlen)."""
     return re.findall(
         r'(?:\d{1,2}/\d{4}\s*[–\-]\s*(?:\d{1,2}/\d{4}|heute|dato)|'
         r'\d{1,2}/\d{4}|\d{4}\s*[–\-]\s*\d{4}|\b\d{4}\b)',
         text or '',
         flags=re.I,
     )
+
+
+def _period_anchors(text: str) -> set:
+    """
+    Kanonische Perioden-Anker für fairen Compare.
+
+    Original-PDFs zerlegen Ranges oft per Soft-Wrap in Einzelmonate
+    (`01/2015` + `06/2018`), neu/cv schreibt denselben Einsatz als
+    `01/2015 - 06/2018`. Roh-Set-Diff würde dann fälschlich „fehlen“ melden.
+
+    Deshalb: Ranges → Start/Ende-Anker; Einzelmonate bleiben Anker;
+    nackte Jahreszahlen nur behalten wenn nicht schon als MM/YYYY-Jahr
+    abgedeckt (Geburtsjahr/Produktversionen bleiben Rauschen, aber
+    Range-vs-Split False-Positives verschwinden).
+    """
+    raw = _periods(text)
+    months: set[str] = set()
+    years: set[str] = set()
+    for p in raw:
+        p = re.sub(r'\s+', ' ', (p or '').strip())
+        m = re.match(
+            r'^(\d{1,2}/\d{4})\s*[–\-]\s*(\d{1,2}/\d{4}|heute|dato)$',
+            p,
+            flags=re.I,
+        )
+        if m:
+            months.add(m.group(1))
+            end = m.group(2)
+            if re.match(r'^\d{1,2}/\d{4}$', end):
+                months.add(end)
+            else:
+                months.add(end.lower())
+            continue
+        m = re.match(r'^(\d{4})\s*[–\-]\s*(\d{4})$', p)
+        if m:
+            years.add(m.group(1))
+            years.add(m.group(2))
+            continue
+        if re.match(r'^\d{1,2}/\d{4}$', p):
+            months.add(p)
+            continue
+        if re.match(r'^\d{4}$', p):
+            years.add(p)
+    # Jahreszahl nur zählen, wenn kein MM/YYYY desselben Jahres existiert
+    month_years = {m.split('/')[-1] for m in months if '/' in m}
+    years -= month_years
+    return months | years
 
 
 def _has_weiterbildung(text: str) -> bool:
@@ -148,8 +196,8 @@ class Command(BaseCommand):
 
             ot = _norm(_pdf_text(orig))
             nt = _norm(_pdf_text(neu))
-            op = set(_periods(ot))
-            np_ = set(_periods(nt))
+            op = _period_anchors(ot)
+            np_ = _period_anchors(nt)
             missing_p = sorted(op - np_)
             extra_p = sorted(np_ - op)
 

@@ -119,14 +119,35 @@ if [[ "$COMPARE_ONLY" != "1" ]]; then
     [[ -n "$letter" && -n "$dir" ]] || continue
     echo
     echo ">>> IMPORT $letter/$dir  ($pdf)"
-    python3 manage.py import_aid_profiles \
+    if ! python3 manage.py import_aid_profiles \
       --letter "$letter" --dir "$dir" \
-      --sync --no-skip-existing || {
-        echo "WARN: Import fehlgeschlagen: $letter/$dir" >&2
-        echo "$letter	$dir	FAIL" >> "$OUT/import-failures.tsv"
-        continue
-      }
-    echo "$letter	$dir	OK" >> "$OUT/import-ok.tsv"
+      --sync --no-skip-existing; then
+      echo "WARN: Import fehlgeschlagen: $letter/$dir" >&2
+      echo "$letter	$dir	FAIL" >> "$OUT/import-failures.tsv"
+      continue
+    fi
+    # IMPORT OK nur wenn neu/cv wirklich eine AID-PDF hat
+    # (Pipeline-success ≠ Publish; siehe lorenz_michael Random-10)
+    neu_pdf="$(
+      find "$ROOT/$letter/$dir/neu/cv" -maxdepth 1 -type f -iname 'AID-*.pdf' \
+        2>/dev/null | head -1
+    )"
+    if [[ -n "$neu_pdf" && -f "$neu_pdf" ]]; then
+      echo "$letter	$dir	OK	$neu_pdf" >> "$OUT/import-ok.tsv"
+    else
+      echo "WARN: Pipeline/Import ohne neu/cv PDF: $letter/$dir" >&2
+      # falscher Letter-Bucket? (Publish nutzt consultant_dir)
+      wrong="$(
+        find "$ROOT" -path "*/$dir/neu/cv/AID-*.pdf" 2>/dev/null | head -5
+      )"
+      if [[ -n "$wrong" ]]; then
+        echo "  Hinweis: neu/cv woanders gefunden:" >&2
+        echo "$wrong" | sed 's/^/    /' >&2
+        echo "$letter	$dir	FAIL_WRONG_BUCKET	$wrong" >> "$OUT/import-failures.tsv"
+      else
+        echo "$letter	$dir	FAIL_NO_NEU" >> "$OUT/import-failures.tsv"
+      fi
+    fi
   done
 fi
 

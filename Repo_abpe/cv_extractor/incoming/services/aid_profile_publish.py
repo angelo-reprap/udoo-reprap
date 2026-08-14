@@ -67,10 +67,17 @@ def resolve_aid_profile_root() -> Optional[Path]:
 
 
 def letter_bucket(consultant_dir: str, last_name: str = '') -> str:
-    """troschke_thomas / Troschke → ttt (wie Archiv aaa/bbb/…)."""
-    src = (last_name or '').strip() or (consultant_dir or '').strip()
-    if '_' in src and not last_name:
-        src = src.split('_', 1)[0]
+    """troschke_thomas / Troschke → ttt (wie Archiv aaa/bbb/…).
+
+    Prefer consultant_dir (`nachname_vorname`): last_name allein kann bei
+    vertauschten Feldern in den falschen Letter-Bucket schreiben
+    (z.B. Michael → mmm statt lorenz_michael → lll).
+    """
+    cdir = (consultant_dir or '').strip()
+    if '_' in cdir:
+        src = cdir.split('_', 1)[0]
+    else:
+        src = (last_name or '').strip() or cdir
     ch = ''
     for c in src.lower():
         if 'a' <= c <= 'z':
