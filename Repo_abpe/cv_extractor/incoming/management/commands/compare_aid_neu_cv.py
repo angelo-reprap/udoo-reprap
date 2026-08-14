@@ -85,7 +85,8 @@ def _period_anchors(text: str) -> set:
             years.add(m.group(2))
             continue
         if re.match(r'^\d{1,2}/\d{4}$', p):
-            months.add(p)
+            mm, yy = p.split('/')
+            months.add(f'{int(mm):02d}/{yy}')
             continue
         if re.match(r'^\d{4}$', p):
             years.add(p)

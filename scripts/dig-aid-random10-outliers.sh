@@ -58,7 +58,17 @@ echo "Compare → $OUT"
 cat "$OUT/by_dir/al-kenani_muhanned.md" | head -40
 
 echo
+echo "=== AL-KENANI: Period-Gap Klassifikation ==="
+GAP_OUT="$OUT/period-gaps.md"
+python3 "$REPO/scripts/dig-period-gaps.py" \
+  --letter aaa --dir al-kenani_muhanned --out "$GAP_OUT" | head -120
+echo "(full → $GAP_OUT)"
+
+echo
 echo "=== Fertig ==="
 echo "Falls Lorenz nur falsch gebucketet: bash scripts/SAFE-cv-extractor-edit.sh deploy"
 echo "dann: python3 manage.py publish_neu_cv --dir lorenz_michael"
 echo "oder Re-Import: python3 manage.py import_aid_profiles --letter lll --dir lorenz_michael --sync --no-skip-existing"
+echo
+echo "Artifacts committen (Cloud lesen):"
+echo "  cd $REPO && git add $OUT && git commit -m 'chore: dig al-kenani period gaps' && git push origin cursor/cv-extractor-7f07"
