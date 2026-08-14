@@ -1642,21 +1642,36 @@ class AidRegexExtractor:
 
             if not proj.get('technologies'):
                 tech_lines = []
+                prev_tech = False
                 for line in lines[1:]:
                     if self._match_period_line(line):
                         break
                     if ',' not in line or len(line) >= 120:
+                        # Einwort-Fortsetzung unter Tech-Liste (maxenso)
+                        if (
+                            prev_tech
+                            and ' ' not in line
+                            and 2 <= len(line) <= 40
+                            and not TECH_ACTIVITY_NOISE_RE.search(line)
+                        ):
+                            tech_lines.append(line)
+                            continue
+                        prev_tech = False
                         continue
                     if TECH_ACTIVITY_NOISE_RE.search(line):
+                        prev_tech = False
                         continue
                     parts = [p.strip() for p in line.split(',') if p.strip()]
                     if not parts or any(self._is_tech_noise(p) for p in parts):
-                        # gemischte Zeile: nur saubere Tokens behalten
                         clean_parts = [p for p in parts if not self._is_tech_noise(p)]
                         if clean_parts and all(len(p) < 40 for p in clean_parts):
                             tech_lines.append(', '.join(clean_parts))
+                            prev_tech = True
+                        else:
+                            prev_tech = False
                         continue
                     tech_lines.append(line)
+                    prev_tech = True
                 if tech_lines:
                     proj['technologies'] = self._parse_tech_list('\n'.join(tech_lines))
             elif proj.get('technologies'):
