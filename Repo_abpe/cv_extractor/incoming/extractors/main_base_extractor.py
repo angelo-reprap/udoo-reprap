@@ -472,19 +472,33 @@ def _clean_experience_technologies(exp: dict) -> dict:
     return out
 
 
+def _company_soft_match(a: str, b: str) -> bool:
+    """Firma grob gleich (LLM kürzt/erweitert oft den Kundennamen)."""
+    na, nb = _company_norm(a), _company_norm(b)
+    if not na or not nb:
+        return True
+    if na == nb:
+        return True
+    short = min(len(na), len(nb), 16)
+    if short < 4:
+        return na == nb
+    return na[:short] in nb or nb[:short] in na
+
+
 def _merge_experience(seed, llm) -> list:
     """
-    LLM-Projekte behalten, Regex-Seed ergänzt fehlende Perioden.
-    Gleiches Datum+Firma: Seed nur bei klar anderer Activity (zwei Fortinet-Kurse).
-    Jahresrange-Footer (Krone/Cap/UBA): Seed gewinnt gegen falsch gelabeltes LLM.
+    Regex-Seed ist kanonisch (AID Fast-Path); LLM reichert nur an.
+
+    - Seed vorhanden: Parallel-Projekte (zwei Fortinet) nur aus Seed.
+      LLM-Treffer ohne Seed-Match werden verworfen (Label-Overcount).
+    - Seed leer: LLM-only mit Dedup (Nicht-AID).
+    - Jahresrange-Footer (Krone/Cap/UBA): Seed gewinnt.
     """
-    seed = list(seed or [])
-    llm = list(llm or [])
+    seed = [e for e in (seed or []) if _usable_experience(e)]
+    llm = [e for e in (llm or []) if _usable_experience(e)]
 
     footer_by_date = {}
     for e in seed:
-        if not _usable_experience(e):
-            continue
         period = e.get('period') or ''
         if re.search(r'\d{1,2}[./]\d{4}', period):
             continue
@@ -495,60 +509,92 @@ def _merge_experience(seed, llm) -> list:
         if dk:
             footer_by_date[dk] = e
 
-    seen_groups = {}
     out = []
+    seen_groups = {}
 
     def _group_key(e) -> str:
         return f"{_period_date_key(e)}|{_company_norm(e.get('company') or '')}"
 
-    def _try_add(e, source: str) -> bool:
-        if not _usable_experience(e):
-            return False
-        period = e.get('period') or ''
-        dk = _period_date_key(e)
-        if (
-            source == 'llm'
-            and dk in footer_by_date
-            and not re.search(r'\d{1,2}[./]\d{4}', period)
-        ):
-            return False
+    def _add_canonical(e) -> None:
+        """Seed (oder LLM-only): gleiche date|firma + ähnliche Acts → mergen, sonst parallel."""
         gk = _group_key(e)
         fp = _activity_fingerprint(e)
         existing = seen_groups.get(gk)
         if existing is None:
             seen_groups[gk] = [fp]
             out.append(_clean_experience_technologies(e))
-            return True
-        # Gleicher Slot (inkl. leere LLM-Hülle vs. voller Seed) → anreichern
+            return
         for i, item in enumerate(out):
             if _group_key(item) != gk:
                 continue
             if not _acts_similar(fp, _activity_fingerprint(item)):
                 continue
-            if source == 'seed' or _experience_richness(e) > _experience_richness(item):
-                out[i] = _merge_experience_fields(item, e)
-            else:
-                out[i] = _merge_experience_fields(e, item)
-            # Fingerprint-Liste aktualisieren (angereicherte Activity)
+            out[i] = _merge_experience_fields(item, e)
             new_fp = _activity_fingerprint(out[i])
             if new_fp and new_fp not in existing:
                 existing.append(new_fp)
-            return False
+            return
         existing.append(fp)
         out.append(_clean_experience_technologies(e))
-        return True
 
+    def _find_seed_target(e):
+        """Index in out für LLM-Enrich; None = verwerfen."""
+        dk = _period_date_key(e)
+        if not dk:
+            return None
+        period = e.get('period') or ''
+        if dk in footer_by_date and not re.search(r'\d{1,2}[./]\d{4}', period):
+            return None
+        candidates = []
+        for i, item in enumerate(out):
+            if _period_date_key(item) != dk:
+                continue
+            if not _company_soft_match(e.get('company') or '', item.get('company') or ''):
+                continue
+            candidates.append(i)
+        if not candidates:
+            return None
+        if len(candidates) == 1:
+            return candidates[0]
+        fp = _activity_fingerprint(e)
+        if not fp:
+            # Leere LLM-Hülle bei Parallel-Slots: nicht raten
+            return None
+        best_i, best = candidates[0], -1
+        for i in candidates:
+            ifp = _activity_fingerprint(out[i])
+            score = 0
+            if _acts_similar(fp, ifp):
+                score = 2
+            if ifp and (fp[:24] in ifp or ifp[:24] in fp):
+                score = 3
+            if score > best:
+                best, best_i = score, i
+        return best_i if best > 0 else candidates[0]
+
+    if seed:
+        for e in seed:
+            _add_canonical(e)
+        for dk, e in footer_by_date.items():
+            gk = _group_key(e)
+            if gk not in seen_groups:
+                seen_groups[gk] = [_activity_fingerprint(e)]
+                out.append(_clean_experience_technologies(e))
+        for e in llm:
+            idx = _find_seed_target(e)
+            if idx is None:
+                continue
+            out[idx] = _merge_experience_fields(out[idx], e)
+        out.sort(key=_period_sort_key, reverse=True)
+        return out
+
+    # Kein Seed → LLM-only Dedup
     for e in llm:
-        _try_add(e, 'llm')
-    for e in seed:
-        _try_add(e, 'seed')
-
-    for dk, e in footer_by_date.items():
-        gk = _group_key(e)
-        if gk not in seen_groups:
-            seen_groups[gk] = [_activity_fingerprint(e)]
-            out.append(_clean_experience_technologies(e))
-
+        period = e.get('period') or ''
+        dk = _period_date_key(e)
+        if dk in footer_by_date and not re.search(r'\d{1,2}[./]\d{4}', period):
+            continue
+        _add_canonical(e)
     out.sort(key=_period_sort_key, reverse=True)
     return out
 
@@ -1374,13 +1420,10 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
 
         merged_exp = _merge_experience(seeded_exp, all_exp)
         pre_json['extracted_data']['experience'] = merged_exp
-        if seeded_exp and len(merged_exp) != len(all_exp):
-            print(
-                f"  {len(merged_exp)} Projekte extrahiert "
-                f"(llm/fill={len(all_exp)} + regex-seed)"
-            )
-        else:
-            print(f"  {len(merged_exp)} Projekte extrahiert")
+        print(
+            f"  {len(merged_exp)} Projekte extrahiert "
+            f"(seed={len(seeded_exp)}, fill={len(all_exp)})"
+        )
     elif pre_json['extracted_data'].get('experience'):
         # Keine PROJECT-Labels — Regex-Seed behalten (bpf ohne Group-Treffer)
         seeded_exp = [

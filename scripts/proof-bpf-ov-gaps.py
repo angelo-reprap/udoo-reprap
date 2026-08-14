@@ -210,6 +210,30 @@ def main() -> int:
         f'fill enrich shell→seed acts={enr_acts} n={len(enriched)}'
     )
 
+    # Seed-first: LLM-Extras / Ghost-Labels dürfen nicht aufblasen
+    llm_inflated = []
+    for p in tt_projs:
+        q = dict(p)
+        acts = q.get('activities') or ['x']
+        q['activities'] = [f"LLM rewrite: {(acts[0] or 'x')[:40]}"]
+        co = (q.get('company') or '').split(',')[0].strip()
+        q['company'] = f'{co} GmbH' if co and 'GmbH' not in co else co
+        llm_inflated.append(q)
+    for i in range(5):
+        llm_inflated.append({
+            'period': f'0{i+1}/1990 – 0{i+1}/1990',
+            'company': f'GhostCorp{i}',
+            'activities': ['ghost project from bad PROJECT label'],
+        })
+    capped = base._merge_experience(tt_projs, llm_inflated)
+    fort2 = [
+        p for p in capped
+        if '03/2024' in (p.get('period') or '') and 'fortinet' in (p.get('company') or '').lower()
+    ]
+    (ok if len(capped) == len(tt_projs) and len(fort2) >= 2 else fail).append(
+        f'seed-first cap seed={len(tt_projs)} llm={len(llm_inflated)} → {len(capped)} fort={len(fort2)}'
+    )
+
     # Fill: normalize leeres LLM + Format-A Text → Regex-Fallback
     sample_a = (
         "Zeitraum:\n03/2024 – 03/2024\n"
