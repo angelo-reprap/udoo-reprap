@@ -382,10 +382,14 @@ class MainDbImporter:
             lines.append(p.get('summary',''))
             lines.append("")
             lines.append("FACHBEREICHE:")
-            lines.extend(ed.get('focus_areas', []))
+            lines.extend(
+                self._as_name(x) for x in (ed.get('focus_areas') or []) if self._as_name(x)
+            )
             lines.append("")
             lines.append("BRANCHEN:")
-            lines.extend(ed.get('industries', []))
+            lines.extend(
+                self._as_name(x) for x in (ed.get('industries') or []) if self._as_name(x)
+            )
             lines.append("")
             lines.append("PROJEKTE:")
             for exp in ed.get('experience', []):
