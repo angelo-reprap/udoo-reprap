@@ -21,6 +21,44 @@ BASE_DIR = Path('data/url/fl')
 
 class MainDbImporter:
 
+    @staticmethod
+    def _as_name(item) -> str:
+        """str | dict{name/skill/technology} → Anzeigename."""
+        if isinstance(item, dict):
+            return (
+                item.get('name') or item.get('skill') or item.get('technology') or ''
+            ).strip()
+        if isinstance(item, str):
+            return item.strip()
+        return str(item).strip() if item is not None else ''
+
+    @classmethod
+    def _join_names(cls, items, limit=None) -> str:
+        names = []
+        for it in (items or []):
+            n = cls._as_name(it)
+            if n:
+                names.append(n)
+            if limit is not None and len(names) >= limit:
+                break
+        return ', '.join(names)
+
+    @staticmethod
+    def _years_from_periods(experience_list) -> list:
+        """Volle Jahre (19xx/20xx) aus Projekt-Perioden — nicht nur (19|20)-Captures."""
+        import re as _re
+        years = []
+        for e in experience_list or []:
+            period = (e.get('period') if isinstance(e, dict) else '') or ''
+            for y in _re.findall(r'\b((?:19|20)\d{2})\b', period):
+                try:
+                    yr = int(y)
+                except Exception:
+                    continue
+                if 1970 <= yr <= 2030:
+                    years.append(yr)
+        return years
+
     def import_all(self, dry_run=False):
         """Alle FL-Profile sequenziell importieren."""
         results = {'ok': [], 'error': []}
@@ -359,13 +397,20 @@ class MainDbImporter:
                     lines.append(f"    - {act}")
                 techs = exp.get('technologies', [])
                 if techs:
-                    lines.append(f"    Technologien: {', '.join(techs[:10])}")
+                    joined = self._join_names(techs, limit=10)
+                    if joined:
+                        lines.append(f"    Technologien: {joined}")
             lines.append("")
             lines.append("SKILLS:")
             for cat, items in ed.get('skills', {}).items():
                 if items:
-                    lines.append(f"  {cat}: {', '.join(items[:5])}")
-            txt_content = '\n'.join(lines)
+                    lines.append(f"  {cat}: {self._join_names(items, limit=5)}")
+            # skill_ablage dict-sicher (wie import_from_prejson)
+            ablage = ed.get('skill_ablage') or []
+            if ablage:
+                lines.append("")
+                lines.append(f"SKILL-ABLAGE: {self._join_names(ablage)}")
+            txt_content = '\n'.join(str(x) for x in lines)
             txt_path.write_text(txt_content, encoding='utf-8')
             consultant.raw_text = txt_content
             consultant.save(update_fields=['raw_text', 'updated_at'])
@@ -484,27 +529,16 @@ class MainDbImporter:
         consultant.website              = personal.get('website', '') or ''
         consultant.summary              = personal.get('summary', '') or ''
 
-        # EDV seit: aus aeltestem Projekt berechnen via main_skill_normalizer
+        # EDV seit: Seed/Personal hat Vorrang; sonst ältestes volles Jahr aus Perioden
         try:
-            from apps.cv_extractor.services.main_skill_normalizer import _parse_months
-            _years = []
-            for _e in pre_json['extracted_data'].get('experience', []):
-                period = _e.get('period', '')
-                if not period:
-                    continue
-                import re as _re
-                # Jahr aus Periode extrahieren
-                years_found = _re.findall(r'\b(19|20)\d{2}\b', period)
-                for y in years_found:
-                    try:
-                        yr = int(y)
-                        if 1970 <= yr <= 2030:
-                            _years.append(yr)
-                    except Exception:
-                        pass
-            consultant.edv_experience_since = (
-                min(_years) if _years else personal.get('edv_experience_since')
-            )
+            seeded_edv = personal.get('edv_experience_since')
+            if isinstance(seeded_edv, int) and 1970 <= seeded_edv <= 2030:
+                consultant.edv_experience_since = seeded_edv
+            else:
+                _years = self._years_from_periods(
+                    pre_json['extracted_data'].get('experience', [])
+                )
+                consultant.edv_experience_since = min(_years) if _years else seeded_edv
         except Exception:
             consultant.edv_experience_since = personal.get('edv_experience_since')
 
@@ -623,9 +657,13 @@ class MainDbImporter:
                 "",
                 "FACHBEREICHE:",
             ]
-            lines.extend(ed.get('focus_areas', []))
+            lines.extend(
+                self._as_name(x) for x in (ed.get('focus_areas') or []) if self._as_name(x)
+            )
             lines += ["", "BRANCHEN:"]
-            lines.extend(ed.get('industries', []))
+            lines.extend(
+                self._as_name(x) for x in (ed.get('industries') or []) if self._as_name(x)
+            )
             lines += ["", "PROJEKTE:"]
             for exp in ed.get('experience', []):
                 lines.append(
@@ -634,12 +672,19 @@ class MainDbImporter:
                     f"{exp.get('role', exp.get('title',''))}"
                 )
                 for act in exp.get('activities', [])[:3]:
-                    lines.append(f"    - {act}")
+                    if act:
+                        lines.append(f"    - {act if isinstance(act, str) else self._as_name(act)}")
                 techs = exp.get('technologies', [])
                 if techs:
-                    lines.append(f"    Techs: {', '.join(techs[:10])}")
-            lines += ["", "SKILL-ABLAGE:", ', '.join(ed.get('skill_ablage', []))]
-            txt_content = '\n'.join(lines)
+                    joined = self._join_names(techs, limit=10)
+                    if joined:
+                        lines.append(f"    Techs: {joined}")
+            lines += [
+                "",
+                "SKILL-ABLAGE:",
+                self._join_names(ed.get('skill_ablage', [])),
+            ]
+            txt_content = '\n'.join(str(x) for x in lines)
             txt_path.write_text(txt_content, encoding='utf-8')
             consultant.raw_text = txt_content
             consultant.save(update_fields=['raw_text', 'updated_at'])
