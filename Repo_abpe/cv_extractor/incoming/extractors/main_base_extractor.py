@@ -233,32 +233,49 @@ def _period_date_key(exp) -> str:
     return re.sub(r'\s+', ' ', p)
 
 
+def _company_norm(company: str) -> str:
+    """Firma für Dedup: erster Segment vor Komma, lower, gekürzt."""
+    c = re.sub(r'\s+', ' ', (company or '').strip().lower())
+    c = c.split(',')[0].strip()
+    return c[:48]
+
+
+def _activity_fingerprint(exp) -> str:
+    acts = exp.get('activities') if isinstance(exp, dict) else None
+    a0 = (acts[0] if acts else '') or ((exp.get('title') or '') if isinstance(exp, dict) else '')
+    return re.sub(r'\s+', ' ', (a0 or '').strip().lower())[:60]
+
+
+def _acts_similar(a: str, b: str) -> bool:
+    """True wenn Activities zusammengehören (kein zweites Parallel-Projekt)."""
+    a, b = (a or '').strip().lower(), (b or '').strip().lower()
+    if not a or not b:
+        return True
+    return a[:28] in b or b[:28] in a
+
+
 def _period_key(exp) -> str:
     """
     Normalisierter Zeitraum für Dedup.
-    MM/YYYY: nur Datum (LLM/Seed-Firma darf nicht verdoppeln).
-    Freitext „2005 – dato“: +Company (zwei Parallel-Projekte).
-    reine Jahresranges: nur Datum; Footer-Firmen kommen über Merge-Sonderweg.
+    MM/YYYY: Datum+Firma+Activity-Fingerprint (zwei Fortinet 03/2024).
+    Freitext „2005 – dato“: Datum+Firma.
     """
     if not isinstance(exp, dict):
         return ''
-    p = (exp.get('period') or '').strip().lower()
-    p = p.replace('—', '–').replace('-', '–')
-    company = re.sub(r'\s+', ' ', (exp.get('company') or '').strip().lower())[:48]
-    dates = re.findall(r'(\d{1,2})[./](\d{4})', p)
-    if dates:
-        return _period_date_key(exp)
-
-    years = re.findall(r'(?<!\d)(\d{4})(?!\d)', p)
-    if len(years) >= 2:
-        return f'{years[0]}–{years[1]}'
-    if years:
-        base = years[0]
-        if re.search(r'(heute|dato|aktuell|laufend|parallel)', p):
-            base += '–dato'
-        return f'{base}|{company}' if company else base
-    base = re.sub(r'\s+', ' ', p)
-    return f'{base}|{company}' if company else base
+    date = _period_date_key(exp)
+    if not date:
+        return ''
+    co = _company_norm(exp.get('company') or '')
+    fp = _activity_fingerprint(exp)
+    p = (exp.get('period') or '')
+    if not re.search(r'\d{1,2}[./]\d{4}', p):
+        return f'{date}|{co}' if co else date
+    parts = [date]
+    if co:
+        parts.append(co)
+    if fp:
+        parts.append(fp[:40])
+    return '|'.join(parts)
 
 
 def _period_sort_key(exp) -> tuple:
@@ -320,6 +337,7 @@ def _clean_experience_technologies(exp: dict) -> dict:
 def _merge_experience(seed, llm) -> list:
     """
     LLM-Projekte behalten, Regex-Seed ergänzt fehlende Perioden.
+    Gleiches Datum+Firma: Seed nur bei klar anderer Activity (zwei Fortinet-Kurse).
     Jahresrange-Footer (Krone/Cap/UBA): Seed gewinnt gegen falsch gelabeltes LLM.
     """
     seed = list(seed or [])
@@ -339,29 +357,47 @@ def _merge_experience(seed, llm) -> list:
         if dk:
             footer_by_date[dk] = e
 
-    out, seen = [], set()
-    for source, bucket in (('llm', llm), ('seed', seed)):
-        for e in bucket:
-            if not _usable_experience(e):
-                continue
-            period = e.get('period') or ''
-            dk = _period_date_key(e)
-            if (
-                source == 'llm'
-                and dk in footer_by_date
-                and not re.search(r'\d{1,2}[./]\d{4}', period)
-            ):
-                continue
-            key = _period_key(e)
-            if not key or key in seen:
-                continue
-            seen.add(key)
+    seen_groups = {}
+    out = []
+
+    def _group_key(e) -> str:
+        return f"{_period_date_key(e)}|{_company_norm(e.get('company') or '')}"
+
+    def _try_add(e, source: str) -> bool:
+        if not _usable_experience(e):
+            return False
+        period = e.get('period') or ''
+        dk = _period_date_key(e)
+        if (
+            source == 'llm'
+            and dk in footer_by_date
+            and not re.search(r'\d{1,2}[./]\d{4}', period)
+        ):
+            return False
+        gk = _group_key(e)
+        fp = _activity_fingerprint(e)
+        existing = seen_groups.get(gk)
+        if existing is None:
+            seen_groups[gk] = [fp]
             out.append(_clean_experience_technologies(e))
+            return True
+        if any(_acts_similar(fp, ex) for ex in existing):
+            return False
+        existing.append(fp)
+        out.append(_clean_experience_technologies(e))
+        return True
+
+    for e in llm:
+        _try_add(e, 'llm')
+    for e in seed:
+        _try_add(e, 'seed')
+
     for dk, e in footer_by_date.items():
-        key = _period_key(e)
-        if key and key not in seen:
-            seen.add(key)
+        gk = _group_key(e)
+        if gk not in seen_groups:
+            seen_groups[gk] = [_activity_fingerprint(e)]
             out.append(_clean_experience_technologies(e))
+
     out.sort(key=_period_sort_key, reverse=True)
     return out
 

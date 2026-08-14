@@ -878,29 +878,28 @@ class AidRegexExtractor:
                 entries.append({
                     'degree': degree,
                     'period': period,
+                    'institution': '',
                     'description_parts': [],
                 })
                 continue
 
             if not entries:
-                # Erster Eintrag ohne Jahr (z.B. Nowka)
+                # Erster Eintrag ohne Jahr (z.B. Nowka / OV Bankkaufmann)
                 entries.append({
                     'degree': clean,
                     'period': '',
+                    'institution': '',
                     'description_parts': [],
                 })
                 continue
 
             # Bullet unter Ausbildung = Curriculum/Schwerpunkt, nicht Degree
             if had_bullet:
-                # Skill-Header-Noise in Ausbildung-Bullets verwerfen
                 if re.match(
                     r'(?i)^(programmiersprachen?|betriebssysteme|hardware|'
                     r'datenbanken|netzwerk|fachbereiche)\b',
                     clean,
                 ):
-                    # "Programmiersprachen Cobol, C/C++" → als description behalten
-                    # (Inhalt ist relevant), nur reine Header droppen
                     if re.match(
                         r'(?i)^(programmiersprachen?|betriebssysteme|hardware|'
                         r'datenbanken|netzwerk|fachbereiche)\s*$',
@@ -908,6 +907,19 @@ class AidRegexExtractor:
                     ):
                         continue
                 entries[-1]['description_parts'].append(clean)
+                continue
+
+            # Institution-Zeile (SGZ Bank AG, Frankfurt …) — nicht an Degree kleben
+            if (
+                not entries[-1].get('institution')
+                and re.search(
+                    r'(?i)\b(AG|GmbH|e\.?\s*K\.?|KG|Ltd|Inc|Bank|Universität|'
+                    r'Hochschule|Schule|Akademie)\b',
+                    clean,
+                )
+                and not re.search(r'(?i)\b(ausbildung|studium|lehre|diplom|bachelor|master)\b', clean)
+            ):
+                entries[-1]['institution'] = clean[:200]
                 continue
 
             # Soft-Wrap: an degree anhängen
@@ -919,7 +931,7 @@ class AidRegexExtractor:
                 continue
             results.append({
                 'degree': degree[:200],
-                'institution': '',
+                'institution': (e.get('institution') or '')[:200],
                 'period': (e['period'] or '')[:100],
                 'description': '; '.join(e['description_parts'])[:300],
                 'education_type': 'degree',
@@ -1729,8 +1741,13 @@ class AidRegexExtractor:
                     ]
                     if acts:
                         proj['activities'] = acts[:12]
-                        if not proj.get('title'):
-                            proj['title'] = acts[0][:300]
+                        # Title nicht = erste Activity (sonst Doppelung in Word/HTML)
+                        title = (proj.get('title') or '').strip()
+                        if title:
+                            a0 = acts[0].lower()
+                            tl = title.lower()
+                            if a0.startswith(tl[:40]) or tl.startswith(a0[:40]) or tl == a0:
+                                proj['title'] = ''
 
             # „Seit … Zertifizierter …“ → company/title sinnvoll setzen
             if same_company and not proj.get('title'):

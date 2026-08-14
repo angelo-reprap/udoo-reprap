@@ -76,14 +76,11 @@ def main() -> int:
     )
     (ok if edu_ok else fail).append(f'bpf edu={edu}')
 
-    # Merge stellt fehlende LLM-Perioden wieder her (ohne MM/YYYY-Duplikate)
-    llm_fake = [
-        p for p in bpf_projs
-        if not re.search(r'\b(04/1990|01/1990|07/1989)\b', p.get('period') or '')
-    ]
-    # simuliert LLM mit leicht anderer Company (früher → Doppelprojekt)
+    # Merge: Parallel-Projekte gleiches Datum (zwei Fortinet) + keine MM/YYYY-Duplikate
     llm_variant = []
-    for p in llm_fake:
+    for p in bpf_projs:
+        if re.search(r'\b(04/1990|01/1990|07/1989)\b', p.get('period') or ''):
+            continue
         q = dict(p)
         if q.get('company'):
             q['company'] = (q['company'].split(',')[0]).strip()
@@ -92,13 +89,32 @@ def main() -> int:
     (ok if len(merged) == len(bpf_projs) else fail).append(
         f'merge seed={len(bpf_projs)} llm={len(llm_variant)} → {len(merged)}'
     )
-    # zwei „2005 – dato“ bleiben getrennt
     y2005 = [
         p for p in merged
-        if re.search(r'(?i)^2005\s*[–\-]|dato', p.get('period') or '')
-        and '2005' in (p.get('period') or '')
+        if '2005' in (p.get('period') or '') and re.search(r'(?i)dato|parallel|^2005', p.get('period') or '')
     ]
     (ok if len(y2005) >= 2 else fail).append(f'merge keeps two 2005-parallel={len(y2005)}')
+
+    # TT: zwei Fortinet 03/2024 mit unterschiedlichen Kursen bleiben
+    tt = aid._strip_page_headers(full('AID-tt_1.2.4.2.pdf'))
+    tt_projs = aid._extract_projekte(tt)
+    tt_merged = base._merge_experience(tt_projs, tt_projs[:10])  # LLM-Subset
+    fort = [
+        p for p in tt_merged
+        if '03/2024' in (p.get('period') or '') and 'fortinet' in (p.get('company') or '').lower()
+    ]
+    (ok if len(tt_projs) >= 18 and len(fort) >= 2 else fail).append(
+        f'tt projects={len(tt_projs)} merge={len(tt_merged)} fortinet_03_2024={len(fort)}'
+    )
+
+    # OV Degree ohne Institution-Kleber
+    ov_txt = aid._strip_page_headers(full('AID-ov_3.4.5.1.pdf'))
+    ov_edu = aid._extract_ausbildung(ov_txt)
+    deg = (ov_edu[0].get('degree') if ov_edu else '') or ''
+    inst = (ov_edu[0].get('institution') if ov_edu else '') or ''
+    (ok if 'Bankkaufmann' in deg and 'SGZ' not in deg and 'SGZ' in inst else fail).append(
+        f'ov edu degree={deg!r} institution={inst!r}'
+    )
 
     # Footer: Krone gewinnt gegen falsch gelabeltes Cap Gemini 1980–1984
     llm_bad_footer = [
