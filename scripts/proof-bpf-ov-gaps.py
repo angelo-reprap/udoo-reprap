@@ -116,6 +116,27 @@ def main() -> int:
         f'ov edu degree={deg!r} institution={inst!r}'
     )
 
+    # OV Format-A-Labels ohne Zeitraum: — Inhalt nicht weglassen
+    ov_projs_chk = aid._extract_projekte(ov_txt)
+    ov_blob = ' '.join(
+        ' '.join([
+            p.get('title') or '',
+            p.get('role') or '',
+            ' '.join(p.get('activities') or []),
+        ])
+        for p in ov_projs_chk
+    )
+    ov_need = [
+        'First- und Second-Level',
+        'Eigenständige Programmierung',
+        'Fehlerbeseitigung',
+        'Handelssyteme',  # Source-Tippfehler bewusst
+    ]
+    ov_miss = [n for n in ov_need if n.lower() not in ov_blob.lower()]
+    (ok if len(ov_projs_chk) == 7 and not ov_miss else fail).append(
+        f'ov content n={len(ov_projs_chk)} miss={ov_miss}'
+    )
+
     # Footer: Krone gewinnt gegen falsch gelabeltes Cap Gemini 1980–1984
     llm_bad_footer = [
         p for p in bpf_projs

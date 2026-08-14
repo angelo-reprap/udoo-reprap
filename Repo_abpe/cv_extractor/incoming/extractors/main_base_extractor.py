@@ -348,13 +348,50 @@ def _experience_richness(exp) -> int:
     techs = exp.get('technologies') or []
     if isinstance(acts, list):
         score += min(4, len([a for a in acts if (a or '').strip()]))
+        score += min(8, sum(len(str(a)) for a in acts if (a or '').strip()) // 40)
     if isinstance(techs, list):
         score += min(3, len([t for t in techs if (t or '').strip()]))
     return score
 
 
+def _norm_list_item(s: str) -> str:
+    return re.sub(r'\s+', ' ', (s or '').strip().lower())
+
+
+def _list_items_similar(a: str, b: str) -> bool:
+    """True wenn gleicher Activity/Tech-Slot (inkl. abgeschnittener Seed-Zeile)."""
+    ca, cb = _norm_list_item(a), _norm_list_item(b)
+    if not ca or not cb:
+        return False
+    if ca == cb or ca[:28] in cb or cb[:28] in ca:
+        return True
+    short, long = (ca, cb) if len(ca) <= len(cb) else (cb, ca)
+    core = short.rstrip(':.,; ').strip()
+    return len(core) >= 12 and core in long
+
+
+def _merge_string_lists_prefer_richer(base_list, donor_list) -> list:
+    """Vereinigt Listen: ähnliche Einträge → längere Formulierung behalten, neue anhängen."""
+    merged = []
+    for x in list(base_list or []) + list(donor_list or []):
+        s = re.sub(r'\s+', ' ', str(x).strip()) if x is not None else ''
+        if not s:
+            continue
+        replaced = False
+        for i, cur in enumerate(merged):
+            if not _list_items_similar(s, cur):
+                continue
+            if len(s) > len(str(cur).strip()) + 5:
+                merged[i] = s
+            replaced = True
+            break
+        if not replaced:
+            merged.append(s)
+    return merged
+
+
 def _merge_experience_fields(base: dict, donor: dict) -> dict:
-    """Füllt leere Felder in base aus donor (LLM-Hülle ← Seed)."""
+    """Füllt/ergänzt base aus donor — Activities/Techs werden vereinigt (nichts weglassen)."""
     if not isinstance(base, dict):
         base = {}
     out = dict(base)
@@ -368,26 +405,10 @@ def _merge_experience_fields(base: dict, donor: dict) -> dict:
             out[key] = val
             continue
         if key in ('activities', 'technologies') and isinstance(cur, list) and isinstance(val, list):
-            if len(cur) >= len(val):
-                continue
-            seen = {
-                re.sub(r'\s+', ' ', str(x).strip().lower())
-                for x in cur if (x or '').strip()
-            }
-            merged = list(cur)
-            for x in val:
-                s = re.sub(r'\s+', ' ', str(x).strip())
-                if not s:
-                    continue
-                lw = s.lower()
-                if lw in seen:
-                    continue
-                merged.append(x)
-                seen.add(lw)
-            out[key] = merged
-        elif key in ('company', 'role', 'title', 'period') and isinstance(cur, str) and isinstance(val, str):
-            # Seed länger/informativer und Base sehr kurz → Seed bevorzugen
-            if len(val.strip()) > len(cur.strip()) + 8 and len(cur.strip()) < 12:
+            out[key] = _merge_string_lists_prefer_richer(cur, val)
+        elif key in ('company', 'role', 'title', 'period', 'industry', 'location') and isinstance(cur, str) and isinstance(val, str):
+            # Längere/informativere Formulierung behalten
+            if len(val.strip()) > len(cur.strip()) + 8:
                 out[key] = val
     return _clean_experience_technologies(out)
 

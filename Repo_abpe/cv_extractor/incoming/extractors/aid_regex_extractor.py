@@ -220,6 +220,18 @@ class AidRegexExtractor:
             return ''
         same = (m.group(1) or '').strip()
         if same:
+            # Soft-Wrap: Wert endet mit - / und → nächste Zeile anhängen
+            if re.search(r'(?i)(-|/|\bund)$', same):
+                for line in block[m.end():].splitlines():
+                    line = line.strip()
+                    if not line:
+                        continue
+                    if re.match(r'^[A-Za-zÄÖÜäöü0-9][^:\n]{0,80}:\s*', line):
+                        break
+                    if re.match(r'^[-•\*\u2022\u25aa]', line):
+                        break
+                    same = f'{same} {line}'.strip()
+                    break
             return same
         for line in block[m.end():].splitlines():
             line = line.strip()
@@ -1404,6 +1416,25 @@ class AidRegexExtractor:
         logger.debug(f"[AidRegex] {len(projekte)} Projekte extrahiert")
         return projekte
 
+    def _dedupe_title_activity_stub(self, proj: dict) -> None:
+        """Erste Activity entfernen wenn sie schon im Title steckt (Soft-Wrap-Rest)."""
+        title = re.sub(r'\s+', ' ', (proj.get('title') or '').strip())
+        acts = list(proj.get('activities') or [])
+        if not title or not acts:
+            return
+        t = title.rstrip(':').lower()
+        while acts:
+            a0 = re.sub(r'\s+', ' ', (acts[0] or '').strip()).rstrip(':')
+            if not a0:
+                acts = acts[1:]
+                continue
+            al = a0.lower()
+            if al in t or t.endswith(al) or (len(al) >= 12 and al[:40] in t):
+                acts = acts[1:]
+                continue
+            break
+        proj['activities'] = acts
+
     def _extract_projekte_format_a(self, text: str) -> List[dict]:
         """
         Format A: Tabellarisch mit 'Zeitraum:' Label.
@@ -1421,6 +1452,10 @@ class AidRegexExtractor:
 
             proj = self._parse_projekt_block_a(block)
             if proj:
+                self._extend_soft_wrapped_role(proj, block)
+                self._extend_soft_wrapped_title(proj)
+                self._dedupe_title_activity_stub(proj)
+                self._projektbeschreibung_to_activities(proj, block)
                 projekte.append(proj)
 
         return projekte
@@ -1444,11 +1479,12 @@ class AidRegexExtractor:
             proj['company'] = company
 
         # Projektbeschreibung → title (ohne Activity-Bullets)
+        # Wichtig: \Z statt $ — bei (?m) würde $ nach der ersten Soft-Wrap-Zeile stoppen
         m = re.search(
             r'(?im)^\s*Projektbeschreibung\s*:\s*(.+?)'
             r'(?=\n\s*(?:Systemumgebung|Position|Rolle|Zeitraum|Firma|Kunde|'
             r'Protokolle|Technologien|Eingesetzte)\s*:|'
-            r'\n\s*[-•\*\u2022\u25aa\uf0b7\uf09f]|$)',
+            r'\n\s*[-•\*\u2022\u25aa\uf0b7\uf09f]|\Z)',
             block, re.DOTALL
         )
         if m:
@@ -1562,6 +1598,91 @@ class AidRegexExtractor:
             or proj.get('technologies')
         )
 
+    def _period_block_to_format_a(self, block: str, period_str: str) -> str:
+        """Periodenzeile → 'Zeitraum:' damit Format-A-Parser greift (OV)."""
+        lines = (block or '').splitlines()
+        if lines and self._match_period_line(lines[0]):
+            return '\n'.join([f'Zeitraum: {period_str}'] + lines[1:])
+        return f'Zeitraum: {period_str}\n{block}'
+
+    def _extend_soft_wrapped_role(self, proj: dict, block: str) -> None:
+        """Position/Rolle Soft-Wrap: '... Börseninformations- und\\nHandelssyteme'."""
+        role = (proj.get('role') or '').rstrip()
+        if not role or not re.search(r'(?i)(-|/|\bund)$', role):
+            return
+        m = re.search(
+            r'(?im)^\s*(?:Rolle\s*/\s*Position|Position|Rolle|Projektrolle|Funktion)\s*:\s*(.*)$',
+            block,
+        )
+        if not m:
+            return
+        for line in block[m.end():].splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            if re.match(r'^[A-Za-zÄÖÜäöü0-9][^:\n]{0,80}:\s*', line):
+                break
+            if re.match(r'^[-•\*\u2022\u25aa]', line):
+                break
+            # Fortsetzung der Soft-Wrap-Zeile (kein neuer Satzanfang mit Groß+lang)
+            proj['role'] = f'{role} {line}'.strip()
+            break
+
+    def _extend_soft_wrapped_title(self, proj: dict) -> None:
+        """Title + erste Activity zusammenziehen wenn Soft-Wrap (…Bloomberg- / Trading-Systems:)."""
+        title = (proj.get('title') or '').rstrip()
+        acts = list(proj.get('activities') or [])
+        if not title or not acts:
+            return
+        if not re.search(r'[-/]$', title):
+            return
+        a0 = (acts[0] or '').strip()
+        if not a0 or len(a0) > 80:
+            return
+        # typische Fortsetzung: "Trading-Systems:" / "Präsentationen"
+        if re.match(r'^[A-Za-zÄÖÜäöü0-9].{0,60}$', a0):
+            proj['title'] = f'{title} {a0}'.strip()
+            proj['activities'] = acts[1:]
+
+
+    def _projektbeschreibung_to_activities(self, proj: dict, block: str) -> None:
+        """
+        Wenn keine Bullets: Projektbeschreibung-Zeilen → activities (nichts weglassen).
+        Title behält die erste sinnvolle Zeile / Kurzform.
+        """
+        if proj.get('activities'):
+            return
+        m = re.search(
+            r'(?is)(?:^|\n)\s*Projektbeschreibung\s*:\s*(.*?)'
+            r'(?=\n\s*(?:Systemumgebung|Protokolle\s*/\s*Technologien|'
+            r'Technologien\s*/|Position|Rolle|Zeitraum|Firma|Kunde)\s*:|\Z)',
+            block,
+        )
+        if not m:
+            return
+        body = (m.group(1) or '').strip()
+        if not body:
+            return
+        acts = self._parse_list_items(body, merge_wraps=True, strict_wraps=True)
+        acts = [
+            a.rstrip(':').strip()
+            for a in acts
+            if len(a) > 5 and not self._is_page_header(a) and not self._looks_like_tech_line(a)
+        ]
+        if not acts:
+            # eine Zeile / ein Absatz → als Activity behalten
+            one = ' '.join(body.split())
+            if len(one) > 5:
+                acts = [one[:500]]
+        if acts:
+            # Alles in activities; Title = erste Zeile (kein Dedup danach)
+            proj['activities'] = acts
+            if len(acts) >= 2:
+                proj['title'] = acts[0][:300]
+                proj['activities'] = acts[1:]
+            elif not (proj.get('title') or '').strip():
+                proj['title'] = acts[0][:300]
+
     def _extract_projekte_format_b(self, text: str) -> List[dict]:
         """
         Format B / bpf: Zeitraum am Zeilenanfang (numerisch ODER deutscher Monat).
@@ -1583,6 +1704,22 @@ class AidRegexExtractor:
         for i, (off, period_str, same_company, _hdr) in enumerate(positions):
             end = positions[i + 1][0] if i + 1 < len(positions) else len(text)
             block = text[off:end]
+            # OV-Stil: Periode am Zeilenanfang + Firma/Institut / Projektbeschreibung
+            # → Format-A-Parser (sonst zerlegt Format B die Beschreibung)
+            if re.search(
+                r'(?im)^\s*(?:Firma\s*/?\s*Institut|Projektbeschreibung)\s*:',
+                block,
+            ):
+                a_block = self._period_block_to_format_a(block, period_str)
+                a_proj = self._parse_projekt_block_a(a_block)
+                if a_proj and self._usable_project(a_proj):
+                    self._extend_soft_wrapped_role(a_proj, a_block)
+                    self._extend_soft_wrapped_title(a_proj)
+                    self._dedupe_title_activity_stub(a_proj)
+                    self._projektbeschreibung_to_activities(a_proj, a_block)
+                    projekte.append(a_proj)
+                    continue
+
             proj = {'period': period_str, 'activities': [], 'technologies': []}
 
             if same_company and not self._is_section_noise(same_company) \
