@@ -184,6 +184,12 @@ class MainPipelineController:
                 # P2: erst Header strippen, dann Skills/Sektionen
                 full_text_clean = aid_regex_extractor._strip_page_headers(full_text)
                 skill_ablage = aid_regex_extractor._extract_skill_tables(full_text_clean)
+                # bpf: Allgemeine Kenntnisse (Inline-Header) — nicht nur klassische Tabellen
+                allg_skills, allg_branchen = (
+                    aid_regex_extractor._extract_allgemeine_kenntnisse(full_text_clean)
+                )
+                if allg_skills:
+                    skill_ablage = list(skill_ablage or []) + list(allg_skills)
                 dup_skills = 0
                 for item in skill_ablage:
                     if not (isinstance(item, dict) and item.get('name') and item.get('category')):
@@ -200,6 +206,7 @@ class MainPipelineController:
                 logger.info(
                     f"[MainPipeline] Schritt 1b: {len(aid_skill_categories)} Skills vorkategorisiert"
                     + (f" ({dup_skills} Duplikat-Überschreibungen)" if dup_skills else "")
+                    + (f" (allg={len(allg_skills)})" if allg_skills else "")
                 )
                 # R0: Personal aus Regex (nicht nur extract()-API)
                 aid_extracted['personal'] = aid_regex_extractor._extract_personal(
@@ -207,7 +214,14 @@ class MainPipelineController:
                 )
                 aid_extracted['headline']       = aid_regex_extractor._extract_headline(full_text_clean)
                 aid_extracted['focus_areas']    = aid_regex_extractor._extract_fachbereiche(full_text_clean)
-                aid_extracted['industries']     = aid_regex_extractor._extract_branchen(full_text_clean)
+                branchen = list(aid_regex_extractor._extract_branchen(full_text_clean) or [])
+                if allg_branchen:
+                    seen_b = {b.lower() for b in branchen}
+                    for b in allg_branchen:
+                        if b.lower() not in seen_b:
+                            branchen.append(b)
+                            seen_b.add(b.lower())
+                aid_extracted['industries']     = branchen
                 aid_extracted['certifications'] = aid_regex_extractor._extract_zertifikate(full_text_clean)
                 aid_extracted['education']      = (
                     list(aid_regex_extractor._extract_ausbildung(full_text_clean) or [])
@@ -220,7 +234,7 @@ class MainPipelineController:
                 # Experience-Seed (Format A/B/bpf) — Fill mergt fehlende Perioden nach
                 projekte = aid_regex_extractor._extract_projekte(full_text_clean) or []
                 aid_extracted['experience'] = projekte
-                # Format-A/B: Skills aus Projekten nachziehen wenn Tabellen fehlen
+                # Format-A/B: Skills aus Projekten nur wenn weder Tabellen noch Allgemeine Kenntnisse
                 if not aid_skill_categories and projekte:
                     harvested = aid_regex_extractor._harvest_skills_from_projects(projekte)
                     for item in harvested:
@@ -240,6 +254,11 @@ class MainPipelineController:
                     f"focus_exp={len(aid_extracted.get('focus_experience') or [])} | "
                     f"projekte={len(aid_extracted.get('experience') or [])}"
                 )
+                if aid_skill_categories:
+                    aid_extracted['skill_ablage'] = [
+                        {'name': n, 'category': c}
+                        for n, c in aid_skill_categories.items()
+                    ]
             else:
                 logger.info(f"[MainPipeline] Schritt 1b: kein abcona-Profil → normale Pipeline")
         except Exception as e:

@@ -99,6 +99,39 @@ def main() -> int:
         and '2005' in (p.get('period') or '')
     ]
     (ok if len(y2005) >= 2 else fail).append(f'merge keeps two 2005-parallel={len(y2005)}')
+
+    # Footer: Krone gewinnt gegen falsch gelabeltes Cap Gemini 1980–1984
+    llm_bad_footer = [
+        p for p in bpf_projs
+        if not re.search(r'(?i)krone', p.get('company') or '')
+    ] + [{
+        'period': '1980 – 1984',
+        'company': 'Cap Gemini Berlin GmbH',
+        'title': 'wrong',
+        'activities': ['x'],
+    }]
+    merged_f = base._merge_experience(bpf_projs, llm_bad_footer)
+    firms = ' '.join((p.get('company') or '') for p in merged_f).lower()
+    (ok if 'krone' in firms and len(merged_f) >= 30 else fail).append(
+        f'footer krone kept firms_has_krone={"krone" in firms} n={len(merged_f)}'
+    )
+
+    # Tech-Noise raus
+    bad_tech = []
+    for p in bpf_projs:
+        for t in p.get('technologies') or []:
+            if re.search(
+                r'(?i)weiterentwicklung|fachabteilung|einberufung|deutschlandweit|lungen',
+                t,
+            ):
+                bad_tech.append(t)
+    (ok if not bad_tech else fail).append(f'bpf tech noise={bad_tech[:5]}')
+
+    # 1b-Pfad: Allgemeine Kenntnisse → branchen+skills (wie Controller)
+    ctrl_src = (INCOMING / 'services' / 'main_pipeline_controller.py').read_text(encoding='utf-8')
+    (ok if '_extract_allgemeine_kenntnisse' in ctrl_src else fail).append(
+        'controller wires allgemeine kenntnisse'
+    )
     (ok if "aid_extracted['experience']" in ctrl_src or 'experience' in ctrl_src and '_extract_projekte' in ctrl_src else fail).append(
         'controller seeds experience'
     )

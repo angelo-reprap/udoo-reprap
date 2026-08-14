@@ -210,14 +210,35 @@ def _aid_regex_project_fallback(text: str, exp: dict) -> dict:
     return out
 
 
+def _period_date_key(exp) -> str:
+    """Nur Start(+Ende) ohne Firma — für Merge-Vergleiche."""
+    if not isinstance(exp, dict):
+        return ''
+    p = (exp.get('period') or '').strip().lower()
+    p = p.replace('—', '–').replace('-', '–')
+    dates = re.findall(r'(\d{1,2})[./](\d{4})', p)
+    if dates:
+        parts = [f"{int(d[0]):02d}/{d[1]}" for d in dates[:2]]
+        if re.search(r'(heute|dato|aktuell|laufend)', p):
+            parts.append('dato')
+        return '–'.join(parts)
+    years = re.findall(r'(?<!\d)(\d{4})(?!\d)', p)
+    if len(years) >= 2:
+        return f'{years[0]}–{years[1]}'
+    if years:
+        base = years[0]
+        if re.search(r'(heute|dato|aktuell|laufend|parallel)', p):
+            base += '–dato'
+        return base
+    return re.sub(r'\s+', ' ', p)
+
+
 def _period_key(exp) -> str:
     """
     Normalisierter Zeitraum für Dedup.
-    Start+Ende (sonst kollidieren 01/2000–12/2000 und 01/2000–03/2000).
-
-    MM/YYYY-Perioden: nur Datum (LLM „Öffentlicher Dienst“ vs Seed
-    „…, Karlsruhe“ sonst Doppel-Projekte → AID-pp_1.1.2.3).
-    Freitext/nur-Jahr: Company-Suffix (zwei × „2005 – dato“).
+    MM/YYYY: nur Datum (LLM/Seed-Firma darf nicht verdoppeln).
+    Freitext „2005 – dato“: +Company (zwei Parallel-Projekte).
+    reine Jahresranges: nur Datum; Footer-Firmen kommen über Merge-Sonderweg.
     """
     if not isinstance(exp, dict):
         return ''
@@ -226,17 +247,11 @@ def _period_key(exp) -> str:
     company = re.sub(r'\s+', ' ', (exp.get('company') or '').strip().lower())[:48]
     dates = re.findall(r'(\d{1,2})[./](\d{4})', p)
     if dates:
-        parts = [f"{int(d[0]):02d}/{d[1]}" for d in dates[:2]]
-        if re.search(r'(heute|dato|aktuell|laufend)', p):
-            parts.append('dato')
-        return '–'.join(parts)
+        return _period_date_key(exp)
 
-    # Jahr-Range „1980 – 1984“ / Freitext „2005 – dato“
     years = re.findall(r'(?<!\d)(\d{4})(?!\d)', p)
     if len(years) >= 2:
-        base = f'{years[0]}–{years[1]}'
-        # reine Jahresranges ohne Monatsdatum: Datum reicht zum Dedup
-        return base
+        return f'{years[0]}–{years[1]}'
     if years:
         base = years[0]
         if re.search(r'(heute|dato|aktuell|laufend|parallel)', p):
@@ -249,25 +264,104 @@ def _period_key(exp) -> str:
 def _period_sort_key(exp) -> tuple:
     m = re.search(r'(\d{1,2})[./](\d{4})', (exp.get('period') or '') if isinstance(exp, dict) else '')
     if not m:
+        years = re.findall(r'(?<!\d)(\d{4})(?!\d)', (exp.get('period') or '') if isinstance(exp, dict) else '')
+        if years:
+            return (int(years[0]), 0)
         return (0, 0)
     return (int(m.group(2)), int(m.group(1)))
 
 
+_FOOTER_FIRMS = ('krone', 'cap gemini', 'umweltbundesamt')
+
+_TECH_NOISE_RE = re.compile(
+    r'(?i)(?<!\w)(?:'
+    r'analyse|programmierung|migration|entwicklung|weiterentwicklung|'
+    r'beratung|erstellung|anpassung|wartung|betreuung|optimierung|'
+    r'fusion|redesign|unterstütz|dozent|bearbeitung|fehlerfall|'
+    r'funktionalität|testing|programmänder|einsatzvorbereit|'
+    r'abstimmung|fachabteilung|zusammenarbeit|deutschlandweit|'
+    r'einberufung|kontaktgespräch|daten-?änderungs|software-?paket|'
+    r'batchlauf|sachversicherung|rentenversicherung|privathaftpflicht|'
+    r'lungen|gespräche|programmen'
+    r')'
+)
+
+
+def _clean_experience_technologies(exp: dict) -> dict:
+    """Activity-Fragmente aus technologies[] entfernen (LLM+Seed)."""
+    if not isinstance(exp, dict):
+        return exp
+    techs = exp.get('technologies')
+    if not techs:
+        return exp
+    cleaned = []
+    seen = set()
+    for t in techs:
+        name = re.sub(r'\s+', ' ', (t or '').strip())
+        if not name or len(name) > 55:
+            continue
+        if _TECH_NOISE_RE.search(name):
+            continue
+        if (
+            re.search(r'(?i)\b(der|die|das|den|dem|mit|von|für|und|bei)\b', name)
+            and len(name.split()) >= 3
+        ):
+            continue
+        lw = name.lower()
+        if lw in seen:
+            continue
+        seen.add(lw)
+        cleaned.append(name)
+    out = dict(exp)
+    out['technologies'] = cleaned
+    return out
+
+
 def _merge_experience(seed, llm) -> list:
     """
-    LLM-Projekte behalten, Regex-Seed ergänzt fehlende Perioden
-    (z.B. älteste bpf-Projekte die Group/LLM verloren hat).
-    Reihenfolge: neueste zuerst.
+    LLM-Projekte behalten, Regex-Seed ergänzt fehlende Perioden.
+    Jahresrange-Footer (Krone/Cap/UBA): Seed gewinnt gegen falsch gelabeltes LLM.
     """
-    out, seen = [], set()
-    for e in list(llm or []) + list(seed or []):
+    seed = list(seed or [])
+    llm = list(llm or [])
+
+    footer_by_date = {}
+    for e in seed:
         if not _usable_experience(e):
             continue
-        key = _period_key(e)
-        if not key or key in seen:
+        period = e.get('period') or ''
+        if re.search(r'\d{1,2}[./]\d{4}', period):
             continue
-        seen.add(key)
-        out.append(e)
+        co = (e.get('company') or '').lower()
+        if not any(f in co for f in _FOOTER_FIRMS):
+            continue
+        dk = _period_date_key(e)
+        if dk:
+            footer_by_date[dk] = e
+
+    out, seen = [], set()
+    for source, bucket in (('llm', llm), ('seed', seed)):
+        for e in bucket:
+            if not _usable_experience(e):
+                continue
+            period = e.get('period') or ''
+            dk = _period_date_key(e)
+            if (
+                source == 'llm'
+                and dk in footer_by_date
+                and not re.search(r'\d{1,2}[./]\d{4}', period)
+            ):
+                continue
+            key = _period_key(e)
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            out.append(_clean_experience_technologies(e))
+    for dk, e in footer_by_date.items():
+        key = _period_key(e)
+        if key and key not in seen:
+            seen.add(key)
+            out.append(_clean_experience_technologies(e))
     out.sort(key=_period_sort_key, reverse=True)
     return out
 
@@ -871,6 +965,11 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
             pre_json['extracted_data']['education'] = _norm_education_items(
                 aid_extracted['education'], default_type='degree'
             )
+        if aid_extracted.get('skill_ablage'):
+            pre_json['extracted_data']['skill_ablage'] = [
+                s for s in aid_extracted['skill_ablage']
+                if isinstance(s, dict) and (s.get('name') or '').strip()
+            ]
 
     # ── Gruppen-Indizes aufbauen ──────────────────────────────────────────────
     label_gruppen  = defaultdict(list)

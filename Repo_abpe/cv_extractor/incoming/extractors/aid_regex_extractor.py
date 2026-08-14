@@ -138,6 +138,25 @@ DE_MONTH_ALT = (
     r'Jan|Feb|Mrz|Apr|Jun|Jul|Aug|Sep|Sept|Okt|Nov|Dez)'
 )
 
+# Activity-/Satzfragmente die fälschlich als Technologie landen (bpf Soft-Wrap)
+TECH_ACTIVITY_NOISE_RE = re.compile(
+    r'(?i)(?<!\w)(?:'
+    r'analyse|programmierung|migration|entwicklung|weiterentwicklung|'
+    r'beratung|erstellung|anpassung|wartung|betreuung|optimierung|'
+    r'fusion|redesign|unterstütz|dozent|bearbeitung|fehlerfall|'
+    r'funktionalität|testing|programmänder|einsatzvorbereit|'
+    r'abstimmung|fachabteilung|zusammenarbeit|deutschlandweit|'
+    r'einberufung|kontaktgespräch|daten-?änderungs|software-?paket|'
+    r'batchlauf|batchprogramm|online-?programm|kenntnis-?vermittlung|'
+    r'sachversicherung|rentenversicherung|privathaftpflicht|'
+    r'berufsunfähigkeit|altersvorsorge|hausrat|rechtsschutz|wohngebäude'
+    r')'
+)
+TECH_FRAGMENT_RE = re.compile(
+    r'(?i)^(lungen|gespräche|programmen|tungen|den|mit|der|die|das|'
+    r'und|von|für|bei|aus|zur|zum|des|einem|eines)\b'
+)
+
 # bpf-Footer: nicht in letztes Projekt ziehen
 WEITERE_PROJEKTE_RE = re.compile(
     r'(?im)^\s*Weitere\s+Projekte\s+und\s+Auftraggeber\b'
@@ -1626,20 +1645,24 @@ class AidRegexExtractor:
                 for line in lines[1:]:
                     if self._match_period_line(line):
                         break
-                    if (
-                        ',' in line
-                        and len(line) < 120
-                        and not re.search(
-                            r'(?i)\b(analyse|programmierung|migration|'
-                            r'entwicklung|beratung|erstellung|anpassung|'
-                            r'wartung|betreuung|optimierung|fusion|'
-                            r'redesign|unterstützung|dozent)\b',
-                            line,
-                        )
-                    ):
-                        tech_lines.append(line)
+                    if ',' not in line or len(line) >= 120:
+                        continue
+                    if TECH_ACTIVITY_NOISE_RE.search(line):
+                        continue
+                    parts = [p.strip() for p in line.split(',') if p.strip()]
+                    if not parts or any(self._is_tech_noise(p) for p in parts):
+                        # gemischte Zeile: nur saubere Tokens behalten
+                        clean_parts = [p for p in parts if not self._is_tech_noise(p)]
+                        if clean_parts and all(len(p) < 40 for p in clean_parts):
+                            tech_lines.append(', '.join(clean_parts))
+                        continue
+                    tech_lines.append(line)
                 if tech_lines:
                     proj['technologies'] = self._parse_tech_list('\n'.join(tech_lines))
+            elif proj.get('technologies'):
+                proj['technologies'] = [
+                    t for t in proj['technologies'] if not self._is_tech_noise(t)
+                ]
 
             bullets = re.findall(r'(?m)^[\s]*[-•\*\u2022\u25aa]\s*(.+?)$', block)
             if bullets:
@@ -1858,6 +1881,25 @@ class AidRegexExtractor:
             items.append(clean)
         return items
 
+    def _is_tech_noise(self, token: str) -> bool:
+        """True wenn Token Activity-/Satzfragment statt Technologie ist."""
+        t = (token or '').strip()
+        if not t or len(t) < 2:
+            return True
+        if len(t) > 55:
+            return True
+        if TECH_FRAGMENT_RE.match(t):
+            return True
+        if TECH_ACTIVITY_NOISE_RE.search(t):
+            return True
+        # deutsche Satzreste mit Artikel/Präposition (mind. 3 Wörter)
+        if (
+            re.search(r'(?i)\b(der|die|das|den|dem|des|mit|von|für|und|bei|aus)\b', t)
+            and len(t.split()) >= 3
+        ):
+            return True
+        return False
+
     def _parse_tech_list(self, raw: str) -> List[str]:
         """Parst Technologie-Liste (komma- oder newline-getrennt)."""
         # Label-Prefixe entfernen
@@ -1869,17 +1911,20 @@ class AidRegexExtractor:
         # Soft-Wrap an Bindestrich am Zeilenende zusammenführen
         raw = re.sub(r'-\s*\n\s*', '', raw)
         raw = raw.replace('\n', ', ')
-        parts = re.split(r'[,;/]', raw)
+        parts = re.split(r'[,;]', raw)
         techs = []
         seen = set()
         skip = {
             'und', 'oder', 'with', 'and', 'etc', 'u.a.', 'z.b.',
             'protokolle', 'technologien', 'hardware', 'software', 'umfeld',
+            'os',  # zu generisch / Soft-Wrap-Rest von z/OS
         }
         for p in parts:
             p = p.strip().rstrip('.,;')
             p = re.sub(r'\s+', ' ', p)
             if self._is_page_header(p) or self._is_section_noise(p):
+                continue
+            if self._is_tech_noise(p):
                 continue
             if len(p) < 2 or len(p) > 100:
                 continue
@@ -1913,6 +1958,8 @@ class AidRegexExtractor:
             for t in proj.get('technologies') or []:
                 name = (t or '').strip()
                 if not name or len(name) < 2:
+                    continue
+                if self._is_tech_noise(name):
                     continue
                 lw = name.lower()
                 if lw in seen:
