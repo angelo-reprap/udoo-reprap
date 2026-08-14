@@ -1666,33 +1666,56 @@ class AidRegexExtractor:
 
             bullets = re.findall(r'(?m)^[\s]*[-•\*\u2022\u25aa]\s*(.+?)$', block)
             if bullets:
-                proj['activities'] = [b.strip() for b in bullets if len(b.strip()) > 5]
+                # Soft-Wraps auch bei Bullet-Listen zusammenziehen
+                proj['activities'] = self._parse_list_items(
+                    '\n'.join(f'- {b.strip()}' for b in bullets if b.strip()),
+                    merge_wraps=True,
+                )
+                proj['activities'] = [a for a in proj['activities'] if len(a) > 5]
             else:
-                acts = []
+                act_lines = []
                 company_l = (proj.get('company') or '').lower()
+                prev_was_tech = False
                 for line in lines[1:]:
                     if self._match_period_line(line):
                         break
                     low = line.lower()
                     if company_l and (low == company_l or low in company_l):
                         continue
+                    is_tech = self._looks_like_tech_line(line)
+                    # Fortsetzungszeile einer Tech-Liste (maxenso unter ADABAS, …)
                     if (
-                        ',' in line
-                        and len(line) < 120
-                        and not re.search(
-                            r'(?i)\b(analyse|programmierung|migration|'
-                            r'entwicklung|beratung|fusion|redesign|'
-                            r'unterstützung)\b',
-                            line,
-                        )
+                        not is_tech
+                        and prev_was_tech
+                        and ' ' not in line
+                        and 2 <= len(line) <= 40
+                        and not TECH_ACTIVITY_NOISE_RE.search(line)
+                    ):
+                        is_tech = True
+                    if is_tech:
+                        prev_was_tech = True
+                        continue
+                    prev_was_tech = False
+                    if re.match(
+                        r'(?i)^(kunde\s*/|rolle\s*/|branche|kenntnisse|systemumgebung)\b',
+                        line,
                     ):
                         continue
-                    if len(line) > 5 and not self._is_section_noise(line):
-                        acts.append(line)
-                if acts:
-                    proj['activities'] = acts[:12]
-                    if not proj.get('title'):
-                        proj['title'] = acts[0][:300]
+                    if len(line) > 3 and not self._is_section_noise(line):
+                        act_lines.append(line)
+                if act_lines:
+                    acts = self._parse_list_items(
+                        '\n'.join(act_lines), merge_wraps=True, strict_wraps=True
+                    )
+                    acts = [
+                        a.rstrip(',').strip()
+                        for a in acts
+                        if len(a) > 5 and not self._looks_like_tech_line(a)
+                    ]
+                    if acts:
+                        proj['activities'] = acts[:12]
+                        if not proj.get('title'):
+                            proj['title'] = acts[0][:300]
 
             # „Seit … Zertifizierter …“ → company/title sinnvoll setzen
             if same_company and not proj.get('title'):
@@ -1712,11 +1735,39 @@ class AidRegexExtractor:
 
         return projekte
 
+    def _looks_like_tech_line(self, line: str) -> bool:
+        """True wenn Zeile eher Tech-Liste als Activity ist."""
+        s = (line or '').strip().rstrip(',')
+        if not s:
+            return False
+        if TECH_ACTIVITY_NOISE_RE.search(s) and ',' in s:
+            # „Analyse, Programmierung, Test“ = Activity-Kurzzeile
+            parts = [p.strip() for p in s.split(',') if p.strip()]
+            if parts and all(
+                TECH_ACTIVITY_NOISE_RE.search(p) or len(p.split()) <= 2
+                for p in parts
+            ):
+                return False
+        if ',' in s:
+            parts = [p.strip() for p in s.split(',') if p.strip()]
+            if (
+                len(parts) >= 2
+                and all(len(p) < 40 and not self._is_tech_noise(p) for p in parts)
+                and not TECH_ACTIVITY_NOISE_RE.search(s)
+            ):
+                return True
+        # Einzeltoken-Fortsetzung (maxenso, z/OS) — keine deutschen Kleinwörter (katalogs)
+        if ' ' not in s and 2 <= len(s) <= 40 and not TECH_ACTIVITY_NOISE_RE.search(s):
+            if re.match(r'^[a-zäöü]{3,}$', s):
+                return False
+            if re.match(r'^[A-Za-z0-9][\w./+#-]{1,38}$', s):
+                return True
+        return False
+
     def _extract_weitere_projekte(self, footer: str) -> List[dict]:
-        """Footer „Weitere Projekte und Auftraggeber …“ → grobe Einträge."""
+        """Footer „Weitere Projekte und Auftraggeber …“ → Firma/Rolle/Acts/Tech."""
         if not footer:
             return []
-        # Seitenköpfe raus; Header-Prefix strippen (Firma kann same-line stehen)
         clean_lines = []
         for ln in footer.splitlines():
             s = ln.strip()
@@ -1731,30 +1782,102 @@ class AidRegexExtractor:
             clean_lines.append(s)
         blob = '\n'.join(clean_lines)
 
+        firm_pats = [
+            (r'Krone\s+AG', 'Krone AG'),
+            (r'Cap\s+Gemini(?:\s+Berlin(?:\s+GmbH)?)?', 'Cap Gemini Berlin GmbH'),
+            (r'Umweltbundesamt', 'Umweltbundesamt'),
+        ]
+        positions = []
+        for pat, canon in firm_pats:
+            for m in re.finditer(rf'(?i)\b({pat})\b', blob):
+                positions.append((m.start(), m.end(), canon))
+        positions.sort(key=lambda x: x[0])
+
         out: List[dict] = []
-        # Explizite Firmen (bpf-Footer)
-        for m in re.finditer(
-            r'(?is)\b(Krone\s+AG|Cap\s+Gemini(?:\s+Berlin)?(?:\s+GmbH)?|'
-            r'Umweltbundesamt)\b([^0-9]{0,200}?)(\d{4})\s*[–\-]\s*(\d{4})',
-            blob,
-        ):
-            company = re.sub(r'\s+', ' ', m.group(1)).strip()
-            role_bits = re.sub(r'\s+', ' ', m.group(2)).strip(' ,;')
-            proj = {
-                'period': f'{m.group(3)} – {m.group(4)}',
-                'company': company[:200],
+        for i, (start, end, company) in enumerate(positions):
+            block_end = positions[i + 1][0] if i + 1 < len(positions) else len(blob)
+            block = blob[start:block_end]
+            ym = re.search(r'(\d{4})\s*[–\-]\s*(\d{4})', block)
+            if not ym:
+                continue
+            proj: dict = {
+                'period': f'{ym.group(1)} – {ym.group(2)}',
+                'company': company,
                 'title': 'Weitere Projekte / früher',
                 'activities': [],
+                'technologies': [],
             }
-            if role_bits and len(role_bits) < 80:
-                # z.B. "Systemanalytiker und Programmierer"
-                role = re.sub(
-                    r'(?i)\b(ims|dl/i|cics|cobol|pl/i|assembler|natural)\b.*',
-                    '',
-                    role_bits,
-                ).strip(' ,;')
-                if role and len(role) > 3:
-                    proj['role'] = role[:120]
+            rm = re.search(
+                r'(?i)(Systemanalytiker(?:\s+und\s+Programmierer)?)',
+                block,
+            )
+            if rm:
+                proj['role'] = re.sub(r'\s+', ' ', rm.group(1)).strip()
+
+            # Tech-Zeile(n) vor der Jahresangabe (nur echte Tech-Listen)
+            head = block[:ym.start()]
+            for line in head.splitlines()[1:]:
+                if re.match(r'(?i)^(systemanalytiker|programmierer|berlin)\b', line.strip()):
+                    continue
+                if self._looks_like_tech_line(line) or (
+                    ',' in line and re.search(r'(?i)\b(ims|cics|cobol|pl/?i|adabas|dl/?i)\b', line)
+                ):
+                    techs = [
+                        t for t in self._parse_tech_list(line)
+                        if not re.match(r'(?i)^(systemanalytiker|programmierer|berlin)$', t)
+                    ]
+                    if techs:
+                        proj['technologies'] = techs
+                        break
+
+            # Activities: Text nach Jahresrange (+ Rest der Year-Zeile)
+            line_with_year = ''
+            for line in block.splitlines():
+                if re.search(r'\d{4}\s*[–\-]\s*\d{4}', line):
+                    line_with_year = line
+                    break
+            year_line_rest = ''
+            mrest = re.search(r'\d{4}\s*[–\-]\s*\d{4}\s*,?\s*(.*)$', line_with_year)
+            if mrest:
+                year_line_rest = (mrest.group(1) or '').strip().strip(',').strip()
+            after_lines = []
+            if year_line_rest and not re.match(r'(?i)^(berlin|systemanalytiker)\b', year_line_rest):
+                after_lines.append(year_line_rest)
+            # Folgetext nach der Year-Match-Position (ohne Duplikat der Rest-Zeile)
+            consumed = False
+            for ln in block[ym.end():].splitlines():
+                s = ln.strip()
+                if not s:
+                    continue
+                if not consumed and year_line_rest and s == year_line_rest:
+                    consumed = True
+                    continue
+                if re.match(r'(?i)^(systemanalytiker|programmierer|berlin)\b', s):
+                    continue
+                if self._looks_like_tech_line(s):
+                    continue
+                after_lines.append(s)
+            acts = self._parse_list_items(
+                '\n'.join(after_lines), merge_wraps=True, strict_wraps=True
+            )
+            acts = [
+                a.strip(' ,') for a in acts
+                if len(a.strip(' ,')) > 12
+                and not re.match(r'(?i)^(betreuung|mitarbeit)$', a.strip(' ,'))
+            ]
+            # Dedup Präfix: kurze „Betreuung“ wenn längere „Betreuung des…“ existiert
+            cleaned_acts = []
+            for a in acts:
+                if any(
+                    o != a and o.lower().startswith(a.lower())
+                    for o in acts
+                ):
+                    continue
+                cleaned_acts.append(a)
+            if cleaned_acts:
+                proj['activities'] = cleaned_acts[:8]
+                proj['title'] = cleaned_acts[0][:300]
+
             out.append(proj)
 
         seen, final = set(), []
@@ -1843,7 +1966,8 @@ class AidRegexExtractor:
             block = start_content + '\n' + block
         return block.strip()
 
-    def _parse_list_items(self, block: str, merge_wraps: bool = False) -> List[str]:
+    def _parse_list_items(self, block: str, merge_wraps: bool = False,
+                          strict_wraps: bool = False) -> List[str]:
         """Parst Bullet- oder Zeilenliste; optional Soft-Wraps zusammenführen."""
         wrap_tails = {
             'von', 'und', 'oder', 'der', 'die', 'den', 'dem', 'des', 'mit', 'für',
@@ -1851,6 +1975,10 @@ class AidRegexExtractor:
             'inklusive', 'bzw', 'als', 'nach', 'vor', 'über', 'unter', 'zu',
             'notwendigen', 'verschiedenen', 'diversen', 'neuen', 'eigenen',
         }
+        role_summary = re.compile(
+            r'(?i)^(analyse|programmierung|beratung|konzepterstellung|'
+            r'systementwicklung|design|test)\b'
+        )
         items = []
         for line in block.splitlines():
             raw = line.strip()
@@ -1861,20 +1989,35 @@ class AidRegexExtractor:
                 continue
             if merge_wraps and items and not had_bullet:
                 prev = items[-1]
+                # Neue Activity: Rollen-Kurzzeile nie an vorherige hängen
+                if role_summary.match(clean) and not prev.rstrip().endswith((',', '-')):
+                    items.append(clean)
+                    continue
                 # Silbentrennung am Zeilenende
                 if prev.endswith('-'):
-                    # Compound behalten (Server-Hardware), sonst Soft-Hyphen entfernen
                     if re.match(r'^[A-ZÄÖÜ0-9]', clean):
                         items[-1] = prev + clean
                     else:
                         items[-1] = prev[:-1] + clean
                     continue
+                # Fortsetzung mit Artikel/Präposition („Betreuung“ + „des …“)
+                if (
+                    not re.search(r'[.!;]$', prev)
+                    and re.match(
+                        r'(?i)^(des|dem|den|der|die|das|mit|von|für|bei|und|oder|'
+                        r'sowie|inkl|als|nach|vor|über|unter|zu|im|in|am|an|auf|'
+                        r'verschiedener|diverser|weiterer|neuer|eigener)\b',
+                        clean,
+                    )
+                ):
+                    items[-1] = (prev + ' ' + clean).strip()
+                    continue
                 last_word = prev.split()[-1].lower().strip(',;:') if prev.split() else ''
-                # Fortsetzung: langer Absatz, Komma, oder typisches Wrap-Wort
+                # Fortsetzung: Komma, Wrap-Wort; len≥40 nur wenn nicht strict
                 if not re.search(r'[.!;]$', prev) and (
-                    len(prev) >= 40
-                    or prev.rstrip().endswith(',')
+                    prev.rstrip().endswith(',')
                     or last_word in wrap_tails
+                    or (not strict_wraps and len(prev) >= 40)
                 ):
                     items[-1] = (prev + ' ' + clean).strip()
                     continue

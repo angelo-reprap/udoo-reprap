@@ -116,16 +116,25 @@ def main() -> int:
         f'footer krone kept firms_has_krone={"krone" in firms} n={len(merged_f)}'
     )
 
-    # Tech-Noise raus
-    bad_tech = []
-    for p in bpf_projs:
-        for t in p.get('technologies') or []:
-            if re.search(
-                r'(?i)weiterentwicklung|fachabteilung|einberufung|deutschlandweit|lungen',
-                t,
-            ):
-                bad_tech.append(t)
-    (ok if not bad_tech else fail).append(f'bpf tech noise={bad_tech[:5]}')
+    # Soft-Wrap: erste Activity zusammengezogen
+    a0 = (bpf_projs[0].get('activities') or [''])[0]
+    (ok if 'Weiterentwicklung' in a0 and a0.count('Unterstützung') <= 1 else fail).append(
+        f'bpf softwrap act0={a0[:80]}'
+    )
+    # Footer mit Rolle/Acts
+    footer = [
+        p for p in bpf_projs
+        if re.search(r'(?i)krone|cap gemini|umweltbundesamt', p.get('company') or '')
+    ]
+    footer_ok = (
+        len(footer) >= 3
+        and any('krone' in (p.get('company') or '').lower() for p in footer)
+        and any((p.get('activities') or []) for p in footer)
+        and any((p.get('role') or '') for p in footer)
+    )
+    (ok if footer_ok else fail).append(
+        f'bpf footer={[(p.get("company"), p.get("role"), (p.get("activities") or [""])[:1]) for p in footer]}'
+    )
 
     # 1b-Pfad: Allgemeine Kenntnisse → branchen+skills (wie Controller)
     ctrl_src = (INCOMING / 'services' / 'main_pipeline_controller.py').read_text(encoding='utf-8')

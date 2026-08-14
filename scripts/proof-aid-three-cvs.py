@@ -35,11 +35,12 @@ CVS = [
         'last': 'Pfirrmann',
         'expect': {
             'is_aid': True,
-            'min_projects': 18,  # Format-B/bpf inkl. 07/1989–04/1990
-            'min_skills': 0,     # inline-Kenntnisse, oft erst via LLM
+            'min_projects': 28,  # DE-Monate + numerisch + Footer
+            'min_skills': 20,    # Allgemeine Kenntnisse via 1b
             'min_focus': 0,
             'birth_year': None,  # optional
-            'must_periods': ['07/1989', '01/1990', '04/1990', '12/2004'],
+            'must_periods': ['07/1989', '01/1990', '04/1990', '12/2004', '03/2021', '09/2018'],
+            'must_companies': ['St. Gallen', 'Krone', 'ekom21'],
         },
     },
     {
@@ -73,12 +74,26 @@ def analyze(ctrl, aid, pdf_mod, cv: dict) -> dict:
     full = '\n'.join(lines)
     clean = aid._strip_page_headers(full)
     personal = aid._extract_personal(clean, cv['first'], cv['last'])
-    skills = aid._extract_skill_tables(clean)
+    skills = list(aid._extract_skill_tables(clean) or [])
+    allg_skills, allg_branchen = aid._extract_allgemeine_kenntnisse(clean)
+    if allg_skills:
+        seen = {(s.get('name') or '').lower() for s in skills}
+        for s in allg_skills:
+            lw = (s.get('name') or '').lower()
+            if lw and lw not in seen:
+                skills.append(s)
+                seen.add(lw)
     focus = aid._extract_focus_experience(clean)
     projects = aid._extract_projekte(clean)
     headline = aid._extract_headline(clean)
     fach = aid._extract_fachbereiche(clean)
-    branchen = aid._extract_branchen(clean)
+    branchen = list(aid._extract_branchen(clean) or [])
+    if allg_branchen:
+        seen_b = {b.lower() for b in branchen}
+        for b in allg_branchen:
+            if b.lower() not in seen_b:
+                branchen.append(b)
+                seen_b.add(b.lower())
     certs = aid._extract_zertifikate(clean)
     edu = list(aid._extract_ausbildung(clean) or []) + list(aid._extract_schulungen(clean) or [])
     opswat_skill = any('opswat' in (s.get('name') or '').lower() for s in skills)
@@ -98,6 +113,15 @@ def analyze(ctrl, aid, pdf_mod, cv: dict) -> dict:
     if exp.get('must_periods'):
         blob = ' '.join(p.get('period') or '' for p in projects)
         checks['must_periods'] = all(mp in blob for mp in exp['must_periods'])
+    if exp.get('must_companies'):
+        cblob = ' '.join(p.get('company') or '' for p in projects).lower()
+        checks['must_companies'] = all(c.lower() in cblob for c in exp['must_companies'])
+    # Soft-Wrap smoke (nur bpf wenn DE-Monate)
+    if cv['id'] == 'pfirrmann_peter' and projects:
+        a0 = (projects[0].get('activities') or [''])[0]
+        checks['softwrap'] = 'Weiterentwicklung' in a0 and 'Wartung und Weiter' in a0.replace('  ', ' ')
+        footer = [p for p in projects if 'krone' in (p.get('company') or '').lower()]
+        checks['footer_krone_acts'] = bool(footer and (footer[0].get('activities') or []))
 
     return {
         'id': cv['id'],
