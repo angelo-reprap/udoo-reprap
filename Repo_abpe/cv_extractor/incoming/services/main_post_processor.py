@@ -5,13 +5,13 @@ Läuft NACH pre_json Extraktion, VOR DB-Import.
 Alles im RAM — kein Disk-Zugriff.
 
 Schritte (regelbasiert, schnell):
-  1. Rollen bereinigen       — role aus title wenn leer, zu lange kürzen
+  1. Rollen bereinigen       — title→role NUR wenn Title wie Rolle aussieht
   2. Technologien bereinigen — Duplikate, Stopwords, zu kurze
-  3. Aktivitäten bereinigen  — Duplikate, zu kurze
+  3. Aktivitäten bereinigen  — Soft-Wrap-Fragmente mergen (nichts löschen)
   4. EDV-seit berechnen      — aus ältestem Projekt
   5. Token-Coverage prüfen   — wie viel % vom PDF wurde extrahiert?
   6. Fehlende Tokens LLM     — klassifiziert als skill/product/irrelevant
-  7. Fehlende Skills         — in skill_ablage eintragen (nicht überschreiben)
+  7. Fehlende Skills         — in skill_ablage eintragen (dict-sicher)
 
 Singleton: main_post_processor
 """
@@ -40,6 +40,19 @@ TECH_STOPWORDS = {
     'und', 'and', 'mit', 'with', 'the', 'or', 'oder',
     'etc', 'u.a.', 'z.b.', 'e.g.', 'various', 'verschiedene',
 }
+
+_INCOMPLETE_END_RE = re.compile(
+    r'(?i)(-|/|\bund|\boder|\beiner|\beines|\beine|\bder|\bdie|\bdas|'
+    r'\bden|\bdem|\bdes|\bvon|\bzu[rm]?|\bbei|\bmit|\bfür|\bdurch|'
+    r'\binfolge|\baufgrund)$'
+)
+
+_ROLE_HINT_RE = re.compile(
+    r'(experte|expertin|engineer|administrator|berater|consultant|'
+    r'entwickler|architekt|spezialist|analyst|operator|manager|'
+    r'lead|senior|junior|programmierer|supporter|dozent)',
+    re.IGNORECASE,
+)
 
 
 @dataclass
@@ -112,20 +125,13 @@ class MainPostProcessor:
 
     def _clean_roles(self, exps: List[dict]) -> Tuple[List[dict], List[str]]:
         fixes = []
-        # Typische Rollen-Wörter (abcona: Rolle landete fälschlich in company)
-        role_hint = re.compile(
-            r'(experte|expertin|engineer|administrator|berater|consultant|'
-            r'entwickler|architekt|spezialist|analyst|operator|manager|'
-            r'consultant|lead|senior|junior)',
-            re.IGNORECASE,
-        )
         for exp in exps:
             role  = (exp.get('role',  '') or '').strip()
             title = (exp.get('title', '') or '').strip()
             company = (exp.get('company', '') or '').strip()
 
             # company sieht aus wie Jobtitel, role leer → tauschen
-            if company and not role and role_hint.search(company) and len(company) < 80:
+            if company and not role and _ROLE_HINT_RE.search(company) and len(company) < 80:
                 exp['role'] = company
                 exp['company'] = ''
                 fixes.append(f"ROLLE aus COMPANY: '{company}'")
@@ -140,18 +146,38 @@ class MainPostProcessor:
                 )
                 if m:
                     exp['company'] = m.group(1).strip()[:200]
-                    exp['role'] = title or ''
+                    exp['role'] = ''
                     fixes.append(f"COMPANY aus ROLE-Label: '{exp['company']}'")
-                    role = exp.get('role', '') or ''
+                    role = ''
 
-            if not role and title:
-                exp['role'] = title
-                fixes.append(f"ROLLE aus TITLE: '{title}'")
+            # Title → Role NUR wenn Title wie eine Rolle aussieht
+            if not role and title and self._title_looks_like_role(title):
+                exp['role'] = title[:100]
+                fixes.append(f"ROLLE aus TITLE: '{exp['role']}'")
             role = exp.get('role', '') or ''
-            if len(role) > 100:
-                exp['role'] = role[:100].rsplit(' ', 1)[0]
+            if len(role) > 160:
+                exp['role'] = role[:160].rsplit(' ', 1)[0]
                 fixes.append(f"ROLLE gekuerzt: '{exp['role']}'")
         return exps, fixes
+
+    @staticmethod
+    def _title_looks_like_role(title: str) -> bool:
+        t = (title or '').strip()
+        if not t or len(t) > 80:
+            return False
+        if t.endswith(':') or t.count(',') >= 2:
+            return False
+        if re.search(
+            r'(?i)(support|administration|erweiterung|migration|'
+            r'programmierung|entwicklung|projektbeschreibung)',
+            t,
+        ):
+            return False
+        return bool(
+            _ROLE_HINT_RE.search(t)
+            or re.search(r'(?i)(betreuung|zertifiziert|altersvorsorge)', t)
+        )
+
     # ── 2. Technologien bereinigen ────────────────────────────────────────
 
     def _clean_technologies(self, exps: List[dict]) -> Tuple[List[dict], List[str]]:
@@ -181,25 +207,35 @@ class MainPostProcessor:
     # ── 3. Aktivitäten bereinigen ─────────────────────────────────────────
 
     def _clean_activities(self, exps: List[dict]) -> Tuple[List[dict], List[str]]:
+        """Duplikate raus; kurze Soft-Wrap-Fragmente anhängen — Inhalt behalten."""
         fixes = []
         for exp in exps:
             acts = exp.get('activities', [])
             if not acts:
                 continue
-            seen  = set()
-            clean = []
+            merged = []
             for a in acts:
                 if not isinstance(a, str):
                     continue
                 a = a.strip()
-                if len(a) < 10:
+                if not a:
                     continue
+                # Nur Soft-Wrap-Fortsetzung anhängen; kurze Keywords (Analyse) behalten
+                if merged and _INCOMPLETE_END_RE.search(merged[-1].rstrip()):
+                    merged[-1] = f'{merged[-1].rstrip()} {a}'.strip()
+                    continue
+                merged.append(a)
+
+            seen = set()
+            clean = []
+            for a in merged:
                 key = a.lower()[:60]
                 if key in seen:
                     continue
                 seen.add(key)
                 clean.append(a)
-            if len(clean) != len(acts):
+
+            if clean != [x for x in acts if isinstance(x, str) and x.strip()]:
                 fixes.append(
                     f"ACT: {len(acts)}→{len(clean)} "
                     f"bei '{exp.get('period', '')}'")
@@ -213,14 +249,10 @@ class MainPostProcessor:
         exps  = result.get('extracted_data', {}).get('experience', [])
         years = []
         for e in exps:
-            period = e.get('period', '')
-            if not period:
-                continue
-            found = re.findall(r'\b(19|20)\d{2}\b', period)
-            for y in found:
+            period = e.get('period', '') or ''
+            for y in re.findall(r'\b((?:19|20)\d{2})\b', period):
                 try:
-                    yr = int(y + period[period.find(y)+4:period.find(y)+6]
-                             if False else y)
+                    yr = int(y)
                     if 1970 <= yr <= 2030:
                         years.append(yr)
                 except Exception:
@@ -229,7 +261,7 @@ class MainPostProcessor:
             edv_since = min(years)
             personal  = result['extracted_data'].setdefault('personal', {})
             old       = personal.get('edv_experience_since')
-            if not old or old > edv_since:
+            if not old or (isinstance(old, int) and old > edv_since):
                 personal['edv_experience_since'] = edv_since
                 fixes.append(f"EDV_SEIT: {old}→{edv_since}")
                 logger.info(f"  [PostProcessor] EDV seit: {edv_since}")
@@ -295,18 +327,23 @@ class MainPostProcessor:
             f"{len(pp.missing_products)} Produkte"
         )
 
-        # Fehlende Skills in skill_ablage eintragen
+        # Fehlende Skills in skill_ablage eintragen (dict-sicher)
         if pp.missing_skills:
-            existing_ablage = set(
-                s.lower() for s in ed.get('skill_ablage', [])
-            )
+            ablage = ed.setdefault('skill_ablage', [])
+            existing = set()
+            for s in ablage:
+                if isinstance(s, dict):
+                    existing.add((s.get('name') or '').strip().lower())
+                elif isinstance(s, str):
+                    existing.add(s.strip().lower())
             added = 0
             for skill in pp.missing_skills:
-                if (skill and len(skill) > 2 and
-                        skill.lower() not in existing_ablage):
-                    ed.setdefault('skill_ablage', []).append(skill)
-                    existing_ablage.add(skill.lower())
-                    added += 1
+                name = (skill if isinstance(skill, str) else str(skill or '')).strip()
+                if not name or len(name) <= 2 or name.lower() in existing:
+                    continue
+                ablage.append({'name': name, 'category': 'Sonstige Skills'})
+                existing.add(name.lower())
+                added += 1
             if added:
                 pp.auto_added_skills = added
                 fixes.append(f"AUTO_SKILLS: +{added} in skill_ablage")
@@ -327,6 +364,27 @@ class MainPostProcessor:
             if t.lower() not in IGNORE_TOKENS
         }
 
+    @staticmethod
+    def _as_text_parts(obj) -> List[str]:
+        """Dict/List/str → Textteile für Tokenisierung (kein str(dict)-Müll)."""
+        if obj is None:
+            return []
+        if isinstance(obj, str):
+            return [obj] if obj.strip() else []
+        if isinstance(obj, dict):
+            parts = []
+            for k in ('name', 'degree', 'institution', 'title', 'content', 'category'):
+                v = obj.get(k)
+                if isinstance(v, str) and v.strip():
+                    parts.append(v)
+            return parts
+        if isinstance(obj, list):
+            out = []
+            for x in obj:
+                out.extend(MainPostProcessor._as_text_parts(x))
+            return out
+        return [str(obj)]
+
     def _get_pdf_tokens(self, pdf_path: str) -> Set[str]:
         if pdf_path.lower().endswith(('.doc', '.docx')):
             from apps.cv_extractor.services.main_word_extractor import MainWordExtractor
@@ -345,40 +403,33 @@ class MainPostProcessor:
         meta     = result.get('metadata', {})
 
         for v in meta.values():
-            if isinstance(v, str):
-                parts.append(v)
+            parts.extend(self._as_text_parts(v))
 
-        personal = ed.get('personal', {})
-        for v in personal.values():
-            if isinstance(v, str):
-                parts.append(v)
-            elif isinstance(v, list):
-                parts.extend([str(x) for x in v])
+        parts.extend(self._as_text_parts(ed.get('personal', {})))
 
         for proj in ed.get('experience', []):
+            if not isinstance(proj, dict):
+                continue
             parts.extend([
-                proj.get('period', ''),
-                proj.get('company', ''),
-                proj.get('role', ''),
+                proj.get('period', '') or '',
+                proj.get('company', '') or '',
+                proj.get('role', '') or '',
+                proj.get('title', '') or '',
             ])
-            parts.extend(proj.get('activities', []))
-            parts.extend(proj.get('technologies', []))
+            parts.extend(self._as_text_parts(proj.get('activities', [])))
+            parts.extend(self._as_text_parts(proj.get('technologies', [])))
 
-        for cert in ed.get('certifications', []):
-            parts.append(cert.get('name', ''))
+        parts.extend(self._as_text_parts(ed.get('certifications', [])))
+        parts.extend(self._as_text_parts(ed.get('industries', [])))
+        parts.extend(self._as_text_parts(ed.get('focus_areas', [])))
+        parts.extend(self._as_text_parts(ed.get('focus_experience', [])))
+        parts.extend(self._as_text_parts(ed.get('skill_ablage', [])))
+        parts.extend(self._as_text_parts(ed.get('education', [])))
 
-        parts.extend(ed.get('industries', []))
-        parts.extend(ed.get('focus_areas', []))
-        parts.extend(ed.get('focus_experience', []))
-        parts.extend(ed.get('skill_ablage', []))
+        for skill_list in (ed.get('skills') or {}).values():
+            parts.extend(self._as_text_parts(skill_list))
 
-        for edu in ed.get('education', []):
-            parts.append(edu.get('degree', ''))
-
-        for skill_list in ed.get('skills', {}).values():
-            parts.extend(skill_list)
-
-        return self._tokenize(' '.join(str(p) for p in parts))
+        return self._tokenize(' '.join(str(p) for p in parts if p))
 
     def _classify_missing(self, missing_tokens: List[str],
                           context: str) -> Dict[str, List[str]]:
