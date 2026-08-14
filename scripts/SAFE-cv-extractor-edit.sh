@@ -63,11 +63,23 @@ _save_all() {
   done
 }
 
-_pull_files() {
-  cd "$REPO"
+_git_pull_rebase() {
+  # ucs5 oft divergent (lokale artifacts-Commits, Push per Password failt)
   git fetch origin "$BRANCH"
   git checkout "$BRANCH"
-  git pull origin "$BRANCH" || true
+  if ! git pull --rebase origin "$BRANCH"; then
+    echo "ERROR: git pull --rebase fehlgeschlagen (Konflikte?)." >&2
+    echo "  Status:  git status -sb" >&2
+    echo "  Abort:   git rebase --abort" >&2
+    echo "  Hart auf Origin (verliert lokale Commits):" >&2
+    echo "    git fetch origin && git reset --hard origin/$BRANCH" >&2
+    return 1
+  fi
+}
+
+_pull_files() {
+  cd "$REPO"
+  _git_pull_rebase || true
   echo ">>> Live → Repo (1:1 nur Fix-Liste)"
   for rel in "${FILES[@]}"; do
     src="$LIVE_CV/$rel"
@@ -94,7 +106,7 @@ _pull_files() {
 
 _deploy_files() {
   cd "$REPO"
-  git pull origin "$BRANCH"
+  _git_pull_rebase
   echo ">>> Repo → Live (nur Fix-Liste)"
   for rel in "${FILES[@]}"; do
     src="$SRC/$rel"
