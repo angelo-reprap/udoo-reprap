@@ -189,6 +189,53 @@ def main() -> int:
         'noise filter skill-header'
     )
 
+    # Fill: leere LLM-Hülle darf Seed-Inhalt nicht verwerfen (Merge-Enrich)
+    seed_full = {
+        'period': '03/2024 – 03/2024',
+        'company': 'Fortinet GmbH',
+        'role': 'Engineer',
+        'activities': ['NSE4 Training und Lab'],
+        'technologies': ['FortiGate'],
+    }
+    llm_shell = {
+        'period': '03/2024 – 03/2024',
+        'company': 'Fortinet GmbH',
+        'role': '',
+        'activities': [],
+        'technologies': [],
+    }
+    enriched = base._merge_experience([seed_full], [llm_shell])
+    enr_acts = (enriched[0].get('activities') if enriched else []) or []
+    (ok if len(enriched) == 1 and 'NSE4' in (enr_acts[0] if enr_acts else '') else fail).append(
+        f'fill enrich shell→seed acts={enr_acts} n={len(enriched)}'
+    )
+
+    # Fill: normalize leeres LLM + Format-A Text → Regex-Fallback
+    sample_a = (
+        "Zeitraum:\n03/2024 – 03/2024\n"
+        "Kunde / Branche:\nFortinet GmbH\n"
+        "Rolle / Position:\nSecurity Engineer\n"
+        "Aufgaben:\n• NSE4 Kurs\n"
+    )
+    filled, used_fb = base._normalize_project_fill(sample_a, {})
+    (ok if used_fb and filled and '03/2024' in (filled[0].get('period') or '') else fail).append(
+        f'fill normalize empty-llm fb={used_fb} filled={filled[:1]}'
+    )
+    # Junk-LLM ohne Experience-Felder → Fallback
+    filled2, used2 = base._normalize_project_fill(sample_a, {'note': 'not a project', 'ok': True})
+    (ok if filled2 and base._usable_experience(filled2[0]) else fail).append(
+        f'fill normalize junk-llm n={len(filled2)} used_fb={used2}'
+    )
+
+    # Seed-Match aus Gruppentext
+    hit = base._match_seed_for_group_text(
+        "Projekt 03/2024 bei Fortinet GmbH\nAufgaben ...",
+        [seed_full, {'period': '01/2020 – 02/2020', 'company': 'Other', 'activities': ['x']}],
+    )
+    (ok if hit and 'Fortinet' in (hit.get('company') or '') else fail).append(
+        f'fill seed-match={hit.get("company") if hit else None}'
+    )
+
     # Troschke unverändert
     tt = aid._strip_page_headers(full('AID-tt_1.2.4.2.pdf'))
     (ok if len(aid._extract_projekte(tt)) >= 17 else fail).append(

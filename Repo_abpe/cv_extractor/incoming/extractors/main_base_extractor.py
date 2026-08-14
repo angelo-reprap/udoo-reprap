@@ -190,11 +190,21 @@ def _aid_regex_project_fallback(text: str, exp: dict) -> dict:
         return out
     regex_proj = None
     try:
-        from apps.cv_extractor.extractors.aid_regex_extractor import aid_regex_extractor
-        regex_proj = aid_regex_extractor._parse_projekt_block_a(text)
+        aid_ex = None
+        try:
+            from apps.cv_extractor.extractors.aid_regex_extractor import aid_regex_extractor as aid_ex
+        except Exception:
+            import importlib.util
+            from pathlib import Path
+            p = Path(__file__).resolve().parent / 'aid_regex_extractor.py'
+            spec = importlib.util.spec_from_file_location('_aid_regex_fb', p)
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            aid_ex = mod.aid_regex_extractor
+        regex_proj = aid_ex._parse_projekt_block_a(text)
         if not isinstance(regex_proj, dict) or not _usable_experience(regex_proj):
             # bpf / Format B: MM/YYYY – MM/YYYY Firma auf einer Zeile
-            b_list = aid_regex_extractor._extract_projekte_format_b(text)
+            b_list = aid_ex._extract_projekte_format_b(text)
             if b_list:
                 regex_proj = b_list[0]
     except Exception:
@@ -208,6 +218,72 @@ def _aid_regex_project_fallback(text: str, exp: dict) -> dict:
         if cur in (None, '', [], {}):
             out[key] = val
     return out
+
+
+def _normalize_project_fill(text: str, data) -> tuple:
+    """
+    LLM-Ergebnis → Liste nutzbarer Experience-Dicts.
+    Immer Regex-Overlay; wenn leer → reiner Format-A/B-Fallback.
+    Returns: (experiences: list[dict], used_regex_fallback: bool)
+    """
+    if not isinstance(data, dict):
+        data = {}
+    candidates = []
+    if isinstance(data.get('experience'), dict):
+        candidates = [data['experience']]
+    elif isinstance(data.get('experience'), list):
+        candidates = [e for e in data['experience'] if isinstance(e, dict)]
+    elif any(
+        (data.get(k) not in (None, '', [], {}))
+        for k in ('period', 'company', 'role', 'title', 'activities', 'technologies')
+    ):
+        candidates = [data]
+
+    filled = []
+    for e in candidates:
+        e2 = _regex_fill_experience_from_text(text, e)
+        e2 = _aid_regex_project_fallback(text, e2)
+        if _usable_experience(e2):
+            filled.append(e2)
+
+    used_fb = False
+    if not filled:
+        fb = _aid_regex_project_fallback(
+            text, _regex_fill_experience_from_text(text, {})
+        )
+        if _usable_experience(fb):
+            filled = [fb]
+            used_fb = True
+    return filled, used_fb
+
+
+def _match_seed_for_group_text(text: str, seeded: list) -> dict:
+    """Wenn Fill leer: Seed-Projekt anhand Zeitraum/Firma im Gruppentext."""
+    if not (text or '').strip() or not seeded:
+        return {}
+    text_l = text.lower()
+    best, best_score = None, 0
+    for e in seeded:
+        if not _usable_experience(e):
+            continue
+        score = 0
+        period = e.get('period') or ''
+        for d in re.findall(r'\d{1,2}[./]\d{4}', period):
+            variants = {d, d.replace('.', '/'), d.replace('/', '.')}
+            if any(v in text for v in variants):
+                score += 2
+        co = (e.get('company') or '').strip()
+        if len(co) >= 4 and co.lower()[:16] in text_l:
+            score += 3
+        role = (e.get('role') or '').strip()
+        if len(role) >= 4 and role.lower()[:16] in text_l:
+            score += 1
+        if score > best_score:
+            best_score = score
+            best = e
+    if best_score >= 2 and best is not None:
+        return dict(best)
+    return {}
 
 
 def _period_date_key(exp) -> str:
@@ -247,11 +323,73 @@ def _activity_fingerprint(exp) -> str:
 
 
 def _acts_similar(a: str, b: str) -> bool:
-    """True wenn Activities zusammengehören (kein zweites Parallel-Projekt)."""
+    """True wenn Activities zusammengehören (kein zweites Parallel-Projekt).
+
+    Leere Fingerprints: gleicher Slot (LLM-Hülle vs. Seed) → mergen, nicht
+    als zweites Projekt werten. Beide leer = gleiches leeres Projekt.
+    """
     a, b = (a or '').strip().lower(), (b or '').strip().lower()
+    if not a and not b:
+        return True
     if not a or not b:
         return True
     return a[:28] in b or b[:28] in a
+
+
+def _experience_richness(exp) -> int:
+    """Grober Score: ob Seed/LLM mehr Inhalt hat (Fill-Merge)."""
+    if not isinstance(exp, dict):
+        return 0
+    score = 0
+    for k in ('period', 'company', 'role', 'title', 'industry', 'location'):
+        if (exp.get(k) or '').strip():
+            score += 1
+    acts = exp.get('activities') or []
+    techs = exp.get('technologies') or []
+    if isinstance(acts, list):
+        score += min(4, len([a for a in acts if (a or '').strip()]))
+    if isinstance(techs, list):
+        score += min(3, len([t for t in techs if (t or '').strip()]))
+    return score
+
+
+def _merge_experience_fields(base: dict, donor: dict) -> dict:
+    """Füllt leere Felder in base aus donor (LLM-Hülle ← Seed)."""
+    if not isinstance(base, dict):
+        base = {}
+    out = dict(base)
+    if not isinstance(donor, dict):
+        return _clean_experience_technologies(out)
+    for key, val in donor.items():
+        if val in (None, '', [], {}):
+            continue
+        cur = out.get(key)
+        if cur in (None, '', [], {}):
+            out[key] = val
+            continue
+        if key in ('activities', 'technologies') and isinstance(cur, list) and isinstance(val, list):
+            if len(cur) >= len(val):
+                continue
+            seen = {
+                re.sub(r'\s+', ' ', str(x).strip().lower())
+                for x in cur if (x or '').strip()
+            }
+            merged = list(cur)
+            for x in val:
+                s = re.sub(r'\s+', ' ', str(x).strip())
+                if not s:
+                    continue
+                lw = s.lower()
+                if lw in seen:
+                    continue
+                merged.append(x)
+                seen.add(lw)
+            out[key] = merged
+        elif key in ('company', 'role', 'title', 'period') and isinstance(cur, str) and isinstance(val, str):
+            # Seed länger/informativer und Base sehr kurz → Seed bevorzugen
+            if len(val.strip()) > len(cur.strip()) + 8 and len(cur.strip()) < 12:
+                out[key] = val
+    return _clean_experience_technologies(out)
 
 
 def _period_key(exp) -> str:
@@ -381,7 +519,20 @@ def _merge_experience(seed, llm) -> list:
             seen_groups[gk] = [fp]
             out.append(_clean_experience_technologies(e))
             return True
-        if any(_acts_similar(fp, ex) for ex in existing):
+        # Gleicher Slot (inkl. leere LLM-Hülle vs. voller Seed) → anreichern
+        for i, item in enumerate(out):
+            if _group_key(item) != gk:
+                continue
+            if not _acts_similar(fp, _activity_fingerprint(item)):
+                continue
+            if source == 'seed' or _experience_richness(e) > _experience_richness(item):
+                out[i] = _merge_experience_fields(item, e)
+            else:
+                out[i] = _merge_experience_fields(e, item)
+            # Fingerprint-Liste aktualisieren (angereicherte Activity)
+            new_fp = _activity_fingerprint(out[i])
+            if new_fp and new_fp not in existing:
+                existing.append(new_fp)
             return False
         existing.append(fp)
         out.append(_clean_experience_technologies(e))
@@ -1169,84 +1320,64 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
     proj_gruppen = [lg for lg in labeled if lg['label'] in ('PROJECT', 'EXPERIENCE')]
     if proj_gruppen:
         print(f"  PROJEKTE: {len(proj_gruppen)} einzeln parallel...")
+        seeded_exp = [
+            e for e in (pre_json['extracted_data'].get('experience') or [])
+            if _usable_experience(e)
+        ]
 
         def _run_proj(lg):
             g = gruppen_by_idx.get(lg['index'])
             if not g:
-                return lg['index'], {}
+                return lg['index'], [], False
             text = gruppe_to_volltext(g, block_by_nr)
             if not text.strip():
-                return lg['index'], {}
+                return lg['index'], [], False
             data = MasterBaseExtractor(
                 'main_extract_experience', consultant_type
             ).extract(text)
-            # Regex-Overlay + Format-A Fallback (Zeitraum/Firma oft nächste Zeile)
-            if not isinstance(data, dict):
-                data = {}
-            if 'experience' in data and isinstance(data['experience'], dict):
-                exp = _regex_fill_experience_from_text(text, data['experience'])
-                exp = _aid_regex_project_fallback(text, exp)
-                data['experience'] = exp
-            elif isinstance(data.get('experience'), list):
-                filled = []
-                for e in data['experience']:
-                    if not isinstance(e, dict):
-                        continue
-                    e2 = _regex_fill_experience_from_text(text, e)
-                    e2 = _aid_regex_project_fallback(text, e2)
-                    filled.append(e2)
-                if not filled:
-                    fb = _aid_regex_project_fallback(
-                        text, _regex_fill_experience_from_text(text, {})
-                    )
-                    if _usable_experience(fb):
-                        filled = [fb]
-                data['experience'] = filled
-            else:
-                exp = _regex_fill_experience_from_text(text, data)
-                exp = _aid_regex_project_fallback(text, exp)
-                data = exp
-            return lg['index'], data
+            filled, used_fb = _normalize_project_fill(text, data)
+            if not filled:
+                # Letzter Versuch: Seed anhand Zeitraum/Firma im Gruppentext
+                seed_hit = _match_seed_for_group_text(text, seeded_exp)
+                if _usable_experience(seed_hit):
+                    filled = [seed_hit]
+                    used_fb = True
+            return lg['index'], filled, used_fb
 
         all_exp  = []
         proj_map = {}
         with ThreadPoolExecutor(max_workers=10) as ex:
             futs = {ex.submit(_run_proj, lg): lg['index'] for lg in proj_gruppen}
             for f in as_completed(futs):
-                idx, data = f.result()
-                proj_map[idx] = data
-                print(f"    Projekt {idx}: {'✅' if data else '❌'}")
+                idx, filled, used_fb = f.result()
+                proj_map[idx] = filled
+                ok = bool(filled) and any(_usable_experience(e) for e in filled)
+                tag = ' ✅' if ok else ' ❌'
+                if ok and used_fb:
+                    tag += ' (regex/seed-fallback)'
+                print(f"    Projekt {idx}:{tag}")
 
         for lg in proj_gruppen:
-            data = proj_map.get(lg['index'], {})
-            if not data:
-                # LLM leer → reiner Format-A Fallback aus Gruppentext
+            filled = proj_map.get(lg['index']) or []
+            if not filled:
                 g = gruppen_by_idx.get(lg['index'])
                 if not g:
                     continue
                 text = gruppe_to_volltext(g, block_by_nr)
-                fb = _aid_regex_project_fallback(
-                    text, _regex_fill_experience_from_text(text, {})
-                )
-                if _usable_experience(fb):
-                    all_exp.append(fb)
-                continue
-            if isinstance(data, list):
-                all_exp.extend(e for e in data if _usable_experience(e))
-            elif isinstance(data, dict):
-                exp = data.get('experience', data)
-                if isinstance(exp, list):
-                    all_exp.extend(e for e in exp if _usable_experience(e))
-                elif isinstance(exp, dict) and _usable_experience(exp):
-                    all_exp.append(exp)
+                fb_list, _ = _normalize_project_fill(text, {})
+                if not fb_list:
+                    seed_hit = _match_seed_for_group_text(text, seeded_exp)
+                    if _usable_experience(seed_hit):
+                        fb_list = [seed_hit]
+                filled = fb_list
+            all_exp.extend(e for e in filled if _usable_experience(e))
 
-        seeded_exp = pre_json['extracted_data'].get('experience') or []
         merged_exp = _merge_experience(seeded_exp, all_exp)
         pre_json['extracted_data']['experience'] = merged_exp
         if seeded_exp and len(merged_exp) != len(all_exp):
             print(
                 f"  {len(merged_exp)} Projekte extrahiert "
-                f"(llm={len(all_exp)} + regex-seed fehlende Perioden)"
+                f"(llm/fill={len(all_exp)} + regex-seed)"
             )
         else:
             print(f"  {len(merged_exp)} Projekte extrahiert")
