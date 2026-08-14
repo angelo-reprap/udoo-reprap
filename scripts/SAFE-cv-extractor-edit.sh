@@ -35,6 +35,7 @@ FILES=(
   generator/cv_display_utils.py
   enricher/main_extracted_to_db.py
   services/main_post_processor.py
+  services/main_db_importer.py
   services/aid_profile_publish.py
   services/main_pipeline_controller.py
   services/main_pdf_extractor.py
