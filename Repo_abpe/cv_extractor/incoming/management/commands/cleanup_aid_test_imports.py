@@ -140,20 +140,20 @@ class Command(BaseCommand):
                 )
             if ups.count() > 80:
                 self.stdout.write(f'  … +{ups.count() - 80} weitere')
-            cs = Consultant.objects.filter(
-                consultant_dir__in=list(
-                    ups.exclude(target_directory='')
-                    .values_list('target_directory', flat=True)
-                    .distinct()
-                )
-            ) | Consultant.objects.filter(
-                consultant_dir__in=list(
-                    ups.exclude(consultant_dir='')
-                    .values_list('consultant_dir', flat=True)
-                    .distinct()
-                )
+            dir_names = set(
+                ups.exclude(target_directory='')
+                .values_list('target_directory', flat=True)
+            ) | set(
+                ups.exclude(consultant_dir='')
+                .values_list('consultant_dir', flat=True)
             )
-            self.stdout.write(f'\nConsultants zu diesen Dirs: {cs.distinct().count()}')
+            cs = Consultant.objects.filter(consultant_dir__in=dir_names)
+            self.stdout.write(f'\nConsultants zu diesen Dirs: {cs.count()}')
+            for c in cs.order_by('consultant_dir')[:60]:
+                self.stdout.write(
+                    f"  {c.aid:22s}  {c.consultant_dir:35s}  "
+                    f"{c.created_at:%Y-%m-%d}"
+                )
             self.stdout.write(
                 '\nWeiter z.B.:\n'
                 '  python3 manage.py cleanup_aid_test_imports --preset tests --dry-run\n'
