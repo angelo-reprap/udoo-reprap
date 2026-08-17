@@ -50,6 +50,7 @@ if [[ "$COMPARE_ONLY" != "1" ]]; then
   echo "=== Scan $LETTER_DIR (neuestes AID-*.pdf pro nachname_vorname) ==="
   CAND="$OUT/candidates.tsv"
   : > "$CAND"
+  skip_n=0
 
   for person_dir in "$LETTER_DIR"/*; do
     [[ -d "$person_dir" ]] || continue
@@ -59,11 +60,13 @@ if [[ "$COMPARE_ONLY" != "1" ]]; then
     esac
 
     if [[ "$SKIP_EXISTING_NEU" == "1" ]]; then
+      # -quit: kein SIGPIPE/pipefail-Abbruch wenn mehrere AID-*.pdf existieren
       existing="$(
-        find "$person_dir/neu/cv" -maxdepth 1 -type f -iname 'AID-*.pdf' 2>/dev/null | head -1
+        find "$person_dir/neu/cv" -maxdepth 1 -type f -iname 'AID-*.pdf' \
+          -print -quit 2>/dev/null || true
       )"
       if [[ -n "$existing" ]]; then
-        echo "skip (neu/cv existiert): $dir"
+        skip_n=$((skip_n + 1))
         continue
       fi
     fi
@@ -73,11 +76,15 @@ if [[ "$COMPARE_ONLY" != "1" ]]; then
         ! -iname '*engl*' ! -iname '*_en.*' ! -iname '*-en.*' \
         ! -iname '*_alt*' ! -iname '*löschen*' ! -iname '*loeschen*' \
         -printf '%T@\t%p\n' 2>/dev/null \
-      | sort -nr | head -1 | cut -f2-
+      | sort -nr | head -1 | cut -f2- || true
     )"
     [[ -n "$pdf" && -f "$pdf" ]] || continue
     printf '%s\t%s\t%s\n' "$LETTER" "$dir" "$pdf" >> "$CAND"
   done
+
+  if [[ "$SKIP_EXISTING_NEU" == "1" ]]; then
+    echo "Übersprungen (neu/cv schon da): $skip_n"
+  fi
 
   total="$(wc -l < "$CAND" | tr -d ' ')"
   echo "Kandidaten: $total"
