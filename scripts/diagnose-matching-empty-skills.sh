@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Diagnose: Matching ohne / mit leeren required_skills
+# Diagnose: Matching Skills + MatchResult vs ProjectConsultant
 #
 # Auf ucs5:
 #   cd /mnt/public/udoo-reprap
@@ -16,7 +16,15 @@ cd "$BACKEND"
 export DJANGO_SETTINGS_MODULE="${DJANGO_SETTINGS_MODULE:-abpe_backend.settings}"
 
 "$PYBIN" - <<'PY'
-import os, json
+import os, sys
+backend = os.environ.get('BACKEND', '/opt/abpe/backend')
+if backend not in sys.path:
+    sys.path.insert(0, backend)
+os.environ.setdefault(
+    'DJANGO_SETTINGS_MODULE',
+    os.environ.get('DJANGO_SETTINGS_MODULE', 'abpe_backend.settings'),
+)
+
 import django
 django.setup()
 
@@ -44,7 +52,20 @@ for p in rows:
             names.append(s['name'])
         elif isinstance(s, str) and s.strip():
             names.append(s.strip())
-    pcs = ProjectConsultant.objects.filter(project=p).order_by('-match_score')[:8]
+
+    n_pc = ProjectConsultant.objects.filter(project=p).count()
+    n_mr = MatchResult.objects.filter(project_request=p).count()
+    pcs = (
+        ProjectConsultant.objects.filter(project=p)
+        .select_related('consultant_cv')
+        .order_by('-match_score')[:8]
+    )
+    mrs = (
+        MatchResult.objects.filter(project_request=p)
+        .select_related('consultant_cv')
+        .order_by('-overall_score')[:8]
+    )
+
     print()
     print(f'--- {p.project_number or p.id} | {p.title[:60]!r}')
     print(f'    id={p.id}')
@@ -52,26 +73,40 @@ for p in rows:
     print(f'    required_skills ({len(names)}): {names[:20]}')
     print(f'    nice_to_have ({len(nice)}): {nice[:10]!r}')
     print(f'    extracted_technologies ({len(tech)}): {tech[:15]!r}')
-    print(f'    ProjectConsultants: {ProjectConsultant.objects.filter(project=p).count()}')
+    print(f'    ProjectConsultants: {n_pc} | MatchResults (Shortlist-UI): {n_mr}')
+
     for pc in pcs:
-        c = getattr(pc, 'consultant', None)
+        c = getattr(pc, 'consultant_cv', None)
         cname = ''
-        if c:
-            cname = f'{getattr(c,"first_name","")} {getattr(c,"last_name","")}'.strip()
-        # match_details may hold display skills
+        aid = ''
+        if c is not None:
+            cname = (getattr(c, 'full_name', None)
+                     or f'{getattr(c, "first_name", "")} {getattr(c, "last_name", "")}'.strip())
+            aid = getattr(c, 'aid', '') or ''
         md = getattr(pc, 'match_details', None) or {}
         print(
-            f'      · score={pc.match_score:.3f} status={pc.status} '
-            f'{cname or pc.consultant_id} '
-            f'matched={getattr(pc,"matched_skills", None) or md.get("matched_skills")} '
-            f'missing={getattr(pc,"missing_skills", None) or md.get("missing_skills")}'
+            f'      PC · score={pc.match_score:.3f} status={pc.status} '
+            f'{cname or "?"} {aid} '
+            f'matched={md.get("matched_skills")}'
         )
 
-# Engine behaviour when skills empty
+    for r in mrs:
+        c = getattr(r, 'consultant_cv', None)
+        cname = ''
+        aid = ''
+        if c is not None:
+            cname = (getattr(c, 'full_name', None)
+                     or f'{getattr(c, "first_name", "")} {getattr(c, "last_name", "")}'.strip())
+            aid = getattr(c, 'aid', '') or ''
+        print(
+            f'      MR · score={r.overall_score:.3f} rank={r.rank} '
+            f'{cname or "?"} {aid} '
+            f'matched={r.matched_skills}'
+        )
+
 print()
-print('======== Engine-Regel bei leeren Skills ========')
-print('matching_engine._stage2_score:')
-print('  if required_original is empty → req_score = 1.0  (!)')
-print('  → overall ≈ 0.50*1.0 + industry + exp + loc  → Blindlinge ~45–70%')
-print('Fix-Richtung: req_score=0.0 wenn keine required_skills; Matching ablehnen/warnen.')
+print('======== Engine-Regel (aktuell) ========')
+print('  ohne required_skills → Matching bricht ab (keine Blindlinge)')
+print('  Shortlist-UI liest MatchResult, nicht ProjectConsultant')
+print('  Hinweis: Dieses Script löscht/ändert KEINE DB-Daten.')
 PY
