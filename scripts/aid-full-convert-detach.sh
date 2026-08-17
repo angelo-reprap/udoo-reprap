@@ -39,25 +39,31 @@ case "${1:-}" in
     else
       echo "NOT RUNNING (pidfile=$PIDFILE)"
     fi
+    LATEST_OUT=""
+    if [[ -f "$STATE_DIR/latest-path.txt" ]]; then
+      LATEST_OUT="$(cat "$STATE_DIR/latest-path.txt" | tr -d '\r')"
+    elif [[ -f "$STATE_DIR/latest/OUT_PATH" ]]; then
+      LATEST_OUT="$(cat "$STATE_DIR/latest/OUT_PATH" | tr -d '\r')"
+    fi
     if [[ -f "$STATE_DIR/latest.env" ]]; then
       echo "--- latest.env ---"
       cat "$STATE_DIR/latest.env"
     fi
-    if [[ -f "$STATE_DIR/latest/progress.txt" ]]; then
-      echo "--- progress ---"
-      cat "$STATE_DIR/latest/progress.txt"
-    fi
-    if [[ -f "$STATE_DIR/latest/summary.txt" ]]; then
-      echo "--- summary ---"
-      cat "$STATE_DIR/latest/summary.txt"
+    if [[ -n "$LATEST_OUT" ]]; then
+      echo "--- out: $LATEST_OUT ---"
+      [[ -f "$LATEST_OUT/progress.txt" ]] && { echo "--- progress ---"; cat "$LATEST_OUT/progress.txt"; }
+      [[ -f "$LATEST_OUT/summary.txt" ]] && { echo "--- summary ---"; cat "$LATEST_OUT/summary.txt"; }
+      if [[ -f "$LATEST_OUT/rework-summary.txt" ]]; then
+        echo "--- rework ---"
+        head -n 40 "$LATEST_OUT/rework-summary.txt"
+      fi
+      if [[ -f "$LATEST_OUT/failures.tsv" ]]; then
+        echo "--- failures (last 15) ---"
+        tail -n 15 "$LATEST_OUT/failures.tsv"
+      fi
     fi
     echo "--- log tail ($LOG_LINK) ---"
     tail -n 40 "$LOG_LINK" 2>/dev/null || true
-    if [[ -f "$STATE_DIR/latest/rework-summary.txt" ]]; then
-      echo "--- rework ---"
-      head -n 40 "$STATE_DIR/latest/rework-summary.txt"
-    fi
-    # quick disk
     ROOT="${AID_PROFILE_ROOT:-/mnt/public/Berater/AID_profile}"
     echo "--- disk ---"
     df -h "$ROOT" "$REPO" 2>/dev/null | sed 's/^/  /' || true

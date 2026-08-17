@@ -128,9 +128,11 @@ _neu_inventory() {
 
 # --- deploy publish fix (optional) ---
 if [[ "$DEPLOY_FIX" == "1" ]]; then
-  if [[ -x "$REPO/scripts/deploy-aid-publish-xml-fix.sh" ]]; then
+  _deploy="$REPO/scripts/deploy-aid-publish-xml-fix.sh"
+  if [[ -f "$_deploy" ]]; then
+    chmod +x "$_deploy" 2>/dev/null || true
     echo ">>> Deploy Publish-XML-Fix"
-    bash "$REPO/scripts/deploy-aid-publish-xml-fix.sh" || echo "WARN: deploy-fix fehlgeschlagen"
+    bash "$_deploy" || echo "WARN: deploy-fix fehlgeschlagen"
   else
     echo "WARN: deploy-aid-publish-xml-fix.sh fehlt — Live-Code unverändert"
   fi
@@ -198,9 +200,16 @@ fi
   echo "candidates=$total"
   echo "skip_neu=$skip_neu"
   echo "pid=$$"
+  echo "out=$OUT"
 } > "$STATE_DIR/latest.env"
-ln -sfn "$OUT" "$STATE_DIR/latest"
+# Kein Symlink: CIFS/SMB unter /mnt/public unterstützt oft keine ln -s
 echo "$OUT" > "$STATE_DIR/latest-path.txt"
+rm -rf "$STATE_DIR/latest" 2>/dev/null || true
+mkdir -p "$STATE_DIR/latest"
+# Pointer-Dateien statt Symlink (Status-Script liest latest/ + latest-path)
+printf '%s\n' "$OUT" > "$STATE_DIR/latest/OUT_PATH"
+# Fortschritt/Listen als relative Kopien der Pfade (Status liest aus OUT direkt via path)
+cp -f "$STATE_DIR/latest.env" "$STATE_DIR/latest/latest.env" 2>/dev/null || true
 
 if [[ "$total" -lt 1 ]]; then
   echo "Nichts zu tun (alle haben neu/cv oder keine PDFs)."
