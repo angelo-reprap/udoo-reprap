@@ -12,6 +12,10 @@
 # Alles unter bbb (detached empfohlen — dauert):
 #   LETTER=bbb bash scripts/batch-aid-letter-detach.sh
 #
+# Bekannte Versager überspringen (Queue nicht blockieren):
+#   LETTER=bbb SKIP_EXISTING_NEU=1 LIMIT=10 \
+#     SKIP_DIRS=barnekow_dirk,barth_juergen bash scripts/batch-aid-letter.sh
+#
 # Nur Manifest:
 #   LETTER=bbb DRY_RUN=1 bash scripts/batch-aid-letter.sh
 #
@@ -32,6 +36,8 @@ DRY_RUN="${DRY_RUN:-0}"
 IMPORT_ONLY="${IMPORT_ONLY:-0}"
 COMPARE_ONLY="${COMPARE_ONLY:-0}"
 SKIP_EXISTING_NEU="${SKIP_EXISTING_NEU:-0}"  # 1 = Dirs mit neu/cv AID-pdf überspringen
+# Komma-Liste von nachname_vorname, die nicht importiert werden (z.B. bekannte Publish-Fails)
+SKIP_DIRS="${SKIP_DIRS:-}"
 
 if [[ ! "$LETTER" =~ ^[a-z]{3}$ ]]; then
   echo "ERROR: LETTER muss 3 Kleinbuchstaben sein (z.B. bbb), got: $LETTER" >&2
@@ -52,12 +58,21 @@ if [[ "$COMPARE_ONLY" != "1" ]]; then
   : > "$CAND"
   skip_n=0
 
+  skip_dirs_n=0
   for person_dir in "$LETTER_DIR"/*; do
     [[ -d "$person_dir" ]] || continue
     dir="$(basename "$person_dir")"
     case "$dir" in
       neu|audit|ada|Neuer\ Ordner*) continue ;;
     esac
+
+    if [[ -n "$SKIP_DIRS" ]]; then
+      # ,dir, Match — keine Teilstring-Fallen
+      if [[ ",${SKIP_DIRS}," == *",${dir},"* ]]; then
+        skip_dirs_n=$((skip_dirs_n + 1))
+        continue
+      fi
+    fi
 
     if [[ "$SKIP_EXISTING_NEU" == "1" ]]; then
       # -quit: kein SIGPIPE/pipefail-Abbruch wenn mehrere AID-*.pdf existieren
@@ -84,6 +99,9 @@ if [[ "$COMPARE_ONLY" != "1" ]]; then
 
   if [[ "$SKIP_EXISTING_NEU" == "1" ]]; then
     echo "Übersprungen (neu/cv schon da): $skip_n"
+  fi
+  if [[ -n "$SKIP_DIRS" ]]; then
+    echo "Übersprungen (SKIP_DIRS): $skip_dirs_n  [$SKIP_DIRS]"
   fi
 
   total="$(wc -l < "$CAND" | tr -d ' ')"
