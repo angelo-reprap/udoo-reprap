@@ -13,7 +13,7 @@ PYBIN="${PYBIN:-/opt/abpe/venv311/bin/python}"
 PROJECT_ID="${PROJECT_ID:-}"
 
 cd "$BACKEND"
-export DJANGO_SETTINGS_MODULE="${DJANGO_SETTINGS_MODULE:-config.settings}"
+export DJANGO_SETTINGS_MODULE="${DJANGO_SETTINGS_MODULE:-abpe_backend.settings}"
 
 "$PYBIN" - <<'PY'
 import os, json

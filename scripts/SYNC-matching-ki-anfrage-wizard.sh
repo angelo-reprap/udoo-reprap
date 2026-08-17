@@ -387,6 +387,34 @@ PY
   find "$LIVE_CRM" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
 fi
 
+# ── Matching Workflow (Engine + Shortlist API) ───────────────────────────────
+LIVE_MW="${LIVE_MW:-/opt/abpe/backend/apps/abpe_matching_workflow}"
+if [[ -f "$TMP/Repo_abpe/abpe_matching_workflow/incoming/views.py" ]]; then
+  mkdir -p "$LIVE_MW/services"
+  ts=$(date +%Y%m%d-%H%M%S)
+  for rel in views.py services/matching_engine.py tasks.py; do
+    src="$TMP/Repo_abpe/abpe_matching_workflow/incoming/$rel"
+    dst="$LIVE_MW/$rel"
+    [[ -f "$src" ]] || continue
+    mkdir -p "$(dirname "$dst")"
+    if [[ -f "$dst" ]]; then
+      cp -a "$dst" "${dst}.bak-before-matching-sync-$ts"
+    fi
+    cp -a "$src" "$dst"
+    echo "OK — matching_workflow/$rel → $dst"
+  done
+  if ! grep -q "has_skills" "$LIVE_MW/views.py" \
+    || ! grep -q "no_skills" "$LIVE_MW/views.py"; then
+    echo "FEHLER: Live matching views.py ohne Shortlist-Skills/no_skills Guard"
+    exit 1
+  fi
+  if ! grep -q "würde Blindlinge liefern" "$LIVE_MW/services/matching_engine.py"; then
+    echo "FEHLER: Live matching_engine.py ohne Empty-Skills Guard"
+    exit 1
+  fi
+  find "$LIVE_MW" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+fi
+
 # ── Matching UI ──────────────────────────────────────────────────────────────
 if ! grep -q "phone_raw" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
   || ! grep -q "_fetchBeraterDetail" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
@@ -394,6 +422,10 @@ if ! grep -q "phone_raw" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
   || ! grep -q "saveMatchTerms" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js" \
   || ! grep -q "fillSkillsFromText" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js"; then
   echo "FEHLER: mod-matching.js ohne CRM/Terms/Skills-from-Text-Fix"
+  exit 1
+fi
+if ! grep -q "no_skills" "$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js"; then
+  echo "FEHLER: mod-matching.js ohne no_skills Handling"
   exit 1
 fi
 mkdir -p "$LIVE_UI/static/abpe_ui/js/mod"
