@@ -1,0 +1,153 @@
+{
+  "_info": {
+    "beschreibung": "PRE-JSON Struktur – Ergebnis der CV-Extraktion (pipeline.py)",
+    "pipeline_step": "extraction",
+    "gefuellt_von": "pipeline.py → extracted_to_db.py",
+    "gespeichert_in": "consultant.extracted_json_export (DB, NIE als Datei)",
+    "leer_nach_extraktion": ["normalized", "matching", "facets", "skill_graph", "statistics"]
+  },
+
+  "metadata": {
+    "aid": "",
+    "version": "",
+    "consultant_dir": "",
+    "first_name": "",
+    "last_name": "",
+    "headline": "",
+    "source": {
+      "type": "",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": ""
+    },
+    "pipeline": {
+      "version": "5.0",
+      "step": "extraction",
+      "extractor": "cv_extractor",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+
+  "extracted_data": {
+
+    "personal": {
+      "first_name": "",
+      "last_name": "",
+      "birth_year": null,
+      "nationality": "",
+      "languages": [],
+      "email": "",
+      "phone": "",
+      "location": "",
+      "availability": "",
+      "degree": "",
+      "edv_experience_since": null,
+      "headline": "",
+      "summary": ""
+    },
+
+    "professional": {
+      "total_experience_years": 0
+    },
+
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [],
+      "programming_languages": [],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+
+    "certifications": [
+      {
+        "name": "",
+        "issuer": "",
+        "date_obtained": "",
+        "expiry_date": ""
+      }
+    ],
+
+    "experience": [
+      {
+        "period": "",
+        "title": "",
+        "company": "",
+        "industry": "",
+        "role": "",
+        "location": "",
+        "activities": [],
+        "technologies": []
+      },
+      {
+        "period": "",
+        "title": "",
+        "company": "",
+        "industry": "",
+        "role": "",
+        "location": "",
+        "activities": [],
+        "technologies": []
+      }
+    ],
+
+    "industries": [],
+
+    "focus_areas": [],
+
+    "focus_experience": [],
+
+    "education": [
+      {
+        "degree": "",
+        "institution": "",
+        "period": "",
+        "description": "",
+        "education_type": "degree",
+        "issuer": ""
+      }
+    ],
+
+    "other": ""
+  },
+
+  "audit": {
+    "created_by": "cv_extractor",
+    "created_at": "",
+    "source_file": "",
+    "steps_completed": []
+  }
+}

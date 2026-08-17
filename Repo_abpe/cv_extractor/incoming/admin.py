@@ -1,0 +1,444 @@
+"""
+cv_extractor/admin.py – vollstaendig editierbarer Admin
+"""
+
+from django import forms
+from django.contrib import admin
+from django.utils.html import format_html
+from django.urls import reverse
+from . import models
+
+
+# ============================================================
+# INLINES
+# ============================================================
+
+class ExperienceInline(admin.TabularInline):
+    model      = models.Experience
+    extra      = 1
+    fields     = ['period', 'title', 'company', 'industry', 'role', 'location', 'sort_order']
+    ordering   = ['sort_order']
+
+
+class EducationInline(admin.TabularInline):
+    model    = models.Education
+    extra    = 1
+    fields   = ['degree', 'institution', 'period', 'education_type', 'issuer']
+    ordering = ['sort_order']
+
+
+class CertificationInline(admin.TabularInline):
+    model              = models.ConsultantCertification
+    extra              = 1
+    fields             = ['certification', 'date_obtained']
+    autocomplete_fields = ['certification']
+
+
+class IndustryInline(admin.TabularInline):
+    model              = models.ConsultantIndustry
+    extra              = 1
+    fields             = ['industry', 'weight']
+    autocomplete_fields = ['industry']
+
+
+class FocusAreaInline(admin.TabularInline):
+    model              = models.ConsultantFocusArea
+    extra              = 1
+    fields             = ['focus_area', 'weight']
+    autocomplete_fields = ['focus_area']
+
+
+class LanguageInline(admin.TabularInline):
+    model              = models.ConsultantLanguage
+    extra              = 1
+    fields             = ['language', 'level']
+    autocomplete_fields = ['language']
+
+
+class SkillInline(admin.TabularInline):
+    model              = models.ConsultantSkill
+    extra              = 1
+    fields             = ['skill', 'skill_category_display', 'weight', 'last_used_year']
+    readonly_fields    = ['skill_category_display']
+    autocomplete_fields = ['skill']
+    ordering           = ['-weight']
+
+    def skill_category_display(self, obj):
+        if obj.pk and obj.skill and obj.skill.category:
+            color = '#27ae60' if obj.weight >= 0.7 else '#3498db'
+            return format_html(
+                '<span style="color:{};font-weight:bold;">{}</span>',
+                color, obj.skill.category.name
+            )
+        return format_html('<span style="color:#e74c3c;">–</span>')
+    skill_category_display.short_description = 'Kategorie'
+
+
+class FocusExperienceInline(admin.TabularInline):
+    model  = models.FocusExperience
+    extra  = 1
+    fields = ['name', 'category', 'sort_order']
+
+
+# ============================================================
+# CONSULTANT FORM
+# ============================================================
+
+class ConsultantForm(forms.ModelForm):
+    """
+    Mehrfachwerte (email, phone, website) als Freitext-Felder.
+    Trennung durch Semikolon – z.B. a@b.de;c@d.de
+    """
+
+    class Meta:
+        model  = models.Consultant
+        fields = '__all__'
+        widgets = {
+            'first_name':  forms.TextInput(attrs={'size': 40}),
+            'last_name':   forms.TextInput(attrs={'size': 40}),
+            'headline':    forms.Textarea(attrs={'rows': 2, 'cols': 80}),
+            'summary':     forms.Textarea(attrs={'rows': 3, 'cols': 80}),
+            # Mehrfachwerte – bewusst CharField/Textarea
+            'email':   forms.TextInput(attrs={
+                'size': 80,
+                'placeholder': 'a@firma.de;privat@web.de'
+            }),
+            'phone':   forms.TextInput(attrs={
+                'size': 60,
+                'placeholder': '+49 123 456;+49 987 654'
+            }),
+            'website': forms.TextInput(attrs={
+                'size': 80,
+                'placeholder': 'https://firma.de;https://linkedin.com/in/x'
+            }),
+            'location':     forms.TextInput(attrs={'size': 40}),
+            'availability': forms.TextInput(attrs={'size': 30}),
+            'company':      forms.TextInput(attrs={'size': 50}),
+            'address':      forms.TextInput(attrs={'size': 60}),
+            'stand':         forms.TextInput(attrs={'size': 30}),
+            'hourly_rate':   forms.NumberInput(attrs={
+                'placeholder': 'z.B. 120  (EUR/Stunde)',
+                'style': 'width:150px'
+            }),
+            'placement_text': forms.TextInput(attrs={
+                'size': 40,
+                'placeholder': 'z.B. Auf Anfrage, Sehr gefragt, nach Absprache'
+            }),
+            'degree':       forms.TextInput(attrs={
+                'size': 50,
+                'placeholder': 'z.B. Dipl.-Ing., M.Sc., B.Sc., MBA'
+            }),
+            'extracted_json_export': forms.Textarea(attrs={
+                'rows': 20, 'cols': 120,
+                'style': 'font-family:monospace;font-size:11px;'
+            }),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].help_text   = 'Mehrere E-Mails mit Semikolon (;) trennen'
+        self.fields['phone'].help_text   = 'Mehrere Nummern mit Semikolon (;) trennen'
+        self.fields['website'].help_text = 'Mehrere URLs mit Semikolon (;) trennen'
+        self.fields['edv_experience_since'].help_text = 'Jahr der ersten EDV-Erfahrung'
+        self.fields['birth_year'].help_text = 'Geburtsjahr (z.B. 1965)'
+        self.fields['degree'].help_text     = 'Hoechster Abschluss (z.B. Dipl.-Ing., M.Sc.)'
+
+
+# ============================================================
+# HAUPT-ADMIN
+# ============================================================
+
+class CompleteConsultantAdmin(admin.ModelAdmin):
+    form = ConsultantForm
+    inlines = [
+        ExperienceInline, EducationInline, CertificationInline,
+        IndustryInline, FocusAreaInline, LanguageInline,
+        SkillInline, FocusExperienceInline,
+    ]
+
+    list_display   = ['aid', 'full_name_display', 'headline_short',
+                      'skills_count', 'projects_count', 'placement_text',
+                      'hourly_rate_display', 'status', 'created_at']
+    list_filter    = ['status', 'created_at', 'pipeline_version']
+    search_fields  = ['aid', 'first_name', 'last_name', 'headline', 'email', 'company']
+    readonly_fields = ['created_at', 'updated_at', 'skills_stats',
+                       'emails_display', 'phones_display', 'websites_display']
+
+    fieldsets = (
+        ('Identifikation', {
+            'fields': ('aid', 'version', 'consultant_dir', 'language', 'aid_base')
+        }),
+        ('Persoenliche Daten', {
+            'fields': ('first_name', 'last_name', 'birth_year', 'nationality', 'degree')
+        }),
+        ('Kontakt (Mehrfachwerte mit ; trennen)', {
+            'fields': ('email', 'emails_display',
+                       'phone', 'phones_display',
+                       'website', 'websites_display',
+                       'location'),
+            'description': (
+                '<div style="background:#fff3cd;padding:8px;border-radius:4px;margin-bottom:8px;">'
+                '⚠️ Mehrere Werte mit Semikolon (;) trennen: '
+                '<code>a@firma.de;b@web.de</code>'
+                '</div>'
+            ),
+        }),
+        ('Professionell', {
+            'fields': ('headline', 'summary', 'availability', 'edv_experience_since')
+        }),
+        ('Kopfbereich', {
+            'fields': ('company', 'address', 'stand'),
+            'classes': ('wide',)
+        }),
+        ('Vermittlung', {
+            'fields': ('hourly_rate', 'placement_text'),
+            'description': (
+                '<div style="background:#e8f4fd;padding:8px;border-radius:4px;margin-bottom:8px;">'
+                'Manuelle Felder – werden NICHT vom LLM gesetzt. '
+                'Stundensatz und Vermittlungsstatus sind individuell verhandelbar.'
+                '</div>'
+            ),
+        }),
+        ('Status & Pipeline', {
+            'fields': ('status', 'error_message', 'pipeline_version',
+                       'pipeline_step', 'pipeline_model')
+        }),
+        ('Skill-Statistiken', {
+            'fields': ('skills_stats',)
+        }),
+        ('JSON-Export (Entwicklung)', {
+            'fields': ('extracted_json_export',),
+            'classes': ('collapse',)
+        }),
+    )
+
+    # ── Display-Methoden ────────────────────────────────────────
+    def full_name_display(self, obj):
+        return f"{obj.first_name} {obj.last_name}".strip() or "–"
+    full_name_display.short_description = "Name"
+    full_name_display.admin_order_field = 'last_name'
+
+    def headline_short(self, obj):
+        return (obj.headline[:60] + "…") if len(obj.headline) > 60 else obj.headline
+    headline_short.short_description = "Headline"
+
+    def skills_count(self, obj):
+        n = obj.skills.count()
+        return format_html('<span style="color:#3498db;">{}</span>', n)
+    skills_count.short_description = "Skills"
+
+    def projects_count(self, obj):
+        n = obj.experience.count()
+        return format_html('<span style="color:#3498db;">{}</span>', n)
+    projects_count.short_description = "Projekte"
+
+    def hourly_rate_display(self, obj):
+        if obj.hourly_rate:
+            return format_html(
+                '<span style="color:#27ae60;font-weight:bold;">{} €/h</span>',
+                obj.hourly_rate
+            )
+        return format_html('<span style="color:#aaa;">–</span>')
+    hourly_rate_display.short_description = 'Stundensatz'
+
+    def skills_stats(self, obj):
+        total    = obj.skills.count()
+        with_cat = obj.skills.filter(skill__category__isnull=False).count()
+        return format_html(
+            '<div>Mit Kategorie: <strong style="color:#27ae60;">{}</strong></div>'
+            '<div>Ohne Kategorie: <strong style="color:#e74c3c;">{}</strong></div>'
+            '<div>Gesamt: <strong>{}</strong></div>',
+            with_cat, total - with_cat, total
+        )
+    skills_stats.short_description = "Skill-Statistiken"
+
+    def emails_display(self, obj):
+        if not obj.email:
+            return "–"
+        items = obj.get_emails()
+        return format_html(
+            '<ul style="margin:0;padding-left:16px;">{}</ul>',
+            ''.join(f'<li>{e}</li>' for e in items)
+        )
+    emails_display.short_description = "E-Mails (aufgelistet)"
+
+    def phones_display(self, obj):
+        if not obj.phone:
+            return "–"
+        items = obj.get_phones()
+        return format_html(
+            '<ul style="margin:0;padding-left:16px;">{}</ul>',
+            ''.join(f'<li>{p}</li>' for p in items)
+        )
+    phones_display.short_description = "Telefon (aufgelistet)"
+
+    def websites_display(self, obj):
+        if not obj.website:
+            return "–"
+        items = obj.get_websites()
+        links = ''.join(
+            f'<li><a href="{w}" target="_blank">{w}</a></li>' for w in items
+        )
+        return format_html('<ul style="margin:0;padding-left:16px;">{}</ul>', links)
+    websites_display.short_description = "Websites (aufgelistet)"
+
+
+# ============================================================
+# SKILL CATEGORY / SKILL
+# ============================================================
+
+class SkillCategoryAdmin(admin.ModelAdmin):
+    list_display  = ['name', 'skills_count', 'is_active', 'sort_order']
+    list_filter   = ['is_active']
+    search_fields = ['name']
+    ordering      = ['sort_order', 'name']
+
+    def skills_count(self, obj):
+        return obj.skills.count()
+    skills_count.short_description = "Skills"
+
+
+class SkillAdmin(admin.ModelAdmin):
+    list_display  = ['name', 'category_badge', 'frequency', 'confidence']
+    list_filter   = ['category_name']
+    search_fields = ['name']
+    ordering      = ['-frequency', 'name']
+    autocomplete_fields = ['category']
+
+    def category_badge(self, obj):
+        if obj.category:
+            return format_html(
+                '<span style="background:#27ae60;color:white;padding:2px 8px;'
+                'border-radius:12px;font-size:11px;">{}</span>', obj.category.name
+            )
+        return format_html(
+            '<span style="background:#e74c3c;color:white;padding:2px 8px;'
+            'border-radius:12px;font-size:11px;">unbekannt</span>'
+        )
+    category_badge.short_description = 'Kategorie'
+
+    def save_model(self, request, obj, form, change):
+        if obj.category and not obj.category_name:
+            obj.category_name = obj.category.name
+        super().save_model(request, obj, form, change)
+
+
+# ============================================================
+# WEITERE ADMINS
+# ============================================================
+
+class CertificationAdmin(admin.ModelAdmin):
+    list_display  = ['name', 'issuer_name', 'issuer']
+    search_fields = ['name', 'issuer_name']
+    list_filter   = ['issuer']
+
+
+class IssuerAdmin(admin.ModelAdmin):
+    list_display  = ['name', 'frequency', 'confidence']
+    search_fields = ['name']
+    ordering      = ['-frequency', 'name']
+
+
+class ExperienceAdmin(admin.ModelAdmin):
+    list_display  = ['consultant_link', 'period', 'company', 'role', 'sort_order']
+    search_fields = ['consultant__aid', 'company', 'role']
+    raw_id_fields = ['consultant']
+
+    def consultant_link(self, obj):
+        url = reverse('admin:cv_extractor_consultant_change', args=[obj.consultant.id])
+        return format_html('<a href="{}">{}</a>', url, obj.consultant.aid)
+    consultant_link.short_description = 'Consultant'
+
+
+class EducationAdmin(admin.ModelAdmin):
+    list_display  = ['consultant_link', 'degree', 'institution', 'period', 'education_type']
+    list_filter   = ['education_type']
+    search_fields = ['consultant__aid', 'degree', 'institution']
+    raw_id_fields = ['consultant']
+
+    def consultant_link(self, obj):
+        url = reverse('admin:cv_extractor_consultant_change', args=[obj.consultant.id])
+        return format_html('<a href="{}">{}</a>', url, obj.consultant.aid)
+    consultant_link.short_description = 'Consultant'
+
+
+class IndustryAdmin(admin.ModelAdmin):
+    list_display  = ['name', 'frequency']
+    search_fields = ['name']
+    ordering      = ['-frequency', 'name']
+
+
+class FocusAreaAdmin(admin.ModelAdmin):
+    list_display  = ['name', 'frequency']
+    search_fields = ['name']
+    ordering      = ['-frequency', 'name']
+
+
+class LanguageAdmin(admin.ModelAdmin):
+    list_display  = ['name']
+    search_fields = ['name']
+
+
+class PromptTemplateAdmin(admin.ModelAdmin):
+    list_display  = ['stage', 'name', 'version', 'is_active',
+                    'updated_by', 'trained_on_count']
+    list_filter   = ['is_active', 'version', 'updated_by']
+    search_fields = ['stage', 'name']
+
+
+class FocusExperienceAdmin(admin.ModelAdmin):
+    list_display  = ['consultant_link', 'name', 'category', 'sort_order']
+    search_fields = ['consultant__aid', 'name']
+    list_filter   = ['category']
+    raw_id_fields = ['consultant']
+
+    def consultant_link(self, obj):
+        url = reverse('admin:cv_extractor_consultant_change', args=[obj.consultant.id])
+        return format_html('<a href="{}">{}</a>', url, obj.consultant.aid)
+    consultant_link.short_description = 'Consultant'
+
+
+class ConsultantVersionAdmin(admin.ModelAdmin):
+    list_display  = ['aid', 'consultant_dir', 'version', 'created_at']
+    search_fields = ['aid', 'consultant_dir']
+    readonly_fields = ['created_at']
+
+
+class ConsultantDirectoryAdmin(admin.ModelAdmin):
+    list_display  = ['directory_name', 'normalized_name', 'suffix', 'version', 'last_used']
+    search_fields = ['directory_name', 'normalized_name']
+
+
+class UploadedPDFAdmin(admin.ModelAdmin):
+    list_display  = ['filename', 'first_name', 'last_name', 'status', 'aid', 'created_at']
+    list_filter   = ['status', 'created_at']
+    search_fields = ['filename', 'first_name', 'last_name', 'aid']
+    readonly_fields = ['created_at', 'updated_at', 'task_id']
+
+
+# ============================================================
+# REGISTRIERUNG
+# ============================================================
+
+try:
+    admin.site.unregister(models.Consultant)
+except Exception:
+    pass
+
+admin.site.register(models.Consultant,          CompleteConsultantAdmin)
+admin.site.register(models.SkillCategory,       SkillCategoryAdmin)
+admin.site.register(models.Skill,               SkillAdmin)
+admin.site.register(models.Certification,       CertificationAdmin)
+admin.site.register(models.Issuer,              IssuerAdmin)
+admin.site.register(models.Experience,          ExperienceAdmin)
+admin.site.register(models.Education,           EducationAdmin)
+admin.site.register(models.Industry,            IndustryAdmin)
+admin.site.register(models.FocusArea,           FocusAreaAdmin)
+admin.site.register(models.Language,            LanguageAdmin)
+admin.site.register(models.PromptTemplate,      PromptTemplateAdmin)
+admin.site.register(models.FocusExperience,     FocusExperienceAdmin)
+admin.site.register(models.ConsultantVersion,   ConsultantVersionAdmin)
+admin.site.register(models.ConsultantDirectory, ConsultantDirectoryAdmin)
+admin.site.register(models.UploadedPDF,         UploadedPDFAdmin)
+
+print("✅ CompleteConsultantAdmin registriert")

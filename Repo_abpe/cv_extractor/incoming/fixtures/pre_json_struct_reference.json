@@ -1,0 +1,166 @@
+{
+  "_info": {
+    "beschreibung": "PRE-JSON Struktur v3 - 1:1 DB-Schema cv_extractor (Stand 2026-05-11)",
+    "db_tabellen": {
+      "personal": "cv_extractor_consultant",
+      "skills": "cv_extractor_skill + cv_extractor_skillcategory + cv_extractor_consultantskill",
+      "certifications": "cv_extractor_certification + cv_extractor_issuer + cv_extractor_consultantcertification",
+      "experience": "cv_extractor_experience + cv_extractor_experienceactivity + cv_extractor_experiencetechnology",
+      "industries": "cv_extractor_industry + cv_extractor_consultantindustry",
+      "focus_areas": "cv_extractor_focusarea + cv_extractor_consultantfocusarea",
+      "focus_experience": "cv_extractor_focusexperience",
+      "education": "cv_extractor_education (education_type: degree|course|certification)",
+      "other": "cv_extractor_othercontent"
+    },
+    "education_type": {
+      "degree": "Studium/Ausbildung",
+      "course": "Schulung/Kurs/Weiterbildung",
+      "certification": "Zertifikatskurs mit Pruefung"
+    },
+    "language_level": "A1|A2|B1|B2|C1|C2 - leer wenn unbekannt",
+    "skill_ablage": "Pipeline-interner Zwischenspeicher — wird nach DB-Import geleert",
+    "hinweise": {
+      "languages": "Sprachen in personal.languages — main_extracted_to_db liest von dort"
+    }
+  },
+  "metadata": {
+    "aid": "",
+    "version": "",
+    "consultant_dir": "",
+    "first_name": "",
+    "last_name": "",
+    "headline": "",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": ""
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "",
+      "last_name": "",
+      "birth_year": null,
+      "nationality": "",
+      "degree": "",
+      "email": "",
+      "phone": "",
+      "website": "",
+      "location": "",
+      "availability": "",
+      "edv_experience_since": null,
+      "headline": "",
+      "summary": "",
+      "company": "",
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": "C2"
+        }
+      ]
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [],
+      "programming_languages": [],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [
+      {
+        "name": "",
+        "issuer": "",
+        "date_obtained": "",
+        "expiry_date": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "",
+        "title": "",
+        "company": "",
+        "industry": "",
+        "role": "",
+        "location": "",
+        "activities": [],
+        "technologies": []
+      }
+    ],
+    "industries": [],
+    "focus_areas": [],
+    "focus_experience": [
+      {
+        "name": "",
+        "category": "",
+        "sort_order": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "",
+        "institution": "",
+        "period": "",
+        "description": "",
+        "education_type": "degree",
+        "issuer": ""
+      }
+    ],
+    "other": [
+      {
+        "content": "",
+        "content_type": "text",
+        "source": "",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": []
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "",
+    "source_file": "",
+    "steps_completed": []
+  }
+}

@@ -1,0 +1,304 @@
+{
+  "_info": {
+    "beschreibung": "MASTER-JSON Struktur v3 - 1:1 DB-Schema cv_extractor (Stand 2026-05-11)",
+    "pipeline": "pre_json → extracted_to_db → enricher → master_json",
+    "db_tabellen": {
+      "metadata": "cv_extractor_consultant (aid, version, consultant_dir, headline, source_*, pipeline_*)",
+      "extracted_data": "siehe pre_json_struct_reference.json - alle 10 Bereiche",
+      "normalized": "Enricher Stufe 1 - bereinigt/dedupliziert (kein LLM)",
+      "statistics": "cv_extractor_consultantstatistics - berechnet",
+      "matching": "cv_extractor_consultantmatching - LLM Stufe 2",
+      "skill_graph.nodes": "LLM Stufe 2 - Gewichtungen pro Consultant",
+      "skill_graph.edges": "cv_extractor_skillrelation - global, ab frequency>=2",
+      "facets": "Enricher Stufe 1 - ElasticSearch Filter",
+      "searchable_text": "Enricher Stufe 1 - ES Volltext-String",
+      "audit": "Pipeline-Zeitstempel"
+    },
+    "nicht_im_json": [
+      "consultant.hourly_rate (manuell)",
+      "consultant.placement_text (manuell)",
+      "consultant.language (de/en)",
+      "consultant.aid_base (EN-Version)",
+      "consultant.status, error_message (Pipeline-Status)",
+      "consultant.address, stand (Firmendaten)"
+    ],
+    "hinweise": {
+      "languages": "main_extracted_to_db liest personal.languages — NICHT extracted_data.languages",
+      "focus_experience": "Unterstuetzt dict {name,category,sort_order} UND flache Strings",
+      "other": "Unterstuetzt list [{content,content_type,source,sort_order}] UND String",
+      "industries": "Leere Strings werden gefiltert — [] reicht",
+      "skill_ablage": "Pipeline-intern — main_db_importer, nicht main_extracted_to_db"
+    }
+  },
+  "metadata": {
+    "aid": "",
+    "version": "",
+    "consultant_dir": "",
+    "first_name": "",
+    "last_name": "",
+    "headline": "",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": ""
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "enriched",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false,
+      "total_experience_years": 0,
+      "skill_count": 0,
+      "project_count": 0
+    }
+  },
+  "extracted_data": {
+    "_info": "Unveraendert aus pre_json - siehe pre_json_struct_reference.json",
+    "personal": {
+      "first_name": "",
+      "last_name": "",
+      "birth_year": null,
+      "nationality": "",
+      "degree": "",
+      "email": "",
+      "phone": "",
+      "website": "",
+      "location": "",
+      "availability": "",
+      "edv_experience_since": null,
+      "headline": "",
+      "summary": "",
+      "company": "",
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": "C2"
+        }
+      ]
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [],
+      "programming_languages": [],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [
+      {
+        "name": "",
+        "issuer": "",
+        "date_obtained": "",
+        "expiry_date": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "",
+        "title": "",
+        "company": "",
+        "industry": "",
+        "role": "",
+        "location": "",
+        "activities": [],
+        "technologies": []
+      }
+    ],
+    "industries": [],
+    "focus_areas": [],
+    "focus_experience": [
+      {
+        "name": "",
+        "category": "",
+        "sort_order": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "",
+        "institution": "",
+        "period": "",
+        "description": "",
+        "education_type": "degree",
+        "issuer": ""
+      }
+    ],
+    "other": [
+      {
+        "content": "",
+        "content_type": "text",
+        "source": "",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": []
+  },
+  "normalized": {
+    "_info": "Enricher Stufe 1 synchron - bereinigt, dedupliziert, normalisiert",
+    "personal": {
+      "first_name": "",
+      "last_name": "",
+      "full_name": "",
+      "birth_year": null,
+      "nationality": "",
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": "C2"
+        }
+      ],
+      "email": "",
+      "phone": "",
+      "location": "",
+      "edv_experience_since": null,
+      "availability": ""
+    },
+    "professional": {
+      "headline": "",
+      "summary": "",
+      "total_experience_years": 0,
+      "availability": ""
+    },
+    "skills": {
+      "_info": "Gleiche Struktur wie extracted_data.skills - bereinigt"
+    },
+    "certifications": [
+      {
+        "name": "",
+        "issuer": "",
+        "date_obtained": "",
+        "expiry_date": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "",
+        "title": "",
+        "company": "",
+        "role": "",
+        "activities": [],
+        "technologies": []
+      }
+    ],
+    "industries": [],
+    "focus_areas": [],
+    "education": [
+      {
+        "degree": "",
+        "institution": "",
+        "period": "",
+        "education_type": "degree"
+      }
+    ]
+  },
+  "statistics": {
+    "_info": "cv_extractor_consultantstatistics - berechnet von DBEnricher",
+    "total_experience_years": 0,
+    "total_months": 0,
+    "project_count": 0,
+    "skill_count": 0,
+    "certification_count": 0,
+    "top_skills": [],
+    "top_certifications": [],
+    "placement_probability": 0.0,
+    "market_value_estimate": 0,
+    "demand_index": 0.0,
+    "unique_categories": 0
+  },
+  "matching": {
+    "_info": "cv_extractor_consultantmatching - LLM Stufe 2",
+    "overall_score": 0.0,
+    "skill_match_score": 0.0,
+    "role_match_score": 0.0,
+    "industry_match_score": 0.0,
+    "skill_weights": {},
+    "role_weights": {},
+    "industry_weights": {},
+    "preferred_roles": [],
+    "preferred_industries": [],
+    "preferred_locations": [],
+    "min_experience_years": 0,
+    "must_have_skills": [],
+    "nice_to_have_skills": [],
+    "role_classification": {
+      "role_code": 0,
+      "role_name": "",
+      "landscape_code": 0,
+      "landscape_name": "",
+      "level_code": 0,
+      "level_name": ""
+    }
+  },
+  "skill_graph": {
+    "_info": {
+      "nodes": "LLM Stufe 2 - Gewichtungen pro Consultant",
+      "edges": "LEER im JSON - global in cv_extractor_skillrelation (ab frequency>=2)"
+    },
+    "nodes": [
+      {
+        "id": "",
+        "category": "",
+        "weight": 0.0,
+        "years": null
+      }
+    ],
+    "edges": []
+  },
+  "facets": {
+    "_info": "Enricher Stufe 1 - ElasticSearch Filter-Werte",
+    "industries": [],
+    "roles": [],
+    "skill_categories": [],
+    "top_skills": [],
+    "locations": [],
+    "certifications": [],
+    "experience_years_range": "",
+    "availability": "",
+    "languages": [],
+    "degree": ""
+  },
+  "searchable_text": "",
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "",
+    "source_file": "",
+    "enriched_at": "",
+    "enriched_by": "deepseek-chat",
+    "steps_completed": []
+  }
+}

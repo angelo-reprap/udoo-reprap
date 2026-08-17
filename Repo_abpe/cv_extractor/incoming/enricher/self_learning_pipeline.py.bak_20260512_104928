@@ -1,0 +1,268 @@
+"""
+self_learning_pipeline.py – Stufe 1, synchron, kein LLM
+
+Aufgaben:
+  - TrainingTerm Frequenzen erhoehen (Skill wurde in neuem CV gesehen)
+  - Neue Skills als TrainingTerm anlegen
+  - Skill.frequency erhoehen
+  - Industry.frequency + FocusArea.frequency erhoehen
+  - PromptTemplate Beispiele aktualisieren (ab frequency >= 3, confidence >= 0.7)
+
+Skills werden aus ConsultantSkill (DB) gelesen — nicht aus extracted_data.skills{}
+weil main_pipeline skills{} leer laesst (Skills kommen via skill_ablage → skill_normalizer).
+"""
+
+import logging
+import re
+from typing import Dict, Any
+
+from django.db import transaction
+from django.db.models import F
+
+logger = logging.getLogger(__name__)
+
+CATEGORY_DISPLAY = {
+    'architecture_pattern':    'Architekturmuster',
+    'business_software':       'Business Software',
+    'ci_cd_tool':              'CI/CD Tools',
+    'cloud_platform':          'Cloud-Plattformen',
+    'communication_tool':      'Kommunikationstools',
+    'database':                'Datenbanken',
+    'data_format':             'Datenformate',
+    'data_management':         'Datenmanagement',
+    'development_environment': 'Entwicklungsumgebungen',
+    'devops_tool':             'DevOps Tools',
+    'documentation_tool':      'Dokumentationstools',
+    'framework':               'Frameworks und Bibliotheken',
+    'hardware':                'Hardware',
+    'identity_management':     'Identity Management',
+    'it_infrastructure':       'IT-Infrastruktur',
+    'methodology':             'Methoden',
+    'monitoring_tool':         'Monitoring Tools',
+    'network_protocol':        'Netzwerkprotokolle',
+    'operating_system':        'Betriebssysteme',
+    'programming_languages':   'Programmiersprachen',
+    'project_management':      'Projektmanagement Tools',
+    'security_tool':           'Security Tools',
+    'soft_skill':              'Soft Skills',
+    'special_concept':         'Spezielle Konzepte',
+    'testing_tool':            'Testing Tools',
+    'version_control':         'Versionsverwaltung',
+    'virtualization':          'Virtualisierung',
+    'special_skill':           'Sonstige Skills',
+}
+
+MIN_FREQ_FOR_PROMPT  = 3
+MIN_CONF_FOR_PROMPT  = 0.7
+MAX_EXAMPLES_PER_CAT = 10
+
+
+class SelfLearningPipeline:
+
+    def __init__(self):
+        logger.info("SelfLearningPipeline initialisiert")
+
+    @transaction.atomic
+    def process(self, consultant, extracted_data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Hauptmethode – wird nach extracted_to_db aufgerufen.
+
+        Skills: aus ConsultantSkill (DB) — nicht aus extracted_data.skills{}
+        Industries + FocusAreas: aus extracted_data
+        """
+        logger.info(f"Self-Learning fuer {consultant.aid}")
+
+        extracted = extracted_data.get('extracted_data', {})
+        stats = {'terms_updated': 0, 'terms_created': 0, 'prompts_updated': 0}
+
+        # ── 1. Skills aus DB lesen (ConsultantSkill) ──────────────────────────
+        # main_pipeline: skills{} ist leer — Skills kommen via skill_normalizer
+        # → ConsultantSkill hat category_name korrekt gesetzt
+        skill_count = 0
+        for cs in consultant.skills.select_related('skill').all():
+            skill_name    = cs.skill.name
+            category_name = (cs.category_name or
+                             cs.skill.category_name or
+                             'Sonstige Skills')
+            if skill_name and len(skill_name) > 1:
+                created = self._update_training_term(skill_name, category_name)
+                if created:
+                    stats['terms_created'] += 1
+                else:
+                    stats['terms_updated'] += 1
+                skill_count += 1
+
+        # Fallback: falls ConsultantSkill leer → aus extracted_data.skills{}
+        if skill_count == 0:
+            skills_data = extracted.get('skills', {})
+            for cat_key, skill_list in skills_data.items():
+                if not skill_list:
+                    continue
+                category_name = CATEGORY_DISPLAY.get(cat_key, cat_key)
+                for skill_name in skill_list:
+                    if skill_name and isinstance(skill_name, str) and len(skill_name) > 1:
+                        created = self._update_training_term(skill_name, category_name)
+                        if created:
+                            stats['terms_created'] += 1
+                        else:
+                            stats['terms_updated'] += 1
+
+        # ── 2. Industries verarbeiten ─────────────────────────────────────────
+        for industry_name in extracted.get('industries', []):
+            if industry_name:
+                self._update_frequency('Industry', industry_name)
+
+        # ── 3. FocusAreas verarbeiten ─────────────────────────────────────────
+        for focus_name in extracted.get('focus_areas', []):
+            if focus_name:
+                self._update_frequency('FocusArea', focus_name)
+
+        # ── 4. PromptTemplate Beispiele aktualisieren ─────────────────────────
+        prompts_updated = self._update_prompt_examples()
+        stats['prompts_updated'] = prompts_updated
+
+        logger.info(
+            f"Self-Learning abgeschlossen: "
+            f"{stats['terms_created']} neu, "
+            f"{stats['terms_updated']} aktualisiert, "
+            f"{stats['prompts_updated']} Prompts"
+        )
+        return stats
+
+    def _update_training_term(self, term: str, category: str) -> bool:
+        """Aktualisiert oder erstellt einen TrainingTerm."""
+        from apps.cv_extractor.models import TrainingTerm
+
+        term_clean = term.strip()[:200]
+        if not term_clean:
+            return False
+
+        obj, created = TrainingTerm.objects.get_or_create(
+            term=term_clean,
+            defaults={
+                'category':   category,
+                'frequency':  1,
+                'confidence': 0.5,
+                'source':     'self_learning',
+            }
+        )
+        if not created:
+            obj.frequency  += 1
+            obj.confidence  = min(0.99, obj.confidence + 0.02)
+            obj.save(update_fields=['frequency', 'confidence'])
+
+        try:
+            from apps.cv_extractor.models import Skill
+            Skill.objects.filter(name=term_clean).update(
+                frequency=F('frequency') + 1
+            )
+        except Exception:
+            pass
+
+        return created
+
+    def _update_frequency(self, model_name: str, name: str):
+        """Erhoeht Frequenz fuer Industry oder FocusArea."""
+        try:
+            if model_name == 'Industry':
+                from apps.cv_extractor.models import Industry
+                Industry.objects.filter(name=name[:200]).update(
+                    frequency=F('frequency') + 1
+                )
+            elif model_name == 'FocusArea':
+                from apps.cv_extractor.models import FocusArea
+                FocusArea.objects.filter(name=name[:200]).update(
+                    frequency=F('frequency') + 1
+                )
+        except Exception as e:
+            logger.warning(f"_update_frequency {model_name}: {e}")
+
+    def _update_prompt_examples(self) -> int:
+        """Aktualisiert PromptTemplate Beispiele fuer Skill-Kategorien."""
+        from apps.cv_extractor.models import TrainingTerm, PromptTemplate
+
+        updated = 0
+
+        candidates = TrainingTerm.objects.filter(
+            frequency__gte=MIN_FREQ_FOR_PROMPT,
+            confidence__gte=MIN_CONF_FOR_PROMPT,
+            in_prompt=False,
+        ).order_by('-frequency')
+
+        by_category: Dict[str, list] = {}
+        for term in candidates:
+            cat_key = self._display_to_key(term.category)
+            if cat_key:
+                by_category.setdefault(cat_key, []).append(term)
+
+        for cat_key, terms in by_category.items():
+            stage = f"extract_skill_{cat_key}"
+            pt = PromptTemplate.objects.filter(stage=stage, is_active=True).first()
+            if not pt:
+                continue
+
+            if pt.updated_by == 'manual':
+                logger.debug(f"Prompt {stage} ist manuell gepflegt – uebersprungen")
+                continue
+
+            current_examples = self._extract_examples_from_prompt(pt.prompt_text, cat_key)
+            new_terms = [
+                t for t in terms if t.term not in current_examples
+            ][:MAX_EXAMPLES_PER_CAT - len(current_examples)]
+
+            if not new_terms:
+                continue
+
+            all_examples = current_examples + [t.term for t in new_terms]
+            new_prompt   = self._update_examples_in_prompt(pt.prompt_text, cat_key, all_examples)
+
+            if new_prompt != pt.prompt_text:
+                new_version         = self._increment_version(pt.version)
+                pt.prompt_text      = new_prompt
+                pt.version          = new_version
+                pt.updated_by       = 'self_learning'
+                pt.trained_on_count = pt.trained_on_count + len(new_terms)
+                pt.save(update_fields=[
+                    'prompt_text', 'version', 'updated_by',
+                    'trained_on_count', 'updated_at'
+                ])
+                TrainingTerm.objects.filter(
+                    id__in=[t.id for t in new_terms]
+                ).update(in_prompt=True)
+
+                updated += 1
+                logger.info(f"Prompt {stage} v{new_version}: +{len(new_terms)} Beispiele")
+
+        return updated
+
+    def _display_to_key(self, display_name: str) -> str:
+        reverse = {v: k for k, v in CATEGORY_DISPLAY.items()}
+        return reverse.get(display_name, '')
+
+    def _extract_examples_from_prompt(self, prompt_text: str, cat_key: str) -> list:
+        pattern = rf'"{cat_key}":\s*\[([^\]]+)\]'
+        match   = re.search(pattern, prompt_text)
+        if not match:
+            return []
+        return re.findall(r'"([^"]+)"', match.group(1))
+
+    def _update_examples_in_prompt(self, prompt_text: str,
+                                    cat_key: str, examples: list) -> str:
+        examples_str = ', '.join(f'"{e}"' for e in examples[:MAX_EXAMPLES_PER_CAT])
+        new_line     = f'{{"{cat_key}": [{examples_str}]}}'
+        pattern      = rf'{{"{cat_key}":\s*\[[^\]]*\]}}'
+        return re.sub(pattern, new_line, prompt_text)
+
+    @staticmethod
+    def _increment_version(version: str) -> str:
+        try:
+            parts = version.split('.')
+            if len(parts) >= 2:
+                parts[-1] = str(int(parts[-1]) + 1)
+                return '.'.join(parts)
+        except Exception:
+            pass
+        return version + '.1'
+
+
+self_learning_pipeline = SelfLearningPipeline()

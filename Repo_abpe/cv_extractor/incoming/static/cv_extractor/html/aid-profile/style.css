@@ -1,0 +1,458 @@
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== VARIABLEN ===== */
+:root {
+    --brand:       #163258;
+    --brand-light: #eef2ff;
+    --text-dark:   #1f2937;
+    --text-mid:    #374151;
+    --text-light:  #6b7280;
+    --border:      #e5e7eb;
+    --border-dot:  #d1d5db;
+    --bg-light:    #f9fafb;
+    --bg-mid:      #f3f4f6;
+    --page-w:      21cm;
+    --page-h:      29.7cm;
+    --pad-x:       1.8cm;
+    --pad-y:       1.5cm;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.5;
+    color: var(--brand);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* ===== SCREEN-ANSICHT ===== */
+@media screen {
+    body {
+        background-color: #f0f0f0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .pdf-container {
+        width: var(--page-w);
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .page {
+        width: var(--page-w);
+        min-height: var(--page-h);
+        padding: var(--pad-y) var(--pad-x);
+        background: white;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        border: 1px solid #ddd;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+    .page:last-child { margin-bottom: 0; }
+}
+
+/* ===== DRUCK / PDF ===== */
+@page { size: A4; margin: 0; }
+
+@media print {
+    body { background: white; padding: 0; margin: 0; }
+    .pdf-container { width: 100%; padding: 0; margin: 0; }
+    .page {
+        width: 21cm;
+        height: 29.7cm;
+        min-height: 29.7cm;
+        max-height: 29.7cm;
+        padding: var(--pad-y) var(--pad-x);
+        background: white;
+        margin: 0;
+        page-break-after: always;
+        break-after: page;
+        break-inside: avoid;
+        overflow: hidden;
+        position: relative;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+    .page:last-child { page-break-after: avoid; break-after: avoid; }
+    .page:hover { transform: none !important; box-shadow: none !important; }
+    .experience-item:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        border-color: var(--border) !important;
+    }
+}
+
+/* ===== KOPFZEILE ===== */
+/* Word: Tab-Stop center=4932 DXA, right=9865 DXA, border-bottom sz=8 */
+.page-header {
+    display: grid;
+    grid-template-columns: 2fr auto 2fr;
+    gap: 12pt;
+    font-size: 9pt;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    color: var(--brand);
+    border-bottom: 1px solid var(--brand);
+    padding-bottom: 4pt;
+    margin-bottom: 14pt;
+    flex-shrink: 0;
+}
+.header-left  { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.header-center { text-align: center; white-space: nowrap; }
+.header-right  { text-align: right;  white-space: nowrap; }
+
+/* ===== DECKBLATT ===== */
+/* Word-Kompatibilität:
+   - Kein margin-top (verhindert margin-kollaps)
+   - Nur margin-bottom auf jedem Element
+   - cover-page flex:1 + cover-spacer flex:1 ersetzt margin-top:auto
+*/
+.cover-page {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Word: space_before=0, space_after=30pt */
+.cover-logo-container {
+    text-align: center;
+    margin-bottom: 30pt;
+}
+
+.cover-logo {
+    max-width: 100%;
+    max-height: 180pt;
+    width: auto;
+    height: auto;
+    display: inline-block;
+}
+
+/* Word: size=26pt bold brand, space_before=0, space_after=14pt */
+.cover-id {
+    text-align: center;
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--brand);
+    margin-bottom: 14pt;
+    letter-spacing: 1px;
+    font-family: Arial, sans-serif;
+}
+
+/* Word: size=20pt bold text-dark, space_before=0, space_after=20pt */
+.cover-title {
+    text-align: center;
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--brand);
+    margin-bottom: 20pt;
+    line-height: 1.3;
+}
+
+/* Word: border-left sz=32, padding top/bot=360 DXA side=480 DXA, bg=f9fafb */
+.cover-contact {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-light);
+    padding: 18pt 24pt;
+    margin-bottom: 0;
+    border-left: 4pt solid var(--brand);
+    font-size: 11pt;
+    line-height: 1.7;
+}
+
+/* Word: alle spans color=brand */
+.cover-contact span {
+    display: block;
+    color: var(--brand);
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.7;
+    margin-top: 0;
+}
+/* Word: size=14pt bold, space_after=2pt */
+.cover-contact span:nth-child(1) {
+    font-weight: 700;
+    font-size: 14pt;
+    margin-bottom: 2pt;
+}
+/* Word: size=8pt italic, space_after=14pt */
+.cover-contact span:nth-child(2) {
+    font-style: italic;
+    font-size: 8pt;
+    margin-bottom: 14pt;
+}
+/* Word: space_after=2pt */
+.cover-contact span:nth-child(3) { margin-bottom: 2pt; }
+/* Word: space_after=14pt */
+.cover-contact span:nth-child(4) { margin-bottom: 14pt; }
+/* Word: space_after=2pt */
+.cover-contact span:nth-child(5) { margin-bottom: 2pt; }
+/* Word: space_after=2pt */
+.cover-contact span:nth-child(6) { margin-bottom: 2pt; }
+/* Word: space_after=14pt */
+.cover-contact span:nth-child(7) { margin-bottom: 14pt; }
+/* Word: space_after=0 */
+.cover-contact span:nth-child(8) { margin-bottom: 0; }
+
+/* Word: flex:1 Spacer — ersetzt margin-top:auto auf cover-date */
+.cover-spacer {
+    flex: 1;
+}
+
+/* Word: size=10pt italic text-light, border-top dashed sz=4, padding-top=10pt */
+/* margin-top:auto ENTFERNT — wird durch cover-spacer ersetzt */
+.cover-date {
+    text-align: right;
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 10pt;
+    border-top: 1px dashed var(--border-dot);
+    padding-top: 10pt;
+    margin-top: 14pt;
+}
+
+.cover-spacer {
+    display: none;
+}
+
+/* ===== SECTIONS ===== */
+/* Word: space_before=14pt, space_after=10pt, border-bottom sz=16 */
+.section { margin-bottom: 20pt; }
+
+.section-title {
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--brand);
+    font-family: Arial, sans-serif;
+    margin-bottom: 10pt;
+    padding-bottom: 5pt;
+    border-bottom: 2px solid var(--brand);
+}
+
+/* ===== PERSÖNLICHE DATEN ===== */
+/* Word: bg=f9fafb, col_label=2200 DXA, col_value=7665 DXA */
+.personal-section {
+    background: var(--bg-light);
+    padding: 14pt;
+    margin-bottom: 16pt;
+}
+.personal-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+/* Word: cell_top=40 DXA, cell_bot=40 DXA, border-bottom dashed sz=4 */
+.personal-item {
+    display: flex;
+    border-bottom: 1px dashed var(--border-dot);
+    padding-top: 4pt;
+    padding-bottom: 4pt;
+    font-size: 10pt;
+    font-family: Arial, sans-serif;
+}
+/* Word: col_label=2200 DXA = ~110pt, bold, color=text-mid */
+.label {
+    font-weight: 700;
+    min-width: 110pt;
+    color: var(--brand);
+    flex-shrink: 0;
+}
+.value { color: var(--brand); }
+
+/* ===== ZWEI-SPALTEN ===== */
+/* Word: col_width=4932 DXA, gap=240 DXA */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24pt;
+    margin-bottom: 16pt;
+}
+
+/* ===== LISTEN ===== */
+/* Word: bullet=• color=brand size=12pt, text size=10pt, indent=16pt, bullet-left=4pt */
+ul { list-style: none; padding-left: 0; font-size: 10pt; }
+li {
+    padding-top: 2pt;
+    padding-bottom: 2pt;
+    padding-left: 16pt;
+    position: relative;
+    font-size: 10pt;
+}
+li::before {
+    content: '•';
+    color: var(--brand);
+    font-weight: bold;
+    position: absolute;
+    left: 4pt;
+    font-size: 12pt;
+    line-height: 1.4;
+}
+
+/* ===== BRANCHEN ===== */
+/* Word: size=10pt color=brand, space_after=8pt */
+.industries {
+    color: var(--brand);
+    font-size: 10pt;
+    padding-top: 4pt;
+    padding-bottom: 4pt;
+}
+
+/* ===== PRODUKTE LISTE ===== */
+/* identisch mit competence-list / Fachbereiche */
+
+/* ===== ERFAHRUNGEN ===== */
+/* Word: box bg=f9fafb, border sz=8 color=e5e7eb, padding=220 DXA */
+.experience-item {
+    padding: 11pt;
+    border: 1px solid var(--border);
+    background: white;
+    font-size: 10pt;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+/* Word: Tab-Stop right=9100 DXA, space_after=6pt */
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6pt;
+    flex-wrap: wrap;
+    gap: 6pt;
+}
+/* Word: bg=163258, color=white, size=10pt bold, padding top=2pt side=9pt */
+.exp-date {
+    background: var(--brand);
+    color: white;
+    padding-top: 2pt;
+    padding-bottom: 2pt;
+    padding-left: 9pt;
+    padding-right: 9pt;
+    font-weight: 700;
+    font-size: 10pt;
+}
+/* Word: size=13pt bold color=111827 */
+.exp-client { font-weight: 700; font-size: 13pt; color: var(--brand); }
+/* Word: size=11pt bold color=brand, space_after=6pt */
+.exp-role { font-weight: 700; color: var(--brand); margin-bottom: 6pt; font-size: 11pt; }
+/* Word: margin top/bottom=6pt */
+.exp-details ul { margin-top: 6pt; margin-bottom: 6pt; }
+/* Word: bg=f3f4f6, border-left sz=24, size=10pt, space_before=7pt, padding=7pt */
+.exp-tech {
+    margin-top: 7pt;
+    padding: 7pt;
+    background: var(--bg-mid);
+    border-left: 3pt solid var(--brand);
+    font-size: 10pt;
+}
+
+/* ===== CERT / COMPETENCE LISTEN ===== */
+.competence-list li,
+.cert-list { list-style: none; padding-left: 0; }
+.competence-list li {
+    padding-left: 14pt;
+    position: relative;
+}
+.competence-list li::before {
+    content: '•';
+    color: var(--brand);
+    font-size: 11pt;
+    font-weight: bold;
+    position: absolute;
+    left: 2pt;
+    top: 1pt;
+}
+.cert-list li {
+    font-size: 10pt;
+    color: var(--text);
+    padding: 2pt 0 2pt 14pt;
+    position: relative;
+}
+.cert-list li::before {
+    content: '•';
+    color: var(--brand);
+    font-size: 11pt;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 1pt;
+}
+
+/* ===== TECHNISCHE KENNTNISSE ===== */
+/* Word: skill-block margin_bot=10pt, border-bottom dotted sz=4 */
+.skill-block {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 10pt;
+    padding-bottom: 6pt;
+    border-bottom: 1px dotted var(--border);
+}
+.skill-block:last-child { border-bottom: none; }
+
+/* Word: size=11pt bold color=brand, border-left sz=24 space=8, space_before=6pt, space_after=3pt */
+.subsection-title {
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--brand);
+    margin-top: 8pt;
+    margin-bottom: 4pt;
+    padding-bottom: 3pt;
+    border-bottom: 1px solid var(--border-dot);
+}
+
+/* Word: size=10pt color=text-mid, line-height=1.6, padding-left=7pt, space_after=10pt */
+.skill-block p {
+    font-size: 10pt;
+    color: var(--brand);
+    line-height: 1.8;
+    padding-left: 10pt;
+    border-left: 2px solid var(--border-dot);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    margin-top: auto;
+    padding-top: 12pt;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-light);
+    font-size: 9pt;
+}
+
+/* ===== MOBILE ===== */
+@media screen and (max-width: 800px) {
+    body { padding: 8px; }
+    .pdf-container, .page { width: 100%; min-height: auto; }
+    .page { padding: 16px 12px; margin-bottom: 12px; }
+    .two-column, .products-grid { grid-template-columns: 1fr; }
+    .personal-grid { grid-template-columns: 1fr; }
+    .cover-id    { font-size: 22pt; }
+    .cover-title { font-size: 16pt; }
+    .cover-logo  { max-height: 60px; }
+    .exp-header  { flex-direction: column; align-items: flex-start; }
+}
+/* exp-details Bullets */
+.exp-details ul { list-style: none; padding-left: 0; }
+.exp-details ul li {
+    padding-left: 14pt;
+    position: relative;
+}
+.exp-details ul li::before {
+    content: '•';
+    color: var(--brand);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}

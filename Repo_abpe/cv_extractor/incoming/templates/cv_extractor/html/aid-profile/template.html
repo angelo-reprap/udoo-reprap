@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+{% load static %}
+<link rel="stylesheet" href="{% static 'cv_extractor/html/aid-profile/style.css' %}">
+<script src="{% static 'cv_extractor/html/aid-profile/script.js' %}?v=1777028953" defer></script>
+<title>{{ aid }} - Qualifikationsprofil</title>
+</head>
+<body>
+<div class="pdf-container">
+
+  <!-- Seite 1: Titelblatt — bleibt immer fest -->
+  <div class="page" id="page1">
+    <div class="page-header">
+      <div class="header-left">Qualifikationsprofil: {{ aid }}</div>
+      <div class="header-center">www.abcona.de</div>
+      <div class="header-right"> Seite 1 von ?</div>
+    </div>
+    <div class="cover-page">
+      <div class="cover-logo-container">
+        <img src="/data/cv/adds/logo_abcona.png" alt="active business consulting agency" class="cover-logo" loading="eager">
+      </div>
+      <div class="cover-id">{{ aid }}</div>
+      <h1 class="cover-title">Schwerpunkt: {{ personal.headline|default:"IT-Berater" }}</h1>
+      <div class="cover-contact">
+        <span>{{ company.name }}</span>
+        <span>active business consulting agency</span>
+        <span>{{ company.address }}</span>
+        <span>Telefon +49 (0) 61 71 - 8867 - 00</span>
+        <span>Fax +49 (0) 61 71 - 8867 - 09</span>
+        <span>E-Mail office@abcona.de</span>
+        <span>Internet {{ company.website }}</span>
+      </div>
+      <div class="cover-date">Stand: {{ date|date:"d. F Y" }}</div>
+    </div>
+  </div>
+
+  <!-- Seite 2: Persönliche Daten — wird von JS reorganisiert -->
+  <div class="page" id="page2">
+    <div class="page-header">
+      <div class="header-left">Qualifikationsprofil: {{ aid }}</div>
+      <div class="header-center">www.abcona.de</div>
+      <div class="header-right"> Seite 2 von ?</div>
+    </div>
+    <div class="section personal-section">
+      <h2 class="section-title">Persönliche Daten</h2>
+      <div class="personal-grid">
+        <div class="personal-item"><span class="label">Name:</span> <span class="value">{{ personal.full_name }}</span></div>
+        <div class="personal-item"><span class="label">Geburtsjahr:</span> <span class="value">{{ personal.birth_year|default:"-" }}</span></div>
+        <div class="personal-item"><span class="label">Staatsangehörigkeit:</span> <span class="value">{{ personal.nationality|default:"Deutsch" }}</span></div>
+        <div class="personal-item"><span class="label">Sprachen:</span> <span class="value">{{ languages|join:", " }}</span></div>
+        {% if personal.edv_experience_since %}
+        <div class="personal-item"><span class="label">EDV Erfahrung seit:</span> <span class="value">{{ personal.edv_experience_since }}</span></div>
+        {% endif %}
+        <div class="personal-item"><span class="label">verfügbar:</span> <span class="value">{{ personal.availability|default:"nach Absprache" }}</span></div>
+        <div class="personal-item"><span class="label">Einsatzort:</span> <span class="value">{{ personal.location|default:"nach Absprache" }}</span></div>
+        {% if education %}
+        <div class="personal-item">
+          <span class="label">Ausbildung:</span>
+          <span class="value">{% for edu in education %}{% if edu.education_type != "course" %}{% if edu.period or edu.description %}{{ edu.period }}{% if edu.period and edu.description %} · {% endif %}{{ edu.description }}<br>{% endif %}{% endif %}{% endfor %}</span>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% if certifications or courses %}
+    <div class="two-column">
+      {% if certifications %}
+      <div class="column">
+        <h2 class="section-title">Zertifizierungen</h2>
+        <ul class="cert-list">
+          {% for cert in certifications %}<li>{{ cert }}</li>{% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      {% if courses %}
+      <div class="column">
+        <h2 class="section-title">Schulungen / Kurse</h2>
+        <ul class="cert-list">
+          {% for course in courses %}<li>{{ course }}</li>{% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Seite 3: Fachbereiche, Branchen, Produkte — wird von JS reorganisiert -->
+  {% if focus_areas or industries or products %}
+  <div class="page" id="page3">
+    <div class="page-header">
+      <div class="header-left">Qualifikationsprofil: {{ aid }}</div>
+      <div class="header-center">www.abcona.de</div>
+      <div class="header-right"> Seite 3 von ?</div>
+    </div>
+    {% if focus_areas %}
+    <div class="section">
+      <h2 class="section-title">Fachbereiche</h2>
+      <ul class="competence-list">
+        {% for fa in focus_areas %}<li>{{ fa }}</li>{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% if industries %}
+    <div class="section">
+      <h2 class="section-title">Branchen</h2>
+      <div class="industries">{{ industries|join:", " }}</div>
+    </div>
+    {% endif %}
+    {% if products %}
+    <div class="section">
+      <h2 class="section-title">Produkte | Standards | Erfahrungen</h2>
+      <ul class="competence-list">
+        {% for prod in products %}<li>{{ prod }}</li>{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <!-- Berufliche Erfahrungen — wird von JS reorganisiert -->
+  {% for exp in experiences %}
+  <div class="page" id="page-exp-{{ forloop.counter }}">
+    <div class="page-header">
+      <div class="header-left">Qualifikationsprofil: {{ aid }}</div>
+      <div class="header-center">www.abcona.de</div>
+      <div class="header-right"></div>
+    </div>
+    <div class="section">
+      {% if forloop.first %}<h2 class="section-title">Berufliche Erfahrungen</h2>{% endif %}
+      <div class="experience-item">
+        <div class="exp-header">
+          <span class="exp-date">{{ exp.period }}</span>
+          <span class="exp-client">{{ exp.company }}</span>
+        </div>
+        {% if exp.role %}<div class="exp-role">{{ exp.role }}</div>{% endif %}
+        {% if exp.activities %}
+        <div class="exp-details">
+          <ul>{% for act in exp.activities %}<li>{{ act }}</li>{% endfor %}</ul>
+        </div>
+        {% endif %}
+        {% if exp.technologies %}
+        <div class="exp-tech"><strong>Technologien:</strong> {{ exp.technologies|join:", " }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- Technische Kenntnisse — wird von JS reorganisiert -->
+  {% if skills_sections %}
+  <div class="page" id="page-skills">
+    <div class="page-header">
+      <div class="header-left">Qualifikationsprofil: {{ aid }}</div>
+      <div class="header-center">www.abcona.de</div>
+      <div class="header-right"></div>
+    </div>
+    <div class="section">
+      <h2 class="section-title">Technische Kenntnisse</h2>
+      {% for section in skills_sections %}
+      <div class="skill-block">
+        <h3 class="subsection-title">{{ section.name }}</h3>
+        <p>{% for skill in section.skills %}{{ skill }}{% if not forloop.last %}{% if forloop.counter|divisibleby:3 %}<br>{% else %} | {% endif %}{% endif %}{% endfor %}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Sonstige Informationen -->
+  {% if other_content %}
+  <div class="page" id="page-other">
+    <div class="page-header">
+      <div class="header-left">Qualifikationsprofil: {{ aid }}</div>
+      <div class="header-center"><a href="https://www.abcona.de">www.abcona.de</a></div>
+      <div class="header-right"></div>
+    </div>
+    <div class="section">
+      <h2 class="section-title">Sonstige Informationen</h2>
+      {% for item in other_content %}
+      <div class="other-content" style="margin-bottom:10px; white-space:pre-line;">{{ item }}</div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+</body>
+</html>

@@ -1,0 +1,757 @@
+"""
+cv_extractor/models.py
+Relationale Datenbankstruktur – JSON nur fuer Export/Audit.
+
+Mehrfachwerte (email, phone, website) werden als CharField mit
+Semikolon-Trennung gespeichert:  a@b.de;c@d.de
+"""
+
+from django.db import models
+
+
+# ============================================================
+# 1. EXTRAKTIONS-JOB & LOGS
+# ============================================================
+
+class ExtractionJob(models.Model):
+    STATUS_CHOICES = (
+        ('pending',    'Pending'),
+        ('processing', 'Processing'),
+        ('completed',  'Completed'),
+        ('failed',     'Failed'),
+    )
+    file_name          = models.CharField(max_length=500)
+    file_path          = models.CharField(max_length=1000)
+    status             = models.CharField(max_length=20, choices=STATUS_CHOICES,
+                                          default='pending', db_index=True)
+    result_json        = models.JSONField(null=True, blank=True)
+    error_message      = models.TextField(blank=True)
+    processing_time_ms = models.IntegerField(default=0)
+    created_at         = models.DateTimeField(auto_now_add=True)
+    updated_at         = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        indexes = [
+            models.Index(fields=['status']),
+            models.Index(fields=['file_name']),
+        ]
+
+    def __str__(self):
+        return f"{self.file_name} – {self.status}"
+
+
+class ExtractionLog(models.Model):
+    LEVEL_CHOICES = (
+        ('INFO', 'Info'), ('WARNING', 'Warning'),
+        ('ERROR', 'Error'), ('DEBUG', 'Debug'),
+    )
+    job        = models.ForeignKey(ExtractionJob, on_delete=models.CASCADE,
+                                   related_name='logs')
+    step       = models.CharField(max_length=100)
+    message    = models.TextField()
+    level      = models.CharField(max_length=20, choices=LEVEL_CHOICES,
+                                  default='INFO')
+    details    = models.JSONField(default=dict, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_at']
+        indexes = [
+            models.Index(fields=['job', 'step']),
+            models.Index(fields=['level']),
+        ]
+
+    def __str__(self):
+        return f"{self.job.id} – {self.step}: {self.message[:50]}"
+
+
+# ============================================================
+# 2. CONSULTANT (zentrale Entitaet)
+# ============================================================
+
+class Consultant(models.Model):
+    # Identifikation
+    aid            = models.CharField(max_length=50, unique=True, db_index=True)
+    version        = models.CharField(max_length=20, default='1.0.0.0')
+    consultant_dir = models.CharField(max_length=200, blank=True, db_index=True)
+
+    # Persoenliche Daten
+    first_name  = models.CharField(max_length=100, blank=True, db_index=True)
+    last_name   = models.CharField(max_length=100, blank=True, db_index=True)
+    birth_year  = models.IntegerField(null=True, blank=True)
+    nationality = models.CharField(max_length=100, blank=True)
+    degree      = models.CharField(max_length=200, blank=True)  # Hoechster Abschluss z.B. Dipl.-Ing., M.Sc., B.Sc.
+
+    # Kontakt – mehrere Werte mit ; getrennt
+    # Beispiel email: "a@firma.de;privat@web.de"
+    # Beispiel phone: "+49 123 456;+49 987 654"
+    # Beispiel website: "https://firma.de;https://linkedin.com/in/x"
+    email   = models.CharField(max_length=500, blank=True, db_index=True)
+    phone   = models.CharField(max_length=300, blank=True)
+    website = models.CharField(max_length=500, blank=True)
+
+    location = models.CharField(max_length=200, blank=True, db_index=True)
+
+    # Professionell
+    headline             = models.TextField(blank=True)
+    summary              = models.TextField(blank=True)
+    availability         = models.CharField(max_length=100, blank=True)
+    edv_experience_since = models.IntegerField(null=True, blank=True)
+
+    # Kopfbereich / Firmendaten
+    company = models.CharField(max_length=200, blank=True)
+    address = models.CharField(max_length=300, blank=True)
+    stand   = models.CharField(max_length=50, blank=True)
+
+    # Status
+    status         = models.CharField(max_length=30, default='pending', db_index=True)
+    error_message  = models.TextField(blank=True)
+
+    # Vermittlung (manuelle Felder, nicht LLM)
+    hourly_rate    = models.IntegerField(
+        null=True, blank=True,
+        help_text='Stundensatz in EUR (individuell verhandelbar)'
+    )
+    placement_text = models.CharField(
+        max_length=100, blank=True, default='nach Absprache',
+        help_text='Vermittlungsstatus (z.B. Auf Anfrage, Sehr gefragt)'
+    )
+
+    # Sprache & Verknüpfung
+    language  = models.CharField(
+        max_length=5, default='de', db_index=True,
+        help_text="Sprache des Profils: 'de' oder 'en'"
+    )
+    aid_base  = models.CharField(
+        max_length=50, blank=True, db_index=True,
+        help_text="AID des DE-Hauptprofils (nur bei EN-Version gesetzt)"
+    )
+
+    # Quellen
+    source_type      = models.CharField(max_length=50, default='upload')
+    source_filename  = models.CharField(max_length=500, blank=True)
+    source_filesize  = models.IntegerField(default=0)
+    source_import_id = models.CharField(max_length=100, blank=True)
+
+    # Pipeline Metadaten
+    pipeline_version      = models.CharField(max_length=20, default='4.0')
+    pipeline_step         = models.CharField(max_length=50, default='extracted')
+    pipeline_extractor    = models.CharField(max_length=50, default='cv_extractor')
+    pipeline_model        = models.CharField(max_length=50, default='qwen2.5:7b')
+    pipeline_self_learning = models.BooleanField(default=True)
+
+    # Duplicate Check
+    duplicate_exists = models.BooleanField(default=False)
+    duplicate_message = models.TextField(blank=True)
+
+    # Verarbeitung
+    processing_time_ms = models.IntegerField(default=0)
+
+    # Zeitstempel
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    created_by = models.CharField(max_length=200, blank=True)
+
+    # JSON-Felder NUR fuer Export (nicht fuer Suche)
+    master_json_export   = models.JSONField(default=dict, blank=True)
+    extracted_json_export = models.JSONField(default=dict, blank=True)
+    raw_text             = models.TextField(blank=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        indexes = [
+            models.Index(fields=['first_name', 'last_name']),
+            models.Index(fields=['status', 'location']),
+            models.Index(fields=['aid', 'version']),
+        ]
+
+    def __str__(self):
+        return f"{self.aid} – {self.first_name} {self.last_name}".strip()
+
+    @property
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}".strip()
+
+    # Hilfsmethoden fuer Mehrfachwerte
+    def get_emails(self):
+        return [e.strip() for e in self.email.split(';') if e.strip()]
+
+    def get_phones(self):
+        return [p.strip() for p in self.phone.split(';') if p.strip()]
+
+    def get_websites(self):
+        return [w.strip() for w in self.website.split(';') if w.strip()]
+
+
+# ============================================================
+# 3. SKILLS
+# ============================================================
+
+class SkillCategory(models.Model):
+    name          = models.CharField(max_length=100, unique=True, db_index=True)
+    description   = models.TextField(blank=True)
+    example_terms = models.JSONField(default=list)
+    is_active     = models.BooleanField(default=True)
+    sort_order    = models.IntegerField(default=0)
+    created_at    = models.DateTimeField(auto_now_add=True)
+    updated_at    = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['sort_order', 'name']
+        verbose_name_plural = "Skill Categories"
+
+    def __str__(self):
+        return self.name
+
+
+class Skill(models.Model):
+    name          = models.CharField(max_length=200, unique=True, db_index=True)
+    category      = models.ForeignKey(SkillCategory, on_delete=models.SET_NULL,
+                                      null=True, blank=True, related_name='skills')
+    category_name = models.CharField(max_length=100, db_index=True)
+    frequency     = models.IntegerField(default=1)
+    confidence    = models.FloatField(default=0.5)
+    created_at    = models.DateTimeField(auto_now_add=True)
+    updated_at    = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-frequency', 'name']
+        indexes = [models.Index(fields=['category_name', '-frequency'])]
+
+    def __str__(self):
+        return f"{self.name} ({self.category_name})"
+
+
+class ConsultantSkill(models.Model):
+    consultant     = models.ForeignKey(Consultant, on_delete=models.CASCADE,
+                                       related_name='skills')
+    skill          = models.ForeignKey(Skill, on_delete=models.CASCADE)
+    weight         = models.FloatField(default=0.5)
+    last_used_year = models.IntegerField(null=True, blank=True)
+    created_at     = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = [['consultant', 'skill']]
+        indexes = [
+            models.Index(fields=['consultant', 'weight']),
+            models.Index(fields=['skill', 'weight']),
+        ]
+
+    def __str__(self):
+        return f"{self.consultant.aid} → {self.skill.name} ({self.weight})"
+
+
+# ============================================================
+# 4. ZERTIFIKATE
+# ============================================================
+
+class Issuer(models.Model):
+    name       = models.CharField(max_length=200, unique=True, db_index=True)
+    confidence = models.FloatField(default=0.7)
+    frequency  = models.IntegerField(default=1)
+    source     = models.CharField(max_length=100, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-frequency', 'name']
+
+    def __str__(self):
+        return f"{self.name} (freq:{self.frequency})"
+
+
+class Certification(models.Model):
+    name        = models.CharField(max_length=200, unique=True, db_index=True)
+    issuer      = models.ForeignKey(Issuer, on_delete=models.SET_NULL,
+                                    null=True, blank=True, related_name='certifications')
+    issuer_name = models.CharField(max_length=100, db_index=True)
+    created_at  = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return f"{self.name} ({self.issuer_name})"
+
+
+class ConsultantCertification(models.Model):
+    consultant    = models.ForeignKey(Consultant, on_delete=models.CASCADE,
+                                      related_name='certifications')
+    certification = models.ForeignKey(Certification, on_delete=models.CASCADE)
+    date_obtained = models.CharField(max_length=20, blank=True)
+    expiry_date   = models.CharField(max_length=20, blank=True)
+    created_at    = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = [['consultant', 'certification']]
+        ordering = ['-date_obtained']
+
+    def __str__(self):
+        return f"{self.consultant.aid} → {self.certification.name}"
+
+
+# ============================================================
+# 5. AUSBILDUNG & SCHULUNGEN
+# ============================================================
+
+class Education(models.Model):
+    EDUCATION_TYPES = [
+        ('degree',        'Ausbildung / Studium'),
+        ('course',        'Schulung / Kurs'),
+        ('certification', 'Zertifikatskurs'),
+    ]
+    consultant     = models.ForeignKey(Consultant, on_delete=models.CASCADE,
+                                       related_name='education')
+    degree         = models.CharField(max_length=200, blank=True)
+    institution    = models.CharField(max_length=200, blank=True)
+    period         = models.CharField(max_length=50, blank=True)
+    description    = models.TextField(blank=True)
+    education_type = models.CharField(max_length=20, choices=EDUCATION_TYPES,
+                                      default='degree', db_index=True)
+    issuer         = models.CharField(max_length=200, blank=True)
+    sort_order     = models.IntegerField(default=0)
+    created_at     = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['sort_order', '-created_at']
+
+    def __str__(self):
+        return f"{self.consultant.aid}: {self.degree} @ {self.institution}"
+
+
+# ============================================================
+# 6. BERUFSERFAHRUNG
+# ============================================================
+
+class Experience(models.Model):
+    consultant = models.ForeignKey(Consultant, on_delete=models.CASCADE,
+                                   related_name='experience')
+    period     = models.CharField(max_length=50, blank=True)
+    title      = models.CharField(max_length=200, blank=True)
+    company    = models.CharField(max_length=200, blank=True, db_index=True)
+    industry   = models.CharField(max_length=100, blank=True)
+    role       = models.CharField(max_length=200, blank=True)
+    location   = models.CharField(max_length=200, blank=True)
+    sort_order = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['sort_order', '-created_at']
+        indexes = [
+            models.Index(fields=['consultant', 'company']),
+            models.Index(fields=['industry']),
+        ]
+
+    def __str__(self):
+        return f"{self.consultant.aid}: {self.role} @ {self.company} ({self.period})"
+
+
+class ExperienceActivity(models.Model):
+    experience    = models.ForeignKey(Experience, on_delete=models.CASCADE,
+                                      related_name='activities')
+    activity_text = models.TextField()
+    sort_order    = models.IntegerField(default=0)
+    created_at    = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['sort_order']
+
+    def __str__(self):
+        return f"{self.experience.consultant.aid}: {self.activity_text[:50]}"
+
+
+class ExperienceTechnology(models.Model):
+    experience = models.ForeignKey(Experience, on_delete=models.CASCADE,
+                                   related_name='technologies')
+    skill      = models.ForeignKey(Skill, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = [['experience', 'skill']]
+
+    def __str__(self):
+        return f"{self.experience.consultant.aid}: {self.skill.name}"
+
+
+# ============================================================
+# 7. BRANCHEN & FACHBEREICHE
+# ============================================================
+
+class Industry(models.Model):
+    name       = models.CharField(max_length=200, unique=True, db_index=True)
+    frequency  = models.IntegerField(default=1)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+
+class ConsultantIndustry(models.Model):
+    consultant = models.ForeignKey(Consultant, on_delete=models.CASCADE,
+                                   related_name='industries')
+    industry   = models.ForeignKey(Industry, on_delete=models.CASCADE)
+    weight     = models.FloatField(default=0.5)
+
+    class Meta:
+        unique_together = [['consultant', 'industry']]
+
+    def __str__(self):
+        return f"{self.consultant.aid} → {self.industry.name}"
+
+
+class FocusArea(models.Model):
+    name       = models.CharField(max_length=200, unique=True, db_index=True)
+    frequency  = models.IntegerField(default=1)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+
+class ConsultantFocusArea(models.Model):
+    consultant = models.ForeignKey(Consultant, on_delete=models.CASCADE,
+                                   related_name='focus_areas')
+    focus_area = models.ForeignKey(FocusArea, on_delete=models.CASCADE)
+    weight     = models.FloatField(default=0.5)
+
+    class Meta:
+        unique_together = [['consultant', 'focus_area']]
+
+    def __str__(self):
+        return f"{self.consultant.aid} → {self.focus_area.name}"
+
+
+# ============================================================
+# 8. SPRACHEN
+# ============================================================
+
+class Language(models.Model):
+    LEVEL_CHOICES = [
+        ('A1', 'A1 – Anfaenger'),
+        ('A2', 'A2 – Grundlegend'),
+        ('B1', 'B1 – Fortgeschritten'),
+        ('B2', 'B2 – Fliessend'),
+        ('C1', 'C1 – Verhandlungssicher'),
+        ('C2', 'C2 – Muttersprache'),
+    ]
+    name = models.CharField(max_length=100, unique=True, db_index=True)
+
+    def __str__(self):
+        return self.name
+
+
+class ConsultantLanguage(models.Model):
+    consultant = models.ForeignKey(Consultant, on_delete=models.CASCADE,
+                                   related_name='languages')
+    language   = models.ForeignKey(Language, on_delete=models.CASCADE)
+    level      = models.CharField(max_length=2, choices=Language.LEVEL_CHOICES,
+                                  blank=True)
+
+    class Meta:
+        unique_together = [['consultant', 'language']]
+
+    def __str__(self):
+        return f"{self.consultant.aid}: {self.language.name} ({self.level})"
+
+
+# ============================================================
+# 9. STATISTIKEN & MATCHING
+# ============================================================
+
+class ConsultantStatistics(models.Model):
+    consultant             = models.OneToOneField(Consultant, on_delete=models.CASCADE,
+                                                  related_name='statistics')
+    total_experience_years = models.IntegerField(default=0, db_index=True)
+    total_months           = models.IntegerField(default=0)
+    project_count          = models.IntegerField(default=0, db_index=True)
+    skill_count            = models.IntegerField(default=0, db_index=True)
+    unique_categories      = models.IntegerField(default=0)
+    top_skills             = models.JSONField(default=list)
+    certification_count    = models.IntegerField(default=0, db_index=True)
+    top_certifications     = models.JSONField(default=list)
+    placement_probability  = models.FloatField(default=0.0, db_index=True)
+    market_value_estimate  = models.IntegerField(default=0, db_index=True)
+    demand_index           = models.FloatField(default=0.0, db_index=True)
+    calculated_at          = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-demand_index', '-placement_probability']
+        verbose_name_plural = "Consultant Statistics"
+
+    def __str__(self):
+        return f"Stats: {self.consultant.aid}"
+
+
+class ConsultantMatching(models.Model):
+    consultant            = models.OneToOneField(Consultant, on_delete=models.CASCADE,
+                                                 related_name='matching')
+    overall_score         = models.FloatField(default=0.0, db_index=True)
+    skill_match_score     = models.FloatField(default=0.0, db_index=True)
+    role_match_score      = models.FloatField(default=0.0, db_index=True)
+    industry_match_score  = models.FloatField(default=0.0, db_index=True)
+    skill_weights         = models.JSONField(default=dict)
+    role_weights          = models.JSONField(default=dict)
+    industry_weights      = models.JSONField(default=dict)
+    preferred_roles       = models.JSONField(default=list)
+    preferred_industries  = models.JSONField(default=list)
+    preferred_locations   = models.JSONField(default=list)
+    min_experience_years  = models.IntegerField(default=0)
+    must_have_skills      = models.JSONField(default=list)
+    nice_to_have_skills   = models.JSONField(default=list)
+    calculated_at         = models.DateTimeField(auto_now_add=True)
+    calculated_by         = models.CharField(max_length=100, default='cv_extractor')
+
+    class Meta:
+        ordering = ['-overall_score']
+
+    def __str__(self):
+        return f"{self.consultant.aid} – Score: {self.overall_score:.2f}"
+
+
+# ============================================================
+# 10. SKILL GRAPH
+# ============================================================
+
+class SkillRelation(models.Model):
+    RELATION_TYPES = [
+        ('synonym',        'Synonym'),
+        ('related',        'Verwandt'),
+        ('specialization', 'Spezialisierung'),
+    ]
+    term_from     = models.CharField(max_length=200, db_index=True)
+    term_to       = models.CharField(max_length=200, db_index=True)
+    relation_type = models.CharField(max_length=20, choices=RELATION_TYPES,
+                                     default='synonym')
+    weight        = models.FloatField(default=0.5)
+    frequency     = models.IntegerField(default=1)
+    confidence    = models.FloatField(default=0.5)
+    source        = models.CharField(max_length=100, blank=True)
+    created_at    = models.DateTimeField(auto_now_add=True)
+    updated_at    = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-weight', '-frequency']
+        unique_together = [['term_from', 'term_to', 'relation_type']]
+
+    def __str__(self):
+        return f"{self.term_from} → {self.term_to} ({self.relation_type})"
+
+
+# ============================================================
+# 11. PROMPT TEMPLATES & REGELN
+# ============================================================
+
+class PromptTemplate(models.Model):
+    stage       = models.CharField(max_length=100, unique=True, db_index=True)
+    name        = models.CharField(max_length=200)
+    prompt_text = models.TextField()
+    schema      = models.JSONField(default=dict, blank=True)
+    target_path = models.CharField(max_length=200, blank=True)
+    description = models.TextField(blank=True)
+    version     = models.CharField(max_length=20, default='1.0.0')
+    is_active        = models.BooleanField(default=True, db_index=True)
+    updated_by        = models.CharField(max_length=50, default='manual')
+    trained_on_count  = models.IntegerField(default=0)
+    created_at        = models.DateTimeField(auto_now_add=True)
+    updated_at        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['stage']
+
+    def __str__(self):
+        return f"{self.stage} v{self.version}"
+
+
+class ExtractionRule(models.Model):
+    block_type      = models.CharField(max_length=50, db_index=True)
+    field_name      = models.CharField(max_length=100)
+    field_label     = models.CharField(max_length=200)
+    regex_pattern   = models.TextField()
+    confidence      = models.FloatField(default=0.5)
+    usage_count     = models.IntegerField(default=0)
+    success_count   = models.IntegerField(default=0)
+    learned_by_ai   = models.BooleanField(default=False)
+    is_active       = models.BooleanField(default=True, db_index=True)
+    notes           = models.TextField(blank=True)
+    created_at      = models.DateTimeField(auto_now_add=True)
+    updated_at      = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-confidence', '-usage_count']
+
+    def __str__(self):
+        return f"[{self.block_type}] {self.field_label} (conf:{self.confidence:.2f})"
+
+
+# ============================================================
+# 12. TRAINING TERMS
+# ============================================================
+
+class TrainingTerm(models.Model):
+    term                   = models.CharField(max_length=200, unique=True, db_index=True)
+    category               = models.CharField(max_length=100, db_index=True)
+    confidence             = models.FloatField(default=0.5)
+    frequency              = models.IntegerField(default=1)
+    source                 = models.CharField(max_length=100, blank=True)
+    is_technology_category = models.BooleanField(default=False, db_index=True)
+    in_prompt              = models.BooleanField(default=False, db_index=True)
+    created_at             = models.DateTimeField(auto_now_add=True)
+    updated_at             = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-frequency', 'term']
+        indexes = [
+            models.Index(fields=['category']),
+            models.Index(fields=['term']),
+        ]
+
+    def __str__(self):
+        return f"{self.term} ({self.category})"
+
+
+# ============================================================
+# 13. JSON-EXPORT
+# ============================================================
+
+class JsonExport(models.Model):
+    EXPORT_TYPE_CHOICES = [
+        ('master', 'Master JSON'),
+        ('pre',    'Pre JSON'),
+        ('full',   'Full CV JSON'),
+    ]
+    consultant  = models.ForeignKey(Consultant, on_delete=models.CASCADE,
+                                    related_name='json_exports')
+    export_type = models.CharField(max_length=20, choices=EXPORT_TYPE_CHOICES)
+    json_data   = models.JSONField(default=dict)
+    version     = models.CharField(max_length=20, default='4.0')
+    created_at  = models.DateTimeField(auto_now_add=True)
+    created_by  = models.CharField(max_length=100, default='cv_extractor')
+
+    class Meta:
+        ordering = ['-created_at']
+        indexes = [
+            models.Index(fields=['consultant', 'export_type']),
+            models.Index(fields=['created_at']),
+        ]
+
+    def __str__(self):
+        return f"{self.export_type} – {self.consultant.aid}"
+
+
+# ============================================================
+# 14. VERSIONIERUNG / VERZEICHNISSE
+# ============================================================
+
+class ConsultantDirectory(models.Model):
+    """
+    Verzeichnis-Eintrag fuer einen Consultant.
+    Namensvetter erhalten einen Suffix: troschke_thomas-2, troschke_thomas-3 …
+    Der erste Eintrag hat suffix=0 (kein Suffix im Verzeichnisnamen).
+    """
+    directory_name  = models.CharField(max_length=200, unique=True, db_index=True)
+    normalized_name = models.CharField(max_length=200, db_index=True)
+    suffix          = models.IntegerField(default=0)
+    version         = models.CharField(max_length=20, default='1.0.0.0')
+    last_used       = models.DateTimeField(auto_now=True)
+    created_at      = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['normalized_name', 'suffix']
+
+    def __str__(self):
+        return f"{self.directory_name} (suffix={self.suffix})"
+
+
+class ConsultantVersion(models.Model):
+    aid            = models.CharField(max_length=50, unique=True, db_index=True)
+    consultant_dir = models.CharField(max_length=200, db_index=True)
+    version        = models.CharField(max_length=20)
+    file_path      = models.CharField(max_length=500, blank=True)
+    checksum       = models.CharField(max_length=64, blank=True)
+    created_at     = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        unique_together = [['consultant_dir', 'version']]
+
+    def __str__(self):
+        return f"{self.aid} – {self.consultant_dir} v{self.version}"
+
+
+# ============================================================
+# 15. EXTRACTED CV
+# ============================================================
+
+class ExtractedCV(models.Model):
+    job             = models.OneToOneField(ExtractionJob, on_delete=models.CASCADE,
+                                           related_name='extracted_cv')
+    consultant_name = models.CharField(max_length=200, blank=True, db_index=True)
+    consultant_aid  = models.CharField(max_length=50,  blank=True, db_index=True)
+    json_data       = models.JSONField()
+    created_at      = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.consultant_aid or self.consultant_name or 'Unnamed'
+
+
+# ============================================================
+# 16. FOCUS EXPERIENCE (Produkte / Standards / Tools)
+# ============================================================
+
+class FocusExperience(models.Model):
+    consultant = models.ForeignKey(Consultant, on_delete=models.CASCADE,
+                                   related_name='focus_experience_items')
+    name       = models.CharField(max_length=500, db_index=True)
+    category   = models.CharField(max_length=100, blank=True)
+    sort_order = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['sort_order', 'created_at']
+        verbose_name_plural = "Focus Experiences"
+
+    def __str__(self):
+        return f"{self.consultant.aid}: {self.name[:50]}"
+
+
+# ============================================================
+# 17. UPLOADED PDF (fuer async Verarbeitung)
+# ============================================================
+
+class UploadedPDF(models.Model):
+    STATUS_CHOICES = (
+        ('uploaded',   'Hochgeladen'),
+        ('processing', 'Wird verarbeitet'),
+        ('completed',  'Abgeschlossen'),
+        ('failed',     'Fehlgeschlagen'),
+    )
+    file             = models.FileField(upload_to='uploads/cv/%Y/%m/%d/')
+    filename         = models.CharField(max_length=500)
+    first_name       = models.CharField(max_length=100, blank=True)
+    last_name        = models.CharField(max_length=100, blank=True)
+    target_directory = models.CharField(max_length=200, blank=True)
+    target_version   = models.CharField(max_length=20, blank=True)
+    action_type      = models.CharField(max_length=20, default='new')
+
+    status        = models.CharField(max_length=20, choices=STATUS_CHOICES,
+                                     default='uploaded')
+    error_message = models.TextField(blank=True)
+
+    aid            = models.CharField(max_length=50, blank=True)
+    version        = models.CharField(max_length=20, blank=True)
+    consultant_dir = models.CharField(max_length=200, blank=True)
+    consultant_id  = models.IntegerField(null=True, blank=True)  # FK-lose Referenz
+
+    task_id    = models.CharField(max_length=100, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"{self.filename} – {self.status}"

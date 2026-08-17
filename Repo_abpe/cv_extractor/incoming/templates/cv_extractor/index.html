@@ -1,0 +1,544 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Editor – ABpE</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --blue:  #163258;
+  --blue2: #1e4a76;
+  --green: #27ae60;
+  --red:   #e74c3c;
+  --amber: #f39c12;
+}
+body { background:#f5f7fa; font-family:'Segoe UI',sans-serif; padding:30px 20px; }
+.wrap { max-width:1400px; margin:0 auto; }
+.card { background:white; border-radius:14px; box-shadow:0 4px 24px rgba(0,0,0,.12); overflow:hidden; margin-bottom:20px; }
+.card-head { background:linear-gradient(135deg,var(--blue) 0%,var(--blue2) 100%); color:white; padding:18px 24px; display:flex; justify-content:space-between; align-items:center; }
+.card-head h1 { font-size:1.35rem; margin:0; }
+.card-head p  { font-size:.8rem; margin:4px 0 0; opacity:.85; }
+.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding:18px 22px; border-bottom:1px solid #e5e9f0; }
+.stat { background:#f8f9fa; border-radius:10px; padding:12px 16px; }
+.stat-label { font-size:.72rem; color:#6c757d; margin-bottom:4px; }
+.stat-val { font-size:1.4rem; font-weight:600; color:var(--blue); }
+@media(max-width:700px){ .stats { grid-template-columns:1fr 1fr; } }
+.nav-btns { padding:14px 22px; border-bottom:1px solid #e5e9f0; display:flex; gap:10px; }
+.btn-nav { background:white; color:var(--blue); border:1.5px solid var(--blue); padding:7px 16px; border-radius:7px; font-size:.82rem; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
+.btn-nav:hover { background:var(--blue); color:white; }
+.search-bar { padding:16px 22px; border-bottom:1px solid #e5e9f0; display:flex; gap:10px; flex-wrap:wrap; }
+.search-bar input  { flex:2; min-width:220px; padding:8px 12px; border:1.5px solid #dde1e7; border-radius:7px; font-size:.85rem; }
+.search-bar select { padding:8px 12px; border:1.5px solid #dde1e7; border-radius:7px; font-size:.85rem; }
+.search-bar input:focus, .search-bar select:focus { outline:none; border-color:var(--blue); }
+.tbl-wrap { overflow-x:auto; max-height:520px; overflow-y:auto; }
+table { width:100%; border-collapse:collapse; font-size:.83rem; }
+th { background:var(--blue); color:white; padding:10px 14px; text-align:left; white-space:nowrap; position:sticky; top:0; }
+td { padding:9px 14px; border-bottom:1px solid #e8ecf0; vertical-align:middle; }
+tr:hover td { background:#f5f8ff; }
+.dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:5px; }
+.dot-ok   { background:var(--green); }
+.dot-proc { background:var(--amber); animation:pulse .9s infinite; }
+.dot-fail { background:var(--red); }
+.dot-wait { background:#aaa; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.45} }
+.badge-s { font-size:.7rem; padding:3px 9px; border-radius:12px; font-weight:600; }
+.bs-ok   { background:#d4edda; color:#155724; }
+.bs-proc { background:#fff3cd; color:#856404; }
+.bs-fail { background:#f8d7da; color:#721c24; }
+.bs-wait { background:#e9ecef; color:#495057; }
+.btn-edit { font-size:.75rem; padding:5px 12px; border-radius:6px; background:var(--blue); color:white; border:none; cursor:pointer; white-space:nowrap; text-decoration:none; display:inline-block; }
+.btn-edit:hover { background:var(--blue2); color:white; }
+.btn-edit.disabled { opacity:.4; pointer-events:none; }
+.btn-delete { font-size:.75rem; padding:5px 12px; border-radius:6px; background:#dc3545; color:white; border:none; cursor:pointer; white-space:nowrap; display:inline-block; margin-left:4px; font-weight:500; }
+.btn-delete:hover { background:#b02a37; color:white; }
+.badge-update { font-size:.7rem; padding:3px 8px; border-radius:12px; background:#cfe2ff; color:#084298; font-weight:600; }
+.empty { text-align:center; padding:40px; color:#6c757d; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="card">
+  <div class="card-head">
+    <div>
+      <h1><i class="fas fa-users"></i> CV Editor – Beratersuche</h1>
+      <p>Berater suchen · Profil öffnen · Daten bearbeiten</p>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <button onclick="openSettings()" style="padding:6px 14px;border-radius:6px;border:2px solid rgba(255,255,255,0.6);background:transparent;color:white;cursor:pointer;font-size:.82rem;font-weight:600;">⚙️ Admin</button>
+      <span class="badge bg-success fs-6"><i class="fas fa-check-circle"></i> System bereit</span>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-label">Berater gesamt</div><div class="stat-val" id="stat-total">–</div></div>
+    <div class="stat"><div class="stat-label">Abgeschlossen</div><div class="stat-val" id="stat-ok" style="color:var(--green)">–</div></div>
+    <div class="stat"><div class="stat-label">In Bearbeitung</div><div class="stat-val" id="stat-proc" style="color:var(--amber)">–</div></div>
+    <div class="stat"><div class="stat-label">Fehler</div><div class="stat-val" id="stat-fail" style="color:var(--red)">–</div></div>
+  </div>
+  <div class="nav-btns">
+    <a href="/cv-extractor/upload/" class="btn-nav"><i class="fas fa-cloud-upload-alt"></i> PDF hochladen</a>
+    <button class="btn-nav" onclick="loadConsultants()"><i class="fas fa-sync-alt"></i> Aktualisieren</button>
+  </div>
+  <div class="search-bar">
+    <input id="search" placeholder="🔍  Name, AID, Verzeichnis …" oninput="renderTable()">
+    <select id="filter-status" onchange="renderTable()">
+      <option value="">Alle Status</option>
+      <option value="completed">Abgeschlossen</option>
+      <option value="profile_ready">Profil bereit</option>
+      <option value="processing">In Bearbeitung</option>
+      <option value="failed">Fehler</option>
+    </select>
+    <select id="sort" onchange="renderTable()">
+      <option value="newest">Neueste zuerst</option>
+      <option value="oldest">Älteste zuerst</option>
+      <option value="ln_asc">Nachname A–Z</option>
+      <option value="ln_desc">Nachname Z–A</option>
+    </select>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Nachname</th><th>Vorname</th><th>AID</th>
+          <th>Verzeichnis</th><th>Status</th><th>Aktualisiert</th><th>Update</th><th>Valid</th><th>Aktion</th>
+        </tr>
+      </thead>
+      <tbody id="tbl-body">
+        <tr><td colspan="7" class="empty"><i class="fas fa-spinner fa-spin"></i> Lade …</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+<script>
+let consultants = [];
+const $ = id => document.getElementById(id);
+function fmtDate(iso) {
+  if (!iso) return '–';
+  const d = new Date(iso);
+  return d.toLocaleDateString('de-DE')+' '+d.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+}
+function esc(s) { return (s||'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m])); }
+const statusMap = {
+  completed:     {dot:'dot-ok',  badge:'bs-ok',  label:'Abgeschlossen'},
+  profile_ready: {dot:'dot-ok',  badge:'bs-ok',  label:'Profil bereit'},
+  processing:    {dot:'dot-proc',badge:'bs-proc', label:'Verarbeitung'},
+  failed:        {dot:'dot-fail',badge:'bs-fail', label:'Fehler'},
+  pending:       {dot:'dot-wait',badge:'bs-wait', label:'Ausstehend'},
+};
+async function loadConsultants() {
+  try {
+    const r = await fetch('/cv-extractor/api/uploads/?limit=200');
+    const d = await r.json();
+    if (d.success) { consultants = d.uploads||[]; updateStats(); renderTable(); }
+  } catch(e) {
+    $('tbl-body').innerHTML = '<tr><td colspan="7" class="empty">Fehler beim Laden</td></tr>';
+  }
+}
+function updateStats() {
+  $('stat-total').textContent = consultants.length;
+  $('stat-ok').textContent    = consultants.filter(c=>c.status==='completed'||c.status==='profile_ready').length;
+  $('stat-proc').textContent  = consultants.filter(c=>c.status==='processing').length;
+  $('stat-fail').textContent  = consultants.filter(c=>c.status==='failed').length;
+}
+function renderTable() {
+  const term   = $('search').value.toLowerCase();
+  const status = $('filter-status').value;
+  const sort   = $('sort').value;
+  let rows = consultants.filter(c => {
+    if (status && c.status !== status) return false;
+    if (!term) return true;
+    return (c.last_name||'').toLowerCase().includes(term)
+        || (c.first_name||'').toLowerCase().includes(term)
+        || (c.aid||'').toLowerCase().includes(term)
+        || (c.consultant_dir||'').toLowerCase().includes(term);
+  });
+  rows.sort((a,b) => {
+    if (sort==='newest')  return new Date(b.created_at)-new Date(a.created_at);
+    if (sort==='oldest')  return new Date(a.created_at)-new Date(b.created_at);
+    if (sort==='ln_asc')  return (a.last_name||'').localeCompare(b.last_name||'');
+    if (sort==='ln_desc') return (b.last_name||'').localeCompare(a.last_name||'');
+    return 0;
+  });
+  if (!rows.length) {
+    $('tbl-body').innerHTML = '<tr><td colspan="7" class="empty"><i class="fas fa-search"></i><br>Keine Berater gefunden</td></tr>';
+    return;
+  }
+  $('tbl-body').innerHTML = rows.map(c => {
+    const s = statusMap[c.status]||statusMap.pending;
+    const btn = c.aid
+      ? `<a class="btn-edit" href="/cv-extractor/editor/${esc(c.aid)}/">✏ Editor</a>`
+      : `<span class="btn-edit disabled">✏ Editor</span>`;
+    const isValid = c.pipeline_step === 'validated';
+    const validBtn = c.aid
+      ? `<span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:${isValid?'#d4edda':'#f8d7da'};color:${isValid?'#155724':'#721c24'};font-size:13px;font-weight:700;">${isValid?'✓':'✗'}</span>`
+      : '–';
+    const delBtn = c.aid
+      ? `<button class="btn-delete" onclick="deleteConsultant('${esc(c.aid)}','${esc(c.first_name)} ${esc(c.last_name)}')">
+           <i class="fas fa-trash-alt"></i> Löschen
+         </button>`
+      : '';
+    return `<tr>
+      <td><strong>${esc(c.last_name||'–')}</strong></td>
+      <td>${esc(c.first_name||'–')}</td>
+      <td><code style="font-size:.75rem">${esc(c.aid||'–')}</code></td>
+      <td style="font-size:.78rem;color:#6c757d">${esc(c.consultant_dir||'–')}</td>
+      <td><span class="dot ${s.dot}"></span><span class="badge-s ${s.badge}">${s.label}</span>
+      ${c.error_message?`<br><small class="text-danger">${esc(c.error_message.substring(0,50))}</small>`:''}</td>
+      <td style="font-size:.78rem;color:#6c757d">${fmtDate(c.updated_at)}</td>
+      <td>${c.action_type==='new_version'?'<span class="badge-update">↑ Update</span>':''}</td>
+      <td style="text-align:center">${validBtn}</td>
+      <td style="white-space:nowrap">${btn} ${delBtn}</td>
+    </tr>`;
+  }).join('');
+}
+loadConsultants();
+setInterval(loadConsultants, 30000);
+
+function csrf() {
+  return document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('csrftoken='))?.split('=')[1]||'';
+}
+
+async function toggleValidate(aid, name, validated) {
+  const r = await fetch(`/cv-extractor/api/cv-editor/${aid}/validate/`, {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','X-CSRFToken':csrf()},
+    body: JSON.stringify({validated})
+  });
+  const d = await r.json();
+  if (d.success) loadConsultants();
+  else alert('Fehler: ' + d.error);
+}
+
+async function deleteConsultant(aid, name) {
+  const confirm_name = prompt(
+    `⚠️ LÖSCHEN bestätigen\n\nBerater: ${name}\nAID: ${aid}\n\nBitte vollständigen Namen eingeben zur Bestätigung:`
+  );
+  if (!confirm_name) return;
+  const r = await fetch(`/cv-extractor/api/cv-editor/${aid}/delete/`, {
+    method: 'DELETE',
+    headers: {'Content-Type':'application/json','X-CSRFToken':csrf()},
+    body: JSON.stringify({confirm_name})
+  });
+  const d = await r.json();
+  if (d.success) { alert(`✅ ${name} wurde gelöscht.`); loadConsultants(); }
+  else alert('Fehler: ' + d.error);
+}
+</script>
+
+<!-- SETTINGS POPUP -->
+<div id="settings-overlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:9999;align-items:flex-start;justify-content:center;overflow-y:auto;padding:30px 0;">
+  <div style="background:white;border-radius:14px;padding:28px;width:90%;max-width:900px;margin:0 auto;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+      <h2 style="margin:0;color:#163258;font-size:1.2rem;">⚙️ Admin – Settings</h2>
+      <button onclick="closeSettings()" style="background:none;border:none;font-size:1.5rem;cursor:pointer;color:#6c757d;">×</button>
+    </div>
+    <div id="settings-form"></div>
+    <div style="display:flex;gap:10px;margin-top:20px;justify-content:flex-end;">
+      <button onclick="closeSettings()" style="padding:8px 20px;border-radius:6px;border:1.5px solid #dde1e7;background:white;cursor:pointer;">Abbrechen</button>
+      <button onclick="saveSettings()" style="padding:8px 20px;border-radius:6px;border:none;background:#163258;color:white;cursor:pointer;font-weight:600;">💾 Speichern</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let _settings = {};
+
+const SETTINGS_LABELS = {
+  'system.name': 'System Name',
+  'system.environment': 'Umgebung',
+  'system.debug': 'Debug Modus',
+  'system.timezone': 'Zeitzone',
+  'ai_models.deepseek.api_key': 'DeepSeek API Key',
+  'ai_models.deepseek.model': 'DeepSeek Modell',
+  'ai_models.deepseek.timeout': 'DeepSeek Timeout (s)',
+  'ai_models.deepseek.temperature': 'DeepSeek Temperature',
+  'ai_models.ollama.primary': 'Ollama Primary Model',
+  'ai_models.ollama.fallback': 'Ollama Fallback Model',
+  'ai_models.ollama.timeout': 'Ollama Timeout (s)',
+  'storage.data_root': 'Data Root Pfad',
+  'storage.pdf_path': 'PDF Pfad',
+  'storage.extracted_path': 'Extracted Pfad',
+  'storage.html_out_path': 'HTML Output Pfad',
+  'storage.doc_out_path': 'DOC Output Pfad',
+  'storage.temp_path': 'Temp Pfad',
+  'storage.training_data': 'Training Data Pfad',
+  'pipeline.parallel_workers_projects': 'Pipeline Workers (Projekte)',
+  'pipeline.parallel_workers_sections': 'Pipeline Workers (Sektionen)',
+  'merger.confidence.match_high': 'Merger Confidence High',
+  'merger.confidence.match_low': 'Merger Confidence Low',
+  'merger.match_weights.period': 'Merger Weight: Period',
+  'merger.match_weights.company': 'Merger Weight: Company',
+  'merger.match_weights.keyword': 'Merger Weight: Keyword',
+  'email.imap.server': 'IMAP Server',
+  'email.imap.port': 'IMAP Port',
+  'email.imap.username': 'IMAP Username',
+  'email.imap.password': 'IMAP Passwort',
+  'email.smtp.server': 'SMTP Server',
+  'email.smtp.port': 'SMTP Port',
+  'email.smtp.username': 'SMTP Username',
+  'email.smtp.password': 'SMTP Passwort',
+  'elasticsearch.enabled': 'Elasticsearch aktiviert',
+  'elasticsearch.hosts': 'Elasticsearch Hosts',
+  'elasticsearch.index_name': 'Elasticsearch Index',
+  'suitecrm.user': 'SuiteCRM User',
+  'suitecrm.password': 'SuiteCRM Passwort',
+  'suitecrm.soap_endpoint': 'SuiteCRM SOAP Endpoint',
+};
+
+const SETTINGS_GROUPS = {
+  '🔑 API Keys & AI Modelle': ['ai_models.deepseek.api_key','ai_models.deepseek.model','ai_models.deepseek.timeout','ai_models.deepseek.temperature','ai_models.ollama.primary','ai_models.ollama.fallback','ai_models.ollama.timeout'],
+  '📁 Pfade & Storage': ['storage.data_root','storage.pdf_path','storage.extracted_path','storage.html_out_path','storage.doc_out_path','storage.temp_path','storage.training_data'],
+  '⚙️ System': ['system.name','system.environment','system.debug','system.timezone'],
+  '🔧 Pipeline & Merger': ['pipeline.parallel_workers_projects','pipeline.parallel_workers_sections','merger.confidence.match_high','merger.confidence.match_low','merger.match_weights.period','merger.match_weights.company','merger.match_weights.keyword'],
+  '📧 Email': ['email.imap.server','email.imap.port','email.imap.username','email.imap.password','email.smtp.server','email.smtp.port','email.smtp.username','email.smtp.password'],
+  '🔍 Elasticsearch': ['elasticsearch.enabled','elasticsearch.hosts','elasticsearch.index_name'],
+  '🏢 SuiteCRM': ['suitecrm.user','suitecrm.password','suitecrm.soap_endpoint'],
+};
+
+function getNestedVal(obj, path) {
+  return path.split('.').reduce((o, k) => o?.[k], obj);
+}
+
+function setNestedVal(obj, path, val) {
+  const keys = path.split('.');
+  let cur = obj;
+  for (let i = 0; i < keys.length - 1; i++) {
+    if (!cur[keys[i]]) cur[keys[i]] = {};
+    cur = cur[keys[i]];
+  }
+  cur[keys[keys.length - 1]] = val;
+}
+
+const DROPDOWN_OPTIONS = {
+  'system.environment':      ['production','development','staging'],
+  'ai_models.deepseek.model':['deepseek-chat','deepseek-coder','deepseek-reasoner'],
+  'ai_models.ollama.primary':['qwen2.5:7b','qwen2.5:14b','llama3.2:3b','phi3:mini','mistral:7b'],
+  'ai_models.ollama.fallback':['phi3:mini','qwen2.5:7b','llama3.2:3b','mistral:7b'],
+};
+
+const BOOL_KEYS = new Set([
+  'system.debug','elasticsearch.enabled',
+  'email.imap.use_ssl','email.smtp.use_ssl',
+  'email.processing.delete_after_import',
+  'debug.pdf_extractor','debug.pipeline','debug.block_detector',
+]);
+
+const PASSWORD_KEYS = new Set([
+  'ai_models.deepseek.api_key','email.imap.password',
+  'email.smtp.password','suitecrm.password','mysql.suitecrm.password',
+]);
+
+let _eyeStates = {};
+
+function toggleEye(id) {
+  const inp = document.getElementById(id);
+  const btn = document.getElementById('eye_'+id);
+  if (!inp) return;
+  if (inp.type === 'password') {
+    inp.type = 'text';
+    btn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+  } else {
+    inp.type = 'password';
+    btn.innerHTML = '<i class="fas fa-eye"></i>';
+  }
+}
+
+function toggleSettingsGroup(id) {
+  const content = document.getElementById(id);
+  const icon = document.getElementById('icon_'+id);
+  if (!content) return;
+  const isOpen = content.style.display !== 'none';
+  content.style.display = isOpen ? 'none' : 'grid';
+  if (icon) icon.textContent = isOpen ? '▶' : '▼';
+}
+
+function renderSettingsForm(settings) {
+  let html = '';
+  let eyeIdx = 0;
+  let groupIdx = 0;
+  for (const [group, keys] of Object.entries(SETTINGS_GROUPS)) {
+    const gid = 'sgrp_' + (groupIdx++);
+    html += `<div style="margin-bottom:8px;border:1.5px solid #e5e9f0;border-radius:8px;overflow:hidden;">
+      <div onclick="toggleSettingsGroup('${gid}')" style="font-weight:700;color:#163258;font-size:.88rem;padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#f8f9fa;user-select:none;">
+        <span>${group}</span>
+        <span id="icon_${gid}" style="font-size:.75rem;color:#6c757d;">▶</span>
+      </div>
+      <div id="${gid}" style="display:none;grid-template-columns:1fr 1fr;gap:10px;padding:14px;">`;
+    for (const key of keys) {
+      const label = SETTINGS_LABELS[key] || key;
+      const val = getNestedVal(settings, key);
+      const isPassword = PASSWORD_KEYS.has(key);
+      const isBool = BOOL_KEYS.has(key) || typeof val === 'boolean';
+      const isDropdown = key in DROPDOWN_OPTIONS;
+      const isArr = Array.isArray(val);
+      const dispVal = isArr ? val.join(', ') : (val ?? '');
+      const eid = 'inp_' + (eyeIdx++);
+
+      html += `<div><label style="font-size:.75rem;font-weight:600;color:#6c757d;display:block;margin-bottom:3px;">${label}</label>`;
+
+      if (isBool) {
+        // Toggle Switch
+        const isOn = val === true || val === 'true';
+        html += `<div style="display:flex;align-items:center;gap:10px;margin-top:4px;">
+          <label style="position:relative;display:inline-block;width:44px;height:24px;margin:0;">
+            <input type="checkbox" data-key="${key}" ${isOn?'checked':''} style="opacity:0;width:0;height:0;">
+            <span style="position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:${isOn?'#163258':'#ccc'};border-radius:24px;transition:.3s;">
+              <span style="position:absolute;content:'';height:18px;width:18px;left:${isOn?'23px':'3px'};bottom:3px;background:white;border-radius:50%;transition:.3s;"></span>
+            </span>
+          </label>
+          <span style="font-size:.82rem;color:#495057;">${isOn?'Aktiviert':'Deaktiviert'}</span>
+        </div>`;
+      } else if (isDropdown) {
+        const opts = DROPDOWN_OPTIONS[key];
+        html += `<select data-key="${key}" style="width:100%;padding:7px 10px;border:1.5px solid #dde1e7;border-radius:6px;font-size:.83rem;">`;
+        opts.forEach(o => { html += `<option value="${o}" ${String(dispVal)===o?'selected':''}>${o}</option>`; });
+        html += `</select>`;
+      } else if (isPassword) {
+        html += `<div style="display:flex;gap:0;">
+          <input type="password" id="${eid}" data-key="${key}" value="${String(dispVal).replace(/"/g,'&quot;')}"
+            style="flex:1;padding:7px 10px;border:1.5px solid #dde1e7;border-radius:6px 0 0 6px;font-size:.83rem;">
+          <button id="eye_${eid}" type="button" onclick="toggleEye('${eid}')"
+            style="padding:7px 12px;border:1.5px solid #dde1e7;border-left:none;border-radius:0 6px 6px 0;background:#f8f9fa;cursor:pointer;color:#6c757d;">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>`;
+      } else {
+        html += `<input type="${typeof val==='number'?'number':'text'}" data-key="${key}" value="${String(dispVal).replace(/"/g,'&quot;')}"
+          style="width:100%;padding:7px 10px;border:1.5px solid #dde1e7;border-radius:6px;font-size:.83rem;">`;
+      }
+      html += `</div>`;
+    }
+    html += `</div></div>`;
+  }
+  // Templates-Sektion anhängen
+  html += _buildTemplatesSection();
+  document.getElementById('settings-form').innerHTML = html;
+
+  // Toggle Switch Live-Update
+  document.querySelectorAll('#settings-form input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', function() {
+      const label = this.closest('div').querySelector('span:last-child');
+      const span  = this.nextElementSibling;
+      if (this.checked) {
+        span.style.background = '#163258';
+        span.querySelector('span').style.left = '23px';
+        if (label) label.textContent = 'Aktiviert';
+      } else {
+        span.style.background = '#ccc';
+        span.querySelector('span').style.left = '3px';
+        if (label) label.textContent = 'Deaktiviert';
+      }
+    });
+  });
+}
+
+let _templatesConfig = {};
+
+function _buildTemplatesSection() {
+  if (!Object.keys(_templatesConfig).length) return '';
+  const FIELD_LABELS = {
+    'name': 'Name', 'target_dir': 'Ziel-Verzeichnis',
+    'logo_path': 'Logo Pfad', 'description': 'Beschreibung',
+    'filename_suffix': 'Datei-Suffix', 'format': 'Format',
+  };
+  const EDITABLE = ['name','target_dir','logo_path','description'];
+  const tplGid = 'sgrp_templates';
+  let html = `<div style="margin-bottom:8px;border:1.5px solid #e5e9f0;border-radius:8px;overflow:hidden;">
+    <div onclick="toggleSettingsGroup('${tplGid}')" style="font-weight:700;color:#163258;font-size:.88rem;padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#f8f9fa;user-select:none;">
+      <span>📄 Templates</span>
+      <span id="icon_${tplGid}" style="font-size:.75rem;color:#6c757d;">▶</span>
+    </div>
+    <div id="${tplGid}" style="display:none;padding:14px;">`;
+  for (const [tkey, tval] of Object.entries(_templatesConfig)) {
+    html += `<div style="margin-bottom:12px;padding:10px;background:#f8f9fa;border-radius:8px;">
+      <div style="font-weight:600;font-size:.82rem;color:#163258;margin-bottom:8px;">📋 ${tkey}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">`;
+    for (const field of EDITABLE) {
+      if (!(field in tval)) continue;
+      const isPath = field.includes('dir') || field.includes('path');
+      html += `<div>
+        <label style="font-size:.72rem;font-weight:600;color:#6c757d;display:block;margin-bottom:2px;">${FIELD_LABELS[field]||field}</label>
+        <input type="text" data-tpl-key="${tkey}" data-tpl-field="${field}"
+          value="${String(tval[field]||'').replace(/"/g,'&quot;')}"
+          style="width:100%;padding:6px 10px;border:1.5px solid ${isPath?'#bee3f8':'#dde1e7'};border-radius:6px;font-size:.82rem;background:${isPath?'#ebf8ff':'white'};">
+      </div>`;
+    }
+    html += `</div></div>`;
+  }
+  html += `</div></div>`;
+  return html;
+}
+
+async function openSettings() {
+  document.getElementById('settings-overlay').style.display = 'flex';
+  document.getElementById('settings-form').innerHTML = '<div style="text-align:center;padding:40px;color:#6c757d;">⏳ Lade...</div>';
+  try {
+    const r = await fetch('/cv-extractor/api/settings/');
+    const d = await r.json();
+    if (d.success) {
+      _settings = d.settings;
+      // Templates nachladen
+      try {
+        const rt = await fetch('/cv-extractor/api/templates-config/');
+        const dt = await rt.json();
+        if (dt.success) _templatesConfig = dt.templates;
+      } catch(e) {}
+      renderSettingsForm(_settings);
+    }
+    else alert('Fehler: ' + d.error);
+  } catch(e) { alert('Netzwerkfehler: ' + e.message); }
+}
+
+function closeSettings() {
+  document.getElementById('settings-overlay').style.display = 'none';
+}
+
+async function saveSettings() {
+  // Werte aus Formular zurücklesen
+  document.querySelectorAll('#settings-form [data-key]').forEach(el => {
+    const key = el.dataset.key;
+    const origVal = getNestedVal(_settings, key);
+    let val = el.value;
+    if (typeof origVal === 'boolean') val = val === 'true';
+    else if (typeof origVal === 'number') val = Number(val);
+    else if (Array.isArray(origVal)) val = val.split(',').map(s=>s.trim()).filter(Boolean);
+    setNestedVal(_settings, key, val);
+  });
+  // Template-Felder auslesen
+  document.querySelectorAll('#settings-form [data-tpl-key]').forEach(el => {
+    const tkey   = el.dataset.tplKey;
+    const field  = el.dataset.tplField;
+    if (_templatesConfig[tkey]) _templatesConfig[tkey][field] = el.value;
+  });
+  // Templates speichern
+  try {
+    await fetch('/cv-extractor/api/templates-config/', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':csrf()},
+      body: JSON.stringify(_templatesConfig)
+    });
+  } catch(e) {}
+
+  try {
+    const r = await fetch('/cv-extractor/api/settings/', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':csrf()},
+      body: JSON.stringify(_settings)
+    });
+    const d = await r.json();
+    if (d.success) { alert('✅ Settings gespeichert!'); closeSettings(); }
+    else alert('Fehler: ' + d.error);
+  } catch(e) { alert('Netzwerkfehler: ' + e.message); }
+}
+
+// Overlay schließen bei Klick außerhalb
+document.getElementById('settings-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeSettings();
+});
+</script>
+
+</body>
+</html>

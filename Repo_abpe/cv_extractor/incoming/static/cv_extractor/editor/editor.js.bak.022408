@@ -1,0 +1,708 @@
+/* ============================================================
+   CV EDITOR - COMPLETE JAVASCRIPT
+   ============================================================ */
+
+class CVEditor {
+    constructor(consultantId, aid, consultantDir, firstName, lastName) {
+        this.consultantId  = consultantId;
+        this.aid           = aid;
+        this.consultantDir = consultantDir;
+        this.firstName     = firstName;
+        this.lastName      = lastName;
+        this.csrfToken     = document.querySelector('[name="csrf-token"]')?.content
+                          || document.querySelector('[name=csrfmiddlewaretoken]')?.value
+                          || '';
+        this.init();
+    }
+
+    init() {
+        this.initCollapsibles();
+        this.initSaveButtons();
+        this.initViewerButtons();
+        this.initWordButton();
+        this.initDynamicLists();
+        this.initEducationList();
+        this.initSkillCategories();
+        this.initProjects();
+        this.initTagInputs();
+        this.loadWordTemplates();
+    }
+
+    /* Toast */
+    showToast(message, type = 'success') {
+        let c = document.getElementById('toast-container');
+        if (!c) { c = document.createElement('div'); c.id = 'toast-container'; c.className = 'toast-container'; document.body.appendChild(c); }
+        const t = document.createElement('div');
+        t.className = `toast ${type}`;
+        const icons = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️' };
+        t.innerHTML = `<span class="toast-icon">${icons[type]||'ℹ️'}</span><span class="toast-message">${message}</span><span class="toast-close">×</span>`;
+        c.appendChild(t);
+        t.querySelector('.toast-close').onclick = () => t.remove();
+        setTimeout(() => { if (t.parentNode) t.remove(); }, 4000);
+    }
+
+    /* Collapsibles */
+    initCollapsibles() {
+        document.querySelectorAll('.collapse-header').forEach(header => {
+            const content = header.nextElementSibling;
+            const toggle  = header.querySelector('.toggle-icon');
+            if (!content || !toggle) return;
+            content.classList.remove('open'); toggle.classList.remove('open');
+            header.addEventListener('click', (e) => {
+                if (e.target.closest('.save-btn') || e.target.closest('.btn-add') || e.target.closest('.btn-remove')) return;
+                content.classList.toggle('open'); toggle.classList.toggle('open');
+            });
+        });
+    }
+
+    /* Save Buttons */
+    initSaveButtons() {
+        document.querySelectorAll('.save-btn').forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                e.stopPropagation();
+                const st = btn.closest('.collapse-section')?.dataset.sectionType || btn.dataset.section;
+                if (st) await this.saveSection(st);
+            });
+        });
+    }
+
+    async saveSection(sectionType) {
+        const btn = document.querySelector(`.collapse-section[data-section-type="${sectionType}"] .save-btn, .save-btn[data-section="${sectionType}"]`);
+        if (btn) btn.classList.add('loading');
+        try {
+            const response = await fetch(`/cv-extractor/api/cv-editor/${this.aid}/update/`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRFToken': this.csrfToken },
+                body: JSON.stringify({ section: sectionType, data: this.collectSectionData(sectionType) })
+            });
+            if (response.ok) {
+                this.showToast(`${this.getSectionName(sectionType)} erfolgreich gespeichert!`, 'success');
+            } else {
+                const err = await response.json().catch(() => ({}));
+                throw new Error(err.message || `HTTP ${response.status}`);
+            }
+        } catch (e) { this.showToast(`Fehler: ${e.message}`, 'error'); }
+        finally { if (btn) btn.classList.remove('loading'); }
+    }
+
+    getSectionName(t) {
+        return { personal:'Persönliche Daten', branchen:'Branchen', fachbereiche:'Fachbereiche', schulungen:'Schulungen', zertifikate:'Zertifikate', produkte:'Produkte', skills:'Skills', projects:'Projekte' }[t] || t;
+    }
+
+    collectSectionData(t) {
+        switch(t) {
+            case 'personal':    return this.collectPersonalData();
+            case 'branchen':    return this.collectTags('branchen-tags');
+            case 'fachbereiche':return this.collectTags('fachbereiche-tags');
+            case 'schulungen':  return this.collectTags('schulungen-tags');
+            case 'zertifikate': return this.collectTags('zertifikate-tags');
+            case 'produkte':    return this.collectTags('produkte-tags');
+            case 'skills':      return this.collectAllSkills();
+            case 'projects':    return this.collectAllProjects();
+            default:            return {};
+        }
+    }
+
+    collectPersonalData() {
+        return {
+            first_name: document.getElementById('first_name')?.value,
+            last_name: document.getElementById('last_name')?.value,
+            headline: document.getElementById('headline')?.value,
+            email: this.collectDynamicData('emails-container','email-input'),
+            phone: this.collectDynamicData('phones-container','phone-input'),
+            website: this.collectDynamicData('websites-container','website-input'),
+            location: document.getElementById('location')?.value,
+            birth_year: document.getElementById('birth_year')?.value,
+            nationality: document.getElementById('nationality')?.value,
+            edv_experience_since: document.getElementById('edv_since')?.value,
+            availability: document.getElementById('availability')?.value,
+            company: document.getElementById('company')?.value,
+            address: document.getElementById('address')?.value,
+            stand: document.getElementById('stand')?.value
+        };
+    }
+
+    collectTags(id) {
+        const c = document.getElementById(id);
+        if (!c) return [];
+        return Array.from(c.querySelectorAll('.tag span:first-child')).map(t => t.textContent.trim()).filter(Boolean);
+    }
+
+    collectAllSkills() {
+        const s = {};
+        document.querySelectorAll('.skill-category').forEach(cat => {
+            const tags = Array.from(cat.querySelectorAll('.skill-tag span:first-child')).map(t => t.textContent.trim()).filter(Boolean);
+            if (tags.length) s[cat.dataset.categoryName] = tags;
+        });
+        return s;
+    }
+
+    collectAllProjects() {
+        return Array.from(document.querySelectorAll('.project-item')).map(p => ({
+            period:       p.querySelector('.project-period-input')?.value  || '',
+            company:      p.querySelector('.project-company-input')?.value || '',
+            role:         p.querySelector('.project-role-input')?.value    || '',
+            activities:   Array.from(p.querySelectorAll('.activity-item input')).map(i => i.value).filter(Boolean),
+            technologies: Array.from(p.querySelectorAll('.project-tech-tags .tag span:first-child')).map(t => t.textContent.trim()).filter(Boolean)
+        }));
+    }
+
+    /* Viewer Buttons */
+    initViewerButtons() {
+        document.getElementById('btn-pdf')?.addEventListener('click',  () => this.openViewer('pdf'));
+        document.getElementById('btn-txt')?.addEventListener('click',  () => this.openViewer('txt'));
+        document.getElementById('btn-html')?.addEventListener('click', () => this.openViewer('html'));
+        document.getElementById('btn-html-en')?.addEventListener('click', () => this.openViewer('html-en'));
+    }
+
+    openViewer(type) {
+        const tpl = document.getElementById('word-template-select')?.value || 'aid-word';
+        const isShort = tpl === 'aid-word-short';
+        const urls = {
+            pdf:  `/data/pdf/${this.aid}.pdf`,
+            txt:  `/data/extracted/${this.consultantDir}/${this.aid}.txt`,
+            html: isShort
+                ? `/data/html_out/${this.consultantDir}/${this.aid}-short.html`
+                : `/data/html_out/${this.consultantDir}/${this.aid}.html`,
+            'html-en': `/data/html_out/${this.consultantDir}/${this.aid}-en.html`,
+        };
+        if (urls[type]) window.open(urls[type], '_blank');
+        else this.showToast(`Kein Pfad für "${type}" bekannt`, 'warning');
+    }
+
+    /* ============================================================
+       WORD GENERATOR
+       ============================================================ */
+
+    async loadWordTemplates() {
+        try {
+            const r = await fetch('/cv-extractor/api/word-templates/');
+            const d = await r.json();
+            if (!d.success) return;
+            const sel = document.getElementById('word-template-select');
+            if (!sel) return;
+            sel.innerHTML = d.templates.map(t =>
+                `<option value="${t.key}">${t.name}</option>`
+            ).join('');
+        } catch(e) {
+            // Fallback: hardcoded Optionen bleiben
+        }
+    }
+    initWordButton() {
+        document.getElementById('btn-word')?.addEventListener('click', () => this.generateWord());
+    }
+
+    async generateWord() {
+        const btn = document.getElementById('btn-word');
+        if (!btn) return;
+        btn.disabled = true;
+        btn.classList.add('loading');
+        btn.innerHTML = '<span class="spinner"></span> Word wird generiert...';
+        try {
+            const tpl = document.getElementById('word-template-select')?.value || 'aid-word';
+            const r = await fetch(`/cv-extractor/api/cv-editor/${this.aid}/generate-word/`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRFToken': this.csrfToken },
+                body: JSON.stringify({ template_key: tpl })
+            });
+            const d = await r.json();
+            if (d.success) {
+                this.showToast('Word-Dokument erstellt – Download startet...', 'success');
+                const a = document.createElement('a');
+                a.href = d.url; a.download = d.filename; a.click();
+            } else {
+                throw new Error(d.error || 'Unbekannter Fehler');
+            }
+        } catch (e) {
+            this.showToast(`Word-Fehler: ${e.message}`, 'error');
+            console.error('Word Generator Error:', e);
+        } finally {
+            btn.disabled = false;
+            btn.classList.remove('loading');
+            btn.innerHTML = '<span class="btn-word-icon">📄</span> Word generieren';
+        }
+    }
+
+    /* Dynamic Lists */
+    initDynamicLists() {
+        [
+            { btnId:'add-email',   cId:'emails-container',   cls:'email-input',   type:'email', ph:'E-Mail Adresse' },
+            { btnId:'add-phone',   cId:'phones-container',   cls:'phone-input',   type:'text',  ph:'Telefonnummer' },
+            { btnId:'add-website', cId:'websites-container', cls:'website-input', type:'url',   ph:'https://...' }
+        ].forEach(({ btnId, cId, cls, type, ph }) => {
+            document.getElementById(btnId)?.addEventListener('click', () => this.addDynamicItem(cId, cls, type, ph));
+        });
+        document.querySelectorAll('.btn-remove-item').forEach(b => {
+            b.addEventListener('click', (e) => { e.stopPropagation(); b.closest('.dynamic-item')?.remove(); });
+        });
+    }
+
+    addDynamicItem(cId, cls, type, ph) {
+        const c = document.getElementById(cId);
+        if (!c) return;
+        const div = document.createElement('div');
+        div.className = 'dynamic-item';
+        div.innerHTML = `<input type="${type}" class="${cls}" placeholder="${ph}"><button type="button" class="btn-remove-item">✗</button>`;
+        c.appendChild(div);
+        div.querySelector('.btn-remove-item').addEventListener('click', () => div.remove());
+        div.querySelector('input').focus();
+    }
+
+    collectDynamicData(cId, cls) {
+        const c = document.getElementById(cId);
+        if (!c) return '';
+        return Array.from(c.querySelectorAll(`.${cls}`)).map(i => i.value.trim()).filter(Boolean).join(';');
+    }
+
+    /* Education */
+    initEducationList() {
+        document.getElementById('add-education')?.addEventListener('click', () => this.addEducationItem());
+        document.querySelectorAll('#education-container .btn-remove').forEach(b => {
+            b.addEventListener('click', (e) => { e.stopPropagation(); b.closest('.education-item')?.remove(); });
+        });
+    }
+
+    addEducationItem() {
+        const c = document.getElementById('education-container');
+        if (!c) return;
+        const div = document.createElement('div');
+        div.className = 'education-item';
+        div.innerHTML = `<input type="text" placeholder="Abschluss" style="flex:2"><input type="text" placeholder="Institution" style="flex:2"><input type="text" placeholder="Zeitraum" style="flex:1"><button class="btn-remove">✗</button>`;
+        c.appendChild(div);
+        div.querySelector('.btn-remove').addEventListener('click', () => div.remove());
+        div.querySelector('input').focus();
+    }
+
+    /* Skills */
+    initSkillCategories() {
+        this._bindSkillHeaders();
+        this._bindSkillInputs();
+        this._bindAddCategory();
+    }
+
+    _bindSkillHeaders() {
+        document.querySelectorAll('.skill-cat-header').forEach(h => {
+            const content = h.nextElementSibling, toggle = h.querySelector('.skill-cat-toggle');
+            if (!content || !toggle) return;
+            content.classList.remove('open'); toggle.classList.remove('open');
+            h.addEventListener('click', (e) => { e.stopPropagation(); content.classList.toggle('open'); toggle.classList.toggle('open'); });
+        });
+    }
+
+    _bindSkillInputs() {
+        document.querySelectorAll('.add-skill-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const cat   = btn.closest('.skill-category');
+                const input = cat?.querySelector('.add-skill-input');
+                const tags  = cat?.querySelector('.skill-tags');
+                if (input?.value.trim() && tags) {
+                    this.addSkillTag(tags, input.value.trim());
+                    this._updateBadge(cat);
+                    input.value = ''; input.focus();
+                }
+            });
+        });
+        document.querySelectorAll('.add-skill-input').forEach(input => {
+            input.addEventListener('keypress', (e) => {
+                if (e.key !== 'Enter') return;
+                e.preventDefault(); e.stopPropagation();
+                const cat  = input.closest('.skill-category');
+                const tags = cat?.querySelector('.skill-tags');
+                if (input.value.trim() && tags) {
+                    this.addSkillTag(tags, input.value.trim());
+                    this._updateBadge(cat);
+                    input.value = '';
+                }
+            });
+        });
+    }
+
+    _updateBadge(catEl) {
+        const badge = catEl?.querySelector('.skill-count-badge');
+        const count = catEl?.querySelectorAll('.skill-tag').length || 0;
+        if (badge) badge.textContent = count;
+    }
+
+    _bindAddCategory() {
+        document.getElementById('add-cat-btn')?.addEventListener('click', () => {
+            const sel = document.getElementById('new-cat-select');
+            const catName = sel?.value;
+            if (!catName) return;
+
+            // Prüfen ob schon vorhanden
+            const existing = document.querySelector(`.skill-category[data-category-name="${catName}"]`);
+            if (existing) {
+                this.showToast(`Kategorie "${catName}" ist bereits vorhanden`, 'warning');
+                return;
+            }
+
+            // Neue Kategorie erstellen
+            const container = document.getElementById('skills-container');
+            const div = document.createElement('div');
+            div.className = 'skill-category';
+            div.dataset.categoryName = catName;
+            div.innerHTML = `
+                <div class="skill-cat-header">
+                    <div class="skill-cat-title">
+                        <span style="font-size:16px">📁</span>
+                        ${this.esc(catName)}
+                        <span class="skill-count-badge">0</span>
+                    </div>
+                    <span class="skill-cat-toggle">▶</span>
+                </div>
+                <div class="skill-cat-content open">
+                    <div class="skill-tags"></div>
+                    <div class="add-skill">
+                        <input type="text" class="add-skill-input" placeholder="Skill hinzufügen...">
+                        <button class="add-skill-btn">+ Hinzufügen</button>
+                    </div>
+                </div>`;
+            container.appendChild(div);
+
+            // Toggle öffnen
+            const toggle = div.querySelector('.skill-cat-toggle');
+            toggle.classList.add('open');
+
+            // Events binden
+            const h = div.querySelector('.skill-cat-header');
+            const content = div.querySelector('.skill-cat-content');
+            h.addEventListener('click', (e) => {
+                e.stopPropagation();
+                content.classList.toggle('open');
+                toggle.classList.toggle('open');
+            });
+            const addBtn = div.querySelector('.add-skill-btn');
+            const input  = div.querySelector('.add-skill-input');
+            const tags   = div.querySelector('.skill-tags');
+            addBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (input.value.trim()) { this.addSkillTag(tags, input.value.trim()); this._updateBadge(div); input.value = ''; input.focus(); }
+            });
+            input.addEventListener('keypress', (e) => {
+                if (e.key !== 'Enter') return;
+                e.preventDefault();
+                if (input.value.trim()) { this.addSkillTag(tags, input.value.trim()); this._updateBadge(div); input.value = ''; }
+            });
+
+            // Dropdown zurücksetzen
+            sel.value = '';
+            this.showToast(`Kategorie "${catName}" hinzugefügt`, 'success');
+            div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    }
+
+    addSkillTag(c, name) {
+        const tag = document.createElement('div');
+        tag.className = 'skill-tag';
+        tag.innerHTML = `<span>${this.esc(name)}</span><span class="remove">×</span>`;
+        c.appendChild(tag);
+        tag.querySelector('.remove').onclick = () => tag.remove();
+    }
+
+    /* Projects */
+    initProjects() {
+        document.querySelectorAll('.project-header').forEach(h => {
+            const content = h.nextElementSibling, toggle = h.querySelector('.toggle-icon');
+            if (!content || !toggle) return;
+            content.classList.remove('open'); toggle.classList.remove('open');
+            h.addEventListener('click', (e) => {
+                if (e.target.closest('.btn-remove') || e.target.closest('.btn-add')) return;
+                content.classList.toggle('open'); toggle.classList.toggle('open');
+            });
+        });
+        document.querySelectorAll('.add-activity-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const acts = btn.closest('.project-content')?.querySelector('.project-activities');
+                if (acts) this.addActivityItem(acts);
+            });
+        });
+        document.getElementById('add-project')?.addEventListener('click', () => this.addNewProject());
+    }
+
+    addActivityItem(c) {
+        const div = document.createElement('div');
+        div.className = 'activity-item';
+        div.innerHTML = `<input type="text" placeholder="Aktivität / Tätigkeit"><button class="btn-remove">✗</button>`;
+        c.appendChild(div);
+        div.querySelector('.btn-remove').onclick = () => div.remove();
+        div.querySelector('input').focus();
+    }
+
+    addNewProject() {
+        const c = document.getElementById('projects-container');
+        if (!c) return;
+        const div = document.createElement('div');
+        div.className = 'project-item';
+        div.innerHTML = `
+            <div class="project-header">
+                <div class="project-title"><span class="project-period">Neues Projekt</span><span class="project-company"></span><span class="project-role"></span></div>
+                <span class="toggle-icon open">▶</span>
+            </div>
+            <div class="project-content open">
+                <div class="project-field"><label>Zeitraum</label><input type="text" class="project-period-input" placeholder="z.B. 01/2024 – 12/2024"></div>
+                <div class="project-field"><label>Firma / Kunde</label><input type="text" class="project-company-input" placeholder="Firmenname"></div>
+                <div class="project-field"><label>Rolle / Position</label><input type="text" class="project-role-input" placeholder="z.B. Senior Consultant"></div>
+                <div class="project-field"><label>Aufgaben / Tätigkeiten</label><div class="project-activities"></div><button class="btn-add add-activity-btn">+ Aktivität</button></div>
+                <div class="project-field"><label>Technologien</label>
+                    <div class="tag-input-container"><div class="tags-container project-tech-tags"></div><input type="text" class="tag-input" placeholder="Technologie hinzufügen"><button type="button" class="add-tag-btn">+</button></div>
+                </div>
+            </div>`;
+        c.prepend(div);
+        this._bindProject(div);
+        div.querySelector('.project-period-input').focus();
+    }
+
+    _bindProject(div) {
+        const h = div.querySelector('.project-header'), content = div.querySelector('.project-content'), toggle = h?.querySelector('.toggle-icon');
+        h?.addEventListener('click', (e) => {
+            if (e.target.closest('.btn-remove') || e.target.closest('.btn-add')) return;
+            content?.classList.toggle('open'); toggle?.classList.toggle('open');
+        });
+        div.querySelector('.add-activity-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation(); this.addActivityItem(div.querySelector('.project-activities'));
+        });
+        const addBtn = div.querySelector('.add-tag-btn'), tagInput = div.querySelector('.tag-input'), tagsCont = div.querySelector('.project-tech-tags');
+        const addTech = () => { const v = tagInput?.value.trim(); if (v && tagsCont) { this.addTagToContainer(tagsCont, v); tagInput.value = ''; tagInput.focus(); } };
+        addBtn?.addEventListener('click', (e) => { e.stopPropagation(); addTech(); });
+        tagInput?.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); addTech(); } });
+    }
+
+    /* Tag Inputs (allgemein) */
+    initTagInputs() {
+        document.querySelectorAll('.tag-input-container').forEach(c => {
+            const input = c.querySelector('.tag-input'), btn = c.querySelector('.add-tag-btn'), tags = c.querySelector('.tags-container');
+            if (!input || !btn || !tags) return;
+            const add = () => { const v = input.value.trim(); if (v) { this.addTagToContainer(tags, v); input.value = ''; } };
+            btn.addEventListener('click', (e) => { e.stopPropagation(); add(); });
+            input.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); add(); } });
+        });
+        document.querySelectorAll('.tag .remove, .skill-tag .remove').forEach(rm => {
+            rm.addEventListener('click', (e) => { e.stopPropagation(); rm.closest('.tag, .skill-tag')?.remove(); });
+        });
+    }
+
+    addTagToContainer(c, text) {
+        const tag = document.createElement('div');
+        tag.className = 'tag';
+        tag.innerHTML = `<span>${this.esc(text)}</span><span class="remove">×</span>`;
+        c.appendChild(tag);
+        tag.querySelector('.remove').onclick = (e) => { e.stopPropagation(); tag.remove(); };
+    }
+
+    esc(t) { const d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const el = document.getElementById('cv-editor');
+    if (el) window.cvEditor = new CVEditor(el.dataset.consultantId, el.dataset.aid, el.dataset.consultantDir, el.dataset.firstName, el.dataset.lastName);
+});
+
+function toggleHeaderForm() {
+    const content = document.getElementById('header-form-content');
+    const icon    = document.getElementById('header-toggle-icon');
+    const toggle  = document.getElementById('header-toggle');
+    if (!content) return;
+    const isOpen = content.style.display !== 'none';
+    content.style.display = isOpen ? 'none' : 'block';
+    icon.textContent  = isOpen ? '▶' : '▼';
+    toggle.childNodes[1].textContent = isOpen ? ' Formular einblenden' : ' Formular ausblenden';
+}
+
+// ── Projekt View-Mode (nach DOMContentLoaded) ──
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.project-item').forEach(item => {
+        const period  = item.querySelector('.project-period-input')?.value  || '';
+        const company = item.querySelector('.project-company-input')?.value || '';
+        const role    = item.querySelector('.project-role-input')?.value    || '';
+        const acts    = Array.from(item.querySelectorAll('.project-activities .activity-item input'))
+                            .map(i => i.value).filter(Boolean);
+        const techs   = Array.from(item.querySelectorAll('.project-tech-tags .tag span:first-child'))
+                            .map(t => t.textContent.trim()).filter(Boolean);
+
+        const actHtml  = acts.length
+            ? `<ul>${acts.map(a => `<li>${a}</li>`).join('')}</ul>`
+            : '';
+        const techHtml = techs.length
+            ? `<div class="project-view-tech"><strong>Technologien:</strong> ${techs.join(', ')}</div>`
+            : '';
+
+        const view = document.createElement('div');
+        view.className = 'project-view';
+        view.innerHTML = `
+            <div class="project-view-header">
+                <div class="project-view-meta">
+                    ${period  ? `<span class="project-view-date">${period}</span>` : ''}
+                    ${company ? `<span class="project-view-client">${company}</span>` : ''}
+                </div>
+                <button class="project-edit-btn">✏️ Bearbeiten</button>
+            </div>
+            ${role ? `<div class="project-view-role">${role}</div>` : ''}
+            <div class="project-view-details">${actHtml}</div>
+            ${techHtml}
+        `;
+
+        view.querySelector('.project-edit-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isEdit = item.classList.toggle('edit-mode');
+            view.querySelector('.project-edit-btn').textContent = isEdit ? '👁 Ansicht' : '✏️ Bearbeiten';
+        });
+
+        item.insertBefore(view, item.firstChild);
+
+        // Vorschau-Bar (immer zwischen view und content)
+        const backBar = document.createElement('div');
+        backBar.className = 'project-back-bar';
+        const backBtn = document.createElement('button');
+        backBtn.className = 'project-edit-btn';
+        backBtn.textContent = '👁 Vorschau';
+        backBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            item.classList.remove('edit-mode');
+            view.querySelector('.project-edit-btn').textContent = '✏️ Bearbeiten';
+        });
+        backBar.appendChild(backBtn);
+        view.after(backBar);
+    });
+});
+
+// ── Section View/Edit Toggle ──
+document.addEventListener('DOMContentLoaded', () => {
+
+    function makeEditBtn(label) {
+        const btn = document.createElement('button');
+        btn.className = 'section-edit-btn';
+        btn.textContent = label;
+        return btn;
+    }
+
+    function toggleSection(section, viewEl, editBtn) {
+        const isView = section.classList.toggle('view-mode');
+        editBtn.textContent = isView ? '✏️ Bearbeiten' : '👁 Vorschau';
+    }
+
+    function initSectionToggle(sectionType, buildViewFn) {
+        const section = document.querySelector(`.collapse-section[data-section-type="${sectionType}"]`);
+        if (!section) return;
+
+        const viewEl = document.createElement('div');
+        viewEl.className = 'section-view';
+        viewEl.innerHTML = buildViewFn(section);
+
+        const editBtn = makeEditBtn('✏️ Bearbeiten');
+        editBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleSection(section, viewEl, editBtn);
+            // Collapse öffnen wenn in Edit-Mode
+            if (!section.classList.contains('view-mode')) {
+                const content = section.querySelector('.collapse-content');
+                const toggle  = section.querySelector('.toggle-icon');
+                if (content) content.classList.add('open');
+                if (toggle)  toggle.classList.add('open');
+            }
+        });
+        viewEl.prepend(editBtn);
+
+        // View nach collapse-header einfügen
+        const header = section.querySelector('.collapse-header');
+        if (header) header.after(viewEl);
+
+        // Standardmäßig in View-Mode
+        section.classList.add('view-mode');
+    }
+
+    // ── 1. BRANCHEN ──
+    initSectionToggle('branchen', (section) => {
+        const tags = Array.from(section.querySelectorAll('#branchen-tags .tag span:first-child'))
+            .map(t => t.textContent.trim()).filter(Boolean);
+        if (!tags.length) return '<span class="section-view-empty">Keine Branchen eingetragen</span>';
+        return `<div class="section-view-tags">${tags.map(t => `<span class="section-view-tag">${t}</span>`).join('')}</div>`;
+    });
+
+    // ── 2. FACHBEREICHE ──
+    initSectionToggle('fachbereiche', (section) => {
+        const tags = Array.from(section.querySelectorAll('#fachbereiche-tags .tag span:first-child'))
+            .map(t => t.textContent.trim()).filter(Boolean);
+        if (!tags.length) return '<span class="section-view-empty">Keine Fachbereiche eingetragen</span>';
+        return `<div class="section-view-tags">${tags.map(t => `<span class="section-view-tag">${t}</span>`).join('')}</div>`;
+    });
+
+    // ── 3. SCHULUNGEN ──
+    initSectionToggle('schulungen', (section) => {
+        const items = Array.from(section.querySelectorAll('#schulungen-tags .tag span:first-child'))
+            .map(t => t.textContent.trim()).filter(Boolean);
+        if (!items.length) return '<span class="section-view-empty">Keine Schulungen eingetragen</span>';
+        return `<ul class="section-view-list">${items.map(i => `<li>${i}</li>`).join('')}</ul>`;
+    });
+
+    // ── 4. ZERTIFIKATE ──
+    initSectionToggle('zertifikate', (section) => {
+        const items = Array.from(section.querySelectorAll('#zertifikate-tags .tag span:first-child'))
+            .map(t => t.textContent.trim()).filter(Boolean);
+        if (!items.length) return '<span class="section-view-empty">Keine Zertifikate eingetragen</span>';
+        return `<ul class="section-view-list">${items.map(i => `<li>${i}</li>`).join('')}</ul>`;
+    });
+
+    // ── 5. PRODUKTE ──
+    initSectionToggle('produkte', (section) => {
+        const tags = Array.from(section.querySelectorAll('#produkte-tags .tag span:first-child'))
+            .map(t => t.textContent.trim()).filter(Boolean);
+        if (!tags.length) return '<span class="section-view-empty">Keine Produkte eingetragen</span>';
+        return `<div class="section-view-tags">${tags.map(t => `<span class="section-view-tag">${t}</span>`).join('')}</div>`;
+    });
+
+    // ── 6. SKILLS ──
+    initSectionToggle('skills', (section) => {
+        const cats = Array.from(section.querySelectorAll('.skill-category'));
+        if (!cats.length) return '<span class="section-view-empty">Keine Skills eingetragen</span>';
+        return cats.map(cat => {
+            const name  = cat.dataset.categoryName || '';
+            const skills = Array.from(cat.querySelectorAll('.skill-tag span:first-child'))
+                .map(t => t.textContent.trim()).filter(Boolean);
+            if (!skills.length) return '';
+            return `<div class="section-view-skill-cat">
+                <div class="section-view-skill-cat-name">${name} (${skills.length})</div>
+                <div class="section-view-tags">${skills.map(s => `<span class="section-view-tag">${s}</span>`).join('')}</div>
+            </div>`;
+        }).join('');
+    });
+
+    // ── 7. PERSÖNLICHE DATEN ──
+    initSectionToggle('personal', (section) => {
+        const get = (id) => document.getElementById(id)?.value?.trim() || '';
+        const fields = [
+            ['Geburtsjahr',    get('birth_year')],
+            ['Nationalität',   get('nationality')],
+            ['EDV seit',       get('edv_since')],
+            ['Verfügbarkeit',  get('availability')],
+            ['Stand',          get('stand')],
+        ].filter(([,v]) => v);
+
+        const sprachen = Array.from(section.querySelectorAll('.tag span:first-child'))
+            .map(t => t.textContent.trim()).filter(Boolean);
+        const ausbildung = Array.from(section.querySelectorAll('#education-container .education-item'))
+            .map(row => {
+                const inputs = row.querySelectorAll('input');
+                return [inputs[0]?.value, inputs[1]?.value, inputs[2]?.value]
+                    .filter(Boolean).join(' · ');
+            }).filter(Boolean);
+
+        let html = '<div class="section-view-grid">';
+        fields.forEach(([l,v]) => {
+            html += `<div class="section-view-grid-label">${l}</div><div class="section-view-grid-value">${v}</div>`;
+        });
+        html += '</div>';
+
+        if (sprachen.length) {
+            html += `<div style="margin-top:8px"><strong style="font-size:.78em;color:var(--blue)">SPRACHEN</strong>
+                <div class="section-view-tags" style="margin-top:4px">${sprachen.map(s => `<span class="section-view-tag">${s}</span>`).join('')}</div></div>`;
+        }
+        if (ausbildung.length) {
+            html += `<div style="margin-top:8px"><strong style="font-size:.78em;color:var(--blue)">AUSBILDUNG</strong>
+                <ul class="section-view-list" style="margin-top:4px">${ausbildung.map(a => `<li>${a}</li>`).join('')}</ul></div>`;
+        }
+        return html || '<span class="section-view-empty">Keine persönlichen Daten</span>';
+    });
+
+});

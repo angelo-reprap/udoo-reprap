@@ -1,0 +1,456 @@
+"""
+main_base_extractor.py - Universeller Extraktor fuer main_pipeline
+
+- Kein Zeichenlimit
+- Placeholder: {text}, {consultant_type}
+- Prompt aus DB per stage-Name
+- Gibt immer Dict zurueck
+
+Changelog:
+  2026-05-11: Schritt 4 SKILLS → skill_ablage mit Kategorie aus skill_cat
+              Kein LLM mehr für SKILLS wenn skill_cat bekannt (Regex-Parsing)
+              Keine Stopwords — Kontext bestimmt was ein Skill ist
+              skill_ablage = [{"name": "Assembler", "category": "Programmiersprachen"}]
+"""
+from typing import Dict, Any, Optional, List
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from collections import defaultdict
+from datetime import datetime
+import re
+
+# Mapping: snake_case (intern) → Deutsche DB-Kategorienamen
+SKILL_CAT_TO_DB = {
+    'programming_languages':   'Programmiersprachen',
+    'operating_system':        'Betriebssysteme',
+    'database':                'Datenbanken',
+    'hardware':                'Hardware',
+    'network_protocol':        'Netzwerkprotokolle',
+    'it_infrastructure':       'IT-Infrastruktur',
+    'methodology':             'Methoden',
+    'framework':               'Frameworks und Bibliotheken',
+    'cloud_platform':          'Cloud-Plattformen',
+    'security_tool':           'Security Tools',
+    'devops_tool':             'DevOps Tools',
+    'development_environment': 'Entwicklungsumgebungen',
+    'documentation_tool':      'Dokumentationstools',
+    'monitoring_tool':         'Monitoring Tools',
+    'version_control':         'Versionsverwaltung',
+    'testing_tool':            'Testing Tools',
+    'data_format':             'Datenformate',
+    'data_management':         'Datenmanagement',
+    'business_software':       'Business Software',
+    'special_concept':         'Spezielle Konzepte',
+    'soft_skill':              'Soft Skills',
+    'virtualization':          'Virtualisierung',
+    'ci_cd_tool':              'CI/CD Tools',
+    'identity_management':     'Identity Management',
+    'communication_tool':      'Kommunikationstools',
+    'project_management':      'Projektmanagement Tools',
+    'architecture_pattern':    'Architekturmuster',
+    'special_skill':           'Sonstige Skills',
+}
+
+# Header-Zeilen die keine Skills sind — werden beim Parsing übersprungen
+HEADER_PATTERNS = re.compile(
+    r'^(programmiersprachen?|betriebssysteme?|datenbanken?|hardware|'
+    r'datenkommunikation|netzwerkprotokolle?|netzwerk|methoden|tools?|'
+    r'entwicklungstools?|softwaretechnologien?|modellierungstools?|'
+    r'spezialkenntnisse|application|technologien|frameworks?|cloud|'
+    r'virtualisierung|sicherheit|security|monitoring|versionsverwaltung|'
+    r'testing|datenformate|datenmanagement|produkte?\s*\|.*|'
+    r'erfahrungen?\s+im\s+bereich)\s*$',
+    re.IGNORECASE
+)
+
+
+class MasterBaseExtractor:
+    """Laedt Prompt aus DB per stage, sendet an LLM, gibt Dict zurueck."""
+
+    def __init__(self, stage: str, consultant_type: str = "IT-Freelancer"):
+        self.stage           = stage
+        self.consultant_type = consultant_type
+        self._prompt_text    = None
+
+    def _load_prompt(self) -> Optional[str]:
+        if self._prompt_text is not None:
+            return self._prompt_text
+        try:
+            from apps.cv_extractor.models import PromptTemplate
+            pt = PromptTemplate.objects.get(stage=self.stage, is_active=True)
+            self._prompt_text = pt.prompt_text
+            return self._prompt_text
+        except Exception as e:
+            print(f"⚠️ Prompt nicht gefunden: {self.stage} → {e}")
+            return None
+
+    def extract(self, text: str) -> Dict[str, Any]:
+        """Sendet Text an LLM und gibt JSON-Dict zurueck."""
+        if not text or len(text.strip()) < 5:
+            return {}
+        prompt_text = self._load_prompt()
+        if not prompt_text:
+            return {}
+        prompt = prompt_text
+        prompt = prompt.replace("{text}",            text)
+        prompt = prompt.replace("{consultant_type}", self.consultant_type)
+        prompt = prompt.replace('{{', '{').replace('}}', '}')
+        from apps.cv_extractor.services.deepseek_api_label import deepseek_label_api
+        res = deepseek_label_api.extract(
+            prompt,
+            system_prompt="Du bist ein praeziser CV-Analyst. Antworte nur mit JSON."
+        )
+        if res.success and res.data:
+            if isinstance(res.data, dict):
+                return res.data
+            if isinstance(res.data, list) and res.data:
+                return res.data[0] if isinstance(res.data[0], dict) else {}
+        print(f"❌ {self.stage}: {getattr(res,'error','leer')} | raw={getattr(res,'raw_response','')[:80]}")
+        return {}
+
+
+def gruppe_to_volltext(gruppe: dict, block_by_nr: dict) -> str:
+    """Gibt den vollstaendigen Text einer Gruppe zurueck."""
+    lines = []
+    for nr in gruppe.get('blocks', []):
+        b = block_by_nr.get(nr)
+        if b:
+            lines.extend(b['lines'])
+    return '\n'.join(l for l in lines if l.strip())
+
+
+def _parse_skill_items_from_text(text: str) -> List[str]:
+    """
+    Parst Skill-Einträge aus einem Textblock per Regex.
+    Keine Stopwords — der Kontext (Kategorie) bestimmt was ein Skill ist.
+
+    Unterstützt:
+    - Zeilenweise:         "Java\nPython\nC++"
+    - Komma-getrennt:      "Java, Python, C++"
+    - Mit Niveau-Spalte:   "Java  Sehr gut  16" → "Java"
+    - Bullet-Listen:       "• Java\n• Python"
+    - Header-Zeilen:       "Programmiersprachen" → wird übersprungen
+    """
+    items = []
+    seen  = set()
+
+    for line in text.splitlines():
+        line = line.strip()
+        if not line or len(line) < 2:
+            continue
+
+        # Header-Zeilen überspringen (Kategorie-Name selbst ist kein Skill)
+        if HEADER_PATTERNS.match(line):
+            continue
+
+        # Bullet entfernen
+        line = re.sub(r'^[-•\*\u2022\u25aa]\s*', '', line).strip()
+        if not line:
+            continue
+
+        # Niveau-Spalte entfernen: "Java  Sehr gut  16"
+        niveau_m = re.match(
+            r'^(.+?)\s{2,}(?:Sehr gut|Gut|Grundkenntnisse|Experte|'
+            r'Expert|Good|Fortgeschritten)\b',
+            line, re.IGNORECASE
+        )
+        if niveau_m:
+            line = niveau_m.group(1).strip()
+
+        # Komma-getrennte Liste
+        if ',' in line and len(line.split(',')) >= 2:
+            for part in line.split(','):
+                p = part.strip().rstrip('.,;')
+                if p and len(p) >= 2:
+                    lw = p.lower()
+                    if lw not in seen:
+                        seen.add(lw)
+                        items.append(p)
+            continue
+
+        # Einzelne Zeile
+        clean = line.rstrip('.,;:')
+        if clean and len(clean) >= 2:
+            lw = clean.lower()
+            if lw not in seen:
+                seen.add(lw)
+                items.append(clean)
+
+    return items
+
+
+def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
+                        consultant_type: str = "IT-Freelancer") -> dict:
+    """
+    Konvertiert gelabelte Gruppen in pre_json Struktur.
+
+    Ablauf:
+      1. PERSONAL/FACHBEREICHE/ZERTIFIKATE/SCHULUNGEN/BRANCHEN/FOCUS_EXP/OTHER
+         → parallel LLM
+      2. PROJECT → einzeln pro Projekt parallel LLM
+      3. HEADER  → Name + Headline extrahieren LLM
+      4. SKILLS  → Regex-Parsing mit skill_cat aus Labeler (kein LLM!)
+                   → skill_ablage = [{"name": "Java", "category": "Programmiersprachen"}]
+                   → LLM nur Fallback für Gruppen ohne skill_cat
+    """
+    # ── pre_json Skelett ──────────────────────────────────────────────────────
+    pre_json = {
+        "metadata": {
+            "aid":            "",
+            "version":        "",
+            "consultant_dir": "",
+            "first_name":     "",
+            "last_name":      "",
+            "headline":       "",
+            "pipeline": {
+                "version":   "6.0",
+                "step":      "extraction",
+                "extractor": "main_pipeline",
+                "model":     "deepseek-chat",
+            },
+        },
+        "extracted_data": {
+            "personal":        {},
+            "professional":    {"total_experience_years": 0},
+            "skills": {
+                "architecture_pattern": [], "business_software": [],
+                "ci_cd_tool": [],           "cloud_platform": [],
+                "communication_tool": [],   "database": [],
+                "data_format": [],          "data_management": [],
+                "development_environment": [], "devops_tool": [],
+                "documentation_tool": [],   "framework": [],
+                "hardware": [],             "identity_management": [],
+                "it_infrastructure": [],    "methodology": [],
+                "monitoring_tool": [],      "network_protocol": [],
+                "operating_system": [],     "programming_languages": [],
+                "project_management": [],   "security_tool": [],
+                "soft_skill": [],           "special_concept": [],
+                "testing_tool": [],         "version_control": [],
+                "virtualization": [],
+            },
+            "certifications":   [],
+            "experience":       [],
+            "industries":       [],
+            "focus_areas":      [],
+            "focus_experience": [],
+            "education":        [],
+            "skill_ablage":     [],
+            "other":            "",
+        },
+        "audit": {
+            "created_by":      "main_pipeline",
+            "created_at":      datetime.now().isoformat(),
+            "steps_completed": [],
+        },
+    }
+
+    # ── Gruppen-Indizes aufbauen ──────────────────────────────────────────────
+    label_gruppen  = defaultdict(list)
+    gruppen_by_idx = {i + 1: g for i, g in enumerate(gruppen)}
+
+    for lg in labeled:
+        label_gruppen[lg['label']].append(lg)
+
+    # ── Schritt 1: Parallele LLM-Extraktionen ────────────────────────────────
+    STAGE_MAP = {
+        'PERSONAL':     'main_extract_personal',
+        'FACHBEREICHE': 'main_extract_fachbereiche',
+        'ZERTIFIKATE':  'main_extract_zertifikate',
+        'SCHULUNGEN':   'main_extract_schulungen',
+        'BRANCHEN':     'main_extract_branchen',
+        'FOCUS_EXP':    'main_extract_focus_exp',
+        'OTHER':        'main_extract_sonstiges',
+    }
+
+    tasks = []
+    for label, stage in STAGE_MAP.items():
+        grps = label_gruppen.get(label, [])
+        if not grps:
+            continue
+        full_text = ''
+        for lg in grps:
+            g = gruppen_by_idx.get(lg['index'])
+            if g:
+                full_text += gruppe_to_volltext(g, block_by_nr) + '\n\n'
+        if full_text.strip():
+            tasks.append((label, stage, full_text.strip()))
+
+    print(f"  LLM: {len(tasks)} Extraktionen parallel...")
+
+    def _run(task):
+        label, stage, text = task
+        return label, MasterBaseExtractor(stage, consultant_type).extract(text)
+
+    results = {}
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        futures = {executor.submit(_run, t): t[0] for t in tasks}
+        for future in as_completed(futures):
+            label, data = future.result()
+            results[label] = data
+            print(f"    {label}: ✅" if data else f"    {label}: ❌ leer")
+
+    # ── Ergebnisse einfügen ───────────────────────────────────────────────────
+    if results.get('PERSONAL'):
+        pre_json['extracted_data']['personal'] = results['PERSONAL']
+
+    if results.get('FACHBEREICHE'):
+        pre_json['extracted_data']['focus_areas'] = \
+            results['FACHBEREICHE'].get('focus_areas', [])
+
+    if results.get('ZERTIFIKATE'):
+        pre_json['extracted_data']['certifications'] = \
+            results['ZERTIFIKATE'].get('certifications', [])
+
+    if results.get('SCHULUNGEN'):
+        d = results['SCHULUNGEN']
+        pre_json['extracted_data']['education'] = \
+            d.get('education', d.get('schulungen', []))
+
+    if results.get('BRANCHEN'):
+        pre_json['extracted_data']['industries'] = \
+            results['BRANCHEN'].get('industries', [])
+
+    if results.get('FOCUS_EXP'):
+        pre_json['extracted_data']['focus_experience'] = \
+            results['FOCUS_EXP'].get('focus_experience', [])
+
+    if results.get('OTHER'):
+        pre_json['extracted_data']['other'] = str(results['OTHER'])
+
+    # ── Schritt 2: Projekte einzeln parallel ─────────────────────────────────
+    proj_gruppen = [lg for lg in labeled if lg['label'] in ('PROJECT', 'EXPERIENCE')]
+    if proj_gruppen:
+        print(f"  PROJEKTE: {len(proj_gruppen)} einzeln parallel...")
+
+        def _run_proj(lg):
+            g = gruppen_by_idx.get(lg['index'])
+            if not g:
+                return lg['index'], {}
+            text = gruppe_to_volltext(g, block_by_nr)
+            if not text.strip():
+                return lg['index'], {}
+            return lg['index'], MasterBaseExtractor(
+                'main_extract_experience', consultant_type
+            ).extract(text)
+
+        all_exp  = []
+        proj_map = {}
+        with ThreadPoolExecutor(max_workers=10) as ex:
+            futs = {ex.submit(_run_proj, lg): lg['index'] for lg in proj_gruppen}
+            for f in as_completed(futs):
+                idx, data = f.result()
+                proj_map[idx] = data
+                print(f"    Projekt {idx}: {'✅' if data else '❌'}")
+
+        for lg in proj_gruppen:
+            data = proj_map.get(lg['index'], {})
+            if not data:
+                continue
+            if isinstance(data, list):
+                all_exp.extend(data)
+            elif isinstance(data, dict):
+                exp = data.get('experience', data)
+                if isinstance(exp, list):
+                    all_exp.extend(exp)
+                elif isinstance(exp, dict) and exp.get('period'):
+                    all_exp.append(exp)
+
+        pre_json['extracted_data']['experience'] = all_exp
+        print(f"  {len(all_exp)} Projekte extrahiert")
+
+    # ── Schritt 3: HEADER → Name + Headline ──────────────────────────────────
+    header_gruppen = [lg for lg in labeled if lg['label'] == 'HEADER']
+    if header_gruppen:
+        header_text = ''
+        for lg in header_gruppen:
+            g = gruppen_by_idx.get(lg['index'])
+            if g:
+                header_text += gruppe_to_volltext(g, block_by_nr) + '\n'
+        if header_text.strip():
+            data = MasterBaseExtractor(
+                'main_extract_header', consultant_type
+            ).extract(header_text)
+            if data:
+                hl = data.get('headline', '')
+                fn = data.get('first_name', '')
+                ln = data.get('last_name', '')
+                if hl and not pre_json['metadata']['headline']:
+                    pre_json['metadata']['headline'] = hl
+                    pre_json['extracted_data']['personal']['headline'] = hl
+                if fn and not pre_json['metadata']['first_name']:
+                    pre_json['metadata']['first_name'] = fn
+                if ln and not pre_json['metadata']['last_name']:
+                    pre_json['metadata']['last_name'] = ln
+                print(f"    HEADER: {fn} {ln} | {hl}")
+
+    # ── Schritt 4: SKILLS → skill_ablage MIT Kategorie ───────────────────────
+    # skill_cat aus Labeler direkt nutzen → kein LLM nötig!
+    # skill_ablage = [{"name": "Java", "category": "Programmiersprachen"}, ...]
+    skill_gruppen = [lg for lg in labeled if lg['label'] == 'SKILLS']
+    if skill_gruppen:
+        print(f"  SKILLS: {len(skill_gruppen)} Gruppe(n) → skill_ablage...")
+        skill_ablage = []
+        seen_skills  = set()
+        llm_fallback = []
+
+        for lg in skill_gruppen:
+            g = gruppen_by_idx.get(lg['index'])
+            if not g:
+                continue
+
+            text      = gruppe_to_volltext(g, block_by_nr)
+            skill_cat = lg.get('skill_cat')
+
+            if skill_cat and skill_cat in SKILL_CAT_TO_DB:
+                # Kategorie bekannt → Regex-Parsing, kein LLM
+                db_cat = SKILL_CAT_TO_DB[skill_cat]
+                items  = _parse_skill_items_from_text(text)
+                added  = 0
+                for item in items:
+                    lw = item.lower()
+                    if lw not in seen_skills:
+                        seen_skills.add(lw)
+                        skill_ablage.append({
+                            'name':     item,
+                            'category': db_cat,
+                        })
+                        added += 1
+                if added:
+                    print(f"    {db_cat}: {added} Skills (Regex)")
+            else:
+                # Kategorie unbekannt → LLM Fallback
+                llm_fallback.append((lg, text))
+
+        # LLM-Fallback für Gruppen ohne skill_cat
+        if llm_fallback:
+            print(f"    {len(llm_fallback)} Gruppen ohne Kategorie → LLM Fallback")
+            fallback_text = '\n\n'.join(text for _, text in llm_fallback)
+            data = MasterBaseExtractor(
+                'main_extract_skill_list', consultant_type
+            ).extract(fallback_text)
+            if data:
+                items = data.get('skills', data.get('items', []))
+                if isinstance(items, list):
+                    for item in items:
+                        if isinstance(item, str) and item.strip():
+                            lw = item.strip().lower()
+                            if lw not in seen_skills:
+                                seen_skills.add(lw)
+                                skill_ablage.append({
+                                    'name':     item.strip(),
+                                    'category': 'Sonstige Skills',
+                                })
+                        elif isinstance(item, dict) and item.get('name'):
+                            lw = item['name'].lower()
+                            if lw not in seen_skills:
+                                seen_skills.add(lw)
+                                skill_ablage.append(item)
+
+        if skill_ablage:
+            pre_json['extracted_data']['skill_ablage'] = skill_ablage
+            print(f"    {len(skill_ablage)} Skills → skill_ablage (mit Kategorie)")
+        else:
+            print(f"    SKILLS: skill_ablage leer")
+
+    pre_json['audit']['steps_completed'] = \
+        list(results.keys()) + ['PROJECT', 'HEADER', 'SKILLS']
+    return pre_json

@@ -1,0 +1,60 @@
+{
+  "_info": "URL-Import Plattform-Konfiguration",
+  "platforms": [
+    {
+      "code": "fl",
+      "label": "freelancermap.de",
+      "pattern": "freelancermap.de",
+      "url_pattern": "freelancermap.de/profil/",
+      "storage_dir": "data/url/fl",
+      "importer": "FreelancermapImporter",
+      "login_required_for_pdf": true,
+      "json_available": true,
+      "enabled": true
+    },
+    {
+      "code": "gu",
+      "label": "GULP",
+      "pattern": "gulp.de",
+      "url_pattern": "gulp.de/talentfinder/",
+      "storage_dir": "data/url/gu",
+      "importer": "GulpImporter",
+      "login_required_for_pdf": true,
+      "json_available": true,
+      "enabled": true
+    },
+    {
+      "code": "xi",
+      "label": "XING",
+      "pattern": "xing.com",
+      "url_pattern": "xing.com/profile/",
+      "storage_dir": "data/url/xi",
+      "importer": "XingImporter",
+      "login_required_for_pdf": false,
+      "json_available": false,
+      "enabled": false
+    },
+    {
+      "code": "li",
+      "label": "LinkedIn",
+      "pattern": "linkedin.com",
+      "url_pattern": "linkedin.com/in/",
+      "storage_dir": "data/url/li",
+      "importer": "LinkedInImporter",
+      "login_required_for_pdf": false,
+      "json_available": false,
+      "enabled": false
+    },
+    {
+      "code": "other",
+      "label": "Andere",
+      "pattern": "",
+      "url_pattern": "",
+      "storage_dir": "data/url/other",
+      "importer": "GenericImporter",
+      "login_required_for_pdf": false,
+      "json_available": false,
+      "enabled": true
+    }
+  ]
+}
