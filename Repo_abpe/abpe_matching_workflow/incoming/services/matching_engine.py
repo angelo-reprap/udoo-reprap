@@ -48,8 +48,16 @@ class MatchingEngine:
         # Anforderungen aus Projekt extrahieren
         required_skills  = self._skill_names(project.required_skills)
         nice_skills      = self._skill_names(project.nice_to_have_skills)
-        required_skills += project.extracted_technologies  # ArrayField
+        required_skills += list(project.extracted_technologies or [])
         required_skills  = list(set(required_skills))
+
+        if not required_skills and not nice_skills:
+            logger.warning(
+                "Matching abgebrochen: Anfrage %s hat keine required_skills/"
+                "extracted_technologies — würde Blindlinge liefern.",
+                getattr(project, 'project_number', project.id),
+            )
+            return []
 
         # Synonyme erweitern
         required_expanded = self._expand_with_synonyms(required_skills)
@@ -163,24 +171,27 @@ class MatchingEngine:
         }
 
         # Skill Score (required)
+        # WICHTIG: ohne required_skills darf req_score NICHT 1.0 sein —
+        # sonst Blindlinge mit ~50%+ (w_req * 1.0) ohne echten Skill-Match.
         matched_required = []
         missing_required = []
-        for skill in required_original:
-            skill_l = skill.lower()
-            # Direkt oder über Synonym
-            hit = (
-                skill_l in consultant_skills or
-                any(s in consultant_skills for s in required_expanded
-                    if skill_l in s or s in skill_l)
-            )
-            if hit:
-                matched_required.append(skill)
-            else:
-                missing_required.append(skill)
+        if not required_original:
+            req_score = 0.0
+        else:
+            for skill in required_original:
+                skill_l = skill.lower()
+                # Direkt oder über Synonym
+                hit = (
+                    skill_l in consultant_skills or
+                    any(s in consultant_skills for s in required_expanded
+                        if skill_l in s or s in skill_l)
+                )
+                if hit:
+                    matched_required.append(skill)
+                else:
+                    missing_required.append(skill)
 
-        req_score = (
-            len(matched_required) / max(len(required_original), 1)
-        ) if required_original else 1.0
+            req_score = len(matched_required) / max(len(required_original), 1)
 
         # Skill Score (nice-to-have)
         matched_nice = [

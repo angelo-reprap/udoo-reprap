@@ -2956,16 +2956,17 @@ window.Matching = (function() {
                     }, ms);
                 });
             } else {
-                alert(
-                    _t('matching.matching_error')
-                    + (d.error ? (': ' + d.error) : '')
-                    + (d.message ? (': ' + d.message) : '')
-                );
+                const msg = (d && (d.error || d.message)) || _t('matching.err_match');
+                if (d && d.code === 'no_skills') {
+                    alert(_kiT('match_no_skills', msg));
+                } else {
+                    alert(msg);
+                }
             }
         })
         .catch(e => {
-            console.error('Matching starten fehlgeschlagen:', e);
-            alert(_t('matching.matching_error') + ': ' + (e.message || e));
+            console.error(e);
+            alert(_t('matching.err_connection') + ': ' + (e.message || e));
         });
     }
 

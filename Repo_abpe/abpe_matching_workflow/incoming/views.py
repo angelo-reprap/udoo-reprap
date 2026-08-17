@@ -316,6 +316,20 @@ def api_project_update(request, project_id):
 # API: MATCHING
 # ============================================================
 
+def _project_skill_names(project) -> list:
+    """Flache Skill-Namen aus required_skills + extracted_technologies."""
+    names = []
+    for s in (project.required_skills or []):
+        if isinstance(s, dict) and s.get('name'):
+            names.append(str(s['name']).strip())
+        elif isinstance(s, str) and s.strip():
+            names.append(s.strip())
+    for t in (getattr(project, 'extracted_technologies', None) or []):
+        if t and str(t).strip() and str(t).strip() not in names:
+            names.append(str(t).strip())
+    return names
+
+
 @extend_schema(summary="Matching starten (async)")
 @csrf_exempt
 @api_view(['POST'])
@@ -324,6 +338,18 @@ def api_run_matching(request, project_id):
     """Startet Matching-Celery-Task für ein Projekt"""
     try:
         p = get_object_or_404(ProjectRequest, id=project_id)
+        skill_names = _project_skill_names(p)
+        if not skill_names:
+            return Response({
+                'success': False,
+                'error': (
+                    'Anfrage hat keine Skills (required_skills). '
+                    'Bitte Skills setzen („Erneut matchen“ oder Anfrage bearbeiten) '
+                    '— sonst liefert Matching Blindlinge.'
+                ),
+                'code': 'no_skills',
+            }, status=400)
+
         p.status = 'matching'
         p.save(update_fields=['status'])
 
@@ -335,14 +361,15 @@ def api_run_matching(request, project_id):
         except Exception as te:
             logger.warning(f"Celery nicht verfügbar: {te} — synchrones Matching")
             task_id = None
-            # Fallback: direkt matchen
-            from .services.matching_engine import MatchingEngine
-            MatchingEngine().run(p)
+            from .tasks import run_matching_async
+            # bind=True → .run() setzt self; direkter Aufruf würde project_id als self nehmen
+            run_matching_async.run(str(p.id))
 
         return Response({
             'success':  True,
             'task_id':  task_id,
             'status':   p.status,
+            'skills':   skill_names,
             'message':  'Matching gestartet',
         })
     except Exception as e:
@@ -358,6 +385,7 @@ def api_shortlist(request, project_id):
     try:
         p         = get_object_or_404(ProjectRequest, id=project_id)
         threshold = float(request.GET.get('threshold', p.shortlist_threshold))
+        skill_names = _project_skill_names(p)
 
         results = MatchResult.objects.filter(
             project_request=p
@@ -389,6 +417,15 @@ def api_shortlist(request, project_id):
             'results':   data,
             'count':     len(data),
             'above_threshold': sum(1 for d in data if d['above_threshold']),
+            # UI braucht Skills am Projekt — sonst Warnung „Keine Skills“ immer falsch
+            'project_id':       str(p.id),
+            'project_number':   p.project_number or '',
+            'project_title':    p.title or '',
+            'title':            p.title or '',
+            'required_skills':  p.required_skills or [],
+            'skills':           skill_names,
+            'extracted_technologies': list(getattr(p, 'extracted_technologies', None) or []),
+            'has_skills':       bool(skill_names),
         })
     except Exception as e:
         logger.exception(f"api_shortlist: {e}")

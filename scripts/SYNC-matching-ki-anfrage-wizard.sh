@@ -86,10 +86,14 @@ git archive "$BRANCH" \
   Repo_abpe/abpe_ui/incoming/mod-shaduler.js \
   Repo_abpe/abpe_ui/incoming/mod-shaduler.css \
   Repo_abpe/abpe_shaduler/incoming \
+  Repo_abpe/abpe_matching_workflow/incoming/views.py \
+  Repo_abpe/abpe_matching_workflow/incoming/services/matching_engine.py \
+  Repo_abpe/abpe_matching_workflow/incoming/tasks.py \
   Repo_abpe/abpe_crm/incoming/models.py \
   Repo_abpe/abpe_crm/incoming/views.py \
   Repo_abpe/abpe_crm/incoming/migrations \
   scripts/ensure-matching-terms-db.py \
+  scripts/diagnose-matching-empty-skills.sh \
   | tar -x -C "$TMP"
 
 # Guard: Prompt-Default muss im Archive sein
