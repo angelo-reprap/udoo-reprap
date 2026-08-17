@@ -305,6 +305,30 @@ def publish_consultant_outputs(
                 if pdf:
                     out['files'].append(str(pdf))
 
+        # Fallback: wenn Word fehlschlägt / kein DOCX → HTML → PDF (Batch braucht AID-*.pdf)
+        if make_pdf and not any(f.endswith('.pdf') for f in out['files']):
+            html_pub = dest_dir / f'{aid}.html'
+            if not html_pub.is_file():
+                # ggf. gerade erst publiziert unter anderem Namen
+                for f in dest_dir.glob(f'{aid}*.html'):
+                    html_pub = f
+                    break
+            if html_pub.is_file():
+                pdf = _libreoffice_to_pdf(html_pub, dest_dir)
+                if pdf:
+                    # LibreOffice benennt nach HTML-Stem; sicherstellen AID-*.pdf
+                    want = dest_dir / f'{aid}.pdf'
+                    if pdf != want and pdf.is_file():
+                        try:
+                            pdf.rename(want)
+                            pdf = want
+                            _chmod_path(pdf, is_dir=False)
+                            _chown_path(pdf)
+                        except OSError:
+                            pass
+                    out['files'].append(str(pdf))
+                    logger.info('Publish PDF via HTML-Fallback: %s', pdf)
+
         # Nochmal Rechte auf Ordner
         _chmod_path(dest_dir, is_dir=True)
         out['success'] = bool(out['files'])

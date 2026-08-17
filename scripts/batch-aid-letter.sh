@@ -135,7 +135,7 @@ if [[ "$COMPARE_ONLY" != "1" ]]; then
     if ! python3 manage.py import_aid_profiles \
       --letter "$letter" --dir "$dir" \
       --sync --no-skip-existing; then
-      echo "WARN: Import fehlgeschlagen: $letter/$dir" >&2
+      echo "WARN: Import fehlgeschlagen: $letter/$dir — weiter mit nächstem" >&2
       echo "$letter	$dir	FAIL" >> "$OUT/import-failures.tsv"
       continue
     fi
@@ -144,9 +144,10 @@ if [[ "$COMPARE_ONLY" != "1" ]]; then
         2>/dev/null | head -1
     )"
     if [[ -n "$neu_pdf" && -f "$neu_pdf" ]]; then
+      echo "OK: $letter/$dir → $neu_pdf"
       echo "$letter	$dir	OK	$neu_pdf" >> "$OUT/import-ok.tsv"
     else
-      echo "WARN: kein neu/cv PDF: $letter/$dir" >&2
+      echo "WARN: kein neu/cv PDF: $letter/$dir — weiter mit nächstem (FAIL_NO_NEU)" >&2
       wrong="$(
         find "$ROOT" -path "*/$dir/neu/cv/AID-*.pdf" 2>/dev/null | head -5
       )"
@@ -158,6 +159,8 @@ if [[ "$COMPARE_ONLY" != "1" ]]; then
       fi
     fi
   done
+  echo
+  echo "=== Import-Welle fertig (FAIL stoppt den Batch NICHT) ==="
 fi
 
 if [[ "$IMPORT_ONLY" == "1" ]]; then
