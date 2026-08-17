@@ -56,14 +56,12 @@ def _period_anchors(text: str) -> set:
     (`01/2015` + `06/2018`), neu/cv schreibt denselben Einsatz als
     `01/2015 - 06/2018`. Roh-Set-Diff würde dann fälschlich „fehlen“ melden.
 
-    Deshalb: Ranges → Start/Ende-Anker; Einzelmonate bleiben Anker;
-    nackte Jahreszahlen nur behalten wenn nicht schon als MM/YYYY-Jahr
-    abgedeckt (Geburtsjahr/Produktversionen bleiben Rauschen, aber
-    Range-vs-Split False-Positives verschwinden).
+    Nur MM/YYYY (+ heute/dato) und YYYY–YYYY — keine nackten 4-Digit-Zahlen
+    (sonst: Nexus 7000, Windows 2012, Geburtsjahr als False-Positives).
     """
     raw = _periods(text)
     months: set[str] = set()
-    years: set[str] = set()
+    year_ranges: set[str] = set()
     for p in raw:
         p = re.sub(r'\s+', ' ', (p or '').strip())
         m = re.match(
@@ -72,28 +70,26 @@ def _period_anchors(text: str) -> set:
             flags=re.I,
         )
         if m:
-            months.add(m.group(1))
+            mm, yy = m.group(1).split('/')
+            months.add(f'{int(mm):02d}/{yy}')
             end = m.group(2)
             if re.match(r'^\d{1,2}/\d{4}$', end):
-                months.add(end)
+                em, ey = end.split('/')
+                months.add(f'{int(em):02d}/{ey}')
             else:
                 months.add(end.lower())
             continue
         m = re.match(r'^(\d{4})\s*[–\-]\s*(\d{4})$', p)
         if m:
-            years.add(m.group(1))
-            years.add(m.group(2))
+            year_ranges.add(m.group(1))
+            year_ranges.add(m.group(2))
             continue
         if re.match(r'^\d{1,2}/\d{4}$', p):
             mm, yy = p.split('/')
             months.add(f'{int(mm):02d}/{yy}')
             continue
-        if re.match(r'^\d{4}$', p):
-            years.add(p)
-    # Jahreszahl nur zählen, wenn kein MM/YYYY desselben Jahres existiert
-    month_years = {m.split('/')[-1] for m in months if '/' in m}
-    years -= month_years
-    return months | years
+        # bare \d{4} bewusst ignorieren
+    return months | year_ranges
 
 
 def _has_weiterbildung(text: str) -> bool:

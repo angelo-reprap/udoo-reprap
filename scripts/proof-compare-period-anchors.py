@@ -75,6 +75,8 @@ def main() -> int:
     assert '01/2015' in anc_o and '06/2018' in anc_o
     assert not anc_missing, f'unerwartet missing: {anc_missing}'
     assert raw_missing, 'erwartet: Roh-Diff hat Split-False-Positives'
+    # bare years (Geburtsjahr/Windows) nicht mehr in Ankern
+    assert '1970' not in anc_o and '2012' not in anc_o
 
     print()
     print('OK: Anker-Norm entfernt Soft-Wrap-Range False-Positives')

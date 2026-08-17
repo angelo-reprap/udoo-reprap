@@ -674,7 +674,11 @@ class AidRegexExtractor:
 
     def _extract_zertifikate(self, text: str) -> List[dict]:
         block = self._extract_block(text,
-            start_patterns=[r'Zertifizierungen?\s*[\|:]?\s*(?:Schulungen?)?\s*$'],
+            start_patterns=[
+                r'Zertifizierungen?\s*[\|:]?\s*(?:Schulungen?)?\s*$',
+                r'Zertifikate?\s*[\|/]\s*Schulungen?\s*$',
+                r'Zertifikate?\s*$',
+            ],
             stop_patterns=[
                 r'IT.Kompetenzen?',
                 r'Berufliche\s+Erfahrungen?',
@@ -697,9 +701,18 @@ class AidRegexExtractor:
             line = self._clean_item(line)
             if not line or len(line) < 3:
                 continue
-            # Datum am Anfang entfernen: "0/2022 Azure Architekt" → "Azure Architekt"
-            line = re.sub(r'^\d{1,2}/\d{4}\s+', '', line)
-            line = re.sub(r'^\d{4}\s+', '', line)
+            # Datum am Anfang behalten (AID-Stil: "01/2015 CCNA …")
+            date_obtained = ''
+            dm = re.match(r'^(\d{1,2}/\d{4})\s+(.*)$', line)
+            if dm:
+                mm, yy = dm.group(1).split('/')
+                date_obtained = f'{int(mm):02d}/{yy}'
+                line = dm.group(2).strip()
+            else:
+                dm = re.match(r'^(\d{4})\s+(.*)$', line)
+                if dm:
+                    date_obtained = dm.group(1)
+                    line = dm.group(2).strip()
             if self._is_section_noise(line) or len(line) < 3:
                 continue
             # Komma-Liste kurzer Cert-Codes: "CCNA, CCDA, CCNP" → einzeln
@@ -714,7 +727,11 @@ class AidRegexExtractor:
                 if lw in seen or self._is_section_noise(name):
                     continue
                 seen.add(lw)
-                certs.append({'name': name, 'issuer': '', 'date_obtained': ''})
+                certs.append({
+                    'name': name,
+                    'issuer': '',
+                    'date_obtained': date_obtained,
+                })
         return certs
 
     def _extract_focus_experience(self, text: str) -> List[dict]:
@@ -829,6 +846,19 @@ class AidRegexExtractor:
                 line,
             ):
                 break
+            period = ''
+            dm = re.match(r'^(\d{1,2}/\d{4})\s+(.*)$', line)
+            if dm:
+                mm, yy = dm.group(1).split('/')
+                period = f'{int(mm):02d}/{yy}'
+                line = dm.group(2).strip()
+            else:
+                dm = re.match(r'^(\d{4})\s+(.*)$', line)
+                if dm:
+                    period = dm.group(1)
+                    line = dm.group(2).strip()
+            if not line or len(line) < 3 or self._is_section_noise(line):
+                continue
             lw = line.lower()
             if lw in seen:
                 continue
@@ -836,7 +866,7 @@ class AidRegexExtractor:
             courses.append({
                 'degree': line[:200],
                 'institution': '',
-                'period': '',
+                'period': period,
                 'description': '',
                 'education_type': 'course',
             })

@@ -92,25 +92,39 @@ class HTMLGenerator:
                 return True
             return bool(__import__('re').match(r'(?i)^qualifikationsprofil\s*:\s*aid-', x))
 
-        all_cert_names = [
-            cert.certification.name
-            for cert in consultant.certifications.all().select_related('certification')
-            if cert.certification and cert.certification.name
-        ]
+        all_cert_rows = []
+        for cert in consultant.certifications.all().select_related('certification'):
+            if not (cert.certification and cert.certification.name):
+                continue
+            name = cert.certification.name
+            date = (cert.date_obtained or '').strip()
+            label = f'{date} {name}'.strip() if date else name
+            all_cert_rows.append((name, label))
         # Kurse: education_type=course + echte Kurs-Namen (nicht MCSE/CCNA-Zertifikate)
-        trainings = [
-            e.degree for e in consultant.education.filter(education_type='course')
-            if e.degree and not _is_noise(e.degree)
-        ]
+        trainings = []
+        for e in consultant.education.filter(education_type='course'):
+            if not e.degree or _is_noise(e.degree):
+                continue
+            period = (e.period or '').strip()
+            trainings.append(f'{period} {e.degree}'.strip() if period else e.degree)
         trainings += [
-            n for n in all_cert_names
-            if not _is_noise(n) and looks_like_course(n)
+            label for name, label in all_cert_rows
+            if not _is_noise(name) and looks_like_course(name)
         ]
         trainings = list(dict.fromkeys(trainings))
         course_set = {t.lower() for t in trainings}
+        # auch datierte Labels gegen Kurs-Duplikate prüfen via Name
+        course_names = {
+            (e.degree or '').lower()
+            for e in consultant.education.filter(education_type='course')
+            if e.degree
+        }
         certifications = [
-            n for n in all_cert_names
-            if not _is_noise(n) and n.lower() not in course_set
+            label for name, label in all_cert_rows
+            if not _is_noise(name)
+            and name.lower() not in course_names
+            and label.lower() not in course_set
+            and not looks_like_course(name)
         ]
         products = [fi.name for fi in consultant.focus_experience_items.all()]
         # Branchen

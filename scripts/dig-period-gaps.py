@@ -100,12 +100,13 @@ def _alt_forms(mm_yyyy: str) -> list[str]:
 
 def _classify(token: str, neu_text: str) -> str:
     if not re.match(r'^\d{1,2}/\d{4}$', token):
-        # bare year / heute
-        if token.lower() in neu_text.lower():
+        # bare year / heute — nur mit Digit-Boundaries (nicht Nexus 7000)
+        if re.search(rf'(?<!\d){re.escape(token)}(?!\d)', neu_text, flags=re.I):
             return 'present_raw'
         return 'missing_other'
     for alt in _alt_forms(token):
-        if alt in neu_text:
+        # '(?<!\d)1/2015(?!\d)' — nicht Treffer in 11/2015
+        if re.search(rf'(?<!\d){re.escape(alt)}(?!\d)', neu_text):
             return f'format_alt:{alt}'
     # Jahr allein irgendwo — schwach
     y = token.split('/')[-1]
