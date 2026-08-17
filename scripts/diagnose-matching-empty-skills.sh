@@ -8,7 +8,7 @@
 #
 set -euo pipefail
 
-BACKEND="${BACKEND:-/opt/abpe/backend}"
+export BACKEND="${BACKEND:-/opt/abpe/backend}"
 PYBIN="${PYBIN:-/opt/abpe/venv311/bin/python}"
 PROJECT_ID="${PROJECT_ID:-}"
 
