@@ -128,13 +128,18 @@ _neu_inventory() {
 
 # --- deploy publish fix (optional) ---
 if [[ "$DEPLOY_FIX" == "1" ]]; then
-  _deploy="$REPO/scripts/deploy-aid-publish-xml-fix.sh"
-  if [[ -f "$_deploy" ]]; then
-    chmod +x "$_deploy" 2>/dev/null || true
-    echo ">>> Deploy Publish-XML-Fix"
-    bash "$_deploy" || echo "WARN: deploy-fix fehlgeschlagen"
+  _live_wg="/opt/abpe/backend/apps/cv_extractor/generator/word/word_generator.py"
+  if grep -q '_xml_safe' "$_live_wg" 2>/dev/null; then
+    echo ">>> Deploy Publish-XML-Fix: bereits live (_xml_safe) — skip"
   else
-    echo "WARN: deploy-aid-publish-xml-fix.sh fehlt — Live-Code unverändert"
+    _deploy="$REPO/scripts/deploy-aid-publish-xml-fix.sh"
+    if [[ -f "$_deploy" ]]; then
+      chmod +x "$_deploy" 2>/dev/null || true
+      echo ">>> Deploy Publish-XML-Fix"
+      bash "$_deploy" || echo "WARN: deploy-fix fehlgeschlagen"
+    else
+      echo "WARN: deploy-aid-publish-xml-fix.sh fehlt — Live-Code unverändert"
+    fi
   fi
   echo
 fi
