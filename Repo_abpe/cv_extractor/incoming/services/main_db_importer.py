@@ -276,6 +276,12 @@ class MainDbImporter:
         consultant.first_name           = first
         consultant.last_name            = last
         consultant.source_type          = 'url_import'
+        try:
+            version_manager.bind_real_aid(
+                consultant_dir, aid_info['version_string'], aid
+            )
+        except Exception as _e:
+            logger.warning(f"  ConsultantVersion AID-Bind fehlgeschlagen: {_e}")
         consultant.headline             = meta.get('headline', '')
         consultant.birth_year           = personal.get('birth_year')
         consultant.nationality          = personal.get('nationality', '')
@@ -519,6 +525,14 @@ class MainDbImporter:
         consultant.first_name           = first
         consultant.last_name            = last
         consultant.source_type          = 'main_pipeline'
+        # Platzhalter-AID in ConsultantVersion → echte AID (sonst bleiben
+        # Kollisions-Anfälligere AID-tmp/AID-tb_*_* Einträge liegen)
+        try:
+            version_manager.bind_real_aid(
+                consultant_dir, aid_info['version_string'], aid
+            )
+        except Exception as _e:
+            logger.warning(f"  ConsultantVersion AID-Bind fehlgeschlagen: {_e}")
         if source_filename:
             consultant.source_filename = source_filename
         consultant.headline             = (meta.get('headline', '') or

@@ -307,17 +307,9 @@ class CvExtractionPipeline:
         }
         consultant.save()
 
-        from .models import ConsultantVersion
-        ConsultantVersion.objects.filter(
-            consultant_dir=consultant.consultant_dir,
-            version=consultant.version
-        ).update(aid=aid)
-        ConsultantVersion.objects.update_or_create(
-            aid=aid,
-            defaults={
-                'consultant_dir': consultant.consultant_dir,
-                'version': consultant.version,
-            }
+        from apps.cv_extractor.services.versioning import version_manager
+        version_manager.bind_real_aid(
+            consultant.consultant_dir, consultant.version, aid
         )
 
         consultant = extracted_to_db.save(consultant,

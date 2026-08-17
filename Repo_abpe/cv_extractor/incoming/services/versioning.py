@@ -8,12 +8,15 @@ Namensvetter-Logik:
   troschke_thomas-3    → suffix=3  usw.
 """
 
+import hashlib
 import logging
 import re
+import uuid
 from pathlib import Path
 from typing import Dict, List, Tuple
 
 from django.conf import settings
+from django.db import IntegrityError, transaction
 
 logger = logging.getLogger(__name__)
 
@@ -169,8 +172,6 @@ class VersionManager:
             'is_new_person':   True,
         }
         """
-        from apps.cv_extractor.models import ConsultantVersion
-
         kuerzel = self.get_kuerzel(first_name, last_name)
 
         # Vorgegebenes Verzeichnis direkt verwenden wenn es existiert
@@ -220,19 +221,12 @@ class VersionManager:
 
         version = self.get_next_version_for_dir(consultant_dir)
 
-        # Version in ConsultantVersion reservieren
-        # Platzhalter-AID: wird spaeter von pipeline._save_to_database
-        # mit get_or_create(aid=aid) auf die echte AID aktualisiert
-        kuerzel_str = self.get_kuerzel(first_name, last_name)
-        parts = self._parse_version(version)
-        # Eindeutige Platzhalter-AID: consultant_dir + version verhindert Kollisionen
-        dir_hash = consultant_dir.replace('_','').replace('-','')[-6:]
-        placeholder_aid = f"AID-{kuerzel_str}_{'.'.join(str(p) for p in parts)}_{dir_hash}"
-        ConsultantVersion.objects.get_or_create(
-            consultant_dir=consultant_dir,
-            version=version,
-            defaults={'aid': placeholder_aid}
-        )
+        # Version in ConsultantVersion reservieren.
+        # Platzhalter-AID muss global unique sein (aid UNIQUE) — der alte
+        # Suffix dir[-6:] kollidierte z.B. bei allen *_thomas + Kürzel tb
+        # → AID-tb_1.0.0.0_thomas. Hash aus dir+version ist stabil & eindeutig.
+        # Echte AID wird später von pipeline / main_db_importer gesetzt.
+        self._reserve_version(consultant_dir, version)
         logger.info(f"Version reserviert: {consultant_dir} v{version}")
 
         # Verzeichnis auf Dateisystem anlegen (fuer debug=true Exporte)
@@ -245,6 +239,110 @@ class VersionManager:
             'kuerzel':        kuerzel,
             'is_new_person':  is_new,
         }
+
+    @staticmethod
+    def _placeholder_aid(consultant_dir: str, version: str) -> str:
+        """Stable unique placeholder (≤50 chars) for ConsultantVersion.aid."""
+        digest = hashlib.sha1(
+            f"{consultant_dir}|{version}".encode('utf-8')
+        ).hexdigest()[:16]
+        # AID-tmp- (8) + 16 hex = 24 chars
+        return f"AID-tmp-{digest}"
+
+    def _reserve_version(self, consultant_dir: str, version: str) -> None:
+        """
+        Reserve (consultant_dir, version). Tolerates:
+        - already reserved (same dir+version)
+        - leftover aid collision from old placeholder scheme
+        - concurrent get_or_create races
+        """
+        from apps.cv_extractor.models import ConsultantVersion
+
+        existing = ConsultantVersion.objects.filter(
+            consultant_dir=consultant_dir,
+            version=version,
+        ).first()
+        if existing:
+            return
+
+        placeholder_aid = self._placeholder_aid(consultant_dir, version)
+
+        try:
+            with transaction.atomic():
+                ConsultantVersion.objects.get_or_create(
+                    consultant_dir=consultant_dir,
+                    version=version,
+                    defaults={'aid': placeholder_aid},
+                )
+            return
+        except IntegrityError:
+            # Either race on (dir,version) or unique aid clash.
+            existing = ConsultantVersion.objects.filter(
+                consultant_dir=consultant_dir,
+                version=version,
+            ).first()
+            if existing:
+                return
+
+        # Aid collision with leftover row for another dir — use random aid.
+        for _ in range(5):
+            alt_aid = f"AID-tmp-{uuid.uuid4().hex[:16]}"
+            try:
+                with transaction.atomic():
+                    ConsultantVersion.objects.create(
+                        consultant_dir=consultant_dir,
+                        version=version,
+                        aid=alt_aid,
+                    )
+                logger.warning(
+                    "Version-Reservierung mit Fallback-AID (%s) für %s v%s "
+                    "(Platzhalter-Kollision)",
+                    alt_aid, consultant_dir, version,
+                )
+                return
+            except IntegrityError:
+                again = ConsultantVersion.objects.filter(
+                    consultant_dir=consultant_dir,
+                    version=version,
+                ).first()
+                if again:
+                    return
+                continue
+
+        raise IntegrityError(
+            f"ConsultantVersion konnte nicht reserviert werden: "
+            f"{consultant_dir} v{version}"
+        )
+
+    def bind_real_aid(self, consultant_dir: str, version: str, aid: str) -> None:
+        """Replace placeholder AID with the real consultant AID."""
+        from apps.cv_extractor.models import ConsultantVersion
+
+        try:
+            with transaction.atomic():
+                updated = ConsultantVersion.objects.filter(
+                    consultant_dir=consultant_dir,
+                    version=version,
+                ).update(aid=aid)
+                if updated:
+                    return
+                ConsultantVersion.objects.update_or_create(
+                    aid=aid,
+                    defaults={
+                        'consultant_dir': consultant_dir,
+                        'version': version,
+                    },
+                )
+        except IntegrityError:
+            # Real AID already owned by another row — retarget that row
+            ConsultantVersion.objects.filter(aid=aid).update(
+                consultant_dir=consultant_dir,
+                version=version,
+            )
+            ConsultantVersion.objects.filter(
+                consultant_dir=consultant_dir,
+                version=version,
+            ).exclude(aid=aid).delete()
 
     def list_persons_by_name(self, first_name: str,
                              last_name: str) -> List[Dict]:
