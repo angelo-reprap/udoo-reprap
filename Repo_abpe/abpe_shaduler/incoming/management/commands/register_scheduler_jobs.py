@@ -1,15 +1,22 @@
 """
 Registriert die wiederkehrenden Shaduler-Jobs in abpe_scheduler.
 
-Intervalle (Architektur Kap. 4 / Kap. 0):
-  radar_poll      alle 5 Min
+Intervalle:
+  radar_poll      alle 3 Min  (FM+Gulp+Hays → DB/ES, async via Celery)
   inbox_poll      alle 2 Min
   prozess_tick    alle 15 Min
-  email_index     alle 1 Min  (IMAP→ES, inkrementell)
-  delegation_notify — on-demand (hier optional als seltener Tick)
+  email_index     alle 3 Min  (IMAP→ES, inkrementell)
+  radar_berater_index alle 30 Min
 
-schedule_type: ONCE | RECURRING  (RRULE-String → Feld rrule_string)
-Voraussetzung: SCHEDULER_SERVICE_TOKEN + erreichbare scheduler/api.
+Ablauf radar_poll / email_index:
+  1) abpe-scheduler-loop triggert Webhook
+  2) Webhook queued Celery sofort (Scheduler-Timeout 15s!)
+  3) Celery holt neue Projekte/Mails → DB/ES
+  4) UI Soft-Poll liest ES/DB
+
+Voraussetzung: SCHEDULER_SERVICE_TOKEN + erreichbare scheduler/api
+  und: abpe-scheduler-loop dauerhaft RUNNING (autostart+autorestart).
+  Fix: bash scripts/ENSURE-abpe-scheduler-loop.sh
 """
 from datetime import datetime, timezone
 
@@ -25,8 +32,13 @@ JOBS = [
         'owner_type': 'system',
         'owner_ref': 'shaduler',
         'webhook': 'radar-poll',
-        'rrule': 'FREQ=MINUTELY;INTERVAL=5',
-        'payload': {'job': 'radar_poll'},
+        'rrule': 'FREQ=MINUTELY;INTERVAL=3',
+        'payload': {
+            'job': 'radar_poll',
+            'pages': 2,
+            'today': 1,
+            'days': 2,
+        },
     },
     {
         'job_key': 'inbox_poll',
@@ -49,11 +61,10 @@ JOBS = [
         'owner_type': 'system',
         'owner_ref': 'namazu',
         'webhook': 'email-index',
-        # Jede Minute — Indexer läuft inkrementell (nur neue Message-IDs).
-        'rrule': 'FREQ=MINUTELY;INTERVAL=1',
+        'rrule': 'FREQ=MINUTELY;INTERVAL=3',
         'payload': {
             'job': 'email_index',
-            'since_days': 2,
+            'since_days': 1,
             'folders': 'INBOX',
             'incremental': True,
         },
@@ -98,7 +109,6 @@ class Command(BaseCommand):
                     dtstart=now,
                     delivery_mode='PUSH',
                 )
-                # Kurzfassung — volle runs-Historie macht die Shell unlesbar
                 jid = res.get('id') if isinstance(res, dict) else None
                 status = res.get('status') if isinstance(res, dict) else None
                 nxt = res.get('next_run_at') if isinstance(res, dict) else None

@@ -27,23 +27,45 @@ BERATER_SOURCES = ('gulp', 'freelancermap')
 
 
 def _ensure_source(name: str = SOURCE_NAME):
+    """RadarSource für Berater — robust gegen Duplikate (name+ziel)."""
+    from django.db.models import Count
+
     from apps.abpe_shaduler.models import RadarSource
+
     url = gulp.TF_EXPERTEN if name == SOURCE_NAME else fl.FM_LIST
-    typ = (
-        RadarSource.Typ.HTML_PUBLIC
-        if name == SOURCE_NAME_FL
-        else RadarSource.Typ.HTML_PUBLIC
+    typ = RadarSource.Typ.HTML_PUBLIC
+    ziel = RadarSource.Ziel.BERATER
+    qs = RadarSource.objects.filter(name=name, ziel=ziel)
+    src = (
+        qs.annotate(_n=Count('consultant_items', distinct=True))
+        .order_by('-aktiv', '-_n', 'created_at')
+        .first()
     )
-    src, _ = RadarSource.objects.get_or_create(
-        name=name,
-        ziel=RadarSource.Ziel.BERATER,
-        defaults={
-            'typ': typ,
-            'url': url,
-            'aktiv': True,
-            'intervall_min': 30,
-        },
-    )
+    if src is None:
+        src = RadarSource.objects.create(
+            name=name,
+            ziel=ziel,
+            typ=typ,
+            url=url,
+            aktiv=True,
+            intervall_min=30,
+        )
+    else:
+        dup_ids = list(qs.exclude(pk=src.pk).values_list('pk', flat=True))
+        if dup_ids:
+            RadarSource.objects.filter(pk__in=dup_ids).update(
+                aktiv=False,
+                letzter_status='duplikat-deaktiviert',
+            )
+        updates = []
+        if url and src.url != url:
+            src.url = url
+            updates.append('url')
+        if not src.aktiv:
+            src.aktiv = True
+            updates.append('aktiv')
+        if updates:
+            src.save(update_fields=updates)
     return src
 
 
@@ -384,7 +406,21 @@ def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
     if beschreibung:
         obj.beschreibung = beschreibung
     obj.eckdaten = {**(obj.eckdaten or {}), **eck}
-    if not obj.eingegangen_am:
+
+    # „Datum: neueste“ = Wann zuletzt in FM/Gulp-Aktuellste gesehen (Listenrang),
+    # nicht Verfügbar-ab und nicht einmalige Importzeit.
+    list_rank = item.get('list_rank')
+    bump = item.get('bump_eingegangen') or item.get('from_available_sync')
+    if list_rank is not None:
+        try:
+            rank_i = max(0, int(list_rank))
+        except (TypeError, ValueError):
+            rank_i = 0
+        # Erster Treffer der Aktuellste-Liste = jetzt, folgende je 1s älter
+        obj.eingegangen_am = timezone.now() - timedelta(seconds=rank_i)
+    elif bump:
+        obj.eingegangen_am = timezone.now()
+    elif not obj.eingegangen_am:
         obj.eingegangen_am = timezone.now()
 
     if item.get('cv_text'):
@@ -1231,12 +1267,15 @@ def sync_available_from_gulp(
                     'last_name': packed.get('last_name') or '',
                     'source': 'gulp_available',
                     'mongo_id': mid or packed.get('mongo_id') or '',
+                    'list_rank': stats['scanned'] - 1,
+                    'from_available_sync': True,
                     'eckdaten': {
                         'availability_percent': packed.get('availability_percent'),
                         'remote': packed.get('remote'),
                         'gulp_status': 'ok',
                         'gulp_checked_at': timezone.now().isoformat(),
                         'from_available_sync': True,
+                        'list_rank': stats['scanned'] - 1,
                     },
                 }, apply_crm=True)
             except Exception as exc:
@@ -1293,10 +1332,11 @@ def sync_available_from_fl(
     delay_s: float = 0.15,
 ) -> dict[str, Any]:
     """
-    Freelancermap „verfügbare Freelancer“ einlesen (öffentliche Suche).
+    Freelancermap „verfügbare Freelancer“ einlesen (öffentliche Suche, Aktuellste).
 
     - bekannt (Radar/CRM via freelancermap_profil_c): aktualisieren
     - neu: Radar-Eintrag mit Titel/Skills/Projekten
+    - list_rank setzt eingegangen_am → „Datum: neueste“ = FM-Listenreihenfolge
     """
     from apps.abpe_shaduler.models import RadarConsultantItem
 
@@ -1317,6 +1357,7 @@ def sync_available_from_fl(
         'pages': pages,
         'fm_total': None,
         'source': 'freelancermap',
+        'sort': 'aktuellste',
         'fl_session': bool(sess.get('ok')),
         'fl_session_info': {
             'ok': sess.get('ok'),
@@ -1333,7 +1374,9 @@ def sync_available_from_fl(
     for page in range(1, pages + 1):
         if stats['scanned'] >= take:
             break
-        listed = fl.fetch_freelancers_list(page=page, available_only=True)
+        listed = fl.fetch_freelancers_list(
+            page=page, available_only=True, most_recent=True,
+        )
         if not listed.get('ok'):
             stats['ok'] = False
             stats['error'] = listed.get('error') or 'FM Suche fehlgeschlagen'
@@ -1379,11 +1422,14 @@ def sync_available_from_fl(
                     **hit,
                     'source': 'freelancermap_available',
                     'source_name': SOURCE_NAME_FL,
+                    'list_rank': stats['scanned'] - 1,
+                    'from_available_sync': True,
                     'eckdaten': {
                         'availability_percent': hit.get('availability_percent'),
                         'availability_code': hit.get('availability_code'),
                         'anonym': hit.get('anonym'),
                         'from_available_sync': True,
+                        'list_rank': stats['scanned'] - 1,
                         'checked_at': timezone.now().isoformat(),
                     },
                 }, apply_crm=True)
