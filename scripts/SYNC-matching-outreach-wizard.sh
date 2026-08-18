@@ -24,11 +24,11 @@ if [[ "$SKIP_CHECK" != "1" ]]; then
   echo "=== Pre-Check Live ↔ Repo ==="
   LIVE_JS="${LIVE_UI}/static/abpe_ui/js/mod/mod-matching.js"
   if [[ -f "$LIVE_JS" ]] && grep -q "openOutreachWizard" "$LIVE_JS" 2>/dev/null; then
-    live_extra=$(grep -c "outreachApplyMulti" "$LIVE_JS" 2>/dev/null || echo 0)
-    repo_extra=$(git show "origin/$BRANCH:Repo_abpe/abpe_ui/incoming/mod-matching.js" 2>/dev/null | grep -c "outreachApplyMulti" || echo 0)
+    live_extra=$(grep -c "outreachUnifiedSearch" "$LIVE_JS" 2>/dev/null || echo 0)
+    repo_extra=$(git show "origin/$BRANCH:Repo_abpe/abpe_ui/incoming/mod-matching.js" 2>/dev/null | grep -c "outreachUnifiedSearch" || echo 0)
     live_extra=${live_extra//$'\n'/}; repo_extra=${repo_extra//$'\n'/}
     if [[ "$live_extra" -gt "$repo_extra" && "$FORCE" != "1" ]]; then
-      echo "ABBRUCH: Live hat outreachApplyMulti ($live_extra) > Repo ($repo_extra)."
+      echo "ABBRUCH: Live hat outreachUnifiedSearch ($live_extra) > Repo ($repo_extra)."
       echo "Live→Repo pullen, sonst Feature-Verlust. Oder FORCE=1."
       exit 2
     fi

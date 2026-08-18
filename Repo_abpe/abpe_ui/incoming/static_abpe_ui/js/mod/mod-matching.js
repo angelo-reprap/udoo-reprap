@@ -3425,38 +3425,20 @@ window.Matching = (function() {
         return out;
     }
 
-    function _outreachMultiFieldHtml(kind, label, list, placeholder) {
-        // kind: 'cc' | 'bcc'
-        const chips = (list || []).map((em, i) =>
-            `<span style="display:inline-flex;align-items:center;gap:4px;background:#e8eef7;border-radius:4px;padding:2px 6px;font-size:11px;margin:2px">
+    function _outreachChipsHtml(kind, list, allowEmpty) {
+        const items = list || [];
+        if (!items.length) {
+            return allowEmpty
+                ? '<span style="color:#aaa;font-size:11px">—</span>'
+                : '';
+        }
+        return items.map((em, i) =>
+            `<span style="display:inline-flex;align-items:center;gap:3px;background:#e8eef7;border-radius:4px;padding:1px 6px;font-size:11px;margin:1px 2px">
                ${_esc(em)}
-               <button type="button" style="border:0;background:transparent;cursor:pointer;color:#666;padding:0;line-height:1"
+               <button type="button" style="border:0;background:transparent;cursor:pointer;color:#666;padding:0;line-height:1;font-size:14px"
                        onclick="Matching.outreachRemoveMulti('${kind}',${i})" title="entfernen">×</button>
              </span>`
         ).join('');
-        return `
-              <div style="font-size:11px;color:#666" data-ow-multi="${kind}">
-                <div style="font-weight:700;margin-bottom:4px">${_esc(label)}</div>
-                <div id="ow-${kind}-chips" style="min-height:24px;margin-bottom:4px">${chips || '<span style="color:#aaa">—</span>'}</div>
-                <input type="hidden" id="ow-${kind}" value="${_escAttr(_outreachJoinEmails(list))}">
-                <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
-                  <input id="ow-${kind}-search" class="matching-form-input" type="text"
-                         placeholder="suchen (Name / E-Mail)…"
-                         style="flex:1;min-width:140px"
-                         oninput="Matching.outreachSearchMulti('${kind}', this.value)">
-                </div>
-                <div id="ow-${kind}-hits" style="display:none;border:1px solid #e5e7eb;border-radius:6px;background:#fff;max-height:110px;overflow:auto;margin-bottom:4px"></div>
-                <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
-                  <input id="ow-${kind}-manual" class="matching-form-input" type="text"
-                         placeholder="${_escAttr(placeholder)}"
-                         style="flex:1;min-width:180px"
-                         value="">
-                  <button type="button" class="matching-btn-sm" onclick="Matching.outreachApplyMulti('${kind}')">
-                    ${_esc(_kiT('outreach_apply_email', 'Übernehmen'))}
-                  </button>
-                </div>
-                <div style="font-size:10px;color:#888;margin-top:3px">mehrere mit ; trennen — z. B. a@firma.de; b@firma.de</div>
-              </div>`;
     }
 
     function _outreachEmailBlockHtml(st, cur, draft) {
@@ -3466,110 +3448,107 @@ window.Matching = (function() {
             || (cur && cur.email)
             || _pickEmail(emails, '')
             || '';
-        const suggest = emails.length
-            ? emails.map((em) => {
-                const checked = (em.email || '').toLowerCase() === (current || '').toLowerCase();
-                const tags = [];
-                if (em.primary) tags.push('Primär');
-                if (em.src === 'crm') tags.push('CRM');
-                if (em.src === 'aid') tags.push('AID');
-                return `<label style="display:flex;align-items:center;gap:8px;padding:4px 6px;border-radius:4px;cursor:pointer;${checked ? 'background:#fff8c5' : ''}">
-                  <input type="radio" name="ow-email-pick" value="${_escAttr(em.email)}"
-                         ${checked ? 'checked' : ''}
-                         onchange="Matching.outreachPickEmail(this.value)">
-                  <span style="flex:1;word-break:break-all;font-size:12px">${_esc(em.email)}</span>
-                  ${tags.length ? `<span style="font-size:10px;color:#888">${_esc(tags.join(' · '))}</span>` : ''}
-                </label>`;
-              }).join('')
-            : `<div style="font-size:11px;color:#b45309;padding:4px 0">${_esc(_kiT('outreach_no_email', 'Keine E-Mail im CRM gefunden — manuell eintragen.'))}</div>`;
         const ccList = Array.isArray(st.ccList) ? st.ccList : [];
         const bccList = Array.isArray(st.bccList) && st.bccList.length
             ? st.bccList
             : ['send@abcona.de'];
+        const target = st.mailTarget || 'to';
+        // Kompakte An-Vorschläge (nur wenn vorhanden)
+        const toSuggest = emails.length
+            ? `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px">` +
+              emails.slice(0, 6).map(em => {
+                  const on = (em.email || '').toLowerCase() === (current || '').toLowerCase();
+                  const tag = em.primary ? 'Primär' : (em.src === 'crm' ? 'CRM' : '');
+                  return `<button type="button" class="matching-btn-sm"
+                            style="font-size:10px;padding:2px 7px;${on ? 'background:#fff8c5;border-color:#e6c200' : ''}"
+                            onclick="Matching.outreachPickEmail('${_escAttr(em.email).replace(/'/g, "\\'")}')">
+                            ${_esc(em.email)}${tag ? ' · ' + _esc(tag) : ''}
+                          </button>`;
+              }).join('') + `</div>`
+            : '';
         return `
-              <div style="font-size:11px;color:#666">
-                <div style="font-weight:700;margin-bottom:4px">${_esc(_kiT('outreach_to', 'An'))}</div>
-                <div id="ow-email-suggest" style="border:1px solid #e5e7eb;border-radius:6px;padding:4px;margin-bottom:6px;background:#fafbfc;max-height:120px;overflow:auto">
-                  ${suggest}
-                </div>
-                <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
-                  <input id="ow-to-manual" class="matching-form-input" type="email"
-                         placeholder="manuell: name@firma.de"
-                         style="flex:1;min-width:180px"
-                         value="">
-                  <button type="button" class="matching-btn-sm" onclick="Matching.outreachApplyEmail()">
+              <div style="font-size:11px;color:#666;border:1px solid #e5e7eb;border-radius:8px;padding:8px;background:#fafbfc">
+                <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:6px">
+                  <select id="ow-mail-target" class="matching-form-input" style="width:auto;min-width:72px"
+                          onchange="Matching.outreachSetMailTarget(this.value)">
+                    <option value="to" ${target === 'to' ? 'selected' : ''}>An</option>
+                    <option value="cc" ${target === 'cc' ? 'selected' : ''}>CC</option>
+                    <option value="bcc" ${target === 'bcc' ? 'selected' : ''}>BCC</option>
+                  </select>
+                  <input id="ow-mail-q" class="matching-form-input" type="text"
+                         placeholder="Suche Name/E-Mail oder manuell a@x.de; b@y.de"
+                         style="flex:1;min-width:200px"
+                         oninput="Matching.outreachUnifiedSearch(this.value)"
+                         onkeydown="if(event.key==='Enter'){event.preventDefault();Matching.outreachUnifiedApply();}">
+                  <button type="button" class="matching-btn-sm" onclick="Matching.outreachUnifiedApply()">
                     ${_esc(_kiT('outreach_apply_email', 'Übernehmen'))}
                   </button>
                 </div>
-                <div style="margin-top:6px;font-size:11px;color:#666">
-                  Aktiv:
-                  <input id="ow-to" class="matching-form-input" type="email" readonly
-                         style="width:100%;margin-top:3px;background:#fff8c5;font-weight:600"
-                         value="${_escAttr(current)}">
+                <div id="ow-mail-hits" style="display:none;border:1px solid #e5e7eb;border-radius:6px;background:#fff;max-height:130px;overflow:auto;margin-bottom:6px"></div>
+                ${toSuggest}
+                <div style="display:grid;gap:4px;font-size:11px">
+                  <div><b style="display:inline-block;min-width:36px">An</b>
+                    <input id="ow-to" type="hidden" value="${_escAttr(current)}">
+                    <span id="ow-to-chip">${current
+                      ? `<span style="background:#fff8c5;border-radius:4px;padding:1px 6px;font-weight:600">${_esc(current)}</span>`
+                      : '<span style="color:#b45309">keine Adresse</span>'}</span>
+                    ${st.crm_contact_id
+                      ? ` <a href="/crm/berater/?detail=${_escAttr(st.crm_contact_id)}" target="_blank" style="font-size:10px;color:#888">CRM</a>`
+                      : ''}
+                  </div>
+                  <div><b style="display:inline-block;min-width:36px">CC</b>
+                    <input type="hidden" id="ow-cc" value="${_escAttr(_outreachJoinEmails(ccList))}">
+                    <span id="ow-cc-chips">${_outreachChipsHtml('cc', ccList, true)}</span>
+                  </div>
+                  <div><b style="display:inline-block;min-width:36px">BCC</b>
+                    <input type="hidden" id="ow-bcc" value="${_escAttr(_outreachJoinEmails(bccList))}">
+                    <span id="ow-bcc-chips">${_outreachChipsHtml('bcc', bccList, true)}</span>
+                  </div>
                 </div>
-                ${st.crm_contact_id
-                  ? `<div style="margin-top:4px;font-size:10px;color:#888">
-                       CRM: <a href="/crm/berater/?detail=${_escAttr(st.crm_contact_id)}" target="_blank">${_esc(st.crm_contact_id)}</a>
-                     </div>`
-                  : ''}
-              </div>
-              ${_outreachMultiFieldHtml('cc', _kiT('outreach_cc', 'CC'), ccList, 'manuell: a@x.de; b@y.de')}
-              ${_outreachMultiFieldHtml('bcc', _kiT('outreach_bcc', 'BCC'), bccList, 'manuell: send@abcona.de; …')}`;
+              </div>`;
+    }
+
+    function outreachSetMailTarget(v) {
+        const st = window._outreachWizard;
+        if (!st) return;
+        st.mailTarget = (v === 'cc' || v === 'bcc') ? v : 'to';
     }
 
     function outreachPickEmail(addr) {
         const st = window._outreachWizard;
         if (!st) return;
-        st.selectedEmail = String(addr || '').trim();
-        const el = document.getElementById('ow-to');
-        if (el) el.value = st.selectedEmail;
-        document.querySelectorAll('#ow-email-suggest label').forEach(lab => {
-            const inp = lab.querySelector('input[type=radio]');
-            const on = inp && inp.value === st.selectedEmail;
-            lab.style.background = on ? '#fff8c5' : '';
-            if (inp) inp.checked = !!on;
-        });
-    }
-
-    function outreachApplyEmail() {
-        const st = window._outreachWizard;
-        if (!st) return;
-        const manual = ((document.getElementById('ow-to-manual') || {}).value || '').trim();
-        const picked = (document.querySelector('#ow-email-suggest input[name=ow-email-pick]:checked') || {}).value || '';
-        const addr = manual || picked || st.selectedEmail || '';
-        if (!addr || addr.indexOf('@') < 0) {
-            const status = document.getElementById('ow-status');
-            if (status) {
-                status.style.color = '#b91c1c';
-                status.textContent = 'Bitte gültige E-Mail wählen oder eintragen';
-            }
-            return;
-        }
         _outreachCaptureForm(st);
-        st.selectedEmail = addr;
-        if (manual && !(st.emails || []).some(e =>
-            (typeof e === 'string' ? e : e.email || '').toLowerCase() === manual.toLowerCase()
-        )) {
-            st.emails = (st.emails || []).concat([{ email: manual, primary: false, src: 'manual' }]);
-        }
-        if (st.draft) st.draft.to_email = addr;
+        st.selectedEmail = String(addr || '').trim();
+        if (st.draft) st.draft.to_email = st.selectedEmail;
+        st.mailTarget = st.mailTarget || 'to';
         _renderOutreachWizard();
         const t = document.getElementById('ow-task');
         if (t && st._taskChecked != null) t.checked = st._taskChecked;
-        const status = document.getElementById('ow-status');
-        if (status) {
-            status.style.color = '#155724';
-            status.textContent = 'E-Mail übernommen: ' + addr;
-        }
     }
 
-    function outreachApplyMulti(kind) {
+    function outreachApplyEmail() {
+        outreachUnifiedApply();
+    }
+
+    function outreachUnifiedApply() {
         const st = window._outreachWizard;
-        if (!st || (kind !== 'cc' && kind !== 'bcc')) return;
+        if (!st) return;
         _outreachCaptureForm(st);
-        const manual = ((document.getElementById('ow-' + kind + '-manual') || {}).value || '').trim();
-        const addrs = _outreachParseEmails(manual);
+        const target = ((document.getElementById('ow-mail-target') || {}).value) || st.mailTarget || 'to';
+        st.mailTarget = target;
+        const raw = ((document.getElementById('ow-mail-q') || {}).value || '').trim();
+        const addrs = _outreachParseEmails(raw);
+        // Wenn nur Text ohne @ → Suche erzwingen, kein Apply-Fehler
         if (!addrs.length) {
+            if (raw.length >= 2 && raw.indexOf('@') < 0) {
+                outreachUnifiedSearch(raw);
+                const status = document.getElementById('ow-status');
+                if (status) {
+                    status.style.color = '#666';
+                    status.textContent = 'Treffer wählen oder E-Mail mit @ / ; eintragen';
+                }
+                return;
+            }
             const status = document.getElementById('ow-status');
             if (status) {
                 status.style.color = '#b91c1c';
@@ -3577,31 +3556,56 @@ window.Matching = (function() {
             }
             return;
         }
-        const key = kind + 'List';
-        st[key] = _outreachAddEmails(st[key] || [], addrs);
+        if (target === 'to') {
+            st.selectedEmail = addrs[0];
+            if (st.draft) st.draft.to_email = addrs[0];
+            // Rest optional nach CC
+            if (addrs.length > 1) {
+                st.ccList = _outreachAddEmails(st.ccList || [], addrs.slice(1));
+            }
+        } else if (target === 'cc') {
+            st.ccList = _outreachAddEmails(st.ccList || [], addrs);
+        } else {
+            st.bccList = _outreachAddEmails(st.bccList || [], addrs);
+        }
         _renderOutreachWizard();
         const t = document.getElementById('ow-task');
         if (t && st._taskChecked != null) t.checked = st._taskChecked;
-        const man = document.getElementById('ow-' + kind + '-manual');
-        if (man) man.value = '';
+        const qEl = document.getElementById('ow-mail-q');
+        if (qEl) qEl.value = '';
+        const hits = document.getElementById('ow-mail-hits');
+        if (hits) { hits.style.display = 'none'; hits.innerHTML = ''; }
         const status = document.getElementById('ow-status');
         if (status) {
             status.style.color = '#155724';
-            status.textContent = kind.toUpperCase() + ' übernommen: ' + addrs.join('; ');
+            status.textContent = target.toUpperCase() + ': ' + addrs.join('; ');
         }
+    }
+
+    function outreachApplyMulti(kind) {
+        const st = window._outreachWizard;
+        if (!st) return;
+        st.mailTarget = kind;
+        const sel = document.getElementById('ow-mail-target');
+        if (sel) sel.value = kind;
+        outreachUnifiedApply();
     }
 
     function outreachRemoveMulti(kind, idx) {
         const st = window._outreachWizard;
-        if (!st || (kind !== 'cc' && kind !== 'bcc')) return;
+        if (!st || (kind !== 'cc' && kind !== 'bcc' && kind !== 'to')) return;
         _outreachCaptureForm(st);
-        const key = kind + 'List';
-        const list = (st[key] || []).slice();
-        if (idx < 0 || idx >= list.length) return;
-        list.splice(idx, 1);
-        // BCC: Default wiederherstellen wenn leer gelöscht
-        if (kind === 'bcc' && !list.length) list.push('send@abcona.de');
-        st[key] = list;
+        if (kind === 'to') {
+            st.selectedEmail = '';
+            if (st.draft) st.draft.to_email = '';
+        } else {
+            const key = kind + 'List';
+            const list = (st[key] || []).slice();
+            if (idx < 0 || idx >= list.length) return;
+            list.splice(idx, 1);
+            if (kind === 'bcc' && !list.length) list.push('send@abcona.de');
+            st[key] = list;
+        }
         _renderOutreachWizard();
         const t = document.getElementById('ow-task');
         if (t && st._taskChecked != null) t.checked = st._taskChecked;
@@ -3609,70 +3613,143 @@ window.Matching = (function() {
 
     function outreachAddMultiEmail(kind, email) {
         const st = window._outreachWizard;
-        if (!st || (kind !== 'cc' && kind !== 'bcc')) return;
+        if (!st) return;
         _outreachCaptureForm(st);
-        st[kind + 'List'] = _outreachAddEmails(st[kind + 'List'] || [], [email]);
+        const e = String(email || '').trim();
+        if (!e || e.indexOf('@') < 0) return;
+        if (kind === 'to') {
+            st.selectedEmail = e;
+            if (st.draft) st.draft.to_email = e;
+        } else if (kind === 'cc') {
+            st.ccList = _outreachAddEmails(st.ccList || [], [e]);
+        } else if (kind === 'bcc') {
+            st.bccList = _outreachAddEmails(st.bccList || [], [e]);
+        }
         _renderOutreachWizard();
         const t = document.getElementById('ow-task');
         if (t && st._taskChecked != null) t.checked = st._taskChecked;
-        const hits = document.getElementById('ow-' + kind + '-hits');
+        const hits = document.getElementById('ow-mail-hits');
         if (hits) { hits.style.display = 'none'; hits.innerHTML = ''; }
-        const search = document.getElementById('ow-' + kind + '-search');
-        if (search) search.value = '';
+        const qEl = document.getElementById('ow-mail-q');
+        if (qEl) qEl.value = '';
     }
 
-    function outreachSearchMulti(kind, q) {
+    function _outreachRenderHits(items) {
+        const hitsEl = document.getElementById('ow-mail-hits');
         const st = window._outreachWizard;
-        if (!st || (kind !== 'cc' && kind !== 'bcc')) return;
-        const hitsEl = document.getElementById('ow-' + kind + '-hits');
+        if (!hitsEl || !st) return;
+        const target = ((document.getElementById('ow-mail-target') || {}).value) || st.mailTarget || 'to';
+        if (!items.length) {
+            hitsEl.style.display = 'block';
+            hitsEl.innerHTML = '<div style="padding:6px 8px;font-size:11px;color:#888">Keine Treffer</div>';
+            return;
+        }
+        hitsEl.style.display = 'block';
+        hitsEl.innerHTML = items.slice(0, 12).map(it => {
+            const em = _escAttr(it.email).replace(/'/g, "\\'");
+            return `<div style="padding:5px 8px;font-size:11px;cursor:pointer;border-bottom:1px solid #f0f0f0"
+                      onmouseover="this.style.background='#f0f4fa'" onmouseout="this.style.background=''"
+                      onclick="Matching.outreachAddMultiEmail('${target}','${em}')">
+                   <b>${_esc(it.email)}</b>
+                   <span style="color:#888"> · ${_esc(it.name || '')}${it.company ? ' · ' + _esc(it.company) : ''}</span>
+                 </div>`;
+        }).join('');
+    }
+
+    function _outreachNormalizeSuggestRows(rows) {
+        const items = [];
+        (rows || []).forEach(r => {
+            const name = r.name || r.full_name || [r.first_name, r.last_name].filter(Boolean).join(' ') || '';
+            const company = r.company || r.account_name || '';
+            let emails = r.emails || [];
+            if (typeof emails === 'string') emails = _outreachParseEmails(emails);
+            if (!Array.isArray(emails)) emails = [];
+            if (!emails.length && r.email) emails = [r.email];
+            emails.forEach(em => {
+                const e = typeof em === 'string' ? em : (em.email || em.value || '');
+                if (!e || e.indexOf('@') < 0) return;
+                items.push({ email: e, name: name, company: company, crm_id: r.crm_id || '' });
+            });
+        });
+        return items;
+    }
+
+    function outreachUnifiedSearch(q) {
+        const st = window._outreachWizard;
+        if (!st) return;
+        const hitsEl = document.getElementById('ow-mail-hits');
         if (!hitsEl) return;
         const query = String(q || '').trim();
-        if (st._searchTimers[kind]) clearTimeout(st._searchTimers[kind]);
+        if (st._searchTimers.unified) clearTimeout(st._searchTimers.unified);
+        // Reine E-Mail-Eingabe → keine Suche nötig
+        if (query.indexOf('@') >= 0 && _outreachParseEmails(query).length) {
+            hitsEl.style.display = 'none';
+            hitsEl.innerHTML = '';
+            return;
+        }
         if (query.length < 2) {
             hitsEl.style.display = 'none';
             hitsEl.innerHTML = '';
             return;
         }
-        st._searchTimers[kind] = setTimeout(() => {
-            fetch('/crm/api/contacts/suggest/?q=' + encodeURIComponent(query) + '&limit=8', {
-                credentials: 'same-origin',
-                headers: { 'X-Requested-With': 'XMLHttpRequest' },
-            })
-            .then(r => r.ok ? r.json() : { results: [] })
-            .then(d => {
-                const rows = d.results || d.items || [];
-                const items = [];
-                rows.forEach(r => {
-                    const name = r.name || r.full_name || [r.first_name, r.last_name].filter(Boolean).join(' ') || '';
-                    const company = r.company || r.account_name || '';
-                    let emails = r.emails || [];
-                    if (typeof emails === 'string') emails = _outreachParseEmails(emails);
-                    if (!emails.length && r.email) emails = [r.email];
-                    emails.forEach(em => {
-                        const e = typeof em === 'string' ? em : (em.email || em.value || '');
-                        if (!e || e.indexOf('@') < 0) return;
-                        items.push({ email: e, name: name, company: company });
-                    });
+        st._searchTimers.unified = setTimeout(() => {
+            hitsEl.style.display = 'block';
+            hitsEl.innerHTML = '<div style="padding:6px 8px;font-size:11px;color:#888">Suche…</div>';
+            const headers = { 'X-Requested-With': 'XMLHttpRequest' };
+            const suggestUrl = '/crm/api/contacts/suggest/?q=' + encodeURIComponent(query) + '&limit=8';
+            const beraterUrl = '/crm/api/berater/?q=' + encodeURIComponent(query) + '&per_page=8&typ=alle';
+
+            Promise.all([
+                fetch(suggestUrl, { credentials: 'same-origin', headers })
+                    .then(r => r.ok ? r.json() : null).catch(() => null),
+                fetch(beraterUrl, { credentials: 'same-origin', headers })
+                    .then(r => r.ok ? r.json() : null).catch(() => null),
+            ]).then(async ([sug, ber]) => {
+                let items = _outreachNormalizeSuggestRows((sug && (sug.results || sug.items)) || []);
+                // Berater-Fallback / Ergänzung — Detail für E-Mails nachladen wenn nötig
+                const berRows = (ber && (ber.results || ber.items || ber.berater)) || [];
+                const needDetail = [];
+                berRows.forEach(r => {
+                    const name = r.full_name || r.name || '';
+                    const emails = r.emails || (r.email ? [r.email] : []);
+                    if (emails.length) {
+                        items = items.concat(_outreachNormalizeSuggestRows([r]));
+                    } else if (r.crm_id) {
+                        needDetail.push({ crm_id: r.crm_id, name: name, company: r.company || '' });
+                    }
                 });
-                if (!items.length) {
-                    hitsEl.style.display = 'block';
-                    hitsEl.innerHTML = '<div style="padding:6px 8px;font-size:11px;color:#888">Keine Treffer</div>';
-                    return;
+                if (needDetail.length && items.length < 6) {
+                    const details = await Promise.all(
+                        needDetail.slice(0, 5).map(d =>
+                            fetch('/crm/api/berater/' + encodeURIComponent(d.crm_id) + '/', {
+                                credentials: 'same-origin', headers,
+                            }).then(r => r.ok ? r.json() : null)
+                              .then(j => j ? Object.assign({ name: d.name, company: d.company }, j) : null)
+                              .catch(() => null)
+                        )
+                    );
+                    items = items.concat(_outreachNormalizeSuggestRows(details.filter(Boolean)));
                 }
-                hitsEl.style.display = 'block';
-                hitsEl.innerHTML = items.slice(0, 10).map(it =>
-                    `<div style="padding:5px 8px;font-size:11px;cursor:pointer;border-bottom:1px solid #f0f0f0"
-                          onmouseover="this.style.background='#f0f4fa'" onmouseout="this.style.background=''"
-                          onclick="Matching.outreachAddMultiEmail('${kind}','${_escAttr(it.email).replace(/'/g, "\\'")}')">
-                       <b>${_esc(it.email)}</b>
-                       <span style="color:#888"> · ${_esc(it.name)}${it.company ? ' · ' + _esc(it.company) : ''}</span>
-                     </div>`
-                ).join('');
-            })
-            .catch(() => {
-                hitsEl.style.display = 'none';
+                // Dedup by email
+                const seen = {};
+                items = items.filter(it => {
+                    const k = (it.email || '').toLowerCase();
+                    if (!k || seen[k]) return false;
+                    seen[k] = true;
+                    return true;
+                });
+                _outreachRenderHits(items);
             });
         }, 280);
+    }
+
+    function outreachSearchMulti(kind, q) {
+        // Kompatibilität: leitet auf Unified um
+        const st = window._outreachWizard;
+        if (st) st.mailTarget = kind;
+        const sel = document.getElementById('ow-mail-target');
+        if (sel) sel.value = kind;
+        outreachUnifiedSearch(q);
     }
 
     function closeOutreachWizard() {

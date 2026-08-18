@@ -74,13 +74,13 @@ check_pair() {
   fi
 }
 
-check_pair "Repo_abpe/abpe_ui/incoming/mod-matching.js" "$LIVE_JS" "outreachApplyMulti"
+check_pair "Repo_abpe/abpe_ui/incoming/mod-matching.js" "$LIVE_JS" "outreachUnifiedSearch"
 check_pair "Repo_abpe/abpe_matching_workflow/incoming/views.py" "$LIVE_MW/views.py" "api_outreach_deep_reason"
 check_pair "Repo_abpe/abpe_matching_workflow/incoming/urls.py" "$LIVE_MW/urls.py" "api_outreach_letter_draft"
 check_pair "Repo_abpe/abpe_matching_workflow/incoming/services/outreach_wizard.py" \
   "$LIVE_MW/services/outreach_wizard.py" "build_letter_draft"
 LIVE_CRM="${LIVE_CRM:-/opt/abpe/backend/apps/abpe_crm}"
-check_pair "Repo_abpe/abpe_crm/incoming/views.py" "$LIVE_CRM/views.py" "cc_extra"
+check_pair "Repo_abpe/abpe_crm/incoming/views.py" "$LIVE_CRM/views.py" "orm_emergency"
 
 echo
 if [[ "$live_ahead" -eq 1 ]]; then
