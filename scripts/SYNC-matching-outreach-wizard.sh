@@ -42,6 +42,10 @@ git archive "origin/$BRANCH" \
   Repo_abpe/abpe_crm/incoming/views.py \
   Repo_abpe/abpe_ui/incoming/mod-matching.js \
   Repo_abpe/abpe_ui/incoming/static_abpe_ui/js/mod/mod-matching.js \
+  Repo_abpe/abpe_ui/incoming/mod-shaduler.js \
+  Repo_abpe/abpe_ui/incoming/mod-shaduler.css \
+  Repo_abpe/abpe_ui/incoming/static_abpe_ui/js/mod/mod-shaduler.js \
+  Repo_abpe/abpe_ui/incoming/static_abpe_ui/css/mod/mod-shaduler.css \
   | tar -x -C "$TMP"
 
 echo "=== Outreach Wizard Sync ($BRANCH) ==="
@@ -103,10 +107,39 @@ mkdir -p "$LIVE_UI/static/abpe_ui/js/mod"
 cp -a "$JS_SRC" "$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js"
 echo "OK — mod-matching.js → $LIVE_UI/static/abpe_ui/js/mod/"
 
+# Shaduler: Art-Defaults im Regeln-Tab (+ CSS)
+SH_JS_SRC="$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler.js"
+SH_CSS_SRC="$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler.css"
+if [[ -f "$SH_JS_SRC" ]] && grep -q "TASK_ART_DEFAULTS_BASE" "$SH_JS_SRC"; then
+  mkdir -p "$LIVE_UI/static/abpe_ui/js/mod" "$LIVE_UI/static/abpe_ui/css/mod"
+  [[ -f "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js" ]] \
+    && cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js" \
+         "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js.bak-outreach-$TS"
+  cp -a "$SH_JS_SRC" "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js"
+  echo "OK — mod-shaduler.js → $LIVE_UI/static/abpe_ui/js/mod/"
+  if [[ -f "$SH_CSS_SRC" ]] && grep -q "sh-art-defaults" "$SH_CSS_SRC"; then
+    [[ -f "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css" ]] \
+      && cp -a "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css" \
+           "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css.bak-outreach-$TS"
+    cp -a "$SH_CSS_SRC" "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css"
+    echo "OK — mod-shaduler.css → $LIVE_UI/static/abpe_ui/css/mod/"
+  fi
+else
+  echo "WARN: mod-shaduler.js ohne TASK_ART_DEFAULTS_BASE — Regeln-Tab unverändert"
+fi
+
 if [[ -d "$STATICFILES" ]]; then
-  mkdir -p "$STATICFILES/abpe_ui/js/mod"
+  mkdir -p "$STATICFILES/abpe_ui/js/mod" "$STATICFILES/abpe_ui/css/mod"
   cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js" \
     "$STATICFILES/abpe_ui/js/mod/mod-matching.js"
+  if [[ -f "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js" ]]; then
+    cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js" \
+      "$STATICFILES/abpe_ui/js/mod/mod-shaduler.js"
+  fi
+  if [[ -f "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css" ]]; then
+    cp -a "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css" \
+      "$STATICFILES/abpe_ui/css/mod/mod-shaduler.css"
+  fi
   echo "OK — staticfiles mirror"
 fi
 
@@ -129,3 +162,5 @@ fi
 echo
 echo "Fertig. Browser: Matching → Shortlist → Ctrl+F5 → „Alle anschreiben“"
 echo "CC/BCC: Suche + manuell (a@x.de; b@y.de) + Übernehmen; BCC-Default send@abcona.de"
+echo "WV: Default aus Shaduler→Regeln (Art-Defaults), Fälligkeit im Wizard editierbar"
+echo "Regeln-Tab: Ctrl+F5 → Shaduler → Regeln → Defaults speichern"

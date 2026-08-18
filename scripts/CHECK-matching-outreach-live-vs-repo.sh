@@ -81,6 +81,10 @@ check_pair "Repo_abpe/abpe_matching_workflow/incoming/services/outreach_wizard.p
   "$LIVE_MW/services/outreach_wizard.py" "build_letter_draft"
 LIVE_CRM="${LIVE_CRM:-/opt/abpe/backend/apps/abpe_crm}"
 check_pair "Repo_abpe/abpe_crm/incoming/views.py" "$LIVE_CRM/views.py" "orm_emergency"
+LIVE_SH_JS="${LIVE_SH_JS:-$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js}"
+LIVE_SH_CSS="${LIVE_SH_CSS:-$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css}"
+check_pair "Repo_abpe/abpe_ui/incoming/mod-shaduler.js" "$LIVE_SH_JS" "TASK_ART_DEFAULTS_BASE"
+check_pair "Repo_abpe/abpe_ui/incoming/mod-shaduler.css" "$LIVE_SH_CSS" "sh-art-defaults"
 
 echo
 if [[ "$live_ahead" -eq 1 ]]; then

@@ -1215,8 +1215,8 @@ def api_outreach_complete(request, match_result_id):
         project = mr.project_request
         task = None
         if body.get('create_task', True):
-            # Default +7 Tage Wiedervorlage — Frontend kann überschreiben / an Shaduler senden
-            due = (timezone.now() + timedelta(days=int(body.get('task_days') or 7))).date().isoformat()
+            # Default +1 Tag (wie Shaduler Art-Default WV) — Frontend sendet faellig_am aus Regeln-Tab
+            due = (timezone.now() + timedelta(days=int(body.get('task_days') or 1))).date().isoformat()
             task = {
                 'art': 'wiedervorlage',
                 'titel': f'WV Anschreiben — {c.full_name} — {project.project_number or project.title}',
@@ -1230,6 +1230,8 @@ def api_outreach_complete(request, match_result_id):
                 'prioritaet': int(body.get('task_priority') or 3),
                 'faellig_am': body.get('faellig_am') or due,
             }
+            if body.get('faellig_zeit'):
+                task['faellig_zeit'] = body.get('faellig_zeit')
 
         return Response({
             'ok': True,

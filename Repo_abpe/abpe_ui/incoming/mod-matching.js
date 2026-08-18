@@ -3380,6 +3380,107 @@ window.Matching = (function() {
         return out;
     }
 
+
+    /** Shaduler Art-Defaults (gleicher Key wie Regeln-Tab). */
+    var _OW_ART_DEFAULTS_BASE = {
+        anruf: { weeks: 0, days: 0, hours: 1, minutes: 0, enabled: true },
+        sms_messenger: { weeks: 0, days: 0, hours: 1, minutes: 0, enabled: true },
+        wiedervorlage: { weeks: 0, days: 1, hours: 0, minutes: 0, enabled: true },
+        email: { weeks: 0, days: 0, hours: 2, minutes: 0, enabled: true },
+        post: { weeks: 0, days: 2, hours: 0, minutes: 0, enabled: true },
+        termin: { weeks: 0, days: 0, hours: 0, minutes: 0, enabled: false },
+        dokument: { weeks: 0, days: 1, hours: 0, minutes: 0, enabled: true },
+        intern: { weeks: 0, days: 1, hours: 0, minutes: 0, enabled: true },
+    };
+
+    function _owNzInt(v, fallback) {
+        var n = parseInt(v, 10);
+        return isNaN(n) || n < 0 ? (fallback || 0) : n;
+    }
+
+    function _owMigrateArtDefault(raw) {
+        if (!raw || typeof raw !== 'object') {
+            return { weeks: 0, days: 0, hours: 0, minutes: 0, enabled: false };
+        }
+        if (raw.weeks != null || raw.hours != null || raw.minutes != null || raw.enabled === false || raw.enabled === true) {
+            var weeks = _owNzInt(raw.weeks, 0);
+            var days = _owNzInt(raw.days, 0);
+            var hours = _owNzInt(raw.hours, 0);
+            var minutes = _owNzInt(raw.minutes, 0);
+            var enabled = raw.enabled !== false && (weeks + days + hours + minutes > 0 || raw.enabled === true);
+            if (raw.enabled === false) enabled = false;
+            return { weeks: weeks, days: days, hours: hours, minutes: minutes, enabled: enabled };
+        }
+        var legDays = raw.days != null && raw.days !== '' ? _owNzInt(raw.days, 0) : 0;
+        var dur = raw.dauer_min != null && raw.dauer_min !== '' ? _owNzInt(raw.dauer_min, 0) : 0;
+        if (raw.days == null && raw.dauer_min == null) {
+            return { weeks: 0, days: 0, hours: 0, minutes: 0, enabled: false };
+        }
+        return {
+            weeks: 0,
+            days: (raw.days != null && raw.days !== '') ? legDays : 0,
+            hours: Math.floor(dur / 60),
+            minutes: dur % 60,
+            enabled: !!(dur || (raw.days != null && raw.days !== '')),
+        };
+    }
+
+    function _owGetArtDefaults(art) {
+        if (window.Shaduler && typeof window.Shaduler.getArtDefaults === 'function') {
+            try { return window.Shaduler.getArtDefaults(art); } catch (e) { /* fall through */ }
+        }
+        var base = _owMigrateArtDefault(_OW_ART_DEFAULTS_BASE[art]);
+        try {
+            var raw = localStorage.getItem('sh_task_art_defaults_v2');
+            if (!raw) {
+                var old = localStorage.getItem('sh_task_art_defaults');
+                if (!old) return base;
+                var o1 = JSON.parse(old);
+                if (o1 && o1[art]) return _owMigrateArtDefault(o1[art]);
+                return base;
+            }
+            var o = JSON.parse(raw);
+            if (o && o[art]) return _owMigrateArtDefault(o[art]);
+        } catch (e2) { /* ignore */ }
+        return base;
+    }
+
+    function _owDueFromArt(art) {
+        if (window.Shaduler && typeof window.Shaduler.dueDateTimeFromArt === 'function') {
+            try {
+                var fromSh = window.Shaduler.dueDateTimeFromArt(art);
+                if (fromSh) return fromSh;
+            } catch (e) { /* fall through */ }
+        }
+        var def = _owGetArtDefaults(art);
+        if (!def || !def.enabled) return null;
+        var weeks = _owNzInt(def.weeks, 0);
+        var days = _owNzInt(def.days, 0);
+        var hours = _owNzInt(def.hours, 0);
+        var minutes = _owNzInt(def.minutes, 0);
+        if (weeks + days + hours + minutes === 0) return null;
+        var d = new Date();
+        d.setDate(d.getDate() + weeks * 7 + days);
+        d.setHours(d.getHours() + hours);
+        d.setMinutes(d.getMinutes() + minutes, 0, 0);
+        return {
+            date: d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'),
+            time: String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'),
+            def: def,
+        };
+    }
+
+    function _owWvDueLabel() {
+        var def = _owGetArtDefaults('wiedervorlage');
+        if (!def || !def.enabled) return '';
+        var parts = [];
+        if (def.weeks) parts.push(def.weeks + 'W');
+        if (def.days) parts.push(def.days + 'T');
+        if (def.hours) parts.push(def.hours + 'h');
+        if (def.minutes) parts.push(def.minutes + 'm');
+        return parts.length ? (' (' + parts.join(' ') + ')') : '';
+    }
+
     function _outreachCaptureForm(st) {
         if (!st) return;
         const to = ((document.getElementById('ow-to') || {}).value || '').trim();
@@ -3393,6 +3494,10 @@ window.Matching = (function() {
             if (document.getElementById('ow-body')) st.draft.body = body;
         }
         if (task) st._taskChecked = !!task.checked;
+        var td = document.getElementById('ow-task-date');
+        var tt = document.getElementById('ow-task-time');
+        if (td) st._taskDate = td.value || '';
+        if (tt) st._taskTime = tt.value || '';
         // CC/BCC hidden fields spiegeln Listen
         const ccEl = document.getElementById('ow-cc');
         const bccEl = document.getElementById('ow-bcc');
@@ -3884,10 +3989,20 @@ window.Matching = (function() {
                 <textarea id="ow-body" class="matching-form-textarea" rows="9"
                           style="width:100%;margin-top:3px;font-family:inherit">${_esc(draft.body || draft.body_text || '')}</textarea>
               </label>
-              <label style="font-size:11px;color:#666;display:flex;align-items:center;gap:8px">
-                <input type="checkbox" id="ow-task" checked>
-                ${_esc(_kiT('outreach_task', 'Wiedervorlage anlegen (+7 Tage)'))}
-              </label>
+              <div id="ow-task-box" style="display:grid;gap:6px;padding:8px 10px;background:#f8fafc;border-radius:8px;border:1px solid #e5e7eb">
+                <label style="font-size:11px;color:#666;display:flex;align-items:center;gap:8px">
+                  <input type="checkbox" id="ow-task" checked>
+                  ${_esc(_kiT('outreach_task', 'Wiedervorlage anlegen'))}<span id="ow-task-def-hint" style="color:#94a3b8"></span>
+                </label>
+                <div id="ow-task-fields" style="display:flex;flex-wrap:wrap;gap:10px;align-items:end">
+                  <label style="font-size:11px;color:#666">Fällig
+                    <input type="date" id="ow-task-date" class="matching-form-input" style="display:block;margin-top:3px;min-width:140px">
+                  </label>
+                  <label style="font-size:11px;color:#666">Uhrzeit
+                    <input type="time" id="ow-task-time" class="matching-form-input" style="display:block;margin-top:3px;min-width:100px">
+                  </label>
+                </div>
+              </div>
               <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
                 <button type="button" class="matching-btn-sm" onclick="Matching.outreachSkip()">${_esc(_kiT('outreach_skip', 'Aussortieren'))}</button>
                 <button type="button" class="matching-btn-sm" onclick="Matching.outreachPolish()">${_esc(_kiT('outreach_polish', 'Glätten'))}</button>
@@ -3904,6 +4019,31 @@ window.Matching = (function() {
             const t = document.getElementById('ow-task');
             if (t) t.checked = st._taskChecked;
         }
+        (function _fillOwTaskDue() {
+            const dateEl = document.getElementById('ow-task-date');
+            const timeEl = document.getElementById('ow-task-time');
+            const hint = document.getElementById('ow-task-def-hint');
+            const taskCb = document.getElementById('ow-task');
+            const fields = document.getElementById('ow-task-fields');
+            if (hint) hint.textContent = _owWvDueLabel();
+            const due = _owDueFromArt('wiedervorlage');
+            if (dateEl) {
+                dateEl.value = st._taskDate || (due && due.date) || '';
+            }
+            if (timeEl) {
+                timeEl.value = st._taskTime || (due && due.time) || '';
+            }
+            function syncFields() {
+                if (fields) fields.style.opacity = (taskCb && !taskCb.checked) ? '0.45' : '1';
+                if (dateEl) dateEl.disabled = !!(taskCb && !taskCb.checked);
+                if (timeEl) timeEl.disabled = !!(taskCb && !taskCb.checked);
+            }
+            if (taskCb && !taskCb._owBound) {
+                taskCb._owBound = true;
+                taskCb.addEventListener('change', syncFields);
+            }
+            syncFields();
+        })();
     }
 
     function outreachGoto(idx) {
@@ -4107,6 +4247,8 @@ window.Matching = (function() {
         const subj = ((document.getElementById('ow-subj') || {}).value || '').trim();
         const body = ((document.getElementById('ow-body') || {}).value || '').trim();
         const wantTask = !!(document.getElementById('ow-task') || {}).checked;
+        const taskDate = ((document.getElementById('ow-task-date') || {}).value || '').trim();
+        const taskTime = ((document.getElementById('ow-task-time') || {}).value || '').trim();
         _outreachCaptureForm(st);
         const cc = (st.ccList || []).slice();
         const bcc = (st.bccList && st.bccList.length) ? st.bccList.slice() : ['send@abcona.de'];
@@ -4157,18 +4299,26 @@ window.Matching = (function() {
                 method: 'POST',
                 credentials: 'same-origin',
                 headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
-                body: JSON.stringify({ status: 'contacted', create_task: wantTask }),
+                body: JSON.stringify({
+                    status: 'contacted',
+                    create_task: wantTask,
+                    faellig_am: taskDate || undefined,
+                    faellig_zeit: taskTime || undefined,
+                }),
             }).then(r => r.json().then(j2 => ({ ok: r.ok, j: j2 })));
         })
         .then(pack => {
             const j = pack.j || {};
             if (!pack.ok || j.ok === false) throw new Error(j.error || 'Complete fehlgeschlagen');
             if (wantTask && j.task) {
+                const taskPayload = Object.assign({}, j.task);
+                if (taskDate) taskPayload.faellig_am = taskDate;
+                if (taskTime) taskPayload.faellig_zeit = taskTime;
                 return fetch('/shaduler/api/aufgaben/create/', {
                     method: 'POST',
                     credentials: 'same-origin',
                     headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
-                    body: JSON.stringify(j.task),
+                    body: JSON.stringify(taskPayload),
                 }).then(() => j).catch(err => {
                     console.warn('Wiedervorlage:', err);
                     return j;
