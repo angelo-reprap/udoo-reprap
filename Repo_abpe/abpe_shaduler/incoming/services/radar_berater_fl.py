@@ -494,10 +494,12 @@ def fetch_freelancers_list(
     page: int = 1,
     available_only: bool = True,
     countries: Optional[list[int]] = None,
+    most_recent: bool = True,
 ) -> dict[str, Any]:
     """
     FM Freelancer-Suche (öffentlich).
     page: 1-basiert (pagenr).
+    most_recent=True → wie UI „Aktuellste“ (mostRecentProfiles=1).
     """
     page = max(1, int(page or 1))
     countries = countries or [1, 2, 3]  # DE, AT, CH
@@ -513,7 +515,8 @@ def fetch_freelancers_list(
         ('maxDailyRate', '0'),
         ('maxHourlyRate', '0'),
         ('profileUpdate', '0'),
-        ('mostRecentProfiles', '0'),
+        # UI „Aktuellste“ — ohne dies liefert FM eine andere Reihenfolge
+        ('mostRecentProfiles', '1' if most_recent else '0'),
         ('excludeDachRegion', '0'),
         ('excludeUnavailable', '1' if available_only else '0'),
         ('excludeMemolist', '0'),
