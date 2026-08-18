@@ -42,20 +42,20 @@ from django.conf import settings
 tok = getattr(settings, 'SCHEDULER_SERVICE_TOKEN', '') or ''
 headers = {'Authorization': f'Token {tok}', 'Content-Type': 'application/json'} if tok else {}
 
-candidates = []
-cur = getattr(settings, 'SCHEDULER_API_BASE_URL', None)
-if cur:
-    candidates.append(cur.rstrip('/'))
-for base in (
+# Reihenfolge: 127.0.0.1 vor localhost (IPv6/Timeout-Falle auf ucs5)
+candidates = [
     'http://127.0.0.1:8000/scheduler/api',
     'http://localhost:8000/scheduler/api',
     'http://127.0.0.1:8080/scheduler/api',
     'http://127.0.0.1/scheduler/api',
     'http://ucs5.win.abcona.info/scheduler/api',
     'https://abpe.win.abcona.info/scheduler/api',
-):
-    if base.rstrip('/') not in candidates:
-        candidates.append(base.rstrip('/'))
+]
+cur = getattr(settings, 'SCHEDULER_API_BASE_URL', None)
+if cur:
+    c = cur.rstrip('/')
+    if c not in candidates:
+        candidates.insert(0, c)
 
 ok = []
 for base in candidates:
@@ -70,11 +70,17 @@ for base in candidates:
 
 print()
 if ok:
-    print('ERREICHBAR:', ok[0])
-    print('Wenn Settings falsch: in Live-Settings setzen:')
-    print(f"  SCHEDULER_API_BASE_URL = '{ok[0]}'")
-    # Callback oft gleiche Host-Basis ohne /scheduler
-    host = ok[0].split('/scheduler')[0]
+    # Preferiere 127.0.0.1 über localhost auch wenn beide 200
+    preferred = next((b for b in ok if '127.0.0.1' in b), ok[0])
+    print('ERREICHBAR (bevorzugt):', preferred)
+    cur_api = (getattr(settings, 'SCHEDULER_API_BASE_URL', None) or '').rstrip('/')
+    if 'localhost' in cur_api and '127.0.0.1' in preferred:
+        print('WARN: Settings nutzen localhost — flaky. Umstellen:')
+        print('  bash <(git show origin/cursor/posteingang-radar-fix-1532:scripts/FIX-scheduler-url-127.sh)')
+        print('  APPLY=1 bash <(git show origin/cursor/posteingang-radar-fix-1532:scripts/FIX-scheduler-url-127.sh)')
+    print('Empfohlen in Live-Settings:')
+    print(f"  SCHEDULER_API_BASE_URL = '{preferred}'")
+    host = preferred.split('/scheduler')[0]
     print(f"  SHADULER_CALLBACK_BASE_URL = '{host}/shaduler/api'")
 else:
     print('KEINE Scheduler-API erreichbar — abpe-django Port prüfen / nginx upstream')
