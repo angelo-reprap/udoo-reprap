@@ -22,12 +22,15 @@ git pull origin "$BRANCH" || true
 MAP=(
   "apps/namazu/management/commands/index_emails.py|Repo_abpe/namazu/incoming/management/commands/index_emails.py"
   "apps/abpe_shaduler/tasks.py|Repo_abpe/abpe_shaduler/incoming/tasks.py"
+  "apps/abpe_shaduler/scheduler_client.py|Repo_abpe/abpe_shaduler/incoming/scheduler_client.py"
   "apps/abpe_shaduler/management/commands/register_scheduler_jobs.py|Repo_abpe/abpe_shaduler/incoming/management/commands/register_scheduler_jobs.py"
   "apps/abpe_shaduler/services/inbox_service.py|Repo_abpe/abpe_shaduler/incoming/services/inbox_service.py"
   "apps/abpe_shaduler/services/radar_fetcher.py|Repo_abpe/abpe_shaduler/incoming/services/radar_fetcher.py"
   "apps/abpe_shaduler/services/radar_grouper.py|Repo_abpe/abpe_shaduler/incoming/services/radar_grouper.py"
+  "apps/abpe_shaduler/services/radar_berater_index.py|Repo_abpe/abpe_shaduler/incoming/services/radar_berater_index.py"
   "apps/abpe_shaduler/services/radar_berater_fl.py|Repo_abpe/abpe_shaduler/incoming/services/radar_berater_fl.py"
   "apps/abpe_shaduler/services/radar_berater_service.py|Repo_abpe/abpe_shaduler/incoming/services/radar_berater_service.py"
+  "apps/abpe_shaduler/services/radar_berater_gulp.py|Repo_abpe/abpe_shaduler/incoming/services/radar_berater_gulp.py"
   "apps/abpe_ui/static/abpe_ui/js/mod/mod-shaduler.js|Repo_abpe/abpe_ui/incoming/mod-shaduler.js"
   "apps/abpe_ui/static/abpe_ui/css/mod/mod-shaduler.css|Repo_abpe/abpe_ui/incoming/mod-shaduler.css"
 )
