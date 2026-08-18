@@ -88,6 +88,10 @@ if ! grep -q "outreachApplyEmail" "$JS_SRC"; then
   echo "FEHLER: mod-matching.js ohne outreachApplyEmail (E-Mail-Übernehmen)"
   exit 1
 fi
+if ! grep -q "outreachUnifiedSearch" "$JS_SRC"; then
+  echo "FEHLER: mod-matching.js ohne outreachUnifiedSearch"
+  exit 1
+fi
 if ! grep -q "outreachApplyMulti" "$JS_SRC"; then
   echo "FEHLER: mod-matching.js ohne outreachApplyMulti (CC/BCC)"
   exit 1

@@ -3345,6 +3345,7 @@ window.Matching = (function() {
             selectedEmail: '',   // aktuell gewählte / übernommene An-Adresse
             ccList: [],          // mehrere, Semikolon-getrennt
             bccList: ['send@abcona.de'],
+            mailTarget: 'to',    // to | cc | bcc für kompakte Suche
             crm_contact_id: '',
             loading: false,
             _searchTimers: {},
@@ -5744,6 +5745,7 @@ window.Matching = (function() {
         outreachPolish, outreachReloadDraft, outreachSend,
         outreachPickEmail, outreachApplyEmail,
         outreachApplyMulti, outreachRemoveMulti, outreachAddMultiEmail, outreachSearchMulti,
+        outreachSetMailTarget, outreachUnifiedSearch, outreachUnifiedApply,
         toggleArchiveDetail, searchAnfragen, filterAnfragen,
         searchAccounts, searchContacts, call, sendEmail,
         kanbanDragStart, kanbanDrop, kanbanCardClick,
