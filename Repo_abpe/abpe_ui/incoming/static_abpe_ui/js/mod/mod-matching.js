@@ -3343,11 +3343,60 @@ window.Matching = (function() {
             draft: null,
             emails: [],           // CRM-Vorschläge [{email, primary, …}]
             selectedEmail: '',   // aktuell gewählte / übernommene An-Adresse
+            ccList: [],          // mehrere, Semikolon-getrennt
+            bccList: ['send@abcona.de'],
             crm_contact_id: '',
             loading: false,
+            _searchTimers: {},
         };
         _renderOutreachWizard();
         _outreachLoadCurrent();
+    }
+
+    function _outreachParseEmails(raw) {
+        return String(raw || '')
+            .split(/[;,\n]+/)
+            .map(s => s.trim())
+            .filter(s => s && s.indexOf('@') >= 0);
+    }
+
+    function _outreachJoinEmails(list) {
+        return (list || []).filter(Boolean).join('; ');
+    }
+
+    function _outreachAddEmails(list, addrs) {
+        const out = (list || []).slice();
+        const seen = {};
+        out.forEach(e => { seen[String(e).toLowerCase()] = true; });
+        (addrs || []).forEach(a => {
+            const e = String(a || '').trim();
+            if (!e || e.indexOf('@') < 0) return;
+            const k = e.toLowerCase();
+            if (seen[k]) return;
+            seen[k] = true;
+            out.push(e);
+        });
+        return out;
+    }
+
+    function _outreachCaptureForm(st) {
+        if (!st) return;
+        const to = ((document.getElementById('ow-to') || {}).value || '').trim();
+        if (to) st.selectedEmail = to;
+        const subj = ((document.getElementById('ow-subj') || {}).value || '');
+        const body = ((document.getElementById('ow-body') || {}).value || '');
+        const task = document.getElementById('ow-task');
+        if (st.draft) {
+            if (to) st.draft.to_email = to;
+            if (document.getElementById('ow-subj')) st.draft.subject = subj;
+            if (document.getElementById('ow-body')) st.draft.body = body;
+        }
+        if (task) st._taskChecked = !!task.checked;
+        // CC/BCC hidden fields spiegeln Listen
+        const ccEl = document.getElementById('ow-cc');
+        const bccEl = document.getElementById('ow-bcc');
+        if (ccEl) st.ccList = _outreachParseEmails(ccEl.value);
+        if (bccEl) st.bccList = _outreachParseEmails(bccEl.value);
     }
 
     function _outreachEmailList(st, cur, draft) {
@@ -3376,6 +3425,40 @@ window.Matching = (function() {
         return out;
     }
 
+    function _outreachMultiFieldHtml(kind, label, list, placeholder) {
+        // kind: 'cc' | 'bcc'
+        const chips = (list || []).map((em, i) =>
+            `<span style="display:inline-flex;align-items:center;gap:4px;background:#e8eef7;border-radius:4px;padding:2px 6px;font-size:11px;margin:2px">
+               ${_esc(em)}
+               <button type="button" style="border:0;background:transparent;cursor:pointer;color:#666;padding:0;line-height:1"
+                       onclick="Matching.outreachRemoveMulti('${kind}',${i})" title="entfernen">×</button>
+             </span>`
+        ).join('');
+        return `
+              <div style="font-size:11px;color:#666" data-ow-multi="${kind}">
+                <div style="font-weight:700;margin-bottom:4px">${_esc(label)}</div>
+                <div id="ow-${kind}-chips" style="min-height:24px;margin-bottom:4px">${chips || '<span style="color:#aaa">—</span>'}</div>
+                <input type="hidden" id="ow-${kind}" value="${_escAttr(_outreachJoinEmails(list))}">
+                <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+                  <input id="ow-${kind}-search" class="matching-form-input" type="text"
+                         placeholder="suchen (Name / E-Mail)…"
+                         style="flex:1;min-width:140px"
+                         oninput="Matching.outreachSearchMulti('${kind}', this.value)">
+                </div>
+                <div id="ow-${kind}-hits" style="display:none;border:1px solid #e5e7eb;border-radius:6px;background:#fff;max-height:110px;overflow:auto;margin-bottom:4px"></div>
+                <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+                  <input id="ow-${kind}-manual" class="matching-form-input" type="text"
+                         placeholder="${_escAttr(placeholder)}"
+                         style="flex:1;min-width:180px"
+                         value="">
+                  <button type="button" class="matching-btn-sm" onclick="Matching.outreachApplyMulti('${kind}')">
+                    ${_esc(_kiT('outreach_apply_email', 'Übernehmen'))}
+                  </button>
+                </div>
+                <div style="font-size:10px;color:#888;margin-top:3px">mehrere mit ; trennen — z. B. a@firma.de; b@firma.de</div>
+              </div>`;
+    }
+
     function _outreachEmailBlockHtml(st, cur, draft) {
         const emails = _outreachEmailList(st, cur, draft);
         const current = st.selectedEmail
@@ -3384,7 +3467,7 @@ window.Matching = (function() {
             || _pickEmail(emails, '')
             || '';
         const suggest = emails.length
-            ? emails.map((em, i) => {
+            ? emails.map((em) => {
                 const checked = (em.email || '').toLowerCase() === (current || '').toLowerCase();
                 const tags = [];
                 if (em.primary) tags.push('Primär');
@@ -3399,6 +3482,10 @@ window.Matching = (function() {
                 </label>`;
               }).join('')
             : `<div style="font-size:11px;color:#b45309;padding:4px 0">${_esc(_kiT('outreach_no_email', 'Keine E-Mail im CRM gefunden — manuell eintragen.'))}</div>`;
+        const ccList = Array.isArray(st.ccList) ? st.ccList : [];
+        const bccList = Array.isArray(st.bccList) && st.bccList.length
+            ? st.bccList
+            : ['send@abcona.de'];
         return `
               <div style="font-size:11px;color:#666">
                 <div style="font-weight:700;margin-bottom:4px">${_esc(_kiT('outreach_to', 'An'))}</div>
@@ -3425,7 +3512,9 @@ window.Matching = (function() {
                        CRM: <a href="/crm/berater/?detail=${_escAttr(st.crm_contact_id)}" target="_blank">${_esc(st.crm_contact_id)}</a>
                      </div>`
                   : ''}
-              </div>`;
+              </div>
+              ${_outreachMultiFieldHtml('cc', _kiT('outreach_cc', 'CC'), ccList, 'manuell: a@x.de; b@y.de')}
+              ${_outreachMultiFieldHtml('bcc', _kiT('outreach_bcc', 'BCC'), bccList, 'manuell: send@abcona.de; …')}`;
     }
 
     function outreachPickEmail(addr) {
@@ -3434,7 +3523,6 @@ window.Matching = (function() {
         st.selectedEmail = String(addr || '').trim();
         const el = document.getElementById('ow-to');
         if (el) el.value = st.selectedEmail;
-        // Highlight radios without full re-render
         document.querySelectorAll('#ow-email-suggest label').forEach(lab => {
             const inp = lab.querySelector('input[type=radio]');
             const on = inp && inp.value === st.selectedEmail;
@@ -3457,37 +3545,134 @@ window.Matching = (function() {
             }
             return;
         }
+        _outreachCaptureForm(st);
         st.selectedEmail = addr;
         if (manual && !(st.emails || []).some(e =>
             (typeof e === 'string' ? e : e.email || '').toLowerCase() === manual.toLowerCase()
         )) {
             st.emails = (st.emails || []).concat([{ email: manual, primary: false, src: 'manual' }]);
         }
-        const toEl = document.getElementById('ow-to');
-        if (toEl) toEl.value = addr;
-        // Liste neu zeichnen (Vorschlag inkl. manuell)
-        const cur = st.queue[st.index];
-        const block = document.getElementById('ow-email-suggest');
-        if (block) {
-            // Full block refresh via re-render of email section only: simplest = soft re-render
-            const subj = ((document.getElementById('ow-subj') || {}).value || '');
-            const body = ((document.getElementById('ow-body') || {}).value || '');
-            const task = !!(document.getElementById('ow-task') || {}).checked;
-            if (st.draft) {
-                st.draft.to_email = addr;
-                st.draft.subject = subj;
-                st.draft.body = body;
-            }
-            st._taskChecked = task;
-            _renderOutreachWizard();
-            const t = document.getElementById('ow-task');
-            if (t) t.checked = task;
+        if (st.draft) st.draft.to_email = addr;
+        _renderOutreachWizard();
+        const t = document.getElementById('ow-task');
+        if (t && st._taskChecked != null) t.checked = st._taskChecked;
+        const status = document.getElementById('ow-status');
+        if (status) {
+            status.style.color = '#155724';
+            status.textContent = 'E-Mail übernommen: ' + addr;
+        }
+    }
+
+    function outreachApplyMulti(kind) {
+        const st = window._outreachWizard;
+        if (!st || (kind !== 'cc' && kind !== 'bcc')) return;
+        _outreachCaptureForm(st);
+        const manual = ((document.getElementById('ow-' + kind + '-manual') || {}).value || '').trim();
+        const addrs = _outreachParseEmails(manual);
+        if (!addrs.length) {
             const status = document.getElementById('ow-status');
             if (status) {
-                status.style.color = '#155724';
-                status.textContent = 'E-Mail übernommen: ' + addr;
+                status.style.color = '#b91c1c';
+                status.textContent = 'Keine gültige E-Mail (mit ; trennen)';
             }
+            return;
         }
+        const key = kind + 'List';
+        st[key] = _outreachAddEmails(st[key] || [], addrs);
+        _renderOutreachWizard();
+        const t = document.getElementById('ow-task');
+        if (t && st._taskChecked != null) t.checked = st._taskChecked;
+        const man = document.getElementById('ow-' + kind + '-manual');
+        if (man) man.value = '';
+        const status = document.getElementById('ow-status');
+        if (status) {
+            status.style.color = '#155724';
+            status.textContent = kind.toUpperCase() + ' übernommen: ' + addrs.join('; ');
+        }
+    }
+
+    function outreachRemoveMulti(kind, idx) {
+        const st = window._outreachWizard;
+        if (!st || (kind !== 'cc' && kind !== 'bcc')) return;
+        _outreachCaptureForm(st);
+        const key = kind + 'List';
+        const list = (st[key] || []).slice();
+        if (idx < 0 || idx >= list.length) return;
+        list.splice(idx, 1);
+        // BCC: Default wiederherstellen wenn leer gelöscht
+        if (kind === 'bcc' && !list.length) list.push('send@abcona.de');
+        st[key] = list;
+        _renderOutreachWizard();
+        const t = document.getElementById('ow-task');
+        if (t && st._taskChecked != null) t.checked = st._taskChecked;
+    }
+
+    function outreachAddMultiEmail(kind, email) {
+        const st = window._outreachWizard;
+        if (!st || (kind !== 'cc' && kind !== 'bcc')) return;
+        _outreachCaptureForm(st);
+        st[kind + 'List'] = _outreachAddEmails(st[kind + 'List'] || [], [email]);
+        _renderOutreachWizard();
+        const t = document.getElementById('ow-task');
+        if (t && st._taskChecked != null) t.checked = st._taskChecked;
+        const hits = document.getElementById('ow-' + kind + '-hits');
+        if (hits) { hits.style.display = 'none'; hits.innerHTML = ''; }
+        const search = document.getElementById('ow-' + kind + '-search');
+        if (search) search.value = '';
+    }
+
+    function outreachSearchMulti(kind, q) {
+        const st = window._outreachWizard;
+        if (!st || (kind !== 'cc' && kind !== 'bcc')) return;
+        const hitsEl = document.getElementById('ow-' + kind + '-hits');
+        if (!hitsEl) return;
+        const query = String(q || '').trim();
+        if (st._searchTimers[kind]) clearTimeout(st._searchTimers[kind]);
+        if (query.length < 2) {
+            hitsEl.style.display = 'none';
+            hitsEl.innerHTML = '';
+            return;
+        }
+        st._searchTimers[kind] = setTimeout(() => {
+            fetch('/crm/api/contacts/suggest/?q=' + encodeURIComponent(query) + '&limit=8', {
+                credentials: 'same-origin',
+                headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            })
+            .then(r => r.ok ? r.json() : { results: [] })
+            .then(d => {
+                const rows = d.results || d.items || [];
+                const items = [];
+                rows.forEach(r => {
+                    const name = r.name || r.full_name || [r.first_name, r.last_name].filter(Boolean).join(' ') || '';
+                    const company = r.company || r.account_name || '';
+                    let emails = r.emails || [];
+                    if (typeof emails === 'string') emails = _outreachParseEmails(emails);
+                    if (!emails.length && r.email) emails = [r.email];
+                    emails.forEach(em => {
+                        const e = typeof em === 'string' ? em : (em.email || em.value || '');
+                        if (!e || e.indexOf('@') < 0) return;
+                        items.push({ email: e, name: name, company: company });
+                    });
+                });
+                if (!items.length) {
+                    hitsEl.style.display = 'block';
+                    hitsEl.innerHTML = '<div style="padding:6px 8px;font-size:11px;color:#888">Keine Treffer</div>';
+                    return;
+                }
+                hitsEl.style.display = 'block';
+                hitsEl.innerHTML = items.slice(0, 10).map(it =>
+                    `<div style="padding:5px 8px;font-size:11px;cursor:pointer;border-bottom:1px solid #f0f0f0"
+                          onmouseover="this.style.background='#f0f4fa'" onmouseout="this.style.background=''"
+                          onclick="Matching.outreachAddMultiEmail('${kind}','${_escAttr(it.email).replace(/'/g, "\\'")}')">
+                       <b>${_esc(it.email)}</b>
+                       <span style="color:#888"> · ${_esc(it.name)}${it.company ? ' · ' + _esc(it.company) : ''}</span>
+                     </div>`
+                ).join('');
+            })
+            .catch(() => {
+                hitsEl.style.display = 'none';
+            });
+        }, 280);
     }
 
     function closeOutreachWizard() {
@@ -3771,6 +3956,9 @@ window.Matching = (function() {
         const subj = ((document.getElementById('ow-subj') || {}).value || '').trim();
         const body = ((document.getElementById('ow-body') || {}).value || '').trim();
         const wantTask = !!(document.getElementById('ow-task') || {}).checked;
+        _outreachCaptureForm(st);
+        const cc = (st.ccList || []).slice();
+        const bcc = (st.bccList && st.bccList.length) ? st.bccList.slice() : ['send@abcona.de'];
         const status = document.getElementById('ow-status');
         const sendBtn = document.getElementById('ow-send');
         function show(ok, text) {
@@ -3787,10 +3975,14 @@ window.Matching = (function() {
         const mailPayload = {
             template_identifier: 'crm_manual_email',
             to_email: to,
+            cc: cc,
+            bcc: bcc,
+            cc_emails: cc,
+            bcc_emails: bcc,
             subject: subj,
             body: _bodyTextToHtml(body),
             contact_name: cur.name || '',
-            crm_id: '',
+            crm_id: st.crm_contact_id || '',
         };
 
         fetch('/crm/api/email/send/', {
@@ -5474,6 +5666,7 @@ window.Matching = (function() {
         openOutreachWizard, closeOutreachWizard, outreachGoto, outreachSkip,
         outreachPolish, outreachReloadDraft, outreachSend,
         outreachPickEmail, outreachApplyEmail,
+        outreachApplyMulti, outreachRemoveMulti, outreachAddMultiEmail, outreachSearchMulti,
         toggleArchiveDetail, searchAnfragen, filterAnfragen,
         searchAccounts, searchContacts, call, sendEmail,
         kanbanDragStart, kanbanDrop, kanbanCardClick,

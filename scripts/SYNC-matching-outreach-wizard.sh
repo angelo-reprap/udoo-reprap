@@ -24,11 +24,11 @@ if [[ "$SKIP_CHECK" != "1" ]]; then
   echo "=== Pre-Check Live ↔ Repo ==="
   LIVE_JS="${LIVE_UI}/static/abpe_ui/js/mod/mod-matching.js"
   if [[ -f "$LIVE_JS" ]] && grep -q "openOutreachWizard" "$LIVE_JS" 2>/dev/null; then
-    live_extra=$(grep -c "outreachApplyEmail" "$LIVE_JS" 2>/dev/null || echo 0)
-    repo_extra=$(git show "origin/$BRANCH:Repo_abpe/abpe_ui/incoming/mod-matching.js" 2>/dev/null | grep -c "outreachApplyEmail" || echo 0)
+    live_extra=$(grep -c "outreachApplyMulti" "$LIVE_JS" 2>/dev/null || echo 0)
+    repo_extra=$(git show "origin/$BRANCH:Repo_abpe/abpe_ui/incoming/mod-matching.js" 2>/dev/null | grep -c "outreachApplyMulti" || echo 0)
     live_extra=${live_extra//$'\n'/}; repo_extra=${repo_extra//$'\n'/}
     if [[ "$live_extra" -gt "$repo_extra" && "$FORCE" != "1" ]]; then
-      echo "ABBRUCH: Live hat outreachApplyEmail ($live_extra) > Repo ($repo_extra)."
+      echo "ABBRUCH: Live hat outreachApplyMulti ($live_extra) > Repo ($repo_extra)."
       echo "Live→Repo pullen, sonst Feature-Verlust. Oder FORCE=1."
       exit 2
     fi
@@ -37,7 +37,9 @@ fi
 
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
-git archive "origin/$BRANCH" Repo_abpe/abpe_matching_workflow/incoming \
+git archive "origin/$BRANCH" \
+  Repo_abpe/abpe_matching_workflow/incoming \
+  Repo_abpe/abpe_crm/incoming/views.py \
   Repo_abpe/abpe_ui/incoming/mod-matching.js \
   Repo_abpe/abpe_ui/incoming/static_abpe_ui/js/mod/mod-matching.js \
   | tar -x -C "$TMP"
@@ -54,6 +56,18 @@ for rel in views.py urls.py services/outreach_wizard.py; do
   cp -a "$src" "$dst"
   echo "OK — $rel → $dst"
 done
+
+# CRM api_email_send (CC/BCC)
+LIVE_CRM="${LIVE_CRM:-/opt/abpe/backend/apps/abpe_crm}"
+CRM_SRC="$TMP/Repo_abpe/abpe_crm/incoming/views.py"
+CRM_DST="$LIVE_CRM/views.py"
+if [[ -f "$CRM_SRC" && -f "$CRM_DST" ]]; then
+  if grep -q "cc_extra" "$CRM_SRC"; then
+    cp -a "$CRM_DST" "${CRM_DST}.bak-outreach-$TS"
+    cp -a "$CRM_SRC" "$CRM_DST"
+    echo "OK — abpe_crm/views.py (cc/bcc) → $CRM_DST"
+  fi
+fi
 
 if ! grep -q "api_outreach_deep_reason" "$LIVE_MW/views.py"; then
   echo "FEHLER: views.py ohne Outreach-APIs"
@@ -74,6 +88,10 @@ if ! grep -q "outreachApplyEmail" "$JS_SRC"; then
   echo "FEHLER: mod-matching.js ohne outreachApplyEmail (E-Mail-Übernehmen)"
   exit 1
 fi
+if ! grep -q "outreachApplyMulti" "$JS_SRC"; then
+  echo "FEHLER: mod-matching.js ohne outreachApplyMulti (CC/BCC)"
+  exit 1
+fi
 mkdir -p "$LIVE_UI/static/abpe_ui/js/mod"
 [[ -f "$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js" ]] \
   && cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js" \
@@ -89,6 +107,7 @@ if [[ -d "$STATICFILES" ]]; then
 fi
 
 find "$LIVE_MW" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+find "$LIVE_CRM" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
 
 # Django reload (gunicorn/uvicorn — soft)
 if command -v systemctl >/dev/null 2>&1; then
@@ -99,10 +118,10 @@ if command -v systemctl >/dev/null 2>&1; then
   elif systemctl is-active --quiet gunicorn 2>/dev/null; then
     systemctl reload gunicorn 2>/dev/null || true
   else
-    echo "Hinweis: App-Server ggf. manuell neu laden (views/urls geändert)"
+    echo "Hinweis: App-Server ggf. manuell neu laden (CRM views + matching geändert)"
   fi
 fi
 
 echo
 echo "Fertig. Browser: Matching → Shortlist → Ctrl+F5 → „Alle anschreiben“"
-echo "Smoke: curl -s -o /dev/null -w '%{http_code}' -X POST http://127.0.0.1/matching/api/outreach/letter/polish/  # expect 401/403 not 404"
+echo "CC/BCC: Suche + manuell (a@x.de; b@y.de) + Übernehmen; BCC-Default send@abcona.de"

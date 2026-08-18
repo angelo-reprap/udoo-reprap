@@ -1442,12 +1442,44 @@ def api_email_send(request):
     body        = data.get('body', '').strip()
     contact_name = data.get('contact_name', '')
 
+    def _listify_emails(val):
+        if val is None:
+            return []
+        if isinstance(val, str):
+            parts = [p.strip() for p in val.replace(',', ';').split(';')]
+            return [p for p in parts if p and '@' in p]
+        if isinstance(val, (list, tuple)):
+            out = []
+            for x in val:
+                s = str(x or '').strip()
+                if s and '@' in s:
+                    out.append(s)
+            return out
+        return []
+
+    cc_emails = _listify_emails(data.get('cc') or data.get('cc_emails') or data.get('cc_email'))
+    bcc_emails = _listify_emails(data.get('bcc') or data.get('bcc_emails') or data.get('bcc_email'))
+
     if not to_email:
         return JsonResponse({'error': 'Empfänger fehlt'}, status=400)
     if not subject:
         return JsonResponse({'error': 'Betreff fehlt'}, status=400)
     if not body:
         return JsonResponse({'error': 'Nachricht fehlt'}, status=400)
+
+    # Dedup: An gewinnt gegen CC/BCC
+    seen = {to_email.lower()}
+    def _uniq(seq):
+        out = []
+        for e in seq:
+            k = e.lower()
+            if k in seen:
+                continue
+            seen.add(k)
+            out.append(e)
+        return out
+    cc_emails = _uniq(cc_emails)
+    bcc_emails = _uniq(bcc_emails)
 
     signature_id = data.get('signature_id')
     sender_id    = data.get('sender_id')
@@ -1501,9 +1533,14 @@ def api_email_send(request):
                 'sender_email': request.user.email,
             },
             user           = request.user,
+            cc_extra       = cc_emails,
+            bcc_extra      = bcc_emails,
             task_reference = data.get('crm_id', ''),
             app_reference  = 'crm_manual',
         )
+        if isinstance(result, dict):
+            result.setdefault('cc', cc_emails)
+            result.setdefault('bcc', bcc_emails)
         return JsonResponse(result)
     except Exception as e:
         return JsonResponse({'success': False, 'error': str(e)}, status=500)
