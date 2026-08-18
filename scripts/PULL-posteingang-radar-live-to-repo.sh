@@ -36,6 +36,9 @@ MAP=(
 )
 
 echo "======== PULL Live→Repo $TS ========"
+# Nur Allowlist anfassen — keine fremden staged files mitcommitten
+git reset HEAD -- . >/dev/null 2>&1 || true
+
 for pair in "${MAP[@]}"; do
   live="$BACKEND/${pair%%|*}"
   dest="$REPO/${pair##*|}"
@@ -59,14 +62,25 @@ for pair in "${MAP[@]}"; do
   echo "PULL ${pair##*|}"
 done
 
-git add Repo_abpe/namazu Repo_abpe/abpe_shaduler Repo_abpe/abpe_ui/incoming/mod-shaduler.js \
-  Repo_abpe/abpe_ui/incoming/mod-shaduler.css \
-  Repo_abpe/abpe_ui/incoming/static_abpe_ui/js/mod/mod-shaduler.js \
-  Repo_abpe/abpe_ui/incoming/static_abpe_ui/css/mod/mod-shaduler.css 2>/dev/null || true
+# Nur Allowlist-Pfade stagen
+ADD_PATHS=()
+for pair in "${MAP[@]}"; do
+  dest="$REPO/${pair##*|}"
+  [[ -f "$dest" ]] && ADD_PATHS+=("${pair##*|}")
+done
+ADD_PATHS+=(
+  "Repo_abpe/abpe_ui/incoming/static_abpe_ui/js/mod/mod-shaduler.js"
+  "Repo_abpe/abpe_ui/incoming/static_abpe_ui/css/mod/mod-shaduler.css"
+)
+git add -- "${ADD_PATHS[@]}" 2>/dev/null || true
 
 git status -sb
 if git diff --cached --quiet; then
-  echo "Nichts zu committen."
+  echo "Nichts zu committen (Allowlist identisch)."
+  if [[ "$PUSH" == "1" ]] && [[ -n "$(git log origin/$BRANCH..HEAD --oneline 2>/dev/null)" ]]; then
+    git push -u origin "$BRANCH"
+    echo "OK pushed (pending commits)"
+  fi
   exit 0
 fi
 git commit -m "pull(live): Posteingang/Radar Stand ucs5 $TS"
