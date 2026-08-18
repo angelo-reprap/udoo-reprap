@@ -3756,6 +3756,71 @@ window.Matching = (function() {
     function closeOutreachWizard() {
         document.getElementById('matching-outreach-ovl')?.remove();
         window._outreachWizard = null;
+        window._outreachDrag = null;
+    }
+
+    function _outreachEnableDrag(ov, st) {
+        const panel = ov.querySelector('#ow-panel');
+        const bar = ov.querySelector('#ow-drag-bar');
+        if (!panel || !bar) return;
+
+        // Gespeicherte Position wiederherstellen
+        if (st.dragPos && typeof st.dragPos.left === 'number') {
+            ov.style.alignItems = 'flex-start';
+            ov.style.justifyContent = 'flex-start';
+            panel.style.position = 'relative';
+            panel.style.left = st.dragPos.left + 'px';
+            panel.style.top = st.dragPos.top + 'px';
+            panel.style.margin = '0';
+        }
+
+        bar.onmousedown = function (e) {
+            if (e.button !== 0) return;
+            if (e.target && e.target.closest && e.target.closest('button')) return;
+            e.preventDefault();
+            const rect = panel.getBoundingClientRect();
+            const startX = e.clientX;
+            const startY = e.clientY;
+            const origLeft = rect.left;
+            const origTop = rect.top;
+            // Von Flex-Zentrierung auf absolute Position umschalten
+            ov.style.alignItems = 'flex-start';
+            ov.style.justifyContent = 'flex-start';
+            panel.style.position = 'relative';
+            panel.style.left = origLeft + 'px';
+            panel.style.top = origTop + 'px';
+            panel.style.margin = '0';
+            bar.style.cursor = 'grabbing';
+            window._outreachDrag = { startX, startY, origLeft, origTop, panel, bar, ov };
+
+            function onMove(ev) {
+                const d = window._outreachDrag;
+                if (!d) return;
+                const dx = ev.clientX - d.startX;
+                const dy = ev.clientY - d.startY;
+                let left = d.origLeft + dx;
+                let top = d.origTop + dy;
+                // Viewport-Grenzen (wenigstens 40px Header sichtbar)
+                const maxL = window.innerWidth - 80;
+                const maxT = window.innerHeight - 40;
+                left = Math.max(-rect.width + 80, Math.min(maxL, left));
+                top = Math.max(0, Math.min(maxT, top));
+                d.panel.style.left = left + 'px';
+                d.panel.style.top = top + 'px';
+                if (window._outreachWizard) {
+                    window._outreachWizard.dragPos = { left: left, top: top };
+                }
+            }
+            function onUp() {
+                const d = window._outreachDrag;
+                if (d && d.bar) d.bar.style.cursor = 'move';
+                window._outreachDrag = null;
+                document.removeEventListener('mousemove', onMove);
+                document.removeEventListener('mouseup', onUp);
+            }
+            document.addEventListener('mousemove', onMove);
+            document.addEventListener('mouseup', onUp);
+        };
     }
 
     function _renderOutreachWizard() {
@@ -3766,7 +3831,10 @@ window.Matching = (function() {
             ov = document.createElement('div');
             ov.id = 'matching-outreach-ovl';
             ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10070;display:flex;align-items:center;justify-content:center;padding:12px';
-            ov.onclick = function (e) { if (e.target === ov) closeOutreachWizard(); };
+            ov.onclick = function (e) {
+                if (window._outreachDrag) return;
+                if (e.target === ov) closeOutreachWizard();
+            };
             document.body.appendChild(ov);
         }
         const cur = st.queue[st.index];
@@ -3782,8 +3850,8 @@ window.Matching = (function() {
         }).join('');
 
         ov.innerHTML = `
-        <div style="background:#fff;border-radius:10px;width:min(960px,96vw);max-height:92vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 12px 40px rgba(0,0,0,.25)">
-          <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff">
+        <div id="ow-panel" style="background:#fff;border-radius:10px;width:min(960px,96vw);max-height:92vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 12px 40px rgba(0,0,0,.25)">
+          <div id="ow-drag-bar" style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff;cursor:move;user-select:none;touch-action:none">
             <i class="bi bi-send"></i>
             <b style="flex:1">${_esc(_kiT('outreach_title', 'Outreach-Wizard'))} — ${i}/${n}</b>
             <button type="button" style="background:transparent;border:0;color:#fff;font-size:18px;cursor:pointer"
@@ -3831,6 +3899,11 @@ window.Matching = (function() {
             </div>
           </div>
         </div>`;
+        _outreachEnableDrag(ov, st);
+        if (st._taskChecked != null) {
+            const t = document.getElementById('ow-task');
+            if (t) t.checked = st._taskChecked;
+        }
     }
 
     function outreachGoto(idx) {
