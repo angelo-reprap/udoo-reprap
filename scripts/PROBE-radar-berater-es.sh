@@ -50,19 +50,15 @@ else:
     print('  by_source=', pack.get('by_source'))
 
 print()
-print('=== list_berater (wie UI) ===')
-try:
-    data = rbs.list_berater(q='', days=0, source='', status='all', match_status='', sort='date_desc', limit=5)
-except TypeError:
-    # Signatur kann abweichen — Fallback
-    data = rbs.list_berater()
-if isinstance(data, dict):
-    print('  list_source=', data.get('list_source'))
-    print('  es_total=', data.get('es_total'))
-    print('  es_info=', json.dumps(data.get('es_info') or {}, ensure_ascii=False, default=str)[:800])
-    print('  results=', len(data.get('results') or data.get('items') or []))
-else:
-    print('  unexpected', type(data), str(data)[:200])
+print('=== list_berater (wie UI: available_only, status=neu) ===')
+data = rbs.list_berater(
+    q='', days=0, source='', status='neu', match_status='',
+    sort='date_desc', limit=5, available_only=True, auto_seed=False,
+)
+print('  list_source=', data.get('list_source'))
+print('  es_total=', data.get('es_total'))
+print('  es_info=', json.dumps(data.get('es_info') or {}, ensure_ascii=False, default=str)[:1200])
+print('  results=', len(data.get('results') or []))
 PY
 
 if [[ "$APPLY" != "1" ]]; then
