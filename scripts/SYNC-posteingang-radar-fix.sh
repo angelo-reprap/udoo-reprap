@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
-# Posteingang ES + Radar Anfragen/Berater reparieren (ucs5).
-# Erhält Shaduler Art-Defaults (Regeln-Tab) — kein Blind-Overwrite aus alten Branches.
+# SICHERER Deploy Posteingang/Radar — KEIN Blind-rsync mehr auf ganz abpe_shaduler.
 #
-#   cd /mnt/public/udoo-reprap
-#   git fetch origin cursor/posteingang-radar-fix-1532
-#   bash <(git show origin/cursor/posteingang-radar-fix-1532:scripts/SYNC-posteingang-radar-fix.sh)
+# Pflicht vorher (ucs5):
+#   1) Inventar Live
+#   2) Archiv backup_restore -save für jede Datei
+#   3) Nur Allowlist kopieren
+#
+#   ALLOW_LIVE_WRITE=1 bash <(git show origin/cursor/posteingang-radar-fix-1532:scripts/SYNC-posteingang-radar-fix.sh)
+#
+# Ohne ALLOW_LIVE_WRITE=1: nur Dry-Run / Diff — schreibt NICHTS.
 #
 set -euo pipefail
 
@@ -16,133 +20,137 @@ LIVE_NAMAZU_CMD="${LIVE_NAMAZU_CMD:-/opt/abpe/backend/apps/namazu/management/com
 LIVE_SH="${LIVE_SH:-/opt/abpe/backend/apps/abpe_shaduler}"
 LIVE_UI="${LIVE_UI:-/opt/abpe/backend/apps/abpe_ui}"
 STATICFILES="${STATICFILES:-/opt/abpe/backend/staticfiles}"
+ALLOW_LIVE_WRITE="${ALLOW_LIVE_WRITE:-0}"
+SKIP_ARCHIVE="${SKIP_ARCHIVE:-0}"
 TS=$(date +%Y%m%d-%H%M%S)
+BACKUP_DIR="/opt/abpe/backups/pe-radar-pre-$TS"
+
+# Nur diese Relativpfade unter Live (explizit — kein Tree-rsync)
+ALLOWLIST=(
+  "apps/namazu/management/commands/index_emails.py"
+  "apps/abpe_shaduler/tasks.py"
+  "apps/abpe_shaduler/management/commands/register_scheduler_jobs.py"
+  "apps/abpe_shaduler/services/inbox_service.py"
+  "apps/abpe_shaduler/services/radar_fetcher.py"
+  "apps/abpe_shaduler/services/radar_grouper.py"
+  "apps/abpe_shaduler/services/radar_berater_fl.py"
+  "apps/abpe_shaduler/services/radar_berater_service.py"
+  "apps/abpe_ui/static/abpe_ui/js/mod/mod-shaduler.js"
+  "apps/abpe_ui/static/abpe_ui/css/mod/mod-shaduler.css"
+)
+
+REPO_MAP=(
+  "Repo_abpe/namazu/incoming/management/commands/index_emails.py|apps/namazu/management/commands/index_emails.py"
+  "Repo_abpe/abpe_shaduler/incoming/tasks.py|apps/abpe_shaduler/tasks.py"
+  "Repo_abpe/abpe_shaduler/incoming/management/commands/register_scheduler_jobs.py|apps/abpe_shaduler/management/commands/register_scheduler_jobs.py"
+  "Repo_abpe/abpe_shaduler/incoming/services/inbox_service.py|apps/abpe_shaduler/services/inbox_service.py"
+  "Repo_abpe/abpe_shaduler/incoming/services/radar_fetcher.py|apps/abpe_shaduler/services/radar_fetcher.py"
+  "Repo_abpe/abpe_shaduler/incoming/services/radar_grouper.py|apps/abpe_shaduler/services/radar_grouper.py"
+  "Repo_abpe/abpe_shaduler/incoming/services/radar_berater_fl.py|apps/abpe_shaduler/services/radar_berater_fl.py"
+  "Repo_abpe/abpe_shaduler/incoming/services/radar_berater_service.py|apps/abpe_shaduler/services/radar_berater_service.py"
+  "Repo_abpe/abpe_ui/incoming/mod-shaduler.js|apps/abpe_ui/static/abpe_ui/js/mod/mod-shaduler.js"
+  "Repo_abpe/abpe_ui/incoming/mod-shaduler.css|apps/abpe_ui/static/abpe_ui/css/mod/mod-shaduler.css"
+)
 
 cd "$REPO"
 git fetch origin "$BRANCH"
 
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
-# Optional: Kalender-JS nur wenn im Branch vorhanden
-ARCHIVE_PATHS=(
-  Repo_abpe/namazu/incoming/management/commands/index_emails.py
-  Repo_abpe/abpe_shaduler/incoming
-  Repo_abpe/abpe_scheduler/incoming/management/commands/scheduler_loop.py
-  Repo_abpe/abpe_ui/incoming/mod-shaduler.js
-  Repo_abpe/abpe_ui/incoming/mod-shaduler.css
-  deploy/supervisor/abpe-scheduler-loop.conf
-)
-if git cat-file -e "origin/$BRANCH:Repo_abpe/abpe_ui/incoming/mod-shaduler-kalender.js" 2>/dev/null; then
-  ARCHIVE_PATHS+=(Repo_abpe/abpe_ui/incoming/mod-shaduler-kalender.js)
-fi
-git archive "origin/$BRANCH" "${ARCHIVE_PATHS[@]}" | tar -x -C "$TMP"
-
-echo "======== SYNC Posteingang+Radar ($BRANCH) $TS ========"
-
-# 1) namazu index_emails — leere SINCE prunt nicht mehr
-SRC_IDX="$TMP/Repo_abpe/namazu/incoming/management/commands/index_emails.py"
-if [[ ! -f "$SRC_IDX" ]] || ! grep -q 'kein Prune' "$SRC_IDX"; then
-  echo "FAIL: index_emails.py ohne Prune-Fix im Branch"
-  exit 1
-fi
-mkdir -p "$LIVE_NAMAZU_CMD"
-if [[ -f "$LIVE_NAMAZU_CMD/index_emails.py" ]]; then
-  cp -a "$LIVE_NAMAZU_CMD/index_emails.py" "$LIVE_NAMAZU_CMD/index_emails.py.bak-pe-$TS"
-fi
-cp -a "$SRC_IDX" "$LIVE_NAMAZU_CMD/index_emails.py"
-echo "OK — namazu/index_emails.py (kein Prune bei leerer SINCE)"
-
-# 2) Shaduler Backend (ohne --delete, Migrations schützen)
-mkdir -p "$LIVE_SH"
-rsync -a \
-  --exclude '__pycache__' \
-  --exclude '*.pyc' \
-  --exclude 'migrations/0*.py' \
-  "$TMP/Repo_abpe/abpe_shaduler/incoming/" \
-  "$LIVE_SH/"
-echo "OK — abpe_shaduler (tasks, radar_*, register_scheduler_jobs, inbox_service)"
-
-# Guard: Art-Defaults müssen in UI bleiben
-JS_SRC="$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler.js"
-if ! grep -q 'TASK_ART_DEFAULTS_BASE' "$JS_SRC"; then
-  echo "FAIL: mod-shaduler.js ohne Art-Defaults — Abbruch (Regeln-Tab schützen)"
-  exit 2
-fi
-if ! grep -q 'staleHint\|RADAR_POLL_MS\|startRadarPoll' "$JS_SRC"; then
-  echo "FAIL: mod-shaduler.js ohne Soft-Poll/Stale-Hint"
-  exit 2
-fi
-
-mkdir -p "$LIVE_UI/static/abpe_ui/js/mod" "$LIVE_UI/static/abpe_ui/css/mod"
-for f in mod-shaduler.js mod-shaduler-kalender.js; do
-  src="$TMP/Repo_abpe/abpe_ui/incoming/$f"
-  [[ -f "$src" ]] || continue
-  dst="$LIVE_UI/static/abpe_ui/js/mod/$f"
-  [[ -f "$dst" ]] && cp -a "$dst" "${dst}.bak-pe-$TS"
-  cp -a "$src" "$dst"
-  echo "OK — $f"
+PATHS=()
+for pair in "${REPO_MAP[@]}"; do
+  PATHS+=("${pair%%|*}")
 done
-CSS_SRC="$TMP/Repo_abpe/abpe_ui/incoming/mod-shaduler.css"
-if [[ -f "$CSS_SRC" ]]; then
-  dst="$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css"
-  [[ -f "$dst" ]] && cp -a "$dst" "${dst}.bak-pe-$TS"
-  cp -a "$CSS_SRC" "$dst"
-  echo "OK — mod-shaduler.css"
+git archive "origin/$BRANCH" "${PATHS[@]}" | tar -x -C "$TMP"
+
+echo "======== SYNC Posteingang+Radar SAFE ($BRANCH) $TS ========"
+echo "ALLOW_LIVE_WRITE=$ALLOW_LIVE_WRITE  SKIP_ARCHIVE=$SKIP_ARCHIVE"
+echo
+
+echo "=== Live vs Repo (sha) ==="
+differs=0
+for pair in "${REPO_MAP[@]}"; do
+  rel="${pair%%|*}"
+  live_rel="${pair##*|}"
+  src="$TMP/$rel"
+  dst="$BACKEND/$live_rel"
+  if [[ ! -f "$src" ]]; then
+    echo "MISS repo $rel"
+    continue
+  fi
+  if [[ ! -f "$dst" ]]; then
+    echo "NEW  live fehlt: $dst"
+    differs=1
+    continue
+  fi
+  hs=$(sha256sum "$src" | awk '{print $1}')
+  hd=$(sha256sum "$dst" | awk '{print $1}')
+  if [[ "$hs" == "$hd" ]]; then
+    echo "SAME $live_rel"
+  else
+    echo "DIFF $live_rel"
+    echo "     live mtime=$(stat -c '%y' "$dst" 2>/dev/null || true)"
+    differs=1
+  fi
+done
+echo
+
+if [[ "$ALLOW_LIVE_WRITE" != "1" ]]; then
+  echo "DRY-RUN — nichts geschrieben."
+  echo "Wenn Diff ok und Archiv gemacht:"
+  echo "  ALLOW_LIVE_WRITE=1 bash <(git show origin/$BRANCH:scripts/SYNC-posteingang-radar-fix.sh)"
+  exit 0
 fi
+
+mkdir -p "$BACKUP_DIR"
+echo "=== Snapshot → $BACKUP_DIR ==="
+for pair in "${REPO_MAP[@]}"; do
+  live_rel="${pair##*|}"
+  dst="$BACKEND/$live_rel"
+  [[ -f "$dst" ]] || continue
+  mkdir -p "$BACKUP_DIR/$(dirname "$live_rel")"
+  cp -a "$dst" "$BACKUP_DIR/$live_rel"
+done
+echo "OK tree snapshot"
+
+if [[ "$SKIP_ARCHIVE" != "1" && -f "$BACKEND/apps/abpe_ui/backup_restore.py" ]]; then
+  echo "=== backup_restore -save ==="
+  cd "$BACKEND"
+  for pair in "${REPO_MAP[@]}"; do
+    live_rel="${pair##*|}"
+    dst="$BACKEND/$live_rel"
+    [[ -f "$dst" ]] || continue
+    "$PYBIN" apps/abpe_ui/backup_restore.py -save "$live_rel" \
+      -m "vor pe-radar SYNC $TS" 2>/dev/null \
+      || echo "WARN archive skip $live_rel"
+  done
+fi
+
+echo "=== Copy Allowlist ==="
+for pair in "${REPO_MAP[@]}"; do
+  rel="${pair%%|*}"
+  live_rel="${pair##*|}"
+  src="$TMP/$rel"
+  dst="$BACKEND/$live_rel"
+  [[ -f "$src" ]] || continue
+  mkdir -p "$(dirname "$dst")"
+  cp -a "$dst" "${dst}.bak-pe-$TS" 2>/dev/null || true
+  cp -a "$src" "$dst"
+  echo "OK $live_rel"
+done
 
 if [[ -d "$STATICFILES" ]]; then
   mkdir -p "$STATICFILES/abpe_ui/js/mod" "$STATICFILES/abpe_ui/css/mod"
   cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js" \
-    "$STATICFILES/abpe_ui/js/mod/mod-shaduler.js"
-  [[ -f "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler-kalender.js" ]] && \
-    cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler-kalender.js" \
-      "$STATICFILES/abpe_ui/js/mod/mod-shaduler-kalender.js"
-  [[ -f "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css" ]] && \
-    cp -a "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css" \
-      "$STATICFILES/abpe_ui/css/mod/mod-shaduler.css"
-  echo "OK — staticfiles mirror"
+    "$STATICFILES/abpe_ui/js/mod/mod-shaduler.js" 2>/dev/null || true
+  cp -a "$LIVE_UI/static/abpe_ui/css/mod/mod-shaduler.css" \
+    "$STATICFILES/abpe_ui/css/mod/mod-shaduler.css" 2>/dev/null || true
 fi
 
-find "$LIVE_SH" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
-
 echo
-echo "=== Jobs registrieren (email_index + radar_poll alle 3 Min) ==="
-cd "$BACKEND"
-"$PYBIN" manage.py register_scheduler_jobs
-
-echo
-echo "=== Scheduler-Loop dauerhaft RUNNING ==="
-bash <(git -C "$REPO" show "origin/$BRANCH:scripts/ENSURE-abpe-scheduler-loop.sh")
-
-echo
-echo "=== Catch-up Posteingang (14 Tage, kein Prune) ==="
-"$PYBIN" manage.py index_emails --since-days 14 --folders INBOX --no-prune || {
-  echo "WARN: index_emails Catch-up fehlgeschlagen — manuell prüfen"
-}
-
-echo
-echo "=== Catch-up Radar ==="
-"$PYBIN" manage.py radar_dedupe_sources --apply 2>/dev/null || true
-"$PYBIN" manage.py radar_fix_published_dates --apply 2>/dev/null || true
-"$PYBIN" manage.py radar_run_once --pages 2 --days 2 2>/dev/null \
-  || "$PYBIN" - <<'PY'
-import django, os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'abpe_backend.settings')
-django.setup()
-from apps.abpe_shaduler.services import radar_fetcher
-print(radar_fetcher.poll_once(pages=2, today_only=True, recent_days=2))
-PY
-
-echo
-echo "=== Radar Berater FM Aktuellste (optional, kurz) ==="
-"$PYBIN" manage.py radar_berater_fl_available --limit 48 --pages 2 2>/dev/null || true
-
-supervisorctl restart abpe-django abpe-celery 2>/dev/null || true
-sleep 2
-supervisorctl status abpe-django abpe-celery abpe-scheduler-loop 2>/dev/null || true
-
-echo
-echo "Probe:"
-echo "  $PYBIN manage.py shaduler_inbox_probe --fetch --limit 5"
-echo "Browser: Ctrl+F5 → Posteingang / Radar Anfragen / Radar Berater / Regeln"
-echo "Posteingang: neueste Mails sollten < 1 Tag sein; ‚aktualisiert‘ ≠ Indexer — Scheduler-Loop muss RUNNING sein."
+echo "Fertig. KEIN Tree-rsync. Snapshot: $BACKUP_DIR"
+echo "Jobs nur wenn Scheduler-API erreichbar (nicht localhost:8000 blind):"
+echo "  cd $BACKEND && $PYBIN manage.py register_scheduler_jobs"
+echo "Loop: bash <(git show origin/$BRANCH:scripts/ENSURE-abpe-scheduler-loop.sh)"
+echo "Catch-up Indexer bewusst SEPARAT (lang):"
+echo "  $PYBIN manage.py index_emails --since-days 14 --folders INBOX --no-prune"
