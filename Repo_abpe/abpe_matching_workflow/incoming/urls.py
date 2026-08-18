@@ -68,6 +68,18 @@ urlpatterns = [
          views.api_call,             name='api_call'),
 
     # ============================================================
+    # API — OUTREACH WIZARD (Shortlist MatchResult-IDs)
+    # ============================================================
+    path('api/outreach/<uuid:match_result_id>/deep-reason/',
+         views.api_outreach_deep_reason,   name='api_outreach_deep_reason'),
+    path('api/outreach/<uuid:match_result_id>/letter/draft/',
+         views.api_outreach_letter_draft,  name='api_outreach_letter_draft'),
+    path('api/outreach/letter/polish/',
+         views.api_outreach_letter_polish, name='api_outreach_letter_polish'),
+    path('api/outreach/<uuid:match_result_id>/complete/',
+         views.api_outreach_complete,      name='api_outreach_complete'),
+
+    # ============================================================
     # API — CRM
     # ============================================================
     path('api/crm/sync/<uuid:project_id>/',

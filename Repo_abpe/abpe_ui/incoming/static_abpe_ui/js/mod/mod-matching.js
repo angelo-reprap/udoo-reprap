@@ -1037,6 +1037,14 @@ window.Matching = (function() {
 
                 content.innerHTML = html;
                 content.dataset.loaded = '1';
+                content.dataset.projectId = projectId;
+                window._matchingShortlistCache = {
+                    projectId: projectId,
+                    threshold: threshold,
+                    results: d.results || [],
+                    project_number: d.project_number || '',
+                    project_title: d.project_title || d.title || '',
+                };
             })
             .catch(e => {
                 if (loading) loading.style.display = 'none';
@@ -3277,7 +3285,370 @@ window.Matching = (function() {
     }
 
     function sendAllAboveThreshold() {
-        alert(_t('matching.send_all_phase2'));
+        openOutreachWizard();
+    }
+
+    // ── Outreach-Wizard („Alle anschreiben“) ───────────────────────────────
+    function _outreachCandidates() {
+        const cache = window._matchingShortlistCache || {};
+        const slider = document.getElementById('threshold-slider');
+        const t = slider ? (parseFloat(slider.value) / 100) : (cache.threshold || 0.45);
+        const fromDom = [...document.querySelectorAll('#shortlist-results .matching-card[data-score]')]
+            .filter(c => parseFloat(c.dataset.score) >= t)
+            .map(c => {
+                const id = c.dataset.id;
+                const hit = (cache.results || []).find(r => r.id === id) || {};
+                return {
+                    id: id,
+                    name: hit.name || (c.querySelector('div[style*="font-weight:700"]') || {}).textContent || id,
+                    score: parseFloat(c.dataset.score),
+                    email: hit.email || '',
+                    matched_skills: hit.matched_skills || [],
+                    match_reason: hit.match_reason || '',
+                    consultant_id: hit.consultant_id || '',
+                    project_consultant_id: hit.project_consultant_id || null,
+                    cv_editor_url: hit.cv_editor_url || '',
+                };
+            });
+        if (fromDom.length) return { threshold: t, list: fromDom, projectId: cache.projectId };
+        const list = (cache.results || [])
+            .filter(r => (r.overall_score || 0) >= t)
+            .map(r => ({
+                id: r.id,
+                name: r.name,
+                score: r.overall_score,
+                email: r.email || '',
+                matched_skills: r.matched_skills || [],
+                match_reason: r.match_reason || '',
+                consultant_id: r.consultant_id || '',
+                project_consultant_id: r.project_consultant_id || null,
+                cv_editor_url: r.cv_editor_url || '',
+            }));
+        return { threshold: t, list, projectId: cache.projectId };
+    }
+
+    function openOutreachWizard() {
+        const pack = _outreachCandidates();
+        if (!pack.list.length) {
+            alert(_kiT('outreach_none', 'Keine Berater oberhalb des Schwellwerts.'));
+            return;
+        }
+        window._outreachWizard = {
+            projectId: pack.projectId || (window.MATCHING_CONFIG && window.MATCHING_CONFIG.activeProject) || null,
+            queue: pack.list,
+            index: 0,
+            skipped: [],
+            sent: [],
+            deep: null,
+            draft: null,
+            loading: false,
+        };
+        _renderOutreachWizard();
+        _outreachLoadCurrent();
+    }
+
+    function closeOutreachWizard() {
+        document.getElementById('matching-outreach-ovl')?.remove();
+        window._outreachWizard = null;
+    }
+
+    function _renderOutreachWizard() {
+        const st = window._outreachWizard;
+        if (!st) return;
+        let ov = document.getElementById('matching-outreach-ovl');
+        if (!ov) {
+            ov = document.createElement('div');
+            ov.id = 'matching-outreach-ovl';
+            ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10070;display:flex;align-items:center;justify-content:center;padding:12px';
+            ov.onclick = function (e) { if (e.target === ov) closeOutreachWizard(); };
+            document.body.appendChild(ov);
+        }
+        const cur = st.queue[st.index];
+        const n = st.queue.length;
+        const i = st.index + 1;
+        const deep = st.deep || {};
+        const draft = st.draft || {};
+        const listHtml = st.queue.map((c, idx) => {
+            let mark = idx === st.index ? '▶' : (st.sent.includes(c.id) ? '✓' : (st.skipped.includes(c.id) ? '–' : '·'));
+            const dim = idx < st.index || st.skipped.includes(c.id) ? 'opacity:.45' : '';
+            return `<div style="padding:4px 6px;font-size:11px;cursor:pointer;border-radius:4px;${dim}${idx === st.index ? 'background:#e8eef7;font-weight:700' : ''}"
+                        onclick="Matching.outreachGoto(${idx})">${mark} ${_esc(c.name)} · ${Math.round((c.score || 0) * 100)}%</div>`;
+        }).join('');
+
+        ov.innerHTML = `
+        <div style="background:#fff;border-radius:10px;width:min(960px,96vw);max-height:92vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 12px 40px rgba(0,0,0,.25)">
+          <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff">
+            <i class="bi bi-send"></i>
+            <b style="flex:1">${_esc(_kiT('outreach_title', 'Outreach-Wizard'))} — ${i}/${n}</b>
+            <button type="button" style="background:transparent;border:0;color:#fff;font-size:18px;cursor:pointer"
+                    onclick="Matching.closeOutreachWizard()">×</button>
+          </div>
+          <div style="display:grid;grid-template-columns:220px 1fr;min-height:0;flex:1;overflow:hidden">
+            <div style="border-right:1px solid #e5e7eb;overflow:auto;padding:8px;background:#fafbfc">${listHtml}</div>
+            <div style="overflow:auto;padding:14px;display:grid;gap:10px">
+              ${!cur ? '<p>Fertig.</p>' : `
+              <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+                <div style="font-size:16px;font-weight:700">${_esc(cur.name)}</div>
+                <div style="font-size:12px;color:#666">${Math.round((cur.score || 0) * 100)}% · ${_esc((cur.matched_skills || []).slice(0, 5).join(' · '))}</div>
+                ${cur.cv_editor_url ? `<a href="${_escAttr(cur.cv_editor_url)}" target="_blank" class="matching-btn-sm">CV</a>` : ''}
+              </div>
+              <div id="ow-status" style="font-size:11px;color:#666;min-height:16px">${st.loading ? 'DeepSeek lädt …' : ''}</div>
+              <div style="background:#f5f7fa;border-radius:8px;padding:10px">
+                <div style="font-size:11px;font-weight:700;color:#163258;margin-bottom:4px">${_esc(_kiT('outreach_why', 'Warum anschreiben'))}</div>
+                <div id="ow-why" style="font-size:12px;line-height:1.45">${_esc(deep.why || cur.match_reason || '…')}</div>
+                <div style="margin-top:6px;font-size:11px;color:#666">
+                  Interesse: <b>${_esc(deep.interest || '—')}</b>
+                  · Antwortchance: <b>${deep.reply_likelihood != null ? Math.round(deep.reply_likelihood * 100) + '%' : '—'}</b>
+                </div>
+              </div>
+              <label style="font-size:11px;color:#666">An
+                <input id="ow-to" class="matching-form-input" style="width:100%;margin-top:3px" type="email"
+                       value="${_escAttr(draft.to_email || cur.email || '')}">
+              </label>
+              <label style="font-size:11px;color:#666">Betreff
+                <input id="ow-subj" class="matching-form-input" style="width:100%;margin-top:3px"
+                       value="${_escAttr(draft.subject || '')}">
+              </label>
+              <label style="font-size:11px;color:#666">Anschreiben
+                <textarea id="ow-body" class="matching-form-textarea" rows="9"
+                          style="width:100%;margin-top:3px;font-family:inherit">${_esc(draft.body || draft.body_text || '')}</textarea>
+              </label>
+              <label style="font-size:11px;color:#666;display:flex;align-items:center;gap:8px">
+                <input type="checkbox" id="ow-task" checked>
+                ${_esc(_kiT('outreach_task', 'Wiedervorlage anlegen (+7 Tage)'))}
+              </label>
+              <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
+                <button type="button" class="matching-btn-sm" onclick="Matching.outreachSkip()">${_esc(_kiT('outreach_skip', 'Aussortieren'))}</button>
+                <button type="button" class="matching-btn-sm" onclick="Matching.outreachPolish()">${_esc(_kiT('outreach_polish', 'Glätten'))}</button>
+                <button type="button" class="matching-btn-sm" onclick="Matching.outreachReloadDraft()">${_esc(_kiT('outreach_redraft', 'Neu entwerfen'))}</button>
+                <button type="button" class="matching-btn-primary" id="ow-send" onclick="Matching.outreachSend()">
+                  <i class="bi bi-send"></i> ${_esc(_kiT('outreach_send_next', 'Senden & Weiter'))}
+                </button>
+              </div>`}
+            </div>
+          </div>
+        </div>`;
+    }
+
+    function outreachGoto(idx) {
+        const st = window._outreachWizard;
+        if (!st || st.loading) return;
+        if (idx < 0 || idx >= st.queue.length) return;
+        st.index = idx;
+        st.deep = null;
+        st.draft = null;
+        _renderOutreachWizard();
+        _outreachLoadCurrent();
+    }
+
+    function _outreachLoadCurrent() {
+        const st = window._outreachWizard;
+        if (!st) return;
+        const cur = st.queue[st.index];
+        if (!cur) {
+            _renderOutreachWizard();
+            return;
+        }
+        st.loading = true;
+        _renderOutreachWizard();
+        const headers = { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' };
+        fetch(API + 'outreach/' + encodeURIComponent(cur.id) + '/letter/draft/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers,
+            body: JSON.stringify({ refresh_reason: true }),
+        })
+        .then(async r => {
+            let d = {};
+            try { d = await r.json(); } catch (_) {}
+            if (!r.ok || d.ok === false) throw new Error((d && d.error) || ('Draft HTTP ' + r.status));
+            return d;
+        })
+        .then(d => {
+            st.deep = d.deep_reason || {
+                why: d.why || cur.match_reason,
+                interest: d.interest,
+                reply_likelihood: d.reply_likelihood,
+            };
+            st.draft = d;
+            if (d.project_consultant_id) cur.project_consultant_id = d.project_consultant_id;
+            st.loading = false;
+            _renderOutreachWizard();
+        })
+        .catch(e => {
+            console.error(e);
+            st.loading = false;
+            st.deep = { why: cur.match_reason || String(e.message || e), interest: '—', reply_likelihood: null };
+            // Template-Fallback lokal
+            const tpl = STAGE_MAIL.shortlist;
+            const ctx = Object.assign(_projectContext(), { name: cur.name || '' });
+            st.draft = {
+                to_email: cur.email || '',
+                subject: _fillTpl(tpl.subject, ctx),
+                body: _fillTpl(tpl.body, ctx),
+            };
+            _renderOutreachWizard();
+            const el = document.getElementById('ow-status');
+            if (el) {
+                el.style.color = '#b91c1c';
+                el.textContent = 'KI-Draft fehlgeschlagen — Template genutzt: ' + (e.message || e);
+            }
+        });
+    }
+
+    function outreachSkip() {
+        const st = window._outreachWizard;
+        if (!st || st.loading) return;
+        const cur = st.queue[st.index];
+        if (cur) st.skipped.push(cur.id);
+        _outreachAdvance();
+    }
+
+    function _outreachAdvance() {
+        const st = window._outreachWizard;
+        if (!st) return;
+        const next = st.index + 1;
+        if (next >= st.queue.length) {
+            const sent = st.sent.length;
+            const skipped = st.skipped.length;
+            closeOutreachWizard();
+            alert(_kiT('outreach_done', 'Outreach fertig') + `: ${sent} gesendet, ${skipped} übersprungen.`);
+            const content = document.getElementById('content-shortlist');
+            const pid = (window._matchingShortlistCache || {}).projectId;
+            if (content && pid) {
+                content.dataset.loaded = '0';
+                _loadShortlistForProject(pid, content);
+            }
+            return;
+        }
+        st.index = next;
+        st.deep = null;
+        st.draft = null;
+        _renderOutreachWizard();
+        _outreachLoadCurrent();
+    }
+
+    function outreachPolish() {
+        const st = window._outreachWizard;
+        if (!st || st.loading) return;
+        const bodyEl = document.getElementById('ow-body');
+        const text = (bodyEl && bodyEl.value) || '';
+        if (!text.trim()) return;
+        st.loading = true;
+        const status = document.getElementById('ow-status');
+        if (status) { status.style.color = '#666'; status.textContent = 'Glätten …'; }
+        fetch(API + 'outreach/letter/polish/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' },
+            body: JSON.stringify({ draft_text: text, keep_style: true }),
+        })
+        .then(async r => {
+            let d = {};
+            try { d = await r.json(); } catch (_) {}
+            if (!r.ok || d.ok === false) throw new Error((d && d.error) || 'Polish fehlgeschlagen');
+            return d;
+        })
+        .then(d => {
+            st.loading = false;
+            if (bodyEl) bodyEl.value = d.body || d.body_text || text;
+            if (status) { status.style.color = '#155724'; status.textContent = 'Geglättet.'; }
+        })
+        .catch(e => {
+            st.loading = false;
+            if (status) { status.style.color = '#b91c1c'; status.textContent = e.message || String(e); }
+        });
+    }
+
+    function outreachReloadDraft() {
+        const st = window._outreachWizard;
+        if (!st || st.loading) return;
+        st.deep = null;
+        st.draft = null;
+        _outreachLoadCurrent();
+    }
+
+    function outreachSend() {
+        const st = window._outreachWizard;
+        if (!st || st.loading) return;
+        const cur = st.queue[st.index];
+        if (!cur) return;
+        const to = ((document.getElementById('ow-to') || {}).value || '').trim();
+        const subj = ((document.getElementById('ow-subj') || {}).value || '').trim();
+        const body = ((document.getElementById('ow-body') || {}).value || '').trim();
+        const wantTask = !!(document.getElementById('ow-task') || {}).checked;
+        const status = document.getElementById('ow-status');
+        const sendBtn = document.getElementById('ow-send');
+        function show(ok, text) {
+            if (!status) return;
+            status.style.color = ok ? '#155724' : '#b91c1c';
+            status.textContent = text || '';
+        }
+        if (!to || to.indexOf('@') < 0) { show(false, 'Bitte gültige E-Mail (An)'); return; }
+        if (!subj || !body) { show(false, 'Betreff/Text fehlen'); return; }
+        st.loading = true;
+        if (sendBtn) sendBtn.disabled = true;
+        show(true, 'Sende E-Mail …');
+
+        const mailPayload = {
+            template_identifier: 'crm_manual_email',
+            to_email: to,
+            subject: subj,
+            body: _bodyTextToHtml(body),
+            contact_name: cur.name || '',
+            crm_id: '',
+        };
+
+        fetch('/crm/api/email/send/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrf(),
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            body: JSON.stringify(mailPayload),
+        })
+        .then(r => r.json().then(j => ({ ok: r.ok, j })))
+        .then(pack => {
+            const j = pack.j || {};
+            if (!(pack.ok && j.ok !== false && j.success !== false && !j.error)) {
+                throw new Error(j.error || 'Senden fehlgeschlagen');
+            }
+            show(true, 'Status aktualisieren …');
+            return fetch(API + 'outreach/' + encodeURIComponent(cur.id) + '/complete/', {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+                body: JSON.stringify({ status: 'contacted', create_task: wantTask }),
+            }).then(r => r.json().then(j2 => ({ ok: r.ok, j: j2 })));
+        })
+        .then(pack => {
+            const j = pack.j || {};
+            if (!pack.ok || j.ok === false) throw new Error(j.error || 'Complete fehlgeschlagen');
+            if (wantTask && j.task) {
+                return fetch('/shaduler/api/aufgaben/create/', {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+                    body: JSON.stringify(j.task),
+                }).then(() => j).catch(err => {
+                    console.warn('Wiedervorlage:', err);
+                    return j;
+                });
+            }
+            return j;
+        })
+        .then(() => {
+            st.loading = false;
+            st.sent.push(cur.id);
+            _outreachAdvance();
+        })
+        .catch(err => {
+            st.loading = false;
+            if (sendBtn) sendBtn.disabled = false;
+            show(false, err.message || String(err));
+        });
     }
 
     function toggleArchiveDetail(card) {
@@ -4906,6 +5277,8 @@ window.Matching = (function() {
         init, applyI18n, switchTab, newRequest,
         openProject, openRequestEdit, saveRequestEdit, pickShortlistRequest, pickKanbanRequest, runMatching, rematch, saveNewRequest,
         updateThreshold, sendAllAboveThreshold,
+        openOutreachWizard, closeOutreachWizard, outreachGoto, outreachSkip,
+        outreachPolish, outreachReloadDraft, outreachSend,
         toggleArchiveDetail, searchAnfragen, filterAnfragen,
         searchAccounts, searchContacts, call, sendEmail,
         kanbanDragStart, kanbanDrop, kanbanCardClick,

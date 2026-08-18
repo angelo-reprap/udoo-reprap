@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+# Deploy Outreach-Wizard (Matching) auf ucs5 — Convert-Batch unberührt.
+#
+#   cd /mnt/public/udoo-reprap
+#   git fetch origin cursor/matching-outreach-wizard-1532
+#   bash scripts/SYNC-matching-outreach-wizard.sh
+#
+set -euo pipefail
+
+REPO="${REPO:-/mnt/public/udoo-reprap}"
+BRANCH="${BRANCH:-cursor/matching-outreach-wizard-1532}"
+LIVE_MW="${LIVE_MW:-/opt/abpe/backend/apps/abpe_matching_workflow}"
+LIVE_UI="${LIVE_UI:-/opt/abpe/backend/apps/abpe_ui}"
+STATICFILES="${STATICFILES:-/opt/abpe/backend/staticfiles}"
+TS=$(date +%Y%m%d-%H%M%S)
+
+cd "$REPO"
+git fetch origin "$BRANCH"
+TMP=$(mktemp -d)
+trap 'rm -rf "$TMP"' EXIT
+git archive "origin/$BRANCH" Repo_abpe/abpe_matching_workflow/incoming \
+  Repo_abpe/abpe_ui/incoming/mod-matching.js \
+  Repo_abpe/abpe_ui/incoming/static_abpe_ui/js/mod/mod-matching.js \
+  | tar -x -C "$TMP"
+
+echo "=== Outreach Wizard Sync ($BRANCH) ==="
+
+mkdir -p "$LIVE_MW/services"
+for rel in views.py urls.py services/outreach_wizard.py; do
+  src="$TMP/Repo_abpe/abpe_matching_workflow/incoming/$rel"
+  dst="$LIVE_MW/$rel"
+  [[ -f "$src" ]] || { echo "FEHLER: fehlt $rel im Branch"; exit 1; }
+  mkdir -p "$(dirname "$dst")"
+  [[ -f "$dst" ]] && cp -a "$dst" "${dst}.bak-outreach-$TS"
+  cp -a "$src" "$dst"
+  echo "OK — $rel → $dst"
+done
+
+if ! grep -q "api_outreach_deep_reason" "$LIVE_MW/views.py"; then
+  echo "FEHLER: views.py ohne Outreach-APIs"
+  exit 1
+fi
+if ! grep -q "outreach/" "$LIVE_MW/urls.py"; then
+  echo "FEHLER: urls.py ohne outreach routes"
+  exit 1
+fi
+
+# UI: incoming/mod-matching.js ist Deploy-Quelle (wie andere SYNC-Skripte)
+JS_SRC="$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js"
+if ! grep -q "openOutreachWizard" "$JS_SRC"; then
+  echo "FEHLER: mod-matching.js ohne openOutreachWizard"
+  exit 1
+fi
+mkdir -p "$LIVE_UI/static/abpe_ui/js/mod"
+[[ -f "$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js" ]] \
+  && cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js" \
+       "$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js.bak-outreach-$TS"
+cp -a "$JS_SRC" "$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js"
+echo "OK — mod-matching.js → $LIVE_UI/static/abpe_ui/js/mod/"
+
+if [[ -d "$STATICFILES" ]]; then
+  mkdir -p "$STATICFILES/abpe_ui/js/mod"
+  cp -a "$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js" \
+    "$STATICFILES/abpe_ui/js/mod/mod-matching.js"
+  echo "OK — staticfiles mirror"
+fi
+
+find "$LIVE_MW" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+
+# Django reload (gunicorn/uvicorn — soft)
+if command -v systemctl >/dev/null 2>&1; then
+  if systemctl is-active --quiet abpe-backend 2>/dev/null; then
+    systemctl reload abpe-backend 2>/dev/null \
+      || systemctl restart abpe-backend 2>/dev/null \
+      || echo "WARN: systemctl reload/restart abpe-backend manuell prüfen"
+  elif systemctl is-active --quiet gunicorn 2>/dev/null; then
+    systemctl reload gunicorn 2>/dev/null || true
+  else
+    echo "Hinweis: App-Server ggf. manuell neu laden (views/urls geändert)"
+  fi
+fi
+
+echo
+echo "Fertig. Browser: Matching → Shortlist → Ctrl+F5 → „Alle anschreiben“"
+echo "Smoke: curl -s -o /dev/null -w '%{http_code}' -X POST http://127.0.0.1/matching/api/outreach/letter/polish/  # expect 401/403 not 404"

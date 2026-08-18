@@ -391,13 +391,31 @@ def api_shortlist(request, project_id):
             project_request=p
         ).select_related('consultant_cv').order_by('-overall_score')
 
+        # ProjectConsultant-IDs für Outreach/Mail (MatchResult.id ≠ PC.id)
+        pc_by_cv = {
+            pc.consultant_cv_id: pc
+            for pc in ProjectConsultant.objects.filter(project=p).only(
+                'id', 'consultant_cv_id', 'status'
+            )
+        }
+
         data = []
         for r in results:
             c = r.consultant_cv
+            pc = pc_by_cv.get(c.id)
+            email = ''
+            try:
+                email = (c.email or '').split(';')[0].strip()
+            except Exception:
+                email = ''
             data.append({
                 'id':             str(r.id),
+                'match_result_id': str(r.id),
+                'project_consultant_id': str(pc.id) if pc else None,
+                'pc_status':      pc.status if pc else None,
                 'consultant_id':  c.aid,
                 'name':           c.full_name,
+                'email':          email,
                 'location':       c.location,
                 'availability':   c.availability,
                 'overall_score':  round(r.overall_score, 3),
@@ -1088,4 +1106,140 @@ def api_account_requests(request, account_crm_id):
             'created_at':     p.created_at.isoformat() if p.created_at else '',
         })
     return JsonResponse({'requests': rows, 'account_crm_id': account_crm_id, 'total': len(rows)})
+
+
+# ============================================================
+# API: OUTREACH WIZARD (Alle anschreiben)
+# ============================================================
+
+def _ui_status_to_db(status: str) -> str:
+    """UI/STAGE_MAIL → ProjectConsultant.STATUS_CHOICES."""
+    mapping = {
+        'angeschrieben': 'contacted',
+        'contacted': 'contacted',
+        'interesse': 'interested',
+        'interested': 'interested',
+        'beim_kunden': 'client_interested',
+        'interview': 'interview_scheduled',
+        'vermittelt': 'accepted',
+        'absage': 'rejected',
+        'shortlist': 'identified',
+        'identified': 'identified',
+    }
+    return mapping.get((status or '').strip(), status or 'contacted')
+
+
+@extend_schema(summary="Outreach: DeepSeek-Begründung zu MatchResult")
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def api_outreach_deep_reason(request, match_result_id):
+    try:
+        from .services.outreach_wizard import resolve_match_result, build_deep_reason, ensure_project_consultant
+        mr = resolve_match_result(match_result_id)
+        pc = ensure_project_consultant(mr)
+        data = build_deep_reason(mr)
+        data['project_consultant_id'] = str(pc.id)
+        data['project_id'] = str(mr.project_request_id)
+        # Persist reason on PC if empty / refresh
+        if data.get('why') and (not pc.match_reason or request.data.get('persist', True)):
+            pc.match_reason = data['why']
+            pc.save(update_fields=['match_reason'])
+        return Response(data)
+    except Exception as e:
+        logger.exception('api_outreach_deep_reason: %s', e)
+        return Response({'ok': False, 'error': str(e)}, status=500)
+
+
+@extend_schema(summary="Outreach: Anschreiben-Draft")
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def api_outreach_letter_draft(request, match_result_id):
+    try:
+        from .services.outreach_wizard import (
+            resolve_match_result, build_letter_draft, build_deep_reason, ensure_project_consultant,
+        )
+        mr = resolve_match_result(match_result_id)
+        pc = ensure_project_consultant(mr)
+        body = request.data or {}
+        deep = body.get('deep_reason') if isinstance(body.get('deep_reason'), dict) else None
+        if body.get('refresh_reason') or not deep:
+            deep = build_deep_reason(mr)
+        data = build_letter_draft(mr, deep=deep, extra_notes=body.get('extra_notes') or '')
+        data['project_consultant_id'] = str(pc.id)
+        data['deep_reason'] = deep
+        return Response(data)
+    except Exception as e:
+        logger.exception('api_outreach_letter_draft: %s', e)
+        return Response({'ok': False, 'error': str(e)}, status=500)
+
+
+@extend_schema(summary="Outreach: Anschreiben polieren")
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def api_outreach_letter_polish(request):
+    try:
+        from .services.outreach_wizard import polish_letter
+        body = request.data or {}
+        text = body.get('draft_text') or body.get('body') or body.get('draft_html') or ''
+        if not str(text).strip():
+            return Response({'ok': False, 'error': 'draft_text fehlt'}, status=400)
+        data = polish_letter(str(text), keep_style=bool(body.get('keep_style', True)))
+        return Response(data)
+    except Exception as e:
+        logger.exception('api_outreach_letter_polish: %s', e)
+        return Response({'ok': False, 'error': str(e)}, status=500)
+
+
+@extend_schema(summary="Outreach: nach Send Status + optional Wiedervorlage-Meta")
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def api_outreach_complete(request, match_result_id):
+    """
+    Nach erfolgreichem CRM-Send: ProjectConsultant sicherstellen, Status contacted,
+    optional Task-Payload zurückgeben (Frontend ruft Shaduler auf).
+    """
+    try:
+        from .services.outreach_wizard import resolve_match_result, ensure_project_consultant
+        mr = resolve_match_result(match_result_id)
+        pc = ensure_project_consultant(mr)
+        body = request.data or {}
+        new_status = _ui_status_to_db(body.get('status') or 'contacted')
+        note = body.get('note') or 'Outreach-Wizard Anschreiben'
+        pc.set_status(new_status, note=note, user=getattr(request.user, 'username', 'system') or 'system')
+
+        c = mr.consultant_cv
+        project = mr.project_request
+        task = None
+        if body.get('create_task', True):
+            # Default +7 Tage Wiedervorlage — Frontend kann überschreiben / an Shaduler senden
+            due = (timezone.now() + timedelta(days=int(body.get('task_days') or 7))).date().isoformat()
+            task = {
+                'art': 'wiedervorlage',
+                'titel': f'WV Anschreiben — {c.full_name} — {project.project_number or project.title}',
+                'beschreibung': (
+                    f'Follow-up nach Outreach zu „{project.title}“.\n'
+                    f'Berater: {c.full_name} ({c.aid})\n'
+                    f'Match-Score: {mr.overall_score}'
+                ),
+                'ref_type': 'berater',
+                'ref_id': c.aid,
+                'prioritaet': int(body.get('task_priority') or 3),
+                'faellig_am': body.get('faellig_am') or due,
+            }
+
+        return Response({
+            'ok': True,
+            'success': True,
+            'match_result_id': str(mr.id),
+            'project_consultant_id': str(pc.id),
+            'status': pc.status,
+            'task': task,
+        })
+    except Exception as e:
+        logger.exception('api_outreach_complete: %s', e)
+        return Response({'ok': False, 'error': str(e)}, status=500)
 
