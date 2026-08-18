@@ -533,7 +533,9 @@ def search(
     else:
         must.append({'match_all': {}})
     order = 'asc' if sort in ('date_asc', 'asc', 'oldest') else 'desc'
-    # ES 8: Sortierung nach _id ist verboten → gulp_id/fm_id als Tiebreaker
+    # Kein Sort auf gulp_id/fm_id: Live-Index kann die Felder als text haben
+    # (Fielddata disabled → search_phase_execution_exception). Mapping-Soll:
+    # keyword — nach recreate. Tiebreaker nur keyword-sichere Felder.
     body = {
         'size': max(1, min(10000, int(limit))),
         'track_total_hits': True,
@@ -547,8 +549,7 @@ def search(
         'sort': [
             {'eingegangen_am': {'order': order, 'unmapped_type': 'date', 'missing': '_last'}},
             {'updated_at': {'order': order, 'unmapped_type': 'date', 'missing': '_last'}},
-            {'gulp_id': {'order': 'asc', 'unmapped_type': 'keyword', 'missing': '_last'}},
-            {'fm_id': {'order': 'asc', 'unmapped_type': 'keyword', 'missing': '_last'}},
+            {'name.keyword': {'order': 'asc', 'unmapped_type': 'keyword', 'missing': '_last'}},
         ],
         'aggs': {
             'by_source': {'terms': {'field': 'source', 'size': 20}},
