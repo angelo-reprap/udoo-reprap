@@ -200,7 +200,6 @@ def _libreoffice_to_pdf(src: Path, out_dir: Path, timeout_sec: int = 90) -> Opti
     """
     if not src.is_file():
         return None
-    import shutil
     import signal
     import tempfile
     import time as _time
@@ -371,7 +370,7 @@ def publish_consultant_outputs(
                     html_pub = f
                     break
             if html_pub.is_file():
-                pdf = _libreoffice_to_pdf(html_pub, dest_dir)
+                pdf = _libreoffice_to_pdf(html_pub, dest_dir, timeout_sec=60)
                 if pdf:
                     # LibreOffice benennt nach HTML-Stem; sicherstellen AID-*.pdf
                     want = dest_dir / f'{aid}.pdf'
