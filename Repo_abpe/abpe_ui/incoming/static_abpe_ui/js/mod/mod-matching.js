@@ -3341,10 +3341,153 @@ window.Matching = (function() {
             sent: [],
             deep: null,
             draft: null,
+            emails: [],           // CRM-Vorschläge [{email, primary, …}]
+            selectedEmail: '',   // aktuell gewählte / übernommene An-Adresse
+            crm_contact_id: '',
             loading: false,
         };
         _renderOutreachWizard();
         _outreachLoadCurrent();
+    }
+
+    function _outreachEmailList(st, cur, draft) {
+        const seen = {};
+        const out = [];
+        function push(em, primary, src) {
+            const e = String(em || '').trim();
+            if (!e || e.indexOf('@') < 0) return;
+            const key = e.toLowerCase();
+            if (seen[key]) {
+                if (primary) seen[key].primary = true;
+                return;
+            }
+            const row = { email: e, primary: !!primary, src: src || '' };
+            seen[key] = row;
+            out.push(row);
+        }
+        (st.emails || []).forEach(em => {
+            if (typeof em === 'string') push(em, false, 'crm');
+            else push(em.email || em.value, !!(em && em.primary), 'crm');
+        });
+        push(draft && draft.to_email, false, 'draft');
+        push(cur && cur.email, false, 'aid');
+        push(st.selectedEmail, false, 'selected');
+        out.sort((a, b) => (b.primary ? 1 : 0) - (a.primary ? 1 : 0));
+        return out;
+    }
+
+    function _outreachEmailBlockHtml(st, cur, draft) {
+        const emails = _outreachEmailList(st, cur, draft);
+        const current = st.selectedEmail
+            || (draft && draft.to_email)
+            || (cur && cur.email)
+            || _pickEmail(emails, '')
+            || '';
+        const suggest = emails.length
+            ? emails.map((em, i) => {
+                const checked = (em.email || '').toLowerCase() === (current || '').toLowerCase();
+                const tags = [];
+                if (em.primary) tags.push('Primär');
+                if (em.src === 'crm') tags.push('CRM');
+                if (em.src === 'aid') tags.push('AID');
+                return `<label style="display:flex;align-items:center;gap:8px;padding:4px 6px;border-radius:4px;cursor:pointer;${checked ? 'background:#fff8c5' : ''}">
+                  <input type="radio" name="ow-email-pick" value="${_escAttr(em.email)}"
+                         ${checked ? 'checked' : ''}
+                         onchange="Matching.outreachPickEmail(this.value)">
+                  <span style="flex:1;word-break:break-all;font-size:12px">${_esc(em.email)}</span>
+                  ${tags.length ? `<span style="font-size:10px;color:#888">${_esc(tags.join(' · '))}</span>` : ''}
+                </label>`;
+              }).join('')
+            : `<div style="font-size:11px;color:#b45309;padding:4px 0">${_esc(_kiT('outreach_no_email', 'Keine E-Mail im CRM gefunden — manuell eintragen.'))}</div>`;
+        return `
+              <div style="font-size:11px;color:#666">
+                <div style="font-weight:700;margin-bottom:4px">${_esc(_kiT('outreach_to', 'An'))}</div>
+                <div id="ow-email-suggest" style="border:1px solid #e5e7eb;border-radius:6px;padding:4px;margin-bottom:6px;background:#fafbfc;max-height:120px;overflow:auto">
+                  ${suggest}
+                </div>
+                <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+                  <input id="ow-to-manual" class="matching-form-input" type="email"
+                         placeholder="manuell: name@firma.de"
+                         style="flex:1;min-width:180px"
+                         value="">
+                  <button type="button" class="matching-btn-sm" onclick="Matching.outreachApplyEmail()">
+                    ${_esc(_kiT('outreach_apply_email', 'Übernehmen'))}
+                  </button>
+                </div>
+                <div style="margin-top:6px;font-size:11px;color:#666">
+                  Aktiv:
+                  <input id="ow-to" class="matching-form-input" type="email" readonly
+                         style="width:100%;margin-top:3px;background:#fff8c5;font-weight:600"
+                         value="${_escAttr(current)}">
+                </div>
+                ${st.crm_contact_id
+                  ? `<div style="margin-top:4px;font-size:10px;color:#888">
+                       CRM: <a href="/crm/berater/?detail=${_escAttr(st.crm_contact_id)}" target="_blank">${_esc(st.crm_contact_id)}</a>
+                     </div>`
+                  : ''}
+              </div>`;
+    }
+
+    function outreachPickEmail(addr) {
+        const st = window._outreachWizard;
+        if (!st) return;
+        st.selectedEmail = String(addr || '').trim();
+        const el = document.getElementById('ow-to');
+        if (el) el.value = st.selectedEmail;
+        // Highlight radios without full re-render
+        document.querySelectorAll('#ow-email-suggest label').forEach(lab => {
+            const inp = lab.querySelector('input[type=radio]');
+            const on = inp && inp.value === st.selectedEmail;
+            lab.style.background = on ? '#fff8c5' : '';
+            if (inp) inp.checked = !!on;
+        });
+    }
+
+    function outreachApplyEmail() {
+        const st = window._outreachWizard;
+        if (!st) return;
+        const manual = ((document.getElementById('ow-to-manual') || {}).value || '').trim();
+        const picked = (document.querySelector('#ow-email-suggest input[name=ow-email-pick]:checked') || {}).value || '';
+        const addr = manual || picked || st.selectedEmail || '';
+        if (!addr || addr.indexOf('@') < 0) {
+            const status = document.getElementById('ow-status');
+            if (status) {
+                status.style.color = '#b91c1c';
+                status.textContent = 'Bitte gültige E-Mail wählen oder eintragen';
+            }
+            return;
+        }
+        st.selectedEmail = addr;
+        if (manual && !(st.emails || []).some(e =>
+            (typeof e === 'string' ? e : e.email || '').toLowerCase() === manual.toLowerCase()
+        )) {
+            st.emails = (st.emails || []).concat([{ email: manual, primary: false, src: 'manual' }]);
+        }
+        const toEl = document.getElementById('ow-to');
+        if (toEl) toEl.value = addr;
+        // Liste neu zeichnen (Vorschlag inkl. manuell)
+        const cur = st.queue[st.index];
+        const block = document.getElementById('ow-email-suggest');
+        if (block) {
+            // Full block refresh via re-render of email section only: simplest = soft re-render
+            const subj = ((document.getElementById('ow-subj') || {}).value || '');
+            const body = ((document.getElementById('ow-body') || {}).value || '');
+            const task = !!(document.getElementById('ow-task') || {}).checked;
+            if (st.draft) {
+                st.draft.to_email = addr;
+                st.draft.subject = subj;
+                st.draft.body = body;
+            }
+            st._taskChecked = task;
+            _renderOutreachWizard();
+            const t = document.getElementById('ow-task');
+            if (t) t.checked = task;
+            const status = document.getElementById('ow-status');
+            if (status) {
+                status.style.color = '#155724';
+                status.textContent = 'E-Mail übernommen: ' + addr;
+            }
+        }
     }
 
     function closeOutreachWizard() {
@@ -3401,10 +3544,7 @@ window.Matching = (function() {
                   · Antwortchance: <b>${deep.reply_likelihood != null ? Math.round(deep.reply_likelihood * 100) + '%' : '—'}</b>
                 </div>
               </div>
-              <label style="font-size:11px;color:#666">An
-                <input id="ow-to" class="matching-form-input" style="width:100%;margin-top:3px" type="email"
-                       value="${_escAttr(draft.to_email || cur.email || '')}">
-              </label>
+              ${_outreachEmailBlockHtml(st, cur, draft)}
               <label style="font-size:11px;color:#666">Betreff
                 <input id="ow-subj" class="matching-form-input" style="width:100%;margin-top:3px"
                        value="${_escAttr(draft.subject || '')}">
@@ -3437,8 +3577,38 @@ window.Matching = (function() {
         st.index = idx;
         st.deep = null;
         st.draft = null;
+        st.emails = [];
+        st.selectedEmail = '';
+        st.crm_contact_id = '';
         _renderOutreachWizard();
         _outreachLoadCurrent();
+    }
+
+    function _outreachLoadCrmFor(cur) {
+        const seed = {
+            id: cur.id,
+            name: cur.name || '',
+            email: cur.email || '',
+            emails: cur.email ? [{ email: cur.email }] : [],
+            phones: [],
+            crm_contact_id: cur.crm_contact_id || '',
+            gulp_id: cur.gulp_id || '',
+            aid: cur.consultant_id || '',
+        };
+        return _enrichFromCrm(seed).then(enriched => {
+            cur.crm_contact_id = enriched.crm_contact_id || cur.crm_contact_id || '';
+            cur.email = enriched.email || cur.email || '';
+            cur.gulp_id = enriched.gulp_id || cur.gulp_id || '';
+            return {
+                emails: enriched.emails || [],
+                email: enriched.email || '',
+                crm_contact_id: enriched.crm_contact_id || '',
+            };
+        }).catch(() => ({
+            emails: cur.email ? [{ email: cur.email }] : [],
+            email: cur.email || '',
+            crm_contact_id: cur.crm_contact_id || '',
+        }));
     }
 
     function _outreachLoadCurrent() {
@@ -3450,9 +3620,12 @@ window.Matching = (function() {
             return;
         }
         st.loading = true;
+        st.emails = [];
+        st.selectedEmail = st.selectedEmail || cur.email || '';
         _renderOutreachWizard();
         const headers = { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' };
-        fetch(API + 'outreach/' + encodeURIComponent(cur.id) + '/letter/draft/', {
+
+        const draftP = fetch(API + 'outreach/' + encodeURIComponent(cur.id) + '/letter/draft/', {
             method: 'POST',
             credentials: 'same-origin',
             headers,
@@ -3463,8 +3636,12 @@ window.Matching = (function() {
             try { d = await r.json(); } catch (_) {}
             if (!r.ok || d.ok === false) throw new Error((d && d.error) || ('Draft HTTP ' + r.status));
             return d;
-        })
-        .then(d => {
+        });
+
+        const crmP = _outreachLoadCrmFor(cur);
+
+        Promise.all([draftP, crmP])
+        .then(([d, crm]) => {
             st.deep = d.deep_reason || {
                 why: d.why || cur.match_reason,
                 interest: d.interest,
@@ -3472,6 +3649,12 @@ window.Matching = (function() {
             };
             st.draft = d;
             if (d.project_consultant_id) cur.project_consultant_id = d.project_consultant_id;
+            st.emails = crm.emails || [];
+            st.crm_contact_id = crm.crm_contact_id || '';
+            // Primär / CRM bevorzugen; Draft-to nur wenn leer
+            const primary = _pickEmail(st.emails, crm.email || '');
+            st.selectedEmail = primary || d.to_email || cur.email || '';
+            if (st.draft) st.draft.to_email = st.selectedEmail;
             st.loading = false;
             _renderOutreachWizard();
         })
@@ -3479,20 +3662,28 @@ window.Matching = (function() {
             console.error(e);
             st.loading = false;
             st.deep = { why: cur.match_reason || String(e.message || e), interest: '—', reply_likelihood: null };
-            // Template-Fallback lokal
             const tpl = STAGE_MAIL.shortlist;
             const ctx = Object.assign(_projectContext(), { name: cur.name || '' });
             st.draft = {
-                to_email: cur.email || '',
+                to_email: st.selectedEmail || cur.email || '',
                 subject: _fillTpl(tpl.subject, ctx),
                 body: _fillTpl(tpl.body, ctx),
             };
-            _renderOutreachWizard();
-            const el = document.getElementById('ow-status');
-            if (el) {
-                el.style.color = '#b91c1c';
-                el.textContent = 'KI-Draft fehlgeschlagen — Template genutzt: ' + (e.message || e);
-            }
+            // CRM trotzdem versuchen
+            _outreachLoadCrmFor(cur).then(crm => {
+                st.emails = crm.emails || [];
+                st.crm_contact_id = crm.crm_contact_id || '';
+                if (!st.selectedEmail) {
+                    st.selectedEmail = _pickEmail(st.emails, crm.email || cur.email || '');
+                    if (st.draft) st.draft.to_email = st.selectedEmail;
+                }
+                _renderOutreachWizard();
+                const el = document.getElementById('ow-status');
+                if (el) {
+                    el.style.color = '#b91c1c';
+                    el.textContent = 'KI-Draft fehlgeschlagen — Template genutzt: ' + (e.message || e);
+                }
+            });
         });
     }
 
@@ -3524,6 +3715,9 @@ window.Matching = (function() {
         st.index = next;
         st.deep = null;
         st.draft = null;
+        st.emails = [];
+        st.selectedEmail = '';
+        st.crm_contact_id = '';
         _renderOutreachWizard();
         _outreachLoadCurrent();
     }
@@ -5279,6 +5473,7 @@ window.Matching = (function() {
         updateThreshold, sendAllAboveThreshold,
         openOutreachWizard, closeOutreachWizard, outreachGoto, outreachSkip,
         outreachPolish, outreachReloadDraft, outreachSend,
+        outreachPickEmail, outreachApplyEmail,
         toggleArchiveDetail, searchAnfragen, filterAnfragen,
         searchAccounts, searchContacts, call, sendEmail,
         kanbanDragStart, kanbanDrop, kanbanCardClick,

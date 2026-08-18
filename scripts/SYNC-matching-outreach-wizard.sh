@@ -13,9 +13,28 @@ LIVE_MW="${LIVE_MW:-/opt/abpe/backend/apps/abpe_matching_workflow}"
 LIVE_UI="${LIVE_UI:-/opt/abpe/backend/apps/abpe_ui}"
 STATICFILES="${STATICFILES:-/opt/abpe/backend/staticfiles}"
 TS=$(date +%Y%m%d-%H%M%S)
+SKIP_CHECK="${SKIP_CHECK:-0}"
+FORCE="${FORCE:-0}"
 
 cd "$REPO"
 git fetch origin "$BRANCH"
+
+# ── Guard: Live voraus? Dann kein Blind-Overwrite ───────────────────────────
+if [[ "$SKIP_CHECK" != "1" ]]; then
+  echo "=== Pre-Check Live ↔ Repo ==="
+  LIVE_JS="${LIVE_UI}/static/abpe_ui/js/mod/mod-matching.js"
+  if [[ -f "$LIVE_JS" ]] && grep -q "openOutreachWizard" "$LIVE_JS" 2>/dev/null; then
+    live_extra=$(grep -c "outreachApplyEmail" "$LIVE_JS" 2>/dev/null || echo 0)
+    repo_extra=$(git show "origin/$BRANCH:Repo_abpe/abpe_ui/incoming/mod-matching.js" 2>/dev/null | grep -c "outreachApplyEmail" || echo 0)
+    live_extra=${live_extra//$'\n'/}; repo_extra=${repo_extra//$'\n'/}
+    if [[ "$live_extra" -gt "$repo_extra" && "$FORCE" != "1" ]]; then
+      echo "ABBRUCH: Live hat outreachApplyEmail ($live_extra) > Repo ($repo_extra)."
+      echo "Live→Repo pullen, sonst Feature-Verlust. Oder FORCE=1."
+      exit 2
+    fi
+  fi
+fi
+
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
 git archive "origin/$BRANCH" Repo_abpe/abpe_matching_workflow/incoming \
@@ -49,6 +68,10 @@ fi
 JS_SRC="$TMP/Repo_abpe/abpe_ui/incoming/mod-matching.js"
 if ! grep -q "openOutreachWizard" "$JS_SRC"; then
   echo "FEHLER: mod-matching.js ohne openOutreachWizard"
+  exit 1
+fi
+if ! grep -q "outreachApplyEmail" "$JS_SRC"; then
+  echo "FEHLER: mod-matching.js ohne outreachApplyEmail (E-Mail-Übernehmen)"
   exit 1
 fi
 mkdir -p "$LIVE_UI/static/abpe_ui/js/mod"
