@@ -23,15 +23,19 @@ git fetch origin "$BRANCH"
 
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
-git archive "origin/$BRANCH" \
-  Repo_abpe/namazu/incoming/management/commands/index_emails.py \
-  Repo_abpe/abpe_shaduler/incoming \
-  Repo_abpe/abpe_scheduler/incoming/management/commands/scheduler_loop.py \
-  Repo_abpe/abpe_ui/incoming/mod-shaduler.js \
-  Repo_abpe/abpe_ui/incoming/mod-shaduler.css \
-  Repo_abpe/abpe_ui/incoming/mod-shaduler-kalender.js \
-  deploy/supervisor/abpe-scheduler-loop.conf \
-  | tar -x -C "$TMP"
+# Optional: Kalender-JS nur wenn im Branch vorhanden
+ARCHIVE_PATHS=(
+  Repo_abpe/namazu/incoming/management/commands/index_emails.py
+  Repo_abpe/abpe_shaduler/incoming
+  Repo_abpe/abpe_scheduler/incoming/management/commands/scheduler_loop.py
+  Repo_abpe/abpe_ui/incoming/mod-shaduler.js
+  Repo_abpe/abpe_ui/incoming/mod-shaduler.css
+  deploy/supervisor/abpe-scheduler-loop.conf
+)
+if git cat-file -e "origin/$BRANCH:Repo_abpe/abpe_ui/incoming/mod-shaduler-kalender.js" 2>/dev/null; then
+  ARCHIVE_PATHS+=(Repo_abpe/abpe_ui/incoming/mod-shaduler-kalender.js)
+fi
+git archive "origin/$BRANCH" "${ARCHIVE_PATHS[@]}" | tar -x -C "$TMP"
 
 echo "======== SYNC Posteingang+Radar ($BRANCH) $TS ========"
 
