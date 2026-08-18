@@ -192,23 +192,73 @@ def _publish_html_offline(src: Path, dest_dir: Path, language: str = 'de') -> Op
         return _copy_into(src, dest_dir)
 
 
-def _libreoffice_to_pdf(src: Path, out_dir: Path) -> Optional[Path]:
-    """DOCX/HTML → PDF via LibreOffice headless."""
+def _libreoffice_to_pdf(src: Path, out_dir: Path, timeout_sec: int = 90) -> Optional[Path]:
+    """DOCX/HTML → PDF via LibreOffice headless.
+
+    Eigenes UserInstallation-Profil + Kill der Prozessgruppe bei Timeout,
+    sonst bleiben soffice.bin-Zombies und blockieren den nächsten Convert.
+    """
     if not src.is_file():
         return None
+    import shutil
+    import signal
+    import tempfile
+    import time as _time
+
+    profile_dir = Path(tempfile.mkdtemp(prefix='lo-profile-'))
+    profile_uri = profile_dir.as_uri()
+    cmd = [
+        'libreoffice', '--headless', '--nofirststartwizard',
+        '--norestore', f'-env:UserInstallation={profile_uri}',
+        '--convert-to', 'pdf',
+        str(src), '--outdir', str(out_dir),
+    ]
+    proc = None
     try:
-        r = subprocess.run(
-            [
-                'libreoffice', '--headless', '--nofirststartwizard',
-                '--norestore', '--convert-to', 'pdf',
-                str(src), '--outdir', str(out_dir),
-            ],
-            capture_output=True, text=True, timeout=180,
+        proc = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            start_new_session=True,
         )
-        if r.returncode != 0:
-            logger.warning(f'LibreOffice PDF ({src.name}): {r.stderr or r.stdout}')
+        try:
+            stdout, stderr = proc.communicate(timeout=timeout_sec)
+        except subprocess.TimeoutExpired:
+            logger.warning(
+                'LibreOffice PDF Timeout (%ss) für %s — kill Prozessgruppe',
+                timeout_sec, src.name,
+            )
+            try:
+                os.killpg(proc.pid, signal.SIGKILL)
+            except (ProcessLookupError, PermissionError, OSError):
+                try:
+                    proc.kill()
+                except Exception:
+                    pass
+            try:
+                proc.communicate(timeout=5)
+            except Exception:
+                pass
+            # Nachzügler
+            subprocess.run(
+                ['pkill', '-9', '-f', f'soffice.bin.*{src.name}'],
+                capture_output=True, timeout=10,
+            )
+            return None
+
+        if proc.returncode != 0:
+            logger.warning(
+                'LibreOffice PDF (%s): %s',
+                src.name, (stderr or stdout or '').strip()[:500],
+            )
             return None
         pdf = out_dir / (src.stem + '.pdf')
+        # kurzes Warten auf NFS/CIFS flush
+        for _ in range(10):
+            if pdf.is_file():
+                break
+            _time.sleep(0.2)
         if pdf.is_file():
             _chmod_path(pdf, is_dir=False)
             _chown_path(pdf)
@@ -218,6 +268,13 @@ def _libreoffice_to_pdf(src: Path, out_dir: Path) -> Optional[Path]:
         logger.warning('LibreOffice nicht installiert — kein PDF-Publish')
     except Exception as e:
         logger.warning(f'LibreOffice PDF Fehler: {e}')
+        if proc and proc.poll() is None:
+            try:
+                os.killpg(proc.pid, signal.SIGKILL)
+            except Exception:
+                pass
+    finally:
+        shutil.rmtree(profile_dir, ignore_errors=True)
     return None
 
 
