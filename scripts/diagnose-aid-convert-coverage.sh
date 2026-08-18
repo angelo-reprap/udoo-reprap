@@ -228,7 +228,10 @@ try:
         print(f'Skill weight avg:     {agg["avg"]}')
     if 'level' in fields:
         print('Skill level values:   ', list(ConsultantSkill.objects.values_list('level', flat=True).distinct()[:15]))
-    if 'category' in fields:
+    if 'category_name' in fields:
+        top = list(ConsultantSkill.objects.values('category_name').annotate(n=Count('id')).order_by('-n')[:8])
+        print('Top skill categories: ', top)
+    elif 'category' in fields:
         top = list(ConsultantSkill.objects.values('category').annotate(n=Count('id')).order_by('-n')[:8])
         print('Top skill categories: ', top)
 except Exception as e:
