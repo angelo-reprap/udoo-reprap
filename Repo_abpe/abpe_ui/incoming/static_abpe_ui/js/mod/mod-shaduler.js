@@ -195,12 +195,13 @@
     if (name === 'regeln') {
       return (
         '<div class="sh-pane" data-pane="regeln"><div class="sh-card">' +
-        '<div class="card-h"><i class="bi bi-sliders"></i> ' + _t('sh.tab_regeln', 'Regeln') +
-        '<a href="/admin/abpe_shaduler/prozessregel/" target="_blank" rel="noopener" ' +
-        'style="margin-left:auto;font-size:.8rem;font-weight:500">' +
-        _t('sh.regeln_admin_link', 'Zum Admin öffnen') + '</a></div>' +
-        '<p class="sh-hint" data-i18n="sh.regeln_admin_hint">Regeln vorerst im Django-Admin.</p>' +
-        '<div id="sh-regeln-list"></div></div></div>'
+        '<div class="card-h"><i class="bi bi-gear-wide-connected"></i> ' + _t('sh.tab_regeln', 'Regeln') +
+        '</div>' +
+        '<div id="sh-art-defaults" class="sh-art-defaults"></div>' +
+        '<p class="sh-hint" data-i18n="sh.regeln_matching_hint">' +
+        esc(_t('sh.regeln_matching_hint',
+          'Automations-Regeln (Angebot/Vertrag/…) gehören zum Matching — nicht hier.')) +
+        '</p></div></div>'
       );
     }
     return (
@@ -288,31 +289,140 @@
     }
   }
 
-  function loadRegeln() {
-    fetch(api('regeln/'), { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        var c = document.getElementById('sh-regeln-list');
-        if (!c) return;
-        var rows = data.results || [];
-        if (!rows.length) {
-          c.innerHTML = '<div class="none" style="padding:8px">' + esc(_t('sh.regeln_leer', 'Noch keine Regeln — Seed oder Admin.')) + '</div>';
-          return;
-        }
-        c.innerHTML = rows.map(function (r) {
-          return (
-            '<div class="ritem" style="margin-bottom:8px">' +
-            '<div class="top"><b class="hl">' + esc(r.name) + '</b>' +
-            '<span class="src">' + esc(r.ausloeser_typ) + '=' + esc(r.ausloeser_wert) + '</span></div>' +
-            '<div class="meta">' + esc(String(r.schritte)) + ' Schritte</div></div>'
-          );
-        }).join('');
-        refreshStats();
-      })
-      .catch(function () {
-        var c = document.getElementById('sh-regeln-list');
-        if (c) c.innerHTML = '<div class="none">Fehler beim Laden</div>';
+
+  function renderArtDefaultsEditor() {
+    var host = document.getElementById('sh-art-defaults');
+    if (!host) return;
+
+    function numCell(art, key, label, val) {
+      return (
+        '<label class="sh-art-def-cell">' +
+        '<span>' + esc(label) + '</span>' +
+        '<input type="number" min="0" max="99" step="1" inputmode="numeric" ' +
+        'class="sh-art-def-num" data-art="' + esc(art) + '" data-key="' + key + '" ' +
+        'value="' + esc(String(val)) + '" aria-label="' + esc(label) + '">' +
+        '</label>'
+      );
+    }
+
+    var head =
+      '<div class="sh-art-def-row sh-art-def-row--head">' +
+      '<div class="sh-art-def-name"></div>' +
+      '<div class="sh-art-def-nums">' +
+      '<span>Woche</span><span>Tag</span><span>Stunde</span><span>Minute</span>' +
+      '</div></div>';
+
+    var rows = TASK_ART_DEFAULT_ORDER.map(function (art) {
+      var label = _t(TASK_ART_DEFAULT_LABEL_KEYS[art] || '', TASK_ART_DEFAULT_LABELS[art] || art);
+      var def = getArtDefaults(art);
+      var en = !!def.enabled;
+      return (
+        '<div class="sh-art-def-row" data-art="' + esc(art) + '">' +
+        '<div class="sh-art-def-name">' +
+        '<div>' + esc(label) + '</div>' +
+        '<label class="sh-art-def-none">' +
+        '<input type="checkbox" class="sh-art-def-enabled" data-art="' + esc(art) + '"' +
+        (en ? '' : ' checked') + '> kein Default</label>' +
+        '</div>' +
+        '<div class="sh-art-def-nums' + (en ? '' : ' is-off') + '">' +
+        numCell(art, 'weeks', 'Woche', def.weeks) +
+        numCell(art, 'days', 'Tag', def.days) +
+        numCell(art, 'hours', 'Stunde', def.hours) +
+        numCell(art, 'minutes', 'Minute', def.minutes) +
+        '</div></div>'
+      );
+    }).join('');
+
+    host.innerHTML =
+      '<div class="sh-art-defaults-h">' +
+      '<b>' + esc(_t('sh.art_defaults_title', 'Neue Aufgabe — Defaults je Art')) + '</b>' +
+      '<span class="sh-art-defaults-hint">' +
+      esc(_t('sh.art_defaults_hint',
+        'Offset ab jetzt: Woche + Tag + Stunde + Minute → Fälligkeit. Danach im Dialog weiter editierbar.')) +
+      '</span></div>' +
+      '<div class="sh-art-def-list">' + head + rows + '</div>' +
+      '<div class="sh-art-def-actions">' +
+      '<button type="button" class="sh-btn sh-btn-primary" id="sh-art-def-save">' +
+      esc(_t('sh.art_defaults_save', 'Defaults speichern')) + '</button>' +
+      '<button type="button" class="sh-btn" id="sh-art-def-reset">' +
+      esc(_t('sh.art_defaults_reset', 'Werkseinstellungen')) + '</button>' +
+      '<span class="sh-art-def-status" id="sh-art-def-status"></span></div>';
+
+    function syncRowEnabled(row) {
+      if (!row) return;
+      var cb = row.querySelector('.sh-art-def-enabled');
+      var nums = row.querySelector('.sh-art-def-nums');
+      var off = !!(cb && cb.checked);
+      if (nums) nums.classList.toggle('is-off', off);
+      row.querySelectorAll('.sh-art-def-num').forEach(function (inp) {
+        inp.disabled = off;
       });
+    }
+
+    host.querySelectorAll('.sh-art-def-row[data-art]').forEach(syncRowEnabled);
+    host.querySelectorAll('.sh-art-def-enabled').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        syncRowEnabled(cb.closest('.sh-art-def-row'));
+      });
+    });
+
+    var status = document.getElementById('sh-art-def-status');
+    var saveBtn = document.getElementById('sh-art-def-save');
+    var resetBtn = document.getElementById('sh-art-def-reset');
+
+    if (saveBtn) {
+      saveBtn.onclick = function () {
+        var next = {};
+        host.querySelectorAll('.sh-art-def-row[data-art]').forEach(function (row) {
+          var art = row.getAttribute('data-art');
+          var none = !!(row.querySelector('.sh-art-def-enabled') || {}).checked;
+          if (none) {
+            next[art] = { weeks: 0, days: 0, hours: 0, minutes: 0, enabled: false };
+            return;
+          }
+          var read = function (key) {
+            var el = row.querySelector('.sh-art-def-num[data-key="' + key + '"]');
+            var n = el ? parseInt(el.value, 10) : 0;
+            if (isNaN(n) || n < 0) n = 0;
+            if (el) el.value = String(n);
+            return n;
+          };
+          var pack = {
+            weeks: read('weeks'),
+            days: read('days'),
+            hours: read('hours'),
+            minutes: read('minutes'),
+            enabled: true,
+          };
+          if (pack.weeks + pack.days + pack.hours + pack.minutes === 0) {
+            pack.enabled = false;
+            var cb = row.querySelector('.sh-art-def-enabled');
+            if (cb) cb.checked = true;
+            syncRowEnabled(row);
+          }
+          next[art] = pack;
+        });
+        saveArtDefaultsOverride(next);
+        if (status) {
+          status.textContent = _t(
+            'sh.art_defaults_saved',
+            'Gespeichert. Gilt ab der nächsten „Neue Aufgabe“ / Outreach-WV.'
+          );
+        }
+      };
+    }
+    if (resetBtn) {
+      resetBtn.onclick = function () {
+        saveArtDefaultsOverride(null);
+        renderArtDefaultsEditor();
+        var st = document.getElementById('sh-art-def-status');
+        if (st) st.textContent = _t('sh.art_defaults_restored', 'Werkseinstellungen wiederhergestellt.');
+      };
+    }
+  }
+
+  function loadRegeln() {
+    renderArtDefaultsEditor();
   }
 
   function ensureTasks(cb) {
@@ -1567,6 +1677,197 @@
     return m ? m[1].trim() : '';
   }
 
+
+  // Defaults pro Aufgaben-Art: Offset ab jetzt = Woche + Tag + Stunde + Minute.
+  // Unter Regeln einstellbar. Termin = „kein Default“.
+  var TASK_ART_DEFAULTS_BASE = {
+    anruf: { weeks: 0, days: 0, hours: 1, minutes: 0, enabled: true },
+    sms_messenger: { weeks: 0, days: 0, hours: 1, minutes: 0, enabled: true },
+    wiedervorlage: { weeks: 0, days: 1, hours: 0, minutes: 0, enabled: true },
+    email: { weeks: 0, days: 0, hours: 2, minutes: 0, enabled: true },
+    post: { weeks: 0, days: 2, hours: 0, minutes: 0, enabled: true },
+    termin: { weeks: 0, days: 0, hours: 0, minutes: 0, enabled: false },
+    dokument: { weeks: 0, days: 1, hours: 0, minutes: 0, enabled: true },
+    intern: { weeks: 0, days: 1, hours: 0, minutes: 0, enabled: true },
+  };
+  var TASK_ART_DEFAULT_LABELS = {
+    anruf: 'Anruf',
+    sms_messenger: 'WhatsApp',
+    wiedervorlage: 'Wiedervorlage',
+    email: 'E-Mail',
+    post: 'Post',
+    termin: 'Termin',
+    dokument: 'Dokument',
+    intern: 'Intern',
+  };
+  var TASK_ART_DEFAULT_LABEL_KEYS = {
+    anruf: 'sh.art_anruf_one',
+    sms_messenger: 'sh.art_sms_messenger_short',
+    wiedervorlage: 'sh.art_wiedervorlage_one',
+    email: 'sh.art_email_one',
+    post: 'sh.art_post',
+    termin: 'sh.art_termin_one',
+    dokument: 'sh.art_dokument_one',
+    intern: 'sh.art_intern_one',
+  };
+  var TASK_ART_DEFAULT_ORDER = [
+    'anruf', 'sms_messenger', 'wiedervorlage', 'email',
+    'post', 'termin', 'dokument', 'intern',
+  ];
+  var ART_DEFAULTS_LS_KEY = 'sh_task_art_defaults_v2';
+
+  function nzInt(v, fallback) {
+    var n = parseInt(v, 10);
+    return isNaN(n) || n < 0 ? (fallback || 0) : n;
+  }
+
+  /** Altes Format {days, dauer_min} → Woche/Tag/Std/Min. */
+  function migrateLegacyArtDefault(raw) {
+    if (!raw || typeof raw !== 'object') {
+      return { weeks: 0, days: 0, hours: 0, minutes: 0, enabled: false };
+    }
+    if (raw.weeks != null || raw.hours != null || raw.minutes != null || raw.enabled === false || raw.enabled === true) {
+      var weeks = nzInt(raw.weeks, 0);
+      var days = nzInt(raw.days, 0);
+      var hours = nzInt(raw.hours, 0);
+      var minutes = nzInt(raw.minutes, 0);
+      var enabled = raw.enabled !== false && (weeks + days + hours + minutes > 0 || raw.enabled === true);
+      if (raw.enabled === false) enabled = false;
+      return { weeks: weeks, days: days, hours: hours, minutes: minutes, enabled: enabled };
+    }
+    var legDays = raw.days != null && raw.days !== '' ? nzInt(raw.days, 0) : 0;
+    var dur = raw.dauer_min != null && raw.dauer_min !== '' ? nzInt(raw.dauer_min, 0) : 0;
+    if (raw.days == null && raw.dauer_min == null) {
+      return { weeks: 0, days: 0, hours: 0, minutes: 0, enabled: false };
+    }
+    return {
+      weeks: 0,
+      days: (raw.days != null && raw.days !== '') ? legDays : 0,
+      hours: Math.floor(dur / 60),
+      minutes: dur % 60,
+      enabled: !!(dur || (raw.days != null && raw.days !== '')),
+    };
+  }
+
+  function loadArtDefaultsOverride() {
+    try {
+      var raw = localStorage.getItem(ART_DEFAULTS_LS_KEY);
+      if (!raw) {
+        var old = localStorage.getItem('sh_task_art_defaults');
+        if (!old) return {};
+        var o1 = JSON.parse(old);
+        if (!o1 || typeof o1 !== 'object') return {};
+        var migrated = {};
+        Object.keys(o1).forEach(function (k) {
+          migrated[k] = migrateLegacyArtDefault(o1[k]);
+        });
+        localStorage.setItem(ART_DEFAULTS_LS_KEY, JSON.stringify(migrated));
+        return migrated;
+      }
+      var o = JSON.parse(raw);
+      return o && typeof o === 'object' ? o : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function saveArtDefaultsOverride(map) {
+    try {
+      if (!map || !Object.keys(map).length) {
+        localStorage.removeItem(ART_DEFAULTS_LS_KEY);
+      } else {
+        localStorage.setItem(ART_DEFAULTS_LS_KEY, JSON.stringify(map));
+      }
+    } catch (e) { /* ignore */ }
+  }
+
+  function getArtDefaults(art) {
+    var base = migrateLegacyArtDefault(TASK_ART_DEFAULTS_BASE[art]);
+    var overRaw = loadArtDefaultsOverride()[art];
+    if (!overRaw) return base;
+    return migrateLegacyArtDefault(overRaw);
+  }
+
+  function formatDauerLabel(min) {
+    var m = parseInt(min, 10);
+    if (!m || m < 1) return '';
+    if (m % 60 === 0) return String(m / 60) + ' Std';
+    if (m === 90) return '1,5 Std';
+    if (m > 60) {
+      var h = Math.floor(m / 60);
+      var r = m % 60;
+      return h + ' Std ' + r + ' Min';
+    }
+    return String(m) + ' Min';
+  }
+
+  function ymdFromDate(d) {
+    return d.getFullYear() + '-' +
+      String(d.getMonth() + 1).padStart(2, '0') + '-' +
+      String(d.getDate()).padStart(2, '0');
+  }
+
+  /** Fälligkeit aus Art-Default (Offset ab jetzt). null wenn kein Default. */
+  function dueDateTimeFromArt(art) {
+    var def = getArtDefaults(art);
+    if (!def || !def.enabled) return null;
+    var weeks = nzInt(def.weeks, 0);
+    var days = nzInt(def.days, 0);
+    var hours = nzInt(def.hours, 0);
+    var minutes = nzInt(def.minutes, 0);
+    if (weeks + days + hours + minutes === 0) return null;
+    var d = new Date();
+    d.setDate(d.getDate() + weeks * 7 + days);
+    d.setHours(d.getHours() + hours);
+    d.setMinutes(d.getMinutes() + minutes, 0, 0);
+    return {
+      date: ymdFromDate(d),
+      time: String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'),
+      def: def,
+    };
+  }
+
+  function applyArtDueDefaults(art) {
+    var def = getArtDefaults(art);
+    var dateEl = document.getElementById('sh-mt-date');
+    var timeEl = document.getElementById('sh-mt-time');
+    var dauerEl = document.getElementById('sh-mt-dauer');
+    if (!dateEl && !timeEl && !dauerEl) return;
+    if (!def || !def.enabled) return;
+
+    var weeks = nzInt(def.weeks, 0);
+    var days = nzInt(def.days, 0);
+    var hours = nzInt(def.hours, 0);
+    var minutes = nzInt(def.minutes, 0);
+    if (weeks + days + hours + minutes === 0) return;
+
+    var d = new Date();
+    d.setDate(d.getDate() + weeks * 7 + days);
+    d.setHours(d.getHours() + hours);
+    d.setMinutes(d.getMinutes() + minutes, 0, 0);
+    if (dateEl) dateEl.value = ymdFromDate(d);
+    if (timeEl) {
+      timeEl.value = String(d.getHours()).padStart(2, '0') + ':' +
+        String(d.getMinutes()).padStart(2, '0');
+    }
+
+    if (dauerEl) {
+      var durMin = hours * 60 + minutes;
+      if (durMin > 0) {
+        var v = String(durMin);
+        if (!Array.prototype.some.call(dauerEl.options, function (o) { return o.value === v; })) {
+          var opt = document.createElement('option');
+          opt.value = v;
+          opt.textContent = formatDauerLabel(v) || (v + ' Min');
+          dauerEl.appendChild(opt);
+        }
+        dauerEl.value = v;
+      } else {
+        dauerEl.value = '';
+      }
+    }
+  }
+
   function defaultDueDateTime() {
     var d = new Date();
     d.setMinutes(0, 0, 0);
@@ -1720,8 +2021,11 @@
         ovl.querySelectorAll('#sh-mt-arts .sh-pick').forEach(function (x) { x.classList.remove('on'); });
         b.classList.add('on');
         selectedArt = b.getAttribute('data-art') || 'email';
+        applyArtDueDefaults(selectedArt);
       });
     });
+    // Start-Art: Defaults sofort setzen (weiter editierbar)
+    applyArtDueDefaults(selectedArt);
     ovl.querySelectorAll('.sh-due-quick .sh-pick').forEach(function (b) {
       b.addEventListener('click', function () {
         var q = b.getAttribute('data-quick');
@@ -2654,8 +2958,10 @@
         ovl.querySelectorAll('#sh-mt-arts .sh-pick').forEach(function (x) { x.classList.remove('on'); });
         b.classList.add('on');
         selectedArt = b.getAttribute('data-art') || 'wiedervorlage';
+        applyArtDueDefaults(selectedArt);
       });
     });
+    applyArtDueDefaults(selectedArt);
     document.getElementById('sh-mt-close').onclick = closeMailTaskChooser;
     ovl.addEventListener('click', function (ev) {
       if (ev.target === ovl) closeMailTaskChooser();
@@ -4087,5 +4393,7 @@
     setTab: setTab,
     refreshStats: refreshStats,
     _t: _t,
+    getArtDefaults: getArtDefaults,
+    dueDateTimeFromArt: dueDateTimeFromArt,
   };
 })(window);

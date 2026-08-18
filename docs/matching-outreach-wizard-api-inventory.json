@@ -1,0 +1,1217 @@
+{
+  "apps": [
+    {
+      "app": "abpe_matching_workflow",
+      "mount": "/matching/",
+      "role": "Anfrage, Match, Shortlist, Kanban, Status",
+      "urls_file": "Repo_abpe/abpe_matching_workflow/incoming/urls.py",
+      "views_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+      "routes": [
+        {
+          "full_path": "/matching/api/stats/",
+          "route": "api/stats/",
+          "name": "api_stats",
+          "view": "views.api_stats",
+          "view_base": "api_stats",
+          "methods": [
+            "GET"
+          ],
+          "summary": "Matching Dashboard Statistiken",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 98
+        },
+        {
+          "full_path": "/matching/api/requests/",
+          "route": "api/requests/",
+          "name": "api_project_list",
+          "view": "views.api_project_list",
+          "view_base": "api_project_list",
+          "methods": [
+            "GET"
+          ],
+          "summary": "Projektanfragen Liste",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 138
+        },
+        {
+          "full_path": "/matching/api/account/<str:account_crm_id>/requests/",
+          "route": "api/account/<str:account_crm_id>/requests/",
+          "name": "api_account_requests",
+          "view": "views.api_account_requests",
+          "view_base": "api_account_requests",
+          "methods": [
+            "?"
+          ],
+          "summary": "Projektanfragen einer Firma (crm_account_id) — read-only fuer Softphone Firma-Reiter.",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 1011
+        },
+        {
+          "full_path": "/matching/api/requests/create/",
+          "route": "api/requests/create/",
+          "name": "api_project_create",
+          "view": "views.api_project_create",
+          "view_base": "api_project_create",
+          "methods": [
+            "POST"
+          ],
+          "summary": "Projektanfrage erstellen",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 249
+        },
+        {
+          "full_path": "/matching/api/requests/<uuid:project_id>/",
+          "route": "api/requests/<uuid:project_id>/",
+          "name": "api_project_detail",
+          "view": "views.api_project_detail",
+          "view_base": "api_project_detail",
+          "methods": [
+            "GET"
+          ],
+          "summary": "Projektanfrage Detail",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 198
+        },
+        {
+          "full_path": "/matching/api/requests/<uuid:project_id>/update/",
+          "route": "api/requests/<uuid:project_id>/update/",
+          "name": "api_project_update",
+          "view": "views.api_project_update",
+          "view_base": "api_project_update",
+          "methods": [
+            "PATCH"
+          ],
+          "summary": "Projektanfrage aktualisieren",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 290
+        },
+        {
+          "full_path": "/matching/api/requests/<uuid:project_id>/match/",
+          "route": "api/requests/<uuid:project_id>/match/",
+          "name": "api_run_matching",
+          "view": "views.api_run_matching",
+          "view_base": "api_run_matching",
+          "methods": [
+            "POST"
+          ],
+          "summary": "Matching starten (async)",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 323
+        },
+        {
+          "full_path": "/matching/api/requests/<uuid:project_id>/shortlist/",
+          "route": "api/requests/<uuid:project_id>/shortlist/",
+          "name": "api_shortlist",
+          "view": "views.api_shortlist",
+          "view_base": "api_shortlist",
+          "methods": [
+            "GET"
+          ],
+          "summary": "Shortlist abrufen",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 356
+        },
+        {
+          "full_path": "/matching/api/requests/<uuid:project_id>/abschluss/",
+          "route": "api/requests/<uuid:project_id>/abschluss/",
+          "name": "api_abschluss",
+          "view": "views.api_abschluss",
+          "view_base": "api_abschluss",
+          "methods": [
+            "GET"
+          ],
+          "summary": "Projektabschluss Daten",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 919
+        },
+        {
+          "full_path": "/matching/api/requests/<uuid:project_id>/kanban/",
+          "route": "api/requests/<uuid:project_id>/kanban/",
+          "name": "api_kanban",
+          "view": "views.api_kanban",
+          "view_base": "api_kanban",
+          "methods": [
+            "GET"
+          ],
+          "summary": "Kanban Board für ein Projekt",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 771
+        },
+        {
+          "full_path": "/matching/api/match/<uuid:match_id>/placement/",
+          "route": "api/match/<uuid:match_id>/placement/",
+          "name": "api_placement_details",
+          "view": "views.api_placement_details",
+          "view_base": "api_placement_details",
+          "methods": [
+            "POST"
+          ],
+          "summary": "Vermittlungsdetails speichern",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 965
+        },
+        {
+          "full_path": "/matching/api/match/<uuid:match_id>/move/",
+          "route": "api/match/<uuid:match_id>/move/",
+          "name": "api_kanban_move",
+          "view": "views.api_kanban_move",
+          "view_base": "api_kanban_move",
+          "methods": [
+            "POST"
+          ],
+          "summary": "Kanban Karte verschieben",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 831
+        },
+        {
+          "full_path": "/matching/api/requests/<uuid:project_id>/close/",
+          "route": "api/requests/<uuid:project_id>/close/",
+          "name": "api_project_close",
+          "view": "views.api_project_close",
+          "view_base": "api_project_close",
+          "methods": [
+            "POST"
+          ],
+          "summary": "Projekt abschließen",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 491
+        },
+        {
+          "full_path": "/matching/api/requests/<uuid:project_id>/archive/",
+          "route": "api/requests/<uuid:project_id>/archive/",
+          "name": "api_project_archive",
+          "view": "views.api_project_archive",
+          "view_base": "api_project_archive",
+          "methods": [
+            "POST"
+          ],
+          "summary": "Projekt archivieren",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 538
+        },
+        {
+          "full_path": "/matching/api/match/<uuid:match_id>/",
+          "route": "api/match/<uuid:match_id>/",
+          "name": "api_match_detail",
+          "view": "views.api_match_detail",
+          "view_base": "api_match_detail",
+          "methods": [
+            "GET"
+          ],
+          "summary": "Match-Details abrufen",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 455
+        },
+        {
+          "full_path": "/matching/api/match/<uuid:match_id>/status/",
+          "route": "api/match/<uuid:match_id>/status/",
+          "name": "api_match_status",
+          "view": "views.api_match_status",
+          "view_base": "api_match_status",
+          "methods": [
+            "POST"
+          ],
+          "summary": "Match-Status aktualisieren",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 406
+        },
+        {
+          "full_path": "/matching/api/match/<uuid:match_id>/call/",
+          "route": "api/match/<uuid:match_id>/call/",
+          "name": "api_call",
+          "view": "views.api_call",
+          "view_base": "api_call",
+          "methods": [
+            "POST"
+          ],
+          "summary": "Click-to-Call",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 558
+        },
+        {
+          "full_path": "/matching/api/crm/sync/<uuid:project_id>/",
+          "route": "api/crm/sync/<uuid:project_id>/",
+          "name": "api_crm_sync",
+          "view": "views.api_crm_sync",
+          "view_base": "api_crm_sync",
+          "methods": [
+            "POST"
+          ],
+          "summary": "CRM Sync für Projekt",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 587
+        },
+        {
+          "full_path": "/matching/api/crm/contacts/",
+          "route": "api/crm/contacts/",
+          "name": "api_crm_contacts",
+          "view": "views.api_crm_contacts",
+          "view_base": "api_crm_contacts",
+          "methods": [
+            "GET"
+          ],
+          "summary": "SuiteCRM Kontakte suchen",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 601
+        },
+        {
+          "full_path": "/matching/api/crm/accounts/",
+          "route": "api/crm/accounts/",
+          "name": "api_crm_accounts",
+          "view": "views.api_crm_accounts",
+          "view_base": "api_crm_accounts",
+          "methods": [
+            "GET"
+          ],
+          "summary": "SuiteCRM Accounts suchen",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 647
+        },
+        {
+          "full_path": "/matching/api/reporting/",
+          "route": "api/reporting/",
+          "name": "api_reporting",
+          "view": "views.api_reporting",
+          "view_base": "api_reporting",
+          "methods": [
+            "GET"
+          ],
+          "summary": "Reporting-Daten",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 680
+        },
+        {
+          "full_path": "/matching/api/settings/",
+          "route": "api/settings/",
+          "name": "api_settings_get",
+          "view": "views.api_settings_get",
+          "view_base": "api_settings_get",
+          "methods": [
+            "GET"
+          ],
+          "summary": "Matching-Settings lesen",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 737
+        },
+        {
+          "full_path": "/matching/api/settings/save/",
+          "route": "api/settings/save/",
+          "name": "api_settings_save",
+          "view": "views.api_settings_save",
+          "view_base": "api_settings_save",
+          "methods": [
+            "POST"
+          ],
+          "summary": "Matching-Settings speichern",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": 749
+        },
+        {
+          "full_path": "/matching/api/schema/",
+          "route": "api/schema/",
+          "name": "",
+          "view": "SpectacularAPIView.as_view(",
+          "view_base": "as_view",
+          "methods": [
+            "GET"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/matching/api/docs/",
+          "route": "api/docs/",
+          "name": "",
+          "view": "SpectacularSwaggerView.as_view(url_name='abpe_matching_workflow:schema'",
+          "view_base": "as_view",
+          "methods": [
+            "GET"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/matching/api/redoc/",
+          "route": "api/redoc/",
+          "name": "",
+          "view": "SpectacularRedocView.as_view(url_name='abpe_matching_workflow:schema'",
+          "view_base": "as_view",
+          "methods": [
+            "GET"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_matching_workflow/incoming/views.py",
+          "lineno": null
+        }
+      ]
+    },
+    {
+      "app": "abpe_ki_wiz",
+      "mount": "/ki-wizard/",
+      "role": "KI Anfrage-Extrakt, Wizard-Sessions, Firma-Web",
+      "urls_file": "Repo_abpe/abpe_ki_wiz/incoming/urls.py",
+      "views_file": "Repo_abpe/abpe_ki_wiz/incoming/api.py",
+      "routes": [
+        {
+          "full_path": "/ki-wizard/api/health/",
+          "route": "api/health/",
+          "name": "",
+          "view": "api.KiWizardHealthAPI.as_view(",
+          "view_base": "as_view",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_ki_wiz/incoming/api.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/ki-wizard/api/wizards/",
+          "route": "api/wizards/",
+          "name": "",
+          "view": "api.KiWizardListAPI.as_view(",
+          "view_base": "as_view",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_ki_wiz/incoming/api.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/ki-wizard/api/wizards/<str:wizard_id>/catalog/",
+          "route": "api/wizards/<str:wizard_id>/catalog/",
+          "name": "",
+          "view": "api.KiWizardCatalogAPI.as_view(",
+          "view_base": "as_view",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_ki_wiz/incoming/api.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/ki-wizard/api/prompts/",
+          "route": "api/prompts/",
+          "name": "",
+          "view": "api.KiWizardPromptListAPI.as_view(",
+          "view_base": "as_view",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_ki_wiz/incoming/api.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/ki-wizard/api/matching-anfrage/extract/",
+          "route": "api/matching-anfrage/extract/",
+          "name": "",
+          "view": "api.KiWizardMatchingAnfrageExtractAPI.as_view(",
+          "view_base": "as_view",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_ki_wiz/incoming/api.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/ki-wizard/api/firma-web/enrich/",
+          "route": "api/firma-web/enrich/",
+          "name": "",
+          "view": "api.KiWizardFirmaWebEnrichAPI.as_view(",
+          "view_base": "as_view",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_ki_wiz/incoming/api.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/ki-wizard/api/wizards/<str:wizard_id>/session/",
+          "route": "api/wizards/<str:wizard_id>/session/",
+          "name": "",
+          "view": "api.KiWizardSessionCreateAPI.as_view(",
+          "view_base": "as_view",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_ki_wiz/incoming/api.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/ki-wizard/api/session/<uuid:session_id>/",
+          "route": "api/session/<uuid:session_id>/",
+          "name": "",
+          "view": "api.KiWizardSessionDetailAPI.as_view(",
+          "view_base": "as_view",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_ki_wiz/incoming/api.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/ki-wizard/api/session/<uuid:session_id>/analyze/",
+          "route": "api/session/<uuid:session_id>/analyze/",
+          "name": "",
+          "view": "api.KiWizardSessionAnalyzeAPI.as_view(",
+          "view_base": "as_view",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_ki_wiz/incoming/api.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/ki-wizard/api/session/<uuid:session_id>/clarify/",
+          "route": "api/session/<uuid:session_id>/clarify/",
+          "name": "",
+          "view": "api.KiWizardSessionClarifyAPI.as_view(",
+          "view_base": "as_view",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_ki_wiz/incoming/api.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/ki-wizard/api/session/<uuid:session_id>/suggest-meta/",
+          "route": "api/session/<uuid:session_id>/suggest-meta/",
+          "name": "",
+          "view": "api.KiWizardSessionSuggestMetaAPI.as_view(",
+          "view_base": "as_view",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_ki_wiz/incoming/api.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/ki-wizard/api/session/<uuid:session_id>/generate/",
+          "route": "api/session/<uuid:session_id>/generate/",
+          "name": "",
+          "view": "api.KiWizardSessionGenerateAPI.as_view(",
+          "view_base": "as_view",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_ki_wiz/incoming/api.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/ki-wizard/api/session/<uuid:session_id>/apply/",
+          "route": "api/session/<uuid:session_id>/apply/",
+          "name": "",
+          "view": "api.KiWizardSessionApplyAPI.as_view(",
+          "view_base": "as_view",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_ki_wiz/incoming/api.py",
+          "lineno": null
+        }
+      ]
+    },
+    {
+      "app": "abpe_shaduler",
+      "mount": "/shaduler/",
+      "role": "Aufgaben/Wiedervorlage, Matching-Terms, Shortlist-Reset, Request-Patch",
+      "urls_file": "Repo_abpe/abpe_shaduler/incoming/urls.py",
+      "views_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+      "routes": [
+        {
+          "full_path": "/shaduler/shaduler/",
+          "route": "shaduler/",
+          "name": "",
+          "view": "include('apps.abpe_shaduler.urls'",
+          "view_base": "include",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": null
+        },
+        {
+          "full_path": "/shaduler/api/stats/",
+          "route": "api/stats/",
+          "name": "api_stats",
+          "view": "views.api_stats",
+          "view_base": "api_stats",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 62
+        },
+        {
+          "full_path": "/shaduler/api/aufgaben/",
+          "route": "api/aufgaben/",
+          "name": "api_aufgaben_list",
+          "view": "views.api_aufgaben_list",
+          "view_base": "api_aufgaben_list",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 71
+        },
+        {
+          "full_path": "/shaduler/api/aufgaben/create/",
+          "route": "api/aufgaben/create/",
+          "name": "api_aufgabe_create",
+          "view": "views.api_aufgabe_create",
+          "view_base": "api_aufgabe_create",
+          "methods": [
+            "POST?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 92
+        },
+        {
+          "full_path": "/shaduler/api/aufgaben/<uuid:pk>/",
+          "route": "api/aufgaben/<uuid:pk>/",
+          "name": "api_aufgabe_detail",
+          "view": "views.api_aufgabe_detail",
+          "view_base": "api_aufgabe_detail",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 117
+        },
+        {
+          "full_path": "/shaduler/api/aufgaben/<uuid:pk>/ergebnis/",
+          "route": "api/aufgaben/<uuid:pk>/ergebnis/",
+          "name": "api_aufgabe_ergebnis",
+          "view": "views.api_aufgabe_ergebnis",
+          "view_base": "api_aufgabe_ergebnis",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 137
+        },
+        {
+          "full_path": "/shaduler/api/aufgaben/<uuid:pk>/snooze/",
+          "route": "api/aufgaben/<uuid:pk>/snooze/",
+          "name": "api_aufgabe_snooze",
+          "view": "views.api_aufgabe_snooze",
+          "view_base": "api_aufgabe_snooze",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 157
+        },
+        {
+          "full_path": "/shaduler/api/aufgaben/<uuid:pk>/delegieren/",
+          "route": "api/aufgaben/<uuid:pk>/delegieren/",
+          "name": "api_aufgabe_delegieren",
+          "view": "views.api_aufgabe_delegieren",
+          "view_base": "api_aufgabe_delegieren",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 167
+        },
+        {
+          "full_path": "/shaduler/api/aufgaben/ref/<str:typ>/<str:ref_id>/",
+          "route": "api/aufgaben/ref/<str:typ>/<str:ref_id>/",
+          "name": "api_aufgaben_fuer_ref",
+          "view": "views.api_aufgaben_fuer_ref",
+          "view_base": "api_aufgaben_fuer_ref",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 180
+        },
+        {
+          "full_path": "/shaduler/api/kalender/",
+          "route": "api/kalender/",
+          "name": "api_kalender",
+          "view": "views.api_kalender",
+          "view_base": "api_kalender",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 192
+        },
+        {
+          "full_path": "/shaduler/api/ergebnistypen/",
+          "route": "api/ergebnistypen/",
+          "name": "api_ergebnistypen",
+          "view": "views.api_ergebnistypen",
+          "view_base": "api_ergebnistypen",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 211
+        },
+        {
+          "full_path": "/shaduler/api/ki/vorschlag/",
+          "route": "api/ki/vorschlag/",
+          "name": "api_ki_vorschlag",
+          "view": "views.api_ki_vorschlag",
+          "view_base": "api_ki_vorschlag",
+          "methods": [
+            "?"
+          ],
+          "summary": "Optionaler DeepSeek-Vorschlag zur aktuellen Aufgabe (kein Auto-Apply).",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 237
+        },
+        {
+          "full_path": "/shaduler/api/inbox/",
+          "route": "api/inbox/",
+          "name": "api_inbox_list",
+          "view": "views.api_inbox_list",
+          "view_base": "api_inbox_list",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 256
+        },
+        {
+          "full_path": "/shaduler/api/inbox/crm-lookup/",
+          "route": "api/inbox/crm-lookup/",
+          "name": "api_inbox_crm_lookup",
+          "view": "views.api_inbox_crm_lookup",
+          "view_base": "api_inbox_crm_lookup",
+          "methods": [
+            "?"
+          ],
+          "summary": "Absender-E-Mail → CRM Kontakt/Firma (für Aufgabe-Dialog).",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 324
+        },
+        {
+          "full_path": "/shaduler/api/inbox/<str:mail_id>/view/",
+          "route": "api/inbox/<str:mail_id>/view/",
+          "name": "api_inbox_view",
+          "view": "views.api_inbox_view",
+          "view_base": "api_inbox_view",
+          "methods": [
+            "?"
+          ],
+          "summary": "Mail-Detail aus ES (Fallback wenn EDMS/IMAP 500).",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 299
+        },
+        {
+          "full_path": "/shaduler/api/inbox/<str:mail_id>/read/",
+          "route": "api/inbox/<str:mail_id>/read/",
+          "name": "api_inbox_mark_read",
+          "view": "views.api_inbox_mark_read",
+          "view_base": "api_inbox_mark_read",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 312
+        },
+        {
+          "full_path": "/shaduler/api/inbox/<str:mail_id>/aufgabe/",
+          "route": "api/inbox/<str:mail_id>/aufgabe/",
+          "name": "api_inbox_to_task",
+          "view": "views.api_inbox_to_task",
+          "view_base": "api_inbox_to_task",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 339
+        },
+        {
+          "full_path": "/shaduler/api/inbox/<str:mail_id>/ack-send/",
+          "route": "api/inbox/<str:mail_id>/ack-send/",
+          "name": "api_inbox_ack_send",
+          "view": "views.api_inbox_ack_send",
+          "view_base": "api_inbox_ack_send",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 366
+        },
+        {
+          "full_path": "/shaduler/api/radar/anfragen/",
+          "route": "api/radar/anfragen/",
+          "name": "api_radar_items",
+          "view": "views.api_radar_items",
+          "view_base": "api_radar_items",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 496
+        },
+        {
+          "full_path": "/shaduler/api/radar/anfragen/refresh/",
+          "route": "api/radar/anfragen/refresh/",
+          "name": "api_radar_refresh",
+          "view": "views.api_radar_refresh",
+          "view_base": "api_radar_refresh",
+          "methods": [
+            "?"
+          ],
+          "summary": "Manueller Poll Freelancermap + Gulp.",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 591
+        },
+        {
+          "full_path": "/shaduler/api/radar/anfragen/<str:pk>/",
+          "route": "api/radar/anfragen/<str:pk>/",
+          "name": "api_radar_item_detail",
+          "view": "views.api_radar_item_detail",
+          "view_base": "api_radar_item_detail",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 549
+        },
+        {
+          "full_path": "/shaduler/api/radar/anfragen/<str:pk>/uebernehmen/",
+          "route": "api/radar/anfragen/<str:pk>/uebernehmen/",
+          "name": "api_radar_takeover",
+          "view": "views.api_radar_takeover",
+          "view_base": "api_radar_takeover",
+          "methods": [
+            "?"
+          ],
+          "summary": "Interessant markieren (Matching-Vorbereitung).",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 559
+        },
+        {
+          "full_path": "/shaduler/api/radar/anfragen/<str:pk>/verwerfen/",
+          "route": "api/radar/anfragen/<str:pk>/verwerfen/",
+          "name": "api_radar_dismiss",
+          "view": "views.api_radar_dismiss",
+          "view_base": "api_radar_dismiss",
+          "methods": [
+            "?"
+          ],
+          "summary": "Archivieren / verwerfen.",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 570
+        },
+        {
+          "full_path": "/shaduler/api/radar/anfragen/<str:pk>/sperren/",
+          "route": "api/radar/anfragen/<str:pk>/sperren/",
+          "name": "api_radar_block",
+          "view": "views.api_radar_block",
+          "view_base": "api_radar_block",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 581
+        },
+        {
+          "full_path": "/shaduler/api/radar/gruppe/<uuid:pk>/trennen/",
+          "route": "api/radar/gruppe/<uuid:pk>/trennen/",
+          "name": "api_radar_group_split",
+          "view": "views.api_radar_group_split",
+          "view_base": "api_radar_group_split",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 611
+        },
+        {
+          "full_path": "/shaduler/api/radar/gruppe/<uuid:pk>/mergen/",
+          "route": "api/radar/gruppe/<uuid:pk>/mergen/",
+          "name": "api_radar_group_merge",
+          "view": "views.api_radar_group_merge",
+          "view_base": "api_radar_group_merge",
+          "methods": [
+            "?"
+          ],
+          "summary": "Manuell mergen: Body {item_ids: […]} — pk = bestehende Gruppe oder erstes Item.",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 621
+        },
+        {
+          "full_path": "/shaduler/api/radar/berater/",
+          "route": "api/radar/berater/",
+          "name": "api_radar_consultants",
+          "view": "views.api_radar_consultants",
+          "view_base": "api_radar_consultants",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 636
+        },
+        {
+          "full_path": "/shaduler/api/radar/berater/seed/",
+          "route": "api/radar/berater/seed/",
+          "name": "api_radar_berater_seed",
+          "view": "views.api_radar_berater_seed",
+          "view_base": "api_radar_berater_seed",
+          "methods": [
+            "?"
+          ],
+          "summary": "CRM gulp_id_c → Radar + Soft-Delete + Reindex.",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 700
+        },
+        {
+          "full_path": "/shaduler/api/radar/berater/reindex/",
+          "route": "api/radar/berater/reindex/",
+          "name": "api_radar_berater_reindex",
+          "view": "views.api_radar_berater_reindex",
+          "view_base": "api_radar_berater_reindex",
+          "methods": [
+            "?"
+          ],
+          "summary": "Manueller Index-Update: CRM-Sync + ES (wie 30-Min-Job).",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 820
+        },
+        {
+          "full_path": "/shaduler/api/radar/berater/gulp-aktualisieren/",
+          "route": "api/radar/berater/gulp-aktualisieren/",
+          "name": "api_radar_berater_gulp_refresh",
+          "view": "views.api_radar_berater_gulp_refresh",
+          "view_base": "api_radar_berater_gulp_refresh",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 718
+        },
+        {
+          "full_path": "/shaduler/api/radar/berater/gulp-verfuegbar/",
+          "route": "api/radar/berater/gulp-verfuegbar/",
+          "name": "api_radar_berater_gulp_available",
+          "view": "views.api_radar_berater_gulp_available",
+          "view_base": "api_radar_berater_gulp_available",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 746
+        },
+        {
+          "full_path": "/shaduler/api/radar/berater/fl-verfuegbar/",
+          "route": "api/radar/berater/fl-verfuegbar/",
+          "name": "api_radar_berater_fl_available",
+          "view": "views.api_radar_berater_fl_available",
+          "view_base": "api_radar_berater_fl_available",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 788
+        },
+        {
+          "full_path": "/shaduler/api/radar/berater/<uuid:pk>/",
+          "route": "api/radar/berater/<uuid:pk>/",
+          "name": "api_radar_consultant_detail",
+          "view": "views.api_radar_consultant_detail",
+          "view_base": "api_radar_consultant_detail",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 672
+        },
+        {
+          "full_path": "/shaduler/api/radar/berater/<uuid:pk>/bestaetigen/",
+          "route": "api/radar/berater/<uuid:pk>/bestaetigen/",
+          "name": "api_radar_consultant_confirm",
+          "view": "views.api_radar_consultant_confirm",
+          "view_base": "api_radar_consultant_confirm",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 684
+        },
+        {
+          "full_path": "/shaduler/api/radar/berater/<uuid:pk>/verwerfen/",
+          "route": "api/radar/berater/<uuid:pk>/verwerfen/",
+          "name": "api_radar_consultant_dismiss",
+          "view": "views.api_radar_consultant_dismiss",
+          "view_base": "api_radar_consultant_dismiss",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 692
+        },
+        {
+          "full_path": "/shaduler/api/radar/berater/einfuegen/",
+          "route": "api/radar/berater/einfuegen/",
+          "name": "api_radar_paste",
+          "view": "views.api_radar_paste",
+          "view_base": "api_radar_paste",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 846
+        },
+        {
+          "full_path": "/shaduler/api/matching/terms/<uuid:match_id>/",
+          "route": "api/matching/terms/<uuid:match_id>/",
+          "name": "api_matching_terms",
+          "view": "views.api_matching_terms",
+          "view_base": "api_matching_terms",
+          "methods": [
+            "?"
+          ],
+          "summary": "Anfrage-spezifische Verfügbarkeit/Konditionen (MatchingBeraterTerms).",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 883
+        },
+        {
+          "full_path": "/shaduler/api/regeln/",
+          "route": "api/regeln/",
+          "name": "api_regeln",
+          "view": "views.api_regeln",
+          "view_base": "api_regeln",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 861
+        },
+        {
+          "full_path": "/shaduler/api/webhook/<str:job_key>/",
+          "route": "api/webhook/<str:job_key>/",
+          "name": "api_webhook_job",
+          "view": "views.api_webhook_job",
+          "view_base": "api_webhook_job",
+          "methods": [
+            "?"
+          ],
+          "summary": "",
+          "view_file": "Repo_abpe/abpe_shaduler/incoming/views.py",
+          "lineno": 1319
+        }
+      ]
+    }
+  ],
+  "frontend_fetches": [
+    "/crm/api/account/",
+    "/crm/api/berater/",
+    "/crm/api/berater/?q=",
+    "/crm/api/berater/new/",
+    "/crm/api/contact/",
+    "/crm/api/email/send/",
+    "/crm/api/kunden/?q=",
+    "/crm/api/kunden/new/",
+    "/matching/api/crm/accounts/?q=",
+    "/matching/api/crm/contacts/?q=",
+    "/matching/api/firma-web/enrich/",
+    "/matching/api/match/",
+    "/matching/api/matches/",
+    "/matching/api/matching-anfrage/extract/",
+    "/matching/api/reporting/",
+    "/matching/api/requests/",
+    "/matching/api/requests/?archived=1&per_page=20",
+    "/matching/api/requests/?page=1&per_page=20",
+    "/matching/api/requests/?page=1&per_page=50",
+    "/matching/api/requests/create/",
+    "/matching/api/stats/",
+    "/shaduler/api/aufgaben/create/",
+    "/shaduler/api/inbox/",
+    "/shaduler/api/matching/request/",
+    "/shaduler/api/matching/shortlist/reset/",
+    "/shaduler/api/matching/terms/",
+    "/shaduler/api/radar/berater/einfuegen/"
+  ],
+  "wizard_gap": [
+    {
+      "id": "1_match",
+      "title": "Anfrage matchen → Shortlist (Score ≥ Threshold)",
+      "status": "exists",
+      "have": [
+        {
+          "path": "/matching/api/requests/<uuid>/match/",
+          "present": true
+        },
+        {
+          "path": "/matching/api/requests/<uuid>/shortlist/",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "note": ""
+    },
+    {
+      "id": "2_deep_reason",
+      "title": "Pro Kandidat: DeepSeek CV↔Anfrage Begründung (warum anschreiben / Chance)",
+      "status": "missing",
+      "have": [],
+      "missing": [
+        "/matching/api/match/<uuid>/deep-reason/",
+        "/ki-wizard/api/matching-outreach/reason/"
+      ],
+      "note": ""
+    },
+    {
+      "id": "3_letter_draft",
+      "title": "Persönliches Anschreiben entwerfen (editierbar)",
+      "status": "partial",
+      "have": [
+        {
+          "path": "/crm/api/email/send/",
+          "present": true
+        }
+      ],
+      "missing": [
+        "/matching/api/match/<uuid>/letter/draft/"
+      ],
+      "note": "Frontend hat STAGE_MAIL-Templates; kein DeepSeek-Draft-Endpoint."
+    },
+    {
+      "id": "4_letter_polish",
+      "title": "Optional: DeepSeek Anschreiben polieren (Stil behalten)",
+      "status": "missing",
+      "have": [],
+      "missing": [
+        "/matching/api/match/<uuid>/letter/polish/"
+      ],
+      "note": "CRM PBX hat polished_text für Call-Notes — nicht für Matching-Mail."
+    },
+    {
+      "id": "5_send",
+      "title": "Mail senden + Match-Status (angeschrieben)",
+      "status": "exists",
+      "have": [
+        {
+          "path": "/crm/api/email/send/",
+          "present": true
+        },
+        {
+          "path": "/matching/api/match/<uuid>/move/",
+          "present": true
+        },
+        {
+          "path": "/matching/api/match/<uuid>/status/",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "note": ""
+    },
+    {
+      "id": "6_wiedervorlage",
+      "title": "Wiedervorlage-Aufgabe anlegen (default, editierbar)",
+      "status": "partial",
+      "have": [
+        {
+          "path": "/shaduler/api/aufgaben/create/",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "note": "API existiert; Wizard-Flow nach Send noch nicht verdrahtet als outreach/complete."
+    },
+    {
+      "id": "7_next",
+      "title": "Nächster Kandidat (sequentieller Outreach-Wizard)",
+      "status": "missing",
+      "have": [],
+      "missing": [
+        "UI: Shortlist → Outreach-Wizard Modal-Sequenz",
+        "/matching/api/match/<uuid>/outreach/complete/"
+      ],
+      "note": ""
+    },
+    {
+      "id": "support_ki_anfrage",
+      "title": "Support: Anfrage aus E-Mail (KI-Anfragen-Wizard)",
+      "status": "exists",
+      "have": [
+        {
+          "path": "/ki-wizard/api/matching-anfrage/extract/",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "note": ""
+    },
+    {
+      "id": "support_terms",
+      "title": "Support: Berater-Terms / Shortlist-Reset / Request-Edit",
+      "status": "exists",
+      "have": [
+        {
+          "path": "/shaduler/api/matching/terms/<uuid>/",
+          "present": true
+        },
+        {
+          "path": "/shaduler/api/matching/shortlist/reset/<uuid>/",
+          "present": true
+        },
+        {
+          "path": "/shaduler/api/matching/request/<uuid>/",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "note": ""
+    }
+  ],
+  "live": [],
+  "crm_email_paths": [
+    "/crm/api/email/send/",
+    "/crm/api/email/templates/",
+    "/crm/api/emails/",
+    "/crm/api/telefon/voicemail/",
+    "/crm/email/compose/",
+    "/crm/emails/"
+  ]
+}

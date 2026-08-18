@@ -316,6 +316,20 @@ def api_project_update(request, project_id):
 # API: MATCHING
 # ============================================================
 
+def _project_skill_names(project) -> list:
+    """Flache Skill-Namen aus required_skills + extracted_technologies."""
+    names = []
+    for s in (project.required_skills or []):
+        if isinstance(s, dict) and s.get('name'):
+            names.append(str(s['name']).strip())
+        elif isinstance(s, str) and s.strip():
+            names.append(s.strip())
+    for t in (getattr(project, 'extracted_technologies', None) or []):
+        if t and str(t).strip() and str(t).strip() not in names:
+            names.append(str(t).strip())
+    return names
+
+
 @extend_schema(summary="Matching starten (async)")
 @csrf_exempt
 @api_view(['POST'])
@@ -324,6 +338,18 @@ def api_run_matching(request, project_id):
     """Startet Matching-Celery-Task für ein Projekt"""
     try:
         p = get_object_or_404(ProjectRequest, id=project_id)
+        skill_names = _project_skill_names(p)
+        if not skill_names:
+            return Response({
+                'success': False,
+                'error': (
+                    'Anfrage hat keine Skills (required_skills). '
+                    'Bitte Skills setzen („Erneut matchen“ oder Anfrage bearbeiten) '
+                    '— sonst liefert Matching Blindlinge.'
+                ),
+                'code': 'no_skills',
+            }, status=400)
+
         p.status = 'matching'
         p.save(update_fields=['status'])
 
@@ -335,14 +361,15 @@ def api_run_matching(request, project_id):
         except Exception as te:
             logger.warning(f"Celery nicht verfügbar: {te} — synchrones Matching")
             task_id = None
-            # Fallback: direkt matchen
-            from .services.matching_engine import MatchingEngine
-            MatchingEngine().run(p)
+            from .tasks import run_matching_async
+            # bind=True → .run() setzt self; direkter Aufruf würde project_id als self nehmen
+            run_matching_async.run(str(p.id))
 
         return Response({
             'success':  True,
             'task_id':  task_id,
             'status':   p.status,
+            'skills':   skill_names,
             'message':  'Matching gestartet',
         })
     except Exception as e:
@@ -358,18 +385,37 @@ def api_shortlist(request, project_id):
     try:
         p         = get_object_or_404(ProjectRequest, id=project_id)
         threshold = float(request.GET.get('threshold', p.shortlist_threshold))
+        skill_names = _project_skill_names(p)
 
         results = MatchResult.objects.filter(
             project_request=p
         ).select_related('consultant_cv').order_by('-overall_score')
 
+        # ProjectConsultant-IDs für Outreach/Mail (MatchResult.id ≠ PC.id)
+        pc_by_cv = {
+            pc.consultant_cv_id: pc
+            for pc in ProjectConsultant.objects.filter(project=p).only(
+                'id', 'consultant_cv_id', 'status'
+            )
+        }
+
         data = []
         for r in results:
             c = r.consultant_cv
+            pc = pc_by_cv.get(c.id)
+            email = ''
+            try:
+                email = (c.email or '').split(';')[0].strip()
+            except Exception:
+                email = ''
             data.append({
                 'id':             str(r.id),
+                'match_result_id': str(r.id),
+                'project_consultant_id': str(pc.id) if pc else None,
+                'pc_status':      pc.status if pc else None,
                 'consultant_id':  c.aid,
                 'name':           c.full_name,
+                'email':          email,
                 'location':       c.location,
                 'availability':   c.availability,
                 'overall_score':  round(r.overall_score, 3),
@@ -389,6 +435,15 @@ def api_shortlist(request, project_id):
             'results':   data,
             'count':     len(data),
             'above_threshold': sum(1 for d in data if d['above_threshold']),
+            # UI braucht Skills am Projekt — sonst Warnung „Keine Skills“ immer falsch
+            'project_id':       str(p.id),
+            'project_number':   p.project_number or '',
+            'project_title':    p.title or '',
+            'title':            p.title or '',
+            'required_skills':  p.required_skills or [],
+            'skills':           skill_names,
+            'extracted_technologies': list(getattr(p, 'extracted_technologies', None) or []),
+            'has_skills':       bool(skill_names),
         })
     except Exception as e:
         logger.exception(f"api_shortlist: {e}")
@@ -1051,4 +1106,142 @@ def api_account_requests(request, account_crm_id):
             'created_at':     p.created_at.isoformat() if p.created_at else '',
         })
     return JsonResponse({'requests': rows, 'account_crm_id': account_crm_id, 'total': len(rows)})
+
+
+# ============================================================
+# API: OUTREACH WIZARD (Alle anschreiben)
+# ============================================================
+
+def _ui_status_to_db(status: str) -> str:
+    """UI/STAGE_MAIL → ProjectConsultant.STATUS_CHOICES."""
+    mapping = {
+        'angeschrieben': 'contacted',
+        'contacted': 'contacted',
+        'interesse': 'interested',
+        'interested': 'interested',
+        'beim_kunden': 'client_interested',
+        'interview': 'interview_scheduled',
+        'vermittelt': 'accepted',
+        'absage': 'rejected',
+        'shortlist': 'identified',
+        'identified': 'identified',
+    }
+    return mapping.get((status or '').strip(), status or 'contacted')
+
+
+@extend_schema(summary="Outreach: DeepSeek-Begründung zu MatchResult")
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def api_outreach_deep_reason(request, match_result_id):
+    try:
+        from .services.outreach_wizard import resolve_match_result, build_deep_reason, ensure_project_consultant
+        mr = resolve_match_result(match_result_id)
+        pc = ensure_project_consultant(mr)
+        data = build_deep_reason(mr)
+        data['project_consultant_id'] = str(pc.id)
+        data['project_id'] = str(mr.project_request_id)
+        # Persist reason on PC if empty / refresh
+        if data.get('why') and (not pc.match_reason or request.data.get('persist', True)):
+            pc.match_reason = data['why']
+            pc.save(update_fields=['match_reason'])
+        return Response(data)
+    except Exception as e:
+        logger.exception('api_outreach_deep_reason: %s', e)
+        return Response({'ok': False, 'error': str(e)}, status=500)
+
+
+@extend_schema(summary="Outreach: Anschreiben-Draft")
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def api_outreach_letter_draft(request, match_result_id):
+    try:
+        from .services.outreach_wizard import (
+            resolve_match_result, build_letter_draft, build_deep_reason, ensure_project_consultant,
+        )
+        mr = resolve_match_result(match_result_id)
+        pc = ensure_project_consultant(mr)
+        body = request.data or {}
+        deep = body.get('deep_reason') if isinstance(body.get('deep_reason'), dict) else None
+        if body.get('refresh_reason') or not deep:
+            deep = build_deep_reason(mr)
+        data = build_letter_draft(mr, deep=deep, extra_notes=body.get('extra_notes') or '')
+        data['project_consultant_id'] = str(pc.id)
+        data['deep_reason'] = deep
+        return Response(data)
+    except Exception as e:
+        logger.exception('api_outreach_letter_draft: %s', e)
+        return Response({'ok': False, 'error': str(e)}, status=500)
+
+
+@extend_schema(summary="Outreach: Anschreiben polieren")
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def api_outreach_letter_polish(request):
+    try:
+        from .services.outreach_wizard import polish_letter
+        body = request.data or {}
+        text = body.get('draft_text') or body.get('body') or body.get('draft_html') or ''
+        if not str(text).strip():
+            return Response({'ok': False, 'error': 'draft_text fehlt'}, status=400)
+        data = polish_letter(str(text), keep_style=bool(body.get('keep_style', True)))
+        return Response(data)
+    except Exception as e:
+        logger.exception('api_outreach_letter_polish: %s', e)
+        return Response({'ok': False, 'error': str(e)}, status=500)
+
+
+@extend_schema(summary="Outreach: nach Send Status + optional Wiedervorlage-Meta")
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def api_outreach_complete(request, match_result_id):
+    """
+    Nach erfolgreichem CRM-Send: ProjectConsultant sicherstellen, Status contacted,
+    optional Task-Payload zurückgeben (Frontend ruft Shaduler auf).
+    """
+    try:
+        from .services.outreach_wizard import resolve_match_result, ensure_project_consultant
+        mr = resolve_match_result(match_result_id)
+        pc = ensure_project_consultant(mr)
+        body = request.data or {}
+        new_status = _ui_status_to_db(body.get('status') or 'contacted')
+        note = body.get('note') or 'Outreach-Wizard Anschreiben'
+        pc.set_status(new_status, note=note, user=getattr(request.user, 'username', 'system') or 'system')
+
+        c = mr.consultant_cv
+        project = mr.project_request
+        task = None
+        if body.get('create_task', True):
+            # Default +1 Tag (wie Shaduler Art-Default WV) — Frontend sendet faellig_am aus Regeln-Tab
+            due = (timezone.now() + timedelta(days=int(body.get('task_days') or 1))).date().isoformat()
+            task = {
+                'art': 'wiedervorlage',
+                'titel': f'WV Anschreiben — {c.full_name} — {project.project_number or project.title}',
+                'beschreibung': (
+                    f'Follow-up nach Outreach zu „{project.title}“.\n'
+                    f'Berater: {c.full_name} ({c.aid})\n'
+                    f'Match-Score: {mr.overall_score}'
+                ),
+                'ref_type': 'berater',
+                'ref_id': c.aid,
+                'prioritaet': int(body.get('task_priority') or 3),
+                'faellig_am': body.get('faellig_am') or due,
+            }
+            if body.get('faellig_zeit'):
+                task['faellig_zeit'] = body.get('faellig_zeit')
+
+        return Response({
+            'ok': True,
+            'success': True,
+            'match_result_id': str(mr.id),
+            'project_consultant_id': str(pc.id),
+            'status': pc.status,
+            'task': task,
+        })
+    except Exception as e:
+        logger.exception('api_outreach_complete: %s', e)
+        return Response({'ok': False, 'error': str(e)}, status=500)
 

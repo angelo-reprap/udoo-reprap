@@ -1037,6 +1037,14 @@ window.Matching = (function() {
 
                 content.innerHTML = html;
                 content.dataset.loaded = '1';
+                content.dataset.projectId = projectId;
+                window._matchingShortlistCache = {
+                    projectId: projectId,
+                    threshold: threshold,
+                    results: d.results || [],
+                    project_number: d.project_number || '',
+                    project_title: d.project_title || d.title || '',
+                };
             })
             .catch(e => {
                 if (loading) loading.style.display = 'none';
@@ -2933,6 +2941,10 @@ window.Matching = (function() {
             let d = {};
             try { d = await r.json(); } catch (_) {}
             if (!r.ok) {
+                if (d && (d.code === 'no_skills' || d.error)) {
+                    d.success = false;
+                    return d;
+                }
                 throw new Error(
                     (d && (d.error || d.detail)) || ('Matching HTTP ' + r.status)
                 );
@@ -2956,16 +2968,17 @@ window.Matching = (function() {
                     }, ms);
                 });
             } else {
-                alert(
-                    _t('matching.matching_error')
-                    + (d.error ? (': ' + d.error) : '')
-                    + (d.message ? (': ' + d.message) : '')
-                );
+                const msg = (d && (d.error || d.message)) || _t('matching.err_match');
+                if (d && d.code === 'no_skills') {
+                    alert(_kiT('match_no_skills', msg));
+                } else {
+                    alert(msg);
+                }
             }
         })
         .catch(e => {
-            console.error('Matching starten fehlgeschlagen:', e);
-            alert(_t('matching.matching_error') + ': ' + (e.message || e));
+            console.error(e);
+            alert(_t('matching.err_connection') + ': ' + (e.message || e));
         });
     }
 
@@ -3272,7 +3285,1057 @@ window.Matching = (function() {
     }
 
     function sendAllAboveThreshold() {
-        alert(_t('matching.send_all_phase2'));
+        openOutreachWizard();
+    }
+
+    // ── Outreach-Wizard („Alle anschreiben“) ───────────────────────────────
+    function _outreachCandidates() {
+        const cache = window._matchingShortlistCache || {};
+        const slider = document.getElementById('threshold-slider');
+        const t = slider ? (parseFloat(slider.value) / 100) : (cache.threshold || 0.45);
+        const fromDom = [...document.querySelectorAll('#shortlist-results .matching-card[data-score]')]
+            .filter(c => parseFloat(c.dataset.score) >= t)
+            .map(c => {
+                const id = c.dataset.id;
+                const hit = (cache.results || []).find(r => r.id === id) || {};
+                return {
+                    id: id,
+                    name: hit.name || (c.querySelector('div[style*="font-weight:700"]') || {}).textContent || id,
+                    score: parseFloat(c.dataset.score),
+                    email: hit.email || '',
+                    matched_skills: hit.matched_skills || [],
+                    match_reason: hit.match_reason || '',
+                    consultant_id: hit.consultant_id || '',
+                    project_consultant_id: hit.project_consultant_id || null,
+                    cv_editor_url: hit.cv_editor_url || '',
+                };
+            });
+        if (fromDom.length) return { threshold: t, list: fromDom, projectId: cache.projectId };
+        const list = (cache.results || [])
+            .filter(r => (r.overall_score || 0) >= t)
+            .map(r => ({
+                id: r.id,
+                name: r.name,
+                score: r.overall_score,
+                email: r.email || '',
+                matched_skills: r.matched_skills || [],
+                match_reason: r.match_reason || '',
+                consultant_id: r.consultant_id || '',
+                project_consultant_id: r.project_consultant_id || null,
+                cv_editor_url: r.cv_editor_url || '',
+            }));
+        return { threshold: t, list, projectId: cache.projectId };
+    }
+
+    function openOutreachWizard() {
+        const pack = _outreachCandidates();
+        if (!pack.list.length) {
+            alert(_kiT('outreach_none', 'Keine Berater oberhalb des Schwellwerts.'));
+            return;
+        }
+        window._outreachWizard = {
+            projectId: pack.projectId || (window.MATCHING_CONFIG && window.MATCHING_CONFIG.activeProject) || null,
+            queue: pack.list,
+            index: 0,
+            skipped: [],
+            sent: [],
+            deep: null,
+            draft: null,
+            emails: [],           // CRM-Vorschläge [{email, primary, …}]
+            selectedEmail: '',   // aktuell gewählte / übernommene An-Adresse
+            ccList: [],          // mehrere, Semikolon-getrennt
+            bccList: ['send@abcona.de'],
+            mailTarget: 'to',    // to | cc | bcc für kompakte Suche
+            crm_contact_id: '',
+            loading: false,
+            _searchTimers: {},
+        };
+        _renderOutreachWizard();
+        _outreachLoadCurrent();
+    }
+
+    function _outreachParseEmails(raw) {
+        return String(raw || '')
+            .split(/[;,\n]+/)
+            .map(s => s.trim())
+            .filter(s => s && s.indexOf('@') >= 0);
+    }
+
+    function _outreachJoinEmails(list) {
+        return (list || []).filter(Boolean).join('; ');
+    }
+
+    function _outreachAddEmails(list, addrs) {
+        const out = (list || []).slice();
+        const seen = {};
+        out.forEach(e => { seen[String(e).toLowerCase()] = true; });
+        (addrs || []).forEach(a => {
+            const e = String(a || '').trim();
+            if (!e || e.indexOf('@') < 0) return;
+            const k = e.toLowerCase();
+            if (seen[k]) return;
+            seen[k] = true;
+            out.push(e);
+        });
+        return out;
+    }
+
+
+    /** Shaduler Art-Defaults (gleicher Key wie Regeln-Tab). */
+    var _OW_ART_DEFAULTS_BASE = {
+        anruf: { weeks: 0, days: 0, hours: 1, minutes: 0, enabled: true },
+        sms_messenger: { weeks: 0, days: 0, hours: 1, minutes: 0, enabled: true },
+        wiedervorlage: { weeks: 0, days: 1, hours: 0, minutes: 0, enabled: true },
+        email: { weeks: 0, days: 0, hours: 2, minutes: 0, enabled: true },
+        post: { weeks: 0, days: 2, hours: 0, minutes: 0, enabled: true },
+        termin: { weeks: 0, days: 0, hours: 0, minutes: 0, enabled: false },
+        dokument: { weeks: 0, days: 1, hours: 0, minutes: 0, enabled: true },
+        intern: { weeks: 0, days: 1, hours: 0, minutes: 0, enabled: true },
+    };
+
+    function _owNzInt(v, fallback) {
+        var n = parseInt(v, 10);
+        return isNaN(n) || n < 0 ? (fallback || 0) : n;
+    }
+
+    function _owMigrateArtDefault(raw) {
+        if (!raw || typeof raw !== 'object') {
+            return { weeks: 0, days: 0, hours: 0, minutes: 0, enabled: false };
+        }
+        if (raw.weeks != null || raw.hours != null || raw.minutes != null || raw.enabled === false || raw.enabled === true) {
+            var weeks = _owNzInt(raw.weeks, 0);
+            var days = _owNzInt(raw.days, 0);
+            var hours = _owNzInt(raw.hours, 0);
+            var minutes = _owNzInt(raw.minutes, 0);
+            var enabled = raw.enabled !== false && (weeks + days + hours + minutes > 0 || raw.enabled === true);
+            if (raw.enabled === false) enabled = false;
+            return { weeks: weeks, days: days, hours: hours, minutes: minutes, enabled: enabled };
+        }
+        var legDays = raw.days != null && raw.days !== '' ? _owNzInt(raw.days, 0) : 0;
+        var dur = raw.dauer_min != null && raw.dauer_min !== '' ? _owNzInt(raw.dauer_min, 0) : 0;
+        if (raw.days == null && raw.dauer_min == null) {
+            return { weeks: 0, days: 0, hours: 0, minutes: 0, enabled: false };
+        }
+        return {
+            weeks: 0,
+            days: (raw.days != null && raw.days !== '') ? legDays : 0,
+            hours: Math.floor(dur / 60),
+            minutes: dur % 60,
+            enabled: !!(dur || (raw.days != null && raw.days !== '')),
+        };
+    }
+
+    function _owGetArtDefaults(art) {
+        if (window.Shaduler && typeof window.Shaduler.getArtDefaults === 'function') {
+            try { return window.Shaduler.getArtDefaults(art); } catch (e) { /* fall through */ }
+        }
+        var base = _owMigrateArtDefault(_OW_ART_DEFAULTS_BASE[art]);
+        try {
+            var raw = localStorage.getItem('sh_task_art_defaults_v2');
+            if (!raw) {
+                var old = localStorage.getItem('sh_task_art_defaults');
+                if (!old) return base;
+                var o1 = JSON.parse(old);
+                if (o1 && o1[art]) return _owMigrateArtDefault(o1[art]);
+                return base;
+            }
+            var o = JSON.parse(raw);
+            if (o && o[art]) return _owMigrateArtDefault(o[art]);
+        } catch (e2) { /* ignore */ }
+        return base;
+    }
+
+    function _owDueFromArt(art) {
+        if (window.Shaduler && typeof window.Shaduler.dueDateTimeFromArt === 'function') {
+            try {
+                var fromSh = window.Shaduler.dueDateTimeFromArt(art);
+                if (fromSh) return fromSh;
+            } catch (e) { /* fall through */ }
+        }
+        var def = _owGetArtDefaults(art);
+        if (!def || !def.enabled) return null;
+        var weeks = _owNzInt(def.weeks, 0);
+        var days = _owNzInt(def.days, 0);
+        var hours = _owNzInt(def.hours, 0);
+        var minutes = _owNzInt(def.minutes, 0);
+        if (weeks + days + hours + minutes === 0) return null;
+        var d = new Date();
+        d.setDate(d.getDate() + weeks * 7 + days);
+        d.setHours(d.getHours() + hours);
+        d.setMinutes(d.getMinutes() + minutes, 0, 0);
+        return {
+            date: d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'),
+            time: String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'),
+            def: def,
+        };
+    }
+
+    function _owWvDueLabel() {
+        var def = _owGetArtDefaults('wiedervorlage');
+        if (!def || !def.enabled) return '';
+        var parts = [];
+        if (def.weeks) parts.push(def.weeks + 'W');
+        if (def.days) parts.push(def.days + 'T');
+        if (def.hours) parts.push(def.hours + 'h');
+        if (def.minutes) parts.push(def.minutes + 'm');
+        return parts.length ? (' (' + parts.join(' ') + ')') : '';
+    }
+
+    function _outreachCaptureForm(st) {
+        if (!st) return;
+        const to = ((document.getElementById('ow-to') || {}).value || '').trim();
+        if (to) st.selectedEmail = to;
+        const subj = ((document.getElementById('ow-subj') || {}).value || '');
+        const body = ((document.getElementById('ow-body') || {}).value || '');
+        const task = document.getElementById('ow-task');
+        if (st.draft) {
+            if (to) st.draft.to_email = to;
+            if (document.getElementById('ow-subj')) st.draft.subject = subj;
+            if (document.getElementById('ow-body')) st.draft.body = body;
+        }
+        if (task) st._taskChecked = !!task.checked;
+        var td = document.getElementById('ow-task-date');
+        var tt = document.getElementById('ow-task-time');
+        if (td) st._taskDate = td.value || '';
+        if (tt) st._taskTime = tt.value || '';
+        // CC/BCC hidden fields spiegeln Listen
+        const ccEl = document.getElementById('ow-cc');
+        const bccEl = document.getElementById('ow-bcc');
+        if (ccEl) st.ccList = _outreachParseEmails(ccEl.value);
+        if (bccEl) st.bccList = _outreachParseEmails(bccEl.value);
+    }
+
+    function _outreachEmailList(st, cur, draft) {
+        const seen = {};
+        const out = [];
+        function push(em, primary, src) {
+            const e = String(em || '').trim();
+            if (!e || e.indexOf('@') < 0) return;
+            const key = e.toLowerCase();
+            if (seen[key]) {
+                if (primary) seen[key].primary = true;
+                return;
+            }
+            const row = { email: e, primary: !!primary, src: src || '' };
+            seen[key] = row;
+            out.push(row);
+        }
+        (st.emails || []).forEach(em => {
+            if (typeof em === 'string') push(em, false, 'crm');
+            else push(em.email || em.value, !!(em && em.primary), 'crm');
+        });
+        push(draft && draft.to_email, false, 'draft');
+        push(cur && cur.email, false, 'aid');
+        push(st.selectedEmail, false, 'selected');
+        out.sort((a, b) => (b.primary ? 1 : 0) - (a.primary ? 1 : 0));
+        return out;
+    }
+
+    function _outreachChipsHtml(kind, list, allowEmpty) {
+        const items = list || [];
+        if (!items.length) {
+            return allowEmpty
+                ? '<span style="color:#aaa;font-size:11px">—</span>'
+                : '';
+        }
+        return items.map((em, i) =>
+            `<span style="display:inline-flex;align-items:center;gap:3px;background:#e8eef7;border-radius:4px;padding:1px 6px;font-size:11px;margin:1px 2px">
+               ${_esc(em)}
+               <button type="button" style="border:0;background:transparent;cursor:pointer;color:#666;padding:0;line-height:1;font-size:14px"
+                       onclick="Matching.outreachRemoveMulti('${kind}',${i})" title="entfernen">×</button>
+             </span>`
+        ).join('');
+    }
+
+    function _outreachEmailBlockHtml(st, cur, draft) {
+        const emails = _outreachEmailList(st, cur, draft);
+        const current = st.selectedEmail
+            || (draft && draft.to_email)
+            || (cur && cur.email)
+            || _pickEmail(emails, '')
+            || '';
+        const ccList = Array.isArray(st.ccList) ? st.ccList : [];
+        const bccList = Array.isArray(st.bccList) && st.bccList.length
+            ? st.bccList
+            : ['send@abcona.de'];
+        const target = st.mailTarget || 'to';
+        // Kompakte An-Vorschläge (nur wenn vorhanden)
+        const toSuggest = emails.length
+            ? `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px">` +
+              emails.slice(0, 6).map(em => {
+                  const on = (em.email || '').toLowerCase() === (current || '').toLowerCase();
+                  const tag = em.primary ? 'Primär' : (em.src === 'crm' ? 'CRM' : '');
+                  return `<button type="button" class="matching-btn-sm"
+                            style="font-size:10px;padding:2px 7px;${on ? 'background:#fff8c5;border-color:#e6c200' : ''}"
+                            onclick="Matching.outreachPickEmail('${_escAttr(em.email).replace(/'/g, "\\'")}')">
+                            ${_esc(em.email)}${tag ? ' · ' + _esc(tag) : ''}
+                          </button>`;
+              }).join('') + `</div>`
+            : '';
+        return `
+              <div style="font-size:11px;color:#666;border:1px solid #e5e7eb;border-radius:8px;padding:8px;background:#fafbfc">
+                <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:6px">
+                  <select id="ow-mail-target" class="matching-form-input" style="width:auto;min-width:72px"
+                          onchange="Matching.outreachSetMailTarget(this.value)">
+                    <option value="to" ${target === 'to' ? 'selected' : ''}>An</option>
+                    <option value="cc" ${target === 'cc' ? 'selected' : ''}>CC</option>
+                    <option value="bcc" ${target === 'bcc' ? 'selected' : ''}>BCC</option>
+                  </select>
+                  <input id="ow-mail-q" class="matching-form-input" type="text"
+                         placeholder="Suche Name/E-Mail oder manuell a@x.de; b@y.de"
+                         style="flex:1;min-width:200px"
+                         oninput="Matching.outreachUnifiedSearch(this.value)"
+                         onkeydown="if(event.key==='Enter'){event.preventDefault();Matching.outreachUnifiedApply();}">
+                  <button type="button" class="matching-btn-sm" onclick="Matching.outreachUnifiedApply()">
+                    ${_esc(_kiT('outreach_apply_email', 'Übernehmen'))}
+                  </button>
+                </div>
+                <div id="ow-mail-hits" style="display:none;border:1px solid #e5e7eb;border-radius:6px;background:#fff;max-height:130px;overflow:auto;margin-bottom:6px"></div>
+                ${toSuggest}
+                <div style="display:grid;gap:4px;font-size:11px">
+                  <div><b style="display:inline-block;min-width:36px">An</b>
+                    <input id="ow-to" type="hidden" value="${_escAttr(current)}">
+                    <span id="ow-to-chip">${current
+                      ? `<span style="background:#fff8c5;border-radius:4px;padding:1px 6px;font-weight:600">${_esc(current)}</span>`
+                      : '<span style="color:#b45309">keine Adresse</span>'}</span>
+                    ${st.crm_contact_id
+                      ? ` <a href="/crm/berater/?detail=${_escAttr(st.crm_contact_id)}" target="_blank" style="font-size:10px;color:#888">CRM</a>`
+                      : ''}
+                  </div>
+                  <div><b style="display:inline-block;min-width:36px">CC</b>
+                    <input type="hidden" id="ow-cc" value="${_escAttr(_outreachJoinEmails(ccList))}">
+                    <span id="ow-cc-chips">${_outreachChipsHtml('cc', ccList, true)}</span>
+                  </div>
+                  <div><b style="display:inline-block;min-width:36px">BCC</b>
+                    <input type="hidden" id="ow-bcc" value="${_escAttr(_outreachJoinEmails(bccList))}">
+                    <span id="ow-bcc-chips">${_outreachChipsHtml('bcc', bccList, true)}</span>
+                  </div>
+                </div>
+              </div>`;
+    }
+
+    function outreachSetMailTarget(v) {
+        const st = window._outreachWizard;
+        if (!st) return;
+        st.mailTarget = (v === 'cc' || v === 'bcc') ? v : 'to';
+    }
+
+    function outreachPickEmail(addr) {
+        const st = window._outreachWizard;
+        if (!st) return;
+        _outreachCaptureForm(st);
+        st.selectedEmail = String(addr || '').trim();
+        if (st.draft) st.draft.to_email = st.selectedEmail;
+        st.mailTarget = st.mailTarget || 'to';
+        _renderOutreachWizard();
+        const t = document.getElementById('ow-task');
+        if (t && st._taskChecked != null) t.checked = st._taskChecked;
+    }
+
+    function outreachApplyEmail() {
+        outreachUnifiedApply();
+    }
+
+    function outreachUnifiedApply() {
+        const st = window._outreachWizard;
+        if (!st) return;
+        _outreachCaptureForm(st);
+        const target = ((document.getElementById('ow-mail-target') || {}).value) || st.mailTarget || 'to';
+        st.mailTarget = target;
+        const raw = ((document.getElementById('ow-mail-q') || {}).value || '').trim();
+        const addrs = _outreachParseEmails(raw);
+        // Wenn nur Text ohne @ → Suche erzwingen, kein Apply-Fehler
+        if (!addrs.length) {
+            if (raw.length >= 2 && raw.indexOf('@') < 0) {
+                outreachUnifiedSearch(raw);
+                const status = document.getElementById('ow-status');
+                if (status) {
+                    status.style.color = '#666';
+                    status.textContent = 'Treffer wählen oder E-Mail mit @ / ; eintragen';
+                }
+                return;
+            }
+            const status = document.getElementById('ow-status');
+            if (status) {
+                status.style.color = '#b91c1c';
+                status.textContent = 'Keine gültige E-Mail (mit ; trennen)';
+            }
+            return;
+        }
+        if (target === 'to') {
+            st.selectedEmail = addrs[0];
+            if (st.draft) st.draft.to_email = addrs[0];
+            // Rest optional nach CC
+            if (addrs.length > 1) {
+                st.ccList = _outreachAddEmails(st.ccList || [], addrs.slice(1));
+            }
+        } else if (target === 'cc') {
+            st.ccList = _outreachAddEmails(st.ccList || [], addrs);
+        } else {
+            st.bccList = _outreachAddEmails(st.bccList || [], addrs);
+        }
+        _renderOutreachWizard();
+        const t = document.getElementById('ow-task');
+        if (t && st._taskChecked != null) t.checked = st._taskChecked;
+        const qEl = document.getElementById('ow-mail-q');
+        if (qEl) qEl.value = '';
+        const hits = document.getElementById('ow-mail-hits');
+        if (hits) { hits.style.display = 'none'; hits.innerHTML = ''; }
+        const status = document.getElementById('ow-status');
+        if (status) {
+            status.style.color = '#155724';
+            status.textContent = target.toUpperCase() + ': ' + addrs.join('; ');
+        }
+    }
+
+    function outreachApplyMulti(kind) {
+        const st = window._outreachWizard;
+        if (!st) return;
+        st.mailTarget = kind;
+        const sel = document.getElementById('ow-mail-target');
+        if (sel) sel.value = kind;
+        outreachUnifiedApply();
+    }
+
+    function outreachRemoveMulti(kind, idx) {
+        const st = window._outreachWizard;
+        if (!st || (kind !== 'cc' && kind !== 'bcc' && kind !== 'to')) return;
+        _outreachCaptureForm(st);
+        if (kind === 'to') {
+            st.selectedEmail = '';
+            if (st.draft) st.draft.to_email = '';
+        } else {
+            const key = kind + 'List';
+            const list = (st[key] || []).slice();
+            if (idx < 0 || idx >= list.length) return;
+            list.splice(idx, 1);
+            if (kind === 'bcc' && !list.length) list.push('send@abcona.de');
+            st[key] = list;
+        }
+        _renderOutreachWizard();
+        const t = document.getElementById('ow-task');
+        if (t && st._taskChecked != null) t.checked = st._taskChecked;
+    }
+
+    function outreachAddMultiEmail(kind, email) {
+        const st = window._outreachWizard;
+        if (!st) return;
+        _outreachCaptureForm(st);
+        const e = String(email || '').trim();
+        if (!e || e.indexOf('@') < 0) return;
+        if (kind === 'to') {
+            st.selectedEmail = e;
+            if (st.draft) st.draft.to_email = e;
+        } else if (kind === 'cc') {
+            st.ccList = _outreachAddEmails(st.ccList || [], [e]);
+        } else if (kind === 'bcc') {
+            st.bccList = _outreachAddEmails(st.bccList || [], [e]);
+        }
+        _renderOutreachWizard();
+        const t = document.getElementById('ow-task');
+        if (t && st._taskChecked != null) t.checked = st._taskChecked;
+        const hits = document.getElementById('ow-mail-hits');
+        if (hits) { hits.style.display = 'none'; hits.innerHTML = ''; }
+        const qEl = document.getElementById('ow-mail-q');
+        if (qEl) qEl.value = '';
+    }
+
+    function _outreachRenderHits(items) {
+        const hitsEl = document.getElementById('ow-mail-hits');
+        const st = window._outreachWizard;
+        if (!hitsEl || !st) return;
+        const target = ((document.getElementById('ow-mail-target') || {}).value) || st.mailTarget || 'to';
+        if (!items.length) {
+            hitsEl.style.display = 'block';
+            hitsEl.innerHTML = '<div style="padding:6px 8px;font-size:11px;color:#888">Keine Treffer</div>';
+            return;
+        }
+        hitsEl.style.display = 'block';
+        hitsEl.innerHTML = items.slice(0, 12).map(it => {
+            const em = _escAttr(it.email).replace(/'/g, "\\'");
+            return `<div style="padding:5px 8px;font-size:11px;cursor:pointer;border-bottom:1px solid #f0f0f0"
+                      onmouseover="this.style.background='#f0f4fa'" onmouseout="this.style.background=''"
+                      onclick="Matching.outreachAddMultiEmail('${target}','${em}')">
+                   <b>${_esc(it.email)}</b>
+                   <span style="color:#888"> · ${_esc(it.name || '')}${it.company ? ' · ' + _esc(it.company) : ''}</span>
+                 </div>`;
+        }).join('');
+    }
+
+    function _outreachNormalizeSuggestRows(rows) {
+        const items = [];
+        (rows || []).forEach(r => {
+            const name = r.name || r.full_name || [r.first_name, r.last_name].filter(Boolean).join(' ') || '';
+            const company = r.company || r.account_name || '';
+            let emails = r.emails || [];
+            if (typeof emails === 'string') emails = _outreachParseEmails(emails);
+            if (!Array.isArray(emails)) emails = [];
+            if (!emails.length && r.email) emails = [r.email];
+            emails.forEach(em => {
+                const e = typeof em === 'string' ? em : (em.email || em.value || '');
+                if (!e || e.indexOf('@') < 0) return;
+                items.push({ email: e, name: name, company: company, crm_id: r.crm_id || '' });
+            });
+        });
+        return items;
+    }
+
+    function outreachUnifiedSearch(q) {
+        const st = window._outreachWizard;
+        if (!st) return;
+        const hitsEl = document.getElementById('ow-mail-hits');
+        if (!hitsEl) return;
+        const query = String(q || '').trim();
+        if (st._searchTimers.unified) clearTimeout(st._searchTimers.unified);
+        // Reine E-Mail-Eingabe → keine Suche nötig
+        if (query.indexOf('@') >= 0 && _outreachParseEmails(query).length) {
+            hitsEl.style.display = 'none';
+            hitsEl.innerHTML = '';
+            return;
+        }
+        if (query.length < 2) {
+            hitsEl.style.display = 'none';
+            hitsEl.innerHTML = '';
+            return;
+        }
+        st._searchTimers.unified = setTimeout(() => {
+            hitsEl.style.display = 'block';
+            hitsEl.innerHTML = '<div style="padding:6px 8px;font-size:11px;color:#888">Suche…</div>';
+            const headers = { 'X-Requested-With': 'XMLHttpRequest' };
+            const suggestUrl = '/crm/api/contacts/suggest/?q=' + encodeURIComponent(query) + '&limit=8';
+            const beraterUrl = '/crm/api/berater/?q=' + encodeURIComponent(query) + '&per_page=8&typ=alle';
+
+            Promise.all([
+                fetch(suggestUrl, { credentials: 'same-origin', headers })
+                    .then(r => r.ok ? r.json() : null).catch(() => null),
+                fetch(beraterUrl, { credentials: 'same-origin', headers })
+                    .then(r => r.ok ? r.json() : null).catch(() => null),
+            ]).then(async ([sug, ber]) => {
+                let items = _outreachNormalizeSuggestRows((sug && (sug.results || sug.items)) || []);
+                // Berater-Fallback / Ergänzung — Detail für E-Mails nachladen wenn nötig
+                const berRows = (ber && (ber.results || ber.items || ber.berater)) || [];
+                const needDetail = [];
+                berRows.forEach(r => {
+                    const name = r.full_name || r.name || '';
+                    const emails = r.emails || (r.email ? [r.email] : []);
+                    if (emails.length) {
+                        items = items.concat(_outreachNormalizeSuggestRows([r]));
+                    } else if (r.crm_id) {
+                        needDetail.push({ crm_id: r.crm_id, name: name, company: r.company || '' });
+                    }
+                });
+                if (needDetail.length && items.length < 6) {
+                    const details = await Promise.all(
+                        needDetail.slice(0, 5).map(d =>
+                            fetch('/crm/api/berater/' + encodeURIComponent(d.crm_id) + '/', {
+                                credentials: 'same-origin', headers,
+                            }).then(r => r.ok ? r.json() : null)
+                              .then(j => j ? Object.assign({ name: d.name, company: d.company }, j) : null)
+                              .catch(() => null)
+                        )
+                    );
+                    items = items.concat(_outreachNormalizeSuggestRows(details.filter(Boolean)));
+                }
+                // Dedup by email
+                const seen = {};
+                items = items.filter(it => {
+                    const k = (it.email || '').toLowerCase();
+                    if (!k || seen[k]) return false;
+                    seen[k] = true;
+                    return true;
+                });
+                _outreachRenderHits(items);
+            });
+        }, 280);
+    }
+
+    function outreachSearchMulti(kind, q) {
+        // Kompatibilität: leitet auf Unified um
+        const st = window._outreachWizard;
+        if (st) st.mailTarget = kind;
+        const sel = document.getElementById('ow-mail-target');
+        if (sel) sel.value = kind;
+        outreachUnifiedSearch(q);
+    }
+
+    function closeOutreachWizard() {
+        document.getElementById('matching-outreach-ovl')?.remove();
+        window._outreachWizard = null;
+        window._outreachDrag = null;
+    }
+
+    function _outreachEnableDrag(ov, st) {
+        const panel = ov.querySelector('#ow-panel');
+        const bar = ov.querySelector('#ow-drag-bar');
+        if (!panel || !bar) return;
+
+        // Gespeicherte Position wiederherstellen
+        if (st.dragPos && typeof st.dragPos.left === 'number') {
+            ov.style.alignItems = 'flex-start';
+            ov.style.justifyContent = 'flex-start';
+            panel.style.position = 'relative';
+            panel.style.left = st.dragPos.left + 'px';
+            panel.style.top = st.dragPos.top + 'px';
+            panel.style.margin = '0';
+        }
+
+        bar.onmousedown = function (e) {
+            if (e.button !== 0) return;
+            if (e.target && e.target.closest && e.target.closest('button')) return;
+            e.preventDefault();
+            const rect = panel.getBoundingClientRect();
+            const startX = e.clientX;
+            const startY = e.clientY;
+            const origLeft = rect.left;
+            const origTop = rect.top;
+            // Von Flex-Zentrierung auf absolute Position umschalten
+            ov.style.alignItems = 'flex-start';
+            ov.style.justifyContent = 'flex-start';
+            panel.style.position = 'relative';
+            panel.style.left = origLeft + 'px';
+            panel.style.top = origTop + 'px';
+            panel.style.margin = '0';
+            bar.style.cursor = 'grabbing';
+            window._outreachDrag = { startX, startY, origLeft, origTop, panel, bar, ov };
+
+            function onMove(ev) {
+                const d = window._outreachDrag;
+                if (!d) return;
+                const dx = ev.clientX - d.startX;
+                const dy = ev.clientY - d.startY;
+                let left = d.origLeft + dx;
+                let top = d.origTop + dy;
+                // Viewport-Grenzen (wenigstens 40px Header sichtbar)
+                const maxL = window.innerWidth - 80;
+                const maxT = window.innerHeight - 40;
+                left = Math.max(-rect.width + 80, Math.min(maxL, left));
+                top = Math.max(0, Math.min(maxT, top));
+                d.panel.style.left = left + 'px';
+                d.panel.style.top = top + 'px';
+                if (window._outreachWizard) {
+                    window._outreachWizard.dragPos = { left: left, top: top };
+                }
+            }
+            function onUp() {
+                const d = window._outreachDrag;
+                if (d && d.bar) d.bar.style.cursor = 'move';
+                window._outreachDrag = null;
+                document.removeEventListener('mousemove', onMove);
+                document.removeEventListener('mouseup', onUp);
+            }
+            document.addEventListener('mousemove', onMove);
+            document.addEventListener('mouseup', onUp);
+        };
+    }
+
+    function _renderOutreachWizard() {
+        const st = window._outreachWizard;
+        if (!st) return;
+        let ov = document.getElementById('matching-outreach-ovl');
+        if (!ov) {
+            ov = document.createElement('div');
+            ov.id = 'matching-outreach-ovl';
+            ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10070;display:flex;align-items:center;justify-content:center;padding:12px';
+            ov.onclick = function (e) {
+                if (window._outreachDrag) return;
+                if (e.target === ov) closeOutreachWizard();
+            };
+            document.body.appendChild(ov);
+        }
+        const cur = st.queue[st.index];
+        const n = st.queue.length;
+        const i = st.index + 1;
+        const deep = st.deep || {};
+        const draft = st.draft || {};
+        const listHtml = st.queue.map((c, idx) => {
+            let mark = idx === st.index ? '▶' : (st.sent.includes(c.id) ? '✓' : (st.skipped.includes(c.id) ? '–' : '·'));
+            const dim = idx < st.index || st.skipped.includes(c.id) ? 'opacity:.45' : '';
+            return `<div style="padding:4px 6px;font-size:11px;cursor:pointer;border-radius:4px;${dim}${idx === st.index ? 'background:#e8eef7;font-weight:700' : ''}"
+                        onclick="Matching.outreachGoto(${idx})">${mark} ${_esc(c.name)} · ${Math.round((c.score || 0) * 100)}%</div>`;
+        }).join('');
+
+        ov.innerHTML = `
+        <div id="ow-panel" style="background:#fff;border-radius:10px;width:min(960px,96vw);max-height:92vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 12px 40px rgba(0,0,0,.25)">
+          <div id="ow-drag-bar" style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff;cursor:move;user-select:none;touch-action:none">
+            <i class="bi bi-send"></i>
+            <b style="flex:1">${_esc(_kiT('outreach_title', 'Outreach-Wizard'))} — ${i}/${n}</b>
+            <button type="button" style="background:transparent;border:0;color:#fff;font-size:18px;cursor:pointer"
+                    onclick="Matching.closeOutreachWizard()">×</button>
+          </div>
+          <div style="display:grid;grid-template-columns:220px 1fr;min-height:0;flex:1;overflow:hidden">
+            <div style="border-right:1px solid #e5e7eb;overflow:auto;padding:8px;background:#fafbfc">${listHtml}</div>
+            <div style="overflow:auto;padding:14px;display:grid;gap:10px">
+              ${!cur ? '<p>Fertig.</p>' : `
+              <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+                <div style="font-size:16px;font-weight:700">${_esc(cur.name)}</div>
+                <div style="font-size:12px;color:#666">${Math.round((cur.score || 0) * 100)}% · ${_esc((cur.matched_skills || []).slice(0, 5).join(' · '))}</div>
+                ${cur.cv_editor_url ? `<a href="${_escAttr(cur.cv_editor_url)}" target="_blank" class="matching-btn-sm">CV</a>` : ''}
+              </div>
+              <div id="ow-status" style="font-size:11px;color:#666;min-height:16px">${st.loading ? 'DeepSeek lädt …' : ''}</div>
+              <div style="background:#f5f7fa;border-radius:8px;padding:10px">
+                <div style="font-size:11px;font-weight:700;color:#163258;margin-bottom:4px">${_esc(_kiT('outreach_why', 'Warum anschreiben'))}</div>
+                <div id="ow-why" style="font-size:12px;line-height:1.45">${_esc(deep.why || cur.match_reason || '…')}</div>
+                <div style="margin-top:6px;font-size:11px;color:#666">
+                  Interesse: <b>${_esc(deep.interest || '—')}</b>
+                  · Antwortchance: <b>${deep.reply_likelihood != null ? Math.round(deep.reply_likelihood * 100) + '%' : '—'}</b>
+                </div>
+              </div>
+              ${_outreachEmailBlockHtml(st, cur, draft)}
+              <label style="font-size:11px;color:#666">Betreff
+                <input id="ow-subj" class="matching-form-input" style="width:100%;margin-top:3px"
+                       value="${_escAttr(draft.subject || '')}">
+              </label>
+              <label style="font-size:11px;color:#666">Anschreiben
+                <textarea id="ow-body" class="matching-form-textarea" rows="9"
+                          style="width:100%;margin-top:3px;font-family:inherit">${_esc(draft.body || draft.body_text || '')}</textarea>
+              </label>
+              <div id="ow-task-box" style="display:grid;gap:6px;padding:8px 10px;background:#f8fafc;border-radius:8px;border:1px solid #e5e7eb">
+                <label style="font-size:11px;color:#666;display:flex;align-items:center;gap:8px">
+                  <input type="checkbox" id="ow-task" checked>
+                  ${_esc(_kiT('outreach_task', 'Wiedervorlage anlegen'))}<span id="ow-task-def-hint" style="color:#94a3b8"></span>
+                </label>
+                <div id="ow-task-fields" style="display:flex;flex-wrap:wrap;gap:10px;align-items:end">
+                  <label style="font-size:11px;color:#666">Fällig
+                    <input type="date" id="ow-task-date" class="matching-form-input" style="display:block;margin-top:3px;min-width:140px">
+                  </label>
+                  <label style="font-size:11px;color:#666">Uhrzeit
+                    <input type="time" id="ow-task-time" class="matching-form-input" style="display:block;margin-top:3px;min-width:100px">
+                  </label>
+                </div>
+              </div>
+              <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
+                <button type="button" class="matching-btn-sm" onclick="Matching.outreachSkip()">${_esc(_kiT('outreach_skip', 'Aussortieren'))}</button>
+                <button type="button" class="matching-btn-sm" onclick="Matching.outreachPolish()">${_esc(_kiT('outreach_polish', 'Glätten'))}</button>
+                <button type="button" class="matching-btn-sm" onclick="Matching.outreachReloadDraft()">${_esc(_kiT('outreach_redraft', 'Neu entwerfen'))}</button>
+                <button type="button" class="matching-btn-primary" id="ow-send" onclick="Matching.outreachSend()">
+                  <i class="bi bi-send"></i> ${_esc(_kiT('outreach_send_next', 'Senden & Weiter'))}
+                </button>
+              </div>`}
+            </div>
+          </div>
+        </div>`;
+        _outreachEnableDrag(ov, st);
+        if (st._taskChecked != null) {
+            const t = document.getElementById('ow-task');
+            if (t) t.checked = st._taskChecked;
+        }
+        (function _fillOwTaskDue() {
+            const dateEl = document.getElementById('ow-task-date');
+            const timeEl = document.getElementById('ow-task-time');
+            const hint = document.getElementById('ow-task-def-hint');
+            const taskCb = document.getElementById('ow-task');
+            const fields = document.getElementById('ow-task-fields');
+            if (hint) hint.textContent = _owWvDueLabel();
+            const due = _owDueFromArt('wiedervorlage');
+            if (dateEl) {
+                dateEl.value = st._taskDate || (due && due.date) || '';
+            }
+            if (timeEl) {
+                timeEl.value = st._taskTime || (due && due.time) || '';
+            }
+            function syncFields() {
+                if (fields) fields.style.opacity = (taskCb && !taskCb.checked) ? '0.45' : '1';
+                if (dateEl) dateEl.disabled = !!(taskCb && !taskCb.checked);
+                if (timeEl) timeEl.disabled = !!(taskCb && !taskCb.checked);
+            }
+            if (taskCb && !taskCb._owBound) {
+                taskCb._owBound = true;
+                taskCb.addEventListener('change', syncFields);
+            }
+            syncFields();
+        })();
+    }
+
+    function outreachGoto(idx) {
+        const st = window._outreachWizard;
+        if (!st || st.loading) return;
+        if (idx < 0 || idx >= st.queue.length) return;
+        st.index = idx;
+        st.deep = null;
+        st.draft = null;
+        st.emails = [];
+        st.selectedEmail = '';
+        st.crm_contact_id = '';
+        _renderOutreachWizard();
+        _outreachLoadCurrent();
+    }
+
+    function _outreachLoadCrmFor(cur) {
+        const seed = {
+            id: cur.id,
+            name: cur.name || '',
+            email: cur.email || '',
+            emails: cur.email ? [{ email: cur.email }] : [],
+            phones: [],
+            crm_contact_id: cur.crm_contact_id || '',
+            gulp_id: cur.gulp_id || '',
+            aid: cur.consultant_id || '',
+        };
+        return _enrichFromCrm(seed).then(enriched => {
+            cur.crm_contact_id = enriched.crm_contact_id || cur.crm_contact_id || '';
+            cur.email = enriched.email || cur.email || '';
+            cur.gulp_id = enriched.gulp_id || cur.gulp_id || '';
+            return {
+                emails: enriched.emails || [],
+                email: enriched.email || '',
+                crm_contact_id: enriched.crm_contact_id || '',
+            };
+        }).catch(() => ({
+            emails: cur.email ? [{ email: cur.email }] : [],
+            email: cur.email || '',
+            crm_contact_id: cur.crm_contact_id || '',
+        }));
+    }
+
+    function _outreachLoadCurrent() {
+        const st = window._outreachWizard;
+        if (!st) return;
+        const cur = st.queue[st.index];
+        if (!cur) {
+            _renderOutreachWizard();
+            return;
+        }
+        st.loading = true;
+        st.emails = [];
+        st.selectedEmail = st.selectedEmail || cur.email || '';
+        _renderOutreachWizard();
+        const headers = { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' };
+
+        const draftP = fetch(API + 'outreach/' + encodeURIComponent(cur.id) + '/letter/draft/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers,
+            body: JSON.stringify({ refresh_reason: true }),
+        })
+        .then(async r => {
+            let d = {};
+            try { d = await r.json(); } catch (_) {}
+            if (!r.ok || d.ok === false) throw new Error((d && d.error) || ('Draft HTTP ' + r.status));
+            return d;
+        });
+
+        const crmP = _outreachLoadCrmFor(cur);
+
+        Promise.all([draftP, crmP])
+        .then(([d, crm]) => {
+            st.deep = d.deep_reason || {
+                why: d.why || cur.match_reason,
+                interest: d.interest,
+                reply_likelihood: d.reply_likelihood,
+            };
+            st.draft = d;
+            if (d.project_consultant_id) cur.project_consultant_id = d.project_consultant_id;
+            st.emails = crm.emails || [];
+            st.crm_contact_id = crm.crm_contact_id || '';
+            // Primär / CRM bevorzugen; Draft-to nur wenn leer
+            const primary = _pickEmail(st.emails, crm.email || '');
+            st.selectedEmail = primary || d.to_email || cur.email || '';
+            if (st.draft) st.draft.to_email = st.selectedEmail;
+            st.loading = false;
+            _renderOutreachWizard();
+        })
+        .catch(e => {
+            console.error(e);
+            st.loading = false;
+            st.deep = { why: cur.match_reason || String(e.message || e), interest: '—', reply_likelihood: null };
+            const tpl = STAGE_MAIL.shortlist;
+            const ctx = Object.assign(_projectContext(), { name: cur.name || '' });
+            st.draft = {
+                to_email: st.selectedEmail || cur.email || '',
+                subject: _fillTpl(tpl.subject, ctx),
+                body: _fillTpl(tpl.body, ctx),
+            };
+            // CRM trotzdem versuchen
+            _outreachLoadCrmFor(cur).then(crm => {
+                st.emails = crm.emails || [];
+                st.crm_contact_id = crm.crm_contact_id || '';
+                if (!st.selectedEmail) {
+                    st.selectedEmail = _pickEmail(st.emails, crm.email || cur.email || '');
+                    if (st.draft) st.draft.to_email = st.selectedEmail;
+                }
+                _renderOutreachWizard();
+                const el = document.getElementById('ow-status');
+                if (el) {
+                    el.style.color = '#b91c1c';
+                    el.textContent = 'KI-Draft fehlgeschlagen — Template genutzt: ' + (e.message || e);
+                }
+            });
+        });
+    }
+
+    function outreachSkip() {
+        const st = window._outreachWizard;
+        if (!st || st.loading) return;
+        const cur = st.queue[st.index];
+        if (cur) st.skipped.push(cur.id);
+        _outreachAdvance();
+    }
+
+    function _outreachAdvance() {
+        const st = window._outreachWizard;
+        if (!st) return;
+        const next = st.index + 1;
+        if (next >= st.queue.length) {
+            const sent = st.sent.length;
+            const skipped = st.skipped.length;
+            closeOutreachWizard();
+            alert(_kiT('outreach_done', 'Outreach fertig') + `: ${sent} gesendet, ${skipped} übersprungen.`);
+            const content = document.getElementById('content-shortlist');
+            const pid = (window._matchingShortlistCache || {}).projectId;
+            if (content && pid) {
+                content.dataset.loaded = '0';
+                _loadShortlistForProject(pid, content);
+            }
+            return;
+        }
+        st.index = next;
+        st.deep = null;
+        st.draft = null;
+        st.emails = [];
+        st.selectedEmail = '';
+        st.crm_contact_id = '';
+        _renderOutreachWizard();
+        _outreachLoadCurrent();
+    }
+
+    function outreachPolish() {
+        const st = window._outreachWizard;
+        if (!st || st.loading) return;
+        const bodyEl = document.getElementById('ow-body');
+        const text = (bodyEl && bodyEl.value) || '';
+        if (!text.trim()) return;
+        st.loading = true;
+        const status = document.getElementById('ow-status');
+        if (status) { status.style.color = '#666'; status.textContent = 'Glätten …'; }
+        fetch(API + 'outreach/letter/polish/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' },
+            body: JSON.stringify({ draft_text: text, keep_style: true }),
+        })
+        .then(async r => {
+            let d = {};
+            try { d = await r.json(); } catch (_) {}
+            if (!r.ok || d.ok === false) throw new Error((d && d.error) || 'Polish fehlgeschlagen');
+            return d;
+        })
+        .then(d => {
+            st.loading = false;
+            if (bodyEl) bodyEl.value = d.body || d.body_text || text;
+            if (status) { status.style.color = '#155724'; status.textContent = 'Geglättet.'; }
+        })
+        .catch(e => {
+            st.loading = false;
+            if (status) { status.style.color = '#b91c1c'; status.textContent = e.message || String(e); }
+        });
+    }
+
+    function outreachReloadDraft() {
+        const st = window._outreachWizard;
+        if (!st || st.loading) return;
+        st.deep = null;
+        st.draft = null;
+        _outreachLoadCurrent();
+    }
+
+    function outreachSend() {
+        const st = window._outreachWizard;
+        if (!st || st.loading) return;
+        const cur = st.queue[st.index];
+        if (!cur) return;
+        const to = ((document.getElementById('ow-to') || {}).value || '').trim();
+        const subj = ((document.getElementById('ow-subj') || {}).value || '').trim();
+        const body = ((document.getElementById('ow-body') || {}).value || '').trim();
+        const wantTask = !!(document.getElementById('ow-task') || {}).checked;
+        const taskDate = ((document.getElementById('ow-task-date') || {}).value || '').trim();
+        const taskTime = ((document.getElementById('ow-task-time') || {}).value || '').trim();
+        _outreachCaptureForm(st);
+        const cc = (st.ccList || []).slice();
+        const bcc = (st.bccList && st.bccList.length) ? st.bccList.slice() : ['send@abcona.de'];
+        const status = document.getElementById('ow-status');
+        const sendBtn = document.getElementById('ow-send');
+        function show(ok, text) {
+            if (!status) return;
+            status.style.color = ok ? '#155724' : '#b91c1c';
+            status.textContent = text || '';
+        }
+        if (!to || to.indexOf('@') < 0) { show(false, 'Bitte gültige E-Mail (An)'); return; }
+        if (!subj || !body) { show(false, 'Betreff/Text fehlen'); return; }
+        st.loading = true;
+        if (sendBtn) sendBtn.disabled = true;
+        show(true, 'Sende E-Mail …');
+
+        const mailPayload = {
+            template_identifier: 'crm_manual_email',
+            to_email: to,
+            cc: cc,
+            bcc: bcc,
+            cc_emails: cc,
+            bcc_emails: bcc,
+            subject: subj,
+            body: _bodyTextToHtml(body),
+            contact_name: cur.name || '',
+            crm_id: st.crm_contact_id || '',
+        };
+
+        fetch('/crm/api/email/send/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrf(),
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            body: JSON.stringify(mailPayload),
+        })
+        .then(r => r.json().then(j => ({ ok: r.ok, j })))
+        .then(pack => {
+            const j = pack.j || {};
+            if (!(pack.ok && j.ok !== false && j.success !== false && !j.error)) {
+                throw new Error(j.error || 'Senden fehlgeschlagen');
+            }
+            show(true, 'Status aktualisieren …');
+            return fetch(API + 'outreach/' + encodeURIComponent(cur.id) + '/complete/', {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+                body: JSON.stringify({
+                    status: 'contacted',
+                    create_task: wantTask,
+                    faellig_am: taskDate || undefined,
+                    faellig_zeit: taskTime || undefined,
+                }),
+            }).then(r => r.json().then(j2 => ({ ok: r.ok, j: j2 })));
+        })
+        .then(pack => {
+            const j = pack.j || {};
+            if (!pack.ok || j.ok === false) throw new Error(j.error || 'Complete fehlgeschlagen');
+            if (wantTask && j.task) {
+                const taskPayload = Object.assign({}, j.task);
+                if (taskDate) taskPayload.faellig_am = taskDate;
+                if (taskTime) taskPayload.faellig_zeit = taskTime;
+                return fetch('/shaduler/api/aufgaben/create/', {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+                    body: JSON.stringify(taskPayload),
+                }).then(() => j).catch(err => {
+                    console.warn('Wiedervorlage:', err);
+                    return j;
+                });
+            }
+            return j;
+        })
+        .then(() => {
+            st.loading = false;
+            st.sent.push(cur.id);
+            _outreachAdvance();
+        })
+        .catch(err => {
+            st.loading = false;
+            if (sendBtn) sendBtn.disabled = false;
+            show(false, err.message || String(err));
+        });
     }
 
     function toggleArchiveDetail(card) {
@@ -4901,6 +5964,11 @@ window.Matching = (function() {
         init, applyI18n, switchTab, newRequest,
         openProject, openRequestEdit, saveRequestEdit, pickShortlistRequest, pickKanbanRequest, runMatching, rematch, saveNewRequest,
         updateThreshold, sendAllAboveThreshold,
+        openOutreachWizard, closeOutreachWizard, outreachGoto, outreachSkip,
+        outreachPolish, outreachReloadDraft, outreachSend,
+        outreachPickEmail, outreachApplyEmail,
+        outreachApplyMulti, outreachRemoveMulti, outreachAddMultiEmail, outreachSearchMulti,
+        outreachSetMailTarget, outreachUnifiedSearch, outreachUnifiedApply,
         toggleArchiveDetail, searchAnfragen, filterAnfragen,
         searchAccounts, searchContacts, call, sendEmail,
         kanbanDragStart, kanbanDrop, kanbanCardClick,
