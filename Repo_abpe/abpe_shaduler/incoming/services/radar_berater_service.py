@@ -346,6 +346,64 @@ def _append_cv_version(obj, text: str, source: str = 'gulp') -> None:
     obj.cv_versions = versions[-20:]  # keep last 20
 
 
+def _append_crm_profil_text(
+    crm_id: str,
+    *,
+    field: str,
+    text: str,
+    source: str,
+    log_rows: list,
+) -> list:
+    """
+    Volltext unten an CRM-Profilfeld anhängen (gulp_profil_c / freelancermap_profil_c).
+    Nie ersetzen — nur ergänzen. Gleicher Hash → Skip.
+    """
+    text = (text or '').strip()
+    if not text or not crm_id or field not in (
+        'gulp_profil_c', 'freelancermap_profil_c',
+    ):
+        return log_rows
+    h = hashlib.sha256(text.encode('utf-8')).hexdigest()[:16]
+    marker = f'--- abpe-radar-cv {source} hash:{h} ---'
+    try:
+        from apps.abpe_crm.models import CrmContact
+        c = CrmContact.objects.select_related('cstm').filter(crm_id=crm_id).first()
+        if not c:
+            return log_rows
+        cstm = getattr(c, 'cstm', None)
+        if cstm is None or not hasattr(cstm, field):
+            return log_rows
+        cur = (getattr(cstm, field, None) or '')
+        if marker in cur or f'hash:{h}' in cur:
+            return log_rows
+        block = text[:80000]
+        sep = '\n\n' if cur.strip() else ''
+        setattr(cstm, field, (cur.rstrip() + sep + marker + '\n' + block).strip())
+        cstm.save(update_fields=[field])
+        log_rows.append({
+            'at': timezone.now().isoformat(),
+            'action': 'crm_profil_append',
+            'field': field,
+            'hash': h,
+            'chars': len(block),
+        })
+        # content-Index (ES) zeitnah aktualisieren
+        try:
+            from apps.abpe_crm.documents_content import ContentPersonIndex
+            ContentPersonIndex().update(c)
+        except Exception as exc:
+            log.info('content index update skip: %s', exc)
+    except Exception as exc:
+        log.warning('CRM profil append failed %s %s: %s', crm_id, field, exc)
+        log_rows.append({
+            'at': timezone.now().isoformat(),
+            'action': 'crm_profil_append_error',
+            'field': field,
+            'error': str(exc),
+        })
+    return log_rows
+
+
 def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
     """Item-Dict → RadarConsultantItem (+ optional CRM update). Gulp- oder FM-ID."""
     from apps.abpe_shaduler.models import RadarConsultantItem
@@ -503,6 +561,25 @@ def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
                 )
                 patch['freelancermap_touch'] = True
             log_rows = _fill_missing_crm(crm['crm_id'], patch, log_rows)
+            # Bekannt: API-Volltext unten an CRM-Profiltext (content-Index)
+            cv_blob = (item.get('cv_text') or beschreibung or '').strip()
+            if apply_crm and cv_blob:
+                if gulp_id:
+                    log_rows = _append_crm_profil_text(
+                        crm['crm_id'],
+                        field='gulp_profil_c',
+                        text=cv_blob,
+                        source='gulp',
+                        log_rows=log_rows,
+                    )
+                if fm_id:
+                    log_rows = _append_crm_profil_text(
+                        crm['crm_id'],
+                        field='freelancermap_profil_c',
+                        text=cv_blob,
+                        source='freelancermap',
+                        log_rows=log_rows,
+                    )
     else:
         if not obj.crm_contact_id:
             obj.match_status = RadarConsultantItem.MatchStatus.UNBEKANNT
