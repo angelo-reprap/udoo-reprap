@@ -7,6 +7,8 @@ Intervalle:
   prozess_tick    alle 15 Min
   email_index     alle 3 Min  (IMAP→ES, inkrementell)
   radar_berater_index alle 30 Min
+  radar_berater_gulp_available alle 30 Min (Talentfinder „verfügbar“ → list_rank)
+  radar_berater_fl_available   alle 30 Min (FM aktuellste → list_rank)
 
 Ablauf radar_poll / email_index:
   1) abpe-scheduler-loop triggert Webhook
@@ -76,6 +78,31 @@ JOBS = [
         'webhook': 'radar-berater-index',
         'rrule': 'FREQ=MINUTELY;INTERVAL=30',
         'payload': {'job': 'radar_berater_index', 'reindex': True},
+    },
+    {
+        'job_key': 'radar_berater_gulp_available',
+        'owner_type': 'system',
+        'owner_ref': 'shaduler',
+        'webhook': 'radar-berater-gulp-available',
+        'rrule': 'FREQ=MINUTELY;INTERVAL=30',
+        'payload': {
+            'job': 'radar_berater_gulp_available',
+            'limit': 40,
+            'pages': 2,
+            'enrich': True,
+        },
+    },
+    {
+        'job_key': 'radar_berater_fl_available',
+        'owner_type': 'system',
+        'owner_ref': 'shaduler',
+        'webhook': 'radar-berater-fl-available',
+        'rrule': 'FREQ=MINUTELY;INTERVAL=30',
+        'payload': {
+            'job': 'radar_berater_fl_available',
+            'limit': 36,
+            'pages': 2,
+        },
     },
 ]
 

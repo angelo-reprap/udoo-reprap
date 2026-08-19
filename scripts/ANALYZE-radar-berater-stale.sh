@@ -56,6 +56,19 @@ def _age_h(dt):
         return None
     return round((now - dt).total_seconds() / 3600.0, 2)
 
+def _fm_id(o):
+    """Live: fm_id liegt in eckdaten, kein Model-Feld."""
+    e = getattr(o, 'eckdaten', None) or {}
+    if not isinstance(e, dict):
+        e = {}
+    return (
+        getattr(o, 'fm_id', None)
+        or e.get('fm_id')
+        or e.get('freelancer_id')
+        or e.get('id')
+        or '-'
+    )
+
 print('=== 1) Sessions ===')
 gs = gulp.gulp_session_info()
 print('Gulp:', json.dumps({k: gs.get(k) for k in ('ok','source','path','hint','needs_auth') if k in gs or True}, ensure_ascii=False, default=str)[:800])
@@ -131,7 +144,7 @@ print('=== 4) Top 15 DB (wie Sort date_desc) ===')
 for i, o in enumerate(qs.order_by('-eingegangen_am', '-updated_at')[:15], 1):
     print(
         f"  {i:02d} {_iso(o.eingegangen_am)} | upd={_iso(o.updated_at)} | "
-        f"{(o.name or '')[:40]!r} | gulp={o.gulp_id or '-'} fm={o.fm_id or '-'} | "
+        f"{(o.name or '')[:40]!r} | gulp={o.gulp_id or '-'} fm={_fm_id(o)} | "
         f"src={getattr(o.quelle,'name',None)} match={o.match_status} st={o.status}"
     )
 
@@ -146,14 +159,12 @@ if not focus:
 else:
     for o in focus:
         print(f"  id={o.id}")
-        print(f"    name={o.name!r} gulp_id={o.gulp_id} fm_id={o.fm_id}")
+        print(f"    name={o.name!r} gulp_id={o.gulp_id} fm_id={_fm_id(o)}")
         print(f"    eingegangen_am={_iso(o.eingegangen_am)} ({_age_h(o.eingegangen_am)} h)")
         print(f"    updated_at={_iso(o.updated_at)} ({_age_h(o.updated_at)} h)")
         print(f"    status={o.status} match={o.match_status} deleted={o.deleted_at}")
         print(f"    beschreibung_len={len(o.beschreibung or '')} cv_versions={len(o.cv_versions or [])}")
         print(f"    verfuegbar_ab={o.verfuegbar_ab} satz={o.satz} ort={o.ort}")
-        # Rank in current UI list?
-        pass
 
 print()
 print('=== 6) UI list_berater (available_only, status=neu, date_desc) ===')
@@ -191,19 +202,46 @@ max_ein = agg['max_ein']
 age = _age_h(max_ein)
 top_ui = (data.get('results') or [{}])[0] if data.get('results') else {}
 top_name = (top_ui.get('name') or '')
+# Jobs nochmal scannen für available
+missing_available = True
+try:
+    import requests
+    api = getattr(settings, 'SCHEDULER_API_BASE_URL', '') or 'http://127.0.0.1:8000/scheduler/api'
+    api = api.rstrip('/').replace('://localhost:', '://127.0.0.1:')
+    tok = getattr(settings, 'SCHEDULER_SERVICE_TOKEN', '') or ''
+    h = {'Authorization': f'Token {tok}'} if tok else {}
+    r = requests.get(api + '/jobs/', headers=h, timeout=8)
+    jobs = r.json() if r.ok else {}
+    jobs = jobs if isinstance(jobs, list) else (jobs.get('results') or jobs.get('jobs') or [])
+    blob = json.dumps(jobs, ensure_ascii=False, default=str).lower()
+    has_gulp_av = 'gulp_available' in blob or 'gulp-verfuegbar' in blob or 'berater_gulp' in blob
+    has_fl_av = 'fl_available' in blob or 'fl-verfuegbar' in blob or 'berater_fl' in blob
+    missing_available = not (has_gulp_av or has_fl_av)
+    print(f'  jobs: gulp_available={has_gulp_av} fl_available={has_fl_av}')
+except Exception as e:
+    print('  jobs recheck ERR', e)
+
 if age is not None and age > 6:
-    print(f'  ⚠ max eingegangen_am ist {age}h alt → Sync schreibt kaum/nicht')
+    print(f'  ⚠ max eingegangen_am ist {age}h alt → Available-Sync bump fehlt')
 else:
     print(f'  · max eingegangen_am Alter: {age}h')
+upd6 = qs.filter(updated_at__gte=since_6h).count()
+ein6 = qs.filter(eingegangen_am__gte=since_6h).count()
+if upd6 > 100 and ein6 == 0:
+    print('  ⚠ updated_at frisch, eingegangen_am alt → nur CRM/Index-Touch, kein „Verfügbare“-Bump')
+if missing_available:
+    print('  ⚠ Scheduler hat KEINEN radar_berater_*_available Job — nur radar_berater_index')
+    print('    → Liste sortiert nach altem eingegangen_am (Agelis bleibt oben)')
 if NAME.lower() in top_name.lower():
-    print(f'  ⚠ UI-Top ist Fokus "{NAME}" → Sortierung hängt am alten Bump oder Sync liefert dieselbe Reihenfolge')
+    print(f'  ⚠ UI-Top ist Fokus "{NAME}"')
 if (data.get('es_info') or {}).get('search_error') or (data.get('es_info') or {}).get('fallback'):
     print('  ⚠ ES-Fallback/Fehler → UI evtl. alte DB-Order')
 if not gulp.has_gulp_session():
     print('  ⚠ Gulp-Session fehlt → sync_available_from_gulp bricht ab')
 print('  Nächste Schritte:')
-print('    • SYNC_PROBE=1 LIMIT=5 bash scripts/ANALYZE-radar-berater-stale.sh')
-print('    • python manage.py radar_berater_gulp_available --limit 10 --pages 1')
+print('    • SYNC_PROBE=1 LIMIT=10 bash scripts/ANALYZE-radar-berater-stale.sh')
+print('    • python manage.py radar_berater_gulp_available --limit 40 --pages 2')
+print('    • python manage.py register_scheduler_jobs   # nach Deploy der Available-Jobs')
 print('    • bash scripts/TEST-radar-profile-extract.sh')
 PY
 

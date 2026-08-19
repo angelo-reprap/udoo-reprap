@@ -331,12 +331,106 @@ try:
             exc=RuntimeError(result.get('error') or 'radar_poll failed'),
         )
 
+    @shared_task(
+        bind=True,
+        name='abpe_shaduler.radar_berater_gulp_available_run',
+        ignore_result=True,
+        max_retries=2,
+        soft_time_limit=900,
+        time_limit=960,
+    )
+    def radar_berater_gulp_available_run(self, limit=40, pages=2, enrich=True):
+        """Celery: Gulp verfügbare Berater → Radar (list_rank / eingegangen_am)."""
+        logger.info(
+            'berater_gulp_available start try=%s limit=%s pages=%s enrich=%s',
+            getattr(self.request, 'retries', 0), limit, pages, enrich,
+        )
+        try:
+            result = _berater_gulp_available_sync(
+                limit=limit, pages=pages, enrich=enrich,
+            )
+        except SoftTimeLimitExceeded as exc:
+            result = {
+                'ok': False,
+                'error': f'soft_time_limit: {exc}',
+                'job': 'radar_berater_gulp_available',
+            }
+        except Exception as exc:
+            result = {
+                'ok': False,
+                'error': str(exc),
+                'job': 'radar_berater_gulp_available',
+            }
+        if result.get('ok'):
+            logger.info(
+                'berater_gulp_available done: scanned=%s created=%s updated=%s',
+                result.get('scanned'), result.get('created'), result.get('updated'),
+            )
+            return result
+        retries = int(getattr(self.request, 'retries', 0) or 0)
+        countdown = 90 * (retries + 1)
+        logger.warning(
+            'berater_gulp_available fail try=%s next_in=%ss err=%s',
+            retries, countdown, (result.get('error') or '')[:160],
+        )
+        raise self.retry(
+            countdown=countdown,
+            exc=RuntimeError(result.get('error') or 'gulp_available failed'),
+        )
+
+    @shared_task(
+        bind=True,
+        name='abpe_shaduler.radar_berater_fl_available_run',
+        ignore_result=True,
+        max_retries=2,
+        soft_time_limit=600,
+        time_limit=660,
+    )
+    def radar_berater_fl_available_run(self, limit=36, pages=2, enrich=True):
+        """Celery: FM aktuellste verfügbar → Radar."""
+        logger.info(
+            'berater_fl_available start try=%s limit=%s pages=%s',
+            getattr(self.request, 'retries', 0), limit, pages,
+        )
+        try:
+            result = _berater_fl_available_sync(limit=limit, pages=pages)
+        except SoftTimeLimitExceeded as exc:
+            result = {
+                'ok': False,
+                'error': f'soft_time_limit: {exc}',
+                'job': 'radar_berater_fl_available',
+            }
+        except Exception as exc:
+            result = {
+                'ok': False,
+                'error': str(exc),
+                'job': 'radar_berater_fl_available',
+            }
+        if result.get('ok'):
+            logger.info(
+                'berater_fl_available done: scanned=%s created=%s updated=%s',
+                result.get('scanned'), result.get('created'), result.get('updated'),
+            )
+            return result
+        retries = int(getattr(self.request, 'retries', 0) or 0)
+        countdown = 90 * (retries + 1)
+        raise self.retry(
+            countdown=countdown,
+            exc=RuntimeError(result.get('error') or 'fl_available failed'),
+        )
+
 except Exception:  # pragma: no cover — Celery optional beim Import
     def email_index_run(**kwargs):  # type: ignore
         return _email_index_sync(**kwargs)
 
     def radar_poll_run(**kwargs):  # type: ignore
         return _radar_poll_sync(**kwargs)
+
+    def radar_berater_gulp_available_run(**kwargs):  # type: ignore
+        return _berater_gulp_available_sync(**kwargs)
+
+    def radar_berater_fl_available_run(**kwargs):  # type: ignore
+        return _berater_fl_available_sync(**kwargs)
 
 
 def shaduler_radar_berater_index(payload=None):
@@ -354,6 +448,117 @@ def shaduler_radar_berater_index(payload=None):
         return {'ok': False, 'error': str(exc), 'job': 'radar_berater_index'}
 
 
+def _berater_available_kwargs(payload=None, *, default_limit=40, default_pages=2):
+    payload = payload or {}
+    try:
+        limit = int(payload.get('limit') or default_limit)
+    except (TypeError, ValueError):
+        limit = default_limit
+    try:
+        pages = int(payload.get('pages') or default_pages)
+    except (TypeError, ValueError):
+        pages = default_pages
+    enrich = payload.get('enrich', True) is not False
+    if isinstance(payload.get('enrich'), str):
+        enrich = payload.get('enrich').strip().lower() not in ('0', 'false', 'no', 'off')
+    return {
+        'limit': max(1, min(200, limit)),
+        'pages': max(1, min(10, pages)),
+        'enrich': bool(enrich),
+    }
+
+
+def _berater_gulp_available_sync(**kw):
+    from .services import radar_berater_service as rbs
+    return rbs.sync_available_from_gulp(
+        limit=kw.get('limit', 40),
+        pages=kw.get('pages', 2),
+        enrich=kw.get('enrich', True),
+    )
+
+
+def _berater_fl_available_sync(**kw):
+    from .services import radar_berater_service as rbs
+    return rbs.sync_available_from_fl(
+        limit=kw.get('limit', 36),
+        pages=kw.get('pages', 2),
+    )
+
+
+def _berater_available_thread(kind: str, **kw):
+    def _run():
+        try:
+            if kind == 'gulp':
+                _berater_gulp_available_sync(**kw)
+            else:
+                _berater_fl_available_sync(**kw)
+        except Exception:
+            logger.exception('radar_berater_%s_available thread failed', kind)
+    t = threading.Thread(
+        target=_run,
+        name=f'shaduler-berater-{kind}-available',
+        daemon=True,
+    )
+    t.start()
+    return t.name
+
+
+def shaduler_radar_berater_gulp_available(payload=None):
+    """Webhook: Gulp „aktuell verfügbar“ asynchron (bumpt eingegangen_am/list_rank)."""
+    kw = _berater_available_kwargs(payload, default_limit=40, default_pages=2)
+    logger.info('shaduler_radar_berater_gulp_available: queue %s', kw)
+    try:
+        async_result = radar_berater_gulp_available_run.delay(**kw)
+        return {
+            'ok': True,
+            'job': 'radar_berater_gulp_available',
+            'queued': True,
+            'via': 'celery',
+            'task_id': getattr(async_result, 'id', None),
+            **kw,
+        }
+    except Exception as exc:
+        logger.warning('gulp_available Celery unavailable, thread: %s', exc)
+        name = _berater_available_thread('gulp', **kw)
+        return {
+            'ok': True,
+            'job': 'radar_berater_gulp_available',
+            'queued': True,
+            'via': 'thread',
+            'thread': name,
+            'celery_error': str(exc)[:200],
+            **kw,
+        }
+
+
+def shaduler_radar_berater_fl_available(payload=None):
+    """Webhook: FreelancerMap „aktuellste verfügbar“ asynchron."""
+    kw = _berater_available_kwargs(payload, default_limit=36, default_pages=2)
+    logger.info('shaduler_radar_berater_fl_available: queue %s', kw)
+    try:
+        async_result = radar_berater_fl_available_run.delay(**kw)
+        return {
+            'ok': True,
+            'job': 'radar_berater_fl_available',
+            'queued': True,
+            'via': 'celery',
+            'task_id': getattr(async_result, 'id', None),
+            **kw,
+        }
+    except Exception as exc:
+        logger.warning('fl_available Celery unavailable, thread: %s', exc)
+        name = _berater_available_thread('fl', **kw)
+        return {
+            'ok': True,
+            'job': 'radar_berater_fl_available',
+            'queued': True,
+            'via': 'thread',
+            'thread': name,
+            'celery_error': str(exc)[:200],
+            **kw,
+        }
+
+
 def shaduler_delegation_notify(payload=None):
     """Benachrichtigungs-Mail bei Delegation (on-demand / Job)."""
     logger.info('shaduler_delegation_notify: stub payload=%s', payload)
@@ -366,6 +571,10 @@ JOB_HANDLERS = {
     'radar_poll': shaduler_radar_poll,
     'radar-berater-index': shaduler_radar_berater_index,
     'radar_berater_index': shaduler_radar_berater_index,
+    'radar-berater-gulp-available': shaduler_radar_berater_gulp_available,
+    'radar_berater_gulp_available': shaduler_radar_berater_gulp_available,
+    'radar-berater-fl-available': shaduler_radar_berater_fl_available,
+    'radar_berater_fl_available': shaduler_radar_berater_fl_available,
     'inbox-poll': shaduler_inbox_poll,
     'inbox_poll': shaduler_inbox_poll,
     'prozess-tick': shaduler_prozess_tick,
