@@ -193,6 +193,33 @@ if GULP_ID or MONGO:
     print('  skills_n=', _len(packed.get('skills')))
     print('  ok=', packed.get('ok'), 'error=', packed.get('error'), 'needs_auth=', packed.get('needs_auth'))
 
+    # API-Felder für Toggle-Volltext (projects/education/…)
+    raw_full = packed.get('raw') if isinstance(packed.get('raw'), dict) else {}
+    profile = raw_full.get('profile') if isinstance(raw_full.get('profile'), dict) else {}
+    print('\n=== GULP API profile keys ===')
+    print('  profile.keys:', sorted(profile.keys())[:80])
+    for arr_name in ('projects', 'educations', 'education', 'trainings', 'languages',
+                     'competenceCategories', 'competences', 'positions', 'industries'):
+        arr = profile.get(arr_name)
+        if arr is None:
+            arr = raw_full.get(arr_name)
+        if isinstance(arr, list) and arr:
+            print(f'  {arr_name}: n={len(arr)} item0.keys={sorted(arr[0].keys()) if isinstance(arr[0], dict) else type(arr[0])}')
+            if isinstance(arr[0], dict):
+                for k, v in sorted(arr[0].items()):
+                    if isinstance(v, str) and len(v) > 40:
+                        print(f'    {k}: str[{len(v)}] {_preview(v, 100)!r}')
+                    elif isinstance(v, list):
+                        print(f'    {k}: list[{len(v)}]')
+                    else:
+                        print(f'    {k}: {type(v).__name__}={v!r}'[:160])
+            (OUT / f'gulp_{arr_name}_sample.json').write_text(
+                json.dumps(arr[:3], ensure_ascii=False, indent=2, default=str)[:120000],
+                encoding='utf-8',
+            )
+        else:
+            print(f'  {arr_name}: (fehlt oder leer)')
+
     # HTML fallback parse alone (was kommt ohne API?)
     print('\n=== GULP HTML-only parse ===')
     url = packed.get('profil_url') or gulp.profil_url_for_gulp_id(GULP_ID or MONGO)
