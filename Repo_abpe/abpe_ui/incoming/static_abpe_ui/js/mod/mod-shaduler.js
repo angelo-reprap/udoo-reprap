@@ -3627,6 +3627,9 @@
       var e = document.createElement('div');
       e.className = 'ritem' + (RADAR_B_SELECTED && RADAR_B_SELECTED.id === r.id ? ' on' : '');
       e.setAttribute('data-id', r.id);
+      var geholtTxt = r.geholt
+        ? ('geholt: ' + r.geholt + (r.age ? ' · ' + r.age : ''))
+        : (r.age ? ('geholt: ' + r.age) : '');
       e.innerHTML =
         '<div class="top"><span class="mstat ' + esc(r.st || 'new') + '">' +
         esc(lbl[r.st] || r.match_status || r.st) + '</span>' +
@@ -3635,7 +3638,10 @@
         (r.age ? '<span class="age">' + esc(r.age) + '</span>' : '') +
         '</div>' +
         '<div class="meta">' + esc(r.meta || '') + '</div>' +
-        '<div class="meta" style="color:var(--status-green)">' + esc(r.note || '') + '</div>';
+        '<div class="meta" style="color:var(--status-green)">' + esc(r.note || '') + '</div>' +
+        (geholtTxt
+          ? '<div class="meta age">' + esc(geholtTxt) + '</div>'
+          : '');
       e.onclick = function () { openRadarBeraterItem(r, e); };
       c.appendChild(e);
     });

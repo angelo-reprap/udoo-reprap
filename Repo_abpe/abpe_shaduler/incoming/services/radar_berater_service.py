@@ -123,6 +123,16 @@ def _format_age(created: Optional[datetime], *, today: Optional[date] = None) ->
         return created.strftime('%d.%m.%Y')
 
 
+def _format_geholt(created: Optional[datetime]) -> str:
+    """Absoluter Hol-Zeitpunkt: „19.08.2026 14:20“ (eingegangen_am)."""
+    if not created:
+        return ''
+    try:
+        return created.strftime('%d.%m.%Y %H:%M')
+    except Exception:
+        return ''
+
+
 def _parse_date(val) -> Optional[date]:
     if not val:
         return None
@@ -588,6 +598,7 @@ def serialize_berater(obj, *, detail: bool = False, preview_chars: int = 4000) -
         'eingegangen_am': obj.eingegangen_am.isoformat() if obj.eingegangen_am else None,
         'updated_at': obj.updated_at.isoformat() if obj.updated_at else None,
         'age': _format_age(obj.eingegangen_am),
+        'geholt': _format_geholt(obj.eingegangen_am),
         'cv_versions': len(obj.cv_versions or []),
         'cv_latest_chars': (obj.cv_versions or [{}])[-1].get('chars') if obj.cv_versions else None,
         'deleted': bool(getattr(obj, 'deleted_at', None)),
@@ -669,6 +680,7 @@ def serialize_list_hit(hit: dict[str, Any]) -> dict[str, Any]:
         'eingegangen_am': hit.get('eingegangen_am'),
         'updated_at': hit.get('updated_at'),
         'age': _format_age(_parse_dt(hit.get('eingegangen_am'))),
+        'geholt': _format_geholt(_parse_dt(hit.get('eingegangen_am'))),
         'cv_versions': hit.get('cv_versions') or 0,
         'deleted': bool(hit.get('deleted')),
         'meta': hit.get('meta') or '',
