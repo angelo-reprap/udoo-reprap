@@ -225,7 +225,8 @@ class MainExtractedToDB:
                 consultant    = consultant,
                 degree        = degree[:200],
                 institution   = (edu.get('institution') or '')[:200],
-                period        = (edu.get('period') or '')[:100],
+                # period max_length=50 — früher [:100] → DataError varchar(50)
+                period        = (edu.get('period') or '')[:50],
                 description   = (edu.get('description') or '')[:500],
                 education_type= edu_type,
                 issuer        = (edu.get('issuer') or '')[:200],
