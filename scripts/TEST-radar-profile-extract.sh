@@ -7,8 +7,9 @@
 #   bash <(git show origin/cursor/posteingang-radar-fix-1532:scripts/TEST-radar-profile-extract.sh)
 #
 # Optional:
-#   GULP_ID=47094 bash …                          # Emil Doll (Beispiel)
-#   GULP_URL='https://www.gulp.de/talentfinder/app/experten/541b3cc2e4b0aac282d787c4' bash …
+#   MONGO=5c11649b9868ee50f8a14eae bash …          # Talentfinder mongoId (24-hex) — bevorzugt
+#   GULP_URL='https://www.gulp.de/talentfinder/app/experten/<mongo>' bash …
+#   GULP_ID=47094 bash …                          # numerische Gulp-ID (ohne Default)
 #   FM_URL='https://www.freelancermap.de/profil/…' bash …
 #   FM_SLUG=… FM_ID=… bash …
 #   SAVE_DB=1 bash …                              # Corpus an Radar-Eintrag anhängen (cv_versions)
@@ -17,8 +18,9 @@ set -euo pipefail
 
 BACKEND="${BACKEND:-/opt/abpe/backend}"
 PYBIN="${PYBIN:-/opt/abpe/venv311/bin/python}"
-GULP_ID="${GULP_ID:-47094}"
+GULP_ID="${GULP_ID:-}"
 GULP_URL="${GULP_URL:-}"
+MONGO="${MONGO:-}"
 FM_URL="${FM_URL:-}"
 FM_SLUG="${FM_SLUG:-}"
 FM_ID="${FM_ID:-}"
@@ -30,10 +32,10 @@ cd "$BACKEND"
 
 echo "======== TEST Radar Profile Extract ========"
 echo "Start: $(date -Iseconds) OUT=$OUT_DIR"
-echo "GULP_ID=$GULP_ID GULP_URL=${GULP_URL:-(none)} FM_URL=${FM_URL:-(none)} SAVE_DB=$SAVE_DB"
+echo "MONGO=${MONGO:-(none)} GULP_ID=${GULP_ID:-(none)} GULP_URL=${GULP_URL:-(none)} FM_URL=${FM_URL:-(none)} SAVE_DB=$SAVE_DB"
 echo
 
-export GULP_ID GULP_URL FM_URL FM_SLUG FM_ID SAVE_DB OUT_DIR
+export GULP_ID GULP_URL MONGO FM_URL FM_SLUG FM_ID SAVE_DB OUT_DIR
 
 "$PYBIN" - <<'PY' | tee "$OUT_DIR/extract.log"
 import os, json, re, django
@@ -49,20 +51,25 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 GULP_ID = (os.environ.get('GULP_ID') or '').strip()
 GULP_URL = (os.environ.get('GULP_URL') or '').strip()
+MONGO = (os.environ.get('MONGO') or '').strip()
 FM_URL = (os.environ.get('FM_URL') or '').strip()
 FM_SLUG = (os.environ.get('FM_SLUG') or '').strip()
 FM_ID = (os.environ.get('FM_ID') or '').strip()
 SAVE_DB = os.environ.get('SAVE_DB') == '1'
 
 # mongo from URL if given
-MONGO = ''
 if GULP_URL:
     m = re.search(r'/experten/([a-f0-9]{24})', GULP_URL, re.I)
-    if m:
+    if m and not MONGO:
         MONGO = m.group(1)
     gid2 = gulp.parse_gulp_id(GULP_URL)
     if gid2 and not GULP_ID:
         GULP_ID = gid2
+# 24-hex als mongo behandeln, auch wenn nur in GULP_ID gesetzt
+if not MONGO and re.fullmatch(r'[a-f0-9]{24}', GULP_ID or '', re.I):
+    MONGO = GULP_ID
+if MONGO and not GULP_ID:
+    GULP_ID = MONGO  # fetch_expert akzeptiert mongo als id
 
 
 def _len(x):
