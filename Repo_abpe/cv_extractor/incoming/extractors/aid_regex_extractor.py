@@ -874,14 +874,59 @@ class AidRegexExtractor:
 
     # ── Ausbildung ────────────────────────────────────────────────────────────
 
+    # Neuer Abschluss OHNE führendes Jahr (AID-stb u.ä.): nicht Soft-Wrap anhängen
+    _NEW_EDU_LINE = re.compile(
+        r'(?i)^(weiterbildung|fernstudium|studium\b|ausbildung\b|lehre\b|'
+        r'bachelor|master|diplom|zertifikatskurs|'
+        r'seit\s+(?:sommer|winter)semester|(?:sommer|winter)semester)\b'
+    )
+
+    def _semester_period_from_line(self, line: str) -> Tuple[str, str]:
+        """
+        Prosa-Zeitraum aus AID-Zeile ziehen, Rest bleibt degree.
+        'Seit Sommersemester 2015, Fernstudium … Abschluss Wintersemester 2018/2019'
+        → ('2015–2018/2019', 'Fernstudium …')
+        """
+        clean = re.sub(r'\s+', ' ', (line or '').strip())
+        if not clean:
+            return '', ''
+        m = re.search(
+            r'(?i)(?:seit\s+)?(?:sommer|winter)?semester\s+(\d{4})'
+            r'.{0,120}?(?:sommer|winter)?semester\s+(\d{4}(?:/\d{2,4})?)',
+            clean,
+        )
+        if not m:
+            m2 = re.match(
+                r'(?i)^seit\s+(?:sommer|winter)?semester\s+(\d{4})\s*[,:]?\s*(.+)$',
+                clean,
+            )
+            if m2:
+                return m2.group(1), m2.group(2).strip()
+            return '', clean
+        period = f'{m.group(1)}–{m.group(2)}'
+        # leading "Seit Sommersemester YYYY," + trailing "voraussichtlicher Abschluss …"
+        degree = clean
+        degree = re.sub(
+            r'(?i)^seit\s+(?:sommer|winter)?semester\s+\d{4}\s*[,:]?\s*',
+            '', degree,
+        )
+        degree = re.sub(
+            r'(?i),?\s*voraussichtlicher\s+abschluss\s+'
+            r'(?:sommer|winter)?semester\s+\d{4}(?:/\d{2,4})?\s*$',
+            '', degree,
+        )
+        degree = degree.strip(' ,;')
+        return period, (degree or clean)
+
     def _extract_ausbildung(self, text: str) -> List[dict]:
         """
         Extrahiert Ausbildung aus 'Ausbildung:' Block.
         Unterstützt:
           - Zeitraum-Range: 1985 - 1989 Studium …
           - Einzeljahr: 1999 Ausbildung zum …
+          - Ohne Jahr: eigene Zeilen (Weiterbildung / Fernstudium / Seit SS …)
           - Curriculum-Bullets unter dem Eintrag → description (nicht degree)
-          - Soft-Wrap ohne Bullet → an degree anhängen
+          - Soft-Wrap ohne Bullet → an degree anhängen (nur echte Umbrüche)
         """
         results = []
         # Block bis nächste Sektion (Fachbereiche / Zertifizierungen / …)
@@ -925,11 +970,14 @@ class AidRegexExtractor:
                 })
                 continue
 
-            if not entries:
-                # Erster Eintrag ohne Jahr (z.B. Nowka / OV Bankkaufmann)
+            # Neuer Abschluss ohne führendes Kalenderjahr (nicht Soft-Wrap!)
+            if (not entries) or self._NEW_EDU_LINE.match(clean):
+                period, degree = self._semester_period_from_line(clean)
+                if not period:
+                    period, degree = '', clean
                 entries.append({
-                    'degree': clean,
-                    'period': '',
+                    'degree': degree,
+                    'period': period,
                     'institution': '',
                     'description_parts': [],
                 })
@@ -964,17 +1012,31 @@ class AidRegexExtractor:
                 entries[-1]['institution'] = clean[:200]
                 continue
 
-            # Soft-Wrap: an degree anhängen
+            # Soft-Wrap: an degree anhängen (nur echte Zeilenumbrüche mittendrin)
             entries[-1]['degree'] = (entries[-1]['degree'] + ' ' + clean).strip()
 
         for e in entries:
             degree = re.sub(r'\s+', ' ', e['degree']).strip()
             if len(degree) < 3:
                 continue
+            period = (e['period'] or '').strip()
+            # Soft-Wrap kann "… Abschluss Wintersemester 2018/2019" nachreichen
+            if re.search(r'(?i)(?:sommer|winter)semester|\b\d{4}\b', degree):
+                probe = degree
+                if not re.match(r'(?i)^seit\b', probe):
+                    if re.fullmatch(r'\d{4}', period or ''):
+                        probe = f'Seit Sommersemester {period}, {degree}'
+                    elif not period:
+                        probe = degree
+                p2, d2 = self._semester_period_from_line(probe)
+                if p2:
+                    period = p2
+                    if d2:
+                        degree = d2
             results.append({
                 'degree': degree[:200],
                 'institution': (e.get('institution') or '')[:200],
-                'period': (e['period'] or '')[:100],
+                'period': period[:200],
                 'description': '; '.join(e['description_parts'])[:300],
                 'education_type': 'degree',
             })
