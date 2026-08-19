@@ -1015,8 +1015,26 @@ def normalize_expert_profile(raw: dict) -> dict[str, Any]:
         or profile.get('dayRate')
         or profile.get('hourlyRate')
     )
-    # Beschreibung so reich wie möglich (Headline + Text + Projekte)
+    # Beschreibung / CV so reich wie API (Toggle-offen = JSON-Felder tasks/role/…)
+    def _strip_html(val: Any) -> str:
+        t = re.sub(r'<[^>]+>', ' ', str(val or ''))
+        return re.sub(r'\s+', ' ', t).strip()
+
+    def _skill_names(arr: Any) -> list[str]:
+        out: list[str] = []
+        if not isinstance(arr, list):
+            return out
+        for s in arr:
+            if isinstance(s, dict):
+                nm = (s.get('name') or s.get('label') or '').strip()
+            else:
+                nm = str(s or '').strip()
+            if nm and nm not in out:
+                out.append(nm)
+        return out
+
     desc_parts: list[str] = []
+    cv_parts: list[str] = []
     for part in (
         profile.get('coreCompetence'),
         profile.get('competencesText'),
@@ -1026,26 +1044,120 @@ def normalize_expert_profile(raw: dict) -> dict[str, Any]:
         raw.get('summary'),
         raw.get('about'),
     ):
-        t = re.sub(r'<[^>]+>', ' ', str(part or ''))
-        t = re.sub(r'\s+', ' ', t).strip()
+        t = _strip_html(part)
         if t and t not in desc_parts:
             desc_parts.append(t)
+            cv_parts.append(t)
+
+    roles = profile.get('roles') or raw.get('roles') or []
+    if isinstance(roles, list) and roles:
+        role_names = _skill_names(roles)
+        if role_names:
+            block = 'Rollen:\n' + '\n'.join(f'- {r}' for r in role_names[:40])
+            desc_parts.append(block)
+            cv_parts.append(block)
+
     projects = profile.get('projects') or raw.get('projects') or []
     if isinstance(projects, list) and projects:
-        proj_lines = []
-        for proj in projects[:12]:
+        proj_short: list[str] = []
+        proj_full: list[str] = []
+        for proj in projects[:40]:
             if not isinstance(proj, dict):
                 continue
             period = ' – '.join(
                 x for x in [str(proj.get('from') or '').strip(), str(proj.get('to') or '').strip()] if x
             )
-            title = (proj.get('title') or proj.get('role') or '').strip()
-            cust = (proj.get('customerName') or '').strip()
-            line = ' · '.join(x for x in [period, title, cust] if x)
+            title = _strip_html(proj.get('title') or '')
+            role = _strip_html(proj.get('role') or '')
+            cust = _strip_html(proj.get('customerName') or proj.get('customer') or '')
+            tasks = _strip_html(
+                proj.get('tasks')
+                or proj.get('description')
+                or proj.get('projectContent')
+                or proj.get('content')
+                or ''
+            )
+            pskills = _skill_names(proj.get('skills') or proj.get('tools') or [])
+            head = ' · '.join(x for x in [period, title, cust] if x)
+            if head:
+                proj_short.append(head)
+            block_lines = [x for x in [period, title] if x]
+            if role:
+                block_lines.append(f'Rolle: {role}')
+            if cust:
+                block_lines.append(f'Kunde: {cust}')
+            if tasks:
+                block_lines.append(f'Projektinhalte: {tasks}')
+            if pskills:
+                block_lines.append('Kenntnisse: ' + ', '.join(pskills[:40]))
+            if block_lines:
+                proj_full.append('\n'.join(block_lines))
+        if proj_short:
+            desc_parts.append('Projekte:\n' + '\n'.join(proj_short))
+        if proj_full:
+            cv_parts.append('Projekte:\n\n' + '\n\n'.join(proj_full))
+
+    education = (
+        profile.get('education')
+        or profile.get('educations')
+        or raw.get('education')
+        or raw.get('educations')
+        or []
+    )
+    if isinstance(education, list) and education:
+        edu_lines: list[str] = []
+        for ed in education[:20]:
+            if not isinstance(ed, dict):
+                continue
+            period = ' – '.join(
+                x for x in [str(ed.get('from') or '').strip(), str(ed.get('to') or '').strip()] if x
+            )
+            deg = _strip_html(ed.get('degree') or ed.get('title') or '')
+            inst = _strip_html(ed.get('institution') or ed.get('school') or '')
+            line = ' · '.join(x for x in [period, deg, inst] if x)
             if line:
-                proj_lines.append(line)
-        if proj_lines:
-            desc_parts.append('Projekte:\n' + '\n'.join(proj_lines))
+                edu_lines.append(line)
+        if edu_lines:
+            block = 'Ausbildung:\n' + '\n'.join(edu_lines)
+            desc_parts.append(block)
+            cv_parts.append(block)
+
+    langs = (
+        profile.get('foreignLanguageSkills')
+        or profile.get('languages')
+        or raw.get('foreignLanguageSkills')
+        or raw.get('languages')
+        or []
+    )
+    if isinstance(langs, list) and langs:
+        lang_lines: list[str] = []
+        for lg in langs[:30]:
+            if isinstance(lg, dict):
+                nm = _strip_html(lg.get('name') or lg.get('language') or lg.get('label') or '')
+                lvl = _strip_html(lg.get('level') or lg.get('skillLevel') or lg.get('degree') or '')
+                line = ' · '.join(x for x in [nm, lvl] if x)
+            else:
+                line = str(lg or '').strip()
+            if line:
+                lang_lines.append(line)
+        if lang_lines:
+            block = 'Sprachen:\n' + '\n'.join(lang_lines)
+            desc_parts.append(block)
+            cv_parts.append(block)
+
+    # Kompetenz-Kategorien (Programmierung, …) — Namen schon in skills, hier gruppiert
+    if isinstance(cats, list) and cats:
+        cat_blocks: list[str] = []
+        for cat in cats[:20]:
+            if not isinstance(cat, dict):
+                continue
+            cid = str(cat.get('id') or cat.get('name') or '').strip()
+            cnames = _skill_names(cat.get('competences') or [])
+            if cid and cnames:
+                cat_blocks.append(f'{cid}: ' + ', '.join(cnames[:40]))
+        if cat_blocks:
+            cv_parts.append('Kompetenzen:\n' + '\n'.join(cat_blocks))
+
     desc = '\n\n'.join(desc_parts)
     cv_text = (
         profile.get('projectsText')
@@ -1053,6 +1165,11 @@ def normalize_expert_profile(raw: dict) -> dict[str, Any]:
         or raw.get('curriculum')
         or ''
     )
+    cv_built = '\n\n'.join(cv_parts)
+    if cv_built:
+        # API-Volltext (tasks/role/…) hat Vorrang vor leerem/kurzem projectsText
+        if not _strip_html(cv_text) or len(cv_built) > len(_strip_html(cv_text)):
+            cv_text = cv_built
     avail_pct = profile.get('availabilityPercent') or raw.get('availabilityPercent')
     remote = profile.get('remoteWorkPossible')
     if remote is None:
@@ -1073,8 +1190,8 @@ def normalize_expert_profile(raw: dict) -> dict[str, Any]:
         'ort': str(ort or '').strip(),
         'verfuegbar_ab': verfuegbar.isoformat() if isinstance(verfuegbar, date) else None,
         'satz': satz,
-        'beschreibung': str(desc or '')[:8000],
-        'cv_text': str(cv_text or '')[:50000] if cv_text else '',
+        'beschreibung': str(desc or '')[:20000],
+        'cv_text': str(cv_text or '')[:80000] if cv_text else '',
         'profil_url': url,
         'availability_percent': avail_pct,
         'remote': bool(remote) if remote is not None else None,
