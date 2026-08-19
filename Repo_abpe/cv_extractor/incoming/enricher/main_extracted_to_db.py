@@ -225,8 +225,7 @@ class MainExtractedToDB:
                 consultant    = consultant,
                 degree        = degree[:200],
                 institution   = (edu.get('institution') or '')[:200],
-                # period max_length=50 — früher [:100] → DataError varchar(50)
-                period        = (edu.get('period') or '')[:50],
+                period        = (edu.get('period') or '')[:200],
                 description   = (edu.get('description') or '')[:500],
                 education_type= edu_type,
                 issuer        = (edu.get('issuer') or '')[:200],
@@ -258,7 +257,7 @@ class MainExtractedToDB:
                 continue
             exp_obj = Experience.objects.create(
                 consultant = consultant,
-                period     = (exp.get('period') or '')[:50],
+                period     = (exp.get('period') or '')[:200],
                 title      = (exp.get('title') or '')[:200],
                 company    = (exp.get('company') or '')[:200],
                 industry   = (exp.get('industry') or '')[:100],

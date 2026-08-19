@@ -312,7 +312,7 @@ class Education(models.Model):
                                        related_name='education')
     degree         = models.CharField(max_length=200, blank=True)
     institution    = models.CharField(max_length=200, blank=True)
-    period         = models.CharField(max_length=50, blank=True)
+    period         = models.CharField(max_length=200, blank=True)
     description    = models.TextField(blank=True)
     education_type = models.CharField(max_length=20, choices=EDUCATION_TYPES,
                                       default='degree', db_index=True)
@@ -334,7 +334,7 @@ class Education(models.Model):
 class Experience(models.Model):
     consultant = models.ForeignKey(Consultant, on_delete=models.CASCADE,
                                    related_name='experience')
-    period     = models.CharField(max_length=50, blank=True)
+    period     = models.CharField(max_length=200, blank=True)
     title      = models.CharField(max_length=200, blank=True)
     company    = models.CharField(max_length=200, blank=True, db_index=True)
     industry   = models.CharField(max_length=100, blank=True)

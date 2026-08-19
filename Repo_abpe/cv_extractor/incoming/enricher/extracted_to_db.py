@@ -321,7 +321,7 @@ class ExtractedToDB:
                         consultant=consultant,
                         degree=(edu_data.get('degree', '') or '')[:200],
                         institution=(edu_data.get('institution', '') or '')[:200],
-                        period=(edu_data.get('period', '') or '')[:100],
+                        period=(edu_data.get('period', '') or '')[:200],
                         description=(edu_data.get('description', '') or '')[:500],
                         education_type=edu_data.get('education_type', 'degree') or 'degree',
                         issuer=(edu_data.get('issuer', '') or '')[:200]
@@ -352,7 +352,7 @@ class ExtractedToDB:
             for idx, exp_data in enumerate(experience_list):
                 exp = Experience.objects.create(
                     consultant=consultant,
-                    period=(exp_data.get('period', '') or '')[:50],
+                    period=(exp_data.get('period', '') or '')[:200],
                     title=(exp_data.get('title', '') or '')[:200],
                     company=(exp_data.get('company', '') or '')[:200],
                     industry=(exp_data.get('industry', '') or '')[:100],
