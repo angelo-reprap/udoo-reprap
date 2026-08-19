@@ -3631,7 +3631,9 @@
         '<div class="top"><span class="mstat ' + esc(r.st || 'new') + '">' +
         esc(lbl[r.st] || r.match_status || r.st) + '</span>' +
         '<b class="hl">' + esc(r.name || '') + '</b>' +
-        '<span class="src">' + esc(r.src || 'gulp') + '</span></div>' +
+        '<span class="src">' + esc(r.src || 'gulp') + '</span>' +
+        (r.age ? '<span class="age">' + esc(r.age) + '</span>' : '') +
+        '</div>' +
         '<div class="meta">' + esc(r.meta || '') + '</div>' +
         '<div class="meta" style="color:var(--status-green)">' + esc(r.note || '') + '</div>';
       e.onclick = function () { openRadarBeraterItem(r, e); };

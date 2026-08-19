@@ -77,6 +77,52 @@ def _dedup_fm(fm_id: str) -> str:
     return hashlib.sha256(f'fm:{fm_id}'.encode('utf-8')).hexdigest()
 
 
+def _parse_dt(val) -> Optional[datetime]:
+    """ISO/datetime → datetime (für age/geholt)."""
+    if not val:
+        return None
+    if isinstance(val, datetime):
+        return val
+    s = str(val).strip()
+    if not s:
+        return None
+    try:
+        if s.endswith('Z'):
+            s = s[:-1] + '+00:00'
+        return datetime.fromisoformat(s)
+    except Exception:
+        return None
+
+
+def _format_age(created: Optional[datetime], *, today: Optional[date] = None) -> str:
+    """
+    Wie Radar-Anfragen: heute „vor X Min“ / „vor X Std“, sonst Datum „19.08.2026“.
+    Basis: eingegangen_am (Listen-Sync / list_rank).
+    """
+    if not created:
+        return ''
+    today = today or date.today()
+    try:
+        created_d = created.date()
+    except Exception:
+        return ''
+    if created_d != today:
+        return created.strftime('%d.%m.%Y')
+    try:
+        now = datetime.now(created.tzinfo) if created.tzinfo else datetime.now()
+        mins = int((now - created).total_seconds() // 60)
+        if mins < 0:
+            mins = 0
+        if mins < 60:
+            return f'vor {mins} Min'
+        hours = mins // 60
+        if hours < 24:
+            return f'vor {hours} Std'
+        return created.strftime('%d.%m.%Y')
+    except Exception:
+        return created.strftime('%d.%m.%Y')
+
+
 def _parse_date(val) -> Optional[date]:
     if not val:
         return None
@@ -541,6 +587,7 @@ def serialize_berater(obj, *, detail: bool = False, preview_chars: int = 4000) -
         ),
         'eingegangen_am': obj.eingegangen_am.isoformat() if obj.eingegangen_am else None,
         'updated_at': obj.updated_at.isoformat() if obj.updated_at else None,
+        'age': _format_age(obj.eingegangen_am),
         'cv_versions': len(obj.cv_versions or []),
         'cv_latest_chars': (obj.cv_versions or [{}])[-1].get('chars') if obj.cv_versions else None,
         'deleted': bool(getattr(obj, 'deleted_at', None)),
@@ -621,6 +668,7 @@ def serialize_list_hit(hit: dict[str, Any]) -> dict[str, Any]:
         'crm_url': f'/crm/berater/?detail={cid}' if cid else '',
         'eingegangen_am': hit.get('eingegangen_am'),
         'updated_at': hit.get('updated_at'),
+        'age': _format_age(_parse_dt(hit.get('eingegangen_am'))),
         'cv_versions': hit.get('cv_versions') or 0,
         'deleted': bool(hit.get('deleted')),
         'meta': hit.get('meta') or '',
