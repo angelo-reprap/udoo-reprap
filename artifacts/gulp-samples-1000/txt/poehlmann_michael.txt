@@ -1,0 +1,1710 @@
+Architektur/Entwicklung, Cloud, Java, Spring Boot
+Top-Skills: Java, Spring-Boot, Cloud, AMQP, JPA,
+hexagonale Service Architektur, event driven,
+micro service
+Verfügbar ab: 02.04.2023
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 120,00 EUR
+Bemerkungen: Stundensatz für Berlin. Sonst zzgl. Spesen.
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Städte: Berlin 10 km
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte ausschließlich für Projekte in diesen Einsatzorten
+kontaktiert werden.
+Kommentar: Derzeit bevorzuge ich Projekte im Raum Berlin oder full remote.
+Position
+Kommentar:
+Projekte
+2021-05 - 2022-01 Vorgangsbearbeitung
+9 Monate
+Rolle: Architektur/Implementierung
+Kunde: Bundesdruckerei
+Einsatzort: Berlin
+Projektinhalte:
+BeschreibungDas Verwaltungsportal des Bundes soll für Bürgerinnen und
+03.03.2023 1 von 20
+Bürger sowie Unternehmen einen zentralen und komfortablen Zugang zu
+allen Verwaltungsleistungen des Bundes ermöglichen. Über die Anbindung
+an den Portalverbund werden ebenfalls die Leistungen der Länder und
+Kommunen zugänglich sein. Dabei verfolgt das Projekt eine ganzheitliche
+Lösung für Bürger/innen, Unternehmen und für Behörden. Die Umsetzung
+der einzelnen Applikationen erfolgte in einer hexagonalen Service-
+Architektur. Die Vorgangsbearbeitung dient der Verwaltung und
+Bearbeitung von durch den Bürger übermittelter Anträge innerhalb der
+Behörden.
+AusführungLinux (Ubuntu) Java 17, Spring, Spring Boot Kubernetes,
+Docker REST, Jackson Hibernate 5, Oracle DB, H2, domain-driven design,
+hexagonal architecture Cloud MinIO, MapStruct, Micrometer, Lombok,
+Feign, Resilience4J, Testcontainers, OpenTracing, AOP, Mockito Junit 5,
+AssertJ, JSONAssert IDE: IntelliJ 2021 Vorgehensmodell: Scrum Tools:
+Maven, GitLab VCS: git
+Kenntnisse: Linux, Java 17, Spring Boot, Docker, Kubernetes, REST, Hibernate, Oracle
+DBA, hexagonal architecture, Juni 5, Lombok, Feign, MapStruct,
+Resilience4J, JPA
+Eingesetzte Produkte: IntelliJ, Ubuntu
+2018-02 - 2021-06 Rewrite einer Web-Applikation zum Versand von
+3 Jahre 5 Monate Einwegnachrichten
+Rolle: Idee, Design, Implementierung
+Kunde: Social Web
+Projektinhalte: Einfache Möglichkeit zum Versand von Einwegnachrichten, die beim Lesen
+automatisch gelöscht werden. Möglichkeit für Attachment als Bild. Bei
+Erstellung der Nachricht wird ein Link generiert, der dem Empfänger
+mitzuteilen ist. Ruft der Empfänger den Link auf, so wird die Nachricht auf
+dem Server gelöscht, wodurch sie nur einmalig gelesen werden kann
+Microservice Architektur: message store, authorization/ authentication,
+frontend
+Features
+    •  Versand von Tect und Bildern. Benachrichtigung des Versenders
+     ?beim Lesen der Nachricht.
+    •  Unterstützung mehrerer Sprachen.
+    •  Unterstützung von X-Forwarded-* headern zum Betrieb hinter
+     ?einem reverse proxy zur SSL-Temrinierung.
+    •  Blockieren der Anzeige beim Versand des Links mittels Facebook
+     ?Messenger, damit hiermit die Nachricht nicht zerstört wird.
+    •  Benutzerverwaltung; registrierte Benutzer können zusätzliche
+     ?Features nutzen.
+    •  Benutzerregistrierung, recaptcha Integration.
+    •  Versand von multipart MimeMessage (plain text, html) eMails zur
+     ?Aktivierung des Accounts nach Aktivierung und
+     ?Lesebestätigungen.
+    •  Hierzu wird der bereits vorhandene eMail Server als relay
+     ?benutzt. Feature switches mit unterschiedlichen
+     ?Aktivierungsstrategien (Benutzergruppe, Spring-Boot Profil,
+     ?Administratorfunktion).
+    •  Integration in Thymeleaf durch custom dialect. Serverseitige
+     ?Integration durch Annotation mittels AspectJ.
+03.03.2023 2 von 20
+    •  Administratorfunktionen: Übersicht der Nachrichten, aktuelle
+     ?User sessions
+    •  Verwaltung von Registrierungen, Verwaltung von Feature switches
+     ?für aktuelle User sessions (auch anonyme).
+    •  Connection pooling für message store und auth-service.
+    •  Distributed tracing.
+Betrieb
+    •  Metriken mittels Prometheus, Grafana
+    •  Logging mittels Filebeat, Elastic Search, Kibana
+    •  Docker compose zur Orchestrierung aller Container (PostgreSQL,
+     ?message-store, auth-service, frontend, Filebeat, Elastic
+     ?Search, Grafana, Kibana, Prometheus).
+Kenntnisse: PC / Windows, Ubuntu Linux, Spring Boot 2, Spring Security, Spring JPA,
+Spring Cloud Sleuth, Spring Actuator, JPA2, Hibernate 5, HikariCP, Flyway
+5, PostgreSQL 10, Jackson, MapStruct 2, Logback, Micrometer, AssertJ,
+Mockito, Thymeleaf 2, custom dialect, Bootstrap, jQuery, DevOp: GitLab;
+GitLab CI/CD, Java 11, IntelliJ
+2020-10 - 2021-05 Dokumentenservice
+8 Monate
+Rolle: Architektur/Implementierung
+Kunde: Bundesdruckerei
+Einsatzort: Berlin
+Projektinhalte: Beschreibung
+Das Verwaltungsportal des Bundes soll für Bürgerinnen und Bürger sowie
+Unternehmen einen zentralen und komfortablen Zugang zu allen
+Verwaltungsleistungen des Bundes ermöglichen. Über die Anbindung an
+den Portalverbund werden ebenfalls die Leistungen der Länder und
+Kommunen zugänglich sein. Dabei verfolgt das Projekt eine ganzheitliche
+Lösung für Bürger/innen, Unternehmen und für Behörden.
+Die Umsetzung der einzelnen Applikationen erfolgte in einer hexagonalen
+Service-Architektur.
+In diesem Umfeld ist es notwendig hochgeladene und generierte
+Dokumente sicher zu verwalten. Für diesen Zweck wurde ein
+Dokumentenservice entwickelt. Dieser nimmt Dokumente entgegen, ohne
+diese unmittelbar zum Download anzubieten. Erst wenn diese durch die
+Verwaltungssoftware als final markiert werden, können Sie mit einem
+Zugriffsschlüssel für eine begrenzte Zeit vom Nutzer heruntergeladen
+werden. Temporär hochgeladene Dokumente werden zyklisch aus dem
+System gelöscht.
+Ausführung
+Linux (Ubuntu)
+Java 14, Spring, Spring Boot
+Kubernetes, Docker
+REST, Jackson
+Hibernate 5, Oracle DB, H2, domain-driven design, hexagonal architecture
+Cloud
+MinIO, MapStruct, Micrometer, Lombok, Feign, Resilience4J,
+Testcontainers, OpenTracing, AOP, Mockito
+Junit 5, AssertJ, JSONAssert
+03.03.2023 3 von 20
+IDE: IntelliJ 2020
+Vorgehensmodell: Scrum
+Tools: Maven, GitLab
+VCS: git
+Kenntnisse: Linux, Java 14, Spring Boot, Docker, Kubernetes, REST, Hibernate, Oracle
+DB, H2, domain-driven design, hexagonal architecture, MinIO, MapStruct,
+Micrometer, Lombok, Feign, Resilience4J, Testcontainers, OpenTracing,
+AOP, Junit 5, JSONAssert, Git, Scrum
+Eingesetzte Produkte: IntelliJ, Ubuntu
+2020-02 - 2020-10 Leistungsbeantragung
+9 Monate
+Rolle: Architektur/Implementierung
+Kunde: Bundesdruckerei
+Einsatzort: Berlin
+Projektinhalte: Beschreibung
+Das Verwaltungsportal des Bundes soll für Bürgerinnen und Bürger sowie
+Unternehmen einen zentralen und komfortablen Zugang zu allen
+Verwaltungsleistungen des Bundes ermöglichen. Über die Anbindung an
+den Portalverbund werden ebenfalls die Leistungen der Länder und
+Kommunen zugänglich sein. Dabei verfolgt das Projekt eine ganzheitliche
+Lösung für Bürger/innen, Unternehmen und für Behörden.
+Die Umsetzung der einzelnen Applikationen erfolgte in einer hexagonalen
+Service-Architektur.
+Die Leistungsbeantragung dient der Bereitstellung von Formularen für den
+Bürger, um eine Leistung zu beantragen. Für die Behörde wird eine
+Verwaltung dieser Anträge bereitgestellt, um die Vorgänge zu bearbeiten.
+Ausführung
+Linux (Ubuntu)
+Java 14, Spring, Spring Boot
+Kubernetes, Docker
+REST, Jackson
+Hibernate 5, Oracle DB, H2, domain-driven design, hexagonal architecture
+Cloud
+MinIO, MapStruct, Micrometer, Lombok, Feign, Resilience4J,
+Testcontainers, OpenTracing, AOP, Mockito
+Junit 5, AssertJ, JSONAssert
+IDE: IntelliJ 2020
+Vorgehensmodell: Scrum
+Tools: Maven, GitLab
+VCS: git
+Kenntnisse: Linux, Java 14, Spring Boot, Docker, Kubernetes, REST, Hibernate, Oracle
+DB, H2, domain-driven design, hexagonal architecture, MinIO, MapStruct,
+Micrometer, Lombok, Feign, Resilience4J, Testcontainers, OpenTracing,
+AOP, AOP, Junit 5, Junit, JSONAssert, Scrum
+Eingesetzte Produkte: IntelliJ, Ubuntu
+03.03.2023 4 von 20
+2019-06 - 2019-12 Optimierung des Persistenzlayers durch multi-tenancy
+7 Monate
+Rolle: Architektur/Implementierung
+Kunde: Zalando
+Einsatzort: Berlingen, Eifel
+Projektinhalte: Beschreibung
+Eine existierende Plattform zum Versand von Nachrichten wird durch eine
+Nachrichtenagnostische Komponente aus einigen Microservices
+(Abonnement Dienste) mit Anwendungsfall spezifischen Ereignissen zur
+Generierung von Nachrichten versorgt.
+Der Abonnementspeicherdienst ist für die Persistenz von unbekannten
+Events (im Json-Format) zuständig. Die Events werden durch die Definition
+eines Anwendungsfalls (Thema) im Themenverwaltungsdienst definiert und
+von Kafka gelesen und samt ihrer eindeutigen Themenkennung in einer
+PostgreSQL gespeichert. Der Abonnementverarbeitungsdienst verarbeitet
+zeitgesteuert die verschiedenen Themen durch Anfragen an den
+Abonnementspeicherdienst. Dabei reichert er die Daten mittels Anfragen
+an weitere Dienste an und leitet sie an die zentrale Nachrichtenplattform
+zum Versand weiter.
+Durch die Zunahme der Anwendungsfälle ist ein erheblicher Zuwachs des
+Datenvolumens (etwa 250 Mio. Zeilen) zu verzeichnen wodurch die
+Ausführung der DB-Abfragen zunehmend langsamer wird. Nachdem alle
+Zugriffsoptimierungen ausgeschöpft waren, entschlossen wir uns die Daten
+aufzuteilen und eine multi tenancy Architektur in der Persistenzschicht
+einzuführen. Als tenant dient hierbei ein Thema. Da die Anzahl der Themen
+zunehmend wächst ist die dedizierte Zuordnung einer DB-Instanz je
+Thema nicht möglich. Daher wird je Thema ein eigenes DB-Schema
+benutzt um die Indizes für die Abfragen klein zu halten.
+Die Hauptanforderung an die multi tenancy Komponente ist eine möglichst
+einfache Integration in den bestehenden Abonnementspeicherdienst. Dabei
+griff ich auf die Unterstützung von Hibernate zurück die mittels AspectJ an
+Annotations zur Selektion des Tenants gebunden habe. Dabei integriert
+sich alles weitgehend automatisch in Spring Boot.
+Nach der Datenmigration zeigten erste Vergleiche der
+Ausführungsgeschwindigkeiten der Abfragen hierbei eine Steigerung von
+mindestens Faktor 10.
+Ausführung
+Linux (Ubuntu)
+Java 8/11, Spring, Spring Boot
+Amazon AWS, EC2
+Docker
+REST, Jackson
+Hibernate 5, PostgreSQL, H2, redis, RabbitMQ (AMQP), Kafka (Nakadi)
+event driven architecture, domain-driven design, hexagonal architecture
+Cloud
+Mockito
+Junit 4/5, Hamcrest, AssertJ
+IDE: IntelliJ 2018
+Vorgehensmodell: Scrum
+Tools: Maven, GitHub Enterprise
+VCS: git
+03.03.2023 5 von 20
+Kenntnisse: Java 11, Spring Boot, AWS, Docker, REST, Hibernate, PostgreSQL, H2,
+Redis, RabbitMQ, AMQP, Kafka, JUnit, Hamcrast, AssertJ, Scrum, event
+driven architecture, domain-driven design, hexagonal architecture
+Eingesetzte Produkte: IntelliJ, Ubuntu, Git
+2019-03 - 2019-05 Werbekampagnen Verwaltung
+3 Monate
+Rolle: Architektur/Implementierung
+Kunde: Zalando
+Einsatzort: Berlin
+Projektinhalte: Beschreibung
+Architektur und Implementierung eines Microservices zur Verwaltung von
+Werbekampagnen. Der Microservice ist für die Stammdaten der
+Kampagnen zuständig und steuert die Generierung des relevanten
+Kundensegments durch einen weitere Microservice. Dabei verfügt er über
+eine Zustandsmaschine, die die Status der einzelnen Kampagnen steuert.
+Die Status werden auch vom Segmentierungsservice mittels Nachrichten
+aktualisiert. Der Segmentierungsservice sendet hierzu bei Beginn der
+Aussendung der Messages relevanter Kunden an die verarbeitende
+Plattform und bei Beendigung der Aussendung jeweils einen Statusupdate
+an die Kampagnenverwaltung zur Aktualisierung des Status.
+Die Microservices basieren auf Spring Boot. Die Kommunikation erfolgt
+über REST, AMQP sowie Kafka (gekapselt durch Nakadi).
+Ausführung
+Linux (Ubuntu)
+Java 8/11, Spring, Spring Boot
+Amazon AWS, EC2
+Docker
+REST, Jackson
+Hibernate 5, PostgreSQL, H2, redis, RabbitMQ (AMQP), Kafka (Nakadi)
+event driven architecture, domain-driven design, hexagonal architecture
+Cloud
+Mockito
+Junit, Hamcrest, AssertJ
+IDE: IntelliJ 2019
+Vorgehensmodell: Scrum
+Tools: Maven, GitHub Enterprise
+VCS: git
+Kenntnisse: Java 11, Spring Boot, AWS, Docker, REST, Hibernate, PostgreSQL, H2,
+Redis, AMQP, Kafka, Mockito, JUnit, AssertJ, Hamcrast, Maven, Git, Scrum,
+Linux, event driven architecture, domain-driven design, hexagonal
+architecture
+Eingesetzte Produkte: IntelliJ, Ubuntu
+2019-01 - 2019-02 Backendservice zur Ermittlung verschiedener Mitarbeiter
+2 Monate bezogener Daten
+03.03.2023 6 von 20
+Rolle: Architektur, Implementierung
+Kunde: Autowerkstatt
+Projektinhalte: Neuentwicklung eines Spring Boot basierenden Microservices zur
+Ermittlung Mitarbeiter bezogener Daten aus verschiedenen
+Backendsystemen. Die Daten werden an verschiedenen REST Endpunkten
+bereitgestellt. Da die Backend-systeme einen zu den REST Endpunkten
+abweichenden Business-Key benutzen, wird ein CSV-Dump aus einem
+Legacy-System bereitgestellt. Dieser wird zyklisch mittels Quartz
+eingelesen und als Mapping in einer PostgreSQL bereitgehalten. Die
+Mitarbeiterinformationen werden dann aus einer Oracle DB oder per
+SOAP/REST von anderen Backendsystemen ermittelt.
+Kenntnisse: Linux, Java 11, Spring, Spring Boot, Kubernetes, Docker, Docker compose,
+Quartz, REST, Jackson, Hibernate 5, PostgreSQL, Oracle DB, H2, Cloud,
+Mockito, Junit, AssertJ, IDE: IntelliJ 2018, Vorgehensmodell: Kanban,
+Tools: Maven, Jira, Bitbucket, VCS: git
+2018-12 - 2019-01 Backendservice zum Versand von Formulardaten per
+2 Monate eMail
+Rolle: Architektur, Implementierung
+Kunde: Autowerkstatt
+Projektinhalte: Neuentwicklung eines Spring Boot basierenden Microservices zum Versand
+von Formulardaten per eMail. Die Daten werden an einen REST Endpunkt
+angenommen und basierend auf diversen Regeln in unterschiedlichen
+Formaten an diverse Empfänger versendet. Als Template Engine wurde
+thymeleaf benutzt.
+Kenntnisse: Linux, Java 11, Spring, Spring Boot, Kubernetes, Docker, Docker compose,
+REST, Jackson, Cloud, Mockito, Junit, AssertJ, IDE: IntelliJ 2018,
+Vorgehensmodell: Kanban, Tools: Maven, Jira, Bitbucket, VCS: git
+2018-10 - 2018-12 Online Terminvereinbarung
+3 Monate
+Rolle: Architektur, Implementierung
+Kunde: Autowerkstatt
+Projektinhalte: Architektur und Implementierung neuer Funktionen eines Online
+Terminvereinbarungsservice durch Spring Boot basierende Microservices.
+Die Kommunikation der Microservices basiert auf REST und Kafka. Daten
+werden in PostgreSQL gespeichert.
+Kenntnisse: Linux, Java 11, Spring, Spring Boot, Kubernetes, Docker, Docker compose,
+REST, Jackson, Hibernate 5, PostgreSQL, H2, Kafka, Cloud, Mockito, Junit,
+AssertJ, IDE: IntelliJ 2018, Vorgehensmodell: Kanban, Tools: Maven, Jira,
+Bitbucket, VCS: git
+2017-04 - 2018-09 Plattform zum Versand von Nachrichten
+1 Jahr 6 Monate
+03.03.2023 7 von 20
+Rolle: Architektur, Implementierung
+Kunde: Handel
+Projektinhalte: Architektur und Implementierung neuer Funktionen einer auf Nachrichten
+basierenden Kommunikationsplattform auf Basis Spring Boot. Die gesamte
+Plattform ist auf diverse Microservices verteilt, die mittels REST und AMQP
+untereinander kommunizieren. Dabei kommt ein Templatesystem zum
+Einsatz, das den Klienten den Versand der Nachrichten vereinfacht, da nur
+ein Minimum an Payload benötigt wird. Das Rendering der Nachricht
+geschieht innerhalb der Plattform für den jeweils relevanten
+Kommunikationskanal. Hier wird derzeit SMS, Push (iOS und Android),
+eMail, Facebook Messenger und Brief unterstützt. Alle Nachrichtenkanäle
+verfügen über eine Vielzahl an Kennzahlen zum Tracken der einzelnen
+Nachrichten.
+Kenntnisse: Apple / macOS / Linux, Java 8, Spring, Spring Boot, Amazon AWS, EC2,
+Docker, REST, Jackson, Hibernate 5, PostgreSQL, H2, redis, RabbitMQ
+(AMQP), Cloud, Mockito, Junit, Hamcrest, AssertJ, IDE: IntelliJ 2018,
+Vorgehensmodell: Scrum, Tools: Maven, GitHub Enterprise, VCS: git
+2016-09 - 2017-03 Europas größte Auto- und Motor-Community
+7 Monate
+Rolle: Architektur, Implementierung
+Kunde: Community
+Projektinhalte: Architektur und Implementierung neuer Funktionen sowie Bugfixing einer
+Spring basierenden Community Plattform. Architektur und
+Implementierung einer Sitelist zur Anbindung von Suchmaschinen wie
+Google auf Basis Spring Boot, welche in der hauseigenen Cloud läuft. Die
+hier benötigten Scheduling-Aufgaben wurden mit Spring implementiert.
+Zur Synchronisation der Instanzen wurde redis gewählt. Als client seitiger
+Loadbalancer diente ribbon. Servicediscovery wurde mittels consul
+realisiert. Logging erfolgte mittels ELK (Elasticsearch, Logstash, Kibana)
+Kenntnisse: Apple / macOS / Linux, Java 8, Spring, Spring Boot, Stripes, JSP, JSTL,
+REST, Jackson, mySQL, MyBatis, redis, Elasticsearch, Logstash, Kibana,
+ribbon, consul, Cloud, Mockito, REST-Assured, JUnit, Hamcrest, IDE:
+IntelliJ 2017, Vorgehensmodell: Scrum, Tools: JIRA; Team City;
+Confluence; Maven, VCS: git
+2015-08 - 2016-09 Internetanwendung zur Verwaltung für
+1 Jahr 2 Monate Marketingkampagnen
+Rolle: Architektur, Implementierung
+Kunde: Werbung
+Projektinhalte: Architektur und Implementierung einer neuen Anwendung von Grund auf.
+Umsetzung als Microservice-Architektur auf Basis Spring Boot in einem
+Docker Container im AWS-Umfeld. Anbindung von Google Double Click und
+Metrigo für „onsite“ Werbung und „sponsored products“. Scheduling-
+Aufgaben wurden mittels Quartz gesteuert. Für die Übermittlung von
+Nachrichten wurde Amazons SQS benutzt.
+03.03.2023 8 von 20
+Kenntnisse: Spring Boot, Java 8, REST, Kanban, JPA
+Eingesetzte Produkte: IntelliJ, Trello, Atlassian Confluence, Jackson, REST-Assured, JUnit,
+Hamcrest, Swagger, git, Hibernate, PostgreSQL, H2 Database Engine,
+Mockito, Google Double Click, Metrigo, Atlassian JIRA, SQS, Amazon EC2,
+AWS, Cloud Computing, JPA
+2015-05 - 2015-08 Stammdatenverwaltung für Abrechnungssystem
+4 Monate
+Rolle: Analyse, Design, Implementierung
+Kunde: Energiedienstleistung
+Projektinhalte: Implementierung zentraler Dienste der Stammdatenverwaltung. Hierzu
+gehören Liegenschaften, Gebäude, Messstellen, Messinstrumente usw.
+Kenntnisse: JEE 6, Java 7, REST, Soap, JMS, Hibernate, MySQL, Orika, AngularJS,
+jQuery, Grunt, Bower
+Eingesetzte Produkte: Wildfly, Scrum, Atlassian JIRA, Atlassian Confluence, IntelliJ
+2008-08 - 2015-03 Interne Applikation zur Vertragsverwaltung und
+6 Jahre 8 Monate Kundenbetreuung
+Rolle: Analyse, Design, Implementierung
+Kunde: Versicherung
+Projektinhalte: Implementierung administrativer Funktionen in ein bestehendes
+webbasierendes Vertragsverwaltungssystem
+Modul Migration
+Zur Übernahme von Vertragsbeständen aus einer fremden
+Bestandsverwaltung musste ein Konzept zur Migration dieser
+Datenstrukturen in das bestehende Bestandsverwaltungssystem erstellt
+werden. Dabei soll eine BPM-Engine als Rahmen dienen. Bei der Erstellung
+der Infrastruktur wurde hier auf RESTful Services mittels RESTEasy
+gesetzt. Das Modul gliedert sich in zwei Teile, wobei eines für die
+Transformation der Datenstrukturen in die Zielstrukturen zuständig ist und
+das andere die Zusteuerung ins bestehende System übernimmt.
+Modul Angebotserstellung
+Ziel war eine möglichst eigenständige Komponente zur Erstellung von
+Änderungsangeboten an bestehenden Verträgen zu realisieren. Auch sollte
+die Option einer neuen GUI-Technologie nicht verschlossen werden. Hierfür
+wurde die Geschäftslogik mittels EJB 3 umgesetzt. Für die Verbindung der
+Vertragskomponente (EJB 2) zur Angebotskomponente (EJB 3) wurde eine
+Prozessschicht in EJB 3 gewählt. Diese sorgt transaktionsgesteuert für
+Konsistenz in beiden Komponenten.
+Modul JSF-Prototyp
+Zur Abschätzung des Migratiosnaufwandes von Struts zu JSF musste ein
+Prototyp gebaut werden. Dieser benutzte weitestgehend die vorhandenen
+Beans.
+03.03.2023 9 von 20
+Modul C/S-Trennung
+Die ursprüngliche Anwendung hatte keine Client/Server-Trennung,
+wodurch eine gute Transaktionsbehandlung kaum möglich war. Da die
+GUI-Komponente jedoch direkt auf die Entitäten der Persistenzschicht
+aufbaute, wurde eine Transformation in ein DTO-Objekt zur Übergabe an
+die Beans gewählt. Serverseitig wurden diese wieder zurück in die
+Entitäten transformiert, womit die C/S-Trennung für eine sinnvolle
+Transaktionsbehandlung ermöglicht wurde.
+Modul Verbesserungen beim Exception-Handling
+Die Umstellung auf EJB3 eröffnete neue Möglichkeiten beim Exception-
+Handling. Zentrale Beans werfen nun mittels @ApplicationException
+annotierte Exceptions, die auch eine Wurzel-Klasse mit dem Attribut
+rollback=true haben. Somit ist die Transaktionsbehandlung besser
+möglich.
+Modul Verbesserungen an der Persistenzschicht
+Einheiten behafteter Größen - Geldbeträge sind in der Persistenzschicht
+einheitlich in Euro zu speichern, wenngleich der Zugriff auf die Klassen
+auch Centbeträge erlauben muss. Hierfür galt es einen flexiblen
+embeddable type für Hibernate umzusetzen.
+Modul Komponente zur fachlichen Prüfung von Daten
+Contextsensitive Daten sind sowohl am Frontend, als auch am Backend auf
+dieselbe Weise zu prüfen. Hierfür wurde eine Komponente geschaffen, die
+sich einfach sowohl als JSTL als auch in der zentralen Validierung des
+Systems benutzen lässt.
+Kenntnisse: Scrum, JavaScript, HTML, Java 8, JEE 6, EJB 2, Struts, JSF, RESTeasy,
+Hibernate 4, MQ, DB2, AIX, UNIX
+Eingesetzte Produkte: Eclipse 4.4, JIRA, JBoss 6, Wildfly 8
+2014-10 - 2014-12 Web-Applikation zum Versand von Einwegnachrichten
+3 Monate
+Rolle: Idee, Design, Implementierung
+Kunde: Social Web
+Projektinhalte: Einfache Möglichkeit zum Versand von Einwegnachrichten, die beim Lesen
+automatisch gelöscht werden. Möglichkeit für Attachment als Bild.
+Kenntnisse: Java 7, JEE 6, JSF 2.2, Hibernate 4, MySQL, JavaScript, HTML, CSS, Scrum
+Eingesetzte Produkte: Eclipse 4.3, Wildfly 8
+2008-08 - 2008-10 Machbarkeitsstudie - Community/ Marketplace
+3 Monate
+Rolle: Projektleitung, Architektur, Implementierung
+Kunde: Social Community/Marketplace
+Projektinhalte: Machbarkeitsstudie für Social Community/Marketplace Plattform auf Basis
+von JBoss Seam.
+03.03.2023 10 von 20
+Kenntnisse: PC / Windows, Linux, JavaScript, HTML, Eclipse 3.4, JBoss Seam 2.1.1,
+JBoss 5.0.1, Java 6, JEE 5, Servlet, JSF, EJB 3, MySQL 5.1, Hibernate 3.3,
+Richfaces 3.3, Ant 1.7, extreme Programming
+2008-01 - 2008-07 Belegwesen
+7 Monate
+Rolle: Analyse, Design, Implementierung
+Kunde: Steuern
+Projektinhalte: Implementierung administrativer Funktionen in ein bestehendes
+webbasierendes Belegverwaltungssystem
+Kenntnisse: PC / Windows, UNIX / Sun Solaris, JavaScript, HTML, IBM WAS 5, IBM RAD
+6, Java 1.4, J2EE 1.3, Servlet, JSP, Taglib, MQ, IBM DB2
+2007-07 - 2007-12 Bestell- und Informationssystem
+6 Monate
+Rolle: Analyse, Implementierung
+Kunde: Handel
+Projektinhalte: Implementierung der Funktion Bankeinzug in ein bestehendes
+webbasierendes Bestell- und Informationssystem, welches in den
+Warenhäusern eingesetzt wird. Anbindung diverser Backendsysteme zur
+Speicherung der Bank- und Personendaten.
+Kenntnisse: PC / Windows, JavaScript, HTML, IBM WAS 5, IBM RAD 6, MQ,
+Webservices, Servlet, JSP, Taglib, Struts, Java 1.4, J2EE 1.3, Oracle
+RDBMS
+2007-04 - 2007-06 Auswertungen für Mandanten
+3 Monate
+Rolle: Analyse, Design, Refactoring, Implementierung
+Kunde: Steuerberatung
+Projektinhalte: Komplettes Refactoring einer Legacy-Applikation. Das Projekt ist über
+Jahre hinweg gewachsen. Es wurde auch einem unsanften Wechsel der
+Programmiersprache unterzogen und von der Architektur mehrfach
+umgestellt. Die Spuren dieser Umstellungen und daraus resultierende
+Architekturvielfalt wurde bereinigt und auf eine komplett neue,
+verschlankte, leistungsfähige Architektur gestellt.
+Kenntnisse: PC / Windows, UNIX / Sun Solaris, JavaScript, HTML, IBM WAS 5, IBM RAD
+6, Java 1.4, J2EE 1.3, Servlet, JSP, Taglib, Struts
+2006-01 - 2007-03 Web-Portal
+1 Jahr 3 Monate
+Rolle: Architektur, Analyse, Design, Implementierung
+03.03.2023 11 von 20
+Kunde: Steuerberatung
+Projektinhalte: Erweiterungen am Formularhandling, der Suche und des Mitglieder-
+Suchservices.
+Kenntnisse: PC / Windows, UNIX / Sun Solaris, Oracle RDBMS 9i, PL/SQL, JavaScript,
+HTML, CSS, Access, Word (VBA), IBM WAS 5, IBM WSAD 5.1, RAD 6, Java
+2, J2EE 1.3, Servlet, JSP, Taglib, XML, XSLT, Struts
+Zeitraum:       01/05 - 12/05
+Projekt-Name:   Web-Portal
+Branche:        Steuerberatung
+Tätigkeit:      Architektur, Analyse, Design, Implementierung
+Beschreibung:   Mitglieder-Suchservice
+Ausführung:     PC / Windows
+ UNIX / Sun Solaris
+ Oracle RDBMS 9i
+ PL/SQL
+ JavaScript, HTML, CSS
+ Access, Word (VBA),
+ IBM WAS 5
+ IBM WSAD 5.1
+ Java 2, J2EE 1.3
+ Servlet, JSP, Taglib, XML, XSLT
+ Struts
+Zeitraum:       01/04 - 12/04
+Projekt-Name:   Web-Portal
+Branche:        Steuerberatung
+Tätigkeit:      Architektur, Analyse, Design, Implementierung
+Beschreibung:   Integration von Suchmaschinen im Portal
+ sowie Erweiterung der Suchfunktion um
+ das portalinterne Forum.
+Ausführung:     PC / Windows
+ UNIX / Sun Solaris
+ Oracle RDBMS 9i
+ PL/SQL
+ JavaScript, HTML, CSS
+ Access, Word (VBA),
+ IBM WAS 4
+ IBM WSAD 5.1
+ Java 2, J2EE 1.3
+ Servlet, JSP, Taglib, XML, XSLT
+ JUnit, Struts
+ Test driven development, Story-Cards, Scrum (Anlehnung)
+Zeitraum:       01/03 - 12/03
+Projekt-Name:   Web-Portal
+Branche:        Steuerberatung
+Tätigkeit:      Architektur, Analyse, Design, Implementierung
+Beschreibung:   Integration eines universellen Formularhandlings
+Ausführung:     PC / Windows
+ UNIX / Sun Solaris
+ Oracle RDBMS 9i
+ PL/SQL
+ JavaScript, HTML, CSS
+ Access, Word (VBA),
+03.03.2023 12 von 20
+ IBM WAS 4
+ IBM WSAD 5
+ Java 2, J2EE 1.3
+ Servlet, JSP, Taglib, XML, XSLT
+ Struts
+Zeitraum:       07/01 - 12/02
+Projekt-Name:   WAS-Migration
+Branche:        Steuerberatung
+Tätigkeit:      Analyse, Design, Implementierung
+Beschreibung:   Migration einer Internetanwendung
+ von Oracle Application Server (PL/SQL)
+ zu IBM Websphere (Java 2)
+Ausführung:     PC / Windows (95/NT)
+ UNIX / Sun Solaris
+ Oracle RDBMS 8.1.7
+ Oracle Applications Server 4.0.7
+ PL/SQL
+ JavaScript, HTML, CSS
+ Visual Basic
+ Access, Word (VBA),
+ DAO, RDO
+ OLE
+ IBM Websphere 3.5
+ IBM Visual Age for Java 3.5.3
+ Java 2, J2EE 1.3
+ J2EE, Servlet, JSP, MQ-Series
+Zeitraum:       01/00 - 06/01
+Projekt-Name:   Data Warehouse
+Branche:        Steuerberatung
+Tätigkeit:      Datenbank- / Applikationsdesign und -realisierung
+Beschreibung:   Mandantenberatung für Steuerberater per Internet
+ Aktuelle steuerliche Themen werden zur Verfügung gestellt.
+ Es können Auswertungen der Berater auf Ihre Mandanten
+ erstellt werden.
+Ausführung:     PC / Windows (95/NT)
+ UNIX / Sun Solaris
+ Oracle RDBMS 8.0.5
+ Oracle Applications Server 4.0.7
+ PL/SQL
+ JavaScript, HTML
+ Visual Basic
+ Access, Word (VBA),
+ DAO, RDO
+Zeitraum:       02/99 - 07/99
+Projekt-Name:   Infobrief
+Branche:        Steuerberatung
+Tätigkeit:      Datenbankdesign und Realisierung
+Beschreibung:   Datenbankmodellierung für individuelle Serienbriefgestaltung
+Ausführung:     PC / Windows (95/NT)
+ Visual Basic
+ Access, SQL, Word (VBA),
+ DAO, RDO
+ OLE
+03.03.2023 13 von 20
+Zeitraum:       09/97 - 02/99
+Projekt-Name:   Datenbanken zur Unterstützung eines Mobilfunknetzaufbaus
+Branche:        Telekommunikation
+Tätigkeit:      Datenbankdesign, Entwicklung,
+ Koordination der Softwareentwicklung
+Beschreibung:   Diverse Datenbanken zur Unterstützung des Mobilfunknetzaufbaus
+Ausführung:     PC / Windows (NT)
+ Oracle, Access, Excel, Project
+ Power-Designer
+ Active-X, DAO, ODBC, SQL
+ Visual Basic, Visual C++
+Zeitraum:       03/97 - 05/97
+Projekt-Name:   Werbeforschung Infosystem
+Branche:        Werbeforschung
+Tätigkeit:      Projektmanagement, Entwicklung, Datenbankdesign
+Beschreibung:   Client-/Serverentwicklung: Mehrdimensionales Informations- und Auswertesystem
+für Konsumverhalten aufgrund Erhebungen.
+Ausführung:     PC / Windows (NT)
+ Microsoft SQL-Server, SQL,
+ Access, (dBase), DAO
+ HTML
+Zeitraum:       10/96 - 03/97
+Projekt-Name:   Vertragserfassung
+Branche:        Telekommunikation
+Tätigkeit:      Design, Realisierung
+Beschreibung:   Frontend zur Vertragserfassung für Pager- und Mobilfunk-Kunden
+Ausführung:     PC / Windows
+ Access, SQL
+Zeitraum:       07/96 - 08/96
+Projekt-Name:   Business Case - LUX
+Branche:        Telekommunikation
+Tätigkeit:      Analyse, Design, Realisierung
+Beschreibung:   Business Case für 2. Mobilfunk-Lizenz Luxemberg;
+ Erweiterung eines vorhandenen und Erstellung eines neuen Business Case
+Ausführung:     PC / Windows
+ Excel, Business Case
+Zeitraum:       05/96 - 07/96
+Projekt-Name:   DFÜ-DB
+Branche:        Datenfernübertragung
+Tätigkeit:      Analyse, Design, Realisierung
+Beschreibung:   Datenbank zur Verwaltung von DFÜ-Endgeräten;
+ Analyse vorhandener DB auf AS/400,
+ Design neuer DB für PC
+Ausführung:     PC / Windows
+ Access, SQL
+Zeitraum:       12/95 - 03/96
+Projekt-Name:   Business Case - Tschechien
+03.03.2023 14 von 20
+Branche:        Telekommunikation
+Tätigkeit:      Excel, Excel-Makroprogrammierung
+Beschreibung:   Business Case für 2. GSM-Lizenz Tschechien;
+ Erweiterung eines vorhandenen Business Case in Zusammenarbeit mit Controllern.
+Ausführung:     PC / Windows
+ Excel, Business Case
+Zeitraum:       06/95 - 12/95
+Projekt-Name:   QIS-LAN
+Branche:        Netzwerke
+Tätigkeit:      Installation, Wartung
+Beschreibung:   Netzwerkverwaltung und Installation.
+Ausführung:     PC / OS/2
+ IBM Communication-Manager, IBM LAN-Server
+Zeitraum:       01/95 - 05/95
+Projekt-Name:   Universalprüfplatz
+Branche:        Messtechnik
+Tätigkeit:      Design und Realisierung
+Beschreibung:   Universalprüfplatz für Elektrogeräte;
+ Ansteuerung von GPIB-Meßgeräten,
+ Auswertung in Excel.
+Ausführung:     PC / Windows
+ LabVIEW, Excel
+Zeitraum:       01/94 - 06/94
+Projekt-Name:   Überlaufverhalten
+Branche:        Messtechnik
+Tätigkeit:      Design und Realisierung
+Beschreibung:   Prüfplatz zur Messung des Überlaufverhaltens von Damenbinden;
+ Ansteuer-SW für eigenentwickelte Schrittmotoransteuerung,
+ Mess-SW für Durchflußmenge (Schrittmotor),
+ Auswertung in Excel.
+Ausführung:     PC / Windows
+ LabVIEW, Excel
+Zeitraum:       01/93 - 06/93
+Projekt-Name:   WM-Prüfplatz
+Branche:        Messtechnik
+Tätigkeit:      Design und Realisierung
+Beschreibung:   Transputergestützter Waschmaschinenprüfplatz;
+ Messung div. physikalischer Größen und Auswertung in Excel.
+Ausführung:     PC, Transputer / Windows
+ LabVIEW, C, Excel, Word
+Referenzen
+03.03.2023 15 von 20
+Projekt Portal, 01/03 - 03/07
+Referenz durch Teamleiter, Softwarehaus (5.000 MA), vom 06.06.08
+"Der Consultant war in der Entwicklung zum Portalsystem unserer Firma tätig. Schwerpunkte dabei
+waren die Entwicklung von Anwendungen (z.B. Suchservice in einer Datenbank) und Portalsuche.
+Er verfügt über exzellente Java/J2EE und Oracle-Kenntnisse. Weitere erforderliche Kenntnisse
+waren HTML/Javascript,  DB2, Entwicklungsumgebung IBM RAD/Websphere. Mit seiner sehr
+selbstständigen und verantwortungsvollen Vorgehensweise übernahm der Consultant die komplette
+Projektbetreuung von der Konzeptphase bis zur Produktivschaltung der Lösung. Er behielt auch in
+kritischen Phasen den Überblick und führte die übertragenen Projekte mit überdurchschnittlichem
+Engagement zum Erfolg. Dieses in Verbindung mit seinem freundlichen Auftreten macht die
+Zusammenarbeit sehr angenehm. Bei Bedarf würde ich jederzeit gerne wieder auf seine
+Unterstützung zurückgreifen."
+Projekt PL/SQL, ANSI-C, JAVA, JavaScript, JSP, Oracle DB, u.a., 01/00 - 12/02
+Referenz durch Gruppenleiter eines großen Softwarehauses (ca. 5.000 MA) vom 03.05.02
+"Internet-Entwicklung mit PL/SQL, ANSI-C, JAVA, JavaScript, JSP, Oracle DB, Oracle Application
+Server, Webshpere Application Server:  Der Consultant verfügt über ein profundes Wissen in JAVA,
+JavaScript, PL/SQL, Oracle und IT-Infrastrukturen. Er hat umfassende Kenntnisse aus allen
+Bereichen des Internets. Er hat das Projekt in allen Phasen von der Spezifikation über die
+Entwicklungs- und Testphase bis hin zur Inbetriebnahme begleitet. Er hat zudem maßgeblich die
+Migration des Systems vom Oracle Application Server auf den Webshpere Application Server
+begleitet. Neben seiner fachlichen Qualifiaktion ist sein besonderes Engagement hervorzuheben. Er
+identifiziert sich zu 100% mit dem Projekt und hat maßgeblich zum Projekterfolg beigetragen. An
+dieser Stelle möchte ich mich für die Unterstützung und äußerst kollegiale Zusammenarbeit
+bedanken. Ich würde mich freuen, wieder in einem Projekt mit ihm zusammenarbeiten zu können."
+Branchen
+Werbung
+Telekommunikation
+Marktforschung
+Steuern
+Handel
+Versicherung
+Energiedienstleistung
+Sprachen
+Deutsch
+Englisch
+Kompetenzen
+Produkte / Standards / AMQP
+Erfahrungen / Methoden
+AOP
+03.03.2023 16 von 20
+AWS
+Cloud
+Docker
+Docker compose
+domain-driven design
+event driven architecture
+Feign
+Git
+hexagonal architecture
+Hibernate
+IntelliJ
+Jira
+Kafka
+Kubernetes
+MapStruct
+Maven
+Micrometer
+MinIO
+Mockito
+OpenTracing
+Quartz
+RabbitMQ
+Redis
+Resilience4J
+REST
+Scrum
+Spring
+Spring Boot
+Testcontainers
+03.03.2023 17 von 20
+Sonstige Entwicklungswerkzeuge
+    •  Eclipse
+    •  TOAD
+    •  Rational Rose
+Projektverwaltung/Tools
+    •  JIRA
+    •  Confluence
+    •  Trello
+Versionskontrollsysteme
+    •  CVS
+    •  SVN
+    •  git
+Build tools
+    •  Ant
+    •  Maven
+Cloud
+    •  Amazon AWS (SQS, EC2)
+Komponenten/ Frameworks
+    •  Log4J, SLF4J, Logstash
+    •  Struts
+    •  Thymeleaf
+    •  Stripes
+    •  Tiles
+    •  JUnit, AssertJ, Hamcrest
+    •  RabbitMQ
+    •  Kafka
+    •  Quartz
+    •  Redis
+    •  Elasticsearch
+    •  Netflix ribbon
+    •  HashiCorp consul
+    •  EasyMock, Mockito
+    •  Jenkins
+    •  RESTEasy, Jackson, REST-Assured, Swagger
+    •  MapStruct, Orika
+CI/CD
+    •  GitLab CI/CD
+    •  Jenkins
+Techniken/ Verfahren
+    •  MVC
+    •  XML
+    •  JDBC
+    •  JSS (Servlet API), JSP, JSTL (Taglib)
+    •  CDI, EJB 3, JNDI, JMS, JTA, JAAS, JAXB. MDB, JPA, JSF,
+     ?REST, AMQP
+    •  Test driven development (TDD), Refactoring, Story-Cards,
+     ?Scrum, Kanban, extreme programming
+Web-Container, EE-Server
+    •  JBoss 6/7
+    •  Wildfly 8
+    •  Apache Tomcat
+    •  Jetty
+03.03.2023 18 von 20
+    •  IBM WAS 5
+Web Server
+    •  Apache
+Technologien
+    •  Unix-, Linux-, Windows-Netzwerke
+    •  Firewall (ipchains, Port-Forwarder)
+    •  Container (Docker, Docker Compose)
+    •  Kubernetes
+    •  Virtualisierung (VMware, XEN, kvm)
+Standard-Software
+    •  MS-Office
+    •  OpenOffice
+Betriebssysteme Unix, Linux Debiam Ubuntu
+    •  Sun Solaris, AIX
+    •  Windows
+    •  macOS
+Programmiersprachen Java 15
+und Frameworks
+    •  Spring, Spring Boot
+    •  Sun Certified Programmer for the Java 2 Platform 1.4
+Datenbanken H2
+Hibernate 5
+Oracle DB
+PostgreSQL
+    •  Oracle 9, 10, 12, 18
+    •  IBM DB2 9
+    •  PostgreSQL 11
+    •  H2
+    •  Hibernate 5, JPA 2
+    •  JPA 2 Criteria API. Querydsl
+    •  mySQL
+    •  MyBatis (Grundkenntnisse)
+    •  HQL, JPQL, SQL
+Datenkommunikation Message Queuing JMS, IBM MQ, SQS, AMQP, Kafka
+Router SW-Router/Gateway/Firewall unter Linux
+(RedHat 6.2, SuSE 7.3, Ubuntu 10.04)
+Hardware Hardware entwickelt Transputer-Karte für PC (Inmos T4xx, T8xx)
+mit 256kB DRAM, 8031 basierende
+Steuerung für LCD
+Messgeräte
+Mikrocontroller
+PC
+03.03.2023 19 von 20
+Sensoren
+Aus- und Weiterbildung
+2004-05 - 2004-05 Sun Certified Programmer for the Java 2 Platform 1.4
+1 Monat
+Abschluss: Sun Certified Programmer for the Java 2 Platform 1.4
+Institution: Nürnberg
+1985  
+Mittlere Reife
+1987  
+Fachabitur
+1992  
+Freiberufler / Selbständig
+1994  
+Dipl.-Ing. (FH) Elektrotechnik (Datentechnik)
+Georg-Simon Ohm Fachhochschule in Nürnberg
+03.03.2023 20 von 20
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_11117
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                11117
+  
+Wohnort                    101xx Berlin, Deutschland
+Jahrgang                   1969
+Staatsbürgerschaft         deutsch
+Stundensatz                110 EUR
+                           Stundensatz für Berlin. Sonst zzgl. Spesen.
+Verfügbar ab               01.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         13.10.99
+Profil zuletzt geändert am 10.05.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 09.03.2021 14:39:53
+
+Fachlicher Schwerpunkt:
+Architektur/Entwicklung, Cloud, Java, Spring Boot
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+05/2004 - 05/2004: Sun Certified Programmer for the Java 2 Platform 1.4
+ 
+Abschluss:          Sun Certified Programmer for the Java 2 Platform 1.4
+Institution:        Nürnberg
+===============================================================================
+1985  
+Mittlere Reife
+
+1987  
+Fachabitur
+
+1992  
+Freiberufler / Selbständig
+
+1994  
+Dipl.-Ing. (FH) Elektrotechnik (Datentechnik)
+Georg-Simon Ohm Fachhochschule in Nürnberg
+
+
+Einsatzort:
+Regionen:
+D1
+im Umkreis von:
+Berlin (10 km)
+Ich möchte AUSSCHLIEßLICH für die o. g. Einsatzorte kontaktiert werden.
+Derzeit bevorzuge ich Projekte im Raum Berlin.
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+
+
+Hardware:
+Hardware entwickelt Transputer-Karte für PC (Inmos T4xx, T8xx) mit 256kB DRAM,
+                    8031 basierende Steuerung für LCD
+Messgeräte          
+Mikrocontroller      
+PC                   
+Sensoren             
+
+
+Betriebssysteme:
+Unix, Linux Debiam Ubuntu
+
+    * Sun Solaris, AIX
+    * Windows
+    * macOS
+
+Programmiersprachen:
+Java 15  
+
+und Frameworks
+    * Spring, Spring Boot
+    * Sun Certified Programmer for the Java 2 Platform 1.4
+
+Datenbanken:
+Hibernate 5  
+H2           
+Oracle DB    
+PostgreSQL   
+
+    * Oracle 9, 10, 12, 18
+    * IBM DB2 9
+    * PostgreSQL 11
+    * H2
+    * Hibernate 5, JPA 2
+    * JPA 2 Criteria API. Querydsl
+    * mySQL
+    * MyBatis (Grundkenntnisse)
+    * HQL, JPQL, SQL
+
+Datenkommunikation:
+Message Queuing JMS, IBM MQ, SQS, AMQP, Kafka
+Router          SW-Router/Gateway/Firewall unter Linux (RedHat 6.2, SuSE 7.3,
+                Ubuntu 10.04)
+
+
+Produkte/Standards/Erfahrungen:
+AMQP                       
+AOP                        
+AWS                        
+Cloud                      
+Docker                     
+Docker compose             
+domain-driven design       
+event driven architecture  
+Feign                      
+Git                        
+hexagonal architecture     
+Hibernate                  
+IntelliJ                   
+Jira                       
+Kafka                      
+Kubernetes                 
+MapStruct                  
+Maven                      
+Micrometer                 
+MinIO                      
+Mockito                    
+OpenTracing                
+Quartz                     
+RabbitMQ                   
+Redis                      
+Resilience4J               
+REST                       
+Scrum                      
+Spring                     
+Spring Boot                
+Testcontainers             
+Sonstige Entwicklungswerkzeuge
+    * Eclipse
+    * TOAD
+    * Rational Rose
+ 
+Projektverwaltung/Tools
+    * JIRA
+    * Confluence
+    * Trello
+ 
+Versionskontrollsysteme
+    * CVS
+    * SVN
+    * git
+ 
+Build tools
+    * Ant
+    * Maven
+ 
+Cloud
+    * Amazon AWS (SQS, EC2)
+ 
+Komponenten/ Frameworks
+    * Log4J, SLF4J, Logstash
+    * Struts
+    * Thymeleaf
+    * Stripes
+    * Tiles
+    * JUnit, AssertJ, Hamcrest
+    * RabbitMQ
+    * Kafka
+    * Quartz
+    * Redis
+    * Elasticsearch
+    * Netflix ribbon
+    * HashiCorp consul
+    * EasyMock, Mockito
+    * Jenkins
+    * RESTEasy, Jackson, REST-Assured, Swagger
+    * MapStruct, Orika
+ 
+CI/CD
+    * GitLab CI/CD
+    * Jenkins
+ 
+Techniken/ Verfahren
+    * MVC
+    * XML
+    * JDBC
+    * JSS (Servlet API), JSP, JSTL (Taglib)
+    * CDI, EJB 3, JNDI, JMS, JTA, JAAS, JAXB. MDB, JPA, JSF, REST, AMQP
+    * Test driven development (TDD), Refactoring, Story-Cards, Scrum, Kanban,
+      extreme programming
+ 
+Web-Container, EE-Server
+    * JBoss 6/7
+    * Wildfly 8
+    * Apache Tomcat
+    * Jetty
+    * IBM WAS 5
+ 
+Web Server
+    * Apache
+
+Technologien
+    * Unix-, Linux-, Windows-Netzwerke
+    * Firewall (ipchains, Port-Forwarder)
+    * Container (Docker, Docker Compose)
+    * Kubernetes
+    * Virtualisierung (VMware, XEN, kvm)
+ 
+Standard-Software
+    * MS-Office
+    * OpenOffice
+
+Branchen:
+Werbung
+Telekommunikation
+Marktforschung
+Steuern
+Handel
+Versicherung
+Energiedienstleistung
+
+Projekte:
+10/2020 - heute: Dokumentenservice
+ 
+Einsatzort:         Berlin
+Rolle:              Architektur/Implementierung
+Kunde:              Bundesdruckerei
+ 
+Aufgaben:
+ 
+Beschreibung
+ 
+Das Verwaltungsportal des Bundes soll für Bürgerinnen und Bürger sowie
+Unternehmen einen zentralen und komfortablen Zugang zu allen
+Verwaltungsleistungen des Bundes ermöglichen. Über die Anbindung an den
+Portalverbund werden ebenfalls die Leistungen der Länder und Kommunen
+zugänglich sein. Dabei verfolgt das Projekt eine ganzheitliche Lösung für
+Bürger/innen, Unternehmen und für Behörden.
+Die Umsetzung der einzelnen Applikationen erfolgte in einer hexagonalen
+Service-Architektur.
+In diesem Umfeld ist es notwendig hochgeladene und generierte Dokumente sicher
+zu verwalten. Für diesen Zweck wurde ein Dokumentenservice entwickelt. Dieser
+nimmt Dokumente entgegen, ohne diese unmittelbar zum Download anzubieten. Erst
+wenn diese durch die Verwaltungssoftware als final markiert werden, können Sie
+mit einem Zugriffsschlüssel für eine begrenzte Zeit vom Nutzer heruntergeladen
+werden. Temporär hochgeladene Dokumente werden zyklisch aus dem System
+gelöscht.
+ 
+Ausführung
+ 
+Linux (Ubuntu)
+Java 14, Spring, Spring Boot
+Kubernetes, Docker
+REST, Jackson
+Hibernate 5, Oracle DB, H2, domain-driven design, hexagonal architecture
+Cloud
+MinIO, MapStruct, Micrometer, Lombok, Feign, Resilience4J, Testcontainers,
+OpenTracing, AOP, Mockito
+Junit 5, AssertJ, JSONAssert
+IDE: IntelliJ 2020
+Vorgehensmodell: Scrum
+Tools: Maven, GitLab
+VCS: git
+ 
+Kenntnisse:
+ 
+Linux, Java 14, Spring Boot, Docker, Kubernetes, REST, Hibernate, Oracle DB,
+H2, domain-driven design, hexagonal architecture, MinIO, MapStruct, Micrometer,
+Lombok, Feign, Resilience4J, Testcontainers, OpenTracing, AOP, AOP, Junit 5,
+Junit 5, JSONAssert, Git, Scrum
+ 
+Eingesetzte Produkte:
+ 
+IntelliJ, Ubuntu
+===============================================================================
+02/2018 - heute: Rewrite einer Web-Applikation zum Versand von
+Einwegnachrichten
+ 
+Rolle:              Idee, Design, Implementierung
+Kunde:              Social Web
+ 
+Aufgaben:
+ 
+Einfache Möglichkeit zum Versand von Einwegnachrichten, die beim Lesen
+automatisch gelöscht werden. Möglichkeit für Attachment als Bild. Bei
+Erstellung der Nachricht wird ein Link generiert, der dem Empfänger mitzuteilen
+ist. Ruft der Empfänger den Link auf, so wird die Nachricht auf dem Server
+gelöscht, wodurch sie nur einmalig gelesen werden kann Microservice
+Architektur: message store, authorization/ authentication, frontend
+ 
+Features
+    * Versand von Tect und Bildern. Benachrichtigung des Versenders beim Lesen
+      der Nachricht.
+    * Unterstützung mehrerer Sprachen.
+    * Unterstützung von X-Forwarded-* headern zum Betrieb hinter einem reverse
+      proxy zur SSL-Temrinierung.
+    * Blockieren der Anzeige beim Versand des Links mittels Facebook Messenger,
+      damit hiermit die Nachricht nicht zerstört wird.
+    * Benutzerverwaltung; registrierte Benutzer können zusätzliche Features
+      nutzen.
+    * Benutzerregistrierung, recaptcha Integration.
+    * Versand von multipart MimeMessage (plain text, html) eMails zur
+      Aktivierung des Accounts nach Aktivierung und Lesebestätigungen.
+    * Hierzu wird der bereits vorhandene eMail Server als relay benutzt.
+      Feature switches mit unterschiedlichen Aktivierungsstrategien
+      (Benutzergruppe, Spring-Boot Profil, Administratorfunktion).
+    * Integration in Thymeleaf durch custom dialect. Serverseitige Integration
+      durch Annotation mittels AspectJ.
+    * Administratorfunktionen: Übersicht der Nachrichten, aktuelle User
+      sessions
+    * Verwaltung von Registrierungen, Verwaltung von Feature switches für
+      aktuelle User sessions (auch anonyme).
+    * Connection pooling für message store und auth-service.
+    * Distributed tracing.
+ 
+Betrieb
+    * Metriken mittels Prometheus, Grafana
+    * Logging mittels Filebeat, Elastic Search, Kibana
+    * Docker compose zur Orchestrierung aller Container (PostgreSQL, message-
+      store, auth-service, frontend, Filebeat, Elastic Search, Grafana, Kibana,
+      Prometheus).
+ 
+Kenntnisse:
+ 
+PC / Windows, Ubuntu Linux, IntelliJ IDEA 2018, Java 8, Spring Boot 2, Spring
+Security, Spring JPA, Spring Cloud Sleuth, Spring Actuator, JPA2, Hibernate 5,
+HikariCP, Flyway 5, PostgreSQL 10, Jackson, MapStruct 2, Logback, Micrometer,
+AssertJ, Mockito, Thymeleaf 2, custom dialect, Bootstrap, jQuery, DevOp:
+GitLab; GitLab CI/CD
+===============================================================================
+02/2020 - 10/2020: Leistungsbeantragung
+ 
+Einsatzort:         Berlin
+Rolle:              Architektur/Implementierung
+Kunde:              Bundesdruckerei
+ 
+Aufgaben:
+ 
+Beschreibung
+ 
+Das Verwaltungsportal des Bundes soll für Bürgerinnen und Bürger sowie
+Unternehmen einen zentralen und komfortablen Zugang zu allen
+Verwaltungsleistungen des Bundes ermöglichen. Über die Anbindung an den
+Portalverbund werden ebenfalls die Leistungen der Länder und Kommunen
+zugänglich sein. Dabei verfolgt das Projekt eine ganzheitliche Lösung für
+Bürger/innen, Unternehmen und für Behörden.
+Die Umsetzung der einzelnen Applikationen erfolgte in einer hexagonalen
+Service-Architektur.
+Die Leistungsbeantragung dient der Bereitstellung von Formularen für den
+Bürger, um eine Leistung zu beantragen. Für die Behörde wird eine Verwaltung
+dieser Anträge bereitgestellt, um die Vorgänge zu bearbeiten.
+ 
+Ausführung
+ 
+Linux (Ubuntu)
+Java 14, Spring, Spring Boot
+Kubernetes, Docker
+REST, Jackson
+Hibernate 5, Oracle DB, H2, domain-driven design, hexagonal architecture
+Cloud
+MinIO, MapStruct, Micrometer, Lombok, Feign, Resilience4J, Testcontainers,
+OpenTracing, AOP, Mockito
+Junit 5, AssertJ, JSONAssert
+IDE: IntelliJ 2020
+Vorgehensmodell: Scrum
+Tools: Maven, GitLab
+VCS: git
+ 
+Kenntnisse:
+ 
+Linux, Java 14, Spring Boot, Docker, Kubernetes, REST, Hibernate, Oracle DB,
+H2, domain-driven design, hexagonal architecture, MinIO, MapStruct, Micrometer,
+Lombok, Feign, Resilience4J, Testcontainers, OpenTracing, AOP, AOP, Junit 5,
+Junit, JSONAssert, Scrum
+ 
+Eingesetzte Produkte:
+ 
+IntelliJ, Ubuntu
+===============================================================================
+06/2019 - 12/2019: Optimierung des Persistenzlayers durch multi-tenancy
+ 
+Einsatzort:         Berlingen, Eifel
+Rolle:              Architektur/Implementierung
+Kunde:              Zalando
+ 
+Aufgaben:
+ 
+Beschreibung
+ 
+Eine existierende Plattform zum Versand von Nachrichten wird durch eine
+Nachrichtenagnostische Komponente aus einigen Microservices (Abonnement
+Dienste) mit Anwendungsfall spezifischen Ereignissen zur Generierung von
+Nachrichten versorgt.
+Der Abonnementspeicherdienst ist für die Persistenz von unbekannten Events (im
+Json-Format) zuständig. Die Events werden durch die Definition eines
+Anwendungsfalls (Thema) im Themenverwaltungsdienst definiert und von Kafka
+gelesen und samt ihrer eindeutigen Themenkennung in einer PostgreSQL
+gespeichert. Der Abonnementverarbeitungsdienst verarbeitet zeitgesteuert die
+verschiedenen Themen durch Anfragen an den Abonnementspeicherdienst. Dabei
+reichert er die Daten mittels Anfragen an weitere Dienste an und leitet sie an
+die zentrale Nachrichtenplattform zum Versand weiter.
+Durch die Zunahme der Anwendungsfälle ist ein erheblicher Zuwachs des
+Datenvolumens (etwa 250 Mio. Zeilen) zu verzeichnen wodurch die Ausführung der
+DB-Abfragen zunehmend langsamer wird. Nachdem alle Zugriffsoptimierungen
+ausgeschöpft waren, entschlossen wir uns die Daten aufzuteilen und eine multi
+tenancy Architektur in der Persistenzschicht einzuführen. Als tenant dient
+hierbei ein Thema. Da die Anzahl der Themen zunehmend wächst ist die dedizierte
+Zuordnung einer DB-Instanz je Thema nicht möglich. Daher wird je Thema ein
+eigenes DB-Schema benutzt um die Indizes für die Abfragen klein zu halten.
+Die Hauptanforderung an die multi tenancy Komponente ist eine möglichst
+einfache Integration in den bestehenden Abonnementspeicherdienst. Dabei griff
+ich auf die Unterstützung von Hibernate zurück die mittels AspectJ an
+Annotations zur Selektion des Tenants gebunden habe. Dabei integriert sich
+alles weitgehend automatisch in Spring Boot.
+Nach der Datenmigration zeigten erste Vergleiche der
+Ausführungsgeschwindigkeiten der Abfragen hierbei eine Steigerung von
+mindestens Faktor 10.
+ 
+Ausführung
+ 
+Linux (Ubuntu)
+Java 8/11, Spring, Spring Boot
+Amazon AWS, EC2
+Docker
+REST, Jackson
+Hibernate 5, PostgreSQL, H2, redis, RabbitMQ (AMQP), Kafka (Nakadi)
+event driven architecture, domain-driven design, hexagonal architecture
+Cloud
+Mockito
+Junit 4/5, Hamcrest, AssertJ
+IDE: IntelliJ 2018
+Vorgehensmodell: Scrum
+Tools: Maven, GitHub Enterprise
+VCS: git
+ 
+Kenntnisse:
+ 
+Java 11, Spring Boot, AWS, Docker, REST, Hibernate, PostgreSQL, H2, Redis,
+RabbitMQ, AMQP, Kafka, JUnit, Hamcrast, AssertJ, Scrum, event driven
+architecture, domain-driven design, hexagonal architecture
+ 
+Eingesetzte Produkte:
+ 
+IntelliJ, Ubuntu, Git
+===============================================================================
+03/2019 - 05/2019: Werbekampagnen Verwaltung
+ 
+Einsatzort:         Berlin
+Rolle:              Architektur/Implementierung
+Kunde:              Zalando
+ 
+Aufgaben:
+ 
+Beschreibung
+ 
+Architektur und Implementierung eines Microservices zur Verwaltung von
+Werbekampagnen. Der Microservice ist für die Stammdaten der Kampagnen zuständig
+und steuert die Generierung des relevanten Kundensegments durch einen weitere
+Microservice. Dabei verfügt er über eine Zustandsmaschine, die die Status der
+einzelnen Kampagnen steuert. Die Status werden auch vom Segmentierungsservice
+mittels Nachrichten aktualisiert. Der Segmentierungsservice sendet hierzu bei
+Beginn der Aussendung der Messages relevanter Kunden an die verarbeitende
+Plattform und bei Beendigung der Aussendung jeweils einen Statusupdate an die
+Kampagnenverwaltung zur Aktualisierung des Status.
+Die Microservices basieren auf Spring Boot. Die Kommunikation erfolgt über
+REST, AMQP sowie Kafka (gekapselt durch Nakadi).
+ 
+Ausführung
+ 
+Linux (Ubuntu)
+Java 8/11, Spring, Spring Boot
+Amazon AWS, EC2
+Docker
+REST, Jackson
+Hibernate 5, PostgreSQL, H2, redis, RabbitMQ (AMQP), Kafka (Nakadi)
+event driven architecture, domain-driven design, hexagonal architecture
+Cloud
+Mockito
+Junit, Hamcrest, AssertJ
+IDE: IntelliJ 2019
+Vorgehensmodell: Scrum
+Tools: Maven, GitHub Enterprise
+VCS: git
+ 
+Kenntnisse:
+ 
+Java 11, Spring Boot, AWS, Docker, REST, Hibernate, PostgreSQL, H2, Redis,
+AMQP, Kafka, Mockito, JUnit, AssertJ, Hamcrast, Maven, Git, Scrum, Linux, event
+driven architecture, domain-driven design, hexagonal architecture
+ 
+Eingesetzte Produkte:
+ 
+IntelliJ, Ubuntu
+===============================================================================
+01/2019 - 02/2019: Backendservice zur Ermittlung verschiedener Mitarbeiter
+bezogener Daten
+ 
+Rolle:              Architektur, Implementierung
+Kunde:              Autowerkstatt
+ 
+Aufgaben:
+ 
+Neuentwicklung eines Spring Boot basierenden Microservices zur Ermittlung
+Mitarbeiter bezogener Daten aus verschiedenen Backendsystemen. Die Daten werden
+an verschiedenen REST Endpunkten bereitgestellt. Da die Backend-systeme einen
+zu den REST Endpunkten abweichenden Business-Key benutzen, wird ein CSV-Dump
+aus einem Legacy-System bereitgestellt. Dieser wird zyklisch mittels Quartz
+eingelesen und als Mapping in einer PostgreSQL bereitgehalten. Die
+Mitarbeiterinformationen werden dann aus einer Oracle DB oder per SOAP/REST von
+anderen Backendsystemen ermittelt.
+ 
+Kenntnisse:
+ 
+Linux, Java 11, Spring, Spring Boot, Kubernetes, Docker, Docker compose,
+Quartz, REST, Jackson, Hibernate 5, PostgreSQL, Oracle DB, H2, Cloud, Mockito,
+Junit, AssertJ, IDE: IntelliJ 2018, Vorgehensmodell: Kanban, Tools: Maven,
+Jira, Bitbucket, VCS: git
+===============================================================================
+12/2018 - 01/2019: Backendservice zum Versand von Formulardaten per eMail
+ 
+Rolle:              Architektur, Implementierung
+Kunde:              Autowerkstatt
+ 
+Aufgaben:
+ 
+Neuentwicklung eines Spring Boot basierenden Microservices zum Versand von
+Formulardaten per eMail. Die Daten werden an einen REST Endpunkt angenommen und
+basierend auf diversen Regeln in unterschiedlichen Formaten an diverse
+Empfänger versendet. Als Template Engine wurde thymeleaf benutzt.
+ 
+Kenntnisse:
+ 
+Linux, Java 11, Spring, Spring Boot, Kubernetes, Docker, Docker compose, REST,
+Jackson, Cloud, Mockito, Junit, AssertJ, IDE: IntelliJ 2018, Vorgehensmodell:
+Kanban, Tools: Maven, Jira, Bitbucket, VCS: git
+===============================================================================
+10/2018 - 12/2018: Online Terminvereinbarung
+ 
+Rolle:              Architektur, Implementierung
+Kunde:              Autowerkstatt
+ 
+Aufgaben:
+ 
+Architektur und Implementierung neuer Funktionen eines Online
+Terminvereinbarungsservice durch Spring Boot basierende Microservices. Die
+Kommunikation der Microservices basiert auf REST und Kafka. Daten werden in
+PostgreSQL gespeichert.
+ 
+Kenntnisse:
+ 
+Linux, Java 11, Spring, Spring Boot, Kubernetes, Docker, Docker compose, REST,
+Jackson, Hibernate 5, PostgreSQL, H2, Kafka, Cloud, Mockito, Junit, AssertJ,
+IDE: IntelliJ 2018, Vorgehensmodell: Kanban, Tools: Maven, Jira, Bitbucket,
+VCS: git
+===============================================================================
+04/2017 - 09/2018: Plattform zum Versand von Nachrichten
+ 
+Rolle:              Architektur, Implementierung
+Kunde:              Handel
+ 
+Aufgaben:
+ 
+Architektur und Implementierung neuer Funktionen einer auf Nachrichten
+basierenden Kommunikationsplattform auf Basis Spring Boot. Die gesamte
+Plattform ist auf diverse Microservices verteilt, die mittels REST und AMQP
+untereinander kommunizieren. Dabei kommt ein Templatesystem zum Einsatz, das
+den Klienten den Versand der Nachrichten vereinfacht, da nur ein Minimum an
+Payload benötigt wird. Das Rendering der Nachricht geschieht innerhalb der
+Plattform für den jeweils relevanten Kommunikationskanal. Hier wird derzeit
+SMS, Push (iOS und Android), eMail, Facebook Messenger und Brief unterstützt.
+Alle Nachrichtenkanäle verfügen über eine Vielzahl an Kennzahlen zum Tracken
+der einzelnen Nachrichten.
+ 
+Kenntnisse:
+ 
+Apple / macOS / Linux, Java 8, Spring, Spring Boot, Amazon AWS, EC2, Docker,
+REST, Jackson, Hibernate 5, PostgreSQL, H2, redis, RabbitMQ (AMQP), Cloud,
+Mockito, Junit, Hamcrest, AssertJ, IDE: IntelliJ 2018, Vorgehensmodell: Scrum,
+Tools: Maven, GitHub Enterprise, VCS: git
+===============================================================================
+09/2016 - 03/2017: Europas größte Auto- und Motor-Community
+ 
+Rolle:              Architektur, Implementierung
+Kunde:              Community
+ 
+Aufgaben:
+ 
+Architektur und Implementierung neuer Funktionen sowie Bugfixing einer Spring
+basierenden Community Plattform. Architektur und Implementierung einer Sitelist
+zur Anbindung von Suchmaschinen wie Google auf Basis Spring Boot, welche in der
+hauseigenen Cloud läuft. Die hier benötigten Scheduling-Aufgaben wurden mit
+Spring implementiert. Zur Synchronisation der Instanzen wurde redis gewählt.
+Als client seitiger Loadbalancer diente ribbon. Servicediscovery wurde mittels
+consul realisiert. Logging erfolgte mittels ELK (Elasticsearch, Logstash,
+Kibana)
+ 
+Kenntnisse:
+ 
+Apple / macOS / Linux, Java 8, Spring, Spring Boot, Stripes, JSP, JSTL, REST,
+Jackson, mySQL, MyBatis, redis, Elasticsearch, Logstash, Kibana, ribbon,
+consul, Cloud, Mockito, REST-Assured, JUnit, Hamcrest, IDE: IntelliJ 2017,
+Vorgehensmodell: Scrum, Tools: JIRA; Team City; Confluence; Maven, VCS: git
+===============================================================================
+08/2015 - 09/2016: Internetanwendung zur Verwaltung für Marketingkampagnen
+ 
+Rolle:              Architektur, Implementierung
+Kunde:              Werbung
+ 
+Aufgaben:
+ 
+Architektur und Implementierung einer neuen Anwendung von Grund auf. Umsetzung
+als Microservice-Architektur auf Basis Spring Boot in einem Docker Container im
+AWS-Umfeld. Anbindung von Google Double Click und Metrigo für „onsite“ Werbung
+und „sponsored products“. Scheduling-Aufgaben wurden mittels Quartz gesteuert.
+Für die Übermittlung von Nachrichten wurde Amazons SQS benutzt.
+ 
+Kenntnisse:
+ 
+Spring Boot, Java 8, REST, Kanban, JPA
+ 
+Eingesetzte Produkte:
+ 
+IntelliJ, Trello, Atlassian Confluence, Jackson, REST-Assured, JUnit, Hamcrest,
+Swagger, git, Hibernate, PostgreSQL, H2 Database Engine, Mockito, Google Double
+Click, Metrigo, Atlassian JIRA, SQS, Amazon EC2, AWS, Cloud Computing, JPA
+===============================================================================
+05/2015 - 08/2015: Stammdatenverwaltung für Abrechnungssystem
+ 
+Rolle:              Analyse, Design, Implementierung
+Kunde:              Energiedienstleistung
+ 
+Aufgaben:
+ 
+Implementierung zentraler Dienste der Stammdatenverwaltung. Hierzu gehören
+Liegenschaften, Gebäude, Messstellen, Messinstrumente usw.
+ 
+Kenntnisse:
+ 
+JEE 6, Java 7, REST, Soap, JMS, Hibernate, MySQL, Orika, AngularJS, jQuery,
+Grunt, Bower
+ 
+Eingesetzte Produkte:
+ 
+Wildfly, Scrum, Atlassian JIRA, Atlassian Confluence, IntelliJ
+===============================================================================
+08/2008 - 03/2015: Interne Applikation zur Vertragsverwaltung und
+Kundenbetreuung
+ 
+Rolle:              Analyse, Design, Implementierung
+Kunde:              Versicherung
+Unternehmensgröße:  101-500
+Branche:            Versicherungen
+ 
+Aufgaben:
+ 
+Implementierung administrativer Funktionen in ein bestehendes webbasierendes
+Vertragsverwaltungssystem
+ 
+Modul Migration
+Zur Übernahme von Vertragsbeständen aus einer fremden Bestandsverwaltung musste
+ein Konzept zur Migration dieser Datenstrukturen in das bestehende
+Bestandsverwaltungssystem erstellt werden. Dabei soll eine BPM-Engine als
+Rahmen dienen. Bei der Erstellung der Infrastruktur wurde hier auf RESTful
+Services mittels RESTEasy gesetzt. Das Modul gliedert sich in zwei Teile, wobei
+eines für die Transformation der Datenstrukturen in die Zielstrukturen
+zuständig ist und das andere die Zusteuerung ins bestehende System übernimmt.
+ 
+Modul Angebotserstellung
+Ziel war eine möglichst eigenständige Komponente zur Erstellung von
+Änderungsangeboten an bestehenden Verträgen zu realisieren. Auch sollte die
+Option einer neuen GUI-Technologie nicht verschlossen werden. Hierfür wurde die
+Geschäftslogik mittels EJB 3 umgesetzt. Für die Verbindung der
+Vertragskomponente (EJB 2) zur Angebotskomponente (EJB 3) wurde eine
+Prozessschicht in EJB 3 gewählt. Diese sorgt transaktionsgesteuert für
+Konsistenz in beiden Komponenten.
+ 
+Modul JSF-Prototyp
+Zur Abschätzung des Migratiosnaufwandes von Struts zu JSF musste ein Prototyp
+gebaut werden. Dieser benutzte weitestgehend die vorhandenen Beans.
+ 
+Modul C/S-Trennung
+Die ursprüngliche Anwendung hatte keine Client/Server-Trennung, wodurch eine
+gute Transaktionsbehandlung kaum möglich war. Da die GUI-Komponente jedoch
+direkt auf die Entitäten der Persistenzschicht aufbaute, wurde eine
+Transformation in ein DTO-Objekt zur Übergabe an die Beans gewählt.
+Serverseitig wurden diese wieder zurück in die Entitäten transformiert, womit
+die C/S-Trennung für eine sinnvolle Transaktionsbehandlung ermöglicht wurde.
+ 
+Modul Verbesserungen beim Exception-Handling
+Die Umstellung auf EJB3 eröffnete neue Möglichkeiten beim Exception-Handling.
+Zentrale Beans werfen nun mittels @ApplicationException annotierte Exceptions,
+die auch eine Wurzel-Klasse mit dem Attribut rollback=true haben. Somit ist die
+Transaktionsbehandlung besser möglich.
+ 
+Modul Verbesserungen an der Persistenzschicht
+Einheiten behafteter Größen - Geldbeträge sind in der Persistenzschicht
+einheitlich in Euro zu speichern, wenngleich der Zugriff auf die Klassen auch
+Centbeträge erlauben muss. Hierfür galt es einen flexiblen embeddable type für
+Hibernate umzusetzen.
+
+Modul Komponente zur fachlichen Prüfung von Daten
+Contextsensitive Daten sind sowohl am Frontend, als auch am Backend auf
+dieselbe Weise zu prüfen. Hierfür wurde eine Komponente geschaffen, die sich
+einfach sowohl als JSTL als auch in der zentralen Validierung des Systems
+benutzen lässt.
+ 
+Kenntnisse:
+ 
+Scrum, JavaScript, HTML, Java 8, JEE 6, EJB 2, Struts, JSF, RESTeasy, Hibernate
+4, MQ, DB2, AIX, UNIX
+ 
+Eingesetzte Produkte:
+ 
+Eclipse 4.4, JIRA, JBoss 6, Wildfly 8
+===============================================================================
+10/2014 - 12/2014: Web-Applikation zum Versand von Einwegnachrichten
+ 
+Rolle:              Idee, Design, Implementierung
+Kunde:              Social Web
+ 
+Aufgaben:
+ 
+Einfache Möglichkeit zum Versand von Einwegnachrichten, die beim Lesen
+automatisch gelöscht werden. Möglichkeit für Attachment als Bild.
+ 
+Kenntnisse:
+ 
+Java 7, JEE 6, JSF 2.2, Hibernate 4, MySQL, JavaScript, HTML, CSS, Scrum
+ 
+Eingesetzte Produkte:
+ 
+Eclipse 4.3, Wildfly 8
+===============================================================================
+08/2008 - 10/2008: Machbarkeitsstudie - Community/ Marketplace
+ 
+Rolle:              Projektleitung, Architektur, Implementierung
+Kunde:              Social Community/Marketplace
+ 
+Aufgaben:
+ 
+Machbarkeitsstudie für Social Community/Marketplace Plattform auf Basis von
+JBoss Seam.
+ 
+Kenntnisse:
+ 
+PC / Windows, Linux, JavaScript, HTML, Eclipse 3.4, JBoss Seam 2.1.1, JBoss
+5.0.1, Java 6, JEE 5, Servlet, JSF, EJB 3, MySQL 5.1, Hibernate 3.3, Richfaces
+3.3, Ant 1.7, extreme Programming
+===============================================================================
+01/2008 - 07/2008: Belegwesen
+ 
+Rolle:              Analyse, Design, Implementierung
+Kunde:              Steuern
+ 
+Aufgaben:
+ 
+Implementierung administrativer Funktionen in ein bestehendes webbasierendes
+Belegverwaltungssystem
+ 
+Kenntnisse:
+ 
+PC / Windows, UNIX / Sun Solaris, JavaScript, HTML, IBM WAS 5, IBM RAD 6, Java
+1.4, J2EE 1.3, Servlet, JSP, Taglib, MQ, IBM DB2
+===============================================================================
+07/2007 - 12/2007: Bestell- und Informationssystem
+ 
+Rolle:              Analyse, Implementierung
+Kunde:              Handel
+ 
+Aufgaben:
+ 
+Implementierung der Funktion Bankeinzug in ein bestehendes webbasierendes
+Bestell- und Informationssystem, welches in den Warenhäusern eingesetzt
+wird. Anbindung diverser Backendsysteme zur Speicherung der Bank- und
+Personendaten.
+ 
+Kenntnisse:
+ 
+PC / Windows, JavaScript, HTML, IBM WAS 5, IBM RAD 6, MQ, Webservices, Servlet,
+JSP, Taglib, Struts, Java 1.4, J2EE 1.3, Oracle RDBMS
+===============================================================================
+04/2007 - 06/2007: Auswertungen für Mandanten
+ 
+Rolle:              Analyse, Design, Refactoring, Implementierung
+Kunde:              Steuerberatung
+ 
+Aufgaben:
+ 
+Komplettes Refactoring einer Legacy-Applikation. Das Projekt ist über Jahre
+hinweg gewachsen. Es wurde auch einem unsanften Wechsel der Programmiersprache
+unterzogen und von der Architektur mehrfach umgestellt. Die Spuren dieser
+Umstellungen und daraus resultierende Architekturvielfalt wurde bereinigt und
+auf eine komplett neue, verschlankte, leistungsfähige Architektur gestellt.
+ 
+Kenntnisse:
+ 
+PC / Windows, UNIX / Sun Solaris, JavaScript, HTML, IBM WAS 5, IBM RAD 6, Java
+1.4, J2EE 1.3, Servlet, JSP, Taglib, Struts
+===============================================================================
+01/2006 - 03/2007: Web-Portal
+ 
+Rolle:              Architektur, Analyse, Design, Implementierung
+Kunde:              Steuerberatung
+ 
+Aufgaben:
+ 
+Erweiterungen am Formularhandling, der Suche und des Mitglieder-Suchservices.
+ 
+Kenntnisse:
+ 
+PC / Windows, UNIX / Sun Solaris, Oracle RDBMS 9i, PL/SQL, JavaScript, HTML,
+CSS, Access, Word (VBA), IBM WAS 5, IBM WSAD 5.1, RAD 6, Java 2, J2EE 1.3,
+Servlet, JSP, Taglib, XML, XSLT, Struts
+===============================================================================
+Zeitraum:       01/05 - 12/05
+Projekt-Name:   Web-Portal
+Branche:        Steuerberatung
+Tätigkeit:      Architektur, Analyse, Design, Implementierung
+Beschreibung:   Mitglieder-Suchservice
+Ausführung:     PC / Windows
+ UNIX / Sun Solaris
+ Oracle RDBMS 9i
+ PL/SQL
+ JavaScript, HTML, CSS
+ Access, Word (VBA),
+ IBM WAS 5

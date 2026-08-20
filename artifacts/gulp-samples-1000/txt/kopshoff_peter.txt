@@ -1,0 +1,367 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_57392
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                57392
+  
+Wohnort                    502xx Stommeln, Deutschland
+Jahrgang                   1963
+Staatsbürgerschaft         Deutsch
+Stundensatz                95 EUR
+Verfügbar ab               01.07.21 zu 100%, Vor-Ort-Einsatz 80% möglich
+Profil erstellt am         07.12.03
+Profil zuletzt geändert am 25.05.21
+Lesen von Projektanfragen  1 Tag [08]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 16.02.2021 08:41:56
+
+Fachlicher Schwerpunkt:
+Automatisierung und Betreuung von Entwicklungsumgebungen. Automatisierte
+Verteilung und Konfiguration von Builds.
+
+Position:
+Beratung / Consulting
+Qualitätsmanagement / Qualitätssicherung / Test
+Engineering / IT-nahe Ingenieurdienstleistungen
+
+    * Beratung / Consulting
+    * Betreuung und Weiterentwicklung von Entwicklungsumgebungen
+    * Einführung und Betreuung von AWS-Cloud-Umgebungen
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+1989
+Studium der Elektrotechnik in Bochum
+Vertiefung: Softwaretechnik
+Abschluss als Diplom-Ingenieur
+ 
+Zertifizierung
+    * ISTQB Foundation Level
+ 
+12/2019:
+    * AWS Certified Solutions Architect - Associate
+ 
+01/2020:
+    * AWS Certified Developer - Associate
+ 
+02/2020:
+    * AWS Certified SysOp - Associate
+
+Einsatzort:
+Regionen:
+D4, D5, D6
+im Umkreis von:
+Köln (50 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch      
+Englisch    Fliessend in Wort und Schrift
+FranzösischAufbaufähig
+
+
+Hardware:
+embedded Systeme Programmierung in der Autombilbranche
+Emulatoren       Für embedded Systeme
+IBM Großrechner Als Anwender/Tester im Bankenbereich
+PC                
+
+
+Betriebssysteme:
+Linux        
+MS-DOS       
+MVS, OS/390  
+Unix        Entwicklung von Skripten
+Windows      
+
+
+Programmiersprachen:
+Bash Shell                          
+Basic                              VBA für MS-Access und Rational Robot
+C                                  gute Kenntnisse
+C++                                gute Kenntnisse
+Imake, GNU-Make, Make-Maker etc...  
+Java                               Grundkenntnisse
+JavaScript                         Grundkenntnisse
+JCL                                 
+Perl                                
+PL/SQL                             Incl Dynamic SQL, gute Kenntnisse
+Python                             gute Kenntnisse
+Shell                              Unix-Shellscripting: sehr gute Kenntnisse
+Unix-Shellscripting                 
+
+
+Datenbanken:
+Access Programmierung mit VBA
+DAO     
+JDBC    
+MySQL  Administration und bereitstellung
+ODBC    
+Oracle Programmierung von Stored Procedures und Triggern, Tools: SQLDeveloper,
+       TOAD
+SQL    Incl Dynamic SQL
+TOAD    
+
+
+Datenkommunikation:
+CICS                
+EDIFACT             
+Internet, Intranet  
+ISO/OSI             
+RPC                 
+TCP/IP              
+
+
+Schwerpunkte:
+    * Betreuung und Weiterentwicklung von Entwicklungsumgebungen.
+    * In der Zusammenarbeit mit der Entwicklungsabteilung und der
+      Projektleitung betreue ich die Entwicklungsumgebungen für mehrere
+      Entwickler- und Testgruppen.
+    * Dazu gehört das Aufsetzen einer Toolchain für Builds, die Auslieferung
+      und die Konfiguration der Builds, die Weiterentwicklung, die Überwachung
+      und die Fehlerbehebung in enger Zusammenarbeit mit Entwicklern.
+    * Aktuell habe ich mich in ein AWS-Cloud-Projekt eingearbeitet. Und ich
+      habe die drei Associate-Zertifikate von AWS (Developer, Solutions
+      Architect, SysOps Administrator) bestanden.
+
+Produkte/Standards/Erfahrungen:
+AWS       
+gerrit    
+git       
+Jenkins   
+maven     
+Nexus     
+puppet    
+Schulung  
+Position
+    * Beratung / Consulting
+    * Betreuung und Weiterentwicklung von Entwicklungsumgebungen
+    * Einführung und Betreuung von AWS-Cloud-Umgebungen
+ 
+Erfahrung mit folgenden Tools:
+    * SOAP-UI
+    * HP Quality Center
+    * SQL-Developer
+    * TOAD
+    * SOA-Backplane
+    * jMeter
+    * Rational Rose
+    * Jira
+    * Confluence
+    * SubVersion
+ 
+Intensive Erfahrungen:
+    * im Aufbau einer Toolchain mit Jenkins,
+    * Speichenr der Artefakte in Nexus und git / gerit,
+    * Auslieferung und Konfiguration der Stages mit puppet,
+    * Überwachung der Umgebung mit nagios und munin.
+    * Jira
+    * ELK-Stack (Elasticsearch, Logstash und Kibana)
+    * NoSql-Datenbanken: redis, MongoDB
+    * python robotframework
+
+Branchen:
+    * Seit mehreren Jahren arbeite ich als Development Operator in der Portal-
+      Entwicklung bei einem großen deutschen Automobilhersteller.
+    * Jeweils mehrere Jahre Erfahrung als Tester in der Automobilbranche, der
+      Telekommunikationsbranche und bei verschiedenen Banken
+
+Projekte:
+08/2020 - heute: Erstellung von Skripten und python-Bibliotheken
+ 
+ 
+Aufgaben:
+ 
+    * Erstellung von Skripten und python-Bibliotheken für eine
+      Testautomatisierung mit python robotframework
+===============================================================================
+09/2020 - 06/2021: Cloud Architektur für eine App-Entwicklung
+ 
+Einsatzort:         Home Office
+Rolle:              Cloud Architect und Development Operator
+Kunde:              lovenheal.org
+Geschäftsstelle:    App Entwicklung
+Branche:            Sonstige
+ 
+Aufgaben:
+ 
+    * Aufbau der automatisierten CI-Pipeline mit CodeCommit, CodeArtifact,
+      CodeBuild, CodePipeline.
+    * Erstellen und Implementierung der Architektur mit Cloudformation u.a. mit
+      einer MySql-DB, Fargate-Containern, Load-Balancer, Blue/Green-
+      Deployment. 
+    * Benutzer- und Rechteverwaltung mit IAM
+    * Anleitung von Kollegen um DevOps-Tätigkeiten in der AWS-Cloud
+      durchzuführen
+ 
+Kenntnisse:
+ 
+Python, Bash Shell, Schulung, AWS
+ 
+Eingesetzte Produkte:
+ 
+AWS
+===============================================================================
+05/2014 - 12/2019: Weiterentwicklung einer Entwicklungsumgebung
+ 
+Einsatzort:         Wolfsburg
+Rolle:              Development Operator
+Kunde:              Volkswagen AG
+Branche:            Automotive
+ 
+Aufgaben:
+ 
+    * Betreuung und Weiterentwicklung einer Entwicklungsumgebung basierend auf
+      Jenkins als CI-Tools, git (mit gerrit) als Repository
+    * Deployment mit Puppet-Agent
+    * Überwachung von Backends mit nagios
+    * Betreuung einer Applikation in aws
+    * Administration von Linux-Servern in den Entwicklungs-, Test- und
+      Produktionsstages
+    * Kommunikation mit und Anleitung von Kollegen in Off-
+      Shore
+    * Administration der Web-Page mit Apache-http-Server
+ 
+Kenntnisse:
+ 
+Erzeugen der Builds in Jenkins, Verteilen und konfigurieren der Builds mit
+puppet, Speichern von Artefakten mit git und gerrit in Nexus-Repository, AWS
+ 
+Eingesetzte Produkte:
+ 
+Nexus, git, gerrit, Jenkins, maven, puppet
+===============================================================================
+04/2012 - 02/2014: Automatisierung mit QTP
+ 
+Kunde:              Telekommunikation
+ 
+Aufgaben:
+ 
+    * Automatisierung mit QTP des Smoke-Tests für verschiedene Applikation im
+      Systemtest einer Entwicklungsabteilung
+===============================================================================
+03/2011 - 03/2012: Automatisierung mit QTP
+ 
+Kunde:              Telekommunikation
+ 
+Aufgaben:
+ 
+    * Automatisierung mit QTP des Regressionstests für einen
+      internetbasierten Webauftritts
+===============================================================================
+11/2010 - 02/2011: Migrationsprojekt
+ 
+Kunde:              Telekommunikation
+ 
+Aufgaben:
+ 
+    * Leitung einer internationalen Testgruppe für ein Migrationsprojekt (3
+      Mitarbeiter vor Ort, 3 Mitarbeiter Off-Shore)
+===============================================================================
+01/2007 - 10/2010: Erstellung von Testfällen
+ 
+Kunde:              Telekommunikation
+ 
+Aufgaben:
+ 
+    * Erstellung von Testfällen, Automatisierung und Ausführung der Tests für
+      die Software der Wirknetz-Administration.
+    * Ein Schwerpunkt lag auf der Entwicklung und der Wartung von Testfällen,
+      der automatisierten Ausführung und Auswertung der Tests.
+    * Der zweite Schwerpunkt liegt in der Programmierung in Perl/TK eines Tools
+      zur automatisierten Auswertung der Ergebnisse von Testfällen (inklusive
+      Synonymisierung der Testdaten) und Aktualisierung des Testergebnis in HP/
+      Quality Center.
+    * Mittlerweile wird der Regressionstest nach Indien ausgelagert:
+      Einarbeitung, Überwachung und (telefonische) Betreuung von indischen
+      Kollegen.
+ 
+Kenntnisse:
+ 
+Skriptprogrammierung unter Unix (u. a. awk, sed, perl), Programmierung in Perl
+und SQL
+===============================================================================
+07/2004 - 12/2006: Ausführung der Tests für ein Netzwerkplanungstool
+ 
+Kunde:              Telekommunikation
+ 
+Aufgaben:
+ 
+    * Erstellung von Testfällen, Automatisierung und Ausführung der Tests für
+      ein Netzwerkplanungstool.
+    * Der Schwerpunkt lag auf der Entwicklung und der Wartung eines
+      proprietäten Tools zur automatisierten Ausführung und Auswertung der
+      Tests.
+    * Zusätzlich habe ich für kleinere fachliche Gebiete Testfälle erstellt und
+      ausgeführt
+ 
+Kenntnisse:
+ 
+Skriptprogrammierung unter Unix (u. a. awk, sed, perl)
+===============================================================================
+07/1999 - 12/2004: Erstellung, Weiterentwicklung und Wartung
+ 
+Kunde:              Telekommunikation
+ 
+Aufgaben:
+ 
+    * Erstellung, Weiterentwicklung und Wartung eines proprietäten Tool für die
+      Erfassung von Testdaten, Testskripten und Testläufen
+    * Ausführung und Auswertung der Testläufe
+    * Analyse und Design der Software mit Rational Rose
+ 
+Kenntnisse:
+ 
+MS-Access mit einer Oracle-Anbindung, Java, SQL (Programmierung von stored
+Procedures und Triggern), Skriptprogrammierung unter Unix (u. a. awk, sed,
+perl)
+===============================================================================
+07/1999 - 12/2004: Erstellung, Weiterentwicklung und Wartung
+ 
+Kunde:              Telekommunikation
+ 
+Aufgaben:
+ 
+    * Erstellung, Weiterentwicklung und Wartung eines proprietäten Tool für die
+      Erfassung von Testdaten, Testskripten und Testläufen, Ausführung und
+      Auswertung der Testläufe, Analyse und Design der Software mit Rational
+      Rose
+===============================================================================
+01/2004 - 06/2004: Implementierung
+ 
+Kunde:              Telekommunikation
+ 
+Aufgaben:
+ 
+    * Last- und Performancetest mit Jmeter Regressionstest mit Rational-RobotJ
+      und mit Rational-Testagent Programmierung unter Java u. a. mit der
+      RobotJ-API
+    * Implementierung einer Teststeuerung mit ant
+    * Implementierung von Überwachungsskripten unter Unix
+    * Auswertung der Testergebnisse mit Excel
+ 
+Kenntnisse:
+ 
+RobotJ, JMeter, ant, Java
+===============================================================================
+Vor 07/1999 : Diverse Projekte
+ 
+Rolle: Mitarbeiter 
+Kunde: Banken und Versicherungen
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_57392
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 26.05.2021 00:39:58
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de
