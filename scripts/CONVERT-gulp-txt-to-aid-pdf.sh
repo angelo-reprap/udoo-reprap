@@ -27,6 +27,22 @@ EXECUTE="${EXECUTE:-0}"
 MIN_LEN="${MIN_LEN:-200}"
 VERSION_TAG="${VERSION_TAG:-1.0.0.0}"
 
+# Auto-Find NEED TSV wenn nicht gesetzt
+if [[ -z "$NEED" && -z "$FAILS" ]]; then
+  NEED="$(ls -td /tmp/gulp-vs-neu-*/need_neu_cv_with_fs_dir.tsv 2>/dev/null | head -1 || true)"
+fi
+if [[ -z "$NEED" && -z "$FAILS" ]]; then
+  echo "FAIL: weder NEED noch FAILS gesetzt, und kein /tmp/gulp-vs-neu-*/need_neu_cv_with_fs_dir.tsv gefunden." >&2
+  echo "  Inventur neu: bash $REPO/scripts/INVENTORY-gulp-vs-neu-cv.sh" >&2
+  echo "  oder: NEED=/pfad/zur.tsv LIMIT=5 EXECUTE=0 bash $0" >&2
+  exit 1
+fi
+if [[ -n "$NEED" && ! -f "$NEED" ]]; then
+  echo "FAIL: NEED Datei fehlt: $NEED" >&2
+  exit 1
+fi
+echo "NEED=${NEED:-} FAILS=${FAILS:-} LIMIT=$LIMIT EXECUTE=$EXECUTE"
+
 mkdir -p "$OUT_LOG"
 cd "$BACKEND"
 # shellcheck disable=SC1091
