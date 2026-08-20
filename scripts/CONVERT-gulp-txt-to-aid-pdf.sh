@@ -61,7 +61,7 @@ export DJANGO_SETTINGS_MODULE="${DJANGO_SETTINGS_MODULE:-abpe_backend.settings}"
 export REPO AID_ROOT NEED FAILS TXT_DIR WEB_COPY OUT_DIR SKIP_PERSON_DIR OUT_LOG LIMIT EXECUTE MIN_LEN VERSION_TAG
 
 python3 manage.py shell <<'PY'
-import os, re, html, subprocess, tempfile, shutil, json
+import errno, os, re, html, subprocess, tempfile, shutil, json, time
 from pathlib import Path
 from django.apps import apps
 
@@ -126,6 +126,79 @@ def letter_bucket(dir_name: str, last_name: str = "") -> str:
             ch = {"ä": "a", "ö": "o", "ü": "u", "ß": "s"}[c]
             break
     return (ch * 3) if ch else "zzzSONSTIGES"
+
+
+def install_pdf(src: Path, dest: Path) -> Path:
+    """PDF nach dest legen; bei CIFS/SMB EBUSY auf freien AID-*_a.b.c.d.pdf-Namen ausweichen.
+
+    Windows-Handles auf dem Share blockieren oft open(dest,'wb')/unlink — neuer Name geht.
+    """
+    dest = Path(dest)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    part = dest.with_name(dest.name + ".part")
+    try:
+        if part.exists():
+            part.unlink()
+    except OSError:
+        pass
+    shutil.copy2(src, part)
+
+    def _busy(err: OSError) -> bool:
+        return getattr(err, "errno", None) in (errno.EBUSY, errno.EPERM, 16)
+
+    try:
+        os.replace(part, dest)
+        return dest
+    except OSError as e1:
+        try:
+            if dest.exists():
+                dest.unlink()
+            os.replace(part, dest)
+            return dest
+        except OSError as e2:
+            e1 = e2
+        # Fallback: AID-{ini}_{ver}.pdf → letzte Versionsziffer erhöhen (get_best_pdf-tauglich)
+        m = re.match(r"^(AID-[A-Za-z0-9]+)_(.+)\.pdf$", dest.name, re.I)
+        if m:
+            prefix, ver = m.group(1), m.group(2)
+            parts = ver.split(".")
+            if len(parts) >= 1 and parts[-1].isdigit():
+                base_n = int(parts[-1])
+                for bump in range(1, 40):
+                    alt_ver = ".".join(parts[:-1] + [str(base_n + bump)]) if len(parts) > 1 else str(base_n + bump)
+                    alt = dest.with_name(f"{prefix}_{alt_ver}.pdf")
+                    try:
+                        os.replace(part, alt)
+                        print(f"  WARN: Ziel busy ({dest.name}, errno={getattr(e1, 'errno', '?')}) → {alt.name}")
+                        return alt
+                    except OSError:
+                        try:
+                            shutil.copy2(src, alt)
+                            try:
+                                part.unlink()
+                            except OSError:
+                                pass
+                            print(f"  WARN: Ziel busy ({dest.name}) → {alt.name}")
+                            return alt
+                        except OSError:
+                            continue
+            ts = time.strftime("%H%M%S")
+            if len(parts) >= 3:
+                alt = dest.with_name(f"{prefix}_{'.'.join(parts[:3])}.{ts}.pdf")
+            else:
+                alt = dest.with_name(f"{prefix}_{ver}.{ts}.pdf")
+            try:
+                if part.exists():
+                    os.replace(part, alt)
+                else:
+                    shutil.copy2(src, alt)
+                print(f"  WARN: Ziel busy ({dest.name}) → {alt.name}")
+                return alt
+            except OSError as e3:
+                raise OSError(
+                    f"PDF-Install fehlgeschlagen (busy?): dest={dest} err={e1!r} alt={e3!r}"
+                ) from e3
+        raise OSError(f"PDF-Install fehlgeschlagen: dest={dest} err={e1!r}") from e1
 
 
 def find_existing_person_dir(root: Path, dir_name: str):
@@ -443,13 +516,15 @@ for j in jobs:
         written = []
         if not SKIP_PERSON_DIR and not OUT_DIR:
             person_dir.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(pdf, target)
-            written.append(str(target))
+            placed = install_pdf(pdf, target)
+            pdf_name = placed.name
+            written.append(str(placed))
         elif not SKIP_PERSON_DIR and OUT_DIR:
             person_dir.mkdir(parents=True, exist_ok=True)
             person_pdf = person_dir / f"AID-{ini}_{VERSION_TAG}.pdf"
-            shutil.copy2(pdf, person_pdf)
-            written.append(str(person_pdf))
+            placed = install_pdf(pdf, person_pdf)
+            pdf_name = placed.name
+            written.append(str(placed))
         if OUT_DIR:
             odir = Path(OUT_DIR)
             odir.mkdir(parents=True, exist_ok=True)

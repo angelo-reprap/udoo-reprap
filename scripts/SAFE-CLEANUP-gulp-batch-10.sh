@@ -156,7 +156,7 @@ for key in "${TARGETS[@]}"; do
       [[ -z "$f" ]] && continue
       echo "  FS: rm $(basename "$f")   ($(stat -c%s "$f" 2>/dev/null || echo ?) bytes)"
       plan_fs=$((plan_fs + 1))
-    done < <(find "$person" -maxdepth 1 -type f -iname 'AID-*_1.0.0.0.pdf' 2>/dev/null)
+    done < <(find "$person" -maxdepth 1 -type f \( -iname 'AID-*.pdf' -o -iname 'AID-*.pdf.part' \) 2>/dev/null)
     # Person-Root wird NICHT gelöscht
     echo "  FS: behalte Ordner $person/"
   fi
@@ -220,14 +220,30 @@ for key in "${TARGETS[@]}"; do
   [[ "$person" != "$AID_ROOT/$letter" && "$person" != "$AID_ROOT/$letter/" ]] || die "refusing letter bucket"
 
   if [[ -d "$person/neu" ]]; then
-    echo "  rm -rf $person/neu"
-    rm -rf "$person/neu"
+    echo "  leere neu/ (Dateien einzeln, dann rmdir)"
+    # CIFS: rm -rf kann „Directory not empty“ / busy liefern
+    find "$person/neu" -mindepth 1 -depth -print0 2>/dev/null \
+      | while IFS= read -r -d '' f; do
+          rm -rf "$f" 2>/dev/null \
+            || mv -f "$f" "${f}.busy-$(date +%H%M%S)" 2>/dev/null \
+            || echo "  WARN: busy/übersprungen: $f"
+        done
+    rmdir "$person/neu" 2>/dev/null \
+      || rm -rf "$person/neu" 2>/dev/null \
+      || echo "  WARN: neu/ bleibt (Reste busy) — CONVERT schreibt trotzdem neu"
   fi
   while IFS= read -r f; do
     [[ -z "$f" ]] && continue
     echo "  rm $f"
-    rm -f "$f"
-  done < <(find "$person" -maxdepth 1 -type f -iname 'AID-*_1.0.0.0.pdf' 2>/dev/null)
+    if ! rm -f "$f" 2>/dev/null; then
+      busy="${f}.busy-$(date +%H%M%S)"
+      if mv -f "$f" "$busy" 2>/dev/null; then
+        echo "  WARN: busy → umbenannt $(basename "$busy")"
+      else
+        echo "  WARN: Device busy, belasse $(basename "$f") — CONVERT weicht auf *_1.0.0.1.pdf aus"
+      fi
+    fi
+  done < <(find "$person" -maxdepth 1 -type f \( -iname 'AID-*.pdf' -o -iname 'AID-*.pdf.part' \) 2>/dev/null)
 done
 
 if [[ "$CLEAN_DB" == "1" ]]; then
