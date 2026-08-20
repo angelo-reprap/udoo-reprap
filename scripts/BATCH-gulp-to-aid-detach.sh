@@ -50,6 +50,8 @@ ln -sfn "$STAMP_LOG" "$LOG"
 # Args/Env durchreichen (LIMIT=10 etc. bereits in Umgebung)
 nohup env LIMIT="${LIMIT:-10}" EXECUTE="${EXECUTE:-1}" \
   MEM_THRESH="${MEM_THRESH:-88}" CPU_THRESH="${CPU_THRESH:-88}" \
+  SWAP_THRESH="${SWAP_THRESH:-95}" SWAP_MEM_COMBO="${SWAP_MEM_COMBO:-75}" \
+  MIN_AVAIL_MB="${MIN_AVAIL_MB:-1536}" \
   THROTTLE_SLEEP="${THROTTLE_SLEEP:-30}" RUN_INVENTORY="${RUN_INVENTORY:-0}" \
   NEED="${NEED:-}" \
   bash "$SCRIPT" >>"$STAMP_LOG" 2>&1 &
