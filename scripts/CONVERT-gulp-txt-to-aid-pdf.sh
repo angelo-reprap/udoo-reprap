@@ -132,6 +132,9 @@ def find_existing_person_dir(root: Path, dir_name: str):
     name = (dir_name or "").strip().strip("/")
     if not name or not root.is_dir():
         return None
+    # Refuse bogus dirs from shifted TSV (e.g. "0")
+    if name.isdigit():
+        return None
     hits = []
     try:
         for letter_dir in root.iterdir():
@@ -311,6 +314,13 @@ elif NEED and Path(NEED).is_file():
                 "txt_path": "",
             }
         )
+        # Guard shifted TSV / digit-only dir
+        if not p[6] or str(p[6]).isdigit() or (
+            "_" not in str(p[6]) and p[3] and p[4]
+        ):
+            jobs[-1]["fs_dir"] = slug_name(p[3], p[4])
+        if not re.fullmatch(r"(?:sch|[a-z]{3}|zzzSONSTIGES)", str(p[5] or "")):
+            jobs[-1]["fs_letter"] = letter_bucket(jobs[-1]["fs_dir"], p[3])
 elif FAILS and Path(FAILS).is_file():
     for i, line in enumerate(Path(FAILS).read_text(encoding="utf-8").splitlines()):
         if i == 0 or not line.strip():
@@ -384,6 +394,8 @@ for j in jobs:
     profile = gclean.clean_gulp_profile(
         text, first=first, last=last, version=VERSION_TAG, max_activities=8
     )
+    n_exp = len(profile.get("experience") or [])
+    print(f"  clean: experience={n_exp} snapshot={profile.get('snapshot_chars')} aid={profile.get('aid_name')}")
     if profile.get("gulp_id") and not j.get("gulp_id"):
         j["gulp_id"] = profile["gulp_id"]
     aid = profile.get("aid_name") or f"AID-{ini}_{VERSION_TAG}"

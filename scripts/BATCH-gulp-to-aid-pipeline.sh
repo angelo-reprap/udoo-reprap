@@ -154,13 +154,49 @@ fail=0
 skip=0
 n=0
 
-# Skip header, iterate
+# letter/dir absichern (leerer gulp_id, dir=0, verschobene TSV-Spalten)
+normalize_person_path() {
+  python3 - "$1" "$2" "$3" "$4" <<'PY'
+import re, sys
+letter, dname, last, first = sys.argv[1:5]
+umlaut = str.maketrans({"ä": "ae", "ö": "oe", "ü": "ue", "ß": "ss", "Ä": "Ae", "Ö": "Oe", "Ü": "Ue"})
+
+def slug(last, first):
+    raw = f"{last}_{first}".strip("_").lower().translate(umlaut)
+    return re.sub(r"[^\w\-]+", "_", raw, flags=re.UNICODE).strip("_") or "unknown"
+
+def bucket(dir_name, last_name=""):
+    cdir = (dir_name or "").strip()
+    src = cdir.split("_", 1)[0] if "_" in cdir else ((last_name or "").strip() or cdir)
+    ch = ""
+    for c in src.lower():
+        if "a" <= c <= "z":
+            ch = c
+            break
+        if c in "äöüß":
+            ch = {"ä": "a", "ö": "o", "ü": "u", "ß": "s"}[c]
+            break
+    return (ch * 3) if ch else "zzzSONSTIGES"
+
+if (not dname) or re.fullmatch(r"\d+", dname) or ("_" not in dname and last and first):
+    dname = slug(last, first)
+if not re.fullmatch(r"(?:sch|[a-z]{3}|zzzSONSTIGES)", letter or ""):
+    letter = bucket(dname, last)
+print(f"{letter}\t{dname}")
+PY
+}
+
+# Skip header, iterate (leerer gulp_id behält seine Spalte)
 while IFS=$'\t' read -r cat contact_id gulp_id last first fs_letter fs_dir has_neu profil_len rest || [[ -n "${cat:-}" ]]; do
   [[ "${cat:-}" == "cat" || -z "${cat:-}" ]] && continue
   [[ "$cat" != "fs_dir_no_neu" && "$cat" != "need" ]] && continue
-  # TSV columns from inventory: cat contact_id gulp_id last first fs_letter fs_dir has_neu_pdf profil_len
-  dname="${fs_dir}"
-  letter="${fs_letter}"
+  if [[ -z "$last" || "$last" =~ ^[0-9]+$ ]]; then
+    echo "WARN skip bad TSV row contact_id=$contact_id last=$last dir=$fs_dir"
+    continue
+  fi
+  path_norm="$(normalize_person_path "${fs_letter}" "${fs_dir}" "${last}" "${first}")"
+  letter="${path_norm%%$'\t'*}"
+  dname="${path_norm#*$'\t'}"
   [[ -z "$dname" ]] && continue
 
   if [[ "$LIMIT" -gt 0 && "$ok" -ge "$LIMIT" ]]; then
@@ -182,7 +218,7 @@ while IFS=$'\t' read -r cat contact_id gulp_id last first fs_letter fs_dir has_n
   fi
 
   echo
-  echo "─── [$n] $letter/$dname (gulp_id=$gulp_id len=$profil_len) ───"
+  echo "─── [$n] $letter/$dname (gulp_id=${gulp_id:-∅} len=$profil_len) ───"
   throttle_wait || { fail=$((fail+1)); break; }
 
   if [[ "$EXECUTE" != "1" ]]; then
@@ -193,11 +229,12 @@ while IFS=$'\t' read -r cat contact_id gulp_id last first fs_letter fs_dir has_n
   fi
 
   t0=$(date +%s)
-  # 1) PDF erzeugen (CONVERT, eine Zeile NEED)
+  # 1) PDF erzeugen (CONVERT, eine Zeile NEED) — leerer gulp_id als echte leere Spalte
   ONE_NEED="$OUT_LOG/one_${dname}.tsv"
   {
     echo -e "cat\tcontact_id\tgulp_id\tlast\tfirst\tfs_letter\tfs_dir\thas_neu_pdf\tprofil_len"
-    echo -e "fs_dir_no_neu\t$contact_id\t$gulp_id\t$last\t$first\t$letter\t$dname\t0\t$profil_len"
+    printf 'fs_dir_no_neu\t%s\t%s\t%s\t%s\t%s\t%s\t0\t%s\n' \
+      "$contact_id" "$gulp_id" "$last" "$first" "$letter" "$dname" "$profil_len"
   } >"$ONE_NEED"
 
   if ! NEED="$ONE_NEED" LIMIT=1 EXECUTE=1 SKIP_PERSON_DIR=0 \
@@ -242,7 +279,7 @@ while IFS=$'\t' read -r cat contact_id gulp_id last first fs_letter fs_dir has_n
 
   throttle_wait || true
   sleep "$PAUSE_BETWEEN"
-done <"$NEED"
+done < <(tail -n +2 "$NEED" || true)
 
 python3 - <<PY
 import json

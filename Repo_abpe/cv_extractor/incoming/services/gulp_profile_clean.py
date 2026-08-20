@@ -61,21 +61,78 @@ PERSONAL_KEYS = [
     )),
 ]
 
-SECTION_HEAD_RE = re.compile(
-    r"(?im)^\s*(Fachlicher\s+Schwerpunkt|Position|Einsatzort|Regionen|"
+# Top-level Gulp section heads (NOT project-internal labels like Einsatzort inside Projekte)
+SECTION_HEAD_NAMES = (
+    r"Fachlicher\s+Schwerpunkt|Position|Einsatzort|Regionen|"
     r"Fremdsprachen|Projekte|Branchen|Zertifizierungen|Ausbildung|"
-    r"Kenntnisse|Hardware|Software|Tools|Methoden)\s*:?\s*$"
+    r"Kenntnisse|Hardware|Software|Tools|Methoden|"
+    r"Betriebssysteme|Programmiersprachen|Datenbanken|"
+    r"Datenkommunikation|Aufgabenbereiche|Schwerpunkte|"
+    r"Produkte/Standards/Erfahrungen|Managementerfahrung|"
+    r"Persönliche\s+Stärken|Sonstige\s+Anmerkungen"
 )
 
-# Inline heads that sit mid-line after Stammdaten dump
+SECTION_HEAD_RE = re.compile(
+    rf"(?im)^\s*({SECTION_HEAD_NAMES})\s*:?\s*$"
+)
+
+# Inline heads before Projekte (Stammdaten dump). Einsatzort/Position only here —
+# inside Projekte they are project fields, not section boundaries.
 INLINE_SECTION_RE = re.compile(
     r"(?i)\b(Fachlicher\s+Schwerpunkt|Position|Einsatzort|Regionen|"
     r"Fremdsprachen|Projekte)\s*:\s*"
 )
 
+# After Projekte starts, only these heads may close the Projekte block
+# Alone on the line only — NOT "Kenntnisse: AD Server …" inside a project
+PROJEKTE_END_HEAD_RE = re.compile(
+    r"(?im)^\s*(?:Branchen|Zertifizierungen|Ausbildung|"
+    r"Seite\s+drucken|Zum\s+Seitenanfang|"
+    r"GULP Information Services|Links:"
+    r"|Persönliche\s+Stärken|Sonstige\s+Anmerkungen|"
+    r"Ältere\s+Projekte\s+auf\s+Anfrage)\s*:?\s*$"
+)
+
 KUNDE_RE = re.compile(r"(?im)^\s*Kunde\s*:\s*(.+?)\s*$")
+# Gulp "Kunde····Name" (multi-space / nbsp) OR "Kunde CapName" after ws-normalize
+KUNDE_PLAIN_RE = re.compile(
+    r"(?im)^\s*Kunde(?:(?:\s{2,}|\t|\xa0)+|\s+)(?!in\b|und\b|als\b|oder\b|für\b|fuer\b|/)"
+    r"([A-ZÄÖÜ][^\n]{0,80})\s*$"
+)
 PROJEKT_RE = re.compile(r"(?im)^\s*Projekt\s*:\s*(.+?)\s*$")
 ZEITRAUM_RE = re.compile(r"(?im)^\s*Zeitraum\s*:\s*(.+?)\s*$")
+FIRMA_RE = re.compile(r"(?im)^\s*Firma(?:/Institut)?\s*:\s*(.+?)\s*$")
+AUFTRAG_RE = re.compile(r"(?im)^\s*Auftrag\s*:\s*(.+?)\s*$")
+ROLLE_RE = re.compile(r"(?im)^\s*Rolle(?:\s*/\s*Position)?\s*:\s*(.+?)\s*$")
+EINSATZORT_FIELD_RE = re.compile(r"(?im)^\s*Einsatzort\s*:\s*(.+?)\s*$")
+PROJEKTINHALTE_RE = re.compile(r"(?im)^\s*Projektinhalte\s*:\s*(.*)$")
+TECH_UMGEBUNG_RE = re.compile(
+    r"(?im)^\s*(?:Technische\s+Umgebung|Systemumgebung|Kenntnisse)\s*:\s*(.*)$"
+)
+DURATION_ONLY_RE = re.compile(
+    r"(?i)^\s*(?:\d+\s*(?:Monate?|Jahre?|Jahr)|"
+    r"\d+\s*Jahr\s+\d+\s*Monate?)\b"
+)
+
+# Period at start of line (Pauser / Hoellig / mixed)
+PERIOD_LINE_RE = re.compile(
+    r"""(?ix)^\s*
+    (?P<period>
+        \d{4}-\d{2}\s*[-–]\s*\d{4}-\d{2}
+        |\d{2}/\d{4}\s*[-–]\s*(?:\d{2}/\d{4}|heute|aktuell)
+        |\d{2}/\d{4}\s+heute
+        |\d{4}\s*[-–]\s*(?:\d{4}|heute|aktuell)
+    )
+    (?:\s*:\s*|\s+)
+    (?P<title>.*)?
+    $"""
+)
+
+# Stotz: "Projekt 7 / Jul/Aug 2007" or "Projekt 5 / 2006"
+PROJEKT_NUM_RE = re.compile(
+    r"(?im)^\s*Projekt\s+(?P<num>\d+)\s*/\s*(?P<period>.+?)\s*$"
+)
+
 TECH_HINT_RE = re.compile(
     r"(?i)(?:^|\b)(?:cisco|juniper|nortel|brocade|f5|hp-|aperture|nexus|"
     r"dwdm|lan/san|switch|firewall|ansible|linux|windows|excel|exel)\b"
@@ -83,6 +140,14 @@ TECH_HINT_RE = re.compile(
 DOC_TECH_RE = re.compile(r"(?i)^\s*Dokumentation\s*:\s*(.+)$")
 MONTAGE_TECH_RE = re.compile(
     r"(?i)^\s*(?:Montage\s+der\s+passiven\s+und\s+aktiven\s+Komponenten\s*:?\s*)?$"
+)
+
+# Knowledge dumps that must not land in Sprachen
+SKILL_SECTION_KEYS = (
+    "kenntnisse", "hardware", "software", "tools", "methoden",
+    "betriebssysteme", "programmiersprachen", "datenbanken",
+    "datenkommunikation", "aufgabenbereiche", "schwerpunkte",
+    "produkte/standards/erfahrungen", "managementerfahrung",
 )
 
 
@@ -156,9 +221,16 @@ def strip_noise_lines(text: str) -> str:
 
 def cut_after_projects_footer(text: str) -> str:
     """Footer/Navigation nach dem Profilinhalt abschneiden (nicht Kopf-Recherche)."""
+    # Page-break markers mid-profile are noise, not hard cuts
+    text = re.sub(
+        r"(?im)^\s*\d{1,2}\.\d{2}\.\d{4}\s+\d+\s+von\s+\d+\s*$",
+        "",
+        text,
+    )
+    text = re.sub(r"(?im)^\s*Seite\s+drucken\b.*$", "", text)
+    text = re.sub(r"(?im)^\s*Zum\s+Seitenanfang\b.*$", "", text)
     cut = re.split(
-        r"(?im)^\s*(?:Seite\s+drucken|Zum\s+Seitenanfang|"
-        r"GULP Information Services|Links:\s*$)",
+        r"(?im)^\s*(?:GULP Information Services|Links:\s*$)",
         text,
         maxsplit=1,
     )[0]
@@ -186,7 +258,9 @@ def soft_join_lines(lines: List[str]) -> List[str]:
             or bool(re.search(r"(?i)\b(des|der|die|dem|den|ein|eine|einen)\s+\S+$", prev))
         )
         if (starts_lower or starts_glue or prev_open) and not re.match(
-            r"(?i)^(kunde|projekt|zeitraum)\s*:", ln
+            r"(?i)^(kunde|projekt|zeitraum|firma|auftrag|rolle|einsatzort|"
+            r"projektinhalte|technische\s+umgebung|systemumgebung)\s*:",
+            ln,
         ):
             out[-1] = _squash(prev + " " + ln)
         else:
@@ -209,33 +283,68 @@ def extract_personal(blob: str) -> Dict[str, str]:
     return personal
 
 
+def _carve_projekte(text: str) -> Tuple[str, str]:
+    """
+    Projekte-Block herausschneiden BEVOR andere Section-Heads greifen.
+    Verhindert, dass 'Einsatzort:' / 'Position:' innerhalb von Projekten
+    die Section zerschneiden (Pauser-Format u.a.).
+    """
+    m = re.search(r"(?im)^\s*Projekte\s*:?\s*$", text)
+    if not m:
+        m = re.search(r"(?i)\bProjekte\s*:\s*", text)
+    if not m:
+        return text, ""
+    start = m.end()
+    end_m = PROJEKTE_END_HEAD_RE.search(text, start)
+    if end_m:
+        body = text[start : end_m.start()].strip()
+        rest = (text[: m.start()] + "\n" + text[end_m.start() :]).strip()
+    else:
+        body = text[start:].strip()
+        rest = text[: m.start()].strip()
+    return rest, body
+
+
 def _split_section_bodies(text: str) -> List[Tuple[str, str]]:
     """Find section headings (line-start or inline after Stammdaten) and bodies."""
-    # Normalize inline headings onto own lines for easier split
-    t = INLINE_SECTION_RE.sub(lambda m: "\n" + m.group(1).title().replace("Fachlicher Schwerpunkt", "Fachlicher Schwerpunkt") + ":\n", text)
-    # Fix casing of known heads
+    rest, projekte_body = _carve_projekte(text)
+
+    # Normalize inline headings onto own lines (pre-Projekte only)
+    t = INLINE_SECTION_RE.sub(
+        lambda m: "\n" + m.group(1) + ":\n", rest
+    )
     t = re.sub(r"(?i)\bfachlicher\s+schwerpunkt\s*:", "Fachlicher Schwerpunkt:", t)
     t = re.sub(r"(?i)\bposition\s*:", "Position:", t)
     t = re.sub(r"(?i)\beinsatzort\s*:", "Einsatzort:", t)
     t = re.sub(r"(?i)\bregionen\s*:", "Regionen:", t)
     t = re.sub(r"(?i)\bfremdsprachen\s*:", "Fremdsprachen:", t)
-    t = re.sub(r"(?i)\bprojekte\s*:", "Projekte:", t)
+    # Skill dumps often appear inline after Sprachen — force line breaks
+    for lab in (
+        "Hardware", "Software", "Tools", "Methoden", "Betriebssysteme",
+        "Programmiersprachen", "Datenbanken", "Datenkommunikation",
+        "Aufgabenbereiche", "Kenntnisse", "Schwerpunkte",
+        "Produkte/Standards/Erfahrungen", "Branchen", "Ausbildung",
+        "Zertifizierungen",
+    ):
+        t = re.sub(rf"(?i)\b{re.escape(lab)}\s*:", f"\n{lab}:\n", t)
 
-    heads = list(re.finditer(
-        r"(?im)^\s*(Fachlicher\s+Schwerpunkt|Position|Einsatzort|Regionen|"
-        r"Fremdsprachen|Projekte|Branchen|Zertifizierungen|Ausbildung|"
-        r"Kenntnisse)\s*:?\s*$",
-        t,
-    ))
-    if not heads:
-        return []
+    heads = list(SECTION_HEAD_RE.finditer(t))
     parts: List[Tuple[str, str]] = []
     for i, h in enumerate(heads):
         name = re.sub(r"\s+", " ", h.group(1)).strip()
+        if name.lower() == "projekte":
+            continue  # already carved
         start = h.end()
         end = heads[i + 1].start() if i + 1 < len(heads) else len(t)
         body = t[start:end].strip()
         parts.append((name, body))
+
+    if projekte_body:
+        # Drop trailing "Projekterfahrung" / noise-only intro line
+        projekte_body = re.sub(
+            r"(?im)^\s*Projekterfahrung\s*$", "", projekte_body
+        ).strip()
+        parts.append(("Projekte", projekte_body))
     return parts
 
 
@@ -313,40 +422,109 @@ def _looks_like_location(line: str) -> bool:
     )
 
 
-def parse_projects(body: str, max_activities: int = 8) -> List[Dict[str, Any]]:
-    body = cut_after_projects_footer(body)
-    lines = [ln.strip() for ln in body.splitlines() if ln.strip()]
-    lines = [ln for ln in lines if not NOISE_LINE_RE.match(ln)]
+def _empty_exp() -> Dict[str, Any]:
+    return {
+        "period": "",
+        "title": "",
+        "company": "",
+        "industry": "",
+        "role": "",
+        "location": "",
+        "activities": [],
+        "technologies": [],
+    }
+
+
+def _finalize_exp(cur: Dict[str, Any], max_activities: int) -> Dict[str, Any]:
+    acts = soft_join_lines([a for a in cur["activities"] if a.strip()])
+    cur["activities"] = acts[:max_activities]
+    seen = set()
+    techs = []
+    for t in cur["technologies"]:
+        k = t.lower()
+        if k not in seen:
+            seen.add(k)
+            techs.append(t)
+    cur["technologies"] = techs
+    return cur
+
+
+def _exp_is_useful(cur: Dict[str, Any]) -> bool:
+    if (cur.get("period") or "").strip():
+        return True
+    if (cur.get("company") or "").strip() and (
+        (cur.get("title") or "").strip() or cur.get("activities")
+    ):
+        return True
+    title = (cur.get("title") or "").strip()
+    if title and len(title) > 8 and not title.lower().startswith("referenz"):
+        return True
+    return False
+
+
+def _apply_field_line(cur: Dict[str, Any], ln: str) -> bool:
+    """Map known project field labels onto cur. Returns True if consumed."""
+    mk = KUNDE_RE.match(ln)
+    if mk:
+        cur["company"] = mk.group(1).strip()
+        return True
+    mf = FIRMA_RE.match(ln)
+    if mf:
+        cur["company"] = mf.group(1).strip()
+        return True
+    ma = AUFTRAG_RE.match(ln)
+    if ma:
+        val = ma.group(1).strip()
+        if not cur.get("title"):
+            cur["title"] = val
+        else:
+            cur["activities"].append(val)
+        return True
+    mr = ROLLE_RE.match(ln)
+    if mr:
+        cur["role"] = mr.group(1).strip()
+        if not cur.get("title"):
+            cur["title"] = cur["role"]
+        return True
+    me = EINSATZORT_FIELD_RE.match(ln)
+    if me:
+        cur["location"] = me.group(1).strip()
+        return True
+    mz = ZEITRAUM_RE.match(ln)
+    if mz:
+        cur["period"] = _squash(mz.group(1))
+        return True
+    mpi = PROJEKTINHALTE_RE.match(ln)
+    if mpi:
+        rest = (mpi.group(1) or "").strip()
+        if rest:
+            rest = re.sub(r"^[•\-\*]\s*", "", rest).strip()
+            if rest:
+                cur["activities"].append(_squash(rest))
+        return True
+    mt = TECH_UMGEBUNG_RE.match(ln)
+    if mt:
+        rest = (mt.group(1) or "").strip()
+        if rest:
+            cur["technologies"].extend(_techs_from_line(rest))
+        return True
+    return False
+
+
+def _parse_kunde_projekt_zeitraum(
+    lines: List[str], max_activities: int
+) -> List[Dict[str, Any]]:
+    """Format A (Broeckling): Kunde: / Projekt: / Zeitraum:"""
     experiences: List[Dict[str, Any]] = []
     cur: Optional[Dict[str, Any]] = None
-
-    def empty_exp() -> Dict[str, Any]:
-        return {
-            "period": "",
-            "title": "",
-            "company": "",
-            "industry": "",
-            "role": "",
-            "location": "",
-            "activities": [],
-            "technologies": [],
-        }
 
     def flush():
         nonlocal cur
         if not cur:
             return
-        acts = soft_join_lines([a for a in cur["activities"] if a.strip()])
-        cur["activities"] = acts[:max_activities]
-        seen = set()
-        techs = []
-        for t in cur["technologies"]:
-            k = t.lower()
-            if k not in seen:
-                seen.add(k)
-                techs.append(t)
-        cur["technologies"] = techs
-        experiences.append(cur)
+        cur = _finalize_exp(cur, max_activities)
+        if _exp_is_useful(cur):
+            experiences.append(cur)
         cur = None
 
     i = 0
@@ -355,44 +533,53 @@ def parse_projects(body: str, max_activities: int = 8) -> List[Dict[str, Any]]:
         mk = KUNDE_RE.match(ln)
         mp = PROJEKT_RE.match(ln)
         mz = ZEITRAUM_RE.match(ln)
+        mf = FIRMA_RE.match(ln)
 
         if mk:
             flush()
-            cur = empty_exp()
+            cur = _empty_exp()
             cur["company"] = mk.group(1).strip()
+            i += 1
+            continue
+
+        if mf and cur is None:
+            flush()
+            cur = _empty_exp()
+            cur["company"] = mf.group(1).strip()
             i += 1
             continue
 
         if mp:
             if cur is None:
-                cur = empty_exp()
+                cur = _empty_exp()
             title = mp.group(1).strip().rstrip(",")
             loc_bits: List[str] = []
             j = i + 1
-            # Consume continuation until Zeitraum / next Kunde / next Projekt
             while j < len(lines):
                 nxt = lines[j]
-                if KUNDE_RE.match(nxt) or PROJEKT_RE.match(nxt) or ZEITRAUM_RE.match(nxt):
+                if (
+                    KUNDE_RE.match(nxt)
+                    or PROJEKT_RE.match(nxt)
+                    or ZEITRAUM_RE.match(nxt)
+                    or FIRMA_RE.match(nxt)
+                ):
                     break
                 if _is_tech_line(nxt) or re.match(
                     r"(?i)^\s*Montage\s+der\s+passiven", nxt
                 ):
                     break
                 if _looks_like_location(nxt) and not title.endswith(","):
-                    # location after title complete
                     loc_bits.append(nxt.strip().rstrip(","))
                     j += 1
                     continue
                 if _looks_like_location(nxt) and title.endswith(","):
-                    # still could be title fragment "… Tagesgeschäft, Datacenter…"
-                    # Prefer location when line is primarily place names
                     if re.match(r"(?i)^\s*Datacenter\b", nxt):
                         loc_bits.append(nxt.strip().rstrip(","))
                         j += 1
                         continue
-                # title continuation (wrapped)
                 if not re.match(
-                    r"(?i)^(unterst|planung|aufnahme|bearbeitung|analyse|austausch|neuaufbau|troubleshooting|patcharbeiten)\b",
+                    r"(?i)^(unterst|planung|aufnahme|bearbeitung|analyse|"
+                    r"austausch|neuaufbau|troubleshooting|patcharbeiten)\b",
                     nxt,
                 ):
                     title = (title + " " + nxt).strip().rstrip(",")
@@ -407,7 +594,7 @@ def parse_projects(body: str, max_activities: int = 8) -> List[Dict[str, Any]]:
 
         if mz:
             if cur is None:
-                cur = empty_exp()
+                cur = _empty_exp()
             cur["period"] = _squash(mz.group(1))
             i += 1
             continue
@@ -416,7 +603,14 @@ def parse_projects(body: str, max_activities: int = 8) -> List[Dict[str, Any]]:
             i += 1
             continue
 
-        if re.match(r"(?i)^\s*Montage\s+der\s+passiven\s+und\s+aktiven\s+Komponenten\s*:?\s*$", ln):
+        if _apply_field_line(cur, ln):
+            i += 1
+            continue
+
+        if re.match(
+            r"(?i)^\s*Montage\s+der\s+passiven\s+und\s+aktiven\s+Komponenten\s*:?\s*$",
+            ln,
+        ):
             i += 1
             if i < len(lines) and _is_tech_line(lines[i]):
                 cur["technologies"].extend(_techs_from_line(lines[i]))
@@ -433,6 +627,264 @@ def parse_projects(body: str, max_activities: int = 8) -> List[Dict[str, Any]]:
 
     flush()
     return experiences
+
+
+def _parse_period_first(
+    lines: List[str], max_activities: int
+) -> List[Dict[str, Any]]:
+    """
+    Format B/C: Period at line start
+      2021-10 - 2022-02 Migration Exchange …
+      2017 - 2019 Fintech
+      06/2012 - heute: …
+    """
+    experiences: List[Dict[str, Any]] = []
+    cur: Optional[Dict[str, Any]] = None
+    # track subsections for hoellig
+    mode = ""  # '', 'tech', 'tasks', 'topics'
+
+    def flush():
+        nonlocal cur, mode
+        if not cur:
+            return
+        cur = _finalize_exp(cur, max_activities)
+        if _exp_is_useful(cur):
+            experiences.append(cur)
+        cur = None
+        mode = ""
+
+    i = 0
+    while i < len(lines):
+        ln = lines[i]
+        pm = PERIOD_LINE_RE.match(ln)
+        # also bare Zeitraum: as period-first start
+        mz = ZEITRAUM_RE.match(ln)
+        if pm or mz:
+            flush()
+            cur = _empty_exp()
+            if pm:
+                cur["period"] = _squash(pm.group("period"))
+                title = (pm.group("title") or "").strip().rstrip(":")
+                if title:
+                    cur["title"] = _squash(title)
+            else:
+                cur["period"] = _squash(mz.group(1))
+            mode = ""
+            i += 1
+            continue
+
+        if cur is None:
+            i += 1
+            continue
+
+        # skip duration-only lines ("5 Monate", "1 Jahr 7 Monate …")
+        if DURATION_ONLY_RE.match(ln) and len(ln) < 80:
+            # trailing words after duration may be title fragment
+            rest = DURATION_ONLY_RE.sub("", ln).strip(" ,;")
+            if rest and not cur.get("title"):
+                cur["title"] = _squash(rest)
+            elif rest and cur.get("title") and rest.lower() not in cur["title"].lower():
+                cur["title"] = _squash(cur["title"] + " " + rest)
+            i += 1
+            continue
+
+        if _apply_field_line(cur, ln):
+            mode = ""
+            i += 1
+            continue
+
+        if re.match(r"(?i)^\s*Fachliche\s+Themen\s*:?\s*$", ln):
+            mode = "topics"
+            i += 1
+            continue
+        if re.match(r"(?i)^\s*Aufgabenbereich\s*:?\s*$", ln):
+            mode = "tasks"
+            i += 1
+            continue
+        if re.match(r"(?i)^\s*Technische\s+Umgebung\s*:?\s*$", ln):
+            mode = "tech"
+            i += 1
+            continue
+
+        if mode == "tech":
+            cur["technologies"].extend(_techs_from_line(ln) or [ln.strip()])
+            i += 1
+            continue
+
+        # bullet
+        cleaned = re.sub(r"^[•\-\*\?]\s*", "", ln).strip()
+        if not cleaned:
+            i += 1
+            continue
+
+        # first non-field line after period often = role/industry if no title
+        if (
+            not cur.get("title")
+            and not cur.get("role")
+            and len(cleaned) < 80
+            and not cleaned.endswith(".")
+        ):
+            cur["title"] = cleaned
+            cur["role"] = cleaned
+            i += 1
+            continue
+
+        if _is_tech_line(cleaned):
+            cur["technologies"].extend(_techs_from_line(cleaned))
+        else:
+            cur["activities"].append(_squash(cleaned))
+        i += 1
+
+    flush()
+    return experiences
+
+
+def _parse_projekt_nummer(
+    lines: List[str], max_activities: int
+) -> List[Dict[str, Any]]:
+    """Format D (Stotz): 'Projekt 7 / Jul/Aug 2007' … Kunde Name"""
+    experiences: List[Dict[str, Any]] = []
+    cur: Optional[Dict[str, Any]] = None
+
+    def flush():
+        nonlocal cur
+        if not cur:
+            return
+        cur = _finalize_exp(cur, max_activities)
+        if _exp_is_useful(cur):
+            experiences.append(cur)
+        cur = None
+
+    i = 0
+    while i < len(lines):
+        ln = lines[i]
+        mn = PROJEKT_NUM_RE.match(ln)
+        if mn:
+            flush()
+            cur = _empty_exp()
+            # period may include trailing title after nbsp/spaces
+            raw_period = _squash(mn.group("period"))
+            # split "2004 Bearbeitung …" / "2001-02 Ablösung …"
+            pm = re.match(
+                r"(?ix)^(?P<p>seit\s+\S+(?:\s+\d{4})?|\d{4}(?:\s*[-–]\s*\d{2,4})?|"
+                r"(?:Jan|Feb|Mär|Maerz|Apr|Mai|Jun|Jul|Aug|Sep|Okt|Nov|Dez)"
+                r"[a-zäöü]*(?:\s*/\s*(?:Jan|Feb|Mär|Maerz|Apr|Mai|Jun|Jul|Aug|Sep|Okt|Nov|Dez)[a-zäöü]*)?"
+                r"\s*\d{4})"
+                r"(?:\s+(?P<t>.+))?$",
+                raw_period,
+            )
+            if pm:
+                cur["period"] = _squash(pm.group("p"))
+                if pm.group("t"):
+                    cur["title"] = _squash(pm.group("t"))
+            else:
+                cur["period"] = raw_period
+            i += 1
+            continue
+        # "Projekte / 2000 - 2006 …" summary line — skip as project start
+        if re.match(r"(?im)^\s*Projekte\s*/\s*", ln):
+            flush()
+            i += 1
+            continue
+        if cur is None:
+            i += 1
+            continue
+        if _apply_field_line(cur, ln):
+            i += 1
+            continue
+        # normalize nbsp so Kunde····Name matches
+        ln_norm = ln.replace("\xa0", " ")
+        mk2 = KUNDE_PLAIN_RE.match(ln_norm) or KUNDE_PLAIN_RE.match(ln)
+        if mk2:
+            cur["company"] = mk2.group(1).replace("\xa0", " ").strip()
+            i += 1
+            continue
+        if re.match(r"(?i)^\s*Branche\s*$", ln):
+            i += 1
+            if i < len(lines) and not PROJEKT_NUM_RE.match(lines[i]):
+                # next line may be industry or "Kunde …"
+                nxt = lines[i]
+                if re.match(r"(?i)^\s*Kunde\b", nxt):
+                    continue
+                cur["industry"] = nxt.strip()
+                i += 1
+            continue
+        if re.match(r"(?i)^\s*Eckdaten\b", ln):
+            rest = re.sub(r"(?i)^\s*Eckdaten\s*-?\s*", "", ln).strip()
+            if rest:
+                cur["activities"].append(_squash(rest))
+            i += 1
+            continue
+        cleaned = re.sub(r"^[•\-\*]\s*", "", ln).strip()
+        if not cleaned:
+            i += 1
+            continue
+        if not cur.get("title") and len(cleaned) < 160:
+            cur["title"] = cleaned
+        else:
+            cur["activities"].append(_squash(cleaned))
+        i += 1
+
+    flush()
+    return experiences
+
+
+def _count_format_a_signals(lines: List[str]) -> int:
+    n = 0
+    for ln in lines:
+        if KUNDE_RE.match(ln) or PROJEKT_RE.match(ln) or ZEITRAUM_RE.match(ln):
+            n += 1
+    return n
+
+
+def _count_period_starts(lines: List[str]) -> int:
+    return sum(1 for ln in lines if PERIOD_LINE_RE.match(ln) or ZEITRAUM_RE.match(ln))
+
+
+def _count_projekt_num(lines: List[str]) -> int:
+    return sum(1 for ln in lines if PROJEKT_NUM_RE.match(ln))
+
+
+def _score_experiences(exps: List[Dict[str, Any]]) -> Tuple[int, int, int]:
+    """Prefer more projects, then more with period, then more with company."""
+    n = len(exps)
+    with_period = sum(1 for e in exps if (e.get("period") or "").strip())
+    with_co = sum(1 for e in exps if (e.get("company") or "").strip())
+    return (n, with_period, with_co)
+
+
+def parse_projects(body: str, max_activities: int = 8) -> List[Dict[str, Any]]:
+    body = cut_after_projects_footer(body)
+    lines = [ln.strip() for ln in body.splitlines() if ln.strip()]
+    lines = [ln for ln in lines if not NOISE_LINE_RE.match(ln)]
+    if not lines:
+        return []
+
+    sig_a = _count_format_a_signals(lines)
+    sig_p = _count_period_starts(lines)
+    sig_n = _count_projekt_num(lines)
+
+    candidates: List[List[Dict[str, Any]]] = []
+    if sig_a >= 2:
+        candidates.append(_parse_kunde_projekt_zeitraum(lines, max_activities))
+    if sig_p >= 1:
+        candidates.append(_parse_period_first(lines, max_activities))
+    if sig_n >= 1:
+        candidates.append(_parse_projekt_nummer(lines, max_activities))
+    if not candidates:
+        candidates.append(_parse_kunde_projekt_zeitraum(lines, max_activities))
+        candidates.append(_parse_period_first(lines, max_activities))
+        candidates.append(_parse_projekt_nummer(lines, max_activities))
+
+    best: List[Dict[str, Any]] = []
+    best_score = (-1, -1, -1)
+    for exps in candidates:
+        sc = _score_experiences(exps)
+        if sc > best_score:
+            best_score = sc
+            best = exps
+    return best
+
 
 def clean_gulp_profile(
     raw: str,
@@ -461,15 +913,34 @@ def clean_gulp_profile(
     experiences: List[Dict[str, Any]] = []
     for name_s, body in sections:
         body = strip_noise_lines(body)
-        if name_s.lower() == "projekte":
+        key = name_s.lower().strip()
+        if key == "projekte":
             experiences = parse_projects(body, max_activities=max_activities)
             continue
-        # Fremdsprachen: one per line, drop empties
-        if name_s.lower() == "fremdsprachen":
-            langs = [ln.strip() for ln in body.splitlines() if ln.strip() and not NOISE_LINE_RE.match(ln.strip())]
+        # Skill dumps: keep out of AID-Plain (would pollute Sprachen)
+        if any(key == sk or key.startswith(sk) for sk in SKILL_SECTION_KEYS):
+            continue
+        if key in ("persönliche stärken", "sonstige anmerkungen"):
+            continue
+        # Fremdsprachen: one per line, drop empties / skill crumbs
+        if key == "fremdsprachen":
+            langs = []
+            for ln in body.splitlines():
+                s = ln.strip()
+                if not s or NOISE_LINE_RE.match(s):
+                    continue
+                # stop if skill-category leaked in
+                if re.match(
+                    r"(?i)^(hardware|software|betriebssysteme|programmiersprachen|"
+                    r"datenbanken|datenkommunikation|aufgabenbereiche|schwerpunkte|"
+                    r"produkte|kenntnisse|tools|methoden)\b",
+                    s,
+                ):
+                    break
+                langs.append(s)
             body = "\n".join(langs)
         # Position: drop freiberuflich note already via noise; keep role lines
-        if name_s.lower() == "position":
+        if key == "position":
             lines = [
                 ln.strip()
                 for ln in body.splitlines()
@@ -477,12 +948,14 @@ def clean_gulp_profile(
             ]
             body = "\n".join(lines)
         # Fachlicher Schwerpunkt: one line squash
-        if "schwerpunkt" in name_s.lower():
+        if "schwerpunkt" in key:
             body = _squash(body)
-        if "einsatzort" in name_s.lower():
+        if "einsatzort" in key:
             body = _squash(body)
             body = re.sub(r"(?i)\s*Ich möchte BEVORZUGT.*$", "", body).strip()
-        cleaned_sections.append((name_s, body))
+            body = re.sub(r"(?i)\s*Kontaktwunsch:.*$", "", body).strip()
+        if body.strip():
+            cleaned_sections.append((name_s, body))
 
     # Display personal rows (ordered)
     personal_rows: List[Tuple[str, str]] = []

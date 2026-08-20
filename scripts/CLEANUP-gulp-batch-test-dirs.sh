@@ -10,6 +10,13 @@
 #   RESULT_TSV=/tmp/gulp-batch-20260820-172849/result.tsv \
 #     EXECUTE=1 bash scripts/CLEANUP-gulp-batch-test-dirs.sh
 #
+# Zusätzlich kaputte Pfade aus dem 1. Lauf (z.B. wolfsegger_bernd/0):
+#   EXTRA_DIRS="wolfsegger_bernd/0" EXECUTE=1 bash scripts/CLEANUP-gulp-batch-test-dirs.sh
+#
+# Danach Re-Run (nach git pull des Cleaner-Fixes):
+#   cd /mnt/public/udoo-reprap && git pull origin cursor/gulp-keyword-pipeline-1532
+#   LIMIT=10 bash scripts/BATCH-gulp-to-aid-pipeline.sh
+#
 set -euo pipefail
 
 AID_ROOT="${AID_PROFILE_ROOT:-/mnt/public/Berater/AID_profile}"
