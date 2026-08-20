@@ -1,0 +1,400 @@
+    Projekt 22: ✅
+    Projekt 24: ✅
+    Projekt 25: ✅
+    Projekt 28: ✅
+    Projekt 29: ✅
+  19 Projekte extrahiert (seed=19, fill=19)
+  SKILLS: 6 Gruppe(n) → skill_ablage...
+    Betriebssysteme: 25 Skills (Regex)
+    Programmiersprachen: 9 Skills (Regex)
+    Datenbanken: 12 Skills (Regex)
+    Hardware: 42 Skills (Regex)
+    Frameworks und Bibliotheken: 27 Skills (Regex)
+    Datenkommunikation: 25 Skills (Regex)
+    140 Skills → skill_ablage (mit Kategorie)
+    skills befüllt: 5 Kategorien, skill_ablage Rest: 25
+    ✅ AID-pb_5.1.4.2
+    📁 neu/cv: AID-pb_5.1.4.2.docx, AID-pb_5.1.4.2.html, AID-pb_5.1.4.2.pdf
+
+==================================================
+ERGEBNIS nach 42s (0.7 min):
+  Versucht:     1
+  Gestartet:    1
+  Fehler:       0
+  Übersprungen: 0
+  Ohne PDF:     0
+  Outputs:      {letter}/{nachname_vorname}/neu/cv/
+OK bbb/bauchmueller_peter → AID-pb_5.1.4.2.pdf (46s)
+
+─── [10] bbb/bauer_joachim (gulp_id=50723 len=25413) ───
+NEED=/tmp/gulp-batch-20260820-182622/one_bauer_joachim.tsv FAILS= TXT_DIR= OUT_DIR= LIMIT=1 EXECUTE=1
+/opt/abpe/venv311/lib/python3.11/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (7.4.0.post2)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+INFO 2026-08-20 18:31:57,780 search_service ✅ ElasticSearch verbunden (Version: 8.11.0)
+INFO 2026-08-20 18:31:57,780 search_service ✅ SearchService initialisiert
+INFO 2026-08-20 18:31:58,112 aid_generator ✅ AIDGenerator initialisiert mit Media-Integration
+INFO 2026-08-20 18:31:58,178 ollama_service 🚀 OllamaService UNLIMITED initialisiert mit Modell: qwen2.5:7b
+INFO 2026-08-20 18:31:58,178 aid_generator ✅ AIDGenerator für Pipeline initialisiert
+INFO 2026-08-20 18:31:58,179 cv_processor ✅ CVProcessorService initialisiert mit strukturierter DB
+INFO 2026-08-20 18:31:58,233 apps 🚀 Initialisiere ABpE Profile App...
+INFO 2026-08-20 18:31:58,233 signals ✅ ABpE Profile Signals registriert (v6.0)
+INFO 2026-08-20 18:31:58,235 signals ✅ ElasticSearch Health: yellow
+INFO 2026-08-20 18:31:58,237 signals 📊 v1 Index 'abpe_profile_versions': 22 Dokumente
+INFO 2026-08-20 18:31:58,238 signals 📊 v2 Index 'abpe_profiles_v2': 0 Dokumente
+INFO 2026-08-20 18:31:58,238 apps ✅ Signals erfolgreich registriert
+INFO 2026-08-20 18:31:58,238 apps 📡 0 Signal-Handler für Profile registriert
+INFO 2026-08-20 18:31:58,238 apps ✅ ElasticSearch Hosts aus Settings: ['http://localhost:9200']
+INFO 2026-08-20 18:31:58,241 apps ✅ ElasticSearch 8.11.0 ist erreichbar
+INFO 2026-08-20 18:31:58,241 apps    Status: yellow
+INFO 2026-08-20 18:31:58,241 apps    Cluster: docker-cluster
+INFO 2026-08-20 18:31:58,241 apps    Build: default
+INFO 2026-08-20 18:31:58,243 apps ✅ Index 'abpe_profile_versions' Status:
+INFO 2026-08-20 18:31:58,243 apps    📊 Dokumente: 22
+INFO 2026-08-20 18:31:58,244 apps    📦 Größe: 0.06 MB
+INFO 2026-08-20 18:31:58,244 apps    📝 Felder: 13
+INFO 2026-08-20 18:31:58,244 apps    ✅ Wichtige Felder vorhanden: 7/7
+/opt/abpe/venv311/lib/python3.11/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+  warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+INFO 2026-08-20 18:31:58,261 apps 📊 Synchronisations-Status:
+INFO 2026-08-20 18:31:58,261 apps    🗄️  DB Profile: 1
+INFO 2026-08-20 18:31:58,261 apps    🗄️  DB Versionen: 0
+INFO 2026-08-20 18:31:58,261 apps    🔍 ES Versionen: 22
+INFO 2026-08-20 18:31:58,261 apps    🔄 Sync-Ratio: 0.0%
+WARNING 2026-08-20 18:31:58,261 apps ⚠️  Geringe Synchronisation (0.0%) - möglicherweise fehlen Dokumente in ES
+INFO 2026-08-20 18:31:58,262 apps ✅ ABpE Profile App initialisiert:
+INFO 2026-08-20 18:31:58,262 apps    🔌 ElasticSearch: VERFÜGBAR
+INFO 2026-08-20 18:31:58,262 apps    📊 Index: VORHANDEN
+INFO 2026-08-20 18:31:58,262 apps    📈 ES-Dokumente: 22
+INFO 2026-08-20 18:31:58,262 apps    🏷️  ES-Version: 8.11.0
+INFO 2026-08-20 18:31:58,262 apps    💾 Index-Größe: 0.06 MB
+INFO 2026-08-20 18:31:58,262 apps 🚀 ABpE Profile App ist bereit für Operationen
+WARNING 2026-08-20 18:31:58,264 apps ⚠️  Intake Integration Signals nicht gefunden
+INFO 2026-08-20 18:31:58,264 apps ✅ IngestEmail App bereit mit Auto-Reply
+INFO 2026-08-20 18:31:58,265 apps ✅ ingest_pdf Signale geladen (automatischer Task-Start aktiviert)
+INFO 2026-08-20 18:31:58,265 signals ✅ ai_cv_training Signals geladen und bereit
+============================================================
+✅ LDAP Configuration loaded for UCS5
+✅ Server: ldap://ucs5.win.abcona.info
+✅ Base DN: dc=win,dc=abcona,dc=info
+============================================================
+✅ LDAP Authentication Backend aktiviert
+============================================================
+✅ ABpE SETTINGS GELADEN (modular)
+✅ Django Version: 5.2.9
+✅ Apps: 79 installiert
+✅ Environment: development
+✅ DEBUG: True
+✅ AUTH Backends: 2 aktiviert
+============================================================
+✅ ABpE Apps Package loaded (version 2.0.0)
+[MODELS] LDAP Modelle erfolgreich geladen
+[MODELS] Verfügbare Modelle: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ CompleteConsultantAdmin registriert
+[ADMIN] LDAP Admin-Views erfolgreich geladen
+[ADMIN] Verfügbare Admin-Views: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ ABpE Search Admin - vereinfachte Version geladen (keine Models)
+✅ URL Import App ist bereit
+✅ CV Extractor bereit
+[SIGNALS] LDAP-Signals erfolgreich geladen
+2 objects could not be automatically imported:
+
+  djangocms_versioning.datastructures.SnippetVersion
+  djangocms_versioning.datastructures.PageContentVersion
+
+251 objects imported automatically (use -v 2 for details).
+
+jobs_candidates=1 EXECUTE=True AID_ROOT=/mnt/public/Berater/AID_profile
+keywords=v1.3-final
+  clean: experience=15 snapshot=22774 aid=AID-jb_1.0.0.0
+OK bauer_joachim chars=25413 sections=6 experience=15 aid=AID-jb_1.0.0.0
+  → /mnt/public/Berater/AID_profile/bbb/bauer_joachim/AID-jb_1.0.0.0.pdf
+{
+  "execute": true,
+  "jobs_ok": 1,
+  "fail": 0,
+  "skip": 0,
+  "version_tag": "1.0.0.0",
+  "keywords": "v1.3-final",
+  "aid_root": "/mnt/public/Berater/AID_profile",
+  "web_urls": []
+}
+LOG=/tmp/gulp-batch-20260820-182622/convert-bauer_joachim
+/opt/abpe/venv311/lib/python3.11/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (7.4.0.post2)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+INFO 2026-08-20 18:31:59,416 search_service ✅ ElasticSearch verbunden (Version: 8.11.0)
+INFO 2026-08-20 18:31:59,416 search_service ✅ SearchService initialisiert
+INFO 2026-08-20 18:31:59,748 aid_generator ✅ AIDGenerator initialisiert mit Media-Integration
+INFO 2026-08-20 18:31:59,818 ollama_service 🚀 OllamaService UNLIMITED initialisiert mit Modell: qwen2.5:7b
+INFO 2026-08-20 18:31:59,818 aid_generator ✅ AIDGenerator für Pipeline initialisiert
+INFO 2026-08-20 18:31:59,819 cv_processor ✅ CVProcessorService initialisiert mit strukturierter DB
+INFO 2026-08-20 18:31:59,872 apps 🚀 Initialisiere ABpE Profile App...
+INFO 2026-08-20 18:31:59,873 signals ✅ ABpE Profile Signals registriert (v6.0)
+INFO 2026-08-20 18:31:59,875 signals ✅ ElasticSearch Health: yellow
+INFO 2026-08-20 18:31:59,877 signals 📊 v1 Index 'abpe_profile_versions': 22 Dokumente
+INFO 2026-08-20 18:31:59,878 signals 📊 v2 Index 'abpe_profiles_v2': 0 Dokumente
+INFO 2026-08-20 18:31:59,878 apps ✅ Signals erfolgreich registriert
+INFO 2026-08-20 18:31:59,878 apps 📡 0 Signal-Handler für Profile registriert
+INFO 2026-08-20 18:31:59,878 apps ✅ ElasticSearch Hosts aus Settings: ['http://localhost:9200']
+INFO 2026-08-20 18:31:59,881 apps ✅ ElasticSearch 8.11.0 ist erreichbar
+INFO 2026-08-20 18:31:59,881 apps    Status: yellow
+INFO 2026-08-20 18:31:59,881 apps    Cluster: docker-cluster
+INFO 2026-08-20 18:31:59,881 apps    Build: default
+INFO 2026-08-20 18:31:59,883 apps ✅ Index 'abpe_profile_versions' Status:
+INFO 2026-08-20 18:31:59,884 apps    📊 Dokumente: 22
+INFO 2026-08-20 18:31:59,884 apps    📦 Größe: 0.06 MB
+INFO 2026-08-20 18:31:59,884 apps    📝 Felder: 13
+INFO 2026-08-20 18:31:59,884 apps    ✅ Wichtige Felder vorhanden: 7/7
+/opt/abpe/venv311/lib/python3.11/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+  warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+INFO 2026-08-20 18:31:59,900 apps 📊 Synchronisations-Status:
+INFO 2026-08-20 18:31:59,900 apps    🗄️  DB Profile: 1
+INFO 2026-08-20 18:31:59,900 apps    🗄️  DB Versionen: 0
+INFO 2026-08-20 18:31:59,900 apps    🔍 ES Versionen: 22
+INFO 2026-08-20 18:31:59,900 apps    🔄 Sync-Ratio: 0.0%
+WARNING 2026-08-20 18:31:59,900 apps ⚠️  Geringe Synchronisation (0.0%) - möglicherweise fehlen Dokumente in ES
+INFO 2026-08-20 18:31:59,900 apps ✅ ABpE Profile App initialisiert:
+INFO 2026-08-20 18:31:59,900 apps    🔌 ElasticSearch: VERFÜGBAR
+INFO 2026-08-20 18:31:59,900 apps    📊 Index: VORHANDEN
+INFO 2026-08-20 18:31:59,900 apps    📈 ES-Dokumente: 22
+INFO 2026-08-20 18:31:59,900 apps    🏷️  ES-Version: 8.11.0
+INFO 2026-08-20 18:31:59,900 apps    💾 Index-Größe: 0.06 MB
+INFO 2026-08-20 18:31:59,900 apps 🚀 ABpE Profile App ist bereit für Operationen
+WARNING 2026-08-20 18:31:59,903 apps ⚠️  Intake Integration Signals nicht gefunden
+INFO 2026-08-20 18:31:59,903 apps ✅ IngestEmail App bereit mit Auto-Reply
+INFO 2026-08-20 18:31:59,903 apps ✅ ingest_pdf Signale geladen (automatischer Task-Start aktiviert)
+INFO 2026-08-20 18:31:59,904 signals ✅ ai_cv_training Signals geladen und bereit
+INFO 2026-08-20 18:32:00,016 master_json_builder ✅ MasterJsonBuilder initialisiert
+INFO 2026-08-20 18:32:00,319 db_enricher DBEnricher initialisiert
+INFO 2026-08-20 18:32:00,320 extracted_to_db ✅ ExtractedToDB initialisiert (mit get_or_create)
+INFO 2026-08-20 18:32:00,320 master_json_builder ✅ MasterJsonBuilder initialisiert
+INFO 2026-08-20 18:32:00,320 self_learning_pipeline SelfLearningPipeline initialisiert
+INFO 2026-08-20 18:32:00,321 skill_graph_builder SkillGraphBuilder initialisiert
+INFO 2026-08-20 18:32:00,321 word2vec_matcher ✅ Word2VecMatcher initialisiert
+INFO 2026-08-20 18:32:00,321 word2vec_matcher ✅ Doc2VecMatcher initialisiert
+INFO 2026-08-20 18:32:00,321 search_enricher SearchEnricher initialisiert
+INFO 2026-08-20 18:32:00,443 aid_generator AIDGenerator (LLM-basiert) initialisiert
+INFO 2026-08-20 18:32:00,444 block_labeler BlockLabeler initialisiert
+INFO 2026-08-20 18:32:00,446 pipeline Pipeline initialisiert mit 28 Skill-Kategorien
+INFO 2026-08-20 18:32:00,626 tasks Stufe 1 Start: Joachim Bauer | action=aid_import | dir=bauer_joachim
+INFO 2026-08-20 18:32:00,667 main_pipeline_controller [MainPipeline] START: Joachim Bauer — AID-jb_1.0.0.0.pdf
+INFO 2026-08-20 18:32:00,667 main_pipeline_controller [MainPipeline] Schritt 1: PDF → Spans
+INFO 2026-08-20 18:32:00,689 main_pipeline_controller [MainPipeline] Spans: 339
+INFO 2026-08-20 18:32:00,691 main_pipeline_controller [MainPipeline] Schritt 1b: lines=339 chars=10080 aid_signals=5/5 is_aid=True
+INFO 2026-08-20 18:32:00,691 main_pipeline_controller [MainPipeline] Schritt 1b: abcona-Profil erkannt → Fast-Path
+INFO 2026-08-20 18:32:00,695 main_pipeline_controller [MainPipeline] Schritt 1b: 93 Skills vorkategorisiert
+DEBUG 2026-08-20 18:32:00,707 aid_regex_extractor [AidRegex] 15 Projekte extrahiert
+INFO 2026-08-20 18:32:00,707 main_pipeline_controller [MainPipeline] Schritt 1b: headline=True | personal=True | fachbereiche=19 | branchen=0 | zertifikate=0 | ausbildung=0 | focus_exp=16 | projekte=15
+INFO 2026-08-20 18:32:00,707 main_pipeline_controller [MainPipeline] Schritt 2: Spans → Gruppen
+INFO 2026-08-20 18:32:10,795 main_pipeline_controller [MainPipeline] Gruppen: 24, Blöcke: 106
+INFO 2026-08-20 18:32:10,795 main_pipeline_controller [MainPipeline] Schritt 3: Labels
+INFO 2026-08-20 18:32:10,796 main_labeler [MainLabeler] 24 Gruppen
+INFO 2026-08-20 18:32:10,796 main_labeler   Stufe 1: Hauptlabels...
+INFO 2026-08-20 18:32:10,796 main_labeler   Regelbasiert: 22 Gruppen direkt gelabelt
+INFO 2026-08-20 18:32:12,096 main_labeler   LLM: 2 Gruppen nachklassifiziert
+INFO 2026-08-20 18:32:12,096 main_labeler   Labels: {'PERSONAL': 1, 'FACHBEREICHE': 3, 'SKILLS': 4, 'FOCUS_EXP': 1, 'PROJECT': 15}
+INFO 2026-08-20 18:32:12,096 main_labeler   Stufe 2: Skills kategorisieren...
+INFO 2026-08-20 18:32:12,096 main_labeler   Regelbasiert: 4 Skill-Kategorien direkt erkannt
+INFO 2026-08-20 18:32:12,096 main_labeler   4 Skill-Bloecke kategorisiert
+INFO 2026-08-20 18:32:12,096 main_labeler   Stufe 3: Projekte zusammenfuehren...
+INFO 2026-08-20 18:32:14,173 main_labeler   15 Projekte
+INFO 2026-08-20 18:32:14,173 main_labeler [MainLabeler] 15 Projekte, 4 Skill-Bloecke
+INFO 2026-08-20 18:32:14,173 main_pipeline_controller [MainPipeline] 15 Projekte, 4 Skill-Blöcke
+INFO 2026-08-20 18:32:14,173 main_pipeline_controller [MainPipeline] Schritt 4: pre_json
+INFO 2026-08-20 18:32:20,769 main_pipeline_controller [MainPipeline] pre_json: 15 Projekte, 4 skill_ablage
+INFO 2026-08-20 18:32:20,769 main_pipeline_controller [MainPipeline] Schritt 4b: Post-Processor
+INFO 2026-08-20 18:32:20,771 main_post_processor [MainPostProcessor] START: 15 Projekte
+INFO 2026-08-20 18:32:20,773 main_post_processor   [PostProcessor] EDV seit: 1989
+INFO 2026-08-20 18:32:20,792 main_post_processor   [PostProcessor] PDF Tokens: 413
+INFO 2026-08-20 18:32:20,793 main_post_processor   [PostProcessor] Extrahierte Tokens: 383
+INFO 2026-08-20 18:32:20,793 main_post_processor   [PostProcessor] Coverage: 90.8% (375/413)
+INFO 2026-08-20 18:32:20,793 main_post_processor   [PostProcessor] Fehlende Tokens: 38
+INFO 2026-08-20 18:32:22,611 main_post_processor   [PostProcessor] LLM: 3 Skills, 0 Produkte
+INFO 2026-08-20 18:32:22,611 main_post_processor   [PostProcessor] +3 Skills in skill_ablage
+INFO 2026-08-20 18:32:22,611 main_post_processor [MainPostProcessor] FERTIG: coverage=90.8% | fixes=4 | auto_skills=3
+INFO 2026-08-20 18:32:22,611 main_pipeline_controller [MainPipeline] Post-Processor: coverage=90.8% | fixes=4 | auto_skills=3
+INFO 2026-08-20 18:32:22,611 main_pipeline_controller [MainPipeline] skill_ablage nach PostProcessor: 7
+INFO 2026-08-20 18:32:22,611 main_pipeline_controller [MainPipeline] Schritt 5: DB-Import
+INFO 2026-08-20 18:32:22,612 main_extracted_to_db ✅ MainExtractedToDB initialisiert
+INFO 2026-08-20 18:32:22,612 main_db_importer [MainDbImporter] import_from_prejson: Joachim Bauer
+INFO 2026-08-20 18:32:22,613 main_db_importer   Projekte: 15 | skill_ablage: 7
+INFO 2026-08-20 18:32:22,653 versioning Version reserviert: bauer_joachim v2.3.3.2
+INFO 2026-08-20 18:32:23,601 aid_generator LLM Klassifikation: {'role_code': 2, 'landscape_code': 3, 'level_code': 3}
+INFO 2026-08-20 18:32:23,601 aid_generator AID generiert: AID-jb_2.3.3.2
+INFO 2026-08-20 18:32:23,601 aid_generator   Rolle:      Entwickler (2)
+INFO 2026-08-20 18:32:23,601 aid_generator   Landschaft: Web/Software (3)
+INFO 2026-08-20 18:32:23,601 aid_generator   Level:      Experte (3)
+INFO 2026-08-20 18:32:23,601 aid_generator   Verzeichnis:bauer_joachim
+INFO 2026-08-20 18:32:23,641 main_extracted_to_db 💾 MainExtractedToDB: Speichere AID-jb_2.3.3.2
+INFO 2026-08-20 18:32:24,550 main_extracted_to_db    - Skills gespeichert: 85 Einträge
+INFO 2026-08-20 18:32:24,978 main_extracted_to_db ✅ Daten gespeichert für AID-jb_2.3.3.2
+INFO 2026-08-20 18:32:24,984 main_extracted_to_db    - Projekte:         15
+INFO 2026-08-20 18:32:24,985 main_extracted_to_db    - Skills:           85
+INFO 2026-08-20 18:32:24,986 main_extracted_to_db    - Zertifikate:      0
+INFO 2026-08-20 18:32:24,986 main_extracted_to_db    - Ausbildung:       0
+INFO 2026-08-20 18:32:24,987 main_extracted_to_db    - Schulungen:       0
+INFO 2026-08-20 18:32:24,988 main_extracted_to_db    - Focus Experience: 16
+INFO 2026-08-20 18:32:24,988 main_extracted_to_db    - Branchen:         0
+INFO 2026-08-20 18:32:24,989 main_extracted_to_db    - Fachbereiche:     26
+INFO 2026-08-20 18:32:24,989 main_extracted_to_db    - Headline:         Web-Architektur, Fullstack Java, JEE, Appliances, Enterprise Search
+INFO 2026-08-20 18:32:24,989 main_extracted_to_db    - Degree:           
+INFO 2026-08-20 18:32:25,029 main_db_importer   Tech-Counter Projekte: 82 Technologien
+INFO 2026-08-20 18:32:25,029 main_db_importer   skill_ablage: +6 Zusatz-Skills
+INFO 2026-08-20 18:32:25,029 main_db_importer   Tech-Counter gesamt: 88 einzigartige Technologien
+INFO 2026-08-20 18:32:25,029 main_db_importer   93 Skills aus PDF-Layout vorkategorisiert
+INFO 2026-08-20 18:32:25,029 main_db_importer   66 Projekt-Skills via Normalizer
+INFO 2026-08-20 18:32:25,029 main_skill_normalizer   SkillNormalizer START: 66 Projekt-Skills
+INFO 2026-08-20 18:32:25,029 main_skill_normalizer   Schritt 1 (pre_json): 0 bekannt → 66 uebrig
+INFO 2026-08-20 18:32:26,707 main_skill_normalizer   Schritt 2 (TrainingTerm): 66 gefunden → 0 uebrig
+INFO 2026-08-20 18:32:26,707 main_skill_normalizer   SkillNormalizer FERTIG: 66 Skills kategorisiert, 0 unbekannt
+INFO 2026-08-20 18:32:26,713 main_db_importer   Gesamt: 88 Skills (22 aus PDF, 66 via Normalizer)
+INFO 2026-08-20 18:32:28,552 main_skill_normalizer   save_to_db: +69 neu, 2 aktualisiert
+INFO 2026-08-20 18:32:28,552 main_db_importer   SkillNormalizer: +69 Skills, 2 aktualisiert
+INFO 2026-08-20 18:32:28,593 cv_display_utils Offline-HTML Assets eingebettet: css, js, logo
+INFO 2026-08-20 18:32:28,637 aid_profile_publish Publish HTML offline-fähig: /mnt/public/Berater/AID_profile/bbb/bauer_joachim/neu/cv/AID-jb_2.3.3.2.html
+INFO 2026-08-20 18:32:29,898 aid_profile_publish Publish neu/cv: AID-jb_2.3.3.2 → /mnt/public/Berater/AID_profile/bbb/bauer_joachim/neu/cv (3 Dateien)
+INFO 2026-08-20 18:32:29,899 html_generator AID-Profile publiziert: AID-jb_2.3.3.2 → /mnt/public/Berater/AID_profile/bbb/bauer_joachim/neu/cv
+INFO 2026-08-20 18:32:29,927 cv_display_utils Offline-HTML Assets eingebettet: css-fallback, js-fallback, logo
+INFO 2026-08-20 18:32:29,929 main_db_importer   HTML: AID-jb_2.3.3.2
+INFO 2026-08-20 18:32:29,937 main_db_importer   TXT: data/extracted/bauer_joachim/AID-jb_2.3.3.2.txt
+INFO 2026-08-20 18:32:29,938 search_enricher SearchEnricher fuer AID-jb_2.3.3.2
+INFO 2026-08-20 18:32:29,963 search_enricher ES indexiert: AID-jb_2.3.3.2
+INFO 2026-08-20 18:32:29,963 search_enricher SearchEnricher abgeschlossen fuer AID-jb_2.3.3.2
+INFO 2026-08-20 18:32:29,973 self_learning_pipeline Self-Learning (sync) fuer AID-jb_2.3.3.2
+INFO 2026-08-20 18:32:30,764 self_learning_pipeline Self-Learning (sync) abgeschlossen: 27 neu, 127 aktualisiert, 0 Prompts
+INFO 2026-08-20 18:32:30,807 main_pipeline_controller [MainPipeline] FERTIG: AID-jb_2.3.3.2
+INFO 2026-08-20 18:32:30,830 signals Job 3512 abgeschlossen: AID-jb_1.0.0.0.pdf
+INFO 2026-08-20 18:32:30,843 tasks ============================================================
+INFO 2026-08-20 18:32:30,843 tasks ✅ AID-jb_2.3.3.2 | Joachim Bauer | erfolgreich angelegt
+INFO 2026-08-20 18:32:30,843 tasks    Dauer: 30s | Projekte: 15 | Skills: 154
+INFO 2026-08-20 18:32:30,843 tasks ============================================================
+============================================================
+✅ LDAP Configuration loaded for UCS5
+✅ Server: ldap://ucs5.win.abcona.info
+✅ Base DN: dc=win,dc=abcona,dc=info
+============================================================
+✅ LDAP Authentication Backend aktiviert
+============================================================
+✅ ABpE SETTINGS GELADEN (modular)
+✅ Django Version: 5.2.9
+✅ Apps: 79 installiert
+✅ Environment: development
+✅ DEBUG: True
+✅ AUTH Backends: 2 aktiviert
+============================================================
+✅ ABpE Apps Package loaded (version 2.0.0)
+[MODELS] LDAP Modelle erfolgreich geladen
+[MODELS] Verfügbare Modelle: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ CompleteConsultantAdmin registriert
+[ADMIN] LDAP Admin-Views erfolgreich geladen
+[ADMIN] Verfügbare Admin-Views: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ ABpE Search Admin - vereinfachte Version geladen (keine Models)
+✅ URL Import App ist bereit
+✅ CV Extractor bereit
+[SIGNALS] LDAP-Signals erfolgreich geladen
+⚠️  Using default ElasticSearch host: http://localhost:9200
+=== AID-Profil Import ===
+Basis:    /mnt/public/Berater/AID_profile (exists=True)
+Limit:    alle
+Letter:   bbb
+Dir:      bauer_joachim
+Dry-run:  False
+Sync:     True
+Skip existing: False
+  [   1] Joachim Bauer ← AID-jb_1.0.0.0.pdf
+  split_blocks 2nd-pass: 'Betriebssysteme' + 'Debian' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Programmiersprachen' + 'AngularJS' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Datenbanken' + 'DB2' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Datenkommunikation' + 'Cloud-Services' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Produkte|Standards|Erfahrungen' + 'Activecampaign' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Schwerpunkte' + 'Java-Technologien' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 6 Header-Kleber behoben
+  Gruppierung: 106 Bloecke in einem Aufruf...
+  Gruppierer-Prompt: main_detector_group
+  Gruppen: 24
+  Format-Split: Keine Splits noetig
+  Quality-Check: Sende 3400 Zeichen an LLM...
+  Quality-Check: 24 Label-Korrekturen
+    G001: 'Kopfbereich mit Qualifikationsprofil und Kontaktdaten' → 'Qualifikationsprofil'
+    G002: 'Persönliche Daten' → 'Persönliche Daten'
+    G003: 'Fachbereiche' → 'Fachbereiche'
+    G004: 'Betriebssysteme' → 'Betriebssysteme'
+    G005: 'Programmiersprachen' → 'Programmiersprachen'
+    G006: 'Datenbanken' → 'Datenbanken'
+    G007: 'Datenkommunikation und Cloud-Services' → 'Datenkommunikation und Cloud-Services'
+    G008: 'Produkte, Standards, Erfahrungen' → 'Produkte, Standards, Erfahrungen'
+    G009: 'Schwerpunkte' → 'Schwerpunkte'
+    G010: 'Projekt: Deutsche Bank (Lead-Testmanager)' → 'Projekt: Deutsche Bank (Lead-Testmanager)'
+    G011: 'Projekt: Lebenswerte Zukunft (IT Architekt)' → 'Projekt: Lebenswerte Zukunft (IT Architekt)'
+    G012: 'Projekt: Enterprise Search Prototyp (Systemhaus)' → 'Projekt: Enterprise Search Prototyp (Systemhaus)'
+    G013: 'Projekt: Rentenbank (Analyse, Design, Umsetzung)' → 'Projekt: Rentenbank (Analyse, Design, Umsetzung)'
+    G014: 'Projekt: Rentenbank Frankfurt (BI/OLAP)' → 'Projekt: Rentenbank Frankfurt (BI/OLAP)'
+    G015: 'Projekt: Online Sport-Manager Game' → 'Projekt: Online Sport-Manager Game'
+    G016: 'Projekt: Emir-Verordnung Umsetzung' → 'Projekt: Emir-Verordnung Umsetzung'
+    G017: 'Projekt: Deutsche Bundesbank (Java-Plugin-Analyse)' → 'Projekt: Deutsche Bundesbank (Java-Plugin-Analyse)'
+    G018: 'Projekt: KfW (Basel III Webanwendungen)' → 'Projekt: KfW (Basel III Webanwendungen)'
+    G019: 'Projekt: Pflegeprogrammdateien (KfW)' → 'Projekt: Pflegeprogrammdateien (KfW)'
+    G020: 'Projekt: Webanwendung Engagementübersicht' → 'Projekt: Webanwendung Engagementübersicht'
+    G021: 'Projekt: Meldewesen' → 'Projekt: Meldewesen'
+    G022: 'Projekt: DMS-Anbindung und Umweltzertifikate (ModaLB/DEHSt)' → 'Projekt: DMS-Anbindung und Umweltzertifikate (ModaLB/DEHSt)'
+    G023: 'Projekt: Deutsche Börse Systems AG (Neuer Markt)' → 'Projekt: Deutsche Börse Systems AG (Neuer Markt)'
+    G024: 'Projekt: Nanz Zentrale Verwaltungsgesellschaft' → 'Projekt: Nanz Zentrale Verwaltungsgesellschaft'
+  LLM: 3 Extraktionen parallel...
+    FOCUS_EXP: ✅
+    FACHBEREICHE: ✅
+    PERSONAL: ✅
+    personal gemerged: seed_keys=7 → 7
+    languages normalisiert: 5 Einträge
+    fachbereiche gemerged: seed=19 + llm → 26
+    focus_experience gemerged: seed=16 + llm=10 → 16
+  PROJEKTE: 15 einzeln parallel...
+    Projekt 10: ✅
+    Projekt 11: ✅
+    Projekt 15: ✅
+    Projekt 12: ✅
+    Projekt 14: ✅
+    Projekt 16: ✅
+    Projekt 18: ✅
+    Projekt 19: ✅
+    Projekt 13: ✅
+    Projekt 17: ✅
+    Projekt 20: ✅
+    Projekt 24: ✅
+    Projekt 21: ✅
+    Projekt 23: ✅
+    Projekt 22: ✅
+  15 Projekte extrahiert (seed=15, fill=15)
+  SKILLS: 4 Gruppe(n) → skill_ablage...
+    Betriebssysteme: 28 Skills (Regex)
+    Programmiersprachen: 57 Skills (Regex)
+    Datenbanken: 4 Skills (Regex)
+    Datenkommunikation: 4 Skills (Regex)
+    93 Skills → skill_ablage (mit Kategorie)
+    skills befüllt: 3 Kategorien, skill_ablage Rest: 4
+    ✅ AID-jb_2.3.3.2
+    📁 neu/cv: AID-jb_2.3.3.2.docx, AID-jb_2.3.3.2.html, AID-jb_2.3.3.2.pdf
+
+==================================================
+ERGEBNIS nach 30s (0.5 min):
+  Versucht:     1
+  Gestartet:    1
+  Fehler:       0
+  Übersprungen: 0
+  Ohne PDF:     0
+  Outputs:      {letter}/{nachname_vorname}/neu/cv/
+OK bbb/bauer_joachim → AID-jb_2.3.3.2.pdf (34s)
+LIMIT 10 erreicht (ok=10) — Stop
+{
+  "ok": 10,
+  "fail": 0,
+  "skip": 0,
+  "limit": 10,
+  "need": "/tmp/gulp-vs-neu-20260820-143848/need_neu_cv_with_fs_dir.tsv",
+  "mem_thresh": 88,
+  "cpu_thresh": 88,
+  "throttle_sleep": 30,
+  "ended": "2026-08-20T18:32:33"
+}
+
+======== FERTIG ok=10 fail=0 skip=0 ========
+Log: /tmp/gulp-batch-20260820-182622/batch.log
+TSV: /tmp/gulp-batch-20260820-182622/result.tsv

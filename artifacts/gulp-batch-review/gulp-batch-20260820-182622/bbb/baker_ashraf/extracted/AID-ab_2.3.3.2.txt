@@ -1,0 +1,118 @@
+AID: AID-ab_2.3.3.2
+Name: Ashraf Baker
+Headline: Architektur, Entwicklung, Business Analyse, Spring, JEE, Microservices, Kafka, Security, OWASP, JPA/Hibernate, Webservices (Restful & SOAP)
+Ort: Österreich, Schweiz, D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Verfügbar: 02.03.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2001
+Sprachen: Arabisch Muttersprache, Deutsch sehr gut, English sehr gut, Arabisch (Muttersprache), Deutsch (sehr gut), Englisch (sehr gut)
+
+FACHBEREICHE:
+Architektur
+Entwicklung
+Business Analyse
+Spring
+Microservices
+Kafka
+Security
+OWASP
+JPA/Hibernate
+Webservices (Restful & SOAP)
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination Solution Architekt, Anwendung Architekt, Senior Software-Entwickler, Business Analyst, Trainer Unix Windows CE
+JEE
+Projektmanagement / -leitung / Organisation / Koordination
+Solution Architekt
+Anwendung Architekt
+Senior Software-Entwickler
+Business Analyst
+Trainer
+Apache-Kafka 2.2
+Kafka-Client
+-REST
+Spring 5.2
+Spring-Boot 2.2
+Spring-Kafka 2.3
+
+BRANCHEN:
+
+PROJEKTE:
+  11/2018 - 12/2019 |  | Spring-Kafka Spezialist
+    - Aufgaben: o Design und Implementierung einer Kafka-API für den asynchronen Austausch von Nachrichtenströme zwischen Microservices o Erstellung von Spring-Boot Autokonfigurationen für Kafka-Clients
+    - Beschreibung:
+    - Design und Implementierung einer Kafka-API für die asynchrone Kommunikation in Microservice-Architektur
+    Techs: Kafka, Spring Boot, Microservices, ChainedTransactionManager, Avro, Jackson-ObjectMapper, Kafka-Streams, Kafka-Connectors, Zookeeper
+  02/2015 - 08/2018 |  | Architekt, Konzeptionist
+    - Aufgaben:
+    - Beschreibung:
+    - Design und Implementierung einer Microservices-Architektur für ein System zur Abwicklung von Wahlen
+    Techs: Flyway, Windows 7
+  12/2013 - 11/2014 |  | Technischer Architekt, Requirements Engineer
+    - Aufgaben:
+    - Beschreibung:
+    - Architekturentwurf und Design von SOA-Services für die Berechnung von Leasingsangeboten und die Verwaltung von Kundenstammdaten.
+    Techs: 1.7, Jenkins 1.5, Mantis 1.2, Tortoise, XMind, Windows 7, Enterprise Architect
+  04/2013 - 07/2013 |  | Senior Analyst der Fachkonzeption
+    - Aufgaben:
+    - Beschreibung:
+    - Weiterentwicklung eines virtuellen Arbeitsmarkts und einer JobBörse, Umstellung einer Enterprise Applikation auf neue Technologien
+    Techs: Tortoise, Windows 7, Spring, Maven
+  05/2012 - 01/2013 |  | Senior Entwickler mit Architekturkenntnissen (SCRUM-Team)
+    - Aufgaben:
+    - Beschreibung:
+    - Entwicklung eines RCP- und Rest-basierten Preiserfassungssystems
+    Techs: Architect, SQL-Modeler, Maven, SVN, JRebel, Jenkins, Windows, JEE, EJB, JP QL
+  02/2011 - 06/2011 |  | Senior Entwickler
+    - Aufgaben:
+    - Beschreibung:
+    - Weiterentwicklung eines Swing/JEE-basierten Applikation
+    Techs: Jira, Bugzilla, Hudson, Eclipse, Maven, SVN, Linux, Windows 7, Swing, JEE
+  11/2010 - 01/2011 |  | Entwickler/Deployment Manager
+    - Aufgaben:
+    - Beschreibung:
+    - Entwicklung einer JSF-basierten graphischen Oberfläche
+    Techs: ANT, soapUI, JUnit, CVS, Linux, JSF, Webservices, WebLogic, Oracle, SQL
+  01/2010 - 07/2010 |  | Architekt, Entwickler
+    - Aufgaben:
+    - Beschreibung:
+    - Architekturdesign und Implementierung eines Reversauktionssystems zur Beschaffung von Elektroteilen
+    Techs: Architect, JUnit, Windows Vista
+  05/2008 - 12/2009 |  | Projektleiter, Architekt, Entwickler
+    - of Algorithms)
+    - Aufgaben:
+    - Beschreibung:
+    Techs: Java-Core -Swing, Java3D, XML, WebStart, Eclipse, Ant, Junit, LaTeX, Windows XP
+  03/2007 - 03/2008 |  | Technischer Projektleiter, Entwickler, Designer
+    - Aufgaben:
+    - Beschreibung:
+    - Entwicklung von Self-Assessments zur Einschätzung der Studierfähigkeit und zur Prognostizierung von Studienerfolg
+    Techs: Adobe Flash Professional, Dreamweaver, Windows XP
+  05/2005 - 02/2007 |  | Architekt, Entwickler
+    - Aufgaben:
+    - Beschreibung:
+    - Design und Implementierung eines web-basierten Pigment Explorers zur Simulation von Farbpigmenteffekten
+    Techs: ActionScript, Flash, HTML, JavaScript, CSS, Adobe Flash, Fireworks, Dreamweaver, Enterprise Architect
+  08/2004 - 03/2005 |  | Entwickler
+    - Aufgaben:
+    - Beschreibung:
+    - Entwicklung eines J2EE-basierten Systems zur zentralen Verwaltung von Lernmaterialien
+    Techs: Struts, EJB 2.5, JDBC, WebLogic, Oracle, JUnit, Eclipse, Windows XP
+  01/2004 - 07/2004 |  | Teamleiter, Entwickler, Designer
+    - Aufgaben:
+    - Beschreibung:
+    - Entwicklung von Web-Formularen (FrontEnd-Entwicklung mit Datenbankanbindung)
+    Techs: Eclipse-PHP-Plugin, Zend, Dreamweaver, Windows 2000, Servlets/JSP, Struts, JavaScript, HTML, CSS, SQL
+  09/2002 - 12/2003 |  | Entwickler
+    - Aufgaben:
+    - Beschreibung:
+    - Konzeption und Implementierung eines XPDL-basierten Workflow-Managementsystems für die graphische Modellierung, Design und Bearbeitung von Geschäftsprozessen
+    Techs: JUnit, Windows 2000, Java, Swing, JGraph, XML, XSLT, JAXP, DOM, SAX
+  11/2001 - 06/2002 |  | Entwickler
+    - Aufgaben:
+    - Beschreibung:
+    - Entwurf und Implementierung eines Konzeptes zur Evolution von XML-Schemata in XML-Datenbanken
+    Techs: JUnit, Windows 2000, Java, XML-Schema, DTD, XSLT, Xpath, JAXP, DOM, SAX
+
+SKILL-ABLAGE:
+CORBA, RPC, SMTP, TCP/IP, Windows Netzwerk
