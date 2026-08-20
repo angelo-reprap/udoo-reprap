@@ -154,7 +154,7 @@ fail=0
 skip=0
 n=0
 
-# letter/dir absichern (leerer gulp_id, dir=0, verschobene TSV-Spalten)
+# letter/dir absichern (CRM-Namen = Quelle der Wahrheit; fs_dir nur wenn passend)
 normalize_person_path() {
   python3 - "$1" "$2" "$3" "$4" <<'PY'
 import re, sys
@@ -178,10 +178,29 @@ def bucket(dir_name, last_name=""):
             break
     return (ch * 3) if ch else "zzzSONSTIGES"
 
+expected = slug(last, first) if last and first else ""
+last_slug = re.sub(r"[^\w\-]+", "_", (last or "").lower().translate(umlaut)).strip("_")
+
+# kaputt/leer → CRM-Slug
 if (not dname) or re.fullmatch(r"\d+", dname) or ("_" not in dname and last and first):
-    dname = slug(last, first)
+    dname = expected or dname
+
+# fs_dir widerspricht CRM-Nachnamen (z.B. bernd_www statt wolfsegger_bernd)
+if expected and dname and dname != expected and last_slug:
+    if last_slug not in dname.lower():
+        print(
+            f"WARN path override fs_dir={dname!r} → CRM {expected!r} "
+            f"(last={last!r} first={first!r})",
+            file=sys.stderr,
+        )
+        dname = expected
+
 if not re.fullmatch(r"(?:sch|[a-z]{3}|zzzSONSTIGES)", letter or ""):
     letter = bucket(dname, last)
+# Letter an CRM-Nachnamen anpassen wenn Dir neu aus CRM kommt
+if expected and dname == expected:
+    letter = bucket(dname, last)
+
 print(f"{letter}\t{dname}")
 PY
 }
