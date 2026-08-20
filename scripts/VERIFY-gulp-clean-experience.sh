@@ -39,12 +39,20 @@ for name in names:
     n = len(prof.get("experience") or [])
     plain = g.profile_to_aid_plain(prof)
     z = plain.count("Zeitraum:")
+    skills = prof.get("skills") or {}
+    pers = prof.get("personal") or {}
+    wohn = bool((pers.get("wohnort") or "").strip())
+    jahr = bool((pers.get("jahrgang") or "").strip())
+    n_skill = len(skills)
     status = "OK" if n >= 1 else "FAIL"
     if n >= 1:
         ok += 1
     else:
         fail += 1
-    print(f"{status:4} {name:22} experience={n:2} Zeitraum:={z:2}")
+    print(
+        f"{status:4} {name:22} experience={n:2} Zeitraum:={z:2} "
+        f"skills={n_skill:2} wohnort={'Y' if wohn else 'N'} jahrgang={'Y' if jahr else 'N'}"
+    )
 
 print(f"\nSumme: ok={ok} fail={fail}")
 if fail:

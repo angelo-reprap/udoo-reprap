@@ -156,6 +156,28 @@ SKILL_SECTION_KEYS = (
     "produkte/standards/erfahrungen", "managementerfahrung",
 )
 
+# Gulp-Skill-Head → AID-Label (aid_regex erkennt diese)
+SKILL_AID_LABEL = {
+    "betriebssysteme": "Betriebssysteme",
+    "programmiersprachen": "Programmiersprachen",
+    "datenbanken": "Datenbanken",
+    "hardware": "Hardware",
+    # → Label muss aid_regex SKILL_SECTIONS treffen
+    "software": "Softwaretechnologien",
+    "tools": "Tools",
+    "methoden": "Methoden",
+    "datenkommunikation": "Datenkommunikation",
+    "kenntnisse": "Sonstige Kenntnisse",
+    "produkte/standards/erfahrungen": "Produkte|Standards|Erfahrungen",
+    "aufgabenbereiche": "Aufgabenbereiche",
+    "schwerpunkte": "Schwerpunkte",
+    "managementerfahrung": "Managementerfahrung",
+}
+
+# Max. Zeichen pro Skill-Sektion im AID-Plain (PDF-Größe)
+SKILL_BODY_MAX_CHARS = 3500
+
+
 
 def initials(first: str, last: str) -> str:
     a = (first[:1] if first else "").lower()
@@ -1070,14 +1092,29 @@ def clean_gulp_profile(
     # Clean section bodies
     cleaned_sections: List[Tuple[str, str]] = []
     experiences: List[Dict[str, Any]] = []
+    skills: Dict[str, str] = {}
     for name_s, body in sections:
         body = strip_noise_lines(body)
         key = name_s.lower().strip()
         if key == "projekte":
             experiences = parse_projects(body, max_activities=max_activities)
             continue
-        # Skill dumps: keep out of AID-Plain (would pollute Sprachen)
+        # Skill dumps → skills{} für AID-Plain (nicht verwerfen)
         if any(key == sk or key.startswith(sk) for sk in SKILL_SECTION_KEYS):
+            label = SKILL_AID_LABEL.get(key)
+            if not label:
+                for sk, lab in SKILL_AID_LABEL.items():
+                    if key.startswith(sk):
+                        label = lab
+                        break
+            label = label or name_s.strip()
+            cleaned = _squash_skill_body(body)
+            if cleaned:
+                # merge if duplicate heads
+                if label in skills:
+                    skills[label] = (skills[label] + "\n" + cleaned).strip()
+                else:
+                    skills[label] = cleaned
             continue
         if key in ("persönliche stärken", "sonstige anmerkungen"):
             continue
@@ -1106,13 +1143,14 @@ def clean_gulp_profile(
                 if ln.strip() and not re.search(r"(?i)festanstellung", ln)
             ]
             body = "\n".join(lines)
-        # Fachlicher Schwerpunkt: one line squash
+        # Fachlicher Schwerpunkt: one line squash; Festanstellung-Fließtext abschneiden
         if "schwerpunkt" in key:
             body = _squash(body)
+            body = re.split(r"(?i)\bFestanstellung\b", body)[0].strip()
+            body = re.split(r"(?i)\bVoraussetzung\s+f[uü]r\b", body)[0].strip()
+            body = body.rstrip(" ;,.")
         if "einsatzort" in key:
-            body = _squash(body)
-            body = re.sub(r"(?i)\s*Ich möchte BEVORZUGT.*$", "", body).strip()
-            body = re.sub(r"(?i)\s*Kontaktwunsch:.*$", "", body).strip()
+            body = _clean_einsatzort_body(body)
         if body.strip():
             cleaned_sections.append((name_s, body))
 
@@ -1137,9 +1175,62 @@ def clean_gulp_profile(
         "personal": personal,
         "personal_rows": personal_rows,
         "sections": cleaned_sections,
+        "skills": skills,
         "experience": experiences,
         "snapshot_chars": len(snap),
     }
+
+
+def _squash_skill_body(body: str) -> str:
+    """Skill-Sektion bereinigen, Länge begrenzen."""
+    lines = []
+    for ln in (body or "").splitlines():
+        s = ln.strip()
+        if not s or NOISE_LINE_RE.match(s):
+            continue
+        if re.match(r"(?i)^(seite\s+drucken|zum\s+seitenanfang|links:)", s):
+            continue
+        lines.append(s)
+    text = "\n".join(lines).strip()
+    if len(text) > SKILL_BODY_MAX_CHARS:
+        text = text[: SKILL_BODY_MAX_CHARS].rsplit("\n", 1)[0] + "\n…"
+    return text
+
+
+def _clean_einsatzort_body(body: str) -> str:
+    """
+    Gulp-Einsatzort oft:
+      D8
+      im Umkreis von:
+      Augsburg (100 km)
+      …
+      Ich möchte BEVORZUGT …
+    Region/Umkreis behalten, Kommentar-/Kontakt-Fließtext weg.
+    """
+    body = body or ""
+    body = re.split(r"(?i)Kommentar\s+zum\s+Einsatzort", body)[0]
+    body = re.split(r"(?i)zur\s+Arbeitserlaubnis", body)[0]
+    body = re.split(r"(?i)Ich möchte BEVORZUGT", body)[0]
+    body = re.split(r"(?i)Kontaktwunsch\s*:", body)[0]
+    body = re.split(r"(?i)Projekte mit hohem Remote", body)[0]
+    lines = [ln.strip() for ln in body.splitlines() if ln.strip()]
+    if not lines:
+        return ""
+    # alle kurzen Regionszeilen zusammenführen (D8 + Umkreis + Städte)
+    kept: List[str] = []
+    for ln in lines:
+        if len(ln) > 120:
+            break
+        if re.match(r"(?i)^(fremdsprachen|projekte|hardware|kenntnisse)\b", ln):
+            break
+        kept.append(ln)
+    if not kept:
+        return ""
+    primary = " ".join(kept)
+    primary = re.sub(r"\s+", " ", primary).strip(" ;,.")
+    if len(primary) > 200:
+        primary = primary[:200].rsplit(" ", 1)[0]
+    return primary
 
 
 def _section_map(profile: Dict[str, Any]) -> Dict[str, str]:
@@ -1171,7 +1262,7 @@ def _einsatzort(profile: Dict[str, Any]) -> str:
     sm = _section_map(profile)
     for k, v in sm.items():
         if "einsatzort" in k or "regionen" in k:
-            return _squash(v)
+            return _clean_einsatzort_body(v)
     return (profile.get("personal") or {}).get("wohnort", "")
 
 
@@ -1263,6 +1354,51 @@ def profile_to_aid_plain(profile: Dict[str, Any], *, display_name: str = "") -> 
         lines.append("")
         for f in fach:
             lines.append(f)
+        lines.append("")
+
+    # Skill-Kataloge aus Gulp (aid_regex: Betriebssysteme/Programmiersprachen/…)
+    skills = profile.get("skills") or {}
+    # stabile Reihenfolge
+    skill_order = [
+        "Betriebssysteme",
+        "Programmiersprachen",
+        "Datenbanken",
+        "Hardware",
+        "Softwaretechnologien",
+        "Tools",
+        "Methoden",
+        "Datenkommunikation",
+        "Sonstige Kenntnisse",
+        "Produkte|Standards|Erfahrungen",
+        "Aufgabenbereiche",
+        "Schwerpunkte",
+        "Managementerfahrung",
+    ]
+    emitted = set()
+    for lab in skill_order:
+        body = (skills.get(lab) or "").strip()
+        if not body:
+            continue
+        lines.append(lab)
+        lines.append("")
+        for ln in body.splitlines():
+            ln = ln.strip()
+            if ln:
+                lines.append(ln)
+        lines.append("")
+        emitted.add(lab)
+    for lab, body in skills.items():
+        if lab in emitted:
+            continue
+        body = (body or "").strip()
+        if not body:
+            continue
+        lines.append(lab)
+        lines.append("")
+        for ln in body.splitlines():
+            ln = ln.strip()
+            if ln:
+                lines.append(ln)
         lines.append("")
 
     exps = profile.get("experience") or []

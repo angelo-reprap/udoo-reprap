@@ -64,6 +64,7 @@ SKILL_SECTIONS = [
     (r'Softwaretechnologien?',     'Frameworks und Bibliotheken', 'structured'),
     (r'Modellierungstools?',       'Dokumentationstools',      'structured'),
     (r'Spezialkenntnisse',         'Sonstige Skills',          'structured'),
+    (r'Sonstige\s+Kenntnisse',     'Sonstige Skills',          'structured'),
     (r'Application',               'Business Software',        'structured'),
     # Produkte|Standards|Erfahrungen → focus_experience (nicht skill_ablage)
     (r'Erfahrungen?\s+im\s+Bereich', 'Sonstige Skills',       'ablage'),
@@ -453,12 +454,14 @@ class AidRegexExtractor:
         if m:
             p['location'] = m.group(1).strip()
 
-        # Wohnort (Gulp) — ergänzt location falls Einsatzort leer
+        # Wohnort (Gulp) — eigenes Feld; Ort/location bleibt Einsatzort
         m = re.search(r'(?im)^\s*Wohnort\s*:\s*(.+?)$', text)
         if m:
             wohn = m.group(1).strip()
-            if wohn and not p.get('location'):
-                p['location'] = wohn
+            if wohn:
+                p['wohnort'] = wohn
+                if not p.get('location'):
+                    p['location'] = wohn
 
         # Stundensatz (Gulp, optional Meta — nicht in Standard-Personal-Feldern)
         m = re.search(r'(?im)^\s*Stundensatz\s*:\s*(.+?)$', text)

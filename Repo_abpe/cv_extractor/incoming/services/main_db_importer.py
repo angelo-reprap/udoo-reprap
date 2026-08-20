@@ -375,6 +375,10 @@ class MainDbImporter:
             lines.append(f"Name: {first} {last}")
             lines.append(f"Headline: {meta.get('headline','')}")
             lines.append(f"Ort: {p.get('location','')}")
+            if p.get('wohnort'):
+                lines.append(f"Wohnort: {p.get('wohnort')}")
+            if p.get('birth_year'):
+                lines.append(f"Jahrgang: {p.get('birth_year')}")
             lines.append(f"Verfügbar: {p.get('availability','')}")
             lines.append(f"EDV seit: {p.get('edv_experience_since','')}")
             langs = p.get('languages', [])
@@ -669,6 +673,13 @@ class MainDbImporter:
                 f"Name: {first} {last}",
                 f"Headline: {meta.get('headline', '') or p.get('headline', '')}",
                 f"Ort: {p.get('location', '')}",
+            ]
+            if p.get('wohnort'):
+                lines.append(f"Wohnort: {p.get('wohnort')}")
+            by = p.get('birth_year') or consultant.birth_year
+            if by:
+                lines.append(f"Jahrgang: {by}")
+            lines += [
                 f"Verfügbar: {p.get('availability', '')}",
                 f"EDV seit: {consultant.edv_experience_since or ''}",
                 f"Sprachen: {', '.join(l.get('name','') if isinstance(l,dict) else str(l) for l in p.get('languages',[]) if l)}",
