@@ -1,0 +1,22 @@
+{
+  "dryrun": "v1.3",
+  "n_scanned": 5666,
+  "ok_pct": 99.75,
+  "fails_n": 14,
+  "categories": {
+    "no_project_signal": {
+      "meaning": "Kein Projekte-/Zeitraum-/Datums-Signal — oft sehr alte/dünne Gulp-Profile",
+      "names": ["Cordsen", "Dinger", "Edelmann", "Fleck", "Goetz", "Olschowka", "Spiess", "Vrbacki"]
+    },
+    "no_skills_edu_projrich": {
+      "meaning": "Identity ggf. da, aber zu wenig Skills/Ausbildung/Projektfelder für Mindeststruktur",
+      "names": ["Broeckling", "Hellmann", "Hoellig", "Stoll", "Stotz", "Cordsen", "Dinger", "Edelmann", "Fleck", "Olschowka", "Spiess"]
+    },
+    "no_identity": {
+      "meaning": "Kein Schwerpunkt/Position/Top-Skills",
+      "names": ["Pauser"]
+    }
+  },
+  "next": "EXPORT-gulp-dryrun-fails.sh → TXT pullen → Sonderparser oder Weak-OK für thin profiles",
+  "keywords_in_pipeline": "Repo_abpe/cv_extractor/incoming/services/section_label_keywords.py → main_labeler.FIRST_WORD_TO_LABEL"
+}
