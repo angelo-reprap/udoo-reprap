@@ -1522,8 +1522,13 @@ def profile_to_aid_plain(profile: Dict[str, Any], *, display_name: str = "") -> 
             location = (exp.get("location") or "").strip()
             role = (exp.get("role") or "").strip()
             industry = (exp.get("industry") or "").strip()
-            # Format-A Trenner braucht Zeitraum: — sonst aid_regex sieht 0 Projekte
-            lines.append(f"Zeitraum: {period if period else 'k.A.'}")
+            # Format-A Trenner braucht "Zeitraum:" — sonst aid_regex sieht 0 Projekte.
+            # Kein "k.A." mehr: viele Gulp-Profile (Arnold-Stil) haben schlicht kein Datum;
+            # leerer Wert → HTML/Word ohne Fake-Zeitraum, Regex ignoriert Platzhalter.
+            period_l = period.lower().rstrip(".")
+            if period_l in ("k.a", "k.a.", "n/a", "n.a", "-", "–", "—", "ohne angabe"):
+                period = ""
+            lines.append(f"Zeitraum: {period}" if period else "Zeitraum:")
             if company:
                 lines.append(f"Firma/Institut: {company}")
                 # auch Kunde / Branche (neueres AID-Format)

@@ -299,6 +299,7 @@ class MainExtractedToDB:
             exp_obj = Experience.objects.create(
                 consultant = consultant,
                 period     = (exp.get('period') or '')[:200],
+
                 title      = (exp.get('title') or '')[:200],
                 company    = (exp.get('company') or '')[:200],
                 industry   = (exp.get('industry') or '')[:100],

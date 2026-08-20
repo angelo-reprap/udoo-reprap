@@ -1618,7 +1618,11 @@ class AidRegexExtractor:
         # Zeitraum (gleiche Zeile oder nächste Zeile)
         period = self._labeled_value(block, r'Zeitraum|Period')
         if period:
-            proj['period'] = period
+            pl = period.strip().lower().rstrip('.')
+            if pl in ('k.a', 'n/a', 'n.a', '-', '–', '—', 'ohne angabe', ''):
+                period = ''
+            else:
+                proj['period'] = period
 
         # Firma/Institut / Kunde (gleiche Zeile oder nächste Zeile)
         company = (
