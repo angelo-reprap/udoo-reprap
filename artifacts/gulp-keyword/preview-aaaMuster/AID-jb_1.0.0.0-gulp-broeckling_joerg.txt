@@ -1,72 +1,87 @@
+Qualifikationsprofil: AID-jb_1.0.0.0 www.abcona.de
+
+AID-jb_1.0.0.0
+
+Schwerpunkt: Cisco, CCNA, LAN, WAN, Datacenter,Netzwerk,Netzwerkinfrastrukturplanung
+
+abcona e. K.
+active business consulting agency
+
+Bornhohl 26
+61449 Steinbach
+
+Telefon  +49 (0) 61 71 - 8867 - 00
+Fax   +49 (0) 61 71 - 8867 - 09
+
+E-Mail office@abcona.de
+Internet http://www.abcona.de
+
+Persönliche Daten
+
 Name: AID-jb_1.0.0.0
+Berater: Broeckling, Joerg
+Geburtsjahr: 1975
 Wohnort: 337xx Schloß Holte-Stukenbrock, Deutschland
-Jahrgang: 1975
 Stundensatz: 0 EUR
-Verfügbar ab: 31.12.18 zu 100%, Vor-Ort-Einsatz 100% möglich
-#####
+Sprachen: Deutsch, Englisch
+verfügbar: 31.12.18 zu 100%, Vor-Ort-Einsatz 100% möglich
+Einsatzort: österreich, Schweiz, D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
 
-Fachlicher Schwerpunkt
-Cisco, CCNA, LAN, WAN, Datacenter,Netzwerk,Netzwerkinfrastrukturplanung
-####
+Fachbereiche
 
-Position
+Cisco
+CCNA
+LAN
+WAN
+Datacenter
+Netzwerk
+Netzwerkinfrastrukturplanung
 Administration / Support
 Dokumentation / DTP
 Engineering / IT-nahe Ingenieurdienstleistungen
-####
 
-Einsatzort / Regionen
-österreich, Schweiz, D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
-####
+Berufliche Erfahrungen
 
-Fremdsprachen
-Deutsch
-Englisch
-####
+Zeitraum: 10/2011 - heute
+Firma/Institut: T-Systems International GmbH
+Kunde / Branche: T-Systems International GmbH
+Projektbeschreibung: Projektunterstützung in der Migration und Unterstützung im Tageschäft, Datacenter München, Krefeld
+• Unterstüzung beim Umzug komplexer Kundenumgebungen vom Datacenter-Bielefeld zum Datacenter-Krefeld
+• Aufnahme, Erweiterung, Verbesserung bestehender Netzinfrastrukturen
+• Planung und Durchführung der Kundenaufträge im Tagesgeschäft
+• Bearbeitung von Problemtickets
+Systemumgebung: Cisco-Switche, F5, Juniper, Messtabs, Nortel, Brocade, HP-Asset Center, Aperture Vista, Exel
 
-Projekte / experience
-— Projekt 1
-  company: T-Systems International GmbH
-  title: Projektunterstützung in der Migration und Unterstützung im Tageschäft
-  period: 10/2011 - heute
-  location: Datacenter München, Krefeld
-  activities:
-    - Unterstüzung beim Umzug komplexer Kundenumgebungen vom Datacenter-Bielefeld zum Datacenter-Krefeld
-    - Aufnahme, Erweiterung, Verbesserung bestehender Netzinfrastrukturen
-    - Planung und Durchführung der Kundenaufträge im Tagesgeschäft
-    - Bearbeitung von Problemtickets
-  technologies: Cisco-Switche, F5, Juniper, Messtabs, Nortel, Brocade, HP-Asset Center, Aperture Vista, Exel
-###
-— Projekt 2
-  company: T-Systems Enterprise GmbH
-  title: Projektunterstützung Defragmentierung Datacenter Bielefeld Mitarbeit im Tagesgeschäft
-  period: 04/2009 - 09/2011
-  activities:
-    - Planung und Durchführung der Kundenaufträge im Tagesgeschäft
-    - Projektunterstützung bei der Defragmentierung des Datacenter Bielefeld für die Migration komplexer Kundenumgebungen
-    - Unterstützung bei der Planung des Redesigns der Cisco-CAT Umgebung auf Cisco-Nexus Technologie
-    - Neuaufbau der Switch-MGMT Umgebung
-    - Neuaufbau der DMZ Umgebung
-    - Unterstützung bei der DWDM-Backbone Umgebung
-    - Planung und Durchführung der Patcharbeiten LAN/SAN
-  technologies: HP-Asset Center, Aperture Vista, Exel
-###
-— Projekt 3
-  company: T-Systems International GmbH
-  title: Bearbeiten von Problemtickets
-  period: 04/2008-03/2009
-  activities:
-    - Troubleshooting Datacenter Bielefeld und Münster
-    - Analyse und Messarbeiten
-    - Austausch von aktiven und passiven Komponeten
-    - Planung und Durchführung der Patcharbeiten LAN/SAN
-###
-— Projekt 4
-  company: Deutsche Telekom AG
-  title: Patcharbeiten im HVT, Troubleshooting DSL
-  period: 06/2001-03/2008
-  activities:
-    - Patcharbeiten an verschiedenen Standorten in NRW
-    - Analyse und Messarbeiten
-    - Austausch von aktiven passiven DSL-Komponeten
-    - Analyse und Erweiterung der bestehenden Netzstruktur
+
+Zeitraum: 04/2009 - 09/2011
+Firma/Institut: T-Systems Enterprise GmbH
+Kunde / Branche: T-Systems Enterprise GmbH
+Projektbeschreibung: Projektunterstützung Defragmentierung Datacenter Bielefeld Mitarbeit im Tagesgeschäft
+• Planung und Durchführung der Kundenaufträge im Tagesgeschäft
+• Projektunterstützung bei der Defragmentierung des Datacenter Bielefeld für die Migration komplexer Kundenumgebungen
+• Unterstützung bei der Planung des Redesigns der Cisco-CAT Umgebung auf Cisco-Nexus Technologie
+• Neuaufbau der Switch-MGMT Umgebung
+• Neuaufbau der DMZ Umgebung
+• Unterstützung bei der DWDM-Backbone Umgebung
+• Planung und Durchführung der Patcharbeiten LAN/SAN
+Systemumgebung: HP-Asset Center, Aperture Vista, Exel
+
+
+Zeitraum: 04/2008-03/2009
+Firma/Institut: T-Systems International GmbH
+Kunde / Branche: T-Systems International GmbH
+Projektbeschreibung: Bearbeiten von Problemtickets
+• Troubleshooting Datacenter Bielefeld und Münster
+• Analyse und Messarbeiten
+• Austausch von aktiven und passiven Komponeten
+• Planung und Durchführung der Patcharbeiten LAN/SAN
+
+
+Zeitraum: 06/2001-03/2008
+Firma/Institut: Deutsche Telekom AG
+Kunde / Branche: Deutsche Telekom AG
+Projektbeschreibung: Patcharbeiten im HVT, Troubleshooting DSL
+• Patcharbeiten an verschiedenen Standorten in NRW
+• Analyse und Messarbeiten
+• Austausch von aktiven passiven DSL-Komponeten
+• Analyse und Erweiterung der bestehenden Netzstruktur

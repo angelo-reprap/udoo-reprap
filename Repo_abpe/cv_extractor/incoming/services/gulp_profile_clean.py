@@ -510,113 +510,231 @@ def clean_gulp_profile(
     }
 
 
-def profile_to_html(profile: Dict[str, Any], *, display_title: str = "") -> str:
-    import html as html_mod
-
-    title = display_title or profile.get("aid_name") or "AID Gulp Profil"
-    blocks = [
-        "<!DOCTYPE html><html><head><meta charset='utf-8'>",
-        f"<title>{html_mod.escape(title)}</title>",
-        "<style>",
-        "body{font-family:DejaVu Sans,Arial,sans-serif;font-size:10.5pt;line-height:1.35;margin:18mm;color:#111;}",
-        "h1{font-size:16pt;margin:0 0 10pt 0;}",
-        "h2{font-size:12pt;margin:16pt 0 6pt 0;border-bottom:1px solid #333;padding-bottom:2pt;}",
-        "h3{font-size:11pt;margin:12pt 0 4pt 0;}",
-        "table.meta{border-collapse:collapse;margin:0 0 10pt 0;}",
-        "table.meta td{padding:2pt 10pt 2pt 0;vertical-align:top;}",
-        "table.meta td.k{font-weight:bold;white-space:nowrap;}",
-        "ul{margin:4pt 0 8pt 18pt;padding:0;} li{margin:0 0 3pt 0;}",
-        ".exp{margin:0 0 12pt 0;}",
-        ".exp .row{margin:0 0 2pt 0;}",
-        ".label{font-weight:bold;}",
-        ".sep{color:#999;margin:8pt 0;letter-spacing:2pt;}",
-        "</style></head><body>",
-        f"<h1>{html_mod.escape(title)}</h1>",
-    ]
-
-    if profile.get("personal_rows"):
-        blocks.append("<h2>Stammdaten</h2><table class='meta'>")
-        for k, v in profile["personal_rows"]:
-            blocks.append(
-                f"<tr><td class='k'>{html_mod.escape(k)}</td>"
-                f"<td>{html_mod.escape(v)}</td></tr>"
-            )
-        blocks.append("</table>")
-        blocks.append("<div class='sep'>####</div>")
-
+def _section_map(profile: Dict[str, Any]) -> Dict[str, str]:
+    out: Dict[str, str] = {}
     for heading, body in profile.get("sections") or []:
-        blocks.append(f"<h2>{html_mod.escape(heading)}</h2>")
-        for para in body.splitlines():
-            para = para.strip()
-            if para:
-                blocks.append(f"<p>{html_mod.escape(para)}</p>")
-        blocks.append("<div class='sep'>####</div>")
+        key = (heading or "").strip().lower()
+        out[key] = body
+    return out
+
+
+def _schwerpunkt(profile: Dict[str, Any]) -> str:
+    sm = _section_map(profile)
+    for k, v in sm.items():
+        if "schwerpunkt" in k:
+            return _squash(v)
+    return ""
+
+
+def _sprachen(profile: Dict[str, Any]) -> str:
+    sm = _section_map(profile)
+    for k, v in sm.items():
+        if "fremdsprachen" in k or k == "sprachen":
+            langs = [ln.strip() for ln in v.splitlines() if ln.strip()]
+            return ", ".join(langs) if langs else _squash(v)
+    return ""
+
+
+def _einsatzort(profile: Dict[str, Any]) -> str:
+    sm = _section_map(profile)
+    for k, v in sm.items():
+        if "einsatzort" in k or "regionen" in k:
+            return _squash(v)
+    return (profile.get("personal") or {}).get("wohnort", "")
+
+
+def _fachbereich_lines(profile: Dict[str, Any]) -> List[str]:
+    """Fachbereiche + Position → Bullet-Zeilen für AID-Block."""
+    sm = _section_map(profile)
+    lines: List[str] = []
+    schw = _schwerpunkt(profile)
+    if schw:
+        # Schwerpunkt-CSV → einzelne Fachbereichs-Zeilen
+        for part in re.split(r"\s*,\s*", schw):
+            part = part.strip()
+            if part and len(part) > 1:
+                lines.append(part)
+    for k, v in sm.items():
+        if k == "position" or k.startswith("position"):
+            for ln in v.splitlines():
+                ln = ln.strip()
+                if ln and ln not in lines:
+                    lines.append(ln)
+    # dedupe preserve order
+    seen = set()
+    out = []
+    for ln in lines:
+        low = ln.lower()
+        if low not in seen:
+            seen.add(low)
+            out.append(ln)
+    return out
+
+
+def profile_to_aid_plain(profile: Dict[str, Any], *, display_name: str = "") -> str:
+    """
+    Plaintext im abcona/AID-Layout — für aid_regex_extractor Fast-Path
+    (mind. 3/5 ABCONA_SIGNALS + Format-A Projekte).
+    """
+    aid = profile.get("aid_name") or "AID-xx_1.0.0.0"
+    pers = profile.get("personal") or {}
+    person_label = display_name.strip() if display_name else ""
+    lines: List[str] = []
+
+    # Seite-1-Signale (abcona / Bornhohl / office / AID)
+    lines.append(f"Qualifikationsprofil: {aid} www.abcona.de")
+    lines.append("")
+    lines.append(aid)
+    lines.append("")
+    schw = _schwerpunkt(profile)
+    if schw:
+        lines.append(f"Schwerpunkt: {schw}")
+        lines.append("")
+    lines.append("abcona e. K.")
+    lines.append("active business consulting agency")
+    lines.append("")
+    lines.append("Bornhohl 26")
+    lines.append("61449 Steinbach")
+    lines.append("")
+    lines.append("Telefon  +49 (0) 61 71 - 8867 - 00")
+    lines.append("Fax   +49 (0) 61 71 - 8867 - 09")
+    lines.append("")
+    lines.append("E-Mail office@abcona.de")
+    lines.append("Internet http://www.abcona.de")
+    lines.append("")
+    lines.append("Persönliche Daten")
+    lines.append("")
+    lines.append(f"Name: {aid}")
+    if person_label:
+        lines.append(f"Berater: {person_label}")
+    if pers.get("jahrgang"):
+        lines.append(f"Geburtsjahr: {pers['jahrgang']}")
+    if pers.get("wohnort"):
+        lines.append(f"Wohnort: {pers['wohnort']}")
+    if pers.get("stundensatz"):
+        lines.append(f"Stundensatz: {pers['stundensatz']}")
+    langs = _sprachen(profile)
+    if langs:
+        lines.append(f"Sprachen: {langs}")
+    if pers.get("edv_seit"):
+        lines.append(f"EDV Erfahrung seit: {pers['edv_seit']}")
+    if pers.get("verfuegbar"):
+        lines.append(f"verfügbar: {pers['verfuegbar']}")
+    einsatz = _einsatzort(profile)
+    if einsatz:
+        lines.append(f"Einsatzort: {einsatz}")
+    lines.append("")
+
+    fach = _fachbereich_lines(profile)
+    if fach:
+        lines.append("Fachbereiche")
+        lines.append("")
+        for f in fach:
+            lines.append(f)
+        lines.append("")
 
     exps = profile.get("experience") or []
     if exps:
-        blocks.append("<h2>Projekte / Experience</h2>")
-        for idx, exp in enumerate(exps, 1):
-            blocks.append(f"<div class='exp'><h3>Projekt {idx}</h3>")
-            for key, label in (
-                ("company", "Kunde / company"),
-                ("title", "Projekt / title"),
-                ("period", "Zeitraum / period"),
-                ("location", "Ort / location"),
-                ("role", "Rolle / role"),
-                ("industry", "Branche / industry"),
-            ):
-                val = (exp.get(key) or "").strip()
-                if val:
-                    blocks.append(
-                        f"<p class='row'><span class='label'>{label}:</span> {html_mod.escape(val)}</p>"
-                    )
-            acts = [a for a in (exp.get("activities") or []) if a]
-            if acts:
-                blocks.append("<p class='label'>activities:</p><ul>")
-                for a in acts:
-                    blocks.append(f"<li>{html_mod.escape(a)}</li>")
-                blocks.append("</ul>")
+        lines.append("Berufliche Erfahrungen")
+        lines.append("")
+        for exp in exps:
+            period = (exp.get("period") or "").strip()
+            company = (exp.get("company") or "").strip()
+            title = (exp.get("title") or "").strip()
+            location = (exp.get("location") or "").strip()
+            role = (exp.get("role") or "").strip()
+            industry = (exp.get("industry") or "").strip()
+            if period:
+                lines.append(f"Zeitraum: {period}")
+            if company:
+                lines.append(f"Firma/Institut: {company}")
+                # auch Kunde / Branche (neueres AID-Format)
+                br = industry or company
+                lines.append(f"Kunde / Branche: {br}")
+            if role:
+                lines.append(f"Rolle / Position: {role}")
+            if title:
+                if location:
+                    lines.append(f"Projektbeschreibung: {title}, {location}")
+                else:
+                    lines.append(f"Projektbeschreibung: {title}")
+            for a in exp.get("activities") or []:
+                a = (a or "").strip()
+                if a:
+                    lines.append(f"• {a}")
             techs = [t for t in (exp.get("technologies") or []) if t]
             if techs:
-                blocks.append(
-                    "<p class='row'><span class='label'>technologies:</span> "
-                    + html_mod.escape(", ".join(techs))
-                    + "</p>"
-                )
-            blocks.append("</div>")
-            if idx < len(exps):
-                blocks.append("<div class='sep'>###</div>")
+                lines.append("Systemumgebung: " + ", ".join(techs))
+            lines.append("")
+            lines.append("")
 
-    blocks.append("</body></html>")
-    return "\n".join(blocks)
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def profile_to_html(profile: Dict[str, Any], *, display_title: str = "") -> str:
+    """AID-kompatibles HTML (LibreOffice → PDF) für aid_regex_extractor."""
+    import html as html_mod
+
+    aid = profile.get("aid_name") or "AID-xx_1.0.0.0"
+    plain = profile_to_aid_plain(profile, display_name=display_title)
+    # Zeilen → einfaches HTML, Labels fett
+    body_parts = []
+    for raw in plain.splitlines():
+        line = raw.rstrip()
+        if not line:
+            body_parts.append("<br>")
+            continue
+        if line in (
+            "Persönliche Daten",
+            "Fachbereiche",
+            "Berufliche Erfahrungen",
+            "Zertifizierungen",
+            "Branchen",
+        ):
+            body_parts.append(f"<h2>{html_mod.escape(line)}</h2>")
+            continue
+        if line.startswith("Qualifikationsprofil:"):
+            body_parts.append(
+                f"<p class='hdr'>{html_mod.escape(line)}</p>"
+            )
+            continue
+        if line == aid or re.match(r"^AID-[a-z]{2,4}_", line, re.I):
+            body_parts.append(f"<h1>{html_mod.escape(line)}</h1>")
+            continue
+        if line.startswith("• ") or line.startswith("- "):
+            body_parts.append(f"<p class='bullet'>{html_mod.escape(line)}</p>")
+            continue
+        m = re.match(r"^([^:]{2,40}):\s*(.*)$", line)
+        if m and not line.lower().startswith("http"):
+            lab, val = m.group(1), m.group(2)
+            body_parts.append(
+                f"<p><span class='lab'>{html_mod.escape(lab)}:</span> "
+                f"{html_mod.escape(val)}</p>"
+            )
+            continue
+        body_parts.append(f"<p>{html_mod.escape(line)}</p>")
+
+    return "\n".join(
+        [
+            "<!DOCTYPE html><html><head><meta charset='utf-8'>",
+            f"<title>{html_mod.escape(aid)}</title>",
+            "<style>",
+            "body{font-family:DejaVu Sans,Arial,sans-serif;font-size:10.5pt;"
+            "line-height:1.35;margin:16mm;color:#111;}",
+            "h1{font-size:16pt;margin:8pt 0 12pt 0;}",
+            "h2{font-size:12pt;margin:16pt 0 8pt 0;border-bottom:1px solid #333;"
+            "padding-bottom:2pt;}",
+            "p{margin:0 0 3pt 0;}",
+            "p.hdr{font-size:9pt;color:#444;}",
+            "p.bullet{margin:0 0 2pt 12pt;}",
+            "span.lab{font-weight:bold;}",
+            "</style></head><body>",
+            *body_parts,
+            "</body></html>",
+        ]
+    )
 
 
 def profile_to_plain(profile: Dict[str, Any]) -> str:
-    lines: List[str] = []
-    for k, v in profile.get("personal_rows") or []:
-        lines.append(f"{k}: {v}")
-    if profile.get("personal_rows"):
-        lines.append("#####")
-    for heading, body in profile.get("sections") or []:
-        lines.append("")
-        lines.append(heading)
-        lines.append(body)
-        lines.append("####")
-    exps = profile.get("experience") or []
-    if exps:
-        lines.append("")
-        lines.append("Projekte / experience")
-        for idx, exp in enumerate(exps, 1):
-            lines.append(f"— Projekt {idx}")
-            for key in ("company", "title", "period", "location", "role", "industry"):
-                if exp.get(key):
-                    lines.append(f"  {key}: {exp[key]}")
-            if exp.get("activities"):
-                lines.append("  activities:")
-                for a in exp["activities"]:
-                    lines.append(f"    - {a}")
-            if exp.get("technologies"):
-                lines.append("  technologies: " + ", ".join(exp["technologies"]))
-            if idx < len(exps):
-                lines.append("###")
-    return "\n".join(lines).strip() + "\n"
+    """Alias: AID-Plain (Pipeline-tauglich)."""
+    return profile_to_aid_plain(profile)

@@ -28,6 +28,7 @@ MSG_PREFIX="${MSG_PREFIX:-gulp keywords v1.3}"
 FILES=(
   services/main_labeler.py
   services/section_label_keywords.py
+  extractors/aid_regex_extractor.py
 )
 
 cmd="${1:-help}"

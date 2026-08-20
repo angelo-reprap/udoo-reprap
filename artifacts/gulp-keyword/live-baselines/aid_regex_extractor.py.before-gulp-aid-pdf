@@ -426,8 +426,8 @@ class AidRegexExtractor:
         if first_name: p['first_name'] = first_name
         if last_name:  p['last_name']  = last_name
 
-        # Geburtsjahr / Jahrgang (Gulp-Stammdaten)
-        m = re.search(r'(?im)^\s*(?:Geburtsjahr|Jahrgang)\s*:\s*(\d{4})', text)
+        # Geburtsjahr
+        m = re.search(r'(?im)^\s*Geburtsjahr\s*:\s*(\d{4})', text)
         if m:
             p['birth_year'] = int(m.group(1))
 
@@ -452,18 +452,6 @@ class AidRegexExtractor:
         m = re.search(r'(?im)^\s*Einsatzort\s*:\s*(.+?)$', text)
         if m:
             p['location'] = m.group(1).strip()
-
-        # Wohnort (Gulp) — ergänzt location falls Einsatzort leer
-        m = re.search(r'(?im)^\s*Wohnort\s*:\s*(.+?)$', text)
-        if m:
-            wohn = m.group(1).strip()
-            if wohn and not p.get('location'):
-                p['location'] = wohn
-
-        # Stundensatz (Gulp, optional Meta — nicht in Standard-Personal-Feldern)
-        m = re.search(r'(?im)^\s*Stundensatz\s*:\s*(.+?)$', text)
-        if m:
-            p['hourly_rate'] = m.group(1).strip()
 
         # EDV Erfahrung seit
         m = re.search(r'(?im)^\s*EDV.Erfahrung\s*(?:seit)?\s*:\s*(.+?)$', text)
@@ -507,7 +495,6 @@ class AidRegexExtractor:
             r'Fachbereiche',
             r'Fachlicher\s+Schwerpunkt',
             r'Schwerpunkt\s*$',
-            r'Position\s*$',
         ], stop_patterns=[
             r'Zertifizierungen?(?:\s*[\|/].*)?',
             r'IT.Kompetenzen?',
@@ -1583,10 +1570,10 @@ class AidRegexExtractor:
         if company:
             proj['company'] = company
 
-        # Projektbeschreibung / Projekttätigkeiten → title (ohne Activity-Bullets)
+        # Projektbeschreibung → title (ohne Activity-Bullets)
         # Wichtig: \Z statt $ — bei (?m) würde $ nach der ersten Soft-Wrap-Zeile stoppen
         m = re.search(
-            r'(?im)^\s*(?:Projektbeschreibung|Projekttätigkeiten|Projekttatigkeiten)\s*:\s*(.+?)'
+            r'(?im)^\s*Projektbeschreibung\s*:\s*(.+?)'
             r'(?=\n\s*(?:Systemumgebung|Position|Rolle|Zeitraum|Firma|Kunde|'
             r'Protokolle|Technologien|Eingesetzte)\s*:|'
             r'\n\s*[-•\*\u2022\u25aa\uf0b7\uf09f]|\Z)',
@@ -1598,9 +1585,7 @@ class AidRegexExtractor:
                 proj['title'] = title[:300]
         if not proj.get('title'):
             # Label allein, Text beginnt nächste Zeile
-            title = self._labeled_value(
-                block, r'Projektbeschreibung|Projekttätigkeiten|Projekttatigkeiten'
-            )
+            title = self._labeled_value(block, r'Projektbeschreibung')
             if title:
                 proj['title'] = title[:300]
 
@@ -1653,7 +1638,7 @@ class AidRegexExtractor:
         # activities: Bullet-Liste unter Projektbeschreibung (inkl. Soft-Wraps)
         act_block = ''
         m_act = re.search(
-            r'(?is)(?:^|\n)\s*(?:Projektbeschreibung|Projekttätigkeiten|Projekttatigkeiten)\s*:\s*.*?\n(.*?)'
+            r'(?is)(?:^|\n)\s*Projektbeschreibung\s*:\s*.*?\n(.*?)'
             r'(?=\n\s*(?:Systemumgebung|Protokolle\s*/\s*Technologien|'
             r'Technologien\s*/|Position|Rolle|Zeitraum|Firma|Kunde)\s*:|\Z)',
             block,
@@ -1760,7 +1745,7 @@ class AidRegexExtractor:
         if proj.get('activities'):
             return
         m = re.search(
-            r'(?is)(?:^|\n)\s*(?:Projektbeschreibung|Projekttätigkeiten|Projekttatigkeiten)\s*:\s*(.*?)'
+            r'(?is)(?:^|\n)\s*Projektbeschreibung\s*:\s*(.*?)'
             r'(?=\n\s*(?:Systemumgebung|Protokolle\s*/\s*Technologien|'
             r'Technologien\s*/|Position|Rolle|Zeitraum|Firma|Kunde)\s*:|\Z)',
             block,
@@ -1814,7 +1799,7 @@ class AidRegexExtractor:
             # OV-Stil: Periode am Zeilenanfang + Firma/Institut / Projektbeschreibung
             # → Format-A-Parser (sonst zerlegt Format B die Beschreibung)
             if re.search(
-                r'(?im)^\s*(?:Firma\s*/?\s*Institut|Projektbeschreibung|Projekttätigkeiten|Projekttatigkeiten)\s*:',
+                r'(?im)^\s*(?:Firma\s*/?\s*Institut|Projektbeschreibung)\s*:',
                 block,
             ):
                 a_block = self._period_block_to_format_a(block, period_str)
