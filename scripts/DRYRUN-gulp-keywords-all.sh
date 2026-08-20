@@ -45,23 +45,26 @@ CORE_SECTIONS = [
     r"Ausbildung",
     r"(?:Durchgef[uü]hrte\s+)?Projekte",
     r"Projekt[uü]bersicht",
-    r"Branchen",
+    r"Branchen?",
     r"Fremdsprachen",
     r"Einsatzort",
     r"Regionen",
     r"Kommentar",
+    r"Sonstige\s+Anmerkungen",
     r"Stammdaten(?:\s*\(Auszug\))?",
     r"Personendaten",
     r"Zertifizierungen?",
 ]
 SKILL_SECTIONS = [
-    r"Hardware", r"Betriebssysteme", r"Programmiersprachen?", r"Datenbanken",
+    r"Hardware", r"Betriebssysteme", r"Programmiersprachen?", r"Datenbanken?",
     r"Datenkommunikation", r"Software", r"Tools?", r"Office\s+Tools?",
     r"Web\s*/\s*Portal-Server", r"Repositories", r"J2EE\s+Technologien",
     r"J2SE\s+Technologien", r"Methodisches\s+Vorgehen",
     r"Produkte\s*/\s*Standards\s*/\s*Erfahrungen",
     r"Produkte\s*\|\s*Standards(?:\s*\|\s*Erfahrungen)?",
     r"Kenntnisse", r"EDV[- ]Kenntnisse",
+    r"Design/Entwicklung/Konstruktion",
+    r"Berechnung/Simulation/Versuch/Validierung",
 ]
 PROJECT_FIELDS = [
     r"Zeitraum", r"Dauer", r"Rolle", r"Kunde", r"Firma(?:/Institut)?", r"Firma",
