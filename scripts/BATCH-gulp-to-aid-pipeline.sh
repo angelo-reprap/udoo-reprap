@@ -206,18 +206,24 @@ while IFS=$'\t' read -r cat contact_id gulp_id last first fs_letter fs_dir has_n
   sleep "$PAUSE_BETWEEN"
 done <"$NEED"
 
-summary="$OUT_LOG/summary.json"
 python3 - <<PY
 import json
-print(json.dumps({
-  "ok": $ok, "fail": $fail, "skip": $skip,
-  "limit": $LIMIT, "need": "$NEED",
-  "mem_thresh": $MEM_THRESH, "cpu_thresh": $CPU_THRESH,
-  "ended": __import__("datetime").datetime.now().isoformat(timespec="seconds"),
-}, indent=2))
+from datetime import datetime
+from pathlib import Path
+summary = {
+  "ok": $ok,
+  "fail": $fail,
+  "skip": $skip,
+  "limit": int("$LIMIT" or 0),
+  "need": "$NEED",
+  "mem_thresh": int("$MEM_THRESH"),
+  "cpu_thresh": int("$CPU_THRESH"),
+  "throttle_sleep": int("$THROTTLE_SLEEP"),
+  "ended": datetime.now().isoformat(timespec="seconds"),
+}
+Path("$OUT_LOG/summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+print(json.dumps(summary, indent=2))
 PY
-echo "$summary"
-python3 -c "import json; json.dump({'ok':$ok,'fail':$fail,'skip':$skip,'limit':$LIMIT,'need':'$NEED'}, open('$summary','w'), indent=2)"
 
 echo
 echo "======== FERTIG ok=$ok fail=$fail skip=$skip ========"
