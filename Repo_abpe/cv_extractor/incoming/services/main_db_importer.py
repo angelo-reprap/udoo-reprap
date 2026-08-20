@@ -43,6 +43,101 @@ class MainDbImporter:
                 break
         return ', '.join(names)
 
+    @classmethod
+    def _append_extract_extra_sections(cls, lines: list, ed: dict) -> None:
+        """
+        Ergänzt Extrakt-TXT um Ausbildung / Zertifikate / Focus-Exp / Sonstiges.
+        Nur anhängen — bestehende Dump-Felder bleiben unverändert.
+        """
+        ed = ed or {}
+
+        edu = ed.get('education') or []
+        if edu:
+            lines.append("")
+            lines.append("AUSBILDUNG:")
+            for item in edu:
+                if not item:
+                    continue
+                if isinstance(item, dict):
+                    degree = (
+                        item.get('degree') or item.get('name')
+                        or item.get('description') or ''
+                    ).strip()
+                    if not degree:
+                        continue
+                    period = (item.get('period') or '').strip()
+                    inst = (item.get('institution') or '').strip()
+                    et = (item.get('education_type') or '').strip()
+                    parts = [p for p in (period, degree, inst) if p]
+                    row = " | ".join(parts)
+                    if et:
+                        row = f"{row}  [{et}]"
+                    lines.append(row)
+                else:
+                    s = str(item).strip()
+                    if s:
+                        lines.append(s)
+
+        certs = ed.get('certifications') or []
+        if certs:
+            lines.append("")
+            lines.append("ZERTIFIKATE:")
+            for item in certs:
+                if not item:
+                    continue
+                if isinstance(item, dict):
+                    name = (item.get('name') or '').strip()
+                    if not name:
+                        continue
+                    date = (item.get('date_obtained') or '').strip()
+                    issuer = (
+                        item.get('issuer_name')
+                        or (item.get('issuer') if isinstance(item.get('issuer'), str) else '')
+                        or ''
+                    ).strip()
+                    parts = [p for p in (date, name, issuer) if p]
+                    lines.append(" | ".join(parts) if parts else name)
+                else:
+                    s = str(item).strip()
+                    if s:
+                        lines.append(s)
+
+        focus_exp = ed.get('focus_experience') or []
+        if focus_exp:
+            lines.append("")
+            lines.append("FOCUS_EXP:")
+            for item in focus_exp:
+                name = cls._as_name(item)
+                if not name:
+                    continue
+                if isinstance(item, dict) and (item.get('category') or '').strip():
+                    cat = str(item.get('category') or '').strip()
+                    lines.append(f"  {name}  [{cat}]")
+                else:
+                    lines.append(f"  {name}")
+
+        other = ed.get('other')
+        other_lines = []
+        if isinstance(other, list):
+            for item in other:
+                if isinstance(item, dict):
+                    c = (item.get('content') or '').strip()
+                    if c:
+                        other_lines.append(c)
+                elif item:
+                    s = str(item).strip()
+                    if s:
+                        other_lines.append(s)
+        elif isinstance(other, str) and other.strip():
+            other_lines.append(other.strip())
+        if other_lines:
+            lines.append("")
+            lines.append("SONSTIGES:")
+            for block in other_lines:
+                for ln in block.splitlines():
+                    lines.append(ln)
+                lines.append("")
+
     @staticmethod
     def _years_from_periods(experience_list) -> list:
         """Volle Jahre (19xx/20xx) aus Projekt-Perioden — nicht nur (19|20)-Captures."""
@@ -424,6 +519,8 @@ class MainDbImporter:
             if ablage:
                 lines.append("")
                 lines.append(f"SKILL-ABLAGE: {self._join_names(ablage)}")
+            # Ausbildung / Zertifikate / Focus-Exp / Sonstiges (anhängen, nichts umbrechen)
+            self._append_extract_extra_sections(lines, ed)
             txt_content = '\n'.join(str(x) for x in lines)
             txt_path.write_text(txt_content, encoding='utf-8')
             consultant.raw_text = txt_content
@@ -721,6 +818,8 @@ class MainDbImporter:
                 "SKILL-ABLAGE:",
                 self._join_names(ablage),
             ]
+            # Ausbildung / Zertifikate / Focus-Exp / Sonstiges (anhängen, nichts umbrechen)
+            self._append_extract_extra_sections(lines, ed)
             txt_content = '\n'.join(str(x) for x in lines)
             txt_path.write_text(txt_content, encoding='utf-8')
             consultant.raw_text = txt_content
