@@ -209,6 +209,19 @@ PY
 while IFS=$'\t' read -r cat contact_id gulp_id last first fs_letter fs_dir has_neu profil_len rest || [[ -n "${cat:-}" ]]; do
   [[ "${cat:-}" == "cat" || -z "${cat:-}" ]] && continue
   [[ "$cat" != "fs_dir_no_neu" && "$cat" != "need" ]] && continue
+
+  # Spalten-Shift-Heilung: gulp_id=Nachname, last=Vorname, first=letter, fs_letter=dir, fs_dir=0/has_neu
+  if [[ -n "$gulp_id" && ! "$gulp_id" =~ ^[0-9]+$ && "$first" =~ ^(sch|[a-z]{3})$ ]]; then
+    echo "WARN TSV-Shift contact_id=$contact_id: gulp_id=$gulp_id last=$last first=$first → repair"
+    profil_len="${has_neu:-$profil_len}"
+    has_neu="${fs_dir:-0}"
+    fs_dir="$fs_letter"
+    fs_letter="$first"
+    first="$last"
+    last="$gulp_id"
+    gulp_id=""
+  fi
+
   if [[ -z "$last" || "$last" =~ ^[0-9]+$ ]]; then
     echo "WARN skip bad TSV row contact_id=$contact_id last=$last dir=$fs_dir"
     continue
