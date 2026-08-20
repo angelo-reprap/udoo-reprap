@@ -389,6 +389,12 @@ class AidRegexExtractor:
             pre_json['extracted_data']['experience'] = projekte
             filled.append(f'projekte({len(projekte)})')
 
+        # 8c. Sonstiges (Stärken / Anmerkungen / Referenzen) → other
+        other = self._extract_other(text)
+        if other:
+            pre_json['extracted_data']['other'] = other
+            filled.append('other')
+
         # 8b. Format-A ohne Skill-Tabellen: Tech aus Projekten nachziehen
         if not skill_ablage and projekte:
             harvested = self._harvest_skills_from_projects(projekte)
@@ -750,6 +756,42 @@ class AidRegexExtractor:
                 })
         return certs
 
+    def _extract_other(self, text: str) -> list:
+        """
+        Sonstiges-Block (Gulp/AID: Stärken, Anmerkungen, Referenzen) → other[].
+        Nicht als Experience/Skills einsortieren.
+        """
+        block = self._extract_block(
+            text,
+            start_patterns=[
+                r'Sonstiges\s*$',
+                r'Sonstige\s+Anmerkungen\s*:?\s*$',
+                r'Persönliche\s+St.rken\s*:?\s*$',
+                r'Referenzen\s*:?\s*$',
+            ],
+            stop_patterns=[
+                r'Berufliche\s+Erfahrungen?',
+                r'Fachbereiche',
+                r'Branchen?\s*$',
+                r'Zertifizierungen?',
+                r'Ausbildung\s*:',
+                r'Programmiersprachen?',
+                r'Betriebssysteme',
+                r'Qualifikationsprofil\s*:',
+            ],
+        )
+        if not block:
+            return []
+        content = re.sub(r'\s+\n', '\n', block).strip()
+        if len(content) < 8:
+            return []
+        return [{
+            'content': content[:5000],
+            'content_type': 'text',
+            'source': 'aid_regex_sonstiges',
+            'sort_order': 0,
+        }]
+
     def _extract_focus_experience(self, text: str) -> List[dict]:
         """
         Extrahiert „Produkte | Standards | Erfahrungen“ → focus_experience[].
@@ -769,6 +811,7 @@ class AidRegexExtractor:
                 r'Branchen?',
                 r'Zertifizierungen?(?:\s*[\|/].*)?',
                 r'Schulungen?\s*/\s*Kurse',
+                r'Sonstiges\s*$',
             ],
         )
         if not block:

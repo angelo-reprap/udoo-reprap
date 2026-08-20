@@ -122,9 +122,11 @@ FIRST_WORD_TO_LABEL = {
     'fremdsprachen':         'SKILLS',
     'methodisches':          'SKILLS',
     'repositories':          'SKILLS',
-    # FOCUS_EXP
-    'einsatzort':            'FOCUS_EXP',
-    'regionen':              'FOCUS_EXP',
+    # PERSONAL (Einsatzort = location, nicht FOCUS_EXP)
+    'einsatzort':            'PERSONAL',
+    'regionen':              'PERSONAL',
+    # OTHER
+    'sonstiges':             'OTHER',
     # PROJECT / Experience-Felder (AID-*-gulp.pdf Cleaner-Output)
     'projekte':              'PROJECT',
     'projekt':               'PROJECT',
@@ -146,8 +148,8 @@ FIRST_WORD_TO_LABEL = {
     'company':               'PROJECT',
     'title':                 'PROJECT',
     'location':              'PROJECT',
-    # EXPERIENCE
-    'referenzen':            'EXPERIENCE',
+    # OTHER (Referenzen ≠ EXPERIENCE — Matching-Gift vermeiden)
+    'referenzen':            'OTHER',
 }
 
 # Skill-Kategorie direkt aus erstem Wort der Gruppe

@@ -53,7 +53,7 @@ NOISE_LINE_RE = re.compile(
 PERSONAL_KEYS = [
     ("wohnort", re.compile(r"Wohnort\s+(.+?)(?=\s+(?:Jahrgang|Stundensatz|EDV-Erfahrung|Verfügbar|Verfuegbar|Profil\s+erstellt)\b|$)", re.I | re.S)),
     ("jahrgang", re.compile(r"Jahrgang\s+(\d{4})", re.I)),
-    ("stundensatz", re.compile(r"Stundensatz\s+([^\n]+?)(?=\s+(?:Verfügbar|Verfuegbar|EDV-Erfahrung|Profil\s+erstellt)\b|$)", re.I)),
+    # Stundensatz bewusst nicht extrahiert (kein Matching / kein hourly_rate)
     ("edv_seit", re.compile(r"EDV-Erfahrung\s+seit\s+(\d{4})", re.I)),
     ("verfuegbar", re.compile(
         r"Verf(?:ü|ue)gbar\s+ab\s+(.+?)(?=\s+Profil\s+erstellt\b|\s+Lesen\s+von\b|$)",
@@ -69,7 +69,7 @@ SECTION_HEAD_NAMES = (
     r"Betriebssysteme|Programmiersprachen|Datenbanken|"
     r"Datenkommunikation|Aufgabenbereiche|Schwerpunkte|"
     r"Produkte/Standards/Erfahrungen|Managementerfahrung|"
-    r"Persönliche\s+Stärken|Sonstige\s+Anmerkungen"
+    r"Persönliche\s+Stärken|Sonstige\s+Anmerkungen|Referenzen"
 )
 
 SECTION_HEAD_RE = re.compile(
@@ -86,7 +86,7 @@ INLINE_SECTION_RE = re.compile(
 # After Projekte starts, only these heads may close the Projekte block
 # Alone on the line only — NOT "Kenntnisse: AD Server …" inside a project
 PROJEKTE_END_HEAD_RE = re.compile(
-    r"(?im)^\s*(?:Branchen|Zertifizierungen|Ausbildung|"
+    r"(?im)^\s*(?:Branchen|Zertifizierungen|Ausbildung|Referenzen|"
     r"Seite\s+drucken|Zum\s+Seitenanfang|"
     r"GULP Information Services|Links:"
     r"|Persönliche\s+Stärken|Sonstige\s+Anmerkungen|"
@@ -1018,6 +1018,29 @@ def _count_freeform_titles(lines: List[str]) -> int:
     return n
 
 
+def _split_referenzen_from_projects(body: str) -> Tuple[str, str]:
+    """
+    Referenz-Blöcke (Gulp: „Projekt …“ + „Referenz durch …“ + Zitat) aus dem
+    Projekte-Body herauslösen → other, nicht experience.
+    """
+    body = body or ""
+    m = re.search(
+        r"(?im)^\s*Projekt\s+[^\n]{5,160}\n\s*Referenz\s+durch\b",
+        body,
+    )
+    if not m:
+        m = re.search(r"(?im)^\s*(?:Referenz\s+durch|Alle\s+Referenzen)\b", body)
+    if not m:
+        return body, ""
+    start = m.start()
+    # „Referenz durch“ ohne Projekt-Zeile davor → vorherige Projekt-Zeile mitnehmen
+    if not re.match(r"(?im)^\s*Projekt\s+", body[start : start + 30]):
+        prev_lines = body[:start].rstrip().splitlines()
+        if prev_lines and re.match(r"(?i)^Projekt\s+", prev_lines[-1].strip()):
+            start = body.rfind(prev_lines[-1], 0, start)
+    return body[:start].rstrip(), body[start:].strip()
+
+
 def parse_projects(body: str, max_activities: int = 8) -> List[Dict[str, Any]]:
     body = cut_after_projects_footer(body)
     lines = [ln.strip() for ln in body.splitlines() if ln.strip()]
@@ -1093,11 +1116,15 @@ def clean_gulp_profile(
     cleaned_sections: List[Tuple[str, str]] = []
     experiences: List[Dict[str, Any]] = []
     skills: Dict[str, str] = {}
+    other_chunks: List[str] = []
     for name_s, body in sections:
         body = strip_noise_lines(body)
         key = name_s.lower().strip()
         if key == "projekte":
-            experiences = parse_projects(body, max_activities=max_activities)
+            body_proj, ref_text = _split_referenzen_from_projects(body)
+            experiences = parse_projects(body_proj, max_activities=max_activities)
+            if ref_text:
+                other_chunks.append(f"Referenzen:\n{ref_text}")
             continue
         # Skill dumps → skills{} für AID-Plain (nicht verwerfen)
         if any(key == sk or key.startswith(sk) for sk in SKILL_SECTION_KEYS):
@@ -1116,7 +1143,15 @@ def clean_gulp_profile(
                 else:
                     skills[label] = cleaned
             continue
-        if key in ("persönliche stärken", "sonstige anmerkungen"):
+        # Persönliche Stärken / Sonstige Anmerkungen / Referenzen → other
+        if key in (
+            "persönliche stärken",
+            "sonstige anmerkungen",
+            "referenzen",
+        ) or key.startswith("referenzen"):
+            cleaned = _squash_skill_body(body)
+            if cleaned:
+                other_chunks.append(f"{name_s.strip()}:\n{cleaned}")
             continue
         # Fremdsprachen: one per line, drop empties / skill crumbs
         if key == "fremdsprachen":
@@ -1154,7 +1189,7 @@ def clean_gulp_profile(
         if body.strip():
             cleaned_sections.append((name_s, body))
 
-    # Display personal rows (ordered)
+    # Display personal rows (ordered) — Stundensatz bewusst weggelassen (kein Matching)
     personal_rows: List[Tuple[str, str]] = []
     if personal.get("name"):
         personal_rows.append(("Name", personal["name"]))
@@ -1162,12 +1197,12 @@ def clean_gulp_profile(
         personal_rows.append(("Wohnort", personal["wohnort"]))
     if personal.get("jahrgang"):
         personal_rows.append(("Jahrgang", personal["jahrgang"]))
-    if personal.get("stundensatz"):
-        personal_rows.append(("Stundensatz", personal["stundensatz"]))
     if personal.get("edv_seit"):
         personal_rows.append(("EDV-Erfahrung seit", personal["edv_seit"]))
     if personal.get("verfuegbar"):
         personal_rows.append(("Verfügbar ab", personal["verfuegbar"]))
+    # Stundensatz nicht in personal_rows / AID-Plain
+    personal.pop("stundensatz", None)
 
     return {
         "gulp_id": gulp_id,
@@ -1177,6 +1212,7 @@ def clean_gulp_profile(
         "sections": cleaned_sections,
         "skills": skills,
         "experience": experiences,
+        "other": "\n\n".join(other_chunks).strip(),
         "snapshot_chars": len(snap),
     }
 
@@ -1318,6 +1354,37 @@ def _fachbereich_lines(profile: Dict[str, Any]) -> List[str]:
     return out
 
 
+def _section_body_by_keys(profile: Dict[str, Any], *keys: str) -> str:
+    """Erste Section deren Kopf (lower) einem der Keys entspricht/startet."""
+    sm = _section_map(profile)
+    for key in keys:
+        key_l = key.lower()
+        for k, v in sm.items():
+            if k == key_l or k.startswith(key_l):
+                return (v or "").strip()
+    return ""
+
+
+def _emit_plain_block(lines: List[str], heading: str, body: str, *, colon: bool = False) -> None:
+    """AID-Plain Block: Überschrift + Body-Zeilen (Noise/leer überspringen)."""
+    body = (body or "").strip()
+    if not body:
+        return
+    if colon:
+        lines.append(f"{heading}:")
+    else:
+        lines.append(heading)
+    lines.append("")
+    for ln in body.splitlines():
+        s = ln.strip()
+        if not s or NOISE_LINE_RE.match(s):
+            continue
+        if re.match(r"(?i)^(seite\s+drucken|zum\s+seitenanfang|links:)", s):
+            continue
+        lines.append(s)
+    lines.append("")
+
+
 def profile_to_aid_plain(profile: Dict[str, Any], *, display_name: str = "") -> str:
     """
     Plaintext im abcona/AID-Layout — für aid_regex_extractor Fast-Path
@@ -1358,8 +1425,6 @@ def profile_to_aid_plain(profile: Dict[str, Any], *, display_name: str = "") -> 
         lines.append(f"Geburtsjahr: {pers['jahrgang']}")
     if pers.get("wohnort"):
         lines.append(f"Wohnort: {pers['wohnort']}")
-    if pers.get("stundensatz"):
-        lines.append(f"Stundensatz: {pers['stundensatz']}")
     langs = _sprachen(profile)
     if langs:
         lines.append(f"Sprachen: {langs}")
@@ -1379,6 +1444,27 @@ def profile_to_aid_plain(profile: Dict[str, Any], *, display_name: str = "") -> 
         for f in fach:
             lines.append(f)
         lines.append("")
+
+    # Ausbildung / Zertifizierungen / Branchen — eigene AID-Blöcke für aid_regex
+    # (aid_regex erwartet u.a. „Ausbildung:“ mit Doppelpunkt)
+    _emit_plain_block(
+        lines,
+        "Ausbildung",
+        _section_body_by_keys(profile, "ausbildung"),
+        colon=True,
+    )
+    _emit_plain_block(
+        lines,
+        "Zertifizierungen",
+        _section_body_by_keys(profile, "zertifizierungen", "zertifikate"),
+        colon=False,
+    )
+    _emit_plain_block(
+        lines,
+        "Branchen",
+        _section_body_by_keys(profile, "branchen", "branche"),
+        colon=False,
+    )
 
     # Skill-Kataloge aus Gulp (aid_regex: Betriebssysteme/Programmiersprachen/…)
     skills = profile.get("skills") or {}
@@ -1460,6 +1546,19 @@ def profile_to_aid_plain(profile: Dict[str, Any], *, display_name: str = "") -> 
             lines.append("")
             lines.append("")
 
+    # Sonstiges → pre_json.other / OtherContent (Stärken, Anmerkungen, Referenzen)
+    other = (profile.get("other") or "").strip()
+    if other:
+        lines.append("Sonstiges")
+        lines.append("")
+        for ln in other.splitlines():
+            s = ln.rstrip()
+            if s.strip():
+                lines.append(s)
+            else:
+                lines.append("")
+        lines.append("")
+
     return "\n".join(lines).rstrip() + "\n"
 
 
@@ -1479,11 +1578,14 @@ def profile_to_html(profile: Dict[str, Any], *, display_title: str = "") -> str:
         if line in (
             "Persönliche Daten",
             "Fachbereiche",
-            "Berufliche Erfahrungen",
+            "Ausbildung",
+            "Ausbildung:",
             "Zertifizierungen",
             "Branchen",
-        ):
-            body_parts.append(f"<h2>{html_mod.escape(line)}</h2>")
+            "Berufliche Erfahrungen",
+            "Sonstiges",
+        ) or re.match(r"(?i)^Ausbildung\s*:?\s*$", line):
+            body_parts.append(f"<h2>{html_mod.escape(line.rstrip(':'))}</h2>")
             continue
         if line.startswith("Qualifikationsprofil:"):
             body_parts.append(

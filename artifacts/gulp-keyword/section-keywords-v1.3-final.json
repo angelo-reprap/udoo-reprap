@@ -16,6 +16,10 @@
     "stundensatz": "PERSONAL",
     "verfügbar ab": "PERSONAL",
     "bemerkungen": "PERSONAL",
+    "einsatzort": "PERSONAL",
+    "regionen": "PERSONAL",
+    "regionen & länder": "PERSONAL",
+    "regionen & laender": "PERSONAL",
     "fachlicher schwerpunkt": "FACHBEREICHE",
     "schwerpunkt": "FACHBEREICHE",
     "position": "FACHBEREICHE",
@@ -45,8 +49,7 @@
     "methoden": "SKILLS",
     "tools": "SKILLS",
     "produkte / standards / erfahrungen": "FOCUS_EXP",
-    "einsatzort": "FOCUS_EXP",
-    "regionen": "FOCUS_EXP",
+    "produkte/standards/erfahrungen": "FOCUS_EXP",
     "projekte": "PROJECT",
     "projektübersicht": "PROJECT",
     "durchgeführte projekte": "PROJECT",
@@ -62,10 +65,13 @@
     "aufgabenstellung": "PROJECT",
     "eingesetzte produkte": "PROJECT",
     "systemumgebung": "PROJECT",
-    "referenzen": "EXPERIENCE"
+    "sonstiges": "OTHER",
+    "sonstige anmerkungen": "OTHER",
+    "persönliche stärken": "OTHER",
+    "referenzen": "OTHER"
   },
   "excluded_as_first_word_only": [
     "top", "meine", "software", "personen", "kommentar", "edv", "office"
   ],
-  "notes": "Use phrase match before first-word. Risky short tokens listed under excluded_as_first_word_only."
+  "notes": "Einsatzort/Regionen → PERSONAL (location). FOCUS_EXP nur Produkte/Standards/Erfahrungen. Referenzen/Stärken/Anmerkungen → OTHER. Use phrase match before first-word."
 }
