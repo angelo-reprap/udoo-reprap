@@ -1,0 +1,1216 @@
+{
+  "personal": {
+    "aid": "AID-hb_5.2.3.0",
+    "first_name": "Heiko",
+    "last_name": "Beemers",
+    "birth_year": 1964,
+    "location": "D2, D3",
+    "availability": "04.01.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1992,
+    "headline": "Informationssicherheit & Datenschutz: Management, Audits, Dokumentation",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 8,
+    "skills": 83,
+    "certifications": 0,
+    "education": 19,
+    "experience": 5,
+    "industries": 8,
+    "focus_areas": 81,
+    "focus_experience": 123,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Englisch (fließend)",
+      "level": ""
+    },
+    {
+      "name": "Französisch (Schulkenntnisse)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch fließend",
+      "level": ""
+    },
+    {
+      "name": "FranzösischSchulkenntnisse",
+      "level": ""
+    },
+    {
+      "name": "Russisch (erweiterte Grundkenntnisse)",
+      "level": ""
+    },
+    {
+      "name": "Türkisch (erweiterte Grundkenntnisse)",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Die DS-GVO",
+      "institution": "",
+      "period": "2016",
+      "education_type": "course"
+    },
+    {
+      "degree": "Die Datenschutz-Grundverordnung Erkenntnisse auf den zweiten Blick eine Vertiefung",
+      "institution": "",
+      "period": "2017",
+      "education_type": "course"
+    },
+    {
+      "degree": "Die DSGVO mit QM-Werkzeugen umsetzen",
+      "institution": "",
+      "period": "2019",
+      "education_type": "course"
+    },
+    {
+      "degree": "CompTIA Security+",
+      "institution": "",
+      "period": "2019",
+      "education_type": "course"
+    },
+    {
+      "degree": "Vereinsmanager C",
+      "institution": "",
+      "period": "2019",
+      "education_type": "course"
+    },
+    {
+      "degree": "CISSP",
+      "institution": "",
+      "period": "2020",
+      "education_type": "course"
+    },
+    {
+      "degree": "CompTIA Pentest+",
+      "institution": "",
+      "period": "2020",
+      "education_type": "course"
+    },
+    {
+      "degree": "Ethical Hacking CEHv10",
+      "institution": "",
+      "period": "2020",
+      "education_type": "course"
+    },
+    {
+      "degree": "Windows 10: Sicherheit & Datenschutz",
+      "institution": "",
+      "period": "2020",
+      "education_type": "course"
+    },
+    {
+      "degree": "Ende des EU-US Privacy-Shield",
+      "institution": "",
+      "period": "2020",
+      "education_type": "course"
+    },
+    {
+      "degree": "Die Einführung von Microsoft 365",
+      "institution": "",
+      "period": "2020",
+      "education_type": "course"
+    },
+    {
+      "degree": "Lehrbeauftragter Uni Osnabrück",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Medienrecht",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Windows Forensik",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Datenschutzauditor",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Datenschutzbeauftragter",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "IT-Sicherheitsbeauftragter",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Allgem. Hochschulreife",
+      "institution": "",
+      "period": "1984",
+      "education_type": "course"
+    },
+    {
+      "degree": "Dipl. Verwaltungswirt (FH)",
+      "institution": "",
+      "period": "1990",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Automotive / Sonderfahrzeugbau",
+    "Telekommunikation",
+    "Logistik",
+    "Banken / Finanzdienstleister",
+    "Rechtsanwälte / Steuerberater",
+    "Apotheken",
+    "Energieversorger",
+    "Soziale & kirchliche Einrichtungen"
+  ],
+  "focus_areas": [
+    "Informationssicherheit & Datenschutz: Management Audits Dokumentation",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Projektmanagement / -leitung / Organisation / Koordination Informationssicherheit",
+    "Umsetzung von Anforderungen nach ISO27001, BSI Grundschutz",
+    "Dokumentation von Sicherheitsvorfällen",
+    "Erstellen und pflegen von Sicherheitsvorgaben",
+    "Erstellen und anpassen von Personal- und Betriebsrats-Vereinbarungen",
+    "Awarenessmaßnahmen",
+    "Interne Audits unter Beachtung der ISO19011",
+    "Tätigkeit als CISO (Chief Information Security Officier)",
+    "Auditor",
+    "CERT-Mitglied",
+    "Datenschutz",
+    "Umsetzung der Anforderungen nach DSGVO und BDSG neu",
+    "Auf- und Ausbau eines Datenschutzmanagementsystems",
+    "Prozessaufnahmen",
+    "Prüfung von Dienstleistern",
+    "Vertragsmanagement im Rahmen der Auftragsverarbeitung",
+    "Betreuung von Datenpannen",
+    "Durchführung von Datenschutzfolgenabschätzungen",
+    "DPO / Datenschtuzbeauftragter",
+    "Datenschutzauditor",
+    "Referent / Datenschutzkoordinator",
+    "1990",
+    "Dipl. Verwaltungswirt (FH)",
+    "1984",
+    "Allgem. Hochschulreife",
+    "Fortbildung als Dozent:",
+    "IT-Sicherheitsbeauftragter",
+    "Datenschutzbeauftragter",
+    "Windows Forensik",
+    "Medienrecht",
+    "Lehrbeauftragter Uni Osnabrück",
+    "Fortbildung als Teilnehmer:",
+    "2020",
+    "Die Einführung von Microsoft 365",
+    "Ende des EU-US Privacy-Shield",
+    "Windows 10: Sicherheit & Datenschutz",
+    "Ethical Hacking CEHv10",
+    "CompTIA Pentest+",
+    "CISSP",
+    "2019",
+    "Vereinsmanager C",
+    "CompTIA Security+",
+    "Die DSGVO mit QM-Werkzeugen umsetzen",
+    "2017",
+    "Die Datenschutz-Grundverordnung Erkenntnisse auf den zweiten Blick eine Vertiefung 2016",
+    "Die DS-GVO",
+    "Zertifizierung:",
+    "Altaro VM Backup Certified Professional",
+    "BackupAssist Certified Partner",
+    "Auditor Securepoint Cert+",
+    "Lead Auditor ISO / EN 27001",
+    "Prince2 Foundation",
+    "Co-Mediator, Schwerpunkt: Wirtschaft & Arbeitswelt",
+    "Datenschutz Auditor",
+    "Geprüfter und verbandsanerkannter EDV-Sachverständiger nach DGuSV",
+    "Externer Datenschutzbeauftragter",
+    "Mailstore Certified Technician",
+    "Securepoint UTM Advanced Certified Engineer",
+    "LPIC Level 1",
+    "ITIL Foundation V. 2",
+    "Informationssicherheit & Datenschutz: Management",
+    "Audits",
+    "Dokumentation",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Informationssicherheit",
+    "BDSG neu",
+    "BSI-Kompendium",
+    "DS-GVO",
+    "ISO27001",
+    "Vertragsrecht",
+    "Managementerfahrung",
+    "Führungserfahrung",
+    "Personalratsarbeit",
+    "Unternehmerische Kompetenz",
+    "Projekterfahrung",
+    "Personalverantwortung",
+    "Personalführung",
+    "Sozial- und Führungskompetenz"
+  ],
+  "focus_experience": [
+    {
+      "name": "Access Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "ArcSight Enterprise",
+      "category": "product_standard"
+    },
+    {
+      "name": "Security Manager",
+      "category": "product_standard"
+    },
+    {
+      "name": "BSI Standard",
+      "category": "product_standard"
+    },
+    {
+      "name": "BSIGrundschutz Verwendung und Anwendung des BSI-Kompendiums",
+      "category": "product_standard"
+    },
+    {
+      "name": "CIS Controls",
+      "category": "product_standard"
+    },
+    {
+      "name": "COBIT Verwendung unter Gesichtspunkten von Transparenz",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sicherheit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Verfügbarkeit",
+      "category": "product_standard"
+    },
+    {
+      "name": "sowie Lieferanten- und Dienstleistermanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM Security zSecure",
+      "category": "product_standard"
+    },
+    {
+      "name": "Identitätsmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "IPMA Anwendung der PM-Methodik",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO19011 Grundlage für interne Audits",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO27001 Grundlage für Zertifizierungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO9001 Bedienung der QM-Schnittstellen zu Datenschutz und",
+      "category": "product_standard"
+    },
+    {
+      "name": "Informationssicherheit",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL Berücksichtigung zur Optimierung des Servicemanagements",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kanban Einsatz zur Optimierung paralleler Aufgaben",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kirchenrecht Anwendung im Datenschutz f. kirchlich-soziale Einrichtungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Libre Office Dokumentenerstellung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Makronutzung & -erstellung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Office Dokumentenerstellung",
+      "category": "product_standard"
+    },
+    {
+      "name": "VBA",
+      "category": "product_standard"
+    },
+    {
+      "name": "MindManager Kanbanboards erstellt",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenplanung",
+      "category": "product_standard"
+    },
+    {
+      "name": "PSP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Nextcloud Dokumentenablage",
+      "category": "product_standard"
+    },
+    {
+      "name": "Administration",
+      "category": "product_standard"
+    },
+    {
+      "name": "Setup",
+      "category": "product_standard"
+    },
+    {
+      "name": "otris privacy Verwendung als Datenschutzmanagement-Tool",
+      "category": "product_standard"
+    },
+    {
+      "name": "OWASP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Patchmanagement Metasploit zur Statusfeststellung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Penetrationstest Kali Linux zur Schwachstellenfindung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Personalvertretung Datenschutzberatung von Betriebsräten",
+      "category": "product_standard"
+    },
+    {
+      "name": "PMI Anwendung der PM-Methodik",
+      "category": "product_standard"
+    },
+    {
+      "name": "preeco Verwendung als Datenschutzmanagement-Tool",
+      "category": "product_standard"
+    },
+    {
+      "name": "PRINCE2 Anwendung der PM-Methodik",
+      "category": "product_standard"
+    },
+    {
+      "name": "Splunk",
+      "category": "product_standard"
+    },
+    {
+      "name": "TheHive",
+      "category": "product_standard"
+    },
+    {
+      "name": "Verhandlungsgeschick AV-Verträge",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vertragsmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vulnerability Metasploit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kali Linux",
+      "category": "product_standard"
+    },
+    {
+      "name": "Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "zammad Management von Supportanfragen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Allgemein",
+      "category": "product_standard"
+    },
+    {
+      "name": "juristische Vorbildung als Dipl. Verwaltungswirt (FH)",
+      "category": "product_standard"
+    },
+    {
+      "name": "umfangreiche IT-Erfahrung aufgrund verschiedenster Projekte in",
+      "category": "product_standard"
+    },
+    {
+      "name": "Unternehmen unterschiedlicher Größe",
+      "category": "product_standard"
+    },
+    {
+      "name": "Methodenkompetenz:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Veröffentlichung von Artikeln",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schulungen und Vorträge",
+      "category": "product_standard"
+    },
+    {
+      "name": "Standards:",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO27001 / BSI Grundschutz",
+      "category": "product_standard"
+    },
+    {
+      "name": "COBIT 5",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT Infrastructure Library (ITIL) Foundation",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Projektmanagement PMI",
+      "category": "product_standard"
+    },
+    {
+      "name": "GPM / IPMA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prince2",
+      "category": "product_standard"
+    },
+    {
+      "name": "* QM",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO9001",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "Führungsrolle Führung von Mitarbeitenden zwecks Zielerreichung",
+      "category": "product_standard"
+    },
+    {
+      "name": "KoordinationsfähigkeitKoordination von Mitarbeitenden & Aufgaben",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schwerpunkte",
+      "category": "product_standard"
+    },
+    {
+      "name": "BDSG neu Umfangreiche Kenntnisse insbesondere zum Beschäftigtendatenschutz",
+      "category": "product_standard"
+    },
+    {
+      "name": "BSI- Verwendung zur Definition von TOMs",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vorbereitung von Grundschutzaudits",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kompendium",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datenschutz Kenntnisse auch in Sonderrechtsgebieten wie Kirchenrecht",
+      "category": "product_standard"
+    },
+    {
+      "name": "Wettbewerbsrecht",
+      "category": "product_standard"
+    },
+    {
+      "name": "DS-GVO Umfangreiche und breite Kenntnisse",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO27001 Vorbereitung zum Audit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vertragsrecht Bewertung von Verträgen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Gestaltung von Verträgen im Rahmen",
+      "category": "product_standard"
+    },
+    {
+      "name": "des Abschlußes von",
+      "category": "product_standard"
+    },
+    {
+      "name": "AV-Verträgen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Managementerfahrung in Unternehmen:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Führungserfahrung Fachliche Führung von Mitarbeitenden des Auftraggebers",
+      "category": "product_standard"
+    },
+    {
+      "name": "Führung von",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mitarbeitenden",
+      "category": "product_standard"
+    },
+    {
+      "name": "Personalratsarbeit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Unternehmerische Kompetenz:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Selbständig seit über 25 Jahren",
+      "category": "product_standard"
+    },
+    {
+      "name": "Organisatorisch-strategische Analysen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projekterfahrung mit eigener Verantwortung",
+      "category": "product_standard"
+    },
+    {
+      "name": "diverse DSGVO-Migrationen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Einführung von Nagios unter Berücksichtigung von ITIL",
+      "category": "product_standard"
+    },
+    {
+      "name": "* techn. Übersetzung (Deutsch / Englisch",
+      "category": "product_standard"
+    },
+    {
+      "name": "Englisch / Deutsch)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufbau E-Mail- und SOA-Compliance",
+      "category": "product_standard"
+    },
+    {
+      "name": "Personalverantwortung:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Führungsrolle (Teil-) Projektleiter",
+      "category": "product_standard"
+    },
+    {
+      "name": "PersonalführungFachliche Führung von Mitarbeitenden des Auftraggebers",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sozial- und Führungskompetenz:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektmanagement (Infrastrukturbereitstellung für ein",
+      "category": "product_standard"
+    },
+    {
+      "name": "Softwareentwicklungsprojekt in der Automotive Industrie)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Auslandseinsätze",
+      "category": "product_standard"
+    },
+    {
+      "name": "ArcSight Enterprise Security Manager",
+      "category": "product_standard"
+    },
+    {
+      "name": "BSI Grundschutz",
+      "category": "product_standard"
+    },
+    {
+      "name": "BSI-Kompendium",
+      "category": "product_standard"
+    },
+    {
+      "name": "COBIT",
+      "category": "product_standard"
+    },
+    {
+      "name": "IPMA",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO19011",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO27001",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kanban",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kirchenrecht",
+      "category": "product_standard"
+    },
+    {
+      "name": "Libre Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "MindManager",
+      "category": "product_standard"
+    },
+    {
+      "name": "Nextcloud",
+      "category": "product_standard"
+    },
+    {
+      "name": "otris privacy",
+      "category": "product_standard"
+    },
+    {
+      "name": "Patchmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Metasploit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Penetrationstest",
+      "category": "product_standard"
+    },
+    {
+      "name": "Personalvertretung",
+      "category": "product_standard"
+    },
+    {
+      "name": "PMI",
+      "category": "product_standard"
+    },
+    {
+      "name": "preeco",
+      "category": "product_standard"
+    },
+    {
+      "name": "Verhandlungsgeschick",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vulnerability Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "zammad",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "11/2020 - heute",
+      "company": "Bank",
+      "role": "Berater Informationssicherheit",
+      "title": "Dokumentation IT-Sicherheit, Frankfurt am Main",
+      "activities": 7,
+      "technologies": 7
+    },
+    {
+      "period": "08/2010 - heute",
+      "company": "Div. Auftraggeber",
+      "role": "Datenschutz- / Informationssicherheitsbeauftragter",
+      "title": "Datenschutz- / Informationssicherheitsmanagement, Deutschland / Tschechien",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "11/2009 - 11/2009",
+      "company": "Automobilhersteller",
+      "role": "Projektberater",
+      "title": "Beratung SOA Compliance, Deutschland",
+      "activities": 8,
+      "technologies": 6
+    },
+    {
+      "period": "07/2009 - 07/2009",
+      "company": "Kirchliche Einrichtung",
+      "role": "Berater Datenschutz",
+      "title": "Betriebsvereinbarung Dokumentenablage, Deutschland",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "06/1992 - 12/1996",
+      "company": "Kommunalverwaltung / Steuerberater",
+      "role": "Datenschutzbeauftragter / IT-Sicherheitsbeauftragter",
+      "title": "Datenschutz & Informationssicherheit (Teilzeit), Deutschland",
+      "activities": 8,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt RZ-Betrieb, Administration , Systemsupport, 06/04 - 03/06\nReferenz durch Leiter IT-Infrastruktur, Finanzdienstleister (750 MA), vom 08.03.07\n\"Der Consultant war durch seine Verantwortungsbereitschaft, sein hohes Engagement und seine erfolgreiche Einarbeitung in neue Bereiche ein anerkanntes Teammitglied. Er hat im Zuge seiner Tätigkeit in Konzeption, Planung und Aufbau von Systemen speziell im Webumfeld führend mitgewirkt. Neben seiner fachlichen Qualifikation im Bereich des Supports (3rd level) und der Rechenzentrums-Administration ist seine ergebnisorientierte Arbeitsweise hervorzuheben. Wir beauftragen ihn jederzeit wieder und empfehlen ihn zukuenftigen Projektanbietern.\"\nProjekt Release Review (Micropayment, UMTS u. a.), 08/01 - 03/04\nReferenz durch Gruppenleiterin, Telekommunikationsunternehmen, vom 03.04.04\n\"Der Consultant war als Teilprojektleiter im Bereich 'Release-Review' (Micropayment, UMTS u. a.) tätig. Im Rahmen seiner Tätigkeit hat er, durch die Programmierung von Anwendungen (Visual Basic for Applications mit Anbindung an Oracle), entscheidend zur Verbesserung der Release-Unterlagen und zur Vereinfachung von Arbeitsabläufen beigetragen. Darüber hinaus führte er Programmanalysen (Cobel, C, shell script), Software-Migrationen und Rufbereitschaften aus. Neben seiner fachlichen Qualifikation zeichnet sich der Consultant durch seine vielseitige Einsetzbarkeit und die kontinuierliche, aktive Weiterentwicklung durch spezifische Fortbildungen aus. Ich bedanke mich an dieser Stelle für die gute, erfolgreiche Zusammenarbeit und empfehle den Consultant anderen Projektanbietern für eine vielversprechende Zusammenarbeit.\"\nAlle Referenzen sind durch GULP bestätigt.\n\nSonstige Anmerkungen:\nPublikation gerne auf Anfrage\nMitgliedschaften gerne auf Anfrage",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "DB2 Härtung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Rechte & Rollen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenanalyse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Logauswertung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MariaDB Härtung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server Härtung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL Härtung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle Härtung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "CentOS LPIC Level I",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Systemverwaltung",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Härtung",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Schwachstellenmanagment",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Kali Pentesting",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Schwachstellenmanagement",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "KVM KVM on Ubuntu",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux LPIC Level I",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Ubuntu KVM on Ubuntu",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Systemadministration",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Arbeitsplatzrechner",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Server",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix LPIC Level I",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows Scripting",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Systemmanagement",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Patchmanagement",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows Virtualisierung",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenschutzeinstellungen",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Server Schwachstellenmanagement",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows Arbeitsplatzrechner",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "virtualisierte Maschine",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "10 Datenschutzeinstellungen",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "awk-Programm Auswertung von Logs",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "BashShell Backup",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Auswertung von Logs",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Excel-Macro Erfassung von Datenschuzprozessen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Excel-VBA Erfassung von Datenschutzprozessen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl Auswertung von Logs",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Python Schwachstellenmanagement",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Systemauswertung",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Shell Unix Backup",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Splunk",
+      "category_name": "Monitoring Tools",
+      "weight": 0.62
+    },
+    {
+      "name": "zSecure",
+      "category_name": "Security Tools",
+      "weight": 0.62
+    },
+    {
+      "name": "ArcSight",
+      "category_name": "Security Tools",
+      "weight": 0.62
+    },
+    {
+      "name": "The Hive",
+      "category_name": "Security Tools",
+      "weight": 0.62
+    },
+    {
+      "name": "BSI Standard",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.62
+    },
+    {
+      "name": "CIS Controls",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.62
+    },
+    {
+      "name": "Ubuntu",
+      "category_name": "Betriebssysteme",
+      "weight": 0.62
+    },
+    {
+      "name": "Nextcloud",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.62
+    },
+    {
+      "name": "Kali Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.62
+    },
+    {
+      "name": "Microsoft Project",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "Microsoft Office",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "IPMA",
+      "category_name": "Projektmanagement Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "DataPower",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "SOA",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "ESB",
+      "category_name": "Architekturmuster",
+      "weight": 0.38
+    },
+    {
+      "name": "E-Mail Verschlüsselung",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "PGP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "S/Mime",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Archivierung",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Ethernet Wireshark",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Paketaufbau / -analyse",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Internet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Wordpress- / Joomla-Patching",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "OWASP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.62
+    },
+    {
+      "name": "SSL-Einsatz",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Intranet Firewallkonfiguration",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Reverse Proxy",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "HTTP-Proxy",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Mail-Proxy",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "IP- Wireshark",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Kommunikation",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "PC-Anywhere Supportaufgaben",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Teamviewer",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "AnyDesk",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Router Härtung",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Livecyclemanagement",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SNMP Monitoring",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Nagios",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Check_MK",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "TCP/IP Wireshark",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    }
+  ]
+}
