@@ -10,13 +10,16 @@
 #     → diff Live vs Repo (zeigt Drift)
 #     → KEIN Überschreiben von Live
 #
-#   # Nur wenn Diff absichtlich (Agent-Patch auf aktuellem Live-Stand) OK:
+#   # Bei Drift zuerst Repo auf Live bringen:
+#   bash scripts/SAFE-gulp-content-deploy.sh sync-from-live
+#   git add … && git commit && git push
+#   # dann Agent-Patches auf diesem Stand, erneut prepare → 1:1 oder nur bewusster Diff
+#
 #   bash scripts/SAFE-gulp-content-deploy.sh deploy
-#     → bricht ab wenn FORCE=1 fehlt und Diff nicht leer war beim letzten prepare
-#     → nochmal -save, dann Repo → Live
+#     → bricht ab wenn Drift (FORCE=1 nur bewusst)
 #
 #   bash scripts/SAFE-gulp-content-deploy.sh restore
-#     → backup_restore -restore (letzter Save vor Deploy)
+#     → backup_restore -restore
 #
 set -euo pipefail
 
@@ -158,14 +161,43 @@ _restore() {
   echo "Fertig. Diff prüfen: bash $0 prepare"
 }
 
+_sync_from_live() {
+  # Live → Repo (1:1 Basis). Danach commit+push, erst dann Agent-Patches.
+  echo "=== Live → Repo (überschreibt Repo-Stand dieser Dateien) ==="
+  for rel in "${FILES[@]}"; do
+    live="$LIVE_CV/$rel"
+    repo="$SRC/$rel"
+    if [[ ! -f "$live" ]]; then
+      echo "FAIL Live fehlt: $live" >&2
+      exit 1
+    fi
+    mkdir -p "$(dirname "$repo")"
+    cp -a "$live" "$repo"
+    echo "OK sync $rel"
+  done
+  rm -f "$DRIFT_FLAG"
+  echo
+  echo "Als Nächstes auf ucs5:"
+  echo "  cd $REPO"
+  echo "  git add \\"
+  for rel in "${FILES[@]}"; do
+    echo "    Repo_abpe/cv_extractor/incoming/$rel \\"
+  done
+  echo "    && git commit -m 'chore: Live→Repo 1:1 (SAFE content) before patch' \\"
+  echo "    && git push origin $BRANCH"
+  echo "  # danach Agent: Patches auf diesem Stand neu setzen"
+  echo "  bash $0 prepare   # muss OK 1:1 zeigen"
+}
+
 case "$cmd" in
   prepare) _prepare ;;
   deploy)  _deploy ;;
   restore) _restore ;;
+  sync-from-live) _sync_from_live ;;
   save)    _save_all "manual" ;;
   help|*)
     sed -n '2,25p' "$0"
-    echo "Usage: $0 {prepare|deploy|restore|save}"
+    echo "Usage: $0 {prepare|sync-from-live|deploy|restore|save}"
     exit 0
     ;;
 esac
