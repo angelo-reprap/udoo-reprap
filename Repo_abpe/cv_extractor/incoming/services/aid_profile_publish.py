@@ -13,6 +13,7 @@ Kein Crash wenn Share fehlt — nur Warning.
 """
 from __future__ import annotations
 
+import errno
 import json
 import logging
 import os
@@ -157,6 +158,72 @@ def _chown_path(path: Path) -> None:
         logger.debug(f'chown {path}: {e}')
 
 
+def _stash_blocking_path(path: Path) -> bool:
+    """CIFS: Datei/Ghost auf neu|cv beiseite legen. True wenn weg oder nie da."""
+    try:
+        if not path.exists():
+            return True
+    except OSError:
+        return False
+    stamp = time.strftime('%H%M%S')
+    junk = path.with_name(f"{path.name}.notdir-{stamp}")
+    for op in (
+        lambda: path.rename(junk),
+        lambda: path.unlink(),
+        lambda: shutil.rmtree(path) if path.is_dir() else (_ for _ in ()).throw(OSError('not dir')),
+    ):
+        try:
+            op()
+            logger.warning('Publish: blockierenden Pfad entfernt/umbenannt: %s', path)
+            return True
+        except OSError:
+            continue
+    return False
+
+
+def _mkdir_cifs(path: Path) -> bool:
+    """mkdir mit Retry gegen CIFS Errno 17 (File exists) / Ghost-Dentries."""
+    for attempt in range(4):
+        try:
+            if path.is_dir():
+                return True
+        except OSError:
+            pass
+        try:
+            path.mkdir(parents=True, exist_ok=True)
+            if path.is_dir():
+                return True
+        except FileExistsError:
+            pass
+        except OSError as e:
+            if getattr(e, 'errno', None) not in (errno.EEXIST, errno.EBUSY, 16, 17):
+                logger.warning('mkdir %s: %s', path, e)
+                return False
+        # existiert, ist aber kein Dir (oder CIFS-Ghost) → beiseite
+        try:
+            if path.exists() and not path.is_dir():
+                if not _stash_blocking_path(path):
+                    return False
+                continue
+        except OSError:
+            if not _stash_blocking_path(path):
+                return False
+            continue
+        # exist_ok-Fall: laut Stat Dir, mkdir trotzdem EEXIST — kurz warten
+        if attempt < 3:
+            time.sleep(0.15 * (attempt + 1))
+            try:
+                if path.is_dir():
+                    return True
+            except OSError:
+                pass
+            _stash_blocking_path(path)
+    try:
+        return path.is_dir()
+    except OSError:
+        return False
+
+
 def ensure_neu_cv_dir(consultant_dir: str, last_name: str = '') -> Optional[Path]:
     """
     …/AID_profile/{lll}/{consultant_dir}/neu/cv/
@@ -184,39 +251,13 @@ def ensure_neu_cv_dir(consultant_dir: str, last_name: str = '') -> Optional[Path
 
     target = person / 'neu' / 'cv'
     try:
-        # Eltern schrittweise anlegen + chmod.
-        # CIFS/SMB: nach abgebrochenem Cleanup kann "neu" oder "cv" als DATEI
-        # existieren → mkdir → [Errno 17] File exists (exist_ok hilft dann nicht).
+        # Eltern schrittweise — CIFS: neu/cv oft Ghost/Datei nach Windows-Löschen
         cur = root
         for part in (bucket, dir_name, 'neu', 'cv'):
             cur = cur / part
-            if cur.exists() and not cur.is_dir():
-                junk = cur.with_name(f"{cur.name}.notdir-{time.strftime('%H%M%S')}")
-                try:
-                    cur.rename(junk)
-                    logger.warning(
-                        'Publish: %s war keine Directory → umbenannt nach %s',
-                        cur, junk.name,
-                    )
-                except OSError:
-                    try:
-                        cur.unlink()
-                        logger.warning('Publish: Nicht-Dir entfernt: %s', cur)
-                    except OSError as e:
-                        logger.warning(
-                            'neu/cv nicht anlegbar (%s): Nicht-Dir blockiert: %s',
-                            target, e,
-                        )
-                        return None
-            try:
-                cur.mkdir(parents=True, exist_ok=True)
-            except FileExistsError:
-                if not cur.is_dir():
-                    logger.warning(
-                        'neu/cv nicht anlegbar (%s): FileExistsError und kein Dir',
-                        target,
-                    )
-                    return None
+            if not _mkdir_cifs(cur):
+                logger.warning('neu/cv nicht anlegbar (%s): mkdir fehlgeschlagen bei %s', target, cur)
+                return None
             _chmod_path(cur, is_dir=True)
             _chown_path(cur)
         return target

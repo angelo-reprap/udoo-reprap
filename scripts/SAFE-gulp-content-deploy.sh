@@ -37,6 +37,7 @@ DRIFT_FLAG="$STATE_DIR/last-prepare-had-drift"
 FILES=(
   extractors/aid_regex_extractor.py
   services/main_db_importer.py
+  services/aid_profile_publish.py
   services/url_fl_db_importer.py
   management/commands/cleanup_aid_test_imports.py
 )
