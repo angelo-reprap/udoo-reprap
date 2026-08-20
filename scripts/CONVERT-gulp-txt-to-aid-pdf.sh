@@ -11,8 +11,15 @@
 #     bash /mnt/public/udoo-reprap/scripts/CONVERT-gulp-txt-to-aid-pdf.sh
 #   EXECUTE=1 LIMIT=0   # alle NEED-Zeilen
 #
-# Keywords: Repo section_label_keywords + artifacts/gulp-keyword/section-keywords-v1.3-final.json
-# Labeler (main_labeler) wird hier NICHT angefasst.
+# Preview nach X:\Berater\AID_profile\aaaMuster (= /mnt/public/.../aaaMuster):
+#   TXT_DIR=$REPO/artifacts/gulp-keyword/dryrun-fails/txt \
+#   OUT_DIR=/mnt/public/Berater/AID_profile/aaaMuster \
+#   SKIP_PERSON_DIR=1 LIMIT=1 EXECUTE=1 \
+#     bash /mnt/public/udoo-reprap/scripts/CONVERT-gulp-txt-to-aid-pdf.sh
+#
+# Fertige Cloud-Preview (ohne LibreOffice auf ucs5):
+#   cp -v $REPO/artifacts/gulp-keyword/preview-aaaMuster/AID-*-gulp-*.pdf \
+#        /mnt/public/Berater/AID_profile/aaaMuster/
 #
 set -euo pipefail
 
@@ -21,37 +28,40 @@ REPO="${REPO:-/mnt/public/udoo-reprap}"
 AID_ROOT="${AID_ROOT:-/mnt/public/Berater/AID_profile}"
 NEED="${NEED:-}"
 FAILS="${FAILS:-}"
+TXT_DIR="${TXT_DIR:-}"
+WEB_COPY="${WEB_COPY:-}"
+OUT_DIR="${OUT_DIR:-}"   # z.B. aaaMuster — PDF nur/zusätzlich hierhin
 OUT_LOG="${OUT_LOG:-/tmp/gulp-to-aid-pdf-$(date +%Y%m%d-%H%M%S)}"
 LIMIT="${LIMIT:-0}"
 EXECUTE="${EXECUTE:-0}"
 MIN_LEN="${MIN_LEN:-200}"
 VERSION_TAG="${VERSION_TAG:-1.0.0.0}"
+SKIP_PERSON_DIR="${SKIP_PERSON_DIR:-0}"  # 1 = nur OUT_DIR, kein Person-Ordner
 
 # Auto-Find NEED TSV wenn nicht gesetzt
-if [[ -z "$NEED" && -z "$FAILS" ]]; then
+if [[ -z "$NEED" && -z "$FAILS" && -z "$TXT_DIR" ]]; then
   NEED="$(ls -td /tmp/gulp-vs-neu-*/need_neu_cv_with_fs_dir.tsv 2>/dev/null | head -1 || true)"
 fi
-if [[ -z "$NEED" && -z "$FAILS" ]]; then
-  echo "FAIL: weder NEED noch FAILS gesetzt, und kein /tmp/gulp-vs-neu-*/need_neu_cv_with_fs_dir.tsv gefunden." >&2
-  echo "  Inventur neu: bash $REPO/scripts/INVENTORY-gulp-vs-neu-cv.sh" >&2
-  echo "  oder: NEED=/pfad/zur.tsv LIMIT=5 EXECUTE=0 bash $0" >&2
+if [[ -z "$NEED" && -z "$FAILS" && -z "$TXT_DIR" ]]; then
+  echo "FAIL: weder NEED noch FAILS noch TXT_DIR gesetzt, und kein NEED-TSV unter /tmp/gulp-vs-neu-*." >&2
+  echo "  Preview: TXT_DIR=$REPO/artifacts/gulp-keyword/dryrun-fails/txt OUT_DIR=$AID_ROOT/aaaMuster LIMIT=1 EXECUTE=1 bash $0" >&2
   exit 1
 fi
 if [[ -n "$NEED" && ! -f "$NEED" ]]; then
   echo "FAIL: NEED Datei fehlt: $NEED" >&2
   exit 1
 fi
-echo "NEED=${NEED:-} FAILS=${FAILS:-} LIMIT=$LIMIT EXECUTE=$EXECUTE"
+echo "NEED=${NEED:-} FAILS=${FAILS:-} TXT_DIR=${TXT_DIR:-} OUT_DIR=${OUT_DIR:-} LIMIT=$LIMIT EXECUTE=$EXECUTE"
 
 mkdir -p "$OUT_LOG"
 cd "$BACKEND"
 # shellcheck disable=SC1091
 [[ -f /opt/abpe/venv311/bin/activate ]] && source /opt/abpe/venv311/bin/activate
 export DJANGO_SETTINGS_MODULE="${DJANGO_SETTINGS_MODULE:-abpe_backend.settings}"
-export REPO AID_ROOT NEED FAILS OUT_LOG LIMIT EXECUTE MIN_LEN VERSION_TAG
+export REPO AID_ROOT NEED FAILS TXT_DIR WEB_COPY OUT_DIR SKIP_PERSON_DIR OUT_LOG LIMIT EXECUTE MIN_LEN VERSION_TAG
 
 python3 manage.py shell <<'PY'
-import os, re, html, subprocess, tempfile, shutil
+import os, re, html, subprocess, tempfile, shutil, json
 from pathlib import Path
 from django.apps import apps
 
@@ -59,6 +69,10 @@ REPO = Path(os.environ["REPO"])
 AID_ROOT = Path(os.environ["AID_ROOT"])
 NEED = (os.environ.get("NEED") or "").strip()
 FAILS = (os.environ.get("FAILS") or "").strip()
+TXT_DIR = (os.environ.get("TXT_DIR") or "").strip()
+WEB_COPY = (os.environ.get("WEB_COPY") or "").strip()
+OUT_DIR = (os.environ.get("OUT_DIR") or "").strip()
+SKIP_PERSON_DIR = os.environ.get("SKIP_PERSON_DIR", "0") in ("1", "true", "TRUE", "yes")
 OUT_LOG = Path(os.environ["OUT_LOG"])
 LIMIT = int(os.environ.get("LIMIT") or "0")
 EXECUTE = os.environ.get("EXECUTE", "0") in ("1", "true", "TRUE", "yes")
@@ -222,20 +236,57 @@ def libreoffice_html_to_pdf(html_path: Path, out_dir: Path, timeout=90) -> Path 
     return pdf if pdf.is_file() else None
 
 
-def cstm_text(cid: str) -> str:
+def cstm_text(cid: str, gulp_id: str = "") -> str:
+    """Text holen: gulp_id_c zuerst, dann contact__id (int), dann contact_id (UUID)."""
     st = None
-    try:
-        st = CrmContactCstm.objects.filter(contact_id=cid).first()
-    except (ValueError, TypeError):
-        st = None
+    if gulp_id:
+        gid = str(gulp_id).strip()
+        st = CrmContactCstm.objects.filter(gulp_id_c=gid).first()
+        if st is None and gid.isdigit():
+            try:
+                st = CrmContactCstm.objects.filter(gulp_id_c=int(gid)).first()
+            except (ValueError, TypeError):
+                st = None
+    if st is None and cid:
+        try:
+            st = CrmContactCstm.objects.filter(contact_id=cid).first()
+        except (ValueError, TypeError):
+            st = None
     if st is None and str(cid).isdigit():
-        st = CrmContactCstm.objects.filter(contact_id=int(cid)).first()
+        cid_int = int(cid)
+        st = (
+            CrmContactCstm.objects.filter(contact__id=cid_int).first()
+            or CrmContactCstm.objects.filter(contact_id=cid_int).first()
+        )
     return (getattr(st, "gulp_profil_c", None) or "").strip() if st else ""
 
 
 # ── Jobs sammeln ────────────────────────────────────────────────────────────
 jobs = []
-if NEED and Path(NEED).is_file():
+if TXT_DIR and Path(TXT_DIR).is_dir():
+    for fp in sorted(Path(TXT_DIR).glob("*.txt")):
+        if fp.name.endswith(".reason.txt"):
+            continue
+        # name = nachname_vorname.txt
+        stem = fp.stem
+        parts = stem.rsplit("_", 1)
+        if len(parts) == 2:
+            last, first = parts[0], parts[1]
+        else:
+            last, first = stem, ""
+        jobs.append(
+            {
+                "contact_id": "",
+                "gulp_id": "",
+                "last": last.replace("_", " ").title() if "_" in last else last,
+                "first": first,
+                "fs_letter": "",
+                "fs_dir": stem,
+                "src": "txt",
+                "txt_path": str(fp),
+            }
+        )
+elif NEED and Path(NEED).is_file():
     for i, line in enumerate(Path(NEED).read_text(encoding="utf-8").splitlines()):
         if i == 0 or not line.strip():
             continue
@@ -251,6 +302,7 @@ if NEED and Path(NEED).is_file():
                 "fs_letter": p[5],
                 "fs_dir": p[6],
                 "src": "need",
+                "txt_path": "",
             }
         )
 elif FAILS and Path(FAILS).is_file():
@@ -270,29 +322,34 @@ elif FAILS and Path(FAILS).is_file():
                 "fs_letter": "",
                 "fs_dir": slug_name(last, first),
                 "src": "fails",
+                "txt_path": "",
             }
         )
 else:
-    raise SystemExit("NEED oder FAILS TSV setzen")
+    raise SystemExit("NEED oder FAILS oder TXT_DIR setzen")
 
-if LIMIT > 0:
-    jobs = jobs[:LIMIT]
-
-print(f"jobs={len(jobs)} EXECUTE={EXECUTE} AID_ROOT={AID_ROOT}")
+# LIMIT = max erfolgreiche Outputs (Skips zählen nicht gegen LIMIT beim Schreiben)
+print(f"jobs_candidates={len(jobs)} EXECUTE={EXECUTE} AID_ROOT={AID_ROOT}")
 print(f"keywords={kw.KEYWORDS_VERSION}")
 
 ok = fail = skip = 0
-rows = ["status\tcontact_id\tletter\tdir\tpdf\tchars\tnote"]
+rows = ["status\tcontact_id\tletter\tdir\tpdf\tchars\tnote\tweb"]
+web_urls = []
 
 for j in jobs:
+    if LIMIT > 0 and ok >= LIMIT:
+        break
     cid = j["contact_id"]
     last, first = j["last"], j["first"]
     dname = j["fs_dir"] or slug_name(last, first)
-    text = cstm_text(cid)
+    if j.get("txt_path"):
+        text = Path(j["txt_path"]).read_text(encoding="utf-8", errors="replace").strip()
+    else:
+        text = cstm_text(cid, j.get("gulp_id") or "")
     if len(text) < MIN_LEN:
         skip += 1
-        rows.append(f"SKIP\t{cid}\t\t{dname}\t\t{len(text)}\ttoo_short")
-        print(f"SKIP short {dname} len={len(text)}")
+        rows.append(f"SKIP\t{cid}\t\t{dname}\t\t{len(text)}\ttoo_short\t")
+        print(f"SKIP short {dname} len={len(text)} cid={cid} gulp_id={j.get('gulp_id')}")
         continue
 
     ini = initials(first, last)
@@ -314,40 +371,78 @@ for j in jobs:
 
     if not EXECUTE:
         ok += 1
-        rows.append(f"DRY\t{cid}\t{letter}\t{dname}\t{pdf_name}\t{len(text)}\t{note}")
+        rows.append(f"DRY\t{cid}\t{letter}\t{dname}\t{pdf_name}\t{len(text)}\t{note}\t")
         print(f"DRY {letter}/{dname}/{pdf_name} chars={len(text)} {note}")
         continue
 
     sections = split_sections(text)
     html_doc = to_html(first, last, j.get("gulp_id") or "", sections)
-    person_dir.mkdir(parents=True, exist_ok=True)
+    web = ""
     with tempfile.TemporaryDirectory(prefix="gulp2aid_") as td:
         td_path = Path(td)
-        html_path = td_path / f"AID-{ini}_{VERSION_TAG}-gulp.html"
+        html_stem = f"AID-{ini}_{VERSION_TAG}-gulp"
+        # unique-ish preview name when dumping into aaaMuster
+        if OUT_DIR:
+            html_stem = f"AID-{ini}_{VERSION_TAG}-gulp-{dname}"[:120]
+            pdf_name = f"{html_stem}.pdf"
+        html_path = td_path / f"{html_stem}.html"
         html_path.write_text(html_doc, encoding="utf-8")
         pdf = libreoffice_html_to_pdf(html_path, td_path)
         if not pdf:
             fail += 1
-            rows.append(f"FAIL\t{cid}\t{letter}\t{dname}\t{pdf_name}\t{len(text)}\tlibreoffice")
+            rows.append(f"FAIL\t{cid}\t{letter}\t{dname}\t{pdf_name}\t{len(text)}\tlibreoffice\t")
             continue
-        shutil.copy2(pdf, target)
+        written = []
+        if not SKIP_PERSON_DIR and not OUT_DIR:
+            person_dir.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(pdf, target)
+            written.append(str(target))
+        elif not SKIP_PERSON_DIR and OUT_DIR:
+            # both: person dir + preview dir
+            person_dir.mkdir(parents=True, exist_ok=True)
+            person_pdf = person_dir / f"AID-{ini}_{VERSION_TAG}-gulp.pdf"
+            shutil.copy2(pdf, person_pdf)
+            written.append(str(person_pdf))
+        if OUT_DIR:
+            odir = Path(OUT_DIR)
+            odir.mkdir(parents=True, exist_ok=True)
+            dest = odir / pdf_name
+            shutil.copy2(pdf, dest)
+            shutil.copy2(html_path, odir / f"{html_stem}.html")
+            written.append(str(dest))
+            web = str(dest)
+        if WEB_COPY:
+            wdir = Path(WEB_COPY)
+            wdir.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(pdf, wdir / pdf_name)
+            web = f"https://abpe.win.abcona.info/data/html_out/_gulp_preview/{pdf_name}"
+            web_urls.append(web)
+        if OUT_DIR and not WEB_COPY:
+            web_urls.append(web)
     ok += 1
-    rows.append(f"OK\t{cid}\t{letter}\t{dname}\t{pdf_name}\t{len(text)}\t{note}")
-    print(f"OK {target} chars={len(text)} sections={len(sections)}")
+    rows.append(f"OK\t{cid}\t{letter}\t{dname}\t{pdf_name}\t{len(text)}\t{note}\t{web}")
+    print(f"OK {dname} chars={len(text)} sections={len(sections)}")
+    for w in written:
+        print(f"  → {w}")
+    if web and WEB_COPY:
+        print(f"  WEB {web}")
 
 (OUT_LOG / "result.tsv").write_text("\n".join(rows) + "\n", encoding="utf-8")
 summary = {
     "execute": EXECUTE,
-    "jobs": len(jobs),
-    "ok": ok,
+    "jobs_ok": ok,
     "fail": fail,
     "skip": skip,
     "version_tag": VERSION_TAG,
     "keywords": kw.KEYWORDS_VERSION,
     "aid_root": str(AID_ROOT),
+    "web_urls": web_urls,
 }
-import json
 (OUT_LOG / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
 print(json.dumps(summary, indent=2))
 print(f"LOG={OUT_LOG}")
+if web_urls:
+    print("DOWNLOAD:")
+    for u in web_urls:
+        print(f"  {u}")
 PY
