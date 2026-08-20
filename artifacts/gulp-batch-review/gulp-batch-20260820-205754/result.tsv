@@ -1,0 +1,11 @@
+status	contact_id	gulp_id	letter	dir	pdf	note	secs
+SKIP	11097	121319	uuu	ungureanu_lucian		has_neu_cv	0
+SKIP	12362	173251	aaa	ahmad_ahmad		has_neu_cv	0
+SKIP	12026		www	wolfsegger_bernd		has_neu_cv	0
+SKIP	12322	71352	aaa	ackermann_stefan		has_neu_cv	0
+SKIP	12507	2408	aaa	anacker_ellen		has_neu_cv	0
+SKIP	12650	102473	aaa	aydin_andac		has_neu_cv	0
+SKIP	12722	111530	bbb	baker_ashraf		has_neu_cv	0
+SKIP	12825	67435	bbb	bauchmueller_peter		has_neu_cv	0
+SKIP	12827	50723	bbb	bauer_joachim		has_neu_cv	0
+OK	12946	21374	bbb	beemers_heiko	AID-hb_5.2.3.1.pdf	ok	61
