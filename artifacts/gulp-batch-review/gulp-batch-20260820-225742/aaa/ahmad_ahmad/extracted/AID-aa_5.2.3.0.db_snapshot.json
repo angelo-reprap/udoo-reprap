@@ -1,0 +1,358 @@
+{
+  "personal": {
+    "aid": "AID-aa_5.2.3.0",
+    "first_name": "Ahmad",
+    "last_name": "Ahmad",
+    "birth_year": null,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+    "availability": "01.04.20 zu 5%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2001,
+    "headline": "Cisco CCIE x2 R&S, Datacenter #27895 IP/MPLS Service Provider Backbones L2/L3 MPLS VPNs, IP Muticast, Nexus, ASR9000 Juniper, Alcate-Lucent",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 6,
+    "skills": 44,
+    "certifications": 0,
+    "education": 1,
+    "experience": 5,
+    "industries": 0,
+    "focus_areas": 6,
+    "focus_experience": 5,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Englisch (gut)",
+      "level": ""
+    },
+    {
+      "name": "Arabic Native",
+      "level": ""
+    },
+    {
+      "name": "English good",
+      "level": ""
+    },
+    {
+      "name": "German Fluent",
+      "level": ""
+    },
+    {
+      "name": "Arabisch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch (fließend)",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Dipl. Ing. (FH) Technische Informatik",
+      "institution": "Beuth University of Appleid Sciences, Berlin (Germany)",
+      "period": "10/1993 - 04/2002",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [],
+  "focus_areas": [
+    "Cisco CCIE x2 R&S",
+    "Datacenter #27895 IP/MPLS Service Provider Backbones L2/L3 MPLS VPNs",
+    "IP Muticast",
+    "Nexus",
+    "ASR9000 Juniper",
+    "Alcate-Lucent"
+  ],
+  "focus_experience": [
+    {
+      "name": "Extensive Experience in Design and Deployment of robust redundant and scalable",
+      "category": "product_standard"
+    },
+    {
+      "name": "IP networks",
+      "category": "product_standard"
+    },
+    {
+      "name": "IP/MPLS based L2/L3 VPN Services and Data Center Environments",
+      "category": "product_standard"
+    },
+    {
+      "name": "IP/MPLS",
+      "category": "product_standard"
+    },
+    {
+      "name": "L2/L3 VPN",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "03/2012 - heute",
+      "company": "Xantaro Deutschland GmbH",
+      "role": "Senior Consultant Service Providers",
+      "title": "Senior Consultant Service Providers, Berlin , Germany",
+      "activities": 8,
+      "technologies": 16
+    },
+    {
+      "period": "02/2011 - 02/2012",
+      "company": "Vodafone Kabel Deutschland GmbH",
+      "role": "Senior Network Engineer",
+      "title": "Senior Network Engineer, Berlin , Germany",
+      "activities": 3,
+      "technologies": 2
+    },
+    {
+      "period": "04/2007 - 01/2011",
+      "company": "M-net Telekommunikations GmbH",
+      "role": "Senior Network Engineer / Project Manager",
+      "title": "Senior Network Engineer / Project Manager, Munich , Germany",
+      "activities": 4,
+      "technologies": 14
+    },
+    {
+      "period": "02/2006 - 11/2006",
+      "company": "MeidaTeamIT",
+      "role": "Network Academy Student",
+      "title": "Network Academy Student, Berlin , Germany",
+      "activities": 8,
+      "technologies": 10
+    },
+    {
+      "period": "05/2001 - heute",
+      "company": "Fraunhofer Institute for open communications systems",
+      "role": "",
+      "title": "NGN R&D, Berlin , Germany",
+      "activities": 8,
+      "technologies": 4
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Juniper)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Design and Implementation of Cisco Nexus 7K",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "and Nexus 1000v",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "consisting of Cisco",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "and Troubleshooting of IP/MPLS Backbone",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.8
+    },
+    {
+      "name": "Alcatel-lucent",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Cisco Nexus 5K",
+      "category_name": "Hardware",
+      "weight": 0.62
+    },
+    {
+      "name": "Cisco Nexus 2K",
+      "category_name": "Hardware",
+      "weight": 0.62
+    },
+    {
+      "name": "ISIS",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.62
+    },
+    {
+      "name": "MPLS",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.62
+    },
+    {
+      "name": "BGP",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.62
+    },
+    {
+      "name": "EVPN",
+      "category_name": "Sonstige Skills",
+      "weight": 0.62
+    },
+    {
+      "name": "Fibre Channel",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.62
+    },
+    {
+      "name": "FCoE",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.62
+    },
+    {
+      "name": "Cisco UCS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.62
+    },
+    {
+      "name": "FabricPath",
+      "category_name": "Datenkommunikation",
+      "weight": 0.62
+    },
+    {
+      "name": "vPC+",
+      "category_name": "Betriebssysteme",
+      "weight": 0.62
+    },
+    {
+      "name": "Cisco ACI",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.62
+    },
+    {
+      "name": "Cisco Nexus 1000v",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.62
+    },
+    {
+      "name": "Alcatel-Lucent",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Huawei",
+      "category_name": "Hardware",
+      "weight": 0.47
+    },
+    {
+      "name": "Juniper",
+      "category_name": "Hardware",
+      "weight": 0.55
+    },
+    {
+      "name": "ADVA",
+      "category_name": "Hardware",
+      "weight": 0.55
+    },
+    {
+      "name": "GPON",
+      "category_name": "Sonstige Skills",
+      "weight": 0.55
+    },
+    {
+      "name": "FTTH",
+      "category_name": "Sonstige Skills",
+      "weight": 0.55
+    },
+    {
+      "name": "FTTB",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.55
+    },
+    {
+      "name": "VPN",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.55
+    },
+    {
+      "name": "Multicast",
+      "category_name": "Datenkommunikation",
+      "weight": 0.55
+    },
+    {
+      "name": "QoS",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.75
+    },
+    {
+      "name": "VoIP",
+      "category_name": "Datenbanken",
+      "weight": 0.75
+    },
+    {
+      "name": "IPTV",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.55
+    },
+    {
+      "name": "Cisco",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "CCNA",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "CCNP",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "IP",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "EIGRP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Frame Relay",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "RIPv2",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "VLANs",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "Ethernet",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "ACLs",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "NGN",
+      "category_name": "Datenkommunikation",
+      "weight": 0.62
+    },
+    {
+      "name": "SIP Express Router",
+      "category_name": "Kommunikationstools",
+      "weight": 0.62
+    },
+    {
+      "name": "HSI",
+      "category_name": "Sonstige Skills",
+      "weight": 0.55
+    }
+  ]
+}

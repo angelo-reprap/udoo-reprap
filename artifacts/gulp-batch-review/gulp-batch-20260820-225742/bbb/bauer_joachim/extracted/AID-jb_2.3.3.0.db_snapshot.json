@@ -1,0 +1,688 @@
+{
+  "personal": {
+    "aid": "AID-jb_2.3.3.0",
+    "first_name": "Joachim",
+    "last_name": "Bauer",
+    "birth_year": 1966,
+    "location": "D3, D6, D9",
+    "availability": "01.04.21 zu 80%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1989,
+    "headline": "Web-Architektur, Fullstack Java, JEE, Appliances, Enterprise Search",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 5,
+    "skills": 151,
+    "certifications": 0,
+    "education": 1,
+    "experience": 15,
+    "industries": 5,
+    "focus_areas": 24,
+    "focus_experience": 16,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Französisch (Grundkenntnisse)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch Wort und Schrift",
+      "level": ""
+    },
+    {
+      "name": "Englisch (Wort und Schrift)",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Entwicklung eines zentralen Warenwirtschaftssystems",
+      "institution": "Nanz Zentrale Verwaltungsgesellschaft GmbH",
+      "period": "1989 - 1990",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Finanzdienstleistungsbereich",
+    "Banken",
+    "Börse",
+    "Wertpapiergeschäft",
+    "Handelssysteme"
+  ],
+  "focus_areas": [
+    "Web-Architektur",
+    "Fullstack Java",
+    "Appliances",
+    "Enterprise Search",
+    "Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test Engineering / IT-nahe Ingenieurdienstleistungen",
+    "Beratung Rapid Application Develoopment, Big Data, Beratung für Web-Apps und IT-Architekturen, Erstellung von Realisierungsvorschlägen, Lasten- und Pflichtenheften. Projektleitung und Unterstützung de",
+    "Realisierung von Komponenten der Zugriffsschicht auf Basis einer relationalen Datenbank",
+    "Realisierung eines Unternehmenskalenders Methoden/Werkzeuge: PL/I, CSP, SQL Systeme: DOS/VSE, SQL/DS",
+    "JEE",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Qualitätsmanagement / Qualitätssicherung / Test",
+    "Engineering / IT-nahe Ingenieurdienstleistungen",
+    "Beratung Rapid Application Develoopment",
+    "Big Data",
+    "Beratung für Web-Apps und IT-Architekturen",
+    "Erstellung von Realisierungsvorschlägen",
+    "Lasten- und Pflichtenhefte",
+    "Projektleitung und Unterstützung des Managements",
+    "Java-Technologien",
+    "Performante Suchdatenbanken",
+    "Web-Technologien"
+  ],
+  "focus_experience": [
+    {
+      "name": "Activecampaign",
+      "category": "product_standard"
+    },
+    {
+      "name": "B2C Marketing",
+      "category": "product_standard"
+    },
+    {
+      "name": "Clickfunnels",
+      "category": "product_standard"
+    },
+    {
+      "name": "Css3",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Elasticsearch",
+      "category": "product_standard"
+    },
+    {
+      "name": "GitHub",
+      "category": "product_standard"
+    },
+    {
+      "name": "Html 5",
+      "category": "product_standard"
+    },
+    {
+      "name": "SVN",
+      "category": "product_standard"
+    },
+    {
+      "name": "System Architect",
+      "category": "product_standard"
+    },
+    {
+      "name": "Xcode",
+      "category": "product_standard"
+    },
+    {
+      "name": "Zoho",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schwerpunkte",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java-Technologien",
+      "category": "product_standard"
+    },
+    {
+      "name": "Performante Suchdatenbanken",
+      "category": "product_standard"
+    },
+    {
+      "name": "Web-Technologien",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "11/2020 - 03/2021",
+      "company": "Deutsche Bank",
+      "role": "Lead-Testmanager",
+      "title": "Testmanager im Bereich Baufinanzierung, Frankfurt am Main",
+      "activities": 2,
+      "technologies": 1
+    },
+    {
+      "period": "04/2020 - 01/2021",
+      "company": "Lebenswerte Zukunft",
+      "role": "IT Architekt",
+      "title": "Entwicklung Online Marketing Konzept und Aufbau IT-, Hamburg - Berlin - Frankfurt",
+      "activities": 7,
+      "technologies": 3
+    },
+    {
+      "period": "08/2019 - 03/2020",
+      "company": "Projekt im Rahmen eines Systemhauses",
+      "role": "Software-Entwickler und Architekt",
+      "title": "Prototyp Entwicklung Enterprise Search, Frankfurt am Main",
+      "activities": 6,
+      "technologies": 8
+    },
+    {
+      "period": "01/2017 - 11/2018",
+      "company": "Rentenbank Frankfurt",
+      "role": "Qualitätssicherung",
+      "title": "SQL-Serverumstellung im OLAP-Bereich, Frankfurt am Main",
+      "activities": 6,
+      "technologies": 5
+    },
+    {
+      "period": "04/2016 - 01/2017",
+      "company": "",
+      "role": "Online Sport-Manager Game",
+      "title": "Eigen- und Weiterentwicklung eSport-manager.net",
+      "activities": 8,
+      "technologies": 6
+    },
+    {
+      "period": "03/2014 - 08/2019",
+      "company": "Rentenbank",
+      "role": "",
+      "title": "Analyse, Design und Umsetzung von folgenden Projekten bzw., Frankfurt/Deutschland",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "05/2013 - 02/2014",
+      "company": "",
+      "role": "",
+      "title": "Analyse, Design und Umsetzung gesetzlicher Vorgaben im",
+      "activities": 8,
+      "technologies": 8
+    },
+    {
+      "period": "03/2013 - 03/2013",
+      "company": "Deutsche Bundesbank",
+      "role": "",
+      "title": "Analyse einer Java-Plugin-Komponente, Frankfurt/Deutschland",
+      "activities": 4,
+      "technologies": 12
+    },
+    {
+      "period": "04/2012 - 12/2012",
+      "company": "KfW",
+      "role": "",
+      "title": "Projekt Basel III Webanwendungen für die Berechnung von, Frankfurt/Deutschland",
+      "activities": 6,
+      "technologies": 6
+    },
+    {
+      "period": "10/2011 - 03/2012",
+      "company": "",
+      "role": "",
+      "title": "Projekt Pflegeprogrammdateien Zwei Webanwendungen für die Pflege von Statistischen Daten und Nebenabreden",
+      "activities": 5,
+      "technologies": 7
+    },
+    {
+      "period": "01/2011 - 09/2011",
+      "company": "",
+      "role": "",
+      "title": "Projekt Webanwendung Engagementübersicht: Aufbereitung eines",
+      "activities": 6,
+      "technologies": 7
+    },
+    {
+      "period": "10/2010 - 12/2010",
+      "company": "",
+      "role": "",
+      "title": "Projekt Meldewesen. Anlieferung von Daten aus",
+      "activities": 6,
+      "technologies": 7
+    },
+    {
+      "period": "07/2009 - 09/2010",
+      "company": "",
+      "role": "",
+      "title": "Projektanbindung an bestehendes Dokument-Management-System (Projekt ModaLB) und neues Web-Projekt zur Übertragung von Umweltzertifikaten an das Umweltbundesamt (Projekt DEHSt)",
+      "activities": 7,
+      "technologies": 26
+    },
+    {
+      "period": "1991 - 1998",
+      "company": "Deutsche Börse Systems AG",
+      "role": "",
+      "title": "Deutsche Börse Systems AG, Frankfurt/Main",
+      "activities": 8,
+      "technologies": 6
+    },
+    {
+      "period": "1989 - 1990",
+      "company": "Nanz Zentrale Verwaltungsgesellschaft GmbH",
+      "role": "",
+      "title": "Nanz Zentrale Verwaltungsgesellschaft GmbH",
+      "activities": 14,
+      "technologies": 5
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt Außenschnittstellen, 02/06 - 12/08\nReferenz durch Prokurist, Finanzinstitut, vom 21.11.08\n\"Der Consultant hat an einer Reihe von Projekten mitgewirkt. Durch sein tiefes Wissen in den Bereichen Wbsphere und Webentwicklung (von der Spezifikation bis zum Einsatz) hat er unser Team hervorragend unterstützt und beraten. Auch seine soziale Kompetenz und Professionalität haben sehr zur Erreichung des Projektzieles beigetragen, was ihn die Wertschätzung seiner Kollegen einbrachte. Deshalb möchten wir uns bei dem Berater für die erbrachte Leistung bedanken und wünschen ihm für die weiteren Projekte viel Erfolg und gutes Gelingen.\"\nProjekt Websphere-Migration v4 nach v5, Redesign Flash GUI, 10/04 - 01/06\nReferenz durch Direktionsmitglied, Schweizerische Investmentbank (weltweit 15.000 MA), vom 15.12.05\n\"Der Consultant hat in allen Projekten mit seinem Know-how und seiner engagierten Art sehr zum Erfolg der Projekte beigetragen. Er verfügt über ein profundes Wissen in Websphere und umfassende Kenntnisse in allen Phasen eines OO-Projektes von der Spezifikation bis hin zum Einsatz der Anwendung. Wir möchten uns beim Consultant für die erbrachte Leistung bedanken und ihn anderen Projektanbietern empfehlen. Seine freundliche und hilfsbereite Art sowie sein stets professionelles Verhalten wurden von Auftraggeber, Projektleiter und Kollegen gleichermassen geschätzt.\"\nAlle Referenzen sind durch GULP bestätigt.\n\nSonstige Anmerkungen:\nFür die letzten Projekte sind Referenzen in Papier-Form vorhanden.\nAuf Anfrage sende ich Ihnen gerne die gewünschten Referenzen zu.",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Postgres",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Relationales DB-System u. diverse andere Technonlogien",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL Server 2016 / VS / SSMS",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Debian",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Glassfish 3 u. 4",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM iSeries",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Kubernetes",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Tomcat 8",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Websphere 8",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "UNIX (Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "HP-UX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM AIX)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/2",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Windows 3.11",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MVS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "DB/DC Systeme",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "ORACLE",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "INFORMIX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "IMS-DB/DC",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-ACCESS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "AngularJS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Docker",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Eclipse-Link",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM System Architect",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java 7/8",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Betriebssysteme",
+      "weight": 0.9
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JEE6/7",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JPA",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "UML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java/J2EE",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C/C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl mit Regular Expressions",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PHP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ORACLE PL/SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cobol",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "HTML/CGI/JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/I",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "EASY/REXX",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Methoden/Werkzeuge",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "RAD6",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "WSAD",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Forte",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Eclipse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM VisualAge for Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Rational Rose (OOA/OOD/UML)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Together J",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Continuus",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "DB Visualizer",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Visual C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle Designer/2000",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle Enterprise Manager",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Symantec Café",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL/Plus (Oracle/AIX)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CandleComandCenter (MQ)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Tkprof",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "TSCM",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Toad",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XPEDITER",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Bibliotheken/API's",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JAVA-XML (JAXP)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JAVA-MQSeries",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "TIBCO Rendezvous",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle-OCI",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "TCP/IP-Sockets (IPV4",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "IPV6)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Besondere Kenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CMS phpNuke (ContentManagmentSystem)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "DV-Projektmanagement",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "RTGSplus B2B",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SwiftNetInteract",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SwiftAllianceGateway",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+AID: AID-ja_1.1.3.0
+Name: Jens Arnold
+Headline: Netzwerk Administraton und Support (OS/2, Windows NT); Datenbank Administration und Programmierung
+Ort: Deutschland
+Wohnort: 990xx Erfurt Deutschland
+Jahrgang: 1979
+Verfügbar: 01.07.2010 zu 75%, Vor-Ort-Einsatz zu 75% möglich
+EDV seit: 1995
+Sprachen: Deutsch: Heimatsprache, Englisch: in Wort und Schrift, Russisch: in, Deutsch (Heimatsprache), Englisch (in Wort und Schrift), Russisch (in Wort und Schrift)
+
+FACHBEREICHE:
+Netzwerk Administraton und Support (OS/2 Windows NT); Datenbank Administration und Programmierung Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Netzwerk Administration und Support (OS/2, Windows NT)
+Datenbank Administration und Programmierung
+Software-Entwicklung / Programmierung
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Dokumentation / DTP
+
+BRANCHEN:
+Banken
+Autobranche
+Handel
+Versicherungen
+EDV
+
+PROJEKTE:
+  k.A. | Daimler-Chrysler in Stuttgart Möhringen und Untertürkheim | Datenbankanbindungen DB2, Bankleitzahlen, Userberechtigungen u.s.w.). Telefonischer Support für Banken-Administratoren bei System- und Anwendungs-
+    - Die Aufgabe war die bestehenden Windows NT 4.0 Clients auf das Jahr 2000 und den Euro vorzubereiten. Hierzu war es nötig Service Pack 4 aufzu- spielen. Gleichzeitig wurde die Domäne umgestellt. Hardwareumrüstungen wie z.B. die Erweiterung des Arbeitsspeichers und den Einbau von Sound- karten wurden genauso vorgenommen.
+    - Desweiteren wurde im Laufe des Rollouts ebenfalls verschiedene Software (von Acrobat Reader bis Office
+    - 97) installiert.· Meine spezielle Haupttätigkeit lag hierbei im Troubleshooting von Problemen die im Laufe des Rollouts auftraten.
+    Techs: Windows NT 4.0, Service Pack 4, Acrobat Reader, Office 97, DB2, OS/2, Notes, Windows 2000, Windows XP, Token-Ring
+  k.A. | RWSO Stuttgart | Client-Migration im RWSO (Rechenzentrum der württembergischen Sparkassenorganisation)
+    - Pack 4 (hauptsächlich Dualboot-Maschinen). Die OS/2 Migration erfolgte mittels Softwareverteilung über TED-Client und NVDM. NT musste händisch migriert werden.
+    - Support einer Bank mit mehreren Instituten
+    - Komplettservice, zu dem z.B. OS/2 Warp 3.0 und 4.0, NT 4.0, verschiedene sparkasseninterne Anwendungen (SEFIS, OLISS u.s.w.), 3270 und Office Anwendungen gehörten
+    Techs: OS/2 Warp 3.0, Fix Pack 36, Windows NT, Service Pack 4, Dualboot, TED-Client, NVDM, OS/2 Warp 4.0, NT 4.0, SEFIS
+  k.A. | Sparkassen- und Berliner Bank | Troubleshooter
+    - Die einzelnen Clients mussten per CC-Server neu auf Warp 4 verteilt werden (inkl. Netzanbindung - Tokenring), dies geschah allerdings erst nachdem die Server händisch umgestellt wurden.
+    - Netzanbindung - Tokenring), dies geschah allerdings erst nachdem die Server händisch umgestellt wurden. Wie auch bei Daimler- Chrysler wurde ich hierbei nach kurzer Zeit als Troubleshooter verwendet.
+    - Wie auch bei Daimler-Chrysler wurde ich hierbei nach kurzer Zeit als Troubleshooter verwendet.
+    Techs: OS/2 Warp 3, OS/2 Warp 4, CC-Server, Tokenring
+  k.A. |  | User-Help-Desk im RWSO Stuttgart
+    - Hier begleitete ich mehrere Aufgaben auf einmal.
+    - Meine Hauptaufgabe war der Support von einer Bank mit mehreren
+    - Instituten. Hier wurde ein Komplettservice, zu dem z.B. OS/2 Warp 3.0 und 4.0, NT 4.0, verschiedene sparkasseninterne Anwendungen (SEFIS,
+  k.A. | FIDUCIA AG Kahrsruhe für genossenschaftliche Banken | Tätigkeiten bei FIDUCIA AG Kahrsruhe für genossenschaftliche Banken
+    - Migration der vorhandenen Token-Ring-Netzwerktopologie zu Ethernet
+    - Installation von OS/2 und Windows NT Arbeitsplätzen inkl. Anwendungen wie z.B. Lotus Notes, SmartSuite, MS Office, Personal-Communication ...). Installation und Tausch von Gateways, Datenbank-, Print- und Notes-Servern
+    - Administration von OS/2 Servern
+    Techs: Token-Ring, Ethernet, OS/2, Windows NT, Lotus Notes, SmartSuite, MS Office, Personal-Communication, NetFinity, Afro
+  k.A. |  | Datenbankanbindungen DB2, Bankleitzahlen, Userberechtigungen u.s.w.). Telefonischer Support für Banken-Administratoren bei System- und Anwendungs-
+    - problemen (OS/2, NT, Notes, verschiedene Buchungs- und Bankenanwendungen).
+    - Serverzentralisierung und -konsolidierung (Anbindung kleiner und mittlerer
+    - Bankenzweigstellen über Standleitungen an die jeweilige Hauptstelle)(Referenz liegt vor, bitte anfordern)
+  k.A. |  | Datenbank-Lösung zum Unterschriften Scannen für Lotus
+    - Notes inkl. Alt-Daten-
+  k.A. |  | Datenbank-Lösung zum Unterschriften Scannen für Lotus Notes inkl. Alt-Daten-Übernahme aus ein bestehenden DB/2 Datenbank
+    - Programmierung einer Datenbank für Kunden-Unterschriften
+    - Umsetzung verschiedenster Kundenwünsche (z.B. Prüfziffernberechnungen, Freigabemanagment u.s.w.)
+    - Freigabemanagment u.s.w.). Implementierung der Schnittstelle zwischen TWAIN-Treiber und Lotus Notes
+    Techs: Lotus Notes, DB/2, TWAIN
+
+SKILLS:
+  database: Access: Grundlagen, Approach: Grundlagen, DB2: gute Kenntnisse, Lotus Notes: gute Kenntnisse (R4, R5, R6), MS SQL Server: Gute Kenntnisse, MySQL: Gute Kenntnisse, SQL: Gute bis sehr gute Kenntnisse
+  hardware: Amiga: Grundkenntnisse der Hardware, Atari: Grundkenntnisse der Hardware, CD-Writer / Brenner: Grundkenntnisse der Hardware, Datenerfassungsterminals: Beleglese-Systeme, Drucker: HP, Lexmark, Kyocera und Epson Tintenstrahl- und Laserdrucker, Modem: Grundkenntnisse der Hardware, Nixdorf: Workstations bis zur XB-Reihe, Primergy Server, PC: tiefe Kenntnisse der Hardware, Scanner: Grundkenntnisse der Hardware, Soundkarten: Grundkenntnisse der Hardware, SPS: Grundlagen welche in der Schule vermittelt wurden, Streamer: Grundkenntnisse der Hardware
+  operating_system: MS-DOS: MS-DOS, DR-DOS, IBM-DOS (tieferes Know-How), OS/2: Version 2 / Warp 3 / Warp 4 / Warp 4.5 / inkl. Server (tiefes Know-How), PalmOS: Version 3 (Grundlagen), Unix: Redhat 5.x bis 9.x, Suse 5.x bis 9.x, Windows: 3.x, 95, 98, Millenium, NT4, Windows 2000, XP / NT4 Server, 2000, Server, 2003 Server (tiefes Know-How), Windows CE: tieferes Know-How (CE; Mobile Editon)
+  programming_languages: Assembler: Grundlagen, C++: Grundlagen, dBase: Grundlagen, Java: Gute Kenntnisse, JavaScript: Gute Kenntnisse, Lotus Notes Script: Gute Kenntnisse, Pascal: Turbo Pascal gute Kenntnisse, Perl: Grundlagen, PHP: Gute Kenntnisse, Rexx: Grundlagen, gute HTML- und XML-Kenntnisse, gute Lotus Formula Kenntnisse
+
+SKILL-ABLAGE:
+Ethernet: tieferes Know-How, IBM LAN Server: tieferes Know-How, Internet, Intranet: tieferes Know-How, ISDN: gutes Know-How, LAN, LAN Manager: gutes Know-How, NetBeui, NetBios, Novell, OS/2 Netzwerk: tieferes Know-How, PC-Anywhere: gutes Know-How, Router: Grundkenntnisse, TCP/IP: tieferes Know-How, Token Ring: tieferes Know-How, Windows Netzwerk: tieferes Know-How, X.400 X.25 X.225 X.75...: Grundlagen
+
+AUSBILDUNG:
+1985-1995 | 10. Klasse | IGS Erfurt  [course]
+1995-1998 | Abitur (FR Informatik) | Staatlich Berufsbildendes Gymnasium 'Andreas Gordon'  [course]
+
+FOCUS_EXP:
+  Migrationen (Client-Server Systeme unter den angegebenen Systemen -  [product_standard]
+  vorzugsweise OS/2 und Windows Server)  [product_standard]
+  MS-Office bis 2003  [product_standard]
+  Bankanwendungen der genossenschaftlichen Banken und Sparkassen (z.B. Rubin  [product_standard]
+  NBS  [product_standard]
+  Gebos  [product_standard]
+  Genos  [product_standard]
+  GIS)  [product_standard]
+  Heterogene Netze  [product_standard]
+  Lotus Notes Datenbankentwicklung  [product_standard]
+  Webseiten Entwicklung  [product_standard]
+  Wartung  [product_standard]
+  Design  [product_standard]
+  Hosting (Internet  [product_standard]
+  Intranet  [product_standard]
+  HTML  [product_standard]
+  XML  [product_standard]
+  PHP  [product_standard]
+  Java  [product_standard]
+  HTTP  [product_standard]
+  TCP/IP)  [product_standard]
+  Bildverarbeitung (Fotos  [product_standard]
+  Webpictures) Erfahrung mit Corel und Photoshop  [product_standard]
+  andere Office-Produkte wie Corel-Office und Star-Office  [product_standard]
+  Videobearbeitung mit Programmen wie Adobe Premiere und Aist MoviePack  [product_standard]
+  MS-Office  [product_standard]
+  Rubin  [product_standard]
+  GIS  [product_standard]
+  Lotus Notes  [product_standard]
+  TCP/IP  [product_standard]
+  Corel  [product_standard]
+  Photoshop  [product_standard]
+  Corel-Office  [product_standard]
+  Star-Office  [product_standard]
+  Adobe Premiere  [product_standard]
+  Aist MoviePack  [product_standard]

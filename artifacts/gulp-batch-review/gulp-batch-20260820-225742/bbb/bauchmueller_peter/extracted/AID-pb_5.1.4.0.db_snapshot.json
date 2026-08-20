@@ -1,0 +1,826 @@
+{
+  "personal": {
+    "aid": "AID-pb_5.1.4.0",
+    "first_name": "Peter",
+    "last_name": "Bauchmueller",
+    "birth_year": 1966,
+    "location": "D6, D7, D8 Deutschland: Reisespesen inklusive",
+    "availability": "01.11.15 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2002,
+    "headline": "IT Service Manager (ITIL V3, ISO 20000), IT Sourcing & Supplier Manager, IT Ausschreibungen (RfP, VOLA, UfAB), Projektmanagement",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 8,
+    "skills": 204,
+    "certifications": 0,
+    "education": 1,
+    "experience": 19,
+    "industries": 7,
+    "focus_areas": 16,
+    "focus_experience": 41,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch",
+      "level": ""
+    },
+    {
+      "name": "Französisch",
+      "level": ""
+    },
+    {
+      "name": "Deutsch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Englisch (fließend)",
+      "level": ""
+    },
+    {
+      "name": "Französisch (Grundkenntnisse)",
+      "level": ""
+    },
+    {
+      "name": "fließend",
+      "level": ""
+    },
+    {
+      "name": "Muttersprache",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "ISO 20000 Consultant",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Automobil",
+    "Versicherungen",
+    "Gesundheitswesen - Elektronische Gesundheitskarte (eGK)",
+    "Pharmahandel",
+    "Wirtschafts-Verlagswesen/Softwareentwicklung",
+    "Förderbanken",
+    "öffentliche Hand/Landesregierung"
+  ],
+  "focus_areas": [
+    "IT Service Manager (ITIL V3",
+    "ISO 20000)",
+    "IT Sourcing & Supplier Manager",
+    "IT Ausschreibungen (RfP",
+    "VOLA",
+    "UfAB)",
+    "Projektmanagement",
+    "Beratung / Consulting",
+    "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Qualitätsmanagement / Qualitätssicherung / Test bevorzugt IT Service Management IT Betrieb ISO 20000 Consultant",
+    "IT Service Manager (ITIL V3, ISO 20000)",
+    "IT Ausschreibungen (RfP, VOLA, UfAB)",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Administration / Support",
+    "Qualitätsmanagement / Qualitätssicherung / Test",
+    "IT Service Management",
+    "IT Betrieb"
+  ],
+  "focus_experience": [
+    {
+      "name": "Erfahrungen:",
+      "category": "product_standard"
+    },
+    {
+      "name": "* ITIL seit 1998: Problem",
+      "category": "product_standard"
+    },
+    {
+      "name": "Config",
+      "category": "product_standard"
+    },
+    {
+      "name": "Change",
+      "category": "product_standard"
+    },
+    {
+      "name": "Project",
+      "category": "product_standard"
+    },
+    {
+      "name": "Service Level",
+      "category": "product_standard"
+    },
+    {
+      "name": "Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Erstellung von Ausschreibungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "öffentlichen Ausschreibungen gem",
+      "category": "product_standard"
+    },
+    {
+      "name": "VOL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bewertung von Angeboten zum Beispiel gem. UfAB V",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Projektleitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Großprojektleitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mitwirkung bei der Erstellung und Verhandlung von Serviceverträgen",
+      "category": "product_standard"
+    },
+    {
+      "name": "für den IT Betrieb",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Rolloutorganisation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Migrationsprojekte",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Erstellung von Spezifikationen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Pflichtenheften",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erstellung von IT-Wirtschaftlichkeitsbetrachtungen gem IT-WiBe",
+      "category": "product_standard"
+    },
+    {
+      "name": "(`97)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Qualitätsmanagement in der Softwareentwicklung (CMMI-DEV",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Software - Dokumentation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Benutzerhandbuch (deutsch / englisch)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Beratung bei Konzeption von HelpDesk & Callcenter (Organisation &",
+      "category": "product_standard"
+    },
+    {
+      "name": "Technik)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Test (Konzeption",
+      "category": "product_standard"
+    },
+    {
+      "name": "Durchführung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Automatisierung)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* IT-Schulungen (Sicherheitsthemen",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT Service Management)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erstellung von Sicherheitshandbüchern gem. BSI Grundschutzhandbuch",
+      "category": "product_standard"
+    },
+    {
+      "name": "und Leitfäden",
+      "category": "product_standard"
+    },
+    {
+      "name": "Beratung zur Einführung Mass Customization",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kenntnisse Standard",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL",
+      "category": "product_standard"
+    },
+    {
+      "name": "UfAB V",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT-WiBe",
+      "category": "product_standard"
+    },
+    {
+      "name": "CMMI-DEV",
+      "category": "product_standard"
+    },
+    {
+      "name": "BSI Grundschutzhandbuch",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "08/2013 - 12/2013",
+      "company": "Daimler AG, ITM/CB, Stuttgart-Möhringen",
+      "role": "",
+      "title": "Analyse und Beratung im Service Support Bereich",
+      "activities": 6,
+      "technologies": 2
+    },
+    {
+      "period": "03/2013 - 04/2013",
+      "company": "Haufe-Lexware Services, Freiburg",
+      "role": "",
+      "title": "Beratung im Bereich IT Governance, IT Provider Management",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "02/2013 - 12/2013",
+      "company": "Daimler AG, ITM/F, Stuttgart-Möhringen",
+      "role": "",
+      "title": "Beratung im Rahmen J2E/Sourcing and Supplier Strategy",
+      "activities": 4,
+      "technologies": 4
+    },
+    {
+      "period": "01/2012 - 01/2013",
+      "company": "Daimler AG, Stuttgart",
+      "role": "Global Contract Manager IBM",
+      "title": "Beratung im Bereich IBM Vertragsmanagement,Rolle Global",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "05/2011 - 12/2011",
+      "company": "R+V Direktion, Wiesbaden",
+      "role": "",
+      "title": "Beratung Provider Management",
+      "activities": 3,
+      "technologies": 2
+    },
+    {
+      "period": "09/2010 - 05/2011",
+      "company": "GEHE Informatik Services, Stuttgart",
+      "role": "Position: Projektleiter Outsourcing, Interimsmanagement",
+      "title": "Position: Projektleiter Outsourcing, Interimsmanagement",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "08/2010 - 04/2011",
+      "company": "Haufe-Lexware Services, Freiburg",
+      "role": "",
+      "title": "Bereich IT Governance, IT Einkauf",
+      "activities": 5,
+      "technologies": 9
+    },
+    {
+      "period": "07/2010 - 08/2010",
+      "company": "Landwirtschaftliche Rentenbank, Frankfurt am Main",
+      "role": "",
+      "title": "Bereich Personalwesen",
+      "activities": 5,
+      "technologies": 5
+    },
+    {
+      "period": "02/2010 - 03/2010",
+      "company": "Bundesprojekt Gesundheitstelematik (eGK), Berlin",
+      "role": "",
+      "title": "Bereich Betrieb Telematik Infrastruktur (TI):",
+      "activities": 3,
+      "technologies": 2
+    },
+    {
+      "period": "03/2009 - 12/2009",
+      "company": "Bundesprojekt Gesundheitstelematik (eGK), Berlin",
+      "role": "",
+      "title": "Bereich Betrieb Telematik Infrastruktur (TI):",
+      "activities": 7,
+      "technologies": 6
+    },
+    {
+      "period": "01/2009 - 02/2009",
+      "company": "Deutsche Bank, Eschborn",
+      "role": "",
+      "title": "Unterstützung bei der Erstellung einer IT Governance für das",
+      "activities": 2,
+      "technologies": 3
+    },
+    {
+      "period": "07/2008 - 12/2008",
+      "company": "Daimler AG, GSP/ODA, Sindelfingen",
+      "role": "",
+      "title": "Prozess- und Toolentwicklung für Test-, IT-Betriebs-,",
+      "activities": 7,
+      "technologies": 14
+    },
+    {
+      "period": "04/2007 - 07/2008",
+      "company": "Daimler AG, GSP/TD, Fellbach bzw.",
+      "role": "Daimler AG, GSP/OD, Sindelfingen",
+      "title": "Qualitätsmanagement im Softwareentwicklungsprojekt XENTRY Diagnostics",
+      "activities": 4,
+      "technologies": 5
+    },
+    {
+      "period": "04/2006 - 05/2006",
+      "company": "T-Systems Enterprise Services GmbH, Leinfelden-Echterdingen",
+      "role": "Coach",
+      "title": "Coaching von Account Management und Projektleitung",
+      "activities": 6,
+      "technologies": 15
+    },
+    {
+      "period": "06/2005 - 12/2008",
+      "company": "DaimlerChrysler AG, ITI/E Untertürkheim",
+      "role": "bzw. Daimler AG, ITI/GC Möhringen",
+      "title": "bzw. Daimler AG, ITI/GC Möhringen",
+      "activities": 9,
+      "technologies": 5
+    },
+    {
+      "period": "02/2005 - 05/2005",
+      "company": "Micronas GmbH, Freiburg",
+      "role": "",
+      "title": "Unterstützung bei der Einführung der IT Service Management",
+      "activities": 5,
+      "technologies": 3
+    },
+    {
+      "period": "01/2005 - 03/2005",
+      "company": "T-Systems International GmbH, Leinfelden / Frankfurt",
+      "role": "",
+      "title": "Unterstützung des EWOISneu Projektmanagements",
+      "activities": 4,
+      "technologies": 5
+    },
+    {
+      "period": "08/2003 - 10/2004",
+      "company": "Betreibergemeinschaft EWOISneu - Landesprojekt RLP",
+      "role": "(T-Systems International GmbH & Kommunale Datenzentrale",
+      "title": "(T-Systems International GmbH & Kommunale Datenzentrale Mainz)",
+      "activities": 3,
+      "technologies": 2
+    },
+    {
+      "period": "10/2002 - 05/2003",
+      "company": "Ministerium des Inneren und für Sport in Rheinland Pfalz",
+      "role": "Projekt: EWOISneu",
+      "title": "Projekt: EWOISneu",
+      "activities": 12,
+      "technologies": 8
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nReferenz durch Geschäftsführer einer kommunalen Landesgesellschaft, 06.06.03 \"[...] Der IT-Spezialist zeichnet sich durch hohes Fachwissen und exzellente Führungseigenschaften aus. Nicht zuletzt Dank dieser Eigenschaften trug er maßgeblich zum erfolgreichen Start des Gesamtsystems bei. Er hat in zahlreichen Eskalationsprozessen mit sehr viel Verhandlungsgeschick unsere Interessen zu unserer vollsten Zufriedenheit vertreten und es verstanden, Konflikte durch seine ruhige und ausgeglichene Art problemlos zu meistern. Der IT-Spezialist hat nicht nur unser vollstes Vertrauen gewonnen, sondern auch das Vertrauen aller am Verfahren beteiligten Unternehmen. [...] Wir danken ihm für seine geleisteten hervorragenden Arbeiten und wünsche ihm viel Erfolg in allen künftigen Projekten. [...]\"\nReferenz durch Projektleiter des Landesinnenministeriums vom 09.07.03 \"[...] Sie waren wesentlich am Erfolg dieses Großprojektes beteiligt, dafür danke ich Ihnen herzlich und hoffe auf eine Gelegenheit für eine erneute Zusammenarbeit. [...] Die Vielfalt dieser Aufgaben verdeutlichen Ihr umfangreiches Fachwissen. Als Teilprojektleiter in der Pilotphase waren Ihnen zudem bis zu 30 Mitarbeiter und Mitarbeiterinnen unterstellt, die Sie trotz des erheblichen Termindrucks in besonnener und sozial kompetenter Weise führten. [...]\"\nReferenz durch Vorstandsmitglied Consulting Gesellschaft (60 MA), vom 30.09.02 Projekt im Rahmen einer Festanstellung durchgeführt \"[...] Der Mitarbeiter war ein verantwortungsbewusster, gewissenhafter und selbstständig arbeitender Mitarbeiter, der systematisch und zielstrebig an seine Aufgaben heranging und diese stets mit hohem Engagement zu unserer vollsten Zufriedenheit erfüllte. Besonders hervorzuheben ist seine überdurchschnittliche Auffassungsgabe in Verbindung mit einer hohen thematischen Flexibilität. So konnte sich der IT-Spezialist schnell und mit großer Lernbereitschaft in verschiedene Themen einarbeiten. Die Fähigkeit, in kurzer Zeit Zusammenhänge aufzunehmen und zu strukturieren, haben es ihm stets ermöglicht, auch schwierige Aufgaben zeitnah und umfassend zu lösen. Sein ruhiges und offenes Wesen und seine teamorientierte Arbeitsweise haben ihn zu einem von Mandanten, Vorgesetzten und Kollegen gleichermaßen anerkannten und geschätzten Gesprächspartner werden lassen. Seine Führung und sein Verhalten waren stets vorbildlich. [...] Wir bedauern sein Ausscheiden und danken ihm für seine wertvolle Mitarbeit. Wir wünschen ihm für die Zukunft alles Gute und weiterhin viel Erfolg.\"\nReferenz durch Geschäftsführer, Banken-Rechenzentrum (1.000 MA), vom 30.03.01 Projekt im Rahmen einer Festanstellung durchgeführt \"[...] Aufgrund seiner guten Kenntnisse und der bisher gezeigten Leistungen wurde ihm im Mai 1998 die Leitung und maßgebliche Projektarbeit für die Einführung eines umfassenden User Help Desk Systems (Tivoli Service Desk)übertragen. [...] Der IT-Spezialist besitzt fundierte bankfachliche Kenntnisse und hat sehr gute Kenntnisse im technischen Umfeld. Er setzte dieses Wissen auch bei schwierigen Aufgaben sehr erfolgreich ein. Hervorzuheben sind seine zielgerichteten Fortbildungsmaßnahmen auch in der Freizeit. Der IT-Spezialist arbeitete stets motiviert, mit Initiative und hohem Engagement. Seine Arbeitsweise zeichnete sich durch ein strategisches Vorgehen und durch eine kundenorientierte, zügige und sehr selbstständige Erledigung aus. Auch unter hoher Belastung bewältigte er seine Aufgaben jederzeit sehr gut. Seine Leistungen entsprachen in jeder Hinsicht und in bester Weise unseren Erwartungen. Das Verhalten des Mitarbeiters gegenüber Vorgesetzten, Kunden und Kollegen war stets einwandfrei. Es war immer offen und von konstruktiver Zusammenarbeit geprägt. Bei seinen Projektmitarbeitern war er voll anerkannt. [...]\"\nAlle Referenzen sind durch GULP bestätigt.",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Approach",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "BDE",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "gute Kenntnisse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Superbase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Sybase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "xBase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Smartsuite",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Office (Excel",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Word",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Powerpoint)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Visio",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Project",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Seagate Crystal Reports",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Mind Manager",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Adobe Acrobat",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Adobe Photoshop",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "SAMBA",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "CVS",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Subversion",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Kenntnisse Servicemanagement",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Software Artistry Expert Advisor/Decision Support",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Tivoli Service Desk",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Tivoli Decision Support (Cognos Power Play)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Tenovis ACD",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Telesnap Snapware (CTI)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "BMC ARS",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Wendia Point of Business (POB)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "OTRS",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Kenntnisse E-Commerce",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "osCommerce",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Internet Marketing (SEO",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Pflege von Suchmaschinen)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Ascii/X - Terminals",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM 3270",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "4700; Nixdorf/SNI 8864",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Bus",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Token Ring",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "CD-Writer / Brenner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Drucker",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Matrix",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Thermo",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Laser",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Ketten von Epson",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Lexmark",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Olivetti",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Minolta",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Emulatoren",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "3270 (Extra)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Großrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "3270",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM RS6000",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Iomega",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Zip",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Modem",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "9.600-56K baud diverser Hersteller",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Nixdorf",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "8864",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Intel 80286 bis Pentium/XEON; AMD K5-Athlon",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Scanner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Epson",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Canon; Agfa Microfilmscanner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SNI RM-Rechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Soundkarten",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Soundblaster",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Terratech",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Streamer",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "HP DAT",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM DLT",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Fire; Enterprise",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "US Robotics Pilot",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,701 @@
+{
+  "personal": {
+    "aid": "AID-ja_1.1.3.0",
+    "first_name": "Jens",
+    "last_name": "Arnold",
+    "birth_year": 1979,
+    "location": "Deutschland",
+    "availability": "01.07.2010 zu 75%, Vor-Ort-Einsatz zu 75% möglich",
+    "edv_experience_since": 1995,
+    "headline": "Netzwerk Administraton und Support (OS/2, Windows NT); Datenbank Administration und Programmierung",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 6,
+    "skills": 107,
+    "certifications": 0,
+    "education": 2,
+    "experience": 8,
+    "industries": 5,
+    "focus_areas": 9,
+    "focus_experience": 36,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Russisch (in Wort und Schrift)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch: Heimatsprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch: in Wort und Schrift",
+      "level": ""
+    },
+    {
+      "name": "Russisch: in",
+      "level": ""
+    },
+    {
+      "name": "Englisch (in Wort und Schrift)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch (Heimatsprache)",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Abitur (FR Informatik)",
+      "institution": "Staatlich Berufsbildendes Gymnasium 'Andreas Gordon'",
+      "period": "1995-1998",
+      "education_type": "course"
+    },
+    {
+      "degree": "10. Klasse",
+      "institution": "IGS Erfurt",
+      "period": "1985-1995",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Banken",
+    "Autobranche",
+    "Handel",
+    "Versicherungen",
+    "EDV"
+  ],
+  "focus_areas": [
+    "Netzwerk Administraton und Support (OS/2 Windows NT); Datenbank Administration und Programmierung Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Netzwerk Administration und Support (OS/2, Windows NT)",
+    "Datenbank Administration und Programmierung",
+    "Software-Entwicklung / Programmierung",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Administration / Support",
+    "Dokumentation / DTP"
+  ],
+  "focus_experience": [
+    {
+      "name": "Migrationen (Client-Server Systeme unter den angegebenen Systemen -",
+      "category": "product_standard"
+    },
+    {
+      "name": "vorzugsweise OS/2 und Windows Server)",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS-Office bis 2003",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bankanwendungen der genossenschaftlichen Banken und Sparkassen (z.B. Rubin",
+      "category": "product_standard"
+    },
+    {
+      "name": "NBS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Gebos",
+      "category": "product_standard"
+    },
+    {
+      "name": "Genos",
+      "category": "product_standard"
+    },
+    {
+      "name": "GIS)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Heterogene Netze",
+      "category": "product_standard"
+    },
+    {
+      "name": "Lotus Notes Datenbankentwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Webseiten Entwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Wartung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Design",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hosting (Internet",
+      "category": "product_standard"
+    },
+    {
+      "name": "Intranet",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTML",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML",
+      "category": "product_standard"
+    },
+    {
+      "name": "PHP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTTP",
+      "category": "product_standard"
+    },
+    {
+      "name": "TCP/IP)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bildverarbeitung (Fotos",
+      "category": "product_standard"
+    },
+    {
+      "name": "Webpictures) Erfahrung mit Corel und Photoshop",
+      "category": "product_standard"
+    },
+    {
+      "name": "andere Office-Produkte wie Corel-Office und Star-Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "Videobearbeitung mit Programmen wie Adobe Premiere und Aist MoviePack",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS-Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rubin",
+      "category": "product_standard"
+    },
+    {
+      "name": "GIS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Lotus Notes",
+      "category": "product_standard"
+    },
+    {
+      "name": "TCP/IP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Corel",
+      "category": "product_standard"
+    },
+    {
+      "name": "Photoshop",
+      "category": "product_standard"
+    },
+    {
+      "name": "Corel-Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "Star-Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "Adobe Premiere",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aist MoviePack",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "k.A.",
+      "company": "Daimler-Chrysler in Stuttgart Möhringen und Untertürkheim",
+      "role": "",
+      "title": "Datenbankanbindungen DB2, Bankleitzahlen, Userberechtigungen u.s.w.). Telefonischer Support für Banken-Administratoren bei System- und Anwendungs-",
+      "activities": 16,
+      "technologies": 11
+    },
+    {
+      "period": "k.A.",
+      "company": "RWSO Stuttgart",
+      "role": "",
+      "title": "Client-Migration im RWSO (Rechenzentrum der württembergischen Sparkassenorganisation)",
+      "activities": 6,
+      "technologies": 17
+    },
+    {
+      "period": "k.A.",
+      "company": "Sparkassen- und Berliner Bank",
+      "role": "Troubleshooter",
+      "title": "Client/Server Migration der Sparkassen- und Berliner Bank Institute im Raum Berlin von OS/2 Warp 3 auf Warp 4",
+      "activities": 3,
+      "technologies": 4
+    },
+    {
+      "period": "k.A.",
+      "company": "",
+      "role": "",
+      "title": "User-Help-Desk im RWSO Stuttgart",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "k.A.",
+      "company": "FIDUCIA AG Kahrsruhe für genossenschaftliche Banken",
+      "role": "",
+      "title": "Tätigkeiten bei FIDUCIA AG Kahrsruhe für genossenschaftliche Banken",
+      "activities": 5,
+      "technologies": 11
+    },
+    {
+      "period": "k.A.",
+      "company": "",
+      "role": "",
+      "title": "Datenbankanbindungen DB2, Bankleitzahlen, Userberechtigungen u.s.w.). Telefonischer Support für Banken-Administratoren bei System- und Anwendungs-",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "k.A.",
+      "company": "",
+      "role": "",
+      "title": "Datenbank-Lösung zum Unterschriften Scannen für Lotus",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "k.A.",
+      "company": "",
+      "role": "",
+      "title": "Datenbank-Lösung zum Unterschriften Scannen für Lotus Notes inkl. Alt-Daten-Übernahme aus ein bestehenden DB/2 Datenbank",
+      "activities": 6,
+      "technologies": 3
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Access: Grundlagen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Approach: Grundlagen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2: gute Kenntnisse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes: gute Kenntnisse (R4",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "R6)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server: Gute Kenntnisse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL: Gute Kenntnisse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL: Gute bis sehr gute Kenntnisse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Amiga: Grundkenntnisse der Hardware",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Atari: Grundkenntnisse der Hardware",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "CD-Writer / Brenner: Grundkenntnisse der Hardware",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenerfassungsterminals: Beleglese-Systeme",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Drucker: HP",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Lexmark",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Kyocera und Epson Tintenstrahl- und Laserdrucker",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Modem: Grundkenntnisse der Hardware",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Nixdorf: Workstations bis zur XB-Reihe",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Primergy Server",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "PC: tiefe Kenntnisse der Hardware",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Scanner: Grundkenntnisse der Hardware",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Soundkarten: Grundkenntnisse der Hardware",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SPS: Grundlagen welche in der Schule vermittelt wurden",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Streamer: Grundkenntnisse der Hardware",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS: MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "DR-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM-DOS (tieferes Know-How)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/2: Version 2 / Warp 3 / Warp 4 / Warp 4.5 / inkl. Server (tiefes Know-How)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "PalmOS: Version 3 (Grundlagen)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix: Redhat 5.x bis 9.x",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Suse 5.x bis 9.x",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows: 3.x",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Millenium",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "NT4",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "XP / NT4 Server",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Server",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2003 Server (tiefes Know-How)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows CE: tieferes Know-How (CE; Mobile Editon)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Assembler: Grundlagen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++: Grundlagen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "dBase: Grundlagen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java: Gute Kenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript: Gute Kenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes Script: Gute Kenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Pascal: Turbo Pascal gute Kenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl: Grundlagen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PHP: Gute Kenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Rexx: Grundlagen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "gute HTML- und XML-Kenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "gute Lotus Formula Kenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows NT 4.0",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Service Pack 4",
+      "category_name": "Betriebssysteme",
+      "weight": 0.6
+    },
+    {
+      "name": "Acrobat Reader",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "Office 97",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "OS/2",
+      "category_name": "Betriebssysteme",
+      "weight": 0.6
+    },
+    {
+      "name": "Notes",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Windows XP",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Token-Ring",
+      "category_name": "Programmiersprachen",
+      "weight": 0.6
+    },
+    {
+      "name": "Ethernet",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.6
+    },
+    {
+      "name": "OS/2 Warp 3.0",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Fix Pack 36",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Windows NT",
+      "category_name": "Betriebssysteme",
+      "weight": 0.6
+    },
+    {
+      "name": "TED-Client",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.38
+    },
+    {
+      "name": "NVDM",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.38
+    },
+    {
+      "name": "OS/2 Warp 4.0",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "NT 4.0",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "SEFIS",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "OLISS",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "3270",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Office",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "IBM LAN-SERVER",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "SBT",
+      "category_name": "Entwicklungsumgebungen",
+      "weight": 0.38
+    },
+    {
+      "name": "GAA",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.38
+    },
+    {
+      "name": "KAD",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "OS/2 Warp 3",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "OS/2 Warp 4",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "CC-Server",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.38
+    },
+    {
+      "name": "Tokenring",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    }
+  ]
+}

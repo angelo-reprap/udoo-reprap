@@ -1,0 +1,1462 @@
+{
+  "metadata": {
+    "aid": "AID-ea_5.1.4.0",
+    "version": "5.1.4.0",
+    "consultant_dir": "anacker_ellen",
+    "first_name": "Ellen",
+    "last_name": "Anacker",
+    "headline": "Projektleitung, Projektsanierung, Scrum Master, Product Owner, Testmanagement, Testkoordination, Businessanalyse, Requirement Engineering",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:02:40.769002"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Ellen",
+      "last_name": "Anacker",
+      "birth_year": 1964,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        }
+      ],
+      "availability": "01.04.21 zu 100%, Vor-Ort-Einsatz 40% möglich",
+      "location": "D6 im Umkreis von: Frankfurt am Main (20 km)",
+      "wohnort": "633xx Dreieich, Deutschland",
+      "headline": "Projektleitung, Projektsanierung, Scrum Master, Product Owner, Testmanagement, Testkoordination, Businessanalyse, Requirement Engineering",
+      "edv_experience_since": 1992
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access Experte",
+        "DAO + ADO Experte",
+        "DataStage",
+        "DB2 gute Kentnisse",
+        "ISAM Experte",
+        "JDBC Grundkenntnisse",
+        "MS SQL Server Experte",
+        "ODBC Experte",
+        "Oracle Experte",
+        "PL/SQL",
+        "SAP Sybase IQ",
+        "SQL Experte",
+        "Sybase Experte",
+        "Sybase ASE",
+        "T-SQL",
+        "xBase Grundkenntnisse"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [],
+      "programming_languages": [
+        "Basic Experte",
+        "C Erweitere Kenntnisse",
+        "C++ Grundkenntnisse",
+        "Cobol Grundkenntnisse",
+        "dBase Grundkenntnisse",
+        "Fortran Grundkenntnisse",
+        "Foxpro Grundkenntnisse",
+        "Java Grundkenntnisse",
+        "Java API for REST Services",
+        "JavaScript Grundkenntnisse",
+        "Pascal Grundkenntnisse",
+        "Perl Grundkenntnisse",
+        "PHP gute Kenntnisse",
+        "PL/SQL Experte",
+        "QMF Grundkenntnisse",
+        "Scriptsprachen VB Script",
+        "JavaScript",
+        "Perl",
+        "Shell MKS-"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "Grundkenntnisse",
+        "Kafka",
+        "MQ-Series",
+        "Design/Entwicklung/Konstruktion",
+        "UML",
+        "Informationsanalyse",
+        "Geschäftsprozessanalyse",
+        "Use Cases",
+        "Walkthrough"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [
+      {
+        "name": "Projektmanagement (Expert)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "SAP Certified Business Associate with SAP ERP 6.0",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "SAP BI",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "open SAP Zertifikat: Introduction to Software Development on SAP HANA",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "open SAP Zertifikat: BI 4 Platform Innovation and Implementation",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "open HPI Zertifikat: Business Process Modeling and Analysis",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Introduction to Software Development on SAP HANA",
+        "issuer": "open SAP",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "BI 4 Platform Innovation and Implementation",
+        "issuer": "open SAP",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "Business Process Modeling and Analysis",
+        "issuer": "open HPI",
+        "date_obtained": "",
+        "expiry_date": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "01/2020 - 02/2021",
+        "company": "ING",
+        "title": "GDPR - Aufbau eines zentralen GDPR Datenkataloges und Data, Frankfurt am Main",
+        "role": "Projektleitung",
+        "activities": [
+          "Change Prozesses",
+          "Aufgaben:",
+          "Zunächst Businessanalyse und Konzeption, während der Umsetzung Projektleitung/Product Owner, für eine zentrales Data Field Inventory, sowie einen technisch unterstützenden Data Change Prozess.",
+          "Im Data Field Inventory werden die Meta-Daten Informationen zu den Datenfeldern (u.a. aus dem zentralen Data Warehouse) mitsamt ihrer GDPR relevanten Informationen (z.B. Personenbezogene Daten, Sensitive Daten, Art 15 Auskunftspflicht, Zustimmungspflicht, etc inkl. der verantwortlichen Dateneigentümer) abgelegt und verwaltet.",
+          "Art 15 Auskunftspflicht, Zustimmungspflicht, etc inkl. der verantwortlichen Dateneigentümer) abgelegt und verwaltet.",
+          "Ein neu implementierter Data Change Prozess stellt technisch sicher, dass Veränderungen an Datenstrukturen bereits während des Software-Entwicklungszyklusses überwacht und der ordnungsgemäßen Dokumentation, sowie der abzuleitenden Maßnahmen, zugeführt werden.",
+          "Veränderungen an Datenstrukturen bereits während des Software-Entwicklungszyklusses überwacht und der ordnungsgemäßen Dokumentation, sowie der abzuleitenden Maßnahmen, zugeführt werden.",
+          "JIRA, Confluence, BPM, agile Project Management, GDPR, DSGVO, Datenschutz"
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt am Main",
+        "technologies": [
+          "JIRA",
+          "Confluence",
+          "BPM",
+          "GDPR",
+          "DSGVO",
+          "Datenschutz"
+        ]
+      },
+      {
+        "period": "09/2019 - 12/2019",
+        "company": "ING",
+        "title": "GDPR Test- und Entwicklungsumgebung, Frankfurt am Main",
+        "role": "Business Analyst",
+        "activities": [
+          "Branche: Banken & Finanzinstitute",
+          "Aufgaben:",
+          "Analyse und Konzeption",
+          "Erstellen eines systemübergreifenden Konzeptes im Sinne eines skalierbaren Umsetzungsplanes / Vorgehensmodells",
+          "Analyse & Konzeption zur Einführung eines synthetischen Testdatensets",
+          "Umsetzung von regulatorischen Anforderungen in technische Spezifikationen",
+          "Anforderungsmanagement (Analyse, Bewertung sowie zusammen mit der Anwendungsentwicklung die Umsetzung von IT-Anforderungen)",
+          "Erstellen von IT-Spezifikationen und Prozessdokumentationen"
+        ],
+        "industry": "Banken & Finanzinstitute",
+        "location": "Frankfurt am Main"
+      },
+      {
+        "period": "09/2018 - 12/2019",
+        "company": "DZ Bank AG",
+        "title": "Testmanagement Webbasiertes Reporting, Frankfurt am Main",
+        "role": "Testmanagement",
+        "activities": [
+          "Aufgaben:",
+          "Das Projekt wurde als Hybrid (klassisches & agiles Projektvorgehen) umgesetzt",
+          "Durchführung klassischer Testmanagementaufgaben",
+          "Erstellung Testkonzeption",
+          "Abstimmung mit den Stakeholdern und den Testern Koordination von Deployments",
+          "Teststatusberichte",
+          "Test- und Defektmanagement",
+          "Tägliche Defectcalls"
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt am Main"
+      },
+      {
+        "period": "08/2018 - 12/2018",
+        "title": "ITSM Suite Testkonzeption, Wiesbaden",
+        "role": "Testmanager",
+        "activities": [
+          "Branche: Versicherungen",
+          "Aufgaben:",
+          "Erstellung eines risikobasierten Testkonzeptes für die ITSM Suite",
+          "Eingesetzte Produkte:",
+          "Microfocus",
+          "===================================================== =========================="
+        ],
+        "industry": "Versicherungen",
+        "location": "Wiesbaden",
+        "technologies": [
+          "ITIL",
+          "Microfocus"
+        ]
+      },
+      {
+        "period": "11/2017 - 06/2018",
+        "company": "onVista, comdirect (Rechtsabteilung; EU-DSGVO)",
+        "title": "Projektplanung und Datenanalyse für GDPR/EU-DSGVO 2018, Frankfurt am Main",
+        "role": "Projektplanung, Analyse der Datenflüsse und Prozesse",
+        "activities": [
+          "Branche: Banken & Finanzinstitute",
+          "Aufgaben:",
+          "Planung und Aufbereitung für ein Vorgehensmodell Analyse der Datenflüsse und Prozesse",
+          "Erstellung des Verzeichnisses der Verfahrenstätigkeiten und Koordination der Verfahrensdokumentation Vorbereitung für IT Maßnahmen, z.B. Löschkonzeptionen",
+          "Erstellung einer strukturierten und übergreifenden Informationsdatenbank in MS Access",
+          "EU-DSGVO, GDPR, DSGVO",
+          "===================================================== =========================="
+        ],
+        "industry": "Banken & Finanzinstitute",
+        "location": "Frankfurt am Main",
+        "technologies": [
+          "MS Access",
+          "EU-DSGVO",
+          "GDPR",
+          "DSGVO"
+        ]
+      },
+      {
+        "period": "07/2017 - 12/2017",
+        "company": "Commerzbank AG (Infrastruktur regulatorisches Reporting; IB",
+        "title": "Unterstützung zur Bereitstellung/Migration, Frankfurt",
+        "role": "IT-Projektleiter Infrastruktur",
+        "activities": [
+          "London)",
+          "Aufgaben:",
+          "Unterstützung zur Bereitstellung/Migration der Infrastruktur im Programm Regulatory Reporting (MIFIRD/MIFIR/EMIR, u.a.)",
+          "Regulatory Reporting (MIFIRD/MIFIR/EMIR, u.a.)",
+          "Solution Design mit Abstimmungen der Infrastruktur Abteilungen und dem Development Projektmanagement und Migrationskonzeption für Migration Websphere;",
+          "Oracle;MQ-Series",
+          "Einkauf und Konfiguration der benötigten Infrastruktur (Hardware, Software, Lizenzen) für alle Umgebungen (Entw./Test und Produktion)",
+          "Software, Lizenzen) für alle Umgebungen (Entw./Test und Produktion)"
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt",
+        "technologies": [
+          "Websphere",
+          "Java",
+          "Oracle",
+          "MQ-Series"
+        ]
+      },
+      {
+        "period": "01/2017 - 07/2017",
+        "company": "Deutsche Bank AG (Bereich Lending/Kredite)",
+        "title": "Testmanagement für mehrere Projekte, Frankfurt",
+        "role": "QA- und Testmanagement",
+        "activities": [
+          "Aufgaben:",
+          "Testmanagement für mehrere Projekte zur Transitionsphase vom zentralisierten Testmanagement in die Fachbereiche Testplanung (Zeit- und Ressourcen), Test- und Defectmanagement",
+          "Testmanagement in die Fachbereiche Testplanung (Zeit- und Ressourcen), Test- und Defectmanagement",
+          "Entwicklung der Teststrategie und Erstellung der Testkonzepte Durchführung von Test Kick-Off Veranstaltung",
+          "Koordination und Steuerung der Testteams aus verschiedenen Fachbereichen und (internationalen) Lokationen",
+          "Abstimmungen mit Fachbereich und den beteiligten IT-Bereichen",
+          "Erstellung Testabnahmedokumentation",
+          "Testplanung und Unterstützung für klassische, agile und hybrid laufende"
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt"
+      },
+      {
+        "period": "06/2016 - 12/2016",
+        "company": "Commerzbank AG (Compliance;IB London)",
+        "title": "Projektsanierung eines laufenden Groß-Projektes, Frankfurt am Main",
+        "role": "Projektleitung",
+        "activities": [
+          "Aufgaben:",
+          "Projektsanierung eines laufenden Groß-Projektes im Compliance Umfeld mit zeitlichem Verzug und regulatorischem End-Termin",
+          "Risikoanalysen",
+          "Projekt- und Meilensteinplanung nach V-Model",
+          "Abstimmungen mit den Fachabteilungungen Abstimmungen mit anderen IT-Abteilungen und dem externen Vendor",
+          "Aufsetzen und Pflege eines neuen SharePoints",
+          "Budgetplanung und Kostenkalkulation",
+          "Überwachen der Aufgaben- und Terminpläne"
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt am Main",
+        "technologies": [
+          "SharePoint"
+        ]
+      },
+      {
+        "period": "08/2015 - 05/2016",
+        "company": "Commerzbank AG (Compliance)",
+        "title": "Umsetzung nationaler und internationaler regulatorischer, Frankfurt am Main",
+        "role": "Leitung Workstream Testmanagement",
+        "activities": [
+          "Anforderungen",
+          "Branche: Banken & Finanzinstitute",
+          "Aufgaben:",
+          "Aufbau der Abteilung, inkl. Prozessanalysen und Neukonzeption",
+          "Erstellung übergeordneter Teststrategien, Testmethoden und Testzielen",
+          "Anleitung und Steuerung des gesamten Testmanagements",
+          "Qualitätssicherung der fachlichen und technischen Requirements",
+          "Abstimmung der Meilensteinplanung fachlicher Tests und des fachlichen Testscopes mit Workstreamleitern auf Fach- und dem Workstreamleiter Testmanagement auf IT-Seite"
+        ],
+        "industry": "Banken & Finanzinstitute",
+        "location": "Frankfurt am Main"
+      },
+      {
+        "period": "12/2013 - 07/2015",
+        "company": "Commerzbank AG (MSB Vertriebsunterstützung)",
+        "title": "Projektleitung zentrales Bankauskunftssystem",
+        "role": "Projektleitung",
+        "activities": [
+          "Branche: Banken & Finanzinstitute",
+          "Aufgaben:",
+          "Abstimmungen mit der Fachabteilung Abstimmungen mit anderen IT-Abteilungen und externem Gewerknehmer",
+          "Projekt- und Meilensteinplanung (angepasstes klassisches V-Model mit agilen Entwicklungsmeilensteinen)",
+          "Budgetplanung und Kostenkalkulation",
+          "Überwachen der Terminpläne Koordination Test-, Defect - und Qualitätsmanagement",
+          "ABC-Reporting",
+          "Vorbereitung und Durchführung von Lenkungsausschüssen"
+        ],
+        "industry": "Banken & Finanzinstitute"
+      },
+      {
+        "period": "10/2013 - 11/2013",
+        "company": "Commerzbank AG (MSB Vertriebsunterstützung)",
+        "title": "Testmanagement zentrales Bankauskunftssystem (u.a.",
+        "role": "Testmanagement",
+        "activities": [
+          "Testmanagement zentrales Bankauskunftssystem (u.a. Einführung SEPA)",
+          "===================================================== =========================="
+        ],
+        "industry": "Banken"
+      },
+      {
+        "period": "05/2013 - 09/2013",
+        "company": "Commerzbank AG (MSB Vertriebsunterstützung)",
+        "title": "Einführung eines neuen Systems",
+        "role": "Business-Analyst",
+        "activities": [
+          "Aufgaben:",
+          "Einführung eines neuen Systems zur Pflege der wirtschaftlichen Verbünde und Anpassung/Integration der Informationen für das CRM System/ CRM System der Mittelstandsbank Abstimmung der Schnittstellen in der IT Abstimmung mit dem Fachbereich Anforderungsanalyse und Aufwandsschätzung",
+          "Anforderungsdokumentation / Requirement Engineering",
+          "Unterstützung bei der Reportanpassung Erarbeitung von Redesignvorschlägen für das Reporting",
+          "Erstellung von Testcases/ Testunterstützung des Fachbereiches (HP",
+          "Quality Center)",
+          "HP Quality Center, Aqua Datastudio, Sybase Central, TFS, SAS BI ===================================================== =========================="
+        ],
+        "industry": "Banken",
+        "technologies": [
+          "HP Quality Center",
+          "Aqua Datastudio",
+          "Sybase Central",
+          "TFS",
+          "SAS BI"
+        ]
+      },
+      {
+        "period": "07/2012 - 04/2013",
+        "company": "Commerzbank AG (Bereich Finance)",
+        "title": "Datenanalyse für die zentralen P&L Anwendung im Bereich",
+        "role": "Business-Analyst",
+        "activities": [
+          "Finance",
+          "Aufgaben:",
+          "Aufnahme der Fachbereichsdetailanforderungen Workshops / Erstellung Statement of Work",
+          "Anforderungsdokumentation / Requirement Engineering",
+          "Design/Konzeptionierung der Umsetzung Erstellung von Testcases / Testunterstützung des Fachbereiches (HP Quality Center)",
+          "Quality Center)",
+          "Abstimmung mit dem Fachbereich und Koordination Datenbankentwicklung/GUI Entwicklung (in Prag)",
+          "Entwicklung (in Prag)"
+        ],
+        "industry": "Banken",
+        "technologies": [
+          "HP Quality Center"
+        ]
+      },
+      {
+        "period": "03/2012 - 06/2012",
+        "company": "SEB AG (Bereich Finance)",
+        "title": "Datenanalyse / Abstimmungstestes bei der Einführung von",
+        "role": "Business-Analyst / Entwicklung",
+        "activities": [
+          "Calypso als neues BO System",
+          "Aufgaben:",
+          "Aufnahme / Analyse der Fachbereichsanforderung (unterstützende BA Tätigkeit)",
+          "Tätigkeit)",
+          "Erstellen und Abstimmung der Testcases (HPQC)",
+          "Entwicklung eines modularisiertem Abstimmungstool zum Abgleich verschiedenster Zinsprodukte und deren Parameter zwischen verschiedenen Liefersystemen",
+          "Liefersystemen",
+          "Access, HP Quality Center, Calypso, Summit, Murex"
+        ],
+        "industry": "Banken",
+        "technologies": [
+          "Access",
+          "HP Quality Center",
+          "Calypso",
+          "Summit",
+          "Murex"
+        ]
+      },
+      {
+        "period": "08/2009 - 03/2012",
+        "company": "Commerzbank AG (Bereich IB Finance)",
+        "title": "Businessanalys / Datenanalyse / Entwicklung",
+        "activities": [
+          "Aufgaben:",
+          "Businessanalys / Datenanalyse / Entwicklung Migration Commerzbank AG/Dresdner Bank AG; Anbindung der Dresdner Bank Systeme u. Weiterentwicklung der zentralen P&L Anwendung im Bereich Finance",
+          "Bank AG; Anbindung der Dresdner Bank Systeme u. Weiterentwicklung der zentralen P&L Anwendung im Bereich Finance",
+          "Aufnahme der Fachbereichsdetailanforderungen (BA Tätigkeit)",
+          "Entwicklung neuer, Anpassung bestehender Schnittstellen (Im- und Export)",
+          "Analysen der Migrationsdaten verschiedenster Frontofficesysteme (Summit, Kondor, Murex Currency/Derivatives, Loantrak, Swordfish, Martini, Bloomberg,etc.)",
+          "Kondor, Murex Currency/Derivatives, Loantrak, Swordfish, Martini,",
+          "Bloomberg,etc.)"
+        ],
+        "industry": "Banken",
+        "technologies": [
+          "Summit",
+          "Kondor",
+          "Murex Currency/Derivatives",
+          "Loantrak",
+          "Swordfish",
+          "Martini",
+          "Bloomberg"
+        ]
+      },
+      {
+        "period": "08/2008 - 07/2009",
+        "company": "Deutsche Börse AG",
+        "title": "Technische Konzeptionierung und Design",
+        "activities": [
+          "Aufgaben:",
+          "Technische Konzeptionierung und Design, Produktentwicklung / Datenanalyse * zum Aufbau eines Realtimedatawarehouses * zur Sammlung und Aufbereitung von Fundamentaldaten aus dem Energiemarkt In direkter Zusammenarbeit mit dem Fachbereich wurde ein neues, kommerzielles Produkt entwickelt, welches Daten aus dem internationalen Energiehandel (Strom) realtime einsammelt (Internet/FTP,etc),aufbereitet, aggregiert, Prognosen erstellt und im Web zur Verfügung stellt.",
+          "Meine Aufgabe waren hierbei:",
+          "Aufnahme der Fachbereichsanforderung Schnittstelle zum Fachbereich und der technischen Umsetzung (in Frankfurt und in Prag)",
+          "Aufbau des Datawarehouses (Konzeptionierung, Auswahl und Aufbau der technischen Architektur, Datenmodelierung und Entwicklung), Import, Aggregation, Verteilung, sowie die Unterstützung beim Grabben der Daten",
+          "Aggregation,Verteilung, sowie die Unterstützung beim Grabben der Daten. Anmerkung",
+          "Das entwickelte System wird kommerziell betrieben, wurde im Februar 2009 auf der Messe EWorld 2009 vorgestellt",
+          "Oracle 10, Toad, Grabbingtool (Kapow)"
+        ],
+        "industry": "Finanzdienstleistungen",
+        "location": "Frankfurt, Prag",
+        "technologies": [
+          "Oracle 10",
+          "Toad",
+          "Kapow"
+        ]
+      },
+      {
+        "period": "01/2008 - 07/2008",
+        "company": "Commerzbank AG Frankfurt (Global Finance)",
+        "title": "Datenanalyse / Weiterentwicklung im Projekt Monthly P&L",
+        "activities": [
+          "Aufgaben:",
+          "In Zusammenarbeit mit dem Fachbereich Aufnahme der Anforderung zur Definition von Differenzenreports (Walktrough), die aus der Abstimmung von Frontoffice / Backoffice und Ledgersystemen generiert werden sollen sowie die Umsetzung der Reports auf der Datenbankseite. Kleinere Anpassungen im (Web-)Frontend",
+          "Sybase IQ 12.6, Sybase Central, Sybase ISQL, Clearcase, HP Quality Center,",
+          "Watcom SQL, T-SQL, C#, ASP.net",
+          "===================================================== =========================="
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt",
+        "technologies": [
+          "Sybase IQ 12.6",
+          "Sybase Central",
+          "Sybase ISQL",
+          "Clearcase",
+          "HP Quality Center",
+          "Watcom SQL",
+          "T-SQL",
+          "C#",
+          "ASP.net"
+        ]
+      },
+      {
+        "period": "05/2007 - 11/2007",
+        "company": "SEB AG (Handelsabwicklung)",
+        "title": "Migration von SWAPS aus SAP (MARK) nach Kondor+ / Opics",
+        "activities": [
+          "Aufgaben:",
+          "Analyse und Umsetzung der Migration von Swapdeals anläßlich eines Systemwechsels.",
+          "Systemwechsels.",
+          "Unterstützung und Analysen für die Bereiche Treasury, Riskcontrolling, Accounting, Finance und Meldewesen.",
+          "Accounting, Finance und Meldewesen.",
+          "Das Projekt wurde Abteilungsübergreifend durchgeführt, inkl. aller Schritte vom Closen bis zur Neuanlage der Swaps.",
+          "Schritte vom Closen bis zur Neuanlage der Swaps. Abgleich der Vertragsdetails, sowie der einzelnen Cashflows.",
+          "Behandlung der Deals in IFRS (Hedgeaccounting), Abstimmung in den Systemen SAP, Kondor+, OPICS und weiterer interner Anwendungen."
+        ],
+        "industry": "Banken",
+        "technologies": [
+          "SAP",
+          "Kondor+",
+          "OPICS",
+          "IFRS"
+        ]
+      },
+      {
+        "period": "02/2007 - 05/2007",
+        "company": "DZ AG (Rechnungswesen - Group Finance)",
+        "title": "IFRS Hedge Accounting",
+        "technologies": [
+          "Oracle 10g",
+          "Access 2003",
+          "Excel 2003",
+          "VBA",
+          "Windows XP"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Testunterstützung / Analysen von SAP Daten / Daten aus Eigenentwicklung auf Oraclebasis",
+          "VBAtechnische Aufbereitung von Murexdaten ===================================================== =========================="
+        ],
+        "industry": "Banken"
+      },
+      {
+        "period": "10/2006 - 01/2007",
+        "company": "Dresdner Bank AG (Risikocontrolling - Liquiditätsrisiko)",
+        "title": "Weiterentwicklung / Wartung der Oracleanwendung zur",
+        "technologies": [
+          "Oracle 10g",
+          "Access 2000",
+          "PL/SQL Deverloper",
+          "Powerbuilder",
+          "Windows XP",
+          "PL/SQL Developer"
+        ],
+        "activities": [
+          "Überwachung der Konzernfinanzierung fachliche Unterstützung des Monitorings und Reportings für das Liquiditätsmanagement (Limitüberwachung / P&L)",
+          "Aufgaben: technische Entwicklung fachliches Monitoring und Reporting ===================================================== =========================="
+        ],
+        "industry": "Banken"
+      },
+      {
+        "period": "07/2005 - 10/2006",
+        "company": "Dresdner Bank AG Frankfurt (Risikocontrolling - Liquiditätsrisiko)",
+        "title": "Neugeschäftsanalyse",
+        "technologies": [
+          "Oracle 10g",
+          "Access 2000",
+          "PL/SQL Deverloper",
+          "Powerbuilder",
+          "Windows NT/ Windows",
+          "Access 2.0",
+          "Access 95",
+          "Access 97",
+          "Excel 4.0",
+          "Excel 5.0",
+          "Excel 97",
+          "BS: Windows 3.11",
+          "OS/2",
+          "MVS",
+          "PL/SQL Developer",
+          "XP"
+        ],
+        "activities": [
+          "Liquiditätsrisiko)",
+          "Aufgaben:",
+          "IAS 39 (Simulation und Auswertung)",
+          "Umsetzung von Key Controls für SOX",
+          "Portierung verschiedener komplexer Anwendungen von Access nach Oracle",
+          "Unterstützung des XP Rollouts (SP1 und SP2)",
+          "Unterstützung bei technischen Erweiterungen verschiedenster Anwendungen zur Ermittlung des Liquiditätsrisikos technische Entwicklung"
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt"
+      },
+      {
+        "period": "1992 - heute",
+        "title": "(Banken/Bausparkassen/Chemieunternehmen/Softwarehäuser)",
+        "technologies": [
+          "BS: Windows 3.11",
+          "Windows NT 3.5/4.0",
+          "Windows 9x/2000",
+          "Sonstiges",
+          "Referenzen:",
+          "01/05 - 06/05",
+          "Referenz durch Leiter Liquiditätsrisikocontrolling",
+          "Dresdner Bank",
+          "vom 11.07.05",
+          "operativen",
+          "ähnliche Aufgaben wieder einsetzen.\"",
+          "04/04 - 12/04",
+          "Referenz durch Projektleiter",
+          "deutsche Großbank",
+          "vom 04.03.05",
+          "Projekt Dynamisches webbasiertes Reporting",
+          "Mitarbeit bitten.\"",
+          "04/01 - 11/01",
+          "Referenz durch Business Area Controller",
+          "Deutsche Bank",
+          "vom 16.03.05",
+          "Projekten gerne wieder anfragen.\"",
+          "05/00",
+          "- 12/00",
+          "vom 15.12.00",
+          "12/99",
+          "04/00",
+          "Zufriedenheit erledigt.\"",
+          "Persönliche Stärken:",
+          "* schnelle Auffassungsgabe",
+          "technischer Affinität",
+          "* sehr gutes logisches Denkvermögen",
+          "* selbständige Arbeitsweise",
+          "* Durchsetzungsvermögen",
+          "* Hands-on Mentalität",
+          "sondern Service am",
+          "Kunden",
+          "Überzeugung",
+          "Access",
+          "VBA",
+          "Windows NT 4.0",
+          "Windows 2000"
+        ],
+        "activities": [
+          "Projekte: Diverse Applikationen Access/VBA//VB",
+          "Inhalt: - Applikation zur Kontrolle der KWG-Bestimmungen $13/14(Gross- und Millionenkredite)",
+          "Projektmanagementtool zur Verwaltung aller Projekte der Projektmanagementabteilung Erstellung diverser Programme zur Verwaltung von Fremdgeldern und Wertpapieren",
+          "Programm zur Erfassung von Vorgängen und Verrechnung der Mitarbeiterkosten (Multiuserbetrieb 300 Personen)",
+          "Fakturierungsprogramm",
+          "Umweltschutzprogemm (Erfassung und Verwaltung gesetzl.",
+          "Umweltschutzprogramm (Erfassung und Verwaltung gesetzl. Bestimmungen und Auflagen, Verantwortlichkeiten, Terminüberwachung, Benutzerverwaltung)",
+          "Benutzerverwaltung)"
+        ],
+        "industry": "Banken, Bausparkassen, Chemieunternehmen, Softwarehäuser"
+      }
+    ],
+    "industries": [
+      "Banken/ Finanzdienstleister",
+      "Bausparkassen"
+    ],
+    "focus_areas": [
+      "Projektleitung",
+      "Projektsanierung",
+      "Scrum Master",
+      "Product Owner",
+      "Testmanagement",
+      "Testkoordination",
+      "Businessanalyse",
+      "Requirement Engineering",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test Breites Spektrum an Erfahrungen, von der Entwicklung über Business Analyse, Testmangement bis zur Leitung großer und kritischer Projekte (ink.",
+      "Projektsanierung).",
+      "Weiterhin stets neugierig, engagiert und mit schneller Auffassungsgabe.",
+      "Herausforderungen sind willkommen : -)",
+      "01/2018 - 01/2018: ITIL Foundation",
+      "Abschluss: ITIL Foundation",
+      "Institution: PeopleCert",
+      "Allgemeine Hochschulreife",
+      "Ausbildung zur Bankkauffrau",
+      "Ausbildereignungsprüfung",
+      "Betriebswirtin Fachrichtung Wirtschaftsinformatik",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Qualitätsmanagement / Qualitätssicherung / Test",
+      "Datenschutz",
+      "Defectmanagement"
+    ],
+    "focus_experience": [
+      {
+        "name": "AML Actimize",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Anforderungsanalyse",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "BPM",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Businessanalyse",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Compliance",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Confluence",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Data Stage",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Datenanalyse",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "DSGVO",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "EU-DSGVO",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Fraud Prevention and Detection",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "GDPR",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "HP ALM",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "HP Quality Center",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "HPALM",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "HPSM",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "IBM Infosphere",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "ITIL",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "ITIL Foundation",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "JIRA",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "KYC",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "LoadRunner",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Microfocus",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Microsoft Sharepoint 2010",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Microsoft Visio",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Prince2",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "SAP-BO",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Silk Central Test Management",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "SoapUI",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Projektmanagementkenntnisse",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Umsetzung/Steuerung von klassischen Projekten Wasserfall (V-Modell) und",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "agilen Projekten (Scrum)",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Projekt- und Meilensteinplanung",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Aufwandsabschätzungen",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Monitoring und Überwachen der Terminpläne",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "* Projektberichtswesen",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "ABC-Reporting",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Business Case Berechnung und Anforderungsmanagement",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Qualitäts- und Testmanagement",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Rollout- und Changemanagement",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Risikoanalysen und Prozessmanagement (ITIL)",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Mitglied: GPM Deutsche Gesellschaft für Projektmanagement",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Testmanagementkenntnisse",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Projekt und Ressourcenplanung",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "* Quality Gates / Anforderungen",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Überwachung und Dokumentation",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Testkonzeption und Teststrategien",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "Testanalyse & Testverfahren (statische & dynamische)",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Testentwurf (funktionale & nicht-funktionale Tests)",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "* Testarten (vom Modultest über System- und E2E- Tests",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "Last- und",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Performancetest",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "u.a.)",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "ISTQB Zertifizierung",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Methodenkenntnisse",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "BABOK",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Prozessmodellierung",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "* Anforderungsmanagement und -kommunikation (Workshops",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Interviews",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "Walktrough)",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "* Erstellung/Prüfung SoW (Statement of Work)",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Leistungsbeschreibung",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "* UML",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "Use Case Stories & Modellierung",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "* BPN",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "klassische & agile Entwicklung (SCRUM)",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "* DWH und Datenbank - Design und Entwicklung (Oracle",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "Sybase",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "SQL Server)",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "* Datenanalysen",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "Reporting und SQL",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "* SAS BI",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "SAP BI",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "* Programmierung (Microsoft VBA",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": ".net",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "C#)",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "Kenntnisse in Java",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "PHP",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "HTML",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "JavaScript",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "* Konzepterstellung (Leistungsbeschreibung",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "DV Konzepte)",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "Autorisierung und Authentifizierungskonzepte",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "Frameworks und Tools",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "* PMF",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "TMF",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "* HPQC/ HP ALM",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "HPSC",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "SAP RPM",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "SAP PS",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "* MS Project",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "MS Office (Excel",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "Access",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "PowerPoint)",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "SharePoint",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "Visio",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Aufgabenbereiche",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "agile Project Management",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "agiles Projektmanagement",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "Agiles Testen",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "Anforderungsmanagement",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "ITL",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "Projektmanagement",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "Qualitätsmanagement",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "Requirement Engineering",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "Testmanagement",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "Datenschutz",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "Finanzdienstleistungssektor (Banken)",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "* Bereiche: Investment Banking",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "Risikocontrolling",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "Financial Accounting",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "Managementerfahrung in Unternehmen:",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "Defectmanagement",
+        "category": "product_standard",
+        "sort_order": 114
+      },
+      {
+        "name": "Scrum Master",
+        "category": "product_standard",
+        "sort_order": 115
+      },
+      {
+        "name": "Oracle",
+        "category": "product_standard",
+        "sort_order": 116
+      },
+      {
+        "name": "SQL Server",
+        "category": "product_standard",
+        "sort_order": 117
+      },
+      {
+        "name": "SAS BI",
+        "category": "product_standard",
+        "sort_order": 118
+      },
+      {
+        "name": "Microsoft VBA",
+        "category": "product_standard",
+        "sort_order": 119
+      },
+      {
+        "name": "Java",
+        "category": "product_standard",
+        "sort_order": 120
+      },
+      {
+        "name": "PMF",
+        "category": "product_standard",
+        "sort_order": 121
+      },
+      {
+        "name": "HPQC",
+        "category": "product_standard",
+        "sort_order": 122
+      },
+      {
+        "name": "MS Project",
+        "category": "product_standard",
+        "sort_order": 123
+      },
+      {
+        "name": "MS Office",
+        "category": "product_standard",
+        "sort_order": 124
+      },
+      {
+        "name": "Excel",
+        "category": "product_standard",
+        "sort_order": 125
+      },
+      {
+        "name": "PowerPoint",
+        "category": "product_standard",
+        "sort_order": 126
+      },
+      {
+        "name": "ISTQB",
+        "category": "product_standard",
+        "sort_order": 127
+      },
+      {
+        "name": "UML",
+        "category": "product_standard",
+        "sort_order": 128
+      }
+    ],
+    "education": [
+      {
+        "degree": "ITIL Foundation",
+        "institution": "PeopleCert",
+        "period": "01/2018 - 01/2018",
+        "education_type": "course"
+      },
+      {
+        "degree": "PRINCE2 Foundation",
+        "institution": "PeopleCert",
+        "period": "12/2017 - 12/2017",
+        "education_type": "course"
+      },
+      {
+        "degree": "PSM I",
+        "institution": "Scrum.org",
+        "period": "12/2017 - 12/2017",
+        "education_type": "course"
+      },
+      {
+        "degree": "M.Sc. IT Management",
+        "institution": "IPE",
+        "period": "03/2016 - 03/2017",
+        "education_type": "course"
+      },
+      {
+        "degree": "ISTQB Certified Tester Foundation Level",
+        "institution": "German Testing Board",
+        "period": "05/2016 - 05/2016",
+        "education_type": "course"
+      },
+      {
+        "degree": "MBA",
+        "institution": "University of Wales",
+        "period": "02/2012 - 04/2014",
+        "education_type": "course"
+      },
+      {
+        "degree": "Allgemeine Hochschulreife",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Ausbildung zur Bankkauffrau",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Ausbildereignungsprüfung",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Betriebswirtin Fachrichtung Wirtschaftsinformatik",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt Monitoring des Liquiditätsrisikos, 01/05 - 06/05\nReferenz durch Leiter Liquiditätsrisikocontrolling, Dresdner Bank, vom 11.07.05\n\"Die Consultin hat ihre Aufgaben im täglichen, operativen Liquiditätsrisikocontrolling (Risiko-, Limit- und P&L-Überwachung) mit großem Engagement und Zuverlässigkeit wahrgenommen. Darüber hinaus hat sie uns bei der XP-Umstellung maßgeblich unterstützt. Wir würden sie jeder Zeit für diese und ähnliche Aufgaben wieder einsetzen.\"\nProjekt Entwicklung v. CRIPS - Reportingtool f.Kreditportfolien, 04/04 - 12/04\nReferenz durch Projektleiter, deutsche Großbank, vom 04.03.05\n\"Die Consultin übernahm im Projekt SQL-orientierte Themen. Neben der ihr übertragenen Hauptaufgabe (Programmierung eines Metadaten-Tools) übernahm sie zusätzlich Arbeiten an besonders diffizilen Programmteilen. Die Consultin hat sich dabei auch schnell in komplexe Programmteile eingearbeitet. Die Consultin wartete dabei immer wieder mit Lösungen auf, die über unseren Erwartungen lagen. Deshalb würden wir sie auch gerne wieder bei zukünftigen Projekten um Mitarbeit bitten.\"\nProjekt Dynamisches webbasiertes Reporting, 04/01 - 11/01\nReferenz durch Business Area Controller, Deutsche Bank, vom 16.03.05\n\"Die Consultin entwickelte innerhalb kürzester Zeit ein sehr gutes Verständnis für die fachlichen Anforderungen. Durch ihre ausgeprägten IT-Kenntnisse und ihre überdurchschnittliche Einsatzbereitschaft erfüllte sie die gesetzten Ziele zur vollsten Zufriedenheit. Ihr teamorientiertes Verhalten und die hohe Akzeptanz im Team trugen wesentlich zum Projekterfolg bei. Wir können die Consultin uneingeschränkt weiterempfehlen und werden sie bei zukünftigen Projekten gerne wieder anfragen.\"\nProjekt Erstellung einer Intranetapplikation im Bereich Operational Risk, 05/00 - 12/00\nReferenz durch Bereichsleiter -Head of Operational Risk- der Dresdner Bank AG vom 15.12.00\n\"Die Consultin war für die technische Umsetzung unseres Self Assesments verantwortlich und hat das Projekt in allen Phasen von der Konzeption über die Entwicklungs- und Testphase bis hin zur Inbetriebnahme begleitet. Sie zeigte während der gesamten Dauer eine überdurchschnittliche Einsatzbereitschaft und bewältigte auch in kurz möglichster Zeit ein ausserordentlich hohes Arbeitspensum. Die fachlichen Inhalte wurden von ihr sehr schnell aufgenommen und auch hier zeigte sie ein ausserordentlich hohes Interesse und Engagement. Dank ihrer wertvollen Mitarbeit trug sie maßgeblich zum Erfolg des Projektes bei. Die von ihr erstellte Applikation ist derzeit mit über 300 Benutzern in Produktion und läuft fehlerfrei und performant. Wir bedauern ihr Ausscheiden und wünschen Ihr für die Zukunft alles Gute.\"\nProjekt Programmierung einer MS Access Anwendung im Multiuser-Betrieb, 12/99 - 04/00\nReferenz durch Projektleiter in gr. Kreditinstitut in Deutschland vom 28.11.00\n\"Die Consultin versteht es in hervorragender Weise, ihr profundes IT-Fachwissen in die Projektarbeit einzubringen. Auch unter starkem Zeitdruck waren die Leistungen immer einwandfrei. Termine wurden grundsätzlich eingehalten. Die gezeigte Einsatzbereitschaft und Flexibilität waren beeindruckend. Das Arbeiten im Team gestaltete sich stets angenehm und war durch konstruktive Zusammenarbeit geprägt. Mittels einer kundenorientierten Dienstleistung hat sie die beauftragten Aufgaben stets zu unseren vollsten Zufriedenheit erledigt.\"\nProjekt VBA Programmierung in ACCESS, 12/99\nReferenz durch Mitarbeuter der Dresder Bank AG vom 16.11.00\n…\n\nPersönliche Stärken:\n* schnelle Auffassungsgabe\n* sehr gutes betriebswirtschaftliches Verständnis mit ausgeprägter technischer Affinität\n* sehr gutes logisches Denkvermögen\n* selbständige Arbeitsweise\n* Teamfähigkeit und Engagement\n* Durchsetzungsvermögen\n* Hands-on Mentalität\n* Sehe mich selbst mehr als den Allrounder und bevorzuge stets eine enge Nähe zum Kunden. Für mich ist IT kein Selbstzweck, sondern Service am Kunden.\n* Agile Projektentwicklungen (z.B. SCRUM) passen ideal zu meiner Überzeugung.",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": []
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:02:40.769013",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "ZERTIFIKATE",
+      "FOCUS_EXP",
+      "SCHULUNGEN",
+      "OTHER",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→1992"
+      ],
+      "coverage_percent": 77.85365853658537,
+      "auto_added_skills": 0,
+      "integrity_ok": false
+    }
+  }
+}

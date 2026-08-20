@@ -1,0 +1,161 @@
+AID: AID-jb_2.3.3.0
+Name: Joachim Bauer
+Headline: Web-Architektur, Fullstack Java, JEE, Appliances, Enterprise Search
+Ort: D3, D6, D9
+Wohnort: 977xx Motten / Bayern, Deutschland
+Jahrgang: 1966
+Verfügbar: 01.04.21 zu 80%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 1989
+Sprachen: Deutsch Muttersprache, Englisch Wort und Schrift, Deutsch (Muttersprache), Englisch (Wort und Schrift), Französisch (Grundkenntnisse)
+
+FACHBEREICHE:
+Web-Architektur
+Fullstack Java
+Appliances
+Enterprise Search
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test Engineering / IT-nahe Ingenieurdienstleistungen
+Beratung Rapid Application Develoopment, Big Data, Beratung für Web-Apps und IT-Architekturen, Erstellung von Realisierungsvorschlägen, Lasten- und Pflichtenheften. Projektleitung und Unterstützung des Managements 1989 - 1990 Nanz Zentrale Verwaltungsgesellschaft GmbH 1989 - 1990 Entwicklung eines zentralen Warenwirschaftssystems
+Realisierung von Komponenten der Zugriffsschicht auf Basis einer relationalen Datenbank
+Realisierung eines Unternehmenskalenders Methoden/Werkzeuge: PL/I, CSP, SQL Systeme: DOS/VSE, SQL/DS
+JEE
+Projektmanagement / -leitung / Organisation / Koordination
+Qualitätsmanagement / Qualitätssicherung / Test
+Engineering / IT-nahe Ingenieurdienstleistungen
+Beratung Rapid Application Develoopment
+Big Data
+Beratung für Web-Apps und IT-Architekturen
+Erstellung von Realisierungsvorschlägen
+Lasten- und Pflichtenhefte
+Projektleitung und Unterstützung des Managements
+Java-Technologien
+Performante Suchdatenbanken
+Web-Technologien
+
+BRANCHEN:
+Finanzdienstleistungsbereich
+Banken
+Börse
+Wertpapiergeschäft
+Handelssysteme
+
+PROJEKTE:
+  11/2020 - 03/2021 | Deutsche Bank | Lead-Testmanager
+    - Eingesetzte Produkte: msg Gillardon Marzipan ===================================================== ==========================
+    - Testmanager im Bereich Baufinanzierung
+    Techs: msg Gillardon Marzipan
+  04/2020 - 01/2021 | Lebenswerte Zukunft | IT Architekt
+    - Architektur
+    - Aufgaben:
+    - Konzeption und Implementierung der IT-Infrastruktur; Aufbau eines Aufbau eines Verkaufssystems für Finanzprodukte
+    Techs: Clickfunnels, Activecampaign, Zoho
+  08/2019 - 03/2020 | Projekt im Rahmen eines Systemhauses | Software-Entwickler und Architekt
+    - Aufgaben:
+    - Entwicklung eines Prototypen basierend auf Open Source Software und Betrieb innerhalb einer IT-Firma.
+    - Java, GitHub, Debian, Kubernetes, Docker, Elasticsearch
+    Techs: Java, GitHub, Debian, Kubernetes, Docker, Elasticsearch, Eclipse, Xcode
+  01/2017 - 11/2018 | Rentenbank Frankfurt | Qualitätssicherung
+    - Aufgaben:
+    - Qualitätssicherung der Serverumstellung, Erstellung von Reports, Beladen von OLAP-Würfeln, Realisierung von SSIS-Abläufen.
+    - Business Intelligence / OLAP
+    Techs: SQL Server 2016, VS, SSMS, OLAP, SSIS
+  04/2016 - 01/2017 |  | Online Sport-Manager Game
+    - Aufgaben:
+    - Browser-Game, Sport-Manager
+    - Eigenentwicklung in sehr kleinem Team von der Idee bis zum GoLive
+    Techs: Java, JavaScript, Html 5, Css3, Relationales DB-System, AngularJS
+  03/2014 - 08/2019 | Rentenbank | Analyse, Design und Umsetzung von folgenden Projekten bzw., Frankfurt/Deutschland
+    - Analyse, Design und Umsetzung von folgenden Projekten bzw. Modulen
+    - Aufgaben:
+    - Kreditanwendung
+    Techs: BAIS, Murex, RegisTR
+  05/2013 - 02/2014 |  | Analyse, Design und Umsetzung gesetzlicher Vorgaben im
+    - Analyse, Design und Umsetzung gesetzlicher Vorgaben im Rahmen der Emir-Verordnung u. a
+    - Aufgaben:
+    - OO Analyse
+    Techs: Java 7, JEE6, Eclipse, SVN, JPA, Eclipse-Link, UML, IBM System Architect
+  03/2013 - 03/2013 | Deutsche Bundesbank | Analyse einer Java-Plugin-Komponente, Frankfurt/Deutschland
+    - Aufgaben:
+    - Analyse eines Szenarios, Erarbeiten eines Lösungsvorschlages, Konzeption und Aufwandsschätzung, Formulierung eines Change-Requests.
+    - Eingesetzte Produkte:
+    Techs: Java, JNI, Websphere 8, Websphere-RAD 8, JCE, JCA, C/C++, Windows, SwiftNet Link 6.0/7.0, Swift Alliance Gateway
+  04/2012 - 12/2012 | KfW | Projekt Basel III Webanwendungen für die Berechnung von, Frankfurt/Deutschland
+    - Implementierung von Algorithmen für die Risikokennzahlenberechnung Eingesetzte Produkte:
+    - Aufgaben:
+    - Erweiterung und Realisierung einer Websphere Web-Anwendung
+    Techs: Java, JavaScript, WebSphere 7, Rad 7, DB2, CMSynergy
+  10/2011 - 03/2012 |  | Projekt Pflegeprogrammdateien Zwei Webanwendungen für die Pflege von Statistischen Daten und Nebenabreden
+    - Pflege von Statistischen Daten und Nebenabreden
+    - Aufgaben:
+    - Design und Realisierung Websphere Web-Anwendung
+    Techs: Java, JavaScript, Hibernate, JPA, WebSphere 7, Rad 7, DB2
+  01/2011 - 09/2011 |  | Projekt Webanwendung Engagementübersicht: Aufbereitung eines
+    - Aufbereitung eines Dokumentes mit den Daten aus der CashFlowRating-Datenbank (u. a. MIS-Ipex Datenbestand)
+    - Datenbestand)
+    - Aufgaben:
+    Techs: Java, Hibernate, JPA, WebSphere 7, Rad 7, DB2, Oracle
+  10/2010 - 12/2010 |  | Projekt Meldewesen. Anlieferung von Daten aus
+    - Anlieferung von Daten aus unterschiedlichen Quellsystemen (Summit, Darlehensbuchhaltung, Finanzbuchhaltung) an Samba Plus
+    - Finanzbuchhaltung) an Samba Plus. (Projekt GroMiKv)
+    - Aufgaben:
+    Techs: Java, hausinternes Batch-Framework, JPA, WebSphere 6, Rad 7, DB2, Oracle
+  07/2009 - 09/2010 |  | Projektanbindung an bestehendes Dokument-Management-System (Projekt ModaLB) und neues Web-Projekt zur Übertragung von Umweltzertifikaten an das Umweltbundesamt (Projekt DEHSt)
+    - (Projekt ModaLB) und neues Web-Projekt zur Übertragung von Umweltzertifikaten an das Umweltbundesamt (Projekt DEHSt)
+    - Aufgaben:
+    - Entwicklung Websphere 6 Anwendung (Internet)
+    Techs: RAD7 (Rational Application Developer), WebSphere 6, XAMP (Linux, IBM Hardware, TomCat 4+5+6, SUN Hardware, Apache-Webserver, mySQL-Datenbank, PHP), Solaris
+  1991 - 1998 | Deutsche Börse Systems AG | Deutsche Börse Systems AG, Frankfurt/Main
+    - 19971998
+    - Neuer Markt
+    - Design und Realisierung eines Clients zur dynamischen Generierung von HTML-Seiten zur Anzeige von Intraday-Kurs- und Statistikdaten
+    Techs: IBM AIX, Oracle DBMS, Windows NT, Cisco ISDN-Router 771, C/C++, HTML
+  1989 - 1990 | Nanz Zentrale Verwaltungsgesellschaft GmbH | Nanz Zentrale Verwaltungsgesellschaft GmbH
+    - 1989 - 1990
+    - Entwicklung eines zentralen Warenwirschaftssystems
+    - Realisierung von Komponenten der Zugriffsschicht auf Basis einer relationalen Datenbank
+    Techs: PL/I, CSP, SQL, DOS/VSE, SQL/DS
+
+SKILLS:
+  database: Postgres, Relationales DB-System u. diverse andere Technonlogien, SQL, SQL Server 2016 / VS / SSMS
+  operating_system: Debian, Glassfish 3 u. 4, IBM iSeries, Kubernetes, Linux, Microsoft Windows, Tomcat 8, Websphere 8, UNIX (Linux, HP-UX, SUN Solaris, IBM AIX), OS/2, MS Windows 3.11, 95, 98, 2000, NT, XP, MS DOS, MVS, DB/DC Systeme, MySQL, ORACLE, INFORMIX, IMS-DB/DC, DB2, MS-ACCESS
+  programming_languages: AngularJS, Docker, Eclipse-Link, IBM System Architect, Java, Java 7/8, JavaScript, JEE6/7, JPA, UML, Java/J2EE, C/C++, Perl mit Regular Expressions, PHP, ORACLE PL/SQL, Cobol, HTML/CGI/JavaScript, PL/I, EASY/REXX, Methoden/Werkzeuge, RAD6, WSAD, Forte, Eclipse, IBM VisualAge for Java, Rational Rose (OOA/OOD/UML), Together J, Continuus, DB Visualizer, MS Visual C++, Oracle Designer/2000, Oracle Enterprise Manager, Symantec Café, SQL/Plus (Oracle/AIX), CandleComandCenter (MQ), Tkprof, TSCM, Toad, XPEDITER, Bibliotheken/API's
+
+SKILL-ABLAGE:
+Cloud-Services, Websphere MQ, Berechnung/Simulation/Versuch/Validierung, msg Gillardon Marzipan
+
+AUSBILDUNG:
+1989 - 1990 | Entwicklung eines zentralen Warenwirtschaftssystems | Nanz Zentrale Verwaltungsgesellschaft GmbH  [course]
+
+FOCUS_EXP:
+  Activecampaign  [product_standard]
+  B2C Marketing  [product_standard]
+  Clickfunnels  [product_standard]
+  Css3  [product_standard]
+  Eclipse  [product_standard]
+  Elasticsearch  [product_standard]
+  GitHub  [product_standard]
+  Html 5  [product_standard]
+  SVN  [product_standard]
+  System Architect  [product_standard]
+  Xcode  [product_standard]
+  Zoho  [product_standard]
+  Schwerpunkte  [product_standard]
+  Java-Technologien  [product_standard]
+  Performante Suchdatenbanken  [product_standard]
+  Web-Technologien  [product_standard]
+
+SONSTIGES:
+Referenzen:
+Projekt Außenschnittstellen, 02/06 - 12/08
+Referenz durch Prokurist, Finanzinstitut, vom 21.11.08
+"Der Consultant hat an einer Reihe von Projekten mitgewirkt. Durch sein tiefes Wissen in den Bereichen Wbsphere und Webentwicklung (von der Spezifikation bis zum Einsatz) hat er unser Team hervorragend unterstützt und beraten. Auch seine soziale Kompetenz und Professionalität haben sehr zur Erreichung des Projektzieles beigetragen, was ihn die Wertschätzung seiner Kollegen einbrachte. Deshalb möchten wir uns bei dem Berater für die erbrachte Leistung bedanken und wünschen ihm für die weiteren Projekte viel Erfolg und gutes Gelingen."
+Projekt Websphere-Migration v4 nach v5, Redesign Flash GUI, 10/04 - 01/06
+Referenz durch Direktionsmitglied, Schweizerische Investmentbank (weltweit 15.000 MA), vom 15.12.05
+"Der Consultant hat in allen Projekten mit seinem Know-how und seiner engagierten Art sehr zum Erfolg der Projekte beigetragen. Er verfügt über ein profundes Wissen in Websphere und umfassende Kenntnisse in allen Phasen eines OO-Projektes von der Spezifikation bis hin zum Einsatz der Anwendung. Wir möchten uns beim Consultant für die erbrachte Leistung bedanken und ihn anderen Projektanbietern empfehlen. Seine freundliche und hilfsbereite Art sowie sein stets professionelles Verhalten wurden von Auftraggeber, Projektleiter und Kollegen gleichermassen geschätzt."
+Alle Referenzen sind durch GULP bestätigt.
+
+Sonstige Anmerkungen:
+Für die letzten Projekte sind Referenzen in Papier-Form vorhanden.
+Auf Anfrage sende ich Ihnen gerne die gewünschten Referenzen zu.
