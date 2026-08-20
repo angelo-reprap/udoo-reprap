@@ -92,33 +92,33 @@ for r in need_sorted:
         break
     add_row(r)
 
-# Tier 2: fill from CRM
+# Tier 2: fill from CRM (nur IDs — kein Full-Text-Scan → schont RAM/CPU)
 if len(picked) < LIMIT:
     need_more = LIMIT - len(picked)
     print(f"CRM fill need={need_more} (have={len(picked)})")
+    from django.db.models.functions import Length
+
     qs = (
         CrmContactCstm.objects.exclude(gulp_profil_c__isnull=True)
         .exclude(gulp_profil_c="")
-        .values_list("contact_id", "gulp_id_c", "gulp_profil_c")
+        .annotate(_plen=Length("gulp_profil_c"))
+        .filter(_plen__gte=MIN_LEN)
+        .values_list("contact_id", "gulp_id_c")
     )
     candidates = []
-    for contact_id, gulp_id, profil in qs.iterator(chunk_size=500):
-        text = (profil or "").strip()
-        if len(text) < MIN_LEN:
-            continue
+    for contact_id, gulp_id in qs.iterator(chunk_size=1000):
         cid = str(contact_id)
         if cid in seen_cid:
             continue
-        candidates.append((cid, str(gulp_id or ""), len(text)))
+        candidates.append((cid, str(gulp_id or "")))
     rng.shuffle(candidates)
     print(f"CRM candidates len>={MIN_LEN}: {len(candidates)}")
-    for cid, gid, _ln in candidates[:need_more]:
-        # resolve name for filename
+    for cid, gid in candidates[:need_more]:
         try:
             cid_int = int(cid)
         except ValueError:
             cid_int = cid
-        c = CrmContact.objects.filter(id=cid_int).first()
+        c = CrmContact.objects.filter(id=cid_int).only("id", "first_name", "last_name").first()
         last = (getattr(c, "last_name", None) or "").strip() if c else ""
         first = (getattr(c, "first_name", None) or "").strip() if c else ""
         slug = re.sub(

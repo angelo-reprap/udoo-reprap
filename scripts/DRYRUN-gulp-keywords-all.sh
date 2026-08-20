@@ -36,45 +36,45 @@ CrmContactCstm = apps.get_model("abpe_crm", "CrmContactCstm")
 CrmContact = apps.get_model("abpe_crm", "CrmContact")
 
 def norm_text(t: str) -> str:
-    return t.replace("\u00a0", " ").replace("\u2009", " ").replace("\u202f", " ")
+    for ch in ("\u00a0", "\u2009", "\u202f"):
+        t = t.replace(ch, " ")
+    for ch in ("\u200b", "\u00ad"):
+        t = t.replace(ch, "")
+    return t.replace("&amp;", "&")
 
 CORE_SECTIONS = [
-    r"Fachlicher\s+Schwerpunkt",
-    r"Schwerpunkt",
-    r"Position",
-    r"Ausbildung",
-    r"(?:Durchgef[uü]hrte\s+)?Projekte",
-    r"Projekt[uü]bersicht",
-    r"Branchen?",
-    r"Fremdsprachen",
-    r"Einsatzort",
-    r"Regionen",
-    r"Kommentar",
-    r"Sonstige\s+Anmerkungen",
-    r"Stammdaten(?:\s*\(Auszug\))?",
-    r"Personendaten",
-    r"Zertifizierungen?",
+    r"Fachlicher\s+Schwerpunkt", r"Schwerpunkt", r"Position", r"Ausbildung",
+    r"Beruflicher\s+Werdegang", r"(?:Durchgef[uü]hrte\s+)?Projekte",
+    r"Projekt[uü]bersicht", r"Branchen?", r"Fremdsprachen", r"Einsatzort",
+    r"Regionen(?:\s*&\s*L[aä]nder)?", r"Kommentar", r"Sonstige\s+Anmerkungen",
+    r"Bemerkungen", r"Stammdaten(?:\s*\(Auszug\))?", r"Personendaten",
+    r"Zertifizierungen?", r"Top[- ]Skills",
 ]
 SKILL_SECTIONS = [
-    r"Hardware", r"Betriebssysteme", r"Programmiersprachen?", r"Datenbanken?",
-    r"Datenkommunikation", r"Software", r"Tools?", r"Office\s+Tools?",
+    r"Hardware(?:plattform)?", r"Betriebssysteme", r"Programmiersprachen?",
+    r"Datenbank(?:en)?", r"Datenkommunikation",
+    r"Software(?:\s*/\s*Tools(?:\s*/\s*Methoden)?)?", r"Tools?", r"Office\s+Tools?",
     r"Web\s*/\s*Portal-Server", r"Repositories", r"J2EE\s+Technologien",
-    r"J2SE\s+Technologien", r"Methodisches\s+Vorgehen",
+    r"J2SE\s+Technologien", r"Methodisches\s+Vorgehen", r"Methoden",
     r"Produkte\s*/\s*Standards\s*/\s*Erfahrungen",
     r"Produkte\s*\|\s*Standards(?:\s*\|\s*Erfahrungen)?",
     r"Kenntnisse", r"EDV[- ]Kenntnisse",
     r"Design/Entwicklung/Konstruktion",
-    r"Berechnung/Simulation/Versuch/Validierung",
+    r"Berechnung/Simulation/Versuch/Validierung", r"Middleware",
 ]
 PROJECT_FIELDS = [
-    r"Zeitraum", r"Dauer", r"Rolle", r"Kunde", r"Firma(?:/Institut)?", r"Firma",
-    r"Auftrag", r"Aufgaben", r"Beschreibung", r"Kenntnisse",
-    r"Eingesetzte\s+Produkte", r"Technologie", r"Projektumgebung",
-    r"Verantwortung", r"Referenzen",
+    r"Zeitraum", r"Dauer", r"Rolle(?:\s+im\s+Projekt)?", r"Kunde",
+    r"Firma(?:/Institut)?", r"Firma", r"Auftrag",
+    r"Aufgaben(?:\s+im\s+Projekt)?", r"Aufgabenstellung", r"Projektinhalte",
+    r"Beschreibung", r"Kenntnisse", r"Eingesetzte\s+Produkte", r"Technologie",
+    r"Projektumgebung", r"Systemumgebung", r"Verantwortung", r"Referenzen",
+    r"T[aä]tigkeiten",
 ]
 STAMM_FIELDS = [
     r"Personen[- ]?ID", r"Wohnort", r"Jahrgang", r"Staatsb[uü]rgerschaft",
-    r"Stundensatz", r"Verf[uü]gbar\s+ab", r"Profil\s+erstellt\s+am",
+    r"Stundensatz", r"Verf[uü]gbar\s+ab", r"verf[uü]gbar\s+zu",
+    r"davon\s+vor\s+Ort", r"Remote[- ]Einsatz", r"Kontaktwunsch",
+    r"Unternehmensgr[oö]ße", r"Profil\s+erstellt\s+am",
     r"Profil\s+zuletzt\s+ge[aä]ndert\s+am", r"EDV[- ]Erfahrung\s+seit",
 ]
 
@@ -97,6 +97,9 @@ DATE_LED = re.compile(
     r"\d{1,2}[./]\d{1,2}[./]\d{2,4}\s*[-–]\s*\d{1,2}[./]\d{1,2}[./]\d{2,4}"
     r"|"
     r"(?:0?[1-9]|1[0-2])[/.-](?:19|20)\d{2}\s*[-–]\s*(?:0?[1-9]|1[0-2]|heute|aktuell|laufend)"
+    r"|"
+    r"(?:19|20)\d{2}[-/.](?:0?[1-9]|1[0-2])(?:[-/.]\d{1,2})?\s*[-–]\s*"
+    r"(?:(?:19|20)\d{2}[-/.](?:0?[1-9]|1[0-2])(?:[-/.]\d{1,2})?|heute|aktuell|laufend)"
     r"|"
     r"(?:Jan|Feb|Mär|Apr|Mai|Jun|Jul|Aug|Sep|Okt|Nov|Dez)[a-zä.]*\s+(?:19|20)\d{2}\s*[-–]"
     r")",
@@ -136,19 +139,33 @@ for contact_id, gulp_id, profil in qs.iterator(chunk_size=200):
     has_date_led = bool(DATE_LED.search(text))
     has_projekte = any("Projekte" in x or "Projekt" in x for x in hit["core"])
     has_schwerpunkt = any("Schwerpunkt" in x for x in hit["core"])
-    has_ausbildung = "Ausbildung" in hit["core"]
+    has_position = "Position" in hit["core"]
+    has_ausbildung = "Ausbildung" in hit["core"] or any(
+        "Werdegang" in x for x in hit["core"]
+    )
     has_skills = len(hit["skill"]) >= 2
+    proj_rich = len(hit["proj"]) >= 3 or any(
+        "Projektinhalte" in x or "Rolle" in x for x in hit["proj"]
+    )
     project_signal = has_projekte or has_zeitraum or has_date_led
+    identity = has_schwerpunkt or has_position
 
     stats["projekte"] += int(has_projekte)
     stats["project_signal"] += int(project_signal)
     stats["schwerpunkt"] += int(has_schwerpunkt)
+    stats["position"] += int(has_position)
     stats["ausbildung"] += int(has_ausbildung)
     stats["skills"] += int(has_skills)
     stats["zeitraum"] += int(has_zeitraum)
     stats["date_led"] += int(has_date_led)
+    stats["proj_rich"] += int(proj_rich)
 
-    is_ok = project_signal and (has_schwerpunkt or has_skills) and has_ausbildung
+    is_ok = False
+    if project_signal:
+        if identity and (has_skills or has_ausbildung or proj_rich):
+            is_ok = True
+        elif has_ausbildung and has_skills:
+            is_ok = True
     if is_ok:
         ok += 1
     else:
@@ -163,10 +180,10 @@ for contact_id, gulp_id, profil in qs.iterator(chunk_size=200):
         reason = []
         if not project_signal:
             reason.append("no_project_signal")
-        if not (has_schwerpunkt or has_skills):
-            reason.append("no_schwerpunkt_or_skills")
-        if not has_ausbildung:
-            reason.append("no_ausbildung")
+        if not identity:
+            reason.append("no_identity")
+        if not (has_skills or has_ausbildung or proj_rich):
+            reason.append("no_skills_edu_projrich")
         fails.append(
             f"{contact_id}\t{gulp_id or ''}\t{last}\t{first}\t{len(text)}\t{','.join(reason)}"
         )
@@ -174,7 +191,7 @@ for contact_id, gulp_id, profil in qs.iterator(chunk_size=200):
         print(f"... scanned={n} ok={ok} fails={len(fails)}")
 
 summary = {
-    "version": "v1.1-dryrun",
+    "version": "v1.2-dryrun",
     "min_len": MIN_LEN,
     "n_scanned": n,
     "skip_short": skip_short,
@@ -199,7 +216,7 @@ for group, ctr in pattern_docs.items():
         lines.append(f"{group}\t{pat}\t{d}\t{100 * d / n:.1f}")
 (OUT / "pattern_coverage.tsv").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-print("======== Gulp Keyword DRY-RUN v1.1 ALL ========")
+print("======== Gulp Keyword DRY-RUN v1.2 ALL ========")
 print(json.dumps(summary, ensure_ascii=False, indent=2))
 print(f"fails: {OUT / 'fails.tsv'}")
 print(f"OUT={OUT}")

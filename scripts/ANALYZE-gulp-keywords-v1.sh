@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Gulp-Profil Keyword-Detection v1.1 — Coverage über TXT-Samples.
-# Fixes vs v1: NBSP-Normalisierung, Mid-Line-Sektionen (Projekte/Ausbildung),
-# Zeitraum mit Spaces um ":", date-led Projektzeilen, Stamm-Inline-Felder.
+# Gulp-Profil Keyword-Detection v1.2 — Coverage über TXT-Samples.
+# v1.1: NBSP, Mid-Line, date-led. v1.2: ZWSP, neues Gulp-Layout (Position/
+# Projektinhalte ohne Ausbildung), soft ok-Regel, ISO-Daten, Export-Keywords.
 # Kein PDF, kein DB-Write.
 #
 #   SAMPLE_DIR=artifacts/gulp-samples-1000 \
@@ -10,7 +10,7 @@
 set -euo pipefail
 
 SAMPLE_DIR="${SAMPLE_DIR:?SAMPLE_DIR=/pfad/zu/gulp-samples}"
-OUT="${OUT:-$SAMPLE_DIR/keyword-v1.1-$(date +%Y%m%d-%H%M%S)}"
+OUT="${OUT:-$SAMPLE_DIR/keyword-v1.2-$(date +%Y%m%d-%H%M%S)}"
 LIMIT="${LIMIT:-0}"
 mkdir -p "$OUT"
 
@@ -30,8 +30,10 @@ if not files:
     raise SystemExit("keine txt in SAMPLE_DIR/txt")
 
 def norm_text(t: str) -> str:
-    # NBSP / thin space → space (Zeitraum\xa0\xa0:)
-    t = t.replace("\u00a0", " ").replace("\u2009", " ").replace("\u202f", " ")
+    # NBSP / thin / ZWSP / soft-hyphen (Netzwerk-\u200bAdmin)
+    for ch in ("\u00a0", "\u2009", "\u202f", "\u200b", "\u00ad"):
+        t = t.replace(ch, " " if ch != "\u200b" and ch != "\u00ad" else "")
+    t = t.replace("&amp;", "&")
     return t
 
 CORE_SECTIONS = [
@@ -39,26 +41,29 @@ CORE_SECTIONS = [
     r"Schwerpunkt",
     r"Position",
     r"Ausbildung",
+    r"Beruflicher\s+Werdegang",
     r"(?:Durchgef[uü]hrte\s+)?Projekte",
     r"Projekt[uü]bersicht",
     r"Branchen?",
     r"Fremdsprachen",
     r"Einsatzort",
-    r"Regionen",
+    r"Regionen(?:\s*&\s*L[aä]nder)?",
     r"Kommentar",
     r"Sonstige\s+Anmerkungen",
+    r"Bemerkungen",
     r"Stammdaten(?:\s*\(Auszug\))?",
     r"Personendaten",
     r"Zertifizierungen?",
+    r"Top[- ]Skills",
 ]
 
 SKILL_SECTIONS = [
-    r"Hardware",
+    r"Hardware(?:plattform)?",
     r"Betriebssysteme",
     r"Programmiersprachen?",
-    r"Datenbanken?",
+    r"Datenbank(?:en)?",
     r"Datenkommunikation",
-    r"Software",
+    r"Software(?:\s*/\s*Tools(?:\s*/\s*Methoden)?)?",
     r"Tools?",
     r"Office\s+Tools?",
     r"Web\s*/\s*Portal-Server",
@@ -66,30 +71,36 @@ SKILL_SECTIONS = [
     r"J2EE\s+Technologien",
     r"J2SE\s+Technologien",
     r"Methodisches\s+Vorgehen",
+    r"Methoden",
     r"Produkte\s*/\s*Standards\s*/\s*Erfahrungen",
     r"Produkte\s*\|\s*Standards(?:\s*\|\s*Erfahrungen)?",
     r"Kenntnisse",
     r"EDV[- ]Kenntnisse",
     r"Design/Entwicklung/Konstruktion",
     r"Berechnung/Simulation/Versuch/Validierung",
+    r"Middleware",
 ]
 
 PROJECT_FIELDS = [
     r"Zeitraum",
     r"Dauer",
-    r"Rolle",
+    r"Rolle(?:\s+im\s+Projekt)?",
     r"Kunde",
     r"Firma(?:/Institut)?",
     r"Firma",
     r"Auftrag",
-    r"Aufgaben",
+    r"Aufgaben(?:\s+im\s+Projekt)?",
+    r"Aufgabenstellung",
+    r"Projektinhalte",
     r"Beschreibung",
     r"Kenntnisse",
     r"Eingesetzte\s+Produkte",
     r"Technologie",
     r"Projektumgebung",
+    r"Systemumgebung",
     r"Verantwortung",
     r"Referenzen",
+    r"T[aä]tigkeiten",
 ]
 
 STAMM_FIELDS = [
@@ -99,14 +110,21 @@ STAMM_FIELDS = [
     r"Staatsb[uü]rgerschaft",
     r"Stundensatz",
     r"Verf[uü]gbar\s+ab",
+    r"verf[uü]gbar\s+zu",
+    r"davon\s+vor\s+Ort",
+    r"Remote[- ]Einsatz",
+    r"Kontaktwunsch",
+    r"Unternehmensgr[oö]ße",
     r"Profil\s+erstellt\s+am",
     r"Profil\s+zuletzt\s+ge[aä]ndert\s+am",
     r"EDV[- ]Erfahrung\s+seit",
 ]
 
 AUSBILDUNG_FIELDS = [
-    r"Abschluss",
+    r"Abschlu(?:ss|ß)",
     r"Institution",
+    r"Studium",
+    r"Schulungen?",
 ]
 
 ALL_GROUPS = {
@@ -139,6 +157,9 @@ DATE_LED = re.compile(
     r"\d{1,2}[./]\d{1,2}[./]\d{2,4}\s*[-–]\s*\d{1,2}[./]\d{1,2}[./]\d{2,4}"
     r"|"
     r"(?:0?[1-9]|1[0-2])[/.-](?:19|20)\d{2}\s*[-–]\s*(?:0?[1-9]|1[0-2]|heute|aktuell|laufend)"
+    r"|"
+    r"(?:19|20)\d{2}[-/.](?:0?[1-9]|1[0-2])(?:[-/.]\d{1,2})?\s*[-–]\s*"
+    r"(?:(?:19|20)\d{2}[-/.](?:0?[1-9]|1[0-2])(?:[-/.]\d{1,2})?|heute|aktuell|laufend)"
     r"|"
     r"(?:Jan|Feb|Mär|Apr|Mai|Jun|Jul|Aug|Sep|Okt|Nov|Dez)[a-zä.]*\s+(?:19|20)\d{2}\s*[-–]"
     r")",
@@ -192,12 +213,32 @@ for fp in files:
         "Projekte" in x or "Projekt" in x for x in hit["core_sections"]
     )
     has_schwerpunkt = any("Schwerpunkt" in x for x in hit["core_sections"])
-    has_ausbildung = "Ausbildung" in hit["core_sections"]
+    has_position = "Position" in hit["core_sections"]
+    has_ausbildung = any(
+        x in hit["core_sections"] or x in hit["ausbildung_fields"]
+        for x in ("Ausbildung", "Beruflicher\\s+Werdegang", "Studium", "Abschl[uü]ss")
+    ) or ("Ausbildung" in hit["core_sections"])
+    has_werdegang = any("Werdegang" in x for x in hit["core_sections"])
+    has_ausbildung = has_ausbildung or has_werdegang
     has_skills = len(hit["skill_sections"]) >= 2
     has_zeitraum = "Zeitraum" in hit["project_fields"] or has_zeitraum_loose
+    proj_rich = len(hit["project_fields"]) >= 3 or any(
+        "Projektinhalte" in x or "Rolle" in x for x in hit["project_fields"]
+    )
 
     # Projekt-Signal: Sektion ODER genug date-led Zeilen ODER Zeitraum-Feld
     project_signal = has_projekte or has_zeitraum or has_date_led
+
+    # v1.2 soft rule: classic (Schwerpunkt|Skills)+Ausbildung
+    # OR neues Layout: Position + (Skills|proj_rich)
+    # OR Schwerpunkt+Skills ohne Ausbildung (manche Gulp-Profile)
+    identity = has_schwerpunkt or has_position
+    ok = False
+    if project_signal:
+        if identity and (has_skills or has_ausbildung or proj_rich):
+            ok = True
+        elif has_ausbildung and has_skills:
+            ok = True
 
     row = {
         "file": fp.name,
@@ -210,17 +251,16 @@ for fp in files:
         "stamm_n": len(hit["stamm_fields"]),
         "has_projekte": int(has_projekte),
         "has_schwerpunkt": int(has_schwerpunkt),
+        "has_position": int(has_position),
         "has_ausbildung": int(has_ausbildung),
         "has_skills": int(has_skills),
         "has_zeitraum": int(has_zeitraum),
         "has_date_led": int(has_date_led),
         "n_date_led": n_date_led,
+        "proj_rich": int(proj_rich),
         "project_signal": int(project_signal),
-        "ok_min_structure": 0,
+        "ok_min_structure": int(ok),
     }
-    # Mindeststruktur: Projekte-Signal + (Schwerpunkt|Skills) + Ausbildung
-    if project_signal and (has_schwerpunkt or has_skills) and has_ausbildung:
-        row["ok_min_structure"] = 1
     per_file.append(row)
 
 # Fix Zeitraum doc count (set-based already in hit; recount from per_file)
@@ -256,17 +296,19 @@ fails = [r["file"] for r in per_file if not r["ok_min_structure"]]
 (out / "fails.txt").write_text("\n".join(fails) + ("\n" if fails else ""), encoding="utf-8")
 
 summary = {
-    "version": "v1.1",
+    "version": "v1.2",
     "n_files": n,
     "ok_min_structure": ok,
     "ok_pct": round(100 * ok / n, 1),
     "docs_projekte": sum(r["has_projekte"] for r in per_file),
     "docs_project_signal": sum(r["project_signal"] for r in per_file),
     "docs_schwerpunkt": sum(r["has_schwerpunkt"] for r in per_file),
+    "docs_position": sum(r["has_position"] for r in per_file),
     "docs_ausbildung": sum(r["has_ausbildung"] for r in per_file),
     "docs_skills": sum(r["has_skills"] for r in per_file),
     "docs_zeitraum": sum(r["has_zeitraum"] for r in per_file),
     "docs_date_led": sum(r["has_date_led"] for r in per_file),
+    "docs_proj_rich": sum(r["proj_rich"] for r in per_file),
     "fails_n": len(fails),
     "fails_sample": fails[:30],
 }
@@ -274,16 +316,18 @@ summary = {
     json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
 )
 
-print("======== Gulp Keyword Detection v1.1 ========")
+print("======== Gulp Keyword Detection v1.2 ========")
 print(f"files={n}  OUT={out}")
 print(f"ok_min_structure: {ok}/{n} ({summary['ok_pct']}%)")
 print(f"  Projekte(label): {summary['docs_projekte']}/{n}")
 print(f"  project_signal:  {summary['docs_project_signal']}/{n}")
 print(f"  Schwerpunkt:     {summary['docs_schwerpunkt']}/{n}")
+print(f"  Position:        {summary['docs_position']}/{n}")
 print(f"  Ausbildung:      {summary['docs_ausbildung']}/{n}")
 print(f"  Skills≥2:        {summary['docs_skills']}/{n}")
 print(f"  Zeitraum:        {summary['docs_zeitraum']}/{n}")
 print(f"  date_led:        {summary['docs_date_led']}/{n}")
+print(f"  proj_rich:       {summary['docs_proj_rich']}/{n}")
 if fails:
     print("fails:", ", ".join(fails[:15]))
 print()
