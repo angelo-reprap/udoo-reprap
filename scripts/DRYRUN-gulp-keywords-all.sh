@@ -61,14 +61,15 @@ SKILL_SECTIONS = [
     r"Kenntnisse", r"EDV[- ]Kenntnisse",
     r"Design/Entwicklung/Konstruktion",
     r"Berechnung/Simulation/Versuch/Validierung", r"Middleware",
+    r"Top[- ]Skills",
 ]
 PROJECT_FIELDS = [
-    r"Zeitraum", r"Dauer", r"Rolle(?:\s+im\s+Projekt)?", r"Kunde",
-    r"Firma(?:/Institut)?", r"Firma", r"Auftrag",
-    r"Aufgaben(?:\s+im\s+Projekt)?", r"Aufgabenstellung", r"Projektinhalte",
-    r"Beschreibung", r"Kenntnisse", r"Eingesetzte\s+Produkte", r"Technologie",
-    r"Projektumgebung", r"Systemumgebung", r"Verantwortung", r"Referenzen",
-    r"T[aä]tigkeiten",
+    r"Zeitraum", r"Dauer", r"Laufzeit", r"Rolle(?:\s+im\s+Projekt)?", r"Kunde",
+    r"Firma(?:/Institut)?", r"Firma(?:\s*/\s*Branche)?", r"Branche/Firma", r"Firma",
+    r"Auftrag", r"Aufgaben(?:\s+im\s+Projekt)?", r"Aufgabenstellung",
+    r"Meine\s+Aufgaben", r"Projektinhalte", r"Beschreibung", r"Kenntnisse",
+    r"Eingesetzte\s+Produkte", r"Technologie", r"Tech", r"Projektumgebung",
+    r"Systemumgebung", r"Verantwortung", r"Referenzen", r"T[aä]tigkeiten?", r"Titel",
 ]
 STAMM_FIELDS = [
     r"Personen[- ]?ID", r"Wohnort", r"Jahrgang", r"Staatsb[uü]rgerschaft",
@@ -140,20 +141,25 @@ for contact_id, gulp_id, profil in qs.iterator(chunk_size=200):
     has_projekte = any("Projekte" in x or "Projekt" in x for x in hit["core"])
     has_schwerpunkt = any("Schwerpunkt" in x for x in hit["core"])
     has_position = "Position" in hit["core"]
+    has_top_skills = any("Top" in x and "Skill" in x for x in hit["core"]) or any(
+        "Top" in x and "Skill" in x for x in hit["skill"]
+    )
     has_ausbildung = "Ausbildung" in hit["core"] or any(
         "Werdegang" in x for x in hit["core"]
     )
-    has_skills = len(hit["skill"]) >= 2
+    has_skills = len(hit["skill"]) >= 2 or has_top_skills
     proj_rich = len(hit["proj"]) >= 3 or any(
-        "Projektinhalte" in x or "Rolle" in x for x in hit["proj"]
+        "Projektinhalte" in x or "Rolle" in x or "Laufzeit" in x for x in hit["proj"]
     )
     project_signal = has_projekte or has_zeitraum or has_date_led
-    identity = has_schwerpunkt or has_position
+    identity = has_schwerpunkt or has_position or has_top_skills
+    stamm_ok = len(hit["stamm"]) >= 3
 
     stats["projekte"] += int(has_projekte)
     stats["project_signal"] += int(project_signal)
     stats["schwerpunkt"] += int(has_schwerpunkt)
     stats["position"] += int(has_position)
+    stats["top_skills"] += int(has_top_skills)
     stats["ausbildung"] += int(has_ausbildung)
     stats["skills"] += int(has_skills)
     stats["zeitraum"] += int(has_zeitraum)
@@ -161,11 +167,14 @@ for contact_id, gulp_id, profil in qs.iterator(chunk_size=200):
     stats["proj_rich"] += int(proj_rich)
 
     is_ok = False
-    if project_signal:
-        if identity and (has_skills or has_ausbildung or proj_rich):
-            is_ok = True
-        elif has_ausbildung and has_skills:
-            is_ok = True
+    if project_signal and identity and (has_skills or has_ausbildung or proj_rich):
+        is_ok = True
+    elif project_signal and has_skills and proj_rich:
+        is_ok = True
+    elif project_signal and has_ausbildung and proj_rich:
+        is_ok = True
+    elif identity and has_skills and (has_ausbildung or stamm_ok):
+        is_ok = True
     if is_ok:
         ok += 1
     else:
@@ -203,7 +212,7 @@ for contact_id, gulp_id, profil in qs.iterator(chunk_size=200):
         print(f"... scanned={n} ok={ok} fails={len(fails)}")
 
 summary = {
-    "version": "v1.2-dryrun",
+    "version": "v1.3-dryrun",
     "min_len": MIN_LEN,
     "n_scanned": n,
     "skip_short": skip_short,
@@ -228,7 +237,7 @@ for group, ctr in pattern_docs.items():
         lines.append(f"{group}\t{pat}\t{d}\t{100 * d / n:.1f}")
 (OUT / "pattern_coverage.tsv").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-print("======== Gulp Keyword DRY-RUN v1.2 ALL ========")
+print("======== Gulp Keyword DRY-RUN v1.3 ALL ========")
 print(json.dumps(summary, ensure_ascii=False, indent=2))
 print(f"fails: {OUT / 'fails.tsv'}")
 print(f"OUT={OUT}")

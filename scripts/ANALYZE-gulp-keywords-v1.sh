@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Gulp-Profil Keyword-Detection v1.2 — Coverage über TXT-Samples.
-# v1.1: NBSP, Mid-Line, date-led. v1.2: ZWSP, neues Gulp-Layout (Position/
-# Projektinhalte ohne Ausbildung), soft ok-Regel, ISO-Daten, Export-Keywords.
+# Gulp-Profil Keyword-Detection v1.3 — Coverage über TXT-Samples.
+# v1.2: soft identity. v1.3: Top-Skills als Identity/Skill; thin profiles
+# ohne Projekte; Layout ohne Position (proj_rich+skills); extra Projekt-Labels.
 # Kein PDF, kein DB-Write.
 #
 #   SAMPLE_DIR=artifacts/gulp-samples-1000 \
@@ -10,7 +10,7 @@
 set -euo pipefail
 
 SAMPLE_DIR="${SAMPLE_DIR:?SAMPLE_DIR=/pfad/zu/gulp-samples}"
-OUT="${OUT:-$SAMPLE_DIR/keyword-v1.2-$(date +%Y%m%d-%H%M%S)}"
+OUT="${OUT:-$SAMPLE_DIR/keyword-v1.3-$(date +%Y%m%d-%H%M%S)}"
 LIMIT="${LIMIT:-0}"
 mkdir -p "$OUT"
 
@@ -79,28 +79,35 @@ SKILL_SECTIONS = [
     r"Design/Entwicklung/Konstruktion",
     r"Berechnung/Simulation/Versuch/Validierung",
     r"Middleware",
+    r"Top[- ]Skills",
 ]
 
 PROJECT_FIELDS = [
     r"Zeitraum",
     r"Dauer",
+    r"Laufzeit",
     r"Rolle(?:\s+im\s+Projekt)?",
     r"Kunde",
     r"Firma(?:/Institut)?",
+    r"Firma(?:\s*/\s*Branche)?",
+    r"Branche/Firma",
     r"Firma",
     r"Auftrag",
     r"Aufgaben(?:\s+im\s+Projekt)?",
     r"Aufgabenstellung",
+    r"Meine\s+Aufgaben",
     r"Projektinhalte",
     r"Beschreibung",
     r"Kenntnisse",
     r"Eingesetzte\s+Produkte",
     r"Technologie",
+    r"Tech",
     r"Projektumgebung",
     r"Systemumgebung",
     r"Verantwortung",
     r"Referenzen",
-    r"T[aä]tigkeiten",
+    r"T[aä]tigkeiten?",
+    r"Titel",
 ]
 
 STAMM_FIELDS = [
@@ -214,31 +221,36 @@ for fp in files:
     )
     has_schwerpunkt = any("Schwerpunkt" in x for x in hit["core_sections"])
     has_position = "Position" in hit["core_sections"]
-    has_ausbildung = any(
-        x in hit["core_sections"] or x in hit["ausbildung_fields"]
-        for x in ("Ausbildung", "Beruflicher\\s+Werdegang", "Studium", "Abschl[uü]ss")
-    ) or ("Ausbildung" in hit["core_sections"])
+    has_top_skills = any("Top" in x and "Skill" in x for x in hit["core_sections"]) or any(
+        "Top" in x and "Skill" in x for x in hit["skill_sections"]
+    )
     has_werdegang = any("Werdegang" in x for x in hit["core_sections"])
-    has_ausbildung = has_ausbildung or has_werdegang
-    has_skills = len(hit["skill_sections"]) >= 2
+    has_ausbildung = ("Ausbildung" in hit["core_sections"]) or has_werdegang
+    has_skills = len(hit["skill_sections"]) >= 2 or has_top_skills
     has_zeitraum = "Zeitraum" in hit["project_fields"] or has_zeitraum_loose
     proj_rich = len(hit["project_fields"]) >= 3 or any(
-        "Projektinhalte" in x or "Rolle" in x for x in hit["project_fields"]
+        "Projektinhalte" in x or "Rolle" in x or "Laufzeit" in x
+        for x in hit["project_fields"]
     )
 
-    # Projekt-Signal: Sektion ODER genug date-led Zeilen ODER Zeitraum-Feld
     project_signal = has_projekte or has_zeitraum or has_date_led
+    identity = has_schwerpunkt or has_position or has_top_skills
 
-    # v1.2 soft rule: classic (Schwerpunkt|Skills)+Ausbildung
-    # OR neues Layout: Position + (Skills|proj_rich)
-    # OR Schwerpunkt+Skills ohne Ausbildung (manche Gulp-Profile)
-    identity = has_schwerpunkt or has_position
+    # v1.3:
+    # - classic soft: identity + (skills|edu|proj_rich) + projects
+    # - new layout ohne Position: projects + skills + proj_rich
+    # - edu+projects+proj_rich ohne identity
+    # - thin classic ohne Projekte: identity + skills + (edu|stamm)
+    stamm_ok = len(hit["stamm_fields"]) >= 3
     ok = False
-    if project_signal:
-        if identity and (has_skills or has_ausbildung or proj_rich):
-            ok = True
-        elif has_ausbildung and has_skills:
-            ok = True
+    if project_signal and identity and (has_skills or has_ausbildung or proj_rich):
+        ok = True
+    elif project_signal and has_skills and proj_rich:
+        ok = True
+    elif project_signal and has_ausbildung and proj_rich:
+        ok = True
+    elif identity and has_skills and (has_ausbildung or stamm_ok):
+        ok = True
 
     row = {
         "file": fp.name,
@@ -252,6 +264,7 @@ for fp in files:
         "has_projekte": int(has_projekte),
         "has_schwerpunkt": int(has_schwerpunkt),
         "has_position": int(has_position),
+        "has_top_skills": int(has_top_skills),
         "has_ausbildung": int(has_ausbildung),
         "has_skills": int(has_skills),
         "has_zeitraum": int(has_zeitraum),
@@ -296,7 +309,7 @@ fails = [r["file"] for r in per_file if not r["ok_min_structure"]]
 (out / "fails.txt").write_text("\n".join(fails) + ("\n" if fails else ""), encoding="utf-8")
 
 summary = {
-    "version": "v1.2",
+    "version": "v1.3",
     "n_files": n,
     "ok_min_structure": ok,
     "ok_pct": round(100 * ok / n, 1),
@@ -304,6 +317,7 @@ summary = {
     "docs_project_signal": sum(r["project_signal"] for r in per_file),
     "docs_schwerpunkt": sum(r["has_schwerpunkt"] for r in per_file),
     "docs_position": sum(r["has_position"] for r in per_file),
+    "docs_top_skills": sum(r["has_top_skills"] for r in per_file),
     "docs_ausbildung": sum(r["has_ausbildung"] for r in per_file),
     "docs_skills": sum(r["has_skills"] for r in per_file),
     "docs_zeitraum": sum(r["has_zeitraum"] for r in per_file),
@@ -316,20 +330,21 @@ summary = {
     json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
 )
 
-print("======== Gulp Keyword Detection v1.2 ========")
+print("======== Gulp Keyword Detection v1.3 ========")
 print(f"files={n}  OUT={out}")
 print(f"ok_min_structure: {ok}/{n} ({summary['ok_pct']}%)")
 print(f"  Projekte(label): {summary['docs_projekte']}/{n}")
 print(f"  project_signal:  {summary['docs_project_signal']}/{n}")
 print(f"  Schwerpunkt:     {summary['docs_schwerpunkt']}/{n}")
 print(f"  Position:        {summary['docs_position']}/{n}")
+print(f"  Top-Skills:      {summary['docs_top_skills']}/{n}")
 print(f"  Ausbildung:      {summary['docs_ausbildung']}/{n}")
-print(f"  Skills≥2:        {summary['docs_skills']}/{n}")
+print(f"  Skills:          {summary['docs_skills']}/{n}")
 print(f"  Zeitraum:        {summary['docs_zeitraum']}/{n}")
 print(f"  date_led:        {summary['docs_date_led']}/{n}")
 print(f"  proj_rich:       {summary['docs_proj_rich']}/{n}")
 if fails:
-    print("fails:", ", ".join(fails[:15]))
+    print("fails:", ", ".join(fails[:20]))
 print()
 print("Top still-unmatched:")
 for lab, c in unmatched.most_common(15):
