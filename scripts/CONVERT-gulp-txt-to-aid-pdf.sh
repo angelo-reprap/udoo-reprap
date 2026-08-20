@@ -388,7 +388,8 @@ for j in jobs:
         j["gulp_id"] = profile["gulp_id"]
     aid = profile.get("aid_name") or f"AID-{ini}_{VERSION_TAG}"
     ini = aid.split("_", 1)[0].replace("AID-", "") if aid.startswith("AID-") else ini
-    pdf_name = f"AID-{ini}_{VERSION_TAG}-gulp.pdf"
+    # Person-Dir: sauberer AID-Name für get_best_pdf / Pipeline
+    pdf_name = f"AID-{ini}_{VERSION_TAG}.pdf"
     target = person_dir / pdf_name
     html_doc = gclean.profile_to_html(
         profile, display_title=f"{last}, {first}".strip(", ") or aid
@@ -397,7 +398,7 @@ for j in jobs:
     web = ""
     with tempfile.TemporaryDirectory(prefix="gulp2aid_") as td:
         td_path = Path(td)
-        html_stem = f"AID-{ini}_{VERSION_TAG}-gulp"
+        html_stem = f"AID-{ini}_{VERSION_TAG}"
         if OUT_DIR:
             html_stem = f"AID-{ini}_{VERSION_TAG}-gulp-{dname}"[:120]
             pdf_name = f"{html_stem}.pdf"
@@ -420,7 +421,7 @@ for j in jobs:
             written.append(str(target))
         elif not SKIP_PERSON_DIR and OUT_DIR:
             person_dir.mkdir(parents=True, exist_ok=True)
-            person_pdf = person_dir / f"AID-{ini}_{VERSION_TAG}-gulp.pdf"
+            person_pdf = person_dir / f"AID-{ini}_{VERSION_TAG}.pdf"
             shutil.copy2(pdf, person_pdf)
             written.append(str(person_pdf))
         if OUT_DIR:
