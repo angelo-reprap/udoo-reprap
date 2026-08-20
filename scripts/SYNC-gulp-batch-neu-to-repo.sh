@@ -92,8 +92,9 @@ while IFS=$'\t' read -r status contact_id gulp_id letter dir pdf note secs || [[
   fi
   if [[ -d /opt/abpe/backend/data/extracted/"$dir" ]]; then
     mkdir -p "$dest/extracted"
-    find /opt/abpe/backend/data/extracted/"$dir" -maxdepth 1 -name 'AID-*.txt' \
-      -exec cp -a {} "$dest/extracted/" \; 2>/dev/null || true
+    find /opt/abpe/backend/data/extracted/"$dir" -maxdepth 1 \( \
+      -name 'AID-*.txt' -o -name 'AID-*.pre_json.json' -o -name 'AID-*.db_snapshot.json' \
+    \) -exec cp -a {} "$dest/extracted/" \; 2>/dev/null || true
   fi
   n=$((n + 1))
 done <"$RESULT_TSV"
@@ -110,6 +111,8 @@ done <"$RESULT_TSV"
   echo "- \`source/AID-*_1.0.0.0.pdf\` — Convert-PDF"
   echo "- \`neu/cv/AID-*.pdf\` — Pipeline-Ziel"
   echo "- \`extracted/AID-*.txt\` — Pipeline-Extrakt"
+  echo "- \`extracted/AID-*.pre_json.json\` — RAM pre_json (vor DB)"
+  echo "- \`extracted/AID-*.db_snapshot.json\` — DB nach save (Vergleich)"
   echo
   echo "| Status | Letter/Dir | neu/cv PDF | Quelle TXT |"
   echo "|--------|------------|------------|------------|"

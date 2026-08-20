@@ -138,6 +138,92 @@ class MainDbImporter:
                     lines.append(ln)
                 lines.append("")
 
+    @classmethod
+    def _build_db_snapshot(cls, consultant) -> dict:
+        """Kompaktes DB-Inventar nach save — Vergleich mit pre_json."""
+        personal = {
+            'aid': consultant.aid,
+            'first_name': consultant.first_name,
+            'last_name': consultant.last_name,
+            'birth_year': consultant.birth_year,
+            'location': consultant.location,
+            'availability': consultant.availability,
+            'edv_experience_since': consultant.edv_experience_since,
+            'headline': consultant.headline,
+            'degree': consultant.degree,
+            'nationality': consultant.nationality,
+            'email': consultant.email,
+            'phone': consultant.phone,
+        }
+        return {
+            'personal': personal,
+            'counts': {
+                'languages': consultant.languages.count(),
+                'skills': consultant.skills.count(),
+                'certifications': consultant.certifications.count(),
+                'education': consultant.education.count(),
+                'experience': consultant.experience.count(),
+                'industries': consultant.industries.count(),
+                'focus_areas': consultant.focus_areas.count(),
+                'focus_experience': consultant.focus_experience_items.count(),
+                'other_content': consultant.other_content.count(),
+            },
+            'languages': [
+                {'name': x.language.name, 'level': x.level}
+                for x in consultant.languages.select_related('language').all()
+            ],
+            'education': [
+                {
+                    'degree': x.degree,
+                    'institution': x.institution,
+                    'period': x.period,
+                    'education_type': x.education_type,
+                }
+                for x in consultant.education.all()
+            ],
+            'certifications': [
+                {
+                    'name': x.certification.name,
+                    'date_obtained': x.date_obtained,
+                    'issuer': x.certification.issuer_name,
+                }
+                for x in consultant.certifications.select_related('certification').all()
+            ],
+            'industries': [x.industry.name for x in consultant.industries.select_related('industry').all()],
+            'focus_areas': [x.focus_area.name for x in consultant.focus_areas.select_related('focus_area').all()],
+            'focus_experience': [
+                {'name': x.name, 'category': x.category}
+                for x in consultant.focus_experience_items.all()
+            ],
+            'experience': [
+                {
+                    'period': x.period,
+                    'company': x.company,
+                    'role': x.role,
+                    'title': x.title,
+                    'activities': x.activities.count(),
+                    'technologies': x.technologies.count(),
+                }
+                for x in consultant.experience.all()
+            ],
+            'other_content': [
+                {
+                    'content': (x.content or '')[:500],
+                    'content_type': x.content_type,
+                    'source': x.source,
+                }
+                for x in consultant.other_content.all()
+            ],
+            'skills_sample': [
+                {
+                    'name': x.skill.name,
+                    'category_name': x.category_name or x.skill.category_name,
+                    'weight': x.weight,
+                }
+                for x in consultant.skills.select_related('skill').all()[:80]
+            ],
+        }
+
     @staticmethod
     def _years_from_periods(experience_list) -> list:
         """Volle Jahre (19xx/20xx) aus Projekt-Perioden — nicht nur (19|20)-Captures."""
@@ -577,8 +663,12 @@ class MainDbImporter:
         Wenn vorhanden → diese Skills BYPASSEN den LLM-Normalizer
         """
         """
-        Importiert direkt aus pre_json (RAM) — kein Disk-Lesen.
-        Einzige Disk-Outputs: TXT + HTML
+        Importiert direkt aus pre_json (RAM).
+        Disk-Outputs unter data/extracted/<dir>/:
+          <AID>.pre_json.json  — RAM-pre_json vor/mit AID-Meta (Review)
+          <AID>.txt            — Extrakt-Dump
+          <AID>.db_snapshot.json — was nach save in der DB liegt (Vergleich)
+        + HTML unter data/html_out/
         """
         from apps.cv_extractor.models import Consultant
         from apps.cv_extractor.enricher.main_extracted_to_db import main_extracted_to_db
@@ -617,6 +707,19 @@ class MainDbImporter:
         pre_json['metadata']['consultant_dir'] = consultant_dir
         pre_json['metadata']['first_name']     = first
         pre_json['metadata']['last_name']      = last
+
+        # pre_json auf Disk (Review: Inhalt vor DB-Write nachvollziehbar)
+        try:
+            extracted_dir = Path('data/extracted') / consultant_dir
+            extracted_dir.mkdir(parents=True, exist_ok=True)
+            pre_path = extracted_dir / f'{aid}.pre_json.json'
+            pre_path.write_text(
+                json.dumps(pre_json, ensure_ascii=False, indent=2, default=str),
+                encoding='utf-8',
+            )
+            logger.info(f"  pre_json: {pre_path}")
+        except Exception as e:
+            logger.warning(f"  pre_json Disk-Write Fehler: {e}")
 
         consultant, created = Consultant.objects.get_or_create(aid=aid)
         personal = pre_json['extracted_data'].get('personal', {})
@@ -745,6 +848,19 @@ class MainDbImporter:
                 logger.info(f"  Keine Technologien — überspringe SkillNormalizer")
         except Exception as e:
             logger.warning(f"  SkillNormalizer Fehler: {e}")
+
+        # DB-Snapshot für Vergleich pre_json ↔ Persistenz
+        try:
+            snap = self._build_db_snapshot(consultant)
+            snap_path = Path('data/extracted') / consultant_dir / f'{aid}.db_snapshot.json'
+            snap_path.parent.mkdir(parents=True, exist_ok=True)
+            snap_path.write_text(
+                json.dumps(snap, ensure_ascii=False, indent=2, default=str),
+                encoding='utf-8',
+            )
+            logger.info(f"  db_snapshot: {snap_path}")
+        except Exception as e:
+            logger.warning(f"  db_snapshot Fehler: {e}")
 
         # HTML generieren (Disk-Output 1)
         consultant.status = 'profile_ready'
