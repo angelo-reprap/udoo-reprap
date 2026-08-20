@@ -20,7 +20,12 @@ NEU="$PERSON/neu/cv"
 # Sauberer AID-Name für get_best_pdf (ohne -gulp-Suffix)
 SRC_PDF="${SRC_PDF:-}"
 if [[ -z "$SRC_PDF" ]]; then
-  SRC_PDF="$(ls -1 "$REPO"/artifacts/gulp-keyword/preview-aaaMuster/AID-${INI}_*-gulp-*.pdf 2>/dev/null | head -1 || true)"
+  # Prefer clean AID-jb_1.0.0.0.pdf (get_best_pdf scoring), else gulp-named preview
+  if [[ -f "$REPO/artifacts/gulp-keyword/preview-aaaMuster/AID-${INI}_${VERSION_TAG}.pdf" ]]; then
+    SRC_PDF="$REPO/artifacts/gulp-keyword/preview-aaaMuster/AID-${INI}_${VERSION_TAG}.pdf"
+  else
+    SRC_PDF="$(ls -1 "$REPO"/artifacts/gulp-keyword/preview-aaaMuster/AID-${INI}_*-gulp-*.pdf 2>/dev/null | head -1 || true)"
+  fi
 fi
 if [[ -z "$SRC_PDF" || ! -f "$SRC_PDF" ]]; then
   echo "FAIL: Preview-PDF fehlt. Erwartet unter artifacts/gulp-keyword/preview-aaaMuster/" >&2
