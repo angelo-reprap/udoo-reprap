@@ -236,8 +236,10 @@ if [[ "$CLEAN_DB" == "1" ]]; then
     set -- "$@" --dir "$d"
   done
   # kein --neu-cv hier: FS haben wir oben gezielt geleert
-  # --limit = n als Extra-Bremse
-  python3 manage.py cleanup_aid_test_imports "$@" --any-source --yes --limit "$n"
+  # Limit = Personen × 8 (de/en + Alt-Versionen), hart max 96
+  db_limit=$(( n * 8 ))
+  [[ "$db_limit" -gt 96 ]] && db_limit=96
+  python3 manage.py cleanup_aid_test_imports "$@" --any-source --yes --limit "$db_limit"
 fi
 
 echo
