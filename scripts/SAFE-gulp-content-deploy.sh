@@ -1,12 +1,22 @@
 #!/usr/bin/env bash
-# SAFE Deploy: Gulp-Inhalt (Wohnort/Jahrgang/Skills/Cleaner-Importe)
+# SAFE Deploy: Gulp-Inhalt — NUR nach Live↔Repo 1:1 Prüfung
 #
-# Convert liest gulp_profile_clean bereits aus dem Repo.
-# Import/TXT laufen über Live /opt/abpe → diese Dateien müssen deployed werden.
+# REGEL (vom Betreiber): Keine Datei ändern/deployen, die nicht geprüft
+# aktuell 1:1 Live↔Repo ist. prepare kopiert Live → Repo-Sidecar + Diff.
 #
-#   cd /mnt/public/udoo-reprap && git pull origin cursor/gulp-keyword-pipeline-1532
-#   bash scripts/SAFE-gulp-content-deploy.sh prepare   # -save + optional Live→Repo nur bei Drift
-#   bash scripts/SAFE-gulp-content-deploy.sh deploy    # Repo → Live
+#   bash scripts/SAFE-gulp-content-deploy.sh prepare
+#     → backup_restore -save
+#     → Live → Repo_abpe/.../*.live-copy-<ts>
+#     → diff Live vs Repo (zeigt Drift)
+#     → KEIN Überschreiben von Live
+#
+#   # Nur wenn Diff absichtlich (Agent-Patch auf aktuellem Live-Stand) OK:
+#   bash scripts/SAFE-gulp-content-deploy.sh deploy
+#     → bricht ab wenn FORCE=1 fehlt und Diff nicht leer war beim letzten prepare
+#     → nochmal -save, dann Repo → Live
+#
+#   bash scripts/SAFE-gulp-content-deploy.sh restore
+#     → backup_restore -restore (letzter Save vor Deploy)
 #
 set -euo pipefail
 
@@ -17,6 +27,9 @@ SRC="$REPO/Repo_abpe/cv_extractor/incoming"
 BACKEND="${BACKEND:-/opt/abpe/backend}"
 BR="${BR:-python3 Archiv/backup_restore.py}"
 MSG_PREFIX="${MSG_PREFIX:-gulp content Wohnort/Skills}"
+FORCE="${FORCE:-0}"
+STATE_DIR="$REPO/artifacts/safe-gulp-content"
+DRIFT_FLAG="$STATE_DIR/last-prepare-had-drift"
 
 FILES=(
   extractors/aid_regex_extractor.py
@@ -26,6 +39,8 @@ FILES=(
 )
 
 cmd="${1:-help}"
+ts="$(date +%Y%m%d-%H%M%S)"
+mkdir -p "$STATE_DIR"
 
 _save_all() {
   cd "$BACKEND"
@@ -36,44 +51,121 @@ _save_all() {
       continue
     fi
     echo ">>> -save $live"
-    $BR -save "$live" -m "$MSG_PREFIX vor Deploy $(date +%Y%m%d-%H%M%S)"
+    $BR -save "$live" -m "$MSG_PREFIX $1 $(date +%Y%m%d-%H%M%S)"
   done
+}
+
+_prepare() {
+  cd "$REPO"
+  git fetch origin "$BRANCH" 2>/dev/null || true
+  git checkout "$BRANCH" 2>/dev/null || true
+  git pull --ff-only origin "$BRANCH" 2>/dev/null || true
+
+  echo "=== 1) backup_restore -save (Live sichern) ==="
+  _save_all "prepare"
+
+  echo
+  echo "=== 2) Live → Sidecar-Kopien + Diff vs Repo ==="
+  rm -f "$DRIFT_FLAG"
+  drift=0
+  for rel in "${FILES[@]}"; do
+    live="$LIVE_CV/$rel"
+    repo="$SRC/$rel"
+    side="$SRC/${rel}.live-copy-$ts"
+    if [[ ! -f "$live" ]]; then
+      echo "SKIP Live fehlt: $live"
+      continue
+    fi
+    mkdir -p "$(dirname "$side")"
+    cp -a "$live" "$side"
+    echo "OK live-copy → $side"
+    if [[ ! -f "$repo" ]]; then
+      echo "WARN Repo fehlt: $repo"
+      drift=1
+      continue
+    fi
+    if ! cmp -s "$live" "$repo"; then
+      echo "DRIFT $rel  (Live ≠ Repo)"
+      echo "  diff -u $side $repo | head -80"
+      diff -u "$side" "$repo" | head -40 || true
+      echo "  ---"
+      drift=1
+    else
+      echo "OK 1:1 $rel"
+    fi
+  done
+
+  if [[ "$drift" -eq 1 ]]; then
+    touch "$DRIFT_FLAG"
+    echo
+    echo "⚠ DRIFT — Repo ist NICHT 1:1 mit Live."
+    echo "  → Agent-Patches erst auf Live-Stand neu basieren / mergen."
+    echo "  → deploy ist GESPERRT bis FORCE=1 (nur bewusst)."
+    echo "  Sidecars: $SRC/*live-copy-$ts"
+  else
+    rm -f "$DRIFT_FLAG"
+    echo
+    echo "OK: alle ${#FILES[@]} Dateien Live ↔ Repo 1:1."
+    echo "  deploy erlaubt: bash $0 deploy"
+  fi
 }
 
 _deploy() {
+  if [[ -f "$DRIFT_FLAG" && "$FORCE" != "1" ]]; then
+    echo "FAIL: letztes prepare hatte Drift. Kein Deploy ohne Live↔Repo 1:1." >&2
+    echo "  Neu: bash $0 prepare" >&2
+    echo "  Oder bewusst: FORCE=1 bash $0 deploy" >&2
+    exit 1
+  fi
+
+  echo "=== Pre-check: Live vs Repo jetzt ==="
+  for rel in "${FILES[@]}"; do
+    live="$LIVE_CV/$rel"
+    repo="$SRC/$rel"
+    if [[ ! -f "$live" || ! -f "$repo" ]]; then
+      echo "FAIL fehlt: $rel" >&2
+      exit 1
+    fi
+    if ! cmp -s "$live" "$repo"; then
+      if [[ "$FORCE" != "1" ]]; then
+        echo "FAIL Drift jetzt bei $rel — abbruch (FORCE=1 zum Überschreiben)" >&2
+        diff -u "$live" "$repo" | head -30 || true
+        exit 1
+      fi
+      echo "WARN FORCE: deploy trotz Drift $rel"
+    fi
+  done
+
+  _save_all "vor-deploy"
+  echo "=== Repo → Live ==="
   for rel in "${FILES[@]}"; do
     src="$SRC/$rel"
     dst="$LIVE_CV/$rel"
-    [[ -f "$src" ]] || { echo "FAIL fehlt Repo: $src" >&2; exit 1; }
-    mkdir -p "$(dirname "$dst")"
-    echo ">>> cp $rel → Live"
     cp -a "$src" "$dst"
+    echo "OK deploy $rel"
   done
-  echo "OK deployed ${#FILES[@]} Dateien → $LIVE_CV"
-  echo "Hinweis: gulp_profile_clean.py bleibt Repo-only (CONVERT lädt es von dort)."
+  echo "OK deployed. gulp_profile_clean bleibt Repo-only (CONVERT)."
+}
+
+_restore() {
+  echo "=== restore letzten -save Stand (vor diesem Deploy) ==="
+  cd "$BACKEND"
+  for rel in "${FILES[@]}"; do
+    live="apps/cv_extractor/$rel"
+    echo ">>> -restore $live"
+    $BR -restore "$live" || echo "WARN restore fehlgeschlagen: $live"
+  done
+  echo "Fertig. Diff prüfen: bash $0 prepare"
 }
 
 case "$cmd" in
-  prepare)
-    cd "$REPO"
-    git fetch origin "$BRANCH"
-    git checkout "$BRANCH"
-    git pull --ff-only origin "$BRANCH" || true
-    _save_all
-    echo "prepare OK — als Nächstes: bash $0 deploy"
-    ;;
-  deploy)
-    cd "$REPO"
-    git pull --ff-only origin "$BRANCH" || true
-    _save_all
-    _deploy
-    ;;
-  restore)
-    echo "Recover einzeln via: cd $BACKEND && $BR -restore apps/cv_extractor/<rel>"
-    echo "Dateien: ${FILES[*]}"
-    ;;
-  *)
-    echo "Usage: $0 {prepare|deploy|restore}"
-    exit 2
+  prepare) _prepare ;;
+  deploy)  _deploy ;;
+  restore) _restore ;;
+  save)    _save_all "manual" ;;
+  help|*)
+    sed -n '2,25p' "$0"
+    echo "Usage: $0 {prepare|deploy|restore|save}"
+    exit 0
     ;;
 esac
