@@ -208,7 +208,7 @@ class MainDbImporter:
             ],
             'other_content': [
                 {
-                    'content': (x.content or '')[:500],
+                    'content': (x.content or '')[:4000],
                     'content_type': x.content_type,
                     'source': x.source,
                 }

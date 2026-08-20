@@ -236,6 +236,13 @@ for key in "${TARGETS[@]}"; do
     rmdir "$person/neu" 2>/dev/null \
       || rm -rf "$person/neu" 2>/dev/null \
       || echo "  WARN: neu/ bleibt (Reste busy) — CONVERT schreibt trotzdem neu"
+  elif [[ -e "$person/neu" ]]; then
+    # CIFS-Falle: "neu" oder "neu/cv" als DATEI → mkdir schlägt mit Errno 17 fehl
+    junk="$person/neu.notdir-$(date +%H%M%S)"
+    echo "  WARN: $person/neu ist keine Directory → mv $junk"
+    mv -f "$person/neu" "$junk" 2>/dev/null \
+      || rm -f "$person/neu" 2>/dev/null \
+      || echo "  WARN: kann neu-Datei nicht entfernen"
   fi
   while IFS= read -r f; do
     [[ -z "$f" ]] && continue

@@ -18,6 +18,7 @@ import logging
 import os
 import shutil
 import subprocess
+import time
 from pathlib import Path
 from typing import Any, Optional
 
@@ -183,11 +184,39 @@ def ensure_neu_cv_dir(consultant_dir: str, last_name: str = '') -> Optional[Path
 
     target = person / 'neu' / 'cv'
     try:
-        # Eltern schrittweise anlegen + chmod
+        # Eltern schrittweise anlegen + chmod.
+        # CIFS/SMB: nach abgebrochenem Cleanup kann "neu" oder "cv" als DATEI
+        # existieren → mkdir → [Errno 17] File exists (exist_ok hilft dann nicht).
         cur = root
         for part in (bucket, dir_name, 'neu', 'cv'):
             cur = cur / part
-            cur.mkdir(parents=True, exist_ok=True)
+            if cur.exists() and not cur.is_dir():
+                junk = cur.with_name(f"{cur.name}.notdir-{time.strftime('%H%M%S')}")
+                try:
+                    cur.rename(junk)
+                    logger.warning(
+                        'Publish: %s war keine Directory → umbenannt nach %s',
+                        cur, junk.name,
+                    )
+                except OSError:
+                    try:
+                        cur.unlink()
+                        logger.warning('Publish: Nicht-Dir entfernt: %s', cur)
+                    except OSError as e:
+                        logger.warning(
+                            'neu/cv nicht anlegbar (%s): Nicht-Dir blockiert: %s',
+                            target, e,
+                        )
+                        return None
+            try:
+                cur.mkdir(parents=True, exist_ok=True)
+            except FileExistsError:
+                if not cur.is_dir():
+                    logger.warning(
+                        'neu/cv nicht anlegbar (%s): FileExistsError und kein Dir',
+                        target,
+                    )
+                    return None
             _chmod_path(cur, is_dir=True)
             _chown_path(cur)
         return target
