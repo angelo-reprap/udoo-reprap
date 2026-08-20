@@ -396,6 +396,20 @@ for j in jobs:
     )
     n_exp = len(profile.get("experience") or [])
     print(f"  clean: experience={n_exp} snapshot={profile.get('snapshot_chars')} aid={profile.get('aid_name')}")
+    if n_exp == 0:
+        # Diagnose: Projekte-Body vorhanden?
+        try:
+            snap = gclean.strip_noise_lines(
+                gclean.cut_after_projects_footer(gclean.latest_snapshot(text))
+            )
+            _, pbody = gclean._carve_projekte(snap)
+            if len(pbody) > 200:
+                print(
+                    f"  WARN: Projekte-Body={len(pbody)} chars aber experience=0 "
+                    f"— Format noch nicht erkannt ({dname})"
+                )
+        except Exception as e:
+            print(f"  WARN: projekte-diagnose failed: {e}")
     if profile.get("gulp_id") and not j.get("gulp_id"):
         j["gulp_id"] = profile["gulp_id"]
     aid = profile.get("aid_name") or f"AID-{ini}_{VERSION_TAG}"

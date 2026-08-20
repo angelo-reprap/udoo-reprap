@@ -133,6 +133,12 @@ PROJEKT_NUM_RE = re.compile(
     r"(?im)^\s*Projekt\s+(?P<num>\d+)\s*/\s*(?P<period>.+?)\s*$"
 )
 
+# Arnold-style freeform
+PROJEKT_BEI_RE = re.compile(r"(?im)^\s*Projekt\s+bei\s+(.+?)\s*:?\s*$")
+TAETIGKEITEN_BEI_RE = re.compile(
+    r"(?im)^\s*Tätigkeiten\s+bei\s+(?:der\s+|dem\s+|den\s+)?(.+?)\s*$"
+)
+
 TECH_HINT_RE = re.compile(
     r"(?i)(?:^|\b)(?:cisco|juniper|nortel|brocade|f5|hp-|aperture|nexus|"
     r"dwdm|lan/san|switch|firewall|ansible|linux|windows|excel|exel)\b"
@@ -846,11 +852,148 @@ def _count_projekt_num(lines: List[str]) -> int:
 
 
 def _score_experiences(exps: List[Dict[str, Any]]) -> Tuple[int, int, int]:
-    """Prefer more projects, then more with period, then more with company."""
+    """Prefer dated projects, then with company, then count."""
     n = len(exps)
     with_period = sum(1 for e in exps if (e.get("period") or "").strip())
     with_co = sum(1 for e in exps if (e.get("company") or "").strip())
-    return (n, with_period, with_co)
+    return (with_period, with_co, n)
+
+
+def _looks_like_freeform_title(ln: str) -> bool:
+    s = ln.strip().rstrip(":")
+    if len(s) < 18 or len(s) > 160:
+        return False
+    if not s[:1].isupper():
+        return False
+    if re.match(r"^[·.•\-\*\d]", s):
+        return False
+    if "·" in s or "•" in s:
+        return False
+    if re.match(
+        r"(?i)^(und|oder|sowie|wie|desweiteren|des\s+weiteren|hierzu|"
+        r"gleichzeitig|hierbei|mittels|nachdem|weiterhin|meine|die\s+aufgabe|"
+        r"problemen|pack\s+\d|werden|karten|spielen|installiert|migriert)\b",
+        s,
+    ):
+        return False
+    if re.search(r"(?i)\b(aufzu-|einbau von|im laufe des)\b", s):
+        return False
+    if re.search(
+        r"(?i)\b(migration|projekt|support|help-?desk|rollout|tätigkeit|"
+        r"installation|administration|entwicklung|lösung|troubleshooting|"
+        r"user-help|client/server|datenbank|client-migration)\b",
+        s,
+    ):
+        # reject sentence fragments that merely contain those words
+        if re.search(r"(?i)\b(bestand darin|im laufe|musste ich|gehörten)\b", s):
+            return False
+        if s.count(" ") > 18:
+            return False
+        return True
+    if ln.strip().endswith(":") and len(s) > 25:
+        return True
+    return False
+
+
+def _parse_freeform_titles(
+    lines: List[str], max_activities: int
+) -> List[Dict[str, Any]]:
+    """
+    Format F (Arnold u.a.): Titelzeilen ohne Datum/Kunde-Labels,
+    Aktivitäten als · / - Bullets.
+    """
+    experiences: List[Dict[str, Any]] = []
+    cur: Optional[Dict[str, Any]] = None
+
+    def flush():
+        nonlocal cur
+        if not cur:
+            return
+        cur = _finalize_exp(cur, max_activities)
+        if _exp_is_useful(cur):
+            experiences.append(cur)
+        cur = None
+
+    for ln in lines:
+        mb = PROJEKT_BEI_RE.match(ln)
+        if mb:
+            flush()
+            cur = _empty_exp()
+            company = mb.group(1).strip().rstrip(":")
+            cur["company"] = company
+            cur["title"] = f"Projekt bei {company}"
+            continue
+        mt = TAETIGKEITEN_BEI_RE.match(ln)
+        if mt:
+            flush()
+            cur = _empty_exp()
+            company = mt.group(1).strip().rstrip(":")
+            # drop trailing parenthetical noise lightly
+            company = re.sub(r"\s*\(.*$", "", company).strip() or company
+            cur["company"] = company
+            cur["title"] = f"Tätigkeiten bei {company}"
+            continue
+        if _looks_like_freeform_title(ln) and not PERIOD_LINE_RE.match(ln):
+            flush()
+            cur = _empty_exp()
+            cur["title"] = ln.strip().rstrip(":")
+            continue
+        if cur is None:
+            continue
+        if _apply_field_line(cur, ln):
+            continue
+        cleaned = re.sub(r"^[·.•\-\*]+\s*", "", ln).strip()
+        if not cleaned:
+            continue
+        # hyphen line-wrap leftovers
+        if cur["activities"] and cleaned[:1].islower():
+            cur["activities"][-1] = _squash(cur["activities"][-1] + " " + cleaned)
+        else:
+            cur["activities"].append(_squash(cleaned))
+    flush()
+    return experiences
+
+
+def _parse_projects_summary_line(
+    lines: List[str], max_activities: int
+) -> List[Dict[str, Any]]:
+    """Ungureanu-style: 'Projects: Germany -> Vodafone, …' single block."""
+    blob = " ".join(lines)
+    m = re.search(r"(?i)\bProjects?\s*:\s*(.+)", blob)
+    if not m:
+        return []
+    rest = m.group(1).strip()
+    # split on ';' into client mentions
+    parts = [p.strip() for p in re.split(r"\s*;\s*", rest) if p.strip()]
+    if len(parts) < 2:
+        # one blob
+        cur = _empty_exp()
+        cur["title"] = "Projects"
+        cur["activities"] = [_squash(rest)[:400]]
+        return [_finalize_exp(cur, max_activities)]
+    exps = []
+    for p in parts[:max_activities]:
+        cur = _empty_exp()
+        # "Germany -> Vodafone, O2"
+        if "->" in p:
+            loc, clients = p.split("->", 1)
+            cur["location"] = loc.strip()
+            cur["company"] = clients.strip()[:80]
+            cur["title"] = f"Project {loc.strip()}"
+        else:
+            cur["title"] = p[:100]
+        exps.append(_finalize_exp(cur, max_activities))
+    return exps
+
+
+def _count_freeform_titles(lines: List[str]) -> int:
+    n = 0
+    for ln in lines:
+        if PROJEKT_BEI_RE.match(ln) or TAETIGKEITEN_BEI_RE.match(ln):
+            n += 2
+        elif _looks_like_freeform_title(ln):
+            n += 1
+    return n
 
 
 def parse_projects(body: str, max_activities: int = 8) -> List[Dict[str, Any]]:
@@ -863,6 +1006,7 @@ def parse_projects(body: str, max_activities: int = 8) -> List[Dict[str, Any]]:
     sig_a = _count_format_a_signals(lines)
     sig_p = _count_period_starts(lines)
     sig_n = _count_projekt_num(lines)
+    sig_f = _count_freeform_titles(lines)
 
     candidates: List[List[Dict[str, Any]]] = []
     if sig_a >= 2:
@@ -871,10 +1015,16 @@ def parse_projects(body: str, max_activities: int = 8) -> List[Dict[str, Any]]:
         candidates.append(_parse_period_first(lines, max_activities))
     if sig_n >= 1:
         candidates.append(_parse_projekt_nummer(lines, max_activities))
+    # Freeform only when structured signals are weak (else over-splits)
+    if sig_f >= 2 and sig_p < 2 and sig_a < 2 and sig_n < 2:
+        candidates.append(_parse_freeform_titles(lines, max_activities))
     if not candidates:
         candidates.append(_parse_kunde_projekt_zeitraum(lines, max_activities))
         candidates.append(_parse_period_first(lines, max_activities))
         candidates.append(_parse_projekt_nummer(lines, max_activities))
+        if sig_p < 2 and sig_a < 2:
+            candidates.append(_parse_freeform_titles(lines, max_activities))
+        candidates.append(_parse_projects_summary_line(lines, max_activities))
 
     best: List[Dict[str, Any]] = []
     best_score = (-1, -1, -1)
@@ -883,6 +1033,15 @@ def parse_projects(body: str, max_activities: int = 8) -> List[Dict[str, Any]]:
         if sc > best_score:
             best_score = sc
             best = exps
+
+    # Last resort: summary line or freeform if still empty but body is large
+    if not best and len(body) > 200:
+        for exps in (
+            _parse_freeform_titles(lines, max_activities),
+            _parse_projects_summary_line(lines, max_activities),
+        ):
+            if len(exps) > len(best):
+                best = exps
     return best
 
 
@@ -1117,8 +1276,8 @@ def profile_to_aid_plain(profile: Dict[str, Any], *, display_name: str = "") -> 
             location = (exp.get("location") or "").strip()
             role = (exp.get("role") or "").strip()
             industry = (exp.get("industry") or "").strip()
-            if period:
-                lines.append(f"Zeitraum: {period}")
+            # Format-A Trenner braucht Zeitraum: — sonst aid_regex sieht 0 Projekte
+            lines.append(f"Zeitraum: {period if period else 'k.A.'}")
             if company:
                 lines.append(f"Firma/Institut: {company}")
                 # auch Kunde / Branche (neueres AID-Format)

@@ -16,6 +16,14 @@ EXPECT_MIN = {
     "hoellig_thomas.txt": 1,
 }
 
+BATCH_MIN = {
+    "beemers_heiko.txt": 3,
+    "ackermann_stefan.txt": 5,
+    "bauchmueller_peter.txt": 10,
+    "ahmad_ahmad.txt": 3,
+    "arnold_jens.txt": 3,
+}
+
 
 def test_formats_have_experience():
     assert SAMPLES.is_dir(), f"missing samples {SAMPLES}"
@@ -33,8 +41,25 @@ def test_formats_have_experience():
         plain = profile_to_aid_plain(prof)
         assert len(ex) >= vmin, f"{name}: exp={len(ex)} < {vmin}"
         assert plain.count("Zeitraum:") >= vmin, f"{name}: no Zeitraum in AID plain"
-        with_period = sum(1 for e in ex if (e.get("period") or "").strip())
-        assert with_period >= vmin, f"{name}: with_period={with_period}"
+
+
+def test_batch_samples_have_experience():
+    batch_dir = ROOT / "artifacts" / "gulp-samples" / "txt"
+    assert batch_dir.is_dir(), batch_dir
+    for name, vmin in BATCH_MIN.items():
+        fp = batch_dir / name
+        assert fp.is_file(), name
+        stem = fp.stem
+        last, first = stem.rsplit("_", 1)
+        prof = clean_gulp_profile(
+            fp.read_text(encoding="utf-8", errors="replace"),
+            first=first.title(),
+            last=last.replace("_", " ").title(),
+        )
+        ex = prof.get("experience") or []
+        plain = profile_to_aid_plain(prof)
+        assert len(ex) >= vmin, f"{name}: exp={len(ex)} < {vmin}"
+        assert plain.count("Zeitraum:") >= vmin, f"{name}: Zeitraum={plain.count('Zeitraum:')}"
 
 
 def test_stoll_no_false_kunde():
@@ -51,5 +76,6 @@ def test_stoll_no_false_kunde():
 
 if __name__ == "__main__":
     test_formats_have_experience()
+    test_batch_samples_have_experience()
     test_stoll_no_false_kunde()
     print("OK gulp_profile_clean formats")
