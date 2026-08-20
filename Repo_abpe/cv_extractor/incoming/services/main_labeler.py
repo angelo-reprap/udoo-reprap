@@ -25,14 +25,10 @@ MAIN_LABELS = [
 ]
 
 # ── Regelbasierte Erkennung anhand erstem Wort der Gruppe ──────────────────
-# Basis + Gulp-v1.3 Section-Keywords (section_label_keywords.py)
-from .section_label_keywords import (  # noqa: E402
-    FIRST_WORD_TO_LABEL as _GULP_FIRST_WORD_TO_LABEL,
-    label_from_heading,
-    merged_first_word_map,
-)
+# Abdeckt abcona-Standard + gängige CV-Formate
+# Kein LLM nötig wenn erstes Wort eindeutig matched
 
-_BASE_FIRST_WORD_TO_LABEL = {
+FIRST_WORD_TO_LABEL = {
     # → SKILLS (Hauptlabel)
     'programmiersprachen':   'SKILLS',
     'programmiersprache':    'SKILLS',
@@ -99,8 +95,6 @@ _BASE_FIRST_WORD_TO_LABEL = {
     'produkte':              'FOCUS_EXP',
     'erfahrungen':           'FOCUS_EXP',
 }
-
-FIRST_WORD_TO_LABEL = merged_first_word_map(_BASE_FIRST_WORD_TO_LABEL)
 
 # Skill-Kategorie direkt aus erstem Wort der Gruppe
 FIRST_WORD_TO_SKILL_CAT = {
@@ -248,12 +242,6 @@ class MainLabeler:
             # Zeitraum-Marker → direkt PROJECT
             if re.match(r'\d{1,2}/\d{4}', first) or first_word == 'zeitraum':
                 label_map[g['index']] = 'PROJECT'
-                continue
-
-            # Phrase / Gulp-Heading (Fachlicher Schwerpunkt, Top-Skills, …)
-            phrase_lab = label_from_heading(g['first_line'])
-            if phrase_lab and phrase_lab in MAIN_LABELS:
-                label_map[g['index']] = phrase_lab
                 continue
 
             # Bekanntes erstes Wort → direkt labeln
