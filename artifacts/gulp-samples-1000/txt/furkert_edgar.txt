@@ -1,0 +1,1606 @@
+Softwareentwicklung/Consulting (Java 1.8+/JavaEE8, HTML, JS,
+Spring 5/Spring Boot 2, EJB, MDB, JMS; WebSphere: WAS/WP/MQ,
+Angular 7+)
+Top-Skills: JEE, Java, WebSphere Application Server,
+Spring Framework, Spring Boot 2, REST,
+OAuth, Maven, Docker, Oracle, JSON, Scrum,
+Atlassian JIRA, Git, Eclipse, Jenkins,
+MarkLogic-NoSQL, IntelliJ, Atlassian
+Confluence, Elastic Search, Kubernetes
+Verfügbar ab: 01.01.2024
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 80,00 EUR
+Bemerkungen: All Inclusive, Verhandlungssache,
+ortsabhängig
+Einsatzort
+Regionen &amp; Länder: D7, D8
+Städte: Stuttgart 200 km
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Deutschland: Süddeutschland
+Position
+Kommentar:
+Projekte
+2019-11 - 2020-10 Sabbatical, Weiterbildung
+1 Jahr
+Rolle: Software-Entwickler
+Kunde: privat
+22.02.2023 1 von 18
+Einsatzort: Konstanz
+Projektinhalte:     •  Docker
+    •  Java/Jakarta EE 8 (JPA, JSF, EJB, Webservices, ...)
+    •  Spring 5
+    •  Spring Boot 2
+    •  Angular 7+
+Oracle VM Virtualbox
+CentOS 8
+Eclipse 4.x, Maven, Visual Studio Code (Angular)
+JEE8, Java 8, Spring 5, Spring Boot 2
+Angular 10, NPM (Node Package Manager), Bootstrap, jQuery, Highcharts
+IBM Websphere Liberty Profile (Docker)
+Oracle 19c (Docker), SQL Developer
+PostgreSQL, MongoDB, Cassandra, Redis
+ActiveMQ Artemis, RabbitMQ, Kafka
+Git, Postman
+Literatur:
+    •  Professionell entwickeln mit Java EE 8 (Rheinwerk Computing)
+        •  Servlet 4.0, JSP, JSTL
+        •  JDBC, JPA 2.2, JPQL
+        •  JSF (Java Server Faces) 2.3
+        •  EJB, JMS, Timer
+        •  WebServices, JSON (P/B), JAX-RS
+    •  Docker (dpunkt.verlag)
+        •  Images, Container, Docker Hub
+        •  Docker Compose
+    •  Spring Boot 2 (dpunkt.verlag)
+        •  Konfiguration, Logging, DevTools
+        •  Spring Web MVC, Spring Security
+        •  Spring Data, JDBC, JPA, MongoDB
+        •  Spring Messaging, JMS, RabbitMQ
+        •  Spring WebFlux, Reaktive Programmierung
+        •  Spring Boot Actuator
+        •  Spring Cloud, Config-Server, Netflix Eureka, Hystrix
+    •  Spring im Einsatz (Spring 5.0) (Hanser)
+        •  Spring Boot 2, DevTools
+        •  Spring Web MVC, Spring Security, Spring Configuration,
+         ?Profiles
+        •  JDBC, Spring Data JPA
+        •  Spring Data REST, Hypermedia, HATEOAS
+        •  JMS, ActiveMQ, RabbitMQ, Kafka
+        •  Spring Integration: Channels, Filter, Transformer, Router,
+         ?Splitter, Gateways,…
+        •  Spring WebFlux, Reaktive Programmierung, Spring Data
+         ?Cassandra, MongoDB
+        •  Spring Cloud, Service Discovery, Netflix Eureka,
+         ?Config-Server, Docker
+        •  Spring Boot Actuator, Hystrix, JMX
+        •  Spring Boot Admin
+22.02.2023 2 von 18
+    •  Angular: Das umfassende Handbuch
+        •  Angular 7, Komponenten, Templating, Direktiven, Styling,
+         ?Pipes
+        •  Services, Dependency Injection
+        •  Template-Driven Forms, Reactive Forms, Routing, Http, RxJS
+        •  Komponenten- und Unit-Tests, Integrationstests mit
+         ?Protractor
+        •  Internationalisierung, Animations
+        •  Angular Material, Material Design
+        •  NPM-Libraries, WebComponents, Server-Side-Rendering (SSR)
+Projekte:
+    •  spring-boot-corona-import
+        •  täglicher Import von Corona-Daten aus dem Internet in eine
+         ?PostgreSQL-Datenbank (csv, Excel, REST-API)
+        •  Spring Configuration, Profiles, JPA, Integration, Reactor
+        •  Laufzeit-Umgebung: Raspberry Pi4, Docker
+    •  spring-boot-corona-web
+        •  Visualisierung von Corona-Daten per Thymeleaf-UI (inkl.
+         ?Highcharts-JS-Integration) nach Regionen, Zeitraum,
+         ?Daten-Kategorien (Fälle, Todesfälle, pro 100.000 Einwohner,
+         ?…)
+        •  Spring Configuration, Profiles, Caching, JPA, REST, Web
+         ?MVC, Thymeleaf
+        •  Laufzeit-Umgebung: Raspberry Pi4, Docker
+    •  angular-corona
+        •  Angular 10, Template-Driven Forms, Routing, Http, Angular
+         ?Material, RxJS, Styling
+        •  Visualisierung von Corona-Daten (inkl.
+         ?Highcharts-JS-Integration) nach Regionen, Zeitraum,
+         ?Daten-Kategorien (Fälle, Todesfälle, pro 100.000 Einwohner,
+         ?…)
+        •  Laufzeit-Umgebung: Raspberry Pi4, Docker
+Kenntnisse: Docker, JEE8, Spring 5, Spring Boot 2, Angular 7+, Java 1.8
+Eingesetzte Produkte: Eclipse, PostgreSQL, Visual Studio Code, Maven, Git, CentOS 8
+2015-02 - 2020-10 DFS Customer Portal, Unterstützung bei der
+5 Jahre 9 Monate Portalentwicklung
+Rolle: Software-Entwickler
+Kunde: Daimler Financial Services AG
+Einsatzort: Stuttgart
+Projektinhalte: Als Bestandteil des Mercedes me-Portals entsteht ein Teilportal für den
+Bereich Finance. In diesem Portal können Endkunden in verschiedenen
+europäischen Ländern ihre Finanz- und Leasingverträge managen, d.h.
+Details und den aktuellen Stand zu den Verträge abrufen und Aktionen
+auslösen. Außerdem Entwicklung weiterer Portalanwendungen in diesem
+Umfeld. Integration von JS-Oberflächen über Rest-Services.
+22.02.2023 3 von 18
+    •  Konzeption, Entwicklung, Test und Inbetriebnahme
+    •  Unterstützung bei der Entwicklung verschiedener Tasks innerhalb
+     ?des Scrum-Prozesses, basierend auf definierten User-Stories.
+    •  Test und Dokumentation der Komponenten
+Kenntnisse: JEE 6, JEE 7, Scrum, OAuth, OpenID, JSON, Java-API for REST-Services,
+Java 1.7, Java 1.8, EJB
+Eingesetzte Produkte: Eclipse, Oracle, Git, Maven, Jenkins, JIRA, Confluence, IBM WebSphere
+Application Server 8/9, IBM WebSphere Portal Server 8, Postman
+2012-06 - 2014-12 Projektunterstützung 'externe Portale',
+2 Jahre 7 Monate Anwendungsentwicklung, Portal-Integrationsprojekte,
+SSO-Integration für externe Kooperationspartner
+Rolle: Software-Entwickler
+Kunde: Wüstenrot &amp; Württembergische AG / W&amp;W-Informatik GmbH
+Einsatzort: Ludwigsburg (Württemberg)
+Projektinhalte: Der Kunde betreibt mehrere externe Portale, bei deren Aufbau sowie der
+Integration von Anwendungen ich unterstütze. Des weiteren werden für
+verschiedene Partner Single-Sign-On-Zugänge (SSO) aufgebaut, die auf
+Basis von Zertifikaten und SAML-Protokollen (Security Assertion Markup
+Language) die Authentifizierung sicherstellen. Nach dieser
+Authentifizierung, die „vor“ dem Portal stattfindet, erfolgt die
+Authentifizierung und Autorisierung am Portal, um die ich mich kümmere.
+Außerdem werden die externen Portale stetig weiterentwickelt. Hier
+unterstütze ich durch mein Knowhow und meine Erfahrungen bei z.B. die
+Erstellung und Integration von Webservices in das Portalumfeld oder bei
+der Erstellung von verkaufsunter-stützender Software (Portlets,
+Webanwendungen), wie Rentenrechner, Bestandsauskunft, usw.
+    •  Konzeption, Entwicklung, Test, Inbetriebnahme und Wartung
+    •  Entwicklung von SSO-Komponenten (Single-Sign-On) für die
+     ?verschiedenen Portale
+    •  Test und Dokumentation der Komponenten
+    •  Unterstützung in verschiedenen Portal-Projekten,
+     ?Weiterentwicklung von bestehenden Anwendungen für externe
+     ?Vertriebspartner.
+    •  Entwicklung öffentlicher WebServices für Kooperationspartner
+    •  Integration neuer Mandanten in die externen Portale,
+     ?Authentifikation, Autorisierung und Anwendungsintegration
+    •  Entwicklung von Software für den Innen- und Außendienst
+Kenntnisse: Java 1.5, Java 1.6, JSF, Maven, Spring, LDAP, Java-API for XML-
+WebServices, JSR 168, JSR 286, JEE 5, JEE 6
+Eingesetzte Produkte: Eclipse, IBM Rational Application Developer, Subversion, IBM WebSphere
+Portalserver 6.1, IBM WebSphere Application Server 7, Apache Tomcat,
+JIRA, Brainforce
+2011-10 - 2012-05 W&amp;W Vorsorge-Beratung
+8 Monate
+22.02.2023 4 von 18
+Rolle: Software-Entwickler
+Kunde: Wüstenrot &amp; Württembergische AG
+Einsatzort: Möglingen (Kreis Ludwigsburg, Württemberg)
+Projektinhalte: Auf Basis eines Frameworks werden Komponenten für die Vorsorge-
+Beratung für einen Kunden entwickelt. Dabei werden zum einen
+unterschiedliche Eingabe- / Präsentationsmodule, zum anderen
+Schnittstellen zu Umsystemen und Rechenkerne auf Basis von
+Fachkonzepten erstellt. Das gesamte System dient dann zur Unterstützung
+eines Beraters bei der Vorsorge-Beratung beim Endkunden.
+    •  Entwicklung von Vorsorgeberatungsprozessen auf Basis eines
+     ?kundenspezifischen Frameworks (Google Web Toolkit, Java 6)
+    •  Entwicklung von Software-Komponenten zur Anbindung von
+     ?BrainForce-Rechenkernen (ZinsTarif/ZinsesZinsRechner, ...)
+Kenntnisse: Java 1.6, Maven, Subversion
+Eingesetzte Produkte: Eclipse
+2008-09 - 2011-06 Vertriebspartner-Portal
+2 Jahre 10 Monate
+Rolle: Software-Entwickler
+Kunde: Wüstenrot &amp; Württembergische AG / W&amp;W-Informatik GmbH
+Einsatzort: Stuttgart
+Projektinhalte: Im Rahmen des Portal-Projektes werden Anwendungen auf Basis des
+WebSphere Portal Servers online plattformunabhängig angeboten. Darin
+enthalten ist eine Vertriebspartner-Software, über die Angebote für
+Versicherungen (KFZ, Hausrat, usw.) erstellt werden können. Diese
+Anwendung wird als eine Menge von Portlets zur Verfügung gestellt und in
+einem Portal als eine Teilkomponente integriert.
+Meine Aufgabe ist es, technische Konzepte zu entwickeln und diese als
+Portal-Anwendung auf Portlet-Ebene (Presentation layer, GUI) zu
+implementieren und zu integrieren. Die Businesslogik wird in Form von
+Services angesprochen, die über eine Remote-Schnittstelle angesprochen
+werden oder einen ESB (Enterprise Service Bus) angekoppelt sind. Des
+weiteren konzipiere ich Lasttests und führe diese toolunterstützt durch.
+Weitere Aufgabengebiete liegen in den Bereichen Benutzerverwaltung,
+Login-Prozess und Verwaltung von Berechtigungen innerhalb des Portals
+und der Portlets.
+    •  Erstellung von technischen Konzepten
+    •  Entwicklung von Portlets (Preisrechner)
+    •  Entwicklung von Authentifizierungs- und
+     ?Autorisierungskomponenten im Portal
+    •  Integration von WebServices, Anbindung von Umsystemen
+    •  Erstellung von Testszenarien und Durchführen von Tests
+    •  Erstellung von Lasttestszenarien und Durchführung von Lasttests
+Kenntnisse: JEE 6, Java 1.5, Java 1.6, JSF, Spring, Maven, LDAP, JSR 168, JSR 286,
+HTML, JavaScript
+Eingesetzte Produkte: IBM Rational Application Developer, IBM Rational Performance Tester,
+22.02.2023 5 von 18
+CVS, Apache Subversion, IBM WebSphere Portal Server 6.1, IBM
+WebSphere Application Server 7
+2006-09 - 2008-06 Wartung / Weiterentwicklung von
+1 Jahr 10 Monate Managementsystemen im Güterwagenverkehr
+Rolle: Software-Entwickler
+Kunde: SBB AG
+Einsatzort: Bern
+Projektinhalte: Der Güterverkehr (SBB Cargo) in der Schweiz wird über einen Verbund
+von verschiedenen Softwaresystemen geplant, überwacht und analysiert.
+Aufgabe des Wartungsteams ist es, diese Systeme zu pflegen und
+weiterzuentwickeln. Diese Systeme kommunizieren auf Basis von XML über
+Message Queues. Die Architektur der Systeme basiert auf J2EE. Meine
+Aufgabe ist es, Wartungstätigkeiten (u.a. Bugfixing) innerhalb der Systeme
+durchzuführen, sowie neue Funktionalitäten zu integrieren. Die
+Herausforderungen dieser Tätigkeit liegen in unterschiedlichen Gebieten.
+Neben dem fachlichen Verständnis ist eine schnelle Einarbeitung in die
+bestehenden Softwarebestandteile über alle Architekturebenen notwendig.
+Dies setzt ein breites technologisches Wissen voraus. Im direkten Kontakt
+mit dem Endkunden SBB Cargo werden aufgetretene Probleme sowie neue
+Anforderungen diskutiert, konzipiert und innerhalb des Release-
+Managements umgesetzt.
+    •  Erweiterung der Funktionalität und Bugfixing in den bestehenden
+     ?Systemen im Presentation-, Business-, Integration- und
+     ?Persistence-Layer
+    •  Konzepterstellung für RfCs (Request for Changes), sowie
+     ?Umsetzung der RfCs
+    •  Konzept und Realisierung von Online-Historisierungsprozessen
+     ?der Güterwagen-Daten für einen Historisierungszeitraum von 3
+     ?Jahren
+    •  Realisierung eines täglich laufenden Analyseprozesses, in dem
+     ?die historisierten Daten ausgewertet und die aggregierten Daten
+     ?an ein weiteres System geliefert werden.
+    •  Integration von Instandhaltungs-/Instandsetzungsanforderungen
+     ?in das bestehende Güterwagenmanagement
+    •  Analyse von Businessprozessen, Unterstützung des Fachbusses
+     ?innerhalb von Businessprozessen
+    •  Migration von WebSphere Studio Application Developer 5.x (JDK
+     ?1.3) nach Rational Application Developer 7.x (JDK 1.5)
+    •  Migration von WebSphere Application Server 5.x nach WebSphere
+     ?Application Server 6.x
+    •  Erstellung von Testszenarios und Durchführen von Tests
+    •  Dokumentation
+Kenntnisse: HTML, JavaScript, JEE 5, Struts, Java 1.5, JMS
+Eingesetzte Produkte: IBM WebSphere Application Server 6.1, IBM WebSphere MQ, Oracle,
+Oracle TopLink, IBM Rational Application Developer, CVS
+22.02.2023 6 von 18
+2006-09 - 2006-09 Schulung: XML, XSL(T), XSL-FO
+1 Monat
+Rolle: Trainer
+Kunde: Universität Universität
+Einsatzort: Konstanz
+Projektinhalte: Innerhalb einer 3-tägigen Schulung wurden folgende Themen behandelt:
+    •  XML-Grundlagen
+    •  XML-Verarbeitung mit SAX, DOM und JDOM
+    •  XML-Validierung mit DTD und XML-Schema
+    •  XSL-Grundlagen
+    •  XSL-Transformation nach XML, Text, HTML
+    •  XSL-FO-Grundlagen
+    •  XSL-Transformation nach PDF
+Die insgesamt 8 Teilnehmer waren aus den Bereichen Entwicklung,
+System-Administration und Management. Folgende Ziele wurden in der
+Schulung erreicht:
+    1.  Überblick über XML / XSL(T) / XSL-FO
+    2.  Transformation von XML-Daten in unterschiedliche Formate
+    3.  Diskussion von aktuellen Einsatzgebieten
+Die Beurteilung der Schulung (durch Beurteilungsbögen) war insgesamt
+sehr positiv (Note 1-2).
+    •  Erstellung der Schulungsunterlagen
+    •  Erstellung von Übungsaufgaben (XML, XSL(T), )
+    •  Durchführung der 3-tägigen Schulung
+Kenntnisse: XML, FOP, XERCES, XALAN
+Eingesetzte Produkte: Altova XMLSpy, Eclipse
+2006-07 - 2006-08 Umstellung und Optimierung von Installations-Kits
+2 Monate
+Rolle: Projektleiter
+Kunde: Siemens AG
+Einsatzort: Konstanz
+Projektinhalte: Aufgabe war die Aktualisierung und Erweiterung bestehender
+Installationskits. Ein Installations-Kit besteht aus einer CD, die eine
+definierte Anzahl von Anwendungen enthält, die für die gewünschte
+Zielplattform für den Endkunden erstellt wird. Es wurden Optimierungen
+integriert, um eine Installation performanter durchführen zu können.
+    •  Projektmanagement
+    •  Erweiterung von Installationskits
+    •  Optimierung von Installationsprozessen
+Eingesetzte Produkte: Install Shield, Tcl/Tk, awk, Microsoft Windows, Solaris
+22.02.2023 7 von 18
+2006-06 - 2006-06 Workshop IBM-WebSphere MQ
+1 Monat
+Rolle: Trainer
+Kunde: Open Connect Group
+Einsatzort: Zürich
+Projektinhalte: Coaching bei einer Integration einer MQ-Schnittstelle in ein bestehendes
+System und Entwicklung eines Prototypen zur Evaluierung der diskutierten
+Technologien.
+    •  Erstellung der Workshop-Unterlagen
+    •  Vorstellung der JMS / MQ-Konzepte
+    •  Vorstellung der MDB-Technologie
+    •  Diskussion der fachlichen Anforderungen
+    •  Installation WebSphere Application Server 5.1 und MQ 6.0
+    •  Prototyping
+Kenntnisse: Message Driven Beans
+Eingesetzte Produkte: IBM WebSphere Application Server 5, IBM WebSphere MQ 6
+ 
+Zeitraum: Januar 2020 - Oktober 2020
+Projekt: Weiterbildung
+Themen: JEE8, Docker, Spring 5, Spring Boot 2, Angular 7+
+Zeitraum      : Februar 2015 - Oktober 2019
+Firma/Institut:  Mercedes-Benz Bank
+Projekt       :  Unterstützung bei der Entwicklung eines Kundenportals
+Software      :  Eclipse
+IBM WebSphere Portal Server 8.x
+IBM WebSphere Application Server 8.x
+JavaEE, Java1.6/1.7/1.8, REST, JSON, HTML, Javascript, JSP, JSR 286 (Portlet Spezifikation)
+JUnit, Maven, Git, Design-Pattern, OpenID/Connect/OAuth, Jenkins, Oracle
+Zeitraum      :  Juni 2012 - Dezember 2014
+Firma/Institut:  Wüstenrot &amp; Württembergische AG
+Projekt       :  Integration von Authentifizierungs- und Autorisierungsmechanismen
+                 (LDAP/ADS) für Internet-Portale, Unterstützung Integration und Weiterentwicklung von
+Partnerportalen
+Software      :  IBM Rational Application Developer 7.x
+  IBM WebSphere Portal Server 6.x
+  IBM WebSphere Application Server 6.x/7.x
+  IBM Rational Performance Tester
+  IBM DB2
+  J2EE,HTML, Javascript, JSP/JSF, Dojo, Spring, JSR 168/286 (Portlet Spezifikation)
+  JUnit, Maven, CVS/Subversion, Design-Pattern,WebServices
+ 
+Zeitraum      :  Oktober 2011 - Mai 2012
+Firma/Institut:  USU AG
+Projekt       :  Entwicklung von Fachprozessen für die Vorsorgeberatung auf Basis eines
+                 Frameworks (GWT), Integration von Brainforce-Rechenkernen zur Berechnung
+                 von Steuern, Abgaben, Kapital, Beiträgen, Zinsen, usw.
+Software      :  Eclipse, Tomcat, DB2
+  Java 6
+22.02.2023 8 von 18
+  JUnit, Maven, Subversion, Design-Pattern
+ 
+Zeitraum      :  September 2008 - Juni 2011
+Firma/Institut:  Wüstenrot &amp; Württembergische AG
+Projekt       :  Entwicklung von Makler-Anwendungen zur Erstellung von Versiche-
+  rungsangeboten als Portlets auf Basis des WebSphere Portal Servers
+  und JSR 168/286, Integration von Authentifizierungs- und Autorisierungs-
+  mechanismen (LDAP/ADS) für Internet-Portale
+Software      :  IBM Rational Application Developer 7.x
+  IBM WebSphere Portal Server 6.x
+  IBM WebSphere Application Server 6.x/7.x
+  IBM Rational Performance Tester
+  IBM DB2
+  J2EE, HTML, Javascript, JSP/JSF, Dojo, Spring, JSR 168/286 (Portlet Spezifikation)
+  JUnit, Maven, CVS/Subversion, Design-Pattern
+Zeitraum      :  September 2006 - Juni 2008
+Firma/Institut:  SBB Informatik in Bern
+Projekt       :  Entwicklung und Wartung von Güterwagenmanagementsystemen
+  um Presentation-, Business-, Integration- und Persistencelayer
+  Konzepterstellung auf Basis der Kundenanforderungen
+  Analyse von Businessprozessen
+  Migration WSAD 5.x -> RAD 7
+  Erstellung von Testszenarios und Durchführung von Tests
+Software      :  IBM WebSphere Studio Application Developer 5.x
+  IBM Rational Application Developer 7.x
+  IBM WebSphere MQ
+  HTML, Javascript, JSP, Struts, J2EE (Java, Servlets, EJB, MDB),
+  XML, JMS
+  JUnit, CVS, Design-Pattern,
+  Oracle, Toplink, SQL, PL/SQL, Trigger
+Zeitraum      :  September 2006
+Firma/Institut:  Universität Konstanz
+Projekt       :  Schulung zum Thema: XML, XSL(T), XSL-FO
+  Grundlagen, Verarbeitung, Validierung, Transformation
+  Erstellung der Schulungsunterlagen und Übungen
+  Teilnehmer aus dem Management, der Entwicklung und Systemadministration
+Software      :  Eclipse, XMLSpy, xerces, xalan, fop
+Zeitraum      :  Juli 2006 - August 2006
+Firma/Institut:  Siemens AG, Konstanz (im Auftrag der Sybit GmbH)
+Projekt       :  Umstellung und Optimierung von Installationskits
+  Projektleitung eines 4-köpfigen Teams
+  Koordination mit dem Kunden
+  Unterstützung bei der Entwicklung
+Software      :  InstallShield, tcl/tk, awk
+Zeitraum      :  Juli 2006
+Firma/Institut:  Open Connect Group, Zürich
+Projekt       :  Workshop IBM-WebSphere MQ
+  Erstellung der Workshop-Unterlagen
+  Grundlagen: JMS, MQ, MDB
+  Prototyping
+Software      :  IBM WebSphere Application Server 5.1 / IBM MQ 6.0
+22.02.2023 9 von 18
+Zeitraum      :  2005
+Firma/Institut:  Daimler AG, Sindelfingen (im Auftrag der in-GmbH)
+Projekt       :  Change-Management-Plattform für Fahrzeugteile
+  techn. Projektleitung
+  Konzept und Design
+  Entwicklung von Businesskomponenten (EJB: Session/Entity)
+  Systemintegration, -kommunikation über MQ/JMS, MDB
+  Erstellung von Testcases und Durchführung von Tests
+Software      :  IBM WebSphere Studio Application Developer
+  HTML, Javascript, J2EE (Java, Servlets, EJB, MDB), XML,
+  Design-Pattern, MQ/JMS, JUnit
+  CVS
+  DB2
+Zeitraum      :  2005
+Firma/Institut:  Audi AG, Ingolstadt (im Auftrag der in-GmbH)
+Projekt       :  Dienstleister-Integration in der Fahrzeugsicherheit
+  Projektleitung
+  Prozessanalyse
+  Konzept und Design
+  Entwicklung von Businesskomponenten (EJB)
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Durchführung von Tests
+Software      :  IBM WebSphere Studio Application Developer
+  HTML, Javascript, J2EE (Java, Servlets, EJB), JUnit
+  Design-Pattern
+  CVS
+  Oracle
+  Prozessmodellierungstool ARIS
+Zeitraum      :  2002 - 2005
+Firma/Institut:  Audi AG, Ingolstadt (im Auftrag der in-GmbH)
+Projekt       :  Datawarehouse Fahrzeugsicherheit
+  Projektleitung
+  Prozessanalyse
+  Konzept und Design
+  Entwicklung von Businesskomponenten (EJB)
+  Systemintegration über Softwarebus
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Durchführung von Tests
+  Systemwartung
+Software      :  Eclipse
+  HTML, Javascript, J2EE (Java, Servlets, EJB, WebServices),
+  JUnit, Ant, Castor, XML, Design-Pattern
+  CVS
+  Oracle
+  DMS OpenText Livelink
+  IBM WebSphere Application Server / Portal Server
+  HighQSoft-Framework (inkl. Softwarebus), ASAM-ODS
+Zeitraum      :  2004 - 2005
+Firma/Institut:  Audi AG, Ingolstadt (im Auftrag der in-GmbH)
+Projekt       :  Datenaustausch zwischen Systemen der Fahrzeugsicherheit
+22.02.2023 10 von 18
+  Projektleitung
+  Prozessanalyse
+  Konzept und Design
+  Entwicklung von Businesskomponenten (EJB)
+  Systemintegration über Softwarebus
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Durchführung von Tests
+Software      :  Eclipse
+  HTML, Javascript, J2EE (Java, Servlets, EJB, WebServices),
+  JUnit, Ant, Castor, XML, Design-Pattern
+  CVS
+  Oracle
+  IBM WebSphere Application Server / Portal Server
+  HighQSoft-Framework (inkl. Softwarebus), ASAM-ODS
+Zeitraum      :  2003 - 2004
+Firma/Institut:  Daimler AG, Sindelfingen (im Auftrag der in-GmbH)
+Projekt       :  Fahrzeugfluss-Visualisierungssystem (J2EE)
+  Anforderungsspezifikation
+  Architekturkonzepte: Visualisierung, Verdichtung, Caching, Verbuchung, ...
+  DB-Konzept
+  Migrationskonzept: Produktivsystem -> Neuentwicklung
+  Prototyping, Performanceanalysen
+Software      :  IBM WebSphere Studio Application Developer
+  HTML, Javascript, J2EE (Java, Servlets, EJB), JMS/MQ
+  XML, SVG, Design-Pattern
+  CVS
+  DB2
+  IBM WebSphere Application Server
+Zeitraum      :  2003
+Firma/Institut:  Daimler AG, Sindelfingen (im Auftrag der in-GmbH)
+Projekt       :  Engineeringportal-Komponente: Security-Logging (J2EE)
+  Projektleitung
+  Konzept und Design
+  Entwicklung von Systemkomponenten (EJB: Session/Entity)
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Testdurchführung
+Software      :  IBM WebSphere Studio Application Developer
+  HTML, Javascript, J2EE (Java, Servlets, EJB)
+  Hibernate, Design-Pattern
+  CVS
+  DB2
+  IBM WebSphere Application Server
+Zeitraum      :  2003
+Firma/Institut:  Daimler AG, Sindelfingen (im Auftrag der in-GmbH)
+Projekt       :  Engineeringportal-Komponente: systemübergreifende Fahrzeugteil-Referenzierungen
+(J2EE)
+  Konzept und Design
+  Entwicklung von Systemkomponenten (EJB: Session/Entity)
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Testdurchführung
+Software      :  IBM WebSphere Studio Application Developer
+22.02.2023 11 von 18
+  HTML, Javascript, J2EE (Java, Servlets, EJB)
+  Hibernate, Design-Pattern
+  CVS
+  DB2
+  IBM WebSphere Application Server
+Zeitraum      :  2001 - 2002
+Firma/Institut:  Daimler AG, Sindelfingen (im Auftrag der in-GmbH)
+Projekt       :  Produktionsmittelportal (J2EE)
+  Projektleitung
+  Konzept und Design
+  Entwicklung von Systemkomponenten (EJB: Session/Entity)
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Testdurchführung
+Software      :  IBM WebSphere Studio Application Developer
+  HTML, Javascript, J2EE (Java, Servlets, EJB)
+  Hibernate, Design-Pattern
+  CVS
+  DB2
+  IBM WebSphere Application Server
+Zeitraum      :  2000 - 2001
+Firma/Institut:  Daimler AG, Sindelfingen (im Auftrag der in-GmbH)
+Projekt       :  mehrere Projekte innerhalb des Engineeringportals (J2EE)
+  Projektleitung
+  Konzept und Design
+  Entwicklung von Systemkomponenten (EJB: Session/Entity)
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Testdurchführung
+Software      :  IBM WebSphere Studio Application Developer
+  HTML, Javascript, J2EE (Java, Servlets, EJB)
+  Hibernate, Design-Pattern
+  CVS
+  DB2
+  IBM WebSphere Application Server
+Zeitraum      :  1995 - 2000
+Firma/Institut:  z.B. Daimler AG, Sindelfingen (im Auftrag der in-GmbH)
+Projekt       :  mehrere Projekte im Bereich Automotive, Bahn, Telekommunikation
+  Konzept und Design
+  Entwicklung von Systemkomponenten (EJB: Session/Entity)
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Testdurchführung
+Software      :  C, C++, Oracle, DB2, OSF/Motif, TeleUSE, tcl/tk, ...
+Referenzen
+Projekt Aufbau einer Portalanwendung für Vertriebspartner (Versicherungen), 09/08 -
+06/11
+Referenz durch Projektleiter, Stuttgarter IT-Unternehmen (850 MA), vom 04.08.11
+"Der Consultant verfügt über ein sehr gutes Wissen im Portalumfeld. Er hat das Projekt in allen
+Phasen, von der Spezifikation über die Erstellung der DV-Konzepte und Umsetzung bis zur
+Einführung begleitet. Er ist ein sehr verlässlicher Teamplayer, der die übertragenen Aufgaben, auch
+komplexe Themenstellungen, schnell durchdringt und vorantreibt. Er erledigt seine Aufgaben stets
+22.02.2023 12 von 18
+mit großer Sorgfalt und Genauigkeit. Seine Einsatz- und Arbeitsbereitschaft ist stets sehr gut. Wir
+würden uns freuen, bei einem neuen Projekt wieder mit ihm zusammenzuarbeiten."
+Projekt Analyst, Entwickler und  Teilprojektleiter IT im Rahmen des Projektes NWM NWM
+(Neues Wagenmanagement Cargo), 09/06 - 06/08
+Referenz durch Applikation Manager NWM, SBB IT, vom 17.07.08
+"Das Projekt NWM unterteilt sich in NWM Z(entral) und NWM L(okal). Er war der Know-how-Träger
+für den NWM L-Teil. Diesen Teilbereich baute er mit seinem grossen Wissen in Java und in den
+Plattformen WAS und HOST kontinuierlich auf und aus. So war er auch über den ganzen Lifecycle
+vor Ort und unterstützte von der Spezifikation bis zum Deployment alle teilnehmenden Personen.
+Er war ein sehr kompetenter und freundlicher Ansprechpartner, auch für den Kunden. Die
+ausgelieferte Arbeit war stets korrekt programmiert und sauber dokumentiert. Gerne empfehle ich
+den Consultant für anspruchsvolle und interessante Arbeiten weiter. Und ich danke ihm für seine
+geleistete Arbeit und seine hilfsbereite und freundliche Art als Mensch. Alles Gute."
+Branchen
+bisher tätig in den Branchen:
+Automotive
+Bahnverkehr
+Telekommunikation
+Versicherung
+Bankwesen
+Sprachen
+Deutsch Muttersprache (sehr gut)
+Englisch gut (in Wort und Schrift)
+Spanisch Grundkenntnisse
+Kompetenzen
+Produkte / Standards / Altova XMLSpy
+Erfahrungen / Methoden
+Apache Subversion
+Apache Tomcat
+Brainforce
+CentOS 8 sehr gut, mehrjährige Berufserfahrung
+Confluence sehr gut, mehrjährige Berufserfahrung
+CVS sehr gut, mehrjährige Berufserfahrung
+22.02.2023 13 von 18
+Eclipse sehr gut, mehrjährige Berufserfahrung
+EJB sehr gut, mehrjährige Berufserfahrung
+FOP
+Git sehr gut, mehrjährige Berufserfahrung
+HTML sehr gut, mehrjährige Berufserfahrung
+IBM Rational Application sehr gut, mehrjährige Berufserfahrung
+Developer
+IBM Rational sehr gut, mehrjährige Berufserfahrung
+Performance Tester
+IBM WebSphere sehr gut, mehrjährige Berufserfahrung
+Application Server 5
+IBM WebSphere sehr gut, mehrjährige Berufserfahrung
+Application Server 6.1
+IBM WebSphere sehr gut, mehrjährige Berufserfahrung
+Application Server 7
+IBM WebSphere sehr gut, mehrjährige Berufserfahrung
+Application Server 8/9
+IBM WebSphere MQ sehr gut, mehrjährige Berufserfahrung
+IBM WebSphere MQ 6 sehr gut, mehrjährige Berufserfahrung
+IBM WebSphere Portal sehr gut, mehrjährige Berufserfahrung
+Server 6.1
+IBM WebSphere Portal sehr gut, mehrjährige Berufserfahrung
+Server 8
+IBM WebSphere sehr gut, mehrjährige Berufserfahrung
+Portalserver 6.1
+Install Shield
+Jenkins sehr gut, mehrjährige Berufserfahrung
+JIRA sehr gut, mehrjährige Berufserfahrung
+JMS sehr gut, mehrjährige Berufserfahrung
+JSF sehr gut, mehrjährige Berufserfahrung
+LDAP sehr gut, mehrjährige Berufserfahrung
+Maven sehr gut, mehrjährige Berufserfahrung
+Message Driven Beans sehr gut, mehrjährige Berufserfahrung
+OAuth sehr gut, mehrjährige Berufserfahrung
+OpenID sehr gut, mehrjährige Berufserfahrung
+Oracle TopLink sehr gut, mehrjährige Berufserfahrung
+Postman sehr gut, mehrjährige Berufserfahrung
+22.02.2023 14 von 18
+Scrum sehr gut, mehrjährige Berufserfahrung
+Spring
+Subversion sehr gut, mehrjährige Berufserfahrung
+Visual Studio Code
+XALAN
+XERCES
+XML sehr gut, mehrjährige Berufserfahrung
+Plattformen
+-----------
+IBM WebSphere Application Server 5.x/6.x/7.x/8.x
+IBM WebSphere Portal Server 5.x/6.x/7.x/8.x
+IBM WebSphere MQ
+Tomcat, Jboss, Jrun
+Entwicklungswerkzeuge
+---------------------
+IBM WebSphere Studio Application Developer 5.x
+IBM Rational Application Developer 7.x
+Eclipse 2.x / 3.x / 4.x, NetBeans
+Borland Jbuilder
+Spring
+Ant, Jakarta-Projekte, Open Source-Module, ...
+Junit, Jmeter
+CVS, Clearcase, git
+Gerrit, Jenkins
+Rational Rose, TogetherJ
+Visual C++, Power++, gcc, Microsoft Foundation Classes
+TeleUse, UIM/X, XRT-Widgets, OSF/Motif
+DCE (Distributed Computing Environment)
+Testwerkzeuge
+-------------
+IBM Rational Performance Tester
+JMeter
+Datenbanksysteme
+----------------
+Oracle 9.x/10.x/11.x/12.x
+DB2
+Dokumentenmanagementsysteme
+---------------------------
+Opentext Livelink
+Prozessanalyse-Werkzeuge
+------------------------
+ARIS 6.x
+Visio 2000, MS-Office 200x
+UML
+Projektmanagement-Werkzeuge
+---------------------------
+MS-Project 200x
+22.02.2023 15 von 18
+MS-Office 200x
+Betriebssysteme Docker
+HPUX
+Microsoft Windows
+MS-DOS
+OS/2
+OSF/Motif
+Solaris
+SUN OS, Solaris
+Unix
+Windows
+Programmiersprachen Angular 7+ gut
+awk
+C gut, mehrjährige Berufserfahrung
+C++ gut, mehrjährige Berufserfahrung
+Clipper Hobby-Erfahrungen
+dBase Hobby-Erfahrungen
+Delphi Hobby-Erfahrungen
+Fortran Erfahrungen aus Studium
+Java sehr gut, mehrjährige Berufserfahrung
+Java 1.5 sehr gut, mehrjährige Berufserfahrung
+Java 1.6 sehr gut, mehrjährige Berufserfahrung
+Java 1.7 sehr gut, mehrjährige Berufserfahrung
+Java 1.8 sehr gut, mehrjährige Berufserfahrung
+Java-API for REST- sehr gut, mehrjährige Berufserfahrung
+Services
+Java-API for XML- sehr gut, mehrjährige Berufserfahrung
+WebServices
+JavaScript sehr gut, mehrjährige Berufserfahrung
+JEE 5 sehr gut, mehrjährige Berufserfahrung
+JEE 6 sehr gut, mehrjährige Berufserfahrung
+22.02.2023 16 von 18
+JEE 7 sehr gut, mehrjährige Berufserfahrung
+JEE8 sehr gut, mehrjährige Berufserfahrung
+JSON sehr gut, mehrjährige Berufserfahrung
+JSR 168 sehr gut, mehrjährige Berufserfahrung
+JSR 286 sehr gut, mehrjährige Berufserfahrung
+Pascal Erfahrungen aus Studium
+PL/SQL gut, mehrjährige Berufserfahrung
+Powerbuilder Berufserfahrung
+Shell gut, mehrjährige Berufserfahrung
+Spring 5
+Spring Boot 2
+Struts
+Tcl/Tk gut, Berufserfahrung
+Xt, Motif mehrjährige Berufserfahrung
+Datenbanken DB2 mehrjährige Berufserfahrung
+Object Store Berufserfahrung
+Oracle mehrjährige Berufserfahrung
+PostgreSQL
+SQL mehrjährige Berufserfahrung
+xBase Hobby-Erfahrungen
+Datenkommunikation Internet, Intranet mehrjährige Berufserfahrung
+ISO/OSI Erfahrungen aus dem Studium
+Message Queuing mehrjährige Berufserfahrung (WebSphere
+MQ)
+OSF/DCE Berufserfahrung
+Hardware PC
+Berechnung /
+Simulation / Versuch /
+Validierung
+Brainforce: Berechnung von Finanzenwerten wie Steuern, Abgaben,
+Kapital, Beiträge, Zinsen, usw.
+Design / Entwicklung /
+Konstruktion
+22.02.2023 17 von 18
+Design und Entwicklung von Client-/Server-Systeme
+Design und Entwicklung von Portalsystemen (J2EE)
+Aus- und Weiterbildung
+Studium der technischen Informatik an der FH Konstanz
+Abschluss: Dipl.-Inform. (FH) 1995
+22.02.2023 18 von 18
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_91737
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                91737
+  
+Wohnort                    784xx Konstanz, Deutschland
+Jahrgang                   1969
+Staatsbürgerschaft         BRD
+Stundensatz                78 EUR
+                           All Inclusive, Verhandlungssache, ortsabhängig
+Verfügbar ab               01.01.22 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         17.07.08
+Profil zuletzt geändert am 25.01.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 28.01.2021 14:05:51
+
+Fachlicher Schwerpunkt:
+Softwareentwicklung/Consulting (Java 1.8/JavaEE8: HTML, JS, Spring 5/Spring
+Boot 2, EJB, MDB, JMS; WebSphere: WAS/WP/MQ, Angular 7+)
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Engineering / IT-nahe Ingenieurdienstleistungen
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Studium der technischen Informatik an der FH Konstanz
+Abschluss: Dipl.-Inform. (FH) 1995
+
+Einsatzort:
+Regionen:
+D7, D8
+im Umkreis von:
+Stuttgart (200 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: Süddeutschland
+
+Fremdsprachen:
+Deutsch  Muttersprache (sehr gut)
+Englisch gut (in Wort und Schrift)
+Spanisch Grundkenntnisse
+
+
+Hardware:
+PC  
+
+
+Betriebssysteme:
+Docker             
+HPUX               
+Microsoft Windows  
+MS-DOS             
+OSF/Motif          
+OS/2               
+Solaris            
+SUN OS, Solaris    
+Unix               
+Windows            
+
+
+Programmiersprachen:
+Angular 7+                   gut
+awk                           
+C                            gut, mehrjährige Berufserfahrung
+C++                          gut, mehrjährige Berufserfahrung
+Clipper                      Hobby-Erfahrungen
+dBase                        Hobby-Erfahrungen
+Delphi                       Hobby-Erfahrungen
+Fortran                      Erfahrungen aus Studium
+Java                         sehr gut, mehrjährige Berufserfahrung
+Java 1.5                     sehr gut, mehrjährige Berufserfahrung
+Java 1.6                     sehr gut, mehrjährige Berufserfahrung
+Java 1.7                     sehr gut, mehrjährige Berufserfahrung
+Java 1.8                     sehr gut, mehrjährige Berufserfahrung
+Java-API for REST-Services   sehr gut, mehrjährige Berufserfahrung
+Java-API for XML-WebServices sehr gut, mehrjährige Berufserfahrung
+JavaScript                   sehr gut, mehrjährige Berufserfahrung
+JEE 5                        sehr gut, mehrjährige Berufserfahrung
+JEE 6                        sehr gut, mehrjährige Berufserfahrung
+JEE 7                        sehr gut, mehrjährige Berufserfahrung
+JEE8                         sehr gut, mehrjährige Berufserfahrung
+JSON                         sehr gut, mehrjährige Berufserfahrung
+JSR 168                      sehr gut, mehrjährige Berufserfahrung
+JSR 286                      sehr gut, mehrjährige Berufserfahrung
+Pascal                       Erfahrungen aus Studium
+PL/SQL                       gut, mehrjährige Berufserfahrung
+Powerbuilder                 Berufserfahrung
+Shell                        gut, mehrjährige Berufserfahrung
+Spring Boot 2                 
+Spring 5                      
+Struts                        
+Tcl/Tk                       gut, Berufserfahrung
+Xt, Motif                    mehrjährige Berufserfahrung
+
+
+Datenbanken:
+DB2          mehrjährige Berufserfahrung
+Object Store Berufserfahrung
+Oracle       mehrjährige Berufserfahrung
+PostgreSQL    
+SQL          mehrjährige Berufserfahrung
+xBase        Hobby-Erfahrungen
+
+
+Datenkommunikation:
+Internet, Intranet mehrjährige Berufserfahrung
+ISO/OSI            Erfahrungen aus dem Studium
+Message Queuing    mehrjährige Berufserfahrung (WebSphere MQ)
+OSF/DCE            Berufserfahrung
+
+
+Design/Entwicklung/Konstruktion:
+Design und Entwicklung von Client-/Server-Systeme
+Design und Entwicklung von Portalsystemen (J2EE)
+
+Berechnung/Simulation/Versuch/Validierung:
+Brainforce: Berechnung von Finanzenwerten wie Steuern, Abgaben, Kapital,
+Beiträge, Zinsen, usw.
+
+Produkte/Standards/Erfahrungen:
+Altova XMLSpy                         
+Apache Subversion                     
+Apache Tomcat                         
+Brainforce                            
+CentOS 8                             sehr gut, mehrjährige Berufserfahrung
+Confluence                           sehr gut, mehrjährige Berufserfahrung
+CVS                                  sehr gut, mehrjährige Berufserfahrung
+Eclipse                              sehr gut, mehrjährige Berufserfahrung
+EJB                                  sehr gut, mehrjährige Berufserfahrung
+FOP                                   
+Git                                  sehr gut, mehrjährige Berufserfahrung
+HTML                                 sehr gut, mehrjährige Berufserfahrung
+IBM Rational Application Developer   sehr gut, mehrjährige Berufserfahrung
+IBM Rational Performance Tester      sehr gut, mehrjährige Berufserfahrung
+IBM WebSphere Application Server 5   sehr gut, mehrjährige Berufserfahrung
+IBM WebSphere Application Server 6.1 sehr gut, mehrjährige Berufserfahrung
+IBM WebSphere Application Server 7   sehr gut, mehrjährige Berufserfahrung
+IBM WebSphere Application Server 8/9 sehr gut, mehrjährige Berufserfahrung
+IBM WebSphere MQ                     sehr gut, mehrjährige Berufserfahrung
+IBM WebSphere MQ 6                   sehr gut, mehrjährige Berufserfahrung
+IBM WebSphere Portal Server 6.1      sehr gut, mehrjährige Berufserfahrung
+IBM WebSphere Portal Server 8        sehr gut, mehrjährige Berufserfahrung
+IBM WebSphere Portalserver 6.1       sehr gut, mehrjährige Berufserfahrung
+Install Shield                        
+Jenkins                              sehr gut, mehrjährige Berufserfahrung
+JIRA                                 sehr gut, mehrjährige Berufserfahrung
+JMS                                  sehr gut, mehrjährige Berufserfahrung
+JSF                                  sehr gut, mehrjährige Berufserfahrung
+LDAP                                 sehr gut, mehrjährige Berufserfahrung
+Maven                                sehr gut, mehrjährige Berufserfahrung
+Message Driven Beans                 sehr gut, mehrjährige Berufserfahrung
+OAuth                                sehr gut, mehrjährige Berufserfahrung
+OpenID                               sehr gut, mehrjährige Berufserfahrung
+Oracle TopLink                       sehr gut, mehrjährige Berufserfahrung
+Postman                              sehr gut, mehrjährige Berufserfahrung
+Scrum                                sehr gut, mehrjährige Berufserfahrung
+Spring                                
+Subversion                           sehr gut, mehrjährige Berufserfahrung
+Visual Studio Code                    
+XALAN                                 
+XERCES                                
+XML                                  sehr gut, mehrjährige Berufserfahrung
+Plattformen
+-----------
+IBM WebSphere Application Server 5.x/6.x/7.x/8.x
+IBM WebSphere Portal Server 5.x/6.x/7.x/8.x
+IBM WebSphere MQ
+Tomcat, Jboss, Jrun
+
+Entwicklungswerkzeuge
+---------------------
+IBM WebSphere Studio Application Developer 5.x
+IBM Rational Application Developer 7.x
+Eclipse 2.x / 3.x / 4.x, NetBeans
+Borland Jbuilder
+Spring
+Ant, Jakarta-Projekte, Open Source-Module, ...
+Junit, Jmeter
+CVS, Clearcase, git
+Gerrit, Jenkins
+Rational Rose, TogetherJ
+Visual C++, Power++, gcc, Microsoft Foundation Classes
+TeleUse, UIM/X, XRT-Widgets, OSF/Motif
+DCE (Distributed Computing Environment)
+
+Testwerkzeuge
+-------------
+IBM Rational Performance Tester
+JMeter
+
+Datenbanksysteme
+----------------
+Oracle 9.x/10.x/11.x/12.x
+DB2
+
+Dokumentenmanagementsysteme
+---------------------------
+Opentext Livelink
+
+Prozessanalyse-Werkzeuge
+------------------------
+ARIS 6.x
+Visio 2000, MS-Office 200x
+UML
+
+Projektmanagement-Werkzeuge
+---------------------------
+MS-Project 200x
+MS-Office 200x
+
+Branchen:
+bisher tätig in den Branchen:
+Automotive
+Bahnverkehr
+Telekommunikation
+Versicherung
+Bankwesen
+
+Projekte:
+11/2019 - 10/2020: Sabbatical, Weiterbildung
+ 
+Einsatzort:         Konstanz
+Rolle:              Software-Entwickler
+Kunde:              privat
+ 
+Aufgaben:
+ 
+    * Docker
+    * Java/Jakarta EE 8 (JPA, JSF, EJB, Webservices, ...)
+    * Spring 5
+    * Spring Boot 2
+    * Angular 7+
+ 
+Oracle VM Virtualbox
+CentOS 8
+Eclipse 4.x, Maven, Visual Studio Code (Angular)
+JEE8, Java 8, Spring 5, Spring Boot 2
+Angular 10, NPM (Node Package Manager), Bootstrap, jQuery, Highcharts
+IBM Websphere Liberty Profile (Docker)
+Oracle 19c (Docker), SQL Developer
+PostgreSQL, MongoDB, Cassandra, Redis
+ActiveMQ Artemis, RabbitMQ, Kafka
+Git, Postman
+ 
+Literatur:
+    * Professionell entwickeln mit Java EE 8 (Rheinwerk Computing)
+          o Servlet 4.0, JSP, JSTL
+          o JDBC, JPA 2.2, JPQL
+          o JSF (Java Server Faces) 2.3
+          o EJB, JMS, Timer
+          o WebServices, JSON (P/B), JAX-RS
+
+    * Docker (dpunkt.verlag)
+          o Images, Container, Docker Hub
+          o Docker Compose
+
+    * Spring Boot 2 (dpunkt.verlag)
+          o Konfiguration, Logging, DevTools
+          o Spring Web MVC, Spring Security
+          o Spring Data, JDBC, JPA, MongoDB
+          o Spring Messaging, JMS, RabbitMQ
+          o Spring WebFlux, Reaktive Programmierung
+          o Spring Boot Actuator
+          o Spring Cloud, Config-Server, Netflix Eureka, Hystrix
+
+    * Spring im Einsatz (Spring 5.0) (Hanser)
+          o Spring Boot 2, DevTools
+          o Spring Web MVC, Spring Security, Spring Configuration, Profiles
+          o JDBC, Spring Data JPA
+          o Spring Data REST, Hypermedia, HATEOAS
+          o JMS, ActiveMQ, RabbitMQ, Kafka
+          o Spring Integration: Channels, Filter, Transformer, Router,
+            Splitter, Gateways,…
+          o Spring WebFlux, Reaktive Programmierung, Spring Data Cassandra,
+            MongoDB
+          o Spring Cloud, Service Discovery, Netflix Eureka, Config-Server,
+            Docker
+          o Spring Boot Actuator, Hystrix, JMX
+          o Spring Boot Admin
+
+    * Angular: Das umfassende Handbuch
+          o Angular 7, Komponenten, Templating, Direktiven, Styling, Pipes
+          o Services, Dependency Injection
+          o Template-Driven Forms, Reactive Forms, Routing, Http, RxJS
+          o Komponenten- und Unit-Tests, Integrationstests mit Protractor
+          o Internationalisierung, Animations
+          o Angular Material, Material Design
+          o NPM-Libraries, WebComponents, Server-Side-Rendering (SSR)
+ 
+Projekte:
+    * spring-boot-corona-import
+          o täglicher Import von Corona-Daten aus dem Internet in eine
+            PostgreSQL-Datenbank (csv, Excel, REST-API)
+          o Spring Configuration, Profiles, JPA, Integration, Reactor
+          o Laufzeit-Umgebung: Raspberry Pi4, Docker
+
+    * spring-boot-corona-web
+          o Visualisierung von Corona-Daten per Thymeleaf-UI (inkl. Highcharts-
+            JS-Integration) nach Regionen, Zeitraum, Daten-Kategorien (Fälle,
+            Todesfälle, pro 100.000 Einwohner, …)
+          o Spring Configuration, Profiles, Caching, JPA, REST, Web MVC,
+            Thymeleaf
+          o Laufzeit-Umgebung: Raspberry Pi4, Docker
+
+    * angular-corona
+          o Angular 10, Template-Driven Forms, Routing, Http, Angular Material,
+            RxJS, Styling
+          o Visualisierung von Corona-Daten (inkl. Highcharts-JS-Integration)
+            nach Regionen, Zeitraum, Daten-Kategorien (Fälle, Todesfälle, pro
+            100.000 Einwohner, …)
+          o Laufzeit-Umgebung: Raspberry Pi4, Docker
+ 
+Kenntnisse:
+ 
+Docker, JEE8, Spring 5, Spring Boot 2, Angular 7+, Java 1.8
+ 
+Eingesetzte Produkte:
+ 
+Eclipse, PostgreSQL, Visual Studio Code, Maven, Git, CentOS 8
+===============================================================================
+02/2015 - 10/2020: DFS Customer Portal, Unterstützung bei der Portalentwicklung
+ 
+Einsatzort:         Stuttgart
+Rolle:              Software-Entwickler
+Kunde:              Daimler Financial Services AG
+ 
+Aufgaben:
+ 
+Als Bestandteil des Mercedes me-Portals entsteht ein Teilportal für den Bereich
+Finance. In diesem Portal können Endkunden in verschiedenen europäischen
+Ländern ihre Finanz- und Leasingverträge managen, d.h. Details und den
+aktuellen Stand zu den Verträge abrufen und Aktionen auslösen. Außerdem
+Entwicklung weiterer Portalanwendungen in diesem Umfeld. Integration von JS-
+Oberflächen über Rest-Services.
+    * Konzeption, Entwicklung, Test und Inbetriebnahme
+    * Unterstützung bei der Entwicklung verschiedener Tasks innerhalb des
+      Scrum-Prozesses, basierend auf definierten User-Stories.
+    * Test und Dokumentation der Komponenten
+ 
+Kenntnisse:
+ 
+JEE 6, JEE 7, Scrum, OAuth, OpenID, JSON, Java-API for REST-Services, Java 1.7,
+Java 1.8, EJB
+ 
+Eingesetzte Produkte:
+ 
+Eclipse, Oracle, Git, Maven, Jenkins, JIRA, Confluence, IBM WebSphere
+Application Server 8/9, IBM WebSphere Portal Server 8, Postman
+===============================================================================
+06/2012 - 12/2014: Projektunterstützung 'externe Portale',
+Anwendungsentwicklung, Portal-Integrationsprojekte, SSO-Integration für externe
+Kooperationspartner
+ 
+Einsatzort:         Ludwigsburg (Württemberg)
+Rolle:              Software-Entwickler
+Kunde:              Wüstenrot &amp; Württembergische AG / W&amp;W-Informatik GmbH
+ 
+Aufgaben:
+ 
+Der Kunde betreibt mehrere externe Portale, bei deren Aufbau sowie der
+Integration von Anwendungen ich unterstütze. Des weiteren werden für
+verschiedene Partner Single-Sign-On-Zugänge (SSO) aufgebaut, die auf Basis von
+Zertifikaten und SAML-Protokollen (Security Assertion Markup Language) die
+Authentifizierung sicherstellen. Nach dieser Authentifizierung, die „vor“ dem
+Portal stattfindet, erfolgt die Authentifizierung und Autorisierung am Portal,
+um die ich mich kümmere.
+Außerdem werden die externen Portale stetig weiterentwickelt. Hier unterstütze
+ich durch mein Knowhow und meine Erfahrungen bei z.B. die Erstellung und
+Integration von Webservices in das Portalumfeld oder bei der Erstellung von
+verkaufsunter­stützender Software (Portlets, Webanwendungen), wie
+Rentenrechner, Bestandsauskunft, usw.
+    * Konzeption, Entwicklung, Test, Inbetriebnahme und Wartung
+    * Entwicklung von SSO-Komponenten (Single-Sign-On) für die verschiedenen
+      Portale
+    * Test und Dokumentation der Komponenten
+    * Unterstützung in verschiedenen Portal-Projekten, Weiterentwicklung von
+      bestehenden Anwendungen für externe Vertriebspartner.
+    * Entwicklung öffentlicher WebServices für Kooperationspartner
+    * Integration neuer Mandanten in die externen Portale, Authentifikation,
+      Autorisierung und Anwendungsintegration
+    * Entwicklung von Software für den Innen- und Außendienst
+ 
+Kenntnisse:
+ 
+Java 1.5, Java 1.6, JSF, Maven, Spring, LDAP, Java-API for XML-WebServices, JSR
+168, JSR 286, JEE 5, JEE 6
+ 
+Eingesetzte Produkte:
+ 
+Eclipse, IBM Rational Application Developer, Subversion, IBM WebSphere
+Portalserver 6.1, IBM WebSphere Application Server 7, Apache Tomcat, JIRA,
+Brainforce
+===============================================================================
+10/2011 - 05/2012: W&amp;W Vorsorge-Beratung
+ 
+Einsatzort:         Möglingen (Kreis Ludwigsburg, Württemberg)
+Rolle:              Software-Entwickler
+Kunde:              Wüstenrot &amp; Württembergische AG
+ 
+Aufgaben:
+ 
+Auf Basis eines Frameworks werden Komponenten für die Vorsorge-Beratung für
+einen Kunden entwickelt. Dabei werden zum einen unterschiedliche Eingabe- /
+Präsentationsmodule, zum anderen Schnittstellen zu Umsystemen und Rechenkerne
+auf Basis von Fachkonzepten erstellt. Das gesamte System dient dann zur
+Unterstützung eines Beraters bei der Vorsorge-Beratung beim Endkunden.
+    * Entwicklung von Vorsorgeberatungsprozessen auf Basis eines
+      kundenspezifischen Frameworks (Google Web Toolkit, Java 6)
+    * Entwicklung von Software-Komponenten zur Anbindung von BrainForce-
+      Rechenkernen (ZinsTarif/ZinsesZinsRechner, ...)
+ 
+Kenntnisse:
+ 
+Java 1.6, Maven, Subversion
+ 
+Eingesetzte Produkte:
+ 
+Eclipse
+===============================================================================
+09/2008 - 06/2011: Vertriebspartner-Portal
+ 
+Einsatzort:         Stuttgart
+Rolle:              Software-Entwickler
+Kunde:              Wüstenrot &amp; Württembergische AG / W&amp;W-Informatik GmbH
+ 
+Aufgaben:
+ 
+Im Rahmen des Portal-Projektes werden Anwendungen auf Basis des WebSphere
+Portal Servers online plattformunabhängig angeboten. Darin enthalten ist eine
+Vertriebspartner-Software, über die Angebote für Versicherungen (KFZ, Hausrat,
+usw.) erstellt werden können. Diese Anwendung wird als eine Menge von Portlets
+zur Verfügung gestellt und in einem Portal als eine Teilkomponente integriert.
+Meine Aufgabe ist es, technische Konzepte zu entwickeln und diese als Portal-
+Anwendung auf Portlet-Ebene (Presentation layer, GUI) zu implementieren und zu
+integrieren. Die Businesslogik wird in Form von Services angesprochen, die über
+eine Remote-Schnittstelle angesprochen werden oder einen ESB (Enterprise
+Service Bus) angekoppelt sind. Des weiteren konzipiere ich Lasttests und führe
+diese toolunterstützt durch. Weitere Aufgabengebiete liegen in den Bereichen
+Benutzerverwaltung, Login-Prozess und Verwaltung von Berechtigungen innerhalb
+des Portals und der Portlets.
+    * Erstellung von technischen Konzepten
+    * Entwicklung von Portlets (Preisrechner)
+    * Entwicklung von Authentifizierungs- und Autorisierungskomponenten im
+      Portal
+    * Integration von WebServices, Anbindung von Umsystemen
+    * Erstellung von Testszenarien und Durchführen von Tests
+    * Erstellung von Lasttestszenarien und Durchführung von Lasttests
+ 
+Kenntnisse:
+ 
+JEE 6, Java 1.5, Java 1.6, JSF, Spring, Maven, LDAP, JSR 168, JSR 286, HTML,
+JavaScript
+ 
+Eingesetzte Produkte:
+ 
+IBM Rational Application Developer, IBM Rational Performance Tester, CVS,
+Apache Subversion, IBM WebSphere Portal Server 6.1, IBM WebSphere Application
+Server 7
+===============================================================================
+09/2006 - 06/2008: Wartung / Weiterentwicklung von Managementsystemen im
+Güterwagenverkehr
+ 
+Einsatzort:         Bern
+Rolle:              Software-Entwickler
+Kunde:              SBB AG
+ 
+Aufgaben:
+ 
+Der Güterverkehr (SBB Cargo) in der Schweiz wird über einen Verbund von
+verschiedenen Softwaresystemen geplant, überwacht und analysiert. Aufgabe des
+Wartungsteams ist es, diese Systeme zu pflegen und weiterzuentwickeln. Diese
+Systeme kommunizieren auf Basis von XML über Message Queues. Die Architektur
+der Systeme basiert auf J2EE. Meine Aufgabe ist es, Wartungstätigkeiten (u.a.
+Bugfixing) innerhalb der Systeme durchzuführen, sowie neue Funktionalitäten zu
+integrieren. Die Herausforderungen dieser Tätigkeit liegen in unterschiedlichen
+Gebieten. Neben dem fachlichen Verständnis ist eine schnelle Einarbeitung in
+die bestehenden Softwarebestandteile über alle Architekturebenen notwendig.
+Dies setzt ein breites technologisches Wissen voraus. Im direkten Kontakt mit
+dem Endkunden SBB Cargo werden aufgetretene Probleme sowie neue Anforderungen
+diskutiert, konzipiert und innerhalb des Release-Managements umgesetzt.
+    * Erweiterung der Funktionalität und Bugfixing in den bestehenden Systemen
+      im Presentation-, Business-, Integration- und Persistence-Layer
+    * Konzepterstellung für RfCs (Request for Changes), sowie Umsetzung der
+      RfCs
+    * Konzept und Realisierung von Online-Historisierungsprozessen der
+      Güterwagen-Daten für einen Historisierungszeitraum von 3 Jahren
+    * Realisierung eines täglich laufenden Analyseprozesses, in dem die
+      historisierten Daten ausgewertet und die aggregierten Daten an ein
+      weiteres System geliefert werden.
+    * Integration von Instandhaltungs-/Instandsetzungsanforderungen in das
+      bestehende Güterwagenmanagement
+    * Analyse von Businessprozessen, Unterstützung des Fachbusses innerhalb von
+      Businessprozessen
+    * Migration von WebSphere Studio Application Developer 5.x (JDK 1.3) nach
+      Rational Application Developer 7.x (JDK 1.5)
+    * Migration von WebSphere Application Server 5.x nach WebSphere Application
+      Server 6.x
+    * Erstellung von Testszenarios und Durchführen von Tests
+    * Dokumentation
+ 
+ 
+Kenntnisse:
+ 
+HTML, JavaScript, JEE 5, Struts, Java 1.5, JMS
+ 
+Eingesetzte Produkte:
+ 
+IBM WebSphere Application Server 6.1, IBM WebSphere MQ, Oracle, Oracle TopLink,
+IBM Rational Application Developer, CVS
+===============================================================================
+09/2006 - 09/2006: Schulung: XML, XSL(T), XSL-FO
+ 
+Einsatzort:         Konstanz
+Rolle:              Trainer
+Kunde:              Universität Universität
+ 
+Aufgaben:
+ 
+Innerhalb einer 3-tägigen Schulung wurden folgende Themen behandelt:
+    * XML-Grundlagen
+    * XML-Verarbeitung mit SAX, DOM und JDOM
+    * XML-Validierung mit DTD und XML-Schema
+    * XSL-Grundlagen
+    * XSL-Transformation nach XML, Text, HTML
+    * XSL-FO-Grundlagen
+    * XSL-Transformation nach PDF
+Die insgesamt 8 Teilnehmer waren aus den Bereichen Entwicklung, System-
+Administration und Management. Folgende Ziele wurden in der Schulung erreicht:
+   1. Überblick über XML / XSL(T) / XSL-FO
+   2. Transformation von XML-Daten in unterschiedliche Formate
+   3. Diskussion von aktuellen Einsatzgebieten
+Die Beurteilung der Schulung (durch Beurteilungsbögen) war insgesamt sehr
+positiv (Note 1-2).
+    * Erstellung der Schulungsunterlagen
+    * Erstellung von Übungsaufgaben (XML, XSL(T), )
+    * Durchführung der 3-tägigen Schulung
+ 
+Kenntnisse:
+ 
+XML, FOP, XERCES, XALAN
+ 
+Eingesetzte Produkte:
+ 
+Altova XMLSpy, Eclipse
+===============================================================================
+07/2006 - 08/2006: Umstellung und Optimierung von Installations-Kits
+ 
+Einsatzort:         Konstanz
+Rolle:              Projektleiter
+Kunde:              Siemens AG
+ 
+Aufgaben:
+ 
+Aufgabe war die Aktualisierung und Erweiterung bestehender Installationskits.
+Ein Installations-Kit besteht aus einer CD, die eine definierte Anzahl von
+Anwendungen enthält, die für die gewünschte Zielplattform für den Endkunden
+erstellt wird. Es wurden Optimierungen integriert, um eine Installation
+performanter durchführen zu können.
+    * Projektmanagement
+    * Erweiterung von Installationskits
+    * Optimierung von Installationsprozessen
+ 
+Eingesetzte Produkte:
+ 
+Install Shield, Tcl/Tk, awk, Microsoft Windows, Solaris
+===============================================================================
+06/2006 - 06/2006: Workshop IBM-WebSphere MQ
+ 
+Einsatzort:         Zürich
+Rolle:              Trainer
+Kunde:              Open Connect Group
+ 
+Aufgaben:
+ 
+Coaching bei einer Integration einer MQ-Schnittstelle in ein bestehendes System
+und Entwicklung eines Prototypen zur Evaluierung der diskutierten Technologien.
+    * Erstellung der Workshop-Unterlagen
+    * Vorstellung der JMS / MQ-Konzepte
+    * Vorstellung der MDB-Technologie
+    * Diskussion der fachlichen Anforderungen
+    * Installation WebSphere Application Server 5.1 und MQ 6.0
+    * Prototyping
+ 
+Kenntnisse:
+ 
+Message Driven Beans
+ 
+Eingesetzte Produkte:
+ 
+IBM WebSphere Application Server 5, IBM WebSphere MQ 6
+===============================================================================
+ 
+Zeitraum: Januar 2020 - Oktober 2020
+Projekt: Weiterbildung
+Themen: JEE8, Docker, Spring 5, Spring Boot 2, Angular 7+
+ 
+Zeitraum      : Februar 2015 - Oktober 2019
+Firma/Institut:  Mercedes-Benz Bank
+Projekt       :  Unterstützung bei der Entwicklung eines Kundenportals
+Software      :  Eclipse
+IBM WebSphere Portal Server 8.x
+IBM WebSphere Application Server 8.x
+JavaEE, Java1.6/1.7/1.8, REST, JSON, HTML, Javascript, JSP, JSR 286 (Portlet
+Spezifikation)
+JUnit, Maven, Git, Design-Pattern, OpenID/Connect/OAuth, Jenkins, Oracle
+ 
+Zeitraum      :  Juni 2012 - Dezember 2014
+Firma/Institut:  Wüstenrot &amp; Württembergische AG
+Projekt       :  Integration von Authentifizierungs- und
+Autorisierungsmechanismen
+                 (LDAP/ADS) für Internet-Portale, Unterstützung Integration und
+Weiterentwicklung von Partnerportalen
+Software      :  IBM Rational Application Developer 7.x
+  IBM WebSphere Portal Server 6.x
+  IBM WebSphere Application Server 6.x/7.x
+  IBM Rational Performance Tester
+  IBM DB2
+  J2EE,HTML, Javascript, JSP/JSF, Dojo, Spring, JSR 168/286 (Portlet
+Spezifikation)
+  JUnit, Maven, CVS/Subversion, Design-Pattern,WebServices
+ 
+Zeitraum      :  Oktober 2011 - Mai 2012
+Firma/Institut:  USU AG
+Projekt       :  Entwicklung von Fachprozessen für die Vorsorgeberatung auf
+Basis eines
+                 Frameworks (GWT), Integration von Brainforce-Rechenkernen zur
+Berechnung
+                 von Steuern, Abgaben, Kapital, Beiträgen, Zinsen, usw.
+Software      :  Eclipse, Tomcat, DB2
+  Java 6
+  JUnit, Maven, Subversion, Design-Pattern
+ 
+Zeitraum      :  September 2008 - Juni 2011
+Firma/Institut:  Wüstenrot &amp; Württembergische AG
+Projekt       :  Entwicklung von Makler-Anwendungen zur Erstellung von
+Versiche-
+  rungsangeboten als Portlets auf Basis des WebSphere Portal Servers
+  und JSR 168/286, Integration von Authentifizierungs- und Autorisierungs-
+  mechanismen (LDAP/ADS) für Internet-Portale
+Software      :  IBM Rational Application Developer 7.x
+  IBM WebSphere Portal Server 6.x
+  IBM WebSphere Application Server 6.x/7.x
+  IBM Rational Performance Tester
+  IBM DB2
+  J2EE, HTML, Javascript, JSP/JSF, Dojo, Spring, JSR 168/286 (Portlet
+Spezifikation)
+  JUnit, Maven, CVS/Subversion, Design-Pattern
+Zeitraum      :  September 2006 - Juni 2008
+Firma/Institut:  SBB Informatik in Bern
+Projekt       :  Entwicklung und Wartung von Güterwagenmanagementsystemen
+  um Presentation-, Business-, Integration- und Persistencelayer
+  Konzepterstellung auf Basis der Kundenanforderungen
+  Analyse von Businessprozessen
+  Migration WSAD 5.x -> RAD 7
+  Erstellung von Testszenarios und Durchführung von Tests
+Software      :  IBM WebSphere Studio Application Developer 5.x
+  IBM Rational Application Developer 7.x
+  IBM WebSphere MQ
+  HTML, Javascript, JSP, Struts, J2EE (Java, Servlets, EJB, MDB),
+  XML, JMS
+  JUnit, CVS, Design-Pattern,
+  Oracle, Toplink, SQL, PL/SQL, Trigger
+Zeitraum      :  September 2006
+Firma/Institut:  Universität Konstanz
+Projekt       :  Schulung zum Thema: XML, XSL(T), XSL-FO
+  Grundlagen, Verarbeitung, Validierung, Transformation
+  Erstellung der Schulungsunterlagen und Übungen
+  Teilnehmer aus dem Management, der Entwicklung und Systemadministration
+Software      :  Eclipse, XMLSpy, xerces, xalan, fop
+
+Zeitraum      :  Juli 2006 - August 2006
+Firma/Institut:  Siemens AG, Konstanz (im Auftrag der Sybit GmbH)
+Projekt       :  Umstellung und Optimierung von Installationskits
+  Projektleitung eines 4-köpfigen Teams
+  Koordination mit dem Kunden
+  Unterstützung bei der Entwicklung
+Software      :  InstallShield, tcl/tk, awk
+
+Zeitraum      :  Juli 2006
+Firma/Institut:  Open Connect Group, Zürich
+Projekt       :  Workshop IBM-WebSphere MQ
+  Erstellung der Workshop-Unterlagen
+  Grundlagen: JMS, MQ, MDB
+  Prototyping
+Software      :  IBM WebSphere Application Server 5.1 / IBM MQ 6.0
+
+Zeitraum      :  2005
+Firma/Institut:  Daimler AG, Sindelfingen (im Auftrag der in-GmbH)
+Projekt       :  Change-Management-Plattform für Fahrzeugteile
+  techn. Projektleitung
+  Konzept und Design
+  Entwicklung von Businesskomponenten (EJB: Session/Entity)
+  Systemintegration, -kommunikation über MQ/JMS, MDB
+  Erstellung von Testcases und Durchführung von Tests
+Software      :  IBM WebSphere Studio Application Developer
+  HTML, Javascript, J2EE (Java, Servlets, EJB, MDB), XML,
+  Design-Pattern, MQ/JMS, JUnit
+  CVS
+  DB2
+Zeitraum      :  2005
+Firma/Institut:  Audi AG, Ingolstadt (im Auftrag der in-GmbH)
+Projekt       :  Dienstleister-Integration in der Fahrzeugsicherheit
+  Projektleitung
+  Prozessanalyse
+  Konzept und Design
+  Entwicklung von Businesskomponenten (EJB)
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Durchführung von Tests
+Software      :  IBM WebSphere Studio Application Developer
+  HTML, Javascript, J2EE (Java, Servlets, EJB), JUnit
+  Design-Pattern
+  CVS
+  Oracle
+  Prozessmodellierungstool ARIS
+Zeitraum      :  2002 - 2005
+Firma/Institut:  Audi AG, Ingolstadt (im Auftrag der in-GmbH)
+Projekt       :  Datawarehouse Fahrzeugsicherheit
+  Projektleitung
+  Prozessanalyse
+  Konzept und Design
+  Entwicklung von Businesskomponenten (EJB)
+  Systemintegration über Softwarebus
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Durchführung von Tests
+  Systemwartung
+Software      :  Eclipse
+  HTML, Javascript, J2EE (Java, Servlets, EJB, WebServices),
+  JUnit, Ant, Castor, XML, Design-Pattern
+  CVS
+  Oracle
+  DMS OpenText Livelink
+  IBM WebSphere Application Server / Portal Server
+  HighQSoft-Framework (inkl. Softwarebus), ASAM-ODS
+Zeitraum      :  2004 - 2005
+Firma/Institut:  Audi AG, Ingolstadt (im Auftrag der in-GmbH)
+Projekt       :  Datenaustausch zwischen Systemen der Fahrzeugsicherheit
+  Projektleitung
+  Prozessanalyse
+  Konzept und Design
+  Entwicklung von Businesskomponenten (EJB)
+  Systemintegration über Softwarebus
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Durchführung von Tests
+Software      :  Eclipse
+  HTML, Javascript, J2EE (Java, Servlets, EJB, WebServices),
+  JUnit, Ant, Castor, XML, Design-Pattern
+  CVS
+  Oracle
+  IBM WebSphere Application Server / Portal Server
+  HighQSoft-Framework (inkl. Softwarebus), ASAM-ODS
+Zeitraum      :  2003 - 2004
+Firma/Institut:  Daimler AG, Sindelfingen (im Auftrag der in-GmbH)
+Projekt       :  Fahrzeugfluss-Visualisierungssystem (J2EE)
+  Anforderungsspezifikation
+  Architekturkonzepte: Visualisierung, Verdichtung, Caching, Verbuchung, ...
+  DB-Konzept
+  Migrationskonzept: Produktivsystem -> Neuentwicklung
+  Prototyping, Performanceanalysen
+Software      :  IBM WebSphere Studio Application Developer
+  HTML, Javascript, J2EE (Java, Servlets, EJB), JMS/MQ
+  XML, SVG, Design-Pattern
+  CVS
+  DB2
+  IBM WebSphere Application Server
+Zeitraum      :  2003
+Firma/Institut:  Daimler AG, Sindelfingen (im Auftrag der in-GmbH)
+Projekt       :  Engineeringportal-Komponente: Security-Logging (J2EE)
+  Projektleitung
+  Konzept und Design
+  Entwicklung von Systemkomponenten (EJB: Session/Entity)
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Testdurchführung
+Software      :  IBM WebSphere Studio Application Developer
+  HTML, Javascript, J2EE (Java, Servlets, EJB)
+  Hibernate, Design-Pattern
+  CVS
+  DB2
+  IBM WebSphere Application Server
+Zeitraum      :  2003
+Firma/Institut:  Daimler AG, Sindelfingen (im Auftrag der in-GmbH)
+Projekt       :  Engineeringportal-Komponente: systemübergreifende
+Fahrzeugteil-Referenzierungen (J2EE)
+  Konzept und Design
+  Entwicklung von Systemkomponenten (EJB: Session/Entity)
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Testdurchführung
+Software      :  IBM WebSphere Studio Application Developer
+  HTML, Javascript, J2EE (Java, Servlets, EJB)
+  Hibernate, Design-Pattern
+  CVS
+  DB2
+  IBM WebSphere Application Server
+Zeitraum      :  2001 - 2002
+Firma/Institut:  Daimler AG, Sindelfingen (im Auftrag der in-GmbH)
+Projekt       :  Produktionsmittelportal (J2EE)
+  Projektleitung
+  Konzept und Design
+  Entwicklung von Systemkomponenten (EJB: Session/Entity)
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Testdurchführung
+Software      :  IBM WebSphere Studio Application Developer
+  HTML, Javascript, J2EE (Java, Servlets, EJB)
+  Hibernate, Design-Pattern
+  CVS
+  DB2
+  IBM WebSphere Application Server
+Zeitraum      :  2000 - 2001
+Firma/Institut:  Daimler AG, Sindelfingen (im Auftrag der in-GmbH)
+Projekt       :  mehrere Projekte innerhalb des Engineeringportals (J2EE)
+  Projektleitung
+  Konzept und Design
+  Entwicklung von Systemkomponenten (EJB: Session/Entity)
+  DB-Modellierung (ERM)
+  Erstellung von Testcases und Testdurchführung
+Software      :  IBM WebSphere Studio Application Developer
+  HTML, Javascript, J2EE (Java, Servlets, EJB)
+  Hibernate, Design-Pattern
+  CVS
+  DB2
+  IBM WebSphere Application Server
+Zeitraum      :  1995 - 2000
+Firma/Institut:  z.B. Daimler AG, Sindelfingen (im Auftrag der in-GmbH)
+Projekt       :  mehrere Projekte im Bereich Automotive, Bahn,
+Telekommunikation
+  Konzept und Design
+  Entwicklung von Systemkomponenten (EJB: Session/Entity)
+  DB-Modellierung (ERM)
+  Erstellung von Testcas

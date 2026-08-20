@@ -1,0 +1,1440 @@
+Citrix XenApp / XenDesktop, Netscaler, Netscaler AccessGateWay,
+XenMobile, Security, Compliance, Projektmanagement, Windows
+Infrastruktur experte,
+Top-Skills: Infrastruktur, computer-based training,
+Virtualisation, Know-How Transfer
+Verfügbar ab: 06.02.2023
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 150,00 EUR
+Bemerkungen: kan verhandelt werden
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Schweiz, Einsatzort unbestimmt
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Projekte
+2020-10 - 2022-02 Erstellung Data-Analysing
+1 Jahr 5 Monate
+Rolle: Senior System Engineer
+Kunde: Falcon Privatebank
+Projektinhalte:
+    •  Betreuung 200 Windows Server
+    •  Optimierung der Argent Monitoring Lösung
+    •  Aufbau WSUS-Patching
+    •  Betrieb vom Exchange 2016 Cluster
+    •  Betrieb SQL Cluster
+    •  Migration MS-SQL Cluster
+    •  Betrieb Citrix-Farm
+    •  Erstellung Data-Analysing PowershellScripts
+    •  Managen der NDES Intune Installation
+    •  NETAPP Filer Administration
+    •  Betrieb vom VMWare ESX Cluster
+    •  Leitung Daten Migrationsprojekt
+08.03.2023 1 von 17
+2019-11 - 2020-08 Aufbau Citrix Cloud
+10 Monate
+Rolle: Citrix / Infrastructure Architect
+Kunde: ZKW Group
+Projektinhalte:
+    •  Projektleiter Citrix Farm ChinaLEBENSLAUF MARKUS DARDA 3 
+    •  Neu Architektur der gesamten Citrix Infrastruktur (Weltweit)
+    •  Aufbau Citrix Cloud mit internen Netscalern und RSA 2-Factor
+     ?authentisieren 
+    •  VMWare / Citrix Performance tuning 
+    •  Erstellung Grobkonzept neuer Netzwerkinfrastruktur 
+    •  Beratung Netzwerkinfrastruktur des neuen Logistikzentrums mit
+     ?in Bedachtnahme des neuen Konzeptes
+    •  Präsentieren ans Management
+2018-01 - 2019-11 Eskalation Management
+1 Jahr 11 Monate
+Rolle: Continuous Improvement Manager Base &amp; Application Integration
+Engineering
+Kunde: Swisscom (Schweiz) AG
+Projektinhalte:
+    •  Verbesserung der Arbeit im Connected Workplace 
+    •  Externer Zugang mit Netscaler und Multifaktor
+     ?Authentifizierung 
+    •  Optimierung der gesamten Virtualisierungsumgebung von >20
+     ?Kunden 
+    •  Performance Taskforce Lead 
+    •  VMWare / Citrix Performance tuning 
+    •  ResourcePLannung 
+    •  Eskalation Management 
+    •  Bewerbungsgespräche (techischer Teil) führen und Bewerber
+     ?selektieren
+2018-01 - 2018-01 Korrektur der Fileserverberechtigung und Active
+1 Monat Directory Clean-Up
+Rolle: Consultant
+Kunde: DKV MOBILITY SERVICES BUSINESS CENTER GmbH + Co. KG
+Einsatzort: Ratingen , Deutschland
+Projektinhalte:     •  Berechtigungen der User Profile mittel Powershell scripte
+     ?korrigiert
+    •  Leere nicht benötigte Active Directory Gruppen mittel
+     ?Powershell Script ermittelt und gelöscht
+    •  NTFS Berechtigung mittels Powershell ermittelt und durch
+08.03.2023 2 von 17
+     ?richtige ersetzt (Wenn Gruppe nicht in Subdomain vorhanden dann
+     ?anlegen)
+2017-12 - 2017-12 Erneuerung der Produktions- und Office Infrastruktur
+1 Monat
+Rolle: Consultant
+Kunde: Papierfabrik Louisenthal GmbH
+Einsatzort: Louisenthal, Deutschland
+Projektinhalte:     •  Migration Active Directory Domain Controllern Windows Server
+     ?2012 auf Windows Server 2016
+    •  Migration DHCP Server 2012 auf Windows Server 216
+    •  Migration DFS FileServer Windows Server 2012 auf Windows Server
+     ?2016
+    •  Installation Active Directory Zertifikatservice (PKI) Windows
+     ?Server 2016
+    •  Migration Citrix XenDesktop 7.9 auf Citrix XenDesktop 7.15 LTSR
+    •  Migration Citrix XenApp 6.5 auf Citrix XenApp 7.15 LTSR
+    •  Migration von XenServer 7 zu VMWare ESX 6.5
+2017-11 - 2017-12 verschieden Workshops und Schulungen
+2 Monate
+Rolle: Workshopleiter, Trainer
+Projektinhalte:     •  Workshopleiter eines Citrix Netscaler Workshops für die
+     ?Integration von OKTA SSO
+    •  Trainer für Office 365 und Microsoft Azure Schulungen.
+2017-10 - 2017-10 Zentralisierung und Erneuerung der Citrix XenApp/
+1 Monat XenDesktop Farm auf Basis XenDesktop 7.17 LTR
+Rolle: Solution Architekt
+Kunde: Stadler Rail
+Einsatzort: Altenrhein, Schweiz
+Projektinhalte:     •  Solution Architekt für die Zentralisierung und Erneuerung der
+     ?Citrix XenApp/ XenDesktop Farm auf Basis XenDesktop 7.17 LTR.
+     ?Aufbau einer Farm mit mehreren Sites.
+    •  Deployment mit PVS und MCS sowie persistent Desktop für GPU
+     ?Benutzung. Zugriff wird über eine GSLB / AccessGateway
+     ?Implementierung realisiert mit GeoIP und Benutzergruppen
+     ?Zugehörigkeit.
+2017-03 - 2017-09 Qualitätsverbesserung
+7 Monate
+Rolle: Team Leiter
+08.03.2023 3 von 17
+Kunde: VionFood Group
+Einsatzort: Boxtel, Niederlande
+Projektinhalte:     •  Als Team Leiter leitet ich das Infrastruktur Team mit 24
+     ?Teammitgliedern aufgeteilt in 12 Sub Teams (Netzwerk, Citrix,
+     ?Backup, usw.). Hatte Budget, Personal und Projekt
+     ?Verantwortung. Sorgte für die Qualitätsverbesserung der
+     ?ausgeführten Arbeiten. Leitete regelmäßig Meeting und
+     ?informierte den Supply Chain Manager.
+    •  Für das Workplace Projekt, eigenes AD mit Windows 10 und
+     ?Office365 (unter anderem wurde Hosted Exchange , SharePoint,
+     ?OneDrive, Delve, Skype for Business in Betracht gezogen), wurde
+     ?auch ADFS für die externe Authentisierung mittels Web-Proxy in
+     ?der DMZ und ADFS-Server im LAN realisiert
+    •  Eine Problem Management Struktur wurde von mir eingerichtet um
+     ?Störungen schneller zu beheben und vorzubeugen. Microsoft
+     ?Identity Management(MIM (IAM)) wurde für den Aufbau der neuen
+     ?Workplace-Domain mit im Projekt aufgenommen
+2017-08 - 2017-08 Fertigstellung des Citrix XenMobile 10.6 PoC
+1 Monat
+Kunde: Talanx AG
+Einsatzort: Hannover
+Projektinhalte:     •  Fertigstellung des Citrix XenMobile 10.6 PoC mit Citrix
+     ?Sharefile, SharePoint Connector and Netzlaufwerk Connector. 
+    •  In der DMZ wurde NetScaler 12.5 VPX im HA-Verbund
+     ?eingerichtet. 
+    •  Als Mobilegeräte wurde nur iOS Endgeräte verwendet.
+2017-08 - 2017-08 Citrix NetScaler 12 Workshop
+1 Monat
+Rolle:
+Kunde: Stadt Frankfurt
+Projektinhalte:
+    •  Schulung und Beantwortung der Fragen der Angestellten. 
+    •  Erklärung Der vorhanden NetScaler SDX und dem Citrix MAS.
+2010-03 - 2017-05 Aufbau und Pflege des lokalen Active Directory
+7 Jahre 3 Monate
+Kunde: Pearl Optics
+Einsatzort: Venlo and Blerick, Niederlande
+Projektinhalte:     •  Administration von Windows und Linux Arbeitsplätzen.
+    •  Migration vom Exchange 2010 zu Office365.
+    •  Upgrade von Windows Server 2008 zu Windows Server 2012 R2.
+    •  Verwalten der Site-Site VPN Verbindung.
+08.03.2023 4 von 17
+    •  Arbeiten wurde remote auf Absprache erledigt
+2012-08 - 2017-02 Installation einer Windows Server 2008 Domain inkl.
+4 Jahre 7 Monate Exchange 2010.
+Kunde: Kuechenhaus Jansen
+Einsatzort: Voosen
+Projektinhalte:     •  Neue Arbeitsplätze mit Windows 7 ausgerollt.
+    •  Managen der GPOs, Active Directory und User Authentifizierung
+     ?und Autorisierung.
+    •  Die meiste Arbeit wurde Remote auf Abruf erledigt.
+2017-01 - 2017-01 Anbindung Citrix NetScaler VPX
+1 Monat
+Rolle: Citrix Consultant
+Kunde: M&amp;M Software GmbH
+Einsatzort: St. Georgen, Deutschland
+Projektinhalte:
+    •  Anbindung Citrix NetScaler VPX an Citrix XenMobile 10.5 MDM
+     ?Edition. 
+    •  Zum Emailversand wurde NetScaler Connector eingesetzt.
+2016-12 - 2017-01 Erstellung einer Machbarkeitsanalyse
+2 Monate
+Rolle: Ofice365 Consultant
+Kunde: deutscher Automobilhersteller
+Projektinhalte:
+    •  Erstellung einer Machbarkeitsanalyse für Office365 mit 3
+     ?Use-Cases über einen Migrationszeitraum von 5 Jahren. 
+    •  Es wurden die verschiedenen Office365 Lizenzmodelle Betrachtet
+     ?um zur ermitteln welche Lizenzersparnisse und Operationelle
+     ?kosten erspart werden können. 
+    •  Die Ergebnisse wurden an das Management präsentiert.
+2016-12 - 2016-12 Migration Microsoft TMG
+1 Monat
+Kunde: VDS Schadensverhütung GmbH
+Einsatzort: Köln
+Projektinhalte:
+08.03.2023 5 von 17
+    •  Migration Microsoft TMG zu Citrix NetScaler 11.x. VPS. 
+    •  SharePoint und Exchange wurden hauptsächlich mit einer 1 Faktor
+     ?AAA Authentifizierung ausgestattet. 
+    •  Eine SharePoint Site mit SMS Token als 2Faktor
+     ?Authentifizierung (NetScaler AAA) wurde eingerichtet. 
+    •  Zum Einsatz kam die SafeNet SAS Cloud.
+    •  Citrix Access Gateway inkl. Storefront 3.8 wurde auch migriert.
+2016-11 - 2016-12 Erarbeitung eines Active Directory Solution Konzept
+2 Monate
+Rolle: Architekt
+Kunde: Inventx AG
+Einsatzort: Brüttisellen, Schweiz
+Projektinhalte:
+    •  Es wurden das Verwalten mehrere Kunden Active Directorys über
+     ?Vertrauensstellungen realisiert. 
+    •  Hier wurde auch auf die Sicherheit geachtet und nur One-Way
+     ?Vertrauensstellungen gebaut. 
+    •  Firewall, DNS und Backup wurde ebenfalls berücksichtigt. 
+    •  Die Zugriffberechtigung wurde Rollenbasiert realisiert. 
+    •  ADFS wurde betrachtet aber nicht für diese Lösung empfohlen. 
+    •  Man kann das Design einer Virtual Privat Cloud aus Provider
+     ?Sicht gleichsetzen.
+2016-10 - 2016-12 Beratung für den RfP und BAFO Prozess
+3 Monate
+Rolle: Berater
+Kunde: Körber It Solutions GmbH
+Einsatzort: Hamburg
+Projektinhalte:
+    •  Mitarbeit im EUC (EndUserComputing) Projekt für den Globalen
+     ?Rollout neuer Clients und dem Windows 10 design. 
+    •  Für den RfP wurden Hardware-Spezifikationen gesammelt um für
+     ?die verschiedenen Benutzerrollen (Office-Worker, Traveller
+     ?usw.) einen Gerätekatalog (Laptop, Desktop) zu erstellen..
+2016-09 - 2016-09 diverse Projekte
+1 Monat
+Kunde: diverse Kunden
+Einsatzort: Germany
+08.03.2023 6 von 17
+Projektinhalte: Kunde: Kathrein Werke AG, Rosenheim
+Aufgaben:
+Implementierung Sharefile SSO mit Netscaler als IdP.
+Rolle: Project Manager
+Kunde: Nephrocare Bad Homburg
+Aufgaben:
+Migration von Lotus Notes zu einer Hosted Exchange Umgebung für ca.
+400 Mailboxen.
+Kunde: VDS Schadensverhütung GmbH, Köln, Deutschland 
+Aufgaben:
+Workshop Migration Microsoft TMG zu Citrix NetScaler.
+2016-07 - 2016-07 Migration
+1 Monat
+Rolle: Consultant
+Kunde: Küchenhaus Jansen
+Einsatzort: Germany
+Projektinhalte:     •  Migration des Microsoft Exchange Server 2010 zu Office365.
+    •  Upgrade der lokalen MS Office 2010/2013 Installationen zu MS
+     ?Office 2016 .
+2011-01 - 2016-06 neue Global Data Center für eine zentrale Citrix
+5 Jahre 6 Monate Umgebung.
+Rolle: Architekt
+Kunde: Scor International LTD
+Einsatzort: Zürich, Schweiz
+Projektinhalte:     •  Das Design beinhaltete ebenfalls das Konzept für die Zone und
+     ?Worker Groups um das Bereitstellen der Applikationen Weltweit
+     ?zu gewährleisten.
+    •  Hierfür wurde Citrix XenApp 5, XenApp6.5, Provisioning Server
+     ?5.6 und NetScaler Verwendet.
+    •  Alle 143 Server für die XenApp Infrastruktur wurden auf VMware
+     ?Virtualisiert und auf zwei Rechenzentren verteilt.
+    •  Das Konzept wurde auch von mir als Engineer umgesetzt.
+    •  Für das Bereitstellen der XenApp Server incl. Applikationen
+     ?wurde die LanDesk Management Suite ab Version 9 verwendet.
+08.03.2023 7 von 17
+Diese Tätigkeiten habe ich ebenfalls ausgeführt:
+    •  Softwarepacketierung der unattended Installation der Citrix
+     ?Server und Applikationen mit LanDesk
+    •  Scripting mit PowerShell, VBScript und Batch
+    •  Erstellen von Konzepten und Dokumentation
+    •  Tuning, Performance-Optimierung und Kapazitäten Planung
+    •  Managing Datei migration von Benutzern zwischen zwei
+     ?verschiedenen Domainen
+    •  Implementierung Nagios Monitoring für die Citrix Infrastruktur
+    •  tägliche Betriebstätigkeiten.
+Konzeption und Design des Upgrades auf XenApp / XenDesktop 7.x. inkl.
+neuer Remote Zugangslösung.
+Für den neuen Zugang Lösung wurde Citrix NetScaler mit Access Gateway
+Enterprise (AGEE) und einer SafeNet 2Factor Lösung und dem Storefront
+3.x aufgebaut.
+Weitere Tätigkeiten:
+Technischer Projektleiter für die 2 Faktor Authentication bei den Windows
+Arbeitsplätzen.
+Hier habe ich verschiedene PoC aufgebaut und dem Projektleiter
+zugearbeitet.
+Die PoCs bestanden aus der Implementierung von NetScaler Access
+Gateway und dem Winodws Login und den folgenden Produkten
+    •  DUOsecurity
+    •  RSA
+    •  SafeNet SAS Cloud
+    •  DualShield mit RSA
+    •  Technischer Leiter der Implementation / update der Software
+     ?Korvas 4.4 auf Korvas 4.5 64bit auf XenApp 6.5.
+    •  Technischer Leiter der Implementation / update der Software
+     ?Korvas 4.5 auf Korvas 4.6.
+2013-11 - 2013-11 Konfiguration Citrix NetScaler
+1 Monat
+Rolle: Consultant
+Kunde: Bank für Sozialwirtschaft
+Einsatzort: Köln
+Projektinhalte:     •  Konfiguration Citrix NetScaler für SSL-Offload und
+     ?einrichtendes Access.
+    •  Gateway Enterprise (AGEE) mit RSA 2 Faktor Authentisierung.
+2013-09 - 2013-09 Problemlösung
+1 Monat
+Rolle: Consultant
+Kunde: Papierfabrik Louisenthal GmbH
+Einsatzort: Louisenthal
+08.03.2023 8 von 17
+Projektinhalte:     •  Problemlösung XenApp 6.5, XenDesktop 5.6 und XenServer 6.1.
+     ?XenDsktop Hotfixes eigespielt.
+    •  Update auf Provisioning Server 6.1 und neuer NetScaler VPX
+     ?Firmware durchgeführt.
+    •  Microsoft DFS problem analysiert und behoben.
+2012-09 - 2012-12 Design der neuen Citrix Infrastruktur mit XenApp 6.5
+4 Monate und Provisioning Services
+Kunde: Kapsch Group
+Einsatzort: Wien, Österreich
+Projektinhalte:     •  Der externe Zugriff mit iPhones und iPads über Citrix NetScaler
+     ?mit Access Gateway Enterprise (AGEE) wurde ebenfalls geplant.
+2012-06 - 2012-12 Begutachtung des Designes der neuen Citrix XenApp 6.5
+7 Monate und Provisioning
+Kunde: Lanxess
+Einsatzort: Leverkusen
+Projektinhalte:     •  Services Umgebung in EMEA und AP. Wenn es notwendig war wurde
+     ?Veränderungen eingebracht.
+    •  Das Konzept für den Remote Zugriff über das Access Gateway
+     ?Enterprise (AGEE) für AP wurde von mir erstellt
+2012-11 - 2012-11 Troubleshooting XenApp 6.5 und XenDesktop 5.6.
+1 Monat
+Kunde: Papierfabrik Louisenthal GmbH
+Einsatzort: Louisenthal
+Projektinhalte: Installation und Konfiguration Citrix NetScaler mit Webinterface und
+SmartCard Pass-Through Authentifizierung.
+2012-10 - 2012-10 Migration Novel Directory Service (NDS) nach Microsoft
+1 Monat Active Directory
+Kunde: Papierfabrik Louisenthal GmbH
+Einsatzort: Louisenthal
+2012-07 - 2012-07 Umsetzung des VDI-PoC in die Produktion.
+1 Monat
+Kunde: Papierfabrik Louisenthal GmbH
+08.03.2023 9 von 17
+Einsatzort: Louisenthal
+2012-04 - 2012-04 diverse Projekte
+1 Monat
+Kunde: Papierfabrik Louisenthal GmbH
+Einsatzort: Louisenthal
+Projektinhalte: 16.04.2012 – 17.04.2012 Lanxess AG, Leverkusen, Deutschland
+Implementierung Citrix NetScaler / Access Gateway Enterprise mit RSA 2
+Faktor Authentifizierung.
+18.04.2012 – 20.04.2012 Papierfabrik Louisenthal GmbH, Louisenthal,
+Deutschland
+Installation und Konfiguration eines VDI-PoC mit Citrix XenServer 6.0,
+XenApp6.5, XenDesktop 5.6, und Provisioning Services 5.6.
+2011-12 - 2011-12 Implementierung Citrix NetScaler (MPX) / Access
+1 Monat Gateway Enterprise mit RSA 2 Faktor Authentifizierung.
+Kunde: Stadt Frankfurt, Deutschland
+Einsatzort: Frankfurt
+2011-10 - 2011-11 Review der NetScaler Schulungsunterlagen.
+2 Monate
+Kunde: Citrix Systems
+Einsatzort: FL, Florida
+2011-10 - 2011-10 Citrix XenApp Workshop
+1 Monat
+Kunde: Delta Lloyd
+Einsatzort: Wiesbaden
+2010-12 - 2011-03 Administration the Server 2008 Network
+4 Monate
+Kunde: Marchsreiter,
+Einsatzort: München, Germany
+Projektinhalte: I administered the SBS 2008 enviroment with Exchange 2007, and
+configured and ministered SharePoint.
+08.03.2023 10 von 17
+I also setup a CI-Layout. Setup BlackBerry connection
+01/12/2010 – 01/05/2011
+Installing a new windows Network for Gabriele Pfeifer Telemarketing,
+Neckargemünd, Germany
+I planned, designed and administered the new network infrastructure with
+Exchange 2007 and Server 2008.
+2010-09 - 2010-12 Consultant
+4 Monate
+Kunde: T-Systems
+Einsatzort: Darmstadt
+Projektinhalte: Verantwortlich für das Design und die Bereitstellung von 5000 XenDesktop
+VDIs auf VMWare ESX.
+Adminstration vom Citrix Provisioning Service, XenDesktop DDC. Anlegen
+der VMs mittels vCLI Powershell script.
+Profil Management mit AppSense EMv8 und Softwareverteilung mittels
+Matrix24.
+2005 – 2006: System- / networkadministrator and webdeveloper at BouwmeesterGroep, Asten,the
+Netherlands
+At BouwmeesterGroep I was the system and network administrator for both the internal and
+external infrastructures and at the same time I developed web applications.
+I was also responsible for the technical part of the 10TB cluster.
+I developed an webfont end for an application with an Oracle-database at the Ministry of Justice
+(DJI).
+Key activities:
+    •  Responsible for the complete infrastructure of ICT Traffikcontrole with MRTG
+    •  Customer support
+    •  User policy for the internal network
+    •  Administration of Debian Linux Webserver and Debian Linux Mailserver (Postfix MySql)
+    •  Monitoring servers and network components
+    •  Automatic security patching of Windows XP Professional in use by Microsoft Software
+     ?Update Services
+    •  Windows XP Professional installation
+    •  Remote administration of the servers and network components
+    •  Administration of DNS server ( PowerDNS ) with MySQL backend
+    •  Administrion of Linux-Firewall
+    •  Project planning and managing of 10TB Linux-Cluster
+    •  Develop PHP application (front-end with ORACLE backend ) for DJI Ministry of Justice
+    •  Development with PHP en MySQL
+    •  Analysis of offer for Citrix network for teleworking
+2003 – 2005: Consultant at EuroActive Enterprises LTD, Grubenvorst, Netherlands
+I was responsible for the advancement of the DataCenter.
+Here I was able to use my wide experience to develop a server, while also acting as an employee
+manager and setting up a customer support system.
+Monitoring the network, solving problems, and managing DataCenter removals were done
+quickly and securely.
+Administration of the server park formed part of my daily activities.
+I administrated the Linux (FreeBSD, Debian 3.x and Fedora) and Windows Webserver.
+08.03.2023 11 von 17
+I gained a lot of important experience here.
+Key activities :
+    •  Project Manager for building a DataCenter Network
+    •  Maintenance of the DataCenter Network based on Cisco and Summit Extreme switches
+     ?linked with glass fibre on the Keystone 6g CoreSwitch
+    •  Responsible for the complete ICT infrastructure
+    •  Traffikcontrol with MRTG 50+ servers based on Linux/Unix (FreeBSD, Debian 3.x and
+     ?Fedora), Windows 2000 and Windows
+2003:
+    •  Remote installation of the server in use with KVM over IP
+    •  Employee manager
+    •  Setup customer suppport
+    •  Product manager for their own 19? server products
+    •  Customer support
+    •  User Policy for the internal network
+    •  Installation of Netsaint for monitoring the servers and network components
+    •  Automatic security patching of Windows XP Professional in use with Microsoft Software
+     ?Update Services
+    •  Windows 2000 Professional / Server installation
+    •  Windows XP Professional installation
+    •  Remote administration of servers and network components
+    •  Administration of the DNS Server ( PowerDNS ) with MySQL Backend
+    •  Implementation Linux-Firewall
+    •  Migration of Linux Firewall to Cisco Pix 525.
+2002 – 2003: Cooperate leader and engineer at Teledate Entertainment Network C.V, Heerlen, the
+Netherlands
+Here I developed a billing system and I was responsible for the web server existing of Windows
+2000 and SuseLinux servers.
+During my time here I took charge of several projects and extended my experience in DataCenters.
+I also took care of the administraiton of various services (Linux: Apache-Webserver, Proftpd, Postfix
+mail, Sendmail Windows: IIS, FTP).
+Key activities:
+    •  Project manager
+    •  Installation of Windows 2000 Web servers with IIS and DNS in the DataCenter
+    •  Installation of SuSeLinux 7.0 Server with Apache, Sedmail, WU-FTPD, BIND
+    •  Remote administration of the servers
+    •  Purchase of hardware and software
+    •  Development of web application with PHP and MySQL (billing system)
+2002:Administrator and developer at Metro AG, Düsseldorf, Germany
+Together with my team I was responsible for the development of internal applications.
+I worked on their Risk Management project and had the oppurtunity to build my experience in large
+ventures.
+Key activities:
+    •  Development with JAVA
+    •  Maintenance of Oracle Server
+    •  Maintenance of backup server.
+2001 – 2002: System Administrator at Abacho AG, Neuss, Germany
+I took care of the daily office automation management and was the controller of the project
+webmail.
+My tasks included setting up a network, and repairing and installing of work stations,
+while extending my experience with heterogeneous networks.
+08.03.2023 12 von 17
+I was a manager and trained students.
+To couple the Linux and Windows networks I used SAMBA and NFS. I also used my experience of the
+WebmastersAkademie here.
+Key activities:
+    •  Configuration of the network based on 3Com Switches
+    •  Migration Windows 98/NT4.0 clients to Windows 2000 Professional
+    •  Migration of Windows NT 4.0 servers to Windows 2000 Servers
+    •  Maintenance of Windows 2000 Active Directory Services
+    •  Maintenance of Veritas Backup Exec
+    •  Implemention of Linux based server for the developers
+    •  Implemention of Netscape mail clients
+    •  Maintenance of Navision server
+    •  Maintenance of Tobit Faxware server
+    •  Maintenance of the telephone centre
+    •  Maintenance of the Windows 2000 and NT 4.0 servers
+    •  User Management
+    •  Project management of webmail service
+    •  Developing application with PHP and MySQL
+    •  Supporting the department development
+    •  Developing shell scripts
+2000 – 2001: Administrator at Webmasters Academie, Zweibrücken, Germany
+I was responsible for daily management of the school’s PCs and servers.
+Here I was given the opportunity gain experience with heterogeneous networks.
+Key activities:
+    •  Maintenance of school PCs with Windows NT 4.0 workstations
+    •  Maintenance of the school’s network, 100Mbit with 3Com Switches
+    •  Maintenance of the Samba FileServer and DomainController
+    •  Maintenance of the back-up system
+    •  Maintenance of the webservers based on MacOSX 10
+    •  Maintenance of the Unix server (SuSe Linux 7.0)
+    •  Maintenance of the services (FTP, WebServer, Samba, Backup, Proxy, Printserver, SAMBA,
+     ?DHCP, DNS, IP-Masquerading)
+Branchen
+IT / Internet / EDV, BeHörden, öffentlicherdienst , Bank
+Sprachen
+Deutsch Muttersprache
+Englisch Verhandlungssicher
+Niederländisch Verhandlungssicher
+08.03.2023 13 von 17
+Holländisch
+Kompetenzen
+Schwerpunkte IT, EDV
+Aufgabenbereiche Abteilungsleiter
+Projektleiter
+Projektmanager
+Produkte / Standards /
+Erfahrungen / Methoden
+Profil
+Wegen meinerLeidenschaft und langjähriger Erfahrung in der IT, als
+Hobby und Arbeit,arbeite ich schnell und bin sehr vielseitig. Ich passe
+mich leicht an jede neueArbeitsumgebung an und bin in der Lage neue
+Dinge schnell anzueignen und zulernen. Bin ein guter Teamplayer und
+ein guter Kollege. In meiner eigenenArbeit bin ich genauso gut. Ich bin
+hilfsbereit und versuche immer, die beste Lösung für jedes Problemzu
+finden. Ein Problem ist für mich eine Herausforderung und löse
+diesesaufgrund meiner analytischen Fähigkeiten schnell. 
+KERNKOMPETENZEN 
+    •  23 Jahre Erfahrung IT-Infrastruktur Spezialist 
+    •  Ausgeprägte Fähigkeiten im Organisieren undstrukturieren
+     ?komplexer Projekte und Teams.
+    •  5 Jahre Erfahrung als Microsoft Cloud
+     ?Spezialist(O365/Azure)
+BERUFLICHE SCHWERPUNKTE 
+    •  Mehr als 5 Jahre Erfahrung mit Microsoft
+     ?Cloud(O365/Azure):Machbarkeitsanalysen, Kostenkalkulation,
+     ?Migration 
+    •  Mehr als 23 Jahre Erfahrung in Microsoft Infrastruktur
+     ?undCitrix Umfeld.
+    •  Führungserfahrung in den Bereichen Teamleitung
+     ?undProjektmanagement
+SOFT SKILLS 
+Eigeninitiative 
+Optimierung der Arbeitsabläufe m IT-Engineering Teams,Steigerung:
++20% der inzident Lösungszeit
+Teamführung
+Leitung des IT-Engineerings Teams, (20 Mitarbeitende)Leitung
+08.03.2023 14 von 17
+anspruchsvoller Projekte, (Investitionshöhe CHF 5Millionen)Leitung
+Taskforce Teams (10 Mitarbeiter)
+Zielorientierung
+Auftrag: Optimierung des IT-Engineering
+Teams,Ergebnis:Kundenzufriedenheit + 30% in 6 JahrenReduzierung
+Betriebsstörungen: + 80% in 3 Monaten
+Technisches Qualifikationsprofil
+    •  Windows Server 2016
+    •  Windows Server 2008
+    •  Windows Server 2012
+    •  Windows 10 
+    •  Active Directory 
+    •  Windows 7
+    •  Migration
+    •  Citrix XenApp 6.5 – 7.x 
+    •  Citrix Netscaler 8 – 11
+    •  Virtualisierung
+    •  Citrix ShareFile
+    •  Microsoft SQL
+    •  LAN / WAN
+    •  Authentication
+    •  ADFS
+    •  Office 365
+    •  Group Policy (GPO)
+    •  Project Management
+    •  Rollout
+    •  Citrix XenDesktop 4 – 7.x 
+    •  Citrix XenMobile 8 – 10
+    •  PowerShell
+    •  VB Script 
+    •  Firewall
+    •  Authorization
+SubjectMatterExpert (SME)
+    •  Citrix XenApp
+    •  NetScaler
+    •  XenDesktop
+    •  XenServer
+Citrix Certified Administrator
+    •  NetScaler 9
+    •  NetScaler 10
+    •  XenDesktop 7
+    •  XenApp 6.5
+    •  XenDesktop 5
+    •  XenDesktop 4
+    •  XenDesktop 3
+    •  Provisioning Server 4
+    •  Provisioning Server 5
+08.03.2023 15 von 17
+    •  XenServer 4 Platinum Edition
+    •  Citrix XenServer 6
+    •  XenServer Enterprise Edition 5
+    •  XenServer 5 Platinum Edition
+    •  XenApp 5 for Windows Server 2003
+    •  XenApp 5 Platinum Edition
+    •  XenApp (Presentation Server 4)
+    •  Password Manager 4
+    •  Access Gateway 4
+    •  Citrix WANScaler 4
+    •  XenMobile 8/9/10
+Trainererfahrung
+2008-01 - heute
+Rolle: Certified Technical Trainer 
+2007-09 - heute
+Rolle: Citrix Certified Instructor
+2007-07 - heute
+Rolle: Microsoft Certified Trainer 
+Sprechererfahrung
+2010-05
+Rolle: Sprecher
+Aufgaben:
+Citrix XenApp6 – What’s New Seminar
+2009-01
+Sprecher auf dem 
+Aufgaben:
+NGN Kongress über Citrix Hosted &amp; Streamed Application Virtualisation
+2008
+Rolle: Sprecher auf zwei Citrix Seminaren über Citrix Provisioning
+Services
+Betriebssysteme Windows 10
+Windows 7
+08.03.2023 16 von 17
+Windows Server 2008 R2
+Windows Server 2012 R2
+Windows Server 2016
+Managementerfahrung 0 - 2,5 Mio. Euro Umsatz
+in Unternehmen
+Personalverantwortung Teamleiter
+Aus- und Weiterbildung
+Citrix-Zertifizierungen
+    •  Citrix Certified Associate - Virtualization
+    •  Virtualization Citrix Certified Professional - Virtualization
+    •  Virtualization Citrix Certified Professional - Mobility
+    •  Mobility Citrix XenMobile Specialist
+    •  Citrix Certified Associate – Networking (CCA-N)
+    •  Citrix Certified Professional – Networking (CCP-N)
+    •  Citrix Certified Integration Architect for Virtualization
+    •  Citrix Certified Enterprise Engineer for Virtualization
+Microsoft-Zertifizierungen
+    •  Exam 398: Planning for and Managing Devices in the Enterprise
+    •  Microsoft Certified Solutions Associate (MSCA): Windows Server 2016
+    •  Microsoft Certified Solutions Associate (MSCA): Windows Server 2012
+    •  Microsoft Specialist: Administring Office 365 for Small Business
+    •  MCITP Server Administrator MCITP Enterprise Messaging Administrator
+    •  MCITP Enterprise Support Technician
+    •  MCITP Enterprise Administrator
+    •  MCTS Windows Server 2008 Active Directory: Configuration
+    •  MCTS Windows Server 2008 Applications Infrastructure: Configuration
+    •  MCTS Windows Server 2008 Network Infrastructure: Configuration
+    •  MCTS Windows Server 2008 R2, Desktop Virtualization
+    •  MCTS Windows Server Virtualization, Configuration
+    •  MCTS Windows 7, Configuration MCTS Microsoft Desktop Optimization Pack, Configuring
+    •  MCTS Microsoft Windows Vista: Configuration
+    •  MCTS Microsoft Exchange Server 2007: Configuration
+    •  MCTS Microsoft Office SharePoint Server 2007: Configuration
+    •  MCTS Microsoft Windows SharePoint Services 3.0: Configuration
+    •  MCSE 2003 Security
+Weitere Zertifizierungen
+    •  NLP Practitioner
+    •  PMI-ACP (Agile Certified Professional) Prüfung in Planung
+    •  Agile Scrum Foundation Prüfung in Planung
+2010-05
+AppSense Certified Administrator Training
+08.03.2023 17 von 17
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_107543 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                107543
+  
+Wohnort                    826x Steckborn, Schweiz
+Jahrgang                   1977
+Staatsbürgerschaft         deutsch
+Stundensatz                125 EUR
+                           kan verhandelt werden
+Verfügbar ab               26.01.18 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         19.06.10
+Profil zuletzt geändert am 10.07.20
+Lesen von Projektanfragen  1 Tag [08]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 09.08.2020 17:03:43
+
+Fachlicher Schwerpunkt:
+Citrix XenApp / XenDesktop, Netscaler, Netscaler AccessGateWay, XenMobile,
+Security, Compliance, Projektmanagement, Windows Infrastruktur experte,
+
+Position:
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Voraussetzung für Festanstellung: Meine Gehaltsvorstellungen bewegen sich bei
+70.000 Euro pro Jahr
+
+Ausbildung:
+    * Citrix-Zertifizierungen
+    * Citrix Certified Associate - Virtualization
+    * Virtualization Citrix Certified Professional - Virtualization
+    * Virtualization Citrix Certified Professional - Mobility
+    * Mobility Citrix XenMobile Specialist
+    * Citrix Certified Associate  Networking (CCA-N)
+    * Citrix Certified Professional  Networking (CCP-N)
+    * Citrix Certified Integration Architect for Virtualization
+    * Citrix Certified Enterprise Engineer for Virtualization
+ 
+Microsoft-Zertifizierungen
+    * Exam 398: Planning for and Managing Devices in the Enterprise
+    * Microsoft Certified Solutions Associate (MSCA): Windows Server 2016
+    * Microsoft Certified Solutions Associate (MSCA): Windows Server 2012
+    * Microsoft Specialist: Administring Office 365 for Small Business
+    * MCITP Server Administrator MCITP Enterprise Messaging Administrator
+    * MCITP Enterprise Support Technician
+    * MCITP Enterprise Administrator
+    * MCTS Windows Server 2008 Active Directory: Configuration
+    * MCTS Windows Server 2008 Applications Infrastructure: Configuration
+    * MCTS Windows Server 2008 Network Infrastructure: Configuration
+    * MCTS Windows Server 2008 R2, Desktop Virtualization
+    * MCTS Windows Server Virtualization, Configuration
+    * MCTS Windows 7, Configuration MCTS Microsoft Desktop Optimization Pack,
+      Configuring
+    * MCTS Microsoft Windows Vista: Configuration
+    * MCTS Microsoft Exchange Server 2007: Configuration
+    * MCTS Microsoft Office SharePoint Server 2007: Configuration
+    * MCTS Microsoft Windows SharePoint Services 3.0: Configuration
+    * MCSE 2003 Security
+ 
+Weitere Zertifizierungen
+    * NLP Practitioner
+    * PMI-ACP (Agile Certified Professional)  Prüfung in Planung
+    * Agile Scrum Foundation Prüfung in Planung
+    * 03.05.2010  04.05.2010 AppSense Certified Administrator Training
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch        Muttersprache
+Englisch       Verhandlungssicher
+NiederländischVerhandlungssicher
+
+
+Betriebssysteme:
+Windows Server 2008 R2  
+Windows Server 2012 R2  
+Windows Server 2016     
+Windows 10              
+Windows 7               
+
+
+Aufgabenbereiche:
+Abteilungsleiter  
+Projektleiter     
+Projektmanager    
+
+
+Schwerpunkte:
+IT, EDV  
+
+
+Managementerfahrung in Unternehmen:
+0 - 2,5 Mio. Euro Umsatz  
+
+
+Personalverantwortung:
+Teamleiter  
+
+
+Produkte/Standards/Erfahrungen:
+SubjectMatterExpert (SME)
+    * Citrix XenApp
+    * NetScaler
+    * XenDesktop
+    * XenServer
+ 
+Citrix Certified Administrator
+    * NetScaler 9
+    * NetScaler 10
+    * XenDesktop 7
+    * XenApp 6.5
+    * XenDesktop 5
+    * XenDesktop 4
+    * XenDesktop 3
+    * Provisioning Server 4
+    * Provisioning Server 5
+    * XenServer 4 Platinum Edition
+    * Citrix XenServer 6
+    * XenServer Enterprise Edition 5
+    * XenServer 5 Platinum Edition
+    * XenApp 5 for Windows Server 2003
+    * XenApp 5 Platinum Edition
+    * XenApp (Presentation Server 4)
+    * Password Manager 4
+    * Access Gateway 4
+    * Citrix WANScaler 4
+    * XenMobile 8/9/10
+ 
+Trainererfahrung
+ 
+01/2008 - heute
+    * Certified Technical Trainer 
+ 
+09/2007 - heute
+    * Citrix Certified Instructor
+ 
+07/2007 - heute
+    * Microsoft Certified Trainer 
+ 
+Sprechererfahrung
+ 
+05/2010
+    * Sprecher bei einem Citrix XenApp6  Whats New Seminar
+ 
+01/2009
+    * Sprecher auf dem NGN Kongress über Citrix Hosted &amp; Streamed Application
+      Virtualisation
+ 
+2008
+    * Sprecher auf zwei Citrix Seminaren über Citrix Provisioning Services
+
+Branchen:
+IT / Internet / EDV, BeHörden, öffentlicherdienst , Bank
+
+Projekte:
+01/2018 - 01/2018: Korrektur der Fileserverberechtigung und Active Directory
+Clean-Up.
+ 
+Einsatzort:         Ratingen , Deutschland
+Rolle:              Consultant
+Kunde:              DKV MOBILITY SERVICES BUSINESS CENTER GmbH + Co. KG
+ 
+Aufgaben:
+ 
+    * Berechtigungen der User Profile mittel Powershell scripte korrigiert
+    * Leere nicht benötigte Active Directory Gruppen mittel Powershell Script
+      ermittelt und gelöscht
+    * NTFS Berechtigung mittels Powershell ermittelt und durch richtige ersetzt
+      (Wenn Gruppe nicht in Subdomain vorhanden dann anlegen)
+===============================================================================
+12/2017 - 12/2017: Erneuerung der Produktions- und Office Infrastruktur
+ 
+Einsatzort:         Louisenthal, Deutschland
+Rolle:              Consultant
+Kunde:              Papierfabrik Louisenthal GmbH
+ 
+Aufgaben:
+ 
+    * Migration Active Directory Domain Controllern Windows Server 2012 auf
+      Windows Server 2016
+    * Migration DHCP Server 2012 auf Windows Server 216
+    * Migration DFS FileServer Windows Server 2012 auf Windows Server 2016
+    * Installation Active Directory Zertifikatservice (PKI) Windows Server 2016
+    * Migration Citrix XenDesktop 7.9 auf Citrix XenDesktop 7.15 LTSR
+    * Migration Citrix XenApp 6.5 auf Citrix XenApp 7.15 LTSR
+    * Migration von XenServer 7 zu VMWare ESX 6.5
+===============================================================================
+11/2017 - 12/2017: verschieden Workshops und Schulungen
+ 
+Rolle:              Workshopleiter, Trainer
+ 
+Aufgaben:
+ 
+    * Workshopleiter eines Citrix Netscaler Workshops für die Integration von
+      OKTA SSO
+    * Trainer für Office 365 und Microsoft Azure Schulungen.
+===============================================================================
+10/2017 - 10/2017: Zentralisierung und Erneuerung der Citrix XenApp/ XenDesktop
+Farm auf Basis XenDesktop 7.17 LTR
+ 
+Einsatzort:         Altenrhein, Schweiz
+Rolle:              Solution Architekt
+Kunde:              Stadler Rail
+ 
+Aufgaben:
+ 
+    * Solution Architekt für die Zentralisierung und Erneuerung der Citrix
+      XenApp/ XenDesktop Farm auf Basis XenDesktop 7.17 LTR. Aufbau einer Farm
+      mit mehreren Sites.
+    * Deployment mit PVS und MCS sowie persistent Desktop für GPU Benutzung.
+      Zugriff wird über eine GSLB / AccessGateway Implementierung realisiert
+      mit GeoIP und Benutzergruppen Zugehörigkeit.
+===============================================================================
+03/2017 - 09/2017: Qualitätsverbesserung
+ 
+Einsatzort:         Boxtel, Niederlande
+Rolle:              Team Leiter
+Kunde:              VionFood Group
+ 
+Aufgaben:
+ 
+    * Als Team Leiter leitet ich das Infrastruktur Team mit 24 Teammitgliedern
+      aufgeteilt in 12 Sub Teams (Netzwerk, Citrix, Backup, usw.). Hatte
+      Budget, Personal und Projekt Verantwortung. Sorgte für die
+      Qualitätsverbesserung der ausgeführten Arbeiten. Leitete regelmäßig
+      Meeting und informierte den Supply Chain Manager.
+    * Für das Workplace Projekt, eigenes AD mit Windows 10 und Office365 (unter
+      anderem wurde Hosted Exchange , SharePoint, OneDrive, Delve, Skype for
+      Business in Betracht gezogen), wurde auch ADFS für die externe
+      Authentisierung mittels Web-Proxy in der DMZ und ADFS-Server im LAN
+      realisiert
+    * Eine Problem Management Struktur wurde von mir eingerichtet um Störungen
+      schneller zu beheben und vorzubeugen. Microsoft Identity Management(MIM
+      (IAM)) wurde für den Aufbau der neuen Workplace-Domain mit im Projekt
+      aufgenommen
+===============================================================================
+08/2017 - 08/2017: diverse projekte
+ 
+Kunde:              diverse
+ 
+Aufgaben:
+ 
+08/2017 – 08/2017: Fertigstellung des Citrix XenMobile 10.6 PoC
+ 
+Kunde: Talanx AG
+Einsatzort: Hannover, Deutschland
+ 
+Aufgaben:
+    * Fertigstellung des Citrix XenMobile 10.6 PoC mit Citrix Sharefile,
+      SharePoint Connector and Netzlaufwerk Connector.
+    * In der DMZ wurde NetScaler 12.5 VPX im HA-Verbund eingerichtet. Als
+      Mobilegeräte wurde nur iOS Endgeräte verwendet.
+ 
+08/2017 – 08/2017: Citrix NetScaler 12 Workshop.
+ 
+Kunde: Stadt Frankfurt
+Einsatzort: Frankfurt, Deutschland
+ 
+Aufgaben:
+    * Citrix NetScaler 12 Workshop.
+    * Schulung und Beantwortung der Fragen der Angestellten.
+    * Erklärung Der vorhanden NetScaler SDX und dem Citrix MAS.
+===============================================================================
+03/2010 - 05/2017: Aufbau und Pflege des lokalen Active Directory
+ 
+Einsatzort:         Venlo and Blerick, Niederlande
+Kunde:              Pearl Optics
+ 
+Aufgaben:
+ 
+    * Administration von Windows und Linux Arbeitsplätzen.
+    * Migration vom Exchange 2010 zu Office365.
+    * Upgrade von Windows Server 2008 zu Windows Server 2012 R2.
+    * Verwalten der Site-Site VPN Verbindung.
+    * Arbeiten wurde remote auf Absprache erledigt
+===============================================================================
+08/2012 - 02/2017: Installation einer Windows Server 2008 Domain inkl. Exchange
+2010.
+ 
+Einsatzort:         Voosen
+Kunde:              Kuechenhaus Jansen
+ 
+Aufgaben:
+ 
+    * Neue Arbeitsplätze mit Windows 7 ausgerollt.
+    * Managen der GPOs, Active Directory und User Authentifizierung und
+      Autorisierung.
+    * Die meiste Arbeit wurde Remote auf Abruf erledigt.
+===============================================================================
+01/2017 - 01/2017: Citrix Consultant
+ 
+Einsatzort:         St. Georgen, Deutschland
+Kunde:              M&amp;M Software GmbH
+ 
+Aufgaben:
+ 
+Anbindung Citrix NetScaler VPX an Citrix XenMobile 10.5 MDM Edition. Zum
+Emailversand wurde NetScaler Connector eingesetzt.
+===============================================================================
+12/2016 - 01/2017: Ofice365 Consultant
+ 
+Kunde:              deutscher Automobilhersteller
+ 
+Aufgaben:
+ 
+Erstellung einer Machbarkeitsanalyse für Office365 mit 3 Use-Cases über einen
+Migrationszeitraum von 5 Jahren. Es wurden die verschiedenen Office365
+Lizenzmodelle Betrachtet um zur ermitteln welche Lizenzersparnisse und
+Operationelle kosten erspart werden können. Die Ergebnisse wurden an das
+Management präsentiert.
+===============================================================================
+12/2016 - 12/2016: Replacement Microsoft TMG
+ 
+Einsatzort:         Köln
+Kunde:              VDS Schadensverhütung GmbH
+ 
+Aufgaben:
+ 
+Migration Microsoft TMG zu Citrix NetScaler 11.x. VPS. SharePoint und Exchange
+wurden hauptsächlich mit einer 1 Faktor AAA Authentifizierung ausgestattet.
+Eine SharePoint Site mit SMS Token als 2Faktor Authentifizierung (NetScaler
+AAA) wurde eingerichtet. Zum Einsatz kam die SafeNet SAS Cloud.
+Citrix Access Gateway inkl. Storefront 3.8 wurde auch migriert.
+===============================================================================
+11/2016 - 12/2016: Erarbeitung eines Active Directory Solution Konzept
+ 
+Einsatzort:         Brüttisellen, Schweiz
+Kunde:              Inventx AG
+ 
+Aufgaben:
+ 
+Es wurden das Verwalten mehrere Kunden Active Directorys über
+Vertrauensstellungen realisiert. Hier wurde auch auf die Sicherheit geachtet
+und nur One-Way Vertrauensstellungen gebaut. Firewall, DNS und Backup wurde
+ebenfalls berücksichtigt.
+Man kann das Design einer Virtual Privat Cloud aus Provider Sicht
+gleichsetzen. 
+===============================================================================
+02/2016 - 10/2016: Berater für den RfP und BAFO Prozess. Mitarbeit im EUC
+(EndUserComputing)
+ 
+Einsatzort:         Hamburg
+Kunde:              Körber It Solutions GmbH
+ 
+Aufgaben:
+ 
+Projekt für den Globalen Rollout neuer Clients und dem Windows 10 design. Für
+den RfP wurden Hardware-Spezifikationen gesammelt um für die verschiedenen
+Benutzerrollen (Office-Worker, Traveller usw.) einen Gerätekatalog (Laptop,
+Desktop) zu erstellen.
+===============================================================================
+09/2016 - 09/2016: diverse Projekte
+ 
+Einsatzort:         Germany
+ 
+Aufgaben:
+ 
+Kathrein Werke AG, Rosenheim, Deutschland
+Implementierung Sharefile SSO mit Netscaler als IdP.
+ 
+Nephrocare Bad Homburg, Deutschland
+Rolle: Project Manager
+ 
+Migration von Lotus Notes zu einer Hosted Exchange Umgebung für ca. 400
+Mailboxen.
+ 
+VDS Schadensverhütung GmbH, Köln, Deutschland
+ 
+Workshop Migration Microsoft TMG zu Citrix NetScaler
+ 
+===============================================================================
+07/2016 - 07/2016: Migration
+ 
+Einsatzort:         Germany
+Rolle:              Consultant
+Kunde:              Küchenhaus Jansen
+ 
+Aufgaben:
+ 
+    * Migration des Microsoft Exchange Server 2010 zu Office365.
+    * Upgrade der lokalen MS Office 2010/2013 Installationen zu MS Office 2016
+      .
+===============================================================================
+01/2011 - 06/2016: neue Global Data Center für eine zentrale Citrix Umgebung.
+ 
+Einsatzort:         Zürich, Schweiz
+Rolle:              Architekt
+Kunde:              Scor International LTD
+ 
+Aufgaben:
+ 
+    * Das Design beinhaltete ebenfalls das Konzept für die Zone und Worker
+      Groups um das Bereitstellen der Applikationen Weltweit zu gewährleisten.
+    * Hierfür wurde Citrix XenApp 5, XenApp6.5, Provisioning Server 5.6 und
+      NetScaler Verwendet.
+    * Alle 143 Server für die XenApp Infrastruktur wurden auf VMware
+      Virtualisiert und auf zwei Rechenzentren verteilt.
+    * Das Konzept wurde auch von mir als Engineer umgesetzt.
+    * Für das Bereitstellen der XenApp Server incl. Applikationen wurde die
+      LanDesk Management Suite ab Version 9 verwendet.
+ 
+Diese Tätigkeiten habe ich ebenfalls ausgeführt:
+    * Softwarepacketierung der unattended Installation der Citrix Server und
+      Applikationen mit LanDesk
+    * Scripting mit PowerShell, VBScript und Batch
+    * Erstellen von Konzepten und Dokumentation
+    * Tuning, Performance-Optimierung und Kapazitäten Planung
+    * Managing Datei migration von Benutzern zwischen zwei verschiedenen
+      Domainen
+    * Implementierung Nagios Monitoring für die Citrix Infrastruktur
+    * tägliche Betriebstätigkeiten.
+ 
+Konzeption und Design des Upgrades auf XenApp / XenDesktop 7.x. inkl. neuer
+Remote Zugangslösung.
+ 
+Für den neuen Zugang Lösung wurde Citrix NetScaler mit Access Gateway
+Enterprise (AGEE) und einer SafeNet 2Factor Lösung und dem Storefront 3.x
+aufgebaut.
+ 
+Weitere Tätigkeiten:
+Technischer Projektleiter für die 2 Faktor Authentication bei den Windows
+Arbeitsplätzen.
+Hier habe ich verschiedene PoC aufgebaut und dem Projektleiter zugearbeitet.
+Die PoCs bestanden aus der Implementierung von NetScaler Access Gateway und dem
+Winodws Login und den folgenden Produkten
+    * DUOsecurity
+    * RSA
+    * SafeNet SAS Cloud
+    * DualShield mit RSA
+ 
+    * Technischer Leiter der Implementation / update der Software Korvas 4.4
+      auf Korvas 4.5 64bit auf XenApp 6.5.
+    * Technischer Leiter der Implementation / update der Software Korvas 4.5
+      auf Korvas 4.6.
+===============================================================================
+11/2013 - 11/2013: Konfiguration Citrix NetScaler
+ 
+Einsatzort:         Köln
+Rolle:              Consultant
+Kunde:              Bank für Sozialwirtschaft
+ 
+Aufgaben:
+ 
+    * Konfiguration Citrix NetScaler für SSL-Offload und einrichtendes Access.
+    * Gateway Enterprise (AGEE) mit RSA 2 Faktor Authentisierung.
+===============================================================================
+09/2013 - 09/2013: Problemlösung
+ 
+Einsatzort:         Louisenthal
+Rolle:              Consultant
+Kunde:              Papierfabrik Louisenthal GmbH
+ 
+Aufgaben:
+ 
+    * Problemlösung XenApp 6.5, XenDesktop 5.6 und XenServer 6.1. XenDsktop
+      Hotfixes eigespielt.
+    * Update auf Provisioning Server 6.1 und neuer NetScaler VPX Firmware
+      durchgeführt.
+    * Microsoft DFS problem analysiert und behoben.
+===============================================================================
+09/2012 - 12/2012: Design der neuen Citrix Infrastruktur mit XenApp 6.5 und
+Provisioning Services
+ 
+Einsatzort:         Wien, Österreich
+Kunde:              Kapsch Group
+ 
+Aufgaben:
+ 
+    * Der externe Zugriff mit iPhones und iPads über Citrix NetScaler mit
+      Access Gateway Enterprise (AGEE) wurde ebenfalls geplant.
+===============================================================================
+06/2012 - 12/2012: Begutachtung des Designes der neuen Citrix XenApp 6.5 und
+Provisioning
+ 
+Einsatzort:         Leverkusen
+Kunde:              Lanxess
+ 
+Aufgaben:
+ 
+    * Services Umgebung in EMEA und AP. Wenn es notwendig war wurde
+      Veränderungen eingebracht.
+    * Das Konzept für den Remote Zugriff über das Access Gateway Enterprise
+      (AGEE) für AP wurde von mir erstellt
+===============================================================================
+11/2012 - 11/2012: Troubleshooting XenApp 6.5 und XenDesktop 5.6.
+ 
+Einsatzort:         Louisenthal
+Kunde:              Papierfabrik Louisenthal GmbH
+ 
+Aufgaben:
+ 
+Installation und Konfiguration Citrix NetScaler mit Webinterface und SmartCard
+Pass-Through Authentifizierung.
+===============================================================================
+10/2012 - 10/2012: Migration Novel Directory Service (NDS) nach Microsoft
+Active Directory
+ 
+Einsatzort:         Louisenthal
+Kunde:              Papierfabrik Louisenthal GmbH
+===============================================================================
+07/2012 - 07/2012: Umsetzung des VDI-PoC in die Produktion.
+ 
+Einsatzort:         Louisenthal
+Kunde:              Papierfabrik Louisenthal GmbH
+===============================================================================
+04/2012 - 04/2012: diverse Projekte
+ 
+Einsatzort:         Louisenthal
+Kunde:              Papierfabrik Louisenthal GmbH
+ 
+Aufgaben:
+ 
+16.04.2012 – 17.04.2012 Lanxess AG, Leverkusen, Deutschland
+
+Implementierung Citrix NetScaler / Access Gateway Enterprise mit RSA 2 Faktor
+Authentifizierung.
+ 
+18.04.2012 – 20.04.2012 Papierfabrik Louisenthal GmbH, Louisenthal, Deutschland
+ 
+Installation und Konfiguration eines VDI-PoC mit Citrix XenServer 6.0,
+XenApp6.5, XenDesktop 5.6, und Provisioning Services 5.6.
+===============================================================================
+12/2011 - 12/2011: Implementierung Citrix NetScaler (MPX) / Access Gateway
+Enterprise mit RSA 2 Faktor Authentifizierung.
+ 
+Einsatzort:         Frankfurt
+Kunde:              Stadt Frankfurt, Deutschland
+===============================================================================
+10/2011 - 11/2011: Review der NetScaler Schulungsunterlagen.
+ 
+Einsatzort:         FL, Florida
+Kunde:              Citrix Systems
+===============================================================================
+10/2011 - 10/2011: Citrix XenApp Workshop
+ 
+Einsatzort:         Wiesbaden
+Kunde:              Delta Lloyd
+===============================================================================
+12/2010 - 03/2011: Administration the Server 2008 Network
+ 
+Einsatzort:         München, Germany
+Kunde:              Marchsreiter,
+ 
+Aufgaben:
+ 
+I administered the SBS 2008 enviroment with Exchange 2007, and configured and
+ministered SharePoint.
+I also setup a CI-Layout. Setup BlackBerry connection
+ 
+01/12/2010 – 01/05/2011
+Installing a new windows Network for Gabriele Pfeifer Telemarketing,
+Neckargemünd, Germany
+ 
+I planned, designed and administered the new network infrastructure with
+Exchange 2007 and Server 2008.
+===============================================================================
+09/2010 - 12/2010: Consultant
+ 
+Einsatzort:         Darmstadt
+Kunde:              T-Systems
+ 
+Aufgaben:
+ 
+Verantwortlich für das Design und die Bereitstellung von 5000 XenDesktop VDIs
+auf VMWare ESX.
+Adminstration vom Citrix Provisioning Service, XenDesktop DDC. Anlegen der VMs
+mittels vCLI Powershell script.
+Profil Management mit AppSense EMv8 und Softwareverteilung mittels Matrix24.
+===============================================================================
+2005  2006: System- / networkadministrator and webdeveloper at
+BouwmeesterGroep, Asten,the Netherlands
+ 
+At BouwmeesterGroep I was the system and network administrator for both the
+internal and
+external infrastructures and at the same time I developed web applications.
+I was also responsible for the technical part of the 10TB cluster.
+I developed an webfont end for an application with an Oracle-database at the
+Ministry of Justice (DJI).
+ 
+Key activities:
+    * Responsible for the complete infrastructure of ICT Traffikcontrole with
+      MRTG
+    * Customer support
+    * User policy for the internal network
+    * Administration of Debian Linux Webserver and Debian Linux Mailserver
+      (Postfix MySql)
+    * Monitoring servers and network components
+    * Automatic security patching of Windows XP Professional in use by
+      Microsoft Software Update Services
+    * Windows XP Professional installation
+    * Remote administration of the servers and network components
+    * Administration of DNS server ( PowerDNS ) with MySQL backend
+    * Administrion of Linux-Firewall
+    * Project planning and managing of 10TB Linux-Cluster
+    * Develop PHP application (front-end with ORACLE backend ) for DJI Ministry
+      of Justice
+    * Development with PHP en MySQL
+    * Analysis of offer for Citrix network for teleworking
+ 
+===============================================================================
+2003  2005: Consultant at EuroActive Enterprises LTD, Grubenvorst, Netherlands
+ 
+I was responsible for the advancement of the DataCenter.
+Here I was able to use my wide experience to develop a server, while also
+acting as an employee manager and setting up a customer support system.
+Monitoring the network, solving problems, and managing DataCenter removals were
+done
+quickly and securely.
+Administration of the server park formed part of my daily activities.
+I administrated the Linux (FreeBSD, Debian 3.x and Fedora) and Windows
+Webserver.
+I gained a lot of important experience here.
+ 
+Key activities :
+    * Project Manager for building a DataCenter Network
+    * Maintenance of the DataCenter Network based on Cisco and Summit Extreme
+      switches linked with glass fibre on the Keystone 6g CoreSwitch
+    * Responsible for the complete ICT infrastructure
+    * Traffikcontrol with MRTG 50+ servers based on Linux/Unix (FreeBSD, Debian
+      3.x and Fedora), Windows 2000 and Windows
+===============================================================================
+2003:
+    * Remote installation of the server in use with KVM over IP
+    * Employee manager
+    * Setup customer suppport
+    * Product manager for their own 19? server products
+    * Customer support
+    * User Policy for the internal network
+    * Installation of Netsaint for monitoring the servers and network
+      components
+    * Automatic security patching of Windows XP Professional in use with
+      Microsoft Software Update Services
+    * Windows 2000 Professional / Server installation
+    * Windows XP Professional installation
+    * Remote administration of servers and network components
+    * Administration of the DNS Server ( PowerDNS ) with MySQL Backend
+    * Implementation Linux-Firewall
+    * Migration of Linux Firewall to Cisco Pix 525.
+===============================================================================
+2002  2003: Cooperate leader and engineer at Teledate Entertainment Network
+C.V, Heerlen, the Netherlands
+ 
+Here I developed a billing system and I was responsible for the web server
+existing of Windows
+2000 and SuseLinux servers.
+During my time here I took charge of several projects and extended my
+experience in DataCenters.
+I also took care of the administraiton of various services (Linux: Apache-
+Webserver, Proftpd, Postfix mail, Sendmail Windows: IIS, FTP).
+ 
+Key activities:
+    * Project manager
+    * Installation of Windows 2000 Web servers with IIS and DNS in the
+      DataCenter
+    * Installation of SuSeLinux 7.0 Server with Apache, Sedmail, WU-FTPD, BIND
+    * Remote administration of the servers
+    * Purchase of hardware and software
+    * Development of web application with PHP and MySQL (billing system)
+===============================================================================
+2002:Administrator and developer at Metro AG, Düsseldorf, Germany
+ 
+Together with my team I was responsible for the development of internal
+applications.
+I worked on their Risk Management project and had the oppurtunity to build my
+experience in large
+ventures.
+ 
+Key activities:
+    * Development with JAVA
+    * Maintenance of Oracle Server
+    * Maintenance of backup server.
+===============================================================================
+2001  2002: System Administrator at Abacho AG, Neuss, Germany
+ 
+I took care of the daily office automation management and was the controller of
+the project
+webmail.
+My tasks included setting up a network, and repairing and installing of work
+stations,
+while extending my experience with heterogeneous networks.
+I was a manager and trained students.
+To couple the Linux and Windows networks I used SAMBA and NFS. I also used my
+experience of the WebmastersAkademie here.
+ 
+Key activities:
+    * Configuration of the network based on 3Com Switches
+    * Migration Windows 98/NT4.0 clients to Windows 2000 Professional
+    * Migration of Windows NT 4.0 servers to Windows 2000 Servers
+    * Maintenance of Windows 2000 Active Directory Services
+    * Maintenance of Veritas Backup Exec
+    * Implemention of Linux based server for the developers
+    * Implemention of Netscape mail clients
+    * Maintenance of Navision server
+    * Maintenance of Tobit Faxware server
+    * Maintenance of the telephone centre
+    * Maintenance of the Windows 2000 and NT 4.0 servers
+    * User Management
+    * Project management of webmail service
+    * Developing application with PHP and MySQL
+    * Supporting the department development
+    * Developing shell scripts
+===============================================================================
+2000  2001: Administrator at Webmasters Academie, Zweibrücken, Germany
+ 
+I was responsible for daily management of the schools PCs and servers.
+Here I was given the opportunity gain experience with heterogeneous networks.
+ 
+Key activities:
+    * Maintenance of school PCs with Windows NT 4.0 workstations
+    * Maintenance of the schools network, 100Mbit with 3Com Switches
+    * Maintenance of the Samba FileServer and DomainController
+    * Maintenance of the back-up system
+    * Maintenance of the webservers based on MacOSX 10
+    * Maintenance of the Unix server (SuSe Linux 7.0)
+    * Maintenance of the services (FTP, WebServer, Samba, Backup, Proxy,
+      Printserver, SAMBA, DHCP, DNS, IP-Masquerading)
+===============================================================================
+ 
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_107543 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 11.07.2020 00:56:25
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

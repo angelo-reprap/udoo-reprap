@@ -1,0 +1,493 @@
+---------- Gulp-Profil Stand 2018-05-19 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 158098: Software
+Engineering, Netzwerk Engineering, Linux Kernel Development           
+       
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+158098 [4] | Profil in Englisch [5] anzeigen
+     Stammdaten (Auszug):    
+
+	 Personen-ID 158098    Wohnort 611xx Bad Vilbel, Deutschland
+Staatsbürgerschaft deutsch Stundensatz 45 EUR  Verfügbar ab 01.07.19
+zu 100%, Vor-Ort-Einsatz 75% möglich Profil erstellt am 30.12.14
+Profil zuletzt geändert am 19.05.18 Lesen von Projektanfragen 0,5 Tage
+ [6]Direktkontakt [7]         Kommentar:   Kommentar schreiben Profil
+angezeigt am 10.06.2018 14:55:32       Fachlicher Schwerpunkt: 
+Software Engineering, Netzwerk Engineering, Linux Kernel Development  
+   Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Projektmanagement / -leitung / Organisation / Koordination
+ Administration / Support
+ Qualitätsmanagement / Qualitätssicherung / Test
+ Engineering / IT-nahe Ingenieurdienstleistungen
+
+	Gewünschte Umfeld: 
+
+	Linux kernel, TCP/IP, VoIP
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  
+
+	10/2012 - 01/2015: Informations- und Kommunikationstechnik 
+
+	Abschluss: Master (MSc.) 
+
+	Institution: Technische Hochschule Mittelhessen, Friedberg (DE) 
+
+	Schwerpunkt: 
+
+	Mobilfunk, TCP/IP Protokole und Anwendungen, Signal Processing,
+Netzwerke 
+-------------------------
+
+	08/2007 - 03/2012: Informationstechnik 
+
+	Abschluss: Bachelor (BEng) 
+
+	Institution: Helsinki Metropolia University of Applied Sciences,
+Espoo (FInland) 
+
+	Schwerpunkt: 
+
+	Kommunikation (Nezwerke und Mobilfunk) und Informationssicherheit 
+-------------------------
+
+	09/1998 - 07/2003: ökonomie 
+
+	Abschluss: Bachelor (BA) 
+
+	Institution: Addis Ababa University, Addis Ababa (äthiopien) 
+
+	Schwerpunkt: 
+
+	Allgemein Ökonomie (Wirtschaftswissenschaften) 
+-------------------------
+      Einsatzort:   Regionen: 
+
+	D6   im Umkreis von: 
+
+	Frankfurt am Main (50 km)   Ich möchte BEVORZUGT für die o. g.
+Einsatzorte kontaktiert werden.       Fremdsprachen:  
+
+		Amharisch
+		Muttersprache
+
+		Deutsch
+		gute Kenntnisse
+
+		Englisch
+		fließend
+
+		Finnisch
+		Anfänger
+
+      Betriebssysteme:  
+
+		Android
+
+		Linux (Debian/Ubuntu)
+
+		Macintosh Operating System X
+
+		OpenWRT
+
+		Ubuntu
+
+		Windows
+
+      Programmiersprachen:  
+
+		Assembler
+
+		bash
+
+		C
+
+		C++
+
+		Java
+
+		MATLAB
+
+		Perl
+
+		Unix-Shells
+
+      Datenbanken:  
+
+		MySQL
+
+      Datenkommunikation:  
+
+		CCNA, CCNP, CCNA Security
+
+		Ethernet
+
+		IPv4
+
+		IPv6
+
+		MPTCP
+
+		Netzwerke (Routing und Switching)
+
+		TCP/IP
+
+		VoIP
+
+      Produkte/Standards/Erfahrungen:  
+
+		Android Kernel
+
+		Androidstudio
+
+		Eclipse
+
+		Linux Kernel
+
+		OpenStack
+
+		OpenVPN
+
+		TCPdump
+
+		Tproxy
+
+		Virtualisierung
+
+		Wireshark
+
+      Projekte:  
+
+	05/2016 - 12/2016: Seamless QoS driven connectivity - NGAB activity 
+
+	Einsatzort: Darmstadt 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Deutsche Telekom AG, Innovation Laboratories 
+
+	Aufgaben: 
+
+	Projektbeschreibubg: Concepts and algorithms for Hybrid 2.0 &amp; beyond
+(incl. Super-Vectoring, LTE Carrier Agregation, DSL community,
+bundling copper pairs, 2-Box solutions, migrations towards 5G)
+Aufgabenbeschreibung:
+-Software Architecture &amp; Algorithm Design and Implementations
+-Hardware-oriented programming
+-Linux Kernel programming
+
+	Kenntnisse: 
+
+	Software implementations, C, C++, Perl, bash, Linux Kernel, Android
+Kernel, OpenWRT, Wireshark, Tcpdump 
+-------------------------
+
+	02/2015 - 12/2015: Universal Access Bundling (UNABU) 
+
+	Einsatzort: Darmstadt 
+
+	Rolle: Software Entwickler 
+
+	Kunde: Deutsche Telekom AG, Innovation Laboratories 
+
+	Aufgaben: 
+
+	Aufgabenbeschreibung: 
+
+	Entwicklung von "Resource Bundling" Algorithmen unter Linux Kernel.
+Aufgabendetails: 
+
+ 	* Eine geeignete Serverumgebung identifizieren und deren optimale
+Serverconfiguration bestimmen (ob Cloud-Umgebung, oder auf dedizierten
+Servern)
+ 	* Behebung der Ressourcenauslastung
+ 	* Portierung der Lösung auf Android
+ 	* übernehmen der MPTCP Source Code änderungen auf den Android-Kernel
+mit MPTCP Erweiterung
+ 	* Aufbau mehrerer Tunnel in Android anhand Binärdateien
+ 	* Schreiben einfacher Android Apps um die Netzwerkleistung mehrerer
+Schnittstellen gleichzeitig zu überwachen
+ 	* Schreiben einfacher Skripte um Prozesse zu automatisieren
+ 	* Auswirkungen dieser Lösung überprüfen an Echtzeit Anwendungen
+ 	* Entwickelung einer einfachen Server-Client-Anwendung (Java)
+ 	* änderung der Proxy-Anwendung um Pakete zu erfassen, während der
+Durchreise
+ 	* Schreiben einfacher Skripte (Perl) um Daten von Netzwerk-Spuren zu
+extrahieren
+ 	* Bestimmung der Linux-TCP-Einstellungen um Latenz zu minimieren.
+ 	* Dokumentation
+
+	Kenntnisse: 
+
+	Linux Kernel, C++, Perl, Android, OpenVPN, C, Java, Ubuntu, OpenWRT,
+OpenStack, Virtualisierung, TCP/IP, MPTCP, Wireshark, TCPdump, Tproxy 
+
+	Eingesetzte Produkte: 
+
+	Eclipse, Androidstudio 
+-------------------------
+
+		Seite drucken [8]  [9] 
+		Zum Seitenanfang [10]  [11]
+
+ Recherche [12] | Suchergebnis [13] | Kontaktieren [14] | Anfragen an
+ID 158098 [15] | Profil in Englisch [16] anzeigen
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 30.05.2018 01:38:05
+ (c) Copyright 1996-2018 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [17] 
+
+   
+
+---------- Gulp-Profil Stand 2017-05-17 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 158098: Software
+Engineering, Netzwerk Engineering, Linux Kernel Development           
+       
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+158098 [4] | Profil in Englisch [5] anzeigen
+     Stammdaten (Auszug):    
+
+	 Personen-ID 158098    Wohnort 611xx Bad Vilbel, Deutschland
+Staatsbürgerschaft deutsch Stundensatz 45 EUR  Verfügbar ab 02.10.17
+zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am 30.12.14
+Profil zuletzt geändert am 17.05.17 Lesen von Projektanfragen 12
+Stunden  [6]Direktkontakt [7]         Kommentar:   Kommentar schreiben
+Profil angezeigt am 04.09.2017 10:12:41       Fachlicher Schwerpunkt: 
+Software Engineering, Netzwerk Engineering, Linux Kernel Development  
+   Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Projektmanagement / -leitung / Organisation / Koordination
+ Administration / Support
+ Qualitätsmanagement / Qualitätssicherung / Test
+ Engineering / IT-nahe Ingenieurdienstleistungen
+
+	Gewünschte Umfeld: 
+
+	Linux kernel, TCP/IP, VoIP
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  
+
+	10/2012 - 01/2015: Informations- und Kommunikationstechnik 
+
+	Abschluss: Master (MSc.) 
+
+	Institution: Technische Hochschule Mittelhessen, Friedberg (DE) 
+
+	Schwerpunkt: 
+
+	Mobilfunk, TCP/IP Protokole und Anwendungen, Signal Processing,
+Netzwerke 
+-------------------------
+
+	08/2007 - 03/2012: Informationstechnik 
+
+	Abschluss: Bachelor (BEng) 
+
+	Institution: Helsinki Metropolia University of Applied Sciences,
+Espoo (FInland) 
+
+	Schwerpunkt: 
+
+	Kommunikation (Nezwerke und Mobilfunk) und Informationssicherheit 
+-------------------------
+
+	09/1998 - 07/2003: ökonomie 
+
+	Abschluss: Bachelor (BA) 
+
+	Institution: Addis Ababa University, Addis Ababa (äthiopien) 
+
+	Schwerpunkt: 
+
+	Allgemein Ökonomie (Wirtschaftswissenschaften) 
+-------------------------
+      Einsatzort:   Regionen: 
+
+	D6   im Umkreis von: 
+
+	Frankfurt am Main (50 km)   Ich möchte BEVORZUGT für die o. g.
+Einsatzorte kontaktiert werden.       Fremdsprachen:  
+
+		Amharisch
+		Muttersprache
+
+		Deutsch
+		gute Kenntnisse
+
+		Englisch
+		fließend
+
+		Finnisch
+		Anfänger
+
+      Betriebssysteme:  
+
+		Android
+
+		Linux (Debian/Ubuntu)
+
+		Macintosh Operating System X
+
+		OpenWRT
+
+		Ubuntu
+
+		Windows
+
+      Programmiersprachen:  
+
+		Assembler
+
+		bash
+
+		C
+
+		C++
+
+		Java
+
+		MATLAB
+
+		Perl
+
+		Unix-Shells
+
+      Datenbanken:  
+
+		MySQL
+
+      Datenkommunikation:  
+
+		CCNA, CCNP, CCNA Security
+
+		Ethernet
+
+		IPv4
+
+		IPv6
+
+		MPTCP
+
+		Netzwerke (Routing und Switching)
+
+		TCP/IP
+
+		VoIP
+
+      Produkte/Standards/Erfahrungen:  
+
+		Android Kernel
+
+		Androidstudio
+
+		Eclipse
+
+		Linux Kernel
+
+		OpenStack
+
+		OpenVPN
+
+		TCPdump
+
+		Tproxy
+
+		Virtualisierung
+
+		Wireshark
+
+      Projekte:  
+
+	05/2016 - 12/2016: Seamless QoS driven connectivity - NGAB activity 
+
+	Einsatzort: Darmstadt 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Deutsche Telekom AG, Innovation Laboratories 
+
+	Aufgaben: 
+
+	Projektbeschreibubg: Concepts and algorithms for Hybrid 2.0 &amp; beyond
+(incl. Super-Vectoring, LTE Carrier Agregation, DSL community,
+bundling copper pairs, 2-Box solutions, migrations towards 5G)
+Aufgabenbeschreibung:
+-Software Architecture &amp; Algorithm Design and Implementations
+-Hardware-oriented programming
+-Linux Kernel programming
+
+	Kenntnisse: 
+
+	Software implementations, C, C++, Perl, bash, Linux Kernel, Android
+Kernel, OpenWRT, Wireshark, Tcpdump 
+-------------------------
+
+	02/2015 - 12/2015: Universal Access Bundling (UNABU) 
+
+	Einsatzort: Darmstadt 
+
+	Rolle: Software Entwickler 
+
+	Kunde: Deutsche Telekom AG, Innovation Laboratories 
+
+	Aufgaben: 
+
+	Aufgabenbeschreibung: 
+
+	Entwicklung von "Resource Bundling" Algorithmen unter Linux Kernel.
+Aufgabendetails: 
+
+ 	* Eine geeignete Serverumgebung identifizieren und deren optimale
+Serverconfiguration bestimmen (ob Cloud-Umgebung, oder auf dedizierten
+Servern)
+ 	* Behebung der Ressourcenauslastung
+ 	* Portierung der Lösung auf Android
+ 	* übernehmen der MPTCP Source Code änderungen auf den Android-Kernel
+mit MPTCP Erweiterung
+ 	* Aufbau mehrerer Tunnel in Android anhand Binärdateien
+ 	* Schreiben einfacher Android Apps um die Netzwerkleistung mehrerer
+Schnittstellen gleichzeitig zu überwachen
+ 	* Schreiben einfacher Skripte um Prozesse zu automatisieren
+ 	* Auswirkungen dieser Lösung überprüfen an Echtzeit Anwendungen
+ 	* Entwickelung einer einfachen Server-Client-Anwendung (Java)
+ 	* änderung der Proxy-Anwendung um Pakete zu erfassen, während der
+Durchreise
+ 	* Schreiben einfacher Skripte (Perl) um Daten von Netzwerk-Spuren zu
+extrahieren
+ 	* Bestimmung der Linux-TCP-Einstellungen um Latenz zu minimieren.
+ 	* Dokumentation
+
+	Kenntnisse: 
+
+	Linux Kernel, C++, Perl, Android, OpenVPN, C, Java, Ubuntu, OpenWRT,
+OpenStack, Virtualisierung, TCP/IP, MPTCP, Wireshark, TCPdump, Tproxy 
+
+	Eingesetzte Produkte: 
+
+	Eclipse, Androidstudio 
+-------------------------
+
+		Seite drucken [8]  [9] 
+		Zum Seitenanfang [10]  [11]
+
+ Recherche [12] | Suchergebnis [13] | Kontaktieren [14] | Anfragen an
+ID 158098 [15] | Profil in Englisch [16] anzeigen
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 27.05.2017 02:02:16
+ (c) Copyright 1996-2017 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [17]

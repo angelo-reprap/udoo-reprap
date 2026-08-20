@@ -1,0 +1,249 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_106979
+
+
+Stammdaten (Auszug):
+
+Personen ID                106979
+  
+Wohnort                    442xx Dortmund, Deutschland
+Jahrgang                   1973
+Staatsbürgerschaft         deutsch
+Stundensatz                95 EUR
+Verfügbar ab               16.05.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         20.05.10
+Profil zuletzt geändert am 28.12.20
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 24.10.2020 14:55:53
+
+Fachlicher Schwerpunkt:
+Softwarearchitektur &amp; Agile Entwicklung / Business Intelligence / Data Minning
+/ Maschinelles Lernen / Data Science
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit bevorzugt
+
+Voraussetzung für Festanstellung: Arbeitsort Dortmund / östliches Ruhrgebiet;
+Möglichkeit zur Umsetzung eigener Ideen; flexibile Arbeitszeiten.
+
+Ausbildung:
+10/2002 - 04/2009 Studium Informatik an der TU Dortmund (Diplom, Nebenfach
+Mathematik)
+                  Schwerpunkte: Sicherheit, maschinelles Lernen,
+Wissensrepräsentation
+ 
+
+Einsatzort:
+Regionen:
+D3, D4, D5, D6
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Chinesisch  Grundkenntnisse
+Deutsch     Muttersprache
+Englisch    fließend
+FranzösischGrundkenntnisse
+
+
+Hardware:
+Amiga      
+Macintosh  
+PC         
+
+
+Betriebssysteme:
+Amiga OS             
+Mac OS               
+Mach                 
+MS-DOS               
+NEXTSTEP / OPENSTEP  
+OS/2                 
+SUN OS, Solaris      
+Unix                 
+Windows              
+
+
+Programmiersprachen:
+Ada                                 
+Basic                              VB6, VB.Net
+C                                   
+C#                                 inkl. NHinternate, NUnit/MBUnit, NInject/
+                                   Autofac u.a. Frameworks
+C++                                 
+CORBA IDL                           
+Emacs                               
+Imake, GNU-Make, Make-Maker etc...  
+Java                                
+JavaScript                          
+Lisp                               Common Lisp, Scheme
+MATLAB / Simulink                   
+Objective C                        MacOS und iOS
+Pascal                              
+Perl                                
+PHP                                 
+PL/SQL                              
+Prolog                              
+Python                              
+Qt                                  
+Ruby                                
+Shell                              Schwerpunkt Bourne-Shell, ZSH
+TeX, LaTeX                          
+
+
+Datenbanken:
+Access         
+JDBC           
+MS SQL Server  
+MySQL          
+ODBC           
+Oracle         
+Postgres       
+SQL            
+
+
+Datenkommunikation:
+CORBA               
+Ethernet            
+Internet, Intranet  
+ISO/OSI             
+Message Queuing     
+OS/2 Netzwerk       
+Router              
+RS232               
+SMTP                
+SNMP                
+TCP/IP              
+UUCP                
+Windows Netzwerk    
+Winsock             
+
+
+Berechnung/Simulation/Versuch/Validierung:
+FEM (Finite-Elemente-Methode)  
+
+
+Branchen:
+Energiewirtschaft / Energieversorgung
+Verkehr / Transport / Logistik / Bahn
+Telekommunikation
+IT-Dienstleistungen / Internet / EDV
+Bildung / Schulung / Training
+ 
+
+Projekte:
+Zeitraum:  03/2012 - 02/2014
+Branche:   Telekommunikation
+Projekt:   Migration und Erweiterung einer Abrechnungssoftware von Access nach
+.Net/C#.
+Position:  Projektleiter und Entwickler
+Plattform: Windows 7
+ 
+===============================================================================
+ 
+Zeitraum:  seit 04/2010
+Branche:   Energiewirtschaft
+Projekt:   Wartung und Migration eines Systems zur Straßenbeleuchtungs-
+Verwaltung
+           Migration der vorhandenen Software (fast komplett in Visual Basic 6
+mit In-House
+           entwickelter Middleware) auf eine moderne Plattform (.Net/C#) inkl.
+Modernisierung
+           der Architektur und Verwendung einer Standard-Middleware
+(NHibernate). Zusätzlich
+           kleinere Teilprojekte zur Datenübernahme aus Fremdsystemen, ETL und
+Datenanalysen.
+           Anbindung der Fachanwendung an ein GIS (ArcFM UT) via SOAP-
+Webservice und
+           SAP XI/PI Middleware.
+Position:  Architektur, Review, Beratung und Entwicklung
+Plattform: Windows 2000 / XP / 7
+ 
+===============================================================================
+ 
+Zeitraum:  03/2007 - 03/2010
+Branche:   Logistik
+Projekt:   System zum Container-Management eines Eisenbahnunternehmens
+           Ablösung einer Access-Anwendung inkl. Neukonzeption wesentlicher
+Bestandteile
+           durch eine (testgetriebene) Neuentwicklung in .Net/C# inkl.
+Erweiterung der
+           Reporting-Möglichkeiten. Zudem diente dieses Projekt zur Etablierung
+           einer Referenz-Systemarchitektur beim IT-Dienstleister.
+Position:  Architektur, Projektleitung, Entwicklung
+Plattform: Windows 2000 / XP
+ 
+===============================================================================
+ 
+Zeitraum:  04/1999 - 12/2007
+Branche:   IT-Dienstleistung
+Projekt:   Remote-Boot-Lösung und Management-Software für Schulungsräume
+           Enwicklung einer Lösung zum einfachen Management von
+Schulungsräumen,
+           so dass mit möglichst geringem Aufwand neue Software bereitgestellt
+           werden kann. Zudem Beratung in IT-Fragen und Administration der
+Räume.
+Position:  Beratung und Entwicklung, Administration
+ 
+===============================================================================
+ 
+Zeitraum:  06/2002 - 03/2007
+Branche:   Energiewirtschaft
+Projekt:   Systems zur Straßenbeleuchtungs-Verwaltung
+           Wartung einer Visual Basic 6 Anwendung mit Oracle und Access als
+Backends.
+Position:  Entwicklung
+Plattform: Windows 2000 / XP
+ 
+===============================================================================
+ 
+Zeitraum:  05/2003 - 03/2004
+Branche:   IT-Dienstleistung
+Projekt:   Management-Tools für einen Linux-Cluster; Evaluierung Cluster-
+Dateisysteme
+           Entwicklung von Management-Tools in Perl zur komfortableren
+Administration
+           eines Clusters aus 100 Knoten (Betriebssystem: Linux). Zudem wurde
+eine
+           Remote-Boot-Lösung realisiert, die einerseits ein einfaches Update
+der Knoten
+           (inkl. Partitionierung, Kernel-Updates etc.) erlaubt und
+andererseits für
+           einen Teil der Knoten den zeitweisen Betrieb als Arbeitsplatz-
+Rechner mit
+           Windows als Betriebssystem erlaubt. Parallel dazu fand eine
+Evaluierung
+           von verschiedenen Cluster-Dateisystemen (NFSv3, NFSv4, AFS,
+Intermezzo) statt.
+Position:  Entwicklung und Beratung
+Plattform: Linux
+ 
+===============================================================================
+ 
+Zeitram:  09/1995 - 12/2009
+Diverse Schulungen, von EDV-Grundlagen (Windows, Word, Excel) über Linux- und
+Netzwerk-Grundkursen bis zu Programmierkursen (primär C++, PHP und Python).
+ 
+===============================================================================
+ 
+Zeitraum:  01/2000 - 12/2009
+Freiberufliche IT-Beratung für diverse kleinere und mittelständische
+Unternehmen.
+ 
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_106979
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 29.12.2020 00:47:02
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

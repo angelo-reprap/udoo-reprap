@@ -1,0 +1,486 @@
+---------- Gulp-Profil Stand 2018-06-14 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 34405: OO,
+Generic Programming, Programs &amp; Tests Generation; C/C++, Python, XML,
+UML; Großprojekte, Embedded; Unix, Linux, Windows, Embedded OSystems  
+                
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+34405 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 34405    Wohnort 818xx München, Deutschland
+Staatsbürgerschaft Deutsch Stundensatz 0 EUR Verhandlungssache.
+Verfügbar ab 01.10.18 zu 100%, Vor-Ort-Einsatz 100% möglich Profil
+erstellt am 14.01.02 Profil zuletzt geändert am 14.06.18 Lesen von
+Projektanfragen 0,5 Tage  [5]Direktkontakt [6]         Kommentar:  
+Kommentar schreiben Profil angezeigt am 07.07.2018 10:54:22      
+Fachlicher Schwerpunkt:  OO, Generic Programming, Programs &amp; Tests
+Generation; C/C++, Python, XML, UML; Großprojekte, Embedded; Unix,
+Linux, Windows, Embedded OSystems      Position:  Software-Entwicklung
+/ Programmierung
+ Beratung / Consulting
+ Qualitätsmanagement / Qualitätssicherung / Test
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  Diplom-Informatiker      Einsatzort:   Regionen: 
+
+	österreich, Schweiz, D0, D1, D2, D3, D4, D5, D6, D7, D8, D9   Ich
+möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.     
+
+	Deutschland: München bevorzugt.         Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Polnisch
+
+		Russisch
+
+      Hardware:  
+
+		embedded Systeme
+
+		PC
+
+		Siemens Großrechner
+
+		Siemens MX
+
+		SUN
+
+      Betriebssysteme:  
+
+		Apollo Domain OS
+
+		BS2000
+
+		Echtzeitbetriebssysteme
+
+		MS-DOS
+
+		pSOS
+
+		SUN OS, Solaris
+
+		Unix
+
+		VxWorks
+
+		Windows
+
+ OSE, MontaVista CG Linux
+       Programmiersprachen:  
+
+		ASN.1
+
+		Basic
+
+		C
+
+		C++
+
+		Fortran
+
+		Imake, GNU-Make, Make-Maker etc...
+
+		Java
+
+		JavaScript
+
+		Pascal
+
+		Python
+
+		Shell
+
+		Tcl/Tk
+
+		yacc/lex
+
+ UML, XSLT      Datenbanken:  
+
+		MySQL
+
+		RDB
+		Raima DB.
+
+ Datenbank-Einsatz (Objectivity, Raima, Proprietäre DB) als
+ persistenter Speicher über Programmier-Schnittstelle (C, C++).
+ Persistenz-Implementierungen für EPROM und Unix File System (in C++).
+     Datenkommunikation:  
+
+		ISO/OSI
+
+		Message Queuing
+
+		TCP/IP
+
+      Produkte/Standards/Erfahrungen:  Erfahrungen im Bereich:
+
+	 Software Engineering (Spezifikation, Programmierung, Test) 
+
+	 Management Network für Telekommunikation (nach OSI/TMN) 
+
+	 Middleware für SW-Lösungen 
+ Methoden:
+
+	 Objektorientierte Analyse, Design, Programmierung 
+
+	 Design Patterns and Idioms 
+
+	 Parallele und Ereignisgesteuerte Programmierung 
+
+	 Generic Programming 
+
+	 Generatoren 
+
+	  Standards:
+
+	 OSI Standards (GDMO, ASN.1, TMN, CMIP, Q3, X series) 
+
+	 I2C Bus 
+
+	 XML, XSLT 
+ Produkte:
+
+	 ClearCase, Subversion 
+
+	 Rational-Rose 
+
+	 Rogue Wave Tools.h++ 
+
+	 DSET Q3 Agent Toolkit 
+
+	 Vertel Q3 Agent 
+
+	 STL 
+
+	 XSLT, Lex/Yacc u.a. Generierung 
+
+	 Enterprise Architect, Eclipse 
+
+	        Branchen:  Hardwarehersteller, Softwarehersteller, Industrie.
+     Projekte:   
+
+	01/2010 - 11/2010 
+
+	Rohde und Schwarz, Munich 
+
+	1. Environment: Windows XP, Enterprise Architect, Visual Studio C++,
+CORBA, XML, Python, R&amp;S Tools (CTC, WFDE), Doors, ClearCase; target:
+Integrity 178B and DSP BIOS (Texas Instruments). 
+
+	2. Methods: Model Driven Architecture, Model-Based Testing, OOA/OOD,
+UML for real-time systems, CppUnit Test, Automated Testing. 
+
+	3. Project: Embedded System: Software Defined Radio based on Software
+Communication Architecture (SCA 2.2.2) standard. 
+
+	4. My Task: Pre-Integration of Waveform SW implemented as EA/WFDE
+models; Model-Based Testing: design, proof of concept, implementation,
+testing Waveform SW; Test Automation: design and tool implementation;
+Test Case Generation: design and tool implementation. 
+
+	01/2008 - 01/2010 
+
+	NSN, Munich / Ulm 
+
+	1. Environment: RedHat Linux, GNU C and C++, Windows, Eclipse,
+XML/XSLT. 
+
+	2. Methods: Design and Programming in C/C++, Lex/Yacc, Python, Shell,
+XSLT. 
+
+	3. Project: UMTS/LTE Test Tools and SW Development Support. 
+
+	4. My Task: Design, Implementation/Generation and Test of: Conversion
+Functions for Linux/DSP boards, Translation of C/C++ headers into XML,
+Generic Decoder for binary and hex trace files, Python Generator for
+Copy Functions ASN.1 - C/C++. 
+
+	04/2007 - 12/2007 
+
+	NSN, Munich 
+
+	1. Environment: OSE (embedded OS) on RRH Board, I2C Bus (Philips),
+GNU C and C++, Python, HDLC' (simplified HDLC frames). 
+
+	2. Methods: Design and Programming, for Embedded System. 
+
+	3. Project: Remote Radio Head (UMTS network). 
+
+	4. My Task: Design and implementation of Virtual Devices and Drivers
+for RRH Board; Python scripts for test library. 
+
+	04/2004 - 03/2007 
+
+	Siemens, Munich 
+
+	1. Environment: MontaVista Carrier Grade Linux (embedded OS), Gnu C
+and C++, RedHat Linux, Purify, ClearCase, High Availability Middleware
+RTP7000, DSET GDMO Agent Toolkit Framework, C++ STL. 
+
+	2. Methods: OO Design and Programming, Q3, GDMO, ASN.1, CMIP, UML. 
+
+	3. Project: Q3 TMN High Availability Agent in UMTS network. 
+
+	4. My Task: Customization of GDMO Agent Framework, Implementation of
+additional features (Login, User Administration, Cache
+Synchronization, Multithreading Control). 
+
+	07/2000 - 03/2004 
+
+	Siemens, Munich 
+
+	1. Environment: Sun/Solaris, NEC EWS (SVR4+RTOS), Unix Tools, GNU C,
+Shell/Awk Scripts, ClearCase, Raima DBMS, DSET GDMO Agent Toolkit
+Framework. 
+
+	2. Methods: OO Design and Programming, Q3, GDMO, ASN.1, CMIP, UML. 
+
+	3. Project: Q3 TMN Agent in UMTS network as front-end to NEC RNC. 
+
+	4. My Task: Middleware: Customization of GDMO Agent Framework;
+Implementation of additional features (Scoped Commands, Command
+Rollback, ); Implementation of Transaction Mechanism in Multithreading
+Environment; Implementation of Database Interface Handling;
+Performance Tuning; Scripts for module test. 
+
+	07/1998 - 06/2000 
+
+	Siemens, Munich 
+
+	1. Environment: Windows, Visual C++, cross development for pSOS
+Board. 
+
+	2. Methods: Embedded Design and Programming, CAN-Bus. 
+
+	3. Project: TMN management network. 
+
+	4. My Task: Design and implementation of Persistence Mechanism, test
+on pSOS (embedded OS). Implementation of Telcat Telegrams over
+CAN-Bus. 
+
+	11/1996 - 06/1998 
+
+	Siemens, Munich 
+
+	1. Environment: Sun, Solaris SVR4, Unix Tools, GNU C, Shell/Awk
+Scripts, ClearCase, DSET GDMO Agent Toolkit Framework, Vertel Q3 Agent
+Framework, Raima DBMS, Polyhedra DBMS. 
+
+	2. Methods: OO Design and Programming, Q3, GDMO, ASN.1, CMIP, UML. 
+
+	3. Project: Q3 TMN Agent in UMTS network; Feasibility Study, Design
+and Implementation. 
+
+	4. My Task: Design and implementation of Middleware based on DSET
+GDMO Agent Toolkit and Raima DBMS. 
+
+	04/1996 - 10/1996 
+
+	Siemens, Munich 
+
+	1. Environment: Sun Workstations, Solaris 2.4, Unix Tools, SparcWorks
+3.0, 
+
+	Sun C++ 4.0, ClearCase 2.0, Interleaf, Rogue Waves Tools.h++. 
+
+	2. Methods: OO Design according to Rumbaugh, OO Programming, CCITT 
+
+	and OSI standards (X.xxx, G.xxx, ASN.1). 
+
+	3. Project: Synchronous multiplexer for SDH (Synchronous Digital
+Hierarchy) network. 
+
+	4. My Task: Design, implementation and test of the Attribute Library
+for ASN.1. 
+
+	07/1993 - 03/1996 
+
+	Siemens, Munich 
+
+	1. Environment: Sun Workstations, Solaris 2.4, SparcWorks 3.0,
+ClearCase 2.0, 
+
+	Sun C++ 4.0, Interleaf, Testcenter/Objectcenter, Software Through
+Pictures, 
+
+	Rogue Waves Tools.h++.  
+
+	2. Methods: OO Design according to Rumbaugh, OO Programming, CCITT 
+
+	and OSI standards (X.xxx, G.xxx, ASN.1). 
+
+	3. Project: Synchronous multiplexer for SDH (Synchronous Digital
+Hierarchy) network. 
+
+	4. My Task: Design and implementation of MCF (Message Communication
+Function - 
+
+	according to standards: G.781-G.784). 
+
+	04/1992 - 06/1993 
+
+	SEL, Stuttgart 
+
+	1. Environment: Sun Workstations, SunOS 4.x, Unix tools, GNUs g++ and
+
+
+	Tools, Sun C++ 2.0, Interleaf. 
+
+	2. Methods: OO Design according to Booch, OO Programming, CCITT and
+OSI  
+
+	standards (X.xxx, G.xxx, ASN.1). 
+
+	3. Project: Subsystem Information Model (according to X.xxx
+standards) for a Network 
+
+	Element of SDH (Synchronous Digital Hierarchy) network. 
+
+	4. My Task: Implementation of the System Support Services (software
+platform for the 
+
+	subsystem). Integration of the subsystem. 
+
+	03/1991 - 03/1992 
+
+	SNI, Munich 
+
+	1. Environment: Siemens WX-200, Sinix 5.0, Unix tools, AT&amp;T C++. 
+
+	2. Methods: OO Design and OO Programming. 
+
+	3. Project: Development of High Level Widgets (HLW) for a generic
+user interface of  
+
+	a database system. Using X Window and Motif. 
+
+	4. My Task: Design, implementation and test of HLWs. 
+
+	02/1989 - 02/1991 
+
+	Siemens, Munich 
+
+	1. Environment: Apollo Domain WS-30, Unix, Unix tools, Glockenspiel
+C++. 
+
+	2. Methods: OO Design (according to Richard Felsinger) and OO
+Programming. 
+
+	3. Project: Development of a Design Management System Siframe:
+framework for Siemens 
+
+	CAD tools with version management and automisation ot the design
+process. 
+
+	4. My Task: Member of the design team, development of some components
+of the version 
+
+	management system. 
+
+	11/1988 - 01/1989 
+
+	Consys GmbH, Munich 
+
+	1. Environment: Cadmus (Minicomputer), Xenix, C. 
+
+	2. Methods: Top-down design, algorithmic programming. 
+
+	3. Project: Management program for dental practices. 
+
+	4. My Task: Porting (MS DOS to Unix) and SW development. 
+
+	12/1987 - 10/1988 
+
+	Siemens, Munich 
+
+	1. Environment: BS2000, Pascal-XT, Apollo Domain WS-30, Unix, Domain 
+
+	Pascal, Compiler Generator Synopse, Lex/Yacc, C. 
+
+	2. Methods: Top-down design, algorithmic programming, Siemens
+Guidelines.  
+
+	3. Project: CAD System HERA: CAD Function SILIB. 
+
+	4. My Task: Development of a test environment generator for Pascal
+programs on WS30. 
+
+	Porting the generator from WS-30 to BS2000. Development of a test
+tool suite (WS-30, C, 
+
+	Lex, Yacc). Testing the CAD System HERA (WS-30, Unix). 
+
+	10/1987 - 12/1987 
+
+	Consys GmbH, Munich 
+
+	1. Environment: Cadnus (Minicomputer), Xenix, C. 
+
+	2. Methods: Top-down design, algorithmic programming. 
+
+	3. Project: Management program for dental practices.  
+
+	4. My Task: Porting (MS DOS to Unix) and SW development. 
+
+	01/1987 - 09/1987 
+
+	Siemens, Munich 
+
+	1. Environment: Apollo Domain WS-30, Unix, CAD System HERA. 
+
+	2. Methods: Siemens specific rules. 
+
+	3. Project: CAD System HERA.  
+
+	4. My Task: QA: Reviews, Code Inspections, Test. 
+
+	08/1985 - 12/1986 
+
+	Nord Computer, Munich 
+
+	1. Environment: IBM PC, MS DOS, Borlands Turbo Pascal, Basic. 
+
+	2. Methods: Top-down design, algorithmic programming.  
+
+	3. Project: Development of software suite for telex communication for
+IBM PC.  
+
+	4. My Task: Design, implementation and test. 
+
+	08/1984 - 07/1985 
+
+	Leibniz-Rechenzentrum, TU München, Munich 
+
+	1. Environment: CDC 175, NOS, Fortran. 
+
+	2. Methods: Top-down design, algorithmic programming. 
+
+	3. Project: Support and maintenance of different software systems. 
+
+	4. My Task: Development and test of software components. 
+
+	        Sonstige Anmerkungen:  
+
+	Das letzte Projekt beinhaltete Model-Based Testing, ein absoluter Hit
+im Testen: formale Testmodelle, Test Case Generierung,
+Test-Automatismus und Regressionsfähigkeit.      
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 34405 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 15.06.2018 00:50:50
+ (c) Copyright 1996-2018 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15]

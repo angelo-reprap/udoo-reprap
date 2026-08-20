@@ -1,0 +1,2375 @@
+Software Architekt / Business Analyst / IT Management Senior
+Consultant
+Verfügbar ab: 01.01.2023
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 0,00 EUR
+Bemerkungen: verhandlungssache, projektabhängig
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Schweiz, Einsatzort unbestimmt
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Deutschland: bevorzugt Bereich D6
+Position
+Kommentar:
+Projekte
+Ich biete langjährige professionelle Projekterfahrung in grossen und internationalen
+Teams in allen Phasen der Konzept- und Softwareerstellung vorwiegend (aber nicht nur)
+im Banken, Börsen-und Finanzdienstleistungsbereich.
+Consulting für das Design, Datenmodellierung, Architektur und Development von Business
+Software unter anderem aus den Bereichen:
+Wertpapierhandel, Depotverwaltung, Risikomanagement, Cash Management,
+Business Reporting, Börsenanbindung, XETRA+EUREX Exchanges, Telekom Wholesale
+Technische Schwerpunkte in den Bereichen:
+Backend &amp; Middle-Tier-Design, Java/J2EE, Java Server Pages/Struts, JNI, C++,
+Application Server, EJBs, WebSphere/JDeveloper/Eclipse,
+XML/XSD/XSLT/XBRL, SOA-Architekturen, WebServices, BPEL und BPEL-Prozess-Orchestrierung,
+Oracle + DB2 SQL-Datenbanken, UML Daten- und Prozessmodellierung (UseCases)
+Ausgewählte Projekte (ausszugsweise; ausführliches Qualifikationsprofil auf Anfrage):
+Zeit          : Feb 2008 - aktuell
+18.02.2023 1 von 5
+Branche       : Telekom
+Funktion      : Technisches Design
+Tätigkeit     : Design und Entwicklung eines Backend-Systems zur Abwicklung
+ des Wholesales-Handels (Resale, TAL, CLS) mit Telekomanschlüssen
+ zwischen grossen Telekom-und DSL-Providern.
+ Work-Flow und und Datenmodellierung mit Einbindung zahlreicher,
+ existierender heterogener IT-Systeme
+Platform      : SOA-Architektur mit Webservices, Orchestrierung mit BPEL,
+ Oracle SOA-Suite, JDeveloper, Oracle Application Server, ESB, MQseries,
+ UML-Datenmodellierung mit Sparx Enterprise Architect und Innovator
+ XML, XSD Schemas, XSLT
+Zeit          : Jul 2005 - Jan 2008
+Branche       : Finanzdienstleister
+Funktion      : Systemanalyse und Design, Anwendungsentwicklung
+Tätigkeit/    : Design der Systemarchitektur und Entwicklung eines
+Projekt         Reporting- und Finanzanalysetools mit Schnittstelle zum zukünftigen
+ XBRL Standard auf XML Basis. Validierung der XBRL Instanzdokumente für
+ Geschäftsberichte, Bilanzen und Gewinn- und Verlust-Rechnungen. Verwaltung
+ unterschiedlicher Taxonomien.
+ Design und Anwendungsentwicklung eines Risiko-Managementsystems
+Platform      : Windows XP, Sun Solaris (Unix), Java/J2EE, CSharp, JBoss,
+ WebSphere (WSAD), JMS, JDBC, Oracle, SQL+PL-SQL, XBRL,XML,XSD Schemas, XSLT
+Zeit          : Dez 2004 - Jun 2005
+Branche       : Banken
+Funktion      : Anwendungsentwicklung
+Tätigkeit/    : Design und Weiterentwicklung eines CashManangement-Systems zur Verrechung
+Projekt         von internationalen Euro- und Devisenpositionen auf Nostro-Konten der Bank.
+ Netting von currency accounts bei internationalen Banken auf internen Konten
+ oder bei der Europäischen Zentralbank zur weiteren Disposition im Cash Management.
+ Entwicklung von Frontend und Serverkomponenten auf WinXP und Sun Solaris (Unix).
+ Client-Server-Kommunikation über JMS/MQSeries.
+Platform      : Windows XP, Sun Solaris (Unix), Java/J2EE, WebSphere (WSAD), JMS/MQSeries,
+ JDBC, ClearCase, Sybase/Oracle-Datenbanken, Anbindung an Host über
+ ConnectDirect, Perl, X-Reflection, SSH
+Zeit          : April 2002 - Nov 2004
+Branche       : Banken
+Funktion      : Systemdesign, Anwendungsentwicklung
+Tätigkeit/    : Design und Entwicklung eines Backend-Systems zur Abwicklung des
+Projekt         Orderroutings von einem Brokerage-Systems zu den Wertpapier-Handelssystemen
+ Xetra und Eurex der Deutschen Börse  (+SchweizerBörse).
+ Umfangreiche Verifikation der Kassa und Terminorders auf Bonität, Kreditrahmens
+ Margins und Plausibilität. Technisches Mapping von Java-Objekten auf ValuesAPI
+ C++-Strukturen über JNI und Forwarding an die Börsen.
+ Asynchrone Callbacks der Order und Trade Confirmations über Multithreading-Architektur.
+ Managing von Server Connections- und Tradersessions,
+ Subscribing an (Multicast) Datastreams. Setup und Betreuung der MISS-
+ Architektur (GATE) für Xetra und Eurex.
+Platform      : Windows2000, Java (JBuilder/Eclipse), MS Visual Studio .Net
+ C++,  Sybase Application Server, RMI/IIOP (Corba),
+ Oracle, PVCS, ValuesAPI, GATE/MISS, Xetra/Eurex, FIX protocol
+18.02.2023 2 von 5
+Zeit          : Jan-Okt 2000
+Branche       : Banken
+Funktion      : Systemanalyse- und -Design, Anwendungsentwicklung
+Tätigkeit/    : Design und Entwicklung grosser Teile des Internetbrokerage-Backends
+Projekt         für eine europäische Internetbank. Routing und Management der Wertpapierorders
+ zur Deutschen Börse (Xetra) bzw. den deutschen Regionalbörsen (BOSS-CUBE).
+ Kopplung zwischen Java Backend C++ Libraries Values-APIs überJNI.
+Platform      : WindowsNT/SunSolaris, Java (JBuilder), Corba (Visibroker),
+ C++ (SunWorkshop), perl, InpriseApplicationServer,
+ Oracle/Informix, PVCS, OpenSSH
+Zeit          : Jan-Dez 1999
+Branche       : Banken/Finanzdienstleister/Börse
+Funktion      : Systemanalyse- und -Design, Anwendungsentwicklung
+Tätigkeit/    : Design und Entwicklung einer konfigurierbaren Quotemachine für das
+Projekt         Wertpapierhandelssystem Xetra über das Values API-Interface.
+ Design einer CORBA basierten Architektur mit C++ Server und Java-Clients
+ Development eines Tools zur Konfiguration und Verwaltung von Quote Requests
+ und Price Datastreams für Xetra.
+Platform      : WindowsNT/SunSolaris, Java (JBuilder), Corba(Orbacus), Inprise
+ AppServer, WindowsNT, MS Visual Studio C++, Oracle
+ 
+Branchen
+Bisherige Tätigkeitsschwerpunkte:
+Finanzdienstleister
+Banken/Börse
+Telekom
+Sprachen
+Deutsch
+Englisch
+Französisch
+18.02.2023 3 von 5
+Kompetenzen
+Produkte / Standards /
+Erfahrungen / Methoden
+Weitere Erfahrungen mit folgenden Tools:
+JDeveloper, WebSphere, Eclipse,
+MS Visual Studio .Net C++,
+Oracle SOA Suite
+JBuilder,
+VisualAge,
+SunWorkshop Compiler,
+gcc,
+XML, XSD, XSLT,
+XBRL,
+J2EE.
+Java-Server-Pages JSP,
+Struts,
+Design Patterns,
+BPEL, Web services,
+Application-Server: Oracle, WebSphere, BEA Weblogic
+UML, Sparx Enterprise Architect, Innovator, TogetherJ,
+Values API, Xetra, Eurex
+Continuus, CVS, PVCS
+Betriebssysteme SUN OS, Solaris
+Unix
+Windows
+Programmiersprachen C
+C++
+CORBA IDL
+Java
+JavaScript
+Perl
+Scriptsprachen
+Shell
+Weitere: Java Server Pages JSP, SOA, BPEL, WebServices
+Datenbanken Access
+DB2
+18.02.2023 4 von 5
+Informix
+JDBC
+MS SQL Server
+MySQL
+ODBC
+Oracle
+SQL
+Sybase
+Datenkommunikation CORBA
+Internet, Intranet
+PC-Anywhere
+SMTP
+TCP/IP
+Windows Netzwerk
+Hardware PC
+Scanner
+Aus- und Weiterbildung
+Diplom-Wirtschaftsinformatiker
+(Technisch Universität Darmstadt)
+18.02.2023 5 von 5
+
+############################################
+---------- Gulp-Profil Stand 2018-09-17 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 29081: Software
+Architekt / Business Analyst / IT Management Senior Consultant        
+          
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+29081 [4] | Profil in Englisch [5] anzeigen
+     Stammdaten (Auszug):    
+
+	 Personen-ID 29081    Wohnort 605xx Frankfurt am Main, Deutschland
+Jahrgang 1963 Staatsbürgerschaft deutsch Stundensatz 0 EUR
+verhandlungssache, projektabhängig Verfügbar ab 01.04.19 zu 100%,
+Vor-Ort-Einsatz 100% möglich Profil erstellt am 06.08.01 Profil
+zuletzt geändert am 17.09.18 Lesen von Projektanfragen 3 Tage 
+[6]Direktkontakt [7]         Kommentar:   Kommentar schreiben Profil
+angezeigt am 21.08.2018 15:11:09       Fachlicher Schwerpunkt: 
+Software Architekt / Business Analyst / IT Management Senior
+Consultant      Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Projektmanagement / -leitung / Organisation / Koordination
+ Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit
+bevorzugt
+
+ Voraussetzung für Festanstellung: Interessantes Projekt und
+Arbeitsbedingungen      Ausbildung:  Diplom-Wirtschaftsinformatiker
+ (Technisch Universität Darmstadt)
+       Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz,
+außerhalb D/A/CH   Ich möchte BEVORZUGT für die o. g. Einsatzorte
+kontaktiert werden.     
+
+	Deutschland: bevorzugt Bereich D6         Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Französisch
+
+      Hardware:  
+
+		PC
+
+		Scanner
+
+      Betriebssysteme:  
+
+		SUN OS, Solaris
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		CORBA IDL
+
+		Java
+
+		JavaScript
+
+		Perl
+
+		Scriptsprachen
+
+		Shell
+
+ Weitere: Java Server Pages JSP, SOA, BPEL, WebServices
+       Datenbanken:  
+
+		Access
+
+		DB2
+
+		Informix
+
+		JDBC
+
+		MS SQL Server
+
+		MySQL
+
+		ODBC
+
+		Oracle
+
+		SQL
+
+		Sybase
+
+      Datenkommunikation:  
+
+		CORBA
+
+		Internet, Intranet
+
+		PC-Anywhere
+
+		SMTP
+
+		TCP/IP
+
+		Windows Netzwerk
+
+      Produkte/Standards/Erfahrungen:  Weitere Erfahrungen mit
+folgenden Tools:
+
+ JDeveloper, WebSphere, Eclipse,
+ MS Visual Studio .Net C++,
+ Oracle SOA Suite
+ JBuilder,
+ VisualAge,
+ SunWorkshop Compiler,
+ gcc,
+
+ XML, XSD, XSLT,
+ XBRL,
+
+ J2EE.
+ Java-Server-Pages JSP,
+ Struts,
+ Design Patterns,
+ BPEL, Web services,
+ Application-Server: Oracle, WebSphere, BEA Weblogic
+ UML, Sparx Enterprise Architect, Innovator, TogetherJ,
+
+ Values API, Xetra, Eurex
+
+ Continuus, CVS, PVCS
+
+       Branchen:  Bisherige Tätigkeitsschwerpunkte:
+
+ Finanzdienstleister
+ Banken/Börse
+ Telekom
+
+       Projekte:  Ich biete langjährige professionelle
+Projekterfahrung in grossen und internationalen
+ Teams in allen Phasen der Konzept- und Softwareerstellung vorwiegend
+(aber nicht nur)
+ im Banken, Börsen-und Finanzdienstleistungsbereich.
+
+ Consulting für das Design, Datenmodellierung, Architektur und
+Development von Business
+ Software unter anderem aus den Bereichen:
+ Wertpapierhandel, Depotverwaltung, Risikomanagement, Cash Management,
+ Business Reporting, Börsenanbindung, XETRA+EUREX Exchanges, Telekom
+Wholesale
+
+ Technische Schwerpunkte in den Bereichen:
+ Backend &amp; Middle-Tier-Design, Java/J2EE, Java Server Pages/Struts,
+JNI, C++,
+ Application Server, EJBs, WebSphere/JDeveloper/Eclipse,
+ XML/XSD/XSLT/XBRL, SOA-Architekturen, WebServices, BPEL und
+BPEL-Prozess-Orchestrierung,
+ Oracle + DB2 SQL-Datenbanken, UML Daten- und Prozessmodellierung
+(UseCases)
+
+ Ausgewählte Projekte (ausszugsweise; ausführliches
+Qualifikationsprofil auf Anfrage):
+
+ Zeit : Feb 2008 - aktuell
+ Branche : Telekom
+ Funktion : Technisches Design
+ Tätigkeit : Design und Entwicklung eines Backend-Systems zur
+Abwicklung
+
+	 des Wholesales-Handels (Resale, TAL, CLS) mit Telekomanschlüssen 
+
+	 zwischen grossen Telekom-und DSL-Providern. 
+
+	 Work-Flow und und Datenmodellierung mit Einbindung zahlreicher, 
+
+	 existierender heterogener IT-Systeme Platform : SOA-Architektur mit
+Webservices, Orchestrierung mit BPEL,
+
+	 Oracle SOA-Suite, JDeveloper, Oracle Application Server, ESB,
+MQseries, 
+
+	 UML-Datenmodellierung mit Sparx Enterprise Architect und Innovator 
+
+	 XML, XSD Schemas, XSLT 
+ Zeit : Jul 2005 - Jan 2008
+ Branche : Finanzdienstleister
+ Funktion : Systemanalyse und Design, Anwendungsentwicklung
+ Tätigkeit/ : Design der Systemarchitektur und Entwicklung eines
+ Projekt Reporting- und Finanzanalysetools mit Schnittstelle zum
+zukünftigen
+
+	 XBRL Standard auf XML Basis. Validierung der XBRL Instanzdokumente
+für 
+
+	 Geschäftsberichte, Bilanzen und Gewinn- und Verlust-Rechnungen.
+Verwaltung 
+
+	 unterschiedlicher Taxonomien. 
+
+	 Design und Anwendungsentwicklung eines Risiko-Managementsystems
+Platform : Windows XP, Sun Solaris (Unix), Java/J2EE, CSharp, JBoss,
+
+	 WebSphere (WSAD), JMS, JDBC, Oracle, SQL+PL-SQL, XBRL,XML,XSD
+Schemas, XSLT 
+ Zeit : Dez 2004 - Jun 2005
+ Branche : Banken
+ Funktion : Anwendungsentwicklung
+ Tätigkeit/ : Design und Weiterentwicklung eines
+CashManangement-Systems zur Verrechung
+ Projekt von internationalen Euro- und Devisenpositionen auf
+Nostro-Konten der Bank.
+
+	 Netting von currency accounts bei internationalen Banken auf
+internen Konten 
+
+	 oder bei der Europäischen Zentralbank zur weiteren Disposition im
+Cash Management. 
+
+	 Entwicklung von Frontend und Serverkomponenten auf WinXP und Sun
+Solaris (Unix). 
+
+	 Client-Server-Kommunikation über JMS/MQSeries. Platform : Windows
+XP, Sun Solaris (Unix), Java/J2EE, WebSphere (WSAD), JMS/MQSeries,
+
+	 JDBC, ClearCase, Sybase/Oracle-Datenbanken, Anbindung an Host über 
+
+	 ConnectDirect, Perl, X-Reflection, SSH 
+ Zeit : April 2002 - Nov 2004
+ Branche : Banken
+ Funktion : Systemdesign, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung eines Backend-Systems zur
+Abwicklung des
+ Projekt Orderroutings von einem Brokerage-Systems zu den
+Wertpapier-Handelssystemen
+
+	 Xetra und Eurex der Deutschen Börse (+SchweizerBörse). 
+
+	 Umfangreiche Verifikation der Kassa und Terminorders auf Bonität,
+Kreditrahmens 
+
+	 Margins und Plausibilität. Technisches Mapping von Java-Objekten auf
+ValuesAPI 
+
+	 C++-Strukturen über JNI und Forwarding an die Börsen. 
+
+	 Asynchrone Callbacks der Order und Trade Confirmations über
+Multithreading-Architektur. 
+
+	 Managing von Server Connections- und Tradersessions, 
+
+	 Subscribing an (Multicast) Datastreams. Setup und Betreuung der
+MISS- 
+
+	 Architektur (GATE) für Xetra und Eurex. Platform : Windows2000, Java
+(JBuilder/Eclipse), MS Visual Studio .Net
+
+	 C++, Sybase Application Server, RMI/IIOP (Corba), 
+
+	 Oracle, PVCS, ValuesAPI, GATE/MISS, Xetra/Eurex, FIX protocol 
+ Zeit : Jan-Okt 2000
+ Branche : Banken
+ Funktion : Systemanalyse- und -Design, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung grosser Teile des
+Internetbrokerage-Backends
+ Projekt für eine europäische Internetbank. Routing und Management der
+Wertpapierorders
+
+	 zur Deutschen Börse (Xetra) bzw. den deutschen Regionalbörsen
+(BOSS-CUBE). 
+
+	 Kopplung zwischen Java Backend C++ Libraries Values-APIs überJNI.
+Platform : WindowsNT/SunSolaris, Java (JBuilder), Corba (Visibroker),
+
+	 C++ (SunWorkshop), perl, InpriseApplicationServer, 
+
+	 Oracle/Informix, PVCS, OpenSSH 
+ Zeit : Jan-Dez 1999
+ Branche : Banken/Finanzdienstleister/Börse
+ Funktion : Systemanalyse- und -Design, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung einer konfigurierbaren
+Quotemachine für das
+ Projekt Wertpapierhandelssystem Xetra über das Values API-Interface.
+
+	 Design einer CORBA basierten Architektur mit C++ Server und
+Java-Clients 
+
+	 Development eines Tools zur Konfiguration und Verwaltung von Quote
+Requests 
+
+	 und Price Datastreams für Xetra. Platform : WindowsNT/SunSolaris,
+Java (JBuilder), Corba(Orbacus), Inprise
+
+	 AppServer, WindowsNT, MS Visual Studio C++, Oracle 
+
+		Seite drucken [8]  [9] 
+		Zum Seitenanfang [10]  [11]
+
+ Recherche [12] | Suchergebnis [13] | Kontaktieren [14] | Anfragen an
+ID 29081 [15] | Profil in Englisch [16] anzeigen
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 18.09.2018 01:15:44
+ (c) Copyright 1996-2018 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [17] 
+
+   
+
+---------- Gulp-Profil Stand 2018-06-16 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 29081: Software
+Architekt / Business Analyst / IT Management Senior Consultant        
+          
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+29081 [4] | Profil in Englisch [5] anzeigen
+     Stammdaten (Auszug):    
+
+	 Personen-ID 29081    Wohnort 605xx Frankfurt am Main, Deutschland
+Jahrgang 1963 Staatsbürgerschaft deutsch Stundensatz 0 EUR
+verhandlungssache, projektabhängig Verfügbar ab 01.10.18 zu 100%,
+Vor-Ort-Einsatz 100% möglich Profil erstellt am 06.08.01 Profil
+zuletzt geändert am 16.06.18 Lesen von Projektanfragen 3 Tage 
+[6]Direktkontakt [7]         Kommentar:   Kommentar schreiben Profil
+angezeigt am 03.07.2018 14:15:24       Fachlicher Schwerpunkt: 
+Software Architekt / Business Analyst / IT Management Senior
+Consultant      Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Projektmanagement / -leitung / Organisation / Koordination
+ Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit
+bevorzugt
+
+ Voraussetzung für Festanstellung: Interessantes Projekt und
+Arbeitsbedingungen      Ausbildung:  Diplom-Wirtschaftsinformatiker
+ (Technisch Universität Darmstadt)
+       Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz,
+außerhalb D/A/CH   Ich möchte BEVORZUGT für die o. g. Einsatzorte
+kontaktiert werden.     
+
+	Deutschland: bevorzugt Bereich D6         Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Französisch
+
+      Hardware:  
+
+		PC
+
+		Scanner
+
+      Betriebssysteme:  
+
+		SUN OS, Solaris
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		CORBA IDL
+
+		Java
+
+		JavaScript
+
+		Perl
+
+		Scriptsprachen
+
+		Shell
+
+ Weitere: Java Server Pages JSP, SOA, BPEL, WebServices
+       Datenbanken:  
+
+		Access
+
+		DB2
+
+		Informix
+
+		JDBC
+
+		MS SQL Server
+
+		MySQL
+
+		ODBC
+
+		Oracle
+
+		SQL
+
+		Sybase
+
+      Datenkommunikation:  
+
+		CORBA
+
+		Internet, Intranet
+
+		PC-Anywhere
+
+		SMTP
+
+		TCP/IP
+
+		Windows Netzwerk
+
+      Produkte/Standards/Erfahrungen:  Weitere Erfahrungen mit
+folgenden Tools:
+
+ JDeveloper, WebSphere, Eclipse,
+ MS Visual Studio .Net C++,
+ Oracle SOA Suite
+ JBuilder,
+ VisualAge,
+ SunWorkshop Compiler,
+ gcc,
+
+ XML, XSD, XSLT,
+ XBRL,
+
+ J2EE.
+ Java-Server-Pages JSP,
+ Struts,
+ Design Patterns,
+ BPEL, Web services,
+ Application-Server: Oracle, WebSphere, BEA Weblogic
+ UML, Sparx Enterprise Architect, Innovator, TogetherJ,
+
+ Values API, Xetra, Eurex
+
+ Continuus, CVS, PVCS
+
+       Branchen:  Bisherige Tätigkeitsschwerpunkte:
+
+ Finanzdienstleister
+ Banken/Börse
+ Telekom
+
+       Projekte:  Ich biete langjährige professionelle
+Projekterfahrung in grossen und internationalen
+ Teams in allen Phasen der Konzept- und Softwareerstellung vorwiegend
+(aber nicht nur)
+ im Banken, Börsen-und Finanzdienstleistungsbereich.
+
+ Consulting für das Design, Datenmodellierung, Architektur und
+Development von Business
+ Software unter anderem aus den Bereichen:
+ Wertpapierhandel, Depotverwaltung, Risikomanagement, Cash Management,
+ Business Reporting, Börsenanbindung, XETRA+EUREX Exchanges, Telekom
+Wholesale
+
+ Technische Schwerpunkte in den Bereichen:
+ Backend &amp; Middle-Tier-Design, Java/J2EE, Java Server Pages/Struts,
+JNI, C++,
+ Application Server, EJBs, WebSphere/JDeveloper/Eclipse,
+ XML/XSD/XSLT/XBRL, SOA-Architekturen, WebServices, BPEL und
+BPEL-Prozess-Orchestrierung,
+ Oracle + DB2 SQL-Datenbanken, UML Daten- und Prozessmodellierung
+(UseCases)
+
+ Ausgewählte Projekte (ausszugsweise; ausführliches
+Qualifikationsprofil auf Anfrage):
+
+ Zeit : Feb 2008 - aktuell
+ Branche : Telekom
+ Funktion : Technisches Design
+ Tätigkeit : Design und Entwicklung eines Backend-Systems zur
+Abwicklung
+
+	 des Wholesales-Handels (Resale, TAL, CLS) mit Telekomanschlüssen 
+
+	 zwischen grossen Telekom-und DSL-Providern. 
+
+	 Work-Flow und und Datenmodellierung mit Einbindung zahlreicher, 
+
+	 existierender heterogener IT-Systeme Platform : SOA-Architektur mit
+Webservices, Orchestrierung mit BPEL,
+
+	 Oracle SOA-Suite, JDeveloper, Oracle Application Server, ESB,
+MQseries, 
+
+	 UML-Datenmodellierung mit Sparx Enterprise Architect und Innovator 
+
+	 XML, XSD Schemas, XSLT 
+ Zeit : Jul 2005 - Jan 2008
+ Branche : Finanzdienstleister
+ Funktion : Systemanalyse und Design, Anwendungsentwicklung
+ Tätigkeit/ : Design der Systemarchitektur und Entwicklung eines
+ Projekt Reporting- und Finanzanalysetools mit Schnittstelle zum
+zukünftigen
+
+	 XBRL Standard auf XML Basis. Validierung der XBRL Instanzdokumente
+für 
+
+	 Geschäftsberichte, Bilanzen und Gewinn- und Verlust-Rechnungen.
+Verwaltung 
+
+	 unterschiedlicher Taxonomien. 
+
+	 Design und Anwendungsentwicklung eines Risiko-Managementsystems
+Platform : Windows XP, Sun Solaris (Unix), Java/J2EE, CSharp, JBoss,
+
+	 WebSphere (WSAD), JMS, JDBC, Oracle, SQL+PL-SQL, XBRL,XML,XSD
+Schemas, XSLT 
+ Zeit : Dez 2004 - Jun 2005
+ Branche : Banken
+ Funktion : Anwendungsentwicklung
+ Tätigkeit/ : Design und Weiterentwicklung eines
+CashManangement-Systems zur Verrechung
+ Projekt von internationalen Euro- und Devisenpositionen auf
+Nostro-Konten der Bank.
+
+	 Netting von currency accounts bei internationalen Banken auf
+internen Konten 
+
+	 oder bei der Europäischen Zentralbank zur weiteren Disposition im
+Cash Management. 
+
+	 Entwicklung von Frontend und Serverkomponenten auf WinXP und Sun
+Solaris (Unix). 
+
+	 Client-Server-Kommunikation über JMS/MQSeries. Platform : Windows
+XP, Sun Solaris (Unix), Java/J2EE, WebSphere (WSAD), JMS/MQSeries,
+
+	 JDBC, ClearCase, Sybase/Oracle-Datenbanken, Anbindung an Host über 
+
+	 ConnectDirect, Perl, X-Reflection, SSH 
+ Zeit : April 2002 - Nov 2004
+ Branche : Banken
+ Funktion : Systemdesign, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung eines Backend-Systems zur
+Abwicklung des
+ Projekt Orderroutings von einem Brokerage-Systems zu den
+Wertpapier-Handelssystemen
+
+	 Xetra und Eurex der Deutschen Börse (+SchweizerBörse). 
+
+	 Umfangreiche Verifikation der Kassa und Terminorders auf Bonität,
+Kreditrahmens 
+
+	 Margins und Plausibilität. Technisches Mapping von Java-Objekten auf
+ValuesAPI 
+
+	 C++-Strukturen über JNI und Forwarding an die Börsen. 
+
+	 Asynchrone Callbacks der Order und Trade Confirmations über
+Multithreading-Architektur. 
+
+	 Managing von Server Connections- und Tradersessions, 
+
+	 Subscribing an (Multicast) Datastreams. Setup und Betreuung der
+MISS- 
+
+	 Architektur (GATE) für Xetra und Eurex. Platform : Windows2000, Java
+(JBuilder/Eclipse), MS Visual Studio .Net
+
+	 C++, Sybase Application Server, RMI/IIOP (Corba), 
+
+	 Oracle, PVCS, ValuesAPI, GATE/MISS, Xetra/Eurex, FIX protocol 
+ Zeit : Jan-Okt 2000
+ Branche : Banken
+ Funktion : Systemanalyse- und -Design, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung grosser Teile des
+Internetbrokerage-Backends
+ Projekt für eine europäische Internetbank. Routing und Management der
+Wertpapierorders
+
+	 zur Deutschen Börse (Xetra) bzw. den deutschen Regionalbörsen
+(BOSS-CUBE). 
+
+	 Kopplung zwischen Java Backend C++ Libraries Values-APIs überJNI.
+Platform : WindowsNT/SunSolaris, Java (JBuilder), Corba (Visibroker),
+
+	 C++ (SunWorkshop), perl, InpriseApplicationServer, 
+
+	 Oracle/Informix, PVCS, OpenSSH 
+ Zeit : Jan-Dez 1999
+ Branche : Banken/Finanzdienstleister/Börse
+ Funktion : Systemanalyse- und -Design, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung einer konfigurierbaren
+Quotemachine für das
+ Projekt Wertpapierhandelssystem Xetra über das Values API-Interface.
+
+	 Design einer CORBA basierten Architektur mit C++ Server und
+Java-Clients 
+
+	 Development eines Tools zur Konfiguration und Verwaltung von Quote
+Requests 
+
+	 und Price Datastreams für Xetra. Platform : WindowsNT/SunSolaris,
+Java (JBuilder), Corba(Orbacus), Inprise
+
+	 AppServer, WindowsNT, MS Visual Studio C++, Oracle 
+
+		Seite drucken [8]  [9] 
+		Zum Seitenanfang [10]  [11]
+
+ Recherche [12] | Suchergebnis [13] | Kontaktieren [14] | Anfragen an
+ID 29081 [15] | Profil in Englisch [16] anzeigen
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 26.06.2018 01:19:03
+ (c) Copyright 1996-2018 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [17] 
+
+   
+
+---------- Gulp-Profil Stand 2017-04-13 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 29081: Software
+Architekt / Business Analyst / IT Management Senior Consultant        
+          
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+29081 [4] | Profil in Englisch [5] anzeigen
+     Stammdaten (Auszug):    
+
+	 Personen-ID 29081    Wohnort 605xx Frankfurt am Main, Deutschland
+Jahrgang 1963 Staatsbürgerschaft deutsch Stundensatz 0 EUR
+verhandlungssache, projektabhängig Verfügbar ab 01.01.18 zu 100%,
+Vor-Ort-Einsatz 100% möglich Profil erstellt am 06.08.01 Profil
+zuletzt geändert am 13.04.17 Lesen von Projektanfragen 4 Tage 
+[6]Direktkontakt [7]         Kommentar:   Kommentar schreiben Profil
+angezeigt am 10.11.2017 10:33:08       Fachlicher Schwerpunkt: 
+Software Architekt / Business Analyst / IT Management Senior
+Consultant      Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Projektmanagement / -leitung / Organisation / Koordination
+ Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit
+bevorzugt
+
+ Voraussetzung für Festanstellung: Interessantes Projekt und
+Arbeitsbedingungen      Ausbildung:  Diplom-Wirtschaftsinformatiker
+ (Technisch Universität Darmstadt)
+       Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz,
+außerhalb D/A/CH   Ich möchte BEVORZUGT für die o. g. Einsatzorte
+kontaktiert werden.     
+
+	Deutschland: bevorzugt Bereich D6         Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Französisch
+
+      Hardware:  
+
+		PC
+
+		Scanner
+
+      Betriebssysteme:  
+
+		SUN OS, Solaris
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		CORBA IDL
+
+		Java
+
+		JavaScript
+
+		Perl
+
+		Scriptsprachen
+
+		Shell
+
+ Weitere: Java Server Pages JSP, SOA, BPEL, WebServices
+       Datenbanken:  
+
+		Access
+
+		DB2
+
+		Informix
+
+		JDBC
+
+		MS SQL Server
+
+		MySQL
+
+		ODBC
+
+		Oracle
+
+		SQL
+
+		Sybase
+
+      Datenkommunikation:  
+
+		CORBA
+
+		Internet, Intranet
+
+		PC-Anywhere
+
+		SMTP
+
+		TCP/IP
+
+		Windows Netzwerk
+
+      Produkte/Standards/Erfahrungen:  Weitere Erfahrungen mit
+folgenden Tools:
+
+ JDeveloper, WebSphere, Eclipse,
+ MS Visual Studio .Net C++,
+ Oracle SOA Suite
+ JBuilder,
+ VisualAge,
+ SunWorkshop Compiler,
+ gcc,
+
+ XML, XSD, XSLT,
+ XBRL,
+
+ J2EE.
+ Java-Server-Pages JSP,
+ Struts,
+ Design Patterns,
+ BPEL, Web services,
+ Application-Server: Oracle, WebSphere, BEA Weblogic
+ UML, Sparx Enterprise Architect, Innovator, TogetherJ,
+
+ Values API, Xetra, Eurex
+
+ Continuus, CVS, PVCS
+
+       Branchen:  Bisherige Tätigkeitsschwerpunkte:
+
+ Finanzdienstleister
+ Banken/Börse
+ Telekom
+
+       Projekte:  Ich biete langjährige professionelle
+Projekterfahrung in grossen und internationalen
+ Teams in allen Phasen der Konzept- und Softwareerstellung vorwiegend
+(aber nicht nur)
+ im Banken, Börsen-und Finanzdienstleistungsbereich.
+
+ Consulting für das Design, Datenmodellierung, Architektur und
+Development von Business
+ Software unter anderem aus den Bereichen:
+ Wertpapierhandel, Depotverwaltung, Risikomanagement, Cash Management,
+ Business Reporting, Börsenanbindung, XETRA+EUREX Exchanges, Telekom
+Wholesale
+
+ Technische Schwerpunkte in den Bereichen:
+ Backend &amp; Middle-Tier-Design, Java/J2EE, Java Server Pages/Struts,
+JNI, C++,
+ Application Server, EJBs, WebSphere/JDeveloper/Eclipse,
+ XML/XSD/XSLT/XBRL, SOA-Architekturen, WebServices, BPEL und
+BPEL-Prozess-Orchestrierung,
+ Oracle + DB2 SQL-Datenbanken, UML Daten- und Prozessmodellierung
+(UseCases)
+
+ Ausgewählte Projekte (ausszugsweise; ausführliches
+Qualifikationsprofil auf Anfrage):
+
+ Zeit : Feb 2008 - aktuell
+ Branche : Telekom
+ Funktion : Technisches Design
+ Tätigkeit : Design und Entwicklung eines Backend-Systems zur
+Abwicklung
+
+	 des Wholesales-Handels (Resale, TAL, CLS) mit Telekomanschlüssen 
+
+	 zwischen grossen Telekom-und DSL-Providern. 
+
+	 Work-Flow und und Datenmodellierung mit Einbindung zahlreicher, 
+
+	 existierender heterogener IT-Systeme Platform : SOA-Architektur mit
+Webservices, Orchestrierung mit BPEL,
+
+	 Oracle SOA-Suite, JDeveloper, Oracle Application Server, ESB,
+MQseries, 
+
+	 UML-Datenmodellierung mit Sparx Enterprise Architect und Innovator 
+
+	 XML, XSD Schemas, XSLT 
+ Zeit : Jul 2005 - Jan 2008
+ Branche : Finanzdienstleister
+ Funktion : Systemanalyse und Design, Anwendungsentwicklung
+ Tätigkeit/ : Design der Systemarchitektur und Entwicklung eines
+ Projekt Reporting- und Finanzanalysetools mit Schnittstelle zum
+zukünftigen
+
+	 XBRL Standard auf XML Basis. Validierung der XBRL Instanzdokumente
+für 
+
+	 Geschäftsberichte, Bilanzen und Gewinn- und Verlust-Rechnungen.
+Verwaltung 
+
+	 unterschiedlicher Taxonomien. 
+
+	 Design und Anwendungsentwicklung eines Risiko-Managementsystems
+Platform : Windows XP, Sun Solaris (Unix), Java/J2EE, CSharp, JBoss,
+
+	 WebSphere (WSAD), JMS, JDBC, Oracle, SQL+PL-SQL, XBRL,XML,XSD
+Schemas, XSLT 
+ Zeit : Dez 2004 - Jun 2005
+ Branche : Banken
+ Funktion : Anwendungsentwicklung
+ Tätigkeit/ : Design und Weiterentwicklung eines
+CashManangement-Systems zur Verrechung
+ Projekt von internationalen Euro- und Devisenpositionen auf
+Nostro-Konten der Bank.
+
+	 Netting von currency accounts bei internationalen Banken auf
+internen Konten 
+
+	 oder bei der Europäischen Zentralbank zur weiteren Disposition im
+Cash Management. 
+
+	 Entwicklung von Frontend und Serverkomponenten auf WinXP und Sun
+Solaris (Unix). 
+
+	 Client-Server-Kommunikation über JMS/MQSeries. Platform : Windows
+XP, Sun Solaris (Unix), Java/J2EE, WebSphere (WSAD), JMS/MQSeries,
+
+	 JDBC, ClearCase, Sybase/Oracle-Datenbanken, Anbindung an Host über 
+
+	 ConnectDirect, Perl, X-Reflection, SSH 
+ Zeit : April 2002 - Nov 2004
+ Branche : Banken
+ Funktion : Systemdesign, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung eines Backend-Systems zur
+Abwicklung des
+ Projekt Orderroutings von einem Brokerage-Systems zu den
+Wertpapier-Handelssystemen
+
+	 Xetra und Eurex der Deutschen Börse (+SchweizerBörse). 
+
+	 Umfangreiche Verifikation der Kassa und Terminorders auf Bonität,
+Kreditrahmens 
+
+	 Margins und Plausibilität. Technisches Mapping von Java-Objekten auf
+ValuesAPI 
+
+	 C++-Strukturen über JNI und Forwarding an die Börsen. 
+
+	 Asynchrone Callbacks der Order und Trade Confirmations über
+Multithreading-Architektur. 
+
+	 Managing von Server Connections- und Tradersessions, 
+
+	 Subscribing an (Multicast) Datastreams. Setup und Betreuung der
+MISS- 
+
+	 Architektur (GATE) für Xetra und Eurex. Platform : Windows2000, Java
+(JBuilder/Eclipse), MS Visual Studio .Net
+
+	 C++, Sybase Application Server, RMI/IIOP (Corba), 
+
+	 Oracle, PVCS, ValuesAPI, GATE/MISS, Xetra/Eurex, FIX protocol 
+ Zeit : Jan-Okt 2000
+ Branche : Banken
+ Funktion : Systemanalyse- und -Design, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung grosser Teile des
+Internetbrokerage-Backends
+ Projekt für eine europäische Internetbank. Routing und Management der
+Wertpapierorders
+
+	 zur Deutschen Börse (Xetra) bzw. den deutschen Regionalbörsen
+(BOSS-CUBE). 
+
+	 Kopplung zwischen Java Backend C++ Libraries Values-APIs überJNI.
+Platform : WindowsNT/SunSolaris, Java (JBuilder), Corba (Visibroker),
+
+	 C++ (SunWorkshop), perl, InpriseApplicationServer, 
+
+	 Oracle/Informix, PVCS, OpenSSH 
+ Zeit : Jan-Dez 1999
+ Branche : Banken/Finanzdienstleister/Börse
+ Funktion : Systemanalyse- und -Design, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung einer konfigurierbaren
+Quotemachine für das
+ Projekt Wertpapierhandelssystem Xetra über das Values API-Interface.
+
+	 Design einer CORBA basierten Architektur mit C++ Server und
+Java-Clients 
+
+	 Development eines Tools zur Konfiguration und Verwaltung von Quote
+Requests 
+
+	 und Price Datastreams für Xetra. Platform : WindowsNT/SunSolaris,
+Java (JBuilder), Corba(Orbacus), Inprise
+
+	 AppServer, WindowsNT, MS Visual Studio C++, Oracle 
+
+		Seite drucken [8]  [9] 
+		Zum Seitenanfang [10]  [11]
+
+ Recherche [12] | Suchergebnis [13] | Kontaktieren [14] | Anfragen an
+ID 29081 [15] | Profil in Englisch [16] anzeigen
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 14.04.2017 00:57:20
+ (c) Copyright 1996-2017 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [17] 
+
+   
+
+---------- Gulp-Profil Stand 2016-06-18 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 29081: Software
+Architekt / Business Analyst / IT Management Senior Consultant        
+          
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+29081 [4] | Profil in Englisch [5] anzeigen
+     Stammdaten (Auszug):    
+
+	 Personen-ID 29081    Wohnort 605xx Frankfurt am Main, Deutschland
+Jahrgang 1963 Staatsbürgerschaft deutsch Stundensatz 0 EUR
+verhandlungssache, projektabhängig Verfügbar ab 01.11.16 zu 100%,
+Vor-Ort-Einsatz 100% möglich Profil erstellt am 06.08.01 Profil
+zuletzt geändert am 18.06.16 Lesen von Projektanfragen 3,5 Tage 
+[6]Direktkontakt [7]         Kommentar:   Kommentar schreiben Profil
+angezeigt am 19.04.2016 13:02:15       Fachlicher Schwerpunkt: 
+Software Architekt / Business Analyst / IT Management Senior
+Consultant      Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Projektmanagement / -leitung / Organisation / Koordination
+ Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit
+bevorzugt
+
+ Voraussetzung für Festanstellung: Interessantes Projekt und
+Arbeitsbedingungen      Ausbildung:  Diplom-Wirtschaftsinformatiker
+ (Technisch Universität Darmstadt)
+       Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz,
+außerhalb D/A/CH     
+
+	Deutschland: bevorzugt Bereich D6         Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Französisch
+
+      Hardware:  
+
+		PC
+
+		Scanner
+
+      Betriebssysteme:  
+
+		SUN OS, Solaris
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		CORBA IDL
+
+		Java
+
+		JavaScript
+
+		Perl
+
+		Scriptsprachen
+
+		Shell
+
+ Weitere: Java Server Pages JSP, SOA, BPEL, WebServices
+       Datenbanken:  
+
+		Access
+
+		DB2
+
+		Informix
+
+		JDBC
+
+		MS SQL Server
+
+		MySQL
+
+		ODBC
+
+		Oracle
+
+		SQL
+
+		Sybase
+
+      Datenkommunikation:  
+
+		CORBA
+
+		Internet, Intranet
+
+		PC-Anywhere
+
+		SMTP
+
+		TCP/IP
+
+		Windows Netzwerk
+
+      Produkte/Standards/Erfahrungen:  Weitere Erfahrungen mit
+folgenden Tools:
+
+ JDeveloper, WebSphere, Eclipse,
+ MS Visual Studio .Net C++,
+ Oracle SOA Suite
+ JBuilder,
+ VisualAge,
+ SunWorkshop Compiler,
+ gcc,
+
+ XML, XSD, XSLT,
+ XBRL,
+
+ J2EE.
+ Java-Server-Pages JSP,
+ Struts,
+ Design Patterns,
+ BPEL, Web services,
+ Application-Server: Oracle, WebSphere, BEA Weblogic
+ UML, Sparx Enterprise Architect, Innovator, TogetherJ,
+
+ Values API, Xetra, Eurex
+
+ Continuus, CVS, PVCS
+
+       Branchen:  Bisherige Tätigkeitsschwerpunkte:
+
+ Finanzdienstleister
+ Banken/Börse
+ Telekom
+
+       Projekte:  Ich biete langjährige professionelle
+Projekterfahrung in grossen und internationalen
+ Teams in allen Phasen der Konzept- und Softwareerstellung vorwiegend
+(aber nicht nur)
+ im Banken, Börsen-und Finanzdienstleistungsbereich.
+
+ Consulting für das Design, Datenmodellierung, Architektur und
+Development von Business
+ Software unter anderem aus den Bereichen:
+ Wertpapierhandel, Depotverwaltung, Risikomanagement, Cash Management,
+ Business Reporting, Börsenanbindung, XETRA+EUREX Exchanges, Telekom
+Wholesale
+
+ Technische Schwerpunkte in den Bereichen:
+ Backend &amp; Middle-Tier-Design, Java/J2EE, Java Server Pages/Struts,
+JNI, C++,
+ Application Server, EJBs, WebSphere/JDeveloper/Eclipse,
+ XML/XSD/XSLT/XBRL, SOA-Architekturen, WebServices, BPEL und
+BPEL-Prozess-Orchestrierung,
+ Oracle + DB2 SQL-Datenbanken, UML Daten- und Prozessmodellierung
+(UseCases)
+
+ Ausgewählte Projekte (ausszugsweise; ausführliches
+Qualifikationsprofil auf Anfrage):
+
+ Zeit : Feb 2008 - aktuell
+ Branche : Telekom
+ Funktion : Technisches Design
+ Tätigkeit : Design und Entwicklung eines Backend-Systems zur
+Abwicklung
+
+	 des Wholesales-Handels (Resale, TAL, CLS) mit Telekomanschlüssen 
+
+	 zwischen grossen Telekom-und DSL-Providern. 
+
+	 Work-Flow und und Datenmodellierung mit Einbindung zahlreicher, 
+
+	 existierender heterogener IT-Systeme Platform : SOA-Architektur mit
+Webservices, Orchestrierung mit BPEL,
+
+	 Oracle SOA-Suite, JDeveloper, Oracle Application Server, ESB,
+MQseries, 
+
+	 UML-Datenmodellierung mit Sparx Enterprise Architect und Innovator 
+
+	 XML, XSD Schemas, XSLT 
+ Zeit : Jul 2005 - Jan 2008
+ Branche : Finanzdienstleister
+ Funktion : Systemanalyse und Design, Anwendungsentwicklung
+ Tätigkeit/ : Design der Systemarchitektur und Entwicklung eines
+ Projekt Reporting- und Finanzanalysetools mit Schnittstelle zum
+zukünftigen
+
+	 XBRL Standard auf XML Basis. Validierung der XBRL Instanzdokumente
+für 
+
+	 Geschäftsberichte, Bilanzen und Gewinn- und Verlust-Rechnungen.
+Verwaltung 
+
+	 unterschiedlicher Taxonomien. 
+
+	 Design und Anwendungsentwicklung eines Risiko-Managementsystems
+Platform : Windows XP, Sun Solaris (Unix), Java/J2EE, CSharp, JBoss,
+
+	 WebSphere (WSAD), JMS, JDBC, Oracle, SQL+PL-SQL, XBRL,XML,XSD
+Schemas, XSLT 
+ Zeit : Dez 2004 - Jun 2005
+ Branche : Banken
+ Funktion : Anwendungsentwicklung
+ Tätigkeit/ : Design und Weiterentwicklung eines
+CashManangement-Systems zur Verrechung
+ Projekt von internationalen Euro- und Devisenpositionen auf
+Nostro-Konten der Bank.
+
+	 Netting von currency accounts bei internationalen Banken auf
+internen Konten 
+
+	 oder bei der Europäischen Zentralbank zur weiteren Disposition im
+Cash Management. 
+
+	 Entwicklung von Frontend und Serverkomponenten auf WinXP und Sun
+Solaris (Unix). 
+
+	 Client-Server-Kommunikation über JMS/MQSeries. Platform : Windows
+XP, Sun Solaris (Unix), Java/J2EE, WebSphere (WSAD), JMS/MQSeries,
+
+	 JDBC, ClearCase, Sybase/Oracle-Datenbanken, Anbindung an Host über 
+
+	 ConnectDirect, Perl, X-Reflection, SSH 
+ Zeit : April 2002 - Nov 2004
+ Branche : Banken
+ Funktion : Systemdesign, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung eines Backend-Systems zur
+Abwicklung des
+ Projekt Orderroutings von einem Brokerage-Systems zu den
+Wertpapier-Handelssystemen
+
+	 Xetra und Eurex der Deutschen Börse (+SchweizerBörse). 
+
+	 Umfangreiche Verifikation der Kassa und Terminorders auf Bonität,
+Kreditrahmens 
+
+	 Margins und Plausibilität. Technisches Mapping von Java-Objekten auf
+ValuesAPI 
+
+	 C++-Strukturen über JNI und Forwarding an die Börsen. 
+
+	 Asynchrone Callbacks der Order und Trade Confirmations über
+Multithreading-Architektur. 
+
+	 Managing von Server Connections- und Tradersessions, 
+
+	 Subscribing an (Multicast) Datastreams. Setup und Betreuung der
+MISS- 
+
+	 Architektur (GATE) für Xetra und Eurex. Platform : Windows2000, Java
+(JBuilder/Eclipse), MS Visual Studio .Net
+
+	 C++, Sybase Application Server, RMI/IIOP (Corba), 
+
+	 Oracle, PVCS, ValuesAPI, GATE/MISS, Xetra/Eurex, FIX protocol 
+ Zeit : Jan-Okt 2000
+ Branche : Banken
+ Funktion : Systemanalyse- und -Design, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung grosser Teile des
+Internetbrokerage-Backends
+ Projekt für eine europäische Internetbank. Routing und Management der
+Wertpapierorders
+
+	 zur Deutschen Börse (Xetra) bzw. den deutschen Regionalbörsen
+(BOSS-CUBE). 
+
+	 Kopplung zwischen Java Backend C++ Libraries Values-APIs überJNI.
+Platform : WindowsNT/SunSolaris, Java (JBuilder), Corba (Visibroker),
+
+	 C++ (SunWorkshop), perl, InpriseApplicationServer, 
+
+	 Oracle/Informix, PVCS, OpenSSH 
+ Zeit : Jan-Dez 1999
+ Branche : Banken/Finanzdienstleister/Börse
+ Funktion : Systemanalyse- und -Design, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung einer konfigurierbaren
+Quotemachine für das
+ Projekt Wertpapierhandelssystem Xetra über das Values API-Interface.
+
+	 Design einer CORBA basierten Architektur mit C++ Server und
+Java-Clients 
+
+	 Development eines Tools zur Konfiguration und Verwaltung von Quote
+Requests 
+
+	 und Price Datastreams für Xetra. Platform : WindowsNT/SunSolaris,
+Java (JBuilder), Corba(Orbacus), Inprise
+
+	 AppServer, WindowsNT, MS Visual Studio C++, Oracle 
+
+		Seite drucken [8]  [9] 
+		Zum Seitenanfang [10]  [11]
+
+ Recherche [12] | Suchergebnis [13] | Kontaktieren [14] | Anfragen an
+ID 29081 [15] | Profil in Englisch [16] anzeigen
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 21.06.2016 01:18:00
+ (c) Copyright 1996-2016 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [17] 
+
+   
+
+---------- Gulp-Profil Stand 2016-02-04 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 29081: Software
+Architekt / Business Analyst / IT Management Senior Consultant        
+          
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+29081 [4] | Profil in Englisch [5] anzeigen
+     Stammdaten (Auszug):    
+
+	 Personen-ID 29081    Wohnort 605xx Frankfurt am Main, Deutschland
+Jahrgang 1963 Staatsbürgerschaft deutsch Stundensatz 0 EUR
+verhandlungssache, projektabhängig Verfügbar ab 01.07.16 zu 100%,
+Vor-Ort-Einsatz 100% möglich Profil erstellt am 06.08.01 Profil
+zuletzt geändert am 04.02.16 Lesen von Projektanfragen 3 Tage 
+[6]Direktkontakt [7]         Kommentar:   Kommentar schreiben Profil
+angezeigt am 15.01.2016 15:47:53       Fachlicher Schwerpunkt: 
+Software Architekt / Business Analyst / IT Management Senior
+Consultant      Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Projektmanagement / -leitung / Organisation / Koordination
+ Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit
+bevorzugt
+
+ Voraussetzung für Festanstellung: Interessantes Projekt und
+Arbeitsbedingungen      Ausbildung:  Diplom-Wirtschaftsinformatiker
+ (Technisch Universität Darmstadt)
+       Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz,
+außerhalb D/A/CH     
+
+	Deutschland: bevorzugt Bereich D6         Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Französisch
+
+      Hardware:  
+
+		PC
+
+		Scanner
+
+      Betriebssysteme:  
+
+		SUN OS, Solaris
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		CORBA IDL
+
+		Java
+
+		JavaScript
+
+		Perl
+
+		Scriptsprachen
+
+		Shell
+
+ Weitere: Java Server Pages JSP, SOA, BPEL, WebServices
+       Datenbanken:  
+
+		Access
+
+		DB2
+
+		Informix
+
+		JDBC
+
+		MS SQL Server
+
+		MySQL
+
+		ODBC
+
+		Oracle
+
+		SQL
+
+		Sybase
+
+      Datenkommunikation:  
+
+		CORBA
+
+		Internet, Intranet
+
+		PC-Anywhere
+
+		SMTP
+
+		TCP/IP
+
+		Windows Netzwerk
+
+      Produkte/Standards/Erfahrungen:  Weitere Erfahrungen mit
+folgenden Tools:
+
+ JDeveloper, WebSphere, Eclipse,
+ MS Visual Studio .Net C++,
+ Oracle SOA Suite
+ JBuilder,
+ VisualAge,
+ SunWorkshop Compiler,
+ gcc,
+
+ XML, XSD, XSLT,
+ XBRL,
+
+ J2EE.
+ Java-Server-Pages JSP,
+ Struts,
+ Design Patterns,
+ BPEL, Web services,
+ Application-Server: Oracle, WebSphere, BEA Weblogic
+ UML, Sparx Enterprise Architect, Innovator, TogetherJ,
+
+ Values API, Xetra, Eurex
+
+ Continuus, CVS, PVCS
+
+       Branchen:  Bisherige Tätigkeitsschwerpunkte:
+
+ Finanzdienstleister
+ Banken/Börse
+ Telekom
+
+       Projekte:  Ich biete langjährige professionelle
+Projekterfahrung in grossen und internationalen
+ Teams in allen Phasen der Konzept- und Softwareerstellung vorwiegend
+(aber nicht nur)
+ im Banken, Börsen-und Finanzdienstleistungsbereich.
+
+ Consulting für das Design, Datenmodellierung, Architektur und
+Development von Business
+ Software unter anderem aus den Bereichen:
+ Wertpapierhandel, Depotverwaltung, Risikomanagement, Cash Management,
+ Business Reporting, Börsenanbindung, XETRA+EUREX Exchanges, Telekom
+Wholesale
+
+ Technische Schwerpunkte in den Bereichen:
+ Backend &amp; Middle-Tier-Design, Java/J2EE, Java Server Pages/Struts,
+JNI, C++,
+ Application Server, EJBs, WebSphere/JDeveloper/Eclipse,
+ XML/XSD/XSLT/XBRL, SOA-Architekturen, WebServices, BPEL und
+BPEL-Prozess-Orchestrierung,
+ Oracle + DB2 SQL-Datenbanken, UML Daten- und Prozessmodellierung
+(UseCases)
+
+ Ausgewählte Projekte (ausszugsweise; ausführliches
+Qualifikationsprofil auf Anfrage):
+
+ Zeit : Feb 2008 - aktuell
+ Branche : Telekom
+ Funktion : Technisches Design
+ Tätigkeit : Design und Entwicklung eines Backend-Systems zur
+Abwicklung
+
+	 des Wholesales-Handels (Resale, TAL, CLS) mit Telekomanschlüssen 
+
+	 zwischen grossen Telekom-und DSL-Providern. 
+
+	 Work-Flow und und Datenmodellierung mit Einbindung zahlreicher, 
+
+	 existierender heterogener IT-Systeme Platform : SOA-Architektur mit
+Webservices, Orchestrierung mit BPEL,
+
+	 Oracle SOA-Suite, JDeveloper, Oracle Application Server, ESB,
+MQseries, 
+
+	 UML-Datenmodellierung mit Sparx Enterprise Architect und Innovator 
+
+	 XML, XSD Schemas, XSLT 
+ Zeit : Jul 2005 - Jan 2008
+ Branche : Finanzdienstleister
+ Funktion : Systemanalyse und Design, Anwendungsentwicklung
+ Tätigkeit/ : Design der Systemarchitektur und Entwicklung eines
+ Projekt Reporting- und Finanzanalysetools mit Schnittstelle zum
+zukünftigen
+
+	 XBRL Standard auf XML Basis. Validierung der XBRL Instanzdokumente
+für 
+
+	 Geschäftsberichte, Bilanzen und Gewinn- und Verlust-Rechnungen.
+Verwaltung 
+
+	 unterschiedlicher Taxonomien. 
+
+	 Design und Anwendungsentwicklung eines Risiko-Managementsystems
+Platform : Windows XP, Sun Solaris (Unix), Java/J2EE, CSharp, JBoss,
+
+	 WebSphere (WSAD), JMS, JDBC, Oracle, SQL+PL-SQL, XBRL,XML,XSD
+Schemas, XSLT 
+ Zeit : Dez 2004 - Jun 2005
+ Branche : Banken
+ Funktion : Anwendungsentwicklung
+ Tätigkeit/ : Design und Weiterentwicklung eines
+CashManangement-Systems zur Verrechung
+ Projekt von internationalen Euro- und Devisenpositionen auf
+Nostro-Konten der Bank.
+
+	 Netting von currency accounts bei internationalen Banken auf
+internen Konten 
+
+	 oder bei der Europäischen Zentralbank zur weiteren Disposition im
+Cash Management. 
+
+	 Entwicklung von Frontend und Serverkomponenten auf WinXP und Sun
+Solaris (Unix). 
+
+	 Client-Server-Kommunikation über JMS/MQSeries. Platform : Windows
+XP, Sun Solaris (Unix), Java/J2EE, WebSphere (WSAD), JMS/MQSeries,
+
+	 JDBC, ClearCase, Sybase/Oracle-Datenbanken, Anbindung an Host über 
+
+	 ConnectDirect, Perl, X-Reflection, SSH 
+ Zeit : April 2002 - Nov 2004
+ Branche : Banken
+ Funktion : Systemdesign, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung eines Backend-Systems zur
+Abwicklung des
+ Projekt Orderroutings von einem Brokerage-Systems zu den
+Wertpapier-Handelssystemen
+
+	 Xetra und Eurex der Deutschen Börse (+SchweizerBörse). 
+
+	 Umfangreiche Verifikation der Kassa und Terminorders auf Bonität,
+Kreditrahmens 
+
+	 Margins und Plausibilität. Technisches Mapping von Java-Objekten auf
+ValuesAPI 
+
+	 C++-Strukturen über JNI und Forwarding an die Börsen. 
+
+	 Asynchrone Callbacks der Order und Trade Confirmations über
+Multithreading-Architektur. 
+
+	 Managing von Server Connections- und Tradersessions, 
+
+	 Subscribing an (Multicast) Datastreams. Setup und Betreuung der
+MISS- 
+
+	 Architektur (GATE) für Xetra und Eurex. Platform : Windows2000, Java
+(JBuilder/Eclipse), MS Visual Studio .Net
+
+	 C++, Sybase Application Server, RMI/IIOP (Corba), 
+
+	 Oracle, PVCS, ValuesAPI, GATE/MISS, Xetra/Eurex, FIX protocol 
+ Zeit : Jan-Okt 2000
+ Branche : Banken
+ Funktion : Systemanalyse- und -Design, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung grosser Teile des
+Internetbrokerage-Backends
+ Projekt für eine europäische Internetbank. Routing und Management der
+Wertpapierorders
+
+	 zur Deutschen Börse (Xetra) bzw. den deutschen Regionalbörsen
+(BOSS-CUBE). 
+
+	 Kopplung zwischen Java Backend C++ Libraries Values-APIs überJNI.
+Platform : WindowsNT/SunSolaris, Java (JBuilder), Corba (Visibroker),
+
+	 C++ (SunWorkshop), perl, InpriseApplicationServer, 
+
+	 Oracle/Informix, PVCS, OpenSSH 
+ Zeit : Jan-Dez 1999
+ Branche : Banken/Finanzdienstleister/Börse
+ Funktion : Systemanalyse- und -Design, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung einer konfigurierbaren
+Quotemachine für das
+ Projekt Wertpapierhandelssystem Xetra über das Values API-Interface.
+
+	 Design einer CORBA basierten Architektur mit C++ Server und
+Java-Clients 
+
+	 Development eines Tools zur Konfiguration und Verwaltung von Quote
+Requests 
+
+	 und Price Datastreams für Xetra. Platform : WindowsNT/SunSolaris,
+Java (JBuilder), Corba(Orbacus), Inprise
+
+	 AppServer, WindowsNT, MS Visual Studio C++, Oracle 
+
+		Seite drucken [8]  [9] 
+		Zum Seitenanfang [10]  [11]
+
+ Recherche [12] | Suchergebnis [13] | Kontaktieren [14] | Anfragen an
+ID 29081 [15] | Profil in Englisch [16] anzeigen
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 05.02.2016 00:55:10
+ (c) Copyright 1996-2016 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [17] 
+
+   
+
+---------- Gulp-Profil Stand 2015-09-17 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 29081: Software
+Architekt / Business Analyst / IT Management Senior Consultant        
+          
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+29081 [4] | Profil in Englisch [5] anzeigen
+     Stammdaten (Auszug):    
+
+	 Personen-ID 29081    Wohnort 605xx Frankfurt am Main, Deutschland
+Jahrgang 1963 Staatsbürgerschaft deutsch Stundensatz 0 EUR
+verhandlungssache, projektabhängig Verfügbar ab 01.12.15 zu 100%,
+Vor-Ort-Einsatz 100% möglich Profil erstellt am 06.08.01 Profil
+zuletzt geändert am 17.09.15 Lesen von Projektanfragen 3 Tage 
+[6]Direktkontakt [7]         Kommentar:   Kommentar schreiben Profil
+angezeigt am 15.10.2015 13:13:12       Fachlicher Schwerpunkt: 
+Software Architekt / Business Analyst / IT Management Senior
+Consultant      Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Projektmanagement / -leitung / Organisation / Koordination
+ Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit
+bevorzugt
+
+ Voraussetzung für Festanstellung: Interessantes Projekt und
+Arbeitsbedingungen      Ausbildung:  Diplom-Wirtschaftsinformatiker
+ (Technisch Universität Darmstadt)
+       Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz,
+außerhalb D/A/CH     
+
+	Deutschland: bevorzugt Bereich D6         Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Französisch
+
+      Hardware:  
+
+		PC
+
+		Scanner
+
+      Betriebssysteme:  
+
+		SUN OS, Solaris
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		CORBA IDL
+
+		Java
+
+		JavaScript
+
+		Perl
+
+		Scriptsprachen
+
+		Shell
+
+ Weitere: Java Server Pages JSP, SOA, BPEL, WebServices
+       Datenbanken:  
+
+		Access
+
+		DB2
+
+		Informix
+
+		JDBC
+
+		MS SQL Server
+
+		MySQL
+
+		ODBC
+
+		Oracle
+
+		SQL
+
+		Sybase
+
+      Datenkommunikation:  
+
+		CORBA
+
+		Internet, Intranet
+
+		PC-Anywhere
+
+		SMTP
+
+		TCP/IP
+
+		Windows Netzwerk
+
+      Produkte/Standards/Erfahrungen:  Weitere Erfahrungen mit
+folgenden Tools:
+
+ JDeveloper, WebSphere, Eclipse,
+ MS Visual Studio .Net C++,
+ Oracle SOA Suite
+ JBuilder,
+ VisualAge,
+ SunWorkshop Compiler,
+ gcc,
+
+ XML, XSD, XSLT,
+ XBRL,
+
+ J2EE.
+ Java-Server-Pages JSP,
+ Struts,
+ Design Patterns,
+ BPEL, Web services,
+ Application-Server: Oracle, WebSphere, BEA Weblogic
+ UML, Sparx Enterprise Architect, Innovator, TogetherJ,
+
+ Values API, Xetra, Eurex
+
+ Continuus, CVS, PVCS
+
+       Branchen:  Bisherige Tätigkeitsschwerpunkte:
+
+ Finanzdienstleister
+ Banken/Börse
+ Telekom
+
+       Projekte:  Ich biete langjährige professionelle
+Projekterfahrung in grossen und internationalen
+ Teams in allen Phasen der Konzept- und Softwareerstellung vorwiegend
+(aber nicht nur)
+ im Banken, Börsen-und Finanzdienstleistungsbereich.
+
+ Consulting für das Design, Datenmodellierung, Architektur und
+Development von Business
+ Software unter anderem aus den Bereichen:
+ Wertpapierhandel, Depotverwaltung, Risikomanagement, Cash Management,
+ Business Reporting, Börsenanbindung, XETRA+EUREX Exchanges, Telekom
+Wholesale
+
+ Technische Schwerpunkte in den Bereichen:
+ Backend &amp; Middle-Tier-Design, Java/J2EE, Java Server Pages/Struts,
+JNI, C++,
+ Application Server, EJBs, WebSphere/JDeveloper/Eclipse,
+ XML/XSD/XSLT/XBRL, SOA-Architekturen, WebServices, BPEL und
+BPEL-Prozess-Orchestrierung,
+ Oracle + DB2 SQL-Datenbanken, UML Daten- und Prozessmodellierung
+(UseCases)
+
+ Ausgewählte Projekte (ausszugsweise; ausführliches
+Qualifikationsprofil auf Anfrage):
+
+ Zeit : Feb 2008 - aktuell
+ Branche : Telekom
+ Funktion : Technisches Design
+ Tätigkeit : Design und Entwicklung eines Backend-Systems zur
+Abwicklung
+
+	 des Wholesales-Handels (Resale, TAL, CLS) mit Telekomanschlüssen 
+
+	 zwischen grossen Telekom-und DSL-Providern. 
+
+	 Work-Flow und und Datenmodellierung mit Einbindung zahlreicher, 
+
+	 existierender heterogener IT-Systeme Platform : SOA-Architektur mit
+Webservices, Orchestrierung mit BPEL,
+
+	 Oracle SOA-Suite, JDeveloper, Oracle Application Server, ESB,
+MQseries, 
+
+	 UML-Datenmodellierung mit Sparx Enterprise Architect und Innovator 
+
+	 XML, XSD Schemas, XSLT 
+ Zeit : Jul 2005 - Jan 2008
+ Branche : Finanzdienstleister
+ Funktion : Systemanalyse und Design, Anwendungsentwicklung
+ Tätigkeit/ : Design der Systemarchitektur und Entwicklung eines
+ Projekt Reporting- und Finanzanalysetools mit Schnittstelle zum
+zukünftigen
+
+	 XBRL Standard auf XML Basis. Validierung der XBRL Instanzdokumente
+für 
+
+	 Geschäftsberichte, Bilanzen und Gewinn- und Verlust-Rechnungen.
+Verwaltung 
+
+	 unterschiedlicher Taxonomien. 
+
+	 Design und Anwendungsentwicklung eines Risiko-Managementsystems
+Platform : Windows XP, Sun Solaris (Unix), Java/J2EE, CSharp, JBoss,
+
+	 WebSphere (WSAD), JMS, JDBC, Oracle, SQL+PL-SQL, XBRL,XML,XSD
+Schemas, XSLT 
+ Zeit : Dez 2004 - Jun 2005
+ Branche : Banken
+ Funktion : Anwendungsentwicklung
+ Tätigkeit/ : Design und Weiterentwicklung eines
+CashManangement-Systems zur Verrechung
+ Projekt von internationalen Euro- und Devisenpositionen auf
+Nostro-Konten der Bank.
+
+	 Netting von currency accounts bei internationalen Banken auf
+internen Konten 
+
+	 oder bei der Europäischen Zentralbank zur weiteren Disposition im
+Cash Management. 
+
+	 Entwicklung von Frontend und Serverkomponenten auf WinXP und Sun
+Solaris (Unix). 
+
+	 Client-Server-Kommunikation über JMS/MQSeries. Platform : Windows
+XP, Sun Solaris (Unix), Java/J2EE, WebSphere (WSAD), JMS/MQSeries,
+
+	 JDBC, ClearCase, Sybase/Oracle-Datenbanken, Anbindung an Host über 
+
+	 ConnectDirect, Perl, X-Reflection, SSH 
+ Zeit : April 2002 - Nov 2004
+ Branche : Banken
+ Funktion : Systemdesign, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung eines Backend-Systems zur
+Abwicklung des
+ Projekt Orderroutings von einem Brokerage-Systems zu den
+Wertpapier-Handelssystemen
+
+	 Xetra und Eurex der Deutschen Börse (+SchweizerBörse). 
+
+	 Umfangreiche Verifikation der Kassa und Terminorders auf Bonität,
+Kreditrahmens 
+
+	 Margins und Plausibilität. Technisches Mapping von Java-Objekten auf
+ValuesAPI 
+
+	 C++-Strukturen über JNI und Forwarding an die Börsen. 
+
+	 Asynchrone Callbacks der Order und Trade Confirmations über
+Multithreading-Architektur. 
+
+	 Managing von Server Connections- und Tradersessions, 
+
+	 Subscribing an (Multicast) Datastreams. Setup und Betreuung der
+MISS- 
+
+	 Architektur (GATE) für Xetra und Eurex. Platform : Windows2000, Java
+(JBuilder/Eclipse), MS Visual Studio .Net
+
+	 C++, Sybase Application Server, RMI/IIOP (Corba), 
+
+	 Oracle, PVCS, ValuesAPI, GATE/MISS, Xetra/Eurex, FIX protocol 
+ Zeit : Jan-Okt 2000
+ Branche : Banken
+ Funktion : Systemanalyse- und -Design, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung grosser Teile des
+Internetbrokerage-Backends
+ Projekt für eine europäische Internetbank. Routing und Management der
+Wertpapierorders
+
+	 zur Deutschen Börse (Xetra) bzw. den deutschen Regionalbörsen
+(BOSS-CUBE). 
+
+	 Kopplung zwischen Java Backend C++ Libraries Values-APIs überJNI.
+Platform : WindowsNT/SunSolaris, Java (JBuilder), Corba (Visibroker),
+
+	 C++ (SunWorkshop), perl, InpriseApplicationServer, 
+
+	 Oracle/Informix, PVCS, OpenSSH 
+ Zeit : Jan-Dez 1999
+ Branche : Banken/Finanzdienstleister/Börse
+ Funktion : Systemanalyse- und -Design, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung einer konfigurierbaren
+Quotemachine für das
+ Projekt Wertpapierhandelssystem Xetra über das Values API-Interface.
+
+	 Design einer CORBA basierten Architektur mit C++ Server und
+Java-Clients 
+
+	 Development eines Tools zur Konfiguration und Verwaltung von Quote
+Requests 
+
+	 und Price Datastreams für Xetra. Platform : WindowsNT/SunSolaris,
+Java (JBuilder), Corba(Orbacus), Inprise
+
+	 AppServer, WindowsNT, MS Visual Studio C++, Oracle 
+
+		Seite drucken [8]  [9] 
+		Zum Seitenanfang [10]  [11]
+
+ Recherche [12] | Suchergebnis [13] | Kontaktieren [14] | Anfragen an
+ID 29081 [15] | Profil in Englisch [16] anzeigen
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 27.09.2015 01:08:18
+ (c) Copyright 1996-2015 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [17] 
+
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show270118
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?29081
+[4] /cgi-gulpsearch/gp.exe/UBONE29081?0
+[5] /cgi-gulpsearch/gp.exe/UBPROF?46341
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?29081D6
+[7] /cgi-gulpsearch/Kontakt.exe/PCODG?29081D6
+[8] /cgi-gulpsearch/printdoc.exe/profil?E3YL8HJZ
+[9] /cgi-gulpsearch/printdoc.exe/profil?E3YL8HJZ
+[10] /#
+[11] /#
+[12] /cgi-gulpsearch/enter.exe/r
+[13] /cgi-gulpsearch/ShowResults.exe/Show270118
+[14] /cgi-gulpsearch/Kontakt.exe/PCOAG?29081
+[15] /cgi-gulpsearch/gp.exe/UBONE29081?0
+[16] /cgi-gulpsearch/gp.exe/UBPROF?46341
+[17] mailto:info@gulp.de
+
+
+---------- Gulp-Profil Stand 2014-09-21 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 29081: Software
+Architekt / Business Analyst / IT Management Senior Consultant        
+          
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+29081 [4] | Profil in Englisch [5] anzeigen
+     Stammdaten (Auszug):    
+
+	 Personen-ID 29081    Wohnort 658xx Bad Soden/Ts, Deutschland
+Jahrgang 1963 Staatsbürgerschaft deutsch Stundensatz 0 EUR
+verhandlungssache, projektabhängig Verfügbar ab 01.03.15 zu 100%,
+Vor-Ort-Einsatz 100% möglich Profil erstellt am 06.08.01 Profil
+zuletzt geändert am 21.09.14 Lesen von Projektanfragen 3,5 Tage 
+[6]Direktkontakt [7]         Kommentar:   Kommentar schreiben Profil
+angezeigt am 22.09.2014 13:47:24       Fachlicher Schwerpunkt: 
+Software Architekt / Business Analyst / IT Management Senior
+Consultant      Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Projektmanagement / -leitung / Organisation / Koordination
+ Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit
+bevorzugt
+
+ Voraussetzung für Festanstellung: Interessantes Projekt und
+Arbeitsbedingungen      Ausbildung:  Diplom-Wirtschaftsinformatiker
+ (Technisch Universität Darmstadt)
+       Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz,
+außerhalb D/A/CH     
+
+	Deutschland: bevorzugt Bereich D6         Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Französisch
+
+      Hardware:  
+
+		PC
+
+		Scanner
+
+      Betriebssysteme:  
+
+		Unix
+
+		Windows
+
+		SUN OS, Solaris
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		Java
+
+		JavaScript
+
+		Shell
+
+		CORBA IDL
+
+		Perl
+
+		Scriptsprachen
+
+Weitere: Java Server Pages JSP, SOA, BPEL, WebServices
+       Datenbanken:  
+
+		Access
+
+		DB2
+
+		Informix
+
+		MS SQL Server
+
+		MySQL
+
+		Oracle
+
+		Sybase
+
+		JDBC
+
+		ODBC
+
+		SQL
+
+      Datenkommunikation:  
+
+		Internet, Intranet
+
+		TCP/IP
+
+		Windows Netzwerk
+
+		CORBA
+
+		PC-Anywhere
+
+		SMTP
+
+      Produkte/Standards/Erfahrungen:  Weitere Erfahrungen mit
+folgenden Tools:
+
+ JDeveloper, WebSphere, Eclipse,
+ MS Visual Studio .Net C++,
+ Oracle SOA Suite
+ JBuilder,
+ VisualAge,
+ SunWorkshop Compiler,
+ gcc,
+
+ XML, XSD, XSLT,
+ XBRL,
+
+ J2EE.
+ Java-Server-Pages JSP,
+ Struts,
+ Design Patterns,
+ BPEL, Web services,
+ Application-Server: Oracle, WebSphere, BEA Weblogic
+ UML, Sparx Enterprise Architect, Innovator, TogetherJ,
+
+ Values API, Xetra, Eurex
+
+ Continuus, CVS, PVCS
+
+       Branchen:  Bisherige Tätigkeitsschwerpunkte:
+
+ Finanzdienstleister
+ Banken/Börse
+ Telekom
+
+       Projekte:  Ich biete langjährige professionelle
+Projekterfahrung in grossen und internationalen
+ Teams in allen Phasen der Konzept- und Softwareerstellung vorwiegend
+(aber nicht nur)
+ im Banken, Börsen-und Finanzdienstleistungsbereich.
+
+ Consulting für das Design, Datenmodellierung, Architektur und
+Development von Business
+ Software unter anderem aus den Bereichen:
+ Wertpapierhandel, Depotverwaltung, Risikomanagement, Cash Management,
+ Business Reporting, Börsenanbindung, XETRA+EUREX Exchanges, Telekom
+Wholesale
+
+ Technische Schwerpunkte in den Bereichen:
+ Backend &amp; Middle-Tier-Design, Java/J2EE, Java Server Pages/Struts,
+JNI, C++,
+ Application Server, EJBs, WebSphere/JDeveloper/Eclipse,
+ XML/XSD/XSLT/XBRL, SOA-Architekturen, WebServices, BPEL und
+BPEL-Prozess-Orchestrierung,
+ Oracle + DB2 SQL-Datenbanken, UML Daten- und Prozessmodellierung
+(UseCases)
+
+ Ausgewählte Projekte (ausszugsweise; ausführliches
+Qualifikationsprofil auf Anfrage):
+
+ Zeit : Feb 2008 - aktuell
+ Branche : Telekom
+ Funktion : Technisches Design
+ Tätigkeit : Design und Entwicklung eines Backend-Systems zur
+Abwicklung
+
+	 des Wholesales-Handels (Resale, TAL, CLS) mit Telekomanschlüssen 
+
+	 zwischen grossen Telekom-und DSL-Providern. 
+
+	 Work-Flow und und Datenmodellierung mit Einbindung zahlreicher, 
+
+	 existierender heterogener IT-Systeme Platform : SOA-Architektur mit
+Webservices, Orchestrierung mit BPEL,
+
+	 Oracle SOA-Suite, JDeveloper, Oracle Application Server, ESB,
+MQseries, 
+
+	 UML-Datenmodellierung mit Sparx Enterprise Architect und Innovator 
+
+	 XML, XSD Schemas, XSLT 
+ Zeit : Jul 2005 - Jan 2008
+ Branche : Finanzdienstleister
+ Funktion : Systemanalyse und Design, Anwendungsentwicklung
+ Tätigkeit/ : Design der Systemarchitektur und Entwicklung eines
+ Projekt Reporting- und Finanzanalysetools mit Schnittstelle zum
+zukünftigen
+
+	 XBRL Standard auf XML Basis. Validierung der XBRL Instanzdokumente
+für 
+
+	 Geschäftsberichte, Bilanzen und Gewinn- und Verlust-Rechnungen.
+Verwaltung 
+
+	 unterschiedlicher Taxonomien. 
+
+	 Design und Anwendungsentwicklung eines Risiko-Managementsystems
+Platform : Windows XP, Sun Solaris (Unix), Java/J2EE, CSharp, JBoss,
+
+	 WebSphere (WSAD), JMS, JDBC, Oracle, SQL+PL-SQL, XBRL,XML,XSD
+Schemas, XSLT 
+ Zeit : Dez 2004 - Jun 2005
+ Branche : Banken
+ Funktion : Anwendungsentwicklung
+ Tätigkeit/ : Design und Weiterentwicklung eines
+CashManangement-Systems zur Verrechung
+ Projekt von internationalen Euro- und Devisenpositionen auf
+Nostro-Konten der Bank.
+
+	 Netting von currency accounts bei internationalen Banken auf
+internen Konten 
+
+	 oder bei der Europäischen Zentralbank zur weiteren Disposition im
+Cash Management. 
+
+	 Entwicklung von Frontend und Serverkomponenten auf WinXP und Sun
+Solaris (Unix). 
+
+	 Client-Server-Kommunikation über JMS/MQSeries. Platform : Windows
+XP, Sun Solaris (Unix), Java/J2EE, WebSphere (WSAD), JMS/MQSeries,
+
+	 JDBC, ClearCase, Sybase/Oracle-Datenbanken, Anbindung an Host über 
+
+	 ConnectDirect, Perl, X-Reflection, SSH 
+ Zeit : April 2002 - Nov 2004
+ Branche : Banken
+ Funktion : Systemdesign, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung eines Backend-Systems zur
+Abwicklung des
+ Projekt Orderroutings von einem Brokerage-Systems zu den
+Wertpapier-Handelssystemen
+
+	 Xetra und Eurex der Deutschen Börse (+SchweizerBörse). 
+
+	 Umfangreiche Verifikation der Kassa und Terminorders auf Bonität,
+Kreditrahmens 
+
+	 Margins und Plausibilität. Technisches Mapping von Java-Objekten auf
+ValuesAPI 
+
+	 C++-Strukturen über JNI und Forwarding an die Börsen. 
+
+	 Asynchrone Callbacks der Order und Trade Confirmations über
+Multithreading-Architektur. 
+
+	 Managing von Server Connections- und Tradersessions, 
+
+	 Subscribing an (Multicast) Datastreams. Setup und Betreuung der
+MISS- 
+
+	 Architektur (GATE) für Xetra und Eurex. Platform : Windows2000, Java
+(JBuilder/Eclipse), MS Visual Studio .Net
+
+	 C++, Sybase Application Server, RMI/IIOP (Corba), 
+
+	 Oracle, PVCS, ValuesAPI, GATE/MISS, Xetra/Eurex, FIX protocol 
+ Zeit : Jan-Okt 2000
+ Branche : Banken
+ Funktion : Systemanalyse- und -Design, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung grosser Teile des
+Internetbrokerage-Backends
+ Projekt für eine europäische Internetbank. Routing und Management der
+Wertpapierorders
+
+	 zur Deutschen Börse (Xetra) bzw. den deutschen Regionalbörsen
+(BOSS-CUBE). 
+
+	 Kopplung zwischen Java Backend C++ Libraries Values-APIs überJNI.
+Platform : WindowsNT/SunSolaris, Java (JBuilder), Corba (Visibroker),
+
+	 C++ (SunWorkshop), perl, InpriseApplicationServer, 
+
+	 Oracle/Informix, PVCS, OpenSSH 
+ Zeit : Jan-Dez 1999
+ Branche : Banken/Finanzdienstleister/Börse
+ Funktion : Systemanalyse- und -Design, Anwendungsentwicklung
+ Tätigkeit/ : Design und Entwicklung einer konfigurierbaren
+Quotemachine für das
+ Projekt Wertpapierhandelssystem Xetra über das Values API-Interface.
+
+	 Design einer CORBA basierten Architektur mit C++ Server und
+Java-Clients 
+
+	 Development eines Tools zur Konfiguration und Verwaltung von Quote
+Requests 
+
+	 und Price Datastreams für Xetra. P

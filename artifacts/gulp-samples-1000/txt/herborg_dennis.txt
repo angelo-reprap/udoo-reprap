@@ -1,0 +1,1067 @@
+---------- Gulp-Profil Stand 2019-01-09 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 165279: Docker,
+AWS, Kuberntes, DevOps, Google Cloud, PHP, Symfony, MySQL, Jenkins    
+              
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+165279 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 165279    Wohnort 453xx Essen, Deutschland Jahrgang 1982
+Staatsbürgerschaft deutsch Stundensatz 80 EUR  Verfügbar ab 31.03.19
+zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am 11.10.15
+Profil zuletzt geändert am 09.01.19 Lesen von Projektanfragen 4,5 Tage
+ [5]Direktkontakt [6]         Kommentar:   Kommentar schreiben Profil
+angezeigt am 11.12.2018 10:46:35       Fachlicher Schwerpunkt: 
+Docker, AWS, Kuberntes, DevOps, Google Cloud, PHP, Symfony, MySQL,
+Jenkins      Position:  Software-Entwicklung / Programmierung
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  
+
+	2001 - 2005     
+
+	Ausbildung zum Informationselektroniker Fachrichtung Geräte &amp;
+Systemtechnik           Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz,
+außerhalb D/A/CH   im Umkreis von: 
+
+	Essen, Ruhr (150 km)   Ich möchte BEVORZUGT für die o. g. Einsatzorte
+kontaktiert werden.       Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+      Betriebssysteme:  
+
+		Debian
+
+		MacOS
+
+		Ubuntu
+
+		Windows
+
+      Programmiersprachen:  
+
+		CSS3
+
+		Go
+
+		HTML5
+
+		JavaScript
+
+		jQuery
+
+		PHP
+
+	Über 10 Jahre Erfahrung als PHP Programmierer      Datenbanken:  
+
+		Galera Cluster
+
+		MongoDB
+
+		MySQL
+
+      Produkte/Standards/Erfahrungen:  
+
+		Ansible
+		erfahren
+
+		Apache
+		Sehr erfahren
+
+		AWS
+		erfahren
+
+		CloudFlare
+		erfahren
+
+		CodeIgniter
+		Experte
+
+		Docker
+		Experte
+
+		Git
+		Projekterfahrung
+
+		GitLab
+		Projekterfahrung
+
+		GitLab CI
+		erfahren
+
+		Google Cloud
+		erfahren
+
+		Helm
+		sehr erfahren
+
+		Jenkins
+		erfahren
+
+		Kubernetes
+		sehr erfahren
+
+		Laravel
+		erfahren
+
+		NewRelic
+		erfahren
+
+		nginx
+		erfahren
+
+		Node.js
+		erfahren
+
+		Phing
+		erfahren
+
+		PhpStorm
+		erfahren
+
+		Redmine
+		Projekterfahrung
+
+		Saltstack
+		erfahren
+
+		SEO
+		erfahren
+
+		Subversion
+		erfahren
+
+		Symfony
+		erfahren
+
+		Terraform
+		erfahren
+
+		Vagrant
+		erfahren
+
+		WordPress
+
+		Zend Framework 2
+		erfahren
+
+		Zend Server
+		Sehr erfahren
+
+      Branchen:  
+
+	* Service
+	* IT-Dienstleistung
+	* Immobilien
+	* Staatlich anerkanntes Glückspiel (Sportwetten und Kasino)
+	* Browsergames
+
+      Projekte:  
+
+	10/2018 - heute: DevOps 
+
+	Kunde: SAP Deutschland SE &amp; Co. KG 
+
+	Aufgaben: 
+
+	Docker integration und deployment einer IOT Java Applikation auf
+Kubernetes. Entwicklung eines Kubernetes Operators in Go. Integration
+der Logging Infrastructure auf Elasticsearch / Kibana     
+
+	Kenntnisse: 
+
+	Kubernetes, Docker, Go, elasticsearch 
+-------------------------
+
+	03/2018 - 09/2018: Kubernetes Migration von Sparhandy.de 
+
+	Einsatzort: Köln 
+
+	Rolle: DevOps 
+
+	Kunde: SH Telekommunikation Deutschland GmbH 
+
+	Aufgaben: 
+
+	Docker Container für Symfony Application erstellen. Aufsetzen eines
+CI/CD Prozesses mit Jenkins 2, Ansible und Helm auf Kubernetes.
+Erstellung von Terraformtemplates für Test- und Live-Umgebung der
+Google Cloud     
+
+	Kenntnisse: 
+
+	Kubernetes, Symfony, Jenkins, Ansible, Terraform, Helm 
+-------------------------
+
+	02/2017 - 02/2018: Implementation und integration von Microservices 
+
+	Einsatzort: Hamburg 
+
+	Rolle: DevOps 
+
+	Kunde: Jungheinrich AG 
+
+	Aufgaben: 
+
+	Konzeption und Umsetzung einer Umgebung zur Bereitstellung von
+Microservices auf Basis von Docker / Kubernetes, Saltstack / Ansible
+Konfigurationsmanagement, Setup der Build-Pipelines unter Jenkins und
+Concourse CI, Entwicklung von Microservices unter Symfony Framework 3,
+Implementierung RabbitMQ, Einrichtung von Keycloak SSO     
+
+	Kenntnisse: 
+
+	PHP, Symfony, Docker, Kubernetes, Saltstack, Jenkins 
+
+	Eingesetzte Produkte: 
+
+	AWS 
+-------------------------
+
+	03/2015 - 01/2017: Infrastruktur Modernisierung 
+
+	Einsatzort: Oberhausen 
+
+	Rolle: Softwareentwickler / DevOps 
+
+	Kunde: Digibet AG 
+
+	Branche: IT-Dienstleistungen 
+
+	Aufgaben: 
+
+	Konzeption verteilter Software-Architektur (HA), Integration Zend
+Server Cluster, Umstellung SVN auf GitLab, Setup einer Build-Pipeline
+in Jenkins, Einführung Vagrant Deployment, Umstellung der MySQL DB auf
+Galera Cluster, Einsatz von Code-Reviews zur Erhöhung der
+Softwarequalität, Implementation von NewRelic Application Performance
+Management 
+
+	Kenntnisse: 
+
+	PHP, MySQL, Galera Cluster, CodeIgniter, Git, Subversion 
+
+	Eingesetzte Produkte: 
+
+	Zend Server, PhpStorm, Galera Cluster, MySQL, Jenkins, Vagrant,
+NewRelic 
+-------------------------
+
+	03/2008 - 12/2016: Immobilien Portal 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Aufgaben: 
+
+	Konzeption und Entwicklung eines Immobilienportals, SEO, Management
+der AdSense Kampagnen 
+
+	Kenntnisse: 
+
+	PHP, WordPress, SEO, CodeIgniter 
+
+	Eingesetzte Produkte: 
+
+	PhpStorm, Apache, MySQL, CloudFlare 
+-------------------------
+
+	06/2016 - 09/2016: REST Api Entwicklung 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: E.ON / myZenit 
+
+	Aufgaben: 
+
+	Implementierung einer Apigility REST Api zur Messdatenerfassung von
+Photovoltaikanlagen    
+
+	Kenntnisse: 
+
+	Zend Framework 
+-------------------------
+
+	07/2013 - 02/2015: Caching-Infrastruktur 
+
+	Einsatzort: Essen 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Aufgaben: 
+
+	Integration einer global verteilten Caching-Infrastruktur auf Basis
+von PHP und memcached, DDOS Prevention, Schutz der Applikation durch
+eine WAF 
+
+	Kenntnisse: 
+
+	PHP, memcached 
+
+	Eingesetzte Produkte: 
+
+	nginx, memcached, Debian, AWS, Ubuntu 
+-------------------------
+
+	07/2013 - 02/2015: Rollout Backoffice 
+
+	Einsatzort: Oberhausen 
+
+	Rolle: Softwareentwickler 
+
+	Aufgaben: 
+
+	Konzeption und Neuentwicklung des Backoffice auf Basis von
+CodeIgniter. Durchführung der Code-Reviews. 
+
+	Kenntnisse: 
+
+	PHP, CodeIgniter, MySQL, jQuery, Bootstrap 
+
+	Eingesetzte Produkte: 
+
+	PhpStorm, Zend Server 
+-------------------------
+
+	01/2014 - 01/2015: Rollout Lieferportal 
+
+	Einsatzort: Dienslaken 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Aufgaben: 
+
+	Konzeption und Entwicklung eines Portals zur Disposition von
+Auslieferungen auf Basis von CodeIgniter 
+
+	Kenntnisse: 
+
+	PHP, CodeIgniter, jQuery, Bootstrap 
+
+	Eingesetzte Produkte: 
+
+	PhpStorm 
+-------------------------
+
+	11/2013 - 12/2014: Dynamische Lagerhaltung 
+
+	Einsatzort: Essen 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Aufgaben: 
+
+	Einführung von Collmex als Warenwirtschaft. Erweiterung um eine
+Dynamische Lagerhaltung. 
+
+	Kenntnisse: 
+
+	PHP, MySQL 
+
+	Eingesetzte Produkte: 
+
+	PhpStorm, Collmex 
+-------------------------
+
+	07/2009 - 10/2014: CRM-System 
+
+	Rolle: Softwareentwickler 
+
+	Kunde: SONY Europe Limited 
+
+	Aufgaben: 
+
+	Konzeption und Entwicklung aller Komponenten (Backend, Frontend, DB
+und DB-Migration des Altsystems) 
+
+	Kenntnisse: 
+
+	PHP, MySQL 
+
+	Eingesetzte Produkte: 
+
+	FusionCharts 
+-------------------------
+
+	10/2011 - 08/2013: Software Refactoring 
+
+	Einsatzort: Oberhausen 
+
+	Rolle: Software-Architekt / Lead-Developer 
+
+	Aufgaben: 
+
+	agile Projektleitung &amp; Durchführung nach Scrum,
+Zusammenstellung/Einstellung eines 6er Teams, Refactoring auf Basis
+von Zend Framework 2, Entwicklung einer REST-API, Umstellung der Flash
+Games auf HTML5 
+
+	Kenntnisse: 
+
+	Zend Framework 2, PHP, Scrum, REST, HTML5, jQuery, MySQL 
+
+	Eingesetzte Produkte: 
+
+	Zend Studio 
+-------------------------
+
+	02/2011 - 08/2013: Reparatur Verwaltung 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Kunde: E.L.A.S. GmbH 
+
+	Aufgaben: 
+
+	Integration einer Software zur Abwicklung von Reparaturaufträgen 
+
+	Kenntnisse: 
+
+	PHP, MySQL 
+-------------------------
+
+	08/2006 - 03/2013: Reparatur Verwaltung 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Kunde: Technik - Rat &amp; Hilfe GmbH 
+
+	Aufgaben: 
+
+	Konzeption, Entwicklung und Integration einer Software zur Abwicklung
+von Reparatur-, Kulanz- und Rebtourenaufträge 
+
+	Kenntnisse: 
+
+	PHP, MySQL 
+-------------------------
+
+	06/2010 - 07/2011: Entwicklung WaWi 
+
+	Einsatzort: Essen 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Kunde: Orbit Office AG 
+
+	Aufgaben: 
+
+	SEO, Kundenberatung im Bereich der REST-API integration, Entwicklung
+einer WaWi 
+
+	Kenntnisse: 
+
+	PHP, MySQL, CodeIgniter 
+-------------------------
+
+	06/2008 - 05/2010: Browsergames 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Kunde: Cash Raider AG 
+
+	Aufgaben: 
+
+	Bugfixing der bestehenden Applikation, Weiterentwicklung im mobile
+WebApp-Bereich 
+
+	Kenntnisse: 
+
+	PHP, MySQL, jQuery 
+-------------------------
+
+	09/2006 - 02/2008: Immobilien Video 
+
+	Einsatzort: Sittard NL 
+
+	Rolle: Softwareentwickler / Postproduktion 
+
+	Kunde: Immofilm B.V. 
+
+	Aufgaben: 
+
+	Postproduktion von Immobilien Videos, Implementierung einer Plattform
+zu Verwaltung von Videos 
+
+	Kenntnisse: 
+
+	PHP, MySQL 
+
+	Eingesetzte Produkte: 
+
+	Flash Media Server 
+-------------------------
+
+	06/2005 - 08/2006: Erstellung Websites 
+
+	Einsatzort: Mülheim an der Ruhr 
+
+	Rolle: Softwareentwickler 
+
+	Kunde: Satsup Medien GmbH 
+
+	Aufgaben: 
+
+	Gestaltung und Umsetzung von Websites, Konzeption und Programmierung
+eines Portals zum Vertrieb von Video-content 
+
+	Kenntnisse: 
+
+	PHP, MySQL 
+-------------------------
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 165279 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 10.01.2019 00:58:45
+ (c) Copyright 1996-2019 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+---------- Gulp-Profil Stand 2018-11-27 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 165279: Docker,
+AWS, Kuberntes, DevOps, Google Cloud, PHP, Symfony, MySQL, Jenkins    
+              
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+165279 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 165279    Wohnort 453xx Essen, Deutschland Jahrgang 1982
+Staatsbürgerschaft deutsch Stundensatz 80 EUR  Verfügbar ab 01.01.19
+zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am 11.10.15
+Profil zuletzt geändert am 27.11.18 Lesen von Projektanfragen 4,5 Tage
+ [5]Direktkontakt [6]         Kommentar:   Kommentar schreiben Profil
+angezeigt am 11.12.2018 10:46:20       Fachlicher Schwerpunkt: 
+Docker, AWS, Kuberntes, DevOps, Google Cloud, PHP, Symfony, MySQL,
+Jenkins      Position:  Software-Entwicklung / Programmierung
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  
+
+	2001 - 2005     
+
+	Ausbildung zum Informationselektroniker Fachrichtung Geräte &amp;
+Systemtechnik           Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz,
+außerhalb D/A/CH   im Umkreis von: 
+
+	Essen, Ruhr (150 km)   Ich möchte BEVORZUGT für die o. g. Einsatzorte
+kontaktiert werden.       Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+      Betriebssysteme:  
+
+		Debian
+
+		MacOS
+
+		Ubuntu
+
+		Windows
+
+      Programmiersprachen:  
+
+		CSS3
+
+		Go
+
+		HTML5
+
+		JavaScript
+
+		jQuery
+
+		PHP
+
+	Über 10 Jahre Erfahrung als PHP Programmierer      Datenbanken:  
+
+		Galera Cluster
+
+		MongoDB
+
+		MySQL
+
+      Produkte/Standards/Erfahrungen:  
+
+		Ansible
+		erfahren
+
+		Apache
+		Sehr erfahren
+
+		AWS
+		erfahren
+
+		CloudFlare
+		erfahren
+
+		CodeIgniter
+		Experte
+
+		Docker
+		Experte
+
+		Git
+		Projekterfahrung
+
+		GitLab
+		Projekterfahrung
+
+		GitLab CI
+		erfahren
+
+		Google Cloud
+		erfahren
+
+		Helm
+		sehr erfahren
+
+		Jenkins
+		erfahren
+
+		Kubernetes
+		sehr erfahren
+
+		Laravel
+		erfahren
+
+		NewRelic
+		erfahren
+
+		nginx
+		erfahren
+
+		Node.js
+		erfahren
+
+		Phing
+		erfahren
+
+		PhpStorm
+		erfahren
+
+		Redmine
+		Projekterfahrung
+
+		Saltstack
+		erfahren
+
+		SEO
+		erfahren
+
+		Subversion
+		erfahren
+
+		Symfony
+		erfahren
+
+		Terraform
+		erfahren
+
+		Vagrant
+		erfahren
+
+		WordPress
+
+		Zend Framework 2
+		erfahren
+
+		Zend Server
+		Sehr erfahren
+
+      Branchen:  
+
+	* Service
+	* IT-Dienstleistung
+	* Immobilien
+	* Staatlich anerkanntes Glückspiel (Sportwetten und Kasino)
+	* Browsergames
+
+      Projekte:  
+
+	10/2018 - heute: DevOps 
+
+	Kunde: SAP Deutschland SE &amp; Co. KG 
+
+	Aufgaben: 
+
+	Docker integration und deployment einer IOT Java Applikation auf
+Kubernetes. Entwicklung eines Kubernetes Operators in Go. Integration
+der Logging Infrastructure auf Elasticsearch / Kibana     
+
+	Kenntnisse: 
+
+	Kubernetes, Docker, Go, elasticsearch 
+-------------------------
+
+	03/2018 - 09/2018: Kubernetes Migration von Sparhandy.de 
+
+	Einsatzort: Köln 
+
+	Rolle: DevOps 
+
+	Kunde: SH Telekommunikation Deutschland GmbH 
+
+	Aufgaben: 
+
+	Docker Container für Symfony Application erstellen. Aufsetzen eines
+CI/CD Prozesses mit Jenkins 2, Ansible und Helm auf Kubernetes.
+Erstellung von Terraformtemplates für Test- und Live-Umgebung der
+Google Cloud     
+
+	Kenntnisse: 
+
+	Kubernetes, Symfony, Jenkins, Ansible, Terraform, Helm 
+-------------------------
+
+	02/2017 - 02/2018: Implementation und integration von Microservices 
+
+	Einsatzort: Hamburg 
+
+	Rolle: DevOps 
+
+	Kunde: Jungheinrich AG 
+
+	Aufgaben: 
+
+	Konzeption und Umsetzung einer Umgebung zur Bereitstellung von
+Microservices auf Basis von Docker / Kubernetes, Saltstack / Ansible
+Konfigurationsmanagement, Setup der Build-Pipelines unter Jenkins und
+Concourse CI, Entwicklung von Microservices unter Symfony Framework 3,
+Implementierung RabbitMQ, Einrichtung von Keycloak SSO     
+
+	Kenntnisse: 
+
+	PHP, Symfony, Docker, Kubernetes, Saltstack, Jenkins 
+
+	Eingesetzte Produkte: 
+
+	AWS 
+-------------------------
+
+	03/2015 - 01/2017: Infrastruktur Modernisierung 
+
+	Einsatzort: Oberhausen 
+
+	Rolle: Softwareentwickler / DevOps 
+
+	Kunde: Digibet AG 
+
+	Branche: IT-Dienstleistungen 
+
+	Aufgaben: 
+
+	Konzeption verteilter Software-Architektur (HA), Integration Zend
+Server Cluster, Umstellung SVN auf GitLab, Setup einer Build-Pipeline
+in Jenkins, Einführung Vagrant Deployment, Umstellung der MySQL DB auf
+Galera Cluster, Einsatz von Code-Reviews zur Erhöhung der
+Softwarequalität, Implementation von NewRelic Application Performance
+Management 
+
+	Kenntnisse: 
+
+	PHP, MySQL, Galera Cluster, CodeIgniter, Git, Subversion 
+
+	Eingesetzte Produkte: 
+
+	Zend Server, PhpStorm, Galera Cluster, MySQL, Jenkins, Vagrant,
+NewRelic 
+-------------------------
+
+	03/2008 - 12/2016: Immobilien Portal 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Aufgaben: 
+
+	Konzeption und Entwicklung eines Immobilienportals, SEO, Management
+der AdSense Kampagnen 
+
+	Kenntnisse: 
+
+	PHP, WordPress, SEO, CodeIgniter 
+
+	Eingesetzte Produkte: 
+
+	PhpStorm, Apache, MySQL, CloudFlare 
+-------------------------
+
+	06/2016 - 09/2016: REST Api Entwicklung 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: E.ON / myZenit 
+
+	Aufgaben: 
+
+	Implementierung einer Apigility REST Api zur Messdatenerfassung von
+Photovoltaikanlagen    
+
+	Kenntnisse: 
+
+	Zend Framework 
+-------------------------
+
+	07/2013 - 02/2015: Caching-Infrastruktur 
+
+	Einsatzort: Essen 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Aufgaben: 
+
+	Integration einer global verteilten Caching-Infrastruktur auf Basis
+von PHP und memcached, DDOS Prevention, Schutz der Applikation durch
+eine WAF 
+
+	Kenntnisse: 
+
+	PHP, memcached 
+
+	Eingesetzte Produkte: 
+
+	nginx, memcached, Debian, AWS, Ubuntu 
+-------------------------
+
+	07/2013 - 02/2015: Rollout Backoffice 
+
+	Einsatzort: Oberhausen 
+
+	Rolle: Softwareentwickler 
+
+	Aufgaben: 
+
+	Konzeption und Neuentwicklung des Backoffice auf Basis von
+CodeIgniter. Durchführung der Code-Reviews. 
+
+	Kenntnisse: 
+
+	PHP, CodeIgniter, MySQL, jQuery, Bootstrap 
+
+	Eingesetzte Produkte: 
+
+	PhpStorm, Zend Server 
+-------------------------
+
+	01/2014 - 01/2015: Rollout Lieferportal 
+
+	Einsatzort: Dienslaken 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Aufgaben: 
+
+	Konzeption und Entwicklung eines Portals zur Disposition von
+Auslieferungen auf Basis von CodeIgniter 
+
+	Kenntnisse: 
+
+	PHP, CodeIgniter, jQuery, Bootstrap 
+
+	Eingesetzte Produkte: 
+
+	PhpStorm 
+-------------------------
+
+	11/2013 - 12/2014: Dynamische Lagerhaltung 
+
+	Einsatzort: Essen 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Aufgaben: 
+
+	Einführung von Collmex als Warenwirtschaft. Erweiterung um eine
+Dynamische Lagerhaltung. 
+
+	Kenntnisse: 
+
+	PHP, MySQL 
+
+	Eingesetzte Produkte: 
+
+	PhpStorm, Collmex 
+-------------------------
+
+	07/2009 - 10/2014: CRM-System 
+
+	Rolle: Softwareentwickler 
+
+	Kunde: SONY Europe Limited 
+
+	Aufgaben: 
+
+	Konzeption und Entwicklung aller Komponenten (Backend, Frontend, DB
+und DB-Migration des Altsystems) 
+
+	Kenntnisse: 
+
+	PHP, MySQL 
+
+	Eingesetzte Produkte: 
+
+	FusionCharts 
+-------------------------
+
+	10/2011 - 08/2013: Software Refactoring 
+
+	Einsatzort: Oberhausen 
+
+	Rolle: Software-Architekt / Lead-Developer 
+
+	Aufgaben: 
+
+	agile Projektleitung &amp; Durchführung nach Scrum,
+Zusammenstellung/Einstellung eines 6er Teams, Refactoring auf Basis
+von Zend Framework 2, Entwicklung einer REST-API, Umstellung der Flash
+Games auf HTML5 
+
+	Kenntnisse: 
+
+	Zend Framework 2, PHP, Scrum, REST, HTML5, jQuery, MySQL 
+
+	Eingesetzte Produkte: 
+
+	Zend Studio 
+-------------------------
+
+	02/2011 - 08/2013: Reparatur Verwaltung 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Kunde: E.L.A.S. GmbH 
+
+	Aufgaben: 
+
+	Integration einer Software zur Abwicklung von Reparaturaufträgen 
+
+	Kenntnisse: 
+
+	PHP, MySQL 
+-------------------------
+
+	08/2006 - 03/2013: Reparatur Verwaltung 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Kunde: Technik - Rat &amp; Hilfe GmbH 
+
+	Aufgaben: 
+
+	Konzeption, Entwicklung und Integration einer Software zur Abwicklung
+von Reparatur-, Kulanz- und Rebtourenaufträge 
+
+	Kenntnisse: 
+
+	PHP, MySQL 
+-------------------------
+
+	06/2010 - 07/2011: Entwicklung WaWi 
+
+	Einsatzort: Essen 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Kunde: Orbit Office AG 
+
+	Aufgaben: 
+
+	SEO, Kundenberatung im Bereich der REST-API integration, Entwicklung
+einer WaWi 
+
+	Kenntnisse: 
+
+	PHP, MySQL, CodeIgniter 
+-------------------------
+
+	06/2008 - 05/2010: Browsergames 
+
+	Rolle: Consultant / Softwareentwickler 
+
+	Kunde: Cash Raider AG 
+
+	Aufgaben: 
+
+	Bugfixing der bestehenden Applikation, Weiterentwicklung im mobile
+WebApp-Bereich 
+
+	Kenntnisse: 
+
+	PHP, MySQL, jQuery 
+-------------------------
+
+	09/2006 - 02/2008: Immobilien Video 
+
+	Einsatzort: Sittard NL 
+
+	Rolle: Softwareentwickler / Postproduktion 
+
+	Kunde: Immofilm B.V. 
+
+	Aufgaben: 
+
+	Postproduktion von Immobilien Videos, Implementierung einer Plattform
+zu Verwaltung von Videos 
+
+	Kenntnisse: 
+
+	PHP, MySQL 
+
+	Eingesetzte Produkte: 
+
+	Flash Media Server 
+-------------------------
+
+	06/2005 - 08/2006: Erstellung Websites 
+
+	Einsatzort: Mülheim an der Ruhr 
+
+	Rolle: Softwareentwickler 
+
+	Kunde: Satsup Medien GmbH 
+
+	Aufgaben: 
+
+	Gestaltung und Umsetzung von Websites, Konzeption und Programmierung
+eines Portals zum Vertrieb von Video-content 
+
+	Kenntnisse: 
+
+	PHP, MySQL 
+-------------------------
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 165279 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 28.11.2018 01:01:47
+ (c) Copyright 1996-2018 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15]

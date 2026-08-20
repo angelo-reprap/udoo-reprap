@@ -1,0 +1,442 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_29821 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                29821
+  
+Wohnort                    827x Ermatingen, Schweiz
+Jahrgang                   1977
+Staatsbürgerschaft         Deutsch
+Stundensatz                100 EUR
+Verfügbar ab               30.09.21 zu 100%, Vor-Ort-Einsatz 20% möglich
+Profil erstellt am         27.08.01
+Profil zuletzt geändert am 02.03.21
+Lesen von Projektanfragen  12 Stunden [10]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 02.02.2021 10:44:17
+
+Fachlicher Schwerpunkt:
+System Engineer, DevOps
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Administration / Support
+Engineering / IT-nahe Ingenieurdienstleistungen
+Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit bevorzugt
+
+Voraussetzung für Festanstellung: Bei interessanter Tätigkeit und wenn alles
+andere ebenfalls passt.
+
+Ausbildung:
+IT Fachinformatiker/Systemintegration
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+im Umkreis von:
+Berlin (100 km)
+Kreuzlingen (100 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+ 
+bei Homeoffice
+ 
+ 
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+Russisch  
+
+
+Hardware:
+HP  
+PC  
+
+
+Betriebssysteme:
+CentOS   
+Debian   
+Ubuntu   
+Unix    Linux
+Windows  
+
+
+Programmiersprachen:
+Android                             
+bash                                
+Imake, GNU-Make, Make-Maker etc...  
+Java                                
+Perl                                
+PHP                                 
+PL/SQL                              
+Python                              
+Ruby                                
+Ruby on Rails                       
+Scriptsprachen                      
+Shell                               
+
+
+Datenbanken:
+MongoDB   
+MySQL     
+Postgres  
+
+
+Datenkommunikation:
+Ethernet            
+exim                
+Internet, Intranet  
+ISO/OSI             
+NetBios             
+RFC                 
+SMTP                
+SNMP                
+TCP/IP              
+UUCP                
+
+
+Produkte/Standards/Erfahrungen:
+Ansible             
+Apache              
+Apache Hadoop       
+Apache Solr         
+Apache Tomcat       
+Chef                
+Cyrus IMAP          
+elasticsearch       
+Flume               
+Gearman             
+Git                 
+Grafana             
+Graphite            
+Icinga              
+Logstash            
+Memcache            
+memcached           
+Nagios              
+Nginx               
+NodeJS              
+nrpe                
+OpenLDAP            
+Percona             
+ProFtp              
+Prometheus          
+RabbitMQ            
+Spamassassin        
+SVN                 
+Symantec AntiVirus  
+VMware              
+ZooKeeper           
+
+Branchen:
+Telekommunikation
+Tourismus
+
+Projekte:
+07/2017 - 08/2017: System Engineer/DevOps
+ 
+Einsatzort:         Zürich
+Rolle:              System Engineer/DevOps
+Kunde:              Cargoserver AG
+ 
+Aufgaben:
+ 
+siehe Freitext
+ 
+Kenntnisse:
+ 
+Git, Ruby on Rails
+ 
+Eingesetzte Produkte:
+ 
+Ansible, Prometheus, nginx, Proftp, Ubuntu, RabbitMQ, Grafana
+===============================================================================
+04/2016 - 09/2016: System Engineer/DevOps
+ 
+Einsatzort:         Berlin
+Rolle:              System Engineer/DevOps
+Kunde:              MyToys GmbH
+ 
+Aufgaben:
+ 
+siehe Freitext
+ 
+Kenntnisse:
+ 
+PHP, bash, Git
+ 
+Eingesetzte Produkte:
+ 
+Ansible, Apache, nginx, Apache Solr, Apache Tomcat, Graphite, elasticsearch,
+Nagios, VMware, CentOS, Memcache, Grafana
+===============================================================================
+11/2014 - 06/2015: System Engineer/DevOps
+ 
+Einsatzort:         München
+Rolle:              System Engineer/DevOps
+Kunde:              Payback GmbH
+Geschäftsstelle:    Payback Global
+Unternehmensgröße:  501-1000
+Branche:            Sonstige
+ 
+Aufgaben:
+ 
+siehe Freitext
+ 
+Kenntnisse:
+ 
+bash, Python, Git
+ 
+Eingesetzte Produkte:
+ 
+Ansible, Nagios, Icinga, Gearman, nrpe, Apache, Apache Tomcat, Graphite,
+elasticsearch, VMware, CentOS
+===============================================================================
+04/2012 - 12/2013: System Engineer IT-OPS Hosting
+ 
+Einsatzort:         Bottighofen
+Rolle:              System Engineer
+Kunde:              HolidayCheck AG
+ 
+Aufgaben:
+ 
+siehe Freitext
+ 
+Kenntnisse:
+ 
+PHP, Ruby, bash, Git, NodeJS
+ 
+Eingesetzte Produkte:
+ 
+Chef, Apache, nginx, Nagios, MySQL, Percona, MongoDB, RabbitMQ, Apache Hadoop,
+Logstash, Flume, ZooKeeper, Apache Solr, elasticsearch, Memcache, Graphite,
+VMware, Ubuntu, Grafana
+===============================================================================
+03/2002 - 12/2009: Senior Systemadministrator IT Operations Portal Mail-Core
+ 
+Einsatzort:         Karlsruhe
+Rolle:              Senior Systemadministrator
+Kunde:              1&amp;1 Internet AG
+ 
+Aufgaben:
+ 
+siehe Freitext
+ 
+Kenntnisse:
+ 
+SVN, bash, Ruby
+ 
+Eingesetzte Produkte:
+ 
+Apache, Apache Tomcat, MySQL, exim, Cyrus IMAP, OpenLDAP, Spamassassin,
+Symantec AntiVirus, Debian
+===============================================================================
+07/2017-08/2017 Contract - System Engineer/DevOps
+  Cargoserver AG, Badenerstrasse 623, 8048 Zürich
+    * Automatisieren der Infrastruktur mit Ansible
+    * Erstellen eines Monitoring-Konzepts mit dem Prometheus Alertmanager
+    * Integration des Monitoring ins Ansible Deployment
+    * Involvierte Komponenten hauptsächlich Ansible, Prometheus, Nginx, Monit,
+      RabbitMQ, Grafana, Git, Ruby on Rails, Ubuntu
+ 
+10/2016-03/2017 Privat - Asienreise
+ 
+04/2016-09/2016 Freelancer - System Engineer/DevOps
+  myToys.de GmbH, Potsdamer Str. 192, 10783 Berlin
+    * Entwickeln eines Multistage-/Multishop Konzepts für
+      Infrastrukturdeployments der Online Shops MyToys, Yomonda, Mirapodo und
+      Ambellis via Ansible
+    * Aufräumen und Migration der produktiven Altsysteme ins neue Ansible
+      Deployment
+    * Implementieren autogenerierter Service und KPI Checks in das Ansible
+      Deployment
+    * Involvierte Komponenten waren hauptsächlich Ansible, Apache, Nginx, PHP,
+      Tomcat, Solr, Graphite, Memcache, Elasticsearch, Grafana, Bash, Git und
+      Nagios auf VMWare/CentOS
+ 
+12/2015-03/2016 eigenes Projekt
+    * Neugestaltung der Android App Demokratie 2.0 für API Level >= 11 mit
+      Ruby on Rails 4.2 und PostgreSQL Backend.
+ 
+09/2015-03/2015 Privat - Asienreise
+ 
+11/2014-06/2015 Freelancer - System Engineer/DevOps
+  PAYBACK GmbH, Theresienhöhe 12, 80339 München
+    * Administration der globalen Monitoring Infrastruktur
+    * Aufräumen und Migration der produktiven Monitoring Systeme, Satelliten
+      und Monitoring Clients in ein von mir neu entwickeltes Ansible Deployment
+    * Integration eines Servicekatalog basierten Monitorings ins Ansible
+      Deployment
+    * Early Life Support für www.plenti.com
+    * Involvierte Komponenten waren hauptsächlich Ansible, Nagios/Icinga,
+      Gearman, NRPE, Apache, Tomcat, Graphite, Elasticsearch, Bash, Python,
+      Git, auf VMWare CentOS
+
+04/2014-10/2014 eigenes Projekt
+    * Konzipieren, entwickeln und implementieren der Android App Demokratie
+      2.0 für API Level >= 9 mit Ruby on Rails 4.1 und PostgreSQL Backend
+ 
+01/2014-03-2015 Privat - Asienreise
+ 
+04/2012-12/2013 System Engineer IT-OPS Hosting
+  HolidayCheck AG, Bahnweg 8, 8598 Bottighofen, Schweiz
+    * Betrieb und Überwachung der internationalen Infrastruktur und interner
+      Entwicklungs- und Integrationssysteme
+    * Aufräumen und Umzug der Altsysteme in ein neues Rechenzentrum
+    * Aufbau und Betrieb des Monitoring Systems basierend auf Nagios
+    * Konzeption und Implementierung des Multistage/Multiprodukt Infrastruktur-
+      Deployments mittels Opscode Chef
+    * Redesign von Teilen der Infrastruktur mit den Entwicklern und Umstellung
+      der Infrastruktur auf das Opscode Chef Rollout
+    * Erweitern vom Chef Deployment zum deployen spezieller Projekte und
+      Produkte in die AWS Cloud
+    * Involvierte Komponenten waren hauptsächlich Opscode Chef, Apache, Nginx,
+      PHP, Ruby, Bash, Git, Nagios, Mysql/Percona, MongoDB, NodeJS, RabbitMQ,
+      Hadoop, Logstash, Flume, Zookeeper, Solr, Elasticsearch, Grafana,
+      Memcache, Graphite auf VMWare/Ubuntu
+ 
+01/2010-03/2012 eigenes Projekt
+    * Aufbau einer IP basierten Überwachungslösung auf Basis von Ruby on Rails
+      3, Mysql und OpenWrt
+    * Aufbau und Betreuung kleiner Startups wie z.b. fettspielen.de,
+      playandroid.de, dierollendenfriseure.de auf Linux/LAMP Basis
+ 
+03/2002-12/2009 Senior Systemadministrator IT Operations Portal Mail-Core
+  1&amp;1 Internet AG, Brauerstraße 48, 76135 Karlsruhe
+    * Entwicklung und Aufbau einer einheitlichen hochverfügbaren
+      Systemarchitektur für das 1&amp;1 Mailsystem
+    * Administration und Betrieb des 1&amp;1 Mailsystems für DE, UK, SP, FR und US
+      mit mehr als 16 Millionen Mailboxen auf mehr als 500 physikalischen
+      Servern
+    * Evaluierung neuer Server und Storage Hardware
+    * Planung und Umsetzung von Projekten wie Alturo, MailXchange,
+      Rechenzentrumsumzüge, Vorratsdatenspeicherung
+    * Aufbau und Betrieb des Monitoring Systems für das Mailsystem basierend
+      auf Nagios
+    * Enge Zusammenarbeit mit der Entwicklung zum ausrollen der
+      eigenentwickelten Nemesis POP/IMAP und SMTP Software. Insbesondere
+      Skalierbarkeit, Tests, Debugging, automatisierte XML Konfiguration mit
+      Schema Prüfung
+    * Involvierte Komponenten waren hauptsächlich Nemesis, Apache, Tomcat,
+      Mysql, Exim, Dovecot, OpenLDAP, SVN, Spamassassin, Symantec AVSE, Bash,
+      Ruby auf Debian
+
+Referenzen:
+Projekt System Engineer, 04/12 - 12/13
+Referenz durch Head of IT Operations, Dienstleister, 240 MA, vom 31.12.13
+Projekt im Rahmen einer Festanstellung durchgeführt
+"[...] Der IT-Spezialist verfügt über ein hervorragendes und umfassendes
+Fachwissen, das er auch bei schwierigen Aufgaben äußerst effektiv und
+erfolgreich einsetzte. Durch die Teilnahme an zahlreichen Schulungen erweiterte
+er sein fachliches Wissen und Können engagiert und mit großem Erfolg. Seine
+rasche Auffassungsgabe befähigte ihn, auch besonders schwierige
+Problemstellungen sofort und präzise zu analysieren. Seine fundierte und
+sichere Urteilsfähigkeit ermöglichte es ihm, auch in schwierigen Situationen
+eigenständig zu guten Entscheidungen zu gelangen. Der IT-Spezialist erfüllte
+seinen Aufgabenbereich mit viel Engagement und Leistungsbereitschaft. Auch bei
+höchster Beanspruchung meisterte er die Anforderungen in beachtlicher Weise. Er
+erledigte seine Arbeitsaufträge äußerst zügig, sorgfältig und mit hoher
+Präzision. Der IT-Spezialist arbeitete mit großer Zuverlässigkeit und
+Genauigkeit. Sowohl in qualitativer als auch in quantitativer Hinsicht erzielte
+er immer gute Arbeitsergebnisse. Die Leistungen von dem IT-Spezialist haben
+unseren hohen Erwartungen stets und in bester Weise entsprochen. Sein
+kollegiales Wesen sicherte ihm immer ein gutes Verhältnis zu Vorgesetzten und
+Mitarbeitern. Im Umgang mit Kunden war er jederzeit freundlich und respektvoll.
+[...] Wir danken ihm für seine Mitarbeit und wünschen ihm für die Zukunft
+weiterhin viel Erfolg und persönlich alles Gute."
+Projekt Systemadministration Mailsystem, 03/02 - 12/09
+Referenz durch Head of IT Operations, Internetdienstanbieter >6.000 MA, vom
+31.12.09
+Projekt im Rahmen einer Festanstellung durchgeführt
+"[...] Der IT-Spezialist war hochmotiviert und realisierte sehr zielstrebig die
+gesetzten Ziele. Aufgrund seiner guten Auffassungsgabe arbeitete er sich
+jederzeit schnell und erfolgreich in neue Problemstellungen ein. Er verfügt
+über ein solides Fachwissen in seinem Fachgebiet. Die vom Unternehmen gebotenen
+Möglichkeiten der beruflichen Weiterbildung hat der IT-Spezialist stets mit
+gutem Erfolg und zu unserem Vorteil genutzt. Er arbeitete sicher und
+selbstständig und erzielte durch seine zielorientierte und eigenverantwortliche
+Arbeit stets gute Ergebnisse. Die vereinbarten Ziele hat er, auch unter
+schwierigsten Umständen, stets erreicht, ja oft übertroffen. Seine Aufgaben hat
+er stets zu unserer vollen Zufriedenheit erfüllt. Der IT-Spezialist war für uns
+ein wertvoller Mitarbeiter. Sein Verhalten gegenüber Mitarbeitern und
+Vorgesetzten war einwandfrei. Auch sein Auftreten gegenüber unseren
+Auftraggebern und Kunden war gut. Die Interessen der Firma hatten für den IT-
+Spezialist hohe Priorität. [...] Wir bedauern es sehr, dass er uns verlässt,
+und danken ihm für die stets gute Mitarbeit in unserem Hause. Für die Zukunft
+wünschen wir ihm beruflich und persönlich alles Gute und weiterhin viel
+Erfolg."
+Alle Referenzen sind durch GULP bestätigt.
+
+Sonstige Anmerkungen:
++ Grundkenntnisse
+++ gute Kentnisse
++++ sehr gute Kentnisse
+ 
+
+Apache +++
+Amazon Web Services (AWS) + API +++
+Android SDK ++
+Ansible +++
+Bash +++
+CVS ++
+Debian +++
+Djbdns ++
+Dovecot ++
+Eclipse ++
+Elasticsearch ++
+Exim +++
+Firewall (BIG-IP, iptables) +++
+Git ++
+Graphite +++
+HA Umgebungen +++
+Hadoop +
+Hardware +++
+Java ++
+Jboss +
+Joomla ++
+JSON ++
+Lighttpd ++
+Linux +++
+Mongodb ++
+Mysql ++
+Nagios +++
+Nginx +++
+Openldap ++
+Openvpn ++
+Opscode Chef +++
+Postgresql ++
+Rabbitmq +++
+Ruby +++
+Ruby on Rails ++
+Solr ++
+Squid +++
+SSD, RAID, LVM ++
+SSL/TLS ++
+Storage ++
+SVN ++
+TCP/IP Netzwerke ++
+Tomcat +++
+Ubuntu +++
+Vmware +
+Wordpress ++
+XEN ++
+XML,XSLT ++
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_29821 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 12.03.2021 16:37:55
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

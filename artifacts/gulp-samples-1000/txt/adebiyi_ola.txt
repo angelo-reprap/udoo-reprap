@@ -1,0 +1,1445 @@
+Berater Citrix und Microsoft, Active Directory Integrator, MS SQL
+Database Administrator, VMWare Virtualisierung, Virtualisierung von
+Servern und Anwendungen (XenServer, ESX &amp; Hyper-V)
+Verfügbar ab: 01.04.2021
+verfügbar zu: 80 %
+davon vor Ort: 50 %
+Stundensatz: 85,00 EUR
+Bemerkungen: +5 EUR außerhalb von Berlin
+Einsatzort
+Städte: Berlin 200 km
+Kontaktwunsch: Ich möchte ausschließlich für Projekte in diesen Einsatzorten
+kontaktiert werden.
+Position
+Kommentar:
+Projekte
+2018-10 - heute Consultant - Citrix XenApp and Microsoft RDS Server
+4 Jahre 5 Monate
+Rolle: Consultant
+Kunde: LANXESS Deutschland GmbH
+Einsatzort: Leverkusen
+Projektinhalte:     •  Monitoring and Administration of Citrix XenApp Server farm
+    •  Monitoring and Administration of Microsoft RDS Server farm
+    •  Configuration and Managing Citrix Provisioning Services
+    •  Configuration and Managing of Microsoft and Citrix licenses
+    •  Managing Active Directory, (DNS, GPO, Rights - User and Groups
+    •  Monitoring and Administration of Microsoft Servers (2008 R2,
+03.03.2023 1 von 15
+     ?2012 R2, 2016)
+    •  Monitoring and Administration of ESXi Hosts and virtual
+     ?Machines
+    •  Installation, configuration Master Target Win10 XenDesktop 7.15
+     ?VDI Environment
+    •  Installation, configuration and provisioning of VDI Win10 using
+     ?Citrix MCS technology
+    •  Installation and configuration of Citrix Virtual Delivery Agent
+    •  Configuration of Citrix and Microsoft policies
+    •  Install of Security Updates on Servers
+    •  Installation and configuration of Server 2016
+    •  Monitoring of the IT Server infrastructure - (LX)PRTG Network
+     ?Monitor
+    •  Administration of User rights and permissions in Active
+     ?Directory Domain
+    •  2nd and 3rd Level Support
+    •  Liaising with and support external users and suppliers
+    •  Daily troubleshooting of incidents and problems via ticketing
+     ?system (ServiceNow, IBM
+Notes ServiceRequest)
+    •  Liaising with Server and Application responsible for downtime
+    •  Compilation of documents for audit of the RDS and Citrix
+     ?infrastructure
+    •  Install, configure Win 10 VDI Master Target
+    •  Managing access to the central Citrix and RDS farms from all
+     ?geos (EMEA, NA, AP, LA)
+    •  Configure (Delivery Controllers, StoreFront, and VDA etc.)
+    •  Migration of Citrix sites from Web Interface to Citrix
+     ?StoreFront
+    •  Provision Win 10 VDI using MCS
+    •  Print Server management - Printers, Drivers, Ports
+    •  Managing and Update of vDisks – Citrix Provisioning Server
+     ?version 7.5.3.11
+    •  Install, configure and manage new vCenter 6.5
+    •  Move Domain Controllers from old to new vCenter/VM
+     ?Infrastructure
+    •  Add SSL Certificate from LANXESS CA to the vCenter and
+     ?implement SSO
+    •  Configure Alarm definitions and thresholds for the vSphere
+     ?infrastructure
+    •  Installed and configured BALI-WIKI Web Site / IIS 10.0 – intern
+     ?WIKI System
+    •  Design, Implement, Test and Support of new RDS Farm on Server
+     ?2016 for Lanxess core
+applications
+    •  Installation and configuration of MS SQL Server 2016
+    •  Creating and configuration of Databases on MS SQL 2016
+    •  Configuration of to enable VDI’s in a multi forest environment
+    •  KTE – Knowledge Transfer to new Service Provide for vWorkplace
+    •  Migration of users from ARL to LXS
+    •  Managing of file and print services
+    •  Managing of user profiles and user rights
+    •  Installation and configuration of MS SQL Server 2016
+    •  Upgrade of IBM Lotus Notes from 8.5 to 9.0.1
+    •  Migration of Citrix XenApp 6.5 to XenApp 7.15 with all
+     ?components
+Kenntnisse: Citrix, VMware, Microsoft Active Directory
+Eingesetzte Produkte: Citrix Administration, VMwareESXi, Microsoft, Microsoft Active Directory
+03.03.2023 2 von 15
+2019-03 - 2020-06 Management Citrix XenDesktop Cloud Infrastructure
+1 Jahr 4 Monate
+Rolle: Consultant – Citrix XenDesktop Cloud Infrastructure
+Kunde: netzbest GmbH
+Einsatzort: Berlin
+Projektinhalte: Profile Management – analysis, tests, whitelisting of applications and logon
+optimization
+Reverse Imaging – Citrix Provisioning Model change from PVS to MCS
+General IT consultancy on Microsoft, Citrix, VMware and other technology
+Special consultancy on virtualization
+2018-06 - 2018-09 Administration – Citrix XenApp/XenDesktop and
+4 Monate Microsoft Server
+Rolle: Citrix und Microsoft Server Administrator
+Kunde: Peek &amp; Cloppenburg KG
+Einsatzort: Hamburg
+Projektinhalte: Proof of Concept (PoC) of Server 2016 (installation, configuration,
+hardening)
+    •  Design, Conception, Implementation of XenApp/XenDesktop 7.15
+     ?LTSR farm on Server
+2016 in stages (Build – Pilot - Run)
+    •  Installation and configuration of Citrix StoreFront
+    •  Installation and configuration of Citrix Delivery Controller
+    •  Installation and configuration of Citrix Virtual Delivery Agent
+    •  Installation and configuration of Citrix Receiver – SSON
+    •  Configuration of Citrix and Microsoft policies
+    •  Documentation of installation and configuration of the Server
+     ?2016 platform in
+Confluence
+    •  Configuration of XenApp Sites
+    •  Managing ESXi Hosts, Storage and Virtual Machines in VCenter
+     ?6.x
+    •  Configuration of Citrix User Profile Management – UPM
+    •  Connecting different branch offices to the central Citrix farm
+     ?in the headquarter
+    •  System health checks and Monitoring
+    •  Active Directory Domain administration
+    •  Proof of Concept of Microsoft Azure Cloud Services
+    •  Scaling of existing XenApp and XenDesktop farm
+    •  Managing different Citrix components – NetScaler, StoreFront,
+     ?DDC etc.
+    •  Updating of master images – Citrix Provisioning server
+    •  Creating and Managing of Machine Catalogs, Delivery Groups and
+     ?Application - MCS
+    •  Groups and User management (Rights and permissions)
+    •  Security patching of server
+    •  Management of Print services
+    •  Troubleshooting and analysis of issues within the Microsoft and
+03.03.2023 3 von 15
+     ?Citrix Server platform
+    •  Upgrade of Applications and documentation
+    •  Central administration of user Environment with Ivanti
+     ?(AppSense)
+    •  Upgrade of Citrix XenApp/XenDesktop components (StoreFront,
+     ?Receiver, VDA)
+    •  Documentation in Jira / Confluence
+07.2017 – 06.2018 – Database &amp; Business Intelligence A
+Kenntnisse: Citrix XenDesktop
+Eingesetzte Produkte: Citrix
+2017-07 - 2018-06 Database and Application Management
+1 Jahr
+Rolle: Database and Application Support
+Kunde: UniCredit Business Integration Solutions
+Einsatzort: Munich
+Projektinhalte: Database Management
+Financial Application Support
+Business Reporting
+Application Lifecycle Management
+Incident, Problem and Change Management
+2017-04 - 2017-07 Erholungsurlaub - Familie und Reise
+4 Monate
+Einsatzort: Weltweit
+Projektinhalte: Erholung - Famile, Reise usw.
+2014-05 - 2017-03 Project with Vodafone Kabel Deutschland GmbH
+2 Jahre 11 Monate
+Rolle: Independent IT Contractor
+Projektinhalte:     •  Consulting in Microsoft Windows Platform and Citrix XenApp
+    •  Installation, Evaluation and Test of Server 2012 R2 (PoC)
+    •  Documentation of Installation and configuration of Server 2012
+     ?R2
+    •  Implementation of different internal projects and scaling
+     ?existing platforms
+    •  Daily IT Operations and Support including Housekeeping, System
+     ?health checks,
+incidents and Change Requests according to ITIL
+    •  Remote installation and configuration of Windows Servers via
+     ?ILO per HP Intelligent
+Provisioning
+    •  unattended installation via Altiris Deployment Solution and
+     ?SCCM
+03.03.2023 4 von 15
+    •  RAID configuration with Hot Spare according to VKD Standards
+    •  HBA Configuration for Cluster systems according to VKD
+     ?Standards
+    •  Monitoring of infrastructure, different Services and Hardware
+     ?in 3 Data Centers
+    •  Configuration and managing of HP Enclosure c7000 series
+    •  Installation and configuration of different Windows Services on
+     ?Server 2008 R2, Server
+2012 R2 (DB, File, DC, Print, Microsoft Clustering)
+    •  Configuration of HP Blades – G7, G8, G9 - OS installation and
+     ?configuration
+    •  Managing of multiple Citrix XenApp Farms – 4.5, 5x &amp; 6.5 with
+     ?over 5000 CCU
+    •  Installation, configuration and managing of Citrix EdgeSight
+     ?5.4
+    •  Installation and configuration of MS Failover Clustering on EMC
+     ?Storage
+    •  Installation, configuration of EMC components – SANSurfer,
+     ?PowerPath, Cluster Enabler
+    •  Installation and configuration of MS SQL 2008 R2 / Reporting
+     ?Services
+    •  Installation, Testing and Evaluation of printer drivers in
+     ?XenApp farms
+    •  Managing of Data Centers Infrastructure in different geo
+     ?locations
+    •  Error analysis of Data Center Hardware and liaising with
+     ?Manufacturer (HP, EMC, Citrix)
+    •  Scaling of existing Server farms with Hardware and Applications
+    •  Building / Packaging of Altiris Deployment Jobs
+    •  Provisioning of Virtual Server on VMWare 5x and 6x Platform
+    •  Documentation of working processes in CMDB, DMS and SharePoint
+    •  Technical evaluation and qualification of projects
+    •  Monitoring of Datacenter Infrastructure via Argent and Citrix
+     ?EdgeSight
+    •  Resources upgrade on VMware server (vRAM, vCPU, vDisks)
+    •  LACP - configuration for redundancy, fault tolerance and high
+     ?availability of network
+    •  Update of Symantec Netbackup Client from 7.5 to 7.6
+    •  Evaluation and upgrade to Internet Explorer 11 in Test and
+     ?Production environment
+    •  Working with Remedy Ticket System and SharePoint
+    •  Monitoring Dell-EMCproducts using- EMCSecure Remote Services
+(ESRS) Tool
+    •  Proof of Concept (PoC) of Microsoft Failover Clustering on
+     ?Server 2012 R2
+2014-04 - 2014-04 Consultancy on Remote IT Support Software (products
+1 Monat evaluation and comparism)
+Rolle: Independent IT Contractor
+Kunde: I AlphaSights Ltd UK
+2013-08 - 2014-04 Project with Skandia Versicherung Management &amp;
+9 Monate Service GmbH
+03.03.2023 5 von 15
+Rolle: Independent IT Contractor
+Projektinhalte:     •  Consultation in Windows and Citrix Administration in multiple
+     ?Domains - DACH
+    •  Managing Active Directory, (DNS, GPO, Rights - User and Groups)
+     ?in 3 domains – DACH
+    •  Managing and Administration of Microsoft Exchange Servers (2003
+     ?and 2010) in DACH
+    •  Evaluating and Implementing of Changes according to ITIL Best
+     ?Practice in - DACH
+    •  Migration of Public Folders from Exchange 2003 to Mail boxes on
+     ?Exchange 2010
+    •  Managing, administration of Citrix XenDesktop 4.0 and 5.6 farms
+     ?in DACH
+    •  Maintaining a XenApp 6.5 Farm for multiple domains – DACH
+    •  Database Management – MS SQL 2008 R2
+    •  Experience in Mobile Device Management – (BlackBerry, Good
+     ?Mobile, XenMobile)
+    •  Managing and Administration of BlackBerry Enterprise Server in
+     ?DACH
+    •  Administration of Good Mobile Control Server in DACH
+     ?(Messaging)
+    •  Installation, configuration, Administration, Operations &amp;
+     ?Support of W2K8 R2 Servers
+    •  Monitoring of Data Centers infrastructure, different Services ,
+     ?Hardware including
+cooling and alarm systems – daily visible rounds
+    •  Design and implementation of XenDesktop 7.x Farm for Austria
+     ?and Germany
+    •  Daily Operations and Support using OTRS Ticket system
+2013-01 - 2013-06 Sales Engineer / Technical Consultant - EMEA by triCerat
+6 Monate Inc. Colombia MD, USA
+Rolle: Independent IT Contractor
+Projektinhalte: Specialization: Printing and Scanning management in Microsoft RDS /Citrix
+and VDI
+environment
+Profile and Desktop Management in Microsoft RDS /Citrix and VDI
+environment for
+organization in all sectors, Active Directory Services, Citrix XenApp and
+components
+    •  Preparing and delivering product trainings to end user
+     ?customers, partners, distributors and resellers in EMEA.
+    •  Technical Relationship Manager (TRM) for VIP Enterprise
+     ?customers in EMEA
+    •  Technical consultant assisting partners during Proof of
+     ?Concept, pre-sales,
+implementation phases and supporting them in production.
+    •  Presentation of high level technical concepts to all audiences,
+     ?ranging from nontechnical
+people to executive level technical decision-makers (end users,
+     ?partners, resellers and distributors)
+    •  Establishing and maintaining relationships with current
+     ?customers (responding to
+customer requests, managing and resolving their issues)
+    •  Maintain accurate account information and activity details in
+03.03.2023 6 von 15
+     ?Customer Relationship
+Management system (CRM)
+    •  Provide effective product demos for end-user customers as well
+     ?as for the resellers,
+partners and distributors
+    •  Support the customer and reseller communication channel
+     ?throughout the sales process
+(on-site visits to partners and resellers)
+    •  Participate in marketing events such as seminars and trade
+     ?shows and bringing feedback
+    •  Comparisons, tests and documentation of competitor’s products
+    •  Providing feedback from the field /customer experience to
+     ?Management, Marketing,
+Support and Developers team for decision and improvements
+    •  Participating in technical &amp; sales national and international
+     ?conferences – E2EVC, Citrix
+Mobility, distributors /partners workshops
+    •  Technical training of internal Sales colleagues
+    •  Presentation of technical Webcasts on TriCerat Products to
+     ?partners, distributors and customers
+2009-05 - 2012-12 Administration of Hosting projects - Interoute Gemany
+3 Jahre 8 Monate GmbH
+Rolle: Snr. System Administrator – Windows &amp; Citrix XenApp
+Kunde: Interoute Germany GmBH
+Einsatzort: Berlin
+Projektinhalte: I planned, designed, test and implemented Windows 2008 R2 RD Services
+environments for
+the support of different Interoute Datacenters and international hosting
+customers
+TECHNICAL TRAINING:
+18.07.2011 – 22.07.2011 MS SQL 2008 R2 Training / 08.08.11 – 12.08.11
+MS SQL 2008 R2
+14.05.2012 – 16.05.2012 ITIL V3 Foundations Training and Certification
+10.09.2012 – 14.09.2012 Install, Configure and Manage VMware vSphere
+5.0
+05.11.2012 – 09.11.2012 Automating Administration with Windows
+PowerShell
+02.01.2013 – 24.01.2013 triCerat Simplify Suite and standalone products
+(ScrewDrivers,
+Scanect, Cliptite, PAT Profile Acceleration Technology, TKE)
+30.11.2015 – 04.12.2015 - CTX-CXD203: Managing App and Desktop
+Solutions with Citrix
+XenApp and XenDesktop 7.6
+Other tasks include:
+    •  Design, Implementation and hosting of tailored projects
+     ?including Servers and applications for different multinational
+     ?companies
+    •  Conception, Designing and Implementation of different
+     ?virtualized server farms and applications on W2K8 R2
+    •  Installation und configuration of Microsoft Exchange 2010
+    •  Operations and servicing of Servers and applications Services
+     ?for different multinational companies
+03.03.2023 7 von 15
+    •  Fine-tuning and optimization of Citrix XenApp farmInstallation,
+     ?Migration, Administration and Maintenance of MS SQL Server and
+     ?Databases (MS SQL 2008 R2, 2005, 2000)
+    •  System Monitoring using internal monitoring tools and Windows
+     ?OS out of the box tools
+    •  Complete design, implementation, administration and operation
+     ?of Windows Server 2008 R2 Remote Desktop Host Services and
+     ?other components (AD, MS SQL 2008 R2, File Servers, Database,
+     ?Printing)
+    •  Administration of Server 2008 R2 Active Directory environment
+     ?and other components – DNS, GPO, Users Roles and Rights
+     ?management
+    •  Installation, configuration and administration of XenApp 6.0,
+     ?6.5 and components
+    •  Liaising with Microsoft and other 3rd Party application vendors
+    •  Centralize Patching of servers and applications using WSUS
+    •  Monitoring and SLA reporting of different customers mission
+     ?critical services
+    •  Backup and data recovery
+    •  License Management and reporting (Microsoft, Citrix)
+    •  Hardware resources and capacity sizing and management
+    •  Technical training of colleagues and technical presentation to
+     ?customers and partners
+2006-05 - 2009-05 Senior Citrix Administrator &amp; Server/System
+3 Jahre 1 Monat Administrator
+Kunde: Siemens AG, Berlin
+Projektinhalte: Aufgaben/Verantwortungen:
+    •  Planung, Installation, Konfiguration und Aufrechterhaltung von
+     ?W2K/W2K3-Servern (Login-, DC-, Applikation-, File-, Backup-,
+     ?SQL-, Anti Virus und Print-Server)
+    •  Tägliche Überwachung und Systemcheck der verschiedenen Server
+     ?und Dienste
+    •  Server Installation und Integration in bestehende Infrastruktur
+    •  Installation, Konfiguration, Pflege, Sicherung &amp; Optimierung
+     ?von Print Servern
+    •  Sicherungs- und Wiederherstellungskonzept verschiedener Dienste
+    •  Zentrale Patch- and Update-Mechanismen via WSUS
+    •  Zentrale Fern-Administration von HP- und FSC-Blades
+    •  System- und Netzwerkoptimierung
+    •  24x7 On Call Support
+    •  Konfiguration und Überwachung der Farm via Citrix Resource
+     ?Manager
+    •  Überwachung von Servern und Netzwerk Komponenten via Nagios
+    •  Erstellung von Server-Verfügbarkeitsreports
+    •  Erstellung von Incident-Reports für Service Delivery Manager
+    •  Technische Dokumentation der Server-Installationen sowie
+     ?Konfigurationen
+verschiedener Server und Applikationen
+    •  Kommunikation und Zusammenarbeit mit Administratoren der
+Kunden
+     ?vor Ort
+    •  Kommunikation und Zusammenarbeit mit Entwicklern von
+     ?Applikationen
+    •  Farm Datastore Design
+03.03.2023 8 von 15
+    •  Datastore Migration von MS Access zu MS SQL Server
+    •  Überprüfung und Bereinigung der Datastore
+    •  Backup und Wiederherstellung von Datenbanken
+    •  Erarbeitung und Durchführung von Change Request
+    •  Testen und Debuggen der Applikationen und Server
+    •  MS SQL Server Database-Administration und -Pflege
+    •  Vorbereitung und Präsentationen technischer Workshops beim
+     ?Kunden
+    •  24/7 Rufbereitschaft
+ 
+Aufgaben Active Directory:
+    •  Installation und Konfiguration der Domäne Controller
+    •  Pflege und Aufrechterhaltung der Aktive Directory Datenbanken
+    •  Überwachung, Betrieb und Pflege der Domäne Infrastruktur
+    •  Konfiguration und Implementierung von Gruppenrichtlinien
+    •  Verwaltung von Benutzer- und Gruppenrechten
+    •  Verwaltung von DFS
+ 
+Aufgaben Citrix Presentation Server 4.0 und 4.5:
+    •  Verwaltung mehrerer CPS 4.0 Server-Farmen mit über 1.000
+     ?CCU-Lizenzen
+    •  Upgrade und Migration von MF XP auf PS 4.0 sowie PS 4.0 auf PS
+     ?4.5
+    •  Erweiterung und Skalierung der Server-Farm
+    •  Pflege der bestehenden klassischen Kunden-Applikationen
+    •  Installation, Tests, Evaluierung und Implementierung neuer
+     ?Applikationen und Sicherheitsupdates
+    •  Update und Upgrade bestehender Terminal-Server Applikationen
+    •  Überwachung und Lastenverwaltung von Servern und Applikationen
+    •  Konfiguration und Implementierung von Farm-Richtlinien
+    •  Installation, Tests, Evaluierung und Konfiguration von
+     ?Druckertreibern
+    •  Verwaltung von Lizenzen, Subskription Advantage und Solution
+     ?Advisor
+2003-09 - 2006-05 Advanced Support Engineer / Team Supervisor
+2 Jahre 9 Monate
+Kunde: Citrix Systems Inc., Dublin, Ireland + Florida, USA
+Projektinhalte: Aufgaben/Verantwortung:
+    •  Nachstellung und Problemlösung sowie erweiterte Problemanalyse
+     ?von Kundenfällen
+    •  Integration von verschiedene Citrix-Produkten bei Kunden
+    •  Server und Applikation Virtualisierung
+    •  Follow the Sun – OnCall Support
+    •  Nachstellung der kundenspezifischen Umgebung auf virtuellen
+     ?Maschinen (VMware)
+    •  Qualifizierung von Kundenfällen für Eskalation
+    •  Vorbereitung und Präsentation von Trainings
+    •  Überwachung des Team Voicemails und Kontaktaufnahme mit
+Kunden
+    •  Basic Crash Dump Analyze (Memory Dumps und Mini Dumps)
+    •  Analyse und Auswertungen von Traces und Logs (CDF, IMA,
+     ?Netzwerk und MSI Logs)
+    •  Einarbeitung neuer Mitarbeiter und Integration in das Team
+    •  Erstellung technischer Dokumente für die Citrix Knowledge Base
+    •  SME für Lizenzierung, Customer Care und Subskription Advantage
+    •  Vorbereitung und Teilnahme am Citrix Solutions Summit in
+03.03.2023 9 von 15
+     ?Florida, USA
+ 
+Managementaufgaben:
+Teamleiter (Vertretung des Team Managers):
+    •  Koordinierung der täglichen Arbeitsabläufe und Ticketverteilung
+     ?im Team von 16 Ingenieure
+    •  Organisation, Überwachung und Koordination der Schichtpläne &amp;
+     ?Ressourcenzuweisung
+    •  Erstellung wöchentlicher Team-Statistiken
+    •  Erstellung von wöchentlicher Team-Statistiken und berichten an
+     ?Management Board
+    •  Ansprechpartner für Kunden, Partners und Kollegen
+    •  Ticketreviews und Ressourcenplanung
+    •  Management Meetings
+2002-04 - 2003-06 Systems Engineering
+1 Jahr 3 Monate
+Kunde: TÜV-Akademie, Berlin inkl. 3 Monate
+Projektinhalte: Erstellung eines Sicherheitskonzeptes für die iLIMS Web Server (LIMS =
+Labor Information Service) nach Microsoft-Vorgaben
+    •  Organisation und Koordination wöchentlicher Meetings
+    •  Installation, Konfiguration, Test und Überwachung des W2K-
+     ?sowie Web-Servers (IIS)
+    •  Training und Support der Benutzer und Kunden
+    •  Implementierung und Konfiguration von Sicherheitsrichtlinien
+     ?für  den iLIMS Web Service nach Microsoft-Vorgabe
+2002-01 - 2002-03 Systems Engineering
+3 Monate
+Kunde: Paetec Wirtschaftsakademie, Berlin
+Projektinhalte:     •  Vorbereitungskurs für das Systems Engineering Training
+    •  Training von Jobrecherche und Akquisition
+1999-10 - 2001-10 Studenten Coach
+2 Jahre 1 Monat
+Kunde: Schering AG, Berlin, Export Abteilung
+Projektinhalte:     •  Verantwortlicher für die Studenten und Auszubildende im
+     ?Export-Versand
+    •  Administration der EDV-Terminals in der Export-Abteilung sowie
+     ?Benutzer Anweisung
+    •  Einarbeitung der Studenten und Auszubildenden
+    •  Ein- und Auslagerung von Waren im Hochregallager
+    •  Qualitätskontrolle von Waren
+1998-01 - 1999-09 Database Design/Project Management
+1 Jahr 9 Monate
+Kunde: Ngwu GmbH
+03.03.2023 10 von 15
+Projektinhalte:     •  Projektbegleitung (Entwicklung, Installation, Tests,
+     ?Implementierung und Support
+05.2006 – 04.2009
+Siemens AG
+Engagements/Responsibilities: Server /System Administration &amp;Citrix Administration
+I contributed immensely to the success and completion of the Performance Project for a big
+Health Insurance firm within the short period of my engagements with Siemens IT Solutions.
+I suggested the Citrix Infrastructure Assessment for the server farm of one of Europe’s
+biggest Warehouse/one of the World’s largest Automobile Harbors.
+I contributed extraordinarily to the farm rebuilt, which led to a stable and scalable server
+farm
+Other tasks include:
+    •  Planning, Installation, configuration and maintenance of W2K /W2K3-Server (Login-, DC-
+, Application-, File-, Backup-, SQL-, Anti Virus and Print-Server)
+    •  Daily monitoring and health check of the different servers
+    •  Installation and Integration of Servers into existing Infrastructure
+    •  Installing, configuring, maintaining, backup &amp; optimizing of Print Server
+    •  Backup and Restore concept for different Servers
+    •  Centralize Patch- and Update mechanism via WSUS
+    •  Centralize Remote Administration of HP and FSC Blade Servers
+    •  Configuration &amp; Farm Monitoring via Resource Manager
+    •  Generating of server availability reports, Basis performance Data for the Operational
+     ?Manager
+    •  Monitoring of servers and network components via Nagios
+    •  Incident reports for the Board of Directors and Service Delivery Manager
+    •  Continuous technical Documentation of working processes. Direct communication and
+     ?updates with customer’s onsite Administrators
+    •  Liaising with diverse Application developers/manufacturers on technical clarification
+    •  Farm Datastore Design&amp; Migration from MS Access to MS SQL Server 2005
+    •  Datastore consistency checks and cleanup
+    •  On-going writing of Change Request on demand
+    •  Tests and Debugging Applications and Servers
+    •  MS SQL Server Database administration &amp; maintenance
+    •  Preparing technical Presentation for the Management Board
+Active Directory:
+    •  Installation and configuration of domain controllers
+    •  Maintaining Active Directory Database
+    •  Monitoring, servicing and maintaining of the domain tree Infrastructure
+    •  Configuring and implementing of GPO’s
+    •  Managing of User /Group Accounts and Rights
+    •  Microsoft Distributed Files System (Microsoft DFS)
+    •  Configuring and maintaining DNS Service Citrix Presentation Server 4.0, 4.5
+    •  Managing an existing decentralized CPS 4.0 server farm with ca. 1000 CCU Licenses
+    •  Upgrade of MF XP to PS 4.0
+    •  Setup- and scaling of the server farm - Installation configuration and joining new
+     ?servers to the farm
+    •  Maintenance of existing customer specific legacy Applications and Packets
+    •  Installation, Testing, Evaluation and Implementationof new Applications and Patches
+     ?into the serverfarm
+    •  Update- and Upgrade of existing Terminalserver Applications
+    •  Monitoring and Load management of the Servers and Applications
+    •  Maintaining and managing terminal server certified applications and printer drivers in
+     ?the farm
+    •  Managing and maintaining the Licenses – Subscription Advantage, Solution Advisor.
+03.03.2023 11 von 15
+09.2003 – 05.2006
+Citrix Systems, Inc. Dublin, Ireland
+POSITION HELD: Advanced Support Engineer
+TECHNICAL DUTIES: Engagements/Responsibilities: Technical Support Engineer – analyzing,
+reproducing and troubleshooting of customer issues to provide quality solutions on time.
+Other tasks include:
+    •  In-depth customer’s problem analysis on Citrix products and their integration into
+enterprise -wide mixed environments.
+    •  Reproducing customer issues by building customer’s environmentson VMWare
+    •  Regular communication and update of customers on the development of their cases
+    •  Isolate, setup customer’s environment, reproduce and provide resolution to customer
+issues or qualify them for code level development assistance or other vendor
+     ?assistance.
+    •  Providing technical guidance and consult with engineers, partners and other vendor
+support engineers to identify and resolve client’s issues.
+    •  Document and track status of client's inquires, coordinate appropriate response and
+follow up to ensure high customers satisfaction.
+    •  As a Citrix Licensing Specialist (SME) I developed and delivered technical training on
+Citrix Products especially Licensing
+    •  Managing, monitoring, and redistribution of OPRTcases
+    •  Monitoring of Team Voicemails and follow up of messages – customer Callback
+    •  Monitoring and ensuring that the stipulated SLA’s are adhered to
+    •  Basic Crash Dump Analysis (kernel dumps and mini dumps)
+    •  Initial reading and analysis of Traces and Logs which include CDF, IMA, Network and
+various install Logs
+    •  I served as a mentor in the CTT team for new hires as well as other engineers
+    •  Managing, monitoring and auditing Team Customer Care cases forwarded to Technical
+Support from CCT in Schaffhausen
+    •  Writing of technical documents for the Citrix Knowledge Base
+    •  1st point of contact - technical licensing / customer care /Subscription Advantage
+     ?issues
+    •  Escalation of customer care issues to Team Customer Care in Schaffhausen
+    •  Preparation and technical presentation in Citrix Solutions Summit in the USA
+MANAGEMENT DUTIES: Technical Team Lead
+Managing and supervising the Core Technology Team (CTT), advising, directing, coordinating
+and assisting 16 engineers to complete their assigned duties when the Team manager is on
+holidays, in meetings and out on official trips.
+Other duties include:
+    •  Managing and coordinating the daily activities in the team
+    •  Ensuring that the SLA’s are adhered to and that duties are diligently and efficiently
+     ?done
+    •  Organizing, monitoring and coordinating the shifts rotation of the team
+    •  Monitoring engineers inboxes and redistribution of cases in order to ensure that the
+workload is evenly distributed
+    •  Monitoring of engineers inbox (Ticket System) for potential political and hot issues
+when necessary taking ownership of these cases or qualifying them to be passed to a
+higher support level or Escalation
+    •  Running and compiling of the Team weekly statisticsfor the CTT team
+    •  Running and computing of the Team weekly reports and statistics for the Director and
+Board of Managers
+EXPERIENCE IN CITRIX PRODUCTS:
+    •  MetaFrame1.8, MetaFrame XP and components
+    •  MetaFrame Presentation Server 3.0 and components
+    •  Citrix Presentation Server 4.0, 4.5 and components
+    •  XenApp 5.0, 6.0, 6.5 and components
+    •  MetaFrame Secure Access Manager 2.0 &amp; MSAM 4.0
+03.03.2023 12 von 15
+    •  Web Interface 2.0, 3.0 &amp; 4.0
+    •  Citrix Secure Gateway 2.0 &amp; 3.0
+    •  Citrix Access Gateway 4.1.2, 4.2 + AAC and 4.5
+    •  Citrix Licensing 2.0, 4.5 and components
+01.2003 – 06.2003
+Atotech Deutschland GmbH (an TotalFinaElf Coy.), Berlin, Germany
+Engagements/Responsibilities: System Administration
+I was responsible for the creation and implementation of the Security Concept for the iLIMS
+Web Server. (LIMS = Labor Information Service)
+Other tasks include:
+    •  Organizing and coordinating of weekly team meetings
+    •  Installation, configuration, testing and monitoring of W2K Server
+    •  Installation, configuration, testing and monitoring of IIS Server
+    •  Technical Help – training and support of customers and users
+    •  Implementing &amp; configuring security policy for iLIMS based on Microsoft Best Practices
+    •  Correction of redundant and duplicate data in Oracle database
+04.2002 - 12.2002
+Systems Engineering Training Course at TÜV-Akademie, Berlin,
+01.2002 - 03.2002
+Paetec Wirtschaftsakademie Berlin
+    •  Preparatory course for the systems Engineering Training
+    •  Job research and acquisition training
+10.1997 - 10 .2001
+Schering AG, Berlin, Germany, Export Department
+Engagements/Responsibilities: I was the team coach managing the student team and trainees in the
+Export department
+Other functions include:
+    •  Systems administration in Export Department
+    •  Training internal users and customers
+    •  Stock Entry- receiving, check-in and -out of finished and unfinished products
+Branchen
+IT-Dienstleistungen
+Software Entwicklung
+ISP
+Pharma/Gesundheitswessen
+Elektronik/Elektrotechnik
+Banken
+Versicherung
+Verkehrstechnik Automotive
+Luft- und Raumfahrttechnik
+03.03.2023 13 von 15
+Energiewirtschaft/Energieversorgung
+Maschinenbau
+Telekommunikation
+Versand/Handel
+Sprachen
+Deutsch verhandlungssicher
+Englisch muttersprache
+Kompetenzen
+Produkte / Standards / Citrix
+Erfahrungen / Methoden
+Citrix Administration
+Citrix XenDesktop
+Microsoft Active Directory
+VMware
+VMwareESXi
+STANDARDS / 3rd PARTY PRODUCTS
+RDBMS (MS SQL Server 2K, 2005, 2008 R2, 2012 R2, Oracle 8i, 9i),
+MS Access, MS Project, MS Office,
+Active Directory Services Interface (ADSI), MS Terminal Server, Citrix
+XenApp, XenDesktop,
+Blade Technology (HP &amp; FSC)
+Windows 2000/XP/NT/9X, Windows Server 2003, Vista, Win 7,Win 8,
+Win 10, Windows
+Server 2008 R2, Server 2012 R2, SCCM TCP/IP, LAN/WAN, VPN,
+DHCP, DNS, WINS, SAN, WLAN, VLAN, LACP, WSUS, DFS, VMWare,
+Internet Information Server (IIS), Symantec
+Endpoint Protection Manager 11.x, Trend Micro, Crystal Reports, Lab
+Manager, Acronis,
+BlackBerry Enterprise Server, Good Mobile Messaging Server, Altiris
+Deployment Solution,
+Argent Commander 3.x, EMC PowerPath, EMC SANSurfer, EMC Cluster
+Enabler, EMC Grabs, HP Service Manager, HP ALM - Application
+Lifecycle Management
+Betriebssysteme Microsoft
+Datenbanken MS SQL Server
+Aus- und Weiterbildung
+03.03.2023 14 von 15
+EDUCATION / TRAINING
+1988 – 1991
+Obafemi Awolowo University, Ile-Ife, Nigeria
+1992 – 1993
+Universität Potsdam, Germany
+1994 – 1997
+Freie Universität Berlin, Germany
+2002 – 2003
+Systems Engineering Training in TÜV-Akademie, Berlin, Germany
+PRODUCT CERTIFICATIONS
+Bachelor of Arts in Linguistics (BA)
+Citrix Certified Enterprise Administrator (CCEA XP)
+Citrix Certified Administrator (CCA)
+Microsoft Certified IT Professional (MCITP 2008 Enterprise Administrator)
+Microsoft Certified IT Professional (MCITP Database Administrator 2008)
+Microsoft Certified Systems Engineer (MCSE)
+Microsoft Certified System Administrator (MCSA)
+Microsoft Certified Professional (MCP)
+ITIL V3 Foundations
+03.03.2023 15 von 15
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_130271
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                130271
+  
+Wohnort                    120xx Berliin, Deutschland
+Jahrgang                   1968
+Staatsbürgerschaft         Deutsch
+Stundensatz                85 EUR
+                           +5 EUR außerhalb von Berlin
+Verfügbar ab               01.04.21 zu 80%, Vor-Ort-Einsatz 50% möglich
+Profil erstellt am         10.06.13
+Profil zuletzt geändert am 07.03.21
+Lesen von Projektanfragen  4,5 Tage [01]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 27.01.2021 09:54:49
+
+Fachlicher Schwerpunkt:
+Berater Citrix und Microsoft, Active Directory Integrator, MS SQL Database
+Administrator, VMWare Virtualisierung, Virtualisierung von Servern und
+Anwendungen (XenServer, ESX &amp; Hyper-​V)
+
+Position:
+Beratung / Consulting
+Coaching / Schulung / Training
+Administration / Support
+Engineering / IT-nahe Ingenieurdienstleistungen
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+EDUCATION / TRAINING
+1988  1991
+Obafemi Awolowo University, Ile-Ife, Nigeria
+ 
+1992  1993
+Universität Potsdam, Germany
+ 
+1994  1997
+Freie Universität Berlin, Germany
+ 
+2002  2003
+Systems Engineering Training in TÜV-Akademie, Berlin, Germany
+ 
+ 
+PRODUCT CERTIFICATIONS
+Bachelor of Arts in Linguistics (BA)
+Citrix Certified Enterprise Administrator (CCEA XP)
+Citrix Certified Administrator (CCA)
+Microsoft Certified IT Professional (MCITP 2008 Enterprise Administrator)
+Microsoft Certified IT Professional (MCITP Database Administrator 2008)
+Microsoft Certified Systems Engineer (MCSE)
+Microsoft Certified System Administrator (MCSA)
+Microsoft Certified Professional (MCP)
+ITIL V3 Foundations
+
+Einsatzort:
+Regionen:
+D1
+im Umkreis von:
+Berlin (200 km)
+Ich möchte AUSSCHLIEßLICH für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch  verhandlungssicher
+Englisch muttersprache
+
+
+Betriebssysteme:
+Microsoft  
+
+
+Datenbanken:
+MS SQL Server  
+
+
+Produkte/Standards/Erfahrungen:
+Citrix                      
+Citrix Administration       
+Citrix XenDesktop           
+Microsoft Active Directory  
+VMware                      
+VMwareESXi                  
+STANDARDS / 3rd PARTY PRODUCTS
+RDBMS (MS SQL Server 2K, 2005, 2008 R2, 2012 R2, Oracle 8i, 9i), MS Access, MS
+Project, MS Office,
+Active Directory Services Interface (ADSI), MS Terminal Server, Citrix XenApp,
+XenDesktop,
+Blade Technology (HP &amp; FSC)
+Windows 2000/XP/NT/9X, Windows Server 2003, Vista, Win 7,Win 8, Win 10, Windows
+Server 2008 R2, Server 2012 R2, SCCM TCP/IP, LAN/WAN, VPN, DHCP, DNS, WINS,
+SAN, WLAN, VLAN, LACP, WSUS, DFS, VMWare, Internet Information Server (IIS),
+Symantec
+Endpoint Protection Manager 11.x, Trend Micro, Crystal Reports, Lab Manager,
+Acronis,
+BlackBerry Enterprise Server, Good Mobile Messaging Server, Altiris Deployment
+Solution,
+Argent Commander 3.x, EMC PowerPath, EMC SANSurfer, EMC Cluster Enabler, EMC
+Grabs, HP Service Manager, HP ALM - Application Lifecycle Management
+
+Branchen:
+IT-Dienstleistungen
+Software Entwicklung
+ISP
+Pharma/Gesundheitswessen
+Elektronik/Elektrotechnik
+Banken
+Versicherung
+Verkehrstechnik Automotive
+Luft- und Raumfahrttechnik
+Energiewirtschaft/Energieversorgung
+Maschinenbau
+Telekommunikation
+Versand/Handel
+
+Projekte:
+10/2018 - heute: Consultant - Citrix XenApp and Microsoft RDS Server
+ 
+Einsatzort:         Leverkusen
+Rolle:              Consultant
+Kunde:              LANXESS Deutschland GmbH
+ 
+Aufgaben:
+ 
+    * Monitoring and Administration of Citrix XenApp Server farm
+    * Monitoring and Administration of Microsoft RDS Server farm
+    * Configuration and Managing Citrix Provisioning Services
+    * Configuration and Managing of Microsoft and Citrix licenses
+    * Managing Active Directory, (DNS, GPO, Rights - User and Groups
+    * Monitoring and Administration of Microsoft Servers (2008 R2, 2012 R2,
+      2016)
+    * Monitoring and Administration of ESXi Hosts and virtual Machines
+    * Installation, configuration Master Target Win10 XenDesktop 7.15 VDI
+      Environment
+    * Installation, configuration and provisioning of VDI Win10 using Citrix
+      MCS technology
+    * Installation and configuration of Citrix Virtual Delivery Agent
+    * Configuration of Citrix and Microsoft policies
+    * Install of Security Updates on Servers
+    * Installation and configuration of Server 2016
+    * Monitoring of the IT Server infrastructure - (LX)PRTG Network Monitor
+    * Administration of User rights and permissions in Active Directory Domain
+    * 2nd and 3rd Level Support
+    * Liaising with and support external users and suppliers
+    * Daily troubleshooting of incidents and problems via ticketing system
+      (ServiceNow, IBM
+      Notes ServiceRequest)
+    * Liaising with Server and Application responsible for downtime
+    * Compilation of documents for audit of the RDS and Citrix infrastructure
+    * Install, configure Win 10 VDI Master Target
+    * Managing access to the central Citrix and RDS farms from all geos (EMEA,
+      NA, AP, LA)
+    * Configure (Delivery Controllers, StoreFront, and VDA etc.)
+    * Migration of Citrix sites from Web Interface to Citrix StoreFront
+    * Provision Win 10 VDI using MCS
+    * Print Server management - Printers, Drivers, Ports
+    * Managing and Update of vDisks – Citrix Provisioning Server version
+      7.5.3.11
+    * Install, configure and manage new vCenter 6.5
+    * Move Domain Controllers from old to new vCenter/VM Infrastructure
+    * Add SSL Certificate from LANXESS CA to the vCenter and implement SSO
+    * Configure Alarm definitions and thresholds for the vSphere infrastructure
+    * Installed and configured BALI-WIKI Web Site / IIS 10.0 – intern WIKI
+      System
+    * Design, Implement, Test and Support of new RDS Farm on Server 2016 for
+      Lanxess core
+      applications
+    * Installation and configuration of MS SQL Server 2016
+    * Creating and configuration of Databases on MS SQL 2016
+    * Configuration of to enable VDI’s in a multi forest environment
+    * KTE – Knowledge Transfer to new Service Provide for vWorkplace
+    * Migration of users from ARL to LXS
+    * Managing of file and print services
+    * Managing of user profiles and user rights
+    * Installation and configuration of MS SQL Server 2016
+    * Upgrade of IBM Lotus Notes from 8.5 to 9.0.1
+    * Migration of Citrix XenApp 6.5 to XenApp 7.15 with all components
+ 
+Kenntnisse:
+ 
+Citrix, VMware, Microsoft Active Directory
+ 
+Eingesetzte Produkte:
+ 
+Citrix Administration, VMwareESXi, Microsoft, Microsoft Active Directory
+===============================================================================
+03/2019 - 06/2020: Management Citrix XenDesktop Cloud Infrastructure
+ 
+Einsatzort:         Berlin
+Rolle:              Consultant  Citrix XenDesktop Cloud Infrastructure
+Kunde:              netzbest GmbH
+ 
+Aufgaben:
+ 
+Profile Management – analysis, tests, whitelisting of applications and logon
+optimization
+Reverse Imaging – Citrix Provisioning Model change from PVS to MCS
+General IT consultancy on Microsoft, Citrix, VMware and other technology
+Special consultancy on virtualization
+===============================================================================
+06/2018 - 09/2018: Administration  Citrix XenApp/XenDesktop and Microsoft
+Server
+ 
+Einsatzort:         Hamburg
+Rolle:              Citrix und Microsoft Server Administrator
+Kunde:              Peek &amp; Cloppenburg KG
+ 
+Aufgaben:
+ 
+Proof of Concept (PoC) of Server 2016 (installation, configuration, hardening)
+    * Design, Conception, Implementation of XenApp/XenDesktop 7.15 LTSR farm on
+      Server
+      2016 in stages (Build – Pilot - Run)
+    * Installation and configuration of Citrix StoreFront
+    * Installation and configuration of Citrix Delivery Controller
+    * Installation and configuration of Citrix Virtual Delivery Agent
+    * Installation and configuration of Citrix Receiver – SSON
+    * Configuration of Citrix and Microsoft policies
+    * Documentation of installation and configuration of the Server 2016
+      platform in
+      Confluence
+    * Configuration of XenApp Sites
+    * Managing ESXi Hosts, Storage and Virtual Machines in VCenter 6.x
+    * Configuration of Citrix User Profile Management – UPM
+    * Connecting different branch offices to the central Citrix farm in the
+      headquarter
+    * System health checks and Monitoring
+    * Active Directory Domain administration
+    * Proof of Concept of Microsoft Azure Cloud Services
+    * Scaling of existing XenApp and XenDesktop farm
+    * Managing different Citrix components – NetScaler, StoreFront, DDC etc.
+    * Updating of master images – Citrix Provisioning server
+    * Creating and Managing of Machine Catalogs, Delivery Groups and
+      Application - MCS
+    * Groups and User management (Rights and permissions)
+    * Security patching of server
+    * Management of Print services
+    * Troubleshooting and analysis of issues within the Microsoft and Citrix
+      Server platform
+    * Upgrade of Applications and documentation
+    * Central administration of user Environment with Ivanti (AppSense)
+    * Upgrade of Citrix XenApp/XenDesktop components (StoreFront, Receiver,
+      VDA)
+    * Documentation in Jira / Confluence
+      07.2017 – 06.2018 – Database &amp; Business Intelligence A
+ 
+Kenntnisse:
+ 
+Citrix XenDesktop
+ 
+Eingesetzte Produkte:
+ 
+Citrix
+===============================================================================
+07/2017 - 06/2018: Database and Application Management
+ 
+Einsatzort:         Munich
+Rolle:              Database and Application Support
+Kunde:              UniCredit Business Integration Solutions
+ 
+Aufgaben:
+ 
+Database Management
+Financial Application Support
+Business Reporting
+Application Lifecycle Management
+Incident, Problem and Change Management
+ 
+===============================================================================
+04/2017 - 07/2017: Erholungsurlaub - Familie und Reise
+ 
+Einsatzort:         Weltweit
+ 
+Aufgaben:
+ 
+Erholung - Famile, Reise usw.
+===============================================================================
+05/2014 - 03/2017: Project with Vodafone Kabel Deutschland GmbH
+ 
+Rolle:              Independent IT Contractor
+ 
+Aufgaben:
+ 
+    * Consulting in Microsoft Windows Platform and Citrix XenApp
+    * Installation, Evaluation and Test of Server 2012 R2 (PoC)
+    * Documentation of Installation and configuration of Server 2012 R2
+    * Implementation of different internal projects and scaling existing
+      platforms
+    * Daily IT Operations and Support including Housekeeping, System health
+      checks,
+      incidents and Change Requests according to ITIL
+    * Remote installation and configuration of Windows Servers via ILO per HP
+      Intelligent
+      Provisioning
+    * unattended installation via Altiris Deployment Solution and SCCM
+    * RAID configuration with Hot Spare according to VKD Standards
+    * HBA Configuration for Cluster systems according to VKD Standards
+    * Monitoring of infrastructure, different Services and Hardware in 3 Data
+      Centers
+    * Configuration and managing of HP Enclosure c7000 series
+    * Installation and configuration of different Windows Services on Server
+      2008 R2, Server
+      2012 R2 (DB, File, DC, Print, Microsoft Clustering)
+    * Configuration of HP Blades – G7, G8, G9 - OS installation and
+      configuration
+    * Managing of multiple Citrix XenApp Farms – 4.5, 5x &amp; 6.5 with over 5000
+      CCU
+    * Installation, configuration and managing of Citrix EdgeSight 5.4
+    * Installation and configuration of MS Failover Clustering on EMC Storage
+    * Installation, configuration of EMC components – SANSurfer, PowerPath,
+      Cluster Enabler
+    * Installation and configuration of MS SQL 2008 R2 / Reporting Services
+    * Installation, Testing and Evaluation of printer drivers in XenApp farms
+    * Managing of Data Centers Infrastructure in different geo locations
+    * Error analysis of Data Center Hardware and liaising with Manufacturer
+      (HP, EMC, Citrix)
+    * Scaling of existing Server farms with Hardware and Applications
+    * Building / Packaging of Altiris Deployment Jobs
+    * Provisioning of Virtual Server on VMWare 5x and 6x Platform
+    * Documentation of working processes in CMDB, DMS and SharePoint
+    * Technical evaluation and qualification of projects
+    * Monitoring of Datacenter Infrastructure via Argent and Citrix EdgeSight
+    * Resources upgrade on VMware server (vRAM, vCPU, vDisks)
+    * LACP - configuration for redundancy, fault tolerance and high
+      availability of network
+    * Update of Symantec Netbackup Client from 7.5 to 7.6
+    * Evaluation and upgrade to Internet Explorer 11 in Test and Production
+      environment
+    * Working with Remedy Ticket System and SharePoint
+    * Monitoring Dell-EMC products using- EMC Secure Remote Services (ESRS)
+      Tool
+    * Proof of Concept (PoC) of Microsoft Failover Clustering on Server 2012 R2
+===============================================================================
+04/2014 - 04/2014: Consultancy on Remote IT Support Software (products
+evaluation and comparism)
+ 
+Rolle:              Independent IT Contractor
+Kunde:              I AlphaSights Ltd UK
+===============================================================================
+08/2013 - 04/2014: Project with Skandia Versicherung Management &amp; Service GmbH
+ 
+Rolle:              Independent IT Contractor
+ 
+Aufgaben:
+ 
+    * Consultation in Windows and Citrix Administration in multiple Domains -
+      DACH
+    * Managing Active Directory, (DNS, GPO, Rights - User and Groups) in 3
+      domains – DACH
+    * Managing and Administration of Microsoft Exchange Servers (2003 and 2010)
+      in DACH
+    * Evaluating and Implementing of Changes according to ITIL Best Practice in
+      - DACH
+    * Migration of Public Folders from Exchange 2003 to Mail boxes on Exchange
+      2010
+    * Managing, administration of Citrix XenDesktop 4.0 and 5.6 farms in DACH
+    * Maintaining a XenApp 6.5 Farm for multiple domains – DACH
+    * Database Management – MS SQL 2008 R2
+    * Experience in Mobile Device Management – (BlackBerry, Good Mobile,
+      XenMobile)
+    * Managing and Administration of BlackBerry Enterprise Server in DACH
+    * Administration of Good Mobile Control Server in DACH (Messaging)
+    * Installation, configuration, Administration, Operations &amp; Support of W2K8
+      R2 Servers
+    * Monitoring of Data Centers infrastructure, different Services , Hardware
+      including
+      cooling and alarm systems – daily visible rounds
+    * Design and implementation of XenDesktop 7.x Farm for Austria and Germany
+    * Daily Operations and Support using OTRS Ticket system
+===============================================================================
+01/2013 - 06/2013: Sales Engineer / Technical Consultant - EMEA by triCerat
+Inc. Colombia MD, USA
+ 
+Rolle:              Independent IT Contractor
+ 
+Aufgaben:
+ 
+Specialization: Printing and Scanning management in Microsoft RDS /Citrix and
+VDI
+environment
+Profile and Desktop Management in Microsoft RDS /Citrix and VDI environment for
+organization in all sectors, Active Directory Services, Citrix XenApp and
+components
+    * Preparing and delivering product trainings to end user customers,
+      partners, distributors and resellers in EMEA.
+    * Technical Relationship Manager (TRM) for VIP Enterprise customers in EMEA
+    * Technical consultant assisting partners during Proof of Concept, pre-
+      sales,
+      implementation phases and supporting them in production.
+    * Presentation of high level technical concepts to all audiences, ranging
+      from nontechnical
+      people to executive level technical decision-makers (end users, partners,
+      resellers and distributors)
+    * Establishing and maintaining relationships with current customers
+      (responding to
+      customer requests, managing and resolving their issues)
+    * Maintain accurate account information and activity details in Customer
+      Relationship
+      Management system (CRM)
+    * Provide effective product demos for end-user customers as well as for the
+      resellers,
+      partners and distributors
+    * Support the customer and reseller communication channel throughout the
+      sales process
+      (on-site visits to partners and resellers)
+    * Participate in marketing events such as seminars and trade shows and
+      bringing feedback
+    * Comparisons, tests and documentation of competitor’s products
+    * Providing feedback from the field /customer experience to Management,
+      Marketing,
+      Support and Developers team for decision and improvements
+    * Participating in technical &amp; sales national and international conferences
+      – E2EVC, Citrix
+      Mobility, distributors /partners workshops
+    * Technical training of internal Sales colleagues
+    * Presentation of technical Webcasts on TriCerat Products to partners,
+      distributors and customers
+===============================================================================
+05/2009 - 12/2012: Administration of Hosting projects - Interoute Gemany GmbH
+ 
+Einsatzort:         Berlin
+Rolle:              Snr. System Administrator  Windows &amp; Citrix XenApp
+Kunde:              Interoute Germany GmBH
+ 
+Aufgaben:
+ 
+I planned, designed, test and implemented Windows 2008 R2 RD Services
+environments for
+the support of different Interoute Datacenters and international hosting
+customers
+TECHNICAL TRAINING:
+18.07.2011 – 22.07.2011 MS SQL 2008 R2 Training / 08.08.11 – 12.08.11 MS SQL
+2008 R2
+14.05.2012 – 16.05.2012 ITIL V3 Foundations Training and Certification
+10.09.2012 – 14.09.2012 Install, Configure and Manage VMware vSphere 5.0
+05.11.2012 – 09.11.2012 Automating Administration with Windows PowerShell
+02.01.2013 – 24.01.2013 triCerat Simplify Suite and standalone products
+(ScrewDrivers,
+Scanect, Cliptite, PAT Profile Acceleration Technology, TKE)
+30.11.2015 – 04.12.2015 - CTX-CXD203: Managing App and Desktop Solutions with
+Citrix
+XenApp and XenDesktop 7.6
+ 
+Other tasks include:
+    * Design, Implementation and hosting of tailored projects including Servers
+      and applications for different multinational companies
+    * Conception, Designing and Implementation of different virtualized server
+      farms and applications on W2K8 R2
+    * Installation und configuration of Microsoft Exchange 2010
+    * Operations and servicing of Servers and applications Services for
+      different multinational companies
+    * Fine-tuning and optimization of Citrix XenApp farmInstallation,
+      Migration, Administration and Maintenance of MS SQL Server and Databases
+      (MS SQL 2008 R2, 2005, 2000)
+    * System Monitoring using internal monitoring tools and Windows OS out of
+      the box tools
+    * Complete design, implementation, administration and operation of Windows
+      Server 2008 R2 Remote Desktop Host Services and other components (AD, MS
+      SQL 2008 R2, File Servers, Database, Printing)
+    * Administration of Server 2008 R2 Active Directory environment and other
+      components – DNS, GPO, Users Roles and Rights management
+    * Installation, configuration and administration of XenApp 6.0, 6.5 and
+      components
+    * Liaising with Microsoft and other 3rd Party application vendors
+    * Centralize Patching of servers and applications using WSUS
+    * Monitoring and SLA reporting of different customers mission critical
+      services
+    * Backup and data recovery
+    * License Management and reporting (Microsoft, Citrix)
+    * Hardware resources and capacity sizing and management
+    * Technical training of colleagues and technical presentation to customers
+      and partners
+===============================================================================
+05/2006 - 05/2009: Senior Citrix Administrator &amp; Server/System Administrator
+ 
+Kunde:              Siemens AG, Berlin
+ 
+Aufgaben:
+ 
+Aufgaben/Verantwortungen:
+    * Planung, Installation, Konfiguration und Aufrechterhaltung von W2K/W2K3-
+      Servern (Login-, DC-, Applikation-, File-, Backup-, SQL-, Anti Virus und
+      Print-Server)
+    * Tägliche Überwachung und Systemcheck der verschiedenen Server und Dienste
+    * Server Installation und Integration in bestehende Infrastruktur
+    * Installation, Konfiguration, Pflege, Sicherung &amp; Optimierung von Print
+      Servern
+    * Sicherungs- und Wiederherstellungskonzept verschiedener Dienste
+    * Zentrale Patch- and Update-Mechanismen via WSUS
+    * Zentrale Fern-Administration von HP- und FSC-Blades
+    * System- und Netzwerkoptimierung
+    * 24x7 On Call Support
+ 
+    * Konfiguration und Überwachung der Farm via Citrix Resource Manager
+    * Überwachung von Servern und Netzwerk Komponenten via Nagios
+    * Erstellung von Server-Verfügbarkeitsreports
+    * Erstellung von Incident-Reports für Service Delivery Manager
+    * Technische Dokumentation der Server-Installationen sowie Konfigurationen
+      verschiedener Server und Applikationen
+    * Kommunikation und Zusammenarbeit mit Administratoren der Kunden vor Ort
+    * Kommunikation und Zusammenarbeit mit Entwicklern von Applikationen
+    * Farm Datastore Design
+    * Datastore Migration von MS Access zu MS SQL Server
+    * Überprüfung und Bereinigung der Datastore
+    * Backup und Wiederherstellung von Datenbanken
+    * Erarbeitung und Durchführung von Change Request
+    * Testen und Debuggen der Applikationen und Server
+    * MS SQL Server Database-Administration und -Pflege
+    * Vorbereitung und Präsentationen technischer Workshops beim Kunden
+    * 24/7 Rufbereitschaft
+ 
+Aufgaben Active Directory:
+    * Installation und Konfiguration der Domäne Controller
+    * Pflege und Aufrechterhaltung der Aktive Directory Datenbanken
+    * Überwachung, Betrieb und Pflege der Domäne Infrastruktur
+    * Konfiguration und Implementierung von Gruppenrichtlinien
+    * Verwaltung von Benutzer- und Gruppenrechten
+    * Verwaltung von DFS
+ 
+Aufgaben Citrix Presentation Server 4.0 und 4.5:
+    * Verwaltung mehrerer CPS 4.0 Server-Farmen mit über 1.000 CCU-Lizenzen
+    * Upgrade und Migration von MF XP auf PS 4.0 sowie PS 4.0 auf PS 4.5
+    * Erweiterung und Skalierung der Server-Farm
+    * Pflege der bestehenden klassischen Kunden-Applikationen
+    * Installation, Tests, Evaluierung und Implementierung neuer Applikationen
+      und Sicherheitsupdates
+    * Update und Upgrade bestehender Terminal-Server Applikationen
+    * Überwachung und Lastenverwaltung von Servern und Applikationen
+    * Konfiguration und Implementierung von Farm-Richtlinien
+    * Installation, Tests, Evaluierung und Konfiguration von Druckertreibern
+    * Verwaltung von Lizenzen, Subskription Advantage und Solution Advisor
+===============================================================================
+09/2003 - 05/2006: Advanced Support Engineer / Team Supervisor
+ 
+Kunde:              Citrix Systems Inc., Dublin, Ireland + Florida, USA
+ 
+Aufgaben:
+ 
+Aufgaben/Verantwortung:
+    * Nachstellung und Problemlösung sowie erweiterte Problemanalyse von
+      Kundenfällen
+    * Integration von verschiedene Citrix-Produkten bei Kunden
+    * Server und Applikation Virtualisierung
+    * Follow the Sun – OnCall Support
+    * Nachstellung der kundenspezifischen Umgebung auf virtuellen Maschinen
+      (VMware)
+    * Qualifizierung von Kundenfällen für Eskalation
+    * Vorbereitung und Präsentation von Trainings
+    * Überwachung des Team Voicemails und Kontaktaufnahme mit Kunden
+    * Basic Crash Dump Analyze (Memory Dumps und Mini Dumps)
+    * Analyse und Auswertungen von Traces und Logs (CDF, IMA, Netzwerk und MSI
+      Logs)
+    * Einarbeitung neuer Mitarbeiter und Integration in das Team
+    * Erstellung technischer Dokumente für die Citrix Knowledge Base
+    * SME für Lizenzierung, Customer Care und Subskription Advantage
+    * Vorbereitung und Teilnahme am Citrix Solutions Summit in Florida, USA
+ 
+Managementaufgaben:
+Teamleiter (Vertretung des Team Managers):
+    * Koordinierung der täglichen Arbeitsabläufe und Ticketverteilung im Team
+      von 16 Ingenieure
+    * Organisation, Überwachung und Koordination der Schichtpläne &amp;
+      Ressourcenzuweisung
+    * Erstellung wöchentlicher Team-Statistiken
+    * Erstellung von wöchentlicher Team-Statistiken und berichten an Management
+      Board
+    * Ansprechpartner für Kunden, Partners und Kollegen
+    * Ticketreviews und Ressourcenplanung
+    * Management Meetings
+===============================================================================
+04/2002 - 06/2003: Systems Engineering
+ 
+Kunde:              TÜV-Akademie, Berlin inkl. 3 Monate
+ 
+Aufgaben:
+ 
+Erstellung eines Sicherheitskonzeptes für die iLIMS Web Server (LIMS = Labor
+Information Service) nach Microsoft-Vorgaben
+    * Organisation und Koordination wöchentlicher Meetings
+    * Installation, Konfiguration, Test und Überwachung des W2K- sowie Web-
+      Servers (IIS)
+    * Training und Support der Benutzer und Kunden
+    * Implementierung und Konfiguration von Sicherheitsrichtlinien für  den
+      iLIMS Web Service nach Microsoft-Vorgabe
+===============================================================================
+01/2002 - 03/2002: Systems Engineering
+ 
+Kunde:              Paetec Wirtschaftsakademie, Berlin
+ 
+Aufgaben:
+ 
+    * Vorbereitungskurs für das Systems Engineering Training
+    * Training von Jobrecherche und Akquisition
+===============================================================================
+10/1999 - 10/2001: Studenten Coach
+ 
+Kunde:              Schering AG, Berlin, Export Abteilung
+ 
+Aufgaben:
+ 
+    * Verantwortlicher für die Studenten und Auszubildende im Export-Versand
+    * Administration der EDV-Terminals in der Export-Abteilung sowie Benutzer
+      Anweisung
+    * Einarbeitung der Studenten und Auszubildenden
+    * Ein- und Auslagerung von Waren im Hochregallager
+    * Qualitätskontrolle von Waren
+===============================================================================
+01/1998 - 09/1999: Database Design/Project Management
+ 
+Kunde:              Ngwu GmbH
+ 
+Aufgaben:
+ 
+    * Projektbegleitung (Entwicklung, Installation, Tests, Implementierung und
+      Support
+===============================================================================
+05.2006  04.2009
+Siemens AG
+ 
+Engagements/Responsibilities: Server /System Administration &amp;Citrix
+Administration
+I contributed immensely to the success and completion of the Performance
+Project for a big
+Health Insurance firm within the short period of my engagements with Siemens IT
+Solutions.
+I suggested the Citrix Infrastructure Assessment for the server farm of one of
+Europes
+biggest Warehouse/one of the Worlds largest Automobile Harbors.
+I contributed extraordinarily to the farm rebuilt, which led to a stable and
+scalable server
+farm
+ 
+Other tasks include:
+    * Planning, Installation, configuration and maintenance of W2K /W2K3-Server
+      (Login-, DC-
+      , Application-, File-, Backup-, SQL-, Anti Virus and Print-Server)
+    * Daily monitoring and health check of the different servers
+    * Installation and Integration of Servers into existing Infrastructure
+    * Installing, configuring, maintaining, backup &amp; optimizing of Print Server
+    * Backup and Restore concept for different Servers
+    * Centralize Patch- and Update mechanism via WSUS
+    * Centralize Remote Administration of HP and FSC Blade Servers
+    * Configuration &amp; Farm Monitoring via Resource Manager
+    * Generating of server availability reports, Basis performance Data for the
+      Operational Manager
+    * Monitoring of servers and network components via Nagios
+    * Incident reports for the Board of Directors and Service Delivery Manager
+    * Continuous technical Documentation of working processes. Direct
+      communication and updates with customers onsite Administrators
+    * Liaising with diverse Application developers/manufacturers on technical
+      clarification
+    * Farm Datastore Design&amp; Migration from MS Access to MS SQL Server 2005
+    * Datastore consistency checks and cleanup
+    * On-going writing of Change Request on demand
+    * Tests and Debugging Applications and Servers
+    * MS SQL Server Database administration &amp; maintenance
+    * Preparing technical Presentation for the Management Board
+ 
+Active Directory:
+    * Installation and configuration of domain controllers
+    * Maintaining Active Directory Database
+    * Monitoring, servicing and maintaining of the domain tree Infrastructure
+    * Configuring and implementing of GPOs
+    * Managing of User /Group Accounts and Rights
+    * Microsoft Distributed Files System (Microsoft DFS)
+    * Configuring and maintaining DNS Service Citrix Presentation Server 4.0,
+      4.5
+    * Managing an existing decentralized CPS 4.0 server farm with ca. 1000 CCU
+      Licenses
+    * Upgrade of MF XP to PS 4.0
+    * Setup- and scaling of the server farm - Installation configuration and
+      joining new servers to the farm
+    * Maintenance of existing customer specific legacy Applications and Packets
+    * Installation, Testing, Evaluation and Implementationof new Applications
+      and Patches into the serverfarm
+    * Update- and Upgrade of existing Terminalserver Applications
+    * Monitoring and Load management of the Servers and Applications
+    * Maintaining and managing terminal server certified applications and
+      printer drivers in the farm
+    * Managing and maintaining the Licenses  Subscription Advantage, Solution
+      Advisor.
+ 
+===============================================================================
+ 
+09.2003  05.2006
+Citrix Systems, Inc. Dublin, Ireland
+ 
+POSITION HELD: Advanced Support Engineer
+TECHNICAL DUTIES: Engagements/Responsibilities: Technical Support Engineer 
+analyzing,
+reproducing and troubleshooting of customer issues to provide quality solutions
+on time.
+ 
+Other tasks include:
+    * In-depth customers problem analysis on Citrix products and their
+      integration into
+      enterprise -wide mixed environments.
+    * Reproducing customer issues by building customers environmentson VMWare
+    * Regular communication and update of customers on the development of their
+      cases
+    * Isolate, setup customers environment, reproduce and provide resolution
+      to customer
+      issues or qualify them for code level development assistance or other
+      vendor assistance.
+    * Providing technical guidance and consult with engineers, partners and
+      other vendor
+      support engineers to identify and resolve clients issues.
+    * Document and track status of client's inquires, coordinate appropriate
+      response and
+      follow up to ensure high customers satisfaction.
+    * As a Citrix Licensing Specialist (SME) I developed and delivered
+      technical training on
+      Citrix Products especially Licensing
+    * Managing, monitoring, and redistribution of OPRTcases
+    * Monitoring of Team Voicemails and follow up of messages  customer
+      Callback
+    * Monitoring and ensuring that the stipulated SLAs are adhered to
+    * Basic Crash Dump Analysis (ker

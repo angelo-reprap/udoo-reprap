@@ -1,0 +1,458 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_61509
+
+
+Stammdaten (Auszug):
+
+Personen-ID                61509
+  
+Wohnort                    734xx Ellwangen, Deutschland
+Jahrgang                   1965
+Staatsbürgerschaft         Deutsch
+Stundensatz                80 EUR
+                           (verhandelbar in Abhängigkeit von Projektdetails)
+Verfügbar ab               01.04.20 zu 100%, Vor-Ort-Einsatz 0% möglich
+Profil erstellt am         22.04.04
+Profil zuletzt geändert am 31.03.20
+Lesen von Projektanfragen  > 5 Tage [00]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 05.05.2020 12:33:46
+
+Fachlicher Schwerpunkt:
+Netzwerk, Firewall, VPN, SSL, Linux (Proxy, Apache, Samba, PostgreSQL, MySQL),
+Monitoring, Windows, Perl und Bash Skripting
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Engineering / IT-nahe Ingenieurdienstleistungen
+
+Programmierung in Perl und Bash
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Studium der Physik und Chemie an der Universität (Rumänien)
+Abschluß: Physiker und Chemiker in 1990
+2010              Novell Certified Linux Administrator SLES 11
+2008              Fortbildung Web-Design (HTML, JavaScript, CGI)
+2008              Zertifizierung Linux Professional Institute LPI
+2008              Zertifizierung Microsoft Certified System Administrator
+Windows 2003
+2008              Zertifizierung Microsoft Certified Professional
+2005              Cisco - Cisco Routing (WAN, VPN, IPSec, NAT, ACL, ISDN)
+2005              Cisco - Cisco Grundlagen (Protokolle, Switch und Router
+konfigurieren, VLANs)
+2002              RedHat - Modul RH253 - Netzwerk und Sicherheit für Linux
+2001              Microsoft - Implementing a Microsoft Windows 2000 Network
+Infrastructure¿
+2001              Microsoft - Microsoft Windows 2000 Network and Operating
+System Essentials¿
+2000 - 2001       Studium als Netzwerkadministrator in NT4 bei SGD-Darmstatdt
+
+
+
+Einsatzort:
+Regionen:
+D4, D5, D6, D7, D8, D9
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Bevorzügt ist Süd-Deutschland (Stuttgart, Nürnberg, Ulm, München)
+
+Fremdsprachen:
+Deutsch    
+Englisch   
+Rumänisch 
+
+
+Hardware:
+embedded Systeme  
+HP                
+PC                
+
+IBM-, Dell- und HP-Server
+
+Betriebssysteme:
+MS-DOS   
+Unix    Linux und BSD (FreBSD, NetBSD, OpenBSD)
+Windows NT4, 2000, XP, Vista, Windows 7, 2003 Server, 2008R2 Server, 2012
+        Server
+
+Linux, RedHat RHEL 4.x-8.x, CentOS 4.x-8.x, Scientific Linux 5.x-8.x, Suse SLES
+9, 10, 11, 12, 14, Debian, Ubuntu, FreeBSD, OpenBSD, OpenSuse, OpenSolaris
+Microsoft Server 2000, 2003, 2008 und 2012, Workstation 2000, XP, Vista,
+Windows 7, Windows 10
+
+Programmiersprachen:
+JavaScript  
+Perl        
+Shell       
+Tcl/Tk      
+
+
+Datenbanken:
+MySQL     
+Oracle   Installation und Linux Kernel-Tunnig, Ver 9, 10i, 11R1, 11R2
+Postgres  
+SQL       
+
+SQLite
+
+Datenkommunikation:
+Ethernet                  
+Internet, Intranet        
+ISDN                      
+ISO/OSI                   
+LAN, LAN Manager          
+NetBeui                   
+NetBios                   
+Packet-Radio              
+parallele Schnittstelle   
+PC-Anywhere               
+Public Networks           
+Router                    
+RPC                       
+RS232                     
+SMTP                      
+SNMP                      
+TCP/IP                    
+Token Ring                
+Windows Netzwerk          
+Winsock                   
+X.400 X.25 X.225 X.75...  
+
+Aufbau SMS-Gateway mit OpenSource Software
+
+Design/Entwicklung/Konstruktion:
+Design, Aufbau und Management VPN-Anbindungen (Cisco 26xx, ASA5500, PIX5xx)
+Design, Aufbau und Management Firewall (Checkpoint, Cisco ASA/PIX, Watchguard,
+Astaro, Zyxel)
+Design, Aufbau und Management Linux-Systeme (Proxy, DNS, Email, WEB, eShop,
+FTP, AS2)
+Anwendung von Verschlüsselung- und Authentifizierung-Mechanismen (IPSec, SSL-
+Zertifikate)
+Security-Beratung
+Content-Filter, IDS, sniffing
+Troubleshoting im Linux- und Netzwerkumfeld
+Design, Aufbau und Management Monitoring-Systeme (Nagios, Icinga)
+ 
+
+Berechnung/Simulation/Versuch/Validierung:
+Support Benchmarking IBM Websphere, Apache, Varnish, Bonding in Linux,
+LoadBalancing
+
+Produkte/Standards/Erfahrungen:
+Zertifizierungen / Fortbildungen:
+  Perl Entwicklung
+  LPI  Linux Professional Institute
+  Novell Certified Linux Administrator SLES11
+  Microsoft Certified Systems Administrator Windows 2003
+  Microsoft MCP Windows XP
+  Cisco Switching und Routing
+  Firewall CheckPoint, Cisco ASA/PIX und Watchguard
+ 
+Netzwerk (LAN/WAN/WLAN):
+- Design
+- Implementierung
+- Aufbau VPN (Site-2-Site, Remote Access Moble Users, DirectAccess)
+- Administration
+- Testen
+- Troubleshooting
+- Hardware: Cisco, Juniper
+- Bandbreitemanagement mit Radware-Appliance (DefensePro)
+- Monitoring (Nagios, Icinga, SNMP)
+
+
+Security und Firewall:
+- Checkpoint
+- Watchguard
+- Astaro
+- SonicWall
+- Netzwerk-Sniffing
+- Intrusion Detection Systems
+- Access-Liste (ACL)
+- Web-Filterung
+- Authentifizierung AAA, Kerberos, Radius-Server
+- Remote Zugang
+
+Linux:
+- Web-Server (Apache, Tomcat, Varnisch)
+- FTP-Server, SFTP-Server
+- SAP-Router
+- File- und Print-Server (Samba), NFS, DNS (Bind)
+- Proxy (Squid)
+- Hochferfügbarkeit Cluster
+- Email (Postfix, Dovecot), Antispamm
+- Tunning, Troubleshooting, Wartung
+
+Datenbanken:
+- MySQL
+- Oracle ver. 9.0, 10, 11 und 11R1/R2 (Installation, Linux-Kernel-Tunning)
+- PostgreSQL
+- SQLite
+
+Windows und MSOffice:
+- Management von Windows 9x, NT4, 2000, XP, Vista und Windows 7, Server 2000,
+2003, 2008 und 2012
+- MS-Office XP, 2003, 2007, 2010
+
+- IT-Schulungen (Linux-, Netzwerk- und Microsoft-Umfeld)
+ 
+
+Branchen:
+    * IT / Internet / EDV
+    * IT-Dienstleister / Rechenzentrum
+    * Sicherheits im Netzwerk
+ 
+LAN, WAN, WLAN, Netzwerkplanung und Administration
+Cisco Administration
+VPN, IPsec, SSH, SSL, DirectAccess
+Netzwerkdokumentation
+Monitoring, Troubleshooting und Analyse
+Linux RedHat, Fedora, Suse SLES, Debian, Ubuntu, CentOS, OpenSuse, FreeBSD,
+OpenBSD
+Linux Migration, Administration, Sicherheits, Hochverfügbarkeit, Cluster
+Testen im Linux-Umfeld
+Performance Tunning
+Firewall CheckPoint, Watchguard, Astaro, Zyxel, Sonicwall
+Administration MS-Windows Server 2000, 2003, 2008R2, 2012
+Allgemeiner Second-Level-Support für Linux- und Windows-Produkten
+IT-Beratung
+
+Projekte:
+Zeitraum:  Jan. 2012 - Dez. 2012
+Firma: Aleris Extruded Products Germany GmbH
+Tätigkeit: IT-Beratung, System- und Netzwerkadministration, Software
+Entwicklung in Perl
+Design, Aufbau und Management eines Failover Distributed Monitoring System mit
+Icinga, gearmand, NSCA, Performancedata auswerten (Kompilieren von Source Code)
+Design und Entwicklung von Tools um die Kommands zwischen Icinga-Masters und
+Icinga-Slaves zu synchronisieren
+Synchronisieren von Templates mit rsync-Profile
+Aufbau und Management für das Notification-System für Icinga über ein SMS-
+Gateway mit Möglichkeit Rückbefehle (Ackowledgements) am Monitoring-System zu
+setzen
+Entwicklung von Skripte und Plugins für Nagios/Icinga in Perl und Bash
+Management und Troubleshooting für Linux Suse (SLES und OpenSuse)
+Beratung Sicherheit im Netzwerk, Hardening von Linux-Systeme
+Optimierungen von Geschäftsprozessen und IT-Systeme
+Stromabschaltung des Rechenzentrums einplanen und dürchführen
+Management VMware ESX-Umfeld und virtuelle Systeme
+Performance Tuning of Latency-Sensitive Workloads in vSphere VMs
+Novell eDirectory Management, User Berechtigungen in AD und Samba
+Überwachung und Troubleshooting in LAN und WAN
+Support VPN mit Astaro UTM
+Support Migration von Juniper Peribit auf Riverbed
+Wiki Dokumentation
+ 
+ 
+Zeitraum:  Jun. 2011 - Dez. 2011
+Firma: Giesecke &amp; Devrient IT– München
+Tätigkeit: IT-Beratung, System- und Netzwerkadministration
+RedHat und CentOS Linux Deployment über RedHat Sattelite und Spacewalk
+Management und Troubleshooting für Linux RedHat, CentOS
+Beratung Sicherheit im Netzwerk, Hardening von Linux-Systeme
+Optimierungen von Geschäftsprozessen und IT-Systeme
+Installation, Konfiguration und Management Apache-Tomcat, Java und interne
+Software
+Management VMware ESX-Umfeld und virtuelle Systeme
+Entwicklung von Skripte und Nagios-Plugins in Perl und Bash
+Einrichtung und Überwachung mit Nagios
+Load-Balancing und Bonding mit Linux
+Management Microsoft AD, User pflegen in AD, DNS
+FileServer- und WSUS-Server aufsetzen und Patch-Management
+Management Antivirus-Software
+Überwachung und Troubleshooting in LAN und WAN
+Support Migration Juniper-Checkpoint
+Firewall (Checkpoint) Management
+Backups-Jobs in TSM einplannen und überwachen
+Dokumentation
+ 
+Zeitraum:  Jun. 2010 - Mai 2011
+Firma:     IBM Research &amp; Development Center
+Tätigkeit: IT-Beratung, Sicherheit im Netzwerk (Firewall, Contentscanning,
+Sniffing, Linux)
+Planung und Umsetzung von VPN-Anbindungen (Site-2-Site, Mobile RemoteAccess mit
+Cisco PIX515 und ASA5500)
+Planung und Umsetzung Bandbreitemanagement-System in WAN (Radware)
+Betreuung von IT-Systeme und Netzwerke (LAN und WAN)
+Planung und Aufbau eines SMS-Gateways mit Open Source Software, Network Access
+Control (NAC)
+Planung und Umsetzung Aufbau SSL-VPN-Anbindungen (nach SWIFT Vorschriften)
+Entwicklung von Nagios-Plugins in Perl (User-Tracking, SNMP, BGP, OSPF, STP,
+Monitoring, Log-File Auswertung)
+Entwicklung von Anwendungen in Perl (POSIX, fork, aktiv als Daemon im System)
+Beratung und Unterstützung Aufbau Web-Portal für 5000 Users mit WebAccelerator
+(SLES11SP1, WebSphere, Apache, Varnish) sowie Kernel- und Netzwerk-Tuning,
+Benchmarking des Portals
+Installation, Konfiguration und Management von IBM Tivoli Network Manager IP
+Edition &amp; Netcool/OMNIbus Web GUI, Entwicklung von Custom Agents in Perl
+Load-Balancing, Port-Channel mit Cisco-Switches, Load-Balancing und Bonding mit
+Linux
+Installation und Konfiguration SAPRouter
+Unterstützung Aufbau von Web-Anwendungen (CGI-Skripting mit Perl)
+Beratung Sicherheit im Netzwerk (Firewall, Contentscanning, Sniffing)
+Sicherheitscheck durchführen, auswerten und optimieren von Policy-Rules nach
+ITIL
+Management Radius-Server auf Linux (RedHat, CentOS)
+Optimierungen von Geschäftsprozessen und IT-Systeme
+Überwachung und Troubleshooting in LAN und WAN
+Auswertung von Netzwerk-Traffik 
+Kundenbetreuung, 2-, 3-Level Support Helpdesk
+Erstellung von Dokumentationen für das Netzwerk und für Kunden
+Support Migration Cisco-Juniper
+ 
+Zeitraum:  Jan. 2010 - Mai 2010
+Firma:     Deutsche Post
+Tätigkeit: Management Cluster Firewall Checkpoint, RedHat Enterprise Server
+5.x, RedHat Satellite, Installation Oracle 9.0, 10g, 11gR1, 11gR2 und Kernel-
+Tunning, Automatisierung von Arbeitsprozesse mit Skripte, Netzwerkmanagement,
+Aufbau von mehrere VPN-Verbindungen
+Aufbau Datentransferssystem mit AS2-Protokoll, Erstellung von SSL-Zertifikaten,
+Unterstützung Migration VMWare 3.5 auf VMWare 4.0, Troubleshooting, Policy-Rule
+prüfen und optimieren, Dokumentation in MS-Visio erstellen, Remote-Arbeit
+ 
+Zeitraum: Nov.2009 - Dez. 2009
+Firma:    Sparkasse Hamburg (Projekt HaSAP)
+Tätigkeit im Projekt: Provider-Management, Auswertung von MS-Access-DB,
+Dokumentation
+ 
+Zeitraum: Sept.2009
+Kunden-Name/ Institution:  Fa. BFI-Zeiser
+Tätigkeit im Projekt:      Berater, Support
+Planung und Aufbau eines CRM-Systems mit OpenSource-Software (Datenbank mit
+MySQL) auf Linux. Anpassungen und Optimierungen des Softwares nach
+Geschäftsprozesse.
+ 
+Zeitraum: Iun.2009 - Aug.2009
+Kunden-Name/ Institution:  Fa. Baur-Versand (Burkungstadt), Otto-Group
+Tätigkeit im Projekt:      Projektleiter, Berater und Mitarbeiter
+IT-Beratung, Netzwerkmanagement, WLAN-Anbindungen, Videoüberwachung-Systeme
+konfigurieren, Management für Linux-Server (Suse SLES 9/10, Debian 4.0 und
+5.0), Management von Postfix, Proxy, Apache, Java-Anwendungen, FTP, NFS, Samba,
+Winbind, DNS mit Bind, Automatisierung der  Linux- und Software-Installation
+und Update über Scripte, Umstellung auf UTF-8 für Linux,Aufbau und Management
+Authentifizierungssystem von Users mit Squid und ActiveDirectory für
+Internetzugang, Firewall-Management, Aufbau eines IDS-Systems mit Snort,
+Nagios-Administration und erweitern, Policy-Rule prüfen und optimieren, Kernel-
+Tuning für die Oracle10g-Datenbank auf SLES10, Troubleshooting im Netzwerk- und
+Linux-Umfeld, Umzug und Umsetzung eines Kundenportals auf Basis von Oracle-
+Datenbank, technische Lösungen finden, Support, Erstellung von Dokumentationen
+in MS-Visio.
+ 
+Zeitraum: Mai 2009
+Kunden-Name/ Institution:  Autoteile-Eiberger-Ellwangen
+Tätigkeit im Projekt:      Projektleiter, Berater
+Planung und Aufbau eines VPN-Tunnel mit OpenVPN (IPSec) für Home und mobile
+Users, Firewall, URL-Filter mit Linux. Einrichtung eines WLAN-Netzwerks in der
+Werkstatt. Support.
+ 
+Zeitraum: Feb.2009 - Apr.2009
+Kunden-Name/ Institution:  BIT-Ellwangen
+Tätigkeit im Projekt:      Projektleiter
+IT-Beratung, Planung und Aufbau eines Branch Office VPN-Tunnel, VPN mit IPSec
+und PPTP für mobile Users, Watchguard Firebox-X2500 konfigurieren. Test und
+Auswertung von VPN (PPTP, L2TP/IPsec, SSTP und IKEv2 )-Protokollen mit „Windows
+7“. Die VPN Anbindung für mobile Arbeitsplätze über UMTS-Anschluss einrichten,
+testen, auswerten und dokumentieren. Einrichtung und Support von VPN für Mac-
+OsX-Clients (SO: Leopard Ver. 10.5)
+ 
+Zeitraum: Feb.2009
+Kunden-Name/ Institution:  BIT-Ellwangen
+Tätigkeit im Projekt:      Projektleiter und Berater
+Planung und Aufbau eines Proxy-Servers (Linux RedHat, Squid) mit
+Userauthentifizierung über Active Directory, Webfilterung. Beratung für den
+Aufbau eines kommerziellen CRM-Systems (OfficeWare und MS-SQL).
+ 
+Zeitraum: Jan.2009
+Kunden-Name/ Institution:  Mediaware House
+Tätigkeit im Projekt:      Projektleiter und Mitarbeiter
+Planung und Aufbau eines ActiveDirectory, Migration, VPN mit IPSec, PPTP und
+VPN-SSL für mobile Users, Watchguard Firewall (X700, X2500) konfigurieren,
+Branch Office VPN Anbindung.
+ 
+Zeitraum:         20.08.2001 bis 30.12.2007
+Kunden-Name/ Institution:  Varta Consumer Batteries GmBH
+Tätigkeit im Projekt:      Projektleiter und Mitarbeiter
+Aufbau und Erweiterung einer internationalen Home-Office-VPN-Anbindung für ca.
+240 Aussendientsmitarbeitern und 12 Small-Office (Europa, USA, Asien) mit
+Watchguard-Technologie, Authentifizierung des Users mit SecureRemote-,
+SecureClient-, Cisco-VPN-Software (PIN+SecureID-Card).
+Planung und Aufbau eines IPSec-VPN-Netzwerkes mit Cisco Router für die
+Standorte Ellwangen, Utrecht und Brüssel sowie Espoo und Verona. Backup über
+ISDN-Line.
+Wegen Firmentrennung, Planung und Neuaufbau von LAN, WAN-Netzwerk und Domäne.
+Design neues IP-Schema für LAN in Hauptgeschäftsstelle und in alle
+Tochtergesellschaften, neue IP-Design in LAN und DMZ, Domäne-Umstellung,
+Migration, Beschaffung neue Internetleitungen, Umzug des Serverlandschaft
+einplanen und umsetzen, Umstellung Linux-Server (DNS, Proxy, Samba, FTP) in
+alle Lokationen, Umstellung des VPN-Home- und Small-Offices mit Watchguard-
+Technologie, Backup über ISDN in Notfall, Dokumentation erstellen.
+Konsolidierung des Netzwerks.
+Planung und Aufbau eines Hochverfügbarkeit FTP-Servers (Linux, proftpd) in
+Internet für Datenaustausch von Hochsensibledaten mit externen Firmen.
+Management des Users auf dem FTP-Server.
+Planung und Aufbau eines Funknetzwerks mit Cisco AccessPoint Aironet 1220 in
+der Verpackung für den Betrieb von SAP auf mobilen Geräten (Terminalen mit
+Windows NT4 auf dem Gabelstapler).
+Planung und Aufbau eines umfangreichen Monitoringsystems für Netzwerkgeräte
+(Router, Switch, VPN-Tunnels), Servers und Dienste (DNS, DHCP, Proxy, FTP,
+MySQL, Oracle, SAP) mit Linux RedHat, Nagios und MRTG.
+Planung und Aufbau der Netzwerkintegration eines MPLS-Netzwerks mit Versatel
+und ODR für die Standorte Ellwangen, Sulzbach und Melle (Netzwerkintegration
+von Firma Tetrapack aus Melle) mit Cisco Router. Backup über DSL- (mit Hot
+Standby Routing Protocol) und ISDN-Line.
+Planung und Aufbau eines Funknetzwerks mit Cisco Aironet 1220 in das
+Logistikzentrum für den Betrieb von Buchungsprogrammen über Web-Browser auf
+mobilen Geräten (Terminalen Akerströms mit Windows XP auf dem Gabelstapler,
+Handterminalen Intermec mit Windows CE).
+Planung und Aufbau einer WLAN redundante Übertragung (Backup für das Logistik-
+Netzwerk).
+Planung und Aufbau einer Hochverfügbarkeit AS2-Kommunikation für EDI-Systeme
+(eShop) in DMZ (Linux RedHat, Apache, Tomcat) mit SSL-Zertifikate.
+Planung und Neuaufbau einen Hochverfügbarkeit Proxy-Server-Landschaft in LAN
+und DMZ (Linux RedHat, Squid), Umsetzung von ACL, Traffic Analyse, Traffic
+Optimierung mit Riverbed-Technologien.
+Planung und Aufbau eines Funknetzwerks (Cisco Router und AP-Linksys) in alle
+Gebäude der Hauptgeschäftsstelle.
+
+ 
+Zeitraum:         01.02.2001 bis 31.07.2001
+Kunden-Name/ Institution:  Fa. Isimat
+Tätigkeit im Projekt:      Projektleiter und Mitarbeiter
+Netzwerk- und Systemmanagement, Backup, Virenbekämpfung, Aufbau VPN-Anbindung
+für mobile Users, Support.
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Sonstige Anmerkungen:
+Gute Erfahrung mit Virtualisierung-Lösungen wie VMWare, XEN, Sun VirtualBox
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_61509
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 01.04.2020 00:48:02
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

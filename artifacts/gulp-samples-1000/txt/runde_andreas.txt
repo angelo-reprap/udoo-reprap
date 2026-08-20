@@ -1,0 +1,242 @@
+---------- Gulp-Profil Stand 2011-07-13 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 65951:
+Entwicklung von ASP.NET Anwendungen auf Basis C#, Sharepoint Server
+2007, SQL Server, MySQL                  
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+65951 [4]
+     Stammdaten (Auszug):   
+
+	 Personen-ID 65951    Wohnort 654xx Flörsheim, Deutschland Jahrgang
+1978 EDV-Erfahrung seit 1997 Staatsbürgerschaft deutsch Stundensatz 60
+EUR Minimum 55 Euro Verfügbar ab 13.07.11 zu 100%, Vor-Ort-Einsatz
+100% möglich Profil erstellt am 21.09.04 Profil zuletzt geändert am
+13.07.11 Lesen von Projektanfragen 1,5 Tage  [5]Direktkontakt [6]     
+   Kommentar:  
+
+	 Kommentar schreiben Profil angezeigt am 27.03.2012 08:35:07      
+Fachlicher Schwerpunkt:  Entwicklung von ASP.NET Anwendungen auf Basis
+C#, Sharepoint Server 2007, SQL Server, MySQL      Position: 
+Software-Entwicklung / Programmierung
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  1996 Abitur am staatlichen Gymnasium Klosterschule
+Roßleben
+ seit 1997 Student an der TU Ilmenau Studiengang Informatik
+ (Abschluss erfolgt demnächst mit Diplom, Vordiplom Note 2,3)
+ seit 1998 studentische Nebentätigkeiten, dabei Erlernung
+Grundkenntnisse Java, PHP
+ seit 2003 selbständig
+       Einsatzort:  DeutschlandKommentar zum Einsatzort / zur
+Arbeitserlaubnis
+
+	Deutschland: Ich bin flexibel einsetzbar und arbeite gern vor Ort
+ Bevorzugt ist auch Telearbeit      Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+      Hardware:  
+
+		PC
+
+      Betriebssysteme:  
+
+		MS-DOS
+		Nur Batchprogrammierung
+
+		Unix
+		Kleinere Erfahrungen
+
+		Windows
+
+      Programmiersprachen:  
+
+		Basic
+
+		C++
+		hier nur Kenntnisse mit Schwerpunkt ActiveX
+
+		Java
+
+		JavaScript
+
+		Pascal
+
+		PHP
+
+ Die größte Erfahrung habe ich in ASP.NET mit C# und Java Server Pages
+(JSP).
+
+ Derzeit erfolgt eine Schulung im Bereich Windows Communication
+Foundation (WCF)
+       Datenbanken:  
+
+		Access
+
+		JDBC
+
+		MS SQL Server
+
+		MySQL
+
+		ODBC
+
+		SQL
+
+      Datenkommunikation:  
+
+		Internet, Intranet
+
+		PC-Anywhere
+
+		TCP/IP
+
+		Windows Netzwerk
+
+      Produkte/Standards/Erfahrungen:  Erfahrungen im Bereich:
+ - Anwendungs- und Webrogrammierung
+ - Spezifikation, Programmierung, Test
+ - Erstellung von Dokumentationen
+
+ Methoden:
+ - Objektorientierte Analyse, Design, Programmierung
+ - Ereignisgesteuerte, visuelle, strukturierte Programmierung
+ - Datenbanken Design
+
+ Spezialkenntnisse:
+ - Internet WebServer Aufbau, Design, Programmierung, DB-Anbindung,
+Wartung
+ (WWW, HTML, HTTP, CGI, TCP/IP, ActiveX, FTP)
+
+       Branchen:  - Social Marketing
+ - Unternehmenskommunikation
+ - Telekommunikation / Fernsehen (Fernsehen über Internet)
+       Projekte:  Relaunch der Webseiten von
+CDU/CSU-Bundestagsfraktion und CSU-Landesgruppe
+ 06/2007 - 10/2007:
+
+ - Erstellung des Datenbankdesigns
+ - Erstellung der Stored Proceudures und Administration
+Datenbankseitiger Dienste
+ - Erstellung verschiedener Backend-Komponenten zur Verarbeitung von
+Inhalten
+
+ Eingesetzte Technologien:
+ - .NET 2.x
+ - SQL Server 2005
+
+-------------------------
+
+ T-Systems 02/2006 - 12/2007:
+ - Erstellung eines ActiveX für den Download DRM-geschützter Inhalte
+ - Erstellung eines ActiveX zur COPP-Compliance-Prüfung
+ - Mitarbeit am Erstellen und Warten eines Lizenzservers
+ - Erstellung verschiedener Webservices und Backend-Komponenten zur
+Verarbeitung von Webinhalten
+
+ Eingesetzte Technologien:
+ - Oracle Datenbankserver -> angesprochen über .NET
+ - ASP.NET 1.1 / 2.x -> Webservices und Backend-Komponenten
+ - C++ für ActiveX (ATL bzw. MFC)
+ - Mitarbeit an einer Konzept- und Pflichtenghefterstellung
+
+-------------------------
+
+ Erstellung Webseiten CDU/CSU-Bundestagsfraktion und CSU-Landesgruppe
+im Deutschen Bundestag
+ mit anschließendem Support
+ Zeitraum: 2000 bis 2004
+ Auftraggeber: CDU/CSU-Bundestagsfraktion, scopas medien AG, COMMON
+digital GmbH
+ Eingesetzte Tools: SQL Server 2000, JBuilder, Visual Studio .NET,
+Apache Tomcat
+ Beschreibung:
+ - 2000 wurde der Auftrag zur Erstellung der Webseite von der scopas
+medien AG übernommen
+ - entwickelt wurde in Java
+ - ich entwickelte die Datenbankstruktur, die Jobs auf der Datenbank,
+administrierte den Server
+ - anschließend Entwicklung der Datenbankengine in Java
+ - die Umsetzung der Frontends geschahen im Team von 2 Leuten
+
+ - Entwicklung eines Redaktionstools zum Befüllen der Datenbank
+ - basiert auf einer Metadatenbank, welche die zu befüllenden Felder
+anspricht
+
+ - 2003 Auftrag der Umgestaltung in ASP.NET
+ - Anpassungen der Datenbankstruktur
+ - sämtliche Neuentwicklungen der Frontends und der Datenbankanbindung
+durch mich
+ - Aufbau ist modular gehalten, die einzelnen Frontends werden aus
+diesen Bausteinen zusammengesetzt
+ - Aufbau einer Portalstruktur
+
+ - seit 09/2003 online und danach Supporttätigkeiten
+
+-------------------------
+
+ Erstellung Webseite für Opel Special Vehicles (OSV)
+ Zeitraum: 05/03 - 11/03
+ Auftraggeber: COMMON digital GmbH, Opel OSV GmbH
+ Eingesetzte Tools: MySQL, Visual Studio .NET, Apache Tomcat, Flash MX
+ Beschreibung:
+ - Entwicklung der Webseite als modulbasierendes System
+ - Steuerung der Webseite liegt in der Datenbank, dynamischer Aufbau
+der Menüs
+ - Einbindung und Entwicklung von Flashanimationen
+ - vollständige Entwicklung mit Datenbankdesign, Frontend und
+Backendentwicklung lag in meiner Hand
+
+ - als Redaktionstool kommt das in Java programmierte Tool der CDUCSU
+zum Einsatz
+
+-------------------------
+
+ seit 2004 - Mitglied beim Entwicklerteam von dem Open-Source CMS
+Rainbow
+ (http://www.rainbowportal.net)
+ - Entwicklung in ASp.Net mit C#
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 65951 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 17.10.2011 13:03:04
+ (c) Copyright 1996-2011 GULP Information Services GmbH,
+ Ridlerstraße 37, D-80339 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+          Suche [16] | Kontakt [17] | AGB [18] | Impressum [19]       
+ 
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show171303
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?65951
+[4] /cgi-gulpsearch/gp.exe/UBONE65951?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?65951D3
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?65951D3
+[7] /cgi-gulpsearch/printdoc.exe/profil?261OCDVH
+[8] /cgi-gulpsearch/printdoc.exe/profil?261OCDVH
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show171304
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?65951
+[14] /cgi-gulpsearch/gp.exe/UBONE65951?0
+[15] mailto:info@gulp.de
+[16] /suche/mainsuche.html
+[17] /wiruu/mainkont.html
+[18] /agb/mainagb_feb_2012.html
+[19] /impressum/mainimp.html

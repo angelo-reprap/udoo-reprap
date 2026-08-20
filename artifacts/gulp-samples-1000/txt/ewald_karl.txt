@@ -1,0 +1,1162 @@
+Firewall/Security Berater
+Top-Skills: Firewall
+Verfügbar ab: 01.01.2023
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 90,00 EUR
+Bemerkungen: außerhalb Raum München: +15 EUR
+Einsatzort
+Regionen &amp; Länder: D8
+Städte: München 50 km
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Deutschland: Bei Einsätzen außerhalb des Großraums München muss
+ich den All-In Stundensatz entsprechend anpassen.
+Projekte im Großraum München bevorzugt.
+Weltweite Dienstreisen sind kein Problem.
+Position
+Kommentar:     •  Spezialist IT-Security
+Projekte
+2017-09 - 2018-12 Migration von Juniper auf Vmware NSX,
+1 Jahr 4 Monate Betriebsunterstützung
+Kunde: IT-Dienstleister für einen italienisch-europäischen Bankkonzern, der auch
+als Dienstleister für andere Banken auftritt
+Projektinhalte: Eine On-Premise Cloud auf Basis von Vmware wurde mit NSX Netzwerk-
+und Firewall-Virtualisierung aufgesetzt, ein Großprojekt betreibt die
+Migration klassischer Server in diese neue Infrastruktur.
+17.02.2023 1 von 12
+Tätigkeitsbeschreibung:
+    •  Implementierung einer Regelwerksauswertung aus Juniper ScreenOS
+     ?und JunOS Konfigurationen zur firewallüber-greifenden
+     ?Dokumentation aller auf gegebene IP-Ranges zutreffenden Regeln
+     ?(in Perl, Output Excel-Workbook)
+    •  Bearbeitung von Firewallanträgen gemäß definiertem Prozess,
+     ?manuelle Implementierung mittels vCenter in VMware NSX Firewall
+     ?und Spezifikation einer Teilautomatisierung
+    •  Training kundenfremder Projektmitarbeiter und Architekten
+     ?hinsichtlich der Randbedingungen, Zuarbeit bei
+     ?Sicherheits-architektur und Migrationsmethodik in Sonderfällen
+    •  Unterstützung des Tagesbetriebs bei
+     ?Regelwerks-implemen-tierung, Troubleshooting, Compliance und
+     ?Patchmanagement
+Kenntnisse: Perl Skripting, Juniper Netscreen und NSM, Juniper SRX, JunOS Space und
+CLI, vCenter GUI mit Schwerpunkt NSX Firewall
+2017-02 - 2017-06 Betriebsunterstützung Firewall, Schwerpunkt Juniper
+5 Monate und Fortinet
+Kunde: IT-Dienstleister für den Finanzsektor
+Projektinhalte: Eine komplexe Landschaft mit Firewalls unterschiedlicher Hersteller ist für
+unterschiedliche Kunden im Einsatz.
+Tätigkeitsbeschreibung:
+    •  Test und Durchführung fälliger Softwareupgrades unter
+     ?Einhaltung der definierten Prozesse bei Juniper und Fortinet
+     ?Firewalls, Beratung zu einzusetzenden Versionen und bestehenden
+     ?Schwachstellen, Analyse und Dokumentation von
+     ?Produkteigenschaften und -verhalten
+Kenntnisse: Fortinet FortiGate single und a-p Cluster mit FortiManager, Fortinet
+Herstellersupport, Juniper Netscreen und NSM
+2016-10 - 2017-03 Design eines ASA-Cluster als High-Performance Firewall
+6 Monate
+Kunde: IT-Dienstleister für die Forschung
+Projektinhalte: Zur Bewältigung steigender Bandbreiten und eines geänderten
+Securitykonzepts werden in einer Kundenumgebung mehrere ASA
+Bestandsfirewalls in einen ASA-Cluster konsolidiert.
+Tätigkeitsbeschreibung:
+    •  Verifizieren des bestehenden Konzepts gegen die
+     ?Herstellerdokumentation und Recherche von Anpassungen. Erfassen
+     ?des CMO, Ausarbeiten eines Feinkonzepts und Zuarbeit für im
+     ?Projektverlauf benötigte Dokumente
+    •  Laboraufbau der einzusetzenden Hardware, Funktions- und
+     ?Performancetests und Dokumentation, Feinplanung und Begleitung
+     ?der Inbetriebnahme
+Kenntnisse: Cisco ASA 5585-X als Cluster, Cisco VSS, EtherChannel
+17.02.2023 2 von 12
+2014-11 - 2016-12 Juniper-Migration und andere Security Tätigkeiten
+2 Jahre 2 Monate
+Kunde: IT-Dienstleister für einen italienisch-europäischen Bankkonzern, der auch
+als Dienstleister für andere Banken auftritt
+Projektinhalte: Im Rahmen eines Product Lifecycle wird eine zentrale Datacenter-Firewall
+schrittweise von Juniper Netscreen auf Juniper SRX migriert.
+Tätigkeitsbeschreibung:
+    •  Verstehen und Optimieren der bereits definierten Vorgehensweise
+     ?für Migrationen. Toolunterstütztes Durchführen der
+     ?Regelwerksanalyse, Regelwerkstransformation und präzise
+     ?Dokumentation, Identifizieren von betroffenen Anwendungen und
+     ?Ansprechpartnern, Terminkoordination, prozesskonforme Pflege
+     ?der ITIL-Systeme für die Changes, Minimieren der Downtime auf
+     ?10-40 Sekunden und anderer störender Change-Auswirkungen,
+     ?Unterstützung beim Troubleshooting von Applikationen, Anleitung
+     ?von Kollegen
+    •  Unterstützung beim Tagesgeschäft, insbesondere
+     ?Firewall-Antragsbearbeitung Checkpoint/Juniper,
+     ?Firewall-Troubleshooting
+    •  Reaktion auf Schwachstellen in Produkten, Highlight:
+     ?Softwareupgrade aller ca. 40 ScreenOS Firewalls mit wenigen
+     ?Tagen Vorlauf und drei Tagen Durchführung Ende 2015.
+    •  Redesign der Regelwerksstruktur und entsprechende Anpassung
+     ?eines Regelwerks mit 15000 Regeln, Einsparung von 2000 Regeln
+     ?und Reduktion der Regelgruppen, Halbierung der Ladezeit im NSM
+     ?erzielt, unter Vermeidung etwaiger Kundenauswirkungen
+    •  Regelwerksanalyse für andere Transformationsprojekte,
+     ?Abstimmung und Umsetzung projektspezifischer Sonderprozesse zur
+     ?Effizienzsteigerung, abteilungsübergreifende Beratung in
+     ?Firewallthemen
+Kenntnisse: Checkpoint Provider/1 und Firewalls auf GAIA, Juniper ScreenOS und SRX-
+Firewalls mit NSM, ITIL-Prozesse
+2015-10 - 2016-02 Design eines ASA-Cluster als High-Performance Firewall
+5 Monate
+Kunde: IT-Dienstleister für die Forschung
+Projektinhalte: Zur Bewältigung steigender Bandbreiten und eines geänderten
+Securitykonzepts werden in einer Kundenumgebung mehrere ASA
+Bestandsfirewalls in einen ASA-Cluster konsolidiert.
+Tätigkeitsbeschreibung:
+    •  Verifizieren des bestehenden Konzepts gegen die
+     ?Herstellerdokumentation und Recherche von Anpassungen. Erfassen
+     ?des CMO, Ausarbeiten eines Feinkonzepts und Zuarbeit für im
+     ?Projektverlauf benötigte Dokumente
+    •  Laboraufbau der einzusetzenden Hardware, Funktions- und
+     ?Performancetests und Dokumentation, Feinplanung und Begleitung
+     ?der Inbetriebnahme
+Kenntnisse: Cisco ASA 5585-X als Cluster, Cisco VSS, EtherChannel
+17.02.2023 3 von 12
+2012-09 - 2013-09 Roll-Out Management Netzwerk-Security im
+1 Jahr 1 Monat Kundenprojekt
+Kunde: großer IT&amp;TK-Dienstleister, Endkunde: Automobilzulieferer
+Projektinhalte: Im Rahmen eines umfassenden Outsourcing-Vertrags übernimmt der IT-
+Dienstleister bisher anderweitig gemanagte Infrastruktur, strukturiert
+Infrastruktur aus eigenen Altverträgen nach aktuellen Konzepten um und
+liefert moderne Technologien wie SSLVPN für Mobile Anwender.
+Tätigkeitsbeschreibung:
+    •  Verstehen der Strategie des IT-Dienstleisters
+    •  Vermitteln von Anforderungen und Lösungsmöglichkeiten zwischen
+     ?Endkunde und Designeinheiten des IT-Dienstleisters
+    •  IT-Dienstleister-konzerninterner Kampf um knappe Ressourcen für
+     ?Design und Betrieb
+    •  Abstimmung von Sicherheitskonzepten und Netzstrukturen mit
+     ?benachbarten Teilprojekten
+Kenntnisse: Juniper SSLVPN, Bluecoat ProxySG/ProxyAV, Juniper ScreenOS-Firewall,
+Cisco ASA, RZ-Infrastruktur, Windows 7
+2012-01 - 2012-07 Teilprojektleitung Migration auf neue Admin-
+7 Monate Zugangsinfrastruktur
+Kunde: IT-Dienstleistung
+Projektinhalte: IT-Tochter eines großen Industrieunternehmens wird aus dem Konzern
+ausgegliedert. Ausrollen einer abgesetzten Zugangsinfra-struktur als
+Schnittstelle zu Kundennetzen und -systemen auf Basis von Citrix
+Terminalserver-Farmen, Juniper SA (SSL-VPN), Unix-Gatewaysystemen
+und anderen Infrastrukturen
+Tätigkeitsbeschreibung:
+    •  Teilprojektleitung für ein Team von 4 Personen
+    •  Analyse von >10000 von Administratoren weltweit gemeldeten
+     ?bisherigen Zugangswegen
+    •  Klärung unklarer Bedarfe (insbesondere hinsichtlich
+     ?eingesetzter Client-Tools und Randbedingungen, um die Eignung
+     ?der Citrix-Farm zu beurteilen)
+    •  Zuordnung zu den Konzepten der neuen Infrastruktur,
+     ?Dokumentation und Rückmeldung
+    •  Analyse der noch nicht abgedeckten Zugangsbedarfe
+    •  Erstellen und kontinuierliche Weiterentwicklung praxisnaher
+     ?Benutzerdokumentation für die Zugangssysteme
+    •  Koordination der Anpassung der Softwarelandschaft auf den
+     ?Citrix-Servern
+    •  Durchführung von Schulungen für Key-User und Workshops für die
+     ?IT-Organisationen (natürlich auf deutsch und englisch)
+    •  Troubleshooting von Zugangsproblemen
+    •  laufendes Reporting des Projektfortschritts an das Management,
+     ?Definition geeigneter Messgrößen
+    •  Analyse und Dokumentation der aufgrund der fortschreitenden
+     ?Netzwerktrennung zusätzlich erkannten Bedarfe, rasche Umsetzung
+     ?erforderlicher Anpassungen
+    •  Benutzersupport in der Umstellungsphase
+17.02.2023 4 von 12
+    •  Erstellen von Troubleshooting Guides und Übergabe an den
+     ?Betrieb/Supportorganisation
+    •  flexible Unterstützung des PMO (Project Management Office) bei
+     ?Planungsanpassungen, Kampagnen und kurzfristigen Aktionen aller
+     ?Art
+Kenntnisse: Juniper SA, Firewalls, Web-SSLVPN, Citrix, TCP-Tunnelling,
+Kommunikationsverhalten zahlreicher IT-Systeme, Abstimmung mit
+weltweit verteilten Konzernteilen
+2011-10 - 2011-12 Analyse und Dokumentation zur Restrukturierung einer
+3 Monate Firewall-Landschaft
+Kunde: IT-Dienstleistung
+Projektinhalte: IT-Tochter eines großen Industrieunternehmens wird aus dem Konzern
+ausgegliedert. Im Rahmen des Carve-Out Projektes wird für den neuen IT-
+Dienstleister die Struktur des Firewall-manage-ments durch ein
+Projektteam neu designt.
+Tätigkeitsbeschreibung:
+    •  Dokumentation des Zieldesigns für eine Management-Infrastruktur
+     ?weltweit verteilter Firewalls mit Fokus auf die Produkte
+     ?Checkpoint, Juniper und Cisco
+    •  Erfassung der bestehenden Firewall-Landschaft über zahlreiche
+     ?Kundenumgebungen hinweg
+    •  Analyse und Dokumentation der Funktionen der Firewalls,
+     ?Einordnung in die Klassifizierung des Zieldesigns, Ermitteln
+     ?von Konsolidierungs- und Restrukturierungsmöglichkeiten auf
+     ?Basis von Regelwerks- und Topologieanalyse
+    •  Abstimmung des Zieldesigns mit den Betriebseinheiten und
+     ?Dokumentation der Ergebnisse
+Kenntnisse: Verstehen abstrakter Konzepte, Security-Prinzipien, Arbeiten im
+Großkonzern, MS Office
+2010-01 - 2011-09 Firewallbetrieb in komplexer IT-Landschaft
+1 Jahr 9 Monate
+Kunde: Luftfahrt und Sicherheitstechnik (Konzern)
+Projektinhalte:     •  Betrieb einer komplexen Firewall-Infrastruktur
+    •  Berücksichtigung betrieblicher und staatlicher
+     ?Sicherheitsvorgaben
+    •  Changemanagement, Regelwerkspflege unter Einhaltung definierter
+     ?Prozesse
+    •  Überarbeitung bestehender Regelwerke zur Verbesserung der
+     ?Struktur und Dokumentation
+Kenntnisse: Phion Netfence, Astaro ASG, Arbeiten im Großkonzern
+2009-07 - 2009-12 Migrationsunterstützung Security und Netzwerk
+6 Monate
+Kunde: Halbleiterindustrie (Konzern)
+17.02.2023 5 von 12
+Projektinhalte: Ein weltweit tätiger Halbleiterfertiger entsteht durch Ausgliederung aus
+dem Mutterkonzern, daher müssen Netzwerkanbindungen migriert oder
+umkonfiguriert und eigene Infrastruktur aufgebaut werden.
+Tätigkeitsbeschreibung:
+    •  Migration von VPN-Verbindungen mit Konfiguration Juniper
+     ?Netscreen/SSG, Cisco Router, Cisco PIX/ASA
+    •  Migration von DMZ-Netzen (IP-Renumbering) an Juniper SSG,
+     ?Checkpoint VPN/1, 802.1q Tagging incl. Konfiguration
+     ?benachbarter Cisco Switches
+    •  Betriebsunterstützung mit Troubleshooting und Ruleset-Pflege
+     ?Checkpoint VPN/1 (SmartCenter) auf SPLAT und Juniper SSG (CLI
+     ?und Web-GUI), Arbeiten nach ITIL mit Ticketsystem (HP OV
+     ?ServiceDesk)
+    •  Aufbau eigener Cisco ASA-Cluster als Remote-VPN-Gateway
+    •  Unterstützung Aufbau eigener RSA Authentication Manager 7.1 als
+     ?Appliance und Anbindung an Cisco ASA
+    •  Konfiguration BlueCoat Proxy mit internem Content Filter und
+     ?spezifischen Internet-Zugangpolicies, Logaufbereitung mit BC
+     ?Reporter
+Kenntnisse: Checkpoint VPN/1, Cisco IOS Router/Switches, Cisco ASA, Juniper SSG,
+BlueCoat ProxySG, LAN/WAN, VPN
+2009-01 - 2009-03 Betriebsunterstützung Security und Netzwerk
+3 Monate
+Kunde: Chemische Industrie (Mittelstand)
+Projektinhalte: In einem weltweit tätigen produzierenden Betrieb der chemischen
+Industrie soll ein personeller Engpass überbrückt werden.
+Tätigkeitsbeschreibung:
+    •  Betrieb von Clearswift MIMESweeper
+    •  Migration der Client-Firewalls von Checkpoint Integrity 6 auf
+     ?Checkpoint Endpoint Security 7 (Policyerstellung und -tuning,
+     ?Bereitstellung der Pakete für den Rollout durch Clientsupport)
+    •  Migration des RSA Authentication Server von 6.1 auf 7.1 unter
+     ?Windows Server
+    •  Betriebsunterstützung einer Firewall/VPN-Infrastruktur auf der
+     ?Basis von Cisco PIX bzw. ASA, Cisco VPN 3000 Concentrator und
+     ?Cisco VPN Client
+Kenntnisse: Checkpoint Endpoint Security, Clearswift MIMEsweeper, Cisco VPN Client,
+LAN/WAN, VPN
+2008-06 - 2008-12 Redesign einer Kunden-Firewallumgebung
+7 Monate
+Kunde: Bankeigener IT-Dienstleister (Großkonzern)
+Projektinhalte: Die Firewall-Landschaft einer Tochtergesellschaft der Bank soll an den
+Konzernstandard angeglichen werden.
+Tätigkeitsbeschreibung:
+    •  Vertretung der Gruppe "Firewall Betrieb" im Projekt
+    •  Feinplanung der neuen Architektur in Zusammenarbeit mit den
+17.02.2023 6 von 12
+     ?anderen beteiligten Organisationseinheiten
+    •  Konfiguration der neuen Komponenten im Rahmen des Hardware und
+     ?Software-Lifecycle, Test, Planung der Migration, Erstellen und
+     ?Durchführen der benötigten Changes (Änderungsvorgänge)
+Kenntnisse: Checkpoint, Juniper Netscreen, Routing, VLANs, Netzwerkstruktur des
+Konzerns
+2006-07 - 2008-12 Betriebsunterstützung Security
+2 Jahre 6 Monate
+Kunde: Bankeigener IT-Dienstleister (Großkonzern)
+Projektinhalte: Betrieb einer komplexen weltweiten Security-Infrastruktur mit ca. 50
+Firewall-Clustern unterschiedlicher Hersteller, mehrstufige Abtrennung
+vom Internet, Antivirus, Content Filter, Mailgateways, Proxies
+Tätigkeitsbeschreibung:
+    •  Tagesbetrieb Firewall mit Bearbeitung von Incidents, technische
+     ?Prüfung und Implementierung beantragter Firewallregeln
+     ?entsprechend der definierten Prozesse
+    •  Second-Level-Hotline Firewall
+    •  Diagnose von Zugriffsproblemen mittels Firewall-Logs und
+     ?Netzwerkdumps
+    •  Betrieb Unix-Mailsysteme und Viruswalls mit Pflege der
+     ?Postfix-Konfiguration
+    •  Betrieb Web-Proxies mit Viruswalls und Content Filter, Pflege
+     ?der ACLs
+    •  Betrieb der zentralen Nameserver und Pflege der Zones for
+     ?Intranet und Internet
+    •  Beratung in Firewall- und Netzwerkfragen
+    •  Einhaltung von ITIL- und bankspezifischen Prozessen
+Kenntnisse: Checkpoint (auf Solaris und SPLAT), Juniper Netscreen mit NSM, Phion,
+Sun EFS (Sunscreen), TippingPoint, TrendMicro IMSS und IWSS (via
+ICAP), SecureComputing WebWasher (via ICAP), Postfix (auf Solaris und
+RHEL), IronPort, NetCache, Squid, bind 9, snoop, tcpdump, Wireshark,
+Tripwire, Tivoli, Novell Sentinel, ASG Impact, C6000, Aperture, SAP, MS
+Office, Windows XP und Vista
+2005-08 - 2005-11 Einführung von Checkpoint VPN "Simplified Mode"
+4 Monate
+Kunde: Softwarehersteller (Mittelstand)
+Projektinhalte: Lab Tests und anschließende Umstellung von Traditional Mode zu
+Simplified Mode einer Checkpoint Infrastruktur mit ca. 15 VPN-enabled
+Gateways (Zusammen mit Kollegen in Nordamerika)
+Tätigkeitsbeschreibung:
+    •  Analyse der bisherigen Kommunikationsbeziehungen
+    •  Redesign der VPN-Communities, um die gewünschte Topologie
+     ?nachzubauen
+Kenntnisse: Checkpoint FW-1 NG R55 auf RHEL
+17.02.2023 7 von 12
+2004-10 - 2005-10 Ausschreibung Corporate Network
+1 Jahr 1 Monat
+Kunde: Softwarehersteller (Mittelstand)
+Projektinhalte: Ablösung des aus Firmenzusamenschlüssen entstandenen Corporate
+Network in Europa durch ein einheitliches gemanagtes IP-VPN
+Tätigkeitsbeschreibung:
+    •  Erstellen von Ausschreibungsunterlagen
+    •  Auswahl und Ansprache potentieller Lieferanten
+    •  Führen von Verhandlungen und Optimierung nach technischen und
+     ?Kostengesichtspunkten
+    •  Präsentation einer Empfehlung mit Alternativen an das obere
+     ?Management
+Weitere Projekte gerne auf Anfrage.
+Branchen
+    •  Softwareentwicklung
+    •  Banken
+    •  Chemische Industrie
+    •  Halbleiter
+    •  Luftfahrt und Sicherheitstechnik
+    •  IT-Dienstleister
+Sprachen
+Deutsch Muttersprache
+Englisch verhandlungssicher in Wort und Schrift
+Japanisch Anfänger
+Latein weitgehend vergessen ;)
+Kompetenzen
+Produkte / Standards /
+Erfahrungen / Methoden
+Summary:
+    •  Ich bin seit 2000 mit Design, Implementierung und Betrieb
+     ?von Security-Lösungen, zeitweise auch Netzwerken befasst
+17.02.2023 8 von 12
+     ?und verfüge daher neben Produktkenntnissen über umfassende
+     ?Praxiserfahrung.
+    •  Meine hervorragende Analytik erlaubt mir, auch sehr
+     ?komplexe Kunden-szenarien rasch zu überblicken.
+    •  Durch mein ausgeprägtes Kostenbewusstsein, meine Liebe zum
+     ?Detail und meinen Sinn fürs Praktische gelingt es mir in
+     ?besonderem Maße, für den Kunden kosteneffiziente und seinem
+     ?Sicherheitsbedarf angepasste sowie handhabbare Lösungen zu
+     ?erarbeiten, ggf. unter Einbeziehung bereits vorhandener
+     ?Hard- und Softwarekomponenten.
+    •  Meine analytischen Fähigkeiten sind auf jeder Ebene
+     ?einsetzbar: Ob beim Durchdringen komplexer
+     ?Geschäfts-pro-zesse, bei der Optimierung eines Corporate
+     ?Networks, oder bei der Diagnose eines einzelnen
+     ?Verbindungsproblems.
+    •  Erfahrung in der Mitarbeit in internationalen Teams, sei es
+     ?unter deutscher, italienischer oder nordamerikanischer
+     ?Führung. Verhandlungssicheres Englisch in Wort und Schrift.
+    •  Ich erhoffe mir ein Arbeitsumfeld, in dem projektintern
+     ?Informationen bereitwillig geteilt werden und gemeinsam auf
+     ?die Projektziele hingearbeitet wird.
+    •  Ich begrüße einen Auftrag, bei dessen Erfüllung ich mich
+     ?auf das Erreichen von Ergebnissen konzentrieren kann und
+     ?nicht einen wesentlichen Teil der Zeit auf die Abgrenzung
+     ?zu nicht beauftragten Leistungen aufwenden muss.
+ 
+Know-How und Erfahrung:
+    •  Installation, Konfiguration und Betrieb von Checkpoint,
+     ?Juniper Netscreen, Juniper SRX, Barracuda (ex-Phion),
+     ?Fortinet Firewalls mit zentralem Management und Cisco ASA
+    •  Betrieb von Checkpoint Security Policies mit über 1500
+     ?Rules, mehreren Gateways usw., Cluster, NAT, VPN,
+     ?RSA-Authentisierung (ACE-Server)
+    •  Installation, Konfiguration und Betrieb von Juniper
+     ?Netscreen Firewalls mit über 10000 Rules, bis über 50
+     ?Zonen, virtuelle Firewalls, Cluster, Layer2 und Layer3,
+     ?zentrale Administration über NSM sowie Juniper SRX mit über
+     ?15000 Rules, auch in Verbindung mit Pulse Infranet
+     ?Controller, mit NSM und JunOS Space
+    •  Analyse von Verbindungsproblemen anhand von Firewall-Logs
+     ?(Checkpoint, Juniper NSM, Splunk) und Netzwerkdumps (snoop,
+     ?tcpdump, Wireshark)
+    •  Re-Design und Betrieb eines größeren LAN (>2000 Ports, ca.
+     ?50 Subnetze, Cisco und HP)
+    •  Betrieb von Mailservern Unix, IronPort
+    •  Second-Level Benutzersupport, Nutzung verschie-dener
+     ?Ticketingsysteme (z.B. Remedy, HP) für Incidents, Problems
+     ?und Changes gemäß ITIL
+    •  Mitwirkung an der Implementierung von Compliance Maßnahmen
+     ?(u.a. Change Manage-ment)
+    •  Beratung von Benutzern und externen Kunden hinsichtlich
+     ?Design von Remotezugriffswegen zwischen dem eigenen
+     ?Firmennetz und Kunden-/Partnernetzen, und anschließende
+     ?Implementierung
+    •  Netzwerkintegration im Rahmen von M&amp;A Situationen oder mit
+     ?Partnern (z.B. heterogene IPsec-VPNs zwischen Sonicwall,
+     ?Netscreen, Checkpoint, Cisco und anderen Gateways,
+     ?IP-Renumbering, kreatives NAT)
+    •  Konfiguration von Cisco Router ACLs
+17.02.2023 9 von 12
+Produkterfahrung
+Anwendersoftware:
+    •  MS Office
+    •  SAP
+    •  OpenOffice
+    •  LibreOffice
+Ticketing Systeme/CMDB:
+    •  HP Service Manager
+    •  Remedy
+    •  ASG Impact
+    •  C6000
+Web-, Mail-, Name-Server:
+    •  Apache
+    •  Postfix
+    •  Sendmail
+    •  IronPort
+    •  Bind
+Diagnosetools:
+    •  snoop
+    •  tcpdump
+    •  Wireshark
+    •  dig
+    •  ifconfig
+    •  netstat
+Firewalls/IPS:
+    •  Checkpoint
+    •  Barracuda/Phion netfence
+    •  Juniper NetScreen und SRX
+    •  Fortinet
+    •  Vmware NSX Distributed Firewall
+    •  Cisco ASA
+    •  TippingPoint
+Antivirus:
+    •  BlueCoat ProxyAV
+    •  Trendmicro IMSS und IWSS (ICAP)
+    •  ClamAV (milter)
+Content Security / Antispam:
+    •  BlueCoat ProxySG
+    •  Websense (OPSEC)
+    •  SecureComputing WebWasher (ICAP)
+    •  Clearswift
+    •  TrendMicro eManager
+    •  Brightmail
+Authentisierung:
+    •  RSA Authentication Manager
+    •  Cisco ACS
+Endpoint Security
+    •  Checkpoint Endpoint Security
+Router/Switches und Protokolle:
+    •  Cisco
+    •  HP
+17.02.2023 10 von 12
+    •  IP
+    •  TCP
+    •  UDP
+    •  ICMP
+    •  RIP
+    •  OSPF
+    •  SNMP
+Proxies:
+    •  NetApp NetCache
+    •  BlueCoat
+    •  squid
+Betriebssysteme FreeBSD
+Linux
+Solaris
+SUN OS
+Unix gute Kenntnisse in Solaris, RHEL und
+FreeBSD
+Windows gute Kenntnisse in NT-Domain und AD
+Programmiersprachen ABAP4 Grundkenntnisse
+C Grundkenntnisse
+Perl gute Kenntnisse
+Shell gute Kenntnisse
+TeX, LaTeX
+Datenbanken Informix
+MySQL
+Oracle
+SQL
+Datenkommunikation Ethernet
+Internet, Intranet
+NetBios
+Router
+SMTP
+SNMP
+TCP/IP
+Windows Netzwerk
+17.02.2023 11 von 12
+Hardware Ascii/X - Terminals
+Avocent/Cyclades
+Terminalserver/ACS
+CD-Writer / Brenner
+Drucker
+HP Server, procurve Komponenten
+PC auch FSC Server
+SUN
+Aus- und Weiterbildung
+1990-1993: Universitätsstudium der Informatik
+Institution: Cambridge University, UK
+Computer Science: BA, MA
+ 
+1993-1996: Universitätsstudium der Informatik
+Institution: Technische Universität München
+Abschluss: Diplom-Informatiker
+17.02.2023 12 von 12
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_78782
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                78782
+  
+Wohnort                    816xx München, Deutschland
+Jahrgang                   1969
+Staatsbürgerschaft         deutsch
+Stundensatz                90 EUR
+                           außerhalb Raum München: +15 EUR
+Verfügbar ab               10.11.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         27.06.06
+Profil zuletzt geändert am 10.11.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 15.11.2021 12:24:33
+
+Fachlicher Schwerpunkt:
+Firewall/Security Berater
+
+Position:
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Dokumentation / DTP
+
+    * Spezialist IT-Security
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+1990-1993: Universitätsstudium der Informatik
+Institution: Cambridge University, UK
+Computer Science: BA, MA
+ 
+1993-1996: Universitätsstudium der Informatik
+Institution: Technische Universität München
+Abschluss: Diplom-Informatiker
+
+Einsatzort:
+Regionen:
+D8
+im Umkreis von:
+München (50 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: Bei Einsätzen außerhalb des Großraums München muss ich den All-In
+Stundensatz entsprechend anpassen.
+Projekte im Großraum München bevorzugt.
+Weltweite Dienstreisen sind kein Problem.
+
+Hardware:
+Ascii/X - Terminals                  
+Avocent/Cyclades Terminalserver/ACS  
+CD-Writer / Brenner                  
+Drucker                              
+HP                                  Server, procurve Komponenten
+PC                                  auch FSC Server
+SUN                                  
+
+
+Betriebssysteme:
+FreeBSD  
+Linux    
+Solaris  
+SUN OS   
+Unix    gute Kenntnisse in Solaris, RHEL und FreeBSD
+Windows gute Kenntnisse in NT-Domain und AD
+
+
+Programmiersprachen:
+ABAP4      Grundkenntnisse
+C          Grundkenntnisse
+Perl       gute Kenntnisse
+Shell      gute Kenntnisse
+TeX, LaTeX  
+
+
+Datenbanken:
+Informix  
+MySQL     
+Oracle    
+SQL       
+
+
+Datenkommunikation:
+Ethernet            
+Internet, Intranet  
+NetBios             
+Router              
+SMTP                
+SNMP                
+TCP/IP              
+Windows Netzwerk    
+
+
+Produkte/Standards/Erfahrungen:
+Summary:
+    * Ich bin seit 2000 mit Design, Implementierung und Betrieb von Security-
+      Lösungen, zeitweise auch Netzwerken befasst und verfüge daher neben
+      Produktkenntnissen über umfassende Praxiserfahrung.
+    * Meine hervorragende Analytik erlaubt mir, auch sehr komplexe
+      Kunden­szenarien rasch zu überblicken.
+    * Durch mein ausgeprägtes Kostenbewusstsein, meine Liebe zum Detail und
+      meinen Sinn fürs Praktische gelingt es mir in besonderem Maße, für den
+      Kunden kosteneffiziente und seinem Sicherheitsbedarf angepasste sowie
+      handhabbare Lösungen zu erarbeiten, ggf. unter Einbeziehung bereits
+      vorhandener Hard- und Softwarekomponenten.
+    * Meine analytischen Fähigkeiten sind auf jeder Ebene einsetzbar: Ob beim
+      Durchdringen komplexer Geschäfts­pro­zesse, bei der Optimierung eines
+      Corporate Networks, oder bei der Diagnose eines einzelnen
+      Verbindungsproblems.
+    * Erfahrung in der Mitarbeit in internationalen Teams, sei es unter
+      deutscher, italienischer oder nordamerikanischer Führung.
+      Verhandlungssicheres Englisch in Wort und Schrift.
+    * Ich erhoffe mir ein Arbeitsumfeld, in dem projektintern Informationen
+      bereitwillig geteilt werden und gemeinsam auf die Projektziele
+      hingearbeitet wird.
+    * Ich begrüße einen Auftrag, bei dessen Erfüllung ich mich auf das
+      Erreichen von Ergebnissen konzentrieren kann und nicht einen wesentlichen
+      Teil der Zeit auf die Abgrenzung zu nicht beauftragten Leistungen
+      aufwenden muss.
+ 
+Know-How und Erfahrung:
+    * Installation, Konfiguration und Betrieb von Checkpoint, Juniper
+      Netscreen, Juniper SRX, Barracuda (ex-Phion), Fortinet Firewalls mit
+      zentralem Management und Cisco ASA
+    * Betrieb von Checkpoint Security Policies mit über 1500 Rules, mehreren
+      Gateways usw., Cluster, NAT, VPN, RSA-Authentisierung (ACE-Server)
+    * Installation, Konfiguration und Betrieb von Juniper Netscreen Firewalls
+      mit über 10000 Rules, bis über 50 Zonen, virtuelle Firewalls, Cluster,
+      Layer2 und Layer3, zentrale Administration über NSM sowie Juniper SRX mit
+      über 15000 Rules, auch in Verbindung mit Pulse Infranet Controller, mit
+      NSM und JunOS Space
+    * Analyse von Verbindungsproblemen anhand von Firewall-Logs (Checkpoint,
+      Juniper NSM, Splunk) und Netzwerkdumps (snoop, tcpdump, Wireshark)
+    * Re-Design und Betrieb eines größeren LAN (>2000 Ports, ca. 50 Subnetze,
+      Cisco und HP)
+    * Betrieb von Mailservern Unix, IronPort
+    * Second-Level Benutzersupport, Nutzung verschie­dener Ticketingsysteme
+      (z.B. Remedy, HP) für Incidents, Problems und Changes gemäß ITIL
+    * Mitwirkung an der Implementierung von Compliance Maßnahmen (u.a. Change
+      Manage­ment)
+    * Beratung von Benutzern und externen Kunden hinsichtlich Design von
+      Remotezugriffswegen zwischen dem eigenen Firmennetz und Kunden-/
+      Partnernetzen, und anschließende Implementierung
+    * Netzwerkintegration im Rahmen von M&amp;A Situationen oder mit Partnern (z.B.
+      heterogene IPsec-VPNs zwischen Sonicwall, Netscreen, Checkpoint, Cisco
+      und anderen Gateways, IP-Renumbering, kreatives NAT)
+    * Konfiguration von Cisco Router ACLs
+ 
+Produkterfahrung
+Anwendersoftware:
+    * MS Office
+    * SAP
+    * OpenOffice
+    * LibreOffice
+ 
+Ticketing Systeme/CMDB:
+    * HP Service Manager
+    * Remedy
+    * ASG Impact
+    * C6000
+ 
+Web-, Mail-, Name-Server:
+    * Apache
+    * Postfix
+    * Sendmail
+    * IronPort
+    * Bind
+ 
+Diagnosetools:
+    * snoop
+    * tcpdump
+    * Wireshark
+    * dig
+    * ifconfig
+    * netstat
+ 
+Firewalls/IPS:
+    * Checkpoint
+    * Barracuda/Phion netfence
+    * Juniper NetScreen und SRX
+    * Fortinet
+    * Vmware NSX Distributed Firewall
+    * Cisco ASA
+    * TippingPoint
+ 
+Antivirus:
+    * BlueCoat ProxyAV
+    * Trendmicro IMSS und IWSS (ICAP)
+    * ClamAV (milter)
+ 
+Content Security / Antispam:
+    * BlueCoat ProxySG
+    * Websense (OPSEC)
+    * SecureComputing WebWasher (ICAP)
+    * Clearswift
+    * TrendMicro eManager
+    * Brightmail
+ 
+Authentisierung:
+    * RSA Authentication Manager
+    * Cisco ACS
+ 
+Endpoint Security
+    * Checkpoint Endpoint Security
+ 
+Router/Switches und Protokolle:
+    * Cisco
+    * HP
+    * IP
+    * TCP
+    * UDP
+    * ICMP
+    * RIP
+    * OSPF
+    * SNMP
+ 
+Proxies:
+    * NetApp NetCache
+    * BlueCoat
+    * squid
+
+Branchen:
+    * Softwareentwicklung
+    * Banken
+    * Chemische Industrie
+    * Halbleiter
+    * Luftfahrt und Sicherheitstechnik
+    * IT-Dienstleister
+
+Projekte:
+09/2017 - 12/2018: Migration von Juniper auf Vmware NSX, Betriebsunterstützung
+ 
+Kunde:              IT-Dienstleister für einen italienisch-europäischen
+Bankkonzern, der auch als Dienstleister für andere Banken auftritt
+ 
+Aufgaben:
+ 
+Eine On-Premise Cloud auf Basis von Vmware wurde mit NSX Netzwerk- und
+Firewall-Virtualisierung aufgesetzt, ein Großprojekt betreibt die Migration
+klassischer Server in diese neue Infrastruktur.
+ 
+Tätigkeitsbeschreibung:
+    * Implementierung einer Regelwerksauswertung aus Juniper ScreenOS und JunOS
+      Konfigurationen zur firewallüber­greifenden Dokumentation aller auf
+      gegebene IP-Ranges zutreffenden Regeln (in Perl, Output Excel-Workbook)
+    * Bearbeitung von Firewallanträgen gemäß definiertem Prozess, manuelle
+      Implementierung mittels vCenter in VMware NSX Firewall und Spezifikation
+      einer Teilautomatisierung
+    * Training kundenfremder Projektmitarbeiter und Architekten hinsichtlich
+      der Randbedingungen, Zuarbeit bei Sicherheits­architektur und
+      Migrationsmethodik in Sonderfällen
+    * Unterstützung des Tagesbetriebs bei Regelwerks­implemen­tierung,
+      Troubleshooting, Compliance und Patchmanagement
+ 
+Kenntnisse:
+ 
+Perl Skripting, Juniper Netscreen und NSM, Juniper SRX, JunOS Space und CLI,
+vCenter GUI mit Schwerpunkt NSX Firewall
+===============================================================================
+02/2017 - 06/2017: Betriebsunterstützung Firewall, Schwerpunkt Juniper und
+Fortinet
+ 
+Kunde:              IT-Dienstleister für den Finanzsektor
+ 
+Aufgaben:
+ 
+Eine komplexe Landschaft mit Firewalls unterschiedlicher Hersteller ist für
+unterschiedliche Kunden im Einsatz.
+ 
+Tätigkeitsbeschreibung:
+    * Test und Durchführung fälliger Softwareupgrades unter Einhaltung der
+      definierten Prozesse bei Juniper und Fortinet Firewalls, Beratung zu
+      einzusetzenden Versionen und bestehenden Schwachstellen, Analyse und
+      Dokumentation von Produkteigenschaften und -verhalten
+ 
+Kenntnisse:
+ 
+Fortinet FortiGate single und a-p Cluster mit FortiManager, Fortinet
+Herstellersupport, Juniper Netscreen und NSM
+===============================================================================
+10/2016 - 03/2017: Design eines ASA-Cluster als High-Performance Firewall
+ 
+Kunde:              IT-Dienstleister für die Forschung
+ 
+Aufgaben:
+ 
+Zur Bewältigung steigender Bandbreiten und eines geänderten Securitykonzepts
+werden in einer Kundenumgebung mehrere ASA Bestandsfirewalls in einen ASA-
+Cluster konsolidiert.
+ 
+Tätigkeitsbeschreibung:
+    * Verifizieren des bestehenden Konzepts gegen die Herstellerdokumentation
+      und Recherche von Anpassungen. Erfassen des CMO, Ausarbeiten eines
+      Feinkonzepts und Zuarbeit für im Projektverlauf benötigte Dokumente
+    * Laboraufbau der einzusetzenden Hardware, Funktions- und Performancetests
+      und Dokumentation, Feinplanung und Begleitung der Inbetriebnahme
+ 
+Kenntnisse:
+ 
+Cisco ASA 5585-X als Cluster, Cisco VSS, EtherChannel
+===============================================================================
+11/2014 - 12/2016: Juniper-Migration und andere Security Tätigkeiten
+ 
+Kunde:              IT-Dienstleister für einen italienisch-europäischen
+Bankkonzern, der auch als Dienstleister für andere Banken auftritt
+ 
+Aufgaben:
+ 
+Im Rahmen eines Product Lifecycle wird eine zentrale Datacenter-Firewall
+schrittweise von Juniper Netscreen auf Juniper SRX migriert.
+ 
+Tätigkeitsbeschreibung:
+    * Verstehen und Optimieren der bereits definierten Vorgehensweise für
+      Migrationen. Toolunterstütztes Durchführen der Regelwerksanalyse,
+      Regelwerkstransformation und präzise Dokumentation, Identifizieren von
+      betroffenen Anwendungen und Ansprechpartnern, Terminkoordination,
+      prozesskonforme Pflege der ITIL-Systeme für die Changes, Minimieren der
+      Downtime auf 10-40 Sekunden und anderer störender Change-Auswirkungen,
+      Unterstützung beim Troubleshooting von Applikationen, Anleitung von
+      Kollegen
+    * Unterstützung beim Tagesgeschäft, insbesondere Firewall-
+      Antragsbearbeitung Checkpoint/Juniper, Firewall-Troubleshooting
+    * Reaktion auf Schwachstellen in Produkten, Highlight: Softwareupgrade
+      aller ca. 40 ScreenOS Firewalls mit wenigen Tagen Vorlauf und drei Tagen
+      Durchführung Ende 2015.
+    * Redesign der Regelwerksstruktur und entsprechende Anpassung eines
+      Regelwerks mit 15000 Regeln, Einsparung von 2000 Regeln und Reduktion der
+      Regelgruppen, Halbierung der Ladezeit im NSM erzielt, unter Vermeidung
+      etwaiger Kundenauswirkungen
+    * Regelwerksanalyse für andere Transformationsprojekte, Abstimmung und
+      Umsetzung projektspezifischer Sonderprozesse zur Effizienzsteigerung,
+      abteilungsübergreifende Beratung in Firewallthemen
+ 
+Kenntnisse:
+ 
+Checkpoint Provider/1 und Firewalls auf GAIA, Juniper ScreenOS und SRX-
+Firewalls mit NSM, ITIL-Prozesse
+===============================================================================
+10/2015 - 02/2016: Design eines ASA-Cluster als High-Performance Firewall
+ 
+Kunde:              IT-Dienstleister für die Forschung
+ 
+Aufgaben:
+ 
+Zur Bewältigung steigender Bandbreiten und eines geänderten Securitykonzepts
+werden in einer Kundenumgebung mehrere ASA Bestandsfirewalls in einen ASA-
+Cluster konsolidiert.
+ 
+Tätigkeitsbeschreibung:
+    * Verifizieren des bestehenden Konzepts gegen die Herstellerdokumentation
+      und Recherche von Anpassungen. Erfassen des CMO, Ausarbeiten eines
+      Feinkonzepts und Zuarbeit für im Projektverlauf benötigte Dokumente
+    * Laboraufbau der einzusetzenden Hardware, Funktions- und Performancetests
+      und Dokumentation, Feinplanung und Begleitung der Inbetriebnahme
+ 
+Kenntnisse:
+ 
+Cisco ASA 5585-X als Cluster, Cisco VSS, EtherChannel
+===============================================================================
+09/2012 - 09/2013: Roll-Out Management Netzwerk-Security im Kundenprojekt
+ 
+Kunde:              großer IT&amp;TK-Dienstleister, Endkunde: Automobilzulieferer
+ 
+Aufgaben:
+ 
+Im Rahmen eines umfassenden Outsourcing-Vertrags übernimmt der IT-Dienstleister
+bisher anderweitig gemanagte Infrastruktur, strukturiert Infrastruktur aus
+eigenen Altverträgen nach aktuellen Konzepten um und liefert moderne
+Technologien wie SSLVPN für Mobile Anwender.
+ 
+Tätigkeitsbeschreibung:
+    * Verstehen der Strategie des IT-Dienstleisters
+    * Vermitteln von Anforderungen und Lösungsmöglichkeiten zwischen Endkunde
+      und Designeinheiten des IT-Dienstleisters
+    * IT-Dienstleister-konzerninterner Kampf um knappe Ressourcen für Design
+      und Betrieb
+    * Abstimmung von Sicherheitskonzepten und Netzstrukturen mit benachbarten
+      Teilprojekten
+ 
+Kenntnisse:
+ 
+Juniper SSLVPN, Bluecoat ProxySG/ProxyAV, Juniper ScreenOS-Firewall, Cisco ASA,
+RZ-Infrastruktur, Windows 7
+===============================================================================
+01/2012 - 07/2012: Teilprojektleitung Migration auf neue Admin-
+Zugangsinfrastruktur
+ 
+Kunde:              IT-Dienstleistung
+ 
+Aufgaben:
+ 
+IT-Tochter eines großen Industrieunternehmens wird aus dem Konzern
+ausgegliedert. Ausrollen einer abgesetzten Zugangsinfra­struktur als
+Schnittstelle zu Kundennetzen und -systemen auf Basis von Citrix
+Terminalserver-Farmen, Juniper SA (SSL-VPN), Unix-Gatewaysystemen und anderen
+Infrastrukturen
+ 
+Tätigkeitsbeschreibung:
+    * Teilprojektleitung für ein Team von 4 Personen
+    * Analyse von >10000 von Administratoren weltweit gemeldeten bisherigen
+      Zugangswegen
+    * Klärung unklarer Bedarfe (insbesondere hinsichtlich eingesetzter Client-
+      Tools und Randbedingungen, um die Eignung der Citrix-Farm zu beurteilen)
+    * Zuordnung zu den Konzepten der neuen Infrastruktur, Dokumentation und
+      Rückmeldung
+    * Analyse der noch nicht abgedeckten Zugangsbedarfe
+    * Erstellen und kontinuierliche Weiterentwicklung praxisnaher
+      Benutzerdokumentation für die Zugangssysteme
+    * Koordination der Anpassung der Softwarelandschaft auf den Citrix-Servern
+    * Durchführung von Schulungen für Key-User und Workshops für die IT-
+      Organisationen (natürlich auf deutsch und englisch)
+    * Troubleshooting von Zugangsproblemen
+    * laufendes Reporting des Projektfortschritts an das Management, Definition
+      geeigneter Messgrößen
+    * Analyse und Dokumentation der aufgrund der fortschreitenden
+      Netzwerktrennung zusätzlich erkannten Bedarfe, rasche Umsetzung
+      erforderlicher Anpassungen
+    * Benutzersupport in der Umstellungsphase
+    * Erstellen von Troubleshooting Guides und Übergabe an den Betrieb/
+      Supportorganisation
+    * flexible Unterstützung des PMO (Project Management Office) bei
+      Planungsanpassungen, Kampagnen und kurzfristigen Aktionen aller Art
+ 
+Kenntnisse:
+ 
+Juniper SA, Firewalls, Web-SSLVPN, Citrix, TCP-Tunnelling,
+Kommunikationsverhalten zahlreicher IT-Systeme, Abstimmung mit weltweit
+verteilten Konzernteilen
+===============================================================================
+10/2011 - 12/2011: Analyse und Dokumentation zur Restrukturierung einer
+Firewall-Landschaft
+ 
+Kunde:              IT-Dienstleistung
+ 
+Aufgaben:
+ 
+IT-Tochter eines großen Industrieunternehmens wird aus dem Konzern
+ausgegliedert. Im Rahmen des Carve-Out Projektes wird für den neuen IT-
+Dienstleister die Struktur des Firewall­manage­ments durch ein Projektteam neu
+designt.
+ 
+Tätigkeitsbeschreibung:
+    * Dokumentation des Zieldesigns für eine Management-Infrastruktur weltweit
+      verteilter Firewalls mit Fokus auf die Produkte Checkpoint, Juniper und
+      Cisco
+    * Erfassung der bestehenden Firewall-Landschaft über zahlreiche
+      Kundenumgebungen hinweg
+    * Analyse und Dokumentation der Funktionen der Firewalls, Einordnung in die
+      Klassifizierung des Zieldesigns, Ermitteln von Konsolidierungs- und
+      Restrukturierungsmöglichkeiten auf Basis von Regelwerks- und
+      Topologieanalyse
+    * Abstimmung des Zieldesigns mit den Betriebseinheiten und Dokumentation
+      der Ergebnisse
+ 
+Kenntnisse:
+ 
+Verstehen abstrakter Konzepte, Security-Prinzipien, Arbeiten im Großkonzern, MS
+Office
+===============================================================================
+01/2010 - 09/2011: Firewallbetrieb in komplexer IT-Landschaft
+ 
+Kunde:              Luftfahrt und Sicherheitstechnik (Konzern)
+ 
+Aufgaben:
+ 
+    * Betrieb einer komplexen Firewall-Infrastruktur
+    * Berücksichtigung betrieblicher und staatlicher Sicherheitsvorgaben
+    * Changemanagement, Regelwerkspflege unter Einhaltung definierter Prozesse
+    * Überarbeitung bestehender Regelwerke zur Verbesserung der Struktur und
+      Dokumentation
+ 
+Kenntnisse:
+ 
+Phion Netfence, Astaro ASG, Arbeiten im Großkonzern
+===============================================================================
+07/2009 - 12/2009: Migrationsunterstützung Security und Netzwerk
+ 
+Kunde:              Halbleiterindustrie (Konzern)
+ 
+Aufgaben:
+ 
+Ein weltweit tätiger Halbleiterfertiger entsteht durch Ausgliederung aus dem
+Mutterkonzern, daher müssen Netzwerkanbindungen migriert oder umkonfiguriert
+und eigene Infrastruktur aufgebaut werden.
+ 
+Tätigkeitsbeschreibung:
+    * Migration von VPN-Verbindungen mit Konfiguration Juniper Netscreen/SSG,
+      Cisco Router, Cisco PIX/ASA
+    * Migration von DMZ-Netzen (IP-Renumbering) an Juniper SSG, Checkpoint VPN/
+      1, 802.1q Tagging incl. Konfiguration benachbarter Cisco Switches
+    * Betriebsunterstützung mit Troubleshooting und Ruleset-Pflege Checkpoint
+      VPN/1 (SmartCenter) auf SPLAT und Juniper SSG (CLI und Web-GUI), Arbeiten
+      nach ITIL mit Ticketsystem (HP OV ServiceDesk)
+    * Aufbau eigener Cisco ASA-Cluster als Remote-VPN-Gateway
+    * Unterstützung Aufbau eigener RSA Authentication Manager 7.1 als Appliance
+      und Anbindung an Cisco ASA
+    * Konfiguration BlueCoat Proxy mit internem Content Filter und spezifischen
+      Internet-Zugangpolicies, Logaufbereitung mit BC Reporter
+ 
+Kenntnisse:
+ 
+Checkpoint VPN/1, Cisco IOS Router/Switches, Cisco ASA, Juniper SSG, BlueCoat
+ProxySG, LAN/WAN, VPN
+===============================================================================
+01/2009 - 03/2009: Betriebsunterstützung Security und Netzwerk
+ 
+Kunde:              Chemische Industrie (Mittelstand)
+ 
+Aufgaben:
+ 
+In einem weltweit tätigen produzierenden Betrieb der chemischen Industrie soll
+ein personeller Engpass überbrückt werden.
+ 
+Tätigkeitsbeschreibung:
+    * Betrieb von Clearswift MIMESweeper
+    * Migration der Client-Firewalls von Checkpoint Integrity 6 auf Checkpoint
+      Endpoint Security 7 (Policyerstellung und -tuning, Bereitstellung der
+      Pakete für den Rollout durch Clientsupport)
+    * Migration des RSA Authentication Server von 6.1 auf 7.1 unter Windows
+      Server
+    * Betriebsunterstützung einer Firewall/VPN-Infrastruktur auf der Basis von
+      Cisco PIX bzw. ASA, Cisco VPN 3000 Concentrator und Cisco VPN Client
+ 
+Kenntnisse:
+ 
+Checkpoint Endpoint Security, Clearswift MIMEsweeper, Cisco VPN Client, LAN/
+WAN, VPN
+===============================================================================
+06/2008 - 12/2008: Redesign einer Kunden-Firewallumgebung
+ 
+Kunde:              Bankeigener IT-Dienstleister (Großkonzern)
+ 
+Aufgaben:
+ 
+Die Firewall-Landschaft einer Tochtergesellschaft der Bank soll an den
+Konzernstandard angeglichen werden.
+ 
+Tätigkeitsbeschreibung:
+    * Vertretung der Gruppe "Firewall Betrieb" im Projekt
+    * Feinplanung der neuen Architektur in Zusammenarbeit mit den anderen
+      beteiligten Organisationseinheiten
+    * Konfiguration der neuen Komponenten im Rahmen des Hardware und Software-
+      Lifecycle, Test, Planung der Migration, Erstellen und Durchführen der
+      benötigten Changes (Änderungsvorgänge)
+ 
+Kenntnisse:
+ 
+Checkpoint, Juniper Netscreen, Routing, VLANs, Netzwerkstruktur des Konzerns
+===============================================================================
+07/2006 - 12/2008: Betriebsunterstützung Security
+ 
+Kunde:              Bankeigener IT-Dienstleister (Großkonzern)
+ 
+Aufgaben:
+ 
+Betrieb einer komplexen weltweiten Security-Infrastruktur mit ca. 50 Firewall-
+Clustern unterschiedlicher Hersteller, mehrstufige Abtrennung vom Internet,
+Antivirus, Content Filter, Mailgateways, Proxies
+ 
+Tätigkeitsbeschreibung:
+    * Tagesbetrieb Firewall mit Bearbeitung von Incidents, technische Prüfung
+      und Implementierung beantragter Firewallregeln entsprechend der
+      definierten Prozesse
+    * Second-Level-Hotline Firewall
+    * Diagnose von Zugriffsproblemen mittels Firewall-Logs und Netzwerkdumps
+    * Betrieb Unix-Mailsysteme und Viruswalls mit Pflege der Postfix-
+      Konfiguration
+    * Betrieb Web-Proxies mit Viruswalls und Content Filter, Pflege der ACLs
+    * Betrieb der zentralen Nameserver und Pflege der Zones for Intranet und
+      Internet
+    * Beratung in Firewall- und Netzwerkfragen
+    * Einhaltung von ITIL- und bankspezifischen Prozessen
+ 
+Kenntnisse:
+ 
+Checkpoint (auf Solaris und SPLAT), Juniper Netscreen mit NSM, Phion, Sun EFS
+(Sunscreen), TippingPoint, TrendMicro IMSS und IWSS (via ICAP), SecureComputing
+WebWasher (via ICAP), Postfix (auf Solaris und RHEL), IronPort, NetCache,
+Squid, bind 9, snoop, tcpdump, Wireshark, Tripwire, Tivoli, Novell Sentinel,
+ASG Impact, C6000, Aperture, SAP, MS Office, Windows XP und Vista
+===============================================================================
+08/2005 - 11/2005: Einführung von Checkpoint VPN "Simplified Mode"
+ 
+Kunde:              Softwarehersteller (Mittelstand)
+ 
+Aufgaben:
+ 
+Lab Tests und anschließende Umstellung von Traditional Mode zu Simplified Mode
+einer Checkpoint Infrastruktur mit ca. 15 VPN-enabled Gateways (Zusammen mit
+Kollegen in Nordamerika)
+ 
+Tätigkeitsbeschreibung:
+    * Analyse der bisherigen Kommunikationsbeziehungen
+    * Redesign der VPN-Communities, um die gewünschte Topologie nachzubauen
+ 
+Kenntnisse:
+ 
+Checkpoint FW-1 NG R55 auf RHEL
+===============================================================================
+10/2004 - 10/2005: Ausschreibung Corporate Network
+ 
+Kunde:              Softwarehersteller (Mittelstand)
+ 
+Aufgaben:
+ 
+Ablösung des aus Firmenzusamenschlüssen entstandenen Corporate Network in
+Europa durch ein einheitliches gemanagtes IP-VPN
+ 
+Tätigkeitsbeschreibung:
+    * Erstellen von Ausschreibungsunterlagen
+    * Auswahl und Ansprache potentieller Lieferanten
+    * Führen von Verhandlungen und Optimierung nach technischen und
+      Kostengesichtspunkten
+    * Präsentation einer Empfehlung mit Alternativen an das obere Management
+===============================================================================
+Weitere Projekte gerne auf Anfrage.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_78782
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 11.11.2021 00:43:24
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

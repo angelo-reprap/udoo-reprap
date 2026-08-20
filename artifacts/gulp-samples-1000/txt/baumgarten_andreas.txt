@@ -1,0 +1,276 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_120901
+
+
+Stammdaten (Auszug):
+
+Personen-ID                120901
+  
+Wohnort                    886xx Salem, Deutschland
+Jahrgang                   1972
+Staatsbürgerschaft         deutsch
+Stundensatz                80 EUR
+                           vor Ort evtl. höher
+Verfügbar ab               01.07.20 zu 100%, Vor-Ort-Einsatz 70% möglich
+Profil erstellt am         30.03.12
+Profil zuletzt geändert am 23.02.20
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 14.01.2020 14:23:01
+
+Fachlicher Schwerpunkt:
+Senior Software Engineer Cloud/SAAS-​Lösungen JAVA, JEE, Spring/Boot, HTML,
+REST, JS, CSS, jQuery, AngularJS, JPA, Hibernate, MS-​SQL, PostgreSQL, mySQL
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit bevorzugt
+
+Voraussetzung für Festanstellung: Anspruchsvolle Entwicklungen in JAVA, J2EE
+und/oder Webentwicklungen und/oder SQL-​Entwicklungen. Einsatzort Raum
+Bodensee.
+
+Ausbildung:
+staatlich geprüfter datentechnischer Assistent, langjähre Erfahrungen als
+Softwareengineer
+
+Einsatzort:
+Regionen:
+D6, D7, D8, D9, Österreich, Schweiz
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Projekte mit HomeOffice-Tagen werden bevorzugt
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+
+
+Hardware:
+PC  
+
+
+Betriebssysteme:
+Linux / Ubuntu / Vagrant  
+MS-DOS                    
+Windows                   
+
+
+Programmiersprachen:
+Java        
+JavaScript  
+
+
+Datenbanken:
+Access                
+JDBC                  
+MS SQL Server         
+PostgreSQL / PG-Pool  
+SQL                   
+
+
+Datenkommunikation:
+Internet, Intranet  
+SMTP                
+TCP/IP              
+Windows Netzwerk    
+
+
+Produkte/Standards/Erfahrungen:
+Webentwicklungen (Client) mittels HTML, CSS, JavaScript, jQuery, AJAX, XML,
+JSON, Google-API, Navteq-JSAPI, Grunt, Ant, AngularJS, LESS
+Webentwicklung (Server) - Applikationsserver und Applikationsentwicklung JAVA,
+JEE, EJB, JSP, Servlets, JDBC, JMS, JAXP, JAX-RS, JPA, XML, XSLT, Struts 1+2,
+JUnit, Log4J, Olap4J, JBoss, Tomcat, Glassfish, Wildfly, SOLR, ANT, CVS, Maven/
+Gradle, GIT, AWS, Spring 
+Datenbanken (OLTP) MySQL, PostgreSQL, PG-Pool, MS-SQL, T-SQL, Partitioning,
+FullText
+IDE: Eclipse, IntelliJ
+Agile Softwareentwicklung nach SCRUM, Scrum of Scrum
+Datawarehousing (OLAP) MS-AS, XMLA, MDX, Partitioning
+Windows-Applikationen Delphi, Paradox, Advantage Database Server (SQL), MS
+Access
+JIRA, Confluence, Bamboo, BitBucket
+ 
+
+Branchen:
+Tourismus, Dienstleistungen, Banken, Finanzen, Bausparen, Faktura, Buchhaltung,
+Onlinebanking, Warenwirtschftssysteme
+
+Projekte:
+10/2019-12/2019
+    * Entwicklung/Anpassung von MicroServices in einer großen MircoService-
+      Landschaft im Automotiv-Umfeld
+      Technologien: Payara, OpenShift, SpringBoot, JPA, PostgreSQL, Flyway,
+      Jenkins, Gatling, Cucumber, Citrus
+
+04/2019-09/2019
+    * Portierung von MicroServices aus dem Hosted-Umfeld in die AWS-Cloud
+      (Schwerpunkt: Datenbankmigration)
+      Technologien: PostgreSQL/Aurora, SpringBoot, JPA/Hibernate,  AWS-Services
+      (EC2, Lambda, SNS, SQS, Step-Functions, Gateway)
+
+07/2017-03/2019
+    * Entwicklung einer Partner-API (oAuth2) und Partner-Intragtionslösungen
+      für eine SaaS-Lösung aus dem Bereich Warenwirtschaftssystem/
+      Buchhaltungssystem
+
+      Technologien: SpringBoot, JPA/Hibernate, Flyway, JAX-RS, JUnit, Mockito,
+      HTML, JS/AngularJS, CSS/LESS, Grunt, Bower, GIT, Maven/Gradle,
+      PostgreSQL, AWS-Services (EC2, Lambda, SNS, SQS, Step-Functions, Gateway)
+
+    * Entwicklung eines Mircoservices zum Virenscannen von Dateien/Datenstreams
+      auf Basis von ClamAV mit AWS-Services
+
+      Technologien: SpringBoot, CalmAV, AWS-Services (EC2, LoadBalancer),
+      Docker
+ 
+01/2017-06/2017
+    * Entwicklung eines Dashboard-Systems mit Chartdarstellungen und Google-
+      Maps für die Anzeige und Visualisierung von Windparkanlagen
+
+      Technologien: Angular4, HTML, CSS, SVG
+
+    * Entwicklung von Anzeige- und Steuerkomponenten von Innovations-Themen aus
+      dem Automotiv-Bereich (Inno-Truck, Inno-Traktor und Inno-Car 2017)
+
+      Technologien: HTML, CSS, SVG und natives JS zur Anbindung an den internen
+      CAN-Bus
+
+01/2016-12/2016
+    * Entwicklung eines Dokumenten-Upload-Services inkl. serverseitiger
+      Bildkonvertierungen, Texterkennung (OCR) und Thumbnail-Erstellung
+      (beliebig skalierbar)
+
+      Technologien: SpringBoot, Hibernate, AWS (EC2, Lambda, SNS, S3)
+
+03/2013-12/2015
+    * Entwicklung einer WebApp in einem SCRUM-Team (SoS), Cloud-Anwendung/SAAS
+      Warenwirtschaftssystem/Buchhaltungssystem mit Onlinebanking
+
+      Technologien: JEE, EJB, JPA/Hibernate, JAX-RS, JMS, FOP/IBEX, Glassfish,
+      Liveray, Solr, JUnit/Arquillian, HTML5, JS/jQuery/AngularJS, CSS/LESS,
+      Grunt, Bower, GIT, Maven/Gradle, PostgreSQL, AWS-Services (EC2, S3)
+
+      Nutzung von Atlassian-Services a. u. JIRA, Bamboo (CI), BitBucket,
+      Confluence.
+ 
+12/2012-12/2012
+    * Kundenkontaktformular mit dynamischer PDF-Erstellung und Mailversand für
+      Finanzdienstleister
+
+      Erfassung der Kundendaten (Adresse), Erzeugung von dynamischen PDFs (u.a.
+      auch passwortgeschützt) und Mailversand
+ 
+    * JBOSS, Struts 2, JS, HTML, CSS, jQuery, XSL/T, FOP, PHP (Weblication-
+      Grid), Maven 
+ 
+12/2012-12/2012
+    * Umstellung eines Förderrechners auf neue Service-Version für
+      Finanzdienstleister
+
+    * JBOSS, Struts 2, JS, HTML, CSS, jQuery, Ajax, SOA, JAXB, ANT
+ 
+11/2012-11/2012
+    * Informations- und Reservierungssystem (IRS)
+
+      Interaktive und dynamische Adressenbestandssuche zur Vermeidung von
+      Dupletten
+
+    * SQL (Volltextkataloge, Indexe, phonetische Umwandlungen), JBOSS,
+      Struts, HTML, CSS, JS, jQuery, Ajax
+ 
+05/2012-10/2012
+    * Dynamische Kartenanwendung für Finanzdienstleister 
+
+      Darstellung von Standorten basierend auf Layertechnik (Navteq) inkl.
+      automatischer Clusterung. Ajax-Anbindung an kundeneigene Services (SOA).
+      Integration in die Kunden-HP (Weblication-Grid). Individuelles
+      Usertracking durch WebTrekk-Interfaces.
+ 
+    * JBoss, Struts 2, JS, HTML, CSS, jQuery, Ajax, SOA, Navteq-JSAPI, Navteq-
+      REST, WebTrekk, Maven, Weblication-Grid (PHP), JSON/JSONP
+ 
+06/2003 - 04/2012
+    * Informations- und Reservierungssystem (IRS)
+
+      Entwicklung/Mitarbeit an einer Enterprise-IT-Application im JAVA/J2EE/
+      JBoss-Umfeld  mit JBuilder und Eclipse
+         
+    * GUI-Frontend für touristische Destinationen mit Java, JSP, Tomcat,
+      Struts, Javascript, HTML, CSS, JSON, AJAX, jQuery, OverLib, Google-API
+    * Modellierung, Implementierung, Test und Support des JEE-Backends mit
+      Java, EJB3 zur Abwicklung des Zimmervermittlungs-, Buchungs- und
+      Meldewesens sowie der Abwicklung allgemeiner und
+      kundenspezifischer touristischer Abläufe.
+    * Offene XML-Schnittstellen für Vakanz- und Detailabfragen.
+    * Abrechnungssystem zur Abwicklung anfallender Dienstleistungen der
+      touristischen Destination (hauptsächlich Meldescheinwesen).
+    * IBE (Internet-Booking-Engine) mit templatebasierenden HTML-Ausgaben die
+      in Profilen mandantentechnisch verwaltet werden
+    * Eigene Skriptsprache für individuelle HTML-Ausgaben im Bereich der IBE
+    * DatenServiceClient für die Anbindung von Leistungsträgern am IRS.
+      Verwaltung von Stammdaten und Belegungsdaten mittels individuellem GUI-
+      Zugang.
+    * Statistik-Client für die freie Auswertung von Statistiken sowie der
+      Hinterlegung von eigenen Auswertungsprofilen. Die interaktive GUI wurde
+      umgesetzt mit jQuery, AJAX und greift auf MS-BI-Services (OLAP) zu. Cubes
+      definieren, einrichten, dynamische Abfragen via MDX und automatisierte
+      Cube-Verarbeitung durch XMLA-Jobs.    
+    * Administration der JBoss-Server-Umgebung auf Windows-2003- und Windows
+      2008-Servern, mit Anbindung an MSSQL-Datenbank mittels JDBC.
+    * Entwicklung übergreifender Architekturen inkl. Testszenarien umgesetzt
+      mit JUnit, HttpJUnit.
+    * Mitwirkung bei der Einrichtung und Administration
+      des Verteilungsszenarios der J2EE-Dienste (EJB, JMS, JMX, MBeans) über
+      den ESB des JBoss.
+    * Übernahme des Projektmanagements von Teil- und Großprojekten mit direktem
+      Kundendialog zur Anforderungsanalyse und Architektur- und Designentwurf
+      unter OOD und OOA-Aspekten.
+    * Entwurf und Umsetzung des DB-Designs. Wartung und Performance-Tuning im
+      MS-SQL-System (OLTP und OLAP)
+    * Migration externer Daten aus Altsystemen mittels individuellem Scripting
+      per SQL.
+ 
+    * JBoss, Struts, Tomcat, JSP, EJB, JMS, HTML, CSS, JS, HTML, jQuery,
+      OverLib, Olap4J, SQL OLTP / OLAP, CVS, JSON/JSONP
+ 
+1998-06/2003 
+    * Neuentwicklung Windows-Applikation
+
+      Entwicklung/Mitarbeit/Entwicklungsleitung an einer Client-Server-Desktop-
+      Application im Windows-Umfeld unter Borland Delphi zur Abwicklung
+      sämtlicher Abläufe in touristischen Destinationen.
+ 
+    * Delphi, Paradox, Advantage-Database-Server
+ 
+
+Referenzen:
+Projekt Kartenanwendung für die Ansprechpartnersuche, 05/12 - 10/12
+Referenz durch Teamleiter IT, Finanzdienstleister, 5000 MA, vom 12.10.12
+"Der Consultant entwickelte termintreu die dynamische Kartenanwendung zu
+unserer vollsten Zufriedenheit. Er hat das Projekt in allen Phasen von der
+Spezifikation über die Entwicklungs- und Testphase bis hin zur Inbetriebnahme
+begleitet. Seine hervorragenden Kommunikationsfähigkeiten ermöglichten die
+effiziente Klärung aller technischen und fachlichen Fragen mit dem
+Kartenprovider und den beteiligten Spezialisten. Er verfügt über ein profundes
+Wissen in der IT- Architektur und integrierte sich perfekt in unser Team. Wir
+würden uns freuen, wenn wir bald wieder in einem Projekt mit ihm
+zusammenarbeiten könnten."
+Alle Referenzen sind durch GULP bestätigt.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_120901
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 24.02.2020 00:46:08
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

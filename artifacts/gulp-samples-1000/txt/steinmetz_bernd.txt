@@ -1,0 +1,438 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_51480
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                51480
+  
+Wohnort                    671xx Maxdorf, Deutschland
+Jahrgang                   1965
+Staatsbürgerschaft         Deutsch
+Stundensatz                110 EUR
+                           (ggf. zzgl. Spesen)
+Verfügbar ab               01.07.19 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         04.06.03
+Profil zuletzt geändert am 11.03.20
+Lesen von Projektanfragen  1 Tag [08]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 11.01.2020 10:48:03
+
+Fachlicher Schwerpunkt:
+DWH und BI Architekt, SAS Berater, Java Entwickler
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Engineering / IT-nahe Ingenieurdienstleistungen
+
+Teamleiter Entwicklung
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Diplom-Mathematiker (FH), Angewandte Mathematik, FH Darmstadt (1988-1993)
+
+
+
+Fremdsprachen:
+Deutsch  Muttersprache
+Englisch Gut bis sehr gut
+
+
+Hardware:
+IBM Großrechner 
+SUN              
+
+
+Betriebssysteme:
+MVS, OS/390     Grundkenntnisse
+SUN OS, Solaris Gute Kenntnisse
+Unix            Grundkenntnisse
+
+
+Programmiersprachen:
+Java       Sehr gut, Sun Certified Programmer + Developer
+JavaScript Sehr gut, Sun Certified Programmer + Developer
+JCL        Grundkenntnisse
+           sehr gut; BI und DI, Visual Analytics, SPDS, Graph, Connect, Access,
+SAS        WA, STAT, QC, FSP, AF, SCL, Frames, EIS, MDDB, AppDev Studio,
+           Integration Technologies, DI Studio
+Shell       
+
+Absolvierte Kurse (chronologische Reihenfolge)
+- SAS/AF, Object Oriented Methods
+- Version 8 Application Development
+- Java Introduction
+- Java Programming Workshop
+- Java Based SAS Applications with AppDevStudio
+- SAS Integration Technologies
+- IBM Websphere Application Server
+- Server- und clientseitige Anwendungen mit AppDevStudio
+- SASTEK (2000, 2001, 2002)
+- IBM e-business Technology Workshop
+- Accessing SAP Data with SAS
+- DB2 Business Intelligence
+- SAS V9 Warehousing
+- SAS V9 Business Intelligence Reporting
+- SAS V9 Fortgeschrittene ODS Programmierung
+- Java 1.5 Update
+- SAS V9 Tuning ETL-Prozesse mit DI Studio
+- SAS V9 AppDev Eclipse Plug-ins
+- OO Design Patterns mit Java
+- XML mit Java
+- Effective Java
+- Java Server Faces (JSF)
+- RIA Entwicklung mit Captain Casa
+- Java Spring Core
+- Java Persistence API mit Hibernate
+- Enterprise JavaBeans 3
+- Java8 Lambda und Streams
+- NoSQL mit Java
+- REST APIs
+- MicroServices mit Java
+- Resilent Software Design mit Java
+- SAS Visual Analytics Fasttrack
+
+Zertifizierungen
+- SAS Certified Professional - Base V6
+- SAS Certified Professional - Data Management V6
+- IBM Certified for e-business - Solution Advisor
+- SUN Certified Programmer for the Java2 Platform
+- SUN Certified Developer for the Java2 Platform
+
+Datenbanken:
+DB2                       Gute Kenntnisse Business Intelligence Produkte
+JDBC                      Sehr gut
+Microsoft SQL Server 2012 Gute Kenntnisse
+Oracle                    Grundkenntnisse, gute Kennnisse OLAP
+                          SAS Visual Analytics, SAS BI Server, DI Studio,
+SAS                       Information Delivery Portal, AppDev Studio, Web
+                          Report Studio, SPDS, Macro, Graph, Connect, Access,
+                          AF, SCL
+
+
+Design/Entwicklung/Konstruktion:
+DWH- und OLAP-Modellierung, UML-Kenntnisse
+
+Produkte/Standards/Erfahrungen:
+Anwendungsentwicklung
+- Sehr gute Kenntnisse Data Warehousing, Business Intelligence, Reporting,
+OLAP, verteilte Applikationen
+- Sehr gute Kenntnisse der SAS Systems (30 Jahre, V6-V9.4)
+- Sehr gute Kenntnisse Java/JEE und Objekt Orientierte Entwicklung
+- Sehr gute Kenntnisse Web-Technologien (HTTP, HTML, JavaScript,
+ApplicationServer)
+- Sehr gute Kennnisse Java EE Entwicklung mit SPRING
+- Gute Kennnisse NoSQL Datenbanken und Technologien
+- Gute Kenntnisse Markup Languages (HTML und XML, XSD, XSLT, JSON, YAML)
+- Gute Kenntnisse von Client/Server und Netzwerk-Technologien
+- Data Warehouse Architektur
+- Unified Modeling Language
+- Enterprise Performance Management / Balanced Scorecard
+
+Sonstige Tools
+- Control-M (Jobsteuerung)
+- SVN, CVS, Serena Dimensions(Source Code Management)
+- XFB (Datenübertragung)
+
+Branchen:
+Handel, Behörden, Telekommunikation, Banken, Chemie, Klinisches Datenmanagement
+
+Projekte:
+Zeitraum: 01/2020-03/2020
+Kunde:    Bausparbank Ludwigsburg
+Projekt:  Automatisierte Migration von gemischten Ablaufsteuerungen
+                 (Control-M und Flow Manager)  auf reine Control-
+M Ablaufsteuerung.
+                 Tool wird für mehrere Migration eingesetzt. 
+HW/SW:   Java, JAXB, XML, BMC Control-M, SAS Metadata API
+ 
+Zeitraum: 04/2018-12/2019
+Kunde:    Bausparbank Ludwigsburg
+Projekt:  SAS Architekt für Data Warehouse und Data Mart Umfeld
+                 Konzeption und Realisierung GBS Mart Anwendungen
+HW/SW:   SAS DI, SAS BI, SAS Visual Analytics, Hadoop, DB2
+ 
+Zeitraum: 06/2017-03/2018
+Kunde:    Bank Stuttgart
+Projekt:  Migration SAS 9.2 zu SAS 9.4
+HW/SW:   DI 4.2 zu DI 4.6, Solaris zu Linux (RHEL)
+ 
+Zeitraum: 04/2017-06/2017
+Kunde:    Bank Stuttgart
+Projekt:  Umstellung Java Web Anwendung auf HTML Client
+HW/SW:   Java Captain Casa Web Anwendung, Linux, Tomcat8, Java8
+ 
+Zeitraum: 01/2017-04/2017
+Kunde:    Bank Stuttgart
+Projekt:  Auomatisiertes GUI Testing für Java Anwendung
+HW/SW:   Java Captain Casa Web Anwendung, HP UFT (Unified Functional Testing),
+HP QC (Quality Center)
+ 
+Zeitraum: 01/2017-06/2017
+Kunde:    Privates Projekt
+Projekt:  Umstellung Java Anwendung auf SPRING Boot
+HW/SW:   Java Captain Casa Web Anwendung, SPRING, SPRING Boot, Docker
+ 
+Zeitraum: 01/2013-06/2017
+Kunde:    Bank Stuttgart
+Projekt:  Risikomodell für stochastische Cashflows
+HW/SW:    SAS BI, SAS Data Integration Studio, Java Web Anwendung für
+Paramterisierung und Analyse
+ 
+Zeitraum: 03/2012-11/2012
+Kunde:    Bank Stuttgart
+Projekt:  Web-Anwendung für Online-Erfassung von Meldungen nach der
+Aussenwirtschaftsverordnung (AWV). Anbindung an Abacus.
+HW/SW:    Java (SPRING, CapatinCasa für Web-Anwendung, SQL Server 2012 DB, SAS/
+Access to SQL Server für Schnittstellen)
+ 
+Zeitraum: 01/2012-02/2012
+Kunde:    Bank Stuttgart
+Projekt:  Prototyp für die Anbindung des zentralen GBS SAS-DWH an die im Haus
+entstehende SOA Plattform. Ziel: Performante Überführung heterogener
+Datenquellen in DWH Staging-Ebene
+HW/SW:    SAS BI 9.2, SAS BI 9.2, SAS DI Studio 4.2, SAS Integration
+Technologies, SPDS 4.5, Java (SPRING Integration) für die Entwicklung der
+Integrationsschicht
+ 
+Zeitraum: 10/2011
+Kunde:    Bank Stuttgart
+Projekt   Migration auf SAS 9.2 Maintenance Level 3
+HW/SW:    SAS BI 9.2, SAS DI Studio 4.2, SAS Integration Technologies, SPDS 4.5
+ 
+Zeitraum: seit 11/2008
+Kunde:    Bank, Stuttgart
+Projekt   Aufbau eines Data Marts für das Rechnungswesen (Cashflow,
+Bewertungen, Liquiditätssteuerung und Hedgeaccounting). Erarbeitung von IT-
+Konzepten, Realisierung SAS Backend und Teamleitung bei der Realisierung eines
+Java Frontends 
+HW/SW:    SAS BI 9.2, SAS DI Studio 4.2, SAS Integration Technologies, SPDS 4.5
+ Java für Entwicklung von Middleware-Services und GUI-Anwendungen (JSF)
+
+Zeitraum: 01/2008 - 10/2008
+Kunde:    Bank, Stuttgart
+Projekt   Aufbau einer BI Reporting Architektur für das Kredit-Reporting
+HW/SW:    SAS BI 9.1.3, SAS DI Studio, SAS ID Portal, ODS und JavaScript,
+ Java für Portlet-Customizing und -Optimierung
+
+Zeitraum: 04/2008 - 10/2008
+Kunde:    Bank, Stuttgart
+Projekt   Konzeption und Realisierung eines semi-automatisierten ETL-Prozesses
+ auf Basis parametrisierbarer Module
+HW/SW:    SAS/Base, SAS/Macro, SAS/SPDS
+
+Zeitraum: 01/2007 - 12/2007
+Kunde:    Bank, Stuttgart
+Projekt   Implementierung eines Data Marts für das Controlling (Entwicklung und
+Teamleitung)
+ Anbindung von 18 Fremdsystemen und bi-direktionale
+ Schnittstellen zu 4 Anwendungen (inkl. SAP-CO und SAP-SEM)
+HW/SW:    SAS/Base, SAS/Access, SAS/Connect, SAS/SPDS
+
+Zeitraum: 08/2003 - 12/2006
+Kunde:    Bank, Stuttgart
+Projekt   Implementierung Data Warehouse im Rahmen eines IAS-Projekts
+HW/SW:    SAS/Base, SAS/Access, SAS/Connect, SAS/WA, SAS/SPDS
+
+Zeitraum: 07/2004 - 12/2004
+Kunde:    Beratungshaus, Stuttgart
+Projekt   Anwendungsentwicklung im Bereich Geldwäsche
+ Migration einer SAS/AF-Anwendung zu Thin-Client Anwendung
+HW/SW:    Java, Casabac GUIServer, SAS/AF
+
+Zeitraum: 04/2004 - 06/2004
+Kunde:    Bank, Stuttgart
+Projekt   Anwendungsentwicklung im Bereich Compliance
+HW/SW:    SAS/Base, SAS/SPDS, SAS/AF, AppDevStudio, Java
+
+Zeitraum: 1999-06/2003
+Firma:    Versandhandels-Konzern (D)
+Projekt:  Beratung und Konzept für die Einführung eines Business Portals
+ Single Sign-On Konzept auf Basis eines firmenweiten Directory Modells
+ Realisierung einer universell einsetzbaren Benutzerverwaltung auf Basis des
+firmenweiten LDAP Directories
+ Programming Staging and Loading für Enterprise Data Warehouse
+ Implementierung eines generischen SAS-to-Excel Interface
+ Migration SAS/EIS Motore Applikation zu HybridOLAP Architektur
+HW/SW:    SAS/AF, SAS/MDDB und SAS/EIS, DB2, Java, LDAP und XML
+
+Zeitraum: 01/2003-03/2003
+Kunde:    [Name auf Anfrage]
+Projekt   Zertifizierung zum Java Developer
+ (Analyse, Design, Implementierung und Dokumentation einer Anwendung)
+ - Multithreaded Database Server mit Locking-Mechanismen
+ - Logging aller Datenbank Transaktionen
+ - User Interface als Java Client (Swing)
+HW/SW:    Java und XML
+
+Zeitraum: 2002
+Kunde:    Produktentwicklung für Systemhaus
+Projekt   Entwicklung ETL Toolbox für Data Management.
+ - Entwurf eines Metadaten-Modells
+ - Programmierung einer Macro-Toolbox für die Code-Generierung mittels
+Metadaten
+ - Erstellung von Programmen für die automatisierte Erstellung von web-
+basierten DWH Dokumentationen
+ - Analyse und Design für die Erstellung einer DWH Administrationskonsole
+(IDAC)
+ - Team-Entwicklung von IDAC auf Basis von Java, XML und OSS-Produkten
+HW/SW:    SAS/Base, SAS/AF, ODS, Java und XML
+
+Zeitraum: 2001
+Kunde:    schober.com (D)
+Projekt:  Entwicklung eines Java Prototypen.
+ Das Tool erlaubt die OLAP-Analyse und Selektion von Datenbeständen
+ aus der schober.com B2B-Datenbank.
+HW/SW:    Java, Oracle, XML
+
+Zeitraum: 2001
+Kunde:    Amt für Statistik Luzern (CH)
+Projekt:  Lösungskonzept für das Web-Reporting von statistischen Themengebieten
+HW/SW:    SAS/Base, SAS/AF, Oracle, ODS
+
+Zeitraum: 2001
+Kunde:    Ackermann Versandhaus AG (CH)
+Projekt   Erarbeitung einer Machbarkeitsstudie Data Warehouse.
+
+Zeitraum: 2000
+Kunde:    Swisscom, Bern (CH)
+Projekt:  Konzept, Design für eine web-basierte SLA Reportinglösung.
+ Redesign Utilisation Reporting.
+HW/SW:    SAS/Base, SAS/Access, SAS/AF, ODS, Oracle
+
+Zeitraum: 2000
+Kunde:    Credit Suisse First Boston, Zürich (CH)
+Projekt:  System Review und Support für ein Revenue Reporting System.
+HW/SW:    SAS/Base, SAS/AF, SAS/EIS
+
+Zeitraum: 1999
+Kunde:    Amt für Statistik Luzern (CH)
+Projekt:  Laden und Plausibilisieren von Daten der Krankenhausstatistik.
+ SAS Schulungen in SAS/Base, Macro und SAS/Graph
+HW/SW:    SAS/Base, SAS/GRAPH
+
+Zeitraum: 1996-1999
+Kunde:    Swisscom Data &amp; Multimedia, Bern (CH)
+Projekt:  Aufbau eines Data Warehouse mit aggregierten Informationen zu
+ Qualität und Performance der von Swisscom angebotenen Data Services.
+ Generierung von Web-Reports die Swisscom Kunden via UCIS
+ (Universal Customer Information System) zugänglich gemacht werden.
+HW/SW:    SAS/Base, SAS/AF, SAS/GRAPH, SAS/ITSV, Oracle, Informix
+
+Zeitraum: 1996
+Kunde:    Union Bank of Switzerland, Zürich (CH)
+Projekt:  Aufbau einer SAS Datenbank für CRM-Analysen,
+ Anwendung multivariater, statistischer Methoden um typische
+ Kundengruppen zu identifizieren (Segmentierung).
+HW/SW:    SAS/Base, SAS/AF, SAS/STAT, DB2/2, VSAM
+
+Zeitraum: 1996
+Kunde:    Weyth Pharma, Münster (D)
+Projekt:  Design und Implementierung eines SAS Clinical Data Entry Systems
+ für Phase III klinische Studien.
+HW/SW:    SAS/Base, SAS/AF, SAS/GRAPH, SAS/EIS
+
+Zeitraum: 1995
+Kunde:    Kodak, Stuttgart (D)
+Projekt:  Design und Implementierung einer Quality Control Applikation unter
+ Verwendung von SAS/AF, SAS/GRAPH und SAS/QC.
+HW/SW:    SAS/Base, SAS/AF, SAS/GRAPH, SAS/QC, Rdb
+
+Zeitraum: 1994-1995
+Kunde:    F.Hoffmann-La Roche, Basel (CH)
+Projekt:  SAS Klinisches Datenmanagement im Projekt Tolcapone.
+ Die Aufgaben umfassten die Erstellung von Entry Databases,
+ Line Listings, Logical Checks, Transformation Programs, Safety
+ Databases und CRF Patient Summaries.
+HW/SW:    SAS/Base, SAS/Access, Oracle/Clinical
+
+Zeitraum: 1993-1994
+Kunde:    Pharmaceutical Research Associates, Mannheim (D)
+Projekt:  Klinisches Datenmanagement in verschiedensten Projekten.
+ Die Aufgaben umfassten die Erstellung von Logical Checks,
+ Line Listings, Transformation Programs, Analysis und Graphics für
+ Final Study Reports.
+HW/SW:    SAS/Base, SAS/GRAPH, SAS/Access
+
+
+Referenzen:
+Projekt Beratung, Konzeption und Realisierung in unserem Projekt ZAHL, 12/08 -
+12/10
+Referenz durch Projektleiter, dt. Bankunternehmen, vom 24.02.11
+"[...] Aufgrund seiner umfangreichen und fundierten technischen Erfahrung und
+Kenntnissen in den genannten Bereichen trug der Consultant nachhaltig zum
+Projekterfolg bei. Seine Aufgaben erfüllte der Consultant stets zu unserer
+vollsten Zufriedenheit. Wir können ihn als Consultant uneingeschränkt
+weiterempfehlen und würden uns freuen, ihn wieder in einem Projekt der [...]
+begrüßen zu dürfen. "
+Projekt Web-Anwendung im Bereich Geldwäsche-Bekämpfung, 08/04 - 12/04
+Referenz durch Product Manager, Anbieter von Software- und Produktlösungen für
+die Finanzwirtschaft, vom 21.01.11
+"[...]  Aufgrund Ihrer umfangreichen und fundierten technischen Erfahrung und
+Kenntnissen im Bereich Web-Entwicklung trugen Sie nachhaltig zum Projekterfolg
+bei. Wir können Sie als Consultant uneingeschränkt weiterempfehlen und würden
+uns freuen, wieder in einem Projekt mit Ihnen zusammenarbeiten zu können."
+Projekt Implementierung einer Financial Database, 08/03 - 06/04
+Referenz durch deutsches Bankunternehmen, vom 14.10.04
+"[...] Aufgrund seiner umfangreichen und fundierten technischen Erfahrung und
+Kenntnissen [...] trug der Berater nachhaltig zum Projekterfolg bei. Wir können
+ihn als Consultant uneingeschränkt weiterempfehlen und würden uns freuen,
+wieder in einem Projekt mit ihm zusammenarbeiten zu können."
+Projekt Konzept/Design für web-basierte SLA Reportinglösung, 12/00 - 02/01
+Referenz durch Telekommunikationsunternehmen (20.470 MA), vom 05.08.02
+"Unter der Projektleitung des Consultants war von Dezember 2000 bis Februar
+2001 ein Entwicklerteam bei uns tätig. Ziel des Projektes war die Ausarbeitung
+eines Konzeptes zur Unterstützung des SLA-Prozesses für unsere Data Services.
+Dazu zählten unter anderem das Design, die Implementierung und automatisierte
+Befüllung einer entsprechenden SLA-Datenbank; ausserdem die Berechnung von SLA-
+Parametern und die Erstellung von entsprechenden web-basierten SLA-Reports. Wir
+bestätigen hier gerne, dass der Consultant dieses Projekt zu unserer vollsten
+Zufriedenheit, mit grosser Sachkompetenz, im zeitlichen Rahmen und unter
+Einhaltung der vereinbarten Kosten erbracht hat."
+Projekt SAS Schulungen, Data Management, im Jahre 1999
+Referenz durch Vorsteher des Amtes für Statistik des Kantons Luzern, vom
+16.11.00
+"Im Jahre 1999 hat der Consultant für unser Amt folgende Aufträge ausgeführt:
+1. Erstellung eines SAS-Programms, das die Rohdaten zur Krankenhausstatistik in
+SAS-Dateien einliest, diese Daten gemäss detaillierten Vorgaben plausibilisiert
+und entsprechende Auswertungen erzeugt.
+2. Einarbeitung neuer AfS-Mitarbeiter in das SAS System.
+Wir bestätigen gerne, dass der Consultant diese Aufträge mit grosser Kompetenz,
+termingerecht und unter Einhaltung der vereinbarten Kosten ausgeführt hat. Die
+Zusammenarbeit mit ihm war äusserst angenehm. Er darf unser Amt als Referenz
+nennen."
+Alle Referenzen sind durch GULP bestätigt.
+
+Sonstige Anmerkungen:
+Kursleitung
+Folgende Kurse wurden für Kunden in der Schweiz entwickelt und unterrichtet:
+-        SAS/Base, SAS/Macro, ODS und SAS/Graph Programming
+
+Betreuung folgender Diplomarbeiten:
+-        Konzept und Prototyp benutzerdefinierte Würfel
+-        HOLAP Customizing - Behandlung semi-additiver Grössen
+-        Thin Client BI Engine auf Basis Servlets und JSP"s
+-        SAS XML Enablement
+
+Vorträge und Fachartikel
+-        Regelmäßiger Sprecher bei SAS Konferenzen in Deutschland und Schweiz
+-        "Database Marketing bei einem Netzanbieter" Database Marketing, Nr. 2/
+99
+
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_51480
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 12.03.2020 00:41:47
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

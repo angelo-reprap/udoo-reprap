@@ -1,0 +1,608 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_23226 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                23226
+  
+Wohnort                    707xx Leinfelden-Echterdingen, Deutschland
+Jahrgang                   1969
+Staatsbürgerschaft         deutsch
+Stundensatz                78 EUR
+Verfügbar ab               01.07.21 zu 70%, Vor-Ort-Einsatz 20% möglich
+Profil erstellt am         29.01.01
+Profil zuletzt geändert am 12.03.21
+Lesen von Projektanfragen  12 Stunden [10]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 30.01.2021 17:10:33
+
+Fachlicher Schwerpunkt:
+Webentwickler PHP/MySQL, TYPO3 (Extbase, Fluid, TYPO3 Flow, FluidTYPO3), Aimeos
+Shop, jQuery, Twitter Bootstrap, responsive Design
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Energiegeräteelektroniker Thyssen M.A.N. Aufzüge GmbH 08/86 - 06/89
+
+Technisches Gymnasium Kirchheim     08/89 - 05/92
+
+Adolf Lazi Akademie Esslingen       09/94 - 08/97
+
+Freiberufliche Tätigkeit im Bereich Neue Medien       08/97 - 05/98
+Festanstellung als Entwickler im Bereich Neue Medien bei Fa. ict GmbH
+Kohlberg   05/98 - 05/00
+Festanstellung als Webentwickler bei Fa. DoubleYou GmbH Stuttgart-
+Weilimdorf     05/00 - 12/00
+Freiberufliche Tätigkeit im Bereich Webentwicklung    seit 01/01
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: bevorzugt Bereich D7
+
+Fremdsprachen:
+Deutsch  Muttersprache
+Englisch sehr gut in Wort und Schrift
+
+
+Hardware:
+Macintosh  
+PC         
+
+
+Betriebssysteme:
+Mac OS   
+Unix    Debian, Suse
+Windows  
+
+
+Programmiersprachen:
+CSS                     
+CSS(3)                  
+CSS3                    
+Extbase                 
+ExtJS                   
+Fluid                   
+HTML                    
+HTML(5)                 
+Java                   nur Javascript
+JavaScript             nur Javascript
+jQuery                  
+Lingo                   
+Linux Apache MySQL PHP  
+PHP                     
+Scriptsprachen         CFML (ColdFusion Markup Language)
+TypoScript              
+TYPO3 Flow              
+TYPO3 Neos              
+
+HTML
+CFML (ColdFusion)
+
+Datenbanken:
+Access         
+MS SQL Server  
+MySQL          
+Postgres       
+SQL            
+
+
+Datenkommunikation:
+Internet, Intranet  
+Windows Netzwerk    
+
+
+Aufgabenbereiche:
+PHP/MySQL Softwareentwicklung
+TYPO3     CMS und Applikationsentwicklung
+
+
+Produkte/Standards/Erfahrungen:
+Administration Linux    
+Aimeos                  
+Eclipse                 
+Open Source Frameworks  
+PHPStorm                
+SCSS                    
+TYPO3                   
+Software Entwicklung für Webanwendungen: Anforderungsanalyse, UML,
+Objektorientierte Analyse, Objektorientierte Enwticklung, Implementierung,
+Wartung und Betrieb, Design (Internet, Intranet)
+Content Management Systeme (TYPO3, proprietäre Lösungen)
+Extbase/TYPO3 Flow &amp; Fluid, FluidTYPO3
+Angular JS
+Backbone
+Sencha (Ext JS)
+Sencha Touch
+Twitter Bootstrap
+Mach-II, Fusebox
+PHP/MySQL
+Apache Webserver Administration (LAMP)
+MySQL Administration
+Linux-Server Administration (Debian, Suse)
+ColdFusion Server (4 - MX)
+Systemintegration, Datenschnittstellen, Replikation, Single Sign-On
+OpenLDAP, Novell eDirectory, Active Directory
+POI-Systeme auf internationalen Messen und Festinstallationen
+Auslandserfahrung
+
+Branchen:
+keine Spezialisierung aber Erfahrungen sind durch unterschiedliche Projekte und
+Kundenanforderungen vorhanden.
+
+Projekte:
+06/2018 - heute: Relaunch CMS und B2B Shopintegration
+ 
+Einsatzort:         eigenes Büro
+Rolle:              Software Entwickler
+ 
+Aufgaben:
+ 
+Bei meinem ältesten Kunden war die Sicherheitsaktualisierung des CMS von
+Version 4.7 längst überfällig. In diesem Zug hatte der Relaunch folgende
+Inhalte:
+ 
+    * Sicherheitsupdate des TYPO3 CMS auf Version 8 bzw. nach Livegang auf 9
+    * grafische Aktualisierung
+    * responsive Design
+    * Aktualisierung der Dokumentenbibliothek
+    * Integration eines B2B Shops
+ 
+Die Dokumentenbibliothek nutzt dieselbe Applikation wie im weiter unten
+detaillierter beschriebenen Projekt "Extranet Dokumentenbibliothek", da beide
+Unternehmen demselben Konzern angehören.
+ 
+Den B2B Shop habe ich mit der nahtlos in TYPO3 integrierten Open Source
+Shopsoftware Aimeos realisiert.
+ 
+Besonderheit ist hier die Preisbildung. Beim Kunden existieren zwei
+Preissysteme. Die Preise einer Artikelgruppe werden über ein gestaffeltes
+Rabattsystem gebildet, eine anderen Artikelgruppe bildet die Preise
+kundenspezifisch 1:1 ab.
+ 
+Das gestaffelte System nutzt TYPO3 Benutzergruppen, um die Preise im Frontend
+auszuwählen beim kundenspezifischen System wird der Preis über die Kundennummer
+zugeordent.
+ 
+Für beide Systeme werden die Preise schon beim Import erzeugt, was einerseits
+der Performance im Frontend zugute kommt, da hier nichts selektiert/berechnet
+werden muss, andererseits eine leichte Kontrolle aktiver Preise im Backend
+ermöglicht.
+ 
+Die gruppenabhängigen Preise sind als direkter Wert in den Importdaten
+enthalten. Für die kundenspezifischen Preise werden aus einer Applikation
+heraus pro Kunde Rabattdateien erzeugt, die Rabattsätze für einzelne Kapitel
+aus dem Produktkatalog enthalten. Diese Rabatte werden beim Import zur
+Preisberechnung aus Brutto berücksichtigt.
+ 
+Für die Applikation, die die Rabattdaten liefert wurde zusätzlich noch eine
+REST-Schnittstellle geschaffen, die die Abfrage von Kundennummer pro
+Benutzerermöglicht. Die Schnittstelle ist so konzipiert, dass sie in der
+Zukunft nahezu alle Daten aus der Applikation liefern kann.
+ 
+In einer nächsten Ausbaustufe ist die Übergabe der Bestellungen an SAP geplant.
+ 
+ 
+Kenntnisse:
+ 
+Administration Linux, PHP, MySQL, TYPO3, Extbase, Fluid, HTML(5), CSS(3),
+JavaScript, jQuery
+ 
+Eingesetzte Produkte:
+ 
+TYPO3, Aimeos, PHPStorm
+===============================================================================
+02/2016 - heute: Meldesystem für Störungen
+ 
+Einsatzort:         eigenes Büro
+Rolle:              Software Entwickler
+ 
+Aufgaben:
+ 
+Für ein Unternehmen aus der Wasserwirtschaft (Kläranalagen-Verband) habe ich
+ein Portal zur Erfassung und Bearbeitung von Störmeldungen geschaffen.
+ 
+Über ein Rollenkonzept können Mitarbeiter mit unterschiedlichen Befugnissen auf
+das Portal zugreifen, Störungsmeldungen erstellen und Bearbeitung. Der Aufbau
+entspricht einem Ticketsystem und die Bearbeitung einer Meldung erfolgt in Form
+von Kommentaren und Statusänderungen einer Störung.
+ 
+Zu einer Störung können Bilder hochgeladen und mit den Berabeitungsstufen in
+Beziehung gesetzt werden. Die Störung selbst wird über den Ort, betroffene
+Stelle auf der Anlage und wo möglich über die gestörte Komponente qualifiziert,
+um eine spätere Berichtserstellung in Form einer Statistik zuermöglichen.
+ 
+Störungen können verschiedenen Abteilungen des Betriebs (Schlosserei, Elektro
+etc.) zugeordnet und delegiert werden, um eine lückenlose und möglichst
+schnelle Bearbeitung zu gewährleisten. Die betroffenen Mitarbeiter und
+Abteilungen werden per E-Mail automatisiert informiert und für die Abteilung
+werden tägliche Berichte über offene Störungen verschickt.
+ 
+Kenntnisse:
+ 
+Administration Linux, PHP, MySQL, TYPO3 Neos, Fluid, HTML, CSS, JavaScript
+ 
+Eingesetzte Produkte:
+ 
+PHPStorm, TYPO3 Neos
+===============================================================================
+11/2011 - heute: B2B Ecommerce-Plattform
+ 
+Einsatzort:         eigenes Büro
+Rolle:              Software Entwickler
+ 
+Aufgaben:
+ 
+Unter TYPO3 Extbase/Fluid und Sencha ExtJS habe ich eine Plattform für die
+Bestellung von Zahnimplantaten realisiert, die sich nahtlos in die Website des
+Kunden integriert. Zahntechnische Labors können hier beim Hersteller direkt für
+ihre Patienten Implantate bestellen.
+ 
+Besondere Herausforderung ist hier die Abbildung der komplexen Abhängigkeiten
+für die Auswahl geeigneter Artikel und Verbindungselemente für einteilige oder
+mehrgliedrige Implantate auch in Abhängigkeit zur verwendeten CAD-Software zur
+Modellierung der Implantate. Da für eine gültige und verabeitbare Bestellung
+hieraus wieder enstprechende Formularabfragen für hochzuladene CAD-Dateien
+gemacht werden müssen.
+ 
+Die Verarbeitung der Bestellung erfolgt über zwei Schnittstellen. Einmal über
+eine proprietäre Software des mechanisch fertigenden Betriebs. Diese
+Schnittstelle nimmt die CAD-Daten entgegen und stellt sie automatisiert zur
+Prüfung in die Systeme der CNC-Hochpräzisions-Fräsmaschinen, von wo aus sie,
+nach menschlicher Freigabe, direkt in die Fertigung gehen. Durch weitgehende
+Automatisierung des Bestellprozesses wurde die Produktionskette und damit die
+Lieferzeit erheblich verkürzt.
+ 
+Die zweite Schnittstelle bedient Microsoft Dynamics NAV (Navision) von wo aus
+die Bestellung fakturiert wird.
+ 
+Kenntnisse:
+ 
+Administration Linux, PHP, MySQL, TYPO3, JavaScript, ExtJS, jQuery, HTML, CSS,
+Extbase, Fluid
+ 
+Eingesetzte Produkte:
+ 
+PHPStorm, TYPO3
+===============================================================================
+07/2011 - heute: Extranet Dokumentenbibliothek
+ 
+Einsatzort:         eigenes Büro
+Rolle:              Software Entwickler
+ 
+Aufgaben:
+ 
+Das Extranet habe ich als bestehende Applikation innerhalb des TYPO3 CMS
+übernommen und über die Jahre durch verschiedene Relaunchs von Version 4 auf 6
+auf 8 und zuletzt 2019 auf Version 9 geführt.
+ 
+Im Kern werden die Dokumente über die TYPO3 Kategorisierung (sys_category)
+qualifiziert und einem Dokument zugeordnete Dateien TYPO3-konform im FAL (File
+Abstraction Layer) abgelegt. Das Extranet ist mehrsprachig. Unabhängig von der
+gewählten Sprache werden dem Besucher immer alle verfügbaren Sprachversionen
+eines Dokuments zum Download angeboten. Hier wurde als eine zweite Sprachebene
+geschaffen, die über die Meta-Informationen der Dateien abgebildet wird.
+ 
+Ein Berechtigungskonzept ermöglicht die Steuerung des Zugriffs auf Dokumente
+über die TYPO3 Frontend Benutzergruppen.
+ 
+Dokumente können entweder herkömmlich über das TYPO3 Backend gepflegt werden
+oder aus Excel importiert werden. Für die Prozesse des Hochladens und der
+Kategorisierung bei der manuellen Bearbeitung über das Backend wurden Hooks
+eingesetzt um wiederkehrende Abläufe zu automatisieren und die Bearbeitung zu
+beschleunigen.
+ 
+Weiter wurde ein Anmeldeprozess für Zugangsdaten zu einem weiteren Portal
+außerhalb des Extranets integriert, sowie ein Single Sign-On Prozess zum
+Extranet der spanischen Niederlassung.
+ 
+Kenntnisse:
+ 
+Administration Linux, PHP, MySQL, TYPO3, Extbase, Fluid, HTML(5), CSS(3),
+JavaScript, jQuery
+ 
+Eingesetzte Produkte:
+ 
+PHPStorm, TYPO3
+===============================================================================
+11/2010 - heute: Ticketsystem und Qualitätssicherung
+ 
+Einsatzort:         eigenes Büro
+Rolle:              Software Entwickler
+ 
+Aufgaben:
+ 
+Unter TYPO3 Flow (heute Neos Flow) und Sencha ExtJS habe ich eine eigenes
+Ticketsystem erstellt. Die Entscheidung zur Eigenentwicklung und gegen die
+Verwendung eines bestehenden Opensource Ticketsystems fiel aufgrund der höheren
+spezifischen Anforderungen des Kunden und der Perspektive mit TYPO3 Flow eine
+schlanke und effiziente Entwicklung sicherstellen zu können.
+ 
+Die Hotline des Kunden bekommt mit dem System zur Diagnose und Verfolgung bei
+Problemen in der Neuinstallation oder Wartung von Aufzugsanlagen. Erstmalig
+sind in einem Werkzeug Ressourcen gebündelt, was einen schnellen Zugriff auf
+alle Basisdaten einer Anlage und der dazu gehörenden Dokumente (Zeichnungen,
+Schaltpläne, Auslegungen u.v.m) ermöglicht.
+ 
+Sollte mit der initalen Diagnose beim Telefonat der Hotline keine Lösung des
+Problems möglich sein, kann ein Ticket angelegt werden und dieses
+mitarbeiterübergreifend bearbeitet. Klassischer Anwendungsfall Ticket und die
+Antworten darauf als zugeordnete Posts.
+ 
+Technologisch besonders ist die Abfrage und Aggregation relevanter Basisdaten
+zur Anlage aus einer seriellen Datenstruktur einer SAP vorgelagerten Datenbank.
+Um den lokalen Datenbestand schlank zu halten, werden nur minimal notwendige
+Hauptattribute aus den SAP-Daten migriert. Im verwendeten Linux OS (Debian) des
+eingesetzten Server, den ich auch selber administriere, werden Windows-
+Freigaben als Samba-Shares eingebunden, um den Zugriff auf Dateiressourcen zu
+ermöglichen. Diese werden, wo es möglich ist, direkt in Viewern oder ansonsten
+zum Download angeboten.
+ 
+Die einzelnen Tickets und die darin verknüpften fehlerhaften Komponenten einer
+Anlage bilden zusammen mit der Zuordnung verschiedener Fehlerklassifzierungen
+die Basis zur statistischen Auswertung der Fehlerfälle. In der Anwendung
+existieren Schwellenwerte, die automatisch Warnberichte per E-Mail an die
+verantwortlichen Personen im Unternehmen senden, wenn Fehlerhäufigkeiten
+innerhalb definieter Zeiträume überschritten werden. Hiermit wird die
+Qualitätssicherung unterstützt. Generell werden allgemeine wöchentliche und
+monatliche Berichte als Gesamtstatistik nach verschiedenen Kriterien, je nach
+Informationsbedürfnis des Empfängers generiert und verschickt.
+ 
+Kenntnisse:
+ 
+Administration Linux, PHP, MySQL, TYPO3 Flow, TYPO3 Neos, HTML, CSS,
+JavaScript, ExtJS
+ 
+Eingesetzte Produkte:
+ 
+PHPStorm, TYPO3 Flow, TYPO3 Neos
+===============================================================================
+01/2004 - heute: Verschiedene TYPO3 Websites (50 bisher)
+ 
+Einsatzort:         eigenes Büro
+Rolle:              Entwickler, Frontend
+Kunde:              verschiedene
+ 
+Aufgaben:
+ 
+Content-Management-Lösungen unter TYPO3 (seit Version 3.6) mit Benutzerschulung
+und der Erstellung kleinerer Extensions unter den Konventionen der TYPO3 Core
+API. Generell extensive Nutzung von Typoscript je nach den Anforderungen der
+einzelnen Projekte.
+ 
+Spezielle Merkmale einzelner Sites:
+    * Abbildung eines großen Dokumentenarchivs mit Datenblättern,
+      Prospektmaterial, Prüfbescheinigungen, Montageanleitungen, Technischen
+      Zeichnungen etc.
+    * Mehrsprachige Websites. Darunter auch Multibyte, z.B. chinesisch.
+    * Volltextsuche
+    * Abbildung von Produktdaten aus dem ERP-System über ein AJAX-Frontend
+    * Abbildung von Prozessen aus SAP für eine geschlossene Nutzergruppe über
+      TYPO3 als Frontend
+    * seit 2018 immer DSGVO-konform
+ 
+Kenntnisse:
+ 
+TYPO3, TypoScript, HTML(5), CSS3, JavaScript, jQuery, Open Source Frameworks,
+SCSS, Administration Linux, MySQL, PHP
+ 
+Eingesetzte Produkte:
+ 
+PHPStorm, TYPO3
+===============================================================================
+10/2013 - 06/2019: Intranet CMS
+ 
+Einsatzort:         eigenes Büro und Unterschleißheim
+Rolle:              Software Entwickler
+ 
+Aufgaben:
+ 
+Relaunch des bestehenden Intranets auf TYPO3 Basis auf die aktuelle Version
+TYPO3 6.x und Layoutupdate nach Anforderungen der Marketingabteilung unter
+Anwendung der CI. Ein Relaunch wurde bei Übernahme des Projekts, sowie 2015 und
+zuletzt 2018 gemacht. Es standen immer optische Anpassungen im Vordergrund.
+ 
+Einige weitere Merkmale des Projekts:
+ 
+    * Initial bei Übernahme technische Aktualisierung der Layoutbasis unter
+      Einbindung der FluidTYPO3 Templating Engine und Twitter Bootstrap
+    * Nutzung diverser jQuery Komponenten für das GUI im Allgemeinen und den
+      Veranstaltungskalender im Speziellen
+    * Anbindung von LDAP/Active Directory für Recherchen im
+      Mitarbeiterverzeichnis
+    * Schaffung von kontextabhängiger Auslieferung von Inhalten in Abhängigkeit
+      von den Standorten der Nutzer. Hier wird über einen Nummernkreis von IP-
+      Adressen der Nutzer gesteuert, welche Inhalte relevant sind bzw. sichtbar
+      sind oder nicht.
+    * Abbildung der kompletten Dokumentenbibliothek des Unternehmens
+    * Benutzergruppenabhängiges Rechtekonzept für verschiedene Abteilungen im
+      Backend
+ 
+Leider hat der Kunde die Zusammenarbeit im Juni 2019 beendet, weil er einen
+neuen Dienstleister, der seinen Sitz am Standort des Kunden hat, einsetzen
+will. Der neue Dienstleister betreut auch schon andere Bereiche beim Kunden.
+ 
+Kenntnisse:
+ 
+PHP, MySQL, TYPO3, HTML(5), CSS(3), JavaScript, jQuery, Extbase, Fluid
+ 
+Eingesetzte Produkte:
+ 
+TYPO3, PHPStorm
+===============================================================================
+11/2007 - 11/2010: Mandantenfähige webbasierte Software zur Handhabung von ISO-
+Zertifizierungsprozessen im klinischen Umfeld
+ 
+Einsatzort:         Tübingen und eigenes Büro
+Rolle:              Software Entwickler
+ 
+Aufgaben:
+ 
+Das Universitätsklinikum Tübingen hat in der Frauenklinik im Rahmen einer
+klinischen Studie ein Pilotprojekt zur Handhabung des Qualitätsmanagements auf
+Basis eines webbasierten Dienstes gestartet. Das Handbuch liegt als Content
+innerhalb des CMS TYPO3 vor. Die Frauenklinik fungiert im Rahmen der Studie als
+Dachorganisation, die anderen frauenheilkundlichen Zentren in Deutschland Ihre
+Erfahrung in der Abwicklung klinischer Prozesse in Form eines
+Zertifizierungshandbuchs nach DIN ISO 9001 zur Verfügung stellt. An der Studie
+teilnehmende Zentren, können sich am Portal registrieren und erhalten nach
+Angabe der für die Registrierung notwendigen Informationen ein Duplikat des
+Handbuchseitenbaums. Die Anwendung selbst dient den QM-Beauftragten,
+verantwortlichen Personen und allen übrigen Mitarbeitern als Werkzeug um
+qualitätsrelevante Doukmente zu bearbeiten, Freigabeprozesse durchzuführen und
+ganz allgemein auch als Nachschlagewerk. Alle Möglichkeiten hier darzustellen
+würde den Rahmen sprengen, daher nur ein kurzer Abriss über die Features des QM
+Portals:
+    * Komplettes Handbuch als Content
+    * automatisierte Erzeugung von Mandanten aus dem TYPO3 Backend
+    * integrierter Flowchart-Editor (Java Applet) zur Erstellung von
+      Flussdiagrammen ohne Visio o.ä. Dieser generiert automatisch
+      Grafikdateien
+    * Dokumentenupload und -konvertierung von gängigen Office-Dokumentformaten
+      (DOC, PPT, XLS etc.) als Anhänge zu Handbuchseiten (mitgeltende
+      Dokumente) nach PDF über JODConverter online. Mit einfacher Versionierung
+      der Dokumente.
+    * Freigabefunktionalitäten innerhalb der Zertifizierungsläufe und Audits
+      mit automatisierten E-Mail Benachrichtigungen und Erinnerungsfunktionen
+      für ausstehende Freigaben.
+    * Integration einer eigenständigen Videokonferenzlösung mit Userdaten-
+      Schnittstelle und Single Sign-On
+    * Recherchewerkzeug für eine externe Datenbank mit Informationen zu
+      klinischen Studien auf Basis von JSON als Austauschformat
+ 
+Kenntnisse:
+ 
+PHP, MySQL, TYPO3, HTML, CSS, JavaScript
+ 
+Eingesetzte Produkte:
+ 
+Eclipse, TYPO3
+===============================================================================
+09/2007 - 03/2008: Kontroll- und Steuerungsportal für die Betriebsführung bei
+der Deutschen Bahn
+ 
+Einsatzort:         Frankfurt
+Rolle:              Software-Entwickler
+Kunde:              DB Systel GmbH
+ 
+Aufgaben:
+ 
+Im Bereich der mobilen Handgeräte für Zugbegleiter und Kundenbetreuer im
+Nahverkehr der Deutschen Bahn wurde ein internes Portal geschaffen, das
+Stammdaten und Verfügbarkeiten von IT-Systemen, sowie Dialogfunktionen für
+verschiedene betriebsführende und administrative Nutzergruppen zur Verfügung
+stellt.
+In den Stammdaten sind netzwerktechnische Informationen und
+Konfigurationsparameter der Server, Netzwerkkomponenten und Entladestationen
+für die Handgeräte sowie die Zuordnungen zu den geografischen Standorten und
+Mitarbeitern aus den Bereichen Gerätenutzung und Support hinterlegt.
+Verfügbarkeiten und Zustände von Servern, Netzwerkkomponenten und Applikationen
+werden über einen Nagios-Server gesammelt. Das Portal dient hier als Frontend
+für Nagios. Die Dialogfunktionen ermöglichen den Abrechnungsstellen in den
+einzelnen Bahnhöfen die Verwaltung der ihnen zugeordneten Handgeräte. Dort
+können
+Serviceaufträge gestartet und überwacht werden, Handgeräte zwischen
+verschiedenen Bahnhöfen verliehen oder von einer Station zur anderen umgezogen
+werden. Ferner können Bahnhöfe Bedarfsmeldungen für Handgeräte ins Portal
+stellen, die von zentralen Disponenten entgegen genommen werden, die die
+Verteilung der Geräte steuern.
+ 
+Als Basis dient hier TYPO3 als Framework für die Anwendung. Die Datenbanken der
+Abrechnungsstationen laufen unter Interbase/Firebird und werden in einer
+zyklischen Replikation ins TYPO3 System transferiert und aggregiert um den
+globalen
+Systemzusammenhang abzubilden. Stammdaten einzelner Teilsysteme können durch
+den Portalbenutzer direkt beim Zugriff aufgefrischt werden um auf einen
+aktuellen Datenbestand zugreifen zu können. Die MySQL Datenbank des Nagios-
+Servers ist über spezielle TYPO3 Extensions ins System eingebunden und liefert
+somit 1:1 den momentanen Netzwerk- und Systemzustand. All Warn- und
+Benachrichtigungsfunktionen sind direkt über Nagios implementiert.
+ 
+Meine Rolle im Projekt war die der technischen Leitung, Konzeption und
+Umsetzung des Portals sowie die Steuerung der mit im Projekt beteiligten
+Werksstudenten, weiterhin die Administration der Entwicklungsumgebung von der
+Serverinstallation über die Konfiguration der einzelnen Pakete bis zum Betrieb.
+ 
+Kenntnisse:
+ 
+Administration Linux, PHP, MySQL, TYPO3, HTML, CSS, JavaScript, jQuery, Open
+Source Frameworks
+ 
+Eingesetzte Produkte:
+ 
+Eclipse, TYPO3
+===============================================================================
+
+Referenzen:
+Projekt Intranet CMS, 10/13 - 06/19
+Referenz durch Senior Manager Group Communication, Baader Bank (425
+Mitarbeiter), vom 21.06.19
+"Die Zusammenarbeit war immer sehr gut, die Anforderungen (u.a. Design-
+Anpassungen) wurden verstanden und nach unseren Wünschen umgesetzt. Ebenso die
+technische Umsetzung der Relaunches oder diverse Anbindungen / Erweiterungen
+wurde zu unserer vollsten Zufriedenheit immer zügig erledigt. Auch spezielle
+und etwas knifflige Aufgaben (Veranstaltungskalender, Rechtekonzept) wurden
+perfekt gelöst."
+Projekt Portalmigration und -betrieb, 05/03 - 02/06
+Referenz durch Geschäftsführer, Internetportal (15 MA), vom 20.02.07
+"[...] Der IT-Spezialist zeigte schon nach einer sehr kurzen Einarbeitung ein
+überdurchschnittliches Können und eine hohe Verantwortungsbereitschaft in
+diesem und in flankierenden Projekten. Er zeichnete sich besonders durch seine
+präzise Arbeitsweise und seine Einsatzbereitschaft aus. Er verfügt über
+hervorragende und fundierte Fachkenntnisse. Der IT-Spezialist erledigte alle
+ihm übertragenen Arbeiten selbstständig, zuverlässig, äußerst
+ver­ant­wortungsbewusst und stets zu unserer vollsten Zu­frie­­denheit. Er ist
+sehr teamfähig und hatte ein sehr gu­tes Verhältnis zu Vorgesetzten und
+Kollegen. [...] Die Zusammenarbeit mit ihm war immer angenehm, wir danken ihm
+für die geleistete wertvolle Arbeit und wünschen ihm für die weitere berufliche
+und private Zukunft alles Gute und weiterhin viel Erfolg. [...]"
+Projekt ColdFusion - Programmierung 06/01 - dato
+Referenz durch Geschäftsleitung, direct services gmbh vom 10.12.02
+"Aufgabenbereiche: Programmierung von Anwendungsmodulen für Webapplikations-
+Framework Gestaltung von Userinterface und Screendesign Bewertung: schnelle
+Auffassungsgabe, zielgerichtete Vorgehensweise und eigenständige Arbeitsweise;
+universell einsetzbar (Online/Offline-Projekte); professionelle Programmier-und
+Gestaltungskenntnisse; Erfahrungen und Professionalität in der Kommunikation
+mit Kunden"
+Alle Referenzen sind durch GULP bestätigt.
+
+Sonstige Anmerkungen:
+Selbstdarstellung:
+
+Ich habe 22 Jahre Berufserfahrung, 18 davon als Freiberufler bzw.
+eigenständiger Unternehmer, je nachdem ob ich im Namen einer Firma als freier
+Mitarbeiter auftrete oder eigene Kunden betreue. In LAMP-Umgebungen arbeite ich
+zu fast 100% und nutze diverse Frameworks oder Basis-Lösungen, die ich je nach
+Anforderung implementiere und erweitere. PHP-Entwicklung betreibe ich
+hauptsächlich unter TYPO3/Extabse bzw. dem Framework TYPO3 Neos/Flow, für das
+Benutzerinterface setze ich ebenso Frameworks ein. Hier vor allem Twitter
+Bootstrap (HTML(5) Responsive Design Framework für mobile Applikationen),
+jQuery und ExtJS, mit ihren beiden Ablegern für mobile Web Apps, je nachdem wir
+die Anforderungen des Projekts gelagert sind.
+
+Das Arbeiten nach den Prinzipien objektorientierter Softwareentwicklung in den
+Schritten Anforderungsanalyse, OO-Analyse, OO-Entwurf in UML, Implementierung
+und Test und die Projektsteuerung nach SCRUM ist mir vertraut.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_23226 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 13.03.2021 00:45:32
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

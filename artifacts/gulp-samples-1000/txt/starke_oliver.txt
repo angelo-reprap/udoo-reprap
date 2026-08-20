@@ -1,0 +1,1275 @@
+Softwareentwickler c++,   Architekt, QT,QML,  HMI-Entwicklung  inkl.
+c++ - Integration für touch-basierte Anwendungen,  UX-Prototyping
+Top-Skills: c++, QtQuick, Qt, software architecture,
+Enterprise Architect, software design, rapid
+HMI prototyping for touch based application,
+data synchronization, mobile app
+development, sql, Qml, UML, HMI
+development
+Verfügbar ab: 31.12.2022
+verfügbar zu: 100 %
+davon vor Ort: 70 %
+Stundensatz: 95,00 EUR
+Bemerkungen: Projektabhängig
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Schweiz, Einsatzort unbestimmt
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Position
+Kommentar: Softwarearchitektur /QT/Qml / Softwaredesign / UX-Design/UX-
+Prototyping
+Projekte
+2021-03 - heute R&amp;D Anwendungsentwicklung  Kernenergietechnik
+2 Jahre (SafeTec)
+Rolle: Consulting / Software-Architektur / Konzeptarbeit / Programmierung /
+GUI-Prototyping
+Einsatzort: Heidelberg
+Projektinhalte: Unterstützung bei der Realisierung einer Messdatenanalyse-Software
+Erarbeitung von GUI-Integrationskonzepten (MVC, MVVM, Data-Binding )
+13.03.2023 1 von 14
+für c++-Softwareprojekte und Ableitung der resultierenden Software-
+Architektur.Realisierung der QML-Views,  Implementierung der C++-
+Controller (View-Model),  Implementierung der Data-Access-Layer,
+Integration von Statemachines (u.a im SCXML - Format)Erstellung von
+GUI-Prototypen für UX-Analysen. Beratung bei der Entwicklung von
+Bedienkonzepten für Touch-basierte Oberflächen ( Controls,
+Gesten,...)Unterstützung beim Aufbau einer Toolchain (Design-Driven) für
+die effiziente und professionelle HMI-Fertigung basierend auf QML. (Vom
+Mockup bis zur fertigen View)
+Kenntnisse: c++, Qt, QML, UML, Python
+Eingesetzte Produkte: Qt, QML, MS Windows, Linux, Enterprise Architect, MS Visual Studio, Git
+2020-09 - 2021-10 R&amp;D Hersteller Aufzugssysteme (Thyssen Krupp
+1 Jahr 2 Monate Elevators)
+Rolle: Consulting / Software-Architektur / Konzeptarbeit / Programmierung
+Kunde: Thyssen Krupp Elevators
+Einsatzort: Stuttgart
+Projektinhalte: Realisierung der GUI einer Simulationssoftware (2D) für Aufzugssysteme
+mit QT/QML.
+Erarbeitung der erforderlichen Software-Architektur. GUI-Entwicklung
+(QML),  Implementierung der C++-Controller (View-Model), 
+Implementierung der Data-Access-Layer, Anbindung an Simulationskern
+(c++-API).
+Kenntnisse: c++, Qt Framework, QML
+Eingesetzte Produkte: Qt Framework, Microsoft Windows, Linux, Enterprise Architect, Microsoft
+Visual Studio
+2020-12 - 2021-06 HMI-Entwicklung Hersteller Automatentechnik
+7 Monate
+Rolle: Consulting / System-Architektur / Konzeptarbeit / Programmierung / GUI-
+Prototyping
+Einsatzort: Remote
+Projektinhalte: Unterstützung bei der HMI-Realisierung für einen Heißgetränkeautomaten
+mit Touch-Display. Realisierung der QML-Views,  Implementierung der
+C++-Controller (View-Model)
+Erstellung von GUI-Prototypen für UX-Analysen. Beratung bei der
+Entwicklung von Bedienkonzepten für Touch-basierte Oberflächen (
+Controls, Gesten,...)
+Aufbau einer HMI-Testumgebung basierend auf QtQuick-Test
+Kenntnisse: c++, Qt Framework, QML, JavaScript, Python, Git
+13.03.2023 2 von 14
+Eingesetzte Produkte: Qt Framework, Enterprise Architect, Microsoft Visual Studio, MS Windows,
+Linux
+2018-04 - 2019-12 Haushaltsgerätehersteller: Erstellung einer
+1 Jahr 9 Monate Referenzarchitektur zur Anwendungsentwicklung
+basierend auf dem QT/QML-Framework. Realisierung
+eines funktionalen Prototyps
+Rolle: Software-Entwickler, System-Architekt
+Einsatzort: D8
+Projektinhalte:     •  Erarbeitung eines Konzeptes für eine Referenz-Plattform , dass
+     ?basierend auf den Anforderungen des Kunden die Erstellung von
+     ?Qt/QML-Embedded-Anwendungen mit Touch-Displays für diverse
+     ?selbstproduzierte Endgeräte die HMI-Entwicklung inklusive
+     ?c++-Backend und Statemachine-Anbindung vereinheitlicht und
+     ?vereinfacht.
+    •  Implementierung dieser Referenz-Plattform, Unterstützung der
+     ?Entwicklungsteams bei der Erstellung funktionaler Views
+     ?basierend auf der neuen Plattform.
+    •  Erstellung von GUI-Prototypen für UX-Analysen. Beratung und
+     ?Entwicklung von Bedienkonzepten für Touch-basierte Oberflächen
+     ?( Controls)
+    •  Unterstützung beim Aufbau einer Toolchain (Design-Driven) für
+     ?die effiziente und professionelle HMI-Fertigung basierend auf
+     ?QML. (Vom Mockup bis zur fertigen View)
+    •  Dokumentation (SDD,..) ,
+     ?Unit-Tests/Component-Tests/Integration-Tests, Migration,
+     ?Code-Review
+    •
+Kenntnisse: Qt, QML, c++, javascript, UML, Boost, STL, QMake, CMake, Scxml, Python,
+Scrum
+Eingesetzte Produkte: Qt 5.9 - 5.11, Qt Creator, Enterprise Architect, Git, Squish, Qt Designer,
+jenkins, jira, Atlassian Confluence
+2017-05 - 2018-03 R&amp;D Robtotics - Medizintechnik: System-Architektur /
+11 Monate Konzeptionierung / Programmierung / GUI-Prototyping
+Rolle: Software-Architekt / Entwickler / Projektmanager
+Projektinhalte:     •  Unterstützung bei der Realisierung von Applikationen für
+     ?Touch-Displays mit QT/QML.
+    •  Erarbeitung von GUI-Integrationskonzepten (MVC, MVVM,
+     ?Data-Binding ) für c++-Softwareprojekte
+und Ableitung der resultierenden Software-Architektur.
+Realisierung der QML-Views, Implementierung der C++-Controller,
+     ?Implementierung der Data-
+Access-Layer.
+    •  Erstellung von GUI-Prototypen für UX-Analysen. Beratung und
+     ?Entwicklung von Bedienkonzepten für Touch-basierte Oberflächen
+     ?( Controls, Gesten,...)
+    •  Unterstützung beim Aufbau einer Toolchain (Design-Driven) für
+13.03.2023 3 von 14
+     ?die effiziente und professionelle HMI-Fertigung basierend auf
+     ?QML. (Vom Mockup bis zur fertigen View)
+    •  Architektur/Design, Entwicklung, Dokumentation (SDD,..) ,
+     ?Unit-Tests/Component-Tests/Integration-Tests, Migration
+Kenntnisse: java script, UML, Scrum, Qt/QML 5.x, c++ >= 11, STL
+Eingesetzte Produkte: Qt Creator, Visual Studio, Enterprise Architect, Code Collaborator, Jira,
+Jenkins, Confluence, CMake, QMake
+2015-05 - 2018-03 R&amp;D Robotics-Medizintechnik: Consulting / System-
+2 Jahre 11 Monate Architektur / Konzeptarbeit / Programmierung / GUI-
+Prototyping
+Kunde: R&amp;D / Hersteller Medizintechnik (Stryker Leibinger)
+Projektinhalte:     •  Unterstützung bei der Realisierung von Applikationen für
+     ?Touch-Displays mit QT/QML.
+    •  Erarbeitung von GUI-Integrationskonzepten (MVC, MVVM,
+     ?Data-Binding ) für c++-Softwareprojekte und Ableitung der
+     ?resultierenden Software-Architektur.
+    •  Realisierung der QML-Views, Implementierung der C++-Controller,
+     ?Implementierung der DataAccess-Layer.
+    •  Erstellung von GUI-Prototypen für UX-Analysen. Beratung bei der
+     ?Entwicklung von Bedienkonzepten für touch-basierte Oberflächen
+     ?( Controls, Gesten,...)
+    •  Unterstützung beim Aufbau einer Toolchain (Design-Driven) für
+     ?die effiziente und professionelle HMI
+    •  Fertigung basierend auf QML. (Vom Mockup bis zur fertigen View)
+    •  Entwicklung von Anwendungskomponenten inkl.
+     ?Unit-Tests/Komponententests (C++ 11/14/17,LUA)
+QA:
+    •  Unittests, Komponententests
+Eingesetzte Produkte: QT, QML Version 5.X, C++, UML, Qt Creator, Visual Studio 2013, 2015,
+Enterprise Architect, CodeCollaborator ( Review-Tool), Qmake, Jenkins,
+Subversion, Perforce
+2014-03 - 2015-04 GF / Projektleitung / System-Architektur / Feature -
+1 Jahr 2 Monate Programmierung / Bugfixing
+Kunde: Softwarehaus/Mobile Appikationen
+Projektinhalte:     •  Realisierung von mobilen Applikationen im Bereich
+     ?Facility-Management.
+Entwicklungswerkzeuge:
+    •  Qt Creator
+    •  Visual Studio 2008, 2010,
+    •  Enterprise Architect,
+    •  CodeCollaborator ( Review-Tool),
+    •  Qmake, Jenkins,
+    •  Subversion
+    •  Lua
+13.03.2023 4 von 14
+QA:
+    •  Unittests, Komponententests
+Eingesetzte Produkte: C++, UML, QT, QML
+2012-06 - 2014-02 Feature - Programmierung / Bugfixing
+1 Jahr 9 Monate
+Kunde: Systemhaus / Automotive / Navigation (Garmin/Navigon)
+Projektinhalte:     •  Implementierung neuer Features und Bugfixing für einen
+     ?Navigationskern, der an diverse Kunden (OEM’s aus dem
+     ?Automobil-Sektor , PND’s ) deployed wird.
+    •  Themen-Schwerpunkte: Software-Architektur ( Framework-Design
+     ?für eine neue SDK-Version, Optimierung des Architekturprozesses
+     ?durch Automatisierung der Modellierungsaufgaben in
+     ?EnterpriseArchitect in SPICE-relevatem Projekt.
+    •  Zusätzlich Bugfixing, GUI-Entwicklung, Workflow-Anpassungen.
+     ?Aufbau Testframework für automatisierte Tests mit
+     ?Lua-Script-Anbindung.
+Entwicklungswerkzeuge:
+    •  Visual Studio 2008, QT, QML
+    •  Enterprise Architect,
+    •  CodeCollaborator ( Review-Tool),
+    •  CMake, Qmake, Jenkins, CruiseControl
+    •  Perforce
+    •  Polarion
+    •  Lua
+QA:
+    •  Unittests, Komponententests
+Eingesetzte Produkte: C++, UML, QT, WinCE 6, Multithreading, Automotive /embedded –
+Entwicklung
+2010-02 - 2012-06 Feature - Programmierung / Bugfixing sowie
+2 Jahre 5 Monate Projektleitung ( Stellvertreter )
+Kunde: Systemhaus / Automotive / Navigation (Elektrobit)
+Projektinhalte: Feature - Programmierung / Bugfixing
+    •  80 % Zeitaufwand
+    •  Implementierung neuer Feature und Bugfixing für einen
+     ?Navigationskern, der an diverse Kunden (OEM’s aus dem
+     ?Automobil-Sektor , PND’s ) deployed wird. Themen-Schwerpunkte
+     ?waren OutdoorRouting, Entwicklung neuer Routing-Strategien,
+     ?Analyse und Bugfixing in den Bereichen Routing, TMC, GPS,
+     ?Manövergenerierung, Guidance. Optimierung einzelner Komponenten
+     ?im Hinblick auf Speicherverbrauch und Performance. Entwicklung
+     ?von Analysesoftware
+Entwicklungswerkzeuge:
+    •  Visual Studio 2008, QT,
+    •  Enterprise Architect,
+13.03.2023 5 von 14
+    •  CodeCollaborator (Review-Tool),
+    •  CMake, Hudson
+    •  Subversion
+    •  Jira
+QA:
+    •  Unittests, Komponententests
+Projektleitung (Stellvertreter)
+    •  20 % Zeitaufwand
+    •  Stellvertretender Projektleiter für ein PND-KundenProjekt.
+     ?Anforderungsanalyse mit dem Kunden, Machbarkeitsanalyse,
+     ?Aufwandsabschätzung, MilestoneDefinition, Erstellung von
+     ?Status-Protokollen, Durchführung von Status – Telkos,
+     ?Deeskalation, Projektmanagement, Freigabe von Releases,
+     ?Bug-Zuordnung, Bugfixing-Kontrolle, Ansprache mit
+     ?Function-Owners
+Eingesetzte Produkte: C++, WinCE 5, 6, Multithreading, Automotive /embedded - Entwicklung
+2009-01 - 2009-12 Anwendungsentwicklung für Windows Mobile,
+1 Jahr Embedded - Plattformen
+Kunde: Systemhaus / Windows Mobile
+Projektinhalte: Entwicklungswerkzeuge:
+    •  Visual Studio 2005,VC7/VC8, QT
+    •  Enterprise Architect,
+    •  CodeCollaborator (Review-Tool),
+QA:
+    •  Unittests, Komponententests
+Projektierung:
+    •  Anforderungsanalyse, Konzeptionierung, Aufwandsabschätzungen,
+     ?Anforderungsabstimmung, Projektmanagement, Deployment
+Eingesetzte Produkte: GUI-Design, C#, C++, .NET 3 / 3.5, OOA, OOD, MDD, UML, QT, SQLite,
+Datenbankdesign
+2008-06 - 2008-12 Entwicklung von Multimedia-Plattformen
+7 Monate
+Kunde: Automobilzulieferer / Automotive , Windows Mobile (Continental)
+Projektinhalte:     •  Erstellung von Komponenten für eine
+     ?embedded-Multimedia-Plattform mit MS Auto-Betriebssystem
+     ?(Bristol-Release / Windows Mobile 6 – Basis).
+    •  Schreiben von Komponententests, Unittests, CodeReviews,
+     ?Dokumentation(UML)
+    •  Erstellung einer zentralen Datenmanagement-Komponente (
+     ?multithreading fähig ) zur Verwaltung von Daten für
+     ?unterschiedlichste mobile Geräte ( Handy, Laptop, MOST -
+     ?Komponenten), welche via Bluetooth, MOST oder RPC an die
+     ?Plattform angeschlossen werden.
+    •  Abstraktion der Datenzugriffschicht um unterschiedliche
+13.03.2023 6 von 14
+     ?Datenbanksysteme (POOM bzw. SQLite) mit der gleichen
+     ?Datenmanagement-Komponente nutzen zu können.
+Schwerpunkte:
+    •  Erstellen der Software-Modelle (MDA) mit UML\UML2 und Rhapsody
+     ?Architect bzw. Enterprise Architect
+    •  Treiber-Entwicklung (udevices) unter Windows CE Risikoanalyse
+     ?und – bewertung für zu erstellende Komponenten (DIN EN 61508,
+     ?DIN EN ISO 14121-1)
+Entwicklungswerkzeuge:
+    •  Platformbuilder, Visual Studio 2005,VC7/VC8, Rhapsody Architect
+Tools:
+    •  CM Synergy, Rational Test RealTime, Subversion,
+QA:
+    •  Schreiben von Komponententests ( TUX, RTRT), Unittests,
+     ?CodeReviews, Dokumentation ( UML ),
+Eingesetzte Produkte: C++, C#, OOA, OOD, UML, STL, POOM, SQLite, Bluetooth (HFP, A2DP), V-
+Modell, Multithreading, Windows Mobile 6, MS Auto
+2008-01 - 2008-05 diverse Projekte
+5 Monate
+Kunde: Systemhaus Touristik - Software-Deployment, WIN32 (Amadeus)
+Projektinhalte:     •  Kurzfristige Unterstützung bei der Anpassung von Software für
+     ?die automatische Verteilung von Software-Produkten, deren
+     ?Updates und Konfigurationen.
+    •  Migration von proprietären Datenformaten in bestehende
+     ?Informix-Datenbankstruktur
+Entwicklungswerkzeuge:
+    •  VC6++, Visual Studio 2005, VC7/VC8
+Tools:
+    •  Enterprise Architect, Subversion, Informix-Konsole QA:
+     ?Unittests, Komponententests
+Weiteres:
+    •  Informix-Datenbank - Installation, Konfiguration
+Eingesetzte Produkte: WIN32, C, C++, Informix-eSQL, SQL, UML
+2007-08 - 2007-12 Weiterentwicklung/ Portierung
+5 Monate
+Kunde: Navigationssoftwarehersteller (PTV)
+Projektinhalte:     •  Unterstützung bei der Weiterentwicklung/ Portierung der
+     ?Router-Komponente,
+    •  Abstraktion der DB-Komponente (SQLite),
+    •  Analyse der Multithreading-Fähigkeit von SQLite und darauf
+     ?aufbauenden Zugriffskomponenten.
+    •  Konzepterarbeitung für das automatische Update regionaler
+13.03.2023 7 von 14
+     ?Navigations-Kartendaten per Internet
+Entwicklungswerkzeuge:
+    •  Visual Studio 2005, VC7/VC8, eVc++ 4.0
+Tools:
+    •  Jam, Enterprise Architect, Subversion, WinBuild,
+QA:
+    •  Komponententests, Unittests, CodeReviews, Dokumentation
+     ?(Doxygen )
+Eingesetzte Produkte: C++, STL, Platinum, OOA, OOD, UML, WindowsCE, SCRUMM, CROSS-
+Development
+2006-08 - 2007-05 Weiterentwicklung/Korrektur
+10 Monate
+Kunde: Automotive - Navigationssoftware, Windows Mobile (Alpine)
+Projektinhalte:     •  Weiterentwicklung/Korrektur der Kommunikationslogik für
+     ?HMI-NAVICore-Synchronisierung
+    •  Weiterentwicklung der Adresseingabe, DB-Zugriff,
+    •  Feature-Entwicklung: POIs – Along the Route,
+     ?Strassendatenverarbeitung für Stadtteile
+    •  Bugfixing
+Eingesetzte Produkte: C, C++, COM, WindowsCE 5.0, Multithreading, STL, Unicode – Portierung,
+eVc++ 4.0, Visual Studio 7, Platformbuilder, WinCVS, XML, MS Project,
+DOORS
+2004-02 - 2005-02 Portierung
+1 Jahr 1 Monat
+Kunde: Telekommunikation – Systemhaus, Windows Mobile (Siemens)
+Projektinhalte:     •  Portierung einer VoIP-Anwendung für Hipath-Telefonanlagen von
+     ?Windows 98/NT/2000/XP nach WindowsCE (PocketPC2003 –
+Windows
+     ?Mobile 5)
+Eingesetzte Produkte: Visual Studio V6.0, SourceSafe, eVC++ V4.0, C/C++, COM/ STL/ MFC,
+TCP-IP, Multithreading, H323-Protokoll, BluetoothKommunikation ( Profile:
+Handsfree, SerialPort, Headset )
+2000-07 - 2003-10 Entwicklung
+3 Jahre 4 Monate
+Kunde: Softwarehaus – Windows Mobile
+Projektinhalte:     •  Entwicklung im Bereich „Mobile Datenerfassung“ -
+     ?Politessensoftware
+    •  Komponentenentwicklung für Delphi
+    •  Datensynchronisierung von WindowsCE-Clientdaten mit
+     ?Host-Datenbank
+    •  Pflichtenhefterstellung, Kalkulation, Controlling,
+13.03.2023 8 von 14
+     ?Qualitätsmanagement)
+    •  Entwicklung einer Windows-Anwendung mit Delphi 5 zur
+     ?Synchronisation von Daten unterschiedlicher Host-Systeme und
+     ?Datenbanksysteme über ein grafisches Schnittstelleninterface.
+    •  DB-Unterstützung SQL-Server, Oracle, Informix, Access,
+     ?DBIsam,ASCII.
+    •  Komponentenentwicklung unter Delphi
+    •  Entwicklung einer WindowsCE- Anwendung im Bereich „Facility
+     ?Management“ für PocketPC2000- PocketPC2003-Systeme
+    •  Entwicklung eines Tools zur Datensynchronisation zwischen
+     ?WindowsCE-Geräten (iPaq etc) und PC mit eVC++ inklusive
+     ?TCP-IP/Socket-Programmierung
+Eingesetzte Produkte: eVC++ 3.0, eVC++4.0, Visual Studio, Delphi 3-5 Tools: CVS, MFC, COM,
+ADOCE, SQLServerCE, PPC2000-PPC2003, TCP/IP, Multithreading
+1999-12 - 2000-06 Entwicklung
+7 Monate
+Kunde: Systemhaus- Breitbandkabelnetze, Windows / Unix (Debis)
+Projektinhalte:     •  Software-Entwicklung und Source-Optimierungen in
+     ?Windows-Umgebung mit Informix-Datenbankanbindung ueber
+Tuxedo
+     ?und hauseigene Datenakapsel. GUI-Entwicklung
+Eingesetzte Produkte: Visual C++ 4.0, C, C++, Batchfile-Erstellung unter Unix, Tuxedo, Elements
+Environment 2.1.
+1996-1999:
+Portierung und Ausbau der bestehenden Kalkulationssoftware von C nach Object-Pascal für
+WIN95/98/NT mit Borland Delphi 1-4 (32-Bit-Version)
+Austausch der vorhanden Datenbank durch ein relationales  Datenbanksystem ( Borland Database
+Engine ) und Paradox 5-7.
+Netzwerkinstallation Windows NT / 95, Administration Windows NT/95
+Anpassung und Netzwerkeinbindung der Software.
+Laufzeit-Optimierung bestehenden Sourcecodes unter MS DOS,Windows 95 in C und Pascal.
+MS DOS-Quellcode-Portierung von Pascal nach C ( 16 Bit ).
+Entwicklung von Datenerfassungssoftware in C, Pascal und Assembler unter MS DOS, Windows 95
+und PSION EPOC für Handhelds.( z.B. Software für die Erfassung von Ordnungswidrigkeiten im
+ruhenden Verkehr )
+Entwicklung von RS232-Schnittstellen-Software zu Ansteuerung von Druckern, Laserscannern,
+Checkkartenlesern, Barcodelesern für SPS-Automaten und Handhelds in C.
+Auftraggeber waren Kommunen, Chemie-Konzerne, Fluggesellschaften,Anlagenbauer.
+Projektierung und Entwicklung einer Facility-Management-Software zur mobilen Wohnungsabnahme
+für die Tochterfirma eines bekannten Fahrzeugherstellers. ( Windows 95 / 98 / NT)
+Delphi 1 + 3 mit RDBMS ( Borland Database Engine ) + Paradox 7
+13.03.2023 9 von 14
+Entwicklung eigener Delphi-Komponenten
+Entwicklung einer Datentransfer-Logik zur Seriennummer- gesteuerten Datenübermittlung an "n"
+Geräte.
+Schnittstellenentwicklung zur Datenübergabe an Grossrechnersysteme (AS400)
+Installation, Kundenbetreuung, Schulungen und Präsentationen zu diesem Projekt
+ 1995-1996:
+Portierung und Ausbau der bestehenden Kalkulations-Software von C nach C++ mit MFC für Win95 (
+16 Bit-Version). weitere Taetigkeiten siehe 93-94. 1993-94:
+Entwicklung einer Kalkulations-Software für die Bau-Branche für  IBM-PC"s unter Windows 3.X in C
+und WIN API - Programmierung.
++ Entwurf , Design und Implemtierung einer eigenen Datenbankarchitektur.
+Betreuung der EDV-Anlagen:  Software-Installationen Windows 3.X, Microsoft Office     
+Hardwareinstalltionen Backup-Systeme, CD-Roms, Festplatten,kompl.  PC-Systeme, etc...
+Anwender-Schulungen
+Auftraggeber war ein mittelständisches Bau-Unternehmen.
+ 1992-1993:
+Brettspielumsetzung von Monopoly für Amiga-Systeme ( UNIX-Derivat)
+Komplette Systemanalyse, und Entwicklung in C unter Amiga OS.
+Layer-Programmierung, Sprite-Animation, Multi-Tasking-Konzeptionierung
+Auftraggeber war eine Software-Vertriebsgesellschaft aus Dortmund. ( Es kam jedoch nie zur
+Vermarktung, da Commodore Deutschland konkurs ging ! )
+Branchen
+    •  Navigation
+    •  EDV
+    •  Bau
+    •  Industrie
+    •  Automobil
+    •  Anlagenbau
+    •  Medizintechnik
+Sprachen
+Deutsch
+Englisch In Schrift und Sprache gut
+Französisch Grundkenntnisse
+Kompetenzen
+Schwerpunkte c++ 15 Jahre
+QML 6 Jahre
+Qt Version  4.2 - 5.12, 10 Jahre
+UML 8 Jahre
+13.03.2023 10 von 14
+Produkte / Standards / Boost
+Erfahrungen / Methoden
+CMake
+Code Collaborator
+Confluence
+Enterprise Architect
+Git
+Jenkins
+Jira
+QMake
+Qt 5.9 - 5.11
+Qt Creator
+Qt Designer
+Qt/QML 5.x
+Rhapsody Architect
+Scrum
+Scxml
+Squish
+STL
+Subversion
+Visual Studio
+Entwicklungsumgebungen:
+    •  QT QML / QT Creator 4.2 - 5.12
+    •  Visual Studio
+    •  Platformbuilder
+    •  Delphi
+ 
+Weitere Sofwtareerfahrungen
+    •  Rhapsody Architect
+    •  Enterprise Architect
+    •  CM Synergy
+    •  Subversion
+    •  Apache - Webserver ( Administration, Konfiguration )
+    •  CodeCollaborator
+    •  Rational TestRealTime
+    •  TUX-Test
+    •  PC Lint
+    •  Datenbanken ( Informix, SQL Server, Interbase ( Firebird ),
+     ?... )
+    •  Jenkins
+13.03.2023 11 von 14
+    •  CMake
+ 
+Erfahrungen im Bereich:
+    •  5 Jahre Navigationssoftware ( PND, automotive )
+    •  Anwendungs- und Systemprogrammierung, Systementwicklung (
+     ?hauptsächlich c,c++ ( visual Studio 6 und Delphi 1-7 )
+    •  Spezifikation, Programmierung, Test
+    •  Datenbankdesign/Datenbankzugriff ADO,SQL,embeddedSQL (
+     ?Informix ), SQLite, ect
+ 
+Methoden:
+    •  Objektorientierte Analyse, Design, Programmierung, MDD
+    •  Ereignisgesteuerte, visuelle, strukturierte Programmierung
+    •  Datenbanken Design, Abfragen ( SQL )
+    •  QM (Komponententests, Unittests, Realtimetests, Reviews )
+    •  Software-Architektur ( MDA )
+ 
+Spezialkenntnisse:
+ 
+    •  Anwendungsentwicklung mit Qt/Qml und c++
+    •  HMI-Prototypeing, Unterstützung von  UX- und Design-Teams
+    •  Anwendungsentwicklung Windows Mobile - Umgebungen,
+     ?Multithreading, TCP/IP, Datenbankanbindung
+    •  Softwaredesign: UML/UML2 - Rhapsody Architect, Enterprise
+     ?Architect
+    •  langjährige Windows CE -Programmierung mit Visual Studio
+     ?2005 , QT, SQLite, MFC,ADO für Handheld PC, Pocket PC etc.
+    •  ( WinCE 2.11 - Windows Mobile 6,  WInCE6 ( Windows
+     ?Embedded), MS Auto 3.0, QT )
+    •  embedded Programmierung (Automotive - Navigationssysteme,
+     ?Multimedia-Plattformen )
+    •  Handheld\PocketPC-Programmierung:
+    •  inkl. Schnittstellenprogrammierung RS232 für
+     ?Datenkommunikation mit  PC,Siemens SPS 525 (Protokoll
+     ?3964R),Modem, Barcode-Leser, Laserscanner,
+     ?Chipkarten-Leser, Drucker
+    •  Komponentenentwicklung unter Delphi
+Betriebssysteme Linux
+Windows
+Windows CE
+(embbedded)
+Programmiersprachen C
+C#
+C++
+c++ >= 11
+Delphi
+ESQL/C
+java script
+JavaScript
+13.03.2023 12 von 14
+Objective C
+Paradox
+Pascal
+Perl
+PHP
+PL/SQL
+Powerbuilder
+Psion OPL
+Python
+QML
+Qt
+STL
+Datenbanken Access
+Apollo
+B-Tree
+BDE
+DAO
+Informix
+Interbase
+ISAM
+MS SQL Server
+MySQL
+Object Store
+ODBC
+Oracle
+Paradox
+RDB
+SQL
+Sybase
+Watcom SQL
+13.03.2023 13 von 14
+Datenkommunikation Ethernet
+Internet, Intranet
+ISDN
+Message Queuing
+parallele Schnittstelle
+PC-Anywhere bis Version 9.0 einschl. DFÜ-Remote-
+Netzwerkverbindung
+Proprietäre Protokolle
+RPC
+RS232 sehr gute Kenntnisse in der Programmierung
+von Transfer-Protokollen für Handhelds
+TCP/IP
+Token Ring
+Windows Netzwerk
+Winsock
+Hardware Amiga
+Datenerfassungsterminal
+s
+embedded Systeme
+PC
+SPS
+Design / Entwicklung / UML
+Konstruktion
+Referenzen und Arbeitszeugnisse auf Anfrage.
+Keine Ortsgebundenheit, extrem reisefreudig
+Aus- und Weiterbildung
+Fachhochschulreife
+13.03.2023 14 von 14
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_9680
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                9680
+  
+Wohnort                    572xx Kreuztal, Deutschland
+Jahrgang                   1971
+Staatsbürgerschaft         deutsch
+Stundensatz                100 EUR
+                           Projektabhängig
+Verfügbar ab               01.09.20 zu 100%, Vor-Ort-Einsatz 70% möglich
+Profil erstellt am         04.08.99
+Profil zuletzt geändert am 14.09.20
+Lesen von Projektanfragen  1 Tag [08]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 17.10.2020 13:24:19
+
+Fachlicher Schwerpunkt:
+Softwareentwickler c++, Architekt, QT, QML, HMI-​Entwicklung inkl. c++ -
+Integration für touch-​basierte Anwendungen, UX-​Prototyping
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+
+Softwarearchitektur /QT/Qml / Softwaredesign / UX-Design/UX-Prototyping
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Fachhochschulreife
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch      
+Englisch    In Schrift und Sprache gut
+FranzösischGrundkenntnisse
+
+
+Hardware:
+Amiga                     
+Datenerfassungsterminals  
+embedded Systeme          
+PC                        
+SPS                       
+
+
+Betriebssysteme:
+Linux                   
+Windows                 
+Windows CE (embbedded)  
+
+
+Programmiersprachen:
+C             
+C#            
+C++           
+c++ >= 11     
+Delphi        
+ESQL/C        
+java script   
+JavaScript    
+Objective C   
+Paradox       
+Pascal        
+Perl          
+PHP           
+PL/SQL        
+Powerbuilder  
+Psion OPL     
+Python        
+QML           
+Qt            
+STL           
+
+
+Datenbanken:
+Access         
+Apollo         
+BDE            
+B-Tree         
+DAO            
+Informix       
+Interbase      
+ISAM           
+MS SQL Server  
+MySQL          
+Object Store   
+ODBC           
+Oracle         
+Paradox        
+RDB            
+SQL            
+Sybase         
+Watcom SQL     
+
+
+Datenkommunikation:
+Ethernet       
+Internet,      
+Intranet
+ISDN           
+Message        
+Queuing
+parallele      
+Schnittstelle
+PC-Anywhere   bis Version 9.0 einschl. DFÜ-Remote-Netzwerkverbindung
+Proprietäre   
+Protokolle
+RPC            
+RS232         sehr gute Kenntnisse in der Programmierung von Transfer-Protokollen für
+              Handhelds
+TCP/IP         
+Token Ring     
+Windows        
+Netzwerk
+Winsock        
+
+
+Design/Entwicklung/Konstruktion:
+UML  
+
+
+Schwerpunkte:
+c++ 15 Jahre
+QML 6 Jahre
+Qt  Version 4.2 - 5.12, 10 Jahre
+UML 8 Jahre
+
+
+Produkte/Standards/Erfahrungen:
+Boost                 
+CMake                 
+Code Collaborator     
+Confluence            
+Enterprise Architect  
+Git                   
+Jenkins               
+Jira                  
+QMake                 
+Qt 5.9 - 5.11         
+Qt Creator            
+Qt Designer           
+Qt/QML 5.x            
+Rhapsody Architect    
+Scrum                 
+Scxml                 
+Squish                
+STL                   
+Subversion            
+Visual Studio         
+Entwicklungsumgebungen:
+    * QT QML / QT Creator 4.2 - 5.12
+    * Visual Studio
+    * Platformbuilder
+    * Delphi
+ 
+Weitere Sofwtareerfahrungen
+    * Rhapsody Architect
+    * Enterprise Architect
+    * CM Synergy
+    * Subversion
+    * Apache - Webserver ( Administration, Konfiguration )
+    * CodeCollaborator
+    * Rational TestRealTime
+    * TUX-Test
+    * PC Lint
+    * Datenbanken ( Informix, SQL Server, Interbase ( Firebird ), ... )
+    * Jenkins
+    * CMake
+ 
+Erfahrungen im Bereich:
+    * 5 Jahre Navigationssoftware ( PND, automotive )
+    * Anwendungs- und Systemprogrammierung, Systementwicklung ( hauptsächlich
+      c,c++ ( visual Studio 6 und Delphi 1-7 )
+    * Spezifikation, Programmierung, Test
+    * Datenbankdesign/Datenbankzugriff ADO,SQL,embeddedSQL ( Informix ),
+      SQLite, ect
+ 
+Methoden:
+    * Objektorientierte Analyse, Design, Programmierung, MDD
+    * Ereignisgesteuerte, visuelle, strukturierte Programmierung
+    * Datenbanken Design, Abfragen ( SQL )
+    * QM (Komponententests, Unittests, Realtimetests, Reviews )
+    * Software-Architektur ( MDA )
+ 
+Spezialkenntnisse:
+ 
+    * Anwendungsentwicklung mit Qt/Qml und c++
+    * HMI-Prototypeing, Unterstützung von  UX- und Design-Teams
+    * Anwendungsentwicklung Windows Mobile - Umgebungen, Multithreading, TCP/
+      IP, Datenbankanbindung
+    * Softwaredesign: UML/UML2 - Rhapsody Architect, Enterprise Architect
+    * langjährige Windows CE -Programmierung mit Visual Studio 2005 , QT,
+      SQLite, MFC,ADO für Handheld PC, Pocket PC etc.
+    * ( WinCE 2.11 - Windows Mobile 6,  WInCE6 ( Windows Embedded), MS Auto
+      3.0, QT )
+    * embedded Programmierung (Automotive - Navigationssysteme, Multimedia-
+      Plattformen )
+    * Handheld\PocketPC-Programmierung:
+    * inkl. Schnittstellenprogrammierung RS232 für Datenkommunikation mit 
+      PC,Siemens SPS 525 (Protokoll 3964R),Modem, Barcode-Leser, Laserscanner,
+      Chipkarten-Leser, Drucker
+    * Komponentenentwicklung unter Delphi
+
+Branchen:
+    * Navigation
+    * EDV
+    * Bau
+    * Industrie
+    * Automobil
+    * Anlagenbau
+    * Medizintechnik
+
+Projekte:
+04/2018 - heute: Erstellung einer Referenzarchitektur zur Anwendungsentwicklung
+basierend auf dem QT/QML-Framework. Realisierung eines funktionalen Prototyps
+ 
+Einsatzort:         D8
+Rolle:              Software-Entwickler, System-Architekt
+ 
+Aufgaben:
+ 
+    * Erarbeitung eines Konzeptes für eine Referenz-Plattform , dass basierend
+      auf den Anforderungen des Kunden die Erstellung von Qt/QML-Embedded-
+      Anwendungen mit Touch-Displays für diverse selbstproduzierte Endgeräte
+      die HMI-Entwicklung inklusive c++-Backend und Statemachine-Anbindung
+      vereinheitlicht und vereinfacht.
+    * Implementierung dieser Referenz-Plattform, Unterstützung der
+      Entwicklungsteams bei der Erstellung funktionaler Views basierend auf der
+      neuen Plattform.
+    * Erstellung von GUI-Prototypen für UX-Analysen. Beratung und Entwicklung
+      von Bedienkonzepten für Touch-basierte Oberflächen ( Controls)
+    * Unterstützung beim Aufbau einer Toolchain (Design-Driven) für die
+      effiziente und professionelle HMI-Fertigung basierend auf QML. (Vom
+      Mockup bis zur fertigen View)
+    * Dokumentation (SDD,..) , Unit-Tests/Component-Tests/Integration-Tests,
+      Migration, Code-Review
+ 
+Kenntnisse:
+ 
+Qt, QML, c++, javascript, UML, Boost, STL, QMake, CMake, Scxml, Python, Scrum
+ 
+Eingesetzte Produkte:
+ 
+Qt 5.9 - 5.11, Qt Creator, Enterprise Architect, Git, Squish, Qt Designer,
+jenkins, jira, Atlassian Confluence
+===============================================================================
+05/2017 - 03/2018: R&amp;D Robtotics - Medizintechnik: System-Architektur /
+Konzeptionierung / Programmierung / GUI-Prototyping
+ 
+Rolle:              Software-Architekt / Entwickler / Projektmanager
+ 
+Aufgaben:
+ 
+    * Unterstützung bei der Realisierung von Applikationen für Touch-Displays
+      mit QT/QML.
+    * Erarbeitung von GUI-Integrationskonzepten (MVC, MVVM, Data-Binding ) für
+      c++-Softwareprojekte
+      und Ableitung der resultierenden Software-Architektur.
+      Realisierung der QML-Views, Implementierung der C++-Controller,
+      Implementierung der Data-
+      Access-Layer.
+    * Erstellung von GUI-Prototypen für UX-Analysen. Beratung und Entwicklung
+      von Bedienkonzepten für Touch-basierte Oberflächen ( Controls,
+      Gesten,...)
+    * Unterstützung beim Aufbau einer Toolchain (Design-Driven) für die
+      effiziente und professionelle HMI-Fertigung basierend auf QML. (Vom
+      Mockup bis zur fertigen View)
+    * Architektur/Design, Entwicklung, Dokumentation (SDD,..) , Unit-Tests/
+      Component-Tests/Integration-Tests, Migration
+ 
+Kenntnisse:
+ 
+java script, UML, Scrum, Qt/QML 5.x, c++ >= 11, STL
+ 
+Eingesetzte Produkte:
+ 
+Qt Creator, Visual Studio, Enterprise Architect, Code Collaborator, Jira,
+Jenkins, Confluence, CMake, QMake
+===============================================================================
+05/2015 - 03/2018: Consulting / System-Architektur / Konzeptarbeit /
+Programmierung / GUI-Prototyping
+ 
+Kunde:              R&amp;D / Hersteller Medizintechnik (Stryker Leibinger)
+ 
+Aufgaben:
+ 
+    * Unterstützung bei der Realisierung von Applikationen für Touch-Displays
+      mit QT/QML.
+    * Erarbeitung von GUI-Integrationskonzepten (MVC, MVVM, Data-Binding ) für
+      c++-Softwareprojekte und Ableitung der resultierenden Software-
+      Architektur.
+    * Realisierung der QML-Views, Implementierung der C++-Controller,
+      Implementierung der DataAccess-Layer.
+    * Erstellung von GUI-Prototypen für UX-Analysen. Beratung bei der
+      Entwicklung von Bedienkonzepten für touch-basierte Oberflächen
+      ( Controls, Gesten,...)
+    * Unterstützung beim Aufbau einer Toolchain (Design-Driven) für die
+      effiziente und professionelle HMI
+    * Fertigung basierend auf QML. (Vom Mockup bis zur fertigen View)
+    * Entwicklung von Anwendungskomponenten inkl. Unit-Tests/Komponententests
+      (C++ 11/14/17,LUA)
+ 
+QA:
+    * Unittests, Komponententests
+ 
+Eingesetzte Produkte:
+ 
+QT, QML Version 5.X, C++, UML, Qt Creator, Visual Studio 2013, 2015, Enterprise
+Architect, CodeCollaborator ( Review-Tool), Qmake, Jenkins, Subversion,
+Perforce
+===============================================================================
+03/2014 - 04/2015: GF / Projektleitung / System-Architektur / Feature -
+Programmierung / Bugfixing
+ 
+Kunde:              Softwarehaus/Mobile Appikationen
+ 
+Aufgaben:
+ 
+    * Realisierung von mobilen Applikationen im Bereich Facility-Management.
+ 
+Entwicklungswerkzeuge:
+    * Qt Creator
+    * Visual Studio 2008, 2010,
+    * Enterprise Architect,
+    * CodeCollaborator ( Review-Tool),
+    * Qmake, Jenkins,
+    * Subversion
+    * Lua
+ 
+QA:
+    * Unittests, Komponententests
+ 
+Eingesetzte Produkte:
+ 
+C++, UML, QT, QML
+===============================================================================
+06/2012 - 02/2014: Feature - Programmierung / Bugfixing
+ 
+Kunde:              Systemhaus / Automotive / Navigation (Garmin/Navigon)
+ 
+Aufgaben:
+ 
+    * Implementierung neuer Features und Bugfixing für einen Navigationskern,
+      der an diverse Kunden (OEM’s aus dem Automobil-Sektor , PND’s ) deployed
+      wird.
+    * Themen-Schwerpunkte: Software-Architektur ( Framework-Design für eine
+      neue SDK-Version, Optimierung des Architekturprozesses durch
+      Automatisierung der Modellierungsaufgaben in EnterpriseArchitect in
+      SPICE-relevatem Projekt.
+    * Zusätzlich Bugfixing, GUI-Entwicklung, Workflow-Anpassungen. Aufbau
+      Testframework für automatisierte Tests mit Lua-Script-Anbindung.
+ 
+Entwicklungswerkzeuge:
+    * Visual Studio 2008, QT, QML
+    * Enterprise Architect,
+    * CodeCollaborator ( Review-Tool),
+    * CMake, Qmake, Jenkins, CruiseControl
+    * Perforce
+    * Polarion
+    * Lua
+ 
+QA:
+    * Unittests, Komponententests
+ 
+Eingesetzte Produkte:
+ 
+C++, UML, QT, WinCE 6, Multithreading, Automotive /embedded  Entwicklung
+===============================================================================
+02/2010 - 06/2012: Feature - Programmierung / Bugfixing sowie Projektleitung
+( Stellvertreter )
+ 
+Kunde:              Systemhaus / Automotive / Navigation (Elektrobit)
+ 
+Aufgaben:
+ 
+Feature - Programmierung / Bugfixing
+    * 80 % Zeitaufwand
+    * Implementierung neuer Feature und Bugfixing für einen Navigationskern,
+      der an diverse Kunden (OEM’s aus dem Automobil-Sektor , PND’s ) deployed
+      wird. Themen-Schwerpunkte waren OutdoorRouting, Entwicklung neuer
+      Routing-Strategien, Analyse und Bugfixing in den Bereichen Routing, TMC,
+      GPS, Manövergenerierung, Guidance. Optimierung einzelner Komponenten im
+      Hinblick auf Speicherverbrauch und Performance. Entwicklung von
+      Analysesoftware
+ 
+Entwicklungswerkzeuge:
+    * Visual Studio 2008, QT,
+    * Enterprise Architect,
+    * CodeCollaborator (Review-Tool),
+    * CMake, Hudson
+    * Subversion
+    * Jira
+ 
+QA:
+    * Unittests, Komponententests
+ 
+Projektleitung (Stellvertreter)
+    * 20 % Zeitaufwand
+    * Stellvertretender Projektleiter für ein PND-KundenProjekt.
+      Anforderungsanalyse mit dem Kunden, Machbarkeitsanalyse,
+      Aufwandsabschätzung, MilestoneDefinition, Erstellung von Status-
+      Protokollen, Durchführung von Status – Telkos, Deeskalation,
+      Projektmanagement, Freigabe von Releases, Bug-Zuordnung, Bugfixing-
+      Kontrolle, Ansprache mit Function-Owners
+ 
+Eingesetzte Produkte:
+ 
+C++, WinCE 5, 6, Multithreading, Automotive /embedded - Entwicklung
+===============================================================================
+01/2009 - 12/2009: Anwendungsentwicklung für Windows Mobile, Embedded -
+Plattformen
+ 
+Kunde:              Systemhaus / Windows Mobile
+ 
+Aufgaben:
+ 
+Entwicklungswerkzeuge:
+    * Visual Studio 2005,VC7/VC8, QT
+    * Enterprise Architect,
+    * CodeCollaborator (Review-Tool),
+ 
+QA:
+    * Unittests, Komponententests
+ 
+Projektierung:
+    * Anforderungsanalyse, Konzeptionierung, Aufwandsabschätzungen,
+      Anforderungsabstimmung, Projektmanagement, Deployment
+ 
+Eingesetzte Produkte:
+ 
+GUI-Design, C#, C++, .NET 3 / 3.5, OOA, OOD, MDD, UML, QT, SQLite,
+Datenbankdesign
+===============================================================================
+06/2008 - 12/2008: Entwicklung von Multimedia-Plattformen
+ 
+Kunde:              Automobilzulieferer / Automotive , Windows Mobile
+(Continental)
+ 
+Aufgaben:
+ 
+    * Erstellung von Komponenten für eine embedded-Multimedia-Plattform mit MS
+      Auto-Betriebssystem (Bristol-Release / Windows Mobile 6 – Basis).
+    * Schreiben von Komponententests, Unittests, CodeReviews, Dokumentation
+      (UML)
+    * Erstellung einer zentralen Datenmanagement-Komponente ( multithreading
+      fähig ) zur Verwaltung von Daten für unterschiedlichste mobile Geräte
+      ( Handy, Laptop, MOST - Komponenten), welche via Bluetooth, MOST oder RPC
+      an die Plattform angeschlossen werden.
+    * Abstraktion der Datenzugriffschicht um unterschiedliche Datenbanksysteme
+      (POOM bzw. SQLite) mit der gleichen Datenmanagement-Komponente nutzen zu
+      können.
+ 
+Schwerpunkte:
+    * Erstellen der Software-Modelle (MDA) mit UML\UML2 und Rhapsody Architect
+      bzw. Enterprise Architect
+    * Treiber-Entwicklung (udevices) unter Windows CE Risikoanalyse und –
+      bewertung für zu erstellende Komponenten (DIN EN 61508, DIN EN ISO 14121-
+      1)
+ 
+Entwicklungswerkzeuge:
+    * Platformbuilder, Visual Studio 2005,VC7/VC8, Rhapsody Architect
+ 
+Tools:
+    * CM Synergy, Rational Test RealTime, Subversion,
+ 
+QA:
+    * Schreiben von Komponententests ( TUX, RTRT), Unittests, CodeReviews,
+      Dokumentation ( UML ),
+ 
+Eingesetzte Produkte:
+ 
+C++, C#, OOA, OOD, UML, STL, POOM, SQLite, Bluetooth (HFP, A2DP), V-Modell,
+Multithreading, Windows Mobile 6, MS Auto
+===============================================================================
+01/2008 - 05/2008: diverse Projekte
+ 
+Kunde:              Systemhaus Touristik - Software-Deployment, WIN32 (Amadeus)
+ 
+Aufgaben:
+ 
+    * Kurzfristige Unterstützung bei der Anpassung von Software für die
+      automatische Verteilung von Software-Produkten, deren Updates und
+      Konfigurationen.
+    * Migration von proprietären Datenformaten in bestehende Informix-
+      Datenbankstruktur
+ 
+Entwicklungswerkzeuge:
+    * VC6++, Visual Studio 2005, VC7/VC8
+ 
+Tools:
+    * Enterprise Architect, Subversion, Informix-Konsole QA: Unittests,
+      Komponententests
+ 
+Weiteres:
+    * Informix-Datenbank - Installation, Konfiguration
+ 
+Eingesetzte Produkte:
+ 
+WIN32, C, C++, Informix-eSQL, SQL, UML
+===============================================================================
+08/2007 - 12/2007: Weiterentwicklung/ Portierung
+ 
+Kunde:              Navigationssoftwarehersteller (PTV)
+ 
+Aufgaben:
+ 
+    * Unterstützung bei der Weiterentwicklung/ Portierung der Router-
+      Komponente,
+    * Abstraktion der DB-Komponente (SQLite),
+    * Analyse der Multithreading-Fähigkeit von SQLite und darauf aufbauenden
+      Zugriffskomponenten.
+    * Konzepterarbeitung für das automatische Update regionaler Navigations-
+      Kartendaten per Internet
+ 
+Entwicklungswerkzeuge:
+    * Visual Studio 2005, VC7/VC8, eVc++ 4.0
+ 
+Tools:
+    * Jam, Enterprise Architect, Subversion, WinBuild,
+ 
+QA:
+    * Komponententests, Unittests, CodeReviews, Dokumentation (Doxygen )
+ 
+Eingesetzte Produkte:
+ 
+C++, STL, Platinum, OOA, OOD, UML, WindowsCE, SCRUMM, CROSS-Development
+===============================================================================
+08/2006 - 05/2007: Weiterentwicklung/Korrektur
+ 
+Kunde:              Automotive - Navigationssoftware, Windows Mobile (Alpine)
+ 
+Aufgaben:
+ 
+    * Weiterentwicklung/Korrektur der Kommunikationslogik für HMI-NAVICore-
+      Synchronisierung
+    * Weiterentwicklung der Adresseingabe, DB-Zugriff,
+    * Feature-Entwicklung: POIs – Along the Route, Strassendatenverarbeitung
+      für Stadtteile
+    * Bugfixing
+ 
+Eingesetzte Produkte:
+ 
+C, C++, COM, WindowsCE 5.0, Multithreading, STL, Unicode  Portierung, eVc++
+4.0, Visual Studio 7, Platformbuilder, WinCVS, XML, MS Project, DOORS
+===============================================================================
+02/2004 - 02/2005: Portierung
+ 
+Kunde:              Telekommunikation  Systemhaus, Windows Mobile (Siemens)
+ 
+Aufgaben:
+ 
+    * Portierung einer VoIP-Anwendung für Hipath-Telefonanlagen von Windows 98/
+      NT/2000/XP nach WindowsCE (PocketPC2003 – Windows Mobile 5)
+ 
+Eingesetzte Produkte:
+ 
+Visual Studio V6.0, SourceSafe, eVC++ V4.0, C/C++, COM/ STL/ MFC, TCP-IP,
+Multithreading, H323-Protokoll, BluetoothKommunikation ( Profile: Handsfree,
+SerialPort, Headset )
+===============================================================================
+07/2000 - 10/2003: Entwicklung
+ 
+Kunde:              Softwarehaus  Windows Mobile
+ 
+Aufgaben:
+ 
+    * Entwicklung im Bereich „Mobile Datenerfassung“ - Politessensoftware
+    * Komponentenentwicklung für Delphi
+    * Datensynchronisierung von WindowsCE-Clientdaten mit Host-Datenbank
+    * Pflichtenhefterstellung, Kalkulation, Controlling, Qualitätsmanagement)
+    * Entwicklung einer Windows-Anwendung mit Delphi 5 zur Synchronisation von
+      Daten unterschiedlicher Host-Systeme und Datenbanksysteme über ein
+      grafisches Schnittstelleninterface.
+    * DB-Unterstützung SQL-Server, Oracle, Informix, Access, DBIsam,ASCII.
+    * Komponentenentwicklung unter Delphi
+    * Entwicklung einer WindowsCE- Anwendung im Bereich „Facility Management“
+      für PocketPC2000- PocketPC2003-Systeme
+    * Entwicklung eines Tools zur Datensynchronisation zwischen WindowsCE-
+      Geräten (iPaq etc) und PC mit eVC++ inklusive TCP-IP/Socket-
+      Programmierung
+ 
+Eingesetzte Produkte:
+ 
+eVC++ 3.0, eVC++4.0, Visual Studio, Delphi 3-5 Tools: CVS, MFC, COM, ADOCE,
+SQLServerCE, PPC2000-PPC2003, TCP/IP, Multithreading
+===============================================================================
+12/1999 - 06/2000: Entwicklung
+ 
+Kunde:              Systemhaus- Breitbandkabelnetze, Windows / Unix (Debis)
+ 
+Aufgaben:
+ 
+    * Software-Entwicklung und Source-Optimierungen in Windows-Umgebung mit
+      Informix-Datenbankanbindung ueber Tuxedo und hauseigene Datenakapsel.
+      GUI-Entwicklung
+ 
+Eingesetzte Produkte:
+ 
+Visual C++ 4.0, C, C++, Batchfile-Erstellung unter Unix, Tuxedo, Elements
+Environment 2.1.
+===============================================================================
+1996-1999:
+Portierung und Ausbau der bestehenden Kalkulationssoftware von C nach Object-
+Pascal für WIN95/98/NT mit Borland Delphi 1-4 (32-Bit-Version)
+Austausch der vorhanden Datenbank durch ein relationales  Datenbanksystem
+( Borland Database Engine ) und Paradox 5-7.
+Netzwerkinstallation Windows NT / 95, Administration Windows NT/95
+Anpassung und Netzwerkeinbindung der Software.
+
+Laufzeit-Optimierung bestehenden Sourcecodes unter MS DOS,Windows 95 in C und
+Pascal.
+
+MS DOS-Quellcode-Portierung von Pascal nach C ( 16 Bit ).
+
+Entwicklung von Datenerfassungssoftware in C, Pascal und Assembler unter MS
+DOS, Windows 95 und PSION EPOC für Handhelds.( z.B. Software für die Erfassung
+von Ordnungswidrigkeiten im ruhenden Verkehr )
+
+Entwicklung von RS232-Schnittstellen-Software zu Ansteuerung von Druckern,
+Laserscannern, Checkkartenlesern, Barcodelesern für SPS-Automaten und Handhelds
+in C.
+
+Auftraggeber waren Kommunen, Chemie-Konzerne, Fluggesellschaften,Anlagenbauer.
+
+Projektierung und Entwicklung einer Facility-Management-Software zur mobilen
+Wohnungsabnahme für die Tochterfirma eines bekannten Fahrzeugherstellers.
+( Windows 95 / 98 / NT)
+Delphi 1 + 3 mit RDBMS ( Borland Database Engine ) + Paradox 7
+Entwicklung eigener Delphi-Komponenten
+Entwicklung einer Datentransfer-Logik zur Seriennummer- gesteuerten
+Datenübermittlung an "n" Geräte.
+Schnittstellenentwicklung zur Datenübergabe an Grossrechnersysteme (AS400)
+Installation, Kundenbetreuung, Schulungen und Präsentationen zu diesem Projekt
+===============================================================================
+1995-1996:
+Portierung und Ausbau der bestehenden Kalkulations-Software von C nach C++ mit
+MFC für Win95 ( 16 Bit-Version). weitere Taetigkeiten siehe 93-94.
+===============================================================================
+1993-94:
+Entwicklung einer Kalkulations-Software für die Bau-Branche für  IBM-PC"s unter
+Windows 3.X in C und WIN API - Programmierung.
++ Entwurf , Design und Implemtierung einer eigenen Datenbankarchitektur.
+Betreuung der EDV-Anlagen:  Software-Installationen Windows 3.X, Microsoft
+Office      Hardwareinstalltionen Backup-Systeme, CD-Roms, Festplatten,kompl. 
+PC-Systeme, etc...
+Anwender-Schulungen
+Auftraggeber war ein mittelständisches Bau-Unternehmen.
+===============================================================================
+1992-1993:
+Brettspielumsetzung von Monopoly für Amiga-Systeme ( UNIX-Derivat)
+Komplette Systemanalyse, und Entwicklung in C unter Amiga OS.
+Layer-Programmierung, Sprite-Animation, Multi-Tasking-Konzeptionierung
+Auftraggeber war eine Software-Vertriebsgesellschaft aus Dortmund. ( Es kam
+jedoch nie zur Vermarktung, da Commodore Deutschland konkurs ging ! )
+
+Sonstige Anmerkungen:
+Referenzen und Arbeitszeugnisse auf Anfrage.
+Keine Ortsgebundenheit, extrem reisefreudig
+
+
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_9680
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 15.09.2020 00:43:54
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

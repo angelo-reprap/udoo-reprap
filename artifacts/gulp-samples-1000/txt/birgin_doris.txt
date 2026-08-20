@@ -1,0 +1,1635 @@
+Testmanagement, Testautomatisierung, Test, mobile payment, Bank,
+Telekommunikation, Unix, Client / Server, Security, agile Projekte
+Top-Skills: Testmanagement, Testautomation, Unix
+(Linux, Digital,HP), Shellskript, Java,
+Testanalyse, Ranorex, Katalon, PowerShell,
+Last- und Performancetest
+Verfügbar ab: 30.09.2023
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 110,00 EUR
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Schweiz, Einsatzort unbestimmt
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Deutschland: Deutschlandweit Arbeitserlaubnis: Problemlos da EU
+Bürger Weitere Länder: Projekt in Österreich durchgeführt, Projekt in
+der Schweiz, diverse Projektaufenthalte in Paris, Projekt in den
+Niederlanden
+Position
+Kommentar:
+    •  Testmanager
+    •  Projektleiter
+Projekte
+2019-05 - 2020-03 Projekt Infanterist der Zukunft (IDZ)-  68-Züge und
+11 Monate VJTF
+Kunde: Rheinmetall
+28.02.2023 1 von 18
+Einsatzort: Bremen
+Projektinhalte:     •  Auswahl Testautomatisierungstool (Eggplant, Katalon,
+     ?Ranorex,...)
+    •  Erstellung Testkonzept Automatisierung 
+    •  Erstellung Forderungskatalog an Entwicklung zur
+     ?Qualitätsverbesserung Test
+    •  Testdurchführung Manuelle Testfälle
+    •  Testfallerstellung -systematisch Tests ableiten
+    •  Client/Server Testing Soldatenrechner/Führungsrechner
+    •  Clientanwendungen Führungsrechner
+    •  Testautomatisierung mit Eggplant
+    •  Unterstützen Agiles Projektvorgehen-Automation
+Rolle
+Testmanagement, Test-Automation, strategische Testberatung,
+Testanforderungsmanagement, Aufbau Testautomatisierungsteststellung
+Kenntnisse: Eggplant, diverse systemspezifische tools (Hardwarenah), Unix-Tools, V-
+Lans, UHF-/VHF-Funk, Bundeswehrspezifische Hardware, Unix, Windows,
+Spezialhardware
+2018-12 - 2019-03 Test-, Energiehandelsumfeld
+4 Monate
+Rolle: Tester/Testmanager
+Kunde: Uniper
+Einsatzort: Düsseldorf
+Projektinhalte:     •  Testautomatisierung mit Katalon
+    •  Integration automatisierte Tests in Nightly-Build 
+    •  Umstellung Test in Docker-Container
+    •  Erstellen Regressionstestfälle
+    •  Test Clientanwendung auf Web-Basis
+    •  Testfallerstellung -systematische Tests ableiten aus
+     ?Anforderungen
+Rolle
+Testerstellung /Testautomation Handelsplattform für OTC- und Settlement-
+ Orders von Gas an Großhandelskunden
+Kenntnisse: Jira ( incl. Zephyr), Katalon, Jenkins, Macintosh, Unix, Java
+2018-05 - 2018-09 Test-, Ticket- und Release-Management
+5 Monate
+Kunde: Daimler
+Einsatzort: Stuttgart
+Projektinhalte:     •  Unterstützung Scrum Master bei Einführung agiler Testmethoden
+    •  Testvorgehen etablieren 
+    •  Testfallerstellung mit systematische Erstellung Testfälle um
+     ?Abdeckung zu erzwingen
+    •  Systematische Tests abarbeiten laut erstelltem Plan
+28.02.2023 2 von 18
+    •  Verifizieren Testfälle
+    •  Planung Abnahmetest
+    •  Ticketmanagement und improvement Management
+     ?(Annahme, Einplanung, ausliefern Improvements/Bug-behebung)
+    •  Release-Management in Zusammenarbeit mit Endkunde
+    •  Evaluation Testautomatisierung
+Rolle
+Test-, Release und Ticket-manager für ein Planungstool für
+Sonderausstattung KFZ
+Kenntnisse: Jira ( incl. Zephyr), Jenkins, Windows, Java
+2017-11 - 2018-04 Testmanagement B2B (Leasing) Portale mit
+6 Monate Testautomatisierung
+Rolle: Testmanager
+Kunde: Großer Leasinggeber
+Einsatzort: Karlsruhe (Baden)
+Projektinhalte: Tests diverser Web Portale im B2B Umfeld in verschiedenen
+Ländergesellschaften sowie Ablösung existierender Systemen. Es wurde
+ein neues Frontend eingeführt das in neuen Ländergesllschaften eingeführt
+wurde und ein Backend System für die Vertragsverwaltung und
+Authorisierung angepassn
+    •  Analyse Testautomatisierung
+    •  Testfallerstellung und automatisierte Dredd Tests
+    •  Manuelle Testfälle durchführen
+    •  Testplanung / Testerstellung neues Vertragssystem
+    •  Einführung PACT-Testing
+    •  Automatisierte Verwendung von SWAGGER Definitionen für PACT
+Kenntnisse: Diverse Windows Entwicklugstools, Dredd, Postman
+Eingesetzte Produkte: Windows, Javascript
+2017-07 - 2017-11 Automatisierung Tests eines Web Portals im B2B
+5 Monate (Handwerk) Umfeld
+Kunde: Häfele
+Einsatzort: Nagold
+Projektinhalte:     •  Analyse Automatisierung Dredd Tests, erstellen
+    •  Erstellung Tests
+    •  Durchführung Testerstellung
+    •  Berücksichtigung Sonderrelgeln diverse Länder(Konditionen pro
+     ?Kunde
+    •  Projektsprache war Deutsch, Projekt fand im B2B Mittelstand (>
+     ?1 Mia Umsatz) statt
+28.02.2023 3 von 18
+Kenntnisse: Ranorex, Windows, Java, Oracle, Linux, SQL
+2017-03 - 2017-06 Testmanagement Portierung im Bausparkassenumfeld
+4 Monate
+Kunde: Bausparkasse
+Einsatzort: München, Karlsruhe
+Projektinhalte: Verifikation automatisierte Portierung von Natural/Adabas nach
+Java/Oracle für Bausparkasse mit automatisierten Tests in Altsystem
+aufgezeichnet abgespielt gegen Neusystem mit DB Verifikation
+    •  Testmanagement
+    •  Unterstützung Endkunde Aufbau Regressionstests
+    •  Unterstützung Auswahl / Qualifizierung Recording- /
+     ?Replay-Tools
+    •  Endkundenmanagement
+    •  Durchführen von Tests und Recording, TN3270 und Natural Fat
+     ?clients
+    •  Projektsprache war Deutsch
+    •  Projekt fand im Bausparkassenumfeld statt, Technik war
+     ?Adabas/Natural, Java, Oracle
+Kenntnisse: Jira, Ranorex, Z/OS, Linux, Shellscripting, Eggplant, Apache
+2016-04 - 2017-02 Erstellung Mautsäulen Bundesstraßenmaut von Testseite
+11 Monate Hersteller
+Kunde: Jenoptik-Robot
+Einsatzort: Monheim, Berlin
+Projektinhalte:     •  Aufspielen neue Software auch auf Kundensysteme
+     ?(Shellscripting)
+    •  Verhandlungen Endkunde Berlin
+    •  Aufsetzen Programmier-Hardware Maut-Tags
+    •  Analyse, Test, Dokumentation Hardware
+    •  Erstellung Testplan, Systematisierte Testfallerstellung
+    •  Vertreten Testmanager
+    •  Führen Tester, einarbeiten neue MA
+    •  Qualifizieren neue MA (Profile)
+    •  Testautomatisierung
+Kenntnisse: Jira, Java, Shell, Norbitec-Tags, Linux, Spezial Hardware, Mikrowellen-
+Bake, Radar, Stereokameras etc.
+2015-04 - 2016-02 Testweiterentwicklung eines Mandantenfähigen
+11 Monate Depotführungssystems
+Kunde: ebase
+Einsatzort: München
+Projektinhalte: Anforderungsanalyse eines bestehenden Systems und von Test-Scripts
+28.02.2023 4 von 18
+dazu sowie Testfällen und Planung weitere Testautomatisierung und
+Implementierungshinweise eines ablösendes System
+Durchgeführte Tätigkeiten waren:
+    •  Test Implementierung neuer Preismodelle / Preisstaffeln
+     ?/außerbörslicher Handel
+    •  Analyse bestehender testunterstützender Systemen (Shellscripts
+     ?u. Ä.)
+    •  Analyse bestehender COBOL Code
+    •  Analyse SQL DB
+    •  Formelle Dokumentation bestehendes System auf UML Basis um
+     ?modellgestützte Implementation automatisierte Tests /
+     ?Re-Implementation System zu erleichtern
+    •  Qualitätsprüfung Testfälle
+    •  Vorschläge Erweiterungen testunterstützender Scripts
+    •  Aufwandsschätzung Implementierung Verbesserungen
+    •  Implementationshinweise
+Eingesetzte Produkte: COBOL, UML, Shellscripts, Java, Toad, Linux, Virtualisierung, SQL-DB,
+Oracle
+2014-04 - 2015-03 Testmanagement einer Komponente eines gesicherten
+1 Jahr Systems
+Kunde: gematik
+Einsatzort: Berlin
+Projektinhalte: Das System ist Teil einer besonders gesicherten Infrastruktur
+Durchgeführte Tätigkeiten waren:
+    •  Testmanagement
+    •  Lieferantenmanagement im Testbezug
+    •  Qualitätsprüfung Dokumentenlage Lieferanten
+    •  Qualitätsprüfung Testfälle
+Kenntnisse: Linux, Netzwerk, Cryptocards, ClearQuest, ClearCase
+2012-09 - 2014-03 Multi-Projekt Testmanagement
+1 Jahr 7 Monate
+Rolle: Banking - Payment / Testmanagement
+Kunde: G&amp;D 3S
+Einsatzort: München
+Projektinhalte: Multi-Projekt Testmanagement eines Android basierten gesicherten
+Kreditkartensystems mit dem Payment Terminal (MasterCard6 später auch
+VISA) per NFC (Deutschland/ Tschechien/ Spanien)
+Das System dient dazu Banken (Service Provider) zu befähigen per OTA
+(Over The Air) verschiedener Netz Provider Personalisierungsdaten für
+Kreditkarten gesichert bis auf die SIM Karte des Android mobiles zu
+übertragen wo erst dort der Transportschlüssel entfernt wird und auf
+gesicherten Bereichen der SIM hochwertig verschlüsselt Applikation und
+28.02.2023 5 von 18
+Kartendaten für die Bezahlung per Kreditkarte über NFC abgelegt wird.
+Zudem können diese Daten remote gelöscht, und in verschiedenen Stufen
+gesperrt und entsperrt werden. Das System ist Multi-client, muti-card und
+multi -tennant fähig. Softwareentwicklung erfolgte nach SCRUM.
+Durchgeführte Tätigkeiten waren:
+    •  Testmanagement (Aufwandsschätzungen, Planungen,
+     ?Ressourcenmanagement)
+    •  Management diverser Teststufen, u.A.Systemtests,
+     ?Integrationstests (HW und SW) sowie Testumgebungen
+    •  Integration Kunden und Zulieferer in Testsystem
+    •  Interfaces verifizieren und wo nötig nach spezifizieren
+    •  Erstellung Testfallspezifikationen für Use Case und Fail Case
+     ?Tests
+    •  Review von Mitarbeitern erstellte Testfälle
+    •  Abnahmetests, Vorbereitung User Trials
+    •  Test- und Error- Reporting, Weitergeben Fehler an Entwicklung
+    •  Support Release Tracking
+    •  Dokumentationsbegleitung und Review
+    •  Abstimmung mit (Test-).Management Kundenseite
+    •  Synchronisation und Klassifikation Incident- Management Kunde
+     ?und Dienstleister
+    •  Verhandlung Kunde Scope Reduction /Präzisierung Liefermerkmale
+    •  Ressourcenmanagement (Entwickler, Tester) bezüglich
+     ?Kundenanfragen/Support Requests
+    •  Verwaltung Ressourcen und Debugging (Sim Card, Android mobiles
+     ?, firmware versionen)
+    •  Release -management upgrades / Bugfix Versionen
+    •  UAT /DAT Tests vorbereiten und mit Kunden durchführen
+    •  Verhandlung bezüglich Scope Nachlieferung nächste Projektphase
+    •  Erstanalyse Fehler durch u.a. Analyse Logfiles (Android logs,
+     ?Server Logs)
+    •  Unterstützung third party Support compatibility tests (SIM
+     ?Card, Mobiles, Firmware)
+Kenntnisse: Apache, SQL, Messaging System, Android Logging, Android, Linux, NFC,
+SIM, DP, Enabler, Service Manager
+2012-03 - 2012-08 Verifikation eine Geschäftskundenproduktes
+6 Monate
+Kunde: Vodafone
+Einsatzort: Aventis, Heerlen, Niederlande | Düsseldorf
+Projektinhalte: Verifikation der Portierung des IPC ( Business Kunden. mobile/fixed
+integration mit zusätzlichen Unternehmensweiten Telefonanlagen
+Funktionen)
+Durchgeführte Tätigkeiten waren:
+    •  Testplanung
+    •  Überwachung Testdurchführung
+    •  Testfalterstellung, resp Umsetzen Technische zu Abnahme
+     ?Testfällen,
+    •  Review erstellte Testfälle
+    •  Abnahmetests
+    •  Manuelle Testfälle
+    •  Systematische Tests durchführen
+28.02.2023 6 von 18
+    •  Test Reporting
+    •  Error Reporting
+    •  Test Tracking/ Error Tracking
+    •  Treiben Fehlerbeseitigung durch Weiterleitung Fehler an
+     ?Entwickler
+Internationales Projekt mit deutschen/englischen/niederländischen
+Anteilen
+Projektsprache war Englisch
+Kenntnisse: Protokoll Analysatoren, Wireshark, HP QC, Vodafone Carrier Netzwerk,
+mobile Handsets
+2011-10 - 2012-03 Testmanagement
+6 Monate
+Kunde: G&amp;D SFS
+Einsatzort: München
+Projektinhalte: Testmanagement eines Android basierten angepassten Handsets/
+Authorisation Systems für das Regierungsgeschäft
+Projektentwicklung erfolgte nach SCRUM.
+ 
+Durchgeführte Tätigkeiten waren:
+    •  Testplanung
+    •  Testmanagement
+    •  Management Testumgebungen
+    •  Bugtracking
+    •  Prozesse zwischen Lieferanten anpassen und
+treiben
+    •  Erstellung von Testfallspezifikationen
+    •  Review erstellte Testfälle
+    •  Abnahmetests
+    •  Manuelle Testfälle durchführen
+    •  Betreuung Tester
+    •  Vorbereitung Friendly User Test
+    •  Testreporting
+    •  Errorreporting, treiben Fehlerbeseitigung durch Entwickler
+    •  Dokumentationsbegleitung und Review
+    •  Unterstützung QS
+Internationales Projekt mit deutschen/englischen Anteilen
+Kenntnisse: Protokoll Analysatoren, Wireshark, Android, Linux
+2011-01 - 2011-06 Testmanagement einer verteilten Multisite IVR
+6 Monate Installation
+Rolle: Testmanager
+Kunde: Konsortium aus SEN, Vodafone, CreaLog
+Einsatzort: Eschborn, Nürnberg, München
+28.02.2023 7 von 18
+Projektinhalte: Testmanager für eine verteilte Multisite-IVR-Installation mit ACD
+Funktionalität und CTI Unterstützung
+ 
+Durchgeführte Tätigkeiten waren:
+    •  Testplanung
+    •  Abstimmung mit Projektpartnern im Konsortium
+    •  Abstimmung mit Internen Abteilungen
+    •  Steuern externe Dienstleister
+    •  Abstimmung mit Endkunden
+    •  Erstellung Testfallkataloge
+    •  Erstellen Testfälle
+    •  Management der Testumgebungen
+    •  Durchführung der Abnahmetests in Zusammenarbeit mit Endkunden
+    •  Das Projekt wurde nach ISTQB durchgeführt
+Kenntnisse: CreaLog IVR, ACD, HP QC, Unix, Windows, Oracle, HP, CreaLog IVR
+2010-02 - 2011-01 Entwicklung eines Call-by-Call Service
+1 Jahr
+Kunde: Vodafone
+Einsatzort: Eschborn
+Projektinhalte: Entwicklung eines Call-by-Call Service mit Preisansage auf IVR Technik
+basierend
+ 
+Analyse Projektstand, führen Projektdokumentation, kontinuierliches
+Reporting Projektstand, Budgetkontrolle, Zeitkontrolle, Auslösen
+Bestellungen, Validierung technischer Konzepte und Verbesserung, falls
+diese nicht ausreichend waren, mit Entwicklung zusammen Verfeinerung /
+Komplettierung Dokumentation, Konzepterstellung und
+Schnittstellenerstellung sowie Projekterweiterung um automatische
+Dokumentation Preispläne mit Recherchefunktion für Callcenter sowie
+automatischem erstellen der Pressemitteilungen zu Preisänderungen,
+Durchführung Migration des Projektes von Arcor Prozessen auf Vodafone
+Prozesse während Projektlaufzeit (Dokumentation, beteiligte Abteilungen,
+Vorgehensmodelle etc.)
+ 
+Durchgeführte Tätigkeiten waren:
+    •  Treiben Konformitätstests
+    •  Treiben der Leitungsbestellung
+    •  Beibringen der nötigen Zertifikate
+    •  Bewertung technischer Fragen/Aufwände für den Auftraggeber
+    •  Requiementanalyse im Laufe des Projektfortschritt um Lücken
+     ?oder neue Anforderungen Nachpflegen zu können
+    •  Architekturunterstützung
+    •  Dokumentenerstellung, Projektplan etc.
+    •  Reporting Projektfortschritt
+    •  Bestellung Hardware
+    •  Interfacedefinition File-Schnittstellen
+    •  Steuern der externen Dienstleister
+    •  Interfacing mit Internen Abteilungen
+    •  Koordinieren Entwicklung
+    •  Treiben technischer Anpassungen
+    •  Analyse Nachrichtensequenz mit Shell-skripten und Ausleitungen
+     ?mit Wireshark
+    •  Design der Erweiterungen bzgl. Preisplänen (Archiv, Suche,
+     ?automatisierte Pressemitteilungen)
+28.02.2023 8 von 18
+Kenntnisse: CreaLog IVR, Mircosoft Project, SIP, Wireshark, shell, HP QC, Unix,
+Windows, Oracle, HP, Italtel, CreaLog IVR
+2009-06 - 2009-12 Vier Projekte
+7 Monate
+Kunde: Credit-Suisse
+Einsatzort: Zürich
+Projektinhalte:     •  Führen von vier Projekten als Testmanager sowie Führung der
+     ?Tester und Reporting Testergebnisse
+    •  Analyse des Projektes, Aufwandsschätzung für Testing, Erstellen
+     ?der Rahmendokumente und Führen der Tester in vier verschieden
+     ?Projekten, zusätzlich 10% Backup für anderen Testmanager sowie
+     ?Management der Testumgebungen, die Projekte wurden nach ISTQB
+     ?durchgeführt
+    •  Die Projekte waren im einzelnen Einführung von private Services
+     ?for private Banking, Loan to Value and Credit Risk Berechnung,
+     ?Begleitung Entwicklung und Einführung konzernweites Bus Konzept
+     ?für Trading Applikationen (TAB) sowie automatisiertes Testing
+     ?eines precious metals Handeslssystems (Endur). Das TAB Projekt
+     ?wurde nach SCRUM durchgeführt, andere Projekte nach Wasserfall.
+Kenntnisse: HP QC, QuickTestProfessional
+2008-11 - 2009-04 Umstellung auf SOPERA Framework
+6 Monate
+Kunde: DHL
+Einsatzort: Bonn
+Projektinhalte:     •  Umstellung auf SOPERA Framework, Ablösung von drei Systemen der
+     ?Produktions und Vorabrechnungskette parallel
+    •  Analyse der Requirements und Spezifikation von Tests sowie
+     ?Testdaten, Betreuung der Lieferanten um Auswertungstools bei
+     ?verschiedenen Schnittstellen zu den jeweiligen Testphasen
+     ?rechtzeitig bereitzuhalten
+    •  Verifikation der gelieferten Auswertungstools. Es wurden
+     ?Testfälle und Testdaten erstellt die bei einem Durchlauf der
+     ?Prozesskette von der Beauftragung bis zur Abrechnung der
+     ?Logistikleistung das konsistente Verhalten zwischen Alt- und
+     ?Neusystem überprüfbar machte.
+Kenntnisse: Remotedesktop, Shellscripts, HP QC
+2007-10 - 2008-09 Automatisierter Test eines IVR Systems
+1 Jahr
+Kunde: Arcor
+Einsatzort: Eschborn
+Projektinhalte:     •  Automatisierter Test eines IVR Systems um nach Versionsupdates
+     ?per Regressionstest die ununterbrochen Funktionalität für den
+28.02.2023 9 von 18
+     ?Endkunden zu sichern
+    •  Requirementanalyse, Testdesign, Testspezifikation, Aufbau von
+     ?Testdiensten, Aufbau von automatisierten Testdurchführungen
+     ?sowie statistische Auswertungen und Abschlussdokument für den
+     ?Kunden. Ziel war die Tests so sauber zu definieren, das sie von
+     ?kurzfristig angeworbenen Kräften ohne Einarbeitung durchgeführt
+     ?werden können, wo möglich automatisiert.
+Kenntnisse: Creavoice, Web basierte Oberflächen, CDG, Medien, Telefonie, EWSD,
+Oracle
+ 
+04/07-09/07 Telematik, Automotive
+Erstellung von System-Test, Test-Definition und Implementationsbegleitung
+einer Software die automatisch Gelände- und Maut-Informationen bedarfsgesteuert per GSM in ein
+Embedded System überträgt
+Projektsprache war  Deutsch
+Plattform:
+Linux, OBU, SVDO, CarPC, TDMA, GPRS, Java, C++, OSGI Framework
+Ort: Karlsruhe
+08/06-03/07 Avionik, Systemdesign der Kommunikationsplattform einer taktischen In-flight
+Kommando-Software für einen ausländischen Militärkunden auf Basis von verschlüsseltem TDMA-i
+Projektsprache war Französisch, Englisch, Deutsch
+Plattform:
+XP, TDMA-i, Java, ruggedized Mil-spec Avionik HW, XML,J-Messages, H-Messages
+Ort: Pforzheim, Paris
+04/06-08/06 Telekommunikation, Test und Verifikation einer Erweiterung der AAA-Domain im
+Hinblick auf die Einführung von IPTV bei einem Telco Carrier.
+Projektsprache war Deutsch
+Plattform:
+Unix, XML, Shell, TDB-Protokoll, Telecom eigenes Testframework
+Ort: Darmstadt
+12/05-03/06       Telekommunikation, Entwicklung eines Testframeworks zum automatisierten
+Testen eines BMD (Billing-Mediation-Devices)
+Projektsprache war Deutsch
+Plattform:
+Unix, Linux, Bash-shell, Perl, TDB Protokoll, diverse Telecom Produkte
+Xml, XSD, XSLT
+Ort: Karlsruhe
+05/05-11/05       Messtechnik, Entwicklung eines Protokolltesters für UMA/GAN
+Erweiterung spezialisierter Test Hardware um UMA/GAN Tests für die Zertifizierung eines mobiles im
+Rahmen der 3GPP
+Projektsprache war Englisch
+Plattform:
+UMA/GAN, 2G Protokolltester, 3G Protokolltester
+Ort: München
+02/05-04/05     Telekommunikation, Test Rating/Billing GSM/UMTS/TDMA Entwicklungsbegleitung
+28.02.2023 10 von 18
+Test einer mandantenfähigen Mobilfunkabrechnungssoftware, Unterstützung der Projektleiter und
+Entwickler bei Feinspezifikation und Erstellung von J-Unit,
+Unit, Interoperabilitätstest, String- und Integrations-Test der Abrechnungssoftware
+Auslandsprojekt in Graz mit multinationalem Team für einen Endkunden in den USA
+ 
+Projektsprache war Englisch.
+Plattform:
+Unix Systeme, GSM/GPRS/UMTS,
+Ort: Graz
+05/04-02/05       Telekommunikation, Test GSM/UMTS
+Testspec Erstellung, Erweiterung und Anpassung sowie Test von Mobilfunkgeräten der 2./2,5./3.
+Generation
+Plattform: Rohde&amp;Schwarz Test-Equipment, Diverese HW/SW, Imode, GSM/GPRS/UMTS
+Ort: Düsseldorf
+04/04             Performance Bottleneck Analyse / Öffentliche Verwaltung
+Identifikation von Performance Bottlenecks in einer verteilten mehrstufigen Architektur
+Plattform:
+Unix / Linux / NT, Apache, Oracle, XML, diverse Verbindungsprotokolle/Schichten,
+SQL-Plus, Loadrunner
+Ort: München
+10/03-11/03       Verwaltung / Telekommunikation
+Test eines Provisionsmanagementsystems für Vertriebspartner mit einem Unix / Oracle / Java
+Backend und einem Java basierten Frontend
+Plattform: Solaris, MICOS, DIV. ORACLE TOOLS(ORA-TOOL, SQLPLUS),JAVA, OFFICE TOOLS
+Ort: Eschborn
+03/03-09/03       Entwurf einer B2B Plattform / Handel
+Entwurf und Beratung für ein mittelständisches Unternehmen das eine Handelsplattform für externe
+Partner zum An- und Verkauf von Detailplanungen / Entwürfen / Projektplanungen betreibt
+Platform:
+LINUX, DIVERSE WEB-STANDARDS/APPLIKATIONEN (HTML, XML, PERL, APACHE, JBOSS, JAVA,
+UNIX-TOOLS)
+09/02-03/03       Rating / Billing / Telekommunikation
+QS, insbesondere von Billing , neues CRM-Tool und Integration desselben, Migration neue
+Abrechnungssoftware
+28.02.2023 11 von 18
+Plattform: Solaris, CLEARQUEST, CLEARCASE, INFRANET, TUXEDO, ORACLE, CLARIFY, DIVERSE
+TELEKOM EIGENE TOOLS
+Ort: Darmstadt
+07/01-04/02       Rating / Billing /Internet Service Provider
+Testplanung, Testerstellung und Testdurchführung sowie Reporting
+Plattform:
+Solaris, CLEARQUEST, CLEARCASE, INFRANET ADMIN, ORACLE, CLARIFY, DIVERSE TELEKOM
+EIGENE TOOLS
+Ort: Darmstadt
+06/00 - 05/01     Industrie / Produktentwicklung / Telekommunikation
+Unterstützung bei der Konzeption und Entwicklung eines neuen HLR (GSM/UMTS) auf einer Risc-
+basierten Unix Plattform unter Berücksichtigung von Hochverfügbarkeitsanforderungen.
+Plattform: C++, GSM, UMTS, SOLARIS, Solstice.
+Ort: Bad Hersfeld
+07/99 - 02/00     Internetdienstleister / Produktentwicklung
+Planung und Durchführung von diversen organisatorischen Aufgaben bei einer Operationsgruppe
+sowie Second Level Support und Beratung der Entwicklung bezüglich der Wartbarkeit, Stabilität und
+Performance eines B2B-Produktes in einer Unix-Umgebung.
+Plattform: ISO 900X, LINUX, SOLARIS, SHELL, SQL, UNIX.
+Ort: München
+03/98 - 04/99     Mobilfunk / Rechenzentrum /ISP
+Testplanung, -durchführung und -reporting sowie Testsupport für andere Abteilungen in einem HP-
+UX-HA-, SOLARIS- und Nortel-Switch-Umfeld sowie Entwicklung von Testtools in Shell-Skripten, C
+und C++, zudem Erstellung von Patches für das Service-Guard-System.
+Leitung von zwei Projektgruppen
+ 
+Plattform:
+ARBOR, Vantive, AWK, C, C++, HP-HA, HP-UX-HA, INTERNET, SHELL, SOLARIS, SQL, UNIX.
+Ort: München
+09/97 - 01/98     Industrie / Telekommunikation
+Implementierung eines Super-Dämons für die Client / Server-Kommunikation in C.
+Plattform: AWK, C, SHELL, SQL.
+Ort: Köln
+03/96 - 06/97     Telekommunikation
+Bearbeitung einer Stand-Alone-Applikation für die Abfrage einer Datenbank auf einem verteilten
+hochredundanten SQL-SERVER vom Client.
+Erstellung von mehreren Dämonen unter WINDOWS sowie Durchführung einer Client / Server-
+Verbindung für den Ausdruck von diversen Kunden- und Abrechnungsdaten.
+28.02.2023 12 von 18
+Analyse des Problems.
+Plattform:
+FTP, SQL-SERVER, RSC, TCP/IP, VISUAL-C++, WINDOWS 3.X., Tandem
+Ort: Darmstadt
+1994 - 1995       Unix Sys-Admin
+Systemadministration eines heterogenen Client / Server-Systems auf MIPS-, Micro-VAX- und ALPHA-
+Systemen unter ULTRIX und OSF/1.
+Plattform:
+APLAY, JPEG-PLAYER, LINUX, OS, OSF/1, ULTRIX, UNIX, XV.
+Ort: Karlsruhe
+Branchen
+    •  Investment-Banking
+    •  Telekommunikationsprovider
+    •  ISPs
+    •  Servicedienstleister
+    •  Logistik
+    •  Messgerätehersteller
+    •  Handel
+    •  Industrie
+    •  Mittelstand
+    •  Avionik
+    •  Automotive
+    •  Rechenzentrum
+    •  Gesundheitswesen
+    •  B2B Banking
+Sprachen
+Deutsch Muttersprache
+Englisch
+Französisch
+Kompetenzen
+Schwerpunkte Automotive
+Avionik
+Client / Server
+Architekturen
+28.02.2023 13 von 18
+Medizintechnik
+Payment-Systeme
+Projektleitung
+Systemdesign
+Telekommunikation
+Test
+Testautomation
+Testmanagement
+Unix
+Wehrtechnik
+Aufgabenbereiche
+    •  Testmanagement
+    •  Test
+    •  Testumgebungsmanagement
+    •  Projektleitung
+    •  Testautomatisierung
+    •  Analyse
+    •  Softwaredesign
+    •  Anwendungsentwicklung
+    •  Telekommunikation( Mobil- / Festnetz)
+    •  Rating und Billing im Telco Umfeld
+    •  GSM/ UMTS/ UMA/ GAN, 3GPP-Zertifizierung
+    •  Protokolltester
+Produkte / Standards / Jenkins
+Erfahrungen / Methoden
+Jira ( incl. Zephyr un X-
+ray)
+Newman
+Postman
+swagger
+Software Pakete/ Tools
+    •  QualityCenter (HP QC)
+    •  Oracle
+    •  QuickTestProfessional
+    •  StarOffice / OpenOffice
+    •  awk / sed / Perl
+    •  RCS (cvs, rcs, ClearCase, Subversion, GIT)
+    •  Infranet
+    •  Arbor
+    •  Vantive
+    •  Toad / SQLPlus
+    •  MS-Word
+    •  MS-Excel
+    •  Visio
+28.02.2023 14 von 18
+    •  Wireshark, sdedit (Sequenzdiagrammeditor)
+Betriebssysteme HP-UX
+LINUX
+Mac OS 9 /X
+OSF/1
+SINIX
+Solaris
+SUN OS
+ULTRIX
+Unix
+VMS
+Windows 3.11/ 98/ 2000/ XP
+Programmiersprachen Bourne-, bash-, csh-,
+tcsh-, ksh-, z-shell
+C
+C++
+Cobol
+FORTRAN77
+JAVA
+Java Grundlagen
+Javascript Grundlagen
+LISP
+Modula 2
+PASCAL
+Datenbanken Oracle
+Sybase
+Datenkommunikation Android
+AppleTalk
+CORBA
+Ethernet
+28.02.2023 15 von 18
+FDDI
+Internet, Intranet
+ISDN
+ISO/OSI
+ISPF-DMS
+Message Queuing
+Militärische
+Funkprotokolle
+MMS
+NFC
+OSF/DCE
+parallele Schnittstelle
+PR4G
+Radioprotokolle
+RFC
+Router
+RPC
+RS232
+SIP
+SIP Protocol
+SMTP
+SNMP
+SS7
+TCP/IP
+UUCP
+Voice
+Hardware Alpha Verschiedene
+Amiga Ja
+Ascii/X - Terminals VT220, VT300, X-Term
+Atari Ja-Mega ST4 modified
+28.02.2023 16 von 18
+CD-Writer / Brenner
+Digital OSF/1, Ultrix
+Drucker
+embedded Systeme Atmega, Arm, Raspberry
+Emulatoren
+HP Cluster, 9000
+IBM Großrechner 3090
+Iomega
+Macintosh 6800er und PowerPC so wie OS X (Intel)
+Messgeräte R&amp;S CRTU-G, CRTU-W
+Mikrocontroller Arm
+Modem
+Motorola 68000er
+PC
+Raspberry pi 1,2,3,4
+Scanner
+Siemens MX
+SNI RM-Rechner 200, 400
+Streamer
+SUN 68000er und Mips
+Tandem
+VAX 780 / 8700er
+Berechnung / FEM (Finite-Elemente- MAFIA, Maxwell Gleichungen, Radar
+Simulation / Versuch / Methode)
+Validierung
+Managementerfahrung Projektmanagement
+in Unternehmen
+Testmanagement
+Aus- und Weiterbildung
+    •  Studium der Informatik
+    •  Studium der Mathematik
+28.02.2023 17 von 18
+Zertifikate:
+    •  OO-Analyse (Siemens)
+    •  ITIL Foundation Zertifiziert (TÜV)
+    •  SCRUM Schulung
+28.02.2023 18 von 18
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_59223 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+
+Personen-ID                59223
+  
+Wohnort                    761xx Karlsruhe, Deutschland
+Jahrgang                   1965
+Staatsbürgerschaft         Deutsch
+Stundensatz                110 EUR
+Verfügbar ab               31.05.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         15.02.04
+Profil zuletzt geändert am 30.05.21
+Lesen von Projektanfragen  1 Tag [08]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 27.01.2021 14:15:17
+
+Fachlicher Schwerpunkt:
+Testmanagement, Testautomatisierung, Test, mobile payment, Bank,
+Telekommunikation, Unix, Client / Server, Security, agile Projekte
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Qualitätsmanagement / Qualitätssicherung / Test
+
+Testmanager
+Projektleiter
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+    * Studium der Informatik
+    * Studium der Mathematik
+ 
+Zertifikate:
+    * OO-Analyse (Siemens)
+    * ITIL Foundation Zertifiziert (TÜV)
+    * SCRUM Schulung
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: Deutschlandweit Arbeitserlaubnis: Problemlos da EU Bürger Weitere
+Länder: Projekt in Österreich durchgeführt, Projekt in der Schweiz, diverse
+Projektaufenthalte in Paris, Projekt in den Niederlanden
+
+Fremdsprachen:
+Deutsch     Muttersprache
+Englisch     
+Französisch 
+
+
+Hardware:
+Alpha               Verschiedene
+Amiga               Ja
+Ascii/X - Terminals VT220, VT300, X-Term
+Atari               Ja-Mega ST4 modified
+CD-Writer / Brenner  
+Digital             OSF/1, Ultrix
+Drucker              
+embedded Systeme    Atmega, Arm, Raspberry
+Emulatoren           
+HP                  Cluster, 9000
+IBM Großrechner    3090
+Iomega               
+Macintosh           6800er und PowerPC so wie OS X (Intel)
+Messgeräte         R&amp;S CRTU-G, CRTU-W
+Mikrocontroller     Arm
+Modem                
+Motorola            68000er
+PC                   
+Raspberry pi        1,2,3,4
+Scanner              
+Siemens MX           
+SNI RM-Rechner      200, 400
+Streamer             
+SUN                 68000er und Mips
+Tandem               
+VAX                 780 / 8700er
+
+
+Betriebssysteme:
+HP-UX    
+LINUX    
+Mac OS  9 /X
+OSF/1    
+SINIX    
+Solaris  
+SUN OS   
+ULTRIX   
+Unix     
+VMS      
+Windows 3.11/ 98/ 2000/ XP
+
+
+Programmiersprachen:
+Bourne-, bash-, csh-, tcsh-, ksh-, z-shell  
+C                                           
+C++                                         
+Cobol                                       
+FORTRAN77                                   
+Java                                       Grundlagen
+JAVA                                        
+Javascript                                 Grundlagen
+LISP                                        
+Modula 2                                    
+PASCAL                                      
+
+
+Datenbanken:
+Oracle  
+Sybase  
+
+
+Datenkommunikation:
+Android                      
+AppleTalk                    
+CORBA                        
+Ethernet                     
+FDDI                         
+Internet, Intranet           
+ISDN                         
+ISO/OSI                      
+ISPF-DMS                     
+Message Queuing              
+Militärische Funkprotokolle 
+MMS                          
+NFC                          
+OSF/DCE                      
+parallele Schnittstelle      
+PR4G                         
+Radioprotokolle              
+RFC                          
+Router                       
+RPC                          
+RS232                        
+SIP                          
+SIP Protocol                 
+SMTP                         
+SNMP                         
+SS7                          
+TCP/IP                       
+UUCP                         
+Voice                        
+
+
+Berechnung/Simulation/Versuch/Validierung:
+FEM (Finite-Elemente-Methode) MAFIA, Maxwell Gleichungen, Radar
+
+
+Aufgabenbereiche:
+    * Testmanagement
+    * Test
+    * Testumgebungsmanagement
+    * Projektleitung
+    * Testautomatisierung
+    * Analyse
+    * Softwaredesign
+    * Anwendungsentwicklung
+    * Telekommunikation( Mobil- / Festnetz)
+    * Rating und Billing im Telco Umfeld
+    * GSM/ UMTS/ UMA/ GAN, 3GPP-Zertifizierung
+    * Protokolltester
+
+Schwerpunkte:
+Automotive                     
+Avionik                        
+Client / Server Architekturen  
+Medizintechnik                 
+Payment-Systeme                
+Projektleitung                 
+Systemdesign                   
+Telekommunikation              
+Test                           
+Testautomation                 
+Testmanagement                 
+Unix                           
+Wehrtechnik                    
+
+
+Managementerfahrung in Unternehmen:
+Projektmanagement  
+Testmanagement     
+
+
+Produkte/Standards/Erfahrungen:
+Jenkins                        
+Jira ( incl. Zephyr un X-ray)  
+Newman                         
+Postman                        
+swagger                        
+Software Pakete/ Tools
+    * QualityCenter (HP QC)
+    * Oracle
+    * QuickTestProfessional
+    * StarOffice / OpenOffice
+    * awk / sed / Perl
+    * RCS (cvs, rcs, ClearCase, Subversion, GIT)
+    * Infranet
+    * Arbor
+    * Vantive
+    * Toad / SQLPlus
+    * MS-Word
+    * MS-Excel
+    * Visio
+    * Wireshark, sdedit (Sequenzdiagrammeditor)
+
+Branchen:
+    * Investment-Banking
+    * Telekommunikationsprovider
+    * ISPs
+    * Servicedienstleister
+    * Logistik
+    * Messgerätehersteller
+    * Handel
+    * Industrie
+    * Mittelstand
+    * Avionik
+    * Automotive
+    * Rechenzentrum
+    * Gesundheitswesen
+    * B2B Banking
+
+Projekte:
+05/2019 - 03/2020: Projekt Infanterist der Zukunft (IDZ)-  68-Züge und VJTF
+ 
+Einsatzort:         Bremen
+Kunde:              Rheinmetall
+ 
+Aufgaben:
+ 
+    * Auswahl Testautomatisierungstool (Eggplant, Katalon, Ranorex,...)
+    * Erstellung Testkonzept Automatisierung 
+    * Erstellung Forderungskatalog an Entwicklung zur Qualitätsverbesserung
+      Test
+    * Testdurchführung Manuelle Testfälle
+    * Testfallerstellung -systematisch Tests ableiten
+    * Client/Server Testing Soldatenrechner/Führungsrechner
+    * Clientanwendungen Führungsrechner
+    * Testautomatisierung mit Eggplant
+    * Unterstützen Agiles Projektvorgehen-Automation
+ 
+Rolle
+Testmanagement, Test-Automation, strategische Testberatung,
+Testanforderungsmanagement, Aufbau Testautomatisierungsteststellung
+ 
+Kenntnisse:
+ 
+Eggplant, diverse systemspezifische tools (Hardwarenah), Unix-Tools, V-Lans,
+UHF-/VHF-Funk, Bundeswehrspezifische Hardware, Unix, Windows, Spezialhardware
+===============================================================================
+12/2018 - 03/2019: Test-, Energiehandelsumfeld
+ 
+Einsatzort:         Düsseldorf
+Rolle:              Tester/Testmanager
+Kunde:              Uniper
+ 
+Aufgaben:
+ 
+    * Testautomatisierung mit Katalon
+    * Integration automatisierte Tests in Nightly-Build 
+    * Umstellung Test in Docker-Container
+    * Erstellen Regressionstestfälle
+    * Test Clientanwendung auf Web-Basis
+    * Testfallerstellung -systematische Tests ableiten aus Anforderungen
+ 
+Rolle
+Testerstellung /Testautomation Handelsplattform für OTC- und Settlement- Orders
+von Gas an Großhandelskunden
+ 
+Kenntnisse:
+ 
+Jira ( incl. Zephyr), Katalon, Jenkins, Macintosh, Unix, Java
+===============================================================================
+05/2018 - 09/2018: Test-, Ticket- und Release-Management
+ 
+Einsatzort:         Stuttgart
+Kunde:              Daimler
+ 
+Aufgaben:
+ 
+    * Unterstützung Scrum Master bei Einführung agiler Testmethoden
+    * Testvorgehen etablieren 
+    * Testfallerstellung mit systematische Erstellung Testfälle um Abdeckung zu
+      erzwingen
+    * Systematische Tests abarbeiten laut erstelltem Plan
+    * Verifizieren Testfälle
+    * Planung Abnahmetest
+    * Ticketmanagement und improvement Management (Annahme, Einplanung,
+      ausliefern Improvements/Bug-behebung)
+    * Release-Management in Zusammenarbeit mit Endkunde
+    * Evaluation Testautomatisierung
+ 
+Rolle
+Test-, Release und Ticket-manager für ein Planungstool für Sonderausstattung
+KFZ
+ 
+Kenntnisse:
+ 
+Jira ( incl. Zephyr), Jenkins, Windows, Java
+===============================================================================
+11/2017 - 04/2018: Testmanagement B2B (Leasing) Portale mit Testautomatisierung
+ 
+Einsatzort:         Karlsruhe (Baden)
+Rolle:              Testmanager
+Kunde:              Großer Leasinggeber
+ 
+Aufgaben:
+ 
+Tests diverser Web Portale im B2B Umfeld in verschiedenen Ländergesellschaften
+sowie Ablösung existierender Systemen. Es wurde ein neues Frontend eingeführt
+das in neuen Ländergesllschaften eingeführt wurde und ein Backend System für
+die Vertragsverwaltung und Authorisierung angepassn
+ 
+    * Analyse Testautomatisierung
+    * Testfallerstellung und automatisierte Dredd Tests
+    * Manuelle Testfälle durchführen
+    * Testplanung / Testerstellung neues Vertragssystem
+    * Einführung PACT-Testing
+    * Automatisierte Verwendung von SWAGGER Definitionen für PACT
+ 
+ 
+Kenntnisse:
+ 
+Diverse Windows Entwicklugstools, Dredd, Postman
+ 
+Eingesetzte Produkte:
+ 
+Windows, Javascript
+===============================================================================
+07/2017 - 11/2017: Automatisierung Tests eines Web Portals im B2B (Handwerk)
+Umfeld
+ 
+Einsatzort:         Nagold
+Kunde:              Häfele
+ 
+Aufgaben:
+ 
+    * Analyse Automatisierung Dredd Tests, erstellen
+    * Erstellung Tests
+    * Durchführung Testerstellung
+    * Berücksichtigung Sonderrelgeln diverse Länder(Konditionen pro Kunde
+    * Projektsprache war Deutsch, Projekt fand im B2B Mittelstand (> 1 Mia
+      Umsatz) statt
+ 
+Kenntnisse:
+ 
+Ranorex, Windows, Java, Oracle, Linux, SQL
+===============================================================================
+03/2017 - 06/2017: Testmanagement Portierung im Bausparkassenumfeld
+ 
+Einsatzort:         München, Karlsruhe
+Kunde:              Bausparkasse
+ 
+Aufgaben:
+ 
+Verifikation automatisierte Portierung von Natural/Adabas nach Java/Oracle für
+Bausparkasse mit automatisierten Tests in Altsystem aufgezeichnet abgespielt
+gegen Neusystem mit DB Verifikation
+    * Testmanagement
+    * Unterstützung Endkunde Aufbau Regressionstests
+    * Unterstützung Auswahl / Qualifizierung Recording- / Replay-Tools
+    * Endkundenmanagement
+    * Durchführen von Tests und Recording, TN3270 und Natural Fat clients
+    * Projektsprache war Deutsch
+    * Projekt fand im Bausparkassenumfeld statt, Technik war Adabas/Natural,
+      Java, Oracle
+ 
+Kenntnisse:
+ 
+Jira, Ranorex, Z/OS, Linux, Shellscripting, Eggplant, Apache
+===============================================================================
+04/2016 - 02/2017: Erstellung Mautsäulen Bundesstraßenmaut von Testseite
+Hersteller
+ 
+Einsatzort:         Monheim, Berlin
+Kunde:              Jenoptik-Robot
+ 
+Aufgaben:
+ 
+    * Aufspielen neue Software auch auf Kundensysteme (Shellscripting)
+    * Verhandlungen Endkunde Berlin
+    * Aufsetzen Programmier-Hardware Maut-Tags
+    * Analyse, Test, Dokumentation Hardware
+    * Erstellung Testplan, Systematisierte Testfallerstellung
+    * Vertreten Testmanager
+    * Führen Tester, einarbeiten neue MA
+    * Qualifizieren neue MA (Profile)
+    * Testautomatisierung
+ 
+Kenntnisse:
+ 
+Jira, Java, Shell, Norbitec-Tags, Linux, Spezial Hardware, Mikrowellen-Bake,
+Radar, Stereokameras etc.
+===============================================================================
+04/2015 - 02/2016: Testweiterentwicklung eines Mandantenfähigen
+Depotführungssystems
+ 
+Einsatzort:         München
+Kunde:              ebase
+ 
+Aufgaben:
+ 
+Anforderungsanalyse eines bestehenden Systems und von Test-Scripts dazu sowie
+Testfällen und Planung weitere Testautomatisierung und Implementierungshinweise
+eines ablösendes System
+Durchgeführte Tätigkeiten waren:
+    * Test Implementierung neuer Preismodelle / Preisstaffeln /außerbörslicher
+      Handel
+    * Analyse bestehender testunterstützender Systemen (Shellscripts u. Ä.)
+    * Analyse bestehender COBOL Code
+    * Analyse SQL DB
+    * Formelle Dokumentation bestehendes System auf UML Basis um
+      modellgestützte Implementation automatisierte Tests / Re-Implementation
+      System zu erleichtern
+    * Qualitätsprüfung Testfälle
+    * Vorschläge Erweiterungen testunterstützender Scripts
+    * Aufwandsschätzung Implementierung Verbesserungen
+    * Implementationshinweise
+ 
+Eingesetzte Produkte:
+ 
+COBOL, UML, Shellscripts, Java, Toad, Linux, Virtualisierung, SQL-DB, Oracle
+===============================================================================
+04/2014 - 03/2015: Testmanagement einer Komponente eines gesicherten Systems
+ 
+Einsatzort:         Berlin
+Kunde:              gematik
+ 
+Aufgaben:
+ 
+Das System ist Teil einer besonders gesicherten Infrastruktur
+Durchgeführte Tätigkeiten waren:
+    * Testmanagement
+    * Lieferantenmanagement im Testbezug
+    * Qualitätsprüfung Dokumentenlage Lieferanten
+    * Qualitätsprüfung Testfälle
+ 
+Kenntnisse:
+ 
+Linux, Netzwerk, Cryptocards, ClearQuest, ClearCase
+===============================================================================
+09/2012 - 03/2014: Multi-Projekt Testmanagement
+ 
+Einsatzort:         München
+Rolle:              Banking - Payment / Testmanagement
+Kunde:              G&amp;D 3S
+ 
+Aufgaben:
+ 
+Multi-Projekt Testmanagement eines Android basierten gesicherten
+Kreditkartensystems mit dem Payment Terminal (MasterCard6 später auch VISA) per
+NFC (Deutschland/ Tschechien/ Spanien)
+ 
+Das System dient dazu Banken (Service Provider) zu befähigen per OTA (Over The
+Air) verschiedener Netz Provider Personalisierungsdaten für Kreditkarten
+gesichert bis auf die SIM Karte des Android mobiles zu übertragen wo erst dort
+der Transportschlüssel entfernt wird und auf gesicherten Bereichen der SIM
+hochwertig verschlüsselt Applikation und Kartendaten für die Bezahlung per
+Kreditkarte über NFC abgelegt wird. Zudem können diese Daten remote gelöscht,
+und in verschiedenen Stufen gesperrt und entsperrt werden. Das System ist
+Multi-client, muti-card und multi -tennant fähig. Softwareentwicklung erfolgte
+nach SCRUM.
+ 
+Durchgeführte Tätigkeiten waren:
+    * Testmanagement (Aufwandsschätzungen, Planungen, Ressourcenmanagement)
+    * Management diverser Teststufen, u.A.Systemtests, Integrationstests (HW
+      und SW) sowie Testumgebungen
+    * Integration Kunden und Zulieferer in Testsystem
+    * Interfaces verifizieren und wo nötig nach spezifizieren
+    * Erstellung Testfallspezifikationen für Use Case und Fail Case Tests
+    * Review von Mitarbeitern erstellte Testfälle
+    * Abnahmetests, Vorbereitung User Trials
+    * Test- und Error- Reporting, Weitergeben Fehler an Entwicklung
+    * Support Release Tracking
+    * Dokumentationsbegleitung und Review
+    * Abstimmung mit (Test-).Management Kundenseite
+    * Synchronisation und Klassifikation Incident- Management Kunde und
+      Dienstleister
+    * Verhandlung Kunde Scope Reduction /Präzisierung Liefermerkmale
+    * Ressourcenmanagement (Entwickler, Tester) bezüglich Kundenanfragen/
+      Support Requests
+    * Verwaltung Ressourcen und Debugging (Sim Card, Android mobiles , firmware
+      versionen)
+    * Release -management upgrades / Bugfix Versionen
+    * UAT /DAT Tests vorbereiten und mit Kunden durchführen
+    * Verhandlung bezüglich Scope Nachlieferung nächste Projektphase
+    * Erstanalyse Fehler durch u.a. Analyse Logfiles (Android logs, Server
+      Logs)
+    * Unterstützung third party Support compatibility tests (SIM Card, Mobiles,
+      Firmware)
+ 
+Kenntnisse:
+ 
+Apache, SQL, Messaging System, Android Logging, Android, Linux, NFC, SIM, DP,
+Enabler, Service Manager
+===============================================================================
+03/2012 - 08/2012: Verifikation eine Geschäftskundenproduktes
+ 
+Einsatzort:         Aventis, Heerlen, Niederlande | Düsseldorf
+Kunde:              Vodafone
+ 
+Aufgaben:
+ 
+Verifikation der Portierung des IPC ( Business Kunden. mobile/fixed integration
+mit zusätzlichen Unternehmensweiten Telefonanlagen Funktionen)
+
+Durchgeführte Tätigkeiten waren:
+    * Testplanung
+    * Überwachung Testdurchführung
+    * Testfalterstellung, resp Umsetzen Technische zu Abnahme Testfällen,
+    * Review erstellte Testfälle
+    * Abnahmetests
+    * Manuelle Testfälle
+    * Systematische Tests durchführen
+    * Test Reporting
+    * Error Reporting
+    * Test Tracking/ Error Tracking
+    * Treiben Fehlerbeseitigung durch Weiterleitung Fehler an Entwickler
+Internationales Projekt mit deutschen/englischen/niederländischen Anteilen
+Projektsprache war Englisch
+ 
+Kenntnisse:
+ 
+Protokoll Analysatoren, Wireshark, HP QC, Vodafone Carrier Netzwerk, mobile
+Handsets
+===============================================================================
+10/2011 - 03/2012: Testmanagement
+ 
+Einsatzort:         München
+Kunde:              G&amp;D SFS
+ 
+Aufgaben:
+ 
+Testmanagement eines Android basierten angepassten Handsets/ Authorisation
+Systems für das Regierungsgeschäft
+
+Projektentwicklung erfolgte nach SCRUM.
+ 
+Durchgeführte Tätigkeiten waren:
+    * Testplanung
+    * Testmanagement
+    * Management Testumgebungen
+    * Bugtracking
+    * Prozesse zwischen Lieferanten anpassen und
+      treiben
+    * Erstellung von Testfallspezifikationen
+    * Review erstellte Testfälle
+    * Abnahmetests
+    * Manuelle Testfälle durchführen
+    * Betreuung Tester
+    * Vorbereitung Friendly User Test
+    * Testreporting
+    * Errorreporting, treiben Fehlerbeseitigung durch Entwickler
+    * Dokumentationsbegleitung und Review
+    * Unterstützung QS
+Internationales Projekt mit deutschen/englischen Anteilen
+ 
+Kenntnisse:
+ 
+Protokoll Analysatoren, Wireshark, Android, Linux
+===============================================================================
+01/2011 - 06/2011: Testmanagement einer verteilten Multisite IVR Installation
+ 
+Einsatzort:         Eschborn, Nürnberg, München
+Rolle:              Testmanager
+Kunde:              Konsortium aus SEN, Vodafone, CreaLog
+ 
+Aufgaben:
+ 
+Testmanager für eine verteilte Multisite-IVR-Installation mit ACD
+Funktionalität und CTI Unterstützung
+ 
+Durchgeführte Tätigkeiten waren:
+    * Testplanung
+    * Abstimmung mit Projektpartnern im Konsortium
+    * Abstimmung mit Internen Abteilungen
+    * Steuern externe Dienstleister
+    * Abstimmung mit Endkunden
+    * Erstellung Testfallkataloge
+    * Erstellen Testfälle
+    * Management der Testumgebungen
+    * Durchführung der Abnahmetests in Zusammenarbeit mit Endkunden
+    * Das Projekt wurde nach ISTQB durchgeführt
+ 
+Kenntnisse:
+ 
+CreaLog IVR, ACD, HP QC, Unix, Windows, Oracle, HP, CreaLog IVR
+===============================================================================
+02/2010 - 01/2011: Entwicklung eines Call-by-Call Service
+ 
+Einsatzort:         Eschborn
+Kunde:              Vodafone
+ 
+Aufgaben:
+ 
+Entwicklung eines Call-by-Call Service mit Preisansage auf IVR Technik
+basierend
+ 
+Analyse Projektstand, führen Projektdokumentation, kontinuierliches Reporting
+Projektstand, Budgetkontrolle, Zeitkontrolle, Auslösen Bestellungen,
+Validierung technischer Konzepte und Verbesserung, falls diese nicht
+ausreichend waren, mit Entwicklung zusammen Verfeinerung / Komplettierung
+Dokumentation, Konzepterstellung und Schnittstellenerstellung sowie
+Projekterweiterung um automatische Dokumentation Preispläne mit
+Recherchefunktion für Callcenter sowie automatischem erstellen der
+Pressemitteilungen zu Preisänderungen, Durchführung Migration des Projektes von
+Arcor Prozessen auf Vodafone Prozesse während Projektlaufzeit (Dokumentation,
+beteiligte Abteilungen, Vorgehensmodelle etc.)
+ 
+Durchgeführte Tätigkeiten waren:
+    * Treiben Konformitätstests
+    * Treiben der Leitungsbestellung
+    * Beibringen der nötigen Zertifikate
+    * Bewertung technischer Fragen/Aufwände für den Auftraggeber
+    * Requiementanalyse im Laufe des Projektfortschritt um Lücken oder neue
+      Anforderungen Nachpflegen zu können
+    * Architekturunterstützung
+    * Dokumentenerstellung, Projektplan etc.
+    * Reporting Projektfortschritt
+    * Bestellung Hardware
+    * Interfacedefinition File-Schnittstellen
+    * Steuern der externen Dienstleister
+    * Interfacing mit Internen Abteilungen
+    * Koordinieren Entwicklung
+    * Treiben technischer Anpassungen
+    * Analyse Nachrichtensequenz mit Shell-skripten und Ausleitungen mit
+      Wireshark
+    * Design der Erweiterungen bzgl. Preisplänen (Archiv, Suche, automatisierte
+      Pressemitteilungen)
+ 
+Kenntnisse:
+ 
+CreaLog IVR, Mircosoft Project, SIP, Wireshark, shell, HP QC, Unix, Windows,
+Oracle, HP, Italtel, CreaLog IVR
+===============================================================================
+06/2009 - 12/2009: Vier Projekte
+ 
+Einsatzort:         Zürich
+Kunde:              Credit-Suisse
+ 
+Aufgaben:
+ 
+    * Führen von vier Projekten als Testmanager sowie Führung der Tester und
+      Reporting Testergebnisse
+    * Analyse des Projektes, Aufwandsschätzung für Testing, Erstellen der
+      Rahmendokumente und Führen der Tester in vier verschieden Projekten,
+      zusätzlich 10% Backup für anderen Testmanager sowie Management der
+      Testumgebungen, die Projekte wurden nach ISTQB durchgeführt
+    * Die Projekte waren im einzelnen Einführung von private Services for
+      private Banking, Loan to Value and Credit Risk Berechnung, Begleitung
+      Entwicklung und Einführung konzernweites Bus Konzept für Trading
+      Applikationen (TAB) sowie automatisiertes Testing eines precious metals
+      Handeslssystems (Endur). Das TAB Projekt wurde nach SCRUM durchgeführt,
+      andere Projekte nach Wasserfall.
+ 
+Kenntnisse:
+ 
+HP QC, QuickTestProfessional
+===============================================================================
+11/2008 - 04/2009: Umstellung auf SOPERA Framework
+ 
+Einsatzort:         Bonn
+Kunde:              DHL
+ 
+Aufgaben:
+ 
+    * Umstellung auf SOPERA Framework, Ablösung von drei Systemen der
+      Produktions und Vorabrechnungskette parallel
+    * Analyse der Requirements und Spezifikation von Tests sowie Testdaten,
+      Betreuung der Lieferanten um Auswertungstools bei verschiedenen
+      Schnittstellen zu den jeweiligen Testphasen rechtzeitig bereitzuhalten
+    * Verifikation der gelieferten Auswertungstools. Es wurden Testfälle und
+      Testdaten erstellt die bei einem Durchlauf der Prozesskette von der
+      Beauftragung bis zur Abrechnung der Logistikleistung das konsistente
+      Verhalten zwischen Alt- und Neusystem überprüfbar machte.
+ 
+Kenntnisse:
+ 
+Remotedesktop, Shellscripts, HP QC
+===============================================================================
+10/2007 - 09/2008: Automatisierter Test eines IVR Systems
+ 
+Einsatzort:         Eschborn
+Kunde:              Arcor
+ 
+Aufgaben:
+ 
+    * Automatisierter Test eines IVR Systems um nach Versionsupdates per
+      Regressionstest die ununterbrochen Funktionalität für den Endkunden zu
+      sichern
+    * Requirementanalyse, Testdesign, Testspezifikation, Aufbau von
+      Testdiensten, Aufbau von automatisierten Testdurchführungen sowie
+      statistische Auswertungen und Abschlussdokument für den Kunden. Ziel war
+      die Tests so sauber zu definieren, das sie von kurzfristig angeworbenen
+      Kräften ohne Einarbeitung durchgeführt werden können, wo möglich
+      automatisiert.
+ 
+Kenntnisse:
+ 
+Creavoice, Web basierte Oberflächen, CDG, Medien, Telefonie, EWSD, Oracle
+===============================================================================
+ 
+04/07-09/07 Telematik, Automotive
+Erstellung von System-Test, Test-Definition und Implementationsbegleitung
+einer Software die automatisch Gelände- und Maut-Informationen bedarfsgesteuert
+per GSM in ein Embedded System überträgt
+
+Projektsprache war  Deutsch
+Plattform:
+Linux, OBU, SVDO, CarPC, TDMA, GPRS, Java, C++, OSGI Framework
+Ort: Karlsruhe
+
+08/06-03/07 Avionik, Systemdesign der Kommunikationsplattform einer taktischen
+In-flight
+Kommando-Software für einen ausländischen Militärkunden auf Basis von
+verschlüsseltem TDMA-i
+
+Projektsprache war Französisch, Englisch, Deutsch
+Plattform:
+XP, TDMA-i, Java, ruggedized Mil-spec Avionik HW, XML,J-Messages, H-Messages
+Ort: Pforzheim, Paris
+
+04/06-08/06 Telekommunikation, Test und Verifikation einer Erweiterung der AAA-
+Domain im Hinblick auf die Einführung von IPTV bei einem Telco Carrier.
+
+Projektsprache war Deutsch
+Plattform:
+Unix, XML, Shell, TDB-Protokoll, Telecom eigenes Testframework
+Ort: Darmstadt
+
+
+12/05-03/06       Telekommunikation, Entwicklung eines Testframeworks zum
+automatisierten Testen eines BMD (Billing-Mediation-Devices)
+
+Projektsprache war Deutsch
+Plattform:
+Unix, Linux, Bash-shell, Perl, TDB Protokoll, diverse Telecom Produkte
+Xml, XSD, XSLT
+Ort: Karlsruhe
+
+
+05/05-11/05       Messtechnik, Entwicklung eines Protokolltesters für UMA/GAN
+
+Erweiterung spezialisierter Test Hardware um UMA/GAN Tests für die
+Zertifizierung eines mobiles im Rahmen der 3GPP
+
+Projektsprache war Englisch
+Plattform:
+UMA/GAN, 2G Protokolltester, 3G Protokolltester
+Ort: München
+
+
+02/05-04/05     Telekommunikation, Test Rating/Billing GSM/UMTS/TDMA
+Entwicklungsbegleitung
+
+Test einer mandantenfähigen Mobilfunkabrechnungssoftware, Unterstützung der
+Projektleiter und Entwickler bei Feinspezifikation und Erstellung von J-Unit,
+Unit, Interoperabilitätstest, String- und Integrations-Test der
+Abrechnungssoftware
+
+Auslandsprojekt in Graz mit multinationalem Team für einen Endkunden in den USA
+ 
+
+Projektsprache war Englisch.
+
+Plattform:
+Unix Systeme, GSM/GPRS/UMTS,
+Ort: Graz
+
+
+05/04-02/05       Telekommunikation, Test GSM/UMTS
+
+Testspec Erstellung, Erweiterung und Anpassung sowie Test von Mobilfunkgeräten
+der 2./2,5./3. Generation
+
+Plattform: Rohde&amp;Schwarz Test-Equipment, Diverese HW/SW, Imode, GSM/GPRS/UMTS
+Ort: Düsseldorf
+
+
+04/04             Performance Bottleneck Analyse / Öffentliche Verwaltung
+
+Identifikation von Performance Bottlenecks in einer verteilten mehrstufigen
+Architektur
+
+
+Plattform:
+Unix / Linux / NT, Apache, Oracle, XML, diverse Verbindungsprotokolle/
+Schichten,
+SQL-Plus, Loadrunner
+Ort: München
+
+
+10/03-11/03       Verwaltung / Telekommunikation
+
+Test eines Provisionsmanagementsystems für Vertriebspartner mit einem Unix /
+Oracle / Java Backend und einem Java basierten Frontend
+
+Plattform: Solaris, MICOS, DIV. ORACLE TOOLS(ORA-TOOL, SQLPLUS),JAVA, OFFICE
+TOOLS
+Ort: Eschborn
+
+
+
+03/03-09/03       Entwurf einer B2B Plattform / Handel
+
+Entwurf und Beratung für ein mittelständisches Unternehmen das eine
+Handelsplattform für externe Partner zum An- und Verkauf von Detailplanungen /
+Entwürfen / Projektplanungen betreibt
+
+
+Platform:
+LINUX, DIVERSE WEB-STANDARDS/APPLIKATIONEN (HTML, XML, PERL, APACHE, JBOSS,
+JAVA, UNIX-TOOLS)
+
+
+
+09/02-03/03       Rating / Billing / Telekommunikation
+
+QS, insbesondere von Billing , neues CRM-Tool und Integration desselben,
+Migration neue Abrechnungssoftware
+
+Plattform: Solaris, CLEARQUEST, CLEARCASE, INFRANET, TUXEDO, ORACLE, CLARIFY,
+DIVERSE TELEKOM EIGENE TOOLS
+Ort: Darmstadt
+
+
+07/01-04/02       Rating / Billing /Internet Service Provider
+
+Testplanung, Testerstellung und Testdurchführung sowie Reporting
+
+Plattform:
+Solaris, CLEARQUEST, CLEARCASE, INFRANET ADMIN, ORACLE, CLARIFY, DIVERSE
+TELEKOM EIGENE TOOLS
+Ort: Darmstadt
+
+
+06/00 - 05/01     Industrie / Produktentwicklung / Telekommunikation
+
+Unterstützung bei der Konzeption und Entwicklung eines neuen HLR (GSM/UMTS) auf
+einer Risc-basierten Unix Plattform unter Berücksichtigung von
+Hochverfügbarkeitsanforderungen.
+
+Plattform: C++, GSM, UMTS, SOLARIS, Solstice.
+Ort: Bad Hersfeld
+
+
+07/99 - 02/00     Internetdienstleister / Produktentwicklung
+
+Planung und Durchführung von diversen organisatorischen Aufgaben bei einer
+Operationsgruppe sowie Second Level Support und Beratung der Entwicklung
+bezüglich der Wartbarkeit, Stabilität und Performance eines B2B-Produktes in
+einer Unix-Umgebung.
+
+Plattform: ISO 900X, LINUX, SOLARIS, SHELL, SQL, UNIX.
+Ort: München
+
+
+03/98 - 04/99     Mobilfunk / Rechenzentrum /ISP
+
+Testplanung, -durchführung und -reporting sowie Testsupport für andere
+Abteilungen in einem HP-UX-HA-, SOLARIS- und Nortel-Switch-Umfeld sowie
+Entwicklung von Testtools in Shell-Skripten, C und C++, zudem Erstellung von
+Patches für das Service-Guard-System.
+Leitung von zwei Projektgruppen
+ 
+Plattform:
+ARBOR, Vantive, AWK, C, C++, HP-HA, HP-UX-HA, INTERNET, SHELL, SOLARIS, SQL,
+UNIX.
+Ort: München
+
+
+09/97 - 01/98     Industrie / Telekommunikation
+
+Implementierung eines Super-Dämons für die Client / Server-Kommunikation in C.
+
+Plattform: AWK, C, SHELL, SQL.
+Ort: Köln
+
+
+03/96 - 06/97     Telekommunikation
+Bearbeitung einer Stand-Alone-Applikation für die Abfrage einer Datenbank auf
+einem verteilten hochredundanten SQL-SERVER vom Client.
+
+Erstellung von mehreren Dämonen unter WINDOWS sowie Durchführung einer Client /
+Server-Verbindung für den Ausdruck von diversen Kunden- und Abrechnungsdaten.
+Analyse des Problems.
+
+Plattform:
+FTP, SQL-SERVER, RSC, TCP/IP, VISUAL-C++, WINDOWS 3.X., Tandem
+Ort: Darmstadt
+
+
+
+1994 - 1995       Unix Sys-Admin
+
+Systemadministration eines heterogenen Client / Server-Systems auf MIPS-,
+Micro-VAX- und ALPHA-Systemen unter ULTRIX und OSF/1.
+
+Plattform:
+APLAY, JPEG-PLAYER, LINUX, OS, OSF/1, ULTRIX, UNIX, XV.
+Ort: Karlsruhe
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_59223 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 31.05.2021 00:50:02
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

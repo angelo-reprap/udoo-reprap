@@ -1,0 +1,228 @@
+---------- Gulp-Profil Stand 2010-05-18 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 22158:
+Software-Entwicklung Java, J2EE, Spring                  
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+22158 [4] | Wordprofil | XML Profil
+     Stammdaten (Auszug):   
+
+	 Personen ID 22158    Wohnort 630xx Offenbach, Deutschland Jahrgang
+1965 EDV-Erfahrung seit 1992 Staatsbürgerschaft deutsch Stundensatz 75
+EUR projektabhängig Verfügbar ab 01.06.10 zu 0%, Vor-Ort-Einsatz 0%
+möglich Profil erstellt am 18.12.00 Profil zuletzt geändert am
+18.05.10         Kommentar:  
+
+	 Kommentar schreiben Profil angezeigt am 02.07.2008 09:22:59      
+Fachlicher Schwerpunkt:  Software-Entwicklung Java, J2EE, Spring     
+Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Projektmanagement / -leitung / Organisation / Koordination
+ Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit
+bevorzugt
+
+ Voraussetzung für Festanstellung: Einsatzort Rhein-Main, Interessante
+Aufgabe.
+ Ich würde es bevorzugen zunächst ein Projekt auf freiberuflicher
+Basis
+ abzuwickeln.      Ausbildung:  Diplom Physik Uni Heidelberg
+ Abschluß 1991
+
+       Einsatzort:  Deutschland: D6Kommentar zum Einsatzort / zur
+Arbeitserlaubnis
+
+	Deutschland: ausschließlich Rhein-Main Gebiet
+ vorzugsweise Frankfurt      Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+      Hardware:  
+
+		PC
+
+      Betriebssysteme:  
+
+		MS-DOS
+
+		OS/2
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		Java
+
+		JavaScript
+
+      Datenbanken:  
+
+		Access
+		Anwenderkenntnisse
+
+		Interbase
+
+		JDBC
+		gute Kenntnisse
+
+		MySQL
+		gute Kenntnisse
+
+		Oracle
+
+		SQL
+
+		Sybase
+
+      Datenkommunikation:  
+
+		RS232
+		Treiber, Ansteuerung mit Java Comm API
+
+		TCP/IP
+		Socketprogrammierung
+
+		Windows Netzwerk
+
+		Winsock
+
+      Produkte/Standards/Erfahrungen:  Objektorientierte Analyse und
+Design (UML)
+ Spezifikation von Prorammschnittstellen
+ GUI Programmierung
+ Serverprogrammierung
+ Client/Server Architektur
+ Dokumentation
+ Qualitätssicherung/Erstellen von Testszenarien
+
+       Branchen:  Call Center
+ Telekommunikation
+ Banken: Schalterkassenanwendungen
+ Banken: Wertpapierhandel
+
+       Projekte:  Projekte ab 1995
+
+ Zeitraum : 07.1995 - 01.1998 2,5 Jahre
+ Branche : Telekommunikation
+ Projekt : Call Center Anwendung
+
+	 Steuerung einer Telefonanlage, Ereignisgesteuertes Server und 
+
+	 Journalisierungssystem, Automatische Anrufverteilung, Agenten 
+
+	 und Gruppenverwaltung, eingehende und ausgehende Gespräche, 
+
+	 Online und Offline Statistiken, Voice-Recorder Anbindung, grafische 
+
+	 Client Anwendungen für Agenten und Supervisoren, API Schnittstelle 
+
+	 für Kundenanbindungen. Tätigkeit: Analyse, Design, Entwicklung
+ Technik : Client/Server Architektur, TCP/IP (Socketprogrammierung),
+SQL(DB/2),
+
+	 C/C++, Borland IDE,GUI Bibliotheken (MFC,StarView). OS : Win95/NT,
+OS2.
+
+ Zeitraum : 02.98 - 6.98 5 Monate
+ Branche : Telekommunikation
+ Projekt : Mediation Devices
+
+	 Anbindung von Funknetzen an ein Gebührenabrechnungssystem (Billing).
+
+
+	 Anlegen und Verwalten von Kunden, Anpassung an spezif. Provider. 
+ Tätigkeit: Entwicklung, Dokumentation, Installation und Betreuung von
+Kunden
+ Technik : C/C++, EdiFact Messages, Posix Threads, Telnet Verbindung
+
+ OS : Unix ( AIX, HP, Sun )
+
+ Zeitraum : 07.98 - 2.98
+ Branche : Banken - Kassentresore
+ Projekt : Emulation eines Twinsafe
+
+	 Treiberprogrammierung eines Kassentresors, Abbildung einer 
+
+	 properitären RS232 Schnittstelle in eine TwinSafe kompatible Form.
+Tätigkeit: Design, Entwicklung, Dokumentation, Test
+ Technik : C/C, Visual C++, Multithread-Serverprogramm.
+ OS : Win95/NT
+
+ Zeitraum : 12.98 - 2.00 2 Jahre
+ Branche : Banken - Frontend Kassenanwendung
+ Projekt : Kassenanwendung
+
+	 Abwicklung von Barverkehrsgeschäften, Kundendatenverwaltung, 
+
+	 Benutzerverwaltung, Vorgangs-Journalisierung, Bestandsführung, 
+
+	 Steuerung und Treiberprogrammierung von automatischen
+Kassentresoren, 
+
+	 Statistiken, Dialogbank, externe C-Schnittstelle an Hostsysteme
+Tätigkeit: Spezifikation, Analyse, Design, Entwicklung, Teamleitung
+ Technik : Java 1.1 und Java 1.2, Swing, JDBC, RMI, JNI, SQL (Mysql,
+Interbase), VisualCafe,
+
+	 JBuilder, Sybase Data-Architekt OS : Win95/NT/2000, OS/2, Unix
+(Linux).
+
+ Zeitraum : 02.01 - 2.01 10 Monate
+ Branche : Banken - Investment Bank
+ Projekt : Online Wertpapierhandelssystem (Eigenentwicklung)
+
+	 Anbindung an ECN Märkte. Berechnung und Darstellung 
+
+	 von Preis-Daten in Echtzeit. Benutzer und Rechteverwaltung.
+Tätigkeit: Entwicklung und Design vorwiegend im Frontend Bereich
+ Technik : Java 1.3, Swing, JDBC, SQL, JBuilder, Middelware -
+Tibco-Rendezvous
+ OS : WinNT, Sun Solaris, Linux, Datenbank Sybase
+
+       Sonstige Anmerkungen:  Java Projekte bevorzugt
+
+		Seite drucken [5]  [6] 
+		Zum Seitenanfang [7]  [8]
+
+ Recherche [9] | Suchergebnis [10] | Kontaktieren [11] | Anfragen an
+ID 22158 [12] | Wordprofil | XML Profil
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 14.10.2011 12:28:53
+ (c) Copyright 1996-2011 GULP Information Services GmbH,
+ Ridlerstraße 37, D-80339 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [13] 
+
+          Suche [14] | Kontakt [15] | AGB [16] | Impressum [17]       
+ 
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show141253
+[3] /cgi-gulpsearch/Kontakt.exe/PCOMG?22158
+[4] /cgi-gulpsearch/gp.exe/UBONE22158?0
+[5] /cgi-gulpsearch/printdoc.exe/profil?DA5SFJ9E
+[6] /cgi-gulpsearch/printdoc.exe/profil?DA5SFJ9E
+[7] /#
+[8] /#
+[9] /cgi-gulpsearch/enter.exe/r
+[10] /cgi-gulpsearch/ShowResults.exe/Show141253
+[11] /cgi-gulpsearch/Kontakt.exe/PCOMG?22158
+[12] /cgi-gulpsearch/gp.exe/UBONE22158?0
+[13] mailto:info@gulp.de
+[14] /suche/mainsuche.html
+[15] /wiruu/mainkont.html
+[16] /agb/mainagb_feb_2012.html
+[17] /impressum/mainimp.html

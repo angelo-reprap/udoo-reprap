@@ -1,0 +1,845 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_3630
+
+
+Stammdaten (Auszug):
+
+Personen-ID                3630
+  
+Wohnort                    407xx Langenfeld, Deutschland
+Jahrgang                   1968
+Staatsbürgerschaft         deutsch
+Stundensatz                90 EUR
+                           in Abhängigkeit von Projekt und Einsatzort
+Verfügbar ab               01.07.20 zu 100%, Vor-Ort-Einsatz 80% möglich
+Profil erstellt am         29.08.98
+Profil zuletzt geändert am 20.04.20
+Lesen von Projektanfragen  1,5 Tage [07]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 29.04.2020 16:13:55
+
+Fachlicher Schwerpunkt:
+Berater Anforderungsmanagement im Bereich Software
+
+Position:
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Ausbildung als Verfahrensmechaniker
+Abschluss als Verfahrensmechaniker, Juni 1987
+
+Fachhochulreife 1990
+
+Studium der Informatik an der FH-Darmstadt
+Abschluss als Diplom-Informatiker, Juli 1996
+
+Aug. 1996 - Mär. 1998 festangestellter Systementwickler
+Apr.  1998 - Sep. 2014 freiberuflicher Systementwickler
+Jan.   2015 - laufend     freiberuflicher Requirements Engineer
+
+Einsatzort:
+Regionen:
+D4, D5
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: Düsseldorf, Leverkusen, Köln, Bonn, Duisburg, Essen, Wuppertal,
+Hagen, Dortmund
+
+Fremdsprachen:
+Deutsch   
+Englisch in Wort und Schrift
+TürkischMuttersprache
+
+
+Betriebssysteme:
+HPUX            9.0
+MS-DOS          5.0
+Novell          Netware 3.12
+SUN OS, Solaris 2.5, 2.6
+Unix            Linux 1.9, 2.0
+Windows         95, NT 4.0, 2000, XP, 7
+
+
+Programmiersprachen:
+C          Fortgeschritten
+Java       Fortgeschritten
+JavaScript Fortgeschritten
+Perl       Fortgeschritten
+
+HTML Fortgeschritten
+XML  Fortgeschritten
+Perl/Tk Projekterfahrung
+
+Datenbanken:
+DB2            
+Ingres        Report Writer, ESQL/C
+JDBC          2.0
+MS SQL Server Version 6.5, Grundkenntnisse
+MySQL         Grundkentnisse
+Oracle        7.0, 8.1, 9.1, 10, 11g XE
+Postgres      8.3
+SQL           gute Kentnisse
+
+Perl DBI
+
+Datenkommunikation:
+Internet, Intranet  
+ISO/OSI             
+Message Queuing    System V IPC
+TCP/IP             HTTP, HTTPS, FTP
+
+Z39.50
+
+Branchen:
+Banken/Finanzdienstleister
+Behörden
+Bibliotheken
+Forschung/Technik
+Gesundheitswesen
+Handel
+IT-Dienstleister
+Logistik (Post)
+Maschinenbau (Druck)
+Pharmazie
+Softwarehersteller
+Telekommunikation
+Transport (Bahn)
+
+Projekte:
+Beruflicher Hintergrund
+20 Jahre Erfahrung in der Entwicklung von Software, hauptsächlich Java
+basierende Web-Applikationen. Zwischendurch Test und Buildmanagement.
+Nach gestiegenem Interesse an den Arbeiten in der Vorphase der Software-
+Entwicklung Anfang 2015 der Umstieg in das Requirements Enginieering.
+ 
+Zertifizierungen
+    * CPRE Foundation Level (2014)
+    * ITIL Foundation Edition 2011
+ 
+Training
+    * IBM DOORS Foundation
+ 
+Projekte mit Schwerpunkt Requirements Enginieering
+(in umgekehrter historischer Reihenfolge)
+ 
+===============================================================================
+[31] IdNr-Verfahren für das Bundeszentralamt für Steuern (BZSt)
+===============================================================================
+Projektname : IdNr-Verfahren
+Branche     : Behörde, Steuern (Bundeszentralamt für Steuern)
+Kunde        : ITZBund für das Bundeszentralamt für Steuern, Bonn
+Zeitraum    : 01/2015 - laufend
+Rolle(n)       : Anforderungsmanagement für Dialoge des IdNr-Verfahren. Unter
+anderem das Allgemeine Dialogverfahren Identnummer.
+ 
+Vorgehen:
+- V-Modell
+ 
+Methoden:
+- RFC Notierte Anforderungen und deren Interpretation
+ 
+Kontext:
+- Dialogumfeld
+- große Datenbank mit vielen Tabellen und Relationen
+- viele interagierende Komponenten und nutzende Systeme
+- interne / externe Nutzer  Rollenabgrenzungen / Sicherheitsaspekte (DOI-Netz)
+- Geheimhaltungsstufen
+- Behördenumfeld
+ 
+Tätigkeiten :
+- Reviews von Lastenheftanforderungen
+- Analyse von Lastenheftanforderungen
+- Durchführung von Aufwandsschätzungen (Expertenschätzung)
+- Erstellung, Pflege und Reviews von Pflichtenheften für Dialoge
+- Technische Besprechungen mit Entwicklern
+- Komplettaufbau neue Dokumentation
+- Impactanalysen auf andere Verfahrenskomponenten
+- Datenanalysen
+- Definition von Arbeitspaketen
+- Ticketbearbeitung zu Pflichtenheften
+- Fachliche Sachstandsanalysen/Kurzberichte
+- Pflege des Projekt-Wiki
+- Erarbeiten von technischen Konzepten mit der Entwicklung
+- Beraten des Kunden bei der Umsetzbarkeit von Anforderungen
+
+Werkzeuge:
+- DOORS
+- MS-Office
+- MS-Visio
+- Balsamiq
+- XML Spy
+- ASPE (aquanito toolkette)
+- Bugzilla
+- MS Sharepoint
+- Lnyc
+ 
+ 
+Projekte mit Schwerpunkt Entwicklung, Test, Buildmanagement
+(in umgekehrter historischer Reihenfolge)
+ 
+===============================================================================
+[30] Allgemeines Dialogverfahren Identnummer
+===============================================================================
+Projektname : ADI
+Branche     : Behörde, Steuern (Bundeszentralamt für Steuern)
+Kunde        : FTS für ZIVIT
+Zeitraum    : 03/2013 - 09/2014
+Rolle(n)       : Senior Entwickler JEE
+ 
+Tätigkeiten :
+ 
+- Entwickler
+  - Entwicklung von Komponenten
+  - Bugfixing diverser Komponenten
+  - Refactoring
+ 
+Technologien: JEE, JSF 1.2, Facelets, XML, MyBatis, HTML, Javascript, CSS,
+Firefox 25
+OS          : Windows XP
+Werkzeuge   : IBM WAS 7, IBM RAD 8, Squirrel 3.5, Bugzilla
+ 
+===============================================================================
+[29] Vollstreckungsportal
+===============================================================================
+Projektname : ZPONF
+Branche     : Behörde, Justiz (Justizministerien des Bundes und der Länder)
+Kunde       : BGS (Siegburg) für IT.NRW
+Zeitraum    : 11/2011 - 10/2012
+Rolle(n)    : Senior Entwickler JEE, QS, Testmanagement, Technischer
+Projektleiter
+ 
+Technologien: JEE, EJB 3.0, JSF 2.0, Facelets, XML, Hibernate, HTML, CSS, IE,
+Firefox 14
+OS          : Windows XP, Windows 7, Redhat Linux 6
+Werkzeuge   : JBOSS (6, 7, EAP 6), Oracle 11g XE, Oracle SQL Developer, Eclipse
+3.2 Indigo
+ 
+Tätigkeiten :
+- Entwickler
+  - Entwicklung der Komponente zur Replikation von Daten aus der Landeslösung
+in das
+    Vollstreckungsportal
+  - Bugfixing diverser Komponenten
+- Qualitätssicherung
+  - Überprüfung von Softwarespezifikationen
+- Testmanagement
+  - Erstellen von Testfallkatalogen für verschiedene Komponenten
+- Technischer Projektleiter (Fachliche Zuständigkeit)
+  - Planung von Aufgaben
+  - Aufwandsschätzung für Aufgaben
+  - Releaseplanung
+ 
+===============================================================================
+[28] Auswertung von Statistikdaten
+===============================================================================
+Branche     : Behörde, Gesundheitswesen
+Kunde       : BGS (Siegburg) für GKV (Berlin)
+Zeitraum    : 09/2011 - 10/2011
+Rolle(n)    : Berater
+ 
+Tätigkeiten :
+- Konzeption und Spezifikation von Erweiterungen bestehender Module und neuer
+Module
+ 
+Technologien: JEE
+ 
+===============================================================================
+[27] Web-Applikation zum Abfragen von Kontodaten
+===============================================================================
+Projektname : Kontenabrufverfahren
+Branche     : Behörde, Steuern (Bundeszentralamt für Steuern)
+Kunde       : ZIVIT (Bonn)
+Zeitraum    : 07/2010 - 03/2011
+Rolle(n)    : Senior Entwickler JEE
+ 
+Tätigkeiten :
+- Konzeption, Entwicklung und Test von einzelnen Modulen
+ 
+Technologien: JEE, JSF 1.1, XML, JPA, HTML, CSS, JavaScript, IE 6, Firefox 3.x
+OS          : Windows XP
+Werkzeuge   : IBM RAD, WebSphere, CVS, DB2, Squirrel
+ 
+===============================================================================
+[26] B2B Schnittstelle für das T-Home Portal
+===============================================================================
+Projektname : THOP B2B
+Branche     : Telekommunikation
+Kunde       : Deutsche Telekom AG (Darmstadt)
+Zeitraum    : 04/2009 - 12/2009
+Rolle(n)    : Tester
+
+Tätigkeiten :
+- Vorbereitung von Testfällen
+- Durchführung von Tests: Regressionstests, Fachliche Tests der Services,
+  Fachliche Tests Geschäftsfälle, Loadtest
+- Erstellung von Test Scripts in Groovy
+
+Technologien: Webservices, XML, Groovy Script
+OS          : Windows XP
+Werkzeuge   : Oracle 9, SQL Developer, soapUI 2.5.1, XML Spy, Putty,
+ClearQuest, JIRA,
+              GlassFish Application Server
+
+===============================================================================
+[25] Konzernweites Telefonbuch
+===============================================================================
+Projektname : Corporate Phone Book
+Branche     : Logistik
+Kunde       : Deutsche Post IT-Services GmbH (Darmstadt)
+Zeitraum    : 11/2008 - 01/2009
+Rolle(n)    : Senior Entwickler JEE, Coach
+
+Tätigkeiten :
+Realisierung
+- Implementierung einiger Module
+Coaching
+- Coaching von Mitarbeitern in der Verwendung von Web Technologien wie Struts,
+  Ajax, YUI (Yahoo UI), JavaScript
+
+Technologien: J2EE, Java 1.5, HTML, CSS, JavaScript, AJAX, YUI, AjaxTags, IE 6,
+Firefox2.0 OS          : Windows XP
+Werkzeuge   : Eclipse 3.3 WTP, Tomcat 5.2, Subversion, LDAP, Softerrra LDAP
+Browser
+
+===============================================================================
+[24] Webapplikation zur Erstellen von Reports für Druckmaschinen und
+Beratungsleistungen
+===============================================================================
+Projektname: PreAct - Reporting
+Branche    : Druckmaschinen
+Kunde      : manroland AG (Mühlheim am Main)
+Zeitraum   : 06/2007 - 10/2008
+Rolle(n)   : Berater, Analyse, Planung, Entwurf, Entwickler
+
+Tätigkeiten:
+Beratung
+- Einsatz von J2EE Technologien
+Planung
+- Vorgehensweise
+- Aufwandsabschätzung
+Analyse
+- Analyse der Anforderungen (UML 2.0)
+- Dokumentation der Anforderungen (UML 2.0, Use Case Diagramme, Activity
+  Diagramme, Klassendiagramme, Zustandsdiagramme, Lastenheft, Pflichtenheft)
+Entwurf
+- Entwurf der Systemarchitektur
+- Entwurf der Klassen
+- Entwurf Erweiterung der Datenbank
+- Festlegung der Technologien
+Implementierung
+- Eroierung von Web Frameworks: Struts1, Struts2, Apache MyFaces, JSF,
+  DojoTool Kit, DisplayTag Library, Tiles,
+- Implementierung der Web-Schicht mit Java, JSF, Ajax
+- Implementierung der Businesslogik mit Java, Spring 2, JasperReports,
+  JFreeChart
+- Erstellung von Report Designs mit iReport
+- Buildmanagement mit Ant 1.6.5
+Test
+- Unit Tests mit JUnit
+
+Technologien: J2EE, Java 1.5, HTML, CSS, JavaScript, AJAX, SQL, MyFaces, Spring
+2.0,
+              Log4J, JDBC, IE 6, Firefox 2.0
+OS          : Windows XP
+Werkzeuge   : Eclipse 3.3 WTP, Tomcat 5.2, Ant 1.6.5, IBM Rational ClearCase,
+micro TOOL
+              ObjectIf 6.1, iReport, PostgreSQL 8.3, PG Admin III
+
+===============================================================================
+[23] Verteilung von medizinischen Analysedaten
+===============================================================================
+Projektname : CTSRS
+Branche     : Software / Medizin
+Kunde       : Exco GmbH (Maxdorf) für Jansen Cilag
+Zeitraum    : 01/2007 - 03/2007
+Rolle(n)    : Senior Entwickler JEE
+
+Tätigkeiten :
+- Entwicklung von Modulen mit JAVA, Javascript, HTML, CSS, AJAX zur Erfassung
+  und Distribution von Medizinischen Analysedaten
+- Coaching beim Einsatz von Struts und Ajax
+
+Technologien: J2EE, Java 1.5, Struts 1.2.9, HTML, AJAX, Javascript, CSS, SQL
+OS          : Windows XP
+Werkzeuge   : Eclipse 3.1, Tomcat 5.20, Ant, SQL Server, Enterprise Manager
+ 
+===============================================================================
+[22] Disposition von Warenein- und ausgängen
+===============================================================================
+Projektname : WebDispo
+Branche     : Handel
+Kunde       : Dr. Eckhardt &amp; Partner (Bad Soden) für REWE
+Zeitraum    : 08/2006 - 12/2006
+Rolle(n)    : Senior Entwickler JEE
+
+Tätigkeiten:
+- Weiterentwicklung von JSF Modulen mit JAVA, Javascript, AJAX
+- Entwicklung von JSF Modulen mit JAVA, Javascript, AJAX
+- Erstellung von Systemdokumentation mit JAVADOC
+
+Technologien: J2EE, JSF, AJAX, HTML, Javascript, CSS, SQL
+OS          : Windows XP
+Werkzeuge   : IBM RAD V6.0, CVS, IBM WebSphere Appl. Server V5.1 (WAS), JIRA,
+DB2,
+              DB Twister
+ 
+===============================================================================
+[21] Berechnung von Latenten Steuern
+===============================================================================
+Projektname : DefTax
+Branche     : Finanzen
+Kunde       : fwsb GmbH (Eschborn)
+Zeitraum    : 01/2006 - 05/2006
+Rolle(n)    : Senior Entwickler JEE
+
+Tätigkeiten :
+- Buildmanagement mit Ant
+- Systementwicklung von verschiedenen Modulen in Java
+- Systementwicklung von Modulen in Java und XML (Digester)
+- Erstellung von XML Schemas zur Plausiblitätsprüfung
+- Erstellung von Systemdokumentation
+
+Technologien: J2EE, JSP, Struts, Tiles, Commons Collection, HTML, Javascript,
+XML,
+              XML Schema, Common Digester
+OS          : Windows XP
+Werkzeuge   : Eclipse 3.1, CVS, Ant 1.6, Tomcat 5.28, Oracle 9.1, TOAD
+ 
+===============================================================================
+[20] Auftragsverwaltungssystem für Diabetes Diagnosen
+===============================================================================
+Projektname : Accu-Chek Mellibase
+Branche     : Medizin
+Kunde       : EXCO GmbH (Maxdorf) für Roche Diagnostics GmbH
+Zeitraum    : 06/2005 - 10/2005
+Rollen(n)   : Senior Entwickler JEE, Buildmanagement, Release- und
+Deploymentmanagement,
+              PMO
+
+Tätigkeiten :
+- Projektleitungsassistenz
+  - Planung und Aufwandsschätzung
+  - Coaching von Mitarbeitern
+  - Steuerung des Projekts
+  - Kundenbesprechungen
+  - Präsentation und Übergabe an Kunden
+- Buildmanagement
+  - Erstellen von Ant Skripten für die verschiedenen Services
+  - Erstellen von DOS-Batch Dateien zur Steuerung von Buildprozessen
+  - Erstellen von wöchentlichen Entwicklungsständen für den Kunden
+- Entwicklung
+  - Konzeption basierend auf Webservices
+  - Systementwicklung von verschiedenen Webservices in Java
+  - Erstellung von XML Schemas und die Klassengenerierung mit JAXB
+  - Unit Tests mit Junit und Mocks
+- Release- und Deploymentmanagement
+  - Ausliefern von Softwarepacketen an den Kunden
+ 
+===============================================================================
+[19] Webapplikation zur Administration eines Tracking Systems
+===============================================================================
+Projektname : easyWorks - System Management Enivronment
+Branche     : Industrie Software
+Kunde       : ITAC Software GmbH (Montabaur)
+Zeitraum    : 03/2005 - 05/2005
+Rolle(n)    : Senior Entwickler JEE
+
+Tätigkeiten :
+- Konzeption einer Web Applikation zur Administration eines Tracking Software
+  Systems, mit den Teilbereichen Datenbank, Server, User
+- Entwicklung eines statischen Prototyps in HTML
+- Entwicklung der Web Applikation
+- Testen mit verschiedenen Browsern: IE, Netscape Navigator, Mozilla, Firefox
+- Erstellen einer Systemdokumentation
+ 
+Technologien: JEE, JSF 1.2, HTML, CSS
+OS          : Windows XP
+Werkzeuge   : Eclipse, IE, Netscape Navigator, Mozilla, Firefox
+
+===============================================================================
+[18] Automatische Reports
+===============================================================================
+Branche     : Finanzen
+Kunde       : INKA Internationale Kapitalanlagegesellschaft mbH (Düsseldorf)
+Zeitraum    : 09/2004 - 09/2004
+Rolle(n)    : Senior Entwickler JEE
+
+Tätigkeiten :
+- Entwicklung JSP Seiten zur Erstellung von automatischen Reports
+
+Technologien: J2EE, JSP, HTML, Business Objects
+OS          : Windows XP
+Werkzeuge   : Oracle 9.1, Eclipse, CVS
+
+===============================================================================
+[17] Stammdatenpflege Steuerrecht
+===============================================================================
+Branche     : Handel
+Firma       : Metro Group Information Technology GmbH (Düsseldorf)
+Zeitraum    : 01/2004 - 03/2004
+Rolle(n)    : Senior Entwickler JEE
+
+Tätigkeiten :
+- Konzeption und Entwicklung von Modulen für eine Web-Applikation zur
+  Pflege von Steuerrechtlichen Stammdaten in Java, HTML
+- Datenbank Entwurf
+
+Technologien: Java SE 1.3, Java Servlets, JDBC 2.0, HTML, SQL
+OS          : Windows XP
+Werkzeuge   : Eclipse, Apache IAS Webserver, Oracle 9.1, SQL Navigator 4.2
+
+===============================================================================
+[16] Bayrisches Mammographie Screening - Brustkrebsvorsorge
+===============================================================================
+Projektname : Bayrisches Mammographie Screening
+Branche     : Gesundheitswesen
+Firma       : Kasseneräztliche Vereiningung Bayern, München
+Zeitraum    : 07/2003 - 12/2003
+Rollen(n)   : Senior Entwickler Java, Perl
+
+Tätigkeiten :
+- Konzeption mit Datenbankentwurf und Entwicklung einer Web-Applikation zur
+  Einladungsdatengenerierung, mit Historisierung der Einladungsdaten mit Java,
+  SQL
+- Konzeption und Entwicklung von Programmen zur Datenmigration, mit Transfor-
+  mation und Korrektur der Daten, von Version 1.5 der Anwendung nach 2.0 in
+  Perl 5
+- Durchführung der Datenmigration für die Umstellung der Anwendung auf die neue
+  Version
+- Abrechnungsdateiengenerierung für Online Abrechnung mit Datentransformation
+  in Java
+
+Technologien: Java SE 1.4, JDBC 2.0, Perl 5, DBI (Perl), XML, HTML, SQL,
+              KVB Commons Framework (ähnlich Struts)
+OS          : Windows NT
+Werkzeuge   : Jakarta Ant 1.5, CVS, WinCVS 1.2, Ultraedit-32 9.0, JCreator 2.5,
+              Active Perl 5.6.1, Tomcat 4.1, WinMerge, CSDiff, Windows
+Commander 5.0,
+              Oracle 9.1, SQLPLUSW, SQL Navigator 4.2, PL/SQL Developer 5.0.3,
+              PowerDesigner 9.5
+
+===============================================================================
+[15] Konfigurations- &amp; Buildmanagement von Java Projekten
+===============================================================================
+Branche     : Softwarehersteller
+Firma       : SAP AG (Walldorf)
+Zeitraum    : 02/2003 - 05/2003
+Rolle(n)    : Build- und Konfigurationsmanagement
+
+Tätigkeiten :
+- Konfigurationsmanagement von Java Projekten
+- Buildmanagement von Java Projekten
+- Entwicklung von Programmen zur automatischen Replication von Ergebnissen
+  des täglichen Buildprozesses in Perl und XML.
+- Replicationsmamagement von Java Projekten
+- Telefonischer Support
+
+Technologien: Perl 5, XML, HTML, XML/EasyOBJ 1.0
+Werkzeuge   : Perforce Version 2002.2, Ultraedit-32 Version 8.10b, SAP R/3,
+              Windows Terminal Client
+OS          : Windows 2000 Server, Linux
+ 
+===============================================================================
+[14] Inventarisierungssystems für Netzwerkkomponenten
+===============================================================================
+Projektname : ISIS
+Branche     : Transport
+Firma       : DB Systems GmbH (Frankfurt)
+Zeitraum    : 10/2001 - 09/2002
+Rolle(n)    : Entwickler J2EE
+
+Tätigkeiten :
+- Konzeption, Entwurf, Implementierung von Modulen zur Inventarisierung und
+  Visualisierung von LAN Komponenten in Java, JSP und Servlets
+  (Module: Subnetz, Lieferschein, Sachanlage, X.25 Leitungen, Geräte-Stammdaten
+- Entwicklung diverser Tools zur Administration in KSH, Perl
+
+Technologien: Java 1.2/1.3 SE, Jakarta Struts 1.0, JDBC 2.0+STEXT, Jakarta
+Log4J, JSP 1.1,
+              Java Servlets 2.2, Active Perl, HTML, Javascript
+OS          : Windows 2000, SunOS 5.6
+Werkzeuge   : Tomcat 3.2/4.0, Resin 1.2.5, Forte for Java CE 3.0/4.0, Kawa 4.1/
+5.0,
+              WinCVS 1.3, Apache Ant 1.5, Oracle 8.1.7, CA SQLStation 5.3/6.0,
+TOAD 7.3,
+              WinMerge 1.7, Bugzilla
+ 
+===============================================================================
+[13] Firmenfinanzportal
+===============================================================================
+Projektname : Firmenfinanzportal
+Branche     : Bank
+Firma       : Dresdner Bank AG (Frankfurt)
+Zeitraum    : 12/2000 - 06/2001
+Rolle(n)    : Entickler Java, Perl; Toolsupport
+
+Tätigkeiten :
+- Entwicklung
+  - Erstellung und Erweiterung von Programmen/Skripten zur Steuerung von
+Buildprozessen in
+    Java, Perl, Perl/Tk
+  - Erweiterung eines Property Editors in Java/Swing
+  - Implementierung von Trackingpunkten in JSP's
+- Toolsupport
+  - Support für Continuus, Perl, Perl/Tk, Kawa
+
+Technologien: Java 1.2 SE, Java Swing, Perl, Perl/Tk, XML, SAX, DOM,
+Javascript, HTML, JSP
+OS          : Windows NT, SunOS 5.6
+Werkzeuge   : Kawa 4.04, Continuus 4.5/5.1, Kawa 4.01, Active Perl, Weblogic
+4.5.1
+Datenbanken : Oracle 8.1.6, F-Secure SSH 1.1, TOAD 6.3
+ 
+===============================================================================
+[12] Billing Systems für Mobilfunknetzbetreiber
+===============================================================================
+Branche     : Softwarehersteller
+Firma       : B4E GmbH (Langen)
+Zeitraum    : 04/2000 - 08/2000
+Rolle(n)    : Entwickler Java
+
+Tätigkeiten :
+- Untersuchung der Anwendbarkeit von XML für die Serialisierung von Objekten.
+- Entwicklung einer API zur Serialisierung, Deserialisierung und Versionierung
+  von Objekten in Java und XML.
+
+Technologien: Java 1.2, XML, B4E eigene Klassenbibliothek
+OS          : Linux 2.2.13, Windows NT 4
+Werkzeuge   : Borland Jbuilder 3.5, MS Internet Explorer 5, Terra Term Pro
+ 
+===============================================================================
+[11] Auswertung von Performancedaten für Telefonnetzbetreiber
+===============================================================================
+Branche     : Telekommunikation
+Firma       : Nokia Telecommunications GmbH (Düsseldorf)
+Zeitraum    : 12/1999 - 03/1999
+Rolle(n)    : Entwickler Perl
+
+Tätigkeiten :
+- Entwicklung von speziellen Klassen zum Parsen, zur Summation und zum
+  Einpflegen von Performancedaten in  Datenbanken in Perl5 (OO). Unter
+  Verwendung der Nokia eigenen Klassenbibiliotheken.
+- Erstellung von einfachen Datenbanken.
+
+Technologien: Perl5 (OO), Nokia eigene Klassenbibliothek
+OS          : HP-UX 10.20
+Werkzeuge   : Emacs, Perl Interpreter, RCS, Oracle 7
+ 
+===============================================================================
+[10] Disaster Recovery Data Backup Software System
+===============================================================================
+Branche     : Banken
+Firma       : Amdahl (Sulzbach) für Commerzbank AG (Frankfurt)
+Zeitraum    : 05/1999 - 10/1999
+Rolle(n)    : Entwickler Perl
+
+Tätigkeiten :
+- Entwicklung von Modulen für das Disaster Recovery Data Backup Software System
+  in Perl5.
+- Entwicklung der Graphischen Oberfläche für die Disaster Recovery Data Backup
+  Software Systems in Perl5, HTML, Javascript.
+- Integration der Grundfunktionalität, wie das Starten von Data Backup
+Prozessen
+  in die graphische Oberfläche.
+- Integration von zusätzlichen Funktionen, wie Prozess Monitoring, Logfile
+  viewing und Configuration Management in die graphische Oberfläche.
+
+Technologien: Perl5, HTML, JavaScript, HTTP
+OS          : SunOS 2.6
+Werkzeuge   : Perl5 Interpreter, CVS, Emacs, Internet Explorer 4.x,
+              Netscape Navigator 4.x
+ 
+===============================================================================
+[09] Online Shop System (e-Commerce)
+===============================================================================
+Branche     : Logistik
+Firma       : Deutsche Post AG (Darmstadt)
+Zeitraum    : 01/1999 - 03/1999
+Rolle(n)    : Berater, Entwickler C
+
+Tätigkeiten :
+- Installation und Konfiguration von Open Market's SecureLink CommerceOperator
+  Shophosting Anwendung auf Windows NT
+- Anbindung dieser Software an das Backendsystem Transact4 von Open Market, für
+  das Payment usw..
+- Erstellen eines Online Shop"s basierend auf statische HTML-Seiten.
+- Dokumentation und Bewertung der Erfahrungen.
+
+Technologien: C, HTML, Open Market SDK
+OS          : Windows NT Server, UNIX SunOS 5.5.1
+Werkzeuge   : MS Developer Studio 97, MS VC++ 5.0, HTTP, HTTPS
+
+===============================================================================
+[08] Abrechnungssystem
+===============================================================================
+Projektname : Transaction Based Billing
+Branche     : Internet Service Provider
+Firma       : Compuserve (München)
+Zeitraum    : 09/1998 - 12/1998
+Rolle(n)    : Entwickler C, Perl
+
+Tätigkeiten :
+- Einbettung einer in C geschriebenen Client API in Perl mit XS (h2xs).
+- Entwicklung neuer- und Erweiterung von bestehenden Moduln zur vereinfachten
+  Bedienung der Client API in Perl und C++.
+- Modellierung der bestehenden und der erweiterten Datenbank mit ERD.
+- Erweiterung der Client API in C.
+- Erweiterung eines Programms zum Exportieren von Abrechnungsdaten aus der
+  Datenbank in Dateien in Visual Basic 5.0.
+- Erstellung einer Testanwendung für den Abrechnungsvorgang in HTML und C/C++.
+- Test und Inbetriebnahme des Abrechnungssystems.
+
+Technologien: C, C++
+OS          : Windows NT 4, UNIX SunOS 5.5.1
+Werkzeuge   : MS Developer Studio 97, MS VC++ 5.0, MS VB 5.0, GNU C, Make,
+              MS SQL Server 6.5, Virual Lock 4.0, HTTP
+
+===============================================================================
+[07] Internet Home Banking Anwendung (e-Commerce)
+===============================================================================
+Branche     : Banken
+Kunde       : Danet GmbH (Weiterstadt) für Quelle Bank
+Zeitraum    : 12/1997 - 03/1998
+Rolle(n)    : Web Entwickler
+
+Tätigkeiten :
+- Mitarbeit an der Weiterentwicklung des Web-Clients in HTML und JavaScript.
+
+Technologien: HTML, JavaScript
+OS          : Windows 95, HP-UX
+Werkzeuge   : Sniff, IE 4.0, Netscape Communicator
+
+===============================================================================
+[06] Kundenmanagementsystem
+===============================================================================
+Branche     : Telekommunikation
+Firma       : Danet GmbH (Weiterstadt) für Deutsche Telekom AG
+Zeitraum    : 09/1997 - 11/1997
+Rolle(n)    : Entwickler C
+
+Tätigkeiten :
+- Entwicklung von Generatorprogrammen für die dynamische Erstellung von
+  Web-Seiten unter Verwendung von C, HTML und ESQL.
+
+Technologien: C, HTML, ESQL/C
+OS          : UNIX Sun Solaris
+Werkzeuge   : Standard C Compiler, ESQL/C Precompiler, Oracle 7 SQL Client, Vi
+
+===============================================================================
+[05] Web - Z39.50 Gateway
+===============================================================================
+Projektname : WWW/HTTP-Z39.50 Gateway (http://z3959gw.dbf.ddb.de)
+Branche     : Bibliotheken
+Kunde       : Danet GmbH (Weiterstadt) für Die Deutsche Bibliothek (Frankfurt
+a.M.)
+Zeitraum    : 02/1997 - 07/1997
+Rolle(n)    : Entwickler C, Perl
+
+Tätigkeiten :
+- Erweiterung des Gateways; bestehend aus Web-Client, Multiprozess
+  Serveranwendung sowie Z39.50-Client
+
+Technologien: C, Perl5, HTML, Javascript, HTTP, Z39.50, Eigenes Protokoll über
+UNIX
+              Message Queues
+OS          : Sun Solaris
+Werkzeuge   : GNU C, Vi, Perl5 Interpreter, Netscape 3.x
+
+===============================================================================
+[04] Sicherheistmanagementsystem
+===============================================================================
+Branche     : Telekommunikation
+Kunde       : Danet GmbH (Weiterstadt) für Deutsche Telekom AG
+Zeitraum    : 08/1996 - 01/1997
+Rolle(n)    : Entwickler C
+
+Tätigkeiten :
+- Entwicklung einer Backup/Restore-Anwendung zum Ingres-DBMS.
+- Erstellung von Problemreports unter Verwendung des Ingres Reportwriter Tool.
+
+Sprachen    : C, ESQL/C, SQL
+OS          : HP-UX
+Werkzeuge   : Standard C Compiler, ESQL/C Precompiler, Vi, Ingres, Ingres
+Reportwriter,
+              Ingres SQL Client
+
+===============================================================================
+[03] Web - Z39.50 Gateway
+===============================================================================
+Projektname : WWW/HTTP-Z39.50 Gateway (http://z3959gw.dbf.ddb.de)
+Branche     : Bibliotheken
+Firma       : Die Deutsche Bibliothek (Frankfurt a.M.)
+Zeitraum    : 09/1995 - 03/1996
+Rolle(n)    : Entwickler C, Perl, HTML
+
+Tätigkeiten :
+- Entwicklung und Test eines WWW/HTTP-Z39.50-Gateways; bestehend aus Web-
+Client,
+  Multiprozess-Serveranwendung sowie Z39.50-Client in C, Perl und HTML.
+
+Technologien: C, Perl4, HTML, HTTP, Z39.50, Eigenes Protokoll über UNIX Message
+Queues
+OS          : Sun Solaris 2.4, Windows 95
+Werkzeuge   : GNU C Compiler, Perl4 Interpreter, Netscape 3.x, Flat Files
+
+===============================================================================
+[02] Netzwerk Gateway und Sicherheitsmanagementsystem
+===============================================================================
+Branche     : Forschung
+Kunde       : University College Dublin (Irland)
+Zeitraum    : 01/1995 - 06/1995
+Rolle(n)    : Entwickler C
+
+Tätigkeiten :
+- Entwicklung eines Client/Server-Programms für die Kommunikation zwischen
+  Modulen innerhalb eines Sicherheitsmanagementsystems in C unter UNIX.
+- Mitarbeit an der Entwicklung eines Netzwerk Management Gateways für Novell
+  IPX - UNIX UDP/IP.
+- Entwicklung von Client/Server-Testtools für das Netzwerk Management Gateways
+  in C.
+ 
+Technologien: C, Novell-IPX, UNIX UDP/IP, Sockets
+OS          : UNIX Sun Solaris 2.x, Novell Netware 3.x
+Werkzeuge   : GNU C, Watcom C, Vi,
+
+===============================================================================
+[01] Visualisierung von Netzwerkkomponenten
+===============================================================================
+Branche     : Forschung und Technik
+Kunde       : Fraunhofer Gesellschaft für Datenverarbeitung (Darmstadt)
+Zeitraum    : 01/1994 - 06/1994
+Rolle(n)    : Entwickler C
+
+Tätigkeiten :
+- Entwicklung eines Programms zur Visualisierung von Netzwerkkomponenten in C
+  und Postscript.
+
+Technologien: C, Postscript
+OS          : UNIX Sun Solaris 2.x
+Werkzeuge   : Standard C-Compiler, Postscript Interpreter, Vi, Ghostview
+
+
+Sonstige Anmerkungen:
+Zertifikate:
+- CPRE-FL
+- ITIL-FL
+ 
+Training:
+- CPRE-FL
+- ITIL-FL
+- JPA
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_3630
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 21.04.2020 00:40:03
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

@@ -1,0 +1,1374 @@
+Developer und auch Teamlead Java Spring, J2EE , Docker
+Top-Skills: Java, PL, Architektur
+Verfügbar ab: 01.11.2022
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 120,00 EUR
+Bemerkungen: lokaler Einsatz
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Schweiz, Einsatzort unbestimmt
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Position
+Kommentar: Senior Softwareentwickler Java und div. anderen Sprechen
+Projektleitung Teamleitung sowie Entwicklung
+Projekte
+2017-10 - heute Regulatorien Grid Computing Big Data
+5 Jahre 5 Monate
+Rolle: Senior Developer
+Kunde: SIX
+Einsatzort: Zürich
+Projektinhalte: 1.) Refactoring Legacy Java Code auf Microserivice und Scalierbarkeit
+fähigkeit
+2.) Spring Boot und Docker Server Komponenten Entwickeln.
+3.) Splitt Peristenz und Business Layer zur Vorbereitung Multi
+Persistenzlayer.
+03.03.2023 1 von 15
+4.) Design und Aufbau Persistenzlayer für Suchindexe mittels
+Elasticsearch.
+5.) Performance und Refactoring legacy Code Spring Batch im bereich
+Produktion und Testing
+6.) Release-Managment ausrollen/verteilen neuer Komponenten
+7.) Datensync NoSQL nach Elasticsearch
+Kenntnisse: Scrum, DesignPatterns, Clean Code, DevOps, TTD
+Eingesetzte Produkte: JetBrains IntelliJ IDEA, Docker, Docker-Compose, Jenkins, CI, CD,
+OracleNoSQL, MySQL 5, JPA, Mockito, ReactJS, JSON, JSONP, Enterprise
+Architect, Atlassian Confluence, Atlassian JIRA, Bitbucket, Git, FindBugs,
+SonarQube, WSDL, Java API for REST Services, REST
+2017-03 - 2017-11 Contentsuche und Suchengine
+9 Monate
+Rolle: Lead-Developer
+Kunde: Arbeitsagentur
+Einsatzort: Nürnberg
+Projektinhalte:     •  Umsetzung einer Content und Metadatensuche auf Basis von
+     ?Microservices Angular im Frontend sowie Elasticsearch und
+     ?Lucene Index. Die Implementierung erfolgte mit Java 8 / Spring.
+     ?Modellierung der Suchindexe mit Analyser und non persistent
+     ?fields.
+    •  Frontend und Backend
+    •  Architektur Aufbau Docker, DC/OS Mesos zur Orchestrierung und
+     ?Skalierung der MIroservice Komponenten.
+Kenntnisse: Scrum, Clean Code, TDD
+Eingesetzte Produkte: Eclipse, IntelliJ IDEA, Elastic Search, Storm Crawler, bash, docker, DCOS
+Mesos, Webstorm, Spring 4.1, Apache Lucene, Spring Boot, FeignClient,
+OkHttp Client, Mockito, MockMvc, Bash Shell, DesignPatterns, BashShell,
+AngularJS, Atlassian JIRA, Atlassian Confluence, Git, Java API for REST
+Services, REST, FindBugs
+2015-08 - 2017-03 Entwickler Kunde Energiekonzern in der Schweiz
+1 Jahr 8 Monate
+Rolle: J2EE Softwareentwickler / Architekt
+Kunde: Energie
+Einsatzort: Laufenburg
+Projektinhalte: Entwicklung und Qualitätskontrolle sowie Code Reviews von
+Softwarelieferungen von Lieferanten. Aufbau von Continous Delivery
+mittels JBoss RHQ. Aufteilen der Lieferpakete in Microservice taugliche
+Buldingblocks um diese getrennt zu Deployen incl. von Code Anpassungen
+sowie Bugfixes und Software Reorganisation. In dem Zusammenhang
+03.03.2023 2 von 15
+Erweiterung von Unittests.
+Entwicklung Backend und Oberfläche „Business-Objekt-Repository“.
+Kopplung von Steuersysteme, Leitsysteme und Regelsysteme im
+Stromsektor. Aufbau von JBoss Arquillian Integration Tests. Datenzugriffe
+aus der Hochsicherheitszone mittels OData POC aufbauen und
+Operationalisieren. Bugfixes in der Software in den Bereichen Backend
+J2EE, Spring und Frontend im Bereich JSF (Primefaces) und AngularJS.
+Reengeneering von Projekten, Reduzierung von Code und
+Wiederverwendung auf Basis von Modelbibliotheken.
+Überführen div. Projekte von JDK 7 nach JDK 8 incl. Testen und
+Operationalisierung.
+Der Einsatz erfolgte in der Abteilung Architektur und Integration.
+ 
+Entwicklung(1):
+Kopplung unterschiedliche Systemen mittels Datensynchronisation
+Backend/ Frontend
+ 
+Entwicklung(2):
+Archivdaten Übermittlung ans eArchiv
+ 
+Entwicklung(3):
+Businessobject Registry zur Objekt Kardinalität der verschiedenen Systeme
+ 
+Entwicklung(4):
+Bugfixing / Integrationtests / Unittests.
+ 
+Entwicklung(5):
+Ablösen Apache Camel Projekt mittels Camunda BPMN
+ 
+Entwicklung(6):
+Erweitern einiger Bestandsprojekte mit Kerberos Authentifizierungsdienst.
+ 
+DovOpts (7):
+JBoss Template  Aufbau mit Docker und Vagrant
+Kenntnisse: Scrum, agile, Reengeneering, DevOps
+Eingesetzte Produkte: OData, JSF, PrimeFaces, Angular JS, Data Modelling, Java 8, Camunda
+BPM, Spring 3.0, Spring Batch, Spring Data, Java API for REST Services,
+Feign REST Client, Quartz Scheduler, JBoss CLI, JBoss ApplicationServer,
+WildFly ApplicationServer, Git, Enver Versioning, ElasticSearch, Apache
+Lucene, Spring, Spring Boot, SonarQube, J2EE, JPA, JAXB, JAXP, JSON,
+WSDL, Atlassian Confluence, Atlassian JIRA, Apache Camel, Oracle, H2
+Database-Engine, CSS
+2015-01 - 2015-07 Entwicklung einer Oberfläche für den Datenabgleich
+7 Monate
+Rolle: Entwickler/Team Lead(Backend/GUI)
+Kunde: Bank Unicredit
+Projektinhalte: Entwicklung einer Oberfläche für den Datenabgleich von Master
+Stammdaten im Bereich Konzernpartner Mandanten Partner und
+Konzernverbunden im Bereich der Verschuldungsmeldung an die
+Bundesbank.
+ 
+03.03.2023 3 von 15
+Tools und Technologien
+JBOSS 6.3 GA, Java 7, Eclipse, EJB 6, JPA, Mockito, JUnit, CDI, Jenkins,
+HTML, CSS, Hibernate, Primefaces 5.2, JSF 2.2, Activiti BPMN Engine,
+Apache Lucene , Batch JSR 352, AXP, JAX-WS,JAXP, REST, SOAP, WS,
+Apache ActiveMQ, Frontendprogrammierung, Sonar-Cube, Findbugs,
+Continuous Integration, Maven, Junit, Mockito, Powermock, XStream
+Kenntnisse: Scrum, TDD, Agile Entwicklung, Change Request Management
+Eingesetzte Produkte: Atlassian Confluence, JBoss ApplicationServer, Java 7, J2EE, JPA, Mockito,
+CDI, HTML, HTML(5), Hibernate, PrimeFaces, JSF, Activiti, SOAP, SoapUI,
+JAXB, JAXB, JUnit, Mockito, PowerMock, Apache Lucene, SonarQube,
+WSDL, ActiveMQ, BPMN, FindBugs
+2012-02 - 2014-12 Erstellen/Design Frontend in JSF und
+2 Jahre 11 Monate Servicelayer/Backend J2EE
+Rolle: J2EE Softwareentwickler / Teamleitung / Testdriven Development
+Kunde: Reederei
+Einsatzort: Hamburg
+Projektinhalte: Ziel:
+Umsetzen einer Logistikapplikation ablösen hierdurch von 60 Insellösungen
+ 
+Projektsprache:
+Internationales Projekt Englisch (Meetings, Spezifikationen und
+Verhandlungen) Projektteams neareshore
+ 
+Tätigkeit:
+Erstellen/Design Frontend in JSF und Servicelayer/Backend J2EE sowie
+Batchverarbeitung Bereich Tarifmanagement und Zentrale Systeme.
+Processmodellierung mittels activiti in verschiedenen Modulen.
+Verantwortlich für die Implementierung der Workflow Processe und
+Analyse der Requirements.
+ 
+Verteilte Applikation für ca. 2.500 Anwender im Cluster Betrieb, Sync
+Processe, Async Processe, Batch Process Verwaltung, Performance Analyse
+und Optimierung.
+ 
+Kenntnisse: TDD, Scrum, Clean Code
+Eingesetzte Produkte: Eclipse, Icefaces, TIBCO, Active MQ, Gradle, Git, Jenkins, apache maven,
+Activiti BPMN, Camunda, XSLT, XML, AltovaXMLSpy, CDI, JSF, JSFUnit,
+JasperReport, Mockito, PowerMock, EclipseLink, Hibernate, Hibernate
+Query Language, JUnit, Oracle11, JPA, JPaaS, Pairprogramming, XML
+Beans
+2010-02 - 2012-02 Laborsoftware Zytologie Betrieb/Weiterentwicklung und
+2 Jahre 1 Monat Umstellung auf DB
+Rolle: Leiter Softwareentwicklung mit Personalverantwortung
+03.03.2023 4 von 15
+Projektinhalte:     •  Das Unternehmen hat eine Software gekauft die nicht DB fähig
+     ?war und mit dem Kauf auch alle Kunden die die Software nutzen.
+    •  Einarbeitung in das Thema, Medizin speziell in die Zytologie
+     ?und Sicherstellen des Betriebs. Einsatzgebiet der Software ist
+     ?Deutschland mit 600 Installationen. Pro Quartal wird immer ein
+     ?Update an die Kunden ausgerollt mit neuen KBV Spezifika.
+    •  Es gald nun den Betrieb der Software aufrecht zu halten und die
+     ?Software auf eine DB umzustellen. Die Konzernlabore mussten auf
+     ?die Software aus Kostengründen Umgestellt werden.
+ 
+ 
+Sonstiges:
+Als Leiter Software habe ich noch weitere Konzernthemen ( Kaufmännisch,
+Controlling, ...) Übernommen. Budgetverantwortung 0,8 Mio.
+Kenntnisse: Scrum, TDD
+Eingesetzte Produkte: Omnis7, C++, Omnis5, Java, XSLT, XSLTransformation, Jasper Report,
+BPMN, Camunda BPM, Mac OSX, Postgres, pgsql, Oracle, Oracle/SQL,
+Oracle 11, Java Swing, Requirement Analyse, KBV Abrechnung, KBV
+Zertifizierung
+2008-01 - 2010-01 Betreuen einer laufenden ERP Software
+2 Jahre 1 Monat
+Rolle: Projektleiter/Stellv. Leiter Entwicklung mit Personalverantw.
+Projektinhalte: Betreuen einer laufenden ERP Software im Hamburger Hafen und 4
+weiteren Terminals in mehreren Standorten in Polen mit einem
+Auftragsvolumen von 800.000 € p.a. Eine nicht existierende
+Kommunikation zwischen den Systemen wurde aufgebaut und
+Standardisiert. Zusätzliche Kommunikation zu den Konzernsystemen
+wurde etabliert und hierdurch Personalkosten gesenkt. Da die Software
+bereits seit 15 Jahren im Einsatz gewesen war, mussten viele
+Schnittstellen überarbeitet werden.
+ 
+Verhandlung mit den Kunden über neu Entwicklungen und neuen
+Technologien. Erstellen eines Webportals für das ERP System für Online
+Aufträge und Tracking der versendeten Container ins Hinterland.
+Etablierung eines Java Applikationsserver für die Prozessverarbeitung.
+Verhandeln und Abschluss mit dem Kunden über
+SLA und Migrationsprojekt.
+ 
+Produkte:
+Java, JSF, jBoss Portal 2.7 und jBoss 5, maven, uniface 8.3.4,JMS
+Kommunikation, J2EE, EJB3, Swing Gui, JUNIT, SQL, PLSQL, TOAD, XML,
+XSLT, ANT,  MAVEN, Web Frontend, Hibernate, Spring, KShell scripte,
+Subversion, Eclipse, Uniface, UML
+ 
+Sonstiges:
+Durch mein breites Wissen wurde ich oft auch zu anderen Projekten und
+Technologien eingebunden. Am Anfang des Projektes als freiberuflicher
+Mitarbeiter gestartet und dann in
+die Festanstellung übernommen.
+03.03.2023 5 von 15
+2007-11 - 2008-10 Anbindung Reporting System Jasper, Historienführung
+1 Jahr
+Rolle: Technologie-Berater und Entwickler
+Kunde: Kommunale-Datenverarbeitung
+Projektinhalte: Der Kunde erstellt Software für die Kommunale-Datenverarbeitung für die
+Bereiche Haushalt, Jugend, KFZ, Einwohnermeldeamt, Personalplanung.
+Diese Projekt Überschneidet sich von der Laufzeit mit dem Projekt Labor
+Augsburg da ich in beiden Projekten Parallel gearbeitet habe. Ich bin
+Bereich der Z-Systeme eingesetzt diese Abteilung hat die Aufgabe
+Querschnitts-Funktionen für die Produktabteilungen zu Entwickeln.
+    •  Historienführung: Für eine Zertifizierung benötigten alle
+     ?Softwareteile s.o. eine Historienführung, d.h. geänderte Daten
+     ?müssen einem Anwender in einer übersichtlichen Form dargestellt
+     ?werden. So das auch jemand der nicht aus der IT ist sehen
+     ?konnte welche Daten von wem geändert wurden. Hierbei sollten
+     ?die die Daten in der Änderungstiefe (n:m Beziehungen) für jeden
+     ?Anwender klar und verständlich Nachvollziehbar sein. Die
+     ?Umsetzung erfolgte so dass in jedem der Produkte s.o. ein
+     ?Einbau dieser Historienführung mit wenigen Handgriffen erfolgen
+     ?kann. Auf Basis dieser Lösung erfolgte eine Zertifizierung im
+     ?Februar dieses Jahres.
+    •  Journalführung: Auf Basis der bereits Umgesetzten
+     ?Historienführung s.o. erfolgte eine Teilmodulerweiterung für
+     ?eine Unternehmensweite und Produktübergreifende Journalführung.
+    •  Reportanbindung JASPER: Anbindung eines open Source Reporting
+     ?Werkzeuges an UNIFACE (4GL Call OUT) per JNI über C++ nach Java
+     ?Call in.
+    •  Anordnungsdialog: Eine native GUI durch eine Web-GUI ersetzen,
+     ?die Architektur auf Basis einer multi Tier Schicht mittels
+     ?Webservice und einer losen Kopplung.
+ 
+Für alle oben aufgeführten Module erfolgte vorher eine Schätzung und die
+Umsetzung in Eigenverantwortung auf Basis von Werkverträgen.
+ 
+Produkte:
+Hora, Microsoft Visual Studio 2005, AQT, UNIFACE, Eclipse, Subversion,
+Enterprise Architect, Oracle, SQL Server, IReport.
+C++, PL/SQL, TSQL, WinSetup MSI, JSP, JSF, JBoss, J2EE,  EJB2, Tomcat
+5, Maven 2, UNIFACE 8, Java 6, JNI, UML, JMS, JUNIT, OpenJDK JNI,
+JBoss Developer Studio, Eclipse
+ 
+Sonstiges:
+Technologieberater und Consultant
+2007-07 - 2008-08 Überwachungsmonitor, Notfallmonitor, Datawarehouse
+1 Jahr 2 Monate
+Rolle: Entwickler, Technologieberater
+Kunde: Labordienstleistungen
+Projektinhalte: Erstellen einer Software in C# für die Überwachung der Aufträge in einem
+Labor mit dessen Dringlichkeit und Priorität. Das Layout wurde anhand
+einer Informationstafel wie im Flughafen nachgebildet.
+03.03.2023 6 von 15
+    •  Datawarehouse Reportingtool aus der DB nach Excel per XML und
+     ?C#
+    •  Bildserver/Client: Die Laborsoftware die als Charakter Software
+     ?auf einem SSH Client läuft und diese wiederum über einen
+     ?Remote-Desktop erreichbar sollte in die Lage versetzt werden
+     ?eingescannte Scheine/Aufträge auf dem Desktop sichtbar zu
+     ?machen. Diese eingescannten Dokumente haben das Format TIFF mit
+     ?mehreren Seiten. Alle Anwender loggen sich per Remotedesktop
+     ?auf der Farm ein und starten hier per SSH die Anwendung. Wenn
+     ?nun der Anwender einen Auftrag Anzeigen möchte schickt der UNIX
+     ?Server eine Nachricht an den Bildserver und dieser wertet die
+     ?Nachricht aus und schickt per Socketverbindung das Bild an den
+     ?Client per Netz weiter. Für die Lösung wurde das Framework WCF
+     ?eingesetzt.
+ 
+Produkte:
+Hardware/Server; PC, Labor Onlines TCP, Win2003 Server FARM, Windows
+Service, WCF
+ 
+Sprachen
+C# Frontend, Backend Sockets, Services, PL/SQL, WinSetup
+ 
+Tools
+Hora, Microsoft Visual Studio 2005, SQL-Developer von Oracle, SQL Server
+DB, Assemblies, Security im Active Directory, .NET Dataset, ADO.NET
+Entity Data Model.
+ 
+Sonstiges:
+Teilzeit Projekt 
+2007-06 - 2007-12 Umzug HP Cluster auf Verteilte-Rechner Umgebung
+7 Monate
+Rolle: Analyst und Umsetzer
+Projektinhalte: Umzug eines Rechnerknoten in einem Rechenzentrum von einem HPUX
+Cluster auf mehreres Rechnerknoten mit openSuse Enterprise Edition. Da
+die eigenen Entwickler alle in dringenden inhouse Projekten eingebunden
+waren galt es die vorhandenen Prozesse dahingehend zu analysieren wo
+welche Parameter eingestellt werden müssen um diese auf andere Rechner
+Knoten Umziehen zu können. Durchführen von Massentests und
+Machbarkeitsanalysen für einen Umzug und mit welchen Restriktionen ist
+zu rechnen. Aufbau einer Testumgebung der einzelnen Prozesse incl. DB
+um jeden einzelnen Prozess im neuen autark testen zu können. In Summe
+galt es ca. 36.000 Java Batch und 3 Tier mit Swing und Web Klassen zu
+prüfen und die VSA internen Geschäftsprozesse zu kennen und den Umzug
+geschickt in den Produktionsplan einzubringen so das der Umzug nach
+außen hin nicht bemerkt wird.
+ 
+Hardware:
+PC, HPUX, IBM Blade Server, NAS
+ 
+Tools/Sprachen:
+C, , C++, MFC, JNLP, JNI, bash, kshel, Java, j2EE, EJB2, Swing Gui, jboss
+4, make, SQL, TSQL, Squirrel, TOAD, XML, XSLT, ANT,  MAVEN, VSA
+Persistenz Frameworks, shell scripte, CVS, Subversion, XML Schema 
+03.03.2023 7 von 15
+2004-01 - 2007-07 Intermodal-Hinterland
+3 Jahre 7 Monate
+Rolle: Entwickler, Teamleiter
+Kunde: Logistik
+Projektinhalte: Beim Kunden wurde ein neues Projekt Aufgesetzt und die Entwicklung
+wurde zu großen Teilen in Uniface getätigt. Der Kunde mit Sitz in Hamburg
+und dessen Kunde mit Sitz in  Frankfurt und als operatives Geschäft wird
+der Transport von Containern in Deutschland und Umgebung Veräußert.
+Hierzu muss mit div. Externen Systemen Kommuniziert werden.
+Projektgröße ca. 15 Personen + IT Abteilung des Kunden
+ 
+Aufgaben:
+    •  Teamleiter für die Module Verkaufskonditionen, Webanbindung
+     ?externer Partner, Web Preisinformationssystem,
+     ?Kundenabrechnung, Angebotswesen, Reklamationswesen
+    •  Programmierung / Analyse und Bugbeseitigung
+    •  Programmierung (Kommunikation) und Modellierung von
+    •  Verkaufskonditionen
+    •  WEB Anbindung externe Partner
+    •  WEB Preisinformationssystem
+    •  Lösungen und Programmierung zur Anbindung externen Systeme
+über
+     ?Web-Service
+    •  Anbindung externes Straßenwerk
+    •  Anbindung externes Schienenwerk
+ 
+Produkte:
+Hardware: PCs (Windows 2000, Win XP), Sun Solaris
+ 
+Sprachen:
+Uniface 8.4.x, Java, EJB, JUNIT, JSP, Servlet, Tomcat 5.x, XML, DTD, XSL,
+SQL Oracle, JNDI, UML, JMS, WSDL, C++, UNIFACE Application Server.
+ 
+Tools:
+Scriptura, Uniface, Eclipse, Tomcat 5.x, XMLSpy, Oracle 9.x, Hora
+ 
+Sonstiges:
+Integration von Externen-Systemen und 3-Tier per XML Kommunikation
+und Serialisierung 
+ältere Projekte auf Anfrage
+Branchen
+Banken, Pharmazie, Bauwirtschaft, Versicherungen, Industrie, Handel, Automobiel, Finanzwesen,
+Chemie, Dienstleister, Maschinenbau, Logistig, Medizin, Energie, Finanzdienstleistungen, Börse
+Sprachen
+Deutsch sehr Gut
+03.03.2023 8 von 15
+Englisch aktuelle Projektsprache Englisch
+Türkisch sehr Gut
+Kompetenzen
+Produkte / Standards / Active MQ
+Erfahrungen / Methoden
+ActiveMQ
+Activiti +++
+Activiti BPMN
+agile
+Agile Entwicklung
+AltovaXMLSpy
+Apache Camel
+Apache Lucene +++
+apache maven
+Atlassian Confluence
+Atlassian JIRA
+Bitbucket
+Camunda BPM
+CamundaBPM +++
+CD +++
+CDI +++
+Change Request
+Management
+CI +++
+Clean Code ++
+CSS
+DesignPatterns ++
+DevOps
+03.03.2023 9 von 15
+Docker-Compose ++
+Eclipse +++
+EclipseLink +++
+Elastic Search +++
+ElasticSearch
+Enterprise Architect ++
+Enver Versioning
+Feign REST Client
+FeignClient
+FindBugs
+Git +++
+Gradle ++
+Hibernate +++
+HTML
+HTML(5)
+Icefaces ++
+IntelliJ IDEA +++
+Jasper Report +++
+Java Swing +++
+JBoss ApplicationServer
+JBoss CLI
+Jenkins ++
+JetBrains IntelliJ IDEA
+JIRA +++
+JIRA Agile +++
+JPaaS
+JSF +++
+JSFUnit
+JUnit
+Mockito +++
+03.03.2023 10 von 15
+MockMvc +++
+OData
+OkHttp Client +++
+PowerMock +++
+PrimeFaces
+Quartz Scheduler
+Reengeneering
+Requirement Analyse
+REST
+Scrum +++
+SOAP
+SoapUI
+SonarQube
+Spring
+Spring 3.0
+Spring 4.1 +++
+Spring Batch
+Spring Boot +++
+Storm Crawler +++
+TDD +++
+TIBCO
+TTD
+WildFly ApplicationServer
+XML +++
+XML Beans +++
+XSLT +++
+XSLTransformation +++
+Versionsverwaltung
+    •  Subversion +++
+    •  Git ++
+ 
+Produkte/Standards
+03.03.2023 11 von 15
+    •  ClearCase ++
+    •  RationalRose ++
+    •  Jira ++
+    •  Nagios +
+    •  Activiti +++
+ 
+Erfahrungen
+    •  Architekturdokumentation ++
+    •  Workflow
+    •  Performance Management ++
+    •  Monitoring/Überwachung ++
+    •  Domain Driven Design +
+    •  Clean Code ++
+    •  Scrum +++
+Betriebssysteme Bash Shell
+BashShell
+DCOS Mesos
+docker
+Linux
+Mac OSX
+MacOs
+Unix
+Windows
+Programmiersprachen Angular JS
+AngularJS
+bash
+BPMN
+C++
+Hibernate Query
+Language
+J2EE
+Java
+Java 7
+Java 8
+Java API for REST
+Services
+JAXB
+JAXP
+03.03.2023 12 von 15
+JPA
+JSON
+JSONP
+MocMvc
+Omnis5
+Oracle/SQL
+ReactJS
+Webstorm
+WSDL
+Mobileentwicklung
+    •  Android ++
+    •  iOS ++
+Java EE 6/7
+    •  EJB +++
+    •  JPA +++
+    •  CDI +++
+    •  OSGI +++
+    •  JAX-RS ++
+    •  JSF mit Primefaces ++
+    •  Servlets, JSP ++
+    •  Icefaces ++
+    •  Primefaces +++
+    •  JMX +++
+    •  JMS ++
+    •  JavaMail ++
+    •  guava - libs +++
+    •  Websocket ++
+    •  Bean Validation +++
+    •  JSON Processing ++
+Applicationserver
+    •  JBoss 4/5/6/7 +++
+    •  WildFly 10  +++
+    •  Glassfish 4 ++
+    •  Apache Tomcat +++
+Apache-Frameworks/APIs
+    •  FOP ++
+    •  POI ++++
+    •  JMeter +++
+    •  Log4J +++
+    •  Wicket +
+Testframeworks
+    •  JUnit +++
+    •  Mockito ++
+    •  PowerMockito+
+    •  Arquillian +++
+Build-Tools
+03.03.2023 13 von 15
+    •  Ant ++
+    •  Maven inkl. Nexus-Server ++
+    •  Gradle+
+Entwicklungsumgebungen
+    •  Eclipse +++
+    •  IntelliJ ++
+    •  NetBeans ++
+ 
+Message Broker
+    •  IBM Websphere MQ +
+    •  IBM MQTT ++
+    •  TIBCO
+ 
+Datenaustauschformate
+    •  XML +++
+    •  JSON +++
+ 
+Continuous Integration (CI) + Statische Codeanalyse
+    •  Jenkins/Hudson +++
+    •  Checkstyle +++
+    •  Cobertura +++
+    •  FindBugs +++
+    •  PMD +++
+ 
+Clean Code
+    •  SonarCube
+    •  Code Quality
+ 
+Datenbanken Data Modelling
+H2 Database-Engine
+MySQL 5
+Omnis7
+Oracle
+Oracle 11
+Oracle11
+OracleNoSQL
+Postgres
+Oracle +++
+MySQL ++
+H2 +++
+Derby +++
+SQL-Server ++
+Postgres +++
+Datenkommunikation
+Java Message Service (JMS)
+TIBCO ++
+STUMP +++
+03.03.2023 14 von 15
+ACTIVE MQ ++
+Design / Entwicklung / Pairprogramming
+Konstruktion
+Entwicklung Frameworks, UML Modelle, Gui Design, Backend Design,
+Verteilte Systeme, Aufsetzen von Cluster Systemen mit Jboss und Bea
+Weblogic.
+ 
+Compiler Bau, Kommunikationsprotokolle, JMS Protokolle, Architektur
+von Integrativen Systemen.
+Aus- und Weiterbildung
+1994-01 - 1996-12 Studium Wirtschaftsinformatik
+3 Jahre
+Abschluss: Diplom Wirtschaftsinformatiker
+Institution: Fachhochschule der Wirtschaft
+1990-09 - 1992-06 Assistent der Informatik
+1 Jahr 10 Monate
+Abschluss: Assistent der Informatik
+Institution: Fachhochschule für Informatik
+03.03.2023 15 von 15
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_7461 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                7461
+  
+Wohnort                    864xx Diedorf, Deutschland
+Jahrgang                   1969
+Staatsbürgerschaft         Deutsch
+Stundensatz                98 EUR
+                           lokaler Einsatz
+Verfügbar ab               30.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         28.04.99
+Profil zuletzt geändert am 13.04.21
+Lesen von Projektanfragen  2 Tage [06]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 09.03.2021 10:49:54
+
+Fachlicher Schwerpunkt:
+Developer und auch Teamlead Java Spring, J2EE , Docker
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Hardware-Entwicklung
+Engineering / IT-nahe Ingenieurdienstleistungen
+
+Senior Softwareentwickler Java und div. anderen Sprechen Projektleitung
+Teamleitung sowie Entwicklung
+
+Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit bevorzugt
+
+Voraussetzung für Festanstellung: Eine Festanstellung kommt in Betracht nur als
+leitende Funktion.
+
+Ausbildung:
+01/1994 - 12/1996: Studium Wirtschaftsinformatik
+ 
+Abschluss:          Diplom Wirtschaftsinformatiker
+Institution:        Fachhochschule der Wirtschaft
+===============================================================================
+09/1990 - 06/1992: Assistent der Informatik
+ 
+Abschluss:          Assistent der Informatik
+Institution:        Fachhochschule für Informatik
+===============================================================================
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch  sehr Gut
+Englisch aktuelle Projektsprache Englisch
+Türkischsehr Gut
+
+
+Betriebssysteme:
+Bash Shell  
+BashShell   
+DCOS Mesos  
+docker      
+Linux       
+Mac OSX     
+MacOs       
+Unix        
+Windows     
+
+
+Programmiersprachen:
+Angular JS                  
+AngularJS                   
+bash                        
+BPMN                        
+C++                         
+Hibernate Query Language    
+Java                        
+Java API for REST Services  
+Java 7                      
+Java 8                      
+JAXB                        
+JAXP                        
+JPA                         
+JSON                        
+JSONP                       
+J2EE                        
+MocMvc                      
+Omnis5                      
+Oracle/SQL                  
+ReactJS                     
+Webstorm                    
+WSDL                        
+
+Mobileentwicklung
+    * Android ++
+    * iOS ++
+ 
+Java EE 6/7
+    * EJB +++
+    * JPA +++
+    * CDI +++
+    * OSGI +++
+    * JAX-RS ++
+    * JSF mit Primefaces ++
+    * Servlets, JSP ++
+    * Icefaces ++
+    * Primefaces +++
+    * JMX +++
+    * JMS ++
+    * JavaMail ++
+    * guava - libs +++
+    * Websocket ++
+    * Bean Validation +++
+    * JSON Processing ++
+ 
+Applicationserver
+    * JBoss 4/5/6/7 +++
+    * WildFly 10  +++
+    * Glassfish 4 ++
+    * Apache Tomcat +++
+ 
+Apache-Frameworks/APIs
+    * FOP ++
+    * POI ++++
+    * JMeter +++
+    * Log4J +++
+    * Wicket +
+ 
+Testframeworks
+    * JUnit +++
+    * Mockito ++
+    * PowerMockito+
+    * Arquillian +++
+ 
+Build-Tools
+    * Ant ++
+    * Maven inkl. Nexus-Server ++
+    * Gradle+
+ 
+Entwicklungsumgebungen
+    * Eclipse +++
+    * IntelliJ ++
+    * NetBeans ++
+ 
+Message Broker
+    * IBM Websphere MQ +
+    * IBM MQTT ++
+    * TIBCO
+ 
+Datenaustauschformate
+    * XML +++
+    * JSON +++
+ 
+Continuous Integration (CI) + Statische Codeanalyse
+    * Jenkins/Hudson +++
+    * Checkstyle +++
+    * Cobertura +++
+    * FindBugs +++
+    * PMD +++
+ 
+Clean Code
+    * SonarCube
+    * Code Quality
+ 
+
+Datenbanken:
+Data Modelling      
+H2 Database-Engine  
+MySQL 5             
+Omnis7              
+Oracle              
+Oracle 11           
+OracleNoSQL         
+Oracle11            
+Postgres            
+
+Oracle +++
+MySQL ++
+H2 +++
+Derby +++
+SQL-Server ++
+Postgres +++
+
+Datenkommunikation:
+Java Message Service (JMS)
+TIBCO ++
+STUMP +++
+ACTIVE MQ ++
+
+Design/Entwicklung/Konstruktion:
+Pairprogramming  
+
+Entwicklung Frameworks, UML Modelle, Gui Design, Backend Design, Verteilte
+Systeme, Aufsetzen von Cluster Systemen mit Jboss und Bea Weblogic.
+ 
+Compiler Bau, Kommunikationsprotokolle, JMS Protokolle, Architektur von
+Integrativen Systemen.
+
+Produkte/Standards/Erfahrungen:
+Active MQ                  
+ActiveMQ                   
+Activiti                  +++
+Activiti BPMN              
+agile                      
+Agile Entwicklung          
+AltovaXMLSpy               
+Apache Camel               
+Apache Lucene             +++
+apache maven               
+Atlassian Confluence       
+Atlassian JIRA             
+Bitbucket                  
+Camunda BPM                
+CamundaBPM                +++
+CD                        +++
+CDI                       +++
+Change Request Management  
+CI                        +++
+Clean Code                ++
+CSS                        
+DesignPatterns            ++
+DevOps                     
+Docker-Compose            ++
+Eclipse                   +++
+EclipseLink               +++
+Elastic Search            +++
+ElasticSearch              
+Enterprise Architect      ++
+Enver Versioning           
+Feign REST Client          
+FeignClient                
+FindBugs                   
+Git                       +++
+Gradle                    ++
+Hibernate                 +++
+HTML                       
+HTML(5)                    
+Icefaces                  ++
+IntelliJ IDEA             +++
+Jasper Report             +++
+Java Swing                +++
+JBoss ApplicationServer    
+JBoss CLI                  
+Jenkins                   ++
+JetBrains IntelliJ IDEA    
+JIRA                      +++
+JIRA Agile                +++
+JPaaS                      
+JSF                       +++
+JSFUnit                    
+JUnit                      
+Mockito                   +++
+MockMvc                   +++
+OData                      
+OkHttp Client             +++
+PowerMock                 +++
+PrimeFaces                 
+Quartz Scheduler           
+Reengeneering              
+Requirement Analyse        
+REST                       
+Scrum                     +++
+SOAP                       
+SoapUI                     
+SonarQube                  
+Spring                     
+Spring 3.0                 
+Spring 4.1                +++
+Spring Batch               
+Spring Boot               +++
+Storm Crawler             +++
+TDD                       +++
+TIBCO                      
+TTD                        
+WildFly ApplicationServer  
+XML                       +++
+XML Beans                 +++
+XSLT                      +++
+XSLTransformation         +++
+Versionsverwaltung
+    * Subversion +++
+    * Git ++
+ 
+Produkte/Standards
+    * ClearCase ++
+    * RationalRose ++
+    * Jira ++
+    * Nagios +
+    * Activiti +++
+ 
+Erfahrungen
+    * Architekturdokumentation ++
+    * Workflow
+    * Performance Management ++
+    * Monitoring/Überwachung ++
+    * Domain Driven Design +
+    * Clean Code ++
+    * Scrum +++
+
+Branchen:
+Banken, Pharmazie, Bauwirtschaft, Versicherungen, Industrie, Handel,
+Automobiel, Finanzwesen, Chemie, Dienstleister, Maschinenbau, Logistig,
+Medizin, Energie, Finanzdienstleistungen, Börse
+
+Projekte:
+10/2017 - heute: Regulatorien Grid Computing Big Data
+ 
+Einsatzort:         Zürich
+Rolle:              Senior Developer
+Kunde:              SIX
+ 
+Aufgaben:
+ 
+1.) Refactoring Legacy Java Code auf Microserivice und Scalierbarkeit fähigkeit
+ 
+2.) Spring Boot und Docker Server Komponenten Entwickeln.
+ 
+3.) Splitt Peristenz und Business Layer zur Vorbereitung Multi Persistenzlayer.
+ 
+4.) Design und Aufbau Persistenzlayer für Suchindexe mittels Elasticsearch.
+ 
+5.) Performance und Refactoring legacy Code Spring Batch im bereich Produktion
+und Testing
+ 
+6.) Release-Managment ausrollen/verteilen neuer Komponenten
+ 
+7.) Datensync NoSQL nach Elasticsearch
+ 
+Kenntnisse:
+ 
+Scrum, DesignPatterns, Clean Code, DevOps, TTD
+ 
+Eingesetzte Produkte:
+ 
+JetBrains IntelliJ IDEA, Docker, Docker-Compose, Jenkins, CI, CD, OracleNoSQL,
+MySQL 5, JPA, Mockito, ReactJS, JSON, JSONP, Enterprise Architect, Atlassian
+Confluence, Atlassian JIRA, Bitbucket, Git, FindBugs, SonarQube, WSDL, Java API
+for REST Services, REST
+===============================================================================
+03/2017 - 11/2017: Contentsuche und Suchengine
+ 
+Einsatzort:         Nürnberg
+Rolle:              Lead-Developer
+Kunde:              Arbeitsagentur
+ 
+Aufgaben:
+ 
+    * Umsetzung einer Content und Metadatensuche auf Basis von Microservices
+      Angular im Frontend sowie Elasticsearch und Lucene Index. Die
+      Implementierung erfolgte mit Java 8 / Spring. Modellierung der Suchindexe
+      mit Analyser und non persistent fields.
+    * Frontend und Backend
+    * Architektur Aufbau Docker, DC/OS Mesos zur Orchestrierung und Skalierung
+      der MIroservice Komponenten.
+ 
+Kenntnisse:
+ 
+Scrum, Clean Code, TDD
+ 
+Eingesetzte Produkte:
+ 
+Eclipse, IntelliJ IDEA, Elastic Search, Storm Crawler, bash, docker, DCOS
+Mesos, Webstorm, Spring 4.1, Apache Lucene, Spring Boot, FeignClient, OkHttp
+Client, Mockito, MockMvc, Bash Shell, DesignPatterns, BashShell, AngularJS,
+Atlassian JIRA, Atlassian Confluence, Git, Java API for REST Services, REST,
+FindBugs
+===============================================================================
+08/2015 - 03/2017: Entwickler Kunde Energiekonzern in der Schweiz
+ 
+Einsatzort:         Laufenburg
+Rolle:              J2EE Softwareentwickler / Architekt
+Kunde:              Energie
+ 
+Aufgaben:
+ 
+Entwicklung und Qualitätskontrolle sowie Code Reviews von Softwarelieferungen
+von Lieferanten. Aufbau von Continous Delivery mittels JBoss RHQ. Aufteilen der
+Lieferpakete in Microservice taugliche Buldingblocks um diese getrennt zu
+Deployen incl. von Code Anpassungen sowie Bugfixes und Software Reorganisation.
+In dem Zusammenhang Erweiterung von Unittests.
+Entwicklung Backend und Oberfläche „Business-Objekt-Repository“. Kopplung von
+Steuersysteme, Leitsysteme und Regelsysteme im Stromsektor. Aufbau von JBoss
+Arquillian Integration Tests. Datenzugriffe aus der Hochsicherheitszone mittels
+OData POC aufbauen und Operationalisieren. Bugfixes in der Software in den
+Bereichen Backend J2EE, Spring und Frontend im Bereich JSF (Primefaces) und
+AngularJS. Reengeneering von Projekten, Reduzierung von Code und
+Wiederverwendung auf Basis von Modelbibliotheken.
+Überführen div. Projekte von JDK 7 nach JDK 8 incl. Testen und
+Operationalisierung.
+Der Einsatz erfolgte in der Abteilung Architektur und Integration.
+ 
+Entwicklung(1):
+Kopplung unterschiedliche Systemen mittels Datensynchronisation Backend/
+Frontend
+ 
+Entwicklung(2):
+Archivdaten Übermittlung ans eArchiv
+ 
+Entwicklung(3):
+Businessobject Registry zur Objekt Kardinalität der verschiedenen Systeme
+ 
+Entwicklung(4):
+Bugfixing / Integrationtests / Unittests.
+ 
+Entwicklung(5):
+Ablösen Apache Camel Projekt mittels Camunda BPMN
+ 
+Entwicklung(6):
+Erweitern einiger Bestandsprojekte mit Kerberos Authentifizierungsdienst.
+ 
+DovOpts (7):
+JBoss Template  Aufbau mit Docker und Vagrant
+ 
+ 
+Kenntnisse:
+ 
+Scrum, agile, Reengeneering, DevOps
+ 
+Eingesetzte Produkte:
+ 
+OData, JSF, PrimeFaces, Angular JS, Data Modelling, Java 8, Camunda BPM, Spring
+3.0, Spring Batch, Spring Data, Java API for REST Services, Feign REST Client,
+Quartz Scheduler, JBoss CLI, JBoss ApplicationServer, WildFly
+ApplicationServer, Git, Enver Versioning, ElasticSearch, Apache Lucene, Spring,
+Spring Boot, SonarQube, J2EE, JPA, JAXB, JAXP, JSON, WSDL, Atlassian
+Confluence, Atlassian JIRA, Apache Camel, Oracle, H2 Database-Engine, CSS
+===============================================================================
+01/2015 - 07/2015: Entwicklung einer Oberfläche für den Datenabgleich
+ 
+Rolle:              Entwickler/Team Lead(Backend/GUI)
+Kunde:              Bank Unicredit
+Branche:            Banken &amp; Finanzinstitute
+ 
+Aufgaben:
+ 
+Entwicklung einer Oberfläche für den Datenabgleich von Master Stammdaten im
+Bereich Konzernpartner Mandanten Partner und Konzernverbunden im Bereich der
+Verschuldungsmeldung an die Bundesbank.
+ 
+Tools und Technologien
+JBOSS 6.3 GA, Java 7, Eclipse, EJB 6, JPA, Mockito, JUnit, CDI, Jenkins, HTML,
+CSS, Hibernate, Primefaces 5.2, JSF 2.2, Activiti BPMN Engine, Apache Lucene ,
+Batch JSR 352, AXP, JAX-WS,JAXP, REST, SOAP, WS, Apache ActiveMQ,
+Frontendprogrammierung, Sonar-Cube, Findbugs, Continuous Integration, Maven,
+Junit, Mockito, Powermock, XStream
+ 
+Kenntnisse:
+ 
+Scrum, TDD, Agile Entwicklung, Change Request Management
+ 
+Eingesetzte Produkte:
+ 
+Atlassian Confluence, JBoss ApplicationServer, Java 7, J2EE, JPA, Mockito, CDI,
+HTML, HTML(5), Hibernate, PrimeFaces, JSF, Activiti, SOAP, SoapUI, JAXB, JAXB,
+JUnit, Mockito, PowerMock, Apache Lucene, SonarQube, WSDL, ActiveMQ, BPMN,
+FindBugs
+===============================================================================
+02/2012 - 12/2014: Erstellen/Design Frontend in JSF und Servicelayer/Backend
+J2EE
+ 
+Einsatzort:         Hamburg
+Rolle:              J2EE Softwareentwickler / Teamleitung / Testdriven
+Development
+Kunde:              Reederei
+Branche:            Verkehr, Transport, Logistik
+ 
+Aufgaben:
+ 
+Ziel:
+Umsetzen einer Logistikapplikation ablösen hierdurch von 60 Insellösungen
+ 
+Projektsprache:
+Internationales Projekt Englisch (Meetings, Spezifikationen und Verhandlungen)
+Projektteams neareshore
+ 
+Tätigkeit:
+Erstellen/Design Frontend in JSF und Servicelayer/Backend J2EE sowie
+Batchverarbeitung Bereich Tarifmanagement und Zentrale Systeme.
+Processmodellierung mittels activiti in verschiedenen Modulen. Verantwortlich
+für die Implementierung der Workflow Processe und Analyse der Requirements.
+ 
+Verteilte Applikation für ca. 2.500 Anwender im Cluster Betrieb, Sync Processe,
+Async Processe, Batch Process Verwaltung, Performance Analyse und Optimierung.
+ 
+ 
+ 
+Kenntnisse:
+ 
+TDD, Scrum, Clean Code
+ 
+Eingesetzte Produkte:
+ 
+Eclipse, Icefaces, TIBCO, Active MQ, Gradle, Git, Jenkins, apache maven,
+Activiti BPMN, Camunda, XSLT, XML, AltovaXMLSpy, CDI, JSF, JSFUnit,
+JasperReport, Mockito, PowerMock, EclipseLink, Hibernate, Hibernate Query
+Language, JUnit, Oracle11, JPA, JPaaS, Pairprogramming, XML Beans
+===============================================================================
+02/2010 - 02/2012: Laborsoftware Zytologie Betrieb/Weiterentwicklung und
+Umstellung auf DB
+ 
+Rolle:              Leiter Softwareentwicklung mit Personalverantwortung
+Branche:            Pharma
+ 
+Aufgaben:
+ 
+    * Das Unternehmen hat eine Software gekauft die nicht DB fähig war und mit
+      dem Kauf auch alle Kunden die die Software nutzen.
+    * Einarbeitung in das Thema, Medizin speziell in die Zytologie und
+      Sicherstellen des Betriebs. Einsatzgebiet der Software ist Deutschland
+      mit 600 Installationen. Pro Quartal wird immer ein Update an die Kunden
+      ausgerollt mit neuen KBV Spezifika.
+    * Es gald nun den Betrieb der Software aufrecht zu halten und die Software
+      auf eine DB umzustellen. Die Konzernlabore mussten auf die Software aus
+      Kostengründen Umgestellt werden.
+ 
+ 
+ 
+Sonstiges:
+Als Leiter Software habe ich noch weitere Konzernthemen ( Kaufmännisch,
+Controlling, ...) Übernommen. Budgetverantwortung 0,8 Mio.
+ 
+Kenntnisse:
+ 
+Scrum, TDD
+ 
+Eingesetzte Produkte:
+ 
+Omnis7, C++, Omnis5, Java, XSLT, XSLTransformation, Jasper Report, BPMN,
+Camunda BPM, Mac OSX, Postgres, pgsql, Oracle, Oracle/SQL, Oracle 11, Java
+Swing, Requirement Analyse, KBV Abrechnung, KBV Zertifizierung
+===============================================================================
+01/2008 - 01/2010: Betreuen einer laufenden ERP Software
+ 
+Rolle:              Projektleiter/Stellv. Leiter Entwicklung mit
+Personalverantw.
+ 
+Aufgaben:
+ 
+Betreuen einer laufenden ERP Software im Hamburger Hafen und 4 weiteren
+Terminals in mehreren Standorten in Polen mit einem Auftragsvolumen von 800.000
+€ p.a. Eine nicht existierende Kommunikation zwischen den Systemen wurde
+aufgebaut und Standardisiert. Zusätzliche Kommunikation zu den Konzernsystemen
+wurde etabliert und hierdurch Personalkosten gesenkt. Da die Software bereits
+seit 15 Jahren im Einsatz gewesen war, mussten viele Schnittstellen
+überarbeitet werden.
+ 
+Verhandlung mit den Kunden über neu Entwicklungen und neuen Technologien.
+Erstellen eines Webportals für das ERP System für Online Aufträge und Tracking
+der versendeten Container ins Hinterland. Etablierung eines Java
+Applikationsserver für die Prozessverarbeitung. Verhandeln und Abschluss mit
+dem Kunden über
+SLA und Migrationsprojekt.
+ 
+Produkte:
+Java, JSF, jBoss Portal 2.7 und jBoss 5, maven, uniface 8.3.4,JMS
+Kommunikation, J2EE, EJB3, Swing Gui, JUNIT, SQL, PLSQL, TOAD, XML, XSLT, ANT, 
+MAVEN, Web Frontend, Hibernate, Spring, KShell scripte, Subversion, Eclipse,
+Uniface, UML
+ 
+Sonstiges:
+Durch mein breites Wissen wurde ich oft auch zu anderen Projekten und
+Technologien eingebunden. Am Anfang des Projektes als freiberuflicher
+Mitarbeiter gestartet und dann in
+die Festanstellung übernommen.
+===============================================================================
+11/2007 - 10/2008: Anbindung Reporting System Jasper, Historienführung
+ 
+Rolle:              Technologie-Berater und Entwickler
+Kunde:              Kommunale-Datenverarbeitung
+ 
+Aufgaben:
+ 
+Der Kunde erstellt Software für die Kommunale-Datenverarbeitung für die
+Bereiche Haushalt, Jugend, KFZ, Einwohnermeldeamt, Personalplanung.
+Diese Projekt Überschneidet sich von der Laufzeit mit dem Projekt Labor
+Augsburg da ich in beiden Projekten Parallel gearbeitet habe. Ich bin Bereich
+der Z-Systeme eingesetzt diese Abteilung hat die Aufgabe Querschnitts-
+Funktionen für die Produktabteilungen zu Entwickeln.
+    * Historienführung: Für eine Zertifizierung benötigten alle Softwareteile
+      s.o. eine Historienführung, d.h. geänderte Daten müssen einem Anwender in
+      einer übersichtlichen Form dargestellt werden. So das auch jemand der
+      nicht aus der IT ist sehen konnte welche Daten von wem geändert wurden.
+      Hierbei sollten die die Daten in der Änderungstiefe (n:m Beziehungen) für
+      jeden Anwender klar und verständlich Nachvollziehbar sein. Die Umsetzung
+      erfolgte so dass in jedem der Produkte s.o. ein Einbau dieser
+      Historienführung mit wenigen Handgriffen erfolgen kann. Auf Basis dieser
+      Lösung erfolgte eine Zertifizierung im Februar dieses Jahres.
+    * Journalführung: Auf Basis der bereits Umgesetzten Historienführung s.o.
+      erfolgte eine Teilmodulerweiterung für eine Unternehmensweite und
+      Produktübergreifende Journalführung.
+    * Reportanbindung JASPER: Anbindung eines open Source Reporting Werkzeuges
+      an UNIFACE (4GL Call OUT) per JNI über C++ nach Java Call in.
+    * Anordnungsdialog: Eine native GUI durch eine Web-GUI ersetzen, die
+      Architektur auf Basis einer multi Tier Schicht mittels Webservice und
+      einer losen Kopplung.
+ 
+Für alle oben aufgeführten Module erfolgte vorher eine Schätzung und die
+Umsetzung in Eigenverantwortung auf Basis von Werkverträgen.
+ 
+Produkte:
+Hora, Microsoft Visual Studio 2005, AQT, UNIFACE, Eclipse, Subversion,
+Enterprise Architect, Oracle, SQL Server, IReport.
+C++, PL/SQL, TSQL, WinSetup MSI, JSP, JSF, JBoss, J2EE,  EJB2, Tomcat 5, Maven
+2, UNIFACE 8, Java 6, JNI, UML, JMS, JUNIT, OpenJDK JNI, JBoss Developer
+Studio, Eclipse
+ 
+Sonstiges:
+Technologieberater und Consultant
+===============================================================================
+07/2007 - 08/2008: Überwachungsmonitor, Notfallmonitor, Datawarehouse
+ 
+Rolle:              Entwickler, Technologieberater
+Kunde:              Labordienstleistungen
+ 
+Aufgaben:
+ 
+Erstellen einer Software in C# für die Überwachung der Aufträge in einem Labor
+mit dessen Dringlichkeit und Priorität. Das Layout wurde anhand einer
+Informationstafel wie im Flughafen nachgebildet.
+    * Datawarehouse Reportingtool aus der DB nach Excel per XML und C#
+    * Bildserver/Client: Die Laborsoftware die als Charakter Software auf einem
+      SSH Client läuft und diese wiederum über einen Remote-Desktop erreichbar
+      sollte in die Lage versetzt werden eingescannte Scheine/Aufträge auf dem
+      Desktop sichtbar zu machen. Diese eingescannten Dokumente haben das
+      Format TIFF mit mehreren Seiten. Alle Anwender loggen sich per
+      Remotedesktop auf der Farm ein und starten hier per SSH die Anwendung.
+      Wenn nun der Anwender einen Auftrag Anzeigen möchte schickt der UNIX
+      Server eine Nachricht an den Bildserver und dieser wertet die Nachricht
+      aus und schickt per Socketverbindung das Bild an den Client per Netz
+      weiter. Für die Lösung wurde das Framework WCF eingesetzt.
+ 
+Produkte:
+Hardware/Server; PC, Labor Onlines TCP, Win2003 Server FARM, Windows Service,
+WCF
+ 
+Sprachen
+C# Frontend, Backend Sockets, Services, PL/SQL, WinSetup
+ 
+Tools
+Hora, Microsoft Visual Studio 2005, SQL-Developer von Oracle, SQL Server DB,
+Assemblies, Security im Active Directory, .NET Dataset, ADO.NET Entity Data
+Model.
+ 
+Sonstiges:
+Teilzeit Projekt 
+===============================================================================
+06/2007 - 12/2007: Umzug HP Cluster auf Verteilte-Rechner Umgebung
+ 
+Rolle:              Analyst und Umsetzer
+Branche:            Pharma
+ 
+Aufgaben:
+ 
+Umzug eines Rechnerknoten in einem Rechenzentrum von einem HPUX Cluster auf
+mehreres Rechnerknoten mit openSuse Enterprise Edition. Da die eigenen
+Entwickler alle in dringenden inhouse Projekten eingebunden waren galt es die
+vorhandenen Prozesse dahingehend zu analysieren wo welche Parameter eingestellt
+werden müssen um diese auf andere Rechner Knoten Umziehen zu können.
+Durchführen von Massentests und Machbarkeitsanalysen für einen Umzug und mit
+welchen Restriktionen ist zu rechnen. Aufbau einer Testumgebung der einzelnen
+Prozesse incl. DB um jeden einzelnen Prozess im neuen autark testen zu können.
+In Summe galt es ca. 36.000 Java Batch und 3 Tier mit Swing und Web Klassen zu
+prüfen und die VSA internen Geschäftsprozesse zu kennen und den Umzug geschickt
+in den Produktionsplan einzubringen so das der Umzug nach außen hin nicht
+bemerkt wird.
+ 
+Hardware:
+PC, HPUX, IBM Blade Server, NAS
+ 
+Tools/Sprachen:
+C, , C++, MFC, JNLP, JNI, bash, kshel, Java, j2EE, EJB2, Swing Gui, jboss 4,
+make, SQL, TSQL, Squirrel, TOAD, XML, XSLT, ANT,  MAVEN, VSA Persistenz
+Frameworks, shell scripte, CVS, Subversion, XML Schema 
+===============================================================================
+01/2004 - 07/2007: Intermodal-Hinterland
+ 
+Rolle:              Entwickler, Teamleiter
+Kunde:              Logistik
+ 
+Aufgaben:
+ 
+Beim Kunden wurde ein neues Projekt Aufgesetzt und die Entwicklung wurde zu
+großen Teilen in Uniface getätigt. Der Kunde mit Sitz in Hamburg und dessen
+Kunde mit Sitz in  Frankfurt und als operatives Geschäft wird der Transport von
+Containern in Deutschland und Umgebung Veräußert. Hierzu muss mit div. Externen
+Systemen Kommuniziert werden.
+Projektgröße ca. 15 Personen + IT Abteilung des Kunden
+ 
+Aufgaben:
+    * Teamleiter für die Module Verkaufskonditionen, Webanbindung externer
+      Partner, Web Preisinformationssystem, Kundenabrechnung, Angebotswesen,
+      Reklamationswesen
+    * Programmierung / Analyse und Bugbeseitigung
+    * Programmierung (Kommunikation) und Modellierung von
+    * Verkaufskonditionen
+    * WEB Anbindung externe Partner
+    * WEB Preisinformationssystem
+    * Lösungen und Programmierung zur Anbindung externen Systeme über Web-
+      Service
+    * Anbindung externes Straßenwerk
+    * Anbindung externes Schienenwerk
+ 
+Produkte:
+Hardware: PCs (Windows 2000, Win XP), Sun Solaris
+ 
+Sprachen:
+Uniface 8.4.x, Java, EJB, JUNIT, JSP, Servlet, Tomcat 5.x, XML, DTD, XSL, SQL
+Oracle, JNDI, UML, JMS, WSDL, C++, UNIFACE Application Server.
+ 
+Tools:
+Scriptura, Uniface, Eclipse, Tomcat 5.x, XMLSpy, Oracle 9.x, Hora
+ 
+Sonstiges:
+Integration von Externen-Systemen und 3-Tier per XML Kommunikation und
+Serialisierung 
+===============================================================================
+ältere Projekte auf Anfrage
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_7461 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 22.05.2021 00:51:27
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

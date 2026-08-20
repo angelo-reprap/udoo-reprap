@@ -1,0 +1,1199 @@
+Senior Entwickler Java (JEE) Backend / JPA (Hibernate),
+Datenmodellierung, Oracle, Sybase, PowerBuilder
+Top-Skills: Java, RDBMS, Spring
+Verfügbar ab: 01.09.2022
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 70,00 EUR
+Bemerkungen: Mindeststundensatz bei 100% remote
+Tätigkeiten.
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Schweiz, Einsatzort unbestimmt
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Position
+Kommentar:     1.  Software-Entwicklung / Datenmodellierung / Programmierung
+    2.  Beratung / Consulting
+    3.  Coaching / Schulung / Training
+    4.  Projektmanagement / -leitung / Organisation / Koordination
+Projekte
+2017-12 - heute Web-Handelsplattform / B2B-Portal
+5 Jahre 3 Monate
+Rolle: Software-Entwickler
+Kunde: BIG PICTURE GmbH
+Einsatzort: Berlin / Remote
+Projektinhalte: Entwicklung einer B2B-Handelsplattform. Agile Vorgehensweise (SCRUM).  
+Kenntnisse: PostgreSQL, TypeScript, Node.js, SQL, Swagger, REST, Scrum
+Eingesetzte Produkte: IntelliJ IDEA, JIRA, GitLab, PostgreSQL, Docker, SAP Sybase
+16.03.2023 1 von 12
+PowerDesigner
+2015-01 - heute Automobil-Zubehör- und Ersatzteilkonfigurator für
+8 Jahre 2 Monate Werkstätten und Niederlassungen
+Rolle: Software-Entwickler, Datenmodellierung
+Kunde: cantaa GmbH
+Einsatzort: remote / Berlin
+Projektinhalte: Datenmodellierung, Java-Backend-Entwicklung, API-Entwicklung Server-
+seitig (REST, JSON), WEB-Application
+Kenntnisse: Java, SQL, JPA / Hibernate
+Eingesetzte Produkte: IntelliJ IDEA, PostgreSQL, Git, Maven, Java 8, Wicket, YouTrack, Jenkins,
+JAXB, SAX, Oracle, JPA, Hibernate
+2017-11 - 2017-12 Anbindung eines Webshops an  ein ERP-System
+2 Monate
+Rolle: Software-Entwickler, Architekt
+Kunde: f+s software GmbH
+Einsatzort: Berlin / remote
+Projektinhalte: Ein Webshop ist an ein ERP-System anzubinden. Es
+werden Artikelbestandsdaten, Bestelldaten, Kundendaten und Adressdaten
+ausgetauscht. Die Anbindung erfolgt über die REST-API des Webshops.
+Das Datenformat ist JSON. Bestellungen fließen just in time in das ERP-
+System ein und lösen dort Kommissionier- und Versandoperationen aus.
+Tracking-Daten für den Versandprozess werden dem Endkunden zur
+Verfügung gestellt.
+Kenntnisse: REST, Objektorientierte Entwicklung, JSON, SQL
+Eingesetzte Produkte: Shopware Webshop, PowerBuilder 12.5, Oracle 12, Oracle PL/SQL
+Developer
+2017-05 - 2017-10 Steuerung des Warenfluss einer Produktionsionslinie
+6 Monate
+Rolle: Software-Entwickler, Technologische Beratung, Datenmodellierung
+Kunde: topstar GmbH
+Einsatzort: remote / Berlin (Standort der Anlage Bayern)
+Projektinhalte: Verschiedene Transport- bzw. Verpackungsmittel (Trays, Kartons) werden
+einer Produktionsplanung entsprechend entlang einer Produktionslinie
+gesteuert und an verschiedenen Arbeitsplätzen zur Bearbeitung angezeigt.
+Als Fördermittel kommen Transportbänder und auftragsgesteuerte
+16.03.2023 2 von 12
+autonome Transporteinheiten zum Einsatz.
+Kenntnisse: Intralogistik, Produktionssteuerung und -planung, Kommunikation mit
+SPS, TCP/IP, REST, SQL, PL / SQL
+Eingesetzte Produkte: PowerBuilder, Oracle, MiRFleet
+2016-08 - 2016-09 Anbindung eines Webshops an einen Webservice
+2 Monate
+Rolle: Software-Entwickler
+Kunde: Glutrot GmbH
+Einsatzort: Berlin
+Projektinhalte: Schaffunng der technischen Basis für die Anbindung eines Webshops an
+einen Webservice für Abfragen (Adressen, Bestand) unter Verwendung des
+Message Brokers RabbitMQ. 
+Durch Einsatz des asynchron arbeitenden Message Brokers wird der
+Webshop vom Webserver entkoppelt. Eine Java-App nimmt Anfragen des
+Webshops aus RabbitMQ entgegen, transformiert die Abfragen in SOAP-
+Calls an den Webserver und sendet die Ergebnisse via RabbitMQ an
+den Webshop.zurück.
+Kenntnisse: Message Broker, SOAP, Java 8
+Eingesetzte Produkte: RabbitMQ, 4D Server, IntelliJ 2016.2, Maven, Spring
+2014-09 - 2016-08 Automobil-Zubehörkonfigurator für Endkunden
+2 Jahre
+Rolle: Software-Entwickler / Team, Product Owner
+Kunde: cantaa GmbH
+Einsatzort: Berlin / remote
+Projektinhalte: Entwicklung einer Web-Applikation zum Auffinden und zur Auswahl
+geeigneten Zubehörs für KFZ. 
+Kenntnisse: Java, SQL, JPA / Hibernate
+Eingesetzte Produkte: IntelliJ IDEA, PostgreSQL, Git, Maven, Java 8, Wicket, YouTrack, Jenkins,
+JAXB, SAX, Oracle, JPA, Hibernate
+November 2013 bis August 2014
+    •  Branche: Einzelhandel
+    •  Projekttitel: eLWIS
+    •  Tätigkeiten:
+Datenmodellierung für eine mobile Frontend-Anwendung für SAP (Sybase Ultralite).
+Datenmodellierung für die zentrale Datenhaltung (Oracle).
+Implementation des Datentransfers zwischen zentraler Datenbank und mobilen Geräten
+     ?(Sybase MobiLink).
+Abbildung und Mapping von SAP-Idocs auf ein relationales Datenmodell. Kommunikation
+     ?mit den Fachbereichen.
+Abstimmung von Prozessen und Schnittstellen mit Fachbereichen und Entwicklern.
+16.03.2023 3 von 12
+Einarbeitung neuer Team-Mitglieder. 
+    •  RDBMS: Oracle 11, SQL-Anywhere 12 und 16, Sybase Ultralite
+    •  Tools:
+Sybase PowerDesigner 16 - Datenmodellierung
+Sybase MobiLink - Bidirektionale Datensynchronisation zwischen SAP und mobilen
+     ?Endgeräten
+SAP Solution Manager - Projektorganisation
+PL/SQL-Developer - Datenbankmanagement 
+    •  Betriebssysteme: Windows und Windows CE
+    •  Kurzbeschreibung: Erstellung einer Applikation für mobile Endgeräte, die in Supermärkten als
+Frontend
+     ?für SAP eingestzt wird.
+ 
+Mai 2009 bis 2013
+    •  Branche: Papierprodukte
+    •  Projekttitel: SDLog
+    •  Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation, Modellierung,
+     ?Implemtierung, Einführung, Support, Bearbeitung von Change Requests
+    •  Entwicklungsumgebung: PowerBuilder 10.5 bis 12.5,
+    •  RDBMS: Oracle (bis aktuell 11g), Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer
+     ?(Eigenentwicklung)
+    •  Technologien: Pick-By-Light, TCP/IP, Mobile Geräte unter Windows CE
+    •  Kurzbeschreibung: Lager- und Versandsteuerung in verschiedenen Niederlassungen, Steuerung
+einer
+     ?Kommissionierstrecke unter Verwendung von Pick-By-Light-Technologie, Lageroptimierung,
+     ?Kommissioniersteuerung
+ 
+Sep 08 bis Mai 09
+    •  Branche: Maschinenbau
+    •  Projekttitel: Datamart für Wirtschaftlichkeits- und Kostenanalyse
+    •  Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation, Modellierung,
+     ?Implemtierung, Einführung, Support, Bearbeitung von Change Requests
+    •  Entwicklungsumgebung: PowerBuilder 10.5
+    •  RDBMS: Sybase ASA 9
+    •  Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer (Eigenentwicklung)
+    •  Kurzbeschreibung: Entwicklung eines Datamarts zur Aufbereitung und Auswertung der Daten
+des
+     ?ERP-Systems COMET in einer relationalen Datenbank. Einsatz der Entwicklungen
+     ?ComTrans-IWH und IWH-Xplorer (ebenfalls Eigenentwicklungen, siehe unten) 
+ 
+Mai 08 bis Dez 08
+    •  Branche: Möbelbranche
+    •  Projekttitel: LoLa/MoNa - AX Integration
+    •  Tätigkeit: Datenmodellierung, Implemtierung, Einführung, Support, Bearbeitung von Change
+     ?Requests
+    •  Entwicklungsumgebung: PowerBuilder 10.5
+    •  RDBMS: Oracle 10g
+    •  Klassenbibliothek: Klopotek MAP
+    •  Kurzbeschreibung: Anbindung der Produktsuite LoLa/MoNa an das ERP Paket Microsoft Axapta,
+     ?Datenaustausch über relationale Datenbank und XML
+ 
+Nov 07 bis Apr 08
+    •  Branche: Handwerk
+    •  Projekttitel: MARS
+    •  Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation, Modellierung,
+     ?Implemtierung, Einführung, Support, Bearbeitung von Change Requests
+    •  Entwicklungsumgebung: PowerBuilder 10.5 bis 12.5
+    •  RDBMS: Sybase ASA 9, 
+    •  Tools: Synchronisation: Sybase MobiLink
+    •  Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer (Eigenentwicklung)
+    •  Kurzbeschreibung: Mobiler Auftrags- und Reparaturservice, Verwaltung strukturierter Objekte
+16.03.2023 4 von 12
+     ?(Liegenschaften, Gebäude, Etagen, Räume, technische Anlagen etc) , Erstellung und
+     ?Verwaltung von Arbeitsplänen, Mobile Auftragsabwicklung, Erfassung frei gewählter
+     ?Daten zu Objekten und Tätigkeiten, Zuordnung und Archivierung beliebiger Dokumente zu
+     ?Objekten
+ 
+Jan 07 bis Okt 07
+    •  Branche: Möbelbranche
+    •  Projekttitel: MoNa LeitSPS
+    •  Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation, Modellierung,
+     ?Implemtierung, Einführung, Support, Bearbeitung von Change Requests
+    •  Entwicklungsumgebung: PowerBuilder 10.5
+    •  RDBMS: Oracle 10g
+    •  Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer (Eigenentwicklung)
+    •  Weitere Technologien: TCP/IP, HTML, CSS, JSP, JavaScript, Sybase EA-Server
+    •  Kurzbeschreibung: Steuerung und Dokumentation des Materialflusses in der Produktion.
+Anbindung
+     ?mehrerer SPS, Scanner und spezieller Etikettendrucker über TCP/IP. Browserbasierte
+     ?Anzeigestationen unter Linux an Werktischen und anderen Arbeitsplätzen als JSP im
+     ?Sybase EA-Server
+ 
+Feb 06 bis Okt 06
+    •  Branche: Verschiedene Kunden im Handwerk und Facility Management
+    •  Projekttitel: WIM
+    •  Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation, Modellierung,
+     ?Implemtierung, Einführung, Support, Bearbeitung von Change Requests
+    •  Entwicklungsumgebung: PowerBuilder 9 bis 12.5, PocketBuilder
+    •  RDBMS: Sybase ASA und MS SQL Server
+    •  Tools: Sybase MobiLink
+    •  Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer (Eigenentwicklung)
+    •  Technologien: RFID
+    •  Kurzbeschreibung: Werkzeug- und Inventar-Management. Werkzeug und Inventar wird mit
+RFID-Chips bzw
+     ?Etiketten gekennzeichnet. Ausgabe-, Rückgabe-, Reparatur- und weitere Vorgänge werden
+     ?mobil oder stationär gebucht und dokumentiert. Die Vorgänge können zusätzlich durch
+     ?Fotos dokumentiuert werden. Einbindung und Archivierung von Dokumenten
+     ?(Garantieurkunde, Bedienungsanleitung, Lieferscheine, ...)
+ 
+Okt 05 bis Jan 06
+    •  Branche: Möbelbranche
+    •  Projekttitel: LoLa LVSS Server
+    •  Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation, Modellierung,
+     ?Implemtierung, Einführung, Support, Bearbeitung von Change Requests
+    •  Entwicklungsumgebung: PowerBuilder 9
+    •  Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer (Eigenentwicklung)
+    •  RDBMS: Oracle 10g
+    •  Kurzbeschreibung: LVSS-Server: Steuerung eines automatischen Hochregallagers und für Roh-
+und
+     ?Fertigware: Einlagern, Auslagern, Reservieren, Kommissionieren. Schnittstelle zwischen
+     ?LoLa und Lagerhardware
+ 
+Mai 05 bis Sep 05
+    •  Branche: Möbelbranche
+    •  Projekttitel: LoLa FTFW Server
+    •  Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation, Modellierung,
+     ?Implemtierung, Einführung, Support, Bearbeitung von Change Requests
+    •  Entwicklungsumgebung: PowerBuilder 9 bis 10.5
+    •  RDBMS: Oracle 10g
+    •  Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer (Eigenentwicklung)
+    •  Technologien: TCP/IP
+    •  Kurzbeschreibung: FTFW Server: Steuerung der Fördertechnik Fertigware (Kommunikation mit
+SPS),
+16.03.2023 5 von 12
+     ?Verteilung der Ware zu verschiedenen Kommisionierzielen oder in ein HRL, Dokumentation
+     ?des Warenflusses
+ 
+Nov 04 bis Apr 05
+    •  Branche: Möbelbranche
+    •  Projekttitel: LoLa Palettierersteuerung
+    •  Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation, Modellierung,
+     ?Implemtierung, Einführung, Support, Bearbeitung von Change Requests
+    •  Entwicklungsumgebung: PowerBuilder 9 bis 10.5
+    •  RDBMS: Oracle 10g
+    •  Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer (Eigenentwicklung)
+    •  Technologie: TCP/IP
+    •  Kurzbeschreibung: LoLa Palettierersteuerung: Kommunikation mit unterschiedlichen SPS
+gesteuerten
+     ?Palettierern bzw Palettierrobotern, Übergabe Packschema, Kartongeometrie, Veranlassung
+     ?des Palettenwechsels, Dokumentation der vom Palettierer gemeldeten Packoperationen
+ 
+Aug 04 bis Okt 04
+    •  Branche: Facility Management
+    •  Projekttitel: mFM
+    •  Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation, Modellierung,
+     ?Implemtierung, Einführung, Support, Bearbeitung von Change Requests
+    •  Entwicklungsumgebung: PowerBuilder 9, PocketBuilder 1.5 bis 2.5
+    •  RDBMS: Sybase ASA 9
+    •  Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer (Eigenentwicklung)
+    •  Tools: Sybase MobiLink
+    •  Technologien: RFID, TCP/IP, GPS
+    •  Kurzbeschreibung: mobile Facility Management: Mobile Lösungen für das Facility Management,
+     ?Sicherheitsbegehung, Inventaraufnahme und -verwaltung, Wachschutz, Dispatching und
+     ?Dokumentation von Reparatur- und Wartungsaufträgen, Integration mit
+     ?CAFM-Applikationen, Einbindung von RFID, Barcode, GPS
+ 
+Jun 04 bis Jul 04
+    •  Branche: Facility Managament
+    •  Projekttitel: mCL
+    •  Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation, Modellierung,
+     ?Implemtierung, Einführung, Support, Bearbeitung von Change Requests
+    •  Entwicklungsumgebung: PowerBuilder 8, PocketBuilder 1.5 bis 2.5
+    •  RDBMS: Sybase ASA 9
+    •  Tools: Sybase MobiLink
+    •  Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer (Eigenentwicklung)
+    •  Kurzbeschreibung: mobile Collect: Applikation zur mobilen Aufnahme diverser Daten, freie
+     ?Maskengestaltung am zentralen PC, automatische Verteilung der Masken an mobile Geräte
+     ?und Synchronisation der aufgenommenen Daten in eine zentrale Datenbank, Einbindung von
+     ?RFID, Barcode, GPS bei der mobilen Datenerfassung
+ 
+Ältere bzw. fortlaufende Projekte:
+ 
+Entwicklung und Pflege eines Datenmodells im Bereich ERP und verschiedener Erweiterungen für
+Individualprojekte
+ 
+Tools: Sybase PowerDesigner
+RDBMS: Orace, MS SQL Server, Sybase ASE und ASA, Informix, MySQL
+ 
+Lebensmittelbranche
+Alberto I und II
+Entwicklungsumgebung: PowerBuilder 6, RDBMS: Informix, später Sybase ASA, Klassenbibliothek:
+Klopotek MAP, Framework: IWH-Xplorer (Eigenentwicklung), Tools: Sybase Data Architect (aktuell:
+PowerDesigner), Sybase Infomaker,  Excel / VB
+Lagerverwaltung (automatisches Hochregallager), Chargenverfolgung mit besonderen
+Anforderungen aus der Lebensmittelbranche, Integration zwischen SAP R3 und automatischem
+16.03.2023 6 von 12
+Hochregallager mittels IDoc, ROLAP-Systemen für Absatz-/Plan-/Umsatzdaten
+ 
+Framework zur Verwendung in mehreren Projekten
+IWH-Xplorer
+Entwicklungsumgebung: PowerBuilder 6 bis 12.5; RDBMS: Oracle, Sybase ASA, MS SQL Server,
+MySQL, Informix, Klassenbibliothek: Klopotek MAP
+Information Warehouse-Xplorer: Metadatengesteurtes Informationssystem auf Basis des
+PowerBuilder DataWindows zur flexiblen Entwicklung und Anpassung von Benutzeroberflächen zur
+Laufzeit. Beliebig viele Listen- und Detailansichten für verschiedene Datenklassen, effiziente
+Navigation durch den Datenbestand einschließlich einfacher Sortier-, Filter- und
+Recherechefunktionalität, Wartungsmöglichkeit der Reports zur Laufzeit durch Support-Mitarbeiter,
+IT beim Anwender oder Benutzer, Rechteverwaltung auf Benutzer- und Gruppenbasis, PlugIn-
+fähigkeit für PowerBuilder Komponenten
+ 
+ 
+Datenintegration COMET->RDBMS
+ComTrans-IWH
+Entwicklungsumgebung: PowerBuilder 6 bis 12.5, Cross-Basic; RDBMS: Oracle, Sybase ASA, MS SQL
+Server, MySQL
+Information Warehouse Server und Loader: Metadatengesteuerter Datenaustausch zwischen COMET
+und relationalen Datenbanken
+ 
+Decision Support System
+Entwicklungsumgebung: PowerBuilder 6, RDBMS: Oracle, Tools: Sybase Data Architect (aktuell:
+PowerDesigner), Sybase Infomaker,  Excel / VB
+Entwicklung eines Decision Support Systems (ROLAP) zur Analyse von Auftragseingängen, Umsätzen
+nach Regionen und Produkten. Individualentwicklung von ERP- und CRM – Komponenten.
+ 
+Betreuung einer praktischen Diplomarbeit 
+„Konzepte zur Berechnung materialisierter Sichten zur Beschleunigung von Anfragen in OLAP
+Datenbanken“ 
+Themen: DataWareHouse, DataMart, OLAP
+ 
+Datenübernahme in den Klopotek Adresspool
+Entwicklungsumgebung: Cross-Basic
+Transfer der Kundendaten eines renommierten Berliner Entsorgungsunternehmens in den Adresspool
+der Firma Klopotek
+ 
+Klopotek PPM/MEX
+PPM
+Entwicklungsumgebung PowerBuilder, RDBMS: Oracle, Klassenbibliothek Klopotek MAP
+Mitarbeit an der Verlagssoftware Klopotek PPM als PowerBuilder-Trainee
+ 
+TU-Berlin, KIT
+CPSG/HPSG, Maschinelles Sprachverstehen
+Entwicklungsumgebung: Prolog, C, C++, Technologie: Terminologische Logik, Tools: TeX, LaTeX
+Studentischer Mitarbeiter im interdisziplinären Projekt KIT (Künstliche Intelligenz und
+Textverstehen)der TU Berlin. Im Rahmen dieses Projektes verfasste ich auch meine Studienarbeit
+"Die Klassifikationsbasierte Phrasenstrukturgrammatik - Eine Fallstudie" und meine Diplomarbeit
+"Typisierung von CPSG vor dem Hintergrund von ALE" (HPSG: Head-driven Phrase Structure
+Grammar, CPSG: Classification-based Phrase Structure Grammar, ALE: The Attribute Logic Engine)
+ 
+Rezepturanalyse und Bedarfskalkulation für Tiefkühlprodukte im Lebensmittelbereich
+Entwicklungsumgebung: Cross-Basic
+ 
+Entwicklung einer Angebotskalkulation für Spreng- und Abrissprojekte
+Tools: Microsoft Excel und Turbo-Pascal
+ 
+Branchen
+16.03.2023 7 von 12
+    •  Lebensmittel
+    •  Automobilindustrie
+    •  Möbel
+    •  Handwerk
+    •  Papier
+    •  Facility Management
+    •  Maschinenbau
+    •  Baubranche
+    •  Einzelhandel
+Sprachen
+Deutsch Muttersprache
+Englisch Gute Kenntnisse
+Kompetenzen
+Schwerpunkte Backend-Entwicklung
+Datenmodellierung
+Intralogistik
+JPA (Hibernate)
+Objektorientierte
+Entwicklung
+Produktionssteuerung
+und -planung
+Relationale Datenbanken
+Produkte / Standards / Atlassian Confluence
+Erfahrungen / Methoden
+CSS/HTML Gute Kenntnisse
+Docker
+git Grundkenntnisse
+Gitblit
+GitLab
+GPS Grundkenntnisse
+Hibernate
+InfoMaker Experte
+IntelliJ IDEA Gute Kenntnisse
+16.03.2023 8 von 12
+Jenkins
+JIRA
+JPA / Hibernate Sehr gute Kenntnisse
+JSON
+Maven
+Message Broker
+MiRFleet Gute Kenntnisse
+Node.js
+Oracle PL/SQL Developer
+PL/SQL-Developer Sehr gute Kenntnisse
+PocketBuilder Experte
+PowerBuilder Experte
+PowerDesigner Sehr gute Kenntnisse
+Querydsl
+REST
+RFID Gute Kenntnisse
+SAP Sybase
+PowerDesigner
+SAX
+Scrum
+Shopware Webshop
+SOAP
+Spring
+Swagger
+Sybase MobiLink Sehr gute Kenntnisse
+TCP/IP Gute Kenntnisse
+Wicket
+XML Gute Kenntnisse
+Youtrack Gute Kenntnisse
+ 
+ 
+16.03.2023 9 von 12
+Betriebssysteme Unix / Linux Gute Kenntnisse
+Windows Erfahrungen als Anwender, Entwickler und
+mit API
+Windows CE Erfahrungen als Entwickler und mit API
+Programmiersprachen Basic
+Hibernate Query Gute Kenntnisse
+Language
+Java Sehr gute Kenntnisse
+Java 8
+JavaScript Grundkenntnisse
+JAXB
+JPA
+PL/SQL Sehr gute Kenntnisse
+Powerbuilder / Experte
+PowerScript
+PowerBuilder 12.5
+Shell Gute Kenntnisse
+TypeScript
+Datenbanken Access Grundkenntnisse
+Informix Grundkenntnisse
+MS SQL Server Sehr gute Kenntnisse
+MySQL Grundkenntnisse
+ODBC Gute Kenntnisse
+Oracle Experte
+Oracle 11g
+Oracle 12
+Oracle 12c
+PostgreSQL Gute Kenntnisse
+SQL Experte
+Sybase Sehr gute Kenntnisse
+Sybase SQL Anywhere Experte
+Sybase Ultralite Sehr gute Kenntnisse
+16.03.2023 10 von 12
+Watcom SQL Sehr gute Kenntnisse
+Datenkommunikation Kommunikation mit SPS
+RabbitMQ
+TCP/IP Gute Kenntnisse
+Windows Netzwerk Gute Kenntnisse
+Winsock Gute Kenntnisse
+Sybase MobiLink: Experte
+Hardware PC
+Meine Tätigkeiten bei der Softwareentwicklung beinhalten den
+gesamten Software-Lifecycle:
+ 
+    •  Anforderungsanalyse
+    •  Architektur/Entwurf
+    •  Modellierung
+    •  Implementation
+    •  Test
+    •  Fehleranalyse und -Korrektur
+    •  Einführung (roll out)
+    •  Erstellung von Setups
+    •  Pflege/Wartung
+    •  Support
+    •  Änderung/Anpassung/Erweiterung
+ 
+Durch meine langjährige Funktion als Prokurist in einem
+Softwareunternehmen bin ich mit dem betriebswirtschaftliechen
+Hintergrund der Softwareproduktions bestens vertraut.
+ 
+Des weiteren war ich oftmals für die Auswahl, Einführung, Einarbeitung
+und Betreuung neuer Mitarbeiter verantwortlich und habe häufig
+Projektverantwortung übernommen.
+ 
+Durch meine Berufsausbildung und meine beiden abgeschlossenen
+Studiengänge (Bauwesen und Informatik) war und ist mir der "Blick
+über den Tellerrand" von Anfang an zu eigen. Ich arbeite stets
+lösungsorientiert, wobei theoretisch fundierte Überlegungen mit einer
+pragmatischen Herangehensweise Hand in Hand gehen. Es ist mir
+wichtig, flexibel auf aktuelle Anforderungen zu reagieren, dabei aber
+gesetzte Ziele fest im Blick zu behalten. Neben meinem sehr guten
+fachlichen Hintergrund erachte ich mein Kommunikationstalent, meine
+Teamfähigkeit, meine eigenverantwortliche und kreative
+Arbeitshaltung und meine schnelle Auffassungsgabe als besonders
+hervorzuhebende Skills. Darüber hinaus sind mir Begabung zum
+Verfassen von Texten und im Coaching zu Eigen.  
+Aus- und Weiterbildung
+16.03.2023 11 von 12
+1991-09 - 1998-12 Informatik-Studium
+7 Jahre 4 Monate
+Abschluss: Diplom-Informatiker
+Institution: TU Berlin
+- Programmiersprachen- Relationale Datenbanken- Künstliche
+Intelligenz
+1985-09 - 1990-02 Studium im Bereich Bauwesen
+4 Jahre 6 Monate
+Abschluss: Diplom-Ingenieur
+Institution: TH Leipzig
+    •  1980 bis 1983 Berufsausbildung mit Abitur in Berlin, Abschluss Hochschulreife und
+     ?Facharbeiter für die Bauproduktion
+    •  1985 bis 1990 Studium "Technologie der Bauproduktion an der TH Leipzig, Abschluss
+     ?Diplom Ingenieur
+    •  1987 Volkshochschulkurs "Mikroprozessor-Programmierung"
+    •  1991 bis 1998 Studium der Informatik an der TU Berlin, Abschluss Diplom Informatiker
+     ?(Abschlussnote "Sehr gut")
+    •  Ab 1994 diverse Schulungen im im Bereich PowerBuilder und Objektorientierte
+     ?Programmierung
+16.03.2023 12 von 12
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_129829
+
+
+Stammdaten (Auszug):
+
+Personen-ID                129829
+  
+Wohnort                    121xx Berlin, Deutschland
+Jahrgang                   1964
+Staatsbürgerschaft         Deutsch
+Stundensatz                66 EUR
+                           Mindeststundensatz bei 100% remote Tätigkeiten.
+Verfügbar ab               01.12.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         21.05.13
+Profil zuletzt geändert am 18.05.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 04.03.2021 13:46:54
+
+Fachlicher Schwerpunkt:
+Senior Entwickler Java (JEE) Backend / JPA (Hibernate), Datenmodellierung,
+Oracle, Sybase, PowerBuilder
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+
+   1. Software-Entwicklung / Datenmodellierung / Programmierung
+   2. Beratung / Consulting
+   3. Coaching / Schulung / Training
+   4. Projektmanagement / -leitung / Organisation / Koordination
+
+Festanstellung gleichrangig zu freiberuflicher Mitarbeit
+
+Voraussetzung für Festanstellung: Voraussetzung für eine Festanstellung ist der
+Arbeitsort Berlin (Umland möglich, Reisetätigkeit möglich) sowie besonders
+interessante Anforderungen und Aufgaben im IT-​Bereich mit
+Entwicklungsperspektive.
+
+Ausbildung:
+09/1991 - 12/1998: Informatik-Studium
+ 
+Abschluss:          Diplom-Informatiker
+Institution:        TU Berlin
+ 
+Schwerpunkt:
+ 
+- Programmiersprachen
+- Relationale Datenbanken
+- Künstliche Intelligenz
+===============================================================================
+09/1985 - 02/1990: Studium im Bereich Bauwesen
+ 
+Abschluss:          Diplom-Ingenieur
+Institution:        TH Leipzig
+===============================================================================
+    * 1980 bis 1983 Berufsausbildung mit Abitur in Berlin, Abschluss
+      Hochschulreife und Facharbeiter für die Bauproduktion
+    * 1985 bis 1990 Studium "Technologie der Bauproduktion an der TH Leipzig,
+      Abschluss Diplom Ingenieur
+    * 1987 Volkshochschulkurs "Mikroprozessor-Programmierung"
+    * 1991 bis 1998 Studium der Informatik an der TU Berlin, Abschluss Diplom
+      Informatiker (Abschlussnote "Sehr gut")
+    * Ab 1994 diverse Schulungen im im Bereich PowerBuilder und
+      Objektorientierte Programmierung
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch  Muttersprache
+Englisch Gute Kenntnisse
+
+
+Hardware:
+PC  
+
+
+Betriebssysteme:
+Unix / Linux Gute Kenntnisse
+Windows      Erfahrungen als Anwender, Entwickler und mit API
+Windows CE   Erfahrungen als Entwickler und mit API
+
+
+Programmiersprachen:
+Basic                       
+Hibernate Query Language   Gute Kenntnisse
+Java                       Sehr gute Kenntnisse
+Java 8                      
+JavaScript                 Grundkenntnisse
+JAXB                        
+JPA                         
+PL/SQL                     Sehr gute Kenntnisse
+Powerbuilder / PowerScript Experte
+PowerBuilder 12.5           
+Shell                      Gute Kenntnisse
+TypeScript                  
+
+
+Datenbanken:
+Access              Grundkenntnisse
+Informix            Grundkenntnisse
+MS SQL Server       Sehr gute Kenntnisse
+MySQL               Grundkenntnisse
+ODBC                Gute Kenntnisse
+Oracle              Experte
+Oracle 11g           
+Oracle 12            
+Oracle 12c           
+PostgreSQL          Gute Kenntnisse
+SQL                 Experte
+Sybase              Sehr gute Kenntnisse
+Sybase SQL Anywhere Experte
+Sybase Ultralite    Sehr gute Kenntnisse
+Watcom SQL          Sehr gute Kenntnisse
+
+
+Datenkommunikation:
+Kommunikation mit SPS  
+RabbitMQ               
+TCP/IP                Gute Kenntnisse
+Windows Netzwerk      Gute Kenntnisse
+Winsock               Gute Kenntnisse
+
+Sybase MobiLink: Experte
+
+Schwerpunkte:
+Backend-Entwicklung                
+Datenmodellierung                  
+Intralogistik                      
+JPA (Hibernate)                    
+Objektorientierte Entwicklung      
+Produktionssteuerung und -planung  
+Relationale Datenbanken            
+
+
+Produkte/Standards/Erfahrungen:
+Atlassian Confluence      
+CSS/HTML                 Gute Kenntnisse
+Docker                    
+git                      Grundkenntnisse
+Gitblit                   
+GitLab                    
+GPS                      Grundkenntnisse
+Hibernate                 
+InfoMaker                Experte
+IntelliJ IDEA            Gute Kenntnisse
+Jenkins                   
+JIRA                      
+JPA / Hibernate          Sehr gute Kenntnisse
+JSON                      
+Maven                     
+Message Broker            
+MiRFleet                 Gute Kenntnisse
+Node.js                   
+Oracle PL/SQL Developer   
+PL/SQL-Developer         Sehr gute Kenntnisse
+PocketBuilder            Experte
+PowerBuilder             Experte
+PowerDesigner            Sehr gute Kenntnisse
+Querydsl                  
+REST                      
+RFID                     Gute Kenntnisse
+SAP Sybase PowerDesigner  
+SAX                       
+Scrum                     
+Shopware Webshop          
+SOAP                      
+Spring                    
+Swagger                   
+Sybase MobiLink          Sehr gute Kenntnisse
+TCP/IP                   Gute Kenntnisse
+Wicket                    
+XML                      Gute Kenntnisse
+Youtrack                 Gute Kenntnisse
+ 
+ 
+
+Branchen:
+    * Lebensmittel
+    * Automobilindustrie
+    * Möbel
+    * Handwerk
+    * Papier
+    * Facility Management
+    * Maschinenbau
+    * Baubranche
+    * Einzelhandel
+
+Projekte:
+12/2017 - heute: Web-Handelsplattform / B2B-Portal
+ 
+Einsatzort:         Berlin / Remote
+Rolle:              Software-Entwickler
+Kunde:              BIG PICTURE GmbH
+Branche:            Chemie, Mineralöl &amp; Kunststoff
+ 
+Aufgaben:
+ 
+Entwicklung einer B2B-Handelsplattform. Agile Vorgehensweise (SCRUM).  
+ 
+Kenntnisse:
+ 
+PostgreSQL, TypeScript, Node.js, SQL, Swagger, REST, Scrum
+ 
+Eingesetzte Produkte:
+ 
+IntelliJ IDEA, JIRA, GitLab, PostgreSQL, Docker, SAP Sybase PowerDesigner
+===============================================================================
+01/2015 - heute: Automobil-Zubehör- und Ersatzteilkonfigurator für Werkstätten
+und Niederlassungen
+ 
+Einsatzort:         remote / Berlin
+Rolle:              Software-Entwickler, Datenmodellierung
+Kunde:              cantaa GmbH
+Unternehmensgröße:  > 1000
+Branche:            Automotive
+ 
+Aufgaben:
+ 
+Datenmodellierung, Java-Backend-Entwicklung, API-Entwicklung Server-seitig
+(REST, JSON), WEB-Application
+ 
+Kenntnisse:
+ 
+Java, SQL, JPA / Hibernate
+ 
+Eingesetzte Produkte:
+ 
+IntelliJ IDEA, PostgreSQL, Git, Maven, Java 8, Wicket, YouTrack, Jenkins, JAXB,
+SAX, Oracle, JPA, Hibernate
+===============================================================================
+11/2017 - 12/2017: Anbindung eines Webshops an  ein ERP-System
+ 
+Einsatzort:         Berlin / remote
+Rolle:              Software-Entwickler, Architekt
+Kunde:              f+s software GmbH
+ 
+Aufgaben:
+ 
+Ein Webshop ist an ein ERP-System anzubinden. Es werden Artikelbestandsdaten,
+Bestelldaten, Kundendaten und Adressdaten ausgetauscht. Die Anbindung erfolgt
+über die REST-API des Webshops. Das Datenformat ist JSON. Bestellungen fließen
+just in time in das ERP-System ein und lösen dort Kommissionier- und
+Versandoperationen aus. Tracking-Daten für den Versandprozess werden dem
+Endkunden zur Verfügung gestellt.
+ 
+Kenntnisse:
+ 
+REST, Objektorientierte Entwicklung, JSON, SQL
+ 
+Eingesetzte Produkte:
+ 
+Shopware Webshop, PowerBuilder 12.5, Oracle 12, Oracle PL/SQL Developer
+===============================================================================
+05/2017 - 10/2017: Steuerung des Warenfluss einer Produktionsionslinie
+ 
+Einsatzort:         remote / Berlin (Standort der Anlage Bayern)
+Rolle:              Software-Entwickler, Technologische Beratung,
+Datenmodellierung
+Kunde:              topstar GmbH
+Geschäftsstelle:    IT / Produktion / Technik
+ 
+Aufgaben:
+ 
+Verschiedene Transport- bzw. Verpackungsmittel (Trays, Kartons) werden einer
+Produktionsplanung entsprechend entlang einer Produktionslinie gesteuert und an
+verschiedenen Arbeitsplätzen zur Bearbeitung angezeigt. Als Fördermittel kommen
+Transportbänder und auftragsgesteuerte autonome Transporteinheiten zum Einsatz.
+ 
+Kenntnisse:
+ 
+Intralogistik, Produktionssteuerung und -planung, Kommunikation mit SPS, TCP/
+IP, REST, SQL, PL / SQL
+ 
+Eingesetzte Produkte:
+ 
+PowerBuilder, Oracle, MiRFleet
+===============================================================================
+08/2016 - 09/2016: Anbindung eines Webshops an einen Webservice
+ 
+Einsatzort:         Berlin
+Rolle:              Software-Entwickler
+Kunde:              Glutrot GmbH
+ 
+Aufgaben:
+ 
+Schaffunng der technischen Basis für die Anbindung eines Webshops an einen
+Webservice für Abfragen (Adressen, Bestand) unter Verwendung des Message
+Brokers RabbitMQ. 
+Durch Einsatz des asynchron arbeitenden Message Brokers wird der Webshop vom
+Webserver entkoppelt. Eine Java-App nimmt Anfragen des Webshops aus RabbitMQ
+entgegen, transformiert die Abfragen in SOAP-Calls an den Webserver und sendet
+die Ergebnisse via RabbitMQ an den Webshop.zurück.
+ 
+Kenntnisse:
+ 
+Message Broker, SOAP, Java 8
+ 
+Eingesetzte Produkte:
+ 
+RabbitMQ, 4D Server, IntelliJ 2016.2, Maven, Spring
+===============================================================================
+09/2014 - 08/2016: Automobil-Zubehörkonfigurator für Endkunden
+ 
+Einsatzort:         Berlin / remote
+Rolle:              Software-Entwickler / Team, Product Owner
+Kunde:              cantaa GmbH
+Branche:            Automotive
+ 
+Aufgaben:
+ 
+Entwicklung einer Web-Applikation zum Auffinden und zur Auswahl geeigneten
+Zubehörs für KFZ. 
+ 
+Kenntnisse:
+ 
+Java, SQL, JPA / Hibernate
+ 
+Eingesetzte Produkte:
+ 
+IntelliJ IDEA, PostgreSQL, Git, Maven, Java 8, Wicket, YouTrack, Jenkins, JAXB,
+SAX, Oracle, JPA, Hibernate
+===============================================================================
+November 2013 bis August 2014
+    * Branche: Einzelhandel
+    * Projekttitel: eLWIS
+    * Tätigkeiten:
+      Datenmodellierung für eine mobile Frontend-Anwendung für SAP (Sybase
+      Ultralite).
+      Datenmodellierung für die zentrale Datenhaltung (Oracle).
+      Implementation des Datentransfers zwischen zentraler Datenbank und
+      mobilen Geräten (Sybase MobiLink).
+      Abbildung und Mapping von SAP-Idocs auf ein relationales
+      Datenmodell. Kommunikation mit den Fachbereichen.
+      Abstimmung von Prozessen und Schnittstellen mit Fachbereichen und
+      Entwicklern.
+      Einarbeitung neuer Team-Mitglieder. 
+    * RDBMS: Oracle 11, SQL-Anywhere 12 und 16, Sybase Ultralite
+    * Tools:
+      Sybase PowerDesigner 16 - Datenmodellierung
+      Sybase MobiLink - Bidirektionale Datensynchronisation zwischen SAP und
+      mobilen Endgeräten
+      SAP Solution Manager - Projektorganisation
+      PL/SQL-Developer - Datenbankmanagement 
+    * Betriebssysteme: Windows und Windows CE
+    * Kurzbeschreibung: Erstellung einer Applikation für mobile Endgeräte, die
+      in Supermärkten als Frontend für SAP eingestzt wird.
+ 
+Mai 2009 bis 2013
+    * Branche: Papierprodukte
+    * Projekttitel: SDLog
+    * Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation,
+      Modellierung, Implemtierung, Einführung, Support, Bearbeitung von Change
+      Requests
+    * Entwicklungsumgebung: PowerBuilder 10.5 bis 12.5,
+    * RDBMS: Oracle (bis aktuell 11g), Klassenbibliothek: Klopotek MAP,
+      Framework: IWH-Xplorer (Eigenentwicklung)
+    * Technologien: Pick-By-Light, TCP/IP, Mobile Geräte unter Windows CE
+    * Kurzbeschreibung: Lager- und Versandsteuerung in verschiedenen
+      Niederlassungen, Steuerung einer Kommissionierstrecke unter Verwendung
+      von Pick-By-Light-Technologie, Lageroptimierung, Kommissioniersteuerung
+ 
+Sep 08 bis Mai 09
+    * Branche: Maschinenbau
+    * Projekttitel: Datamart für Wirtschaftlichkeits- und Kostenanalyse
+    * Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation,
+      Modellierung, Implemtierung, Einführung, Support, Bearbeitung von Change
+      Requests
+    * Entwicklungsumgebung: PowerBuilder 10.5
+    * RDBMS: Sybase ASA 9
+    * Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer
+      (Eigenentwicklung)
+    * Kurzbeschreibung: Entwicklung eines Datamarts zur Aufbereitung und
+      Auswertung der Daten des ERP-Systems COMET in einer relationalen
+      Datenbank. Einsatz der Entwicklungen ComTrans-IWH und IWH-Xplorer
+      (ebenfalls Eigenentwicklungen, siehe unten) 
+ 
+Mai 08 bis Dez 08
+    * Branche: Möbelbranche
+    * Projekttitel: LoLa/MoNa - AX Integration
+    * Tätigkeit: Datenmodellierung, Implemtierung, Einführung, Support,
+      Bearbeitung von Change Requests
+    * Entwicklungsumgebung: PowerBuilder 10.5
+    * RDBMS: Oracle 10g
+    * Klassenbibliothek: Klopotek MAP
+    * Kurzbeschreibung: Anbindung der Produktsuite LoLa/MoNa an das ERP Paket
+      Microsoft Axapta, Datenaustausch über relationale Datenbank und XML
+ 
+Nov 07 bis Apr 08
+    * Branche: Handwerk
+    * Projekttitel: MARS
+    * Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation,
+      Modellierung, Implemtierung, Einführung, Support, Bearbeitung von Change
+      Requests
+    * Entwicklungsumgebung: PowerBuilder 10.5 bis 12.5
+    * RDBMS: Sybase ASA 9, 
+    * Tools: Synchronisation: Sybase MobiLink
+    * Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer
+      (Eigenentwicklung)
+    * Kurzbeschreibung: Mobiler Auftrags- und Reparaturservice, Verwaltung
+      strukturierter Objekte (Liegenschaften, Gebäude, Etagen, Räume,
+      technische Anlagen etc) , Erstellung und Verwaltung von Arbeitsplänen,
+      Mobile Auftragsabwicklung, Erfassung frei gewählter Daten zu Objekten und
+      Tätigkeiten, Zuordnung und Archivierung beliebiger Dokumente zu Objekten
+ 
+Jan 07 bis Okt 07
+    * Branche: Möbelbranche
+    * Projekttitel: MoNa LeitSPS
+    * Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation,
+      Modellierung, Implemtierung, Einführung, Support, Bearbeitung von Change
+      Requests
+    * Entwicklungsumgebung: PowerBuilder 10.5
+    * RDBMS: Oracle 10g
+    * Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer
+      (Eigenentwicklung)
+    * Weitere Technologien: TCP/IP, HTML, CSS, JSP, JavaScript, Sybase EA-
+      Server
+    * Kurzbeschreibung: Steuerung und Dokumentation des Materialflusses in der
+      Produktion. Anbindung mehrerer SPS, Scanner und spezieller
+      Etikettendrucker über TCP/IP. Browserbasierte Anzeigestationen unter
+      Linux an Werktischen und anderen Arbeitsplätzen als JSP im Sybase EA-
+      Server
+ 
+Feb 06 bis Okt 06
+    * Branche: Verschiedene Kunden im Handwerk und Facility Management
+    * Projekttitel: WIM
+    * Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation,
+      Modellierung, Implemtierung, Einführung, Support, Bearbeitung von Change
+      Requests
+    * Entwicklungsumgebung: PowerBuilder 9 bis 12.5, PocketBuilder
+    * RDBMS: Sybase ASA und MS SQL Server
+    * Tools: Sybase MobiLink
+    * Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer
+      (Eigenentwicklung)
+    * Technologien: RFID
+    * Kurzbeschreibung: Werkzeug- und Inventar-Management. Werkzeug und
+      Inventar wird mit RFID-Chips bzw Etiketten gekennzeichnet. Ausgabe-,
+      Rückgabe-, Reparatur- und weitere Vorgänge werden mobil oder stationär
+      gebucht und dokumentiert. Die Vorgänge können zusätzlich durch Fotos
+      dokumentiuert werden. Einbindung und Archivierung von Dokumenten
+      (Garantieurkunde, Bedienungsanleitung, Lieferscheine, ...)
+ 
+Okt 05 bis Jan 06
+    * Branche: Möbelbranche
+    * Projekttitel: LoLa LVSS Server
+    * Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation,
+      Modellierung, Implemtierung, Einführung, Support, Bearbeitung von Change
+      Requests
+    * Entwicklungsumgebung: PowerBuilder 9
+    * Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer
+      (Eigenentwicklung)
+    * RDBMS: Oracle 10g
+    * Kurzbeschreibung: LVSS-Server: Steuerung eines automatischen
+      Hochregallagers und für Roh- und Fertigware: Einlagern, Auslagern,
+      Reservieren, Kommissionieren. Schnittstelle zwischen LoLa und
+      Lagerhardware
+ 
+Mai 05 bis Sep 05
+    * Branche: Möbelbranche
+    * Projekttitel: LoLa FTFW Server
+    * Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation,
+      Modellierung, Implemtierung, Einführung, Support, Bearbeitung von Change
+      Requests
+    * Entwicklungsumgebung: PowerBuilder 9 bis 10.5
+    * RDBMS: Oracle 10g
+    * Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer
+      (Eigenentwicklung)
+    * Technologien: TCP/IP
+    * Kurzbeschreibung: FTFW Server: Steuerung der Fördertechnik Fertigware
+      (Kommunikation mit SPS), Verteilung der Ware zu verschiedenen
+      Kommisionierzielen oder in ein HRL, Dokumentation des Warenflusses
+ 
+Nov 04 bis Apr 05
+    * Branche: Möbelbranche
+    * Projekttitel: LoLa Palettierersteuerung
+    * Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation,
+      Modellierung, Implemtierung, Einführung, Support, Bearbeitung von Change
+      Requests
+    * Entwicklungsumgebung: PowerBuilder 9 bis 10.5
+    * RDBMS: Oracle 10g
+    * Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer
+      (Eigenentwicklung)
+    * Technologie: TCP/IP
+    * Kurzbeschreibung: LoLa Palettierersteuerung: Kommunikation mit
+      unterschiedlichen SPS gesteuerten Palettierern bzw Palettierrobotern,
+      Übergabe Packschema, Kartongeometrie, Veranlassung des Palettenwechsels,
+      Dokumentation der vom Palettierer gemeldeten Packoperationen
+ 
+Aug 04 bis Okt 04
+    * Branche: Facility Management
+    * Projekttitel: mFM
+    * Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation,
+      Modellierung, Implemtierung, Einführung, Support, Bearbeitung von Change
+      Requests
+    * Entwicklungsumgebung: PowerBuilder 9, PocketBuilder 1.5 bis 2.5
+    * RDBMS: Sybase ASA 9
+    * Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer
+      (Eigenentwicklung)
+    * Tools: Sybase MobiLink
+    * Technologien: RFID, TCP/IP, GPS
+    * Kurzbeschreibung: mobile Facility Management: Mobile Lösungen für das
+      Facility Management, Sicherheitsbegehung, Inventaraufnahme und -
+      verwaltung, Wachschutz, Dispatching und Dokumentation von Reparatur- und
+      Wartungsaufträgen, Integration mit CAFM-Applikationen, Einbindung von
+      RFID, Barcode, GPS
+ 
+Jun 04 bis Jul 04
+    * Branche: Facility Managament
+    * Projekttitel: mCL
+    * Tätigkeit: Anforderungsaufnahme und -analyse, Beratung und Organisation,
+      Modellierung, Implemtierung, Einführung, Support, Bearbeitung von Change
+      Requests
+    * Entwicklungsumgebung: PowerBuilder 8, PocketBuilder 1.5 bis 2.5
+    * RDBMS: Sybase ASA 9
+    * Tools: Sybase MobiLink
+    * Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer
+      (Eigenentwicklung)
+    * Kurzbeschreibung: mobile Collect: Applikation zur mobilen Aufnahme
+      diverser Daten, freie Maskengestaltung am zentralen PC, automatische
+      Verteilung der Masken an mobile Geräte und Synchronisation der
+      aufgenommenen Daten in eine zentrale Datenbank, Einbindung von RFID,
+      Barcode, GPS bei der mobilen Datenerfassung
+ 
+Ältere bzw. fortlaufende Projekte:
+ 
+Entwicklung und Pflege eines Datenmodells im Bereich ERP und verschiedener
+Erweiterungen für Individualprojekte
+ 
+Tools: Sybase PowerDesigner
+RDBMS: Orace, MS SQL Server, Sybase ASE und ASA, Informix, MySQL
+ 
+Lebensmittelbranche
+Alberto I und II
+Entwicklungsumgebung: PowerBuilder 6, RDBMS: Informix, später Sybase ASA,
+Klassenbibliothek: Klopotek MAP, Framework: IWH-Xplorer (Eigenentwicklung),
+Tools: Sybase Data Architect (aktuell: PowerDesigner), Sybase Infomaker,  Excel
+/ VB
+Lagerverwaltung (automatisches Hochregallager), Chargenverfolgung mit
+besonderen Anforderungen aus der Lebensmittelbranche, Integration zwischen SAP
+R3 und automatischem Hochregallager mittels IDoc, ROLAP-Systemen für Absatz-/
+Plan-/Umsatzdaten
+ 
+Framework zur Verwendung in mehreren Projekten
+IWH-Xplorer
+Entwicklungsumgebung: PowerBuilder 6 bis 12.5; RDBMS: Oracle, Sybase ASA, MS
+SQL Server, MySQL, Informix, Klassenbibliothek: Klopotek MAP
+Information Warehouse-Xplorer: Metadatengesteurtes Informationssystem auf Basis
+des PowerBuilder DataWindows zur flexiblen Entwicklung und Anpassung von
+Benutzeroberflächen zur Laufzeit. Beliebig viele Listen- und Detailansichten
+für verschiedene Datenklassen, effiziente Navigation durch den Datenbestand
+einschließlich einfacher Sortier-, Filter- und Recherechefunktionalität,
+Wartungsmöglichkeit der Reports zur Laufzeit durch Support-Mitarbeiter, IT beim
+Anwender oder Benutzer, Rechteverwaltung auf Benutzer- und Gruppenbasis,
+PlugIn-fähigkeit für PowerBuilder Komponenten
+ 
+ 
+Datenintegration COMET->RDBMS
+ComTrans-IWH
+Entwicklungsumgebung: PowerBuilder 6 bis 12.5, Cross-Basic; RDBMS: Oracle,
+Sybase ASA, MS SQL Server, MySQL
+Information Warehouse Server und Loader: Metadatengesteuerter Datenaustausch
+zwischen COMET und relationalen Datenbanken
+ 
+Decision Support System
+Entwicklungsumgebung: PowerBuilder 6, RDBMS: Oracle, Tools: Sybase Data
+Architect (aktuell: PowerDesigner), Sybase Infomaker,  Excel / VB
+Entwicklung eines Decision Support Systems (ROLAP) zur Analyse von
+Auftragseingängen, Umsätzen nach Regionen und Produkten. Individualentwicklung
+von ERP- und CRM  Komponenten.
+ 
+Betreuung einer praktischen Diplomarbeit 
+Konzepte zur Berechnung materialisierter Sichten zur Beschleunigung von
+Anfragen in OLAP Datenbanken 
+Themen: DataWareHouse, DataMart, OLAP
+ 
+Datenübernahme in den Klopotek Adresspool
+Entwicklungsumgebung: Cross-Basic
+Transfer der Kundendaten eines renommierten Berliner Entsorgungsunternehmens in
+den Adresspool der Firma Klopotek
+ 
+Klopotek PPM/MEX
+PPM
+Entwicklungsumgebung PowerBuilder, RDBMS: Oracle, Klassenbibliothek Klopotek
+MAP
+Mitarbeit an der Verlagssoftware Klopotek PPM als PowerBuilder-Trainee
+ 
+TU-Berlin, KIT
+CPSG/HPSG, Maschinelles Sprachverstehen
+Entwicklungsumgebung: Prolog, C, C++, Technologie: Terminologische Logik,
+Tools: TeX, LaTeX
+Studentischer Mitarbeiter im interdisziplinären Projekt KIT (Künstliche
+Intelligenz und Textverstehen)der TU Berlin. Im Rahmen dieses Projektes
+verfasste ich auch meine Studienarbeit "Die Klassifikationsbasierte
+Phrasenstrukturgrammatik - Eine Fallstudie" und meine Diplomarbeit "Typisierung
+von CPSG vor dem Hintergrund von ALE" (HPSG: Head-driven Phrase Structure
+Grammar, CPSG: Classification-based Phrase Structure Grammar, ALE: The
+Attribute Logic Engine)
+ 
+Rezepturanalyse und Bedarfskalkulation für Tiefkühlprodukte im
+Lebensmittelbereich
+Entwicklungsumgebung: Cross-Basic
+ 
+Entwicklung einer Angebotskalkulation für Spreng- und Abrissprojekte
+Tools: Microsoft Excel und Turbo-Pascal
+ 
+
+Sonstige Anmerkungen:
+Meine Tätigkeiten bei der Softwareentwicklung beinhalten den gesamten Software-
+Lifecycle:
+ 
+    * Anforderungsanalyse
+    * Architektur/Entwurf
+    * Modellierung
+    * Implementation
+    * Test
+    * Fehleranalyse und -Korrektur
+    * Einführung (roll out)
+    * Erstellung von Setups
+    * Pflege/Wartung
+    * Support
+    * Änderung/Anpassung/Erweiterung
+ 
+Durch meine langjährige Funktion als Prokurist in einem Softwareunternehmen bin
+ich mit dem betriebswirtschaftliechen Hintergrund der Softwareproduktions
+bestens vertraut.
+ 
+Des weiteren war ich oftmals für die Auswahl, Einführung, Einarbeitung und
+Betreuung neuer Mitarbeiter verantwortlich und habe häufig Projektverantwortung
+übernommen.
+ 
+Durch meine Berufsausbildung und meine beiden abgeschlossenen Studiengänge
+(Bauwesen und Informatik) war und ist mir der "Blick über den Tellerrand" von
+Anfang an zu eigen. Ich arbeite stets lösungsorientiert, wobei theoretisch
+fundierte Überlegungen mit einer pragmatischen Herangehensweise Hand in Hand
+gehen. Es ist mir wichtig, flexibel auf aktuelle Anforderungen zu reagieren,
+dabei aber gesetzte Ziele fest im Blick zu behalten. Neben meinem sehr guten
+fachlichen Hintergrund erachte ich mein Kommunikationstalent, meine
+Teamfähigkeit, meine eigenverantwortliche und kreative Arbeitshaltung und meine
+schnelle Auffassungsgabe als besonders hervorzuhebende Skills. Darüber hinaus
+sind mir Begabung zum Verfassen von Texten und im Coaching zu Eigen.  
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_129829
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 20.05.2021 00:48:24
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

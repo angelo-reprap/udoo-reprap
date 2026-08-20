@@ -1,0 +1,539 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_35145 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+
+Personen ID                35145
+  
+Wohnort                    542xx Trier, Deutschland
+Jahrgang                   1968
+Staatsbürgerschaft         deutsch
+Stundensatz                0 EUR
+                           VHB
+Verfügbar ab               01.01.22 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         01.02.02
+Profil zuletzt geändert am 02.03.21
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 05.02.2021 16:39:07
+
+Fachlicher Schwerpunkt:
+Business Analyst, Geschäftsprozessanalyse + Requirements Engineering
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Studium: Dipl.-Ingenieur (FH)
+Fachrichtung Ingenieurinformatik
+FH Bingen
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: bevorzugt Bereich D5, D6 und D7
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+
+
+Hardware:
+IBM RS6000  
+PC          
+SUN         
+
+
+Betriebssysteme:
+OS/2            SW-Entwicklung in C++
+SUN OS, Solaris SW-Entwicklung in C++ und Tcl/Tk
+Unix            SW-Entwicklung in C++ und Tcl/Tk
+Windows         SW-Entwicklung in C++
+
+
+Programmiersprachen:
+C                                  Sun Workshop, Visual Age for C++
+C++                                Sun Workshop, Visual Age for C++
+Emacs                               
+Imake, GNU-Make, Make-Maker etc...  
+Java                               VisualCafe
+JavaScript                         VisualCafe
+Pascal                              
+Shell                               
+Tcl/Tk                              
+
+[incr Tcl/Tk]: objektorientiertes Tcl/Tk
+
+Datenbanken:
+Access       
+DB2         Programmierung mit C++
+DMS         Programmierung über das C/C++-API
+Informix    Programmierung mit C++
+Lotus Notes  
+Oracle      Programmierung mit C++ und Tcl/Tk
+
+
+Datenkommunikation:
+Internet, Intranet  
+TCP/IP              
+
+
+Produkte/Standards/Erfahrungen:
+Themen:
+Business Process Reengineering, Requirements Engineering und Management,
+Softwareentwicklung, Wertpapiermanagementsysteme, Workflowmanagementsysteme,
+Dokumentenmanagementsysteme
+
+Bankfachliche Kenntnisse:
+Geschäftsprozesse in der Wertpapierabwicklung,
+S.W.I.F.T. ISO 15022 MT 56x,
+WMS: Wertpapier-Management-System,
+FIOM: Financial Instrument Object Model,
+FTI Street Reference und Street Model,
+GFDM: General Financial Data Model
+Fidelity Action Source
+
+Kenntnisse von Wertpapierstamm- und Termindaten Anbieter:
+WM Datenservice, Telekurs, FTID, DTCC, Bloomberg, FinInfo, ADP
+
+Methoden:
+Requirements Engineering, Unified Modelling Language (UML), Objektorientiere
+Analyse (OOA),
+Objektorientiertes Design (OOD), Objektorientierte Programmierung (OOP), V-
+Modell "97,
+Structured Analysis (SA), Structured Design (SD)
+
+Werkzeuge:
+Visual Age for C++, C++ Set for AIX,
+Visual Cafe, Visual Age for Java, XML Spy,
+Paradigm Plus, Rational Rose, Case Tool Teamwork,
+Sniff+, Exceed, Persistence, Rete+, Toad,
+IBM FlowMark, ProMInanD, ProcessWare,
+IBM VisualInfo, Visio, Standard MS Office Produkte
+
+Spezialkenntnisse:
+Strukturierte Methoden mit Case Tool Teamwork
+
+Branchen:
+Banken
+Finanzdienstleister
+Kapitalanlagegesellschaften
+Öffentliche Einrichtungen
+
+Projekte:
+Zeitraum:  seit 01/2003
+Projekt:   RDF: Reference Data Factory als Infrastrukturprojekt
+Kunde:     Finanzdienstleister
+Tätigkeit: Analyse einer gemeinsamen Datenbasis für Wertpapierstamm- und
+Termindaten (Reference
+  Data)zur Effizienzsteigerung im Backoffice, zur Erhöhung der Datenqualität
+und des
+  Grades der Automatisierung (STP: Straight Through Processing) über die
+  Unternehmsteile Clearstream Banking Luxemburg, Clearstream Banking Frankfurt,
+  Wertpapier- und Derivatehandel.
+  Analyse der Ist-Geschäftsprozesse bzgl. Reference Data über die komplette
+  Wertschöpfungskette:
+  New Issues (Frankfurt, Luxemburg und London), Listing, Trading, Clearing,
+Settlement,
+  Custody. Moderation von Workshops und Durchführung von Interviews mit
+Stakeholdern
+  und Mitarbeitern der Fachabteilungen einschließlich der
+Ergebnisdokumentation.
+  Fachliche und technische Datenqualitätsanalyse der Ist-Prozesse über die
+komplette
+  Wertschöpfungskette (siehe oben) unter Berücksichtigung des Lifecycle eines
+  Wertpapiers (z.B. während des Primary Markets). Die Durchführung erfolgte
+durch
+  Interviews und stichprobenartige technische Evaluierung der verfügbaren
+Datenbanken
+  auf Feldebene.
+  Definition der Soll-Geschäftsprozesse und Abstimmung mit Stakeholdern und
+  Fachabteilungen in Workshops.
+  Definition der funktionalen und nicht-funktionalen Business Requirements.
+Definition
+  von Import- und Exportschnittstellen wie z.B. S.W.I.F.T. ISO 15022 Messages
+und die
+  automatische Integration von Datenlieferungen der Wertpapierstamm- und
+Termindaten-
+  anbieter WM Datenservice, Telekurs, FTID, DTCC, Bloomberg, FinInfo, ADP.
+Hierzu
+  Moderation von Workshops und Interviews mit Stakeholdern und Mitarbeitern der
+  Fachabteilungen.
+  Analyse der Auswirkungen des RDF auf die Geschäftsprozesse und IT Architektur
+des
+  Finanzdienstleisters.
+  Identifikation der Benefits von RDF zur Berechnung eines Business Case
+basierend auf
+  den Anforderungen der Fachabteilungen. Identifikation von Quick-Wins.
+  Definition eines Phasenmodells nach fachlichen und funktionalen Aspekten zur
+  Implementierung von RDF in kleinen Teilprojekten.
+  Projektsprache Englisch.
+Produkte:  S.W.I.F.T. ISO 15022 MT 56x, WMS Wertpapier-Management-System, FIOM:
+Financial
+  Instrument Object Model, FTI Street Reference und Street Model, GFDM: General
+  Financial Data Model, Server Sun Solaris (UNIX), Client Windows NT 4.0, Sun
+Workshop,
+  Paradigm Plus, Oracle 8, Exceed, Toad, Standard Office-Anwendungen
+
+
+Zeitraum:  seit 07/2003
+Projekt:   RDF: Reference Data Factory zur Vermarktung als Anbieter von
+Wertpapierstamm-
+  und Termindaten (Reference Data)
+Kunde:     Finanzdienstleister
+Tätigkeit: Potentialanalyse zur Vermarktung von Wertpapierstamm- und
+Termindaten (Reference Data)
+  einschließlich der fachlichen Identifikation der USPs (Unique Selling
+Propositions).
+  Wesentlicher Bestandteil der Untersuchung waren die Geschäftsprozesse New
+Issues und
+  Custody Events von Clearstream Banking Luxemburg und Clearstream Banking
+Frankfurt.
+  Vorbereitung und Durchführung von Workshops mit externen Kunden des
+Finanzdienstleisters
+  hinsichtlich der Anforderungen an einen Anbieter von Wertpapierstamm- und
+Termindaten.
+  Definition der funktionalen und nicht-funktionalen Business Requirements.
+Hierzu
+  Verwendung eines speziellen Templates, welches die Anforderungen einzelner
+Kunden
+  und den Einfluss auf die Geschäftsprozesse der Fachabteilungen und IT Systeme
+  kennzeichnet. Ferner wurden die Lieferwege und SLAs (Service Level
+Agreements)
+  festgelegt.
+  Unterstützung bei der Erstellung des Business Case basierend auf dem
+Requirements
+  Template.
+  Teilprojektleitung für die fachliche und technische Analyse.
+  Projektsprache Englisch.
+Produkte:  S.W.I.F.T. ISO 15022 MT 56x, WMS Wertpapier-Management-System, FIOM:
+Financial
+  Instrument Object Model, FTI Street Reference und Street Model, GFDM: General
+  Financial Data Model, Server Sun Solaris (UNIX), Client Windows NT 4.0, Sun
+Workshop,
+  Paradigm Plus, Oracle 8, Exceed, Toad, Standard Office-Anwendungen
+
+Zeitraum:  11/2002 - 2/2002
+Projekt:   Gap Analyse zum WMS
+Kunde:     Finanzdienstleister
+Tätigkeit: Bestandsaufnahme und Dokumentation der fachlichen und technischen
+Leistungsfähigkeit
+  des Wertpapier-Management Systems WMS. Beurteilung des Grades der fachlichen
+  Integrationsfähigkeit von Stamm- und Termindaten in das FIOM (Financial
+Instrument
+  Object Model) von WMS bei Clearstream Banking Luxemburg und Clearstream
+Banking
+  Frankfurtfür die Wertpapierabwicklung im Backoffice. Hierzu wurde auf
+Attributebene
+  ein Mapping für alle notwendigen Felder durchgeführt.
+  Projektsprache Englisch.
+Produkte:  WMS Wertpapier-Management-System, FIOM: Financial Instrument Object
+Model, Server Sun
+  Solaris (UNIX), Client Windows NT 4.0, Sun Workshop, Paradigm Plus, Oracle 8,
+Exceed,
+  Visio, Standard Office-Anwendungen
+
+Zeitraum:  08/2002 - 0/2002
+Tätigkeit: Intensive Weiterbildung im Thema Requirements Engineering und
+Management mit dem Fokus auf:
+  Techniken zur Anforderungsermittlung,
+  Definition betriebswirtlicher Kenngrößen im Pflichtenheft,
+  Erstellung eines Pflichtenheftes mit messbaren Anforderungen,
+  Techniken zur Integration von Geschäftsprozessen in das Pflichtenheft,
+  Ableitung von Testszenarien aus dem Pflichtenheft,
+  Prozesse zur Konsistenzprüfung der Anforderungen,
+  Integrationsprozess des Requirements Engineering in die SW-Entwicklung,
+  Prozesse zur Vorbereitung einer Make- oder Buy-Entscheidung.
+
+Zeitraum:  04/2002 - 7/2002
+Projekt:   WFS
+Kunde:     Kapitalanlagegesellschaft
+Tätigkeit: Integration eines Wertpapier-Management Systems in die
+Systemlandschaft einer
+  Kapitalanlagegesellschaft.
+  DV-technische Analyse, Design und Programmierung in der Programmiersprache
+C++ von
+  Abbildungsvorschriften zum Import des WMS Datenstroms der WM Gruppe
+  (Herausgebergemeinschaft WERTPAPIER-MITTEILUNGEN Keppler, Lehmann GmbH &amp; Co.
+KG)
+  in das Wertpapier-Management-System WMS der Kapitalanlagegesellschaft. Durch
+die
+  Abbildungsvorschriften werden beim Import aus dem Standardfeed der WM Gruppe
+  kundenspezifischen Daten erzeugt und in das FIOM (Financial Instrument Object
+  Model) geladen. Die erzeugten Daten werden von nachgelagerten Systemen der
+  Kapitalanlagegesellschaft verarbeitet. Um eine Releaseunabhängigkeit des WMS
+zu
+  gewährleisten, wurde die Analyse, Design und Realisierung der
+Abbildungsvorschriften
+  als kundenspezifische Add-On Komponenten des (Standard WMS-) Serverframeworks
+  realisiert.
+  Implementierung von Abbildungsvorschriften mit XML zum Export vom Daten aus
+dem WMS
+  für nachgelagerte Systeme über einen Exportkonverter.
+  Definition und Abstimmung der notwendigen Informationen zur Analyse und zum
+Design
+  in Workshops mit den Projektbeteiligten.
+Produkte:  Server Sun Solaris (UNIX), Client Windows NT 4.0, Sniff+, Paradigm
+Plus, Oracle 8,
+  Exceed, XML Spy, Standard Office-Anwendungen
+
+Zeitraum:  09/2000 - 3/2002
+Projekt:   WMS
+Kunde:     Finanzdienstleister
+Tätigkeit: Erstellung eines Wertpapier-Management Systems zur Migration des WM
+Datenstromes der
+  WM Gruppe (Herausgebergemeinschaft WERTPAPIER-MITTEILUNGEN Keppler, Lehmann
+GmbH &amp; Co.
+  KG) in das FIOM (Financial Instrument Object Model).
+  Analyse, Design und Programmierung eines Generators in C++, der den
+Objektbaum des
+  FIOM Modells während des Datenmappings auswertet und in HTML darstellt. Damit
+ist
+  die Navigation durch alle Objektinstanzen und deren Daten in einem Standard-
+Browser
+  möglich.
+  Abstimmung der Anforderungen an den Generator mit den späteren Benutzern
+anhand von
+  graphischen Beispielen und Vorschlägen.
+  Erweiterung der grafischen Entwicklungsumgebung um einen Testtreiber und
+verschiedene
+  Reporting-Funktionen in der Programmiersprache [incr Tcl/Tk]. Evaluierung
+aller
+  Erweiterungen in einem Workshop mit den Benutzern.
+  Programmierung weiterer Tcl-Erweiterungsfunktionen in C++, die aus den
+  Abbildungsvorschriften (programmiert in Tcl/Tk) aufgerufen werden können.
+  Programmierung der Abbildungsvorschriften in Tcl/Tk zum Datenmapping vom WM
+  Datenstrom in das FIOM Modell für Derivate.
+  Integrations- und Betriebstest für neue SW-Komponenten innerhalb des WMS
+Systems.
+  Coaching von Mitarbeitern der Fachabteilung bei der Einführung in den
+produktiven
+  Betrieb.
+  Evaluierung kundenspezifischer FIOM Modell Add-Ons. Dabei wurde insbesondere
+die
+  Releaseunabhängigkeit der Add-Ons für kommende FIOM Modell Versionen
+betrachtet.
+Produkte:  Server Sun Solaris (UNIX), Client Windows NT 4.0, IBM Visual Age for
+Java,
+  Sniff+, Paradigm Plus, Oracle 8, Persistence, Rete+, Exceed, Toad, Standard
+  Office-Anwendungen
+
+Zeitraum:  07/1999 - 8/2000
+Projekt:   WMS
+Kunde:     Finanzdienstleister
+Tätigkeit: Erstellung eines Wertpapier-Management Systems zur Migration des WM
+Datenstromes
+  der WM Gruppe (Herausgebergemeinschaft WERTPAPIER-MITTEILUNGEN Keppler,
+Lehmann
+  GmbH &amp; Co. KG) in das FIOM (Financial Instrument Object Model).
+  Modellierung, Pflege und Erweiterung des Klassenmodells FIOM (Finacial
+Instrument
+  Object Model) mit dem Casetool Paradigm Plus. Als Modellierungssprache wird
+UML
+  verwendet. Die Modellierung erfolgte in Abstimmungsgesprächen mit der
+Fachabteilung.
+  Programmierung eines Generators zur Erzeugung des FIOM Sourcecodes in C++ und
+Java
+  aus dem Casetool Paradigm Plus.
+  Scriptprogrammierung zur Erzeugung des FIOM im HTML Format aus dem Casetool
+Paradigm
+  Plus. Damit ist für den Benutzer eine einfache Navigation durch das FIOM
+Modell ohne
+  Kenntnisse des Casetools Paradigm Plus möglich. Die Anforderungen an die
+Darstellung,
+  die Art und den Umfang der Informationen wurde in einem Workshop zusammen mit
+den
+  Anwendern definiert.
+  Analyse, Design und Programmierung einer grafischen Entwicklungsumgebung in
+der
+  Programmiersprache [incr Tcl/Tk]. Mit der Entwicklungsumgebung erfolgt die
+  Programmierung des Datenmappings vom WM Feed in das FIOM Modell. Die
+  Anforderungsanalyse und das Design erfolgte mit den Benutzern anhand
+graphischer
+  Vorschläge und einem Prototypen.
+  Programmierung von Tcl-Erweiterungsfunktionen in C++. Die Funktionen erlauben
+eine
+  höhere Performance während des Datenmappings und können aus den
+Abbildungsvorschriften
+  (in Tcl/Tk programmiert) aufgerufen werden.
+Produkte:  Server Sun Solaris (UNIX), Client Windows NT 4.0, Sun Workshop, IBM
+Visual Age for
+  Java, Sniff+, Paradigm Plus, Oracle 8, Persistence, Rete+, Exceed, Toad,
+Standard
+  Office-Anwendungen
+
+Zeitraum:  04/1998 - 6/1999
+Projekt:   GLOBUS
+Kunde:     Bank, Frankfurt/M.
+Tätigkeit: DV-technische Feinkonzeption der Prozessschritte zur
+vollautomatischen
+  unternehmensweiten Softwareverteilung und Installation. Anfoderungsanalyse
+und Design
+  in Abstimmung mit den Fachabteilungen durch die Moderation von Workshops und
+die
+  Durchführung von Mitarbeiterinterviews.
+  Implementierung eines Prototypen in den Programmiersprache C++ und Java zur
+besseren
+  Erarbeitung der Anforderungen und zur besseren Kommunikation mit den
+Benutzern.
+  Definition und Modellierung der notwendigen Geschäftsprozessschritte zusammen
+mit den
+  Anwendern.
+  Die Modellierung und Prozesssteuerung erfolgt mit dem
+Workflowmanagementsystem
+  ProMInanD.
+  Realisierung des Systems zur Prozesssteuerung der vollautomatischen
+unternehmensweiten
+  Softwareverteilung und Installation. Modellierung der erforderlichen
+Prozesssschritte
+  für das Gesamtsystem durch das Workflowmanagementsystem ProMInanD.
+Teilprojektleitung
+  für die Systemarchitektur und die fachliche Koordination. Programmierung der
+  Businesslogik einzelner Prozessschritte in der Programmiersprache C++.
+  Erstellung eines Testkonzeptes zur Jahr-2000-Tauglichkeit des GLOBUS-Systems
+mit
+  anschließender Durchführung und Dokumentation der Tests.
+Produkte:  Server AIX (UNIX), Client Windows NT 4.0, IBM C++ Set for AIX,
+VisualCafe, ProMInanD,
+  Rational Rose, PowerBuilder, Informix, Standard Office-Anwendungen
+
+Zeitraum:  06/1997 - 3/1998
+Projekt:   "WEWIS-II + IK1"
+Kunde:     Öffentliche Einrichtung, Bonn
+Tätigkeit: Installation des WEWIS-Prototyps in einer Einrichtung einer
+Bundesbehörde als
+  Pilotinstallation.
+  Einweisung der Nutzer (Coaching) und anschließende Interviews über
+Erfahrungen der
+  Nutzer mit dem System.
+  DV-technische Feinkonzeption der Geschäftsabläufe zur elektronische
+Erfassung,
+  Bearbeitung und Archivierung eingehender Geschäftspost innerhalb einer
+Bundesbehörde.
+  Die Konzeption wurde in Anlehnung an das V-Modell '97 durchgeführt. Als
+  Umsetzungsplattform für die Realisierungsphase wurden auf Basis von Lotus
+Notes die
+  Integration des Workflowmanagementsytems ProcessWare und das
+Dokumentenmanagementsystem
+  VisualInfo evaluiert. Moderation von Workshops und Durchführung von
+  Mitarbeiterinterviews zur Abstimmung mit den Nutzern.
+  Realisierung eines integrierten Workflow- und Dokumentenmanagementsystems zur
+  elektronischen Erfassung und Bearbeitung eingehenden Geschäftspost innerhalb
+einer
+  Bundesbehörde.
+  Die Programmierung der Businesslogik der einzelnen Arbeitschritte, die
+während der
+  Prozesskette durchlaufen werden, wurde in der Programmiersprache C++
+realisiert. Die
+  Anbindung der Businesslogik erfolgte über die C/C++ Schnittstelle der
+Produkte IBM
+  FlowMark und IBM VisualInfo.
+Produkte:  Server AIX (UNIX), Client OS/2 + Windows NT 4.0, VisualAge for C++,
+IBM VisualInfo,
+  IBM FlowMark, ProcessWare, Standard Office-Anwendungen, Lotus Notes
+
+Zeitraum:  11/1996 - 5/1997
+Projekt:   Migration IVIS
+Kunde:     Fertigungsindustrie
+Tätigkeit: Migration des Bildverarbeitungssystems IVIS auf das
+Bildverarbeitungsystem WIVIS in
+  der Programmiersprache C. Dabei mußte das Verhalten verschiedener
+Hardwarekomponenten
+  der Basisapplikation analysiert und durch optimierte Algorithmen in der
+  Programmiersprache C in der Zielapplikation ersetzt werden.
+Produkte:  OS/2, VisualAge for C++, Mikrotron Framegrabber, Standard Office-
+Anwendungen
+
+
+Referenzen:
+Projekt RDF - Reference Data Factory , 11/02-04/04
+Referenz durch Managing Director Finanzdienstleister (ca. 3300 MA) vom 19.05.04
+"[...] Wir haben den Consultant von November 2002 bis April 2004 als externen
+Berater im Projekt RDF eingesetzt. Er hat mit seiner sehr effizienten,
+teamorientierten und zuverlässigen Arbeitsweise die positive Projektentwicklung
+aktiv mitgestaltet. Hierbei waren insbesondere seine sehr guten Fachkenntnisse
+und seine professionelle Vorgehensweise von großem Wert. Möglichen Kunden des
+Consultants können wir die ausgenommen kooperative und zielorientierte
+Arbeitsweise weiterempfehlen. Für neu anstehende Projektaufgaben würden wir
+jederzeit wieder mit dem Consultant zusammen arbeiten."
+Projekt WMS von 09/2000 - 03/2002
+Referenz durch FDS Finanz-DatenSysteme GmbH &amp; Co KG vom 17.10.02
+"Sehr geehrter Herr [...], gerne bestätigen wir Ihnen wie gewünscht die
+Mitarbeit im Projekt 'WMS'. Inhalt des Projektes war die Analyse, Konzeption
+und Entwicklung des Wertpapier-Management-Systems WMS. Das Produkt WMS ist ein
+objektorientiertes Qualitätsprüfungs- und Managementsystem für
+Wertpapierinformationen. Es positioniert sich als eine innovative Gesamtlösung
+für die Verwaltung von Stamm- und Termindaten und die Datenversorgung
+nachgelagerter Systeme. Durch die flexible Konzeption verfügt das
+Standardprodukt über ein hohes Maß an kundenspezifischer Erweiterbarkeit. Es
+basiert auf einem flexiblen Datenmodell. Durch ein spezielles Import- und
+Exportsytem lässt es sich leicht in die Systemlandschaft unserer Kunden
+integrieren. Der Consultant war im Projekt als externer Berater im Auftrag der
+FDS GmbH &amp; Co KG tätig. Der Consultant hat während dieser Zeit mit wesentlichen
+Lösungen zum Projektfortschritt beigetragen. Mit seinen neuen Ideen und seinen
+sehr guten Fachkenntnissen hat er stets an einer positiven Projektentwicklung
+gearbeitet. Wir schätzen seine außerordentlich teamorientierte, professionelle
+und zuverlässige Arbeit sehr. Wir würden anderen Kunden die ausgezeichnete
+Arbeitsleistung von dem Consultant jederzeit weiterempfehlen. Für eventuell neu
+anstehende Projektaufgaben würden wir den Consultant jederzeit wieder
+beauftragen."
+Projekt Erstellung eines Qualitäts- und Managementsystems, 08/99 - 08/01
+Referenz durch SysPoint Consulting AG vom August 2001
+"Der Consultant war von August 1999 bis August 2001 als Systementwickler im
+Rahmen eines Projektauftrages bei der Deutschen Börse AG für uns tätig. Seine
+Hauptaufgaben lagen hierbei in der Analyse sowie der konzeptionellen Mitarbeit
+und der Entwicklung eines Wertpapier-Management-Systems. Sein
+Tätigkeitsschwerpunkt lag in der Erstellung eines objektorientierten
+Qualitätsprüfungs- und Managementsystems für Stamm- und Termindaten. Das System
+stellt eine zentrale Informationsquelle für den Endkunden dar. Aufgrund des
+flexiblen und unabhängigen Datenmodells ist das System leicht für zukünftige
+Anforderungen erweiterbar und durch seine flexible Import- und
+Exportschnittstelle können die Daten sehr leicht in einem beliebigen Format
+eingelesen oder erzeugt werden. Der Consultant verfügt über umfassende
+Fachkenntnisse. Er hat mit seinem professionellen Verhalten und den
+außerordentlich teamorientierten Leistungen wesentlich zum Projekterfolg
+beigetragen. Kritische Projektsituationen hat der Consaultant frühzeitig
+erkannt und diesen entgegengewirkt. Wir möchten ausdrücklich seine
+ausgesprochen kooperative, fachlich fundierte und zuverlässige Arbeit
+anerkennen. In eventuell neu anstehenden Projekten würden wir jederzeit sehr
+gerne wieder mit dem Consultant zusammenarbeiten. Wir bedanken uns nochmals für
+seinen Einsatz und wünschen ihm weiterhin viel Erfolg und persönlich alles
+Gute."
+Projekt WFS, 04/02 - 07/02
+Referenz durch Schweizer IT-Dienstleister vom 25./30.09.02
+"Sehr gerne schreiben wir dem Consultant eine Referenz für die Mitarbeit im
+Projekt WFS bei Union Investment in Frankfurt am Main. Ziel des Projektes war
+die Integration des Valoren Daten Pflege Systems VDPS in die Systemlandschaft
+von Union Investment. Zentrale Aufgabe war die Analyse, Konzeption und
+Entwicklung kundenspezifischer Anforderungen an VDPS. Als zentrale
+Informationsquelle für Stamm- und Termindaten zu Wertpapieren wurde VDPS genau
+auf die Kundenbedürfnisse angepasst. Der Consultant hat ausgesprochen
+konstruktiv und zielorientiert am Fortschritt im Projekt gearbeitet. Im Zentrum
+seiner effizienten, zuverlässigen und kooperativen Arbeit stand immer die
+positive Projektentwicklung. Dabei hat er stets sehr teamorientiert agiert.
+Anderen Kunden möchten wir mit dieser Referenz die ausnehmend professionelle
+Arbeitsweise weiterempfehlen. Bei neu anstehenden Projektaufgaben würden wir
+jederzeit wieder mit dem
+Consultant zusammen arbeiten.
+- Signiert vom Business Unit Manager und Business Area Manager"
+Alle Referenzen sind durch GULP bestätigt.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_35145 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 17.05.2021 17:45:07
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

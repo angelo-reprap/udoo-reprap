@@ -1,0 +1,567 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_24643 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                24643
+  
+Wohnort                    653xx Walluf, Deutschland
+Jahrgang                   1972
+Staatsbürgerschaft         deutsch
+Stundensatz                100 EUR
+                           ( ca. - Anfahrt, Arbeitsort, Tätigkeit etc. )
+Verfügbar ab               01.02.21 zu 100%, Vor-Ort-Einsatz 80% möglich
+Profil erstellt am         17.03.01
+Profil zuletzt geändert am 20.01.21
+Lesen von Projektanfragen  3 Tage [04]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 06.11.2020 12:57:15
+
+Fachlicher Schwerpunkt:
+Konfigurationsmanagement / Objektorientierte Anwendungsentwicklung ( C++,
+Python, Perl )
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+
+    * Software Konfiguration Management
+    * Software Entwicklung
+    * Buildmanagement
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+1992      Abitur am Rheingau Gymnasium Geisenheim
+1994-1997 Studium der Betriebswirtschaftslehre in Mainz
+1997      Nach bestandenem Vordiplom Abbruch des Studium
+
+
+Einsatzort:
+Regionen:
+D6
+im Umkreis von:
+Wiesbaden (100 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: bevorzugt Großraum Frankfurt ( F, DA, MZ, WI )
+ganz Deutschland nach Absprache möglich
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+
+
+Betriebssysteme:
+Debian           
+HPUX            10.2 / 11
+MS-DOS           
+Opensuse         
+Redhat           
+SUN OS, Solaris 2.6 / 2.7 / 2.8
+Unix             
+Windows          
+
+
+Programmiersprachen:
+Bash                                
+C                                   
+C++                                (Sehr) gute Kenntnisse ( Sun CC 4.2/5.0; HP
+                                   CC/aCC; GCC > 2.9.5 )
+ESQL/C                              
+Imake, GNU-Make, Make-Maker etc... gute Kenntnisse ( GNU-Make, Automake )
+Perl                               Sehr gute Kenntnisse
+PL/SQL                              
+Python                             Gute Kentnisse
+Qt                                  
+Ruby                                
+Shell                               
+
+
+Datenbanken:
+MySQL   
+Oracle  
+
+
+Schwerpunkte:
+Automatisierung                  Automatisierungen jeglicher Art in Richtung
+                                 Continuus Deployment und Continuus Integration
+                                 Optimale Verwendung von
+Software Configuration Managment Versionsverwaltungsystemen, Entwicklung von
+                                 Branching Strategien
+
+
+Produkte/Standards/Erfahrungen:
+Ansible           
+apache maven      
+Apache Tomcat     
+ClearCase         
+Git               
+gitlab            
+gitlab ci         
+Gradle            
+helm              
+Hudson            
+Jenkins           
+Jenkins Job-DSL   
+Jenkins Pipeline  
+kubernetes        
+kubernetes        
+openshift         
+RPM Paketbau      
+Subversion        
+
+Branchen:
+    * Versicherungen - Lebensversicherung ( Provisionsermittlung,
+      Vermittlerverwaltung, Bestandsmigration )
+    * Telekommunikation - Intelligente Netze Administrations System
+    * Bank - Software Entwicklungs Umgebung
+    * Telekommunikation - Order Managements System
+
+Projekte:
+02/2020 - 09/2020: Automatisierung
+ 
+Einsatzort:         Frankfurt am Main
+Rolle:              Build und Konfiguration Manager
+Kunde:              Deutsche Bahn
+ 
+Aufgaben:
+ 
+Für ein Proof of Concept Projekt wurden Build, Deployment und Release
+automatisiert.
+Der in Gitlab eingecheckte Source Code wird in Gitlab Pipelines kontinuierlich
+kompiliert, getestet und anschliessend ein Docker Image gebaut.
+Die Images werden mit Helm in eine OpenShift Instanz deployed.
+Die Pipelines und Helm Charts wurden von mir erstellt und weiterentwickelt.
+• Anpassung Maven Buildfiles an CI Anforderungen.
+• Anpassung Gradle Buildfiles an CI Anforderungen.
+• Erstellung einer Projekt-Dokumentation mit asciidoc
+ 
+Kenntnisse:
+ 
+kubernetes, git, apache maven, Gradle, helm, gitlab ci
+ 
+Eingesetzte Produkte:
+ 
+openshift, kubernetes, gitlab
+===============================================================================
+01/2018 - 06/2019: Ansible Deployment
+ 
+Einsatzort:         Frankfurt am Main
+Rolle:              Build und Konfiguration Manager
+Kunde:              DER Touristik GmbH
+ 
+Aufgaben:
+ 
+    * Das vorhandene Ansible Deployment wurde überarbeitet um Ausfallzeiten der
+      Umgebun­gen zu minimieren. Damit wurde die Verfügbarkeit der Entwicklungs
+      und Test-Umgebungen drastisch erhöht.
+    * Für den projektkritischen Jenkins Server wurde ein Backup implementiert
+      und danach das Deployment automatisiert (Docker, Groovy). Die Erstellung
+      der Jobs wurde mit Job-DSL und Pipeline automatisiert.
+ 
+Weitere Tätigkeiten
+    * Automatisierung JBoss Konfiguration mittels XSLT.
+    * Anpassung von maven Build-Skripten.
+    * Automatisches Deployment mit Docker umgesetzt für Keycloak,
+ 
+Kenntnisse:
+ 
+Ansible, Ansible-Inventory, Git, Groovy, JBoss, Jenkins, Maven, Sphinx, XML/
+XSLT
+ 
+Eingesetzte Produkte:
+ 
+Bitbucket, Confluence, Jira, Keycloak
+===============================================================================
+02/2016 - 06/2017: Deployment &amp; Automatisierung
+ 
+Einsatzort:         Frankfurt am Main
+Rolle:              Build und Release-Manager
+Kunde:              DB Systel GmbH
+ 
+Aufgaben:
+ 
+Für ein Wartungsprojekt der Bahn wurden Build und Deployment modernisiert und
+automa­tisiert. Build und Release wird in Jenkins durchgeführt (CI, CD). Seit
+Januar 2018 unterstütze ich das Projekt nur noch im Umfang von bis zu 2 PT pro
+Monat. Ein Vollzeit Nachfolger wurde nicht benötigt da alle Tätigkeiten
+automatisiert wurden.
+    * Erfolgt der automatisierte Build/Test.
+    * Werden die Release Pakete erstellt.
+    * Werden die erstellten Paket Versionen einem globalen Release zugeordnet.
+    * Wird das globale Release erstellt und am Übergabeort bereitgestellt.
+    * Das Deployment wurde auf RPM Pakete umgestellt. Diese werden in eine
+      eigene RPM- Datenbank installiert (nicht als »root«).
+    * Migration des Source-Code von Subversion nach Git mit Übernahme der
+      Historie.
+    * Unterstützung der Entwickler bei der Verwendung von Git.
+ 
+Kenntnisse:
+ 
+Git, Jenkins, Make, Python, RPM
+ 
+Eingesetzte Produkte:
+ 
+Confluence, Gitlab, Jira
+===============================================================================
+11/2015 - 02/2016: Deployment &amp;  Automatisierung
+ 
+Einsatzort:         Walldorf
+Rolle:              Build-Manager
+Kunde:              SAP Deutschland SE &amp; Co KG
+ 
+Aufgaben:
+ 
+    * Eine »organisch gewachsene« Skriptsammlung in Ruby wurde von Grund auf
+      neu imple­mentiert, dokumentiert und mit Tests versehen.
+    * Für einen Jenkins wurden Backup und Recovery implementiert, das
+      Deployment automati­siert und die Erstellung von Jobs mit Job-DSL
+      eingeführt.
+ 
+Kenntnisse:
+ 
+Git, Jenkins, Ruby, Rubygems
+ 
+Eingesetzte Produkte:
+ 
+Cloud Foundry, Github Enterprise
+===============================================================================
+06/2014 - 09/2015: Automatisierung &amp; Deployment einer Webbasierten Anwendung
+ 
+Einsatzort:         München
+Rolle:              Deployer
+Kunde:              Payback GmbH
+Geschäftsstelle:    München
+ 
+Aufgaben:
+ 
+    * Für das Unternehmen wurden Deployments der Entwicklungs-, Test- und
+      Produktions­Umgebungen durchgeführt.
+    * Die Konfiguration der Web-Applikation Server wurde mittels XML/XSLT
+      automatisiert.
+    * Es wurden diverse Python Skripte implementiert um die Qualität der
+      Deployment zu erhöhen und die Konfiguration der Umgebungen besser
+      verstehen zu können.
+    * Das Deployment der Build-Server (Jenkins) wurde automatisiert und dessen
+      Sicherung und Wiederherstellbarkeit sichergestellt.
+ 
+Kenntnisse:
+ 
+Ansible, Git, Jenkins, Subversion, XML/XSLT
+ 
+Eingesetzte Produkte:
+ 
+Jira, Bitbucket
+===============================================================================
+10/2012 - 10/2013: Wartung einer Versicherungsanwendung
+ 
+Einsatzort:         Wiesbaden
+Rolle:              Software Entwickler C++
+Kunde:              Quattec IT Dienstleistungen GmbH
+ 
+Aufgaben:
+ 
+    * Für ein Wartungsprojekt einer Lebensversicherung wurden Änderungen und
+      Fehlerbehe­bungen durchgeführt.
+    * Das Backend des Bestandverwaltungsystem einer Lebensversicherung ist
+      implementiert in C++, verwendet eine Oracle Datenbank und hat eine in
+      Java implementierte GUI die mittels Corba angebunden ist.
+    * Für dieses Projekt war ich erstmals tätig von 10/1997 bis 06/2000, dann
+      von 11/2002 bis 07/2003 und 07/2009-08/2010.
+ 
+Kenntnisse:
+ 
+C++, PL/SQL, Jenkins, Subversion
+ 
+Eingesetzte Produkte:
+ 
+Trac
+===============================================================================
+09/2011 - 09/2012: Diverse Projekte
+ 
+Einsatzort:         Frankfurt am Main
+Rolle:              Configuration Manager/Build Manager
+Kunde:              Deutsche Bahn
+ 
+Aufgaben:
+ 
+Für ein Wartungsprojekt wurden die folgenden Projekte durchgeführt
+    * Migration des Source-Code von CVS nach Subversion.
+    * Einführung eines Continuous Build mittels Jenkins.
+    * Implementierung von Skripten die die bisherige händische Installation
+      ablösten.
+    * Implementierung eines Skripts das Testdaten aus Produktion abziehen,
+      anonymisieren und den Testern bereitstellen kann.
+ 
+Kenntnisse:
+ 
+CVS, Jenkins, Python, Subversion
+ 
+Eingesetzte Produkte:
+ 
+Jira, Confluence, Testmanagement Tool (TMT)
+===============================================================================
+07/2009 - 08/2011: Bestandverwaltungsystem einer Lebensversicherung
+ 
+Einsatzort:         Wiesbaden
+Rolle:              C++ Entwicklung
+Kunde:              Quattec IT Dienstleistungen GmbH
+ 
+Aufgaben:
+ 
+    * Für ein Wartungsprojekt einer Lebensversicherung wurden Änderungen und
+      Fehlerbehe­bungen durchgeführt.
+    * Das Backend des Bestandverwaltungsystem einer Lebensversicherung ist
+      implementiert in C++, verwendet eine Oracle Datenbank und hat eine in
+      Java implementierte GUI die mittels Corba angebunden ist.
+    * Für dieses Projekt war ich auch tätig von 10/1997 bis 06/2000 und von 11/
+      2002 bis 07/2003.
+===============================================================================
+11/2010 - 05/2011: Betreuung eines Überwachungssystems (Nagios)
+ 
+Rolle:              Consultant ClearCase und Nagios
+Kunde:              Commerzbank
+ 
+Aufgaben:
+ 
+    * Im Zuge einer Produktivmigration mussten die beteiligten System mittels
+      Nagios überwacht werden (Hosts, Queues).
+    * Betreuung der Continuus Integration Server
+ 
+Kenntnisse:
+ 
+ClearCase, Nagios, Maven
+===============================================================================
+06/2009 - 11/2010: Wartung einer Versicherungsanwendung
+ 
+Rolle:              Entwickler
+Kunde:              Quattec
+ 
+Aufgaben:
+ 
+    * Wartung/ Fehlerbehung Provisions und Vermittlerverwaltungssystem
+    * Migration des Version und Build Management Systems von ClearCase nach
+      SubVersion.
+ 
+Kenntnisse:
+ 
+: ClearCase, SubVersion, C++
+===============================================================================
+10/2008 - 06/2009: Order Management System T-Online
+ 
+Rolle:              Configuration Management / ClearCase Support
+Kunde:              Perot Systems
+ 
+Kenntnisse:
+ 
+ClearCase
+===============================================================================
+04/2008 - 09/2008: Design und Implementierung eines Continuus Integration
+Server
+ 
+Rolle:              ClearCase Consultant, Build Manager
+Kunde:              Commerzbank
+ 
+Kenntnisse:
+ 
+ClearCase, ClearQuest, Hudson Build Server, Maven
+===============================================================================
+10/2007 - 03/2008: Erstellung Kennzahlensystem
+ 
+Rolle:              ClearQuest Beratung
+Kunde:              HUK Coburg
+ 
+Aufgaben:
+ 
+    * Mittels Ruby on Rails wurde ein Referenzsystem für die Stundenerfassung
+      implementiert
+ 
+Kenntnisse:
+ 
+ClearQuest
+===============================================================================
+01/2006 - 10/2007: Order Management System T-Online
+ 
+Rolle:              Configuration Management / ClearCase Support
+Kunde:              Perot Systems
+ 
+Kenntnisse:
+ 
+ClearCase
+===============================================================================
+03/2005 - 12/2005: Software Configuration Management Team
+ 
+Rolle:              Config / Build Management
+Kunde:              Finanz IT
+ 
+Kenntnisse:
+ 
+ClearCase Windows / Unix
+===============================================================================
+11/2003 - 01/2005: Order Management System T-Online
+ 
+Rolle:              Configuration Managment / ClearCase Support
+Kunde:              Perot Systems Deutschland
+ 
+Aufgaben:
+ 
+    * Schulung / Support der Entwickler
+    * Entwicklung von Tools CAL ( ClearCase Automation Library ) unter Python
+    * Umlegen der Releaseplanung auf ClearCase und Sicherstellen des engen
+      Terminplans
+ 
+Kenntnisse:
+ 
+ClearCase unter Windows
+===============================================================================
+Zeitraum      : 11/2003 - 01/2005
+Firma/Institut: Perot Systems Deutschland
+Teamgrösse    : 30
+Projekt       : Order Management System T-Online
+Position      : Configuration Managment / ClearCase Support
+Anforderungen : ClearCase unter Windows
+
+o Schulung / Support der Entwickler
+o Entwicklung von Tools
+CAL ( ClearCase Automation Library ) unter Python
+o Umlegen der Releaseplanung auf ClearCase und
+Sicherstellen des engen Terminplans
+
+
+Zeitraum      : 11/2002 - 07/2003
+Firma/Institut: Gerling Konzern Leben
+Position      : Software Developer
+Projekt       : Migration des alten Bestandsystems
+
+ ( siehe 10/1997 - 06/2000 )
+Aufgaben      : Entwicklung / Design
+Anforderungen : Oracle, C, C++, SQL-Loader, ClearCase
+ 
+
+Zeitraum      : 07/2001 - 9/2002
+Firma/Institut: Commerzbank Investmentbanking
+Position      : Configuration Management
+Projekt       : Entwicklung eines Gesamtkonzepts zur Weiterentwicklung der
+
+Development Architecture
+o Implementierung von Tools zur Unterstützung des "Software
+  Development Process"
+  * Design und Implementierung eines Perl Moduls das einfache
+ Transaktionen für Cleartool Kommandos bereitstellt
+  * Im Dialog die weitere Strategie für das Konfiguration
+ Management geplant und dann umgesetzt.
+  - Releasestrategien
+  - Parallele Entwicklung
+o Administration des Project Documentation Servers
+  ( Apache, PHP, MySql, TWiki, phpCollab, HtDig )
+Aufgaben      : ClearCase Support / ClearCase Entwicklung / Design
+Anforderungen : Rational ClearCase ( in die Tiefe aus Anwendersicht,
+
+ Administrationskenntnisse vorhanden ),
+ Rational ClearQuest (Installation, Administration ),
+ Perl, div. Shell Derivate, Scriptsprachen
+ SUN Solaris 7 und 8
+ 
+
+Zeitraum      : 11/2000 - 06/2001 ( parallel zu INAS )
+Firma/Institut: Debis Systemhaus / intern
+Position      : Technical Advisor
+Projekt       : Konsolidierung / Redesign des Intranets
+
+o Installation, Konfiguration des Linux / Apache Web Servers
+o Installation, Konfiguration Tomcat, Cocoon, WebDAV
+o Entwicklung einer XML/XSLT Anwendung (Protokoll Anwendung)
+Aufgaben      : Technischer Support und Beratung
+Anforderungen : HTML, JavaScript, XML, XSLT, FOP, Java Server Pages (JSP),
+
+Servlets, Linux, Apache, Tomcat, Cocoon, DAV, LDAP
+
+
+Zeitraum      : 07/2000 - 06/2001
+Firma/Institut: Debis Systemhaus / Telekommunikation
+Position      : Software Developer
+Projekt       : Pflege und Wartung eines "Intelligent Network Administration
+
+System" (INAS) ( C++, Oracle )
+o Anpassungen aufgrund div. Updates
+  - Solaris 2.5 -> 2.6
+  - Oracle 7.3.4 -> 8.1.6
+  - Sun CC 4.2 -> 5.0
+o Redesign, Implementierung des "Watchdogs"
+  ( zentrale Überwachungsinstanz )
+o Einführung von ProLint in das Projekt
+ 
+ 
+ 
+ 
+23.01.2020
+ 
+5
+ von 8
+ 
+ 
+ 
+ 
+ 
+Aufgaben      : Entwicklung / Design
+Anforderungen : Solaris, Embedded SQL, SunCC, MKSSI, MKSTI, Dec/Bea MQ
+
+
+Zeitraum      : 10/1997 - 06/2000
+Firma/Institut: Gerling E&amp;L
+Position      : Software Developer
+Projekt       : Entwicklung eines Bestandsverwaltungssystem für
+
+Lebensversicherungen ( C++, Oracle DB )
+ Im Zuge dieses Großprojektes wurden folgende Projekte realisiert
+o Entwurf und Entwicklung eines Provisionsabrechnungssystem
+o Entwurf und Entwicklung einer Konditionsverwaltung
+  für Makler und Mehrfachagenten
+o Weiterentwicklung der Rechnungslegung gemäß Fachvorgaben
+Anforderungen : Windows NT, HP/UNIX, Oracle, Embedded SQL, PLSQL, Purify,
+Quantify
+
+ProLint, ClearCase, ClearQuest
+
+Referenzen:
+Projekt C,C++-Entwicklung unter HP-UX 11 und Oracle 8 von 11/02 - 07/03
+Referenz durch Projektleiter Entwicklung bei einer Lebenserversicherung vom
+29.09.03
+"Der Consultant war verantwortlich für die Implementierung der Abbildungsregeln
+bei der Migration unserer Verträge in ein neues Verwaltungssystem. Er hat seine
+Aufgaben selbstständig, kompetent und zügig erledigt. Durch seine Kenntnisse
+über unser Verwaltungssystem aus den Jahren 1997 -  2000 benötigte er eine sehr
+kurze Einarbeitungszeit. Hinsichtlich der Anpassung seiner Kapazitäten im
+Rahmen des Projektfortschrittes zeigte er große Flexibilität. Wir waren mit
+seiner Leistung sehr zufrieden und werden ihn bei Bedarf jederzeit wieder
+beschäftigen."
+Projekt Administration und Anwendungsentwicklung ClearCase von 07/01 - 09/02
+Referenz durch Teamleiter Development Environment, Großbank in Frankfurt vom
+14.08.03
+"Der Consultant war für uns von Juli 2001 bis September 2002 tätig. In diesem
+Zeitraum hat er maßgeblich an der Weiterentwicklung, dem Design und der
+Implementierung eines Software Development Prozesses auf Basis Solaris 2.x und
+Rational ClearCase mitgewirkt. Die Implementierung wurde von ihm eigenständig
+in Perl durchgeführt. Er verfügt über ein breites und tiefes Fachwissen in
+Objektorientierten Techniken und Strategien was sich in der Implementierung
+sehr positiv niederschlug. Die Qualität der erbrachten Leistungen ermöglichte
+eine problemlose Übergabe des Projektes am Ende der Vertragslaufzeit. Ich war
+mit dem Consultant sehr zufrieden und würde ihn jederzeit wieder beschaftigen."
+Alle Referenzen sind durch GULP bestätigt.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_24643 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 21.01.2021 00:44:32
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

@@ -1,0 +1,1205 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_33408
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                33408
+  
+Wohnort                    645xx Nauheim, Deutschland
+Jahrgang                   1968
+Staatsbürgerschaft         deutsch
+Stundensatz                100 EUR
+                           VHB
+Verfügbar ab               01.07.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         08.12.01
+Profil zuletzt geändert am 08.04.21
+Lesen von Projektanfragen  12 Stunden [10]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 01.02.2021 13:53:12
+
+Fachlicher Schwerpunkt:
+Testmanagement, Testmethodik, Einführung von Testsystemen, Testautomation
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Qualitätsmanagement / Qualitätssicherung / Test
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+1987 Hochschulreife
+1992 DV-Kaufmann
+
+Ausbildereignungsprüfung
+
+Einsatzort:
+Regionen:
+Österreich, Schweiz, D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+im Moment aus familiären Gründen nur Rhein-Main-Gebiet + nähere Umgebung
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+
+
+Hardware:
+Emulatoren       
+IBM Großrechner 
+PC               
+Scanner          
+
+
+Betriebssysteme:
+MS-DOS       
+MVS, OS/390  
+OS/2         
+Unix         
+Windows      
+Windows CE   
+
+
+Programmiersprachen:
+Basic  insb. VB.NET
+C#      
+Cobol   
+Pascal  
+
+
+Datenbanken:
+Access         
+DB2            
+MS SQL Server  
+Oracle         
+SQL            
+
+
+Datenkommunikation:
+Internet, Intranet  
+Windows Netzwerk    
+
+
+Produkte/Standards/Erfahrungen:
+Testmethoden:
+Qualitätsmanagementmethoden
+Qualitätssicherungsmethoden
+Äquivalenzklassenanalyse
+Grenzwertanalyse
+Ursache-Wirkungs-Analyse
+Code Reviews
+Code Inspections
+Testaufwandsanalyse
+White-Box-Testmethoden
+Black-Box-Testmethoden
+Exploratives Testen
+Business Process Testing
+Risikoorientiertes Testen
+ 
+Testtools:
+Borland SilkTest
+Borland SilkRadar
+Rational Visual Test
+SQS Testtools
+HP WinRunner
+HP QualityCenter
+HP QuickTest Professional
+Jamo solutions M-Eux 
+ 
+Entwicklungsmethoden:
+Objektorientierte Programmierung
+Strukturierte Programmierung
+
+Entwicklungsumgebungen:
+Net-Framework
+Visual Studio Net
+ReSharper
+dotCover
+
+Branchen:
+Banken
+Finanzdienstleistungen
+Handel
+Versicherungen
+Logistik
+Warenwirtschaft
+
+
+Projekte:
+Projekte Kranken
+ 
+Branche Versicherung
+Funktion Testmanager, Testautomatisierungsspezialist  
+ 
+Tätigkeiten:
+Testmanagement für mehrere IT-Anwendungen
+Erstellen des übergreifenden Testkonzepts
+Erstellen der projektspezifischen Testkonzepte
+Fehlermanagement
+Methodenberatung im Bereich Testerstellung und durchführung
+Schulung neuer Testwerkzeuge (Zephyr Scale / Jira Fehlermanagement)
+Aufbau einer umfassenden Testautomatisierungslösung 
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs, Mainframe
+Betriebssystem: Windows 10, MVS
+Sprachen: Cobol 85
+Datenbanksystem: IBM DB2
+Tools: Ranorex, Zephyr Scale, Jira, SQS Test, individuelle
+Fehlerverwaltungslösung 
+ 
+Zeitraum 36 Monate (Juni 2018 bis Juni 2021) 
+ 
+Details:
+Als ZI-Testmanager im Bereich Personen war ich für das Testmanagement für die
+HOST-Bestandsanwendungen der Sparten Kranken- und Unfallversicherung zuständig.
+Ich beriet beim Test der dezentralen Krankenversicherungs-Anwendungen und war
+Teilprojektleiter Test bei einem Projekt zu einer dezentralen Anwendung. 
+ 
+Im Bereich Krankenversicherung war ich bei den Hauptreleases verantwortlich für
+Planung und Steuerung der Testaktivitäten des Fachtests und für die
+koordinierenden Tätigkeiten im Rahmen des Gesamtintegrationstests, der
+übergreifend im Unternehmen geplant und gesteuert wurde. 
+ 
+Darüber hinaus organisierte ich für die Hauptreleases die Testaktivitäten an
+den Einführungswochenenden und organisierte und moderierte die im Nachgang
+stattfindenden Release-Rückblicke. 
+ 
+Ich war für die reibungslose Ablösung der Tools für Testmanagement und
+Defectbearbeitung im Bereich Krankenversicherung verantwortlich. Dies
+beinhaltete neben der Konfiguration der neuen Tools und der Migration der Daten
+auch die Durchführung von Anwenderschulungen. 
+ 
+Im Bereich Unfallversicherung verantwortete ich das IT-seitige Testmanagement
+sowie die Koordination mit dem fachseitigen Testmanagement. 
+ 
+Ein zweiter Schwerpunkt war der Aufbau einer umfassenden Testautomatisierungs-
+lösung im Bereich Krankenversicherung. Zunächst war die Automatisierung der
+HOST-Bestandsanwendung (über das API von IBM Personal Communications) und der
+zwei damit integrierten Druckanwendungen (auf Delphi- bzw. Java Swing Basis) im
+Fokus. Initial wurde das Framework mit einer internen
+Testautomatisierungslösung umgesetzt. Für die Automatisierung der
+Druckanwendungen wurde ergänzend das Testtool Ranorex eingesetzt. Aufgrund der
+besseren Programmierbarkeit erfolgte danach die Portierung des Framework-Codes
+nach Ranorex. Das war aufgrund der konsequenten Trennung der Ablauf- und
+Testdaten von der Ausführungskomponente möglich. 
+ 
+Im zweiten Schritt wurde die Automatisierung einer dezentralen Anwendung
+ergänzt, die den Dateiaustausch mit Krankenhäusern und deren Verarbeitung
+umfasst. Dabei übernahm das Framework neben der GUI-Automatisierung der Java-
+Swing-Anwendung auch die Erzeugung der synthetischen EDIFACT-Dateien. 
+ 
+Sämtliche Testdaten wurden in Excel-Dateien abgelegt. Deren Bearbeitung wurde
+mit diversen Makros unterstützt, z. B. mit automatischer Verlinkung, Prüfungen
+auf Einzeldateiebene, Konsistenzchecks, Dokumentationsfunktionalität etc. 
+ 
+Im Laufe der Zeit wurde rund um die Testautomatisierung ein kleines Team
+bestehend aus studentischen und sonstigen Aushilfen aufgebaut. Dieses habe ich
+koordiniert. Die Steuerung dieses Automatisierungs-Teams erfolgte über Jira.
+ 
+Projekte Value Manager
+ 
+Branche Bank
+Funktion Testmanager, Methodenberater, QS-Berater
+ 
+Tätigkeiten:
+Testmanagement für 3 IT-Anwendungen
+Erstellen des übergreifenden Testkonzepts
+Erstellen der projektspezifischen Testkonzepte
+Defectmanagement
+Methodenberatung im Bereich Testerstellung und durchführung
+Unterstützung im Bereich der Qualitätssicherung
+Betreuung der projekteigenen HP Quality Center-Instanz inkl. Migrationen bei
+Versionswechseln
+Verwaltung der Testvorhaben für die zentral gemanagten Testumgebungen
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs, Mainframe
+Betriebssystem: Windows 7, Windows XP Professional, Windows Server 2008 R2, MVS
+Sprachen: SAS, C#, Java
+Datenbanksystem: DB2, MS SQL Server 2008 R2
+Tools: HP Quality Center, individuelle Sharepoint-Lösungen
+ 
+Zeitraum 58 Monate (Juli 2013 bis April 2018)
+ 
+Details:
+Die 3 eng miteinander verzahnten IT-Produkte, die im Unternehmen unter dem
+gemein-samen Namen Value Manager bekannt sind, ermöglichen es den
+Vertriebsmitarbeitern auf der einen Seite, ihre aktuellen Ergebnisse gegen die
+vereinbarten Ziele abzu-gleichen, auf der anderen Seite für die
+mittelständischen Firmenkunden neue Kredit- und Ertragsprodukte zu kalkulieren.
+Im Rahmen der Projekte mussten aufgrund einer Vielzahl fachlicher und
+technischer Neuanforderungen umfangreiche Änderungen an den Anwendungen
+vorgenommen werden. Unter anderem wurden dabei verschiedene Webservices
+erstellt, regulatorische Anforderungen (z. B. Basel III) oder auch fachliche
+Mussthemen (z. B. negative Zinsen) umgesetzt, weitere Schnittstellen angebunden
+oder bestehende geändert oder auch technische Komponenten gemäß Book of
+Standard ausgetauscht. Im letzten Projekt erfolgte der Rückbau von zwei der
+drei Anwendungen und der damit verbundene Austausch der Datenquelle hin zu
+einer Big Data-Umgebung.
+ 
+Meine Aufgabe in diesem Projekt war das IT-seitige Testmanagement sowie die
+Test-koordination mit dem fachseitigen Testmanagement. Neben den üblichen
+planerischen, steuernden und koordinierenden Tätigkeiten war ich auch für die
+Erstellung und Durchführung technischer Systemtests verantwortlich.
+ 
+Die bestehenden eigenen Testprozesse mussten im Laufe der Zeit immer wieder auf
+die neuen Unternehmensvorgaben des Testframeworks angepasst werden. So wurde im
+Laufe der Zeit beispielsweise eine Testdaten-Anonymisierungslösung für die
+Defectanalyse in der Entwicklungsumgebung umgesetzt oder auch das Testvorgehen
+von einem ressourcenbasierten auf einen risikoorientierten Ansatz umgestellt.
+ 
+Das Testumgebungsmanagement wandelte sich  insbesondere durch regulatorische
+Anforderungen - im Laufe der Zeit von einem dezentralen individuellen Ansatz
+hin zu einem zentral gemanagten Ansatz. Die 3 IT-Anwendungen wurden in die
+beiden zentral gemanagten Testumgebungen umgezogen und damit einhergehend
+wurden entsprechende Testuser- und Umgebungskoordinationsprozesse installiert.
+Die regelmäßige Durchführung interner Test Lessons Learned-Veranstaltungen
+führten zu weiteren kontinuierlichen Verbesserungen im Testprozess.
+ 
+Darüber hinaus unterstützte ich die Projektleitung bei der Etablierung von QS-
+Prozessen. Als Qualitätssicherungsbeauftragter plante und steuerte ich
+sämtliche QS-Aktivitäten.
+ 
+Für den Bereich, in dem diese IT-Produkte gepflegt werden, übernahm ich noch
+einige übergreifende Aktivitäten wie z. B. die Migration der im Bereich
+verwenden HP Quality Center-Projektinstanzen im Rahmen einer Template-
+Standardisierung, die Unterstützung bei Quality Gate-Prüfungen, im Zuge dessen
+Klärung auftretender Fragen zu zentral angeforderten Pflichtdokumenten, die
+bereichsinterne Vorbereitung auf BaFin-Prüfungen oder auch dem Review neuer
+Versionen des Testprozessframeworks.
+Projekte ErfolgsCockpit
+ 
+Branche Bank
+Funktion Testmanager, Methodenberater, QS-Berater
+ 
+Tätigkeiten:
+Testmanagement
+Erstellen des übergreifenden Testkonzepts
+Erstellen der projektspezifischen Testkonzepte
+Defectmanagement
+Methodenberatung im Bereich Testerstellung und durchführung
+Unterstützung im Bereich der Qualitätssicherung
+Betreuung der projekteigenen HP Quality Center-Instanz inkl. Migrationen bei
+Versionswechseln
+Verwaltung der Testvorhaben für die zentral gemanagten Testumgebungen
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: Windows 7, Windows XP Professional, Windows Server 2008 R2,
+Solaris
+Sprachen: SAS, C#, Java, UC4
+Datenbanksystem: DB2, MS SQL Server 2008 R2, MS SQL Server 2012
+Tools: HP Quality Center, individuelle Sharepoint-Lösungen
+ 
+Zeitraum 44 Monate (September 2014 bis April 2018)
+ 
+Details:
+Das ErfolgsCockpit ermöglicht es den Vertriebsmitarbeitern des
+Privatkundenbereichs, ihre aktuellen Ergebnisse gegen die vereinbarten Ziele
+abzugleichen. Alle Führungsebenen können ebenfalls entsprechende Kennzahlen und
+Reports aufrufen und daraus entsprechende Vertriebssteuerungsmaßnahmen
+ableiten. Die Anwendung nutzen ca. 14.000 Bankmitarbeiter, entsprechend hoch
+sind die Anforderungen an Funktionalität und Qualität.
+ 
+Im Rahmen der diversen Projekte mit ca. 4 Releases pro Jahr mussten aufgrund
+einer Vielzahl fachlicher und technischer Neuanforderungen umfangreiche
+Änderungen an der Anwendung vorgenommen werden. Unter anderem sind zu nennen:
+Bereitstellung weiterer Kennzahlen, Berücksichtigung grundlegender
+Organisationsänderungen, technische Integration diverser Funktionalitäten
+zweier Vorgängeranwendungen, Laufzeitoptimie-rung der Wochen- und
+Monatsaufbereitungen, diverse technische Updates gemäß Book of Standards,
+Herstellung der IE11-Kompatibilität.
+ 
+Meine Aufgabe in diesem Projekt war das IT-seitige Testmanagement sowie die
+Test-koordination mit dem fachseitigen und dem externen IT-seitigen
+Testmanagement sowie dem Testmanagement des datenliefernden Systems, einer
+sogenannten Business Managed Application. Wie auch beim Value Manager zogen
+im Laufe der Zeit die beiden Testumgebungen für System- und Abnahmetest in eine
+gemanagte Testumgebung um. Ich war dann für die entsprechende Verwaltung der
+zugehörigen Testvorhaben inkl. Testusermanagement zuständig.
+ 
+Darüber hinaus unterstützte ich die Projektleitung bei der Etablierung von QS-
+Prozessen. Als QS-Beauftragter war ich für Konzeption und Durchführung der
+Qualitätssicherungsaktivitäten verantwortlich.
+ 
+Neben den üblichen anfallenden Qualitätssicherungsaufgaben im Rahmen der
+Release bzw. Projekte unterstützte ich den IT-Projektleiter und die IT-
+Produktverantwort-liche bei der Behebung von Revisionsmoniten hinsichtlich
+unzureichender DV-Doku-mentation, bei der Durchführung eines Selfassessments
+für den Testprozess sowie bei diversen Quality-Gate-Prüfungen.
+ 
+Projekte Kundendialogmanagement
+ 
+Branche Bank
+Funktion Testmanager, Methodenberater, QS-Berater
+ 
+Tätigkeiten:
+Testmanagement
+Erstellen des übergreifenden Testkonzepts
+Defectmanagement
+Unterstützung im Bereich der Qualitätssicherung
+Betreuung der projekteigenen HP Quality Center-Instanz inkl. Migrationen bei
+Versionswechseln
+Verwaltung der Testvorhaben für die zentral gemanagten Testumgebungen
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: Windows 7, Windows XP Professional, Windows Server 2008 R2, MVS
+Sprachen: SAS, UC4
+Datenbanksystem: DB2, MS SQL Server 2008 R2, MS SQL Server 2012
+Tools: HP Quality Center, Sharepoint
+ 
+Zeitraum 15 Monate (Februar 2017 bis April 2018)
+ 
+Details:
+Das Kundendialogmanagement liefert für das Kundenportal allgemeine oder
+individualisierte Teaser. Damit werden dem Bankkunden auf ihn zugeschnittene
+Angebote in dafür vorgesehenen Fensterflächen angeboten. Zu diesem Zweck kommen
+diverse Standardprogramme von SAS zum Einsatz, mit denen beispielsweise
+bestimmte Produktkampagnen erstellt werden können. Diverse selbst programmierte
+Batchprogramme bereiten die Daten der SAS-Programme dann entsprechend für die
+Verwendung im Portal auf.
+ 
+Bei diesem IT-System übernahm ich das Testmanagement für die Wartungsseite.
+Neben dem Testmanagement für wenige kleinere Wartungseinsätze lag der
+Schwerpunkt meiner Arbeit hier auf dem Testuser-Management für die gemanagten
+Testumgebungen sowie der Betreuung der HP Quality Center-Instanz (jeweils auch
+für die Projektseite) sowie der Testkoordination mit dem Kundenportal-Projekt
+hinsichtlich der Regressionstests für deren Release. Gegenüber den beiden IT-
+Produkten Value Manager und ErfolgsCockpit lag der Anteil der erbrachten
+Aufwände bei nur etwas mehr als 10%.
+ 
+Projekt Neues Geschäftsmodell Anlageberatung
+ 
+Branche Bank
+Funktion Testmanager, Methodenberater
+ 
+Tätigkeiten:
+Testmanagement für diverse IT-Anwendungen
+Erstellen des übergreifenden Testkonzepts
+Defectmanagement
+Methodenberatung im Bereich Testerstellung und -durchführung
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs, Mainframe
+Betriebssystem: Windows XP Professional, Unix, MVS
+Sprachen: SAS
+Datenbanksystem: DB2
+Tools: HP Quality Center, Sharepoint
+ 
+Zeitraum 5 Monate (Februar 2013 bis Juni 2013)
+ 
+Details:
+Im Rahmen eines Großprojekts wurden für das Privatkundengeschäft neue
+Depotmodelle entwickelt, die in die Anwendungslandschaft der Gesamtbank
+integriert werden mussten. Hierzu waren umfangreiche Änderungen in einer
+Vielzahl von IT-Systemen notwendig. Meine Aufgabe in diesem Projekt war das
+übergreifende Testmanagement für die beteiligten dispositiven IT-Systeme.
+ 
+Projekt Testautomatisierung Handscanner-Software
+ 
+Branche Logistik
+Funktion Testautomatisierer, Methodenberater
+ 
+Tätigkeiten:
+Evaluierung von Testautomatisierungslösungen im Bereich Windows Mobile
+Testautomatisierungskonzeption und -umsetzung
+Teamlead Testautomatisierung
+Methodenberatung im Bereich des Frontend-Tests
+ 
+ 
+ 
+Systemumfeld
+Hardware: Handheld-Computer, IBM kompatible PCs
+Betriebssystem: Windows Mobile 6.5, Windows 7
+Sprachen: VB Script, VB.NET, C#
+Datenbanksystem: SQL Server Compact
+Tools: HP-QuickTest Professional / Jamo Solutions M-Eux / HP Quality Center
+ 
+Zeitraum 12 Monate (Dezember 2011 bis November 2012)
+ 
+Details:
+Im Rahmen eines Großprojekts wurde u. a. neben der Anschaffung neuer Hardware
+eine komplett neue Software für die Handscanner der Zustellkräfte auf Basis von
+Windows Mobile 6.5.3, dem .net Compact Framework und dem Resco MobileForms
+Toolkit entwickelt. Nach Fertigstellung des jeweiligen Teilreleases werden die
+Regressions-tests für die entsprechenden fachlichen Themenbereiche
+automatisiert durchgeführt.
+ 
+Um die große Anzahl zu verarbeitender Dialoge bewältigen zu können, wurde ein
+gene-risches Framework entwickelt. Dieses Framework passt sich in die
+unternehmensspezi-fische Standardvorgehensweise des Business Process Testing
+unter Verwendung der HP-spezifischen Testtools ein. Die Businesskomponenten
+werden dabei dialogorien-tiert verwendet, die Parametrisierung erfolgt
+datengetrieben unter Verwendung eines Sets zusätzlich definierter Keywords. Die
+Verbindung zu der AUT auf dem mobilen Gerät wird durch ein spezielles Add-In
+für HP Quick Test hergestellt, welches im Vorfeld im Anschluss an eine
+ausgiebige Evaluierungsphase ausgewählt wurde.
+ 
+Neben der Steuerung der Entwicklungstätigkeiten für das generische Automati-
+sierungsframework in unserem 5-köpfige Team war ich parallel mit der Betreuung
+eines weiteren Teams betraut, welches die manuellen Testfälle in Business
+Component-Form transformiert hat. In den sonstigen Testthemen des
+Frontendbereichs war ich beratend tätig, zudem habe ich einige neue Kollegen
+methodisch in die systematische Testfallerstellung eingewiesen und schließlich
+selbst aktiv ein kleineres Testobjekt bearbeitet.
+ 
+Projekt Testmanagement Bankenintegration im Bereich Vertriebssteuerung
+ 
+Branche Bank
+Funktion Übergreifender Testmanager
+ 
+Tätigkeiten:
+Übergreifendes Testmanagement
+Testmanagement, Testkonzeption
+Testfallerstellung und Testdatendefinition
+Fehlermanagement
+Methoden- und Toolberatung
+Programmierung
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs, IBM Mainframe, div. Client-Server-Architekturen
+Betriebssystem: WIN XP, Unix, MVS
+Sprachen: Java, C#, Cobol, etc.
+Datenbanksystem: Oracle, SQL Server
+Tools: HP-Quality Center / HP Service Center / individuelle Sharepoint-Lösungen
+ 
+Zeitraum 26 Monate (Juli 2009 bis August 2011)
+ 
+Details:
+Hauptaufgabe in diesem Projekt war das übergreifende Testmanagement in einem
+Release Cluster für Vertriebssteuerungsanwendungen. Dies umfasste sowohl die
+Koordination der Testmanager der ca. 30 betroffenen IT-Produkte (Privatkunden-
+bereich und Mittelstandsbank), die Abstimmung mit dem Testmanagement des
+Gesamtprojektes als auch die Koordination der Umsetzung zentraler Anforderungen
+(z. B. Aufbau diverser Testumgebungen, Konzeption von Last- und
+Performancetests, Untersuchung von Datenalterungsproblematiken, etc.).
+ 
+Bei einzelnen Produkten unterstützte ich bei der Erstellung von Testkonzepten,
+Testplänen und Testfällen unter Berücksichtigung der bankweiten Vorgaben.
+Ich übernahm weiterhin das Test- bzw. Fehlermanagement für einzelne IT-Produkte
+und führte Abstimmungen mit den Produkten anderer Bereiche durch. Ich leitete
+die Rolloutkoordination für die gebündelten SW-Einsätze und war verantwortlich
+für die Organisation der Datenmigration betroffener Produkte inkl.
+Drehbuchkoordination. Ich führte die Testkoordination für ein kleineres Projekt
+im Bereich Wertpapier-handelsbestätigungen durch.
+ 
+Schließlich unterstützte ich bei der revisionssicheren Archivierung der
+Projektergebnisse des Migrationsprojekts.
+ 
+Nach Ende des Migrationsprojektes war ich an Konzeption, Entwicklung und Test
+einer bereichsinternen Verwaltungsanwendung mittels Microsoft Access beteiligt.
+ 
+Projekt Fondsportal
+ 
+Branche Bank
+Funktion Qualitätsmanager und Methodenberater
+ 
+Tätigkeiten:
+Testmanagement
+Testkonzeption
+Testfallerstellung und Testdatendefinition
+Fehlermanagement
+Qualitätssicherung der Fachkonzepte und User Stories
+fachliche Betreuung der Entwicklung und der Product Owner
+Testdurchführung und Testanalyse
+Testautomatisierung
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: WIN 2K, Unix
+Sprachen: Java, Spring WebFlow, Java Server Faces, Java Script
+Datenbanksystem: Oracle
+Testtools: Eigenentwicklung, Mercury QualityCenter
+Webbrowser: Internet Explorer, Firefox, Google Chrome, Opera, Safari
+ 
+Zeitraum 19 Monate (Dezember 2007 bis Juni 2009)
+ 
+Details:
+Im Rahmen dieses Insourcing-Projektes hatte ich als Qualitätsmanager die
+Aufgabe,
+die im Scrum-Prozess entstehenden 2-wöchigen Sprintergebnisse und am
+Projektende
+das fertige Release qualitätszusichern und damit die fachliche Freigabe zu
+ermöglichen. Das Gesamtprojekt wurde in 4 Teile zerlegt: Depoteinsicht für
+Berater
+und Call-Center-Mitarbeiter, Endkundenrelease, Technisches Zwischenrelease und
+Third-Party-Release.
+ 
+Zu Beginn jedes Projektteils unterstützte ich die Product Owner bei der
+Erstellung
+der User-Stories und Akzeptanztests, als Werkzeug kam hier das Mercury
+QualityCenter zum Einsatz.
+ 
+Für eine umfangreiche Testautomatisierung war es notwendig, einen eigenen
+Testmandanten zu erstellen und mit den notwendigen Daten zu befüllen. Hierzu
+habe ich ein Verfahren entwickelt, bei dem die Quelldateien auf komfortable
+Weise erzeugt werden können.
+ 
+Dies wurde in das eigenentwickelte Testwerkzeug integriert, sodass sowohl
+die Basisdaten wie auch die eigentlichen Testdaten in einer Datenbank gehalten
+wurden. Die Entwicklung für die projektspezifische Automatisierungbibliothek
+umfasste die Webbrowser Firefox 2 und später 3 sowie Internet Explorer 6 und 7.
+ 
+Bei den ebenfalls umfangreichen manuellen Tests wurde die Anwendung noch unter
+weiteren Webbrowsern getestet.
+ 
+Das Fehler- und Change-Request-Management erfolgte ebenfalls im Mercury Quality
+Center.
+ 
+Sofern es notwendig war, wurden mir weitere Kollegen zur Verfügung gestellt,
+die
+mich bei der Testdurchführung unterstützt haben.
+Insgesamt konnte in diesem Projekt ein hoher Qualitätsstand erreicht werden,
+bei
+dem es im Vergleich zu vorangegangenen Projekten zu weitaus weniger Problem-
+meldungen aus der Produktion kam. Neben der guten Arbeit des Entwicklerteams
+hat dabei auch die methodischere Herangehensweise bei der QS eine Rolle
+gespielt.
+ 
+ 
+Projekt Angebots- und Antragserstellung
+ 
+Branche Versicherung
+Funktion Methodenberater
+ 
+Tätigkeiten:
+Testfallerstellung und Testdatendefinition
+Fehlermanagement
+Qualitätssicherung der Fachkonzepte
+fachliche Betreuung der Entwicklung
+Refactoring von Spezial-Testscripten
+Testdurchführung und Testanalyse
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: WIN 2K
+Sprachen: Java, Smalltalk
+Datenbanksystem: DB2/2
+Testtools: Segue Silk
+ 
+Zeitraum 3,5 Monate (Mitte August 2007 bis November 2007)
+ 
+Details:
+Testunterstützung im Rahmen der Ergänzung der Software zur Angebots- und
+Antragserstellung um Förderrentenprodukte. Refactoring bestehender
+besonderer Testautomatisierungsskripte in 4Test (SilkTest).
+ 
+Projekt Fondsbuchhaltung
+ 
+Branche Bank
+Funktion Methodenberater
+ 
+Methodenberatung
+Testkonzeption
+Testfallerstellung und Testdatendefinition
+Testdurchführung und Testanalyse
+Fehlermanagement
+Verbesserung des Testsystems
+Testautomatisierung
+Erstellung eines Testwerkzeuges
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: Windows 2000
+Sprachen: APL, Dyalog
+Datenbanksystem: Oracle
+Testtools: Segue SilkTest, SilkRadar, SilkPerformer, Mercury TestDirector,
+WinRunner, TComplete (Eigenentwicklung), QAComplete (Eigenentwicklung)
+ 
+Zeitraum 50,5 Monate (Mitte April 2003 bis Ende Juni 2007)
+ 
+Details:
+Im Rahmen der schrittweisen Ablösung einer Individualsoftwarelösung durch die
+Standardsoftware SimCorp Dimension werden umfangreiche fachliche und technische
+Tests durchgeführt. Meine Aufgabe ist zunächst die Einarbeitung der Mitarbeiter
+in die notwendigen Methoden und Verfahren zur Ermittlung der Testfälle. Darüber
+hinaus berate ich die Testprogrammierer bei der Implementierung geeigneter
+Testprogramme.
+ 
+Im Anschluss an die Einarbeitungsphase arbeitete ich aktiv an der
+Testfallerstellung und Testdatendefinition mit, werte automatisierte Tests aus
+und führe ergänzende manuelle Tests durch.
+ 
+In der letzten Phase des Projektes hatte ich neben dem KnowHow-Transfer die
+Aufgabe, im Bereich der Testautomatisierung zu unterstützen. Hier war ich auf
+der
+einen Seite an der Evaluierung von WinRunner als Ersatz für das bestehende
+SilkTest-Automatisierungsframework beteiligt, auf der anderen Seite war ich mit
+der Programmierung einer eigenständigen Automatisierungslösung für den Aufbau
+großer Sekundärdatenbestände betraut.
+ 
+ 
+Projekt Testfallerstellungswerkzeug
+ 
+Branche Software-Entwicklung
+Funktion Entwickler
+ 
+Tätigkeiten:
+Projektplanung
+Konzeption
+Entwicklung und Test
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: Win98, Win2k, WinXP
+Sprachen: VB.NET
+Datenbanksystem: -
+Testtools: -
+ 
+Zeitraum 3,5 Monate (Dezember 2002 bis Mitte April 2003)
+ 
+Details:
+Dieses Projekt ist kein Kundenprojekt, vielmehr habe ich die projektlose Zeit
+genutzt, um ein eigenes Testfallerstellungswerkzeug zu erstellen. Das Werkzeug
+dient der Testfallerstellung für fachliche Funktionstests, die derzeit
+angebotene Methode ist die Ursache-Wirkungs-Analyse, die mittels
+Entscheidungstabellentechnik umgesetzt wird. Das Programm wurde mittels Net-
+Framework in VB.Net umgesetzt und arbeitet mit Ressourcendateien zwecks
+späterer Internationalisierung, es besitzt ein kontextsensitives Hilfesystem,
+welches mittels HTML-Workshop erstellt wurde. Nähere Informationen zu dem
+Produkt können Sie gerne nach erfolgter Kontaktaufnahme erhalten.
+ 
+Projekt Logistiksystem
+ 
+Branche Automobilhersteller
+Funktion Methodenberater
+ 
+Tätigkeiten:
+Consulting Testmanagement
+Consulting Usability
+Coaching Testfallerstellung
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: Windows 2000
+Sprachen: Java
+Datenbanksystem: noch nicht abschließend bestimmt
+Testtools: noch nicht abschließend bestimmt
+ 
+Zeitraum 3 Monate (September bis November 2002)
+ 
+Details:
+In diesem Projekt habe ich Vorschläge zum Aufbau und Ablauf der Tests
+erarbeitet und diese Vorschläge den Projekt- und Testverantwortlichen
+präsentiert. Ich habe den Projektverantwortlichen Maßnahmen zur Verbesserung
+der Usability erläutert und dafür entsprechende Beispiele angefertigt. Ich habe
+mit den Mitarbeitern des fachlichen Abnahmetests beispielhafte
+Testfallerstellungen durchgeführt. Schließlich habe ich eine Inhouse-Schulung
+für die Mitarbeiter eines Testlabors abgehalten.
+ 
+Projekt  Kontaktmanagement-System
+ 
+Branche Finanzdienstleistungen
+Funktion Methodenberater, Mitarbeiter
+ 
+Tätigkeiten:
+Testmanagement
+Testfallerstellung und Testdatendefinition
+Testdurchführung und Testanalyse
+Fehlermanagement
+Verbesserung des Testsystems
+Erstellung von Testutilities
+Erstellung von Testscripts
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: Windows 2000
+Sprachen: C++, VB
+Datenbanksystem: MS SQL-Server 7, MSDE
+Testtools: Collaboration Manager, Rational Visual Test 6.01
+ 
+Zeitraum 3,5 Monate (Mitte März bis Ende Juni 2002)
+ 
+Details:
+Im Rahmen dieses Projektes habe ich neben der Ausarbeitung, Durchführung und
+Auswertung von Testfällen mit geeigneten Testdaten auf Basis von
+Testfallkatalogen in Word ein System zur Auswertung dieser Tests auf VBA-Makro-
+Basis entwickelt. Dieses hat es dem Teilprojektleiter ermöglicht, auf
+Knopfdruck den Teststatus abzurufen. Hierzu wurde für jeden Testfallkatalog ein
+eigenes Excel-Blatt mit entsprechenden Eingabemöglichkeiten erstellt, das
+zugehörige Makro hierzu lieferte eine Einzelauswertung zu diesem Testobjekt.
+Ein Excel-Blatt für die Gesamtauswertung führte die gesammelten Daten dann per
+Knopfdruck zusammen.
+ 
+Weiterhin habe ich für durchzuführende Multi-User- und Massendatentests
+entsprechende Testskripte in Rational Visual-Test erstellt, die synthetische
+Testdaten erzeugt haben. In zusätzlichen manuellen Tests konnte ich einige
+schwere Software-Fehler entdecken, die durch die Testfälle nicht aufgedeckt
+worden wären.
+ 
+Projekt  Cross-Selling-Produkte für Baufinanzierung
+ 
+Branche Versicherung
+Funktion Methodenberater, Mitarbeiter
+ 
+Tätigkeiten:
+Testmanagement
+Testfallerstellung und Testdatendefinition
+Testdurchführung und Testanalyse
+Fehlermanagement
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: OS/2, Windows 2000
+Sprachen: C++
+Datenbanksystem: DB2
+Testtools: -
+ 
+Zeitraum 1,5 Monate (Mitte Februar bis Ende März 2002)
+ 
+Details:
+In diesem Projekt habe ich von meinem Büro aus annähernd die gesamte Testvor-
+bereitung, Testausführung und Testauswertung durchgeführt. Im Projekt wurden
+neue Versicherungsprodukte in eine bestehende Anwendung zur Baufinanzierung
+einer Großbank integriert. Anhand der vorliegenden fachlichen Spezifikationen
+und meiner Kenntnisse aus vorangegangenen Versicherungsprojekten konnte ich
+geeignete Testfälle für manuelle Tests ableiten, die die fachliche Korrektheit
+der grafischen Oberfläche, der versicherungstechnischen Plausibilitäten wie
+auch der kundenspezifischen Druckstücke sicherstellten.
+ 
+Gefundene Fehler wurden mittels eines in Excel selbsterstellten
+Fehlerverwaltungs-systems erfasst und dem zuständigen Mitarbeiter des
+Versicherers zugesandt. Dieser übernahm die notwendige Koordination mit den
+Bankmitarbeitern und Entwicklern des Systems und schickte mir in kurzen Zyklen
+neue Programmversionen mit entsprechenden
+Fehlerkorrekturen zurück. Nach erfolgreichem Retest der letzten Fehler mit
+hoher Priorität konnte das System termingerecht eingeführt werden.
+ 
+Projekt  Fachkonzept Unterstützungskasse
+ 
+Branche Versicherung
+Funktion Mitarbeiter
+ 
+Tätigkeiten:
+Erstellung von Fachkonzepten
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: Windows 2000
+Sprachen: -
+Datenbanksystem: -
+ 
+Zeitraum 1 Monat (Mitte Januar bis Mitte Februar 2002)
+ 
+Details:
+Aufgrund meiner Erfahrungen in der Qualitätssicherung von Fachkonzepten bekam
+ich den Auftrag zur Erstellung von Fachkonzepten zur Integration einer
+Unterstützungs-kasse im Rahmen einer Angebots- und Antragssoftware für eine
+Großbank. Die Doku-mente wurden in Word gemäß den Richtlinien des
+Versicherungsunternehmens erstellt.
+ 
+Projekt  Angebots- und Antragserstellung Riester-Reform-Produkte
+ 
+Branche Versicherung
+Funktion Methodenberater, stellvertretender Teilprojektleiter
+ 
+Tätigkeiten:
+Testmanagement
+Testfallerstellung und Testdatendefinition
+Fehlermanagement
+Qualitätssicherung der Fachkonzepte
+fachliche Betreuung der Entwicklung
+Einarbeitung neuer Mitarbeiter
+Verbesserung des Testsystems
+Testdurchführung und Testanalyse
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: OS/2/WIN NT 4.0
+Sprachen: Java, Smalltalk
+Datenbanksystem: DB2/2
+Testtools: Segue Silk 5.01 for Windows NT
+ 
+Zeitraum 6 Monate (Juli bis Dezember 2001)
+ 
+Details:
+Im Rahmen der sogenannten Riester-Reform musste ein Förderrechner an bestehende
+Versicherungsprodukte gekoppelt werden. Hierzu habe ich unter Zuhilfenahme von
+selbstentwickelten Excel-Makros Entscheidungstabellen für die
+Ursache-Wirkungs-Analyse aufgestellt. Die so entstandenen Testfälle habe ich
+dann manuell durchgeführt. Gefundene Fehler (auch der anderen Kollegen) wurden
+von mir in einem Fehlerverwaltungssystem erfasst und der Status wurde
+nachverfolgt. Im Rahmen zusätzlicher manueller Tests konnten wir auch Fehler in
+bereits freigegebenen zugelieferten Subsystemen aufdecken und so zur
+Qualitätsverbesserung über den Rahmen des Projektes hinaus beitragen.
+ 
+Projekt  Angebots- und Antragserstellung für Renten- und Lebensversicherungen 
+ 
+Branche Versicherung
+Funktion Methodenberater, stellvertretender Teilprojektleiter
+ 
+Tätigkeiten:
+Testmanagement
+Testfallerstellung und Testdatendefinition
+Fehlermanagement
+Qualitätssicherung der Fachkonzepte
+fachliche Betreuung der Entwicklung
+Einarbeitung neuer Mitarbeiter
+Verbesserung des Testsystems
+Testdurchführung und Testanalyse
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: OS/2/WIN NT 4.0
+Sprachen: Java, Smalltalk
+Datenbanksystem: DB2/2
+Testtools: Segue Silk 5.01 for Windows NT
+ 
+Zeitraum 31,5 Monate (Mitte Oktober 1998 bis Juni 2001)
+ 
+Details:
+Gemeinsam mit dem Teilprojektleiter habe ich für die quartalsweise
+erscheinenden Software-Releases in diesem Projekt sowohl die Testplanung als
+auch das Testmanagement durchgeführt. Neue Mitarbeiter wurden von mir in die
+Testsystematik eingewiesen und bei den ersten Aufgaben weiter betreut.
+ 
+Am Beginn eines jeden Testzyklus stand für unser Testteam jeweils die
+Qualitätssicherung der Fachkonzepte, um so bereits frühzeitig fachliche Fehler
+erkennen zu können. Im Anschluss daran übernahm ich jeweils einige Testobjekte
+für den fachlichen Funktionstest. Für diese Testobjekte erstellte ich dann
+Entscheidungstabellen. Die von mir hierzu entwickelten VBA-Makros dienten zur
+Feststellung der formalen Vollständigkeit, zur Aufdeckung von Redundanzen sowie
+zur Erkennung von Optimierungsmöglichkeiten.
+ 
+Zu den so entwickelten Testfällen haben wir die Testdaten in einem eigens
+hierfür
+erstellten Access-Verwaltungswerkzeug erfasst. Über eine Export-Funktion
+konnten diese Daten von einem Silk-Skript weiterverarbeitet werden. Am Design
+dieses Systems war ich in der Vergangenheit maßgeblich beteiligt.
+ 
+Die Erfassung der Testdaten erfolgte jeweils für das vorausgegangene Release,
+die neuen Bestandteile des aktuellen Releases wurden jeweils manuell anhand der
+neuen Testfälle durchgetestet. Somit konnten jeweils die unveränderten bzw. nur
+unwesentlich veränderten Applikationsteile automatisiert getestet werden, die
+neuen Teile (die auch noch die meisten Änderungen während der Testphase
+erfuhren), wurden dann intensiv manuell getestet. Nach jedem Testdurchlauf
+wurden von mir oder dem Teilprojektleiter Statusberichte für Auftraggeber und
+Projektleitung erstellt, am Ende eines jeden Projektabschnitts ein
+detaillierter Testabschlussbericht.
+ 
+Daneben habe ich zusätzlich noch einige spezielle Automatisierungsskripte in
+4Test (Programmiersprache in SilkTest) entwickelt, die spezielle Tests
+ausführten, für die das allgemeine Testsystem ungeeignet war.
+ 
+Projekt  Euro-Umstellung der Anwendungslandschaft einer Direktbank
+(u. a. Call-Center-, Banking- und Broking-Software) 
+ 
+Branche Software- und Beratungshaus
+Funktion Methodenberater
+ 
+Tätigkeiten:
+Testmanagement
+Schulung der Mitarbeiter aus den Fachbereichen
+Fehlermanagement
+methodische Betreuung der Mitarbeiter aus den Fachbereichen 
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs; IBM 3270
+Betriebssystem: OS/2; MVS
+Sprachen: Smalltalk
+Datenbanksystem: DB/2
+ 
+Zeitraum 5 Monate (Mitte Mai bis Mitte Oktober 1998)
+ 
+Details:
+Um die weitreichenden Änderungen durch die Euro-Umstellung in den verschiedenen
+Applikationen testen zu können, wurden ca. 20 Mitarbeiter aus den verschiedenen
+Fachbereichen temporär zu einem Testteam zusammengestellt. Meine Aufgabe war
+hier insbesondere, die Mitglieder des Testteams, die unterschiedlichste
+Voraussetzungen mitbrachten, in die Testmethodik einzuweisen und mittels
+Training on the job bei der Erstellung und Durchführung adäquater Tests zu
+unterstützen.
+ 
+Hierbei kam ein zu Beginn des Projekts selbstentwickeltes
+Testfallverwaltungswerk-zeug als Intranetlösung zum Einsatz, an dessen Design
+ich maßgeblich beteiligt war.
+ 
+Ebenfalls zu meinem Aufgabengebiet gehörte die korrekte Einordnung der
+entdeckten Abweichungen sowie die Statusverfolgung der tatsächlichen Fehler im
+Fehlerverwaltungssystem.
+Projekt  Angebots- und Antragserstellung für Renten- und Lebensversicherungen 
+ 
+Branche Versicherung
+Funktion Methodenberater
+ 
+Tätigkeiten:
+Einführung des Testsystems (Systematik, Automatisierung)
+Testmanagement
+Schulung der Mitarbeiter aus den Fachbereichen
+Fehlermanagement
+methodische Betreuung der Mitarbeiter aus den Fachbereichen 
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: OS/2
+Datenbanksystem: DB2
+Testtools: Segue QA Partner for OS/2
+ 
+Zeitraum 7,5 Monate (Oktober 1997 bis Mitte Mai 1998)
+ 
+Details:
+In diesem Großprojekt war meine Hauptaufgabe die Einführung einer
+systematischen Testvorgehensweise. Diese sollte, wo sinnvoll, auch
+Testautomatisierung umfassen.
+ 
+Hierbei kam ein toolgestütztes Testsystem zum Einsatz, das ich bei meiner
+damaligen Firma maßgeblich mitentwickelt hatte. Die Erstellung von
+Entscheidungstabellen als Ursache-Wirkungs-Analyse mittels Excel stand am
+Anfang des Prozesses. Im nächsten Schritt wurden zu den Testfällen Testdaten
+anhand der Grenzwertanalyse in einer Access-Datenbank erfasst, die eine leicht
+zu bedienende Oberfläche besaß. Mit den Testdaten wurden auch die
+entsprechenden Steuerungsinformationen für die Testautomatisierung hinterlegt.
+Diese Daten gelangten über eine Export-Import-Schnittstelle in das
+Automatisierungswerkzeug Segue QA-Partner (später SilkTest).
+ 
+Durch starke Generalisierung mussten im Testwerkzeug lediglich
+projektspezifische Anpassungen vorgenommen werden, die Verarbeitung von
+Dialogfolgen beispielsweise wurde von einer zentralen Routine aus gesteuert.
+Die Auswertung der Tests wurde ebenfalls durch allgemeine Skripte aufbereitet,
+sodass die Abweichungsbearbeitung sehr schnell durchgeführt werden konnte.
+ 
+Projekt  Call-Center- und Back-Office-Software für eine Direktbank 
+ 
+Branche Direktbank
+Funktion Methodenberater
+ 
+Tätigkeiten:
+Einführung des Testsystems (Systematik, Automatisierung)
+Testmanagement
+Schulung der Mitarbeiter aus den Fachbereichen
+Fehlermanagement
+methodische Betreuung der Mitarbeiter aus den Fachbereichen 
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: OS/2
+Datenbanksystem: DB2
+Testtools: Segue QA Partner for OS/2
+ 
+Zeitraum 13 Monate (August 1996 bis August 1997)
+ 
+Details:
+Inhalt dieses Projektes war die Neuentwicklung einer Software im Rahmen der
+Installation einer Direktbank. Meine Aufgabe bestand darin, als Berater eine
+systematische toolgestützte Testvorgehensweise zu etablieren. Hierzu habe ich
+neben der normalen Testplanung auch die entsprechenden Mitarbeiter in die
+Methodik eingeführt. Der Schwerpunkt lag dabei auf der systematischen
+Testfallerstellung durch Ursache-Wirkungs-Analysen und der darauffolgenden
+Testdatenerstellung mittels Grenzwertanalysen.
+ 
+ 
+ 
+Projekt  Systemintegrationstest für Filialumgebung eines Warenhauskonzerns 
+ 
+Branche Einzelhandel
+Funktion Mitarbeiter (intern)
+ 
+Tätigkeiten:
+Einführung des Testsystems (Systematik, Automatisierung)
+Testmanagement
+Fehlermanagement
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: Windows 3.1
+Datenbanksystem: diverse
+Testtools: Segue QA Partner for Win, WITT
+ 
+Zeitraum 9 Monate (November 1995 bis Juli 1996)
+ 
+Details:
+Meine Aufgabe bestand darin, in einer produktionsnahen Filialserverumgebung
+die reibungslose Integration neuer oder geänderter Anwendungen sicherzustellen.
+Je nach Anwendungstyp (CUI oder GUI) musste ich hierzu geeignete
+Automatisierungsskripte erstellen. Auf den vorhandenen Clients wurden die
+verschiedenen Skripte gestartet und so der Echtbetrieb simuliert.
+ 
+Projekt  Software-Qualitätsmanagement 
+ 
+Branche Einzelhandel
+Funktion Mitarbeiter
+ 
+Tätigkeiten:
+Entwicklung von Einführungsstrategien für ein QM-System
+Methodenberatung im Bereich QM/QS/Test für diverse Projekte
+(Multimedia, Logistik, Augenoptik, CBT)
+Erstellung eines QS-Handbuchs
+Erstellung eines Testhandbuchs 
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: Windows 3.1
+Testtools: Segue QA Partner for Windows, Hiperstation 
+ 
+Zeitraum 16,5 Monate (Mitte Juni 1994 bis Oktober 1995)
+ 
+Details:
+Als Mitarbeiter im Konzern-Kompetenzzentrum bestand meine Aufgabe darin,
+konzernweit gültige Richtlinien zum Qualitätsmanagement und zur
+Qualitätssicherung in Software-Entwicklungsprojekten aufzustellen.
+ 
+Daneben habe ich in verschiedenen Projekten innerhalb des Konzerns Beratungs-
+tätigkeiten zu diesen Themen durchgeführt.
+ 
+Projekt  Management-Informationssystem 
+ 
+Branche Einzelhandel
+Funktion Teilprojektleiter
+ 
+Tätigkeiten:
+Teilprojektleitung Test
+Projektplanung- und steuerung
+Code Inspections
+fachliche Tests
+Massen- und Streßtests 
+ 
+Systemumfeld
+Hardware: IBM 3270
+Betriebssystem: MVS
+ 
+Zeitraum 4,5 Monate (Februar bis Mitte Juni 1994)
+ 
+ 
+Details:
+Als Teilprojektleiter war ich für alle Testaktivitäten von der Testplanung bis
+zur Testauswertung verantwortlich. Ich koordinierte dabei die Arbeit meiner 2
+Mitarbeiter und verfasste Statusberichte für Auftraggeber und Projektleitung.
+Für bestimmte Anwendungsteile habe ich Code-Inspektionen vorbereitet und
+moderiert.
+ 
+Projekt  Warenwirtschaftssystem 
+ 
+Branche Einzelhandel
+Funktion Methodenberater
+ 
+Tätigkeiten:
+Aufbau der Testumgebung
+Schulungen
+Testfallermittlung und Testdatendefinition für den Fachintegrationstest
+Projektplanung für Teilprojekt Test  
+ 
+Systemumfeld
+Hardware: IBM 3270
+Betriebssystem: MVS
+Sprachen: Cobol 85, Natural
+Datenbanksystem: DB/2, Adabas 
+ 
+Zeitraum 19 Monate (Juli 1992 bis Januar 1994)
+ 
+Details:
+Im Rahmen der Neuentwicklung des Warenwirtschaftssystems wurde in dem
+Unternehmen eine systematische Testmethodik durch die Firma SQS eingeführt.
+ 
+Hierbei kamen auch zum ersten Mal in größerem Umfang die Testwerkzeuge dieser
+Firma zum Einsatz. Nach Einführung dieser Methoden und Werkzeuge übernahm ich
+die Betreu-ung der Mitarbeiter aus den Fachabteilungen hinsichtlich
+Testmethodik und Werkzeug-einsatz. Im Vordergrund stand dabei die
+verarbeitungsorientierte Testfaller-stellung, an der ich auch selbst
+mitarbeitete. Daneben unterstützte ich die Teil-projektleitung beim
+Testmanagement und führte Testschulungen für weitere Projekte durch.
+ 
+Projekt  Entwicklung von Statistikprogrammen 
+ 
+Branche Einzelhandel
+Funktion Anwendungsentwickler
+ 
+Tätigkeiten:
+Programmentwurf und Codierung von Pascal-Programmen
+(statistische Auswertungen, Serienbrieffunktionen für
+Firmenjubiläen etc.) 
+ 
+Systemumfeld
+Hardware: IBM kompatible PCs
+Betriebssystem: DOS
+Sprachen: Turbo Pascal
+ 
+Zeitraum 5 Monate (Februar bis Juni 1992)
+ 
+Details:
+Nach Abschluss meiner Ausbildung zum Datenverarbeitungskaufmann wurde ich in
+die Personalabteilung übernommen. Hier war meine Aufgabe, diverse Anwendungen
+zu entwickeln, die statistische Auswertungen über den Bestand an Firmenrentnern
+lieferten (Alters- und Geschlechtszusammensetzung, regionale Unterschiede etc.)
+sowie Serienbriefe für Firmenjubiläen und Geburtstagsbriefe generierten.
+ 
+Die Anforderungen zu diesen Anwendungen habe ich durch Interviewtechniken
+ermittelt, die Umsetzung erfolgte durch strukturierte Programmierung in Pascal.
+
+Referenzen:
+Projekt Qualitätssicherung - neues Fondsbuchhaltungsystem, 04/03 - dato
+Referenz durch Teilprojektleiter (QM) eines gr. dt. Asset Manager in Frankfurt
+(1.000 MA), vom 24.04.05
+"[...] Der Consultant kann sich beeindruckend schnell in neue Themen
+einarbeiten. Obwohl er anfangs keine Fachkenntnisse im Bereich der
+Fondsbuchhaltung hatte, hat er sich schnell und sicher in dieses Fachgebiet
+eingearbeitet, so daß er bereits innerhalb kurzer Zeit einen produktiven
+Beitrag zum Projektfortschritt leisten konnte. Er arbeitet sehr gründlich und
+sorgfältig und war stets in der Lage komplexe Änderungen und Ergänzungen im
+System schnell, umfangreich und zuverlässig zu testen. Er trug damit wesentlich
+zur erfolgreichen Einführung des neuen Fondsbuchhaltungssystems bei. Wir können
+ihn uneingeschränkt weiterempfehlen für Aufgaben im Bereich Qualitätsmanagement
+und Testing."
+Projekt Testdurchführung CRM-Tool für IT-Abt. (Finanzdienstleister), 03/02 -
+06/02
+Referenz durch Leiter IT-Qualitätsmanagement, AWD, vom 03.07.02
+"Der Consultant wurde in einem CRM-Projekt zur Unterstützung der intensiven
+Testphase engagiert. Er hat durch schnelle Einarbeitung in fachliche Inhalte
+und das technische Umfeld wesentlich zum erfolgreichen Abschluss des Projektes
+beigetragen. Seine Hauptaufgabe bestand in der Erstellung und Durchführung von
+Testfällen, die er aufgrund seiner großen Erfahrung in kürzester Zeit erledigt
+hat, wobei er die Thematik umfassend betrachtete und neue Ansätze eingebracht
+hat. Er hat Testskripts für ausgewählte Testbereiche (Erzeugung von
+Massentestdaten, Testabläufe für kritische Funktionen) erstellt und diese Tests
+durchgeführt. Dabei hat er die Methoden und Verfahren unter Berücksichtigung
+der technischen Infrastruktur (Client/Server-Applikation, 3.800 Clients)
+ausgewählt und praktikable Lösungen erarbeitet. Darüber hinaus hat er dem
+Testmanagement ein automatisiertes Verfahren zur Testfallauswertung (ca. 1.500
+Testfälle, 3 Testdurchläufe) implementiert, das die rasche Erhebung des
+Teststatus ermöglicht hat. Seine Funktion im Team erfüllte er zur vollsten
+Zufriedenheit."
+Projekt Testmanagement Angebots-/Antragssoftware für Versicherung, 10/97-05/98
+und 10/98-12/01
+Referenz durch Leiter des Testteams einer dt. Versicherung mit 2.000 MA vom
+02.01.02
+"Der Berater verfügt über ausgezeichnetes Wissen um das Testmanagement sowie
+die Fähigkeit, dieses Wissen auch umzusetzen und somit Testmanagement in einem
+Unternehmen erfolgreich einzuführen und beständig am Leben zu erhalten. Er
+stand mir als Berater für alle Fragen im Testmanagement zu Verfügung.
+Umfangreiche Kenntnisse der aktuellen Methoden, das Wissen über die Machbarkeit
+und die Vor- und Nachteile von Testautomatisierung zeichnen ihn aus. Neben dem
+methodischen Vorgehen besitzt er auch umfangreiches technisches Verständnis,
+sodass neben der ausgezeichneten fachlichen Aufarbeitung des schwierigen
+Anwendungsgebietes der Lebensversicherungen auch technische Aspekte der
+Anwendung (verteilte Software-Architektur, 8 zentrale Server für 15.000
+Clients) im Test berücksichtigt wurden. Seine Funktion als mein Stellvertreter
+erfüllte er zur vollsten Zufriedenheit. Besonders ist seine Fähigkeit
+hervorzuheben, Probleme im Testalltag sowie bei der Testautomatisierung
+methodisch korrekt anzugehen und dennoch eine rasche und umsetzbare Lösung zu
+finden."
+Alle Referenzen sind durch GULP bestätigt.
+
+Sonstige Anmerkungen:
+Freiberuflich tätig ab 10/2000
+Elternzeit September/Oktober 2011
+ 
+Projekt im .net-Umfeld interessieren mich besonders.
+ 
+ 
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_33408
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 09.04.2021 00:46:08
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

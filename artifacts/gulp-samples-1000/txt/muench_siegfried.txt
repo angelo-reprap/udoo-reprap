@@ -1,0 +1,626 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_6350 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+
+Personen-ID                6350
+  
+Wohnort                    402xx Düsseldorf, Deutschland
+Jahrgang                   1961
+Staatsbürgerschaft         Deutsch
+Stundensatz                85 EUR
+Verfügbar ab               01.02.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         27.02.99
+Profil zuletzt geändert am 07.01.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 28.10.2020 15:11:04
+
+Fachlicher Schwerpunkt:
+Java 8+, Java Swing, JavaFX, SQL-​Datenbanken, HTML5, Javascript, CSS, REST-
+​API
+
+Position:
+Software-Entwicklung / Programmierung
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Fachliche Weiterbildung:
+ 
+Frontend:
+    * Javascript, Angular, Typescript, HTML, CSS, Bootstrap, Web-Components
+ 
+Backend:
+    * Spring, Jakarta EE, Eclipse Microprofile, PHP (Laravel, CakePHP), Node,
+      RESTful APIs, Microservices
+ 
+Sonstiges:
+    * Einsatz von Code-Generatoren (Rapid Prototyping)
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+im Umkreis von:
+Düsseldorf (50 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: Bevorzugt Großraum Düsseldorf.
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+
+
+Betriebssysteme:
+Linux    
+Windows Alle Windows Betriebssysteme
+
+ 
+
+Programmiersprachen:
+Java        
+Java 8      
+JavaScript  
+PHP         
+SQL         
+TypeScript  
+
+
+Datenbanken:
+Firebird / Interbase  
+H2 Database Engine    
+MariaDB               
+MS SQL Server         
+MySQL                 
+Oracle DB             
+Postgres              
+
+
+Datenkommunikation:
+EDIFACT  
+REST     
+
+ 
+
+Produkte/Standards/Erfahrungen:
+Angular                    
+Apache Tomcat              
+Bootstrap                  
+Eclipse                    
+Eclipse IDE                
+Eclipse RCP                
+EclipseLink                
+Git                        
+GitLab                     
+Glassfish                  
+Gradle                     
+Hibernate                  
+HTML 5                     
+JasperReports              
+Java Application Server    
+Java Swing                 
+JavaFX                     
+Jeddict                    
+JHipster                   
+jQuery                     
+JUnit                      
+Kanban                     
+Laravel                    
+Linux Apache MySQL PHP     
+Maven                      
+Mercurial                  
+Netbeans IDE               
+NetBeansIDE                
+Node.js                    
+OData                      
+Payara                     
+Rapidclipse IDE            
+RESTful APIs               
+Scrum                      
+Spring Boot                
+SQLyog                     
+TeeChart                   
+Teiid                      
+Typescript                 
+Visual Studio Code         
+WildFly ApplicationServer  
+ 
+ 
+
+Branchen:
+Industrie-Systeme:  
+Online Monitoring von Maschinen und Industrieanlagen, Reporting
+ 
+Stahl:
+Qualitätsmanagement
+ 
+Handel:
+Warenbewegungen von der Bestellung beim Hersteller bis   zur Auslieferung beim
+Kunden, Dokumente, Geldfluß, Revision,  Zentralregulierung von Rechnungen,
+Buchhaltung,  B2B-Schnittstellen (EDIfact, XML), eCommerce-Systeme und
+Anbindung an Warenwirtschaftssystem (XML)
+ 
+ 
+
+Projekte:
+04/2019 - 01/2021: Condition Monitoring Experten System
+ 
+Einsatzort:         Essen
+Rolle:              Software-Entwickler
+ 
+Aufgaben:
+ 
+    * Performance-Optimierungen beim Laden von großen Datenmengen (Caching und
+      Parallelstreaming)
+    * Auslagerung von Lösch-Jobs
+    * Lade- und Speichermechanismen inklusive Transaktion
+    * Baumstrukturen, Drag and Drop
+    * Neue Assistenten
+    * Neue Benutzeroberflächen
+    * Neue Analysewerkzeuge
+    * Validierung von OData-und Rest-Schnittstellen
+    * Validierung von TeeChart
+    * Sonagramm, Spektrumchart, Trendchart für Betriebsdaten und Kennwerte
+    * Aggregation, Filter, Übersichten
+    * Grenzwert-Visualisierung, Alarmierung, Analyse-Tools
+    * Internationalisierung, Lokalisierung
+ 
+ 
+ 
+ 
+ 
+Kenntnisse:
+ 
+Scrum, Kanban, Java 8, Java Swing, SQL, OData, REST, JavaFX
+ 
+Eingesetzte Produkte:
+ 
+WildFly ApplicationServer, Teiid, MariaDB, Git, GitLab, NetBeansIDE, Eclipse,
+SQLyog, TeeChart
+===============================================================================
+08/2014 - 12/2015: Eclipse RCP Monitoring und Qualitätsmanagement
+ 
+Einsatzort:         Duisburg
+Rolle:              Software-Entwickler
+Unternehmensgröße:  > 1000
+Branche:            Metallerzeugung und -verarbeitung
+ 
+Aufgaben:
+ 
+Pflege und Weiterentwicklung von Eclipse 4 RCP Applikation, Implementierung von
+Eclipse RCP Parts für die Visualisierung von Messungen, Entwicklung von JavaFX-
+basierenden Charts ( Multi-Y-Chart, Regelkarte, ...), Part-übergreifendes
+Zoomen von Charts, ...
+ 
+Kenntnisse:
+ 
+Kanban, JavaFX, Scrum, Java, Eclipse RCP 4, OSGI
+ 
+Eingesetzte Produkte:
+ 
+Eclipse 4, Maven, Git, Jenkins, Weblogic Server, Oracle Database, Jira, JUnit,
+EclEmma, EclipseLink, Eclipse RCP, SWTBot
+===============================================================================
+Java-Projekt:  
+Pflege und Weiterentwicklung von Condition Monitoring System (Swing-Client).
+ 
+Verwendete Produkte und Technologien:
+Netbeans IDE 7.3, Eclipse, MySQL-Datenbank, MariaDB, SQL Server, XCase, JDBC,
+SQL, Java, JavaFX, Swing, XML
+ 
+Zeitraum: 27.02.2013 - 31.07.2013
+Einsatzort: Essen
+ 
+===============================================================================
+ 
+Java / C++Projekte:     
+Pflege und Weiterentwicklung von Condition Monitoring System (Swing-Client).
+ 
+Implementierung von zusätzlichen technischen Einheiten, Visualisierung von
+Zustandsmeldungen, Verbesserungen im Bereich der Usability, Technische
+Umsetzung von kundenspezifischen Vorgaben im Bereich Corporate Identity
+(Branding).
+ 
+C++ Tool für Datenimport /-Export nach Kundenspezifikationen erweitert
+ 
+ Verwendete Produkte und Technologien: Netbeans IDE 7.1/7.2, MySQL-Datenbank,
+JDBC, SQL, Java, Swing, XML
+ 
+Zeitraum: 02.07.2012 - 31.08.2012
+Einsatzort: Essen
+ 
+===============================================================================
+ 
+Java-Projekt: 
+Pflege und Weiterentwicklung von Condition Monitoring System (Swing-Client).
+ 
+Verwendete Produkte und Technologien: Netbeans IDE 7.0, MySQL-Datenbank, JDBC,
+SQL, Java, XML, XPATH
+
+Zeitraum: 12.12.2011 - 23.12.2011
+Einsatzort: Essen
+ 
+===============================================================================
+ 
+Java-Projekt: 
+Pflege und Weiterentwicklung von Condition Monitoring System (Swing-Client).
+ 
+Entwicklung einer regelbasierenden Alarmierung per E-Mail im Rahmen eines
+Monitoring-Systems.
+ 
+Überarbeitung von Remote Execute Mechanismus per HTTP.
+ 
+Verwendete Produkte und Technologien: Netbeans 7.0, MySQL-Datenbank, GlassFish
+Java EE Server, JDBC, SQL, Java SE, Java EE, Swing, Servlets
+ 
+ Zeitraum: 12.09.2011 - 30.11.2011
+ Einsatzort: Essen
+ 
+===============================================================================
+ 
+Java-Projekt:  
+Pflege und Weiterentwicklung von Condition Monitoring System (Swing-Client).
+ 
+Entwicklung einer Chart-Komponente für die 3D Visualisierung von Spektraldaten.
+ 
+Verwendete Produkte und Technologien: Netbeans 6.9, MySQL-Datenbank, JDBC, SQL,
+Java, Swing, Java 3D
+ 
+Zeitraum: 01.12.2010 - 22.12.2011
+Einsatzort: Essen
+ 
+===============================================================================
+ 
+Java-Projekt: 
+Evaluierung von Java3D-API als Basis für 3D-Charting
+ 
+Verwendete Produkte und Technologien: Netbeans 6.9, MySQL-Datenbank, JDBC, SQL,
+Java, Swing, Java 3D
+ 
+Zeitraum: 15.11.2010 - 29.11.2010
+Einsatzort: Essen
+ 
+===============================================================================
+ 
+Java-Projekt:  
+Pflege und Weiterentwicklung von Condition Monitoring System (Swing-Client).
+ 
+Entwicklung einer Java-Applikation, die zeitgesteuert auf der Basis bestimmter
+Regeln die Daten einer Datenbank reduziert.
+ 
+Verwendete Produkte und Technologien: Netbeans 6.9, MySQL-Datenbank, JDBC, SQL,
+Java, Quartz Job Scheduler
+ 
+Zeitraum: 02.09.2010 - 30.09.2010
+Einsatzort: Essen
+ 
+===============================================================================
+ 
+Java-Projekt: 
+Pflege und Weiterentwicklung von Condition Monitoring System (Swing-Client).
+ 
+Verwendete Produkte und Technologien: Netbeans IDE 6.7, MySQL-Datenbank, JDBC,
+SQL, Java, JAXP (Java API for XML Processing), XML, XPATH
+
+Pflege und Weiterentwicklung einer Java Applikation zur Verdichtung von Daten.
+ 
+Verwendete Produkte und Technologien: Netbeans IDE 6.7, MySQL-Datenbank, JDBC,
+SQL, Java, Quartz Job Scheduler
+
+Zeitraum: 15.07.2009 - 23.12.2009
+Einsatzort: Essen
+ 
+===============================================================================
+
+Java-Projekte: 
+Pflege und Weiterentwicklung von Finanz-Applikation
+
+Verwendete Produkte und Technologien: Netbeans IDE, xCase 8, iReport,
+JasperReports, Firebird Datenbank, JDBC, SQL, Java,  XML
+
+Pflege und Weiterentwicklung von Warenwirtschaftssystem
+ 
+Verwendete Produkte und Technologien: Netbeans IDE, xCase 8, iReport,
+JasperReports, Firebird Datenbank, JDBC, SQL, Java, XML
+
+ Zeitraum: 01.10.2008 - 30.06.2009
+ Einsatzort: Düsseldorf
+ 
+===============================================================================
+
+Java / C++ Projekte:     
+Pflege und Weiterentwicklung von Condition Monitoring System (Swing-Client).
+ 
+Einführung von SI-Einheiten, Umrechnung von Messdaten zur Laufzeit mit
+entsprechender Aktualisierung aller angezeigten Views, Code-Review von
+Charting-Software
+ 
+Verwendete Produkte und Technologien: Netbeans IDE 6.0, xCase 8, MySQL, MS SQL-
+Server 2005, Transact-SQL, Java, JDBC
+
+Entwicklung einer Java-Applikation zur Verdichtung von Daten in einer MySQL-
+Datenbank.
+ 
+Verwendete Produkte und Technologien: Netbeans IDE 6.0, MySQL, Java, JDBC, SQL,
+Quartz Job Scheduler
+
+Pflege und Weiterentwicklung einer C++-Applikation, die als Windows
+Systemdienst (Service) läuft. Implementierung für wahlweisen Betrieb mit MySQL
+oder MS SQL-Server 2005.
+ 
+Verwendete Produkte und Technologien: C++Builder 6.0, MySQL, MS SQL-Server
+2005, Transact-SQL, ADO
+
+Zeitraum: 03.01.2008 - 30.09.2008
+Einsatzort: Essen
+ 
+===============================================================================
+
+Java-Projekt:  
+Pflege und Weiterentwicklung eines Verwaltungsprogramms für Finanztransaktionen
+mit Reporting (Java Swing).
+ 
+ Verwendete Produkte und Technologien: Netbeans IDE, xCase 8, Java, JDBC, XML
+ 
+ Zeitraum: 01.09.2007 - 30.11.2007
+ Einsatzort: Düsseldorf
+ 
+===============================================================================
+
+Java Client-/ Server Projekt:
+Migration einer MySQL-Datenbank nach MS SQL-Server 2005 Optimierung von Design
+und Performance
+Übernahme der Datenbestände von MySQL nach MS SQL-Server Anpassung und
+Erweiterung der Java Client-Anwendung Einführung einer Zugriffsschicht für
+wahlweisen Betrieb mit MySQL oder MS SQL-Server 2005 Datenbank
+ 
+Verwendete Produkte und Technologien: Netbeans IDE 5.5, xCase 8, MySQL, MS SQL-
+Server 2005, Transact-SQL, Java, JDBC
+
+ Zeitraum: 01.05.2007 - 30.07.2007
+ Einsatzort: Essen
+ 
+===============================================================================
+
+Java-Projekt:  
+Entwicklung einer Reporting-Lösung Entwicklung einer Java-Applikation für die
+Verwaltung und
+ Ausführung von Reporting-Projekten. Entwicklung von diversen JasperReports-
+Druckvorlagen unter Verwendung von iReport.
+ 
+ Verwendete Produkte: Netbeans IDE 5.0, JasperReports, iReport, MySQL, JDBC,
+Java, XML
+
+ Zeitraum: 02.01.2007 - 30.04.2007
+ Einsatzort: Essen
+ 
+===============================================================================
+
+Java-Projekt: 
+Pflege und Weiterentwicklung von Condition Monitoring System (Swing-Client).
+
+Laden und aufbereiten von Daten mit anschließender Visualisierung in Form von
+verschiedenen Charts.
+Umsetzung von Zoom-Funktionalität in Verbindung mit Mechanismus zum Nachladen
+von Daten zur Darstellung von höheren Auflösungen.
+ 
+Verwendete Produkte und Technologien: Netbeans IDE 5.0, Eclipse, MySQL, JDBC,
+Java, JClass Charting Solution
+
+Zeitraum: 22.11.2006 - 29.12.2006
+Einsatzort: Essen
+ 
+===============================================================================
+
+Eigene Java-Projekte:     
+Entwicklung von Java Client-/Server Applikationen: Warenwirtschaftssystem
+ 
+Verwendete Produkte und Technologien: Netbeans IDE 5.0, Firebird 1.5 als
+relationale Datenbank, xCASE zur Modellierung der Datenbank, jConfig für das
+Management von optionalen Einstellungen, JasperReports für Reporting, ArgoUML
+für Planung und Dokumentation, Java J2SE, Swing, XML, SQL, Stored Procedures,
+UML 1.4
+ 
+Zeitraum: 01.11.2004 - 30.10.2006
+ 
+===============================================================================
+
+Business Intelligence: 
+Konzeption und Umsetzung einer BI-Lösung (Business Intelligence)auf der Basis
+von MS SQL-Server, MS Analysis Services, DTS undOLAP (Panel-System für die
+Garant Schuh + Mode AG).
+ 
+Konzeption des Datenbank-Designs, Definition aller Import- und Export-
+Schnittstellen (XML, Excel) für das Data Warehouse, Import- und Export-
+Schnittstellen (XML, Excel) für das Data Warehouse. Import, Validierung und
+Aufbereitung von externen XML-Daten (XML, XML-Schema, DOM und XPATH).
+
+Umsetzung aller Aktualisierungs-Vorgänge (Extraktion, Transformation und Laden)
+für das Data Warehouse, Bereitstellung von OLAP-Funktionalitäten, Standard-
+Reporting und Erstellung von Cubes für interaktive Auswertungen, Einsatz von MS
+Excel als OLAP-Client.
+
+Kunde: SPC Datenverarbeitungs GmbH, Düsseldorf
+Zeitraum: 01.01.2004 - 31.10.2004
+ 
+===============================================================================
+
+Logistik:      
+Pflege und Weiterentwicklung eines Logistik-Systems zur Planung, Bewertung,
+Kalkulation, Abwicklung und Abrechnung von Sendungen.
+
+ Kunde: Metro Group, Düsseldorf
+ Zeitraum: 08.09.2003 - 31.12.2003
+ 
+===============================================================================
+
+Elektron. Datenaustausch:
+Implementierung von EFNET Business Message Standards. EFNET definiert einen
+XML-Standard für den elektronischen Datenaustausch in der Schuh-, Textil-,
+Sport und Lederbranche.
+ 
+Verwendete Produkte und Technologien: MS Visual Foxpro 8.0,  SQL-Server 2000,
+XMLSpy Professional  XML, XML-Schema, DOM und XPATH
+
+ Kunde: SPC Datenverarbeitungs GmbH, Düsseldorf
+ Zeitraum: 01.05.2003 - 30.06.2003
+ 
+===============================================================================
+
+WaWi:          
+Pflege und Weiterentwicklung eines bestehenden Client-/Server
+Warenwirtschaftssystems, Entwicklung von betriebswirtschaftlichen Auswertungen,
+betriebl. Kennzahlen, XML-Speichermechanismen
+ 
+Verwendete Produkte: SQL-Server 2000, MS Visual Foxpro 7.0,  List &amp; Label
+Reportgenerator
+ 
+Kunde: SPC Datenverarbeitungs GmbH, Düsseldorf
+Zeitraum: 01.04.2001 - 31.03.2003
+ 
+===============================================================================
+
+WaWi:          
+Entwicklung eines Warenwirtschaftssystems mit Anbindung an Web-Shop.
+ 
+Verwendete Produkte und Technologien:  Sun One Studio, IBM Eclipse, Eclipse
+UML, JDBC, XML,  JasperReports, Interbase, Firebird, Apache Web-Server,  Web-
+Start-Technologie von SUN
+
+Zeitraum: 01.04.2001 - 31.12.2003
+ 
+===============================================================================
+
+WaWi:          
+Entwicklung einer Kundenverwaltung / Filialverwaltung (mandantenfähig,
+mehrsprachig) als Teilprojekt eines Warenwirtschaftssystems
+ 
+Verwendete Produkte und Technologien:  Java mit JBuilder 4, JDBC, Interbase 6.0
+ 
+Zeitraum: 01.01.2001 - 31.03.2001
+ 
+===============================================================================
+
+Inventur:      
+Entwicklung von Anwendungsprogrammen für die Durchführung von Inventuren für
+Filialisten. Dazu gehörte auch die Artikelerfassung mit verschiedenen Barcode-
+Scannern. Der Import und Export von Inventurdaten und die Verarbeitung dieser
+Daten.
+ 
+Verwendete Produkte und Technologien:  MS SQL-Server 2000, MS Visual Foxpro
+6.0,  XML, ADO, RS232, LSV2-Protokoll  Barcode Lesegeräte diverser Hersteller
+ 
+Kunde: SPC Datenverarbeitungs GmbH, Düsseldorf
+Zeitraum: 31.09.2000 - 31.03.2001
+ 
+===============================================================================
+
+Limitplanung:  
+Entwicklung einer Limitplanung- und Kontrolle für den Schuh Groß- und
+Einzelhandel
+ 
+Verwendete Produkte und Technologien:  MS SQL-Server 7.0, OLAP-Technologie,  MS
+Excel 2000, ActiveX-Technologie,  MS Visual Foxpro 6.0
+
+Kunde: SPC Datenverarbeitungs GmbH, Düsseldorf
+Zeitraum: 01.04.2000 - 31.09.2000
+ 
+===============================================================================
+ 
+EDIfact:       
+Entwicklung einer kundenspezifischen EDIfact-Schnittstelle
+ 
+Verwendete Produkte und Technologien:MS Visual Foxpro 6.0, MS Excel 2000
+ 
+Kunde: TipTopToy's
+Zeitraum: 01.04.2000 - 31.04.2000
+ 
+===============================================================================
+
+Java-Applikation:
+Preislisten-Frontend für die Aktualisierung von Produktdaten eines Internet-
+Shopsystems mit  automatisierten Upload auf den Web-Server.
+ 
+Verwendete Produkte und Technologien: Borland JBuilder 3.0
+ 
+Zeitraum: 01.03.2000 - 31.03.2000
+ 
+===============================================================================
+
+WaWi-System:   
+Entwicklung eines Warenwirtschaftssystems, konzernübergreifend und mehrsprachig
+Teilprojekte:Warenwirtschaftssystem (Fakturierung mehrsprachig und
+mandantenfähig), Eingangsrechnungskontrolle, diverse ASCII-Schnittstellen für
+den Austausch von Bestellungen über EDIfact und diversen Schnittstellen, Fibu-
+Schnittstelle zu PROFIBU
+ 
+Programmiersprache: Visual Foxpro 6.0
+ 
+Kunde: Garant Schuh &amp; Mode AG, Düsseldorf
+Zeitraum: 01.07.99 - 31.03.2000
+ 
+===============================================================================
+
+WaWi-System:   
+Umsetzung eines Warenwirtschaftssystems von Foxpro für Windows 2.6 auf Visual
+Foxpro 6.0
+
+FiBu:
+Entwicklung einer Finanzbuchhaltung auf der Basis von Clipper.
+
+Web-Projekt:   
+Entwicklung einer Webshop-Lösung mit Warenwirtschaftssystem auf der Basis von
+MS Visual Foxpro 6.0 und MS Frontpage 2000. Individuelles Design und Web-Shop
+mit Warenkorbsystem und Foxpro-Datenbank.
+
+Referenzen:
+Projekt Projekt Warenwirtschaft Einzelhandel 07/99 - 03/03
+Referenz durch Projektleiter, SPC Datenverarbeitungsgesellschaft mbH vom
+25.04.03
+"Der Consultant war bei der Weiterentwicklung unserer Warenwirtschaft (Client-
+Server) an entscheidenden Modulen tätig, und zwar mehrstufige Limitplanung,
+Inventur (Erfassung, Kontrolle, Abgleich, Bewertung, Sicherung),
+betriebswirtschaftliche Auswertungen mit mehrjährigen Vergleichszeiträumen und
+umfangreichen Filter- und Sortierkriterien. Er hat die Module in allen Phasen
+der Entwicklung von der Festlegung des Pflichtenheftes bis zum Abschlusstest
+verantwortlich durchgeführt. Rasche Auffassungsgabe, Blick für das Wesentliche,
+innovative Programmierlösungen, tiefe Kenntnisse der Entwicklungssprache (MS
+Visual FoxPro) und intensive SQL-Kenntnisse (MS SQL-Server und Transact-SQL)
+sowie kontinuierliches Engagement zeichnen den Consultant aus. Jederzeit wieder
+Zusammenarbeit bei entsprechendem Bedarf."
+Projekt Visual FoxPro Programmierung von 07/99 - 03/03
+Referenz durch Geschäftsführer, SPC Datenverarbeitungsgesellschaft mbH vom
+07.04.03
+"Der Consultant war vom 01.07.1999 bis zum 31.03.2003 in unserer
+Unternehmensgruppe als Freelancer in unserem EDV-Bereich tätig. Verwendete
+Produkte: SQL-Server 2000, MS Visual Foxpro 7.0, List &amp; Label Reportgenerator.
+Schon nach kurzer Zeit war festzustellen, dass er über eine große
+Berufserfahrung verfügt. Seine fachlichen Kenntnisse entsprechen dem neuesten
+technischen Stand. Er übertraf die Anforderungen seiner ursprünglichen Aufgabe
+und unsere Erwartung in hohem Maße, so dass wir mit seinen Aufgaben stets voll
+zufrieden waren. Der Consultant erkannte auch in komplizierten Fällen das
+Wesentliche und fand schnell Lösungen. Im Rahmen seiner Tätigkeit hat er seine
+Aufgaben selbstständig und mit einem großen Maß an Eigeninitiative ausgeführt.
+Durch seine selbstständige und eigenverantwortliche Arbeit hat er stets gute
+Erfolge erzielt. Sein Verhalten zu Vorgesetzten und Mitarbeitern war
+vorbildlich. Seine Tätigkeit in unserem Hause endet zum 31.03.2003. Wir
+bedanken uns für die stets sehr gute Mitarbeit und wünschen ihm alles Gute. Für
+die gute Zusammenarbeit danken wir ihm und
+wünschen ihm für die Zukunft viel Erfolg und alles Gute."
+Alle Referenzen sind durch GULP bestätigt.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_6350 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 08.01.2021 00:41:27
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

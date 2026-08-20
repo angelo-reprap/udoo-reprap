@@ -1,0 +1,529 @@
+---------- Gulp-Profil Stand 2014-06-30 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 78308:
+Projektleiter Operations, UNIX Server , Desktop Netzwerke, Architektur
+Beratung, Migrationsmanagement                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+78308 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 78308    Wohnort 634xx Maintal, Deutschland Jahrgang
+1957 Staatsbürgerschaft deutsch Stundensatz 0 EUR  Verfügbar ab
+30.06.14 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+26.05.06 Profil zuletzt geändert am 30.06.14 Lesen von Projektanfragen
+1 Tag  [5]Direktkontakt [6]         Kommentar:   Kommentar schreiben
+Profil angezeigt am 08.04.2014 11:23:34       Fachlicher Schwerpunkt: 
+Projektleiter Operations, UNIX Server , Desktop Netzwerke, Architektur
+Beratung, Migrationsmanagement      Position:  Software-Entwicklung /
+Programmierung
+ Beratung / Consulting
+ Coaching / Schulung / Training
+ Projektmanagement / -leitung / Organisation / Koordination
+ Administration / Support
+ Dokumentation / DTP
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  78-81 Studium der Elektrotechnik an der TH-AAchen
+ 81-82 Unterbrechung wegen Arbeitsunfall
+ 82-85 Studium der Elektrotechnik an der FH-Aachen
+ Abschluß Diplom-Ing. NT
+       Einsatzort:   Regionen: 
+
+	D6, D7       Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+		gut
+
+		Französisch
+		erweiterte Grundkenntnisse
+
+      Hardware:  
+
+		PC
+
+		CD-Writer / Brenner
+
+		Emulatoren
+		VMware
+
+		SUN
+		diverse Systeme bis Midrange
+
+		Tandem
+
+      Betriebssysteme:  
+
+		Tandem
+
+		Unix
+		Batch
+
+		Windows
+
+		SUN OS, Solaris
+		SPARC, I386
+
+      Programmiersprachen:  
+
+		C
+
+		Shell
+
+		Perl
+
+		PHP
+
+      Datenbanken:  
+
+		MS SQL Server
+
+		Oracle
+		DBA
+
+		Postgres
+
+		ODBC
+
+		SQL
+
+      Datenkommunikation:  
+
+		Ethernet
+
+		Internet, Intranet
+
+		ISO/OSI
+
+		RPC
+
+		TCP/IP
+
+		Windows Netzwerk
+
+		X.400 X.25 X.225 X.75...
+
+		Bus
+
+		Fax
+
+		HDLC
+
+		HDSL
+
+		ISDN
+
+		LAN, LAN Manager
+
+		NetBeui
+
+		NetBios
+
+		parallele Schnittstelle
+
+		Router
+
+		RS232
+
+		SMTP
+
+      Produkte/Standards/Erfahrungen:  Betriebsführung Unix
+ langjährige Erfahrung in Systemadinstration und Netzwerke ( Solaris,
+Redhat, SuSE )
+ Batch, Oracle
+
+ Langjährige Erfahrung als Teamleiter, zeitweise bis zu 35 MA
+
+ E2E Monitoring mit IBM Tivoli
+
+       Branchen:  Telekommunikation, Datentechnik, Transportwesen,
+Finanzen, Controling
+       Projekte:  Projekte bei der DB ( 94 - 05 )
+
+ 94-97 Betriebsführung u. Adminstration Verkaufssystem ( Kurs90 )/
+System-Adminitrator
+ Betreuung und datentechnische Versorgung von ca. 3000
+Verkaufsstellen. Versorgung
+ der dezentralen Datenbanken ( Informix ) auf den Verkaufssystemen mit
+Stammdaten
+ ( Bahnstellen ) aus dem zentralen Database-System( Tandem ) über ein
+X.25-Paketnetz.
+ Sicherstellung des Online-Zugriffs für Fahrplan- und
+Preisberechnungen.
+ Systeme : Tandem, WS mit Xenix und Informix-DB
+
+ 97-99 Rollout Ticketing-Automaten/ Projektleiter
+ Rollout der Nah- und Fernverkehrsautomaten der DB ( ca. 8000 Stk. ).
+Sicherstellung der Versorgung mit
+ aktuellen Fahrplan- und Tarifdaten. Installation und Betreuung der
+DV-technischen
+ Ausstattung der dezentralen Betriebsstellen im Hinblick auf
+Event-Monitorung bzw. Störungs- und Alarmauswertung.
+ Konzeption zur Anpassung von standardisierter Leitstandssoftware (
+UNIX ) an die
+ speziellen Anforderungen im Bahnumfeld.
+ Systeme: diverse Sparc-Server mit RAID ( 1, 5), DBA Oracle-DB,
+Windows2000,
+ Batch-Verfahren
+
+ 99 - 03 Betriebsführung Fahrplandispositionssystem ( DAVIT, EBULA )/
+Teamleiter
+ Betreuuung des Fahrplandispositionssystems der DB ( DAVIT ).
+Sicherstellung des
+ laufenden Betriebs zur Versorgung der Triebfahrzeuge mit gedruckten
+ Fahrplandokumenten( EBuLa ==> Elektronischer Buchfahrplan und
+Langsamfahrstellen ).
+ Versorgung des Fahrdienstleitsystems mit Fahrplandaten im
+24h-Betrieb.
+ Konzeption zum Datenaustausch für mobile Trassendispositionssysteme (
+Laptop für
+ Vertriebsmitarbeiter ) mit dem Zentralsystem ( asynchron, Daten-Lock
+ im Zentralsystem ).
+ SUN-Cluster, Veritas-File-System, Oracle9i mit Master/Slave
+Replication
+ Client/Server SmallTalk-Anwendung mit Corba-Schnittstelle
+
+ 03 - 05 Betriebsführung interne Verfahren DB-Systems / Teamleiter
+ Konzeption und Aufbau eines Applikationsmonitorings mit
+GUI-Test-Tools
+ ( End-To-End-Monitoring ) zur Verfügbarkeitssteigerung der
+Kundensysteme.
+ Transaktionsmonitorung an dedizierten Serversystemen zur überwachung
+kritischer
+ Geschäftsprozesse. Automatisierte Auswertung der Testergebnisse und
+Weiterleitung
+ an das Tivoli-Enterprise-System.
+ u. A. Applikations-Monitoring von Servern mit IBM-Tivoli
+
+ 05 - heute
+ Administration von Linux/Windows-Servern, Evaluierung und
+Konfiguration von diversen
+ Open-Source-Produkten im Bereich Groupware-/PIM-Lösungen (
+Open-Xchange, OpenGroupware, E-Groupware, Funambol ( Sync4j )
+ Beratung zum Einsatz der Produkte
+       Referenzen:   
+
+	Projekt Anwendungsmonitoring mit IBM-Tivoli, 08/04 - 06/05
+Referenz durch IT-Dienstleister (2.000 MA), vom 30.06.05
+Projekt im Rahmen einer Festanstellung durchgeführt 
+
+	"[...] Wir haben den Consultant als hochmotivierten und sehr
+engagierten Mitarbeiter geschätzt. Seine fundierten Kenntnisse setzte
+er stets zuverlässig und sehr sicher in die Praxis um. Nach schneller
+Einarbeitung erledigte der Consultant seine Arbeiten stets zuverlässig
+und sehr selbstständig. Seine Arbeiten leistete er in quantitativer
+und qualitativer Hinsicht stets zu unserer vollsten Zufriedenheit. Der
+Consultant zeichnete sich zudem durch seine rasche Auffasungsgabe und
+seine konzeptionellen Fähigkeiten aus. Aufgrund seiner Teamfähigkeit
+war der Consultant bei Vorgesetzten, Kollegen ein stets geschätzter
+Mitarbeiter. Sein persönliches Verhalten war einwandfrei. [...] Wir
+bedanken uns bei dem Consultant für seine guten Leistungen und
+wünschen ihm für seine weitere berufliche sowie private Zukunft alles
+Gute."  
+
+	Alle Referenzen sind durch GULP bestätigt.      
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 78308 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 02.10.2014 19:17:41
+ (c) Copyright 1996-2014 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show021940
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?78308
+[4] /cgi-gulpsearch/gp.exe/UBONE78308?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?78308D2
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?78308D2
+[7] /cgi-gulpsearch/printdoc.exe/profil?183QEPRM
+[8] /cgi-gulpsearch/printdoc.exe/profil?183QEPRM
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show021941
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?78308
+[14] /cgi-gulpsearch/gp.exe/UBONE78308?0
+[15] mailto:info@gulp.de
+
+
+---------- Gulp-Profil Stand 2007-12-17 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 78308:
+Projektleiter Operations, UNIX Server , Desktop Netzwerke, Architektur
+Beratung, Migrationsmanagement                  
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+78308 [4] | Wordprofil | XML Profil
+     Stammdaten (Auszug):   
+
+	 Personen-ID 78308    Wohnort 634xx Maintal, Deutschland Jahrgang
+1957 EDV-Erfahrung seit 1993 Staatsbürgerschaft deutsch Stundensatz 40
+EUR  Verfügbar ab 01.07.09 zu 66%, Vor-Ort-Einsatz 66% möglich Profil
+erstellt am 26.05.06 Profil zuletzt geändert am 17.12.07 Lesen von
+Projektanfragen 0,5 Tage  [5]Direktkontakt [6]         Kommentar:  
+
+	 Kommentar schreiben Profil angezeigt am 08.08.2011 10:13:31      
+Fachlicher Schwerpunkt:  Projektleiter Operations, UNIX Server ,
+Desktop Netzwerke, Architektur Beratung, Migrationsmanagement     
+Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Coaching / Schulung / Training
+ Projektmanagement / -leitung / Organisation / Koordination
+ Administration / Support
+ Dokumentation / DTP
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  78-81 Studium der Elektrotechnik an der TH-AAchen
+ 81-82 Unterbrechung wegen Arbeitsunfall
+ 82-85 Studium der Elektrotechnik an der FH-Aachen
+ Abschluß Diplom-Ing. NT
+       Einsatzort:  Deutschland: D6, D7      Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+		gut
+
+		Französisch
+		erweiterte Grundkenntnisse
+
+      Hardware:  
+
+		CD-Writer / Brenner
+
+		Emulatoren
+		VMware
+
+		PC
+
+		SUN
+		diverse Systeme bis Midrange
+
+		Tandem
+
+      Betriebssysteme:  
+
+		SUN OS, Solaris
+		SPARC, I386
+
+		Tandem
+
+		Unix
+		Batch
+
+		Windows
+
+      Programmiersprachen:  
+
+		C
+
+		Perl
+
+		PHP
+
+		Shell
+
+      Datenbanken:  
+
+		MS SQL Server
+
+		ODBC
+
+		Oracle
+		DBA
+
+		Postgres
+
+		SQL
+
+      Datenkommunikation:  
+
+		Bus
+
+		Ethernet
+
+		Fax
+
+		HDLC
+
+		HDSL
+
+		Internet, Intranet
+
+		ISDN
+
+		ISO/OSI
+
+		LAN, LAN Manager
+
+		NetBeui
+
+		NetBios
+
+		parallele Schnittstelle
+
+		Router
+
+		RPC
+
+		RS232
+
+		SMTP
+
+		TCP/IP
+
+		Windows Netzwerk
+
+		X.400 X.25 X.225 X.75...
+
+      Produkte/Standards/Erfahrungen:  Betriebsführung Unix
+ langjährige Erfahrung in Systemadinstration und Netzwerke ( Solaris,
+Redhat, SuSE )
+ Batch, Oracle
+
+ Langjährige Erfahrung als Teamleiter, zeitweise bis zu 35 MA
+
+ E2E Monitoring mit IBM Tivoli
+
+       Branchen:  Telekommunikation, Datentechnik, Transportwesen,
+Finanzen, Controling
+       Projekte:  Projekte bei der DB ( 94 - 05 )
+
+ 94-97 Betriebsführung u. Adminstration Verkaufssystem ( Kurs90 )/
+System-Adminitrator
+ Betreuung und datentechnische Versorgung von ca. 3000
+Verkaufsstellen. Versorgung
+ der dezentralen Datenbanken ( Informix ) auf den Verkaufssystemen mit
+Stammdaten
+ ( Bahnstellen ) aus dem zentralen Database-System( Tandem ) über ein
+X.25-Paketnetz.
+ Sicherstellung des Online-Zugriffs für Fahrplan- und
+Preisberechnungen.
+ Systeme : Tandem, WS mit Xenix und Informix-DB
+
+ 97-99 Rollout Ticketing-Automaten/ Projektleiter
+ Rollout der Nah- und Fernverkehrsautomaten der DB ( ca. 8000 Stk. ).
+Sicherstellung der Versorgung mit
+ aktuellen Fahrplan- und Tarifdaten. Installation und Betreuung der
+DV-technischen
+ Ausstattung der dezentralen Betriebsstellen im Hinblick auf
+Event-Monitorung bzw. Störungs- und Alarmauswertung.
+ Konzeption zur Anpassung von standardisierter Leitstandssoftware (
+UNIX ) an die
+ speziellen Anforderungen im Bahnumfeld.
+ Systeme: diverse Sparc-Server mit RAID ( 1, 5), DBA Oracle-DB,
+Windows2000,
+ Batch-Verfahren
+
+ 99 - 03 Betriebsführung Fahrplandispositionssystem ( DAVIT, EBULA )/
+Teamleiter
+ Betreuuung des Fahrplandispositionssystems der DB ( DAVIT ).
+Sicherstellung des
+ laufenden Betriebs zur Versorgung der Triebfahrzeuge mit gedruckten
+ Fahrplandokumenten( EBuLa ==> Elektronischer Buchfahrplan und
+Langsamfahrstellen ).
+ Versorgung des Fahrdienstleitsystems mit Fahrplandaten im
+24h-Betrieb.
+ Konzeption zum Datenaustausch für mobile Trassendispositionssysteme (
+Laptop für
+ Vertriebsmitarbeiter ) mit dem Zentralsystem ( asynchron, Daten-Lock
+ im Zentralsystem ).
+ SUN-Cluster, Veritas-File-System, Oracle9i mit Master/Slave
+Replication
+ Client/Server SmallTalk-Anwendung mit Corba-Schnittstelle
+
+ 03 - 05 Betriebsführung interne Verfahren DB-Systems / Teamleiter
+ Konzeption und Aufbau eines Applikationsmonitorings mit
+GUI-Test-Tools
+ ( End-To-End-Monitoring ) zur Verfügbarkeitssteigerung der
+Kundensysteme.
+ Transaktionsmonitorung an dedizierten Serversystemen zur überwachung
+kritischer
+ Geschäftsprozesse. Automatisierte Auswertung der Testergebnisse und
+Weiterleitung
+ an das Tivoli-Enterprise-System.
+ u. A. Applikations-Monitoring von Servern mit IBM-Tivoli
+
+ 05 - heute
+ Administration von Linux/Windows-Servern, Evaluierung und
+Konfiguration von diversen
+ Open-Source-Produkten im Bereich Groupware-/PIM-Lösungen (
+Open-Xchange, OpenGroupware, E-Groupware, Funambol ( Sync4j )
+ Beratung zum Einsatz der Produkte
+       Referenzen:   
+
+	Projekt Anwendungsmonitoring mit IBM-Tivoli, 08/04 - 06/05
+Referenz durch IT-Dienstleister (2.000 MA), vom 30.06.05
+Projekt im Rahmen einer Festanstellung durchgeführt 
+
+	"[...] Wir haben den Consultant als hochmotivierten und sehr
+engagierten Mitarbeiter geschätzt. Seine fundierten Kenntnisse setzte
+er stets zuverlässig und sehr sicher in die Praxis um. Nach schneller
+Einarbeitung erledigte der Consultant seine Arbeiten stets zuverlässig
+und sehr selbstständig. Seine Arbeiten leistete er in quantitativer
+und qualitativer Hinsicht stets zu unserer vollsten Zufriedenheit. Der
+Consultant zeichnete sich zudem durch seine rasche Auffasungsgabe und
+seine konzeptionellen Fähigkeiten aus. Aufgrund seiner Teamfähigkeit
+war der Consultant bei Vorgesetzten, Kollegen ein stets geschätzter
+Mitarbeiter. Sein persönliches Verhalten war einwandfrei. [...] Wir
+bedanken uns bei dem Consultant für seine guten Leistungen und
+wünschen ihm für seine weitere berufliche sowie private Zukunft alles
+Gute."  
+
+	Alle Referenzen sind durch GULP bestätigt.      
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 78308 [14] | Wordprofil | XML Profil
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 17.10.2011 14:10:17
+ (c) Copyright 1996-2011 GULP Information Services GmbH,
+ Ridlerstraße 37, D-80339 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+          Suche [16] | Kontakt [17] | AGB [18] | Impressum [19]       
+ 
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show171417
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?78308
+[4] /cgi-gulpsearch/gp.exe/UBONE78308?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?78308D1
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?78308D1
+[7] /cgi-gulpsearch/printdoc.exe/profil?183QEPRM
+[8] /cgi-gulpsearch/printdoc.exe/profil?183QEPRM
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show171417
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?78308
+[14] /cgi-gulpsearch/gp.exe/UBONE78308?0
+[15] mailto:info@gulp.de
+[16] /suche/mainsuche.html
+[17] /wiruu/mainkont.html
+[18] /agb/mainagb_feb_2012.html
+[19] /impressum/mainimp.html

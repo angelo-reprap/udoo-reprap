@@ -1,0 +1,398 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_199940
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen ID                199940
+  
+Wohnort                    652xx Wiesbaden, Deutschland
+Jahrgang                   1976
+Staatsbürgerschaft         deutsch
+Stundensatz                85 EUR
+                           gilt bei wohnortnahem Einsatz im Rhein-Main-Gebiet.
+Verfügbar ab               01.10.20 zu 80%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         16.08.19
+Profil zuletzt geändert am 08.09.20
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 21.07.2020 16:01:00
+
+Fachlicher Schwerpunkt:
+Netzwerkbetrieb, Netzwerkdesign, Datacenter, LAN, WAN, Last-​Level-​Support,
+
+Position:
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+1982  1986
+Grundschule, Wiesbaden
+Karl-Gärtner-Schule
+ 
+1986  1988
+Förderstufe, Hochheim am Main
+Heinrich-von-Brentano Gesamtschule                                            
+            
+ 
+1988  1993
+Realschule, Wiesbaden
+Werner-von-Siemens-Schule
+ 
+1993  1997
+Deutsche Telekom, Wiesbaden
+Ausbildung zum Telekommunikations-Elektroniker Fachrichtung
+Telekommunikationselektronik
+ 
+3/1997
+Erfolgreicher Abschluss der Ausbildung (Note 2)          
+ 
+1997  1998
+Zivildienst beim ASB Wiesbaden mit Ausbildung zum Rettungssanitäter
+ 
+Schulungen:
+    * CCNA Zertifiziert im November 2007
+ 
+Während der letzten 5 Jahre wurden folgende Schulungen besucht:
+    * Netzwerktechnologien
+    * ATM
+    * Frame-Relay
+    * Cisco INTRO
+    * Cisco ICND
+    * Implementing Cisco MPLS
+    * Juniper JNCIA-E
+    * Sun SOLARIS 8 Administration
+    * SNA
+    * Checkpoint NG Firewalls
+    * Snort IDS
+    * Microsoft Server and Desktop Security
+    * erfolgreiches Projektmanagement (Einführungs-Seminar) 
+
+Einsatzort:
+Regionen:
+D6, D5, außerhalb D/A/CH
+im Umkreis von:
+Wiesbaden (20 km)
+Frankfurt am Main (20 km)
+Mainz (20 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch  Muttersprache
+Englisch Verhandlungssicher in Wort und Schrift
+
+
+Hardware:
+ADVA Optical FSP155CC (alle Modelle)  
+Alcatel Lucent 7750 SR                
+Checkpoint VPN-1 RAD ATM Switche      
+Cisco Nexus                          9K,5K,2K und 7K
+Cisco Router                         18xx  38xx
+Extreme-Switches                      
+Juniper Router M                      
+Juniper SSG-5                        350,550
+MX-Series                             
+Netgear Switche                       
+Nortel Baystack Switche               
+Palo-Alto Firewalls                   
+Siemens  Nokia Networks Switche      
+Sun Microsystems SPARC Server         
+Switche                              37xx,38xx,29xx,65xx,68xx,72xx
+Visual Networks ASE Probes            
+X86 PC-Hardware                       
+7210 SAS-X                            
+
+
+Betriebssysteme:
+Alcatel Lucent TimOS  
+Cisco CatOS           
+Cisco IOS             
+Cisco NX-OS           
+Juniper JUNOS         
+Redhat Linux          
+SUN Solaris          8, 10
+Suse Linux            
+Windows              2000, 2003 Server, XP, Vista
+
+
+Produkte/Standards/Erfahrungen:
+Network Management Software:
+    * Zabbix
+    * HP Openview
+    * Aprisma SPECTRUM
+    * Cisco Works
+    * Micromuse Netcool
+ 
+Firewalls:
+    * Palo Alto PA-7050
+    * Checkpoint NG und VPN-1
+    * Juniper SSG 5, 20, 140 und 320M
+ 
+Protokolle:
+    * TCP/IP
+    * WAN (MPLS, VPLS, Framerelay, ATM, PPP)
+    * LAN (Ethernet, WLAN, VLANs, Trunking, QinQ, vPC, Fabricpath)
+    * QoS (Layer 2 und Layer 3, MPLS)
+    * PPPoE
+    * SNMP
+    * TACACS etc.
+
+Projekte:
+01/2018 - heute: Betrieb/Planung Netzwerk
+ 
+Einsatzort:         Wiesbaden
+Rolle:              Consultant Netzwerk
+Kunde:              Commerz Real AG
+ 
+Aufgaben:
+ 
+    * Hardware-Refresh beim Kunden, inklusive zweier Rechenzentren, LAN-
+      Umgebungen (ca.800 User) zweier Standorte und der DMZ
+    * Erstellen von Konfigurationen auf Nexus 9k, 5k und Catalyst 3850
+    * Staging und Inbetriebnahme neuer Netzwerkkomponenten
+    * Einholen von Angeboten von Netzwerkherstellern
+    * Koordination und Tracking von Projektaufgaben im Zusammenhang mit dem
+      Hardware-Refresh
+    * Ein- Ausbau- und Patcharbeiten im Rechnenzentrum
+    * Erstellen von Dokumentationsunterlagen
+    * Troubleshooting und Beheben von Störungen im gesamten Kundennetzwerk
+    * Allgemeine Unterstützung des Netzwerkbetriebs
+===============================================================================
+01/2016 - heute: Planung/Betrieb Datacenter
+ 
+Einsatzort:         Frankfurt am Main
+Rolle:              Consultant Datacenter Betrieb
+Kunde:              DVAG - Deutsche Vermögensberatung
+ 
+Aufgaben:
+ 
+    * Planung und Durchführung des Aufbaus zweier neuer Datacenter
+    * Erstellen von Konfigurationen auf Nexus 9k als Core und Aggregation-
+      Hardware (Layer 3/OSPF, Layer 2/Spanning Tree, vPC, Nexus FEX)
+    * Erstellen von Testplänen für das Redundanzkonzept
+    * Migration von Severn auf die neue Infrastruktur
+    * Erarbeitung eine QoS-Konzepts für Datacenter, Inhouse-LAN und
+      Aussenstellen und anschliessende Implementierung und Dokumentation
+    * Planung einer neuen Management-Umgebung für Datacenter und Hausnetz
+    * Sicherstellung des Betriebs im Datacenter, Software Upgrades, Erstellen
+      von Patchplänen, Troubleshooting von komplexen Störungen
+ 
+Eingesetzte Produkte:
+ 
+Cisco Nexus 9332pq, 9372px, Fex 2284TP-E, Cisco Catalyst 3750, 3850, 6840-X,
+Firewall Palo Alto PA-7050, NXOS, IOS, Pan-OS, Monitoring-Tool Zabbix
+===============================================================================
+01/2010 - heute: Freiberufliche Tätigkeit Netzwerk-Spezialist
+ 
+Einsatzort:         Altenstadt
+Kunde:              Blue-Networks GmbH &amp; Co KG
+ 
+Aufgaben:
+ 
+    * VPN-Konfiguration auf Juniper SSG
+    * Firewall Administration Juniper SSG
+    * Web-SSL VPN über Juniper SA-Hardware
+    * Testaufbauten im Labor für Kundenlösungen mit eXtreme-Switches und
+      diversen DSL-Equipment Herstellern
+===============================================================================
+02/2009 - heute: Selbständig
+ 
+Rolle:              IT-Berater Bereich Netzwerke LAN/WAN
+ 
+Aufgaben:
+ 
+    * Planung
+    * Aufbau
+    * Betrieb
+===============================================================================
+03/2015 - 11/2015: Planung Netzwerk/MPLS
+ 
+Einsatzort:         Frankfurt/Main
+Rolle:              Network Engineer
+Kunde:              DB Netz AG
+ 
+Aufgaben:
+ 
+    * Ausarbeitung von Konzepten für ein Unified-MPLS Netz (QoS, Routing,
+      Redundanzmechanismen)
+    * Evaluierung Netzwerkkomponenten verschiedener Hersteller
+    * Erstellung von Implementierungsdokumenten
+    * Erstellung von Low-Level-Designs für Hardware und Konfigurationen im Netz
+    * Erstellung Lastenhefte und sonstige Dokumente zur internen Freigabe von
+      Hardwaresystemen im Konzern DB Netz AG.
+ 
+Eingesetzte Produkte:
+ 
+Cisco ASR 920, ASR 9001, ASR 9904 und ASR 1001-X
+===============================================================================
+10/2014 - 03/2015: RZ-Migration
+ 
+Einsatzort:         Wiesbaden
+Kunde:              Hessische Zentrale f. Datenverarbeitung
+ 
+Aufgaben:
+ 
+    * Unterstützung bei der Planung der RZ-Migration
+    * Hardware- Auswahl und Konfigurationsvorgaben Alcatel-Lucent OS, Cisco
+      Nexus 5K, 6K, 2K,
+    * Erstellen von Visio-Plänen
+    * IP-Adressverwaltung
+===============================================================================
+08/2012 - 09/2014: RZ-Planung und Betrieb
+ 
+Einsatzort:         Frankfurt am Main
+Kunde:              Deutsche Bundesbank
+ 
+Aufgaben:
+ 
+    * Planung von RZ-Umzug
+    * Konfigurationserstellung für Hardware Cisco Nexus 5000 und Fabric
+      Extender Nexus 2000, Catalyst 3750 und 4900
+    * Betrieb der RZ-Umgebung inklusive Dokumentation, Optimierung und
+      Entstörung
+    * Durchführen und dokumentieren neuer Technologien, Protokollen und
+      Hardware im RZ-Testumfeld
+    * Changekoordination für neue Netzwerkkomponenten inkl. Patchung,
+      Konfiguration etc.
+===============================================================================
+05/2012 - 10/2012: LAN-Betrieb/2nd-Level-Support
+ 
+Einsatzort:         Dietzenbach
+Kunde:              Controlware GmbH
+ 
+Aufgaben:
+ 
+    * Betrieb von Cisco-Kundenlösungen Switches/Router 29XX, 36XX, 45XX, 65XX
+    * Erstellen von Netzwerkaudits im Auftrag des Kunden
+    * Hardwaretausch Ciscokomponenten
+    * Planung/Erweiterung bestehender Kundenlösungen mit Vorbereitung der
+      Hardware und Konfiguration
+    * Tickethandling im Ramen von Entstörungen
+===============================================================================
+12/2010 - 04/2012: Produktenwicklung Metroethernet
+ 
+Einsatzort:         Eschborn
+Kunde:              Vodafone D2 GmbH
+ 
+Aufgaben:
+ 
+    * Erstellung von Testplänen
+    * Erstellung von Testkonfiguration für Alcatel und ADVA Metroethernet
+      Demarcation Devices und PE-Routern/Switches im MPLS-Umfeld
+    * Dokumentation von Testabläufen
+    * Erstellung von Handbüchern für den Betrieb
+    * Last-Level-Support für den Betrieb
+    * Hardware-und Software- Releasetests für PE-Switches, Demarcation Devices
+      und Modems 
+    * Installation und Konfiguration von Hardware (Cisco, Alcatel, ADVA) im
+      Rechenzentrumsumfeld
+===============================================================================
+05/2010 - 11/2010: Planung, Migration, Dokumentation
+ 
+Einsatzort:         Frankfurt am Main
+Kunde:              Fraport AG
+ 
+Aufgaben:
+ 
+    * Unterstützung bei der Migration des Layer2-Netzes auf die neue MPLS
+      Plattform.
+    * Erfassung des Bestandes
+    * Vorbereitung der Komponenten (Cisco 65xx, 72xx, 29xx)
+    * Dokumentation
+===============================================================================
+08/2009 - 12/2009: Konfiguration von Spanning Tree, VSS
+ 
+Einsatzort:         Frankfurt/Main
+Rolle:              Network Specialist
+Kunde:              AT&amp;T Global Network Services Deutschland GmbH
+ 
+Aufgaben:
+ 
+    * Lastlevelbetrieb der Kundenplattform für den Kunden IBM in Ehningen mit
+      Schwerpunkt auf Layer 2 Konfiguration
+    * Eingesetzte Hardware Cisco 65xx und Cisco 37xx
+    * Konfiguration von Spanning Tree, VSS
+    * Wartung und Betrieb der Switches im Rechenzentrum des Kunden, Erstellung
+      von Verkabelungsplänen, Inbetriebnahme und Konfiguration neuer Devices
+===============================================================================
+04/2009 - 08/2009: Planer IT
+ 
+Einsatzort:         Dortmund
+Kunde:              DOKOM Gesellschaft für Telekommunikation mbH
+ 
+Aufgaben:
+ 
+    * Erweiterung der Bestehenden DOKOM-Kundenplattform um QoS auf Layer 2
+    * Entwicklung und Testen der Konfigurationen im Labor.
+    * DSL und Metro-Ethernet Technologie auf NSN, Juniper, Iakratel, ELCON
+      (Accessbereich), Cisco, Iskratel, ELCON und Fritzbox (Kundenseite) und
+      Siemens-Nokia-Networks und Juniper im Aggregations/Backbonebereich.
+===============================================================================
+04/2008 - 11/2008: Spezialist Technik
+ 
+Einsatzort:         Ulm
+Kunde:              T-Systems Business Services GmbH
+ 
+Aufgaben:
+ 
+    * Implementierung von komplexen Konfigurationsänderungen auf Cisco und
+      Juniper Routern in MPLS-Kundennetzen
+    * Erweiterung bestehender Kundennetze auf der T-Systems MPLS Plattform
+    * Planung und Dokumentation von Änderungen und Redisigns bestehender MPLS
+      Netze zusammen mit Engineering- und Service-Management-Einheiten der T-
+      Systems
+    * Dokumentation aller durchgeführten Changes und Migrationen für 1st und
+      2nd Level Support Einheiten
+    * Ab Oktober `08 achtwöchige Entsendung nach Ungarn zum Aufbau und Coaching
+      des dortigen Change-Teams in Technik (Cisco, Juniper), Prozessen und
+      Tools
+===============================================================================
+2006  04/2008: Senior Network Analyst
+ 
+Kunde: T-Systems North America
+Einsatzort:Lilse, Illinois, US
+ 
+Aufgaben:
+    * Planung und Durchführung von Hardware- und Konfigurations-Änderungen in
+      Kundennetzen
+    * Process Management für Troubleshooting und Tickethandling im 1st und 2nd
+      Level Support
+    * Aus- und Weiterbildung der Team-Mitarbeiter in Ticketsystemen und
+      Analyse-Tools der T-Systems North America Inc.
+    * SLA und Eskalations-Management im operativen Bereich für die gemanagten
+      Kundennetze
+    * Planung, Implementierung und Wartung von neuen IP-Netzwerken
+    * Reporting und Traffic-Analyse in Kundennetzen und entsprechende
+      Erarbeitung von Konzepten zur  Hard- und Softwareanpassung in
+      Kundennetzen
+===============================================================================
+2002  2006: Erstellung von Router Konfigurationen in Frame-Relay- und ATM-
+Netzen und deren Implementierung
+ 
+Rolle: System Manager
+Kunde: T-Systems International GmbH
+Einsatzort: Frankfurt
+ 
+Aufgaben:
+    * Erstellung von Router Konfigurationen in Frame-Relay- und ATM-Netzen und
+      deren Implementierung
+    * 1st und 2nd Level Troubleshooting für alle Kundennetze der T-Systems
+      International im Schichtbetrieb, Administration von HP-OV und Spectrum
+    * Firewall Wartung und Administration (Checkpoint NG)
+    * Tickethandling und Eskalationsmanagement im 1st und 2nd Level
+    * Prozessoptimierung und Planung zusammen mit Kunden-Servicemanagern und
+      anderen technischen Einheiten der T-Systems International
+===============================================================================
+---Weitere Projekte gerne auf Anfrage---
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_199940
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 09.09.2020 01:12:46
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

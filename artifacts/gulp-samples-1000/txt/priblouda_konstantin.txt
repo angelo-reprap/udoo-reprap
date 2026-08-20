@@ -1,0 +1,1653 @@
+Softwareentwickler: Fullstack Java,  backend, microservices,   spring
+boot,  spring data, docker, cloud,   angular,  react,  vue
+Top-Skills: java, spring-boot, full stack, microservices,
+java, orm, backend, javascript, selenium,
+cucumber, kvm, shell, python, c, c++,
+gradle, jhipster, liquibase, spring boot,
+docker, elasticsearch, openidconnect,
+keycloak
+Verfügbar ab: 06.03.2023
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 85,00 EUR
+Bemerkungen: abhängig von Ort, Dauer und Art des
+Auftrages
+Einsatzort
+Regionen &amp; Länder: D4, D5, D6, D7, Einsatzort unbestimmt
+Städte: Wiesbaden 100 km
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Deutschland: Bevorzugt Rhein-Main
+(Wiesbaden, Frankfurt, Mainz, Darmstadt)
+oder Remote 
+Position
+Kommentar: Über 15 Jahren Porjekterfahrung in verschiedenen Branchen (
+Telekommunikation,  Logistik, Luftfahrt, Medizin, Banken) .  Sehr tiefe
+Kenntisse von aktuellen Open-Source-Technilogien und morenen
+Methoden.  
+Erfahrungen bei Troubleshooting und Modernisierung von Legacy-
+Projekten  ( Migration auf aktuelle  Bibliothekversionen,   Einführung
+von  Tests,  Bugfixing )
+Projekte
+22.02.2023 1 von 25
+2022-06 - 2023-01 Entwicklung von Backend-Microservices und einführung
+8 Monate von CI PIpelines
+Rolle:  Backend-Entwickler
+Kunde: DVAG
+Einsatzort: Remote / Frankfurt
+Projektinhalte: Entwicklung und Bugfixing von internen Microservices ( Spring boot /
+Openapi / Feign)  sowie die Umstellung von CI auf github-actions ( 35-40 
+EInzelne Services  insgesamt )    
+Kenntnisse: java, spring, spring-boot, spring-cloud, Azure, docker, kubernetes,
+MongoDB, spock, Groovy, Kotlin
+Eingesetzte Produkte: maven, spring boot, open feign, opeapi generator, keycloak, swagger,
+java, kotlin, groovy, spock (integration tests), CI/CD mit github actions,
+docker, kubernetes, deployment auf azure, mongodb, spring data, openapi
+2022-02 - 2022-05 Upgrade von Schulungssystem für MIlitärische
+4 Monate Funkkommunikation auf aktuellen Stand der
+Technologien
+Rolle:  Backend Entwickler / Architekt
+Kunde:   TAS Mönchengladbach
+Einsatzort: Mönchengladbach / Remote
+Projektinhalte:
+Upgrade von Schulungssystem für MIlitärische Funkkommunikation auf
+aktuellen Stand der Technologien
+Ältere webbasierte Software soll auf aktuelle  Versionen und Technologien
+umgestellt werden. 
+    •  Erstellung  von Build System mit  gradle
+    •  Einführung von Unit Tests
+    •  Umstellung auf Spring-boot
+    •  Neueste Version von Struts
+    •  Aufräumen und Dokumentation von Quellcode
+    •  Umstellung von JAXB auf XStream
+    •  Verbesserungen im Datenmodell
+22.02.2023 2 von 25
+Kenntnisse: Java, Spring, JavaScript, gitlab, ci
+Eingesetzte Produkte: Gradle, java 11, spring boot, struts 2 / xwork, junit, Tomcat, jakarta,
+gitlab, javscript
+2021-04 - 2022-02 Aufzeichnungsystem für Sprache und Multimedia
+11 Monate
+Rolle: Full-Stack Entwickler / Architekt
+Kunde: Voice Collect GmbH  / ATIS Uher
+Einsatzort: Bad Homburg vor der Höhe
+Projektinhalte: Cloud-Basierte Aufzeichnungssystem für Telefonanrufe / VideoStreams 
+und ähnliche Informationen ( Rettungsdienste, Polizei,   Call-Center,
+Luftraumüberwachung,  Militär etc.).  Ausarbeitung von Architektur anhand
+fachlichen Anforderungen, Projektaufbau, Backend und Frontend
+Entwicklung.  Testabdeckung auf allen Ebenen.
+Microservice-Architektur mit Service-Gateway und Load Balancing.
+ Angular Frontend  mit reactive Spring Boot Gateway kommuniziert mit  
+Business-Logik im Microservices.  Einzelne Komponenten sind
+dockerisiert.    Kommunikation ist verschlüsselt.    Authentifizierung mit
+0Auth (keycloak, andere Optionen möglich).   Volltextsuche mit
+elastiksearch.  
+Eingesetzte Technologien: 
+Java , Javascript, Typescript,  Spring Boot, Angular ,  React / Redux,  git, 
+gradle, protractor,  cucumber, junit, JPA, REST, liquibase,  OpenId
+Connect,  0Auth, npm , docker, docker-compose, keycloak,  eureka
+discovery server,  hystrix ,  load balancing,  swagger, openapi,  JWT
+Kenntnisse: Java, JavaScript
+Eingesetzte Produkte: Java, Spring, spring boot, ReactJS, Angular, Gradle, JPA, REST,
+TypeScript, Elastic Search, docker, docker compose, protractor, jest, npm,
+Liquibase, eureka, hystrix, swagger, openapi, jwt, keycloak
+2021-01 - 2021-02 Prototypentwicklung von OAuth Server mit Client
+2 Monate Credentials flow
+Rolle: Entwickler
+22.02.2023 3 von 25
+Kunde: VW
+Einsatzort: Remote
+Projektinhalte:  Prototypentwicklung von OAuth Server mit Client Credentials flow
+Eingesetzte Produkte: golang, public key encryption, jwt, docker, kubernetes
+2018-12 - 2020-12 Software Entwicklung im Java / Python / Shell
+2 Jahre 1 Monat
+Rolle: Entwickler / Architekt
+Kunde: Industrie, Sicherheit, Luftfahrt
+Projektinhalte:     •  Software Entwicklung im Java / Javascript  / Python / Shell
+     ?etc.  ( Full Stack )  
+    •  Automatische Regressionstests mit Cucumber, erstellung von
+     ?Build-Pipelines / Installationsmedien,  
+    •  Erstellung von Javascript-Frontends ( Editor für
+     ?Airport-Overview mit SVG, Javascript usw ) in JSF integriert
+Kenntnisse: Linux, CentOs, JBoss WIldfly, Plain Java Apps, JSF, Cucumber, Python,
+SVN, Snap, jQuery, Primefaces, Mojarra, Javascript, Webservices, make
+2017-05 - 2018-12 Datenverarbeitung im Finazumfeld
+1 Jahr 8 Monate
+Rolle: Entwickler / Architekt
+Kunde: vwd Vereinigte Wirtschaftsdienste GmbH
+Einsatzort: Frankfurt
+Projektinhalte: Entwicklung von Workflows,  Auswertungen und Reports im Bereich von
+Portfolio Management, Datenversorgung, MIFID 2
+Eingesetzte Produkte: MM-Talk, Java, Javascript, perl, Haskell, MsSQL, Crystal Reports
+2018-01 - 2018-01 Umstellung der Website auf Statische Generation
+1 Monat
+Rolle: Entwickler / Architect
+Kunde: Medien
+Projektinhalte: Umstellung der Website auf Statische Generation.  Abschaffung von
+Datenbank als CMS-Backend (Einfache Authoring  mit Markdown,
+Templating mit Jade/Pug, Javascript, Node.js,  Deployment via Skript)
+Komplett Statische website sorgt für Performance und hohe Sicherheit
+Kenntnisse: Node.js, Javascript, Sass/Less, Markdown, Jade/Pug
+22.02.2023 4 von 25
+2017-01 - 2017-04 Medizinische Produkte / Healthcare
+4 Monate
+Rolle: Entwickler
+Kunde: ICW AG / Walldorf
+Projektinhalte:     •  Weiterentwicklung und Pflege der Portal-Anwendung für
+     ?Blutzuckermessegeräte.  
+    •  Bugfixing,  anpassungen, entwicklung von neuen
+     ?Funktionalitäten.
+Eingesetzte Produkte: Java 8, J2EE, JSF, Apache Tomcat, Oracle, MsSQL, HIbernate, JUnit,
+JMockit. Maven als Build-System. ICW-Eigene Bibliotheken und Tools
+2017-01 - 2017-02 Datenreconciliation bei einer Bankverkauf
+2 Monate
+Rolle: Entwickler
+Kunde: Montafina GmbH
+Einsatzort: Frankfurt /  Remote
+Projektinhalte:     •  Software für Datenabgleich bei der Verkauf von Bankfilialen, 
+     ?aufgrund der Sicherheitsanforderungen musste Entwicklung
+     ?mittels Remote-Desktop erfolgen. 
+    •  Anonymisierte Daten im Datenbank mussten mit der CVS-Listen
+     ?abgeglichen werden und reports erzeugt werden.  
+Produkte, Umgebungen:
+    •  Java 1.4,  JDBC, MS SQL, Eclipse, Jasper reports.  Aufgrund von
+     ?Sicherheitsanforderungen war der EInsatz von moderneren Tools
+     ?nicht möglich.  
+    •  Entwicklung musste auf dem Bankrechner im SIngapur mittels
+     ?Remote-Desktop stattfinden,   und es war nicht möglich Daten
+     ?auf den Recner zu kopieren.
+Kenntnisse: java, jse 8, JDBC, mssql
+Eingesetzte Produkte: eclipse, java 1.8, jdbc, mssql
+2013-06 - 2016-12 Entwicklung von Bankenanwendungen / Kosmos-
+3 Jahre 7 Monate Banking
+Rolle: Senior Java Developer , Architekt
+Kunde: Kosmos Banking / Montafina GmbH
+Einsatzort: Frankfurt
+Projektinhalte:     •  Entwicklung von Portalen,  Werkzeugen und Businessprozessen 
+     ?für Privatbanking.  Schwerpunkte: Compliance, Portfolio
+     ?Benchmarking, Portfolio Analyse, OLAP, Investment-Vorschläge.
+     ?Dokumentation, Compliance, WPHG, KYC, PIB,  CAAML. 
+22.02.2023 5 von 25
+    •  Erstellung von Investemt-Performance-Reports für Kunden und
+     ?Management mittels Aspose  ( Portofolio  Valuation, 
+     ?Überwachung der Anlagerichtlinien etc.  )
+    •  Entwicklung von Analysetools mittels Saiku / Mondrian und
+     ?Crossifilter / DC JS  / Angular
+    •  Geschäftsprozess für Compliance-Überprüfung entwickelt, 
+     ?Berichterstellung mit Aspose.
+    •  Umstellung von SVN auf GIT
+    •  Einführung von Unit-Tests, unter anwendung von Mocking (
+     ?jMockit )
+    •  Entwicklung von IntelliJ-Plugin für Hauseigenes BPM-Sprache.
+Kenntnisse: Scrum, Test driven development, Kanban, olap
+Eingesetzte Produkte: java 6-8, IntelliJ IDEA, git, spring, jmockit, junit, groovy, Aspose, PDF,
+XML, XSLT, XStream, GSON, hibernate, oracle, jira, hudson, sonar, saiku,
+mondrian, d3.js, crossfilter, extjs, sencha
+2016-08 - 2016-09 Reverse-Engineering
+2 Monate
+Rolle: Entwickler
+Kunde: Projektfabrik GmbH
+Projektinhalte:     •  Reverse-Engineering einer Legacy-Anwendung und Umstellung von
+     ?Datenbankschicht von DB2 / Host auf Postgres-SQL. Eine ältere
+     ?Anwendung im Abgeltungsteuer Bereich sollte  nach der
+     ?Host-Ablösung weiter betrieben werden. Dafür wurde Umstellung
+     ?von Datenbankschicht und Webanwendung notwendig.
+    •  Vorhandene  Quellcode  in GIT-Repository importiert, Build mit
+     ?Maven und entsprechende Eclipse-Projekte erstellt.  
+Kenntnisse: Java / J2ee, Hibernate, jboss, jsp, struts 1, db2, postgres, XML
+2015-04 - 2015-05 Datenmigration
+2 Monate
+Rolle: Entwickler
+Kunde: Projektfabrik GmbH /Große Finanzdienstleister
+Einsatzort: Remote / Hannover
+Projektinhalte: Entwicklung von einen REST-Wrapper für bestehende EJB Schicht im
+Rahmen von Datenmigrationsprojekt.
+Produkte, Umgebungen:
+Standalone Java-Anwendung, mit integrierten Webserver (Jetty)  und API
+Dokumentation  (Swagger4J), maven , Spring-REST, Spring-EJB, Jetty. 
+Kenntnisse: REST, Spring, EJB, J2EE
+Eingesetzte Produkte: Intelli IDEA, Java, Jetty, Spring
+22.02.2023 6 von 25
+2012-08 - 2013-06 Projekten RIS / FIS
+11 Monate
+Rolle: Senior Java developer, Architect
+Kunde: DB Systel
+Einsatzort: Frankfurt
+Projektinhalte:     •  Mitarbeit bei der Projekten  RIS (Reisendeninformationsystem)
+     ?und FIS ( Interne Anzeigen in Zügen).  
+    •  Architekturreview, Implementierung, Anbindung von älteren
+     ?Systemen, Implementierung von Unit-tests und Überwachung der
+     ?Testabdeckung. 
+    •  Batch-Bearbeitung von Audiodaten
+Kenntnisse: Unix, Java, J2EE, Enterprise Arhitekt, maven, jdbc, sql, jsf, oracle, JPA,
+hibernate, git, jmockit, JSF, Richfaces, Facelets, EJB
+Eingesetzte Produkte: Unix, Java, J2EE, Enterprise Arhitekt, maven, jdbc, sql, jsf, oracle, JPA,
+hibernate, git, jmockit, JSF, Richfaces, Facelets, EJB
+2012-01 - 2012-07 Relaunch Webangebot  gelbe-seiten.de
+7 Monate
+Rolle: Entwickler, Architekt, QS
+Kunde: Online Directory Services GmbH
+Projektinhalte: Relaunch von gelbeseiten.de.  Umstellung der URL-Schema für bessere
+Indexierung durch Suchmaschinen.  Optimierung der Performance,
+sicherstellung der Testabdeckung, Refactoring der Abhängigkeiten und
+Umstellung auf Spring-Konfiguration.  Umstellung auf zustandloses
+Betrieb.
+Produkte, Umgebungen
+    •  Java,  Tomcat,  Apache HTTPD,  Apache Solr,  Struts-1,  JSP,
+     ?Javascript, Java, Jmockit,  Junit, maven, eclipse., Single
+     ?Sign-On mittels CAS und Spring-Security, Hessian
+    •  Bei der Anwendung handelt es sich  um einen Web-Frontend, mit
+     ?dazugehörigen Webservices und Datenbanken.   Anwendung ist auf
+     ?mehrere Rechenzeter verteilt (Grunde: Ausfallsicherheit und
+     ?Performance). Kommunikation zwischen der Komponenten erfolgt
+     ?mittels  Hessian /CXF.   Codebase der Anwendung beträgt etwa
+     ?400000 Zeilen / 5000 Klassen
+Eingesetzte Produkte: Java, Tomcat, Apache HTTPD, Apache Solr, Struts-1, JSP, Javascript, Java,
+Jmockit, Junit, maven, eclipse., Single Sign-On mittels CAS und Spring-
+Security, Hessian
+2011-09 - 2011-12 Entwicklung und Integration
+4 Monate
+Rolle: Entwicklier, Architekt
+Kunde: Imperia AG / Deka Investment
+22.02.2023 7 von 25
+Projektinhalte: Entwicklung und Integration von Kundenspezifischen CMS Modulen in BEA-
+Weblogic Portal
+Eingesetzte Produkte: BEA-WEBLOGIC, maven, jenkins, Java, Spring-MVC, Pirobase CMS,
+velocity, jquery, javascript
+2010-10 - 2011-12 Offshore-Entwicklung
+1 Jahr 3 Monate
+Rolle: Projektleiter / Ofshoreprojekt
+Kunde: MEI GmbH Wiesbaden
+Projektinhalte: Leitung der Offshore-Entwicklung im Medizintechnigbereich für neues
+Medizinisches Gerät
+2011-04 - 2011-09 Integration der Backendsysteme und Anwendungen
+6 Monate
+Rolle: Entwickler, Architekt
+Kunde: SYNYX GmbH &amp; Co KG / Karlsruhe
+Projektinhalte: Beratung und Entwicklung bei verschiedenen Kundenprojekten für 1&amp;1 /
+Karlsruhe
+Projekt:
+    •  Integration von unabhängigen Software mit Kalendar und
+     ?Termindatenbanken von Kunden von großen Internet- und
+     ?Telefonieanbieter (eine Art Appstore für Drittanbieter) 
+     ?Datenzugriff mittels CardDav / CalDav, Storage in OpenExchange,
+    •  Provisionierungsadapter für Drittanbieter. 
+     ?Arbitrationsmiddleware zwischen den Webshop ( Intellishop), 
+     ?internen Billingsystem  und eigentlichen Applikationsprovidern
+Eingesetzte Produkte: Java, Spring, Tomcat, SVN, maven, CXF, REST, SoapUI
+2010-05 - 2011-03 Technischen Architekturen und  Applikationssuport
+11 Monate
+Rolle: Engineer, Architekt (Technisch), DevOps, QM
+Kunde: Telekom AG, Products &amp; Innovations
+Projektinhalte:     •  Unterstüzung der Entwicklung. Techinsche Architektur.
+     ?Entwicklung von diversen Adaptern, Connectoren unf
+     ?Integrationszenarien für diverse Technologien zum Einsatz in
+     ?JBossESB. 
+    •  Ausarbeitung der Testverfahren für Abnahme und
+     ?Performancetests, sowie deren Durchführung. Einführung von
+     ?maven
+2010-05 - 2011-01 Ansteuerungsoftware für Knochendichtemessgerät
+9 Monate
+22.02.2023 8 von 25
+Kunde: MEI GmbH
+Projektinhalte: Gesamte Softwareentwicklung / Offschore
+    •  Technischer Projektleiter,  Subunternehmer, Team manager.
+     ?Erstellulng der Pflichtenchefte,  QA,  Abnahme und Üvergabe, 
+     ?Architekturcoaching usw.   (Teilzeit ,  Festpreis mit
+     ?Erfolgsbeteilugung )
+2010-05 - 2010-05 Schulung im Bereich JBPM 4
+1 Monat
+Kunde: Prodyna GmbH
+Projektinhalte: Entwicklung und Durchführung einer Intensivschulung für die Entwickler
+(0.5 Tage)
+2010-03 - 2010-04 Unterstützung der Entwicklerteams
+2 Monate
+Rolle: Berater
+Kunde: Schufa Holding AG,  Wiesbaden
+Projektinhalte: Unterstützung der Entwicklerteams bei der Verbesserung der
+Entwicklungsprozess (Build, Testverfahren, Quellkodeerzeugung)
+Eingesetzte Produkte: maven, Diverse Mock-Toolkits
+2010-01 - 2010-04 RINN Statistik Applikation
+4 Monate
+Rolle: Testentwickler, Architekt
+Kunde: T-Systems Darmstadt
+Projektinhalte: Erstellung der Testfälle zu Sicherstellung der korrenkten Funktion der
+Anwendung und Einhaltung von SLAs
+Eingesetzte Produkte: Sparks EA, Spring, Spring Webflow, Spring AOP, Axis 2, SoapUI, Java,
+Java EE, Groovy, MySQL, Xml XSLP, XPath
+2009-11 - 2009-12 Beratung zu Einführung von ActiveMQ (10 Tage)
+2 Monate
+Rolle: Berater
+Kunde: DB Systel , Berlin
+Projektinhalte: Untersuchung von ActiveMQ als Alternative zu MQ-Series. Erstellung der
+hochperformanten  und ausfallsicherer Konfigurationen von ActiveMQ,
+sowie Integration mit bestehenden MQ-Series Installationen.
+Eingesetzte Produkte: Hochverfügbarkeit, Clusterung, Performance, Monitoring
+22.02.2023 9 von 25
+2009-11 - 2009-11 Schulung im Bereich von Servlet-API
+1 Monat
+Rolle: Dozent / Köln
+Kunde: Brockhaus GmbH / Digital River
+Projektinhalte: Durchführung der 3 Tage Schulung im Bereich von Servlet-API, J2EE und
+Spring-MVC.Ausarbeitung der Schulungsmaterial für den Bereich Spring-
+MVC, einschließlich praktischer Übungen
+Role: Softwareentwickler/Berater  bei 1&amp;1 / Karlsruhe
+Aufgabe: Optimierung und Weiterentwicklung von ACS für die
+TR-069-konforme CPEs in Rahmen der Übernahme von einen
+[auf Grund der Geheimhaltung verschwiegenen] Konkurenzunternehmen.
+Integration von neu hinzugekommenen CPEs (Enkundengeräten) in bestehende
+ACS (Automatische Konfigurationsserver )-Infrastruktur.
+Performnanceverbesserung und Bugfixes von bestehenden Software.
+Kofiguration-Anpassungen von Tomcat-Cluster zu Sicherstellung der
+nächtlichen CPE-Updates ( Etwa 4-5 Milionen Requetsts
+von 01:00 bis 05:00 )
+Engesetzte Technologien:
+CPEs ( Endkundengeräte von AVM ( Fritz! ) und Samsung), Apache HTTPD,
+Java, J2EE, Groovy, Servlets, SOAP( XFIRE, AXIS), TR-069, JUnit,
+JPA / Hibernate, MySQL, embedded Linux
+( August 2009 - November 2009)
+ Role:  Testentwickler / Berater bei T-Home
+Aufgabe:
+Entwicklung und Durchführung von Systemtests für BPEL-Basierte Businesslogik.
+Testfälle  wurden mittels SoapUI definiert, und sowohl manuell als auch
+automatisch ausgewertet.
+Enwticklung und Betrieb von Simulatoren für verschiedene Systeme
+( ein Servlet-Wrapper) ausgeführt und ausgewertet.
+Eingesetzte Technologien:
+SoapUI, Groovy, java, xml, xslt, xpath, bpel, webservices, SOA, servlet,
+ant, eclipse
+(April 2009-Juni 2009 )
+Role: Entwickler / Berater
+Aufgaben: Entwicklung der Anwendungen für Import, Transformation und Austausch der
+Warendaten für Neckermann Vertriebs AG. (ETL , Datenmengen > 1GB).  Release-Durchführung
+und Konfigurationsmanagement mit maven-2.
+Eingesetzte Technologien: Java, J2EE,  JDBC, Hibernate, StAX, XML, XML-Schema,
+Apache XMLBeans, JAXB 2, Talend OS, IBM Websphere ( WID ) , Eclipse, maven 2, JUnit
+( Dezember 2008 - April 2009 )
+ Role: Architect, Open-Source spezialist
+Aufgabe:
+Technogieevaluierung im Bereich ESB  (zwecks einführung) für Lufthansa-Cargo
+AG.  Ausarbeitung und Entwicklung der Integrationszenarien, Peployment, Performance
+Tests. Evaluiert wurden:  SOPERA ESB,  Apache-servicemix als vergleichsystem.
+Arbeiten wurden in engen Zusammenarbeit mit dem Hersteller ( SOPERA AG ) durchgeführt
+( Coaching,   Bugfixes,  Integration mit maven )
+Eingesetzte Technologien:
+SOPRA ESB, Apache Servicemix, BPEL, Talend OS, maven 2 ,joram,  Active MQ,
+22.02.2023 10 von 25
+Tibco EMS, java 1.6
+( Aug 2008 - Dez 2008 )
+ Role: Dozent/ Berater
+Aufgabe:
+Schulung in Bereich JBoss AS Clusterung mit Hands-On session ( 1 Tag )
+im Auftrag  der Expeso GmbH
+Ausarbeitung des Materials und Durchführung
+ Role: Dozent / Author / Übungsleiter
+Aufgabe:
+Maven und JUnit Schulung in Auftrag der Brockhaus GMBH, 2.5 Tage.
+Ausarbeitung des Materials inklusive praktischen Übungen.
+( Juni 2008 )
+-------------------------
+Role: Architekt / Entwickler
+Aufgabe:
+Entwicklung einer Mehrschichtanwendung für die Fluggastzugangskontrole
+bei Fraport AG (Barcode-Kodierte Bordkarten). Einführung einer Maven-Basierten Build
+und Unit-Tests mit JUnit / JMock. Automatische Erstellung der Dokumentation inklusive
+Testabdeckunngsberichten.
+Systemarchitektur:
+Mehrschichtige Java-Anwendung,  Swing-Client mit Barcode-Scanner, Standalone und EJB.
+Kommunikation
+milltels XML-Nachrichten über die MQ-Series, Daten-Persistenz  mittels Hibernate.
+Eingesetzte Technologien:
+Java, Swing, JGoodies, Hibernate, JUnit, JMock,  maven, Oracle 10.x, Apache derby,
+xdoclet, IBM RSA, IBM WebSphere, MQ-Series, XML-Erzeugung und Parsen mittels XStream,
+( Januar 2008 - Juli 2008 )
+ Entwiklung eines Verwaltungoberfläche für JBPM-Basierte
+Geschäftsprocesse  für T-Online / BOT / CBS in Rahmen der Umstellung
+auf SOA und Integration  mit T-Com
+Eingesezte Technologien: JBPM ( JBoss ) , Webservices (Basiert auf BEA
+WLS ), Hibernate, Struts 2 ( Webwork / Xwork ) , Velocity, LDAP-Anbindung,
+IoC mit Pico/Nanocontainer, Oracle 9.x ( Integration mit bestehenden
+Anwendungen, export als Webservice)
+( September 2006 - Dez 2007 )
+ Durchführung eines 3 Tage Workshops foür Java 1.5
+und neue Technologien für Pass Consulting
+( Oktober 2006 )
+ Technologieberatung bei DBV-Winterthur
+( April-September 2006 )
+Haupthemen: Konfiguration von JBoss,
+Sicherheit, Anbindung an Microsoft PKI,
+Tansportsicherheit.
+ Durchführung eines 2 Tage Workshops für Webwork 2 und moderne
+Web-Technologien für Telenet GmbH, München
+Materialausarbeitung inklusive Übungen
+Themen: Webwork 2 ausserdem  Hibernate,  IoC, Projektorgnisation mit Maven
+als Bestandsteil von Übungsaufgaben.
+( 8-9 März 2006 )
+ Troubleshootingeinsatz bei T-Online MMS / Dresden ,
+EJB Anwendung im Auftrag von Brockhaus GmbH
+( Januar 2006 )
+ Mehrere J2EE Schulungen in Afutrag von Brockhaus GmbH / Tria
+22.02.2023 11 von 25
+( Herbst 2005 )
+ Information und Planungportal für ein Online-Spiel
+( Mai 2005 - Mai 2006 )
+Entwicklung aif Basis von JBoss, Webwork, Pico/Nanocontainer,
+Velocity, Hibernate.
+Einsatz von modernen IoC ( Inversion of Control / Dependency Injection  )
+technologien.
+Verwendung von eigenen Open-Soucrce Frameworks für
+Benutzermanagement, Sicherheit und Website-Struktur
+( jtec-user , jtec-menu )
+ Portalanwendung / Softwareentwicklung bei T-Online ( Dez. 2004  - Apr 2005 )
+Entwicklung von B2B Portal Anwendung ( BEA Portal Server,
+BEA Workshop , Anbindung an Coremedia Content management ,
+SAP Backend-Systeme )
+ Portalentwicklung für die Tiefbauindustrie ( Jan 2003 - Nov. 2004)
+3 Mitarbeiter, Contentmanagementsystem, Volltextsuche,
+Diversefachapplikationen, Sicherheit, Benutzermanagement -
+Technische Projektleiter. SWING-Frontend für die Redaktion.
+Verwendung von Opensource Produkten: JBoss , WebWork, Velocity,
+Pico/Nanocontainer , Hibernate, MySQL, Java 1.4, XDoclet 2.
+Eigenentwicklung: Portalframework, Validierungsframework, Security / Authentication, Spezifische
+XDoclet-Module, Contentmanagement System.
+Momentan ( Nov 2004 ) in der Pilotphase.
+URL: http://www.unitracc.de/
+ Abrechnungsystem für Logistikunternehmen ( Aug-Okt 2002 )
+Entwicklung eines Abrechnungsystems für Fahradkurierunternehmen.
+Technische Basis:
+Datenpersistenz mittels EJB ( JBoss , EJB 2.0 )
+SWING GUI Klientsoftware ( Web-Oberfläche möglich )
+Erzeugung der Berichte als PDF-Dateien mit hilfe von:
+velocity &amp; FOP
+Software ermöglicht die Verwaltung von Stammdaten und Aufträge,
+und erzeugt für dem Unternehmen notwendige Berichte
+( Rechnungen, Fahrerabrechnungen, diverse Statistiken )
+als PDF-Dateien.
+Einsatz auf Verschiedenen Betriebsystemen möglich
+(Linux / UNIX, Windows, MacOS )
+22.02.2023 12 von 25
+ Multiplayerspiel.  ( Juli 2002 )
+Entwicklung eines Java-Spiels für mehrere Spieler
+im Auftrag von Net4U GbR.
+Programierung von Client-Applet, Ausarbeitung des Spielprotokolls.
+Spiel beinhaltet Chat-Komponente.
+2001-2002 Projekt in Bankumfeld
+(Sorten- und Edelmetallogistik)
+Technical Lead mit bis zu 5 Entwickler
+J2EE ( EJB, JBoss, JSP, JAAS, Struts, ant, xdoclet, Oracle)
+EJB-basierte Anwendung mit Webfrontend. Einsatz von
+dem Quellkodegenerator (xdoclet) um die notwendige EJB Daten
+( Home &amp; Remote interfaces, Utility objects, Deploymentdescriptoren )
+sowie Form beans für Struts Frontewnd zeitsparend und sicher zu entwickeln.
+Anbindung an bankinterne Kursversorgung und bestehendes Auslieferungsystem.
+( mit hilfe von EJB-Clients, JMX-Beans und MessageDriven Beans )
+Für  das Projekt wurden spezielle JAAS-Module entwickelt welche die
+Benutzerverwaltung mittels EJB ermöglichen.
+Entwicklung mit JBuilder auf Windows NT, Referenz- und Produktionsystem auf AIX.
+Zentrale CVS-Repository für Quellkodeverwaltung mit WinCVS als Klientsoftware.
+Projekt momentan in Pilotphase.
+Aufgaben:
+- Auswahl der Applicationserver und benötigten Technologien.
+- Planung und Organisation der Entwicklungumgebung
+- Planung und Realisierung der Versionskontrole ( CVS )
+- Ausarbeitung der "Coding Rules" und Verfahren.
+- Einweisung der Mitarbeiter in die benötigte Techniken
+und Progrmierrichtlinien.
+- Design und Implementierung von Benutzerverwaltung und
+Zugangscontrols ( JAAS, Login modules, Benutzerrolenstruktur )
+- Planung nud Implementierung der Testumgebung ( jUnit )
+- OOA &amp; OOD
+- Versionsconsolidierung.
+- Organisation und Überwachung von Build und Deployment.
+- Ausarbeitung und Durchführung von Tests (für Kundenabnahme)
+- Anbindung an bestehende Datenbanken mittels JCA-Conformen
+Connection Pools
+ Webserver von Deutsche Telefon AG (1999-2001)
+- Komplete Neuentwicklung
+Programierung  auf/mit Linux/Apache/mod_perl/HTML::Mason/Postgres/Adabas
+22.02.2023 13 von 25
+Aufgaben: Plannung, Kompletentwicklung , Aministration von:
+Auktion, Shop, Benutzerverwaltung, Sessionmanagement, Contentmanagement
+Webserver: Apache
+Entiwicklungsumgebung: mod_perl , HTML::Mason
+Content Management: MasonCM
+Datenbanken: postgres ( auktion ), adabas ( vshop )
+Auktionsystem: Eigenetnwicklung - Apartia.
+ 2000-2002
+Webangebot von MEI GmbH ( 2000 )
+Planung, Entwicklung und Betrieb
+Datenbankbasierte Website mit Content Managementsystem.
+Webserver: Apache
+Umgebung: mod_perl, HTML::Mason
+Datenbank: mySql
+Contentmanagement: eigenentwickeltes CM System für einfache
+Pflege der Inhalte
+ 1995-1999.
+Medizinische Videoarchivierung/Bearbeitung
+( DICOM )
+System zum Archivierung der Herzkatheteruntersuchungen
+Komplette Eigenentwicklung: Konzeption, Programierung, Betreuung.
+  - Systemprogramierung ( bis auf die Hardwareebene )
+  - Multimediaprogramierung
+  - GUI Definition und Entwicklung
+  - Schnittstellenprogramierung ( Seriel, Netzwerk,
+ DICOM Video- und Datenformate)
+  - Serverprogramierung ( CD-Brennserver )
+ 
+  - Datenbankprogramierung
+ 
+Technische Basis:
+Sun / Solaris, dann Wechsel auf SGI IRIX
+( wegen Hardwareverfügbarkeit )
+C/C++ unter Motif/X11,
+Script-Subsysteme, Assemblermodule
+Hauptaufgaben des Systems:
+- Videograbbing, ( Parallax Graphics, dann MVP )
+- Echtzeitkompression, ( Verlustfreies JPEG mit eigenen Codecs )
+- Front-ends für medizinisches Personal ( Solaris / IRIX, X11, Motif, XMT )
+- Archivierung auf CD ( KPAR, cdrecord, mkisofs )
+- Internet/Intranetzugang zu Daten ( Web-Anbindung der Datenbank - Apache, Perl )
+- Datenaustausch in DICOM Format.
+22.02.2023 14 von 25
+System momentan in 3 Krankenhäusern installiert
+( Paris - Hopital Ambroise Pare , Pilotanlage seit 1996 ,
+  KKH Lüdenscheid seit 1998 , KHRS Siloah Hannover seit 1997 )
+ 1994-1995
+Kassensystem für Gastronomie.
+Entwicklung eines Kassensystems für Fitnessstudio mit Anbindung
+and die Lager- und Mitgliederverwaltung.
+Zentrale Datenbankserver, VB-Clients mit:
+- Barkodereader (mitgliederausweise )
+- Makrotastaturen
+- Bondrücker
+- Textzeilen
+- Kassenschubladen.
+- Kartenlesegeräten.
+Aufgaben:
+Entiwicklung von Client GUI, Anbindung/Programierung der
+Zusatzgeräte, Ausarbeitung der Kassentastaturbedienung
+(Anforderunganalyse, Usability-analysen)
+Datenbankkozeption &amp; Design, Erstellung von Datenmodel.
+Entwicklung und implementierung von speziellen Funktionen
+die den Gebräuchen der Branche entsprechen.
+ Mitarbeit bei Opensource-projekten:
+xdoclet (Commiter status, seit 2001) - SUN-javadoc basiertes Code-Generator für J2EE
+und viel mehr (  Castor JDO, Struts, Webwork, Weblogic etc )
+Allgemeine Entwicklung und GUI für Quellcodeanpassung
+GUI dient zum markieren von Java-Quellkoden mit javadoc-ähnlichen Tags,
+anhand von formalen XML Beschreibung. Diese Tags dienen als
+Metaebene bei der erzeugung notwendigen Interfaces, Deploymentdeskriptoren
+oder Utility-classen.
+http://www.sourceforge.net/projects/xdoclet
+JBoss - diverse kleinere Fehlerkorrekturen im Security-bereich
+http://www.sourceforge.net/projects/jboss
+JEdit ( IDE ) - Pluginprogramierung
+Pico/Nanocontainer - Commiter.  Webserverintegration, Persistenz
+[URL auf Anfrage]
+XDoclet-2 - Pluginentwicklung ( Insbesondere Hibernate, Externalizer,
+Beaninfo, Webwork ) , Administration
+http://www.sourceforge.net/xdoclet-plugins
+ Eigene Webangebote (aktuell seit 2000):
+Java Spiele mit Highscore-Listen,
+22.02.2023 15 von 25
+Webmaster Dienste. Eigene Werbeflächenverwaltung.
+eigene Website mit Java-Spielen.
+Java, HTML::Mason, Apache , msql.
+Primäres Testfeld für interessante Technologien.
+Beinhaltet einige web-basierte Werkzeuge:
+- HTML-Kompression, Metadaten Erzeugung,
+Automatische Erzeugung von 3D Diagrammen
+Etwa 500000 Seitenabrufe im Monat.
+Referenzen
+Projekt Java-Applet - clientseitige Programmierung, 07/02 - 08/02
+Referenz durch Mitinhaber der Net4U GbR vom 07.08.02
+"Clientseitige Programmierung eines Java-Applets inkl. Einbindung in die von uns entwickelte
+Serversoftware: Der Consultant hat nach sehr kurzer Einweisung in relativ kurzer Zeit eine
+Javaoberfläche fertiggestellt und diese in Zusammenarbeit mit uns in die bestehende
+Serversoftware integriert. Er erwies sich als sehr zuverlässiger und kompetenter Mitarbeiter. Wir
+hoffen, auch in Zukunft noch weitere Projekte mit ihm durchführen zu können."
+Branchen
+    •  Software
+    •  Medizintechnik - Videoarhivierung für Herzkatheter, DICOM
+    •  Logistik
+    •  Bank - Private Asset Management, Compliance, Analytics, Sortnelogistik
+    •  Telekommunikation - Telefongesellschaft
+    •  E-Commerce
+    •  EBusiness
+    •  Tiefbau
+    •  Bildung
+    •  Lüftfahrt
+    •  Sicherheit
+    •  Versicherung
+    •  Versandhandel
+    •  Handel
+    •  Finanzen
+Sprachen
+Deutsch
+Englisch Wort &amp; Schrift
+Französisch Rudimentär
+22.02.2023 16 von 25
+Litauisch Grundkenntnisse
+Russisch Wort &amp; Schrift, Muttersprache
+Türkisch Grundkenntnisse
+Kompetenzen
+Schwerpunkte
+    •  Portalentwicklung, Frameworkdesign,
+    •  Integration von OpenSource Frameworks,
+    •  Build und Konfiguration,
+    •  Automatisierte Quellkodeerzeugung mittels XDoclet,
+    •  Inversion of Control, Contentmanagement, Persistenz,
+    •  Aufbau von Testumgebungen, Mocking,
+    •  ETL, J2EE, JSF, SVG, Mojarra, PrimeFaces, 
+    •  java, mobile Anwendungen mit Android,Javascript,
+    •  Datenvisualisierung, OLAP, OOA, OOD, XML, JSON,
+    •  Reporting (Crystal / Aspose )
+Produkte / Standards / Apache HTTPD
+Erfahrungen / Methoden
+Apache Solr
+Aspose
+crossfilter
+Crystal Reports
+CXF
+eclipse
+EJB
+Enterprise Arhitekt
+Facelets
+git
+GSON
+hibernate
+hudson
+IntelliJ IDEA
+22.02.2023 17 von 25
+J2EE
+Java 6-8
+Jetty
+jira
+JSF
+junit
+Kanban
+maven
+mondrian
+PDF
+REST
+Richfaces
+saiku
+Scrum
+sencha
+Single Sign-On mittels
+CAS und Spring-Security
+SoapUI
+sonar
+spring
+Struts-1
+SVN
+Test driven development
+Tomcat
+XML
+XSLT
+XStream
+Mobile:
+    •  Mehrere Applikationen für Android.  Entwicklun von
+     ?Open-Source Frameworks für Android ( Dependency Injection ,
+     ?Bildbearbeitung)
+    •  Texterkennung für Android -  Entwicklung der
+     ?Texterkennuglösungen für Offline Einsatz (Anwendungen im
+     ?Market)
+22.02.2023 18 von 25
+Softwarepakete und Tools:
+Java:
+    •  Volltextsuche - Implementierung der Volltextsuche mittels
+     ?Apache-Lucene
+    •  J2EE ( EJB, Jsp, Jsf, Servlet ...), J2SE, JMX,  - Einsatz
+     ?in diversen Projekten
+    •  JCA  - Einsatz im Rahmen des Projekts im
+     ?Bankenumfeld (Connection-Pools, Transaktionen, JNDI, JRMP)
+    •  AOP  -  Attributen-Orientierte Programmierung  - XDoclet
+     ?-  Einsatz in Rahmen des Projekts im Bankenumfeld,
+     ?Mitarbeit  an der Entwicklung von XDoclet ( Commiter )
+    •  Messaging: MQ-Series, Oracle AQ
+    •  IoC - Solide Erfahrungen mit IoC ( Pico / Nanocontainer - 
+     ?Commiter ). Anpassung diverser OpenSource-Frameworks für
+     ?IoC  ( Hibernate, Webwork ). Einsatz in Web-Umfeld ( Eigene
+     ?Entwicklungen für Portalsysteme )
+    •  Applet Programmierung - Java Spiele,  Applets für
+     ?Dateneingabe ( Web-Basierte Erstellung von 3D Diagrammen )
+    •  BCEL - ( Byte Code Engineering Library ) - Dynamische
+     ?Erstellung von Interfaces während der Laufzeit anhand von
+     ?XML-Descriptoren
+    •  JUnit - Entwicklung und Durchführung von Tests, auch
+     ?automatisiert ( automatische Erzeugung der Testfälle mit
+     ?Hilfe von XDoclet ) Organisation und Einrichtung von
+     ?Testumgebungen.
+ 
+Applikationserver:
+    •  JBoss ( 3.x , 4.x )  - Diverse Projekte( WEB / EJB ) ,
+     ?Administration und Betrieb
+    •  BEA Weblogic ( 8.1 ), BEA Portal, BEA Workshop  - Einsatz
+     ?bei T-Online (Workshop, Portal, Contentmanagement)
+     ?Anbindung an die Backend-Systeme und Coremedia
+    •  IBM Websphere
+ 
+Persistenz:
+    •  Castor JDO,  JAWS, Hibernate
+ 
+Templating:
+    •  Jakarta Velocity  - Einsatz bei diversen Projekten
+    •  Servletprogrammierung JSP Entwicklung ( in Rahmen von
+     ?Bankenprojekt )
+    •  SWING/ AWT - Entwicklung von Diversen Frontends ( GUI für
+     ?XDoclet, jEdit Plugin , EJB-Client Applikationen)
+X11 GUI Entwicklung:
+    •  Motif, Xmt , GTK - Entwicklung von Frontends
+     ?für Medizinische Videobearbeitung ( Abspielsoftware,
+     ?Datenbankoberflachen )
+ 
+PDF:
+    •  Erzeugung von berichten als PDF ( Velocity für XML
+     ?Erstellung zum weiteren XSLT Transformation oder direkte
+     ?Erzeugung von XSL:FO, anschließende PDF Rendering mit FOP )
+ 
+Volltextsuche:
+    •  Entwicklung von Gesellschaftssystemen ( Lucene-Basiert )
+ 
+ContentManagement:
+    •  Eigene Entwicklung, basierend auf Hibernate
+22.02.2023 19 von 25
+ 
+OpenSource produkte:
+    •  Perl, apache, Tomcat/Catalina, JBoss, ant, XDoclet,
+     ?WebWork, Middlegen, xdocletgui, eclipse ( Visual Age ),
+     ?CVS,  struts jEdit ( u. A. Pluginentwicklung ), velocity ,
+     ?BeanShell, FOP, Pico/Nanocontainer, XDoclet-2,
+     ?Lucene u.v.A.
+    •  XML - JAXP, DOM,  SAX, Xerxes, Xalan,  XSLT, DocBook,
+     ?XStream, XPP3, Pull-Parser - Erstellung von Dokumentation,
+     ?Einsatz in XDoclet GUI (Erstellung von Edit-Baümen anhand
+     ?der XML Descriptoren), Einsatz in diversen Projekten
+Datenbanken:
+    •  MySQL - Einsatz in Webservern zu erstellung der
+     ?Datenbankbasierten Websites, FAQ-Management, Content
+     ?Management.
+    •  msql - Einsatz in Medizinischen Bildbearbeitung
+     ?(Patientendatenverwaltung)
+    •  Postgress - Einsatz in Webservern zu erstellung der
+     ?Datenbankbasierten Websites
+    •  Oracle - Entwicklung von Views &amp; Queries, Einsatz in
+     ?EJB-Bereich ( Bankumfeld ) zu Datenpersistenz und Anbindung
+     ?an die Vorhandene Anwendungen ( Datenaustausch mittels
+     ?read-only EJB"s )
+    •  McKoy/Hypersonic - Einsatz in jEdit und JBoss für kleinere
+     ?Datenmengen
+ 
+Applications Frameworks:
+    •  Struts - Einsatz in Bankprojekt, Entwicklung von Taglibs.
+     ?Automatische erzeugung von FormBeans für
+     ?EJB-Datenänderungen.
+    •  WebWork - Einsatz in Web-Entwicklung
+    •  HTML::Mason - Erstellung von Komplexen Websites,
+     ?FAQ-Management, Content Management Systeme,
+     ?Datenbankbasierte Websites, Erstellung von PovRay-jobs
+ 
+Konfigurationsmanagement:
+    •  CVS -  Einsatz in Bankenprojekt, tägliche Benutzung,
+     ?Repository Organisation und Pflege
+    •  ClearCase - Projekteinsatz.
+Quellcodeverwaltung:
+    •  CVS -  Einsatz in Bankprojekt, tägliche Benutzung,
+     ?Repository Organisation und Pflege
+    •  ClearCase - Projekteinsatz.
+ 
+Multimediaprogramierung:
+    •  Jpeg ( eigene Codec für verlustfreijen Jpeg ) -
+    •  Medizinische Videobearbeitung, Codecentwicklung ( Echtzeit
+     ?assembler, 15 Processor clocks / pixel )
+    •  Erstellung von DICOM-Konformen Bilddaten.
+    •  Videograbbing &amp; Bearbeitung ( SGI, Parallax Graphics,
+     ?Optibase, EDT ) - Medizinische Bildbearbeitung ( Aufnahme,
+     ?Wiedergabe, Arhivierung )
+ 
+Dokumentationerzeugung:
+Anakia, DocBook ( für XDoclet ) , Confluence
+ 
+Methoden:
+OOA, OOD, UML, XP
+22.02.2023 20 von 25
+ 
+Soft skills:
+    •  Schnelle einarbeitung in das fremde Code
+    •  Teamfähigkeit auch bei großeren verteilten Projekten
+    •  Bereitschaft das Wissen zu Teilen (einarbeitung von
+     ?Programierern bei der Bankprojekt)
+    •  Fähigkeit mit großeren Codebase zu arbeiten (über 1mio
+     ?Zeilen in Projekt für Medizinische Bildbearbeitung, Sehr
+     ?viel kode bei XDoclet ( mitentwicklung ) &amp; Jboss (
+     ?Fehlerkorrekturen, patching)
+    •  Diese Skills habe ich vor allem durch aktive Mitarbeit an
+     ?dieversen Open-Source Projekten entwickelt.
+ 
+Betriebssysteme CP/M Grundkenntnise
+Echtzeitbetriebssysteme
+Firewall
+Google Android Experte
+HPUX Administration, Programierung ( Job bei EDS
+in CAD Support, Russelsheim )
+Installation
+IRIX Administration, Programierung,
+Troubleshooting ( Anlage für Medizinische
+Bildbearbeitun, sieh Projekte )
+Konfiguration
+MS-DOS Programierung, Administration
+OSF/Motif Programierung
+RSX-11 Ist zwar Jahre her, kann mich aber immer
+noch durch das Login in 30 Sekunden hacken
+:)
+RT-11
+SUN OS, Solaris Administration, Anwendungsentwicklung
+Unix Administration, Programierung ( meistens
+Linux ), Webserverbetrieb, Installation,
+Firewall configuration
+Webserver betrieb
+Windows Programierung. Administration-
+Grundkenntnisse
+Programmiersprachen Anwendungen für Aufbereitung der Adressen aus BTX
+Datenkonvertierung
+Assembler MIPS , SPARC , Intel , PDP - Entwicklung von
+Bildcodecs ( Loseless JPEG, 15 clocks/ pixel )
+Basic Diverse kleinere Projekte, Access, ASP
+C Medizinische Bildbearbeitung, Programierung
+unter  UNIX, Oberflächeprogramierung mit
+22.02.2023 21 von 25
+Motif
+C++ Bibliotheken für DICOM-Standard,
+Medizinische Bildbearbeitung,
+Oberflächeprogramierung ( IRIX )
+CORBA IDL
+d3.js
+Delphi Programierung von Datenbankanwendungen
+Emacs Tägliche Einsatz, kleinere Programme in Lisp
+extjs
+Forth Erweiterte kenntnisse, Grafikprogramierung (
+lange war es her... ), PostScript
+Fortran
+groovy
+Gupta, Centura Grundkenntnise
+Haskell
+HTML , CSS
+Imake, GNU-Make, Tägliche Einsatz, erstellung von Makefiles u.A
+Make-Maker etc... mit Hilfe von autoconf/automake
+J2EE
+Java 1.8, J2EE, ant, xdoclet, EJB, JBoss, velocity,
+struts, webwork, jEdit, Appletprogramierung
+- Einsatz in diversen Projekten
+JavaScript J2EE, ant, xdoclet, EJB, JBoss, velocity,
+struts, webwork, jEdit, Appletprogramierung
+- Einsatz in diversen Projekten
+jmockit
+JPA
+JSE 8
+JSP
+Lisp Emacs Programierung, GIMP-Skripte (
+Grafikenerstellung )
+Makrosprachen m4 - konfigurationerstellung für sendmail,
+autoconf/automake
+Maschinensprachen SPARC ( Micro / Ultra ),  MIPS ( o32, n32,
+n64 )  - entwicklung von JPEG Codecs, Intel,
+PDP / 68xxx
+OpenGL , S-5 Simatic
+Pascal
+22.02.2023 22 von 25
+Perl Skripte für Betriebsystemverwaltung, Einsatz
+in Webserver ( HTML::Mason ),
+Datenbankprogramierung ( DBI, Persistent ),
+Datenkonvertierung und aufbereitung, Log-
+processing, Bearbeitung von Call-Daten
+PHP Webseitenerstellung
+Prolog Kleinere Programme in der Studienzeit
+Python
+Scriptsprachen BeanShell, Jelly, Jython, groovy
+Shell Skripte für Betribsystemverwaltung, einsatz
+in Medizinischen Bilbearbeitung für diverse
+aufgaben ( CD-Brennen, Datenaustausch
+einleiten, Backup etc. )
+TeX, LaTeX
+Unix-Shell Skripten für Betribsystemverwaltung
+(basg,csh, sh... ), Einsatz in Medizinischen
+Bildbearbeitung für diverse aufgaben (  CD-
+Brennen, Datenaustausch einleiten, Backup
+etc. )
+VRML
+Xt, Motif Entwicklung von Oberflachen unter X11 (
+Xmt, GTK ) - Medizinische Bildbearbeitung
+yacc/lex
+Eigentlich kan ich in jeder sprache innerhalb von 1-2 Tagen produktiv
+Arbeiten.
+ 
+Also nich aufgelistet:
+OpenGL , S-5 Simatic, HTML, groovy
+Datenbanken Access
+Adabas
+Approach
+BDE
+DAO
+F&amp;A
+JDBC
+MS SQL Server
+mssql
+MySQL
+O/R Maping mittels Solide Erfahrungen
+Hibernate
+22.02.2023 23 von 25
+ODBC
+olap
+Oracle
+Postgres ab 7.0, einsatz ( unter anderen ) als EJB-
+Persistenzschgicht
+SQL
+Datenkommunikation CORBA
+Ethernet
+Hessian
+Internet, Intranet
+Message Queuing
+RPC
+RS232
+SMTP
+TCP/IP
+Hardware CD-Writer / Brenner Yamaha, generische MMC
+Framegrabber Parallax Graphix, EDT, Silicon Graphics,
+Osprey, Optibase
+PC Erweiterte Grundkenntnisse, Assembler-
+Programierung.
+PDP Assemblerprogramierung. Hardware-
+Grundkenntnisse.
+Silicon-Graphics Meistens O2 / Video - Programierung,
+Service, Fehlersuche
+SPS
+SUN Erweiterte Kenntnisse ab SS1 bis Ultra.
+Assemblerprogramierung
+(Echtzeitbildkomprimierung - verlustfreies
+JPEG)
+Video Capture Karte Osprey, Parallax Graphics, Optibase, EDT,
+SGI MVA
+SPS:
+Simatic S5
+Referenzen, Publikationen auf Anfrage
+Aus- und Weiterbildung
+2000
+IFMO St. Petersburg, Russland
+22.02.2023 24 von 25
+Abschluss Dipl. Ing. Systemtechnik
+ 
+1994 - 1999
+FH-Wiesbaden, Fachbereich Informatik
+1993
+Praktikum Uni Siegen 3 Monate
+ 
+1992
+Praktikum Logdos, Bingen ( bei Sigmaringen ) - 3 MOnate
+ 
+1989
+Schulabschlüss Schule 239 St. Petersburg , Russland
+1989 - 1994
+IFMO. St. Petersbug, Russland
+22.02.2023 25 von 25
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_15512
+
+
+Stammdaten (Auszug):
+
+Personen-ID                15512
+  
+Wohnort                    651xx Wiesbaden, Deutschland
+Jahrgang                   1972
+Staatsbürgerschaft         Deutsch
+Stundensatz                85 EUR
+                           abhängig von Ort, Dauer und Art des Auftrages
+Verfügbar ab               01.09.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         05.04.00
+Profil zuletzt geändert am 17.05.21
+Lesen von Projektanfragen  12 Stunden [10]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 21.04.2021 12:14:53
+
+Fachlicher Schwerpunkt:
+Softwareentwickler: Java, J2EE, Android, javascript, jsp, Struts, XML, AOP,
+IoC, Hibernate, Open Source, UNIX, Datenbanken, OCR
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Qualitätsmanagement / Qualitätssicherung / Test
+
+Über 15 Jahren Porjekterfahrung in verschiedenen Branchen ( Telekommunikation,
+ Logistik, Luftfahrt, Medizin, Banken) .  Sehr tiefe Kenntisse von aktuellen
+Open-Source-Technilogien und morenen Methoden.  
+Erfahrungen bei Troubleshooting und Modernisierung von Legacy-Projekten  
+( Migration auf aktuelle  Bibliothekversionen,   Einführung von  Tests,
+ Bugfixing )
+
+Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit bevorzugt
+
+Voraussetzung für Festanstellung: Arbeitsraum Rhein-​Main ( Wiesbaden / Mainz
+bevorzugt )
+Interessante Aufgabenbereich, Möglichkeiten zu Weiterentwicklung.
+
+Ausbildung:
+2000
+IFMO St. Petersburg, Russland
+Abschluss Dipl. Ing. Systemtechnik
+ 
+1994 - 1999
+FH-Wiesbaden, Fachbereich Informatik
+ 
+1993
+Praktikum Uni Siegen 3 Monate
+ 
+1992
+Praktikum Logdos, Bingen ( bei Sigmaringen ) - 3 MOnate
+ 
+1989
+Schulabschlüss Schule 239 St. Petersburg , Russland
+ 
+1989 - 1994
+IFMO. St. Petersbug, Russland
+
+Einsatzort:
+Regionen:
+D4, D5, D6, D7, außerhalb D/A/CH
+im Umkreis von:
+Wiesbaden (100 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: Bevorzugt Rhein-Main
+(Wiesbaden, Frankfurt, Mainz, Darmstadt)
+oder Remote 
+
+Fremdsprachen:
+Deutsch      
+Englisch    Wort &amp; Schrift
+FranzösischRudimentär
+Litauisch   Grundkenntnisse
+Russisch    Wort &amp; Schrift, Muttersprache
+Türkisch   Grundkenntnisse
+
+
+Hardware:
+CD-Writer / Brenner Yamaha, generische MMC
+Framegrabber        Parallax Graphix, EDT, Silicon Graphics, Osprey, Optibase
+PC                  Erweiterte Grundkenntnisse, Assembler-Programierung.
+PDP                 Assemblerprogramierung. Hardware-Grundkenntnisse.
+Silicon-Graphics    Meistens O2 / Video - Programierung, Service, Fehlersuche
+SPS                  
+                    Erweiterte Kenntnisse ab SS1 bis Ultra.
+SUN                 Assemblerprogramierung (Echtzeitbildkomprimierung -
+                    verlustfreies JPEG)
+Video Capture Karte Osprey, Parallax Graphics, Optibase, EDT, SGI MVA
+
+SPS:
+Simatic S5
+
+Betriebssysteme:
+CP/M                    Grundkenntnise
+Echtzeitbetriebssysteme  
+Firewall                 
+Google Android          Experte
+HPUX                    Administration, Programierung ( Job bei EDS in CAD Support, Russelsheim )
+Installation             
+IRIX                    Administration, Programierung, Troubleshooting ( Anlage für Medizinische
+                        Bildbearbeitun, sieh Projekte )
+Konfiguration            
+MS-DOS                  Programierung, Administration
+OSF/Motif               Programierung
+RSX-11                  Ist zwar Jahre her, kann mich aber immer noch durch das Login in 30
+                        Sekunden hacken :)
+RT-11                    
+SUN OS, Solaris         Administration, Anwendungsentwicklung
+Unix                    Administration, Programierung ( meistens Linux ), Webserverbetrieb,
+                        Installation, Firewall configuration
+Webserver betrieb        
+Windows                 Programierung. Administration-Grundkenntnisse
+
+
+Programmiersprachen:
+Anwendungen für   Aufbereitung der Adressen aus BTX
+Datenkonvertierung
+Assembler          MIPS , SPARC , Intel , PDP - Entwicklung von Bildcodecs ( Loseless JPEG, 15
+                   clocks/ pixel )
+Basic              Diverse kleinere Projekte, Access, ASP
+C                  Medizinische Bildbearbeitung, Programierung unter UNIX,
+                   Oberflächeprogramierung mit Motif
+C++                Bibliotheken für DICOM-Standard, Medizinische Bildbearbeitung,
+                   Oberflächeprogramierung ( IRIX )
+CORBA IDL           
+Delphi             Programierung von Datenbankanwendungen
+d3.js               
+Emacs              Tägliche Einsatz, kleinere Programme in Lisp
+extjs               
+Forth              Erweiterte kenntnisse, Grafikprogramierung ( lange war es her... ),
+                   PostScript
+Fortran             
+groovy              
+Gupta, Centura     Grundkenntnise
+Haskell             
+HTML , CSS          
+Imake, GNU-Make,   Tägliche Einsatz, erstellung von Makefiles u.A mit Hilfe von autoconf/
+Make-Maker etc...  automake
+Java               1.8, J2EE, ant, xdoclet, EJB, JBoss, velocity, struts, webwork, jEdit,
+                   Appletprogramierung - Einsatz in diversen Projekten
+JavaScript         J2EE, ant, xdoclet, EJB, JBoss, velocity, struts, webwork, jEdit,
+                   Appletprogramierung - Einsatz in diversen Projekten
+jmockit             
+JPA                 
+JSE                8
+JSP                 
+J2EE                
+Lisp               Emacs Programierung, GIMP-Skripte ( Grafikenerstellung )
+Makrosprachen      m4 - konfigurationerstellung für sendmail, autoconf/automake
+Maschinensprachen  SPARC ( Micro / Ultra ), MIPS ( o32, n32, n64 ) - entwicklung von JPEG
+                   Codecs, Intel, PDP / 68xxx
+OpenGL , S-         
+5 Simatic
+Pascal              
+                   Skripte für Betriebsystemverwaltung, Einsatz in Webserver ( HTML::Mason ),
+Perl               Datenbankprogramierung ( DBI, Persistent ), Datenkonvertierung und
+                   aufbereitung, Log-processing, Bearbeitung von Call-Daten
+PHP                Webseitenerstellung
+Prolog             Kleinere Programme in der Studienzeit
+Python              
+Scriptsprachen     BeanShell, Jelly, Jython, groovy
+Shell              Skripte für Betribsystemverwaltung, einsatz in Medizinischen Bilbearbeitung
+                   für diverse aufgaben ( CD-Brennen, Datenaustausch einleiten, Backup etc. )
+TeX, LaTeX          
+                   Skripten für Betribsystemverwaltung (basg,csh, sh... ), Einsatz in
+Unix-Shell         Medizinischen Bildbearbeitung für diverse aufgaben ( CD-Brennen,
+                   Datenaustausch einleiten, Backup etc. )
+VRML                
+Xt, Motif          Entwicklung von Oberflachen unter X11 ( Xmt, GTK ) - Medizinische
+                   Bildbearbeitung
+yacc/lex            
+
+Eigentlich kan ich in jeder sprache innerhalb von 1-2 Tagen produktiv Arbeiten.
+ 
+Also nich aufgelistet:
+OpenGL , S-5 Simatic, HTML, groovy
+
+Datenbanken:
+Access                        
+Adabas                        
+Approach                      
+BDE                           
+DAO                           
+F&amp;A                           
+JDBC                          
+MS SQL Server                 
+mssql                         
+MySQL                         
+ODBC                          
+olap                          
+O/R Maping mittels Hibernate Solide Erfahrungen
+Oracle                        
+Postgres                     ab 7.0, einsatz ( unter anderen ) als EJB-
+                             Persistenzschgicht
+SQL                           
+
+
+Datenkommunikation:
+CORBA               
+Ethernet            
+Hessian             
+Internet, Intranet  
+Message Queuing     
+RPC                 
+RS232               
+SMTP                
+TCP/IP              
+
+
+Schwerpunkte:
+    * Portalentwicklung, Frameworkdesign,
+    * Integration von OpenSource Frameworks,
+    * Build und Konfiguration,
+    * Automatisierte Quellkodeerzeugung mittels XDoclet,
+    * Inversion of Control, Contentmanagement, Persistenz,
+    * Aufbau von Testumgebungen, Mocking,
+    * ETL, J2EE, JSF, SVG, Mojarra, PrimeFaces, 
+    * java, mobile Anwendungen mit Android,Javascript,
+    * Datenvisualisierung, OLAP, OOA, OOD, XML, JSON,
+    * Reporting (Crystal / Aspose )
+
+Produkte/Standards/Erfahrungen:
+Apache HTTPD                                    
+Apache Solr                                     
+Aspose                                          
+crossfilter                                     
+Crystal Reports                                 
+CXF                                             
+eclipse                                         
+EJB                                             
+Enterprise Arhitekt                             
+Facelets                                        
+git                                             
+GSON                                            
+hibernate                                       
+hudson                                          
+IntelliJ IDEA                                   
+J2EE                                            
+Java                                           6-8
+Jetty                                           
+jira                                            
+JSF                                             
+junit                                           
+Kanban                                          
+maven                                           
+mondrian                                        
+PDF                                             
+REST                                            
+Richfaces                                       
+saiku                                           
+Scrum                                           
+sencha                                          
+Single Sign-On mittels CAS und Spring-Security  
+SoapUI                                          
+sonar                                           
+spring                                          
+Struts-1                                        
+SVN                                             
+Test driven development                         
+Tomcat                                          
+XML                                             
+XSLT                                            
+XStream                                         
+Mobile:
+    * Mehrere Applikationen für Android.  Entwicklun von Open-Source Frameworks
+      für Android ( Dependency Injection , Bildbearbeitung)
+    * Texterkennung für Android -  Entwicklung der Texterkennuglösungen für
+      Offline Einsatz (Anwendungen im Market)
+ 
+Softwarepakete und Tools:
+Java:
+    * Volltextsuche - Implementierung der Volltextsuche mittels Apache-Lucene
+    * J2EE ( EJB, Jsp, Jsf, Servlet ...), J2SE, JMX,  - Einsatz in diversen
+      Projekten
+    * JCA  - Einsatz im Rahmen des Projekts im Bankenumfeld (Connection-Pools,
+      Transaktionen, JNDI, JRMP)
+    * AOP  -  Attributen-Orientierte Programmierung  - XDoclet -  Einsatz in
+      Rahmen des Projekts im Bankenumfeld, Mitarbeit  an der Entwicklung von
+      XDoclet ( Commiter )
+    * Messaging: MQ-Series, Oracle AQ
+    * IoC - Solide Erfahrungen mit IoC ( Pico / Nanocontainer -  Commiter
+      ). Anpassung diverser OpenSource-Frameworks für IoC  ( Hibernate, Webwork
+      ). Einsatz in Web-Umfeld ( Eigene Entwicklungen für Portalsysteme )
+    * Applet Programmierung - Java Spiele,  Applets für Dateneingabe ( Web-
+      Basierte Erstellung von 3D Diagrammen )
+    * BCEL - ( Byte Code Engineering Library ) - Dynamische Erstellung von
+      Interfaces während der Laufzeit anhand von XML-Descriptoren
+    * JUnit - Entwicklung und Durchführung von Tests, auch automatisiert
+      ( automatische Erzeugung der Testfälle mit Hilfe von XDoclet
+      ) Organisation und Einrichtung von Testumgebungen.
+ 
+Applikationserver:
+    * JBoss ( 3.x , 4.x )  - Diverse Projekte( WEB / EJB ) , Administration und
+      Betrieb
+    * BEA Weblogic ( 8.1 ), BEA Portal, BEA Workshop  - Einsatz bei T-Online
+      (Workshop, Portal, Contentmanagement) Anbindung an die Backend-Systeme
+      und Coremedia
+    * IBM Websphere
+ 
+Persistenz:
+    * Castor JDO,  JAWS, Hibernate
+ 
+Templating:
+    * Jakarta Velocity  - Einsatz bei diversen Projekten
+    * Servletprogrammierung JSP Entwicklung ( in Rahmen von Bankenprojekt )
+    * SWING/ AWT - Entwicklung von Diversen Frontends ( GUI für XDoclet, jEdit
+      Plugin , EJB-Client Applikationen)
+ 
+X11 GUI Entwicklung:
+    * Motif, Xmt , GTK - Entwicklung von Frontends für Medizinische
+      Videobearbeitung ( Abspielsoftware, Datenbankoberflachen )
+ 
+PDF:
+    * Erzeugung von berichten als PDF ( Velocity für XML Erstellung zum
+      weiteren XSLT Transformation oder direkte Erzeugung von XSL:
+      FO, anschließende PDF Rendering mit FOP )
+ 
+Volltextsuche:
+    * Entwicklung von Gesellschaftssystemen ( Lucene-Basiert )
+ 
+ContentManagement:
+    * Eigene Entwicklung, basierend auf Hibernate
+ 
+OpenSource produkte:
+    * Perl, apache, Tomcat/Catalina, JBoss, ant, XDoclet, WebWork, Middlegen,
+      xdocletgui, eclipse ( Visual Age ), CVS,  struts jEdit ( u. A.
+      Pluginentwicklung ), velocity , BeanShell, FOP, Pico/Nanocontainer,
+      XDoclet-2, Lucene u.v.A.
+    * XML - JAXP, DOM,  SAX, Xerxes, Xalan,  XSLT, DocBook, XStream, XPP3,
+      Pull-Parser - Erstellung von Dokumentation, Einsatz in XDoclet GUI 
+      (Erstellung von Edit-Baümen anhand der XML Descriptoren), Einsatz in
+      diversen Projekten
+ 
+Datenbanken:
+    * MySQL - Einsatz in Webservern zu erstellung der Datenbankbasierten
+      Websites, FAQ-Management, Content Management.
+    * msql - Einsatz in Medizinischen Bildbearbeitung
+      (Patientendatenverwaltung)
+    * Postgress - Einsatz in Webservern zu erstellung der Datenbankbasierten
+      Websites
+    * Oracle - Entwicklung von Views &amp; Queries, Einsatz in EJB-Bereich
+      ( Bankumfeld ) zu Datenpersistenz und Anbindung an die Vorhandene
+      Anwendungen ( Datenaustausch mittels read-only EJB"s )
+    * McKoy/Hypersonic - Einsatz in jEdit und JBoss für kleinere Datenmengen
+ 
+Applications Frameworks:
+    * Struts - Einsatz in Bankprojekt, Entwicklung von Taglibs. Automatische
+      erzeugung von FormBeans für EJB-Datenänderungen.
+    * WebWork - Einsatz in Web-Entwicklung
+    * HTML::Mason - Erstellung von Komplexen Websites, FAQ-Management, Content
+      Management Systeme, Datenbankbasierte Websites, Erstellung von PovRay-
+      jobs
+ 
+Konfigurationsmanagement:
+    * CVS -  Einsatz in Bankenprojekt, tägliche Benutzung, Repository
+      Organisation und Pflege
+    * ClearCase - Projekteinsatz.
+ 
+Quellcodeverwaltung:
+    * CVS -  Einsatz in Bankprojekt, tägliche Benutzung, Repository
+      Organisation und Pflege
+    * ClearCase - Projekteinsatz.
+ 
+Multimediaprogramierung:
+    * Jpeg ( eigene Codec für verlustfreijen Jpeg ) -
+    * Medizinische Videobearbeitung, Codecentwicklung ( Echtzeit assembler, 15
+      Processor clocks / pixel )
+    * Erstellung von DICOM-Konformen Bilddaten.
+    * Videograbbing &amp; Bearbeitung ( SGI, Parallax Graphics, Optibase, EDT ) -
+      Medizinische Bildbearbeitung ( Aufnahme, Wiedergabe, Arhivierung )
+ 
+Dokumentationerzeugung:
+Anakia, DocBook ( für XDoclet ) , Confluence
+ 
+Methoden:
+OOA, OOD, UML, XP
+ 
+Soft skills:
+    * Schnelle einarbeitung in das fremde Code
+    * Teamfähigkeit auch bei großeren verteilten Projekten
+    * Bereitschaft das Wissen zu Teilen (einarbeitung von Programierern bei der
+      Bankprojekt)
+    * Fähigkeit mit großeren Codebase zu arbeiten (über 1mio Zeilen in Projekt
+      für Medizinische Bildbearbeitung, Sehr viel kode bei XDoclet
+      ( mitentwicklung ) &amp; Jboss ( Fehlerkorrekturen, patching)
+    * Diese Skills habe ich vor allem durch aktive Mitarbeit an dieversen Open-
+      Source Projekten entwickelt.
+ 
+ 
+
+Branchen:
+    * Software
+    * Medizintechnik - Videoarhivierung für Herzkatheter, DICOM
+    * Logistik
+    * Bank - Private Asset Management, Compliance, Analytics, Sortnelogistik
+    * Telekommunikation - Telefongesellschaft
+    * E-Commerce
+    * EBusiness
+    * Tiefbau
+    * Bildung
+    * Lüftfahrt
+    * Sicherheit
+    * Versicherung
+    * Versandhandel
+    * Handel
+    * Finanzen
+
+Projekte:
+12/2018 - heute: Software Entwicklung im Java / Python / Shell
+ 
+Rolle:              Entwickler / Architekt
+Kunde:              Industrie, Sicherheit, Luftfahrt
+ 
+Aufgaben:
+ 
+    * Software Entwicklung im Java / Python / Shell etc.  ( Full Stack )  
+    * Automatische Regressionstests mit Cucumber, erstellung von Build-
+      Pipelines / Installationsmedien,  
+    * Erstellung von Javascript-Frontends ( Editor für Airport-Overview mit
+      SVG, Javascript usw ) in JSF integriert
+ 
+Kenntnisse:
+ 
+Linux, CentOs, JBoss WIldfly, Plain Java Apps, JSF, Cucumber, Python, SVN,
+Snap, jQuery, Primefaces, Mojarra, Javascript, Webservices, make
+===============================================================================
+05/2010 - heute: Ansteuerungsoftware für Knochendichtemessgerät
+ 
+Kunde:              MEI GmbH
+ 
+Aufgaben:
+ 
+Gesamte Softwareentwicklung / Offschore
+    * Technischer Projektleiter,  Subunternehmer, Team manager. Erstellulng der
+      Pflichtenchefte,  QA,  Abnahme und Üvergabe,  Architekturcoaching usw.  
+      (Teilzeit ,  Festpreis mit Erfolgsbeteilugung )
+===============================================================================
+05/2017 - 12/2018: Datenverarbeitung im Finazumfeld
+ 
+Einsatzort:         Frankfurt
+Rolle:              Entwickler / Architekt
+Kunde:              vwd Vereinigte Wirtschaftsdienste GmbH
+ 
+Aufgaben:
+ 
+Entwicklung von Workflows,  Auswertungen und Reports im Bereich von Portfolio
+Management, Datenversorgung, MIFID 2
+ 
+Eingesetzte Produkte:
+ 
+MM-Talk, Java, Javascript, perl, Haskell, MsSQL, Crystal Reports
+===============================================================================
+01/2018 - 01/2018: Umstellung der Website auf Statische Generation
+ 
+Rolle:              Entwickler / Architect
+Kunde:              Medien
+ 
+Aufgaben:
+ 
+Umstellung der Website auf Statische Generation.  Abschaffung von Datenbank als
+CMS-Backend (Einfache Authoring  mit Markdown, Templating mit Jade/Pug,
+Javascript, Node.js,  Deployment via Skript) Komplett Statische website sorgt
+für Performance und hohe Sicherheit
+ 
+Kenntnisse:
+ 
+Node.js, Javascript, Sass/Less, Markdown, Jade/Pug
+===============================================================================
+01/2017 - 04/2017: Medizinische Produkte / Healthcare
+ 
+Rolle:              Entwickler
+Kunde:              ICW AG / Walldorf
+ 
+Aufgaben:
+ 
+    * Weiterentwicklung und Pflege der Portal-Anwendung für
+      Blutzuckermessegeräte.  
+    * Bugfixing,  anpassungen, entwicklung von neuen Funktionalitäten.
+ 
+Eingesetzte Produkte:
+ 
+Java 8, J2EE, JSF, Apache Tomcat, Oracle, MsSQL, HIbernate, JUnit, JMockit.
+Maven als Build-System. ICW-Eigene Bibliotheken und Tools
+===============================================================================
+01/2017 - 02/2017: Datenreconciliation bei einer Bankverkauf
+ 
+Einsatzort:         Frankfurt /  Remote
+Rolle:              Entwickler
+Kunde:              Montafina GmbH
+Branche:            Banken &amp; Finanzinstitute
+ 
+Aufgaben:
+ 
+    * Software für Datenabgleich bei der Verkauf von Bankfilialen,  aufgrund
+      der Sicherheitsanforderungen musste Entwicklung mittels Remote-Desktop
+      erfolgen. 
+    * Anonymisierte Daten im Datenbank mussten mit der CVS-Listen abgeglichen
+      werden und reports erzeugt werden.  
+ 
+Produkte, Umgebungen:
+    * Java 1.4,  JDBC, MS SQL, Eclipse, Jasper reports.  Aufgrund von
+      Sicherheitsanforderungen war der EInsatz von moderneren Tools nicht
+      möglich.  
+    * Entwicklung musste auf dem Bankrechner im SIngapur mittels Remote-Desktop
+      stattfinden,   und es war nicht möglich Daten auf den Recner zu kopieren.
+ 
+Kenntnisse:
+ 
+java, jse 8, JDBC, mssql
+ 
+Eingesetzte Produkte:
+ 
+eclipse, java 1.8, jdbc, mssql
+===============================================================================
+06/2013 - 12/2016: Entwicklung von Bankenanwendungen / Kosmos-Banking
+ 
+Einsatzort:         Frankfurt
+Rolle:              Senior Java Developer , Architekt
+Kunde:              Kosmos Banking / Montafina GmbH
+Geschäftsstelle:    Entwicklung
+Branche:            Banken &amp; Finanzinstitute
+ 
+Aufgaben:
+ 
+    * Entwicklung von Portalen,  Werkzeugen und Businessprozessen  für
+      Privatbanking.  Schwerpunkte: Compliance, Portfolio Benchmarking,
+      Portfolio Analyse, OLAP, Investment-Vorschläge. Dokumentation,
+      Compliance, WPHG, KYC, PIB,  CAAML. 
+    * Erstellung von Investemt-Performance-Reports für Kunden und Management
+      mittels Aspose  ( Portofolio  Valuation,  Überwachung der
+      Anlagerichtlinien etc.  )
+    * Entwicklung von Analysetools mittels Saiku / Mondrian und Crossifilter /
+      DC JS  / Angular
+    * Geschäftsprozess für Compliance-Überprüfung entwickelt, 
+      Berichterstellung mit Aspose.
+    * Umstellung von SVN auf GIT
+    * Einführung von Unit-Tests, unter anwendung von Mocking ( jMockit )
+    * Entwicklung von IntelliJ-Plugin für Hauseigenes BPM-Sprache.
+ 
+Kenntnisse:
+ 
+Scrum, Test driven development, Kanban, olap
+ 
+Eingesetzte Produkte:
+ 
+java 6-8, IntelliJ IDEA, git, spring, jmockit, junit, groovy, Aspose, PDF, XML,
+XSLT, XStream, GSON, hibernate, oracle, jira, hudson, sonar, saiku, mondrian,
+d3.js, crossfilter, extjs, sencha
+===============================================================================
+08/2016 - 09/2016: Reverse-Engineering
+ 
+Rolle:              Entwickler
+Kunde:              Projektfabrik GmbH
+ 
+Aufgaben:
+ 
+    * Reverse-Engineering einer Legacy-Anwendung und Umstellung von
+      Datenbankschicht von DB2 / Host auf Postgres-SQL. Eine ältere Anwendung
+      im Abgeltungsteuer Bereich sollte  nach der Host-Ablösung weiter
+      betrieben werden. Dafür wurde Umstellung von Datenbankschicht und
+      Webanwendung notwendig.
+    * Vorhandene  Quellcode  in GIT-Repository importiert, Build mit Maven und
+      entsprechende Eclipse-Projekte erstellt.  
+ 
+Kenntnisse:
+ 
+Java / J2ee, Hibernate, jboss, jsp, struts 1, db2, postgres, XML
+===============================================================================
+04/2015 - 05/2015: Datenmigration
+ 
+Einsatzort:         Remote / Hannover
+Rolle:              Entwickler
+Kunde:              Projektfabrik GmbH /Große Finanzdienstleister
+Unternehmensgröße:  > 1000
+Branche:            Banken &amp; Finanzinstitute
+ 
+Aufgaben:
+ 
+Entwicklung von einen REST-Wrapper für bestehende EJB Schicht im Rahmen von
+Datenmigrationsprojekt.
+ 
+Produkte, Umgebungen:
+Standalone Java-Anwendung, mit integrierten Webserver (Jetty)  und API
+Dokumentation  (Swagger4J), maven , Spring-REST, Spring-EJB, Jetty. 
+ 
+Kenntnisse:
+ 
+REST, Spring, EJB, J2EE
+ 
+Eingesetzte Produkte:
+ 
+Intelli IDEA, Java, Jetty, Spring
+===============================================================================
+08/2012 - 06/2013: Projekten RIS / FIS
+ 
+Einsatzort:         Frankfurt
+Rolle:              Senior Java developer, Architect
+Kunde:              DB Systel
+Branche:            Touristik
+ 
+Aufgaben:
+ 
+    * Mitarbeit bei der Projekten  RIS (Reisendeninformationsystem) und FIS
+      ( Interne Anzeigen in Zügen).  
+    * Architekturreview, Implementierung, Anbindung von älteren Systemen,
+      Implementierung von Unit-tests und Überwachung der Testabdeckung. 
+    * Batch-Bearbeitung von Audiodaten
+ 
+Kenntnisse:
+ 
+Unix, Java, J2EE, Enterprise Arhitekt, maven, jdbc, sql, jsf, oracle, JPA,
+hibernate, git, jmockit, JSF, Richfaces, Facelets, EJB
+ 
+Eingesetzte Produkte:
+ 
+Unix, Java, J2EE, Enterprise Arhitekt, maven, jdbc, sql, jsf, oracle, JPA,
+hibernate, git, jmockit, JSF, Richfaces, Facelets, EJB
+===============================================================================
+01/2012 - 07/2012: Relaunch Webangebot  gelbe-seiten.de
+ 
+Rolle:              Entwickler, Architekt, QS
+Kunde:              Online Directory Services GmbH
+ 
+Aufgaben:
+ 
+Relaunchvon gelbeseiten.de.  Umstellung der URL-Schema für bessere Indexierung
+durch Suchmaschinen.  Optimierung der Performance, sicherstellung der
+Testabdeckung, Refactoring der Abhängigkeiten und Umstellung auf Spring-
+Konfiguration.  Umstellung auf zustandloses Betrieb.
+ 
+Produkte, Umgebungen
+    * Java,  Tomcat,  Apache HTTPD,  Apache Solr,

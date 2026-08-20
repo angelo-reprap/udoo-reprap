@@ -1,0 +1,783 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_25808
+
+
+Stammdaten (Auszug):
+
+Personen-ID                25808
+  
+Wohnort                    642xx Darmstadt, Deutschland
+Jahrgang                   1966
+Staatsbürgerschaft         deutsch
+Stundensatz                85 EUR
+                           abhängig von der Projektlaufzeit.
+Verfügbar ab               01.01.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         26.04.01
+Profil zuletzt geändert am 18.12.19
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 26.11.2019 14:08:06
+
+Fachlicher Schwerpunkt:
+Sun zertifizierter Senior Developer, Kozeptionierung, Design, Implementierung,
+OOA/OOD/OOP, Java, C, C++
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+
+Konzeption und Realisierung von SOA, Spring, Microservices
+Java (J2EE, JDBC, EJB, JSP, Servlet, etc), C/C++
+
+Administration
+Anwendungsentwicklung
+Configuration- und Build-Management
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Studium der Elektrotechnik an der Fachhochschule Darmstadt
+Abschluß als Dipl.-Ing. (FH) im Dezember 1992
+
+Aufbaustudium Wirtschaftsingenieurwesen an der FH Mannheim/Ludwigshafen
+Abschluß als Dipl.-Wirtsch.-Ing. (FH) im Januar 1996.
+
+Zertifizierung: Sun Certified Programmer for the Java 2 Platform 1.4 (91%)
+
+Einsatzort:
+Regionen:
+D6
+im Umkreis von:
+Darmstadt (100 km)
+Frankfurt am Main (50 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: bevorzugt Rhein-Main-Gebiet
+
+Fremdsprachen:
+Deutsch  Muttersprache
+Englisch verhandlungssicher
+Spanisch Grundkenntnisse
+
+
+Hardware:
+Echtzeitsysteme  OS/9
+embedded Systeme Electronic Cash Terminals
+Fuzzy Controller  
+Mikrocontroller  68HC11
+PC                
+
+
+Betriebssysteme:
+Echtzeitbetriebssysteme OS/9
+HPUX                    Versionen 10.10, 10.20, 11i
+MS-DOS                  alle Versionen
+OS/9                     
+SUN OS, Solaris          
+Unix                    SCO, Sinix, Unixware
+Windows                 3.x, 95, 98, Me, NT 3.51, NT 4.0, 2000, XP
+6809                     
+
+Linux (SuSE, RedHat)
+
+Programmiersprachen:
+Assembler      6809,68000,68030
+C               
+C++             
+Emacs           
+Java            
+JavaScript      
+Pascal          
+Perl           inc. Tk
+PL/SQL          
+Python          
+Scriptsprachen  
+Shell           
+4gl            4GL-Tools Uniface
+
+
+Datenbanken:
+Access         
+Adabas         
+DB2            
+Informix       
+JDBC           
+Lotus Notes    
+MS SQL Server SQL Server 2000
+MySQL          
+ODBC           
+Oracle        8, 9, 10
+Postgres       
+SQL            
+
+SAP-DB
+
+Datenkommunikation:
+CORBA               
+Ethernet            
+Internet, Intranet  
+Message Queuing     
+RPC                 
+SMTP                
+TCP/IP              
+Windows Netzwerk    
+
+
+Produkte/Standards/Erfahrungen:
+Erfahrungen
+          Kafka
+          Microservices
+          AngularJS
+service-orientierte Architekturen (SOA)
+Entwicklung von n-tier und C/S-Applikationen
+n-tier Systeme unter Einsatz von Application Servern
+Objektorientierte Analyse/Design/Realisierung
+Datenbankentwicklung und -modellierung
+Systemnahe Programmierung
+Systemprogrammierung von Unix/Linux-Systemen
+ 
+Standards/Produkte
+SOA
+J2EE (JDBC,EJB,CMP,BMP,JMS,JSF,etc)
+Aspect J
+Spring 2.5, 4.2.5, Spring MVC
+BEA Weblogic 7.0/8.1/9.1
+Oracle Weblogic 12c
+IBM WebSphere Application Server 6.0 und 6.1
+IBM Rational Application Developer 6.0 und 6.1 (früher WSAD)
+IntelliJ
+SAP NetWeaver 2
+JBoss 2.x, 3.x, 4.x
+Tomcat
+JUnit
+Docker Container
+XML/XSL/XSLT
+Open Architekture Ware (OAW)
+Jakarta-Projekte
+Hibernate O/R-Mapping
+Java Server Faces (MyFaces, Tomahawk, Tobago)
+Jasper-Reports
+Grails
+Groovy
+Maven + Ant
+MKS Lifecycle Management-Plattform
+Apache
+Samba
+lex und yacc
+MS Office
+embedded SQL
+PRO*C
+Netbeans IDE
+Eclipse IDE + Plugins
+JBuilder
+Toad
+CVS, PVCS
+Lotus Notes
+SQuirrel 3
+Governikus (rechtsverbindliche Online-Transaktionen)
+
+Branchen:
+Finanzbranche
+Agenturen
+Telekommunikation
+Industrie
+IT-Dienstleister
+ 
+
+Projekte:
+===============================================================================
+ 
+Zeitraum: 09.01.2017  heute
+Firma/Institut: compeople AG, Frankfurt
+ 
+Projekt:   DV Deutsche Verrechnungsstelle
+               Rechnungsmanagement für Handwerk und Mittelstand
+ 
+Analyse, Design und Implementierung von fachlichen Anforderungen
+innerhalb des Projekts DV Deutsche Verrechnungsstelle.
+Neue Anforderungen müssen in dem Portal umgesetzt werden. Dies
+beinhaltet Frontend- als auch Backend-Tätigkeiten. Die Entwicklung von
+neuen, auf Spring Boot basierenden, Microservices. Die Speicherung der
+Daten erfolgt in einer dokumentenorientieren NoSQL Datenbank (MongoDB).
+Des Weiteren gerhört zu meinen Aufgaben die Erweiterung des AngularJS
+Frontends um neue Komponenten sowie die Anbindung des Backends und
+Sicherstellung der Qualität durch entsprechende Tests (Frontend und
+Backend), sowie die Dokumentation der Tätigkeiten in Confluence.
+In einer weiteren Ausbaustufe wurde das System refactored und auf einen
+message-basierten-Ansatz umgestellt. Hierbei kam Apache Kafka zu
+Einsatz.
+ 
+DV-Umfeld
+Windows 7, Linux, IntelliJ, Java 8, Kafka, Spring Stack (Boot, Data, Test,
+etc.), REST Services, Microservices, Angular JS, Jenkins, Mongo DB, log4u,
+Mongo Chef, Junit, Jira, Confluence, OAuth 2, OpenID Connect, KeyCloak,
+Groovy, Git, Gradle, Maven
+ 
+ 
+===============================================================================
+ 
+ 
+Zeitraum : 01.10.2013 - 22.12.2016
+Firma/Institut : Schufa Holding AG, Wiesbaden
+
+Projekt:      www.meineSCHUFA.de
+                  Endverbraucherportal der Schufa Holding AG
+                                   
+                  Analyse, Design und Implementierung von fachlichen
+Anforderungen innerhalb
+                  des Projekts www.meineSCHUFA.de. Die Aufgabe bestand in der
+Analyse von
+                  fachlichen Anforderungen sowie der Beratung des Fachbereichs
+hinsichtlich
+                  der Umsetzung sowie der anschießenden Implementierung. Ein
+weiterer
+                  Schwerpunkt war das Refactoring der Applikation. Hierbei
+wurde das
+                  Altsystem, unter Berücksichtigung der neuen
+Architekturvorgaben, von EJB
+                  2.x auf EJB 3.1 umgestellt. Als Architekturgrundlage wurde
+Domain Driven
+                  Design angewandt. Die Tests wurden primär durch Cucumber
+realisiert
+                  (behaviour- driven).
+                  Das WebFrontend ist über WebServices angebunden. Die
+Entwicklung wurde
+                  unter Windows mit Eclipse und Java 6 (JEE, Struts)
+durchgeführt. Als
+                  Buildsystem wurde Ant genutzt. Die Test- und
+Produktivumgebung ist Linux
+                  bzw. Solaris.  
+
+DV-Umfeld       : Windows 7, Linux, Eclipse, Java 6, EJB 3.1, EJB 2.x,
+Ant,Jenkins,
+                  WebService, SoapUI, DB2, Junit, Cucumber Tests, Apache
+WebServer, Oracle
+                  WebLogic 12c Server, JEE-Stack, Enterprise Architect, IBM
+Jazz Platform,
+                  Tiki Wiki
+ 
+ 
+===============================================================================
+ 
+Zeitraum : 12.07.2010 - 20.09.2013
+Firma/Institut  : MRM Worldwide GmbH/Frankfurt
+
+Projekt         : GM World Platform
+                  Online-Auftritt der verschiednen GM-Marken (Opel,
+Vauxhall,...)
+                  
+                  Design und Implementierung von fachlichen Anforderungen
+innerhalb des
+                  Projekts GM World Platform.
+                  Die Aufgabe bestand in der Umsetzung von fachlichen
+Anforderungen für
+                  die verschiedenen Applikationen der GM World Platform (z.B.
+Vehicle-
+                  Configurator, Dealer Locator, Locate New Vehicle) sowie der
+                  Fehlerbehebung. Weiterhin war ich am Refactoring der Vehicle-
+                  Configurator-Application beteiligt. Hierbei wurde das Design
+und die
+                  Implementierung geändert. Ziel war es, zukünftige
+Erweiterungen schnell
+                  und unproblematisch umzusetzen zu können und die Application
+generell
+                  wartbarer zu gestalten. Die Platform ist derzeit weltweit in
+über 45
+                  Ländern im Einsatz (z.B. www.opel.de,
+www.vauxhall.co.uk, www.opel.ie).
+                  Für den Opel ADAM Konfigurator wurde ein RSTFul Backend
+entwickelt.
+                  Weiterhin war ich für die Bereitstellung der Releases inkl.
+                  Release-Notes verantwortlich.
+                  Externe Systeme sind über WebServices angebunden. Die
+Entwicklung wurde
+                  unter Windows mit Eclipse und Java 6 (JEE, Spring, Struts 2)
+                  durchgeführt. Als Buildsystem wurde Maven 2 / Jenkins
+genutzt.
+                  Die Test- und Produktivumgebung ist Linux.       
+
+DV-Umfeld       : Windows XP, Linux, Eclipse Helios, Java 6, Spring 2.5.6,
+Struts 2,
+                  Maven 2, Jenkins, WebService, SoapUI, XML, XSLT, JAXB, MySQL,
+Junit,
+                  Selenium, Apache WebServer, Tomcat 6, Jetty, JEE-Stack,
+Subversion,
+                  UML, RESTFul WebService (Jersey Lib), Jackson JSON Parser,
+Enterprise
+                  Architect. Jira Bug Tracking, Confluence 3.5.9 Enterprise
+Wiki
+ 
+===============================================================================
+ 
+Zeitraum : 10.12.2012 - heute
+Firma/Institut  : Eignes Windows Phone 8 Projekt
+
+Projekt         : Places 8x (Location based App)
+
+                  Design und Implementierung der Windows Phone 8 Application
+Places 8x.
+                  Places 8x ermöglicht es dem Benutzer, abhängig von seinem
+aktuellen
+                  Standort, Lokalitäten in der Nähe zu finden. Es bietet über
+25
+                  vordefinierte, konfigurierbare Kategorien (z.B. Bank,
+Geldautomat,  
+                  Fitnesscenter, etc.), eine Freitextsuche, eine
+Kartendarstellung sowie
+                  eine Navigationsmöglichkeit von der aktuellen Position zur
+ausgewählten
+                  Lokalitäten.
+                  Als Backend wurde der Google-Places Webservice genutzt. Die
+Daten als
+                  JSON angefragt und JSON.NET verarbeitet. Für Reverse-
+Geocode-Requests
+                  sowie die Navigation wurden Bing-Webservice genutzt.
+
+
+DV-Umfeld       : Windows 8 Pro, Microsoft Visual Studio Express 2012 für
+Windows Phone,
+                  diverse Windows c# Phone Libs, Google- und Bing-WebServices.
+ 
+ 
+===============================================================================
+ 
+Zeitraum : 07.10.2009 - 30.06.2010
+Firma/Institut  : Dr. Eckhardt + Partner GmbH, Bad-Soden/Ts.
+ 
+Projekt         : JEE-Projekte im Handel- und Dienstleistungsumfeld
+ 
+                  Analyse, Design und Implementierung von fachlichen
+Komponenten für       
+                  verschiedene Projekte (Lagerinventur, verschiedene
+Marktverfahren,
+                  div. Bewertungsverfahren). Die Entwicklung wurde unter
+Windows mit
+                  Eclipse und Java 6 (JEE, Spring, Spring MVC) durchgeführt.
+                  Als Buildsystem wurde Maven 2 genutzt. Die Test- und
+Produktivumgebung                      ist Host (z/OS).
+ 
+* Analyse und Design von Businesskomponenten und Services
+* Entwicklung von Businesskomponenten und Services
+            mittels Spring 2.5
+* Analyse der fachlichen Anforderungen
+* Implementierung der Business-Logic
+* Test der Komponenten/Services mittels JUnit/Mock-Test
+* Entwicklung einer Web-Applikation mittels Spring MVC
+* Entwicklung eines Code-Generators der über DB-Metadaten
+            entsprechende Business-Objekte und die zugehörige
+            DAO-Schicht generiert (Interface, Implementierung, SQL).
+            Komplette CRUD-Operationen werden generiert.
+* Validierungen mittels AOP (Aspect J)
+ 
+DV-Umfeld      : Windows XP, Eclipse 3.5 (Galileo),  Java 5 und Java 6, Spring
+2.5.6,
+                 Spring MVC, Maven 2, SQuirrel 3, Host, z/OS, JEE-Stack,
+Subversion,
+                 AOP (Aspect J), DB2
+ 
+===============================================================================
+
+Zeitraum : 21.05.2007 - 30.09.2009
+Firma/Institut  : Wincor Nixdorf International GmbH, Neu-Isenburg
+
+Projekt         : SOA-Applikation in der Finanzdienstleistungsbranche
+
+Analyse, Design und Implementierung von fachlichen
+Komponenten im Bereich der Versorgungsoptimierung
+von Geldautomaten und Tresoren. Besondere Schwerpunkte
+lagen in der Analyse von Performance-Problemen, der
+Analyse und Entwicklung eines neuen Optimierungsmodells
+sowie der Unterstützung der Qua­li­täts­sicherung bei der
+Durchführung auslieferungsrelevanter Ab­schluß­tests.
+* Analyse und Design von Businesskomponenten und
+  -Services
+* Entwicklung von Businesskomponenten und -Services
+* Analyse der fachlichen Anforderungen
+* Implementierung der Business-Logic
+* Migration verschiedenen Komponenten einer
+  Vorgängerversion auf die aktuelle Version
+* Test der Komponenten/Services mittels JUnit/Mock-Test
+* Pferformancetuning der Services/Datenbank
+
+DV-Umfeld       : Windows XP, Linux, Websphere 6.1.2, JBoss 4.1,
+Oracle 9i/10g, XML, JAVA (1.4.2), SOA, J2EE, EJB, MDB,
+WebServices, Servlets, MKS, RAD (Eclipse 3.x), Maven,
+Ant, Jasper, Xalan, JDom, Junit, log4J, Groovy
+
+===============================================================================
+
+Zeitraum : 07.02.2007 - 18.05.2007
+Firma/Institut  : InformationLinks GmbH, Bad-Soden/Ts.
+
+Projekt         : Java Anwendungsentwicklung/Datenbankentwicklung.
+* Entwicklung eines Metadaten-Abstraction-Layers
+* Entwicklung und Test von Stored Procedures.
+     * Datenbankentwicklung und -pflege
+* Anbindung des bestehenden Systems über den
+  Metadaten-Layer an die Datenbank
+* Entwicklung von Factories / Zugriff auf die
+  Stored Procedures
+* Performancanalyse und -tuning der Datenbank/SQL-Statements
+* Entwicklung der Business-Logic
+     * Mitarbeit bei der Entwicklung von Eclipse-Plugins
+* Test der neuen Konponenten
+
+DV-Umfeld       : Windows XP, Java 1.4.2, J2EE, XML, XSLT, PostgreSQL
+Apache Cocoon, Apache iBatis DataMapper
+Tomcat 5.x, Jetty, OOA/OOD/OOP, PL/pgSQL
+MyEclipse 5.1, pgAdmin
+
+===============================================================================
+
+Zeitraum        : 07.11.2005 - 31.01.2007
+Firma/Institut  : DB Systems GmbH, Frankfurt
+
+Projekt         : Weiterentwicklung einer J2EE basierten Einkaufsapplikation.
+* Entwicklung/Integration der PKS (Public Key Infrastructure)
+* Einsatz von Governikus (rechtsverbindliche Online-Transaktionen)
+* digitale Zertifikate
+* Signaturkarten (TeleSec, Signtrust, D-Trust...)
+* Umstellung von Java 1.3.1 auf Java 1.4.2
+* Umstellung von Weblogic 7.0 auf Weblogic 8.1
+* Evaluierung verschiedene Workflow-Systeme
+* Entwicklung einer eigenen Workflow-Engine
+* Entwicklung der Workflow-Komponenten
+* Konfiguration des Workflows über XML
+* PDF-Generierung mittels Velocity
+* Datenbankanbindung über JDBC/Hibernate
+* Session- und EntityBeans, Servlets, JSP
+* Java WebStart
+* JSF Applikation mit MyFaces und Tomahawk
+* generelle Wartungsaufgaben
+* Konfigurationmanagment
+
+DV-Umfeld:        : Windows 2000 Professional, Java 1.3.1, 1.4.2 und 1.5.0
+J2EE, EJB, Servlets, JSP, MVC, JDBC, Hibernate 3.1
+Java Server Faces (MyFaces, Tomahawk)
+BEA Weblogic 7.0, 8.1 und 9.1
+Eclipse 3.1, DB-Visualizer, Subversion, Visal Source Safe 6.0
+Oracle 9, Toad, OOA/OOD/OOP, XML, XSD, Enterprise Architect
+Apache WebServer 1.3.x, Tomcat 4.1.x und 5.0.x
+Java WebStart, Lotus Notes 6.5
+Sun Solaris, diverse Unix-Tools
+
+===============================================================================
+
+Zeitraum        : 15.08.2005 - 31.10.2005
+Firma/Institut  : Deutsche Post IT-Solutions GmbH, Darmstadt
+
+Projekt         : Weiterentwicklung einer J2EE basierten Web-Applikation.
+* Weiterentwicklung eines Moduls zur Generierung von
+  MS-Excel Files.
+* Evaluierung und Test bzgl. des Einsatzes eines
+  Reporting Tools (Jasper Reports, JasperAssistant)
+* Datenbankanbindung mittels JDBC
+* Integration und Test der Komponenten
+* Entwicklung der Business Komponenten
+* Entwicklung der Web-Komponenten (JSP, Servlets)
+
+DV-Umfeld:        : Windows XP, Java, J2EE, EJB (Session-Beans), JSP,
+Servlets, Model (proprietäre MVC Architektur),
+SAP NetWeaver 2, Oracle 9, Toad, OOA/OOD/OOP
+
+===============================================================================
+
+Zeitraum        : 13.06.2005 - 31.07.2005
+Firma/Institut  : Magicon Systems GmbH, Karlsruhe
+
+Projekt         : Serverseitige J2EE Entwicklung für ein Produktions- und
+Trackingsystem.
+* Architekturberatung
+* Design u. Entwicklung der Serverkomponenten
+  (CMP-EntityBeans, Stateless SessionBeans)
+* Datenbankanbindung mittels JDBC
+* Entwicklung von DB-Views und StoredProcedures
+* Datenbankdesign
+* Integration und Test der Komponenten
+* Kofiguration mittels Rational Application Developer
+* Entwicklung der BusinessLogic
+* Entwicklung der BusinessFacade
+
+DV-Umfeld:        : Windows XP, Java, J2EE, EJB (Entity/Session-Beans),
+IBM WebSphere Application Server 6.0,
+IBM Rational Application Developer 6.0 (früher WSAD),
+MS SQL-Server 2000, MS SQL Server Enterprise Manager,
+MS SQL-Server Query Analyzer, OOA/OOD/OOP, CVS
+
+===============================================================================
+
+Zeitraum        : 01.05.2003 - 31.12.2005
+Firma/Institut  : CFH Systeme und Consulting GmbH, Frankfurt
+
+Projekt         : Modulentwicklung für ein Abrechnungssystem.
+* Analyse der Anforderungen
+* Design u. Entwicklung der GUI/Swing-Komponenten
+* Design u. Entwicklung der Serverkomponenten
+  (Entity- u. SessionBeans, Hibernate)
+* Datenbankdesign
+* Integration der neuen Module in das bestehende
+  System
+
+DV-Umfeld:        : Linux, Windows XP, Java, J2EE, EJB (Entity/Session-Beans),
+Swing, JBoss Application Server, XML, Apache/Fop
+NetBeans, SAP DB, Ant, Hibernate, EnterpriseArchitect,
+OOA/OOD/OOP, UML, CVS
+
+
+Projekt         : Weiterentwicklung eine Abrechnungs- und
+Klientenverwaltungssystems auf J2EE-Basis
+* Umstellung der Datenbank von PostgreSQL auf MaxDB (früher SAP-DB)
+* Design und Entwicklung von Session EJB (stateless und stateful),
+  und von Entity EJB (CMP und BMP)
+* Einführung des OP-Mappers Hibernate
+* Konfiguration des Application Servers
+* Datenbankdesign mittels Enterprise Architekt
+* Abstimmungstätigkeiten bzgl. der Business-Logic
+* Integration der neuen Komponenten in das bestehende System
+* Testen der Komponenten
+
+DV-Umfeld:        : Linux, Windows XP, Java, J2EE, JDBC, EJB, Swing,
+JBoss Application Server, XML, Apache/Fop
+NetBeans, PostgeSQL, SAP DB, jakarta/ant,
+Hibernate, Hibernate, EnterpriseArchitect,
+OOA/OOD/OOP, UML, CVS
+
+
+Projekt         : Entwicklung eines Web-basierten Content-Management-Systems
+für den Einzelhandel
+* Analyse der Anforderungen
+* Design der Weboberfläche
+* Design u. Entwicklung der JSPs und Servlets
+* Datenbankdesign
+* Administration der Datenbank (Backup/Recovery etc.)
+* Tomcat/Apache Verbindung mittels mod_jk.
+* Konfiguration des Tomcat und Apache
+* Einbindung verschiedener Apache-Module
+* Einrichtung des Versionsverwaltungssystems CVS
+
+DV-Umfeld:        : Linux, Windows XP, Java 1.4.2, Apache Web-Server,
+Tomcat Servlet Container, mod_jk, Hibernate O/R-Mapping,
+Servlets, JSP, JavaScript, HTML, XML, NetBeans, PostgeSQL,
+jakarta/ant, EnterpriseArchitect, OOA/OOD/OOP, UML, CVS
+
+Anmerkung       : Teilzeit 2-5 Tage pro Woche
+
+===============================================================================
+
+Zeitraum        : 01.02.2003 - 31.12.2005
+Firma/Institut  : Arcor AG, Essen
+
+Projekt         : Configuration Management bei der ARCOR AG
+Erstellen von *Nightly-, Weekly- und Final-Builds.
+  *Hotfixes.
+  *Releasenotes.
+Grundlagen hierfür bildeten Change Requests und IT-Anforderungen.
+Entwicklersupport.
+Entwicklung von Tools zur Vereinfachung des Buildprozesses.
+Umstellung von PVCS 6.7 auf Version 8.0 inklusive Merant
+FileServer (ermöglicht einen webbasierten Zugriff).
+
+DV-Umfeld       : UNIX (HP-UX 10.x, 11i), Windows NT 4.0/2000, C++,
+Perl, PVCS 6.7 und 8.0, Java, Makefiles, Shell-Skripts,
+Oracle, Ant, Merant FileServer und VersionManager, Tomcat,
+Apache Web-Server
+
+Anmerkung       : Teilzeit 2-5 Tage pro Woche
+
+===============================================================================
+
+Zeitraum        : 01.11.2002 - 31.04.2003
+Firma/Institut  : Verein für Sozialpädagogische Modelle e.V., Frankfurt
+
+Projekt         : Konzeptionierung, Design und Implementierung eines
+Abrechnungs- und Klientenverwaltungssystems
+auf Basis der J2EE
+* Analyse der Anforderungen
+* Erstellung des Pflichtenhefts
+* Design und Entwicklung von Session EJB (stateless und stateful),
+  von Entity EJB (CMP und BMP)
+* Datenbankdesign mittels Enterprise Architekt
+* Abstimmungstätigkeiten bzgl. der Business-Logic
+* Konfiguration des Application Servers
+* Testen der Komponenten
+
+DV-Umfeld:        : Linux, Windows XP, Java, J2EE, JDBC, EJB, Swing,
+JBoss Application Server, XML, Apache/Fop
+NetBeans, PostgeSQL, SAP DB, jakarta/ant,
+EnterpriseArchitect, OOA/OOD/OOP, UML, CVS
+
+===============================================================================
+
+Zeitraum        : 01.02.2002 - 30.09.2002
+Firma/Institut  : AviationSoft GmbH, Offenbach
+
+Projekt         : Proof of Concepts.
+
+Konzeptionierung, Design und "Proof of concepts" eines
+Software-Produkts für die Luftfahrtbranche auf Basis der
+"Java 2 Enterprise Edition", J2EE
+Java Server Entwicklung (EJB)
+
+DV-Umfeld       : Windows 2000, Java, J2EE, EJB, JDBC, JBoss Application
+Server,
+BEA Weblogic, XML, JBuilder, OOA/OOD/OOP, UML, jakarta/ant
+
+Branche         : Luftfahrt
+
+===============================================================================
+
+Zeitraum        : 04.07.2001 - 21.12.2001
+Firma/Institut  : Arcor AG, Eschborn
+
+Projekt         : Configuration Management bei der ARCOR AG
+Umstellung des Customer Care &amp; Billing-Systems von einem
+32 Bit HP-UX-System auf HP-UX 11i (64 Bit).
+Erstellen von *Nightly-, Weekly- und Final-Builds.
+  *Hotfixes.
+  *Releasenotes.
+Grundlagen hierfür bilden Change Requests und IT-Anforderungen.
+Entwicklersupport.
+Entwicklung von Tools zur Vereinfachung des Buildprozesses.
+
+DV-Umfeld       : UNIX (HP-UX 10.10, 10.20, 11i), Windows NT 4.0, C++,
+Perl, PVCS, Java, Makefiles, Shell-Skripts, Oracle
+
+===============================================================================
+
+Zeitraum        : 20.03.2000 - 13.10.2000
+Firma/Institut  : Telemedia Networks International Ltd. in Auckland, Neuseeland
+
+Projekt         : Software Bus.
+Verantwortlich für das Design und die Implementierung
+des Telemedia Software-Busses. Ein auf Solaris
+laufender multithreaded Prozess welcher Nachrichten
+zwischen verschiedensten Applikationen (Windows-
+Die Kommunikation wurde mittels TCP/IP realisiert.
+
+Projekt         : Universelle TCP/IP- und UDP-Library
+Ein API welches die Benutzung und das Management
+von TCP/UDP-Verbindungen wesentlich vereinfacht.
+
+Projekt         : ECI Text to Speech System.
+Erweiterung des Telemedias Unified Messaging (UMS).
+Verantwortlich für die Integration des ECI-Systems
+in das bestehende UMS.
+
+Projekt         : Threshold Agent.
+Datenbank mittels embedded SQL auf? "threshold"-
+notifikation prüfen und ggf. Nachrichten an externe
+Systeme schicken.
+ 
+Projekt         : Call Control Supervisor API.
+Verantwortlich für das Design und die Entwicklung
+einer Call Control Supervisor API.
+
+Projekt         : Dservd Troubleshooting.
+Fehlerbehebung und Performanceverbesserung des
+Dservd-Prozesses.
+
+DV-Umfeld       : UNIX (Solaris, Unixware), Windows NT 4.0, C, C++,
+Python, embedded SQL, Oracle 8.1.5.
+ 
+===============================================================================
+
+Zeitraum        : 01.06.97 - 30.09.99
+Firma/Institut  : ABB Airport Technologies GmbH
+
+Projekt         : Universeller Dateierzeuger für Schnittstellen.
+ASCII-Dateien aus Datenbankinhalten erzeugen und auf
+einen anderen Rechner übertragen. Die Struktur und das
+Format der Dateien ist frei konfigurierbar und für neue
+Schnittstellen sind i.A. keine Programmieränderungen
+erforderlich.
+
+
+Projekt         : Konfigurierbarer Dateiimport und Interpretation.
+Realisierung eines Moduls, das Dateien von externen
+Systemen einliest, an einen Textinterpreter weiterleitet
+und die Daten in die Datenbank einfügt. Diese beiden
+Module sind frei konfigurierbar und universell
+einsetzbar.
+
+Projekt         : UFIS Standard TCP/IP-Schnittstelle.
+Als Hauptbestandteil der UFIS-Schnittstellenbereiche
+bindet diese vielseitige und umfangreiche Modul externe
+Systeme online über TCP/IP an.
+
+Projekt         : Zentraler Zeitdienst.
+Ein statisch und dynamisch konfigurierbarer und
+veränderbarer, für alle Arten von Zeitsignalen
+(absolute und relative Zeitangaben) interner Zeitdienst.
+
+Projekt         : Zentraler Datenverteildienst.
+Ein zentraler Datenverteildienst, der konfigurierbare
+Änderungen an Datenbankinhalten an andere Systeme
+weiterleitet. Dies wurde durch die Integration eines
+feldbasierten Filtermechanismus realisiert.
+
+Projekt         : FTP-Modul.
+Eine eigene Implementierung des Protokolls wurde nach
+der offiziellen POSIX-Spezifikation durchgeführt.
+
+DV-Umfeld       : UNIX (SINIX, HP-UX, SOLARIS, SCO-Unix, Unixware),
+Windows NT 4.0, C, LEX und YACC, Script-Sprachen, Oracle.
+
+Schulungen      : Schulungen gehalten in Rom und Bangkok.
+
+Branchen        : Flughäfen, Handling Agents, Airlines
+===============================================================================
+
+Zeitraum        : 01.02.97 - 31.05.97
+Firma/Institut  : REA Elektronik GmbH
+
+Projekt         : Entwicklung eines Speichermanagementsystems für ein
+embedded System (Elektronik Cash Terminal).
+
+DV-Umfeld       : MS-DOS, Windows NT, Borland C++, C.
+
+Branche         : Banken
+===============================================================================
+
+Zeitraum        : 01.05.93 - 31.01.97
+Firma/Institut  : Gotthardt Informationssysteme GmbH
+
+Projekt         : CAFIS Computer Aided Flight Information System
+Informationssystem zur Berechnung von An- und
+Abflugverfahren für Flugzeuge unter Berücksichtigung
+der Hindernissituation in Flughafennähe.
+ 
+Projekt         : VERRIS
+In Uniface realisierte Datenbankanwendung, die als
+zentrale Informationssystem im Zentrum für
+Verifikationsaufgaben der Bundeswehr zur Erfüllung der
+vertraglichen Verpflichtungen der Bundesrepublik
+Deutschland im Rahmen der KSE und
+Wiederabrüstungsverträge dient.
+
+Projekt         : Highdent Plus, Schnittstellen zu externen Systemen
+Entwicklung einer Datenbankanwendung zur medizinischen
+Dokumentation für Zahnkliniken und Schnittstellen zu
+administrativen Systemen der Kliniken.
+
+DV-Umfeld       : 4GL-Tool Uniface, UNIX (Solaris, SCO-Unix, HP-UX),
+Windows NT 3.51, C, Informix, Oracle, PL/SQL, Pro*C.
+
+Branchen        : Krankenhäuser, Kliniken, Praxen
+
+Sonstige Anmerkungen:
+Referenzen und Arbeitszeugnisse können auf Wunsch zugesandt werden.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_25808
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 19.12.2019 00:46:00
+© Copyright 1996-2019 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

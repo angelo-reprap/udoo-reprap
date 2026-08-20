@@ -1,0 +1,520 @@
+Datenbank Berater/Administrator Oracle und SQL-Server
+Verfügbar ab: 01.01.2025
+verfügbar zu: 0 %
+davon vor Ort: 0 %
+Stundensatz: 80,00 EUR
+Bemerkungen: Basisstundensatz +/- Projektanforderungen
+Einsatzort
+Regionen &amp; Länder: D5, D6, D7
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Deutschland: bevorzugt Großraum Rhein/Main
+Position
+Kommentar: Oracle Datenbank Spezialist
+Projekte
+2017-04 - 2017-07 Team B5 Justiz-Systeme
+4 Monate
+Kunde: LDI Mainz
+Projektinhalte:     •  Installation und Customizing
+        •  Oracle Enterprise Manager Cloud Control 13c Release 2
+    •  Datenbankadministration:
+        •  Oracle (Ver. 11g, 12c) RAC
+        •  MS SQL-Server (Ver. 2016), Installation
+    •  Überwachung/Implementierung von Backups für Oracle-Datenbanken
+     ?(RMAN, IBM Tivoli Storage Manager TDPO)
+    •  Systemadministration:
+        •  Red Hat Enterprise Linux Server release 7.3
+        •  SUSE Linux Enterprise Server 11
+        •  System-Backup mit IBM Tivoli Storage Manager
+16.03.2023 1 von 6
+2009-06 - 2017-03 Datacenter Database Engineering
+7 Jahre 10 Monate
+Kunde: Merck KGaA Darmstadt
+Projektinhalte:     •  Datenbankadministration:
+        •  Oracle (Ver. 9i – 12c) incl. RAC und Data Guard Systeme
+        •  MS SQL-Server (Ver. 2005, 2008, 2012, 2014)
+    •  Versions- und Patch-Management
+    •  Automatisches Deployment von Oracle-Datenbanken und Patches
+    •  Datenbank Migration, Konzepte und Durchführung: Oracle 9i ->
+     ?10g -> 11g -> 12c
+    •  Überwachung und Tuning von Oracle-Datenbanken (Oracle
+     ?Enterprise Manager 11g Grid Control, 12c Cloud Control)
+    •  Überwachung/Implementierung von Backups für Oracle-Datenbanken
+     ?(RMAN, IBM Tivoli Storage Manager TDPO)
+    •  Systemadministration:
+        •  IBM AIX (5.2 / 5.3 / 6)
+        •  SUSE Linux Enterprise Server (SLES) Ver. 10 / 11
+        •  Windows Server 2003 / 2008 / 2012
+        •  System-Backup mit IBM Tivoli Storage Manager
+    •  IT Service Management mit HP Service Manager und ServiceNow
+    •  Application Management für validierte Pharma Systeme (GxP)
+2001-01 - 2008-12 Speichermanagement in der Abt. IT-Betrieb
+8 Jahre
+Kunde: ZDF
+Projektinhalte:     •  Datenbankadministration:
+        •  Oracle (Ver. 8i – 11g): Zuständig für den Betrieb von 17
+         ?Oracle Datenbanken für SAP Systeme, 24 produktive Oracle
+         ?Datenbanken für sonstige Verfahren sowie eine Vielzahl von
+         ?Oracle Entwicklungs- und Testdatenbanken.
+        •  MS SQL-Server (Ver. 2000, 2005)
+    •  Entwurf, Aufbau und Betrieb einer Hochverfügbarkeitslösung für
+     ?Oracle-Datenbanken auf Basis SUN Solaris 10 und VERITAS Cluster
+     ?Manager
+    •  Backup-Konzepte für Oracle-Datenbanken (RMAN, EMC NetWorker,
+     ?etc.)
+    •  Security-Konzepte für Oracle-Datenbanken (Oracle Advanced
+     ?Security: TDE etc.)
+    •  Datenbank Migration, Konzepte und Durchführung: Oracle 8i -> 9i
+     ?-> 10g
+    •  Überwachung und Tuning von Oracle-Datenbanken (Oracle 10g Grid
+     ?Control)
+    •  Versions- und Patch-Management
+    •  Support und Troubleshooting der produktiven Oracle Datenbanken
+    •  Beratung der Entwicklungsabteilung bei der Realisierung von
+     ?Datenbankanwendungen und dem Einsatz von
+Entwicklungswerkzeugen
+    •  Systemadministration:
+        •  Sun Solaris (9 / 10) Systemmanagement
+        •  Cluster-Servermanagement unter Solaris mit VERITAS Cluster
+         ?Manager
+        •  System-Backup mit EMC Legato NetWorker
+        •  Storage-Area-Network (SAN) Management und Virtualisierung
+16.03.2023 2 von 6
+         ?mit DataCore SANsymphony
+1998/99/2000: Konzeption und Entwicklung einer Client/Server-Anwendung zur Unterstützung des
+Zahlungsverkehrs in der Abteilung Bank- und Geldgeschäfte (BuG) des ZDF
+    •  Anforderungsanalyse, Design und Implementierung in einer C/S-Umgebung
+    •  Umgebung und Hilfsmittel: Oracle7/8 Server auf PC Windows NT4.0 und Windows Clients,
+     ?Visual Basic V6, Crystal Reports
+1996/98: Konzeption und Entwicklung einer Client/Server-Anwendung zur Unterstützung
+behördlicher Prozesse in der Landwirtschaftkammer Rheinland-Pfalz (Flächenverwaltung,
+Antragsbearbeitung, etc.)
+    •  Anforderungsanalyse, Design und Implementierung in einer C/S-Umgebung unter
+     ?Berücksichtigung verteilter Datenhaltung
+    •  Umgebung und Hilfsmittel: Oracle7 Server auf IBM RS6000 (AIX) und Windows NT Clients,
+     ?Oracle Designer/2000 und Developer/2000 unter Windows NT, Oracle Enterprise- und
+     ?Replicationmanager
+1995: Einführung qualitätssichernder Maßnahmen zur Verbesserung der Performance in einem
+Softwareentwicklungsprojekt im Bereich des BMVg
+    •  Umgebung und Hilfsmittel: OS/2, Windows 95, DB/2, MVS, TSO, COBOL, MS Access
+1994/95: Beratung und Unterstützung bei der Entwicklung eines Vorgehensmodells für die
+methodenunterstützte SW-Entwicklung sowie Einführung einer SEU im Gesundheitswesen
+    •  Hilfsmittel: Case/4/0 von Micro-Tools
+    •  Umgebung: Windows 3.1
+1994: Beratung bei der Produkterstellung nach V-Modell und der Zusammenführung von
+Ergebnissen der SWE's im Zusammenhang mit BGS-Projekten im Bereich des BMVg
+    •  Umgebung und Hilfsmittel: MVS, IMS, CSP mit ADW, CSP2/AD und BGS-Werkzeuge
+1992/93: Projektleitung, Moderations- und Analysetätigkeiten
+    •  Anforderungsanalyse und Erstellung des Softwareanforderungen für ein
+     ?Standard-Softwarepaket im Kommunalbereich; Konzepterarbeitung für die
+     ?Entwicklungsstrategie unter Berücksichtigung der Zielplattformen OS/2, UNIX, AS/400;
+     ?Verbesserung von Entwicklungswerkzeugen
+    •  Umgebung und Hilfsmittel: OS/2 und AIX, ADW, CSP2/AD und BGS-Entwick-lungswerkzeuge
+1992: Moderation und Einbringen von SEU- (Software-Entwicklungs-Umgebung) Kompetenz für die
+Erstellung eines CBT
+    •  Einbringen von SEU-Fachkompetenz, Drehbuchberatung und Visualisierungs¬tätigkeiten bei
+     ?der Erstellung eines CBT "Daten- und Funktionsmodellierung" unter Verwendung der
+     ?Notation des Tools "System-Engineer" von LBMS
+    •  Hilfsmittel: SE von LBMS, Toolbook
+    •  Umgebung: OS/2, Windows 3.1
+1991: Analyse und Moderationstätigkeiten
+    •  Erstellung eines Daten- und Funktionsmodells für den Kfz-Handel
+    •  (Verwaltung, Werkstatt, Vertrieb, Logistik)
+    •  Hilfsmittel: ISOTEC und IEW/ADW
+    •  Umgebung: OS/2, Windows 3.1
+1990: Migration
+    •  Umstellung einer COBOL-Anwendung für die Verwaltung von Liegenschaften von einer IBM
+     ?8100 auf ein IBM AS/400 System
+    •  Umgebung: COBOL, IBM 8100, AS/400
+1988/89: Analyse- und Entwicklungstätigkeiten
+    •  Entwicklung BK-Standardsoftware (Editor)
+    •  Entwicklung Informationssystem für die EG-Qualitätsweinprüfung
+    •  Umgebung: IBM MVS/VM/DPPX, IMS DB/DC; Programmiersprache PL/AS und PL/1
+16.03.2023 3 von 6
+Sprachen
+Deutsch
+Englisch gute Kenntnisse
+Kompetenzen
+Produkte / Standards /
+Erfahrungen / Methoden
+    •  Tiefgreifende Kenntnisse und jahrelange praktische
+     ?Erfahrung in Entwicklung und Administration des RDBMS
+     ?Oracle Database Server (Ver. 7, 8i, 9i, 10g, 11g, 12c) und
+     ?den Werkzeugen:
+        •  Oracle Enterprise Manager (9i, 10g, 11g Grid Control
+         ?und 12c Cloud Control)
+        •  Oracle Database High Availability: RAC und Dataguard
+        •  Oracle Recovery Manager (RMAN)
+        •  Oracle Advanced Security Option 10g (ASO, speziell TDE)
+        •  Oracle Partitioning
+        •  Oracle Backup mit RMAN
+        •  Oracle Identity Management 10g
+        •  Oracle Audit Vault
+        •  Oracle Designer/2000 und Developer/2000
+        •  Kenntnisse von Oracle Hochverfügbarkeitslösungen: Real
+         ?Application Cluster (RAC) und Data Guard
+ 
+    •  Gute Kenntnisse und praktische Erfahrung mit den
+     ?Betriebssystemen Windows   (2008/2012-Server, 7, 10), UNIX
+     ?(Linux, Solaris,  AIX).
+    •  Praktische Erfahrung in Entwicklung und Administration der
+     ?RDBMS MS-SQL-Server und DB/2
+    •  Gute Kenntnisse und praktische Erfahrung mit den
+     ?Systemmanagement-Tools VERITAS
+    •  Cluster Manager (Cluster-Servermanagement), EMC Legato
+     ?NetWorker (Backup und Recovery) und DataCore SANsymphony
+     ?(SAN Management)
+    •  Praktische Erfahrung mit den Programmiersprachen SQL,
+     ?PL/SQL, Unix Shell-Scripting, (Visual-) Basic, PL/1, COBOL
+ 
+    •  Theoretische Durchdringung von Prozessen und Methoden für
+     ?die Umsetzung eines ITService-Managements nach ITIL
+    •  Theoretische Durchdringung und praktische Anwendung von
+     ?zukunftsorientierten Methodologien (Entity Relationship,
+     ?Structured Analysis, Structured Design, OOA/OOD etc.)
+    •  Beratung, Schulung, und Moderation in methodischer
+     ?Vorgehensweise bei der Unternehmensmodellierung
+Betriebssysteme IBM AIX
+Lynx
+MS-DOS
+16.03.2023 4 von 6
+MVS, OS/390
+SUN OS, Solaris
+Unix sehr gute Kenntnisse
+Windows
+Windows CE
+Programmiersprachen Assembler erweiterte Grundkenntnisse
+Basic sehr gute Kenntnisse
+C erweiterte Grundkenntnisse
+C++ erweiterte Grundkenntnisse
+Cobol gute Kenntnisse
+Fortran erweiterte Grundkenntnisse
+Pascal erweiterte Grundkenntnisse
+Perl erweiterte Grundkenntnisse
+PL/1 erweiterte Grundkenntnisse
+PL/SQL sehr gute Kenntnisse
+Shell gute Kenntnisse
+Smalltalk erweiterte Grundkenntnisse
+Datenbanken Access sehr gute Kenntnisse
+DB2 erweiterte Gundkenntnisse
+JDBC erweiterte Gundkenntnisse
+MS SQL Server erweiterte Kenntnisse
+MySQL erweiterte Gundkenntnisse
+ODBC sehr gute Kenntnisse
+Oracle sehr gute Kenntnisse
+SQL sehr gute Kenntnisse
+Datenkommunikation Ethernet erweiterte Gundkenntnisse
+Internet, Intranet erweiterte Kenntnisse
+ISO/OSI erweiterte Gundkenntnisse
+Aus- und Weiterbildung
+16.03.2023 5 von 6
+Fachhochschule Darmstadt
+Fachrichtung: Informatik
+Abschluss: Diplom-Informatiker (FH)
+16.03.2023 6 von 6
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_97280
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                97280
+  
+Wohnort                    551xx Mainz, Deutschland
+Jahrgang                   1963
+Staatsbürgerschaft         deutsch
+Stundensatz                80 EUR
+                           Basisstundensatz +/- Projektanforderungen
+Verfügbar ab               01.01.25 zu 0%, Vor-Ort-Einsatz 0% möglich
+Profil erstellt am         18.03.09
+Profil zuletzt geändert am 10.02.21
+Lesen von Projektanfragen  1,5 Tage [07]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 12.01.2019 15:17:45
+
+Fachlicher Schwerpunkt:
+Datenbank Berater/Administrator Oracle und SQL-​Server
+
+Position:
+Beratung / Consulting
+Administration / Support
+
+Oracle Datenbank Spezialist
+
+Festanstellung gleichrangig zu freiberuflicher Mitarbeit
+
+Voraussetzung für Festanstellung: Voraussetzung für eine Festanstellung ist ein
+Arbeitsort im Großraum Rhein/Main und eine interessante Aufgabe im Bereich
+Oracle Datenbank- Betreuung/Administration/Entwicklung. Meine
+Gehaltsvorstellungen bewegen sich bei 70.000 Euro pro Jahr.
+
+Ausbildung:
+Fachhochschule Darmstadt
+Fachrichtung: Informatik
+Abschluss: Diplom-Informatiker (FH)
+
+Einsatzort:
+Regionen:
+D5, D6, D7
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: bevorzugt Großraum Rhein/Main
+
+Fremdsprachen:
+Deutsch   
+Englisch gute Kenntnisse
+
+
+Betriebssysteme:
+IBM AIX          
+Lynx             
+MS-DOS           
+MVS, OS/390      
+SUN OS, Solaris  
+Unix            sehr gute Kenntnisse
+Windows          
+Windows CE       
+
+
+Programmiersprachen:
+Assembler erweiterte Grundkenntnisse
+Basic     sehr gute Kenntnisse
+C         erweiterte Grundkenntnisse
+C++       erweiterte Grundkenntnisse
+Cobol     gute Kenntnisse
+Fortran   erweiterte Grundkenntnisse
+Pascal    erweiterte Grundkenntnisse
+Perl      erweiterte Grundkenntnisse
+PL/SQL    sehr gute Kenntnisse
+PL/1      erweiterte Grundkenntnisse
+Shell     gute Kenntnisse
+Smalltalk erweiterte Grundkenntnisse
+
+
+Datenbanken:
+Access        sehr gute Kenntnisse
+DB2           erweiterte Gundkenntnisse
+JDBC          erweiterte Gundkenntnisse
+MS SQL Server erweiterte Kenntnisse
+MySQL         erweiterte Gundkenntnisse
+ODBC          sehr gute Kenntnisse
+Oracle        sehr gute Kenntnisse
+SQL           sehr gute Kenntnisse
+
+
+Datenkommunikation:
+Ethernet           erweiterte Gundkenntnisse
+Internet, Intranet erweiterte Kenntnisse
+ISO/OSI            erweiterte Gundkenntnisse
+
+
+Produkte/Standards/Erfahrungen:
+    * Tiefgreifende Kenntnisse und jahrelange praktische Erfahrung in
+      Entwicklung und Administration des RDBMS Oracle Database Server (Ver. 7,
+      8i, 9i, 10g, 11g, 12c) und den Werkzeugen:
+    *     o Oracle Enterprise Manager (9i, 10g, 11g Grid Control und 12c Cloud
+            Control)
+          o Oracle Database High Availability: RAC und Dataguard
+          o Oracle Recovery Manager (RMAN)
+          o Oracle Advanced Security Option 10g (ASO, speziell TDE)
+          o Oracle Partitioning
+          o Oracle Backup mit RMAN
+          o Oracle Identity Management 10g
+          o Oracle Audit Vault
+          o Oracle Designer/2000 und Developer/2000
+          o Kenntnisse von Oracle Hochverfügbarkeitslösungen: Real Application
+            Cluster (RAC) und Data Guard
+ 
+    * Gute Kenntnisse und praktische Erfahrung mit den Betriebssystemen Windows
+        (2008/2012-Server, 7, 10), UNIX (Linux, Solaris,  AIX).
+    * Praktische Erfahrung in Entwicklung und Administration der RDBMS MS-SQL-
+      Server und DB/2
+    * Gute Kenntnisse und praktische Erfahrung mit den Systemmanagement-Tools
+      VERITAS
+    * Cluster Manager (Cluster-Servermanagement), EMC Legato NetWorker (Backup
+      und Recovery) und DataCore SANsymphony (SAN Management)
+    * Praktische Erfahrung mit den Programmiersprachen SQL, PL/SQL, Unix Shell-
+      Scripting, (Visual-) Basic, PL/1, COBOL
+ 
+    * Theoretische Durchdringung von Prozessen und Methoden für die Umsetzung
+      eines ITService-Managements nach ITIL
+    * Theoretische Durchdringung und praktische Anwendung von
+      zukunftsorientierten Methodologien (Entity Relationship, Structured
+      Analysis, Structured Design, OOA/OOD etc.)
+    * Beratung, Schulung, und Moderation in methodischer Vorgehensweise bei der
+      Unternehmensmodellierung
+
+Projekte:
+04/2017 - 07/2017: Team B5 Justiz-Systeme
+ 
+Kunde:              LDI Mainz
+ 
+Aufgaben:
+ 
+    * Installation und Customizing
+          o Oracle Enterprise Manager Cloud Control 13c Release 2
+    * Datenbankadministration:
+          o Oracle (Ver. 11g, 12c) RAC
+          o MS SQL-Server (Ver. 2016), Installation
+    * Überwachung/Implementierung von Backups für Oracle-Datenbanken (RMAN, IBM
+      Tivoli Storage Manager TDPO)
+    * Systemadministration:
+          o Red Hat Enterprise Linux Server release 7.3
+          o SUSE Linux Enterprise Server 11
+          o System-Backup mit IBM Tivoli Storage Manager
+===============================================================================
+06/2009 - 03/2017: Datacenter Database Engineering
+ 
+Kunde:              Merck KGaA Darmstadt
+ 
+Aufgaben:
+ 
+    * Datenbankadministration:
+          o Oracle (Ver. 9i – 12c) incl. RAC und Data Guard Systeme
+          o MS SQL-Server (Ver. 2005, 2008, 2012, 2014)
+    * Versions- und Patch-Management
+    * Automatisches Deployment von Oracle-Datenbanken und Patches
+    * Datenbank Migration, Konzepte und Durchführung: Oracle 9i -> 10g -> 11g -
+      > 12c
+    * Überwachung und Tuning von Oracle-Datenbanken (Oracle Enterprise Manager
+      11g Grid Control, 12c Cloud Control)
+    * Überwachung/Implementierung von Backups für Oracle-Datenbanken (RMAN, IBM
+      Tivoli Storage Manager TDPO)
+    * Systemadministration:
+          o IBM AIX (5.2 / 5.3 / 6)
+          o SUSE Linux Enterprise Server (SLES) Ver. 10 / 11
+          o Windows Server 2003 / 2008 / 2012
+          o System-Backup mit IBM Tivoli Storage Manager
+    * IT Service Management mit HP Service Manager und ServiceNow
+    * Application Management für validierte Pharma Systeme (GxP)
+===============================================================================
+01/2001 - 12/2008: Speichermanagement in der Abt. IT-Betrieb
+ 
+Kunde:              ZDF
+ 
+Aufgaben:
+ 
+    * Datenbankadministration:
+          o Oracle (Ver. 8i – 11g): Zuständig für den Betrieb von 17 Oracle
+            Datenbanken für SAP Systeme, 24 produktive Oracle Datenbanken für
+            sonstige Verfahren sowie eine Vielzahl von Oracle Entwicklungs- und
+            Testdatenbanken.
+          o MS SQL-Server (Ver. 2000, 2005)
+    * Entwurf, Aufbau und Betrieb einer Hochverfügbarkeitslösung für Oracle-
+      Datenbanken auf Basis SUN Solaris 10 und VERITAS Cluster Manager
+    * Backup-Konzepte für Oracle-Datenbanken (RMAN, EMC NetWorker, etc.)
+    * Security-Konzepte für Oracle-Datenbanken (Oracle Advanced Security: TDE
+      etc.)
+    * Datenbank Migration, Konzepte und Durchführung: Oracle 8i -> 9i -> 10g
+    * Überwachung und Tuning von Oracle-Datenbanken (Oracle 10g Grid Control)
+    * Versions- und Patch-Management
+    * Support und Troubleshooting der produktiven Oracle Datenbanken
+    * Beratung der Entwicklungsabteilung bei der Realisierung von
+      Datenbankanwendungen und dem Einsatz von Entwicklungswerkzeugen
+    * Systemadministration:
+          o Sun Solaris (9 / 10) Systemmanagement
+          o Cluster-Servermanagement unter Solaris mit VERITAS Cluster Manager
+          o System-Backup mit EMC Legato NetWorker
+          o Storage-Area-Network (SAN) Management und Virtualisierung mit
+            DataCore SANsymphony
+===============================================================================
+1998/99/2000: Konzeption und Entwicklung einer Client/Server-Anwendung zur
+Unterstützung des Zahlungsverkehrs in der Abteilung Bank- und Geldgeschäfte
+(BuG) des ZDF
+    * Anforderungsanalyse, Design und Implementierung in einer C/S-Umgebung
+    * Umgebung und Hilfsmittel: Oracle7/8 Server auf PC Windows NT4.0 und
+      Windows Clients, Visual Basic V6, Crystal Reports
+===============================================================================
+1996/98: Konzeption und Entwicklung einer Client/Server-Anwendung zur
+Unterstützung behördlicher Prozesse in der Landwirtschaftkammer Rheinland-Pfalz
+(Flächenverwaltung, Antragsbearbeitung, etc.)
+    * Anforderungsanalyse, Design und Implementierung in einer C/S-Umgebung
+      unter Berücksichtigung verteilter Datenhaltung
+    * Umgebung und Hilfsmittel: Oracle7 Server auf IBM RS6000 (AIX) und Windows
+      NT Clients, Oracle Designer/2000 und Developer/2000 unter Windows NT,
+      Oracle Enterprise- und Replicationmanager
+===============================================================================
+1995: Einführung qualitätssichernder Maßnahmen zur Verbesserung der Performance
+in einem Softwareentwicklungsprojekt im Bereich des BMVg
+    * Umgebung und Hilfsmittel: OS/2, Windows 95, DB/2, MVS, TSO, COBOL, MS
+      Access
+===============================================================================
+1994/95: Beratung und Unterstützung bei der Entwicklung eines Vorgehensmodells
+für die methodenunterstützte SW-Entwicklung sowie Einführung einer SEU im
+Gesundheitswesen
+    * Hilfsmittel: Case/4/0 von Micro-Tools
+    * Umgebung: Windows 3.1
+===============================================================================
+1994: Beratung bei der Produkterstellung nach V-Modell und der Zusammenführung
+von Ergebnissen der SWE's im Zusammenhang mit BGS-Projekten im Bereich des BMVg
+    * Umgebung und Hilfsmittel: MVS, IMS, CSP mit ADW, CSP2/AD und BGS-
+      Werkzeuge
+===============================================================================
+1992/93: Projektleitung, Moderations- und Analysetätigkeiten
+    * Anforderungsanalyse und Erstellung des Softwareanforderungen für ein
+      Standard-Softwarepaket im Kommunalbereich; Konzepterarbeitung für die
+      Entwicklungsstrategie unter Berücksichtigung der Zielplattformen OS/2,
+      UNIX, AS/400; Verbesserung von Entwicklungswerkzeugen
+    * Umgebung und Hilfsmittel: OS/2 und AIX, ADW, CSP2/AD und BGS-Entwick-
+      lungswerkzeuge
+===============================================================================
+1992: Moderation und Einbringen von SEU- (Software-Entwicklungs-Umgebung)
+Kompetenz für die Erstellung eines CBT
+    * Einbringen von SEU-Fachkompetenz, Drehbuchberatung und
+      Visualisierungs¬tätigkeiten bei der Erstellung eines CBT "Daten- und
+      Funktionsmodellierung" unter Verwendung der Notation des Tools "System-
+      Engineer" von LBMS
+    * Hilfsmittel: SE von LBMS, Toolbook
+    * Umgebung: OS/2, Windows 3.1
+===============================================================================
+1991: Analyse und Moderationstätigkeiten
+    * Erstellung eines Daten- und Funktionsmodells für den Kfz-Handel
+    * (Verwaltung, Werkstatt, Vertrieb, Logistik)
+    * Hilfsmittel: ISOTEC und IEW/ADW
+    * Umgebung: OS/2, Windows 3.1
+===============================================================================
+1990: Migration
+    * Umstellung einer COBOL-Anwendung für die Verwaltung von Liegenschaften
+      von einer IBM 8100 auf ein IBM AS/400 System
+    * Umgebung: COBOL, IBM 8100, AS/400
+===============================================================================
+1988/89: Analyse- und Entwicklungstätigkeiten
+    * Entwicklung BK-Standardsoftware (Editor)
+    * Entwicklung Informationssystem für die EG-Qualitätsweinprüfung
+    * Umgebung: IBM MVS/VM/DPPX, IMS DB/DC; Programmiersprache PL/AS und PL/1
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_97280
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 11.02.2021 00:50:01
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

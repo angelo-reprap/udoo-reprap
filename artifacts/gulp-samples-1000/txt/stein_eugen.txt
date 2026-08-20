@@ -1,0 +1,1070 @@
+Software-Eintwicklung / Programmierung / Projektleitung.
+Verfügbar ab: 01.10.2023
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 72,00 EUR
+Einsatzort
+Regionen &amp; Länder: D8
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Position
+Kommentar:     •  Inter- und Intranet Lösungen
+    •  Hard- und Software Konzepte - Architektur
+    •  RCP Anwendungserstellung
+    •  Front- und Backend JEE Entwicklung
+Projekte
+2018-01 - 2019-08 Fleetmanagement for vehicles
+1 Jahr 8 Monate
+Rolle: Entwickler
+Kunde: BMW
+Einsatzort: München
+Projektinhalte:     •  Portierung eines in JSF / XHTML und Java-Beans  auf Glassfish
+     ?entwickelten Carsharing-Systems auf eine NodeJS Platform.
+     ?Erweiterung von Verwaltungs-, Import- und
+     ?Export-Funktionalitäten.
+    •  Microservices und Swagger Rest-Schnittstellen zur Unterstüzung
+22.02.2023 1 von 11
+     ?einer VueJS (reactives AngularJS ähnliches Framework)
+     ?Anwendung.
+    •  Java 1.8, Java Script, JSon, Eclipse und IntelliJ. Oracle. JPA,
+     ?Liquibase, Docker-Machines mit MQTT HiveMq-Brocker,
+     ?PostgreSQL-DB und SpringBoot-Application.
+    •  BatchJobs. JTimer, JMail. SoapUI. Gradle. Git. Ubuntu on Oracle
+     ?VM VirtualBox.
+    •  Jenkins, Sonar 80% Mockito / JUnit-Testabdeckung
+    •  Scrum \ Kanban– Beispielhaft mit Jira und Confluence
+    •  Grundkenntnisse : GitLab, Vagrant, Kubernetes, Kubectl, Kibana
+Eingesetzte Produkte: Java 1.8, Microservices und REST-Schnittstellen mit Spring Boot 4, Docker,
+JEE, AngularJS ähnliches Java Script Framework, CSS, HTML, JSP, DB2,
+PostgreSQL, SQLWorkbench, Hibernate, JPA, JQL, Apache Tomcat, SVN,
+Gradle, JIRA - Confluence, Enterprise Architect. DMS-GUI mit Java FX 2.0.
+2016-01 - 2017-12 StMELF  / INVEKOS - Verarbeitung von Anträgen
+2 Jahre
+Projektinhalte:     •  Konzeption und Realisierung einer modularen auf Java basierten
+     ?Anwendung zur Abwicklung von investiven Fördermaßnahmen.
+    •  Portierung von Alt-Anwendungen auf ein Firmeninternes
+     ?Framework.
+    •  Entwicklung Diverser Modulen wie: Bewilligung,
+     ?Verwendungsnachweise, Rückforderungen, Auszahlungen,
+     ?Haushaltsmittelverwaltung, Administration/Benutzerverwaltung
+     ?etc.
+    •  Dokumenten-Management.System.
+Eingesetzte Produkte: Java 1.8, Microservices und REST-Schnittstellen mit Spring Boot 4, STS-
+Eclipse, Docker, JEE, AngularJS ähnliches Java Script Framework, CSS,
+HTML, JSP, DB2, PostgreSQL, SQLWorkbench, Hibernate, JPA, JQL, Apache
+Tomcat, SVN, Gradle, JIRA - Confluence, Enterprise Architect. DMS-GUI
+mit Java FX 2.0.
+2015-01 - 2015-12 Car Comparator
+1 Jahr
+Kunde: GfK
+Einsatzort: Nürnberg
+Projektinhalte:     •  Entwicklung einer mehrsprachigen JEE-Anwendung für den
+     ?Vergleich von Audi / VW und BMW Fahrzeuge. Komponenten
+     ?Entwicklung mit dem Vaadin-Framework.
+    •  Architektur/Schemaentwicklung sowie CRUD.Aufgaben für die
+     ?MongoDB- Datenbank. XML-Import.
+    •  Performance optimierung.Frontend Styling mit Theme /
+     ?Sass.Versionsverwaltung mit SVN und Git.
+    •  Implementierung eines JavaFX Rich Client für
+     ?Maintenance-Aufgaben.
+Eingesetzte Produkte: Java 8, IntelliJ 14, Vaadin 7.5 /GWT Framework, Maven, Apache Tomcat 8,
+MongoDB 3.5, JSON, GIT
+22.02.2023 2 von 11
+2014-09 - 2015-01 AsStatisticReporter
+5 Monate
+Kunde: Daimler-Benz
+Projektinhalte:     •  Entwicklung einer JEE-Anwendung für die Erstellung von Reports
+     ?für Werkstatt-Fahrzeugdaten basierend auf umfangreiche
+     ?Datenbankabfragen.
+    •  Umstellung der JSF-Webanwendung auf SPA mit Redesign
+Eingesetzte Produkte: Java / Java Script, JQuery, Apache Tomcat, Websphere AS 7, DB2,
+OpenJpa, PAI. Jax-RS RESTful-Services. AngularJS, HTML, CSS, Bootstrap.
+Grunt, Bower.Serialisierungen mit JSON. JUnit-Komponententests sowie
+E2E Testautomatisierung mit Selenium. Projektversionsverwaltung mit
+SVN und GIT. Scrum. Jira
+2014-01 - 2014-08 GIS-Clearing Tools
+8 Monate
+Kunde: O2
+Projektinhalte:     •  Aufbau, Wartung und Weiterentwicklung einer komplexen Service-
+     ?orientierten GIS - Applikation auf JEE und SOA Basis.
+    •  Unterstützen bei der Entwicklung von Schnittstellen zu
+     ?Telco-spezifischen Systemen
+Eingesetzte Produkte: Java, Apache Wicket, AngularJS, JSON, HTML, CSS, Java-Script, JHipster,
+HighCharts, Grunt. Spring RESTful Services, Unit- Und E2E-Tests mit
+Jasmin und Karma. Webservice mit Jax WS, SoapUI, Maven, Eclipse,
+Hibernate, PL-SQL, Oracle Spatial, Import von Tom-Tom und Telekom
+Daten, Jasper Reports, Apache  /  Tomcat, Load-balancing auf Unix (Sun
+Os). OpenSSL. Shell Scripting, JUnit- Tests. Mockito. Performance
+Messungen mit  JMeter. Projektversionsverwaltung mit GIT. Jenkins.
+Sonar. Jira.
+2013-10 - 2014-01 TSIS
+4 Monate
+Kunde: BMW
+Projektinhalte:     •  Couching für die Realisierung einer JEE
+     ?Traffic-System-Information Anwendung.
+    •  Bearbeitung von online Traffic-Fahrzeugdaten.
+    •  Positions- und Umgebungsbestimmung, filtern, speichern und
+     ?ermitteln der JGeometrie.
+    •  Web-Applikation für Daten-Import aus Fremdsystemen.
+    •  Web-Start Anwendung für Funktionale und Integrationstests.
+Eingesetzte Produkte: Java, GWT, JavaFX, JEE, Servlet, EJB, Eclipse EMF/ SVN, Maven, Glassfish,
+Eclipselink und Toplink/JPA/Oracle 11.2 Spatial.VMware basierte
+Virtualisierungen.  Special Logging. Performance Tracing. Tests im Front-
+und Backend. Jenkins, Sonar, Scrum
+22.02.2023 3 von 11
+2013-01 - 2013-08 DVP
+8 Monate
+Kunde: BMW
+Projektinhalte:     •  Entwicklung einer JEE Anwendung zur Verwaltung von
+     ?Fahrzeugmodellen und Händlerstämme so wie Kalkulationen für
+     ?Verkaufsplanungen
+Eingesetzte Produkte: Java, Eclipse / SVN, Maven, JSF/PrimeFaces, JavaScript, JQuery, Glassfish
+3.1, REST Api, MyFaces CA3 A.Bien-Framework, EMF-Modeling, JUnit,
+Jmock, Jasmin, Eclipselink-JPA/Oracle 11. SCRUM Performance-Migration
+auf AngularJS. Prototyping mit Yeoman. Testautomatisierung Browser-
+Kompatibilitäten
+2012-01 - 2013-01 ABS
+1 Jahr 1 Monat
+Kunde: Allianz
+Projektinhalte:     •  Entwicklung eines Java/C++-GUI  für die Durchführung von
+     ?funktionalen Abnahme-Tests eines komplexen
+     ?Bestanderfassungsystems.
+    •  Aufrufen sämtllicher Funktionen des Rechenwerks einer
+     ?Versicherung mit standalone- und Intranet-Client über eine
+     ?dafür entwickelte (native) XML-Schnittstelle.
+Eingesetzte Produkte: JAVA 1.6, SE, ECLIPSE RCP.-PLUGINS, OSGI, SWT, JFACES, JAXB-XML,
+JNI, C++ Visual Studio 2012, SWIG-Native, Wicket, JSF/PrimeFaces.,
+JBoss 5.1 EAP und Apache 7.0. Versionierung mit SAVI. SCRUM
+2010-08 - 2012-01 Rainbow (Billing/CRM)
+1 Jahr 6 Monate
+Kunde: Mobilcom
+Projektinhalte:     •  Weiterentwicklung Unter JAVA von Funktionalitäten eines auf JEE
+     ?basierenden CRM-Systems.
+    •  Entwicklung von Generatoren  für SOA-100% Test-Frameworks.
+    •  Umsetzung von Implementationen nach Vorgaben in BPMN 2.0 /Aris
+     ?QS-Service Testautomatisierungen.
+    •  Last – Stress- und Performance-Tests - Koordination mit HP
+     ?QUALITY CENTER, CONFLUENCE, CLEAR-QUEST und CLEAR-CASE.
+     ?Service-Bereitstellung über RESTeasy und EJB 3 im Backend für
+     ?ein Liferay-Portal / Portlets.
+    •  Couching im JPA–Bereich. Automatische Entitätsgenerierung für
+     ?Apache OpenJPA / ORACLE DB und XML
+Eingesetzte Produkte: JAVA 1.6, JEE, EJB-Portierungen, JPA /HIBERNATE, SYBASE und MYSQL,
+ECLIPSE, JSF/XHTML, RICHFACES, JBOSS-SEAM, DROOLS, TOMCAT, ANT
+1.8.2, JAXB2-MAVEN-PLUGIN, JSON. RESTful Web Services mit JERSEY-
+JAX-RS. JAMELEON mit SELENIUM-SCHNITTSTELLE, JMETER, TestNG,
+Bussines-Test Coverages für Customer-Requirements, JMS, JAVA MAIL.
+ENTERPRISE ARCHITECT, SCRUM. Jenkins. HP VuGen. Analysen mit HP
+Performance Center 11 (LoadRunner).
+22.02.2023 4 von 11
+2010: GCC (Groupeware-Competence-Center)
+ 
+Kunde:                          Mercede-Benz
+Einsatzort:                    Stuttgart
+Branche:                       Automotiv
+ 
+Aufgaben:
+    •  Mitarbeit bei der Entwicklung und Restrukturierung eines Verkauf-Portals.
+    •  Aufgabenlösung im Front und Backend- Bereich: Installation und Konfiguration der
+     ?Entwicklungs- und Testumgebung.
+    •  HTML, JSP, Servlet- und  EJB, JPA /HIBERNATE,SPRING-Framework und -WebFlow.
+    •  Entwicklung. 
+    •  Entwurf von SQL/HQL-Statements für die Suche von Personen u Firmen (Dealer-Locater)
+     ?nach Vorgaben.
+    •  Vorbereitung und Durchführung von Integrationtests.
+ 
+Umfeld:
+JAVA 1.6, J2EE, RAD, Datenbank DB2, WEBSPHERE. Workflow-Generierungen aus VISIO  mit JAM-
+Modeller. Code-Anpassungen / Portierungen Integrationstest. Versionierung  mit  SUBVERSION.
+Automatisierte Builds-und Packetierungs-Verfolgung mit ANT und MAVEN. CRUISE-CONTROL
+Überwachung.
+2008 - 2009 WIF-Projekt (Workflow Integration Framework)
+ 
+Kunde:                          UBS-Bank
+Einsatzort:                    Schweiz
+Branche:                       Bank
+Sprache:                       Englisch
+ 
+Aufgaben:
+    •  Mitarbeit bei der Realisierung eines universellen Frameworks das bestimmt ist für die
+     ?Entwicklung und Integration von UBS-spezifischen Bank-Applikationen.
+    •  Erstellung und Pflege eines Anwender-Guides.
+    •  Koordination des Entwicklungsfortschrittes.
+    •  Release Management mit Maven und Ant.
+    •  Funktionsavalidierungen.
+    •  Applikation-Deployment und Konfiguration auf UNIX-Servern.
+ 
+Umfeld:
+J2EE, JAVA 1.5, JAVA SCRIPT, RAD 7. IBM-Websphere Portal Server 6.1, IBM sMash 1.1. PORTAL,
+PORTLETS, AJAX, MAVEN 2, ANT, Zentrales Release-System QUICKBUILD.  Aufgabenbetreung über
+ein zentrales Quality-Center
+2007 - 2008 Ticketing
+ 
+Kunde:                          ASCOM /ACS
+Einsatzort:                    Switzerland
+Branche:                       Dienstleistung
+Sprache:                       Englisch
+ 
+Aufgaben:
+    •  Mitarbeit beim Entwurf der Modul-Architektur einer  J2EE Anwendung die vernetzte
+     ?Ticketautomaten steuert und verwaltet.
+    •  Einsatz von Requisite-Pro. UML-Design mit Enterprise Architect.
+    •  Konzept für Alarm-Auslösungen bei nicht ausgeführten Pflicht-Jobs.
+    •  Einbinden von parametrierten FTP-Exports. Scheduling mit QUARTZ.
+    •  Einsatz von EJB-Komponenten.
+    •  Entwurf eines Benutzerrollen- und Exceptionhandling -Konzeptes.
+    •  GUI - und Backend  Programmieraufgaben. Automatisierung von Bedienoberflächen durch
+     ?Einführung von JNI gesteuerten Controlls. 
+    •  RICH-CLIENT Applikationen zur Steuerung von Hintergrundprozessen. (SWT und JFACE).
+22.02.2023 5 von 11
+    •  Vorbereitung und Durchführung von Modul- und Unittests.
+ 
+Umfeld:
+JAVA, SWING, ECLIPSE, RCP, PDE ¿BUILD, PLUGIN Erstelung und Benutzung, JAXB, SPRING DI,
+IoC. JBOSS, EJB - remote Debugging.  Modulkommunikation mit JMS und SOAP/ WSDL. Datenbank
+ORACLE10g SQL, PL-SQL, STORED POCEDURES, SQL-DEVELOPER, HIBERNATE und JDBC. Unit-Tests
+mit JUNIT, JMOCK, Versionierung  mit  MAVEN und SUBVERSION.Projektmanagement und
+Controlling mit ATLASSIAN JIRA und CONFLUENCE.
+2006 – 2007: SW-Entwicklungsprojekte
+ 
+Kunde:                          EJPD
+Einsatzort:                    Schweiz
+Branche:                       Behörde
+ 
+Aufgaben:
+    •  Analyse und Beratung bei der Spezifikation der Anwendung.
+    •  Coaching der Fachanalyse und Abbildungen mittels des EJB Komponentenmodells.
+    •  Modul-Implementierungen im Front- und Back-End Bereich.
+    •  Definition und Etablierung der Testumgebung.
+    •  Gestaltung der Datensicherung und Versionierung.
+    •  Vorbereitung von Rollouts.
+    •  Portierung der Server und Client- Applikationen auf Java 5 ( EJB 3.0, Generics,
+     ?Annotations, JAXB)
+    •  Tests mit JBoss 4.0.
+    •  Entwicklung eines Native Browser-Clients mit OBJECTIVITY- und JNI-Anbindung. Einsatz
+     ?von  VISUAL STUDIO 2005. Configuration Management mit CLEAR CASE.
+ 
+Umfeld:
+BEA WEBLOGIC, Erstellen, Deployen und Debuggen von EJBs (Tests mit JMOCK), ORACLE,
+JDBC,JAVA, SWT/SWING, ECLIPSE - RICH CLIENT Programmierung (RCP), HIBERNATE,
+CASTOR/XML, HTML/CSS, JAVA-SCRIPT, AJAX, ANT, MAVEN (Entwicklung von Goals/Artifacts),
+Crionics H-MVC.Tests mit JUNIT und JMOCK.Datensicherung und Versionsverwaltung mit CVS. Thin-
+Client Architektur Entwurf/Prototyping mit JSP/JSF, SOAP Webservices mit AXIS, TOMCAT, MySQL
+und NETBEANS. JMS-Einsatz.
+2006 – 2006: Anbindung von OC4J mit UIX an  ein Hummingbird-System
+ 
+Kunde:                          FAK-Versicherung
+Einsatzort:                    Schweiz
+Branche:                       Versicherung
+ 
+Aufgaben:
+    •  Für  eine Anwendung, die für die Verwaltung der Bussiness-Logik von
+     ?Familienausgleichskassen konzipiert war, ist eine Anbindung von OC4J mit UIX an  ein
+     ?Hummingbird-System realisiert worden.
+    •  Zahlreiche Funktionalitäten der Hauptanwendung wurden im Front- und Back-End Bereich 
+     ?verbessert  und erweitert.
+    •  Bei den Implementierungen wurde auf strikte Einhaltung des MVC-Modells geachtet. so
+     ?wie auf Mehrsprchigkeit und unterschiedlicher Einsatz von Datenbanken.
+ 
+Umfeld:
+APACHE-TOMCAT, JDEVELOPER, JAVA, J2EE, JMX, HIBERNATE, STRUTS / JSF ähnliches Framework,
+JAVA-SCRIPT, PDF und XML-Bearbeitungen mit ITEXT. ORACLE-ADF, ORACLE 10g, PL-SQL und
+Microsoft SQL-Server 2000/2005.
+2006 – 2006: eParts MAZDA-Migrationsptojekt
+ 
+Kunde:                          MAZDA
+Branche:                       Automotiv
+Projektsprache:             Englisch
+22.02.2023 6 von 11
+ 
+Aufgaben:
+    •  Datenbank Migration von DB2 nach Oracle mit SQL-Tuning. Erweiterung der Funktionalität
+     ?einer bestehenden Anwendung.
+    •  Die Anwendung bewältigt die Verwaltung von Ersatzteilen - Lagerauskunft, Bestellung,
+     ?Lieferungsverfolgung,
+    •  Pricing - eines Autoherstellers Europaweit.
+    •  3-rd Level Support für ORACLE-DBA (auf UNIX / SUN SOLARIS).
+ 
+Umfeld:
+WEBSPHERE 5.1, IBM Rational 6(Eclipse), JAVA, J2EE, HIBERNATE, ANT, LOG4J, JUNIT, ORACLE
+10g, PL-SQL, STRUTS, JSF, SPRING Framework, XML, FTP-Transfer. Interface Generierung mit
+VELOCITY.
+2005 -2006: EADS, System / Subsystem Spezifikationen. Requirement Tracing.  UML.
+ 
+Kunde:                          GE-IGS
+Branche:                       Luft und Raumfahrt (Sicherheitsüberpüfung Ü2)
+Projektsprache:             Englisch
+ 
+Aufgaben:
+Development of specifications for a Integrated Generation System, IGS for Mission Data MD.
+Development of requirements for a Post  Flight Analysis PFA. component of the IGS. Requiremenst
+shal cover folowing aspects:
+    •  a Concept of Operations, ConOps shall be developed dealing with the aspect how PFA
+     ?shall become an integral part of the generation process of MD.
+    •  the technical aspects such as functionality of software dealing with PFA to be
+     ?implemented in the IGS and data content.
+    •  interfacing with other system components of a Ground Suport System, GSS The IGS will
+     ?be modelling utilizing UML, deliverables have to be in a format to be incorporated
+     ?into the overall documentation for the IGS.
+    •  Client/Server virtualization with VmWare.
+ 
+Umfeld:
+DOORS, DXL, ENTERPISE ARCHITECT, UML, ADA, REQUISITEPRO, APACHE-TOMCAT, SOA, WSDL,
+JAVA, J2EE, VmWare.
+2005 -  Schulungsprojekt.
+  Umfeld: My-SQL, PHP-MyAdmin, Visual Basic, DELPHI,  UML, LINUX.
+Branche:  KM-Schulung
+  Diverse Schulungsprojekte für. Datenbanken mit My-SQL, PHP-MyAdmin und Programmiersprachen
+Visual Basic ,Perl und  Delphi.
+2004- Integrationsprojekt.
+ Umfeld: Windows Forms, C#, C++.NET
+ Branche: Raumfahrt ( Sicherheitsüberprüfung über das Wirtschftsministerium )
+ Erstellung/Bewertung technischer Dokumentation. Datenübertragung mit .NET Remoting.
+Referenzen
+Projekt E-CIS , 09/00 - 01/01
+Referenz durch Projektleiter der Firma Siemens vom 30.01.01
+"Der Consultant hat bei uns mit Erfolg im E-CIS Projekt mitgewirkt. Wir bescheinigen ihm
+umfassende Kenntnisse und Kompetetnz beim Erstellen von anspruchsvollen WEB Applikationen."
+22.02.2023 7 von 11
+Projekt Verwaltung von Versicherungen/Programmierung, 06/00-09/00
+Referenz durch PL des FJA-Institut f. Wirtschafts-/Versicherungsmathematik vom
+29.09.00
+"Der Consultant hat bei uns sehr gute Konzeptarbeit geleistet. Die Hauptaufgaben waren OOA und
+OOD mit Use Cases unter Rational Rose für C++ und die Realisierung von Corba-IIOP Schnittstellen
+für Java und C++. Wir würden uns freuen, wenn wir bei der demnächst anstehenden Realisierung
+des Projektes wieder zusammenarbeiten könnten."
+Mehrere Projekte, Benchmarking-Projekt, zwischen 1995 bis 1999
+Referenz durch PL Siemens(Abt.Produktionsprozesse) mit 160 Ma. vom 04.05.00
+"Die von dem Consultant entwickelten Applikationen laufen fehlerfrei und performant. Neben seiner
+fachlichen Qualifikation für diese Aufgaben ist sein Engagement hervorzuheben."
+Projekt Lebensversicherung Angebotsprogramm, 03/99 - 05/00
+Referenz durch PL einer Versicherungsgesellschaft mit 2500 Ma. vom 16.05.00
+"Der Consultant hat in der Zeit von 03/99 bis 05/00 bei uns erfolgreich mit Java und C++
+gearbeitet. Hervorzuheben sind seine Kenntnisse in Visual Age, JNI und Java Beans."
+Branchen
+    •  EDV
+    •  Banken
+    •  Versicherungen
+    •  Telekommunikation
+    •  Industrie
+    •  Automobil
+    •  Handel
+    •  Logistik
+    •  Avionik
+Sprachen
+Deutsch
+Englisch
+Kompetenzen
+Produkte / Standards / Apache Tomcat
+Erfahrungen / Methoden
+CSS
+Gradle
+Hibernate
+HTML
+22.02.2023 8 von 11
+Jenkins
+Scrum \ Kanban–
+Beispielhaft mit Jira und
+Confluence.
+Sonar 80% Mockito /
+JUnit-Testabdeckung
+SVN
+    •  JAVA, JEE, JSE, Vaadin-GWT, JavaFX PORTAL, PORTLETS
+    •  IDE's: Eclipse, JBuilder, WSAD, Netbeans
+    •  Rich Client Programmierung (RCP)
+    •  ORACLE - DBA 3-rd - Level Support, Centura-SQLWindos, DB2
+    •  DB-Design: ERWIN, TOAD OOA/OOD/OOP, UML, RUP UML,
+     ?Enterprise Architect, IBM-Rational, Together
+     ?System/Subsystem Concept and Specification
+    •  Requirements Tracing and Management, RequisitePro, Doors
+     ?Webservices, JAX-WS, AXIS, AJAXJPA, HIBERNATE, ANT, MAVEN,
+     ?LOG4J, STRUTS, JSF, SPRING Framework, UIX, JMS, JMX, JAXB,
+     ?EJB (2.1 - 3.0 und 3.1) RESTful Java Script, JQuery
+    •  AngulaJS Application Server: Apache Tomcat, GlassFish,
+     ?JBoss, Bea Weblogic, Websphere, OC4J CLEAR CASE, CVS,
+     ?Subversion, Savi Outlook Automatisierungen V-Modell 97,
+     ?Integrationtests, Roll Out Processing
+ 
+Beruflicher Werdegang
+1999-heute
+Software Entwicklung - freiberuflich
+ 
+2003, 2007
+Informatik LP-PatentMünchen und PHB Bern
+1995-1999
+Software Entwicklung - Festanstellung
+Betriebssysteme .NET Compact
+Framework
+Linux
+SUN OS, Solaris
+Unix
+VMware Server
+Windows
+Windows CE
+Workstation
+Programmiersprachen ABAP4
+Ada
+Basic .NET
+C
+22.02.2023 9 von 11
+C#
+C++
+CORBA IDL
+Delphi
+Java
+Java 1.8
+Java FX
+JavaScript
+JEE
+JPA
+JSP
+Perl
+PHP
+PL/SQL
+Python
+Qt
+Scriptsprachen
+Datenbanken Access
+DB2
+Gupta, Centura
+JDBC
+MongoDB
+MS SQL Server
+MySQL
+ODBC
+Oracle
+PostgreSQL
+SQL
+Datenkommunikation CORBA
+Internet, Intranet
+22.02.2023 10 von 11
+Message Queuing
+SMTP
+Windows Netzwerk
+Winsock
+Hardware PC
+Steuer und Regelsysteme
+Berechnung / Jameleon
+Simulation / Versuch /
+Validierung JMeter
+Selenium
+Testautomatisierungsspe
+zialist
+Design / Entwicklung / Design mit  UML
+Konstruktion
+Enterprise Architect
+Sicherheitsüberprüft vom Bundesministerium für Wirtschaft (Ü2, Ü3)
+Aus- und Weiterbildung
+Dipl.-Math. (TU)
+22.02.2023 11 von 11
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_35982 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+
+Personen-ID                35982
+  
+Wohnort                    817xx München, Deutschland
+Staatsbürgerschaft         Deutsch
+Stundensatz                72 EUR
+Verfügbar ab               01.11.19 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         24.02.02
+Profil zuletzt geändert am 24.10.19
+Lesen von Projektanfragen  12 Stunden [10]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 25.04.2019 14:07:57
+
+Fachlicher Schwerpunkt:
+Software-​Eintwicklung / Programmierung / Projektleitung.
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Dokumentation / DTP
+Engineering / IT-nahe Ingenieurdienstleistungen
+
+    * Inter- und Intranet Lösungen
+    * Hard- und Software Konzepte - Architektur
+    * RCP Anwendungserstellung
+    * Front- und Backend JEE Entwicklung
+
+Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit bevorzugt
+
+Voraussetzung für Festanstellung: Anspruchsvolle Entwicklungs- bzw.
+Konzeptionsaufgaben im IT-​Bereich.
+
+Ausbildung:
+Dipl.-Math. (TU)
+
+Einsatzort:
+Regionen:
+D8
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+
+
+Hardware:
+PC                       
+Steuer und Regelsysteme  
+
+
+Betriebssysteme:
+Linux                   
+.NET Compact Framework  
+SUN OS, Solaris         
+Unix                    
+VMware Server           
+Windows                 
+Windows CE              
+Workstation             
+
+
+Programmiersprachen:
+ABAP4           
+Ada             
+Basic          .NET
+C               
+C#              
+C++             
+CORBA IDL       
+Delphi          
+Java            
+Java FX         
+Java 1.8        
+JavaScript      
+JEE             
+JPA             
+JSP             
+Perl            
+PHP             
+PL/SQL          
+Python          
+Qt              
+Scriptsprachen  
+
+
+Datenbanken:
+Access          
+DB2             
+Gupta, Centura  
+JDBC            
+MongoDB         
+MS SQL Server   
+MySQL           
+ODBC            
+Oracle          
+PostgreSQL      
+SQL             
+
+
+Datenkommunikation:
+CORBA               
+Internet, Intranet  
+Message Queuing     
+SMTP                
+Windows Netzwerk    
+Winsock             
+
+
+Design/Entwicklung/Konstruktion:
+Design mit  UML      
+Enterprise Architect  
+
+
+Berechnung/Simulation/Versuch/Validierung:
+Jameleon                        
+JMeter                          
+Selenium                        
+Testautomatisierungsspezialist  
+
+
+Produkte/Standards/Erfahrungen:
+Apache Tomcat                                          
+CSS                                                    
+Gradle                                                 
+Hibernate                                              
+HTML                                                   
+Jenkins                                                
+Scrum \ Kanban Beispielhaft mit Jira und Confluence. 
+Sonar 80% Mockito / JUnit-Testabdeckung                
+SVN                                                    
+    * JAVA, JEE, JSE, Vaadin-GWT, JavaFX PORTAL, PORTLETS
+    * IDE's: Eclipse, JBuilder, WSAD, Netbeans
+    * Rich Client Programmierung (RCP)
+    * ORACLE - DBA 3-rd - Level Support, Centura-SQLWindos, DB2
+    * DB-Design: ERWIN, TOAD OOA/OOD/OOP, UML, RUP UML, Enterprise Architect,
+      IBM-Rational, Together System/Subsystem Concept and Specification
+    * Requirements Tracing and Management, RequisitePro, Doors Webservices,
+      JAX-WS, AXIS, AJAXJPA, HIBERNATE, ANT, MAVEN, LOG4J, STRUTS, JSF, SPRING
+      Framework, UIX, JMS, JMX, JAXB, EJB (2.1 - 3.0 und 3.1) RESTful Java
+      Script, JQuery
+    * AngulaJS Application Server: Apache Tomcat, GlassFish, JBoss, Bea
+      Weblogic, Websphere, OC4J CLEAR CASE, CVS, Subversion, Savi Outlook
+      Automatisierungen V-Modell 97, Integrationtests, Roll Out Processing
+ 
+Beruflicher Werdegang
+1999-heute
+Software Entwicklung - freiberuflich
+ 
+2003, 2007
+Informatik LP-PatentMünchen und PHB Bern
+ 
+1995-1999
+Software Entwicklung - Festanstellung
+
+Branchen:
+    * EDV
+    * Banken
+    * Versicherungen
+    * Telekommunikation
+    * Industrie
+    * Automobil
+    * Handel
+    * Logistik
+    * Avionik
+
+Projekte:
+01/2018 - 08/2019: Fleetmanagement for vehicles
+ 
+Einsatzort:         München
+Rolle:              Entwickler
+Kunde:              BMW
+ 
+Aufgaben:
+ 
+    * Portierung eines in JSF / XHTML und Java-Beans  auf Glassfish
+      entwickelten Carsharing-Systems auf eine NodeJS Platform. Erweiterung von
+      Verwaltungs-, Import- und Export-Funktionalitäten.
+    * Microservices und Swagger Rest-Schnittstellen zur Unterstüzung einer
+      VueJS (reactives AngularJS ähnliches Framework) Anwendung.
+    * Java 1.8, Java Script, JSon, Eclipse und IntelliJ. Oracle. JPA,
+      Liquibase, Docker-Machines mit MQTT HiveMq-Brocker, PostgreSQL-DB und
+      SpringBoot-Application.
+    * BatchJobs. JTimer, JMail. SoapUI. Gradle. Git. Ubuntu on Oracle VM
+      VirtualBox.
+    * Jenkins, Sonar 80% Mockito / JUnit-Testabdeckung
+    * Scrum \ Kanban– Beispielhaft mit Jira und Confluence
+    * Grundkenntnisse : GitLab, Vagrant, Kubernetes, Kubectl, Kibana
+ 
+Eingesetzte Produkte:
+ 
+Java 1.8, Microservices und REST-Schnittstellen mit Spring Boot 4, Docker, JEE,
+AngularJS ähnliches Java Script Framework, CSS, HTML, JSP, DB2, PostgreSQL,
+SQLWorkbench, Hibernate, JPA, JQL, Apache Tomcat, SVN, Gradle, JIRA -
+Confluence, Enterprise Architect. DMS-GUI mit Java FX 2.0.
+===============================================================================
+01/2016 - 12/2017: StMELF  / INVEKOS - Verarbeitung von Anträgen
+ 
+ 
+Aufgaben:
+ 
+    * Konzeption und Realisierung einer modularen auf Java basierten Anwendung
+      zur Abwicklung von investiven Fördermaßnahmen.
+    * Portierung von Alt-Anwendungen auf ein Firmeninternes Framework.
+    * Entwicklung Diverser Modulen wie: Bewilligung, Verwendungsnachweise,
+      Rückforderungen, Auszahlungen, Haushaltsmittelverwaltung, Administration/
+      Benutzerverwaltung etc.
+    * Dokumenten-Management.System.
+ 
+Eingesetzte Produkte:
+ 
+Java 1.8, Microservices und REST-Schnittstellen mit Spring Boot 4, STS-Eclipse,
+Docker, JEE, AngularJS ähnliches Java Script Framework, CSS, HTML, JSP, DB2,
+PostgreSQL, SQLWorkbench, Hibernate, JPA, JQL, Apache Tomcat, SVN, Gradle, JIRA
+- Confluence, Enterprise Architect. DMS-GUI mit Java FX 2.0.
+===============================================================================
+01/2015 - 12/2015: Car Comparator
+ 
+Einsatzort:         Nürnberg
+Kunde:              GfK
+ 
+Aufgaben:
+ 
+    * Entwicklung einer mehrsprachigen JEE-Anwendung für den Vergleich von Audi
+      / VW und BMW Fahrzeuge. Komponenten Entwicklung mit dem Vaadin-Framework.
+    * Architektur/Schemaentwicklung sowie CRUD.Aufgaben für die MongoDB-
+      Datenbank. XML-Import.
+    * Performance optimierung.Frontend Styling mit Theme /
+      Sass.Versionsverwaltung mit SVN und Git.
+    * Implementierung eines JavaFX Rich Client für Maintenance-Aufgaben.
+ 
+Eingesetzte Produkte:
+ 
+Java 8, IntelliJ 14, Vaadin 7.5 /GWT Framework, Maven, Apache Tomcat 8, MongoDB
+3.5, JSON, GIT
+===============================================================================
+09/2014 - 01/2015: AsStatisticReporter
+ 
+Kunde:              Daimler-Benz
+ 
+Aufgaben:
+ 
+    * Entwicklung einer JEE-Anwendung für die Erstellung von Reports für
+      Werkstatt-Fahrzeugdaten basierend auf umfangreiche Datenbankabfragen.
+    * Umstellung der JSF-Webanwendung auf SPA mit Redesign
+ 
+Eingesetzte Produkte:
+ 
+Java / Java Script, JQuery, Apache Tomcat, Websphere AS 7, DB2, OpenJpa, PAI.
+Jax-RS RESTful-Services. AngularJS, HTML, CSS, Bootstrap. Grunt,
+Bower.Serialisierungen mit JSON. JUnit-Komponententests sowie E2E
+Testautomatisierung mit Selenium. Projektversionsverwaltung mit SVN und GIT.
+Scrum. Jira
+===============================================================================
+01/2014 - 08/2014: GIS-Clearing Tools
+ 
+Kunde:              O2
+ 
+Aufgaben:
+ 
+    * Aufbau, Wartung und Weiterentwicklung einer komplexen Service-
+      orientierten GIS - Applikation auf JEE und SOA Basis.
+    * Unterstützen bei der Entwicklung von Schnittstellen zu Telco-spezifischen
+      Systemen
+ 
+Eingesetzte Produkte:
+ 
+Java, Apache Wicket, AngularJS, JSON, HTML, CSS, Java-Script, JHipster,
+HighCharts, Grunt. Spring RESTful Services, Unit- Und E2E-Tests mit Jasmin und
+Karma. Webservice mit Jax WS, SoapUI, Maven, Eclipse, Hibernate, PL-SQL, Oracle
+Spatial, Import von Tom-Tom und Telekom Daten, Jasper Reports, Apache  / 
+Tomcat, Load-balancing auf Unix (Sun Os). OpenSSL. Shell Scripting, JUnit-
+Tests. Mockito. Performance Messungen mit  JMeter. Projektversionsverwaltung
+mit GIT. Jenkins. Sonar. Jira.
+===============================================================================
+10/2013 - 01/2014: TSIS
+ 
+Kunde:              BMW
+ 
+Aufgaben:
+ 
+    * Couching für die Realisierung einer JEE Traffic-System-Information
+      Anwendung.
+    * Bearbeitung von online Traffic-Fahrzeugdaten.
+    * Positions- und Umgebungsbestimmung, filtern, speichern und ermitteln der
+      JGeometrie.
+    * Web-Applikation für Daten-Import aus Fremdsystemen.
+    * Web-Start Anwendung für Funktionale und Integrationstests.
+ 
+Eingesetzte Produkte:
+ 
+Java, GWT, JavaFX, JEE, Servlet, EJB, Eclipse EMF/ SVN, Maven, Glassfish,
+Eclipselink und Toplink/JPA/Oracle 11.2 Spatial.VMware basierte
+Virtualisierungen.  Special Logging. Performance Tracing. Tests im Front- und
+Backend. Jenkins, Sonar, Scrum
+===============================================================================
+01/2013 - 08/2013: DVP
+ 
+Kunde:              BMW
+ 
+Aufgaben:
+ 
+    * Entwicklung einer JEE Anwendung zur Verwaltung von Fahrzeugmodellen und
+      Händlerstämme so wie Kalkulationen für Verkaufsplanungen
+ 
+Eingesetzte Produkte:
+ 
+Java, Eclipse / SVN, Maven, JSF/PrimeFaces, JavaScript, JQuery, Glassfish 3.1,
+REST Api, MyFaces CA3 A.Bien-Framework, EMF-Modeling, JUnit, Jmock, Jasmin,
+Eclipselink-JPA/Oracle 11. SCRUM Performance-Migration auf AngularJS.
+Prototyping mit Yeoman. Testautomatisierung Browser- Kompatibilitäten
+===============================================================================
+01/2012 - 01/2013: ABS
+ 
+Kunde:              Allianz
+ 
+Aufgaben:
+ 
+    * Entwicklung eines Java/C++-GUI  für die Durchführung von funktionalen
+      Abnahme-Tests eines komplexen Bestanderfassungsystems.
+    * Aufrufen sämtllicher Funktionen des Rechenwerks einer Versicherung mit
+      standalone- und Intranet-Client über eine dafür entwickelte (native) XML-
+      Schnittstelle.
+ 
+Eingesetzte Produkte:
+ 
+JAVA 1.6, SE, ECLIPSE RCP.-PLUGINS, OSGI, SWT, JFACES, JAXB-XML, JNI, C++
+Visual Studio 2012, SWIG-Native, Wicket, JSF/PrimeFaces., JBoss 5.1 EAP und
+Apache 7.0. Versionierung mit SAVI. SCRUM
+===============================================================================
+08/2010 - 01/2012: Rainbow (Billing/CRM)
+ 
+Kunde:              Mobilcom
+ 
+Aufgaben:
+ 
+    * Weiterentwicklung Unter JAVA von Funktionalitäten eines auf JEE
+      basierenden CRM-Systems.
+    * Entwicklung von Generatoren  für SOA-100% Test-Frameworks.
+    * Umsetzung von Implementationen nach Vorgaben in BPMN 2.0 /Aris QS-Service
+      Testautomatisierungen.
+    * Last – Stress- und Performance-Tests - Koordination mit HP QUALITY
+      CENTER, CONFLUENCE, CLEAR-QUEST und CLEAR-CASE. Service-Bereitstellung
+      über RESTeasy und EJB 3 im Backend für ein Liferay-Portal / Portlets.
+    * Couching im JPA–Bereich. Automatische Entitätsgenerierung für Apache
+      OpenJPA / ORACLE DB und XML
+ 
+Eingesetzte Produkte:
+ 
+JAVA 1.6, JEE, EJB-Portierungen, JPA /HIBERNATE, SYBASE und MYSQL, ECLIPSE,
+JSF/XHTML, RICHFACES, JBOSS-SEAM, DROOLS, TOMCAT, ANT 1.8.2, JAXB2-MAVEN-
+PLUGIN, JSON. RESTful Web Services mit JERSEY-JAX-RS. JAMELEON mit SELENIUM-
+SCHNITTSTELLE, JMETER, TestNG, Bussines-Test Coverages für Customer-
+Requirements, JMS, JAVA MAIL. ENTERPRISE ARCHITECT, SCRUM. Jenkins. HP VuGen.
+Analysen mit HP Performance Center 11 (LoadRunner).
+===============================================================================
+2010: GCC (Groupeware-Competence-Center)
+ 
+Kunde:                          Mercede-Benz
+Einsatzort:                    Stuttgart
+Branche:                       Automotiv
+ 
+Aufgaben:
+    * Mitarbeit bei der Entwicklung und Restrukturierung eines Verkauf-Portals.
+    * Aufgabenlösung im Front und Backend- Bereich: Installation und
+      Konfiguration der Entwicklungs- und Testumgebung.
+    * HTML, JSP, Servlet- und  EJB, JPA /HIBERNATE,SPRING-Framework und -
+      WebFlow.
+    * Entwicklung. 
+    * Entwurf von SQL/HQL-Statements für die Suche von Personen u Firmen
+      (Dealer-Locater) nach Vorgaben.
+    * Vorbereitung und Durchführung von Integrationtests.
+ 
+Umfeld:
+JAVA 1.6, J2EE, RAD, Datenbank DB2, WEBSPHERE. Workflow-Generierungen aus
+VISIO  mit JAM-Modeller. Code-Anpassungen / Portierungen Integrationstest.
+Versionierung  mit  SUBVERSION. Automatisierte Builds-und Packetierungs-
+Verfolgung mit ANT und MAVEN. CRUISE-CONTROL Überwachung.
+===============================================================================
+2008 - 2009 WIF-Projekt (Workflow Integration Framework)
+ 
+Kunde:                          UBS-Bank
+Einsatzort:                    Schweiz
+Branche:                       Bank
+Sprache:                       Englisch
+ 
+Aufgaben:
+    * Mitarbeit bei der Realisierung eines universellen Frameworks das bestimmt
+      ist für die Entwicklung und Integration von UBS-spezifischen Bank-
+      Applikationen.
+    * Erstellung und Pflege eines Anwender-Guides.
+    * Koordination des Entwicklungsfortschrittes.
+    * Release Management mit Maven und Ant.
+    * Funktionsavalidierungen.
+    * Applikation-Deployment und Konfiguration auf UNIX-Servern.
+ 
+Umfeld:
+J2EE, JAVA 1.5, JAVA SCRIPT, RAD 7. IBM-Websphere Portal Server 6.1, IBM sMash
+1.1. PORTAL, PORTLETS, AJAX, MAVEN 2, ANT, Zentrales Release-System
+QUICKBUILD.  Aufgabenbetreung über ein zentrales Quality-Center
+===============================================================================
+2007 - 2008 Ticketing
+ 
+Kunde:                          ASCOM /ACS
+Einsatzort:                    Switzerland
+Branche:                       Dienstleistung
+Sprache:                       Englisch
+ 
+Aufgaben:
+    * Mitarbeit beim Entwurf der Modul-Architektur einer  J2EE Anwendung die
+      vernetzte Ticketautomaten steuert und verwaltet.
+    * Einsatz von Requisite-Pro. UML-Design mit Enterprise Architect.
+    * Konzept für Alarm-Auslösungen bei nicht ausgeführten Pflicht-Jobs.
+    * Einbinden von parametrierten FTP-Exports. Scheduling mit QUARTZ.
+    * Einsatz von EJB-Komponenten.
+    * Entwurf eines Benutzerrollen- und Exceptionhandling -Konzeptes.
+    * GUI - und Backend  Programmieraufgaben. Automatisierung von
+      Bedienoberflächen durch Einführung von JNI gesteuerten Controlls. 
+    * RICH-CLIENT Applikationen zur Steuerung von Hintergrundprozessen. (SWT
+      und JFACE).
+    * Vorbereitung und Durchführung von Modul- und Unittests.
+ 
+Umfeld:
+JAVA, SWING, ECLIPSE, RCP, PDE ¿BUILD, PLUGIN Erstelung und Benutzung, JAXB,
+SPRING DI, IoC. JBOSS, EJB - remote Debugging.  Modulkommunikation mit JMS und
+SOAP/ WSDL. Datenbank ORACLE10g SQL, PL-SQL, STORED POCEDURES, SQL-DEVELOPER,
+HIBERNATE und JDBC. Unit-Tests mit JUNIT, JMOCK, Versionierung  mit  MAVEN und
+SUBVERSION.Projektmanagement und Controlling mit ATLASSIAN JIRA und CONFLUENCE.
+===============================================================================
+2006  2007: SW-Entwicklungsprojekte
+ 
+Kunde:                          EJPD
+Einsatzort:                    Schweiz
+Branche:                       Behörde
+ 
+Aufgaben:
+    * Analyse und Beratung bei der Spezifikation der Anwendung.
+    * Coaching der Fachanalyse und Abbildungen mittels des EJB
+      Komponentenmodells.
+    * Modul-Implementierungen im Front- und Back-End Bereich.
+    * Definition und Etablierung der Testumgebung.
+    * Gestaltung der Datensicherung und Versionierung.
+    * Vorbereitung von Rollouts.
+    * Portierung der Server und Client- Applikationen auf Java 5 ( EJB 3.0,
+      Generics, Annotations, JAXB)
+    * Tests mit JBoss 4.0.
+    * Entwicklung eines Native Browser-Clients mit OBJECTIVITY- und JNI-
+      Anbindung. Einsatz von  VISUAL STUDIO 2005. Configuration Management mit
+      CLEAR CASE.
+ 
+Umfeld:
+BEA WEBLOGIC, Erstellen, Deployen und Debuggen von EJBs (Tests mit JMOCK),
+ORACLE, JDBC,JAVA, SWT/SWING, ECLIPSE - RICH CLIENT Programmierung (RCP),
+HIBERNATE, CASTOR/XML, HTML/CSS, JAVA-SCRIPT, AJAX, ANT, MAVEN (Entwicklung von
+Goals/Artifacts), Crionics H-MVC.Tests mit JUNIT und JMOCK.Datensicherung und
+Versionsverwaltung mit CVS. Thin-Client Architektur Entwurf/Prototyping mit
+JSP/JSF, SOAP Webservices mit AXIS, TOMCAT, MySQL und NETBEANS. JMS-Einsatz.
+===============================================================================
+2006  2006: Anbindung von OC4J mit UIX an  ein Hummingbird-System
+ 
+Kunde:                          FAK-Versicherung
+Einsatzort:                    Schweiz
+Branche:                       Versicherung
+ 
+Aufgaben:
+    * Für  eine Anwendung, die für die Verwaltung der Bussiness-Logik von
+      Familienausgleichskassen konzipiert war, ist eine Anbindung von OC4J mit
+      UIX an  ein Hummingbird-System realisiert worden.
+    * Zahlreiche Funktionalitäten der Hauptanwendung wurden im Front- und Back-
+      End Bereich  verbessert  und erweitert.
+    * Bei den Implementierungen wurde auf strikte Einhaltung des MVC-Modells
+      geachtet. so wie auf Mehrsprchigkeit und unterschiedlicher Einsatz von
+      Datenbanken.
+ 
+Umfeld:
+APACHE-TOMCAT, JDEVELOPER, JAVA, J2EE, JMX, HIBERNATE, STRUTS / JSF ähnliches
+Framework, JAVA-SCRIPT, PDF und XML-Bearbeitungen mit ITEXT. ORACLE-ADF, ORACLE
+10g, PL-SQL und Microsoft SQL-Server 2000/2005.
+===============================================================================
+2006  2006: eParts MAZDA-Migrationsptojekt
+ 
+Kunde:                          MAZDA
+Branche:                       Automotiv
+Projektsprache:             Englisch
+ 
+Aufgaben:
+    * Datenbank Migration von DB2 nach Oracle mit SQL-Tuning. Erweiterung der
+      Funktionalität einer bestehenden Anwendung.
+    * Die Anwendung bewältigt die Verwaltung von Ersatzteilen - Lagerauskunft,
+      Bestellung, Lieferungsverfolgung,
+    * Pricing - eines Autoherstellers Europaweit.
+    * 3-rd Level Support für ORACLE-DBA (auf UNIX / SUN SOLARIS).
+ 
+Umfeld:
+WEBSPHERE 5.1, IBM Rational 6(Eclipse), JAVA, J2EE, HIBERNATE, ANT, LOG4J,
+JUNIT, ORACLE 10g, PL-SQL, STRUTS, JSF, SPRING Framework, XML, FTP-Transfer.
+Interface Generierung mit VELOCITY.
+===============================================================================
+2005 -2006: EADS, System / Subsystem Spezifikationen. Requirement Tracing. 
+UML.
+ 
+Kunde:                          GE-IGS
+Branche:                       Luft und Raumfahrt (Sicherheitsüberpüfung Ü2)
+Projektsprache:             Englisch
+ 
+Aufgaben:
+Development of specifications for a Integrated Generation System, IGS for
+Mission Data MD. Development of requirements for a Post  Flight Analysis PFA.
+component of the IGS. Requiremenst shal cover folowing aspects:
+    * a Concept of Operations, ConOps shall be developed dealing with the
+      aspect how PFA shall become an integral part of the generation process of
+      MD.
+    * the technical aspects such as functionality of software dealing with PFA
+      to be implemented in the IGS and data content.
+    * interfacing with other system components of a Ground Suport System, GSS
+      The IGS will be modelling utilizing UML, deliverables have to be in a
+      format to be incorporated into the overall documentation for the IGS.
+    * Client/Server virtualization with VmWare.
+ 
+Umfeld:
+DOORS, DXL, ENTERPISE ARCHITECT, UML, ADA, REQUISITEPRO, APACHE-TOMCAT, SOA,
+WSDL, JAVA, J2EE, VmWare.
+===============================================================================
+2005 -  Schulungsprojekt.
+  Umfeld: My-SQL, PHP-MyAdmin, Visual Basic, DELPHI,  UML, LINUX.
+Branche:  KM-Schulung
+  Diverse Schulungsprojekte für. Datenbanken mit My-SQL, PHP-MyAdmin und
+Programmiersprachen Visual Basic ,Perl und  Delphi.
+
+2004- Integrationsprojekt.
+ Umfeld: Windows Forms, C#, C++.NET
+ Branche: Raumfahrt ( Sicherheitsüberprüfung über das Wirtschftsministerium )
+
+ Erstellung/Bewertung technischer Dokumentation. Datenübertragung mit .NET
+Remoting.
+
+Referenzen:
+Projekt E-CIS , 09/00 - 01/01
+Referenz durch Projektleiter der Firma Siemens vom 30.01.01
+"Der Consultant hat bei uns mit Erfolg im E-CIS Projekt mitgewirkt. Wir
+bescheinigen ihm umfassende Kenntnisse und Kompetetnz beim Erstellen von
+anspruchsvollen WEB Applikationen."
+Projekt Verwaltung von Versicherungen/Programmierung, 06/00-09/00
+Referenz durch PL des FJA-Institut f. Wirtschafts-/Versicherungsmathematik vom
+29.09.00
+"Der Consultant hat bei uns sehr gute Konzeptarbeit geleistet. Die
+Hauptaufgaben waren OOA und OOD mit Use Cases unter Rational Rose für C++ und
+die Realisierung von Corba-IIOP Schnittstellen für Java und C++. Wir würden uns
+freuen, wenn wir bei der demnächst anstehenden Realisierung des Projektes
+wieder zusammenarbeiten könnten."
+Mehrere Projekte, Benchmarking-Projekt, zwischen 1995 bis 1999
+Referenz durch PL Siemens(Abt.Produktionsprozesse) mit 160 Ma. vom 04.05.00
+"Die von dem Consultant entwickelten Applikationen laufen fehlerfrei und
+performant. Neben seiner fachlichen Qualifikation für diese Aufgaben ist sein
+Engagement hervorzuheben."
+Projekt Lebensversicherung Angebotsprogramm, 03/99 - 05/00
+Referenz durch PL einer Versicherungsgesellschaft mit 2500 Ma. vom 16.05.00
+"Der Consultant hat in der Zeit von 03/99 bis 05/00 bei uns erfolgreich mit
+Java und C++ gearbeitet. Hervorzuheben sind seine Kenntnisse in Visual Age, JNI
+und Java Beans."
+Alle Referenzen sind durch GULP bestätigt.
+
+Sonstige Anmerkungen:
+Sicherheitsüberprüft vom Bundesministerium für Wirtschaft (Ü2, Ü3)
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_35982 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 25.10.2019 00:46:24
+© Copyright 1996-2019 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

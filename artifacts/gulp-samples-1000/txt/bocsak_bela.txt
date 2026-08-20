@@ -1,0 +1,1083 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_30406
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                30406
+  
+Wohnort                    816xx München, Deutschland
+Jahrgang                   1966
+Stundensatz                85 EUR
+Verfügbar ab               30.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         13.09.01
+Profil zuletzt geändert am 24.03.21
+Lesen von Projektanfragen  12 Stunden [10]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 01.03.2021 13:01:55
+
+Fachlicher Schwerpunkt:
+Software Architekt, Senior Fullstack Software Developer
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+
+Software Architekt und fullstack Entwickler für komplexe enterprise
+microservice Anwendungen sowohl Backend als auch Frontend mit Java JEE, Spring,
+MicroServices, Angular2-10, ReactJS und/oder .NET
+
+Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit bevorzugt
+
+Voraussetzung für Festanstellung: Voraussetzung für eine Festanstellung ist der
+Arbeitsort München oder Umgebung.
+
+Ausbildung:
+Diplom-Ingenieur Elektrotechnik und Maschinenbau
+Promotion im Bereich Informatik/Elektrotechnik
+
+Einsatzort:
+Regionen:
+D8
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Englisch     
+Italienisch  
+
+
+Betriebssysteme:
+Linux  
+Unix   
+
+IOS
+Android
+Windows
+
+Programmiersprachen:
+c#           
+c++          
+HTML         
+Java 11      
+JavaScript   
+Kotlin       
+PL/SQL       
+Shell        
+Swift (IOS)  
+TypeScript   
+
+
+Datenbanken:
+Oracle
+MongoDB
+DB2
+PostgreSQL
+MS SQL Server
+My SQL
+Informix
+Sybase
+Ingres
+Interbase
+JDBC
+ODBC
+ADO.NET
+
+Datenkommunikation:
+TCP/IP            
+Windows Netzwerk  
+
+
+Produkte/Standards/Erfahrungen:
+Erfahrungen im Bereich:
+-----------------------
+· Architektur und Entwicklung komplexer enterprise Anwendungen sowohl in
+Backend als in Frontend Bereichen mit Java JEE, Spring, MicroServices,
+Angular2-10, ReactJS und/oder .NET
+· Web Anwendungen
+· Mobile Apps
+ 
+OOD/UML-Tools:
+---------------
+
+. MagicDraw
+. Enterprise Architect
+. Together
+· Rational Rose
+· MID-Innovator
+· ObjectiF
+· Adonis
+
+Entwicklungswerkzeuge
+---------------------
+
+. Eclipse
+. IntelliJ
+· NetBeans
+· Microsoft Visual Studio
+. XCode
+
+Modell Driven Architecture
+--------------------------
+
+. AndroMDA
+. Marvin
+ 
+Application- und/oder Webserwer:
+--------------------------------
+ 
+· JBoss
+· WebSphere
+· Weblogic
+· Glassfish
+· Apache
+. Tomcat
+. node.js
+· MQSeries
+· Active-MQ
+
+Backend:
+-------------------
+
+. JEE,  CDI, EJB (4.x), JMS, JMX, JAXB, JPA,
+. Spring, SpringBoot,
+. SOA/REST Web Services, Jersy, Axis, Apache CXF, JAX-WS   
+. .NET, ADO.NET, LINQ
+. Docker
+. Kubernetes
+. AWS,
+. Asure
+. Apache-Kafka
+. SAP-JCo (SAP Java-Connector)
+
+Frontend (GUI) und Web:
+-----------------------
+· Angular 2-10
+· AngularJS
+· ReactJS
+. Ionic 3
+· Redux
+· Webpack
+· Node
+· CSS, SASS
+· bootstrap
+. bower
+. JavaScript, TypeScript
+· JSF2  (PrimeFaces,  Richfaces 4, MyFaces)
+. ExtJS
+. Wicket
+. JSP
+. Struts
+. SEAM
+. ASP.NET
+. Ajax
+. JQuery
+. HTML
+. JavaFX
+. Swing
+ 
+Search Engine
+------------------
+. Solr, Lucene, Elasticsearch
+
+Persistencetools:
+-----------------
+
+· Hibernate,
+. Eclipselink
+· JPA,
+· Hibernate Envers (Versionierung, Historisierung)
+. ADO.NET, 
+. LINQ,
+
+Datenbanken:
+-----------
+
+. ORACLE,
+. PostgreSQL
+. MongoDB
+. DB2,
+. INFORMIX,
+. SYBASE
+. MS SQL Server,
+. My SQL,
+. Ingres
+. JDBC,
+. PL/SQL
+ 
+Cloud
+-------
+ 
+. AWS
+. Azure
+. Kubernetes
+
+Test, Performancemessung:
+-------------------------
+
+. JUnit, NUnit
+. EasyMock
+. Mockito
+. Selenium
+. Arquilian
+. JBehave
+. Jasmine
+. DBUnit
+. Flyway
+. JRun
+. JProfiler
+. Protractor
+. Karma
+ 
+Version Control:
+------------------
+. Subversion
+. GIT
+ 
+Continous Integration:
+-------------------------
+ 
+.Jenkins
+ 
+Code Quality:
+---------------
+ 
+. SonarQube
+ 
+Bugtracker:
+-------------
+ 
+. Jira,
+. Bugzilla,
+. HPQC,
+. Mantis
+
+Build Systems:
+--------------
+ 
+. Maven
+. Gradl
+. Grunt
+. Gulp
+. Ant
+
+Sonstiges:
+----------
+
+. AOP, AspectJ
+. XML, SAX, DOM, XSLT
+. Patterns (Allgemeine und für JEE)
+. Clean Code
+ 
+Verfahren:
+-----------
+ 
+. SCRUM
+. KANBAN
+
+Branchen:
+Versicherungen
+Banken
+Softwarehersteller
+Telekommunikation
+Automotif
+Behörden
+Betriebswirtschaft
+Industrie
+Gesundheitswesen
+Öffentlicher Dienst
+
+
+Projekte:
+08/2016 - laufend
+ 
+Es hanndelt sich um eine komplexe Produktfamilie von C2B mit Mobile App und
+Webanwendung bis B2B auch mit Web UI und eine komplette Bestandsführung für
+mehrere Tenants
+ 
+Die App wurde sowohl als Hybrid-App mit Ionic 3 und Angular 10 als auch für
+andere Tenants mit  native IOS/Android entwickelt.
+Die Clients kommunizieren mit einem Backend welche für node.js ausgelegt ist
+und als eine Art Dispacher funktioniert. Es delegiert die komplexe Aufgaben an
+mit SpringBoot (Java) realisierten Backend weiter welches aus über mehrere
+duzent Micro-Services besteht welche mit Camunda orchestriert werden.
+ 
+     Aufgaben:
+
+    - Technischer Architekt
+    - Entwicklung sowohl am Frontend als auch am Backend
+
+   Münchener Rückversicherungs-Gesellschaft
+
+ 
+(Java 11, Kotlin, Spring Boot, Hibernate, REST-Webservices, Maven, Gradle,
+Ionic3, Angular 2-10, Typescript, MongoDB, PostgerSQL, Bootstrap 4, NodeJS,
+Karma, Protractor, Webpack, CSS, SASS, Docker, Kubernetes, Elasticsearch, AWS,
+Apache-Kafka, Camunda)
+
+
+
+Verfahren: Scrum
+ 
+11/2015 - 08/2016
+ 
+Web Content Management System
+ 
+Das konzerneigene Web Content Management System der Allianz welches in 70
+Ländern für den landesspeziefischen Web-Auftritt verwendet wird wurde auf neu
+Technologien umgestellt und von Grund aus fachlich neu designt und technisch
+neu implementiert.
+ 
+    Aufgaben
+   
+    - Entwicklung sowohl am Frontend als auch am Backend
+ 
+    Allianz AG
+ 
+   (Java 8, Spring Boot, Solr, Tomcat 8, Hibernate, REST-Webservices, Oracle,
+Sonar, Jenkins, Maven,
+   Angular 2, ReactJs, Redux, Typescript, Bootstrap,  JQuery, NodeJS, Karma,
+Protractor, Webpack
+   CSS, SASS, docker)
+ 
+    Verfahren: Scrum
+ 
+05/2015  10/2015
+ 
+Mobile und Internet Kfz-Versicherung Rechner
+ 
+Die Anwendung ermäglicht die Tarifierung und den Abschluss von Kfz-
+Versicherungen sowohl für Mobile Geräte als auch für herkömmlichen PCs auf
+einer sehr innovativen Art und Weise. Die Meisten Dateneingaben werden durch
+fotografieren und anschliessendes Scannen von Dokumenten (Fahrzeugschein,
+Fühereschein etc.) ersetzt.
+ 
+    Meine Aufgaben
+ 
+    - Lead Developer
+    - Technischer Architekt
+    - Entwicklung sowohl am Frontend als auch am Backend
+ 
+    Allianz AG
+ 
+    (Java 8, Spring, Solr, JBoss, Hibernate, REST-Webservices, Oracle, Sonar,
+Jenkins, Maven,
+    AngularJS 1.5.x, Bootstrap, JQuery, NodeJS, Karma, Bower, Protractor, Gulp,
+CSS, SASS)
+ 
+    Verfahren: Scrum
+ 
+09/2012 - 03/2015
+     
+Universal Sales Platform
+    
+    
+Es handelt sich um eine international eingesetzte Verkaufsplattform für
+Automobile. (Sowohl für Händler und Agenten als auch für Endkunden). Die
+unterschiedlichen Märkte (Länder) und die Heterogenität der dort eingesetzten
+Systeme und Datenstrukturen erfordern ein System mit einem hohen Mass an
+Mandantenfähigkeit.
+Das System begleitet den ganzen Verkaufprozess von der Erfassung des Kunden
+über die Fahrzeugkonfiguration, Angebotserstellung, Vertragsabschluss bis zur
+Finanzierung. Die Plattform integriert sich in zahlreiche vorhandene Systeme.
+Bei der Realisierung wurde die ganze Palette der neuesten JEE Version
+eingesetzt. Die UI wurde als Internetanwendung realisiert.
+ 
+     Meine Aufgaben
+ 
+       - Architekt
+       - Lead Developer
+       - Entwicklung sowohl am Frontend als auch am Backend
+ 
+     BMW AG
+ 
+     (Java, JEE 6, EJB 3.1, CDI,  Glassfish 3.1.2, Jersy, EclipseLink, JPA,
+JBehav,
+      Mockito, Arquilian, REST- und SOA-Webservices, Oracle, Sonar, Jenkins,
+Maven,
+      DBUnit, Flyway, JSF2, PrimeFaces, Ajax, JQuery, Selenium, Jasmine,
+Subversion,
+      GIT, HP-Quality Center)
+ 
+      Verfahren: Scrum
+ 
+01/2011 - 08/2012
+    
+     Depotverwaltung und Wertpapierhandelssystem
+ 
+    
+Es handelt sich um acht verschiedene Projekte, welche die Gemeinsamkeit haben,
+daß sie Anwendern ermöglichen über das Web in unterschiedlichen Börsen
+Wertpapiere zu handeln und ihr Depot zu verwalten.  Die für Vermögensverwalter
+ausgelegten Systeme unterstützen zusätzlich auf unterschiedliche Art und Weise
+die Kundengewinnung. Überdies hinaus bieten die Systeme vielfältige
+Analysetools für die Beobachtung der Entwicklung und den Vergleich von Depots
+und/oder Wertpapieren.  Das Handeln untersteht gewissen Regeln, welche
+dynamisch konfigurierbar sind. Es handelt sich um hochfrequentierte
+Webanwendungen  realisiert mit Web2 Ajax Technologie - welche mit großen
+Datenmengen im Backendbereich zurecht kommen müssen. Das Backend ist durch ein
+hohes Mass an unterschiedlichen asynchronen Prozessen charakterisierbar. Eine
+Besonderheit bei der Entwicklung war bei einem der Projekte das totale
+Refactoring eines Altsystems, wobei der laufende Betrieb aufrecht erhalten
+musste. Die UI wurde sowohl für Browser als auch für Mobile Geräte (Apple IOS,
+Android) implementiert.
+ 
+     Meine Aufgaben
+ 
+       - Chefarchitekt
+       - Lead Developer
+       - Mitarbeit bei der Realisierung sowohl auf der Backend- als auch auf
+der
+         Frontendseite.
+ 
+     Deutsche Börse, Direkt Anlage Bank, Raiffeisenbank, Commerzbank,
+Irontrader, Investory AG
+ 
+   
+(Java, J2EE, Spring, JMS, JMX, JAXB,  AOP, JPA, Hibernate, MySql,  Drools,
+Velocity, Hudson, Maven, Tomcat, ActiveMQ, SOAP Apache CXF Web Services, REST-
+Webservices, Web2-GUI (RIA) mit JSF 2, PrimeFaces, Wicket,  AJAX, JQuery,
+Selenium, Mockito, Jira, Enterprise Architekt, Sonar, Checkstyle)
+ 
+    Verfahren: Scrum
+
+09/2010 - 02/2011
+ 
+     Wertpapierkursversorgung und Validierung für eine Versicherung
+ 
+     Das System sammelt Kursinformationen von verschiedenen   
+     Handelssystemen. Die Informationen werden Regelbasiert validiert
+     und nach Lösung evtl. Validierungsfehlern unter verwendung des
+     4 Augen Prinzipes an unterschiedlichen Backendsystemen
+     weitergeleitet. Sowohl die Regeln, als auch die Schnittstellen für
+     die Nachfogesysteme sind dynamisch auch zur Laufzeit
+     konfigurierbar. Alle Daten sind Historisiert. Das System ist duch 
+     eine umfangreiche Web2 Oberfleche bedienbar.
+ 
+     Meine Aufgaben
+ 
+     - Chefarchitekt
+     - Lead Developer
+     - Mitarbeit bei der Realisierung sowohl auf der Backend-
+        als auch auf der Frontendseite.
+ 
+     SwissLife
+ 
+     (Java, J2EE, Spring, JMS, JMX, JAXB,  AOP, Hibernate, Oracle,
+     Hibernate Envers (Historisierung) Maven, Redmine, Hudson, Weblogic,
+     SOAP Apache CXF Web Services, Web2-GUI (RIA) mit JSF 2,
+     RichFaces 4, AJAX)
+ 
+     Verfahren: Scrum
+ 
+09/2009 - 09/2010
+ 
+Trade Information Broker für Investmentbanking.
+
+Das System sammelt Tradeinformationen aus verschiedenen weltweiten
+Handelssystemen  wie RTD, ORC und aus verschiedenen Brokersystemen,
+vereinheitlicht die Informationen, reichert sie an und stellt diese für
+andere Anwendungen wie z.B. dem Risikoberechnungssystem Sophis bereit.
+Das System ist die zentrale Schaltstelle für Trades, verfügt über
+umfangreiche eigene Stammdaten welche durch eine Web-Gui verwaltet werden.
+Das System fügt sich in eine sehr heterogene IT-Landschaft ein und
+besteht serverseitig aus mehreren Anwendungen. Diese wurden hauptsächlich
+in Java entwickelt, aber einige wichtige Teile wurden in C# implementiert.
+Systemintern wird die asynchrone Kommunikations sehr intensiv genutzt,
+mit Fremdsystemen kommuniziert man über Webservices. Die meisten
+Anwendungen laufen in dem OSGi Container von Spring, einige in dem
+Weblogic Applicationserver. Bestimmte Objekte wurden zwischen den JVM's
+mit dem Terracotta Cluster synchronisiert. Die GUI wurde als
+Rich Internet Application mit Web2 Technologie unter Verwendung von AJAX
+realisiert. Um die Anwendungen monitoren zu können haben wir diese mit
+JMX Fächigkeit ausgestattet. Für die Kommunikation wurde das FIX Protocol
+(fixml) in Verbindung mit JAXB verwendet.
+ 
+
+Meine Aufgaben
+
+          - Architekt
+- Lead Developer
+- Design der Informations- und Prozessinfrastruktures
+- Design und Musterimplementierung der Serverseitigen Komponenten (Java und C#)
+- Design und Musterimplementierung der Web 2 GUI als Rich Internet Application
+(RIA)
+- Aufbau der Projektinfrastruktur
+- Mitarbeit bei der Realisierung sowohl der Server als auch der Clientseitigen
+(Web)
+    Komponenten
+
+UniCredit
+
+(Java, J2EE, Spring, JMS, JMX, JAXB, AOP, MQ-Series, Active-MQ, Hibernate,
+ Oracle, Terracotta, Maven, Redmine, Hudson, Weblogic, OSGi, Spring DM Server,
+ SOAP Apache CXF Web Services,
+ Web2-GUI (RIA) mit JSF, DOJO, DojoFaces, AJAX, C#)
+
+
+03/2006 - 08/2009
+
+System für die Abrechnung von Rezepten.
+
+Das System umfasst die gesammte Verarbeitung von Rezepten von der
+Erfassung, Verarbeitung bis zur Abrechnung und Rechnungstellung hin.
+
+Die Entwicklung wurde durch das MDA Framework Marwin unterstützt.
+
+Meine Aufgaben
+
+  - Konzept und Analysemodell für die Stammdaten (Kunden,
+ Krankenkassen, Verbände, Produkte, Preislisten, etc) erstellen.
+  - Designmodell für die Stammdaten erstellen
+  - Spring in den Framework einführen
+  - Validierung und Fehelrbehandlung in den Framework einführen
+  - Automatische Persistierung von GUI-Objekten in den Framework einführen
+  - Einführung von JBoss Rules in den Framework
+  - Entwicklung der serverseitigen Komponeten und Services
+  - Entwicklung der GUI
+  - Konzept und Realisierung der Schnittstellen zu Fremdsystemen unter
+ anderem zum CRM/ERP-System OPUS.
+  - Konzept und Entwicklung des Internetportals als
+ Rich Internet Application mit Web2 Ajax Technologie
+
+AZH GmbH
+
+(Java, JEE, Spring, Swing, MagicDraw, Oracle, Hibernate, JBoss,
+ SOAP Web Services, XFire, JSF, DOJO)
+
+11/2004 - 02/2006
+
+Entwicklung eines elektronischen Akten- und Dokumentenverarbeitungssystems
+für das Deutsche Patent und Markenamt.
+
+Die Serverseite wurde mit der EJB-Technologie realisiert, die
+Persisistierung erfolgte mit Toplink  und  wurde für die Dokumenten und
+Versionsverwaltung mit dem Oracle Content Management (cmsdk) kombiniert.
+Für die Clientseite hat man .NET eingesetz.  Die Textverarbeitung von
+MS-Word ist mit dem .NET-API von Word in das System eingebunden. Die
+Kommunikation zwischen Client und Server erfolgt mit Web Services. Die
+Geschäftsobjekte sind in XML-Schema modelliert und aus diese einheitliche
+Quelle wurde dann Kod für Java (mit JAXB) bzw. C# generiert. Zu bestimmten
+Komponenten des Systems gibt es auch ein Internetzugang. Für die
+Realisierung der Internetseiten hat man JSPs und Java Server Faces
+eingesetzt.
+ 
+Meine Aufgaben
+
+- Design und Programmierung  sowohl auf der Server- als auch der Clientseite
+- Erstellung des Modellierungsframeworkes
+- Modellierung und Programmierung von Geschäftsobjekten (EJB, CMSDK)
+- Oberflächenentwicklung in C#
+- Design und Programmierung des Internetzuganges
+
+Deutsche Patent und Markenamt.
+
+(Java, .NET, C#, J2EE (EJB, JSP, Java Server Faces, JAXB),
+ SOAP Web Services, Toplink, Oracle Content Management (CMSDK),
+ Oracle Application Server, Oracle 9i, Linux,
+ Ant, log4j, log4net, Junit, NUnit, Clear Case)
+
+04/2003 - 10/2003
+
+Design und Erstellung eines Systems für die Freigabe von Dokumenten und
+Anbindung von XDOC an dem Electronic Document Logistic. Es handelt sich
+um eine verteilte, komponentenbasierte Anwendung. Die Geschäftsobjekte
+wurden mit EJBs und WebServices realisiert, die Oberfläche mit JSPs.
+Es wurde mit EJB 2.0 gearbeite, alle Beanarten (auch Entity und
+Message-Beans) kamen zum einstaz. Die Oberfläche wurde nach dem
+Modell-View-Controller Prinzip mit dem Framework Struts gebaut.
+ 
+Meine Aufgaben
+
+- Design des Systems
+- Entwurf der Geschäftsobjekte (EJB) und der Oberfläche (JSP)
+- Realisierung des Systems(sowohl der Geschäftsobjekte als auch der Oberfläche)
+
+Siemens AG
+
+(J2EE, Jakarta Struts, WebServices, Eclips, WebSphere 5, Oracle9i, log4j)
+
+03/2003 - 08/2003
+
+Design und Erstellung eines unternehmensweiten Frameworkes für die
+Entwicklung von Geschäftsobjekten und Internet Anwendungen.
+Realisierung eines zentralen User-Verwaltung und Anmeldesystems.
+Realisierung eines E-Card Systems.
+
+Meine Aufgaben
+
+- Systemarchitekt
+- Entwurf  des Frameworkes
+- Design der Business Objects
+- Realisierung des Frameworkes, Business Objects und Services
+- Realisierung der Benutzeroberflächen (aspx)
+
+Bacardi International (Bacardi, Rigo, Martini)
+
+(.NET, C#, ADO.NET, ASP.NET, WebServices , IIS5, MS SQL Server,
+ NUnit, log4net)
+
+11/2002 - 04/2003
+ 
+Design und Realisierung eines online Hotelreservierungssystems.
+Das System ermöglicht den Überblick über freie Übernachtungskapazitäten
+von mehreren hundert Hotels und bietet die Möglichkeit online zu buchen.       
+Die Daten der einzellnen Hotels bleiben dabei in den hoteligenen
+Hotelverwaltungssystemen gespeichert, die vorhandne Systeme werden nicht
+angetastet sondern mit Hilfe eines verteilten Beobachters, - realisiert
+mit Web Services,-  zu einer virtuellen Datenbank integriert. Die
+hotelseitigen Web Services wurden mit Java, die der Zentrale mit .NET
+realisiert. Auch die übrigen Komponenten der Zentrale und die
+Implementierung der Interfaces für die Benutzer basieren auf .NET
+
+Meine Aufgaben:
+
+ - Systemarchitekt
+ - Technischer Projektleiter
+ - Mitarbeit bei der Realisierung
+
+Internet Services srl (Italien).
+
+(C#, Java, .NET (ASP.NET, ADO.NET), IIS5, Tomcat4, JSP, SQLServer,
+ log4j, log4net, ant, XML)
+
+04/2002 - 02/2003
+
+Design und Realisierung eines Systems für die Erstellung von Angeboten
+für Telekommunikationsanlagen. Es handelt sich um eine hochfrequentierte
+Enterprise-Anwendung mit mehr als 200 JSP-Seiten, die unternehmensweit von
+Vertretern bei der Kunde vor Ort über Landesgesellschaften hin bis zur
+Zentrale eines Global Players weltweit eingesetzt wird und mit anderen
+Anwendungen wie SAP zusammenarbeitet.
+
+Die Presentationsschicht ist als Web Anwendung mit Browser Oberfläche
+basierend auf einer Modell-View-Controller Architektur  realisiert,
+die Business Objekte wurden mit Hilfe von EJB's und Web Services
+entwickelt.
+
+Meine Aufgaben:
+
+  - Beratung in Architekturfragen insbesonderns EJB Technologie und Web
+Services
+  - Einführung und Modellierung von Business Objekten
+  - Mitarbeit bei der Realisierung der Business Objekte und der Oberfläche
+  - Erstellung einer Modell-View-Controller Architektur für JSP
+
+
+SofCon AG
+ 
+(Java, Tomcat, J2EE, XML, XSLT, Oracle 8i, JBuilder, IntelliJ, JBoss,
+ Jakarta Struts, ant, log4j, Win-CVS)
+
+10/2001 - 12/2002
+
+Design und Realisierung eines Internet Portals für einen E-Shop.
+
+Das Projekt wurde auf Basis einer verteilten Komponentenarchitektur mit
+EJBs realisiert (Sowohl Session- als auch Entity-Beans) . Bei der
+Oberfläche wurde eine Modell-View-Controller Architektur mit JSP
+verwendet.
+
+Meine Aufgaben:
+
+  - Systemarchitekt
+  - Modellierung
+  - Design der serverseitigen Komponente (EJBs)
+  - Entwicklung eines eventbasierten Modell-View-Controller für die JSP-Seiten
+  - Design der Oberflächen
+  - Mitarbeit in der Realisierung         
+
+Siemens AG      
+
+(Java, EJB 2.0, JSP, XML, JBuilder 6, WebSphere 4.0, Apache, Tomcat 4.0,
+ Rational Rose, Clear Case, Oracle 8i, ant, log4j)
+
+10/2001 - 06/2002
+
+  Auswahl des geeigneten Middlewares bzw. der EAI-Lösung und Entwurf der
+  Anwendungsarchitektur für ein weltweites Business Partner Data
+  Management System.
+
+  Auf der Basis von weltweit auf mehrere Standorte verteilten
+  Datenbanken wurde eine virtuelle Datenbank Realisiert und für andere
+  Anwendungen des Konzerns bereitgestellt.
+
+  Meine Aufgaben:
+
+  - Systemarchitekt
+  - Auswahlstudie über Middleware und Enterprise Application Integration
+ Lösungen
+  - Entwurf von Anwendungsarchitekturen auf der Basis unterschiedlichen
+ Middlewares (J2EE, .NET, Web Services, CrossWords, MOM)
+  - Erstellung von Prototypen
+
+Siemens AG
+
+(Java, C#, J2EE, .NET, CORBA 3.0, Web Services (SOAP, WDSL, UDDI),
+Oracle 9i, WebLogic 7.1, CrossWords )
+ 
+
+04/2001 - 09/2001
+
+Entwicklung und Realisierung eines papierlosen Bürosystems im
+Versicherungsbereich der Berufsgenossenschaften.
+
+
+Das Projekt umfasste unterschiedlicher Geschäftsbereiche
+(Zahlungswesen, Mitgliederverwaltung, technisches Außendienst, etc.)
+mehrerer Berufsgenossenschaften mit dem Ziel, ein einheitliches
+"papierloses Büro" für die Sachbearbeitung zu schaffen.
+
+Das System wurde Workfloworientiert, vollständig in Java mit EJB's
+realisiert. Die Persistierung erfolgte in speziellen Session-Beans mit
+Avantis. Für die Modellierung und Kodegenerierung wurde der Innovator
+von MID verwendet. Als Aplicationserver hat man zuerst WebSphare
+eingesetzt, wurde aber später in der Entwicklung durch den
+Applicationserver von Borland abgelöst, wobei das Produktivsystem
+weiterhin mit WebSphare lief. Die GUI wurde als Thin-Client mit Swing
+entwickelt. Die Tests wurden durch JUnit unterstützt, für das
+Configurationmanagement war Continuus im Einsatz.
+
+Meine Aufgaben:
+
+  - Modellierung  von Geschäftsprozessen
+  - Realisierung der serverseitigen Komponenten
+  - Entwurf und Realisierung der GUI
+  - Beratung in Architekturfragen
+
+Phoenics GmbH   
+
+  (Java, Swing, EJB, WebSphere, VisualAge, JBuilder, MID-Innovator,
+DB2, Avantis, MQ-Series, AIX/Windows-NT, JUnit, Continuus)
+
+
+04/1999 - 03/2001
+
+Entwicklung und Realisierung eines Financial Product Management Systems
+für Erstellung von Versicherungs- und Bankprodukten.
+
+Das FPMS ermöglicht Finanzfachleuten ohne IT-Kentnisse Finanzprodukte von
+Businesslogic her bis zur Presentationsschicht (Eingabemasken,
+Dialogführung) zu entwickeln. Die Informationen aus dem Designer werden
+in XML-Format abgelegt. Ein Runtimesystem  analysiert zur Laufzeit diese
+Informationen und erstellt dynamisch die Softwarerepresentation des
+Produktes.
+ 
+Das System wurde vollständig in Java, als Komponenten basierte n-Tier
+Architektur mit Thin-Clients realisiert. Der Datenaustausch erfolgt via
+XML. Die Komponenten wurden anfänglich mit einem auf CORBA basierten
+Framework,  später mit EJB realisiert. Dabei wurden Applicationservern
+von SUN und BEA eingesetzt. Die Persistierung erfolgte mit einem eigenen
+Framework. Die XML-Dateien wurden je nach Verwendungszweck entweder mit
+dem DOM oder mit dem SAX-Parser analysiert. Die GUI im Designer wurde mit
+Swing entwickelt, zur Laufzeit (also im Produkt, das mit dem Designer
+erstellt wurde) kam eine Browser-Oberfläche mit JSP zum Einsatz. Als
+Datenbank hat man wahlweise DB2 und Oracle8i eingesetzt. Als
+Modellierungswerkzeug diente Together, als Configurationmanagement-Tool
+wurde Continuus und als Entwicklungswerkzeug JBuilder verwendet.
+
+Meine Aufgabe:
+
+- Leiteung der GUI-Entwicklung (auch selber programmiert),
+- Mitarbeit in der Architektengruppe,
+-      Einführung der EJB-Technologie und Realisierung serverseitiger
+Komponenten.
+
+
+NSE Software AG 
+
+  (Java, Swing, XML, XSLT, DOM, SAX, JSP, EJB, Framework auf CORBA-Basis,
+Together, DB2, Oracle, Windows-NT, WebLogic, Apache, Continuus)
+
+
+04/1998 - 04/1999
+
+Entwicklung und Realisierung eines Agentursystems für Versicherungen.
+ 
+Das System wickelt alle Aktivitäten im Bereich Angebot- und Antragserstellung
+(Tarifrechner) ab und beinhaltete auch ein Kundeninformationssystem. Es
+wurde als 3-Tier Architektur mit Thin-Clients realisiert.
+
+Meine Aufgaben:
+
+-      Design der Architektur einschließlich GUI und Modellierung für die
+  Komponenten Tarifierung, und Antragsstellung
+- Konzept und Einführung von Thin-Clients
+-      Datenbankdesign
+-      Mitarbeit bei der Realisierung
+-      Leitung der Gruppe Tarifierung, und Antragsstellung
+
+
+NSE Software AG
+
+  (C++, DB2-UDB,/Oracle ,Windows-NT)
+
+
+06/1998 - 09/1999 ((parallel zum Vorprojekt)
+
+Entwicklung und Realisierung eines Händlervermittlungssystems über das
+Internet.
+
+Meine Aufgaben:
+
+- Projektleitung
+- Architekturentwurf
+
+Software Consulting GmbH
+
+(Java, C++, CORBA, HTML, Interbase, Windos-NT)
+
+
+07/1997 - 03/1998
+
+Entwicklung und Realisierung eines Marketing Toolsets auf dem Gebiet von
+regionalem Marketing und Kundenbetreuung.
+
+Meine Aufgaben:
+
+- Projektleitung
+- Architekturentwurf
+
+CAT AG
+
+  (C++, PowerBuilder, Oracle,  Windows-NT, Linux)
+
+
+02/1997 - 06/1997
+
+Integration des nationalen Kunden-Database-Management-Systems eines
+schwedischen Autoherstellers in das Europa-System.
+
+Aufgaben:
+
+- Technische Projektleitung
+- Architekturentwurf
+
+VOLVO
+
+(C++, Oracle, Informix ,Solaris, AIX)
+
+
+10/1995 - 01/1997
+
+Systemanalyse, Entwicklung und Realisierung eines
+Kunden-Database-Management-Systems für einen schwedischen Autohersteller.
+
+Aufgaben:
+
+- Technische Projektleitung
+- Architekturentwurf
+
+VOLVO
+
+(C++, NewEra, Informix, Solaris, Windows-NT)
+
+
+04/1995 - 09/1995
+
+Systemanalyse, Entwicklung und Realisierung eines Prospektversand- und
+Infoservice-Systems für die Automobilbranche.
+
+Aufgaben:
+
+- Technische Projektleitung
+- Architekturentwurf
+
+GEO GMBH
+
+(C++,Informix-4GL, Informix, Solaris)
+
+
+10/1994 - 03/1995
+
+Entwicklung und Realisierung eines Adress-Cleaning und Retrieval Systems.
+
+Aufgaben:
+
+- Technische Projektleitung
+- Architekturentwurf
+
+GEO GMBH
+
+(C, SQL,Unix, Windows-NT)
+
+
+01/1993 - 09/1994
+
+Entwicklung und Realisierung eines Marktinformationssystems für
+Versicherungen und für die Automobilbranche.
+
+Aufgaben:
+
+- Technische Projektleitung
+- Architekturentwurf
+
+GEO GMBH
+
+(C, COBOL, Oracle, SUN-OS, Motif, Postscript)
+
+
+07/1992-12/1992
+
+Systemanalyse, Entwicklung und Realisierung eines Systems für
+automatische Bestellannahme, Abwicklung und Rechnungsstellung eines
+mittelständischen Unternehmens.
+
+Aufgaben:
+
+- Technische Projektleitung
+- Architekturentwurf
+
+GEO GMBH
+
+(C, Informix, Unix)
+
+
+11/1991 - 06/1992
+
+Entwicklung und Realisierung der Bedarfsplanung und Bestellsystems von
+Ersatzteilen für japanische, französische und italienische Kfz-Importeure.
+
+Aufgaben:
+
+- Technische Projektleitung
+- Architekturentwurf
+
+NISSAN, FIAT, CITROEN
+
+(C, Informix, SUN-OS)
+
+
+11/1990 - 10/1991
+
+Entwicklung und Realisierung eines Dispositionssystems für die Verwaltung
+und Bestellung von Neuwagen für einen japanischen Kfz-Importeur.
+
+Aufgaben:
+
+- Technische Projektleitung
+- Architekturentwurf
+
+NISSAN
+
+  (C,Windows)
+
+
+01/1990 - 10/1990
+
+Entwicklung und Realisierung eines Kundenkontakt-Programmes für die
+Automobilbranche.
+
+Aufgaben:
+
+- Systemberater
+- Entwickler
+
+BMW
+
+(C, Oracle, VMS, Windows)
+
+
+11/1988 - 12/1989
+
+Entwicklung und Realisierung eines CIM-Systems für die Verwaltung eines
+Motorenlagers und Montagebandes für einen bayerischen Automobilhersteller.
+
+Aufgaben:
+
+- Systemberater
+- Entwickler
+
+BMW
+
+  (Fortran, Oracle, VMS)
+
+
+01/1988 - 10/1989
+
+Realisierung eines CASE-Systems.
+
+Aufgaben:
+
+- Systemberater
+- Entwickler
+
+Nixdorf AG
+
+(C, DB2, X-Windows, Unix)
+
+08/1983 - 12/1986
+ 
+Entwicklung eines CAD-Systems für die Planung und Simulation
+hydraulischer Schaltungen.
+
+Aufgaben:
+
+- Technische Projektleitung
+- Architekturentwurf
+
+Mannesman-Rexroth AG
+
+  (C, Oracle, Unix, Windows)
+
+02/1982 - 07/1983
+
+Entwicklung eines CAD-Systems für die Planung von Hydraulikbauteilen.
+
+Aufgaben:
+
+- Technische Projektleitung
+- Architekturentwurf
+
+Danuvia AG
+
+(C, Oracle, Unix)
+
+Referenzen:
+Projekt Freigabesystem von Dokumenten und Anbindung an XDOC, von 04/03 - 11/03
+Referenz durch Projektleiter/Abteilungsleiter im Hause Siemens ICN vom 30.10.03
+"Die fachliche Qualifikation des Consultants ist überdurchschnittlich gut. Er
+ist schnell im Erfassen und Durchdringen der zu realisierenden Aufgaben, extrem
+schnell und zielführend in der Realisierung. Durch intensive Tests ist die
+Fehlerrate sehr gering. Er beherscht alle in der heutigen Zeit notwendigen
+Programmiersprachen. Der Consultant ist ein sehr höflicher Mitarfbeiter, dem
+ein harmonisches Miteinander wichtig ist. Präsentationen macht er vorbildlich.
+Der Consultant ist ein sehr empfehlenswerter Kollege."
+Projekt JAVA/HTML Projekt auf Basis von Servlet/JSP Technologie und Oracle 8i
+von 04/02 - 03/03
+Referenz durch Entwicklungsleiter, SOFTCON IT Service GmbH mit 100 MA, vom
+25.02.03
+"Der Consultant verfügt über ein breites Know-How im Bereich Web-Technologien
+insbesondere im J2EE-Umfeld. Mit den dort relevanten Methoden und
+Architekturmustern ist er bestens vertraut. Er zeichnet sich in seiner Arbeit
+durch hohe Kompetenz, Professionalität und Zuverlässigkeit aus und zeigt in
+jeder Projektsituation hohes Engagement und Flexibilität. Wir würden jederzeit
+wieder mit ihm zusammenarbeiten, wir können ihn uneingeschränkt weiter
+empfehlen."
+Projekt E-Business (Okt. 2001 - März 2002)
+Referenz durch Projektleiter Siemens vom 20.03.02
+"Der Consultant hat maßgeblich zum Erfolg unseres E-Business Projektes
+beigetragen. Die von ihm entworfene Architektur mit EJBs und JSPs hat alle
+unsere früheren Schwierigkeiten mit J2EE gelöst. Er hat für alle Probleme die
+im Laufe der Entwicklung aufgetreten sind in kürzester Zeit eine Lösung
+präsentiert. Er arbeitet sehr professionell und stets termingerecht, sein
+Engagement war beispielhaft, er arbeitete auch in der Projektauslaufphase bis
+zur letzten Minute konzentriert.  Seine Aussagen waren immer fundiert, seine
+breite Kenntnispalette von Middleware,  durch Pattern bis zum Softwaredesign
+gab uns in vielen Bereichen neue Impulse. Wir können den Consultant anderen
+Projektanbietern weiterempfehlen und würden uns selber  freuen, wenn wir mit
+ihm bald wieder in einem Projekt zusammenarbeiten könnten."
+Alle Referenzen sind durch GULP bestätigt.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_30406
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 18.05.2021 01:28:19
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

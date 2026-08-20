@@ -1,0 +1,314 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_197639 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen ID                197639
+  
+Wohnort                    604xx Frankfurt am Main, Cook-Inseln
+Jahrgang                   1994
+Staatsbürgerschaft         deutsch
+Stundensatz                80 EUR
+Verfügbar ab               01.12.19 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         13.06.19
+Profil zuletzt geändert am 06.12.19
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 20.09.2019 12:08:25
+
+Fachlicher Schwerpunkt:
+Ansible Automation Engineer, Python Developer
+
+Position:
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Courses completed
+    * Ansible Automation and Configuration Management Best Practices
+    * IBM Informix Online Administration 1 &amp; 2
+    * Oracle Administration, SQL Performance Tuning and Backup &amp; Restore for HA
+    * VMware vSphere Essentials
+
+Einsatzort:
+Regionen:
+außerhalb D/A/CH, D6
+im Umkreis von:
+Frankfurt am Main (20 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Projekte:
+05/2017 - heute: Automation Engineering
+ 
+Rolle:              Automation Engineer
+ 
+Aufgaben:
+ 
+Create full automation of the Server Build. For this I had to develop a few
+custom Ansible Modules to enhance Ansible´s behaviour. For reporting and a non-
+standard Perforce migration (Migration from Solaris to RHEL, and Version 2010
+to Version 2017, only migrate a subset and not the whole data, due to Data-
+Leakage and Diskspace constraints) I had to create extensive reports to make
+sure that we had consistent data. I supported the internal core team in their
+day-to-day activities by automation, and being the coordinator between the
+Application´s Team and the Unix-Team. Another big milestone was the hosting of
+a Git-Swarm instance (for source code reviews) and a Git-Fusion, with a
+“Shadow-Copy”, that syncs BitBucket-Git-Repositories with the Git-Fusion
+repository, which then is in sync with our Perforce instance
+ 
+Kenntnisse:
+ 
+Ansible, Perforce, P4API, Git, BitBucket, Python, Flask, CentOS, SLES,
+Artifactory, Jenkins, Bash, Oracle, Maven/Gradle, Helix-Swarm, Git-Fusion,
+Atlassian-Stack
+===============================================================================
+09/2015 - heute: Systemadministration
+ 
+Rolle:              System Administrator
+ 
+Aufgaben:
+ 
+As the only System Administrator in this small company, my tasks are to make
+sure, that the day-to-day operations are running smoothly. This includes a
+variety of operating systems (RHEL, Windows, Mac OS). I take care of the VPN
+connection and the Company´s network infrastructure but also security. For this
+I have implemented a DMZ (Windows Server), which hides behind a Firewall. We
+use modern virtualisation tools (VmWare vSPhere) with business NAS Hardware
+(Qnap).
+ 
+Kenntnisse:
+ 
+Ansible, Perforce, Git, Bitbucket, Atlassian-Stack, Windows Server, Windows 10,
+Windows 7, MacOS, VmWare, Qnap, Network, Juniper, Python, C, C++, Bash,
+Metasploit, Wireshark, Nmap (incl Zenmap-Gui)
+===============================================================================
+12/2016 - 05/2018: Support of Daily Platform
+ 
+Rolle:              Lead Automation Engineer
+ 
+Aufgaben:
+ 
+In this project, I was tasked to lead a small team consisting of five people
+that had to migrate an existing Chef-Automation to the new company standard:
+Ansible. The project was very complex due to the amount of recipes and
+cookbooks (over 400) and the limited time. We decided, together with the
+client, to do a one-to-one migration instead of refactoring it and make it good
+Ansible code. Next to this project, I was part of a smaller team, that took
+care of the big data-flow control and Hadoop Infrastructure for the largest GDS
+in the world. This consisted of monitoring the platform regularly. I had to
+coordinate with colleagues from Thailand to handover the tasks and help when
+needed.
+ 
+Kenntnisse:
+ 
+Ansible, Chef, Puppet, Zabbix, Java, Hadoop, HDFS, Spark, Cassandra, Kafka,
+Cloudera-Stack, Python, Bash, VmWare, RHEL
+===============================================================================
+11/2016 - 09/2017: Development Infrastructure Project
+ 
+Rolle:              System Administrator
+ 
+Aufgaben:
+ 
+The goal of this project was to provide a complete development Chain, including
+installation and configuration of Jenkins, BitBucket, Git and Eclipse. For
+communication I configured the tool Slack and Jira (selfhosted Version). For
+better documentation I installed and configured Confluence and documented the
+end to end setup and operational processes in the new knowledgebase.
+ 
+Kenntnisse:
+ 
+Jenkins, Git, Eclipse, BitBucket, Slack, Atlassian Jira, Attlassian Confluence
+===============================================================================
+04/2017 - 04/2017: ChatOps Chain
+ 
+Rolle:              Administrator
+ 
+Aufgaben:
+ 
+Create a ChatOps Proof-of-Concept Chain. This included the installation and
+configuration of Slack, Jenkins, Ansible and Maven. For this I created a small
+Java Application that should be packaged and deployed. The goal was to initiate
+a Command in the Slack Chat to trigger a Jenkins Job execution that would then
+run a maven goal to build the software and deploy it within a docker image
+using Ansible. The Job sends feedback about the status into the Slack Chat.
+ 
+Kenntnisse:
+ 
+Ansible, Slack, Jenkins, Maven, Docker
+===============================================================================
+02/2017 - 03/2017: Ansible Customisation &amp; Source Code securing
+ 
+Rolle:              Developer
+ 
+Aufgaben:
+ 
+This Project was to install the latest version of perforce, create a custom
+Ansible Module to perform Perforce command line execution of edit/submit/
+revert. The second module was created to perform the backup / restore and
+replication tasks needed to monitor and ensure a reliable high-availability
+source code management solution. I later migrated all of the Unix DBA
+maintenance and environment setting infrastructure scripts to the perforce
+repository. In parallel, I wrote a few ansible playbooks to also migrate these
+script to a dedicated config repository hosted in GIT. The goal here was to
+create a Workspace Mapping independent solution to mimic the functionality
+provided by perforce.
+ 
+Kenntnisse:
+ 
+Perforce (Helix), GIT, Ansible, Bash
+===============================================================================
+02/2017 - 02/2017: Development Chain
+ 
+Rolle:              Developer/Administrator
+ 
+Aufgaben:
+ 
+The Goal was to create an Eclipse based Ansible Execution and Development Chain
+this includes setting up a connection between Cygwin and Eclipse to execute
+Ansible Playbooks at a button click. This also includes setting up an oracle
+environment within Cygwin and allows remote debugging of Ansible modules on
+remote target servers in Eclipse.
+ 
+Kenntnisse:
+ 
+Eclipse, Cygwin, Python, CentOS 7
+===============================================================================
+10/2016 - 01/2017: Informix Migration/Upgrade
+ 
+Rolle:              Database-Administrator
+ 
+Aufgaben:
+ 
+For a large EDI-Consulting Firm in Munich, I performed an Informix Version
+Upgrade from V10 to V12 on Windows 2003 Server. This task included 60 Instances
+with a total of 300 databases, spread over 14 virtual Servers (VMware ESXi
+managed). The migration project was coordinated with the client and the end-
+customer and performed out of hours during consecutive weekends on the client
+site.
+ 
+Kenntnisse:
+ 
+Informix Online, Batch and Python scripting, ESXi VMware, Windows Server 2003
+===============================================================================
+07/2016 - 09/2016: Server Provisioning with Ansible
+ 
+Rolle:              Unix-Administrator
+ 
+Aufgaben:
+ 
+This project´s goal was to use Ansible for a complete server provisioning,
+including nstallation and configuration of different tools (e.g. Python, Nginx,
+etc.), as well as Firewall-Management and hard drive deployment including
+partitioning and filesystem provisioning. Basic VM provisioning was also in-
+scope using the ESXi python API and provided exposure to the Ansible VMware
+API.
+ 
+Kenntnisse:
+ 
+Ansible, Python, CentOS, SUSE Enterprise 11, GIT, ESX VMware
+===============================================================================
+03/2016 - 06/2016: Stockticker Android App
+ 
+Rolle:              Software-Developer / App Architect
+ 
+Aufgaben:
+ 
+This project involved the creation of an Android Smartphone and Watch App.  The
+goal of this project was to get Stock Information from diverse Sources, do some
+comparison, save the data and display it nicely on a smartphone as well as an
+Android Watch.  The server side process was responsible for scraping the data
+(using the vendors native APIs), doing some processing  (trigger a notification
+when a stock reached a certain level, etc), and storing the data in an Oracle
+Database. On the Client Side I implemented a clever scheduling system that
+communicates with the Server in a battery friendly way. I created a PDF
+colouring system using iText and apache Tika to intelligently parse and
+summarize a companies Financial Reports to enable a trader to shortlist
+interesting potential new stocks.
+ 
+Kenntnisse:
+ 
+Android Studio with API-15 (Ice Cream Sandwich), Android Watch, REST, Python,
+Oracle, HTTP, lxml, Webscraping, flask, XPath
+===============================================================================
+08/2014 - 06/2016: IT Support Assistants (First and second Level Support)
+ 
+Rolle:              IT-Support Assistant / System administrator
+ 
+Aufgaben:
+ 
+    * Support with Soft- and hardware issues
+    * First-Level Support using OTRS (Open source ticket-request system)
+    * Software development of Scripts and smaller Applications that were used
+      in the company´s intranet
+ 
+Kenntnisse:
+ 
+OTRS, Java, Typo3, PHP, Active Directory, LDAP, Windows Powershell, Batch,
+Perl, Adobe Photoshop, Gimp, Irfanview, MS Office 2010, LibreOffice, Eclipse,
+PHPStorm, Netzwerk, Drucker
+===============================================================================
+05/2016 - 05/2016: VMware Installation and configuration
+ 
+Rolle:              Unix administrator
+ 
+Aufgaben:
+ 
+Working for a small start-up company, I was tasked with the provisioning of a
+VMware platform to provide a development and testing solution. I was
+responsible for the selection/ purchase/installation and configuration. The
+final solution comprised a VMware based Server infrastructure using a QNAP-NAS
+as a storage system with 4x1GB Ethernet NICs attaching iscsi targets for the
+VMs datastores using a DELL R720 as the server Host, 48TB, 12-core, 72gb RAM.
+ 
+Kenntnisse:
+ 
+QNAP TVS-871-i7-16G, DELL R720, VMware, ESXi
+===============================================================================
+09/2015 - 12/2015: Drupal Website Administration
+ 
+Rolle:              Developer
+ 
+Aufgaben:
+ 
+Create maintain and enhance a Drupal based Website using HTML5, CSS3,
+JavaScript and PHP5, to add new functionality and Design. I prepared a DEV (for
+prototyping), UAT (for staging and content authoring) and finally a PRD
+instance for the live client website.
+ 
+Kenntnisse:
+ 
+Drupal 7, PHP5, HTML5, CSS3, JavaScript
+===============================================================================
+07/2015 - 08/2015: Backup and restore Portal for an Informix Database
+infrastructure
+ 
+Rolle:              Developer
+ 
+Aufgaben:
+ 
+Create a Webportal that makes it easy for the local administrator to restore an
+Informix Database to a specific point in time, this also includes management of
+old backups to keep the storage under a certain limit. An additional second VM
+was created to provide a Test and Rstore environment to allow the migration to
+a new Warehouse reporting system and to verify the backups
+ 
+Kenntnisse:
+ 
+Informix v11, RHEL, Python, Flask
+===============================================================================
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_197639 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 07.12.2019 01:13:28
+© Copyright 1996-2019 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

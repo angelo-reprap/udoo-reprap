@@ -1,0 +1,1833 @@
+---------- Gulp-Profil Stand 2018-11-05 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 169924: JAVA,
+Eclipse RCP                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+169924 [4] | Profil in Englisch [5] anzeigen
+     Stammdaten (Auszug):    
+
+	 Personen-ID 169924    Wohnort 010xx Dresden, Deutschland Stundensatz
+65 EUR  Verfügbar ab 02.09.19 zu 0%, Vor-Ort-Einsatz 0% möglich Profil
+erstellt am 22.04.16 Profil zuletzt geändert am 05.11.18 Lesen von
+Projektanfragen 1,5 Tage  [6]Direktkontakt [7]         Kommentar:  
+Kommentar schreiben Profil angezeigt am 23.04.2018 16:04:19      
+Fachlicher Schwerpunkt:  JAVA, Eclipse RCP      Position: 
+Software-Entwicklung / Programmierung
+ Coaching / Schulung / Training
+ Qualitätsmanagement / Qualitätssicherung / Test
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  
+
+	10/1999 - 08/2005: Informatik-Studium 
+
+	Abschluss: Diplom-Informatiker 
+
+	Institution: Technische Universität Berlin 
+
+	Schwerpunkt: 
+
+	Middleware, Verteilte Systeme 
+
+	Interdisziplinäres Arbeiten 
+-------------------------
+
+	2004 Auslandssemester Macquarie University Sydney, Australien     
+Einsatzort:   Regionen: 
+
+	D0   im Umkreis von: 
+
+	Dresden (200 km)   Ich möchte BEVORZUGT für die o. g. Einsatzorte
+kontaktiert werden.       Fremdsprachen:  
+
+		Englisch
+		sehr gute Kenntnisse
+
+		Russisch
+		Grundkenntnisse
+
+		Spanisch
+		Grundkenntnisse
+
+      Programmiersprachen:  
+
+		Java
+
+		Java 5
+
+		Java 6
+
+		Java 7
+
+		Java 8
+
+		JavaScript
+
+		JPA
+
+		PHP
+
+		PHP 5.4
+
+		PL/SQL
+
+		VBA
+
+	SQL, HTML, CSS, XML, VBA, Batch      Datenbanken:  
+
+		MS SQL Server
+
+		MySQL
+
+		MySQL 5
+
+		Oracle
+
+		PostgreSQL
+
+		SQL
+
+      Schwerpunkte:  
+
+		Anwendungsentwicklung
+
+		Backend
+
+		UI (SWT, Swing)
+
+      Produkte/Standards/Erfahrungen:  
+
+		Apache
+
+		Apache Velocity
+
+		DesignPatterns
+		MVC, Dependency Injection, etc.
+
+		Eclipse RCP
+		Entwicklung von PlugIns, Deployment
+
+		Eclipse SWT
+		UI-Entwicklung
+
+		Flying Saucer
+
+		Google App Engine
+
+		Google Apps Script
+
+		iText
+
+		JAVA Servlet
+
+		JBoss ApplicationServer
+
+		JUnit
+
+		Maven
+
+		Mockito
+
+		MS Office
+
+		Nebula NatTable
+		Verwendung und Erweiterung
+
+		Organice Pi
+
+		Organice SQL
+
+		OSGi
+
+		Spring
+
+      Projekte:  
+
+	10/2016 - 12/2016: Termin- und Ressourcenplaner 
+
+	Einsatzort: Dresden 
+
+	Rolle: Design &amp; Entwicklung 
+
+	Aufgaben: 
+
+	Entwurf und Umsetzung eines Planungs-Tools für Termine und
+Ressourcen. Programmierung mit PHP und MySQL. 
+
+	Kenntnisse: 
+
+	PHP, MySQL, SQL 
+
+	Eingesetzte Produkte: 
+
+	PHP 5.4, MySQL 5, Apache 
+-------------------------
+
+	09/2016 - 10/2016: Terminplaner mit Google Kalender 
+
+	Einsatzort: Dresden 
+
+	Rolle: Design &amp; Entwicklung 
+
+	Aufgaben: 
+
+	Entwurf und Umsetzung einer Applikation zur Terminkoordination
+basierend auf Google Sheets, Google Mail und Google Kalender.
+Programmierung mit Google Apps Script. 
+
+	Kenntnisse: 
+
+	Google Apps Script, JavaScript 
+
+	Eingesetzte Produkte: 
+
+	Google App Engine, Google Calendar, Google Sheets, Google Contacts,
+Google Mail 
+-------------------------
+
+	12/2012 - 03/2016: Entwurf und Entwicklung einer TreeTable auf Basis
+der Nebula NatTable 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Das UI-Element TreeTable wurde in kontinuierlicher Weiterentwicklung
+für die Bedürfnisse des Projekts konzipiert und erstellt. 
+
+	Die größten Herausforderungen im Projekt waren die Bereitstellung
+einer einfachen aber mächtigen API für alle Anwendungsfälle sowie eine
+effiziente Lade- und Anzeigestrategie für große Datenmengen (lazy
+loading). 
+
+	Die TreeTable wurde als Eclipse-PlugIn intern ausgeliefert.
+Definition von Unit-Tests mit JUnit. Dokumentation und
+Entwicklerschulung. 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT, Nebula NatTable, Java, JUnit, Mockito 
+-------------------------
+
+	12/2012 - 03/2016: Entwurf und Entwicklung einer dynamischen Tabelle
+zur Darstellung komplexer Datenstrukturen 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Die DynamicTable wurde als UI-Element auf Basis der Nebula NatTable
+entworfen und entwickelt um Messwerte und Abrechnungsdaten anzeigen
+und editieren zu können.  
+
+	Die größte Herausforderung im Projekt war, die dynamischen
+Datenstrukturen mit Hilfe der Nebula NatTable effizient abzubilden.
+Lazy loading und die Synchronisation der Oberfläche mit dem Datenpool
+waren weitere Schwerpunkte der Arbeit. 
+
+	Die DynamicTable wurde als Eclipse-PlugIn intern ausgeliefert.
+Definition von Unit-Tests mit JUnit. Dokumentation und
+Entwicklerschulung. 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT, Nebula NatTable, Java, JUnit, Mockito 
+-------------------------
+
+	12/2012 - 03/2016: Migration von Anwendungskomponenten von Oracle
+Forms zu Java RCP 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Im Rahmen der Migration einer Energiedatenmanagement-Suite wurde die
+Funktionalität der vorhandenen Oracle Forms-Masken in Java RCP neu
+implementiert. 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT, Java, JUnit, Mockito, Maven 
+-------------------------
+
+	12/2012 - 03/2016: Entwurf und Entwicklung verschiedener UI Elemente
+mit SWT 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Es wurden verschiedene, zum Teil komplexe UI-Elemente entworfen und
+realisiert: 
+
+	Darstellung von Live-Daten (server health) 
+
+	- ein kompaktes Anzeigeelement zur Visualisierung des Lastzustandes
+von Servern 
+
+	- Möglichkeit der Interaktion bzw. Anzeige von detaillierten
+Informationen (zum Beispiel von havarierten Servern)  
+
+	Darstellung von komplexen Objekten in der UI 
+
+	- mit der Möglichkeit, zu definierten Detailansichten zu wechseln 
+
+	- lazy loading für große Datenmengen  
+
+	Erweiterung der Tabellenimplementierung um zustandsabhängige
+Darstellungsoptionen 
+
+	- angepasste Darstellung je nach Datensatz und Feld 
+
+	- Editieroptionen für neue Darstellungsarten (z.B. ColorPicker) 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT 
+-------------------------
+
+	10/2010 - 01/2011: Weiterentwicklung einer Software zur
+Kontoblatterzeugung 
+
+	Einsatzort: Berlin 
+
+	Rolle: Software-Entwickler 
+
+	Aufgaben: 
+
+	Anpassung einer vorhandenen Software zur automatisierten Generierung
+von Kontoblättern aus Kontobewegungsdaten (DATEV) in Java. Deployment
+als Web-Applikation im Intranet. 
+
+	Tools: Java, iText, Apache Velocity, Flying Saucer  
+
+	Eingesetzte Produkte: 
+
+	Apache Velocity, iText, Java, Flying Saucer, JUnit 
+-------------------------
+
+	01/2008 - 12/2010: Bereitstellung einer Software zur Berechnung von
+Vertriebsprovisionen in JAVA 
+
+	Einsatzort: Berlin 
+
+	Rolle: Berater/Entwickler 
+
+	Aufgaben: 
+
+	Entwurf und Erstellung einer Software zur automatisierten Berechnung
+von Vertriebsprovisionen und Dokumentenerstellung auf Basis des
+Organice SQL CRM. Implementierung mit JAVA EE und MS SQL Server.
+Dokumentation, Mitarbeiterschulung und Wartung. Kontinuierliche
+Anpassung und Weiterentwicklung. 
+
+	Eingesetzte Produkte: 
+
+	Organice SQL, MS Office, MS SQL Server, JBoss ApplicationServer,
+JAVA, JPA, JAVA Servlet, Spring, JUnit 
+-------------------------
+
+	10/2009 - 01/2010: Erstellung einer Software zur Kontoblatterzeugung 
+
+	Einsatzort: Berlin 
+
+	Rolle: Software-Entwicklung 
+
+	Aufgaben: 
+
+	Entwurf und Erstellung einer vorhandenen Software zur automatisierten
+Generierung von Kontoblättern aus Kontobewegungsdaten (DATEV) in Java.
+Deployment als Web-Applikation im Intranet. 
+
+	Tools: Java, iText, Apache Velocity, Flying Saucer  
+
+	Eingesetzte Produkte: 
+
+	Java, iText, Apache Velocity, Flying Saucer, JUnit 
+-------------------------
+
+	06/2006 - 07/2009: Bereitstellung einer Software zur Berechnung von
+Vertriebsprovisionen 
+
+	Einsatzort: Berlin 
+
+	Rolle: Berater/Entwickler 
+
+	Aufgaben: 
+
+	Entwurf und Erstellung einer Software zur automatisierten Berechnung
+von Vertriebsprovisionen udn Dokumentenerstellung auf Basis des
+Organice Pi CRM. Dokumentation, Mitarbeiterschulung und Wartung.
+Kontinuierliche Anpassung und Weiterentwicklung und Betreuung im
+laufenden Betrieb. 
+
+	Eingesetzte Produkte: 
+
+	Organice Pi, VBA, MS Office 
+-------------------------
+
+	2012 - 2016 Festanstellung in Dresden 
+
+	- Branche: Energiedatenmanagement 
+
+	- Migration einer Energiedatenmanagement Software von Oracle Forms
+nach Java RCP (Eclipse 4) 
+
+	- Oberflächenentwicklung mit Eclipse SWT, JFreeChart, Swing 
+
+	- Entwicklung von PlugIns für das hauseigene Eclipse-basierte
+RCP-Framework 
+
+	- Entwicklung von UI-Elementen u.a. auf Basis der Eclipse Nebula
+NatTable 
+
+	- Werkzeuge: Eclipse IDE, Maven, JUnit, Mockito, SVN 
+
+	2005 - 2011 Freiberuflicher IT-Consultant in Berlin 
+
+	- Branche: Finanzdienstleistungen 
+
+	- Anwendungsentwicklung auf Basis von Organice Pi/MS SQL Server 
+
+	- Entwicklung und Pflege von Web-Auftritten mit Java EE, Spring
+Framework, MySQL 
+
+	- Anwendungsentwicklung mit Java, Spring Framework, Velocity, Apache
+FOP, iText, Flying Saucer 
+
+	- Administration und Pflege von Tomcat und Glassfish Application
+Server 
+
+	- Werkzeuge: Netbeans IDE, Ant, JUnit, SVN      Sonstige Anmerkungen:
+ 
+
+	Oberflächenprogrammierung mit Eclipse SWT, Swing, Nebula NatTable,
+etc. 
+
+	Diagrammdarstellung mit JFreeChart 
+
+	Automatisierte Dokumentenerstellung mit iText, Velocity, Flying
+Saucer 
+
+	Einrichtung und Administration von Tomcat, GlassFish Application
+Server 
+
+	Absicherung der Entwicklung durch Unit-Tests mit JUnit, Mockito,
+etc.  
+
+	DesignPatterns in der Anwendung: MVC, Observer, Decorator, Builder,
+Factory, Dependency Injection, etc. 
+
+	Dokumentation von API immer mit JavaDoc, Unittests und ggf.
+Beispielcode, bei Bedarf Entwicklerschulung 
+
+	Täglicher Umgang mit SVN, CVS, Ant, Maven, Sonar, Checkstyle      
+
+		Seite drucken [8]  [9] 
+		Zum Seitenanfang [10]  [11]
+
+ Recherche [12] | Suchergebnis [13] | Kontaktieren [14] | Anfragen an
+ID 169924 [15] | Profil in Englisch [16] anzeigen
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 06.11.2018 01:37:54
+ (c) Copyright 1996-2018 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [17] 
+
+   
+
+---------- Gulp-Profil Stand 2018-03-19 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 169924: JAVA,
+Spring, Eclipse RCP                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+169924 [4] | Profil in Englisch [5] anzeigen
+     Stammdaten (Auszug):    
+
+	 Personen-ID 169924    Wohnort 010xx Dresden, Deutschland Stundensatz
+65 EUR  Verfügbar ab 01.09.18 zu 75%, Vor-Ort-Einsatz 50% möglich
+Profil erstellt am 22.04.16 Profil zuletzt geändert am 19.03.18 Lesen
+von Projektanfragen 1,5 Tage  [6]Direktkontakt [7]         Kommentar: 
+ Kommentar schreiben Profil angezeigt am 23.04.2018 16:03:31      
+Fachlicher Schwerpunkt:  JAVA, Spring, Eclipse RCP      Position: 
+Software-Entwicklung / Programmierung
+ Coaching / Schulung / Training
+ Qualitätsmanagement / Qualitätssicherung / Test
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  
+
+	10/1999 - 08/2005: Informatik-Studium 
+
+	Abschluss: Diplom-Informatiker 
+
+	Institution: Technische Universität Berlin 
+
+	Schwerpunkt: 
+
+	Middleware, Verteilte Systeme 
+
+	Interdisziplinäres Arbeiten 
+-------------------------
+
+	2004 Auslandssemester Macquarie University Sydney, Australien     
+Einsatzort:   Regionen: 
+
+	D0   im Umkreis von: 
+
+	Dresden (200 km)   Ich möchte BEVORZUGT für die o. g. Einsatzorte
+kontaktiert werden.       Fremdsprachen:  
+
+		Englisch
+		sehr gute Kenntnisse
+
+		Russisch
+		Grundkenntnisse
+
+		Spanisch
+		Grundkenntnisse
+
+      Programmiersprachen:  
+
+		Java
+
+		Java 5
+
+		Java 6
+
+		Java 7
+
+		Java 8
+
+		JavaScript
+
+		JPA
+
+		PHP
+
+		PHP 5.4
+
+		PL/SQL
+
+		VBA
+
+	SQL, HTML, CSS, XML, VBA, Batch      Datenbanken:  
+
+		MS SQL Server
+
+		MySQL
+
+		MySQL 5
+
+		Oracle
+
+		PostgreSQL
+
+		SQL
+
+      Schwerpunkte:  
+
+		Anwendungsentwicklung
+
+		Backend
+
+		UI (SWT, Swing)
+
+      Produkte/Standards/Erfahrungen:  
+
+		Apache
+
+		Apache Velocity
+
+		DesignPatterns
+		MVC, Dependency Injection, etc.
+
+		Eclipse RCP
+		Entwicklung von PlugIns, Deployment
+
+		Eclipse SWT
+		UI-Entwicklung
+
+		Flying Saucer
+
+		Google App Engine
+
+		Google Apps Script
+
+		iText
+
+		JAVA Servlet
+
+		JBoss ApplicationServer
+
+		JUnit
+
+		Maven
+
+		Mockito
+
+		MS Office
+
+		Nebula NatTable
+		Verwendung und Erweiterung
+
+		Organice Pi
+
+		Organice SQL
+
+		OSGi
+
+		Spring
+
+      Projekte:  
+
+	10/2016 - 12/2016: Termin- und Ressourcenplaner 
+
+	Einsatzort: Dresden 
+
+	Rolle: Design &amp; Entwicklung 
+
+	Aufgaben: 
+
+	Entwurf und Umsetzung eines Planungs-Tools für Termine und
+Ressourcen. Programmierung mit PHP und MySQL. 
+
+	Kenntnisse: 
+
+	PHP, MySQL, SQL 
+
+	Eingesetzte Produkte: 
+
+	PHP 5.4, MySQL 5, Apache 
+-------------------------
+
+	09/2016 - 10/2016: Terminplaner mit Google Kalender 
+
+	Einsatzort: Dresden 
+
+	Rolle: Design &amp; Entwicklung 
+
+	Aufgaben: 
+
+	Entwurf und Umsetzung einer Applikation zur Terminkoordination
+basierend auf Google Sheets, Google Mail und Google Kalender.
+Programmierung mit Google Apps Script. 
+
+	Kenntnisse: 
+
+	Google Apps Script, JavaScript 
+
+	Eingesetzte Produkte: 
+
+	Google App Engine, Google Calendar, Google Sheets, Google Contacts,
+Google Mail 
+-------------------------
+
+	12/2012 - 03/2016: Entwurf und Entwicklung einer TreeTable auf Basis
+der Nebula NatTable 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Das UI-Element TreeTable wurde in kontinuierlicher Weiterentwicklung
+für die Bedürfnisse des Projekts konzipiert und erstellt. 
+
+	Die größten Herausforderungen im Projekt waren die Bereitstellung
+einer einfachen aber mächtigen API für alle Anwendungsfälle sowie eine
+effiziente Lade- und Anzeigestrategie für große Datenmengen (lazy
+loading). 
+
+	Die TreeTable wurde als Eclipse-PlugIn intern ausgeliefert.
+Definition von Unit-Tests mit JUnit. Dokumentation und
+Entwicklerschulung. 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT, Nebula NatTable, Java, JUnit, Mockito 
+-------------------------
+
+	12/2012 - 03/2016: Entwurf und Entwicklung einer dynamischen Tabelle
+zur Darstellung komplexer Datenstrukturen 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Die DynamicTable wurde als UI-Element auf Basis der Nebula NatTable
+entworfen und entwickelt um Messwerte und Abrechnungsdaten anzeigen
+und editieren zu können.  
+
+	Die größte Herausforderung im Projekt war, die dynamischen
+Datenstrukturen mit Hilfe der Nebula NatTable effizient abzubilden.
+Lazy loading und die Synchronisation der Oberfläche mit dem Datenpool
+waren weitere Schwerpunkte der Arbeit. 
+
+	Die DynamicTable wurde als Eclipse-PlugIn intern ausgeliefert.
+Definition von Unit-Tests mit JUnit. Dokumentation und
+Entwicklerschulung. 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT, Nebula NatTable, Java, JUnit, Mockito 
+-------------------------
+
+	12/2012 - 03/2016: Migration von Anwendungskomponenten von Oracle
+Forms zu Java RCP 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Im Rahmen der Migration einer Energiedatenmanagement-Suite wurde die
+Funktionalität der vorhandenen Oracle Forms-Masken in Java RCP neu
+implementiert. 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT, Java, JUnit, Mockito, Maven 
+-------------------------
+
+	12/2012 - 03/2016: Entwurf und Entwicklung verschiedener UI Elemente
+mit SWT 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Es wurden verschiedene, zum Teil komplexe UI-Elemente entworfen und
+realisiert: 
+
+	Darstellung von Live-Daten (server health) 
+
+	- ein kompaktes Anzeigeelement zur Visualisierung des Lastzustandes
+von Servern 
+
+	- Möglichkeit der Interaktion bzw. Anzeige von detaillierten
+Informationen (zum Beispiel von havarierten Servern)  
+
+	Darstellung von komplexen Objekten in der UI 
+
+	- mit der Möglichkeit, zu definierten Detailansichten zu wechseln 
+
+	- lazy loading für große Datenmengen  
+
+	Erweiterung der Tabellenimplementierung um zustandsabhängige
+Darstellungsoptionen 
+
+	- angepasste Darstellung je nach Datensatz und Feld 
+
+	- Editieroptionen für neue Darstellungsarten (z.B. ColorPicker) 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT 
+-------------------------
+
+	10/2010 - 01/2011: Weiterentwicklung einer Software zur
+Kontoblatterzeugung 
+
+	Einsatzort: Berlin 
+
+	Rolle: Software-Entwickler 
+
+	Aufgaben: 
+
+	Anpassung einer vorhandenen Software zur automatisierten Generierung
+von Kontoblättern aus Kontobewegungsdaten (DATEV) in Java. Deployment
+als Web-Applikation im Intranet. 
+
+	Tools: Java, iText, Apache Velocity, Flying Saucer  
+
+	Eingesetzte Produkte: 
+
+	Apache Velocity, iText, Java, Flying Saucer, JUnit 
+-------------------------
+
+	01/2008 - 12/2010: Bereitstellung einer Software zur Berechnung von
+Vertriebsprovisionen in JAVA 
+
+	Einsatzort: Berlin 
+
+	Rolle: Berater/Entwickler 
+
+	Aufgaben: 
+
+	Entwurf und Erstellung einer Software zur automatisierten Berechnung
+von Vertriebsprovisionen und Dokumentenerstellung auf Basis des
+Organice SQL CRM. Implementierung mit JAVA EE und MS SQL Server.
+Dokumentation, Mitarbeiterschulung und Wartung. Kontinuierliche
+Anpassung und Weiterentwicklung. 
+
+	Eingesetzte Produkte: 
+
+	Organice SQL, MS Office, MS SQL Server, JBoss ApplicationServer,
+JAVA, JPA, JAVA Servlet, Spring, JUnit 
+-------------------------
+
+	10/2009 - 01/2010: Erstellung einer Software zur Kontoblatterzeugung 
+
+	Einsatzort: Berlin 
+
+	Rolle: Software-Entwicklung 
+
+	Aufgaben: 
+
+	Entwurf und Erstellung einer vorhandenen Software zur automatisierten
+Generierung von Kontoblättern aus Kontobewegungsdaten (DATEV) in Java.
+Deployment als Web-Applikation im Intranet. 
+
+	Tools: Java, iText, Apache Velocity, Flying Saucer  
+
+	Eingesetzte Produkte: 
+
+	Java, iText, Apache Velocity, Flying Saucer, JUnit 
+-------------------------
+
+	06/2006 - 07/2009: Bereitstellung einer Software zur Berechnung von
+Vertriebsprovisionen 
+
+	Einsatzort: Berlin 
+
+	Rolle: Berater/Entwickler 
+
+	Aufgaben: 
+
+	Entwurf und Erstellung einer Software zur automatisierten Berechnung
+von Vertriebsprovisionen udn Dokumentenerstellung auf Basis des
+Organice Pi CRM. Dokumentation, Mitarbeiterschulung und Wartung.
+Kontinuierliche Anpassung und Weiterentwicklung und Betreuung im
+laufenden Betrieb. 
+
+	Eingesetzte Produkte: 
+
+	Organice Pi, VBA, MS Office 
+-------------------------
+
+	2012 - 2016 Festanstellung in Dresden 
+
+	- Branche: Energiedatenmanagement 
+
+	- Migration einer Energiedatenmanagement Software von Oracle Forms
+nach Java RCP (Eclipse 4) 
+
+	- Oberflächenentwicklung mit Eclipse SWT, JFreeChart, Swing 
+
+	- Entwicklung von PlugIns für das hauseigene Eclipse-basierte
+RCP-Framework 
+
+	- Entwicklung von UI-Elementen u.a. auf Basis der Eclipse Nebula
+NatTable 
+
+	- Werkzeuge: Eclipse IDE, Maven, JUnit, Mockito, SVN 
+
+	2005 - 2011 Freiberuflicher IT-Consultant in Berlin 
+
+	- Branche: Finanzdienstleistungen 
+
+	- Anwendungsentwicklung auf Basis von Organice Pi/MS SQL Server 
+
+	- Entwicklung und Pflege von Web-Auftritten mit Java EE, Spring
+Framework, MySQL 
+
+	- Anwendungsentwicklung mit Java, Spring Framework, Velocity, Apache
+FOP, iText, Flying Saucer 
+
+	- Administration und Pflege von Tomcat und Glassfish Application
+Server 
+
+	- Werkzeuge: Netbeans IDE, Ant, JUnit, SVN      Sonstige Anmerkungen:
+ 
+
+	Oberflächenprogrammierung mit Eclipse SWT, Swing, Nebula NatTable,
+etc. 
+
+	Diagrammdarstellung mit JFreeChart 
+
+	Automatisierte Dokumentenerstellung mit iText, Velocity, Flying
+Saucer 
+
+	Einrichtung und Administration von Tomcat, GlassFish Application
+Server 
+
+	Absicherung der Entwicklung durch Unit-Tests mit JUnit, Mockito,
+etc.  
+
+	DesignPatterns in der Anwendung: MVC, Observer, Decorator, Builder,
+Factory, Dependency Injection, etc. 
+
+	Dokumentation von API immer mit JavaDoc, Unittests und ggf.
+Beispielcode, bei Bedarf Entwicklerschulung 
+
+	Täglicher Umgang mit SVN, CVS, Ant, Maven, Sonar, Checkstyle      
+
+		Seite drucken [8]  [9] 
+		Zum Seitenanfang [10]  [11]
+
+ Recherche [12] | Suchergebnis [13] | Kontaktieren [14] | Anfragen an
+ID 169924 [15] | Profil in Englisch [16] anzeigen
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 29.03.2018 01:37:07
+ (c) Copyright 1996-2018 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [17] 
+
+   
+
+---------- Gulp-Profil Stand 2017-12-01 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 169924: JAVA,
+Spring, Eclipse RCP                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+169924 [4] | Profil in Englisch [5] anzeigen
+     Stammdaten (Auszug):    
+
+	 Personen-ID 169924    Wohnort 010xx Dresden, Deutschland Stundensatz
+65 EUR  Verfügbar ab 01.04.18 zu 75%, Vor-Ort-Einsatz 50% möglich
+Profil erstellt am 22.04.16 Profil zuletzt geändert am 01.12.17 Lesen
+von Projektanfragen 1,5 Tage  [6]Direktkontakt [7]         Kommentar: 
+ Kommentar schreiben Profil angezeigt am 02.02.2018 15:10:17      
+Fachlicher Schwerpunkt:  JAVA, Spring, Eclipse RCP      Position: 
+Software-Entwicklung / Programmierung
+ Coaching / Schulung / Training
+ Qualitätsmanagement / Qualitätssicherung / Test
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  
+
+	10/1999 - 08/2005: Informatik-Studium 
+
+	Abschluss: Diplom-Informatiker 
+
+	Institution: Technische Universität Berlin 
+
+	Schwerpunkt: 
+
+	Middleware, Verteilte Systeme 
+
+	Interdisziplinäres Arbeiten 
+-------------------------
+
+	2004 Auslandssemester Macquarie University Sydney, Australien     
+Einsatzort:   Regionen: 
+
+	D0   im Umkreis von: 
+
+	Dresden (200 km)   Ich möchte BEVORZUGT für die o. g. Einsatzorte
+kontaktiert werden.       Fremdsprachen:  
+
+		Englisch
+		sehr gute Kenntnisse
+
+		Russisch
+		Grundkenntnisse
+
+		Spanisch
+		Grundkenntnisse
+
+      Programmiersprachen:  
+
+		Java
+
+		Java 5
+
+		Java 6
+
+		Java 7
+
+		Java 8
+
+		JavaScript
+
+		JPA
+
+		PHP
+
+		PHP 5.4
+
+		PL/SQL
+
+		VBA
+
+	SQL, HTML, CSS, XML, VBA, Batch      Datenbanken:  
+
+		MS SQL Server
+
+		MySQL
+
+		MySQL 5
+
+		Oracle
+
+		PostgreSQL
+
+		SQL
+
+      Schwerpunkte:  
+
+		Anwendungsentwicklung
+
+		Backend
+
+		UI (SWT, Swing)
+
+      Produkte/Standards/Erfahrungen:  
+
+		Apache
+
+		Apache Velocity
+
+		DesignPatterns
+		MVC, Dependency Injection, etc.
+
+		Eclipse RCP
+		Entwicklung von PlugIns, Deployment
+
+		Eclipse SWT
+		UI-Entwicklung
+
+		Flying Saucer
+
+		Google App Engine
+
+		Google Apps Script
+
+		iText
+
+		JAVA Servlet
+
+		JBoss ApplicationServer
+
+		JUnit
+
+		Maven
+
+		Mockito
+
+		MS Office
+
+		Nebula NatTable
+		Verwendung und Erweiterung
+
+		Organice Pi
+
+		Organice SQL
+
+		OSGi
+
+		Spring
+
+      Projekte:  
+
+	10/2016 - 12/2016: Termin- und Ressourcenplaner 
+
+	Einsatzort: Dresden 
+
+	Rolle: Design &amp; Entwicklung 
+
+	Aufgaben: 
+
+	Entwurf und Umsetzung eines Planungs-Tools für Termine und
+Ressourcen. Programmierung mit PHP und MySQL. 
+
+	Kenntnisse: 
+
+	PHP, MySQL, SQL 
+
+	Eingesetzte Produkte: 
+
+	PHP 5.4, MySQL 5, Apache 
+-------------------------
+
+	09/2016 - 10/2016: Terminplaner mit Google Kalender 
+
+	Einsatzort: Dresden 
+
+	Rolle: Design &amp; Entwicklung 
+
+	Aufgaben: 
+
+	Entwurf und Umsetzung einer Applikation zur Terminkoordination
+basierend auf Google Sheets, Google Mail und Google Kalender.
+Programmierung mit Google Apps Script. 
+
+	Kenntnisse: 
+
+	Google Apps Script, JavaScript 
+
+	Eingesetzte Produkte: 
+
+	Google App Engine, Google Calendar, Google Sheets, Google Contacts,
+Google Mail 
+-------------------------
+
+	12/2012 - 03/2016: Entwurf und Entwicklung einer TreeTable auf Basis
+der Nebula NatTable 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Das UI-Element TreeTable wurde in kontinuierlicher Weiterentwicklung
+für die Bedürfnisse des Projekts konzipiert und erstellt. 
+
+	Die größten Herausforderungen im Projekt waren die Bereitstellung
+einer einfachen aber mächtigen API für alle Anwendungsfälle sowie eine
+effiziente Lade- und Anzeigestrategie für große Datenmengen (lazy
+loading). 
+
+	Die TreeTable wurde als Eclipse-PlugIn intern ausgeliefert.
+Definition von Unit-Tests mit JUnit. Dokumentation und
+Entwicklerschulung. 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT, Nebula NatTable, Java, JUnit, Mockito 
+-------------------------
+
+	12/2012 - 03/2016: Entwurf und Entwicklung einer dynamischen Tabelle
+zur Darstellung komplexer Datenstrukturen 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Die DynamicTable wurde als UI-Element auf Basis der Nebula NatTable
+entworfen und entwickelt um Messwerte und Abrechnungsdaten anzeigen
+und editieren zu können.  
+
+	Die größte Herausforderung im Projekt war, die dynamischen
+Datenstrukturen mit Hilfe der Nebula NatTable effizient abzubilden.
+Lazy loading und die Synchronisation der Oberfläche mit dem Datenpool
+waren weitere Schwerpunkte der Arbeit. 
+
+	Die DynamicTable wurde als Eclipse-PlugIn intern ausgeliefert.
+Definition von Unit-Tests mit JUnit. Dokumentation und
+Entwicklerschulung. 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT, Nebula NatTable, Java, JUnit, Mockito 
+-------------------------
+
+	12/2012 - 03/2016: Migration von Anwendungskomponenten von Oracle
+Forms zu Java RCP 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Im Rahmen der Migration einer Energiedatenmanagement-Suite wurde die
+Funktionalität der vorhandenen Oracle Forms-Masken in Java RCP neu
+implementiert. 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT, Java, JUnit, Mockito, Maven 
+-------------------------
+
+	12/2012 - 03/2016: Entwurf und Entwicklung verschiedener UI Elemente
+mit SWT 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Es wurden verschiedene, zum Teil komplexe UI-Elemente entworfen und
+realisiert: 
+
+	Darstellung von Live-Daten (server health) 
+
+	- ein kompaktes Anzeigeelement zur Visualisierung des Lastzustandes
+von Servern 
+
+	- Möglichkeit der Interaktion bzw. Anzeige von detaillierten
+Informationen (zum Beispiel von havarierten Servern)  
+
+	Darstellung von komplexen Objekten in der UI 
+
+	- mit der Möglichkeit, zu definierten Detailansichten zu wechseln 
+
+	- lazy loading für große Datenmengen  
+
+	Erweiterung der Tabellenimplementierung um zustandsabhängige
+Darstellungsoptionen 
+
+	- angepasste Darstellung je nach Datensatz und Feld 
+
+	- Editieroptionen für neue Darstellungsarten (z.B. ColorPicker) 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT 
+-------------------------
+
+	10/2010 - 01/2011: Weiterentwicklung einer Software zur
+Kontoblatterzeugung 
+
+	Einsatzort: Berlin 
+
+	Rolle: Software-Entwickler 
+
+	Aufgaben: 
+
+	Anpassung einer vorhandenen Software zur automatisierten Generierung
+von Kontoblättern aus Kontobewegungsdaten (DATEV) in Java. Deployment
+als Web-Applikation im Intranet. 
+
+	Tools: Java, iText, Apache Velocity, Flying Saucer  
+
+	Eingesetzte Produkte: 
+
+	Apache Velocity, iText, Java, Flying Saucer, JUnit 
+-------------------------
+
+	01/2008 - 12/2010: Bereitstellung einer Software zur Berechnung von
+Vertriebsprovisionen in JAVA 
+
+	Einsatzort: Berlin 
+
+	Rolle: Berater/Entwickler 
+
+	Aufgaben: 
+
+	Entwurf und Erstellung einer Software zur automatisierten Berechnung
+von Vertriebsprovisionen und Dokumentenerstellung auf Basis des
+Organice SQL CRM. Implementierung mit JAVA EE und MS SQL Server.
+Dokumentation, Mitarbeiterschulung und Wartung. Kontinuierliche
+Anpassung und Weiterentwicklung. 
+
+	Eingesetzte Produkte: 
+
+	Organice SQL, MS Office, MS SQL Server, JBoss ApplicationServer,
+JAVA, JPA, JAVA Servlet, Spring, JUnit 
+-------------------------
+
+	10/2009 - 01/2010: Erstellung einer Software zur Kontoblatterzeugung 
+
+	Einsatzort: Berlin 
+
+	Rolle: Software-Entwicklung 
+
+	Aufgaben: 
+
+	Entwurf und Erstellung einer vorhandenen Software zur automatisierten
+Generierung von Kontoblättern aus Kontobewegungsdaten (DATEV) in Java.
+Deployment als Web-Applikation im Intranet. 
+
+	Tools: Java, iText, Apache Velocity, Flying Saucer  
+
+	Eingesetzte Produkte: 
+
+	Java, iText, Apache Velocity, Flying Saucer, JUnit 
+-------------------------
+
+	06/2006 - 07/2009: Bereitstellung einer Software zur Berechnung von
+Vertriebsprovisionen 
+
+	Einsatzort: Berlin 
+
+	Rolle: Berater/Entwickler 
+
+	Aufgaben: 
+
+	Entwurf und Erstellung einer Software zur automatisierten Berechnung
+von Vertriebsprovisionen udn Dokumentenerstellung auf Basis des
+Organice Pi CRM. Dokumentation, Mitarbeiterschulung und Wartung.
+Kontinuierliche Anpassung und Weiterentwicklung und Betreuung im
+laufenden Betrieb. 
+
+	Eingesetzte Produkte: 
+
+	Organice Pi, VBA, MS Office 
+-------------------------
+
+	2012 - 2016 Festanstellung in Dresden 
+
+	- Branche: Energiedatenmanagement 
+
+	- Migration einer Energiedatenmanagement Software von Oracle Forms
+nach Java RCP (Eclipse 4) 
+
+	- Oberflächenentwicklung mit Eclipse SWT, JFreeChart, Swing 
+
+	- Entwicklung von PlugIns für das hauseigene Eclipse-basierte
+RCP-Framework 
+
+	- Entwicklung von UI-Elementen u.a. auf Basis der Eclipse Nebula
+NatTable 
+
+	- Werkzeuge: Eclipse IDE, Maven, JUnit, Mockito, SVN 
+
+	2005 - 2011 Freiberuflicher IT-Consultant in Berlin 
+
+	- Branche: Finanzdienstleistungen 
+
+	- Anwendungsentwicklung auf Basis von Organice Pi/MS SQL Server 
+
+	- Entwicklung und Pflege von Web-Auftritten mit Java EE, Spring
+Framework, MySQL 
+
+	- Anwendungsentwicklung mit Java, Spring Framework, Velocity, Apache
+FOP, iText, Flying Saucer 
+
+	- Administration und Pflege von Tomcat und Glassfish Application
+Server 
+
+	- Werkzeuge: Netbeans IDE, Ant, JUnit, SVN      Sonstige Anmerkungen:
+ 
+
+	Oberflächenprogrammierung mit Eclipse SWT, Swing, Nebula NatTable,
+etc. 
+
+	Diagrammdarstellung mit JFreeChart 
+
+	Automatisierte Dokumentenerstellung mit iText, Velocity, Flying
+Saucer 
+
+	Einrichtung und Administration von Tomcat, GlassFish Application
+Server 
+
+	Absicherung der Entwicklung durch Unit-Tests mit JUnit, Mockito,
+etc.  
+
+	DesignPatterns in der Anwendung: MVC, Observer, Decorator, Builder,
+Factory, Dependency Injection, etc. 
+
+	Dokumentation von API immer mit JavaDoc, Unittests und ggf.
+Beispielcode, bei Bedarf Entwicklerschulung 
+
+	Täglicher Umgang mit SVN, CVS, Ant, Maven, Sonar, Checkstyle      
+
+		Seite drucken [8]  [9] 
+		Zum Seitenanfang [10]  [11]
+
+ Recherche [12] | Suchergebnis [13] | Kontaktieren [14] | Anfragen an
+ID 169924 [15] | Profil in Englisch [16] anzeigen
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 02.12.2017 01:50:45
+ (c) Copyright 1996-2017 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [17] 
+
+   
+
+---------- Gulp-Profil Stand 2017-05-15 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 169924: JAVA,
+Spring, Eclipse RCP                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+169924 [4] | Profil in Englisch [5] anzeigen
+     Stammdaten (Auszug):    
+
+	 Personen-ID 169924    Wohnort 010xx Dresden, Deutschland Stundensatz
+65 EUR  Verfügbar ab 01.09.17 zu 75%, Vor-Ort-Einsatz 50% möglich
+Profil erstellt am 22.04.16 Profil zuletzt geändert am 15.05.17 Lesen
+von Projektanfragen 1,5 Tage  [6]Direktkontakt [7]         Kommentar: 
+ Kommentar schreiben Profil angezeigt am 07.11.2017 14:13:29      
+Fachlicher Schwerpunkt:  JAVA, Spring, Eclipse RCP      Position: 
+Software-Entwicklung / Programmierung
+ Coaching / Schulung / Training
+ Qualitätsmanagement / Qualitätssicherung / Test
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  
+
+	10/1999 - 08/2005: Informatik-Studium 
+
+	Abschluss: Diplom-Informatiker 
+
+	Institution: Technische Universität Berlin 
+
+	Schwerpunkt: 
+
+	Middleware, Verteilte Systeme 
+
+	Interdisziplinäres Arbeiten 
+-------------------------
+
+	2004 Auslandssemester Macquarie University Sydney, Australien     
+Einsatzort:   Regionen: 
+
+	D0   im Umkreis von: 
+
+	Dresden (200 km)   Ich möchte BEVORZUGT für die o. g. Einsatzorte
+kontaktiert werden.       Fremdsprachen:  
+
+		Englisch
+		sehr gute Kenntnisse
+
+		Russisch
+		Grundkenntnisse
+
+		Spanisch
+		Grundkenntnisse
+
+      Programmiersprachen:  
+
+		Java
+
+		Java 5
+
+		Java 6
+
+		Java 7
+
+		Java 8
+
+		JavaScript
+
+		JPA
+
+		PHP
+
+		PHP 5.4
+
+		PL/SQL
+
+		VBA
+
+	SQL, HTML, CSS, XML, VBA, Batch      Datenbanken:  
+
+		MS SQL Server
+
+		MySQL
+
+		MySQL 5
+
+		Oracle
+
+		PostgreSQL
+
+		SQL
+
+      Schwerpunkte:  
+
+		Anwendungsentwicklung
+
+		Backend
+
+		UI (SWT, Swing)
+
+      Produkte/Standards/Erfahrungen:  
+
+		Apache
+
+		Apache Velocity
+
+		DesignPatterns
+		MVC, Dependency Injection, etc.
+
+		Eclipse RCP
+		Entwicklung von PlugIns, Deployment
+
+		Eclipse SWT
+		UI-Entwicklung
+
+		Flying Saucer
+
+		Google App Engine
+
+		Google Apps Script
+
+		iText
+
+		JAVA Servlet
+
+		JBoss ApplicationServer
+
+		JUnit
+
+		Maven
+
+		Mockito
+
+		MS Office
+
+		Nebula NatTable
+		Verwendung und Erweiterung
+
+		Organice Pi
+
+		Organice SQL
+
+		OSGi
+
+		Spring
+
+      Projekte:  
+
+	10/2016 - 12/2016: Termin- und Ressourcenplaner 
+
+	Einsatzort: Dresden 
+
+	Rolle: Design &amp; Entwicklung 
+
+	Aufgaben: 
+
+	Entwurf und Umsetzung eines Planungs-Tools für Termine und
+Ressourcen. Programmierung mit PHP und MySQL. 
+
+	Kenntnisse: 
+
+	PHP, MySQL, SQL 
+
+	Eingesetzte Produkte: 
+
+	PHP 5.4, MySQL 5, Apache 
+-------------------------
+
+	09/2016 - 10/2016: Terminplaner mit Google Kalender 
+
+	Einsatzort: Dresden 
+
+	Rolle: Design &amp; Entwicklung 
+
+	Aufgaben: 
+
+	Entwurf und Umsetzung einer Applikation zur Terminkoordination
+basierend auf Google Sheets, Google Mail und Google Kalender.
+Programmierung mit Google Apps Script. 
+
+	Kenntnisse: 
+
+	Google Apps Script, JavaScript 
+
+	Eingesetzte Produkte: 
+
+	Google App Engine, Google Calendar, Google Sheets, Google Contacts,
+Google Mail 
+-------------------------
+
+	12/2012 - 03/2016: Entwurf und Entwicklung einer TreeTable auf Basis
+der Nebula NatTable 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Das UI-Element TreeTable wurde in kontinuierlicher Weiterentwicklung
+für die Bedürfnisse des Projekts konzipiert und erstellt. 
+
+	Die größten Herausforderungen im Projekt waren die Bereitstellung
+einer einfachen aber mächtigen API für alle Anwendungsfälle sowie eine
+effiziente Lade- und Anzeigestrategie für große Datenmengen (lazy
+loading). 
+
+	Die TreeTable wurde als Eclipse-PlugIn intern ausgeliefert.
+Definition von Unit-Tests mit JUnit. Dokumentation und
+Entwicklerschulung. 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT, Nebula NatTable, Java, JUnit, Mockito 
+-------------------------
+
+	12/2012 - 03/2016: Entwurf und Entwicklung einer dynamischen Tabelle
+zur Darstellung komplexer Datenstrukturen 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Die DynamicTable wurde als UI-Element auf Basis der Nebula NatTable
+entworfen und entwickelt um Messwerte und Abrechnungsdaten anzeigen
+und editieren zu können.  
+
+	Die größte Herausforderung im Projekt war, die dynamischen
+Datenstrukturen mit Hilfe der Nebula NatTable effizient abzubilden.
+Lazy loading und die Synchronisation der Oberfläche mit dem Datenpool
+waren weitere Schwerpunkte der Arbeit. 
+
+	Die DynamicTable wurde als Eclipse-PlugIn intern ausgeliefert.
+Definition von Unit-Tests mit JUnit. Dokumentation und
+Entwicklerschulung. 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT, Nebula NatTable, Java, JUnit, Mockito 
+-------------------------
+
+	12/2012 - 03/2016: Migration von Anwendungskomponenten von Oracle
+Forms zu Java RCP 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Im Rahmen der Migration einer Energiedatenmanagement-Suite wurde die
+Funktionalität der vorhandenen Oracle Forms-Masken in Java RCP neu
+implementiert. 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT, Java, JUnit, Mockito, Maven 
+-------------------------
+
+	12/2012 - 03/2016: Entwurf und Entwicklung verschiedener UI Elemente
+mit SWT 
+
+	Einsatzort: Dresden 
+
+	Rolle: Software-Entwickler 
+
+	Kunde: Robotron Datenbank Systeme GmbH 
+
+	Aufgaben: 
+
+	Es wurden verschiedene, zum Teil komplexe UI-Elemente entworfen und
+realisiert: 
+
+	Darstellung von Live-Daten (server health) 
+
+	- ein kompaktes Anzeigeelement zur Visualisierung des Lastzustandes
+von Servern 
+
+	- Möglichkeit der Interaktion bzw. Anzeige von detaillierten
+Informationen (zum Beispiel von havarierten Servern)  
+
+	Darstellung von komplexen Objekten in der UI 
+
+	- mit der Möglichkeit, zu definierten Detailansichten zu wechseln 
+
+	- lazy loading für große Datenmengen  
+
+	Erweiterung der Tabellenimplementierung um zustandsabhängige
+Darstellungsoptionen 
+
+	- angepasste Darstellung je nach Datensatz und Feld 
+
+	- Editieroptionen für neue Darstellungsarten (z.B. ColorPicker) 
+
+	Eingesetzte Produkte: 
+
+	Eclipse RCP, Eclipse SWT 
+-------------------------
+
+	10/2010 - 01/2011: Weiterentwicklung einer Software zur
+Kontoblatterzeugung 
+
+	Einsatzort: Berlin 
+
+	Rolle: Software-Entwickler 
+
+	Aufgaben: 
+
+	Anpassung einer vorhandenen Software zur automatisierten Generierung
+von Kontoblättern aus Kontobewegungsdaten (DATEV) in Java. Deployment
+als Web-Applikation im Intranet. 
+
+	Tools: Java, iText, Apache Velocity, Flying Saucer  
+
+	Eingesetzte Produkte: 
+
+	Apache Velocity, iText, Java, Flying Saucer, JUnit 
+-------------------------
+
+	01/2008 - 12/2010: Bereitstellung einer Software zur Berechnung von
+Vertriebsprovisionen in JAVA 
+
+	Einsatzort: Berlin 
+
+	Rolle: Berater/Entwickler 
+
+	Aufgaben: 
+
+	Entwurf und Erstellung einer Software zur automatisierten Berechnung
+von Vertriebsprovisionen und Dokumentenerstellung auf Basis des
+Organice SQL CRM. Implementierung mit JAVA EE und MS SQL Server.
+Dokumentation, Mitarbeiterschulung und Wartung. Kontinuierliche
+Anpassung und Weiterentwicklung. 
+
+	Eingesetzte Produkte: 
+
+	Organice SQL, MS Office, MS SQL Server, JBoss ApplicationServer,
+JAVA, JPA, JAVA Servlet, Spring, JUnit 
+-------------------------
+
+	10/2009 - 01/2010: Erstellung einer Software zur Kontoblatterzeugung 
+
+	Einsatzort: Berlin 
+
+	Rolle: Software-Entwicklung 
+
+	Aufgaben: 
+
+	Entwurf und Erstellung einer vorhandenen Software zur automatisierten
+Generierung von Kontoblättern aus Kontobewegungsdaten (DATEV) in Java.
+Deployment als Web-Applikation im Intranet. 
+
+	Tools: Java, iText, Apache Velocity, Flying Saucer  
+
+	Eingesetzte Produkte: 
+
+	Java, iText, Apache Velocity, Flying Saucer, JUnit 
+-------------------------
+
+	06/2006 - 07/2009: Bereitstellung einer Software zur Berechnung von
+Vertriebsprovisionen 
+
+	Einsatzort: Berlin 
+
+	Rolle: Berater/Entwickler 
+
+	Aufgaben: 
+
+	Entwurf und Erstellung einer Software zur automatisierten Berechnung
+von Vertriebsprovisionen udn Dokumentenerstellung auf Basis des
+Organice Pi CRM. Dokumentation, Mitarbeiterschulung und Wartung.
+Kontinuierliche Anpassung und Weiterentwicklung und Betreuung im
+laufenden Betrieb. 
+
+	Eingesetzte Produkte: 
+
+	Organice Pi, VBA, MS Office 
+-------------------------
+
+	2012 - 2016 Festanstellung in Dresden 
+
+	- Branche: Energiedatenmanagement 
+
+	- Migration einer Energiedatenmanagement Software von Oracle Forms
+nach Java RCP (Eclipse 4) 
+
+	- Oberflächenentwicklung mit Eclipse SWT, JFreeChart, Swing 
+
+	- Entwicklung von PlugIns für das hauseigene Eclipse-basierte
+RCP-Framework 
+
+	- Entwicklung von UI-Elementen u.a. auf Basis der Eclipse Nebula
+NatTable 
+
+	- Werkzeuge: Eclipse IDE, Maven, JUnit, Mockito, SVN 
+
+	2005 - 2011 Freiberuflicher IT-Consultant in Berlin 
+
+	- Branche: Finanzdienstleistungen 
+
+	- Anwendungsentwicklung auf Basis von Organice Pi/MS SQL Server 
+
+	- Entwicklung und Pflege von Web-Auftritten mit Java EE, Spring
+Framework, MySQL 
+
+	- Anwendungsentwicklung mit Java, Spring Framework, Velocity, Apache
+FOP, iText, Flying Saucer 
+
+	- Administration und Pflege von Tomcat und Glassfish Application
+Server 
+
+	- Werkzeuge: Netbeans IDE, Ant, JUnit, SVN      Sonstige Anmerkungen:
+ 
+
+	Oberflächenprogrammierung mit Eclipse SWT, Swing, Nebula NatTable,
+etc. 
+
+	Diagrammdarstellung mit JFreeChart 
+
+	Automatisierte Dokumentenerstellung mit iText, Velocity, Flying
+Saucer 
+
+	Einrichtung und Administration von Tomcat, GlassFish Application
+Server 
+
+	Absicherung der Entwicklung durch Unit-Tests mit JUnit, Mockito,
+etc.  
+
+	DesignPatterns in der Anwendung: MVC, Observer, Decorator, Builder,
+Factory, Dependency Injection, etc. 
+
+	Dokumentation von API immer mit JavaDoc, Unittests und ggf.
+Beispielcode, bei Bedarf Entwicklerschulung 
+
+	Täglicher Umgang mit SVN, CVS, Ant, Maven, Sonar, Checkstyle      
+
+		Seite drucken [8]  [9] 
+		Zum Seitenanfang [10]  [11]
+
+ Recherche [12] | Suchergebnis [13] | Kontaktieren [14] | Anfragen an
+ID 169924 [15] | Profil in Englisch [16] anzeigen
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 02.09.2017 02:30:31
+ (c) Copyright 1996-2017 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [17]

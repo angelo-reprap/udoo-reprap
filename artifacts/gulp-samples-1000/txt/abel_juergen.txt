@@ -1,0 +1,1018 @@
+Entwicklung im Bereich Embedded Projekte
+Top-Skills: Embedded C, Firmware-Developer, C++,
+Object Pascal, Embedded Betriebssysteme,
+freeRTOS
+Verfügbar ab: 26.01.2023
+verfügbar zu: 100 %
+davon vor Ort: 0 %
+Stundensatz: 105,00 EUR
+Bemerkungen: Stundensatz ausschließlich für Remote-
+Projekte.
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Schweiz, Österreich, Einsatzort unbestimmt
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Suche ausschließlich Remote-Projekte, kurze Einarbeitungszeit (1-5
+Tage) vor Ort ist möglich.
+Position
+Kommentar: - langjährige Erfahrung in Industrie und Forschung.
+- Fokus auf embedded programming, image processing und Robotik.
+- Viele Systeme erstellt in Python, C, C++, PASCAL, FORTRAN und
+diversen Assembler-Sprachen.
+- Hardware fokus auf PSoC, Jetson Nano, Raspberry Pi, PSoC, STM32,
+ARM Cortex-M, ATMega und anderen Microcontrollern.
+Projekte
+2001-10 - heute Tastatur- und Anzeigeneinheit mit RS485 Interface
+21 Jahre 4 Monate
+Rolle: Developer
+Kunde: SCHULTE-SCHLAGBAUM AG
+10.02.2023 1 von 26
+Projektinhalte:     •  Ansteuerungvon externer kapazitiver Tastatur und externer
+      Anzeigeneinheit übereine RS485 Schnittstelle gesteuert über ARM
+      Cortex Microcontroller.
+    •  Entwicklung vonAusgaberoutinen für Textausgabe, Ansteuerung von
+      LEDs undZeicheneingaben in der Firmware des ARM Cortex.
+    •  Erstellung vonSoftwaredokumentationen der Firmware-Module.
+Technologien:Embedded C/C++, ARM Cortex-M0, PSoC Creator 4.4,
+CY8C4248LQI-BL553,MiniProg4, VOXIO-Lesemodul, GIT.
+Kenntnisse: Embedded C/C++, ARM Cortex-M0, PSoC Creator 4.4, CY8C4248LQI-
+BL553, MiniProg4, VOXIO-Lesemodul, GIT
+Eingesetzte Produkte: Embedded C/C++, ARM Cortex-M0, PSoC Creator 4.4, CY8C4248LQI-
+BL553, MiniProg4, VOXIO-Lesemodul, GIT
+2022-07 - 2022-12 Reduzierung des Energieverbrauches
+6 Monate
+Rolle: Developer
+Kunde: SCHULTE-SCHLAGBAUM AG
+Einsatzort: Remote
+Projektinhalte:     •  Messungund Senkung von Stromverbrauch durch BLE-Komponenten,
+      868MHz-Komponenten, 900 Mhz-Komponenten, RFID-Komponenten,
+      SPI-EEPROM,und weiteren Komponenten.
+    •  Entwicklung von Algorithmenzum sicheren Lesen und Schreiben von
+      SPI-EEPROMs.
+Technologien: C,PSoC Creator 4.4, LEGIC-BLE-Chips, CY8C4248LQI-
+BL583,CY8C4248LQI-BL553, MiniProg4, SPI-EEPROM, I2C- EEPROM, GIT.
+Kenntnisse: C, PSoC Creator 4.4, LEGIC-BLE-Chips, CY8C4248LQI-BL583,
+CY8C4248LQI-BL553, MiniProg4, SPI-EEPROM, I2C- EEPROM, GIT
+Eingesetzte Produkte: C, PSoC Creator 4.4, LEGIC-BLE-Chips, CY8C4248LQI-BL583,
+CY8C4248LQI-BL553, MiniProg4, SPI-EEPROM, I2C- EEPROM, GIT
+2021-11 - 2022-06 BLE Firmware Funkzertifizierungen
+8 Monate
+Rolle: Developer
+Kunde: SCHULTE-SCHLAGBAUM AG
+Einsatzort: Remote
+Projektinhalte:     •  Entwicklung von BLE-Sende- undEmpfangsfunktionen zur
+      Funkzertifizierung.
+    •  Entwicklung vonTastaturfunktionen und Parsern.
+    •  Entwicklung von Funktionen zur Packet Error Rate Messung.
+10.02.2023 2 von 26
+    •  RFID, NFC, NXP-DESFire undNXP-Mifare Classic Programmierung.
+Technologien: C, PSoCCreator 4.4, LEGIC-BLE-Chips, CY8C4248LQI-
+BL583, CY8C4248LQI-BL553,MiniProg4, SPI-EEPROM, I2C- EEPROM, GIT,
+RFID, NFC, NXP-DESFire,NXP-Mifare Classic.
+Kenntnisse: C, PSoC Creator 4.4, LEGIC-BLE-Chips, CY8C4248LQI-BL583,
+CY8C4248LQI-BL553, MiniProg4, SPI-EEPROM, I2C- EEPROM, GIT, RFID,
+NFC, NXP-DESFire, NXP-Mifare Classic
+Eingesetzte Produkte: C, PSoC Creator 4.4, LEGIC-BLE-Chips, CY8C4248LQI-BL583,
+CY8C4248LQI-BL553, MiniProg4, SPI-EEPROM, I2C- EEPROM, GIT, RFID,
+NFC, NXP-DESFire, NXP-Mifare Classic
+2021-06 - 2021-10 BLE Over-The-Air Bootloader für elektronische
+5 Monate Schließanlagen und Zugangskontrollsysteme
+Rolle:  Developer
+Kunde: ECCOS PRO GMBH
+Einsatzort: Remote
+Projektinhalte: BLE Over-The-Air Bootloaderfür elektron. Schließanlagen und
+Zugangskontrollsyst.
+Entwicklung von BLE Modulenauf PSoC 4 Hardware für elektronische
+Schließanlagen.
+    •  Entwicklung von OTABootloadern und OTA Bootloadables.
+    •  Entwicklung von DebugFunktionen, EEPROM Lese- und
+      Schreibe-Funktionen, BLE Funktionen undInterrupt
+      Programmierung.
+    •  Entwicklung eines kleinenHardware-Debuggers für printf
+      Nachrichten.
+Technologien: C,PSoC Creator 4.4, CY8C4248LQI-BL583, CY8C4248LQI-
+BL553, MiniProg3,MiniProg4, EEPROM AT24CM02, GIT.
+Kenntnisse: C, PSoC Creator 4.4, CY8C4248LQI-BL583, CY8C4248LQI-BL553,
+MiniProg3, MiniProg4, EEPROM AT24CM02, GIT
+Eingesetzte Produkte: C, PSoC Creator 4.4, CY8C4248LQI-BL583, CY8C4248LQI-BL553,
+MiniProg3, MiniProg4, EEPROM AT24CM02, GIT
+2021-01 - 2021-10 Handelssystem Framework
+10 Monate
+Rolle:  Lead Developer
+Kunde: Forschung
+Projektinhalte: Handelssystem Framework
+LeadDeveloper FORSCHUNG
+    •  Entwicklung einesHandelssystem Frameworks in PYTHON, PyQt5 und
+      pyqtgraph.
+    •  Entwicklung von Indikatoren.
+    •  Entwicklung vonHandlesalgorithmen.
+10.02.2023 3 von 26
+    •  Entwicklung vonEvaluierungsfunktionen für traditionelle
+      Handelsalgorithmen undHandelsalgorithmen basierend auf Deep
+      Learning/ReinforcementLearning.
+    •  Entwicklung von verschiedeneKerzencharts wie normale
+      Kerzendarstellung und Heikin Ashi Kerzen.
+    •  Entwicklung vonTiefpassfiltern, Bandpassfiltern und spektralen
+      Transformationen.
+    •  Entwicklung von EMDIndikatoren.
+Technologien:PYTHON, PyQt5, pyqtgraph, pandas, yfinance, numpy.
+Kenntnisse: PYTHON, PyQt5, pyqtgraph, pandas, yfinance, numpy
+Eingesetzte Produkte: PYTHON, PyQt5, pyqtgraph, pandas, yfinance, numpy
+2021-01 - 2021-09 Roboter für autonomes Fahren
+9 Monate
+Rolle: Lead Developer
+Kunde: Forschung
+Projektinhalte: Roboterfür autonomesFahren
+Lead Developer Robotik
+    •  Entwicklung vonFeature-Detection-Algorithmen auf einem Jetson
+      Nano für einenselbstfahrenden Roboter.
+    •  Entwicklung von ROS Nodes fürBildverarbeitung, Lenkung, Motor,
+      Master Control Program,FrSky-Taranis-Datenübertragung.
+Technologien:Python, OpenCV, Linux, Robot Operating System ROS,Jetson
+Nano, FrSky Taranis X9E, FrSky-XSR, GIT.
+Kenntnisse: Python, OpenCV, Linux, Robot Operating System ROS, Jetson Nano, FrSky
+Taranis X9E, FrSky-XSR, GIT.
+Eingesetzte Produkte: Python, OpenCV, Linux, Robot Operating System ROS, Jetson Nano, FrSky
+Taranis X9E, FrSky-XSR, GIT.
+2021-01 - 2021-09 Bilddatenverarbeitung und Sensorauswertung auf
+9 Monate Jetson Nano
+Rolle: Lead Developer
+Kunde: Robotik
+Projektinhalte:
+Bilddatenverarbeitung undSensorauswertung auf Jetson Nano
+Lead Developer Robotik
+    •  Entwicklung von Algorithmenzur Auswertung von Sensordaten auf
+      einem Jetson Nano.
+    •  WIFI undBluetooth-Unterstützung auf Jetson Nano mit
+      Betriebssystem auf SSD.
+    •  Entfernungsmessung mittels 1DLidar-Sensor und VL53L1X.
+    •  Tiefenbilder mit einer GlobalShutter monochrome und einer RGB
+      Stereo-Camera.
+    •  Depth-Map Generation mit einerMicrosoft Kinect Depth-Camera.
+10.02.2023 4 von 26
+    •  360° Lidar mit einem 2-AchsenLidarsystem.
+    •  Feature Detection mit OpenMV.
+    •  Fahrstreifenerkennung mittelsBilddatenverarbeitung unter
+      OpenCV.
+    •  Image Feature Detection undClassification Pipelines mit RGB to
+      HSV Colorspace Transform,Bilateral Filter, Gauß Filter, Range
+      Filter, Contour Detection,Hough Transform, Canny Edge
+      Detection, Sobel Filter, Flächenmessung,Entfernungsmessung,
+      Schwerpunktverschiebung.
+    •  Entwicklung von ROS Nodes fürLenkung, Motor, Master Control
+      Program,FrSky-Taranis-Datenübertragung.
+    •  Youtube Video:https://youtu.be/60FHmETBg6Y
+Technologien:Python, C++, OpenCV, OpenMV, Linux, RobotOperating
+System ROS, Dual OV2311Monochrome Global Shutter Camera, IMX219
+Stereo Camera, MicrosoftKinect Depth-Camera, RPLIDAR A1M8 360° Lidar,
+Matek 3901-L0X OpticalFlow Sensor, Benewake TFmini-S LiDAR, LIDAR-
+Lite v3HP, Jetson Nano,Intel 8265AC, OpenMV H7 Plus, VL53L1X, FrSky
+Taranis X9E, FrSky-XSR,WIFI, Bluetooth, GIT.
+Kenntnisse: C++, OpenCV, OpenMV, Linux, Robot Operating System ROS, Dual
+OV2311 Monochrome Global Shutter Camera, IMX219 Stereo Camera,
+RPLIDAR A1M8 360° Lidar, Matek 3901-L0X Optical Flow Sensor,
+Benewake TFmini-S LiDAR, LIDAR-Lite v3HP, Jetson Nano, Intel 8265AC,
+OpenMV H7 Plus, VL53L1X, Python, Microsoft Kinect Depth-Camera, FrSky
+Taranis X9E, FrSky-XSR
+Eingesetzte Produkte: C++, OpenCV, OpenMV, Linux, Robot Operating System ROS, Dual
+OV2311 Monochrome Global Shutter Camera, IMX219 Stereo Camera,
+RPLIDAR A1M8 360° Lidar, Matek 3901-L0X Optical Flow Sensor,
+Benewake TFmini-S LiDAR, LIDAR-Lite v3HP, Jetson Nano, Intel 8265AC,
+OpenMV H7 Plus, VL53L1X, Microsoft Kinect Depth-Camera, Python, FrSky
+Taranis X9E, FrSky-XSR
+2020-01 - 2021-03 Motorsteuerungen für Gleichstrommotoren und
+1 Jahr 3 Monate bürstenlose Gleichstrommotoren
+Rolle: Lead Developer
+Kunde: Robotik
+Projektinhalte: Motorsteuerungen für Gleichstrommotoren und bürstenlose
+Gleichstrommotoren
+Lead Developer
+    •  Fehlersuche bei Motortreibern für bürstenlose
+      Gleichstrommotoren (bldc motors) auf Grundlage von
+      feldorientierter Regelung (foc control) mit einem
+      NUCLEO-F446RE.
+    •  Entwicklung eines Motortreibers für Gleichstrommotoren (dc
+      motors) für Robotikanwendungen mit einem NUCLEO-F446RE.
+    •  Entwicklung von Zweipol-Tiefpaßfiltern, Zeitmessung mit 0.1 µs
+      Auflösung, Messung von Halleffektsensoren, Motoransteuerung
+      mittels H-Brückenschaltung.
+    •  Entwicklung eines PID Reglers zur Positionsregelung unter ARM
+      Cortex-M.
+    •  Entwicklung eines PID Reglers zur Geschwindigkeitsregelung
+10.02.2023 5 von 26
+      unter ARM Cortex-M.
+    •  Entwicklung eines Parsers zur Realisierung von Motorbefehlen
+      über die UART-Terminal-Schnittstelle.
+    •  Migration von Algorithmen unter C++ zwischen unterschiedlicher
+      Hardware.
+Technologien: ARM Cortex-M, STM32CubeIDE, Visual Studio Code, Arduino
+IDE, STM32F4, GITHUB, C++, simpleFOClibrary, Linux.
+Kenntnisse: ARM Cortex-M, STM32CubeIDE, Visual Studio Code, Arduino IDE,
+STM32F4, GITHUB, C++, simpleFOClibrary, Linux
+Eingesetzte Produkte: ARM Cortex-M, STM32CubeIDE, Visual Studio Code, Arduino IDE,
+STM32F4, GITHUB, C++, simpleFOClibrary, Linux
+2020-01 - 2021-03 Firmware für Atemgeräte
+1 Jahr 3 Monate
+Rolle: Lead Developer
+Kunde: Forschung
+Projektinhalte: Firmware für Atemgeräte
+Lead Developer Air+ S.O.E. GmbH
+    •  Entwicklung einer Firmware zur Steuerung eines Atemgerätes
+      basierend auf einem Raspberry Pi 4 B und einem 7“ Touchscreen.
+    •  Steuerung mehrerer Verbraucher durch MOSFETs STN3NF06L.
+    •  Steuerung einer Membranpumpe 622-EL-BL durch
+      Operationsverstärker AS358MTR-G1 und Spannungswandler LM317.
+    •  Schaltung der Spannungsversorgung durch MOSFET STN3PF06.
+    •  Erzeugung der Versorgungsspannung des Raspberry Pi durch
+      Step-down Schaltregler LM2596S.
+    •  Automatische Abschaltung der Versorgungsspannung nach dem
+      Herunterfahren mittels Pushbutton Controller LTC2954.
+    •  Entwicklung einer Benutzeroberfläche für den 7“ Touchscreen des
+      Raspberry Pi unter PASCAL.
+    •  Entwicklung eines automatischen Aktualisierungsmechanismus über
+      USB mit Prüfsummenberechnung unter PASCAL.
+Technologien: Raspberry Pi 4 B, 7“ Touchscreen, GPIO, MOSFET
+STN3NF06L, MOSFET STN3PF06, Spannungswandler LM317, Schaltregler
+LM2596S, Membranpumpe 622-EL-BL, Operationsverstärker AS358MTR-
+G1, Pushbutton Controller LTC2954, FPC.
+Kenntnisse: Raspberry Pi 4 B, 7“ Touchscreen, GPIO, MOSFET STN3NF06L, MOSFET
+STN3PF06, Spannungswandler LM317, Schaltregler LM2596S,
+Membranpumpe 622-EL-BL, Operationsverstärker  AS358MTR-G1,
+Pushbutton Controller LTC2954, FPC
+Eingesetzte Produkte: Raspberry Pi 4 B, 7“ Touchscreen, GPIO, MOSFET STN3NF06L, MOSFET
+STN3PF06, Spannungswandler LM317, Schaltregler LM2596S,
+Membranpumpe 622-EL-BL, Operationsverstärker  AS358MTR-G1,
+Pushbutton Controller LTC2954, FPC
+2020-01 - 2020-12 Entwicklung einer MINT Drohne für Universitäten und
+1 Jahr Schulen
+10.02.2023 6 von 26
+Rolle: Lead Developer
+Kunde: FORSCHUNG
+Projektinhalte: Entwicklung einer MINT Drohne für Universitäten und Schulen
+Lead Developer
+    •  Entwicklung einer MINT Drohne.
+    •  Lokalisierung mittels LIDAR- und TOF-Laser.
+    •  Bilddatenverarbeitung unter OpenCV und PYTHON.
+Technologien: NVIDIA JETSON NANO, STM32F722, BMP280, 32 Bit ESCs,
+brushless T-Motor, DJI Digital FPV System, OpenCV, Python3, LIDAR, TOF-
+Laser.
+Kenntnisse: NVIDIA JETSON NANO, STM32F722, BMP280, 32 Bit ESCs, brushless T-
+Motor, DJI Digital FPV System, OpenCV, Python3, LIDAR, TOF-Laser
+Eingesetzte Produkte: NVIDIA JETSON NANO, STM32F722, BMP280, 32 Bit ESCs, brushless T-
+Motor, DJI Digital FPV System, OpenCV, Python3, LIDAR, TOF-Laser
+2020-01 - 2020-12 NFC/RFID Controller mit Webinterface
+1 Jahr
+Rolle: Lead Developer
+Kunde: Industrie
+Projektinhalte: NFC/RFID Controller mit Webinterface
+Lead Developer
+    •  Entwicklung einer Firmware zum Auslesen von NFC/RFID Tags auf
+      einem Raspberry Pi.
+    •  Steuerung mehrerer Verbraucher sowie von Zugangskontrollen
+      aufgrund der ausgelesenen Daten.
+    •  Entwicklung eines Webinterfaces zur Anzeige des aktuellen
+      Zustandes der NFC/RFID Daten auf einem Browser mittels
+      Bootstrap, HTML, CSS, Javascript und PHP.
+    •  Eine Beispielseite befindet sich unter
+      www.robot-shack.com/nfc.html .
+Technologien: Raspberry Pi 4 B, GPIO, WLAN, Bootstrap, HTML, CSS, PHP,
+Javascript, FPC, Linux.
+Kenntnisse: Raspberry Pi 4 B, GPIO, WLAN, Bootstrap, HTML, CSS, PHP, Javascript,
+FPC, Linux
+Eingesetzte Produkte: Raspberry Pi 4 B, GPIO, WLAN, Bootstrap, HTML, CSS, PHP, Javascript,
+FPC, Linux
+2020-01 - 2020-12 Maschinensteuerung mit Hotspot und Webinterface
+1 Jahr
+Rolle: Lead Developer
+Kunde: Maschinenbau
+10.02.2023 7 von 26
+Projektinhalte: Maschinensteuerung mit Hotspot und Webinterface
+Lead Developer
+    •  Entwicklung einer Firmware für einen Maschinencontroller auf
+      einem Raspberry Pi.
+    •  Entwicklung eines WLAN Hotspots zur Konfigurierung des
+      Maschinencontrollers über Mobilfunktelephone (Browser und WLAN)
+      und über LAN.
+    •  Steuerung mehrerer Verbraucher wie Beleuchtungen, Pumpen und
+      Temperaturen.
+    •  Konfiguration von elektronischen Drehmomentschlüsseln über
+      Bluetooth.
+    •  Entwicklung eines Webinterfaces mittels Bootstrap, HTML, CSS,
+      Javascript und PHP zur Anzeige und Konfiguration auf einem
+      Browser.
+    •  Eine Beispielseite befindet sich unter [URL auf Anfrage] .
+Technologien: Raspberry Pi 4 B, GPIO, WLAN, Bluetooth, Bootstrap,
+InfluxDB, HTML, CSS, PHP, Javascript, FPC, Linux.
+Kenntnisse: Raspberry Pi 4 B, GPIO, WLAN, Bluetooth, Bootstrap, InfluxDB, HTML,
+CSS, PHP, Javascript, FPC, Linux
+Eingesetzte Produkte: Raspberry Pi 4 B, GPIO, WLAN, Bluetooth, Bootstrap, InfluxDB, HTML,
+CSS, PHP, Javascript, FPC, Linux
+2019-01 - 2020-12 Spektrale Analyse von seismischen Wellen
+2 Jahre
+Rolle: Lead Developer
+Kunde: Forschung
+Projektinhalte: Spektrale Analyse von seismischen Wellen
+Lead Developer
+    •  Entwicklung eines Seismometers basierend auf einem Geophone,
+      ADCs und einem Raspberry Pi 3 B.
+    •  Anbindung von 16-Bit ADCs (ADS1115) und ultrapräzisen 32-Bit
+      ADCs (ADS1262) mittels I²C-Bus und SPI-Bus.
+    •  Spektrale Analyse des digitalen Ausgangssignales mit Hilfe der
+      diskreten Fourier Transformation von Dr. Gerald Goertzel und
+      der Empirical Mode Decomposition (EMD) von Dr. North Huang.
+    •  Datenmessung mittels Interruptprogrammierung und
+      Datenspeicherung in einer SQL Datenbank.
+    •  Online Datenvisualisierung mittels APACHE web server und
+      WordPress.
+    •  Mehr Informationen unter: www.seismometer.info .
+Technologien: Raspberry Pi 3 B, I²C-Bus, SPI-Bus, ESP32, ADS1115,
+ADS1262, Geophone, PostgreSQL, FPC, APACHE, WordPress.
+Kenntnisse: Raspberry Pi 3 B, I²C-Bus, SPI-Bus, ESP32, ADS1115, ADS1262,
+Geophone, PostgreSQL, FPC, APACHE, WordPress
+Eingesetzte Produkte: Raspberry Pi 3 B, I²C-Bus, SPI-Bus, ESP32, ADS1115, ADS1262,
+Geophone, PostgreSQL, FPC, APACHE, WordPress
+2019-01 - 2019-12 Analyse von Großhandelsschnittstellen
+1 Jahr
+10.02.2023 8 von 26
+Rolle: Berater
+Kunde: WEMACOM
+Einsatzort: Schwerin, Mecklenburg
+Projektinhalte: Analyse von Großhandelsschnittstellen
+Business Analyst und Architect
+    •  Analyse der Geschäftsprozesse und Anbindung der
+      S/PRI-Schnittstelle für die Standardgeschäftsfälle, die
+      Entstörungsprozesse und die Diagnoseprozesse des Großhandels
+      von Breitbandprodukten.
+Technologien: Webservices, S/PRI-Schnittstelle, BPML Modelierung.
+Kenntnisse: WITA, SPRI, Webservices, BPML
+Eingesetzte Produkte: Webservices, BPML, WITA, SPRI
+2018-01 - 2018-12 Delphi 10 Seminar
+1 Jahr
+Rolle: Dozent
+Kunde: Pascal GmbH
+Einsatzort: Hamburg
+Projektinhalte: DELPHI 10
+Dozent
+    •  Dozent für die Programmiersprache DELPHI 10 in Hamburg.
+Technologien: DELPHI 10.
+Kenntnisse: Informatik, OOP, Delphi
+Eingesetzte Produkte: Delphi 10
+2018-01 - 2018-12 Empirical Mode Decomposition (EMD) von Börsenkursen
+1 Jahr
+Rolle: Lead Developer
+Kunde: Online Broker
+Projektinhalte: Empirical Mode Decomposition (EMD) zur technischen Analyse von
+Börsenkursen
+Lead Developer
+    •  Entwicklung von Algorithmen zur Berechnung der Empirical Mode
+      Decomposition (EMD) und von Intrinsic Mode Functions (IMF).
+    •  Die EMD berechnet die Zerlegung der Aktienkurse in eine Folge
+      von Intrinsic-Mode-Funktionen (IWF).
+    •  Im Gegensatz zur klassischen Fourier-Transformation haben die
+10.02.2023 9 von 26
+      IWF keine feste Periodenlänge und eignen sich daher auch für
+      die Analyse von nichtlinearen und nichtstationären Zeitfolgen.
+    •  Die Residuen der IWFs ähneln dem Ausgang von Bandpassfiltern.
+Technologien: Handelsplattform Nanotrader, Skriptsprache Express,
+PASCAL, WINDOWS-DLLs, C++, C++-Schnittstellen.
+Kenntnisse: Nanotrader, Skriptsprache Express, PASCAL, WINDOWS-DLLs, C++
+Eingesetzte Produkte: Nanotrader, Skriptsprache Express, PASCAL, WINDOWS-DLLs, C++
+2017-01 - 2018-12 Analyse von Großhandelsschnittstellen
+2 Jahre
+Rolle: Business Analyst und Architekt
+Kunde: 1&amp;1 Internet SE
+Einsatzort: Montabaur
+Projektinhalte: Analyse von Großhandelsschnittstellen
+Business Analyst und Architect
+    •  Entwurf von ETL-Prozessen zum Massenimport von Daten aus
+      mehreren Großhandelsschnittstellen nach Firmenübernahmen.
+    •  Entwurf von ER-Modellen für das Shadow-Billing.
+    •  Programmierung von SQL-Skripten, Stored Procedures und
+      SSIS-Paketen.
+    •  Analyse von Problemen und Entwurf von Lösungsansätzen bei
+      Schnittstellen- und Datenformatproblemen.
+Technologien: MS-SQL-Server, SSIS-Pakete, SQL-Queries und Procedures,
+DWH, Webservices, S/PRI-Schnittstelle, WITA-Schnittstelle, WBCI-
+Vorabstimmungs-Schnittstelle, QSC WHAM-Schnittstelle.
+Kenntnisse: MS-SQL-Server, SSIS-Pakete, SQL-Queries und Procedures, DWH,
+Webservices, S/PRI-Schnittstelle, WITA-Schnittstelle, WBCI-
+Vorabstimmungs-Schnittstelle
+Eingesetzte Produkte: MS-SQL-Server, SSIS-Pakete, SQL-Queries und Procedures, DWH,
+Webservices, S/PRI-Schnittstelle, WITA-Schnittstelle, WBCI-
+Vorabstimmungs-Schnittstelle
+2016-07 - 2018-06 Robotik
+2 Jahre
+Rolle: Lead Developer
+Kunde: Forschung
+Projektinhalte:     •  Entwicklung von Algorithmen im Bereich künstliche Inteligenz
+      von Robotern zur Erkennung von Ecken, Kanten, Spielfläche,
+      Farbkalibrierung, Ballerkennung und Lokalisierung.
+    •  Entwicklung mehrerer Roboter mit Ketten- und Radantrieb sowie
+      unterschiedlichen Sensoren.
+10.02.2023 10 von 26
+Kenntnisse: Raspberry Pi 3 B, Pi Camera, FPC
+Eingesetzte Produkte: Raspberry Pi 3 B, Pi Camera, FPC
+2017-08 - 2017-12 Quantenphysik
+5 Monate
+Rolle: Lead Developer
+Kunde: Forschung
+Projektinhalte:     •  Messung von Interferenzmustern des Lichts am Doppelspalt und
+      Berechnung von Frequenzverschiebungen des Interferenzmuserts
+      mit Hilfe von Autokorrelationsalgorithmen.
+2017-01 - 2017-11 Spektrale Analyse von Finanzreihen
+11 Monate
+Rolle: Lead Developer
+Kunde: Online Broker
+Projektinhalte:     •  Entwicklung eines Analysesystemes zur Ermittlung von spektralen
+      Analysen von Finanzreihen auf Grundlage des MESA-Algorithmus
+      von Dr.(Name auf Anfrage), eines Algorithmus der diskreten
+      Fourier-Transformation von Dr. (Name auf Anfrage) sowie der
+      Autokorrelation von Preisdaten phasenverschoben mit sich selbst
+      unter Nanotrader mit der Hilfe von PASCAL und selbst
+      entwickelten WINDOWS-DLLs.
+Kenntnisse: Algorithmenentwicklung, Handelssysteme, Windows API, WINDOWS DLL
+Eingesetzte Produkte: C++, Pascal, PostgreSQL, Express
+2016-01 - 2017-05 Markteröffnungsstrategie
+1 Jahr 5 Monate
+Rolle: Lead Developer
+Kunde: Online Broker
+Projektinhalte:     •  Entwicklung einer Markteröffnungsstrategie für den DAX und den
+      Dow Jones Industrial Average (DOW).
+    •  Die Strategie erstellt eine Analyse des aktuellen Trendstatus
+      am Morgen und berechnet Einstiegs- und Austiegszeitpunkte
+      anhand klassischer technischer Analyse.
+    •  Das System läuft auf der Handelsplattform Nanotrader einer Bank
+      in Luxemburg mit der Hilfe der Skriptsprache Express, PASCAL,
+      C++ und selbst entwickelten WINDOWS-DLLs.
+Kenntnisse: Algorithmenentwicklung, Handelssysteme, Windows API, WINDOWS DLL
+Eingesetzte Produkte: C++, Pascal, PostgreSQL, Express
+10.02.2023 11 von 26
+1999-01 - 2016-12 Automatische Handelssysteme
+18 Jahre
+Rolle: Entwickler
+Kunde: Online Broker
+Einsatzort: Raum Düsseldorf
+Projektinhalte:     •  Handel von Aktien und Derivaten, Entwicklung von Algorithmen
+      der technischen Analyse unter C++, PASCAL und Express für den
+      Handel an den Finanzmärkten.
+    •  Neben Indikatoren auf Basis von Markttechnik/Charttechnik
+      wurden statistische Auswertungen und komplette Handelssysteme
+      für den Kurzzeithandel entwickelt.
+Kenntnisse: Algorithmenentwicklung, Handelssysteme, Windows API, WINDOWS DLL
+Eingesetzte Produkte: C++, Pascal, PostgreSQL, Express
+2015-09 - 2016-06 Dispositionsverwaltung
+10 Monate
+Rolle: Business Analyst und Architekt
+Kunde: Immobilien Service Deutschland
+Einsatzort: Lüdenscheid
+Projektinhalte:     •  Entwurf eines neuen relationalen Datenmodelles und
+      Programmierung einer Auftrags- und Prozeßverwaltung für
+      Dispositionen im Bereich Gebäude- und Grundstücksadministration
+      unter IBM Informix SQL, DELPHI XE7 und SVN.
+Kenntnisse: Entwicklung
+Eingesetzte Produkte: DELPHI XE7, Informix SQL
+2015-07 - 2016-06 Robocup SPL
+1 Jahr
+Rolle: Developer
+Kunde: HTWK Leipzig
+Projektinhalte:     •  Entwicklung von Algorithmen im Bereich Bilddatenverarbeitung
+      und Objekterkennung für die Robocup SPL in Zusammenarbeit mit
+      der HTWK Leipzig.
+    •  Präsentation eines Robocup Projektes für Kinder bei Dr. ( Name
+      auf Anfrage) Forschungsminister am Ministerium für Höhere
+      Bildung in den Vereinigten Arabischen Emiraten.
+2012-01 - 2015-12 Telekommunikationsanalysesystem TAS
+4 Jahre
+10.02.2023 12 von 26
+Rolle: Lead Architect und Entwickler
+Kunde: Telekommunikationsunternehmen
+Einsatzort: Raum Düsseldorf
+Projektinhalte: Projektleitung für ein Analysesystem zur Auswertung von XML-Daten der
+Großhandelsschnittstelle des deutschen Festnetzes mit Ermittlung von
+betriebswirtschaftlichen Kennzahlen (KPIs) und Shadowbilling unter JAVA,
+PASCAL, APACHE Webserver, SOAP UI Pro, Cloudservern, WINDOWS,
+LINUX und bitemporaler Historisierung:
+    •  Analyse von B2B Datenstrukturen und Geschäftsprozessen,
+    •  Spezifikation und Entwurf eines ER-Datenbankmodels für DWHs,
+    •  Programmierung der Verarbeitung und Aufbereitung der Daten im
+      Webserver und im SQL-Server,
+    •  Analyse von Fehlerfällen, fehlerhaften Aufträgen und
+      fehlerhaften Nachrichten,
+    •  Programmierung des Monitorings von Auftragslaufzeiten in
+      Abhängigkeit von Zeit und Ort (Postleitzahl),
+    •  Programmierung der PKI mittels WSDL-Dateien, Verwaltung der
+      Zertifikate und automatische Prüfung der Signaturen innerhalb
+      der XML-Schnittstelle auf Kundenseite,
+    •  Programmierung der RSA-Verschlüsselung für den Datentransport
+      zwischen Arbeitsplatz- und Cloudrechner,
+    •  Erstellung von automatischen Testfällen unter SOAP UI Pro.
+Kenntnisse: Projektleitung, Entwicklung, Geschäftsprozeßanalysen, Schnittstellen
+Eingesetzte Produkte: JAVA, Apache Tomcat, Pascal, PostgreSQL, SoapUI, Cloud Server
+2013-01 - 2014-12 AVR Firmware
+2 Jahre
+Rolle: Lead Developer
+Kunde: Forschung
+Projektinhalte:     •  Entwicklung einer Firmware unter AVR-Assembler, um das Rauschen
+      eines Komparators über einen Mikrocontroller vom Typ ATtiny85
+      abzugreifen und über eine COM-USB Brücke vom Typ FT232RL an
+      einen Rechner als Zufallszahlengenerator weiterzuleiten.
+Kenntnisse: AVR Microcontroller, AVR Assembler, C, Pascal
+Eingesetzte Produkte: MikroElektronika Entwicklungsumgebung
+2004-06 - 2013-06 Großhandelsschnittstelle WITA
+9 Jahre 1 Monat
+Rolle: Systemarchitekt und Business Analyst
+Kunde: DEUTSCHE TELEKOM
+Einsatzort: Düsseldorf / Bonn / Darmstadt
+Projektinhalte: Geschäftsprozeßanalysen, Anforderungsmanagement,  Prozeßmodellierung
+und Systemarchitektur für die Deutsche Telekom in mehr als 100
+10.02.2023 13 von 26
+Teilprojekten unter ARIS, Visio UML Designer, Together UML Designer, MID
+Innovator, SAP PM-Tool und BPML.
+Führender Systemarchitekt für die Großhandelsschnittstelle WITA des
+deutschen Festnetzes (Budget > 100 Millionen Euro):
+    •  Analyse, Spezifikation, Entwicklung und Revision der
+      B2B-Datenstrukturen und B2B-Geschäftsprozesse,
+    •  Aufnahme und Spezifikation der funktionalen und der
+      nicht-funktionalen Anforderungen,
+    •  Planung der PKI-Struktur der Schnittstelle,
+    •  Einsatz und Verwaltung der Zertifikate,
+    •  Prüfung der Signaturen innerhalb der XML-Schnittstelle,
+    •  Authentifizierung der Benutzer innerhalb des Internetportals,
+    •  Entwurf einer allgemeinen Benutzerverwaltung,
+    •  Systemarchitekt für die Business Logic Wholesale (BLW),
+    •  Systemarchitekt des neuen Wholesaleportals,
+    •  Systemarchitekt für DWH-Schnittstellen.
+    •  Anforderungsmanagement für PreBilling und Bestandskorrekturen,
+    •  Revision der Implementierung der Webservice-Schnittstelle, des
+      Portals und der Business Logic Wholesale (BLW),
+    •  Entwicklung der Service-orientierten Architektur (SOA).
+Kenntnisse: Prozeßmodellierung, Geschäftsprozeßanalysen
+Eingesetzte Produkte: UML, SAP, DMS, DWH, ESAA, WITA, CMS, SOA
+2006-11 - 2006-12 Messebauverwaltung
+2 Monate
+Rolle: Lead Developer
+Kunde: JAEGERS MESSEELEMENTE
+Einsatzort: Düsseldorf
+Projektinhalte:     •  Entwicklung eines Buchhaltungsprogrammes zur Verwaltung von
+      Projektkosten im Bereich des Messebaues unter Delphi.
+Kenntnisse: Warenwirtschaftssystem, Stammdatenverwaltung
+Eingesetzte Produkte: Delphi
+2004-07 - 2005-04 Vorlesungen
+10 Monate
+Rolle: Dozent
+Kunde: Technische Akademie Wuppertal
+Einsatzort: Wuppertal
+Projektinhalte:     •  Vorlesungen an der Technische Akademie Wuppertal, einem
+      Institut der RWTH Aachen, in Computer Graphik, Medizinische
+      Bilddatenverarbeitung, Datenkompression, Medizinische
+      Dokumentation und objektorientierte Programmierung.
+10.02.2023 14 von 26
+2004-04 - 2004-05 Handelsplattform für Banken
+2 Monate
+Rolle: Project Manager
+Kunde: Bank
+Einsatzort: Raum Düsseldorf
+Projektinhalte:     •  Projektleitung für die Programmentwicklung einer
+      Handelsplattform im Bankenbereich unter Delphi, Oracle SQL und
+      Citrix.
+Kenntnisse: Projektleitung
+Eingesetzte Produkte: DELPHI, Oracle SQL, Citrix
+01/2003 - 03/2004 Medical Volume Explorer
+Entwicklung eines 3D-Bildverarbeitungssystemes für CT- und MRT-Daten unter OpenGL, Cg, Java
+und Delphi zur Operationsvorbereitung von Lungentumoren für das Lukaskrankenhaus Neuß.
+07/2003 - 12/2003 Auftragsverwaltung Messebau // UNIT ONE
+Entwicklung einer Auftragsverwaltung für den Messebau mit Verwaltung von Kunden, Messen,
+Agenturen und Mitarbeitern unter Delphi.
+01/2003 - 06/2003 Burrows-Wheeler Kompression
+Entwurf von Datenkompressionsalgorithmen im Bereich der Nachrichtentechnik in Zusammenarbeit
+mit der University of Wales/Großbritannien unter Delphi, C++ und Java.
+07/2002 - 12/2002 Produktverwaltung für den Einkauf // HENKEL KGAA
+Geschäftsprozeßanalysen im Finanzbuchhaltungsbereich und Entwicklung eines
+Datenbankprogrammes mit SAP-Schnittstellen.
+01/2002 - 06/2002 Berichterstellung Mittelstand
+Entwurf und Implementierung verschiedener Abfragedialoge und Berichte für die Kundenverwaltung
+und Materialwirtschaft unter Abap/4.
+07/2001 - 12/2001 Internationale Stammdatenverwaltung // ELECTRONIC PARTNER
+Technische Projektleitung mit Geschäftsprozeßanalysen unter UML einer internationalen
+Stammdatenverwaltung in Java, DB2 und Swing.
+01/2001 - 06/2001 Internet-Katalogsystem
+Entwicklung eines Internet-Katalogsystemes für den Großhandelmit BWT-Datenkompression, AES-
+Datenverschlüsselung sowie XML-Datenformaten unter Delphi, Java und SQL-Server.
+10/2000 - 12/2000 Analyse von Literaturrecherchen // VOLKSWAGEN
+Projektleitung auf Vorstandsebene für ein Datenbanksystem zur Erfassung und Analyse von
+Literaturrecherchen unter Delphi.
+07/2000 - 09/2000 AES-Verschlüsselung
+Objektorientierte Entwicklung eines plattformunabhängigen Verschlüsselungsprogrammes zur
+Implementierung des Advanced Encryption Standard AES unter Java und Swing.
+01/2000 - 06/2000 Post PPS // DEUTSCHE POST
+Objektorientierte Entwicklung für die Produktionsplanungs- und -steuerungssoftware (PPS) der
+deutschen Briefzentren unter C++ und Oracle. Dokumentation mit UML- und OMT-Diagrammen.
+07/1999 - 12/1999 Währungsumstellung // HENKEL
+Anpassung von bestehenden Programmen an die Währungsumstellung von DM auf EURO für die
+10.02.2023 15 von 26
+Finanzbuchhaltung unter Delphi.
+01/1999 - 06/1999 Potentialverteilung Brennstoffzellen // KFA JÜLICH
+Objektorientierte Entwicklung von Programmen zur Berechnung von Potentialverteilungen innerhalb
+von Hochtemperaturbrennstoffzellen unter UNIX und WINDOWS in FORTRAN, C++ und MathCAD.
+10/1998 - 12/1998 Bankenkommunikation mit Delphi // Henkel
+Projektleitung für die objektorientierte Entwicklung eines Programmes zur Übertragung von Daten
+an die Citybank in Delphi.
+07/1998 - 09/1998 Lieferantenverwaltung // HENKEL
+Projektleitung für die objektorientierte Entwicklung mehrerer Programme in Delphi mit ODBC-
+Schnittstellen zu Oracle und anderen SQL-Servern zur Analyse von Lieferantenpreislisten und
+Auswertung an die Buchhaltung.
+04/1998 - 06/1998 Warenwirtschaftssystem TimeLine
+Projektleitung für Lagerverwaltungsmodule eines Warenwirtschaftsystemes für den Großhandel
+unter C++, PowerBuilder und Sybase SQL Server.
+01/1998 - 03/1998 Datenaustausch Finanzwesen // TK SOFTWARE GMBH
+Projektleitung von Modulen eines Finanzprogrammes mit Unterstützung von
+Datenträgeraustauschdisketten nach DTA- und BAZ-Verfahren der Banken und
+Prüfziffernberechnung nach DIN 7064 unter Delphi.
+07/1997 - 12/1997 Katalogsystem mit Volltextsuche // PETER KILBINGER KG
+Objektorientierte Entwicklung einer 32-Bit CDROM-Bild- und Langtextkatalogdatenbank mit
+Volltextrecherche unter Delphi.
+01/1997 - 06/1997 Warenwirtschaftssystem LIGNUM
+Objektorientierte Entwicklung eines Warenwirtschaftssystemes mit Zahlungsverkehr,
+betriebswirtschaftlicher Auswertung und DATANORM Schnittstelle unter Delphi. Dokumentation mit
+UML-Diagrammen.
+01/1996 - 12/1996 Abrechnungsprogramm für Bonusgutschriften // Einkaufsverband BEFA
+Entwicklung eines Abrechnungsprogrammes von Bonusgutschriften für den BEFA-Einkaufsverband
+mit 25 Möbelbeschlagsunternehmen.
+07/1995 - 12/1995 CDROM-Bilddatenbank // PETER KILBINGER KG
+Objektorientierte Entwicklung einer CDROM-Bilddatenbank sowie eines Abfrageprogrammes für
+Kunden unter Delphi.
+01/1995 - 06/1995 Leitwertssimulation // KFA JÜLICH
+Projektleitung für Computersimulation zur Berechnung von Leitwerten von Ultrakondensatoren und
+Hochtemperaturbrennstoffzellen unter Unix auf der IBM ES9000 und der CRAY YMP, entwicklet unter
+FORTRAN und C++.
+07/1994 - 12/1994 DOUBLE RAM // SYBEX Verlag
+Entwicklung des Gerätetreibers Double RAM zur automatischen Kompression von Daten im
+Hauptspeicher unter 8086-ASSEMBLER.
+01/1994 - 06/1994 CD SPEED // DATA BECKER GMBH
+Entwicklung des CDROM-Beschleunigers CD-SPEED für Microsoft Betriebssysteme, vorgestellt auf
+der CeBIT 1995 (40.000 verkaufte Exemplare weltweit), entwickelt unter 8086 Assembler und
+TURBO PASCAL.
+01/1993 - 12/1993 DOUBLE DENSITY 2 // DATA BECKER GMBH
+Entwicklung des Programmes DOUBLE DENSITY II mit höherer Kompressionsrate als der Vorgänger,
+vorgestellt auf der CeBIT 1994, entwickelt unter 8086 Assembler und TURBO PASCAL.
+01/1991 - 12/1992 DOUBLE DENSITY // DATA BECKER GMBH
+Entwicklung des Programmes DOUBLE DENSITY zur Verdoppelung der Festplattenkapazität,
+10.02.2023 16 von 26
+vorgestellt auf der CeBIT 1992 (100.000 verkaufte Exemplare weltweit), entwickelt unter 8086
+Assembler und TURBO PASCAL.
+01/1990 - 12/1990 Petrinetzeditor // RWTH AACHEN
+Entwicklung eines syntaxgesteuerten graphischen Petrinetzeditors und einer eigenen graphischen
+Benutzeroberfläche auf dem IBM-PC, entwickelt unter 8086 Assembler, YACC und TURBO PASCAL.
+01/1989 - 12/1989 PASCAL-Compiler
+Entwicklung eines PASCAL-Compilers unter 68000-Assembler auf einem AMIGA.
+01/1988 - 12/1988 Datenfernübertragungsprogramm DIALOG // JURIS GMBH
+Projektleitung für die Entwicklung des Datenfernübertragungsprogrammes DIALOG für
+Rechtsanwälte zur Kommunikation mit der Datenbank JURIS.
+01/1987 - 12/1987 GFA VEKTOR // GFA SYSTEMTECHNIK
+Entwicklung des interaktiven 3-D Vektorgraphiksystemes GFA Vektor unter 68000-ASSEMBLER.
+07/1986 - 12/1986 CPC VEKTOR // GFA SYSTEMTECHNIK
+Entwicklung eines interaktiven 3-D Vektorgraphiksystemes unter Z80-ASSEMBLER.
+01/1986 - 06/1986 PROFI PAINTER // DATA BECKER GMBH
+Entwicklung einer graphischen Benutzeroberfläche und eines Zeichenprogrammes unter Z80
+Assembler zusammen mit Thomas Vervost, vorgestellt auf der Internationalen Funkausstellung 1986
+in Berlin  (10.000 verkaufte Exemplare weltweit).
+Referenzen
+Projekt Internationale Artikelstammdatenverwaltung (IAS) in JAVA, 03/01 - 12/01
+Referenz durch Project Manager Abt. Software, Großhandel (550 MA), vom 19.12.01
+"Der Consultant hat aufgrund seiner systematischen und produktiven Vorgehensweise das Projekt
+wieder auf eine stabile Bahn gebracht. Beim Kunden war er nicht zuletzt wegen seiner langjährigen
+Projekterfahrung im Warenwirtschaftsbereich sehr geschätzt. Er verfügt über ein reichhaltiges
+Wissen im Programmiersprachen-, OOA/OOD-Bereich (UML) und Datenbankbereich, welches für
+das Projekt eine große Bereicherung gewesen ist. Neben seiner fachlichen Qualifikation sind
+insbesondere seine Einsatzbereitschaft, Zuverlässigkeit sowie seine Beratungsqualitäten besonders
+hervorzuheben."
+Branchen
+    •  Automobilindustrie
+    •  Bilddatenverarbeitung
+    •  Chemieindustrie
+    •  Datenkompression
+    •  Einzelhandel
+    •  Finanzdienstleister
+    •  Forschung
+    •  Großhandel
+    •  Internet
+    •  Logistik
+    •  Medizin
+    •  Telekommunikation
+    •  Wissenschaft
+Sprachen
+10.02.2023 17 von 26
+Deutsch Muttersprache
+Englisch Fließend
+Kompetenzen
+Schwerpunkte Anforderungsmanagemen
+t
+Bilddatenverarbeitung
+Datenkompression und -
+verschlüsselung
+Embedded Hardware
+Entwicklung
+Embedded
+Programmierung
+Geschäftsprozeßanalysen
+Objektorientierte (OOA/OOD/OOP),
+Programmierung
+Projektmanagement
+Relationaler
+Datenbankentwurf
+Software Engineering
+SQL
+UML
+Vorgehensmodelle (Wasserfallmodell, V-Modell, Prototyping
+Aufgabenbereiche Embedded Entwicklung
+Produkte / Standards / Abrechungssysteme für
+Erfahrungen / Methoden Telekommunikation
+Algorithmenentwurf,
+Compilerbau
+Anforderungsmanagemen
+t
+APACHE
+Bibliotheken SWING,
+zApp
+Bluetooth
+BPML
+BPML
+10.02.2023 18 von 26
+CCC Harvest
+Citrix
+CMS
+CVS
+Datenkompression und -
+verschlüsselung
+DMS
+Eclipse
+Embedded
+Programmierung
+Geschäftsprozeßanalysen
+GITHUB
+GUI
+Handelssysteme
+HTML
+Informatik
+Internetanbindungen
+Internetanwendungen,
+B2B-Portale
+Mehrschichtenarchitektur
+(Client-Server)
+MOSFET
+MS Project
+Nanotrader
+OOA / OOD / OOP Objektorientierte
+Analyse/Entwurf/Programmierung
+OOP
+Qualitätssicherung
+Relationaler
+Datenbankentwurf, SQL,
+ER-Modellierung
+SAP
+Schaltregler
+Schnittstellen
+Schnittstellenprogrammie(DATANORM, EDIFACT, BAZ)
+rung
+10.02.2023 19 von 26
+Skriptsprache Express
+SOA
+SOAP
+SPRI
+SSIS-Pakete
+Standard Template
+Library (STL)
+UML-Notation, Together-J
+Visual SourceSafe
+Warenwirtschaftssysteme
+WBCI-Vorabstimmungs-
+Schnittstelle
+Webservices
+Windows API
+WINDOWS DLL
+WINDOWS-DLLs
+WITA-Schnittstelle
+WLAN
+WordPress
+XML
+Erfahrungen
+    •  Als Berater für gewerbliche Projekte habe ich eine
+      langjährige Erfahrung in mehr als 100 Projekten. Einige
+      dieser Projekte waren sehr umfangreich wie beispielsweise
+      die Einführung einer neuen Großhandelsschnittstelle für das
+      Deutsche Festnetz, welche ich im Rahmen des
+      Anforderungsmanagements und als Leading System Architect
+      für die Deutsche Telekom entworfen und begleitet habe
+      (Budget > 100 Millionen Euro). Mein derzeitiger Schwerpunkt
+      liegt im Bereich von ETL-, DWH-, Anforderungsmanagement,
+      BI-Projekten, Geschäftsprozeßanalysen und der
+      Projektleitung.
+    •  Im wissenschaftlichen Bereich habe ich zahlreiche
+      Algorithmen entwickelt im Bereich Bilddatenverarbeitung,
+      Datenkompression, Robotics und der Spektrum Analyse im In-
+      und Ausland. Als Gutachter habe ich für mehrere
+      wissenschaftliche Zeitschriften in den Niederlanden
+      gearbeitet und zahlreiche Artikel in internationalen
+      Verlägen veröffentlicht.
+    •  Als Autor für mehrere Verlage wurden von meinen Programmen
+      mehr als 150.000 Stück in Europa und den Vereinigten
+      Staaten verkauft. Gleich ob Sie neue Algorithmen entwickeln
+      wollen oder einen erfahrenden Berater, Projektleiter oder
+10.02.2023 20 von 26
+      Systemarchitekten suchen, als Diplom-Informatiker und
+      promovierter Elektrotechniker kann ich Ihnen weiterhelfen.
+Berufliche Laufbahn
+1986 - heute
+selbstständig mit eigenem Unternehmen (Name auf Anfrage) für
+Projektleitung, Entwicklung und Beratung.
+Betriebssysteme
+Linux, Raspberry Pi OS, Unix, Windows, Robot Operating System ROS
+Programmiersprachen
+ARM Cortex-M/STM32/6502/Z80/68000/80x86/PENTIUM Assembler.
+C, C++, CSS, PHP, Python3, Java, Fortran, Basic.
+PASCAL, DELPHI, FPC, LAZARUS, AVR-PASCAL.
+STM32, ATTiny, ATMEGA, ARM, RISC-based Microcontroller.
+Datenbanken
+PostgreSQL-, Oracle-, Informix-, Sybase-, Interbase-, MS-SQL-Server,
+noSQL Database, Key/Value Pair Tables, Hashtables, ER-Modellierung.
+Projektmanagement
+MS-Project, OpenProj, ProjectLibre.
+Fachliche Schwerpunkte
+Jetson Nano, Raspberry Pi, STM32F4 und Microcontroller Projekte,
+GUI development unter embedded LINUX.
+Geschäftsprozeßanalysen, Anforderungsmanagement,
+Objektorientierte Programmierung (OOA/OOD/OOP), UML,
+Entwurfsmuster, Software Engineering,
+Webservices, S/PRI-Schnittstelle, WITA-Schnittstelle, WBCI-
+Vorabstimmungs-Schnittstelle,
+Bilddatenverarbeitung, Datenkompression und -verschlüsselung.
+Tools
+Python Spyder IDE, Anaconda, Visual Studio Code, Eclipse,
+STM32CudeIDE.
+DBWrench (ER model), IBM OpenAdmin Informix Tool (ER model),
+PGAdmin (ER model PostgreSQL), MS-SQL-Server Management Studio
+(ER model).
+ARIS (UML), Visio UML Designer, Together UML Designer, MID
+Innovator (UML).
+Bizagi Modeler (BPML), BPEL Orchestry (BPML model).
+SVN, Subversion, GIT, CVS (Version Control System).
+JIRA (Scrum backlog).
+OpenGL, 3D Libraries, DICOM Interface.
+SSH, TLS Protokoll.
+OpenCV, OpenMV.
+Betriebssysteme Bootstrap
+Linux
+MS-DOS Sehr gute Kenntnisse
+Raspbian
+Robot Operating System
+ROS
+10.02.2023 21 von 26
+Unix, Linux Sehr gute Kenntnisse
+Windows Sehr gute Kenntnisse
+Programmiersprachen 6502/Z80/68000/80x86/
+PENTIUM Assembler
+Arduino IDE
+Assembler sehr gute Kenntnisse
+ATMEGA RISC-based
+microcontroller
+ATTiny
+AVR-Pascal
+Basic
+C sehr gute Kenntnisse
+C++ sehr gute Kenntnisse
+Codetyphon sehr gute Kenntnisse
+CSS
+Delphi sehr gute Kenntnisse
+Delphi 10
+DELPHI XE7
+Express
+Fortran gute Kenntnisse
+FPC sehr gute Kenntnisse
+Java sehr gute Kenntnisse
+JavaScript sehr gute Kenntnisse
+Lazarus sehr gute Kenntnisse
+Object-Pascal
+Oracle SQL
+Pascal sehr gute Kenntnisse
+PHP
+Python
+Python3
+UML
+10.02.2023 22 von 26
+Visual Studio Code
+Datenbanken BDE Gute Kenntnisse
+DWH Sehr gute Kenntnisse
+ETL Sehr gute Kenntnisse
+InfluxDB
+Informix SQL Gute Kenntnisse
+Interbase
+MS-SQL-Server Sehr gute Kenntnisse
+Oracle Gute Kenntnisse
+PostgreSQL Sehr gute Kenntnisse
+SQL Sehr gute Kenntnisse
+SQL-Queries und
+Procedures
+Sybase
+Transact-SQL Sehr gute Kenntnisse
+Datenkommunikation Datenkompression Sehr gute Kenntnisse
+Datenverschlüsselung Sehr gute Kenntnisse
+Internet, Intranet Gute Kenntnisse
+S/PRI-Schnittstelle
+Hardware 7“ Touchscreen
+ADS1115
+ADS1262
+ARM Cortex-M
+Benewake TFmini-S
+LiDAR
+Cray
+Dual OV2311
+Monochrome Global
+Shutter Camera
+ESP32
+ESP32
+FrSky Taranis X9E
+FrSky Taranis X9E
+10.02.2023 23 von 26
+FrSky-XSR
+FrSky-XSR
+Geophone
+GPIO
+I2C-Bus
+IBM Großrechner
+IMX219 Stereo Camera
+Intel 8265AC
+I²C-Bus
+I²C-Bus
+Jetson Nano
+Matek 3901-L0X Optical
+Flow Sensor
+Membranpumpe 622-EL-
+BL
+Microsoft Kinect Depth-
+Camera
+Microsoft Kinect Depth-
+Camera
+MOSFET STN3NF06L
+MOSFET STN3PF06
+Operationsverstärker
+AS358MTR-G1
+PC
+Pi Camera
+Pushbutton Controller
+LTC2954
+Raspberry
+Raspberry Pi 3 B
+Raspberry Pi 3 B
+Raspberry Pi 4 B
+RPLIDAR A1M8 360°
+Lidar
+Schaltregler LM2596S
+Spannungswandler
+LM317
+10.02.2023 24 von 26
+SPI-Bus
+STM32F4
+VL53L1X
+Berechnung / LIDAR-Lite v3HP
+Simulation / Versuch /
+Validierung MikroElektronika
+Entwicklungsumgebung
+OpenCV
+OpenMV
+OpenMV H7 Plus
+simpleFOClibrary
+STM32CubeIDE
+TensorRT
+Design / Entwicklung / Algorithmenentwicklung
+Konstruktion
+Apache Tomcat
+AVR Microcontroller
+Bizagi
+BPML Modellierung
+Cloud Server
+Entwicklung
+ESAA
+Membranpumpen
+Prozeßmodellierung
+SoapUI
+Stammdatenverwaltung
+Warenwirtschaftssystem
+WITA
+diverse Mitgliedschaften, Veröffentlichungen (Details auf Anfrage)
+Aus- und Weiterbildung
+Dipl.-Inform., Dr.-Ing.
+Schulbildung
+10.02.2023 25 von 26
+05/1984
+Abitur am Quirinus Gymnasium Neuß.
+Studium
+1984-1990
+Studium der Informatik an der RWTH Aachen,
+Abschluß Diplom-Informatiker.
+Promotion
+1994-2000
+Promotion an der Kernforschungsanlage Jülich und der Universität Duisburg,
+Abschluß zum Dr.-Ing. mit„magna cum laude“
+10.02.2023 26 von 26

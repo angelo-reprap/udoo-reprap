@@ -1,0 +1,368 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_44193 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                44193
+  
+Wohnort                    603xx Frankfurt am Main, Deutschland
+Staatsbürgerschaft         Deutsch
+Stundensatz                80 EUR
+                           Raum Frankfurt am Main
+Verfügbar ab               01.08.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         25.10.02
+Profil zuletzt geändert am 16.07.20
+Lesen von Projektanfragen  1 Tag [08]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 12.08.2020 14:50:32
+
+Fachlicher Schwerpunkt:
+Softwareentwicklung / Softwarearchtektur (Java)
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+
+Softwareentwicklung / Technische Architektur
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Studium 2: Allg. Informatik an der FH Frankfurt am Main
+Abschluss: Dipl-Informatiker(FH), 1997, Gesamtnote: 1,6
+
+Studium 1: Elektrotechnik, Polytechnisches Institut Bukarest,
+Abschluss: Diplom-Ingenieur(TH), 1990, Gesamtnote:2,2
+
+Einsatzort:
+Regionen:
+D6
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch      
+Englisch     
+Italienisch Grundkenntnisse
+
+
+Betriebssysteme:
+Mac OS   
+Unix     
+Windows  
+
+
+Programmiersprachen:
+Java              
+JavaScript        
+PL/SQL            
+Python            
+UML Modellierung  
+Unix Shell        
+
+
+Datenbanken:
+DB2     
+MySQL   
+Oracle  
+
+
+Datenkommunikation:
+TCP/IP  
+
+
+Branchen:
+Banken, Logistik, Telekommunikation
+
+Projekte:
+mehrere Infos unter [URL on request].
+===============================================================================
+6/2018-9/2020
+ 
+DB Systel - Frankfurt
+Projekt
+ 
+Microservices Factory
+Beschreibung
+ 
+Entwicklung von Microservices
+Entwicklung im Scrum Team / Agiler Vorgehensweise
+Tätigkeiten
+ 
+- Technische Architektur &amp; Entwicklung von Java Springboot Microservices (REST
+und SOAP) mit Kafka und PostgreSQL/Oracle Anbindung (JPA/Liquibase)
+- Frontend Entwicklung: VueJS, Bootstrap3, NodeJS / SSO
+- Deployment (Docker &amp; Jenkins Skripte) / AWS Cloud
+- Anonymisierung API (Python3, spaCy, Django, VueJS/PUG)
+Technologien
+ 
+Java Springboot, JavaScript Frameworks, Docker, Python3
+Andere Tools
+ 
+IntelliJ, Enterprise Architect (UML), Git, Maven, Kafka, Cloud AWS/Openshift,
+nginx
+ 
+ 
+===============================================================================
+ 
+6/2017-5/2018
+ 
+DB Systel - Frankfurt
+Projekt
+ 
+Serviceportal
+Beschreibung
+ 
+Verwaltung von Stammdaten und Administration
+Entwicklung im Scrum Team / Agiler Vorgehensweise
+Tätigkeiten
+ 
+- Technische Architektur &amp; Entwicklung Java EE Komponenten
+- Umstellung auf VAULT / JBoss
+- Entwicklung Jenkins Pipeline / Groovy
+- Umstellung SQL Skripte auf Liquibase / JPA (Hibernate)
+- Umstellung Apache HTTP 2.4
+Technologien
+ 
+JavaEE7, JSF (PrimeFaces), JAX-WS, Unix Shell, UML2, BPM
+Tools
+ 
+Eclipse, Enterprise Architect, Git, Maven, JBoss, Apache HTTP, Oracle Service
+Bus, Oracle-DB, Jenkins, Putty, Activiti
+ 
+===============================================================================
+ 
+10/2016-5/2017
+ 
+DB Cargo - Frankfurt
+Projekt
+ 
+TAF TSI
+Beschreibung
+ 
+AWS Cloud Zentrale Komponente für die Kommunikation der DB Cargo mit den
+internationalen Töchtern oder externen Partnern
+Entwicklung im Scrum Team / Agiler Vorgehensweise
+Tätigkeiten
+ 
+- Java EE Backend Entwicklung / WebServices
+- Deployment (AWS-Cloud / Docker)
+Technologien
+ 
+AWS-Cloud, JavaEE7, JAX-WS
+Tools
+ 
+Eclipse, UML2/Enterprise Architect, Git, Maven, JBoss, Jenkins, Docker, H2-DB,
+Atlassian (Confluence, JIRA)
+ 
+===============================================================================
+ 
+1/20169/2016
+ 
+SCHUFA Holding AG - Wiesbaden
+Projekt
+ 
+SPIRIT / Auskunftei
+Beschreibung
+ 
+Schützgemeinschaft für die allgemeine Kreditsicherung
+Entwicklung im Architektur Team / Agiler Vorgehensweise
+Tätigkeiten
+ 
+- Prototyp neue Architektur (Camunda basierend)
+- Java EE Entwicklung Schufa Auskunftei (Backend &amp; Frontend)
+- Entwicklung BPM-Camunda Schnittstelle
+Technologien
+ 
+UML2, BPM, JavaEE7, Spring3 (Boot &amp; Batch), XML/JSON, RESTfull, JSF/PrimeFaces,
+JavaScript, JUnit4, SQL
+Tools
+ 
+Eclipse, Camunda7.5, Enterprise Architect, Oracle12g, IBM-DB2, Weblogic12c,
+Maven, Git, VBox, Linux, Puppet/Vagrant, Atlassian Stack (Confluence, JIRA,
+Bitbucket, Bamboo)
+ 
+ 
+===============================================================================
+ 
+7/2015-12/2015
+ 
+VR Leasing - Eschborn
+Projekt
+ 
+Restkredit Versicherung
+Beschreibung
+ 
+Produkterweiterung für ein bereits existierendes Finanzprodukt um eine optional
+angebotene Restkreditversicherung, welche den Endkunden gegen die Risiken
+Arbeitslosigkeit, Scheidung und Tod absichern soll. Das Finanzprodukt wird über
+eine Webanwendung angeboten. Ein extern zur Verfügung gestellter Rechenkern
+muss unter Verwendung von Webservices zur Berechnung der monatlichen Raten
+eingebunden werden.
+Tätigkeiten
+ 
+- Frontend-Entwicklung (JSF / RichFaces)
+- WebServices (JAX-WS, WSDL / Client und Provider)
+- Erstellung der notwendigen DV-Konzepte
+Technologien
+ 
+JavaEE 6, JSF 2.1 (RichFaces), XHTML, JavaScript, AJAX, CSS, JPA (Hibernate),
+JAX-WS, JAX-B, PL/SQL, JUnit
+Tools
+ 
+Eclipse, Weblogic12, IBM-DB2, DB-Visualizer, SOAP-UI, IBM-webMethods, SAP,
+Jenkins, Ant, Mockito, Jira
+ 
+===============================================================================
+ 
+8/2014 -3/2015
+ 
+Commerzbank - Frankfurt am Main
+Projekt
+ 
+Auftrag Workflow Tracking Steuerung
+Beschreibung
+ 
+Bearbeitung der Aufträge der Bank, von der Auftragserzeugung bis zur
+Auftragsbearbeitung. Auftragserzeugung erfolgt im Berater Auftrags-Portal in
+der Filiale oder Online-Portal. Auftragsbearbeitung erfolgt in IBM BPM.
+Entwicklung im Scrum Team
+Tätigkeiten
+ 
+- WebServices (JAX-WS, WSDL / Client und Provider)
+- Entwicklung Frontend JSF2.1 (PrimeFaces4), JavaScript, AJAX, JQuery,
+Commerzbank Framework
+- Datenbank Entwicklung (PL/SQL - Oracle11g)
+- Unix Shell (KSH) für die Installation und Deployment der Datenbank
+- Deployment (IBM-WebSphere 8, JBoss AS 7)
+Technologien
+ 
+JavaEE 6, Webservices JAX-WS (WSDL), JSF 2.1 (PrimeFaces 4.0), XHTML,
+JavaScript, AJAX, JQuery, CSS, Spring Webflow, JPA 2.0 (Hibernate), XML/XSLT,
+PL/SQL, Unix Korn Shell (KSH), Maven 3
+Tools
+ 
+IBM-RAD/Eclipse, IBM-WebSphere 8.0.x, IBM-BPM, SOAP-UI, Oracle11g, SQL-
+Developer, Putty, Microsoft TFS, Jenkins, Jira
+ 
+===============================================================================
+ 
+3/2013 -6/2014
+ 
+Commerzbank - Frankfurt am Main
+Projekt
+ 
+Global Payment Plus
+Beschreibung
+ 
+Multibankfähige Firmenkunden Online Portal (EBICS) als Java Web-Applikation mit
+Bankrechner (TRAVIC) Anbindung, im Bereich Zahlungsverkehr.
+Tätigkeiten
+ 
+- Entwicklung und BugFixing Backend: EJB Services und JPA-Persistence
+- Entwicklung Web-Frontend: JSF RichFaces, jQuery, JavaScript, AJAX
+- Entwicklung Unix Korn Shell Skripte (ksh) für die Installation der
+Hintergrundprozesse
+- Deployment (IBM-WebSphere 8)
+Technologien
+ 
+JavaEE 6, JSF 2.1 (RichFaces 4.3), XHTML, CSS, JavaScript, AJAX, jQuery 2.0,
+Servlet, EJB 3.1, JPA 2.0 (OpenJPA), JAX-RS RESTfull, JAAS, JUnit, PlantUML,
+PL/SQL, Maven 3
+Tools
+ 
+IBM-RAD/Eclipse, IBM-WebSphere 8.0.x, IBM-Rational ClearCase, Oracle10g, / SQL-
+Developer, HP-QC (Quality Center)
+ 
+===============================================================================
+ 
+4/2011-12/2012
+ 
+KfW Bankengruppe - Franfurt am Main
+Projekt
+ 
+Finanzplanungstool Online (PLATON)
+Beschreibung
+ 
+Ablösung einer alte KfW-Planungsanwendung (C++, PL1, JCL) durch eine Java Web-
+Applikation und Entwicklung einer rapide Prognoserechnung der KfW-Geschäfte
+(Geschäftsfeldplanung) / Ermittlung der Risikogewichteten Aktiva (RWA) über die
+Ratingverteilung (PD  Probability of Default wirtschaftlich / politisch) und
+Besicherung (LGD  Lost Given Default wirtschaftlich / politisch), Berechnung
+der ökonomische Risikokennzahlen (Bewertungsansatz IRBA - Internal Rating Based
+Ansatz, KSA  Kreditrisiko Standardansatz) / Anbindung Benchmarkdatenbank
+Tätigkeiten
+ 
+- Klärung der fachlichen Anforderungen, Beschreibung der Geschäftsprozesse.
+- Erstellung Technischen Designs mittels Sparx Enterprise Architect (English)
+- Geschäftsprozesse Modellierung (UseCase-Diagrams)
+- Masken Design (KfW)
+- Erstellung des logischen und physischen Datenmodells
+- Anbindung externe Systeme (Benchmark, ECAP)
+- Business Logic Modellierung (Sequence- und Activity Diagrams)
+- Entwicklung Frontend (JSF2.1  RichFaces 4):
+- Java Implementierung des Berechnungskerns (Prognoserechnung über die
+Entwicklung der KfW-Geschäfte in der Zukunft)
+- Java Implementierung des Ladens von Liquiplandaten (Übertragung zum Ultimo
+von DB2 nach Oracle).
+- JVM Threads und Concurrency - Analyse, Diagnose und Optimierung
+(Multithreding, Thread-Synchronisation, Locks)
+- Performance Analyse im Rahmen des Berechnungsmodules und Optimierung der
+Datenbank
+- Unterstützung Konzeption des Testplans, Ausführung der Testreihen. Nachweis
+der Abnahmekriterien über die Testabdeckung und Testläufe.
+Technologien
+ 
+UML 2.3, JavaEE 6, JSF 2.1 (RichFaces 4-x), Javascript, EJB 3.1, JPA 2.0
+(Hibernate 3.5), JMS, Spring, JUnit, PL/SQL
+Tools
+ 
+SPARX Enterprise-Architect 9, IBM-RAD/Eclipse, IBM-Websphere, Oracle 10g, IBM-
+DB2, TOAD, IBM-Continuus (Synegie)
+ 
+===============================================================================
+ 
+10/2010 -3/2011
+ 
+KfW Bankengruppe - Franfurt am Main
+Projekt
+ 
+Kreditprozesse Bildungsfinanzierung
+Beschreibung
+ 
+Kreditbearbeitungsfunktionen für die Bildungsfinanzierung
+Tätigkeiten
+ 
+- Analyse und Klärung der fachliche Anforderungen
+- Entwicklung Java Web-Anwendung
+- Anbindung Host Schnittstellen
+Technologien
+ 
+JavaEE 5, JSF 2.0 (RichFaces 4.3), XHTML, JavaScript, EJB 3.1, JPA 2.0
+(Hibernate 3.5), EJB 3.1, JUnit, PL/SQL, PL/1, JCL
+Tools
+ 
+IBM-RAD/Eclipse, IBM-DB2, TOAD, IBM-Continuus
+ 
+ 
+===============================================================================
+ 
+
+Sonstige Anmerkungen:
+ 
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_44193 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 17.07.2020 00:45:05
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

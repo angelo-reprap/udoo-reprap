@@ -1,0 +1,252 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_116758
+
+
+Stammdaten (Auszug):
+
+Personen ID                116758
+  
+Wohnort                    427xx Leichlingen, Deutschland
+Jahrgang                   1966
+Staatsbürgerschaft         deutsch
+Stundensatz                110 EUR
+Verfügbar ab               01.01.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         09.09.11
+Profil zuletzt geändert am 05.11.20
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 18.10.2020 13:30:22
+
+Fachlicher Schwerpunkt:
+System Center, SCCM, SCOM, Orchestrator, Windows Server
+
+Position:
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Engineering / IT-nahe Ingenieurdienstleistungen
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Dipl.-Ing. Nachrichtentechnik
+ 
+MCT
+MCSE
+ 
+ITIL v3 Foundation
+ 
+Prince 2 Foundation
+Prince2 Practitioner
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch Englisch
+
+
+Betriebssysteme:
+Windows Server 2012
+Windows Server 2016
+ 
+Windows 7
+Windows 8
+Windows 10
+ 
+SCCM    - System Center Configuration Manager
+SCOM    - System Center Operations Manager
+SCO       - System Center Orchestrator
+SMA       - Service Management Automation
+SCVMM - System Center Virtual Machine Manager
+
+Programmiersprachen:
+Visual Basic
+PowerShell
+
+Datenbanken:
+Microsoft SQL Server  
+
+
+Produkte/Standards/Erfahrungen:
+Hyper-V                        
+Orchestrator                   
+SCCM                           
+SCOM                           
+SCVMM                          
+Service Management Automation  
+VMware                         
+Microsoft System Center
+Architektur und Implementierung von Microsoft System Center Produkten zur
+Verwaltung von Data Centern mit einem oder mehreren Standorten.
+In der Regel wurden mehrere System Center Produkte eingesetzt sowie deren
+Zusammenspiel zur Standardisierung und Automatisierung von Prozessen in den
+Konzepten betrachtet und konfiguriert.
+ 
+System Center Configuration Manager
+Design und Aufbau sowie Migration verschiedener Configuration Manager
+Infrastrukturen mit Central Administration Site oder eigenständiger Primary
+Site zur Verwaltung von Windows Clients als auch Windows Servern. Die Anzahl zu
+verwaltender Clients und Server lag zwischen 500 und 130.000 Systemen. Die
+Systeme waren verteilt über bis zu 250 weltweite Standorte.
+ 
+System Center Operations Manager
+Design und Aufbau sowie Migration verschiedener Operations Manager Management
+Groups. Die Anzahl zu verwaltender Server betrug bis zu 7.000 Windows und Linux
+Systemen sowie Netzwerk Geräten. Die Systeme befanden sich in Data Centern und
+bis zu 250 weltweiten Standorten.
+Für verschiedene Überwachungslösungen wurden individuelle SCOM Management Packs
+erstellt.
+ 
+System Center Orchestrator / Service Management Automation
+Design, Aufbau und Konfiguration verschiedener Orchestrator Infrastrukturen zur
+Implementierung automatisierter Prozesse. Dabei wurde der Orchestrator mit den
+System Center Produkten SCCM, SCOM, SCVMM und SCSM sowie VMware vSphere und
+Service Now verbunden. Implementiert wurden beispielsweise Runbooks zur
+automatisierten Server Bereitstellung oder zum Software Update Management.
+ 
+Active Directory
+Design und Installation verschiedener Active Directory Gesamtstrukturen mit
+mehreren Domänen und mehreren Standorten.
+ 
+Trainings und Workshops
+Ausbildung von IT Mitarbeitern im Bereich der System Center Produkte, Active
+Directory und Windows Server.
+Workshops zur Automatisierung von Prozessen mit den System Center Produkten
+inklusive Demo Umgebung und Beispielen.
+
+Branchen:
+    * Energie
+    * Industrie
+    * Telekommunikation
+    * Dienstleistung
+    * Banken
+    * Justiz
+    * Behörden
+
+Projekte:
+12/2017 - 12/2018: Verwaltung eines Data Centers mit System Center 2016
+ 
+Einsatzort:         Bonn
+Rolle:              Architekt
+Kunde:              Ministerium
+ 
+Aufgaben:
+ 
+Aufbau eines Data Centers und Verwaltung der weltweiten Infrastruktur mit den
+System Center Produkten
+- Configuration Manager zur Client und Serververwaltung
+- Operations Manager zur Überwachung der Systeme
+- Virtual Machine Manager zur Verwaltung der Hyper-V Hosts
+- SMA zur Automatisierung
+- SQL als Datenbanklösung für die System Center Produkte
+- VMware vSphere zur Verwaltung der VMware Systeme
+ 
+Erstellung von Dokumenten zur Architektur, zum Aufbau der Infrastruktur, zur
+Implementierung der System Center Produkte, zu der Betriebskonfiguration sowie
+den Betriebshandbüchern.
+Implementierung der Infrastruktur in enger Abstimmung mit dem Kunden und
+betriebsfertige Übergabe an das Betriebsteam.
+Erstellung von Pflichtenheften und Abnahmeprotokollen.
+Unterstützung der Fachadministratoren bei der Konzepterstellung und
+Implementierung.
+ 
+Erstellung eines Fachsicherheitskonzepts auf Basis des BSI IT-Grundschutzes.
+ 
+Kenntnisse:
+ 
+SCCM, SCOM, SCVMM, Service Management Automation, SQL, VMware, Hyper-V
+===============================================================================
+03/2017 - 12/2018: Server Management mit System Center
+ 
+Einsatzort:         Köln
+Rolle:              Architekt, Senior Consultant
+Kunde:              Dienstleiter
+ 
+Aufgaben:
+ 
+Ablösung einer bestehenden Configuration Manager Infrastruktur durch
+Configuration Manager Current Branch zur Verwaltung der weltweiten Server
+Systeme.
+Wesentliche Funktion ist die Implementierung eines weltweit einheitlichen
+Software Update Managements mit einem möglichst hohen Maß an Automatisierung.
+ 
+Im zweiten Schritt wird System Center Orchestrator eingeführt. Damit sollen
+weitere Schritte zur Automatisierung von Prozessen unterstützt und
+implementiert werden, zum Beispiel das automatisierte Software Update
+Management von AlwaysOn und Cluster Systemen oder verbundenen Systemen mit
+komplexen Abhängigkeiten.
+ 
+Als dritter Schritt ist die Implementierung von System Center Operations
+Manager zur Überwachung der Windows Server geplant.
+ 
+Insgesamt sollen die Produkte SCCM, SCO und SCOM gemeinsam und im Zusammenspiel
+die administrativen Standardaufgaben automatisieren sowie den individuellen
+administrativen Aufwand optimieren und reduzieren.
+ 
+Kenntnisse:
+ 
+SCCM, SCOM, Orchestrator
+===============================================================================
+System Center Configuration Manager  SCCM
+System Center Operations Manager   SCOM
+Active Directory
+ 
+Unternehmensberatung  Projektsprache Englisch
+ 
+Architekt, Senior Consultant
+ 
+Planung, Design und Implementierung einer System Center 2012 Infrastruktur zur
+Installation und zum Betrieb eines Rechenzentrums. Im ersten Schritt verteilt
+über zwei physikalische Standorte und mit der Möglichkeit zur Expansion zu
+einer weltweiten Bereitstellung von IT Services.
+ 
+Der Designfokus startet mit System Center 2012 Configuration Manager und System
+Center 2012 Operations Manager. Die Implementierung von weiteren System Center
+2012 Produkten, speziell Orchestrator sollen folgen.
+ 
+SCCM 2012
+ 
+Design der SCCM 2012 Infrastruktur und Installation der Central Administration
+Site mit einer Primären Site. Einrichtung von Inventur, Softwareverteilung,
+Patchmanagement, Betriebssystem Installation für Server.
+ 
+SCOM 2012
+ 
+Design der SCOM 2012 Infrastruktur und Installation der Management Gruppe zur
+Verwaltung des ersten Rechenzentrums mit zwei physikalischen Standorten sowie
+zwei nicht vertrauenden Gesamtstrukturen mit mehreren Domänen. Einrichtung des
+Monitorings für Windows Server, VM Ware ESX, Netzwerkgeräte. Design einer
+Berechtigungsstruktur für den operativen Betrieb des Rechenzentrums.
+ 
+Administration
+ 
+Entwicklung und Implementierung eines Modells zur rollenbasierten
+Administration der Infrastruktur Services (Active Directory, SCCM, SCOM,
+Virenscan, Data Protection Manager) sowie der bereitzustellenden Applikationen.
+ 
+ 
+Netzwerkinfrastruktur
+ 
+Rechenzentrum mit zwei Active Directory Gesamtstrukturen sowie mit mehreren
+Domänen. Die SCCM 2012 Site (Central Administration Site mit mehreren
+untergeordneten Primären Sites) sowie die SCOM Management Gruppen sind für ein
+globales Management der Server geplant.
+ 
+ 
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_116758
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 06.11.2020 00:48:20
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

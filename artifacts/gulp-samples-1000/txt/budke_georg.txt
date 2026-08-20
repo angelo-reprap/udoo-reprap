@@ -1,0 +1,960 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_26137
+
+
+Stammdaten (Auszug):
+
+Personen-ID                26137
+  
+Wohnort                    844xx Inning, Deutschland
+Jahrgang                   1961
+Staatsbürgerschaft         deutsch
+Stundensatz                75 EUR
+                           plus Zuschlag, abhängig von der konkreten Aufgabe
+Verfügbar ab               01.04.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         08.05.01
+Profil zuletzt geändert am 21.01.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 28.10.2020 09:33:05
+
+Fachlicher Schwerpunkt:
+Projektleiter / Business Analyst / Testmanager
+
+Position:
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Qualitätsmanagement / Qualitätssicherung / Test
+
+Projektleiter, Testmanager, Berater, Analyst.
+Branchen: Banken und Versicherungen
+Themenschwerpunkte: OO-Entwicklung(Java) mit HOST-Anbindung, Datawarehouse /
+BI, Architektur, Bestandsführung Versicherung, Basel II, IFRS/IAS
+Parallelbetrieb
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Studium der Mathematik, Nebenfach Informatik; 1986
+Dr. rer. nat., 1988
+Zertifiziert als Projektmanager Level B bei GPM, 2005
+Weiterbildungsstudium Finanzdienstleistung (Universität Ulm)
+Zertifikat Finanzmathematik und Investmentmanagement, 2006
+Zertifikat LV-Mathematik, 2007 
+Zertifikat ISTQB (Foundation Level), 2015
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: bevorzugt Bereich D8 (München)
+
+Fremdsprachen:
+Deutsch      
+Englisch    verhandlungssicher
+FranzösischGrundkenntnisse
+
+
+Hardware:
+IBM GroßrechnerMVS-Welt
+IBM RS6000       
+PC              NT, Windows 2000, Win 95/98
+SUN              
+
+
+Betriebssysteme:
+MVS, OS/390  
+Unix         
+Windows      
+
+
+Programmiersprachen:
+C           
+C++         
+Java        
+JavaScript  
+
+
+Datenbanken:
+Access         
+DB2           PC und HOST
+MS SQL Server  
+ODBC           
+Oracle         
+SQL            
+
+SQL-Server
+
+Datenkommunikation:
+CORBA               
+Internet, Intranet  
+TCP/IP              
+Windows Netzwerk    
+
+
+Produkte/Standards/Erfahrungen:
+Projektleitung (international) für Projekte bis zu 40 Mitarbeiter, verteilt auf
+mehrere Standorte
+Planung, Controlling, Motivation, Moderation, Präsentation
+
+Requirements Engineering, Geschäftsprozessmodellierung u.a. mit ARIS
+Objektorientierte Analyse und Design (UML)
+Together, Rational Rose, Innovator
+Strukturierte Analyse und Design
+Vorgehensmodelle
+
+Architektur (fachlich, technisch)
+J2EE, EJB, Application Server (BEA WebLogic)
+DB-Modellierung (Erwin, Rose), ER und dimensional
+GUI-Design
+Datawarehouse (DWH), Business Intelligence
+OLAP
+Migration von Bestandsdaten
+Anbindung von Altsystemen (Schnittstellen synchron und asynchron)
+Anbindung an SAP FI und SAP FS-CD
+
+Qualitätssicherung
+Zertifizierung nach ISO 9000
+
+Risikosteuerung (Basel II) und Rechnungswesen (IFRS)
+
+Branchen:
+Finanzdienstleister:
+
+Banken
+Versicherungen
+Bausparkassen
+
+Projekte:
+Projekt:           Planung, Konzeption und Testkoordination digitales
+Vertriebssystem
+Firma:              Versicherung
+Zeitraum:        April 2018 - Juni 2020
+Zielsetzung des Projektes:
+    * Ablösung vorhandener WebServices im Rahmen eines großen digitalen
+      Projektes
+    * Analyse der vorhandenen Funktionalität der WebServices (mittels
+      Workshops, Interviews, vorhandene Dokumentation und Source-Codes)
+    * Konzeption der Anbindung an das I-Suite System incl. Erweiterung der
+      fachlichen Architektur
+    * Planung des Vorgehens der Entwicklung, der Auslieferung und des
+      Testvorgehens
+    * Produkte / Tarife: Risiko, Berufs- und Erwerbsunfähigkeit
+    * Unterstützung verschiedener Nutzertypen (Internet, Makler, Vergleicher)
+    * Tarifierungs-, Angebots- und Antragsprozess bis zu Folgeverarbeitung
+    * Betrachtete Systeme zur Anbindung, insbesondere:
+          o o Life Factory
+          o o Partner
+          o o Vermittler / Commission
+          o o Dokumentenerstellung und Archivierung
+          o o Risikobewertung
+    * Testkonzeption und Test der Anbindung bis zur Produktivsetzung
+Systeme:          UNIX, Windows, Oracle-DBs
+Software,
+Standards:      BiPro-Standard, XML, SOAP UI, I-Suite (JEE); Jira
+ 
+ 
+Projekt:            Testmanager
+Firma:              Versicherung
+Zeitraum:         Januar 2017 - März 2018
+Zielsetzung des Projektes:
+           Testmanagement für den Neuaufbau eines und Migration in ein SAP S/
+4 - HANA Systems
+Schwerpunkte:
+    * Erstellung Testkonzept
+    * Testplanung und Koordination der Testdurchführung
+    * Applikationslandschaft: Vertrag, Abrechnung, Hauptbuch, Nebenbuch.
+    * Qualitätssicherung und Abweichungsmanagement
+    * Planung und Organisation von Meetings, Workshops, Kick-Offs, Reviews
+    * Reporting (Testfortschritt, Abweichungen) an Projektleitung
+    * Planung und Unterstützung von QS-Maßnahmen und Tests bei der Migration
+    * Systemplattform: Verschiedene SAP-Module (u.a.FI, CO), Eigenentwicklungen
+      und Addons
+Software:         HP ALM, Sharepoint, eigene Werkzeuge, MS Office
+Hardware:         UNIX, Oracle-DBs Windows-PCs
+ 
+Projekt:            Testmanager eines Programmes
+Firma:              Versicherung
+Zeitraum:         August 2016  Dezember 2016
+Zielsetzung des Projektes:
+                        Testmanagement für ein Programm
+Schwerpunkte:
+    * Testplanung für Haupt und Fachreleases
+    * Applikationslandschaft: Vertrag, Schaden, Abrechnung, Portale und
+      weitere.
+    * Steuerung und Controlling einer Testfactory
+    * Abweichungsmanagement
+    * Planung und Organisation von Meetings, Workshops, Kick-Offs, Reviews
+    * Reporting (Testfortschritt, Abweichungen) an Programmleitung
+    * Identifikation und Umsetzung von Optimierungsmaßnahmen zum Testprozeß
+    * Unterstützung bei der Umstellung auf agiles Vorgehen im Projekt
+    * Projektsprache Englisch
+Software:         Jira für Defect Management und Anforderungen, Tosca für
+Testfalldokumentation, Sharepoint, eigene Werkzeuge, MS Office
+Hardware:         IBM-HOST, UNIX, Windows-PCs
+ 
+Projekt:            Testmanager einer Versicherungssparte
+Firma:              Versicherung
+Zeitraum:         November 2014  Juni 2016
+Zielsetzung des Projektes:
+                        Testmanagement für alle Releasethemen der Sparte
+Schwerpunkte:
+    * Testplanung für Haupt und Fachreleases (Bestand, Leistung, Inkasso,
+      Schnittstellen zu Partner, Provision, Dokumentensystem,
+      Eingangspostverarbeitung etc.)
+    * Koordination Testvorbereitung
+    * Koordination Testdurchführung
+    * Abweichungsmanagement
+    * Planung und Organisation von Meetings und Workshops
+    * Reporting (Testfortschritt, Abweichungen) an Projekt und zentrales
+      Testcenter
+    * Identifikation, Organisation und Umsetzung von Optimierungsmaßnahmen zum
+      Testprozeß
+    * Betreuung der Tester über alle Testphasen:
+          o Strukturierung der Testobjekte
+          o Testfallerstellung
+          o Umgang mit SQS
+          o Fehlermanagement
+Hardware:         IBM-HOST, UNIX, Windows-PCs
+Software:          SQS-Test Professional, ISTQB Advanced Level als Referenz für
+den
+                         Test Management Prozess, DB2, MS Office
+ 
+Projekt:       BI/DWH-Konzepte
+Firma:         Versicherung
+Zeitraum:      April 2014  August 2014
+Zielsetzung des Projektes:
+Konzeption übergreifender BI-Prozesse, insbesondere Testmanagement
+Schwerpunkte :
+    * Definition BI-spezifischer Aspekte im Testmanagement (u.a. Datenqualität,
+      Regressionstests, datenorientierte Mengenverarbeitung)
+    * Abgleich mit dem generellen Testmanagement-Prozess (GAP-Analyse)
+    * Einpassung in die definierte BI/DWH Architektur (IIW-basiert)
+    * Definition der Schnittstelle zu Releasemangement und Deployment
+Hardware:   IBM-HOST, UNIX, Windows-PCs
+Software:   DB2, im Hause definierte BI-Strategie, IIW als Referenzmodell,
+DataStage, Cognos, ISTQB Advanced Level als Referenz für Test Management
+ 
+ 
+Projekt:    SEPA - Konzeption, Test  und Koordination
+Firma:      Bank
+Zeitraum:   Jan. 2013 - Juli 2014
+Zielsetzung des Projektes:
+Konzeption, Planung, Test und Einführung Funktionalitäten für SEPA
+Schwerpunkte: 
+    * Erarbeitung und Abstimmung von Fachkonzepten für ein Java-basiertes neues
+      System auf Basis von fachlichen Anforderungen von 2 verschiedenen
+      Fachbereichen bis zur Abnahme
+    * Konzeption einer zentralen Emittlungskomponente (u.a. Berücksichtigung
+      von Tilgung, Annuität, Sollstellungen, Stundungen, Sperren)
+    * Konzeption der Anbindung von heterogenen -meist HOST-basierten-
+      Anwendungssystemen, insbesondere
+          o Die Mandatsverwaltung
+          o Die Systeme zur Kreditbestandsverwaltung
+          o Die Buchhaltung
+          o Das Drucksystem
+    * Integrationsarchitektur mit Erweiterungen vorhandener ESB- Komponenten
+    * Erstellung des Testkonzeptes und Definition der Testfälle
+    * Konzeption automatisierter Testverfahren, u.a. für Regressionstests
+    * Durchführung von Systemtests und systemübergreifender Tests bis zur
+      Abnahme des Systems
+    * Betreuung während der Pilot- und Stabilisierungsphase und darüber hinaus
+Hardware:  IBM-HOST, UNIX, Windows-PCs
+Software:  DB2, Java, Java-Batch, UML, XML, HTML, hauseigenes
+Kreditbestandssystem und Buchungssystem, SAS9 für Auswertungen und
+Datenanalysen, HP ALM für Test und Testmanagement
+ 
+ 
+Projekt:  Teilprogramm Umsysteme
+Firma:    Versicherung
+Zeitraum: Oktober 2012  Februar 2013
+Zielsetzung des Projektes:
+Planung und Koordination des neuen Vertriebsinformationssystems im Rahmen der
+Einführung eines neuen Kernsystems
+Schwerpunkte: 
+    * Erarbeitung von Architektur- und Vorgehensalternativen für ein web-
+      fähiges Vertriebsinformationssystem basierend auf dem geplanten neuen
+      Kernsystem Life Factory (mit Enterprise Service Bus als Schaltstelle
+      zwischen verschiedenen Frontends und vorhandenen bzw. neuen Backend-
+      Systemen)
+    * Abstimmung mit Architektur und Schnittstellen des geplanten neuen
+      Kernsystems (LifeFactory)
+    * Erhebung der IST-Funktionalität des vorhandenen
+      Vertriebsinformationssystems
+    * Abgleich benötigter Daten des bisherigen Vertriebsinformationssystems mit
+      dem Datenmodell des neuen Kernsystems
+    * Abgleich vorhandener und geplanter Funktionen des bisherigen
+      Vertriebsinformationssystems mit den Funktionen des neuen Kernsystems
+Hardware:   IBM-HOST, UNIX, Windows-PCs
+Software:   DB2, Java, XML, HTML, UML, hauseigenes Bestandssystem und
+Umsysteme,
+            Life Factory Vs. 4.1 als neues Zielsystem, Windows XP, Office
+ 
+Projekt: Kreditprogramm, Erweiterung um Festzinsangebot
+Firma:              Bank
+Zeitraum:         Oktober 2011  April 2012
+Zielsetzung des Projektes:
+Konzeption und Test der Erweiterungen
+Schwerpunkte: 
+    * Erstellung und Abstimmung der Fachkonzepte aus den Anforderungen
+      (vollautomatische Erstellung der Angebote aus den POS-Web-Anwendungen,
+      Web-Frontend für die Antragsprüfung, maschinelle Verarbeitung der Anträge
+      und Nachfolgeprozesse im Backend)
+    * Konzeption der Anbindung der HOST-basierten Kernsysteme, insbesondere
+      Kreditbestandsverwaltung
+    * Planung, Durchführung und Nachbearbeitung von Workshops zu Konzeption und
+      Test des Gesamtsystems
+    * Definition der Use Cases, der Web-GUI, der Businesslogik und der
+      Datenmodellerweiterungen
+    * Testplanung und Testkonzeption
+    * Erarbeitung der Testfälle, Abstimmung mit dem Fachbereich
+    * Testdurchführung (teilweise) und Fehlerverfolgung bis zur Abnahme
+    * Unterstützung bei der Produktivsetzung
+Hardware:         IBM-HOST, UNIX, Windows-PCs
+Software:          DB2, Java, Javabatch, jpa, WSAD, XML, HTML, SAS, hauseigene
+Frameworks, Windows XP, Office
+ 
+Projekt:            Projektleitung Migration
+Firma:              Versicherung
+Zeitraum:         Dezember 2010  September 2011
+Zielsetzung des Projektes:
+Projektleitung und Konzeption Spartenmigration
+Schwerpunkte: 
+    * Planung und Controlling des Projektes
+    * Organisation von Jour-Fixes und Workshops
+    * Testmanagement und Risiko-Management
+    * Aufnahme, Definition und Abstimmung fachlicher Anforderungen: Mapping,
+      Controlling von juristischen Vertragsinformationen und Funktionen
+    * Erarbeitung und Abstimmung des Migrationskonzeptes bis zur Abnahme
+    * Erarbeitung und Abstimmung des Controllingkonzeptes der Migration bis zur
+      Abnahme
+    * Abstimmungen mit und Beauftragung der Entwicklung (Outsourcing) und der
+      Zulieferung neuer Versionen des Zielsystems (in 2  4 wöchigem Turnus)
+    * Identifikation, Analyse und Klärung von Fehlern und Change Requests
+      (JIRA)
+    * Planung und Durchführung von Migrationsläufen
+    * Test der Anbindung von Partnersystem, von In- und Exkasso (FS-CD) und
+      Provision
+    * Planung, Organisation Durchführung von 2 Generalproben und der
+      produktiven Migration
+Hardware:         IBM-HOST, UNIX, Windows-PCs
+Software:          Oracle, PL/SQL, Java, ICIS mit hauseigenen Erweiterungen,
+Windows XP, Office
+ 
+ 
+Projekt: Konzeption und Projektleitung zentraler Geschäftsservice
+Firma:            Bank
+Zeitraum:         Jan 2010  Januar 2011
+
+Schwerpunkte:
+    * Aufnahme, Analyse und Detaillierung fachlicher Anforderungen
+      (verschiedene Kreditsysteme und Meldewesen)
+    * Planung und Koordination des Projektes
+    * Aufnahme und Abstimmung von Architektur-Anforderungen
+    * Aufbau einer Integrationsarchitektur mit dem Geschäft als  zentraler
+      Architektur-Komponente (ESB), Anbindung HOST-Systeme
+    * Konzeption als zentrales, flexibles System für das Datawarehouse / BI-
+      System
+    * Datenmodellierung mit Power Designer, Quellsysteme analysieren,
+      Transformationen definieren (Use Cases mit UML 2.0), Konzeption
+      regelbasierter Ableitungssysteme
+    * Teilweise Umsetzung mit SQL und Java
+    * Testplanung und Test
+Software:       Java, XML,HTML, Eclipse, WSAD, DB2, MQ-Series, hauseigene
+Frameworks
+Hardware:      HOST, Unix, Windows PCs
+Projektsprachen: Deutsch und Englisch
+ 
+Projekt: Beratung Projektleitung, Fachkonzeption Antrag und Angebot Leben
+Firma:           Versicherung
+Zeitraum:         März 2009  Dez 2009
+
+Schwerpunkte:
+    *  Koordination Projekt eAntrag mit vorhandenem Angebots- und Antragssystem
+    * Abstimmungen und Konfliktlösung zwischen Projekt und Linie
+    * Testkoordination Komponententest und Integrationstest bis zur Abnahme
+    *  Vertretung des Systemverantwortlichen
+    *  Design/Entwicklung von XSLT-Transformationen
+    *  Maßgebliche Mitarbeit am Pflichtenheft eAntrag Leben, insbesondere in
+      den prozessbezogenen Teilen (UML, u.a. Use Cases)
+    *  Erarbeitung Gap Analysis zur Anbindung eines neuen Systems an das
+      Angebots- und Antragssystem (Offshoring, internationales Projekt
+    * Konzeption des neuen Web-Service zum Verwaltungssystem
+Software:         Enterprise Architekt, Visual C++, Access und Oracle, XML und
+XSL, HTML, WSDL, Office-Tools und MS-Project
+Hardware:         Windows PCs, Unix
+Projektsprachen: Deutsch und Englisch
+
+
+Projekt: Projektmanagemant Ablösung grosses Wertschriftensystem
+Firma:           Finanz
+Zeitraum:         Mitte Dez. 2008 bis Mitte März 2009
+
+Schwerpunkte:
+ Interimsweise Projektmanagement NVA Programm
+ Erarbeitung und Durchführung einer internationalen Ausschreibung für
+Serviceleistungen
+ Strukturierte Evaluation der Offerten
+ Erarbeitung und Abstimmung der Planung 2009 für das NVA Programm
+ Coaching eines Projektleiters
+
+Software:         Office-Tools und MS-Project
+Projektsprachen: Deutsch und Englisch
+
+
+Projekt: Koordination und Erstellung Feinkonzeption Leistungsanreizsystem
+Firma:            Transport
+Zeitraum:         Oktober 2008 bis Mitte Dezember
+Zielsetzung des Projektes:
+Feinkonzeption für ein neues Leistungsanreizsystem erstellen zwecks Ablösung
+eines Altsys-tems
+Schwerpunkte:     
+ Planung der Aktivitäten für die Erstellung des Fachfeinkonzeptes (Ziel ist die
+Ablösung des nicht dokumentierten Altsystems durch ein verbessertes neu zu
+konzipierendes System)
+ Planung, Vorbereitung, Durchführung und Nachbereitung von Workshops und
+Interviews zur Er-hebung der Soll-Funktionalität
+ Modellierung des neuen Systems unter Verwendung von UML 2.0
+ Vorbereitung, Durchführung und Nachbereitung von Reviews (gemäss Quality
+Gates)
+ Erarbeitung und Festlegung der technischen Infrastruktur für das neue System
+(Systemplattform, Datenbank, Entwicklungstools, Einbindung in die technische
+Infrastruktur)
+ Schätzung für die Umsetzungsphase
+Hardware:         UNIX, Windows-PCs
+Software:         Oracle 10, Apex; Enterprise Architect für Modellierung, SQL-
+Server, MS-Access, MS-Office
+
+
+Projekt: Konzeption, Planung und Umsetzung Auswertungs-Architektur
+Firma:            Krankenversicherung
+Zeitraum:         Dezember 2007 bis jetzt
+Zielsetzung des Projektes:
+Konzeption, Planung und Optimierung komplexer Auswertungen auf einem
+umfangreichen Datenpool
+Schwerpunkte:     
+      Konzeption und Planung der BI-Infrastruktur anhand künftiger
+ Anforderungen (AGG, Gesundheitsreform)
+ Optimierung und Neukonzeption von komplexen Hochrechnungssystemen
+        Konzeption und Umsetzung von Auswertungen, Statistiken und
+ Prognosen u.a. auf Bestand und Leistungsdaten
+ Unterstützung bei der Analyse, Untersuchung und Auswahl von
+ Statistik-Werkzeugen externer Anbieter
+ Vorschläge zur weitreichenden Verbesserung der vorhandenen
+ Auswertungs-Infrastruktur
+Hardware:         IBM-HOST, UNIX, Windows-PCs
+Software:         SAS (V8 und V9), SAS Enterprise Guide, DB2, SQL und Excel als
+Analyse-Werkzeuge,
+ hauseigene Werkzeuge, Windows XP, Office
+
+
+Projekt: Konzeption und Coaching Projektleitung für Integration neuer
+ zentraler operativer Systeme in eine grosse DWH / BI-Umgebung
+Firma:            Mobilfunk
+Zeitraum:         März 2007 bis November 2007
+Zielsetzung des Projektes:
+ Da zentrale operative Systeme auf Basis Peoplesoft
+ neu entwickelt werden, muß die Datawarehousearchitektur neu aufgebaut werden.
+Schwerpunkte:     
+ Unterstützung zur und Review der Planung zur Umsetzung
+ Erhebung und Management von Anforderungen an das Datawarehouse
+      Analyse der Funktionalitäten der neuen Quellsysteme für das DWH
+ Datawarehousearchitektur und Konzeption
+ Spezifikation und Design von Zieldatenmodellen im Data Warehouse
+ Konzeption neuer Ladeprozesse
+ Konzeption der Ladeprozesse für die Migration und den Parallebetrieb
+ Implementierung von ETL-Prozessen mit PL/SQL
+ Projektsprache Deutsch und Englisch
+ Sehr hohes Datenvolumen
+Hardware:         UNIX,  Windows-PCs
+Software:         Oracle 10g, Toad als SQL-Werkzeug, PL/SQL für die Umsetzung
+der
+ ETL-Prozesse, hauseigener Scheduler für die Steuerung der
+ Ladeprozesse, hauseigene Mechanismen für incremetal und
+ full load (basierend auf PL/SQL), Peoplesoft CRM, Windows XP, Office
+
+
+Projekt: Requirements Engineering und Coaching Projektmanagement
+Firma:            Automotive
+Zeitraum:         November 2006 bis März 2007
+Zielsetzung des Projektes:
+ Aufbau einer Fahrzeuglebenslaufakte mittels eines DWH/BI-Systemes
+Schwerpunkte:     selbständige Durchführung von Workshops zur Ermittlung und
+Abstimmung
+ der Requirements
+ Präsentation der Ergebnisse
+ Unterstützung Projektmanagement bei Vorgehen und
+ Planung im Projekt (Projektmanagement nach CMMI Level II)
+ Abgleich der Requirements mit den Quellsystemen
+ Unterstützung bei Priorisierung der Requirements
+ Konzeption in Form von Berichten, Würfeln,
+ Datenmodellen und ETL-Prozessen
+Hardware:         UNIX,  Windows-PCs
+Software:         Oracle 10g, Toad als Abfragewerkzeug, ADAPT-Notation für DWH-
+Modellierung,
+ Cognos Vs. 8 für Berichterstellung, Informatica Vs. 7 für die
+ Erstellung von ETL-Prozessen, Windows XP, Office
+
+
+Projekt: Konzeption und Modellierung für Projekte Core Datawarehouse
+ Risikosteuerung und IAS / IFRS
+Firma:            Bank
+Zeitraum:         Mai 2005 bis Oktober 2006
+Zielsetzung des Projektes: Anforderungsermittlung, Konzeption und Modellierung
+verschiedener
+ strategischer Systeme des Kunden
+Schwerpunkte:     
+ Erweiterungen der vorhandenen strategischen Datenplattform
+ Kredit und Handel um
+ Anforderungen u.a. aus IAS, Basel II und Rating
+ Unterstützung der Projektleitung bei Vorgehen und Planung
+ Coaching von Projekten zu Best Practices bei der Modellierung
+ selbständige Organisation und Durchführung von Workshops zur
+ Anforderungsermittlung und Konzeption
+ Präsentation der Ergebnisse und Moderation von Workshops und Meetings
+ Neukonzeption von wichtigen Systemteilen zu IAS (u.a. Hedge
+ Accounting)
+ Neuaufbau eines komplexen Auswertungssystems für Problemengagements
+ (dimensionale Modellierung) incl. Integration mit Standard-SW
+ zur Risikosteuerung
+ Einsatz sowohl der Entity Relationship Methodik als auch
+ der dimensionalen Modellierung
+ QS von Konzeptionsergebnissen und Datenbankstrukturen
+ Anregung und Umsetzung verschiedener Verbesserungen des
+ Modellierungsprozesses
+ Integration in das übergreifende Datenmodell; Wiederverwendung
+ von vorhandenen Konzeptteilen
+ Migration von Datenmodellen nach ERWin
+Hardware:         IBM-HOST, UNIX,  Windows-PCs
+Software:         eigenentwickelte operative Systeme, Rational Rose Enterprise
+ Edition mit SQL-Generierung, DB2 (HOST) und Oracle (UNIX),
+ Modellierung mit UML 2.0; ERWin zur Datenmodellierung und zur
+ SQL-Generierung; eigenentwickeltes Repository
+
+
+
+Projekt: Keyplayer Architektur und Vertretung der Projektleitung für ein
+ DWH für Basel II / MaK
+Firma:            Bank
+Zeitraum:         Mai 2004 bis Mai 2005
+Zielsetzung des Projektes: Konzeption und Umsetzung eines großen Datawarehouse,
+ um die Anforderungen von  Basel II / MaK abzudecken
+Schwerpunkte:     
+ Pflichtenhefterstellung, Analyse der funktionalen und nichtfunktionalen
+ Anforderungen (u.a. Mengengerüst, Fehlerhandling)
+ Planung und Steuerung des Projektes und des Gewerkanteiles
+ Erstellung und Koordination von fachlichen und technischen
+ Konzepten (Datenmodell, ETL-Prozeß, Jobsteuerung)
+ Modellierung des zentralen DWH
+ Analyse der Quelldaten zur Verbesserung der Datenqualität
+ QS des Gewerkes und Unterstützung der Inbetriebnahme
+ Konzeption und Umsetzung von Begleitmaßnahmen (z.B. Prüfmechanismen)
+Hardware:         IBM-HOSTs, SUN-UNIX,  Windows-PCs
+Software:         eigenentwickelte operative Systeme, Ascential DataStage
+Parallel Extender als ETL-Werkzeug,
+ Attunity Connect als HOST Treiber, Oracle 9 und 10 , Toad,
+ Rational Rose (UML 1.4)
+
+
+
+Projekt: Fachkonzeption Neue Produkte für eine Leben-Bestandsführung
+Firma:            Versicherung
+Zeitraum:         März 2004 bis Mai 2004
+Zielsetzung des Projektes: Konzeption neuer, innovativer Produkte für eine
+ Bestandsführung Leben
+Schwerpunkte:     
+ Anforderungsanalyse mit den Fachbereichen und Produktstrategie
+ Durchführung von Schätzworkshops
+ Erstellung von Fachkonzepten
+Hardware:         Windows-PCs, UNIX
+Software:         eigenentwickeltes Bestandssystem, SAP R/3 FI und FS-CD,
+ Fremdrechenkern für versicherungsmathematische Berechnungen
+
+Projekt: Fachkonzeption, Design und Umsetzung Migration auf Standard-SW,
+ Anbindung Standard-SW
+Firma:            Versicherung
+Zeitraum:         September 2002 bis Mai 2003
+Zielsetzung des Projektes: Konzeption, Design und Umsetzung der Migration
+der Vertragsbestände Leben in ein web-fähiges Java-Zielsystem
+Schwerpunkte:     
+ Fachkonzept für das Migrationsverfahren
+ Strukturierung des Vorhabens und Definition/Controlling der
+ Aufgabenpakete
+ Systematische Auswahl des ETL/Migrations-Tools und des
+ Data Profiling-Tools
+ Analyse des Altdatenbestandes der Leben- und Sachbestände,
+ der Personendaten und weiterer Zusatzbestände mit einem
+ Werkzeug für die Datenanalyse
+ Erarbeitung des Mapping und der Transformationsalgorithmen
+ von ISAM/UDS-Quellen in ein relationales Zielmodell (u.a.
+ Betrachtung Historienführung, Kontenmodell im Zielsystem für)
+ incl. der fachlichen Abstimmung technischer wie
+ nichttechnischer Werte vom Altsystem mit dem Zielsystem
+ Umsetzung grundlegender Strukturen des Migrationsverfahrens
+ mit einem ETL-Tool
+ Konzeption, Design und Test des J2EE-konformen Java-
+ Ladeprozesses ins Zielsystem (OO-Modelle, Aktivitätendiagramme)
+ Steuerung des Migrationsprozesses durch XML-Strukturen
+ Unterstützung für die Konzeption der Anbindung des Standard-Systemes
+Hardware:         PCs, HP-Unix und Siemens Mainframe
+Software:         UDS, Oracle 9i, OWB (Oracle Warehouse Builder) für
+ Transformation und Axio von Evoke für die Datenanalyse;
+ Eclipse für Java-Entwicklung, XML, BEA WebLogic, UML, HTML,
+ PVCS Dimensions für Konfigurationsmanagement, UC4 für die
+ Jobsteuerung
+
+
+Projekt: Manager auf Zeit einer Entwicklungsabteilung
+Firma:            Banken-Rechenzentrum
+Zeitraum:         Juni 2001 bis August 2002
+Zielsetzung des Projektes:
+        Aufbau und Führung einer Entwicklungsabteilung
+Schwerpunkte:     
+ Definition der Aufgaben der Abteilung mit insgesamt 15
+ Mitarbeitern
+ Gestaltung der Aufbau und Ablauforganisation der Abteilung
+ Mitarbeiterführung und -entwicklung
+ Überarbeitung und Ausrichtung des Vorgehensmodelles
+ incl. Qualitätsmanagement auf OO-Modellierung und Java-basierte
+ Entwicklung, hierbei Orientierung an RUP und Oestreich
+ Umsetzung des Prozesses in die Projekte durch Informations-
+ veranstaltungen, Beratung, Schulung, Coaching
+ Intensives Coaching zum Vorgehen und zur QS einzelner
+ Key-Projekte (Zahlungsverkehr, Basel II, Elektronik Banking)
+Hardware:         PCs (Client und Server), UNIX und IBM-HOST
+Software:         Innovator (Geschäftsprozessmodellierung, Klassenmodelle,
+Design),
+ JBuilder, JBF (Java Ban-king Framework), XML, BEA WebLogic,
+ UML, HTML,  SQS-Test zur Unterstützung des Testmanagements
+
+
+Projekt: Projektleiter Vertriebsteuerung (DWH / Business Intelligence / OLAP)
+Firma:            Banken-Rechenzentrum
+Zeitraum:         Juli 2001 bis September 2002
+Zielsetzung des Projektes:
+Zügige Entwicklung und Produktivsetzung einer innovativen und
+marktgerechten Business Intelligence-Lösung
+Schwerpunkte:     
+        Gestaltung der Projektorganisation für ein Projekt mit bis zu 20
+Mitarbeitern
+      Planung und Controlling des Projektes
+      Abstimmung des Umfanges mit Produktmanagement Banken
+      Auswahl des ETL-Tools und des OLAP-Tools
+ Erarbeitung Snowflake Schema für DWH-Datenmodell (Kimball-Ansatz)
+ Gestaltung der Architektur des Systems (ROLAP-Architektur, DWH mit Snowflake-
+Schema)
+      Erarbeitung von Lösungen für die zentrale und für die dezentrale
+Datenversorgung
+ Definition und Umsetzung von erforderlichen Erweiterungen in Java
+ Analyse des Altdatenbestandes von zentralen Teilen des Kunden- und
+Buchungssystemes (IMS-Segmente, ca. 10 Mio Kunden)
+ Erarbeitung des Mapping und der Transformationsalgorithmen von IMS-Quellen in
+ein relationa-les Modell
+ Tägliches Laden und Transformation in das Zielsystem (DWH) in einem grossen,
+klassischen RZ-Betrieb
+ Breiteneinsatz der Stufe 1 im März 2002, Breiteneinsatz der Stufe 2 im Juli
+2002
+ Innovatives und im Markt sehr erfolgreiches System !
+Hardware:         PCs, Unix(Solaris) und IBM Mainframe
+Software:         db2, udb, Erwin, Informatica, SAS, Microstrategy
+
+
+Projekt: Bestandsführung Komposit
+Firma:            Softwarehaus(in Kooperation mit Versicherungskonzern)
+Zeitraum:         Von Juli 1999 bis Mai 2001
+Zielsetzung des Projektes:
+Neuentwicklung einer Bestandsführung Komposit auf Basis eines (hauseigenen)
+Produktmana-gementsystems in Web-fähiger Technologie (Java, EJB)
+Schwerpunkte:     
+          Projektleitung, Planung und Controlling von 40 Mitarbeitern
+        Aufbau und Management von 3 Entwicklungsstandorten (München, Köln,
+Chennai in Indien)
+        Gestaltung und Aufbau der Ablauf- und Aufbauorganisation der Abteilung
+Bestandsführung
+        Abstimmung von Umfang und Vorgehen mit dem Kunden
+ Untersuchung von SAP FS-CD für Prozesse des In-/Exkasso und des Mahnverfahren
+        Vorgabe der Leitlinien für fachliche Architektur und für Systemdesign
+        Treffen wesentlicher Architekturentscheidungen (z.B. Systemabgrenzung,
+Historienverfah-ren) zusammen mit Architekten
+        Etablierung deslierung des RUP-orientierten SW-Entwicklungsprozesses
+        Aufbau und Etablierung des QM-Prozesses (incl. Testverfahren)
+        Konzeption, Design, Umsetzung, Lieferung und Pflege einer ersten Stufe
+des Systemes
+        Fachliche Konzeption der Grundlagen einer Bestandsführung
+        Übergreifendes Klassenmodell zur Bestandsführung Komposit
+        Aktivitätsdiagramme für eine komplette Sparte (Unfall)
+ Abgleich des Altdatenbestandes mit dem Zielmodell; Erarbeitung des Mappings
+und der Transformationen zwischen Quell- und Zielfeldern
+ Ergänzung bzw. Modellierung von Altsystemfunktionalität im Zielsystem (u.a.
+Plausibilitäten, Key-Listen, Berechnungen)
+ Anbindung von Schnittstellen zu Partner (synchron),
+ Anbindung an In-/Exkasso: SAP FI und FS-CD,
+ Anbindung an weitere Schnittstellen (Provision und andere).
+Hardware:         PCs (Client und Server)
+Software:         Java, Swing, proprietäre Middleware, flexibles
+Produktmanagementsystem, Together 3 und 4, Jbuilder 3 und 4, DB2 6,
+ Continuus als Konfig.managementtool, WebShere als Application Server,
+ SAP FI und SAP FS-CD
+
+
+Projekt: ElFin
+Firma:            Softwarehaus, Parallelprojekt
+Zeitraum:         Von September 2000 bis Juli 2001
+Zielsetzung des Projektes:
+Integriertes Basissystem zur Definition von Produkten und deren Ausführung in
+operativen Um-gebungen auf Basis EJB
+Schwerpunkte:     
+        Projektleitung, Planung und Controlling von 6 Mitarbeitern
+        Definition der Leitlinien zur fachlichen Architektur und zum
+Systemdesign
+        Projektsteuerung mit RUP
+        Modellierung mit UML (Klassenmodell, Aktivitätsdiagramme)
+        Treffen wesentlicher Architekturentscheidungen (Beans-Achitektur,
+Datenmodell) zusammen mit Architekten
+        Erstellung einer Version 1 im April 2001 und kontinuierliche
+Weiterentwicklung
+Hardware:         PCs (Client und Server)
+Software:         Java, EJB 1 und 2, Together 4, Jbuilder 4, DB2 6 und 7,
+Source Safe, BEA WebLogic 5 und 6, XML, Windows 2000 und Win NT
+
+Projekt: Image Leben
+Firma:            Software und Beratungshaus, für Versicherungskonzern
+Zeitraum:         Von April 1999 bis Juni 1999
+Zielsetzung des Projektes:
+Geschäftsprozessoptimierung Leben unter Einbindung der geplanten Einführung der
+Image-Verarbeitung
+Schwerpunkte:
+        Analyse der Ist-Prozesse anhand vorhandener Dokumentationen und
+Interviews
+        Schwachstellenanalyse und Definition der Maßnahmen
+        Gestaltung der Sollprozesse Leben incl. Imageverarbeitung zusammen mit
+dem Fachbereich
+        Analyse der Erfahrungen aus dem Projekt Image-Kranken und der
+Erfahrungen anderer Versicherer
+        Wirtschaftlichkeitsanalyse der geplanten Image-Einführung
+Hardware:         PCs, Mainframe
+Software:         MS Office, Visio, kundenspezifische Anwendungen
+
+
+
+Projekt: Beratungssystem Leben
+Firma:            Software und Beratungshaus, für Versicherungskonzern
+Zeitraum:         Von Oktober 1998 bis März 1999
+Zielsetzung des Projektes:
+Fachkonzept und objektorientiertes Design eines Angebotssystems für einen
+großen deutschen Direktversicherer
+Schwerpunkte:     
+        Projektleitung, Planung und Controlling von 2 sd&amp;m-Mitarbeitern und 6
+Mitarbeitern des Kunden
+        Zielplattform: Unix mit Oracle-DB und X-Terminal-Clients auf NT
+        Fachkonzept (Dialogfeinspezifikation, Bedienabläufe, Plausibilitäten )
+und Anbindung des vorhandenen OO-Anwendungsdesign; Datenmodell, Systemtabellen
+und HOST-Schnittstelle
+        Flexible, komponentenorientierte Modellierung der Versicherungsprodukte
+Hardware:         PCs, Sun
+Software:         Powerbuilder, Oracle 8, Unix, PVCS, Windows NT
+
+
+Projekt: Gesamtkonzeption für den gesamten EDV-Bereich
+Firma:            Software und Beratungshaus, für Verbandsorganisation)
+Zeitraum:         Von Mai 1998 bis Oktober 1998
+Zielsetzung des Projektes:
+Überprüfung und Optimierung der Ablauf- und Aufbauorganisation des EDV-
+Bereiches des GDV
+Schwerpunkte:
+        Analyse der IST-Situation (von den vorhandenen Anwendungen, den
+Abläufen bis zur tech-nischen Infrastruktur)
+        Definition der Soll-Abläufe und des Soll-Kapazitätsbedarfes
+        Definition der neuen Aufbauorganisation
+        Definition des Aufbaus und des Ablaufes der DV-Gesamtplanung
+Hardware:         PCs, Mainframe
+Software:         MS Office, Visio, kundenspezifische Anwendungen
+
+
+Projekt: Neukonzeption Bestandsführung Warenkreditversicherung
+Firma:            Software und Beratungshaus, für Versicherungskonzern
+Zeitraum:         Von Oktober 1997 bis August 1998
+Zielsetzung des Projektes:
+Fachfeinkonzept incl. Sollprozessanalyse zur Optimierung der Arbeitsabläufe und
+besserer ma-schineller Unterstützung für den Fachbereich
+Schwerpunkte:     
+        Projektleitung mit Gesamtprojektverantwortung für insgesamt 10
+Mitarbeiter (IT und Fachbe-reich)
+        Zielplattform: HOST mit DB2 und Win-NT Clients
+        Analyse Ist-Prozesse und Soll-Geschäftsprozessmodellierung
+        Daten- und Funktionenmodell,
+        GUI-Prototyp
+        Analyse der Anbindung der Nachbarsysteme (Partner, Inkasso, etc) und
+des vorhandenen Altsystemes
+Hardware:         PCs, Mainframe
+Software:         MS Office, Visio, Cool:Gen von Sterling Software, DB2
+(Mainframe), kundenspezifische Anwen-dungen
+
+
+Aufgabe: Führung der SW-Entwicklung und deren Ausbau auf 15 Mitarbeiter
+Firma:            Systemhaus
+Zeitraum:         Von Januar 1994 bis September 1997
+Zielsetzung:
+Aufbau und Entwicklung der SW-technischen und organisatorischen Infrastruktur
+zur Projektab-wicklung
+Schwerpunkte:
+        Führung von festangestellten und freien Mitarbeitern
+        Gewinnung und Einstellung neuer Mitarbeiter
+        Weiterentwicklung und Weiterbildung vorhandener Mitarbeiter
+        Betreuung, Aufbau und Ausbau von Kundenkontakten
+        Aufbau und Weiterentwicklung des Ausbildungsprogrammes für
+Praktikanten, Werkstudenten und Diplomanden
+
+
+Projekt: objektorientiertes Tarifierungsframework in C++
+Firma:            Systemhaus, Eigenentwicklung (Parallelaufgabe)
+Zeitraum:         Von Juni 1996 bis April 1997
+Zielsetzung des Projektes:
+Objektorientiertes Tarifierungs-Framework (White-box Framework) als
+wiederverwendbares Fra-mework für eine Leben-Angebots-Software
+Schwerpunkte:
+        Projektleitung, Teamgrösse 4 Mitarbeiter
+        Objektorientierte Analyse, Design und Umsetzung
+        Modellierung anhand einer Reihe von implementierten Kundenlösungen zu
+Angebot Leben
+        Akquisition von 2 Kundenprojekten durch dieses Framework
+Hardware:         PCs (Client und Server)
+Software:         Windows 95 und Win NT (32-bit), Methodworks für die OO-
+Analyse, Rational Rose für das OO-Design, Microsoft Visual C++ für die
+Realisierung, ODBC, SQL-Server, Access
+
+
+Projekt: Beratungssoftware Erben und Schenken
+Firma:            Systemhaus, für Versicherungskonzern (Parallelaufgabe)
+Zeitraum:         Von April 1995 bis Juni 1996
+Zielsetzung des Projektes:
+Integriertes System zur Analyse der Erbschaftssteuer und der Beratung und
+Tarifierung bzgl. Le-ben/Rentenprodukten
+Schwerpunkte:
+        Projektleitung, Teamgrösse bis zu 12 Mitarbeiter
+        Integration verschiedener Rechenkerne des Kunden und der kundeneigenen
+PrintWare
+        Kommunikation vorhandener Komponenten (Erbschaftsanalyse) und
+Tarifierung über OLE
+Hardware:         PCs (Client und Server)
+Software:         Windows 95 und Win NT (32-bit), Borland C++, ODBC, Access,
+OLE2 Automation
+
+
+Projekte:         Beratungs- und Tarifierungssysteme für Versicherungen,
+Bausparkassen und Banken
+Firma:            Systemhaus
+Zeitraum:         Von Januar 1992 bis Dezember 1993
+Zielsetzung:
+Konzeption und Implementierung von Kundenprojekten
+Schwerpunkte:
+        Fachliche Konzeption der Anwendungen
+        Abstimmung mit dem Kunden
+        Implementierung und Test
+        Angebotssysteme Leben/Renten,
+        Angebotssysteme Kranken
+        Angebotssysteme Unfall
+        Versorgungsanalyse, Rentenberechnung
+        Bauspartarifierung
+        Beschwerdemanagement
+        Finanzanwendungen
+        Entwicklung mit C, C++
+Hardware:         PCs (Client und Server)
+Software:         DOS und Windows, Borland C und C++
+ 
+
+Referenzen:
+Projekt Migration Bestandsführung, 09/02 - 03/04
+Referenz durch Gesamtprojektleitung, Versicherung, vom 31.03.04
+"[...] Der Berater arbeitete im Rahmen seiner Beratertätigkeit stets sorgfältig
+und gewissenhaft. Das Verhalten und die Zusammenarbeit mit Kollegen und
+Vorgesetzten war immer einwandfrei. Wir wünschen dem Berater für seine
+berufliche Zukunft alles Gute."
+Projekt Projektleiter Vertriebssteuerung, Leiter Querschnittsabteilung, seit
+06/01
+Referenz durch Bereichsleiter Entwicklung, Rechenzentrum rbg, vom 09.01.03
+"Beurteilung der Beratungstätigkeit des Consultants:
+Der IT-Berater ist seit dem 1.6.2001 für die rbg (Rechenzentrum Bayerischer
+Genossenschaftsbanken eG) als Manager auf Zeit mit folgenden Aufgaben tätig:
+*  Abteilungsleiter einer Querschnittsabteilung (vom 1.6.2001 bis 31.03.2002)
+Schwerpunkte:
+·  Disziplinarische und fachliche Leitung der Abteilung
+·  Definition der Aufgaben der Abteilung mit insgesamt 11 internen und 2
+externen Mitarbeitern
+·  Gestaltung und Umsetzung der Aufbau und Ablauforganisation der Abteilung
+·  Mitarbeiterführung und Mitarbeiterentwicklung
+·  Bewerberauswahl und Mitarbeitergespräche (Beratungs- und Fördergespräche,
+Zielvereinbarungsgespräche)
+·  Überarbeitung des SW-Entwicklungsprozesses
+·  Umsetzung des Prozesses in die Projekte durch
+Beratung, Schulung, Coaching (es werden Innovator als Modellierungswerkzeug und
+SQS zum methodischen Testen eingesetzt) Zum 1.4.2002 konnte diese Position mit
+einer internen Führungskraft besetzt werden. Der Consultant übernahm zu diesem
+Zeitpunkt eine andere Abteilung (Berater und Ausgabedienste).
+*  Projektleiter Vertriebsteuerung (DWH-Projekt, Juli 2001 bis heute)
+Schwerpunkte:
+·  Gestaltung der Projektorganisation für ein Projekt mit bis zu 18
+Mitarbeitern
+·  Planung und Controlling des Projektes
+·  Abstimmung des Umfanges mit Produktmanagement Banken
+·  Auswahl des ETL-Tools und des OLAP-Tools
+·  Erarbeitung von Lösungen für die zentrale und für die dezentrale
+Datenversorgung
+·  Erarbeitung und Umsetzung einer flexiblen Gesamtarchitektur
+·  Termingerechte Markteinführung (Pilotierung, Breiteneinsatz)
+Das System basiert dabei auf ROLAP-Technologie. Die Gesamtarchitektur
+orientiert sich am Kimball-Ansatz. Das Warehouse läuft unter db2 auf OS/390.
+Neben den Bestandsdaten vom HOST werden marketingrelevante, dezentrale Daten
+von den Banken geladen. Das System kommt bei den Banken sehr gut an. Zur Zeit
+befindet sich die Stufe 2 des Systemes (Thema Verbunddaten) in Entwicklung. Der
+Consultant konnte hierbei wichtige Beiträge zum Aufbau der
+Querschnittsabteilung und zur erfolgreichen Durchführung des DWH-Projektes
+leisten. Sein fundiertes Know-how und seine langjährige Erfahrung lassen ihn
+auch in schwierigen Situationen sicher und richtig agieren. Sein Verhalten
+gegenüber internen wie externen Kollegen und Führungskräften war stets
+einwandfrei."
+Projekt ElFin. seit 10/00
+Referenz durch Geschäftsführung der Firma Stardata GmbH vom 14.05.01
+"Der Consultant ist seit dem 1.10.2000 für StarData GmbH in der Projektleitung
+des Projektes ElFin tätig. Seine Aufgaben in diesem Zeitraum waren:
+· Planung und Controlling des Projektes von der Projektidee bis zur Erstellung
+und zum Test des Basissystems.
+  Führung der 6 beteiligten Mitarbeiter.
+· Federführung in der fachlichen und technischen Konzeption des Systemes. Es
+handelt sich um ein generisches,
+  integriertes System zur Definition und Ausführung von Produkten der
+Finanzdienstleistungsbranche
+· Projektsteuerung mit RUP
+· Modellierung mit UML (Klassenmodell, Aktivitätsdiagramme)
+· Treffen wesentlicher Architekturentscheidungen zur Beans-Architektur und zum
+Datenmodell
+· Technisches Design und Steuerung der Umsetzung auf Basis EJB (Bea WebLogic
+Application Server 5 und 6,
+  Jbuilder 4, DB2 6 und 7, XML).
+Der Consultant leitet das Projekt sicher und zielgerichtet und motiviert die
+Teammitglieder zu sehr guten Leistungen. Sein umfassendes Know-How und seine
+langjährige Erfahrung in SW-Entwicklungsprojekten lassen ihn auch kritische
+Situationen und schwierige Problemstellungen sicher meistern. Er erfüllt alle
+ihm übertragenen Aufgaben stets zu unserer vollsten Zufriedenheit. Sein
+Verhalten gegenüber internen wie externen Kollegen, Kunden und Führungkräften
+ist stets einwandfrei."
+Alle Referenzen sind durch GULP bestätigt.
+
+Sonstige Anmerkungen:
+Fortbildung im Bereich Projektmanagement
+Vortrag zum Thema Risikomanagement im Projekt (PM-Forum 2005)
+Fortbildung im Bereich Basel II und IFRS / IAS
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_26137
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 22.01.2021 00:48:13
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

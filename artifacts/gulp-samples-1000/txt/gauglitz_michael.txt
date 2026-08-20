@@ -1,0 +1,773 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_61601
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                61601
+  
+Wohnort                    670xx Ludwigshafen, Deutschland
+Jahrgang                   1971
+Staatsbürgerschaft         deutsch
+Stundensatz                70 EUR
+                           abhängig von Komplexität und Technologie
+Verfügbar ab               01.01.22 zu 80%, Vor-Ort-Einsatz 80% möglich
+Profil erstellt am         26.04.04
+Profil zuletzt geändert am 12.03.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 02.02.2021 16:48:14
+
+Fachlicher Schwerpunkt:
+Softwareentwicklung Datenbanken/Gerätekommunikation/Prüftechnik
+
+Position:
+Software-Entwicklung / Programmierung
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+10/1990 - 11/1996: Studium der Informatik mit Nebenfach Mathematik
+ 
+Abschluss:          Diplom-Informatiker, Note: sehr gut
+Institution:        Universität Kaiserslautern
+ 
+Schwerpunkt:
+ 
+Numerische Algorithmen, Simulationsalgorithmen, Datenbanken
+===============================================================================
+04/1994 - 02/1995 Tätigkeit als wissenschaftliche Hilfskraft in der
+Arbeitsgruppe Numerische Algorithmen des Fachbereichs Informatik der
+Universität Kaiserlautern
+
+Einsatzort:
+Regionen:
+D6, D7
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: je nach Projektdauer auch bundesweit
+
+Fremdsprachen:
+Deutsch      
+Englisch    gut
+FranzösischGrundkenntnisse
+Latein       
+
+
+Hardware:
+Ascii/X - Terminals     Grundkenntnisse
+Bus                     Grundkenntnisse Profibus
+Drucker                 Industriedrucker (Zebra, Avery-Dennison, Videojet)
+Frontline USB Analyzer   
+HP                       
+Hytelog USB              
+PC                       
+Scanner                  
+Steuer und Regelsysteme  
+
+
+Betriebssysteme:
+HPUX             
+Novell          Anwenderkenntnisse
+SUN OS, Solaris  
+Unix             
+Windows          
+
+
+Programmiersprachen:
+Assembler   
+Basic       
+C           
+C#          
+C++         
+Java        
+JavaScript  
+Lisp        
+Modula-2    
+Pascal      
+PHP         
+PL/SQL      
+PowerShell  
+Shell       
+Smalltalk   
+TeX, LaTeX  
+
+awk
+MKS-Toolkit
+C#
+
+Datenbanken:
+Access                
+DAO                   
+JDBC                  
+Microsoft SQL Server  
+MySQL                 
+ODBC                  
+Oracle                
+SQLite                
+
+ADO
+
+Datenkommunikation:
+Bluetooth           
+Internet, Intranet  
+Message Queuing    Erfahrung mit MQ Series
+Novell              
+PC-Anywhere         
+RS232               
+TCP/IP              
+USB                 
+USB CDC             
+USB PHDC            
+
+
+Produkte/Standards/Erfahrungen:
+Azure                    
+CDC                      
+Continua Test Tool       
+IEEE 11073-10417         
+IEEE 11073-10418         
+IEEE 11073-10419         
+IEEE 11073-10425         
+IEEE 11073-20601         
+JIRA                     
+PHDC                     
+Team Foundation Server   
+USB CV                   
+Visual Studio 2010       
+Visual Studio 2017       
+Visual Studio Installer  
+Produkte:
+=========
+GPIB
+Barcodescanner
+Mobile Datenerfassung
+Blutzuckermessgeräte
+Laborgeräte
+VMWare
+Oracle Designer
+Oracle Warehouse Builder
+Oracle Workflow Builder
+Team Foundation Server
+Ms Visual Studio
+XML Spy
+XMLWriter
+TOAD
+PL/SQL Developer
+
+
+Erfahrungen:
+============
+fachliche Leitung mehrerer Softwareentwicklungsprojekte
+Entwicklung von Codier- und Kennzeichnungssystemen
+Treiberprogrammierung für Laborgeräte und MDEs
+Betreuung von Forschungsprozessleitsystemen
+Durchführung von Workshops und Kundenschulungen
+Auslandserfahrung in Tarragona, Spanien
+Ausbildungsleiter eines Systemhauses
+Gruppen- und Fachbereichsleiter Software-Entwicklung in einem Systemhaus
+Lehrbeauftragter an FH, Vorlesung Architektur/Betriebssysteme
+
+Branchen:
+Erfahrungen in chemischer Industrie, Pharma, Automobilbranche und bei IT-
+Dienstleistern vorhanden
+
+Projekte:
+05/2019 - 05/2019: Qualifizierung Prüfplatz Batterietester
+ 
+Rolle:              Tester
+ 
+Aufgaben:
+ 
+Review Pflichtenheft, Datenbankdesign, Prüfablaufplan, Erstellung OQ-
+Testspezifikationen, Erstellung OQ-Tests, Testdurchführung, Erstellung
+Traceability Matrix
+ 
+Kenntnisse:
+ 
+C#
+ 
+Eingesetzte Produkte:
+ 
+Visual Studio 2017, Hytelog USB
+===============================================================================
+08/2016 - 03/2019: Erweiterung einer Software zur Kommunikation mit
+Blutzuckermessgeräten um ein Blutzuckermess- und Insulinpumpensteuerungsgerätes
+ 
+Rolle:              Softwareentwickler/technischer Projektleiter
+Kunde:              Roche
+Branche:            Pharma
+ 
+Aufgaben:
+ 
+Erstellung technische Spezifikation, Implementierung gemäß Spezifikation,
+Erstellung Testspezifikation, Unittests, Erstellung Dokumentation,technische
+Projektleitung
+ 
+Kenntnisse:
+ 
+C++, USB, CDC, PHDC, IEEE 11073-20601, IEEE 11073-10417, IEEE 11073-10419
+ 
+Eingesetzte Produkte:
+ 
+Visual Studio 2017, Team Foundation Server, Azure, Visual Studio Installer,
+SQLite, PowerShell
+===============================================================================
+09/2018 - 02/2019: USB-Integrations- und Robustheitstests für ein
+Blutzuckermess- und Insulinpumpensteuerungsgerät
+ 
+Rolle:              Tester
+Kunde:              Roche
+Branche:            Pharma
+ 
+Aufgaben:
+ 
+Überarbeitung Testspezifikationen, Definition neuer Integrationstests,
+Testdurchführung, Testdokumentation
+ 
+Kenntnisse:
+ 
+USB, PHDC, IEEE 11073-20601, IEEE 11073-10417, IEEE 11073-10419
+ 
+Eingesetzte Produkte:
+ 
+Visual Studio 2010, Continua Test Tool, USB CV, SQLite, JIRA, Frontline USB
+Analyzer
+===============================================================================
+ 
+abgeschlossene Projekte:
+07/2017-02/2018 Pharma
+Projekt: Portierung einer Software zur Kommunikation mit Blutzuckermessgeräten
+auf Visual Studio 2017 und WIndows 10
+Aufgabe: Portierung Erstellung Testspezifikation, Testdurchführung, Erstellung
+Dokumentation, fachliche Projektleitung
+Tools/ Sprachen: Visual Studio 2017, Team Foundation Server (TFS), Visual C++,
+USB, CDC, PHDC
+ 
+04/2016-08/2018 Pharma
+Projekt: Erweiterung einer Manager-Komponente in Firmware und einer PC-
+Applikation  zur Anbindung neuer Blutzuckermessgeräte, Insulinpumpen und
+Continous Glucose Monitoring
+Aufgabe: Erstellung technische Spezifikation, Implementierung gemäß
+Spezifikation, Erstellung Testspezifikation, Unittests, Erstellung
+Dokumentation, fachliche Projektleitung
+Tools/ Sprachen: IAR 6.50, embOS, Visual Studio 2010, Team Foundation Server
+(TFS), C, USB, PHDC, Continua, IEEE 11073-20601, IEEE 11073-10417, IEEE 11073-
+10419, IEEE 11073-10425, JIRA
+ 
+02/2016-04/2017 Pharma
+Projekt: Review und Pflege USB Spezifikationen für ein Blutzuckermessgerät mit
+Continous Glucose Monitoring (CGM)
+Aufgabe: Prüfung der USB-Kommunikationsspezifikationen für das Gerät und
+Erstellung zusätzlicher USB-Spezifikationen
+Tools/ Sprachen: USB, PHDC, Continua, IEEE 11073-20601, IEEE 11073-10417, IEEE
+11073-10425
+ 
+02/2016-05/2016 Pharma
+Projekt: USB Spezifikationen für Blutzuckermessgerät
+Aufgabe: Erstellung der USB Interface Spezifikationen für das
+Blutzuckermessgerät
+Tools/Sprachen: USB, PHDC, Continua, IEEE 11073-20601, IEEE 11073-10417, IEEE
+11073-10425
+ 
+06/2015-01/2016 Pharma
+Projekt: Review Softwarespezifikationen für Blutzuckermessgerät
+Aufgabe: Prüfung der technischen Spezifikationen, der Unittestspezifikationen
+und des Sourcecodes für das Gerät
+Tools/ Sprachen: SVN, IEEE 11073-20601, IEEE 11073-10417, IEEE 11073-10419
+ 
+05/2015-03/2016 Pharma
+Projekt: Erweiterung einer Manager-Komponente in Firmware und einer PC-
+Applikation  zur Anbindung neuer Blutzuckermessgeräte
+Aufgabe: Erstellung technische Spezifikation, Implementierung gemäß
+Spezifikation, Erstellung Testspezifikation, Unittests, Erstellung
+Dokumentation, fachliche Projektleitung
+Tools/ Sprachen: IAR 6.50, embOS, Visual Studio 2010, Team Foundation Server
+(TFS), C, USB, PHDC, Continua, IEEE 11073-20601, IEEE 11073-10417
+ 
+10/2014-02/2017 Pharma
+Projekt: Entwicklung eines Tools für den automatisierten Firmware-Update eines
+Blutzuckermess- und Insulinpumpensteuerungsgerätes
+Aufgabe: Erstellung technische Spezifikation, Implementierung gemäß
+Spezifikation, Erstellung Testspezifikation, Unittests, Erstellung
+Dokumentation, fachliche Projektleitung
+Tools/Sprachen: Visual Studio 2010, Team Foundation Server (TFS), C#, .NET
+Framework 4.0, WPF, MTP, USB, PHDC, Continua, IEEE 11073-20601, IEEE 11073-
+10419
+ 
+08/2014-03/2015 Pharma
+Projekt: Erweiterung einer Manager-Komponente in Firmware und einer PC-
+Applikation 
+Aufgabe: Erstellung technische Spezifikation, Implementierung gemäß
+Spezifikation, Erstellung Testspezifikation, Unittests, Erstellung
+Dokumentation, fachliche Projektleitung
+Tools/ Sprachen: IAR 6.50, embOS, Visual Studio 2010, Team Foundation Server
+(TFS), C, USB, PHDC, Continua, IEEE 11073-20601, IEEE 11073-10417
+ 
+06/2014-05/2015 Pharma
+Projekt: Erweiterung einer Software zur Kommunikation mit
+Blutzuckermessgeräten 
+Aufgabe: Erstellung technische Spezifikation, Implementierung gemäß
+Spezifikation, Erstellung Testspezifikation, Unittests, Erstellung
+Dokumentation, fachliche Projektleitung
+Tools/ Sprachen: Visual Studio 2010, Team Foundation Server (TFS), Visual C++,
+USB, CDC, PHDC, Continua, IEEE 11073-20601, IEEE 11073-10417
+ 
+09/2013-03/2015 Pharma
+Projekt: Entwicklung eines Testtools für ein Koagulationsmessgerätes
+Aufgabe: Erstellung technische Spezifikation, Implementierung gemäß
+Spezifikation, Erstellung Testspezifikation, Unittests, Erstellung
+Dokumentation, fachliche Projektleitung
+Tools/ Sprachen: Visual Studio 2010, Team Foundation Server (TFS), C#, .NET
+Framework 4.0, USB, PHDC, Bluetooth, Continua, IEEE 11073-20601, IEEE 11073-
+10418
+ 
+09/2013-05/2014 Pharma
+Projekt: Erweiterung einer Software zur Kommunikation mit
+Blutzuckermessgeräten 
+Aufgabe: Erstellung technische Spezifikation, Implementierung gemäß
+Spezifikation, Erstellung Testspezifikation, Unittests, Erstellung
+Dokumentation, fachliche Projektleitung
+Tools/ Sprachen: Visual Studio 2010, Team Foundation Server (TFS), Visual C++,
+USB, CDC, PHDC, Continua, IEEE 11073-20601, IEEE 11073-10417
+ 
+09/2013-10/2013 Pharma
+Projekt: Prüfsoftware für Blutzuckermessgerät, Mehrfachfunktionstester
+Aufgabe: Implementierung Prüfablauf, Erstellung und Durchführung Unittests
+Tools/ Sprachen: VC++, Visual Studio 2010, Team Foundation Server (TFS), Oracle
+10g R2, Oracle XMLDB, SQL, PL/SQL, TOAD, SQL Server, ADO, ODBC, Zebradrucker
+ 
+03/201305/2014   Medizintechnik
+Projekt: Prüfsoftware für Endprüfung eines Geräts zur Kommunikation mit
+Blutzuckermessgeräten, Mehrfachfunktionstester
+Aufgabe: Erstellung Pflichtenheft, Datenbankdesign, Prüfablaufplan,
+Implementierung gemäß Spezifikation, Erstellung Testspezifikation, Unittests,
+Erstellung Dokumentation, Inbetriebnahme
+Tools/ Sprachen: Visual Studio 2010, Team Foundation Server (TFS), C#, .NET
+Framework 4.5, USB, Bluetooth
+ 
+09/2012-08/2014 Pharma
+Projekt: Entwicklung einer Manager-Komponente zur Integration in Firmware und
+einer PC-Applikation 
+Aufgabe: Erstellung technische Spezifikation, Implementierung gemäß
+Spezifikation, Erstellung Testspezifikation, Unittests, Erstellung
+Dokumentation, fachliche Projektleitung
+Tools/ Sprachen: IAR 6.50, embOS, Visual Studio 2010, Team Foundation Server
+(TFS), C, USB, PHDC, Continua, IEEE 11073-20601, IEEE 11073-10417
+ 
+04/201210/2012   Pharma
+Projekt: Prüfsoftware für Blutzuckermessgerät, Mehrfachfunktionstester
+Aufgabe: Implementierung der Kommunikation und des Prüfablaufs gemäß
+Spezifikation, Erstellung Datenbankdesign und Prüfablaufplan, Erstellung und
+Druchführung Unittests
+Tools/ Sprachen: Visual Studio 2010, .NET Framework 2.0, C++, Team Foundation
+Server, Bluetooth
+ 
+01/201204/2013 Pharma
+Projekt: Erweiterung einer Software zur Kommunikation mit
+Blutzuckermessgeräten 
+Aufgabe: Erstellung technische Spezifikation, Implementierung gemäß
+Spezifikation, Erstellung Testspezifikation, Unittests, Erstellung
+Dokumentation, fachliche Projektleitung
+Tools/ Sprachen: Visual Studio 2010, Team Foundation Server (TFS), Visual C++,
+USB, CDC, PHDC, Continua, IEEE 11073-20601, IEEE 11073-10417
+  
+10/201102/2012   Pharma
+Projekt: Prüfsoftware für Blutzuckermessgerät, Einfachfunktionstester
+Aufgabe: Implementierung der Kommunikation und des Prüfablaufs gemäß
+Spezifikation, Erstellung Unittests
+Tools/ Sprachen: Visual Studio 2010, .NET Framework 2.0, C#, Team Foundation
+Server, Bluetooth
+ 
+02/2011-03/2011   Pharma
+Projekt: Produktionsmanagementsystem
+Aufgabe: Installation des Systems und Migration der Daten vom Alt- ins
+Neusystem
+Tools/ Sprachen: Oracle 10g R2, Oracle 9i R2, PL/SQL Developer
+ 
+02/2011           Pharma
+Projekt: Entwicklung eines Data Wizard zur Erstellung von Messdatenprofilen für
+ein Blutzuckermessgerät
+Aufgabe: Implementierung der Kommunikation
+Tools/ Sprachen: C#, Visual Studio 2010, .NET Framework 3.5, Team Foundation
+Server (TFS), WPF, USB
+ 
+09/201012/2010   Pharma
+Projekt: Entwicklung eines Tools zur Kommunikation via Bluetooth mit einem
+Blutzuckermessgerät
+Aufgabe: Implementierung der Kommunikation gemäß Spezifikation, Erstellung
+Unittests
+Tools/ Sprachen: Visual Studio 2010, .NET Framework 3.5, C#, Team Foundation
+Server, Bluetooth
+ 
+07/201011/2011   Pharma
+Projekt: Portierung und Erweiterung einer Software zur Kommunikation mit
+Blutzuckermessgeräten
+Aufgabe: Erstellung technische Spezifikation, Implementierung gemäß
+Spezifikation, Erstellung Testspezifikation, Unittests, Erstellung
+Dokumentation, fachliche Projektleitung
+Tools/ Sprachen: Visual Studio 2010, Team Foundation Server (TFS), Visual
+Studio 6.0, Visual C++, Visual Basic, V-Modell, USB, CDC, PHDC, Continua, IEEE
+20601, IEEE 11073
+ 
+05/2010           IT Dienstleister
+Projekt: Installation SAP BI Accelerator
+Aufgabe: Installation des Betriebssystems SUSE Linux Enterprise Server 10,
+Konfiguration für Remotezugriff und Unterstützung bei der BI Accelerator-
+Installation
+Tools/ Sprachen: SUSE Linux Enterprise Server 10 (SLES10), ssh, HP Proliant
+ 
+03/2010           Automobilzulieferer
+Projekt: Entwicklung eines Auswertetools für Prozessdaten aus einer SPS
+Aufgabe: Datenbankdesign, Implementierung der Stored Procedures für die
+Datenimportschnittstelle zur SPS, Implementierung der Datenbankabfragen,
+Generierung der Stammdaten und Testdaten
+Tools/ Sprachen: Visual Studio 2008, .NET Framework 3.5, C#, SQL Server 2005,
+Siemens S7
+ 
+06/200908/2013  Lebensmittelindustrie
+Projekt: Erstellung von Komponenten für ein Produktionssteuerungssystem (MES)
+Aufgabe: Implementierung bzw. Erweiterung und Test der Module für die
+Prozesskontrolle, das Messaging, die Administration und die Datenschnittstelle
+zum ERP-System gemäß Anforderungen, Review des Codes bestehender Module
+Tools/ Sprachen: Visual Studio 2005, .NET Framework 2.0, C#, SQL Server 2005,
+XML, XMLSpy, Webservices, Subversion, Informix
+ 
+
+04/2009-05/2009   Pharma
+Projekt:  Erweiterung einer Software zur Kommunikation mit
+Blutzuckermessgeräten
+Aufgabe:  Erstellung technische Spezifikation, Implementierung gemäß
+Spezifikation, Erstellung Testspezifikation, Unittests, Erstellung
+Dokumentation, fachliche Projektleitung
+Tools/ Sprachen: Visual Studio 6.0, Visual C++, Visual Basic, V-Modell
+
+03/2009           Pharma
+Projekt:  Erweiterung Prüfsystemsoftware für IPK (In-Prozess-Kontrolle)
+Aufgabe:  Erstellung Pflichtenheft, Datenbankdesign, Prüfablaufplan, Handbuch,
+Installationsanweisungen, Implementierung, Tests, Inbetriebnahme
+Tools/ Sprachen: Visual Studio 6.0, Visual C++, Oracle 10g, Oracle XMLDB, TOAD,
+V-Modell, WLAN, Zebradrucker, Cisco Access Point, Personal FTP Server Pro
+
+10/2008-01/2009    Pharma
+Projekt:  Entwicklung eines Tools zur Datensammlung für klinische Studien
+Aufgabe:  Implementierung der GUI, der graphische Auswertungen und der
+Kommunikation mit Messgeräten
+Tools/ Sprachen: Visual Studio 2008, .NET Framework 2.0, C#, Team Foundation
+Server, USB, XML
+
+03/2008-09/2008    Chemie
+Projekt:  Bereitstellung von Stammdaten für Datenbankapplikationen
+Aufgabe:  Datenmodellierung, Implementierung der Ladeprozesse,
+Performancetuning der Ladeprozesse
+Tools/ Sprachen: Oracle 10g R2, TOAD, PL/SQL, SAP XI
+
+08/2008            Medien
+Projekt:  Datentransfer zwischen Access-Datenbank und MySQL
+Aufgabe:  Erstellung der Schema-Skripte, Implementierung der
+Exportfunktionalität in Access, Implementierung der Importfunktionalität in
+MySQL
+Tools/ Sprachen: MySQL, VBA, MS Access, awk
+
+06/2008-07/2008    Pharma
+Projekt:  Implementierung einer Software zur Kommunikation mit
+Blutzuckermessgeräten
+Aufgabe:  Erstellung Systemspezifikation, Implementierung gemäß Spezifikation,
+Erstellung Testspezifikation, Unittests
+Tools/ Sprachen: Visual Studio 6.0, Visual C++,  V-Modell
+
+01/2008-02/2008    Chemie
+Projekt:  Migration einer Access-Datenbank nach Oracle 10g
+Aufgabe:  Datenmodellierung, Erstellung der Schema-Skripte, Datenmigration
+Tools/ Sprachen: Oracle 10g R2, TOAD, PL/SQL, VBA, MS Access
+
+09/2007-02/2008    Pharma
+Projekt:  Integration des Prototyps eines neuen Gerätes in eine Software zur
+Kommunikation mit Blutzuckermessgeräten
+Aufgabe:  Erstellung Systemspezifikation, Implementierung der Erweiterungen
+gemäß Spezifikation, Erstellung Testspezifikation, Unittests
+Tools/ Sprachen: Visual Studio 6.0, Visual C++, IrDA, TinyTP, Sockets, V-Modell
+
+08/2007-02/2008    Pharma
+Projekt:  Anpassung Prüfsystemsoftware für IPK (In-Prozess-Kontrolle) für ein
+neues Gerät
+Aufgabe:  fachliche Projektleitung, Erstellung Pflichtenheft, Datenbankdesign,
+Prüfablaufplan, Handbuch, Implementierung, Tests, Inbetriebnahme
+Tools/ Sprachen: Visual Studio 6.0, Visual C++, Oracle 9i R2, Oracle XMLDB,
+XPath, SQL, PL/SQL, TOAD, PL/SQL Developer, ADO, ODBC, XML Spy, XMLWriter, V-
+Modell, WLAN, Zebradrucker
+
+12/2006-01/2008  Automobilzulieferer
+Projekt:  Entwicklung von Komponenten für ein Prüfsoftwareframework
+Aufgabe:  Implementierung graphische Auswertungen, Mehrsprachigkeit,
+Kalibration, SPS-Ansteuerung, Prüfablauf, Dokumentation
+Tools/ Sprachen: Visual Studio 2005, .NET Framework 2.0, C#, Sandcastle
+
+05/2007-07/2007  Pharma
+Projekt:  Erweiterung einer Software zur Kommunikation mit
+Blutzuckermessgeräten für die Kommunikation über ein USB-IR-Dongle
+Aufgabe:  Erstellung Systemspezifikation, Implementierung der Erweiterungen
+gemäß Spezifikation, Erstellung Testspezifikation, Unittests
+Tools/ Sprachen: Visual Studio 6.0, Visual C++, USB, V-Modell
+
+06/2005-06/2007  IT-Dienstleister
+Projekt:  Oracle-Support
+Aufgabe:  Fehleranalyse und -behebung Oracle-Datenbanken, PL/SQL, Stored
+Procedures, Performancetuning, Administration, Installation und Konfiguration
+von Oracle-Komponenten
+Tools/ Sprachen: Oracle 9i R2, SQL, PL/SQL, TOAD, PL/SQL Developer, AIX, Oracle
+Application Server 10g R1, Forms/Reports Services, Oracle CMSDK (IFS), Oracle
+Internet Developer Suite 10g R1
+
+11/2006-02/2007    Pharma
+Projekt:  Integration eines neuen Gerätes in eine Software zur Kommunikation
+mit Blutzuckermessgeräten
+Aufgabe:  Erstellung Systemspezifikation, Implementierung der Erweiterungen
+gemäß Spezifikation, Erstellung Testspezifikation, Unittests
+Tools/ Sprachen: Visual Studio 6.0, Visual C++, IrDA, TinyTP, Sockets, V-Modell
+
+09/2006-10/2006    Pharma
+Projekt:  Anpassung Prüfsystemsoftware für IPK (In-Prozess-Kontrolle) für ein
+neues Gerät
+Aufgabe:  Erstellung Pflichtenheft, Implementierung der Änderungen gemäß
+Pflichtenheft, Anpassung Datenbankdesign, Prüfablaufplan und Handbuch,
+Inbetriebnahme, Validierungsunterstützung
+Tools/ Sprachen: Visual Studio 6.0, Visual C++, Oracle 9i R2, Oracle XMLDB,
+XPath, SQL, PL/SQL, TOAD, PL/SQL Developer, ADO, ODBC, XML Spy, XMLWriter, V-
+Modell
+
+07/2006-08/2006    Pharma
+Projekt:  Integration eines neuen Gerätes in eine Software zur Kommunikation
+mit Blutzuckermessgeräten
+Aufgabe:  Erstellung Systemspezifikation, Implementierung der Erweiterungen
+gemäß Spezifikation, Erstellung Testspezifikation, Unittests
+Tools/ Sprachen: Visual Studio 6.0, Visual C++, V-Modell, IR
+
+02/2006-04/2006    Pharma
+Projekt:  Kommunikationssimulation für Blutzuckermessgeräte
+Aufgabe:  Erstellung Lastenheft und Softwarespezifikation, Implementierung,
+Modultests, Dokumentation
+Tools/ Sprachen: Visual Studio 6.0, Visual C++, DLL, IR
+
+10/2005-12/2005    Pharma
+Projekt:  Umstellung Prüfsystemsoftware für IPK (In-Prozess-Kontrolle) auf eine
+nach Oracle 9i migrierte Datenbank
+Aufgabe:  Änderung der Prüfsystemsoftware bzgl. Datenbankzugriff auf Oracle und
+Erzeugung von XML-Daten, Erstellung Testspezifikation für Modultests,
+Modultests
+Tools/ Sprachen: Visual Studio 6.0, Visual C++, Oracle 9i R2, Oracle XMLDB,
+XPath, SQL, PL/SQL, TOAD, PL/SQL Developer, ADO, ODBC, XML Spy, XMLWriter, V-
+Modell
+
+08/2005-10/2005    Pharma
+Projekt:  Integration neuer Geräte in eine Software zur Kommunikation mit
+Blutzuckermessgeräten
+Aufgabe:  Erstellung Systemspezifikation, Implementierung der Erweiterungen
+gemäß Spezifikation, Erstellung Testspezifikation, Unittests
+Tools/ Sprachen: Visual Studio 6.0, Visual C++, V-Modell, Rational Requisite
+Pro, IR
+
+04/2005-07/2005    Pharma
+Projekt:  Umstellung Prüfsystemsoftware für IPK (In-Prozess-Kontrolle) auf eine
+nach Oracle 9i migrierte Datenbank
+Aufgabe:  Erstellung von Spezifikationen, Entwicklung von DLL-Komponenten für
+Datenbankzugriff und Verarbeitung von XML-Daten, Änderung der
+Prüfsystemsoftware, Testdurchführung, Testdokumentation
+Tools/ Sprachen: Visual Studio 6.0, Visual C++, Oracle 9i R2, Oracle XMLDB,
+XPath, SQL, PL/SQL, TOAD, PL/SQL Developer, ADO, ODBC, XML Spy, XMLWriter, V-
+Modell
+
+01/2005-03/2005    Pharma
+Projekt:  Validierung einer nach Oracle 9i migrierten Datenbank
+Aufgabe:  Review der Spezifikation, Codereview, Erstellung von
+Testspezifikationen und Testskripten, Testdurchführung, Testdokumentation,
+Erstellung von Installationsplänen
+Tools/ Sprachen: Oracle 9i R2, SQL, PL/SQL, TOAD, PL/SQL Developer, Rational
+Requisite Pro, Windream, V-Modell
+
+12/2004-01/2005    Energie
+Projekt:  Datenmigration von Oracle 8i nach 9i in neues Datenmodell
+Aufgabe:  Implementierung von Transformationsprozessen für Datenmigration von
+altem auf neues Datenmodell einer Applikation, Migrationstests, Fehleranalyse
+und -korrektur
+Tools/ Sprachen: Oracle Warehouse Builder 10g,TOAD, SQL, PL/SQL, Oracle 8i,
+Oracle 9i
+
+11/2004-01/2005  IT-Dienstleister
+Projekt:         Erstellung eines Moduls für ein Marketinganalysetool
+Aufgabe:         Projektleitung, Datenmodellentwurf, Softwareentwicklung
+Tools/Sprachen:  PHP, mySQL, Apache, Linux, HTML, CSS
+
+10/2004          Automatisierungstechnik
+Projekt:  Entwicklung eines Wrappers für ein ActiveX Control zur Markierung als
+sicher für Scripting
+Aufgabe:  Analyse des Fehlverhaltens des Wrappers gegenüber dem originalen
+Active X Controls, Korrektur der Fehler, Test
+Tools/ Sprachen: Visual Basic 6.0, Active X, Java Script, HTML, Date Time
+Picker
+
+10/2004          chemische Industrie
+Projekt:  Migration Oracle Datenbank von 8i nach 9i
+Aufgabe:  Installation und Konfiguration Oracle 9i Release 2, Datenübernahme,
+Performancetuning
+Tools/ Sprachen: Oracle 9i Release 2, Oracle 8.1.7, Windows 2000 Server
+
+08/2004           Transportwesen
+Projekt:  Entwicklung eines Systems zur Lieferungsdatenprüfung
+Aufgabe:  Entwicklung Gerätetreiber zum Laden von Kommisionsdaten aus MDE in
+Access-Datenbank, Entwicklung Auswertesoftware zur Prüfung der Lieferungsdaten
+auf Korrektheit
+Tools/ Sprachen: Visual C, MS Access, Visual Basic, ADO
+
+07/2004           Automatisierungstechnik
+Projekt:  Portierung einer bestehenden Webapplikation auf Oracle Application
+Server 10g
+Aufgabe:  Installation und Konfiguration Oracle Application Server 10g Forms
+und Reports Services
+Tools/ Sprachen: Oracle Application Server 10g, Forms und Reports Services,
+SuSE Linux Enterprise Server 8, Shellscript
+
+05/2002-05/2004  IT-Dienstleister
+Projekt:  Aufbau und Administration eines Oracle basierenden Data Warehouse
+Aufgabe:  Datenmodellentwurf, Implementierung der Tabellen, Views, Lade- und
+Transformationsprozesse (ETL), Konsistenzprüfungen und von Zeitreihen,
+Sicherstellung des Betriebs, Migrationsunterstützung von SAP nach Navision
+Tools/ Sprachen: Oracle Warehouse Builder, Oracle Workflow Builder, Oracle
+Designer, SQL*Loader, TOAD, PL/SQL Developer, SQL, PL/SQL, Oracle 8i
+
+01/2004          IT-Dienstleister
+Projekt:  Migration Data Warehouse von externem Provider zurück Inhouse
+Aufgabe:  Installation und Konfiguration Oracle 9i AS, insbesondere der Module
+Forms, Workflow und Discoverer, Datenmigration, Inbetriebnahme der Test- und
+Produktionsdatenbanken
+Tools/ Sprachen: Oracle 9i AS, Oracle Discoverer, Oracle Forms, Oracle
+Workflow, Oracle Name Server, Oracle Enterprise Manager, Windows NT Server,
+Oracle 8i
+
+10/1998-12/2003   chemische Industrie
+Projekt:   Betreuung eines Forschungsprozessleitsystems unter Unix/Linux
+Aufgabe:   Administration der Unix-basierten Systeme, Anwendersupport,
+Inbetriebnahme neuer und Erweiterung bestehender Systeme, Ablaufautomatisierung
+durch Anweisungsfolgenprogrammierung, Installation und Updates der Software,
+Problembehebung bezüglich angeschlossener Laborgeräte, Erstellung und Pflege
+eines Disk-Image zum Aufsetzen der Systeme, Administration Windows NT und
+Windows 2000 unter VMWare zur Nutzung des Leitrechners als Büro-PC,
+Installation und Administration von Fernvisualisierungskomponenten,
+Gerätetreiberentwicklung
+Tools/ Sprachen:  SuSE Linux, SCO Open Server, Laborgeräte, Profibus, serielle
+Mehrfachschnittstellenkarten, RS 232, Norton Ghost, VMWare, Windows NT und
+2000, Apache, Tarantella, Reflection X, C, SCCS, Shellskriptprogrammierung, awk
+
+12/2003           Automobilindustrie
+Projekt:  Einführung der Zollabwicklungsapplikation MIC-NCTS
+Aufgabe:  Aufbau eines Testsystems, Installation und Konfiguration Oracle 9i
+AS, insbesondere des Forms und Reports Server, Integration des Application
+Servers in den Clusterbetrieb für Hochverfügbarkeit, Unterstützung bei der
+Installation der Applikation, Dokumentation
+Tools/ Sprachen: Oracle 9i AS, Oracle Forms Designer, Oracle Forms Generator,
+HP-UX
+
+10/2003-12/2003    chemische Industrie
+Projekt:  Erstellung einer Software zur Anforderung von Produktetiketten und
+SSCC-Nummern für Palettenetiketten vom Etikettendruckverwaltungssystem und zur
+Produktkennzeichnung und -codierung in einer Farbstoffabfüllanlage
+Aufgabe:  Erstellung der Eingabemasken, Anforderung der Produktetiketten über
+eine Fileschnittstelle mit FTP, Anforderung der SSCC-Nummern über eine XML
+Schnittstelle mit MQ Series als Transportsystem, Datenhaltung in MS Access,
+Datenmodellentwurf , Aufbau Testsystem, MQ Series Client Installation und
+Konfiguration, Dokumentation
+Tools/ Sprachen: MS Visual Basic, MS Visual Studio 6.0, MS Access, ADO,
+Personal FTP Server, XML Spy, MQ Series, RS232, Zebradrucker
+
+05/2003           chemische Industrie
+Projekt:  Portierung Kalorimetrieauswertesoftware von VB5 nach VB6 und Windows
+NT nach Windows 2000
+Aufgabe:  Anpassung des Quellcodes, Softwaretest, Tests und Korrekturen zur
+Verträglichkeit mit Standard PC
+Tools/ Sprachen: MS Visual Basic, MS Visual Studio 5 und 6, DAO, MS Access,
+Olectra Chart
+
+11/2002-03/2003  chemische Industrie
+Projekt:  Serverkonsolidierung bei Werkstechnik
+Aufgabe:  Konzeption der Migrationswege und der Clientanpassungen, Migration
+der Datenbankapplikationen der Altserver ins Data Center, Importkontrolle, Test
+der Applikationen in Migrationsphase, Problembehebungen nach Migration
+Tools/ Sprachen: ODBC, Oracle Export, Oracle Import, Oracle 8i, MS Access,
+UNIFACE, HP-UX, Unix
+
+01/2003-02/2003    Medienbranche
+Projekt:  Erstellung eines Anzeigensystems zur Verwaltung von Stehsätzen und
+Logos
+Aufgabe:  Projektleitung, Datenmodellentwurf, Applikationstuning
+Tools/ Sprachen: Oracle Designer, JBuilder, Apache und Tomcat, JSP, Solaris
+
+12/2002           IT-Dienstleister
+Projekt:  Datenmigration aus Altsystem nach SAP R/3
+Aufgabe:  Implementierung der Tabellen und PL/SQL Prozeduren zur
+Datentransformation
+Tools/ Sprachen: PL/SQL, SQL*Loader, SQL*Plus, TOAD, PL/SQL Developer
+
+08/2002-09/2002  chemische Industrie
+Projekt:  Erweiterung einer Pflanzenschutzmittelabfüllanlage um die
+Gebindecodierung
+Aufgabe:  Installation und Konfiguration eines neuen Steuerungs-PCs,
+Erweiterung der bestehenden Steuerungssoftware um die Gebindecodierung bei
+einer der drei vorhandenen Abfülllinien, Inbetriebnahme des neuen Rechners und
+der erweiterten Software vor Ort in Tarragona, Dokumentation
+Tools/ Sprachen: MS Visual Basic, MS Visual Studio 6.0, Beckhoff TwinCat PLC
+Control und System Manager, MS Access, ADO, ODBC, Shadow Direct für Hostzugriff
+
+06/2002-07/2002  chemische Industrie
+Projekt:  Entwicklung eines Kennzeichnungssystems (RFID) für
+Pflanzenschutzmittel
+Aufgabe:  Mitentwicklung der Kennzeichnungssoftware, Ansteuerung einer
+Signalampel über Profibus, Ansteuerung einer Antenne zum Lesen und Schreiben
+der Transponderdaten, Implementierung einer Fileschnittstelle zur
+Datenübertragung an nachgelagertes Datenbanksystem
+Tools/ Sprachen: MS Visual Basic, MS Visual Studio 6.0, Beckhoff TwinCat System
+Manager, RS232
+
+03/2002-06/2002    chemische Industrie
+Projekt:  Entwicklung eines Codiersystems für eine Kunststoffabfüllung
+Aufgabe:  Mitentwicklung der Steuerungssoftware, Anbindung einer Datenbank für
+die Etikettendaten, Datenaustausch mit Siemens SPS S5 mit späterer Umstellung
+auf S7, Inbetriebnahme und Wartung des Systems
+Tools/ Sprachen: MS Visual Basic, MS Visual Studio 6.0, Siemens S5/S7, MS
+Access, ADO, ODBC, Oracle, Zebradrucker, Videojet-Drucker, RS232
+
+12/1996-03/2001  chemische Industrie
+Projekt:  Administration mehrerer hochverfügbarer Datenbankserver
+Aufgabe:  Unix- und Datenbankadministration, Installation, Konfiguration, 
+Reorganisationen, Datenmigrationen
+Tools/ Sprachen: HP-UX, MC Service Guard, Oracle 6 - 8i, Sun Solaris,
+Shellskriptprogrammierung, awk
+
+06/1999-12/2000    chemische Industrie
+Projekt:  Support bei einem Helpdesk für Oracle Produkte
+Aufgabe:  First und Second Level Support im Bereich Oracle Datenbanken
+Tools/ Sprachen: Oracle 7 und 8
+
+Referenzen:
+Projekt Migration von Daten aus einem Altsystem (Oracle), 12/04 - 01/05
+Referenz durch Projektleiter in IT-Abteilung eines Großunternehmens vom
+30.03.05
+"Bemerkenswert, wie er bei einem Notfall nach nur einer Stunde
+Einarbeitungszeit einsprang und mit seiner Sachkenntnis überzeugte."
+Alle Referenzen sind durch GULP bestätigt.
+
+Sonstige Anmerkungen:
+Mitglied bei der DOAG
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_61601
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 13.03.2021 01:33:34
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

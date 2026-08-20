@@ -1,0 +1,377 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_5830
+
+
+Stammdaten (Auszug):
+
+Personen-ID                5830
+  
+Wohnort                    356xx Hüttenberg, Deutschland
+Jahrgang                   1958
+Staatsbürgerschaft         Deutsch
+Stundensatz                100 EUR
+                           je nach Dauer und Einsatzort
+Verfügbar ab               01.09.19 zu 100%, Vor-Ort-Einsatz 80% möglich
+Profil erstellt am         31.01.99
+Profil zuletzt geändert am 01.09.20
+Lesen von Projektanfragen  3,5 Tage [03]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 28.10.2020 08:40:41
+
+Fachlicher Schwerpunkt:
+ASPICE; ISO26262; Requirements Engineering; Systems Engineering, System- und
+Software-​Architektur; Automotive
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Engineering / IT-nahe Ingenieurdienstleistungen
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Diplom-Informatiker
+
+Einsatzort:
+Regionen:
+D3, D5, D6
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: bevorzugt Grossraum Frankfurt
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+
+
+Hardware:
+Bus                  
+embedded Systeme     
+Industrie-Roboter   SIPLACE
+PC                   
+Proprietäre HW      
+Siemens GroßrechnerBS2000
+Siemens MX           
+SNI RM-Rechner       
+SUN                  
+
+
+Betriebssysteme:
+SUN OS, Solaris  
+Unix             
+VxWorks          
+Windows          
+Windows CE       
+
+
+Programmiersprachen:
+Ada                                 
+ASN.1                               
+C                                  seit 1987
+C++                                seit 1991
+Chill                               
+CORBA IDL                          seit 1993
+Imake, GNU-Make, Make-Maker etc...  
+Java                               seit 1996
+JavaScript                         seit 1996
+Modula-2                            
+Pascal                              
+Perl                               seit 2002
+Python                              
+Scriptsprachen                      
+Shell                               
+yacc/lex                            
+
+
+Datenbanken:
+Access            
+BDE               
+JDBC              
+MS SQL Server     
+Object Store      
+ODBC              
+Oracle            
+SQL               
+versant, artbase  
+
+
+Datenkommunikation:
+ATM                 
+CORBA              seit 1993
+Internet, Intranet  
+RPC                 
+SNMP               Grundkenntnisse
+Windows Netzwerk    
+Winsock             
+
+Sockets (in Java und C++)
+Java RMI
+ACE
+
+Produkte/Standards/Erfahrungen:
+ACE/TAO
+Access
+BEA WebLogic
+ClearCase
+CM Synergy
+CORBA
+DOORS
+Eclipse
+Diverse Java Profiler
+JBuilder/Together
+J2EE
+NetBeans
+Orbix C++
+OrbixWeb
+Persistence Powertier
+Rational Rose
+Rhapsody in C++
+SparcWorks
+SWIG
+Together
+Understand for C++
+Understand for Java
+UML
+Visibroker
+V-Modell
+Visual Studio
+
+
+Branchen:
+Automotive
+Militärische Anwendungen/Sicherungstechnik
+
+Projekte:
+03/10 - 12/12: "Automotive"
+
+Projekt: MIB Entry Skoda
+
+Rolle im Projekt:
++ Second Level Architect HMI
++ Chief Developer HMI
++ HMI Front Desk
++ Brand Responsible Skoda
++ Requirements Engineering mit Skoda
++ Qualitätsüberwachung von Design und Implementierung (Code Reviews)
++ Aussteuern von Offshore Aktivitäten (Polen, Rumänien)
+ 
+Tools: DOORS, Rhapsody in C++
+ 
+ 
+07/09 - 02/10: "Automotive
+
+Projekt: BMW L7 Entry
+
+Rolle im Projekt:
++ Performance Engineer
+
+ 
+07/08 - 06/09: "Automotive"
+
+Projekt: Chrysler Telematics Project (Infotainment Unit)
+
+Rolle im Projekt:
++ First Level Architect HMI and Speech
++ Requirements Engineering mit Chrysler
++ Erstellung der HMI Architektur
++ Qualitätsüberwachung von Design und Implementierung (Code Reviews)
++ Qualitätsüberwachung der Performance des Gesamtsystems
++ Aussteuern von Offshore Aktivitäten (Polen, Rumänien)
++ Schwachstellenanalyse &amp; Troubleshooting
++ "Projektfeuerwehr"
+
+Tools: DOORS, Rhapsody in C++
+
+
+10/03 - 06/08: "Telekommunikation"
+
+Projekt: Operation &amp; Maintenance Toolset (GSM &amp; UMTS)
+
+Rolle im Projekt:
++ Mitglied der Central Design Authority (Architekturgruppe)
++ Qualitätsüberwachung von Architektur, Design und Implementierung
++ Qualitätsüberwachung der Performance des Gesamtsystems
++ Feature Responsible "NodeB Rehoming"
++ Feature Responsible "NodeB Support"
++ Feature Responsible "Performance Optimization"
++ System-Performance Tuning
++ Aussteuern von Offshore Aktivitäten (Polen)
++ Entwurf und Realisierung einer Performance-Testumgebung
++ Schwachstellenanalyse &amp; Troubleshooting
++ Profiling von Java Applikationen
++ Realisierung von Prototypen in Java
++ Machbarkeitsanalysen
++ Aufwandsschätzungen
++ J2EE Migrationsanalyse
++ EJB Coaching der festangestellten Mitarbeiter
++ "Projektfeuerwehr"
+
+Tools: CORBA (TAO), C++, J2EE, Oracle, proprietäres Scripting, Java Profiling,
+NetBeans, Eclipse, JBuilder, ClearCase
+
+
+03/03 - 09/03: "Telekommunikation"
+
+Projekt: Trunk Line Maintenance (TLM) für Next Generation SGSN
+
+Rolle im Projekt:
++ Mitglied der Central Design Authority (Architekturgruppe)
++ OOA/OOD der TLM Software (Rhapsody)
++ Entwurf des ATM Information Model mit UML (Rational Rose)
++ Entwurf des ATM Datenbankschemas (Solid)
++ Coaching des Projektteams in OO Technologien
+
+Tools: C++, Rhapsody, Rational Rose, Solid
+
+
+04/02 - 02/03: "Telekommunikation"
+
+Projekt: Configuration &amp; State Management (GSM)
+
+Rolle im Projekt:
++ Realisierung der O&amp;M Funktionen für Switched Beams
++ Entwurf und Realisierung einer Offline-Regressionstestumgebung
+
+Tools: C, C++, Perl, SWIG
+
+
+09/00 - 04/02: "Telekommunikation"
+
+Projekt: Operation &amp; Maintenance Software für die UMTS Basisstation NodeB
+
+Rolle im Projekt:
++ Mitglied der Central Design Authority (Architekturgruppe)
++ Entwurf des Datenhaltungskonzepts (XML)
++ Entwurf eines Konzepts zur Realisierung von Produktfamilien (XML)
++ Einführung von XML im Projekt
++ Realisierung einer State Management Komponente
++ Entwicklung eines DOM-Parsers (Java, Xerces)
++ Machbarkeitsanalysen
++ Aufwandsschätzungen
+
+Tools: XML, TAO, Java, Xerces, C++, ClearCase, SNiFF+, JBuilder, Eclipse
+
+
+10/98 - 06/00: "Automatisierungstechnik"
+                                    
+Projekt: Entwurf einer CORBA-basierten Systemarchitektur und
+Verteilungsstrategie
+eines SMD-Bestückautomaten.
+
+Rolle im Projekt:
++ Chefarchitekt Systemsoftware
++ Requirements- und Domainanalyse
++ OOA/OOD des Gesamtsystems
++ Entwurf des Datenhaltungskonzepts
++ Entwurf des Bestückplanobjektmodells (Rational Rose)
++ Implementierung einer 3-Tier Architektur unter Anbindung von OODBMS
+(ObjectStore).
+
+Tools: Visual C++, pvcs, Orbix NT, Orbix RT QNX, Rational Rose, Together, TAO
+
+Teamgröße (Software): 12
+
+
+01/98 - 09/98: "Sicherungstechnik"
+                                    
+Projekt: Entwurf und Realisierung eines Prototypen im Projekt MEADS - Medium
+Extendable Air Defense System.
+
+Rolle im Projekt:
++ Domainanalyse
++ OOA/OOD
++ Entwurf Datenhaltungskonzept
++ Migrationsstrategie für Weiterverwendung von Legacy Daten aus RDBMS (Oracle)
++ Evaluierung und Einsatz von Persistence (Mapping OO-RDBMS)
++ Entwurf und Implementierung und Integration eines CORBA-basierten Change
+Notification Konzepts.
++ Einbindung in prototypische GUI unter X-Windows.
++ OO Coach
++ CORBA Coach
++ OrbixWeb Coach
+
+Tools: Solaris 2; SPARC C++; Java; Oracle; Orbix; OrbixWeb; Persistence;
+Rational Rose
+
+Teamgroesse: 9
+
+
+03/98 - 05/98: "Banken"
+
+Projekt: ZVS-Server
+
+Rolle im Projekt:
++ Architektur-Review mit Schwerpunkt auf Middleware
+
+
+01/97 - 09/97: "Sicherungstechnik"
+                                    
+Projekt: Entwurf und Implementierung eines Bedien- und  Beobacht-Tools für
+CORBA-Services in C++ und Java.
+Evaluierung der Verwendbarkeit von Java als Ersatz fuer plattformabhaengige
+GUIs.
+
+Tools: Visual C++, Orbix, OrbixWeb, Java Foundation Classes.
+
+Teamgroesse: 3
+Rolle: OO Coach; CORBA Coach; Java Coach
+
+
+01/96 - 12/96: "Sicherungstechnik"
+
+Projekt: HEROS
+
+Rolle im Projekt:                                     
++ Unterstützung in der Angebotsphase eines militärischen MIS.
++ Architektur-Reviews.
++ Coaching zu OOA/OOD und Architektur verteilter Systeme.
++ Re-Design der Kommunikation (CORBA).
++ Evaluierung der Verwendbarkeit von Orbix 2.1 als Ersatz für proprietaere
+Kommunikationsloesung.
++ OO Coach
++ CORBA Coach
++ Architekturspezialist
+
+Teamgröße (Software): 8
+
+
+Sonstige Anmerkungen:
+Sonstige Tätigkeiten:
+
+Honorary Member des ComponentWare Consortiums; 1996 - 1998
+Co-Editor des Component Corner im Object Magazine; 1996 - 1997
+Mitgründer der Component Users Conference; 1996 - 1999
+Technical Chair der Component Developers and Users Conference; 1999, 2000, 2001
+Technologischer Berater SIGS Conferences; 1999 - 2002
+Gründungsmitglied der Jariva e.G.
+Aufsichtsratsmitglied der Jariva e.G.; 2006 - heute
+
+
+Vorträge:
+
+Software Technology Forum 2001, Mainz: "EJB, CORBA, .NET - Verteilte
+Architekturen im Vergleich"
+- auf Einladung des Conference Chair Richard Hubert -
+
+TOOLS (13) 1994, Versailles: "Distributed Programming in C++, from Sockets to
+CORBA."
+- auf Einladung des Conference Chair Bertrand Meyer -
+
+
+Schulungen:
+
+BEA WebLogic Development Fundamentals/J2EE (Februar 2001)
+BEA WebLogic Development EJB and JMS (April 2001)
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_5830
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 02.09.2020 00:40:23
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

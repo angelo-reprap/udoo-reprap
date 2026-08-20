@@ -1,0 +1,358 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_100723
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                100723
+  
+Wohnort                    061xx Halle, Deutschland
+Jahrgang                   1974
+Staatsbürgerschaft         Deutsch
+Stundensatz                100 EUR
+Verfügbar ab               28.02.20 zu 80%, Vor-Ort-Einsatz 20% möglich
+Profil erstellt am         02.08.09
+Profil zuletzt geändert am 08.10.20
+Lesen von Projektanfragen  1 Tag [08]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 23.10.2020 14:22:27
+
+Fachlicher Schwerpunkt:
+Netzwerk Consultant Architekt
+
+Position:
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Engineering / IT-nahe Ingenieurdienstleistungen
+
+SP Netze Beratung / Consulting / Engineering / Architektur
+Netzwerk Automatisierung
+Architektur, Design, Testing und Automatisierung von Service Provider
+Netzwerken
+Cisco ASR
+Juniper MX
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+04/2012                                         
+Heinz Ulm CCIE Bootcamp
+ 
+08/1996  01/2000                             
+ADA Das Systemhaus GmbH, Münster
+Ausbildung zum Kommunikationselektroniker, Fachrichtung Informationstechnik
+ 
+Zertifizierung                                     
+    * CCIE# 41476 R&amp;S
+    * CCIE# 41476 SP
+    * CCNA, CCDA, CCNP
+    * Cisco Meraki Select Partner
+    * Juniper JNCIA-Junos
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch  Muttersprache
+Englisch fließend
+Russisch Grundkenntnisse
+
+
+Produkte/Standards/Erfahrungen:
+Ansible              
+IOS-XR               
+Junos                
+SR                   
+Traffic-engineering  
+Netzwerktopologien                           
+    * Lan: Ethernet, WLAN, VLAN
+    * Wan: MPLS, MPLS-VPN (L3) ISDN, Frame Relay, ATM, Leased Lines, E1, xDSL,
+      Serial Lines
+ 
+Protokolle                                         
+    * TCP/IP(v4/v6), STP, IGP's(IS-IS,OSPF, EIGRP, RIP) mBGP, MPLS, QoS, HSRP,
+      VRRP, GLBP, IPSec, LFA, Segment Routing
+                                                        
+Serverbetrieb                                    
+    * DHCP, DNS, FreeRadius, Ansible
+ 
+Programmiersprachen                        
+    * Python (Grundkenntnisse)
+    * Jinja2
+ 
+Erfahrungen                                      
+    * Routing/Switching, Loadbalancing, Firewall Troubleshooting in Lan und Wan
+    * Planung/ Design und Implementierung von neuen Netzwerken und Netz-
+      Migrationen, MPLS
+    * Projektmanagement von nationalen und internationalen Carrier Projekten
+ 
+Hersteller                                          
+    * Sehr gute Kenntnisse in Cisco Komponenten
+    * Grundkenntnisse in Juniper und Crossbeam Komponenten
+ 
+Betriebssyteme                                 
+    * Sehr gute Kenntnisse in Linux, Windows, Mac OS X
+    * Grundkenntnisse: Solaris
+ 
+Technologie Erfahrung
+ 
+MPLS Infrastruktur                             
+    * Design, Planung und Implementation von MPLS Backbone und mBGP Layer3 VPN
+Loadbalancing                                  
+    * Planung und Implementation von Cisco ACE Modulen
+ 
+Wireless LAN                                    
+    * Planung und Implementation von Controller-basierender WLAN Infrastruktur,
+    * Durchführung von SiteSurvey
+    * Konfiguration von Controller und FreeRadius
+    * Anbindung an globale Eduroam Radius-Hierarchie
+ 
+Datacenter                                        
+    * Planung und Implementation von Datacenter Netzwerken auf Basis Cisco
+      4900, 6500 Routern und Switchen, sowie Crossbeam Firewalls
+ 
+VoIP                                                 
+    * Anbindung Cisco Voice GW an Microsoft OCS 
+ 
+Cisco Meraki                                     
+    * MSP Cisco Select Partner
+    * Erfahrung und Betrieb von eigenen Kundennetzen mit Meraki
+
+Branchen:
+Telekommunikationsprovider
+Serviceprovider
+große Hochschulen
+Systemhaus
+Mittelstand Industrie
+
+Projekte:
+05/2020 - heute: Segment Routing Implementation
+ 
+Einsatzort:         Remote
+Rolle:              Network architect
+Kunde:              Telefonica Deutschland
+ 
+Aufgaben:
+ 
+- Design SR IP-Backbone
+- Interworking SR Cisoc und Juniper
+-Testing und Implementation SR
+- Migration Konzept MPLS/LDP --> SR
+ 
+Kenntnisse:
+ 
+SR, Traffic-engineering
+ 
+Eingesetzte Produkte:
+ 
+IOS-XR, Junos, Ansible
+===============================================================================
+06/2016 - 09/2020: Gründung und Aufbau einer Firma
+ 
+Kunde:              Cisco Select Partner für Meraki Netzwerke
+ 
+Aufgaben:
+ 
+Design und Implementation von Meraki Netzen
+===============================================================================
+04/2017 - 07/2017: Entwicklung Business Solutions
+ 
+Kunde:              Telefonica Deutschland
+ 
+Aufgaben:
+ 
+Development, Design und Test von Business Solutions
+ 
+Kenntnisse:
+ 
+Cisco IWAN, IXIA Traffic Generator
+===============================================================================
+08/2013 - 02/2017: IP-Engineering, Planung und Design; TA Projekt
+ 
+Kunde:              Telefonica Deutschland
+ 
+Aufgaben:
+ 
+    * Erstellung LLD, HLD, Migrationskonzept
+    * Config Templates
+    * Konzepte erstellen und validieren
+    * DVT ausarbeiten und durchführen
+ 
+Kenntnisse:
+ 
+Cisco 7200, 7600, ASR 9K, Juniper MX, T-1600, BGP, IS-IS, MPLS
+===============================================================================
+12/2012 - 07/2013: Design &amp; Implementation DCN-Reference network
+ 
+Kunde:              Telekom FMED-42
+ 
+Aufgaben:
+ 
+Implementation of projects into the DCN Ref network
+ 
+Kenntnisse:
+ 
+Cisco Router, Switche, MPLS, BGP Checkpoint
+===============================================================================
+01/2012 - 11/2012: diverse Projekte
+ 
+Kunde:              T-Mobile
+ 
+Aufgaben:
+ 
+    * T-Mobile IP-Design, PPL
+    * RDM Projekt
+    * RCSe Projekt
+    * Testintegration, Live Integration
+    * I&amp;V Integration &amp; Validation
+    * Implementation von CR's im Produktionsnetz
+    * Troubleshooting
+===============================================================================
+01/2011 - 12/2011: „Travel &amp; Surf“ Produkt
+ 
+Rolle:              Planing-Project-Lead
+Kunde:              T-Mobile IP-Design &amp; Projektmanagement
+ 
+Aufgaben:
+ 
+T-Mobile Planung &amp; Integration 3 Natcos in Europa
+===============================================================================
+10/2010 - 12/2010: Netzwerk Design, IP-Design Datacenter
+ 
+Kunde:              T-Mobile (IP-Design)
+===============================================================================
+07/2010 - 09/2010: IP-Design &amp; Datacenter Operation
+ 
+Kunde:              Comparex  Schweiz
+ 
+Aufgaben:
+ 
+Unterstützung bei Design, Betrieb und Optimierung Datacenter und VPN
+Verbindungen
+===============================================================================
+04/2010 - 06/2010: IP-Design
+ 
+Rolle:              Network engineer
+Kunde:              Universität Kassel
+ 
+Kenntnisse:
+ 
+Layer 2 Design, MSTP Design, Absicherung Edge Ports, 802.1x Einfuehrung, SSL-
+VPN, IPSec VPN, Routing, mit Cisco 4500, Cisco 6500, FWSM, Cisco ASA,
+Freeradius
+===============================================================================
+03/2010 - 03/2010: Network Design Training
+ 
+Rolle:              Trainer
+Kunde:              Energierversorger
+===============================================================================
+06/2009 - 12/2009: weltweite MPLS Projekte
+ 
+Rolle:              Project Manager &amp; Network Engineer
+Kunde:              NTT Europe Ltd
+ 
+Aufgaben:
+ 
+    * Projektleitung,-planung
+    * Netzwerk Design und System Engineer von WAN Netzen basierend auf MPLS
+      VPNs, mit QoS, OSPF, BGP
+    * Projektleitung,
+    * Netzwerk Design, Konfiguration von CE und PE-Routern, inklusive Abnahme 
+===============================================================================
+05/2009 - 06/2009: Redundante Internetanbindung mit eigenem AS Uplink zum DFN
+mit 2 Routern konfiguriert
+ 
+Kunde:              Fachhochschule Muenster
+ 
+Aufgaben:
+ 
+Failover geplant und getestet
+===============================================================================
+08/2007 - 05/2009: MPLS Infrastruktur im Enterprise LAN eingeführt
+ 
+Kunde:              Fachhochschule Muenster
+ 
+Aufgaben:
+ 
+    * Layer 3 VPN's mit mBGP für verschiedene Fachberereiche eingeführt.
+    * Projektplanung und Implementierung mit Testphase von MPLS im
+      hochschulweiten LAN
+    * Hierbei Projektplan erstellt, Testumgebung aufgebaut, Tests durchgeführt,
+      Schrittweise Implementation durchgeführt und Dokumentation auf Wiki.
+    * Server Loadbalancing mit Cisco für Webserver implementiert
+===============================================================================
+04/2007 - 06/2008: Cisco WLAN Lösung geplant und implementiert auf Basis von
+Cisco WISM Modulen und Accesspoints 1130 und 15xx hochschulweites WLAN
+ausgerollt
+ 
+ 
+Aufgaben:
+ 
+    * Tätigkeit umfasste Planung von Infrastruktur, Konfiguration von WISM
+      Modulen mit Redundanz, Verschlüsselung mittels WPA2/AES,
+      Authentifizierung per Radius an LDAP
+    * Implementierung von europaweiter WLAN Infrastruktur auf Basis von 3COM/
+      Trapez WLAN Hardware
+    * Planung der Active Directory Struktur für Ausrollung der WLAN
+      Einstellungen auf Windows XP Clients
+    * Konfiguration des IAS Radius Servers und Konfiguration der Microsoft CA-
+      Server
+    * Authentifizierung mittels maschinenbasierender Zertifikate
+===============================================================================
+01/2001 - 12/2006: Trainer im Bereich Networking
+ 
+ 
+Aufgaben:
+ 
+    * Networking Grundlagen
+    * TCP/IP-Protokoll
+    * IPSec VPN
+===============================================================================
+09/2001 - 12/2003: Planung und Erweiterung der Netzwerkinfrastruktur
+ 
+Kunde:              Fachhochschule Muenster
+ 
+Aufgaben:
+ 
+    * Installation und Konfiguration von Switches, Router, VPN, WLAN
+    * Umbau des heterogenen Netzwerkes (3COM, Extreme) auf Cisco Catalyst 6500
+      und 4500, Planung, Testing und Implementation und Konfiguration auf ein
+      Collapsed Core Netz
+===============================================================================
+02/2001 - 08/2001: verschiedene Projekte
+ 
+Einsatzort:         Münster
+Rolle:              Network engineer
+Kunde:              ADA Das Systemhaus GmbH
+ 
+Aufgaben:
+ 
+    * Migration eines Enterprise Networks von TokenRing auf Gigabit Ethernet
+      mit Layer3 Switchting im Backbone auf Basis von Nortel Passport 8600
+    * Technische Projektplanung
+    * Implementierung der neuen Netzinfrastruktur und Schulung der
+      Kundenmitarbeiter
+===============================================================================
+ 
+
+Sonstige Anmerkungen:
+Ich bin der Meinung man kann nur erfolgreich sein, in den Dingen die man
+wirklich gerne macht.
+Und ich liebe die Arbeit mit grossen Netwerken, Enterprise, Telco,
+am liebsten mit Cisco Produkten. Damit kenne ich mich aus und das funktioniert.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_100723
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 09.10.2020 00:41:32
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

@@ -1,0 +1,772 @@
+IT-Berater, Beratung, Projektierung, Konzeption, Migration,
+Virtualisierung und Konsolidierung,  Microsoft Client-Server,
+Backoffice Produkte und Applikationen
+Verfügbar ab: 01.07.2020
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 75,00 EUR
+Bemerkungen: gilt fuer Raum Frankfurt/Main
+Einsatzort
+Regionen &amp; Länder: D6, Schweiz, Einsatzort unbestimmt
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Deutschland: Umkreis Frankfurt/Main 100km Weitere Länder:
+Bevorzugte Einsatzorte Schweiz: deutschsprachige Schweiz
+Bevorzugter Einsatzort China: Chengdu
+Position
+Kommentar: Virtualisierung, Migration
+Projekte
+Zeitraum:         seit 11.2008
+Firma/Institut:   Bank
+Projekt:          Migration und Betreuung von bankeigenen Applikationen,
+Aufgabe:          Release - und Changemanagement via ITIL,
+Überwachung und Betreuung der Abnahmeumgebungen und
+Produktionsumgebungen, MS SQL-Server Anpassungen, Abfragen
+und Reports erstellen
+Thirdlevel Support
+Projektmitarbeit und Unterstuetzung der Konzernfusion
+Plattform:        MS Windows Windows XP, Windows 2003 Server, Active
+Directory, Windows 2003; MS SQL Server, .NET, IIS, SAP,
+HP Proliant Serverhardware
+22.02.2023 1 von 9
+Zeitraum:         11.2008 - 03.2009
+Firma/Institut:   Optische Industrie/IT-Dienstleister
+Projekt:          MS Active Directory Migration
+Aufgabe:          Erfassung der Altumgebung, Konzeptionierung und Implementierung
+der Neuumgebung, Migration der Standorte und der zugehörigen
+Objekte
+Plattform:        MS Windows 2003, MS Active Directory,
+alle Installationen auf HP Serverhardware
+Zeitraum:         10.2008 - 10.2008
+Firma/Institut:   Immobilienverwaltung/IT-Dienstleister
+Projekt:          Update VMware ESX-Server auf VMware Virtual Infrastructure 3
+Aufgabe:          Erfassung der Altumgebung,
+Projektierung des Updates
+Plattform:        MS Windows 2003, MS Active Directory,
+VMware Virtual Infrastructure 3 (ESX-Server)
+VMware VirtualCenter,
+alle Installationen auf HP Serverhardware
+Zeitraum:         02.2008 - 09.2008
+Firma/Institut:   Hersteller/Chemie
+Projekt:          Konzeptionierung, Projektierung und Einfuehrung
+VMware Virtual Infrastructure 3 (VMware ESX-Server)
+Konsolidierung und Migration der alten IT-Infrastruktur,
+Datenuebernahme, bzw. Migration der Daten
+Aufgabe:          Projektierung und Implementierung der Umstellung der alten
+IT-Infrastruktur auf VMware Virtual Infrastructure 3
+Portierung der Serversysteme mittels VMware Converter 3
+Uebernahme der Daten aus Datev, Zeiterfassung, Warenwirtschaftsystem
+und der eingesetzten Unified Messaging Loesung (Tobit David XL)
+Umstellung der Windows 2000 Active Directory Domaene auf
+Windows 2003 mittels virtueller Systeme.
+Plattform:        MS Windows 2000 Server, MS Windows 2003, MS Windows XP,
+Active Directory, VMware Virtual Infrastructure 3 (ESX-Server)
+VMware Converter 3, VMware VirtualCenter;
+Alle Installationen auf Dell Serverhardware
+Zeitraum:         01.2008-07.2008
+Firma/Institut:   Bank, IT-Dienstleister
+Projekt:          Outsourcing des MS Windows XP Client und der zugehoerigen
+Server-Infrastruktur auf MS Windows 2003 Server
+Aufgabe:          Uebernahme und Integration der Windows XP-Clients mit der
+zugehoerigen Windows 2003 Serverinfrastruktur und
+Active Directory
+Second- und Thirdlevel Support Active Directory
+Monitoring mittels IBM Tivoli, HP Insight Agents und FSC Serverview
+Plattform:        MS Windows 2003, MS Windows XP, Active Directory,
+VMware GSX- und ESX-Server, Enteo Netinstall, Tivoli,
+HP Insight Agents, FSC Serverview, Hyena
+22.02.2023 2 von 9
+Zeitraum:         05.2007-12.2007
+Firma/Institut:   Bank
+Projekt:          Einführung einer neuen bankeigenen Applikation in einer
+hochverfügbaren Serverumgebung (BIG-IP Loadbalancing)
+Aufbau der Test, Abnahme und Produktionsumgebung
+Aufgabe:          Einrichtung und Paketierung der Testumgebung,
+Abnahmeumgebung und Produktionsumgebung. Second- und
+Thirdlevel Support
+Automatisierung der Serverinstallation mit Enteo Netinstall
+und Perl Skripts
+Plattform:        MS Windows Windows XP, Windows 2003 Server, Active
+Directory, Windows 2003, Enteo Netinstall, Perl, MQ-Series,
+.NET, IIS, HP Proliant Serverhardware, BIGIP-Loadbalancing
+Zeitraum:         10.2006-12.2006
+Firma/Institut:   Bank
+Projekt:          Paketierung, Abnahme in der Testumgebung und Uebergabe in Produktion
+von Tivoli Productivity Center auf IBM Hardware (Server)
+Paketierung, Abnahme und Distribution der X-Series Hardwareagenten
+Aufgabe:          Paketierung der notwendigen Komponenten wie DB2 und diversen
+Agenten und deren Rollout auf den Server bzw. Systemen mittels
+enteo Netinstall auf Microsoft Windows 2003 Server
+Betriebssystemen
+Berechtigungskonzept und Einrichtung technischer User                   Automatisierung der
+Serverinstallation mit Enteo Netinstall.
+Paketierung, Abnahme und Distribution der X-Series Hardwareagenten
+Plattform:        MS Windows 2003 Server, Active Directory, Tivoli Productivity
+Center, DB2 fuer Windows, Enteo Netinstall.
+Alle Installationen auf IBM Serverhardware (X-Series)
+Zeitraum:         07.2006-09.2006
+Firma/Institut:   Bank
+Projekt:          Einführung von Reuters Messenger
+Aufbau der Abnahme und Produktionsumgebung auf Server
+und Client. Abnahme und Inproduktionsnahme der Client- und
+Serversysteme
+Aufgabe:          Einrichtung und Installation des Reuters Proxy Server in der
+Abnahme- und Produktionsumgebung.
+Abnahme und Inproduktionsnahme der Client- und Serversysteme
+Installation von Symantec IMLogic IMManager unter Verwendung
+einer SQL-Clusterloesung und Implementierung der Agenten im
+Reuters Proxy Server.
+Second- und Thirdlevel Support, Berechtigungskonzept
+Plattform:        MS Windows Windows XP, Windows 2003 Server, Active
+Directory, Reuters Proxy Server, Symantec IMLogic IMManager,
+IIS und Zertifikate
+Installation auf Fujitsu-Siemens (FSC) Serverhardware
+Zeitraum:         11.2005-12.2007
+Firma/Institut:   Bank
+Projekt:          Servermigration Windows NT und Windows 2000 nach Windows 2003,
+22.02.2023 3 von 9
+Konzeption und Umsetzung der Migration, Konsolidierung und
+Virtualisierung auf GSX- und ESX-Systemen
+Aufgabe:          Umstellung der auf Windows NT und Windows 2000 laufenden
+Applikationen auf Windows 2003
+Erfassung der Applikationen
+Konzeption und Umsetzung der Migrationen
+Konsolidierung und Virtualisierung auf GSX- und ESX-Systemen
+Automatisierung der Serverinstallation mit Enteo Netinstall.
+Plattform:        MS Windows NT MS Windows 2000, MS Windows XP, Windows 2000
+Server, Active Directory, Windows 2003, VMware GSX- und ESX-Server,
+Enteo Netinstall
+Fujitsu-Siemens (FSC) und HP Proliant Serversysteme
+ 
+Zeitraum:         04.2005-09.2005
+Firma/Institut:   Bank
+Projekt:          Systemadministration Windows 2000 Active Directory und
+Exchange 2000, ESX-Server
+Aufgabe:          Einfuehrung MOM 2005, Einfuehrung ESX-Server, Einfuehrung
+WSUS-Server, Projektunterstuetzung und Systemadministration
+im Windows Team, Rollout und Update HP Insight Agents 7.30,
+sowie Serverupdates Firmware, Dokumentation
+Implementierung eines Active Directory mittels Systemrestore
+in einer separaten VMwareumgebung fuer ein LDAP-ID Management
+Projekt
+Einrichtung von eHealth Clients und Reports fuer Monitoring
+der Server
+Plattform:        MS Windows 2000, MS Windows XP, Windows 2000 Server, Active
+Directory
+Windows 2003, MS MOM 2005, VMware ESX-Server
+Alle Installationen auf HP Proliant Serverhardware
+In den Jahren 2004/2005 war ich in China unterwegs, um mich dort ueber Projekte
+und Investitionsmöglichkeiten zu informieren.
+Diese Reisen waren von 01-02/2004 von 05-08/2004, von 11/12/2004-01/2005 und
+03/2005.
+Zeitraum:         02.2005-02.2005
+Firma/Institut:   Behörde
+Projekt:          Implementierung einer Norton Antiviruslösung
+Aufgabe:          Einrichtung und Konfiguration von Norton Antivirus auf den
+Clients und Server
+Plattform:        MS Windows 2000, MS Windows XP, Windows 2000 Server,
+Windows 2003
+Zeitraum:         10.2004-10.2004
+Firma/Institut:   Maschinenbau
+Projekt:          Serverkonsolidierung und Migration
+Aufgabe:          Erarbeitung eines Konzeptes zur Migration von Windows NT
+unter Einsatz von VMware GSX- oder ESX-Server
+Plattform:        MS Windows NT, MS Windows 2000, MS Windows 2003,
+VMware
+22.02.2023 4 von 9
+Zeitraum:         09.2004-09.2004
+Firma/Institut:   Maschinenbau
+Projekt:          Firewall und VPN
+Aufgabe:          Einrichtung einer Netscreen Firewall und VPN-Clients
+Plattform:        MS Windows NT, MS Windows 2000, MS Windows 2003,
+Windows XP
+Zeitraum:         04.2004-04.2004
+Firma/Institut:   Behörde
+Projekt:          Internetzugang für Mitarbeiter
+Aufgabe:          Einrichtung einer linuxbasierenden Firewall IP-Cop, Vernetzung
+der einzelnen PCs.
+Plattform:        Linux, MS Windows 2000, MS Windows 2003
+Zeitraum:         03.2004-03.2004
+Firma/Institut:   Maschinenbau
+Projekt:          Einführung Microsoft System Update Server
+Einführung Trendmicro Small Business Message Suite
+Aufgabe:          Einrichtung der Software auf Windows 2003 Server
+Exchangeserver, Server und Clients
+Plattform:        MS Windows NT, MS Windows 2000 Server, MS Windows 2003
+Zeitraum:         10.2000-12.2003
+Firma/Institut:   Automobilzulieferer
+Projekte:         Einfuehrung Windows 2000 Active Directory und Exchange 2000
+Rollout CA Inoculan weltweit später Umstellung auf NAI ePolicy
+Orchestrator
+Aufgabe:          Administration des Windows 2000-Systems, Zugriffsberechtigung
+und Einrichtung neuer User, Betreuung des Exchange 2000
+Systems, Administration von GSX-Server von VMware,
+Anwendersupport Citrix Metaframe, Betreuung des TSM-Backup-
+Systems, sowie Veritas Backup Exec,
+Wartung und Updaten der Compaq Server mittels Insight Agents,
+Dokumentation
+Plattform:        MS Windows NT, MS Windows 2000, MS Windows 2003
+Zeitraum:         07.2000-09.2000
+Firma/Institut:   Automobilzulieferer in China
+Projekt:          Einfuehrung der IT-Grundlagen der Brose Fahrzeugteile GmbH &amp; Co.
+KG in Germany
+Aufgaben:         Beratung und Training des IT-Teams von Brose Automotive
+Zhanjiangang.
+Plattform:        Windows NT, Windows 2000, Windows 98
+Desweiteren Geschaeftsreisen in verschiedene chinesische Staedte wie Shanghai,
+Beijing, Nanjing, Harbin, Wuhan, Kunming, Chongqing und Chengdu.
+Zeitraum:         07.1999-06.2000
+Firma/Institut:   Automobilzulieferer
+Projekt:          Einfuehrung MS SMS 2.0, Aufbau des Second Level Supports
+Neuorganisation der Zugriffsberechtigungen auf File- und
+Userebene
+22.02.2023 5 von 9
+Aufgabe:          Administration des NT-Systems, des SMS 2.0 Systems,
+Second Level Support, Einrichtung Email
+Betreuung des ADSM-TSM und Arcserve Storage Systems,
+Wartung und Updaten der Compaq Server mittels Insight Agents
+Dokumentation
+Plattform:        MS Windows NT, MS Windows 2000
+Zeitraum:         01.1999-06.1999
+Firma/Institut:   Bank
+Projekt:          Aufbau des Second Level Supports fuer Windows NT
+Aufgabe:          Second Level Support, Coaching der Bank-Mitarbeiter,
+Dokumentation
+Plattform:        MS Windows NT Server and Workstation, MS SNA Server
+Zeitraum:         09.1998-12.1998
+Firma/Institut:   Bank in Luxembourg
+Projekt:          Einfuehrung von MS SMS 1.2 und MS Exchange 5.5
+Aufgabe:          Adminstration Windows NT, Exchange 5.5 und SMS 1.2
+Erstellung von Packages, First- und Second Level Support,
+Dokumentation
+Plattform:        MS Windows NT
+Zeitraum:         06.1998-09.1998
+Firma/Institut:   Automobilhersteller
+Projekt:          Einfuehrung von Windows NT, MS SMS 1.2.
+Aufgabe:          Erstellung von Packages fuer MS SMS 1.2, Adminstration des
+NT-Systems, Dokumentation
+Plattform:        MS Windows NT und MS SMS 1.2
+Branchen
+Automobil
+Automotive
+Banken
+Behörde
+Chemie
+IT-Dienstleister
+Maschinenbau
+Pressevertrieb
+Sprachen
+Chinesisch Anfängerkenntnisse
+Deutsch Muttersprache
+Englisch Gute Sprachkenntnisse in Wort und Schrift
+22.02.2023 6 von 9
+Französisch Schulkenntnisse
+Kompetenzen
+Produkte / Standards / Citrix Metaframe Kenntnisse
+Erfahrungen / Methoden Terminal Server
+HP OpenView Experte
+ServiceCenter
+IBM Clearcase Kenntnisse
+IBM DB2 Kenntnisse
+IBM WebSphere MQ- Kenntnisse
+Series
+Microsoft .Net Kenntnisse
+Microsoft Active DirectoryExperte
+Microsoft Hyper-V Experte
+Microsoft Office Kenntnisse
+Microsoft Project Kenntnisse
+Microsoft SQL-Server Experte
+Microsoft Windows Client Experte
+und Server Technologien
+VMWare Virtual Experte
+Infrastructure
+Watchguard Firewall Kenntnisse
+ 
+Betriebssysteme Microsoft Windows 10 Experte
+Microsoft Windows 2003 Experte
+Microsoft Windows 2008 Experte
+Microsoft Windows 2012 Experte
+Microsoft Windows 7 Experte
+Microsoft Windows 8; 8.1 Experte
+Unix Gute Kenntnisse
+Windows Experte
+Programmiersprachen C Kentnisse
+22.02.2023 7 von 9
+C++ Kenntnisse
+Scriptsprachen gute Kenntnisse
+Datenbanken DB2 Kenntnisse
+MS SQL Server gute Kenntnisse
+ODBC gute Kenntnisse
+SQL Kenntnisse
+Datenkommunikation Ethernet Gute Kennntnisse
+Internet, Intranet Gute Kenntnisse
+Router gute Kenntnisse
+SMTP Kenntnisse
+SNMP gute Kenntnisse
+TCP/IP gute Kenntnisse
+Windows Netzwerk Experte
+Hardware BIG-IP Loadbalancing Gute Kenntnisse
+Dell Server Systeme Gute Kenntnisse
+Drucker Gute Kenntnisse
+Fujitsu-Siemens (FSC) Gute Kenntnisse
+Server Systeme
+Hochverfügbare Systeme Gute Kenntnisse
+HP Experte
+HP (Compaq) Proliant Gute Kenntnisse
+Server Systeme
+IBM Server Systeme Gute Kenntnisse
+Notebooks diverse Gute Kenntnisse
+Hersteller
+PC Experte
+PCs diverse Hersteller Gute Kenntnisse
+SAN Gute Kenntnisse
+Scanner Gute Kenntnisse
+ 
+Wenn Sie keine Verträge mit Einzelunternehmern direkt abschließen,
+empfiehlt sich eine Abwicklung über GULP Direkt:
+Weitere Informationen zur diesem Service finden Sie unter
+http://www.gulp.de/gulpdirekt.html
+22.02.2023 8 von 9
+Aus- und Weiterbildung
+Organisationsprogrammierer
+Studium der Physikalischen Technik (FH)
+Hochschulreife
+Chemikant
+22.02.2023 9 von 9
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_19554 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+
+Personen-ID                19554
+  
+Wohnort                    605xx Frankfurt/Main, Deutschland
+Jahrgang                   1964
+Staatsbürgerschaft         deutsch
+Stundensatz                75 EUR
+                           gilt fuer Raum Frankfurt/Main
+Verfügbar ab               01.07.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         18.09.00
+Profil zuletzt geändert am 18.03.20
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 21.01.2020 19:30:03
+
+Fachlicher Schwerpunkt:
+IT-​Berater, Beratung, Projektierung, Konzeption, Migration, Virtualisierung
+und Konsolidierung, Microsoft Client-​Server, Backoffice Produkte und
+Applikationen
+
+Position:
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+
+Virtualisierung, Migration
+
+Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit bevorzugt
+
+Voraussetzung für Festanstellung: Nur freiberufliche Mitarbeit in Deutschland,
+keine Festanstellung in Deutschland
+Voraussetzung für Festanstellung: Langfristige Auslandstätigkeit, bevorzugt
+Schweiz und China
+
+Ausbildung:
+Organisationsprogrammierer
+Studium der Physikalischen Technik (FH)
+Hochschulreife
+Chemikant
+
+
+
+Einsatzort:
+Regionen:
+D6, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: Umkreis Frankfurt/Main 100km Weitere Länder: Bevorzugte
+Einsatzorte Schweiz: deutschsprachige Schweiz Bevorzugter Einsatzort China:
+Chengdu
+
+Fremdsprachen:
+Chinesisch  Anfängerkenntnisse
+Deutsch     Muttersprache
+Englisch    Gute Sprachkenntnisse in Wort und Schrift
+FranzösischSchulkenntnisse
+
+
+Hardware:
+BIG-IP Loadbalancing                 Gute Kenntnisse
+Dell Server Systeme                  Gute Kenntnisse
+Drucker                              Gute Kenntnisse
+Fujitsu-Siemens (FSC) Server Systeme Gute Kenntnisse
+Hochverfügbare Systeme              Gute Kenntnisse
+HP                                   Experte
+HP (Compaq) Proliant Server Systeme  Gute Kenntnisse
+IBM Server Systeme                   Gute Kenntnisse
+Notebooks diverse Hersteller         Gute Kenntnisse
+PC                                   Experte
+PCs diverse Hersteller               Gute Kenntnisse
+SAN                                  Gute Kenntnisse
+Scanner                              Gute Kenntnisse
+
+ 
+
+Betriebssysteme:
+Microsoft Windows 10     Experte
+Microsoft Windows 2003   Experte
+Microsoft Windows 2008   Experte
+Microsoft Windows 2012   Experte
+Microsoft Windows 7      Experte
+Microsoft Windows 8; 8.1 Experte
+Unix                     Gute Kenntnisse
+Windows                  Experte
+
+
+Programmiersprachen:
+C              Kentnisse
+C++            Kenntnisse
+Scriptsprachen gute Kenntnisse
+
+
+Datenbanken:
+DB2           Kenntnisse
+MS SQL Server gute Kenntnisse
+ODBC          gute Kenntnisse
+SQL           Kenntnisse
+
+
+Datenkommunikation:
+Ethernet           Gute Kennntnisse
+Internet, Intranet Gute Kenntnisse
+Router             gute Kenntnisse
+SMTP               Kenntnisse
+SNMP               gute Kenntnisse
+TCP/IP             gute Kenntnisse
+Windows Netzwerk   Experte
+
+
+Produkte/Standards/Erfahrungen:
+Citrix Metaframe Terminal Server                 Kenntnisse
+HP OpenView ServiceCenter                        Experte
+IBM Clearcase                                    Kenntnisse
+IBM DB2                                          Kenntnisse
+IBM WebSphere MQ-Series                          Kenntnisse
+Microsoft .Net                                   Kenntnisse
+Microsoft Active Directory                       Experte
+Microsoft Hyper-V                                Experte
+Microsoft Office                                 Kenntnisse
+Microsoft Project                                Kenntnisse
+Microsoft SQL-Server                             Experte
+Microsoft Windows Client und Server Technologien Experte
+VMWare Virtual Infrastructure                    Experte
+Watchguard Firewall                              Kenntnisse
+ 
+
+Branchen:
+Automobil
+Automotive
+Banken
+Behörde
+Chemie
+IT-Dienstleister
+Maschinenbau
+Pressevertrieb
+
+Projekte:
+Zeitraum:         seit 11.2008
+Firma/Institut:   Bank
+Projekt:          Migration und Betreuung von bankeigenen Applikationen,
+Aufgabe:          Release - und Changemanagement via ITIL,
+Überwachung und Betreuung der Abnahmeumgebungen und
+Produktionsumgebungen, MS SQL-Server Anpassungen, Abfragen
+und Reports erstellen
+Thirdlevel Support
+Projektmitarbeit und Unterstuetzung der Konzernfusion
+Plattform:        MS Windows Windows XP, Windows 2003 Server, Active
+Directory, Windows 2003; MS SQL Server, .NET, IIS, SAP,
+HP Proliant Serverhardware
+
+Zeitraum:         11.2008 - 03.2009
+Firma/Institut:   Optische Industrie/IT-Dienstleister
+Projekt:          MS Active Directory Migration
+Aufgabe:          Erfassung der Altumgebung, Konzeptionierung und
+Implementierung
+der Neuumgebung, Migration der Standorte und der zugehörigen
+Objekte
+Plattform:        MS Windows 2003, MS Active Directory,
+alle Installationen auf HP Serverhardware
+
+Zeitraum:         10.2008 - 10.2008
+Firma/Institut:   Immobilienverwaltung/IT-Dienstleister
+Projekt:          Update VMware ESX-Server auf VMware Virtual Infrastructure 3
+Aufgabe:          Erfassung der Altumgebung,
+Projektierung des Updates
+Plattform:        MS Windows 2003, MS Active Directory,
+VMware Virtual Infrastructure 3 (ESX-Server)
+VMware VirtualCenter,
+alle Installationen auf HP Serverhardware
+
+Zeitraum:         02.2008 - 09.2008
+Firma/Institut:   Hersteller/Chemie
+Projekt:          Konzeptionierung, Projektierung und Einfuehrung
+VMware Virtual Infrastructure 3 (VMware ESX-Server)
+Konsolidierung und Migration der alten IT-Infrastruktur,
+Datenuebernahme, bzw. Migration der Daten
+Aufgabe:          Projektierung und Implementierung der Umstellung der alten
+IT-Infrastruktur auf VMware Virtual Infrastructure 3
+Portierung der Serversysteme mittels VMware Converter 3
+Uebernahme der Daten aus Datev, Zeiterfassung, Warenwirtschaftsystem
+und der eingesetzten Unified Messaging Loesung (Tobit David XL)
+Umstellung der Windows 2000 Active Directory Domaene auf
+Windows 2003 mittels virtueller Systeme.
+Plattform:        MS Windows 2000 Server, MS Windows 2003, MS Windows XP,
+Active Directory, VMware Virtual Infrastructure 3 (ESX-Server)
+VMware Converter 3, VMware VirtualCenter;
+Alle Installationen auf Dell Serverhardware
+
+Zeitraum:         01.2008-07.2008
+Firma/Institut:   Bank, IT-Dienstleister
+Projekt:          Outsourcing des MS Windows XP Client und der zugehoerigen
+Server-Infrastruktur auf MS Windows 2003 Server
+Aufgabe:          Uebernahme und Integration der Windows XP-Clients mit der
+zugehoerigen Windows 2003 Serverinfrastruktur und
+Active Directory
+Second- und Thirdlevel Support Active Directory
+Monitoring mittels IBM Tivoli, HP Insight Agents und FSC Serverview
+Plattform:        MS Windows 2003, MS Windows XP, Active Directory,
+VMware GSX- und ESX-Server, Enteo Netinstall, Tivoli,
+HP Insight Agents, FSC Serverview, Hyena
+
+Zeitraum:         05.2007-12.2007
+Firma/Institut:   Bank
+Projekt:          Einführung einer neuen bankeigenen Applikation in einer
+hochverfügbaren Serverumgebung (BIG-IP Loadbalancing)
+Aufbau der Test, Abnahme und Produktionsumgebung
+Aufgabe:          Einrichtung und Paketierung der Testumgebung,
+Abnahmeumgebung und Produktionsumgebung. Second- und
+Thirdlevel Support
+Automatisierung der Serverinstallation mit Enteo Netinstall
+und Perl Skripts
+Plattform:        MS Windows Windows XP, Windows 2003 Server, Active
+Directory, Windows 2003, Enteo Netinstall, Perl, MQ-Series,
+.NET, IIS, HP Proliant Serverhardware, BIGIP-Loadbalancing
+
+Zeitraum:         10.2006-12.2006
+Firma/Institut:   Bank
+Projekt:          Paketierung, Abnahme in der Testumgebung und Uebergabe in
+Produktion
+von Tivoli Productivity Center auf IBM Hardware (Server)
+Paketierung, Abnahme und Distribution der X-Series Hardwareagenten
+Aufgabe:          Paketierung der notwendigen Komponenten wie DB2 und diversen
+Agenten und deren Rollout auf den Server bzw. Systemen mittels
+enteo Netinstall auf Microsoft Windows 2003 Server
+Betriebssystemen
+Berechtigungskonzept und Einrichtung technischer User                  
+Automatisierung der Serverinstallation mit Enteo Netinstall.
+Paketierung, Abnahme und Distribution der X-Series Hardwareagenten
+Plattform:        MS Windows 2003 Server, Active Directory, Tivoli Productivity
+Center, DB2 fuer Windows, Enteo Netinstall.
+Alle Installationen auf IBM Serverhardware (X-Series)
+
+Zeitraum:         07.2006-09.2006
+Firma/Institut:   Bank
+Projekt:          Einführung von Reuters Messenger
+Aufbau der Abnahme und Produktionsumgebung auf Server
+und Client. Abnahme und Inproduktionsnahme der Client- und
+Serversysteme
+Aufgabe:          Einrichtung und Installation des Reuters Proxy Server in der
+Abnahme- und Produktionsumgebung.
+Abnahme und Inproduktionsnahme der Client- und Serversysteme
+Installation von Symantec IMLogic IMManager unter Verwendung
+einer SQL-Clusterloesung und Implementierung der Agenten im
+Reuters Proxy Server.
+Second- und Thirdlevel Support, Berechtigungskonzept
+Plattform:        MS Windows Windows XP, Windows 2003 Server, Active
+Directory, Reuters Proxy Server, Symantec IMLogic IMManager,
+IIS und Zertifikate
+Installation auf Fujitsu-Siemens (FSC) Serverhardware
+
+Zeitraum:         11.2005-12.2007
+Firma/Institut:   Bank
+Projekt:          Servermigration Windows NT und Windows 2000 nach Windows
+2003,
+Konzeption und Umsetzung der Migration, Konsolidierung und
+Virtualisierung auf GSX- und ESX-Systemen
+Aufgabe:          Umstellung der auf Windows NT und Windows 2000 laufenden
+Applikationen auf Windows 2003
+Erfassung der Applikationen
+Konzeption und Umsetzung der Migrationen
+Konsolidierung und Virtualisierung auf GSX- und ESX-Systemen
+Automatisierung der Serverinstallation mit Enteo Netinstall.
+Plattform:        MS Windows NT MS Windows 2000, MS Windows XP, Windows 2000
+Server, Active Directory, Windows 2003, VMware GSX- und ESX-Server,
+Enteo Netinstall
+Fujitsu-Siemens (FSC) und HP Proliant Serversysteme
+ 
+Zeitraum:         04.2005-09.2005
+Firma/Institut:   Bank
+Projekt:          Systemadministration Windows 2000 Active Directory und
+Exchange 2000, ESX-Server
+Aufgabe:          Einfuehrung MOM 2005, Einfuehrung ESX-Server, Einfuehrung
+WSUS-Server, Projektunterstuetzung und Systemadministration
+im Windows Team, Rollout und Update HP Insight Agents 7.30,
+sowie Serverupdates Firmware, Dokumentation
+Implementierung eines Active Directory mittels Systemrestore
+in einer separaten VMwareumgebung fuer ein LDAP-ID Management
+Projekt
+Einrichtung von eHealth Clients und Reports fuer Monitoring
+der Server
+Plattform:        MS Windows 2000, MS Windows XP, Windows 2000 Server, Active
+Directory
+Windows 2003, MS MOM 2005, VMware ESX-Server
+Alle Installationen auf HP Proliant Serverhardware
+
+In den Jahren 2004/2005 war ich in China unterwegs, um mich dort ueber Projekte
+und Investitionsmöglichkeiten zu informieren.
+Diese Reisen waren von 01-02/2004 von 05-08/2004, von 11/12/2004-01/2005 und
+03/2005.
+
+Zeitraum:         02.2005-02.2005
+Firma/Institut:   Behörde
+Projekt:          Implementierung einer Norton Antiviruslösung
+Aufgabe:          Einrichtung und Konfiguration von Norton Antivirus auf den
+Clients und Server
+Plattform:        MS Windows 2000, MS Windows XP, Windows 2000 Server,
+Windows 2003
+
+Zeitraum:         10.2004-10.2004
+Firma/Institut:   Maschinenbau
+Projekt:          Serverkonsolidierung und Migration
+Aufgabe:          Erarbeitung eines Konzeptes zur Migration von Windows NT
+unter Einsatz von VMware GSX- oder ESX-Server
+Plattform:        MS Windows NT, MS Windows 2000, MS Windows 2003,
+VMware
+
+Zeitraum:         09.2004-09.2004
+Firma/Institut:   Maschinenbau
+Projekt:          Firewall und VPN
+Aufgabe:          Einrichtung einer Netscreen Firewall und VPN-Clients
+Plattform:        MS Windows NT, MS Windows 2000, MS Windows 2003,
+Windows XP
+
+Zeitraum:         04.2004-04.2004
+Firma/Institut:   Behörde
+Projekt:          Internetzugang für Mitarbeiter
+Aufgabe:          Einrichtung einer linuxbasierenden Firewall IP-Cop,
+Vernetzung
+der einzelnen PCs.
+Plattform:        Linux, MS Windows 2000, MS Windows 2003
+
+Zeitraum:         03.2004-03.2004
+Firma/Institut:   Maschinenbau
+Projekt:          Einführung Microsoft System Update Server
+Einführung Trendmicro Small Business Message Suite
+Aufgabe:          Einrichtung der Software auf Windows 2003 Server
+Exchangeserver, Server und Clients
+Plattform:        MS Windows NT, MS Windows 2000 Server, MS Windows 2003
+
+Zeitraum:         10.2000-12.2003
+Firma/Institut:   Automobilzulieferer
+Projekte:         Einfuehrung Windows 2000 Active Directory und Exchange 2000
+Rollout CA Inoculan weltweit später Umstellung auf NAI ePolicy
+Orchestrator
+Aufgabe:          Administration des Windows 2000-Systems, Zugriffsberechtigung
+und Einrichtung neuer User, Betreuung des Exchange 2000
+Systems, Administration von GSX-Server von VMware,
+Anwendersupport Citrix Metaframe, Betreuung des TSM-Backup-
+Systems, sowie Veritas Backup Exec,
+Wartung und Updaten der Compaq Server mittels Insight Agents,
+Dokumentation
+Plattform:        MS Windows NT, MS Windows 2000, MS Windows 2003
+
+Zeitraum:         07.2000-09.2000
+Firma/Institut:   Automobilzulieferer in China
+Projekt:          Einfuehrung der IT-Grundlagen der Brose Fahrzeugteile GmbH &amp;
+Co.
+KG in Germany
+Aufgaben:         Beratung und Training des IT-Teams von Brose Automotive
+Zhanjiangang.
+Plattform:        Windows NT, Windows 2000, Windows 98
+
+Desweiteren Geschaeftsreisen in verschiedene chinesische Staedte wie Shanghai,
+Beijing, Nanjing, Harbin, Wuhan, Kunming, Chongqing und Chengdu.
+
+Zeitraum:         07.1999-06.2000
+Firma/Institut:   Automobilzulieferer
+Projekt:          Einfuehrung MS SMS 2.0, Aufbau des Second Level Supports
+Neuorganisation der Zugriffsberechtigungen auf File- und
+Userebene
+Aufgabe:          Administration des NT-Systems, des SMS 2.0 Systems,
+Second Level Support, Einrichtung Email
+Betreuung des ADSM-TSM und Arcserve Storage Systems,
+Wartung und Updaten der Compaq Server mittels Insight Agents
+Dokumentation
+Plattform:        MS Windows NT, MS Windows 2000
+
+Zeitraum:         01.1999-06.1999
+Firma/Institut:   Bank
+Projekt:          Aufbau des Second Level Supports fuer Windows NT
+Aufgabe:          Second Level Support, Coaching der Bank-Mitarbeiter,
+Dokumentation
+Plattform:        MS Windows NT Server and Workstation, MS SNA Server
+
+Zeitraum:         09.1998-12.1998
+Firma/Institut:   Bank in Luxembourg
+Projekt:          Einfuehrung von MS SMS 1.2 und MS Exchange 5.5
+Aufgabe:          Adminstration Windows NT, Exchange 5.5 und SMS 1.2
+Erstellung von Packages, First- und Second Level Support,
+Dokumentation
+Plattform:        MS Windows NT
+
+Zeitraum:         06.1998-09.1998
+Firma/Institut:   Automobilhersteller
+Projekt:          Einfuehrung von Windows NT, MS SMS 1.2.
+Aufgabe:          Erstellung von Packages fuer MS SMS 1.2, Adminstration des
+NT-Systems, Dokumentation
+Plattform:        MS Windows NT und MS SMS 1.2
+
+Sonstige Anmerkungen:
+Wenn Sie keine Verträge mit Einzelunternehmern direkt abschließen,
+empfiehlt sich eine Abwicklung über GULP Direkt:
+Weitere Informationen zur diesem Service finden Sie unter
+http://www.gulp.de/gulpdirekt.html
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_19554 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 19.03.2020 00:48:19
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

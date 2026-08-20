@@ -1,0 +1,665 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_11213
+
+
+Stammdaten (Auszug):
+
+Personen-ID                11213
+  
+Wohnort                    736xx Berglen, Deutschland
+Jahrgang                   1961
+Staatsbürgerschaft         deutsch
+Stundensatz                85 EUR
+Verfügbar ab               01.07.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         17.10.99
+Profil zuletzt geändert am 04.03.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 05.02.2021 11:37:37
+
+Fachlicher Schwerpunkt:
+DB-​Entwicklung (Data Warehouse, ReportingDB) sowie IT Beratung und Management
+(System-, Release -, Application Management)
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Engineering / IT-nahe Ingenieurdienstleistungen
+
+Erfahrungen in den o.g. Bereichen sind vorhanden.
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+1990: Studium der Informatik an der Uni Karlruhe
+Abschluß: Diplom-Informatiker
+ 
+1983: Studium der Wirtschaftswissenschaften an der FH Rheinland-Pfalz, Mainz II
+Abschluß: Diplom-Betriebswirt (FH)
+
+Einsatzort:
+Regionen:
+D7
+im Umkreis von:
+Stuttgart (100 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: nach Absprache
+
+Fremdsprachen:
+Deutsch   
+Englisch verhandlungssicher
+
+
+Hardware:
+HP                  HP 9000, Stratus ft Server 5200
+IBM Großrechner    MVS, AIX (MPA), DB2, IBM IHS, WebSphere
+Macintosh            
+PC                  Windows NT, Windows 2000, Windows 7
+Siemens GroßrechnerBS 2000
+SUN                 Solaris Workstation
+VAX                 VAX / VMS
+
+
+Betriebssysteme:
+BS2000           
+HPUX            HP 9000
+MS-DOS           
+MVS, OS/390     MVS, MPA (AIX)
+OSF/Motif        
+SUN OS, Solaris Solaris
+Unix            Solaris, HPUX, RH5 Linux, AIX
+VMS             VMS, OpenVMS
+Windows         Win2000 Pro, Win XP Pro, Win 7 Pro
+
+
+Programmiersprachen:
+Basic      Visual Basic 6
+C           
+C++        C# und .net Entwicklung
+Cobol      Cobol
+Fortran    Fortran
+Java       Java 6, Hibernate
+JavaScript  
+Lisp        
+Modula-2   Modula-2
+Pascal     Pascal
+Perl       Perl 5
+PHP        PHP 5
+PL/SQL     Oracle PL/SQL, MS SQL Server T-SQL
+Ruby       Ruby
+Shell      HP-UX
+TeX, LaTeX Diplomarbeit
+
+
+Datenbanken:
+Access        Access
+DB2           9.7
+JDBC          JDBC/Hibernate
+MS SQL Server MS SQL Server
+MySQL         MySQL 5
+ODBC          JDBC/ODBC Bridge
+Oracle        Oracle 7, Oracle 8, Oracle 9, Oracle 10, Oracle 11
+Postgres      PostgreSQL 7.4, PostgreSQL 8.0
+SQL           PL/SQL, TSQL
+Sybase         
+
+Meine Erfahrungen mit den o.g. Datenbanken beziehen sich auf die Datenbank
+basierte Anwendungsentwicklung, dazu gehören insbesondere:
+    * Analyse
+    * Konzeption
+    * Datenbank-Design
+    * Data Warehouse Design (Star-Schema)
+    * Realisierung
+    * Produktionsumgebung und Backup-Konzept
+    * Wiederherstellungskonzept
+    * O/R Mapping mit Hibernate 3.1
+
+Datenkommunikation:
+Ethernet                  
+Fax                       
+Internet, Intranet       HTML, HTTP, CGI, XML, XSLT, JAVA, JSP, XBRL
+ISO/OSI                   
+RPC                       
+SMTP                      
+TCP/IP                    
+Windows Netzwerk          
+X.400 X.25 X.225 X.75...  
+
+
+Design/Entwicklung/Konstruktion:
+Data Warehouse Design (Star-Schema)                                      
+Datenbank-Design (Normalform, Multi-Mandanten-Konzept, Businesspartner-  
+Konzept, Star-Design)
+
+
+Berechnung/Simulation/Versuch/Validierung:
+Fahrer-Fahrzeug-Simulation (KEE)  
+
+
+Schwerpunkte:
+Bonitätsprüfung                               Solvency Check
+Datenbanken                                     Design, Migration, Replikation
+Kundenkartensysteme                             CRM
+Prepaid Handy Aufladungen - back end processing  
+Verkehrsdatenmodellierung                        
+Warenwirtschaftssysteme                          
+XML / XSLT                                      Schnittstellendesign
+
+
+Produkte/Standards/Erfahrungen:
+Erfahrungen in den Bereichen: 
+Projektmanagement
+    * Anforderungsmanagement
+    * Testmanagement
+    * Releasemanagement
+    * Change Management (Releaseplanung, Rollout, fall back)
+    * Incident Management (Subversion, Hot fixes)
+ 
+Anwendungs- und Systemprogrammierung mit Designer2000, Developer2000
+    * Oracle Forms und Oracle Reports
+    * Warehouse ( Sales Order Entry, Order Fulfilment, ... )
+    * Internet-Shop ( Customer, Products, Order, ... )
+    * Customer Relationship Management ( Customer Profile, Campaign, ... )
+    * Bonitätsprüfung ( Identidity Check, Address Check, Solvency Check, ... )
+ 
+Datenbank Design für Oracle und MS SQL Server
+    * Data Warehouse ( Requirements, Design, Realisierung, Einführung )
+    * Multi Mandanten Konzept ( Systemclient )
+    * Businesspartner Konzept ( Company, Department, Contact, ... )
+    * Businesstransaction Konzept ( Offer, Order, Shipment, Invoice, ... )
+    * DB-Sicherungs- und Wiederherstellungskonzept ( Backup and Recovery, ... )
+    * JDBC und O/R Mapping mit Hibernate 3.1
+ 
+Internet/Intranet Anwendungen
+    * CGI ( C, PHP oder Perl )
+    * Cold Fusion ( PL/SQL based stored procedures )
+    * php4/php5 ( DBI, DBD::Oracle, DBD::PostgreSQL )
+    * PDF ( Printable Output )
+    * XML / XSLT ( DB Import )
+ 
+fachliches Banken-Know How
+    * Thomson Reuters Marktdaten für Indices und Indices mit Kostituenten
+    * Bloomberg Marktdaten für Indices, Assets, Optionen, OTC-Optionen, Swaps
+    * RIMES-Marktdaten für Indices und Assets
+    * Money Market Instruments: Loans, Trades, Bonds, ...
+    * XBRL (Großkredit- und Mio-Kredit-Meldewesen)
+ 
+Application Management für eine komplexe Systemumgebung
+    * WebSphere Deployments (cell configuration)
+    * DB2 Deployments und Reporting
+    * WebServer Configurations
+    * Ticketsystem (JIRA)
+ 
+Erfahrungen in den Bereichen:
+    * Beratung
+    * Analyse
+    * Konzeption
+    * Realisierung
+    * Projektmanagement
+
+Branchen:
+    * Autobranche
+    * Softwarehersteller
+    * Banken
+    * Finanzdienstleister
+    * Transportdienstleister
+
+Projekte:
+01/2014 - heute: Application Management eines Autorenredaktionssystems
+ 
+Rolle:              Berater und Entwickler
+Kunde:              Automobilhersteller
+ 
+Aufgaben:
+ 
+    * Application Management
+    * Ticketsysteme Remedy und JIRA
+    * WebServer HIS
+    * WebSphere Deployments
+    * DB2 Deployments
+ 
+Kenntnisse:
+ 
+Remedy, DB2 9.7 bzw 10.5, WebSphere 6.1 bzw 8, IBM IHS, JBoss, SQL Server 2012,
+IBM AIX Server (MPA), Win2K8 Server, Win2K12 Server
+===============================================================================
+03/2013 - 12/2013: Corporate IT Service Management
+ 
+Rolle:              Berater und Entwickler
+Kunde:              Automobilhersteller
+ 
+Aufgaben:
+ 
+    * Bestandskundenmanagement
+    * DB-Anforderungen
+    * Reporting-tool Cognos Report Studio
+ 
+Kenntnisse:
+ 
+Remedy, Oracle 11.2g, Oracle Developer, Oracle DWH, Cognos Reports, IBM Server
+===============================================================================
+05/2012 - 02/2013: Data Warehouse Beratung
+ 
+Rolle:              Berater und Entwickler
+Kunde:              Bank
+ 
+Aufgaben:
+ 
+    * Data Warehouse Design (Star-Schema, Galaxy-Schema)
+    * DB-Design (Multi-Dimensionale Modellierung, Stage, Core)
+    * Entwicklung von ETL Strecken (PL/SQL, Datenqualität, Status)
+    * Views (Business Logic) und Reports (SAP Crystal Reports)
+    * Reporting-tool Crystal Reports
+ 
+Kenntnisse:
+ 
+Oracle 11.2g, Oracle Developer, Crystal Reports, Windows 2003 Server, Windows
+XP Entwicklungsrechner
+===============================================================================
+10/2010 - 10/2011: Entwicklung einer Reporting DB für das Asset Management
+ 
+Rolle:              Berater und Entwickler
+Kunde:              Bank
+ 
+Aufgaben:
+ 
+    * Anforderungsanalyse und Proof of Concept, DB-Design (Multi-Mandanten,
+      Stage, Core, Custom)
+    * Entwicklung von ETL Strecken (PL/SQL, Datenqualität, Status)
+    * Entwicklung von SQL Reports (PL/SQL, Mengenorient. Verarbeitung)
+    * Monatliche Bereitstellung der Berichtdaten (Custom, Datenqualität)
+    * Export der Daten als csv- oder Excel-Dateien
+ 
+Kenntnisse:
+ 
+Oracle 10.2g, MS SQL Server 2005, MS Integration Services, Java, Perl,
+Subversion, Java, WinSCP, Putty, vi, Solaris Server, Windows 2003 Server,
+Windows 7 Entwicklungsrechner
+===============================================================================
+10/2009 - 08/2010: Einführung eines Data Warehouse für das Fonds Management und
+Reporting
+ 
+Rolle:              Berater und Entwickler
+Kunde:              Bank
+ 
+Aufgaben:
+ 
+    * Release- und Incident Management
+    * Moderation von Entwicklung und Fachbereich (Funktionale Spezifikation,
+      Entwicklung, Test und Abnahme)
+    * Administration der Benutzer (Mandanten, Rechte-/Rollen-basierte Zugriffe)
+    * Entwicklung von ETL Strecken Marktdaten (Pentaho, Datenqualität, Status)
+    * Durchführung von Analysen und Auswertungen (SQL, PL/SQL)
+    * Export der Daten als csv- oder Excel-Dateien
+ 
+Kenntnisse:
+ 
+Oracle, Pentaho Data Integrator, Red Hat 5 Cluster, Windows XP
+Entwicklungsrechner
+===============================================================================
+04/2009 - 07/2009: Marketing DB
+ 
+Rolle:              Berater und Entwickler
+Kunde:              Sportartikelhersteller
+ 
+Aufgaben:
+ 
+    * Extraktion der Zielgruppe (Liste der Namen, Vornamen, Email-Adressen)
+    * Design der Email (Layout und Content, HTML Templates)
+    * Test und Durchführung der Email Campaign
+ 
+Kenntnisse:
+ 
+BatchBook, MailChimp, Windows Vista Entwicklungsrechner
+===============================================================================
+04/2008 - 01/2009: Verfahrensentwicklung (Prozesssteuerung)
+ 
+Rolle:              Berater und Entwickler
+Kunde:              Öffentliche Verwaltung
+ 
+Aufgaben:
+ 
+    * Anforderungsanalyse und Konzepterstellung
+    * Konfiguration der Prozessumgebung (Oracle DB)
+    * Entwicklung der Steuerung (Oracle Forms GUI, Email-Benachrichtigung)
+    * Entwicklung der Prozessschritte (Perl, sftp, DB-Log, Fehlerbehandlung)
+    * Test und Einführung des Verfahrens
+ 
+Kenntnisse:
+ 
+Perl 5, Oracle Forms 10.2g, Oracle 9.2i, Toad, SQL Developer, sftp, Windows
+Vista Entwicklungsrechner, Windows 2003 Datenbank Server
+===============================================================================
+01/2007 - 03/2008: Datenbank-Integration ETL
+ 
+Rolle:              Berater und Entwickler
+Kunde:              Automobilhersteller
+ 
+Aufgaben:
+ 
+    * Transferprozess von Personal DB zu Führungskräfte DB
+    * Sicherstellung der Access-basierten Steuerung
+    * Parallele Entwicklung einer Oracle-basierten Steuerung (PL/SQL)
+    * Ablösung der Access-basierten durch die Oracle-basierte Steuerung
+    * Anonymisierung der Test DB
+ 
+Kenntnisse:
+ 
+Oracle 9.2i, Toad, SQL Developer, DbVisualizer, MS Access, Windows XP
+Entwicklungsrechner, IBM AIX Datenbank Server
+===============================================================================
+04/2006 - 12/2006: Entwicklung eines Data Warehouse für Fahrplatzreservierungen
+ 
+Rolle:              Berater und Entwickler
+Kunde:              Transportdienstleister
+ 
+Aufgaben:
+ 
+    * Anforderungsanalyse und Konzeption
+    * DB-Design (Multi-Mandanten, Star-Schema, Administration der Zugriffe)
+    * Entwicklung der ETL-Prozesse (Perl, External Table, PL/SQL)
+    * Entwicklung der Datenverdichtung in die Faktentabelle (PL/SQL)
+    * Entwicklung der Standard-Reports (SQL, Business Objects)
+    * Entwicklung eines GUI für ad hoc Abfragen (Business Objects)
+    * Betriebsübergabe und Einführungsphase
+ 
+Kenntnisse:
+ 
+Oracle 10.2g, Oracle Warehouse Builder 10g, Toad, Mind Manager, Toad, SQL
+Developer, Business Objects, Windows 2000 Entwicklungsrechner, Solaris
+Datenbank Server
+===============================================================================
+11/2005 - 03/2006: Entwicklung eines Java Fat Client für die
+Fahrpreisermittlung
+ 
+Rolle:              DB-Entwickler
+Kunde:              Transportdienstleister
+ 
+Aufgaben:
+ 
+    * Anforderungsanalyse und Konzeption
+    * DB-Co-Design (Standards, Java-Objekte, Annotations, Hibernate)
+    * Entwicklung der Persistenzschicht (Java, Single Table/Class Hierarchy)
+    * Betriebsübergabe und Einführungsphase
+ 
+Kenntnisse:
+ 
+Oracle 9.2i, Java 5, EJB 3.0, eclipse 3.1, Hibernate 3.1, Toad, Windows 2000
+Entwicklungsrechner, Solaris Datenbank Server
+===============================================================================
+07/2005 - 09/2005: Erweiterung einer Forms 6.0 Anwendung
+ 
+Rolle:              Berater und Entwickler
+Kunde:              Automobilzulieferer
+ 
+Aufgaben:
+ 
+    * Anforderungsanalyse und Konzeption
+    * DB-Design (Erweiterungen der Tabellen)
+    * Erweiterung des Forms GUI (View)
+    * Entwicklung der Verarbeitung (PL/SQL Packages, Excel Schnittstelle)
+ 
+Kenntnisse:
+ 
+Oracle 9.2i, Oracle Forms 6.0, Package, Excel Schnittstelle, Windows 2003
+Advanced Server
+===============================================================================
+12/2004 - 03/2005: Datenbank-Integration ETL
+ 
+Kunde:              Automobilhersteller
+ 
+Aufgaben:
+ 
+    * Entwicklung von ETL Strecken (Quellen: SAP, Oracle, DB2, ...)
+    * Entwicklung der Datenflüsse (Staging Server,Production Server,MQSeries)
+    * Formatierungen von csv-Dateien (Perl, Datumangaben, Umlaute)
+    * Entwicklung der Verarbeitung (Fehlerbehandlung, Status)
+    * Abnahme und Betriebsübergabe
+ 
+Kenntnisse:
+ 
+HP-UX Skripts, Perl DBI, DBD::Oracle, Oracle 9i, MQSeries, Cognos, HP-UX Server
+/ Windows 2003 Advanced Server
+===============================================================================
+01/2004 - 06/2004: Entwicklung von Importroutinen XML / XSLT für SQL Server
+2000
+ 
+Kunde:              Finanzdienstleister
+ 
+Aufgaben:
+ 
+    * Entwicklung von ETL Strecken (Fileserver, DB-Server, Import, Archiv)
+    * Entwicklung der Verarbeitung (Scheduling, Fehlerbehandlung, Status)
+    * Einführung und Betriebsunterstützung
+ 
+Kenntnisse:
+ 
+Windows 2003 AS, CTMAG, MS SQL Server 2000, Oracle 8.1.5, C#/.net, SQL Server
+2000 / Windows 2003 Advanced Server
+===============================================================================
+07/2003 - 12/2003: Entwicklung Handy-Aufladungen/PIN Printing per POS Terminal
+ 
+Kunde:              Finanzdienstleister
+ 
+Aufgaben:
+ 
+    * Entwicklung der Verarbeitung (Input-Processing-Output/Fehlerbehandlung)
+    * Einführung und Betriebsunterstützung
+ 
+Kenntnisse:
+ 
+Windows 2000 AS, CTMAG, PL/SQL, MS SQL Server 2000, Oracle 8.1.5, SQL Server
+2000 / Windows 2000 Advanced Server
+===============================================================================
+01/2003 - 06/2003: Entwicklung einer Kundenkarte für Mineralöllösung
+ 
+Kunde:              Finanzdienstleister
+ 
+Aufgaben:
+ 
+    * Entwicklung von ETL Strecken (Fileserver, DB-Server, Import, Archiv)
+    * Entwicklung der Verarbeitung (Scheduling, Fehlerbehandlung, Status)
+    * Entwicklung von SQL-Reports, Analysen und Auswertungen (SQL, PL/SQL)
+    * Export der Daten als csv- und automatisierter Email-Versand
+    * Einführung und Betriebsunterstützung
+ 
+Kenntnisse:
+ 
+Windows 2000 AS, CTMAG, PL/SQL, MS SQL Server 2000, Oracle 8.1.5, SQL Server
+2000 / Windows 2000 Advanced Server
+===============================================================================
+Zeitraum       :  07.02 - 12.02
+Firma/Institut :  Finanzdienstleister
+Projekt        :  Upgrade auf Stratus ft Server
+Software       :  Windows 2000 AS, CTMAG, PL/SQL, MS SQL Server 2000, Oracle
+8.1.5
+Hardware       :  SQL Server 2000 / Windows 2000 Advanced Server
+Aufgaben       :  Projektleitung für das Upgrade
+               :  Pilotbetrieb der Ziellösung und automatisierte Auswertung der
+Ergebnisse
+               :  Anpassung der Verarbeitung in der Ziellösung (T-SQL)
+               :  Planung des Cut over und Realisierung über das Wochenende
+               :  Einführung und Betriebsunterstützung
+ 
+Zeitraum       :  01.02 - 06.02
+Firma/Institut :  Finanzdienstleister
+Projekt        :  Betriebskonzept für Scheduling
+Software       :  CTMAG (Scheduler), T-SQL, MS SQL Server 7, PL/SQL, Oracle
+8.1.5
+Hardware       :  Win NT DB Server, Solaris DB Server
+Aufgaben       :  Anforderungsanalyse und Konzepterstellung
+               :  Aufsetzen des Schedulers und Umstellung des Betriebs
+               :  Definition der Ablaufsteuerung (Verarbeitungsketten,
+Fehlerbehandlung)
+               :  Einführung und Betriebsunterstützung
+ 
+Zeitraum       :  08.01 - 10.01
+Firma/Institut :  Automobilhersteller
+Projekt        :  Framework für eCommerce B2C Anwendungen
+Software       :  Java, JSP, XML, XSL, PDF
+Hardware       :  Solaris Server
+Aufgaben       :  Definition der Anforderungen für printable output (pdf)
+               :  Auswahl von Reporting tools nach Prioritäten
+               :  Vergleichender Test der ausgewählten Reporting tools
+               :  Festlegen von Empfehlungen für Reporting tools
+ 
+Zeitraum       :  04.01 - 07.01
+Firma/Institut :  Finanzdienstleister
+Projekt        :  Integration einer Adressprüfung auf Oracle/Solaris zu einem
+CRM System                 :  auf MS SQL Server 7/Windows NT
+Software       :  T-SQL, MS SQL Server 7, PL/SQL, Oracle 8.1.5
+Hardware       :  Win NT DB Server, Solaris DB Server
+Aufgaben       :  Installation einer Adressprüfung auf Oracle
+               :  Konfiguration der Oracle und MS SQL Server 7 DB und
+Einrichtung DBLink
+               :  Entwicklung einer remote procedure call (T-SQL, PL/SQL)
+Lösung
+               :  Einführung und Betriebsunterstützung
+ 
+Zeitraum       :  07.00 - 03.01
+Firma/Institut :  Finanzdienstleister
+Projekt        :  Entwicklung eines DB-Sicherheitskonzepts für eine Multi
+Mandanten DB
+Software       :  T-SQL, MS SQL Server 7
+Hardware       :  Win NT DB Server
+Aufgaben       :  Anforderungsanalyse und Konzepterstellung
+               :  Erweiterung des DB-Designs um die Mandanteninformation
+               :  Entwicklung der mandanten-orientierten Verarbeitung (T-SQL)
+               :  Erweiterung der mandanten-orientierten Reports (T-SQL)
+               :  Einführung und Betriebsunterstützung
+ 
+Zeitraum       :  01.00 - 06.00
+Firma/Institut :  Finanzdienstleister
+Projekt        :  Entwicklung eines Bonität-Servers
+Software       :  C++, Perl, PL/SQL, MS SQL Server 7
+Hardware       :  Win NT DB Server, Win NT File Server, Win NT Clients
+Aufgaben       :  Projektleitung für den Bonität-Server
+               :  Anforderungsanalyse und Konzepterstellung
+               :  Entwicklung der Schnittstellen zum Auskunftssystem (T-SQL)
+               :  Entwicklung der Importroutinen aus dem CMS System (T-SQL)
+               :  Entwicklung der automatisierten Verarbeitung der Anfragen (T-
+SQL)
+               :  Entwicklung der automatisierten Verarbeitung der
+Rückmeldungen (T-SQL)
+               :  Entwicklung der Outputroutinen zum CMS System (T-SQL)
+               :  Einführung und Betriebsunterstützung
+ 
+Zeitraum       :  01.99 - 10.99
+Firma/Institut :  Softwarehersteller
+Projekt        :  Entwicklung einer Web based Registration (B2C)
+Software       :  HTML, CGI &amp; C, CGI &amp; Perl, PL/SQL, ProC, Unicode
+Hardware       :  SUN/Solaris DB Server, Win NT File Server, Win 9x / NT
+Clients
+Aufgaben       :  Projektleitung für die Web based Registration
+               :  Anforderungsanalyse und Konzepterstellung (Staging DB in der
+DMZ)
+               :  Konfiguration der Umgebung (Staging DB, DMZ, Firewall,
+Produktions DB)
+               :  Entwicklung der Web-Seite (HTML, CGI Programmierung,
+Sprachkontext)
+               :  Entwicklung der Übernahmeroutinen in die Staging DB (PL/SQL,
+Oracle)
+               :  Entwicklung der Übernahmeroutinen in die Produktions DB (PL/
+SQL, Oracle)
+               :  Einführung und Betrieb
+ 
+Zeitraum       :  07.96 - 12.98
+Firma/Institut :  Softwarehersteller
+Projekt        :  Entwicklung eines internen Warenwirtschaftssystems
+Software       :  Oracle 7 DB, Oracle Forms 4.5, Oracle Reports 2.5, PL/SQL, C
+Hardware       :  SUN/Solaris DB Server, Win NT File Server, Win 9x / NT
+Clients
+Aufgaben       :  Projektleitung für das interne Warenwirtschaftssystem
+               :  Anforderungsanalyse und Konzept (Module, Financials
+Schnittstelle)
+               :  DB-Design (Multi-Mandanten, Businesspartner,
+Businesstransaction)
+               :  Entwicklung von Sales Order Entry, Order Fulfillment,
+Registration, ...
+               :  Entwicklung der General Ledger Schnittstelle Oracle
+Financials (PL/SQL)
+               :  Entwicklung der US tax calculation Schnittstelle (PL/SQL)
+               :  Entwicklung der online credit card verification Schnittstelle
+(PL/SQL)
+               :  Entwicklung von Formularen und Standard Report (Oracle
+Reports)
+               :  Einführung und Betrieb
+ 
+Zeitraum       :  01.96 - 06.96
+Firma/Institut :  Automobilzulieferer
+Projekt        :  Entwicklung eines Web-basierten Projektverfolgungssystems
+Software       :  CGI &amp; C, CGI &amp; Perl
+Hardware       :  SUN/Solaris Workstation
+Aufgaben       :  Anforderungsanalyse und Konzepterstellung
+               :  Entwicklung einer Schnittstelle zum Host
+Projektverfolgungssystem
+               :  Aufbereitung der Projektinformationen als interaktive Web-
+Seite
+               :  Einführung und Betrieb
+ 
+Zeitraum       :  01.95 - 12.95
+Firma/Institut :  Automobilzulieferer
+Projekt        :  Verkehrsdatenanalysen und Verkehrsfluß-Simulationen
+Software       :  KEE, Lisp
+Hardware       :  SUN/Solaris Workstation
+Aufgaben       :  Durchführung von Verkehrsdatenanalysen
+               :  Entwicklung eines Fahrer-Fahrzeug-Modells (Lisp)
+               :  Erweiterung des Fahrer-Fahrzeug-Modells um das
+Einfädelverhalten (Lisp)
+               :  Simulation: Verkehrsbeeinflussung in konkreter Umgebung
+               :  Simulation: Fahrzeug mit Bremsassistent im fließenden Verkehr
+               :  Einführung und Betrieb
+ 
+Zeitraum       :  01.94 - 12.94
+Firma/Institut :  Automobilzulieferer
+Projekt        :  Entwicklung von Anwendungen
+Software       :  DEC TeamLinks, DEC Pathworks, MS Win 3.11, MS Excel
+Hardware       :  IBM Mainframe, VAX/VMS Server, Win 3.11 Clients
+Aufgaben       :  Anforderungsanalyse und Konzepterstellung
+               :  Entwicklung eines Investitionsplanungssystems (Excel)
+               :  Entwicklung eines Projektverfolgungssystems (Excel)
+               :  Einführung und Betrieb
+ 
+Zeitraum       :  10.90 - 12.93
+Firma/Institut :  Automobilzulieferer
+Projekt        :  Konzeption und Einführung einer IuK-Infrastruktur
+Software       :  DEC TeamLinks, DEC Pathworks, MS Win 3.11, MS Office
+Hardware       :  VAX/VMS Server, Solaris Server, Win 3.11 Clients
+Aufgaben       :  Anforderungsanalyse und Konzepterstellung
+               :  Konfiguration der Umgebung und Anlegen der Benutzer und
+Rechte
+  &amp;bsp;              :  Installation der Standard-Hardware und Software bei den
+Benutzern
+               :  Konfiguration der Benutzer-Arbeitsplatzsystem in die
+Infrastruktur
+               :  Entwicklung von Email-Vertretungen für die Standardschreiben
+               :  Entwicklung von Vorlagen für die Standardschreiben
+               :  Einführung und Betrieb
+
+Sonstige Anmerkungen:
+Derzeit besonderes fachliches Interesse an:
+    * System/Release/Application Management
+    * Data Warehouse Entwicklung/Weiterentwicklung
+    * Customer Relationship Management
+ 
+Derzeit besonderes technisches Interesse an:
+    * Datenbanken Oracle und SQL Server 2000, PostgreSQL und MySQL
+    * Entwicklung mit Java, C#/.net, Perl oder php
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_11213
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 12.03.2021 16:03:46
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

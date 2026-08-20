@@ -1,0 +1,1811 @@
+net 4.x net core-net6 C# VB.NET VBA MS SQL Oracle, NoSQL(
+RavenDB , Neo4J ) WPF MVVM BackEnd   IoC Reporting, Add-Ins für
+VS.Net/Office ,VSTO, MSBuild
+Top-Skills: Reporting Office net core2-net 6
+EntityFramework WPF/AvaloniaUI ReactiveUI,
+BackEnd SQL Server MySQL neo4j
+Verfügbar ab: 01.10.2021
+verfügbar zu: 50 %
+davon vor Ort: 50 %
+Stundensatz: 55,00 EUR
+Bemerkungen: Teilzeit bevorzugt ( 20-30 Stunden / Woche )
+50 €
+Einsatzort
+Regionen &amp; Länder: D1
+Städte: Berlin 10 km
+Berlin 10 km
+Kontaktwunsch: Ich möchte ausschließlich für Projekte in diesen Einsatzorten
+kontaktiert werden.
+Kommentar: Berlin bevorzugt
+Position
+Kommentar: Senior Softwareentwickler
+Bevorzugte Tätigkeiten:
+C# , VB.NET (.Net 4.x-Dot, Net Core - net 6)
+DB:
+MS SQL Server
+Oracle DB
+MySQL
+noSQL ( RavenDB , Neo4J )
+Entity Framework 5.x-net 6
+BackEnd
+Hosting:
+Microservices/Docker
+IIS/IIS Express
+Reporting:
+MS Reporting Services (RDLC, RDL, ReportBuilder)
+Telerik
+CrystalReports
+23.02.2023 1 von 22
+für NoSQL
+Parser, Transformatoren und Generatoren:
+TT T4 TextTemplating
+Xml/XSLT
+Json
+Add-Ins für VS.Net/Office
+MSBuild (VC++ Custom Build Steps / Page, C# VB.NET)
+MSTest, NUnit
+WCF WSDL WebServices
+Windows Workflow Foundation WF
+WPF:
+Prism Unity
+MVVM MVC MVVMC
+DataBinding
+WPF Custom Controls User Controls Templates Styles
+Telerik Controls
+AvaloniaUI/ReactiveUI/ReactiveProperties
+Projekte
+2006-08 - heute freiberuflich als Programmiererin tätig
+16 Jahre 6 Monate
+2018-02 - 2021-08 MegaLexx
+3 Jahre 7 Monate
+Rolle: Softwareentwickler
+Kunde: MegaLexx
+Einsatzort: Berlin
+Projektinhalte: xml/Xslt to json/tt portierung
+tt/t4 Geeneration
+Konvertierung  eine .NET 4.5 to Core 2.2
+Architekture Forschlag auf Grund von Assembly/Namespace Analyse
+net 2.1-net 6 configuration Logging IHost
+AvaloniaUI/ReactiveUI WPF
+ReportingService
+Kenntnisse: Visual Studio 2017 2019 Visual Studio Code, .Net Core 2.2 3.0, TT T4,
+MSBuild, GitLab, C# bis 9
+Eingesetzte Produkte: VS 2017, VS 2019, VS Code, vs 2022 Preview, Vim NeoVim VsVim
+2017-09 - 2018-02 doctari GmbH
+6 Monate
+Rolle: Softwareentwickler
+Kunde: doctari GmbH
+23.02.2023 2 von 22
+Einsatzort: Berlin
+Projektinhalte: Weiterentwicklung von Excel VSTO Application.
+Einfürung WPF,
+Data Layer MySQL Entity Framework 6,
+Entity Framework Core 2
+Kenntnisse: C#, .NET 4.5, .Net 4.7, .NET Core 2, Entity Framework 6, Entity
+Framework Core 2, MySQL, Excel VSTO, WPF, MVVM, MVC, VB.NET, VBA
+Eingesetzte Produkte: VS 2017, ReSharper, Visual Studio Code, Devart dotConnect for MySQL,
+GitLab, TortoiseGit, GitShell, Hyper-V
+2016-01 - 2017-06 MegaLexx
+1 Jahr 6 Monate
+Rolle: Softwareentwickler
+Kunde: MegaLexx
+Einsatzort: Berlin
+Projektinhalte: Ergänzung C# Anwendung um async Funktionen.  Lock freue Entwicklung
+mit Tasks.
+Konvertierung eine Excel/Word/XML VBA Application auf C# SQL Server
+Express.
+Mehrsprachige Speisekarte. C#, Word
+Kenntnisse: C#, .NET 4.5, MVVM, MVC, TT T4, TextTemplating
+Eingesetzte Produkte: VS 2013-2015, TFS, MSBuild, GhostDoc, ReSharper, Net.Reflector, VS
+2015 Prism, Unity (IoC), Telerik
+2013-05 - 2015-12 migRaven
+2 Jahre 8 Monate
+Rolle: Software Entwickler
+Kunde: Aikux.com GmbH
+Einsatzort: Berlin
+Projektinhalte: Weiterentwicklung von C#-Applikation,
+Ergenzunged für telerik UserControls , Behaviors
+MVVM MVC Ergenyungen für Model ViewModel View
+Translation über DataBinding
+Controllers
+Utilities für .NET
+Umsetzung, Implementierung, Konfiguration, Test
+Kenntnisse: C#, .NET 4.5, MVVM, MVC, TT T4, TextTemplating
+Eingesetzte Produkte: VS 2013-2015, TFS, MSBuild, GhostDoc, ReSharper, Net.Reflector, VS
+2015 Prism, Unity (IoC), Telerik
+23.02.2023 3 von 22
+2013-04 - 2015-12 MegaLexx
+2 Jahre 9 Monate
+Rolle: Software Entwickler
+Einsatzort: Berlin
+Projektinhalte: Auswertung von Statistiken, Office 2003-2007
+                       
+                    VBA/COM(C++),
+                    .Net Externe Office Steuerung Applikationen,
+                    Erweiterungen der Office-Menü/Ribbons System,
+                    XML-Schnittstellen und Erweiterungen
+                    für Verwendung mit VBA.
+                    Integration von Office-Entwicklung in die gesamte
+                    Business-Prozess Abläufe, unter anderem
+                    Reporting- Schnittstellen.
+                    VB.NET, VBA6
+C++ vs VB.NET  Auslesen Active Directory Informationen für        
+                  eingegebene Freigabe VS 2010 Express 
+Kenntnisse: VB.NET, VBA 6, C++, COM+, .NET 3.5, .NET 4.0, Active Directory
+Eingesetzte Produkte: SVN, Visual Studio 2010/2012 Express, Tortoise SVN, Visual SVN, Visual
+SVN Server
+2012-06 - 2012-09 HGL Dynamics GmbH
+4 Monate
+Rolle: Softwateentwickler
+Kunde: HGL Dynamics GmbH
+Einsatzort: Berlin
+Projektinhalte: Weiterentwicklung von C#-Applikation, die Messungsaufträge erfasst,
+verwaltet,und die Messungsergebnisse präsentiert. Umsetzung,
+Implementierung, Konfiguration, Test
+Kenntnisse: MS Build, MS Test, C#, WPF, XAML, Magellan, MVVM, MVC, RavenDB
+Eingesetzte Produkte: Visual Studio 2010, .NET 3.5, .NET 4.0, SVN, Telerik Controls, Telerik
+Reporting
+2011-06 - 2011-09 Softwareentwicklung für Medienunternehmen
+4 Monate
+Rolle: Software Entwicklung
+Kunde: ein Unternehmen der RTL Group
+Einsatzort: Köln
+Projektinhalte: Konzeption, Umsetzung, Implementierung, Konfiguration, Test,
+23.02.2023 4 von 22
+Dokumentation. 
+TCP/IP Client/Server  Programmierung
+SNMP (Client/Server, MIB Generation, XSLT)
+Videoschnitt : OpenCube, MXF
+Kenntnisse: TCP/IP, FTP, SMB, WCF, SOAP, SNMP, Videoschnitt, OpenCube, MXF, T-
+SQL, PL SQL, Oracle 10G, Oracle  11G, NHibernate, C#, WPF, Windows
+Forms, MS Build
+Eingesetzte Produkte: SQL Server 200-2008 R2, Visual Studio 2008, Visual Studio 2010, .NET
+3.5, .NET 4.0, SVN + Python
+2011-02 - 2011-05 Testautomatisierung und Erarbeitung des Testverfahren
+4 Monate nach Hausvorschriften
+Rolle: Software Entwickler
+Kunde: ein Unternehmen der FinanzGruppe Volksbanken Raiffeisenbanken
+Einsatzort: Wiesbaden
+Projektinhalte: Konzeption, Umsetzung, Implementierung, Test
+Reporting, RDLC, DataSets als Datenquelle                      
+Kenntnisse: C#, Visual Studio 2008 AdIns Macro, TDD, DDT (Data Driven Tests), MS
+Build, MS Test Mole Pex, Reporting RDLC, TextTemplating TT T4
+Eingesetzte Produkte: Visual Studio 2008, CA Harvest Software Change Manager
+2010-09 - 2010-12 Weiterentwicklung von bestehenden Softwarelösungen
+4 Monate
+Rolle: Software Entwickler
+Kunde: Führendes Softwarehaus das Software für Rechnungswesen,
+Personalwirtschaft, betriebswirtschaftliche Beratung,Steuerberechnung
+anbietet
+Einsatzort: Nürnberg
+Projektinhalte: Konzeption, Umsetzung, Implementierung,Test, Dokumentation. 
+Umsetzung fuer die neue Pro-Linie.
+Kenntnisse: .NET 3.5, .NET 4.0, MS Build, MS Test, Visual Studio AddIns Macros, WPF,
+XAML-Basierte hauseigene Technology
+Eingesetzte Produkte: Visual Studio 2008, Visual Studio 2010, TFS, NDOC
+2007-03 - 2010-06 Weiterentwicklung von Tarifvergleichsoftware für
+3 Jahre 4 Monate Versicherungen
+Rolle: Software Entwickler
+23.02.2023 5 von 22
+Kunde: PecuPool GmbH
+Einsatzort: Berlin
+Projektinhalte: Datenbankmigrationapplikation, Reporting, Dynamische Reports. GDV-
+Import Anwendung
+Konzeption, Umsetzung, Implementierung,
+Test, Dokumentation
+XSLT-Code Generation, Code Generation in.NET Framework (XML Schema,
+XSLT, CodeDom)
+Kenntnisse: ER-Modellierung, Datenbankdesign, C#, VB.NET, T-SQL, Refactoring, Unit
+Testing, XML, XSLT, HTML, VS Extensibility, VS Isolation Model, VS
+Integration Model, MS-Office AddIns, LINQ, DLINQ, Entity Framework, .
+NET 3.5
+Eingesetzte Produkte: Reporting Services RDL RDLC, MS SQL Server 2005, MS SQL Server 2008,
+MS SQL Server 2008 R2, Report Builder 2
+2008-04 - 2009-04 Weiterentwicklung von bestehenden MFC Anwendungen
+1 Jahr 1 Monat
+Rolle: Software Entwickler
+Kunde: Bosch Access Systems GmbH
+Einsatzort: Würselen
+Projektinhalte: Entwicklung von MFC-Erweiterungs-Bibliotheken und Benutzer-Dialogen
+(MFC-Basierte hauseigene Technologie)
+TCP/IP Client/Server Anwendungen WebServices
+Client (C++.NET 2.0, ATL)
+Konzeption, Umsetzung, Implementierung, Konfigurieren der
+Testumgebung (PC, Virtual PC 2007, VMWare) Test, Dokumentation
+Kenntnisse: C++, MFC, C++.NET, Integration Test, TCP/IP, PL-SQL, .NET 2.0,
+Verification Test
+Eingesetzte Produkte: Tortoise CVS, Win CVS, Push-OK, MS Office 2003, Visual Studio 2008,
+Crystal Reports XI R2, Oracle 10G, VMWare, .NET 2.0, Virtual PC 2007
+2006-08 - 2006-12 Design und Realisierung einer Basis COM+/ WTL
+5 Monate Komponente
+Rolle: Software Entwickler
+Kunde: Gesundheitsfürsorge-Expertensysteme- Anbieter
+Einsatzort: Hochberg/Würzburg
+Projektinhalte: Design und Realisierung einer Basis COM+/ WTL Komponente
+23.02.2023 6 von 22
+aufgrund von bestehenden Messungs- und Interpretations-
+Komponenten. Wichtig dabei war die Konfigurierbarkeit
+der Basiskomponente mit Berücksichtigung von bestehenden
+Test- und Deploymentprozessen, Testautomatisierung und
+Erarbeitung des Verifikationstestverfahren nach
+Hausvorschriften. 
+Konzeption, Umsetzung, Implementierung,Test.
+Kenntnisse: C++, COM, MFC, ATL, WTL, STL, WIN32 API, Windows Controls, ActiveX, .
+NET COM, COM+, C#, WebServices, XML XSLT HTML, XML WSDL
+Eingesetzte Produkte: Visual Studio 6, Visual SourceSafe, SVN, Doxygen, HTML Help
+2002-02 - 2006-06 i2s industrielle Informationssysteme GmbH
+4 Jahre 5 Monate
+Rolle: Software Entwickler
+Kunde: i2s industrielle Informationssysteme GmbH
+Einsatzort: Berlin
+Projektinhalte: Das Unternehmen beschäftigt sich mit der Entwicklung von Software für
+Laborgeräte und die Laborverwaltung für Kunden aus der Auto-und
+Autozulieferindustrie, speziell im Bereich der Prüfung von Autolacken. Für
+eine vereinfachte Bereitstellung habe ich das Tool ILMerge benutzt um
+mehrere Bibliotheken in einer einzigen Bibliothek zu vereinen. 
+Konzeption, Umsetzung, Implementierung, Test, Dokumentation
+Meine Aufgaben umfassten unter anderem die folgenden Aufgabengebiete:
+o           Konzeption, Entwicklung eines Frameworks für
+             attributbasierte XML Sterilisation von Objektstrukturen in
+             .NET Anwendungen. Hierbei wurde deutlich über die
+             vom .NET Framework zur Verfügung gestellten
+             Funktionalitäten hinausgegangen. Unter anderem
+             Berücksichtigung von private Properties,
+             schreibgeschützten Properties, von Property-Prioritäten
+             für Sterilisation/Desterilisation, Informationen über Type
+             Converters
+o           Regular Expression - basierte Type Converter
+o           Mathematische Funktionen
+o            Auslesen und Analysieren von Typinformationen über
+             die .NET Reflection
+o            Automatisierter Import von XML Daten in Datenbanken
+              Access 2000/XP/2003, MS SQL Server 2000/2005,
+             MySQL 4.1
+o           Eine konfigurierbare Logging Komponente. Hier wurde
+             eine OpenSource-Komponente angepasst
+o           Erweiterung der Möglichkeiten des .NET
+             PropertyGrid Controls, sodass eine einfachere
+             Lokalisierung und Anpassung des Aussehens zur
+             Laufzeit möglich ist.
+             Gesteuert wurde das wahlweise über Attribute oder
+             mithilfe von XML-Konfigurationsdaten.
+o           Konzeption, Implementierung einer Komponente zur
+             automatischen Generierung von Reports,
+             - Excel, Crystal Reports (7,.Net, 10)- aus Messdaten.
+             Besonderes Augenmerk hierbei war auf die
+             Konfigurierbarkeit dieses Reports im Rahmen der
+23.02.2023 7 von 22
+             Messauftragserstellung zu richten.
+             Dabei erarbeitete ich die Lösung aller
+             Konfigurationsinformationen über
+             einen einheitlichen Mechanismus in den Auftragsdateien
+             zu speichern und Informationen über die Struktur der
+             Konfigurationsdaten zur Verfügung zu stellen.
+             Diese Vorgehensweise ermöglicht es, Anpassungen an  
+             den Komponenten zur Reporterstellung vorzunehmen,
+             ohne das z. B. die Oberfläche zur Eingabe dieser        
+             Informationen angepasst werden muss
+o           Konzeption, Implementierung einer Komponente zur XML-
+             gesteuerte Baumdarstellung von
+             XML Daten/Datenbankinhalten
+o           Benutzung von .Net Profiler API für Analyse
+             undOptimierung von Speicherverbrauch.
+             Ergebnissedarstellung im Visio
+o           Basisschnittstelle für Gerätesteuerung und Auslesen von
+             Messdaten. Implementierung für TCP/IP und RS232.
+Kenntnisse: .NET 1.x-3.0, C++, C++.NET, WIN32 API, COM, COM+, ATL, TCP/IP,
+JavaScript, VBScript, XML, XSD, XSLT, HTML, VBA, COM .NET, ASP.NET,
+IIS, HTTP, Crystal Reports 7, Crystal Reports .NET, Crystal Reports X,
+XSLT to VBA-Kodegenerierung, MS Office AddIns VBA .NET VB.NET,
+myXaml+VG.NET, XAML, Reporting Services RDLC RDL, XML
+Dokumentation, NDoc, Help VS.NET Projekt, UML RUP, OO Analyse und
+Design, Design Patterns, OMG XMI, Objektorientierte Programmierung,
+Ereignisgesteuerte Programmierung, Extreme Programmierung, UnitTest,
+aspect oriented programming, Reverse Engineering, XML / Runtime
+Serialization, VisualStudio AddOns, Visual Studio Macro, CodeDom,
+Zustandsautomaten, yacc lex, Regular Expression, Windows Scripting WSH
+Eingesetzte Produkte: Visual Basic 5, Visual Basic 6, Visual Studio 2002-2005, MS SQL Server
+2000, MS SQL Server 2005, MS Access 2000 XP 2003, MySQL 4.1, MS
+Office XP 2003, Infragistics NetAdvantage, Xceed Components, Visual
+SourceSafe, SVN, Tortoise SVN, AnkhSVN, MS Visio, Enterprise Architect,
+TestDriven.NET, NUnit, .NET Reflector, ILMerge, grep, Expresso, Coco/R,
+Windows PowerShell
+2001-02 - 2002-04 Alfabet meta-modeling AG
+1 Jahr 3 Monate
+Rolle: Development Support / Programmiererin
+Kunde: Alfabet meta-modeling AG
+Einsatzort: Berlin
+Projektinhalte: Ich habe mehrere Komponenten mit Hilfe des C++Builder für die
+Entwicklungsabteilung der alfabet AG erstellt.
+Weiterhin habe ich eine Windows-Applikation entworfen, welche eine
+komfortable Oberfläche für die Steuerung von NT-Diensten darstellt.
+Zudem habe ich das "Java-Team" in der Weiterentwicklung von
+Web Applikationen unterstützt. Mit der Servlet-Technologie entwarf ich
+einen flexiblen Projektteil, welcher die Darstellung von Modellinhalten
+mithilfe von XML/XSL auf der Server-Seite und CSS auf der Client-Seite
+ermöglichte.
+Zu meinen täglichen Aufgaben gehörte die Erstellung von
+Zwischenreleasen,Testumgebungsvorbereitung und Qualitätssicherung.
+23.02.2023 8 von 22
+Kenntnisse: C++, STL, LDAP (Netscape  API iPlanet Server), Java J2EE, HTML, XML,
+CSS, XSLT, XSD, JavaScript, VBScript, T-SQL, PL-SQL, ODBC (C++),
+JDBC, BDE, ADO, OCI API (Oracle 8i), CORBA IDL, Java, HTTP, JSP,
+Servlets, ASP, XML Data Islands, Deployment von JSP - Seiten, Object
+Pascal, yacc lex, Regular Expression
+Eingesetzte Produkte: Borland C++ 5.x, Borland C++ Builder, Delphi 5.x, Borland JBuilder 4.x 5.
+x, MS SQL Server 7, MS SQL Server 2000, Paradox, Oracle 8i, Borland
+VisiBroker 4.x, Apache HTTP Server, IIS, Apache Tomcat, JRun, Borland
+AppServer 4.x, Doxygen, HTML Help, Windows Installer (1.x 2.x), Install
+Shield Express, grep, Windows Scripting WSH
+1999-11 - 2000-11 DYNAMED GmbH
+1 Jahr 1 Monat
+Rolle: Software Entwickler
+Kunde: DYNAMED GmbH
+Einsatzort: Berlin
+Projektinhalte: Weiterentwicklung von LOGBUCH-Logistiksoftware für das Krankenhaus.
+Materiallogistik. ActiveX - Komponenten für Einbindung in verschiedenen
+Front-Ends der Software.  
+Implementierung, Test, Dokumentation
+Kenntnisse: SQL, DAO, VBA, WIN32 API, MFC, ActiveX, COM, C++, Visual Basic
+Eingesetzte Produkte: MS-Access 97/2000, MS Visio, Visual C++ 5, Visual Basic 5
+1998-03 - 1999-01 Programmiererin der Gruppe Informationstechnologien
+11 Monate
+Rolle: Software Entwickler
+Kunde: Fernsprechamt
+Einsatzort: Orsk / Orenburg / Russland
+1997-05 - 1998-08 Wissenschaftliche Assistentin am Lehrstuhl Informatik
+1 Jahr 4 Monate
+Rolle: und auch Programmiererin / Netzewrkadministratorin
+Kunde: Industrie-Institut
+Einsatzort: Orsk / Orenburg / Russland
+Projektinhalte: Vorbereitung und Durchfürung der Vorlesungen und praktischer Übungen.
+Durchfürung der mündlichen Prüfungen un Klausuren.
+Softwareentwicklung und Netzwerkadministration des Studentenportals.
+23.02.2023 9 von 22
+1995-01 - 1997-04 Programmiererin / Netzwerkadministratorin
+2 Jahre 4 Monate
+Rolle: Programmiererin / Netzwerkadministratorin
+Kunde: Krankenhaus mit Poliklinik
+Einsatzort: Tscheljabinsk / Russland
+1985-08 - 1994-12 Programmiererin der automatischen
+9 Jahre 5 Monate Vermittlungszentrale
+Rolle: Software Entwickler
+Kunde: Fernsprechamt
+Einsatzort: Tscheljabinsk / Russland
+Branchen
+.       EDV-Dienstleister
+            Telekommunikation
+            Gesundheitswesen
+            Versicherungen
+            Aus- / Weiterbildung
+            Sicherheitssysteme
+Messdatenerfassung/Simulation
+Sprachen
+Deutsch gut
+Englisch fließendes Texterfassen
+Russisch Muttersprache
+Kompetenzen
+Produkte / Standards / .NET 1.x
+Erfahrungen / Methoden
+.NET 1.x-3.0
+23.02.2023 10 von 22
+.NET 2.0
+.NET 3.0
+.NET 3.5
+.NET 4.0
+.NET 4.5.2
+.NET COM
+.Net Core 2.2 3.0
+.NET Framework 1.x-4.5.2
+.NET Reflector
+Active Directory
+ActiveX
+ADO
+AnkhSVN
+Apache HTTP Server
+Apache Tomcat
+ASP
+ATL
+Borland AppServer 4.x
+Borland C++ 5.x
+Borland C++ Builder
+Borland JBuilder 4.x 5.x
+Borland VisiBroker 4.x
+Build MSBuild CMake
+C# bis Lang 8.0
+CA Harvest Software
+Change Manager
+Coco/R
+COM
+COM .NET
+COM+
+23.02.2023 11 von 22
+CORBA IDL
+Crystal Reports .NET
+Crystal Reports 7
+Crystal Reports X
+Crystal Reports XI R2
+CSS
+DDT (Data Driven Tests)
+Delphi 5.x
+Deployment von JSP JWA WAR, JBuilder
+Deployment von JSP -
+Seiten
+Devart dotConnect for
+MySQL
+DLINQ
+Dokumentation doxygen, GhostDoc, XML- Dokumentation,
+NDoc, Help VS.Net Project, HTML Help
+Doxygen
+Enterprise Architect
+Entity Framework
+Excel VSTO
+Expresso
+FTP
+GhostDoc
+GitLab
+GitShell
+grep
+Harvest
+Help VS.NET Projekt
+HTML
+HTML Help
+Hyper-V
+IIS
+23.02.2023 12 von 22
+ILMerge
+Infragistics NetAdvantage
+Install Shield Express
+Integration Test
+INTERNET  Apache, IIS, HTTP, HTML  CGI (Ansi C, MFC
+ISAPI)  JSP,  Servlets  JAS (Tomcat,  JRun, 
+Borland AppServer 4.x )  ASP(.Net), XML
+Data Islands  JavaScript, VBScript
+ WebServices(C#, C++.NET 2, C++ ATL)
+Java J2EE
+JRun
+JSP
+KOMPONENTENBASIERTE Corba (Borland VisiBroker 4.x,  C++, Java), 
+SOFTWAREENTWICKLUN IDL,  Com(+),  ATL , Com.Net  (C++, VB,
+G, VERTEILTE SYSTEME: VB.NET,C#)
+LDAP (Netscape  API
+iPlanet Server)
+LINQ
+Magellan
+MegaLexx 79260
+MFC
+Microsoft Visio
+MS Access 2000 XP 2003
+MS Build
+MS Build
+MS Office 2003
+MS Office AddIns VBA
+.NET VB.NET
+MS Office XP 2003
+MS SQL Server 2000
+MS Test
+MS Test Mole Pex
+MS Visio
+MS-Access 97/2000
+MSBuild
+23.02.2023 13 von 22
+MVC MFC, Magellan
+MVVM Prism / Unity
+MXF Videoschnitt
+MySQL 4.1
+myXaml+VG.NET
+NDOC
+Net.Reflector
+NHibernate
+NUnit
+OCI API (Oracle 8i)
+ODBC (C++)
+OpenCube Videoschnitt
+Push-OK
+RavenDB
+Refactoring
+Report Builder 2
+Reporting Crystal Reports (7,.Net, 10,XI R2) (VB5-6,
+VB.NET,C++),  Microsoft SQL Server
+2005/2012 Reporting Services, Report
+Builder 2-3  RDLC, Telerik Reporting  MS
+Office (Add-Ins In VB.NET, C#; VBA , XSLT
+VBA-Code generation  )
+Reporting RDLC
+Reporting Services RDL
+RDLC
+Reporting Services RDLC
+RDL
+ReSharper
+Servlets
+Software Deployment  Windows Installer (1.x, 2.x)  Install Shield
+Express (Borland C++ Builder 5.x)  Orca
+STL
+SVN
+SVN + Python
+Telerik
+23.02.2023 14 von 22
+Telerik Controls
+Telerik Reporting
+Test UnitTest mit NUnit, MSTest, Moq, Moles,Pex
+Testautomatisierung, Data-Driven Tests
+Integration Test, Verification Test
+TestDriven.NET
+TFS
+Tortoise CVS
+Tortoise SVN
+TortoiseGit
+Unit Testing
+UnitTest MS Test NUnut
+Unity (IoC)
+User Interface WPF, XAML, Windows Forms, Infragistics
+NetAdvantage, Xceed Components, Telerik,
+VB 5.x-6.x MFC WTL 7.x-8.x
+Verification Test
+Versionsverwaltung TFS ,  Visual Source Safe  SVN, TortoiseSVN,
+AnkhSVN,  CVS, TortoiseCVS, Push-OK,
+WinCVS , TortoiseGit
+Videoschnitt OpenCube, MXF
+Virtual PC 2007
+Visual Basic 5
+Visual Basic 6
+Visual C++ 5
+Visual SourceSafe
+Visual Studio 2002-2005
+Visual Studio 2008
+Visual Studio 2010
+Visual Studio 2010/2012
+Express
+Visual Studio 6
+Visual Studio AddIns VS Extensibility
+Macros
+Visual Studio Code
+23.02.2023 15 von 22
+Visual Studio Macro
+Visual SVN
+Visual SVN Server
+VisualStudio AddOns
+VMWare
+VS 2013-2015
+VS 2015 Prism
+VS 2017
+VS 2019
+VS Code
+VS Extensibility Isolation Model, Integration Model  Visual
+Studio AddIns Macros
+WCF
+WebServices
+Win CVS
+WIN32 API
+Windows Controls
+Windows Forms
+Windows Installer (1.x
+2.x)
+Windows PowerShell
+Windows Scripting WSH
+WPF Data Binding , Styles, Converters,
+Behaviours , Templates, Custom Controls
+User Controls Theme, Telerik
+WTL
+XAML
+Xceed Components
+XML
+XML Data Islands
+XML Dokumentation
+XML WSDL
+XML XSLT HTML
+23.02.2023 16 von 22
+XSD
+XSLT
+XSLT to VBA-
+Kodegenerierung
+ 
+ 
+Betriebssysteme MS-DOS 3.x-6.x                         5 Jahre
+Novell 3.12-4.x, Novell Dos 7:         2 Jahre
+Unix LinuxMint 17, Red Hat 6.x, PDP11
+3 Jahre
+Windows 3.x,NT,95,98,2000,XP,VISTA ,9, 9.1 10  >
+25 Jahre
+Programmiersprachen .NET 4.5
+.Net 4.7
+.NET Core 2
+ASP.NET
+Assembler PDP11, IBM Großrechner, PC   4 Jahre
+Basic VB5-6,VBA,VB.Net             10 Jahre
+VS 5-6, VS.Net (2002 - 2008),
+.Net Framework 1.x , 2.0,3.x
+.
+C PDP11,PC,  Turbo C (Dos), RS232      4 Jahre
+C# >10 Jahre
+C++
+C++ Borland C++ 3.x - 5.x -, Builder 3.x-5.x
+C++ Microsoft Visual C++3-6 Visual Studio .Net - bis 2010
+.MFC ATL WTL STL .NET
+C++.NET
+Clarion(2.x-3x,DOS) 3 Jahre
+dBaseIV , Clipper 4  Jahre
+Delphi 3-x-5.x 2 Jahr
+Fortran 4 Jahre
+Foxpro 2.x - Visual FoxPro 5           2 Jahre
+Gupta, Centura 1 Jahr
+Java Java J2EE, Borland JBuilder 4.x, 5.x
+23.02.2023 17 von 22
+JavaScript > 5  Jahr
+Object Pascal
+Paradox >2 Jahr
+Pascal 5.x-7.x
+PL SQL
+PL-SQL
+PL/1 4 Jahre
+PL/SQL Oracle 8i,10g 11g
+T-SQL
+TSQL MS SQL Server 7 - 2012
+VB.NET >10 Jahre
+VBA
+VBA 6
+VBScript
+Visual Basic
+yacc/lex Regular Expression, grep
+Expresso, Coco/R, Coco for VS.NET
+.
+ 
+Datenbanken Access 98,2000.XP,2003,2007
+BDE
+Clarion 2.x - 3.x (DOS)
+CODASYL - Datenbanken,
+Rationale Datenbanken,
+Datenbankdesign, ER -
+Modellierung
+DAO
+Entity Framework 6
+Entity Framework Core 2
+Gupta, Centura
+JDBC
+Microsoft DAO, OLEDB, ADO, ADO.NET
+MS SQL Server 7, 2000, 2005 - 2012
+23.02.2023 18 von 22
+MS SQL Server 2005
+MS SQL Server 2008
+MS SQL Server 2008 R2
+MS SQL Server 7
+MySQL 4.1 ODBC.NET Data Provider
+NoSQL RavenDB, Neo4J
+ODBC
+Oracle 8i  OCI API ,10g ODBC,11g .NET, OCI API
+(Oracle 8i)
+Oracle  11G
+Oracle 10G
+Oracle 8i
+Paradox
+SQL FoxPro, Access, T-SQL, PL-SQL (Oracle
+8i,10g,11g)
+SQL Server 200-2008 R2
+xBase FoxPro
+LINQ, DLINQ, Entity Framework (.NET 3.5,4.0)
+Object -> XML->JSPN, XPath  - Mapping
+(SQL Server 2000-2008, Access)
+XML, XSLT (Java, .Net), CSS, Schema etc.
+ 
+Datenkommunikation CORBA Borland VisiBroker 4.x,C++,Java  4 Monate
+FTP
+HTTP
+Internet, Intranet
+ISO/OSI
+Message Queuing
+NetBeui
+NetBios
+Novell
+RS232
+23.02.2023 19 von 22
+SMB
+SNMP
+SOAP
+TCP/IP
+Windows Netzwerk
+Winsock
+Hardware Emulatoren Virtual PC 2004/2007,VMWare 5 Jahre
+IBM Großrechner .                      4 Jahre
+Mikrocontroller .                      2 Jahre
+PC .                                  30 Jahre
+PDP 11                                 3 Jahre
+Design / Entwicklung / .NET Reflection
+Konstruktion
+Aspect oriented NET System.Attribute, Net Reflection , .Net
+Programming ComponentModel,  XML / Runtime
+Serialization
+CMake
+Code Generation in.NET XML Schema, XSLT, CodeDom, VS
+Framework Extensibility,Isolation Model, Integration
+Model, CMake
+CodeDom
+Compilerbau, Parser, yacc, lex, Regular Expression, grep,
+Zustandsautomaten Expresso,  Coco/R, Coco Custom Tool for
+VS.NET
+Datenbankdesign
+DDT Data Driven Tests
+Delegates LINQ DLINQ
+Generics
+Design Patterns
+Domain Driven Design
+ER-Modellierung
+Ereignisgesteuerte
+Programmierung
+Extreme ProgrammierungRefactoring, Unit Test
+Migration von VB 5/6/VBA auf VB.NET/C# (1.x,2.x,3.5)
+von C++ 5/6 auf C++.NET 2.0 / C#
+MS Build
+23.02.2023 20 von 22
+MS-Office AddIns
+Objektorientierte
+Programmierung
+OMG XMI Codegeneration
+OO Analyse und Design UML, Design Patterns  Visio, Enterprise
+Architect
+Regular Expression
+Reverse Engineering RTTI, .Net Reflection
+System.Attribute
+TDD Test Driven Development
+TextTemplating
+TextTemplating TT T4
+TT T4
+UML RUP
+VS Integration Model
+VS Isolation Model
+XAML-Basierte
+hauseigene Technology
+XML / Runtime
+Serialization
+yacc lex
+Zustandsautomaten
+        
+Aus- und Weiterbildung
+1973-09 - 2016-06 Schule
+42 Jahre 10 Monate
+Abschluss: Reifezeugnis (Abitur)
+Institution: Oberschule N 2           Orsk /Orenburg / Russland
+23.02.2023 21 von 22
+1999-03 - 1999-10 Sprachkurs
+8 Monate
+Abschluss: Zeugnis
+Institution: IIK Institut für Interkulturelle Kommunikation e.V. Berlin
+Sprachkurs "Deutsch für Spätaussiedler"
+1995-01 - 1995-03 Weiterbildung
+3 Monate
+Abschluss: Novell Kurse N 205 207 Zertifizierung
+Institution: Staatliches Polytechnisches Institut Tscheljabinsk / Russland
+Netzwerkverwaltung mit Novell 3.12 / Novell DOS 7.0 
+1993-06 - 1993-07 WEITERBILDUNG
+2 Monate
+Abschluss: Zeugnis
+Institution: Staatliches Polytechnisches Institut Tscheljabinsk / Russland
+Windows - Programmierung mit Borland C++
+1983-09 - 1989-07 Studienrichtung : Angewandte Mathematik
+5 Jahre 11 Monate
+Abschluss: Diplom Ingenieurin für Mathematik
+Institution: Staatliches Polytechnisches Institut  Tscheljabinsk / Russland
+Mathematik, Informatik
+anerkannt als Abschluss einer Fachhochschule in der Bundesrepublik
+Deutschland
+23.02.2023 22 von 22
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_79260
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen ID                79260
+  
+Wohnort                    103xx Berlin, Deutschland
+Jahrgang                   1965
+Staatsbürgerschaft         Deutsch
+Stundensatz                55 EUR
+                           Teilzeit bevorzugt ( 20-30 Stunden / Woche ) 50 
+Verfügbar ab               06.01.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         27.07.06
+Profil zuletzt geändert am 29.05.19
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 13.05.2019 14:04:52
+
+Fachlicher Schwerpunkt:
+C# VB.NET C++ VBA MS SQL Oracle, NoSQL( RavenDB , Neo4J ) WPF MVVM MVC BackEnd
+Prism Unity ( IoC ) Reporting, Add-​Ins für VS.Net/Office , VSTO, MSBuild
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Qualitätsmanagement / Qualitätssicherung / Test
+
+Senior Softwareentwickler
+Bevorzugte Tätigkeiten:
+C++ COM ATL WTL MFC STL
+C++.NET
+C#, VB.NET
+WPF MVVM MVC DataBinding
+MS SQL Server 
+Oracle DB 
+MySQL
+noSQL ( RavenDB , Neo4J ) 
+Reporting MS Reporting Services (RDLC, RDL, ReportBuilder 2. x-3. x)
+Telerik Reporting
+Reporting CrystalReports
+Reporting für NoSQL
+Parser, Transformatoren und Generatoren, TT T4 TextTemplating 
+Xml/XSLT
+Add-Ins für VS.Net/Office
+MSBuild (VC++ Custom Build Steps / Page, C# VB.NET)
+MSTest, NUnit
+WPF Custom Controls User Controls Templates Styles
+Telerik Controls
+Windows Communication Foundation WCF WSDL WebServices
+Windows Workflow Foundation WF
+Windows Presentation Foundation WPF Prism Unity MVVM MVC   BackEnd
+
+
+Festanstellung bevorzugt
+
+Voraussetzung für Festanstellung: der Arbeitsort Berlin/Brandenburg und eine
+interessante Entwicklungsaufgabe mit C++/VB.NET/C# entsprechend meines
+fachlichen Schwerpunkts.
+
+Meine Gehaltsvorstellungen bewegen sich bei
+45.000 p. a. Euro pro Jahr - Berlin
+60.000 p. a. Euro pro Jahr - deutschlandweit
+
+Ausbildung:
+09/1973 - 06/2016: Schule
+ 
+Abschluss:          Reifezeugnis (Abitur)
+Institution:        Oberschule N 2           Orsk /Orenburg / Russland
+===============================================================================
+03/1999 - 10/1999: Sprachkurs
+ 
+Abschluss:          Zeugnis
+Institution:        IIK Institut für Interkulturelle Kommunikation e.V. Berlin
+ 
+Schwerpunkt:
+ 
+Sprachkurs "Deutsch für Spätaussiedler"
+===============================================================================
+01/1995 - 03/1995: Weiterbildung
+ 
+Abschluss:          Novell Kurse N 205 207 Zertifizierung
+Institution:        Staatliches Polytechnisches Institut Tscheljabinsk /
+Russland
+ 
+Schwerpunkt:
+ 
+Netzwerkverwaltung mit Novell 3.12 / Novell DOS 7.0 
+===============================================================================
+06/1993 - 07/1993: WEITERBILDUNG
+ 
+Abschluss:          Zeugnis
+Institution:        Staatliches Polytechnisches Institut Tscheljabinsk /
+Russland
+ 
+Schwerpunkt:
+ 
+Windows - Programmierung mit Borland C++
+===============================================================================
+09/1983 - 07/1989: Studienrichtung : Angewandte Mathematik
+ 
+Abschluss:          Diplom Ingenieurin für Mathematik
+Institution:        Staatliches Polytechnisches Institut  Tscheljabinsk /
+Russland
+ 
+Schwerpunkt:
+ 
+Mathematik, Informatik
+anerkannt als Abschluss einer Fachhochschule in der Bundesrepublik Deutschland
+===============================================================================
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7
+im Umkreis von:
+Berlin (10 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Berlin bevorzugt
+
+Fremdsprachen:
+Deutsch  gut
+Englisch fließendes Texterfassen
+Russisch Muttersprache
+
+
+Hardware:
+Emulatoren      Virtual PC 2004/2007,VMWare 5 Jahre
+IBM Großrechner. 4 Jahre
+Mikrocontroller . 2 Jahre
+PC              . 30 Jahre
+PDP             11 3 Jahre
+
+
+Betriebssysteme:
+MS-DOS  3.x-6.x 5 Jahre
+Novell  3.12-4.x, Novell Dos 7: 2 Jahre
+Unix    LinuxMint 17, Red Hat 6.x, PDP11 3 Jahre
+Windows 3.x,NT,95,98,2000,XP,VISTA ,9, 9.1 10 > 25 Jahre
+
+
+Programmiersprachen:
+ASP.NET              
+Assembler           PDP11, IBM Großrechner, PC 4 Jahre
+Basic               VB5-6,VBA,VB.Net 10 Jahre VS 5-6, VS.Net (2002 - 2008),
+                    .Net Framework 1.x , 2.0,3.x .
+C                   PDP11,PC, Turbo C (Dos), RS232 4 Jahre
+C#                  >10 Jahre
+C++                  
+C++ Borland         C++ 3.x - 5.x -, Builder 3.x-5.x
+C++ Microsoft       Visual C++3-6 Visual Studio .Net - bis 2010 .MFC ATL WTL
+                    STL .NET
+Clarion(2.x-3x,DOS) 3 Jahre
+C++.NET              
+dBaseIV , Clipper   4 Jahre
+Delphi 3-x-5.x      2 Jahr
+Fortran             4 Jahre
+Foxpro              2.x - Visual FoxPro 5 2 Jahre
+Gupta, Centura      1 Jahr
+Java                Java J2EE, Borland JBuilder 4.x, 5.x
+JavaScript          > 5 Jahr
+.NET Core 2          
+.NET 4.5             
+.Net 4.7             
+Object Pascal        
+Paradox             >2 Jahr
+Pascal              5.x-7.x
+PL SQL               
+PL-SQL               
+PL/SQL              Oracle 8i,10g 11g
+PL/1                4 Jahre
+T-SQL                
+TSQL                MS SQL Server 7 - 2012
+VBA                  
+VBA 6                
+VB.NET              >10 Jahre
+VBScript             
+Visual Basic         
+yacc/lex            Regular Expression, grep Expresso, Coco/R, Coco for VS.NET
+                    .
+
+ 
+
+Datenbanken:
+Access                             98,2000.XP,2003,2007
+BDE                                 
+Clarion                            2.x - 3.x (DOS)
+CODASYL - Datenbanken, Rationale
+Datenbanken, Datenbankdesign, ER -  
+Modellierung
+DAO                                 
+Entity Framework Core 2             
+Entity Framework 6                  
+Gupta, Centura                      
+JDBC                                
+Microsoft                          DAO, OLEDB, ADO, ADO.NET
+MS SQL Server                      7, 2000, 2005 - 2012
+MS SQL Server 2005                  
+MS SQL Server 2008                  
+MS SQL Server 2008 R2               
+MS SQL Server 7                     
+MySQL                              4.1 ODBC.NET Data Provider
+NoSQL                              RavenDB, Neo4J
+ODBC                                
+Oracle                             8i OCI API ,10g ODBC,11g .NET, OCI API
+                                   (Oracle 8i)
+Oracle  11G                        
+Oracle 10G                          
+Oracle 8i                           
+Paradox                             
+SQL                                FoxPro, Access, T-SQL, PL-SQL (Oracle
+                                   8i,10g,11g)
+SQL Server 200-2008 R2              
+xBase                              FoxPro
+
+LINQ, DLINQ, Entity Framework (.NET 3.5,4.0)
+
+Object -> XML->JSPN, XPath  - Mapping
+(SQL Server 2000-2008, Access)
+
+XML, XSLT (Java, .Net), CSS, Schema etc.
+ 
+ 
+
+Datenkommunikation:
+CORBA              Borland VisiBroker 4.x,C++,Java 4 Monate
+FTP                 
+HTTP                
+Internet, Intranet  
+ISO/OSI             
+Message Queuing     
+NetBeui             
+NetBios             
+Novell              
+RS232               
+SMB                 
+SNMP                
+SOAP                
+TCP/IP              
+Windows Netzwerk    
+Winsock             
+
+
+Design/Entwicklung/Konstruktion:
+Aspect oriented    NET System.Attribute, Net Reflection , .Net ComponentModel,  XML / Runtime
+Programming        Serialization
+CMake               
+Code Generation    XML Schema, XSLT, CodeDom, VS Extensibility,Isolation Model, Integration
+in.NET Framework   Model, CMake
+CodeDom             
+Compilerbau,       yacc, lex, Regular Expression, grep, Expresso,  Coco/R, Coco Custom Tool for
+Parser,            VS.NET
+Zustandsautomaten
+Datenbankdesign     
+DDT                Data Driven Tests
+Delegates LINQ      
+DLINQ Generics
+Design Patterns     
+Domain Driven       
+Design
+Ereignisgesteuerte  
+Programmierung
+ER-Modellierung     
+Extreme            Refactoring, Unit Test
+Programmierung
+Migration          von VB 5/6/VBA auf VB.NET/C# (1.x,2.x,3.5) von C++ 5/6 auf C++.NET 2.0 / C#
+MS Build            
+MS-Office AddIns    
+.NET Reflection     
+Objektorientierte   
+Programmierung
+OMG XMI            Codegeneration
+OO Analyse und     UML, Design Patterns Visio, Enterprise Architect
+Design
+Regular Expression  
+Reverse            RTTI, .Net Reflection
+Engineering
+System.Attribute    
+TDD                Test Driven Development
+TextTemplating      
+TextTemplating TT   
+T4
+TT T4               
+UML RUP             
+VS Integration      
+Model
+VS Isolation Model  
+XAML-Basierte
+hauseigene          
+Technology
+XML / Runtime       
+Serialization
+yacc lex            
+Zustandsautomaten   
+
+ 
+
+Produkte/Standards/Erfahrungen:
+.NET 1.x              
+.NET 1.x-3.0          
+.NET 2.0              
+.NET 3.0              
+.NET 3.5              
+.NET 4.0              
+.NET 4.5.2            
+.NET COM              
+.Net Core 2.2 3.0     
+.NET Framework       1.x-4.5.2
+.NET Reflector        
+Active Directory      
+ActiveX               
+ADO                   
+AnkhSVN               
+Apache HTTP Server    
+Apache Tomcat         
+ASP                   
+ATL                   
+Borland AppServer     
+4.x
+Borland C++ 5.x       
+Borland C++ Builder   
+Borland JBuilder 4.x  
+5.x
+Borland VisiBroker    
+4.x
+Build                MSBuild CMake
+C# bis Lang 8.0       
+CA Harvest Software   
+Change Manager
+Coco/R                
+COM                   
+COM .NET              
+COM+                  
+CORBA IDL             
+Crystal Reports .NET  
+Crystal Reports 7     
+Crystal Reports X     
+Crystal Reports XI    
+R2
+CSS                   
+DDT (Data Driven      
+Tests)
+Delphi 5.x            
+Deployment von JSP   JWA WAR, JBuilder
+Deployment von JSP -  
+Seiten
+Devart dotConnect     
+for MySQL
+DLINQ                 
+Dokumentation        doxygen, GhostDoc, XML- Dokumentation, NDoc, Help VS.Net Project, HTML Help
+Doxygen               
+Enterprise Architect  
+Entity Framework      
+Excel VSTO            
+Expresso              
+FTP                   
+GhostDoc              
+GitLab                
+GitShell              
+grep                  
+Harvest               
+Help VS.NET Projekt   
+HTML                  
+HTML Help             
+Hyper-V               
+IIS                   
+ILMerge               
+Infragistics          
+NetAdvantage
+Install Shield        
+Express
+Integration Test      
+                      Apache, IIS, HTTP, HTML  CGI (Ansi C, MFC ISAPI)  JSP,  Servlets  JAS (Tomcat, 
+INTERNET             JRun,  Borland AppServer 4.x )  ASP(.Net), XML Data Islands  JavaScript, VBScript
+                      WebServices(C#, C++.NET 2, C++ ATL)
+Java J2EE             
+JRun                  
+JSP                   
+KOMPONENTENBASIERTE   Corba (Borland VisiBroker 4.x,  C++, Java),  IDL,  Com(+),  ATL , Com.Net  (C++,
+SOFTWAREENTWICKLUNG, VB, VB.NET,C#)
+VERTEILTE SYSTEME:
+LDAP (Netscape API    
+iPlanet Server)
+LINQ                  
+Magellan              
+MegaLexx             79260
+MFC                   
+Microsoft Visio       
+MS Access 2000 XP     
+2003
+MS Build              
+MS Build              
+MS Office 2003        
+MS Office AddIns VBA  
+.NET VB.NET
+MS Office XP 2003     
+MS SQL Server 2000    
+MS Test               
+MS Test Mole Pex      
+MS Visio              
+MS-Access 97/2000     
+MSBuild               
+MVC                  MFC, Magellan
+MVVM                 Prism / Unity
+MXF                  Videoschnitt
+MySQL 4.1             
+myXaml+VG.NET         
+NDOC                  
+Net.Reflector         
+NHibernate            
+NUnit                 
+OCI API (Oracle 8i)   
+ODBC (C++)            
+OpenCube             Videoschnitt
+Push-OK               
+RavenDB               
+Refactoring           
+Report Builder 2      
+                     Crystal Reports (7,.Net, 10,XI R2) (VB5-6, VB.NET,C++),  Microsoft SQL Server
+Reporting            2005/2012 Reporting Services, Report Builder 2-3  RDLC, Telerik Reporting  MS
+                     Office (Add-Ins In VB.NET, C#; VBA , XSLT VBA-Code generation  )
+Reporting RDLC        
+Reporting Services    
+RDL RDLC
+Reporting Services    
+RDLC RDL
+ReSharper             
+Servlets              
+Software Deployment   Windows Installer (1.x, 2.x)  Install Shield Express (Borland C++ Builder 5.x)
+                      Orca
+STL                   
+SVN                   
+SVN + Python          
+Telerik               
+Telerik Controls      
+Telerik Reporting     
+Test                 UnitTest mit NUnit, MSTest, Moq, Moles,Pex Testautomatisierung, Data-Driven Tests
+                     Integration Test, Verification Test
+TestDriven.NET        
+TFS                   
+Tortoise CVS          
+Tortoise SVN          
+TortoiseGit           
+Unit Testing          
+UnitTest             MS Test NUnut
+Unity (IoC)           
+User Interface       WPF, XAML, Windows Forms, Infragistics NetAdvantage, Xceed Components, Telerik, VB
+                     5.x-6.x MFC WTL 7.x-8.x
+Verification Test     
+Versionsverwaltung   TFS ,  Visual Source Safe  SVN, TortoiseSVN, AnkhSVN,  CVS, TortoiseCVS, Push-OK,
+                     WinCVS , TortoiseGit
+Videoschnitt         OpenCube, MXF
+Virtual PC 2007       
+Visual Basic 5        
+Visual Basic 6        
+Visual C++ 5          
+Visual SourceSafe     
+Visual Studio 2002-   
+2005
+Visual Studio 2008    
+Visual Studio 2010    
+Visual Studio 2010/   
+2012 Express
+Visual Studio 6       
+Visual Studio AddIns VS Extensibility
+Macros
+Visual Studio Code    
+Visual Studio Macro   
+Visual SVN            
+Visual SVN Server     
+VisualStudio AddOns   
+VMWare                
+VS 2013-2015          
+VS 2015 Prism         
+VS 2017               
+VS 2019               
+VS Code               
+VS Extensibility     Isolation Model, Integration Model Visual Studio AddIns Macros
+WCF                   
+WebServices           
+Win CVS               
+WIN32 API             
+Windows Controls      
+Windows Forms         
+Windows Installer     
+(1.x 2.x)
+Windows PowerShell    
+Windows Scripting     
+WSH
+WPF                  Data Binding , Styles, Converters, Behaviours , Templates, Custom Controls User
+                     Controls Theme, Telerik
+WTL                   
+XAML                  
+Xceed Components      
+XML                   
+XML Data Islands      
+XML Dokumentation     
+XML WSDL              
+XML XSLT HTML         
+XSD                   
+XSLT                  
+XSLT to VBA-          
+Kodegenerierung
+ 
+ 
+
+Branchen:
+.       EDV-Dienstleister
+Telekommunikation
+Gesundheitswesen
+Versicherungen
+Aus- / Weiterbildung
+Sicherheitssysteme
+Messdatenerfassung/Simulation
+
+Projekte:
+08/2006 - heute: freiberuflich als Programmiererin tätig
+ 
+===============================================================================
+02/2018 - 12/2018: MegaLexx
+ 
+Einsatzort:         Berlin
+Rolle:              Softwareentwickler
+Kunde:              MegaLexx
+ 
+Aufgaben:
+ 
+xml/Xslt to json/tt portierung
+Konvertierung  eine .NET 4.5 to Core 2.2
+ 
+Kenntnisse:
+ 
+Visual Studio 2017 2019 Visual Studio Code, .Net Core 2.2 3.0, C# bis Lang 8.0,
+TT T4, MSBuild, GitLab
+ 
+Eingesetzte Produkte:
+ 
+VS 2017, VS 2019, VS Code
+===============================================================================
+09/2017 - 02/2018: doctari GmbH
+ 
+Einsatzort:         Berlin
+Rolle:              Softwareentwickler
+Kunde:              doctari GmbH
+ 
+Aufgaben:
+ 
+Weiterentwicklung von Excel VSTO Application.
+Einfürung WPF,
+Data Layer MySQL Entity Framework 6,
+Entity Framework Core 2
+ 
+Kenntnisse:
+ 
+C#, .NET 4.5, .Net 4.7, .NET Core 2, Entity Framework 6, Entity Framework Core
+2, MySQL, Excel VSTO, WPF, MVVM, MVC, VB.NET, VBA
+ 
+Eingesetzte Produkte:
+ 
+VS 2017, ReSharper, Visual Studio Code, Devart dotConnect for MySQL, GitLab,
+TortoiseGit, GitShell, Hyper-V
+===============================================================================
+01/2016 - 06/2017: MegaLexx
+ 
+Einsatzort:         Berlin
+Rolle:              Softwareentwickler
+Kunde:              MegaLexx
+ 
+Aufgaben:
+ 
+Ergänzung C# Anwendung um async Funktionen.  Lock freue Entwicklung mit Tasks.
+ 
+Konvertierung eine Excel/Word/XML VBA Application auf C# SQL Server Express.
+ 
+Mehrsprachige Speisekarte. C#, Word
+ 
+Kenntnisse:
+ 
+C#, .NET 4.5, MVVM, MVC, TT T4, TextTemplating
+ 
+Eingesetzte Produkte:
+ 
+VS 2013-2015, TFS, MSBuild, GhostDoc, ReSharper, Net.Reflector, VS 2015 Prism,
+Unity (IoC), Telerik
+===============================================================================
+05/2013 - 12/2015: migRaven
+ 
+Einsatzort:         Berlin
+Rolle:              Software Entwickler
+Kunde:              Aikux.com GmbH
+Unternehmensgröße:  < 50
+Branche:            IT-Dienstleistungen
+ 
+Aufgaben:
+ 
+Weiterentwicklung von C#-Applikation,
+Ergenzunged für telerik UserControls , Behaviors
+MVVM MVC Ergenyungen für Model ViewModel View
+Translation über DataBinding
+Controllers
+Utilities für .NET
+Umsetzung, Implementierung, Konfiguration, Test
+ 
+Kenntnisse:
+ 
+C#, .NET 4.5, MVVM, MVC, TT T4, TextTemplating
+ 
+Eingesetzte Produkte:
+ 
+VS 2013-2015, TFS, MSBuild, GhostDoc, ReSharper, Net.Reflector, VS 2015 Prism,
+Unity (IoC), Telerik
+===============================================================================
+04/2013 - 12/2015: MegaLexx
+ 
+Einsatzort:         Berlin
+Rolle:              Software Entwickler
+ 
+Aufgaben:
+ 
+Auswertung von Statistiken, Office 2003-2007
+                       
+                    VBA/COM(C++),
+                    .Net Externe Office Steuerung Applikationen,
+                    Erweiterungen der Office-Menü/Ribbons System,
+                    XML-Schnittstellen und Erweiterungen
+                    für Verwendung mit VBA.
+                    Integration von Office-Entwicklung in die gesamte
+                    Business-Prozess Abläufe, unter anderem
+                    Reporting- Schnittstellen.
+                    VB.NET, VBA6
+C++ vs VB.NET  Auslesen Active Directory Informationen für        
+                  eingegebene Freigabe VS 2010 Express 
+ 
+ 
+Kenntnisse:
+ 
+VB.NET, VBA 6, C++, COM+, .NET 3.5, .NET 4.0, Active Directory
+ 
+Eingesetzte Produkte:
+ 
+SVN, Visual Studio 2010/2012 Express, Tortoise SVN, Visual SVN, Visual SVN
+Server
+===============================================================================
+06/2012 - 09/2012: HGL Dynamics GmbH
+ 
+Einsatzort:         Berlin
+Rolle:              Softwateentwickler
+Kunde:              HGL Dynamics GmbH
+ 
+Aufgaben:
+ 
+Weiterentwicklung von C#-Applikation, die Messungsaufträge erfasst,
+verwaltet,und die Messungsergebnisse präsentiert. Umsetzung, Implementierung,
+Konfiguration, Test
+ 
+Kenntnisse:
+ 
+MS Build, MS Test, C#, WPF, XAML, Magellan, MVVM, MVC, RavenDB
+ 
+Eingesetzte Produkte:
+ 
+Visual Studio 2010, .NET 3.5, .NET 4.0, SVN, Telerik Controls, Telerik
+Reporting
+===============================================================================
+06/2011 - 09/2011: Softwareentwicklung für Medienunternehmen
+ 
+Einsatzort:         Köln
+Rolle:              Software Entwicklung
+Kunde:              ein Unternehmen der RTL Group
+ 
+Aufgaben:
+ 
+Konzeption, Umsetzung, Implementierung, Konfiguration, Test, Dokumentation. 
+TCP/IP Client/Server  Programmierung
+SNMP (Client/Server, MIB Generation, XSLT)
+Videoschnitt : OpenCube, MXF
+ 
+Kenntnisse:
+ 
+TCP/IP, FTP, SMB, WCF, SOAP, SNMP, Videoschnitt, OpenCube, MXF, T-SQL, PL SQL,
+Oracle 10G, Oracle  11G, NHibernate, C#, WPF, Windows Forms, MS Build
+ 
+Eingesetzte Produkte:
+ 
+SQL Server 200-2008 R2, Visual Studio 2008, Visual Studio 2010, .NET 3.5, .NET
+4.0, SVN + Python
+===============================================================================
+02/2011 - 05/2011: Testautomatisierung und Erarbeitung des Testverfahren nach
+Hausvorschriften
+ 
+Einsatzort:         Wiesbaden
+Rolle:              Software Entwickler
+Kunde:              ein Unternehmen der FinanzGruppe Volksbanken
+Raiffeisenbanken
+ 
+Aufgaben:
+ 
+Konzeption, Umsetzung, Implementierung, Test
+Reporting, RDLC, DataSets als Datenquelle                      
+ 
+Kenntnisse:
+ 
+C#, Visual Studio 2008 AdIns Macro, TDD, DDT (Data Driven Tests), MS Build, MS
+Test Mole Pex, Reporting RDLC, TextTemplating TT T4
+ 
+Eingesetzte Produkte:
+ 
+Visual Studio 2008, CA Harvest Software Change Manager
+===============================================================================
+09/2010 - 12/2010: Weiterentwicklung von bestehenden Softwarelösungen
+ 
+Einsatzort:         Nürnberg
+Rolle:              Software Entwickler
+Kunde:              Führendes Softwarehaus das Software für
+Rechnungswesen,Personalwirtschaft, betriebswirtschaftliche
+Beratung,Steuerberechnung anbietet
+ 
+Aufgaben:
+ 
+Konzeption, Umsetzung, Implementierung,Test, Dokumentation. 
+Umsetzung fuer die neue Pro-Linie.
+
+ 
+Kenntnisse:
+ 
+.NET 3.5, .NET 4.0, MS Build, MS Test, Visual Studio AddIns Macros, WPF, XAML-
+Basierte hauseigene Technology
+ 
+Eingesetzte Produkte:
+ 
+Visual Studio 2008, Visual Studio 2010, TFS, NDOC
+===============================================================================
+03/2007 - 06/2010: Weiterentwicklung von Tarifvergleichsoftware für
+Versicherungen
+ 
+Einsatzort:         Berlin
+Rolle:              Software Entwickler
+Kunde:              PecuPool GmbH
+ 
+Aufgaben:
+ 
+Datenbankmigrationapplikation, Reporting, Dynamische Reports. GDV-Import
+Anwendung
+Konzeption, Umsetzung, Implementierung,
+Test, Dokumentation
+XSLT-Code Generation, Code Generation in.NET Framework (XML Schema, XSLT,
+CodeDom)
+
+
+ 
+Kenntnisse:
+ 
+ER-Modellierung, Datenbankdesign, C#, VB.NET, T-SQL, Refactoring, Unit Testing,
+XML, XSLT, HTML, VS Extensibility, VS Isolation Model, VS Integration Model,
+MS-Office AddIns, LINQ, DLINQ, Entity Framework, .NET 3.5
+ 
+Eingesetzte Produkte:
+ 
+Reporting Services RDL RDLC, MS SQL Server 2005, MS SQL Server 2008, MS SQL
+Server 2008 R2, Report Builder 2
+===============================================================================
+04/2008 - 04/2009: Weiterentwicklung von bestehenden MFC Anwendungen
+ 
+Einsatzort:         Würselen
+Rolle:              Software Entwickler
+Kunde:              Bosch Access Systems GmbH
+ 
+Aufgaben:
+ 
+Entwicklung von MFC-Erweiterungs-Bibliotheken und Benutzer-Dialogen (MFC-
+Basierte hauseigene Technologie)
+TCP/IP Client/Server Anwendungen WebServices
+Client (C++.NET 2.0, ATL)
+Konzeption, Umsetzung, Implementierung, Konfigurieren der Testumgebung (PC,
+Virtual PC 2007, VMWare) Test, Dokumentation
+
+ 
+Kenntnisse:
+ 
+C++, MFC, C++.NET, Integration Test, TCP/IP, PL-SQL, .NET 2.0, Verification
+Test
+ 
+Eingesetzte Produkte:
+ 
+Tortoise CVS, Win CVS, Push-OK, MS Office 2003, Visual Studio 2008, Crystal
+Reports XI R2, Oracle 10G, VMWare, .NET 2.0, Virtual PC 2007
+===============================================================================
+08/2006 - 12/2006: Design und Realisierung einer Basis COM+/ WTL Komponente
+ 
+Einsatzort:         Hochberg/Würzburg
+Rolle:              Software Entwickler
+Kunde:              Gesundheitsfürsorge-Expertensysteme- Anbieter
+ 
+Aufgaben:
+ 
+Design und Realisierung einer Basis COM+/ WTL Komponente
+aufgrund von bestehenden Messungs- und Interpretations-
+Komponenten. Wichtig dabei war die Konfigurierbarkeit
+der Basiskomponente mit Berücksichtigung von bestehenden
+Test- und Deploymentprozessen, Testautomatisierung und
+Erarbeitung des Verifikationstestverfahren nach
+Hausvorschriften. 
+Konzeption, Umsetzung, Implementierung,Test.
+ 
+Kenntnisse:
+ 
+C++, COM, MFC, ATL, WTL, STL, WIN32 API, Windows Controls, ActiveX, .NET COM,
+COM+, C#, WebServices, XML XSLT HTML, XML WSDL
+ 
+Eingesetzte Produkte:
+ 
+Visual Studio 6, Visual SourceSafe, SVN, Doxygen, HTML Help
+===============================================================================
+02/2002 - 06/2006: i2s industrielle Informationssysteme GmbH
+ 
+Einsatzort:         Berlin
+Rolle:              Software Entwickler
+Kunde:              i2s industrielle Informationssysteme GmbH
+ 
+Aufgaben:
+ 
+Das Unternehmen beschäftigt sich mit der Entwicklung von Software für
+Laborgeräte und die Laborverwaltung für Kunden aus der Auto-und
+Autozulieferindustrie, speziell im Bereich der Prüfung von Autolacken. Für eine
+vereinfachte Bereitstellung habe ich das Tool ILMerge benutzt um mehrere
+Bibliotheken in einer einzigen Bibliothek zu vereinen. 
+Konzeption, Umsetzung, Implementierung, Test, Dokumentation
+
+Meine Aufgaben umfassten unter anderem die folgenden Aufgabengebiete:
+o           Konzeption, Entwicklung eines Frameworks für
+             attributbasierte XML Sterilisation von Objektstrukturen in
+             .NET Anwendungen. Hierbei wurde deutlich über die
+             vom .NET Framework zur Verfügung gestellten
+             Funktionalitäten hinausgegangen. Unter anderem
+             Berücksichtigung von private Properties,
+             schreibgeschützten Properties, von Property-Prioritäten
+             für Sterilisation/Desterilisation, Informationen über Type
+             Converters
+o           Regular Expression - basierte Type Converter
+o           Mathematische Funktionen
+o            Auslesen und Analysieren von Typinformationen über
+             die .NET Reflection
+o            Automatisierter Import von XML Daten in Datenbanken
+              Access 2000/XP/2003, MS SQL Server 2000/2005,
+             MySQL 4.1
+o           Eine konfigurierbare Logging Komponente. Hier wurde
+             eine OpenSource-Komponente angepasst
+o           Erweiterung der Möglichkeiten des .NET
+             PropertyGrid Controls, sodass eine einfachere
+             Lokalisierung und Anpassung des Aussehens zur
+             Laufzeit möglich ist.
+             Gesteuert wurde das wahlweise über Attribute oder
+             mithilfe von XML-Konfigurationsdaten.
+o           Konzeption, Implementierung einer Komponente zur
+             automatischen Generierung von Reports,
+             - Excel, Crystal Reports (7,.Net, 10)- aus Messdaten.
+             Besonderes Augenmerk hierbei war auf die
+             Konfigurierbarkeit dieses Reports im Rahmen der
+             Messauftragserstellung zu richten.
+             Dabei erarbeitete ich die Lösung aller
+             Konfigurationsinformationen über
+             einen einheitlichen Mechanismus in den Auftragsdateien
+             zu speichern und Informationen über die Struktur der
+             Konfigurationsdaten zur Verfügung zu stellen.
+             Diese Vorgehensweise ermöglicht es, Anpassungen an  
+             den Komponenten zur Reporterstellung vorzunehmen,
+             ohne das z. B. die Oberfläche zur Eingabe dieser        
+             Informationen angepasst werden muss
+o           Konzeption, Implementierung einer Komponente zur XML-
+             gesteuerte Baumdarstellung von
+             XML Daten/Datenbankinhalten
+o           Benutzung von .Net Profiler API für Analyse
+             undOptimierung von Speicherverbrauch.
+             Ergebnissedarstellung im Visio
+o           Basisschnittstelle für Gerätesteuerung und Auslesen von
+             Messdaten. Implementierung für TCP/IP und RS232.
+ 
+Kenntnisse:
+ 
+.NET 1.x-3.0, C++, C++.NET, WIN32 API, COM, COM+, ATL, TCP/IP, JavaScript,
+VBScript, XML, XSD, XSLT, HTML, VBA, COM .NET, ASP.NET, IIS, HTTP, Crystal
+Reports 7, Crystal Reports .NET, Crystal Reports X, XSLT to VBA-
+Kodegenerierung, MS Office AddIns VBA .NET VB.NET, myXaml+VG.NET, XAML,
+Reporting Services RDLC RDL, XML Dokumentation, NDoc, Help VS.NET Projekt, UML
+RUP, OO Analyse und Design, Design Patterns, OMG XMI, Objektorientierte
+Programmierung, Ereignisgesteuerte Programmierung, Extreme Programmierung,
+UnitTest, aspect oriented programming, Reverse Engineering, XML / Runtime
+Serialization, VisualStudio AddOns, Visual Studio Macro, CodeDom,
+Zustandsautomaten, yacc lex, Regular Expression, Windows Scripting WSH
+ 
+Eingesetzte Produkte:
+ 
+Visual Basic 5, Visual Basic 6, Visual Studio 2002-2005, MS SQL Server 2000, MS
+SQL Server 2005, MS Access 2000 XP 2003, MySQL 4.1, MS Office XP 2003,
+Infragistics NetAdvantage, Xceed Components, Visual SourceSafe, SVN, Tortoise
+SVN, AnkhSVN, MS Visio, Enterprise Architect, TestDriven.NET, NUnit, .NET
+Reflector, ILMerge, grep, Expresso, Coco/R, Windows PowerShell
+===============================================================================
+02/2001 - 04/2002: Alfabet meta-modeling AG
+ 
+Einsatzort:         Berlin
+Rolle:              Development Support / Programmiererin
+Kunde:              Alfabet meta-modeling AG
+ 
+Aufgaben:
+ 
+Ich habe mehrere Komponenten mit Hilfe des C++Builder für die
+Entwicklungsabteilung der alfabet AG erstellt.
+Weiterhin habe ich eine Windows-Applikation entworfen, welche eine komfortable
+Oberfläche für die Steuerung von NT-Diensten darstellt.
+Zudem habe ich das "Java-Team" in der Weiterentwicklung von
+Web Applikationen unterstützt. Mit der Servlet-Technologie entwarf ich
+einen flexiblen Projektteil, welcher die Darstellung von Modellinhalten
+mithilfe von XML/XSL auf der Server-Seite und CSS auf der Client-Seite
+ermöglichte.
+Zu meinen täglichen Aufgaben gehörte die Erstellung von
+Zwischenreleasen,Testumgebungsvorbereitung und Qualitätssicherung.
+ 
+Kenntnisse:
+ 
+C++, STL, LDAP (Netscape  API iPlanet Server), Java J2EE, HTML, XML, CSS, XSLT,
+XSD, JavaScript, VBScript, T-SQL, PL-SQL, ODBC (C++), JDBC, BDE, ADO, OCI API
+(Oracle 8i), CORBA IDL, Java, HTTP, JSP, Servlets, ASP, XML Data Islands,
+Deployment von JSP - Seiten, Object Pascal, yacc lex, Regular Expression
+ 
+Eingesetzte Produkte:
+ 
+Borland C++ 5.x, Borland C++ Builder, Delphi 5.x, Borland JBuilder 4.x 5.x, MS
+SQL Server 7, MS SQL Server 2000, Paradox, Oracle 8i, Borland VisiBroker 4.x,
+Apache HTTP Server, IIS, Apache Tomcat, JRun, Borland AppServer 4.x, Doxygen,
+HTML Help, Windows Installer (1.x 2.x), Install Shield Express, grep, Windows
+Scripting WSH
+===============================================================================
+11/1999 - 11/2000: DYNAMED GmbH
+ 
+Einsatzort:         Berlin
+Rolle:              Software Entwickler
+Kunde:              DYNAMED GmbH
+ 
+Aufgaben:
+ 
+Weiterentwicklung von LOGBUCH-Logistiksoftware für das Krankenhaus.
+Materiallogistik. ActiveX - Komponenten für Einbindung in verschiedenen Front-
+Ends der Software.  
+Implementierung, Test, Dokumentation
+ 
+Kenntnisse:
+ 
+SQL, DAO, VBA, WIN32 API, MFC, ActiveX, COM, C++, Visual Basic
+ 
+Eingesetzte Produkte:
+ 
+MS-Access 97/2000, MS Visio, Visual C++ 5, Visual Basic 5
+===============================================================================
+03/1998 - 01/1999: Programmiererin der Gruppe Informationstechnologien
+ 
+Einsatzort:         Orsk / Orenburg / Russland
+Rolle:              Software Entwickler
+Kunde:              Fernsprechamt
+===============================================================================
+05/1997 - 08/1998: Wissenschaftliche Assistentin am Lehrstuhl Informatik
+ 
+Einsatzort:         Orsk / Orenburg / Russland
+Rolle:              und auch Programmiererin / Netzewrkadministratorin
+Kunde:              Industrie-Institut
+ 
+Aufgaben:
+ 
+Vorbereitung und Durchfürung der Vorlesungen und praktischer Übungen.
+Durchfürung der mündlichen Prüfungen un Klausuren.
+Softwareentwicklung und Netzwerkadministration des Studentenportals.
+
+===============================================================================
+01/1995 - 04/1997: Programmiererin / Netzwerkadministratorin
+ 
+Einsatzort:         Tscheljabinsk / Russland
+Rolle:              Programmiererin / Netzwerkadministratorin
+Kunde:              Krankenhaus mit Poliklinik
+===============================================================================
+08/1985 - 12/1994: Programmiererin der automatischen Vermittlungszentrale
+ 
+Einsatzort:         Tscheljabinsk / Russland
+Rolle:              Software Entwickler
+Kunde:              Fernsprechamt
+===============================================================================
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_79260
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 30.05.2019 00:49:58
+© Copyright 1996-2019 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

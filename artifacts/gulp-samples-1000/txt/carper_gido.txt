@@ -1,0 +1,1347 @@
+Frontend entwicklung, reactjs, angular, JavaScript, TypeScript, CSS,
+PHP, Frontend / Backend
+Top-Skills: Angular, ReactJS, JavaScript, CSS3, CSS,
+HTML, PHP 7
+Verfügbar ab: 04.06.2020
+verfügbar zu: 50 %
+davon vor Ort: 0 %
+Stundensatz: 75,00 EUR
+Einsatzort
+Regionen &amp; Länder: D2
+Städte: Hamburg 10 km
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte ausschließlich für Projekte in diesen Einsatzorten
+kontaktiert werden.
+Kommentar: Aufträge ausserhalb von Hamburg nur 100% remote
+Corona Bedingt im Moment nur noch Homeoffice
+Projekte
+2017-09 - 2018-02 Frontend Entwicklung mit ReactJs für eine Agentur
+6 Monate
+Rolle: Frontend entwickler
+Kunde: Cellular
+Einsatzort: Hamburg
+Kenntnisse: React, amp, html, CSS(3), Sass, JavaScript, TypeScript
+2017-06 - 2017-08 Für WG suche habe ich mich zu meist code refactoring,
+3 Monate Projekt restrukuring gemacht und einzelne neue
+features im Team
+13.03.2023 1 von 14
+Kenntnisse: AngularJS 1.55, TypeScript 2.2, Webpack, css3, html
+2017-05 - 2017-05 Im Auftrag der neusta consulting GmbH habe ich für
+1 Monat deren Tochter Firma Trusted Blogs mehrere neue
+Landing pages erstellt in zusammen Arbeit mit deren
+backend Programmierer.
+Kenntnisse: PHP symphony (bisschen), JavaScript, Jquery, Twig, html, css
+2016-08 - 2017-04 Frontend Entwicklung mit AngularJS 2
+9 Monate
+Rolle: Frontend entwicklung mit AngularJS 2
+Kunde: Wacku
+Einsatzort: Hamburg
+Projektinhalte: Erstellung einer one page community webseite mit AngularJS 2
+Kenntnisse: AngularJS 2, Angular, TypeScript, scss, redux
+2012-10 - 2016-08 [Name auf Anfrage] / World-Street-Photography
+3 Jahre 11 Monate
+Rolle: Projektleitung, Programmierung, Conception
+Kunde: Projekt im eigen Regie
+Einsatzort: Hamburg
+Projektinhalte: Photographieren ist mein Hobby und daraus ist eine lange Geschichte
+entstanden... ein kurze Versuch...
+Seit Oktober 2012 habe ich angefangen einen Foto Community
+aufzubauen der relative erfolgreich geworden ist und im Moment
+immer stärker wachst. Die Idee von Foto Sharing fand ich etwas zu
+dünn und habe zuerst mit 100 Fotografen vorgeschlagen zusammen
+ein Foto Buch zu Erstellen und der Gewinn zu Spenden an einen
+Wohltätigkeit Organisation.
+Da es für so was eine Facebook Seite gibt oder community gibt habe ich
+dafür eins programmiert. Mittele weile sind wir über 5000 Mitglieder aus
+120 Länder in der Welt, wurde 70,000 Fotos hochgeladen, haben um die
+12.000 Pageviews und 1200 Besucher pro Tag Tendenz steigend, 10
+freiwillige im Team, haben 8 Foto Bücher gemacht, 18 Wasserbrunnen
+gebaut, 1 Waisenhaus neugebaut in Kapstadt, 1 Waisenhaus in Kolkota
+wird dauerhaft unterstützt, das 9. Buch wird offiziell von einem Verlag
+Ausgegeben mit Ausstellung im Sommer.
+Die komplette Programmierung sowohl Frontend als backend habe ich
+gemacht. Das ganze basiert auf ein eigenes MVC mit Smarty als view auf
+PHP Basis mit einem MySQL. Gerade im Moment wird die Seite umgezogen
+nach einem multiple Cloud Server System (incl loadbalancer).
+Weiter funktionaliäten:
+- Hochladen von Bilder per drag and drop, und Erstellen von eigene
+Thumbnails
+13.03.2023 2 von 14
+- Voting System für Wettbewerben und Fotobücher
+- Diskussion Forum für jede Wettbewerb/Fotobuch
+- Folgen von andere Benutzer
+- Messages: Benachrichtigen von jegliche Art von Nachrichten.
+- Benutzer können eigene Blogs erstellen.
+- Suche nach Benutzer und Photos.
+Benutzte Technologien: eigenes MVC mit PHP5, mysql, Jquery, boostrap
+JavaScript, HTML5, responsive designed.
+[URLs auf Anfrage]
+Kenntnisse: Projektmanagement, Organisation, Projektorganisation, Projektleitung, IT-
+Koordination, css3
+Eingesetzte Produkte: PHP 5, MySQL 5, rackspace Loadbalancing, loadbalancer, Content Delivery
+Network, CDN, bootstrap, Ajax, JavaScript, Smarty, css3
+2016-03 - 2016-07 Fontend entwicklung mit ReactJs
+5 Monate
+Rolle: Senior Frontend Entwickler
+Kunde: Oetinger
+Einsatzort: Hamburg
+Projektinhalte: WIP Frontend entwicklung mittels ReactJs
+Kenntnisse: JavaScript, ReactJS, ESLint, Jasmine, Grunt
+Eingesetzte Produkte: Linux Mint, Dockers
+2011-06 - 2016-02 Front und backend programmierer
+4 Jahre 9 Monate
+Kunde: Jungheinrich
+Einsatzort: Hamburg
+Projektinhalte: Die ersten 2,5 Jahre war ich im Online Shop team, dannach war ich im
+"Homepage team".
+Für den Onlineshop habe ich folgende Elemten programmier:
+ein video Bibliothek, Angebots tool für grössere Kunde,
+HTML caching, javascript basierte Produkt Filter, uvm
+Für die Homepage habe ich ein multi country onlineshop gebaut
+mittels commerce (typo3 plugin), responsive designed google maps,
+mitgearbeitet an den Gebrauktstapler Markt und vieles mehr. Zusätzlich
+habe ich noch eine Single Page Web Applikation für die Abteilung Finance
+erstellt.
+Der Profishop war ein eigene Programmierung auf PHP/MySQL basis, der
+Homepage auf Typo3 basis, und der Finance Webseite auch eine eigene
+Programmierung auf PHP/MySQL basis.
+In alle Projekten war ich sowohl Frontend als Backend Programmier
+gefragt.
+Benutzte Technologien: PHP5, mysql, Jquery, CSS, JavaScript, HTML5,
+13.03.2023 3 von 14
+responsive design, Zend, Winchache, Unit tests, Automated Selenium
+tests, SEO, IIS, mssql2010, Angular 1.4, Bootstrap, Ionic
+Für die Abteilung Finance habe ich ein Finance berater gebaut die dann
+später auf Ionic basis auf dem Smartphone dargestellt werden sollte.
+Am ende habe ich noch ein dynamischen Single Page Web Applikation für
+die Miet Gerät Markt aufgebaut auf Angular basis (und SASS). Zur
+gleicherzeit habe ich hierzu das Design von Jungheinrich überarbeitete und
+massive geändert.
+Kenntnisse: PHP, AngularJS, JavaScript, CSS3, CSS Framework, Responsive
+Webdesign, HTML5, Selenium, Selenium Server, Unittest, SEO, Sass,
+Cache
+Eingesetzte Produkte: MS SQL Server
+2002-02 - 2014-09 Webseite der FilmFörunderung Hamburg
+12 Jahre 8 Monate
+Rolle: Web Entwickler
+Kunde: FilmFörderung Hamburg Schleswigholstein
+Einsatzort: Hamburg
+Projektinhalte: Betreuung und Entwicklung der Website der FilmFörderung Hamburg
+(FFHH) und später die FilmFörderung Hamburg Schlieswig Holstein so wohl
+Backend als Frontend.- 2 Relaunchen- Film Location Datenbank- Film
+schaffende Adressdatenbank- Automatische Generierung verschiedene
+PDF's- Site suche- Event datenbank mit anmelde möglichkeit - Video
+Center- Erstellung eines Mandanten fähiges CMS- Pressemitteilungs
+bereich- Verwaltung geförderte Filme
+Kenntnisse: Asp, Mssql, HTML, JavaScript, jQuery, css
+Eingesetzte Produkte: TextEditor, phpStorm, css
+2007-02 - 2013-05 Erstellung, Entwicklung und Betreuung der Webseite
+6 Jahre 4 Monate [URL auf Anfrage]
+Rolle: Web Entwickler
+Kunde: Mein Ausflug
+Einsatzort: Hamburg
+Projektinhalte: Erstellung, Entwicklung und Betreuung der Webseite [URL auf Anfrage]
+Bei [URL auf Anfrage] finden Sie ein große menge an Ausflugsziele in
+Österreich die man zu einem Route verbinden kann. Der Route kann dann
+ausgedruckt werden und mitgenommen werden auf der Ausflug. Ein
+TomTom download funktion ist auch in der Seite eingebaut allerdings
+leider nicht online.
+Entwickelte Funktionen:
+- Route speicherung und berechnung mittels geopunkten berechnungen
+und der Google maps api
+13.03.2023 4 von 14
+- Wordcloud
+-TomTom Route Download funktion
+- Community bereich
+- Backend zur verwalten von circa 22.000 Örtlichkeiten und den von User
+eingegebene Informationen, so wie ein Userverwaltung.
+- Verwendung von der OpenGeoDB
+Kenntnisse: OpenGeoDb, HTML, PHP 5, SQL, jQuery, css
+Eingesetzte Produkte: MySQL, OpenGeoDB, css
+2010-07 - 2013-01 IVM-Pro - Immobilien Verwaltung
+2 Jahre 7 Monate
+Rolle: Web Entwickler
+Kunde: IVM-Pro
+Einsatzort: Hamburg
+Projektinhalte: Von Juli 2010 bis januar 2013 arbeitete ich regelmäßig für die Firma IVM-
+Pro. IVM vertreibt eine Wohnung Verwaltung Software. Das Programm
+wurde von mir für verschiedene Kunde gepflegt und erweitert und für neue
+Kunde bereit gestellt.Für IVM habe ich seid dem folgende
+ModuleProgrammiert:- Internes Mieter Portal welches über ein
+XMLgesteuert wird.- Creditreform abfrage Schnittstelle (direkte Abfrage
+der Mieter Bonität).- Excel Export für die Statistiken.- Inline Bearbeitung
+von Daten mittels Jquery- Ipad Abnahme Protokol auf welche man
+unterschreiben könnte per Finger oder Stift und per Klick das
+Unterschriebene Vertrag als PDF per Email zugeschickt bekommt.und
+vieles mehrBenutzte Technologien: PHP5, mysql, PHPpdf, Excel Import,
+Jquery, JavaScript, HTML5URLs ua: http://www.ivm-
+pro.de/http://www.wobag-schwedt.ivm-professional.de/http://www.ewv-
+Kenntnisse: css
+Eingesetzte Produkte: PHP 5, iPad, MySQL 5, JSON, Ajax, rest, css3
+2007-07 - 2012-03 Visions from the roof - Musik Datenbank
+4 Jahre 9 Monate
+Rolle: Web Entwickler
+Kunde: Visionsfromtheroof
+Einsatzort: Hamburg
+Projektinhalte: “Visions from the roof” ist eine Firma in L.A (usa) der die Musikrechte
+verkauft an TV produzenten und Hollywood produktionsfirmen (zb CSI,
+californication,Trauma, Eastwick, Solitaryman, Welcome to the rileys,
+gohst wisperer, fighting, und vielen mehr). Die so genannte „Editors“ (die
+verantwörtliche für der Musk auswahl) bekommen bei visions from the roof
+ein Zugang zu deren Musik Datenbank, die im moment circa 23.000
+Musikstücken beinhaltet. Die Musik in der Datenbank wurde ausser den
+normale ID3 werten mit viel mehr Kriterien vorgesehen so dass das
+suchen für den Editors erleichtert wird. Musikstücken können ausserdem
+als Musik projekt gespeichert werden.Aus kostengrunde wurde der
+13.03.2023 5 von 14
+Datenbank in 2012 eingestellt.Technischer Hintergrund:- Programmierung
+auf PHP basis- Mysql Datenbank- Javascript. AJAX- Flash Entwickelte
+Funktionen:- Video und Musikplayer player.- Online Playlist Erstellung-
+Sammeln von musikstücken- Erstellen von Musikprojekten- backend zur
+bearbeiten der Musik, Verwaltung des Internetauftritts und ein
+Usermanagement.- FTP Import routine zur automatisch speichern von
+Musik die per FTP hochgeladen wurde.
+Kenntnisse: PHP 5, css
+Eingesetzte Produkte: MySQL 5, JavaScript, css, jQuery, Ajax
+2010-09 - 2011-06 Wurster GmbH - Diamanten Configurator
+10 Monate
+Rolle: Web Entwickler
+Kunde: Promonauten
+Einsatzort: Hamburg
+Projektinhalte: In Zusammenarbeit mit den die promonauten aus Pforzheim habe ich die
+B2B Onlineshop von der Diamantenhändler Wurster GmbH erstellt. Ich
+habe das Backend und die dazu gehörende JavaScript / Json Schnittstelle
+zur Frontend Seite erstellt. Benutzte Technologien: PHP5, mysql, PHP DAO,
+Excel Import, Ajax, Jquery, JavaScript, HTML5
+Kenntnisse: JavaScript, REST, JSON, PHP 5
+Eingesetzte Produkte: MySQL 5, JSON, Ajax, JavaScript, PHP 5, jQuery
+2010-09 - 2011-02 Frontend Entwickler Bigpoint GmbH
+6 Monate
+Rolle: Frontend Entwickler
+Kunde: Simplexx
+Einsatzort: Hamburg
+Projektinhalte: Bei Bigpoint habe ich für verscheidene Seite vornehmlich Frontend
+Entwickelung gemacht, bei allen Seite habe ich das CSS und Javascript
+optimieren können und bei manche Projekte etwas mehr gläns am
+lackmachen können. World of battles : - Änderungen und ein bau video
+player.http://wob.bigpoint.com/Wonderking: - Einbau neue Menü ebene
+und die dazu gehörende Seitehttp://wonderking.bigpoint.com/Maestie: -
+Einbau neue Menü ebene und die dazu gehörende Seite - Frontend Einbau
+und Gestalltung der Bonus Seite - Frontend Einbau der User Ranking Seite
+- Seite Wallpapers hinzugefügt- Umgestalltung Cashcard (=Bonuscode
+eingabe)- Erstellung einer Landingpage der als Alternative Einstiegsseite
+dienthttp://maestia.bigpoint.com/http://maestia.bigpoint.com/landingDrak
+ensang online- Erstellung einer Landingpage die als Alternative
+Einstiefsseite dient.http://drasaonline.bigpoint.com/Driftcity: - Einbau
+neue Menü ebene und die dazu gehörende
+Seitehttp://driftcitiy.bigpoint.com/Lords Online- Aufbau und Erstellung
+(Frontend und Backend) einer Landingpage die dazu dient die Email
+Adresse zu sammeln für den
+13.03.2023 6 von 14
+Benutzer Backends (Ranking, Clan
+community)http://www.n2030.com/Battlestar Gallaktica Online-
+Verbesserungen beim Error Layer http://battlestar-galactica.bigpoint.com/
+Kenntnisse: scrum
+Eingesetzte Produkte: html, PHP 5, MySQL 5, JavaScript, jQuery, JSON, Ajax
+2010-09 - 2010-09 Redhat Business breakfast - Event Datenbank
+1 Monat
+Rolle: Web Entwickler
+Kunde: Synergy Solutions
+Einsatzort: Hamburg
+Projektinhalte: Im Auftrag der Firma Synergy Solutions (München) habe ich für Redhat
+eine Event Datenbank gemacht. In dieser Datenbank können eingeladene
+Kunde von Partner von Redhat sich eintragen um aneinem Event
+teilzunehmen. Diese Events und den Teilnehmer registrierung werden in
+hintergrund von den Partner verwaltet.Der Partner kann Teilnehmer
+absagen, zusagen oder auch die Teilnehmer liste per exportierten in einer
+Excel Liste.Benutzte Technologien: PHP5, mysql, Cronjobs, PHP Data
+objects (PDO), Excel Export, Ajax, javascript, XhtmlURL: nicht öffentlich
+(extranet)
+Kenntnisse: xhtml, JavaScript
+Eingesetzte Produkte: PHP 5, MySQL 5
+2010-08 - 2010-08 Ulrich Stein Mobile Website
+1 Monat
+Rolle: Mobile Website Entwicklung
+Kunde: Team eins plus
+Einsatzort: Hamburg
+Projektinhalte: Im auftrag von Team eins plus habe ich die Mobile Iphone Seite für den
+Designer Ulrich Stein entwickelt.Verwendete Technologien: jquotch, iscroll,
+photo carusel, SimpleXmlElement und curl (für den WordPress live
+feed)Mobile URL: http://mobil.ulrichstein.com (nicht mehr online)URL:
+http://www.ulrichstein.com
+Eingesetzte Produkte: wordpress, jqtouch, jQuery, SimpleXMLElement, curl, iscroll
+2007-06 - 2010-08 PPI Media GmbH
+3 Jahre 3 Monate
+Rolle: Fontend Entwickler
+Kunde: PPI Media GmbH
+13.03.2023 7 von 14
+Einsatzort: Hamburg
+Projektinhalte: Zuarbeitung der Java Programmierer für das Frontend verschiedene
+Projekte:AdX - ein Werbungs Planungs tool für Online und Offline
+produktionen von Verlage- Erstellung eines zoom bare Kalender auf reine
+JavaScript basis - Kampagne Verwaltung (ExtJs)- Virtualisierung von
+Werbe Buchungen auf Zeitungs Seiten- Javascript optimierung und
+frontend erstellung von Webbasierte Highspeed MAN roland
+Druckmaschinen ansteuerungs Tools.
+Eingesetzte Produkte: ExtJS, JavaScript, Java 6, html, JSON, REST, Ajax
+2010-01 - 2010-06 Asp Programmierer
+6 Monate
+Rolle: Interim Programmierer
+Kunde: Datingcafé
+Einsatzort: Hamburg
+Projektinhalte: Datingcafe ist ein bekannte Dating Plattform mit damals fast 1,5 Million
+Mitglieder und eine der älteste in der Dating und Partnerbörse Branche. Im
+Auftrag von Steerer Consulting bin ich zusammen mit 3 andere
+Programmierer eingesetzt geworden um die Seite aufzupeppen mit neue
+Webtechnologien. Der Auftrag ging über 5 Monate.Technischer
+Hintergrund:- Programmierung auf ASP basis / javascript /
+HTMLEntwickelte Funktionen:- Erneuerung der Kasse- Besucher online
+funktionalität- SEO optimierung- Fehlermeldungautomisierung-
+BestandskundeMailing frontend- und sehr viel kleinere optimierungen
+Kenntnisse: asp, html, JavaScript
+2002-05 - 2010-05 Fracht datenbank
+8 Jahre 1 Monat
+Rolle: Software-Entwickler
+Kunde: British American Tobacco
+Einsatzort: Hamburg
+Projektinhalte: Für die Logistikabteilung von British American Tobacco (BAT) habe ich ein
+Datenbank-Steuerungs-Programm entwickelt und produziert. Dieses
+Programm verwaltete (Transport) Offerte, die in verschiedenen
+Abteilungen bearbeitet wurden. Ziel des Programms war es, den
+Informationsfluss zu vereinfachen. Nach mehreren Erweiterungen habe ich
+die Software für BAT dann auch als mehrsprachige Version ausgebaut und
+sie wird bei BAT international eingesetzt. Der Software war bei BAT Jahren
+fehlerfrei in Betrieb bis es von SAP übernommen wurde.Technischer
+Hintergrund:- Programmierung auf VB basis- Access und MSSQL
+DatenbankEntwickelte Funktionen: - Digitales erfassen von Offerte-
+Freigabe System für Offerte- Such maske- Personalisierte Suchmask-
+Route Berechnungen- Preis Berechnung von Tabaktransporte auf
+dynamische Routen- Excel Export tool- Benutzerverwaltungs System
+welches angeschlossen ist auf das Interne Netzwerk- Multi Language-
+Internationale Benutzung der Software mittels Citrix- Berechnung von
+13.03.2023 8 von 14
+Tabak preise je nach Route.
+Kenntnisse: VBA, mssql, Access
+Eingesetzte Produkte: Visual Basic 6
+2004-02 - 2006-02 Online Design Guidelines
+2 Jahre 1 Monat
+Rolle: Web Entwikler
+Kunde: Arag
+Einsatzort: Hamburg
+Projektinhalte: Die Online Design Guidelines für die ARAG bedient international alle
+Marketingverantwortlichen, Werbeagenturen und Vertriebspartner. Henrion
+Ludlow Schmidt hat das Corporate Design von ARAG modernisiert. Um die
+Ergebnisse dieser Arbeit schnell und professionell in die Welt zu bringen,
+nutzt ARAG dieses Extranet auf Basis des von mir entwickelte neuekoepfe
+CMS.- CMS- Benutzer/Gruppe verwaltung- PDF Erstellung- Foto Archiv-
+Download Center
+Kenntnisse: JavaScript, html, ASP
+Eingesetzte Produkte: MS SQL Server 2005
+2004-04 - 2004-09 Roche Diagnostics
+6 Monate
+Rolle: Web Entwickler
+Kunde: Roche Diagnostics / neuekoepfe
+Einsatzort: Hamburg
+Projektinhalte: Erstellung eines Branding Plattform, die alle Marketingmitarbeiter und
+externen Agenturen weltweit über die Verwendung der Corporate Design
+Elemente informiert - realisiert in Kooperation mit der
+Unternehmensberatung für Corporate Identity Henrion Ludlow Schmidt in
+Hamburg und London und der neuekoepfe GmbHEntwicklte Funktionien: -
+Benutzer/Gruppe Verwaltung- CMS- PDF generierung- Foto Archiv-
+Downloadcenter
+Kenntnisse: asp, mssql, HTML, JavaScript
+Sprachen
+Deutsch Gut
+13.03.2023 9 von 14
+Englisch Gut
+Französisch mäßig
+Niederländisch Sehr gut
+Kompetenzen
+Schwerpunkte Design Umsetzung
+Frontend Entwicklung
+Organisation
+Aufgabenbereiche Frontend Entwickler
+IT-Koordination
+Programmierung
+Projektleitung
+Projektmanagement
+Projektorganisation
+Produkte / Standards / AngularJS 1.55
+Erfahrungen / Methoden
+css
+CSS 3
+CSS Framework
+Dockers
+EcmaScript 6
+ESLint
+GraphQL
+Grunt
+HTML
+HTML(5)
+HTML5
+13.03.2023 10 von 14
+Jasmine
+Karma
+loadbalancer
+memcached
+OpenGeoDb
+OpenGeoDB
+PHP symphony
+(bisschen)
+ReactJs
+Redux
+Responsive Webdesign
+Sass
+Selenium
+Selenium Server
+SEO
+Smarty
+Twig
+TypeScript
+TypeScript 2.2
+Webpack
+Fachkenntnisse
+Frontend Kenntnisse:
+JavaScript, EcmaScript 6, TypeScript, HTML5, DHTML, HTMLX, CCS.1-
+3, JQuery, Jqtouch, Boostrap, ExtJS, Phonegap / Cordova, Smarty,
+Content Network Delivery, Ajax, Json, Grunt, Ionic, AngularJs, 1.4,
+Angular 2 / 4 / 5, ReactJs, less, SASS, TypeScript, Karma, Redux,
+Immutable, GraphQL, REST und mehr
+ 
+Backend Kenntnisse:
+PHP, ASP, Zend, Laravel, VB, VBS, VBScript, PHP Optimierung, XML,
+REST
+ 
+Basis Kenntnisse in:
+C#, VB.net, ASPX, ASP.net, perl, CF, ein bisschen Java
+ 
+Weitere diverse Kenntnisse:
+phpbb3, Wordpress, OpenGeodb, phpmyadmin, ModX, prototype,
+Tikiwiki, phpWiki, OpenX, Xtcommerce, Typo3, Wordpress, CND, git,
+subversion und vieles mehr.
+ 
+13.03.2023 11 von 14
+Im Moment beschäftigt mit:
+Alexa Skills. Ich habe 2 Projekte erstellt mit dem Alexa. Zuerst ein
+ziemlich nutzlose skill „hey junge“ hier reagiert Alexa auf allerlei Sätze
+mit „hey junge“ drinnen. Man kann aber auch sagen das man kein
+Junge ist und dann reagiert Alexa mit „hey Mädel“ zurück.  Das zweite
+Projekt ist ein Diktat für Kinder. Man kann hier nach Diktaten Fragen in
+unterschiedliche Schwierigkeit stufe und je nach Stufe wird dann ein
+Diktat gestartet. Hier fehlt mir allerdings freie Texten um weiter zu
+machen.
+ 
+Betriebssysteme Debian
+Linux Mint
+MacOS leopard
+Ubuntu 14
+Ubuntu 16.04
+Windows
+Windows Server 2000
+Windows Server 2003
+Windows Server 2008
+Programmiersprachen Ajax
+amp
+Angular
+Angular 5
+AngularJS
+AngularJS 2
+AngularJS 4
+asp (old school - sehr gut)
+ASP.NET (geht so)
+Bootstrap
+C# (lesen und ändern)
+CSS3
+Glamorous
+Ionic
+Java (lesen und ändern)
+13.03.2023 12 von 14
+JavaScript (sehr gut)
+jQuer
+jQuery
+Perl (lesen und ändern)
+PHP
+PHP 5 (sehr gut)
+React
+ReactJS
+redux
+scss
+TypeScript
+Visual Basic (gut)
+Z80A (ein wenig aber da war lange her ;-)
+ 
+Datenbanken MS SQL Server
+MySQL
+MySQL 5
+Percona MySql
+SQL
+Berechnung / Reactive Forms
+Simulation / Versuch /
+Validierung Unittest
+Aus- und Weiterbildung
+1991-09 - 1994-07 Photograph
+2 Jahre 11 Monate
+Abschluss: keins
+Institution: Königliche Akademie für Kunst Den Haag
+Photography, aber nach dem ich in 1993 angefangen hatte mit digitale
+Photography und nicht mehr vom Rechner weggekommen bin, bin ich
+den IT weg eingeschlagen.
+13.03.2023 13 von 14
+1990-08 - 1991-07 Kunst mit hauptfach Fotodesign
+1 Jahr
+Abschluss: keins
+Institution: Fachhochschule für Kunst Utrecht
+Photography
+13.03.2023 14 von 14
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_67539
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                67539
+  
+Wohnort                    227xx hamburg, Deutschland
+Jahrgang                   1972
+Staatsbürgerschaft         Niederländisch
+Stundensatz                75 EUR
+Verfügbar ab               04.06.20 zu 50%, Vor-Ort-Einsatz 0% möglich
+Profil erstellt am         15.11.04
+Profil zuletzt geändert am 03.06.20
+Lesen von Projektanfragen  12 Stunden [10]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 25.04.2020 16:10:33
+
+Fachlicher Schwerpunkt:
+Frontend entwicklung, reactjs, angular, JavaScript, TypeScript, CSS, PHP,
+Frontend / Backend
+
+Position:
+Software-Entwicklung / Programmierung
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+09/1991 - 07/1994: Photograph
+ 
+Abschluss:          keins
+Institution:        Königliche Akademie für Kunst Den Haag
+ 
+Schwerpunkt:
+ 
+Photography, aber nach dem ich in 1993 angefangen hatte mit digitale
+Photography und nicht mehr vom Rechner weggekommen bin, bin ich den IT weg
+eingeschlagen.
+===============================================================================
+08/1990 - 07/1991: Kunst mit hauptfach Fotodesign
+ 
+Abschluss:          keins
+Institution:        Fachhochschule für Kunst Utrecht
+ 
+Schwerpunkt:
+ 
+Photography
+===============================================================================
+
+Einsatzort:
+Regionen:
+D2
+im Umkreis von:
+Hamburg (10 km)
+Ich möchte AUSSCHLIEßLICH für die o. g. Einsatzorte kontaktiert werden.
+Aufträge ausserhalb von Hamburg nur 100% remote
+Corona Bedingt im Moment nur noch Homeoffice
+
+Fremdsprachen:
+Deutsch        Gut
+Englisch       Gut
+Französisch   mäßig
+NiederländischSehr gut
+
+
+Betriebssysteme:
+Debian               
+Linux Mint           
+MacOS               leopard
+Ubuntu              16.04
+Windows              
+Windows Server 2000  
+Windows Server 2003  
+Windows Server 2008  
+
+
+Programmiersprachen:
+Ajax          
+amp           
+Angular       
+Angular 5     
+AngularJS     
+AngularJS 2   
+AngularJS 4   
+asp          (old school - sehr gut)
+ASP.NET      (geht so)
+Bootstrap     
+C#           (lesen und ändern)
+CSS3          
+Glamorous     
+Ionic         
+Java         (lesen und ändern)
+JavaScript   (sehr gut)
+jQuer         
+jQuery        
+Perl         (lesen und ändern)
+PHP           
+PHP 5        (sehr gut)
+React         
+ReactJS       
+redux         
+scss          
+TypeScript    
+Visual Basic (gut)
+Z80A         (ein wenig aber da war lange her ;-)
+
+ 
+
+Datenbanken:
+MS SQL Server  
+MySQL          
+MySQL 5        
+Percona MySql  
+SQL            
+
+
+Berechnung/Simulation/Versuch/Validierung:
+Reactive Forms  
+Unittest        
+
+
+Aufgabenbereiche:
+Frontend Entwickler  
+IT-Koordination      
+Programmierung       
+Projektleitung       
+Projektmanagement    
+Projektorganisation  
+
+
+Schwerpunkte:
+Design Umsetzung      
+Frontend Entwicklung  
+Organisation          
+
+
+Produkte/Standards/Erfahrungen:
+AngularJS 1.55           
+css                      
+CSS 3                    
+CSS Framework            
+Dockers                  
+EcmaScript 6             
+ESLint                   
+GraphQL                  
+Grunt                    
+HTML                     
+HTML(5)                  
+HTML5                    
+Jasmine                  
+Karma                    
+loadbalancer             
+memcached                
+OpenGeoDb                
+OpenGeoDB                
+PHP symphony (bisschen)  
+ReactJs                  
+Redux                    
+Responsive Webdesign     
+Sass                     
+Selenium                 
+Selenium Server          
+SEO                      
+Smarty                   
+Twig                     
+TypeScript               
+TypeScript 2.2           
+Webpack                  
+Fachkenntnisse
+ 
+Frontend Kenntnisse:
+JavaScript, EcmaScript 6, TypeScript, HTML5, DHTML, HTMLX, CCS.1-3, JQuery,
+Jqtouch, Boostrap, ExtJS, Phonegap / Cordova, Smarty, Content Network Delivery,
+Ajax, Json, Grunt, Ionic, AngularJs, 1.4, Angular 2 / 4 / 5, ReactJs, less,
+SASS, TypeScript, Karma, Redux, Immutable, GraphQL, REST und mehr
+ 
+Backend Kenntnisse:
+PHP, ASP, Zend, Laravel, VB, VBS, VBScript, PHP Optimierung, XML, REST
+ 
+Basis Kenntnisse in:
+C#, VB.net, ASPX, ASP.net, perl, CF, ein bisschen Java
+ 
+Weitere diverse Kenntnisse:
+phpbb3, Wordpress, OpenGeodb, phpmyadmin, ModX, prototype, Tikiwiki, phpWiki,
+OpenX, Xtcommerce, Typo3, Wordpress, CND, git, subversion und vieles mehr.
+ 
+Im Moment beschäftigt mit:
+Alexa Skills. Ich habe 2 Projekte erstellt mit dem Alexa. Zuerst ein ziemlich
+nutzlose skill hey junge hier reagiert Alexa auf allerlei Sätze mit hey
+junge drinnen. Man kann aber auch sagen das man kein Junge ist und dann
+reagiert Alexa mit hey Mädel zurück.  Das zweite Projekt ist ein Diktat für
+Kinder. Man kann hier nach Diktaten Fragen in unterschiedliche Schwierigkeit
+stufe und je nach Stufe wird dann ein Diktat gestartet. Hier fehlt mir
+allerdings freie Texten um weiter zu machen.
+ 
+
+Projekte:
+09/2017 - 02/2018: Frontend Entwicklung mit ReactJs für eine Agentur
+ 
+Einsatzort:         Hamburg
+Rolle:              Frontend entwickler
+Kunde:              Cellular
+ 
+Kenntnisse:
+ 
+React, amp, html, CSS(3), Sass, JavaScript, TypeScript
+===============================================================================
+06/2017 - 08/2017: Für WG suche habe ich mich zu meist code refactoring,
+Projekt restrukuring gemacht und einzelne neue features im Team
+ 
+ 
+Kenntnisse:
+ 
+AngularJS 1.55, TypeScript 2.2, Webpack, css3, html
+===============================================================================
+05/2017 - 05/2017: Im Auftrag der neusta consulting GmbH habe ich für deren
+Tochter Firma Trusted Blogs mehrere neue Landing pages erstellt in zusammen
+Arbeit mit deren backend Programmierer.
+ 
+ 
+Kenntnisse:
+ 
+PHP symphony (bisschen), JavaScript, Jquery, Twig, html, css
+===============================================================================
+08/2016 - 04/2017: Frontend Entwicklung mit AngularJS 2
+ 
+Einsatzort:         Hamburg
+Rolle:              Frontend entwicklung mit AngularJS 2
+Kunde:              Wacku
+ 
+Aufgaben:
+ 
+Erstellung einer one page community webseite mit AngularJS 2
+ 
+Kenntnisse:
+ 
+AngularJS 2, Angular, TypeScript, scss, redux
+===============================================================================
+10/2012 - 08/2016: [Name auf Anfrage] / World-Street-Photography
+ 
+Einsatzort:         Hamburg
+Rolle:              Projektleitung, Programmierung, Conception
+Kunde:              Projekt im eigen Regie
+Geschäftsstelle:    Hamburg
+Unternehmensgröße:  < 50
+ 
+Aufgaben:
+ 
+Photographieren ist mein Hobby und daraus ist eine lange Geschichte
+entstanden... ein kurze Versuch...
+Seit Oktober 2012 habe ich angefangen einen Foto Community
+aufzubauen der relative erfolgreich geworden ist und im Moment
+immer stärker wachst. Die Idee von Foto Sharing fand ich etwas zu
+dünn und habe zuerst mit 100 Fotografen vorgeschlagen zusammen
+ein Foto Buch zu Erstellen und der Gewinn zu Spenden an einen Wohltätigkeit
+Organisation.
+Da es für so was eine Facebook Seite gibt oder community gibt habe ich dafür
+eins programmiert. Mittele weile sind wir über 5000 Mitglieder aus 120 Länder
+in der Welt, wurde 70,000 Fotos hochgeladen, haben um die 12.000 Pageviews und
+1200 Besucher pro Tag Tendenz steigend, 10 freiwillige im Team, haben 8 Foto
+Bücher gemacht, 18 Wasserbrunnen gebaut, 1 Waisenhaus neugebaut in Kapstadt, 1
+Waisenhaus in Kolkota wird dauerhaft unterstützt, das 9. Buch wird offiziell
+von einem Verlag Ausgegeben mit Ausstellung im Sommer.
+Die komplette Programmierung sowohl Frontend als backend habe ich gemacht. Das
+ganze basiert auf ein eigenes MVC mit Smarty als view auf PHP Basis mit einem
+MySQL. Gerade im Moment wird die Seite umgezogen nach einem multiple Cloud
+Server System (incl loadbalancer).
+Weiter funktionaliäten:
+- Hochladen von Bilder per drag and drop, und Erstellen von eigene Thumbnails
+- Voting System für Wettbewerben und Fotobücher
+- Diskussion Forum für jede Wettbewerb/Fotobuch
+- Folgen von andere Benutzer
+- Messages: Benachrichtigen von jegliche Art von Nachrichten.
+- Benutzer können eigene Blogs erstellen.
+- Suche nach Benutzer und Photos.
+ 
+Benutzte Technologien: eigenes MVC mit PHP5, mysql, Jquery, boostrap
+JavaScript, HTML5, responsive designed.
+ 
+[URLs auf Anfrage]
+ 
+Kenntnisse:
+ 
+Projektmanagement, Organisation, Projektorganisation, Projektleitung, IT-
+Koordination, css3
+ 
+Eingesetzte Produkte:
+ 
+PHP 5, MySQL 5, rackspace Loadbalancing, loadbalancer, Content Delivery
+Network, CDN, bootstrap, Ajax, JavaScript, Smarty, css3
+===============================================================================
+03/2016 - 07/2016: Fontend entwicklung mit ReactJs
+ 
+Einsatzort:         Hamburg
+Rolle:              Senior Frontend Entwickler
+Kunde:              Oetinger
+ 
+Aufgaben:
+ 
+WIP Frontend entwicklung mittels ReactJs
+ 
+Kenntnisse:
+ 
+JavaScript, ReactJS, ESLint, Jasmine, Grunt
+ 
+Eingesetzte Produkte:
+ 
+Linux Mint, Dockers
+===============================================================================
+06/2011 - 02/2016: Front und backend programmierer
+ 
+Einsatzort:         Hamburg
+Kunde:              Jungheinrich
+ 
+Aufgaben:
+ 
+Die ersten 2,5 Jahre war ich im Online Shop team, dannach war ich im "Homepage
+team".
+
+Für den Onlineshop habe ich folgende Elemten programmier:
+ein video Bibliothek, Angebots tool für grössere Kunde,
+HTML caching, javascript basierte Produkt Filter, uvm
+Für die Homepage habe ich ein multi country onlineshop gebaut
+mittels commerce (typo3 plugin), responsive designed google maps, mitgearbeitet
+an den Gebrauktstapler Markt und vieles mehr. Zusätzlich habe ich noch
+eine Single Page Web Applikation für die Abteilung Finance erstellt.
+Der Profishop war ein eigene Programmierung auf PHP/MySQL basis, der Homepage
+auf Typo3 basis, und der Finance Webseite auch eine eigene Programmierung auf
+PHP/MySQL basis.
+In alle Projekten war ich sowohl Frontend als Backend Programmier gefragt.
+Benutzte Technologien: PHP5, mysql, Jquery, CSS, JavaScript, HTML5, responsive
+design, Zend, Winchache, Unit tests, Automated Selenium tests, SEO, IIS,
+mssql2010, Angular 1.4, Bootstrap, Ionic
+Für die Abteilung Finance habe ich ein Finance berater gebaut die dann später
+auf Ionic basis auf dem Smartphone dargestellt werden sollte.
+ 
+Am ende habe ich noch ein dynamischen Single Page Web Applikation für die Miet
+Gerät Markt aufgebaut auf Angular basis (und SASS). Zur gleicherzeit habe ich
+hierzu das Design von Jungheinrich überarbeitete und massive geändert.
+ 
+Kenntnisse:
+ 
+PHP, AngularJS, JavaScript, CSS3, CSS Framework, Responsive Webdesign, HTML5,
+Selenium, Selenium Server, Unittest, SEO, Sass, Cache
+ 
+Eingesetzte Produkte:
+ 
+MS SQL Server
+===============================================================================
+02/2002 - 09/2014: Webseite der FilmFörunderung Hamburg
+ 
+Einsatzort:         Hamburg
+Rolle:              Web Entwickler
+Kunde:              FilmFörderung Hamburg Schleswigholstein
+Geschäftsstelle:    Hamburg
+Unternehmensgröße:  < 50
+ 
+Aufgaben:
+ 
+Betreuung und Entwicklung der Website der FilmFörderung Hamburg (FFHH) und
+später die FilmFörderung Hamburg Schlieswig Holstein so wohl Backend als
+Frontend.
+- 2 Relaunchen
+- Film Location Datenbank
+- Film schaffende Adressdatenbank
+- Automatische Generierung verschiedene PDF's
+- Site suche
+- Event datenbank mit anmelde möglichkeit
+- Video Center
+- Erstellung eines Mandanten fähiges CMS
+- Pressemitteilungs bereich
+- Verwaltung geförderte Filme
+ 
+Kenntnisse:
+ 
+Asp, Mssql, HTML, JavaScript, jQuery, css
+ 
+Eingesetzte Produkte:
+ 
+TextEditor, phpStorm, css
+===============================================================================
+02/2007 - 05/2013: Erstellung, Entwicklung und Betreuung der Webseite [URL auf
+Anfrage]
+ 
+Einsatzort:         Hamburg
+Rolle:              Web Entwickler
+Kunde:              Mein Ausflug
+Geschäftsstelle:    Österreich
+Unternehmensgröße:  < 50
+Branche:            Touristik
+ 
+Aufgaben:
+ 
+Erstellung, Entwicklung und Betreuung der Webseite [URL auf Anfrage]
+Bei [URL auf Anfrage] finden Sie ein große menge an Ausflugsziele in Österreich
+die man zu einem Route verbinden kann. Der Route kann dann ausgedruckt werden
+und mitgenommen werden auf der Ausflug. Ein TomTom download funktion ist auch
+in der Seite eingebaut allerdings leider nicht online.
+ 
+Entwickelte Funktionen:
+- Route speicherung und berechnung mittels geopunkten berechnungen und der
+Google maps api
+- Wordcloud
+-TomTom Route Download funktion
+- Community bereich
+- Backend zur verwalten von circa 22.000 Örtlichkeiten und den von User
+eingegebene Informationen, so wie ein Userverwaltung.
+- Verwendung von der OpenGeoDB
+ 
+Kenntnisse:
+ 
+OpenGeoDb, HTML, PHP 5, SQL, jQuery, css
+ 
+Eingesetzte Produkte:
+ 
+MySQL, OpenGeoDB, css
+===============================================================================
+07/2010 - 01/2013: IVM-Pro - Immobilien Verwaltung
+ 
+Einsatzort:         Hamburg
+Rolle:              Web Entwickler
+Kunde:              IVM-Pro
+Geschäftsstelle:    Berlin
+Unternehmensgröße:  < 50
+ 
+Aufgaben:
+ 
+Von Juli 2010 bis januar 2013 arbeitete ich regelmäßig für die Firma IVM-Pro.
+IVM vertreibt eine Wohnung Verwaltung Software. Das Programm wurde von mir für
+verschiedene Kunde gepflegt und erweitert und für neue Kunde bereit gestellt.
+Für IVM habe ich seid dem folgende ModuleProgrammiert:
+ 
+- Internes Mieter Portal welches über ein XML
+gesteuert wird.
+- Creditreform abfrage Schnittstelle (direkte Abfrage der Mieter
+Bonität).
+- Excel Export für die Statistiken.
+- Inline Bearbeitung von Daten mittels Jquery
+- Ipad Abnahme Protokol auf welche man unterschreiben könnte per Finger oder
+Stift und per Klick das Unterschriebene Vertrag als PDF per Email zugeschickt
+bekommt.
+und vieles mehr
+ 
+Benutzte Technologien: PHP5, mysql, PHPpdf, Excel Import, Jquery, JavaScript,
+HTML5
+URLs ua:
+http://www.ivm-pro.de/
+http://www.wobag-schwedt.ivm-professional.de/
+http://www.ewv-immobilien.de/
+ 
+Kenntnisse:
+ 
+css
+ 
+Eingesetzte Produkte:
+ 
+PHP 5, iPad, MySQL 5, JSON, Ajax, rest, css3
+===============================================================================
+07/2007 - 03/2012: Visions from the roof - Musik Datenbank
+ 
+Einsatzort:         Hamburg
+Rolle:              Web Entwickler
+Kunde:              Visionsfromtheroof
+Geschäftsstelle:    Los Angelos
+Unternehmensgröße:  < 50
+Branche:            Medien (Verlag, TV + Hörfunk)
+ 
+Aufgaben:
+ 
+Visions from the roof ist eine Firma in L.A (usa) der die Musikrechte
+verkauft an TV produzenten und Hollywood produktionsfirmen (zb CSI,
+californication,Trauma, Eastwick, Solitaryman, Welcome to the rileys, gohst
+wisperer, fighting, und vielen mehr). Die so genannte Editors (die
+verantwörtliche für der Musk auswahl) bekommen bei visions from the roof ein
+Zugang zu deren Musik Datenbank, die im moment circa 23.000 Musikstücken
+beinhaltet. Die Musik in der Datenbank wurde ausser den normale ID3 werten mit
+viel mehr Kriterien vorgesehen so dass das suchen für den Editors erleichtert
+wird.
+Musikstücken können ausserdem als Musik projekt gespeichert werden.
+Aus kostengrunde wurde der Datenbank in 2012 eingestellt.
+ 
+Technischer Hintergrund:
+- Programmierung auf PHP basis
+- Mysql Datenbank
+- Javascript. AJAX
+- Flash
+ 
+Entwickelte Funktionen:
+- Video und Musikplayer player.
+- Online Playlist Erstellung
+- Sammeln von musikstücken
+- Erstellen von Musikprojekten
+- backend zur bearbeiten der Musik, Verwaltung des Internetauftritts und ein
+Usermanagement.
+- FTP Import routine zur automatisch speichern von Musik die per FTP
+hochgeladen wurde.
+ 
+Kenntnisse:
+ 
+PHP 5, css
+ 
+Eingesetzte Produkte:
+ 
+MySQL 5, JavaScript, css, jQuery, Ajax
+===============================================================================
+09/2010 - 06/2011: Wurster GmbH - Diamanten Configurator
+ 
+Einsatzort:         Hamburg
+Rolle:              Web Entwickler
+Kunde:              Promonauten
+Geschäftsstelle:    Pforzheim
+Unternehmensgröße:  < 50
+Branche:            Sonstige
+ 
+Aufgaben:
+ 
+In Zusammenarbeit mit den die promonauten aus
+Pforzheim habe ich die B2B Onlineshop von der
+Diamantenhändler Wurster GmbH erstellt.
+Ich habe das Backend und die dazu gehörende
+JavaScript / Json Schnittstelle zur Frontend
+Seite erstellt.
+ 
+Benutzte Technologien: PHP5, mysql, PHP DAO,
+Excel Import, Ajax, Jquery, JavaScript, HTML5
+ 
+Kenntnisse:
+ 
+JavaScript, REST, JSON, PHP 5
+ 
+Eingesetzte Produkte:
+ 
+MySQL 5, JSON, Ajax, JavaScript, PHP 5, jQuery
+===============================================================================
+09/2010 - 02/2011: Frontend Entwickler Bigpoint GmbH
+ 
+Einsatzort:         Hamburg
+Rolle:              Frontend Entwickler
+Kunde:              Simplexx
+Geschäftsstelle:    Hamburg
+Unternehmensgröße:  < 50
+Branche:            Sonstige
+ 
+Aufgaben:
+ 
+Bei Bigpoint habe ich für verscheidene Seite vornehmlich Frontend Entwickelung
+gemacht, bei allen Seite habe ich das CSS und Javascript optimieren können und
+bei manche Projekte etwas mehr gläns am lack
+machen können.
+ 
+World of battles :
+- Änderungen und ein bau video player.
+http://wob.bigpoint.com/
+ 
+Wonderking:
+- Einbau neue Menü ebene und die dazu gehörende Seite
+http://wonderking.bigpoint.com/
+ 
+Maestie:
+- Einbau neue Menü ebene und die dazu gehörende Seite
+- Frontend Einbau und Gestalltung der Bonus Seite
+- Frontend Einbau der User Ranking Seite
+- Seite Wallpapers hinzugefügt
+- Umgestalltung Cashcard (=Bonuscode eingabe)
+- Erstellung einer Landingpage der als Alternative Einstiegsseite dient
+http://maestia.bigpoint.com/
+http://maestia.bigpoint.com/landing
+ 
+ 
+ 
+Drakensang online
+- Erstellung einer Landingpage die als Alternative Einstiefsseite dient.
+http://drasaonline.bigpoint.com/
+ 
+ 
+ 
+Driftcity:
+- Einbau neue Menü ebene und die dazu gehörende Seite
+http://driftcitiy.bigpoint.com/
+ 
+Lords Online
+- Aufbau und Erstellung (Frontend und Backend) einer Landingpage die dazu dient
+die Email Adresse zu sammeln für den Newsletter.
+http://lordsonline.bigpoint.com
+ 
+nemesis 2030
+- Erweiterung des Benutzer Backends (Ranking, Clan community)
+http://www.n2030.com/
+ 
+ 
+Battlestar Gallaktica Online
+- Verbesserungen beim Error Layer
+http://battlestar-galactica.bigpoint.com/
+ 
+Kenntnisse:
+ 
+scrum
+ 
+Eingesetzte Produkte:
+ 
+html, PHP 5, MySQL 5, JavaScript, jQuery, JSON, Ajax
+===============================================================================
+09/2010 - 09/2010: Redhat Business breakfast - Event Datenbank
+ 
+Einsatzort:         Hamburg
+Rolle:              Web Entwickler
+Kunde:              Synergy Solutions
+Geschäftsstelle:    München
+Unternehmensgröße:  < 50
+ 
+Aufgaben:
+ 
+Im Auftrag der Firma Synergy Solutions (München) habe ich für Redhat eine Event
+Datenbank gemacht. In dieser Datenbank können eingeladene Kunde von Partner von
+Redhat sich eintragen um aneinem Event teilzunehmen. Diese Events und den
+Teilnehmer registrierung werden in hintergrund von den Partner verwaltet.
+Der Partner kann Teilnehmer absagen, zusagen oder auch die Teilnehmer liste per
+exportierten in einer Excel Liste.
+ 
+Benutzte Technologien: PHP5, mysql, Cronjobs, PHP Data objects (PDO), Excel
+Export, Ajax, javascript, Xhtml
+URL: nicht öffentlich (extranet)
+ 
+Kenntnisse:
+ 
+xhtml, JavaScript
+ 
+Eingesetzte Produkte:
+ 
+PHP 5, MySQL 5
+===============================================================================
+08/2010 - 08/2010: Ulrich Stein Mobile Website
+ 
+Einsatzort:         Hamburg
+Rolle:              Mobile Website Entwicklung
+Kunde:              Team eins plus
+Geschäftsstelle:    Hamburg
+Unternehmensgröße:  < 50
+Branche:            IT-Dienstleistungen
+ 
+Aufgaben:
+ 
+Im auftrag von Team eins plus habe ich die Mobile
+Iphone Seite für den Designer Ulrich Stein entwickelt.
+ 
+Verwendete Technologien:
+jquotch, iscroll, photo carusel, SimpleXmlElement
+und curl (für den WordPress live feed)
+ 
+Mobile URL: http://mobil.ulrichstein.com (nicht mehr online)
+URL: http://www.ulrichstein.com
+ 
+Eingesetzte Produkte:
+ 
+wordpress, jqtouch, jQuery, SimpleXMLElement, curl, iscroll
+===============================================================================
+06/2007 - 08/2010: PPI Media GmbH
+ 
+Einsatzort:         Hamburg
+Rolle:              Fontend Entwickler
+Kunde:              PPI Media GmbH
+Geschäftsstelle:    Hamburg
+Unternehmensgröße:  101-500
+Branche:            IT-Dienstleistungen
+ 
+Aufgaben:
+ 
+Zuarbeitung der Java Programmierer für das Frontend verschiedene Projekte:
+AdX
+- ein Werbungs Planungs tool für Online und Offline produktionen von Verlage
+- Erstellung eines zoom bare Kalender auf reine JavaScript basis
+- Kampagne Verwaltung (ExtJs)
+- Virtualisierung von Werbe Buchungen auf Zeitungs Seiten
+- Javascript optimierung und frontend erstellung von Webbasierte Highspeed MAN
+roland Druckmaschinen ansteuerungs Tools.
+ 
+Eingesetzte Produkte:
+ 
+ExtJS, JavaScript, Java 6, html, JSON, REST, Ajax
+===============================================================================
+01/2010 - 06/2010: Asp Programmierer
+ 
+Einsatzort:         Hamburg
+Rolle:              Interim Programmierer
+Kunde:              Datingcafé
+Geschäftsstelle:    Hamburg
+Unternehmensgröße:  < 50
+Branche:            Sonstige
+ 
+Aufgaben:
+ 
+Datingcafe ist ein bekannte Dating Plattform mit damals fast 1,5 Million
+Mitglieder und eine der älteste in der Dating und Partnerbörse Branche.
+Im Auftrag von Steerer Consulting bin ich zusammen mit 3 andere Programmierer
+eingesetzt geworden um die Seite aufzupeppen mit neue Webtechnologien. Der
+Auftrag ging über 5 Monate.
+ 
+Technischer Hintergrund:
+- Programmierung auf ASP basis / javascript / HTML
+ 
+Entwickelte Funktionen:
+- Erneuerung der Kasse
+- Besucher online funktionalität
+- SEO optimierung
+- Fehlermeldungautomisierung
+- BestandskundeMailing frontend
+- und sehr viel kleinere optimierungen
+ 
+Kenntnisse:
+ 
+asp, html, JavaScript
+===============================================================================
+05/2002 - 05/2010: Fracht datenbank
+ 
+Einsatzort:         Hamburg
+Rolle:              Software-Entwickler
+Kunde:              British American Tobacco
+Geschäftsstelle:    Hamburg
+Unternehmensgröße:  > 1000
+Branche:            Sonstige
+ 
+Aufgaben:
+ 
+Für die Logistikabteilung von British American Tobacco (BAT) habe ich ein
+Datenbank-Steuerungs-Programm entwickelt und produziert. Dieses Programm
+verwaltete (Transport) Offerte, die in verschiedenen Abteilungen bearbeitet
+wurden.
+ 
+Ziel des Programms war es, den Informationsfluss zu vereinfachen. Nach mehreren
+Erweiterungen habe ich die Software für BAT dann auch als mehrsprachige Version
+ausgebaut und sie wird bei BAT international eingesetzt. Der Software war bei
+BAT Jahren fehlerfrei in Betrieb bis es von SAP übernommen wurde.
+ 
+ 
+Technischer Hintergrund:
+- Programmierung auf VB basis
+- Access und MSSQL Datenbank
+ 
+Entwickelte Funktionen:
+- Digitales erfassen von Offerte
+- Freigabe System für Offerte
+- Such maske
+- Personalisierte Suchmask
+- Route Berechnungen
+- Preis Berechnung von Tabaktransporte auf dynamische Routen
+- Excel Export tool
+- Benutzerverwaltungs System welches angeschlossen ist auf das Interne Netzwerk
+- Multi Language
+- Internationale Benutzung der Software mittels Citrix
+- Berechnung von Tabak preise je nach Route.
+ 
+Kenntnisse:
+ 
+VBA, mssql, Access
+ 
+Eingesetzte Produkte:
+ 
+Visual Basic 6
+===============================================================================
+02/2004 - 02/2006: Online Design Guidelines
+ 
+Einsatzort:         Hamburg
+Rolle:              Web Entwikler
+Kunde:              Arag
+Geschäftsstelle:    Hamburg
+Unternehmensgröße:  > 1000
+Branche:            Versicherungen
+ 
+Aufgaben:
+ 
+Die Online Design Guidelines für die ARAG bedient international alle
+Marketingverantwortlichen, Werbeagenturen und Vertriebspartner. Henrion Ludlow
+Schmidt hat das Corporate Design von ARAG modernisiert. Um die Ergebnisse
+dieser Arbeit schnell und professionell in die Welt zu bringen, nutzt ARAG
+dieses Extranet auf Basis des von mir entwickelte neuekoepfe CMS.
+- CMS
+- Benutzer/Gruppe verwaltung
+- PDF Erstellung
+- Foto Archiv
+- Download Center
+ 
+Kenntnisse:
+ 
+JavaScript, html, ASP
+ 
+Eingesetzte Produkte:
+ 
+MS SQL Server 2005
+===============================================================================
+04/2004 - 09/2004: Roche Diagnostics
+ 
+Einsatzort:         Hamburg
+Rolle:              Web Entwickler
+Kunde:              Roche Diagnostics / neuekoepfe
+Geschäftsstelle:    Hamburg
+Unternehmensgröße:  > 1000
+ 
+Aufgaben:
+ 
+Erstellung eines Branding Plattform, die alle Marketingmitarbeiter und externen
+Agenturen weltweit über die Verwendung der Corporate Design Elemente informiert
+- realisiert in Kooperation mit der Unternehmensberatung für Corporate Identity
+Henrion Ludlow Schmidt in Hamburg und London und der neuekoepfe GmbH
+ 
+Entwicklte Funktionien:
+- Benutzer/Gruppe Verwaltung
+- CMS
+- PDF generierung
+- Foto Archiv
+- Downloadcenter
+ 
+Kenntnisse:
+ 
+asp, mssql, HTML, JavaScript
+===============================================================================
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_67539
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 04.06.2020 00:51:22
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

@@ -1,0 +1,327 @@
+Projektmanagement, Fullstack Entwicklung und DevOps - NodeJS,
+Kubernetes, GitOps, Blockchain, Self-Sovereign Identity/SSI
+Top-Skills: DevOps, Self-Sovereign Identity, IAM, Linux,
+NodeJS, C, Go, Solidity, OAuth, GitOps, SSI,
+CI/CD, JavaScript, IDAM, Rust, Docker,
+Kubernetes
+Verfügbar ab: 01.02.2023
+verfügbar zu: 50 %
+davon vor Ort: 100 %
+Stundensatz: 150,00 EUR
+Bemerkungen:
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Schweiz
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Projekte
+2020-04 - heute Aufbau der Cloud IT-Infrastruktur zur Bereitstellung
+2 Jahre 10 Monate eines Software as a Services Angebots
+Rolle: Gründer
+Kunde: auf Anfrage
+Einsatzort: Bremen
+Projektinhalte:     •  Aufbau der skalierbaren Cloud-Infrastruktur auf Basis von
+     ?Kubernetes, PostgreSQL und CouchDB
+    •  Aufbau der gitops CI/CD Infrastruktur auf Basis von GitHub,
+     ?Terraform, Argo-Workflows, Kaniko und Flux CD
+    •  Architektur und Entwicklung des identinet
+     ?Software-as-a-Service-Angebots auf
+    •  Basis von NodeJS, Hapi, SolidJS und dem Self-Sovereign Identity
+     ?Framework Aries Go
+Kenntnisse: Kubernetes, JavaScript, TypeScript, CI/CD, Go, SSI, GitOps, Rust
+17.02.2023 1 von 10
+Eingesetzte Produkte: fluxcd, PostgreSQL, CouchDB, Kaniko, Git, Terraform, Argo Workflows,
+Hapi, SolidJS, make, Kustomize, Hetzner Cloud, Hyperledger Aries
+Framework Go, Nix
+2019-10 - heute IT-Strategieberatung, DevOps und Identity Management
+3 Jahre 4 Monate
+Rolle: Softwareentwickler und Berater
+Kunde: auf Anfrage
+Einsatzort: remote
+Projektinhalte: Softwareentwickler und Berater für IT-Strategie und Identity Management
+    •  Einführung einer umfassenden CI/CD Infrastruktur auf Basis von
+     ?GitLab, fluxcd und Kubernetes
+    •  Einwicklung von Automatisierungswerkzeugen für Software Release
+     ?Prozesse in Go
+    •  Strategieberatung für die Weiterentwicklung des Produkts paedML
+     ?Linux, Kunde Landesmedienzentrum Baden-Württemberg
+    •  Projektmanagement für die Einführung der NextCloud als neuer
+     ?Produktbestandteil der paedML Linux
+    •  Analyse und Behebung von Fehlern in NextCloud und Samba für die
+     ?paedML Linux
+    •  Migration und Überarbeitung der Software-Infrastruktur des
+     ?zentralen Update- Service für die paedML Linux
+    •  Entwicklung, Paketierung und Inbetriebnahme der
+     ?Telemetrie-Lösung für die paedML Linux
+Kenntnisse: Kubernetes, CI/CD, DevOps, Go, Linux, Bash, Python
+Eingesetzte Produkte: fluxcd, Kubernetes, Azure, AWS, GitLab, Univention Corporate Server,
+Kustomize, Nix
+2020-12 - 2021-08 Einführung eines CI/CD-Systems auf Basis von
+9 Monate Kubernetes
+Rolle: DevOps-Lead
+Einsatzort: Bremen
+Projektinhalte:     •  Einführung eines Continuous Integration und Continuous
+     ?Delivery-Systems auf Basis von Kubernetes, Argo Workflows, Argo
+     ?Events und FluxCD.
+    •  Das System ist nach GitOps-Prinizpien darauf ausgelegt, dass
+     ?das keine manuellen Eingriff in die Staging und
+     ?Betriebsumgebung notwendig sind die Konfiguration erfolgt
+     ?ausschließlich in Git. 
+    •  Neue Softwareversionen werden automatisch durch das CI-System
+     ?erkannt und es werden Docker Container erzeugt, die
+     ?anschließend automatisiert deployed werden.
+    •  Weiterhin ist die Architektur darauf ausgelegt, dass die
+     ?Software-Entwickler auf ihren Systemen die gleich
+     ?Kubernetes-Infrastruktur und Konfiguration verwenden, um
+     ?Unterschiede zwischen Entwicklungs- und Betriebsumgebung zu
+17.02.2023 2 von 10
+     ?minimieren.
+Kenntnisse: GitOps, YAML, Make, Docker, Kubernetes, Nix
+Eingesetzte Produkte: Kaniko, k3s, Argo Workflows, Argo Events, FluxCD, NixOS, Docker
+2018-07 - 2021-06 Blockchain und Digital Identity-Beratung
+3 Jahre
+Rolle: Berater und Architekt
+Einsatzort: Hamburg
+Projektinhalte:     •  Beratung und Konzeption zum Einsatz von Blockchain und
+     ?Self-Sovereign Identity (SSI) Technologien. 
+    •  Einführung von Decentralized Identifiers für Personen,
+     ?Institutionen und Objekte/Fahrzeuge. 
+    •  Entwicklung von JSON-LD/RDF Datenmodellen zur Nutzung in
+     ?Verifiable Credentials.
+Kenntnisse: Blockchain, Self-Sovereign Identity, JSON-LD, Decentralized Identifier,
+Verifiable Credentials
+Eingesetzte Produkte: Spherity
+2019-02 - 2020-06 Dezentrale Blockchain-Plattform zum Datenaustausch
+1 Jahr 5 Monate
+Rolle: Head of Blockchain Engineering
+Kunde: CHAINSTEP GmbH
+Einsatzort: Hamburg
+Projektinhalte: Leiter des Blockchain-Entwicklungsteams
+    •  Management- und Technologieberatung zur Umsetzung von
+carTRUST
+     ?auf Basis der von Self-Sovereign Identity-Technologien
+    •  Evaluation, Konzeption und Einführung von Self-Sovereign
+     ?Identity-Technologien in carTRUST
+    •  Leitung des Architektur- und Entwicklungsprozesses für
+     ?carTRUST.com, der ersten Blockchain-, eID/eIDAS-,
+     ?Self-Sovereign Identity-basierten Kfz-Registierungsplattform
+    •  Leitung des Architektur- und Entwicklungsprozesses für die
+     ?Cooperative Claim Chain, die Blockchain-basierte Plattform der
+     ?Versicherungswirtschaft 
+    •  Technologie- und Management-Training für die Self-Sovereign
+     ?Identity Technologie bei einem multinationalen Hersteller von
+     ?Computer-Interface-Geräten
+Kenntnisse: JavaScript
+Eingesetzte Produkte: evan.network, VueJS, web3
+17.02.2023 3 von 10
+2018-02 - 2019-01 Entwurf und Durchführung des mehrtägigen Blockchain-
+1 Jahr Intensivkurses
+Rolle: Blockchain Project Manager
+Kunde: CHAINSTEP GmbH
+Projektinhalte: Projektmanager mit dem Fokus Blockchain-Technologie
+    •  Entwurf und Durchführung des mehrtägigen
+     ?Blockchain-Intensivkurses für Softwareentwickler
+    •  Entwurf und Durchführung der mehrtägigen Blockchain-Schulung
+     ?"Grundlagen für eine neue digitale Ökonomie" für Manager und
+     ?Geschäftsführer
+    •  Implementierung von Blockchain-Prototypen auf Basis von
+     ?Ethereum Parity, Solidity, ZeroMQ, NodeJS und VueJS
+    •  Sprecher auf Konferenzen: Silpiion techcamp.hamburg, DKE
+     ?Innovationskongress, Blockchain Masters und CIO Strategietage
+     ?2018 und 2019
+    •  Evaluierung von konsortialen Blockchain-Plattformen für die
+     ?Seefracht-Industrie
+    •  Autor des Heise iX Artikels Blockchain im praktischen Einsatz
+    •  Entwicklung des Prototypen "Reliability on the Last Mile" und
+     ?"carTRUST.com" auf Basis von Ethereum, Socket.io, NodeJS und
+     ?VueJS
+2018-07 - 2018-11 Blockchain-Protypentwicklung für die
+5 Monate Fahrzeugzulassung
+Rolle: Projektmanager und Fullstack-Entwickler
+Einsatzort: Hamburg
+Projektinhalte:     •  Implementierung des Prototypen auf Basis der Ethereum Parity
+     ?Blockchain, Solidity, ZeroMQ, NodeJS und VueJS.
+Kenntnisse: Ethereum, Solidity, ZeroMQ, NodeJS, VueJS
+Eingesetzte Produkte: Parity Ethereum
+2018-04 - 2018-06 Blockchain Entwickler-Training
+3 Monate
+Rolle: Trainer
+Einsatzort: Hamburg
+Projektinhalte:     •  Entwicklung und Durchführung eines über 6 Wochen laufenden,
+     ?praktischen Blockchain-Trainings für Softwareentwickler.
+Kenntnisse: Bash, Ethereum, Make, VueJS, JavaScript, Solidity
+Eingesetzte Produkte: Parity Ethereum
+17.02.2023 4 von 10
+2015-11 - 2017-12 Marktanalyse und Produktplatzierung
+2 Jahre 2 Monate
+Rolle: Product Manager Educa
+Kunde: Univention GmbH
+Projektinhalte: Management des Fokusprodukts UCS@school
+    •  Technische Konzeption für neue Produktfunktionen, z.B. eine
+     ?HTTP- und CLI-API für einen automasierter Benutzerimport.
+    •  Marktanalyse und Produktplatzierung als führendes
+     ?ID-Management-System für Schulträger.
+    •  Leitung der Steuerungsgruppe für den Unternehmensfokus
+     ?Schulträger.
+    •  Präsentation von UCS@school auf Konferenzen und in Blog- und
+     ?Zeitungsartikeln.
+    •  Leitung der Arbeitsgruppe technische Interoperabilität im
+     ?Bündnis für Bildung.
+2011-04 - 2015-10 Entwicklung des OEM-Produkts
+4 Jahre 7 Monate
+Rolle: Assistant Head of Professional Services
+Kunde: Univention GmbH
+Projektinhalte: Co-Leiter des Professional Services Teams
+    •  Co-Leitung des Professional Service Teams, bestehend aus acht
+     ?Consultants und drei Auszubildenden.
+    •  Entwicklung des OEM-Produkts paedML Linux für das
+     ?Landesmedienzentrum Baden-Württemberg.
+    •  Technical Account Manager und Projektleiter für
+     ?mittelständische und Großkunden.
+    •  Technische Unterstützung bei der Neukunden-Akquise.
+2009-04 - 2011-03 Konzeption und Implementierung von ID- und
+2 Jahre Infrastrukturmanagement-Systemen.
+Rolle: Open Source Soware Consultant
+Kunde: Univention GmbH
+Projektinhalte: Consultant für Univenon Corporate Server und UCS@school
+    •  Konzeption und Implementierung von ID- und
+     ?Infrastrukturmanagement-Systemen.
+    •  Entwicklung von Erweiterungen, hauptsächlich in Python und
+     ?Shell.
+    •  Durchführung von Schulungen für den Einsatz von Univenon
+     ?Corporate Server
+17.02.2023 5 von 10
+2008-07 - 2009-03 Entwicklung und Wartung des Produkts
+9 Monate
+Rolle: Open Source Software Engineer
+Kunde: Univention GmbH
+Projektinhalte: Software-Entwickler für Univention Corporate Server und UCS@school
+    •  Entwicklung und Wartung des Produkts Univention Corporate
+     ?Server.
+    •  Konfiguration und Einsatz der Infrastruktur-Komponenten
+     ?OpenLDAP, Samba, BIND, Heimdal Kerberos und Apache.
+2007-03 - 2007-07 Arbeitsgruppe Rechnernetze
+5 Monate
+Rolle: Studentische Hilfskraft
+Kunde: Universität Bremen
+Projektinhalte:     •  Arbeitsgruppe Rechnernetze
+2006-05 - 2006-10 Arbeitsgruppe Rechnernetze
+6 Monate
+Rolle: Studentische Hilfskraft
+Kunde: Universität Bremen
+Projektinhalte:     •  Arbeitsgruppe Rechnernetze
+2004-09 - 2006-04 Mobile Research Center
+1 Jahr 8 Monate
+Rolle: Studentische Hilfskraft
+Kunde: Universität Bremen
+Projektinhalte:     •  Mobile Research Center
+Weitere Projekte auf Anfrage.
+Branchen
+    •  Logistik
+    •  Bildung
+    •  Versicherungen
+    •  Handel
+17.02.2023 6 von 10
+Sprachen
+Deutsch Muttersprache
+Englisch fließend
+Kompetenzen
+Schwerpunkte Kubernetes
+Linux
+Self-Sovereign Identity
+Blockchain
+Fullstack Entwicklung
+Projektmanagement
+Softwarearchitektur
+Aufgabenbereiche Softwarearchitektur
+Fullstack Entwicklung
+Projektmanagement
+Produkte / Standards / sk
+Erfahrungen / Methoden
+Profil
+Ich bin durch und durch Informatiker mit einem starken Fokus auf
+Business und Erfolg für den Kunden. Mir liegen unterschiedliche Rollen,
+vom Produktmanagement, Projektmanagement über Trainer bis zu
+Software-Entwicklung und Administration decke ich ein breites
+Spektrum ab und freue mich Sie zu unterstützen.
+Fähigkeiten
+Mitarbeiterführung 
+Ehrlich, ermutigend, begeistert, leistungsorientiert
+Produktmanagement 
+Entschlossen, neugierig, analytisch, marktorientiert
+Projektmanagement 
+Agil (SCRUM / Kanban), kundenorientiert, transparent, erfolgreich
+Emerging Technologies 
+Dezentralisierung, Blockchain, Distributed Ledger Technologies (DLT),
+17.02.2023 7 von 10
+Ethereum, Self-Sovereign Identity, Decentralized Identifiers, Verifiable
+Credentrals
+IT-Infrastruktur 
+Linux, Docker, Kubernetes, gitops CI/CD, Infrastructure-as-Code,
+PostgreSQL, CouchDB, Shell, Git, Developer Happiness
+Softwareentwicklung 
+Solidity, C, Python, JavaScript, TypeScript, Funkonale
+Programmierung, JSON-LD, Kryptographie, NodeJS, Hapi, Svelte,
+VueJS, HTTP- und REST-APIs
+2001-07 - 2002-04
+Rolle: Zivildienstleistender
+Kunde: Rotenburger Werke der Inneren Mission
+Aufgaben:
+    •  Betreuung einer Wohngruppe für körperlich und geistig
+     ?behinderte Menschen
+Betriebssysteme Linux
+Programmiersprachen JavaScript
+Python
+Bash
+Go
+C
+Solidity
+Lua
+Datenbanken MySQL
+PostgreSQL
+CouchDB
+Referenzen, Anerkennungen und Mitgliedschaften auf Anfrage.
+Aus- und Weiterbildung
+17.02.2023 8 von 10
+2014-03 - 2016-06 Master of Business Administration
+2 Jahre 4 Monate
+Abschluss: Master of Business Administration (MBA)
+Institution: Hochschule Bremen
+    •  Teilzeitstudium zum Master of Business Administration.
+    •  Titel der Masterarbeit: Co-operative Strategie of Small and
+     ?Medium-sized Enterprises that produce Free and Open Source
+     ?Software - The Case of Univention GmbH.
+2013-06 - 2013-06 Ausbildereignungs-prüfung IHK
+1 Monat
+Abschluss: AEVO Akkreditierung
+Institution: Handelskammer Bremen
+2012-05 - 2012-05 Linux Professional Institute Certificate 2
+1 Monat
+Abschluss: LPIC-2, Zertifizierter Linux Engineer
+Institution: Linux Professional Institute
+2010-07 - 2010-07 Linux Professional Institute Certificate 1
+1 Monat
+Abschluss: LPIC-1, Zertifizierter Linux Administrator
+Institution: Linux Professional Institute
+2002-09 - 2008-05 Informatik-Studium
+5 Jahre 9 Monate
+Abschluss: Diplom-Informatiker
+Institution: Universität Bremen
+    •  Titel der Diplomarbeit: Entwicklung eines
+     ?Webbrowser-basierten Wiedergabe- und Steuerungssystems für
+     ?Video- und Hypermedia-Anwendungen.
+    •  Rechnernetze und Betriebssysteme.
+17.02.2023 9 von 10
+2006-11 - 2007-01 IAESTE Auslandsprak
+3 Monate
+Institution: IDSignet, Shanghai, China
+    •  Entwicklung eines Java Web Portals (JSR-168) zur
+     ?Kursverwaltung
+1997-08 - 2001-06 Gymnasium
+3 Jahre 11 Monate
+Abschluss: allgemeinen Hochschulreife
+Institution: Berufsbildende Schulen Rotenburg (Wümme)
+17.02.2023 10 von 10
+
+############################################

@@ -1,0 +1,1015 @@
+Project Management, Network Engineering &amp; Design
+Verfügbar ab: 01.03.2021
+verfügbar zu: 100 %
+davon vor Ort: 50 %
+Stundensatz: 85,00 EUR
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Projekte
+10/2015 - 01/2016: Manufacturing Plant – Székesfehérvár Infrastructure
+ 
+Branche:
+Harman Becker Automotive Systems GmbH | Industry
+Rolle:
+Project Manager
+Projektbeschreibung:
+- Plannung, Design und Implementierung der IT Infrastruktur für den neuen Produktionsstandort
+Székesfehérvár for den Unternehmensbereiche Lifestyle und Automotive/B&amp;O.
+- Netzwerk Infrastruktur:
+# MPLS WAN Anbindung.
+# P2P Crosslink zum bestehenden Produktionsstandort in Székesfehérvár.
+# WAN Acceleration.
+# Verkabelungsinfrastruktur und Netzwerkschränke.
+# Switches für den Core/Distribution/Access Layer.
+# Firewalls mit integriertem IDS/IPS.
+# Integration der Wi-Fi APs in die zentrale Wi-Fi Lösung.
+# Integration der Tischtelefone in die zentrale VoIP Lösung.
+- Server/Storage/Backup Infrastruktur:
+# Virtualisierter Server Cluster inkl. Storage/Backup und SAN.
+# Standortübergreifende Disaster Recovery Lösung.
+- End User IT:
+# Desktop und Laptop Systems für Büro und Produktion.
+# Printer und Label Printer für Büro und Produktion.
+# Wi-Fi/USB Barcode Scanner für die Produktion.
+- Projektvolumen: ca. 1,2 Mio. EUR
+- Projektlaufzeit: 4 Monate
+Technologien, Services:
+02.03.2023 1 von 9
+- Cisco Catalyst 6800 Series
+- Cisco Nexus 3000 Series
+- Cisco Catalyst 2960-X Series
+- Cisco ASA Series with FirePower Services
+- Cisco Aironet 3700 Series Access Points
+- Cisco 800 Series Router
+- Cisco Unified IP Phone 8800 Series
+- Cisco Secure Access Control Server (CSACS) 5.6
+- Riverbed Stealhead CX3070 Series
+- Hewlett-Packard BL460c, DL380 and ML350 Series Server
+- Hewlett-Packard SAN Switches
+- EMC VNX 5400 Storage System
+- EMC Avamar M1200 Backup System
+10/2015 - 11/2015: Intelligent WAN (IWAN)
+ 
+Branche:
+Freudenberg IT GmbH &amp; Co. KG | Information Technology
+Rolle:
+Network Engineer
+Projektbeschreibung:
+- Design eines Intelligent WAN (IWAN) mit Integration der bestehenden WAN Acceleration Lösung.
+- Konzeption eines mandantenfähiges Multi-VPN Overlay Transport DMVPN für Hybrid und Dual
+Internet Transport, kombiniert mit den Leistungsmerkmalen Per-Tunnel QoS und Intelligent Path
+Control.
+- Test/Validierung des Designkonzepts im Labor.
+- Vertragsvolumen: ca. 15 kEUR
+- Vertragslaufzeit: 2 Monate
+Technologies, Services:
+- EIGRP
+- DMVPN
+- Cisco IWAN
+- Cisco Performance Routing
+- Cisco ASR 1000 Series
+- Cisco ISR 4000 Series
+- Cisco ASA Series
+08/2015 - 09/2015: Managed Network Services (MNS)
+ 
+Branche:
+Freudenberg IT GmbH &amp; Co. KG | Information Technology
+Rolle:
+Network Engineer
+Projektbeschreibung:
+- Überarbeitung/Neuauflage der Leistungsbeschreibung für Managed Network Services (MNS) mit
+den Schwerpunkten WAN, WAN Acceleration, LAN, Wi-Fi und Security.
+- Vertragsvolumen: ca. 15 kEUR
+- Vertragslaufzeit: 2 Monate
+Technologien, Services:
+- Cisco Meraki
+- Riverbed Stealhead
+04/2015 - 09/2015: Manufacturing Plant – Pécs Infrastructure
+ 
+Branche:
+Harman Becker Automotive Systems GmbH | Industry
+Rolle:
+Project Manager
+Projektbeschreibung:
+- Plannung, Design und Implementierung der IT Infrastruktur für den neuen Produktionsstandort
+Pécs for den Unternehmensbereich Professional.
+02.03.2023 2 von 9
+- Netzwerk Infrastruktur:
+# MPLS und Internet (inkl. SIP Trunk) WAN Anbindungen.
+# WAN Acceleration.
+# Verkabelungsinfrastruktur und Netzwerkschränke.
+# Switches für den Core/Distribution/Access Layer.
+# Firewalls mit integriertem IDS/IPS.
+# Integration der Wi-Fi APs in die zentrale Wi-Fi Lösung.
+# Integration des lokalen Voice Gateways, der Tischtelefone und DECT Mobiltelefone in die zentrale
+VoIP Lösung.
+- Server/Storage/Backup Infrastruktur:
+# Virtualisierter Server Cluster inkl. Storage/Backup und SAN.
+# VMs für DC, DHCP, SCCM, File und Print Dienste.
+# VMs für verschiedene produktionsspezifische Dienste.
+- End User IT:
+# Desktop und Laptop Systems für Büro und Produktion.
+# Printer und Label Printer für Büro und Produktion.
+# Wi-Fi/USB Barcode Scanner und Industrie Tablets für die Produktion.
+- Projektvolumen: ca. 1,4 Mio. EUR
+- Projektlaufzeit: 6 Monate
+Technologies, Services:
+- Cisco Catalyst 6800 Series
+- Cisco Nexus 3000 Series
+- Cisco Catalyst 2960-X Series
+- Cisco ASA Series with FirePower Services
+- Cisco 7500 Series Wireless LAN Controller
+- Cisco Aironet 3700 Series Access Points
+- Cisco 3900 Series Router
+- Cisco Unified Wireless IP Phone 7900 Series
+- Cisco Unified IP Phone 8800 Series
+- Cisco Secure Access Control Server (CSACS) 5.6
+- Riverbed Stealhead CX3070 Series
+- Hewlett-Packard DL360, DL380 and ML350 Series Server
+- Hewlett-Packard SAN Switches
+- EMC VNX 5400 Storage System
+- EMC Avamar M2400 Backup System
+04/2015 - 07/2015: DC NET
+ 
+Branche:
+Freudenberg IT SE &amp; Co. KG | Information Technology
+Rolle:
+Network Engineer
+Projektbeschreibung:
+- Design einer service-agnostischen Zugangskontrolle für den administrativen Zugriff auf das DC
+Net, mit Unterstützung für den Zugang über LAN, Wi-Fi und RAS.
+- Anforderungen:
+# Keine zustätzliche Interaktion durch den Nutzer erforderlich.
+# Granulare Zugangskontrolle auf Nutzer/Gruppen-Ebene.
+# Zentrale Administration der Zugangsrechte.
+# Optionale Unterstützung von IP Accounting.
+- Projektvolumen: ca. 30 kEUR
+- Projektlaufzeit: 4 Monate
+Technologies, Services:
+- IEEE 802.1X Port-Based Authentication
+- Microsoft Windows 7/8
+- RADIUS
+- Cisco Secure Access Control Server (CSACS) 5.6
+- Cisco Catalyst 2960-X Series
+- Cisco 7500 Series Wireless LAN Controller
+11/2014 - 03/2015: Remote Access Service (RAS)
+02.03.2023 3 von 9
+ 
+Branche:
+Freudenberg IT SE &amp; Co. KG | Information Technology
+Rolle:
+Network Engineer
+Projektbeschreibung:
+- Design eines hochverfügbaren Remote Access Service (RAS) auf Basis SSL VPN.
+- Einführung der Mandantenfähigkeit zur Ablösung des komplexen NAT-Designs der bestehenden
+Lösung.
+- Test/Validierung des Designkonzepts im Labor.
+- Evaluierung verschiedener am Markt verfügbarer RADIUS Server mit folgenden Anforderungen:
+# Unterstützung internen Identity Stores (User und Hosts).
+# Unterstützung externer Identity Stores (LDAP, VASCO DIGIPASS/IDENTKEY, RSA SecurID).
+# Unterstützung nutzerspezifischer Attribute (z.B. statische IP Adresszuweisung).
+- Entwicklung eines Migrationspfades von Cisco Secure ACS 4.2 auf den neuen RADIUS Server.
+- Projektvolumen: ca. 40 kEUR
+- Projektlaufzeit: 5 Monate
+Technologien, Services:
+- OSPF
+- Policy-based VRF Selection
+- SSL VPN
+- RADIUS, LDAP, RSA SecurID, RADIUS-based Proxy
+- Cisco ASA Series
+- Cisco Secure Access Control Server (CSACS) 5.6
+10/2014 - 03/2015: Network Migration Karlsbad
+ 
+Branche:
+Harman Becker Automotive Systems GmbH | Industry
+Rolle:
+Project Manager
+Projektbeschreibung:
+- Migration/Erneuerung der LAN-Infrastruktur am Standort Karlsbad im Rahmen der Einführung von
+IEEE 802.1X Port-based Authentication.
+- Aufbereitung MAC Adressen Datenbank zur Provisionierung des RADIUS Servers.
+- Planung und Durchführung der Migrationen der Gebäude in Abstimmung den betroffenen
+Unternehmensbereichen sowie dem ausführenden Service-Partner.
+- Mengengerüst: 9 Gebäude mit insgesamt 179 Netzknoten
+Projektvolumen: ca. 600 kEUR
+Projektlaufzeit: 6 Monate
+Technologiesn, Services:
+- IEEE 802.1X Port-based Authentication
+- Cisco Nexus 7000 Series
+- Cisco Catalyst 4500-X/3750X/2960X Series
+- Cisco Secure Access Control Server (CSACS) 5.6
+07/2014 - 08/2014: nWAN
+ 
+Branche:
+X-Brains GmbH | Telecommunications, Publishing
+Rolle:
+Technical Project Manager
+Projektbeschreibung:
+- Outsourcing Deal der DuMont Systems GmbH &amp; Co. KG.
+- Erstellung eines Grobkonzepts der zukünftigen Netzarchitektur basierend auf einer
+mandantenfähigen Multi-Carrier Plattform inkl. Internet Access.
+- Durchführung von Carrier-Workshops.
+- Erstellung der NOC Prozesse.
+- Erstellung der RACI-Matrix für Standortmigrationen inkl. Abnahme.
+- Mengengerüst:
+# 9 Unternehmensbereiche (inkl. Rechenzentren und Druckzentren)
+02.03.2023 4 von 9
+# 61 Außenstellen
+- Projektvolumen: ca. 65 kEUR
+- Projektlaufzeit: 2 Monate
+Technologien, Services:
+- MPLS
+- BGP
+- OSPF
+- Quality-of-Service (QoS)
+- Cisco 2900/390/ASR 1000 Series
+Spezielle Teilprojekte:
+- Erstellung eines Konzepts für Traffic-Offloading (Policy-based VRF Selection) zur Optimierung der
+Verkehrsströme und Netzwerkkosten.
+09/2012 - 06/2014: OPF
+ 
+Branche:
+T-Systems International GmbH | Telecommunications, Industry
+Rolle:
+Technical Project Manager
+Projektbeschreibung:
+- Outsourcing Deal der Georg Fischer Schweiz, Ltd.
+- Teilprojekt NWS/LAN mit den Bereichen LAN und WLAN inkl. Guest Internet Access in den
+Regionen DACH und APAC.
+- Migration der LAN/WLAN-Infrastruktur der Unternehmensbereiche Georg Fischer Piping Systems
+und Georg Fischer Agie Charmilles auf die T-Systems Platform MLS.
+- Steuerung und Koordination der für die einzelnen Länder zuständigen T-Systems LBUs für die
+gesamte Implementierungskette.
+- Planung und Durchführung von Ortsbegehungen.
+- Planung und Durchführung von Standortmigrationen.
+- Mengengerüst:
+# Region DACH: 19 Standorte in 3 Ländern
+# Region APAC: 25 Standorte in 9 Ländern
+- Projektvolumen: ca. 120 Mio. EUR
+- Projektlaufzeit: 6 Jahre
+Technologien, Services:
+- Ethernet
+- OSPF
+- Quality-of-Service
+- Cisco Catalyst 6500/3750X/2960S Series
+Spezielle Teilprojekte:
+- Pilot und Roll-out einer IEEE 802.1X/RADIUS-basierten Authentifizierung von WLAN-Clients.
+08/2011 - 06/2012: SAaCon
+ 
+Branche:
+Atos IT Solutions and Services GmbH | Information Technology
+Rolle:
+Technical Project Manager
+Projektbeschreibung:
+- Carve-out des Netzwerks der Siemens IT Solutions and Services.
+- Teilprojekt BPS mit den Bereichen SSLVPN und SecureVPN.
+- Erstellung eines Testkonzepts für FMO-Plattform der Bereiche SSLVPN und SecureVPN.
+- Erstellung eines Betriebskonzepts für die FMO-Plattform der Bereiche SSLVPN und SecureVPN.
+- Implementierung der Partnerräume in den Regionen EMEA, NA, LATAM und APAC.
+- Planung und Durchführung der Migrationen der Anbindungen der Geschäftspartner in den Regionen
+EMEA, NA, LATAM sowie APAC.
+- Projektvolumen: ca. 3,5 Mio. EUR
+- Projektlaufzeit: 1 Jahr
+Technologien, Services:
+- EIGRP, OSPF
+- IPSec/DMVPN
+02.03.2023 5 von 9
+- Cisco ASR 1000 Series
+- Juniper SA6500 SSL VPN Appliance
+Spezielle Teilprojekte:
+- Erstellung eines technischen Konzepts für die Partnerräume, zur Bereitstellung von
+Kopplungselementen für die Anbindungen der Geschäftspartner.
+06/2010 - 04/2011: INTRO
+ 
+Branche:
+T-Systems International GmbH | Telecommunications, Finance
+Rolle:
+Technical Project Manager, LAN Engineering
+Projektbeschreibung:
+- 2nd Generation Outsourcing Deal der DekaBank.
+- Teilprojekt COM/LAN mit den Bereichen User LAN, RZ LAN und 3rd Party Kopplungen.
+- Übernahme der Netzwerkinfrastruktur von den Alt-Providern Lufthansa Systems Infratec und
+Hewlett-Packard mit allen Rechten und Pflichten.
+- Planung, Design und Implementierung eines netzuübergreifenden Routing-Konzepts inkl.
+Multicast/MSDP und 3rd Party Kopplungen.
+- Planung und Durchführung der Standortmigrationen und 3rd Party Migrationen.
+- 2nd Level Support für das CSO Leipzig.
+- Projektvolumen: ca. 100 Mio. EUR
+- Projektlaufzeit: 6 Jahre
+Technologien, Services:
+- MPLS
+- Ethernet (GigE, 10GigE)
+- BGP, EIGRP, OSPF
+- Multicast/MSDP
+- Quality-of-Service (QoS)
+- IPSec/DMVPN
+- SNMPv3, IP SLA
+- Cisco Catalyst 6500 Series
+- Cisco Catalyst 4500 Series
+Spezielle Teilprojekte:
+- Unterstützung bei der Erstellung des Betriebshandbuchs zum Kapitel Business Continuity
+Management &amp; Disaster Recovery.
+05/2008 - 03/2010: Service Area [SA One]
+Branche:
+T-Mobile International AG | Telecommunications
+Rolle:
+Technical Project Manager, IP Designer
+Projektbeschreibung:
+Planung, Design und Implementierung der neuen Service Area [SA One] mit folgenden Design-
+Schwerpunken:
+- Network Infrastructure (VRF-aware BGP/OSPF/IPSec, IPv4/IPv6, SNMPv3).
+- Facility Infrastructure (Geba?udesicherheit, Energie- und Klimatechnik, Rack-Design incl. Kaltgang-
+Schottung, strukturierte Verkabelung) gem. geltenden Normen.
+- Projektvolumen: ca. 5 Mio. EUR
+- Projektlaufzeit: ca. 2 Jahre
+Technologien, Services:
+- MPLS
+- Ethernet (GigE, 10GigE)
+- IPSec
+- BGP, OSPF
+- Crossbeam X-Series
+- Checkpoint VSX
+- F5 Big-IP 8000 Series
+- Cisco Nexus 5000 Series &amp; Nexus 2000 Series
+02.03.2023 6 von 9
+Spezielle Teilprojekte:
+- Einführung von Data Center Service Management (DSCM) auf Basis von [Aperture VISTA].
+- Prozeßdesign inkl. Dokumentation für die ITIL Prozesse Change Management, Configuration
+Management und Capacity Management.
+01/2003 - 03/2008: BayKom
+Branche:
+Freistaat Bayern | Government
+Rolle:
+Project Manager
+Projektbeschreibung:
+Rahmenvertrages zur Bereitstellung, zum Betrieb und zur Instandhaltung des Weitverkehrsnetzes
+zur Datenübertragung zwischen den Dienststellen, mobilen Benutzern und Heimarbeitsplätzen.
+- Vertragsvolumen: ca. 141 Mio. EUR
+- Vertragslaufzeit: 8 Jahre
+- Los 3 Daten:
+     # ca. 1400 Standorte (KSS-Typ 1 - 4)
+     # ca. 450 Heimarbeitsplätze (KSS-Typ 5)
+- Los 4 Internet:
+     # zentraler Internetzugang für das BYBN (KSS-Typ 6)
+     # zentraler Internetzugang der Justiz (KSS-Typ 7)
+- Online-Portal mit den Säulen:
+     # Auftragsstatus
+     # Fehlerstatus
+     # Rechnungsdaten
+     # Leistungsnachweis
+     # Netzwerk-Management
+Technologien, Services:
+- MPLS (dediziertes Netzwerk)
+- SDH
+- ISDN Dial Backup
+- Festverbindungskaskaden
+- Quality-of-Service mit 6 Class-of-Service (QoS/6CoS)
+- IPSec/DMVPN
+Spezielle Teilprojekte:
+- Konzeption und Entwicklung der MR_DB/BayKom auf Basis MySQL/PHP:
+     # techn. Inventory für Implementation und Service
+     # Planungs-Tool für IP-Portvergabe und Kapazitätsplanung der MPLS Core-Plattform
+     # automatische Generierung von Workpacks
+     # automatische Generierung von CE/PE Router Config-Files (Base Config)
+     # automatische Generierung von Cricket Config-Files
+     # Mass-Mailer Funktion zur automatischen Benachrichtigung von Endkunden bei Planned Works.
+- Konzeption und Entwicklung des 'Custom Build Config Generator' auf Basis PERL zur Berechnung
+der QoS-Configlets für CE/PE Router, inkl. Integration in die MR_DB/BayKom.
+- Prozeßdesign inkl. Dokumentation für die Teilprozesse Delivery, MAC und F&amp;R
+- Entwicklung eines Systemleitfadens für das Workflow-System für die Teilprozesse Delivery und
+MAC.
+- Entwicklung eines Baukasten-Systems für die Ausschreibung von Subunternehmerleistungen.
+04/2002 - 04/2003: CNE (Corporate Network Europe)
+Branche:
+BMW Group | Automotive
+Rolle:
+Project Manager
+Projektbeschreibung:
+Rahmenvertrag zum Outsourcing des kompletten Sprach- undDatennetzwerks in Deutschland und
+Europa (Corporate Network Europe) mit der BMW Group.
+02.03.2023 7 von 9
+- Vertragsvolumen: ca. 36 Mio. EUR
+- Vertragslaufzeit: 5+1 Jahre
+- ca. 180 Standorte
+Projekte:
+- Betreuung des BMW Supplier Netzwerks (ca. 80 Standorte).
+- Anbindung (z.T. vollredundant) des BMW UK Werkeverbund (Oxford, Hams Hall, Goodwood) an die
+NWZ1/3 über den BT ATM Backbone.
+- Anbindung der BMW Werke Rosslyn und Midrand an die NWZ1/3 über vollredundante IPLCs
+(terrestrisch &amp; Satellit).
+- Anbindung des BMW Werk Leipzig an die NWZ1/3, zunächst über das BMW Supplier Netzwerk,
+später als eigenständige, vollredundante Werksanbindung.
+- Migration des BMW Supplier Netzwerks (ca. 80 Standorte) auf die neue Infrastruktur in der
+NWZ1/3.
+Technologien, Services:
+- ATM
+- Frame Relay
+- SDH
+- ISDN Dial Backup; ISDN ATC
+Branchen
+- Automotive
+- Government
+- Telecommunications
+- Finance
+- Information Technology
+- Industry
+- Publishing
+Sprachen
+Deutsch
+Englisch verhandlungssicher
+Kompetenzen
+Produkte / Standards / CCDA (Cisco Certified
+Erfahrungen / Methoden Design Associate)
+CCDP (Cisco Certified
+Design Professional)
+CCNA (Cisco Certified
+Network Associate)
+CCNP (Cisco Certified
+Network Professional)
+Certified Senior Project
+Manager (GPM) (IPMA
+Level B)
+PRINCE2 Foundation
+Exam (APMG)
+02.03.2023 8 von 9
+PRINCE2 Registered
+Practitioner (APMG)
+Betriebssysteme CentOS
+Cisco IOS
+Cisco NX-OS
+Mac OS X
+Windows
+Datenkommunikation BGP, EIGRP, OSPF
+Ethernet
+IPSec/DMVPN
+IPv4/IPv6
+MPLS
+Multicast
+Quality-of-Service
+SNMP, Netflow, IP SLA
+Hardware Cisco ASA Series
+Cisco ASR Series
+Cisco Catalyst Series
+Cisco ISR Series
+Cisco Nexus Series
+Aus- und Weiterbildung
+- Dipl.-Wirtschaftsing. (FH)
+- Industriekfm. (IHK)
+02.03.2023 9 von 9
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_103271
+
+
+Stammdaten (Auszug):
+
+Personen-ID                103271
+  
+Wohnort                    808xx München, Deutschland
+Jahrgang                   1974
+Staatsbürgerschaft         deutsch
+Stundensatz                85 EUR
+Verfügbar ab               01.03.21 zu 100%, Vor-Ort-Einsatz 50% möglich
+Profil erstellt am         23.11.09
+Profil zuletzt geändert am 30.10.20
+Lesen von Projektanfragen  1,5 Tage [07]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 17.10.2020 17:27:48
+
+Fachlicher Schwerpunkt:
+Project Management, Network Engineering &amp; Design
+
+Position:
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Engineering / IT-nahe Ingenieurdienstleistungen
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+- Dipl.-Wirtschaftsing. (FH)
+- Industriekfm. (IHK)
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch   
+Englisch verhandlungssicher
+
+
+Hardware:
+Cisco ASA Series       
+Cisco ASR Series       
+Cisco Catalyst Series  
+Cisco ISR Series       
+Cisco Nexus Series     
+
+
+Betriebssysteme:
+CentOS       
+Cisco IOS    
+Cisco NX-OS  
+Mac OS X     
+Windows      
+
+
+Datenkommunikation:
+BGP, EIGRP, OSPF       
+Ethernet               
+IPSec/DMVPN            
+IPv4/IPv6              
+MPLS                   
+Multicast              
+Quality-of-Service     
+SNMP, Netflow, IP SLA  
+
+
+Produkte/Standards/Erfahrungen:
+CCDA (Cisco Certified Design Associate)                
+CCDP (Cisco Certified Design Professional)             
+CCNA (Cisco Certified Network Associate)               
+CCNP (Cisco Certified Network Professional)            
+Certified Senior Project Manager (GPM) (IPMA Level B)  
+PRINCE2 Foundation Exam (APMG)                         
+PRINCE2 Registered Practitioner (APMG)                 
+
+Branchen:
+- Automotive
+- Government
+- Telecommunications
+- Finance
+- Information Technology
+- Industry
+- Publishing
+
+Projekte:
+10/2015 - 01/2016: Manufacturing Plant  Székesfehérvár Infrastructure
+ 
+Branche:
+Harman Becker Automotive Systems GmbH | Industry
+Rolle:
+Project Manager
+Projektbeschreibung:
+- Plannung, Design und Implementierung der IT Infrastruktur für den neuen
+Produktionsstandort Székesfehérvár for den Unternehmensbereiche Lifestyle und
+Automotive/B&amp;O.
+- Netzwerk Infrastruktur:
+# MPLS WAN Anbindung.
+# P2P Crosslink zum bestehenden Produktionsstandort in Székesfehérvár.
+# WAN Acceleration.
+# Verkabelungsinfrastruktur und Netzwerkschränke.
+# Switches für den Core/Distribution/Access Layer.
+# Firewalls mit integriertem IDS/IPS.
+# Integration der Wi-Fi APs in die zentrale Wi-Fi Lösung.
+# Integration der Tischtelefone in die zentrale VoIP Lösung.
+- Server/Storage/Backup Infrastruktur:
+# Virtualisierter Server Cluster inkl. Storage/Backup und SAN.
+# Standortübergreifende Disaster Recovery Lösung.
+- End User IT:
+# Desktop und Laptop Systems für Büro und Produktion.
+# Printer und Label Printer für Büro und Produktion.
+# Wi-Fi/USB Barcode Scanner für die Produktion.
+- Projektvolumen: ca. 1,2 Mio. EUR
+- Projektlaufzeit: 4 Monate
+Technologien, Services:
+- Cisco Catalyst 6800 Series
+- Cisco Nexus 3000 Series
+- Cisco Catalyst 2960-X Series
+- Cisco ASA Series with FirePower Services
+- Cisco Aironet 3700 Series Access Points
+- Cisco 800 Series Router
+- Cisco Unified IP Phone 8800 Series
+- Cisco Secure Access Control Server (CSACS) 5.6
+- Riverbed Stealhead CX3070 Series
+- Hewlett-Packard BL460c, DL380 and ML350 Series Server
+- Hewlett-Packard SAN Switches
+- EMC VNX 5400 Storage System
+- EMC Avamar M1200 Backup System
+===============================================================================
+10/2015 - 11/2015: Intelligent WAN (IWAN)
+ 
+Branche:
+Freudenberg IT GmbH &amp; Co. KG | Information Technology
+Rolle:
+Network Engineer
+Projektbeschreibung:
+- Design eines Intelligent WAN (IWAN) mit Integration der bestehenden WAN
+Acceleration Lösung.
+- Konzeption eines mandantenfähiges Multi-VPN Overlay Transport DMVPN für
+Hybrid und Dual Internet Transport, kombiniert mit den Leistungsmerkmalen Per-
+Tunnel QoS und Intelligent Path Control.
+- Test/Validierung des Designkonzepts im Labor.
+- Vertragsvolumen: ca. 15 kEUR
+- Vertragslaufzeit: 2 Monate
+Technologies, Services:
+- EIGRP
+- DMVPN
+- Cisco IWAN
+- Cisco Performance Routing
+- Cisco ASR 1000 Series
+- Cisco ISR 4000 Series
+- Cisco ASA Series
+===============================================================================
+08/2015 - 09/2015: Managed Network Services (MNS)
+ 
+Branche:
+Freudenberg IT GmbH &amp; Co. KG | Information Technology
+Rolle:
+Network Engineer
+Projektbeschreibung:
+- Überarbeitung/Neuauflage der Leistungsbeschreibung für Managed Network
+Services (MNS) mit den Schwerpunkten WAN, WAN Acceleration, LAN, Wi-Fi und
+Security.
+- Vertragsvolumen: ca. 15 kEUR
+- Vertragslaufzeit: 2 Monate
+Technologien, Services:
+- Cisco Meraki
+- Riverbed Stealhead
+===============================================================================
+04/2015 - 09/2015: Manufacturing Plant  Pécs Infrastructure
+ 
+Branche:
+Harman Becker Automotive Systems GmbH | Industry
+Rolle:
+Project Manager
+Projektbeschreibung:
+- Plannung, Design und Implementierung der IT Infrastruktur für den neuen
+Produktionsstandort Pécs for den Unternehmensbereich Professional.
+- Netzwerk Infrastruktur:
+# MPLS und Internet (inkl. SIP Trunk) WAN Anbindungen.
+# WAN Acceleration.
+# Verkabelungsinfrastruktur und Netzwerkschränke.
+# Switches für den Core/Distribution/Access Layer.
+# Firewalls mit integriertem IDS/IPS.
+# Integration der Wi-Fi APs in die zentrale Wi-Fi Lösung.
+# Integration des lokalen Voice Gateways, der Tischtelefone und DECT
+Mobiltelefone in die zentrale VoIP Lösung.
+- Server/Storage/Backup Infrastruktur:
+# Virtualisierter Server Cluster inkl. Storage/Backup und SAN.
+# VMs für DC, DHCP, SCCM, File und Print Dienste.
+# VMs für verschiedene produktionsspezifische Dienste.
+- End User IT:
+# Desktop und Laptop Systems für Büro und Produktion.
+# Printer und Label Printer für Büro und Produktion.
+# Wi-Fi/USB Barcode Scanner und Industrie Tablets für die Produktion.
+- Projektvolumen: ca. 1,4 Mio. EUR
+- Projektlaufzeit: 6 Monate
+Technologies, Services:
+- Cisco Catalyst 6800 Series
+- Cisco Nexus 3000 Series
+- Cisco Catalyst 2960-X Series
+- Cisco ASA Series with FirePower Services
+- Cisco 7500 Series Wireless LAN Controller
+- Cisco Aironet 3700 Series Access Points
+- Cisco 3900 Series Router
+- Cisco Unified Wireless IP Phone 7900 Series
+- Cisco Unified IP Phone 8800 Series
+- Cisco Secure Access Control Server (CSACS) 5.6
+- Riverbed Stealhead CX3070 Series
+- Hewlett-Packard DL360, DL380 and ML350 Series Server
+- Hewlett-Packard SAN Switches
+- EMC VNX 5400 Storage System
+- EMC Avamar M2400 Backup System
+===============================================================================
+04/2015 - 07/2015: DC NET
+ 
+Branche:
+Freudenberg IT SE &amp; Co. KG | Information Technology
+Rolle:
+Network Engineer
+Projektbeschreibung:
+- Design einer service-agnostischen Zugangskontrolle für den administrativen
+Zugriff auf das DC Net, mit Unterstützung für den Zugang über LAN, Wi-Fi und
+RAS.
+- Anforderungen:
+# Keine zustätzliche Interaktion durch den Nutzer erforderlich.
+# Granulare Zugangskontrolle auf Nutzer/Gruppen-Ebene.
+# Zentrale Administration der Zugangsrechte.
+# Optionale Unterstützung von IP Accounting.
+- Projektvolumen: ca. 30 kEUR
+- Projektlaufzeit: 4 Monate
+Technologies, Services:
+- IEEE 802.1X Port-Based Authentication
+- Microsoft Windows 7/8
+- RADIUS
+- Cisco Secure Access Control Server (CSACS) 5.6
+- Cisco Catalyst 2960-X Series
+- Cisco 7500 Series Wireless LAN Controller
+===============================================================================
+11/2014 - 03/2015: Remote Access Service (RAS)
+ 
+Branche:
+Freudenberg IT SE &amp; Co. KG | Information Technology
+Rolle:
+Network Engineer
+Projektbeschreibung:
+- Design eines hochverfügbaren Remote Access Service (RAS) auf Basis SSL VPN.
+- Einführung der Mandantenfähigkeit zur Ablösung des komplexen NAT-Designs der
+bestehenden Lösung.
+- Test/Validierung des Designkonzepts im Labor.
+- Evaluierung verschiedener am Markt verfügbarer RADIUS Server mit folgenden
+Anforderungen:
+# Unterstützung internen Identity Stores (User und Hosts).
+# Unterstützung externer Identity Stores (LDAP, VASCO DIGIPASS/IDENTKEY, RSA
+SecurID).
+# Unterstützung nutzerspezifischer Attribute (z.B. statische IP
+Adresszuweisung).
+- Entwicklung eines Migrationspfades von Cisco Secure ACS 4.2 auf den neuen
+RADIUS Server.
+- Projektvolumen: ca. 40 kEUR
+- Projektlaufzeit: 5 Monate
+Technologien, Services:
+- OSPF
+- Policy-based VRF Selection
+- SSL VPN
+- RADIUS, LDAP, RSA SecurID, RADIUS-based Proxy
+- Cisco ASA Series
+- Cisco Secure Access Control Server (CSACS) 5.6
+===============================================================================
+10/2014 - 03/2015: Network Migration Karlsbad
+ 
+Branche:
+Harman Becker Automotive Systems GmbH | Industry
+Rolle:
+Project Manager
+Projektbeschreibung:
+- Migration/Erneuerung der LAN-Infrastruktur am Standort Karlsbad im Rahmen der
+Einführung von IEEE 802.1X Port-based Authentication.
+- Aufbereitung MAC Adressen Datenbank zur Provisionierung des RADIUS Servers.
+- Planung und Durchführung der Migrationen der Gebäude in Abstimmung den
+betroffenen Unternehmensbereichen sowie dem ausführenden Service-Partner.
+- Mengengerüst: 9 Gebäude mit insgesamt 179 Netzknoten
+Projektvolumen: ca. 600 kEUR
+Projektlaufzeit: 6 Monate
+Technologiesn, Services:
+- IEEE 802.1X Port-based Authentication
+- Cisco Nexus 7000 Series
+- Cisco Catalyst 4500-X/3750X/2960X Series
+- Cisco Secure Access Control Server (CSACS) 5.6
+===============================================================================
+07/2014 - 08/2014: nWAN
+ 
+Branche:
+X-Brains GmbH | Telecommunications, Publishing
+Rolle:
+Technical Project Manager
+Projektbeschreibung:
+- Outsourcing Deal der DuMont Systems GmbH &amp; Co. KG.
+- Erstellung eines Grobkonzepts der zukünftigen Netzarchitektur basierend auf
+einer mandantenfähigen Multi-Carrier Plattform inkl. Internet Access.
+- Durchführung von Carrier-Workshops.
+- Erstellung der NOC Prozesse.
+- Erstellung der RACI-Matrix für Standortmigrationen inkl. Abnahme.
+- Mengengerüst:
+# 9 Unternehmensbereiche (inkl. Rechenzentren und Druckzentren)
+# 61 Außenstellen
+- Projektvolumen: ca. 65 kEUR
+- Projektlaufzeit: 2 Monate
+Technologien, Services:
+- MPLS
+- BGP
+- OSPF
+- Quality-of-Service (QoS)
+- Cisco 2900/390/ASR 1000 Series
+Spezielle Teilprojekte:
+- Erstellung eines Konzepts für Traffic-Offloading (Policy-based VRF Selection)
+zur Optimierung der Verkehrsströme und Netzwerkkosten.
+===============================================================================
+09/2012 - 06/2014: OPF
+ 
+Branche:
+T-Systems International GmbH | Telecommunications, Industry
+Rolle:
+Technical Project Manager
+Projektbeschreibung:
+- Outsourcing Deal der Georg Fischer Schweiz, Ltd.
+- Teilprojekt NWS/LAN mit den Bereichen LAN und WLAN inkl. Guest Internet
+Access in den Regionen DACH und APAC.
+- Migration der LAN/WLAN-Infrastruktur der Unternehmensbereiche Georg Fischer
+Piping Systems und Georg Fischer Agie Charmilles auf die T-Systems Platform
+MLS.
+- Steuerung und Koordination der für die einzelnen Länder zuständigen T-Systems
+LBUs für die gesamte Implementierungskette.
+- Planung und Durchführung von Ortsbegehungen.
+- Planung und Durchführung von Standortmigrationen.
+- Mengengerüst:
+# Region DACH: 19 Standorte in 3 Ländern
+# Region APAC: 25 Standorte in 9 Ländern
+- Projektvolumen: ca. 120 Mio. EUR
+- Projektlaufzeit: 6 Jahre
+Technologien, Services:
+- Ethernet
+- OSPF
+- Quality-of-Service
+- Cisco Catalyst 6500/3750X/2960S Series
+Spezielle Teilprojekte:
+- Pilot und Roll-out einer IEEE 802.1X/RADIUS-basierten Authentifizierung von
+WLAN-Clients.
+===============================================================================
+08/2011 - 06/2012: SAaCon
+ 
+Branche:
+Atos IT Solutions and Services GmbH | Information Technology
+Rolle:
+Technical Project Manager
+Projektbeschreibung:
+- Carve-out des Netzwerks der Siemens IT Solutions and Services.
+- Teilprojekt BPS mit den Bereichen SSLVPN und SecureVPN.
+- Erstellung eines Testkonzepts für FMO-Plattform der Bereiche SSLVPN und
+SecureVPN.
+- Erstellung eines Betriebskonzepts für die FMO-Plattform der Bereiche SSLVPN
+und SecureVPN.
+- Implementierung der Partnerräume in den Regionen EMEA, NA, LATAM und APAC.
+- Planung und Durchführung der Migrationen der Anbindungen der Geschäftspartner
+in den Regionen EMEA, NA, LATAM sowie APAC.
+- Projektvolumen: ca. 3,5 Mio. EUR
+- Projektlaufzeit: 1 Jahr
+Technologien, Services:
+- EIGRP, OSPF
+- IPSec/DMVPN
+- Cisco ASR 1000 Series
+- Juniper SA6500 SSL VPN Appliance
+Spezielle Teilprojekte:
+- Erstellung eines technischen Konzepts für die Partnerräume, zur
+Bereitstellung von Kopplungselementen für die Anbindungen der Geschäftspartner.
+===============================================================================
+06/2010 - 04/2011: INTRO
+ 
+Branche:
+T-Systems International GmbH | Telecommunications, Finance
+Rolle:
+Technical Project Manager, LAN Engineering
+Projektbeschreibung:
+- 2nd Generation Outsourcing Deal der DekaBank.
+- Teilprojekt COM/LAN mit den Bereichen User LAN, RZ LAN und 3rd Party
+Kopplungen.
+- Übernahme der Netzwerkinfrastruktur von den Alt-Providern Lufthansa Systems
+Infratec und Hewlett-Packard mit allen Rechten und Pflichten.
+- Planung, Design und Implementierung eines netzuübergreifenden Routing-
+Konzepts inkl. Multicast/MSDP und 3rd Party Kopplungen.
+- Planung und Durchführung der Standortmigrationen und 3rd Party Migrationen.
+- 2nd Level Support für das CSO Leipzig.
+- Projektvolumen: ca. 100 Mio. EUR
+- Projektlaufzeit: 6 Jahre
+Technologien, Services:
+- MPLS
+- Ethernet (GigE, 10GigE)
+- BGP, EIGRP, OSPF
+- Multicast/MSDP
+- Quality-of-Service (QoS)
+- IPSec/DMVPN
+- SNMPv3, IP SLA
+- Cisco Catalyst 6500 Series
+- Cisco Catalyst 4500 Series
+Spezielle Teilprojekte:
+- Unterstützung bei der Erstellung des Betriebshandbuchs zum Kapitel Business
+Continuity Management &amp; Disaster Recovery.
+===============================================================================
+05/2008 - 03/2010: Service Area [SA One]
+
+Branche:
+T-Mobile International AG | Telecommunications
+Rolle:
+Technical Project Manager, IP Designer
+Projektbeschreibung:
+Planung, Design und Implementierung der neuen Service Area [SA One] mit
+folgenden Design-Schwerpunken:
+- Network Infrastructure (VRF-aware BGP/OSPF/IPSec, IPv4/IPv6, SNMPv3).
+- Facility Infrastructure (Geba?udesicherheit, Energie- und Klimatechnik, Rack-
+Design incl. Kaltgang-Schottung, strukturierte Verkabelung) gem. geltenden
+Normen.
+- Projektvolumen: ca. 5 Mio. EUR
+- Projektlaufzeit: ca. 2 Jahre
+Technologien, Services:
+- MPLS
+- Ethernet (GigE, 10GigE)
+- IPSec
+- BGP, OSPF
+- Crossbeam X-Series
+- Checkpoint VSX
+- F5 Big-IP 8000 Series
+- Cisco Nexus 5000 Series &amp; Nexus 2000 Series
+Spezielle Teilprojekte:
+- Einführung von Data Center Service Management (DSCM) auf Basis von [Aperture
+VISTA].
+- Prozeßdesign inkl. Dokumentation für die ITIL Prozesse Change Management,
+Configuration Management und Capacity Management.
+===============================================================================
+01/2003 - 03/2008: BayKom
+
+Branche:
+Freistaat Bayern | Government
+Rolle:
+Project Manager
+Projektbeschreibung:
+Rahmenvertrages zur Bereitstellung, zum Betrieb und zur Instandhaltung des
+Weitverkehrsnetzes zur Datenübertragung zwischen den Dienststellen, mobilen
+Benutzern und Heimarbeitsplätzen.
+- Vertragsvolumen: ca. 141 Mio. EUR
+- Vertragslaufzeit: 8 Jahre
+- Los 3 Daten:
+     # ca. 1400 Standorte (KSS-Typ 1 - 4)
+     # ca. 450 Heimarbeitsplätze (KSS-Typ 5)
+- Los 4 Internet:
+     # zentraler Internetzugang für das BYBN (KSS-Typ 6)
+     # zentraler Internetzugang der Justiz (KSS-Typ 7)
+- Online-Portal mit den Säulen:
+     # Auftragsstatus
+     # Fehlerstatus
+     # Rechnungsdaten
+     # Leistungsnachweis
+     # Netzwerk-Management
+Technologien, Services:
+- MPLS (dediziertes Netzwerk)
+- SDH
+- ISDN Dial Backup
+- Festverbindungskaskaden
+- Quality-of-Service mit 6 Class-of-Service (QoS/6CoS)
+- IPSec/DMVPN
+Spezielle Teilprojekte:
+- Konzeption und Entwicklung der MR_DB/BayKom auf Basis MySQL/PHP:
+     # techn. Inventory für Implementation und Service
+     # Planungs-Tool für IP-Portvergabe und Kapazitätsplanung der MPLS Core-
+Plattform
+     # automatische Generierung von Workpacks
+     # automatische Generierung von CE/PE Router Config-Files (Base Config)
+     # automatische Generierung von Cricket Config-Files
+     # Mass-Mailer Funktion zur automatischen Benachrichtigung von Endkunden
+bei Planned Works.
+- Konzeption und Entwicklung des 'Custom Build Config Generator' auf Basis PERL
+zur Berechnung der QoS-Configlets für CE/PE Router, inkl. Integration in die
+MR_DB/BayKom.
+- Prozeßdesign inkl. Dokumentation für die Teilprozesse Delivery, MAC und F&amp;R
+- Entwicklung eines Systemleitfadens für das Workflow-System für die
+Teilprozesse Delivery und MAC.
+- Entwicklung eines Baukasten-Systems für die Ausschreibung von
+Subunternehmerleistungen.
+===============================================================================
+04/2002 - 04/2003: CNE (Corporate Network Europe)
+
+Branche:
+BMW Group | Automotive
+Rolle:
+Project Manager
+Projektbeschreibung:
+Rahmenvertrag zum Outsourcing des kompletten Sprach- undDatennetzwerks in
+Deutschland und Europa (Corporate Network Europe) mit der BMW Group.
+- Vertragsvolumen: ca. 36 Mio. EUR
+- Vertragslaufzeit: 5+1 Jahre
+- ca. 180 Standorte
+Projekte:
+- Betreuung des BMW Supplier Netzwerks (ca. 80 Standorte).
+- Anbindung (z.T. vollredundant) des BMW UK Werkeverbund (Oxford, Hams Hall,
+Goodwood) an die NWZ1/3 über den BT ATM Backbone.
+- Anbindung der BMW Werke Rosslyn und Midrand an die NWZ1/3 über vollredundante
+IPLCs (terrestrisch &amp; Satellit).
+- Anbindung des BMW Werk Leipzig an die NWZ1/3, zunächst über das BMW Supplier
+Netzwerk, später als eigenständige, vollredundante Werksanbindung.
+- Migration des BMW Supplier Netzwerks (ca. 80 Standorte) auf die neue
+Infrastruktur in der NWZ1/3.
+Technologien, Services:
+- ATM
+- Frame Relay
+- SDH
+- ISDN Dial Backup; ISDN ATC
+===============================================================================
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_103271
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 31.10.2020 00:52:01
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

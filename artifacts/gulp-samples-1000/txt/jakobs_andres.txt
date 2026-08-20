@@ -1,0 +1,399 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_99984 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                99984
+  
+Wohnort                    480xx Bilbao, Spanien (komplett)
+Jahrgang                   1979
+Staatsbürgerschaft         deutsch
+Stundensatz                75 EUR
+Verfügbar ab               01.05.19 zu 100%, Vor-Ort-Einsatz 80% möglich
+Profil erstellt am         05.07.09
+Profil zuletzt geändert am 13.03.19
+Lesen von Projektanfragen  > 5 Tage [00]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 23.05.2019 13:49:41
+
+Fachlicher Schwerpunkt:
+Java SW-​Entwicklung &amp; Beratung: Konzeption, SW-​Design, Spezifikation,
+Implementierung, Test und Betrieb. Fachlicher und technischer Schwerpunk PKI
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+
+Planung, Entwurf, Proof of Concept, fachliche und technische Spezifikation,
+Implementierung, Systemhärtung, Test und Reviews mit Einsatz in Entwicklung und
+Betrieb (DevOps).
+Weiter Rollen (siehe unten):
+- Technische Projektleitung
+- PKI Mover / PKI Spezialist
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Bis heute:
+Regelmäßige Teilnahme an verschiedenen Seminaren und Expertentreffen
+ 
+1999-2006:
+Wirtschaftsinformatik an der Otto-von-Guericke Universität Magdeburg
+(Schwerpunkt: Applikations- und Systementwicklung); inkl. Praxissemester in
+Pernambouco / Brasilien
+
+1996-1999:
+Abitur am Wirtschaftswissenschaftlichen Gymnasium Saarbrücken mit Ausbildung
+zum Industriekaufmann
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Einsatz gerne auch EU-weit oder USA und Kanada.
+
+Fremdsprachen:
+Deutsch                   Muttersprache
+Englisch                  Verhandlungssicher
+Französisch              Befriedigend
+Portugiesisch (Brasilien) Befriedigend
+
+
+Hardware:
+PC           
+Server       
+Smart Cards  
+
+
+Betriebssysteme:
+MS Windows    
+Sun Solaris  Solaris Release 10/11
+Unix / Linux Oracle Enterprise Linux, Red Hat Enterprise Linux, Debian
+
+
+Programmiersprachen:
+Diverse        Erfahrung mit PHP 5 - Symfony, Ruby, Python, PL/SQL
+Java           Ab J2SE 1.3, Projekteinsatz bis Java 8 (Java EE 7).
+JavaScript     ECMAScript, AJAX, diverse UI Bibliotheken &amp; Frameworks, NodeJS.
+Scriptsprachen Windows Batch Scripting, Bash, Ksh.
+SGML-Kinder    XML, SVG, HTML
+SQL             
+
+
+Datenbanken:
+Data-Mining              
+NoSQL Datenbanken        
+Relationale Datenbanken  
+
+
+Datenkommunikation:
+Internet, Intranet          
+Messaging                   
+PKI spezifische Protokolle  
+Sichere Verbindungen        
+WebServices                 
+
+
+Berechnung/Simulation/Versuch/Validierung:
+Weka 3.8  
+
+
+Schwerpunkte:
+Beratung                   
+DevOps / DevSecOps         
+Entwicklung                
+Integration                
+Java Plattform            Java SE, Java EE, Spring, PKI und diverse APIs.
+                          Netzwerkapplikationen
+PKI                        
+Technische Projektleitung  
+
+
+Produkte/Standards/Erfahrungen:
+Continuous Integration / Build-Tools Jenkins, Apache Ant, Apache Maven
+IDEs / Entwicklungswerkzeuge         Eclipse, NetBeans, JBoss Developer Studio
+                                     NIST, BSI, CA/B Forum Standards, diverse
+IT-Sicherheit / PKI                  RFCs, Primekey EJBCA, openCA, openSSL,
+                                     openSC, TCOS, PKCS, ASN.1, BouncyCastle,
+                                     OWASP
+                                     Java SE, Java EE, Spring + Spring Boot 2,
+Java                                 JSP, JSF 2, Thymeleaf 3, GXT, diverse
+                                     Bibliotheken &amp; Frameworks
+Modellierung                         OO, ERM, UML2, OCL2
+Modellierungstools                   MagicDraw, Eclipse EMF/GMF, Sparx
+                                     Enterprise Architect
+Persistenz / Datenbanken             JPA, ORM, EclipseLink, MySQL, PotgreSQL,
+                                     Oracle Database 10/11, TOAD, SQLDeveloper
+Test-Frameworks / Tools              JUnit 4/5, TestNG, Selenium IDE, Apache
+                                     JMeter, HP Quality Manager
+Versionsverwaltungen                 CVS, SVN, GIT
+                                     NGINX, Apache HTTPD 2, JBoss AS, EAP,
+Web-Server / Applikationsserver      Wildfly 10, Apache Tomcat, Oracle
+                                     Glassfish
+ 
+
+Branchen:
+Software Hersteller
+IT-Sicherheit
+Finanztechnologie und Finanzdienstleister
+Telekommunikation
+Öffentlicher Sektor
+
+Projekte:
+11-2018 bis heute: [Firmenname auf Anfrage]
+
+Inhaber / Entwickler
+
+Konzeption, Implementierung und Betrieb einer Webapplikation im eIDAS Umfeld
+mit den folgenden Features:
+- Browser und Suche für Trust Status List (TSL) der EU Kommission bzw. der
+Herausgeber der 28 EU Staaten beinhaltend der europaweit zugelassenen eIDAS
+Trust Service Provider.
+- Online und offline Validierung von eIDAS Zertifkaten (E-Signature, E-Seal,
+Qualified Website Authentication Certificates - QWAC) durch URL-Eingabe, Datei-
+Upload oder Zertifikate auf angeschlossene externen Geräten, bspw. ISO-7816-
+4 Smart Cards oder elektronische Ausweise (eID) verschiedener europäischer
+Staaten.
+- Entwicklungs / Test-Release unter https://176.9.37.180:8080
+
+Technologien: Java 11, Spring 5.1.2, Spring Boot 2.1.0, Thymeleaf 3.0.9, XML,
+HTML5, CSS3, JQuery 3.3.1, Bootstrap 4.1.1, hwcrypto.js 0.0.13; Bouncy Castle
+1.60, Apache Commons, JAXB2 2.3.0 , LOG4j 2.11.1, JUnit 5 und andere Java APIs;
+Apache JMeter 5.0, Eclipse Jetty 9.4.14 Servlet Engine, OS Debian 9.
+ 
+07-2018 bis 09-2018: T-Systems International GmbH
+
+Freiberufliche Tätigkeit für einen Endkunden (Entwicklung &amp; Betrieb):
+
+Aktualisierung von SW-Komponenten einer Bestands-PKI mit Primekey EJBCA EE für
+die Verwaltung von X.509 Zertifikaten, Integration und technische und
+betriebliche Einführung einer externen Registration Authority (RA).
+
+Technologien: Java EE 7, EJBCA EE 6 (primekey.se - Enterprise Java Beans
+Certification Authority), JBoss Wildfly 10, Debian 9, Diverse.
+ 
+12-2017 bis 07-2018: [Firmenname auf Anfrage]
+
+Freiberufliche Tätigkeit:
+
+Umsetzung von Kundenanforderungen mit Applikationsentwicklung im Enterprise PKI
+Umfeld mit Java 8 EE beinhaltend SW-Design, Spezifikation, Implementierung und
+Test.
+
+Technologien: EJBCA EE 6, JBoss Wildfly 10, Java EE 7/8, Hibernate 4/5, JSF 2,
+MyFaces, BouncyCastle APIs, Apache Commons, JUnit 4, verschiedene andere APIs
+und Bibliotheken, CMP (RFC 4210), Eclipse Neon Java EE, Apache Ant 1.9.
+ 
+03-2017 bis 11-2017: T-Systems International GmbH
+
+Freiberufliche Tätigkeit für einen Endkunden (Entwicklung &amp; Betrieb):
+
+Erweiterung einer Bestands-PKI für die Verwaltung von X.509 Zertifikaten mit
+Planung, Implementierung, Test und Rollout. Aktualisierung der
+Zertifikatsverwaltungsprozesse und Automatisierung für technische Identitäten
+durch Anbindung von Schnittstellen mit SCEP und SOAP WebServices. Upgrade
+PrimeKey EJBCA Produkte.
+
+Technologien: Java EE 8, EJBCA EE 6 (primekey.se - Enterprise Java Beans
+Certification Authority), JBoss Wildfly 10, Debian 8, SCEP, SOAP WebServices.
+ 
+05-2016 bis 12-2016:
+
+Open Source Entwicklung ejbca.org:
+
+Re-Factoring, Bug-Fixing und Implementierung von neuer Funktionalität: z.B.
+X.509 Zertifikatserweiterung für qualifizierte Zertifikate für eIDAS (EU-
+Richtlinie Nr. 910/2014); oder RFC 4683 (Subject Identification Method).
+
+Technologien: Java EE 7, EJBCA CE 6 (Enterprise Java Beans Certification
+Authority), JBoss Wildfly 10, BouncyCastle APIs, Hibernate 4/5, Apache Commons,
+JUnit 4, verschidene andere APIs, SIM (RFC 4683), Eclipse Mars EE.
+ 
+01-2015 bis 02-2016: T-Systems International GmbH Berlin
+ 
+Freiberufliche Tätigkeit für einen Endkunden (Entwicklung &amp; Betrieb):
+ 
+Migration einer PKI für die Verwaltung von X.509 Kartenzertifikaten in die
+zentrale Unternehmens PKI und Planung, Implementierung, Test und Einführung
+einer Batch-Sst. für die Massenerstellung von X.509 Zertifikaten.
+ 
+Technologien: Java EE 7, EJBCA EE 6 (primekey.se - Enterprise Java Beans
+Certification Authority), JBoss EAP6.2 (bzw. JBoss AS 7.1), MS-CAPI (Microsoft
+CryptoAPI), TCOS (TeleSec Card Operating System), TeleSec CardManager .NET,
+Bash4.0.
+ 
+Aufbau einer SHA-256 CA-Parallel-Struktur aus offline Root-CA und der Sub-CAs
+mit EJBCA für die Umstellung auf X.509 Zertifikate mit sicheren
+Signaturalgorithmen (SHA-256) und Anpassung der Zertifikatsverwaltungsprozesse.
+
+ 
+Technologien: Java EE 7, EJBCA EE 6, Debian 8, Bash 4.0, OpenSSL 1.0.2, Apache
+HTTPD2.
+ 
+01-2013 bis 12-2014: T-Systems International GmbH Magdeburg
+ 
+Public Sector &amp; Healthcare / Satellic Telematic Services
+ 
+Freiberufliche Tätigkeit: Applikationsbetrieb im EETS-Umfeld (European
+Electronic Toll Service).
+ 
+Planung, Einrichtung und Betrieb von Test- und Integrationsumgebungen im EETS-
+Umfeld und Aufbau des Applikationsbetriebs.
+ 
+Technologien: Oracle Java 7, Oracle 11 g EE, Oracle Linux 6, RHEL 6, Oracle
+Solaris 10/11, Apache Tomcat 7, Apache HTTPD 2.
+ 
+12-2010 bis 11-2012: T-Systems International GmbH
+ 
+Freiberufliche Tätigkeit: Softwareentwicklung in der Homologation (Automobil).
+ 
+Technologien: Java5, Java6, JEE, Oracle 10+11, Oracle Weblogic, JUnit, JFO,
+Apache FOP, Apache Tomcat, Enterprise Architect, Ant, SVN, Eclipse.
+ 
+Betriebssysteme: Microsoft Windows, Sun Solaris 11
+ 
+07-2010 bis 12-2010: T-Systems Enterprise Services GmbH
+ 
+Freiberufliche Tätigkeit: Softwareentwicklung im Bereich Dokumentenmanagement.
+ 
+Technologien: Java5, JEE, Spring 2.5, XML, WSDL, SOAP, Oracle 10, Enterprise
+Architect, Maven, Eclipse.
+ 
+Betriebssysteme: Microsoft Windows
+ 
+07-2010
+ 
+Freiberufliche Tätigkeit: Entwicklung einer REST-Applikation für GTD (Getting
+Things Done) als prototypische Grundlage zur Weiterentwicklung einer AndroMDA
+Cartridge.
+ 
+Technologien: UML2, AndroMDA, JEE, EJB 3, Seam 2, Seam Generator, JPA,
+Hibernate 3, JSF 2, Rich-Faces, JBoss 5.1, JBossTools, RESTEasy 1, extJS 3.2
+(Sencha), JSON, extDesigner, Eclipse, Apache2
+ 
+Betriebssysteme: Windows Vista, Linux (Debian)
+===============================================================================
+03-2010 bis 06-2010
+ 
+Freiberufliche Tätigkeit: Refactoring und Weiterentwicklung eines
+Webcontentmanagementsystems (WCMS) inklusive Echtzeitchat, Videostreaming,
+Integration eines Shops mit verschiedenen Bezahlsystemen,
+Internationalisierung. 
+ 
+Technologien: Symfony 1.4, PHP 5.2, MySQL 5, ORM: Doctrine, XLIFF, HTML 4, CSS
+2, Javascript, Ajax, JQuery, JSON, Apache2, Flash, Red5, diverse Javascript
+Plugins und Bibliotheken: Plupload, JCroppable, JQuery DnD.
+ 
+Betriebssysteme: Windows Vista, Linux (Debian)
+===============================================================================
+ 
+10-2009 bis 03-2010 Dein Design GmbH
+
+Freiberufliche Tätigkeit: Planung und Entwicklung verschiedener
+Fachkomponenten im Administrationsbereich, diverse Programmierung
+in Front- und Backend, Serveradministration
+
+Technologien: Spring MVC, JSP, JSTL, Spring-Taglib, HTML, GWT, extJS, GXT(Ext-
+GWT),
+Hibernate 3.3, Postgres 8.3, HQL, SQL, SVN, NGINX, Tomcat 6.
+
+Betriebssysteme: Windows Vista, Linux
+
+===============================================================================
+
+07 bis 12-2008 Deutsche Kompensationsgesellschaft mbH, Berlin
+
+Freiberufliche Tätigkeit: Konzeption, Planung und Entwicklung 'Kompensator
+Server 1.0' und Rich
+Client 'Kompensator Client 1.0'
+
+Technologien: MDA, UML2, EclipseEMF, JBoss5, EJB3, Hibernate 3.3, PostgreSQL
+8.2, WSDL
+(Axis2), JUnit, CVS, JTA, JPA, HQL
+
+Betriebssysteme: Windows Vista, Linux (Ubuntu)
+ 
+===============================================================================
+ 
+04-2007 bis 06-2008 und 12-2008 bis 06-2009 Horizon Factory GmbH Berlin
+
+Freiberufliche Tätigkeit: Entwicklung RTT-Portal 3.0 / 3.5 / 4.0 / 4.1
+WebService-basiertes
+Kommunikationsmodul zwischen mehreren RTT Portal-Servern, Portal-Clients (3d)
+und Web-
+Clients. Datenaustausch zur Realisierung einer Echtzeit 3D-Konferenz.
+Einrichtung und Anpassung verschiedener Applikationen zur Firmeninternen
+Verwendung: darunter XWiki, Magnolia, Wordpress, Shozu ...
+ 
+Technologien: Java, MDA, UML, Magicdraw, Maven, Eclipse, Tomcat, Hibernate,
+Oracle, MySQL,
+PostgreSQL, SOAP (Axis), JUnit, CVS, AJAX (qooxdoo), SQL, HQL.
+
+Betriebssysteme: Windows, Mac OS X, Linux
+ 
+===============================================================================
+ 
+03-2004 bis 07-2006 Fi. IMA [Name auf Anfrage]
+ 
+Unternehmerische Tätig (Teilzeit): Schwerpunkt Suchmaschinenoptimierung (SEO).
+Entwicklung verschiedener Internetprojekte: u.A. Social Community Portal mit
+Homepage-Baukasten. Entwicklung von Verkaufsportalen für Flug- und Reisemarkt
+und Telekommunikationsverträge. Entwicklung eines suchmaschinenoptimierten
+Shopsystems (Standalone und für die webservicegestützte Anbindung an
+Lieferanten).
+ 
+Technologien: Jakarta Struts, JSE, JEE, JDBC, IBATIS, Postgres, XML, WSDL,
+SOAP, HTML, CSS, Javascript, Apache/Apache2
+
+Betriebssysteme: Windows, Linux (SUSE)
+ 
+===============================================================================
+ 
+03 bis 06-2003 Otto von Guericke Universität Magdeburg
+ 
+Projektarbeit Wissensbasierte Systeme: Erweiterung eines lernfähigen
+Finanzdatenprognosesystems zur Vorhersage des DAX. Integration eines
+regelbasierten Systems zur Prognostizierung von Einzelkursen des DAX.
+ 
+Technologien: JAVA SE, Swing, JBDC, MySQL, SAX, Ontobroker
+ 
+Betriebssysteme: Windows
+ 
+===============================================================================
+ 
+05 bis 11-2002 Otto von Guericke Universität Magdeburg
+ 
+Projektarbeit Datamining: Entwicklung eines lernfähigen
+Finanzdatenprognosesystems zur Vorhersage des DAX. Aufbau der Datengrundlage
+durch Parsen öffentlich zugänglicher Internetinhalte.
+ 
+Technologien: JAVA SE, Swing, JBDC, MySQL, SAX, HTMLParser, WEKA
+ 
+Betriebssysteme: Windows
+ 
+
+Sonstige Anmerkungen:
+In den letzten Jahren durfte ich mich neben meinem Schwerpunkt als Java
+Entwickler &amp; Berater intensiv mit fachlicher und technischer PKI eines
+heterogenen Systemverbundes und eines Anbieters von Trust Center Produkten
+beschäftigen.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_99984 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 14.03.2019 00:53:12
+© Copyright 1996-2019 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

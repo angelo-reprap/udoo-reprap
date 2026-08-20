@@ -1,0 +1,405 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_20124
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                20124
+  
+Wohnort                    913xx Hoechstadt a. d. Aisch, Deutschland
+Jahrgang                   1958
+Staatsbürgerschaft         deutsch
+Stundensatz                105 EUR
+                           abhaengig von Projektdauer und Aufgabenstellung
+Verfügbar ab               01.07.19 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         09.10.00
+Profil zuletzt geändert am 01.10.19
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 03.05.2020 17:21:41
+
+Fachlicher Schwerpunkt:
+Senior Consultant für Konzeption, Koordination, Outsourcing, Coaching,
+Arbeitsprozesse, HelpDesk-​Mgmt, IT-​Infrastrukur, PKI, (Teil-)Projektleitung
+
+Position:
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+
+Fachlicher Schwerpunkt: Netzwerkdesign (Quality of Services)
+                        Konfiguration und Support im Cisco-Umfeld
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Juni 1988  Okt. 1988                    
+Wissenschaftliche Hilfskraft am Tandembeschleuniger des Physikalischen
+Instituts Erlangen
+ 
+Juni  1988                                          
+    * Abschluss des Studiums: Diplom-Physiker (univ.)
+ 
+August 1986                                     
+Beginn der Diplomarbeit am Physikalischen Institut bei  Prof. Dr. Dr.
+Kretschmer
+Fachrichtung:
+    * Szintillationsdetektor
+    * theoretische Kernphysik
+    * Simulationsrechnungen
+ 
+Juli 1984                                             
+Diplom-Vorprüfung
+ 
+1982  1988                                      
+Studium der Fachrichtung Physik, Friedrich-Alexander-Universität Erlangen-
+Nürnberg,
+Nebenfach: Informatik
+ 
+1980  1982                                      
+Studium der Fachrichtung Elektrotechnik
+ 
+Juli 1978  Sept. 1979                   
+Grundwehrdienst in München
+ 
+Juni 1978                                           
+Reifeprüfung
+ 
+1968  1978                                      
+Neusprachliches Gymnasium Lauf an der Pegnitz
+ 
+1964  1968                                      
+Grundschule Neunkirchen am Sand
+
+Einsatzort:
+Regionen:
+Österreich, Schweiz, D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+nach Absprache internationale Einsätze
+
+Fremdsprachen:
+Deutsch      
+Englisch    Verhandlungssicher
+FranzösischGrundkenntnisse
+
+
+Hardware:
+IBM Großrechner3090
+Motorola        Vanguard 6400 series
+PC               
+Riverbed         
+
+
+Betriebssysteme:
+IBM ISPF         
+MVS, OS/390      
+SUN OS, Solaris  
+Unix             
+Windows         XP, Vista, Windows 7
+
+
+Programmiersprachen:
+CList    
+Fortran  
+JCL      
+MýSQL   
+PHP      
+Rexx     
+
+HTML
+PHP
+
+Datenbanken:
+Approach       
+MS SQL Server  
+MySQL          
+ODBC           
+SQL            
+
+
+Datenkommunikation:
+AppleTalk                 
+ATM                       
+Ethernet                  
+HDLC                      
+Internet, Intranet        
+ISDN                      
+ISO/OSI                   
+LAT                       
+LU6.2                     
+NetBeui                   
+NetBios                   
+Novell                    
+Proprietäre Protokolle  TACACS+, Radius, LDAP
+Router                   Cisco
+SMTP                      
+SNA                       
+SNMP                      
+TCP/IP                    
+Token Ring                
+Voice                    Voice over IP
+VTAM                      
+Windows Netzwerk          
+Winsock                   
+X.400 X.25 X.225 X.75... X.25
+
+Quality of Service
+Routing-Protokolle: RIP, EIGRP, OSPF, IS-IS, BGP
+Hochverfügbarkeit von Netzwerken (z.B. HSRP)
+Netzplanung auf MPLS - Basis
+
+Aufgabenbereiche:
+MS Project  
+
+
+Produkte/Standards/Erfahrungen:
+Akamai                                         
+Blue Coat                                      
+Check Point Netflow                            
+Cisco                                          
+Cisco Meraki                                   
+Enterasys                                      
+HP Discovery and Dependency Mapping Inventory  
+MS Azure                                       
+MS Azure StorSimple                            
+MS Office                                      
+MS Visio                                       
+Nagios                                         
+SonicWALL                                      
+Talon                                          
+Tivoli                                         
+ZScaler                                        
+1) Netzwerk:
+============
+Protokollanalyse: Computer Associates "Sniffer"
+HP Open View Netzwerkmanagement
+CiscoSecure ACS
+
+2) PKI:
+=======
+
+2.1) Produkte:
+--------------
+TrustedCA (Certification Authority)
+TrustedWeb, TrustedAuthorizer (Domain Security Server und Secure Web Access)
+TrustedMime, CryptoEx (Signing &amp; Encrypting Mail)
+
+
+2.2) Standards:
+---------------
+
+X.509, PGP (Zertifikatsaufbau ASN.1, X.509 Extensions)PKCS#n (Ausgabeformate),
+PCSC (Smartcard)
+CRL, ARL
+OCSP
+
+Projekte:
+04/2016 - heute: Einführung regionaler Internet-Breakouts
+ 
+Rolle:              Network Architect zur Entwicklung von Strategie / Design
+Kunde:              E.ON Business Services GmbH
+ 
+Aufgaben:
+ 
+    * Abstimmung der technischen Lösung mit Service Provider
+    * Unterstützung der internen Produktentwicklung
+    * Umsetzung regionaler Kundenanforderungen an Cloud-Services
+ 
+Eingesetzte Produkte:
+ 
+MS Visio, MS Azure, ZScaler, Akamai
+===============================================================================
+04/2015 - 03/2016: Carve-In des Bilfinger AG Unternehmensbereichs Bilfinger
+Construction GmbH
+ 
+Rolle:              Global Solution Architect/ Teilprojektleitung Netzwerk
+Kunde:              Implenia AG
+ 
+Aufgaben:
+ 
+Aufgabe:
+    * Global Solution Architect zur Entwicklung von Strategie / Design der
+      neuen Gesamtfirma
+    * Teilprojektleitung Netzwerk (WAN. INAC, RAS, LAN, WLAN)
+ 
+    * Unterstützung bei Sourcing-Strategie, RFI / RFQ-Verfahren (WAN, INAC, RAS
+      – LAN, WLAN)
+    * Migration zu Cloudlösungen für Office 365, Security und Storage
+    * Zentrale Datenhaltung mit Optimierung File-/Print (Talon-Caching Lösung)
+ 
+Eingesetzte Produkte:
+ 
+MS Office, MS Project, MS Visio, MS Azure StorSimple, Talon, Cisco Meraki
+===============================================================================
+01/2013 - 11/2014: Carveout des Bosch Rexroth AG Unternehmensbereichs
+Pneumatics
+ 
+Rolle:              Global Solution Architect zur Migration der IT
+Infrastruktur
+Kunde:              Bosch Rexroth AG
+ 
+Aufgaben:
+ 
+    * Carveout – Planung der Netzwerkbereiche WAN und LAN/WLAN
+    * Planung des eigenständigen Betriebs der IT-Infrastruktur bei Pneumatics
+    * Unterstützung bei Sourcing-Strategie, RFI / RFQ-Verfahren
+    * Aufbau einer Migrationsdatenbank
+ 
+Kenntnisse:
+ 
+PHP, MySQL
+ 
+Eingesetzte Produkte:
+ 
+MS Office, MS Project, MS Visio
+===============================================================================
+06/2010 - 12/2012: Carveout des Siemens AG Unternehmensbereichs Siemens IT
+Solutions &amp; Services GmbH
+ 
+Rolle:              Solution Architect zur Migration von Applikationen
+Kunde:              Siemens IT Solutions &amp; Services GmbH
+ 
+Aufgaben:
+ 
+Aufgabe:                                           
+    * Solution Architect zur Migration von Applikationen
+    * Global Solution Architect zum Aufbau einer gemeinsamen globalen
+      Managementplattform für Atos und SIS
+                                                                      
+           
+    * Entwicklung eines Solution Designs unter Berücksichtigung der Migration
+      von Infrastrukturdiensten (Email, PKI, Client, Datacenter Infrastruktur,
+      Single Sign On, AD, DNS, LAN, WAN, ...)
+    * Entwicklung einer SIS-weiten Team-Organisation
+    * Entwicklung eines Projektplans basierend auf Arbeitspaketen
+    * Design einer Migrationsdatenbank
+    * Integration HP DDMI Scan-Analyse in Migrations-DB
+    * Entwicklung eines Solution Designs für Business Partner Access in der
+      Carveout-Phase
+ 
+Kenntnisse:
+ 
+PHP, MýSQL
+ 
+Eingesetzte Produkte:
+ 
+MS Office, MS Project, HP Discovery and Dependency Mapping Inventory, Tivoli
+===============================================================================
+07/2008 - 06/2010: Carveout des Siemens AG Unternehmensbereichs Siemens
+Enterprise Communications
+ 
+Rolle:              Aufbau der SEN  Infrastruktur zur Standalone Readiness
+Kunde:              Siemens Enterprise Communications
+ 
+Aufgaben:
+ 
+    * RFI – Erstellung für die Infrastrukturbereiche WAN, LAN, WLAN, DNS, INAC,
+      Remote Access, PKI
+    * RFQ – Erstellung und Auswertung für die Infrastrukturbereiche WAN, INAC,
+      Remote Access
+    * Entwicklung der technischen Vertragsinhalte und interne/externe
+      Abstimmung für den Bereich WAN, INAC, Remote Access
+    * WAN-Rollout für 60 Länder / ca. 300 Standorte
+    * Aufbau des Servicemanagements WAN
+    * Service Desk Trainings
+    * Unterstützung LAN- und VoIP - Rollout
+    * Quality of Service Einführung für SEN VoIP-Rollout
+    * Third Level Support
+ 
+Blue Coat, Riverbed, Cisco, SonicWALL, Enterasys, Check Point
+Netflow, Nagios  (erweitert um SLA-Tracking in PHP und mySQL)
+ 
+Eingesetzte Produkte:
+ 
+Blue Coat, Riverbed, Cisco, SonicWALL, Enterasys, Check Point Netflow, Nagios
+===============================================================================
+ 
+Zeitraum:                Mai 2008  Juni 2008
+Kunde:                   Siemens IT Solutions and Services
+Projektbeschreibung:     Entwicklung einer IPPolicy für Carveout-Bereich Nokia
+Siemens Networks
+Aufgabe:                 Entwurf und Abstimmung einer IP-Policy
+ 
+    * Planung und Abstimmung der IP-Prozessabläufe
+    * Entwurf eines globalen IP-Adressierungskonzepts (IP V4)
+    * Erstellung der Unternehmenspolicy für IP-Adressierung
+
+
+===============================================================================
+ 
+Zeitraum:                 April 2007  April 2008
+Kunde:                    Siemens AG
+Projektbeschreibung:      Optimierung/Harmonisierung der WAN-Verträge der
+Siemens AG im
+                          Multicarrier-Umfeld (NDA-Projekt)
+Aufgabe:                  Vorbereitende Entwicklung und Abstimmung der Siemens
+AG Verträge
+                          mit den aktuellen WAN-Dienstleistern
+ 
+    * Entwicklung der technischen Vertragsinhalte gemäß ITIL und interner
+      Abstimmung
+    * Durchführung von Workshops mit den WAN  Dienstleistern
+    * RFI / RFQ  Ausschreibung des Siemens AG MPLS-WAN
+
+
+===============================================================================
+ 
+Zeitraum:                 Juni 2006  März 2007
+Kunde:                    Dematic GmbH
+Projektbeschreibung:      Carveout des Siemens AG Unternehmensbereichs Dematic
+Aufgabe:                  Project Management Office Bereich Infrastruktur,
+Aufbau einer
+                          Unternehmens-PKI
+ 
+    * Projektplanung und Tracking, Durchführung von Workshops
+    * Koordination der regionalen Migrationsteams (EMEA, APAC, AM)
+    * Entwicklung einer Unternehmens PKI  Policy
+    * RFI / RFQ  Ausschreibung an PKI-Dienstleister
+    * Toolentwicklung PKI-Beantragung mit Kopplung zu Corporate Directory und
+      Local Registration Authorities
+    * Vertragsentwicklung Microsoft Volumenlizensierung (Enterprise / Select)
+    * SAM (Software Asset Management)
+
+
+===============================================================================
+Zeitraum:                  März 2005  Mai 2006
+Kunde:                     T-Systems International GmbH
+Projektbeschreibung:       Migration des Siemens Corporate IP-Backbone
+Netzwerks (CIP) nach
+                           SNX (MPLS-Netzwerk mit QoS)
+Aufgabe:                   Teilprojektleitung Operations
+ 
+    * Koordination des Migrationsteams
+    * Pilotierung und Inbetriebnahme des Produkts SNXLite Site Encryption
+    * Pilotierung und Inbetriebnahme von Metropolitan Area Networks
+    * Dokumentation und Einführung der Arbeitsprozesse im T-Systems
+      Regelbetrieb
+    * Entwicklung der Betriebsprozesse für Multiple VPN eines MPLS-Kunden
+ 
+Eingesetzte Methoden und Tools:
+ 
+    * TEDOS (Siemens-Tool, Technisches Dokumentations-System)
+    * Omnitracker (Change Management System)
+    * PMA-ISEM (Technische Datenbank T-Systems)
+ 
+ 
+===============================================================================
+ 
+weitere Projekte auf Anfrage
+===============================================================================
+
+
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_20124
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 01.04.2020 00:45:55
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

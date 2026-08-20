@@ -1,0 +1,680 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_96054
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                96054
+  
+Wohnort                    301xx Hannover, Deutschland
+Jahrgang                   1968
+Staatsbürgerschaft         Deutsch
+Stundensatz                85 EUR
+Verfügbar ab               04.11.21 zu 50%, Vor-Ort-Einsatz 50% möglich
+Profil erstellt am         10.02.09
+Profil zuletzt geändert am 06.10.20
+Lesen von Projektanfragen  3 Tage [04]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 23.10.2020 09:31:04
+
+Fachlicher Schwerpunkt:
+Softwareentwickler Java, Javascript, iOS, PHP
+
+Position:
+Software-Entwicklung / Programmierung
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Studium Master of Computer Science an der Fernuni Hagen
+Abschluss (mit Auszeichnung) 2007
+
+Zertifizierung zum 'Sun Certified Programmer for the Java 2 Platform, Standard
+Edition 5.0' 2005
+
+Studium Musikerziehung Jazz/ Rock Pop an der Hochschule für Musik u. Theater
+Hannover
+Abschluss als Dipl.-Musiker 1995
+
+Einsatzort:
+Regionen:
+D3, außerhalb D/A/CH
+im Umkreis von:
+Groningen (NL) (50 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: Umkreis Hannover ca. 100km
+
+Fremdsprachen:
+Deutsch        fließend
+Englisch       fließend
+Niederländischfließend
+
+
+Hardware:
+ 
+
+Betriebssysteme:
+iOS      
+Mac OS   
+Unix     
+Windows  
+
+
+Programmiersprachen:
+C              12 Monate Erfahrung
+C++            12 Monate Erfahrung
+Java           mehrjährige Erfahrung &amp; Kenntnis wichtiger Libraries
+JavaScript     mehrjährige Erfahrung &amp; Kenntnis wichtiger Libraries
+Objective C    ca. 12 Monate Erfahrung
+PHP            mehrjährige Erfahrung &amp; Kenntnis wichtiger Libraries
+Scriptsprachen Applescript
+
+
+Datenbanken:
+JDBC      
+MySQL     
+Postgres  
+SQL       
+
+
+Datenkommunikation:
+Ethernet            
+Internet, Intranet  
+SMTP                
+TCP/IP              
+
+
+Produkte/Standards/Erfahrungen:
+Technologien Frontend:
+
+  * HTML, XHTML
+  * CSS
+  * Javascript, jQuery
+  * AJAX
+  * Cocoa
+  * JavaServer Faces
+  * Swing, SWT
+
+Technologien Backend:
+ 
+  * PHP
+  * Servlets
+  * JavaServer Pages (JSP) (JSPX)
+  * JavaServer Faces (JSF)
+  * JEE
+  * MySQL
+
+Sonstige:
+  * XML
+  * JPA
+  * Hibernate
+
+Programme/ Tools:
+
+  * Apache Webserver
+  * Tomcat
+  * Ant
+  * maven
+  * gradle
+  * Subversion (SVN)
+  * git
+  * JUnit
+  * Photoshop
+  
+
+IDEs:
+  * xCode
+  * Eclipse
+  * Netbeans
+  * Intellij Idea
+ 
+Vorgehensmodelle:
+  * SCRUM
+ 
+
+Branchen:
+IT / Internet / EDV
+IT-Dienstleister / Rechenzentrum
+Chemie / Pharma / Biotechnologie / Medizintechnik
+Druck / Papier / Verpackungsindustrie
+ 
+ 
+
+Projekte:
+projects as freelancer:
+(scroll down to the end to find projects as employee, student and own projects)
+Time: 06/2011 – 06/2012
+Tasks:
+A central user management system which manages the SSO users for several
+domains shall be migrated to a more modern system for better maintenance. The
+new system shall be accessed through a REST interface. A strategy for a safe
+migration with minimum downtime has to be developed.
+
+Development of one of the leading online tax declaration websites:
+- better integration of the webshop
+- improvement of shop navigation
+- integration of PayPal
+- improvement of the usability by using javascript/Ajax
+- implementing a bonuscode system
+
+The product was licensed by a big company. I did the connection to that
+companies SAP backend via an SOAP interface and the shop frontend programming.
+Role:
+consultant, developer
+Carried out work:
+technical design, development
+Technology:
+Frontend:
+Java
+Servlets / JSP
+Apache Tiles Framework
+HTML
+CSS
+Javascript / Ajax
+YUI / jQuery
+JSON
+
+Backend:
+Java
+Spring Framework
+Spring Security
+Hibernate
+XML
+XSLT
+REST
+SAP
+Database:
+MySql
+Tools:
+Idea
+Jira
+Subversion/git
+Maven
+Teamcity
+===============================================================================
+Time: 04/2011 – 08/2011
+Tasks:
+Development of an e-learning web application of a big school book publishing
+house
+- adding new features
+- refactorings
+
+Role:
+Consultant, Developer
+Carried out work:
+consulting, development, testing
+Technology:
+Frontend:
+Java
+Servlets / JSP
+Apache Tiles Framework
+HTML
+CSS
+Javascript
+jQuery
+jQueryUI
+jQuery templates
+JSON
+
+Backend:
+Java
+Spring Framework
+Spring Security
+Hibernate
+Database:
+MySql
+Tools:
+netbeans
+eclipse
+SEquel
+Diverse Grafikprogramme
+===============================================================================
+Time: 04/2011 – 06/2011
+Tasks:
+Development of a static library for the subscriber management of a big
+publishing house. The library will be used in different iOS apps of third party
+developers.
+
+- simplifies access to the SAP/SOAP backend of the customer
+- supports In-App purchase and subscriptions as defined by Apple
+
+Role:
+Consultant / Developer
+Carried out work:
+consulting, technical design, development, test, documentation
+Technology:
+Frontend:
+iOS
+Cocoa Touch
+HTML5/CSS3
+
+Backend:
+SOAP
+HTTP
+
+Database:
+SQLite
+Tools:
+xCode
+Netbeans
+Instruments
+
+--------------------------------------------------------------------
+Time: 01/2011 – 04/2011
+Tasks:
+official iPhone-App for a big german theme park
+Features:
+
+- extensive browsable content
+- navigation in the park, displayed on the hand-painted park map
+- mapping of real geolocation data on a painted map
+- twitter / facebook
+- pulling content from the website in different ways
+- location-based treasure hunt
+- online shop integration
+
+Role:
+consultant, lead developer
+
+Carried out work:
+consulting, development, coordinating of customer, graphic designer and
+external website company, testing
+Technology:
+Frontend:
+iOS
+Cocoa Touch
+HTML5 / CSS3
+
+Backend:
+Park-Website
+PHP-Proxy pages (for doing screen-scraping on the park website)
+XPath
+Database:
+(in the website CMS)
+Tools:
+xCode
+netbeans
+Instruments
+Adobe Photoshop
+===============================================================================
+Time: 10/2010 – 12/2010
+Tasks:
+Development and relaunch of a web framework used by many domains.
+- new features in the frontend
+- special display on mobile devices and iPad, using CSS3 animations
+- wordpress integration
+- SEO support
+
+Role:
+administrator, consultant, developer
+Carried out work:
+consulting, development, test
+Technology:
+Frontend:
+Html/CSS/JavaScript
+HTML5, CSS3
+jQuery + div. Plugins
+
+Backend:
+PHP
+PEAR
+Wordpress
+Smartoptimizer
+Database:
+MySQL
+Tools:
+Netbeans
+Subversion
+Firebug
+Safari Inspector
+===============================================================================
+Time: 09/2010 – 10/2010
+Tasks:
+PHP and javascript programming for the website relaunch of a high-end printery.
+- fully ajax support
+- pretty url's
+- graceful degradation: 100% functional without javascript
+- fancy animations
+- full back button support: even animations are running backwards
+- wordpress integration
+- mobile version with CSS3 animations
+- big screen support: on really big screens, hi-res artwork loads in the
+background and replaces the normal artwork when finished
+- support for javascript galleries
+
+Role:
+consultant, developer, admin
+Carried out work:
+consulting, evaluating tools, development, test
+Technology:
+Frontend:
+Html/CSS/JavaScript
+HTML5, CSS3
+jQuery
+jQuery Plugins:
+jquery.address
+jquery.tipsy
+jquery.galeria
+jquery.ad-gallery
++ several self-made
+
+Backend:
+PHP
+PEAR
+Wordpress
+Database:
+MySQL
+Tools:
+Netbeans
+Subversion
+Firebug
+Safari Inspector
+===============================================================================
+Time: 06/2010 – 08/2010
+Tasks:
+Development of a mobile version of a modern website with many ajax/javascript
+features.
+Development of a javascript tool to adjust the design of html/javascript which
+was generated from excel tables to the corporate design.
+
+Development of native mobile apps centered around generated websites in a
+WebView. (Cancelled after prototyping, as the usability was not as expected,
+and a pure native solution regarded too expensive)
+
+Role:
+consultant, developer
+Carried out work:
+consulting, evaluation, development
+Technology:
+Frontend:
+Web: Html/CSS/JavaScript
+jQuery
+Cocoa Touch
+Java UI Frameworks by RIM &amp; Android
+Backend:
+PHP
+Database:
+MySQL
+Tools:
+Netbeans
+Eclipse PDT
+Xcode
+Subversion
+Firebug
+Safari Inspector
+===============================================================================
+Time: 04/2010 – 06/2010
+Tasks:
+Work on the website of one of germany's biggest publishing houses.
+- new features
+- bugfixes
+- performance tuning
+- setting up debugger, logger, profiler
+- training the employees
+
+
+Role:
+consultant, developer, admin, trainee
+Carried out work:
+consulting, development
+Technology:
+Frontend:
+Web: Html/CSS/JavaScript
+jQuery
+Backend:
+PHP
+Zend Framework
+Database:
+MySQL
+Tools:
+Eclipse PDT
+XDebug
+Subversion
+Sequel Pro
+Firebug
+Safari Inspector
+MAMP
+===============================================================================
+Time: 04/2010
+Tasks:
+Development of a board game for iPhone
+
+Role:
+developer
+Carried out work:
+development, testing
+Technology:
+Frontend:
+Cocoa Touch
+Backend:
+-
+Database:
+-
+Tools:
+Xcode
+Instruments
+Photoshop
+GarageBand
+iTunes
+===============================================================================
+
+Time: 12/2009 – 02/2010
+Tasks:
+Development of a secured web application for monitoring specialized signature
+servers of the customer.
+- user &amp; roles management
+- management of servers
+- implement a proprietary protocol to communicate with the signature servers
+- the signature servers allow only for one Socket connection at a time,
+preventing locks was the major obstacle
+- ajax driven
+Role:
+consultant, architect, developer
+Carried out work:
+consulting, technical design, framework evaluation, development, test
+Technology:
+Frontend:
+JavaServer Faces
+Richfaces
+Javascript
+Backend:
+Hibernate
+Spring
+Spring Security
+Database:
+PostgreSql
+Tools:
+Maven
+Log4J
+JUnit
+Photoshop
+Selenium
+===============================================================================
+Time 08/2009 – 09/2009
+
+Tasks:
+Development of a java desktop tool for voting on a poll website.
+- pretend to be a webbrowser with changing browser signature
+- break captcha
+- log success
+Role:
+developer
+Carried out work:
+development
+Technology:
+Backend:
+Java
+Tools:
+HTTPClient
+curl/SOAP (for router communication)
+===============================================================================
+
+Time: 03/2009
+Tasks:
+Requirement analysis for the back office part of a planned tax declaration
+website.
+- reporting requirements
+- testing requirements
+- proposals for implementation
+- introduction to the ELSTER software tools provided by the tax authority
+Role:
+consultant
+Carried out work:
+analysis, documentation
+Technology:
+Frontend:
+JavaServer Faces
+Reporting:
+Jasperreports
+JasperAssistant
+Database:
+MySql
+--------------------------------------------------------------------
+Projects as an employee: (10/2007-10/2008)
+--------------------------------------------------------------------
+Time: 04/2008-10/2008
+Tasks:
+Development of a webapp which provides a graphical user interface for designing
+complex SQL queries
+- allows users without SQL knowledge to construct complex queries
+- various manipulation of the result sets
+- data export to different formats
+- extensible framework with plugin-like structure
+
+Role:
+developer
+Carried out work:
+technical design, development
+Technology:
+Backend:
+MS SQL Server
+Glassfish (SJSAS) Application Server
+Java, J2ee, EJB 3.0
+Frontend:
+JavaServer Faces
+HTML, CSS, Javascript
+JavaServer Pages (JSP) (JSPX)
+AJAX
+Prototype
+
+Export:
+XML
+CSV
+PDF
+Tools:
+ANT
+SVN
+===============================================================================
+Time: 2/2008 - 4/2008
+Task:
+Migrating the reporting engine from Crystal Reports to JasperReports.
+- evaluation of JasperReports and graphical tools
+- development of a framework to support JasperReports on the server
+- start migration of reports from Stored Procedures/ Crystal Reports to EJB/
+JasperReports
+Role:
+developer
+Carried out work:
+evaluation, development
+Technology:
+Backend:
+MS SQL Server
+Glassfish (SJSAS) Application Server
+Java, J2ee, EJB 3.0
+Jasperreports
+Frontend:
+Java, Swing
+Tools:
+Netbeans
+ANT
+SVN
+===============================================================================
+Time: 10/2007 - 2/2008
+Task:
+Development of a new user management for the software product of the company.
+- backend programming
+- frontend programming, design
+Role:
+developer
+Carried out work:
+technical design, development, testing
+Technology:
+Backend:
+MS SQL Server
+Glassfish (SJSAS) Application Server
+Java, J2ee, EJB 3.0
+Frontend:
+Java, Swing mit Netbeans unter Suse Linux
+Tests:
+JUnit
+Tools:
+ANT
+SVN
+===============================================================================
+As freelancer:
+Time: 09/2007 - 10/2007
+Aufgabe:
+Development of the website of a time employment company.
+- moving to another provider
+- adding new features
+Role:
+developer, admin
+Carried out work:
+development, testing
+Technology:
+Apache Webserver
+MySql
+PHP
+HTML
+CSS
+Javascript
+===============================================================================
+As student: Master thesis
+Time: 10/2006-04/2007
+Master Thesis : "Ein Eclipse-Framework zur automatischen
+Bestimmung nützlicher Interfaces in Java-Programmen"
+(An eclipse-based framework for automatic creation of useful interfaces in Java
+programs)
+Grade: 1,0 (Highest possible)
+- development of an eclipse plugin
+- integration in an existing tool suite
+- case studies
+- extensive documentation
+Technology:
+Eclipse PDE
+TEX/ LATEX
+Tools:
+Texclipse
+Cygwin
+ANT
+CVS
+===============================================================================
+private projects:
+2008 : Desktop app (Java) and several Webapps (PHP) for doing my tax
+declaration
+2007 : Mini-Community website (PHP) for managing the alumni meetings of my high
+school
+
+2006 : Own simple Desktop-CMS (Java) which allowed for very easy text updates
+on websites I was maintaining back then
+2005 : For university : Board game similar to the japanese 'Go', fully network
+playable (client &amp; server), with AI and animated frontend in Java Swing. Awards
+for 'Best UI' and 'Best AI'.
+2005 : Programming of a linux cluster using PVM.
+2001 : Two very popular agenda tools for the back then fantastic PDA's: Psion
+Serie 5 / Psion revo
+1985-1989 : Lots of games, a synthesizer and other fun programs for Atari 800
+XL in Basic and 6502 Assembler
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_96054
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 07.10.2020 00:41:26
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

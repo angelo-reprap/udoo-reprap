@@ -1,0 +1,988 @@
+Senior Engineer Linux DevOps Puppet Ansible Tomcat Openshift
+Jenkins
+Verfügbar ab: 01.03.2020
+verfügbar zu: 100 %
+davon vor Ort: 25 %
+Stundensatz: 90,00 EUR
+Bemerkungen: je nach Projekt/Einsatzort min. 85€ / Remote
+75€
+Einsatzort
+Regionen &amp; Länder: D6, Schweiz
+Städte: Aschaffenburg 50 km
+Frankfurt am Main 50 km
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Projekte
+2017-05 - 2019-08 JEE-Betriebsunterstützung / Deployment Automation /
+2 Jahre 4 Monate DevOps-Engineer
+Rolle: Application Support Engineer
+Kunde: ING-DiBa AG
+Projektinhalte:     •  Prozessdesign und Administration in CA Release Automation
+    •  Unterstützung beim Betrieb der JEE-Anwendungen
+    •  Unterstützung im Bereich Parametrisierung und oubleshooting
+    •  Entwicklung von Scripts, Ansible-Playbooks und Build-Jobs
+    •  RPM-Building
+    •  Durchführung von Produktions-Changes
+    •  PaaS Proof of Concept im Kontext internationale Zusammenarbeit
+Eingesetzte Produkte: CA Introscope, CA Release Automation (ehem. Nolio), SOAP, REST, JSON,
+XML, Jenkins, JBoss, Tomcat, Nexus, Ansible, Puppet, Bash, Python, RHEL,
+JIRA, Confluence, Service Now, Toad, SoapUI, IntelliJ, Eclipse, Automic UI,
+Git, SourceTree, Oracle, ActiveMQ, PKI, Java Keystores, OAuth 2.0, RPM,
+16.03.2023 1 von 10
+RedHat Satelite, Grafana, OpenShift, Docker, Kubernetes, Prometheus,
+VMware, F5 Loadbalancer, Apache httpd
+2016-03 - 2017-04 Webapplikations-Hosting / DevOps
+1 Jahr 2 Monate
+Rolle: Senior Linux Administrator, Change Koordinator
+Kunde: Kreditinstitut
+Projektinhalte:     •  Administration Apache/Tomcat-Webservices
+    •  Installation und Vorbereitung von
+     ?HA-Webhosting-(Test-)Umgebungen
+    •  Building &amp; Deployment
+    •  Installation, Bereitstellung und Troubleshooting von
+     ?Container-Apps
+    •  Bearbeitung von Tickets (ITIL)
+    •  Technische Dokumentation
+    •  Koordination aller Aktivitäten für den Betrieb der technischen
+     ?Plattform
+    •  Management von Infrastrukturthemen sowie Steuerung der
+Entwicklungspartner
+    •  Projektmanagement bei Erweiterungen der Infrastruktur und
+     ?Infrastruktur Maßnahmen
+    •  Koordination von Change Requests, Patches, Konfigurationen,
+     ?Deployment von neuen Releases
+Eingesetzte Produkte: SLES, RHEL, Apache httpd, Tomcat, PostgreSQL, MySQL, Docker, Jenkins,
+GIT, bash, Unternehmenseigene Software, JIRA, Confluence, Nagios
+2015-10 - 2016-03 Webapplikations-Hosting
+6 Monate
+Rolle: Senior Linux System Engineer
+Kunde: Kreditinstitut
+Projektinhalte:     •  IT-Operations, Betriebsunterstützung, Rufbereitschaft (24/7)
+     ?vor Ort und Remote
+    •  Administration und Monitoring von Applikationen, insbesondere
+     ?JEEbasierte
+Webanwendungen für interne und externe Kunden.
+    •  Mitarbeit bei Setup und Einführung von neuen Applikationen,
+     ?Definition und Durchführung von technischen Abnahmetests
+    •  Analyse und Behebung von Fehlern in der
+     ?Webhosting-Infrastruktur
+    •  Deployment, Betrieb und Wartung Betrieb von RHEL-Linux-Servern
+    •  Deployment, Betrieb und Wartung von Webserver- und
+     ?Tomcat-Instanzen
+    •  Erstellung und Verbesserung von Shell-Scripts zur
+     ?Automatisierung von Betriebsaufgaben
+    •  Analyse und Management von Produktions- und Security-Incidents
+    •  Administration Apache/Tomcat/JBoss-Webservices
+    •  RPM-Paketierung
+    •  LDAP-Administration
+    •  Technische Dokumentation
+16.03.2023 2 von 10
+Eingesetzte Produkte: SLES, RHEL, Apache httpd, Tomcat, JBoss, Jenkins, Maven, Nagios,
+WebSphere, MediaWiki, bash, Unternehmenseigene Software, Oracle,
+MySQL, JIRA, Confluence, OpenLDAP
+2013-09 - 2015-09 Max-Planck-Institut für Hirnforschung
+2 Jahre 1 Monat
+Rolle: CIO - Leiter IT - Leiter Elektronik - Leiter Scientific Computin
+Projektinhalte: Aufgaben
+    •  Fachliche und disziplinarische Führung von 11 Mitarbeitern
+    •  Sicherstellung des operativen IT-Betriebs an drei Standorten
+    •  Erstellung von Investitionsplänen, Budgetplanung und -kontrolle
+(Budgetverantwortung
+    •  1 Mio. EUR)
+    •  Konzeption und Umsetzung der IT-Strategie, insbesondere im
+     ?Hinblick auf
+die zukünftige anwendungs- und Systemlandschaft, eine
+     ?angemessene
+und moderne IT-Infrastruktur, den Nutzer-Support sowie auf die
+Informationssicherheit, orientiert an den Geschäftsprozessen
+     ?und an der
+Entwicklungsplanung des Instituts
+    •  Steuerung von und Mitarbeit an IT-Projekten von der Konzeption
+     ?bis hin
+zur Systemeinführung
+    •  Verantwortung für die Beschaffung und Wartung der gesamten
+     ?Hard- und
+Software
+    •  Vertragsverhandlungen sowie Steuerung von externen
+     ?Dienstleistern und
+Beratern
+    •  Analyse und Optimierung der bestehenden Geschäftsprozesse in
+Verbindung mit den Fachabteilungen
+    •  Erarbeitung und Abwicklung von Fördermittelanträgen für
+     ?IT-Ausstattung
+    •  Entwicklung und Einführung institutsweiter IT-Richtlinien und
+     ?ITStandards.
+    •  Change-Management (Reorganisation der IT- und
+     ?Elektronik-Abteilung)
+    •  Service Management (Planung und Einführung von Service
+Desk/Helpdesk inklusive Softwarelizenzmanagement und
+Hardwareverwaltung)
+    •  Erstellung von IT-Konzepten (IT-Leitlinie,
+     ?IT-Sicherheitskonzept,
+Datenspeicherungskonzept, Datensicherungskonzept,
+Notfallvorsorgekonzept und diverse IT-Durchführungsregelungen)
+    •  Zentrale Speicherlösung (Planung und Einführung eines
+     ?Storage-Clusters
+von NetApp)
+    •  HPC-Cluster (Planung und Einführung eines
+     ?60-Knoten-HPC-Clusters mit
+GPFS-Storage)
+    •  Realisierung breitbandiger Anbindungen zum Rechenzentrum
+     ?Garching
+(Aufbau eines WAN-Kernnetzknotens am Campus Riedberg in
+Kooperation mit dem Deutschen Forschungsnetz) für ein
+wissenschaftliches Projekt welches täglich ca. 1PB an Daten
+     ?produziert
+16.03.2023 3 von 10
+    •  Netzwerk- und Server-Monitoring (Auswahl und Einführung einer
+     ?neuen
+Monitoring- und Logsammlungslösung)
+    •  Softwareverteilung, Konfigurationsverwaltung und BYOD (Auswahl
+     ?und
+Einführung zentraler Lösungen für das Management eigener und
+     ?fremder
+Clients, Smartphones und Tablets)
+Invalex GmbH behandelt diese Daten vertraulich. Weitergabe an
+     ?Dritte, oder Vervielfältigung, ist untersagt.
+Bitte respektieren Sie die Privatsphäre von Kandidaten.
+    •  Laborüberwachung (Planung und Einführung einer Eigenlösung zur
+Schwellwertüberwachung von Laborkühlschränken)
+    •  Intranet (Initiierung und Umsetzung des neuen Intranets
+     ?inklusive
+Automatisierung von Betriebsprozessen mit dem Ziel der
+Effizienzsteigerung)
+    •  Internetpräsenz (Konzipierung und Koordination der Entwicklung
+     ?der
+neuen Internetpräsenz mit indischen Dienstleitungsunternehmen)
+    •  Corporate Identity (Initiierung und Umsetzung der Corporate
+     ?Identity des
+Instituts)
+    HR (Optimale Besetzung einer Reihe wichtiger Positionen und
+Gewinnung
+von sehr gutem Personal)
+    
+Technologien
+    •  Windows NT, XP, 2000, 7, 10, Windows Server 2008 R2, Windows
+Server 2012, Debian, Ubuntu, SLES, CentOS, RHEL, FreeBSD, Mac
+     ?OS
+X, OTRS, JIRA, Confluence, MediaWiki, VMware Workstation,
+     ?VMware
+ESXi, VMware Orchestrator, Parallels, SVN, 802.1x, BGP-Routing,
+     ?SSL-
+, IP-Sec- und Open-VPN, Cisco Networking (Core, Access,
+     ?WLAN-APs),
+Checkpoint Next-Gen Firewall, NetApp FAS3020, SFTP, Puppet,
+MATLAB, Postfix, JAMF Casper Suite, Cisco Prime Infrastructure,
+Nagios / Icinga, Paessler PRTG, Logstash, Splunk, HP ArcSight
+Syslog Server, NPS, RADIUS, Active Directory, OpenLDAP,
+     ?Fileserver,
+CIFS / NFS, Distributed Filesystems GPFS, BeeGFS, Sophos
+Enterprise Anti Virus, NIS, Zertifikatsdienste, DHCP, DNS,
+     ?VMware
+ESXi, Bash, Python, Perl, Veeam Backup, IBM Tivoli Backup (TSM)
+2010-09 - 2015-09 Administration
+5 Jahre 1 Monat
+Rolle: Senior Linux System Engineer
+Kunde: Max-Planck-Institut
+Projektinhalte:     •  Rechenzentrumsbetrieb an drei Standorten
+    •  Migration des Oracle-Datenbankservers von Solaris nach SLES
+    •  Betrieb von ca. 200 Linux- (VM u. Hardware) und ca. 30
+     ?Solaris-Server
+    •  Deployment von Linux-Servern (Debian, SLES)
+16.03.2023 4 von 10
+    •  Administration Apache/Tomcat/JBoss-Webservices,
+Heartbeat/Loadbalancer für Eigenentwicklungen der
+Forschungsabteilungen
+    •  Konzeption, Installation und Betrieb einer Infastruktur für den
+     ?Webtraffic des Instituts mit Loadbalancing unter Linux
+    •  Aufbau und Betreuung mehrerer Linux-HPC-Cluster für
+Forschungsabteilungen
+    •  Einführung und Betrieb eines Configuration-Managements mit
+     ?Puppet
+    •  Einführung und Betrieb einer Monitoring-Lösung mit Icinga2
+    •  Erstellung und Anpassung von Shell-Scripts in Bash und Perl
+    •  Erstellen und Anbinden von Zertifikaten in Java Keystores mit
+     ?OpenSSL
+    •  RPM-Paketierung
+    •  Incident Management
+    •  Technische Dokumentation
+Eingesetzte Produkte: SLES, RHEL, Solaris, CentOS, FreeBSD, Debian, Ubuntu, Windows Server
+2008 R2, Windows Server 2012, Apache httpd, Tomcat, JBoss, Nginx,
+Oracle, MySQL, MS SQL, Caché, SVN, GIT, Java Keystores, OpenSSL,
+Puppet, OTRS, MediaWiki, Singularity, OpenStack, VMware Workstation,
+VMware ESXi, VMware Orchestrator, Parallels, 802.1x, BGP-Routing, SSL-,
+IP-Sec- und Open-VPN, Cisco Networking (Core, Access, WLAN-APs),
+Checkpoint Next-Gen Firewall, NetApp FAS3020, SFTP, MATLAB, Postfix,
+JAMF Casper Suite, Cisco Prime Infrastructure, Icinga2, Paessler PRTG,
+Logstash, Splunk, HP ArcSight Syslog Server, NPS, RADIUS, Active
+Directory, OpenLDAP, Fileserver, CIFS / NFS, Distributed Filesystems
+GPFS, BeeGFS, Sophos Enterprise Anti Virus, NIS, Zertifikatsdienste,
+DHCP, DNS, VMware ESXi, Bash, Python, Perl, Veeam Backup, IBM Tivoli
+Backup (TSM)
+2010-09 - 2013-09 Max-Planck-Institut für Hirnforschung
+3 Jahre 1 Monat
+Rolle: IT-Systemadministrator IT-Projektleiter IT-Datenschutzbeauftragt
+Projektinhalte: Beschreibung
+Einstellung während Umbruchsituation für das Institut, welches sich
+sowohl inhaltlich als auch vom Standort her völlig neu orientiert hat.
+Neben der vollumfänglichen Betreuung der vorhandenen IT-Infrastruktur
+an zwei Institutsstandorten, lag der Fokus von [Name auf Anfrage] hier auf
+dem Upgrade der
+gesamten Serverumgebung auf aktuelle Betriebssystemversionen im
+Produktivbetrieb und die selbstständige Einführung der
+Virtualisierungsumgebung und somit Konsolidierung 63 physikalischer,
+dedizierter Server. Mit Blick auf das neue Institutsgebäude war [Name auf
+Anfrage]
+zudem mit der Konzeption der Netzwerk- und Serverlandschaft sowie
+deren Umsetzung beauftragt worden.
+[Name auf Anfrage] war die Schlüsselfigur in der erfolgreichen Konzeption
+und Umsetzung der IT-Infrastruktur im neuen
+Institutsgebäude (Subnetzgestaltung, ACL und VLAN Design, Einführung
+von 802.1x Authentifizierung, Einführung einer Lösung für BYOD,
+Gestaltung sowieso Umsetzung der IT-Sicherheit, Anbindung des Instituts
+an das DFN via BGP, Glasfaserstrecken zum Backbone der Goethe
+Universität inkl. Einholen der Baugenehmigungen, Zentralisierung der
+Daten auf neues Storage-System, Aufbau eines HPC-Clusters, u. v. m.)
+Aufgaben
+    •  Schnittstelle zwischen Wissenschaft und IT
+16.03.2023 5 von 10
+     ?(Anforderungsanalyse)
+    •  Konzeption, Installation, Konfiguration, Inbetriebnahme,
+     ?Dokumentation und Administration der
+        •  Netzwerkinfrastruktur (Cisco Core, Access &amp; WLAN)
+        •  Serverumgebung (versch. Linux-Derivate / Windows Server)
+        •  Zentralen Wissenschafts-Storage (GPFS, BeeGFS, NFS, CIFS)
+        •  Virtualisierungs- bzw. IT-Storage (NFS, CIFS)
+        •  HPC-Cluster für neuronale Systeme und Kodierung (MATLAB)
+    •  Zuständig für Inter- und Intranet-Hosting
+    •  Benutzerkontenverwaltung
+    •  Marktanalysen und Angebotsanfragen
+    •  Hard- und Softwareeinkäufe
+Technologien
+    •  Windows NT, XP, 2000, 7, Windows Server 2008 R2, Debian,
+     ?Ubuntu,
+SLES, CentOS, RHEL, FreeBSD, Mac OS X, OTRS, JIRA, Confluence,
+MediaWiki, SVN, VMware Workstation, Parallels, 802.1x,
+     ?BGPRouting,
+SSL-, IP-Sec- und Open-VPN, Cisco Networking (Core,
+Access, WLAN-APs), Checkpoint Next-Gen Firewall, NetApp
+     ?FAS3020,
+SFTP, Puppet, MATLAB, Postfix, JAMF Casper Suite, Cisco Prime
+Infrastructure, Nagios / Icinga, Paessler PRTG, Logstash,
+     ?Splunk, HP
+ArcSight Syslog Server, NPS, RADIUS, Active Directory,
+     ?OpenLDAP,
+Fileserver, CIFS, NFS, Sophos Enterprise Anti Virus, NIS, PKI
+     ?Server,
+DHCP, DNS, VMware ESXi, Bash, Python, Perl, Veeam Backup, IBM
+Tivoli Backup (TSM)
+2007-09 - 2010-08 Administration
+3 Jahre
+Rolle: IT-Systemadministrator
+Kunde: B. Rexroth the identity company GmbH
+Projektinhalte:     •  Administration der gesamten internen IT-Infrastruktur
+Eingesetzte Produkte: Microsoft Windows 9X, NT, 2000, 2003, 2008, Ubuntu, Debian, VMware
+ESXi, SAN/NAS, Lotus Notes 4, Lotus Notes 8, Apertum, ARCserve, RIP
+Routing, IPsec-VPN, OpenVPN, ISDN, iptables, Nagios
+Branchen
+    •  IT-Dienstleistung
+    •  Banken
+    •  Forschung
+    •  Pharma
+    •  Telekommunikation
+Sprachen
+16.03.2023 6 von 10
+Englisch
+Griechisch
+Kompetenzen
+Schwerpunkte
+    •  Webapplikations-Hosting im JEE-Umfeld
+    •  Webservice-Administration und -Monitoring
+    •  Logfileanalyse und Troubleshooting
+    •  Deployment Automation / Continuous Delivery
+    •  Systemadministration auf Betriebssystem-, Applikations und
+     ?Netzwerkebene
+    •  Konzeption, Installation, Konfiguration, Hardening und
+     ?Performance-Tuning
+    •  Firewalling
+    •  Routing 
+    •  Load Balancing
+Produkte / Standards / ActiveMQ
+Erfahrungen / Methoden
+Eclipse
+IntelliJ
+JSON
+Toad
+XML
+Kernkompetenzen
+    •  15 Jahre Erfahrung in der Systemadministration vor allem
+     ?mit Linux (RHEL, SLES, Debian, etc.)
+    •  10+ Jahre Erfahrung mit Apache httpd, MySQL, PostgreSQL &amp;
+     ?MS SQL
+    •  8+ Jahre Erfahrung mit Tomcat &amp; JBoss
+    •  7+ Jahre Erfahrung mit Nagios, Puppet &amp; GIT
+    •  3 Jahre Erfahrung mit CARA, Docker &amp; Jenkins
+Skriptsprachen
+    •  Bash (Shell)
+    •  Perl
+Build Tools / Versionierung
+    •  Maven
+    •  Jenkins
+    •  SVN
+    •  GIT
+Directory Services
+    •  OpenLDAP
+16.03.2023 7 von 10
+    •  Active Directory
+CMS
+    •  Typo3
+    •  Joomla
+    •  WordPress
+Application / Web Server
+    •  Apache httpd
+    •  Tomcat
+    •  JBoss
+    •  Nginx
+    •  WebSphere
+Virtualisierung / Container
+    •  Docker
+    •  Kubernetes
+    •  OpenShift
+    •  Singularity
+    •  OpenStack
+    •  VMware ESXi 3-6
+    •  VMware vSphere 4-6
+    •  VMware Orchestrator
+Dateisysteme / Protokolle
+    •  GPFS
+    •  BeeGFS
+    •  NFS
+    •  CIFS
+Verschlüsselung
+OpenSSL
+Java Keystores
+OAuth 2.0
+Deployment- / Configurationmanagement
+    •  Ansible
+    •  Puppet
+    •  Automic
+    •  CA Release Automation (Nolio)
+    •  JAMF Casper Suite
+    •  WDS
+Monitoring
+    •  Icinga2 (Nagios)
+    •  Paessler PRTG
+    •  Grafana, OpenNMS
+    •  WhatsUp
+    •  Gold
+    •  Prometheus
+    •  Grafana
+Issue Tracking / Dokumentation
+    •  JIRA
+    •  Confluence
+    •  OTRS
+    •  ServiceNow
+    •  Django
+    •  DokuWiki
+    •  MediaWiki
+16.03.2023 8 von 10
+Firewall / Netzwerk
+    •  F5 Loadbalancer
+    •  Cisco ASA
+    •  Checkpoint Next-Gen Firewall
+pfSense
+    •  m0nowall
+    •  iptables
+    •  TCP/IP
+    •  NAT
+    •  BGP
+    •  RIP
+    •  802.1x
+    •  DHCP, DNS, FTP, POP3, SMTP, TFTP, SFTP, u. v. m.
+Zentralisiertes Logging
+    •  Splunk
+    •  Logstash
+    •  HP ArcSight
+    •  Syslog Server
+Methoden
+    •  ITIL
+    •  Scrum
+    •  Kanban
+API
+    •  REST
+    •  SOAP
+Betriebssysteme CentOS
+Debian
+FreeBSD
+RHEL
+SLES
+Solaris
+Ubuntu
+Windows Server
+Programmiersprachen CSS
+HTML
+Python
+Datenbanken Caché
+MS SQL
+MySQL
+Oracle
+16.03.2023 9 von 10
+PostgreSQL
+Aus- und Weiterbildung
+2004-09 - 2007-08 Ausbildung IT-Systemelektroniker
+3 Jahre
+Abschluss: IT-Systemelektroniker
+Institution: IS&amp;S Informationstechnik GmbH
+    •  Entwicklung von Konzepten
+    •  Aufbau und Betreuung von Kunden-IT-Infrastrukturen
+    •  Kundensupport
+    •  Umgang mit Windows/Linux Plattformen im Client/Serverumfeld
+Technologien
+    •  Debian, Bash, Perl, CIFS, NFS, Windows Server NT
+    •  2000, Exchange 2000/2003, IPsec-VPN, OpenVPN
+    •  BINTEC Router, Cisco PIX, Firewall, PfSense Firewall
+    •  iptabels, diverse TK-Anlagen, ARCserve, Nagios
+Zertifikate
+    •  ITIL® Foundation Certificate in IT Service Managemenz
+    •  LPIC1, LPIC2 (Linux Professional)
+    •  Microsoft Certified Solutions Expert (MCSE)
+    •  NetApp Certified Data Administrator, ONTAP
+Schulungen
+    •   Automation with Ansible I &amp; II
+    •  Puppet Fundamentals
+    •  Puppet Advanced
+16.03.2023 10 von 10
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_177181
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                177181
+  
+Wohnort                    637xx Aschaffenburg, Deutschland
+Jahrgang                   1988
+Staatsbürgerschaft         griechisch
+Stundensatz                90 EUR
+                           je nach Projekt/Einsatzort min. 85 / Remote 75
+Verfügbar ab               01.03.20 zu 100%, Vor-Ort-Einsatz 25% möglich
+Profil erstellt am         30.03.17
+Profil zuletzt geändert am 19.12.19
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 05.12.2019 17:35:29
+
+Fachlicher Schwerpunkt:
+Senior Engineer Linux DevOps Puppet Ansible Tomcat Openshift Jenkins
+
+Position:
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+09/2004 - 08/2007: Ausbildung IT-Systemelektroniker
+ 
+Abschluss:          IT-Systemelektroniker
+Institution:        IS&amp;S Informationstechnik GmbH
+ 
+Schwerpunkt:
+ 
+    * Entwicklung von Konzepten
+    * Aufbau und Betreuung von Kunden-IT-Infrastrukturen
+    * Kundensupport
+    * Umgang mit Windows/Linux Plattformen im Client/Serverumfeld
+ 
+Technologien
+    * Debian, Bash, Perl, CIFS, NFS, Windows Server NT
+    * 2000, Exchange 2000/2003, IPsec-VPN, OpenVPN
+    * BINTEC Router, Cisco PIX, Firewall, PfSense Firewall
+    * iptabels, diverse TK-Anlagen, ARCserve, Nagios
+===============================================================================
+Zertifikate
+    * ITIL® Foundation Certificate in IT Service Managemenz
+    * LPIC1, LPIC2 (Linux Professional)
+    * Microsoft Certified Solutions Expert (MCSE)
+    * NetApp Certified Data Administrator, ONTAP
+ 
+Schulungen
+    *  Automation with Ansible I &amp; II
+    * Puppet Fundamentals
+    * Puppet Advanced
+
+Einsatzort:
+Regionen:
+D6, Schweiz
+im Umkreis von:
+Aschaffenburg (50 km)
+Frankfurt am Main (50 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Englisch    
+Griechisch  
+
+
+Betriebssysteme:
+CentOS          
+Debian          
+FreeBSD         
+RHEL            
+SLES            
+Solaris         
+Ubuntu          
+Windows Server  
+
+
+Programmiersprachen:
+CSS     
+HTML    
+Python  
+
+
+Datenbanken:
+Caché      
+MS SQL      
+MySQL       
+Oracle      
+PostgreSQL  
+
+
+Schwerpunkte:
+    * Webapplikations-Hosting im JEE-Umfeld
+    * Webservice-Administration und -Monitoring
+    * Logfileanalyse und Troubleshooting
+    * Deployment Automation / Continuous Delivery
+    * Systemadministration auf Betriebssystem-, Applikations und Netzwerkebene
+    * Konzeption, Installation, Konfiguration, Hardening und Performance-Tuning
+    * Firewalling
+    * Routing 
+    * Load Balancing
+
+Produkte/Standards/Erfahrungen:
+ActiveMQ  
+Eclipse   
+IntelliJ  
+JSON      
+Toad      
+XML       
+Kernkompetenzen
+    * 15 Jahre Erfahrung in der Systemadministration vor allem mit Linux (RHEL,
+      SLES, Debian, etc.)
+    * 10+ Jahre Erfahrung mit Apache httpd, MySQL, PostgreSQL &amp; MS SQL
+    * 8+ Jahre Erfahrung mit Tomcat &amp; JBoss
+    * 7+ Jahre Erfahrung mit Nagios, Puppet &amp; GIT
+    * 3 Jahre Erfahrung mit CARA, Docker &amp; Jenkins
+ 
+Skriptsprachen
+    * Bash (Shell)
+    * Perl
+ 
+Build Tools / Versionierung
+    * Maven
+    * Jenkins
+    * SVN
+    * GIT
+ 
+Directory Services
+    * OpenLDAP
+    * Active Directory
+ 
+CMS
+    * Typo3
+    * Joomla
+    * WordPress
+ 
+Application / Web Server
+    * Apache httpd
+    * Tomcat
+    * JBoss
+    * Nginx
+    * WebSphere
+ 
+Virtualisierung / Container
+    * Docker
+    * Kubernetes
+    * OpenShift
+    * Singularity
+    * OpenStack
+    * VMware ESXi 3-6
+    * VMware vSphere 4-6
+    * VMware Orchestrator
+ 
+Dateisysteme / Protokolle
+    * GPFS
+    * BeeGFS
+    * NFS
+    * CIFS
+ 
+Verschlüsselung
+OpenSSL
+Java Keystores
+OAuth 2.0
+ 
+Deployment- / Configurationmanagement
+    * Ansible
+    * Puppet
+    * Automic
+    * CA Release Automation (Nolio)
+    * JAMF Casper Suite
+    * WDS
+ 
+Monitoring
+    * Icinga2 (Nagios)
+    * Paessler PRTG
+    * Grafana, OpenNMS
+    * WhatsUp
+    * Gold
+    * Prometheus
+    * Grafana
+ 
+Issue Tracking / Dokumentation
+    * JIRA
+    * Confluence
+    * OTRS
+    * ServiceNow
+    * Django
+    * DokuWiki
+    * MediaWiki
+ 
+Firewall / Netzwerk
+    * F5 Loadbalancer
+    * Cisco ASA
+    * Checkpoint Next-Gen Firewall
+      pfSense
+    * m0nowall
+    * iptables
+    * TCP/IP
+    * NAT
+    * BGP
+    * RIP
+    * 802.1x
+    * DHCP, DNS, FTP, POP3, SMTP, TFTP, SFTP, u. v. m.
+ 
+Zentralisiertes Logging
+    * Splunk
+    * Logstash
+    * HP ArcSight
+    * Syslog Server
+ 
+Methoden
+    * ITIL
+    * Scrum
+    * Kanban
+ 
+API
+    * REST
+    * SOAP
+
+Branchen:
+    * IT-Dienstleistung
+    * Banken
+    * Forschung
+    * Pharma
+    * Telekommunikation
+
+Projekte:
+05/2017 - 08/2019: JEE-Betriebsunterstützung / Deployment Automation / DevOps-
+Engineer
+ 
+Rolle:              Application Support Engineer
+Kunde:              ING-DiBa AG
+ 
+Aufgaben:
+ 
+    * Prozessdesign und Administration in CA Release Automation
+    * Unterstützung beim Betrieb der JEE-Anwendungen
+    * Unterstützung im Bereich Parametrisierung und oubleshooting
+    * Entwicklung von Scripts, Ansible-Playbooks und Build-Jobs
+    * RPM-Building
+    * Durchführung von Produktions-Changes
+    * PaaS Proof of Concept im Kontext internationale Zusammenarbeit
+ 
+Eingesetzte Produkte:
+ 
+CA Introscope, CA Release Automation (ehem. Nolio), SOAP, REST, JSON, XML,
+Jenkins, JBoss, Tomcat, Nexus, Ansible, Puppet, Bash, Python, RHEL, JIRA,
+Confluence, Service Now, Toad, SoapUI, IntelliJ, Eclipse, Automic UI, Git,
+SourceTree, Oracle, ActiveMQ, PKI, Java Keystores, OAuth 2.0, RPM, RedHat
+Satelite, Grafana, OpenShift, Docker, Kubernetes, Prometheus, VMware, F5
+Loadbalancer, Apache httpd
+===============================================================================
+03/2016 - 04/2017: Webapplikations-Hosting / DevOps
+ 
+Rolle:              Senior Linux Administrator, Change Koordinator
+Kunde:              Kreditinstitut
+ 
+Aufgaben:
+ 
+    * Administration Apache/Tomcat-Webservices
+    * Installation und Vorbereitung von HA-Webhosting-(Test-)Umgebungen
+    * Building &amp; Deployment
+    * Installation, Bereitstellung und Troubleshooting von Container-Apps
+    * Bearbeitung von Tickets (ITIL)
+    * Technische Dokumentation
+    * Koordination aller Aktivitäten für den Betrieb der technischen Plattform
+    * Management von Infrastrukturthemen sowie Steuerung der
+      Entwicklungspartner
+    * Projektmanagement bei Erweiterungen der Infrastruktur und Infrastruktur
+      Maßnahmen
+    * Koordination von Change Requests, Patches, Konfigurationen, Deployment
+      von neuen Releases
+ 
+Eingesetzte Produkte:
+ 
+SLES, RHEL, Apache httpd, Tomcat, PostgreSQL, MySQL, Docker, Jenkins, GIT,
+bash, Unternehmenseigene Software, JIRA, Confluence, Nagios
+===============================================================================
+10/2015 - 03/2016: Webapplikations-Hosting
+ 
+Rolle:              Senior Linux System Engineer
+Kunde:              Kreditinstitut
+ 
+Aufgaben:
+ 
+    * IT-Operations, Betriebsunterstützung, Rufbereitschaft (24/7) vor Ort und
+      Remote
+    * Administration und Monitoring von Applikationen, insbesondere JEEbasierte
+      Webanwendungen für interne und externe Kunden.
+    * Mitarbeit bei Setup und Einführung von neuen Applikationen, Definition
+      und Durchführung von technischen Abnahmetests
+    * Analyse und Behebung von Fehlern in der Webhosting-Infrastruktur
+    * Deployment, Betrieb und Wartung Betrieb von RHEL-Linux-Servern
+    * Deployment, Betrieb und Wartung von Webserver- und Tomcat-Instanzen
+    * Erstellung und Verbesserung von Shell-Scripts zur Automatisierung von
+      Betriebsaufgaben
+    * Analyse und Management von Produktions- und Security-Incidents
+    * Administration Apache/Tomcat/JBoss-Webservices
+    * RPM-Paketierung
+    * LDAP-Administration
+    * Technische Dokumentation
+ 
+Eingesetzte Produkte:
+ 
+SLES, RHEL, Apache httpd, Tomcat, JBoss, Jenkins, Maven, Nagios, WebSphere,
+MediaWiki, bash, Unternehmenseigene Software, Oracle, MySQL, JIRA, Confluence,
+OpenLDAP
+===============================================================================
+09/2013 - 09/2015: Max-Planck-Institut für Hirnforschung
+ 
+Rolle:              CIO - Leiter IT - Leiter Elektronik - Leiter Scientific
+Computin
+ 
+Aufgaben:
+ 
+Aufgaben
+    * Fachliche und disziplinarische Führung von 11 Mitarbeitern
+    * Sicherstellung des operativen IT-Betriebs an drei Standorten
+    * Erstellung von Investitionsplänen, Budgetplanung und -kontrolle
+      (Budgetverantwortung
+    * 1 Mio. EUR)
+    * Konzeption und Umsetzung der IT-Strategie, insbesondere im Hinblick auf
+      die zukünftige anwendungs- und Systemlandschaft, eine angemessene
+      und moderne IT-Infrastruktur, den Nutzer-Support sowie auf die
+      Informationssicherheit, orientiert an den Geschäftsprozessen und an der
+      Entwicklungsplanung des Instituts
+    * Steuerung von und Mitarbeit an IT-Projekten von der Konzeption bis hin
+      zur Systemeinführung
+    * Verantwortung für die Beschaffung und Wartung der gesamten Hard- und
+      Software
+    * Vertragsverhandlungen sowie Steuerung von externen Dienstleistern und
+      Beratern
+    * Analyse und Optimierung der bestehenden Geschäftsprozesse in
+      Verbindung mit den Fachabteilungen
+    * Erarbeitung und Abwicklung von Fördermittelanträgen für IT-Ausstattung
+    * Entwicklung und Einführung institutsweiter IT-Richtlinien und
+      ITStandards.
+    * Change-Management (Reorganisation der IT- und Elektronik-Abteilung)
+    * Service Management (Planung und Einführung von Service
+      Desk/Helpdesk inklusive Softwarelizenzmanagement und
+      Hardwareverwaltung)
+    * Erstellung von IT-Konzepten (IT-Leitlinie, IT-Sicherheitskonzept,
+      Datenspeicherungskonzept, Datensicherungskonzept,
+      Notfallvorsorgekonzept und diverse IT-Durchführungsregelungen)
+    * Zentrale Speicherlösung (Planung und Einführung eines Storage-Clusters
+      von NetApp)
+    * HPC-Cluster (Planung und Einführung eines 60-Knoten-HPC-Clusters mit
+      GPFS-Storage)
+    * Realisierung breitbandiger Anbindungen zum Rechenzentrum Garching
+      (Aufbau eines WAN-Kernnetzknotens am Campus Riedberg in
+      Kooperation mit dem Deutschen Forschungsnetz) für ein
+      wissenschaftliches Projekt welches täglich ca. 1PB an Daten produziert
+    * Netzwerk- und Server-Monitoring (Auswahl und Einführung einer neuen
+      Monitoring- und Logsammlungslösung)
+    * Softwareverteilung, Konfigurationsverwaltung und BYOD (Auswahl und
+      Einführung zentraler Lösungen für das Management eigener und fremder
+      Clients, Smartphones und Tablets)
+      Invalex GmbH behandelt diese Daten vertraulich. Weitergabe an Dritte,
+      oder Vervielfältigung, ist untersagt.
+      Bitte respektieren Sie die Privatsphäre von Kandidaten.
+    * Laborüberwachung (Planung und Einführung einer Eigenlösung zur
+      Schwellwertüberwachung von Laborkühlschränken)
+    * Intranet (Initiierung und Umsetzung des neuen Intranets inklusive
+      Automatisierung von Betriebsprozessen mit dem Ziel der
+      Effizienzsteigerung)
+    * Internetpräsenz (Konzipierung und Koordination der Entwicklung der
+      neuen Internetpräsenz mit indischen Dienstleitungsunternehmen)
+    * Corporate Identity (Initiierung und Umsetzung der Corporate Identity des
+      Instituts)
+HR (Optimale Besetzung einer Reihe wichtiger Positionen und Gewinnung
+von sehr gutem Personal)
+Technologien
+    * Windows NT, XP, 2000, 7, 10, Windows Server 2008 R2, Windows
+      Server 2012, Debian, Ubuntu, SLES, CentOS, RHEL, FreeBSD, Mac OS
+      X, OTRS, JIRA, Confluence, MediaWiki, VMware Workstation, VMware
+      ESXi, VMware Orchestrator, Parallels, SVN, 802.1x, BGP-Routing, SSL-
+      , IP-Sec- und Open-VPN, Cisco Networking (Core, Access, WLAN-APs),
+      Checkpoint Next-Gen Firewall, NetApp FAS3020, SFTP, Puppet,
+      MATLAB, Postfix, JAMF Casper Suite, Cisco Prime Infrastructure,
+      Nagios / Icinga, Paessler PRTG, Logstash, Splunk, HP ArcSight
+      Syslog Server, NPS, RADIUS, Active Directory, OpenLDAP, Fileserver,
+      CIFS / NFS, Distributed Filesystems GPFS, BeeGFS, Sophos
+      Enterprise Anti Virus, NIS, Zertifikatsdienste, DHCP, DNS, VMware
+      ESXi, Bash, Python, Perl, Veeam Backup, IBM Tivoli Backup (TSM)
+===============================================================================
+09/2010 - 09/2015: Administration
+ 
+Rolle:              Senior Linux System Engineer
+Kunde:              Max-Planck-Institut
+ 
+Aufgaben:
+ 
+    * Rechenzentrumsbetrieb an drei Standorten
+    * Migration des Oracle-Datenbankservers von Solaris nach SLES
+    * Betrieb von ca. 200 Linux- (VM u. Hardware) und ca. 30 Solaris-Server
+    * Deployment von Linux-Servern (Debian, SLES)
+    * Administration Apache/Tomcat/JBoss-Webservices,
+      Heartbeat/Loadbalancer für Eigenentwicklungen der
+      Forschungsabteilungen
+    * Konzeption, Installation und Betrieb einer Infastruktur für den
+      Webtraffic des Instituts mit Loadbalancing unter Linux
+    * Aufbau und Betreuung mehrerer Linux-HPC-Cluster für
+      Forschungsabteilungen
+    * Einführung und Betrieb eines Configuration-Managements mit Puppet
+    * Einführung und Betrieb einer Monitoring-Lösung mit Icinga2
+    * Erstellung und Anpassung von Shell-Scripts in Bash und Perl
+    * Erstellen und Anbinden von Zertifikaten in Java Keystores mit OpenSSL
+    * RPM-Paketierung
+    * Incident Management
+    * Technische Dokumentation
+ 
+Eingesetzte Produkte:
+ 
+SLES, RHEL, Solaris, CentOS, FreeBSD, Debian, Ubuntu, Windows Server 2008 R2,
+Windows Server 2012, Apache httpd, Tomcat, JBoss, Nginx, Oracle, MySQL, MS SQL,
+Caché, SVN, GIT, Java Keystores, OpenSSL, Puppet, OTRS, MediaWiki, Singularity,
+OpenStack, VMware Workstation, VMware ESXi, VMware Orchestrator, Parallels,
+802.1x, BGP-Routing, SSL-, IP-Sec- und Open-VPN, Cisco Networking (Core,
+Access, WLAN-APs), Checkpoint Next-Gen Firewall, NetApp FAS3020, SFTP, MATLAB,
+Postfix, JAMF Casper Suite, Cisco Prime Infrastructure, Icinga2, Paessler PRTG,
+Logstash, Splunk, HP ArcSight Syslog Server, NPS, RADIUS, Active Directory,
+OpenLDAP, Fileserver, CIFS / NFS, Distributed Filesystems GPFS, BeeGFS, Sophos
+Enterprise Anti Virus, NIS, Zertifikatsdienste, DHCP, DNS, VMware ESXi, Bash,
+Python, Perl, Veeam Backup, IBM Tivoli Backup (TSM)
+===============================================================================
+09/2010 - 09/2013: Max-Planck-Institut für Hirnforschung
+ 
+Rolle:              IT-Systemadministrator IT-Projektleiter IT-
+Datenschutzbeauftragt
+ 
+Aufgaben:
+ 
+Beschreibung
+Einstellung während Umbruchsituation für das Institut, welches sich sowohl
+inhaltlich als auch vom Standort her völlig neu orientiert hat. Neben der
+vollumfänglichen Betreuung der vorhandenen IT-Infrastruktur an zwei
+Institutsstandorten, lag der Fokus von [Name auf Anfrage] hier auf dem Upgrade
+der
+gesamten Serverumgebung auf aktuelle Betriebssystemversionen im
+Produktivbetrieb und die selbstständige Einführung der Virtualisierungsumgebung
+und somit Konsolidierung 63 physikalischer, dedizierter Server. Mit Blick auf
+das neue Institutsgebäude war [Name auf Anfrage]
+zudem mit der Konzeption der Netzwerk- und Serverlandschaft sowie deren
+Umsetzung beauftragt worden.
+[Name auf Anfrage] war die Schlüsselfigur in der erfolgreichen Konzeption und
+Umsetzung der IT-Infrastruktur im neuen
+Institutsgebäude (Subnetzgestaltung, ACL und VLAN Design, Einführung von 802.1x
+Authentifizierung, Einführung einer Lösung für BYOD, Gestaltung sowieso
+Umsetzung der IT-Sicherheit, Anbindung des Instituts an das DFN via BGP,
+Glasfaserstrecken zum Backbone der Goethe Universität inkl. Einholen der
+Baugenehmigungen, Zentralisierung der Daten auf neues Storage-System, Aufbau
+eines HPC-Clusters, u. v. m.)
+Aufgaben
+    * Schnittstelle zwischen Wissenschaft und IT (Anforderungsanalyse)
+    * Konzeption, Installation, Konfiguration, Inbetriebnahme, Dokumentation
+      und Administration der
+          o Netzwerkinfrastruktur (Cisco Core, Access &amp; WLAN)
+          o Serverumgebung (versch. Linux-Derivate / Windows Server)
+          o Zentralen Wissenschafts-Storage (GPFS, BeeGFS, NFS, CIFS)
+          o Virtualisierungs- bzw. IT-Storage (NFS, CIFS)
+          o HPC-Cluster für neuronale Systeme und Kodierung (MATLAB)
+    * Zuständig für Inter- und Intranet-Hosting
+    * Benutzerkontenverwaltung
+    * Marktanalysen und Angebotsanfragen
+    * Hard- und Softwareeinkäufe
+ 
+Technologien
+    * Windows NT, XP, 2000, 7, Windows Server 2008 R2, Debian, Ubuntu,
+      SLES, CentOS, RHEL, FreeBSD, Mac OS X, OTRS, JIRA, Confluence,
+      MediaWiki, SVN, VMware Workstation, Parallels, 802.1x, BGPRouting,
+      SSL-, IP-Sec- und Open-VPN, Cisco Networking (Core,
+      Access, WLAN-APs), Checkpoint Next-Gen Firewall, NetApp FAS3020,
+      SFTP, Puppet, MATLAB, Postfix, JAMF Casper Suite, Cisco Prime
+      Infrastructure, Nagios / Icinga, Paessler PRTG, Logstash, Splunk, HP
+      ArcSight Syslog Server, NPS, RADIUS, Active Directory, OpenLDAP,
+      Fileserver, CIFS, NFS, Sophos Enterprise Anti Virus, NIS, PKI Server,
+      DHCP, DNS, VMware ESXi, Bash, Python, Perl, Veeam Backup, IBM
+      Tivoli Backup (TSM)
+===============================================================================
+09/2007 - 08/2010: Administration
+ 
+Rolle:              IT-Systemadministrator
+Kunde:              B. Rexroth the identity company GmbH
+ 
+Aufgaben:
+ 
+    * Administration der gesamten internen IT-Infrastruktur
+ 
+Eingesetzte Produkte:
+ 
+Microsoft Windows 9X, NT, 2000, 2003, 2008, Ubuntu, Debian, VMware ESXi, SAN/
+NAS, Lotus Notes 4, Lotus Notes 8, Apertum, ARCserve, RIP Routing, IPsec-VPN,
+OpenVPN, ISDN, iptables, Nagios
+===============================================================================
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_177181
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 20.12.2019 01:04:56
+© Copyright 1996-2019 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

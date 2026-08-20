@@ -1,0 +1,1979 @@
+---------- Gulp-Profil Stand 2017-04-30 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 82556: Solution-
+und Systemarchitektur, Software Design in den Bereichen Java
+Enterprise, SOA, EAI Konzeption und Entwicklung von Java/JEE basierten
+Systemen                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+82556 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 82556    Wohnort 812xx München, Deutschland Jahrgang
+1974 Staatsbürgerschaft Deutsch Stundensatz 90 EUR  Verfügbar ab
+01.01.18 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+04.03.07 Profil zuletzt geändert am 30.04.17 Lesen von Projektanfragen
+1,5 Tage  [5]Direktkontakt [6]         Kommentar:   Kommentar
+schreiben Profil angezeigt am 11.11.2017 15:39:23       Fachlicher
+Schwerpunkt:  Solution- und Systemarchitektur, Software Design in den
+Bereichen Java Enterprise, SOA, EAI Konzeption und Entwicklung von
+Java/JEE basierten Systemen      Position:  Software-Entwicklung /
+Programmierung
+ Beratung / Consulting
+
+	Solution- und Systemarchitektur, Software Design in den Bereichen
+Java Enterprise, SOA, EAI
+Konzeption und Entwicklung von Java / JEE basierten Enterprise
+Systemen
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Einsatzort:   Regionen: 
+
+	D8   Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert
+werden.       Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Serbokroatisch
+
+      Betriebssysteme:  
+
+		HPUX
+
+		MS-DOS
+
+		SUN OS, Solaris
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		Java
+
+		JavaScript
+
+		Perl
+
+		Shell
+
+      Datenbanken:  
+
+		Access
+
+		JDBC
+
+		MySQL
+
+		Oracle
+
+		SQL
+
+      Datenkommunikation:  
+
+		Internet, Intranet
+
+		JSON-RPC
+
+		Message Queuing
+		JMS
+
+		SOAP WS
+
+		TCP/IP
+
+ WebServices und J2EE im Allgemeinem     
+Produkte/Standards/Erfahrungen:  Standards und Methoden
+ - Verteilte Systeme und Web-Architekturen
+ - Integrationstechnologien - SOA
+ - Datenbank-Modellierung und objektrelationales Mapping
+ - Objektorientierte Analyse und Design in UML (OOA/OOD)
+
+ Programmiersprachen
+ - Java  - C / C++ - Perl 
+ Frameworks / Standards - JEE / J2EE - JMS - Webservices (SOAP / REST)
+- Spring - Hibernate - Eclipse RCP - SWT
+ - Apache Struts, JSF
+ - Junit, HTTPUnit - BPMN
+
+ Werkzeuge - Intellij
+ - Eclipse, My Eclipse Enterprise Workbench
+ - Ant, Maven - Signavio (BPMN)
+ - Visual Studio (VC++, Visual Basic) - GIT
+- SVN
+ - CVS
+ - ClearCase
+
+ Server, Applikationsserver - TIBCO BusinessWorks - JBoss 
+ - Weblogic - Glassfish
+ - BEA Weblogic Integration
+ - BEA Tuxedo
+ - Apache Tomcat      Branchen:  
+
+	       Projekte:    Zeitraum:  Seit 06.2012
+Firma:     Telekommunikationsunternehmen (München)
+Projekt:   Einführung unternehmensweiter SOA, Aufbau ESB
+Tätigkeit: Solution Architekt Definition einer Zielarchitektur sowie
+eines Transformationskonzeptes im Rahmen des Aufbaus
+einer Unternehmensweiten SOA und Einführung des ESB (TIBCO Business
+Works). In dem
+Kontext:
+- Analyse der Ausgangssituation: Aufbau der Systemlandschaftskarte,
+Analyse der
+Systemabhängigkeiten und Datenflüsse sowie der einzelnen
+Schnittstellen und ihre
+Dokumentation. Einordnung der Fachsysteme in die neue Domänenstruktur.
+- Erarbeitung der Richtlinien und Standards für die Entwicklung der
+ESB-Komponenten.
+Entwicklung eines Common Data Models für den Service-Layer des ESBs.
+- Entwicklung und Abstimmung der Service-Spezifikationen sowie der
+Konzepte für die
+Integration der Fachsysteme in die neue IT-Landschaft.
+Entwicklung der IT-Konzepte für die Umsetzung von komplexen
+Geschäftsprozesse im Bereich
+Order-Fulfillment. In dem Kontext Integration der
+Standardschnittstellen für Automatisierung der
+Prozesse zwischen den Telekommunikationsanbietern (WBCI, WITA, S/PRI).
+Unterstützung bei
+Einführung der TM-Forum Standards (eTom, SID)
+Technologien: SOAP WS, XML, JMS, TIBCO BW, Java, Spring Boot, JPA,
+Hibernate, BPMN,
+Oracle DB, Mongo DB, Maven, Ant, AngularJS, Jenkins, GIT
+
+   Zeitraum:  09.2011 - 06.2012
+ Firma:     Telekommunikationsunternehmen (Karlsruhe)
+ Projekt:   Konzeption und Entwicklung im Bereich DSL- &amp;
+Mobile-Prozesse
+ Tätigkeit: Software-Architekt Analyse der Geschäftsprozesse und ihre
+Dokumentation unter Verwendung von BPMN (Signavio).
+Erstellung von technischer Spezifikation für die Umsetzung der
+automatisierten FulfillmentProzesse. Entwicklung der Architektur sowie
+Implementierung der Komponenten für die
+Geschäftslogik (JEE) und der steuernden Prozesse (JBPM)
+Technologien: Java, Java EE, JBoss, JMS, JPA, Hibernate, XML, Sybase
+DB, Signavio, BPMN,
+SVN, Maven
+
+  Zeitraum:  07.2010 - 09.2011
+ Firma:     IT-Sysemhaus im Projekt für Deutsches Markenamt (München)
+ Projekt:   Elektronische Schutzakte für Deutsches Markenamt
+ Tätigkeit: o   Migration bestehender JEE Anwendung OC4J -> JBoss und
+des 
+Messagingsystems Oracle AQ -> JBoss Messaging 
+o   Technisches Design und Implementierung der Schnittstellen zu
+Datenlieferanten 
+und zum Dokumentmanagementsystem.  
+ 
+Umfeld: JBoss 5, JEE, JMS, JPA, WebServices, Oracle 10g, Subversion,
+Maven, Eclipse 
+
+	  
+
+	  Zeitraum:  10.2007 - 07.2010
+ Firma:     IT-Sysemhaus im Projekt für Deutsches Patentamt (München)
+ Projekt:   Redesign Patent-Recherche und Archivsystem
+ Tätigkeit: 
+
+	o   Analyse der fachlichen Anforderungen in den Bereichen des
+Datenexports, 
+Imports und der externen Datenpflege des Archiv-Datenbestands. 
+o   Technische Spezifikation und Umsetzung der Export-Schnittstelle
+und des 
+Datenpflege-Moduls. 
+o   Technisches Design und Umsetzung der Komponente für die
+automatische 
+Zuleitung und fachliche Verteilung der von externen Zulieferern
+gelieferten 
+Dokumente unter Berücksichtigung des komplexen Geschäftsregelwerkes. 
+o   Design und Entwicklung eines RCP basierten Clients für die externe
+Pflege der 
+bibliographischen Daten und Administration der zu importierenden
+Daten- und 
+Reparaturkontingente über die Archivschnittstelle. 
+o   Konzeption und Design der HTTP-Basierten Schnittstelle für externe
+Klienten. 
+
+	  Umfeld: JEE, WebServices, XML, JBoss, JMS Eclipse RCP, OSGI,
+Spring, Hibernate, 
+Oracle 10g, ClearCase
+
+ Zeitraum:  10.2005 - 09.2007
+ Firma:     British Telekom (München)
+ Projekt:   Neuentwicklung Numbermanagement System für geographische
+und Diensterufnummer mit Anbindung der Reseller über WebService
+Schnittstelle
+ Tätigkeit: Beratung und Unterstützung in der Analyse der
+Geschäftsprozesse im Bereich Numbermanagement insbesondere bei
+Prozessen für die Aktivierung und Portierung der geographischen
+Rufnummern und Einhaltung der nationalen Spezifikation für
+Portierungsdatenaustausch. Design und Implementierung der
+Businessprozesse für alle Anwendungsfälle in Bereichen Aktivierung und
+Portierung der geographischen und Diensterufnummern. Spezifikation und
+Implementierung der externen Schnittstellen der Anwendung.
+ Umfeld:    Java / J2EE, EJB, BEA WebLogic Integration (WLI), BEA
+Workshop, JMS, XML, XMLBeans, WebServices, Oracle
+
+ Zeitraum:  12.2004 - 09.2005
+ Firma:     Mobilfunknetzbetreiber (München)
+ Projekt:   Neuentwicklung  der Applikation zur Unterstützung der
+Prozesse der Portierung von geographischee Rufnummern
+ Tätigkeit: Technische Projektleitung. Design der Prozesse zur
+Portierung der geographischen Rufnummen. Entkopplung des
+Numbermanagementsystems vom Portierungssystem. Design der
+XML/JMS-Basierte Schnittstelle.
+ Umfeld:    Java/J2EE, BEA WebLogic, Hibernate, EJB, BEA Tuxedo (mit
+WTC), C/C++, CORBA, XML, JMS, Oracle
+
+ Zeitraum:  03.2003 - 11.2004
+ Firma:     Mobilfunknetzbetreiber (München)
+ Projekt:   Weiterentwicklung aller Numbermanagement und
+SIM-Card-Management Systeme
+ Tätigkeit: Leitung des Numbermanagement-Entwicklungsteams. Übernahme
+der Wartung und Weiterentwicklung aller Numbermanagementsysteme.
+Technisches Design und Implementierung aller Änderungen.
+ Umfeld:    BEA Tuxedo, C/C++, CORBA, Java/J2EE, BEA WebLogic, Oracle
+
+ Zeitraum:  09.2002 - 03.2003
+ Firma:     Automobilhersteller (München)
+ Projekt:   Software Life-Cycle Management
+ Tätigkeit: Design und Entwicklung einer Applikation zur Erfassung der
+Software-Installationsparameter, Pflege der Abhängigkeiten zu anderen
+Software- und Hardwarekomponenten und automatischer Vorbereitung der
+Softwareumgebungen.
+ Umfeld:    Java/J2EE, Servlets,  JSP, HTML, Ant, JUnit, XML, BEA
+WebLogic, Oracle
+
+ Zeitraum:  04.2002 - 08.2002
+ Firma:     Automobilhersteller (München)
+ Projekt:   Asset-Verwaltung für Serversysteme
+ Tätigkeit: Entwicklung einer Web-Applikation zur automatischen
+Erfassung, Bearbeitung und Reporting der Serverdaten.
+ Umfeld:    Java, Struts, JSP, BEA WLX, Oracle, Oracle, Perl
+
+ Zeitraum:  10.2001 - 03.2002
+ Firma:     Medienunternehmen (München)
+ Projekt:   Entwicklung eines Java/J2EE basierten Redaktionssystems
+mit der XML/HTTP Schnittstelle zum Web-Portal
+ Tätigkeit: Beratung im Bereich der Anforderunsanalyse und Designs.
+Entwicklung des automatisierten Testsystems für Test der externen
+Schnittstellen des Redaktionssystems.
+ Umfeld:    Java/J2EE, EJB, Servlets, Ant, JUnit, XML, BEA WLS, Oracle
+     
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 82556 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 10.05.2017 01:21:07
+ (c) Copyright 1996-2017 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+---------- Gulp-Profil Stand 2016-07-27 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 82556: Solution-
+und Systemarchitektur, Software Design in den Bereichen Java
+Enterprise, SOA, EAI Konzeption und Entwicklung von Java/JEE basierten
+Systemen                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+82556 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 82556    Wohnort 812xx München, Deutschland Jahrgang
+1974 Staatsbürgerschaft Deutsch Stundensatz 90 EUR  Verfügbar ab
+01.01.17 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+04.03.07 Profil zuletzt geändert am 27.07.16 Lesen von Projektanfragen
+0,5 Tage  [5]Direktkontakt [6]         Kommentar:   Kommentar
+schreiben Profil angezeigt am 03.05.2016 10:19:37       Fachlicher
+Schwerpunkt:  Solution- und Systemarchitektur, Software Design in den
+Bereichen Java Enterprise, SOA, EAI Konzeption und Entwicklung von
+Java/JEE basierten Systemen      Position:  Software-Entwicklung /
+Programmierung
+ Beratung / Consulting
+
+	Solution- und Systemarchitektur, Software Design in den Bereichen
+Java Enterprise, SOA, EAI
+Konzeption und Entwicklung von Java / JEE basierten Enterprise
+Systemen
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Einsatzort:   Regionen: 
+
+	D8       Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Serbokroatisch
+
+      Betriebssysteme:  
+
+		HPUX
+
+		MS-DOS
+
+		SUN OS, Solaris
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		Java
+
+		JavaScript
+
+		Perl
+
+		Shell
+
+      Datenbanken:  
+
+		Access
+
+		JDBC
+
+		MySQL
+
+		Oracle
+
+		SQL
+
+      Datenkommunikation:  
+
+		Internet, Intranet
+
+		JSON-RPC
+
+		Message Queuing
+		JMS
+
+		SOAP WS
+
+		TCP/IP
+
+ WebServices und J2EE im Allgemeinem     
+Produkte/Standards/Erfahrungen:  Standards und Methoden
+ - Verteilte Systeme und Web-Architekturen
+ - Integrationstechnologien - SOA
+ - Datenbank-Modellierung und objektrelationales Mapping
+ - Objektorientierte Analyse und Design in UML (OOA/OOD)
+
+ Programmiersprachen
+ - Java  - C / C++ - Perl 
+ Frameworks / Standards - JEE / J2EE - JMS - Webservices (SOAP / REST)
+- Spring - Hibernate - Eclipse RCP - SWT
+ - Apache Struts, JSF
+ - Junit, HTTPUnit - BPMN
+
+ Werkzeuge - Intellij
+ - Eclipse, My Eclipse Enterprise Workbench
+ - Ant, Maven - Signavio (BPMN)
+ - Visual Studio (VC++, Visual Basic) - GIT
+- SVN
+ - CVS
+ - ClearCase
+
+ Server, Applikationsserver - TIBCO BusinessWorks - JBoss 
+ - Weblogic - Glassfish
+ - BEA Weblogic Integration
+ - BEA Tuxedo
+ - Apache Tomcat      Branchen:  
+
+	       Projekte:    Zeitraum:  Seit 06.2012
+Firma:     Telekommunikationsunternehmen (München)
+Projekt:   Einführung unternehmensweiter SOA, Aufbau ESB
+Tätigkeit: Solution Architekt Definition einer Zielarchitektur sowie
+eines Transformationskonzeptes im Rahmen des Aufbaus
+einer Unternehmensweiten SOA und Einführung des ESB (TIBCO Business
+Works). In dem
+Kontext:
+- Analyse der Ausgangssituation: Aufbau der Systemlandschaftskarte,
+Analyse der
+Systemabhängigkeiten und Datenflüsse sowie der einzelnen
+Schnittstellen und ihre
+Dokumentation. Einordnung der Fachsysteme in die neue Domänenstruktur.
+- Erarbeitung der Richtlinien und Standards für die Entwicklung der
+ESB-Komponenten.
+Entwicklung eines Common Data Models für den Service-Layer des ESBs.
+- Entwicklung und Abstimmung der Service-Spezifikationen sowie der
+Konzepte für die
+Integration der Fachsysteme in die neue IT-Landschaft.
+Entwicklung der IT-Konzepte für die Umsetzung von komplexen
+Geschäftsprozesse im Bereich
+Order-Fulfillment. In dem Kontext Integration der
+Standardschnittstellen für Automatisierung der
+Prozesse zwischen den Telekommunikationsanbietern (WBCI, WITA, S/PRI).
+Unterstützung bei
+Einführung der TM-Forum Standards (eTom, SID)
+Technologien: SOAP WS, XML, JMS, TIBCO BW, Java, Spring Boot, JPA,
+Hibernate, BPMN,
+Oracle DB, Mongo DB, Maven, Ant, AngularJS, Jenkins, GIT
+
+   Zeitraum:  09.2011 - 06.2012
+ Firma:     Telekommunikationsunternehmen (Karlsruhe)
+ Projekt:   Konzeption und Entwicklung im Bereich DSL- &amp;
+Mobile-Prozesse
+ Tätigkeit: Software-Architekt Analyse der Geschäftsprozesse und ihre
+Dokumentation unter Verwendung von BPMN (Signavio).
+Erstellung von technischer Spezifikation für die Umsetzung der
+automatisierten FulfillmentProzesse. Entwicklung der Architektur sowie
+Implementierung der Komponenten für die
+Geschäftslogik (JEE) und der steuernden Prozesse (JBPM)
+Technologien: Java, Java EE, JBoss, JMS, JPA, Hibernate, XML, Sybase
+DB, Signavio, BPMN,
+SVN, Maven
+
+  Zeitraum:  07.2010 - 09.2011
+ Firma:     IT-Sysemhaus im Projekt für Deutsches Markenamt (München)
+ Projekt:   Elektronische Schutzakte für Deutsches Markenamt
+ Tätigkeit: o   Migration bestehender JEE Anwendung OC4J -> JBoss und
+des 
+Messagingsystems Oracle AQ -> JBoss Messaging 
+o   Technisches Design und Implementierung der Schnittstellen zu
+Datenlieferanten 
+und zum Dokumentmanagementsystem.  
+ 
+Umfeld: JBoss 5, JEE, JMS, JPA, WebServices, Oracle 10g, Subversion,
+Maven, Eclipse 
+
+	  
+
+	  Zeitraum:  10.2007 - 07.2010
+ Firma:     IT-Sysemhaus im Projekt für Deutsches Patentamt (München)
+ Projekt:   Redesign Patent-Recherche und Archivsystem
+ Tätigkeit: 
+
+	o   Analyse der fachlichen Anforderungen in den Bereichen des
+Datenexports, 
+Imports und der externen Datenpflege des Archiv-Datenbestands. 
+o   Technische Spezifikation und Umsetzung der Export-Schnittstelle
+und des 
+Datenpflege-Moduls. 
+o   Technisches Design und Umsetzung der Komponente für die
+automatische 
+Zuleitung und fachliche Verteilung der von externen Zulieferern
+gelieferten 
+Dokumente unter Berücksichtigung des komplexen Geschäftsregelwerkes. 
+o   Design und Entwicklung eines RCP basierten Clients für die externe
+Pflege der 
+bibliographischen Daten und Administration der zu importierenden
+Daten- und 
+Reparaturkontingente über die Archivschnittstelle. 
+o   Konzeption und Design der HTTP-Basierten Schnittstelle für externe
+Klienten. 
+
+	  Umfeld: JEE, WebServices, XML, JBoss, JMS Eclipse RCP, OSGI,
+Spring, Hibernate, 
+Oracle 10g, ClearCase
+
+ Zeitraum:  10.2005 - 09.2007
+ Firma:     British Telekom (München)
+ Projekt:   Neuentwicklung Numbermanagement System für geographische
+und Diensterufnummer mit Anbindung der Reseller über WebService
+Schnittstelle
+ Tätigkeit: Beratung und Unterstützung in der Analyse der
+Geschäftsprozesse im Bereich Numbermanagement insbesondere bei
+Prozessen für die Aktivierung und Portierung der geographischen
+Rufnummern und Einhaltung der nationalen Spezifikation für
+Portierungsdatenaustausch. Design und Implementierung der
+Businessprozesse für alle Anwendungsfälle in Bereichen Aktivierung und
+Portierung der geographischen und Diensterufnummern. Spezifikation und
+Implementierung der externen Schnittstellen der Anwendung.
+ Umfeld:    Java / J2EE, EJB, BEA WebLogic Integration (WLI), BEA
+Workshop, JMS, XML, XMLBeans, WebServices, Oracle
+
+ Zeitraum:  12.2004 - 09.2005
+ Firma:     Mobilfunknetzbetreiber (München)
+ Projekt:   Neuentwicklung  der Applikation zur Unterstützung der
+Prozesse der Portierung von geographischee Rufnummern
+ Tätigkeit: Technische Projektleitung. Design der Prozesse zur
+Portierung der geographischen Rufnummen. Entkopplung des
+Numbermanagementsystems vom Portierungssystem. Design der
+XML/JMS-Basierte Schnittstelle.
+ Umfeld:    Java/J2EE, BEA WebLogic, Hibernate, EJB, BEA Tuxedo (mit
+WTC), C/C++, CORBA, XML, JMS, Oracle
+
+ Zeitraum:  03.2003 - 11.2004
+ Firma:     Mobilfunknetzbetreiber (München)
+ Projekt:   Weiterentwicklung aller Numbermanagement und
+SIM-Card-Management Systeme
+ Tätigkeit: Leitung des Numbermanagement-Entwicklungsteams. Übernahme
+der Wartung und Weiterentwicklung aller Numbermanagementsysteme.
+Technisches Design und Implementierung aller Änderungen.
+ Umfeld:    BEA Tuxedo, C/C++, CORBA, Java/J2EE, BEA WebLogic, Oracle
+
+ Zeitraum:  09.2002 - 03.2003
+ Firma:     Automobilhersteller (München)
+ Projekt:   Software Life-Cycle Management
+ Tätigkeit: Design und Entwicklung einer Applikation zur Erfassung der
+Software-Installationsparameter, Pflege der Abhängigkeiten zu anderen
+Software- und Hardwarekomponenten und automatischer Vorbereitung der
+Softwareumgebungen.
+ Umfeld:    Java/J2EE, Servlets,  JSP, HTML, Ant, JUnit, XML, BEA
+WebLogic, Oracle
+
+ Zeitraum:  04.2002 - 08.2002
+ Firma:     Automobilhersteller (München)
+ Projekt:   Asset-Verwaltung für Serversysteme
+ Tätigkeit: Entwicklung einer Web-Applikation zur automatischen
+Erfassung, Bearbeitung und Reporting der Serverdaten.
+ Umfeld:    Java, Struts, JSP, BEA WLX, Oracle, Oracle, Perl
+
+ Zeitraum:  10.2001 - 03.2002
+ Firma:     Medienunternehmen (München)
+ Projekt:   Entwicklung eines Java/J2EE basierten Redaktionssystems
+mit der XML/HTTP Schnittstelle zum Web-Portal
+ Tätigkeit: Beratung im Bereich der Anforderunsanalyse und Designs.
+Entwicklung des automatisierten Testsystems für Test der externen
+Schnittstellen des Redaktionssystems.
+ Umfeld:    Java/J2EE, EJB, Servlets, Ant, JUnit, XML, BEA WLS, Oracle
+     
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 82556 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 08.08.2016 01:44:30
+ (c) Copyright 1996-2016 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+---------- Gulp-Profil Stand 2015-11-27 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 82556: Solution-
+und Systemarchitektur, Software Design in den Bereichen Java
+Enterprise, SOA, EAI Konzeption und Entwicklung von Java/JEE basierten
+Systemen                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+82556 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 82556    Wohnort 812xx München, Deutschland Jahrgang
+1974 Staatsbürgerschaft Deutsch Stundensatz 90 EUR  Verfügbar ab
+01.01.16 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+04.03.07 Profil zuletzt geändert am 27.11.15 Lesen von Projektanfragen
+0,5 Tage  [5]Direktkontakt [6]         Kommentar:   Kommentar
+schreiben Profil angezeigt am 27.10.2015 09:39:08       Fachlicher
+Schwerpunkt:  Solution- und Systemarchitektur, Software Design in den
+Bereichen Java Enterprise, SOA, EAI Konzeption und Entwicklung von
+Java/JEE basierten Systemen      Position:  Software-Entwicklung /
+Programmierung
+ Beratung / Consulting
+
+	Solution- und Systemarchitektur, Software Design in den Bereichen
+Java Enterprise, SOA, EAI
+Konzeption und Entwicklung von Java / JEE basierten Enterprise
+Systemen
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Einsatzort:   Regionen: 
+
+	D8       Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Serbokroatisch
+
+      Betriebssysteme:  
+
+		HPUX
+
+		MS-DOS
+
+		SUN OS, Solaris
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		Java
+
+		JavaScript
+
+		Perl
+
+		Shell
+
+      Datenbanken:  
+
+		Access
+
+		JDBC
+
+		MySQL
+
+		Oracle
+
+		SQL
+
+      Datenkommunikation:  
+
+		Internet, Intranet
+
+		JSON-RPC
+
+		Message Queuing
+		JMS
+
+		SOAP WS
+
+		TCP/IP
+
+ WebServices und J2EE im Allgemeinem     
+Produkte/Standards/Erfahrungen:  Standards und Methoden
+ - Verteilte Systeme und Web-Architekturen
+ - Integrationstechnologien - SOA
+ - Datenbank-Modellierung und objektrelationales Mapping
+ - Objektorientierte Analyse und Design in UML (OOA/OOD)
+
+ Programmiersprachen
+ - Java  - C / C++ - Perl 
+ Frameworks / Standards - JEE / J2EE - JMS - Webservices (SOAP / REST)
+- Spring - Hibernate - Eclipse RCP - SWT
+ - Apache Struts, JSF
+ - Junit, HTTPUnit - BPMN
+
+ Werkzeuge - Intellij
+ - Eclipse, My Eclipse Enterprise Workbench
+ - Ant, Maven - Signavio (BPMN)
+ - Visual Studio (VC++, Visual Basic) - GIT
+- SVN
+ - CVS
+ - ClearCase
+
+ Server, Applikationsserver - TIBCO BusinessWorks - JBoss 
+ - Weblogic - Glassfish
+ - BEA Weblogic Integration
+ - BEA Tuxedo
+ - Apache Tomcat      Branchen:  
+
+	       Projekte:    Zeitraum:  Seit 06.2012
+Firma:     Telekommunikationsunternehmen (München)
+Projekt:   Einführung unternehmensweiter SOA, Aufbau ESB
+Tätigkeit: Solution Architekt Definition einer Zielarchitektur sowie
+eines Transformationskonzeptes im Rahmen des Aufbaus
+einer Unternehmensweiten SOA und Einführung des ESB (TIBCO Business
+Works). In dem
+Kontext:
+- Analyse der Ausgangssituation: Aufbau der Systemlandschaftskarte,
+Analyse der
+Systemabhängigkeiten und Datenflüsse sowie der einzelnen
+Schnittstellen und ihre
+Dokumentation. Einordnung der Fachsysteme in die neue Domänenstruktur.
+- Erarbeitung der Richtlinien und Standards für die Entwicklung der
+ESB-Komponenten.
+Entwicklung eines Common Data Models für den Service-Layer des ESBs.
+- Entwicklung und Abstimmung der Service-Spezifikationen sowie der
+Konzepte für die
+Integration der Fachsysteme in die neue IT-Landschaft.
+Entwicklung der IT-Konzepte für die Umsetzung von komplexen
+Geschäftsprozesse im Bereich
+Order-Fulfillment. In dem Kontext Integration der
+Standardschnittstellen für Automatisierung der
+Prozesse zwischen den Telekommunikationsanbietern (WBCI, WITA, S/PRI).
+Unterstützung bei
+Einführung der TM-Forum Standards (eTom, SID)
+Technologien: SOAP WS, XML, JMS, TIBCO BW, Java, Spring Boot, JPA,
+Hibernate, BPMN,
+Oracle DB, Mongo DB, Maven, Ant, AngularJS, Jenkins, GIT
+
+   Zeitraum:  09.2011 - 06.2012
+ Firma:     Telekommunikationsunternehmen (Karlsruhe)
+ Projekt:   Konzeption und Entwicklung im Bereich DSL- &amp;
+Mobile-Prozesse
+ Tätigkeit: Software-Architekt Analyse der Geschäftsprozesse und ihre
+Dokumentation unter Verwendung von BPMN (Signavio).
+Erstellung von technischer Spezifikation für die Umsetzung der
+automatisierten FulfillmentProzesse. Entwicklung der Architektur sowie
+Implementierung der Komponenten für die
+Geschäftslogik (JEE) und der steuernden Prozesse (JBPM)
+Technologien: Java, Java EE, JBoss, JMS, JPA, Hibernate, XML, Sybase
+DB, Signavio, BPMN,
+SVN, Maven
+
+  Zeitraum:  07.2010 - 09.2011
+ Firma:     IT-Sysemhaus im Projekt für Deutsches Markenamt (München)
+ Projekt:   Elektronische Schutzakte für Deutsches Markenamt
+ Tätigkeit: o   Migration bestehender JEE Anwendung OC4J -> JBoss und
+des 
+Messagingsystems Oracle AQ -> JBoss Messaging 
+o   Technisches Design und Implementierung der Schnittstellen zu
+Datenlieferanten 
+und zum Dokumentmanagementsystem.  
+ 
+Umfeld: JBoss 5, JEE, JMS, JPA, WebServices, Oracle 10g, Subversion,
+Maven, Eclipse 
+
+	  
+
+	  Zeitraum:  10.2007 - 07.2010
+ Firma:     IT-Sysemhaus im Projekt für Deutsches Patentamt (München)
+ Projekt:   Redesign Patent-Recherche und Archivsystem
+ Tätigkeit: 
+
+	o   Analyse der fachlichen Anforderungen in den Bereichen des
+Datenexports, 
+Imports und der externen Datenpflege des Archiv-Datenbestands. 
+o   Technische Spezifikation und Umsetzung der Export-Schnittstelle
+und des 
+Datenpflege-Moduls. 
+o   Technisches Design und Umsetzung der Komponente für die
+automatische 
+Zuleitung und fachliche Verteilung der von externen Zulieferern
+gelieferten 
+Dokumente unter Berücksichtigung des komplexen Geschäftsregelwerkes. 
+o   Design und Entwicklung eines RCP basierten Clients für die externe
+Pflege der 
+bibliographischen Daten und Administration der zu importierenden
+Daten- und 
+Reparaturkontingente über die Archivschnittstelle. 
+o   Konzeption und Design der HTTP-Basierten Schnittstelle für externe
+Klienten. 
+
+	  Umfeld: JEE, WebServices, XML, JBoss, JMS Eclipse RCP, OSGI,
+Spring, Hibernate, 
+Oracle 10g, ClearCase
+
+ Zeitraum:  10.2005 - 09.2007
+ Firma:     British Telekom (München)
+ Projekt:   Neuentwicklung Numbermanagement System für geographische
+und Diensterufnummer mit Anbindung der Reseller über WebService
+Schnittstelle
+ Tätigkeit: Beratung und Unterstützung in der Analyse der
+Geschäftsprozesse im Bereich Numbermanagement insbesondere bei
+Prozessen für die Aktivierung und Portierung der geographischen
+Rufnummern und Einhaltung der nationalen Spezifikation für
+Portierungsdatenaustausch. Design und Implementierung der
+Businessprozesse für alle Anwendungsfälle in Bereichen Aktivierung und
+Portierung der geographischen und Diensterufnummern. Spezifikation und
+Implementierung der externen Schnittstellen der Anwendung.
+ Umfeld:    Java / J2EE, EJB, BEA WebLogic Integration (WLI), BEA
+Workshop, JMS, XML, XMLBeans, WebServices, Oracle
+
+ Zeitraum:  12.2004 - 09.2005
+ Firma:     Mobilfunknetzbetreiber (München)
+ Projekt:   Neuentwicklung  der Applikation zur Unterstützung der
+Prozesse der Portierung von geographischee Rufnummern
+ Tätigkeit: Technische Projektleitung. Design der Prozesse zur
+Portierung der geographischen Rufnummen. Entkopplung des
+Numbermanagementsystems vom Portierungssystem. Design der
+XML/JMS-Basierte Schnittstelle.
+ Umfeld:    Java/J2EE, BEA WebLogic, Hibernate, EJB, BEA Tuxedo (mit
+WTC), C/C++, CORBA, XML, JMS, Oracle
+
+ Zeitraum:  03.2003 - 11.2004
+ Firma:     Mobilfunknetzbetreiber (München)
+ Projekt:   Weiterentwicklung aller Numbermanagement und
+SIM-Card-Management Systeme
+ Tätigkeit: Leitung des Numbermanagement-Entwicklungsteams. Übernahme
+der Wartung und Weiterentwicklung aller Numbermanagementsysteme.
+Technisches Design und Implementierung aller Änderungen.
+ Umfeld:    BEA Tuxedo, C/C++, CORBA, Java/J2EE, BEA WebLogic, Oracle
+
+ Zeitraum:  09.2002 - 03.2003
+ Firma:     Automobilhersteller (München)
+ Projekt:   Software Life-Cycle Management
+ Tätigkeit: Design und Entwicklung einer Applikation zur Erfassung der
+Software-Installationsparameter, Pflege der Abhängigkeiten zu anderen
+Software- und Hardwarekomponenten und automatischer Vorbereitung der
+Softwareumgebungen.
+ Umfeld:    Java/J2EE, Servlets,  JSP, HTML, Ant, JUnit, XML, BEA
+WebLogic, Oracle
+
+ Zeitraum:  04.2002 - 08.2002
+ Firma:     Automobilhersteller (München)
+ Projekt:   Asset-Verwaltung für Serversysteme
+ Tätigkeit: Entwicklung einer Web-Applikation zur automatischen
+Erfassung, Bearbeitung und Reporting der Serverdaten.
+ Umfeld:    Java, Struts, JSP, BEA WLX, Oracle, Oracle, Perl
+
+ Zeitraum:  10.2001 - 03.2002
+ Firma:     Medienunternehmen (München)
+ Projekt:   Entwicklung eines Java/J2EE basierten Redaktionssystems
+mit der XML/HTTP Schnittstelle zum Web-Portal
+ Tätigkeit: Beratung im Bereich der Anforderunsanalyse und Designs.
+Entwicklung des automatisierten Testsystems für Test der externen
+Schnittstellen des Redaktionssystems.
+ Umfeld:    Java/J2EE, EJB, Servlets, Ant, JUnit, XML, BEA WLS, Oracle
+     
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 82556 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 24.12.2015 04:00:52
+ (c) Copyright 1996-2015 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show240452
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?82556
+[4] /cgi-gulpsearch/gp.exe/UBONE82556?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?82556D1
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?82556D1
+[7] /cgi-gulpsearch/printdoc.exe/profil?DXSF3HTO
+[8] /cgi-gulpsearch/printdoc.exe/profil?DXSF3HTO
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show240452
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?82556
+[14] /cgi-gulpsearch/gp.exe/UBONE82556?0
+[15] mailto:info@gulp.de
+
+
+---------- Gulp-Profil Stand 2015-06-20 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 82556: Java JEE
+Technologien / Integrationstechnologien / Software-Architektur und
+Softwareentwicklung, TIBCO BW - Entwicklung                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+82556 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 82556    Wohnort 812xx München, Deutschland Jahrgang
+1974 Staatsbürgerschaft Deutsch Stundensatz 95 EUR  Verfügbar ab
+01.01.16 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+04.03.07 Profil zuletzt geändert am 20.06.15 Lesen von Projektanfragen
+0,5 Tage  [5]Direktkontakt [6]         Kommentar:   Kommentar
+schreiben Profil angezeigt am 26.04.2015 15:44:59       Fachlicher
+Schwerpunkt:  Java JEE Technologien / Integrationstechnologien /
+Software-Architektur und Softwareentwicklung, TIBCO BW - Entwicklung  
+   Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Projektmanagement / -leitung / Organisation / Koordination
+
+Systemanalyse und Design, Entwicklung im Bereichen Java, J2EE, SOA und
+Integration
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Einsatzort:   Regionen: 
+
+	D8       Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Serbokroatisch
+
+      Betriebssysteme:  
+
+		HPUX
+
+		MS-DOS
+
+		SUN OS, Solaris
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		Java
+
+		JavaScript
+
+		Perl
+
+		Shell
+
+      Datenbanken:  
+
+		Access
+
+		JDBC
+
+		MySQL
+
+		Oracle
+
+		SQL
+
+      Datenkommunikation:  
+
+		CORBA
+
+		Internet, Intranet
+
+		Message Queuing
+		JMS
+
+		TCP/IP
+
+ WebServices und J2EE im Allgemeinem
+       Produkte/Standards/Erfahrungen:  Standards und Methoden
+ - Verteilte Systeme und Web-Architekturen
+ - Integrationstechnologien
+ - Datenbank-Modellierung und objektrelationales Mapping
+ - Objektorientierte Analyse und Design in UML (OOA/OOD)
+ - Architektur- und Designmuster (Pattern)
+
+ Programmiersprachen
+ - Java  - C / C++ - Perl 
+ Frameworks / Standards - JEE / J2EE - BPMN - JMS - Webservices -
+Spring - Hibernate - Eclipse RCP - SWT
+ - Apache Struts, JSF
+ - Junit, HTTPUnit
+
+ Werkzeuge
+ - Eclipse, My Eclipse Enterprise Workbench
+ - BEA - Workshop
+ - Ant, Maven - Signavio (BPMN)
+ - Visual Studio (VC++, Visual Basic)
+- SVN
+ - CVS
+ - ClearCase
+
+ Server, Applikationsserver - JBoss 
+ - BEA Weblogic 
+ - BEA Weblogic Integration
+ - BEA Tuxedo 8
+ - Apache Tomcat
+
+       Branchen:  
+
+	       Projekte:   Zeitraum: 09.2011 - 06.2012
+ Firma: Telekommunikationsunternehmen (Karlsruhe)
+ Projekt: Konzeption und Entwicklung im Bereich DSL- &amp; Mobile-Prozesse
+ Tätigkeit: o Analyse und Modelierung der Geschäftsprozesse (BPMN),
+Abstimmungen mit der Fachseite o Erstellung der technischen Konzepte
+für die Umsetzung der Prozesse o Analyse der bestehenden Services,
+Konzeption für die notwendigen änderungen von bestehenden sowie
+Erstellung von neuen Services o Umsetzung der Prozesslogik, Test,
+Dokumentation und Deployment der Softwarekomponenten o Integration der
+neu erstellten Prozesse in die bestehenden überwachungsmechanismen für
+den Anwendungsbetrieb
+
+Umfeld: BPMN (Signavio), JBoss 4/5, JEE, Spring, JMS, JPA,
+WebServices, Sybase, Subversion, Maven, Eclipse 
+
+	   Zeitraum: 07.2010 - 09.2011
+ Firma: IT-Sysemhaus im Projekt für Deutsches Markenamt (München)
+ Projekt: Elektronische Schutzakte für Deutsches Markenamt
+ Tätigkeit: o Migration bestehender JEE Anwendung OC4J -> JBoss und
+des 
+Messagingsystems Oracle AQ -> JBoss Messaging 
+o Technisches Design und Implementierung der Schnittstellen zu
+Datenlieferanten 
+und zum Dokumentmanagementsystem. 
+
+Umfeld: JBoss 5, JEE, JMS, JPA, WebServices, Oracle 10g, Subversion,
+Maven, Eclipse 
+
+	  Zeitraum: 10.2007 - 07.2010
+ Firma: IT-Sysemhaus im Projekt für Deutsches Patentamt (München)
+ Projekt: Redesign Patent-Recherche und Archivsystem
+ Tätigkeit: 
+
+	o Analyse der fachlichen Anforderungen in den Bereichen des
+Datenexports, 
+Imports und der externen Datenpflege des Archiv-Datenbestands. 
+o Technische Spezifikation und Umsetzung der Export-Schnittstelle und
+des 
+Datenpflege-Moduls. 
+o Technisches Design und Umsetzung der Komponente für die automatische
+
+Zuleitung und fachliche Verteilung der von externen Zulieferern
+gelieferten 
+Dokumente unter Berücksichtigung des komplexen Geschäftsregelwerkes. 
+o Design und Entwicklung eines RCP basierten Clients für die externe
+Pflege der 
+bibliographischen Daten und Administration der zu importierenden
+Daten- und 
+Reparaturkontingente über die Archivschnittstelle. 
+o Konzeption und Design der HTTP-Basierten Schnittstelle für externe
+Klienten. 
+
+	  Umfeld: JEE, WebServices, XML, JBoss, JMS Eclipse RCP, OSGI,
+Spring, Hibernate, 
+Oracle 10g, ClearCase
+
+ Zeitraum: 10.2005 - 09.2007
+ Firma: British Telekom (München)
+ Projekt: Neuentwicklung Numbermanagement System für geographische und
+Diensterufnummer mit Anbindung der Reseller über WebService
+Schnittstelle
+ Tätigkeit: Beratung und Unterstützung in der Analyse der
+Geschäftsprozesse im Bereich Numbermanagement insbesondere bei
+Prozessen für die Aktivierung und Portierung der geographischen
+Rufnummern und Einhaltung der nationalen Spezifikation für
+Portierungsdatenaustausch. Design und Implementierung der
+Businessprozesse für alle Anwendungsfälle in Bereichen Aktivierung und
+Portierung der geographischen und Diensterufnummern. Spezifikation und
+Implementierung der externen Schnittstellen der Anwendung.
+ Umfeld: Java / J2EE, EJB, BEA WebLogic Integration (WLI), BEA
+Workshop, JMS, XML, XMLBeans, WebServices, Oracle
+
+ Zeitraum: 12.2004 - 09.2005
+ Firma: Mobilfunknetzbetreiber (München)
+ Projekt: Neuentwicklung der Applikation zur Unterstützung der
+Prozesse der Portierung von geographischee Rufnummern
+ Tätigkeit: Technische Projektleitung. Design der Prozesse zur
+Portierung der geographischen Rufnummen. Entkopplung des
+Numbermanagementsystems vom Portierungssystem. Design der
+XML/JMS-Basierte Schnittstelle.
+ Umfeld: Java/J2EE, BEA WebLogic, Hibernate, EJB, BEA Tuxedo (mit
+WTC), C/C++, CORBA, XML, JMS, Oracle
+
+ Zeitraum: 03.2003 - 11.2004
+ Firma: Mobilfunknetzbetreiber (München)
+ Projekt: Weiterentwicklung aller Numbermanagement und
+SIM-Card-Management Systeme
+ Tätigkeit: Leitung des Numbermanagement-Entwicklungsteams. übernahme
+der Wartung und Weiterentwicklung aller Numbermanagementsysteme.
+Technisches Design und Implementierung aller änderungen.
+ Umfeld: BEA Tuxedo, C/C++, CORBA, Java/J2EE, BEA WebLogic, Oracle
+
+ Zeitraum: 09.2002 - 03.2003
+ Firma: Automobilhersteller (München)
+ Projekt: Software Life-Cycle Management
+ Tätigkeit: Design und Entwicklung einer Applikation zur Erfassung der
+Software-Installationsparameter, Pflege der Abhängigkeiten zu anderen
+Software- und Hardwarekomponenten und automatischer Vorbereitung der
+Softwareumgebungen.
+ Umfeld: Java/J2EE, Servlets, JSP, HTML, Ant, JUnit, XML, BEA
+WebLogic, Oracle
+
+ Zeitraum: 04.2002 - 08.2002
+ Firma: Automobilhersteller (München)
+ Projekt: Asset-Verwaltung für Serversysteme
+ Tätigkeit: Entwicklung einer Web-Applikation zur automatischen
+Erfassung, Bearbeitung und Reporting der Serverdaten.
+ Umfeld: Java, Struts, JSP, BEA WLX, Oracle, Oracle, Perl
+
+ Zeitraum: 10.2001 - 03.2002
+ Firma: Medienunternehmen (München)
+ Projekt: Entwicklung eines Java/J2EE basierten Redaktionssystems mit
+der XML/HTTP Schnittstelle zum Web-Portal
+ Tätigkeit: Beratung im Bereich der Anforderunsanalyse und Designs.
+Entwicklung des automatisierten Testsystems für Test der externen
+Schnittstellen des Redaktionssystems.
+ Umfeld: Java/J2EE, EJB, Servlets, Ant, JUnit, XML, BEA WLS, Oracle   
+  
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 82556 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 21.06.2015 01:10:19
+ (c) Copyright 1996-2015 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show210119
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?82556
+[4] /cgi-gulpsearch/gp.exe/UBONE82556?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?82556D1
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?82556D1
+[7] /cgi-gulpsearch/printdoc.exe/profil?DXSF3HTO
+[8] /cgi-gulpsearch/printdoc.exe/profil?DXSF3HTO
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show210119
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?82556
+[14] /cgi-gulpsearch/gp.exe/UBONE82556?0
+[15] mailto:info@gulp.de
+
+
+---------- Gulp-Profil Stand 2014-12-18 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 82556: Java JEE
+Technologien / Integrationstechnologien / Software-Architektur und
+Softwareentwicklung                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+82556 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 82556    Wohnort 812xx München, Deutschland Jahrgang
+1974 Staatsbürgerschaft Deutsch Stundensatz 95 EUR  Verfügbar ab
+31.03.15 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+04.03.07 Profil zuletzt geändert am 18.12.14 Lesen von Projektanfragen
+0,5 Tage  [5]Direktkontakt [6]         Kommentar:   Kommentar
+schreiben Profil angezeigt am 21.01.2015 09:21:08       Fachlicher
+Schwerpunkt:  Java JEE Technologien / Integrationstechnologien /
+Software-Architektur und Softwareentwicklung      Position: 
+Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Projektmanagement / -leitung / Organisation / Koordination
+
+Systemanalyse und Design, Entwicklung im Bereichen Java, J2EE, SOA und
+Integration
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Einsatzort:   Regionen: 
+
+	D8       Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Serbokroatisch
+
+      Betriebssysteme:  
+
+		MS-DOS
+
+		Unix
+
+		Windows
+
+		HPUX
+
+		SUN OS, Solaris
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		Java
+
+		JavaScript
+
+		Shell
+
+		Perl
+
+      Datenbanken:  
+
+		Access
+
+		MySQL
+
+		Oracle
+
+		JDBC
+
+		SQL
+
+      Datenkommunikation:  
+
+		Internet, Intranet
+
+		TCP/IP
+
+		CORBA
+
+		Message Queuing
+		JMS
+
+WebServices und J2EE im Allgemeinem
+       Produkte/Standards/Erfahrungen:  Standards und Methoden
+ - Verteilte Systeme und Web-Architekturen
+ - Integrationstechnologien
+ - Datenbank-Modellierung und objektrelationales Mapping
+ - Objektorientierte Analyse und Design in UML (OOA/OOD)
+ - Architektur- und Designmuster (Pattern)
+
+ Programmiersprachen
+ - Java  - C / C++ - Perl 
+ Frameworks / Standards - JEE / J2EE - BPMN - JMS - Webservices -
+Spring - Hibernate - Eclipse RCP - SWT
+ - Apache Struts, JSF
+ - Junit, HTTPUnit
+
+ Werkzeuge
+ - Eclipse, My Eclipse Enterprise Workbench
+ - BEA - Workshop
+ - Ant, Maven - Signavio (BPMN)
+ - Visual Studio (VC++, Visual Basic)
+- SVN
+ - CVS
+ - ClearCase
+
+ Server, Applikationsserver - JBoss 
+ - BEA Weblogic 
+ - BEA Weblogic Integration
+ - BEA Tuxedo 8
+ - Apache Tomcat
+
+       Branchen:  
+
+	       Projekte:   Zeitraum: 09.2011 - 06.2012
+ Firma: Telekommunikationsunternehmen (Karlsruhe)
+ Projekt: Konzeption und Entwicklung im Bereich DSL- &amp; Mobile-Prozesse
+ Tätigkeit: o Analyse und Modelierung der Geschäftsprozesse (BPMN),
+Abstimmungen mit der Fachseite o Erstellung der technischen Konzepte
+für die Umsetzung der Prozesse o Analyse der bestehenden Services,
+Konzeption für die notwendigen änderungen von bestehenden sowie
+Erstellung von neuen Services o Umsetzung der Prozesslogik, Test,
+Dokumentation und Deployment der Softwarekomponenten o Integration der
+neu erstellten Prozesse in die bestehenden überwachungsmechanismen für
+den Anwendungsbetrieb
+
+Umfeld: BPMN (Signavio), JBoss 4/5, JEE, Spring, JMS, JPA,
+WebServices, Sybase, Subversion, Maven, Eclipse 
+
+	   Zeitraum: 07.2010 - 09.2011
+ Firma: IT-Sysemhaus im Projekt für Deutsches Markenamt (München)
+ Projekt: Elektronische Schutzakte für Deutsches Markenamt
+ Tätigkeit: o Migration bestehender JEE Anwendung OC4J -> JBoss und
+des 
+Messagingsystems Oracle AQ -> JBoss Messaging 
+o Technisches Design und Implementierung der Schnittstellen zu
+Datenlieferanten 
+und zum Dokumentmanagementsystem. 
+
+Umfeld: JBoss 5, JEE, JMS, JPA, WebServices, Oracle 10g, Subversion,
+Maven, Eclipse 
+
+	  Zeitraum: 10.2007 - 07.2010
+ Firma: IT-Sysemhaus im Projekt für Deutsches Patentamt (München)
+ Projekt: Redesign Patent-Recherche und Archivsystem
+ Tätigkeit: 
+
+	o Analyse der fachlichen Anforderungen in den Bereichen des
+Datenexports, 
+Imports und der externen Datenpflege des Archiv-Datenbestands. 
+o Technische Spezifikation und Umsetzung der Export-Schnittstelle und
+des 
+Datenpflege-Moduls. 
+o Technisches Design und Umsetzung der Komponente für die automatische
+
+Zuleitung und fachliche Verteilung der von externen Zulieferern
+gelieferten 
+Dokumente unter Berücksichtigung des komplexen Geschäftsregelwerkes. 
+o Design und Entwicklung eines RCP basierten Clients für die externe
+Pflege der 
+bibliographischen Daten und Administration der zu importierenden
+Daten- und 
+Reparaturkontingente über die Archivschnittstelle. 
+o Konzeption und Design der HTTP-Basierten Schnittstelle für externe
+Klienten. 
+
+	  Umfeld: JEE, WebServices, XML, JBoss, JMS Eclipse RCP, OSGI,
+Spring, Hibernate, 
+Oracle 10g, ClearCase
+
+ Zeitraum: 10.2005 - 09.2007
+ Firma: British Telekom (München)
+ Projekt: Neuentwicklung Numbermanagement System für geographische und
+Diensterufnummer mit Anbindung der Reseller über WebService
+Schnittstelle
+ Tätigkeit: Beratung und Unterstützung in der Analyse der
+Geschäftsprozesse im Bereich Numbermanagement insbesondere bei
+Prozessen für die Aktivierung und Portierung der geographischen
+Rufnummern und Einhaltung der nationalen Spezifikation für
+Portierungsdatenaustausch. Design und Implementierung der
+Businessprozesse für alle Anwendungsfälle in Bereichen Aktivierung und
+Portierung der geographischen und Diensterufnummern. Spezifikation und
+Implementierung der externen Schnittstellen der Anwendung.
+ Umfeld: Java / J2EE, EJB, BEA WebLogic Integration (WLI), BEA
+Workshop, JMS, XML, XMLBeans, WebServices, Oracle
+
+ Zeitraum: 12.2004 - 09.2005
+ Firma: Mobilfunknetzbetreiber (München)
+ Projekt: Neuentwicklung der Applikation zur Unterstützung der
+Prozesse der Portierung von geographischee Rufnummern
+ Tätigkeit: Technische Projektleitung. Design der Prozesse zur
+Portierung der geographischen Rufnummen. Entkopplung des
+Numbermanagementsystems vom Portierungssystem. Design der
+XML/JMS-Basierte Schnittstelle.
+ Umfeld: Java/J2EE, BEA WebLogic, Hibernate, EJB, BEA Tuxedo (mit
+WTC), C/C++, CORBA, XML, JMS, Oracle
+
+ Zeitraum: 03.2003 - 11.2004
+ Firma: Mobilfunknetzbetreiber (München)
+ Projekt: Weiterentwicklung aller Numbermanagement und
+SIM-Card-Management Systeme
+ Tätigkeit: Leitung des Numbermanagement-Entwicklungsteams. übernahme
+der Wartung und Weiterentwicklung aller Numbermanagementsysteme.
+Technisches Design und Implementierung aller änderungen.
+ Umfeld: BEA Tuxedo, C/C++, CORBA, Java/J2EE, BEA WebLogic, Oracle
+
+ Zeitraum: 09.2002 - 03.2003
+ Firma: Automobilhersteller (München)
+ Projekt: Software Life-Cycle Management
+ Tätigkeit: Design und Entwicklung einer Applikation zur Erfassung der
+Software-Installationsparameter, Pflege der Abhängigkeiten zu anderen
+Software- und Hardwarekomponenten und automatischer Vorbereitung der
+Softwareumgebungen.
+ Umfeld: Java/J2EE, Servlets, JSP, HTML, Ant, JUnit, XML, BEA
+WebLogic, Oracle
+
+ Zeitraum: 04.2002 - 08.2002
+ Firma: Automobilhersteller (München)
+ Projekt: Asset-Verwaltung für Serversysteme
+ Tätigkeit: Entwicklung einer Web-Applikation zur automatischen
+Erfassung, Bearbeitung und Reporting der Serverdaten.
+ Umfeld: Java, Struts, JSP, BEA WLX, Oracle, Oracle, Perl
+
+ Zeitraum: 10.2001 - 03.2002
+ Firma: Medienunternehmen (München)
+ Projekt: Entwicklung eines Java/J2EE basierten Redaktionssystems mit
+der XML/HTTP Schnittstelle zum Web-Portal
+ Tätigkeit: Beratung im Bereich der Anforderunsanalyse und Designs.
+Entwicklung des automatisierten Testsystems für Test der externen
+Schnittstellen des Redaktionssystems.
+ Umfeld: Java/J2EE, EJB, Servlets, Ant, JUnit, XML, BEA WLS, Oracle   
+  
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 82556 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 19.12.2014 08:06:59
+ (c) Copyright 1996-2014 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show190858
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?82556
+[4] /cgi-gulpsearch/gp.exe/UBONE82556?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?82556D1
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?82556D1
+[7] /cgi-gulpsearch/printdoc.exe/profil?DXSF3HTO
+[8] /cgi-gulpsearch/printdoc.exe/profil?DXSF3HTO
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show190859
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?82556
+[14] /cgi-gulpsearch/gp.exe/UBONE82556?0
+[15] mailto:info@gulp.de
+
+
+---------- Gulp-Profil Stand 2013-07-18 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 82556: Java JEE
+Technologien / Integrationstechnologien / Software-Architektur und
+Softwareentwicklung                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+82556 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 82556    Wohnort 812xx München, Deutschland Jahrgang
+1974 Staatsbürgerschaft Deutsch Stundensatz 95 EUR  Verfügbar ab
+01.01.14 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+04.03.07 Profil zuletzt geändert am 18.07.13 Lesen von Projektanfragen
+0,5 Tage  [5]Direktkontakt [6]         Kommentar:   Kommentar
+schreiben Profil angezeigt am 18.07.2012 16:08:55       Fachlicher
+Schwerpunkt:  Java JEE Technologien / Integrationstechnologien /
+Software-Architektur und Softwareentwicklung      Position: 
+Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Projektmanagement / -leitung / Organisation / Koordination
+
+Systemanalyse und Design, Entwicklung im Bereichen Java, J2EE, SOA und
+Integration
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Einsatzort:   Regionen: 
+
+	D8       Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Serbokroatisch
+
+      Betriebssysteme:  
+
+		MS-DOS
+
+		Unix
+
+		Windows
+
+		HPUX
+
+		SUN OS, Solaris
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		Java
+
+		JavaScript
+
+		Shell
+
+		Perl
+
+      Datenbanken:  
+
+		Access
+
+		MySQL
+
+		Oracle
+
+		JDBC
+
+		SQL
+
+      Datenkommunikation:  
+
+		Internet, Intranet
+
+		TCP/IP
+
+		CORBA
+
+		Message Queuing
+		JMS
+
+WebServices und J2EE im Allgemeinem
+       Produkte/Standards/Erfahrungen:  Standards und Methoden
+ - Verteilte Systeme und Web-Architekturen
+ - Integrationstechnologien
+ - Datenbank-Modellierung und objektrelationales Mapping
+ - Objektorientierte Analyse und Design in UML (OOA/OOD)
+ - Architektur- und Designmuster (Pattern)
+
+ Programmiersprachen
+ - Java  - C / C++ - Perl 
+ Frameworks / Standards - JEE / J2EE - BPMN - JMS - Webservices -
+Spring - Hibernate - Eclipse RCP - SWT
+ - Apache Struts, JSF
+ - Junit, HTTPUnit
+
+ Werkzeuge
+ - Eclipse, My Eclipse Enterprise Workbench
+ - BEA - Workshop
+ - Ant, Maven - Signavio (BPMN)
+ - Visual Studio (VC++, Visual Basic)
+- SVN
+ - CVS
+ - ClearCase
+
+ Server, Applikationsserver - JBoss 
+ - BEA Weblogic 
+ - BEA Weblogic Integration
+ - BEA Tuxedo 8
+ - Apache Tomcat
+
+       Branchen:  
+
+	       Projekte:   Zeitraum: 09.2011 - 06.2012
+ Firma: Telekommunikationsunternehmen (Karlsruhe)
+ Projekt: Konzeption und Entwicklung im Bereich DSL- &amp; Mobile-Prozesse
+ Tätigkeit: o Analyse und Modelierung der Geschäftsprozesse (BPMN),
+Abstimmungen mit der Fachseite o Erstellung der technischen Konzepte
+für die Umsetzung der Prozesse o Analyse der bestehenden Services,
+Konzeption für die notwendigen änderungen von bestehenden sowie
+Erstellung von neuen Services o Umsetzung der Prozesslogik, Test,
+Dokumentation und Deployment der Softwarekomponenten o Integration der
+neu erstellten Prozesse in die bestehenden überwachungsmechanismen für
+den Anwendungsbetrieb
+
+Umfeld: BPMN (Signavio), JBoss 4/5, JEE, Spring, JMS, JPA,
+WebServices, Sybase, Subversion, Maven, Eclipse 
+
+	   Zeitraum: 07.2010 - 09.2011
+ Firma: IT-Sysemhaus im Projekt für Deutsches Markenamt (München)
+ Projekt: Elektronische Schutzakte für Deutsches Markenamt
+ Tätigkeit: o Migration bestehender JEE Anwendung OC4J -> JBoss und
+des 
+Messagingsystems Oracle AQ -> JBoss Messaging 
+o Technisches Design und Implementierung der Schnittstellen zu
+Datenlieferanten 
+und zum Dokumentmanagementsystem. 
+
+Umfeld: JBoss 5, JEE, JMS, JPA, WebServices, Oracle 10g, Subversion,
+Maven, Eclipse 
+
+	  Zeitraum: 10.2007 - 07.2010
+ Firma: IT-Sysemhaus im Projekt für Deutsches Patentamt (München)
+ Projekt: Redesign Patent-Recherche und Archivsystem
+ Tätigkeit: 
+
+	o Analyse der fachlichen Anforderungen in den Bereichen des
+Datenexports, 
+Imports und der externen Datenpflege des Archiv-Datenbestands. 
+o Technische Spezifikation und Umsetzung der Export-Schnittstelle und
+des 
+Datenpflege-Moduls. 
+o Technisches Design und Umsetzung der Komponente für die automatische
+
+Zuleitung und fachliche Verteilung der von externen Zulieferern
+gelieferten 
+Dokumente unter Berücksichtigung des komplexen Geschäftsregelwerkes. 
+o Design und Entwicklung eines RCP basierten Clients für die externe
+Pflege der 
+bibliographischen Daten und Administration der zu importierenden
+Daten- und 
+Reparaturkontingente über die Archivschnittstelle. 
+o Konzeption und Design der HTTP-Basierten Schnittstelle für externe
+Klienten. 
+
+	  Umfeld: JEE, WebServices, XML, JBoss, JMS Eclipse RCP, OSGI,
+Spring, Hibernate, 
+Oracle 10g, ClearCase
+
+ Zeitraum: 10.2005 - 09.2007
+ Firma: British Telekom (München)
+ Projekt: Neuentwicklung Numbermanagement System für geographische und
+Diensterufnummer mit Anbindung der Reseller über WebService
+Schnittstelle
+ Tätigkeit: Beratung und Unterstützung in der Analyse der
+Geschäftsprozesse im Bereich Numbermanagement insbesondere bei
+Prozessen für die Aktivierung und Portierung der geographischen
+Rufnummern und Einhaltung der nationalen Spezifikation für
+Portierungsdatenaustausch. Design und Implementierung der
+Businessprozesse für alle Anwendungsfälle in Bereichen Aktivierung und
+Portierung der geographischen und Diensterufnummern. Spezifikation und
+Implementierung der externen Schnittstellen der Anwendung.
+ Umfeld: Java / J2EE, EJB, BEA WebLogic Integration (WLI), BEA
+Workshop, JMS, XML, XMLBeans, WebServices, Oracle
+
+ Zeitraum: 12.2004 - 09.2005
+ Firma: Mobilfunknetzbetreiber (München)
+ Projekt: Neuentwicklung der Applikation zur Unterstützung der
+Prozesse der Portierung von geographischee Rufnummern
+ Tätigkeit: Technische Projektleitung. Design der Prozesse zur
+Portierung der geographischen Rufnummen. Entkopplung des
+Numbermanagementsystems vom Portierungssystem. Design der
+XML/JMS-Basierte Schnittstelle.
+ Umfeld: Java/J2EE, BEA WebLogic, Hibernate, EJB, BEA Tuxedo (mit
+WTC), C/C++, CORBA, XML, JMS, Oracle
+
+ Zeitraum: 03.2003 - 11.2004
+ Firma: Mobilfunknetzbetreiber (München)
+ Projekt: Weiterentwicklung aller Numbermanagement und
+SIM-Card-Management Systeme
+ Tätigkeit: Leitung des Numbermanagement-Entwicklungsteams. übernahme
+der Wartung und Weiterentwicklung aller Numbermanagementsysteme.
+Technisches Design und Implementierung aller änderungen.
+ Umfeld: BEA Tuxedo, C/C++, CORBA, Java/J2EE, BEA WebLogic, Oracle
+
+ Zeitraum: 09.2002 - 03.2003
+ Firma: Automobilhersteller (München)
+ Projekt: Software Life-Cycle Management
+ Tätigkeit: Design und Entwicklung einer Applikation zur Erfassung der
+Software-Installationsparameter, Pflege der Abhängigkeiten zu anderen
+Software- und Hardwarekomponenten und automatischer Vorbereitung der
+Softwareumgebungen.
+ Umfeld: Java/J2EE, Servlets, JSP, HTML, Ant, JUnit, XML, BEA
+WebLogic, Oracle
+
+ Zeitraum: 04.2002 - 08.2002
+ Firma: Automobilhersteller (München)
+ Projekt: Asset-Verwaltung für Serversysteme
+ Tätigkeit: Entwicklung einer Web-Applikation zur automatischen
+Erfassung, Bearbeitung und Reporting der Serverdaten.
+ Umfeld: Java, Struts, JSP, BEA WLX, Oracle, Oracle, Perl
+
+ Zeitraum: 10.2001 - 03.2002
+ Firma: Medienunternehmen (München)
+ Projekt: Entwicklung eines Java/J2EE basierten Redaktionssystems mit
+der XML/HTTP Schnittstelle zum Web-Portal
+ Tätigkeit: Beratung im Bereich der Anforderunsanalyse und Designs.
+Entwicklung des automatisierten Testsystems für Test der externen
+Schnittstellen des Redaktionssystems.
+ Umfeld: Java/J2EE, EJB, Servlets, Ant, JUnit, XML, BEA WLS, Oracle   
+  
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 82556 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 02.10.2014 19:30:07
+ (c) Copyright 1996-2014 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+          Suche [16] | Kontakt [17] | AGB [18] | Impressum [19]       
+  
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show021907
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?82556
+[4] /cgi-gulpsearch/gp.exe/UBONE82556?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?82556D1
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?82556D1
+[7] /cgi-gulpsearch/printdoc.exe/profil?DXSF3HTO
+[8] /cgi-gulpsearch/printdoc.exe/profil?DXSF3HTO
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show021907
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?82556
+[14] /cgi-gulpsearch/gp.exe/UBONE82556?0
+[15] mailto:info@gulp.de
+[16] /suche/mainsuche.html
+[17] /wiruu/mainkont.html
+[18] /agb/mainagb_feb_2012.html
+[19] /impressum/mainimp.html
+
+
+---------- Gulp-Profil Stand 2012-06-23 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 82556: Java JEE
+Technologien / Integrationstechnologien / Software-Architektur und
+Softwareentwicklung                  
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+82556 [4] | Wordprofil | XML Profil
+     Stammdaten (Auszug):   
+
+	 Personen-ID 82556    Wohnort 812xx München, Deutschland Jahrgang
+1974 EDV-Erfahrung seit 1998 Staatsbürgerschaft Deutsch Stundensatz 78
+EUR  Verfügbar ab 01.10.12 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am 04.03.07 Profil zuletzt geändert am 23.06.12 Lesen
+von Projektanfragen 2 Tage  [5]Direktkontakt [6]         Kommentar:  
+Kommentar schreiben Profil angezeigt am 20.04.2012 10:22:27      
+Fachlicher Schwerpunkt:  Java JEE Technologien /
+Integrationstechnologien / Software-Architektur und
+Softwareentwicklung      Position:  Software-Entwicklung /
+Programmierung
+ Beratung / Consulting
+ Projektmanagement / -leitung / Organisation / Koordination
+
+Systemanalyse und Design, Entwicklung im Bereichen Java, J2EE, SOA und
+Integration
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Einsatzort:  Deutschland: D8      Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Serbokroatisch
+
+      Betriebssysteme:  
+
+		HPUX
+
+		MS-DOS
+
+		SUN OS, Solaris
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C
+
+		C++
+
+		Java
+
+		JavaScript
+
+		Perl
+
+		Shell
+
+      Datenbanken:  
+
+		Access
+
+		JDBC
+
+		MySQL
+
+		Oracle
+
+		SQL
+
+      Datenkommunikation:  
+
+		CORBA
+
+		Internet, Intranet
+
+		Message Queuing
+		JMS
+
+		TCP/IP
+
+ WebServices und J2EE im Allgemeinem
+       Produkte/Standards/Erfahrungen:  Standards und Methoden
+ - Verteilte Systeme und Web-Architekturen
+ - Integrationstechnologien
+ - Datenbank-Modellierung und objektrelationales Mapping
+ - Objektorientierte Analyse und Design in UML (OOA/OOD)
+ - Architektur- und Designmuster (Pattern)
+
+ Programmiersprachen
+ - Java  - C / C++ - Perl 
+ Frameworks / Standards - JEE / J2EE - BPMN - JMS - Webservices -
+Spring - Hibernate - Eclipse RCP - SWT
+ - Apache Struts, JSF
+ - Junit, HTTPUnit
+
+ Werkzeuge
+ - Eclipse, My Eclipse Enterprise Workbench
+ - BEA - Workshop
+ - Ant, Maven - Signavio (BPMN)
+ - Visual Studio (VC++, Visual Basic)
+- SVN
+ - CVS
+ - ClearCase
+
+ Server, Applikationsserver - JBoss 
+ - BEA Weblogic 
+ - BEA Weblogic Integration
+ - BEA Tuxedo 8
+ - Apache Tomcat
+
+       Branchen:  
+
+	       Projekte:   Zeitraum: 09.2011 - 06.2012
+ Firma: Telekommunikationsunternehmen (Karlsruhe)
+ Projekt: Konzeption und Entwicklung im Bereich DSL- &amp; Mobile-Prozesse
+ Tätigkeit: o Analyse und Modelierung der Geschäftsprozesse (BPMN),
+Abstimmungen mit der Fachseite o Erstellung der technischen Konzepte
+für die Umsetzung der Prozesse o Analyse der bestehenden Services,
+Konzeption für die notwendigen änderungen von bestehenden sowie
+Erstellung von neuen Services o Umsetzung der Prozesslogik, Test,
+Dokumentation und Deployment der Softwarekomponenten o Integration der
+neu erstellten Prozesse in die bestehenden überwachungsmechanismen für
+den Anwendungsbetrieb
+
+Umfeld: BPMN (Signavio), JBoss 4/5, JEE, Spring, JMS, JPA,
+WebServices, Sybase, Subversion, Maven, Eclipse 
+
+	   Zeitraum: 07.2010 - 09.2011
+ Firma: IT-Sysemhaus im Projekt für Deutsches Markenamt (München)
+ Projekt: Elektronische Schutzakte für Deutsches Markenamt
+ Tätigkeit: o Migration bestehender JEE Anwendung OC4J -> JBoss und
+des 
+Messagingsystems Oracle AQ -> JBoss Messaging 
+o Technisches Design und Implementierung der Schnittstellen zu
+Datenlieferanten 
+und zum Dokumentmanagementsystem. 
+
+Umfeld: JBoss 5, JEE, JMS, JPA, WebServices, Oracle 10g, Subversion,
+Maven, Eclipse 
+
+	  Zeitraum: 10.2007 - 07.2010
+ Firma: IT-Sysemhaus im Projekt für Deutsches Patentamt (München)
+ Projekt: Redesign Patent-Recherche und Archivsystem
+ Tätigkeit: 
+
+	o Analyse der fachlichen Anforderungen in den Bereichen des
+Datenexports, 
+Imports und der externen Datenpflege des Archiv-Datenbestands. 
+o Technische Spezifikation und Umsetzung der Export-Schnittstelle und
+des 
+Datenpflege-Moduls. 
+o Technisches Design und Umsetzung der Komponente für die automatische
+
+Zuleitung und fachliche Verteilung der von externen Zulieferern
+gelieferten 
+Dokumente unter Berücksichtigung des komplexen Geschäftsregelwerkes. 
+o Design und Entwicklung eines RCP basierten Clients für die externe
+Pflege der 
+bibliographischen Daten und Administration der zu importierenden
+Daten- und 
+Reparaturkontingente über die Archivschnittstelle. 
+o Konzeption und Design der HTTP-Basierten Schnittstelle für externe
+Klienten. 
+
+	  Umfeld: JEE, WebServices, XML, JBoss, JMS Eclipse RCP, OSGI,
+Spring, Hibernate, 
+Oracle 10g, ClearCase
+
+ Zeitraum: 10.2005 - 09.2007
+ Firma: British Telekom (München)
+ Projekt: Neuentwicklung Numbermanagement System für geographische und
+Diensterufnummer mit Anbindung der Reseller über WebService
+Schnittstelle
+ Tätigkeit: Beratung und Unterstützung in der Analyse der
+Geschäftsprozesse im Bereich Numbermanagement insbesondere bei
+Prozessen für die Aktivierung und Portierung der geographischen
+Rufnummern und Einhaltung der nationalen Spezifikation für
+Portierungsdatenaustausch. Design und Implementierung der
+Businessprozesse für alle Anwendungsfälle in Bereichen Aktivierung und
+Portierung der geographischen und Diensterufnummern. Spezifikation und
+Implementierung der externen Schnittstellen der Anwendung.
+ Umfeld: Java / J2EE, EJB, BEA WebLogic Integration (WLI), BEA
+Workshop, JMS, XML, XMLBeans, WebServices, Oracle
+
+ Zeitraum: 12.2004 - 09.2005
+ Firma: Mobilfunknetzbetreiber (München)
+ Projekt: Neuentwicklung der Applikation zur Unterstützung der
+Prozesse der Portierung von geographischee Rufnummern
+ Tätigkeit: Technische Projektleitung. Design der Prozesse zur
+Portierung der geographischen Rufnummen. Entkopplung des
+Numbermanagementsystems vom Portierungssystem. Design der
+XML/JMS-Basierte Schnittstelle.
+ Umfeld: Java/J2EE, BEA WebLogic, Hibernate, EJB, BEA Tuxedo (mit
+WTC), C/C++, CORBA, XML, JMS, Oracle
+
+ Zeitraum: 03.2003 - 11.2004
+ Firma: Mobilfunknetzbetreiber (München)
+ Projekt: Weiterentwicklung aller Numbermanagement und
+SIM-Card-Management Systeme
+ Tätigkeit: Leitung des Numbermanagement-Entwicklungsteams. übernahme
+der Wartung und Weiterentwicklung aller Numbermanagementsysteme.
+Technisches Design und Implementierung aller änderungen.
+ Umfeld: BEA Tuxedo, C/C++, CORBA, Java/J2EE, BEA WebLogic, Oracle
+
+ Zeitraum: 09.2002 - 03.2003
+ Firma: Automobilhersteller (München)
+ Projekt: Software Life-Cycle Management
+ Tätigkeit: Design und Entwicklung einer Applikation zur Erfassung der
+Software-Installationsparameter, Pflege der Abhängigkeiten zu anderen
+Software- und Hardwarekomponenten und automatischer Vorbereitung der
+Softwareumgebungen.
+ Umfeld: Java/J2EE, Servlets, JSP, HTML, Ant, JUnit, XML, BEA
+WebLogic, Oracle
+
+ Zeitraum: 04.2002 - 08.2002
+ Firma: Automobilhersteller (München)
+ Projekt: Asset-Verwaltung für Serversysteme
+ Tätigkeit: Entwicklung einer Web-Applikation zur automatischen
+Erfassung, Bearbeitung und Reporting der Serverdaten.
+ Umfeld: Java, Struts, JSP, BEA WLX, Oracle, Oracle, Perl
+
+ Zeitraum: 10.2001 - 03.2002
+ Firma: Medienunternehmen (München)
+ Projekt: Entwicklung eines Java/J2EE basierten Redaktionssystems mit
+der XML/HTTP Schnittstelle zum Web-Portal
+ Tätigkeit: Beratung im Bereich der Anforderunsanalyse und Designs.
+Entwicklung des automatisierten Testsystems für Test der externen
+Schnittstellen des Redaktionssystems.
+ Umfeld: Java/J2EE, EJB, Servlets, Ant, JUnit, XML, BEA WLS, Oracle   
+  
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 82556 [14] | Wordprofil | XML Profil
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 04.07.2012 01:21:44
+ (c) Copyright 1996-2012 GULP Information Services GmbH,
+ Ridlerstraße 37, D-80339 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+          Suche [16] | Kontakt [17] | AGB [18] | Impressum [19]       
+ 
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show040144
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?82556
+[4] /cgi-gulpsearch/gp.exe/UBONE82556?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?82556D4
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?82556D4
+[7] /cgi-gulpsearch/printdoc.exe/profil?DXSF3HTO
+[8] /cgi-gulpsearch/printdoc.exe/profil?DXSF3HTO
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show040144
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?82556
+[14] /cgi-gulpsearch/gp.exe/UBONE82556?0
+[15] mailto:info@gulp.de
+[16] /suche/mainsuche.html
+[17] /wiruu/mainkont.html
+[18] /agb/mainagb_feb_2012.html
+[19] /impressum/mainimp.html

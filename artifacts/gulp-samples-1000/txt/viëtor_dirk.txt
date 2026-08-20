@@ -1,0 +1,295 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_86683
+
+
+Stammdaten (Auszug):
+
+Personen-ID                86683
+  
+Wohnort                    104xx Berlin, Deutschland
+Jahrgang                   1974
+Staatsbürgerschaft         deutsch
+Stundensatz                0 EUR
+Verfügbar ab               01.10.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         08.11.07
+Profil zuletzt geändert am 01.05.20
+Lesen von Projektanfragen  1,5 Tage [07]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 02.05.2020 16:45:02
+
+Fachlicher Schwerpunkt:
+MSI-​Paketierung, Softwareintegration, automatische Softwareverteilung,
+Systemadministration, Virtualisierung.
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit bevorzugt
+
+Voraussetzung für Festanstellung: Im Berliner Raum wäre eine Festanstellung
+durchaus von Interesse.
+
+Ausbildung:
+Ausbildung
+Groß- &amp; Außenhandelskaufmann
+ 
+Fortbildungen
+    * System- und Netzwerkadministrator für Microsoft Produkte
+    * Microsoft Certified Professional
+    * Microsoft Certified Professional + Internet
+    * Microsoft Certified Systems Engineer Linux Systemadministrator
+ 
+Zertifizierungen
+    * Microsoft Certified System Engineer
+    * Administering and Deploying System Center 2012 Configuration Manager
+    * Microsoft Partner
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Schweiz
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+
+
+Betriebssysteme:
+Linux                 
+Microsoft Windows 10  
+MS-DOS                
+Novell Net Ware 6     
+Windows              NT4/95/98/2000/XP/7/8.1/10
+Windows Server       NT/2000/2003/2008/2012R2
+Windows Server 2016   
+Windows 10            
+Windows 7             
+Windows 8.1           
+
+
+Programmiersprachen:
+HTML-Quellcode                                 
+Scripting in VBS und PowerShell (PSAppDeploy)  
+WiseScript                                     
+
+
+Datenbanken:
+Access         
+MS SQL Server  
+MySQL          
+
+
+Aufgabenbereiche:
+Microsoft Hyper-V 2016  
+
+
+Produkte/Standards/Erfahrungen:
+App-V 5.1                                                                  
+Backup-Strategien                                                          
+Citrix-Server incl. XenApp 5                                               
+diverse Grafikprogramme                                                    
+Domainweite Virenabsicherung                                               
+Firebird 2.5 Datenbankserver                                               
+Flexera InstallShield-AdminStudio                                          
+Image-Erstellung mit Hilfe von Norton Ghost, Acronis TrueImage, nLite, PE  
+Builder, Sysprep
+MCB                                                                        
+Microsoft SQL-Server 2008/2012/2014                                        
+mobile computing                                                           
+MS BackOffice Produkte: IIS 4 und 5, SMS 1.2 und Exchange Server 5.5       
+MS Office Produkte                                                         
+MSI                                                                        
+Netscape Messaging Server 3.5                                              
+SCCM 2012                                                                  
+SCCM 2012                                                                  
+SCCM 2012R2                                                                
+Verwaltungstools für Novell Netware                                       
+Virtual Machine Manager / Hyper-V                                          
+Virtualisierung mit VMWare Produkten und Citrix Provisioning Server        
+VMware Workstation/ESX                                                     
+Wise / Altiris Enterprise-Management-Server                                
+Wise-Package-Studio                                                        
+WSUS                                                                       
+
+Branchen:
+Behörden &amp; Öffentliche Verwaltungen
+EDV-Dienstleistung
+Finanzdienstleitung
+Mineralölverarbeitung
+Pharmazie
+
+Projekte:
+10/2016 - heute: Erstellung von Softwarepaketen mit PowerShell
+ 
+Kunde:              Bundeswehr
+ 
+Aufgaben:
+ 
+    * Erstellung von Softwarepaketen mit PowerShell zur Verteilung über
+      SCCM im Rahmen des Projektes zur Harmonisierung und Migration
+      der Führungsinformationssysteme (HaFIS).
+    * Automatisierte Installation kompletter Rechenzentren auf Hyper-V
+    * Automatisierte Installation/Upgrade von Exchange 2016 Cluster mit CMDB
+    * Upgrade von Server 2012 auf Server 2016 und Upgrade der automatisierten
+      Installationspakete.
+ 
+Eingesetzte Produkte:
+ 
+Windows Server 2016, Microsoft Exchange Server 2016, Microsoft SCCM 2016,
+Microsoft Windows 10, Microsoft Hyper-V 2016
+===============================================================================
+08/2016 - 09/2016: Windows 10 readiness
+ 
+Einsatzort:         Neckarsulm
+Rolle:              Software Developer
+Kunde:              Audi AG
+ 
+Aufgaben:
+ 
+-Migration vorhandener Softwarepakete auf Windows 10 Clients
+-Integration der Softwarepakete in die Audistruktur über SCCM 2012 R2
+-Erstellung und Test von Softwarepaketen mit VBS
+ 
+Kenntnisse:
+ 
+SCCM 2012, VBScript, MSI
+ 
+Eingesetzte Produkte:
+ 
+Windows 10, Windows 7, Windows 8.1, SCCM 2012
+===============================================================================
+09/2015 - 07/2016: Senatsverwaltung für Bildung, Jugend und Wissenschaft
+ 
+Einsatzort:         Berlin
+Kunde:              Senatsverwaltung für Bildung,  Jugend und Wissenschaft
+ 
+Aufgaben:
+ 
+    * Paketierung und Anwendungsbetreuung mit Microsoft App-V 5.0 R3, sowie
+      Betreuung des kompletten Backends im produktiven POC für 10 Berliner
+      Schulen. Desktop und Servervirtualisierung mit XenApp.
+    * Planung, Installation, Konfiguration und Betriebsunterstützung der
+      zukünftigen App-V 5.1 Infrastruktur für alle 700 Berliner Schulen.
+    * Planung, Integration und Betreuung verschiedener Client-ServerAnwendungen
+      mit App-V Integration.
+    * Konzeptionierung, Voranalysen und Erarbeitung von Lösungen für die
+      Bereitstellung von Software für Endanwender.
+===============================================================================
+04/2015 - 09/2015: KPMG IT Service GMBH
+ 
+Kunde:              KPMG IT Service GMBH
+ 
+Aufgaben:
+ 
+    * Entwicklung von Installationspaketen mit PowerShell App Deployment
+      Toolkit und InstallShield für Windows7 und Windows10.
+    * Bereitstellen und testen der Verteilung über SCCM 2012 R2
+===============================================================================
+04/2006 - 03/2015: Hessische Zentrale für Datenverarbeitung
+ 
+Einsatzort:         Hessen
+ 
+Aufgaben:
+ 
+    * Betreuung des Hessischen Baumanagements (HBM, ca. 900 Clients, WindowsXP
+      und Windows7 sowie ca. 50 Server inkl. Citrix-Farm, Server 2003, 2008 und
+      2012)
+    * MSI-Paketierung mit Wise Package-Studio
+    * Erstellung und Validierung unternehmenseigener Merge Modules
+    * Third-Level Support (Client, Server, Anwendungen)
+    * Software-, System-Engineering
+    * Erstellung, Anpassung und Bereitstellung von Standard-ClientImages
+      (Norton Ghost, Acronis TrueImage, nLite, PE Builder, Sysprep, ) sowie
+      Mitarbeit im Client-Rollout Projekt mit scriptgesteuerter
+      Domänenintegration (ca. 900 Clients)
+    * Erstellung/Integration/Verwaltung von Software-Paketen für Citrix-XenApp
+      auf Server 2008 incl. Applikation-Streaming
+    * Bereitstellung der Citrix-Client-Umgebung sowie der SAPGui für das
+      gesamte Land Hessen (Projekt WTS-NVS, ca. 15500 Clients)
+    * Migration der Software auf Server 2008 und XenApp 5
+    * Softwarepaketierung, Treiberbereitstellung / Anpassung für OS Deployment,
+      Application Deployment über PXE / SCCM und Beratung / Schulung bei der
+      hessischen Polizei. (XP-Clients)
+    * Maßgebliche Mitarbeit im Projekt HessenPC zum Thema Paketierung und
+      Verteilung. (Planung, Konzeption, Ausführung)
+    * Verantwortlich für den Ressortclient des HBM im Projekt HessenPC
+      (Betriebssystemkonfiguration Windows7, Anwendungen, Verteilung über
+      SCCM2012, GPOs)
+    * Paketierung mit Flexera AdminStudio
+    * Paketierung im laufenden Betrieb für HessenPC (Windows7, SCCM2012) und
+      WTS-Farm auf Server 2008 r2
+===============================================================================
+Berliner Verkehrsbetriebe
+2012  2015
+Projektbeschreibung:
+ 
+    * Erstellung neuer MSI-Pakete mit Wise Package Studio und Flexera Admin
+      Studio für Windows7 und Windows 8.1
+    * Migration vorhandener MSI-Pakete oder Scripte von Voelker zur Verteilung
+      über SCCM2012
+    * Third-Level Support
+===============================================================================
+Bundesdruckerei GmbH
+2011
+Projektbeschreibung:
+ 
+    * Aufbau einer Paketierungsumgebung mit Flexera AdminStudio für Microsofts
+      App-V, SCCM und Citrix XenApp
+    * Repaketierung von Clientanwendungen.
+    * Beratung und Mitarbeiterschulung.
+===============================================================================
+Hewlett-Packard
+2004 - 2006
+Projektbeschreibung:
+ 
+    * MSI-Paketierung mit Wise Package-Studio
+    * Erstellung und Validierung unternehmenseigener Merge Modules
+    * Third-Level Support
+    * Software-, System-Engineering
+===============================================================================
+===============================================================================
+ 
+Zeitraum: April 2007 bis Heute
+Firma   : Hessische Zentrale für Datenverarbeitung (öffentlicher Dienst)
+Ort     : Wiesbaden
+Projekt : MSI-Paketierung mit Wise Package Studio 7
+ für Citrix Metaframe und spezielle Clients (CAD),
+ Erstellung und Validierung unternehmenseigener
+ Merge-Module, Softwareanalyst, Softwareintegrator,
+ Systemadministrator und third-level Support für zwei
+ Citrix-Farmen und circa neunhundert Client-Computer
+ in der hessischen Landesverwaltung. In selbstständiger,
+ eigenverantwortlicher und alleiniger Arbeitseinteilung.
+===============================================================================
+Zeitraum: Juli 2004 - Dezember 2006
+Firma   : Hewlett-Packard für MLP und Panasonic
+Ort     : Heidelberg
+Projekt : MSI-Paketierung mit Wise Package Studio 6,
+ Erstellung und Validierung unternehmenseigener Merge-Module,
+ Erarbeitung und Festlegung von Standard und Layouts für die
+ MSI-Paketierung und Softwareverteilung. Vorbereitung der
+ MSI-Pakete und selbstentwickelter Lösungen für die automatische
+ Softwareverteilung in Novell-Netzwerken der Kunden von HP.
+ Third-Level Support, Software-und System-Engineering,
+ Applikationserstellung in VBS, Hardwarezertifizierung und
+ Treiberanpassung
+===============================================================================
+
+
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_86683
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 04.05.2020 01:02:15
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

@@ -1,0 +1,624 @@
+Senior Fullstack Architect Backend/Frontend (PHP,
+HTML5/CSS3/Javascript, Responsive Design, CMS, E-Commerce, SEO,
+SEA)
+Top-Skills: PHP, Elastic Search, symfony, PHP7, php5,
+JavaScript, HTML5, redis, PIMCORE, E-
+Commerce
+Verfügbar ab: 31.07.2023
+verfügbar zu: 75 %
+davon vor Ort: 80 %
+Stundensatz: 80,00 EUR
+Bemerkungen: gültig für Deutschland / R8
+Einsatzort
+Städte: München 50 km
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Deutschland: besonders bevorzugt Raum 8 (München)
+ 
+Weitere Länder: Verständlicherweise nur bei größeren/längerfristigen
+Projekten bzw. Erstattung entsprechender Reisekosten oder mit
+RemoteMöglichkeit
+ 
+Position
+Kommentar: Senior Architect Backend/Frontend
+Projekte
+Vodafone Kabel Deutschland (09/2015- aktuell):
+ 
+    •  Weiterentwicklung und Wartung der Anwendungen im Bereich Web-Frontend, Umsetzung von
+     ?Anforderungen in den Portalen ECC/HA/HV/CSC/PUB
+    •  Tests der Portal-Bestelllogik mit den Frontend-Testing Tools
+    •  Unterstützung bei der Analyse von neuen Anforderungen
+    •  Linux, SOAP, HTTP, PHP >= 5.5, strikt objektorjentiert
+    •  Zend-Server
+    •  Librarymanagment via Composer &amp; Satis
+16.03.2023 1 von 6
+    •  Unit-Testing mit PHP-Unit
+    •  Performanceoptimierung
+    •  Vagrant
+sportspirit&amp;consult Neuentwicklung E-Commerce-Engine (inhouse 12/2015- aktuell):
+ 
+    •  Frontend (Ecmascript 6, AngularJS 2, Babel, SASS)
+    •  PHP 7, strikt objektorjentiert
+    •  Phalcon MVC
+    •  Volt-Template-Engine
+    •  Zend-Server, Redis
+    •  High-Performance E-Commercesuite (Responsetime <= 100ms)
+    •  Vagrant
+    •  Docker
+ 
+Projekt 1&amp;1 Portaltechnologien (11/2012-08/2015):
+ 
+    •  Entwicklung im Bereich Frontend (HTML5/CSS3/Javascript/Jquery/Closure
+     ?Library/Soy/AngularJS/NodeJS)
+    •  Entwicklung im Bereich Mobile (HTML5/CSS3/Jquery/Jquery touch/Closure Library)
+    •  CSS-Code-Optimierung mit less, danach sass/compass in Verbindung mit grunt
+    •  CSS-Refactoring (Spritegenerierung, Kaskadenminimierung, bootstrap, etc.)
+    •  Performanceanalyse/Code-Reviewing
+    •  Coremedia CMS Editor
+    •  Technisches Umfeld Apache/Tomcat/JSP/Maven/SVN
+ 
+    •  Vorbereitung umd Umsetzung Relaunch Portale im Responsive Web Design
+    •  Komplettes Neudesign - Umsetzung mit Closure Library, Soy Templates, Less, Grunt
+    •  Automatische Styleguideerstellung
+    •  Mobile First Ansatz
+    •  Performance Driven - Performance im Responsive Web-Design
+    •  Qualitätssicherung im Bereich der Entwicklung (Unit-Testing, Regression Testing, Code
+     ?Review, Coaching)
+    •  Optimierung Auslieferung Advertising Media (VideoAds, ClassicAds, SpecialAds)
+    •  Auslieferung/Ansteuerung diverser Trackingsystem/-pixel (IVW, Agof), Tag-Management
+    •  Backend-Administrationssystem (AngularJS, Bootstrap, NodeJS)
+ 
+Chip Digital  (11/2014-01/2015):
+ 
+    •  Analyse Implementierung Ad-Technolgoien
+    •  Optimierung der Struktur der Frontend-Module/-Prozesse (u.a. RequireJS/NodeJS)
+    •  Refactoring bestehendes Ad-Steuerungs-Tool
+    •  Technologien: RequireJS/NodeJS/MongoDB
+ 
+Projekt Sony Music Entertainment (1999-06/2013):
+ 
+    •  Programmierung von Webapplikationen im Umfeld PHP/Sybase/MySQL/Linux-CentOS-Redhat
+Technologien: PHP / Zend-Framework / jQuery /dhtmlX / extJS
+Es handelte sich um Applikationen für ca. 500 User die an den Systemen arbeiten
+oder auch um Portalseiten mit ca. 8000 Usern täglich.
+    •  Absicherung/Intrusion-Detection von Webservern und Applikationen
+    •  Performanceanalyse/Code-Reviewing/Coaching im PHP-Umfeld
+    •  Administration von Serverfarmen - Einrichtung/Wartung/Performance
+ 
+Projekt Exactag GmbH (03/2012-09/2012)
+ 
+    •  Programmierung AdServer Administration Interface
+Technologien: PHP / Zend-Framework / jQuery / extJS
+Containerlösung für onSite-Tracking Lösungen im Ecommerce Bereich
+    •  Performanceanalyse/Code-Reviewing/Coaching im PHP-Umfeld
+ 
+16.03.2023 2 von 6
+ 
+Diverse E-Commerce Projekte inkl. eigener Online-Shop ([URL auf Anfrage]) (2004-heute):
+ 
+    •  Shopsysteme: shopware / xt-Commerce / osCommerce
+    •  Installation / Wartung / Optimierung
+    •  Individualisierung / Eigenentwicklung von Modulen
+    •  Designanpassungen / Implementierung Responsive WebDesign im E-Commerce
+    •  Performance Driven E-Commerce
+    •  Generierung Produktfeeds (u.a. Amazon, Google)
+    •  Integration Tag-Manager
+    •  Integration verschiedenster Tracking- und Analyse Tools
+    •  Anlage und Steuerung Ad-Words/Google Products Kampagnen
+    •  SEO
+    •  Payment Provider / Risk-Management
+    •  Anbindung/Integration Warenwirtschaftssysteme
+    •  Integration von CMS System (Drupal/Wordpress) in das E-Commerce-System
+ 
+ 
+ 
+ 
+Branchen
+Handel
+Medien
+Automobil
+Telekommunikation
+Medizin
+Sprachen
+Deutsch Muttersprache
+Englisch fließend in Wort und Schrift (Projekterfahrung)
+Kompetenzen
+Produkte / Standards /
+Erfahrungen / Methoden
+Schwerpunkt:
+Web Developer &amp; Frontend Engineering (PHP, Oracle, MySQL, CMS)
+Methoden, Standards:
+Scrum &amp; Kanban, Continuous Integration, (X)HTML, HTML5, CSS2 /
+CSS3,  SASS/compass, grunt, less, bootstrap, Ant, Maven, Hudson,
+GreenHopper
+Programmiersprachen:
+PHP 5/7, Java/JSP, XML, Perl, JavaScript (u.a. Ecmascript 6),
+AngularJS 2, Ajax (ExtJS, jQuery, jQuery Mobile), NodeJS, Unix Shell
+Script
+16.03.2023 3 von 6
+Datenbanken:
+MySQL, PostgreSQL, Sybase ASE, Sybase IQ, Exasol, Oracle, SQlite
+Betriebssysteme:
+Linux/Unix (Ubuntu, Suse, Red Hat, Free BSD, Sun Solaris, Mandrake),
+Windows 9x/NT/2000/XP/Mobile, Windows Server 2003, OS/400
+Content Management:
+Coremedia, Drupal, Imperia, Joomla!
+Foren Systeme:
+phpBB, phorum.org, UBB Treads, vBulletin
+Shop Systeme:
+OsCommerce, shopware, xtcommerce, Oxid
+Zend Produkte:
+Zend Server, Zend Framework, Zend Optimizer, Zend Performance
+Suite
+PHP Libs/Tools:
+Smarty Template Engine, AdoDB, PEAR, phpDocumentor, phpUnit,
+NuSphere PhpED, PHP Eclipse, phpStorm, phalcon, Volt Templates
+Versionsverwaltung:
+GIT, Stash, Subversion (SVN), CVS
+Webserver:
+nginx, Apache 1/2, XAMPP, IIS
+Sonstige Libs/Tools:
+Jira, Confluence, Bitbucket (alias Stash)
+Technische Erfahrungen:
+    •  seit über 15 Jahren auf PHP Entwicklung spezialisiert
+    •  Content Management
+    •  Mehrsprachige Webseiten
+    •  Personalisierungssysteme
+    •  Portale
+    •  Load Balanced Multi Server Systems (Hochverfügbarkeit)
+    •  Massen/Direct mailing
+    •  Standardisierung und Optimierung von Web Applikationen (PHP
+     ?und MySQL Performance)
+    •  Sicherheitsorientierte Programmierung
+    •  Code Review
+    •  Code Quality
+    •  Coding Standards / -Guidelines
+    •  Usability orientierte Konzeption
+    •  Application Service Providing
+    •  Mehrstufige Architekturen
+    •  Suchmaschinenoptimierung (SEO, SEA)
+Kompetenzen:
+    •  Technisches Consulting, Projektmanagement und
+     ?Programmierung in großen Projekten (auch mit Englisch als
+     ?Projektsprache)
+    •  Betriebswirtschaftliche/kaufmännische Berufserfahrung
+    •  Teamfähigkeit und hohes Maß an Kommunikationsvermögen und
+     ?Selbständigkeit
+16.03.2023 4 von 6
+    •  Verantwortungsbewusstsein und hohe Belastbarkeit
+    •  gute Marktkenntnisse
+    •  ausgeprägte Fähigkeit zum analytischen und planerischen
+     ?Denken
+    •  gute Englischkenntnisse in Wort und Schrift
+ 
+Betriebssysteme Mac OS gute Kenntnisse
+SUN OS, Solaris gute Kenntnisse
+Unix/Linux gute bis sehr gute Linux Kenntnisse in Suse,
+Redhat/CentOS, Ubuntu, Debian und
+FreeBSD
+Windows gute Kenntnisse, Erfahrung in Client/Server
+Umgebungen, Terminalserver
+Programmiersprachen Basic VBA und Visual Basic Grundkenntnisse
+C++ Grundkenntnisse
+Java Grundkenntnisse
+JavaScript Tiefe Kenntnisse in JavaScript, Closure
+Library, Ecmascript 6, AngularJS 2, jQuery
+Perl gute Kenntnisse
+PHP Zend Certified Engineer - sehr tiefes PHP
+Know How , OOP, MVC, HighPerformance
+Scriptsprachen sehr gute Kenntnisse
+Shell sehr gute Kenntnisse
+Ich bin seit dem Jahr 1999 spezialisiert auf die PHP und Frontend
+Entwicklung.
+Datenbanken Access Grundkenntnisse
+MS SQL Server Grundkenntnisse
+MySQL sehr gutes mySQL Know How (auch Inno DB)
+ODBC gute Kenntnisse
+Oracle gute Kenntnisse
+Postgres Grundkenntnisse
+SQL sehr gute SQL Kenntnisse
+Sybase gute Kenntnisse Sybase IQ / Sybase ASE
+Exasol
+Datenkommunikation Ethernet
+Internet, Intranet
+16.03.2023 5 von 6
+ISDN
+LAN, LAN Manager
+Router
+SMTP
+TCP/IP
+Windows Netzwerk
+Design / Entwicklung / Photoshop allgemeine Kenntnisse
+Konstruktion
+UserExperience sehr gute Kenntnisse
+umfangreiche und jahrelange Erfahrung u.a. mit folgenden Web
+Technologien:
+    •  HTML5, CSS3, XHTML
+    •  HTTP, HTTPS
+    •  Web Services, SOAP, REST
+    •  XML, XSLT
+    •  Javascript/Jquery/ExtJS
+    •  dhtmlx
+    •  Eclipse
+    •  IntelliJ IDEA / PHPStorm
+    •  Maven &amp; Jenkins
+    •  Versionierungsssystem CVS/SVN/GIT
+    •  SASS/Compass sowie less (CSS-Optimierung)
+ 
+Arbeiten mit agilen Entwicklungsmethoden wie SCRUM und Kanban.
+ 
+Hervorragende Kentnisse im Bereich E-Commerce - sowohl rechtliche
+als auch technische Anforderungen. Erfahrung mit vielen Shopsystem
+(osCommerce, XT-Commerce, Magento, oxid, ...)
+ 
+Erfahrung in der
+    •  Administration von Servern auf Unix (CentOS) als auch auf
+     ?Windowsbasis
+    •  Webserveradministration von nginx / Apache / IIS
+    •  Cachingtechnologien Varnish Server
+ 
+Erfahrung mit verschiedensten CMS-Systemen (Coremedia, drupal,
+joomla, ...)
+ 
+Aus- und Weiterbildung
+1999 - heute: freiberufliche Tätigkeit als Web Developer mit Schwerpunkt PHP sowie Frontend-
+Engineering
+16.03.2023 6 von 6
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_51085
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                51085
+  
+Wohnort                    854xx Wartenberg, Deutschland
+Jahrgang                   1971
+Staatsbürgerschaft         deutsch
+Stundensatz                80 EUR
+                           gültig für Deutschland / R8
+Verfügbar ab               01.06.20 zu 60%, Vor-Ort-Einsatz 80% möglich
+Profil erstellt am         21.05.03
+Profil zuletzt geändert am 30.04.20
+Lesen von Projektanfragen  4,5 Tage [01]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 25.04.2020 14:38:43
+
+Fachlicher Schwerpunkt:
+Senior Fullstack Architect Backend/Frontend (PHP, HTML5/CSS3/Javascript,
+Responsive Design, CMS, E-​Commerce, SEO, SEA)
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Dokumentation / DTP
+Engineering / IT-nahe Ingenieurdienstleistungen
+
+Senior Architect Backend/Frontend
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+1999 - heute: freiberufliche Tätigkeit als Web Developer mit Schwerpunkt PHP
+sowie Frontend-Engineering
+
+Einsatzort:
+Regionen:
+D8
+im Umkreis von:
+München (50 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: besonders bevorzugt Raum 8 (München)
+ 
+Weitere Länder: Verständlicherweise nur bei größeren/längerfristigen Projekten
+bzw. Erstattung entsprechender Reisekosten oder mit RemoteMöglichkeit
+ 
+
+Fremdsprachen:
+Deutsch  Muttersprache
+Englisch fließend in Wort und Schrift (Projekterfahrung)
+
+
+Betriebssysteme:
+Mac OS          gute Kenntnisse
+SUN OS, Solaris gute Kenntnisse
+Unix/Linux      gute bis sehr gute Linux Kenntnisse in Suse, Redhat/CentOS,
+                Ubuntu, Debian und FreeBSD
+Windows         gute Kenntnisse, Erfahrung in Client/Server Umgebungen,
+                Terminalserver
+
+
+Programmiersprachen:
+Basic          VBA und Visual Basic Grundkenntnisse
+C++            Grundkenntnisse
+Java           Grundkenntnisse
+JavaScript     Tiefe Kenntnisse in JavaScript, Closure Library, Ecmascript 6,
+               AngularJS 2, jQuery
+Perl           gute Kenntnisse
+PHP            Zend Certified Engineer - sehr tiefes PHP Know How , OOP, MVC,
+               HighPerformance
+Scriptsprachen sehr gute Kenntnisse
+Shell          sehr gute Kenntnisse
+
+Ich bin seit dem Jahr 1999 spezialisiert auf die PHP und Frontend Entwicklung.
+
+Datenbanken:
+Access        Grundkenntnisse
+MS SQL Server Grundkenntnisse
+MySQL         sehr gutes mySQL Know How (auch Inno DB)
+ODBC          gute Kenntnisse
+Oracle        gute Kenntnisse
+Postgres      Grundkenntnisse
+SQL           sehr gute SQL Kenntnisse
+Sybase        gute Kenntnisse Sybase IQ / Sybase ASE
+
+Exasol
+
+Datenkommunikation:
+Ethernet            
+Internet, Intranet  
+ISDN                
+LAN, LAN Manager    
+Router              
+SMTP                
+TCP/IP              
+Windows Netzwerk    
+
+
+Design/Entwicklung/Konstruktion:
+Photoshop      allgemeine Kenntnisse
+UserExperience sehr gute Kenntnisse
+
+
+Produkte/Standards/Erfahrungen:
+Schwerpunkt:
+Web Developer &amp; Frontend Engineering (PHP, Oracle, MySQL, CMS)
+
+Methoden, Standards:
+Scrum &amp; Kanban, Continuous Integration, (X)HTML, HTML5, CSS2 / CSS3,  SASS/
+compass, grunt, less, bootstrap, Ant, Maven, Hudson, GreenHopper
+
+Programmiersprachen:
+PHP 5/7, Java/JSP, XML, Perl, JavaScript (u.a. Ecmascript 6), AngularJS 2, Ajax
+(ExtJS, jQuery, jQuery Mobile), NodeJS, Unix Shell Script
+
+Datenbanken:
+MySQL, PostgreSQL, Sybase ASE, Sybase IQ, Exasol, Oracle, SQlite
+
+Betriebssysteme:
+Linux/Unix (Ubuntu, Suse, Red Hat, Free BSD, Sun Solaris, Mandrake), Windows
+9x/NT/2000/XP/Mobile, Windows Server 2003, OS/400
+
+Content Management:
+Coremedia, Drupal, Imperia, Joomla!
+
+Foren Systeme:
+phpBB, phorum.org, UBB Treads, vBulletin
+
+Shop Systeme:
+OsCommerce, shopware, xtcommerce, Oxid
+
+Zend Produkte:
+Zend Server, Zend Framework, Zend Optimizer, Zend Performance Suite
+
+PHP Libs/Tools:
+Smarty Template Engine, AdoDB, PEAR, phpDocumentor, phpUnit, NuSphere PhpED,
+PHP Eclipse, phpStorm, phalcon, Volt Templates
+
+Versionsverwaltung:
+GIT, Stash, Subversion (SVN), CVS
+
+Webserver:
+nginx, Apache 1/2, XAMPP, IIS
+
+Sonstige Libs/Tools:
+Jira, Confluence, Bitbucket (alias Stash)
+
+Technische Erfahrungen:
+    * seit über 15 Jahren auf PHP Entwicklung spezialisiert
+    * Content Management
+    * Mehrsprachige Webseiten
+    * Personalisierungssysteme
+    * Portale
+    * Load Balanced Multi Server Systems (Hochverfügbarkeit)
+    * Massen/Direct mailing
+    * Standardisierung und Optimierung von Web Applikationen (PHP und MySQL
+      Performance)
+    * Sicherheitsorientierte Programmierung
+    * Code Review
+    * Code Quality
+    * Coding Standards / -Guidelines
+    * Usability orientierte Konzeption
+    * Application Service Providing
+    * Mehrstufige Architekturen
+    * Suchmaschinenoptimierung (SEO, SEA)
+
+Kompetenzen:
+    * Technisches Consulting, Projektmanagement und Programmierung in großen
+      Projekten (auch mit Englisch als Projektsprache)
+    * Betriebswirtschaftliche/kaufmännische Berufserfahrung
+    * Teamfähigkeit und hohes Maß an Kommunikationsvermögen und Selbständigkeit
+    * Verantwortungsbewusstsein und hohe Belastbarkeit
+    * gute Marktkenntnisse
+    * ausgeprägte Fähigkeit zum analytischen und planerischen Denken
+    * gute Englischkenntnisse in Wort und Schrift
+ 
+
+Branchen:
+Handel
+Medien
+Automobil
+Telekommunikation
+Medizin
+
+Projekte:
+Vodafone Kabel Deutschland (09/2015- aktuell):
+ 
+    * Weiterentwicklung und Wartung der Anwendungen im Bereich Web-Frontend,
+      Umsetzung von Anforderungen in den Portalen ECC/HA/HV/CSC/PUB
+    * Tests der Portal-Bestelllogik mit den Frontend-Testing Tools
+    * Unterstützung bei der Analyse von neuen Anforderungen
+    * Linux, SOAP, HTTP, PHP >= 5.5, strikt objektorjentiert
+    * Zend-Server
+    * Librarymanagment via Composer &amp; Satis
+    * Unit-Testing mit PHP-Unit
+    * Performanceoptimierung
+    * Vagrant
+ 
+sportspirit&amp;consult Neuentwicklung E-Commerce-Engine (inhouse 12/2015-
+aktuell):
+ 
+    * Frontend (Ecmascript 6, AngularJS 2, Babel, SASS)
+    * PHP 7, strikt objektorjentiert
+    * Phalcon MVC
+    * Volt-Template-Engine
+    * Zend-Server, Redis
+    * High-Performance E-Commercesuite (Responsetime <= 100ms)
+    * Vagrant
+    * Docker
+ 
+Projekt 1&amp;1 Portaltechnologien (11/2012-08/2015):
+ 
+    * Entwicklung im Bereich Frontend (HTML5/CSS3/Javascript/Jquery/Closure
+      Library/Soy/AngularJS/NodeJS)
+    * Entwicklung im Bereich Mobile (HTML5/CSS3/Jquery/Jquery touch/Closure
+      Library)
+    * CSS-Code-Optimierung mit less, danach sass/compass in Verbindung mit
+      grunt
+    * CSS-Refactoring (Spritegenerierung, Kaskadenminimierung, bootstrap, etc.)
+    * Performanceanalyse/Code-Reviewing
+    * Coremedia CMS Editor
+    * Technisches Umfeld Apache/Tomcat/JSP/Maven/SVN
+ 
+    * Vorbereitung umd Umsetzung Relaunch Portale im Responsive Web Design
+    * Komplettes Neudesign - Umsetzung mit Closure Library, Soy Templates,
+      Less, Grunt
+    * Automatische Styleguideerstellung
+    * Mobile First Ansatz
+    * Performance Driven - Performance im Responsive Web-Design
+    * Qualitätssicherung im Bereich der Entwicklung (Unit-Testing, Regression
+      Testing, Code Review, Coaching)
+    * Optimierung Auslieferung Advertising Media (VideoAds, ClassicAds,
+      SpecialAds)
+    * Auslieferung/Ansteuerung diverser Trackingsystem/-pixel (IVW, Agof), Tag-
+      Management
+    * Backend-Administrationssystem (AngularJS, Bootstrap, NodeJS)
+ 
+Chip Digital  (11/2014-01/2015):
+ 
+    * Analyse Implementierung Ad-Technolgoien
+    * Optimierung der Struktur der Frontend-Module/-Prozesse (u.a. RequireJS/
+      NodeJS)
+    * Refactoring bestehendes Ad-Steuerungs-Tool
+    * Technologien: RequireJS/NodeJS/MongoDB
+ 
+Projekt Sony Music Entertainment (1999-06/2013):
+ 
+    * Programmierung von Webapplikationen im Umfeld PHP/Sybase/MySQL/Linux-
+      CentOS-Redhat
+      Technologien: PHP / Zend-Framework / jQuery /dhtmlX / extJS
+      Es handelte sich um Applikationen für ca. 500 User die an den Systemen
+      arbeiten
+      oder auch um Portalseiten mit ca. 8000 Usern täglich.
+    * Absicherung/Intrusion-Detection von Webservern und Applikationen
+    * Performanceanalyse/Code-Reviewing/Coaching im PHP-Umfeld
+    * Administration von Serverfarmen - Einrichtung/Wartung/Performance
+ 
+Projekt Exactag GmbH (03/2012-09/2012)
+ 
+    * Programmierung AdServer Administration Interface
+      Technologien: PHP / Zend-Framework / jQuery / extJS
+      Containerlösung für onSite-Tracking Lösungen im Ecommerce Bereich
+    * Performanceanalyse/Code-Reviewing/Coaching im PHP-Umfeld
+ 
+ 
+Diverse E-Commerce Projekte inkl. eigener Online-Shop ([URL auf Anfrage])
+(2004-heute):
+ 
+    * Shopsysteme: shopware / xt-Commerce / osCommerce
+    * Installation / Wartung / Optimierung
+    * Individualisierung / Eigenentwicklung von Modulen
+    * Designanpassungen / Implementierung Responsive WebDesign im E-Commerce
+    * Performance Driven E-Commerce
+    * Generierung Produktfeeds (u.a. Amazon, Google)
+    * Integration Tag-Manager
+    * Integration verschiedenster Tracking- und Analyse Tools
+    * Anlage und Steuerung Ad-Words/Google Products Kampagnen
+    * SEO
+    * Payment Provider / Risk-Management
+    * Anbindung/Integration Warenwirtschaftssysteme
+    * Integration von CMS System (Drupal/Wordpress) in das E-Commerce-System
+ 
+ 
+ 
+
+ 
+
+Sonstige Anmerkungen:
+umfangreiche und jahrelange Erfahrung u.a. mit folgenden Web Technologien:
+    * HTML5, CSS3, XHTML
+    * HTTP, HTTPS
+    * Web Services, SOAP, REST
+    * XML, XSLT
+    * Javascript/Jquery/ExtJS
+    * dhtmlx
+    * Eclipse
+    * IntelliJ IDEA / PHPStorm
+    * Maven &amp; Jenkins
+    * Versionierungsssystem CVS/SVN/GIT
+    * SASS/Compass sowie less (CSS-Optimierung)
+ 
+Arbeiten mit agilen Entwicklungsmethoden wie SCRUM und Kanban.
+ 
+Hervorragende Kentnisse im Bereich E-Commerce - sowohl rechtliche als auch
+technische Anforderungen. Erfahrung mit vielen Shopsystem (osCommerce, XT-
+Commerce, Magento, oxid, ...)
+ 
+Erfahrung in der
+    * Administration von Servern auf Unix (CentOS) als auch auf Windowsbasis
+    * Webserveradministration von nginx / Apache / IIS
+    * Cachingtechnologien Varnish Server
+ 
+Erfahrung mit verschiedensten CMS-Systemen (Coremedia, drupal, joomla, ...)
+ 
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_51085
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 01.05.2020 00:46:21
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

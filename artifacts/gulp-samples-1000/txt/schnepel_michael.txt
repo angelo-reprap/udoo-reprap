@@ -1,0 +1,928 @@
+Software-, Datenbank- und DWH-Entwicklung, Oracle, PL/SQL, C++,
+Java, UNIX
+Top-Skills: Oracle-Datenbankentwicklung, PL/SQL-
+Datenbankprogrammierung
+Verfügbar ab: 07.03.2022
+verfügbar zu: 80 %
+davon vor Ort: 100 %
+Stundensatz: 80,00 EUR
+Bemerkungen: für Großraum München
+Einsatzort
+Regionen &amp; Länder: D8
+Städte: München 50 km
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Deutschland: nur Großraum München
+Position
+Kommentar:
+Projekte
+Zeitraum: 12/18 bis 03/22
+Firma: GEMA (Gesellschaft für musikalische Aufführungs- und mechanische Vervielfältigungsrechte)
+Branche: Verwertungsgesellschaft für Urheberrechte
+Projektinhalte:
+PL/SQL-Schnittstellenprogrammierung:
+Migration von Rechnungen, Gutschriften und Zahlungen von Oracle Financials nach SAP FI:
+• Design und Implementierung der Oracle Schnittstellen-Tabellen (ca. 10)
+• Datenaufbereitung und Transformationen mit PL/SQL
+• Test der migrierten Daten auf Vollständigkeit und Korrektheit
+Synchronisation von SAP/CRM Adress- und Vertragsdaten in ein Oracle basiertes System für die
+Ausschüttungsberechnung auf Basis von XML-Dateien:
+• Design und Implementierung der Oracle Schnittstellen-Tabellen (ca. 30) mit mehr als 500
+Attributen
+• Einlesen und Zerlegen der XML-Dateien
+02.03.2023 1 von 10
+• Speichern der XML-Daten in Zwischentabellen
+• Datenaufbereitung, Attribut-Mapping und Transformationen in PL/SQL
+• Erzeugen und automatische Ausführung von Insert-, Update- und Delete-Statements für die Oracle
+Tabellen des Zielsystems
+• Test der synchronisierten Daten auf Vollständigkeit und Korrektheit
+Erstellen der technischen Dokumentation für die Daten-Migration und -Synchronisation
+Performance-Tuning von SQL Statements und PL/SQL-Code mit Hilfe von Execution-Plans und
+Auswertung von Oracle System-Views: Umformulierung, Index-Erstellung
+Zeitraum: 01/13 bis 10/18
+Firma: Wirecard AG
+Branche: Finanzdienstleistung, Bank
+Projektinhalte:
+    1.  Entwicklung von SQL Abfragen für Reports und Erzeugung verschiedener Formate: csv,
+     ?dsv, Excel, XML
+    2.  Performance-Tuning von SQL Statements mit Hilfe von Execution-Plans: Umformulierung,
+     ?Index-Erstellung
+    3.  Tabellendesign, -erzeugung und Administration eines DWH-Staging-Schemas unter Oracle
+     ?Exadata
+    4.  Implementierung von (täglichen) ETL-Prozessen zum Befüllen/Aktualisieren des
+     ?DWH-Staging-Schemas aus operativen Oracle- (ca. 100 Tabellen), MySQL- und PostgreSQL-
+     ?(jeweils ca. 10 Tabellen) Datenbanken und 5 Excel-Sheets mit Oracle PL/SQL und PDI
+     ?(Pentaho Data Integration)
+    5.  Tabellendesign, -erzeugung und Administration eines DWH-Schemas unter Oracle Exadata
+     ?mit (Slowly changing) Dimensions- und Faktentabellen nach dem
+     ?Stern-/Schneeflockenprinzip
+    6.  Implementierung von (täglichen) Befüll/Aktualisierungs-Routinen der DWH Dimensions-
+     ?und Faktentabellen mit Oracle PL/SQL und PDI
+    7.  Installation, Upgrade des BI-Tools MicroStrategy 10.4 auf Linux-Servern
+    8.  Automatisierte Konfiguration von Linux Servern mit puppet
+    9.  Erstellung von Release-Paketen mit RPM Package Manager und automatisierte Installation
+     ?mit puppet
+    •  Datenbanken: Oracle 12c (Exadata), MySQL, PostgreSQL
+    •  Betriebssysteme: (Oracle) Linux, Windows 10
+    •  Entwicklungsplattformen: Oracle SQL Developer, spoon PDI
+    •  BI Reporting Tool: Microstrategy 10.4
+    •  Konfigurationstools: RPM Package Manager, puppet
+    •  Ticket-System: Jira
+    •  Content-Management-System: Confluence
+    •  Versionskontrolle: Subversion (TortoiseSVN), Mercurial (TortoiseHG)
+Zeitraum: 10/12 bis 12/12
+Firma: Inverso Gesellschaft für innovative Versicherungssoftware mbH
+Branche: Versicherung
+Projekte:
+    1.  Erstellung von PL/SQL-Packages zur automatisierten Abarbeitung von Geschäftsprozessen:
+     ?Automatische Beantwortung von Versicherungswechselanfragen unter Berücksichtigung von
+     ?Entscheidungsregeln
+    2.  Einbindung der Automatisierung in AIX-Batchläufe
+    3.  Erzeugung von Übersichts- und Detailauswertungen der Automatisierung in Excel
+    •  Programmiersprachen: PL/SQL, AIX-Shell-Skripts
+    •  Datenbank: Oracle 11g
+    •  Betriebssysteme: AIX, Windows 7
+02.03.2023 2 von 10
+    •  Entwicklungsplattformen: Oracle SQL Developer
+    •  Ticket-System: Jira
+    •  Content-Management-System: Confluence
+    •  Versionskontrolle: Subversion: TortoiseSVN
+Zeitraum: 05/12 bis 09/12
+Firma: PSI Logistics GmbH
+Branche: Software für Logistik und Produktion
+Projekte:
+    1.  Spezifikation und Implementierung von Qualitätssteigerungsmaßnamen für Versandkartons
+     ?in Distributionszentren.
+    2.  Implementierung der Oracle Tabellen- und PL/SQL-Package Erweiterungen.
+    3.  Implementierung der Optimierungsalgorithmen in C++
+    •  Programmiersprachen: PL/SQL, C++
+    •  Datenbanken: Oracle 11g
+    •  Betriebssysteme: Linux, Windows
+    •  Entwicklungsplattformen: Visual Studio, Oracle SQL Developer
+    •  Compiler: Visual C++, GNU g++
+    •  Versionskontrolle: Subversion, TortoiseSVN
+Zeitraum: 06/11 bis 04/12
+Firma: Inverso Gesellschaft für innovative Versicherungssoftware mbH
+Branche: Versicherung
+Projekte:
+    1.  Oracle Datenbankupgrade von 9i auf 11g für ein großes Versicherungsinformationssystem
+    2.  Konfiguration von Oracle WebLogic 11g / Forms11g / Reports11g - Servern
+    3.  Konvertierung und Anpassung von Oracle Forms6i/Reports6i-Anwendungen nach Oracle
+     ?Forms11g/Reports11g
+    4.  Testdurchführung von Batchläufen unter Oracle 9i und Oracle 11g – Analyse auf
+     ?Ergebnisdifferenzen und Implementierung der notwendigen Codeanpassungen in
+     ?AIX-Shell-Skripts, SQL und PL/SQL-Code.
+    5.  Portierung eines Drucksystems zum Aufruf eines Oracle Reports Servers 11g.
+    6.  Behebung von Performanceproblemen durch Tuning-Maßnahmen: Oracle Optimizer-Hints und
+     ?Umformulierung von SQL-Statements
+    •  Programmiersprachen: PL/SQL, C, AIX-Shell-Skripts
+    •  Datenbanken: Oracle 9i, Oracle 11g
+    •  Betriebssysteme: AIX, Windows 7
+    •  Entwicklungsplattformen: Oracle SQL Developer
+    •  Ticketbearbeitung: Jira
+    •  Content-Management-System: Confluence
+    •  Versionskontrolle: Subversion, TortoiseSVN
+Zeitraum: 02/10 bis 05/11
+Firma: Axxom Software AG
+Branche: Software für Logistik und Produktion
+Projekte:
+    1.  KPI Reports, Statistiken und Datenanalysen mit Massendaten
+Aufgaben: Definition der Architektur, Implementierung und Test von PL/SQL Skripten
+    2.  Erstellung der operativen Produkteinplanung
+Aufgaben: Definition, Implementierung, Test und Deployment von PL/SQL Packages und
+     ?Prozeduren, Erzielung optimaler Performance bei vielen Restriktionen und einer
+     ?Vielzahl an benötigten Daten in großem Datenmodell
+    3.  Versorgung von Standorten mit ausreichendem Lagerbestand und zur Verteilung von
+     ?Lieferaufträgen an Standorte
+Aufgaben: Definition, Implementierung einer C++ Applikation, Migration einer
+02.03.2023 3 von 10
+     ?Dateischnittstelle auf direkten Oracle Datenbankzugriff, Test und Auslieferung,
+     ?Einhaltung definierter maximaler Zeitfenster, Verarbeitung von Massendaten (mehr als 1
+     ?Mio. Datensätze), Hochverfügbarkeit
+    4.  Berechnung der täglichen Auftragseinlastung
+Aufgaben: Definition und Implementierung von Schnittstellen und Konfigurationsdateien,
+     ?Einlesen der Daten, Ausgabe der Daten, Vereinbarung von mehr als 50, zum Teil einander
+     ?widersprechenden Restriktionen
+Weitere Aufgaben:
+    •  Customizing, Wartung, Erweiterung von Reports
+    •  Erstellung von Softwaredokumentation
+    •  Testmanagement, Erstellung von Testplänen, Durchführung von Unit- und
+     ?Integrationstests
+    •  Erstellung neuer Releases und Bereitstellung von Hotfixes
+    •  Projektmanagement von Kundenprojekten
+    •  Aufwandsabschätzungen und Erstellung von Kundenangeboten
+    •  Erstellung von technischen Feinkonzepten und Pflichtenheften
+    •  Issuebearbeitung, Incident- und Problemmanagement auf Basis des Bug Tracking Systems
+     ?Mantis BT
+    •  3rd Level Support bei auftretenden Problemen im Applikationsbetrieb bei Kunden
+Programmiersprachen: Java, PL/SQL, C++
+Datenbanken: Oracle 10g, Oracle 11g
+Betriebssysteme: Linux, HPUX, Windows
+Entwicklungsplattformen: Visual Studio, SQL Developer
+Compiler: Visual C++, GNU g++
+Ticketbearbeitung: MantisBT
+Versionskontrolle: Subversion, TortoiseSVN
+Zeitraum: 06/08 bis 12/09
+Firma: Debitel / Freenet
+Branche: Telekommunikation, Mobilfunk
+Aufgaben:
+    •  Installation, Konfiguration, Administration und Überwachung von Backendapplikationen
+     ?(Abrechnungs-, Aktivierungs-, Provisions-, Risikomanagement- und
+     ?Dokumentenverwaltungssysteme)
+    •  Sicherstellung des reibungslosen Applikationsbetriebs laut vereinbarter Service Level
+     ?Agreements
+    •  Optimierung der Applikationen durch Automatisierungen und Einbindung in das zentrale
+     ?Job-Scheduling-System Control-M
+    •  Inbetriebnahme neuer Releases und Einspielen von Hotfixes
+    •  Ticketbearbeitung, Incident- und Problemmanagement nach ITIL auf Basis des
+     ?Ticketsystems Remedy der Firma BMC und Nagios
+    •  Koordination von externen Partnern
+    •  Reporting von Kennzahlen
+    •  Durchführung von Rufbereitschaften
+    •  Sicherstellung einer aktuellen Systemdokumentation
+    •  Implementierung, Test und Inbetriebnahme von UNIX-Shell und Perl-Skripten zur
+     ?Prozessüberwachung und Logdateiauswertung und Einbindung in Nagios und Control-M
+    •  Implementierung einer Java-Applikation zum automatisierten Senden und Empfangen von
+     ?(EDIFACT-)Dateien über BusinessMail X.400 mit BUA (Batch User Agent)/FTP
+Programmiersprachen: Java, Perl, UNIX-Shell-Skript
+Datenbanken: Oracle 10g, Sybase ASE
+Betriebssysteme: Solaris 10, Linux, Windows
+Entwicklungsplattform: Eclipse
+Ticketbearbeitung: ARS Remedy
+Job-Scheduling: Control-M
+Netzwerküberwachung: Nagios
+02.03.2023 4 von 10
+Zeitraum: 03/01 bis 05/08 (dazu parallel andere Projekte)
+Firma: AVON Cosmetics
+Branche: Handel, Logistik
+Projekt: Optimierung der Prozesse in den Versandzentren weltweit in mehr als
+15 Ländern
+Verfahren für optimale Produktallokation im Lager
+Minimierung von Umlagerungen und Nachschubvorgängen
+Minimierung der Verwechslungsgefahr ähnlicher Produkte
+Verfahren zur Bildung optimaler Versandeinheiten unter bestmöglicher Ausnutzung des
+Versandkartonvolumens anhand der Produktvolumina / Abmessungen und unter Berechnung der
+kürzesten Wege
+Ereignisdiskrete Simulation
+Aufgaben:
+    •  Erstellen von Aufwandsschätzungen, Angeboten, Spezifikationen und Feinkonzepten
+    •  System- und Schnittstellenarchitektur
+    •  Produktgestaltung, Implementierung, Qualitätssicherung
+    •  Release Management, Versionsplanung, Change Requests
+    •  Benutzer-Online-Hilfe, Installations- und Administrationshandbücher, Schulung
+    •  Fix-Management
+    •  Simulationen zur Prozessverbesserung und Produktivitätssteigerung, Datenanalysen
+Programmiersprachen: C++, Java, PL/SQL, Delphi, Oracle Forms
+Datenbanken: Oracle 7 bis 10g
+Datenbanktools: SQL-Loader
+Betriebssysteme: Linux, Windows
+Entwicklungsplattformen: Borland Builder, Visual Studio, Eclipse, SQL Developer
+Compiler: Intel C++, GNU g++
+Ticketbearbeitung: Bridgetrack
+Versionskontrolle: Subversion, TortoiseSVN
+Zeitraum: 10/07 bis 12/07
+Firma: Baur Versand
+Branche: Versandhandel, Logistik
+Projekt: Datenanalysen zum Zusammenhang zwischen dem Einsatz von kombinatorischen
+Optimierungsverfahren und Produktivitätssteigerung in der Logistik
+Aufgaben:
+    •  Analyse der Einsparungseffekte auf Basis von Auftrags- und Artikelstammdaten
+    •  Aufbau der Datenstrukturen
+    •  Implementierung der Schnittstellen
+    •  Entwicklung von Businesslogiken zur Analyse der Daten
+    •  Evaluierung der Daten im Hinblick auf einsetzbare Optimierungsalgorithmen
+    •  Spezifikation von Anpassungen innerhalb der Optimierungsverfahren
+    •  Implementierung von Prototypen zur Verifikation der Untersuchungsergebnisse
+    •  Präsentation der Ergebnisse
+Software: Oracle 10g, PL/SQL, SQL-Loader, C++
+Zeitraum: 06/07 bis 09/07
+Firma: DHL
+Branche: Distribution, Logistik
+Projekt: Simulationen von Änderungen in Kommissionier- und Nachschubprozessen
+02.03.2023 5 von 10
+sowie in der Fördertechnik
+Aufgaben:
+    •  Identifikation von Potenzialen zur Steigerung der Produktivität im
+     ?Distributionszentrum
+    •  Ermittlung der Einsparungsmöglichkeiten auf Basis von aktuellen Auftrags- und
+     ?Artikelstammdaten
+    •  Aufbau der Datenstrukturen für das Simulationsmodell
+    •  Konzeption und Implementierung der Schnittstellen
+    •  Entwicklung von Businesslogiken zur Analyse der Daten
+    •  Berechnung von Ist-Ergebnissen zur Erstellung des Basiswerts
+    •  Modifikation des Datenmodells und einzelner Parameter zur Berechnung von
+     ?Simulationsvarianten
+    •  Vergleich der Daten mit dem Basismodell
+    •  Erstellung von Auswertungen
+    •  Anpassung der existierenden Optimierungsverfahren auf das Simulationsmodell
+    •  Spezifikation und Implementierung von Anpassungen innerhalb der Optimierungsverfahren
+    •  Implementierung von Prototypen zur Verifikation der Untersuchungsergebnisse
+Software: Oracle 10g, PL/SQL, SQL-Loader, C++
+Zeitraum: 01/07 bis 05/07
+Branche: BMW
+Branche: Automobil, Distribution, Logistik
+Projekt: Optimierungslösung zur Steigerung der Produktivität in der
+Ersatzteildistribution
+Aufgaben:
+    •  Installation und Administration von Oracle 9i / 10g auf HPUX 11.11
+    •  Portierung der Optimierungsverfahren von Windows auf HPUX 11.11
+    •  Migration der Optimierungslösung von Oracle 9i auf Oracle 10g
+Software: HPUX, Oracle 9i / 10g, C++, OCI (Oracle Call Interface)
+Zeitraum: 06/06 bis 12/06
+Firma: Witt Weiden
+Branche: Versandhandel, Logistik
+Projekt: Optimierung der Hängefördererbelegung zur Steigerung der Produktivität
+Aufgaben:
+    •  Zuordnung von Aufträgen zu Fächern in den Gondeln eines Hängeförderers
+    •  Reduktion der benötigten Gondeln durch Ausnutzung von nicht belegten Fächern und
+     ?Doppelbelegung von Fächern mit zwei Aufträgen
+    •  Vertauschen von Aufträgen zwischen Gondeln zum Ausgleich der Arbeitslast Aufgaben:
+    •  Definition und Implementierung der Eingabe- und Ausgabeschnittstellen sowie der
+     ?Optimierungsparameter
+    •  Definition und Implementierung der Datenstrukturen
+    •  Implementierung der Optimierungsverfahren
+    •  Erstellen von Auswertungen und Statistiken
+Software: Windows, Linux, C++ (GNU g++)
+Zeitraum: 05/05 bis 05/06
+02.03.2023 6 von 10
+Firma: DHL
+Branche: Distribution, Logistik
+Projekt: Optimale Auftragsreihenfolge/Serienbildung für ein neues Distributionszentrum
+und eine neue Technik mit Pick- und Putkommissionierung
+Reihenfolgeplanung der Kartongrößen und Aufträge
+Zuordnung von Kundenaufträgen zu Serien
+Dynamische Bestückung der Schnelldreher-Lagerplätze je Serie unter Berücksichtigung der
+Verpackungseinheitengröße und Produktgröße
+Einhaltung von Abständen zwischen Putvorgängen
+Gesonderte Behandlung von einzelpöstigen Aufträgen
+Aufgaben:
+    •  Definition und Implementierung der Eingabe- und Ausgabeschnittstellen sowie der
+     ?Optimierungsparameter
+    •  Definition und Implementierung der Datenstrukturen
+    •  Implementierung der Optimierungsverfahren
+    •  Erstellen von Auswertungen und Statistiken
+Software: IBM AIX, Windows, C++
+Zeitraum: 07/03 bis 08/04
+Firma: Otto Versand
+Branche: Versandhandel, Logistik
+Projekt: Vermeidung von Sendungsteilungen und Transportkostenminimierung
+- Minimierung der Anzahl an Kundenbestellungen, die in Teilsendungen aus mehr
+als einem Distributionszentrum ausgeliefert werden
+- Berücksichtigung des vorhandenen Lagerbestands je Artikel je Standort und
+des Abverkaufs je Artikel, sowie der Transportkosten zwischen den
+unterschiedlichen Standorten
+Aufgaben:
+    •  Definition und Implementierung der Eingabe- und Ausgabeschnittstellen sowie der
+     ?Optimierungsparameter
+    •  Definition und Implementierung der Datenstrukturen
+    •  Implementierung der Optimierungsverfahren
+    •  Erstellen von Auswertungen und Statistiken
+Software: HPUX, Windows, C++ (aCC Compiler unter HPUX), XML als Schnittstellenformat
+Zeitraum: 10/02 bis 06/03
+Firma: Otto Versand
+Branche: Versandhandel, Logistik
+Projekt: Batchbildung im Versandzentrum mit zweistufiger Kommissionierung
+- Zusammenfassen von Kundenaufträgen zu Batches, deren Artikel zusammen
+kommissioniert und in Versandkartons gepackt werden
+- Minimierung der Anzahl benötigter Kommissionierwannen zur Verkürzung von Wegen
+- Ausgleich der Arbeitslast durch Vertauschen von Aufträgen zwischen den Batches
+Aufgaben:
+    •  Definition und Implementierung der Eingabe- und Ausgabeschnittstellen sowie der
+     ?Optimierungsparameter
+02.03.2023 7 von 10
+    •  Definition und Implementierung der Datenstrukturen
+    •  Implementierung der Optimierungsverfahren
+    •  Erstellen von Auswertungen und Statistiken
+    •  Anpassungen und Ergänzung der Schnittstellen und Optimierungsverfahren
+Software: HPUX, Windows, C++ (aCC Compiler unter HPUX)
+Branchen
+Automobil
+Banken
+Finanzdienstleistungen
+Handel
+Logistik
+Mobilfunk
+Produktion
+Telekommunikation
+Transport
+Versicherung
+Sprachen
+Deutsch Muttersprache
+Englisch Verhandlungssicher
+Kompetenzen
+Produkte / Standards /
+Erfahrungen / Methoden
+Fundierte Kenntnisse:
+  - Expertenwissen in Oracle SQL und PL/SQL, Datenbank- und SQL-
+Statement Tuning  
+  - Langjährige Erfahrung in objektorientierter Programmierung mit
+C++
+Betriebssysteme HPUX
+Linux RedHat
+Oracle Linux
+SUN OS, Solaris
+Unix Linux, AIX,HPUX
+Windows NT,2000,XP,Vista
+Programmiersprachen Basic
+02.03.2023 8 von 10
+C
+C++ Microsoft Visual Studio, Borland Builder, GNU
+gcc / g++
+Delphi
+Java
+JavaScript
+PDI (Pentaho Data
+Integration)
+Perl
+PL/SQL
+Shell
+yacc/lex
+Datenbanken Access
+Informix
+MySQL
+Oracle
+PostgreSQL
+Sybase
+Datenkommunikation EDIFACT
+Internet, Intranet
+PC-Anywhere
+TCP/IP
+Windows Netzwerk
+X.400 X.25 X.225 X.75...
+Hardware HP PA-RISC
+IBM RS6000
+PC
+SUN
+Aus- und Weiterbildung
+Studium Informatik mit Nebenfach Elektrotechnik an der TU München
+1995 Abschluss als Dipl.-Informatiker (Univ.)
+02.03.2023 9 von 10
+02.03.2023 10 von 10
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_89485
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                89485
+  
+Wohnort                    817xx München, Deutschland
+Jahrgang                   1967
+Staatsbürgerschaft         Deutsch
+Stundensatz                80 EUR
+                           für Großraum München
+Verfügbar ab               04.10.21 zu 50%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         25.03.08
+Profil zuletzt geändert am 08.06.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 10.03.2021 13:11:54
+
+Fachlicher Schwerpunkt:
+Software-, Datenbank- und DWH-​Entwicklung, Oracle, PL/SQL, ETL-​Prozesse mit
+PDI, C++, Java, UNIX
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Studium Informatik mit Nebenfach Elektrotechnik an der TU München
+1995 Abschluss als Dipl.-Informatiker (Univ.)
+
+Einsatzort:
+Regionen:
+D8
+im Umkreis von:
+München (50 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: nur Großraum München
+
+Fremdsprachen:
+Deutsch  Muttersprache
+Englisch Verhandlungssicher
+
+
+Hardware:
+HP         PA-RISC
+IBM RS6000  
+PC          
+SUN         
+
+
+Betriebssysteme:
+HPUX             
+Linux RedHat     
+Oracle Linux     
+SUN OS, Solaris  
+Unix            Linux, AIX,HPUX
+Windows         NT,2000,XP,Vista
+
+
+Programmiersprachen:
+Basic                           
+C                               
+C++                            Microsoft Visual Studio, Borland Builder, GNU
+                               gcc / g++
+Delphi                          
+Java                            
+JavaScript                      
+PDI (Pentaho Data Integration)  
+Perl                            
+PL/SQL                          
+Shell                           
+yacc/lex                        
+
+
+Datenbanken:
+Access      
+Informix    
+MySQL       
+Oracle      
+PostgreSQL  
+Sybase      
+
+
+Datenkommunikation:
+EDIFACT                   
+Internet, Intranet        
+PC-Anywhere               
+TCP/IP                    
+Windows Netzwerk          
+X.400 X.25 X.225 X.75...  
+
+
+Produkte/Standards/Erfahrungen:
+Fundierte Kenntnisse:
+  - Expertenwissen in Oracle SQL und PL/SQL, Datenbank- und SQL-Statement
+Tuning  
+  - Langjährige Erfahrung in objektorientierter Programmierung mit C++
+
+Branchen:
+Automobil
+Banken
+Finanzdienstleistungen
+Handel
+Logistik
+Mobilfunk
+Produktion
+Telekommunikation
+Transport
+Versicherung
+
+Projekte:
+Zeitraum: 01/13 bis 10/18
+Firma:      Wirecard AG
+Branche:  Finanzdienstleistung, Bank
+ 
+Projektinhalte:
+   1. Entwicklung von SQL Abfragen für Reports und Erzeugung verschiedener
+      Formate: csv, dsv, Excel, XML
+   2. Performance-Tuning von SQL Statements mit Hilfe von Execution-Plans:
+      Umformulierung, Index-Erstellung
+   3. Tabellendesign, -erzeugung und Administration eines DWH-Staging-Schemas
+      unter Oracle Exadata
+   4. Implementierung von (täglichen) ETL-Prozessen zum Befüllen/Aktualisieren
+      des DWH-Staging-Schemas aus operativen Oracle- (ca. 100 Tabellen), MySQL-
+      und PostgreSQL- (jeweils ca. 10 Tabellen) Datenbanken und 5 Excel-Sheets
+      mit Oracle PL/SQL und PDI (Pentaho Data Integration)
+   5. Tabellendesign, -erzeugung und Administration eines DWH-Schemas unter
+      Oracle Exadata mit (Slowly changing) Dimensions- und Faktentabellen nach
+      dem Stern-/Schneeflockenprinzip
+   6. Implementierung von (täglichen) Befüll/Aktualisierungs-Routinen der DWH
+      Dimensions- und Faktentabellen mit Oracle PL/SQL und PDI
+   7. Installation, Upgrade des BI-Tools MicroStrategy 10.4 auf Linux-Servern
+   8. Automatisierte Konfiguration von Linux Servern mit puppet
+   9. Erstellung von Release-Paketen mit RPM Package Manager und automatisierte
+      Installation mit puppet
+
+    * Datenbanken: Oracle 12c (Exadata), MySQL, PostgreSQL
+    * Betriebssysteme: (Oracle) Linux, Windows 10
+    * Entwicklungsplattformen: Oracle SQL Developer, spoon PDI
+    * BI Reporting Tool: Microstrategy 10.4
+    * Konfigurationstools: RPM Package Manager, puppet
+    * Ticket-System: Jira
+    * Content-Management-System: Confluence
+    * Versionskontrolle: Subversion (TortoiseSVN), Mercurial (TortoiseHG)
+ 
+ 
+ 
+Zeitraum: 10/12 bis 12/12
+Firma:      Inverso Gesellschaft für innovative Versicherungssoftware mbH
+Branche:  Versicherung
+ 
+Projekte:
+   1. Erstellung von PL/SQL-Packages zur automatisierten Abarbeitung von
+      Geschäftsprozessen: Automatische Beantwortung von
+      Versicherungswechselanfragen unter Berücksichtigung von
+      Entscheidungsregeln
+   2. Einbindung der Automatisierung in AIX-Batchläufe
+   3. Erzeugung von Übersichts- und Detailauswertungen der Automatisierung in
+      Excel
+ 
+    * Programmiersprachen: PL/SQL, AIX-Shell-Skripts
+    * Datenbank: Oracle 11g
+    * Betriebssysteme: AIX, Windows 7
+    * Entwicklungsplattformen: Oracle SQL Developer
+    * Ticket-System: Jira
+    * Content-Management-System: Confluence
+    * Versionskontrolle: Subversion: TortoiseSVN
+ 
+Zeitraum: 05/12 bis 09/12
+Firma:      PSI Logistics GmbH
+Branche:  Software für Logistik und Produktion
+ 
+Projekte:
+   1. Spezifikation und Implementierung von Qualitätssteigerungsmaßnamen für
+      Versandkartons in Distributionszentren.
+   2. Implementierung der Oracle Tabellen- und PL/SQL-Package Erweiterungen.
+   3. Implementierung der Optimierungsalgorithmen in C++
+ 
+    * Programmiersprachen: PL/SQL, C++
+    * Datenbanken: Oracle 11g
+    * Betriebssysteme: Linux, Windows
+    * Entwicklungsplattformen: Visual Studio, Oracle SQL Developer
+    * Compiler: Visual C++, GNU g++
+    * Versionskontrolle: Subversion, TortoiseSVN
+ 
+ 
+Zeitraum: 06/11 bis 04/12
+Firma:      Inverso Gesellschaft für innovative Versicherungssoftware mbH
+Branche:  Versicherung
+ 
+Projekte:
+   1. Oracle Datenbankupgrade von 9i auf 11g für ein großes
+      Versicherungsinformationssystem
+   2. Konfiguration von Oracle WebLogic 11g / Forms11g / Reports11g - Servern
+   3. Konvertierung und Anpassung von Oracle Forms6i/Reports6i-Anwendungen nach
+      Oracle Forms11g/Reports11g
+   4. Testdurchführung von Batchläufen unter Oracle 9i und Oracle 11g  Analyse
+      auf Ergebnisdifferenzen und Implementierung der notwendigen
+      Codeanpassungen in AIX-Shell-Skripts, SQL und PL/SQL-Code.
+   5. Portierung eines Drucksystems  zum Aufruf eines Oracle Reports Servers
+      11g.
+   6. Behebung von Performanceproblemen durch Tuning-Maßnahmen: Oracle
+      Optimizer-Hints und Umformulierung von SQL-Statements
+ 
+    * Programmiersprachen: PL/SQL, C, AIX-Shell-Skripts
+    * Datenbanken: Oracle 9i, Oracle 11g
+    * Betriebssysteme: AIX, Windows 7
+    * Entwicklungsplattformen: Oracle SQL Developer
+    * Ticketbearbeitung: Jira
+    * Content-Management-System: Confluence
+    * Versionskontrolle: Subversion, TortoiseSVN
+ 
+Zeitraum: 02/10 bis 05/11
+Firma:    Axxom Software AG
+Branche:  Software für Logistik und Produktion
+ 
+Projekte:
+   1. KPI Reports, Statistiken und Datenanalysen mit Massendaten
+      Aufgaben: Definition der Architektur, Implementierung und Test von PL/SQL
+      Skripten
+   2. Erstellung der operativen Produkteinplanung
+      Aufgaben: Definition, Implementierung, Test und Deployment von PL/SQL
+      Packages und Prozeduren, Erzielung optimaler Performance bei vielen
+      Restriktionen und einer Vielzahl an  benötigten Daten in großem
+      Datenmodell
+   3. Versorgung von Standorten mit ausreichendem Lagerbestand und zur
+      Verteilung von Lieferaufträgen an Standorte
+      Aufgaben: Definition, Implementierung einer C++ Applikation, Migration
+      einer  Dateischnittstelle auf direkten Oracle Datenbankzugriff, Test und
+      Auslieferung, Einhaltung definierter maximaler Zeitfenster, Verarbeitung
+      von Massendaten (mehr als 1 Mio. Datensätze), Hochverfügbarkeit
+   4. Berechnung der täglichen Auftragseinlastung
+      Aufgaben: Definition und Implementierung von Schnittstellen und
+      Konfigurationsdateien, Einlesen der Daten, Ausgabe der Daten,
+      Vereinbarung von mehr als 50, zum Teil einander widersprechenden
+      Restriktionen
+ 
+Weitere Aufgaben:
+    * Customizing, Wartung, Erweiterung von Reports
+    * Erstellung von Softwaredokumentation
+    * Testmanagement, Erstellung von Testplänen, Durchführung von Unit- und
+      Integrationstests
+    * Erstellung neuer Releases und Bereitstellung von Hotfixes
+    * Projektmanagement von Kundenprojekten
+    * Aufwandsabschätzungen und Erstellung von Kundenangeboten
+    * Erstellung von technischen Feinkonzepten und Pflichtenheften
+    * Issuebearbeitung, Incident- und Problemmanagement auf Basis des Bug
+      Tracking Systems Mantis BT
+    * 3rd Level Support bei auftretenden Problemen im Applikationsbetrieb bei
+      Kunden
+ 
+Programmiersprachen: Java, PL/SQL, C++
+Datenbanken: Oracle 10g, Oracle 11g
+Betriebssysteme: Linux, HPUX, Windows
+Entwicklungsplattformen: Visual Studio, SQL Developer
+Compiler: Visual C++, GNU g++
+Ticketbearbeitung: MantisBT
+Versionskontrolle: Subversion, TortoiseSVN
+ 
+===============================================================================
+ 
+Zeitraum: 06/08 bis 12/09
+Firma:    Debitel / Freenet
+Branche:  Telekommunikation, Mobilfunk
+Aufgaben:
+    * Installation, Konfiguration, Administration und Überwachung von
+      Backendapplikationen (Abrechnungs-, Aktivierungs-, Provisions-,
+      Risikomanagement- und Dokumentenverwaltungssysteme)
+    * Sicherstellung des reibungslosen Applikationsbetriebs laut vereinbarter
+      Service Level Agreements
+    * Optimierung der Applikationen durch Automatisierungen und Einbindung in
+      das zentrale Job-Scheduling-System Control-M
+    * Inbetriebnahme neuer Releases und Einspielen von Hotfixes
+    * Ticketbearbeitung, Incident- und Problemmanagement nach ITIL auf Basis
+      des Ticketsystems Remedy der Firma BMC und Nagios
+    * Koordination von externen Partnern
+    * Reporting von Kennzahlen
+    * Durchführung von Rufbereitschaften
+    * Sicherstellung einer aktuellen Systemdokumentation
+    * Implementierung, Test und Inbetriebnahme von UNIX-Shell und Perl-Skripten
+      zur Prozessüberwachung und Logdateiauswertung und Einbindung in Nagios
+      und Control-M
+    * Implementierung einer Java-Applikation zum automatisierten Senden und
+      Empfangen von (EDIFACT-)Dateien über BusinessMail X.400 mit BUA (Batch
+      User Agent)/FTP
+ 
+Programmiersprachen: Java, Perl, UNIX-Shell-Skript
+Datenbanken: Oracle 10g, Sybase ASE
+Betriebssysteme: Solaris 10, Linux, Windows
+Entwicklungsplattform: Eclipse
+Ticketbearbeitung: ARS Remedy
+Job-Scheduling: Control-M
+Netzwerküberwachung: Nagios
+ 
+===============================================================================
+ 
+Zeitraum: 03/01 bis 05/08 (dazu parallel andere Projekte)      
+Firma:    AVON Cosmetics
+Branche:  Handel, Logistik
+Projekt:  Optimierung der Prozesse in den Versandzentren weltweit in mehr als
+ 15 Ländern
+Verfahren für optimale Produktallokation im Lager
+Minimierung von Umlagerungen und Nachschubvorgängen
+Minimierung der Verwechslungsgefahr ähnlicher Produkte
+Verfahren zur Bildung optimaler Versandeinheiten unter bestmöglicher Ausnutzung
+des Versandkartonvolumens anhand der Produktvolumina / Abmessungen und unter
+Berechnung der kürzesten Wege
+Ereignisdiskrete Simulation     
+ 
+Aufgaben:
+    * Erstellen von Aufwandsschätzungen, Angeboten, Spezifikationen und
+      Feinkonzepten
+    * System- und Schnittstellenarchitektur
+    * Produktgestaltung, Implementierung, Qualitätssicherung
+    * Release Management, Versionsplanung, Change Requests
+    * Benutzer-Online-Hilfe, Installations- und Administrationshandbücher,
+      Schulung
+    * Fix-Management
+    * Simulationen zur Prozessverbesserung und Produktivitätssteigerung,
+      Datenanalysen
+ 
+Programmiersprachen: C++, Java, PL/SQL, Delphi, Oracle Forms
+Datenbanken: Oracle 7 bis 10g
+Datenbanktools: SQL-Loader
+Betriebssysteme: Linux, Windows
+Entwicklungsplattformen: Borland Builder, Visual Studio, Eclipse, SQL Developer
+Compiler: Intel C++, GNU g++
+Ticketbearbeitung: Bridgetrack
+Versionskontrolle: Subversion, TortoiseSVN
+===============================================================================
+
+Zeitraum: 10/07 bis 12/07  
+Firma:    Baur Versand
+Branche:  Versandhandel, Logistik
+Projekt:  Datenanalysen zum Zusammenhang zwischen dem Einsatz von
+kombinatorischen
+ Optimierungsverfahren und Produktivitätssteigerung in der Logistik
+Aufgaben:
+    * Analyse der Einsparungseffekte auf Basis von Auftrags- und
+      Artikelstammdaten
+    * Aufbau der Datenstrukturen
+    * Implementierung der Schnittstellen
+    * Entwicklung von Businesslogiken zur Analyse der Daten
+    * Evaluierung der Daten im Hinblick auf einsetzbare Optimierungsalgorithmen
+    * Spezifikation von Anpassungen innerhalb der Optimierungsverfahren
+    * Implementierung von Prototypen zur Verifikation der
+      Untersuchungsergebnisse
+    * Präsentation der Ergebnisse     
+ 
+Software: Oracle 10g, PL/SQL, SQL-Loader, C++
+
+===============================================================================
+
+Zeitraum: 06/07 bis 09/07  
+Firma:    DHL     
+Branche:  Distribution, Logistik
+Projekt:  Simulationen von Änderungen in Kommissionier- und Nachschubprozessen
+ sowie in der Fördertechnik
+Aufgaben:
+    * Identifikation von Potenzialen zur Steigerung der Produktivität im
+      Distributionszentrum
+    * Ermittlung der Einsparungsmöglichkeiten auf Basis von aktuellen Auftrags-
+      und Artikelstammdaten
+    * Aufbau der Datenstrukturen für das Simulationsmodell
+    * Konzeption und Implementierung der Schnittstellen
+    * Entwicklung von Businesslogiken zur Analyse der Daten
+    * Berechnung von Ist-Ergebnissen zur Erstellung des Basiswerts
+    * Modifikation des Datenmodells und einzelner Parameter zur Berechnung von
+      Simulationsvarianten
+    * Vergleich der Daten mit dem Basismodell
+    * Erstellung von Auswertungen
+    * Anpassung der existierenden Optimierungsverfahren auf das
+      Simulationsmodell
+    * Spezifikation und Implementierung  von Anpassungen innerhalb der
+      Optimierungsverfahren
+    * Implementierung von Prototypen zur Verifikation der
+      Untersuchungsergebnisse
+ 
+Software: Oracle 10g, PL/SQL, SQL-Loader, C++         
+
+===============================================================================
+
+Zeitraum: 01/07 bis 05/07  
+Branche:  BMW     
+Branche:  Automobil, Distribution, Logistik
+Projekt:  Optimierungslösung zur Steigerung der Produktivität in der
+ Ersatzteildistribution
+Aufgaben:
+    * Installation und Administration von Oracle 9i / 10g auf HPUX 11.11
+    * Portierung der Optimierungsverfahren von Windows auf HPUX 11.11
+    * Migration der Optimierungslösung von Oracle 9i auf Oracle 10g
+ 
+Software: HPUX, Oracle 9i / 10g, C++, OCI (Oracle Call Interface)       
+
+===============================================================================
+
+Zeitraum: 06/06 bis 12/06  
+Firma:    Witt Weiden      
+Branche:  Versandhandel, Logistik
+Projekt:  Optimierung der Hängefördererbelegung zur Steigerung der
+Produktivität
+Aufgaben:
+    * Zuordnung von Aufträgen zu Fächern in den Gondeln eines Hängeförderers
+    * Reduktion der benötigten Gondeln durch Ausnutzung von nicht belegten
+      Fächern und Doppelbelegung von Fächern mit zwei Aufträgen
+    * Vertauschen von Aufträgen zwischen Gondeln zum Ausgleich der Arbeitslast
+      Aufgaben:
+    * Definition und Implementierung der Eingabe- und Ausgabeschnittstellen
+      sowie der Optimierungsparameter
+    * Definition und Implementierung der Datenstrukturen
+    * Implementierung der Optimierungsverfahren
+    * Erstellen von Auswertungen und Statistiken
+ 
+Software: Windows, Linux, C++ (GNU g++)      
+
+===============================================================================
+
+Zeitraum: 05/05 bis 05/06  
+Firma:    DHL     
+Branche:  Distribution, Logistik
+Projekt:  Optimale Auftragsreihenfolge/Serienbildung für ein neues
+Distributionszentrum
+ und eine neue Technik mit Pick- und Putkommissionierung
+ 
+Reihenfolgeplanung der Kartongrößen und Aufträge
+Zuordnung von Kundenaufträgen zu Serien
+Dynamische Bestückung der Schnelldreher-Lagerplätze je Serie unter
+Berücksichtigung der Verpackungseinheitengröße und Produktgröße
+Einhaltung von Abständen zwischen Putvorgängen
+Gesonderte Behandlung von einzelpöstigen Aufträgen
+ 
+Aufgaben:
+    * Definition und Implementierung der Eingabe- und Ausgabeschnittstellen
+      sowie der Optimierungsparameter
+    * Definition und Implementierung der Datenstrukturen
+    * Implementierung der Optimierungsverfahren
+    * Erstellen von Auswertungen und Statistiken
+ 
+Software: IBM AIX, Windows, C++     
+
+===============================================================================
+
+Zeitraum: 07/03 bis 08/04  
+Firma:    Otto Versand
+Branche:  Versandhandel, Logistik
+Projekt:  Vermeidung von Sendungsteilungen und Transportkostenminimierung
+  - Minimierung der Anzahl an Kundenbestellungen, die in Teilsendungen aus mehr
+ als einem Distributionszentrum ausgeliefert werden
+  - Berücksichtigung des vorhandenen Lagerbestands je Artikel je Standort und
+ des Abverkaufs je Artikel, sowie der Transportkosten zwischen den
+ unterschiedlichen Standorten         
+ 
+Aufgaben:
+    * Definition und Implementierung der Eingabe- und Ausgabeschnittstellen
+      sowie der Optimierungsparameter
+    * Definition und Implementierung der Datenstrukturen
+    * Implementierung der Optimierungsverfahren
+    * Erstellen von Auswertungen und Statistiken
+ 
+Software: HPUX, Windows, C++ (aCC Compiler unter HPUX), XML als
+Schnittstellenformat         
+
+===============================================================================
+
+Zeitraum: 10/02 bis 06/03  
+Firma:    Otto Versand
+Branche:  Versandhandel, Logistik
+Projekt:  Batchbildung im Versandzentrum mit zweistufiger Kommissionierung
+  - Zusammenfassen von Kundenaufträgen zu Batches, deren Artikel zusammen
+ kommissioniert und in Versandkartons gepackt werden
+  - Minimierung der Anzahl benötigter Kommissionierwannen zur Verkürzung von
+Wegen
+  - Ausgleich der Arbeitslast durch Vertauschen von Aufträgen zwischen den
+Batches        
+ 
+Aufgaben:
+    * Definition und Implementierung der Eingabe- und Ausgabeschnittstellen
+      sowie der Optimierungsparameter
+    * Definition und Implementierung der Datenstrukturen
+    * Implementierung der Optimierungsverfahren
+    * Erstellen von Auswertungen und Statistiken
+    * Anpassungen und Ergänzung der Schnittstellen und Optimierungsverfahren
+ 
+Software: HPUX, Windows, C++ (aCC Compiler unter HPUX)         
+
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_89485
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 09.06.2021 00:51:26
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

@@ -1,0 +1,2509 @@
+---------- Gulp-Profil Stand 2017-04-08 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 44466: Scala,
+Play, Akka, Spark, Data Science, Big Data, Machine Learning           
+       
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+44466 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 44466    Wohnort 812xx München, Deutschland Jahrgang
+1969 Staatsbürgerschaft deutsch Stundensatz 80 EUR  Verfügbar ab
+01.01.18 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+02.11.02 Profil zuletzt geändert am 08.04.17 Lesen von Projektanfragen
+1 Tag  [5]Direktkontakt [6]         Kommentar:   Kommentar schreiben
+Profil angezeigt am 11.11.2017 16:41:03       Fachlicher Schwerpunkt: 
+Scala, Play, Akka, Spark, Data Science, Big Data, Machine Learning    
+ Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Coaching / Schulung / Training
+ Projektmanagement / -leitung / Organisation / Koordination
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  
+
+	* Diplom Informatiker
+	* MBA, Entrepreneurship
+	* Senior Projektmanager Level B, GPM-IPMA
+	* Oracle Certified Professional
+	* Englisch verhandlungssicher, TOEFL zert.
+	* Functional Programming Principles in Scala, by Martin Odersky
+(Coursera)
+	* Machine Learning, by Andrew Ng, Stanford University (Coursera)
+
+      Einsatzort:   Regionen: 
+
+	D8   im Umkreis von: 
+
+	München (10 km)   Ich möchte AUSSCHLIEßLICH für die o. g. Einsatzorte
+kontaktiert werden.       Fremdsprachen:  
+
+		Deutsch
+		Muttersprache
+
+		Englisch
+		Verhandlungssicher
+
+		Französisch
+		Grundlagen
+
+		Spanisch
+		Grundlagen
+
+      Betriebssysteme:  
+
+		Mac OS
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C++
+		Projekterfahrung
+
+		Java
+		Projekterfahrung in J2EE
+
+		PL/SQL
+		Projekterfahrung, Trainer und Coach
+
+      Datenbanken:  
+
+		JDBC
+		Projekterfahrungen
+
+		Microsoft Access
+		Projekterfahrungen
+
+		MySQL
+		Projekterfahrungen
+
+		Oracle
+		10 Jahre Projekterfahrungen, 10g, 11g
+
+		SQL
+		Projekterfahrungen
+
+      Datenkommunikation:  
+
+		Ethernet
+
+		Internet, Intranet
+
+		TCP/IP
+
+      Aufgabenbereiche:  
+
+		Big Data, Machine Learning
+
+		Java EE FullStack Entwickler
+
+		Markt- und Datenanalysen
+
+		Oracle Certified Professional
+
+		Projektmanager Agile/Scrum
+
+		Scala, Play, Akka &amp; Spark Entwickler
+
+		SoftwareArchitekt
+
+		Statistik und Prognosen
+
+      Produkte/Standards/Erfahrungen:  
+
+		Agiles Projektmanagement
+
+		Magnolia CMS
+
+		Oracle Enterprise Manager
+
+		Oracle JDeveloper
+
+		Oracle Warehouse Builder
+
+		Salesforce
+
+		Scrum
+		Master
+
+		TOAD
+
+      Branchen:  
+
+	* Telekommunikation
+	* Banken
+	* Industrie
+	* Energie
+	* eGovernment
+	* Behörde
+	* Logistik
+	* Umweltmanagement
+
+      Projekte:  
+
+	2016 Scala Entwickler, Data Scientist, Ippen Digital GmbH &amp; CO.
+KG München (12 Mon)
+Implementierung von ETL Real Time und NearRealtime Data Pipelines für
+die Umsetzung von
+Recommendation Systemen. Aufbau einer Online Benutzerverwaltung mit
+Scala und Play.
+Inhalt 
+
+	* Umsetzung eines Recommendation System für Leser und Artikel
+
+	* Umsetzung von Audience Intelligence, Generierung der User Base aus
+Tracking und Bot
+Daten
+	* Aufbau einer WebIntranet Plattform für die Umsetzung von
+benutzerdefinierten Data
+Pipelines, MultiTier Architektur
+	* Audience Intelligence, Generierung der User Base/Profiles,
+Auswertung des Zeitverhaltens
+(Time Lens), Auswertung der IPAdresse
+(Mobility Lens), Auswertung der digitalen Affinität
+(Digital Lens), Auswertung von Content &amp; Referrer (Content Lens)
+	* Content Intelligence, Generierung von TextDokumenten
+(Text Base), NLP Basisstufe, Word und Phrase Extraction, Semantische
+Annotation, Aufbau eines MultiTag NER Models Topic Modeling (LDA),
+Aufbau eines DocCatModells, Content Graph
+	* EDV: Scala, Play, Akka, Spark, Rest, Json, IntelliJ, Machine
+Learning Algorithmen, ElasticSearch, Titan, Druid, Microservices,
+Mesos, Amazon EC2, AWS, Hadoop FS, MongoDB, Postgres,
+Zookeeper, Kafka, Git, Maven, SBT, OAuth2, Stratio/Sparta, CDAP,
+StreamSets, ReactiveMongo, Slick, Jenkins, Continuous Integration
+Team: 10 Personen
+
+	2015 Software Entwickler, VSA GmbH, Celgene GmbH, Ray Sono AG,
+Retarus GmbH
+München (12 Monate)
+Implementierung verschiedener, verteilte und kritischer
+Geschäftsanwendungen mit Scala und
+Java, Aufbau einer WebIntranet Plattform, Datenmodellierung mit UML
+und ERModell
+Inhalt 
+
+	* REST Services Implementierung mit Scala, Akka und Play HTTP (JSON)
+	* Datenbank CRUD Zugriffe über Slick auf PostgreSQL
+	* Nutzung verschiedener Cloud Services, u.a. Heroku, Clever Cloud,
+VisualOps und AWS
+
+	* JPA konfiguriert und Daten Layer aufgesetzt, CRUD Operation, Umgang
+mit Lazy und
+Eager Loading, JMS Java Messaging Services	* Frontend Entwicklung,
+JSF, Java Backing Beans, AngularJS, Bootstrap, HTML5, CSS3
+	* Datenbankanbindung, ERModellierung Postgres, MySQL, JBoss Wildfly
+Data Sources
+	* Continuous Integration and Delivery aufgesetzt mit Maven, Git,
+Jenkins und JUnit
+
+	* EDV: JavaEE, Spring, Hibernate, JPA, JBoss Wildfly, UML,
+ERDatenmodellierung,
+EJB, JSF, CSS3, HTML5, JavaScript, Bootstrap, Rest Services, Eclipse,
+JSON, MySQL, Oracle, SQL, PL/SQL, JUnit, BPMN, Scrum, Scala, Play,
+Akka, IntelliJ
+Team: 48 Personen
+
+	04/2014 - 11/2014 Software Entwickler, Bayerisches
+Justizministerium München (8 Monate)
+Inbetriebnahme des Piloten eAkte (elektronische Akte) im Rechenzentrum
+der Justiz München.
+Inhalt 
+
+	* Aufnahme der Anforderungen und Entwicklung der Software für das
+Projekt eIP
+(elektronisches Integrationsportal).	* Aufnahme und Abgleich der
+aktuellen und zukünftigen Rechenzentrum ITArchitektur
+
+	* Unterstützung VMware, Weblogic Server mit SOA ESB (Enterprise
+Service Bus) und eIP
+Applikation von IBM	* EDV: Oracle DB, Weblogic Server, PL/SQL, Java
+EE, JPA, JSF, XHTML, Jenkins, Maven, Git, Eclipse, Spring, REST
+Schnittstellen, Scrum, Alfresco DMS, Lucene, Solr, HTML5, CSS3,
+JavaScript, BPMN, JUnit,VMWare
+
+	Team: IBM, itnovum, Unisys, RZNord Justiz, Staatsministerium der
+Justiz, Gemeinsame ITStelle
+der bayerischen Justiz (GIT)
+Budget: > 10 Mio.  
+
+	10/2013 - 12/2014 Software Entwickler, Ballet and Dance Studio
+Munich München (14 Mon)
+Entwicklung eines Customer Relationship Management zur Verwaltung der
+Mitglieder
+Inhalt 
+
+	* Aufbau einer CRM Web Plattform mit Java und Scala, Anbindung an
+Postgres Datenbank
+über Slick und dem Einsatz von Play Framework	* Frontend mit
+AngularJS, HTML, CSS2
+
+	* EDV: Java EE 7, AngularJS, HTML5, CSS3, JavaScript, JSF, JPA,
+Maven, Git, IntelliJ, Tomcat,
+Scala, Play, Slick, Postgres, JSON, Rest, Scrum, Jenkins, Continuous
+Integration
+Team: 4 Personen
+
+	02/2013 - 10/2013 Projektmanager, ProSiebenSat.1 Media AG,
+SevenVentures GmbH München (9 Mon)
+Einführung von Salesforce CRM zur Kundenverwaltung und Marketing zur
+Verbesserung des
+operativen Geschäfts.
+Inhalt 
+
+	* Business Process Analyse zur Datenmigration,
+SchnittstellenAnbindung,
+Berichte und Ablösen der Excel Tabellen	* Individuelle Konfiguration
+und Entwicklung von Salesforce CRM für die SevenVentures
+	* Integration und Konsolidierung von Prozessabläufen und Daten nach
+Salesforce.
+
+	* Überschneidungen zu anderen betroffenen Bereiche innerhalb des
+Konzerns klären und
+konsolidieren	* Anbindung an das zentrale Data Warehouse ProMetheus
+
+	* Einbindung der Nielsen DB für die Sendeplanung, der Playliste
+Generierung und für das
+TVScheduling	* Agiles Projektmanagement nach Scrum Methodik,
+monatliche RollOuts
+	* Steuern von Testteams, Erstellen von Testprotokolle, Auswertung und
+Optimierung
+	* EDV: Requirements Engineering, Salesforce CRM, Nielsen Datenbank,
+Oracle, Jira, Scrum, SAP BO, MS Office, Google Docs
+
+	Team: 6 Personen im Kernteam, Koordination externer Lieferanten in
+Hamburg, Koordination IBM
+für internes DWH ProMetheus
+Budget: 600.000  
+
+	03/2010 - 04/2013 Software Entwickler, Projektmanager, Stadtwerke
+München SWM
+MCard GmbH München (> 3 Jahre)
+Aufbau eines M//Card LoyaltySystems mit Anbindung an Business
+Intelligence (Oracle) für das
+Kampagnenmanagement, Marketing, Customer Insight, Vertrieb
+(Kundengewinnung und
+Kundenbindung) und Controlling.
+Inhalt 
+
+	* Aufnahme der Anforderungen (Requirements Engineering) für die
+Entwicklung eines
+Internetauftritts mit Magnolia CMS	* Entwicklung des CRM Systems auf
+Basis von Oracle und Java mit UML
+
+	* Kundenwertmodelle, Analytische Kunden/ Marktmodell und Multichannel
+Marketing,
+ScoringVerfahren, Customer Lifecycle
+	* Adhoc Auswertung und Analysen für Kundensegmentierung, Kampagnen
+und
+Zielgruppenbestimmung
+	* Aufbau Enterprise Data Warehouses, ERModellierung, ETL Prozesse,
+Datenmigration und
+Qualitätssicherung
+	* Aufbau eines Dokumenten Management Systems mit Alfresco DMS für die
+Verwaltung und
+Archivierung der Anträge	* Anbindung von Terminals über REST/Web
+Services Schnittstellen
+	* EDV: Oracle 11g, SAP CRM, Tomcat, Magnolia CMS, Alfresco DMS, Java
+EE, HTML, CSS, JavaScript, Freemarker, JPA, EJB, Jenkins, Maven, Git,
+Spring, Eclipse, REST, Continuous Integration, JUnit, UML,
+ERModellierung, Scrum, SQL, PL/SQL, SQL Developer, SPSS, R
+
+	Team: 10 Personen im Kernteam, plus verschiedene externe
+Vertragspartner und Dienstleister
+Budget: > 5 Mio.  
+
+	Software Entwickler, Inplus GmbH, Umwelt Management, München 08.2009
+- 03.2010 (8 Mon)
+Entwicklung einer webbasierten Umweltmanagement
+InformationsSoftware UMsys5 für Industrie, Pharmazie und
+Behörden (Stadt München RGU) zur Verwaltung umweltbezogener Auflagen.
+EDV: JavaEE, HTML, CSS, JSF, JPA, JavaScript, Jenkins, Maven, Git,
+Oracle 10g, PL/SQL
+Team: 6 Personen + Kunde und externe Vertragspartner, Budget: 300.000
+ 
+
+	Software Entwickler, TSystems Enterprise Services GmbH, Stuttgart
+11.2008 - 06.2009 (8 Mon)
+Aufbau einer Plattform zur Erstellung von Standard Service Reports für
+Daimler AG.
+EDV: MS Office, Java EE, HTML, JSF, JPA, SQL, PL/SQL, Oracle10g, DB2,
+Tivoli, OpenSmart
+Team: 4 Personen + angrenzende Abteilungen und Vertragspartner der
+Daimler AG, Budget: 700.000  
+
+	Software Entwickler, HanseNet Telekommunikation GmbH,
+Hamburg 11.2007 - 04.2008 (6 Mon)
+Entwicklung der Alice Software für Modems bzw. Router.
+Projektunterstützung bei der Umstellung der LAN Infrastructure
+EDV: Office Produkte, Router Technologie, UML, Oracle 10g, Java EE,
+C++
+Team: 8 Personen + Marketing, Vertrieb und Produktmanagement, TÜV
+Nord, Budget: > 2 Mio.  
+
+	Projektmanager, Kühne + Nagel (AG + CO.) KG,
+Hamburg05.2007 - 10.2007 (6 Mon)
+Aufbau eines europaweit operativen Data Warehouse zur Auswertung von
+KPIs für Logistik und Transport.
+EDV: Office Produkte, Clarity, Oracle 10g, Cognos, Java EE, EJB, SUN
+Solaris, SQL, PL/SQL
+Team: 20 Personen, Softwareentwicklung in der Schweiz, Frankreich,
+Deutschland, Budget: > 2 Mio.  
+
+	Software Entwickler, DVN Deutsche Vergabe Netz GmbH, Berlin 08.2005 -
+10.2006 (15 Mon)
+Entwicklung eines Abrechnungssystems, Payback Verfahren für das
+elektronische Bauund
+Vergabeverfahren (Portal).
+EDV: MS Project, Visio, ERwin, JavaEE, EJB, HTML, CSS, JSP, JDBC,
+Oracle 10g, Oracle Warehouse Builder, PL/SQL
+Team: 5 Personen im Entwickler Kernteam + angrenzende Abteilungen,
+Budget: 400.000  
+
+	Software Entwickler, European Consulting Group GmbH, Berlin 11.2002 -
+08.2005 (> 3 Jahre)
+Projektleitung und Entwicklung Equal II ITTool (EUREKA) für das
+Bundesministerium für Wirtschaft und Arbeit BMWA.
+EDV: MS Project Server, Oracle, PL/SQL, UML, Java EE, JSP, HTML, CSS,
+JBoss, EJB, Tomcat, Struts, MS .NET
+Team: > 10 Personen, multikulturelles Projektumfeld, Projektsprache
+Englisch, Budget: > 2 Mio.  
+
+Oracle Analyst, Siemens AG, Berlin 02.2004 - 10.2004 (1.000 Std.
+Kontingent)
+Performance Tuning und LastTests (Simulation) der IN@vantage Plattform
+(Intelligente Netzwerke).
+EDV: SUN Solaris, Oracle, Oracle Enterprise Manager, Java, C++,
+PL/SQL, SQL
+Team: Großprojekt mit Beteiligten von verschiedenen Abteilungen,
+Budget: 120.000  (für die Beratung) 
+
+	Oracle Management Consultant, CMG AG, Berlin, 07.2001 - 08.2002 (14
+mon.)
+Aufbau und Organisation eines Oracle Competence Center CMG
+Deutschland, Team: 6 Personen, Budget: > 1 Mio.  
+
+Oracle Berater, Stiftung Warentest, Berlin, 10.2001 - 08.2002 (11
+mon.)
+Support und Dienstleistungen für Oracle Datenbanken mit dem Enterprise
+Manager,
+Team: 4 Administratoren, Budget: 400.000  
+
+Oracle Architekt, Eplus GmbH co.KG, Berlin, 05.2001 - 09.2001 (5 mon.)
+Entwicklung einer Mobile Business Lösung VISS Vertriebs und
+Information Steuerung, Team: 6 Personen, Budget: 800.000  
+
+Oracle Architekt, ECG GmbH, Berlin, 09.2000 - 04.2001 (8 mon.)
+Entwicklung eines Portals EUREKA für die Verwaltung von EU
+Fördergeldern. Team: 8 Entwickler, Budget: 500.000  
+
+Oracle Analyst DWH, Immobilien Scout GmbH, Berlin, 03.2000 -
+08.2000 (6 Mon)
+Entwicklung eines Data Warehouse auf Basis von Oracle Datenbanken. 
+
+Oracle Analyst, CocaCola / Erfrischungsgetränke AG, Berlin, 09.1998 -
+02.2000 (18 Mon)
+Data Warehouse Auswertung für das System CHAMP Channel Analyse
+Monitoring und Prozess auf Basis von Oracle. 
+
+System Entwickler, Rehau AG, Rehau, 06.1997 - 06.1998 (12 Mon)
+Entwicklung einer CADSoftware zur Konstruktion von Fensterrahmen
+Profile. Team: 11 Entwickler, Budget: > 2 Mio.       
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 44466 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 16.04.2017 01:20:53
+ (c) Copyright 1996-2017 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+---------- Gulp-Profil Stand 2016-08-04 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 44466: Senior
+Projektmanager (Level B, IPMA) für IT-Projekte, Java EE Software
+Entwickler und Architekt, BI Consultant, Oracle, Markt, Datenanalysen,
+Statistik                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+44466 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 44466    Wohnort 812xx München, Deutschland Jahrgang
+1969 Staatsbürgerschaft deutsch Stundensatz 65 EUR  Verfügbar ab
+01.01.17 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+02.11.02 Profil zuletzt geändert am 04.08.16 Lesen von Projektanfragen
+0,5 Tage  [5]Direktkontakt [6]         Kommentar:   Kommentar
+schreiben Profil angezeigt am 04.05.2016 10:02:04       Fachlicher
+Schwerpunkt:  Senior Projektmanager (Level B, IPMA) für IT-Projekte,
+Java EE Software Entwickler und Architekt, BI Consultant, Oracle,
+Markt, Datenanalysen, Statistik      Position:  Software-Entwicklung /
+Programmierung
+ Beratung / Consulting
+ Coaching / Schulung / Training
+ Projektmanagement / -leitung / Organisation / Koordination
+
+	* Diplom Informatiker
+	* Master Business Administration, Entrepreneurship
+	* Senior Projektmanager Level B, IPMA
+	* Magnolia CMS, Associate Developer Certificate
+	* Oracle Certified Professional
+	* Englisch verhandlungssicher, TOEFL zert. 
+
+	 
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  
+
+	Diplom Informatiker 
+
+	MBA, Entrepreneurship 
+
+	Senior Projektmanager Level B, GPM-IPMA 
+
+	Oracle Certified Professional 
+
+	Englisch verhandlungssicher, TOEFL zert.      Einsatzort:   Regionen:
+
+
+	D8       Fremdsprachen:  
+
+		Deutsch
+		Muttersprache
+
+		Englisch
+		Verhandlungssicher
+
+		Französisch
+		Grundlagen
+
+		Spanisch
+		Grundlagen
+
+      Betriebssysteme:  
+
+		Mac OS
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C++
+		Projekterfahrung
+
+		Java
+		Projekterfahrung in J2EE
+
+		PL/SQL
+		Projekterfahrung, Trainer und Coach
+
+      Datenbanken:  
+
+		Access
+		Projekterfahrungen
+
+		JDBC
+		Projekterfahrungen
+
+		MySQL
+		Projekterfahrungen
+
+		Oracle
+		10 Jahre Projekterfahrungen, 10g, 11g
+
+		SQL
+		Projekterfahrungen
+
+ Oracle Certified Professional      Datenkommunikation:  
+
+		Ethernet
+
+		Internet, Intranet
+
+		TCP/IP
+
+      Produkte/Standards/Erfahrungen:  Oracle Datenbank 10g,11c,12c
+(insgesamt mehr als 10 Jahre Projekterfahrung Oracle JDeveloper
+Oracle Warehousebuilder
+Oracle Enterprise Manager Toad 
+
+	Salesforce 
+
+	Magnolia CMS 
+
+	  Agiles Projektmanagement Scrum Master      Branchen: 
+Telekommunikation
+ Banken
+ Industrie Energie
+eGovernment Behörde Logistik
+ Umweltmanagement      Projekte:  
+
+	Berufserfahrung 
+
+	  
+
+	RZ-Pilot Projektleitung, Bayerische Justizministerium München,
+04.2013 - 10.2014 (7 MONATE) 
+
+	Inbetriebnahme der Pilot RZ Infrastruktur für die von IBM entwickelte
+Applikation elektronische Akte (eAkte) eIP für die Justiz München.
+Aufnahme und Aufbau der Infrastruktur für das Projekt eIP
+(elektronisches Integrations Portal). 
+
+	  
+
+	Ziel: 
+
+	Die Inbetriebnahme der Applikation eIP auf der RZ Infrastruktur mit
+anschließendem Monitoring und Konfiguration. 
+
+	  
+
+	Inhalt:  
+
+	 - IST- Aufnahme der aktuellen RZ Architektur, Darstellung einer
+SOll-Vorgabe (skalierter Ziel IT-Architektur) 
+
+	 - Aufbau der Ziel RZ Infrastruktur Server- und Client Hardware,
+Betriebssysteme, 
+
+	 - Koordination Aufbau der Oracle RAC Datenbanken, der
+Hochverfügbarkeit und der IT-Security, 
+
+	 - VMware, Web Logic Server mit SOA ESB (Enterprise Service Bus) und
+eIP Applikation von IBM 
+
+	 - Test-und Release Management, Monitoring mit Nagios 
+
+	  
+
+	EDV: MS Office, Oracle RAC, Oracle WebLogic Server, Java, SOAP/REST
+Services, Alfresco DMS Service, Citrix Metaframe, Remedy
+(trouble-ticketing), Nagios, Oracle Enterprise Manager, VM Ware,
+Loadbalance, HA Cluster, Firewall 
+
+	  
+
+	Team: IBM, it-novum, Unisys, RZ-Nord Justiz, Staatsministerium der
+Justiz, Gemeinsame IT-Stelle der bayerischen Justiz (GIT) 
+
+	  
+
+	  
+
+	Business Consulting, Ballett and DAnce Studio Munic, MüNCHEN, 10.2013
+-  bis heute begleitend 
+
+	Management Beratung einer Münchner Ballett- und Tanzschule,
+Überarbeitung des Geschäftsmodells, Marketing und Controlling 
+
+	  
+
+	Ziel: Erstellen eines Businessplans und Vermarktung der Ballett- und
+Tanzschule in München. 
+
+	  
+
+	Inhalt: 
+
+	 - Branchen- und Wettbewerbsanalyse, Markt und Kundenverhalten,
+Marktabgrenzung 
+
+	 - Erstellung eines Marketingkonzepts und eines neuen
+Geschäftsmodells 
+
+	 - Definition von Marketingzielen, Strategie und Marketing-Mix
+(Produkt, Preis, Distribution und Kommunikation)  
+
+	 - Aufbau eines Controlling/Steuerungssystems, Profit/Loss und 3
+Jahresplanung 
+
+	 - Internet Auftritt durch ein Content Management System, Erarbeiten
+eines neuen Corporate Identity, Logo und Image  
+
+	 - Aufbau eines Relationship-Marketing 
+
+	  
+
+	EDV: MS Office, GoogleDocs, Magnolia CMS mit Entwicklungsumgebung
+Java, Eclipse, Jenkins, Maven, Git 
+
+	  
+
+	Team: 5 Personen 
+
+	  
+
+	Budget: 50.000  
+
+	  
+
+	   
+
+	Projektmanager, ProSiebenSat.1 Media AG, SevenVentures GmbH, München,
+02.2013 - 8.2013 (7 Monate) 
+
+	  
+
+	Einführung von Salesforce CRM, Konfiguration, Datenmigration,
+Schnittstellenanbindung und Schulung bei der SevenVentures¿ 
+
+	  
+
+	Ziel:  
+
+	Einführung von Salesforce als CRM, Controlling und Marketing System.
+Verbesserung des operativen Geschäfts durch Analyse Berichte,
+automatisierter Schnittstellen und Ablösen der abteilungseigenen Excel
+Sheets. 
+
+	  
+
+	Inhalt: 
+
+	- Individuelle Konfiguration und Entwicklung von Salesforce CRM für
+die SevenVentures
+- Integration und Konsolidierung von Prozessabla¨ufen und Daten nach
+Salesforce.
+- Überschneidungen zu anderen betroffenen Bereichen innerhalb des
+Konzerns kla¨ren und Konsolidieren 
+
+	- Anbindung an das zentrale Data Warehouse ProMetheus 
+
+	- Agiles Projektmanagement nach Scrum Methodik 
+
+	  
+
+	EDV: Salesfore CRM, Jira, SAP Busines Objects, MS Office, GoogleDocs 
+
+	  
+
+	Team: 6 Personen im Kernteam, zusa¨tzliche externe Lieferanten,
+Entwickler, Tester, IBM Ansprechpartner für DWH ProMetheus 
+
+	  
+
+	Budget: 600.000   
+
+	  
+
+	  
+
+	Projektmanager, Stadtwerke München, MCard GmbH, München,
+03.2010-01.2012 (3 Jahre) 
+
+	  
+
+	Konzeptionelle und strategische Entwicklung eines Controlling Systems
+(Kennzahlen) für Geschäftsführung und Marketing. 
+
+	Aufbau des M//Card Content Management mit Magnolia CMS.
+Weiterentwicklung des Milano CRM Systems. 
+
+	  
+
+	Ziel: 
+
+	Aufbau eines Loyalty-Systems Milano CRM mit Anbindung an eine
+Business Intelligence (Oracle) für Kampagnenmanagement, Marketing,
+Customer Insight, Vertrieb (Kundengewinnung und Kundenbindung) und
+Controlling. 
+
+	  
+
+	Inhalt:  
+
+	- Projektleitung für Business Intelligence und Datenmanagement mit
+Oracle für Statistik/Scoring-Verfahren 
+
+	- Aufbau eines Data Warehouses, der ETL Prozesse, der Datenmigration
+und Qualitätssicherung 
+
+	- Konzeption der Business Datamarts für Marketing, Vertrieb und
+Geschäftsführung 
+
+	- Abfrage von SQL Berichten für Kundensegmentierung, Kampagnen und
+Zielgruppen 
+
+	- Statistische Auswertungen und Prognosen mit SPSS und R bzgl. der
+Trendentwicklung 
+
+	- Projektleitung für die Einführung eines neuen Content Management
+Systems, Magnolia CMS 
+
+	- Koordination der Netzwerk- und Datenbankadministratoren zur
+Aufrechterhaltung des operativen Betriebs. 
+
+	  
+
+	EDV: MS Office Produkte, Oracle10g, Java, Apache-Tomcat, Magnolia
+CMS, SQL und PL/SQL, Warehouse Builder, SPSS, R 
+
+	  
+
+	Team: 10 Personen im Kernteam, zusätzliche verschiedene externe
+Vertragspartner und Dienstleister 
+
+	  
+
+	Budget: > 2 Mio.  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, inplus GmbH Umwelt Management, München-Germering,
+09.2009-03.2010 (7 Mon.) 
+
+	  
+
+	Entwicklung einer webbasierten Umweltmanagement Informationssoftware
+UMsys5 für Industrie, Pharmazie und Behörden (Stadt München RGU) zur
+Verwaltung umweltbezogener Auflagen. 
+
+	  
+
+	Inhalt:  
+
+	- Evaluierung des bestehenden Datenmodells, Aufnahme des IST-Zustands
+durch Interviews, Leiten von Arbeitsgruppen 
+
+	- Anforderungsanalyse und Aufnahme durch Use Cases und Szenerien,
+SOLL-Zustand 
+
+	- Entwicklung eines Lösungskonzepts und Pflichtenheft 
+
+	- Projektbegleitende Unterstützung bei der Umsetzung, Start, Planung,
+Durchführung nach IPMA-Standard 
+
+	  
+
+	EDV: MS Office Produkte, Lotus Notes, Java, Oracle10g, Warehouse
+Builder, PL/SQL, SQL 
+
+	Team: 6 Personen + Kunde und externe Vertragspartner 
+
+	Budget: 500.000  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, T-Systems Enterprise Services GmbH,
+Stuttgart-Leinfelde -11.2008-06.2009 (8 mon.) 
+
+	  
+
+	Aufbau einer Plattform zur Erstellung von Standard Service Reports
+für den Kunden Daimler AG.
+Inhalt: - Evaluierung der Data Center Infrastruktur
+        - Aufnahme des IST-Zustands durch Gruppenarbeit und Interviews
+mit den Fachbereichsleitern
+        - Entwicklung eines Lösungskonzepts bzw. erstellen des
+Pflichtenheft (Feinkonzept)
+        - Leitung von Arbeitsgruppen und Definition der Report
+Standards
+        - Projektbegleitende Unterstützung bei der Umsetzung, Start,
+Planung, Durchführung nach IPMA-Standard
+        - Aufbau von Prozessstrukturen, Rollen und
+Verantwortlichkeiten
+        - Leitung und Begleitung der Umsetzung
+        - Berichterstattung und Präsentation der Anwendung vor dem
+Lenkungsausschuss
+EDV:   Office Produkte, Java, Oracle10g, DB2, Tivoli, OpenSmart
+Team: 4 Personen + angrenzende Abteilungen und Vertragspartner der
+Daimler AG
+Budget: 700.000  
+
+	  
+
+	  
+
+	  
+
+	Strategie Berater und Inhaber, [Firma auf Anfrage], Dr. heinz Hampel,
+Berlin  seit 05.2008 
+
+	  
+
+	Erstellung eines Business und Marketingplans für die innovative
+Schallplatten Reinigungsmaschine lautlos-rein. Betreuung des
+Projekts von der Entwicklung über die Fertigung bis zur Serienreife. 
+Ausstellung im Stilwerk Berlin, HIFI-Concept in München und
+Hifi-Studio GmbH in der Schweiz. 
+
+	  
+
+	Inhalt: - Businessplan und Marketingplan
+        - Analyse von Markt und Kundenverhalten, Branchen- und
+Wettbewerbsanalyse
+        - Marketingstrategie, -ziele, -Mix
+        - Absatzpotential Abschätzung
+        - Finanzierungs- und Budgetplan
+        - Projektbetreuung bis zur Serienreife
+        - Umsetzung von Vertrieb und Marketing
+EDV:   Office Produkte, ProEngineer
+Team: 5 Personen + Vertragspartner und Hersteller
+Budget: 100.000  
+
+	  
+
+	  
+
+	  
+
+	Strategie Berater, ATN Automatisierungstechnik Niemeier GmbH, Berlin
+-03.2008-04.2008 (2 mon.) 
+
+	  
+
+	Internationale Strategie Beratung für eine Expansion in die USA 
+
+	  
+
+	Inhalt: - Erstellen eines Strategiekonzepts für den Eintritt in den
+Internationalen Markt
+           - Analyse des externen und internen Umfelds
+           - Konkurrenzanalyse
+           - Markteintritt Alternativen
+           - Empfehlungen und Aktionsplan  
+
+	  
+
+	EDV:  Office Produkte
+Team: 4 Personen + Vertrags- und Ansprechpartner in den USA,
+Projektsprache war Englisch
+Budget: > 1 Mio  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, hansenet Telekommunikation GmbH, Hamburg
+-11.2007-04.2008 (6 mon.) 
+
+	  
+
+	Entwicklung der neuen Alice Software Installation CD für die neuen
+Modems bzw.Router. 
+Projektunterstützung bei der Umstellung der LAN Infrastruktur.
+Inhalt: - Projektinitialisierung, Definition, Planung und Steuerung
+           - Aufbau von Prozessstrukturen, Rollen und
+Verantwortlichkeiten
+           - Verhandlungen mit Vertragspartnern
+           - Zusammenarbeit mit dem Produktmanagement und der
+Hardwarebeschaffung
+           - Aufbau eines Projekthandbuchs 
+           - Leitung eines Teams von Netzwerk-Spezialisten
+           - Berichterstattung an Abteilungsleiter und
+Geschäftsführung
+           - Projekt-Controlling
+           - Durchführung von Abnahmen 
+EDV:  Office Produkte, Router Technologie, Oracle 10g, Java, C++
+Team: 8 Personen + Marketing, Vertrieb und Produktmanagement, TÜV Nord
+Budget:  > 1 Mio.  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, kühne + nagel (ag + co.) kg, Hamburg -05.2007-10.2007
+(6 mon.) 
+
+	  
+
+	Aufbau eines europaweiten operativen Data Warehouse. Auswertung von
+KPIs für Logistik und Transport. Bereitstellung von Auswertungen und
+Berichten in grafischer und tabellarischer Form zwecks
+Prozessoptimierung. 
+
+	  
+
+	Inhalt: - Verhandlungen mit nationalen und internationalen
+Geschäftspartnern in Frankreich, Schweiz und Deutschland
+- Analyse. Design und Umsetzung der Anforderungen in ein Data
+Warehouse
+- Qualitätskontrolle der Daten, Performance, Konsistenz und der
+Schnittstellen Importe
+- Überwachung der Roll-Outs
+- Zusammenarbeit und Unterstützung des Projektmanagement Office PMO
+von Kühne+Nagel 
+
+	  
+
+	EDV:   Office Produkte, Clarity, Oracle10g, Cognos, Java, EJB, SUN
+Solaris 
+
+	Team: 7 Personen + Vertragspartner und externe Lieferanten,
+Projektsprache war Englisch
+Budget:  > 1 Mio.   
+
+	  
+
+	  
+
+	  
+
+	Geschäftsführer, [Firma auf Anfrage] GmbH, Berlin  seit 04.2006 
+
+	  
+
+	Aufbau der Geschäftsstelle in Berlin Vermarktung von Dienstleistung
+im Bereich Projektmanagement, Projektmanagement Beratung und Oracle
+Schulungen. Akquirieren von Projekten und Durchführen von IT-Lösungen
+beim Kunden. 
+Inhalt: - Aufbau von Unternehmensprozessen (Aufbau- und
+Ablauforganisation)
+        - Definition einer Vision. Ableiten der Strategie, Zielen und
+Massnahmen
+        - Marketing und Vertrieb
+        - Personal und Controlling
+Team: 8 Personen, Vertrieb, Projektmanager und Softwareentwickler
+Budget:  > 2 Mio.  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, dvn deutsche vergabenetz GmbH, Berlin
+-08.2005-10.2006 (15 mon.) 
+
+	  
+
+	Konzeption und Entwicklung eines Abrechnungssystems für die DVN.
+Entwicklung eines Payback Verfahren (Punktesystems). Archivierung und
+Auswertung von Kaufdaten der elektronischen Bau - und Vergabeplattform
+(Portal). 
+Aufbau eines Data Warehouse. Auswertung von Statistiken. 
+
+	  
+
+	Inhalt: - Projektleitung konform der GPM-IPMA Projektstandards
+        - Analyse, Design und Konzeption des Abrechnungssystems
+        - Simulation des Payback Bonuspunkte Systems
+        - Roll-Out, Projektsteuerung und Kontrolle der Datenqualität
+        - Umsetzung der Revisionssicherheit 
+
+	  
+
+	EDV: MS Projekt, Visio, ERwin, Java, Oracle10g, PL/SQL, NAVISION
+Team: 5 Personen Entwickler Kernteam und angrenzende Abteilungen
+Budget: ca. 400.000   
+
+	  
+
+	  
+
+	Projektmanager, European consulting group GmbH, Berlin
+-01.2005-08.2005 (8 mon Fortsetzung aus 2004) 
+
+	  
+
+	Projektleitung für die Umstellung des Equal II IT-Tool (EUREKA).
+Internet Portal für die Online Antragstellung, Verarbeitung
+Bewilligung und Berichterstattung von EU-Fördergeldern. Auftraggeber
+war das Bundesministerium für Wirtschaft und Arbeit BMWA. Aufwendige
+Umsetzung der Algorithmen und Plausibilität Prüfung entsprechend der
+Finanzinformatik. 
+
+	  
+
+	Inhalt: - Projekt- und Qualitätsmanagement
+        - Projektleitung beim BMWA
+        - Steuerung externer Dienstleister (Entwickler) in Argentinien
+(4 Personen)
+        - Koordination des Rool-Outs beim Kunden
+        - Umsetzung der Datensicherheit und einer zuverlässigen
+Datensicherung 
+
+	  
+
+	EDV:  MS Projekt Server, Visual Source Safe, Oracle9i, PL/SQL, Java,
+MS .NET
+Team: > 8 Personen, multikulturelles Projektumfeld, Projektsprache war
+Englisch  
+Budget:  > 1 Mio.  
+
+	  
+
+	  
+
+	  
+
+	Oracle Analyst, siemens ag, Berlin -02.2004-10.2004 (1.000 Std.
+Kontingent) 
+
+	  
+
+	Beratung zu Oracle Themen wie, Performance Tuning, Last-Tests der
+IN@vantage Plattform (Intelligente Netzwerke). Last Simulation,
+Berichterstattung und Auswerten von Statistiken. Performance Tuning im
+laufenden Betrieb. 
+
+	  
+
+	EDV: SUN Solaris, Oracle 9i, 10g, Oracle Enterprise Manager, Java,
+C++, PL/SQL, SQL
+Team: Großprojekt mit Beteiligten aus verschiedenen Abteilungen
+Budget: 120.000  (für die Beratung) 
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, european consulting group GmbH, Berlin
+-11.2002-06.2004 (8 mon.) 
+
+	  
+
+	Konzeption und Entwicklung der Software EUREKA. Online Plattform zur
+Antragstellung von EU Fördergeldern. 
+
+	  
+
+	Inhalt - Konzeption, Erstellung Lastenheft und Pflichtenheft
+       - Projektleitung und Unterstützung bei der Oracle/Java
+Programmierung
+       - Koordination des schrittweisen RollOuts
+       - Oracle Administration mit dem Oracle Enterprise Manager
+       - Konzept für eine Backup und Recovery Strategie 
+
+	  
+
+	EDV: MS Projekt, Windows, Linux, Oracle8i, Oracle Enterprise Manager
+Team: 4 Personen
+Budget: 400.000  
+
+	  
+
+	  
+
+	  
+
+	management consultant, CMG ag, Berlin, -07.2001-08.2002  (14 mon.) 
+
+	  
+
+	Aufbau und Organisation eines Oracle Competence Center CMG
+Deutschland
+Inhalt - Migration einer E-Commerce Applikation auf Oracle9i Datenbank
+und Internet Application Server 9i
+- Pilotprojekt im Bereich Data Warehouse mit Oracle Warehouse Builder,
+Oracle Discoverer und Oracle9i
+- Pilotprojekt Mobile Business Referenz Lösung mit Oracle 9i Lite
+WebToGo und Oracle Enterprise Edition
+- Aufbau eines Hochverfügbarkeit Systems mit Oracle Real Application
+Cluster auf Linux
+- Konzeption eines Dokumenten Management Systems mit Oracle9i
+InterMedia und Internet File System IFS
+- Markt- und Trendanalyse 
+
+	  
+
+	Team: 6 Personen
+Budget: > 1 Mio.      
+
+	       Sonstige Anmerkungen:  
+
+	Internationale Projekte 
+
+	2008 
+
+	ATN Automatisierungstechnik Niemeier GmbH, Expansions-Strategie,
+Berlin, USA Wichita (Kansas) 
+
+	2007/2008 
+
+	Hansenet Telekommunikation GmbH, Hamburg, Verhandlungen und
+Produktion in China 
+
+	2007 
+
+	Kühne + Nagel (AG + Co.) KG, Hamburg, beteiligt: Schweiz und
+Frankreich, Projektsprache: Englisch  
+
+	2005 
+
+	European Consulting Group GmbH, Berlin, Softwareentwicklung
+ausgelagert in Argentinien, Englisch 
+
+	1997 
+
+	Ingenieurs Büro Horodomi, Griechenland, Praktikum 6 Mon., Software
+für dynamische Gebäude, Englisch 
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 44466 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 05.08.2016 01:02:46
+ (c) Copyright 1996-2016 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+---------- Gulp-Profil Stand 2015-03-19 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 44466: Senior
+Projektmanager (Level B, IPMA) für IT-Projekte, Java EE Software
+Entwickler und Architekt, BI Consultant, Oracle, Markt, Datenanalysen,
+Statistik                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+44466 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 44466    Wohnort 812xx München, Deutschland Jahrgang
+1969 Staatsbürgerschaft deutsch Stundensatz 65 EUR  Verfügbar ab
+23.03.15 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+02.11.02 Profil zuletzt geändert am 19.03.15 Lesen von Projektanfragen
+12 Stunden  [5]Direktkontakt [6]         Kommentar:   Kommentar
+schreiben Profil angezeigt am 05.02.2015 16:11:35       Fachlicher
+Schwerpunkt:  Senior Projektmanager (Level B, IPMA) für IT-Projekte,
+Java EE Software Entwickler und Architekt, BI Consultant, Oracle,
+Markt, Datenanalysen, Statistik      Position:  Software-Entwicklung /
+Programmierung
+ Beratung / Consulting
+ Coaching / Schulung / Training
+ Projektmanagement / -leitung / Organisation / Koordination
+
+	* Diplom Informatiker
+	* Master Business Administration, Entrepreneurship
+	* Senior Projektmanager Level B, IPMA
+	* Magnolia CMS, Associate Developer Certificate
+	* Oracle Certified Professional
+	* Englisch verhandlungssicher, TOEFL zert. 
+
+	 
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  
+
+	Diplom Informatiker 
+
+	MBA, Entrepreneurship 
+
+	Senior Projektmanager Level B, GPM-IPMA 
+
+	Oracle Certified Professional 
+
+	Englisch verhandlungssicher, TOEFL zert.      Einsatzort:   Regionen:
+
+
+	D8       Fremdsprachen:  
+
+		Deutsch
+		Muttersprache
+
+		Englisch
+		Verhandlungssicher
+
+		Französisch
+		Grundlagen
+
+		Spanisch
+		Grundlagen
+
+      Betriebssysteme:  
+
+		Mac OS
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C++
+		Projekterfahrung
+
+		Java
+		Projekterfahrung in J2EE
+
+		PL/SQL
+		Projekterfahrung, Trainer und Coach
+
+      Datenbanken:  
+
+		Access
+		Projekterfahrungen
+
+		JDBC
+		Projekterfahrungen
+
+		MySQL
+		Projekterfahrungen
+
+		Oracle
+		10 Jahre Projekterfahrungen, 10g, 11g
+
+		SQL
+		Projekterfahrungen
+
+ Oracle Certified Professional      Datenkommunikation:  
+
+		Ethernet
+
+		Internet, Intranet
+
+		TCP/IP
+
+      Produkte/Standards/Erfahrungen:  Oracle Datenbank 10g,11c,12c
+(insgesamt mehr als 10 Jahre Projekterfahrung Oracle JDeveloper
+Oracle Warehousebuilder
+Oracle Enterprise Manager Toad 
+
+	Salesforce 
+
+	Magnolia CMS 
+
+	  Agiles Projektmanagement Scrum Master      Branchen: 
+Telekommunikation
+ Banken
+ Industrie Energie
+eGovernment Behörde Logistik
+ Umweltmanagement      Projekte:  
+
+	Berufserfahrung 
+
+	  
+
+	RZ-Pilot Projektleitung, Bayerische Justizministerium München,
+04.2013 - 10.2014 (7 MONATE) 
+
+	Inbetriebnahme der Pilot RZ Infrastruktur für die von IBM entwickelte
+Applikation elektronische Akte (eAkte) eIP für die Justiz München.
+Aufnahme und Aufbau der Infrastruktur für das Projekt eIP
+(elektronisches Integrations Portal). 
+
+	  
+
+	Ziel: 
+
+	Die Inbetriebnahme der Applikation eIP auf der RZ Infrastruktur mit
+anschließendem Monitoring und Konfiguration. 
+
+	  
+
+	Inhalt:  
+
+	 - IST- Aufnahme der aktuellen RZ Architektur, Darstellung einer
+SOll-Vorgabe (skalierter Ziel IT-Architektur) 
+
+	 - Aufbau der Ziel RZ Infrastruktur Server- und Client Hardware,
+Betriebssysteme, 
+
+	 - Koordination Aufbau der Oracle RAC Datenbanken, der
+Hochverfügbarkeit und der IT-Security, 
+
+	 - VMware, Web Logic Server mit SOA ESB (Enterprise Service Bus) und
+eIP Applikation von IBM 
+
+	 - Test-und Release Management, Monitoring mit Nagios 
+
+	  
+
+	EDV: MS Office, Oracle RAC, Oracle WebLogic Server, Java, SOAP/REST
+Services, Alfresco DMS Service, Citrix Metaframe, Remedy
+(trouble-ticketing), Nagios, Oracle Enterprise Manager, VM Ware,
+Loadbalance, HA Cluster, Firewall 
+
+	  
+
+	Team: IBM, it-novum, Unisys, RZ-Nord Justiz, Staatsministerium der
+Justiz, Gemeinsame IT-Stelle der bayerischen Justiz (GIT) 
+
+	  
+
+	  
+
+	Business Consulting, Ballett and DAnce Studio Munic, MüNCHEN, 10.2013
+-  bis heute begleitend 
+
+	Management Beratung einer Münchner Ballett- und Tanzschule,
+Überarbeitung des Geschäftsmodells, Marketing und Controlling 
+
+	  
+
+	Ziel: Erstellen eines Businessplans und Vermarktung der Ballett- und
+Tanzschule in München. 
+
+	  
+
+	Inhalt: 
+
+	 - Branchen- und Wettbewerbsanalyse, Markt und Kundenverhalten,
+Marktabgrenzung 
+
+	 - Erstellung eines Marketingkonzepts und eines neuen
+Geschäftsmodells 
+
+	 - Definition von Marketingzielen, Strategie und Marketing-Mix
+(Produkt, Preis, Distribution und Kommunikation)  
+
+	 - Aufbau eines Controlling/Steuerungssystems, Profit/Loss und 3
+Jahresplanung 
+
+	 - Internet Auftritt durch ein Content Management System, Erarbeiten
+eines neuen Corporate Identity, Logo und Image  
+
+	 - Aufbau eines Relationship-Marketing 
+
+	  
+
+	EDV: MS Office, GoogleDocs, Magnolia CMS mit Entwicklungsumgebung
+Java, Eclipse, Jenkins, Maven, Git 
+
+	  
+
+	Team: 5 Personen 
+
+	  
+
+	Budget: 50.000  
+
+	  
+
+	   
+
+	Projektmanager, ProSiebenSat.1 Media AG, SevenVentures GmbH, München,
+02.2013 - 8.2013 (7 Monate) 
+
+	  
+
+	Einführung von Salesforce CRM, Konfiguration, Datenmigration,
+Schnittstellenanbindung und Schulung bei der SevenVentures¿ 
+
+	  
+
+	Ziel:  
+
+	Einführung von Salesforce als CRM, Controlling und Marketing System.
+Verbesserung des operativen Geschäfts durch Analyse Berichte,
+automatisierter Schnittstellen und Ablösen der abteilungseigenen Excel
+Sheets. 
+
+	  
+
+	Inhalt: 
+
+	- Individuelle Konfiguration und Entwicklung von Salesforce CRM für
+die SevenVentures
+- Integration und Konsolidierung von Prozessabla¨ufen und Daten nach
+Salesforce.
+- Überschneidungen zu anderen betroffenen Bereichen innerhalb des
+Konzerns kla¨ren und Konsolidieren 
+
+	- Anbindung an das zentrale Data Warehouse ProMetheus 
+
+	- Agiles Projektmanagement nach Scrum Methodik 
+
+	  
+
+	EDV: Salesfore CRM, Jira, SAP Busines Objects, MS Office, GoogleDocs 
+
+	  
+
+	Team: 6 Personen im Kernteam, zusa¨tzliche externe Lieferanten,
+Entwickler, Tester, IBM Ansprechpartner für DWH ProMetheus 
+
+	  
+
+	Budget: 600.000   
+
+	  
+
+	  
+
+	Projektmanager, Stadtwerke München, MCard GmbH, München,
+03.2010-01.2012 (3 Jahre) 
+
+	  
+
+	Konzeptionelle und strategische Entwicklung eines Controlling Systems
+(Kennzahlen) für Geschäftsführung und Marketing. 
+
+	Aufbau des M//Card Content Management mit Magnolia CMS.
+Weiterentwicklung des Milano CRM Systems. 
+
+	  
+
+	Ziel: 
+
+	Aufbau eines Loyalty-Systems Milano CRM mit Anbindung an eine
+Business Intelligence (Oracle) für Kampagnenmanagement, Marketing,
+Customer Insight, Vertrieb (Kundengewinnung und Kundenbindung) und
+Controlling. 
+
+	  
+
+	Inhalt:  
+
+	- Projektleitung für Business Intelligence und Datenmanagement mit
+Oracle für Statistik/Scoring-Verfahren 
+
+	- Aufbau eines Data Warehouses, der ETL Prozesse, der Datenmigration
+und Qualitätssicherung 
+
+	- Konzeption der Business Datamarts für Marketing, Vertrieb und
+Geschäftsführung 
+
+	- Abfrage von SQL Berichten für Kundensegmentierung, Kampagnen und
+Zielgruppen 
+
+	- Statistische Auswertungen und Prognosen mit SPSS und R bzgl. der
+Trendentwicklung 
+
+	- Projektleitung für die Einführung eines neuen Content Management
+Systems, Magnolia CMS 
+
+	- Koordination der Netzwerk- und Datenbankadministratoren zur
+Aufrechterhaltung des operativen Betriebs. 
+
+	  
+
+	EDV: MS Office Produkte, Oracle10g, Java, Apache-Tomcat, Magnolia
+CMS, SQL und PL/SQL, Warehouse Builder, SPSS, R 
+
+	  
+
+	Team: 10 Personen im Kernteam, zusätzliche verschiedene externe
+Vertragspartner und Dienstleister 
+
+	  
+
+	Budget: > 2 Mio.  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, inplus GmbH Umwelt Management, München-Germering,
+09.2009-03.2010 (7 Mon.) 
+
+	  
+
+	Entwicklung einer webbasierten Umweltmanagement Informationssoftware
+UMsys5 für Industrie, Pharmazie und Behörden (Stadt München RGU) zur
+Verwaltung umweltbezogener Auflagen. 
+
+	  
+
+	Inhalt:  
+
+	- Evaluierung des bestehenden Datenmodells, Aufnahme des IST-Zustands
+durch Interviews, Leiten von Arbeitsgruppen 
+
+	- Anforderungsanalyse und Aufnahme durch Use Cases und Szenerien,
+SOLL-Zustand 
+
+	- Entwicklung eines Lösungskonzepts und Pflichtenheft 
+
+	- Projektbegleitende Unterstützung bei der Umsetzung, Start, Planung,
+Durchführung nach IPMA-Standard 
+
+	  
+
+	EDV: MS Office Produkte, Lotus Notes, Java, Oracle10g, Warehouse
+Builder, PL/SQL, SQL 
+
+	Team: 6 Personen Kunde und externe Vertragspartner 
+
+	Budget: 500.000  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, T-Systems Enterprise Services GmbH,
+Stuttgart-Leinfelde -11.2008-06.2009 (8 mon.) 
+
+	  
+
+	Aufbau einer Plattform zur Erstellung von Standard Service Reports
+für den Kunden Daimler AG.
+Inhalt: - Evaluierung der Data Center Infrastruktur
+        - Aufnahme des IST-Zustands durch Gruppenarbeit und Interviews
+mit den Fachbereichsleitern
+        - Entwicklung eines Lösungskonzepts bzw. erstellen des
+Pflichtenheft (Feinkonzept)
+        - Leitung von Arbeitsgruppen und Definition der Report
+Standards
+        - Projektbegleitende Unterstützung bei der Umsetzung, Start,
+Planung, Durchführung nach IPMA-Standard
+        - Aufbau von Prozessstrukturen, Rollen und
+Verantwortlichkeiten
+        - Leitung und Begleitung der Umsetzung
+        - Berichterstattung und Präsentation der Anwendung vor dem
+Lenkungsausschuss
+EDV:   Office Produkte, Java, Oracle10g, DB2, Tivoli, OpenSmart
+Team: 4 Personen angrenzende Abteilungen und Vertragspartner der
+Daimler AG
+Budget: 700.000  
+
+	  
+
+	  
+
+	  
+
+	Strategie Berater und Inhaber, [Firma auf Anfrage], Dr. heinz Hampel,
+Berlin  seit 05.2008 
+
+	  
+
+	Erstellung eines Business und Marketingplans für die innovative
+Schallplatten Reinigungsmaschine lautlos-rein. Betreuung des
+Projekts von der Entwicklung über die Fertigung bis zur Serienreife. 
+Ausstellung im Stilwerk Berlin, HIFI-Concept in München und
+Hifi-Studio GmbH in der Schweiz. 
+
+	  
+
+	Inhalt: - Businessplan und Marketingplan
+        - Analyse von Markt und Kundenverhalten, Branchen- und
+Wettbewerbsanalyse
+        - Marketingstrategie, -ziele, -Mix
+        - Absatzpotential Abschätzung
+        - Finanzierungs- und Budgetplan
+        - Projektbetreuung bis zur Serienreife
+        - Umsetzung von Vertrieb und Marketing
+EDV:   Office Produkte, ProEngineer
+Team: 5 Personen Vertragspartner und Hersteller
+Budget: 100.000  
+
+	  
+
+	  
+
+	  
+
+	Strategie Berater, ATN Automatisierungstechnik Niemeier GmbH, Berlin
+-03.2008-04.2008 (2 mon.) 
+
+	  
+
+	Internationale Strategie Beratung für eine Expansion in die USA 
+
+	  
+
+	Inhalt: - Erstellen eines Strategiekonzepts für den Eintritt in den
+Internationalen Markt
+           - Analyse des externen und internen Umfelds
+           - Konkurrenzanalyse
+           - Markteintritt Alternativen
+           - Empfehlungen und Aktionsplan  
+
+	  
+
+	EDV:  Office Produkte
+Team: 4 Personen Vertrags- und Ansprechpartner in den USA,
+Projektsprache war Englisch
+Budget: > 1 Mio  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, hansenet Telekommunikation GmbH, Hamburg
+-11.2007-04.2008 (6 mon.) 
+
+	  
+
+	Entwicklung der neuen Alice Software Installation CD für die neuen
+Modems bzw.Router. 
+Projektunterstützung bei der Umstellung der LAN Infrastruktur.
+Inhalt: - Projektinitialisierung, Definition, Planung und Steuerung
+           - Aufbau von Prozessstrukturen, Rollen und
+Verantwortlichkeiten
+           - Verhandlungen mit Vertragspartnern
+           - Zusammenarbeit mit dem Produktmanagement und der
+Hardwarebeschaffung
+           - Aufbau eines Projekthandbuchs 
+           - Leitung eines Teams von Netzwerk-Spezialisten
+           - Berichterstattung an Abteilungsleiter und
+Geschäftsführung
+           - Projekt-Controlling
+           - Durchführung von Abnahmen 
+EDV:  Office Produkte, Router Technologie, Oracle 10g, Java, C
+Team: 8 Personen Marketing, Vertrieb und Produktmanagement, TÜV Nord
+Budget:  > 1 Mio.  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, kühne nagel (ag co.) kg, Hamburg -05.2007-10.2007 (6
+mon.) 
+
+	  
+
+	Aufbau eines europaweiten operativen Data Warehouse. Auswertung von
+KPIs für Logistik und Transport. Bereitstellung von Auswertungen und
+Berichten in grafischer und tabellarischer Form zwecks
+Prozessoptimierung. 
+
+	  
+
+	Inhalt: - Verhandlungen mit nationalen und internationalen
+Geschäftspartnern in Frankreich, Schweiz und Deutschland
+- Analyse. Design und Umsetzung der Anforderungen in ein Data
+Warehouse
+- Qualitätskontrolle der Daten, Performance, Konsistenz und der
+Schnittstellen Importe
+- Überwachung der Roll-Outs
+- Zusammenarbeit und Unterstützung des Projektmanagement Office PMO
+von KühneNagel 
+
+	  
+
+	EDV:   Office Produkte, Clarity, Oracle10g, Cognos, Java, EJB, SUN
+Solaris 
+
+	Team: 7 Personen Vertragspartner und externe Lieferanten,
+Projektsprache war Englisch
+Budget:  > 1 Mio.   
+
+	  
+
+	  
+
+	  
+
+	Geschäftsführer, [Firma auf Anfrage] GmbH, Berlin  seit 04.2006 
+
+	  
+
+	Aufbau der Geschäftsstelle in Berlin Vermarktung von Dienstleistung
+im Bereich Projektmanagement, Projektmanagement Beratung und Oracle
+Schulungen. Akquirieren von Projekten und Durchführen von IT-Lösungen
+beim Kunden. 
+Inhalt: - Aufbau von Unternehmensprozessen (Aufbau- und
+Ablauforganisation)
+        - Definition einer Vision. Ableiten der Strategie, Zielen und
+Massnahmen
+        - Marketing und Vertrieb
+        - Personal und Controlling
+Team: 8 Personen, Vertrieb, Projektmanager und Softwareentwickler
+Budget:  > 2 Mio.  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, dvn deutsche vergabenetz GmbH, Berlin
+-08.2005-10.2006 (15 mon.) 
+
+	  
+
+	Konzeption und Entwicklung eines Abrechnungssystems für die DVN.
+Entwicklung eines Payback Verfahren (Punktesystems). Archivierung und
+Auswertung von Kaufdaten der elektronischen Bau - und Vergabeplattform
+(Portal). 
+Aufbau eines Data Warehouse. Auswertung von Statistiken. 
+
+	  
+
+	Inhalt: - Projektleitung konform der GPM-IPMA Projektstandards
+        - Analyse, Design und Konzeption des Abrechnungssystems
+        - Simulation des Payback Bonuspunkte Systems
+        - Roll-Out, Projektsteuerung und Kontrolle der Datenqualität
+        - Umsetzung der Revisionssicherheit 
+
+	  
+
+	EDV: MS Projekt, Visio, ERwin, Java, Oracle10g, PL/SQL, NAVISION
+Team: 5 Personen Entwickler Kernteam und angrenzende Abteilungen
+Budget: ca. 400.000   
+
+	  
+
+	  
+
+	Projektmanager, European consulting group GmbH, Berlin
+-01.2005-08.2005 (8 mon Fortsetzung aus 2004) 
+
+	  
+
+	Projektleitung für die Umstellung des Equal II IT-Tool (EUREKA).
+Internet Portal für die Online Antragstellung, Verarbeitung
+Bewilligung und Berichterstattung von EU-Fördergeldern. Auftraggeber
+war das Bundesministerium für Wirtschaft und Arbeit BMWA. Aufwendige
+Umsetzung der Algorithmen und Plausibilität Prüfung entsprechend der
+Finanzinformatik. 
+
+	  
+
+	Inhalt: - Projekt- und Qualitätsmanagement
+        - Projektleitung beim BMWA
+        - Steuerung externer Dienstleister (Entwickler) in Argentinien
+(4 Personen)
+        - Koordination des Rool-Outs beim Kunden
+        - Umsetzung der Datensicherheit und einer zuverlässigen
+Datensicherung 
+
+	  
+
+	EDV:  MS Projekt Server, Visual Source Safe, Oracle9i, PL/SQL, Java,
+MS .NET
+Team: > 8 Personen, multikulturelles Projektumfeld, Projektsprache war
+Englisch  
+Budget:  > 1 Mio.  
+
+	  
+
+	  
+
+	  
+
+	Oracle Analyst, siemens ag, Berlin -02.2004-10.2004 (1.000 Std.
+Kontingent) 
+
+	  
+
+	Beratung zu Oracle Themen wie, Performance Tuning, Last-Tests der
+INvantage Plattform (Intelligente Netzwerke). Last Simulation,
+Berichterstattung und Auswerten von Statistiken. Performance Tuning im
+laufenden Betrieb. 
+
+	  
+
+	EDV: SUN Solaris, Oracle 9i, 10g, Oracle Enterprise Manager, Java, C,
+PL/SQL, SQL
+Team: Großprojekt mit Beteiligten aus verschiedenen Abteilungen
+Budget: 120.000  (für die Beratung) 
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, european consulting group GmbH, Berlin
+-11.2002-06.2004 (8 mon.) 
+
+	  
+
+	Konzeption und Entwicklung der Software EUREKA. Online Plattform zur
+Antragstellung von EU Fördergeldern. 
+
+	  
+
+	Inhalt - Konzeption, Erstellung Lastenheft und Pflichtenheft
+       - Projektleitung und Unterstützung bei der Oracle/Java
+Programmierung
+       - Koordination des schrittweisen RollOuts
+       - Oracle Administration mit dem Oracle Enterprise Manager
+       - Konzept für eine Backup und Recovery Strategie 
+
+	  
+
+	EDV: MS Projekt, Windows, Linux, Oracle8i, Oracle Enterprise Manager
+Team: 4 Personen
+Budget: 400.000  
+
+	  
+
+	  
+
+	  
+
+	management consultant, CMG ag, Berlin, -07.2001-08.2002  (14 mon.) 
+
+	  
+
+	Aufbau und Organisation eines Oracle Competence Center CMG
+Deutschland
+Inhalt - Migration einer E-Commerce Applikation auf Oracle9i Datenbank
+und Internet Application Server 9i
+- Pilotprojekt im Bereich Data Warehouse mit Oracle Warehouse Builder,
+Oracle Discoverer und Oracle9i
+- Pilotprojekt Mobile Business Referenz Lösung mit Oracle 9i Lite
+WebToGo und Oracle Enterprise Edition
+- Aufbau eines Hochverfügbarkeit Systems mit Oracle Real Application
+Cluster auf Linux
+- Konzeption eines Dokumenten Management Systems mit Oracle9i
+InterMedia und Internet File System IFS
+- Markt- und Trendanalyse 
+
+	  
+
+	Team: 6 Personen
+Budget: > 1 Mio.      
+
+	       Sonstige Anmerkungen:  
+
+	Internationale Projekte 
+
+	2008 
+
+	ATN Automatisierungstechnik Niemeier GmbH, Expansions-Strategie,
+Berlin, USA Wichita (Kansas) 
+
+	2007/2008 
+
+	Hansenet Telekommunikation GmbH, Hamburg, Verhandlungen und
+Produktion in China 
+
+	2007 
+
+	Kühne + Nagel (AG + Co.) KG, Hamburg, beteiligt: Schweiz und
+Frankreich, Projektsprache: Englisch  
+
+	2005 
+
+	European Consulting Group GmbH, Berlin, Softwareentwicklung
+ausgelagert in Argentinien, Englisch 
+
+	1997 
+
+	Ingenieurs Büro Horodomi, Griechenland, Praktikum 6 Mon., Software
+für dynamische Gebäude, Englisch 
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 44466 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 20.03.2015 01:11:49
+ (c) Copyright 1996-2015 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show200147
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?44466
+[4] /cgi-gulpsearch/gp.exe/UBONE44466?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?44466D0
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?44466D0
+[7] /cgi-gulpsearch/printdoc.exe/profil?JUQD0LJC
+[8] /cgi-gulpsearch/printdoc.exe/profil?JUQD0LJC
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show200149
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?44466
+[14] /cgi-gulpsearch/gp.exe/UBONE44466?0
+[15] mailto:info@gulp.de
+
+
+---------- Gulp-Profil Stand 2014-10-01 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 44466: Senior
+Projektmanager (Level B, GPM-IPMA), Java EE Softwareentwicklung,
+IT-Architektur und Business Intelligence                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+44466 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 44466    Wohnort 812xx München, Deutschland Jahrgang
+1969 Staatsbürgerschaft deutsch Stundensatz 65 EUR  Verfügbar ab
+01.10.14 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+02.11.02 Profil zuletzt geändert am 01.10.14 Lesen von Projektanfragen
+12 Stunden  [5]Direktkontakt [6]         Kommentar:   Kommentar
+schreiben Profil angezeigt am 04.07.2014 10:20:05       Fachlicher
+Schwerpunkt:  Senior Projektmanager (Level B, GPM-IPMA), Java EE
+Softwareentwicklung, IT-Architektur und Business Intelligence     
+Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Coaching / Schulung / Training
+ Projektmanagement / -leitung / Organisation / Koordination
+
+	Senior Projektmanager GPM-IPMA Level B 
+
+	Oracle Certified Professional OCP-DBA 
+
+	Java EE Developer / Architekt 
+
+	 
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  
+
+	Diplom Informatiker 
+
+	MBA, Entrepreneurship 
+
+	Senior Projektmanager Level B, GPM-IPMA 
+
+	Oracle Certified Professional 
+
+	Englisch verhandlungssicher, TOEFL zert.      Einsatzort:   Regionen:
+
+
+	D8       Fremdsprachen:  
+
+		Deutsch
+		Muttersprache
+
+		Englisch
+		Verhandlungssicher
+
+		Französisch
+		Grundlagen
+
+		Spanisch
+		Grundlagen
+
+      Betriebssysteme:  
+
+		Mac OS
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		C++
+		Projekterfahrung
+
+		Java
+		Projekterfahrung in J2EE
+
+		PL/SQL
+		Projekterfahrung, Trainer und Coach
+
+      Datenbanken:  
+
+		Access
+		Projekterfahrungen
+
+		MySQL
+		Projekterfahrungen
+
+		Oracle
+		10 Jahre Projekterfahrungen, 10g, 11g
+
+		JDBC
+		Projekterfahrungen
+
+		SQL
+		Projekterfahrungen
+
+Oracle Certified Professional      Datenkommunikation:  
+
+		Ethernet
+
+		Internet, Intranet
+
+		TCP/IP
+
+      Produkte/Standards/Erfahrungen:  Oracle Datenbank 10g,11c,12c
+(insgesamt mehr als 10 Jahre Projekterfahrung Oracle JDeveloper
+Oracle Warehousebuilder
+Oracle Enterprise Manager Toad 
+
+	Salesforce 
+
+	Magnolia CMS 
+
+	  Agiles Projektmanagement Scrum Master      Branchen: 
+Telekommunikation
+ Banken
+ Industrie Energie
+eGovernment Behörde Logistik
+ Umweltmanagement      Projekte:  
+
+	Berufserfahrung 
+
+	  
+
+	RZ-Pilot Projektleitung, Bayerische Justizministerium München,
+04.2013 - 10.2014 (7 MONATE) 
+
+	Inbetriebnahme der Pilot RZ Infrastruktur für die von IBM entwickelte
+Applikation elektronische Akte (eAkte) eIP für die Justiz München.
+Aufnahme und Aufbau der Infrastruktur für das Projekt eIP
+(elektronisches Integrations Portal). 
+
+	  
+
+	Ziel: 
+
+	Die Inbetriebnahme der Applikation eIP auf der RZ Infrastruktur mit
+anschließendem Monitoring und Konfiguration. 
+
+	  
+
+	Inhalt:  
+
+	 - IST- Aufnahme der aktuellen RZ Architektur, Darstellung einer
+SOll-Vorgabe (skalierter Ziel IT-Architektur) 
+
+	 - Aufbau der Ziel RZ Infrastruktur Server- und Client Hardware,
+Betriebssysteme, 
+
+	 - Koordination Aufbau der Oracle RAC Datenbanken, der
+Hochverfügbarkeit und der IT-Security, 
+
+	 - VMware, Web Logic Server mit SOA ESB (Enterprise Service Bus) und
+eIP Applikation von IBM 
+
+	 - Test-und Release Management, Monitoring mit Nagios 
+
+	  
+
+	EDV: MS Office, Oracle RAC, Oracle WebLogic Server, Java, SOAP/REST
+Services, Alfresco DMS Service, Citrix Metaframe, Remedy
+(trouble-ticketing), Nagios, Oracle Enterprise Manager, VM Ware,
+Loadbalance, HA Cluster, Firewall 
+
+	  
+
+	Team: IBM, it-novum, Unisys, RZ-Nord Justiz, Staatsministerium der
+Justiz, Gemeinsame IT-Stelle der bayerischen Justiz (GIT) 
+
+	  
+
+	  
+
+	Business Consulting, Ballett and DAnce Studio Munic, MüNCHEN, 10.2013
+-  bis heute begleitend 
+
+	Management Beratung einer Münchner Ballett- und Tanzschule,
+Überarbeitung des Geschäftsmodells, Marketing und Controlling 
+
+	  
+
+	Ziel: Erstellen eines Businessplans und Vermarktung der Ballett- und
+Tanzschule in München. 
+
+	  
+
+	Inhalt: 
+
+	 - Branchen- und Wettbewerbsanalyse, Markt und Kundenverhalten,
+Marktabgrenzung 
+
+	 - Erstellung eines Marketingkonzepts und eines neuen
+Geschäftsmodells 
+
+	 - Definition von Marketingzielen, Strategie und Marketing-Mix
+(Produkt, Preis, Distribution und Kommunikation)  
+
+	 - Aufbau eines Controlling/Steuerungssystems, Profit/Loss und 3
+Jahresplanung 
+
+	 - Internet Auftritt durch ein Content Management System, Erarbeiten
+eines neuen Corporate Identity, Logo und Image  
+
+	 - Aufbau eines Relationship-Marketing 
+
+	  
+
+	EDV: MS Office, GoogleDocs, Magnolia CMS mit Entwicklungsumgebung
+Java, Eclipse, Jenkins, Maven, Git 
+
+	  
+
+	Team: 5 Personen 
+
+	  
+
+	Budget: 50.000  
+
+	  
+
+	   
+
+	Projektmanager, ProSiebenSat.1 Media AG, SevenVentures GmbH, München,
+02.2013 - 8.2013 (7 Monate) 
+
+	  
+
+	Einführung von Salesforce CRM, Konfiguration, Datenmigration,
+Schnittstellenanbindung und Schulung bei der SevenVentures¿ 
+
+	  
+
+	Ziel:  
+
+	Einführung von Salesforce als CRM, Controlling und Marketing System.
+Verbesserung des operativen Geschäfts durch Analyse Berichte,
+automatisierter Schnittstellen und Ablösen der abteilungseigenen Excel
+Sheets. 
+
+	  
+
+	Inhalt: 
+
+	- Individuelle Konfiguration und Entwicklung von Salesforce CRM für
+die SevenVentures
+- Integration und Konsolidierung von Prozessabla¨ufen und Daten nach
+Salesforce.
+- Überschneidungen zu anderen betroffenen Bereichen innerhalb des
+Konzerns kla¨ren und Konsolidieren 
+
+	- Anbindung an das zentrale Data Warehouse ProMetheus 
+
+	- Agiles Projektmanagement nach Scrum Methodik 
+
+	  
+
+	EDV: Salesfore CRM, Jira, SAP Busines Objects, MS Office, GoogleDocs 
+
+	  
+
+	Team: 6 Personen im Kernteam, zusa¨tzliche externe Lieferanten,
+Entwickler, Tester, IBM Ansprechpartner für DWH ProMetheus 
+
+	  
+
+	Budget: 600.000   
+
+	  
+
+	  
+
+	Projektmanager, Stadtwerke München, MCard GmbH, München,
+03.2010-01.2012 (3 Jahre) 
+
+	  
+
+	Konzeptionelle und strategische Entwicklung eines Controlling Systems
+(Kennzahlen) für Geschäftsführung und Marketing. 
+
+	Aufbau des M//Card Content Management mit Magnolia CMS.
+Weiterentwicklung des Milano CRM Systems. 
+
+	  
+
+	Ziel: 
+
+	Aufbau eines Loyalty-Systems Milano CRM mit Anbindung an eine
+Business Intelligence (Oracle) für Kampagnenmanagement, Marketing,
+Customer Insight, Vertrieb (Kundengewinnung und Kundenbindung) und
+Controlling. 
+
+	  
+
+	Inhalt:  
+
+	- Projektleitung für Business Intelligence und Datenmanagement mit
+Oracle für Statistik/Scoring-Verfahren 
+
+	- Aufbau eines Data Warehouses, der ETL Prozesse, der Datenmigration
+und Qualitätssicherung 
+
+	- Konzeption der Business Datamarts für Marketing, Vertrieb und
+Geschäftsführung 
+
+	- Abfrage von SQL Berichten für Kundensegmentierung, Kampagnen und
+Zielgruppen 
+
+	- Statistische Auswertungen und Prognosen mit SPSS und R bzgl. der
+Trendentwicklung 
+
+	- Projektleitung für die Einführung eines neuen Content Management
+Systems, Magnolia CMS 
+
+	- Koordination der Netzwerk- und Datenbankadministratoren zur
+Aufrechterhaltung des operativen Betriebs. 
+
+	  
+
+	EDV: MS Office Produkte, Oracle10g, Java, Apache-Tomcat, Magnolia
+CMS, SQL und PL/SQL, Warehouse Builder, SPSS, R 
+
+	  
+
+	Team: 10 Personen im Kernteam, zusätzliche verschiedene externe
+Vertragspartner und Dienstleister 
+
+	  
+
+	Budget: > 2 Mio.  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, inplus GmbH Umwelt Management, München-Germering,
+09.2009-03.2010 (7 Mon.) 
+
+	  
+
+	Entwicklung einer webbasierten Umweltmanagement Informationssoftware
+UMsys5 für Industrie, Pharmazie und Behörden (Stadt München RGU) zur
+Verwaltung umweltbezogener Auflagen. 
+
+	  
+
+	Inhalt:  
+
+	- Evaluierung des bestehenden Datenmodells, Aufnahme des IST-Zustands
+durch Interviews, Leiten von Arbeitsgruppen 
+
+	- Anforderungsanalyse und Aufnahme durch Use Cases und Szenerien,
+SOLL-Zustand 
+
+	- Entwicklung eines Lösungskonzepts und Pflichtenheft 
+
+	- Projektbegleitende Unterstützung bei der Umsetzung, Start, Planung,
+Durchführung nach IPMA-Standard 
+
+	  
+
+	EDV: MS Office Produkte, Lotus Notes, Java, Oracle10g, Warehouse
+Builder, PL/SQL, SQL 
+
+	Team: 6 Personen Kunde und externe Vertragspartner 
+
+	Budget: 500.000  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, T-Systems Enterprise Services GmbH,
+Stuttgart-Leinfelde -11.2008-06.2009 (8 mon.) 
+
+	  
+
+	Aufbau einer Plattform zur Erstellung von Standard Service Reports
+für den Kunden Daimler AG.
+Inhalt: - Evaluierung der Data Center Infrastruktur
+        - Aufnahme des IST-Zustands durch Gruppenarbeit und Interviews
+mit den Fachbereichsleitern
+        - Entwicklung eines Lösungskonzepts bzw. erstellen des
+Pflichtenheft (Feinkonzept)
+        - Leitung von Arbeitsgruppen und Definition der Report
+Standards
+        - Projektbegleitende Unterstützung bei der Umsetzung, Start,
+Planung, Durchführung nach IPMA-Standard
+        - Aufbau von Prozessstrukturen, Rollen und
+Verantwortlichkeiten
+        - Leitung und Begleitung der Umsetzung
+        - Berichterstattung und Präsentation der Anwendung vor dem
+Lenkungsausschuss
+EDV:   Office Produkte, Java, Oracle10g, DB2, Tivoli, OpenSmart
+Team: 4 Personen angrenzende Abteilungen und Vertragspartner der
+Daimler AG
+Budget: 700.000  
+
+	  
+
+	  
+
+	  
+
+	Strategie Berater und Inhaber, [Firma auf Anfrage], Dr. heinz Hampel,
+Berlin  seit 05.2008 
+
+	  
+
+	Erstellung eines Business und Marketingplans für die innovative
+Schallplatten Reinigungsmaschine lautlos-rein. Betreuung des
+Projekts von der Entwicklung über die Fertigung bis zur Serienreife. 
+Ausstellung im Stilwerk Berlin, HIFI-Concept in München und
+Hifi-Studio GmbH in der Schweiz. 
+
+	  
+
+	Inhalt: - Businessplan und Marketingplan
+        - Analyse von Markt und Kundenverhalten, Branchen- und
+Wettbewerbsanalyse
+        - Marketingstrategie, -ziele, -Mix
+        - Absatzpotential Abschätzung
+        - Finanzierungs- und Budgetplan
+        - Projektbetreuung bis zur Serienreife
+        - Umsetzung von Vertrieb und Marketing
+EDV:   Office Produkte, ProEngineer
+Team: 5 Personen Vertragspartner und Hersteller
+Budget: 100.000  
+
+	  
+
+	  
+
+	  
+
+	Strategie Berater, ATN Automatisierungstechnik Niemeier GmbH, Berlin
+-03.2008-04.2008 (2 mon.) 
+
+	  
+
+	Internationale Strategie Beratung für eine Expansion in die USA 
+
+	  
+
+	Inhalt: - Erstellen eines Strategiekonzepts für den Eintritt in den
+Internationalen Markt
+           - Analyse des externen und internen Umfelds
+           - Konkurrenzanalyse
+           - Markteintritt Alternativen
+           - Empfehlungen und Aktionsplan  
+
+	  
+
+	EDV:  Office Produkte
+Team: 4 Personen Vertrags- und Ansprechpartner in den USA,
+Projektsprache war Englisch
+Budget: > 1 Mio  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, hansenet Telekommunikation GmbH, Hamburg
+-11.2007-04.2008 (6 mon.) 
+
+	  
+
+	Entwicklung der neuen Alice Software Installation CD für die neuen
+Modems bzw.Router. 
+Projektunterstützung bei der Umstellung der LAN Infrastruktur.
+Inhalt: - Projektinitialisierung, Definition, Planung und Steuerung
+           - Aufbau von Prozessstrukturen, Rollen und
+Verantwortlichkeiten
+           - Verhandlungen mit Vertragspartnern
+           - Zusammenarbeit mit dem Produktmanagement und der
+Hardwarebeschaffung
+           - Aufbau eines Projekthandbuchs 
+           - Leitung eines Teams von Netzwerk-Spezialisten
+           - Berichterstattung an Abteilungsleiter und
+Geschäftsführung
+           - Projekt-Controlling
+           - Durchführung von Abnahmen 
+EDV:  Office Produkte, Router Technologie, Oracle 10g, Java, C
+Team: 8 Personen Marketing, Vertrieb und Produktmanagement, TÜV Nord
+Budget:  > 1 Mio.  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, kühne nagel (ag co.) kg, Hamburg -05.2007-10.2007 (6
+mon.) 
+
+	  
+
+	Aufbau eines europaweiten operativen Data Warehouse. Auswertung von
+KPIs für Logistik und Transport. Bereitstellung von Auswertungen und
+Berichten in grafischer und tabellarischer Form zwecks
+Prozessoptimierung. 
+
+	  
+
+	Inhalt: - Verhandlungen mit nationalen und internationalen
+Geschäftspartnern in Frankreich, Schweiz und Deutschland
+- Analyse. Design und Umsetzung der Anforderungen in ein Data
+Warehouse
+- Qualitätskontrolle der Daten, Performance, Konsistenz und der
+Schnittstellen Importe
+- Überwachung der Roll-Outs
+- Zusammenarbeit und Unterstützung des Projektmanagement Office PMO
+von KühneNagel 
+
+	  
+
+	EDV:   Office Produkte, Clarity, Oracle10g, Cognos, Java, EJB, SUN
+Solaris 
+
+	Team: 7 Personen Vertragspartner und externe Lieferanten,
+Projektsprache war Englisch
+Budget:  > 1 Mio.   
+
+	  
+
+	  
+
+	  
+
+	Geschäftsführer, [Firma auf Anfrage] GmbH, Berlin  seit 04.2006 
+
+	  
+
+	Aufbau der Geschäftsstelle in Berlin Vermarktung von Dienstleistung
+im Bereich Projektmanagement, Projektmanagement Beratung und Oracle
+Schulungen. Akquirieren von Projekten und Durchführen von IT-Lösungen
+beim Kunden. 
+Inhalt: - Aufbau von Unternehmensprozessen (Aufbau- und
+Ablauforganisation)
+        - Definition einer Vision. Ableiten der Strategie, Zielen und
+Massnahmen
+        - Marketing und Vertrieb
+        - Personal und Controlling
+Team: 8 Personen, Vertrieb, Projektmanager und Softwareentwickler
+Budget:  > 2 Mio.  
+
+	  
+
+	  
+
+	  
+
+	Projektmanager, dvn deutsche vergabenetz GmbH, Berlin
+-08.2005-10.2006 (15 mon.) 
+
+	  
+
+	Konzeption und Entwicklung eines Abrechnungssystems für die DVN.
+Entwicklung eines Payback Verfahren (Punktesystems). Archivierung und
+Auswertung von Kaufdaten der elektronischen Bau - und Vergabeplattform
+(Portal). 
+Aufbau eines Data Warehouse. Auswertung

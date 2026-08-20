@@ -1,0 +1,517 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_8253
+
+
+Stammdaten (Auszug):
+
+Personen-ID                8253
+  
+Wohnort                    415xx Kaarst, Deutschland
+Staatsbürgerschaft         deutsch
+Stundensatz                1 EUR
+                           Stundensatz verhandelbar
+Verfügbar ab               01.03.19 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         05.06.99
+Profil zuletzt geändert am 11.02.19
+Lesen von Projektanfragen  4 Tage [02]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 18.05.2019 15:39:36
+
+Fachlicher Schwerpunkt:
+ORACLE DBA und PL/SQL
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Administration / Support
+
+Tätigkeitsfelder: Oracle DBA und PL/SQL Programmierung
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Ausbildung:
+ 
+    * Maschinenschlosser,
+      FH Studium Konstruktionstechnik,
+      Abschluß Diplomingenieur
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: bevorzugt Raum Düsseldorf
+Irland: bevorzugt Dublin
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+
+
+Hardware:
+Ascii/X - Terminals       
+Datenerfassungsterminals  
+HP                        
+IBM Großrechner          
+IBM RS6000                
+Modem                     
+PC                        
+Siemens Großrechner      
+Siemens MX                
+SUN                       
+VAX                       
+
+
+Betriebssysteme:
+AIX                      
+HP-UX                    
+HPUX 11                  
+Linux                   (RedHat, Suse)
+MS-DOS                   
+Oracle Enterprise Linux  
+PalmOS                   
+RedHat Linux             
+Solaris                  
+Solaris 10               
+SUN OS                   
+Suse SLES 10             
+Suse SLES 9              
+Unix                     
+VAX / VMS                
+Windows XP               
+Windows 7                
+W2k                      
+
+ 
+
+Programmiersprachen:
+Assembler              
+C                      
+C++                    
+Clipper                
+dBase                  
+ESQL/C                 
+Fortran                
+HTML                   
+Java                   
+JavaScript             
+Oracle Developer       
+Oracle Embedded SQL/C  
+Pascal                 
+PL/SQL                 
+Shell                  
+4gl                    
+
+ 
+
+Datenbanken:
+ODBC     
+Oracle  6.x, 7.x, 8.x, 9.x, 10g, 11g
+Paradox  
+SQL      
+xBase    
+
+
+Datenkommunikation:
+Banyan              
+Ethernet            
+Internet, Intranet  
+NetBeui             
+NetBios             
+PC-Anywhere         
+TCP/IP              
+Windows Netzwerk    
+
+
+Produkte/Standards/Erfahrungen:
+BMC Remedy                 
+ControlM                   
+Exceed                     
+HP ServiceCenter           
+IqRep                      
+LiveLink                   
+Lotus Notes                
+MS Office                  
+MS Outlook                 
+MS Project                 
+MS Visio                   
+MSC                        
+Oracle Case                
+Oracle Enterprise Manager  
+Oracle GRID Control        
+PL/SQL Developer           
+SQL Navigator              
+SQLDataModeler             
+Sybase Designer            
+TOAD                       
+TOra                       
+Tätigkeitsfelder:
+ 
+    * Oracle DBA,
+    * Oracle SQL Statement Tuning,
+    * Oracle Database Tuning,
+    * Oracle PL/SQL Programmierung,
+    * Oracle iAS9 Administration,
+    * Oracle iAS10g Administration,
+    * Konzeption,
+    * Spezifikation,
+    * Projektkoordination
+
+Branchen:
+Großhandel
+Einzelhandel
+Banken
+Telekommunikation
+Entsorgungswirtschaft
+Versicherung
+Energiewirtschaft
+
+Projekte:
+09/2015 - 05/2016: Datamodel designer(30%), PL/SQL Developer (70%)
+ 
+Kunde:              Telekomunikation
+ 
+Aufgaben:
+ 
+Projektsprache:
+Deutsch, Englisch
+
+Details:
+Redesign des vorhandenen QA Tools, mit dem alle neu installierten Systeme
+(Server, OS, Database, Cluster, etc) geprüft werden. In diesem Programm ist
+sämtliche Logik in PHP umgesetzt, die nun weitestgehend in die Oracle Datenbank
+verlagert wurde. Meine Aufgabe war die Erstellung eines neuen Datenmodells und
+alle PL/SQL Module in der Datenbank zu programmieren.
+ 
+Software:
+11g / 12c Database, RAC 11g /12c, Dataguard
+ 
+Eingesetzte Produkte:
+ 
+RedHat Linux, Solaris, HP-UX
+===============================================================================
+01/2013 - 08/2015: DBA (100%)
+ 
+Kunde:              Automobil Zulieferer
+ 
+Aufgaben:
+ 
+Projektsprache:
+Deutsch, Englisch
+
+Details:
+Umstellen einer kompletten Infrastruktur von RAC auf Single / Standby
+Datenbanken um die Oracle RDBMS Betreuung in einem Datacenter zu vereinfachen
+und die Ausfallsicherheit zu erhöhen. Vorgaben für die vorhandene RAC Umgebung
+werden ersetzt gegen eine auf das Unternehmen angepasste Single / Standby
+Systeme im Dataguard Umfeld. Entsprechend mußten Installations- und
+Wartungsdokumente neu erstellt werden, Migrationspläne beschrieben, Backup
+Richtlinien überprüft und Monitoring überarbeitet werden. Als Designer dieser
+neuen Umgebung erarbeitete ich die neuen Modelle mit den Mitarbeitern und
+vermittelte ihnen in Workshops erforderliches Wissen zum Administrieren der
+neuen Umgebung.
+Ich programmierte Shell Scripte zur Erstellung von leeren Datenbanken,
+duplizieren vorhandener und erstellen der zugehörigen Standby Datenbank, weil
+der EM von Oracle mit Beginn des Projekts zu eingeschränkt in den Möglichkeiten
+war.
+ 
+Software:
+11g Database, RAC 11g, Dataguard
+ 
+Eingesetzte Produkte:
+ 
+RedHat Linux, Solaris, HP-UX
+===============================================================================
+06/2012 - 12/2012: DBA (100%)
+ 
+Kunde:              Telekommunikation Irland
+ 
+Aufgaben:
+ 
+Projektsprache:
+Englisch
+
+Details:
+Weiterhin arbeite ich für die selbe Firma im Oracle Database Build Team mit dem
+Unterschied, dass ich die in Irland ausübe, wo ich 6 Monate gelebt und
+gearbeitet habe.
+ 
+Software:
+Oracle 10g, 11g Database, RAC 10g, 11g, Dataguard
+ 
+Eingesetzte Produkte:
+ 
+RedHat Linux, Solaris, HP-UX
+===============================================================================
+03/2011 - 05/2012: DBA (100%)
+ 
+Kunde:              Telekommunikation
+ 
+Aufgaben:
+ 
+Projektsprache:
+Englisch
+
+Details:
+Mit dem Einsatz im Oracle Database Build Team gehörte es zu meinen Aufgaben
+Datenbanken auf Anforderung der Fachabteilung zu installieren. Die Arbeiten
+umfassten die Installation von GRID, Datenbank und auch DataGuard
+Als besondere Herausforderung programmierte ich ein Shell Script, welches,
+basierend auf einer Parameter Datei, eine Single Instanz oder eine RAC
+Datenbank über mehrere Knoten erstellte im Dateisystem oder ASM (incl. User und
+Tablespace)
+Die Arbeit im Build Team umfasste über die Installation der Datenbanken hinaus
+auch das analysieren und diskutieren der Anforderungen der Fachabteilungen
+sowie allgemeine beratende Tätigkeit für Migrations- oder Upgrade Projekte
+ 
+Software:
+Oracle 10g, 11g Database, RAC 10g, 11g, Dataguard
+ 
+Eingesetzte Produkte:
+ 
+RedHat Linux, Solaris, HP-UX
+===============================================================================
+01/2011 - 01/2011: DBA (100%)
+ 
+Kunde:              SAP Systemhaus
+ 
+Aufgaben:
+ 
+Projektsprache:
+Deutsch, Englisch
+
+Details:
+Performance Analyse eines SAP Systems (10g Single Instanz)
+ 
+Software:
+Oracle 10g Database
+ 
+Eingesetzte Produkte:
+ 
+Oracle Enterprise Linux
+===============================================================================
+10/2010 - 12/2010: DBA (60%), RMAN (10%), Dataguard (30%)
+ 
+Kunde:              Energieversorung
+ 
+Aufgaben:
+ 
+Projektsprache:
+Deutsch, Englisch
+
+Details:
+Aufbau mehrerer 4 Knoten RAC Cluster 11g mit Dataguard Standby Datenbanken.
+Planung und Durchführung verschiedener Fail Over Test.
+Administration von Oracle 10g Datenbanken für den Betrieb.
+ 
+Software:
+Oracle 10g Database, Oracle 11g Database, RAC (10g / 11g)
+ 
+Eingesetzte Produkte:
+ 
+HPUX 11, Solaris 10
+===============================================================================
+06/2010 - 09/2010: DBA (70%), RMAN (20%), Dataguard (10%)
+ 
+Kunde:              Rechenzentrum
+ 
+Aufgaben:
+ 
+Projektsprache:
+Deutsch, Englisch
+
+Details:
+Administration / Installation von Oracle Datenbanken für den Betrieb. Aufbau
+von Testsystemen und füllen dieser Datenbanken mit verfremdeten Echtdaten.
+ 
+Software:
+Oracle 10g Database, Oracle 11g Database, RAC (10g / 11g)
+ 
+Eingesetzte Produkte:
+ 
+Suse SLES 9, HPUX 11, Suse SLES 10
+===============================================================================
+01/2010 - 05/2010: DBA (30%), RMAN (40%), Dataguard (30%)
+ 
+Kunde:              Rechenzentrum
+ 
+Aufgaben:
+ 
+Projektsprache:
+Deutsch, Englisch
+
+Details:
+Ausarbeiten von Restore und Desaster Recovery Testabläufen. Prüfen vorhandener
+Backup Konzepte und deren Realisierung. Fail / Switch over Tests vohandener
+Systeme zur Sicherstellung der gewünschten Datensicherheit
+ 
+Software:
+Oracle 10g Database, RAC (10g)
+ 
+Eingesetzte Produkte:
+ 
+Suse SLES 9, Suse SLES 10
+===============================================================================
+Zeitraum: September 2009  Dezember 2009
+ 
+Firma: Rechenzentrum
+ 
+Software: Oracle 10g Database, RAC (10g)
+ 
+Betriebsysteme: Suse SLES 9, 10
+ 
+Aufgabe: DBA (80%), RMAN (10%), Standby (10%)
+ 
+Projektsprache: Deutsch
+ 
+Details: Aufbau eines hochverfügbarkeits Systems. Installiert werden ein 3
+Knoten RAC auf ASM. Die Spiegelseite stellt einen weiteren 3 Knoten RAC dar.
+Beide Systeme sind mit DataGuard verbunden.
+Parallel bin ich als Administrator der Oracle Datenbanken und Applicationserver
+im Rechenzentrum mitverantwortlich.
+===============================================================================
+ 
+Zeitraum: Juli 2008  Mai 2009
+ 
+Firma: Rechenzentrum
+ 
+Software: Oracle 10g Database, Oracle Grid, RAC( 10g)
+ 
+Betriebsysteme: Suse SLES 9, 10
+ 
+Aufgabe: DBA (55%), RMAN (10%), Standby (10%), iAS (25%)
+ 
+Projektsprache: Deutsch
+ 
+Details: Für einen Neukunden wurden mehrere Datenbanken als RAC auf ASM
+installiert. Um eine größtmögliche Ausfallsicherheit zu gewährleisten wurde ein
+weiterer RAC auf ASM installiert. Beide Systeme sind per Dataguard verbunden.
+Meine Aufgabe war die Installation der Datenbanken auf einem fertig
+vorkonfigurierten Umfeld, so wie es der RAC erfordert.
+Für dieses Datenbankgeflecht installierte und konfigurierte ich einen iAS, auf
+dem die eigentliche Anwendung deployed wurde. Es wurden mehere iASen zu einem
+Cluster per Multicast verbunden um auch hier eine größt mögliche Verfügbarkeit
+zu erreichen.
+Datenbanken und iAS wurden ordnungsgemäß in Betrieb genommen und bilden einen
+Teil meiner heutigen Betriebsbetreuung als DBA.
+Parallel zum Neukundengeschäft bin ich weiterhin als Administrator der Oracle
+Datenbanken und Applicationserver im Rechenzentrum mitverantwortlich.
+===============================================================================
+ 
+Zeitraum: Februar 2008  Juni 2008
+ 
+Firma: Rechenzentrum
+ 
+Software: Oracle 10g Database, Oracle Grid
+ 
+Betriebsysteme: Suse SLES 9, 10
+ 
+Aufgabe: DBA (65%), RMAN (10%), Standby (10%)
+ 
+Projektsprache: Deutsch, Englisch
+ 
+Details: Für einen Neukunden wurden ca. 10 Test Datenbanken und 10 weitere
+Produktion Datenbanken installiert mit entsprechenden Standby DB Instanzen.
+Meine Aufgabe war die DB Instanzen und Standby Systeme zu installieren, RMAN zu
+konfigurieren und die Instanzen in Betrieb zu nehmen (Monitoring prüfen,
+Sicherungen kontrollieren, Freigabe) und den Kunden zu den Oracle Datenbanken
+zu betreuen.
+Parallel zum Neukundengeschäft bin ich weiterhin als Administrator der Oracle
+Datenbanken und Applicationserver im Rechenzentrum mitverantwortlich.
+===============================================================================
+ 
+Zeitraum: November 2007  Januar 2008
+ 
+Firma: Rechenzentrum
+ 
+Software: Oracle 9i Database, Oracle 10g Database
+ 
+Betriebsysteme: HP-UX 11.11, Solaris 10, RedHat, Suse
+ 
+Aufgabe: DBA (80%), RMAN(15%), Standby(10%)
+ 
+Projektsprache: Deutsch
+ 
+Details: In diesem Rechenzentrum liegt die Verantwortung bei mehreren DBAs, zu
+denen auch ich gehörte, für Datenbanken aus dem Bereich Logistik, Pharma,
+Einzelhandel, uvm. Die meisten DB Instanzen sind mit einer Standby Datenbank
+verbunden um eine hohe Ausfallsicherheit zu gewährleisten. Oracle RAC spielt
+eine untergeordnete Rolle. Die Datenvolumen der einzelnen Systeme liegen
+zwischen 20 GByte und 1,5 TByte. Neben dem normalen DBA Aufgaben war ich für
+Performanceanalysen zuständig.
+===============================================================================
+ 
+Zeitraum: August 2006  August 2007
+ 
+Firma: Telekommunikation
+ 
+Software: Oracle 8i Database, Oracle 9i Database, MS-Project, LiveLink
+ 
+Betriebsysteme: HP-UX 11.11
+ 
+Aufgabe: Programmierer (10%), DBA (10%), Projektleiter (80%)
+ 
+Projektsprache: Deutsch, Englisch
+ 
+Details: Budget verantwortlicher Projektleiter für den Hub des Billing- und
+Ratingssystems von Oracle 8i auf 9i. Die Aufgabe besteht nicht nur aus
+Budgetverwaltung, Abstimmungen mit angebundenen Fachabteilungen und allgemeinem
+Projektmanagement, sondern auch in der Bewertung technischer Vorgensweise
+===============================================================================
+ 
+Zeitraum: April 2006  Juli 2006
+ 
+Firma: Telekommunikation
+ 
+ 
+Software: Oracle 8i Database, SQLNavigator, SQLTuner, PL/SQL, Oracle Enterprise
+Manager
+ 
+Betriebsysteme: HP-UX 11.0
+ 
+Aufgabe: DBA (40%), Programmierer (10%), Analytiker (50%)
+ 
+Projektsprache: Deutsch, Englisch
+ 
+Details: Analyse / Tuning des Billing- und Ratingsystems auf Fehler im
+Datenmodell, unsinnige oder inperformante Indizes, überprüfen von eingesetzten
+Tabellenstrukturen und diese ggf. korrigieren (IOT, Partition Tables, etc.),
+PL/SQL Quelltext Analyse
+===============================================================================
+ 
+Zeitraum: September 2005  März 2006
+ 
+Firma: Rechenzentrum
+ 
+Software: Oracle 10g Database, Oracle iAS9i, Oracle iAS10g R1, Oracle iAS10g R2
+ 
+Betriebsysteme: Linux (RedHat), SUSE 9, Solaris 5.8
+ 
+Aufgabe: Konzeptionierer (10%), Administrator (90%)
+ 
+Projektsprache: Deutsch
+ 
+Details: Migration eines iAS9i auf iAS10g. Administration des iAS 10g im
+produktiven Einsatz. Abstimmung mit der Entwicklungsabteilung zu den neuen
+Möglichkeiten des iAS und sinnvollem Einsatz dieser.
+Ferner erfolgt ein Coching im Rahmen der iAS Administration um den Kunden in
+Lage zu versetzen, diese Arbeiten zukünftig eigenverantwortlichen
+durchzuführen.
+===============================================================================
+weitere Projekte auf Anfrage
+===============================================================================
+ 
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_8253
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 12.02.2019 00:43:08
+© Copyright 1996-2019 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

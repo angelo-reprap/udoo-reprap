@@ -1,0 +1,636 @@
+Softwareentwickler/Systemarchitekt mit Schwerpunkt verteilte
+Systeme – Data, Cloud &amp; Container
+Top-Skills: Cloud, Data, Container
+Verfügbar ab: 16.04.2023
+verfügbar zu: 100 %
+davon vor Ort: 25 %
+Stundensatz: 140,00 EUR
+Bemerkungen: abhängig vom Projekt und Einsatzort
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Schweiz, Österreich, Einsatzort unbestimmt
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Ich stehe für meine Kunden weltweit zur Verfügung, bisherige
+Projekterfahrung im Ausland u.a. in Belgien, Schweiz, Canada, China,
+Singapore, USA.
+Position
+Kommentar: Systemarchitekt/Berater/Softwareentwickler mit Schwerpunkt verteilte
+Systeme – Data, Cloud &amp; Container
+Seit mehr als 15 Jahren und in über 20 Projekten unterstütze ich
+meine Kunden beim Entwurf und der Entwicklung von
+datengetriebenen Geschäftsprozessen unter Nutzung moderner
+Technologien.
+Projekte
+2021-07 - heute Unterstützung Migration eines Data Warehouse in die
+1 Jahr 7 Monate Cloud
+17.02.2023 1 von 16
+Rolle: Solution Architect
+Projektinhalte:     •  Konzeption undUmsetzung eines Data Ware House mittels
+     ?LakeFormation und Glue Catalog
+    •  Konzeptionund Umsetzung mehrerer GitLab CI/CD Pipelines zum
+     ?Testen und Ausrollen backendbasierter Prozesse
+    •  Schulung undWissenstransfer interner Mitarbeiter
+Eingesetzte Produkte: AWS Cloud, Docker, Glue, LakeFormation, GitLab
+2020-06 - 2022-12 Konzeption und Umsetzung eines cloud basierten Data
+2 Jahre 7 Monate Ware House zur Auswertung von Nutzerdaten
+Rolle: Solution Architect, Data Engineer
+Projektinhalte: ·      Konzeptionund Umsetzung Cloud Infrastruktur zum Aufbau eines Data
+Warehouse
+·      Integrationvon Airflow als Workflow Engine
+·      IntegrationGoogle Spark K8s Operator als Laufzeitumgebung für ETL
+Prozesse
+·      Aufbau einesTeams zur Umsetzung von ETL Prozesse
+·      Beratungallg. Datenarchitektur
+Eingesetzte Produkte: AWS Cloud, Kubernetes, Docker, Spark, Terraform, Python, Kustomize
+2019-01 - 2020-03 Konzeption und Umsetzung eines cloud basierten Data
+1 Jahr 3 Monate Ware House zur Auswertung von Fahrzeugdaten, Aufbau
+Data Science Umgebung
+Rolle: Solution Architect , Data Engineer
+Kunde: Volkswagen AG
+Einsatzort:
+Projektinhalte: ·      Erweiterungund Produktivsetzung eines Prototypen zur
+Massendatenverarbeitung
+·      Aufbau undInbetriebnahme einer CI/CD Pipeline
+·      Konzeption,Umsetzung &amp; Deployment Backend API inkl. Helm Chart
+·      Konzeption&amp; Umsetzung Projektstruktur, Release Management
+·      Aufbau ETLStrecke zur Datenvalidierung und –vereinnahmung
+Eingesetzte Produkte: AWS Cloud, Lambda, IAM, Kubernetes, Docker, Terraform, Python,
+ElasticSearch, LogStash, Kibana, Helm Charts
+2019-08 - 2019-12 Konzeption und Umsetzung Infrastruktur zur
+5 Monate Sensordatenverarbeitung, Erweiterung einer
+bestehenden Data Sciene Umgebung
+Rolle: Solution Architect
+Kunde: D. Swarovski KG
+17.02.2023 2 von 16
+Projektinhalte: ·      Beratunghinsichtlich Konzeption und Werkzeuge zum Aufbau einer
+Kubernetes basiertenInfrastruktur zur Sensordatenverarbeitung
+·      Konzeptionund Aufbau Infrastruktur auf Kubernetes (Kafka Cluster,
+Spark Framework,Zookeeper, ZK Manager)
+·      Konzeptionund Aufbau ETL Strecke zur Datenvereinnahmung
+·      Konzeptionund Aufbau CI/CD Pipeline mit Bamboo &amp; Kubernetes
+Eingesetzte Produkte: AWS Cloud, Kubernetes, Kafka, Spark, Bamboo, Java, Docker, Helm
+Charts, InfluxDB
+2017-05 - 2018-12 Unterstützung Konzeption und Umsetzung einer Micro
+1 Jahr 8 Monate Service Architektur
+Rolle: System Architect
+Kunde: aixigo AG
+Projektinhalte:     •  Abstimmung und Koordination div. Teams bzgl. Technologieeinsatz
+    •  Unterstützung Konzeption zentraler Elemente (De/Serializer,
+     ?Data Pipe Design, Error Handling, Message Handling, Datenbank
+     ?Design)
+    •  Einführen von Kafka als zentralen Message Bus für Micro
+     ?Services
+    •  Einführen von LiquiBase zum Datenbank Schema Management
+    •  Fachlich / technische Betreuung eines konkreten Micro Service
+Eingesetzte Produkte: Micro Services, Java, Docker, Kafka, LiquiBase, IT Architektur allg
+2017-10 - 2018-11 Konzeption und Umsetzung eines cloud basierten Data
+1 Jahr 2 Monate Ware House / Data Science Umgebung
+Rolle: Solution Architect, Data Engineer
+Kunde: D. Swarovski KG
+Projektinhalte: ·      Konzeptioneines dynamisch skalierbaren Data Ware House
+·      UmsetzungInfrastruktur in Terraform (Infrastructure as Code)
+·      UmsetzungInfrastruktur Komponenten in Kubernetes
+·      ModellierungDWH &amp; Datenablage
+·      Aufbau ETLStrecken zur Datenvereinnahmung
+Eingesetzte Produkte: AWS Cloud, Kubernetes, Spark, R, NiFi, Terraform, Docker, Jupyter NB
+2017-01 - 2017-08 Konzeption und Umsetzung Big Data Warehouse
+8 Monate
+Rolle: Solution Architect, Data Engineer
+Kunde: GfK SE
+Projektinhalte:     •  Technische Projektleitung
+    •  Konzeption AWS Cloud Infrastruktur
+    •  Implementierung Data Pipelines
+    •  Aufbau Data Warehouse / Workflow Management
+17.02.2023 3 von 16
+    •  Datenaufbereitung / Prozessmanagement
+Eingesetzte Produkte: Spark, SparkR, Hadoop, Hive, Jupyter, AWS Cloud, R, Bamboo, Terraform
+2017-03 - 2017-03 Unterstützung bei der Evaluierung von Anbietern im
+1 Monat Bereich Big Data
+Rolle: Requirements Engineer, Solution Architect
+Kunde: Open Grid Europe GmbH
+Projektinhalte:     •  Erfassung und Dokumentation der technischen und fachlichen
+     ?Anforderungen zum Aufbau und Betrieb eines auf Apache Hadoop
+     ?basierenden Data Warehouse
+    •  Einholen von Angeboten verschiedener Anbieter, Aufbereitung der
+     ?Informationen zur Entscheidungsfindung
+    •  Implementierung eines Prototyps zur Datenvereinnahmung
+Eingesetzte Produkte: Hortonworks, Cloudera, SAP Cloud, Apache NiFi, AWS Cloud, MS Azure
+2016-06 - 2016-12 Architekturreview und Konzeption und Implementierung
+7 Monate Streaming Layer
+Rolle: Solution Architect, Data Engineer
+Kunde: Helix Leisure Pte Ltd
+Projektinhalte:     •  Review und Bewertung vorhandene Architektur und Datenmodell
+    •  Durchführung Workshop Datenmanagement / Lambda Architektur
+    •  Konzeption und Implementierung Realtime Layer mit Spark RT
+    •  Erarbeitung Konzept und Umsetzung für die Integration von
+     ?Realtime Layer und Batch Layer
+Eingesetzte Produkte: Hadoop, Spark, AWS Cloud, Scala, MapReduce, JCascalog, RedShift
+2016-10 - 2016-10 Workshop Big Data Technologien – Einführung und
+1 Monat Funktionsweise
+Rolle: Data Engineer
+Kunde: Universitätsspital Basel
+Projektinhalte:     •  Durchführung eines 3-tägigen Workshops
+    •  Einführung in Big Data/Hadoop Ökosystem
+    •  Praktische Übung Big Data Einsatz in der AWS Cloud
+Eingesetzte Produkte: Hadoop, Spark, AWS Cloud, MapReduce, Hive, Pig, R
+2011-03 - 2016-09 Konzeption und Entwicklung einer Webapplikation
+5 Jahre 7 Monate
+17.02.2023 4 von 16
+Rolle: Founder, Solution Architect, Data &amp; Software Engineer,
+Kunde: LambdaNow.com / AltusInsight GmbH
+Projektinhalte: Konzeption und Entwicklung einer Webapplikation (LambdaNow)
+    •  Konzeption der Anwendung
+    •  Implementierung von Webseite und Backend
+    •  Einrichten Deployment Prozess + Hosting Umgebung
+    •  Einrichtung eines vollautomatisierten Apache Hadoop Deployment
+     ?Prozesses in der Amazon Cloud
+Eingesetzte Produkte: Apache Hadoop, Python, Puppet, AWS, Git, RedHat Linux
+2015-12 - 2016-08 Konzeption und Aufbau Continuous Deployment /
+9 Monate Delivery Pipeline für  datengetriebene Anwendung in
+einer Cloud Umgebung
+Rolle: Solution Architect, DevOps Engineer
+Kunde: GfK SE
+Projektinhalte:     •  Planung und Umsetzung einer Big Data Infrastruktur in der AWS
+     ?Cloud
+    •  Planung und Umsetzung einer Continuous Deployment Pipeline
+    •  Technische Leitung eines internen Teams
+Eingesetzte Produkte: AWS Cloud, Hadoop, Spark, Bamboo, Git, Terraform, Vagrant, InfluxDB
+2016-02 - 2016-07 Unterstützung im Aufbau von ETL Strecken für ein
+6 Monate Hadoop basiertes DWH
+Rolle: Data Engineer, Software Entwickler
+Kunde: Otto GmbH &amp; Co. KG
+Projektinhalte:     •  Planung und Umsetzung eines Hive Export Moduls
+    •  Implementierung Kafka &amp; Redis Export Modul als Teil eines Open
+     ?Source Projektes
+    •  Implementierung Analyse Algorithmus zur Auswertung von Click
+     ?Streams
+Eingesetzte Produkte: Hadoop, Hive, Spark, Redis, Kafka, Avro, Scala, HCatalog, Schedoscope
+2015-07 - 2015-10 Konzeption und Umsetzung eines Data Ware House
+4 Monate basierend auf Big Data Technologien – OLAP workload
+Rolle: Solution Architect
+Kunde: RadioOpt GmbH
+Projektinhalte:     •  Planung und Realisierung der Cluster Infrastruktur
+    •  Evaluierung verschiedener Eingangsformate hinsichtlich der
+     ?Performance
+17.02.2023 5 von 16
+    •  Vorbereitung und Durchführung von Lasttests
+Eingesetzte Produkte: Hadoop, Impala, Hive, ETL, AWS Cloud
+2012-11 - 2015-08 Konzeption und Umsetzung einer Big Data Architektur
+2 Jahre 10 Monate zur Auswertung Telekommunikationsdaten
+Rolle: Solution Architect, Data Engineer
+Kunde: GfK SE
+Projektinhalte:     •  Planung und Realisierung des Netzwerkes (VPC)
+    •  Planung und Realisierung eines Hadoop Clusters (100TB
+     ?Kapazität)
+    •  Einrichten Deployment Prozess, inkl. Monitoring
+    •  Implementierung eines Data Ingestion Frameworks zur Speicherung
+     ?von ca. 300GB Daten pro Tag
+Eingesetzte Produkte: Apache Hadoop, Hive, Flume, Java, Spring, Puppet, Ubuntu Linux, AWS
+2014-07 - 2015-06 Konzeption und UmsetzKonzeption und Umsetzung eines
+1 Jahr Big Data Systems zur Batch und Realtime
+Datenverarbeitung
+Rolle: Solution Architect, Data Engineer
+Kunde: Technicolor SA
+Projektinhalte:     •  Planung und Realisierung der Deploymentumgebung
+    •  Evaluierung verschiedener Technologien zur Datenerfassung /
+     ?Datenverarbeitung
+    •  Technische Leitung eines Teams
+    •  Implementierung eines verteilten, ausfallsicheren High
+     ?Throughput Messaging- und Analyse Systems für Maschinendaten
+Eingesetzte Produkte: Hadoop, Storm, Kafka, Java, ETL, Linux, AWS Cloud
+2013-03 - 2014-09 Konzeption und Umsetzung eines Hadoop basierten Data
+1 Jahr 7 Monate Warehouse
+Rolle: Solution Architect, Data Engineer
+Kunde: Ubisoft / BlueByte GmbH
+Projektinhalte: Konzeption und Umsetzung eines Hadoop basierten Data Warehouse für
+Game Analytics
+    •  Planung und Realisierung eines Data Warehouse
+    •  Evaluierung verschiedener Ansätze zur Datenerfassung
+    •  Auswahl geeigneter Technologien
+    •  Technische Leitung / Koordination eines verteilten Teams (GER,
+     ?CN, CAN)
+    •  Implementierung eines verteilten, ausfallsicheren High
+     ?Troughput Messaging System
+17.02.2023 6 von 16
+Eingesetzte Produkte: Hadoop, Map/Reduce, Kafka, Hive, ETL, Java, Linux
+2013-02 - 2014-06 Konzeption und Umsetzung einer Big Data Infrastruktur
+1 Jahr 5 Monate in virtualisierten Umgebungen
+Rolle: System Architect, Solution Architect, Data &amp; Software Engineer,
+Kunde: Deutsche Telekom AG
+Projektinhalte:     •  Planung und Realisierung einer Big Data Deployment
+     ?Infrastruktur
+    •  Implementierung Deployment Prozess für Hadop Cluster on Demand
+     ?in einer virtualisierten Umgebung
+    •  Prototypische Implementierung verschiedener Algorithmen im
+     ?Map/Reduce Framework
+Eingesetzte Produkte: Hadoop, OpenStack, Opscode Chef, Java, Linux
+2012-05 - 2012-12 Konzeption und Umsetzung eines Hadoop Clusters
+8 Monate
+Rolle: System Architect, Data Engineer
+Kunde: exactag GmbH
+Projektinhalte:     •  Beratung und Konzeption eines Hadoop Clusters
+    •  Auswahl der geeigneten Hardware
+    •  Einrichten eines Deployment Prozesses und Ausrollen des
+     ?Clusters
+    •  Portierung bestehender Statistikroutinen nach Map/Reduce
+Eingesetzte Produkte: Apache Hadoop, Hive, Pig, Python, Java, Maven, Puppet, Debian Linux
+2011-06 - 2012-03 Neuimplementierung eines Analysetools als Map/Reduce
+10 Monate Anwendung
+Rolle: Data &amp; Software Engineer
+Kunde: Etracker GmbH
+Projektinhalte:     •  Analyse und Integration einer bestehenden Implementierung in
+     ?das Map/Reduce Framework mit der Hadoop Streaming API
+    •  Installation und Konfiguration eines Hadoop Clusters inkl.
+     ?Monitoring
+    •  Einrichten eines Deployment Prozesses
+Eingesetzte Produkte: Apache Hadoop/HBase, Java, Maven, Ganglia, Chef, PHP, Debian Linux
+2010-09 - 2011-02 Integration eines Payment Providers in bestehendes
+6 Monate Backend
+17.02.2023 7 von 16
+Rolle: Software Engineer
+Kunde: Aupeo GmbH
+Projektinhalte: Integration eines Payment Providers in bestehendes Backend
+(Ruby/Rails, OAuth, MySQL, Git, Debian Linux)
+    •  Datenaufbereitung, Konvertierung und Import in Datenbank
+    •  Mapping der Daten, Textmatching mit vorhandener Datenbasis
+    •  Integration eines Payment Providers
+2010-05 - 2010-09 Integration einer Signaturkomponente in ein Email
+5 Monate Programm
+Rolle: Software Engineer
+Kunde: OpenLimit SignCubes GmbH
+Projektinhalte: Integration einer Signaturkomponente in ein Email Programm
+(KMail) (C++, Qt, KDE, Ubuntu Linux)
+    •  Einrichten der Debug Umgebung
+    •  Integration Signaturkomponente in KMail
+    •  Testen der Implementierung
+2010-03 - 2010-05 Implementierung und Refactoring eines Analysetools in
+3 Monate C++
+Rolle: Software Engineer
+Kunde: etracker GmbH
+Projektinhalte: Implementierung und Refactoring eines Analysetools in C++
+(C++, MySQL C/C++ API, Doxygen, Hudson, Ubuntu/Debian Linux)
+    •  Einrichten einer Build Umgebung für C++ Projekte
+    •  Refactoring des Prototypen
+    •  Anpassung und Erweiterung der Software an Produktionsumgebung
+     ?(Logging, Fehlerbehandlung, Unit Testing)
+    •  Einrichten eines Deployment Prozesses
+    •  Aufsetzen einer Build Servers (Continous Integration)
+2009-11 - 2010-02 Konzeption und Entwicklung eines Web Crawlers
+4 Monate
+Rolle: Software Engineer
+Kunde: IT-Cowboy
+Projektinhalte: Konzeption und Entwicklung eines Web Crawlers
+(C++, Fedora/RedHat Linux, Cassandra)
+    •  Design der Applikation als hochperformanten multi-threaded
+     ?Server
+    •  Implementierung als verteilte Anwendung unter Verwendung von
+     ?asynchronen Sockets (non-blocking I/O)
+17.02.2023 8 von 16
+05/09 – 10/09
+Erweiterung eines bestehenden Indexing Frameworks (Ruby/Rails, MySQL)
+    •  Anpassung eines Indexing-Framework zur Indizierung von Musikdaten an ein verändertes
+     ?Datenbankmodell
+    •  Konvertierung der vorhandenen Daten (ca. 100Gb)
+(MOG Inc.)
+05/08 – 04/09
+Konzeption, Aufbau und Inbetriebnahme einer Hosting Umgebung für eine große Webseite (Apache,
+Nginx, HAProxy, Mongrel, MySQL, MySQLProxy, BIND, DHCP, Cobbler, Puppet, RedHat Linux)
+    •  Konzeption der Hosting Umgebung
+    •  Aufbau der Infrastruktur für Server Provisioning/Configuration
+    •  Einrichtung MySQL Master/Master Replication + MySQLProxy
+    •  Einrichten der Serversoftware, Monitoring und Logging
+    •  Migration der Webseite vom Hosting Provider zur Colocation
+    •  Analyse und Optimierung zur Verbesserung der Performance des Gesamtsystems
+(MOG Inc.)
+10/07 – 04/08  
+Portierung eines XML-RPC Servers von Ruby on Rails nach C++ (C++, XML-RPC, Ruby/Rails, XML
+Schema, MySQL C/C++ API, RedHat Linux)
+    •  Analyse der Performanceprobleme
+    •  Implementierung/Portierung nach Spezifikation (geg. Protokoll)
+    •  Austausch der Komponente und Integration in vorhandenes Backend
+(MOG Inc.)
+06/06 – 09/07
+Konzeption und Entwicklung einer Infrastruktur zur Integration von Daten externer Anbieter
+(Ruby/Rails, MySQL, Bash, RedHat Linux)
+    •  Aufbau einer Musikdatenbank mit Daten von Anbietern wie Allmusic, Muze (Macromedia),
+     ?Rhapsody, MediaNet
+    •  Datenaufbereitung, Konvertierung und Import in Datenbank
+    •  Mapping der Daten verschiedener Anbieter
+(MOG Inc.)
+01/06 – 05/06
+Konzeption, Design und Entwicklung eines Spellcheckers als Komponente eines Indexing
+Frameworks (C++, SOAP, CLucene, MySQL C/C++ API, Doxygen, RedHat Linux)
+    •  Analyse vorhandener Algorithmen
+    •  Implementierung eines Algorithmus (Levensthein Distance und Ngram Index) in C++
+    •  Integration in vorhandenes System
+(MOG Inc.)
+05/05 – 12/05
+Konzeption, Design und Entwicklung eines Collaborative Filtering Systems als verteilte
+Anwendung (C++, MySQL C/C++ API, XML, XML Schema, Perl, Doxygen, RedHat Linux)
+    •  Evaluierung geeigneter Algorithmen
+    •  Implementierung als verteilte Anwendung mit Datenbankanbindung
+    •  Integration in vorhandenes Backend und Frontend
+(MOG Inc.)
+09/04 – 03/05
+Implementierung/Portierung eines Verfahrens zur Extraktion der Hauptmelodielinie (C++, Matlab,
+Mandrake Linux)
+    •  Portierung eines in Matlab vorhandenen Algorithmus nach C++
+    •  Optimierung der Implementation hinsichtlich der Laufzeit
+(Fraunhofer Institut)
+07/03 – 08/04
+wissenschaftliche Untersuchung von Datenstrukturen zur Bestimmung des Nearest Neighbors für ein
+Music Information Retrieval System (Matlab, C++, Perl, Apache, CGI, Mandrake Linux)
+17.02.2023 9 von 16
+    •  Untersuchung mehrerer Nearest Neighbor Algorithmen auf Eignung hinsichtlich der
+     ?gegebenen Spezifikation
+    •  Design und Implementierung eines Algorithmus in C++ und Integration in das bestehende
+     ?System (als dynamische Bibliothek in C++)
+    •  Durchführung und Auswertung einer Testreihe zur Evaluierung
+(Fraunhofer Institut)
+01/03 – 06/03
+Mitarbeit an der Entwicklung von Algorithmen zur Erkennung von Identitätsdiebstahl (Java, Octave,
+Perl, Tomcat, Oracle, RH Linux, Solaris)
+    •  Implementierung eines Tools zur Visualisierung von Graphen
+    •  Analyse großer Datenmengen (~250 GB) zur Merkmalsextraktion mit einem Java Processing
+     ?Framework
+    •  Entwicklung/Implementierung von Algorithmen zur Erkennung von Identitätsdiebstahl
+     ?(Regressionsanalyse)
+(ID Analytics Inc.)
+11/01 – 12/02
+Mitarbeit an Design und Implementierung einer Cross-Platform GUI (Win32/Linux) für ein Query by
+Humming System (C++, QT, Win32, Linux)
+(Fraunhofer Institut)
+08/00 – 10/01
+Mitarbeit wissenschaftliche Evaluierung von Algorithmen zur Ähnlichkeitssuche für ein Query by
+Humming System (Matlab, Bash, Linux)
+    •  Implementierung verschiedener Algorithmen in Matlab
+    •  Automatisierung/Parallelisierung der Testumgebung mit Bash Scripten
+(Fraunhofer Institut)
+Berufliche Stationen
+01/10 – aktuell
+Freiberufler
+ 
+05/05 – 10/09
+MOG Inc. – Startup im Bereich Medien/Internet
+    •  Seit der Gründung des Startup für das Backend zuständiger Softwareentwickler und
+     ?Systemarchitekt
+    •  Verantwortlich für Entwurf, Umsetzung und Inbetriebnahme der Hosting Umgebung
+    •  Konzeption und Umsetzung mehrerer Softwareprojekte in C++
+Berkeley / CA / USA (freiberufliche Basis) (www.mog.com)
+  
+07/03 – 03/05
+Fraunhofer IDMT – Forschungsinstitut im Bereich Audio/Video
+    •  Wissenschaftliche Untersuchungen auf dem Gebiet von Suchalgorithmen
+    •  An der Entwicklung und Implementierung von Algorithmen beteiligter Mitarbeiter
+Ilmenau / Thürigen (www.idmt.fraunhofer.de)
+ 
+01/03 – 06/03
+ID Analytics Inc. – Startup im Bereich Finanzdienstleistungen
+    •  Mitarbeit an einer Software zur Erkennung von Identitätsdiebstahl
+    •  Datenaufbereitung und Datenanalyse
+    •  Mitarbeit an der Entwicklung und Implementierung von Algorithmen
+San Diego / CA / USA (www.idanalytics.com)
+  
+08/00 – 12/02
+Fraunhofer IDMT – Forschungsinstitut im Bereich Audio/Video
+    •  Entwicklung von Testumgebungen zur Beurteilung von Algorithmen
+17.02.2023 10 von 16
+    •  Entwurf und Implementierung von GUIs zur Präsentation von Algorithmen auf Fachmessen
+Ilmenau / Thüringen (www.idmt.fraunhofer.de)
+ 
+06/99 – 07/99 
+JUMATECH – Firma im Bereich Leiterplattenproduktion
+    •  Bereitstellung von IT Infrastruktur
+Eckental / Bayern (www.jumapcb.com)
+ 
+05/98 – 09/98 
+Fernsehproduktionsfirma Studio Leipzig
+    •  3D Modellierung mit 3ds Max
+Leipzig / Sachsen
+ 
+ 
+Referenzen
+Projekt Diverse Projekte im Bereich Forschung Metadaten, 08/00 - 03/05
+Referenz durch Abteilungsleiter, Forschungsinstitut (50 MA), vom 27.12.09
+Projekt im Rahmen einer Festanstellung durchgeführt
+"[...] Der Mitarbeiter löste die ihm übertragenen Aufgaben stets sehr souverän und zu unserer
+vollsten Zufriedenheit. Der Mitarbeiter war stets ein äußerst engagierter und einsatzfreudiger
+Mitarbeiter, der uns durch seine sehr gute Leistungsbereitschaft und vorbildliche Pflichtauffassung
+beeindruckt hat. Er besitzt ein umfassendes, detailliertes und aktuelles Fachwissen, das er stets mit
+außerordentlichem Erfolg in seinem Aufgabenbereich einsetzte. Die verwendeten
+Programmiersprachen (C/C++, Matlab, Perl), den objektorientierten Softwareentwurf sowie die
+generative Softwareentwicklung mit Templates beherrscht der Mitarbeiter auf hohem Niveau. Gern
+bescheinigen wir ihm auch einen effizienten und sicheren Umgang mit allen Werkzeugen zur
+Softwareentwicklung unter Linux und Windows. [...] Sein Verhalten gegenüber Vorgesetzten,
+Kollegen und Mitarbeitern war stets einwandfrei. Wir danken dem Mitarbeiter für die stets
+produktive und äußerst erfolgreiche Zusammenarbeit und bedauern sein Ausscheiden sehr. Wir
+wünschen ihm auf seinem weiteren Berufs- und Lebensweg alles Gute und weiterhin viel Erfolg."
+Branchen
+    •  Medien
+    •  IT
+    •  Bank
+    •  Versicherung
+    •  Forschung
+Sprachen
+Deutsch Muttersprache
+Englisch fließend, Arbeitsumgebung Englisch für 5 Jahre
+Kompetenzen
+17.02.2023 11 von 16
+Schwerpunkte Aufbau ETL Prozesse und Experte
+Cloud Infrastruktur
+Anforderungsanalyse Übersetzen von Geschäftsanforderungen in
+Datenprozesse technische Prozesse un Infrastrukturen
+Technologieberatung Die richtige Technologie für den konkreten
+Anwendungsfall
+Mentoring Wissenstransfer, Erfahrungsaustausch &amp; Best
+Practices
+Systemarchitekt / Data Engineer mit mehr als 15 Jahren Erfahrung im
+Aufbau und Betrieb von technischen Prozessen zur Datenverarbeitung
+auf cloudbasierten Infrastrukturen.
+Ich unterstütze meine Kunden beim Entwurf und der Entwicklung von
+datengetriebenen Geschäftsprozessen unter Nutzung moderner
+Technologien.
+Produkte / Standards / Cloudtechnologien Experte
+Erfahrungen / Methoden
+Containertechnologien Experte
+ETL Prozesse Experte
+    •  Planung und Umsetzung von ETL Prozessen in Cloud &amp;
+     ?Container Umgebungen
+    •  Planung, Aufbau und Automatisierung von Infrastrukturen in
+     ?Cloud Umgebungen
+    •  Design von verteilten Systemen hinsichtlich Skalierbarkeit
+     ?und Performance
+    •  sehr gute Kenntnisse in der Konzeption und Umsetzung von
+     ?ETL Prozessen
+    •  systematische / analytische Heransgehensweise an neue
+     ?Probleme
+    •  Design / Entwicklung / Implementierung von Algorithmen
+     ?(wissenschaftlicher Hintergrund)
+    •  sehr gute Kenntnisse von Linux &amp; Containertechnologien
+     ?(Provisioning, Configuration Management, Deployment,
+     ?Monitoring)
+    •  Objektorientierte Softwareentwicklung (OOA, OOD, OOP, Test,
+     ?Dokumentation)
+    •  gute Kenntnisse Scriptsprachen (Perl / Python / Ruby) zur
+     ?Automatisierung von Abläufen
+    •  Test Driven Development, Continuous Integration
+    •  Umgang mit gängigen Entwicklungswerkzeugen (IDEs, Debugger,
+     ?SCM, CI/CD)
+Cloud Technologien
+    •  AWS Managed Services (EC2, S3, EMR, DynamoDB, IAM, Kinesis,
+     ?Lambda, Route53, CloudFormation, ElastiCache, RDS,
+     ?RedShift, ECS, ECR, Athena, Glue, LakeFormation, etc.)
+    •  Azure Cloud Services
+    •  OpenStack
+    •  Terraform
+Containertechnologien
+    •  Docker
+17.02.2023 12 von 16
+    •  Kubernetes
+    •  Helm
+    •  Kops
+    •  Kustomize
+Softwareentwicklung
+    •  Emacs
+    •  Eclipse/CDT
+    •  Subversion
+    •  CVS
+    •  Makefiles (autoconf, automake)
+    •  Git
+    •  CMake
+    •  Scons
+    •  ant
+    •  maven
+    •  Hudson
+    •  Doxygen
+    •  Enterprise Architect
+Netzwerktechnologien
+    •  Ethernet (TCP/IP, UDP, routing, iptables, multicast,
+     ?sync/async Sockets)
+Serversoftware
+    •  Apache (mod_rewrite, mod_jk, mod_ssl, mod_proxy)
+    •  Nginx
+    •  Tomcat
+    •  HAProxy
+    •  Mongrel
+    •  MySQL
+    •  MySQL Proxy
+    •  BIND
+    •  DHCP
+    •  NFS
+    •  Samba
+    •  OpenVPN
+    •  Squid
+    •  OpenLDAP
+    •  Postfix
+    •  RPM Package Manager
+    •  Zookeeper
+Datacentersoftware
+    •  Provisioning/Configuration/Deployment (Saltstack, Puppet,
+     ?Capistrano, Chef, Cobbler)
+    •  Monitoring/Logging (Ganglia, Nagios, Syslog)
+Berufliche Stationen
+01/2010 – aktuell                                      
+Freiberufler
+ 
+05/2005 – 10/2009                                        
+MOG Inc. – Startup im Bereich Medien/Internet
+    •  Seit der Gründung des Startup für das Backend zuständiger
+     ?Softwareentwickler und Systemarchitekt
+17.02.2023 13 von 16
+    •  Verantwortlich für Entwurf, Umsetzung und Inbetriebnahme
+     ?der Hosting Umgebung
+    •  Konzeption und Umsetzung mehrerer Softwareprojekte in C++ 
+ 
+07/2003 – 03/2005                                        
+Fraunhofer IDMT – Forschungsinstitut im Bereich Audio/Video
+    •  Wissenschaftliche Untersuchungen auf dem Gebiet von
+     ?Suchalgorithmen
+    •  An der Entwicklung und Implementierung von Algorithmen
+     ?beteiligter Mitarbeiter
+                                                               
+01/2003 – 06/2003                                      
+ID Analytics Inc. – Startup im Bereich Finanzdienstleistungen
+    •  Mitarbeit an einer Software zur Erkennung von
+     ?Identitätsdiebstahl
+    •  Datenaufbereitung und Datenanalyse
+    •  Mitarbeit an der Entwicklung und Implementierung von
+     ?Algorithmen
+                                                             
+08/2000 – 12/2002                                        
+Fraunhofer IDMT – Forschungsinstitut im Bereich Audio/Video
+    •  Entwicklung von Testumgebungen zur Beurteilung von
+     ?Algorithmen
+    •  Entwurf und Implementierung von GUIs zur Präsentation von
+     ?Algorithmen auf Fachmessen
+                                                             
+06/1999 – 07/1999                                        
+JUMATECH – Firma im Bereich Leiterplattenproduktion
+    •  Bereitstellung von IT Infrastruktur
+Betriebssysteme Linux RedHat, Debian, CentOS, Fedora, Ubuntu,
+OpenSUSE
+Unix Mac OS X, FreeBSD, Solaris
+Programmiersprachen Python sehr gute Kenntnisse, im Rahmen von Data
+Engineer Projekten oft verwendet
+Java gute Kenntnisse, in mehreren Projekten
+verwendet
+SQL Experte
+Shell Bash, Csh, Zsh
+Ruby/Rails Fortgeschritten
+Matlab Fortgeschritten
+C++ sehr gute Kenntnisse (STL, Boost, MySQL
+C/C++ API, CLucene, QT)
+Octave Fortgeschritten
+XML
+XML Schema
+Latex
+Perl
+17.02.2023 14 von 16
+Datenbanken Big Data sehr gute Kenntnisse
+Cassandra gute Kenntnisse, im Projekt verwendet
+Hadoop sehr gute Kenntnisse (schwerpunktmäßig),
+im Projekt verwendet
+Hbase sehr gute Kenntnisse (schwerpunktmäßig),
+im Projekt verwendet
+Hive sehr gute Kenntnisse (schwerpunktmäßig),
+im Projekt verwendet
+Impala
+Kafka sehr gute Kenntnisse, im Projekt verwendet
+MySQL sehr gute Kenntnisse,  in mehreren Projekten
+intensiv verwendet
+Pig sehr gute Kenntnisse, im Projekt verwendet
+SQLite3
+Kinesis sehr gute Kenntnisse, im Projekt verwendet
+PostgreSQL sehr gute Kenntnisse, im Projekt verwendet
+Datenkommunikation CORBA
+Ethernet
+Internet, Intranet gute Kenntnisse im Bereich Routing, NAT,
+BIND (DNS), DHCP, LDAP, NFS
+REST
+RPC sehr gute Kenntnisse, (SOAP, XML-RPC) in
+mehreren Projekten verwendet
+SOAP
+TCP/IP gute Kenntnisse synchrone/asynchrone
+Socketprogrammierung
+Windows Netzwerk
+XML-RPC
+Hardware Macintosh
+PC
+SUN ULTRA 5
+    •  Mitinhaber Patent (auf Anfrage)
+    •  Mitglied (auf Anfrage)
+Aus- und Weiterbildung
+17.02.2023 15 von 16
+1998-10 - 2004-09 Studium der Theoretischen Elektrotechnik
+6 Jahre
+Abschluss: Diplom
+Institution: Technische Universität Ilmenau
+1992-09 - 1996-07 Allgemeine Hochschulreife
+3 Jahre 11 Monate
+Abschluss: Allgemeine Hochschulreife
+Institution: Georg-Cantor-Gymnasium Halle(Saale)
+17.02.2023 16 von 16
+
+############################################

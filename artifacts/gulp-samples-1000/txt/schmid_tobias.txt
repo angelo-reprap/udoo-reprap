@@ -1,0 +1,769 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_19873 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+
+Personen-ID                19873
+  
+Wohnort                    742xx Leingarten, Deutschland
+Jahrgang                   1972
+Staatsbürgerschaft         deutsch
+Stundensatz                90 EUR
+Verfügbar ab               18.01.21 zu 90%, Vor-Ort-Einsatz 10% möglich
+Profil erstellt am         29.09.00
+Profil zuletzt geändert am 12.01.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 25.10.2020 14:31:20
+
+Fachlicher Schwerpunkt:
+Frontend-​Entwicklung mit Angular oder React, RESTful Java Backends
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Studium Wirtschaftsinformatik an der FH Karlsruhe
+Abschluß mit Diplom 1999, Dipl. Informatiker (FH)
+
+Weiterbildung in den Bereichen
+
+  * OOA / OOD
+  * Design Patterns
+  * XML
+
+  * Java-Entwicklung
+ * Swing
+ * Web Applikationen
+ * J2EE (Enterprise Java Beans (EJB), JNDI, ...)
+ * Entwicklung für BEA WebLogic Server unter Java
+ * Messaging-Systeme (JMS, MQ Series)
+
+
+Einsatzort:
+Regionen:
+D6, D7
+im Umkreis von:
+Karlsruhe (Baden) (50 km)
+Mannheim (50 km)
+Heidelberg (50 km)
+Heilbronn (Neckar) (50 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+
+
+Hardware:
+PC  
+
+
+Betriebssysteme:
+MS-DOS           
+SUN OS, Solaris  
+Unix             
+Windows          
+
+
+Programmiersprachen:
+Angular 2                           
+AngularJS                           
+C                                   
+C++                                 
+CORBA IDL                           
+Imake, GNU-Make, Make-Maker etc...  
+Java                                
+Java EE                             
+Java 7                              
+Java 8                              
+JavaScript                          
+Pascal                              
+Qt                                  
+TeX, LaTeX                          
+TypeScript                          
+
+
+Datenbanken:
+BaseX          
+DB2            
+HSQLDB         
+H2             
+JDBC           
+MS SQL Server  
+MySQL          
+Oracle         
+Oracle 11g     
+Postgres       
+PostgreSQL     
+SQL            
+
+
+Datenkommunikation:
+CORBA               
+Internet, Intranet  
+REST                
+
+
+Produkte/Standards/Erfahrungen:
+Angular                       
+Balsamiq Mockups              
+Batchverarbeitung             
+Eclipse                       
+Git                           
+Hibernate                     
+HTML                          
+IntelliJ                      
+IntelliJ IDEA                 
+JEE 7                         
+Jenkins                       
+Maven                         
+Node.js                       
+Rational Rose                 
+Redux                         
+RxJS                          
+Scrum                         
+SonarQube                     
+Spring                        
+WebSphere Application Server  
+WebStorm                      
+WildFly AS                    
+XML                           
+XQuery                        
+IDEs
+----
+Eclipse
+NetBeans
+Together/J
+JBuilder
+
+
+Build-Tools
+-----------
+Ant
+Maven
+
+
+Continuos Integration / CI
+--------------------------
+Hudson
+Continuum
+
+
+Persistenzframeworks
+--------------------
+JPA
+Hibernate
+Torque
+
+Web
+---
+Java Server Faces / JSF
+Struts 2 / WebWork
+Java Server Pages / JSP
+Servlets
+Velocity Template Engine
+Freemarker Template Engine
+XFire, Axis, Axis 2
+
+
+sonstige Frameworks
+-------------------
+Spring
+EJB3
+
+
+Server
+------
+Apache Tomcat
+JBoss
+Jetty Servlet Engine
+Mule Enterprise Service Bus (ESB)
+BEA WebLogic Server
+IBM WebSphere
+
+
+Branchen:
+Softwarehersteller
+Banken
+Versicherungen
+Forschung, Entwicklung
+
+Projekte:
+05/2020 - 12/2020: Angular-Coaching und Architekturberatung für eine
+Backoffice-Anwendung
+ 
+Rolle:              Coach
+ 
+Aufgaben:
+ 
+Beratung in den Bereichen
+    * Implementierung von Komponenten und Controls
+    * Refactoring
+    * Modularisierung
+    * REST-Services
+    * Mock-Server, Entwicklungstools
+    * CI/CD
+ 
+Kenntnisse:
+ 
+TypeScript, Angular, JavaScript, Node.js
+===============================================================================
+02/2020 - 04/2020: Angular-Frontend für ein ERP-System
+ 
+Einsatzort:         Karlsruhe
+Rolle:              Entwickler
+ 
+Aufgaben:
+ 
+Neu- und Weiterentwicklung von Angular-Komponenten für ein ERP-System.
+ 
+- State-Management / NGXS
+- Modularisierung / nrwl
+- Angular Material / CDK
+ 
+ 
+Kenntnisse:
+ 
+Scrum
+ 
+Eingesetzte Produkte:
+ 
+Angular, Jenkins, Spring, Git, TypeScript, Node.js
+===============================================================================
+11/2018 - 12/2019: Frontend für Bietungssystem des Bundes
+ 
+Rolle:              Entwickler / Coach
+Kunde:              Deutsche Bundesbank
+ 
+Aufgaben:
+ 
+Implementierung eines Bietungssystems für Ausschreibungen des Bundes.
+ 
+Kenntnisse:
+ 
+Scrum, Angular, TypeScript, JavaScript, Node.js
+ 
+Eingesetzte Produkte:
+ 
+Java EE, Jenkins, REST
+===============================================================================
+04/2018 - 03/2019: Frontend für Interbanken-Settlement
+ 
+Rolle:              Entwickler / Coach
+ 
+Aufgaben:
+ 
+Implementierung eines Angular-Frontends zur Erfassung von Settlements im
+Interbankenverkehr.
+ 
+Kenntnisse:
+ 
+Scrum, JavaScript, TypeScript, Angular
+ 
+Eingesetzte Produkte:
+ 
+REST, Jenkins
+===============================================================================
+09/2017 - 10/2018: Erfassung und Bearbeitung von Visumanträgen
+ 
+Einsatzort:         Karlsruhe
+Rolle:              Architekt / Entwickler
+ 
+Aufgaben:
+ 
+Implementierung von Angular-Frontends zur Erfassung und Bearbeitung von
+Visumanträgen in unterschiedlichen fachlichen Konstellationen.
+ 
+Die dabei definierten Architekturansätze sowie die Toolchain von Entwicklung
+bis Deployment dienen beim Kunden als Grundlage für Folgeprojekte im Angular-
+Umfeld.
+ 
+Kenntnisse:
+ 
+Scrum, TypeScript, Angular, JavaScript
+ 
+Eingesetzte Produkte:
+ 
+Jenkins
+===============================================================================
+10/2016 - 08/2017: Variantenmanagement Telekommunikationstarife
+ 
+Einsatzort:         Karlsruhe
+Rolle:              Architekt / Entwickler
+ 
+Aufgaben:
+ 
+Implementierung eines Frontends zur Verwaltung von Tarifvarianten für
+Telekommunikationstarife auf Basis von Angular. Als Backend dient eine auf
+Basis von JEE 7 implementierte RESTful-Schnittstelle.
+ 
+Im Rahmen der Entwicklung wurden auch passende Tools und Frameworks (z.B. ng-
+cli, webpack, redux/reselect, ...) eingeführt sowie Mitarbeiter des Kunden
+geschult.
+ 
+Kenntnisse:
+ 
+Scrum, TypeScript, Angular, JavaScript, Node.js
+ 
+Eingesetzte Produkte:
+ 
+IntelliJ IDEA, WebStorm, WildFly AS, JEE 7, RxJS, Redux
+===============================================================================
+11/2015 - 09/2016: Bankenaufsichtliches Meldewesen
+ 
+Einsatzort:         Frankfurt
+Rolle:              Entwickler
+ 
+Aufgaben:
+ 
+Weiterentwicklung eines Systems zur Verarbeitung von Einreichungen im
+bankenaufsichtlichen Meldewesen. Implementierung basierend auf Spring Batch.
+ 
+Kenntnisse:
+ 
+Spring, Batchverarbeitung, WebSphere Application Server, Hibernate
+ 
+Eingesetzte Produkte:
+ 
+Oracle 11g
+===============================================================================
+01/2016 - 08/2016: Verwaltung von Patientendaten
+ 
+Rolle:              Entwickler / Architekt
+ 
+Aufgaben:
+ 
+Erstellung einer Anwendung zur Dokumentation und statistischen Auswertung von
+Tumor-Konferenzen im klinischen Betrieb.
+ 
+    * RESTful Backend auf Basis von Spring Boot
+    * Angular 2 Frontend, Datenhaltung am Frontend per Redux
+ 
+ 
+Kenntnisse:
+ 
+Spring, REST, Angular, TypeScript, JavaScript
+ 
+Eingesetzte Produkte:
+ 
+PostgreSQL, IntelliJ, Maven, Jenkins, SonarQube
+===============================================================================
+02/2015 - 11/2015: Kirchliches Meldewesen
+ 
+Einsatzort:         Karlsruhe
+Rolle:              Architekt / Entwickler
+ 
+Aufgaben:
+ 
+Implementierung eines Verfahrens für das kirchliche Meldewesen zur
+Fortschreibung von Bestandsdaten durch Nachrichten entsprechend dem OSCI-XMeld
+Standard.
+ 
+Kenntnisse:
+ 
+XQuery, Java 8, AngularJS, REST, XML
+ 
+Eingesetzte Produkte:
+ 
+BaseX, Spring
+===============================================================================
+08/2014 - 04/2015: Konfigurator für einen Türenhersteller
+ 
+Einsatzort:         Heilbronn
+Rolle:              Architekt / Entwickler
+ 
+Aufgaben:
+ 
+Implementierung eines Konfigurators zur Produktion von Türen im Innenraum.
+Umsetzung als RESTful Backend mit einem Frontend auf Basis von AngularJS.
+ 
+Kenntnisse:
+ 
+Scrum, Spring, Hibernate, AngularJS, REST
+ 
+Eingesetzte Produkte:
+ 
+Eclipse, IntelliJ, PostgreSQL
+===============================================================================
+12/2012 - 12/2014: Backoffice Bausparkasse
+ 
+Einsatzort:         Schwäbisch Hall
+Rolle:              Architekt / Entwickler
+ 
+Aufgaben:
+ 
+Migration und Weiterentwicklung einer Backoffice-Anwendung im Bausparumfeld
+nach HTML5/JavaScript. Die Datenversorgung erfolgt durch REST-Services auf
+Basis von Java/Spring.
+ 
+Kenntnisse:
+ 
+Scrum, Java 7, HTML, JavaScript
+ 
+Eingesetzte Produkte:
+ 
+Spring, AngularJS, Balsamiq Mockups
+===============================================================================
+12/2010 - 12/2012: Backoffice Bausparkasse
+ 
+Einsatzort:         Schwäbisch Hall
+Rolle:              Entwickler
+Kunde:              Bausparkasse Schwäbisch Hall
+ 
+Aufgaben:
+ 
+Implementierung von Dialogen für eine Backoffice-Anwendung im Bausparumfeld.
+Realisierung als Fat Client auf Basis von JBF.
+ 
+* Modellierung in Rational Rose
+* Codegenerierung (MDA)
+* Integration von COBOL-Services
+* Code Review
+* Implementierung eines Tools zur Analyse von Modulabhängigkeiten
+* Design und Implementierung von Klassen zum automatischen Test der Model-View-
+Bindings in gebauten JARs (Bytecode-Analyse mit ASM)
+ 
+Eingesetzte Produkte:
+ 
+Rational Rose, Eclipse
+===============================================================================
+Weiterentwicklung des Frontends einer bestehenden Backoffice-Anwendung im
+Bausparumfeld. Entwicklung von Framework-Komponenten und eines Plugin-Konzepts
+zur Integration von kundenspezifischen Komponenten.
+ 
+Rolle im Projekt: Architekt / Entwickler
+Laufzeit: 03/2010  11/2010
+Programmiersprache: Java
+
+* Update von JSF 1.2 (RichFaces) auf JSF 2.0 (PrimeFaces), Mojarra als JSF-
+Implementierung
+* Management der Anwendung mit JMX
+* Deployment auf WebSphere 6.1 mit vorgelagertem Apache HTTPD
+* Entwicklung mit WSDC / RAD 7
+* Integration von COBOL-Services
+* Migration von Ant nach Maven, aufsetzen Artifactory
+* Continuous Integration (Hudson)
+* Unit-Tests für Frontend und verwendete WebServices (JUnit, TestNG, SoapUI)
+* Code Reviews, Refactoring
+* Migration WebSphere V6.1 nach WebSphere V7.0
+ 
+===============================================================================
+ 
+Neuentwicklung eines Warenplatzierungssystems im Einzelhandel. Aufgaben waren
+die Entwicklung des Frontends sowie der Businesslogik und Design des
+Persistenzlayers.
+ 
+Rolle im Projekt: Architekt / Entwickler
+Laufzeit: 09/2009  02/2010
+Programmiersprache: Java
+
+Tools/Technik:
+* JBoss
+* JSF (RichFaces)
+* facelets
+* JPA
+* Hibernate
+* Maven
+* Hudson
+* Oracle
+
+===============================================================================
+ 
+Beratung / Unterstützung / Review in der Entwicklung einer Webanwendung zur
+Verwaltung elektronischer Akten. Realisierung mit JSF (RichFaces), Spring und
+JPA. Configuration Management und Migration des bestehenden Build- und
+Deploymentverfahrens nach Subversion, Maven und Hudson. Für den Maven-Build
+wurde außerdem eine Artifactory-Instanz aufgesetzt.
+
+Rolle im Projekt: Architekt / Entwickler
+Laufzeit: 01/2009  08/2009
+Programmiersprache: Java
+ 
+Tools/Technik:
+* JSF (RichFaces)
+* Spring
+* JPA
+* Maven
+* Hudson
+* Subversion
+* Artifactory
+ 
+===============================================================================
+ 
+Realisierung einer Webanwendung auf Basis von JSF für das kirchliche
+Meldewesen. Design und Implementierung von Frontend, WebServices und Anbindung
+des Host-Backends. Aufsetzen der Build-Prozesse mit Maven, Continuus
+Integration mit Continuum. Die Entwicklung folgt dem TDD-Ansatz (test driven
+development) mit JUnit und Selenium. Weitere Aufgaben waren Code Reviews,
+Refactoring und Performanceoptimierung.
+ 
+Rolle im Projekt: Architekt / Entwickler
+Laufzeit: 06/2008 - 12/2008, in beratender Funktion bis 12/2009
+Programmiersprache: Java
+ 
+Tools/Technik:
+* JSF (myfaces, facelets, Trinidad)
+* JQuery
+* Spring
+* Maven
+* Continuum
+* Tomcat
+* EntireX / Natural Adabas
+* Selenium
+
+===============================================================================
+
+Neuimplementierung einer bestehenden Video-on-demand Plattform, Migration von
+EJB2 nach Spring. Anbindung verschiedener Clients (Web-Shop, Set-Top-Box, Fat
+Client). Datenversorgung der Clients aus einem einheitlichen Objekt-
+Servicemodell mit den Ausgabeformaten HTML, JSON/AJAX und RSS-TV. Migration des
+Build Verfahrens von Ant nach Maven, Einführung Continuus Integration Server.
+ 
+Rolle im Projekt: Architekt / Entwickler
+Laufzeit: 08/2007 - 08/2008
+Programmiersprache: Java
+ 
+Tools/Technik:
+* Eclipse
+* Maven
+* Continuum
+* Spring Beans / Spring MVC
+* mySQL
+* Tomcat
+* WebServices (Provider und Consumer)
+ 
+===============================================================================
+ 
+Entwicklung eines Web-Portals zur Abwicklung von Geschäftsprozessen einer
+Bank. Schwerpunkte der Entwicklung waren die konsistente Abarbeitung
+gestarteter Prozesse sowie Verfügbarkeit und Performance des Gesamtsystems.
+Die Steuerung der Prozessabläufe sowie die Anbindung externer Systeme wurde
+auf Basis einer Workflow-Engine (Carnot) realisiert.
+
+Rolle im Projekt: Architekt / Entwickler
+Laufzeit: 04/2007 - 07/2007
+Programmiersprache: Java
+
+Tools:
+* Entwicklungsumgebung Eclipse
+* Workflow-Engine Carnot
+* JDBC
+* Build-Prozess mit Ant
+* JavaServer Faces (JSF)
+* GUI-Komponenten und Templating mit Trinidad/ADF
+===============================================================================
+
+Entwicklung eines sicheren Transportkanals zwischen mehreren Web-Frontends und
+einem SAP-Backend. Als Basistechnologie wurden Web Services in Kombination mit
+einer Message Queue gewähltm der Nachrichtentransport wurde als ESB-Applikation
+implementiert. Besonderer Wert wurde auf Performance, hohe Verfügbarkeit und
+Skalierbarkeit/Clusterfähigkeit gelegt.
+
+Rolle im Projekt:   Architekt / Entwickler
+Laufzeit:           09/2006 - 03/2007
+Programmiersprache: Java
+
+Tools:
+  * Entwicklungsumgebung Eclipse
+  * Mule Enterprise Service Bus (ESB)
+  * Web Service-Schnittstelle implementiert mit XFire
+  * Hibernate
+  * XMl-Mapping mit JAXB
+  * Message Queues ActiveMQ und SAPMQ
+  * Build-Prozess mit Maven
+  * Lasttests mit JMeter
+
+===============================================================================
+
+Entwicklung einer Applikation für ein Energieversorgungsunternehmen zur
+Kalkulation von Strompreisen. Zu den Aufgaben gehört die Entwicklung von
+Serverkomponenten, die per CORBA genutzt werden, sowie die Realisierung
+von Web-Frontends zur Administration und Datenanalyse.
+
+Rolle im Projekt:   Architekt / Entwickler
+Laufzeit:           06/2005 - 08/2006
+Programmiersprache: Java
+
+Tools:
+  * Entwicklungsumgebung Eclipse
+  * Tomcat
+  * Realisierung der Web-Schnittstelle mit Struts/JSP
+  * Persistenz mit Hibernate
+  * generieren von Code mit XDoclet
+  * Datenbank Oracle
+  * Build-Prozess mit Maven
+
+===============================================================================
+
+Entwicklung einer Web-Applikation für einen Telekommunikationsdienstleister
+zur Verwaltung von Glasfasernetzen. Die Tätigkeit umfaßt die Entwicklung von
+EJBs zur Modellierung der Business-Logik, sowie die GUI Implementierung mit
+Struts/JSP. Zu Projektbeginn wurde ein mit dem BEA Workshop entwickelter
+Prototyp in eine Implementierung unter Verwendung von Standardkomponenten
+(Build mit Ant und XDoclet, Struts, ...) überführt.
+
+Die Datenobjekte der Business-Logik wurden als XMLBeans modelliert, da eine
+XML-Darstellung zur Anbindung an Web Services gefordert war.
+
+Rolle im Projekt:   Architekt / Entwickler
+Laufzeit:           10/2004 - 05/2005
+Programmiersprache: Java
+
+Tools:
+  * Entwicklungsumgebung Eclipse
+  * Application Server Bea WebLogic
+  * Realisierung der Web-Schnittstelle mit Struts/JSP
+  * Persistenz mit Torque
+  * generieren von Code mit XDoclet
+  * generieren von XMLBeans aus XML Schemas
+  * Datenbank Firebird
+  * Anbindung an bestehende Komponenten über Web Services
+  * Modellierung der Datenobjekte durch XMLBeans
+  * Build-Prozess mit Ant
+
+===============================================================================
+
+Entwicklung einer Web-Applikation im Bereich Business-Ethik und
+Wirtschaftskriminalität. Besondere Berücksichtigung der Wahrung
+von Anonymität und Datensicherheit für die Benutzer des Systems.
+
+Realisierung der Datenhaltung in mehreren getrennten Datenbanken
+ursprünglich mit Hilfe von Entity Beans, aus Performancegründen erfolgte
+im Projektverlauf der Wechsel auf Hibernate. Die Präsentationsschicht
+basiert auf dem Struts Web Application Framework der Apache Software
+Foundation.
+
+Modellierung der Applikation und Dokumentation mit UML und JavaDoc.
+
+Rolle im Projekt:   Architekt / Entwickler
+Laufzeit:           02/2002 - 03/2006
+Programmiersprache: Java
+
+Tools:
+  * Entwicklungsumgebung Eclipse
+  * Application Server JBoss
+  * Realisierung der Web-Schnittstelle mit Spring / Struts / Velocity
+  * Persistenz mit Hibernate (ausgehend von einer Lösung mit Torque und Entity
+Beans)
+  * generieren von Code mit XDoclet
+  * Datenbanken mySQL (Web-Content) und SAP DB (Speicherung vertraulicher
+ Informationen und Replikation vom Webserver auf interne Datenbank)
+  * Verschlüsselung mit symmetrischen und asymmetrischen Verfahren
+ (Blowfish, RSA) aus den Java Cryptographic Extensions
+  * Weiterverarbeitung erfaßter Daten in XML-Dokumenten, Transformation
+ per XSLT in HTML und ASCII-Text
+  * Anbindung von Fat Clients über Web Services   * Build-Prozess mit Ant,
+Migration auf Maven
+===============================================================================
+
+Entwicklung von Steuerungssoftware für eine Telekommunikationslösung
+im Bereich Call-Center / Börsenplätze. Serverseitig Entwicklung von
+Enterprise Java Beans zur Verwaltung von Anwenderinformationen und
+zur Realisierung eines Free-Seating-Konzepts. Realisierung des
+Client-GUI mit Swing.
+
+Rolle im Projekt:   Entwickler
+Laufzeit:           04/2001 - 02/2002, begleitende Tätigkeit bis 04/2002
+Programmiersprache: Java, C++
+
+Tools:
+  * Entwicklungsumgebungen JBuilder und Together/J
+  * Application Server JonAs
+  * Realisierung der grafischen Oberfläche mit Swing
+  * Anbindung von TK-Geräten die serielle Schnittstellen
+  * Datenbank Sybase
+  * Build-Prozess mit Ant
+  * Entwicklung von C++-Komponenten mit MS Visual Studio,
+ Integration in die Java-Anwendung per JNI
+
+Dokumentation mit UML
+
+===============================================================================
+
+Entwicklung einer Anwendung zur Bauspar- und Baufinanzierungsberatung
+für eine Bausparkasse. Einsatz bei 3000 Außendienstmitarbeitern
+und an 35000 Arbeitsplätzen in den angeschlossenen Banken.
+
+Dokumentation mit UML (Rational Rose).
+
+Rolle im Projekt:   Entwickler
+Laufzeit:           11/1999 - 03/2001
+Programmiersprache: C++, Java
+
+Tools:
+  * Entwicklungsumgebungen MS Visual Studio und
+ IBM Visual Age/C++ (unter OS/2)
+  * Realisierung der grafischen Oberfläche mit MFC unter Windows
+ bzw. OCL unter OS/2, Ziel war eine Single Source Entwicklung, bei der
+ nur die GUI betriebssystemspezifisch abgebildet wurde, die Business-Logik
+ war betriebssystemunabhängig
+  * Anbindung an das Host-System mit MQ Series   * Datenbank POET am Client,
+Übergabe an ein MVS-System per MQ Series   * Build-Prozess mit make   *
+Weiterentwicklung der Datenübergabe (Umstellung auf XML, Xerces)   * Anbindung
+von bestehenden Anwendungen auf Basis einer Informix-DB
+Dokumentation mit UML
+
+===============================================================================
+
+Entwicklung einer Anwendung zum Datenaustausch von mobilen Endgeräten
+mit einer Zentrale und Anbindung an ein bestehendes System. Einsatz in
+einem Prototypen eines elektronisches Ticket-Systems in öffentlichen
+Verkehrsmitteln.
+
+Rolle im Projekt:   Entwickler
+Laufzeit:           05/1999 - 10/1999
+Programmiersprache: Java
+
+Tools:
+  * JBuilder
+  * Realisierung der grafischen Oberfläche mit Swing
+  * Entwicklung des Clients für ein Windows CE Gerät
+  * Evaluierung verschiedener Datenbanken, Realisierung für MS SQL Server
+ mit Berücksichtigung einer späteren Umstellung auf Oracle
+  * Kommunikation über ein Funk-Netzwerk, Berücksichtigung von
+ Verbindungsabbrüchen, Programmierung mit Sockets und Java Serialization
+
+Dokumentation mit objectiF (Tool zur Prozeß-Abbildung sowie Erstellung
+der UML-Dokumentation)
+
+===============================================================================
+
+Entwicklung eines Konverters von PDF-Dateien in RTF und HTML mit dem
+Ziel der Rückgewinnung des ursprünglichen Textes. Anwendung von
+heuristischen Methoden zur Erkennung von Spaltensatz, Tabellen, etc.
+
+Rolle im Projekt:   Designer / Entwickler
+Laufzeit:           02/1999 - 04/1999
+Programmiersprache: C++
+
+Tools:
+  * Entwicklungsumgebungen MS Visual Studio
+  * Integration in Adobe Acrobat über Acrobat-spezifische Schnittstellen
+
+Schwerpunkt bei der Entwicklung war die Bereitstellung der Verfahren zur
+Umsetzung der Acrobat-Darstellung (PostScript, Positionierung der Elemente
+nur durch Positionsangaben) in die verschiedenen Ausgabeformate (Struktur
+nach logischen Beziehungen der Elemente untereinander).
+
+Dokumentation mit UML
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_19873 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 13.01.2021 00:48:39
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

@@ -1,0 +1,443 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_33090 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                33090
+  
+Wohnort                    135xx Berlin, Deutschland
+Jahrgang                   1973
+Staatsbürgerschaft         deutsch
+Stundensatz                80 EUR
+                           Abhängig vom Einsatzort
+Verfügbar ab               01.11.19 zu 100%, Vor-Ort-Einsatz 80% möglich
+Profil erstellt am         28.11.01
+Profil zuletzt geändert am 17.06.19
+Lesen von Projektanfragen  > 5 Tage [00]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 16.05.2019 16:59:22
+
+Fachlicher Schwerpunkt:
+Senior Unix Consultant, RZ, Problemmanagement, Konfigurationsmanagement,
+Servicemanagement ITIL
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Engineering / IT-nahe Ingenieurdienstleistungen
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Ausbildung zum Industrieelektroniker Nachrichtentechnik / Gerätetechnik.
+Studium Wirtschaftsinformatik (FH)
+ITIL Zertifiziert
+
+
+
+Einsatzort:
+Regionen:
+D0, D1, D2, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch  Muttersprache
+Englisch gute Kentnisse
+
+
+Hardware:
+Ascii/X - Terminals  
+CD-Writer / Brenner auch Jukeboxen
+Drucker             auch ind. Farblasersysteme mit Finishing
+Mikrocontroller     ATMEL AVR
+Modem               analog, DSL, Funk Systeme
+PC                  INTEL, AMD
+Plotter             Großformatfarbplotter
+Proprietäre HW     SS7, Industrieinterfaces
+Scanner             Dokumentenverarbeitung
+Sensoren            Kopplung über CAN-Bus, Messkarten
+Siemens GroßrechnerPrimePower, Primergy
+SNI RM-Rechner      300, 400, 600 (auch im Clusterverbund)
+Streamer            DDS, LTO
+SUN                 Blade, Enterprise
+
+diverse NAS und SAN Speichertechniken
+Brocade, NetApp, Siemens FibreCat, EMC
+Fibre Channel
+iSCSI
+
+Betriebssysteme:
+Dos              
+MS-DOS           
+Novell          Version 3.11, 3.12, 4.11
+SUN OS, Solaris ab Version 7 bis 10
+Unix            Solaris, Linux Suse, RedHat, Gentoo / Reliant Unix, SINIX
+Windows         Workstation, Server
+
+Cluster: PrimeCluster, Veritas Cluster, Observe
+
+Programmiersprachen:
+C               
+Java            
+JavaScript      
+PHP             
+PL/SQL          
+Scriptsprachen Unix scripting
+Shell          Ksh, Bash
+
+
+Datenbanken:
+Access  
+DAO     
+MySQL  Vers. 4.x
+ODBC    
+Oracle Ver. 7.3.2 bis 10g
+SQL    Oracle PL/SQL , mysql, SQL-92
+
+
+Datenkommunikation:
+Ethernet                 
+Fax                      
+Internet, Intranet       
+ISDN                     
+LAN, LAN Manager        ASX, SAMBA
+parallele Schnittstelle  
+Router                  Linux
+RS232                    
+SMTP                     
+SNMP                     
+TCP/IP                  ppp, DSL
+Token Ring               
+Windows Netzwerk         
+Winsock                  
+
+LDAP, VPN, ssh
+
+Design/Entwicklung/Konstruktion:
+-
+
+Berechnung/Simulation/Versuch/Validierung:
+-
+
+Produkte/Standards/Erfahrungen:
+Rollout- tests, Implementierung und update von IN (Intelligent network )
+Systemen
+Nokia Siemens Networks
+ITIL Service Support,ITIL Service Delivery
+Emergency (Hotline)u.a. für HV CLuster im Lifebetrieb
+Second, Third Level Support
+Administration / Support von Clustersystemen
+UNIX / Oracle Systemadministration
+Unix Systementwicklung / Datenbankentwicklung
+Entwicklung von Contend Management , Customer Relation Management Systemen
+Beratung / Entwurf  bei Serverkonsolidierung, Speichersystemen,
+Backupstrategien
+TCP /IP Networking im LAN WAN Bereich
+Support, Fehleranalyse  im heterogenen Client /Server Umfeld
+Software Paketierung und Verteilung
+
+
+Branchen:
+EDV-Beratung
+Industrieunternehmen
+Behörden
+Dienstleister
+Handel
+Verwaltung
+
+Projekte:
+Nokia Gate5 GmbH (http://360.here.com , http://here.com/), Berlin (09/2013 - 06
+/2014)
+
+System Engineer in T3
+
+Here.com als einer der grossen Map / Routing Provider
+für u.a. maps.bing.com, maps.yahoo.com Mobile apps,
+Car nav ...) benötigte während seines Migrations Projektes
+(move2cloud) Unterstützung im Betrieb, der Migration
+und Decommission der Altsysteme. Die bestehende Application ist komplett
+virtualisiert und auf mehreren DC's weltweit verteilt. Nach der Migration ist
+eine dynamische skalierende innerhalb der AWS cloud geschaffen. Dadurch
+erhebliche Vorteile in der Wartung, Skalierung
+und Kostenoptimierung durch effizientere Ressourcennutzung.
+
+Auszuführen waren:
+- Deployment der aktuellen software Drops auf allen Systemen
+- Incident- und Problemmanagement für alle Systeme
+- OnCall Rufbereitschaft weltweit
+- Unterstützung in der Migration von Produktivsystemen
+
+Verwendete Systeme /Applikationen:
+RHEL 5,6 RHEL Satellite Service, RHEVM 2,3 (RedHat
+Enterprise Virtual Manager) Nagios Monitoring, Splunk Analyses, Pulp Repository
+Provider, LDAP CMDB, Apache Directory Studio, Atlassian Jira, openVirt
+(virsh), Apache Webserver mit nachgeschalteten Tomcat oder FCGI als Application
+Server, mysql, IRC, VPN, REST (JSON)
+
+Agile Arbeitsmethoden, weltweite verteiltes Team, dadurch fliessende
+Arbeitszeiten.
+Projekt Sprache englisch
+
+Einführung Paywall bild.de (Bild Premium) sowie Bundesliga Projekt (BuLi) Bild
+digital (01/2013 - 9/2013) 
+ 
+Unterstützung bei der Einführung Premium Content sowie Bundesliga Video im
+bestehenden bild.de Environment. Aufbau der Abnahmeumgebung, Abnahme und QS.
+Implementierung der Anforderungen im Livebetrieb. Unterstützung der PL bei
+Kommunikation mit der Entwicklung. Einrichtung Monitoring und Deployment sowie
+Continuous Delivery.
+
+Basis: Solaris OS, Java VM , Tomcat Servletcontainer, Coremedia CMS, Atlassian
+Jira und Confluence, Jenkins (Hudson) , Splunk, graphite, opscode Chef,
+Eigenentwicklungen
+ 
+Insident Manager, Third Level Support für die Firma Colt Technology Service
+(01/2012 - 12/2012)
+  Third Level Support, Problem Lösungen in komplexen Unix Umgebungen
+  Insident Manager
+Basis: Linux RedHat, Suse; Sun Solaris, BMC Remedy, Shell Skripting, Puppet
+..... 
+ 
+Relaunch Konsolidierung der Online Platform bild.de für die Bild (07/2010 -12/
+2011)
+  Mitarbeit Relaunch des Cormedia CMS für Bild.de 
+  Konsolidierung der Nebensysteme.
+  Insident Management
+Basis: ITIL SM(Gira) CMDB(Confluence), Sun Solaris,  LINUX, Apache Webserver,
+Tomcat Coremedia
+ 
+ 
+Umzug Rechenzentrum, Konsolidierung von Serversystemen für die PixelparkAG (08/
+2009 -03/2010)
+  Planung, Koordination und Umzug eines Rechenzentrums
+  Entwurf und Durchführung von Virtualisierungslösungen einiger Altsysteme.
+  Planung und Durchführung von Livepatching der Unix OS sowie Updates der
+Firmwares.
+Basis: ITIL SM(Gira) CMDB (Confluence), Sun Hardware, LINUX, Sun Solaris, Sun
+Containers
+
+
+Transformation, Eingliederung der Pro 7 /Sat 1  - IBM Deutschland Business
+Services GmbH (8/2008- 07/2010)
+  Transformation der P7/S1 Infrastruktur in IBM Environment
+  Einführung von Prozessworkflows nach Soll/Ist Analyse, sowie div Stand.(ITIL)
+  Ablösung und Rollout alter /neuer Hardware
+Basis: Sun  Server /Cluster, IBM Server , SGI Server, HSM Technik, C6000, ITIL
+SM (Perigrine, IBM ManageNow)
+
+
+Systemverifikation, Systemtest, Implementierung für IBM Network Services &amp;
+Solutions GmbH (01/2008 - 08 /2008)
+  Implementierung und Einrichtung einer Mobilfunkanbindung an ein bestehendes
+VoIP Testnetz
+  Erstellung von Testfällen, Testabläufen für spaetere Mobilfunk <> VoIP
+Interop. Tests.
+  Systemtest Lawful Interception (richterlicher Überwachung) fuer VoIP Systeme
+von NSN
+Basis: HiQ und HiE Anlagen von Nokia Siemens Networks,  Mercury Testcenter, IBM
+Clearquest
+
+
+Migration Oracle DB 9i auf Oracle DB10g für Bundesagentur f. Arbeit, (08 2007 -
+12/2007)
+  Migration der Oracle 9i Datenbanken auf 10g;
+  Installation,  Oracle 10g Datenbanken (Single-, Cluster- Systeme),
+  Migration der Daten;
+  Sicherstellung des einwandfreien Betriebes, Backup/Restore.
+Basis:   Suse Linux SLES, Solaris 8,9,10, Oracle 9i,10g, RAC, Oracle Enterprise
+Manager, Recovery Manager rman
+
+Emergency (EMCY),  Support  für Nokia Siemens Networks GmbH (01/ 2007 - 06/
+2007)
+Weltweiter Emergency (EMCY)  für SIEMENS in Telekommunikation Clustern
+Sicherstellung, Wiederherstellung  der Aplikationsverfügbarkeit bei Störungen
+Problemlösungen bei Softwareinstallationen im laufenden Betrieb
+Im Auftrag von Siemens für diverse Telekommunikationsgesellschaften weltweit
+
+Basis: Siemens Primpower (Solaris 8,9), SUN Fire (Solaris 8,9), Reliant
+Cluster, Sun Cluster, Oracle 9 / 10, diverse Storage Systeme, Omni Signalware
+SS7
+Siemens IN advantage, adcomander, TSP, CAF, SAF
+
+
+
+Last Load Tests Siemens IN advantage, adcomander für Nokia Siemens Networks 
+GmbH / Siemens AG (09/ 2004 - 06/2007)
+Last Load Tests (Installations und Funktionstests) für Software loads zum
+update von Telekommunikation Clustern mit simulierten Echtbetriebsbedingungen
+und Call load
+
+Basis: Systemanalyse, System monitoring, Testinstallationen  unter simulierter
+Call Load, Fehlersuche, Analyse, Prozedurerstellung für späteren Life update
+
+
+Diverse Auslandseinsätze im Auftrag von Nokia Siemens Networks GmbH /Siemens AG
+(02/ 2005 - 05/2007)
+02/2005 Erstinstallation eines advantage Telekommunikationsclusters für die
+Sultan Quabos Universität in Muscat (Oman)
+10-11/2005 Feature Rollout zum update der Advantage Telekommunikationscluster
+für Mobilink in Islamabad (Pakistan)
+02/2007 First Installation Advantage Telekommunikationscluster für T-Mobile
+Slovakia In Bratislava (Slovakei)
+05/2007 SMU (Split mode Update)  der Pilotanlage für Cegetel Paris (Frankreich)
+
+Installation und Update von IN Clustern im Lifebetrieb  im Auftrag von Nokia
+Siemens Networks GmbH / Siemens AG (10/ 2004 - 06/2007)
+Softwareinstallation und Updates von IN Telekommunikation Clustern im
+Lifebetrieb  (Siemens IN advantage, adcomander)  Sicherstellung der
+Dienstverfügbarkeit
+
+Basis: RSU (Rolling Software Update), SUF (Software update Framework), SMU
+(Split Mode Update)
+
+Ticketsystem,  Request Controlling für Siemens AG LL Testfeld(10/ 2006 - 10/
+2006)
+Webbasiertes Ticketsystem zur Eingabe,  Pflege der Aufträge für Updates /
+Installationen
+
+Basis: Linux, mysql, Apache, PHP
+
+Administration, Support , Webentwicklung für T-Online AG  (08/2003 - 6/2004)
+Administration der Testumgebung für www.t-online.net
+Fachlicher Support für Entwickler und Redakteure von www.t-online.net
+Planung, Entwurf, Entwicklung eines Verwaltungssystemes für alle Testsysteme
+inkl. Reservierungsmodul, ssh Schlüsselverwaltung und Systemanalyse mit
+Webfrontend.
+
+Basis: Sun Solaris 5.8 auf Intel und Sun Servern, Coremedia CMS, Apache
+Webserver,
+Oracle 8.1.7 PHP/mysql Entwicklung, Unix Skripting
+
+
+Unix- Server Weiterentwicklung, Update, Konsolidierung für T-Systems GmbH  (01/
+2003 - 06/2003)
+Erstellung von Patchsets, Programmierung von Shellskripten
+Paketierung von OS Updates zur automatischen Migration von Servern im Netz der
+Deutschen Post AG
+Softwaretests, Funktionstests auch im RMS / Observe Cluster Umfeld
+Erstellung einer Entwicklungsumgebung zur automatischen Generierung von
+Softwarepaketen, welche die aktuell nötigen Patches zur Migration /
+Konsolidierung von PP Servern unter Solaris enthalten.
+
+Basis: Reliant Unix 5.4.3 bis 5.4.5 Sun Solaris 5.7 bis 5.9 auf RM 300 bis RM
+600 und Prime Power M200, M400, M600, M800 Kaiser sowohl als Einzelsystem als
+auch RMS oder Observe Cluster
+
+
+Rollout der Pachtabrechnungssoftware für Tank und Rast GmbH  (11/2002)
+Projektkoordination, Organisation für Sachsen, Thüringen, Brandenburg
+Softwareinstallation, Funktionstests
+Schulung
+
+Basis: Eigene Software mit Datenübertragung über das Internet
+
+Webprojekt der Quick-Ohm Gruppe (06/2002- 07/2002)
+Programmierung der  Webapplikation "Großhandel Elektronikkleinteile" mittels
+PHP, mySQL
+Softwaredesign, Datenbankdesign, Umsetzung
+Module: Gruppenselektion,  Artikelbrowser, Bestellmodule (Standard, Sonderform)
+Mailengine
+Beratung zur Testroutinen /Testabläufen
+
+Basis: Linux, PHP, Apache, mySQL
+
+Vertreterbörse www.cdhbl.de (02/2002-04/2002)
+Programmierung der  Webapplikation "Vertreterbörse" mittels PHP, mySQL
+Softwaredesign, Datenbankdesign, Umsetzung
+Module: Userauthentifizierung, Mailengine, Administrationsmodul, Eingabemodul,
+Ausgabemodul
+Planung / Administrative Steuerung des Integrationstestes und des Rollouts
+
+Basis: Linux, PHP, Apache, mySQL
+
+Sächsische Bauunion GmbH (05/2001)
+Aufbau eines Kommunikationsservers  (Mail, Web, Fax)
+Sicherheit mit Integrierten Firewall, Squid- Proxy
+Webmailinterface, Faxserver
+
+Basis: Suse Linux, Hylafax, LAMP
+
+Deutsche Post AG CWMS- Entwicklung (06/2001- 10/2001)
+Paketierung von Clientpaketen und Serverpaketen
+Erstellung von Unix Softwarepaketen (auf Reliant Unix) zum vollautomatischen
+Installation der Oracle Datenbanken und Applikation,
+Programmierung von Unix- Scripten zur CWMS- Applikation
+Installationen, Wiederaufsetzen von Oracle 8.1.6 Datenbanken unter Solaris 7
+Administration der Testumgebung (Sun Solaris 2.5 und 7 auf Sun Blade und
+Siemens GP 7000) (Benutzerverwaltung, Überwachung der Systeme, Monitoring,
+Applikationen einspielen/ Update, Benutzersupport)
+Implementierung der Userautentifikation mittels LDAP
+
+Basis:  Os: SunSolaris 7 (5.7) auf GP 7000 und Sun Blade  Datenbanken: Oracle
+8.1.6
+
+Deutsche Post AG VIBRIS- Entwicklung (06/2000-05/2001,10/2001-03/2002, 05/2002)
+Programmierung von Unix- Scripten zur VIBRIS- Applikation (ksh, Perl, awk, sed)
+Fix und Erweiterungen der Oracle Stored Procedures mittels PL/SQL,
+Installationen, Wiederaufsetzen von Oracle Datenbanken,
+Paketierung von Clientpaketen mittels TV-Sax für die VIBIRS- Applikation
+Erstellung von Unix Softwarepaketen (auf Reliant Unix) zum vollautomatischen
+Update, Installation und Bugfix der Oracle Datenbanken und Applikation,
+Anpassung des Betriebsystemes (Kernel) Reliant Unix zur Performanceverbesserung
+der Oracle- RDBMS.
+Update der Oracle- Umgebung von Oracle 7.3.2 auf 7.3.4 und 8.1.6 inkl.
+Anpassung des Betriebssystems
+Datensicherung, Export/Import von Daten zur Vervielfältigung oder Sicherung,
+Administration der Testumgebung (Siemens HV-Cluster mit Reliant Unix 5.4.3.,
+5.4.5.,      RedHat 7.2) (Benutzerverwaltung, Überwachung der Systeme,
+Monitoring, Applikationen einspielen/ Update, Benutzersupport)
+Weiterentwicklung der Windows NT- Userumgebung (Rechte, Pofile der NT-Clients
+Domänencontroller ASX auf Siemens HV-Cluster unter Reliant Unix)
+Administrative Unterstützung der Testabläufe unter Silk Test
+Beteiligung an der Planung / Durchführung von Integrationstests der
+entwickelten Produkte/ Pakete
+
+Basis: Clients: Windows NT  Server: Siemens RM 600/E20 mit Reliant Unix
+Datenbank: Oracle 7.3.2/7.3.4, 8.1.6
+
+Deutsche Post AG VIBRIS- Support (09/1999 -05/2000)
+2-Level Support der VIBRIS-Anwendung
+Fehlerlösung im NT- Client Umfeld, im Unix Serverumfeld und in den Datenbanken
+Überwachung von Oracle Datenbanken der Version 7.3.2, 7.3.4
+Fehleranalyse, Behebung von Datenbankverbindungen im heterogenen Netzwerk
+Fehleranalyse, Behebung bei Problemen der Datenbankengine,
+Fehleranalyse, Behebung bei logischen Datenbankproblemen verursacht durch
+Anwendungsfehler oder Fehlbedienungen,
+Administration der Applikationsserver (Siemens HV-Cluster mit Reliant Unix
+5.4.3., 5.4.5.)
+(Benutzerverwaltung, Überwachung der Systeme, Monitoring, Applikationen
+einspielen / Update, Benutzersupport),
+
+Deutsche Post AG VIBRIS- Rollout (03/1998 -09/1999)
+Rollout, Installation der VIBRIS- Anwendung in allen 83 Briefzentren
+Aktivierung, Funktionstest  und Mitarbeiterschulung
+Datenanalyse und Auswertung mittels selbst erstellter Datenbankskripte zur
+Präsentation,
+
+Basis: Clients: Windows NT Server: Siemens RM 600/E20 mit Reliant Unix
+Datenbank: Oracle 7.3.2
+
+C/O Integrated Systems Group Cairo (12/1997)
+Aufbau eines Video- Konferenz- Systems für eine Messe
+Entwicklung eines Intranets
+Basis: Windows NT, Netscape, HTML Spezielle Videokonferenzsoftware nach H.232
+Standard
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_33090 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 18.06.2019 00:50:41
+© Copyright 1996-2019 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

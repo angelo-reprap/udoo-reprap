@@ -1,0 +1,900 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_5629
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                5629
+  
+Wohnort                    321xx Bad Salzuflen, Deutschland
+Jahrgang                   1970
+Staatsbürgerschaft         deutsch
+Stundensatz                85 EUR
+                           Remote 80 Euro
+Verfügbar ab               01.10.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         19.01.99
+Profil zuletzt geändert am 15.09.20
+Lesen von Projektanfragen  > 5 Tage [00]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 15.08.2020 13:10:19
+
+Fachlicher Schwerpunkt:
+Oracle DBA 10g - 12.2 18c, 19c PL/SQL, APEX 5. x auf UNIX (AIX, Solaris, Linux,
+HP-​UX)/Windows, Tuning, Oracle Text, Spatial, RDF, RAC, Dataguard, ITIL
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+
+Aktuelle Position:                            
+    * ORACLE Datenbankadministration (RAC, Dataguard,HA Cluster, ASM)  10g -
+      12c, 18c, 19c auf Windows, HPUX, AIX, Linux , Solaris und Oracle Cloud
+    * Migrationen mit XTTS, RMAN, Datapump
+    * Upgrades und Patches inkl RAC / Dataguard
+    * Oracle SQL, PLSQL, RDBMS und OS / SAN Tuning
+    * ORACLE Softwareentwicklung &amp; Entwicklersupport: PL/SQL, SQL, XMLDB,
+      Oracle Text, JSON, Spatial, Graph APEX 5.x (11gR2, 12c,19c) Data Model
+      (Data Vault, Star Schema, OLTP 3.NF, EAV )
+    * Oracle Security: PKI, TDE, DB Vault, SSL, FGAC, FGA, Enterprise
+      Application Security, 
+    * Problem Change &amp; Capacitymanagement (ITIL)
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Schulungen                              
+    * Oracle Dataguard 11g
+    * Oracle Golden Gate 11g
+    * ITIL: Incident , Problem , Change Management ITIL v2
+    * HP Service Center Incident , Problem , Change Management
+    * AIX 7.1 Schulung
+ 
+Zertifizierung                              
+    * IKM Oracle 11g PL/SQL PROGRAMMING Score 89%
+    * OCP 9i, 10g Database Administrator
+    * OCA 9i PL/SQL Developer
+    * ITIL v2 Foundation
+    * Datenschutz Zertifikate (Bankensektor)
+    * IKM Oracle 11g PL/SQL PROGRAMMING (Score 89%)
+    * ORACLE 9i / 10g Database Administrator Certified Professional OCP
+    * ORACLE 9i PL/SQL Developer Certified Associate OCA
+    * Foundation Certificate IT Service Management ITIL v2
+    * Datenschutz Zertifikate (Bankensektor)
+ 
+04/1996
+Diplom Informatiker - Universität Paderborn
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch  Muttersprache
+Englisch gute Kenntnisse
+
+
+Betriebssysteme:
+HPUX        10.20  11.11 (Itanium / PA Risc) 32 / 64 Bit
+IBM AIX       4.3.2  5.2 (HACMP) 32 / 64 Bit
+Linux SuSE ES 7, 8 , 9
+RED HAT       9 , ADVANCED SERVER (AS) 3
+SUN SOLARIS   10, 11 Sparc / X86 32 / 64 Bit
+WINDOWS       10, Server 2003, 2010
+
+
+Programmiersprachen:
+AWK / SED                          
+C / C++                            
+CSS                                
+HTML                              3.2 bis 5.0
+JAVA                               
+JAVASCRIPT                         
+JSON REST                          
+KORN / BOURNE / BASH - SHELL       
+OOA / OOD                          
+PERL                               
+PYTHON                             
+SQL / PL/SQL                      10g, 11gR2, 12.1, 12.2,18c
+XML / XSD / XSL(-FO) / SVG         
+XPath 2.0 / XLST 2.0 / XSL-FO 1.1  
+
+
+Datenbanken:
+Installation / Migration /  
+Administration
+Migrationen                MySQL nach ORACLE, ACCESS , CLIPPER , UDS
+                           (BS 2000) , INFORMIX nach ORACLE
+ORACLE                     10g , 11gR2, 12.1, 12.2, 18c, 19c
+Platform Migration         mit XTTS, Dataguard, RMAN Convert
+                           SQL, PL/SQL, Segment,
+Tuning                     Server,Betriebssystem, Hardware und
+                           Storage
+
+
+Datenkommunikation:
+    * SQL*NET 
+    * SMTP , HTTP(S) , FTP , TELNET
+    * ETIM 3.0 , ECL@SS 
+    * WINDOWS , UNIX Netzwerke
+    * LDAP
+    * SOAP (WEBSERVICE) / REST
+    * ETHERNET (TCP/IP)
+
+Schwerpunkte:
+Oracle Schwerpunkte
+    * Database Administration (ITIL, DevOps)
+    * Oracle MAA &amp; HA: RAC, Data Guard &amp; Fail Over Cluster
+    * Multitenant
+    * Sharding
+    * Installation, Upgrade &amp; Patches (ITIL, DevOps)
+    * Datenbank Migrationen: OS Wechsel, Endian Convert, Hardware Umzüge, Cloud
+      Migrationen (AWS, Oracle Cloud)
+    * Backup und Recovery RMAN (inkl Setup, Tuning), Anbindung an Backup
+      Software: TSM, DELL EMC Data Domain Boost, Veritas Netbackup)
+    * Inbetriebnahme: Dokumentation und Betriebshandbücher (ITIL, DevOps)
+    * Monitoring &amp; Capacity Management
+    * Tuning &amp; Troubleshooting
+    * Table, Index, LOB Reorg (online, near zero downtime), Partitioning und
+      Compression
+    * Entwicklung: Konzeption, ER-Modellierung, Realisierung mit PL/SQL und
+      APEX (Agil, DevOps)
+    * Entwicklung von Funktionstests &amp; Lasttests (Agil, DevOps)
+    * Data Quality Management
+    * Hardware / Software Planung inkl. Virtualisierung, Lizenzoptimierung
+    * Virtualisierung (Hard, Soft): Solaris LDOM, Rootdomain, AIX LPAR, Oracle
+      VM, Virtualbox, Dockers
+    * Beratung, Coaching, Workshops &amp; Schulung
+    * Unified Auditing
+
+Produkte/Standards/Erfahrungen:
+Aktuelle Skills:
+ORACLE Softwareentwicklung &amp; Entwicklersupport
+    * OLTP, DWH, Multitenant (11gR2  12.2 / 18c / 19c)
+    * PL/SQL, SQL, XMLDB, JSON, Oracle Text, Spatial, Graph APEX 5.x (11gR2 -
+      12.2 / 18c / 19c)
+    * Predictive Analysis (Oracle Data Mining, R)
+    * Data Model (Data Vault, Star Schema, Snow Flake, OLTP 3.NF, EAV)
+ 
+ORACLE Datenbankadministration (RAC, Dataguard,HA Cluster, ASM, Multitenant)
+    * 10g, 11gR2, 12c, 12.2, 18c, 19c auf Windows, Linux (,HPUX, AIX und
+      Solaris)
+    * Virtualisierung (Hard, Soft): Solaris LDOM, Rootdomain, AIX LPAR, Oracle
+      VM, Virtualbox, Dockers
+    * Oracle SQL, PLSQL, RDBMS, OS und SAN / NFS Tuning
+    * Oracle Security: PKI, TDE, Database Vault, SSL, Unified Auditing, Oracle
+      Enterprise User Security
+    * Incident, Problem Change &amp; Capacitymanagement (ITIL)
+ 
+Oracle Versionen, Features und Options
+    * ORACLE Versionen bis Enterprise Edition (EE) 11R2g  18c / 19c
+    * RAC, Data Guard &amp; HA ASM (inkl. Flex ASM)
+    * Data Warehouse 11R2g  18c / 19c
+    * Oracle Advanced Analytics 11.2  18c / 19c
+    * Partitioning (DWH, OLTP) inkl. Partition Advisor
+    * 10g  12.2 / 18c / 19c Migrationen (inkl. OS RMAN Endian Convert und
+      Infrastrukturwechsel), XTTS, Transportable Tablespaces
+    * Parallel Query, DML und DDL
+    * Data Vault 1.0 / 2.0 Modelling
+    * Entwicklung, Planung, Tuning im Umfeld VLDB
+    * Oracle In Memory Option 12.2
+    * Oracle's Machine Learning 12.2
+    * Advanced Analytics 12.2
+    * Data Mining mit ODM 4.2
+    * Optimizer und Plan Stabilisierung: CBO + Statistics (DBMS_STATS) bis 12.2
+      inkl. Tuning Advisor
+    * PL/SQL Debugging (inkl. JDWP Java), PL/SQL Profiling
+    * Oracle Advanced Compression bis 18c inkl. Advanced Compression Advisor
+          o Basic, Advanced, Warehouse &amp; Archive Compression
+          o LOB Securefile compression und deduplicate
+    * Datapump Compression
+    * Advanced Network Compression
+    * HCC (Hybrid Column Compression Exadata, ZFS)
+    * Oracle ILM
+    * Golden Gate, Oracle Standby (inkl. Logical Standby und Active Dataguard)
+      bis 12.2
+    * Streams,XStream, Change Data Capture (CDC), Replication, Materialized
+      Views (MV), Golden Gate, Distributed Transaction
+    * Advanced Queuing (AQ) bis 12.1
+    * Logminer bis 12.2
+    * Oracle Text inkl. UDS (User DataStore), Textmining und Sentiment Analysis
+      bis 18c
+    * Oracle Multimedia
+    * Oracle Spatial and Graph (inkl. Oracle Property Graph 12.2, Sesame,
+      Jena), RDF Resource Description Framework / OWL
+    * APEX bis 5.1 &amp; PL/SQL Gateway: htp / htf / owa
+    * Oracle XML / XDB 12.2
+    * Oracle REST API, Webservices, utl_http, utl_smtp, utl_tcp
+    * Oracle Workspacemanager (WM) bis 11.2
+    * Oracle Rules Manager und Expression Filter bis 11.2
+    * Oracle DBV (Database Vault) und TDE (Transparent Data Encryption)
+    * Oracle Security: Wallet, Secure PKI, Kerberos, LDAP, Roles &amp; Grants,
+      Proxy 
+    * Oracle sqlldr direct, conventional, external tables, convert, Tuning,
+      Parallel, EBCDIC Dateien mit > 1 Milliarde Zeilen
+    * Virtual Privat Database (VPD) / Fine Grain Auditing (FGA)
+ 
+Fachkenntnisse
+Business Intelligence (BI)
+    * Oracle Data Miner ODM 11.2  12.2
+    * Oracle BI 12.2 
+    * Oracle Text Mining 
+    * Weka 3: Data Mining 
+
+Reporting
+    * Jasper JasperReports Server
+    * Oracle BI Publisher
+ 
+Standardsoftware
+IBM ACM 5.3 (Algo Credit Manager) bzw. ACL (Algo Credit Limitmanager)
+ 
+Entwicklungs- &amp; Modellierungstools
+    * QUEST TOAD 7.6  12.12
+    * ORACLE SQL Developer 4.1 - 17.4 
+    * ORACLE DESIGNER 2000 1.2  10g 
+    * Oracle Data Modeler 4.1  17.4 
+    * ORACLE APEX 4.2  5.1 
+    * utPLSQL (Unit Testing framework for Oracle PL/SQL)
+    * DbUnit/Junit 
+    * Reporting Jasper Reports
+    * Eclipse 3.2 + Oxygene XML / XSD Plugin 
+    * UML 
+    * Jenkins / Maven
+ 
+DB Administration / Monitoring / APM
+    * ORACLE Cloud Control / ENTERPRISE MANAGER / GRID CONTROL / DB Console
+      11gR2  13.3
+    * VERITAS PRECISE INDEPTH (ORACLE) 3.2
+    * VERITAS I3 (ORACLE) 7.1 
+    * QUEST Spotlight / Foglight (ORACLE) 5.5 
+    * Cisco APPDYNAMICS 4.3 
+    * HP ALM (Qualitycenter) 11.52
+ 
+Konfigurations- / Versionierungstools / ITIL
+Tools                                     
+    * HP Servicecenter 2.0 
+    * IBM 5.0.2 Rational Team Concert
+    * SVN
+ 
+Virtualisierung
+    * Dockers 17.0.x mittel
+    * VMWare 3.1.3 
+    * Virtualbox 4.x 
+    * Oracle VM 3.4
+    * Solaris Zone, LDOM, Root Domain 
+    * AIX LPAR 
+
+Office
+Microsoft: WORD, EXCEL, POWERPOINT, ACCESS, PROJECTS
+ 
+Host-Emulationen / X-Server / Remote Control
+    * PUTTY, PLINK, SSH
+    * MOBA XTERM, KEAX, HUMMINGBIRD EXCEED, CygWin, XMING
+    * VNC (WINDOWS / UNIX)
+    * Teamviewer, PC-ANYWARE, NETOP
+ 
+Datenbank  Architekturen:
+Data Warehouse (DWH VLDB) / OLAP / Big Data
+    * Erstellung fachlicher Konzepte für Datawarehouse-Systeme
+    * Definition der Systemarchitektur (SMP / MPP / CLUSTER / RAC / GRID)
+    * Planung des Mengengerüsts &amp; Storage Planung (SAN, NAS, ASM)
+    * Einführung von Datawarehouse-Systemen (Planung Rollout)
+    * Fachliche und technische Abstimmung der Schnittstellen zu den
+      Quellsystemen
+    * Datenversorgung (SQL*LOADER, UTL_FILE,REPLICATION, MV, AQ, STREAMS,
+      CDC) und Extraction Transformation Loading (ETL) auch mit Oracle
+      Warehousebuilder (OWB)
+    * Datenkonsolidierung und Bereinigung der Quellsystemen (BS2000 / Z/OS und
+      ORACLE OLTP System)
+    * Job Control (SHELLSCRIPT , PL/SQL, dbms_jobs und dbms_schedule )
+    * Datenbankadministration und -tuning ORACLE 11gR2, 12.2, 18c
+    * Datenmodellierung (STAR / SNOWFLAKE), Data Vault 1.0, 2.0
+    * Erstellen und Tunen komplexer SQL
+          o Aggregation, Analysis und Reporting Funktionalität
+          o SQL Model Funktionalität
+    * Oracle Data Miner ODM Anwendung inkl. 12.2
+    * Oracle Advanced Analytics 11.2  18c
+ 
+OLTP
+    * Definition der Systemarchitektur
+    * Datenversorgung und Extraction Transformation Loading (ETL)
+    * Fachliche und technische Abstimmung der Schnittstellen zu den
+      Quellsystemen
+    * Datenkonsolidierung und Bereinigung der Quellsystemen (BS2000 / Z/OS)
+    * Job Control (SHELLSCRIPT / PL/SQL )
+    * Datenbankadministration und tuning ORACLE 11gR2, 12.2, 18c
+    * Datenmodellierung 3.NF, Data Vault (DWH Hybrid Systeme), EAV Modelle
+    * Design / Redesign und Tuning von sehr großen OLTP Anwendungen
+          o > 4000 CONCURRENT USER und > 4,4 TB Daten
+          o > 8000 CONCURRENT USER
+ 
+Datenbank Migrationserfahrung Legacy Systeme
+    * Datenbankmigration UDS (CODASYL Netzwerkdatenbank) / ACCESS / CLIPPER /
+      INFORMIX nach ORACLE  (Version 7.3 bis 10g)
+    * Reverse Engineering / Redesign (ORACLE DESIGNER)
+    * Datenentladen (COBOL / ODBC / INFORMIX UNLOAD)
+    * Datenladen (SQL*LOADER / PL/SQL / JAVA / SQLNAVIGATOR)
+    * Datenbereinigung
+    * Job Control (SHELLSCRIPT / PL/SQL )
+ 
+Datenbank HA Lösungen:
+    * Planung und Aufbau grosser HA Lösungen (OLTP und DWH)
+    * RAC / Dataguard
+    * Sun / HP UX MC Service Guard Failover Cluster
+    * Backup Strategien und Tuning von RMAN
+    * Replikationen mit Advanced Replication, Stream, CDC und Golden Gate
+    * Desaster Recovery Konzepte
+
+Branchen:
+    * Medien
+          o Content Managementsysteme (CMS) 
+          o Produktdaten Management (PDM) 
+    * Handel 
+    * Automobil (Automotive) 
+          o After Sales Systeme: Gewährleistung, Werkstattsysteme,
+            Regressionssysteme 
+          o Dealer Management Systeme (DMS) 
+          o CAD und CAE 
+    * Öffentlicher Dienst 
+    * Finanzdienstleistung 
+          o Limit &amp; Risk Management
+          o Excess Reporting
+          o Meldewesen (CRR, ESZB Geldmarktstatistik)
+    * Softwareentwicklung 
+    * Telekommunikation (TK)
+    * Transport / Logistik 
+    * Consulting 
+    * Hosting Service Provider 
+    * Post
+    * Schwerindustrie 
+    * Versicherung
+
+Projekte:
+08/2019 - heute: RIKO
+ 
+Kunde:              Behörde (ITZ Bund Hamburg)
+ 
+Aufgaben:
+ 
+PL/SQL Entwicklung, Tuning und DBA Unterstützung
+    * PL/SQL Entwicklung und Bugfixing im Projekt RIKO
+    * Unterstützung im Bereich Oracle Upgrades 12.2 und 19c
+    * Umstellung auf Multitenant DB‘s
+ 
+Kenntnisse:
+ 
+Linux, Solaris Oracle 12.1/12.2
+===============================================================================
+09/2018 - 12/2019: Cloud Control ,Oracle Betrieb, Oracle Upgrades,
+Datenmigration, Projektunterstützung
+ 
+Kunde:              Bank
+ 
+Aufgaben:
+ 
+Oracle Betrieb inkl RAC, Dataguard, Oracle Upgrades, Multitenant,
+Projektunterstützung, Entwicklung, Performancetuning
+    * Oracle Unified Auditing
+          o Konzeption
+          o Monitoring
+          o Rollout > 2000 Oracle DBs (Linux, Windows, AIX), RAC, Multitenant
+          o Anbindung an Splunk
+    * Entwicklungsprojekt: DB2 zOS Datenreplikation mit IBM Q Replication und
+      Initial Load mit Oracle SQL*Loader
+          o Unterstützung beim Setup und Betrieb von IBM QREP
+          o Tuning
+          o Shell Scripting
+          o SQL*Loader Tuning
+          o Laden von EBCDIC Daten
+    * Automatisiertes Oracle Upgrades 12.1 -> 12.2
+          o Planung
+          o Dokumentation
+          o Scripting mit Powershell
+    * Migration Windows Oracle 12.1 nach Linux Oracle Multitenant 12.2
+          o Migrationsdokument
+    * Cloud Control 13.3
+          o Konzept, Planung
+          o Install, Upgrade, patchen, Betrieb OMS, OMR, OMA
+          o Agent deployment
+          o > 5000 Targets
+          o Tuning, Monitoring,
+          o ILM
+          o Metric Anpassung
+          o Advanced Security
+          o Auditing
+    * Tuning RDBMS, SQL und Segmenttuning
+    * Oracle Betrieb
+ 
+Kenntnisse:
+ 
+Linux, Windows, AIX, Oracle 12.1/12.2, EM13c 13.3
+===============================================================================
+10/2018 - 12/2018: XTTS Cross Plattform Transportable Tablespace Migration AIX
+-> Linux
+ 
+Kunde:              Bank
+ 
+Aufgaben:
+ 
+    * Entwicklung von SQL/PLSQL und Shellscripts für automatisiertes XTTS
+    * Dokumentation
+    * Kapazitätsplanung und Zeitmessung
+    * Bug Analyse und Bugfix
+ 
+Kenntnisse:
+ 
+Linux, AIX, Oracle 12.1
+===============================================================================
+08/2018 - 12/2018: Telemetrie DWH
+ 
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+Oracle Betrieb inkl. Backup mit OSB, PL/SQL,Tuning
+    * Tuning RDBMS, SQL und Segment (Partitioning, IOT, Compression)
+    * Oracle Betrieb
+    * RMAN Backup und DB Cloning
+    * PL/SQL Export CSV Schnittstelle
+    * Import Hadoop
+    * DSGVO Umsetzung
+ 
+Kenntnisse:
+ 
+Linux, Oracle 11.2/12.2
+===============================================================================
+07/2017 - 08/2018: Migration: Eigenentwicklung Kreditlimit Anwendung zu
+Standardlösung IBM ACM
+ 
+Einsatzort:         Berlin
+Rolle:              Qualitätssicherung, APEX Reporting Applikationsentwicklung
+Kunde:              Bank
+ 
+Aufgaben:
+ 
+Datenmigration, Tuning, Qualitätssicherung, APEX Reporting
+Applikationsentwicklung
+    * Erstellung von Fach- und DV-Konzepte
+    * Analyse und Visualisierung (Reverse Engineering) der zwei Datenmodelle
+    * Analyse der PLSQL / Java Sources
+    * Planung, Realisierung und Test von PLSQL / View Export und Import
+      Schnittstellen
+    * Datenmigration inkl. Tests
+    * Tuning RDBMS, SQL und Segmenttuning
+    * Daten Qualitätssicherung
+    * Entwicklung einer APEX Reporting Applikation
+    * Anbindung an Jasper Reports
+ 
+Kenntnisse:
+ 
+AIX 5.1, Oracle 12.1
+===============================================================================
+08/2016 - 12/2017: EVS
+ 
+Kunde:              Behörde (ITZBund Hannover)
+ 
+Aufgaben:
+ 
+    * Datenmodellierung
+    * PLSQL Package für die Verwaltung
+    * der Load Metadaten: PL/SQL Scripts, Bind Variables, Bind Values
+    * Load Scenarien Beschreibung: Anzahl Jobs, Job Starts, Laufzeit,
+      Thinktime, Iterationen…
+    * Permanentes Feintuning der Load Scenarien -> Job Anzahl, Thinktime,
+      loops..
+    * Auswertung der AWR / Statspack Daten und dem Detail Logging (Elapsed
+      Time, ORA- Fehler)
+===============================================================================
+03/2016 - 12/2017: Tuning und PLSQL Entwicklung in Umfeld eines
+Forderungsmanagement Systems des Bund
+ 
+Kunde:              Behörde (ITZBund Hannover)
+ 
+Aufgaben:
+ 
+Tuning (Datenbank, SQL und Segmenttuning: Index, Table, Partitioning,
+Compression, Materialized Views, Oracle Text) und PLSQL Entwicklung in Umfeld
+eines Forderungsmanagement Systems des Bund
+    * Performance Analysen, Tests und Tuning der 12c Oracle Datenbank und PLSQL
+      Programmen
+    * Unterstützung der Java Entwicklung (JDBC Tuning, JPA Tuning) OOD / OOA
+    * Software Verwaltung und Planung mit IBM RTC (Rational Team Convert)
+    * Incident / Defect Management mit Remedy 9.0
+    * Umstellung auf DevOps Prozesse
+    * Enge Kommunikation PLSQL / Java Entwickler und dem Oracle Betrieb
+    * utPLSQL
+    * Softwarearchitektur mit UML
+    * Jenkins / Maven
+    * Junit
+    * Continuous Integration
+ 
+Kenntnisse:
+ 
+Solaris 10, Red Hat Linux (Vmware Virtualisierung), Oracle 12.1
+===============================================================================
+08/2016 - 07/2017: frei konfigurierbarer Lastgenerator
+ 
+Kunde:              Behörde
+ 
+Aufgaben:
+ 
+    * Datenmodellierung
+    * PLSQL Package für die Verwaltung
+    * der Load Metadaten: PL/SQL Scripts, Bind Variables, Bind Values
+    * Load Scenarien Beschreibung: Anzahl Jobs, Job Starts, Laufzeit,
+      Thinktime, Iterationen…
+    * Permanentes Feintuning der Load Scenarien -> Job Anzahl, Thinktime,
+      loops..
+    * Auswertung der A WR / statspack Daten und dem Detail Logging (Elapsed
+      Time, ORA- Fehler)
+===============================================================================
+06/2016 - 06/2017: Quality Gate APEX Anwendung
+ 
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+Die Anwendung dient der Qualitätssicherung von > 1500 Oracle Instances. Es
+werden Remote synthetische Benchmarks, Healtchcheck Script, AWR Metric… SQL
+Scripts aufgerufen und die Daten zentral gespeichert. In einem Dashboard werden
+die Quality Gates grafisch angezeigt. Per drill down werden dann alle QS
+Informationen und Metadaten angezeigt und über Masken gepflegt.             
+    * Agile Software Entwicklung mit 7 – 14 tägigen Sprints, wöchentliches
+      Reporting und Statusmeeting
+    * Datenmodellierung inkl. view Layer
+    * Entwicklung von SQL Loader Scripts ETL PL/SQL Package
+    * Entwicklung eines zentralen Unix Cronjobs und remote ssh Shellscript
+      inkl. Mailing und Logging in der zentralen QS Oracle (APEX) Instance.
+    * Remotes Datensammeln per SQL
+    * AWR Daten: osstat, sysstat,…
+    * Oracle Cloud Control Daten: Unix Memory, ORA- Diag Daten
+    * Healthcheck Daten (Redo Grösse, Member,..SGA, PGA…)
+    * Synthetischer Benchmark (CPU, Full Tablescans, Parallel Query…)
+    * Datensammeln von Metadaten und ITIL Daten zu den Oracle Instances
+    * Service Center Incidents, Problems, Changes, Gruppen…
+    * Dokumente (Word, PDF) in BLOBs inkl Oracle Text Volltext Indizierung
+    * ETL per sqlldr &amp; PLSQL Package in eine zentrales Quality Gate Repository
+    * Graphische Web Oberfläche mit APEX 4.x (inkl. dynamic actions)
+    * Eingabemasken (Forms) / Interactive Reports / Charts
+    * Job Steuerung: ETL inkl. Detail Logging
+ 
+Kenntnisse:
+ 
+Solaris 10, AIX 5.1, Red Hat Linux (KVM Virtualisierung), Oracle 12.1
+===============================================================================
+03/2016 - 06/2017: Automatisierte 12c Upgrades (und Migrationen AIX -> Linux)
+von ca. 1500 Oracle 11g Databases
+ 
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+    * Technische Projektleitung 12c Upgrade
+          o Planung, Koordination des Teams (3 Personen) und Durchführung der
+            ca. 1500 12c Migrationen inkl. Terminplanung und Changes
+          o Termin- &amp; Changeplanung mit dem Fachbereich, der Entwicklung und
+            dem Application Management Services
+          o Planung und Umsetzung der Performance Analysen, Tests, Tuning von
+            12c Datenbanken
+          o Statusberichte für wöchentliches CAB Meetings beim Kunden
+    * Agile Entwicklung einer Anwendung für die Planung, Steuerung und
+      Monitoring der 12c Migrationen
+    * Apex 5.0 mit PL/SQL Shellscript
+    * vollständig automatisierten 12c Upgrades (DBUA), Rman Backups, Rollbacks,
+      Changes / Tasks und Emails für das Tracking / Reporting
+    * 12c Upgrades unter AIX, Solaris, Linux
+    * Anbindung an HP Servicecenter
+    * Teilweise Migrationen mit Oracle XTTS (Cross Platform Transportable
+      Tablespaces)
+ 
+Kenntnisse:
+ 
+HPUX, AIX 5.1, Red Hat Linux (Vmware Virtualisierung), Oracle 11.2; 12.1
+===============================================================================
+05/2009 - 06/2017: Oracle Service 2. und 3. Level Support (primär 3. Level)
+ 
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+    * Administration, Migrationen, Patchen (inkl. RAC)
+    * Incidentmanagement, Problemmanagement und Changemanagement (nach ITIL)
+    * Konzepterstellung und strategische Oracle Beratung
+    * Planung Migration 11gR2 im Umfeld von ca. 950 produktiv Datenbanken und
+      ca. 1800 Test / QS Datenbanken inkl. RAC, DataGuard, Failover Cluster,
+      Streams, Replikation, Oracle Text, XMLDB, APEX
+    * Planung und Entwicklung diverser APEX 4.0 Anwendungen
+===============================================================================
+01/2013 - 05/2017: ETL und Reporting Entwicklung im Umfeld von 4 Oracle DWH
+(VLDB >10 TB) Projekten Bereiche: After Sales, Finance, Production, QS
+ 
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+    * Erstellen von Referenzstrukturen (inkl. Dokumentation)
+    * Namenskonventionen
+          o Input Layer-> Storage / Core Layer -> Output Layer Struktur
+          o Einführung 2015 Data Vault als Datenmodell für Core Layer
+          o Unterstützung und Mitentwicklung an >7 großen agilen DWH Projekten
+    * Teilweise mit Scrum oder einem Agilen Ansatz
+    * PLSQL / Java Export und Imports inkl XMLDB
+    * ETL Entwickler (Informatica Power Center)
+    * Reporting Entwickler (BO, Cognos)
+    * Segment Tuning (Materialized Views, Index, Bitmap Index, Bitmap Join
+      Index, Partitioning) bis 12c
+    * SQL Tuning
+    * PLSQL Tuning
+    * RAC / ASM Tuning
+    * Einführung in Memory Option
+    * Technische Projektleitung 12c Upgrade
+    * Upgrade CRS / ASM und RDBMS
+    * Datenmodellierung mit ERWin und Oracle Data Modeler
+    * PLSQL / SQL Entwicklung und Tuning mit Oracle SQL Developer und Quest
+      Toad 11.xx
+    * Enge Kommunikation mit den Abteilungen Entwicklung, Application
+      Management, QS und dem Oracle Betrieb.
+ 
+Kenntnisse:
+ 
+HPUX, AIX 5.1, Red Hat Linux (Vmware Virtualisierung), Oracle 11.2; 12.1
+===============================================================================
+06/2014 - 02/2016: 11g / 12c RAC + Dataguard Migrationen von HP-UX auf AIX /
+Linux Proof of Concept Oracle 12c in memory Option
+ 
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+11g / 12c RAC + Dataguard Migrationen von HP-UX auf AIX / Linux Proof of
+Concept Oracle 12c in memory Option (vgl. IBM DB2 Blue und SAP HANA)
+    * Planung und Durchführung der ca. 1000 Migrationen mit Near Zero Downtime
+    * Einsatz von Dataguard, rman convert und NFS Mountpoints
+===============================================================================
+09/2013 - 04/2015: 11g RAC + Dataguard  Installationen und Migrationen HP UX -
+> Solaris
+ 
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+    * Grid Infrastructure Install und Upgrade,
+    * RDBMS Install und Upgrade,
+    * Migration Filesystem zu ASM,
+    * Aufbau Monitoring,
+    * Migration von ca. 50 HPUX Oracle 10g Instances nach Solaris mit Golden
+      Gate, Rman Convert, Datapump und Dataguard
+===============================================================================
+04/2012 - 10/2013: 11g Migration 16 Node Grid Infrastructure 11g Infrastuktur
+mit Active Dataguard auf Solaris (T4-4 Sparc) Zero Downtime Migration mit
+Golden Gate
+ 
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+    * Planung, Aufbau, Lasttests, Funktionstests für 11gR2 Grid Infrastructure
+    * Dataguard und Golden Gate
+===============================================================================
+01/2013 - 06/2013: Dynamische PL/SQL ETL Routine
+ 
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+    * Agile Software Entwicklung mit 7 Tage Sprints.
+    * Pflichtenhefterstellung, Design, Entwicklung, Erstellung
+      Betriebshandbuch,
+    * Tests, Betriebsübergabe und Betrieb der ETL Applikation.
+    * Enge Kommunikation mit den Abteilungen Application Management, QS und dem
+      Oracle Betrieb.
+    * Softwarearchitektur mit UML
+    * Jenkins / Maven
+    * DBUnit
+    * Continuous Integration
+===============================================================================
+06/2012 - 01/2013: ORACLE APEX Planungs- und CMDB Applikation
+ 
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+    * Design, Entwicklung, Design und Betrieb dieser APEX 4.x Anwendung
+===============================================================================
+05/2009 - 01/2012: Tuning eines weltweit genutzen Content Management  Systems
+und Auftragsverwaltung  (> 60000 User)
+ 
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+    * Administration, Migrationen, Patchen (inkl. RAC)
+    * Troubleshooting, Change Management
+    * Konzepterstellung und strategische Oracle Beratung
+    * Entwicklung eines Lasttest-Generators (RAC fähig) auf PL/SQL und Oracle
+      Scheduler Basis
+    * Einsatz und Tuning von Oracle Text
+    * Indiziertes Volumen ca. 2TB
+    * Datentypen: XML, CLOB, BLOB, BFILE, URL, VARCHAR2
+    * Einsatz von User Datastore, Partitioning, highlighting, markup,
+      Fuzzylogic, scoring.
+    * Allgemeines Statement und Segment Tuning
+===============================================================================
+02/2006 - 05/2009: Zentrales Gewährleistungssystem (weltweit) Entwicklung &amp;
+Systembetrieb / Support nach ITIL Zentrales Auftragsabwicklungssystem
+(weltweit) Entwicklersupport (Tuning) Systembetrieb / Support nach ITIL
+ 
+Kunde:              Automobil      (After Sales)
+ 
+Aufgaben:
+ 
+    * Systembetrieb, Tuning &amp; Troubleshooting des weltweiten 
+      Auftragsabwicklungssystem
+          o Oracle 4 Knoten Rac auf HP-UX 11.11
+          o IBM Websphere WAS 6.0
+    * Migration: 9i nach 10gR2 des weltweiten Gewährleistungssystems
+          o Alleinige Planung, Koordinierung und Durchführung der ORACLE
+            Migration: 9i nach 10gR2 1 Monat Durchführungszeit
+    * Planung für 4 Test und 2 Produktiv DB’s (> 60000 Anwender)
+ 
+Konzeption und PL/SQL – Entwicklung
+    * Diverse PL/SQL Funktionen für das Gewährleistungssystem
+    * Übersetzungsmanagement
+          o XML-Schema / DTD Konzeption
+          o Einsatz von Trados
+          o PL/SQL Routinen für XML Export / Import mit XML DB
+    * Schnittstellen Programmierung
+          o Flatfile
+          o XML / XSD
+    * Informations Portal
+          o Einsatz von HTMLDB / APEX
+          o 3.0
+          o Dynamische Generierung von XML-Files mit ORACLE XML-DB
+          o XSD / XML Entwicklung mit
+                # Eclipse 3.2 + Oxygene XML / XSD Plugin
+                # Stylus Studio 2006 Release 2 Enterprise Edition
+          o Konvertierung mit Apache XSLT-FO in PDF / RFT
+          o Monitoring und Adminstration von AQ über das APEX Portal
+    * Report DB mit Replikation (Materialized Views und MV Logs) aufgesetzt
+    * Dokumentation
+    * Redesign &amp; Refactoring
+          o Redesign diverser Funktionen (mit Einsatz neuer ORACLE Features)
+          o Reverse Engineering und Dokumentation
+          o Dokumentation
+    * ER-Modellierung DESIGNER
+          o Datenmodellierung
+          o Reverse Engineering und Dokumentation
+          o Installation, Administration und Migration
+===============================================================================
+Produkte &amp; Technologien
+Betriebssysteme:
+SOLARIS 10 (CLUSTER)
+HP-UX 11i (CLUSTER)
+ 
+Datenbanken:
+ORACLE 9iR2 RAC , 10gR2  mit ASM
+ 
+Applikationsserver:
+ORACLE IAS 1.022 , 10AS
+ 
+Programmiersprachen:
+SQL , PL/SQL
+KORN-SHELL                    
+ 
+Tools:
+ORACLE ENTERPRISE MANAGER 9i , 10g, Grid Control
+QUEST SQL-NAVIGATOR 5.0
+QUEST TOAD 9.0
+ORACLE DESIGNER 9.0.6
+SQL*LOADER    
+Win CVS
+IBM RATIONAL CLEARQUEST
+Peregrine System PSC 5.0 / 6.0
+===============================================================================
+12/2004 - 02/2006: Systembetrieb, Application DB Management, Entwicklung
+Bereich: Billing und CRM
+ 
+Kunde:              Telekommunikation
+ 
+Aufgaben:
+ 
+    * Systembetrieb und Second Level Support
+          o OLTP mit mehr als >1000 Concurrent User und über > 4,4 TB Daten
+          o Monitoring (Batch / OLTP / OLAP)
+          o Troubleshooting
+    * SQL / PL/SQL / Datenbank und Server Tuning
+          o PARTITIONING Tuning
+          o SQL*LOADER Tuning
+          o Einsatz von MW (MATERIALIZED VIEWS)
+          o Einsatz div. DWH-Funktionen ROLLUP / RANK / LAG / LEADING ...
+          o Datenbank Reorg (online / offline)
+    * Konzeption , Realisierung , Projektsupport Laufzeit > 6 Monate
+      Webapplication „Servicecatalog“ Programm- und Contentverwaltung
+    * ORACLE 10g
+    * HTMLDB 1.6.1
+    * DEVELOPER SUITE 10g (9.0.4)
+    * ORACLE TEXT
+    * PL/SQL und Java Stored Procedure
+    * SVG + Java Batik Converter (PDF)
+    * Installation und intensive Evaluierung APM Tools Laufzeit > 3 Monat
+      (Bewertung und Vergleich)
+    * VERITAS I3 (ORACLE) Performance Warehouse
+    * Quest Spotlight / Foglight
+    * Durchführung div. Workshops im ORACLE Umfeld
+          o ORACLE für Sybase Entwickler
+          o HTML DB Einführung
+          o CBO + Dbms_stats
+          o SQL / PL/SQL Tuning Workshop für Entwickler
+    * 9i Upgrade: Planung, Test und Realisierung Laufzeit > 6 Monat
+          o Migration RBO auf CBO (Optimizer)
+          o Facility Studie: Usage of STORED OUTLINES / DBMS_STATS
+          o Teilprojekt 9i Upgrade: Guarantee plan stability
+          o Konzeption , ER-Modellierung und Implementierung (PL/SQL):
+          o Monitoring, Reporting und Alerting
+          o Evaluierung und Auswahl diverser Datenbanktools
+          o Umsetzung: Designer als Webapplikation (ROB – Repository Object
+            Browser)
+          o Planung und Schulung des Enterprise Managers 9i und Grid Control
+            10g
+ 
+Produkte &amp; Technologien
+Betriebssysteme:
+SOLARIS 5.8 (CLUSTER)
+WINDOWS XP
+ 
+Datenbanken:
+ORACLE 8i / 9iR2 RAC / 10g R2
+ 
+Programmiersprachen:
+SQL / PL/SQL
+KORN-SHELL                    
+PERL
+JAVA (Stored Procedures)
+===============================================================================
+04/2003 - 02/2005: Datenbankadministration ORACLE / Entwicklersupport
+ 
+Kunde:              Finanzdienstleister
+===============================================================================
+01/2004 - 12/2004: Gewährleistungssystem, Regressierungssystem,
+Redaktionssystem (Systembetrieb und Entwicklung)
+ 
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+    * Systembetrieb und Third Level Support
+          o OLTP mit mehr als 4000 CONCURRENT USER und über 400 GB Daten
+          o UNIX Basis Administration
+          o ORACLE Administration (+ OPS und RAC)
+          o Monitoring
+          o Troubleshooting
+    * PL/SQL – Entwicklung
+          o diverse Lade- und Entlade-Programme mit PL/SQL und KORNSHELL
+          o ORACLE - Konvertierung nach EBCDIC
+    * ER-Modellierung DESIGNER
+          o Installation, Administration und Migration
+          o Datenmodellierung
+          o Reverse Engineering und Dokumentation
+          o DB-gestütztes Benchmarktool (SHELLSCRIPT und PL/SQL)
+          o DB-gestütztes Monitoringtool (PL/SQL)
+          o generische Daten-Synchronisierung (PL/SQL)
+          o Schnittstellenprogrammierung (Host Z/OS) (SHELLSCRIPT und PL/SQL)
+===============================================================================
+weitere Projekte auf Anfrage
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_5629
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 16.09.2020 00:40:48
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

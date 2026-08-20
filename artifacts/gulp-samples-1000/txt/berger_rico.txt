@@ -1,0 +1,259 @@
+Network Design Network Architect IT Project Lead CCIE Service
+Provider
+Top-Skills: Network Design, MPLS, Network Security,
+Cisco Nexus, Cisco ASR Router, Palo Alto
+Firewall, Cisco ASA, Netzwerkarchitektur,
+CCIE, Border Gateway Protocol, Peering
+Verfügbar ab: 01.10.2022
+verfügbar zu: 100 %
+davon vor Ort: 10 %
+Stundensatz: 100,00 EUR
+Bemerkungen:
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Schweiz, Einsatzort unbestimmt
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Projekte
+2018-11 - 2021-03 Network Consulting
+2 Jahre 5 Monate
+Kunde: T-Systems – Endkunde: European Space Agency (ESA)
+Einsatzort: Berlin
+Projektinhalte:     •  Review, Optimierung und Neukonzeption der
+      BGP-Peering-Strukturen sowie der MPLS-VPN Landschaft (Hub &amp;
+      Spoke)
+    •  Integration Cisco Nexus-Technologien in vormals klassiches
+      DC-Design (vPC, Fabric-Path)
+    •  Performance-Tuning an den PuPs (puplic pickups)
+    •  Unterstützung der Betriebsteams &amp; Bearbeitung von Cisco
+      TAC-Cases
+    •  Dokumentation via Sharepoint und Visio
+Kenntnisse: Network Design, Network Operation
+Eingesetzte Produkte: Cisco Nexus, Cisco ASR Router, MPLS, BGP, OSPF, BFD, QoS
+14.02.2023 1 von 7
+2017-01 - 2021-03 Network Consulting
+4 Jahre 3 Monate
+Kunde: T-Systems
+Einsatzort: Berlin
+Projektinhalte:     •  Review, Optimierung und Neukonzeption der Routing- und
+      Security-Strukturen diverser Kunden im öffentlichen und
+      wissenschaftlichen Sektor
+    •  Entwicklung von Design-Whitepapers für Performance- &amp;
+      Konvergenz-Tuning im WAN- und Data Center-Umfeld
+    •  Technische Konzepterstellung bei öffentlichen Ausschreibungen
+      und Unterstützung der Pre-Sales Divisions der T-Systems
+      International GmbH
+    •  Ausarbeitung &amp; Umsetzung von Migrationsplänen
+    •  Entstörung von systematischen Fehlern und Bearbeitung von
+      Eskalationen (3rd Level Support - Operation / Fault Management)
+2018-01 - 2020-12 Network Consulting
+3 Jahre
+Kunde: Vodafone Kabel Deutschland GmbH
+Einsatzort: Berlin
+Projektinhalte:     •  Unterstützung des internen Network-Design Teams
+    •  Fortführung des Life-Cycle Management, Migration von on-prem
+      DC-Services nach Cisco ACI
+    •  Konfiguration und Betrieb von Inter-AS-MPLS VPNs durch
+      Zusammenschluss der ISPs Kabel Deutschland und Vodafone
+Germany
+    •  Erstellung von Design-Whitepapers für Performance- &amp;
+      Konvergenz-Tuning im ISP- und DC-Umfeld
+Kenntnisse: Network Design
+Eingesetzte Produkte: Cisco Nexus, Palo Alto Firewall, Cisco ASR Router, Cisco ASA Firewall,
+Fortinet Fortigate Firewall, AWS, MPLS, IPv6, QoS
+2018-01 - 2020-10 Network Consulting, DC Design
+2 Jahre 10 Monate
+Kunde: T-Systems – Endkunde: Automotive Sector
+Einsatzort: München
+Projektinhalte:     •  Planung einer neuen greenfield multi-tier DC Architektur auf
+      Basis Cisco Nexus mit Integration von Drittherstellern wie
+      Checkpoint, Infoblox, F5, VMware NSX
+    •  Planung und Durchführung von Workshops, Anforderungsanalyse,
+      Erstellung von Design-Spezifikationen
+    •  Erstellung initiales Mengengerüst für den PoC
+      (Proof-of-Concept), Dokumentation in Visio
+    •  nachgelagert: Unterstützung des Betriebsteams bei der
+      Entstörung von systematischen Fehlern
+14.02.2023 2 von 7
+Kenntnisse: Network Design
+Eingesetzte Produkte: Cisco Nexus, Cisco ASA Firewall, CheckPoint Firewall, VMWare NSX, VXLAN
+2019-02 - 2019-12 Network Consulting, Integration AWS
+11 Monate
+Kunde: T-Systems – Endkunde: Automotive Sector
+Projektinhalte:     •  Erstellung Design-Whitepaper für die Integration von AWS in
+      bestehende DC-Architektur
+    •  Neu-Konzeption der Security-Vorgaben für Anbindung der
+      Cloud-Dienste, inkl. Ende-zu-Ende Verschlüsselung der
+      WAN-Kopplung
+    •  technische Projektleitung für die Umsetzung des Konzeptes,
+      Leitung der Migration
+    •  Dokumentation via Confluence und Visio
+    •  Schulung des Betriebsteams
+Kenntnisse: Network Architect
+Eingesetzte Produkte: AWS, IPsec
+2017-10 - 2018-03 Network Consulting, PKI Integration
+6 Monate
+Kunde: T-Systems – Endkunde: Deutsches Zentrum für Luft- und Raumfahrt
+(DLR)
+Einsatzort: Berlin / Köln
+Projektinhalte:     •  Erstellung Design-Konzept für die Umstellung der produktiven
+      Cisco-WAN-Infrastruktur auf zertifikats-basierte
+      WAN-Verschlüsselung (IPSec with PKI-Infrastructure) in
+      bestehender PSK-verschlüsselte DMVPN-Umgebung inkl. MPLS-VPN
+      Einbindung
+    •  Konfiguration des Test-Aufbaus für PoC (Proof-of-Concept)
+    •  technische Projektleitung für die tatsächliche Einbindung des
+      Konzeptes, Leitung der Migration
+    •  Dokumentation via Confluence und Visio
+Kenntnisse: Network Design
+Eingesetzte Produkte: DMVPN, MPLS, PKI, IPsec
+2017-01 - 2017-10 Network Consulting
+10 Monate
+Kunde: T-Systems – Endkunde: Deutsches Zentrum für Luft- und Raumfahrt
+(DLR)
+Einsatzort: Berlin
+Projektinhalte:     •  Review, Optimierung und Neukonzeption der Routing-Strukturen
+      (DMVPN + MPLS VPN)
+14.02.2023 3 von 7
+    •  Unterstützung der Betriebsteams
+    •  Dokumentation via Confluence und Visio
+Kompetenzen
+Produkte / Standards /
+Erfahrungen / Methoden
+Persönliche Kompetenzen
+    •  absolute Einsatzbereitschaft und Engagement, auch an
+      Feiertagen und am Wochenende
+    •  sehr kurze Einarbeitungszeit und sehr lernfähig
+    •  ausgeprägte Problemlösungskompetenz und systematische
+      Arbeitsweise
+    •  unternehmerische Denkweise sowie klares Kostenbewusstsein
+    •  Teamplayer mit sozialer Kompetenz
+ 
+Fachliche Kompetenzen
+    •  Netzwerkdesign / Architektur mit Fokus auf Routing,
+      Switching, Security
+    •  Technische Konzepterstellung bei öffentlichen
+      Ausschreibungen und Unterstützung der Pre-Sales Divisions
+    •  Review, Optimierung und Neukonzeption von Routing- und
+      Security-Strukturen
+    •  Entwicklung von Design-Whitepapers für Performance- &amp;
+      Konvergenz-Tuning im Service-Provider- und Data
+      Center-Umfeld
+    •  Administration und Betrieb großer Netzwerke (3rd Level
+      Support)
+    •  Konfiguration aktiver Netzwerkgeräte wie Router, Switche,
+      Firewalls, Loadbalancer
+ 
+Management Kompetenzen
+    •  Führungserfahrung: Teamleitung, Teamaufbau,
+      Einstellungsgespräche, Schulungspläne
+    •  Definition und Umsetzung von Wachstumsstrategien
+    •  Durchführung von Design-Workshops und Aufstellung
+      detaillierter Designspezifikationen
+    •  Leitung von Konferenzen, Kundenbesichtigungen und
+      technischen Diskussionen
+    •  Effiziente Koordination interner und externer Ressourcen,
+      Eskalationsmanagement, Budgetplanung
+Datenkommunikation AAA
+BFD
+BGP v4,v6,Multicast
+Cisco Fabricpath
+Cisco vPC
+DAI
+DMVPN v4,v6
+EIGRP
+14.02.2023 4 von 7
+HSRP
+IGMP
+IPsec IKEv1,v2
+IPv4 transition CGNAT
+mechanism
+IPv6
+IPv6 translation NAT64, DS-Lite
+mechanism
+IS-IS
+MP-BGP v4,v6,Multicast
+MPLS intra-AS,inter-AS,Option A,B,C
+MPLS-TE
+NetFlow
+OSPF v2,v3
+PIM-DM
+PIM-SM
+PIM-SSM
+PKI
+Pseudowire
+QoS v4,v6
+Radius
+RIP
+RSVP
+SD-WAN
+SNMP v2,v3
+TACACS
+VPLS
+VRRP
+VXLAN
+Hardware
+    •  Routers
+ 
+14.02.2023 5 von 7
+Cisco Carrier Routing System (CRS-3, CRS-1)
+Cisco ASR 9000/1000 Series Aggregation Services Routers
+Cisco Integrated Services Router (ISR)
+Cisco 7600/7200 Series Routers
+Huawei CX600 Metro Services Platform
+Alcatel 7750 Service Routers
+ 
+    •  Data Center Platforms
+ 
+Cisco Catalyst 4900 / 4500 / 3560-E / ME-3400 Series Switches
+Cisco Catalyst 6500 Series Switches
+Cisco Nexus 9000 / 7000 / 5000 / 3000 Series Switches
+Cisco Nexus 2000 Series Fabric Extenders
+Cisco Nexus 1000V Switches (Application Virtual Switches)
+Huawei S6300 Enterprise Switches
+ 
+    •  Security Platforms
+ 
+Cisco ASA 5500 Series Adaptive Security Appliance (ASA)
+Cisco ASA 5500-X Series Next-Generation Firewalls (ASA-X)
+Cisco ASA Services Module, Firewall Services Module (FWSM)
+Cisco Identity Services Engine (ISE)
+Cisco Secure Access Control System (ACS)
+Fortinet Fortigate Firewall
+Fortinet Fortianalyser
+Palo Alto 5000 Series Next-Generation Firewalls
+Palo Alto VM-300 Virtualized Firewall Platform
+Palo Alto M-100 (Panorama)
+ 
+    •  Service Exchange
+ 
+Cisco SCE 8000 Series Service Control Engine
+Cisco ACE GSS 4400 Series Global Site Selector Appliances
+Cisco Application Control Engine (ACE) Family
+A10 Thunder / AX Series Loadbalancer
+ 
+    •  Virtualization
+ 
+VMware VSphere 5 &amp; 6
+VMware VCenter Server 5 &amp; 6
+VMware ESXi 5.1+
+VMware NSX Version 6.0.2+
+Aus- und Weiterbildung
+erworbene IT-Zertifikate
+    •  Cisco CCIE Service Provider
+    •  Cisco CCIP
+    •  Cisco CCNP Security
+    •  Cisco CCSP
+    •  Cisco ASA Specialist
+    •  Cisco Firewall Security Specialist
+    •  Cisco IOS Security Specialist
+    •  Cisco VPN Security Specialist
+    •  Cisco Intrusion Prevention System Specialist
+    •  GenuGate Certified Specialist
+    •  Palo Alto ACE (Accredited Configuration Engineer)
+    •  A10 Certified Application Delivery Engineer
+    •  VMware Certified Professional – Network Virtualization
+14.02.2023 6 von 7
+    •  VMware Certified Professional 6 – Network Virtualization
+14.02.2023 7 von 7

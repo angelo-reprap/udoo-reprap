@@ -1,0 +1,399 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_107281
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                107281
+  
+Wohnort                    308xx Barsinghausen, Deutschland
+Jahrgang                   1976
+Staatsbürgerschaft         deutsch
+Stundensatz                95 EUR
+                           mittlerer Satz abhängig vom Beschäftigungsort und
+                           remote Arbeitsmöglichkeit.
+Verfügbar ab               04.01.21 zu 100%, Vor-Ort-Einsatz 80% möglich
+                           nebenberuflich tätig neben Festanstellung
+Profil erstellt am         08.06.10
+Profil zuletzt geändert am 04.11.20
+Lesen von Projektanfragen  4 Tage [02]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 23.10.2020 12:44:49
+
+Fachlicher Schwerpunkt:
+Senior Berater IT-​Security mit Schwerpunkt CheckPoint, Policy Firewall Policy
+Audit, Tufin, Load-​Balancing, Proxiy, Linux Red Hat, SIEM
+
+Position:
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Engineering / IT-nahe Ingenieurdienstleistungen
+
+Spezialist mit 19 Jahre Erfahrung im gesamten CheckPoint und IT-Security
+Produktspektrum.
+    * Vorbereitung von Security Infrastrukturen für Outsourcing/Outtasking.
+    * Reduzierung von Kosten und Aufwänden im Security Betrieb
+    * Konsolidierung/Aufbau/Auditing von IT-Security Architekturen
+    * Durchführung/Planung von Major Release Upgrades und Hardware Replacements
+
+Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit bevorzugt
+
+Voraussetzung für Festanstellung: Festanstellung kommt nur im Raum Hannover/
+Hamburg/Ostwestfalen in Betracht
+
+Ausbildung:
+1996 Abitur
+2000 Fachinformatiker Systemintegration Siemens-Nixdorf
+2000 Fachberater Integrierte Systeme Siemens-Nixdorf
+
+Einsatzort:
+Regionen:
+D2, D3
+im Umkreis von:
+Hannover (100 km)
+Barsinghausen (100 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Bitte bei Angeboten remote Arbeitsmöglichkeit beim Endkunden erfragen.
+
+Fremdsprachen:
+Deutsch  Muttersprache
+Englisch sehr gut
+
+
+Hardware:
+embedded Systeme embedded network devices routing switching vpn
+
+
+Betriebssysteme:
+Unix Linux Red Hat RHCE
+
+
+Programmiersprachen:
+PHP    
+Shell bash
+
+
+Datenkommunikation:
+Ethernet            
+Internet, Intranet  
+SMTP                
+SNMP                
+TCP/IP              
+Voice               
+
+
+Produkte/Standards/Erfahrungen:
+- Check Point Produktfamilie inklusive VSX
+- Policy Audit und Neuaufbau nach Zonenlogik und Applikationsorientierung
+- Proxy Technologien inklusive Web Malware
+- Load Balancing F5/Netscaler
+- Red Hat Certified Engineer (RHCE)
+- Englisch in Wort und Schrift
+- VmWare Server und Xen Virtualisierung
+- Härtung von Betriebssystemen (Windows Produktfamilie, Linux)
+- Performance Messungen und Auswertungen
+
+Branchen:
+IT-Dienstleister / Rechenzentrum
+Energieerzeugung / -versorgung / -handel
+Behörden / Öffentlicher Dienst
+Hochschulen / Forschungseinrichtungen
+IT / Internet / EDV
+Militär / Rüstung
+Telekommunikation / Mobilfunk
+ 
+
+Projekte:
+11/2018 - heute:   Firewall und Security Infrastruktur
+ 
+Branche: public Sector (KdöR)
+Funktion: Security Consultant als freiberuflicher Mitarbeiter
+ 
+Übernahme verschiedener Aufgaben als Mitarbeiter für die Netzwerk Sicherheits-
+Infrastruktur u.a.:
+- Firewall Refresh Platform Check Point (Hardware und Software Upgrades)
+- Rulebase Audit, Cleanup und Umwandlung in ein Zonen, Identity Awareness und
+applikationsorientiertes Regelwerk
+- Reduzierung und Rückbau von ungenutzen Firewall Konfigurationsbestandteilen
+- Netscaler Load Balancing Betrieb
+- Bluecoat Proxy Betrieb
+- Tenable Security Scanner Rollout
+- Erstellung/Review von Feinkonzepten für das kundeneigene Outtasking Projekt
+- Aufbau Tufin Secure Track
+ 
+ 
+08/2016  10/2018: Produkt und Serviceverantwortung Firewall
+ 
+Branche: Finanzdienstleister in Festanstellung
+Funktion: Systemanalytiker
+ 
+Übernahme verschiedener Aufgaben als verantwortlicher Mitarbeiter für die
+weltweite Firewall Infrastruktur u.a.:
+- Rollout Tufin SecureChange und Workflow
+- Entwicklung neuer Firewall Rule Change Prozess
+- Entwicklung und Rollout Netzwerk-Zonen-Konzept
+- Dokumentation von Standard Operating Prozeduren für das Outtasking an einen
+Dienstleister
+- Automatisierung verschiedener revisionsrelevanter Parameter im Firewall
+Netzwerkumfeld
+- Beseitigung von Revisions-Findings und deren Abmeldung
+- Durchführung von Proof-of-Concepts und zukünftigen Designs für die Netzwerk
+Security Infrastruktur des neuen Datacenters
+ 
+ 
+09/2015  08/2016: Firewall Rulebase Revision
+ 
+Branche: Finanzdienstleister als externer MA
+Funktion: Senior System Network Engineer
+ 
+- Beseitigung von sicherheitsrelevanten Schwachstellen in der Regelwerksbasis
+inklusive dazu notwendiger Änderungen in der Basis-Infrastruktur
+- Bereinigung der Objekte innerhalb der Check Point Provider-1 Datenbank
+- Durchführung und Vorbereitung von Changes innerhalb der Firewall Umgebung
+- Umfangreiche Neuausrichtung der Security Policy und Konsolidierung/
+Standardisierung der Check Point Umgebung
+ 
+ 
+01/2015  08/2015: Firewall Management Upgrade
+ 
+Branche: Automobilhersteller
+Funktion: Senior System Network Engineer als externer MA
+ 
+- Umstellung und umfassende Dokumentation der zentralen Check Point Provider-
+1 Umgebung von Bestandshardware und Release R75.40 auf neue Smart-1 Appliances
+und Release R77.20
+- Konzeptionierung und Erstellung eines Sicherungskonzeptes für die Provider-
+1 Umgebung
+- erfolgreiche Durchführung von Changes zum Umzug der Gateways auf die neue
+Management Platform
+- Tests und Proof of Concept für Upgrade und Umstellung der zentralen VPN
+Einwahl
+ 
+ 
+ 
+01/2014  12/2014: SIEM 3 Projekt
+ 
+Branche: Finanzdienstleister
+Funktion: Senior System Network Engineer als externer MA
+ 
+- eigenverantwortlicher Betrieb der kompletten Hewlett Packard Arcsight
+Infrastruktur des Kunden
+- Arcsight Release Upgrade
+- Anbindung neuer Logdatenquellen mittels Syslog und Entwicklung entsprechender
+Log Parser für die Anwendung
+- Vorbereitung der Reports für die Revision
+- Evaluierung und Verbesserung verschiedenster Logquellen
+- zusätzlich weiterhin die Aufgaben des vorangegangenen SIEM 2 Projektes
+ 
+ 
+09/2013  12/2013: SIEM 2 Projekt
+ 
+Branche: Finanzdienstleister
+Funktion: Senior System Network Engineer als externer MA
+ 
+- Umsetzung und Weiterentwicklung von Use Cases im Unix/Datenbankumfeld
+- Betrieb von Hewlett Packard Arcsight (Security Information and Event
+Management System)
+- Forensische Analyse von Logdaten im Unix/Datenbankumfeld
+- Erstellung und Überarbeitung von Report-Filtern und Abfragen mit Arcsight
+- Nutzungskontrolle mit Zuweisung von kritischen Aktionen und unerlaubten
+Zugriffen
+ 
+10/2012  07/2013:         Out-tasking/Offshoring Dokumentation
+
+Branche: IT Dienstleister Energie
+Funktion: Senior System Engineer als externer MA
+
+- Erstellung von Dokumentationen und Prozessen für die Sicherheitsinfrastruktur
+des Corporate Network
+- eigenverantwortliches Change Management als Change Supervisior für den
+Bereicht Netzwerk Security Infrastruktur
+- Incident-Management für den Bereich Netzwerk Security Infrastruktur bei als
+kritisch eingestuften Störfällen
+- Audit und Analyse von Firewall und Sicherheits-Regelwerken und Umsetzung von
+Standardisierungen und Verbesserungen
+- Optimierung von Softwarelizensierungen und Services im Firewall Umfeld
+
+
+
+04/2011  09/2012:         Trans Forward Projekt
+
+Branche: IT Dienstleister Energie
+Funktion: Senior System Engineer als externer MA
+
+- Vorbereitung der Infrastruktur für das Outtasking (Planung der Migration und
+Design der Netzwerkübergänge)
+- Design und Platzierung von Diensten und Regionen in Security Zonen
+- Schaffung von Prozessen und Schnittstellen für den zukünftigen Betrieb
+- fachliche Teamleitung 3rd Level Firewall Basisbetrieb
+- Troubleshooting für das Backoffice bei Major Incidents
+- Change Management und Planung für den Bereich Security Infrastruktur
+
+
+
+01/2011 - 03/2011:        Firewall Task Transfer
+
+Branche: IT Dienstleister Energie
+Funktion: Senior System Engineer als externer MA
+
+- Integration der Security Netzwerkinfrastruktur der Auslandsgesellschaften
+- Integration der Services und Geräte und Schaffung eines konzernweiten
+einheitlichen Standards für Betrieb Monitoring
+- fachliche Teamleitung
+- Maßnahmen zur Netz-Trennung von Gesellschaften und Schaffung definierter
+Übergänge
+
+
+
+09/2008 - 12/2010:        Security Firewall Operating
+
+Branche: Energie
+Funktion: Senior System Engineer
+
+- Verantwortlicher Betrieb von 300 Kundenfirewalls der Hersteller Check Point
+und Cisco
+- verschiedene Migrationsprojekte als Vorbereitung für Outsourcing Maßnahmen
+- Erstellung von Betriebsdokumentationen
+- Implementation eines neuen Firewall Change Request Systems von Tufin
+- Einarbeiten neuer MA
+- fachliche Teamleitung
+- Rufbereitschaften zur Gewährleistung der 7/24 Service SLAs
+- Maßnahmen zu Vereinheitlichung der Umgebung wie Updates, Erstellen von
+Konfigurationsstandards und Monitoring
+- Neuaufbau von Geräten nach selbst entwickelten Standards
+
+
+05/2007 - 09/2008:        Security Leitstand
+
+Branche: Energie
+Funktion: System Engineer als externer MA
+
+- 2nd Level Betreuung des Security Portfolios:
+- RSA ACE Authentifizierung
+- Websense, Netcache Proxy
+- IPS
+- F5 Big IP
+- Remote Access und Site VPN
+- komplettes Check Point Portfolio (Edge bis Provider-1)
+- Schaffung von standardisierten Prozessen, Methoden und Schnittstellen zur
+Überführung der Aufgaben im Rahmen einer Managed-Service Ausschreibung
+
+
+
+05/2007:            Arbeitgeberwechsel
+
+
+
+05/2006 - 04/2007:        Firewall Virtualisierung
+
+Branche: IT-Dienstleister
+Funktion: Projekt Engineer
+
+- Check Point Provider-1 Migration
+- Firewall Regelbetrieb
+
+
+
+05/2005 - 04/2006:        Projekte im Bereich Leistungserbringung Security
+Portfolio
+
+Branche: IT-Dienstleister
+Funktion: Projekt Engineer / Development
+
+- Weiterentwicklung und 3rd Level Support für die selbst Entwickelte Check
+Point Appliance
+- Projekt schlüsselfertige Security Umgebung für eine große behördliche
+Einrichtung
+- Projekt Firewall Migration und Neuinstallation (Militär)
+- Check Point VSX Proof of Konzept für einen europäischen
+Telekommunikationsdienstleister
+
+
+
+10/2004 - 04/2005:        VPN, Netzadministration und Firewall Umstellungen
+
+Branche: Automobil-Zulieferer
+Funktion: System Engineer
+
+-    Basisbetrieb und Projekte u.a. mit Produkten von Cisco und Juniper
+
+
+06/2004 - 09/2004:        Firewall Refresh Projekt
+
+Branche: IT-Dienstleister
+Funktion: Projekt Engineer
+
+- Implementation neuer Hardware für eine große bestehende Firewallumgebung
+eines IT-Dienstleisters
+
+
+
+05/2003 - 05/2004:         Firewall Installationen im  Support Center
+
+Branche: IT-Dienstleister
+Funktion: Process Consultant
+
+- Durchführung von Firewall Installationen für Kunden in folgenden Branchen:
+Rüstung, Medien, Automobil, Telekommunikation
+- Durchführung von umfangreichen Firewall und VPN  Performance-Messungen für
+die Zeitschrift Network Computing
+
+
+
+01/2003 - 04/2003:        Firewall Appliance OPSEC Produktzertifizierungen
+
+Branche: IT-Dienstleister
+Funktion: leading Development Engineer
+
+- alleinverantwortlich Durchführung der Hersteller Produktzertifizierung
+inklusive englischsprachiger Dokumentation
+
+
+
+05/2002 - 12/2002:        New Corporate Intranet
+
+Branche: Telekommunikation
+Funktion: System Engineer
+
+- Aufbau von VLAN 802.1q HA Firewalls (Referenzinstallation in Zusammenarbeit
+mit den Herstellern)
+- Rollout der Firewalls in den deutschen Standorten
+
+
+
+08/2000 - 04/2002:         Entwicklung eines Linux Service Portfolios
+
+Branche: IT-Dienstleister
+Funktion: Service Architekt
+
+- Aufbau eines Linux Service Portfolios für Kunden des Dienstleisters
+- Support im Bereich Referenzinstallationen und Tests
+- Hardware/Software Kompatibilitäts-Tests
+- Beginn der Arbeiten an einer Firewall Appliance als Lösungspaket für Kunden
+- Web Programmierung mit Linux, Apache, MySQL, PHP
+
+
+Sonstige Anmerkungen:
+Technische Trainings:
+2012    CISSP Vorbereitungs Kurs 1
+2010    Check Point VSX
+2009    Check Point NGX NGX2 and NGX debug
+2009    Cisco ASA and PIX
+2009    BSI Grundschutz
+2008    F5 Big IP Loadbalancer essential
+2008    CCSA - Cert. Security Administrator
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_107281
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 05.11.2020 00:45:22
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

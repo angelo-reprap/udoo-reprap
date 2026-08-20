@@ -1,0 +1,1747 @@
+techn. Simulation, System-Engineering, Echtzeit-/Embedded-
+Anwendungen, Datenbanken
+Top-Skills: Echtzeit-/Embedded-Anwendungen, System-
+Engineering, Technische Simulation,
+Embedded Coder, dSPACE Targetlink,
+MATLAB, Simulink, System-Test, Toolketten-
+Entwicklung, Oracleentwicklung, Microsoft-
+SQL-Server
+Verfügbar ab: 03.04.2023
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 80,00 EUR
+Bemerkungen: incl. Spesen, excl. MWSt
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Deutschland: Bevorzugt werden Raeume 4 und 5
+Position
+Kommentar: Beratung und Entwicklung für Software-Entstehungsprozesse und
+Validierung im Automotive-Bereich, embedded und SVG-Multimedia.
+Individuelle Schulung für den Tool-Verbund Matlab-Simulink-dSpace.
+Beratung zur Gestaltung von Anforderungs- und Konfigurations-
+Verwaltung. Projektleitung und Auswahl von geeignetem Personal.
+Allgemeine technische Berechnungen.
+Projekte
+2021-08 - heute HIL-Restbus-Simulation und Generierungs-Werkzeuge
+1 Jahr 6 Monate für ACC Kamera-Steuergräte
+Kunde: Magna
+28.02.2023 1 von 20
+Einsatzort: Bayern
+Projektinhalte:     •  Aufbau von Restbus-Simulationen in CANoe für CAN FD, Automotive
+     ?Ethernet und SOME/IP services.
+    •  Implementierung von CAPL-Code, System-Variablen und Panels für
+     ?graphisches und programmatisches Setzen von Signalen
+     ?simulierter Steuergeräte, Fehler-Simulation und
+     ?Network-Management.
+    •  Fehler-Analysen und Coaching für HIL-Tester.
+    •  Implementierung der Automatisierung von Standard-Aufgaben für
+     ?den Aufbau von Restbus-Simulationen in Python.
+    •  Implementierung von automatisierten Konsistenz-Prüfungen der
+     ?Kommunikations-Datenbanken (Autosar, Fibex, VW-K-Matrix) in
+     ?Python.
+Kenntnisse: CAPL, Automotive Ethernet, SOME/IP services, CAN FD, Python 3, Autosar
+4.3, Fibex (ASAM MCD-2 NET) 4.1, VW K-Matrix, Vector CANoe, Vector
+CANoe 11, 14 und 15
+Eingesetzte Produkte: Entwickler
+2020-12 - heute Wartung und Erweiterung um statistische Auswertungen
+2 Jahre 2 Monate
+Kunde: Internet
+Projektinhalte: Wartung und Erweiterung um statistische Auswertungen des Wikipedia-
+Moduls Medical Cases Chart
+    •  Wartung des Ausgabeformats und Erweiterungen zur Darstellung
+     ?von Inzidenzen und Abgleichung bezüglichVorwochen.
+Kenntnisse: lua
+2019-12 - heute Entwicklung von Erweiterungs-Bibliotheken für Matlab
+3 Jahre 2 Monate und Simulink
+Kunde: Engineering-Software
+Projektinhalte:     •  File streaming i/o für Simulink (C-coded S-functions).
+    •  Funktionen zur Prüfung und Normalisierung von m-Skript
+     ?Variablen.
+    •  Signalfluß-Analyse-Funktionen für Simulink.
+    •  Implementierungen von Regel-Prüfungen für die
+     ?Modellierungs-Standards MAAB und MISRA AC SL/SF.
+Kenntnisse: Matlab/Simulink 2010b-2018b (Mathworks), Boost 1.72.0, C99,
+C++03/11, MinGw64 gcc 6.3.0 mit Matlab R2018b, Linux gcc 4.8.5 mit
+Matlab R2010b, MSVC++ 2010 mit Matlab R2010b, MAB 5.0 (MAAB),
+MISRA AC SL/SF 1.0
+2020-07 - 2020-09 Simulation eines Dressier-Gerüsts
+3 Monate
+Kunde: Metall
+28.02.2023 2 von 20
+Projektinhalte: Simulation eines Dressier-Gerüsts und einer Beschichtungs-Vorrichtung zur
+virtuellen Inbetriebnahme der zugehörigen Automatisierungstechnik einer
+Bandverzinkungs- Anlage
+    •  Erstellung von Simulink-Modellen für
+     ?Hardware-in-the-Loop(HIL)-Simulation. Modellierung des
+     ?Streckenverhaltens nach (u.A.
+    •  Funktionsbeschreibungen, Motor-Datenblättern,
+     ?Hydraulik-Schemata und RI-Fließbildern. IOEngineering zur
+     ?Anbindung an Profibus DP.
+    •  Nachbildung verschiedener Profibus-Antriebsschnittstellen.
+     ?Betreuung des Integrationstests zur Problemanalyse und
+     ?Detail-Anpassung.
+    •  Perl (zur Nachbearbeitung generierten Codes und Auswertung von
+     ?Beschreibungs-Dateien der Kommunikations-Netzwerke)
+Kenntnisse: Matlab/Simulink 2017b, Simulink Coder
+(MathWorks), Perl, Profibus DP
+2018-06 - 2019-11 Neuer Beobachter- und Regler-Entwurf
+1 Jahr 6 Monate
+Kunde: Automobil
+Projektinhalte: Neuer Beobachter- und Regler-Entwurf für die sensorlose Regelung eines
+Permanent-Magnet Synchron-Motors
+    •  Entwurf und Implementierung eines Beobachters zur Schätzung des
+     ?Winkels und der Winkelgeschwindigkeit eines Permanent-Magnet
+     ?Synchron-Motors mit hoher Leistungsdichte.
+    •  Dazu wurden verschiedene bereits beschriebene Algorithmen
+     ?erprobt und schließlich auf Basis eines der Probanden
+     ?Erweiterungen vorgenommen, die auch die Sättigungs-Effekte bei
+     ?hoher Flußdichte des kompakten Motoren-Entwurfs kompensieren.
+    •  Implementierung von Steuer-Tabellen zur Übersetzung der
+     ?Momenten-Anforderungen des Drehzahl-Reglers in einen
+     ?Effizienz-optimierten Soll-Strom-Vektor unter Berücksichtigung
+     ?der Grenzwerte für die Phasen-Ströme und der verfügbaren
+     ?Spannung.
+    •  Berechnung der Bedatung der Steuertabellen aus
+     ?Motor-Entwurfs-Daten über Simulations-Ergebnisse aus JMAG RT.
+Kenntnisse: JMAG mit RT Toolbox, Matlab/Simulink/Embeded Coder 2018b
+(Mathworks)
+Eingesetzte Produkte: HVAC
+2015-06 - 2019-11 Architektur, Embedded Toolchain, Mechatronische
+4 Jahre 6 Monate Überarbeitung
+Rolle: Developer
+Kunde: Automobil
+Projektinhalte: Architektur, Embedded Toolchain, Mechatronische Überarbeitung für einen
+elektrischen Klima-Kompressor
+    •  Überführung einer weitestgehend unstrukturierten
+     ?Steuergeräte-Software in eine definierte klassische
+28.02.2023 3 von 20
+     ?Regler-Struktur (Eingabe-Verarbeitung-Ausgabe).
+    •  Überarbeitung der COM-Stacks (LIN und CAN) und Generierung
+     ?oberer Code-Schichten aus der Kommunikations-Matrix (.ldf).
+    •  Überführung manueller Festkomma-Algorithmen in eine
+     ?Modellierung auf Basis von Simulinks Festkomma-Signalen
+     ?(Fixedpoint Designer).
+    •  Schulungen in Matlab/Simulink /Statflow mit Fokus auf
+     ?Applikations-Modellierung für die Generierung von
+     ?Steuergeräte-Code. Bewertung der technischen Fähigkeiten von
+     ?Stellenbewerbern.
+    •  Festkomma-Implenmentierung eines Referenzprofilgenerators für
+     ?die Solldrehzahl.
+    •  Erstellung von Modellierungs-Richtlinien auf Basis MAAB 3.0,
+     ?Implementierung fehlender Richtlien-Prüfungen im Model-Advisor,
+     ?Formulieren von Review-Kriterien.
+    •  Spezifikation der Modell-Parameter für die
+     ?Steuergeräte-Code-Generierung unter Berücksichtigung von MAAB,
+     ?MISRA AC SLSF, MISRA C.
+    •  Überarbeitung von Struktur und Auslegung des Reglers und des
+     ?Drezahl-/Drehlage-Beobachters.
+Kenntnisse: Matlab, Simulink, Stateflow, Embedded Coder
+2015b-18b (Mathworks), MAAB 3.0, Java 1.8, IBM Eclipse Mars, LIN 2.0
+2018-03 - 2019-07 Aufbau eines Virtual Prototyping für einen elektrischen
+1 Jahr 5 Monate Klima-Kompressor
+Kunde: Automobil
+Projektinhalte:     •  Konzeption einer Gesamtsystem-Simulation zur virtuellen
+     ?Erprobung neuer Regler- und Beobachter-Entwürfe und deren
+     ?Auslegungs-Verfahren (Virtual Control Protoyping).
+    •  Parameter-Optimierung und Prüfung auf Robustheit gegenüber
+     ?Fertigungs-Toleranzen an mechanischen und elektrischen
+     ?Bauteilen.
+    •  Überführung der Ergebnisse aus strömungsmechanischer und
+     ?elektrischer Simulation in eine Abbildung der
+     ?Streckencharakteristik in Simulink.
+    •  Parallel dazu Auswertung und Aufbereitung von
+     ?Prüfstands-Messergebnissen bereits vorhandener Baugruppen für
+     ?die Streckencharakteristik in Simulink.
+Kenntnisse: Matlab, Simulink, Stateflow 2017b-18b (Mathworks)
+Eingesetzte Produkte: HVAC
+2016-04 - 2017-12 Synchronisation von Architektur
+1 Jahr 9 Monate
+Kunde: Embedded Tools
+Projektinhalte: Synchronisation von Architektur, Variablen-Definitionen und
+Anforderungen zwischen SYNECT und TargetLink
+    •  Zur Synchronisation von Daten aus den dSpace SYNECT-Modulen
+     ?Model Management, Signal &amp; Parameter Management sowie
+     ?Requirements Managements auf der einen Seite, und dSpace
+28.02.2023 4 von 20
+     ?TargetLink auf der anderen Seite werden jeweils Daten in
+     ?xml-Form exportiert und auf der anderen Seite mit bestehenden
+     ?Daten abgeglichen, auf Konflikte geprüft, und gegebenenfalls
+     ?aktualisiert.
+    •  Umgesetzt werden die Aufgaben SYNECT-seitig in Python unter
+     ?Nutzung der SYNECT-Client- und -Server-APIs und
+     ?TargetLink-seitig mit Matlab-m-Skripte unter Nutzung der
+     ?TargetlLink-, DataDictionary- und Simulink-APIs.
+Kenntnisse: dSpace SYNECT 2.1-2.4, dSpace TargetLink 4.1-4.3,
+Matlab/Simulink/Stateflow 2015b-2017b, Python 2.7/IronPython VS2015
+2014-09 - 2015-03 Architektur und Safety-Funktionen eines Fahr- und
+7 Monate Lade-Reglers
+Rolle: Developer
+Kunde: Personenbeförderung (Straße)
+Projektinhalte: Architektur und Safety-Funktionen eines Fahr- und Lade-Reglers für
+elektrisch getriebene Linien-Busse
+    •  Überführung eines prototypischen Reglers in regelungstechnische
+     ?Struktur (EVA/IPO, explizite Rückführung).
+    •  Trennung von Signalführung und algorithmischer Implementierung
+     ?für bessere Nachvollziehbarkeit sowie Ermöglichung der Trennung
+     ?von Funktions- und Integrations-Tests.
+    •  Entwicklung und Implementierung der SafetyFunktionen
+     ?(Notabschaltung) nach vorgegebenem Sicherheitskonzept gemäß
+     ?ISO 26262.
+    •  Festlegung von Konventionen und Modellierungs-Richtlinien für
+     ?die weitere Entwicklung (orientiert an MAAB).
+Kenntnisse: Matlab, Simulink, Stateflow 2013a, Matlab/Simulink Coder (Mathworks),
+dSpace Autobox II (RTI1401), ControlDesk, Version 2013b, MAAB 3.0
+(Mathworks), ISO 26262, Teil 6
+2013-08 - 2014-04 Ausbau von Testumfang und Testumfeld für einen
+9 Monate Spurhalte-Assistenten
+Rolle: Developer
+Kunde: Automobil
+Projektinhalte: Ausbau von Testumfang und Testumfeld für einen Spurhalte-Assistenten,
+Beratung Toolkette, Software-Änderungs-Prozess, Architektur
+    •  Überarbeitung und Vervollständigung der Anforderungen auf
+     ?Subsystem-Ebene.
+    •  Implementierung fehlender Tests. Überarbeitung des hauseigenen
+     ?Unittest-Werkzeugs.
+    •  Beratung und Erarbeitung von Vorschlägen zur Weiterentwicklung
+     ?der Toolkette bezüglich Unittest und statischer Prüfungen auf
+     ?Modellebene (Model-Advisor-Checks).
+    •  Beratung und Erarbeitung von Vorschlägen zum
+     ?SoftwareÄnderungs-Prozess im neu eingführten "Rational Team
+     ?Concert" im Hinblick auf künftige Seriensoftware.
+    •  Beratung und Erarbeitung von Vorschlägen zur
+28.02.2023 5 von 20
+     ?Software-Architektur mit Rücksicht auf Wartbarkeit und
+     ?Optimierung der Abarbeitung im Echtzeitumfeld.
+Eingesetzte Produkte: MATLAB, Simulink, VnV Toolbox, Embedded Coder, Realtime Workshop,
+Rational Team Concert
+2012-09 - 2013-04 Simulation eines Vorgerüsts mit Staucher
+8 Monate
+Rolle: Developer
+Kunde: Metall
+Projektinhalte: Simulation eines Vorgerüsts mit Staucher und einer Haspel-Anlage zur
+virtuellen Inbetriebnahme der zugehörigen Automatisierungstechnik
+    •  Erstellung von Simulink-Modellen für
+     ?Hardwarein-the-Loop(HIL)-Simulation.
+    •  Modellierung des Streckenverhaltens nach (u.A.)
+     ?Funktionsbeschreibungen, Motor-Datenblättern und
+     ?Hydraulik-Schemata.
+    •  IO-Engineering zur Anbindung an Profibus DP.
+    •  Nachbildung verschiedener Profibus-Antriebsschnittstellen.
+    •  Betreuung des Integrationstests zur Problemanalyse und
+     ?Detail-Anpassung vor Ort in Peking.
+    •  Perl (zur Nachbearbeitung generierten Codes)
+Kenntnisse: Matlab/Simulink 2007b mit RealTime Workshop
+(MathWorks), Perl, S-Functions (Simulink) in C++, Profibus DP
+2012-01 - 2012-09 Implementierung eines Modul-Test-Tools für Simulink-
+9 Monate Modelle
+Rolle: Developer
+Kunde: Automotive
+Projektinhalte:     •  Implementieren einer Funktions-Bibliothek in Matlab MScript für
+     ?den Modul-Test von in Simulink erstellten Teil-Modellen von
+     ?Funktions-Implementierungen.
+    •  Unterstützt wird ein Regressions-fähiges "Step-Test"-Vorgehen
+     ?sowie Test-Reporting und Einbindung der Simulink/VnV-Analyse
+     ?der Test-Coverage.
+    •  Ermöglichen von reaktiven Tests für komplexe Modelle, bei denen
+     ?der Test während der laufenden Simulation auf Modell-Ausgänge
+     ?hin agieren kann (Abwarten von System-Zuständen).
+Kenntnisse: Matlab R2009a, Simulink, Stateflow (MathWorks)
+2011-09 - 2012-09 Zusammenfürung von Code-Generierungs-Toolketten für
+1 Jahr 1 Monat Embedded Controller
+Rolle: Developer
+Kunde: Automotive
+28.02.2023 6 von 20
+Projektinhalte:     •  Zusammenführung heterogener Toolketten aus verschiedenen
+     ?Unternehmens-Teilen und Kunden-Projekten, basierend auf
+     ?Matlab/Simulink /RTW/Embedded Coder, für die Steuerung von
+     ?Doppel-Kupplungs-Getrieben.
+    •  Absprache und Erstellung einheitlicher Basis- und
+     ?Custom-Bibliotheken für die Modellierung
+     ?applikativer Embedded-Software, auch mit dem Ziel eines
+     ?minimierten und abstrahierten (Funktions-Kapselung)
+     ?Custom-Anteils für bessere Portierbarkeit.
+    •  Moderieren der Absprachen zu und Verfassen von einheitlichen
+     ?Style-Guidelines auf Basis MAAB 2.0.
+    •  Implementieren der von MAAB abweichenden Regeln im Simulink
+     ?Model-Advisor.
+Eingesetzte Produkte: Simulink, VnV Toolbox, Code Generator R2009a, MAAB 2.0, Matlab
+R2009a, Stateflow (MathWorks), RealtimeWorkshop, Embedded Coder
+(MathWorks), Simulink R2009a VnV Toolbox (f. ModelAdvisor)
+2012-03 - 2012-07 Implementierung eines A2L-Updaters auf Basis von
+5 Monate ELF/DWARF-Dateien
+Rolle: Developer
+Kunde: Automotive
+Projektinhalte:     •  Implementieren eines A2L-Updaters (ASAP MCD-2MC) mit Bezug der
+     ?Embedded-Speicher Adressen aus ELF-Dateien und in ihnen
+     ?eingebetteten DWARF-Debugging-Informationen, in Java/Eclipse.
+    •  Typen-Prüfung auf Basis der eingebetteten DWARF-Informationen
+     ?(Basis-Typen und Byte-Längen, Fixed-Point-Skalierungen sind in
+     ?DWARF 3 nicht abgebildet und aus dem Kompiler, der ELF-Dateien
+     ?erstellt, vorliegenden C-Dateien nicht reproduzierbar).
+    •  Vollständige Unterstützung von Structs, Arrays und Arrays of
+     ?Structs. Unterstützung von Bitmask-optimierten Measurements mit
+     ?Adress-Verschiebung auf Basis von DWARF Bitmask-Einträgen.
+Eingesetzte Produkte: DWARF 3, ELF 32, ASAP MCD-2MC 1.3 (A2L), IBM Eclipse, Java
+2011-06 - 2012-01 Erstellen von Kunden-spezifischen Werkzeugen für
+8 Monate Embedded Code-Generierung
+Rolle: Developer
+Kunde: Automotive
+Projektinhalte:     •  Überstezung von Kalibrier-Parameter-Spezifikationen aus einem
+     ?Kunden-proptietären XML-Format nach A2L (ASAM MCD-2MC).
+    •  Reduzierung von Kalibrier-Parameter-Spezifikationen für
+     ?Kunden-Auslieferungen zum Zwecke des IP-Schutzes (Intellectual
+     ?Properties) auf Basis von Regeln (Reguläre Ausdrücke).
+    •  Adress-Anpassungen an Kalibrier-Parameter-Spezifikationen zur
+     ?Einbindung Kunden-proptietärer Lookup-Table-Formate.
+    •  Konsistenz-Prüfung von Daten-Lieferungen des Kunden.
+Eingesetzte Produkte: ASAP MCD-2MC 1.3 (A2L), IBM Eclipse, Java
+28.02.2023 7 von 20
+2010-09 - 2011-12 Migration der Applikations-Implementierung
+1 Jahr 4 Monate
+Rolle: Developer
+Kunde: Automotive
+Projektinhalte: Migration der Applikations-Implementierung eines Getriebe-Steuergerätes
+von Matlab R13 auf R2009a
+Erstellen von Migrationsskripten, Portieren von firmeneigenen TLC-
+Funktionalitäten (Erweiterungen des Codegenrators), Analyse des mit der
+neuen Version erstellten Codes und Abgleich mit dem Alten. Unterstützung
+der Funktions-Entwickler. Überarbeitung und Erweiterung einer Simulink
+Block-Bibliothek für die Embedded-Codegenerierung.
+Eingesetzte Produkte: MATLAB, Simulink, Stateflow, Code Generator R2009a, Embedded Coder
+2011-02 - 2011-09 Automatisierung des Software-Integrations-Prozesses
+8 Monate
+Rolle: Developer
+Kunde: Automotive
+Projektinhalte: Erstellung eines Java-Proramms zur Überprüung der Integrität von
+Software-Releases im Product Lifecycle Management von ARAS ALM.
+Generierung von Konfigurationen für das Konfigurationsmanagement
+ClearCase und Software-Release-Dokumetationen.
+Kenntnisse: Java
+Eingesetzte Produkte: Rational ClearCase, Eclipse, ARAS ALM
+2010-03 - 2010-08 In-house training and technical support on proposal for
+6 Monate model based development of cruise control systems
+Rolle: Developer
+Kunde: Automotive
+Projektinhalte: Technical expertise for proposal preparation and technical presentation at
+end customer for modelbased development of ECU functionality of cruise
+control systems. In-house training with toolchain
+Matlab/Simulink/TargetLink.
+Eingesetzte Produkte: MATLAB, Simulink, Stateflow, dSpace Targetlink
+2009-11 - 2010-04 Functional modules for an HVAC controller library
+6 Monate
+Rolle: Developer
+Kunde: Automotive
+28.02.2023 8 von 20
+Projektinhalte: Implementation of modules of a functional linbrary for HVAC control to
+check new control designs in rapid prototyping (simulation and autobox).
+Eingesetzte Produkte: MATLAB, Simulink, Stateflow, HVAC
+Projekt: Simulation eines Dressiergerüsts zur virtuellen Inbetriebnahme der zugehörigen
+Automatisierungstechnik
+  Erstellung von Simulink-Modellen für Hardware-in-the-Loop(HIL)-Simulation. Modellierung von
+  Hydraulik, Mechanik und Material-Verwaltungs-Telegrammen nach Funktionsbeschreibungen,
+  Hydraulik-Schemata und Protokoll-Spezifikationen. IO-Engineering zur Anbindung an
+  Profibus DP.
+  Branche: Metall
+  Zeit: 9/2009 - 10/2009
+  Verwendete Software:
+  - Matlab 2007b mit RealTime Workshop (MathWorks)
+  - Perl (zur Nachbearbeitung generierten Codes)
+  - S-Functions (Simulink) in C
+  - TCP/IP
+  - Profibus DP
+ 
+Projekt: Simulation einer Bandbehandlungsanlage zur virtuellen Inbetriebnahme der zugehörigen
+Automatisierungstechnik
+  Erstellung von Simulink-Modellen für Hardware-in-the-Loop(HIL)-Simulation. Modellierung der
+  Zugstrecken und Medienkreisläufe nach (u.A.) Funktionsbeschreibungen, Motor-Datenblättern und
+  Flußplänen. IO-Engineering zur Anbindung an Profibus DP.
+  Branche: Metall
+  Zeit: 7/2009 - 8/2009
+  Verwendete Software:
+  - Matlab 2007b mit RealTime Workshop (MathWorks)
+  - Perl (zur Nachbearbeitung generierten Codes)
+  - S-Functions (Simulink) in C
+  - Profibus DP
+ 
+Projekt: Simulation einer Bandscherenlinie zur virtuellen Inbetriebnahme der zugehörigen
+Automatisierungstechnik
+  Erstellung von Simulink- und Poses++-modellen für Hardware-in-the-Loop(HIL)-Simulation.
+  Modellierung des Streckenverhaltens nach (u.A.) Funktionsbeschreibungen, Motor-Datenblättern
+  und Hydraulik-Schemata. IO-Engineering zur Anbindung an Profibus DP.
+  Branche: Metall
+  Zeit: 2/2009 - 6/2009
+  Verwendete Software:
+  - Matlab 2007b mit RealTime Workshop (MathWorks)
+  - Poses++ (Material-Tracking und Visualisierung)
+  - Perl (zur Nachbearbeitung generierten Codes)
+  - Profibus DP
+ 
+Projekt: Simulation einer Stranggussanlage zur virtuellen Inbetriebnahme der zugehörigen
+Automatisierungstechnik
+  Erstellung von Simulink- und Poses++-Modellen für Hardware-in-the-Loop(HIL)-Simulation.
+  Modellierung des Streckenverhaltens nach (u.A.) Funktionsbeschreibungen, Motor-Datenblättern
+  und Hydraulik-Schemata. IO-Engineering zur Anbindung an Profibus DP.
+  Branche: Metall
+  Zeit: 10/2008 - 1/2009
+  Verwendete Software:
+  - Matlab 2007b mit RealTime Workshop (MathWorks)
+  - Poses++ (Material-Tracking und Visualisierung)
+  - Perl (zur Nachbearbeitung generierten Codes)
+  - S-Functions (Simulink) in C
+  - Profibus DP
+ 
+Projekt: Simulation eines Walzgerüsts und einer Scherenlinie zur virtuellen Inbetriebnahme der
+28.02.2023 9 von 20
+zugehörigen Automatisierungstechnik
+  Erstellung von Simulinkmodellen für Hardware-in-the-Loop(HIL)-Simulation. Modellierung des
+  Streckenverhaltens nach (u.A.) Funktionsbeschreibungen, Motor-Datenblättern und Hydraulik-
+  Schemata. IO-Engineering zur Anbindung an Profibus DP.
+  Branche: Metall
+  Zeit: 4/2008 - 9/2008
+  Verwendete Software:
+  - Matlab 2007b mit RealTime Workshop (MathWorks)
+  - Perl (zur Nachbearbeitung generierten Codes)
+  - S-Functions (Simulink) in C
+  - Profibus DP
+ 
+Projekt: Simulation einer Entzunderungsanlage zur virtuellen Inbetriebnahme der zugehörigen
+Automatisierungstechnik
+  Erstellung von Simulinkmodellen für Hardware-in-the-Loop(HIL)-Simulation. Modellierung des
+  Streckenverhaltens nach (u.A.) Funktionsbeschreibungen, Motor-Datenblättern und Hydraulik-
+  Schemata. IO-Engineering zur Anbindung an Profibus DP.
+  Branche: Metall
+  Zeit: 3/2008 - 6/2008
+  Verwendete Software:
+  - Matlab 2007b mit RealTime Workshop (MathWorks)
+  - Perl (zur Nachbearbeitung generierten Codes)
+  - S-Functions (Simulink) in C
+  - Profibus DP
+ 
+Projekt: Testumgebung für Permutationstests und Einbindung manuell erstellter Testdaten
+  Generierung von Permutationstests für Teilsysteme unter Berücksichtigung der Signaleingangs-
+  Datenformate (Fixedpoint) zur Validierung von Embedded-Implementierungen gegen originäre
+  Floatingpointmodelle. Zusätzliche Integration von händisch in Excel definierten Testvektoren
+  für das gleiche Validierungs-Prinzip. Automatisierte Auswertung und Test-Dokumentation.
+  Branche: Automotive
+   Zeit: 2/2008 - 11/2008
+   Verwendete Software:
+   - Matlab 7/Simulink 6 (MathWorks)
+   - TargetLink 2.1 (dSpace)
+   - MS-Excel COM-Schnittstelle (Active-X)
+   - HVAC
+ 
+Projekt: Portierung proprietärer Testdaten
+  Portierung von Stimuli und Erwartungswerten aus proprietärer Umgebung
+  und Programmierung einer automatisierten Ausführung und Dokumentation.
+  Branche: Automotive
+  Zeit: 7/2006 - 3/2007
+  Verwendete Software:
+  - Matlab 7/Simulink 6 (MathWorks)
+  - TargetLink 2.1 (dSpace)
+   - HVAC
+Projekt: Portierung einer Klimasteuergeräte-Software von Embedded Coder
+  nach TargetLink Portierung der vollständigen Modellierung des applikativen
+  Teils zwischen den Seriencode-Generatoren "Embedded Coder" und
+  "TargetLink". Größtenteils geskriptet unter Benutzung der Simulink
+  und TargetLink mex-APIs.
+  Branche: Automotive
+  Zeit: 6/2006 - 12/2006
+  Verwendete Software:
+  - Matlab 7/Simulink 6 (MathWorks)
+  - TargetLink 2.1 (dSpace)
+   - HVAC
+28.02.2023 10 von 20
+Projekt: Erstellung Architektur in Simulink/TargetLink für ein Klimasteuergerät
+  Erstellung der Architektur des applikativen Teils eines Klimasteuergeräts
+  in Simulink/Stateflow/TargetLink nach MAAB-Richtlinien und Spice Level 3.
+  Branche: Automotive
+  Zeit: 4/2006 - 8/2006
+  Verwendete Software:
+  - Matlab 7/Simulink 6 (MathWorks)
+  - TargetLink 2.1 (dSpace)
+   - HVAC
+Projekt: Einführung TargetLink
+  Coaching und Erstellung einer Bibliothek für in TargetLink
+  implementierte Steuergeräte-Software. Unterstützung der
+  Projektleitung.
+  Branche: Automotive
+  Zeit: 1/2006 - 3/2006
+  Verwendete Software:
+  - Matlab 7/Simulink 6 (MathWorks)
+  - TargetLink 2.1 (dSpace)
+Projekt Kopplung von Doors-Testbeschreibungen und Testumgebung
+  Spezifikation von Format und Semantik der Test-Requirements in Doors
+  sowie den UML-Elementen der Test-Umgebung. Pilot-Programmierung einer
+  Klassenbibliothek für die Synchronisation in JScript, Integration in
+  dafür erstellte dxl-Skripte.
+  Branche: Automomobil
+  Zeit: 1/2005 - 12/2005
+  Verwendete Software:
+  - Artisan RtS
+  - Doors
+  - JScript
+Projekt automatisierte HIL-Tests für ein body computer - Modul
+  Spezifikation und Programmierung der Tests nach Lastenheft-Spezifikation
+  Modellierung von Echtzeitverhalten in Simulink und C-SFunctions.
+  Branche: Automomobil
+  Zeit: 1/2005 - 12/2005
+  Verwendete Software:
+  - Matlab6,Simulink5 (MathWorks)
+  - dSpace ds1005, ControlDesk
+  - Doors
+  - Python
+  - C
+Projekt Abbildungskonzept Funktionsnetz->Simulink
+  Erstellung eines Abbildungskonzeptes für den Übergang
+  von Funktionsnetzmodellen in UML 2.0 zu Simulink. Erstellung von
+  Modellierungsrichtlinien in UML. Prototypische programmierung eines
+  Simulink-Hüllen-Generators aus UML in Java.
+  Branche: Automobil
+  Zeit: 6/2004 - 9/2004
+  Verwendete Software:
+  - Matlab6,7/Simulink5,6 (MathWorks)
+  - Java JSDK 1.4, Eclipse 2.1 (Sun)
+  - RoseRT/UMLRT (Rational/IBM)
+  - UML 2.0 Spec
+Projekt Codegenerator Evaluierung
+  Beratung, Erstellung Benchmarkingmodel zur Evaluierung der
+28.02.2023 11 von 20
+  Code-Generatoren TargetLink, Skade und Embedded Coder.
+  Branche: Automobil
+  Zeit: 3/2004 - 5/2004
+  Verwendete Software:
+  - Matlab6,7/Simulink5,6, Embedded Coder for MPC555 (MathWorks)
+  - TargetLink2.0, DS1005, ControlDesk (dSpace)
+  - Skade (Esterell)
+  - OSEK/OSEKTime RTOS Spec
+Projekt Versionsmanagement Matlab/Simulink, dSpace RP-Tools
+  Beratung, Erstellung einer prototypischen LowLevel-API zu CM Synergy
+  in Java, prototypische Integration in Matlab/Simulink und dSpace ControlDesk
+  über diese API.
+  Branche: Automobil
+  Zeit: 1/2004 - 3/2004
+  Verwendete Software:
+  - Matlab6,7/Simulink5,6 (MathWorks)
+  - ControlDesk (dSpace)
+  - CM Synergy(früher Continuus), Doors (Telelogic AB)
+  - Java JSDK 1.4, Eclipse 2.1 (Sun)
+Projekt Erweiterung und Umstrukurierung Maschinenkontrolle
+  Generieren von Sylk(=Excel-Textformat)-Datenblättern aus Messdatenbank,
+  Kapselung des Datenzugriffs in eigener Prozedur mit Zugriffsmethoden,
+  Ergänzung der Auswertung.
+  Branche: Fotochemie
+  Zeit: 10/2003 - 11/2003
+  Verwendete Software:
+  - Oracle 8, PL/SQL, OWA-Package
+  - Adobe SVG Plugin
+  - Oracle Application Server
+Projekt Erweiterung neue Reifsensitometrie 2
+  Generieren grafischer Darstellungen (SVG) aus Messwerten
+  und sensitometrischen Parametern ueber dem Reifungsvorgang
+  fotochemischer Produkte.
+  Branche: Fotochemie
+  Zeit: 7/2003 - 8/2003
+  Verwendete Software:
+  - Oracle 8, PL/SQL, OWA-Package
+  - Adobe SVG Plugin
+  - Oracle Application Server
+Projekt Support für Control-Engineering. Integration verteilter
+ Systeme und verschiedener Toolketten
+  Methodenentwicklung/Anbindung der Entwicklungs-Tools an Content- und
+ 
+  Requirement-Management, Anpassungen an Codegeneratoren. Projektunter-
+ 
+  stuetzung Break-By-Wire, Carbody-Control.
+ 
+  Modelluebergaenge Simulink->TargetLink (Production-Code).
+ 
+  Branche: Automobil-Entwicklung
+ 
+  Zeit: 6/2003 - 12/2003
+ 
+  Verwendete Software:
+ 
+  - Matlab6/Simulink5 (MathWorks)
+ 
+28.02.2023 12 von 20
+  - TargetLink, ControlDesk (dSpace)
+ 
+  - Ascet SD, Inca (Etas)
+ 
+  - CANape, asap-Toolset (Vector Informatik)
+ 
+Projekt Rechnerabloesung/Datenschnittstelle
+  Programmierung einer komplexen Messdatenschnittstelle
+  mit Datenzugriff von Perl auf Oracle.
+  Branche: Fotochemie
+  Zeit: 3/2003 - 5/2003
+  Verwendete Software:
+  - Oracle 8, PL/SQL
+  - Perl 5
+Projekt Erweiterung neue Reifsensitometrie
+  Erweiterungen von Messdatenauswertung und -analyse (optische
+  Dichtemessungen) zur Bewertung einzelner Produkt-Batches anhand
+  des Verlaufs des Reifprozesses sowie Portierung und Modifikation
+  von Spline- und Glaettungsmodulen, Fortran77 -> PL/SQL,
+  DEC-MicroVex -> Sun.
+  Branche: Fotochemie
+  Zeit: 1/2003 - 2/2003
+  Verwendete Software:
+  - Oracle 8, PL/SQL, OWA-Package
+  - Oracle Application Server
+Projekt Einzelkeilgrafiken Film/Papier/Displayfilm
+  Programmierung von Messdatenauswertung und -analyse (optische
+  Dichtemessungen), Generierung Vektorgrafikausgaben in SVG zur
+  Bewertung einzelner Produkt-Batches.
+  Branche: Fotochemie
+  Zeit: 11/2002 - 12/2002
+  Verwendete Software:
+  - Oracle 8, PL/SQL, OWA-Package
+  - Adobe SVG Plugin
+  - Oracle Application Server
+Projekt Visualisierung Zwischenzustaende Emulgat
+  Betriebsdatenauswertung und -analyse der Emulgatproduktion,
+  Generierung Vektorgrafikausgaben in SVG zur
+  Bewertung einzelner Emulgat-Batches.
+  (Emulgat=Vorprodukt f Film und Fotopapier)
+  Branche: Fotochemie
+  Zeit: 9/2002 - 10/2002
+  Verwendete Software:
+  - Oracle 8, PL/SQL, OWA-Package
+  - Adobe SVG Plugin
+  - Oracle Application Server
+Projekt Maschinen-Kontrolle Film/Papier
+  Programmierung von Messdatenauswertung und -analyse (optische
+  Dichtemessungen), Generierung Vektorgrafikausgaben in SVG zur
+  Langzeitanalyse des Anlagenverhaltens.
+  Branche: Fotochemie
+  Zeit: 6/2002 - 8/2002
+  Verwendete Software:
+  - Oracle 8, PL/SQL, OWA-Package
+  - Adobe SVG Plugin
+28.02.2023 13 von 20
+  - Oracle Application Server
+Betreuung/Beratung Diplomarbeit "Performance Measurement Tool"
+  Betreuung und Beratung insbesondere bezueglich Matlab-Programmiertechnik
+  fuer ein Diplom-Projekt, bei dem Auswertung und Parameteridentifikation
+  fuer Beschleunigungs- und Geraeuschmessungen an Aufzuegen in Matlab-m
+  umgesetzt wurden. Ca 10x4 Stunden.
+  Branche: Foerdertechnik
+  Zeit: 12/2001 - 7/2002
+  Verwendete Software:
+  - Matlab 5.3
+Projekt Datenmodellierung, Programmierung Datenbankschnittstellen,
+ Datenreplikation fuer Verwaltungssoftware eines Autoauktionators
+  Branche: Handel
+ 
+  Zeit: 5/2001 - 6/2002
+ 
+  Verwendete Software:
+ 
+  - Mssql-Server, t-sql procedures
+ 
+  - rational rose
+ 
+  - Visual C++ / extended sp's
+ 
+  - mysql
+ 
+  - php
+ 
+  - VB
+ 
+Angebot Simulation und Auslegungsoptimierung Filmwickler
+  Hierzu wurden mehrere Simulink/Stateflow-Modelle erstellt
+  Branche: Fotochemie
+  Zeit: 3/2001
+  Verwendete Software:
+  - Matlab 5.3
+  - Simulink 3
+Projekt Prozessdatenzugriff und -visualierung Extruder
+  Branche: Chemie
+  Zeit: 12/2000 - 2/2001
+  Verwendete Software:
+  - Internet Information Server
+  - VB / Active Server Pages
+  - Internet-Explorer 5.0
+  - JavaScript 1.3
+  - Mssql-Server
+  - Ms Access
+Projekt Simulation Emulgat-Produktion, Hauptproduktionsanlage
+  Verifikation von Steuerungs- und Regelungsprogrammen (Siemens S7),
+  ueberlagerter Rezeptsteuerungs-Automatik und Personalschulung
+  gegen ein Modell der Stell- und Messeinrichtung, Ausfallverhalten,
+  gekoppelte Waermekreislaeufe, Fuellstaende.
+  Branche: Fotochemie
+  Zeit: 9/2000 - 1/2001
+  Verwendete Software:
+28.02.2023 14 von 20
+  - Winmod mit Profibus Multislave-Anbindung.
+ Hardware in the Loop.
+Angebot Simulation und Programmierung Rheinanlegerkran
+  Hierzu wurde ein Verladebrueckenmodell mit exzentrischer
+  Lastaufhaengung  und Seil erstellt.
+  Branche: Chemie
+  Zeit: 3/2001
+  Verwendete Software:
+  - Matlab 5.3
+  - Simulink 3
+Projekt Kostenstellenzaehler
+  Branche: Fotochemie
+  Zeit: 9/2000 - 10/2000
+  Verwendete Software:
+  - Oracle 8, OWA-Package
+  - Oracle Application Server
+  - Netscape Navigator 4.05
+  - JavaScript 1.3
+Projekt Editor zum Einrichten komplexer Messdatenzugriffe
+  Branche: Fotochemie
+  Zeit: 4/2000 - 8/2000
+  Verwendete Software:
+  - Oracle 8, OWA-Package
+  - Oracle Application Server
+  - Netscape Navigator 4.05
+  - JavaScript 1.3
+Projekt Simulation Emulgat-Produktion, Sonderproduktionsanlage
+  Verifikation von Steuerungssoftware (Siemens S7) gegen ein
+  Modell der Stell- und Messeinrichtung, Ausfallverhalten, gekoppelte
+  Waermekreislaeufe, Fuellstaende.
+  Branche: Fotochemie
+  Zeit: 10/1999 - 11/1999
+  Verwendete Software:
+  - Winmod mit Profibus Multislave-Anbindung.
+ Hardware in the Loop.
+Projekt Lagerverwaltungsrechner
+  Logistik und Ueberlagerte Steuerung einer Produktionsanlage mit 32
+  CNC-Einheiten und 2 vollautomatisierten Lagern.
+  Branche: Automobil
+  Zeit: 7/1999 - 3/2000
+  Verwendete Software:
+  - Intouch(Wonderware). Eigene Implementierung des TRADA-Protokolls
+ (Siemens-proprietaer, Layer ueber H1-Bus) in
+ C-aehnlicher Intouch-Programmierumgebung.
+  - Mssql-Server. Einrichten, Programmieren logistischer
+ 
+ Entscheidungsautomaten sowie von Funktionen zur Nachfuehrung
+ des aller Lagerzustaende als stored procedures in T-Sql.
+Projekt Simulation Emulgat-Produktion, Versuchsanlage
+  Verifikation von Steuerungssoftware (Siemens S7) gegen ein
+  Modell der Stell- und Messeinrichtung, Ausfallverhalten, gekoppelte
+  Waermekreislaeufe, Fuellstaende.
+28.02.2023 15 von 20
+  Branche: Foto-Chemie
+  Zeit: 6/1999 - 7/1999
+  Verwendete Software:
+  - Winmod mit Profibus Multislave-Anbindung.
+ Hardware in the Loop.
+Projekt Simulation B-Saeulen-Steuerung
+  Branche: Automobil
+  Zeit: 4/1999 - 6/1999
+  Verwendete Software:
+  - Taylor2 mit TLI (Taylor Language Interface), pascalaehnliche
+ Programmiersprache fuer Taylor 2.
+Projekt Simulation Seitenteil-Steuerung
+  Branche: Automobil
+  Zeit: 1/1999 - 4/1999
+  Verwendete Software:
+  - Taylor2 mit TLI (s.o.).
+Diplomarbeit "Realisierung einer aktiven Schwingungsdaempfung
+ mit dezentralen Beobachtern"
+  Branche: Robotik
+ 
+  Zeit: 3/1998 - 12/1998
+ 
+  Verwendete Software:
+ 
+  - Matlab 5.2
+ 
+  - Simulink 2
+ 
+  - dSpace TDE, mlib mtrace
+ 
+  - Maple V 5
+ 
+Projekt Simulation Ausfallkompensation Motorenvormontage
+  Branche: Automobil
+  Zeit: 5/1998
+  Verwendete Software:
+  - Taylor2 mit TLI (s.o.).
+Projekt Simulation Federbeinvormontage
+  Branche: Automobil
+  Zeit: 3/1998 - 4/1998
+  Verwendete Software:
+  - Taylor2 mit TLI (s.o.).
+Projekt Simulation und Optimierung FTS (Flurtransportsystem)
+  Branche: Automobil
+  Zeit: 1/1998 - 2/1998
+  Verwendete Software:
+  - Taylor2 mit TLI (s.o.).
+Studienarbeit "Strom- und Drehzahlregelung eines Gleichstrommotors
+ mit adaptiver Signalaufbereitung zur Verringererung des Einflusses
+ nichtlinearer Systenmeigenschaften und externer Stoerungen"
+28.02.2023 16 von 20
+  U.a. algorithmusoptimierter frequenzadaptiver Notchfilter als
+ 
+  C-SFunction, dazu Parametrierungsoberfläche mit Berechnungsskripten
+ 
+  in Matlab-m, Rauschmodellierung mit Abbildung der Einstreuungen
+ 
+  einer PWMH in Simulink.
+ 
+  Branche: Antriebstechnik
+ 
+  Zeit: 10/1996 - 1/1998
+ 
+  Verwendete Software:
+ 
+  - Matlab 4
+ 
+  - Simulink 2
+ 
+  - dSpace TDE, mlib, mtrace
+ 
+  - Maple V 5
+ 
+Branchen
+    •  Chemie
+    •  Automobil
+    •  Automatisierungstechnik
+    •  Software/Datenbanken
+Sprachen
+Deutsch Muttersprachler
+Englisch sehr gut
+Spanisch Grundlagen
+Kompetenzen
+Produkte / Standards / Artisan RealTime Studio, COM Automatisierung
+Erfahrungen / Methoden
+DOORS
+Eclipse
+Embedded Coder
+IBM Eclipse Mars
+28.02.2023 17 von 20
+ISO 26262
+LIN 2.0
+Microsoft IIS
+MS Office inkl. VBA
+Oracle Application Server
+Taylor II logistische Simulation, F&amp;H
+Winmod Anlagensimulation fuer
+Automatisierungstechnik, Mewes &amp; Partner
+Software:
+Regelungstechnik/Embedded:
+    •  Matlab / Simulink
+    •  Simulink Coder
+    •  Embedded Coder
+    •  dSpace Prototyping Systems
+    •  ControlDesk
+    •  TargetLink
+    •  CANoe
+    •  CANape
+Anlagensimulation:
+    •  Mewes &amp; Partner WinMOD
+    •  Poses++
+Logistik:
+    •  F&amp;H Taylor II / ED (now InControl)
+CAD:
+    •  Autocad
+    •  Babcad
+Internet:
+    •  Html/Html5
+    •  Xml
+    •  XPath
+    •  Xslt
+    •  Svg
+    •  Http, Javascript, Php, Asp, lua
+Betriebssysteme Linux
+MS-DOS
+Unix
+Windows NT/2000/XP/7 Professional
+Programmiersprachen Basic
+C
+C++
+dSpace TDE Mathworks / dSpace
+28.02.2023 18 von 20
+Fortran
+Java
+JavaScript
+LabView
+MATLAB
+MATLAB / Simulink incl dSpace APIs
+Perl
+PHP
+PL/SQL
+Python
+S-Functions (Simulink)
+Scriptsprachen ECMAScript in SVG DOM
+Simulink
+T-SQL MS SQL Server
+TeX, LaTeX
+VBA
+Datenbanken Access
+MS SQL Server Weitreichende Erfahrung in der
+Programmierung serverseitiger Prozeduren
+und Pakete
+MySQL
+ODBC
+Oracle Weitreichende Erfahrung in der
+Programmierung serverseitiger Prozeduren
+und Pakete
+SQL
+Datenkommunikation Bus CAN-, LIN-, Profi-, Inter-, Modbus
+Ethernet
+Internet, Intranet
+SMTP
+TCP/IP
+Windows Netzwerk
+28.02.2023 19 von 20
+Hardware Bus Profibus DP
+Echtzeitsysteme dSpace HIL
+PC
+Siemens-SPS STEP x S7
+Steuer und Regelsysteme
+Berechnung / ASCET
+Simulation / Versuch /
+Validierung dSPACE
+Hardware-in-the-Loop
+Simulation (HIL)
+Offline Simulation
+Software-in-the-Loop
+Simulation (SIL)
+Stateflow
+Design / Entwicklung / AutoCAD
+Konstruktion
+Babcad
+HVAC
+Aus- und Weiterbildung
+Dipl.-Ing. Maschinenbau-Mechatronik
+28.02.2023 20 von 20
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_40556 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                40556
+  
+Wohnort                    506xx Köln, Deutschland
+Jahrgang                   1969
+Staatsbürgerschaft         Deutsch, Britisch
+Stundensatz                80 EUR
+                           incl. Spesen, excl. MWSt
+Verfügbar ab               01.07.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         17.07.02
+Profil zuletzt geändert am 18.06.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 27.01.2021 14:03:13
+
+Fachlicher Schwerpunkt:
+techn. Simulation, System-​Engineering, Echtzeit-/Embedded-​Anwendungen,
+Datenbanken
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Qualitätsmanagement / Qualitätssicherung / Test
+Engineering / IT-nahe Ingenieurdienstleistungen
+
+Beratung und Entwicklung für Software-Entstehungsprozesse und Validierung im
+Automotive-Bereich, embedded und SVG-Multimedia. Individuelle Schulung für den
+Tool-Verbund Matlab-Simulink-dSpace. Beratung zur Gestaltung von Anforderungs-
+und Konfigurations-Verwaltung. Projektleitung und Auswahl von geeignetem
+Personal. Allgemeine technische Berechnungen.
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Dipl.-Ing. Maschinenbau-Mechatronik
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: Bevorzugt werden Raeume 4 und 5
+
+Fremdsprachen:
+Deutsch  Muttersprachler
+Englisch sehr gut
+Spanisch Grundlagen
+
+
+Hardware:
+Bus                     Profibus DP
+Echtzeitsysteme         dSpace HIL
+PC                       
+Siemens-SPS STEP x      S7
+Steuer und Regelsysteme  
+
+
+Betriebssysteme:
+Linux    
+MS-DOS   
+Unix     
+Windows NT/2000/XP/7 Professional
+
+
+Programmiersprachen:
+Basic                   
+C                       
+C++                     
+dSpace TDE             Mathworks / dSpace
+Fortran                 
+Java                    
+JavaScript              
+LabView                 
+MATLAB                  
+MATLAB / Simulink      incl dSpace APIs
+Perl                    
+PHP                     
+PL/SQL                  
+Python                  
+Scriptsprachen         ECMAScript in SVG DOM
+S-Functions (Simulink)  
+Simulink                
+TeX, LaTeX              
+T-SQL                  MS SQL Server
+VBA                     
+
+
+Datenbanken:
+Access         
+MS SQL Server Weitreichende Erfahrung in der Programmierung serverseitiger
+              Prozeduren und Pakete
+MySQL          
+ODBC           
+Oracle        Weitreichende Erfahrung in der Programmierung serverseitiger
+              Prozeduren und Pakete
+SQL            
+
+
+Datenkommunikation:
+Bus                CAN-, LIN-, Profi-, Inter-, Modbus
+Ethernet            
+Internet, Intranet  
+SMTP                
+TCP/IP              
+Windows Netzwerk    
+
+
+Design/Entwicklung/Konstruktion:
+AutoCAD  
+Babcad   
+HVAC     
+
+
+Berechnung/Simulation/Versuch/Validierung:
+ASCET                                  
+dSPACE                                 
+Hardware-in-the-Loop Simulation (HIL)  
+Offline Simulation                     
+Software-in-the-Loop Simulation (SIL)  
+Stateflow                              
+
+
+Produkte/Standards/Erfahrungen:
+Artisan                   RealTime Studio, COM Automatisierung
+DOORS                      
+Eclipse                    
+Embedded Coder             
+IBM Eclipse Mars           
+ISO 26262                  
+LIN 2.0                    
+Microsoft IIS              
+MS Office                 inkl. VBA
+Oracle Application Server  
+Taylor II                 logistische Simulation, F&amp;H
+Winmod                    Anlagensimulation fuer Automatisierungstechnik, Mewes
+                          &amp; Partner
+Software:
+    * Regelungstechnik/Embedded: Matlab / Simulink, Simulink Coder / Embedded
+      Coder, dSpace Prototyping Systems, ControlDesk, TargetLink, CANoe, CANape
+    * Anlagensimulation: Mewes &amp; Partner WinMOD, Poses++
+    * Logistik: F&amp;H Taylor II / ED (now InControl)
+    * CAD: Autocad, Babcad
+    * Internet: Html/Html5, Xml, XPath, Xslt, Svg, Http, Javascript, Php, Asp
+
+Branchen:
+Chemie
+Automobil
+Automatisierungstechnik
+Software/Datenbanken
+
+
+Projekte:
+12/2019 - heute: Entwicklung von Erweiterungs-Bibliotheken für Matlab und
+Simulink
+ 
+Kunde:              Engineering-Software
+ 
+Aufgaben:
+ 
+File streaming i/o für Simulink (C-coded S-functions). Funktionen zur Prüfung
+und Normalisierung von m-Skript Variablen. Signalfluß-Analyse-Funktionen für
+Simulink. Implementierungen von Regel-Prüfungen für die Modellierungs-Standards
+MAAB und MISRA AC SL/SF.
+ 
+Kenntnisse:
+ 
+Matlab/Simulink 2010b-2018b (Mathworks), Boost 1.72.0, C99, C++03/11, MinGw64
+gcc 6.3.0 mit Matlab R2018b, Linux gcc 4.8.5 mit Matlab R2010b, MSVC++ 2010 mit
+Matlab R2010b, MAB 5.0 (MAAB), MISRA AC SL/SF 1.0
+===============================================================================
+07/2020 - 09/2020: Simulation eines Dressier-Gerüsts
+ 
+Kunde:              Metall
+ 
+Aufgaben:
+ 
+Simulation eines Dressier-Gerüsts und einer Beschichtungs-Vorrichtung zur
+virtuellen Inbetriebnahme der zugehörigen Automatisierungstechnik einer
+Bandverzinkungs-Anlage
+Erstellung von Simulink-Modellen für Hardware-in-the-Loop(HIL)-Simulation.
+Modellierung des Streckenverhaltens nach (u.A.) Funktionsbeschreibungen, Motor-
+Datenblättern, Hydraulik-Schemata und RI-Fließbildern. IO-Engineering zur
+Anbindung an Profibus DP. Nachbildung verschiedener Profibus-
+Antriebsschnittstellen. Betreuung des Integrationstests zur Problemanalyse und
+Detail-Anpassung.
+ 
+Kenntnisse:
+ 
+Matlab/Simulink 2017b mit Simulink Coder (MathWorks), Perl (zur Nachbearbeitung
+generierten Codes und Auswertung von Beschreibungs-Dateien der Kommunikations-
+Netzwerke), Profibus DP
+===============================================================================
+06/2018 - 11/2019: Neuer Beobachter- und Regler-Entwurf
+ 
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+Neuer Beobachter- und Regler-Entwurf für die sensorlose Regelung eines
+Permanent-Magnet Synchron-Motors
+Entwurf und Implementierung eines Beobachters zur Schätzung des Winkels und der
+Winkelgeschwindigkeit eines Permanent-Magnet Synchron-Motors mit hoher
+Leistungsdichte. Dazu wurden verschiedene bereits beschriebene Algorithmen
+erprobt und schließlich auf Basis eines der Probanden Erweiterungen
+vorgenommen, die auch die Sättigungs-Effekte bei hoher Flußdichte des kompakten
+Motoren-Entwurfs kompensieren. Implementierung von Steuer-Tabellen zur
+Übersetzung der Momenten-Anforderungen des Drehzahl-Reglers in einen Effizienz-
+optimierten Soll-Strom-Vektor unter Berücksichtigung der Grenzwerte für die
+Phasen-Ströme und der verfügbaren Spannung. Berechnung der Bedatung der
+Steuertabellen aus Motor-Entwurfs-Daten über Simulations-Ergebnisse aus JMAG
+RT.
+ 
+Kenntnisse:
+ 
+JMAG mit RT Toolbox, Matlab/Simulink/Embeded Coder 2018b (Mathworks)
+ 
+Eingesetzte Produkte:
+ 
+HVAC
+===============================================================================
+06/2015 - 11/2019: Architektur, Embedded Toolchain, Mechatronische
+Überarbeitung
+ 
+Rolle:              Developer
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+Architektur, Embedded Toolchain, Mechatronische Überarbeitung für einen
+elektrischen Klima-Kompressor
+Überführung einer weitestgehend unstrukturierten Steuergeräte-Software in
+eine definierte klassische Regler-Struktur (Eingabe-Verarbeitung-Ausgabe).
+Überarbeitung der COM-Stacks (LIN und CAN) und Generierung oberer Code-
+Schichten aus der Kommunikations-Matrix (.ldf). Überführung manueller
+Festkomma-Algorithmen in eine Modellierung auf Basis von Simulinks Festkomma-
+Signalen (Fixedpoint Designer). Schulungen in Matlab/Simulink /Statflow mit
+Fokus auf Applikations-Modellierung für die Generierung von Steuergeräte-Code.
+Bewertung der technischen Fähigkeiten von Stellenbewerbern. Festkomma-
+Implenmentierung eines Referenzprofilgenerators für die Solldrehzahl.
+Erstellung von Modellierungs-Richtlinien auf Basis MAAB 3.0, Implementierung
+fehlender Richtlien-Prüfungen im Model-Advisor, Formulieren von Review-
+Kriterien. Spezifikation der Modell-Parameter für die Steuergeräte-Code-
+Generierung unter Berücksichtigung von MAAB, MISRA AC SLSF, MISRA C.
+Überarbeitung von Struktur und Auslegung des Reglers und des Drezahl-/Drehlage-
+Beobachters.
+ 
+Kenntnisse:
+ 
+Java
+ 
+Eingesetzte Produkte:
+ 
+MATLAB, Simulink, Stateflow, Embedded Coder, LIN 2.0, IBM Eclipse Mars, HVAC
+===============================================================================
+03/2018 - 07/2019: Aufbau eines Virtual Prototyping für einen elektrischen
+Klima-Kompressor
+ 
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+Konzeption einer Gesamtsystem-Simulation zur virtuellen Erprobung neuer Regler-
+und Beobachter-Entwürfe und deren Auslegungs-Verfahren (Virtual
+Control Protoyping). Parameter-Optimierung und Prüfung auf Robustheit gegenüber
+Fertigungs-Toleranzen an mechanischen und elektrischen Bauteilen. Überführung
+der Ergebnisse aus strömungsmechanischer und elektrischer Simulation in eine
+Abbildung der Streckencharakteristik in Simulink. Parallel dazu Auswertung und
+Aufbereitung von Prüfstands-Messergebnissen bereits vorhandener Baugruppen für
+die Streckencharakteristik in Simulink.
+ 
+Kenntnisse:
+ 
+Matlab/Simulink/Stateflow 2017b-18b (Mathworks)
+ 
+Eingesetzte Produkte:
+ 
+HVAC
+===============================================================================
+04/2016 - 12/2017: Synchronisation von Architektur
+ 
+Kunde:              Embedded Tools
+ 
+Aufgaben:
+ 
+Synchronisation von Architektur, Variablen-Definitionen und Anforderungen
+zwischen SYNECT und TargetLink
+Zur Synchronisation von Daten aus den dSpace SYNECT-Modulen Model Management,
+Signal &amp; Parameter Management sowie Requirements Managements auf der einen
+Seite, und dSpace TargetLink auf der anderen Seite werden jeweils Daten in xml-
+Form exportiert und auf der anderen Seite mit bestehenden Daten abgeglichen,
+auf Konflikte geprüft, und gegebenenfalls aktualisiert. Umgesetzt werden die
+Aufgaben SYNECT-seitig in Python unter Nutzung der SYNECT-Client- und -Server-
+APIs und TargetLink-seitig mit Matlab-m-Skripte unter Nutzung der TargetlLink-,
+DataDictionary- und Simulink-APIs.
+ 
+Kenntnisse:
+ 
+dSpace SYNECT 2.1-2.4, dSpace TargetLink 4.1-4.3, Matlab/Simulink/Stateflow
+2015b-2017b, Python 2.7/IronPython VS2015
+===============================================================================
+09/2014 - 03/2015: Architektur und Safety-Funktionen eines Fahr- und Lade-
+Reglers
+ 
+Rolle:              Developer
+Kunde:              Personenbeförderung (Straße)
+ 
+Aufgaben:
+ 
+Architektur und Safety-Funktionen eines Fahr- und Lade-Reglers für elektrisch
+getriebene Linien-Busse
+Überführung eines prototypischen Reglers in regelungstechnische Struktur (EVA/
+IPO, explizite Rückführung). Trennung von Signalführung und algorithmischer
+Implementierung für bessere Nachvollziehbarkeit sowie Ermöglichung der Trennung
+von Funktions- und Integrations-Tests. Entwicklung und Implementierung der
+SafetyFunktionen (Notabschaltung) nach vorgegebenem Sicherheitskonzept gemäß
+ISO 26262. Festlegung von Konventionen und Modellierungs-Richtlinien für die
+weitere Entwicklung (orientiert an MAAB).
+ 
+Kenntnisse:
+ 
+ISO 26262
+ 
+Eingesetzte Produkte:
+ 
+MATLAB, Simulink, Stateflow, dSpace, dSpace ControlDesk, MAAB 3.0,
+Personenbeförderung
+===============================================================================
+08/2013 - 04/2014: Ausbau von Testumfang und Testumfeld für einen Spurhalte-
+Assistenten
+ 
+Rolle:              Developer
+Kunde:              Automobil
+ 
+Aufgaben:
+ 
+Ausbau von Testumfang und Testumfeld für einen Spurhalte-Assistenten, Beratung
+Toolkette, Software-Änderungs-Prozess, Architektur
+Überarbeitung und Vervollständigung der Anforderungen auf Subsystem-Ebene.
+Implementierung fehlender Tests. Überarbeitung des hauseigenen Unittest-
+Werkzeugs. Beratung und Erarbeitung von Vorschlägen zur Weiterentwicklung der
+Toolkette bezüglich Unittest und statischer Prüfungen auf Modellebene (Model-
+Advisor-Checks). Beratung und Erarbeitung von Vorschlägen zum
+SoftwareÄnderungs-Prozess im neu eingführten "Rational Team Concert" im
+Hinblick auf künftige Seriensoftware. Beratung und Erarbeitung von Vorschlägen
+zur Software-Architektur mit Rücksicht auf Wartbarkeit und Optimierung der
+Abarbeitung im Echtzeitumfeld.
+ 
+Eingesetzte Produkte:
+ 
+MATLAB, Simulink, VnV Toolbox, Embedded Coder, Realtime Workshop, Rational Team
+Concert
+===============================================================================
+09/2012 - 04/2013: Simulation eines Vorgerüsts mit Staucher
+ 
+Rolle:              Developer
+Kunde:              Metall
+ 
+Aufgaben:
+ 
+Simulation eines Vorgerüsts mit Staucher und einer Haspel-Anlage zur virtuellen
+Inbetriebnahme der zugehörigen Automatisierungstechnik
+Erstellung von Simulink-Modellen für Hardwarein-the-Loop(HIL)-Simulation.
+Modellierung des Streckenverhaltens nach (u.A.) Funktionsbeschreibungen, Motor-
+Datenblättern und Hydraulik-Schemata. IO-Engineering zur Anbindung an Profibus
+DP. Nachbildung verschiedener Profibus-Antriebsschnittstellen. Betreuung des
+Integrationstests zur Problemanalyse und Detail-Anpassung vor Ort in Peking.
+ 
+Kenntnisse:
+ 
+Perl, S-Functions (Simulink)
+ 
+Eingesetzte Produkte:
+ 
+MATLAB, RealTime Workshop, PROFIBUS
+===============================================================================
+01/2012 - 09/2012: Implementierung eines Modul-Test-Tools für Simulink-Modelle
+ 
+Rolle:              Developer
+Kunde:              Automotive
+ 
+Aufgaben:
+ 
+Implementieren einer Funktions-Bibliothek in Matlab MScript für den Modul-Test
+von in Simulink erstellten Teil-Modellen von Funktions-Implementierungen.
+Unterstützt wird ein Regressions-fähiges "Step-Test"-Vorgehen sowie Test-
+Reporting und Einbindung der Simulink/VnV-Analyse der Test-Coverage.
+Ermöglichen von reaktiven Tests für komplexe Modelle, bei denen der Test
+während der laufenden Simulation auf Modell-Ausgänge hin agieren kann (Abwarten
+von System-Zuständen).
+ 
+Eingesetzte Produkte:
+ 
+MATLAB, Simulink Toolbox, Stateflow, VnV
+===============================================================================
+09/2011 - 09/2012: Zusammenfürung von Code-Generierungs-Toolketten für Embedded
+Controller
+ 
+Rolle:              Developer
+Kunde:              Automotive
+ 
+Aufgaben:
+ 
+Zusammenführung heterogener Toolketten aus verschiedenen Unternehmens-Teilen
+und Kunden-Projekten, basierend auf Matlab/Simulink /RTW/Embedded Coder, für
+die Steuerung von Doppel-Kupplungs-Getrieben. Absprache und Erstellung
+einheitlicher Basis- und Custom-Bibliotheken für die Modellierung
+applikativer Embedded-Software, auch mit dem Ziel eines minimierten und
+abstrahierten (Funktions-Kapselung) Custom-Anteils für bessere Portierbarkeit.
+Moderieren der Absprachen zu und Verfassen von einheitlichen Style-Guidelines
+auf Basis MAAB 2.0. Implementieren der von MAAB abweichenden Regeln im Simulink
+Model-Advisor.
+ 
+Eingesetzte Produkte:
+ 
+MATLAB, Simulink Toolbox, Stateflow, Embedded Coder, Simulink, VnV Toolbox,
+Code Generator R2009a, MAAB 2.0
+===============================================================================
+03/2012 - 07/2012: Implementierung eines A2L-Updaters auf Basis von ELF/DWARF-
+Dateien
+ 
+Rolle:              Developer
+Kunde:              Automotive
+ 
+Aufgaben:
+ 
+Implementieren eines A2L-Updaters (ASAP MCD-2MC) mit Bezug der Embedded-
+SpeicherAdressen aus ELF-Dateien und in ihnen eingebetteten DWARF-Debugging-
+Informationen, in Java/Eclipse. Typen-Prüfung auf Basis der eingebetteten
+DWARF-Informationen (Basis-Typen und Byte-Längen, Fixed-Point-Skalierungen sind
+in DWARF 3 nicht abgebildet und aus dem Kompiler, der ELF-Dateien erstellt,
+vorliegenden C-Dateien nicht reproduzierbar). Vollständige Unterstützung von
+Structs, Arrays und Arrays of Structs. Unterstützung von Bitmask-optimierten
+Measurements mit Adress-Verschiebung auf Basis von DWARF Bitmask-Einträgen.
+ 
+Kenntnisse:
+ 
+Java
+ 
+Eingesetzte Produkte:
+ 
+DWARF 3, ELF 32, Eclipse, ASAP MCD-2MC 1.3 (A2L)
+===============================================================================
+06/2011 - 01/2012: Erstellen von Kunden-spezifischen Werkzeugen für Embedded
+Code-Generierung
+ 
+Rolle:              Developer
+Kunde:              Automotive
+ 
+Aufgaben:
+ 
+Überstezung von Kalibrier-Parameter-Spezifikationen aus einem Kunden-
+proptietären XML-Format nach A2L (ASAM MCD-2MC). Reduzierung von Kalibrier-
+Parameter-Spezifikationen für Kunden-Auslieferungen zum Zwecke des IP-Schutzes
+(Intellectual Properties) auf Basis von Regeln (Reguläre Ausdrücke). Adress-
+Anpassungen an Kalibrier-Parameter-Spezifikationen zur Einbindung Kunden-
+proptietärer Lookup-Table-Formate. Konsistenz-Prüfung von Daten-Lieferungen des
+Kunden.
+ 
+Kenntnisse:
+ 
+Java
+ 
+Eingesetzte Produkte:
+ 
+ASAP MCD-2MC 1.3 (A2L), Eclipse
+===============================================================================
+09/2010 - 12/2011: Migration der Applikations-Implementierung
+ 
+Rolle:              Developer
+Kunde:              Automotive
+ 
+Aufgaben:
+ 
+Migration der Applikations-Implementierung eines Getriebe-Steuergerätes von
+Matlab R13 auf R2009a
+Erstellen von Migrationsskripten, Portieren von firmeneigenen TLC-
+Funktionalitäten (Erweiterungen des Codegenrators), Analyse des mit der neuen
+Version erstellten Codes und Abgleich mit dem Alten. Unterstützung der
+Funktions-Entwickler. Überarbeitung und Erweiterung einer Simulink Block-
+Bibliothek für die Embedded-Codegenerierung.
+ 
+Eingesetzte Produkte:
+ 
+MATLAB, Simulink, Stateflow, Code Generator R2009a, Embedded Coder
+===============================================================================
+02/2011 - 09/2011: Automatisierung des Software-Integrations-Prozesses
+ 
+Rolle:              Developer
+Kunde:              Automotive
+ 
+Aufgaben:
+ 
+Erstellung eines Java-Proramms zur Überprüung der Integrität von Software-
+Releases im Product Lifecycle Management von ARAS ALM. Generierung von
+Konfigurationen für das Konfigurationsmanagement ClearCase und Software-
+Release-Dokumetationen.
+ 
+Kenntnisse:
+ 
+Java
+ 
+Eingesetzte Produkte:
+ 
+Rational ClearCase, Eclipse, ARAS ALM
+===============================================================================
+03/2010 - 08/2010: In-house training and technical support on proposal for
+model based development of cruise control systems
+ 
+Rolle:              Developer
+Kunde:              Automotive
+ 
+Aufgaben:
+ 
+Technical expertise for proposal preparation and technical presentation at end
+customer for modelbased development of ECU functionality of cruise control
+systems. In-house training with toolchain Matlab/Simulink/TargetLink.
+ 
+Eingesetzte Produkte:
+ 
+MATLAB, Simulink, Stateflow, dSpace Targetlink
+===============================================================================
+11/2009 - 04/2010: Functional modules for an HVAC controller library
+ 
+Rolle:              Developer
+Kunde:              Automotive
+ 
+Aufgaben:
+ 
+Implementation of modules of a functional linbrary for HVAC control to check
+new control designs in rapid prototyping (simulation and autobox).
+ 
+Eingesetzte Produkte:
+ 
+MATLAB, Simulink, Stateflow, HVAC
+===============================================================================
+Projekt: Simulation eines Dressiergerüsts zur virtuellen Inbetriebnahme der
+zugehörigen Automatisierungstechnik
+  Erstellung von Simulink-Modellen für Hardware-in-the-Loop(HIL)-Simulation.
+Modellierung von
+  Hydraulik, Mechanik und Material-Verwaltungs-Telegrammen nach
+Funktionsbeschreibungen,
+  Hydraulik-Schemata und Protokoll-Spezifikationen. IO-Engineering zur
+Anbindung an
+  Profibus DP.
+  Branche: Metall
+  Zeit: 9/2009 - 10/2009
+  Verwendete Software:
+  - Matlab 2007b mit RealTime Workshop (MathWorks)
+  - Perl (zur Nachbearbeitung generierten Codes)
+  - S-Functions (Simulink) in C
+  - TCP/IP
+  - Profibus DP
+ 
+Projekt: Simulation einer Bandbehandlungsanlage zur virtuellen Inbetriebnahme
+der zugehörigen Automatisierungstechnik
+  Erstellung von Simulink-Modellen für Hardware-in-the-Loop(HIL)-Simulation.
+Modellierung der
+  Zugstrecken und Medienkreisläufe nach (u.A.) Funktionsbeschreibungen, Motor-
+Datenblättern und
+  Flußplänen. IO-Engineering zur Anbindung an Profibus DP.
+  Branche: Metall
+  Zeit: 7/2009 - 8/2009
+  Verwendete Software:
+  - Matlab 2007b mit RealTime Workshop (MathWorks)
+  - Perl (zur Nachbearbeitung generierten Codes)
+  - S-Functions (Simulink) in C
+  - Profibus DP
+ 
+Projekt: Simulation einer Bandscherenlinie zur virtuellen Inbetriebnahme der
+zugehörigen Automatisierungstechnik
+  Erstellung von Simulink- und Poses++-modellen für Hardware-in-the-Loop(HIL)-
+Simulation.
+  Modellierung des Streckenverhaltens nach (u.A.) Funktionsbeschreibungen,
+Motor-Datenblättern
+  und Hydraulik-Schemata. IO-Engineering zur Anbindung an Profibus DP.
+  Branche: Metall
+  Zeit: 2/2009 - 6/2009
+  Verwendete Software:
+  - Matlab 2007b mit RealTime Workshop (MathWorks)
+  - Poses++ (Material-Tracking und Visualisierung)
+  - Perl (zur Nachbearbeitung generierten Codes)
+  - Profibus DP
+ 
+Projekt: Simulation einer Stranggussanlage zur virtuellen Inbetriebnahme der
+zugehörigen Automatisierungstechnik
+  Erstellung von Simulink- und Poses++-Modellen für Hardware-in-the-Loop(HIL)-
+Simulation.
+  Modellierung des Streckenverhaltens nach (u.A.) Funktionsbeschreibungen,
+Motor-Datenblättern
+  und Hydraulik-Schemata. IO-Engineering zur Anbindung an Profibus DP.
+  Branche: Metall
+  Zeit: 10/2008 - 1/2009
+  Verwendete Software:
+  - Matlab 2007b mit RealTime Workshop (MathWorks)
+  - Poses++ (Material-Tracking und Visualisierung)
+  - Perl (zur Nachbearbeitung generierten Codes)
+  - S-Functions (Simulink) in C
+  - Profibus DP
+ 
+Projekt: Simulation eines Walzgerüsts und einer Scherenlinie zur virtuellen
+Inbetriebnahme der zugehörigen Automatisierungstechnik
+  Erstellung von Simulinkmodellen für Hardware-in-the-Loop(HIL)-Simulation.
+Modellierung des
+  Streckenverhaltens nach (u.A.) Funktionsbeschreibungen, Motor-Datenblättern
+und Hydraulik-
+  Schemata. IO-Engineering zur Anbindung an Profibus DP.
+  Branche: Metall
+  Zeit: 4/2008 - 9/2008
+  Verwendete Software:
+  - Matlab 2007b mit RealTime Workshop (MathWorks)
+  - Perl (zur Nachbearbeitung generierten Codes)
+  - S-Functions (Simulink) in C
+  - Profibus DP
+ 
+Projekt: Simulation einer Entzunderungsanlage zur virtuellen Inbetriebnahme der
+zugehörigen Automatisierungstechnik
+  Erstellung von Simulinkmodellen für Hardware-in-the-Loop(HIL)-Simulation.
+Modellierung des
+  Streckenverhaltens nach (u.A.) Funktionsbeschreibungen, Motor-Datenblättern
+und Hydraulik-
+  Schemata. IO-Engineering zur Anbindung an Profibus DP.
+  Branche: Metall
+  Zeit: 3/2008 - 6/2008
+  Verwendete Software:
+  - Matlab 2007b mit RealTime Workshop (MathWorks)
+  - Perl (zur Nachbearbeitung generierten Codes)
+  - S-Functions (Simulink) in C
+  - Profibus DP
+ 
+Projekt: Testumgebung für Permutationstests und Einbindung manuell erstellter
+Testdaten
+  Generierung von Permutationstests für Teilsysteme unter Berücksichtigung der
+Signaleingangs-
+  Datenformate (Fixedpoint) zur Validierung von Embedded-Implementierungen
+gegen originäre
+  Floatingpointmodelle. Zusätzliche Integration von händisch in Excel
+definierten Testvektoren
+  für das gleiche Validierungs-Prinzip. Automatisierte Auswertung und Test-
+Dokumentation.
+  Branche: Automotive
+   Zeit: 2/2008 - 11/2008
+   Verwendete Software:
+   - Matlab 7/Simulink 6 (MathWorks)
+   - TargetLink 2.1 (dSpace)
+   - MS-Excel COM-Schnittstelle (Active-X)
+   - HVAC
+ 
+Projekt: Portierung proprietärer Testdaten
+  Portierung von Stimuli und Erwartungswerten aus proprietärer Umgebung
+  und Programmierung einer automatisierten Ausführung und Dokumentation.
+  Branche: Automotive
+  Zeit: 7/2006 - 3/2007
+  Verwendete Software:
+  - Matlab 7/Simulink 6 (MathWorks)
+  - TargetLink 2.1 (dSpace)
+   - HVAC
+
+Projekt: Portierung einer Klimasteuergeräte-Software von Embedded Coder
+  nach TargetLink Portierung der vollständigen Modellierung des applikativen
+  Teils zwischen den Seriencode-Generatoren "Embedded Coder" und
+  "TargetLink". Größtenteils geskriptet unter Benutzung der Simulink
+  und TargetLink mex-APIs.
+  Branche: Automotive
+  Zeit: 6/2006 - 12/2006
+  Verwendete Software:
+  - Matlab 7/Simulink 6 (MathWorks)
+  - TargetLink 2.1 (dSpace)
+   - HVAC
+
+Projekt: Erstellung Architektur in Simulink/TargetLink für ein Klimasteuergerät
+  Erstellung der Architektur des applikativen Teils eines Klimasteuergeräts
+  in Simulink/Stateflow/TargetLink nach MAAB-Richtlinien und Spice Level 3.
+  Branche: Automotive
+  Zeit: 4/2006 - 8/2006
+  Verwendete Software:
+  - Matlab 7/Simulink 6 (MathWorks)
+  - TargetLink 2.1 (dSpace)
+   - HVAC
+
+Projekt: Einführung TargetLink
+  Coaching und Erstellung einer Bibliothek für in TargetLink
+  implementierte Steuergeräte-Software. Unterstützung der
+  Projektleitung.
+  Branche: Automotive
+  Zeit: 1/2006 - 3/2006
+  Verwendete Software:
+  - Matlab 7/Simulink 6 (MathWorks)
+  - TargetLink 2.1 (dSpace)
+
+Projekt Kopplung von Doors-Testbeschreibungen und Testumgebung
+  Spezifikation von Format und Semantik der Test-Requirements in Doors
+  sowie den UML-Elementen der Test-Umgebung. Pilot-Programmierung einer
+  Klassenbibliothek für die Synchronisation in JScript, Integration in
+  dafür erstellte dxl-Skripte.
+  Branche: Automomobil
+  Zeit: 1/2005 - 12/2005
+  Verwendete Software:
+  - Artisan RtS
+  - Doors
+  - JScript
+
+Projekt automatisierte HIL-Tests für ein body computer - Modul
+  Spezifikation und Programmierung der Tests nach Lastenheft-Spezifikation
+  Modellierung von Echtzeitverhalten in Simulink und C-SFunctions.
+  Branche: Automomobil
+  Zeit: 1/2005 - 12/2005
+  Verwendete Software:
+  - Matlab6,Simulink5 (MathWorks)
+  - dSpace ds1005, ControlDesk
+  - Doors
+  - Python
+  - C
+
+Projekt Abbildungskonzept Funktionsnetz->Simulink
+  Erstellung eines Abbildungskonzeptes für den Übergang
+  von Funktionsnetzmodellen in UML 2.0 zu Simulink. Erstellung von
+  Modellierungsrichtlinien in UML. Prototypische programmierung eines
+  Simulink-Hüllen-Generators aus UML in Java.
+  Branche: Automobil
+  Zeit: 6/2004 - 9/2004
+  Verwendete Software:
+  - Matlab6,7/Simulink5,6 (MathWorks)
+  - Java JSDK 1.4, Eclipse 2.1 (Sun)
+  - RoseRT/UMLRT (Rational/IBM)
+  - UML 2.0 Spec
+
+Projekt Codegenerator Evaluierung
+  Beratung, Erstellung Benchmarkingmodel zur Evaluierung der
+  Code-Generatoren TargetLink, Skade und Embedded Coder.
+  Branche: Automobil
+  Zeit: 3/2004 - 5/2004
+  Verwendete Software:
+  - Matlab6,7/Simulink5,6, Embedded Coder for MPC555 (MathWorks)
+  - TargetLink2.0, DS1005, ControlDesk (dSpace)
+  - Skade (Esterell)
+  - OSEK/OSEKTime RTOS Spec
+
+Projekt Versionsmanagement Matlab/Simulink, dSpace RP-Tools
+  Beratung, Erstellung einer prototypischen LowLevel-API zu CM Synergy
+  in Java, prototypische Integration in Matlab/Simulink und dSpace ControlDesk
+  über diese API.
+  Branche: Automobil
+  Zeit: 1/2004 - 3/2004
+  Verwendete Software:
+  - Matlab6,7/Simulink5,6 (MathWorks)
+  - ControlDesk (dSpace)
+  - CM Synergy(früher Continuus), Doors (Telelogic AB)
+  - Java JSDK 1.4, Eclipse 2.1 (Sun)
+
+Projekt Erweiterung und Umstrukurierung Maschinenkontrolle
+  Generieren von Sylk(=Excel-Textformat)-Datenblättern aus Messdatenbank,
+  Kapselung des Datenzugriffs in eigener Prozedur mit Zugriffsmethoden,
+  Ergänzung der Auswertung.
+  Branche: Fotochemie
+  Zeit: 10/2003 - 11/2003
+  Verwendete Software:
+  - Oracle 8, PL/SQL, OWA-Package
+  - Adobe SVG Plugin
+  - Oracle Application Server
+
+Projekt Erweiterung neue Reifsensitometrie 2
+  Generieren grafischer Darstellungen (SVG) aus Messwerten
+  und sensitometrischen Parametern ueber dem Reifungsvorgang
+  fotochemischer Produkte.
+  Branche: Fotochemie
+  Zeit: 7/2003 - 8/2003
+  Verwendete Software:
+  - Oracle 8, PL/SQL, OWA-Package
+  - Adobe SVG Plugin
+  - Oracle Application Server
+
+Projekt Support für Control-Engineering. Integration verteilter
+ Systeme und verschiedener Toolketten
+  Methodenentwicklung/Anbindung der Entwicklungs-Tools an Content- und
+ 
+  Requirement-Management, Anpassungen an Codegeneratoren. Projektunter-
+ 
+  stuetzung Break-By-Wire, Carbody-Control.
+ 
+  Modelluebergaenge Simulink->TargetLink (Production-Code).
+ 
+  Branche: Automobil-Entwicklung
+ 
+  Zeit: 6/2003 - 12/2003
+ 
+  Verwendete Software:
+ 
+  - Matlab6/Simulink5 (MathWorks)
+ 
+  - TargetLink, ControlDesk (dSpace)
+ 
+  - Ascet SD, Inca (Etas)
+ 
+  - CANape, asap-Toolset (Vector Informatik)
+ 
+
+Projekt Rechnerabloesung/Datenschnittstelle
+  Programmierung einer komplexen Messdatenschnittstelle

@@ -1,0 +1,599 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_4596 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+
+Personen-ID                4596
+  
+Wohnort                    647xx Höchst i.Odw., Deutschland
+Jahrgang                   1969
+Staatsbürgerschaft         deutsch
+Stundensatz                75 EUR
+                           für das Rhein-Main Gebiet
+Verfügbar ab               01.08.20 zu 100%, Vor-Ort-Einsatz 85% möglich
+Profil erstellt am         12.11.98
+Profil zuletzt geändert am 06.02.20
+Lesen von Projektanfragen  1,5 Tage [07]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 06.12.2019 16:59:05
+
+Fachlicher Schwerpunkt:
+J2EE Architekt / Entwickler Coach
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Lehre zum Energieanlagenelektroniker
+Abschluß als Energieanlagenelektroniker 1988
+
+Studium der Informatik an der Fachhochschule Darmstadt
+Abschluß als Diplom Informatiker FH März 1995
+
+Teilnahme an Schulungen
+o Beratertraining I + II
+o Projektmanagement
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+im Umkreis von:
+Frankfurt (50 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Deutschland: bevorzugt Bereich D6, D7, D8
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+TürkischMuttersprache
+
+
+Hardware:
+Digital DIGITAL ALPHA
+HP       
+PC       
+SUN      
+
+
+Betriebssysteme:
+MS-DOS          MS-DOS 3.0 - 5.0
+SUN OS, Solaris SOLARIS
+Unix            DIGITAL UNIX, IBM AIX
+Windows         Windows 3.1, Windows95, WindowsNT 4.0
+
+
+Programmiersprachen:
+Basic          MS Visual Basic 4.0 - 6.0
+C               
+C++            MS Visual C++ 4.1 - 5.0, SUN SOLARIS C++ 3.1, DIGITAL UNIX C++
+Emacs           
+ESQL/C         Oracle Embedded SQL
+Gupta, Centura SQLWindows 3.1 - 5.0, TeamWindows
+Java           1.1 - 8
+JavaScript      
+Pascal         Borland Turbo Pascal 6.0 - 7.0
+PL/SQL         Oracle 8.x PL/SQL
+Shell           
+
+
+Datenbanken:
+DB2             
+Gupta, Centura SQLBase 5.x 6.x
+JDBC            
+MySQL           
+ODBC            
+Oracle         Oracle 7.x - 19c
+
+
+Datenkommunikation:
+Internet, Intranet HTML, XML, XSL
+Winsock             
+
+
+Produkte/Standards/Erfahrungen:
+Methoden
+o J2EE/JEE Experte - EJBs (Enterprise Java Beans), Servlets, JSPs, ...
+o TDD, MDSD
+o Entwicklungscoaching im Team
+o objektorientierte Analyse und Design (OOA und OOD)
+o Durchführung von Refactoring
+o ereignisgesteuerte Programmierung von Dialoganwendungen
+o MVC, WebServices (XML, SOAP, REST), MicroServices
+o Datenbankmodellierung (relationale Datenbanken)
+o Datenbankanbindung über SQL, JDBC
+o Durchführung von Codereviews
+
+CASE-Tools
+o TogetherJ
+o Software through Pictures (StP)
+o Rational Rose
+o Data Architect
+o System Architect
+
+Erstellung von Dokumentation
+o DV-Kozepterstellung
+o Highlevel- und Detailed Designdokumente
+o Funktionstestskripte
+o Angebotserstellung
+
+Spezialkenntnisse
+o Entwicklung von Webportalen
+o Zahlungsverkehr/Cahsmanagement (national und international)
+o Client-Server-Developer Zertifikat nach abgelegter Prüfung
+o DV-Beratung und Coaching
+o Vorbereitung und Durchführung von Schulungen
+
+SEU-Tools
+o WSAD, JBuilder, Visual Cafe, Kawa, Eclipse
+o MS Developer Studio
+o GNU-Emacs, SNIFF+
+o Subversion, mercurial, GIT, Continuus/CM Synergy, ClearCase, CVS
+
+Frameworks
+o Struts, GRNDS, RAP, Tiles
+o Castor, JAXB, JPA
+o Spring, Spring Boot, Spring Batch
+o Hibernate, EclipseLink, EJB
+o JUnit. JUnitEE, Mockito
+
+
+Branchen:
+Bank, Banken
+Telekommunikation
+Transportwesen : Pressespedition
+Innere Sicherheit : Sicherheitsgeprüft
+
+Projekte:
+Zeitraum : 07/2017  dato
+Firma      : msgGillardon
+Projekte  : GCPM / RRAdminToolWeb / DBTool
+ Design und Implementierung fachlicher Anforderungen in diversen Anwendungen.
+    * Erstellung von Prototypen
+    * Konzeption, Design sowie Entwicklung von fachlichen Anforderungen unter
+      Nutzung des JEE ASF2 Frameworks
+    * Modellierung und Umsetzung Persistenzschicht
+    * Erstellung nachvollziehbarer Modultests mit Mockito , JUnit + JUnitEE
+    * Durchführung von CodeReviews, Groomings, Reviews, Plannings
+Java 8, Hibernate, JPA, JDBC, Gradle, Ant, Windows 10, Mercurial, Oracle 12 
+19c, IBM DB2, H2, Eclipse, Rational Software Architect, ASF2 Framework, Ant,
+Scrum, JIRA
+ 
+ 
+Zeitraum : 04/2016  06/2017
+Firma    : Deutsche Bank AG
+Projekt  : CRS - Credit Risk Service
+ Design und Implementierung fachlicher und technischer Anforderungen. 
+    * Anbindung GLUE Plattform
+    * Erstellung des OO + DB Designs anhand der fachlichen Vorgaben unter
+      Nutzung von WinWord und Sparx System Architect (UML Diagramme).
+    * Umsetzung des Systems in Java JEE. Web Services, Backendprozesse,
+      Persistenzzugriffe. JAX-WS, JAXB, JPA, JPQL
+    * Erstellung nachvollziehbarer Modultests mit JUnit + JUnitEE
+    * Dokumentation der Komponententests.
+    * Vorbereitung und Durchführung Transition / KnowHow Transfer
+ 
+Java 8, GLUE Platform, Sun Solaris 10, Windows 7, Eclipse 4.x, Subversion,
+Maven 2, Jira, Oracle 11g, Weblogic 10.x, Spring, Hibernate, JPA
+ 
+ 
+Zeitraum : 10/2015  03/2016
+Firma    : msgGilardon
+Projekt  : EVR  Ergebnis Vorschau Rechnung
+ Design und Implementierung fachlicher und technischer Anforderungen 
+    * Konzeption, Design sowie Entwicklung von fachlichen Anforderungen unter
+      Nutzung des JEE ASF2 Frameworks
+    * Erstellung nachvollziehbarer Modultests mit Mockito , JUnit + JUnitEE
+    * Durchführung von CodeReviews
+ 
+JDK 7, Hibernate, Windows 7, Mercurial, Oracle 11, IBM DB2, Eclipse 4.x,
+Rational Software Architect, ASF2 Framework, Ant, Scrum, JIRA
+ 
+ 
+Zeitraum : 07/2015  09/2015
+Firma    : Deutsche Bank AG
+Projekt  : CRS - Credit Risk Service
+ Design und Implementierung fachlicher Anforderungen
+    * KoSco, Crefo, DPD Handling im CRS
+    * Erstellung des OO + DB Designs anhand der fachlichen Vorgaben unter
+      Nutzung von WinWord und Sparx System Architect (UML Diagramme).
+    * Umsetzung des Systems in Java JEE. Web Services, Backendprozesse,
+      Persistenzzugriffe. JAX-WS, JAXB, JPA, JPQL
+    * Erstellung nachvollziehbarer Modultests mit JUnit + JUnitEE
+    * Dokumentation der Komponententests.
+Java 7, Sun Solaris 10, Windows XP, Eclipse 3.x, Subversion, Maven 2,
+Codebeamer, Testdirector, Oracle 11g, Weblogic 10.x, Spring, Hibernate, JPA
+ 
+ 
+Zeitraum : 09/2013  06/2015
+Firma    : Deutsche Bank AG
+Projekt  : TRIER
+ Businessanalyst, Functionalanalyst
+    * Mitwirkung bei Erstellung von Anforderungsdokumenten (PRD, DSRS) zur
+      Zusammenführung der Ratingprozesse und -systeme von Postbank und
+      Deutschen Bank.
+    * Analyse ratingrelevanter Informationen in SAP Bestandssystemen - SAP
+      FSBP, SAP DM, SAP CML
+    * Erstellung Prototyp zur SAP Anbindung mit SAP JCo 3.
+ 
+SAP Banking Services, SAP FSBP, SAP DM, SAP CML, Java 7, Sun Solaris 10,
+Windows 7, Eclipse 4.x, Subversion, Maven 2, Codebeamer, HP Qualitymanager
+ 
+ 
+Zeitraum : 01/2013  08/2014
+Firma    : Deutsche Bank AG
+Projekt  : PPE  Product and Pricing Engine         
+  Konzeption und Design der Architektur, Design und Implementierung fachlicher
+Anforderungen 
+    * Erstellung des OO + DB Designs anhand der fachlichen Vorgaben unter
+      Nutzung von WinWord und Sparx System Architect (UML Diagramme).
+    * Konzeption der Drools basierten Wissensbasis.
+    * Umsetzung des Systems in Java JEE. Web Services, Backendprozesse,
+      Persistenzzugriffe. JAX-WS, JAXB, JPA, JPQL
+    * Erstellung nachvollziehbarer Modultests mit JUnit, Mockito
+    * Erstellung von Excelsheet basierten FIT Tests
+    * Dokumentation der Komponententests.
+ 
+Java 6/7, Windows 7, Eclipse 4.x, Subversion, Maven 2, Codebeamer,
+Testdirector, Oracle 12, Weblogic 12, Spring 2.x, Hibernate 3.x,
+ 
+ 
+Zeitraum : 08/2012  12/2012
+Firma    : msgGillardon
+Projekt  : sDIS+
+ Design und Implementierung fachlicher Anforderungen
+    * Konzeption, Design sowie Entwicklung von fachlichen Anforderungen unter
+      Nutzung des JEE ASF1 Frameworks
+    * Erstellung nachvollziehbarer Modultests mit JUnit + Mockito
+ 
+Java, JDK 1.6.x, OSGi, Windows 7, Mercurial, Oracle 11, IBM DB2, Eclipse 3.x,
+Rational Software Architect, ASF1 Framework, Ant, Scrum
+ 
+ 
+Zeitraum : 09/2011  07/2012
+Firma    : msgGillardon
+Projekt  : GCPM - Gillardon Credit Portfolio Manager
+ Design und Implementierung fachlicher Anforderungen
+    * Konzeption, Design sowie Entwicklung von fachlichen Anforderungen unter
+      Nutzung des JEE ASF2 Frameworks mit OSGi Architektur.
+    * Erstellung nachvollziehbarer Modultests mit Mockito , JUnit + JUnitEE
+ 
+Java, JDK 1.6.x, OSGi, Windows 7, Mercurial, Oracle 11, IBM DB2, Eclipse 3.x,
+Rational Software Architect, ASF2 Framework, Ant, Scrum
+ 
+ 
+Zeitraum : 05/2011  08/2011
+Firma    : Deutsche Bank AG
+Projekt  : Lending - BauFi Prototyp SAP LM
+  Konzipierung und Umsetzung Anbindung an SAP LM
+    * Abstimmung fachlicher Anforderungen und Umsetzung der technischen
+      Anbindung einer Prototyp-Anwendung an SAP LM.
+    * Analyse und Nutzung von SAP LM Services zur Anlage von Kreditverträgen.
+    * Umsetzung einer Prototyp GUI mit JEE
+    * Ansteuerung des SAP LM Moduls über Webservices.
+ 
+Java, JDK 1.6.x, SAP LM 7.x, Windows 7, Oracle 11, Maven, SVN, Eclipse 3.x
+ 
+ 
+Zeitraum : 07/2010  04/2011
+Firma    : Deutsche Bank AG
+Projekt  : CRS - Credit Risk Service
+ Design und Implementierung fachlicher Anforderungen
+    * Erstellung des OO + DB Designs anhand der fachlichen Vorgaben unter
+      Nutzung von WinWord und Sparx System Architect (UML Diagramme).
+    * Umsetzung des Systems in Java JEE. Web Services, Backendprozesse,
+      Persistenzzugriffe. JAX-WS, JAXB, JPA, JPQL
+    * Erstellung nachvollziehbarer Modultests mit JUnit + JUnitEE
+    * Dokumentation der Komponententests.
+ 
+Java 6, Sun Solaris 10, Windows XP, Eclipse 3.6, Subversion, Maven 2,
+Codebeamer, Testdirector, Oracle 11g, Weblogic 10.3, Spring 2.x, Hibernate 3.x,
+EclipseLink MOXy
+ 
+ 
+Zeitraum : 01.2010  06.2010 
+Firma    : Nord/LB
+Projekt  : FWV  Fremdwährungsverfahren, LiStO  Online Listen und Stammdaten
+           JEE System zur Verwaltung und Abrechnung von Fremdwährungskonten
+           JEE System zur Verwaltung von Drucklisten
+           - Umstellung von Bussineslogik der bestehenden Hostawendung auf eine
+             JEE Anwendung unter Verwendung des BaseOne Frameworks.
+           - Konzeption, Design sowie Entwicklung einer Druckauftragssteuerung
+           - Erstellung nachvollziehbarer Modultests mit JUnit + JUnitEE
+           - Dokumentation der Komponententests.
+Software : Java, JDK 1.5.x, Sun Solaris, Windows XP, IBM ClearCase, IBM DB2 UDB
+           Enterprise Edition 7.2 + 8.x, Eclipse 3.x, Rational Software
+Architect,
+           BaseOne 3.x, Ant, JSF, Tobago, Quartz, DBVisualizer 
+ 
+Zeitraum : 03.2009 - 12.2009
+Firma    : msg Systems AG / Deutsche Bank AG
+Projekt  : NPI - Neue POS Infrastruktur
+  JEE System zur Erfassung und Bearbeitung von Kreditanträgen
+  durch POS Standorte
+  - Wartung sowie Konzeption und Weiterentwicklung zusätzlicher
+ Anforderungen des bestehenden Systems
+Software : Java, JDK 1.4.x, JDK 1.5.x, Sun Solaris 10, Windows XP, Eclipse 3.x,
+  Subversion, Maven 2, Codebeamer, Testdirector, Oracle 9i, Oracle 10g,
+  Weblogic 8.x + 10.x, Spring 2.x, Spring Webflow
+
+Zeitraum : 10.2008  02.2009
+Firma    : Dresdner Bank AG
+Projekt  : KAPLAN  Vorfälligkeitsentschädigung
+  J2EE System zur Ermittlung der Vorfälligkeitsentschädigung
+  bei vorzeitig abzulösenden Krediten
+  - Entwicklung einer J2EE Lösung zur Integration von KAPLAN
+ als Bestandsprodukt mit den bestehenden IT Systemen der Bank
+  - Konzeption und Design sowie Entwicklung der fachlichen
+ Anforderungen unter Anwendung von J2EE Design Patterns
+  - Erstellung nachvollziehbarer Modultests mit JUnit + JUnitEE
+  - Vorbereitung sowie Begleitung der erfolgreichen Inbetriebnahme
+Software : Java, JDK 1.5.x, AIX 4.x , Windows XP, Continuus/CM Synergy 6.2,
+  IBM MQSeries 5.3 , IBM DB2 UDB Enterprise Edition 7.2 + 8.x, WSAD,
+  IBM Websphere 6.x
+
+Zeitraum : 05.2008 - 09.2008
+Firma    : msg Systems AG / Deutsche Bank AG
+Projekt  : NPI - Neue POS Infrastruktur
+  J2EE System zur Erfassung und Bearbeitung von Kreditanträgen
+  durch POS Standorte
+  MDA getriebene Konzipierung sowie Design und Entwicklung von
+  Teilbereichen der Gesamtanwendung mit SOA
+Software : Java, JDK 1.4.x, JDK 1.5.x, Sun Solaris 10, Windows XP, MagicDraw
+UML, Eclipse 3.x,
+  Subversion, Maven 2, Codebeamer, Testdirector, Oracle 9i, Oracle 10g,
+  Weblogic 8.x + 9.x, Spring 2.x, Spring Webflow
+
+Zeitraum : 01.2005 - 04.2008
+Firma    : Dresdner Bank AG
+Projekt  : IKR - Integrierter Kreditprozess, Folgestufen
+  J2EE System zur Erfassung und Bearbeitung von Kreditanträgen
+  Performanceoptimierungen sowie Qualitätsverbesserung durch
+  Refactoring bestehender Komponenten.
+  Konzeption und Design sowie Entwicklung neuer fachlicher
+  Anforderungen unter Anwendung von J2EE Design Patterns
+  Erstellung nachvollziehbarer Modultests mit JUnit, JUnitEE
+  sowie fachliche Test mit FIT Tests
+Software : Java, JDK 1.4.x, AIX 4.x , Windows XP, Continuus/CM Synergy 6.2,
+  IBM MQSeries 5.3 , IBM DB2 UDB Enterprise Edition 8.x, WSAD 5.1,
+  Struts 1.x, IBM Websphere 5.1.x, Carnot Workflow-Engine 3.0
+
+Zeitraum : 08.2004 - 12.2004
+Firma    : Dresdner Bank AG
+Projekt  : IKR - Integrierter Kreditprozess, Wartung
+  J2EE System zur Erfassung und Bearbeitung von Kreditanträgen
+  Mergemanager - Koordination der Merges/Zusammenbringung paralleler
+  Entwicklungstränge und Produktionsreleases
+  Zentraler Ansprechpartner/Coach zum CM-Tool CM Synergy/Continuus
+  Wartung sowie Weiterentwicklung des bestehenden Systems
+Software : Java, JDK 1.3.x, AIX 4.x , Windows XP, Continuus/CM Synergy 6.2,
+  IBM MQSeries 5.3 , IBM DB2 UDB Enterprise Edition 7.2 + 8.x,
+  WSAD, IBM Websphere 5.0.3, Carnot Workflow-Engine 3.0
+
+Zeitraum : 08.2004 - 11.2004
+Firma    : CARMAO GmbH
+Projekt  : ERA-Expertensystem
+  J2EE System zur Tarifentgeltfindung
+  Aufbau und Entwicklung der J2EE Architektur
+ (Webschicht, Serviceschicht, O/R-Mapping)
+  Entwicklung fachlicher Anforderungen
+  Umsetzung PDF-Druck
+Software : Java, JDK 1.4.x, Windows 2000 /XP, CVS, MySql, Oracle 9i,
+  Eclipse 3.0, Tomcat 4.1/5.5, Struts 1.1, Hibernate 2.1.x,
+  Springframework 1.1, XSLT, XSL-FO, PDF, FOP
+
+Zeitraum : 01.2004 - 07.2004
+Firma    : Phononet
+Projekt  : Phonoline White Label Basis Shop
+  Online Musikdownloadplatform
+  Design &amp; Entwicklung fachlicher Anforderungen unter Einsatz von J2EE
+  (EJB Design Patterns, EJBs, Struts)
+  Konzeption und Entwicklung querschnittlicher Architektur
+  (z.B. Berechtigungskomponente, Paging von Ergebnislisten)
+  Erstellung von JSPs, Tiles, Actions, Session Beans,
+  Entity Beans bei der Umsetzung fachlicher Anforderungen
+  Aufsetzen von Build- sowie Deploymentprozessen mit Ant
+  Erstellung und Durchführung sowie Dokumentation von
+  Modultests mit JUnit sowie Performancetests mit WebLoad
+Software : Java, JDK 1.4.x, AIX 4.x , Windows XP, CVS, JUnit, WebLoad,
+  DBVisualizer, Oracle 9i, WebLogic 7.x, Resin 2.1.x,
+  Tomcat 4.x, Eclipse, Ant 1.6
+
+Zeitraum : 09.2003 - 01.2004
+Firma    : Bundesagentur für Arbeit
+Projekt  : Virtueller Arbeitsmarkt
+  Webportal des Arbeitsamtes
+  Design &amp; Entwicklung fachlicher Anforderungen unter Einsatz
+  von J2EE mit dem GRNDS/STRUTS Portal-Framework
+  Verwendung sowie Erweiterung von Frameworks für die
+  Anwendungsentwicklung
+  Erstellung von JSPs, Conversations, Session Beans, CMP Entity
+  Beans bei der Umsetzung fachlicher Anforderungen
+  Erstellung und Durchführung/Dokumentation von Tests mit JUnit
+Software : Java, JDK 1.3.x, AIX 4.x , Windows 2000, WinCVS 1.3.x, JUnit,
+  Oracle 9i, WebLogic 7.x, JBuilder 7
+
+Zeitraum : 01.2001 - 06.2003
+Firma    : Dresdner Bank
+Projekt  : Firmenfinanzportal
+  Cashmanagement/Währungsmanagement für Firmenkunden der
+  Dresdner Bank
+  Konzeption sowie Design &amp; Entwicklung von Businesstransaktionen
+  im Bereich nationalem sowie internationalem Zahlungsverkehr
+  (IZV,AZV,DTAUS,DTAZV, SWIFT MT9xx, MT101, MT104, MT202)
+  Kommunikation mit Bankrechner nach BCS (BCS-Auftragsarten sowie
+  Security für Transport und elektronische Unterschrift)
+  Integration Valuta Direct von IBM für Devisenhandel,
+  Echtzeitdarstellung der Devisenkurse
+  Erstellung und Durchführung von Funktionstestskripten,
+Software : Java, JDK 1.2.x, AIX 4.x , Windows NT 4.0,
+  Continuus 5.x, TogetherJ 4.0, DataArchitect, Toad
+  Oracle 8i, WebLogic 4.6 + 6.1, Kawa 4.x, Eclipse
+
+Zeitraum : 02.1999 - 12.2000
+Firma    : emagine / Deutsche Bank
+Projekt  : BCS/FTP
+  Cashmanagement Firmenkunden der Deutschen Bank
+  Design &amp; Entwicklung von Serverprozessen, teilweise als
+  Enterprise Java Beans (EJB), zur Annahme und
+  Abwicklung von Firmenkundengeschäften
+  Integration in bestehendes Umfeld (Hostanbindung)
+  BCS Security für Transport und Unterschrift
+Software : Java, JDK 1.1.x, JDK 1.2.x, AIX 4.x , Windows NT 4.0,
+  Visual Source Safe 5.0, Rational Rose 98, DataArchitect,
+  Oracle 8.0.4, Oracle 8i, WebLogic Server, JBuilder 2.0/3.5
+
+Zeitraum : 04.1998 - 01.1999
+Firma    : Bundes Kriminalamt
+Projekt  : INPOL-neu - Informationssystem der Polizei
+  Evaluierung und Empfehlung von SEU-Tools,
+  Entwicklung von Architekturgrundlagen und Umsetzung eines
+  Prototypen, UseCase- und Klassenmodellierung (OOA/OOD mit UML)
+Software : C++, Sun SOLARIS, StP 2.4 (UML), SNIFF+ 2.5, Continuus, GNU-Emacs
+
+Zeitraum : 08.1997 - 03.1998
+Firma    : Mobilfunk Provider
+Projekt  : Internet Antragsannahmesystem für Mobilfunk
+  Realisierung eines Internetclients mit Java zur Auftragserfassung
+  mit JDBC-Anbindung, Integration des Internetclients in ein
+  Order Managementsystem
+Software : Windows NT, Java, Visual Cafe 1.1 - 2.1, MS Visual Basic 5.0,
+  JDBC T3-Server, MS Visual Source Safe 5.0
+
+Zeitraum : 07.1997
+Firma    : debis Systemhaus
+Projekt  : OMS Pro / Order Managementsystem
+  Integration sowie Weiterentwicklung einer ActiveX Komponente
+  zur graphischen Darstellung der Terminplanung in das Order
+  Managementsystem
+Software : Windows NT, MS Visual Basic 5.0, ActiveX, Oracle 6.x,
+  MS Visual Source Safe 5.0
+
+Zeitraum : 04.1997 - 06.1997
+Firma    : T-Online Dienste GmbH
+Projekt  : Erstellung eines Konzeptes für die zukünftige IT-Landschaft von
+  T-Online, Ist-Aufnahme, Anforderungsanalyse, OOD Klassenmodellierung
+  der Datenwelt
+Software : Windows95, MS Word 95, Rational Rose, MS Visual Source Safe 4.0
+
+Zeitraum : 11.1996 - 03.1997
+Firma    : Mobilfunk Carrier
+Projekt  : Satellitensystem zur Gebührenauskunft
+  Teilweise Erstellung der GUI für Call-Center-Anwendung,
+  Design &amp; Realisierung Serverprozess zur Kumulierung der
+  Gebührenzähler
+Software : Windows NT, MS Visual C++ 4.1 mit MFC, OCI, Oracle 7.1,
+  Digital UNIX, MS Visual Source Safe 4.0
+
+Zeitraum : 10.1996
+Firma    : Systemhaus
+Projekt  : Meldungs- und Fehlerkonzept
+  Ausarbeitung eines Meldungs- und Fehlerkonzeptes zum
+  Einsatz unter WindowsNT sowie digital UNIX, OOD Klassenmodellierung
+Software : Windows NT 3.51, MS Word 95, Rational Rose
+
+Zeitraum : 03.1995 - 09.1996
+Firma    : Speditionsunternehmen
+Projekt  : Presse-Logistiksystem
+  DV-Design und Realisierung Stammdatenpflege, Routenplanung,
+  Frachtverteilung und Fakturierung, Dokumenterstellung :
+  Ladeliste, Lieferschein, Rechnung, Gutschrift, Journal
+  mit Client-Server Architektur
+Software : Windows 3.1, System Architect, SQLWindows 5.1, MS C++ 1.5,
+  SQLBase 6.0, Crystal Reports, TeamWindows
+
+Zeitraum : 01.1995 - 09.1996 (nur Zeitweise)
+Firma    : Diverse Kunden
+Projekt  : DV-Beratung, Coaching
+  Datenbankoptimierung, Optimierung der Anwendung zur Performance-
+  steigerung, Beratung bei Reporterstellung,
+  Unterstützung bei Entwicklung von Dialogarchitekturen
+Software : Windows 3.1, Borland C++, SQLBase, Oracle 7.1, SQLWindows
+
+Zeitraum : 10.1994 - 02.1995
+Firma    : Softwareentwicklungsunternehmen / Diplomarbeit
+Projekt  : Integration System Architect <-> HyperTerms
+  Analyse der CASE-Tools Design und Realisierung einer
+  Schnittstelle zur Integration
+  Entwicklung eines DDL-Generators
+Software : Windows 3.1, System Architect, SQLWindows 5.0, ODBC,
+  SQLBase 5.1
+
+Zeitraum : 11.1993 - 09.1996
+Firma    : Softwareentwicklungsunternehmen
+Projekt  : Schulungen
+  Vorbereitung sowie Durchführung von Schulungen, auch
+  Inhouse-Schulungen
+Software : SQL, Gupta SQLWindows, TeamWindows
+
+Zeitraum : 06.1993 - 09.1996
+Firma    : Softwareentwicklungsunternehmen
+Projekt  : Standard Klassenbibliothek
+  Design, Realisierung und Pflege einer Klssenbibliothek zur
+  Standardisierung der Softwareentwicklung für GUI und DB-Zugriffe
+  mit Client-Server Architektur
+Software : Windows 3.1, Windows95, SQLWindows 4.1 - 5.1, MS Visual C++ 1.5,
+  Oracle 7.x, SQLBase 5.x, TeamWindows
+
+Zeitraum : 06.1994 - 12.1994
+Firma    : Speditionsunternehmen
+Projekt  : Prototyp eines Presse-Logistiksystems
+  Erstellung von Teilen der Stammdatenpflege,
+  Reporterstellung : Lieferschein, Rechnung, Ausfuhrbescheinigung
+  mit Client-Server Architektur
+Software : Windows 3.1, System Architect, SQLWindows 4.1, SQLBase 5.1,
+  ReportWindows
+
+Zeitraum : 07.1992 - 08.1993
+Firma    : Baukonzern
+Projekt  : QS-System für Subunternehmer
+  Dialogerstellung zur Stammdatenpflege und Verarbeitung von
+  Beurteilungsbögen : Erfassen, Druck, Scannen
+Software : Windows 3.1, SQLWindows 3.1, SQLBase 5.1
+
+Referenzen:
+Projekt BCSFTP - Server, 04/98 - 12/00
+Referenz durch GFT Financial Solutions GmbH, 11.02.04
+"Der Consultant  hat im Rahmen der Konzeption und Entwicklung des BCSFTP
+Servers ausgezeichnete Arbeit geleistet. Er war zentraler Ansprechpartner für
+technische Problemstellungen und arbeitete konzeptionell wie entwicklungs-
+technisch hoch effizient. Er arbeitete äußerst teamorientiert und trug
+maßgeblich zur einer sehr guten Teammoral bei."
+Projekt Portallösung (J2EE) für Firmenkunden, 01/01 - 06/03
+Referenz durch Projektleiter einer Frankfurter Großbank vom  10.07.03
+"Der Consultant arbeitete sich in kürzester Zeit in die bestehende Architektur
+und Anwendung ein. Seine Aufgaben umfassten Tätigkeiten in allen Phasen wie die
+Erstellung von Konzepten und Designdokumenten sowie deren Umsetzung und auch
+Tests der entwickelten Teilanwendungen. Er war beteiligt bei der Entwicklung
+von projektinternen Frameworks für eine querschnittliche Anwendungsarchitektur.
+Durch seine breit gefächerten und profunden Kenntnisse konnte er sowohl die
+Frontend- und Backendentwicklung umsetzen als auch entsprechende Datenbank-
+modellierungen für Teilanwendungen erstellen. Er zeigte große
+Leistungsbereitschaft und erwies Teamfahigkeit sowie Kommunikationsfahigkeit
+sowohl innerhalb des Entwicklungsteams als auch bei der Abstimmung im Rahmen
+der Anforderungsanalyse und Umsetzung mit dem Auftraggeber und der betroffenen
+Backendsysteme. Bei Problemen konnte der Consultant sehr oft gute Ideen für
+optimale Lösungen beitragen. Die ihm übertragenen Aufgaben wurden auch unter
+Zeitdruck stets termingerecht und professionell erledigt. Wir bedanken uns für
+seine Mitarbeit und würden gern wieder mit ihm zusammenarbeiten. Wir können den
+Consultant jedem Projektanbieter weiterempfehlen."
+Alle Referenzen sind durch GULP bestätigt.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_4596 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 07.02.2020 00:38:30
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

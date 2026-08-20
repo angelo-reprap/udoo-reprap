@@ -1,0 +1,1027 @@
+System.- u. Netzwerkmanagement, UNIX, Linux, Solaris, TCP/IP,
+Security, C, Client/Server Programmierung, ISP
+Verfügbar ab: 01.12.2022
+verfügbar zu: 100 %
+davon vor Ort: 5 %
+Stundensatz: 90,00 EUR
+Bemerkungen:
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Schweiz, Einsatzort unbestimmt
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Position
+Kommentar:
+Projekte
+ Hosting Development Design für Telefónica o2 Germany:
+Design und Implementierung von komplexen Serverlösungen.
+Entwicklung eines Installtions-Servers für
+redundant ausgelegte F5 BIG-IP Local Traffic Manager (LTM)
+Loadbalancer-Pärchen,
+welcher die Konfigurationsdaten weitgehend aus
+einer hauseigenen Hardware.- und Konfigurationsdatenbank ermittelt.
+Design, Referenzimplementierung, Dokumentation,
+Freigabetests, betriebliche Bereitstellung,
+von F5 Loadbalancerkonfigurationen,
+die gleichzeitig sowohl
+*) NAT basiertes Application Delivery Networking (L7)
+beherrschen,
+*) als auch hocheffizientes Direct Server Response (asynchrones L4)(nPath).
+Design eines Open Source basierten Mailserverclusters,
+um Lotus Notes abzulösen.
+23.02.2023 1 von 10
+Mitarbeit im Projekt Hosting Capacity Planning. (Diverse Scripte).
+Script zur vollautomatischen Paketerstellung für Redhat und Solaris.
+MySQL Plugin zur flexibel konfigurierbaren
+Schwellwertüberwachung für Big Brother.
+Dauer: bisher 10 Monate.
+Zeitpunkt: 2008 - jetzt.
+Programmiersprachen: Shell-Scripts, Perl, AWK, C.
+Betriebssystem: F5 BIG-IP LTM (9.3.1, 9.4.x), Linux (RedHat), Sun-Solaris.
+Anwendersoftware: MySQL, Postfix, Dovecot, OpenLDAP, Confluence, T-Wiki.
+Branche: Hosting für Grosskunden, ISP.
+ System.- u. Netzwerkmanagement für KARE:
+Alles, was eine Firma mit ein paar hundert Mitarbeitern,
+die weltweit verteilt sind, im Hintergrund so braucht.
+Sehr viel Beratung, Mailserver, Faxserver, Webserver,
+LDAP, DNS, Monitoring, Alarming, Trobleshooting, Debugging,
+Virtualisierung, redundante Auslegung, Ausfallsicherheit,
+Hardwareauswahl, RAID, Security,
+SPAM.- und VirenFilter, Firewalls, Upgrades, Neuinstalltionen,
+Logfileauswertungen,
+Trouble-Ticketing, Installationsserver, CMS.
+Dauer: bisher ca. 18 Monate, verteilt auf bisher 3 Jahre.
+Zeitpunkt: 2005-2007
+Programmiersprachen: PHP, Perl, Shell-Scripts, CGI, HTML.
+Betriebssystem: XEN, Linux (Gentoo), Windows.
+Anwendersoftware: Cyrus-IMAP, Postfix, Squirrelmail, DSPAM,
+amavis, Apache, OpenLdap, phpLDAPadmin,
+Hylafax, mysql, PHPmyAdmin, RRDTOOL, Nagios, Cacti, awstats, webalizer,
+Bind, iptables, fwbuilder, Joomla.
+Branche: Handel.
+ System.- u. Netzwerkmanagement für RBG/Fiducia:
+Weiterentwicklung, Troubleshooting und Support
+des hauseigenen System.- u. Netzwerkmanagement Programms INES.
+Fertigstellung, Fehlerynalyse und Support
+eines multithreaded Bulk-SNMP-basierten Accountingsystems auf Basis von SOAP,
+zur Rechnungsschreibung aller (16.000) bayrischen Raiffeisenbanken.
+Entwicklung eines Installations-Servers für Debian-Linux basierend auf FAI.
+Entwicklung eines Installations-Servers für RedHat-Linux basierend auf anaconda.
+Ausfallprognose, Fehleranalyse, Schwellwertüberwachung, Montoring,
+Alarming von Linux-Hosts, Sun-Solaris-Hosts,
+Cisco-Routern, IBM-Routern, Bridges, Netzwerklaufzeiten,
+CPU, Festplatten, IP-Traffic/Fehler, Ethernet-Traffic/Fehler,
+TCP-Traffic/Fehler, UDP-Traffic/Fehler, Datenbankverfügbarkeit, Prozesse.
+Accounting von Partneranbindungen via RRDTOOL, Mysql, Apache,
+mit Übergabe der Accountigdaten an DB/2.
+Benutzerauthentifizierung an Routern via Radius, TACACS und LDAP.
+Performance.- und Laufzeitanalysen des aus rund
+100 Java basierten Sun Solaris E10K und E15K Systemen
+bestehenden Online-Banking Clusters.
+23.02.2023 2 von 10
+Sämtliche dieser Systeme sind komplett ausfallsicher (redundant) ausgelegt,
+weil beim Abschalten oder Updaten eines Systems der Betrieb
+ohne Ausfall auf Anwenderseite, Datenverlust
+oder Eingriff von Admins gewährleistet sein muß.
+Dauer: 2,5 Jahre.
+Zeitpunkt: 2002 - 2004
+Programmiersprachen: PHP, Perl, Shell-Scripts, CGI, HTML, AWK, C.
+Betriebssystem: Sun-Solaris, Linux (SuSE, RedHat, Debian), Cisco IOS.
+Anwendersoftware: Apache, Nagios, RRDTOOL, MRTG, DB/2, MySQL, SNMP, OpenLDAP, SOAP.
+Branche: Bank.
+ osCommerce Webshops für KARE:
+http://www.kare.de         (KARE-Grosshandel)
+http://www.kare-design.de  (KARE-Einzelhandel)
+http://www.kare.eu/        (Rund 20 KARE-Franchise-Shops)
+http://osCommerce.Com      (Hersteller von osCommerce)
+Die Firma KARE Reiter + Schönhofen OHG wünschte sich einen Webshop uns wollte diesen von
+Grund auf programmieren lassen.
+Ich konnte die Geschäftsleitung davon überzeugen, dass osCommerce die kostengünstigste
+professionelle Basis darstellt.
+So konnte ich mit relativ geringem Aufwand, zwei Shops zaubern, inclusive Anbindung an die
+hauseigene Datenbanken.
+Das Projekt ist nicht abgeschlossen,
+es sind mittlerweile rund 20 Shops und weitere Shops in Arbeit.
+Allerdings haben ich die Shop-Software inzwischen so modifiziert,
+dass der Franchisenehmer lediglich eine Übersetzung der Texte liefern braucht
+und die Installation auf meiner Seite dann nur noch 10 Minuten in Anspruch nimmt.
+Das letzte nennenswerte Unterprojekt (2007) war die Programmierung
+einer neuen Datenbankschnittstelle basierend auf XML.
+Kleine Erweiterungen sind geplant.
+Dauer: bisher ca. 15 Monate, verteilt auf bisher 5 Jahre.
+Zeitpunkt: 2003-2007
+Programmiersprachen: PHP, Perl, Shell-Scripts.
+Betriebssystem: Linux (RedHat und Gentoo).
+Anwendersoftware: osCommerce, Apache, MySQL, mysqlcc, mysqladmin, phpMyAdmin,
+RequestTracker, OpenVPN, FwBuilder, iptables.
+Branche: Handel.
+ R-TuX:
+Es ist mein eigenes, single-floppy-based TDSL-Router-Firewall-Linux-System,
+welches sich automatisch aus dem Netz initialisiert (zentrale Software-Pflege).
+Mit nur einer Diskette kann aus jedem 486er,
+der 2 Netzwerkkarten und min. 24 MB Speicher hat, in wenigen Minuten,
+ein vollwertiger T-DSL-Router gemacht werden.
+Sowohl das Booten über das IntraNet ohne Floppy,
+als auch automatisches ISDN-Fallback sind in Vorbereitung.
+Dauer: 2 Monate.
+Zeitpunkt: 2002.
+Programmiersprachen: Shell-Scripts.
+Betriebssystem: Linux.
+Branche: Internet Service Provider. Telekommunikation.
+ SetUp:
+Ist eine Tool-Sammlung, welche aus einer minimal installierten,
+sicheren Solaris Maschine, einen richtig brauchbaren GPL-Server macht.
+Optimalerweise ist es in Kombination mit JumpStart einzusetzen.
+SetUp versteht aber auch Linux.
+Dauer: 2 Monate.
+Zeitpunkt: 2001.
+Programmiersprachen: Shell-Scripts, Perl CGI.
+Betriebssystem: Solaris/Linux.
+Anwendersoftware: CVS.
+Br
+23.02.2023 3 von 10
+anche: Internet Service Provider.
+ WebMail/IntraNet Portal
+Ziel war, den bestmöglichen Mailserver zu bauen.
+Er besteht aus den edelsten Komponenten,
+Limits werden ausschliesslich durch die Hardware gesetzt.
+Bei entsprechender Hardware sollten bis zu 0,5 Mio Benutzer möglich sein.
+Inclusive Projektverwaltung, Zeitverwaltung, TroubleTicketing,
+Chat und mehr. Ihr perfektes Intranet.
+MRTG und Big Brother von HTML nach PHP portiert.
+Die Hintergrundfarbe zeigt den Status aller überwachten Systeme.
+Dauer: 9 Monate.
+Zeitpunkt: 2000-2001.
+Programmiersprachen: C, PHP, Perl, CGI, HTML.
+Betriebssystem: Linux/Solaris.
+Anwendersoftware: Apache, MRTG, Big Brother, Intas
+Branche: Internet Service Provider, Bank.
+ Projekt technischer Aufbau einer ISP Struktur
+Für einen Münchener Internet Service Provider habe ich die komplette Accounting,
+Abrechnungssoftware programmiert, diverse weitere Systeme konzipiert.
+Kundenbetreuung, Serverinstallationen und Wartung. Security, diverse Router.
+Ich betreute das System bis Februar/2002,
+allerdings nicht zukünftig.
+Dauer: insgesamt 3 Mannjahre.
+Zeitpunkt: verteilt zwischen 1999-2002.
+Betriebssystem: Solaris, Linux, Cisco IOS, Bay Networks Nauitca, Concorde.
+Programmiersprachen: C, Scripts, PHP, Perl, CGI, HTML.
+Datenbanken: Oracle, MySQL, dbm.
+Branche: Internet Service Provider, Telekommunikation, Rechenzentrum, Dienstleistung.
+ ZVT-700
+Ist das bekannte Zahlungsverkehrsterminal der Giesecke &amp; Devrient.
+Spitzname: "Der Winkel", zu bewundern an fast jeder Tankstelle.
+Ich darf hier nicht viel mehr sagen, als ein wenig.
+Der Auftrag war, den in Assembler gewachsenen Code,
+durch eine strukturiertere Version in C zu ersetzten.
+Dauer: 6 Monate.
+Zeitpunkt: 1998.
+Programmiersprachen: Keil-C, Assembler.
+Branche: Finanzdienstleister.
+ CA Unicenter TNG
+Ich war verantwortlich für die Evaluierung dieses Beta-Systems,
+sowie aller zugehörigen administrativen Aufgaben,
+die Entwicklung eines SNMP-Agenten, welcher die 3 NT-Logfiles überwacht,
+filtert und entsprechende SNMP-Traps verschickt.
+Zum deutschlandweiten zentralisierten Sammeln von gefilterten Eventlogeinträgen
+und deren Integration in das NMS.
+Dauer: 1 Jahr. Zeitpunkt: 1997.
+Programmiersprachen: C, C++.
+Betriebssystem: Windows/NT.
+Programmiertools: Visual C++, ESQL-C (Oracle), awfactory.
+Branche: Bank.
+ Aufbau Second Level Support
+Support- und Integrationsunterstützung für Investment Banking Systeme mit
+dem Schwerpunkt Solaris-Systeme.
+Integration in die bestehende Hostumgebung im Bereich Risikomanagement.
+Einarbeitung der Administratoren mittels Workshops.
+Evaluierung und Auswahl von einzusetzenden Softwarepaketen.
+Leitung der Entwicklung einer Software,
+die paralles Batch-Processing realisiert.
+Administration von Solaris Systemen.
+Dauer: 6 Monate.
+Zeitpunkt: 1996.
+23.02.2023 4 von 10
+Programmiersprachen: Shell-Scripts, C.
+Betriebssystem: Solaris, Windows/NT.
+Tools: make.
+Branche: Bank.
+ Belegleser
+Der Teilbereich "Portierung von OS/2 nach Solaris" war zu realisieren.
+Da extrem Wert auf Performanz gelegt wurde,
+mußte u.A. mit Posix-Threads gearbeitet werden.
+Dauer: 3 Monate.
+Zeitpunkt: 1995.
+Programmiersprache: Multithreaded C (Posix).
+Betriebssystem: Solaris/Intel.
+Branche: Industrie.
+ Lance+
+ist ein sehr komplexes NMS (Netzwerk Management System).
+Ich war verantwortlich für alle systemnahen Aufgaben,
+Portierungen auf weitere UNIX basierende Plattformen,
+Design und Realisierung von diversen Erweiterungen.
+Dauer: 1,5 Jahre.
+Zeitpunkt: verteilt von 1993-1995.
+Programmiersprachen: C, C++, Tcl/TK, Shell-Scripts.
+Betriebssystem: SunOS, HP-UX, Solaris.
+Programmiertools: ESQL-C (Ingres), Motif, X11.
+Tools: GNU (RCS, CVS, Emacs, gdb).
+Branche: EDV, Systemhersteller.
+ Kurse
+Kurse zu folgenden Themen habe ich geleitet:
+UNIX-Systemprogrammierung.
+Netzwerkprogrammierung unter UNIX.
+TCP/IP und NFS in der Praxis.
+Dauer: 20 Wochen.
+Zeitpunkt: verteilt auf 1993-1995.
+Programmiersprachen: C.
+Betriebssystem: SunOS, Solaris.
+Programmiertools: SparcWorks.
+Branche: EDV, Systemhersteller.
+ Deutsches Patentamt
+Dieses Projekt liegt im Bereich von ca. 20 Mannjahren und beschäftigt
+im Schnitt ca. 20-30 Mitarbeiter. Das angeblich grösste Projekt in Deutschland.
+Eine netzweite Administration von Accounts (ULTRIX und Oracle Datenbank) und
+eine Fehler-Datenbank waren zu realisieren.
+Dauer: 3 Monate. Zeitpunkt: 1993. Programmiersprachen: C, Shell-Scrips.
+Betriebssystem: Ultrix.
+Programmiertools: ESQL-C (Oracle), Motif, X11.
+Branche: EDV, Systemhersteller.
+ WORM-Server
+Leitung ein großen Projektes (3 Mannjahre).
+Führung von technisch unterstellten Mitarbeitern.
+Design und Realisierung eines verteilten WORM-Servers basierend auf NFS,
+mit Dateisystem in Informix und Oracle Datenbank.
+Dauer: 1 Jahr, 4 Mitarbeiter.
+Zeitpunkt: 1991-1992.
+Programmiersprachen: C, Shellscrips.
+Betriebssysteme: SINIX, HP-UX, SunOS.
+Programmiertools: RPC, ESQL-C (INFORMIX und Oracle), Motif, X11.
+Branche: EDV, Systemhersteller.
+ Consulting Netzwerke
+Als Projektleiter bei einem Systemhersteller,
+in der Abteilung Consulting Netzwerke tätig,
+Beratung von Großkunden im Bereich Internet.
+Dauer: 1 Jahr. Zeitpunkt: 1990-1991.
+23.02.2023 5 von 10
+Branche: EDV, Systemhersteller.
+ Ttytool
+Ttytool ist ein OpenWindows-Programm zum Testen und Konfigurieren von
+seriellen Schnittstellen an Sun-Workstations.
+Mitarbeiter der Hotline wurden in diesem Rahmen von mir geschult.
+Ttytool hat, nicht zuletzt Aufgrund der 100 Seiten umfaßenden Dokumentation,
+den Supportaufwand in diesem Bereich nachhaltig enorm reduziert.
+Dauer: 1 Jahr. Zeitpunkt: 1989.
+Programmiersprachen: C, Shell-Scrips.
+Betriebssystem: SunOS.
+Programmiertools: DevGuide, OpenWindows, X11
+Branche: EDV, Systemhersteller.
+ Second Level Support Unix/TCP-IP
+Deutschlandweiter Last-Level Support Solars/SunOS, beim Hersteller.
+Dauer: 1 Jahr.
+Zeitpunkt: 1988.
+Branche: EDV, Systemhersteller.
+ Hauseigene SINIX Distribution
+Im Rahmen dieses Projektes wurden alle hauseigenen SINIX spezifischen
+Systemanpassungen, die ich entwickelt habe,
+in einer eigenen hauseigenen SINIX-Installation zusammengefasst.
+Dazu gehörten Druckerbackends (C), Portierungen (Scripts &amp; Schnittstellen),
+Kunden-Datenbank (Informix). Angebotsschreibung (HIT),
+Installationssoftware (SINIX-MUS), Administration und Konfiguration
+(eigene Scripts).
+Dauer: 1 Jahr. Zeitpunkt: 1987.
+Programmiersprachen: C, Shell-Scrips, und COBOL (MicroFocus).
+Betriebssystem: SINIX.
+Programmiertools: ESQL-C, MES.
+Anwendersoftware: INFORMIX, HIT.
+Branche: EDV, Handel.
+ Münchner Warenwirtschaft
+MüWa ist ein komplexes Programm zur Kunden.- Artikel.- und Auftragsverwaltung.
+Mitarbeit als Projektleiter. Diverse individuelle Anpassungen wurden
+durchgeführt.
+Zeitpunkt: 1986-1987.
+Dauer: 1,5 Jahre.
+Programmiersprachen: COBOL (RM), Clipper und dBASE III.
+Betriebssysteme: CP-M 3.0, RSX-11M, MS-DOS 2.11.
+Programmiertools: Hauseigener Cobol-Source-Generator.
+Branche: EDV, Handel.
+Referenzen
+Projekt technischer Aufbau einer ISP Struktur, 03/99 - 02/02
+Referenz durch Internet Full-Service Provider (10 MA) vom 13.03.02
+"Der Consultant war bei uns von März 1999 bis Februar 2002 als freiberuflicher Mitarbeiter in der
+technischen Leitung beschäftigt. Unser Unternehmen ist ein mittelständischer Internet Full-Service
+Provider mit Sitz in München und bietet seinen sehr namhaften Kunden alle Dienstleistungen eines
+Internet Full-Service Providers, wie Hosting und Server-Homing, Firewall-Security, IP-Connectivity
+und kundenspezifische Lösungen an. Zu dem Aufgabengebiet des Consultants gehörte die gesamte
+Entwicklung des firmeneigenen IP-Accounting Programmes zur automatisierten
+Rechnungserstellung, RIPE konforme IP-Zuweisung, Konfiguration der Cisco Gateway-Router,
+Betreuung von Unix-Cluster Systemen, Implementierung von Firewall-Security Lösungen und Unix
+Systemadministration. Desweiteren hat er einen Installserver für Unix-Systeme sowie einen
+festplattenlosen, fernwartbaren Router für unser Unternehmen entwickelt. Der Consultant
+beeindruckte vor allem durch sein enormes Fachwissen, seine enorme Zuverlässigkeit, schnelle und
+dabei immer durchdachte Lösungen und seine extrem hohe Einsatzbereitschaft. Seine Projekte sind
+23.02.2023 6 von 10
+hervorragend dokumentiert und bewährten sich bereits unmittelbar nach der Einführung. Der
+Consultant war bei der Firmenleitung und den Kollegen gleichermassen beliebt und respektiert.
+Dank seiner kontinuierlich hohe Leistung sowie seiner vor allem pragmatischen Effizienz konnten
+auch sehr komplexe Projekte schnell umgesetzt werden und von Mitarbeitern im weiteren Verlauf
+autark betreut werden. Wir wünschen ihm für die Zukunft in privaten als auch beruflichen Fragen
+alles Gute."
+Branchen
+Hosting.
+Internet Service Provider.
+Rechenzentrum.
+Dienstleistung.
+Systemhersteller.
+Bank.
+Finanzdienstleister.
+EDV.
+Telekommunikation.
+Industrie.
+Handel.
+Sprachen
+Deutsch Muttersprache
+Englisch Verhandlungssicher in Wort und Schrift.
+Französisch Grundkenntnisse. (Gymnasium, 5 Jahre)
+Spanisch Grundkenntnisse.
+Finnisch: Grundkenntnisse. Kaum nennenswert. (Gymnasium, 5 Jahre)
+Kompetenzen
+Produkte / Standards /
+Erfahrungen / Methoden
+Open Source Software
+Linux
+Apache
+BIND, DNS
+Cyrus, Dovecot, IMAP
+gcc
+Nagios, MRTG, RRDTOOL, Big Brother, SNMP
+23.02.2023 7 von 10
+Perl
+PHP
+Request Tracker
+Postfix, Sendmail, SMTP
+Samba
+OpenOffice
+Squid
+CVS
+MySQL, Postgres
+cygwin
+Firewall Builder
+FreeS/WAN
+Erstellung von Designs, Spezifikationen
+Projektleitung
+Portierung
+Suchmaschinenoptimierung(SEO)
+Betriebssysteme HPUX
+MS-DOS
+OSF/Motif
+SUN OS, Solaris
+Unix
+Windows
+Diverse Linux-Derivate.
+Diverse Unix-Derivate.
+BIG-IP LTM
+Cisco IOS.
+Diverse Router.
+Programmiersprachen C sehr gut
+C++ gut
+Cobol gut
+ESQL/C gut
+Imake, GNU-Make, gut
+Make-Maker etc...
+Java Java: ausreichend, keine Projekterfahrung,
+grosses Interesse. JavaScript: ausreichend
+JavaScript Java: ausreichend, keine Projekterfahrung,
+grosses Interesse. JavaScript: ausreichend
+Perl gut (Perl/TK)
+PHP sehr gut
+PL/SQL ausreichend
+23.02.2023 8 von 10
+Shell sehr gut
+Tcl/Tk Tcl: ausreichend, TK: gut (Perl/TK)
+Xt, Motif ausreichend
+Datenbanken DB2 ausreichend
+Informix ausreichend
+Ingres ausreichend
+MySQL gut
+Oracle befriedigend
+SQL gut
+Sybase ausreichend
+Datenkommunikation Ethernet gut
+Internet, Intranet sehr gut
+ISDN ausreichend
+ISO/OSI sehr gut
+NetBios befriedigend
+OSF/DCE ausreichend
+Router gut.
+RPC sehr gut. (Sun-RPC, ONC)
+RS232 gut
+SMTP sehr gut
+SNMP sehr gut
+TCP/IP sehr gut.
+Windows Netzwerk gut
+Firewall: ipchains, iptables, ipfilter, ipfwadm,
+ fwbuilder, Checkpoint Firewall-1
+Application Traffic Management: BIG-IP Local Traffic Manager 1500,
+3400, 6400, 6900
+Load Balancing: DNS, HTTP, SMTP, Linux, Cisco LocalRedirector
+Masquerading, NAT, VPN, IPsec, OpenVPN, FreeS/WAN
+Cisco IOS
+VNC
+23.02.2023 9 von 10
+Hardware PC
+SUN
+Ich würde Ihnen gerne eine URL geben,
+hinter der sich noch umfangreichere
+Informationen befinden.
+Aber ich erwarte von Ihnen,
+dass Sie diese selbst finden,
+weil GULP es mir verbietet URLs
+in mein Profil zu stellen.
+Aus- und Weiterbildung
+1971-79:    Diverse Schulen. Bonn, London, Bukarest.
+1980-84:    Abitur in Helsinki.
+1984-85:    Studium Informatik, abgebrochen.
+1986-88:    Lehre DV-Kaufmann, abgeschlossen.
+1989-92:    Angestellter bei zwei Systemhäusern.
+In dieser Zeit 12 Wochen UNIX und Internet-Kurse.
+1993-2002:  Selbständig.
+2002-2004:  Angestellt und Selbständig.
+2005-2009:  Selbständig
+23.02.2023 10 von 10
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_36567 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+
+Personen-ID                36567
+  
+Wohnort                    691xx Walldorf, Deutschland
+Jahrgang                   1965
+Staatsbürgerschaft         deutsch
+Stundensatz                100 EUR
+Verfügbar ab               01.06.19 zu 100%, Vor-Ort-Einsatz 5% möglich
+Profil erstellt am         12.03.02
+Profil zuletzt geändert am 25.04.19
+Lesen von Projektanfragen  > 5 Tage [00]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 14.05.2019 08:31:38
+
+Fachlicher Schwerpunkt:
+System. - u. Netzwerkmanagement, UNIX, Linux, Solaris, TCP/IP, Security, C,
+Client/Server Programmierung, ISP
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+1971-79:    Diverse Schulen. Bonn, London, Bukarest.
+1980-84:    Abitur in Helsinki.
+1984-85:    Studium Informatik, abgebrochen.
+1986-88:    Lehre DV-Kaufmann, abgeschlossen.
+1989-92:    Angestellter bei zwei Systemhäusern.
+In dieser Zeit 12 Wochen UNIX und Internet-Kurse.
+1993-2002:  Selbständig.
+2002-2004:  Angestellt und Selbständig.
+2005-2009:  Selbständig
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch     Muttersprache
+Englisch    Verhandlungssicher in Wort und Schrift.
+FranzösischGrundkenntnisse. (Gymnasium, 5 Jahre)
+Spanisch    Grundkenntnisse.
+
+Finnisch: Grundkenntnisse. Kaum nennenswert. (Gymnasium, 5 Jahre)
+
+Hardware:
+PC   
+SUN  
+
+
+Betriebssysteme:
+HPUX             
+MS-DOS           
+OSF/Motif        
+SUN OS, Solaris  
+Unix             
+Windows          
+
+Diverse Linux-Derivate.
+Diverse Unix-Derivate.
+BIG-IP LTM
+Cisco IOS.
+Diverse Router.
+
+Programmiersprachen:
+C                                  sehr gut
+C++                                gut
+Cobol                              gut
+ESQL/C                             gut
+Imake, GNU-Make, Make-Maker etc... gut
+Java                               Java: ausreichend, keine Projekterfahrung,
+                                   grosses Interesse. JavaScript: ausreichend
+JavaScript                         Java: ausreichend, keine Projekterfahrung,
+                                   grosses Interesse. JavaScript: ausreichend
+Perl                               gut (Perl/TK)
+PHP                                sehr gut
+PL/SQL                             ausreichend
+Shell                              sehr gut
+Tcl/Tk                             Tcl: ausreichend, TK: gut (Perl/TK)
+Xt, Motif                          ausreichend
+
+
+Datenbanken:
+DB2      ausreichend
+Informix ausreichend
+Ingres   ausreichend
+MySQL    gut
+Oracle   befriedigend
+SQL      gut
+Sybase   ausreichend
+
+
+Datenkommunikation:
+Ethernet           gut
+Internet, Intranet sehr gut
+ISDN               ausreichend
+ISO/OSI            sehr gut
+NetBios            befriedigend
+OSF/DCE            ausreichend
+Router             gut.
+RPC                sehr gut. (Sun-RPC, ONC)
+RS232              gut
+SMTP               sehr gut
+SNMP               sehr gut
+TCP/IP             sehr gut.
+Windows Netzwerk   gut
+
+Firewall: ipchains, iptables, ipfilter, ipfwadm,
+ fwbuilder, Checkpoint Firewall-1
+Application Traffic Management: BIG-IP Local Traffic Manager 1500, 3400, 6400,
+6900
+Load Balancing: DNS, HTTP, SMTP, Linux, Cisco LocalRedirector
+Masquerading, NAT, VPN, IPsec, OpenVPN, FreeS/WAN
+Cisco IOS
+VNC
+
+
+
+Produkte/Standards/Erfahrungen:
+Open Source Software
+Linux
+Apache
+BIND, DNS
+Cyrus, Dovecot, IMAP
+gcc
+Nagios, MRTG, RRDTOOL, Big Brother, SNMP
+Perl
+PHP
+Request Tracker
+Postfix, Sendmail, SMTP
+Samba
+OpenOffice
+Squid
+CVS
+MySQL, Postgres
+cygwin
+Firewall Builder
+FreeS/WAN
+
+Erstellung von Designs, Spezifikationen
+Projektleitung
+Portierung
+Suchmaschinenoptimierung(SEO)
+
+
+Branchen:
+Hosting.
+Internet Service Provider.
+Rechenzentrum.
+Dienstleistung.
+Systemhersteller.
+Bank.
+Finanzdienstleister.
+EDV.
+Telekommunikation.
+Industrie.
+Handel.
+
+Projekte:
+===============================================================================
+Hosting Development Design für Telefónica o2 Germany:
+
+Design und Implementierung von komplexen Serverlösungen.
+
+Entwicklung eines Installtions-Servers für
+redundant ausgelegte F5 BIG-IP Local Traffic Manager (LTM)
+Loadbalancer-Pärchen,
+welcher die Konfigurationsdaten weitgehend aus
+einer hauseigenen Hardware.- und Konfigurationsdatenbank ermittelt.
+
+Design, Referenzimplementierung, Dokumentation,
+Freigabetests, betriebliche Bereitstellung,
+von F5 Loadbalancerkonfigurationen,
+die gleichzeitig sowohl
+*) NAT basiertes Application Delivery Networking (L7)
+beherrschen,
+*) als auch hocheffizientes Direct Server Response (asynchrones L4)(nPath).
+
+Design eines Open Source basierten Mailserverclusters,
+um Lotus Notes abzulösen.
+
+Mitarbeit im Projekt Hosting Capacity Planning. (Diverse Scripte).
+
+Script zur vollautomatischen Paketerstellung für Redhat und Solaris.
+
+MySQL Plugin zur flexibel konfigurierbaren
+Schwellwertüberwachung für Big Brother.
+
+Dauer: bisher 10 Monate.
+Zeitpunkt: 2008 - jetzt.
+Programmiersprachen: Shell-Scripts, Perl, AWK, C.
+Betriebssystem: F5 BIG-IP LTM (9.3.1, 9.4.x), Linux (RedHat), Sun-Solaris.
+Anwendersoftware: MySQL, Postfix, Dovecot, OpenLDAP, Confluence, T-Wiki.
+Branche: Hosting für Grosskunden, ISP.
+===============================================================================
+System.- u. Netzwerkmanagement für KARE:
+
+Alles, was eine Firma mit ein paar hundert Mitarbeitern,
+die weltweit verteilt sind, im Hintergrund so braucht.
+Sehr viel Beratung, Mailserver, Faxserver, Webserver,
+LDAP, DNS, Monitoring, Alarming, Trobleshooting, Debugging,
+Virtualisierung, redundante Auslegung, Ausfallsicherheit,
+Hardwareauswahl, RAID, Security,
+SPAM.- und VirenFilter, Firewalls, Upgrades, Neuinstalltionen,
+Logfileauswertungen,
+Trouble-Ticketing, Installationsserver, CMS.
+Dauer: bisher ca. 18 Monate, verteilt auf bisher 3 Jahre.
+Zeitpunkt: 2005-2007
+Programmiersprachen: PHP, Perl, Shell-Scripts, CGI, HTML.
+Betriebssystem: XEN, Linux (Gentoo), Windows.
+Anwendersoftware: Cyrus-IMAP, Postfix, Squirrelmail, DSPAM,
+amavis, Apache, OpenLdap, phpLDAPadmin,
+Hylafax, mysql, PHPmyAdmin, RRDTOOL, Nagios, Cacti, awstats, webalizer,
+Bind, iptables, fwbuilder, Joomla.
+Branche: Handel.
+===============================================================================
+System.- u. Netzwerkmanagement für RBG/Fiducia:
+
+Weiterentwicklung, Troubleshooting und Support
+des hauseigenen System.- u. Netzwerkmanagement Programms INES.
+
+Fertigstellung, Fehlerynalyse und Support
+eines multithreaded Bulk-SNMP-basierten Accountingsystems auf Basis von SOAP,
+zur Rechnungsschreibung aller (16.000) bayrischen Raiffeisenbanken.
+
+Entwicklung eines Installations-Servers für Debian-Linux basierend auf FAI.
+Entwicklung eines Installations-Servers für RedHat-Linux basierend auf
+anaconda.
+
+Ausfallprognose, Fehleranalyse, Schwellwertüberwachung, Montoring,
+Alarming von Linux-Hosts, Sun-Solaris-Hosts,
+Cisco-Routern, IBM-Routern, Bridges, Netzwerklaufzeiten,
+CPU, Festplatten, IP-Traffic/Fehler, Ethernet-Traffic/Fehler,
+TCP-Traffic/Fehler, UDP-Traffic/Fehler, Datenbankverfügbarkeit, Prozesse.
+
+Accounting von Partneranbindungen via RRDTOOL, Mysql, Apache,
+mit Übergabe der Accountigdaten an DB/2.
+
+Benutzerauthentifizierung an Routern via Radius, TACACS und LDAP.
+
+Performance.- und Laufzeitanalysen des aus rund
+100 Java basierten Sun Solaris E10K und E15K Systemen
+bestehenden Online-Banking Clusters.
+
+Sämtliche dieser Systeme sind komplett ausfallsicher (redundant) ausgelegt,
+weil beim Abschalten oder Updaten eines Systems der Betrieb
+ohne Ausfall auf Anwenderseite, Datenverlust
+oder Eingriff von Admins gewährleistet sein muß.
+
+Dauer: 2,5 Jahre.
+Zeitpunkt: 2002 - 2004
+Programmiersprachen: PHP, Perl, Shell-Scripts, CGI, HTML, AWK, C.
+Betriebssystem: Sun-Solaris, Linux (SuSE, RedHat, Debian), Cisco IOS.
+Anwendersoftware: Apache, Nagios, RRDTOOL, MRTG, DB/2, MySQL, SNMP, OpenLDAP,
+SOAP.
+Branche: Bank.
+===============================================================================
+osCommerce Webshops für KARE:
+http://www.kare.de         (KARE-Grosshandel)
+http://www.kare-design.de  (KARE-Einzelhandel)
+http://www.kare.eu/        (Rund 20 KARE-Franchise-Shops)
+http://osCommerce.Com      (Hersteller von osCommerce)
+Die Firma KARE Reiter + Schönhofen OHG wünschte sich einen Webshop uns wollte
+diesen von Grund auf programmieren lassen.
+Ich konnte die Geschäftsleitung davon überzeugen, dass osCommerce die
+kostengünstigste professionelle Basis darstellt.
+So konnte ich mit relativ geringem Aufwand, zwei Shops zaubern, inclusive
+Anbindung an die hauseigene Datenbanken.
+Das Projekt ist nicht abgeschlossen,
+es sind mittlerweile rund 20 Shops und weitere Shops in Arbeit.
+Allerdings haben ich die Shop-Software inzwischen so modifiziert,
+dass der Franchisenehmer lediglich eine Übersetzung der Texte liefern braucht
+und die Installation auf meiner Seite dann nur noch 10 Minuten in Anspruch
+nimmt.
+Das letzte nennenswerte Unterprojekt (2007) war die Programmierung
+einer neuen Datenbankschnittstelle basierend auf XML.
+Kleine Erweiterungen sind geplant.
+Dauer: bisher ca. 15 Monate, verteilt auf bisher 5 Jahre.
+Zeitpunkt: 2003-2007
+Programmiersprachen: PHP, Perl, Shell-Scripts.
+Betriebssystem: Linux (RedHat und Gentoo).
+Anwendersoftware: osCommerce, Apache, MySQL, mysqlcc, mysqladmin, phpMyAdmin,
+RequestTracker, OpenVPN, FwBuilder, iptables.
+Branche: Handel.
+===============================================================================
+R-TuX:
+Es ist mein eigenes, single-floppy-based TDSL-Router-Firewall-Linux-System,
+welches sich automatisch aus dem Netz initialisiert (zentrale Software-Pflege).
+Mit nur einer Diskette kann aus jedem 486er,
+der 2 Netzwerkkarten und min. 24 MB Speicher hat, in wenigen Minuten,
+ein vollwertiger T-DSL-Router gemacht werden.
+Sowohl das Booten über das IntraNet ohne Floppy,
+als auch automatisches ISDN-Fallback sind in Vorbereitung.
+Dauer: 2 Monate.
+Zeitpunkt: 2002.
+Programmiersprachen: Shell-Scripts.
+Betriebssystem: Linux.
+Branche: Internet Service Provider. Telekommunikation.
+===============================================================================
+SetUp:
+Ist eine Tool-Sammlung, welche aus einer minimal installierten,
+sicheren Solaris Maschine, einen richtig brauchbaren GPL-Server macht.
+Optimalerweise ist es in Kombination mit JumpStart einzusetzen.
+SetUp versteht aber auch Linux.
+Dauer: 2 Monate.
+Zeitpunkt: 2001.
+Programmiersprachen: Shell-Scripts, Perl CGI.
+Betriebssystem: Solaris/Linux.
+Anwendersoftware: CVS.
+Br
+anche: Internet Service Provider.
+===============================================================================
+WebMail/IntraNet Portal
+Ziel war, den bestmöglichen Mailserver zu bauen.
+Er besteht aus den edelsten Komponenten,
+Limits werden ausschliesslich durch die Hardware gesetzt.
+Bei entsprechender Hardware sollten bis zu 0,5 Mio Benutzer möglich sein.
+Inclusive Projektverwaltung, Zeitverwaltung, TroubleTicketing,
+Chat und mehr. Ihr perfektes Intranet.
+MRTG und Big Brother von HTML nach PHP portiert.
+Die Hintergrundfarbe zeigt den Status aller überwachten Systeme.
+Dauer: 9 Monate.
+Zeitpunkt: 2000-2001.
+Programmiersprachen: C, PHP, Perl, CGI, HTML.
+Betriebssystem: Linux/Solaris.
+Anwendersoftware: Apache, MRTG, Big Brother, Intas
+Branche: Internet Service Provider, Bank.
+===============================================================================
+Projekt technischer Aufbau einer ISP Struktur
+Für einen Münchener Internet Service Provider habe ich die komplette
+Accounting,
+Abrechnungssoftware programmiert, diverse weitere Systeme konzipiert.
+Kundenbetreuung, Serverinstallationen und Wartung. Security, diverse Router.
+Ich betreute das System bis Februar/2002,
+allerdings nicht zukünftig.
+Dauer: insgesamt 3 Mannjahre.
+Zeitpunkt: verteilt zwischen 1999-2002.
+Betriebssystem: Solaris, Linux, Cisco IOS, Bay Networks Nauitca, Concorde.
+Programmiersprachen: C, Scripts, PHP, Perl, CGI, HTML.
+Datenbanken: Oracle, MySQL, dbm.
+Branche: Internet Service Provider, Telekommunikation, Rechenzentrum,
+Dienstleistung.
+===============================================================================
+ZVT-700
+Ist das bekannte Zahlungsverkehrsterminal der Giesecke &amp; Devrient.
+Spitzname: "Der Winkel", zu bewundern an fast jeder Tankstelle.
+Ich darf hier nicht viel mehr sagen, als ein wenig.
+Der Auftrag war, den in Assembler gewachsenen Code,
+durch eine strukturiertere Version in C zu ersetzten.
+Dauer: 6 Monate.
+Zeitpunkt: 1998.
+Programmiersprachen: Keil-C, Assembler.
+Branche: Finanzdienstleister.
+===============================================================================
+CA Unicenter TNG
+Ich war verantwortlich für die Evaluierung dieses Beta-Systems,
+sowie aller zugehörigen administrativen Aufgaben,
+die Entwicklung eines SNMP-Agenten, welcher die 3 NT-Logfiles überwacht,
+filtert und entsprechende SNMP-Traps verschickt.
+Zum deutschlandweiten zentralisierten Sammeln von gefilterten Eventlogeinträgen
+und deren Integration in das NMS.
+Dauer: 1 Jahr. Zeitpunkt: 1997.
+Programmiersprachen: C, C++.
+Betriebssystem: Windows/NT.
+Programmiertools: Visual C++, ESQL-C (Oracle), awfactory.
+Branche: Bank.
+===============================================================================
+Aufbau Second Level Support
+Support- und Integrationsunterstützung für Investment Banking Systeme mit
+dem Schwerpunkt Solaris-Systeme.
+Integration in die bestehende Hostumgebung im Bereich Risikomanagement.
+Einarbeitung der Administratoren mittels Workshops.
+Evaluierung und Auswahl von einzusetzenden Softwarepaketen.
+Leitung der Entwicklung einer Software,
+die paralles Batch-Processing realisiert.
+Administration von Solaris Systemen.
+Dauer: 6 Monate.
+Zeitpunkt: 1996.
+Programmiersprachen: Shell-Scripts, C.
+Betriebssystem: Solaris, Windows/NT.
+Tools: make.
+Branche: Bank.
+===============================================================================
+Belegleser
+Der Teilbereich "Portierung von OS/2 nach Solaris" war zu realisieren.
+Da extrem Wert auf Performanz gelegt wurde,
+mußte u.A. mit Posix-Threads gearbeitet werden.
+Dauer: 3 Monate.
+Zeitpunkt: 1995.
+Programmiersprache: Multithreaded C (Posix).
+Betriebssystem: Solaris/Intel.
+Branche: Industrie.
+===============================================================================
+Lance+
+ist ein sehr komplexes NMS (Netzwerk Management System).
+Ich war verantwortlich für alle systemnahen Aufgaben,
+Portierungen auf weitere UNIX basierende Plattformen,
+Design und Realisierung von diversen Erweiterungen.
+Dauer: 1,5 Jahre.
+Zeitpunkt: verteilt von 1993-1995.
+Programmiersprachen: C, C++, Tcl/TK, Shell-Scripts.
+Betriebssystem: SunOS, HP-UX, Solaris.
+Programmiertools: ESQL-C (Ingres), Motif, X11.
+Tools: GNU (RCS, CVS, Emacs, gdb).
+Branche: EDV, Systemhersteller.
+===============================================================================
+Kurse
+Kurse zu folgenden Themen habe ich geleitet:
+UNIX-Systemprogrammierung.
+Netzwerkprogrammierung unter UNIX.
+TCP/IP und NFS in der Praxis.
+Dauer: 20 Wochen.
+Zeitpunkt: verteilt auf 1993-1995.
+Programmiersprachen: C.
+Betriebssystem: SunOS, Solaris.
+Programmiertools: SparcWorks.
+Branche: EDV, Systemhersteller.
+===============================================================================
+Deutsches Patentamt
+Dieses Projekt liegt im Bereich von ca. 20 Mannjahren und beschäftigt
+im Schnitt ca. 20-30 Mitarbeiter. Das angeblich grösste Projekt in Deutschland.
+Eine netzweite Administration von Accounts (ULTRIX und Oracle Datenbank) und
+eine Fehler-Datenbank waren zu realisieren.
+Dauer: 3 Monate. Zeitpunkt: 1993. Programmiersprachen: C, Shell-Scrips.
+Betriebssystem: Ultrix.
+Programmiertools: ESQL-C (Oracle), Motif, X11.
+Branche: EDV, Systemhersteller.
+===============================================================================
+WORM-Server
+Leitung ein großen Projektes (3 Mannjahre).
+Führung von technisch unterstellten Mitarbeitern.
+Design und Realisierung eines verteilten WORM-Servers basierend auf NFS,
+mit Dateisystem in Informix und Oracle Datenbank.
+Dauer: 1 Jahr, 4 Mitarbeiter.
+Zeitpunkt: 1991-1992.
+Programmiersprachen: C, Shellscrips.
+Betriebssysteme: SINIX, HP-UX, SunOS.
+Programmiertools: RPC, ESQL-C (INFORMIX und Oracle), Motif, X11.
+Branche: EDV, Systemhersteller.
+===============================================================================
+Consulting Netzwerke
+Als Projektleiter bei einem Systemhersteller,
+in der Abteilung Consulting Netzwerke tätig,
+Beratung von Großkunden im Bereich Internet.
+Dauer: 1 Jahr. Zeitpunkt: 1990-1991.
+Branche: EDV, Systemhersteller.
+===============================================================================
+Ttytool
+Ttytool ist ein OpenWindows-Programm zum Testen und Konfigurieren von
+seriellen Schnittstellen an Sun-Workstations.
+Mitarbeiter der Hotline wurden in diesem Rahmen von mir geschult.
+Ttytool hat, nicht zuletzt Aufgrund der 100 Seiten umfaßenden Dokumentation,
+den Supportaufwand in diesem Bereich nachhaltig enorm reduziert.
+Dauer: 1 Jahr. Zeitpunkt: 1989.
+Programmiersprachen: C, Shell-Scrips.
+Betriebssystem: SunOS.
+Programmiertools: DevGuide, OpenWindows, X11
+Branche: EDV, Systemhersteller.
+===============================================================================
+Second Level Support Unix/TCP-IP
+Deutschlandweiter Last-Level Support Solars/SunOS, beim Hersteller.
+Dauer: 1 Jahr.
+Zeitpunkt: 1988.
+Branche: EDV, Systemhersteller.
+===============================================================================
+Hauseigene SINIX Distribution
+Im Rahmen dieses Projektes wurden alle hauseigenen SINIX spezifischen
+Systemanpassungen, die ich entwickelt habe,
+in einer eigenen hauseigenen SINIX-Installation zusammengefasst.
+Dazu gehörten Druckerbackends (C), Portierungen (Scripts &amp; Schnittstellen),
+Kunden-Datenbank (Informix). Angebotsschreibung (HIT),
+Installationssoftware (SINIX-MUS), Administration und Konfiguration
+(eigene Scripts).
+Dauer: 1 Jahr. Zeitpunkt: 1987.
+Programmiersprachen: C, Shell-Scrips, und COBOL (MicroFocus).
+Betriebssystem: SINIX.
+Programmiertools: ESQL-C, MES.
+Anwendersoftware: INFORMIX, HIT.
+Branche: EDV, Handel.
+===============================================================================
+Münchner Warenwirtschaft
+MüWa ist ein komplexes Programm zur Kunden.- Artikel.- und Auftragsverwaltung.
+Mitarbeit als Projektleiter. Diverse individuelle Anpassungen wurden
+durchgeführt.
+Zeitpunkt: 1986-1987.
+Dauer: 1,5 Jahre.
+Programmiersprachen: COBOL (RM), Clipper und dBASE III.
+Betriebssysteme: CP-M 3.0, RSX-11M, MS-DOS 2.11.
+Programmiertools: Hauseigener Cobol-Source-Generator.
+Branche: EDV, Handel.
+===============================================================================
+
+Referenzen:
+Projekt technischer Aufbau einer ISP Struktur, 03/99 - 02/02
+Referenz durch Internet Full-Service Provider (10 MA) vom 13.03.02
+"Der Consultant war bei uns von März 1999 bis Februar 2002 als freiberuflicher
+Mitarbeiter in der technischen Leitung beschäftigt. Unser Unternehmen ist ein
+mittelständischer Internet Full-Service Provider mit Sitz in München und bietet
+seinen sehr namhaften Kunden alle Dienstleistungen eines Internet Full-Service
+Providers, wie Hosting und Server-Homing, Firewall-Security, IP-Connectivity
+und kundenspezifische Lösungen an. Zu dem Aufgabengebiet des Consultants
+gehörte die gesamte Entwicklung des firmeneigenen IP-Accounting Programmes zur
+automatisierten Rechnungserstellung, RIPE konforme IP-Zuweisung, Konfiguration
+der Cisco Gateway-Router, Betreuung von Unix-Cluster Systemen, Implementierung
+von Firewall-Security Lösungen und Unix Systemadministration. Desweiteren hat
+er einen Installserver für Unix-Systeme sowie einen festplattenlosen,
+fernwartbaren Router für unser Unternehmen entwickelt. Der Consultant
+beeindruckte vor allem durch sein enormes Fachwissen, seine enorme
+Zuverlässigkeit, schnelle und dabei immer durchdachte Lösungen und seine extrem
+hohe Einsatzbereitschaft. Seine Projekte sind hervorragend dokumentiert und
+bewährten sich bereits unmittelbar nach der Einführung. Der Consultant war bei
+der Firmenleitung und den Kollegen gleichermassen beliebt und respektiert. Dank
+seiner kontinuierlich hohe Leistung sowie seiner vor allem pragmatischen
+Effizienz konnten auch sehr komplexe Projekte schnell umgesetzt werden und von
+Mitarbeitern im weiteren Verlauf autark betreut werden. Wir wünschen ihm für
+die Zukunft in privaten als auch beruflichen Fragen alles Gute."
+Alle Referenzen sind durch GULP bestätigt.
+
+Sonstige Anmerkungen:
+Ich würde Ihnen gerne eine URL geben,
+hinter der sich noch umfangreichere
+Informationen befinden.
+Aber ich erwarte von Ihnen,
+dass Sie diese selbst finden,
+weil GULP es mir verbietet URLs
+in mein Profil zu stellen.
+
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_36567 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 26.04.2019 00:39:44
+© Copyright 1996-2019 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

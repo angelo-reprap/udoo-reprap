@@ -1,0 +1,455 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_58476
+
+
+Stammdaten (Auszug):
+
+Personen-ID                58476
+  
+Wohnort                    806xx München, Deutschland
+Jahrgang                   1958
+Staatsbürgerschaft         Deutsch
+Stundensatz                60 EUR
+                           je nach Anforderungen
+Verfügbar ab               15.03.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         23.01.04
+Profil zuletzt geändert am 09.03.21
+Lesen von Projektanfragen  12 Stunden [10]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 22.03.2021 14:40:21
+
+Fachlicher Schwerpunkt:
+Windows Administration, Citrix XenDesktop, XenAppp und VMWare. Powershell
+Scripting zur Automatisierung von Abläufen und zur Überwachung.
+
+Position:
+Beratung / Consulting
+Administration / Support
+Dokumentation / DTP
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+1985
+Studium der Feinwerktechnik an der FH München
+Abschluß: Diplom Ingenieur (FH)
+
+Microsoft:
+    * MCITP 70-640, Windows 2008 Server Active Directory - Schulung
+    * MOC 20462, Administering Microsoft SQL Server 2014
+    * MOC 20345-1, Administering Microsoft Exchange Server 2016
+    * WSH VBScript, Powershell 4.0 - Selbstudium
+
+Citrix: 
+    * CCA-V, 1Y0-200 Managing XenApp/XenDesktop 7.5 Schulung
+    * CCP-V, 1Y0-300 Deploying XenApp/XenDesktop 7.5 - Schulung
+    * XenServer 6  - CCA 1Y0-A26 Schulung
+
+VMWare:
+    * VCP-510 vSphere 5  Schulung
+    * VCP 6.5- DCV  Schulung
+    * VMWare Summer School 2017: NSX, vRealize Automation, VSAN
+
+Einsatzort:
+Regionen:
+D0, D8
+im Umkreis von:
+Leipzig (10 km)
+München (10 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch     Muttersprache
+Englisch    First Certificate der Cambridge University
+FranzösischZertifikat der pariser Industrie- und Handelskammer
+Russisch    Grundkenntnisse
+
+
+Hardware:
+HP Hardware DL Series Administrator
+
+
+Betriebssysteme:
+Citrix XenApp und XenDesktop           Administrator
+Citrix XenApp und XenDesktop 1912 LTSR Administrator
+Citrix XenApp und XenDesktop 7.15      Administrator
+HP Dataprotector                       Operator
+Matrix 24                              Operator
+Netapp Admin                            
+VShpere 6                               
+vSphere 6.0/6.5/6.7/7.0                Administrator
+Windows 10 VDI                         Administrator
+Windows 2008/2012/2016/2019 Server     Administrator
+Windows 2008/2016/2019 Server           
+Windows 7 VDI                          Administrator
+
+Virtualisierung, Hyper-V und VSphere
+Citrix XenApp und Xendesktop
+
+Programmiersprachen:
+Powershell 4.0  
+
+Powershell 4.0 gut
+WSH/VBS gut
+
+Datenbanken:
+MS SQL Server gut
+ODBC          gut
+SQL           gut
+
+
+Datenkommunikation:
+Router           sehr gut
+TCP/IP           Sehr gut
+Windows Netzwerk sehr gut
+
+
+Produkte/Standards/Erfahrungen:
+Citrix Provisioning Server  
+Projekterfahrung mit Netzwerk- und System Management Tools
+
+Windows 2003/2008/2012R2/2016 Server incl. Active Directory
+Windows 7/10
+Print-, File Server
+Hypervisor, Cluster
+DNS-, DHCP Server
+
+Citrix Xenapp und XenDesktop 7.9
+Netscaler 12.0
+VMWare vSphere  5 und 6
+
+Branchen:
+Telekommunikation
+Flughafen
+Öffentlicher Dienst
+Banken
+Versicherungen
+
+Projekte:
+03/2019 - 04/2020: Windows/Citrix/VMWare Administrator VDI und Server based
+Computing
+ 
+Rolle:              IT und Softwareentwicklung
+Kunde:              ITERGO
+ 
+Aufgaben:
+ 
+Migration der Citrix XenApp Farm von Version 6.5 auf 7.15 LTSR.
+ 
+Migration der Terminal Server von Windows 2008 auf 2016, basierend auf VSphere
+6.
+ 
+Migration der physischen und virtuellen Arbeitsplätze von Windows 7 auf Windows
+10.
+ 
+Erstellen von Konzepten und Powershell Skripten für die Migrationen.
+ 
+Aufbau einer Testumgebung mit Citrix XenApp/XenDeskop Version 1912 LTSR.
+Bereitstellung der VDIs und Terminal Server mittels MCS. Profile Roaming und
+Application Masking mit FSLogix.
+ 
+Eingesetzte Produkte:
+ 
+Citrix XenApp und XenDesktop 7.15, VShpere 6, Windows 2008/2016/2019 Server,
+Windows 10 VDI, Windows 7 VDI, Citrix XenApp und XenDesktop 1912 LTSR, Netapp
+Admin
+===============================================================================
+10/2018 - 12/2018: Citrix XenApp Administration
+ 
+Einsatzort:         München
+Rolle:              Administrator
+Kunde:              BG Phoenics
+ 
+Aufgaben:
+ 
+Pflege, Update und Test der Terminal Server Images in der Citrix PVS Console.
+Veröffentlichung und Bereitstellung von Anwendungen für Anwendergruppen und
+Entwickler.
+User Berechtigungen.
+Performance Analyse der Terminal Server.
+ 
+Eingesetzte Produkte:
+ 
+CA Software Delivery DSM, Citrix Xen App/Desktop 7.15, Citrix Provisioning
+Server, HP Service Manager 9, VCenter 6.0
+===============================================================================
+01/2018 - 08/2018: vSphere Migration und Windows Administration
+ 
+Rolle:              Administrator
+Kunde:              Panasonic Automation Europe
+ 
+Aufgaben:
+ 
+Administration der produktiven Windows Server. Virtualisierung von physischen
+Servern inkl. Applikationen (P2V). Migration der Umgebung von vSphere 5.5 auf
+6.5. Aufbau einer VSAN Umgebung. Sicherstellung der Backups. Erstellen von
+Power Shell Skripten zum Export der Exchange Mailboxen in PST Dateien.
+ 
+Eingesetzte Produkte:
+ 
+vSphere 5.5 und 6.5, Windows 2008/2012, Powershell 4.0, HP Dataprotector, HP
+Server DL Series
+===============================================================================
+05/2016 - 09/2017: Renovierung eines geerbten Mietshauses
+ 
+===============================================================================
+11/2010 - 05/2016: Administration von virtuellen Desktops, Windows Server und
+ThinPrint
+ 
+Kunde:              Bank (Sparda Datenverarbeitung eG)
+ 
+Aufgaben:
+ 
+    * Administration von virtuellen Desktops, Windows Server und ThinPrint
+    * Erstellen von  Powershell Scripten zur Überwachung oder Automation von
+      Abläufen.
+    * Problemmanagement 3rd Level.  Migration von Citrix XenDesktop 5.6 auf 7.5
+    * Migration von Windows XP Desktops auf Windows 7 und Windows 2003 auf 2012
+    * Arbeitsweise nach ITIL.
+ 
+Kenntnisse:
+ 
+Windows 2003/2008/2012 R2, Windows 7 und XP, Powershell 4.0, VMware vSphere
+5.5, vCenter 5.5, Citrix XenDesktop 5.6 und 7.5 ThinPrint 10, Ticketsystem HP
+Service Manager
+===============================================================================
+10/2009 - 05/2010: Konzeption einer neuen virtuellen Infrastruktur inkl. SAN
+ 
+Kunde:              Bank (Wealthcap)
+ 
+Aufgaben:
+ 
+    * Konzeption einer neuen virtuellen Infrastruktur inkl. SAN.
+    * Konzeption einer  Backup und Desaster Recovery Lösung.
+    * Aufbau der virtuellen Infrastruktur.
+    * Migration der vorhandenen ca. 40 Windows 2003/2008 und Linux Server in
+      die
+    * virtuelle Infrastruktur mittels VMWare Converter (P2V/V2V).
+    * Aufbau neuer virtueller Windows 2008 R2 Systeme.
+ 
+Kenntnisse:
+ 
+vSphere 4.0, vCenter 4.0, VMWare Site Recovery Manager, EMC Clariion,
+Navisphere, EMC Recover Point, EMC Networker Backup, Windows 2003, 2008, 2008
+R2 Server, Active Directory, DHCP, DNS
+===============================================================================
+12/2008 - 03/2009: Mitarbeit bei der Konzeption der Migration von Windows 2000
+Clients auf Windows Vista - Client Design und Application Testing
+ 
+Kunde:              Telekommunikationsunternehmen (O2)
+ 
+Aufgaben:
+ 
+    * Mitarbeit bei der Konzeption der Migration von Windows 2000 Clients auf
+      Windows Vista - Client Design und Application Testing.
+    * Dokumentation der Ergebnisse.
+ 
+Kenntnisse:
+ 
+Windows Vista, VMWare Workstation 6.5, NetInstall (enteo), Softwareverteilung,
+Windows 2008 Server - Active Directory, Group Policies
+===============================================================================
+03/2007 - 10/2008: Mitarbeit bei der Konzeption und Durchführung zum Aufbau des
+neuen Datacenters. Virtualisierung der neuen Windows Server
+ 
+Kunde:              Telekommunikationsunternehmen (BT Germany)
+ 
+Aufgaben:
+ 
+    * Mitarbeit bei der Konzeption und Durchführung zum Aufbau des neuen
+      Datacenters. Virtualisierung der neuen Windows Server.
+    * Aufbau einer Thin-Client-Pilotumgebung mit Citrix Presentation Manager
+      4.5
+    * Anbindung des Microsoft Operation Manager an NetCool über SNMP
+ 
+Kenntnisse:
+ 
+VMWare 3.5, Citrix Presentation Manager 4.5, Windows 2003 Server, Veritas
+Netbackup, Compaq SAN  Fabric Manager
+===============================================================================
+11/2005 - 12/2006: Windows2000/2003 Server Administration
+ 
+Kunde:              Telekommunikationsunternehmen (BT Germany)
+ 
+Aufgaben:
+ 
+    * Windows2000/2003 Server Administration.
+    * Pflege des Active Directories.
+    * Backup und Recovery.
+    * Windows2000 -> Windows XP Migration der Clients, 2nd Level Support
+      Bearbeitung der in MOM 2005 gemeldeten Ereignisse
+ 
+Kenntnisse:
+ 
+MOM 2005, Active Directory, Windows 2003 Server, Veritas NetBackup, Clarify
+Help Desk Tool
+===============================================================================
+05/2005 - 10/2005: Mitarbeit im Customer Service Center
+ 
+Kunde:              Telekommunikationsunternehmen (BT Germany)
+ 
+Aufgaben:
+ 
+    * Entgegennahme von Störungsmeldungen und Change Requests für Netzwerke
+      (MPLS, Frame Relay), Mail Server, Firewalls und Application Hosting.
+    * Eröffnen von Trouble Tickets und Erstanalyse. Dispatchen,
+    * Weiterverfolgung und Eskalation von Störungen. Dokumentation
+ 
+Kenntnisse:
+ 
+Clarify Help Desk Tool
+===============================================================================
+03/2004 - 04/2005: Aufbau eines Monitorings und Reportings zur Überwachung von
+Systemen und Applikationen auf Basis  Sun Solaris
+ 
+Kunde:              Telekommunikationsunternehmen (Vodafone)
+ 
+Kenntnisse:
+ 
+HP Openview, HP Openview Reporter, HP Openview Java GUI, Perl
+===============================================================================
+10/2004 - 12/2004: Übernahme des IT-Betriebes von BT UK nach BT Germany
+ 
+Kunde:              Telekommunikationsunternehmen (BT Germany)
+ 
+Aufgaben:
+ 
+    * Erstellen von SLAs, Einführung der IT-Betriebsführung nach ITIL.
+    * Aufbau des Monitorings mittels "Microsoft Operation Manager"
+    * Einrichten der Meldewege und Klassifizierung der Ereignisse
+ 
+Kenntnisse:
+ 
+MS-Windows 2003, MOM
+===============================================================================
+03/2003 - 12/2003: Outsourcing von Internet Diensten für externe Kunden
+ 
+Kunde:              Telekommunikationsunternehmen (BT Germany)
+ 
+Aufgaben:
+ 
+    * Aufbau und Betrieb von Internetdiensten für externe
+    * Autraggeber auf Basis Sun Solairs
+ 
+Kenntnisse:
+ 
+Apache Web Server, Mysql, PHP, NetIQ, Veritas Netbackup
+===============================================================================
+11/2002 - 02/2003: Migration von Lotus Notes auf Exchange 2000/Outlook 2000
+ 
+Kunde:              Telekommunikationsunternehmen (BT Germany)
+ 
+Aufgaben:
+ 
+    * Erstellen eines Migationskonzeptes. Test und Pilotierung der Migration
+      der Windows2000 Clients und Notes Server im  Hinblick auf größtmögliche
+      Automatisierung des Roll-Out Vorganges ohne notwendige Eingriffe seitens
+      der User oder Administratoren.
+    * Aufbau der Windows2000/Exchange2000 Server Farmen. Abstimmung mit den
+      international verteilten involvierten Organisationseinheiten.
+ 
+Kenntnisse:
+ 
+Lotus Notes 5.0, MS-Exchange2000, Windows2000 inkl. ADS
+===============================================================================
+04/2002 - 10/2002: Erstellung eines IuK-Infrastrukturkonzeptes
+ 
+Kunde:              Öffenlicher Dienst, Behörde (Landeskriminalamt Bayern)
+ 
+Aufgaben:
+ 
+    * Ableitung grundlegender Empfehlungen für die IT-Infrastruktur für die
+      mittelfristige IT-Planung. Insbesondere für die Aspekte:
+          o Serverbetriebsysteme (Windows2000)
+          o Clients (Windows XP)
+          o E-Mail System (Exchange2000)
+          o Verzeichnisdienst (Active Directory Service)
+          o Lokalisation
+          o Netzwerkarchitektur
+          o Service und Betrieb
+          o Sicherheit
+    * Umfangreiche Abstimmungsmaßnahmen mit den beteiligten
+      Organisationen.Erstellung einer Entscheidungsvorlage für die IT-
+      Verantwortlichen
+===============================================================================
+01/2002 - 03/2002: Aufbau eines übergreifenden Netzwerkmanagement Systems
+ 
+Kunde:              Öffenlicher Dienst, Stadtverwaltung (LH München)
+ 
+Aufgaben:
+ 
+    * Einbinden der Cicso Netzwerkkomponenten (ca. 700 Router)in Cisco Works
+      2000; Einbinden der 3Com Komponenten (ca. 500 Switches) in 3Com
+      Transcend; Zusammenfassung beider Tools zu einer Netzwerksicht mit CA
+      Unicenter; Einweisung der Netzwerk-Administratoren
+ 
+Kenntnisse:
+ 
+CA Unicenter TNG 2.2, HP-NNM 5.0, 3Com Transcend, Citrix Meta frame
+===============================================================================
+01/2002 - 03/2002: Hersteller und Produktempfehlung für ein integriertes
+Netzwerk-, System und Applikationsmanagement
+ 
+Kunde:              Öffenlicher Dienst, Fernsehen/Rundfunk (Bayerischer
+Rundfunk)
+ 
+Aufgaben:
+ 
+    * IST-Aufnahme und Erstellen eines Anforderungsprofils an das Tool.
+      Neutrale Herstellerauswahl nach Checklisten und Punktebewertung inklusive
+      einer Wirtschaftlichkeitsbetrachtung.
+    * Nachweis der geforderten Funktionalität mittels Produkttests.
+ 
+Kenntnisse:
+ 
+CA Unicenter TNG 2.4, BMC Patrol, IBM Tivoli
+===============================================================================
+04/2000 - 10/2001: Einführung eines integrierten Netzwerk-, System und
+Applikationsmanagement auf Basis Windows 2000- Cluster
+ 
+Kunde:              Medien Unternehmen (Kirch Media)
+ 
+Aufgaben:
+ 
+    * Beratung bei der Auswahl des am Besten geeigneten Produktes;
+    * Erstellen eines Grob- und Feinkonzeptes;
+    * Pilotierung und Roll-Out der Agenten für Sun Solaris und Windows 2000;
+      Schulung der Administratoren und Operatoren
+    * Erstellen eines Betriebsführungskonzeptes Teilprojekte:
+          o Betriebsführung, Service Center, Leitstand
+          o Aufnahme aller vorhandenen Prozesse des IT-Betriebes.
+          o Optimierung und Umsetzung der zum IT-Betrieb notwendigen Prozesse
+            nach ITIL
+ 
+Kenntnisse:
+ 
+Windows2000 Cluster, CiscoWorks2000, EMC, CA Unicenter TNG 2.4
+===============================================================================
+01/1999 - 10/2001: Einführung eines integrierten Netzwerk-, System und Beratung
+bei der Auswahl des am Besten  geeigneten Produktes
+ 
+Kunde:              Flughafen
+ 
+Aufgaben:
+ 
+    * Erstellung eines Grob- und Feinkonzeptes;
+    * Pilotierung und Roll-Out der Agenten für Sun Solaris und Windows 2000;
+    * Schulung der Administratoren und Operatoren
+ 
+Kenntnisse:
+ 
+CiscoWorks2000, HP-NNM, 3Com Trancend, EMC, CA Unicenter TNG 2.4
+===============================================================================
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_58476
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 13.03.2021 01:24:52
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

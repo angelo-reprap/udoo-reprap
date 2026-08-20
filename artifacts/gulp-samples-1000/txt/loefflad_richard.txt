@@ -1,0 +1,441 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_21256
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen ID                21256
+  
+Wohnort                    867xx Alerheim, Deutschland
+Jahrgang                   1970
+Staatsbürgerschaft         deutsch
+Stundensatz                95 EUR
+                           vor Ort
+Verfügbar ab               01.04.22 zu 50%, Vor-Ort-Einsatz 50% möglich
+Profil erstellt am         16.11.00
+Profil zuletzt geändert am 01.06.21
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 20.02.2021 10:21:55
+
+Fachlicher Schwerpunkt:
+Oracle (PL/SQL - APEX - DWH - DBA) und Linux / Unix
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Studium der Informatik an der Fachhochschule Augsburg
+Abschluß als Diplom Informatiker FH 1993
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+im Umkreis von:
+münchen (50 km)
+augsburg (50 km)
+nürnberg (50 km)
+ulm (50 km)
+ingolstadt (50 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Ausserhalb den genannten Orten nur mit hohem Remote-Anteil
+
+Fremdsprachen:
+Deutsch  Muttersprache
+Englisch in Wort und Schrift
+
+
+Betriebssysteme:
+HPUX             
+SUN OS, Solaris  
+Unix            sehr gute Kenntnisse
+Windows          
+
+
+Programmiersprachen:
+C           
+C#          
+Java        
+Javascript  
+Perl        
+PL/SQL     Expertenkenntnisse
+Shell      sehr gute Kenntnisse
+
+
+Datenbanken:
+Oracle Expertenkenntnisse
+SQL    Expertenkenntnisse
+
+
+Datenkommunikation:
+Internet, Intranet  
+
+
+Produkte/Standards/Erfahrungen:
+Internet
+    * (X)HTML
+    * Javascript
+    * CSS
+    * JQuery
+    * Apache
+    * Tomcat
+    * ORACLE ORDS (restful data services)
+    * HTTP 
+ 
+High availability
+    * Oracle Standby DB
+    * Oracle Advanced Replication
+    * Oracle Real Application Cluster
+ 
+DB Tuning
+    * Interpretation und Tunen von Ausführungsplänen
+
+Branchen:
+Industrie
+Versandhandel
+Bank- Finanzwesen
+Telekommunikation - Mobilfunk
+Halbleiterfertigung
+Gesundheitswesen
+Inkasso
+Verlagswesen
+
+Projekte:
+Firma:         
+Zeitraum:       Jul. 15 -
+Beschreibung:   Entwicklung einer modularen Investitionsrechnung
+ 
+    * Fachliche Konzeption zur Modularisierung von Investitionsrechnungen
+    * Entwurf des modularen Datenmodells
+    * UX-Design der APEX Applikation
+      (Mehrsprachigkeit, benutzerdefinierte Datum- und Zahlenformate,
+      Menüführung, automatisch Speicherung)
+    * Entwicklung der APEX Applikation
+    * REST-Einbindung von Jasper-Reports (Reports und Charts) in APEX inkl.
+      PDF-Download
+ 
+Software:       Oracle 12gR1, PL/SQL, Oracle APEX 5.0, CSS, Javascript,
+JasperReports
+===============================================================================
+Firma:          SGL Carbon
+Zeitraum:       Aug. 13  Jun. 15
+Beschreibung:   Entwicklung eines Planungstools für Technologieprojekte
+ 
+    * Fachliche Konzeption zur Ressourcen- und Kostenplanung
+      auf unterschiedlichen Zeithorizonten
+    * Entwurf des Datenmodells und einer Zugriffs-API zur
+      redundanz- und konfliktfreien Speicherung der
+      Planungsätze auf unterschiedlichen Zeithorizonten
+    * Entwicklung einer APEX-Applikation zur Datenpflege und
+      zum Aufruf des Reportings
+    * Revisionssiche Archivierung für das Projektcontrolling
+    * Reporting mit Jasper-Reports
+ 
+Software:       Oracle 11gR2, PL/SQL, Oracle APEX 4.2, CSS, Javascript,
+JasperReports
+===============================================================================
+Firma:          hama
+Zeitraum:       Mar. 13  Jul. 13
+Beschreibung:   Anbindung eines swisslog SmartCarrier Lagers an die bestehende
+hama Logistik
+ 
+    * Erweitern des hausinternen Lagerverwaltungssystems um eine
+      telegrammbasierte Schnittstelle zum swisslog System 
+Software:       Oracle 11gR2, PL/SQL
+===============================================================================
+Firma:          Güntner AG &amp; Co. KG
+Zeitraum:       Jul. 12  Apr. 13
+Beschreibung:   Aufbau einer Wissensdatenbank für den hausinternen
+Produktkonfigurator
+ 
+    * Design eines generischen Datenmodells zur Speicherung von vererbbaren
+      Konzepten mit ihren Attributen, Teile- und Variantenlisten sowie
+      Regelnetze für das Constraint-Satisfaction-Problem
+    * Entwicklung einer APEX-Applikation zur Visualisierung und Pflege der
+      hierarchisch vererbten Informationen
+    * Import-Schnittstelle zum PDM- und ERP-System
+    * Export-Schnittstelle zum Produktkonfigurator
+ 
+Software:       Oracle 11gR2, PL/SQL, Oracle APEX 4.2, CSS, Javascript
+===============================================================================
+Firma:          Kassenärztliche Vereinigung Bayerns (KVB)
+Zeitraum:       Apr. 11  Jun. 12
+Beschreibung:   Migration einer umfangreichen Delphi-Anwendung nach Oracle
+APEX im Umfeld des Stammdatensystems des Arztregisters
+ 
+    * Umsetzen des Corporate Designs der KVB in APEX
+    * Programmierung von PL/SQL-Routinen für die Verwendung der vorhandenen
+      REF-Cursor in APEX
+    * Neuerstellung der Masken mit möglichst gleicher Benutzerfunktionalität
+      wie im Delphi-Programm
+    * Einbindung der bestehenden Rechteverwaltung
+    * Entwicklung einer XML-Export-Schnittstelle, zur Erstellung
+      von Excel-Reports mittels XSLT unter Verwendung der
+      bestehenden REF-Cursor
+    * Coaching interner Mitarbeiter
+ 
+Software:       Oracle 10gR2, PL/SQL, Oracle APEX 4.0, CSS, Javascript
+===============================================================================
+Firma:          SGL Carbon
+Zeitraum:       Jul. 10  Mar. 11
+Beschreibung:   Entwicklung verteilter Manufacturing Execution Systeme
+(MES) auf Basis von Oracle APEX
+ 
+    * Aufbau eines durch Metadaten konfigurierbaren dynamischen Datenmodells
+      zur Ablage der Betriebs- und Maschinendaten
+    * Implementierung einer APEX Anwendung zur Visualisierung und Erfassung der
+      Daten unter Verwendung der APEX-API und JQuery
+    * SAP-Anbindung für die Verteilung der Material- und Auftragsdaten
+    * Replikation und Konsolidierung der lokalen Datenbestände in eine zentrale
+      Reportingdatenbank
+    * Integration von Jasper Reports
+    * Entwicklung einer XML-Export-Schnittstelle, zur Erstellung von Excel-
+      Reports mittels XSLT
+ 
+Software:       Oracle 10gR2, PL/SQL, Oracle APEX 3.2 und 4.0, JQuery, Oracle
+Advanced Replication, Jasper Reports 3.7.6
+===============================================================================
+Firma:          O2 telefonica
+Zeitraum:       Apr. 09  Jun. 10
+Beschreibung:   Sicherstellung der datenschutzrechtlichen Bestimmungen im
+Enterprise
+                Datawarehouse (45 TB)
+
+    * Konzeption einer sicherheitsrelevanten Zugriffsschicht (fine grained
+      Accesscontrol) zur Filterung nach Personengruppen und Datenkategorien
+    * Abstimmung des Konzepts mit der Rechtsabteilung
+    * Aufbau eines Metamodells zur Ablage der Zugriffsberechtigungen
+    * Bereitstellen von Replikationsmechanismen für die Verteilung der
+      Metadaten zwischen den DWH-Instanzen
+    * Entwicklung eines Viewgenerators mit PL/SQL
+    * Anpassung von ETL-Prozessen (OWB) unter Berücksichtigung der neuen
+      Sicherheitsarchitektur
+    * Tuning kritischer Bereiche
+Software:       ORACLE 10gR2, Oracle Private Database (VPD), Oracle Warehouse
+Builder 10g
+===============================================================================
+Firma:           RWC Consulting
+Zeitraum:        Feb. 09 - heute
+Beschreibung:    Erstellen einer Photovoltaik-Kalkulationssoftware auf Basis
+von Oracle APEX
+ 
+    * Installation Oracle 10gR2 und Oracle APEX 3.1.1
+    * Entwurf des Datenmodells
+    * Entwicklung des APEX-Frontends mit eigener Lizenz- und Benutzerverwaltung
+    * Kalkulationsberechnungen mit PL/SQL und Ausgabe über das Webtoolkit mit
+      CSS
+Software:        Linux 2.6, ORACLE 10gR2, ORACLE Application Express 3.1.1 PL/
+SQL, CSS
+===============================================================================
+Firma:           ING DiBa AG
+Zeitraum:        Dez. 08 - Jan. 09
+Beschreibung:    Excel-Exports von Bloomberg-Zinskurven aus einem Datawarehouse
+mit dem
+                 Oracle Warhouse Builder
+ 
+    * Erstellen von OWB-Mappings zur Aufbereitung der Bloomberg-Daten
+    * Export der aufbereiteten Daten als XML
+    * Transformation der XML-Daten mittels XSLT ins Excel-Format
+Software:        Oracle Warehouse Builder 10g, Microsoft Excel 2003
+===============================================================================
+Firma:          PMV GmbH
+Zeitraum:       Sep. 05 - Nov. 08 (30%)
+Beschreibung:   Erweitern eines Oracle-basierten Content-Management-Systems um
+Filminhalte
+ 
+    * Administration des Datenbank- und Application-Servers
+    * PL/SQL- und PHP-Entwicklung zur Generierung dynamischer HTML-Seiten
+    * Erweiterung um Filmuploads und die automatisch Konvertierung zu Flash FLV
+    * Einführung von Podcasts und RSS-Feeds
+    * Migration von Irix  6.5 nach Linux 2.6
+    * Migration Oracle 8.0.5 nach 10gR2
+Software:       Unix/Linux, Oracle Application Server (IAS), Oracle 10g, PHP,
+XML, RSS
+===============================================================================
+Firma:          itellium GmbH (Karstadt-Quelle AG)
+Zeitraum:       Sep. 05 - Nov. 08 (70%)
+Beschreibung:   Entwurf und Enwicklung des "Strategischen Versandhaus Systems"
+
+    * Konzepterstellung im Bereich der Logistik für Retourenabwicklung,
+      Verkehrsträgerabrechnung (Post, DHL etc.) und Auslandsanbindung
+    * Neuentwicklung/Modifikation von Oracle Forms- und Reports-Module sowie
+      PL/SQL-Packages
+    * Entwicklung eines SOAP-Webservice mittels JDeveloper zur Anbindung von
+      Auslandsmandanten
+    * Tuning kritischer Bereiche (größte Tabelle: 60 Mio. Sätze)
+Software:       HPUX 11, Linux 2.6, Win XP, ORACLE 11g, ORACLE Developer Suite,
+                Oracle Application Server (IAS), Oracle Enterprise Manager
+===============================================================================
+Firma:          automata GmbH
+Zeitraum:       Sep. 05
+Beschreibung:   Aufbau eines Live Linux als Java Umgebung einer
+Visualisierungssoftware
+                auf Basis einer Compact Flash
+ 
+    * Anpassen und Konfiguration eines Standardkernels
+    * Aufbau eines minimalen Root-Filesystems als Ramdisk
+    * Aufbau eines read-only Filesystems mit X-Server und JRE als
+      Laufzeitumgebung der Java Visualisierungssoftware
+Software:       Linux Kernel 2.4, xfree86, JRE 1.4
+Hardware:       Festplattenloser Panel-PC mit Compact Flash
+===============================================================================
+Firma:          Uniklinikum Ulm
+Zeitraum:       Aug. 05
+Beschreibung:   Recovery der Arztbriefdatenbank
+
+    * Analyse des Datenbankcrashs
+    * Wiederherstellung der Datenbank aus Archived Log Files
+    * Verbesserung des Sicherungskonzepts
+Software:       Oracle Enterprise Manager, RMAN
+===============================================================================
+Firma:          EADS
+Zeitraum:       Sep. 04 - Aug. 05
+Beschreibung:   Aufbau einer Webapplikation zum Management von
+Flugzeugkonfigurationen
+
+    * Installation und Administration des Oracle Application Server
+    * Anwendungsentwicklung zur Pflege der Konfigurationsdaten mit Oracle Forms
+    * Schnittstellenprogrammierung zu Access mit JavaBeans und ADO
+Software:       SunOs 5.9, Win2000, Oracle 10gAS, Oracle Developer Suite 10g,
+Java, LDAP
+Hardware:       SUN Fire V100 - V880
+===============================================================================
+Firma:          AEG
+Zeitraum:       Aug. 04
+Beschreibung:   Releaseupgrade der Oracle QM-Datenbank
+
+    * Neuinstallation der Datenbanksoftware
+    * Erstellen der DB-Instanz und Import der Datenbank
+    * Test der QM-Anwendung
+Software:      Oracle Enterprise Edition 8.0.5 und 8.1.7 Patch 4
+===============================================================================
+Firma:          EADS
+Zeitraum:       Sep. 01 - Aug. 04
+Beschreibung:   Aufbau von Referenz- und In-Service-Datenbanken im Rahmen des
+                Systemunterstützungszentrums Eurofighter
+ 
+    * Erstellen der IT-Konzepte
+    * Installation und Administration mehrerer verteilter Oracle Instanzen
+    * Modellierung des fachlichen Datenbankmodells
+    * Umsetzen des fachlichen Modells in ein DWH-Metaschema
+    * XML-Schnittstellenprogrammierung für Bau- und Lebensdauerdaten von und zu
+      PPS- und PDM-Systemen
+    * Replikation von In-Service-Daten über das Datennetz der Luftwaffe
+Software:       SunOs 5.9, Win2000, Oracle 8i/9i, PL/SQL, XML, XSL, PERL
+Hardware:       SUN Fire V100 - V880
+===============================================================================
+Firma:          itellium GmbH (Karstadt-Quelle AG)
+Zeitraum:       Jan. 01 - Jul. 01
+Beschreibung:   Einführung der Multimandantenfähigkeit im Bereich
+                des Katalogerstellungsprozesses
+ 
+    * Erweitern des Datenmodelles
+    * Neuentwicklung/Modifikation von Forms- und Reports-Module
+    * Datenbankadministration und Tuning
+Software:       UNIX, Win NT, ORACLE 8i, ORACLE Designer/Developer,
+                Oracle Application Server (OAS)
+===============================================================================
+Firma:          Infineon AG
+Zeitraum:       Jan. 99 - Dez. 00
+Beschreibung:   Tools zur Pflege und Visualisierung von Grunddaten für die
+                Supply-Chain-Management-Produkte (SCM) der Firma i2
+ 
+    * Laden von Grunddaten mit SQL-Loader
+    * Erstellen von Prozeduren und Trigger zur Gewährleistung der
+      Datenintegrität.
+    * Programmierung eines Query-Generators für die Erzeugung automatisierter
+      Datenbankabfragen.
+    * Erstellen von Prozeduren zur Auflösung komplexer hierarchischer
+      Datenbankstrukturen für die graphische Darstellung.
+    * SQL-Tuning
+Software:       UNIX, Oracle 7.3/8i, PL/SQL, Oracle Forms and Reports, Oracle
+Designer,
+                SQL-Loader, tkprof, i2 SCM-Software
+===============================================================================
+Firma:          T-Mobil
+Zeitraum:       Jan. 98 - Dez. 98
+Beschreibung:   Migration des Pre-Paid-Services XTRA
+
+    * Altsystem wird durch eine IN-Plattform (Intelligent Network Siemens) und
+      einer Oracle-basierten Customer-Care-Anwendung abgelöst.
+    * Erstellen eines Migrationskonzepts unter Berücksichtigung eines
+      Parallelbetriebs.
+    * Programmierung von Utilities zur Datenübernahme in die Oracle-DB.
+    * Programmierung von Schnittstellen zur Modifikation der Wirknetzelemente.
+    * Testmanagement
+Software:       UNIX, Oracle 7.3, PL/SQL, Developer/2000, S-Designor,
+Intelligent-Network
+===============================================================================
+Firma:          datronic GmbH
+Kunde:          Universitätsklinikum
+Zeitraum:       Jan. 95 - Dez. 97
+Beschreibung:   Einführung der digitalen Patientenakte
+
+    * Vertriebsunterstützung
+    * Konzeption und Spezifikation
+    * Installation der Serverumgebung
+    * Design und Installation der Patientendatenbank
+    * Schnittstellenprogrammierung zum Krankenhausinformationssystem (KIS)
+      mittels HL7
+    * Integration einer Jukebox
+    * Integration einer Scannerkamera
+    * Installation und Customizing der DMS-Software
+    * Administration
+    * Schulung der Anwender
+    * Koordinierung der Wartung
+Software:       Solaris, Oracle 7.3, PL/SQL, C/C++, sh, awk, Centura SQL-
+Windows,
+                DMS-Software ITA
+Hardware:       SUN SparcStation, Kodak Scannerkamera, SER Jukebox
+ 
+Kunde:          Industrie
+Zeitraum:       Jan. 94 - Dez. 94
+Beschreibung:   Einführung eines DMS-Systems
+
+    * Konzeption und Spezifikation
+    * Installation der Serverumgebung
+    * Schnittstellenprogrammierung
+    * Installation und Customizing der DMS-Software
+    * Einführung der Vorgangsbearbeitung in der
+    * Kreditorenbuchhaltung
+    * Schulung der Anwender
+    * Koordinierung der Wartung
+Software:       HP-UX, AIX, LU 6.2 APPC, sh, awk, Oracle 7.x, ODBC, DMS-
+Software ITA
+
+Referenzen:
+Projekt SVS, 10/05 - 01/09
+Referenz durch Projektleiter, Technologie-Dienstleister (650 MA), vom 27.02.09
+"[...] Durch die sehr gute Kompetenz in den Tools hat der Consultant die ihm
+übertragenen Aufgaben termin- und kostengerecht und in der definierten Qualität
+erbracht. Alle Aufgaben wurden stets zuverlässig und zu unserer vollen
+Zufriedenheit erledigt. Für die sehr gute Zusammenarbeit bedanken wir uns
+ausdrücklich."
+Projekt Data collection, Forms Programmierung, 09/01 - 08/05
+Referenz durch Senior Manager, europ. Luft- und Raumfahrtkonzern, vom 15.12.05
+"Zuverlässige, hochqualifizierte Entwicklungsarbeit im Bereich Datenbanken und
+Applikationsentwicklung für hochkomlexe Produkte"
+Projekt Oracle PL/SQL, Forms, Reports Anwendungsentwicklung, 01/01 - 07/01
+Referenz durch Projektleiter, Unternehmen für IT Systeme &amp; Services, vom
+01.08.01
+"Ein fachlich wie menschlich ganz ausgezeichneter Mitarbeiter, der wesentlich
+zur termingerechten und qualitativ hochwertigen Fertigstellung unseres Projekts
+beigetragen hat."
+Alle Referenzen sind durch GULP bestätigt.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_21256
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 02.06.2021 00:41:48
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

@@ -1,0 +1,274 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_173007
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                173007
+  
+Wohnort                    611xx Friedberg, Deutschland
+Jahrgang                   1966
+Staatsbürgerschaft         deutsch
+Stundensatz                95 EUR
+Verfügbar ab               08.10.19 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         14.09.16
+Profil zuletzt geändert am 07.10.19
+Lesen von Projektanfragen  2 Tage [06]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 20.09.2019 12:15:22
+
+Fachlicher Schwerpunkt:
+Datenbank- und Softwaredesign, Schnittstellen (API), Frontend
+
+Position:
+Software-Entwicklung / Programmierung
+Projektmanagement / -leitung / Organisation / Koordination
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Diplom-Physiker, Promotion zum Dr. rer. nat.
+
+Einsatzort:
+Regionen:
+D6
+im Umkreis von:
+Frankfurt am Main (200 km)
+Ich möchte AUSSCHLIEßLICH für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch      
+Englisch     
+Französisch 
+
+
+Betriebssysteme:
+Android  
+Linux    
+Unix     
+z/OS     
+z/VSE    
+
+
+Programmiersprachen:
+Angular  
+Cobol    
+Java     
+JSON     
+Natural  
+Perl     
+Python   
+python3  
+
+
+Datenbanken:
+Adabas  
+BaseX   
+DB2     
+
+
+Datenkommunikation:
+MQSeries  
+OpenAPI   
+REST      
+RESTXQ    
+
+
+Produkte/Standards/Erfahrungen:
+Eclipse             
+HTML                
+Microsoft Dynamics  
+REST                
+SOAP                
+XML                 
+XQuery              
+XSLT                
+
+Branchen:
+Banken
+
+Projekte:
+04/2018 - 12/2018: REST API für Altsystem Wertpapier-Sparpläne
+ 
+Einsatzort:         Frankfurt am Main
+Rolle:              Business Analyst
+Kunde:              Deutsche Bank AG
+ 
+Aufgaben:
+ 
+Ein bestehendes Mainframe-Altsystem (z/OS, DB2, COBOL) wurde mit modernen APIs
+auf Basis von REST versehen, um mit moderne Anwendungen Neuverträge anzulegen
+und bestehende Verträge zu ändern. 
+ 
+Kenntnisse:
+ 
+REST, COBOL, z/OS, DB2, MQSeries, python3
+===============================================================================
+10/2016 - 03/2018: Analyse und Konzeption von bankinternen Interfaces
+ 
+Einsatzort:         Frankfurt am Main
+Rolle:              Business Analyst
+Kunde:              Commerzbank AG
+ 
+Aufgaben:
+ 
+Für die Einführung eines Microsoft Dynamics CRM bei der Commerzbank mussten
+Schnittstellen zu vielen bestehenden Systemen der Bank genutzt bzw. definiert
+werden, um deren Daten verfügbar zu machen oder um die Systeme mit Daten zu
+beliefern. Je nach Alter der Systeme und ihrer Verfügbarkeit kam eine Vielzahl
+unterschiedlicher Technologien zum Einsatz: REST, SOAP, periodische
+Dateilieferungen etc.
+ 
+Kenntnisse:
+ 
+REST, SOAP, JSON, XML, OpenAPI
+ 
+Eingesetzte Produkte:
+ 
+Microsoft Dynamics
+===============================================================================
+01/2015 - 03/2016: Anbindung des Meldewesens an OSCI-XMeld
+ 
+Einsatzort:         Karlsruhe
+Rolle:              Softwarearchitekt
+Kunde:              Kirchliches Rechenzentrum Südwestdeutschland
+ 
+Aufgaben:
+ 
+Konzeption, Design und Realisierung der Verarbeitung von xml-Nachrichten im
+XMeld-Format der deutschen Kommunen. Transformation und Speicherung der Daten.
+Initialbelieferung des zukünftigen Personenbestands aus der Altanwendung. Es
+wurden moderne xml-Technologien eingesetzt, d.h. XPath, XQuery, RESTXQ und die
+xml-Datenbank BaseX.
+ 
+Eingesetzte Produkte:
+ 
+XML, XQuery, BaseX, RESTXQ, HTML, AngularJS, Linux, Python
+===============================================================================
+01/2015 - 03/2016: Redesign einer Mainframe-Altanwendung
+ 
+Einsatzort:         Karlsruhe
+Rolle:              Softwarearchitekt
+Kunde:              Kirchliches Rechenzentrum Südwestdeutschland
+ 
+Aufgaben:
+ 
+Redesign, sowie Betreuung und Wartung der Altanwendung
+ 
+Eingesetzte Produkte:
+ 
+Natural, Adabas, z/VSE
+===============================================================================
+08/2014 - 12/2014: Betreuung der persönlichen Altersvorsorge (Riesterrente)
+ 
+Einsatzort:         Frankfurt
+Rolle:              Software-Entwickler
+Kunde:              Deutsche Asset Management
+ 
+Aufgaben:
+ 
+Betreuung der persönlichen Altersvorsorge (Riesterrente)
+ 
+Eingesetzte Produkte:
+ 
+Natural, Adabas, z/VSE
+===============================================================================
+11/2013 - 07/2014: Migration eines Datenbestandes der Fondsverwaltung
+ 
+Einsatzort:         Frankfurt
+Rolle:              Software-Entwickler
+Kunde:              Deutsche Asset Management
+ 
+Aufgaben:
+ 
+Der organisatorische Zusammenschluss zweier zuvor eigenständiger Firmen wurde
+im Datenhaushalt auf dem IBM-Host nachvollzogen.
+Für die Migration wurde ein hybrides Verfahren gewählt, bei dem die Daten
+teilweise aufbereitet, mit neuen Schlüsseln versehen (unter Berücksichtigung
+der relationalen Datenstruktur) und dann direkt in den Datenbestand geschrieben
+wurden. Teilweise wurden vorhandene Business-Funktionen verwendet, um die Daten
+in den Bestand einzuspielen.
+Konzeption, Realisierung und Test.
+ 
+Eingesetzte Produkte:
+ 
+Natural, Adabas, z/VSE
+===============================================================================
+08/2012 - 10/2013: Referenzprojekt app-Entwicklung für Android.
+ 
+Kunde:              Public Domain
+ 
+Aufgaben:
+ 
+Erstellung der Android-app NXTJoystick, die einen LEGO NXT - Roboter
+per bluetooth steuert. Die Daten des G-Sensors des Android-Geräts wird dabei
+in Motorbewegungen umgesetzt, so dass der Roboter durch Bewegungen
+der Hand gesteuert wird. Veröffentlichung am 13.10.2013 in Google Play.
+ 
+Eingesetzte Produkte:
+ 
+Android, Java, Eclipse, Unix, LEGO NXT
+===============================================================================
+01/2008 - 08/2012: Qualitätssicherung für die Migration der
+Institutssteuerdaten
+ 
+Kunde:              dwpbank
+ 
+Aufgaben:
+ 
+Outputmanagement, Entwicklung von Standards, Redesign der
+Listverteilung, Optimierung des Ressourcenverbrauchs
+
+Das Outputmanagement der dwpbank ist für die revisionssichere
+Archivierung, Indexierung und Distribution verschiedenster Daten zuständig:
+Listen, Kundenanschreiben, SWIFT-Daten etc.
+ 
+Eingesetzte Produkte:
+ 
+MVS, z/OS, DB2, Cobol, BMC Control-D, BMC Control- M
+===============================================================================
+01/2003 - 01/2008: Herstellung der Mandantenfähigkeit bei den Depotauswertungen
+ 
+Rolle:              Projektleitung (Konzeption, Design)
+Kunde:              TxB
+ 
+Aufgaben:
+ 
+Migrationsprojekte, technische Verantwortung für Depotstammdaten
+    * BLB und bayerische Sparkassen 04.03
+    * SSKM 03.05
+    * Berliner Bank 01.06
+    * Demigration des TxB–Systems WIS
+ 
+Anbindung verschiedener Kundensysteme per Datenschnittstelle an die
+Depotstammdaten der TxB. Dabei kamen unterschiedliche Techniken zum Einsatz:
+ reine Batch-Schnittstellen, Online-Schnittstellen mit CICS-CICS-Kopplung 
+(LU6.2), Verarbeitung von xml-Dateien (MQSeries, XSLT, XALAN).
+Für die Übertragung von Depotstammdaten habe ich einen an SWIFT
+angelehnten Standard für die TxB entwickelt, der sowohl für Migrationen,
+als auch für alle Synchronisationen per Schnittstelle verwendet wurde,
+zuletzt auch für die Demigration der Daten. 
+ 
+Für diese Projekte habe ich die Unterlagen und Spezifikationen erstellt,
+habe in Meetings die TxB gegenüber den Kunden vertreten, habe die Test-
+und Migrationsszenarien festgelegt und hatte die technische Verantwortung
+für bis zu 4 Mitarbeiter.
+ 
+Eingesetzte Produkte:
+ 
+MVS, z/OS, ADABAS, NATURAL, COBOL, xml, XSLT, MQSeries
+===============================================================================
+Mehr Projekte auf Anfrage.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_173007
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 08.10.2019 01:00:50
+© Copyright 1996-2019 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

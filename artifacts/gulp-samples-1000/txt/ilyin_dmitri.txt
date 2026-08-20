@@ -1,0 +1,722 @@
+Senior Fullstack Developer / Architekt / technische Projektleiter:
+Java / JEE / Spring-boot,  Microservices, Angular, Multitier,
+Client/Server
+Top-Skills: Fullstack Web Development, Consulting,
+Communication Skills
+Verfügbar ab: 01.07.2023
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 95,00 EUR
+Bemerkungen: abhängig von Projektlaufzeit und
+Aufgabenstellung
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Schweiz, Österreich, Einsatzort unbestimmt
+Städte: München und Remote 20 km
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Einsatzort: Grossraum München und Remote
+Position
+Kommentar:
+Senior Entwickler, Architektur, Tech. Lead
+Projekte
+2020-08 - 2022-12 Verplanung von linearen (TV) Contents für die
+2 Jahre 5 Monate Bereitstellung auf nichtlinearen Plattformen
+Rolle: Senior Software Entwickler, Berater
+Kunde: ProSiebenSat1
+16.02.2023 1 von 20
+Einsatzort: Remote
+Projektinhalte: Die hochperfomante Generierung von Partner Plattform Orders anhand von
+verplanten Fernseher Ausstrahlungen, Verträgen, Rechten und Lizenzen. 
+Automatisierte Berechnung der komplexen Konstellationen der Serien und
+Staffeln. 
+Bereitstellen der Möglichkeiten für die Anwender in der Verplanungs
+Prozess manuell einzugreifen. Visualisierung von Orders in der UI mit der
+umfasenden Recherche. 
+Microservices Architektur mit dem Einsatz von Spring Boot, Kafka,
+OpenSearch (Elastic) Debezium, Postgres, Angular.
+Full remote team. Scrum mit 2 Wochen Sprints. 
+Entwicklung, Architektur, Testing, Deployment Code Reviews.
+Kenntnisse: Java, Spring, SpringBoot, Kafka, REST, GraphQl, SQL, Elastic Search,
+Spring Elastic Data, Spring Kafka, envers, Liquibase, Scrum, JPA
+Eingesetzte Produkte: Spring Boot, Kafka, POstgres, Debezium, Elastic Search, Angular,
+Kubernetes, gitlab, docker, Atlassian JIRA, Maven, H2, Hibernate
+2019-11 - 2020-06 Neuentwicklung bzw. Portierung von Lead Management
+8 Monate Software für führendes internationales Autoleasing
+Konzern.
+Rolle: Entwicklung, Unterstützung der Entwickler und den Architekten, C
+Kunde: Arval Deutschland GmbH
+Einsatzort: München / remote
+Projektinhalte: Die bestehende legacy Software (Liferay) musste neu implementiert
+werden. Die legacy Software bestand aus mehreren Modulen. Ein Modul
+pro Kunde. Alle Module teilten eine Oracle Datenbank. Die Module hatten
+zum Teil unterschiedliche Funktionalitäten.
+Die neue Software musste Microservices Architektur haben und aktuelle
+Technologien einsetzten. Spezifische Kunden Funktionalitäten mussten
+konsolidiert werden. Die Migration der Kunden erfolgte Schritt bei Schritt,
+so dass der Betrieb der legacy und neuer Software parallel sichergestellt
+werden musste. Legacy und neue Software haben auch in der Migration
+Phase gemeinsame Oracle Instanz geteilt.
+Das Team war verteilt. Scrum Master und Entwickler in Deutschland. PO in
+Frankreich, Architekt in Guadeloupe. Konzern Management in Frankreich.
+Kenntnisse: Scrum, Projektsprache English, verteiltes Team (Frankreich und München)
+Eingesetzte Produkte: Spring boot, JHipster, Angular, Git, Oracle, H2, Hibernate, Jenkins,
+Liquibase
+2019-01 - 2019-09 Neuentwicklung Medikamenten Verordnungssoftware
+9 Monate
+Rolle: Senior Entwickler, Consultant
+Kunde: ifap GmbH / CGM AG
+16.02.2023 2 von 20
+Einsatzort: München
+Projektinhalte: Zu entwickeln war Medikamenten Verordnung-Software (VoS) für Praxen
+und Krankenhäuser. Anwendung musste so designt werden, dass es ohne
+Anpassungen in sowie einer Cloud Umgebung als auch on Prem.
+Umgebung bei den Kunden ohne Internet Zugang lauffähig ist. 
+ 
+Auf dem Backend wurde Spring Boot als Framework und Microservices
+Architektur ausgewählt. Als Browser Client wurde eine Angular Applikation
+entwickelt. Die Spring Boot Microservices können als standalone Prozesse
+deployed als auch in "embedded" mode als Module in einem Uber Jar
+Spring Boot Anwendung integriert werden. Uber Jar ist ein Prozess, der
+alle Module integriert.
+ 
+Es wurde neue Spring WebFlux als Web Framework ausgewählt, mit der
+Absicht die Anwendung 100% reactive zu implementieren.
+ 
+Ein großer Teil der Anwendung ist die Implementierung der KBV Vorgaben
+in Bereich Kommunikation mit Patienten Verwaltung Software. Die
+Vorgaben sind ab dem 2020 gesetzliche Pflicht. Die Vorgaben legen die
+Kommunikation Protokolle und die Verwendung von HL7 FHIR Standard als
+Transport Layer fest.
+ 
+Für die Medikamenten Suche wurde Elastic Search ausgewählt.
+ 
+Die Rolle im Projekt war Entwicklung, Unterstützung des Software
+Architekten und Steuerung des remote Teams in Rumänien.
+ 
+Kenntnisse: Scrum, Reactive Programming, Spring Boot of Boots, HL7 FHIR, FHIR
+Profile, Projekt Sprache English, DDD, Circuit Breaker
+Eingesetzte Produkte: Elastic Search, Spring Boot, HAPI FHIR, Sonar, Jenkins, Reactor, Spring
+WebFlux, HL7 FHIR, GitLab, resilience4j, Spring Cloud
+2018-05 - 2018-12 Weiterentwicklung von Online Shopping Realtime Rating
+8 Monate
+Rolle: Senior Software Consultant
+Kunde: payback GmbH
+Einsatzort: München
+Projektinhalte: Weiterentwicklung und Bugfixing von diversen Backend Software Modulen
+von OSRR (Online Shop Realtime Rating). Kalkulation und Buchung der
+Kunden Loyalty-Punkten mit diversen Regeln. Das Online Rating und
+Rating in Batch Prozessen. Weiterentwicklung von Webservices.
+Entwicklung von Kafka Consumern.
+Kenntnisse: JEE, CDI, Java, SOAP Webservices, Scrum
+Eingesetzte Produkte: Oracle 12c, WebLogic, IntelliJ, Git, Bitbucket, Subversion, Jenkins, Spring,
+Spring Batch, TOSCA Testsuite, JUnit, Kafka, apache maven, Mockito
+16.02.2023 3 von 20
+2016-11 - 2018-03 Entwicklung eines Multibrand-Shops für
+1 Jahr 5 Monate Telekommunikationsanbieter
+Rolle: Senior Entwickler, Consultant
+Kunde: o2 Telefonica Germany GmbH &amp; Co. OHG
+Einsatzort: München
+Projektinhalte:     •  Multibrand-Shop. Automatische Erkennung der Marke. Ermittlung
+     ?der Benutzer-Flows. Microservice Architektur.
+Tätigkeiten:
+Full-Stack-Webentwicklung, Unit-Tests und UI Tests, Build-
+Automatisierung mit Jenkins Pipelines, Release-Management,
+Agile at Scale SCRUM Team mit ca. 25 Personen, Daily Moderation
+Kenntnisse: Agile at Scale, Scrum, WS mit SOAP / REST
+Eingesetzte Produkte: Docker, Spring Cloud, AngularJS, Mockito, Maven, GIT, Jenkins, Wicket,
+TypeScript, Hibernate, Spring Boot, IntelliJ, Redis, InfluxDB, Grafana,
+Sonar, Protractor
+2015-10 - 2016-10 Assistenten und Formulare generisches Framework.
+1 Jahr 1 Monat
+Rolle: Senior Entwickler, Consultant.
+Kunde: Fiducia AG
+Projektinhalte:     •  Java- Entwicklung eines generischen Frameworks für die
+     ?Erstellung von kundenspezifischen Formularen und Assistenten.
+Eingesetzte Produkte: RBF, Vaadin, JBF
+2014-10 - 2015-09 Bank Business Prozesse. Kreditvergabe. Fraud Detection
+1 Jahr
+Kunde: Fiducia AG
+Einsatzort: München
+Projektinhalte:     •  Entwicklung Verwaltungsoberflächen für Prozess Konfiguration
+     ?und Prozess Aufgaben. Service Schnittstellen zu Prozess Engine
+     ?und Bank Backend. Testing.
+Kenntnisse: Scrum
+Eingesetzte Produkte: Jetty, Eclipse, Atlassian JIRA Agile, Vaadin, IBM RSA, RBF, JBF, JEE,
+Spring, Mockito
+2014-07 - 2014-09 Entwicklung einer Allianz-weiten Portal-Lösung.
+3 Monate
+16.02.2023 4 von 20
+Rolle: Senior Entwickler, Consultant.
+Kunde: Allianz AMOS
+Einsatzort: München
+Projektinhalte:     •  Entwicklung, Beratung. Konzepzion und Implementierung einer
+     ?Content Migration Lösung für Allianz oneWeb Content Managent
+     ?System.
+Kenntnisse: SCRUM
+Eingesetzte Produkte: Tomcat, jboss, json, xml, JEE, Spring
+2013-07 - 2014-05 Entwicklung eines Prozesgesteuertes Webanwendung
+11 Monate für BaFiN Controlling.
+Rolle: Senior Entwickler, Consultant.
+Kunde: UniCredit Ag
+Einsatzort: München
+Projektinhalte:     •  Entwicklung, Beratung. Web Lösung auf Basis von Activiti
+     ?Process Management Framework und Vaadin Web Framework.
+     ?Erweiterung des Prozess Defitions „on the fly“. Mail Tasks.
+     ?Maven Umstruckturirung des Projektes, Nexus aufsetzen, Activiti
+     ?Regression Tests. Spring Konfiguration.
+Eingesetzte Produkte: Vaadin, Tomcat, Activiti, MySql, IntelliJ, Spring
+2012-07 - 2013-12 Entwicklung des neuen weltweiten Webauftritts der
+1 Jahr 6 Monate BMW AG.
+Rolle: Senior Entwickler, Consultant, Build Manager
+Kunde: bmw ag
+Einsatzort: München
+Projektinhalte:     •  [BMW &amp; MINI] .digital. Entwicklung des neuen weltweiten
+     ?Webauftritts der BMW AG. Multimandantenfähige Konzern-Webseite.
+     ?Web Visual Car Configurator.
+    •  Scrum of Scrum. Teamgröße > 300 Personen.
+    •  Senior Entwickler, Build Manager.
+Kenntnisse: Scrum of Scrum.
+Eingesetzte Produkte: Java EE, Glassfish, Oracle, Apache, JSF, EJB, Javascript, HTML5, CSS,
+jQuery, Rest, SOAP, Maven, Subversion, GIT, IntelliJ, Jenkins, HP-QC,
+JIRA
+2011-09 - 2012-06 Entwicklung einer Allianz-weiten Portal-Lösung
+10 Monate
+16.02.2023 5 von 20
+Rolle: Senior Entwickler
+Kunde: Allianz AG
+Einsatzort: München
+Projektinhalte:     •  Konzeption und Entwicklung Allianz Suisse spezifischen Lösung
+     ?auf Basis von Allianz standart Software Komponenten.
+     ?Entwicklung einer generic Portal Formular Verarbeitung Lösung.
+     ?JBoss Portlets, Rest Services. Koordination von Offshore Team.
+     ?Das Projekt wurde in einem Scrum Team mit etwa 50 Personen
+     ?realisiert.
+Kenntnisse: SCRUM
+Eingesetzte Produkte: Spring, Spring MVC, Eclipse, REST, JBOSS, Maven, GIT, WSRP
+2010-09 - 2011-09 Personal Finanzstatus Seite für registrierte Versicherung
+1 Jahr 1 Monat Kunden.
+Rolle: Senior Entwickler
+Kunde: Allianz AG
+Einsatzort: München
+Projektinhalte:     •  Versicherung: Web Portal für registrierte Kunden. Alle Kunden
+     ?Versicherungs-,Bank- und andere Verträge des Kunden werden
+     ?übersichtlich innerhalb des Kundenportals zu Verfügung
+     ?gestellt. Der Kunde hat zusätzlich eine Möglichkeit andere
+     ?eigene Verträge (von anderen Banken und Versicherungen)
+     ?einzugeben und bequem zu verwalten.
+    •  Neuentwicklung eines Finanzstatus Portlet, bestehend aus eine
+     ?EAR Anwendung. Die GUI wurde mit Jquery als RIA Client
+     ?implementiert. Die Daten wurden per REST Schnittstelle in JSON
+     ?Format an den Client geschickt. REST Schnittstelle wurde als
+     ?Spring MVC Web Anwendung innerhalb der EAR mit deployed.
+Kunden
+     ?Verträge werden in einer Oracle Datenbank gecached. Das Projekt
+     ?wurde in einem Scrum Team mit etwa 5 Personen realisiert.
+Kenntnisse: SCRUM
+Eingesetzte Produkte: WebSphere, IBM Portal Server, Spring, Spring MVC, Tomcat, Eclipse,
+REST, JSON, Jquery, Jackson, JDBC, Oracle
+2010-05 - 2010-08 Social Networking Internet Web Site
+4 Monate
+Rolle: Senior Entwickler
+Kunde: lokalisten gmbh
+Einsatzort: München
+Projektinhalte:     •  Weiterentwicklung einer bestehenden Web Applikation.
+16.02.2023 6 von 20
+     ?Insbesondere virtuelles Geschenke Shop, eine Photo Booth
+     ?Funktion zum aufnehmen und Speichern von Fotos vom Webcam
+     ?direkt ins Profil des Anwenders.
+Eingesetzte Produkte: Struts, JSP, JPA, JUNIT, Spring, Tiles, GIT, Flash
+2008-08 - 2010-05 Web Applikation für Kaufmännische Abwicklung
+1 Jahr 10 Monate zwischen den Produzenten und dem Abnehmer der
+Flugzeug-Triebwerke.
+Rolle: Entwicklung, Konzeption, Architektur, Beratung.
+Kunde: EUROJET Turbo GmbH (T-Systems)
+Einsatzort: München
+Projektinhalte:     •  Erstellen von technischen Konzeption und Architektur. Domain
+     ?Model Entwurf, Technologie Beratung, Entwicklung/Test AJAX Rich
+     ?Client Applikation mit JSF/Richfaces/seam. Entwicklung und
+     ?Integration der JBPM Prozessen in Web GUI. Altdaten Migration
+     ?in die jBPM Prozesse. PDF Dokumente Generierung mit iText und
+     ?SEAM pdf Tags. Import/Export Schnittstellen mit EJB3. JPA
+     ?Mapping. Export der Daten aus Excell mit POI und JPA
+Eingesetzte Produkte: JEE, Eclipse, JDBC, SQL, JBOSS, jBPM, JPA/Hibernate, JSF, Richfaces,
+Seam, Sql Server, iText, POI
+2008-02 - 2008-07 Internal Service Portal
+6 Monate
+Rolle: Senior Developer
+Kunde: Öffentlicher Dienst KVB
+Einsatzort: München
+Projektinhalte:     •  JEE Entwicklung, Konzeption. Entwicklung eines Service Portals.
+     ?Eingang, Registrierung, Parsing, Darstellung und Verwaltung von
+     ?diversen Dokumenten insbesondere Abrechnungen. Entwicklung von
+     ?Import/Export Schnittstellen, Entwicklung Web GUI, Persistence
+     ?Schicht, Kommunikazion mit legacy Datenbanken.
+Eingesetzte Produkte: JEE, Oracle, Eclipse, Hibernate, Tomcat, JAX-WS, Spring, JDBC, SQL,
+Spring Webflow 2, JSP
+2006-08 - 2008-02 Eigene Entwicklung
+1 Jahr 7 Monate
+Rolle: Nearshore Koordinator, Project Manager, QS
+Einsatzort: München - Minsk
+Projektinhalte:     •  Spezifikation, Architektur, Nearshore Koordination,
+     ?Qualitätskontrolle. In Zusammen Arbeit mit Pflegedienst Firma,
+16.02.2023 7 von 20
+     ?wurde ein Produkt konzipiert und Entwickelt. Die "klassische"
+     ?Client/Server Architektur. Realisiert in C#. MIt dem Einsatz
+     ?von Nhibernate. Ich hatte die Rolle von Produkt Manager,
+     ?Architekten, QS, Projektleiter und Nearshore Koordinators. Die
+     ?Entwicklung fand in Nearshore Gebiet Minsk (Weißrusland).
+     ?Momentan ist die Website in Vorbereitung. Für die Website wird
+     ?Joomla eingesetzt.
+Eingesetzte Produkte: Client/Server, Visual Studio, C#, .NET 2.0, MySQl, Firebird, NHibernate,
+Joomla
+2005-05 - 2008-02 Dokumenten Management System
+2 Jahre 10 Monate
+Rolle: Senior Developer
+Kunde: Öffentlicher Dienst KVB
+Einsatzort: München
+Projektinhalte:     •  Design und Entwicklung Dokumenten Management Systems (DMS).
+Für
+     ?die WEB GUI Entwicklung wurden JSF, JSP, XML/XSLT verwendet und
+     ?zum Teil gemischt eingesetzt. Import Schnittstellen. Die Daten
+     ?wurden aus diversen Datenquellen wie legacy Datenbank-Schemata,
+     ?Filesystem oder über SOAP Schnittstelle importiert. Aufwendige
+     ?SQL Abfragen (wegen nicht normierten DB Schemas). Asynchrones
+     ?Dokumenten Import. Parallele Import Prozesse. Entwicklung eines
+     ?Swing Client Applikation mit Deployment über WEB Start
+     ?Technologie und die Integration an Windows Desktop (Anzeige von
+     ?PDF Dokumenten). Web Service Schnittstelle von Swing
+     ?Applikation zu DMS, am Anfang mit AXIS, später nach JAX-WS
+     ?portiert. Das Generieren von PDF Dateien mit dem FOP auf dem
+     ?Server. Generieren und versenden von Faxen über externen
+     ?Dienstleiter mit einer SOAP Schnittstelle. Anwender Support.
+Eingesetzte Produkte: JEE, Oracle, Eclipse, Hibernate, Tomcat, Swing, AXIS (SOAP), JAX-WS,
+Spring, JDBC, SQL, JSF, XSLT, FOP, Webstart, JDIC
+2004-03 - 2005-04 Gebrauchtwagen-Internet-Portal (ERIC)
+1 Jahr 2 Monate
+Rolle: Senior Developer
+Kunde: bmw ag
+Einsatzort: München
+Projektinhalte:     •  J2EE Architekt, Beratung, Design und Entwicklung von diversen
+     ?serverseitigen Komponenten und Diensten. Export/Import Module
+     ?aus Car4You und AutoScout24 Portalen. Entwicklung eines Moduls
+     ?zur Verwaltung von großen Texten (> 4000 Zeichen) und
+     ?Einbindung des Moduls in das System. Implementierung einer
+     ?Database, Schema Update Mechanismus durch Patch - Skripten,
+     ?DDL/SQL Skripten Ausführungsmodul, Modul für den Hibernate und
+     ?der Database, Schema Vergleiche und Generierung der DDL Update
+     ?Skripten. Konzept und Umsetzung der Eclipse Projektstruktur,
+16.02.2023 8 von 20
+     ?Build Skripten, Eclipse Launch Configurations, Deployment
+     ?Skripten.
+Eingesetzte Produkte: Servlets, JSP, J2EE, Eclipse, Jakarta Apache APIs, Oracle 9i, JSTL,
+Hibernate, Tomcat, Struts, Linux
+2002-10 - 2004-11 Intranet-basiertes Archivsystem zur Erfassung und zur
+2 Jahre 2 Monate Veröffentlichung von Untersuchungsergebnissen sowie
+zur Verfolgung von Untersuchungsvorgängen.
+Rolle: Teamleiter
+Kunde: bmw ag
+Einsatzort: München
+Projektinhalte:     •  Der Import und die Pflege von Untersuchungen (Aufträge und
+     ?Ergebnisse), die Recherche und der Zugriff auf die archivierten
+     ?Dokumente aus dem Untersuchungsbericht, statische Auswertung
+     ?von Untersuchungen mit graphischer Darstellung sind
+     ?Hauptmerkmale der Anwendung. Portierung des Logon Prozesses von
+     ?PERL CGI Lösung auf J2EE Lösung. Anonyme Logon, Direct Access,
+     ?Logon, Unterstützung einer proprietären CGI Session. (MODUA)
+    •  Beratung, Design der J2EE Lösung und Portierung des Systems von
+     ?PERL nach J2EE. Das System wurde in den letzten 4 Jahren mit
+     ?PERL Technologie entwickelt und wird von Kunden täglich
+     ?eingesetzt. Die Aufgabe bestand darin, die laufende Anwendung
+     ?in Schritten von PERL auf J2EE umzustellen, dabei musste die
+     ?Funktionalität garantiert bleiben.
+Eingesetzte Produkte: MS Office Visual Basic, Microsoft Excel
+2003-09 - 2004-03 Bereitstellung eines standardisierten Toolsets zur
+7 Monate Unterstützung mehrerer Prozessketten in der
+technischen Entwicklung des Fahrzeuges.
+Rolle: Teamleiter
+Kunde: bmw ag
+Einsatzort: München
+Projektinhalte:     •  Bereitstellung eines standardisierten Toolsets zur
+     ?Unterstützung mehrerer Prozessketten in der technischen
+     ?Entwicklung, um die erzielten Ergebnisse aus Einzelschritten
+     ?abzusichern und sie nicht nur dem Ersteller der
+     ?Prozesskettenschritte, sondern einem autorisierten Userkreis
+     ?dauerhaft zugänglich zu machen. Die Absicherungsergebnisse
+     ?müssen für ein Verarbeiten, Bewerten, Dokumentieren,
+     ?Kommunizieren bereitgestellt werden. (MODULA)
+    •  Beratung, Design und Implementierung von diversen
+     ?serverseitigen Komponenten (J2EE) in einer dreischichtigen
+     ?Architektur (Swing Client -> Application Server -> Datenbank).
+     ?Basis Services der Anwendung (Login, Session Verwaltung,
+     ?Resourcen Verwaltung). Design und Implementierung von
+16.02.2023 9 von 20
+     ?serverseitigen Job Scheduling Moduls (Asynchrone persistente
+     ?Jobs mit Parameters, CRON Jobs, concurent Jobs). Integration
+     ?von JUnit in Entwicklung und Test Prozess (verwendet für das
+     ?Testen von SQL Statements).
+Eingesetzte Produkte: Servlets, JSP, J2EE, BEA Weblogic 6.1, Eclipse, Jakarta Apache APIs,
+Oracle 9i, Swing, RMI, JNDI, Quartz Enterprise Scheduler
+2002-03 - 2002-10 Integrale Baustellenführung. Verwaltungsdatenbank-
+8 Monate Anwendung für Baustellen.
+Rolle: Entwickler
+Kunde: Siemens
+Einsatzort: Erlangen
+Projektinhalte: Verwaltet werden die Aufträge, Personal-Arbeitszeiten, Materialien,
+Personal-Kosten und Bestellungen. Export/Import von Materialien- und
+Personal Stammdaten wurden anhand von Datei-Schnittstellen zu SAP
+realisiert. Weiterentwicklung von bestehenden DELPHI 6 Applikation.
+Bugfixing, Implementierung von neuen Funktionalitäten, Testen.
+Eingesetzte Produkte: Borland Delphi 6, Oracle Lite 8, Direct Oracle Access Komponenten, SQL,
+TOAD, PVCS
+2002-05 - 2002-09 Prüfung von Machbarkeit der Entwicklung von einem
+5 Monate Content Management Systems mit der Verwendung von
+diversen  Java Open Source Frameworks.
+Rolle: IT Consultant
+Kunde: phix gmbh
+Einsatzort: München
+Projektinhalte: Für das zu entwickelnde System wurden zuerst die API/Technologien
+ausgewählt. Auf dem Markt vorhandene Java Open Source Frameworks
+wurden getestet. Die vorhandenen Frameworks wurden bei der
+Entwicklung von kleineren Prototypen verwendet und auf
+Reifungsgrad/vorhandene Dokumentation/Verbreitung auf dem
+Markt/Skalierbarkeit untersucht. Beratung und Erstellung von Prototypen
+mit Java Open Source Frameworks. Vergleichen von unterschiedlichen
+Ansätzen. Konzeption von CMS.
+Eingesetzte Produkte: Servlets, JSP, EJB, Model 2(MVC), DBMS, Struts, Cocoon, Object-
+Relational Brige OJB, Tomcat
+2000-10 - 2001-12 Internet-Dokumenten-Archiv.
+1 Jahr 3 Monate
+Rolle: Entwickler
+Kunde: memIQ ag
+16.02.2023 10 von 20
+Einsatzort: München
+Projektinhalte: Dokumente aller Art werden digitalisiert und in einem elektronischen Safe
+gespeichert. Damit hat der Benutzer jederzeit von jedem Ort den Zugriff
+zu seinen persönlichen Dokumenten übers Internet. Zusätzlich werden
+Services auf Basis dieser Dokumente realisiert. Das Archiv basiert auf XML
+und J2EE.Konzeption und Realisierung von hoch skalierbaren
+serverseitigen Komponenten für die XSL Transformationen. XSL
+Transformationen von XML nach HTML, XML, PDF und JavaScript. Cross-
+Browser Visualisierung von Dokumenten in HTML für die originalgetreue
+Anzeige und Drucken im/vom Browser. Framework für das Personalisieren
+der (D)HTML Anwendungeroberfläche. Integration von einem Testing
+Framework. Erstellen von einem Prototypen für die Anbindung des
+Archives an WAP.
+Eingesetzte Produkte: BEA Weblogic, Nokia WAP Server, XSLT Processor Xalan, XML Parsers,
+DOM, XML, XSLT, RDF, SAX, JSP, Servlets, EJB, NetBeans, HTML, SAG
+Tamino, HTTP, J2EE
+1999-06 - 2000-08 Software für rechnergestützte Lösungen für das
+1 Jahr 3 Monate Qualitätsmanagement in der Fertigung elektronischer
+Baugruppen und das Instandhaltungsmanagement.
+Rolle: Entwickler
+Kunde: isoware gmbh
+Einsatzort: München
+Projektinhalte: Die Software deckt die Ablauforganisation der Instandhaltung der
+Fertigungsanlagen, bietet Online-Benutzerführung mit bildgestützten
+Arbeitsanweisungen, Verwaltung von Wartungsarbeiten, Protokollieren von
+Wartungsarbeiten, Ausfällen und Ausfallursachen, Materialverwaltung,
+Humanresources Verwaltung.Konzeption und Aufbau eines OO-
+Komponenten-Frameworks für die Erstellung der Client/Server
+Anwendungen. Erstellung von einer Client/Server DB-Anwendung für
+Windows mit diesem Framework. Datenbank Design. Portierung von 16 Bit
+Lösung und Desktop Datenbank nach 32 Bit und SQL Datenbank. Lösung.
+Konzeption und Implementierung eines modernes GUI für DB-Anwendung.
+Konzept, Aufbau und Verwaltung von Configurationsmanagement Systems.
+Eingesetzte Produkte: Windows API, Delphi 5, Borland BDE, Interbase, SQL92, CVS, WinCVS
+1998-11 - 1999-05 Intranet-Anwendung für Fahrzeughersteller. Das System
+7 Monate dient zur Verwaltung von Bauteilbeziehungen.
+Rolle: Entwickler
+Kunde: bmw ag
+Einsatzort: München
+Projektinhalte: Die Versuchsbauteile werden zusammen getestet. Dabei entstehen
+verschiedene Testergebnisse, abhängig von der Kombination der Bauteile.
+16.02.2023 11 von 20
+Das System protokolliert die Versuche, Bauteile-Beziehungen und erlaubt
+komplizierte Abfragen. Die Daten sind in SQL Datenbank gespeichert und
+sind über Intranet-Oberfläche zugänglich.Konzeption, Implementierung,
+Testen, Installation und Wartung. Datenbankdesign, sehr komplizierte
+SQL-Abfragen, Entwurf von HTML Oberfläche.
+Eingesetzte Produkte: Oracle V8, Oracle Webserver 2.0, HTML, JavaScript, Perl, DBI/DBD, SQL,
+PL-SQL
+1998-07 - 1998-10 Internet Shop, Buchhandlung, System im Internet. Ein
+4 Monate großes Projekt bei einem ISP. Realisierung von
+mehreren Teilen des Projektes wurden übernommen.
+Rolle: Entwickler
+Kunde: cybernet ag
+Einsatzort: München
+Projektinhalte: Entwicklung einer Schnittstelle vom Shop zum Buchhaltungssystem.
+Konvertierung der Daten aus der SQL Server Datenbank ins DTAUS Bank
+Format.
+Eingesetzte Produkte: Perl, REXX
+1998-06 - 1998-07 Intranet Abrechnungssystem von Software Projekten.
+2 Monate Unterscheidung zwischen internen und externen
+Projekten. Ferientage.
+Rolle: Entwickler
+Kunde: dynamic software gmbh
+Einsatzort: München
+Projektinhalte: Portierung von einer Oracle Form Anwendung in die Intranet-Plattform.
+GUI Design, JDBC Anbindung an bestehender Oracle Datenbank.
+Programmierung eines Applets.
+Eingesetzte Produkte: Java 1.1, Swing, JDBC, PL/SQL, ORACLE, SQL
+1998-03 - 1998-06 Tracking und Tracing System für Speditionen eines
+4 Monate großen Elektronikkonzerns. Über Java Applet in Internet
+kann der Kunde den Lieferstatus seiner Ware einsehen.
+Rolle: Entwickler
+Kunde: Siemens
+Einsatzort: München
+Projektinhalte: Konzeption und Implementierung von einer 3-Tier Anwendung. Konzeption
+16.02.2023 12 von 20
+und Entwicklung einer serverseitigen Java-Applikation mit Schnittstellen
+zur ORACLE Datenbank über JDBC zu externen Speditionen über HTTP und
+HTML Parsing und zu Clientseitigen Applets über RMI.
+Eingesetzte Produkte: Java 1.1, RMI, JDBC, ORACLE, PL/SQL
+1997-06 - 1998-02 Intranet-Anwendung für Fahrzeughersteller.
+9 Monate Entwicklung einer Intranet-Anwendung für die
+Lagerverwaltung von Versuchs-teilen in einer zentralen
+Oracle-Datenbank.
+Rolle: Entwickler
+Kunde: bmw ag
+Einsatzort: München
+Projektinhalte: Relationale Datenbank, Design und Entwicklung. Design der Web-
+Oberfläche, Berechtigungskonzept, Erstellen von Flowchart-Diagrammen.
+Kenntnisse: JavaScript
+Eingesetzte Produkte: ORACLE PL/SQL, ORACLE WEB SERVER 2.0, Visio
+1997-05 - 1997-06 Entwicklung von MS OFFICE Anwendungen in Visual
+2 Monate Basic. Konvertieren von ASCII Files ins Excel Format
+Rolle: Entwickler
+Kunde: Dynamic Software GmbH
+Einsatzort: München
+Projektinhalte: Erstellung eines Visual Basic Programm für das Excel.
+Eingesetzte Produkte: MS Office Visual Basic, Microsoft Excel
+1995-08 - 1997-04 Instandhaltungssoftware, Windows-Anwendung für die
+1 Jahr 9 Monate Verwaltung der Instandhaltungsmaßnahmen,
+Materialien. Protokollieren der Anlagen, Ausfälle.
+Benutzerverwaltung.
+Rolle: Entwickler
+Kunde: Isoware GmbH
+Einsatzort: München
+Projektinhalte: Implementieren von einer 16-Bit Windows Datenbank-Anwendung mit
+Desktop Datenbank Backend. Netzwerkfähigkeit einer Desktop-Datenbank
+für Windows-Anwendung.
+16.02.2023 13 von 20
+Eingesetzte Produkte: Windows 3.1, Delphi 1, Borland BDE, DBASE IV, Borland Paradox
+1992-01 - 1993-10 Lernsoftware für Hubschrauberpiloten mit dynamischer
+1 Jahr 10 Monate Graphic,  Lernkursen, und Prüfungsmöglichkeiten.
+Rolle: Software-Entwickler
+Einsatzort: St. Petersburg
+Projektinhalte: Realisierung von dynamischer Graphic in Assembler für EGA/VGA Graphic
+Adapters.
+Kenntnisse: PC Assembler
+Eingesetzte Produkte: MS DOS, Turbo Pascal, EGA VGA Graphic Adapter
+Referenzen
+Projekt Internet Archive auf J2EE BEA Weblogic, 10/00 - 12/01
+Referenz durch Mitarbeiter eines Internet Dienstleister mit ca. 90 MA vom 29.11.01
+"Im Zeitraum 11/00 - 02/01 hat der Consultant die Evaluierung einer WAP Infrastrukur
+vorgenommen. Im Zeitraum März/01 - November/01 hat der Consultant massgeblich am Aufbau
+einer serverseitigen Dokument Transformations Infrastruktur mitgewirkt. Die Infrastruktur erlaubt
+die Transformation von XML Dokumenten nach HTML und PDF. Die Infrastruktur basiert auf dem
+Weblogic J2EE Server von BEA und Komponenten aus dem Apache Projekt. Ausserdem hat der
+Consultant an der Integration von einem Unit Testing Framework mitgearbeitet und hat
+Untersuchungen im Bereich Komponentisierung von HTML Oberflächen vorgenommen. Der
+Consultant hat uns hervorragend geholfen. Ohne seinen großen persönlichen Einsatz und seine
+Fähigkeit sich schnell in neue Techniken einzuarbeiten, hätten wir unsere Ziele nicht erreicht. Seine
+Mitarbeit im Team hat im bestens funktioniert."
+Projekt Div. Unix / Oracle / Java / Web-Projekte, von 1996 - 2000
+Referenz durch Mitarbeiter der Dynamic Software GmbH mit 20 Ma. vom 15.09.00
+"Wir arbeiten mitdem Consultant seit vier Jahren in diversen Projekten erfolgreich zusammen. Er
+verfügt über sehr gute Erfahrung in den Bereichen Oracle, Java und allen Bereichen des Internets.
+Er hat die Projekte in allen Phasen von der Spezifikation über die Entwicklungs- und Testphase bis
+hin zur Inbetriebnahme begleitet. Die von ihm entwickelten Applikationen laufen fehlerfrei und
+performant. Neben seiner fachlichen Qualifikation ist sein besonders Engagement hervorzuheben.
+Wir möchten uns an dieser Stelle dafür bedanken und ihm anderen Projektanbietern
+weiterempfehlen."
+Branchen
+Automotive
+seit 1997 mehrere WEB Applikationen sowie im technischen als auch im kaufmännischen Umfeld
+Öffentlicher Recht
+seit 2005 Gesundheitswesen, DMS Applikation
+Dienstleistung
+16.02.2023 14 von 20
+mehrjährige Arbeit bei Dienstleitungsfirmen
+Offshore/Nearshore
+viel Erfahrung als Projektleiter und On-Site Koordinator
+IT/EDV
+Anwendung- und Systemprogrammierung seit 1992
+Internet
+Anwendungsprogrammierung seit 2000
+Medizin/Pflege
+DMS Applikation in Gesundheitswesen (Öffentliches Recht), Entwicklung eines DMS für Pflegedienste
+Maschinenbau
+Entwicklung von "service-Management" und "strategische Instandhaltung" Applikationen.
+ 
+Versicherung
+Entwicklung Kunden Web Portalen. Seit 2010
+Sprachen
+Deutsch Beinah akzentfrei
+Englisch Sehr gut
+Russisch Muttersprache
+Kompetenzen
+Schwerpunkte CDI
+Aufgabenbereiche verteiltes Team
+(Frankreich und
+München)
+Produkte / Standards / Agile at Scale
+Erfahrungen / Methoden
+AngularJS
+apache maven
+Atlassian JIRA Agile
+Bitbucket
+Circuit Breaker
+Docker
+Eclipse
+16.02.2023 15 von 20
+Elastic Search
+FHIR Profile
+GIT
+GitLab
+Grafana
+HAPI FHIR
+Hibernate
+HL7 FHIR
+IBM RSA
+InfluxDB
+IntelliJ
+Jenkins
+Jetty
+JHipster
+JUnit
+Kafka
+Liquibase
+Maven
+Mockito
+Reactive Programming
+Reactor
+Redis
+Refinement von
+Anforderungen
+resilience4j
+Scrum
+Sonar
+Spring
+Spring Batch
+Spring Boot
+16.02.2023 16 von 20
+Spring Boot of Boots
+Spring Cloud
+Spring WebFlux
+Subversion
+Technische Analyse und
+Konzeption
+TOSCA Testsuite
+Vaadin
+WebLogic
+Wicket
+Erfahrungen im Bereich:
+Spezifikation, Analyse und Design, Test, Design und Programmierung
+von 3(4)-Tier Anwendungen, Client/Server Anwendungen,
+Anwendungen für Inter(ra)net- und Windows-Platformen,
+Systemprogrammierung, Design von relationalen Datenbanken,
+Object-Relationale Mapping (Hibernate), Ausführung
+Offshore/Nearshore Projekte
+Methoden:
+OOP, OOA, OOD, SCRUM, XP, UML Modeling, Offshore/Nearshore,
+strukturierte-, Ereignisgesteuerte-, visuelle-Programmierung, Aspekt
+orientierte Programmierung, Datenbanken Design und Modellierung,
+ER Modeling
+Tools und IDEs:
+Eclipse (viele Plugins), NetBeans, JBuilder, Visual Cafe for Java, Turbo
+Pascal, Turbo C, Power Designer, Delphi, XML Spy, Microsoft Excel
+(Visual Basic Debugger), Microsoft FrontPage, Diverse HTML Editoren,
+Visio, Together, TOAD, openSTA, UltraEdit, ANT, Maven, Visual Studio
+5.0, Enterprise Architect, PL/SQL Developer, IntelliJ, Jenkins
+Sourceverwaltung
+Subversion, CVS, Perforce, PVCS, GIT
+Produkte, Technologien und Platformen
+JBoss, Tomcat, Weblogic, WebSphere, IBM Portal Server, Nokia WAP
+Server, Java SE/JEE (J2EE), FOP, IoC Spring, ORM Framework
+Hibernate, Glassfish
+Protokolle &amp; Middleware
+RMI, HTTP, WAP, BDE, SOAP
+APIs, J2EE/J2SE Standards und Frameworks
+Vaadin, JSF(2), Seam, jBPM, Richfaces, Ajax, JPA, JDBC, Hibernate,
+EJB(3), Spring, Spring MVC, Spring Webflow, iText, Struts, JSP, HTML,
+JSTL, Servlets, JSP CustomTags, XML, Xalan, Xerces, XSLT, FO, Web
+Start, FOP, Jackson JSON, JQuery, Selenium, AXIS 1.x, AXIS 2, JAX-
+WS, JAXP, DOM, SAX, XPath, Quartz, SWING, JNDI, JUnit, POI, Jakarta
+Commons, HttpUnit, DBUnit, JUnit, JDIC, Applets, Windows API, Delphi
+Komponenten, BDE
+Betriebssysteme MacOS
+16.02.2023 17 von 20
+MS-DOS Programmiererfahrung in Turbo Pascal und C
+SUN OS, Solaris Anwender Erfahrung
+Unix Anwender Erfahrung
+Windows Anwendung- und Systemprogrammierung
+Programmiersprachen Angular
+Assembler 1993 Low Level Programmierung von Graphic
+Adapter
+Basic 1997 kleinerre MS Office Anwendungen
+C 1998 Turbo C kleinere Anwendungen
+dBase 1995-2000 Anwendungs-Programmieren
+zusammen mit Delphi
+Delphi 1995-2000 mehrjährige Erfahrungen in BDE,
+zahlreiche Libraries, VCL, Componenten
+Programmierung
+Forth Grundkenntnisse
+Fortran 1990 Programmierung während des
+Studiums für Großrechner
+HTML
+Java Expertenkenntnisse Java SE, JEE
+JavaScript
+JBF
+JEE
+Paradox 1995-2000 Anwendungs-Programmieren
+zusammen mit Delphi
+Pascal 1992-1993 viel Erfahrungen in DOS
+Graphischen Oberflächen Programmierung
+Perl CGI
+PHP CGI
+PL/SQL 1998-1999 Web Applikationen mit Oracle
+App Server (PL/SQL Web Package).
+SQL
+TypeScript
+UML
+XSLT
+Datenbanken Access
+BDE
+16.02.2023 18 von 20
+CouchDb
+Firebird
+H2
+HSQLDB
+Interbase
+MS SQL Server
+MySQL
+Oracle Oracle Lite
+Oracle 12c
+Paradox
+RBASE
+Redis
+Tamino
+xBase
+Datenkommunikation HTTP
+Internet, Intranet
+REST
+SOAP
+SOAP Webservices
+TCP/IP
+WAP
+Windows Netzwerk
+WS mit SOAP / REST
+Hardware Mac
+PC
+Design / Entwicklung / DDD
+Konstruktion
+Aus- und Weiterbildung
+Informatik-Studium an der Technischen Universität, St. Petersburg, Russland. Diplom:
+"Systemtechnik Ingenieur". Prädikat: "mit Auszeichnung" (75% beste Noten).
+16.02.2023 19 von 20
+16.02.2023 20 von 20
+
+############################################

@@ -1,0 +1,407 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_87424
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                87424
+  
+Wohnort                    204xx Hamburg, Deutschland
+Jahrgang                   1967
+Staatsbürgerschaft         deutsch
+Stundensatz                90 EUR
+                           Hamburg &amp; Umgeb.
+Verfügbar ab               20.02.22 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         10.12.07
+Profil zuletzt geändert am 04.05.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 04.02.2021 16:21:47
+
+Fachlicher Schwerpunkt:
+Java Enterprise Software Planung u. Entwicklung
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Qualitätsmanagement / Qualitätssicherung / Test
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Studium der techn. Informatik an der Fachhochschule Hamburg
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6
+im Umkreis von:
+Hamburg (100 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Englisch  
+
+
+Betriebssysteme:
+Blackberry OS 4.x  
+Mac OS            / OS X
+Unix              / Linux
+Windows            
+
+ 
+
+Programmiersprachen:
+Java JSE, JEE ( > 15 Jahre)
+Perl  
+PHP   
+
+
+Datenbanken:
+HSQLDB         
+Interbase     Firebird
+MongoDB        
+MS SQL Server 2000, 2005, 2008
+MySQL          
+Oracle        PL/SQL Programmierung
+Postgres       
+SQL            
+
+
+Datenkommunikation:
+Ethernet            
+HID                Human Interface Device
+Internet, Intranet  
+MMS                 
+RPC                 
+RS232               
+SMTP               im Zusammenhang mit Webmail-Client Projekt, auch IMAP+POP3
+TCP/IP              
+
+
+Produkte/Standards/Erfahrungen:
+Erfahrungen mit folgenden Techniken der Softwareentwicklung
+    * mehrschichtige, verteilte Geschäftsanwendungen mit Java-Technologien
+    * Software -Architektur, -Design
+    * Java auf Client und Server
+    * Webservices
+    * Web-Frontends
+    * Java-Native-Frontends
+    * Build-Management, Versionsverwaltung, Projektmanagement
+
+Methoden
+    * Objektorientierte -Analyse, -Design, Entwicklung. TDD (Test Driven
+      Development)
+    * agile: Scrum
+===============================================================================
+Spezialkenntnisse
+Enterprise Java:
+    * JEE 7,  JAX-WS, JPA (Toplink, Hibernate, EclipseLink), JTA, Enterprise
+      Design Pattern, JSF
+    * JBoss / Wildfly
+ 
+Standard Java:
+    * JavaSE 8, JavaFX, Swing
+    * Mobile Java (etwas veraltet)
+    * JavaME, CLDC, Midlet, Blackberry
+ 
+Entwicklungsumgebungen:
+    * Eclipse, IntellJ IDEA, Netbeans
+    * Web-Services, Service-Orientierte-Architektur (SOA), SOAP, WSDL, REST,
+      JAXB
+    * UML, OOA, OOD
+    * Tools: Maven, ANT, GIT, SVN, Jira, Jenkins, Rundeck (- ILog JRules)
+
+Branchen:
+    * Telekomunikation
+    * Versandhandel
+    * Internetdienstleistung
+    * Fotoagentur
+    * Versicherung
+    * Software-Systemhaus
+
+Projekte:
+08/2017 - 04/2018: Herstellung von Weißbleich
+ 
+Kunde:              Industrie
+ 
+Aufgaben:
+ 
+Entwicklung mehrerer Frontends zur Steuerung von Industrieanlagen für
+die Herstellung von Weißbleich
+ 
+Eingesetzte Produkte:
+ 
+JSE8, JavaFX, MQTT (Message-Broker), MSSQL, Netbens, SVN, Gradle, JIRA
+===============================================================================
+06/2016 - 04/2017: Weiterentwicklung einer Software für die Artikel- und
+Sortimentverwaltung
+ 
+Kunde:              Versandhaus
+ 
+Aufgaben:
+ 
+    * Im Zuge einer Erweiterung des Warenangebots musste ein neues,
+      einheitliches Konzept für die Erstellung, Pflege und Organisation sehr
+      unterschiedlicher Artikeltypen gefunden werden
+    * Projektarbeit in einem kleinen, sehr selbständigen Scrum-Team
+ 
+Kenntnisse:
+ 
+REST-Services als Exportschnittstelle, Schnittstelle zu Legacy-System,
+Refactoring des umfangreichen, über viele Jahre 'gewachsenen' Sourcecodes
+ 
+Eingesetzte Produkte:
+ 
+JSE 8, JEE 7, Wildfly 10, JSF 2.2, Primefaces 5.3, MongoDB, Maven, Git,
+Eclipse, Jenkins, Sonatype Nexus, Gerrit, Jira, Sonar (Clean Code), JUnit,
+Mockito, Arquillian
+===============================================================================
+08/2015 - 03/2016: Refactoring, Modernisierung und Weiterentwicklung
+ 
+Kunde:              Internetdienstleister
+ 
+Aufgaben:
+ 
+    * Weiterentwicklung einer Business Plattform
+    * Refactoring, Modernisierung bestehenden Java-Codes mit gezieltem Einsatz
+      der JSE 8 Spracherweiterungen
+    * Modellierung und Implementierung von Geschäftsprozessen
+    * Entwicklung eines JSF-Frontends
+    * agile Entwicklung (Scrum, TDD, Jenkins)
+ 
+Eingesetzte Produkte:
+ 
+JSE 8, JEE 7, Wildfly 8, JPA, Hibernate, Oracle, Primefaces 5, SOAP, Git,
+Arquillian
+===============================================================================
+10/2014 - 06/2015: Erweiterung, Konzeption und Entwicklung
+ 
+Kunde:              Finanzdienstleister
+ 
+Aufgaben:
+ 
+    * Konzeption und Entwicklung eines JavaFX-Clients mit Integration in die
+      vorhandene Identitätsinfrastruktur zwecks Authentifizierung und
+      Autorisierung
+    * Erweiterung der Systemschnittstellen und Implementierung spezieller
+      Transferprotokolle
+ 
+Eingesetzte Produkte:
+ 
+JEE 6, JBoss, Jetty, JAAS, OAuth2, HSQL, JavaFX, Git
+===============================================================================
+02/2014 - 08/2014: Implementierung und Entwicklung
+ 
+Kunde:              Telekommunikationsbranche
+ 
+Aufgaben:
+ 
+    * Implementierung von Kommunikationsprotokollen sowie Schnittstellen für
+      Web-basierten Datenaustausch
+    * Entwicklung von Web-Services und Anbindung an die Business-Prozesse
+    * agile Entwicklung (Scrum, TDD, Jenkins)
+ 
+Eingesetzte Produkte:
+ 
+JAX-WS, Oracle 10, PLSQL, Subversion
+===============================================================================
+10/2013 - 12/2013: Weiterentwicklung und Migration
+ 
+Kunde:              Internethändler
+ 
+Aufgaben:
+ 
+Weiterentwicklung einer Web-Application für die Auftragsabwicklung und Online-
+Verkaufsplattform. Migration der Java Web-Container (Tomcat) basiertenen
+Anwendung in einen Java-EJB-Container mit einer JPA-Persitenzschicht.
+ 
+Eingesetzte Produkte:
+ 
+Java EE 6, EJB 3.1, GlassFish 3, JPA 2.0 (EclipseLink), JSF 2.0, JUnit,
+IntelliJ, SVN, UML
+===============================================================================
+05/2012 - 08/2013: Entwicklung eines JavaFX-Clients
+ 
+Kunde:              Postdienstleistung
+ 
+Aufgaben:
+ 
+Schwerpunkt der Anwendung ist der Zugriff auf Webservice-Schnittstellen der
+Post AG für die Erzeugung von Brieffrankierungen. Der Client besitzt diverse
+Schnittstellen zur Authentifizierung, Abrechnung, Anbindung entfernter
+Addressbücher, Ebay-Zugriff, Import- u. Exportfunktionen.
+ 
+Eingesetzte Produkte:
+ 
+JavaSE 1.7, JavaFX, Spring (DI / Spring Framework JDBC), HSQLDB, JAX-WS
+(Metro), HTTP-Client, Java-Print-API, JSON, ANT, UML
+===============================================================================
+01/2011 - 12/2011: Weiterenwicklung einer Software für 'Distanzhandel'.
+ 
+Kunde:              IT-Dienstleister, Systemhaus für Versandhandel
+ 
+Eingesetzte Produkte:
+ 
+TDD (Test Driven Development), JUnit, Refactoring, Performanzoptimierung, SOAP-
+Webservices, Java6, Das Vorgehensmodel war Scrum
+===============================================================================
+08/2010 - 10/2010: Weiter- bzw. Neuentwicklung einer browserbasierten
+Informations- und Wissensmanagement Software.
+ 
+Kunde:              IT-Dienstleister, Wissensmanagement Software
+ 
+Kenntnisse:
+ 
+Es wurde in Scrum-ähnlich organisierten Entwicklungsteam gearbeitet.
+ 
+Eingesetzte Produkte:
+ 
+JavaSE6, Hibernate, MySQL, JSF, Spring, Tomcat, ILOG JRules (Rule-Engine),
+Subversion
+===============================================================================
+05/2010 - 05/2010: Teilnahme an einem mehrtägigen Seminar zum Thema
+'Softwareentwurfsprinzipien, Architektur- und Designmuster'
+ 
+Kunde:              OOSE GmbH
+===============================================================================
+05/2009 - 05/2010: Weiterentwicklung eines Warenwirtschaftssystems
+ 
+Kunde:              IT-Dienstleister, Systemhaus für Versandhandel
+ 
+Aufgaben:
+ 
+Weiterentwicklung eines umfassenden Warenwirtschaftsystems für Disposition und
+Einkaufsabwicklung,Adressverwaltung, Kundenbetreuung, die Auftragsabwicklung,
+zur Planung von Katalogen und Werbemaßnahmen, Artikel- und Lagerverwaltung
+sowie für die Versandabwicklung und Retourenmanagement.
+ 
+Kenntnisse:
+ 
+Scrum
+ 
+Eingesetzte Produkte:
+ 
+JavaSE, Swing, MS SQL-Server, Eclipse, Subversion (SVN)
+===============================================================================
+02/2009 - 04/2009: Java-Web-Container
+ 
+ 
+Aufgaben:
+ 
+Anpassung des Anfang 2008 entwickelten Buchungs-Servers für kleine Server-
+Architekturen (Java-Web-Container). Überarbeitung des Web-Frontends.
+ 
+Eingesetzte Produkte:
+ 
+JPA(Hibernate), JSF, Facelets, RichFaces, Tomcat, MySQL
+===============================================================================
+09/2008 - 12/2008: Weiterentwicklung einer B2B-Anwendung für das
+Produktmanagement
+ 
+Kunde:              Versandhaus
+ 
+Aufgaben:
+ 
+Wichtig für Arbeit in diesem Projekt waren folgende JAVA-Technologien:
+Canoo ULC-Client (für das Frontend),
+sowie EJB,Spring und JDO(Kodo)/Oracle für Model und Persistenz, EJB (Message-
+Driven-Beans) für den Nachrichtenaustausch zu Subsystemen und Systemen anderer
+Domains.
+Implementierung einiger JavaXML import/export Schnittstellen mit dem Castor
+Framework.
+ 
+Eingesetzte Produkte:
+ 
+Oracle, Application-Server: BEA WebLogic
+===============================================================================
+05/2008 - 08/2008: Entwicklung einer Portalanwendung, bestehend aus (JSF-
+)Portlets und Webservices
+ 
+Kunde:              Versicherungsgesellschaft
+ 
+Aufgaben:
+ 
+    * Applikationserver: IBM Websphere 6.1 + Websphere Portal Server 6.0
+    * Implemtierung einer LDAP-basierten Schnittstelle für die Prüfung von
+      Zugriffsberechtigungen auf eine Portlet-Anwendung.
+ 
+Eingesetzte Produkte:
+ 
+Eclipse/RSA(IBM)
+===============================================================================
+04/2008 - 04/2008: Teilnahme an der JAX/SOACON Konferenz für Java u.
+Softwarearchitektur
+ 
+Einsatzort:         Mainz
+===============================================================================
+02/2008 - 04/2008: Entwicklung eines Anmeldungs/Buchungs-Servers für (Sport-
+)Veranstaltungen
+ 
+ 
+Aufgaben:
+ 
+Features:
+    * Online-Anmeldung
+    * Kunden-Login
+    * Email-Benachrichtigung,
+      Web-Administration
+    * Web-Service-Schnittstelle für Ergebnislisten
+    * Mandantenfähigkeit
+    * gute Erweiterbarkeit
+ 
+Eingesetzte Produkte:
+ 
+JavaEE: EJB3.0, JPA mit Hibernate, JSF, JAX-WS, JBoss 4.22
+===============================================================================
+Seit 2008: Freiberufler
+===============================================================================
+Anstellungen
+ 
+03/2006 - 12/2007: (Festanstellung)
+Firma mit Schwerpunkt:
+B2B-Software, Mobile Solutions
+ 
+Meine Tätigkeiten:
+    * Portierung eines grossen propritären Warenwirtschaftssystems in eine
+      Service-Orientierte-Architektur (SOA). Entwicklung mehrerer Web-Services
+      u.A. eines zentralen, generischen Datenbank-Web-Services.
+    * Entwicklung von Web-Benutzerschnittstellen mit JAVA-Struts und JSF
+      Frameworks
+    * Erstellung einer Software zur Geschäftskundenbetreuung, Adressverwaltung,
+      Umfrageerfassung, Routenplanung mit Blackberry- (und JavaME-) Endgeräten
+    * Entwicklung eines Java-Enterprise-Bean (EJB 3.0) basierten Application
+      Servers, der als Schnittstelle zwischen mobilen Endgeräten und
+      firmeninternen Netzwerken eingesetzt wird
+===============================================================================
+07/2000 - 02/2006: (Festanstellung)
+Firma: (T-Online Tochter) Anbieter für webbasierte Lösungen im Unified
+Messaging Umfeld.
+ 
+Produktpalette:
+WebOrganizer, WebMail, Mailservice, Virtuelle Festplatte, Fotoalbum.
+ 
+Meine Tätigkeiten:
+    * Entwicklung verschiedener Module des WebOrganizers, insbesondere des
+      WebMailClients. Verwendete Sprachen: PHP, PERL, JAVA, (ORACLE).
+    * Enwicklung eines Java EJB-basierten SyncML-Servers
+===============================================================================
+09/1998 - 06/2000: (Festanstellung)
+Firma für neue Medien
+ 
+Meine Tätigkeiten:
+    * Entwicklung eines generischen Online-Booking-Servers (JAVA)
+    * Entwicklung einiger Module für ein JAVA-Servlet basiertes Content-
+      Management und Inhouse-Kommunikationssystem
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_87424
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 05.05.2021 00:51:18
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

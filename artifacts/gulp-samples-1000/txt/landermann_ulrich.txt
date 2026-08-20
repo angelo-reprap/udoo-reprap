@@ -1,0 +1,389 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_42620 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                42620
+  
+Wohnort                    632xx Neu-Isenburg, Deutschland
+Jahrgang                   1971
+Staatsbürgerschaft         deutsch
+Stundensatz                85 EUR
+Verfügbar ab               01.01.21 zu 20%, Vor-Ort-Einsatz 50% möglich
+Profil erstellt am         26.09.02
+Profil zuletzt geändert am 07.12.20
+Lesen von Projektanfragen  > 5 Tage [00]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 28.10.2020 17:08:04
+
+Fachlicher Schwerpunkt:
+Java JEE Architektur und Entwicklung
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Qualitätsmanagement / Qualitätssicherung / Test
+
+- Sehr gute fachliche und technische Auffassungsgabe
+- Erfahrungen im Aufbau und Betreuung von Continiuous Integration (Jenkins /
+Hudson)
+- Sehr gute Kommunikationsfähigkeit
+
+Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit bevorzugt
+
+Voraussetzung für Festanstellung: Wichtig ist die Möglichkeit zur
+Weiterentwicklung sowie die
+Möglichkeit meine ausgeprägten autodidaktischen Fähigkeiten
+einzubringen.
+Meine Gehaltsvorstellung liegt bei etwa 80.000  pro Jahr.
+
+Ausbildung:
+Ausbildung zum Softwareentwickler für Netze und Unix an
+der ZWF-IT-Akademie Saarbrücken, wobei der Schwerpunkt
+in den Programmiersprachen C/C++ und Java war.
+Die Administration von Windows NT Domänen sowie
+von Unix (Sinix 5.4x / Linux) waren zusätzlich integriert.
+
+
+
+
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch     Muttersprache
+Englisch    Fließend
+FranzösischGrundkenntnisse
+
+
+Betriebssysteme:
+Echtzeitbetriebssysteme Grundkenntnisse Microware OS-9
+HPUX                    Projekterfahrung (10.20 , 11.0)
+KVM                      
+MS-DOS                  Sehr gute Kenntnisse
+Novell                  gute Kenntnisse (NDS)
+OS/2                    Praktische Erfahrungen
+SUN OS, Solaris         allgemeine Kenntnisse
+Unix                    Tiefgehende Kenntnisse (Shellprogrammierung KSH / TCSH
+                        / Bash), Installation und Konfiguration
+Windows                 Sehr gute Kenntnisse von NT / 2000 Domänen (Migration)
+
+
+Programmiersprachen:
+Java       Sehr gute Kenntinsse (JEE, EJB, OSGI)
+JavaScript Gute Kenntinsse
+PHP        Gute Kenntnisse
+PL/SQL     Gute Kenntnisse aus der Praxis
+Python     Sehr gute Kenntnisse aus der Praxis
+Shell      Sehr gute Kenntnisse aus der Praxis
+
+
+Datenbanken:
+DB2                 Gute Kenntnisse
+MySQL               Gute Kenntnisse
+Oracle              Gute Kenntnisse
+TDB Turbo Datenbank Gute Kenntnisse
+
+
+Datenkommunikation:
+Ethernet          
+ISDN              
+LAN, LAN Manager  
+Windows Netzwerk  
+
+
+Produkte/Standards/Erfahrungen:
+JavaFX     
+JDK        
+Kamailio   
+Maven      
+OSGI       
+RPM        
+SIP / RTP  
+VoIP       
+HP-UX 10.20 und 11.0
+- komplette Serverfarm mit Anbindung an RAID im Team administriert
+
+Linux
+- Router/Firewall installiert und betreut).
+
+Apache
+- Tomcat (JSP / Taglibs, Servlets).
+
+Zope
+- Client für Verlagsdatenbank mit Python Modulen.
+
+Windows NT / Windows 2000
+- Administration von Domänen mittlerer Größe auch im gemischten Umfeld
+mit Novell.
+- Exchange Server (5, 5.5, 2000)
+Lotus
+- Notes R5, Domino 5.x
+
+Cisco
+- Inbetriebnahme und Konfiguration (IOS, Webmanegment-Console)
+von Router und Switch der 2000er und 3000er Serie
+incl. Fast-Ether-Channel (FEC).
+
+
+Branchen:
+Systemhäuser
+Banken
+Industrie
+Behörden
+
+Projekte:
+01/2017 - 12/2020: Neue S-Bahn Berlin
+ 
+Einsatzort:         Frankfurt am Main
+Rolle:              Systemarchitekt  / Senior Entwickler
+Kunde:              DB-Systel GmbH
+ 
+Aufgaben:
+ 
+Architektur sowie Entwicklung einer Kommunikationsplattform in Zügen um die
+Triebfahrzeugführer zu entlasten und Service sowie Hilferufe an eine
+landseitige Zentrale zu vermitteln und den Triebfahrzeugführer nur bei Bedarf
+zu involvieren.
+ 
+Der Mitarbeiter in der Zentrale kann bei Anrufen aus den Zügen Kameras in der
+Nähe der entsprechenden Sprechstelle abrufen um sich ein Bild der Situation im
+Zug machen zu können.
+ 
+Des Weiteren werden bei bestimmten Ereignissen Standbilder und
+Benachrichtigungen in die Zentrale gesendet
+ 
+Kenntnisse:
+ 
+VoIP, SIP / RTP, Kamailio, KVM, JDK, JavaFX, OSGI, Maven, RPM
+===============================================================================
+ 
+ 
+Zeitraum:                             01/2017  dato
+Firma/Institut:                     DB Systel GmbH
+ 
+Projekt:                                 Neue S-Bahn Berlin
+ 
+Rolle:                                    Systemarchitekt TK / Linux Plattform
+                                              Java-Senior-Entwickler
+ 
+Projektbeschreibung: 
+ 
+Architektur sowie Entwicklung einer Plattform zur   Kommunikation in Zügen der
+S-Bahn Berlin um die Triebfahrzeugführer zu entlasten und Service sowie
+Hilferufe zunächst an eine landseitige Zentrale zu vermitteln und den
+Triebfahrzeugführer nur bei Bedarf zu involvieren.
+Der Mitarbeiter in der Zentrale kann bei Anrufen aus den Zügen Kameras in der
+Nähe der entsprechenden Sprech-stelle abrufen um sich ein Bild der Situation im
+Zug machen zu können.
+Des Weiteren werden bei bestimmten Ereignissen Standbilder und
+Benachrichtigungen in die Zentrale gesendet.
+ 
+Systemumgebung:               SIP Server Kamailio / RTPEngine auf  OpenSUSE
+Leap, KVM
+                                               Java OSGI Applilation
+ 
+Eingesetzte Techniken:  
+AutoYast, RPM, Maven, Redline, Yaml, Docker, JainSIP (Java SIP Libraries für
+SIP Client / Server zum Testen),  CI/CD (Jenkins, Nexus)
+ 
+ 
+ 
+Zeitraum:                             08/2019  12/2019
+Firma/Institut:                      DB Systel GmbH
+ 
+ 
+Projekt:
+Diagnosemodul um die Ergebnisse von Abfragen via SNMP in Fehlercodes für UIC-
+559 Dateien zu transformieren und diese in das Backoffice zu übertragen.
+
+Rolle:                                     Seniorentwickler Java / SNMP
+ 
+Systemumgebung:               Java Application auf SuSE Enterprise Linux (SLES)
+ 
+ 
+ 
+ 
+ 
+Zeitraum:                             01/2013  12/2016
+Firma/Institut:                     DB Systel GmbH
+ 
+Projekt                                 ITonICE (ehem. Zugportal)
+ 
+Rolle:                                    Seniorentwickler JEE / Scrum
+                                              Linux-Systemarchitekt (RHEL -
+> CentOS)
+ 
+ Projektbeschreibung:
+ 
+ Entwicklung eines Info und Entertainment Systems welches auf den ICE Zügen der
+Deutschen Bahn   angeboten wird.
+ Reisenden greifen mit eigenen Mobilen Geräten (Notebooks, Tablets, Smart
+Phones) auf das   Zugportal zu und können neben Audio und Videounterhaltung
+sowie aktuelle News auch Angebote   für  Kinder (Spiele) aber auch
+Informationen für Reisende etc. erhalten.
+ 
+Systemumgebung:              JEE Application auf Basis der
+Referenzimplementierung
+                                               der DB-Systel im Backoffice.
+                                               Webapplication mit JSON REST
+Services auf den Zügen.
+                                               Continious Integration (Hudson-
+>Jenkins / Nexus), Maven
+ 
+ 
+Zeitraum:                              10/2010  12/2012
+Firma/Institut:                       DB Systel GmbH
+ 
+Projekt:                                 Mobile Integrations-Plattform (MIP)
+
+Rolle:                                    Seniorentwickler JEE / Scrum Java
+OSGI
+                                               Linux-Systemarchitekt (SELS)
+ 
+Projektbeschreibung: 
+ 
+Entwicklung einer Mobilen Integrationsplattform (MIP) für den Datenaustausch
+von Comfort und Diagnosesystemen auf Zügen und dem landseitigen Backoffice. Die
+MIP ist bereits auf nahezu 80% der ICE Flotte der DB im Comfortbereich in
+Betrieb und sorgt für einen effizienten Austausch von Reiseinformationen
+zwischen den Zügen und der Landseite.
+Das Zugportal befindet sich in der Testphase auf ausgesuchten ICE und wird noch
+in diesem Jahr auf der ICE Flotte zur Verfügung gestellt werden
+ 
+Systemumgebung:           Java OSGI Application auf SuSE Enterprise Linux
+(SLES)
+ 
+Zeitraum:       09.2009 - 06.2010
+Firma / Institut : Fiducia AG Karlsruhe
+Entwicklung und Dokumentation von Workflows für das Processing von
+Massendruckdaten mit OCÉ Prisma und Java.
+ 
+ 
+ 
+Zeitraum:       07.2008 - 04.2009
+Firma / Institut : Softwarehaus (RTC AG Bern / Schweiz)
+Tätigkeit:
+Design und Entwicklung von Output Schnittstellen und Services für Massendruck,
+Printfile Dispatching und Print on Demand im Bankensektor.
+Design und Enwicklung von Webmodulen für die Verwaltung von Printfiles
+und Steuerungsdaten sowie Beilagensteuerung.
+Design und Entwicklung von Jasper Reports für Einzelreports am Bankschalter.
+- Eclipse (OSGi)
+- Jabas Hibernate
+- Bea Weblogic
+- Oracle 10g und Oracle Tools
+- UML
+ 
+ 
+ 
+Zeitraum:       10.2007 - 06.2008
+Firma / Institut :
+Softwarehaus (the virtual solution, München)
+Tätigkeit:
+Entwicklung einer Kfz Leasing Applikation, insbesondere Rechnungslaufmodule
+und Schnittstellen zu eGecko für das Anlegen von Personenkonten, Fibubelegen
+sowie weiterer Belegarten.
+- Hibernate
+- Spring
+- JSF, Tomahawk, Trinidad
+- Oracle
+ 
+ 
+ 
+Zeitraum:         08.2007 - 10.2007
+Firma / Institut :         
+Softwarehaus (PPI AG Frankfurt am Main)
+Tätigkeit:
+Entwicklung einer Kreditplattform für eine namhafte Bank innerhalb
+einer bestehenden Anwendung für Bilanzanalyse und Rating.
+- EJB (Entity und Session Beans)
+- SWING
+- Struts (Webadmin Tool)
+- Oracle (SQL Script zum erstellen der DB Struktur)
+Referenz:         PPI AG Frankfurt am Main [Adresse und Telefonnummer auf
+Anfrage]
+ 
+ 
+ 
+Zeitraum:         01.2007 - 04.2007
+Firma / Institut :         
+Softwarehaus (Salt Soltions GmbH, Dresden)
+Tätigkeit:        
+Umstellung eines Warenwirtschafts und Logistiksystems von Java 1.4 auf Java 1.5
+sowie von Bea Weblogic 8.14 auf Weblogic 9.20
+Programmierung eines Tools um EJB´s (Quellcode) nachträglich mit Annotations zu
+versehen.
+Programmierung eines Descriptorprocessors (für die EJB Annotations)
+Referenz:         Salt Soltions GmbH, Dresden / [Adresse und Telefonnummer auf
+Anfrage]
+ 
+ 
+ 
+Freiberuflich ab dem 01.11.2002
+
+Zeitraum:         11.2002 - 12.2006 (Auslastung etwa 50 %)
+Firma / Institut :         Behörde (Bundeswehr)
+Projekt: Schulungen von Angehörigen der Bundeswehr
+Themen   Netzwerke ( TCP/IP)
+Linux / Unix
+Windows (NT4, Win2000, Active Directory, Domänenkonzepte)
+MS-Exchangeserver
+Lotus Notes / Domino
+MS Office (Word, Excel, Access, PowerPoint)
+MS Project
+Referenzen:       ML-Consulting GmbH [Adresse und Telefonnummer auf Anfrage]
+ 
+ 
+Zeitraum:         11.2002 - 12.2006 (Auslastung etwa 30 %)
+Firma / Institut :         Kleine bis mittelständische Unternehmen in der
+Region Saar-Westpfalz
+Tätigkeiten:      Installation / Wartung von Windows Netzwerken, Exchange
+Server
+ 
+ 
+ 
+Zeitraum:         10.2000 - 10.2002
+Als Angestellter /  Infeurope Luxembourg SA / Infeurope Deutschland GmbH
+- Wartung und Weiterentwicklung eines Redaktionellen DBMS für Zeitungsverlage
+auf Basis
+  von Python
+- Entwicklung einer Webapplikation für das Schweizer Handelsamtsblatt (SHAB)
+sowie für
+  das ITER Projekt der EU in Java, (Servlets, JDBC, Java Beans, JSP, Oracle)
+- Teilprojektleitung eines Scanzentrums für das digitalisieren der Grundbücher
+für das
+  Bundesland Nordrheinwestfalen
+ 
+ 
+
+Zeitraum:         01.1999 - 10.2000
+Als Angestellter /  SaSo Becker GmbH, 66265 Heusweiler
+- Systemadministration im Umfeld von Windows NT 4 / Windows 2000
+- Systemadministration im Umfeld von HP UX und Sinix Reliant sowie Linux
+ 
+
+Sonstige Anmerkungen:
+Teilnahme an Lehrgang zu Präsentationstechniken
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_42620 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 08.12.2020 00:45:55
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

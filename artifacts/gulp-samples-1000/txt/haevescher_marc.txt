@@ -1,0 +1,856 @@
+Berater MS-Umfeld, System Center Suite, Exchange, Active Directory,
+Administration
+Top-Skills: Experte im Microsoft Server Umfeld,
+technisches Projektmanagement, Active
+Directory Federation Service, Exchange
+Server, SCCM 2012, Projektmanagement
+Verfügbar ab: 22.06.2022
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 80,00 EUR
+Bemerkungen: minimum im Großraum Hamburg.
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Position
+Kommentar:
+Projekte
+2020-01 - 2022-06 Technisches Verfahrensmanagement
+2 Jahre 6 Monate
+Rolle: Technischer Projektmanager
+Kunde: Dataport AöR
+Einsatzort: Hamburg
+Projektinhalte:     •  Beratung, Konzeptionierung, Aufbau und Betrieb/Administration
+     ?und Management von Fachanwendungen des Kunden im Microsoft
+     ?Server-/Anwendungs- Umfeld
+    •  Erstellung der nötigen Dokumentationen nach Firmenstandard für
+     ?den Betrieb der Fachanwendungen des Kunden in verschiedenen
+17.02.2023 1 von 18
+     ?Sicherheitsumgebungen ( z.B. Internet-, Intranet- Umgebungen )
+    •  Sicherstellung für störungsfreie Abläufe und Optimierung der
+     ?Softwarestruktur im Kontext betrieblicher Prozesse im
+     ?behördlichen Umfeld
+    •  Betreuung der Middleware Komponenten und Datenbanksysteme (
+     ?Oracle DB 12c/19c und MS SQL 2014/ 2016/2017/2019 )
+    •  Entwickelung/Anpassungen von Skripten zur Serverautomatisierung
+Kenntnisse: BMC Remedy ITSM –Management Konsole, Erstellen von Changes,
+Erstellen, bearbeiten, kontrollieren von Task und Incidents, Powershell,
+Private-Key-Infrastructure (PKI)/AD-Zertifikatsstelle, Process Explorer,
+IIS-Managementkonsole, Command-Line/Scripting: PSTools; ShareEnum,
+MMC: Active Directory-User and -Computer; Active Directory- Sites and –
+Services, MMC: Sicherheitsrichtlinien-Editor; GPO-Management Konsole,
+MMC: Active Directory- Domains and -Trusts;
+Eingesetzte Produkte: MS SQL Server Management Studio (SSMS), Oracle SQL Developer, MS
+CRM 9.0
+2018-10 - 2019-12 Fachliche und organisatorische Koordination einer
+1 Jahr 3 Monate Servermigration
+Rolle: Technisches Projektmanagement
+Kunde: Signal Iduna
+Einsatzort: Hamburg
+Projektinhalte: Fachliche und organisatorische Koordination einer Servermigration von
+Windows Server Systemen verschiedener Versionen zur Zielversion
+Windows Server 2016/2019. Dazu zählen die Schwerpunkte
+    •  Vorab Definitionen des technischen und organisatorischen
+     ?Migrationspfades je Anwendung des Kunden
+    •  Terminliche Abstimmung mit den hausinternen
+     ?Produktverantwortlichen,
+    •  sowie den internen Signal Iduna Fachabteilungen / Anwendungen.
+    •  Reporting und Krisenmanagement zu höheren Ebenen.
+    •  Verantwortung zum Patchen der Firmware/BIOS DELL HW-
+Komponenten
+     ?mittels OpenManageEnterprise ( OME ).
+    •  Bereitstellen von virtuellen und HW-Servern inkl. Installation
+     ?mittels SCCM.
+    •  Erstellen/Bearbeiten/Pflegen von Tickets/Aufgaben/Changes
+Kenntnisse: MCSE, Powershell, Private-Key-Infrastructure, IIS
+Eingesetzte Produkte: Office 365 ( Outlook / Excel inkl. Pivot Erstellung / Word / Powerpoint ),
+VMware vSphere 6.7 Konsole, MS-HyperV SCVMM Konsole, Ticket System
+its360, Servertool OME von DELL
+2017-03 - 2018-09 3rd Level Support
+1 Jahr 7 Monate
+Kunde: Dataport AöR
+Einsatzort: Hamburg
+17.02.2023 2 von 18
+Projektinhalte:     •  3rd Level Support von Großverfahren (IIS, Windows Server 2008R2
+     ?/ 2012R2, SQL und eigenes Kontenpflegetool)
+    •  Projektauftrag: Support und Weiterentwicklung im Bereich
+     ?Großverfahren ( >100.000 Anwender ) des Kontenpflegetools ( KPT
+     ?), Exchange 2010/2013/2016 der Länder Schleswig-Holstein,
+     ?Hamburg, Bremen und Sachsen-Anhalt
+Eingesetzte Produkte: Powershell, Private-Key-Infrastructure (PKI)/AD-Zertifikatsstelle, Process
+Explorer, IIS-Managementkonsole, PSTools, ShareEnum, Active Directory-
+User and -Computer, Active Directory- Sites and –Services, Active
+Directory- Domains and -Trusts, Sicherheitsrichtlinien-Editor, GPO-
+Management Konsole, SQL Server Management Studio (SSMS)
+2016-09 - 2017-02 Technisches IT-Projektmanagement
+6 Monate
+Kunde: Hapag Lloyd
+Einsatzort: Hamburg
+Projektinhalte:     •  Technisches IT-Projektmanagement im Windows Server 2008R2 und
+     ?2012R2 Umfeld
+    •  Projektauftrag: Heben der Serverinfrastruktur von Windows
+     ?Server 2008R2 auf Windows Server 2012R2 inkl. Der vorhandenen
+     ?Applikationen ( MS-SQL, MS-Exchange, MS-SCCM, MS-Dynamics,
+     ?Virenschutz, … ) und 3rd Level-Anwendungssupport der migrierten
+     ?Systeme
+        •  Erstellen und Abstimmen eines Prozessplans zwischen IBM und
+         ?dem Kunden zur Migration/Update der Server (
+         ?„Boarding-Prozess“ )
+        •  Analyse der Applikationsserver ( Windows Server 2008R2 )
+         ?des Kunden, Erstellen von detaillierten Boarding-Request in
+         ?das Boarding-Team, Überprüfung des fertigen Servers inkl.
+         ?Freigabe an den Kunden ( Windows Server 2012R2 )
+        •  Lückenloses Reporting an den Kunden bezüglich des
+         ?Projektfortschrittes und Status der Server während des
+         ?Boarding-Prozesses
+Eingesetzte Produkte: Citrix XenServer als Virtualisierungsumgebung, MS-Office Produkte zur
+Erarbeitung des Boarding-Prozesses, MS-Visio: Erstellung, Abstimmung
+und grafische Aufarbeitung eines Prozesses zwischen IBM und dem
+Kunden, Abnahme durch den Kunden, MS-Projekt: Erstellung eines
+Projektplan, Eigendokumentation während der Migration (Ist-Soll-
+Analyse), Grundlage des Kunden-Reporting, MS-Excel: Ist-Analyse der
+Kundendaten, grafische Aufbereitung des Projektfortschrittes während der
+Migration (Reporting), MS-Word: Projekt-Dokumentation, MS-Powerpoint:
+Präsentation des Projektfortschritts gegenüber dem Management,
+Powershell, Windows-Installer, Windows ADK, Right-Click-Tools, WSUS,
+Private-Key-Infrastructure (PKI)/AD-Zertifikatsstelle, Process Explorer,
+Command-Line/Scripting: PSTools, ShareEnum, MMC: Failovercluster-
+Manager, Active Directory-User and -Computer, Active Directory- Sites and
+–Services, Active Directory- Domains and -Trusts, Sicherheitsrichtlinien-
+Editor, GPO-Management Konsole, Applikationen: SQL Server Management
+Studio (SSMS), System Center Configuration Manager Console
+2016-03 - 2016-08 Herstellen/Migration der Server- Konformität
+6 Monate
+17.02.2023 3 von 18
+Kunde: HSBC Trinkaus &amp; Burkhardt AG
+Einsatzort: Düsseldorf
+Projektinhalte: Herstellen/Migration der Server- Konformität nach dem Globalen
+Standards des Kunden
+    •  Technischer IT-Projektmanager mit operativen Aufgaben im
+     ?Windows Server 2008R2 und 2012R2 Umfeld
+    •  Projektauftrag: Herstellen/Migration der Server- Konformität
+     ?nach dem Globalen Standards der HSBC
+        •  Analyse des IST-Zustandes, Präsentation der Ergebnisse
+         ?inkl. Aufzeigen des konkreten Migrationspfades gegenüber
+         ?dem Management, Herstellen von Entscheidungen bei den
+         ?Steakholdern
+        •  Erstellen von Actionplänen, Reports und Projektplanung in
+         ?Zusammenarbeit mit den Fachabteilungen des Kunden
+        •  Planen, durchführen, analysieren sowie präsentieren von
+         ?Pilot-Tests für automatische und manuelle
+         ?Migrationsszenarien
+        •  Erstellen von Changes zur Migration und Präsentation vor
+         ?dem CAP
+        •  Durchführen der Migration nach dem Projektplan
+        •  Durchführen der Domänen-Migration
+        •  Lückenloses Reporting gegenüber dem Management während der
+         ?Change-Phasen
+Eingesetzte Produkte: Windows Server 2008R2 / 2012R2, ADUC-Console, ADDT-Console, ADSS-
+Console, GPM-Console, DNS, DHCP, SCCM 2012R2, Lotus-Notes 8.5, MS-
+Projekt: Erstellung eines Projektplan, Eigendokumentation während der
+Migration (Ist-Soll-Analyse), Grundlage des Management-Reporting, MS-
+Excel: Ist-Analyse der Kundendaten mittels Pivot-Tabellen, grafische
+Aufbereitung des Projektfortschrittes während der Migration (Reporting),
+MS-Word: Projekt Dokumentation, Erstellen von Klick-Anleitungen für das
+Kundenpersonal bei Prozess-änderungen durch die Migration, MS-
+Powerpoint: Präsentation des Projektfortschritts gegenüber dem
+Management
+2015-09 - 2015-12 Erarbeiten von Infrastruktur Lösungen
+4 Monate
+Rolle: Solution Designer im Banken Umfeld
+Kunde: Wincor Nixdorf Portavis
+Projektinhalte:     •  Erarbeiten von Infrastruktur Lösungen nach Kundenanforderung im
+     ?Banken Umfeld
+    •  Vorstellung der erarbeiteten Lösung beim Kunden
+    •  Einpreisung der Aufwände zur Angebotserstellung
+Eingesetzte Produkte: Word, Excel, Powerpoint, Visio
+2014-08 - 2015-08 Operativer Betrieb mehrerer 3-Tier Rechenzentren
+1 Jahr 1 Monat
+Kunde: Here „a Nokia Company“
+Einsatzort: Berlin
+17.02.2023 4 von 18
+Projektinhalte: Operativer Betrieb mehrerer 3-Tier Rechenzentren mit Projektleitung für
+die Konsolidierung auf weltweit 3 Standorte (> 6.000 Anwender)
+    •  Operativer Betrieb mehrerer 3-Tier Rechenzentren ( >2500 Server
+     ?)
+    •  Aufrechterhaltung des RZ-Betriebs
+    •  Inbetriebnahme von HP und DELL Servern verschiedener
+     ?Technologien wie Rackmounted-und Blade-Server
+    •  Portkonfiguration im MDF: Copper-, Fiber- sowie Port, V-Lan und
+     ?IP-Konfiguration
+    •  iLO und iDRAC Konfiguration
+    •  Firmware Upgrades
+    •  Hardwaretausch
+    •  Dokumentation der vorhandenen Infrastruktur
+    •  Server Installationen innerhalb größerer Hardware Projekte in
+     ?Umgebungen von bis zu 50 Racks.
+    •  Herstellen Globalen-, Metro- und Inter-Campus-Verbindungen
+     ?mittels Fiber Optic
+    •  Inter-Campus Verbindungen vom MDF, IDF bis zur Client
+     ?Netzwerkdose.
+Eingesetzte Produkte: Jira Ticket System, Remedy Ticket System, Telnet, Putty sowie Web-
+Interface für HP und DELL iLO Server Konfiguration, Fiber
+Steckverbindungen in SC und LC mittels Cisco Xenpacks Modulen, 1 und
+10 GB/s GICs
+2014-03 - 2014-07 Analyse, Sizing, operative Umsetzung
+5 Monate
+Kunde: Technische Universität
+Einsatzort: Braunschweig
+Projektinhalte: Analyse, Sizing, operative Umsetzung, einer neuen SCCM 2012 R2
+Umgebung ( > 3.000 Anwender )
+    •  Analyse der Ist-Umgebung
+    •  Sizing der Soll-Umgebung
+    •  Installation und Konfiguration der Infrastruktur und des
+     ?Primary Site SCCM 2012 R2 Servers o.a.
+        •  SQL 2012 R2 in einem 2-Node-Cluster
+        •  ADK für Windows 8 und 8.1
+        •  SCCM 2012 R2
+        •  Zertifikat Erstellung
+    •  Erstkonfiguration der kompletten Umgebung
+    •  Aufbau einer Testumgebung
+        •  SQL 2012 R2 Single Node Cluster
+        •  ADK für Windows 8 und 8.1
+        •  SCCM 2012 R2
+    •  Analyse der benötigten Installationspakete inkl. Deployment
+        •  OS-Deployment ( W7/8 32-und 64-bit, Windows Server
+         ?2012/2008R2 )
+        •  Windows Server Update Service ( WSUS )
+        •  System Center Update Publisher ( SCUP ) 2011
+        •  Forefront Endpoint Protection
+        •  Report-Services
+        •  Asset-Management / Inventarisierung
+    •  Erstellen der Pakete ( OS, Treiber, Applikationen, … )
+        •  OS Windows 7 / 8 Clients, Windows 2012, Windows 2008R2
+        •  Office Pakete ( 2007 / 2010 / 2013 )
+        •  Adobe Suite
+17.02.2023 5 von 18
+    •  Roll-Out Begleitung
+    •  Troubleshooting
+        •  SCCM 2012 R2 Umgebung inkl. SQL 2012 R2
+        •  OS Roll-Out Windows 7 / 8 Clients, Windows 2012, Windows
+         ?2008R2
+        •  Applikationen
+        •  Anpassungen Treiber
+Eingesetzte Produkte: Powershell, Windows-Installer, Windows ADK, Right-Click-Tools, WSUS,
+Forefront-Endpoint Protection (FEP), Private-Key-Infrastructure (PKI)/AD-
+Zertifikatsstelle, Hyper-V Manager inkl. SCVMM 2012R2, Process Explorer,
+Command-Line/Scripting: PSTools, ShareEnum, MMC: Failovercluster-
+Manager, Active Directory-User and -Computer, Active Directory- Sites and
+–Services, Active Directory- Domains and -Trusts, Sicherheitsrichtlinien-
+Editor, GPO-Management Konsole, Applikationen: SQL Server Management
+Studio (SSMS), System Center Configuration Manager Console, System
+Center Update Publisher, MS-Office 2013, MS-Projekt 2013, Active
+Directory Replication Status Tool v1.0, Hyper-V Manager inkl. SCVMM
+2012R2 Console, GUI-MetaCleanUp, Prozess-Modelling, ITIL Service.
+Modul, Testing
+2014-01 - 2014-03 Erstellen eines Active Directory Betriebshandbuches
+3 Monate
+Kunde: VBG
+Einsatzort: Hamburg
+Projektinhalte:     •  Erstellen eines Active Directory Betriebshandbuches nach
+     ?Vorgaben des BSI für eine Windows Server 2008R2
+     ?Forrest-Struktur
+    •  Analyse Ist-Zustand, Transformation in einen BSI-konformen
+     ?Soll-Zustand für mehrere Kundenstandorte
+        •  Projektleitung
+        •  Analyse der Ist-Umgebung
+        •  Transformation auf die Soll-Umgebung
+        •  Ausarbeitungsreife bis zur Testierung
+            •  AD-Betrieb
+                •  Client
+                •  Server
+            •  AD-Sicherheit
+                •  Transformation der BSI-Sicherheitsvorgaben auf die
+                 ?Kundenumgebung
+            •  AD-Sicherung
+                •  AD-Sicherung
+                •  AD-Recovery
+                •  Beschreiben von Wiederanfahrszenarien
+            •  Beschreiben verschiedener Betriebszustände
+                •  Regelbetrieb
+                •  Außerhalb des Regelbetriebs
+                •  Katastrophenfall
+Kenntnisse: Prozess-Modelling, ITIL Service.Modul, Testing
+Eingesetzte Produkte: Microsoft Baseline Security Analyser (MSBA), Powershell, Repadmin,
+PSTools, ShareEnum, Process Explorer, FSMO-Seize und –Transfer, BSI-
+Sicherheitsvorlage IT Grundschutz Windows Server 2008 R2 v1.0, Active
+Directory-User and -Computer, Active Directory- Sites and –Services,
+Active Directory- Domains and -Trusts, Actice Directory-RMS,
+17.02.2023 6 von 18
+Sicherheitsrichtlinien-Editor, GPO-Management, MS-Office 2013, MS-Visio
+2013, Active Directory Replication Status Tool v1.0, Hyper-V Manager inkl.
+SCVMM 2012R2 Console, GUI-MetaCleanUp
+2013-10 - 2013-12 Analyse, Sizing, operative Umsetzung inkl.
+3 Monate Projektleitung
+Kunde: Refratechnik
+Einsatzort: Göttingen
+Projektinhalte: Analyse, Sizing, operative Umsetzung inkl. Projektleitung einer neuen
+weltweit ausgerollten SCCM 2012 ( > 5.000 Anwender )
+    •  Projektleitung
+    •  Analyse der Ist-Umgebung
+    •  Sizing der Soll-Umgebung
+    •  Installation der Infrastruktur inkl. Primary Site Server und
+     ?div. Secondery Site Server
+        •  SQL 2008 R2 in einem 2-Node-Cluster
+        •  ADK für Windows 8
+        •  SCCM 2012 SP1
+    •  Erstkonfiguration und Administration der kompletten Umgebung
+        •  SQL 2008 R2 in einem 2-Node-Cluster
+        •  SCCM 2012 SP1
+    •  Analyse der benötigten Installationspakete inkl. Ausführung
+        •  OS-Deployment ( W7/8 32-und 64-bit, Windows Server
+         ?2012/2008R2 )
+        •  Windows Server Update Service ( WSUS )
+        •  System Center Update Publisher ( SCUP ) 2011
+        •  Forefront Endpoint Protection
+        •  ADK
+        •  Report-Services
+        •  Asset-Management / Inventarisierung
+    •  Erstellen der Pakete ( OS, Treiber, Applikationen, … )
+        •  OS Windows 7 / 8 Clients, Windows 2012, Windows 2008R2
+        •  Office Pakete ( 2007 / 2010 / 2013 )
+        •  Adobe Suite
+    •  Aufbau einer Testumgebung
+    •  Roll-Out Begleitung
+    •  Troubleshooting
+        •  SCCM 2012 SP1 Umgebung inkl. SQL 2008 R2 2-Node-Cluster
+        •  OS Roll-Out Windows 7 / 8 Clients, Windows 2012, Windows
+         ?2008R2
+        •  Applikationen
+        •  Anpassungen Treiber
+Kenntnisse: Prozess-Modelling, ITIL Service-Modul, Testing
+Eingesetzte Produkte: Powershell, Windows-Installer, Windows ADK, Right-Click-Tools, WSUS,
+Forefront-Endpoint Protection (FEP), Private-Key-Infrastructure (PKI)/AD-
+Zertifikatsstelle, Hyper-V Manager inkl. SCVMM 2012R2, Process Explorer,
+DISM, PSTools, ShareEnum, Failovercluster-Manager, Active Directory-
+User and -Computer, Active Directory- Sites and –Services, Active
+Directory- Domains and -Trusts, Sicherheitsrichtlinien-Editor, GPO-
+Management, Regedit, SQL Server Management Studio (SSMS), System
+Center Configuration Manager Console, System Center Update Publisher,
+MS-Office 2013, MS-Projekt 2013, Active Directory Replication Status Tool
+v1.0, Hyper-V Manager inkl. SCVMM 2012R2 Console, GUI-MetaCleanUp,
+17.02.2023 7 von 18
+GUI-DISM (GDISM)
+2012-12 - 2013-08 Analyse, Sizing, Migration, operative Umsetzung inkl.
+9 Monate Teilprojektleitung
+Kunde: Dataport AöR
+Einsatzort: Hamburg
+Projektinhalte: Analyse, Sizing, Migration, operative Umsetzung inkl. Teilprojektleitung
+einer neuen Sharepoint 2013/ Exchange 2010 Infrastruktur im öffentlich-
+rechtlichen Bereich (> 15.000 Anwender)
+    •  Teilprojektleitung Exchange-Anteil
+    •  Analyse der Ist-Umgebung
+    •  Sizing der Soll-Umgebung
+    •  Gremien Arbeit in einem Kochbuch Prozess
+    •  Erarbeiten des Sicherheit Bedarfs des Kunden
+    •  Erarbeiten der Portfreischaltungen für den Sicherheitsbedarf
+     ?hoch.
+    •  Installation, Administration, 2nd/3rd Level Support der
+     ?Exchange 2010 Umgebung
+    •  Durchführung der Migration vom Alt- zum Neusystem inkl. Abnahme
+     ?des Kunden
+    •  Troubleshooting nach der Migration
+Kenntnisse: Wasserfall Methode, ITIL Prozesse: Incident-/ Problem- und Change
+Management, Testing, Projekt Kochbuch Prozess
+Eingesetzte Produkte: Powershell, Private-Key-Infrastructure (PKI)/AD-Zertifikatsstelle, Process
+Explorer, DISM, PSTools, ShareEnum, DCDIAG, SPN/Kerberos Config (
+setspn ), Failovercluster-Manager, Active Directory-User and -Computer,
+Active Directory- Sites and –Services, Active Directory- Domains and -
+Trusts, Sicherheitsrichtlinien-Editor, GPO-Management, ADSI-Editor,
+Regedit, Exchange Management Console (EMC), Exchange 2010 Server
+Role Requirements Calculator, MS-Office 2013, MS-Projekt 2013, Active
+Directory Replication Status Tool v1.0, VMware vCenter, ITIL: Remedy IT-
+Service-Management Suite 4.6
+2011-04 - 2012-12 Mitarbeit an einer Post-Exchange-Migration
+1 Jahr 9 Monate
+Kunde: Dataport AöR
+Einsatzort: Hamburg
+Projektinhalte: Mitarbeit an einer Post-Exchange-Migration von Exchange 2003 auf
+Exchange 2010 inkl. 2nd/3rd Level Support folgender Systeme
+    •  2nd/3rd Level Support einer großen Exchange 2010 Umgebung
+     ?(>100.000 Postfächer )
+    •  EMC-seitige entfernen der alten der Exchange 2003-Umgebung
+    •  2nd/3rd Level Support und Version-Upgrades des eFax-Systems der
+     ?öffentlichen HH-Verwaltung ( >25.000 User )
+    •  2nd/3rd Level Support des Sonicwall Antispam-Umgebung
+Kenntnisse: ITIL Prozesse: Incident-/ Problem- und Change Management
+17.02.2023 8 von 18
+Eingesetzte Produkte: Powershell, Private-Key-Infrastructure (PKI)/AD-Zertifikatsstelle, Process
+Explorer, DCDIAG, SPN/Kerberos Config (setspn), Failovercluster-Manager,
+Active Directory-User and -Computer, Active Directory- Sites and –
+Services, Active Directory- Domains and -Trusts, ADSI-Editor, Regedit,
+Exchange Management Console (EMC), MS-Office 2010, MS-Projekt 2010,
+VMware vCenter, ITIL: Remedy IT-Service-Management Suite 4.6
+2011-01 - 2011-03 Analyse und Re-Design der IT-Infrastruktur
+3 Monate
+Kunde: Wolfgramm Architekten
+Einsatzort: Hamburg
+Projektinhalte: Analyse und Re-Design der IT-Infrastruktur auf Basis eines Linux Systems
+zu Microsoft Windows 2008 R2
+    •  Konzepterstellung für die Migration einer auf NT 4.0
+     ?basierenden Linux Userverwaltung zu Active Directory
+     ?Domain/Forrest-Level 2003
+    •  Migration einer Cloud eMail Konfiguration zu Exchange 2007
+    •  Einführung von Gruppenrichtlinien
+    •  Datenmigration von den Altsystemen
+    •  Dokumentation
+    •  Schulung der Mitarbeiter
+    •  Projektleitung
+2010 - 2010: “In-Sourcing“
+Kunde: A.C. Haase Osthandelsgesellschaft mbH und Beteiligungen (Hamburg / Moskau)
+Aufgaben:
+“In-Sourcing“ einer Out-Sourcing IT-Infrastruktur von einem externen IT-Dienstleister
+    •  Analyse einer möglichen IT-Inhouse Lösung inkl. Migration von Windows 2003/Exchange
+     ?2003 zu Windows 2008 R2/Exchange 2010 unter Berücksichtigung des Remote-Standorts
+     ?Moskau.
+    •  Kostenkalkulation / Gegenüberstellung einer IT Outsourcing Lösung zu einer IT Inhouse
+     ?Lösung und Vorbereitung der Entscheidungsfindung.
+    •  Erstellung / Konzeption / Projektplanung einer Migrationsstrategie von der
+     ?Outsourcing- zur Inhouse-Lösung
+    •  Koordination der externen Service-Provider.
+    •  Aufbau der internen IT-Lösung mit entsprechenden Hands-on Teilen.
+    •  IT- und Projektleitung
+2010 - 2010: Migration einer Windows 2003 R2 ( 32-bit ) Umgebung
+Kunde: A.C. Haase Osthandelsgesellschaft mbH und Beteiligungen (Hamburg / Moskau)
+Aufgaben:
+Migration einer Windows 2003 R2 ( 32-bit ) Umgebung hin zu einer W2k8R2 Umgebung inkl.
+Exchange 2003 zu Exchange 2010
+    •  Analyse der Windows 2003 R2 Domäne
+    •  Konzeption / Erstellung des Zieldesigns der Windows 2008 R2 Domäne
+    •  Durchführung der Migration von W2k3R2/Exchange 2k3 zu W2K8R2/Exchange 2010.
+    •  Dokumentation
+    •  Übergabe des Projektes an externe IT-Service Firma.
+    •  IT- und Projektleitung
+Weitere Projekte gerne auf Anfrage.
+Branchen
+17.02.2023 9 von 18
+    •  Energiewirtschaft
+    •  Software Entwicklung
+    •  Finance / Banking
+    •  Container Leasing
+    •  IT-Systemhaus
+    •  Ost-Handel
+Sprachen
+Deutsch Muttersprache
+Englisch gute Kenntnisse in Wort und Schrift
+Kompetenzen
+Produkte / Standards /
+Erfahrungen / Methoden
+Technische Kompetenzen
+Server-Anwendungen
+    •  SCCM 2012,2012SP1, 2012R2, sehr gute Kenntnisse
+    •  SCVMM 2012 R2, gute Kenntnisse
+    •  Windows Server 2012 R2 Failover Cluster Service, gute
+     ?Kenntnisse
+    •  SQL 2008 R2 und SQL 2012 R2 ( Verhältnis 30/70 ) im
+     ?2-Node-Cluster, gute Kenntnisse
+    •  Exchange 5.5 / 2000 / 2003 / 2007 / 2010, sehr gute
+     ?Kenntnisse
+    •  Exchange 2013, gute Kenntnisse
+    •  Microsoft Sharepoint Portal Server, durchschnittliche
+     ?Kenntnisse
+    •  Windows Server Update Services (WSUS), sehr gute Kenntnisse
+    •  Microsoft Server 2008 R2 Hyper-V, sehr gute Kenntnisse
+    •  Microsoft Terminaldienste, sehr gute Kenntnisse
+    •  Microsoft Cluster Service 2000 / 2003 / 2008,
+     ?durchschnittliche Kenntnisse
+    •  Citrix, durchschnittliche Kenntnisse
+Active Directory Infrastructure Services
+    •  Microsoft Active Directory, sehr gute Kenntnisse
+        •  ADDS
+        •  DNS Domain Name Services
+        •  DFSR: Distributed File System Replication
+        •  Group Policy Management
+        •  ADRMS: Rights Management Services
+        •  ADFS: Federation Services 2.1
+        •  WINS: Windows Internet Name Service
+        •  KMS: Key Management Server
+        •  RDLic: Remote Desktop Licensing
+Verzeichnisdienste
+    •  Microsoft Active Directory, sehr gute Kenntnisse
+    •  NT4 Domain, sehr gute Kenntnisse
+    •  Netware NDS, gute Kenntnisse
+17.02.2023 10 von 18
+    •  LDAP, gute Kenntnisse
+Softwarescripting
+SMS Installer, durchschnittliche Kenntnisse
+ 
+Netzwerkkenntnisse
+    •  HP ProCurve, sehr gute Kenntnisse
+    •  Cisco Callmanager, gute Kenntnisse
+Virtualisierung
+    •  Hyper-V, sehr gute Kenntnisse
+    •  VMWare, gute Kenntnisse
+ 
+Virenschutz
+    •  Sonicwall Appliance, sehr gute Kenntnisse
+    •  Trendmicro IMSVA, sehr gute Kenntnisse
+    •  Symantec AntiVirus, sehr gute Kenntnisse
+    •  GFI MailEssentials, sehr gute Kenntnisse
+    •  GFI MailSecurity, sehr gute Kenntnisse
+    •  Microsoft Forefront, gute Kenntnisse
+    •  ClamAV, gute Kenntnisse
+Methodische Kompetenzen
+Projektmanagement
+    •  Microsoft Solutions Framework (MSF), gute Kenntnisse
+    •  Netzplantechnik, sehr gute Kenntnisse
+    •  allgemeiner Projektmanagement-Methoden, gute Kenntnisse
+ 
+IT Best Practice
+    •  IT Infrastructure Library (ITIL), gute Kenntnisse
+    •  Harmonisierung- und Standardisierung von
+     ?IT-Infrastrukturen, sehr gute Kenntnisse
+Berufliche Praxis
+03/2017 – heute
+Eigene Firma [Name auf Anfrage], Standort Hamburg, freiberuflich
+ 
+Aufgaben:
+    •  3rd Level Support von Großverfahren > 100.000 User
+    •  Exchange 2010 / 2013 / 2016 und KPT
+09/2016 – 02/2017
+Eigene Firma [Name auf Anfrage], Standort Hamburg, freiberuflich
+Aufgaben:
+Technisches IT-Projektmanagement im Windows Server 2008R2 und
+2012R2 Umfeld
+03/2016 – 08/2016
+Eigene Firma [Name auf Anfrage], Standort Hamburg, freiberuflich
+Aufgaben:
+Technischer IT-Projektmanager mit operativen Aufgaben im Windows
+Server 2008R2 und 2012R2 Umfeld
+09/2015 – 12/2015
+Eigene Firma [Name auf Anfrage], Standort Hamburg, freiberuflich
+Aufgaben:
+    •  Solution Designer im Banken Umfeld
+17.02.2023 11 von 18
+        •  Erarbeiten von Infrastruktur Lösungen nach
+         ?Kundenanforderung im Banken Umfeld
+        •  Vorstellung der erarbeiteten Lösung beim Kunden
+    •  Einpreisung der Aufwände zur Angebotserstellung
+08/2014 – 08/2015
+Eigene Firma [Name auf Anfrage], Standort Hamburg, freiberuflich
+Aufgaben:
+    •  Data Center Operation Engineering, operativer
+     ?Rechenzentrumsbetrieb für große 3-Tier Rechenzentren inkl.
+     ?Beratung / Konzeption / Implementierung und Dokumentation
+    •  Beratung / Konzeption / Umsetzung / Dokumentation von der
+     ?ITIL „Best Practice“ vom Service Design Management bis hin
+     ?zum konkreten Rechenzentrumsbetrieb.
+ 
+08/2013 – 08/2014
+Elanity Network Partner GmbH, Standort Hamburg
+Senior Consultant, angestellt
+ 
+Aufgaben:
+    •  Beratung / Konzeption / Implementierung / Dokumentation von
+     ?Microsoft Infrastrukturen. Schwerpunkte: Windows Server,
+     ?Active Directory, System Center Suite ( SCCM 2012 R2 /
+     ?SCVMM 2012 R2 / SCSM 2012 R2 / SCO 2012 R2 / SCOM 2012
+R2 )
+     ?/ SQL 2012 R2 u. 2008 R2 / Windows 7 / Windows 8 und 8.1 /
+     ?Projektleitung
+    •  Beratung / Konzeption / Umsetzung / Dokumentation von der
+     ?ITIL „Best Practice“ vom Service Design Management bis hin
+     ?zum konkreten Rechenzentrumsbetrieb.
+ 
+04/2011 – 07/2013
+Eigene Firma [Name auf Anfrage], Hamburg
+Senior Consultant, freiberuflich
+Aufgaben:
+    •  Beratung / Konzeption / Implementierung von Microsoft
+     ?Infrastrukturen. Schwerpunkte: Windows Server, Active
+     ?Directory, Exchange, Windows 7 / Windows 8 /
+     ?Projektleitung- und IT-Management
+    •  Beratung / Konzeption / Implementierung eines
+     ?hochverfügbaren RZ-Betriebes von der strategischen
+     ?RZ-Ausrichtung bis hin zum operativen RZ-Betrieb unter
+     ?Berücksichtigung von Unternehmens-SLA.
+    •  Beratung / Konzeption / Umsetzung von der ITIL „Best
+     ?Practice“ hin zum konkreten Rechenzentrums IT Service
+     ?Management.
+ 
+05/2010 – 11/2010
+Date up GmbH
+SAP Consultant ( zertifiziert ) im Bereich SCM / Weiterbildung
+ 
+Aufgaben:
+    •  Beratung / Konzeption / Implementierung SAP Modul MM
+    •  Durchführung einer Fallstudie / Customizing einer SAP
+     ?Struktur
+ 
+01/2010 – 04/2010:
+IT- Leiter / A.C. Haase Osthandelsgesellschaft mbH und Beteiligungen,
+17.02.2023 12 von 18
+Hamburg / Moskau, freiberuflich
+ 
+Aufgaben:
+    •  Vorbereitung des Insourcing einer gehosteten
+     ?IT-Infrastruktur
+    •  Konzeption, Planung, Budgetierung und Umsetzung einer
+     ?hochverfügbaren Inhouse IT-Infrastrukturlösung mittels
+     ?VMware Cluster vSphere 4 für 50 Mitarbeiter
+    •  Projektleitung des Insourcing Projektes
+    •  Dokumentation der Arbeitsabläufe und Prozesse im Bereich
+     ?IT-Service Management
+    •  Übergabe der IT-Infrastruktur an den IT-Dienstleister
+    •  Ausarbeitung und Verhandlung der Service-Level-Aggrements
+     ?mit dem Dienstleister
+    •  Kostenkalkulation Inhouse / Outsourcing Lösung und
+     ?Entscheidungsführung
+    •  Konzeption, Planung, Aufbau, Migration und Betrieb einer
+     ?Microsoft Windows Server 2003 IT-Infrastruktur in eine
+     ?Microsoft Windows Server 2008 R2 (64bit) Inhouse IT-Lösung
+     ?inkl. Exchange 2010
+    •  Konzeption. Planung Aufbau und Betrieb einer
+     ?hochverfügbaren, im Clusterverbund installierten IT-
+     ?Infrastruktur auf Basis von VMware vSphere 4.und zentraler
+     ?SAN Storage-Lösung (Netapp)
+    •  Koordination der Inhouse Mitarbeiter und der externen
+     ?Dienstleister
+    •  Dokumentation und Übergabe an den externen
+     ?Service-Dienstleister
+ 
+08/2009 – 12/2009
+Elternzeit
+ 
+Aufgaben:
+Vorbereitung auf die Prüfungen MCTS 70-649 ( Microsoft Certified
+Technology Spezialist 2008)
+ 
+04/2009 – 07/2009
+Intensiv Lehrgang „Business English”
+ 
+Aufgaben:
+Prüfung und erfolgreicher Abschluss vor der Londoner Handelskammer
+(LCCI - London Chambers of Commerce Institute) mit dem
+europäischen Notenschlüssel Note B1
+ 
+02/2006 – 02/2009
+IT-Leiter / XINES GmbH und Capital Intermodal GmbH, Hamburg /
+Hongkong, angestellt
+ 
+Aufgaben:
+    •  Sicherstellung Rechenzentrumsbetrieb
+    •  Second-Level-Support
+    •  Reorganisation und Optimierung der vorhandenen
+     ?Infrastruktur
+    •  Administration der Rechenzentren in Hongkong und Hamburg
+    •  Einführung des Help-Desk nach dem ITIL Prozessmodel
+    •  Einführung einer Endian Firewall Hardware Appliance inkl.
+     ?Content-Filtering und Proxy-Server
+    •  Projektleitung aller IT Aktivitäten
+    •  Etaterstellung und Verantwortung
+    •  IT-Einkauf bei großen IT- Distributoren
+17.02.2023 13 von 18
+    •  Wöchentliches Reporting im Management Meeting
+    •  Verantwortung zur Auswahl einer Container-Leasing-Software
+    •  Führungsverantwortung für 3 Projektmitarbeiter
+    •  Reisen u.a. Fernost
+    •  Strategische Ausrichtung, Konzeption, Aufbau und Betrieb
+     ?zweier neuer internationaler RZ in Hamburg und Hongkong in
+     ?einem Hochverfügbarkeitsumfeld ( siehe Projektliste )
+    •  Migration Projekt von Exchange 2003 zu 2007 und Überführung
+     ?in ein Hochverfügbarkeitsumfeld (VMware Cluster, siehe
+     ?Projektliste)
+    •  Migration von Öffentlichen- und Postfachdaten von
+     ?Lotus-Notes zu Exchange 2007
+    •  Deutliche Leistungssteigerung der gesamten IT Infrastruktur
+     ?in Verfügbarkeit und Performance
+    •  Komplette Fern-Administration beider Rechenzentren
+    •  Aufbau eines weltweiten IT Infrastruktur Monitoring Systems
+     ?(siehe Projektliste)
+    •  Auswahl einer ERP Lösung (Microsoft Dynamics NAV, siehe
+     ?Projektliste)
+ 
+09/2000 – 04/2005
+IT-Leiter / Conergy AG, Hamburg, angestellt
+ 
+Aufgaben:
+    •  Gesamtverantwortliche Führung aller IT-Aktivitäten
+    •  Konzeption, Planung, Umsetzung und Leitung fast sämtlicher
+     ?IT Projekte
+    •  Entwickeln und Umsetzung sämtlicher IT-Prozesse
+    •  Monatliches Reporting an den CIO bzw. den gesamten Vorstand
+    •  Fachlicher Ansprechpartner der Vorstände und
+     ?Geschäftsführer dem Konzern angeschlossener Unternehmen
+    •  Budgetverantwortung
+    •  IT-Einkauf bei großen IT- Distributoren
+    •  Administration der gesamten IT-Infrastruktur
+    •  Disziplinarische Führung eines 6-köpfigen IT-Teams inkl.
+     ?Mitarbeitergespräche und Zielvereinbarungen
+    •  Ausbilder der Fachinformatiker
+    •  Betreuung und Administration der TK-Anlage
+    •  Sicherstellen des kontinuierlichen Unternehmenswachstums
+     ?mit der IT-Infrastruktur über einen Zeitraum von 5 Jahren
+     ?von anfangs 12 bis zuletzt 420 Mitarbeitern
+    •  Konzeption, Planung und Aufbau eines neuen Rechenzentrums
+     ?in der neuen Firmenzentrale
+    •  Aufbau eines konzernübergreifende Service Managements nach
+     ?ITIL
+    •  Konzernweite Migration einer NT4.0 Domäne in ein Windows
+     ?2003 Active Directory inkl. Update von einer MS Exchange
+     ?5.5 in eine Exchange 2003 Infrastruktur
+    •  Konzeption, Planung und Umsetzung einer europaweiten
+     ?IT-Infrastruktur in allen Unternehmensstandorten inkl.
+     ?Aufbau stabiler VPN-Anbindungen
+    •  Entscheidende Mitarbeit bei der Einführung von der ERP
+     ?Software Navision
+    •  Eigenverantwortliche Absolvierung der Reprofilierung zum
+     ?Microsoft Certified System Engineer 2003 (MCSE 2003)
+    •  Konzeption, Design, Planung und Umsetzung
+     ?unternehmensweiter IT Sicherheitsstrategien und deren
+     ?Überwachung
+    •  Projektleitung eines Intranetportals inkl. Bewerber und
+     ?Userverwaltung
+17.02.2023 14 von 18
+    •  Einführung von VoIP
+ 
+11/1997 - 08/2000
+IT-Manager / PC&amp;C Software - Navision Software, Hamburg, angestellt
+ 
+Aufgaben:
+    •  Administration und operative Führung der IT-Systeme in
+     ?Hamburg inkl. Telefonanlage
+    •  Betreuung Helpdesk
+    •  Anlagenbuchhaltung
+    •  Konzeption, Planung und Durchführung des IT-seitigen
+     ?Firmenumzugs inkl. Neueinrichtung eines Rechenzentrums am
+     ?neuen Standort.
+    •  Beratung der Geschäftsführung in allen Belangen der IT
+     ?Infrastruktur
+    •  IT-Einkauf
+    •  Festlegen der einzusetzenden Technologien
+    •  Sicherstellen der Kommunikation mit dem Mutterhaus bei
+     ?Messeauftritten
+    •  Komplette IT-Projektleitung der diversen Inhouse Projekte
+    •  Ansprechpartner für alle IT Belange aus dem Mutterkonzern
+     ?in Dänemark
+    •  Ausbilder der Fachinformatiker
+    •  Komplette Reorganisation der IT Infrastruktur nach dem
+     ?Firmenumzug mit dem Ergebnis einer verbesserten Performance
+     ?und Verfügbarkeit
+    •  Einführung einer Online Kommunikation während der
+     ?Messeauftritte zum Mutterkonzern. Dadurch wurden schnelle
+     ?Auswertungen und Marketing Aktionen bzw. Reaktionen noch
+     ?während der Messe möglich.
+    •  Umzug der deutschen Firmenzentrale an einen anderen
+     ?Standort.
+ 
+10/1992 - 11/1997
+Geschäftsleiter / mh electronic, Norderstedt
+ 
+Aufgaben:
+    •  Akquisition, Einkauf und Verkauf
+    •  Rechnungslegung und Mahnsteuerung
+    •  Projektierung von Kundennetzwerken und
+     ?Telekommunikationseinrichtungen
+    •  Assemblierung von Server und Workstations
+    •  Installation und Einrichtung von Servern und Workstations
+     ?beim Kunden
+    •  Arbeit als Consultant bei RAM electronic
+    •  Konzeption, Installation und Einrichtung kleinerer
+     ?Kundennetzwerke
+    •  Einzellieferant von EDV Artikeln der Kreisverwaltung Plön
+Über 20 Jahre im IT-Business in verschiedenen Positionen:
+    •  Administration
+    •  Konzeptionierung von IT-Infrastrukturen und Umsetzung
+     ?(Projektleitung)
+    •  IT-Leitung
+    •   Konzeptions- sowie Hands-On Mentalität
+Betriebssysteme Linux Suse Distribution Linux, durchschnittliche Kenntnisse
+Micros
+17.02.2023 15 von 18
+Novell Netware 3.12 u 4.01, durchschnittliche Kenntnisse
+Microsoft Windows NT 4 sehr gute Kenntnisse
+Microsoft Windows 2000, 2003, 2008 / R2, 2012, 2012 / R2,
+Server sehr gute Kenntnisse
+Microsoft Windows 9x, NT4, 2000, XP, Vista, 7, sehr gute
+Kenntnisse, 8.1, gute Kenntnisse
+Programmiersprachen Batch-Programmierung gute Kenntnisse
+Powershell gute Kenntnisse
+Visual Basic Script (vbs) gute Kenntnisse
+Datenbanken MS SQL Server 2012/2008/2008R2
+Konzeption, Aufbau, Konfiguration und Administration
+    •  SQL 2012 R2 2-Node-Cluster
+    •  SQL 2008 R2 2-Node-Cluster
+im Zuge einer SCCM 2012 Projektes
+Datenkommunikation Ethernet Sehr gute Kenntnisse
+Fax Sehr gute Kenntnisse
+Internet, Intranet Sehr gute Kenntnisse
+ISDN Sehr gute Kenntnisse
+ISO/OSI Sehr gute Kenntnisse
+LAN, LAN Manager Sehr gute Kenntnisse
+RFC Sehr gute Kenntnisse
+Router Sehr gute Kenntnisse
+RPC Sehr gute Kenntnisse
+SMTP Sehr gute Kenntnisse
+SNMP Sehr gute Kenntnisse
+TCP/IP Sehr gute Kenntnisse
+Konzeption, Planung und Umsetzung von Inhouse IT-Netzwerk
+Infrastrukturen im Bereich 2000 User:
+    •  Switch-Technologie: Sehr gute Kenntnisse
+        •  Layer 3 Switching
+        •  VLAN
+        •  Routing
+    •  Firewall Techniken: Gute Kenntnisse
+    •  Telekommunikation: Gute Kenntnisse
+Aus- und Weiterbildung
+17.02.2023 16 von 18
+2011-02 - 2011-02 Microsoft Certified IT Professional (Windows Server 2008
+1 Monat
+Abschluss: Zertifikat
+Institution: Microsoft Corp.
+2011-01 - 2011-01 Microsoft Certified Technology Specialist
+1 Monat
+Abschluss: Zertifikat
+Institution: Microsoft Corp.
+    •  Windows Server 2008 Active Directory: Configuration
+    •  Windows Server 2008 Applications Infrastructure:
+     ?Configuration
+    •  Windows Server 2008 Network Infrastructure: Configuration
+2010-05 - 2010-11 SAP Consultant SCM Modul MM
+7 Monate
+Abschluss: Zertifikat
+Institution: SAP AG
+2009-04 - 2009-07 ntensiv Lehrgang „Business English”
+4 Monate
+Prüfung und erfolgreichem Abschluss vor der Londoner
+Abschluss:
+Handelskammer mit dem europäischen Notenschlüssel Note B1
+Institution: LCCI - London Chambers of Commerce Institute
+2005-11 - 2005-11 etriebswirtschaftliche Grundlagen“
+1 Monat
+Abschluss: IHK-Zertifikatslehrgang
+Institution: IHK Hamburg
+17.02.2023 17 von 18
+2005-08 - 2005-08 ITIL Foundation Certificate in IT Service Management
+1 Monat
+Abschluss: Zertifikat
+Institution: IT Service Management Forum / TÜV Süddeutschland / EXIN
+2005-07 - 2005-07 IHK Führungskräftetraining für Führungskräfte und
+1 Monat
+Abschluss: Zertifikat
+Institution: IHK Hamburg
+2005-06 - 2005-06 Projektmanagement im Unternehmen
+1 Monat
+Abschluss: Zertifikat
+Institution: IHK Hamburg
+2005-05 - 2005-05 Microsoft Certified Systems Administrator: Messaging
+1 Monat
+Abschluss: Zertifikat
+Institution: Microsoft Corp.
+Abschluss: Fachhochschulreife
+1992-1994:
+Ausbildung: Informatik Studium Fachrichtung Hardware in Kiel
+Abschluss: 4 Semester ohne Abschluss
+1981-1985:
+Abschluss: Feinmechaniker
+Schwerpunkte:
+    •  Technik
+    •  Netzwerke
+    •  Kaufmännisches
+    •  Programmierung
+17.02.2023 18 von 18
+
+############################################

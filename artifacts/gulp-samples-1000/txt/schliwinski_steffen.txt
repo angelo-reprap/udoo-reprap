@@ -1,0 +1,267 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_81060
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                81060
+  
+Wohnort                    740xx Heilbronn, Deutschland
+Jahrgang                   1977
+Staatsbürgerschaft         deutsch
+Stundensatz                84 EUR
+Verfügbar ab               18.05.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         17.11.06
+Profil zuletzt geändert am 11.05.20
+Lesen von Projektanfragen  2,5 Tage [05]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 02.05.2020 13:10:57
+
+Fachlicher Schwerpunkt:
+Entwicklung (Analyse, Konzeption, Implementierung und Test) verteilter Java/
+J2EE-​Anwendungen
+
+Position:
+Software-Entwicklung / Programmierung
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+09/1998 - 09/2001: Wirtschaftsinformatik
+ 
+Abschluss:          Diplom-Wirtschaftsinformatiker (BA)
+Institution:        Berufsakademie Mosbach
+===============================================================================
+09/2009
+Sun Certified Programmer for the Java Platform, Standard Edition 5.0
+SCJP, CX-310-055
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Englisch Verhandlungssicher in Wort und Schrift
+
+
+Betriebssysteme:
+SUN OS, Solaris  
+Unix             
+Windows          
+
+
+Programmiersprachen:
+Java        
+JavaScript  
+
+
+Datenbanken:
+DB2     
+MySQL   
+Oracle  
+
+
+Produkte/Standards/Erfahrungen:
+Java, J2SE, JSE, J2EE, JEE, Sun Certified Programmer for the Java Platform
+(SCJP)
+
+Projekte:
+03/2016 - heute: EcoEMOS
+ 
+Einsatzort:         Bietigheim-Bissingen
+Rolle:              Java EE-Entwickler
+Kunde:              Dürr Systems AG
+ 
+Aufgaben:
+ 
+Weiterentwicklung und Optimierung der bestehenden Software
+zur Produktionssteuerung.
+ 
+Systemumgebung:
+Anwendungsserver: JBoss AS 8
+Datenbank: Microsoft SQL-Server;
+Persistenz-Framework: Hibernate JPA
+IDE: Eclipse; Versionsverwaltung: Subversion (SVN)
+Build-Prozess: Apache Maven, Jenkins CI
+JavaServer Faces + PrimeFaces, SOAP-Webservices, REST-Webservices
+===============================================================================
+09/2011 - 02/2016: GINA
+ 
+Einsatzort:         Heilbronn
+Rolle:              Software-Entwickler (Java/J2EE), freiberufliche Tätigkeit
+Kunde:              FCA Bank
+ 
+Aufgaben:
+ 
+    * Wartung, Weiterentwicklung und Optimierung der existierenden
+      Internetanwendungen (J2EE 1.4)
+    * Neuentwicklung der Point of Sale-Internetanwendung (JavaServer Faces 2.2)
+    * Performance-Analyse und Performance-Optimierung mit JavaMelody
+ 
+Systemumgebung:
+Anwendungsserver: BEA WebLogic Server 9.1, JBoss AS 8
+Datenbank: Oracle DB 11g;
+Persistenz-Framework: Hibernate JPA
+IDE: Eclipse; Versionsverwaltung: Subversion (SVN)
+Build-Prozess: Apache Maven, Jenkins CI
+JavaServer Faces + PrimeFaces, Mule ESB, Apache Axis 2 (Webservices)
+===============================================================================
+02/2011 - 08/2011: VM 3G
+ 
+Einsatzort:         Stuttgart
+Rolle:              Software-Entwickler (Java/J2EE), freiberufliche Tätigkeit
+Kunde:              Daimler FleetBoard GmbH
+ 
+Aufgaben:
+ 
+Modernisierung und Weiterentwicklung einer Telematiklösung für Nutzfahrzeuge
+ 
+Systemumgebung
+IBM WebSphere Application Server 7, IBM Rational Software Architect,
+Java 5, JUnit 4 (inkl. PowerMock + Mockito), WebServices, Subversion (SVN),
+Apache Ant, CruiseControl, IBM Rational RequisitePro, IBM Rational
+ClearQuest, soapUI (inkl. Groovy, XPath + XQuery), Scrum
+===============================================================================
+08/2007 - 12/2010: eMB VS
+ 
+Einsatzort:         Stuttgart
+Rolle:              Software-Entwickler (Java/J2EE), freiberufliche Tätigkeit
+Kunde:              Daimler AG
+ 
+Aufgaben:
+ 
+    * Wartung, Weiterentwicklung und Optimierung der existierenden
+      Internetanwendungen
+    * (PKW-Konfigurator, Neu- und Gebrauchtfahrzeugsuche etc.)
+      Systemadministration (Sun Solaris, IBM WebSphere Application Server)
+ 
+Systemumgebung
+Betriebssystem: Sun Solaris 10 (Server), MS Windows XP (Client)
+Anwendungsserver: IBM WebSphere Application Server 6.0
+Datenbank: IBM DB2 8; IDE: IBM Rational Application Developer; Java 4
+Versionsverwaltung: Subversion (SVN); Build-Prozess: Apache Ant, CruiseControl
+===============================================================================
+02/2007 - 07/2007: Software-Architekt (Java/J2EE)
+ 
+Einsatzort:         Singapur
+Rolle:              Software-Architekt (Java/J2EE), Festanstellung
+Kunde:              Wego Pte Ltd
+ 
+Aufgaben:
+ 
+Aufbau der Entwicklungs-, Test- und Produktionslandschaft
+ 
+Anforderung:
+    * Fundierte Kenntnisse verschiedener Anwendungsserver
+    * Middleware- und Datenbanktechnologien
+    * Build- und Testwerkzeugen
+    * Systemdesign- und architektur
+    * Entwicklung eines Anwendungsprototypen sowie diversen eigenständigen
+      Java-Webanwendungen
+    * Anleitung und Unterstützung des Entwicklungsteams in allen technologie-
+      und systemrelevanten Aspekten
+ 
+Systemumgebung
+Betriebssystem: Debian GNU/Linux (Server), MS Windows (Client)
+Anwendungsserver: JBoss; Servlet-Container: Apache Tomcat
+Datenbank: MySQL; Persistenz-Framework: Hibernate
+IDE: Eclipse; Versionsverwaltung: Subversion (SVN)
+Build-Prozess: Apache Ant
+
+Sonstige Technologien &amp; Werkzeuge:
+AJAX (Asynchronous JavaScript and XML) &amp; JSON (JavaScript Object Notation),
+Spring (Webframework), ActiveMQ
+(JMS Provider), Apache Ivy (Dependancy Management)
+===============================================================================
+09/2006 - 01/2007: NK-AVAM
+ 
+Einsatzort:         Bern (Schweiz)
+Rolle:              Software-Entwickler (Java/J2EE), freiberufliche Tätigkeit
+Kunde:              Bundesamt für Informatik und Telekommunikation (BIT)
+ 
+Aufgaben:
+ 
+    * Entwicklung eines verteilten Informationssystems für die
+      Arbeitsvermittlung und Arbeitsmarktstatistik
+    * Konzeption und Dokumentation der Geschäftsprozesse sowie der
+      fachlichen Anforderungen
+ 
+Systemumgebung
+Anwendungsserver: IBM WebSphere Application Server
+Datenbank: IBM DB2, Oracle DB
+Persistenz-Framework: Apache OBJ
+IDE: IBM Rational Software Architect
+Versionsverwaltung: Rational Clear Case
+
+Sonstige Technologien &amp; Werkzeuge:
+Apache Tiles (Templating Framework), Apache Struts (Webframework), JUnit (Test
+Framework),
+Prozessmodell: HERMES und RUP (Rational Unified Process)
+===============================================================================
+10/2001 - 12/2005: SAP NetWeaver Exchange Infrastructure (SAP XI)
+ 
+Einsatzort:         Walldorf
+Rolle:              Software-Entwickler (Java/J2EE), Festanstellung
+Kunde:              SAP AG
+ 
+Aufgaben:
+ 
+    * Entwicklung der SAP XI Runtime Workbench (RWB), einer J2EE-Anwendung zur
+      zentralen Administration
+    * Konfiguration und Überwachung (Monitoring) der SAP XI-Laufzeitumgebung
+    * Aufbau und Betreuung der Entwicklungs- und Testlandschaft
+    * Koordination der Zusammenarbeit mit dem Standort in Bangalore (Indien)
+    * Kundensupport
+ 
+Systemumgebung
+Anwendungsserver: SAP Web Application Server
+Datenbank: SAP DB
+IDE: Borland JBuilder, SAP NetWeaver Developer Studio
+Versionsverwaltung: Perforce
+Build-Prozess: Apache Ant
+
+Sonstige Technologien &amp; Werkzeuge:
+UI-Technologie: HTMLB und Web Dynpro für Java, ABAP/Java-Konnektivität: SAP
+Java Connector (JCo)
+Test-Framework: JUnit und SAP JVer
+===============================================================================
+
+Sonstige Anmerkungen:
+Referenzschreiben der SyBOR AG
+
+Muri, 31. Januar 2007
+
+Einsatzbestätigung
+
+[Name auf Anfrage], geboren am 21. Oktober 1977, war vom 01. September 2006 bis
+31. Januar 2007 als externer Mitarbeiter beim Bundesamt für Informatik und
+Telekommunikation beschäftigt.
+
+Sein Aufgabenfeld umfasste die Konzeption, die Implementierung und das Testen
+einer Struts-basierten J2EE-Webanwendung.
+
+[Name auf Anfrage] verfügt über umfassende, vielseitige und fundierte
+Fachkenntnisse, die er bei schwierigen Aufgaben sicher einsetzte. Er zeigte
+stets Eigeninitiative und überzeugte durch seine große Leistungsbereitschaft.
+[Name auf Anfrage] arbeitete selbstständig, zuverlässig und gewissenhaft und
+stets zu unserer unserer vollsten Zufriedenheit. Sein Umgang mit Kollegen und
+Vorgesetzten war freundlich, hilfsbereit und jederzeit einwandfrei.
+
+Wir danken [Name auf Anfrage] für seine wertvolle Mitarbeit und wünschen ihm
+auf seinem weiteren Berufs- und Lebensweg alles Gute und weiterhin viel Erfolg.
+
+SyBOR AG
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_81060
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 12.05.2020 00:56:38
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

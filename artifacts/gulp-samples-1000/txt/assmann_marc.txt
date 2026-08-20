@@ -1,0 +1,1836 @@
+Java Softwareentwicklung für 1. mobile Anwendungen (App s) für
+Blackberry, Blackberry BES 10, Android und Windows Phone // 2.
+Server Datenbank Entwicklung // 3. Individualsoftware
+Verfügbar ab: 18.03.2028
+verfügbar zu: 0 %
+davon vor Ort: 0 %
+Stundensatz: 95,00 EUR
+Bemerkungen: VB, all-in
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Schweiz, Einsatzort unbestimmt
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Einsatz Deutschlandweit möglich, teils kombiniert von "vor Ort" und
+"Remote"
+Position
+Kommentar:
+Projekte
+Zeitraum : 05/2014 - 07/2014
+Branche  : Textilien
+Projekt  : Konzeption und Entwicklung einer nativen Client-Server-Anwendung
+           für Blackberry 10 Endgeräte zur Abfrage von Preisinformationen 
+           mittels Barcode-Scan, Implementierung für den Online- und Offline-Betrieb
+Skills   : C++, QT / QML, BlackBerry Cascades, BES 10, Java, Spring, Eclipse
+------------------------------------------------------------------------------------------
+Zeitraum : 01/2014 - 04/2014
+Branche  : IT (Softwarehersteller)
+Projekt  : Konzeption und Entwicklung eines Systems zur Erfassung, Genehmigung und
+           Publizierung von Metadaten auf den unterschiedlichen App-Stores (iTunes,
+           GooglePlay, BlackBerry World, Samsung Knox, etc).
+Skills   : C#, Javascript, ASP.NET WebApi, AngularJS, IIS 8, SSL, MS SQL Server 2008
+------------------------------------------------------------------------------------------
+Zeitraum : 12/2012 - 12/2013
+24.02.2023 1 von 6
+Branche  : IT (Softwarehersteller)
+Projekt  : Verantwortlich als Build Engineer für Konzeption und Implementierung
+           von Standards hinsichtliche der Auslieferungsprozesse von
+           weltweit verteilt entwickelten mobilen Anwendungen.
+Skills   : Maven, Hudson, Store Vendor Backends: iTunes Connect, GooglePlay,
+           BlackBerry World, Microsoft Store, Communication
+------------------------------------------------------------------------------------------
+Zeitraum : 05/2008 - 09/2012
+Branche  : Öffentlicher Dienst (Transport &amp; Logistik)
+Projekt  : Konzeption und Entwicklung einer integrierten Anwendung für
+           Bestellung, Disposition, Controlling und Abrechnung von
+           Fahrdienstleistungen des Zentralen Fahrdienstes des Landes             
+           Niedersachsen.
+Skills   : Java, Spring, Eclipse, Oracle, C#, WPF, Microsoft MapPoint
+------------------------------------------------------------------------------------------
+Zeitraum : 08/2011 - 10/2012
+Branche  : Immobilienverwaltung
+Projekt  : Konzeption und Entwicklung einer javabasierten mobilen Serviceanwendung zur 
+           Verteilung und Dokumentation von im branchenspezifischen Backendsystem
+           disponierten Aufgaben für den technischen Dienst (Tätigkeiten, Zeiten,
+           Statusmeldungen).
+Skills   : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle, VFM
+Zeitraum : 10/2011 - 10/2012
+Branche  : Energieversorger
+Projekt  : Konzeption und Entwicklung einer javabasierten mobilen Serviceanwendung zur
+           Dokumentation (Foto, Geokoordinaten, Textmeldung) sog. Netzänderungsmeldungen
+           (geplante Baustellen) für BlackBerry Endgeräte inklusive der Anbindung an das           
+branchenspezifische Backendsystem.
+Skills   : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle, Firebird
+------------------------------------------------------------------------------------------
+Zeitraum : 12/2011 - 05/2012
+Branche  : IT (Softwarehersteller)
+Projekt  : Build Engineer für mobile Anwendungen Einrichten und Erstellen zentraler Builds
+           für mobile Anwendungen auf den Plattformen iOS, Android, Microsoft und
+           Blackberry. Installieren und Durchführen von Verteilungsprozessen an die
+           jeweilige Applikation Stores oder anderen Download-Bereiche.
+Skills   : Maven, Hudson, Communication Skills
+------------------------------------------------------------------------------------------
+Zeitraum : 06/2011 - 04/2012
+Branche  : Industrie (Herstellung &amp; Großhandel)
+Projekt  : Konzeption und Entwicklung einer javabasierten mobilen           
+           Vertrieblösung für BlackBerry Endgeräte zur Auftragserfassung,           
+           Aufgabendisposition und Kundendatenmanagement inklusive der Anbindung an das
+           Warenwirtschaftssystem und der Entwicklung einer webbasierten Oberfläche für
+           die Verwaltung, Steuerung und Auswertung durch den Innendienst.
+Skills   : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle, DIY
+------------------------------------------------------------------------------------------
+Zeitraum : 06/2009 - 09/2011
+Branche  : Verlage, Mediendienstleistungen
+Projekt  : Konzeption und Entwicklung der wetter.com Anwendung für die mobile Nutzung auf
+           BlackBerry-und Android-Endgeräten. Und Aufbereitung für die App World.
+Skills   : Java, Eclipse, RIM JDE, J2ME
+------------------------------------------------------------------------------------------
+Zeitraum : 08/2009 - 07/2011
+Branche  : Verlage
+Projekt  : Konzeption und Entwicklung von mobilen Applikationen für BlackkBerry     
+           Endgeräte der Verzeichnisse: GelbeSeiten, DasTelefonbuch und DasÖrtliche.
+Skills   : Java, Eclipse, RIM JDE, J2ME, Map and Route
+-------------------------------------------------------------------------------------------
+24.02.2023 2 von 6
+Zeitraum : 01/2008 - 04/2009
+Branche  : Telekommunikation
+Projekt  : Bereitstellung einer Enterprise Application Integration zum          
+           Management von DSL-Aufträgen. Konzeption einer sog.
+           Clearing-Datenbank mit der Aufgabe, Daten aus heterogenen Quellen       
+           zusammenzuführen. Die ClearingDB übernimmt dabei die Aufgabe eines
+           Datenaggregators, der die verschiedenen Quellen ansteuert, Daten konvertiert,
+           Schema Matching und Duplikatserkennung durchführt. Die Daten aus mehreren
+           verschiedenen Datenbanken werden  über verschiedene Protokolle und Formate
+           gesammelt (Batch-Operation-Import via SFTP/SCP, CSV, SOA-basierte Integration
+           von XML Daten via HTTP/SSL) und Benutzern in einer durch role-based      
+           Authorization gesicherten Webanwendung verfügbar gemacht. Zusätzlich werden 
+           komplette Auszüge des Datenstands für die Langzeit-Archivierung und
+           Abrechnungskontrolle über regelmäßige Batch jobs (Cron) zu den beteiligten
+           Partnern exportiert. Des Weiteren wurde eine Lifecycle Management Lösung für
+           die einzelnen Aufträge implementiert.
+Skills   : Java, Spring, Eclipse, Oracle. XML
+------------------------------------------------------------------------------------------
+Zeitraum : 11/2007 - 12/2008
+Branche  : Großhandel
+Projekt  : Konzeption und Entwicklung einer javabasierten mobilen           
+           Vertriebslösung für BlackBerry-Endgeräte mit Anbindung an SAP und Integration
+           in die bestehende IT-Landschaft.
+Skills   : Java, Spring, Eclipse, RIM JDE, J2ME, BES, SAP, Webservices
+------------------------------------------------------------------------------------------
+Zeitraum : 02/2007 - 08/2010
+Branche  : Öffentlicher Dienst
+Projekt  : Entwicklung und Bereitstellung einer BlackBerry Anwendung für die mobile
+           Prüfung (Felddatenerfassung und Qualitätskontrolle) von Saatgut in der
+           Landwirtschaft für das Land Niedersachsen.
+Skills   : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle
+------------------------------------------------------------------------------------------
+Zeitraum : 11/2006 - 01/2007
+Branche  : Öffentlicher Nahverkehr
+Projekt  : Vorbereitung eines Online-Redaktionssystems für Lokalisierung durch         
+           Implementierung eines ASP.Net Filters.
+Skills   : ASP.net, Visual Studio
+------------------------------------------------------------------------------------------
+Zeitraum : 08/2006 - 10/2006
+Branche  : Öffentlicher Nahverkehr (Transport &amp; Logistik)
+Projekt  : Implementierung eines Buchungsservers für die Verwaltung von Sendezeiten der
+           Fahrgastinformationen auf Linien und Haltestellen von Nahverkehrsbetrieben.
+Skills   : PL/SQL (Oracle), C#, Webservices
+------------------------------------------------------------------------------------------
+Zeitraum : 05/2006 - 07/2006
+Branche  : Öffentlicher Nahverkehr (Transport &amp; Logistik)
+Projekt  : Evaluation (Tests und Anpassungen) eines für die Speicherung  von Medien
+             optimierten Content Management Systems.
+Skills   : XML, XSL, XQUERY, Apache Axis
+------------------------------------------------------------------------------------------
+Zeitraum : 04/2006
+Branche  : Öffentlicher Nahverkehr (Transport &amp; Logistik)
+Projekt  : Erstellung eines Pflichtenhefts für die Erneuerung der IT-Landschaft eines
+           Bereitstellers von Fahrgastinformationen für den Nahverkehrsbereich.
+Skills   : FMC
+------------------------------------------------------------------------------------------
+Zeitraum : 01/2006 - 03/2006
+Branche  : Internet-Dienstleistungen
+Projekt  : Erstellung von Oberflächen für eine Web-Kataloganwendung
+Skills   : Java, JSP
+------------------------------------------------------------------------------------------
+24.02.2023 3 von 6
+Zeitraum : 10/2005 - 12/2005
+Branche  : Öffentlicher Nahverkehr (Transport &amp; Logistik)
+Projekt  : Erstellung von Weboberflächen für Steuerung und Überwachung eines   
+           Fahrgastinformationssystems im Nahverkehrsbereich.
+Skills   : ASP.NET, Webservices, Oracle, WMI
+------------------------------------------------------------------------------------------
+Zeitraum : 09/2005
+Branche  : Öffentlicher Nahverkehr (Transport &amp; Logistik)
+Projekt  : Anpassung einer Datenimportschnittstelle
+Skills   : Java
+------------------------------------------------------------------------------------------
+Zeitraum : 08/2005 - 09/2005
+Branche  : Öffentlicher Nahverkehr (Transport &amp; Logistik)
+Projekt  : Zeitkritischer Versand von (aktualisierten) Fahrplandaten für die Anzeige an
+           Haltestellen im Nahverkehrsbereich
+Skills   : C#, Oracle
+------------------------------------------------------------------------------------------
+Zeitraum : 01/2005 - 03/2005
+Branche  : Tourismus
+Projekt  : Erstellung eines Pflichtenheftes und Realisierung von Online-Umfragen zur
+           Optimierung von Marketing- und Vertriebsaktivitäten
+Skills   : FMC, PHP, MySQL
+------------------------------------------------------------------------------------------
+Zeitraum : 10/2004 - 12/2004
+Branche  : Universitäten, Forschung
+Projekt  : Prototypische Realisierung einer Auktionsplattform mit Anbindung von
+           Smart Clients
+Skills   : C#, .Net, Webservices, Windows Forms
+------------------------------------------------------------------------------------------
+Zeitraum : 02/2004 - 05/2004
+Branche  : Vergnügunsparks
+Projekt  : Entwicklung eines Online Ticketing Systems sowie Entwicklung eines         
+           MVC-Frameworks (ähnlich Struts)
+Skills   : PHP
+------------------------------------------------------------------------------------------
+Zeitraum : 10/2003 - 01/2004
+Branche  : Universitäten, Forschung
+Projekt  : Qualitätssicherung in Software-Systemen durch Fehlerprognose. Dabei Umsetzung
+           von multivariaten statistischen Verfahren.
+Skills   : .Net, Rational Rose, Rational ClearCase
+------------------------------------------------------------------------------------------
+Zeitraum : 04/2003 - 08/2003
+Branche  : Tourismus
+Projekt  : Entwicklung einer Synchronisationslösung für die Auslieferung von  
+           Projektständen auf Produktionsmaschinen
+Skills   : Java, Eclipse
+------------------------------------------------------------------------------------------
+Zeitraum : 08/2002 - 02/2003
+Branche  : Internet-Dienstleistungen
+Projekt  : Entwicklung einer Template-Engine für Webanwendungen
+Skills   : PHP
+------------------------------------------------------------------------------------------
+Zeitraum : 02/2002 - 05/2002
+Branche  : Universitäten, Forschung
+Projekt  : Realisierung eines Microsoft Visual Studio Add-Ins zur Kontrolle laufender Jobs
+           auf einer Forschungsplattform für serviceorientierte  Architekturen.
+Skills   : Visual Studio, C#
+------------------------------------------------------------------------------------------
+Zeitraum : 01/2001 - 10/2001
+Branche  : Druckindustrie
+Projekt  : B2B-Portallösung: Abbildung von  Einkaufs-/Verkaufs-Projekt-Prozessen auf einer
+24.02.2023 4 von 6
+           einheitlichen,mehrsprachigen Handelsplattform.
+Skills   : Coldfusion
+------------------------------------------------------------------------------------------
+ 
+Branchen
+Industrieproduktion &amp; Handel
+IT Dienstleistungen
+Agenturen
+Web-Dienstleistungen
+Verlage
+Telekommunikation
+Öffentlicher Nahverkehr
+Öffentlicher Dienst
+Sprachen
+Deutsch
+Englisch
+Portugiesisch
+Kompetenzen
+Produkte / Standards /
+Erfahrungen / Methoden
+FMC (Fundamental Modelling Concepts)
+OOA, OOD, OOP
+UML, ERM
+ 
+Visual Studio .Net 2003/2005
+Silverlight
+WPF
+Cascades
+BlackBerry Sicherheitsprotokolle
+Eclipse
+Spring
+Hibernate
+Oracle PL/SQL
+Betriebssysteme
+Windows Server 2003
+Windows XP Professional
+Windows 2000 Server &amp; Professional
+Linux
+Unix
+24.02.2023 5 von 6
+BlackBerry OS
+BES10
+Android OS
+Windows Phone 8
+Programmiersprachen C Grundkenntnisse
+C# ok
+Java sehr gut
+Objective C Grundkenntnisse
+PL/SQL ok
+Python Grundkenntnisse
+J2ME sehr gut
+Datenbanken MS SQL Server ok
+MySQL ok
+Oracle gut
+Postgres gut
+Datenkommunikation Internet, Intranet
+Webservices
+WebSockets
+ 
+BES
+BIS
+Besonderes Interesse an Aufgaben im Bereich mobile Client- Server
+Anwendungen für BlackBerry und Android Technologie.
+Aus- und Weiterbildung
+09/2001 - 05/2005 Studium Software Systems Engineering am HPI Hasso-Plattner-Institut für
+Softwaresystemtechnik der Universität Potsdam (Bachelor of Science)
+24.02.2023 6 von 6
+
+############################################
+---------- Gulp-Profil Stand 2018-01-18 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 85172: Java
+Softwareentwicklung für 1. mobile Anwendungen (App s) für Blackberry,
+Blackberry BES 10, Android und Windows Phone // 2. Server Datenbank
+Entwicklung // 3. Individualsoftware                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+85172 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 85172    Wohnort 301xx Hannover, Deutschland Jahrgang
+1975 Staatsbürgerschaft Deutsch Stundensatz 95 EUR VB, all-in
+Verfügbar ab 01.04.18 zu 85%, Vor-Ort-Einsatz 20% möglich Profil
+erstellt am 15.08.07 Profil zuletzt geändert am 18.01.18 Lesen von
+Projektanfragen 0,5 Tage  [5]Direktkontakt [6]         Kommentar:  
+Kommentar schreiben Profil angezeigt am 04.02.2018 11:31:15      
+Fachlicher Schwerpunkt:  Java Softwareentwicklung für 1. mobile
+Anwendungen (App s) für Blackberry, Blackberry BES 10, Android und
+Windows Phone // 2. Server Datenbank Entwicklung // 3.
+Individualsoftware      Position:  Software-Entwicklung /
+Programmierung
+ Beratung / Consulting
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  09/2001 - 05/2005 Studium Software Systems
+Engineering am HPI Hasso-Plattner-Institut für Softwaresystemtechnik
+der Universität Potsdam (Bachelor of Science)      Einsatzort:  
+Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz,
+außerhalb D/A/CH   Ich möchte BEVORZUGT für die o. g. Einsatzorte
+kontaktiert werden.     
+
+	Einsatz Deutschlandweit möglich, teils kombiniert von "vor Ort" und
+"Remote"         Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Portugiesisch
+
+      Betriebssysteme:  
+
+	Windows Server 2003 
+
+	Windows XP Professional 
+
+	Windows 2000 Server &amp; Professional 
+
+	Linux 
+
+	Unix 
+
+	BlackBerry OS 
+
+	BES10 
+
+	Android OS 
+
+	Windows Phone 8      Programmiersprachen:  
+
+		C
+		Grundkenntnisse
+
+		C#
+		ok
+
+		Java
+		sehr gut
+
+		Objective C
+		Grundkenntnisse
+
+		PL/SQL
+		ok
+
+		Python
+		Grundkenntnisse
+
+	J2ME sehr gut      Datenbanken:  
+
+		MS SQL Server
+		ok
+
+		MySQL
+		ok
+
+		Oracle
+		gut
+
+		Postgres
+		gut
+
+      Datenkommunikation:  
+
+		Internet, Intranet
+
+	Webservices 
+
+	WebSockets 
+
+	BES 
+
+	BIS      Produkte/Standards/Erfahrungen:  
+
+	FMC (Fundamental Modelling Concepts) 
+
+	OOA, OOD, OOP 
+
+	UML, ERM 
+
+	Visual Studio .Net 2003/2005 
+
+	Silverlight 
+
+	WPF 
+
+	Cascades 
+
+	BlackBerry Sicherheitsprotokolle 
+
+	Eclipse 
+
+	Spring 
+
+	Hibernate 
+
+	Oracle PL/SQL      Branchen:  
+
+	Industrieproduktion &amp; Handel 
+
+	IT Dienstleistungen 
+
+	Agenturen 
+
+	Web-Dienstleistungen 
+
+	Verlage 
+
+	Telekommunikation 
+
+	öffentlicher Nahverkehr 
+
+	öffentlicher Dienst      Projekte:   
+
+	Zeitraum : 05/2014 - 07/2014
+ Branche : Textilien
+ Projekt : Konzeption und Entwicklung einer nativen
+Client-Server-Anwendung 
+ für Blackberry 10 Endgeräte zur Abfrage von Preisinformationen 
+ mittels Barcode-Scan, Implementierung für den Online- und
+Offline-Betrieb
+ Skills : C++, QT / QML, BlackBerry Cascades, BES 10, Java, Spring,
+Eclipse 
+------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 01/2014 - 04/2014
+ Branche : IT (Softwarehersteller) 
+ Projekt : Konzeption und Entwicklung eines Systems zur Erfassung,
+Genehmigung und 
+
+	 Publizierung von Metadaten auf den unterschiedlichen App-Stores
+(iTunes, 
+
+	 GooglePlay, BlackBerry World, Samsung Knox, etc). 
+ Skills : C#, Javascript, ASP.NET WebApi, AngularJS, IIS 8, SSL, MS
+SQL Server 2008 
+ ------------------------------------------------------------------------------------------
+Zeitraum : 12/2012 - 12/2013
+
+	Branche : IT (Softwarehersteller) 
+ Projekt : Verantwortlich als Build Engineer für Konzeption und
+Implementierung 
+
+	 von Standards hinsichtliche der Auslieferungsprozesse von 
+
+	 weltweit verteilt entwickelten mobilen Anwendungen.
+ Skills : Maven, Hudson, Store Vendor Backends: iTunes Connect,
+GooglePlay, 
+
+	 BlackBerry World, Microsoft Store, Communication
+ ------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 05/2008 - 09/2012
+ Branche : öffentlicher Dienst (Transport &amp; Logistik)
+ Projekt : Konzeption und Entwicklung einer integrierten Anwendung für
+
+ Bestellung, Disposition, Controlling und Abrechnung von 
+ Fahrdienstleistungen des Zentralen Fahrdienstes des Landes 
+ Niedersachsen.
+ Skills : Java, Spring, Eclipse, Oracle, C#, WPF, Microsoft MapPoint
+ ------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 08/2011 - 10/2012
+ Branche : Immobilienverwaltung
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen
+Serviceanwendung zur 
+ Verteilung und Dokumentation von im branchenspezifischen
+Backendsystem 
+ disponierten Aufgaben für den technischen Dienst (Tätigkeiten,
+Zeiten, 
+ Statusmeldungen).
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle, VFM 
+-------------------------
+
+	Zeitraum : 10/2011 - 10/2012
+ Branche : Energieversorger
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen
+Serviceanwendung zur 
+ Dokumentation (Foto, Geokoordinaten, Textmeldung) sog.
+Netzänderungsmeldungen 
+ (geplante Baustellen) für BlackBerry Endgeräte inklusive der
+Anbindung an das branchenspezifische Backendsystem.
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle, Firebird
+ ------------------------------------------------------------------------------------------
+Zeitraum : 12/2011 - 05/2012
+ Branche : IT (Softwarehersteller) 
+ Projekt : Build Engineer für mobile Anwendungen Einrichten und
+Erstellen zentraler Builds 
+ für mobile Anwendungen auf den Plattformen iOS, Android, Microsoft
+und 
+ Blackberry. Installieren und Durchführen von Verteilungsprozessen an
+die 
+ jeweilige Applikation Stores oder anderen Download-Bereiche.
+ Skills : Maven, Hudson, Communication Skills
+ ------------------------------------------------------------------------------------------
+Zeitraum : 06/2011 - 04/2012
+ Branche : Industrie (Herstellung &amp; Großhandel)
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen 
+ Vertrieblösung für BlackBerry Endgeräte zur Auftragserfassung, 
+ Aufgabendisposition und Kundendatenmanagement inklusive der Anbindung
+an das 
+ Warenwirtschaftssystem und der Entwicklung einer webbasierten
+Oberfläche für 
+ die Verwaltung, Steuerung und Auswertung durch den Innendienst.
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle, DIY
+ ------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 06/2009 - 09/2011
+ Branche : Verlage, Mediendienstleistungen
+ Projekt : Konzeption und Entwicklung der wetter.com Anwendung für die
+mobile Nutzung auf 
+ BlackBerry-und Android-Endgeräten. Und Aufbereitung für die App
+World.
+ Skills : Java, Eclipse, RIM JDE, J2ME
+ ------------------------------------------------------------------------------------------
+Zeitraum : 08/2009 - 07/2011
+ Branche : Verlage
+ Projekt : Konzeption und Entwicklung von mobilen Applikationen für
+BlackkBerry 
+ Endgeräte der Verzeichnisse: GelbeSeiten, DasTelefonbuch und
+Dasörtliche.
+ Skills : Java, Eclipse, RIM JDE, J2ME, Map and Route
+ -------------------------------------------------------------------------------------------
+Zeitraum : 01/2008 - 04/2009
+ Branche : Telekommunikation
+ Projekt : Bereitstellung einer Enterprise Application Integration zum
+
+ Management von DSL-Aufträgen. Konzeption einer sog. 
+ Clearing-Datenbank mit der Aufgabe, Daten aus heterogenen Quellen 
+ zusammenzuführen. Die ClearingDB übernimmt dabei die Aufgabe eines 
+ Datenaggregators, der die verschiedenen Quellen ansteuert, Daten
+konvertiert, 
+ Schema Matching und Duplikatserkennung durchführt. Die Daten aus
+mehreren 
+ verschiedenen Datenbanken werden über verschiedene Protokolle und
+Formate 
+ gesammelt (Batch-Operation-Import via SFTP/SCP, CSV, SOA-basierte
+Integration 
+ von XML Daten via HTTP/SSL) und Benutzern in einer durch role-based 
+ Authorization gesicherten Webanwendung verfügbar gemacht. Zusätzlich
+werden 
+ komplette Auszüge des Datenstands für die Langzeit-Archivierung und 
+ Abrechnungskontrolle über regelmäßige Batch jobs (Cron) zu den
+beteiligten 
+ Partnern exportiert. Des Weiteren wurde eine Lifecycle Management
+Lösung für 
+ die einzelnen Aufträge implementiert.
+ Skills : Java, Spring, Eclipse, Oracle. XML
+ ------------------------------------------------------------------------------------------
+Zeitraum : 11/2007 - 12/2008
+ Branche : Großhandel
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen 
+ Vertriebslösung für BlackBerry-Endgeräte mit Anbindung an SAP und
+Integration 
+ in die bestehende IT-Landschaft.
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, SAP, Webservices
+ ------------------------------------------------------------------------------------------
+Zeitraum : 02/2007 - 08/2010
+ Branche : öffentlicher Dienst
+ Projekt : Entwicklung und Bereitstellung einer BlackBerry Anwendung
+für die mobile 
+ Prüfung (Felddatenerfassung und Qualitätskontrolle) von Saatgut in
+der 
+ Landwirtschaft für das Land Niedersachsen.
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle
+ ------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 11/2006 - 01/2007
+ Branche : öffentlicher Nahverkehr
+ Projekt : Vorbereitung eines Online-Redaktionssystems für
+Lokalisierung durch 
+ Implementierung eines ASP.Net Filters.
+ Skills : ASP.net, Visual Studio
+ ------------------------------------------------------------------------------------------
+Zeitraum : 08/2006 - 10/2006
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Implementierung eines Buchungsservers für die Verwaltung
+von Sendezeiten der 
+ Fahrgastinformationen auf Linien und Haltestellen von
+Nahverkehrsbetrieben.
+ Skills : PL/SQL (Oracle), C#, Webservices
+ ------------------------------------------------------------------------------------------
+Zeitraum : 05/2006 - 07/2006
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Evaluation (Tests und Anpassungen) eines für die
+Speicherung von Medien 
+ optimierten Content Management Systems.
+ Skills : XML, XSL, XQUERY, Apache Axis
+ ------------------------------------------------------------------------------------------
+Zeitraum : 04/2006
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Erstellung eines Pflichtenhefts für die Erneuerung der
+IT-Landschaft eines 
+ Bereitstellers von Fahrgastinformationen für den Nahverkehrsbereich.
+ Skills : FMC
+ ------------------------------------------------------------------------------------------
+Zeitraum : 01/2006 - 03/2006
+ Branche : Internet-Dienstleistungen
+ Projekt : Erstellung von Oberflächen für eine Web-Kataloganwendung
+ Skills : Java, JSP
+ ------------------------------------------------------------------------------------------
+Zeitraum : 10/2005 - 12/2005
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Erstellung von Weboberflächen für Steuerung und überwachung
+eines 
+ Fahrgastinformationssystems im Nahverkehrsbereich.
+ Skills : ASP.NET, Webservices, Oracle, WMI
+ ------------------------------------------------------------------------------------------
+Zeitraum : 09/2005
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Anpassung einer Datenimportschnittstelle
+ Skills : Java
+ ------------------------------------------------------------------------------------------
+Zeitraum : 08/2005 - 09/2005
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Zeitkritischer Versand von (aktualisierten) Fahrplandaten
+für die Anzeige an 
+ Haltestellen im Nahverkehrsbereich
+ Skills : C#, Oracle
+ ------------------------------------------------------------------------------------------
+ Zeitraum : 01/2005 - 03/2005
+ Branche : Tourismus
+ Projekt : Erstellung eines Pflichtenheftes und Realisierung von
+Online-Umfragen zur 
+ Optimierung von Marketing- und Vertriebsaktivitäten
+ Skills : FMC, PHP, MySQL
+ ------------------------------------------------------------------------------------------
+Zeitraum : 10/2004 - 12/2004
+ Branche : Universitäten, Forschung
+ Projekt : Prototypische Realisierung einer Auktionsplattform mit
+Anbindung von 
+ Smart Clients
+ Skills : C#, .Net, Webservices, Windows Forms
+ ------------------------------------------------------------------------------------------
+Zeitraum : 02/2004 - 05/2004
+ Branche : Vergnügunsparks
+ Projekt : Entwicklung eines Online Ticketing Systems sowie
+Entwicklung eines 
+ MVC-Frameworks (ähnlich Struts)
+ Skills : PHP
+ ------------------------------------------------------------------------------------------
+Zeitraum : 10/2003 - 01/2004
+ Branche : Universitäten, Forschung
+ Projekt : Qualitätssicherung in Software-Systemen durch
+Fehlerprognose. Dabei Umsetzung 
+ von multivariaten statistischen Verfahren.
+ Skills : .Net, Rational Rose, Rational ClearCase
+ ------------------------------------------------------------------------------------------
+Zeitraum : 04/2003 - 08/2003
+ Branche : Tourismus
+ Projekt : Entwicklung einer Synchronisationslösung für die
+Auslieferung von 
+ Projektständen auf Produktionsmaschinen
+ Skills : Java, Eclipse
+ ------------------------------------------------------------------------------------------
+Zeitraum : 08/2002 - 02/2003
+ Branche : Internet-Dienstleistungen
+ Projekt : Entwicklung einer Template-Engine für Webanwendungen
+ Skills : PHP
+ ------------------------------------------------------------------------------------------
+Zeitraum : 02/2002 - 05/2002
+ Branche : Universitäten, Forschung
+ Projekt : Realisierung eines Microsoft Visual Studio Add-Ins zur
+Kontrolle laufender Jobs 
+ auf einer Forschungsplattform für serviceorientierte Architekturen.
+ Skills : Visual Studio, C#
+ ------------------------------------------------------------------------------------------
+Zeitraum : 01/2001 - 10/2001
+ Branche : Druckindustrie
+ Projekt : B2B-Portallösung: Abbildung von
+Einkaufs-/Verkaufs-Projekt-Prozessen auf einer 
+ einheitlichen,mehrsprachigen Handelsplattform.
+ Skills : Coldfusion
+ ------------------------------------------------------------------------------------------
+
+
+	       Sonstige Anmerkungen:  
+
+	Besonderes Interesse an Aufgaben im Bereich mobile Client- Server
+Anwendungen für BlackBerry und Android Technologie.      
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 85172 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 19.01.2018 01:02:55
+ (c) Copyright 1996-2018 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+---------- Gulp-Profil Stand 2017-08-18 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 85172: Java
+Softwareentwicklung für 1. mobile Anwendungen (App s) für Blackberry,
+Blackberry BES 10, Android und Windows Phone // 2. Server Datenbank
+Entwicklung // 3. Individualsoftware                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+85172 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 85172    Wohnort 301xx Hannover, Deutschland Jahrgang
+1975 Staatsbürgerschaft Deutsch Stundensatz 95 EUR VB, all-in
+Verfügbar ab 01.02.18 zu 85%, Vor-Ort-Einsatz 20% möglich Profil
+erstellt am 15.08.07 Profil zuletzt geändert am 18.08.17 Lesen von
+Projektanfragen 0,5 Tage  [5]Direktkontakt [6]         Kommentar:  
+Kommentar schreiben Profil angezeigt am 19.07.2016 16:28:24      
+Fachlicher Schwerpunkt:  Java Softwareentwicklung für 1. mobile
+Anwendungen (App s) für Blackberry, Blackberry BES 10, Android und
+Windows Phone // 2. Server Datenbank Entwicklung // 3.
+Individualsoftware      Position:  Software-Entwicklung /
+Programmierung
+ Beratung / Consulting
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  09/2001 - 05/2005 Studium Software Systems
+Engineering am HPI Hasso-Plattner-Institut für Softwaresystemtechnik
+der Universität Potsdam (Bachelor of Science)      Einsatzort:  
+Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz,
+außerhalb D/A/CH   Ich möchte BEVORZUGT für die o. g. Einsatzorte
+kontaktiert werden.     
+
+	Einsatz Deutschlandweit möglich, teils kombiniert von "vor Ort" und
+"Remote"         Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Portugiesisch
+
+      Betriebssysteme:  
+
+	Windows Server 2003 
+
+	Windows XP Professional 
+
+	Windows 2000 Server &amp; Professional 
+
+	Linux 
+
+	Unix 
+
+	BlackBerry OS 
+
+	BES10 
+
+	Android OS 
+
+	Windows Phone 8      Programmiersprachen:  
+
+		C
+		Grundkenntnisse
+
+		C#
+		ok
+
+		Java
+		sehr gut
+
+		Objective C
+		Grundkenntnisse
+
+		PL/SQL
+		ok
+
+		Python
+		Grundkenntnisse
+
+	J2ME sehr gut      Datenbanken:  
+
+		MS SQL Server
+		ok
+
+		MySQL
+		ok
+
+		Oracle
+		gut
+
+		Postgres
+		gut
+
+      Datenkommunikation:  
+
+		Internet, Intranet
+
+	Webservices 
+
+	WebSockets 
+
+	BES 
+
+	BIS      Produkte/Standards/Erfahrungen:  
+
+	FMC (Fundamental Modelling Concepts) 
+
+	OOA, OOD, OOP 
+
+	UML, ERM 
+
+	Visual Studio .Net 2003/2005 
+
+	Silverlight 
+
+	WPF 
+
+	Cascades 
+
+	BlackBerry Sicherheitsprotokolle 
+
+	Eclipse 
+
+	Spring 
+
+	Hibernate 
+
+	Oracle PL/SQL      Branchen:  
+
+	Industrieproduktion &amp; Handel 
+
+	IT Dienstleistungen 
+
+	Agenturen 
+
+	Web-Dienstleistungen 
+
+	Verlage 
+
+	Telekommunikation 
+
+	öffentlicher Nahverkehr 
+
+	öffentlicher Dienst      Projekte:   
+
+	Zeitraum : 05/2014 - 07/2014
+ Branche : Textilien
+ Projekt : Konzeption und Entwicklung einer nativen
+Client-Server-Anwendung 
+ für Blackberry 10 Endgeräte zur Abfrage von Preisinformationen 
+ mittels Barcode-Scan, Implementierung für den Online- und
+Offline-Betrieb
+ Skills : C++, QT / QML, BlackBerry Cascades, BES 10, Java, Spring,
+Eclipse 
+------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 01/2014 - 04/2014
+ Branche : IT (Softwarehersteller) 
+ Projekt : Konzeption und Entwicklung eines Systems zur Erfassung,
+Genehmigung und 
+
+	 Publizierung von Metadaten auf den unterschiedlichen App-Stores
+(iTunes, 
+
+	 GooglePlay, BlackBerry World, Samsung Knox, etc). 
+ Skills : C#, Javascript, ASP.NET WebApi, AngularJS, IIS 8, SSL, MS
+SQL Server 2008 
+ ------------------------------------------------------------------------------------------
+Zeitraum : 12/2012 - 12/2013
+
+	Branche : IT (Softwarehersteller) 
+ Projekt : Verantwortlich als Build Engineer für Konzeption und
+Implementierung 
+
+	 von Standards hinsichtliche der Auslieferungsprozesse von 
+
+	 weltweit verteilt entwickelten mobilen Anwendungen.
+ Skills : Maven, Hudson, Store Vendor Backends: iTunes Connect,
+GooglePlay, 
+
+	 BlackBerry World, Microsoft Store, Communication
+ ------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 05/2008 - 09/2012
+ Branche : öffentlicher Dienst (Transport &amp; Logistik)
+ Projekt : Konzeption und Entwicklung einer integrierten Anwendung für
+
+ Bestellung, Disposition, Controlling und Abrechnung von 
+ Fahrdienstleistungen des Zentralen Fahrdienstes des Landes 
+ Niedersachsen.
+ Skills : Java, Spring, Eclipse, Oracle, C#, WPF, Microsoft MapPoint
+ ------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 08/2011 - 10/2012
+ Branche : Immobilienverwaltung
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen
+Serviceanwendung zur 
+ Verteilung und Dokumentation von im branchenspezifischen
+Backendsystem 
+ disponierten Aufgaben für den technischen Dienst (Tätigkeiten,
+Zeiten, 
+ Statusmeldungen).
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle, VFM 
+-------------------------
+
+	Zeitraum : 10/2011 - 10/2012
+ Branche : Energieversorger
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen
+Serviceanwendung zur 
+ Dokumentation (Foto, Geokoordinaten, Textmeldung) sog.
+Netzänderungsmeldungen 
+ (geplante Baustellen) für BlackBerry Endgeräte inklusive der
+Anbindung an das branchenspezifische Backendsystem.
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle, Firebird
+ ------------------------------------------------------------------------------------------
+Zeitraum : 12/2011 - 05/2012
+ Branche : IT (Softwarehersteller) 
+ Projekt : Build Engineer für mobile Anwendungen Einrichten und
+Erstellen zentraler Builds 
+ für mobile Anwendungen auf den Plattformen iOS, Android, Microsoft
+und 
+ Blackberry. Installieren und Durchführen von Verteilungsprozessen an
+die 
+ jeweilige Applikation Stores oder anderen Download-Bereiche.
+ Skills : Maven, Hudson, Communication Skills
+ ------------------------------------------------------------------------------------------
+Zeitraum : 06/2011 - 04/2012
+ Branche : Industrie (Herstellung &amp; Großhandel)
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen 
+ Vertrieblösung für BlackBerry Endgeräte zur Auftragserfassung, 
+ Aufgabendisposition und Kundendatenmanagement inklusive der Anbindung
+an das 
+ Warenwirtschaftssystem und der Entwicklung einer webbasierten
+Oberfläche für 
+ die Verwaltung, Steuerung und Auswertung durch den Innendienst.
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle, DIY
+ ------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 06/2009 - 09/2011
+ Branche : Verlage, Mediendienstleistungen
+ Projekt : Konzeption und Entwicklung der wetter.com Anwendung für die
+mobile Nutzung auf 
+ BlackBerry-und Android-Endgeräten. Und Aufbereitung für die App
+World.
+ Skills : Java, Eclipse, RIM JDE, J2ME
+ ------------------------------------------------------------------------------------------
+Zeitraum : 08/2009 - 07/2011
+ Branche : Verlage
+ Projekt : Konzeption und Entwicklung von mobilen Applikationen für
+BlackkBerry 
+ Endgeräte der Verzeichnisse: GelbeSeiten, DasTelefonbuch und
+Dasörtliche.
+ Skills : Java, Eclipse, RIM JDE, J2ME, Map and Route
+ -------------------------------------------------------------------------------------------
+Zeitraum : 01/2008 - 04/2009
+ Branche : Telekommunikation
+ Projekt : Bereitstellung einer Enterprise Application Integration zum
+
+ Management von DSL-Aufträgen. Konzeption einer sog. 
+ Clearing-Datenbank mit der Aufgabe, Daten aus heterogenen Quellen 
+ zusammenzuführen. Die ClearingDB übernimmt dabei die Aufgabe eines 
+ Datenaggregators, der die verschiedenen Quellen ansteuert, Daten
+konvertiert, 
+ Schema Matching und Duplikatserkennung durchführt. Die Daten aus
+mehreren 
+ verschiedenen Datenbanken werden über verschiedene Protokolle und
+Formate 
+ gesammelt (Batch-Operation-Import via SFTP/SCP, CSV, SOA-basierte
+Integration 
+ von XML Daten via HTTP/SSL) und Benutzern in einer durch role-based 
+ Authorization gesicherten Webanwendung verfügbar gemacht. Zusätzlich
+werden 
+ komplette Auszüge des Datenstands für die Langzeit-Archivierung und 
+ Abrechnungskontrolle über regelmäßige Batch jobs (Cron) zu den
+beteiligten 
+ Partnern exportiert. Des Weiteren wurde eine Lifecycle Management
+Lösung für 
+ die einzelnen Aufträge implementiert.
+ Skills : Java, Spring, Eclipse, Oracle. XML
+ ------------------------------------------------------------------------------------------
+Zeitraum : 11/2007 - 12/2008
+ Branche : Großhandel
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen 
+ Vertriebslösung für BlackBerry-Endgeräte mit Anbindung an SAP und
+Integration 
+ in die bestehende IT-Landschaft.
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, SAP, Webservices
+ ------------------------------------------------------------------------------------------
+Zeitraum : 02/2007 - 08/2010
+ Branche : öffentlicher Dienst
+ Projekt : Entwicklung und Bereitstellung einer BlackBerry Anwendung
+für die mobile 
+ Prüfung (Felddatenerfassung und Qualitätskontrolle) von Saatgut in
+der 
+ Landwirtschaft für das Land Niedersachsen.
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle
+ ------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 11/2006 - 01/2007
+ Branche : öffentlicher Nahverkehr
+ Projekt : Vorbereitung eines Online-Redaktionssystems für
+Lokalisierung durch 
+ Implementierung eines ASP.Net Filters.
+ Skills : ASP.net, Visual Studio
+ ------------------------------------------------------------------------------------------
+Zeitraum : 08/2006 - 10/2006
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Implementierung eines Buchungsservers für die Verwaltung
+von Sendezeiten der 
+ Fahrgastinformationen auf Linien und Haltestellen von
+Nahverkehrsbetrieben.
+ Skills : PL/SQL (Oracle), C#, Webservices
+ ------------------------------------------------------------------------------------------
+Zeitraum : 05/2006 - 07/2006
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Evaluation (Tests und Anpassungen) eines für die
+Speicherung von Medien 
+ optimierten Content Management Systems.
+ Skills : XML, XSL, XQUERY, Apache Axis
+ ------------------------------------------------------------------------------------------
+Zeitraum : 04/2006
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Erstellung eines Pflichtenhefts für die Erneuerung der
+IT-Landschaft eines 
+ Bereitstellers von Fahrgastinformationen für den Nahverkehrsbereich.
+ Skills : FMC
+ ------------------------------------------------------------------------------------------
+Zeitraum : 01/2006 - 03/2006
+ Branche : Internet-Dienstleistungen
+ Projekt : Erstellung von Oberflächen für eine Web-Kataloganwendung
+ Skills : Java, JSP
+ ------------------------------------------------------------------------------------------
+Zeitraum : 10/2005 - 12/2005
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Erstellung von Weboberflächen für Steuerung und überwachung
+eines 
+ Fahrgastinformationssystems im Nahverkehrsbereich.
+ Skills : ASP.NET, Webservices, Oracle, WMI
+ ------------------------------------------------------------------------------------------
+Zeitraum : 09/2005
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Anpassung einer Datenimportschnittstelle
+ Skills : Java
+ ------------------------------------------------------------------------------------------
+Zeitraum : 08/2005 - 09/2005
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Zeitkritischer Versand von (aktualisierten) Fahrplandaten
+für die Anzeige an 
+ Haltestellen im Nahverkehrsbereich
+ Skills : C#, Oracle
+ ------------------------------------------------------------------------------------------
+ Zeitraum : 01/2005 - 03/2005
+ Branche : Tourismus
+ Projekt : Erstellung eines Pflichtenheftes und Realisierung von
+Online-Umfragen zur 
+ Optimierung von Marketing- und Vertriebsaktivitäten
+ Skills : FMC, PHP, MySQL
+ ------------------------------------------------------------------------------------------
+Zeitraum : 10/2004 - 12/2004
+ Branche : Universitäten, Forschung
+ Projekt : Prototypische Realisierung einer Auktionsplattform mit
+Anbindung von 
+ Smart Clients
+ Skills : C#, .Net, Webservices, Windows Forms
+ ------------------------------------------------------------------------------------------
+Zeitraum : 02/2004 - 05/2004
+ Branche : Vergnügunsparks
+ Projekt : Entwicklung eines Online Ticketing Systems sowie
+Entwicklung eines 
+ MVC-Frameworks (ähnlich Struts)
+ Skills : PHP
+ ------------------------------------------------------------------------------------------
+Zeitraum : 10/2003 - 01/2004
+ Branche : Universitäten, Forschung
+ Projekt : Qualitätssicherung in Software-Systemen durch
+Fehlerprognose. Dabei Umsetzung 
+ von multivariaten statistischen Verfahren.
+ Skills : .Net, Rational Rose, Rational ClearCase
+ ------------------------------------------------------------------------------------------
+Zeitraum : 04/2003 - 08/2003
+ Branche : Tourismus
+ Projekt : Entwicklung einer Synchronisationslösung für die
+Auslieferung von 
+ Projektständen auf Produktionsmaschinen
+ Skills : Java, Eclipse
+ ------------------------------------------------------------------------------------------
+Zeitraum : 08/2002 - 02/2003
+ Branche : Internet-Dienstleistungen
+ Projekt : Entwicklung einer Template-Engine für Webanwendungen
+ Skills : PHP
+ ------------------------------------------------------------------------------------------
+Zeitraum : 02/2002 - 05/2002
+ Branche : Universitäten, Forschung
+ Projekt : Realisierung eines Microsoft Visual Studio Add-Ins zur
+Kontrolle laufender Jobs 
+ auf einer Forschungsplattform für serviceorientierte Architekturen.
+ Skills : Visual Studio, C#
+ ------------------------------------------------------------------------------------------
+Zeitraum : 01/2001 - 10/2001
+ Branche : Druckindustrie
+ Projekt : B2B-Portallösung: Abbildung von
+Einkaufs-/Verkaufs-Projekt-Prozessen auf einer 
+ einheitlichen,mehrsprachigen Handelsplattform.
+ Skills : Coldfusion
+ ------------------------------------------------------------------------------------------
+
+
+	       Sonstige Anmerkungen:  
+
+	Besonderes Interesse an Aufgaben im Bereich mobile Client- Server
+Anwendungen für BlackBerry und Android Technologie.      
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 85172 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 19.08.2017 01:53:44
+ (c) Copyright 1996-2017 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+---------- Gulp-Profil Stand 2016-06-07 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 85172: Java
+Softwareentwicklung für 1. mobile Anwendungen (App s) für Blackberry,
+Blackberry BES 10, Android und Windows Phone // 2. Server Datenbank
+Entwicklung // 3. Individualsoftware                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+85172 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 85172    Wohnort 301xx Hannover, Deutschland Jahrgang
+1975 Staatsbürgerschaft Deutsch Stundensatz 95 EUR VB, all-in
+Verfügbar ab 01.04.17 zu 100%, Vor-Ort-Einsatz 20% möglich Profil
+erstellt am 15.08.07 Profil zuletzt geändert am 07.06.16 Lesen von
+Projektanfragen 12 Stunden  [5]Direktkontakt [6]         Kommentar:  
+Kommentar schreiben Profil angezeigt am 11.04.2016 13:02:31      
+Fachlicher Schwerpunkt:  Java Softwareentwicklung für 1. mobile
+Anwendungen (App s) für Blackberry, Blackberry BES 10, Android und
+Windows Phone // 2. Server Datenbank Entwicklung // 3.
+Individualsoftware      Position:  Software-Entwicklung /
+Programmierung
+ Beratung / Consulting
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  09/2001 - 05/2005 Studium Software Systems
+Engineering am HPI Hasso-Plattner-Institut für Softwaresystemtechnik
+der Universität Potsdam (Bachelor of Science)      Einsatzort:  
+Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz,
+außerhalb D/A/CH     
+
+	Einsatz Deutschlandweit möglich, teils kombiniert von "vor Ort" und
+"Remote"         Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Portugiesisch
+
+      Betriebssysteme:  
+
+	Windows Server 2003 
+
+	Windows XP Professional 
+
+	Windows 2000 Server &amp; Professional 
+
+	Linux 
+
+	Unix 
+
+	BlackBerry OS 
+
+	BES10 
+
+	Android OS 
+
+	Windows Phone 8      Programmiersprachen:  
+
+		C
+		Grundkenntnisse
+
+		C#
+		ok
+
+		Java
+		sehr gut
+
+		Objective C
+		Grundkenntnisse
+
+		PL/SQL
+		ok
+
+		Python
+		Grundkenntnisse
+
+	J2ME sehr gut      Datenbanken:  
+
+		MS SQL Server
+		ok
+
+		MySQL
+		ok
+
+		Oracle
+		gut
+
+		Postgres
+		gut
+
+      Datenkommunikation:  
+
+		Internet, Intranet
+
+	Webservices 
+
+	WebSockets 
+
+	BES 
+
+	BIS      Produkte/Standards/Erfahrungen:  
+
+	FMC (Fundamental Modelling Concepts) 
+
+	OOA, OOD, OOP 
+
+	UML, ERM 
+
+	Visual Studio .Net 2003/2005 
+
+	Silverlight 
+
+	WPF 
+
+	Cascades 
+
+	BlackBerry Sicherheitsprotokolle 
+
+	Eclipse 
+
+	Spring 
+
+	Hibernate 
+
+	Oracle PL/SQL      Branchen:  
+
+	Industrieproduktion &amp; Handel 
+
+	IT Dienstleistungen 
+
+	Agenturen 
+
+	Web-Dienstleistungen 
+
+	Verlage 
+
+	Telekommunikation 
+
+	öffentlicher Nahverkehr 
+
+	öffentlicher Dienst      Projekte:   
+
+	Zeitraum : 05/2014 - 07/2014
+ Branche : Textilien
+ Projekt : Konzeption und Entwicklung einer nativen
+Client-Server-Anwendung 
+ für Blackberry 10 Endgeräte zur Abfrage von Preisinformationen 
+ mittels Barcode-Scan, Implementierung für den Online- und
+Offline-Betrieb
+ Skills : C++, QT / QML, BlackBerry Cascades, BES 10, Java, Spring,
+Eclipse 
+------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 01/2014 - 04/2014
+ Branche : IT (Softwarehersteller) 
+ Projekt : Konzeption und Entwicklung eines Systems zur Erfassung,
+Genehmigung und 
+
+	 Publizierung von Metadaten auf den unterschiedlichen App-Stores
+(iTunes, 
+
+	 GooglePlay, BlackBerry World, Samsung Knox, etc). 
+ Skills : C#, Javascript, ASP.NET WebApi, AngularJS, IIS 8, SSL, MS
+SQL Server 2008 
+ ------------------------------------------------------------------------------------------
+Zeitraum : 12/2012 - 12/2013
+
+	Branche : IT (Softwarehersteller) 
+ Projekt : Verantwortlich als Build Engineer für Konzeption und
+Implementierung 
+
+	 von Standards hinsichtliche der Auslieferungsprozesse von 
+
+	 weltweit verteilt entwickelten mobilen Anwendungen.
+ Skills : Maven, Hudson, Store Vendor Backends: iTunes Connect,
+GooglePlay, 
+
+	 BlackBerry World, Microsoft Store, Communication
+ ------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 05/2008 - 09/2012
+ Branche : öffentlicher Dienst (Transport &amp; Logistik)
+ Projekt : Konzeption und Entwicklung einer integrierten Anwendung für
+
+ Bestellung, Disposition, Controlling und Abrechnung von 
+ Fahrdienstleistungen des Zentralen Fahrdienstes des Landes 
+ Niedersachsen.
+ Skills : Java, Spring, Eclipse, Oracle, C#, WPF, Microsoft MapPoint
+ ------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 08/2011 - 10/2012
+ Branche : Immobilienverwaltung
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen
+Serviceanwendung zur 
+ Verteilung und Dokumentation von im branchenspezifischen
+Backendsystem 
+ disponierten Aufgaben für den technischen Dienst (Tätigkeiten,
+Zeiten, 
+ Statusmeldungen).
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle, VFM 
+-------------------------
+
+	Zeitraum : 10/2011 - 10/2012
+ Branche : Energieversorger
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen
+Serviceanwendung zur 
+ Dokumentation (Foto, Geokoordinaten, Textmeldung) sog.
+Netzänderungsmeldungen 
+ (geplante Baustellen) für BlackBerry Endgeräte inklusive der
+Anbindung an das branchenspezifische Backendsystem.
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle, Firebird
+ ------------------------------------------------------------------------------------------
+Zeitraum : 12/2011 - 05/2012
+ Branche : IT (Softwarehersteller) 
+ Projekt : Build Engineer für mobile Anwendungen Einrichten und
+Erstellen zentraler Builds 
+ für mobile Anwendungen auf den Plattformen iOS, Android, Microsoft
+und 
+ Blackberry. Installieren und Durchführen von Verteilungsprozessen an
+die 
+ jeweilige Applikation Stores oder anderen Download-Bereiche.
+ Skills : Maven, Hudson, Communication Skills
+ ------------------------------------------------------------------------------------------
+Zeitraum : 06/2011 - 04/2012
+ Branche : Industrie (Herstellung &amp; Großhandel)
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen 
+ Vertrieblösung für BlackBerry Endgeräte zur Auftragserfassung, 
+ Aufgabendisposition und Kundendatenmanagement inklusive der Anbindung
+an das 
+ Warenwirtschaftssystem und der Entwicklung einer webbasierten
+Oberfläche für 
+ die Verwaltung, Steuerung und Auswertung durch den Innendienst.
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle, DIY
+ ------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 06/2009 - 09/2011
+ Branche : Verlage, Mediendienstleistungen
+ Projekt : Konzeption und Entwicklung der wetter.com Anwendung für die
+mobile Nutzung auf 
+ BlackBerry-und Android-Endgeräten. Und Aufbereitung für die App
+World.
+ Skills : Java, Eclipse, RIM JDE, J2ME
+ ------------------------------------------------------------------------------------------
+Zeitraum : 08/2009 - 07/2011
+ Branche : Verlage
+ Projekt : Konzeption und Entwicklung von mobilen Applikationen für
+BlackkBerry 
+ Endgeräte der Verzeichnisse: GelbeSeiten, DasTelefonbuch und
+Dasörtliche.
+ Skills : Java, Eclipse, RIM JDE, J2ME, Map and Route
+ -------------------------------------------------------------------------------------------
+Zeitraum : 01/2008 - 04/2009
+ Branche : Telekommunikation
+ Projekt : Bereitstellung einer Enterprise Application Integration zum
+
+ Management von DSL-Aufträgen. Konzeption einer sog. 
+ Clearing-Datenbank mit der Aufgabe, Daten aus heterogenen Quellen 
+ zusammenzuführen. Die ClearingDB übernimmt dabei die Aufgabe eines 
+ Datenaggregators, der die verschiedenen Quellen ansteuert, Daten
+konvertiert, 
+ Schema Matching und Duplikatserkennung durchführt. Die Daten aus
+mehreren 
+ verschiedenen Datenbanken werden über verschiedene Protokolle und
+Formate 
+ gesammelt (Batch-Operation-Import via SFTP/SCP, CSV, SOA-basierte
+Integration 
+ von XML Daten via HTTP/SSL) und Benutzern in einer durch role-based 
+ Authorization gesicherten Webanwendung verfügbar gemacht. Zusätzlich
+werden 
+ komplette Auszüge des Datenstands für die Langzeit-Archivierung und 
+ Abrechnungskontrolle über regelmäßige Batch jobs (Cron) zu den
+beteiligten 
+ Partnern exportiert. Des Weiteren wurde eine Lifecycle Management
+Lösung für 
+ die einzelnen Aufträge implementiert.
+ Skills : Java, Spring, Eclipse, Oracle. XML
+ ------------------------------------------------------------------------------------------
+Zeitraum : 11/2007 - 12/2008
+ Branche : Großhandel
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen 
+ Vertriebslösung für BlackBerry-Endgeräte mit Anbindung an SAP und
+Integration 
+ in die bestehende IT-Landschaft.
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, SAP, Webservices
+ ------------------------------------------------------------------------------------------
+Zeitraum : 02/2007 - 08/2010
+ Branche : öffentlicher Dienst
+ Projekt : Entwicklung und Bereitstellung einer BlackBerry Anwendung
+für die mobile 
+ Prüfung (Felddatenerfassung und Qualitätskontrolle) von Saatgut in
+der 
+ Landwirtschaft für das Land Niedersachsen.
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle
+ ------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 11/2006 - 01/2007
+ Branche : öffentlicher Nahverkehr
+ Projekt : Vorbereitung eines Online-Redaktionssystems für
+Lokalisierung durch 
+ Implementierung eines ASP.Net Filters.
+ Skills : ASP.net, Visual Studio
+ ------------------------------------------------------------------------------------------
+Zeitraum : 08/2006 - 10/2006
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Implementierung eines Buchungsservers für die Verwaltung
+von Sendezeiten der 
+ Fahrgastinformationen auf Linien und Haltestellen von
+Nahverkehrsbetrieben.
+ Skills : PL/SQL (Oracle), C#, Webservices
+ ------------------------------------------------------------------------------------------
+Zeitraum : 05/2006 - 07/2006
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Evaluation (Tests und Anpassungen) eines für die
+Speicherung von Medien 
+ optimierten Content Management Systems.
+ Skills : XML, XSL, XQUERY, Apache Axis
+ ------------------------------------------------------------------------------------------
+Zeitraum : 04/2006
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Erstellung eines Pflichtenhefts für die Erneuerung der
+IT-Landschaft eines 
+ Bereitstellers von Fahrgastinformationen für den Nahverkehrsbereich.
+ Skills : FMC
+ ------------------------------------------------------------------------------------------
+Zeitraum : 01/2006 - 03/2006
+ Branche : Internet-Dienstleistungen
+ Projekt : Erstellung von Oberflächen für eine Web-Kataloganwendung
+ Skills : Java, JSP
+ ------------------------------------------------------------------------------------------
+Zeitraum : 10/2005 - 12/2005
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Erstellung von Weboberflächen für Steuerung und überwachung
+eines 
+ Fahrgastinformationssystems im Nahverkehrsbereich.
+ Skills : ASP.NET, Webservices, Oracle, WMI
+ ------------------------------------------------------------------------------------------
+Zeitraum : 09/2005
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Anpassung einer Datenimportschnittstelle
+ Skills : Java
+ ------------------------------------------------------------------------------------------
+Zeitraum : 08/2005 - 09/2005
+ Branche : öffentlicher Nahverkehr (Transport &amp; Logistik)
+ Projekt : Zeitkritischer Versand von (aktualisierten) Fahrplandaten
+für die Anzeige an 
+ Haltestellen im Nahverkehrsbereich
+ Skills : C#, Oracle
+ ------------------------------------------------------------------------------------------
+ Zeitraum : 01/2005 - 03/2005
+ Branche : Tourismus
+ Projekt : Erstellung eines Pflichtenheftes und Realisierung von
+Online-Umfragen zur 
+ Optimierung von Marketing- und Vertriebsaktivitäten
+ Skills : FMC, PHP, MySQL
+ ------------------------------------------------------------------------------------------
+Zeitraum : 10/2004 - 12/2004
+ Branche : Universitäten, Forschung
+ Projekt : Prototypische Realisierung einer Auktionsplattform mit
+Anbindung von 
+ Smart Clients
+ Skills : C#, .Net, Webservices, Windows Forms
+ ------------------------------------------------------------------------------------------
+Zeitraum : 02/2004 - 05/2004
+ Branche : Vergnügunsparks
+ Projekt : Entwicklung eines Online Ticketing Systems sowie
+Entwicklung eines 
+ MVC-Frameworks (ähnlich Struts)
+ Skills : PHP
+ ------------------------------------------------------------------------------------------
+Zeitraum : 10/2003 - 01/2004
+ Branche : Universitäten, Forschung
+ Projekt : Qualitätssicherung in Software-Systemen durch
+Fehlerprognose. Dabei Umsetzung 
+ von multivariaten statistischen Verfahren.
+ Skills : .Net, Rational Rose, Rational ClearCase
+ ------------------------------------------------------------------------------------------
+Zeitraum : 04/2003 - 08/2003
+ Branche : Tourismus
+ Projekt : Entwicklung einer Synchronisationslösung für die
+Auslieferung von 
+ Projektständen auf Produktionsmaschinen
+ Skills : Java, Eclipse
+ ------------------------------------------------------------------------------------------
+Zeitraum : 08/2002 - 02/2003
+ Branche : Internet-Dienstleistungen
+ Projekt : Entwicklung einer Template-Engine für Webanwendungen
+ Skills : PHP
+ ------------------------------------------------------------------------------------------
+Zeitraum : 02/2002 - 05/2002
+ Branche : Universitäten, Forschung
+ Projekt : Realisierung eines Microsoft Visual Studio Add-Ins zur
+Kontrolle laufender Jobs 
+ auf einer Forschungsplattform für serviceorientierte Architekturen.
+ Skills : Visual Studio, C#
+ ------------------------------------------------------------------------------------------
+Zeitraum : 01/2001 - 10/2001
+ Branche : Druckindustrie
+ Projekt : B2B-Portallösung: Abbildung von
+Einkaufs-/Verkaufs-Projekt-Prozessen auf einer 
+ einheitlichen,mehrsprachigen Handelsplattform.
+ Skills : Coldfusion
+ ------------------------------------------------------------------------------------------
+
+
+	       Sonstige Anmerkungen:  
+
+	Besonderes Interesse an Aufgaben im Bereich mobile Client- Server
+Anwendungen für BlackBerry und Android Technologie.      
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 85172 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 19.06.2016 01:26:53
+ (c) Copyright 1996-2016 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+---------- Gulp-Profil Stand 2015-05-12 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 85172: Java
+Softwareentwicklung für 1. mobile Anwendungen (App s) für Blackberry,
+Blackberry BES 10, Android und Windows Phone // 2. Server Datenbank
+Entwicklung // 3. Individualsoftware                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+85172 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 85172    Wohnort 301xx Hannover, Deutschland Jahrgang
+1975 Staatsbürgerschaft Deutsch Stundensatz 95 EUR VB, all-in
+Verfügbar ab 01.04.16 zu 100%, Vor-Ort-Einsatz 20% möglich Profil
+erstellt am 15.08.07 Profil zuletzt geändert am 12.05.15 Lesen von
+Projektanfragen 12 Stunden  [5]Direktkontakt [6]         Kommentar:  
+Kommentar schreiben Profil angezeigt am 04.04.2015 12:33:03      
+Fachlicher Schwerpunkt:  Java Softwareentwicklung für 1. mobile
+Anwendungen (App s) für Blackberry, Blackberry BES 10, Android und
+Windows Phone // 2. Server Datenbank Entwicklung // 3.
+Individualsoftware      Position:  Software-Entwicklung /
+Programmierung
+ Beratung / Consulting
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  09/2001 - 05/2005 Studium Software Systems
+Engineering am HPI Hasso-Plattner-Institut für Softwaresystemtechnik
+der Universität Potsdam (Bachelor of Science)      Einsatzort:  
+Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz,
+außerhalb D/A/CH     
+
+	Einsatz Deutschlandweit möglich, teils kombiniert von "vor Ort" und
+"Remote"         Fremdsprachen:  
+
+		Deutsch
+
+		Englisch
+
+		Portugiesisch
+
+      Betriebssysteme:  
+
+	Windows Server 2003 
+
+	Windows XP Professional 
+
+	Windows 2000 Server &amp; Professional 
+
+	Linux 
+
+	Unix 
+
+	BlackBerry OS 
+
+	BES10 
+
+	Android OS 
+
+	Windows Phone 8      Programmiersprachen:  
+
+		C
+		Grundkenntnisse
+
+		C#
+		ok
+
+		Java
+		sehr gut
+
+		Objective C
+		Grundkenntnisse
+
+		PL/SQL
+		ok
+
+		Python
+		Grundkenntnisse
+
+	J2ME sehr gut      Datenbanken:  
+
+		MS SQL Server
+		ok
+
+		MySQL
+		ok
+
+		Oracle
+		gut
+
+		Postgres
+		gut
+
+      Datenkommunikation:  
+
+		Internet, Intranet
+
+	Webservices 
+
+	WebSockets 
+
+	BES 
+
+	BIS      Produkte/Standards/Erfahrungen:  
+
+	FMC (Fundamental Modelling Concepts) 
+
+	OOA, OOD, OOP 
+
+	UML, ERM 
+
+	Visual Studio .Net 2003/2005 
+
+	Silverlight 
+
+	WPF 
+
+	Cascades 
+
+	BlackBerry Sicherheitsprotokolle 
+
+	Eclipse 
+
+	Spring 
+
+	Hibernate 
+
+	Oracle PL/SQL      Branchen:  
+
+	Industrieproduktion &amp; Handel 
+
+	IT Dienstleistungen 
+
+	Agenturen 
+
+	Web-Dienstleistungen 
+
+	Verlage 
+
+	Telekommunikation 
+
+	öffentlicher Nahverkehr 
+
+	öffentlicher Dienst      Projekte:   
+
+	Zeitraum : 05/2014 - 07/2014
+ Branche : Textilien
+ Projekt : Konzeption und Entwicklung einer nativen
+Client-Server-Anwendung 
+ für Blackberry 10 Endgeräte zur Abfrage von Preisinformationen 
+ mittels Barcode-Scan, Implementierung für den Online- und
+Offline-Betrieb
+ Skills : C++, QT / QML, BlackBerry Cascades, BES 10, Java, Spring,
+Eclipse 
+------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 01/2014 - 04/2014
+ Branche : IT (Softwarehersteller) 
+ Projekt : Konzeption und Entwicklung eines Systems zur Erfassung,
+Genehmigung und 
+
+	 Publizierung von Metadaten auf den unterschiedlichen App-Stores
+(iTunes, 
+
+	 GooglePlay, BlackBerry World, Samsung Knox, etc). 
+ Skills : C#, Javascript, ASP.NET WebApi, AngularJS, IIS 8, SSL, MS
+SQL Server 2008 
+ ------------------------------------------------------------------------------------------
+Zeitraum : 12/2012 - 12/2013
+
+	Branche : IT (Softwarehersteller) 
+ Projekt : Verantwortlich als Build Engineer für Konzeption und
+Implementierung 
+
+	 von Standards hinsichtliche der Auslieferungsprozesse von 
+
+	 weltweit verteilt entwickelten mobilen Anwendungen.
+ Skills : Maven, Hudson, Store Vendor Backends: iTunes Connect,
+GooglePlay, 
+
+	 BlackBerry World, Microsoft Store, Communication
+ ------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 05/2008 - 09/2012
+ Branche : öffentlicher Dienst (Transport &amp; Logistik)
+ Projekt : Konzeption und Entwicklung einer integrierten Anwendung für
+
+ Bestellung, Disposition, Controlling und Abrechnung von 
+ Fahrdienstleistungen des Zentralen Fahrdienstes des Landes 
+ Niedersachsen.
+ Skills : Java, Spring, Eclipse, Oracle, C#, WPF, Microsoft MapPoint
+ ------------------------------------------------------------------------------------------
+
+
+	Zeitraum : 08/2011 - 10/2012
+ Branche : Immobilienverwaltung
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen
+Serviceanwendung zur 
+ Verteilung und Dokumentation von im branchenspezifischen
+Backendsystem 
+ disponierten Aufgaben für den technischen Dienst (Tätigkeiten,
+Zeiten, 
+ Statusmeldungen).
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle, VFM 
+-------------------------
+
+	Zeitraum : 10/2011 - 10/2012
+ Branche : Energieversorger
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen
+Serviceanwendung zur 
+ Dokumentation (Foto, Geokoordinaten, Textmeldung) sog.
+Netzänderungsmeldungen 
+ (geplante Baustellen) für BlackBerry Endgeräte inklusive der
+Anbindung an das branchenspezifische Backendsystem.
+ Skills : Java, Spring, Eclipse, RIM JDE, J2ME, BES, Oracle, Firebird
+ ------------------------------------------------------------------------------------------
+Zeitraum : 12/2011 - 05/2012
+ Branche : IT (Softwarehersteller) 
+ Projekt : Build Engineer für mobile Anwendungen Einrichten und
+Erstellen zentraler Builds 
+ für mobile Anwendungen auf den Plattformen iOS, Android, Microsoft
+und 
+ Blackberry. Installieren und Durchführen von Verteilungsprozessen an
+die 
+ jeweilige Applikation Stores oder anderen Download-Bereiche.
+ Skills : Maven, Hudson, Communication Skills
+ ------------------------------------------------------------------------------------------
+Zeitraum : 06/2011 - 04/2012
+ Branche : Industrie (Herstellung &amp; Großhandel)
+ Projekt : Konzeption und Entwicklung einer javabasierten mobilen 
+ Vertrieblösung für BlackBerry Endgeräte zur Auftragserfassung, 
+ Aufgabendisposition und Kundendatenmanagement inklusive der Anbindung
+an das 
+ Warenwirtschaftssystem und der Entwicklung einer webbasierten
+Oberfläche für 
+ die Verwaltung, Steuerung und Auswertung durch den Innendienst.
+ Skills : Java, Spring, Ec

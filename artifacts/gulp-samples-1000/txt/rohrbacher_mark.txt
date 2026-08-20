@@ -1,0 +1,569 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_96583
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                96583
+  
+Wohnort                    665xx Ottweiler, Deutschland
+Jahrgang                   1977
+Staatsbürgerschaft         Deutsch
+Stundensatz                90 EUR
+Verfügbar ab               01.07.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         26.02.09
+Profil zuletzt geändert am 18.12.20
+Lesen von Projektanfragen  2,5 Tage [05]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 24.10.2020 13:18:54
+
+Fachlicher Schwerpunkt:
+Senior C/C++ Systementwickler, Senior Softwarearchitekt
+
+Position:
+Software-Entwicklung / Programmierung
+Engineering / IT-nahe Ingenieurdienstleistungen
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+1996 Abitur am Gymnasium am Schloss, Saarbrücken
+1996 - 2000 Studium der Informatik an der Universität des Saarlandes
+
+Einsatzort:
+Regionen:
+D3, D4, D5, D6, D7
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Bevorzugt Projekte im Saarland
+
+Fremdsprachen:
+Deutsch     Muttersprache
+Englisch    Fliessend
+FranzösischGrundkenntnisse
+
+
+Hardware:
+Bus              CAN
+embedded Systeme armv6
+
+
+Betriebssysteme:
+IBM AIX                       
+Microsoft Windows             
+MS-DOS                       Gute Kenntnisse
+Novell                       Grundkenntnisse
+OpenSUSE                      
+OS/2                         Grundkenntnisse
+SUSE Linux Enterprise Server  
+Ubuntu                        
+Unix                         Linux: Sehr gute Kenntnisse, openSuSE / SLES:
+                             Expertenkenntnisse
+Windows                      Sehr gute Kenntnisse
+
+
+Programmiersprachen:
+Angular.js                          
+ANSI-C                             Sehr gute Kenntnisse
+ANSI-C++                           Expertenkenntnisse
+Bash                               Sehr gute Kenntnisse
+Basic                              Grundkenntnisse
+C                                  Sehr gute Kenntnisse
+C++                                Expertenkenntnisse
+C++11                              Expertenkenntnisse
+C++14                              Sehr gute Kenntnisse
+C++17                               
+Delphi                             Grundkenntnisse
+Embedded C                         Sehr gute Kenntnisse
+Embedded C++                       Expertenkenntnisse
+Imake, GNU-Make, Make-Maker etc... Grundkenntnisse
+Java                               Grundkenntnisse
+JavaScript                         Sehr gute Kenntnisse
+Lua                                Gute Kenntnisse
+Pascal                             Grundkenntnisse
+Perl                               Gute Kenntnisse
+PHP                                Gute Kenntnisse
+PL/SQL                             Sehr gute Kenntnisse
+Python                             Grundkenntnisse
+Qt                                 Gute Kenntnisse
+Ruby                               Grundkenntnisse
+x86 Assembler                      Gute Kenntnisse
+x86-64 Assembler                   Gute Kenntnisse
+yacc/lex                           Grundkenntnisse
+
+
+Datenbanken:
+Access           Basiskenntnisse
+Apache Cassandra  
+DB/2             Gute Kenntnisse
+MariaDB          Gute Kenntnisse
+MS SQL Server    Gute Kenntnisse
+MySQL            Sehr gute Kenntnisse
+ODBC             Sehr gute Kenntnisse
+Oracle           Grundkenntnisse
+PostgreSQL       Gute Kenntnisse
+SQL              Gute Kenntnisse
+
+
+Datenkommunikation:
+CAN                         
+Concurrent Data Structures  
+DASS2                       
+DSS1                        
+Ethernet                    
+Fax                         
+HTTP                        
+HTTPS                       
+H.323                       
+ICMP                        
+Internet, Intranet          
+ISDN                        
+ISO/OSI                     
+LDAP                        
+MGCP                        
+MQTT                        
+parallele Schnittstelle     
+PCM30                       
+PRI                         
+Proprietäre Protokolle     
+Public Networks             
+Radius                      
+RBS                         
+RCU                         
+RFC                         
+RPC                         
+RS232                       
+RTCP                        
+RTP                         
+SCTP                        
+SIP                         
+SMTP                        
+SNMP                        
+TCP/IP                      
+TLS                         
+UDP/IP                      
+
+
+Berechnung/Simulation/Versuch/Validierung:
+boost unit test framework
+gtest
+clang
+CppCheck
+Lint
+
+Schwerpunkte:
+Concurrent Data Structures  
+Ethernet                    
+Multi-Threading             
+RCU                         
+TCP/IP                      
+UDP/IP                      
+
+
+Produkte/Standards/Erfahrungen:
+Apache HTTP Server          
+Atlassian Confluence        
+Atlassian JIRA              
+Boost                       
+Direct3D                    
+Docker                      
+DPDK                        
+g++                         
+GCC                         
+Gerrit                      
+Git                         
+GNU make                    
+Google Protobuf             
+Hooking                     
+HTML                        
+Jenkins                     
+Kerberos                    
+Kernelprogrammierung        
+MFC                         
+nginx                       
+Node.js                     
+Node.js                     
+OpenGL                      
+OpenSSL                     
+Qt4                         
+Rational ClearQuest         
+Raw-Sockets                 
+Redis                       
+Redis                       
+scons                       
+SDP                         
+Selbstmodifizierender Code  
+SRTP                        
+STL                         
+UDP/IP                      
+vim                         
+Erfahrungen in den Bereichen:
+o Anwendung- und Systemprogrammierung
+o Spezifikation, Programmierung, Test
+o Optimierung
+o Portierung (Linux / Windows)
+
+Methoden:
+o Objektorientierte Analyse, Design, Programmierung (OOA/OOD/OOP)
+o Ereignisgesteuerte Programmierung
+o Design von Datenbanken
+o Parallelisierung
+
+Standards:
+o STL, boost, QT, MFC, ODBC, Protobuf, OTL (Oracle, Odbc and DB2-CLI Template
+Library)
+
+Spezialkenntnisse:
+o Client/Server-Programmierung
+o Fehleranalyse / Fehlerbehebung (u.a. Post-Mortem)
+o Protokolle (UDP/IP, TCP/IP, HTTP, SMTP, POP, FTP, ISDN, SIP, SDP, MGCP,
+(S)RTP, Diameter, Radius)
+o Auszeichnungssprachen (HTML, XML, PS)
+o PBX/PABX (Siemens, Nortel, Avaya, Cisco, IPC, NEC, ...)
+o ACD (Authensis, Genesys, ...)
+o Hardwarenahe Programmierung / Treiberprogrammierung unter Linux
+o Verteilte und hochverfügbare Systeme
+
+Branchen:
+Telekommunikation (VoIP (IMS) / TDM, CTI)
+IoT
+Call Center / Contact Center
+Quality Monitoring
+Schulen (PädNet, Authoring)
+
+Projekte:
+02/2015 - heute: Architektur / Entwicklung SIP Session Border Controller
+ 
+Einsatzort:         Frankfurt
+Rolle:              Software-Entwickler, Software-Architekt
+Kunde:              Deutsche Telekom AG
+ 
+Aufgaben:
+ 
+    * Erstellung eines transaction-stateful SIP Session-Border-Controllers,
+      um Geschäfts-Kunden und Interconnection-Partner an die VoIP-Plattform der
+      Deutschen Telekom anzubinden
+    * Authentizifierung und Connection-Management
+    * Load-Balancing (erweitertes Consistent-Hashing nach Karger et.al.) unter
+      Berücksichtigung von Netzlaufzeiten
+    * Entwurf und Implementierung von Unittests
+    * Entwurf und Implementierung von Integrations-Tests
+ 
+ 
+Kenntnisse:
+ 
+ANSI-C++, TCP/IP, UDP/IP, Git, C++, Bash, OpenSSL, Multi-Threading, SIP
+ 
+Eingesetzte Produkte:
+ 
+GCC, g++, vim, SUSE Linux Enterprise Server, IBM AIX, scons, openSUSE, Rational
+ClearQuest, Gerrit, Jenkins
+===============================================================================
+06/2009 - heute: Software-Architekt und Maintainer von Teilen der VoIP-
+Plattform
+ 
+Einsatzort:         Frankfurt
+Rolle:              Software-Architekt / Software-Entwickler
+Kunde:              IBM / Deutsche Telekom AG
+ 
+Aufgaben:
+ 
+    * Übernahme Co-Maintainerschaft von P-CSCF und S-CSCF
+    * Übernahme Maintainerschaft von Registrar / I-CSCF, Konfigurations-Server
+      und Verbindungs-Limitierungs-Server, Nummern-Portierungs-Server
+      (Reimplementierung ab 12/2013)
+    * Übernahme Maintainerschaft von Media-Gateway (Kernelprogrammierung)
+    * Übernahme Mainainerschaft der Core-Bibliotheken (Threading, Networking,
+      Concurrent Datenstrukturen)
+    * Zeitweise Leitung von kleineren Teams bis zu 5 MA
+    * Post-Mortem-Fehleranalyse (Core-Debugging)
+    * Bugfixing
+    * Architektur, Planung und Implementierung diverser interner Features, z.B.
+          o Rewrite / Optimierung der Schnittstelle zum Media-Gateway zur
+            erheblichen Verbesserung der Rufaufbauzeiten
+          o Umstellung auf IPv6
+          o Umstellung auf 64bit
+          o Schnittstellen-Anpassungen für externe Systeme und Customer
+            Premises Equiment
+    * Durchführung von Code-Reviews
+    * Implementierung div. "CeBIT-Features", z.B.
+          o Application-Server AoC (Advice of Charge)
+          o Application-Server ACD (Automatic Call Distribution)
+ 
+Kenntnisse:
+ 
+ANSI-C++, g++, TCP/IP, UDP/IP, SIP, MGCP, Radius, Multi-Threading, RCU,
+Concurrent Data Structures, Kernelprogrammierung, RTP, RTCP
+ 
+Eingesetzte Produkte:
+ 
+Docker, Atlassian JIRA, Atlassian Confluence, Rational ClearQuest, Git, SUSE
+Linux Enterprise Server, IBM AIX, scons, openSUSE, Gerrit, Jenkins
+===============================================================================
+01/2018 - 04/2018: Entwurf und Implementierung eines Cloud-VoIP-Recorders als
+ISC Application-Server
+ 
+Rolle:              Software-Architekt, Software-Entwickler
+Kunde:              Kontip GmbH
+ 
+Aufgaben:
+ 
+* Entwurf und Implementierung eines Prototypen für Cloud-basiertes SIP-
+Recording als ISC Application-Server zur Integration in NGN-Netze
+    * DTMF-Erkennung zur Aufzeichnungs-Steuerung (In-Band, telephone-event)
+    * Redundante Persistierung auf HDD (eigenes distribuiertes
+Dateiablagesystem)
+* Entwurf und Implementierung einer Administrations-GUI
+* Entwurf und Implementierung einer Such- und Wiedergabe-GUI
+* Entwurf und Implementierung von Unittests
+* Entwurf und Implementierung von Integrations-Tests
+ 
+ 
+ 
+Kenntnisse:
+ 
+C++17, TCP/IP, UDP/IP, SIP, Git, Multi-Threading, Bash, Node.js, OpenSSL, Lua,
+Redis, RTP, RTCP, Kernelprogrammierung, DPDK
+ 
+Eingesetzte Produkte:
+ 
+Apache Cassandra, Redis, Angular.js, nginx, PostgreSQL, GCC, scons, openSUSE,
+SUSE Linux Enterprise Server, Gerrit, Jenkins, Atlassian JIRA, Node.js, Docker
+===============================================================================
+01/2016 - 03/2016: Aufbau einer IoT-Umgebung (LoRaWAN, LRSC)
+ 
+Einsatzort:         Frankfurt
+Rolle:              Software-Entwickler
+Kunde:              IBM
+ 
+Aufgaben:
+ 
+    * Aufbau und Wartung einer LoRaWAN-Testumgebung für verschiedene PoC
+    * Code-Analyse des bestehenden LRSC
+    * Cross-Compile und Debugging der Gateway-Software für verschiedene
+      Plattformen (Kerlink, RPI, x86-64)
+    * Anbindung der Testumgebung an IBM Bluemix
+ 
+Kenntnisse:
+ 
+ANSI-C++, ANSI-C, Embedded C, Embedded C++, TCP/IP, Git, C++, C++11, Bash,
+JavaScript, HTML, MQTT
+ 
+Eingesetzte Produkte:
+ 
+GCC, g++, vim, GNU make, OpenSUSE, Ubuntu
+===============================================================================
+01/2010 - 06/2015: ts3overlay / Project: Kryptonite
+ 
+Einsatzort:         Alzenau
+Rolle:              Software-Architekt, Software-Entwickler
+ 
+Aufgaben:
+ 
+    * Implementierung einer generischen Overlay-Funktionalität für Direct3D 8,
+      9, 10 und 11, sowie OpenGL
+    * Implementierung eines Disassemblers zum Überschreiben (Hooking) von
+      Systemaufrufen, Manipulation von VTables
+    * Nachbildung eines Teamspeak 3 Clienten unter Benutzung der CEGUI-Library
+    * Entwurf einer IPC-Schnittstelle zum schnellstmöglichen Transport von
+      Massendaten (unkomprimierte Videodaten) zwischen Prozessen, z.B. zur
+      Anbindung eines Off-Screen-Browsers, Video-Encoding etc
+    * Direct3D und OpenGL Video-Recording und Screen-Capturing
+ 
+Kenntnisse:
+ 
+ANSI-C++, MFC, x86 Assembler, x86-64 Assembler, TCP/IP, OpenGL, Direct3D,
+Hooking, Selbstmodifizierender Code
+ 
+Eingesetzte Produkte:
+ 
+Microsoft Visual Studio, Microsoft Windows
+===============================================================================
+12/2013 - 12/2014: Konzeption, Architektur, Dokumentation und Implementierung
+eines Nummern-Portierungs-Servers
+ 
+Einsatzort:         Frankfurt
+Rolle:              Software-Architekt, Software-Entwickler
+Kunde:              Deutsche Telekom AG
+ 
+Aufgaben:
+ 
+    * Erstellung einer hoch performanten In-Memory-Datenbank für alle
+      Rufnummern Deutschlands und Zuordnung zu den zugehörigen Providern
+      (Anforderungen: 200 Millionen Rufnummern müssen den zugehörigen Providern
+      zugeordnet werden, minimale Antwort-Zeiten)
+    * Design und Entwicklung einer optimierten Speicherverwaltung (der
+      Speicherverbrauch der gesamten Datenbank beläuft sich auf ca. ~300 MB für
+      200mio Rufnummern)
+    * Optimierung der Laufzeiten (pro CPU-Kern ~20.000 Requests / Sekunde)
+    * Hochverfügbarkeit durch Cloud-Prinzip
+    * Entwurf und Implementierung von Unittests
+    * Entwurf und Implementierung von Integrations- und Performance-Tests
+    * Leitung eines Teams von 5 Entwicklern
+ 
+Kenntnisse:
+ 
+ANSI-C++, C++, TCP/IP, Google Protobuf, STL, RCU, Concurrent Data Structures,
+Multi-Threading
+ 
+Eingesetzte Produkte:
+ 
+DB/2, scons, GCC, g++, PostgreSQL, Rational ClearQuest, vim, openSUSE, SUSE
+Linux Enterprise Server, IBM AIX
+===============================================================================
+10/2008 - 06/2009: Entwicklung und Bugfixing VoIP-Plattform
+ 
+Einsatzort:         Frankfurt
+Rolle:              Software-Entwickler
+Kunde:              IBM
+ 
+Aufgaben:
+ 
+    * Erweiterung und Maintenance der bestehenden VoIP-Plattform
+    * Entwicklung von Unit-Tests
+    * Entwicklung von Integrations- und Performance-Tests
+    * Bugfixing
+    * Post-Mortem-Analyse (Core-Debugging)
+ 
+Kenntnisse:
+ 
+ANSI-C++, C++, Multi-Threading, TCP/IP, UDP/IP, SIP
+ 
+Eingesetzte Produkte:
+ 
+Rational ClearQuest, openSUSE, IBM AIX
+===============================================================================
+01/2004 - 10/2008: INSPIRATIONpro
+ 
+Einsatzort:         Saarbrücken
+Rolle:              Software-Architekt, Software-Entwickler
+Kunde:              ASC telecom AG
+ 
+Aufgaben:
+ 
+    * Entwurf und Implementierung eines Quality Monitoring Systems für Contact
+      Center
+    * Integration des Voice-Recorders Marathon EVOLUTION
+    * Entwurf und Implementierung eines Aufzeichnungsplaners
+    * Endkundenspezifische Anpassungen
+    * Integration der Software in die IT-Umfelder der Kunden
+    * Schulungen
+ 
+Kenntnisse:
+ 
+ANSI-C++, PHP, TCP/IP, HTTP, HTTPS, Kerberos, LDAP, Apache HTTP Server, MFC
+ 
+Eingesetzte Produkte:
+ 
+GCC, g++, Microsoft Visual Studio, Perforce, Bugzilla, MS-SQL, MySQL, Oracle
+10g, SUSE Linux Enterprise Server, openSUSE, Microsoft Windows, Internet
+Explorer
+===============================================================================
+01/2000 - 10/2008: Marathon EVOLUTION
+ 
+Einsatzort:         Saarbrücken
+Rolle:              Software-Architekt, Software-Entwickler
+Kunde:              ASC telecom AG
+ 
+Aufgaben:
+ 
+    * Entwurf und Implementierung eines Voice-Recorders
+    * Entwurf und Implementierung einer plattformübergreifenden Bibliothek für
+      Threading und Kommunikation (Sockets, Pipes, serielle und parallele
+      Schnittstelle, shared memory)
+    * Objektorientierte Programmierung in C++
+    * Portierung von OS/2-Treibern nach Linux
+    * Entwurf und Implementierung einer grafisch konfigurierbaren Grammatik und
+      deren Konfigurationsoberfläche zur Interpretation binärer Datenströme
+      (Telefon-Events) und Interaktion mit dem Voice-Recorder
+    * Integration von PBX/PABX (NEC, Siemens, Nortel, Avaya, ...)
+    * Integration von CTI-Schnittstellen (TAPI, Genesys, CSTA, ...)
+    * Integration von CDR-Schnittstellen (IPC, Nortel)
+    * Installation und endkundenspezifische Anpassungen, teilweise auch vor
+      Ort, sowohl im Inland, als auch im Ausland (USA, UK, Luxemburg, Schweiz,
+      Italien)
+    * Schulung von Kunden, Partnern und Entwicklern
+ 
+Kenntnisse:
+ 
+ANSI-C++, Qt4, GCC, g++, PHP, Perl, Bash, TCP/IP, UDP/IP, SIP, H.323, DSS1,
+DASS2, RBS, PCM30, PRI
+ 
+Eingesetzte Produkte:
+ 
+KDevelop, Microsoft Visual Studio, Microsoft SourceSafe, CVS, Perforce, Mantis
+Bug Tracker, Bugzilla, MS SQL Server, MySQL, openSUSE, SUSE Linux Enterprise
+Server, Microsoft Windows
+===============================================================================
+08/2004 - 02/2005: Call4U
+ 
+Rolle:              Software-Entwickler
+Kunde:              EUROKEY Software GmbH
+ 
+Aufgaben:
+ 
+    * Erweiterung eines Autorensystems für Sprachlernsoftware
+    * Portierung der GUI von GDI nach DirectX
+    * Bugfixing
+ 
+Kenntnisse:
+ 
+ANSI-C++, MFC
+ 
+Eingesetzte Produkte:
+ 
+Microsoft Visual Studio, Microsoft Visual SourceSafe, Microsoft Windows
+===============================================================================
+04/1998 - 05/2000: D.A.V.I.D.
+ 
+Einsatzort:         Saarbrücken
+Rolle:              Software-Architekt, Software-Entwickler
+Kunde:              ASC telecom AG
+ 
+Aufgaben:
+ 
+    * Umsetzung eines LTS-Kassettenrecorders in Software
+    * Objektorientierte Programmierung in C++
+    * Integration der Software in ein softwarebasiertes Pädagogisches Netzwerk
+      (PädNet)
+ 
+Kenntnisse:
+ 
+ANSI-C++, TCP/IP, UDP/IP, CAN
+ 
+Eingesetzte Produkte:
+ 
+Microsoft Windows, Microsoft Visual Studio, Microsoft Visual SourceSafe
+===============================================================================
+01/1997 - 06/1997: ARIS Toolset
+ 
+Einsatzort:         Saarbrücken
+Rolle:              Software-Entwickler
+Kunde:              IDS Scheer
+ 
+Aufgaben:
+ 
+    * Entwurf und Implementierung einer Software zur fragebogengesteuerten
+      Optimierung eines bestehenden ARIS-Prozessmodells
+    * Im- und Export der ARIS-Prozessmodelle
+ 
+Kenntnisse:
+ 
+ANSI-C++, MFC
+ 
+Eingesetzte Produkte:
+ 
+Microsoft Windows, Microsoft Windows CE, Microsoft Visual Studio
+===============================================================================
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_96583
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 19.12.2020 00:49:50
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

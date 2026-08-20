@@ -1,0 +1,431 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_116049 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+
+Personen-ID                116049
+  
+Wohnort                    748xx Neudenau, Deutschland
+Jahrgang                   1974
+Staatsbürgerschaft         DE
+Stundensatz                95 EUR
+Verfügbar ab               01.09.21 zu 100%, Vor-Ort-Einsatz 80% möglich
+Profil erstellt am         02.08.11
+Profil zuletzt geändert am 15.04.21
+Lesen von Projektanfragen  1,5 Tage [07]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 19.02.2021 18:21:54
+
+Fachlicher Schwerpunkt:
+Administration VMware ESXi 4. x - 6. x, vCloud Director, vSphere, vRealize
+Orchestrator
+
+Position:
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+
+Technische Projektleitung
+ 
+Systemadministration folgender Systeme / Produkte
+ 
+VMware vSphere 6.x
+VMware VCloud Director
+VMware vRealize Automation Suite ( ohne Operational )
+VMware vRealize Orchestrator
+ 
+ 
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+1990 - 1994
+Ausbildung zum ElektroInstallateur
+ 
+2009      
+Symantec NetBackup
+ 
+2010       
+ITIL Essentials
+ 
+2011       
+VMware vSphere: Install, Configure, Manage [V4.1]
+ 
+11.2015       
+VMware vSphere: Optimize and Scale [V6] ( ausstehend Zertifizierung zum VCP6-
+DCV)
+
+Einsatzort:
+Regionen:
+außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch   
+Englisch Wort und Schrift
+Polnisch Wort
+
+
+Hardware:
+Fujitsu RX300 | 600
+HP DL | BL Series
+
+Betriebssysteme:
+MS-DOS   
+Unix     
+Windows  
+
+Novell SLES10 - SLES11
+RHEL 3 - 6
+
+Programmiersprachen:
+Javascrípt 
+JavaScript  
+Powershell  
+
+Bash, PHP, PowerCLI
+
+Datenbanken:
+MySQL
+Oracle
+Sybase
+MSSQL
+
+Datenkommunikation:
+IP
+ISDN
+MODEM
+
+Produkte/Standards/Erfahrungen:
+VMware                             
+VMware Infrastructure              
+VMware vCenter Operations Manager  
+vmware vRealize Automation         
+VMware vRealize Orchestrator       
+GxP Documentationen
+ITIL Essentials
+Vmware Produktpalette
+Linux
+Oracle 10 11g
+ 
+Summary:
+System Administator with experience in Virtualization, System Administation,
+Automation,  Architect, Cloud Management, Networking, Technical Support,
+Project Planning &amp; Execution; expertise in VMware, Linux based environments,
+Networking and TCP/IP. Demonstrated initiative to learn new environments.
+Dedicated to excellence and service, continually pursuing challenges to learn
+more and enhance the client experience.
+ 
+Technical Skills:
+VMware vSphere ESX 4 / ESXi 5/ 5.1 / 5.5 / 6.0,  vMotion, HA, DRS,
+VMware Converter, vRA/vCAC, vCenter Orchestrator, PowerCLI, Events and Alarms,
+VM-Snapshots
+Networking
+Backup
+Virtualization
+OS ( RedHat Linux, Novell SLES, Debian, Windows )
+bash, JavaScript, PHP
+MySQL, Oracle, MSSQL
+SAN, iSCSI, NFS
+ITIL-Essentials, SOX, GxP
+ 
+VCP 4 ( without Certificate ) 02.2011
+VCP 6 ( without Certificate ) 11.2015
+
+Branchen:
+ 
+ 
+
+Projekte:
+11/2019 - 06/2020: Administrator VMware / Linux
+ 
+Einsatzort:         Hamburg
+Rolle:              Administrator
+Kunde:              Plusserver GmbH
+ 
+Aufgaben:
+ 
+Administration Infrastruktur
+Upgrade virtuelle Infrastruktur von VMware 6.0 -> 6.5+6.7 ( abhängig der
+supporteten Hardware )
+Automatisierung der Upgrades mit Powershell, Hardware-Maintenance ( inkl
+Upgrades der Firmware-Stände )
+Unterstützung Tagesgeschäft ( Linux und VMware )
+ 
+ 
+ 
+Kenntnisse:
+ 
+VMware, Powershell
+===============================================================================
+05/2018 - 09/2019: VMware Realize Automation &amp; Orchestration
+ 
+Einsatzort:         Düsseldorf
+Rolle:              Entwickler und Administration
+Kunde:              METRO-NOM
+ 
+Aufgaben:
+ 
+Erstellen und überwachen von Workflows ( BusinessGroups erstellen, umbenennen
+und löschen )
+Trigger des Syncs im vIDM
+setzen / löschen von Custom Properties
+Bulk Import von vCenter Vms in vRA
+Erstellen von 2-Day Actions ( u.a. CPU Settings )
+generieren von Reports ( Abzug von Daten aus vRA / vRO )
+Einbindung in Veeam Backup Infrastruktur
+===============================================================================
+12/2017 - 01/2018: VMware Realize Automation &amp; Orchestration
+ 
+Rolle:              Specialist
+Kunde:              Otto Group
+ 
+Aufgaben:
+ 
+Automate of tasks in vRealize Automation ( create BusinessGroups, rescan vIDM
+and AD Groups )
+===============================================================================
+07/2017 - 10/2017: virtual Datacenter Consolidation
+ 
+Einsatzort:         Nürnberg
+Kunde:              GFK SE
+ 
+Aufgaben:
+ 
+Bearbeiten von Incidents und Tickets aus dem Daily Business zur
+Aufrechterhaltung der Umgebung
+Erstellung eines Konzeptes mit dem Ziel Migration der Cloud Plattform basierend
+auf VxBlock und VMware vRealize / NSX sowie Migration der Workloads auf eine
+neue Umgebung im Zuge der Konsolidierung von drei Rechenzentren zu einem
+virtuellen Rechenzentrum
+Erstellung einer Fehleranalyse der bestehenden VM Architektur, speziell
+vRealize und NSX sowie Behebung der Bugs
+Entwicklung von automatisierten Workflows für die private Cloud Plattform,
+sowie Erstellung einer ausführlichen Dokumentation hierüber
+Erstellung von Schnittstellen per Soap oder Rest API (z.B. Infoblox DNS, CMDB,
+etc.)
+Erstellung eines Konzeptes für die Migration von Workloads vom VxBlock in
+Nürnberg nach Frankfurt
+Implementierung einer DR-Umgebung für die Cloud Plattform (Failover zwischen 2
+VxBlocks )
+Erstellung einer ausführlichen technischen Dokumentation
+ 
+Kenntnisse:
+ 
+VMware vRealize Orchestrator, VMware Infrastructure, VMware vCenter Operations
+Manager
+===============================================================================
+10/2016 - 06/2017: Integration vRealize Automation Suite als Cloud System
+ 
+Einsatzort:         Ratingen
+Rolle:              Entwickler und technischer Teilprojektleiter
+Kunde:              Vodafone Group Services GmbH
+ 
+Aufgaben:
+ 
+Integation der VMware vRealize Suite in die Infrastruktur
+Einbindung in Deploymentprozesse in BMC Bladelogic SA
+Einbindung in Deploymentprozesse in Avamar Backup
+Einbindung in Deploymentprozesse in Infoblox DNS
+Entwickeln der Workflows um die Prozesse zu automatisieren
+ 
+ 
+Kenntnisse:
+ 
+JavaScript
+ 
+Eingesetzte Produkte:
+ 
+VMware vRealize Orchestrator, vmware vRealize Automation
+===============================================================================
+11/2013 - 08/2016: TDS Informationstechnologie AG Neckarsulm
+ 
+Rolle:              VMware Consultant bei TDS Informationstechnologie AG im
+DataCent
+ 
+Aufgaben:
+ 
+    * Unterstützung bei vSphere Upgrades von vSphere 4 auf 5 resp. 5 auf 6
+    * Betreuung der Umgebungen von 8500 VMs auf 1200 Hosts
+    * Erstellung von Orchestrator Workflows zum anpassen von VMKonfigurationen,
+      Cloning Workflows, Erstellung von Dokumentationen, Monitoring und
+      Kapazitätsberechnungen.
+    * Planung und Umsetzung der UpdateManager Prozesse inkl TestCenter
+      Konfiguration
+    * Konfiguration und Planung von Campus- und MetroCluster Lösungen
+    * Automatisierung von Dokumentationen- und Abrechnungsaufwänden und mit
+      vmware PowerCLI
+    * Erstellung von PowerCLI Scripte zur automatisierten Erstellung von VMs
+      über Templates und OSCustomizations
+    * Erstellung von PowerCLI Scripte zur Sicherstellung der
+      ComplianceAnforderungen erstellter VMs
+    * Unterstützung bei der Erstellung eines Designs für sichere VM-Imports von
+      Drittanbietern ( inkl Viren- und Malware Scanning )
+    * Planung und Durchführung von VM-Migrationen aufgrund von StorageUmzügen
+      und Upgrades
+    * Erstellen von Compliance und GxP Dokumentationen für ein Pharma
+      Unternehmen
+    * technische Implementierung und Planung einschließlich der Erstellung der
+      Zeiteinschätzung sowie Ermittlung wieder verwendbarer Elemente
+    * Konfiguration von Serversystemen basierend auf Windows 2003, 2008, SLES
+      11 SP1, Solaris 10
+    * Begleitung der Incident-, Problem- und Change-Requests
+    * Erstellen von Projekt-Designs
+    * Analyse projektspezifischer Kundenanforderungen
+===============================================================================
+01/2013 - 11/2013: SAP Walldorf / Dresden
+ 
+Rolle:              VMware Consultant
+ 
+Aufgaben:
+ 
+    * Betreuung der LabManager 4.0 Umgebungen
+    * Begleitung der Incident-, Problem- und Change-Requests
+===============================================================================
+10/2012 - 12/2012: TDS Informationstechnologie AG Neckarsulm
+ 
+Rolle:              VMware Consultant bei TDS Informationstechnologie AG im
+DataCent
+ 
+Aufgaben:
+ 
+    * Unterstützung bei vSphere Upgrades von vSphere 4 auf 5
+    * Betreuung der Umgebungen von 1800 VMs auf 440 Hosts
+    * Planung und Umsetzung der UpdateManager Prozesse inkl TestCenter
+      Konfiguration
+    * Konfiguration und Planung von Campus- und MetroCluster Lösungen
+    * Automatisierung von Dokumentationen- und Abrechnungsaufwänden und mit
+      vmware PowerCLI
+    * Erstellung von PowerCLI Scripte zur automatisierten Erstellung von VMs
+      über Templates und OSCustomizations
+    * Erstellung von PowerCLI Scripte zur Sicherstellung der
+      ComplianceAnforderungen erstellter VMs
+    * Unterstützung bei der Erstellung eines Designs für sichere VM-Imports von
+      Drittanbietern ( inkl Viren- und Malware Scanning )
+    * Planung und Durchführung von VM-Migrationen aufgrund von StorageUmzügen
+      und Upgrades
+    * Erstellen von Compliance und GxP Dokumentationen für ein Pharma
+      Unternehmen
+    * technische Implementierung und Planung einschließlich der Erstellung der
+      Zeiteinschätzung sowie Ermittlung wieder verwendbarer Elemente
+    * Konfiguration von Serversystemen basierend auf Windows 2003, 2008, SLES
+      11 SP1, Solaris 10
+    * Begleitung der Incident-, Problem- und Change-Requests
+    * Erstellen von Projekt-Designs
+    * Analyse projektspezifischer Kundenanforderungen
+===============================================================================
+10/2011 - 09/2012: Projekt TDS Informationstechnologie AG Neckarsulm
+ 
+Rolle:              Technischer Projektleiter bei TDS Informationstechnologie
+AG
+ 
+Aufgaben:
+ 
+    * Erstellen von Compliance und GxP Dokumentationen für ein Pharma
+      Unternehmen
+    * technische Implementierung und Planung einschließlich der Erstellung der
+      Zeiteinschätzung sowie Ermittlung wieder verwendbarer Elemente
+    * Konfiguration von Serversystemen basierend auf Windows 2003, 2008, SLES
+      11 SP1, Solaris 10
+    * Installation und Konfiguration von Oracle und MSSQL Datenbanken
+    * Installation und Konfiguration von WebServern ( IIS und Apache )
+    * Begleitung der Incident-, Problem- und Change-Requests
+    * Erstellen von Projekt-Designs
+    * Installation von Applikationen ( nach Herstellerdokumentation )
+    * Analyse projektspezifischer Kundenanforderungen
+===============================================================================
+05/2008 - 09/2011: Linux Systemadministration
+ 
+Rolle:              IT-Consultant / IT-Professional
+Kunde:              Lidl Stiftung &amp; Co KG
+ 
+Aufgaben:
+ 
+    * Linux Systemadministration ( Novell SLES10 / SLES11, Ubuntu Server,
+      Debian, RedHat SLES, centOS, Fedora )
+    * standardize the Linux-environments with migrate the derivates to SLES 11
+    * connect the SLES Server to the company AD including sudo-configuration
+    * install and maintain Novell SMT-Servers
+    * create a standarized NetWork installation based on AutoYast
+    * create Application RPMs and build repositories in SMT for these RPMs
+    * migrate all NetBackup-mediaServer from MS2k8 to SLES 11
+    * administration of the productive VMware Environment
+    * extend and maintain a Test-Center based on VMware ESXi and vSphere
+    * build and maintain a LabEnvironment based on VMware LabManager
+    * create and maintain LabManager templaced in fenced and unfenced mode
+    * create and maintain VMware templates as standard for all installations
+===============================================================================
+07/2007 - 04/2008: build and maintain a Test-Center
+ 
+Rolle:              Linux Systemadministration
+Kunde:              Lidl Stiftung &amp; Co KG
+ 
+Aufgaben:
+ 
+    * build and maintain a Test-Center based on VMware ESXi and vSphere
+    * Administration of Lidl BackOffice Server with SuSE 7.3
+    * build and maintain a „TerminalServer“ for 3rd-party companies to maintain
+      Lidl BO systems
+    * build a internationalisation for a „TerminalServers“ with different
+      languages
+===============================================================================
+11/2001 - 06/2007: Systemadministration of RHEL 2, 3, 4 servers
+ 
+Rolle:              Linux Systemadministration
+Kunde:              Dresdner Kleinwort Wasserstein / Dresdner Kleinwort
+ 
+Aufgaben:
+ 
+    * plan and build calculation- and  applicationCluster based on NetBoot
+    * import all cluster-configurations in a Sybase DB for support and
+      modifications
+    * administration of Tomcat-, Jboss- and Apache servers
+    * administration of Sybase-, Oracle-, Informix-, MySQL- and PostgreSQL-
+      servers
+    * create application RPM-Frameworks to handle application updates for RHEL
+      and Solaris
+    * plan and build a RHN-Satellite infratstructue for RHEL-Updates and
+      Application Upgrades
+    * plan and build of infrastructure servers ( NTP-, LDAP-, SendMail-, NFS-,
+      DHCP )
+    * 2-nd and 3-rd level support for Linux- and Vmware-Server
+    * OmniOrb-, TibCo Rendezvous administration
+    * PerformanceMonitoring with Ganglia via Multicast-Protocoll
+===============================================================================
+10/2001 - 10/2001: Remote Administration of smaller projects
+ 
+Rolle:              Linux Systemadministration
+ 
+Aufgaben:
+ 
+Apache-, Squid- and MailServer
+File Server based on samba for small business
+===============================================================================
+07/2001 - 09/2001: plan and build a W2K network-installation
+ 
+Rolle:              Systemadministration
+Kunde:              KIMAG Nürnberg
+ 
+Aufgaben:
+ 
+    * administration of Apache WebServer as cluster
+    * administration of DNS and DHCP servers
+    * aministration of MySQL server with replication
+===============================================================================
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_116049 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 16.04.2021 00:53:40
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

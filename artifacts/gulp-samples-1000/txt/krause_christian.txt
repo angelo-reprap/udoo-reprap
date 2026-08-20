@@ -1,0 +1,543 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_122876
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen ID                122876
+  
+Wohnort                    567xx Kottenheim, Deutschland
+Jahrgang                   1986
+Staatsbürgerschaft         deutsch
+Stundensatz                85 EUR
+                           on-site 95
+Verfügbar ab               01.04.21 zu 100%, Vor-Ort-Einsatz 20% möglich
+Profil erstellt am         02.07.12
+Profil zuletzt geändert am 26.02.21
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 31.01.2021 12:27:29
+
+Fachlicher Schwerpunkt:
+JS, iOS UI Development. Native and web technologies. #Javascript #react #preact
+#nodejs #swift #ObjC
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Schweiz
+im Umkreis von:
+Köln (200 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Köln, Bonn, Frankfurt
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+
+
+Betriebssysteme:
+osx, ubuntu
+
+Programmiersprachen:
+AngularJS             
+CoffeeScript          
+ECMAScript           Sehr gut
+ES6                  Sehr gut
+ES7                   
+ES8                   
+Java                 Grundwissen
+JavaScript           Sehr gut
+Jest                 Sehr gut
+Less                 Sehr gut
+Objective C          Gut
+PHP                  Sehr gut
+preact                
+Python               Sehr gut
+React.js              
+React.js / Preact.js Sehr gut
+SCSS                  
+
+
+Datenbanken:
+MySQL Gut
+SQL   Gut
+
+CouchDB - Gut
+ 
+
+Design/Entwicklung/Konstruktion:
+fastlane   
+sublime 2  
+Xcode 7.3  
+
+
+Produkte/Standards/Erfahrungen:
+Babeljs   
+esbuild   
+Gulp      
+iOS       
+Jira      
+Kanban    
+Rollup    
+Scrum     
+Sublime2  
+swift     
+Webpack   
+Xcode     
+    * OOA/OOD in UML 2 
+    * Agile Software Development, SCRUM 
+    * Extreme Programming / Coding Dojo (XP)
+    * Eclipse / MyEclipse 
+    * Xcode
+    * Sublime2
+    * Grunt
+    * Ant
+    * SASS
+    * Apache
+    * Ngnix
+    * PIP
+    * brew
+    * zsh
+    * oh-my-zsh
+    * Cocoapods
+ 
+
+Projekte:
+01/2017 - 02/2021: Waipu.tv Web-Player und Web-Services
+ 
+Einsatzort:         München
+Rolle:              Web Tech-Lead
+Kunde:              Exaring
+ 
+Aufgaben:
+ 
+Instandhaltung und Weiterentwicklung folgender Dienste:
+ 
+- Web Player
+- Customer Self Care
+- Customer Care Cockpit
+- Auth Service
+- Activation Service
+- Registration Service
+ 
+Entwicklung 
+ 
+Web_Player
+Hauptaufgabe war die POC Entwicklung des Web-Players zur Erweiterung der IP-TV
+Plattform Vielfalt. Zum Start des Projekts entwicklete ich den gesamten
+Techstack nach Kundenbedürfnissen. Dabei spielte die Auslieferung der SPA und
+bundle size eine große Rolle. Daher wurde React durch Preact ausgetauscht um
+eine noch höhere App- / Lade-Performance zu erreichen. Die gesamte Build- sowie
+Anwendungs-Architektur entwicklete ich allein. Im laufe des Projekts als mehr
+Kollegen zur Seite standen wurde diese Entscheidung durch das Team getragen.
+ 
+Ich war in die Personalanstellung als technischer Ansprechpartner eingebunden
+um das Team um geeignete Kandidaten aufzustocken.
+ 
+Im Laufe der Entwicklung wurden neue Herausforderungen an die Architektur
+gestellt. Die Anwendung sollte so umgebaut werden um als Whitelabel Produkt
+auch als SAAS an Partnerunternehmen vermarktet zu werden.
+ 
+Discover Service
+Benutzer können über einen Deeplink auf eine Webseite gelangen auf der sie ihre
+Programm Aufnahmen planen können.
+ 
+Senderverwaltung
+Um die zwei Platformen iOS und Android kostengünstig mit dem gleichen
+Feature ausstatten zu können wurde die Senderverwaltung als Web-Komponente
+umgesetzt. Die Umsetzung erfolgte auf Basis von React. Ziel dieser Komponente
+ist es dem Benutzer die Möglichkeit einer eigenen Senderwahl sowie Reihenfolge
+zu ermöglichen.
+ 
+Kenntnisse:
+ 
+Scrum, Kanban
+ 
+Eingesetzte Produkte:
+ 
+Sublime2, ES6, JavaScript, ECMAScript, React.js, preact, Jest, Webpack,
+Babeljs, ES6, ES7, ES8, esbuild, Rollup
+===============================================================================
+10/2016 - 12/2016: myEMO
+ 
+Einsatzort:         München
+Rolle:              iOS Lead
+Kunde:              Nokia
+ 
+Aufgaben:
+ 
+Umsetzung einer nativen iOS App mit Web-Komponenten. Die Entwicklung wurde
+allein von mir durchgeführt.
+ 
+Komponenten Übersicht:
+- Dashboard mit Graphen Übersicht
+- Anbindung eines interenen Sozialen Netzwerks
+- Virtual Reality, virtualler Rundgang durch Fabriken
+- Global Functions CMS Inhalte
+- Sites CMS Inhalte
+- EMO CMS Inhalte
+ 
+Konzeption, Design sowie Umsetzung wurde von mir kooridiniert.
+ 
+Kenntnisse:
+ 
+Scrum, Jira
+ 
+Eingesetzte Produkte:
+ 
+iOS, Xcode
+===============================================================================
+01/2016 - 09/2016: Waipu.tv
+ 
+Einsatzort:         München
+Rolle:              iOS Entwickler
+Kunde:              Exaring
+ 
+Aufgaben:
+ 
+Das Projekt umfasste Dienstleistungen zur Entwicklung der Streaming App
+waipu.tv für iOS. Meine Aufgabe umfasste Feature Entwicklung, Performance sowie
+UX optimierung. Ich war maßgeblich an der UI Entwicklung der Beriche: Google
+Chrome Cast Verbindung, EPG sowie Live Ansicht involviert. Außerdem war ich mit
+der Entwicklung und Verbesserung der gesamten Architektur beauftragt, z.B des
+Aufnahme Managers. Während meiner Arbeit berührte ich alle App-Bereiche.
+ 
+Kenntnisse:
+ 
+swift, fastlane
+ 
+Eingesetzte Produkte:
+ 
+Xcode 7.3
+===============================================================================
+04/2015 - 09/2015: Medialytics Platform
+ 
+Einsatzort:         München
+Rolle:              Javascript Entwickler
+Kunde:              ProSiebenSat.1
+ 
+Aufgaben:
+ 
+In this project i was involved with the complete architecture of the User
+Frontend in technologies like angularJS 1.x, bootstrap, scss, nodeJS, bower and
+other frontend technologies. I started working on this project from the early
+beginning. The team was sized by three people most of the time.
+ 
+Kenntnisse:
+ 
+CoffeeScript, JavaScript, SCSS, AngularJS
+ 
+Eingesetzte Produkte:
+ 
+sublime 2
+===============================================================================
+01/2015 - 01/2015: pinBook
+ 
+Einsatzort:         Tulsa USA
+Rolle:              JS Frontend Developer
+ 
+Aufgaben:
+ 
+Video Presentation
+http://bit.ly/1Ir2I63 (UI V1)
+ 
+Project
+Das Ziel der App ist ein kleines Geo Location/Map basiertes CRM zur
+Unterstützung der Kundenverwaltung von Außendienstmitarbeitern. Die Applikation
+wurde auf Basis von OpenStreetMap und angularJS umgesetzt. Das UI basiert auf
+Bootstrap Komponenten und ist visuell dem Material-Design von Google angelehnt.
+Die einzelnen Module wurden in Directives gegliedert.
+ 
+Um schnelles und effizientes Arbeiten zu ermöglichen habe ich einen Grunt Task-
+Runner in Verbindung mit Bower aufgesetzt um App Komponenten und Libaries
+einfach zu verwalten und auf dem aktuellen Stand zu halten. Der Grunt-Task
+überwacht den Source Code und baut die Applikation bei Änderungen erneut. Er
+stellt außerdem einen Webserver zum lokalen entwickeln bereit.
+ 
+Im Laufe des Projekts habe ich iterativ UX und Visual Experience Verbesserungen
+einfließen lassen um ein schnelleres und einfacheres Nutzen der App zu
+gewährleisten.
+ 
+Der Backend Service stellt den oAuth2-Service und die App-Daten durch Django
+und dem Django REST Framework bereit.
+ 
+Kenntnisse:
+ 
+Scrum
+ 
+Eingesetzte Produkte:
+ 
+AngularJS, JavaScript, html5, CSS3, leafletJS, bower, Karma Testrunner, Python,
+Django, Django REST framework, Grunt-Connect, Grunt-Watch, Grunt, Grunt-Uglify,
+Grunt-Jasmine, Grunt-Jshint, momentJS, jquery, angular-route, angular-touch,
+angular-animate, bootstrap
+===============================================================================
+09/2014 - 10/2014: Metabol X Webshop
+ 
+Einsatzort:         München
+Rolle:              Frontend/Backend Developer
+ 
+Aufgaben:
+ 
+Aufsetzen eines Shopsystems welches als Frontend eines CRM Systems für
+verschiedene Ländern dient. Umgesetzt wurde der Shop auf basis von Shopware. Es
+wurde ein vom Kunden geliefertes Design in ein Template umgearbeitet und im
+Shop installiert. Größte Herausfoderung des Projects war die Entwicklung des
+Imports auf Basis der Schnittstellen der beiden Systeme.
+ 
+Die API-Bridge Das CRM System (Quellsystem) liefert ein XML/SOAP ähnliches
+Interface welches die Kundendaten sowie Produktdaten liefert. Das Shopsystem
+(Zielsystem) stellt die Produktdaten da und kann gleicherweise als Quellsystem
+gesehen werden da es Neuregistrierungen bereitstellt. Entwickelt wurde hierzu
+eine Synchronisierungs-Anwendung die in beide Richtungen Daten transferiert. Um
+Kollisionen zu vermeiden gibt es Validatoren: bei neuregistrierten Nutzern z.B
+wird die Emailadresse geprüft, ist sie im CRM System bereits vorhanden, wird
+die passende Nutzer ID des Slave- im Mastersystem gesetzt.
+ 
+Zur kleinen Fingerübung habe ich den HTTP-Client selber geschrieben. Ich wollte
+einen HTTP-Client mit der Fähigkeit callbacks zuverarbeiten. Zwar ist der
+Hauptnutzen einer asynchronen - da PHP grundsätzlich blocking ist -
+Verarbeitung nicht gegeben, hat aber den Vorteil leicht lesbaren Quellcode zu
+haben.
+ 
+Die Umsetzung erfolgte in kleinen Interationen und auch parallel zu einem
+anderen Projekt daher die lange Projektlaufzeit.
+ 
+Kenntnisse:
+ 
+Scrum, Google Docs
+ 
+Eingesetzte Produkte:
+ 
+PHP 5, PHP 5, HTML5, JavaScript, Git
+===============================================================================
+02/2014 - 08/2014: Salesapp
+ 
+Einsatzort:         Nürnberg
+Rolle:              iOS Developer
+Kunde:              IT2Media
+Geschäftsstelle:    MOR
+Unternehmensgröße:  101-500
+Branche:            IT-Dienstleistungen
+ 
+Aufgaben:
+ 
+Video Presentation
+http://bit.ly/1BLr0Ww
+ 
+Project
+Die Applikation dient Außendienstmitarbeitern zur Erfassung und Verwaltung von
+Kunden. Der Außendienstmitarbeiter soll damit Produkte des Unternehmens
+verkaufen bzw. gestalten können. Der Kunde agiert in der Branchenverzeichnis
+Branche und benötigte eine optimale Verkaufshilfe auf Basis eines iPads die
+eine "On Point of Sale" Veränderung einer gestalteten Anzeige ermöglicht.
+Zusammen mit einem weiteren Freelancer war ich damit beauftragt eine Lösung für
+die iOS Platform in einer bestehenden Infrastruktur zu entwickeln.
+ 
+Wir haben beide an der Konzeption gearbeitet und das Datenmodel auf Basis von
+CoreData umgesetzt. UI Konzepte wurden komplett an das Geschäftsmodel von
+IT2media angelehnt um dem Außendienstmitarbeiter möglichst viel zu erleichtern.
+Da die Applikation als Showcase dienen sollte bedienten wir uns eines
+Datensatzes und implementierten einen Import der die Daten in die Applikation
+importierte.
+Da sich leider im Unternehmen nie eindeutig auf eine konkrete Systemarchitektur
+geeinigt wurde, haben wir erst den Auftrag zur Umsetzung einen SOAP Client
+bekommen der kurz vor Fertigstellung dann doch durch eine strategische
+Entscheidung verworfen und durch die Implementierung eines REST Clients ersetzt
+wurde.
+ 
+Den Anzeigeneditor habe ich gegen eine bestehende SOAP-Service-Schnittstelle,
+die bereits im Unternehmen bestand, entwickelt. Dazu entwickelte ich einen
+primitiven XML-Renderer ohne DOM um den Entwicklungsaufwand und Rechenleistung
+auf dem iOS-Client möglichst flach zu halten.
+ 
+Kenntnisse:
+ 
+Kanban, Confluence, Jira
+ 
+Eingesetzte Produkte:
+ 
+iOS, Objc, Xcode, JavaScript, Node.js, HTML5, CSS3, JSON, XML, CoreData
+===============================================================================
+04/2013 - 11/2013: Gini - Webapp
+ 
+Einsatzort:         München
+Rolle:              JS Frontend Developer
+Kunde:              Gini GmbH
+Unternehmensgröße:  < 50
+Branche:            IT-Dienstleistungen
+ 
+Aufgaben:
+ 
+Video Presentation
+http://bit.ly/1CpWRzu (UI V1)
+ 
+Team Size
+6
+ 
+Project
+Das Ziel der Applikation war Papier besser und einfacher zu verwalten. Einem
+Nutzer war es möglich Dokumente auf Basis eines REST-Interfaces hochzuladen und
+zu verwalten. Das UI Interface ermöglichte schnellen und einfachen Zugriff auf
+die durch OCR-Erkennung bereitgestellten Dokumentinhalte. Auf Basis dieser
+Inhalte konnten z.B Überweisungsträger automatisch ausgefüllt werden. Das
+Frontend wurde während meiner Zeit bei Gini (Ehml. Smarchive) nach dem CI
+wechsel neu aufgesetzt. Ich entwickelte unteranderem ein "drag&amp;drop" Directive
+zum verschieben von Dokumenten in Ordner.
+ 
+Außerdem arbeitete ich mit einem Kollegen an der Architektur und Umsetzung
+eines JS Frameworks zusammen. Das Framework diente dazu Zweitanbietern die
+Kommunikation mit der Gini REST-Schnittstelle zu ermöglichen. Damit war neben
+der Authentifizierung, das abholen sämtlicher Inhalte von hochgeladenen
+Dokumenten und das abfragen von Boudingboxes von Dokumentinhalten möglich
+(Siehe Video).
+ 
+Bei dem wechsel auf das neue CI setzte ich Bootstrap für ein responsives Design
+ein. Außerdem war das Dokument-Scrolling ohne CSS Transitions umgesetzt, was
+ich in dem Zug optimiert habe. Einer der letzten Maßnahmen die ich im
+Unternehmen vorangetrieben habe war das umsetzen von Feature Testing auf basis
+von Capybara und Selenium.
+ 
+Die Applikation basiert auf angular.js, ein Framework welches versucht die
+häufigsten Probleme in dynamischen Webapplikationen zu lösen. Das auffälligste
+Paradigma äußert sich im Umgang mit dem DOM, die Manipulation erfolgt nicht
+imperativ sondern deklarativ. In Verbindung damit kommt eine weitere Stärke des
+Frameworks zum Ausdruck: Two way data-binding erleichtert den Umgang mit
+Nutzereingaben. Den Buildworkflow haben wir auf Basis von Grunt und SASS
+aufgebaut. SASS beschleunigt das Verfassen von CSS und bringt einige nützliche
+Build-in Funktionen mit. Grunt ist ein Buildtool welches wiederkehrende abläufe
+in einem veränderbaren Prozess bündelt und die Projektstruktur sauberer und
+modularer hält. Iteratives Agiles Vorgehensmodell mittels SCRUM.
+ 
+Kenntnisse:
+ 
+Jira, Confluence, Scrum
+ 
+Eingesetzte Produkte:
+ 
+JavaScript, AngularJS, Grunt, Jasmine, Cucumber, Capybara, SASS
+===============================================================================
+11/2012 - 03/2013: AppGuide iOS
+ 
+Einsatzort:         München
+Rolle:              iOS Developer
+Kunde:              Chip Xonio Online GmbH
+Geschäftsstelle:    A-Team
+Unternehmensgröße:  101-500
+Branche:            Sonstige
+ 
+Aufgaben:
+ 
+Video Presenation
+http://bit.ly/1BOU4xu
+ 
+Team Size
+8
+ 
+Project
+Als Technischer Leiter war ich mit Technologiewahl und Beaufsichtigung sowie
+Umsetzung der nativen Applikation Chip App-Guide beauftragt. Wir entschieden
+uns auf eine native Umsetzung, da wir aus vorherigen Projekten die Erfahrung
+gezogen hatten das manche Werbesteuerungen im App-Bereich schwierig anzubinden
+sind.
+ 
+Ein weiterer Grund war die Performanz und den höheren Initialaufwand für
+Hybrid-Apps. Aus UX-Sicht war die Bedienung oft dem angestrebten Anspruch nicht
+ausreichend. Chip App Guide wurde ersetzt durch die Chip-App: http://bit.ly/
+1Llz488
+ 
+Kenntnisse:
+ 
+Scrum, Confluence, Jira
+ 
+Eingesetzte Produkte:
+ 
+iOS, Objective-C, AFNetworking, Storyboard, HTML5, CSS3, JavaScript,
+TestFlight, Google Analytics, AdMob
+===============================================================================
+02/2013 - 02/2013: Haarfabrik Apps
+ 
+Einsatzort:         München
+Rolle:              iOS, Android Developer
+Kunde:              Haarfabrik
+Unternehmensgröße:  < 50
+Branche:            Sonstige
+ 
+Aufgaben:
+ 
+Video Presentation
+ 
+iOS Presentation
+http://bit.ly/1GOLRt9
+ 
+Andorid Presentation
+http://bit.ly/1Es6MlD Project
+ 
+Umsetzung einer nativen Unternehmens App für beide Plattformen Android sowie
+iOS. Teilinhalte wurden dynamisch als JSON auf einem Server durch ein CMS
+erstellt und von der App abgeholt.
+ 
+iOS
+(Deleted from Store)
+ 
+Google Play
+http://bit.ly/1MG9Le5
+ 
+Eingesetzte Produkte:
+ 
+Java, Objective-C, JSON
+===============================================================================
+04/2012 - 11/2012: AppGuide Android
+ 
+Einsatzort:         München
+Rolle:              JavaScript Frontend Developer
+Kunde:              Chip Xonio Online GmbH
+Geschäftsstelle:    A-Team
+Unternehmensgröße:  101-500
+Branche:            Beratung
+ 
+Aufgaben:
+ 
+Video Presentation
+http://bit.ly/1LlO2Lm
+ 
+Project
+Da anfangs die Anforderung zur portierbarkeit auf weitere Plattformen bestand
+entschieden wir uns für eine Hybrid-App Lösung. Wir setzten zur Umsetzung das
+Google Closure Framework ein.
+ 
+Um Daten aus einem bestehenden CMS optimal an entwickelte mobile Applikation
+auszuliefern setzte ich Django als REST- und Applikations-Backend ein. Auf
+Basis von Django wurde ein Service geschrieben der Nachrichten der Redaktion
+aufbereitet und an alle registrierten App-Clients über den Google Service GCM
+versendet. Dieser Server war mit einer Last von 100k Nutzern am Tag
+ausgelastet. Die Systemstabilität wurde durch Lasttests mit Hilfe von dem Tool
+Gatling sichergestellt. Alle Services sind mit Unittests getestet.
+ 
+Kenntnisse:
+ 
+Scrum, Git, Jira, Confluence
+ 
+Eingesetzte Produkte:
+ 
+JavaScript, HTML5, CSS3, JavaScript, JSON, Phonegap, Python, Django, Python
+unittest, Gatling load testing
+===============================================================================
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_122876
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 27.02.2021 00:55:51
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

@@ -1,0 +1,258 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_8750
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                8750
+  
+Wohnort                    531xx Bonn, Deutschland
+Jahrgang                   1966
+Staatsbürgerschaft         deutsch
+Stundensatz                80 EUR
+Verfügbar ab               01.03.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         23.06.99
+Profil zuletzt geändert am 12.12.20
+Lesen von Projektanfragen  1,5 Tage [07]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 26.01.2021 09:46:01
+
+Fachlicher Schwerpunkt:
+Oracle Datenbank Administrator unter Unix, Unix (Solaris, Linux) Administration
+
+Position:
+Beratung / Consulting
+Administration / Support
+
+DBA für Oracle (RAC, Dataguard) unter UNIX. Administration von Vertias Cluster
+und Volumemanager (VCS, VxFS, VxVM).Systemadministration (Systemintegration und
+Betriebsführung) UNIX (SUN-Solaris mit Zonen, ZFS und D-Trace, Linux)
+
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Energieanlagenelektroniker
+Studium der Elektrotechnik mit Fachrichtung Automatisierung an der FH Aachen/
+Jülich (nicht abgeschlossen)
+
+95-96 Festangestellter Softwareentwickler
+ab 96 freier Softwareentwickler, Systemadministration UNIX, Oracle DBA
+Ständige Weiterbildung durch Kurse und Selbststudium.
+
+Einsatzort:
+Regionen:
+D4, D5, D6
+im Umkreis von:
+Bonn (200 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch   
+Englisch  
+
+
+Hardware:
+Oracle Big Data Appliance  
+Oracle Exadata             
+Oracle ZFS Appliance       
+
+
+Betriebssysteme:
+Administration AIX          
+Administration von Solaris  
+Enterprise-Linux           sles, redhat, OEL, Debian
+HPUX                        
+
+
+Programmiersprachen:
+Assembler      Grundlagen in MVS/S390 Assembler
+C              Systemprogammierung mit GCC, SUN &amp; HP -Compiler
+C++             
+Cobol           
+Java            
+Perl            
+PL/SQL         Oracle, Adabas D
+Scriptsprachen AWK, SED
+Shell           
+
+
+Datenbanken:
+Datenbankadministration DB2 UNIX
+MySQL                        
+Oracle                      8,9, 10 (RAC, Data-Guard), 11g , 12g
+
+
+Datenkommunikation:
+ 
+
+Produkte/Standards/Erfahrungen:
+Produkte:
+
+Betriebssysteme: Sun Solaris OpenSolaris, AIX, LINUX
+Spezialitäten: Container und Zonen, ZFS, DTRACE
+
+Veritas : Cluster (VCS) , Volume Manager (VRTS), Filesystem (VXFS), Veritas
+Storage Foundation
+IBM: TIVOLI Management Software, TIVOLI Storag Manager (Server und Client), DB2
+für Unix und Windows
+Oracle: Datenbanken ab 7.3 bis 11, RAC, Data-Guard
+Sybase IQ
+
+Webservices: Apache
+Enterprise Job Scheduling: UC4, OPC/UCMD
+BMC: BladeLogic, Patrol
+
+
+Problem- und Eskalationsmanagement
+Performanceanalyse und Kapazitätsmanagement
+Loadbalancing, Clustering und High Availability
+
+
+
+
+
+
+Branchen:
+Telekomunikation
+Anlagentechnik / Automatisierungstechnik
+Automobilindustrie
+EDV
+Bank
+Energieerzeuger
+
+Projekte:
+Zeitraum: April 2012 bis heute: Deutsche Bank AG
+Branche:  Bank
+Projekte: Retail Target Platform
+Aufgabe:  Oracle Administration
+Plattform: Oracle 11.2, 12.1 RAC, DataGuard, CloudControl, Exadata, ZFS
+Appliance, Big  Data Appliance
+ 
+Zeitraum: Januar 2019 bis Juni 2019: Operational Services
+Branche:  Managet IT Services
+Projekte: Oracle Big Data Appliance, Oracle Database Administration
+Aufgabe:  Administration
+Plattform:  Oracle Big  Data Appliance, Oracle Exadata
+ 
+Zeitraum: Juli 2011 bis März 2012: UniCredit Business Integrated Solutions
+S.C.p.A.
+Branche:  Bank, Handel
+Projekte: Administration Solaris und Linux &amp; DBA Oracle
+Aufgabe:  Betreuung des Risiko Management Systems
+Plattform: Solaris 10 und Linux RH, Oracle 11.2 RAC
+ 
+Zeitraum: Januar 2007 bis Juli 2011: Deutsche Börse System AG Frankfurt
+Branche:  Bank, Handel
+Projekte: Administration Solaris, AIX und Linux &amp; DBA Oracle, DB2
+Aufgabe:  Betriebsführung für vorwiegend externe Kunden
+Plattform: Solaris 8,9,10 (inc. Zonen); Veritas Storage Foundation; Oracle 9,
+10, 11 RAC
+DB2 8,9.5, 9.7, EMC &amp; SAN, Linux, UC4, BladeLogic, BigBrother
+
+Zeitraum: September 2006 - November 2006: Deutsche Telekom / Decadis AG
+Branche: Telekommunikation
+Projekt: Statistik DB
+Aufgabe: Update von Statistischer Auswertung über den Inhalt von ca: 20 
+Datenbanken.
+Software/Plattform: MVS , JCL Jobs
+
+Zeitraum: November 2005 bis Juli 2006: RWE Trading Essen
+Branche:  Energie
+Projekt:  Handelsplattform
+Aufgabe:  Betriebsführung, Storage und Backup &amp; Recovery. Oracle
+Administration.
+Plattform: Solaris 8 &amp; 10 auf div. SUN Servern, Veritas Volume Manager, SUN-
+Cluster, Oracle 9 &amp; 10 + RAC, Nagios
+
+Zeitraum: Januar 2005 bis April 2005: Deutsche Telekom / Decadis AG
+Branche:  Telekommunikation
+Projekt:  Erstellung von Überwachungseinrichtungen für Siebel Systeme
+Aufgabe:  Konzepterstellung und Realisierung einer Überwachung von einer Siebel
+Anwendung auf AIX und NT.
+Plattform: IBM RS6000 mit AIX 5.2, 5.3, Nagios, Shell Skripte und Perl.
+
+Zeitraum: Oktober 2003 bis Januar 2005: Hypovereinsbank München
+Branche:  Bank
+Projekte: Systemintegration und Qualitätssicherung / Test für Bankinterne IT-
+Plattformen.
+Aufgabe:  Integration neuer Anwendungen in die EDV-Landschaft des Kunden.
+Beratung und Tests bei Änderungen der bestehenden Anwendungen.
+Erstellung von Veritas Agents zur Cluster Integration.
+Erstellung von Testskripts zur Überwachung mit Tivoli.
+Plattform: SUN Solaris, Veritas, Tivoli, Patrol, Oracle, SAN.
+E-10K, E-15K, Sun-Fire Architektur und kleinere Systeme
+
+Zeitraum: August 2001 bis September 2003: Hypovereinsbank München
+Branche:  Bank
+Projekte: Systemadministration UNIX
+Aufgabe:  Betrieb der Internetplattform.
+Plattform: SUN Solaris, Veritas (VXFS, VCS, VXVM), Oracle, Tivoli (ADSM).
+E-10K und kleinere Systeme. SAN-Anbindung.
+
+Zeitraum: August 99 bis Juni 2001: Brose Fahrzeugteile GmbH Coburg
+Branche:  Automobilzulieferer
+Projekt:  Systemadministration UNIX
+Aufgabe:  allg. Administration der UNIX Rechner, Automatisierung von
+Administrations-Abläufen,
+Einführung Enterprise Management Software, Administration des Internetzugangs,
+Security und Hardening, Performanceanalysen.
+Plattform: SUN Solaris, IBM AIX, HP-UX, Linux
+
+Zeitraum: April 2000: CHS Data Systems Koblenz
+Branche:  EDV
+Project:  Projektierung und Realisierung von Internet-Security
+Aufgabe:  Einführung neuer Firewall mit VPN Zugang, Überarbeitung der
+Application-Gateways,
+Umstrukturierung TCP/IP Netze (DMZ)
+Plattform: SUN, LINUX
+
+Zeitraum: 97 bis September 99: Deutsche Telekom / CHS Data Systems Koblenz
+Institut: Softwareentwicklung
+Projekt: Administration von Test- und Wirkbetriebsrechnern, Netzwerke
+Aufgabe: Aufbau, Betrieb, Instandhaltung von Hardware, Betriebsystem und
+Netzwerk (mit Firewall)
+Plattform: RS6000 (AIX), HP9000 (HP-UX), SUN Ultra/450/E10000 mit Solaris, PC
+mit Linux
+
+Zeitraum: 95 bis 99 (einzelne Teilprojekte): Deutsche Telekom / CHS Data
+Systems Koblenz
+Branche: Telekommunikation
+Projekt: GPTR (Kommunikationssoftware für MVS, UNIX &amp; Windows)
+Aufgabe: Erstellung, Erweiterung und Betrieb der UNIX Seite
+Software/Plattform: SINIX, HP-UX, AIX, Solaris, LINUX mit jeweiligem C-Compiler
+
+Zeitraum: Juni 97 bis September 99: Deutsche Telekom / CHS Data Systems Koblenz
+Branche: Telekommunikation
+Projekt: Datenbereinigung und Strukturierung
+Aufgabe: fehlertolerante Vergleiche zur Strukturierung und Bereinigung von
+Kundendaten über mehrere Datenbanksysteme mit teilweise extrem großen
+Datenmengen.
+Software/Plattform: UNIX, Orace7 &amp; 8, Adabas D
+
+Zeitraum: Dez.96 - Apr.97: Deutsche Telekom / CHS Data Systems Koblenz
+Branche: Telekommunikation
+Projekt: ADMIN-Server
+Aufgabe: Erstellung einer Systemkomponente zur Authentisierung
+Software/Plattform: MVS, Cobol, VSAM
+
+Zeitraum: 95- Dez. 97: Deutsche Telekom / CHS Data Systems Koblenz
+Branche: Telekommunikation
+Projekt: Statistik DB
+Aufgabe: Erstellung von Statistischer Auswertung über den Inhalt von ca: 20 
+Datenbanken.
+Software/Plattform: MVS , Cobol mit Delta-Cobol Makros, BMC-Tools zum entladen
+der DB, IBM IMS Datenbanken
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_8750
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 13.12.2020 00:40:22
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

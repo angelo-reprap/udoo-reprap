@@ -1,0 +1,460 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_7886
+
+
+Stammdaten (Auszug):
+
+Personen-ID                7886
+  
+Wohnort                    604xx Frankfurt, Deutschland
+Jahrgang                   1961
+Staatsbürgerschaft         Deutsch
+Stundensatz                120 EUR
+Verfügbar ab               15.03.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         20.05.99
+Profil zuletzt geändert am 08.03.21
+Lesen von Projektanfragen  1 Tag [08]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 31.01.2021 15:12:10
+
+Fachlicher Schwerpunkt:
+SENIOR BANK IT CONSULTANT / SENIOR IT ARCHITECT / SENIOR APPLICATION MANAGER
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+Ausbildung:                Diplom Informatik (Nebenfach BWL),
+Technische Hochschule Darmstadt
+
+Zusatzausbildung  Bankfachwissen - 96
+Bankakademie Frankfurt am Main
+Investmentbanking - 97
+                           Bankakademie Frankfurt am Main
+
+Einsatzort:
+Regionen:
+außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch   
+Englisch gut
+Persisch Muttersprache
+
+
+Hardware:
+HP                
+IBM RS6000        
+PC                
+Silicon-Graphics  
+SUN               
+
+
+Betriebssysteme:
+HPUX             
+MS-DOS           
+OS/2             
+SUN OS, Solaris  
+Unix             
+Windows          
+
+
+Programmiersprachen:
+Assembler   
+C           
+C++         
+Java        
+JavaScript  
+Pascal      
+Perl        
+PL/SQL      
+Rexx        
+Shell       
+TeX, LaTeX  
+Xt, Motif   
+
+
+Datenbanken:
+Access  
+JDBC    
+ODBC    
+Oracle 7, 8i, 9i, 10g Advanced Queing, Java Stored procedure, Replication, ...
+SQL     
+Sybase 11.x, 12.x, OpenServer, Stored Procedure, ...
+
+
+Datenkommunikation:
+ATM                 
+Ethernet            
+FDDI                
+Internet, Intranet  
+LAN, LAN Manager    
+Message Queuing     
+OSF/DCE             
+RPC                 
+TCP/IP              
+Windows Netzwerk    
+
+
+Produkte/Standards/Erfahrungen:
+OOA/OOD (Booch, UML)
+
+sniff+, Visio Professional, VisualAge, Microsoft office, ClearCase, IBM
+MQSeries, Sybase, Oracle, Sun Visual WorkShop, Forte for Java, Visual Cafe,
+Macromedia Dreamweaver, Rational Rose, tomcat, Applets, ASP, JSP, XML, XSLT,
+J2EE, Servelets, WebLogic, RMI-IIOP, CORBA, HTML, DHTML, VC++, Jbuilder
+Enterprise, Kondor + , Summit, Murex M and C, KTek Global One, WallStreet
+Systems (FO + GC) - Midas Kapiti, weblogic, Jprobe, Junit, JProfiler, Together,
+kawa, visual source safe, toad
+
+Mehrjährige Praxis in:
+         
+*   Systemanalyse, Fach- und DV-Konzepterstellung
+*   Konzeption und Realisierung von Client/Server-Systemen auf der Basis von
+DCE/ RPC (Unix, OS2, Windows NT, X-Windows und OSF/Motif), MQseries und
+Webtechnologie
+  Systemanalyse (OOA)
+  Systemdesign (OOD)
+ Projektleitung
+ Adminstration
+  Anwendungsprogrammierung
+ Web basierte Applikationen
+
+Erfahrungen im Bereich:
+
+Risk Management
+Risk Controlling
+Investment Banking
+client/server
+Web Based Application
+Portfoliomanagement
+Verteilte Lernumgebung
+
+Branchen:
+Banken: RetailBanking, InvestmentBanking
+Versicherungen, Industrie, Forschung
+
+Projekte:
+11/19  06/20
+DZ Bank, Frankfurt
+Thema:
+Smart Derivative Contracts
+Projektbeschreibung:
+Erweiterung und Realisierung im Projekt SDC (Smart Derivative Contracts).
+Softwareentwicklung
+Die sogenannten Smart Derivative Contracts. Mithilfe der Blockchain können
+Derivate völlig automatisiert und standardisiert ausgeführt werden.
+Realisiert unter: Java, GIT, Eclipse, Oracle, finmath, ...
+ 
+11.2018 - 10.2019    ArmoSystems, Frankfurt
+Projekt: Konzeption, Erweiterung und Realisierung im Projekt RiskXpert/CybColl
+(a real time enterprise credit risk management).
+Aufgabe: Architektur, Design, Softwareentwicklung, Systemtest .
+Ein internetbasiertes Counterparty und Credit Risk Management mit Modulen für
+Limitmanagement, Liquidity Management, Collateral Management, Risk Engine und
+ein Monte Carlo Simulations Module.
+Tools/ Sprachen:  Java, J2EE, Ant, C++, Sun Solaris, Clear Case, IIOP, BEA
+Weblogic, Sybase Adaptive Server, Sybase Replikation, EJB, JNI, JSP, Servlets,
+COM, JDBC, Apache, Tomcat, XML/XSLT, MQSeries.
+ 
+02.2009  -  12.2018        Commerz Bank, Frankfurt
+Projekt:            Transaction Engine (TE) Production Support
+Aufgabe:            Die TE stellt die proprietäre Integrations-Plattform (EAI)
+der Commerzbank für diverse Bankapplikationen dar (Ich habe in der der Zeit
+01.2001 - 07.2002 TE mit entwickelt)
+Ich bin momenatn zuständig für:
+    - Produktionssupport der TE
+    - Incident-, Change-, Problem- und Requestmanagement
+    - Annahme, Analyse, Workarounds und Dokumentation für Incidents
+    - Problem-Analyse, Lösungssuche, Einleitung von Changes für Problems
+    - Proaktives Problemmanagement
+    - Performance/Throughput Analysen
+    - Optimierungsmaßnahmen für den Betrieb der TE
+    - Vorschläge von Optimierungsmaßnahmen für Support-Prozesse, fachliche
+Prozesse und Projektinhalte
+    - Analysen und Freigaben von Änderungen, die den Betrieb der Anwendung
+beeinflussen
+    - Änderungen von technischen Konfigurations- und Steuerungsparametern
+(Customizing)
+    - Kontrolle im Bereich IT-Sicherheit der TE
+    - Planung und Durchführung Berichtswesen (z.B. KPI), hinsichtlich des
+Betriebs der Anwendung
+    - Pflege der für den Betrieb erforderlichen Dokumentationen (fachlich/
+technisch)
+    - Backup- und Recoverymanagement
+    - User Support bei fachlichen und technischen Fragen zur Anwendung
+    - Mitwirkung bei User Acceptance Tests
+    - ....
+ 
+Des Weiteren übernehme ich zusätzlich Rufbereitschaft (24/7 Support) für die TE
+gemäß geltender Betriebsvereinbarungen.
+
+
+08.2008  -  15.01.2009        Commerz Bank, Frankfurt
+Projekt:        Konzeption und Realisierung im Projekt IFRS
+Aufgabe:        Architektur, Design, Softwareentwicklung, Systemtest und
+Inbetriebnahme
+DB-Design to import the data; Creating Hibernate Entities; Developing Reports
+with BIRT; Create some GUI forms with Swing (Netbeans); UAT with SQL (TOAD);
+Bug fixing (HP_QC)
+Client-Server Architecture, Adding BO. and Swing-Component to use BIRT-Fame
+work as Reporting-Tool to create reports (PDF, Excel) in cooperation with
+business.
+Platforms: Unix, Java, Oracle(SQL, PL-SQL), Eclipse, Hibernate, Swing,
+Netbeans, BIRT with Tomcat-Server, SOA ...
+
+
+12.2006  - 31.07.2008         Union Investment, Frankfurt
+Projekt: Konzeption und Realisierung im Projekt Optra
+Aufgabe: Architektur, Design, Softwareentwicklung, Systemtest und
+Inbetriebnahme
+- Fondsprofile, - Leverage-Stresstestmodell (PLSQL)
+  -Max. Leverage im Sinne der für den Fonds geltenden gesetzlichen  Vorgaben,
+d.h. DerivateV bzw. Lux. Gesetz,
+  -Max. ex-ante Value-at-Risk (99%, 10 Tage), zur Überwachung der  aktuellen
+Fondsfarbe,
+  -Interner ex-ante Tracking Error zur Benchmark ,
+  -Multiplikatoren für Stresstestlimite.
+
+- IMMUNO-Control (Java GUI und PLQSL)
+  IMMUNO-Unterstützung für das Fondsmanagement und für das Risikocontrolling
+auf
+Basis des Systems Algorithmics im Rahmen des Projekts OPTRA
+- Ablösung der bisherigen IMMUNO-Berechnungen im Fondsmanagement
+  Verwendung eines einheitlichen Risikomodells im Fondsmanagement und im
+Risikocontrolling
+- Nutzung einer einheitlichen und qualitätsgesicherten Berechnungsplattform
+- Erhöhung der Güte der Risikoberechnungen
+- Nutzung erweiterter Funktionalitäten
+- Berücksichtigung nichtlinearer Risiken
+- Hoher Grad an Individualisierung
+
+- ValidierungsTool (Java GUI und PLQSL)
+  Berechnung von Kennzahlen auf Instrumentenebene für den juristisch relevanten
+  Wertpapierbestand der Union und deren Validierung und Auslieferung an das
+Datawarehouse
+
+- RiskCockpit (Java GUI und PLQSL)
+  Plausibilitätsprüfung ausgewählter Risikozahlen sowie deren nachgelagerte
+Validierung
+
+- Umsetzung fachlicher Anforderung der einzelnen Bereiche
+Tools/Sprachen: Algorithmics, ARA, Java, PLSQL, Eclipse, NetBeans, SVN, PLSQL
+Developer, Oracle und TOAD.
+
+06.2005  - 11.2006           Euro Hypo AG und Commerzbank AG, Frankfurt
+Projekt: Konzeption und Realisierung im Projekt Risk Methodology and Reporting
+Aufgabe: Architektur, Design, Softwareentwicklung, Systemtest und
+Inbetriebnahme
+Intranetanwendung zur Berechnung von Risikofaktoren bzw. PD von Partnern, LGD,
+Bestandsscore, ScoreCard und ...
+Durch Public Finance Rechenkern wurden auf Grund Basel II Anförderungen die
+Execl-Templates abgelöst.
+- Ratingmethodik für Staaten, Gebietskörperschaften und Financial Institutions
+LRG (Local, Regional, Government) Rating
+Staaten-Rating
+SNL (Supranational Non-Lending) Rating
+Holdings Rating
+Commercial Bank Rating (CB)
+Investment Bank Rating (IB)
+Kombiniertes Commercial / Investment Bank Rating (Kombination aus CB und IB)
+Public Owners Rating
+MLI (Multilateral Lending Institutions) Rating
+Parent Subsidiary Rating
+
+- Als Austauschformat fungiert XML
+- Der Rechenkern steht als WebService im Intranet
+- Umsetzung fachlicher Anforderung der einzelnen Bereiche
+Tools/ Sprachen: Java, C++, .net, Eclipse, NetBeans, Visual C++, Oxygen,
+RogueWave, SVN, LEIF, Oracle und TOAD.
+
+02.2004  - 04.2005           Deutsche Bank, Frankfurt
+Projekt: Konzeption und Realisierung im Projekt P1 Web BASTA Web
+Aufgabe: Architektur, Design, Softwareentwicklung, Systemtest und
+Inbetriebnahme.
+Intranetanwendung zur Ablösung einer Grossrechner basierten Anwendung zur
+Erfassung und Erstellung von Meldungen für:
+- Auslandsstatus der Banken (Auslandsfilialen, Auslandstöchter)
+- Kreditnehmerstatistik
+- Grundsatz I, Grundsatz II
+(Betroffen sind Institute ohne Anbindung an die zentralen
+Datenbelieferungsprozesse)
+Anbindung des Systems an das elektronische Meldeverfahren der Bundesbank
+Umsetzung fachlicher Anforderung der einzelnen Bereiche
+Tools/ Sprachen:  Java, J2EE, JSP, JS, Ant, Struts, Servlets, Apache, Tomcat,
+BEA Weblogic, Together, Eclipse, Jmeter, Oracle und TOAD.
+
+10.2003 - 01.2004 Deutsche Bank, Frankfurt
+Projekt: Konzeption und Realisierung im Projekt CDE (Credit Default Engine).
+Aufgabe: Architektur, Design, Softwareentwicklung, Systemtest und
+Inbetriebnahme.
+Distributed Monte Carlo Simulation mit 28 Clients für Economic Capital und ein
+webbasiertes Admintool.
+Tools/ Sprachen:  C++, Java, J2EE, JSP, JNI, Visual Studio, Servlets, Apache,
+Tomcat, BEA Weblogic, Together, Eclipse, Jmeter, Oracle und TOAD.
+
+03.2003 - 09.2003 Deutsche Bank, Frankfurt
+Projekt: Konzeption und Realisierung im Projekt KWG.
+Aufgabe: Architektur, Design, Softwareentwicklung, Systemtest und
+Inbetriebnahme.
+Intranetanwendung rd. 1000 Anwender zur Ablösung einer Großrechner basierten
+Anwendung zur Erstellung der Meldungen.
+Erfüllung der Groß- und Millionenkreditanzeigen an die Bundesbank nach §14
+(Million Credit Report) des Kreditwesengesetz.
+Tools/ Sprachen:  Java, J2EE, JSP, Servlets, Apache, Tomcat, BEA Weblogic,
+Together, Eclipse, Jmeter, Oracle, TOAD.
+
+01.2002 - 03.2003 Cyberdine Systems, Frankfurt
+Projekt: Konzeption und Realisierung im Projekt MQA (a web based toolkit für
+MQSeries monitoring and management).
+Aufgabe: Architektur, Design, Softwareentwicklung, Systemtest und
+Inbetriebnahme.
+Ein Internetbasiertes Toolkit für Administration, Monitoring und
+Massagehandling von IBM MQSeries im gesamten Netzwerk (Unix und NT).
+Tools/ Sprachen:  Java, J2EE, Ant, Visual Cafe, C++, Sun Solaris, AIX, BEA
+Weblogic, EJB, JNI, JSP, Servlets, Apache, Tomcat, WebSphere, XML/XSLT, UML
+Rational Rose und Visio.
+
+08.2002 - 12.2002 Cyberdine Systems, Frankfurt
+Projekt: Konzeption und Realisierung im Projekt RiskXpert/CybColl (a real time
+enterprise credit risk management).
+Aufgabe: Architektur, Design, Softwareentwicklung, Systemtest.
+Ein internetbasiertes Counterparty und Credit Risk Management mit Modulen für
+Limitmanagement, Liquidity Management, Collateral Management, Risk Engine und
+ein Monte Carlo Simulations Module.
+Tools/ Sprachen:  Java, J2EE, Ant, Visual Cafe, C++, Sun Solaris, Clear Case,
+IIOP, CORBA visibroker, BEA Weblogic, Sybase 12.0 Adaptive Server, Sybase
+Replikation, EJB, JNI, JSP, Servlets, COM, JDBC, Apache, Tomcat, XML/XSLT,
+MQSeries, UML Rational Rose und Visio.
+
+01.2001 - 07.2002 Commerzbank, Frankfurt
+Projekt: Konzeption und Realisierung im Projekt Transaction Engine (Investment
+Banking).
+Aufgabe: Architektur, Design, Softwareentwicklung, Systemtest und
+Inbetriebnahme, Systembetreuung.
+Fach- und DV-Konzept für Transaction Engine.
+Anbindung diverser Front und Back Office Systeme(Summit, Gloss, Global One,
+Murex Currency, ) an Transaction Engine über MQSeries, Sybase, Connect-Direct,
+FTP.
+Entwicklung von Zugriffs- und Auswertungsmodulen in C++.
+DataMapping. Middleware Datenbank.
+Schnittstellenapplikation zur Anbindung von Summit, Fidesa, Ktek Global One und
+... an interne Systeme.
+Packagebau und Installationen für development, Test, Prelive und Production.
+RegrationTest.
+Tools/ Sprachen:  SUN E450, IBM-PC, WAN/LAN, Sun Solaris, ClearCase, C++, XML/
+XSLT, RPC, FTP, MQSeries, Sun Visual Workshop C++, Rogue WaveTools.h++, DB
+Tools.h++, Summit, Connect-Direct, SYBASE 11.9.2, Windows NT.
+
+07.2000 - 01.2001 Commerzbank, Frankfurt
+Projekt: Konzeption und Realisierung im Projekt Risk Management (Investment
+Banking).
+Aufgabe: Architektur, Design, Softwareentwicklung, Systemtest und
+Inbetriebnahme.
+Fach- und DV-Konzept für Global Risk Management. Wall Street System Front
+Office -> Global Manager Risk Vision und Anbindung von Summit ->Global Manager
+Risk Vision
+DV-Design mit Rational Rose, Oracle Designer.
+Entwicklung von Zugriffs- und Auswertungsmodulen in C++ und JAVA.
+DataMapping, Middleware Datenbank.
+Tools/ Sprachen:  IBM-PC, WAN/LAN, SUN E450, SUN E10000, Windows NT, Sun
+Solaris, SCCS, JAVA, JNI, C++, RPC, MQSeries, Sun Visual Workshop C++ 3.0,
+Sniff+, Rogue WaveTools.h++, DB Tools.h++, SYBASE 11, Oracle8i, GMRV (Global
+Manager Risk Vision) Midas-Kapiti International, Connect-Direct,
+DB_replication, Oracle Advanced Queuing, Java Stored Procedures.
+
+01.2000 - 06.2000 Commerzbank, Frankfurt
+Projekt: Konzeption und Realisierung im Projekt Risk Management (Investment
+Banking).
+Aufgabe: Architektur, Design, Softwareentwicklung, Systemtest und
+Inbetriebnahme.
+Fach- und DV-Konzept für Global Risk Management.
+Wall Street System Global Credit (WSS_GC) -> Global Manager Risk Vision (GM/
+RV).
+DV-Design mit Rational Rose.
+Entwicklung von Zugriffs- und Auswertungsmodulen in C++.
+DataMapping, Middleware Datenbank.
+Tools/ Sprachen:  IBM-PC, WAN/LAN, SUN E450, SUN E10000, Sun Solaris, SCCS,
+C++, RPC, MQSeries, Sun Visual Workshop C++ 3.0, JAVA, Visual Age, JDBC,
+Sniff+, Rogue WaveTools.h++, DB Tools.h++, SYBASE 11, Midas-Kapiti
+International, Global Manager Risk Vision, Connect-Direct, Sybase Open Server,
+Windows NT.
+
+01.1999 - 12.1999 Commerzbank, Frankfurt
+Projekt: Konzeption und Realisierung im Projekt Risk Management (Investment
+Banking).
+Aufgabe: Architektur, Design, Softwareentwicklung, Systemtest und
+Inbetriebnahme.
+Fach- und DV-Konzept für Interface Ktek Global One (Frankfurt, Tokio, London,
+New York) -> WSSGC (Wall Street System Global Credit) und Anbindung von Summit
+-> WSSGC
+DV-Design mit Rational Rose. Entwicklung von Zugriffs- und Auswertungsmodulen
+in C++.
+DataMapping, Middleware Datenbank.
+Tools/ Sprachen:  IBM-PC, WAN/LAN, SUN E450, Sun Solaris, SCCS, C++, RPC,
+MQSeries, Sun Visual Workshop C++ 3.0, JAVA, Visual Age, JDBC, Sniff+, Rogue
+WaveTools.h++, DB Tools.h++, SYBASE 11, Midas-Kapiti International, Global
+Manager Risk Vision, Connect-Direct, Sybase Open Server, Windows NT.
+
+03.1998 - 12.1998 Commerzbank, Frankfurt
+Projekt: Konzeption und Realisierung im Projekt Risk Management (Investment
+Banking).
+Aufgabe: Architektur, Design, Softwareentwicklung, Systemtest und
+Inbetriebnahme.
+Fach- und DV-Konzept für Interface Kondor+ (Frankfurt, Prag, Amsterdam) -
+> WSSGC (Wall Street System Global Credit).
+DV-Design mit Rational Rose. Entwicklung von Zugriffs- und Auswertungsmodulen
+in C++.
+DataMapping, Middleware Datenbank.
+Tools/ Sprachen:  IBM-PC, WAN/LAN, SUN E450, Sun Solaris, SCCS, C++, RPC,
+MQSeries, Sun Visual Workshops C++ 3.0, JAVA, Visual Age, JDBC, Sniff+, Rogue
+WaveTools.h++, DB Tools.h++, SYBASE 11, Midas-Kapiti International, Global
+Manager Risk Vision, Connect-Direct, Sybase Open Server, Windows NT.
+
+01.1996 - 02.1998 Deutsche Bank, Frankfurt
+Projekt: Konzeption und Realisierung im Projekt Anlage Management Portfolio
+(AMP).
+Aufgabe: Design, Softwareentwicklung, Systemtest und Inbetriebnahme.
+Fach- und DV-Konzept für ein Portfolio-Management-Anwendungssystem.
+DV-Design mit Rational Rose. Entwicklung von Zugriffs- und Auswertungsmodulen
+in C++.
+Tools/ Sprachen:  IBM-PC, WAN/LAN, RS/6000, OS2, Windows NT, AIX, PVCS, C++,
+StarView, DCE/RPC, MQS, Rogue Wave Tools.h++, DB Tools.h++, SQL*Plus, PL/SQL,
+Pro*C, ORACLE 7.3.
+
+10.1995 - 12.1995 Forschungsinstitut, Darmstadt
+Projekt: Design und Realisierung eines Kommunikationstools
+(Multimediaerweiterung der OO-Datenbank VODAK) im Projekt AMOS (Active Media
+Object Store).
+Aufgabe: Design und Implementierung. Design und Entwicklung eines
+Kommunikationstools für existierende Applikationen.
+Tools/ Sprachen:  Sun Sparc, Unix, TCP/IP, RPC, C/C++.
+
+01.1995 - 09.1995 Forschungsinstitut, Darmstadt
+Projekt: Analyse, Design und Implementierung eines Koordinationsmechanismus für
+Videopräsentationen (verteilte Videotools).
+Aufgabe: Analyse, Design und Implementierung.
+Tools/ Sprachen:  Sun Sparc, Unix, TCP/IP, RPC, C/C++.
+
+...
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_7886
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 12.03.2021 15:57:40
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

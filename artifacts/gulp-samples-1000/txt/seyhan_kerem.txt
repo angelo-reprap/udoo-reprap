@@ -1,0 +1,1430 @@
+Softwareentwicklung in Java EE
+Verfügbar ab: 04.04.2020
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 350,00 EUR
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Einsatzort unbestimmt
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Position
+Kommentar:  
+ 
+Projekte
+2018-01 - 2018-03 Eventmanager-Revisited (2018)
+3 Monate
+Rolle: Software Developer, Architect
+Projektinhalte: Angular Webapp mit Spring Boot Backend die einem alle Veranstaltungen
+in der Nähe anzeigt, inclusive „Like-Funktion“.
+Kenntnisse: Java 8, Spring-Boot 2.0.0, MongoDB, Spring-Test, Spring-Webflux, Spring-
+Data-MontoDB-Reactive, Reactor, Reactor-Test, Google Maps Services,
+GeoJson, Lombok, Logback, Mockito, Jackson, Tomcat, Junit, AssertJ,
+Maven, Json, Rest, Logstash, Elasticsearch, Kibana, Spring Cloud Sleuth,
+Spring Cloud Netflix Eureka, Spring Cloud Netflix Zuul, Docker, Docker
+Compose, Swagger UI, Angular 5, Angular- Material, Typescript, CSS,
+Flex-Layout
+21.02.2023 1 von 16
+2017-07 - 2017-12 Insurance Portal
+6 Monate
+Rolle: Software Developer, Architect
+Kunde: Daimler AG 2017
+Projektinhalte: Entwicklung von zwei Portal-Mocks zur Verwaltung diverser
+Versicherungen, auf Basis bestehender Komponenten des Unternehmens.
+Customizing des Frontends zur Anzeige der gewünschten Daten und
+Businesslogik. Nach Abschluss des Projektes Fertigung eines
+produktionsreifen Produkts. Ummodellierung Datenmodell und
+Objektmodell bestehender
+Komponenten. Erstellung VM auf Basis eingsetzter Technologien.
+Generierung WebService Mock und WebService Client auf Basis einer
+bereitgestellten WSDL.
+Eingesetzte Produkte: Java EE, Junit, WSDL, XSD, Jax-WS, Apache Poi, Javascript, Docker,
+Oracle 11g DB, SQL Developer, Websphere, Maven, Git, Gerrit, Jenkins,
+Jira, Angular, HTML, CSS, JSON, agile Dev. (Scrum), Virtual Box
+2017-04 - 2017-04 Flatfinder (2017)
+1 Monat
+Rolle: Software Developer, Architect
+Projektinhalte: Web App die einem freie Wohnung in der Nähe anzeigt.“.
+Kenntnisse: Java, Spring-Boot, Spring-Data, H2, Hibernate, Spring-Test, Quartz,
+Selenium, Google Maps Services, GeoJson, Lombok, Logback, Junit,
+AssertJ, Commons-net, commons-lang, Maven, Json, Rest, Tomcat, Google
+Play Services, HTML, CSS
+2016-11 - 2017-01 Eventmanager (2016)
+3 Monate
+Rolle: Software Developer, Architect
+Projektinhalte: Android App die einem alle Veranstaltungen in der Nähe anzeigt, inclusive
+„Like-Funktion“.
+Eingesetzte Produkte: Java, Spring Boot, H2, Hibernate, HikariCP, Spring-Test, JSoup, Google
+Maps Services, GeoJson, Lombok, PostgreSQL, Logback, Junit, Apache Poi,
+SuperCSV, Commonsnet, commons-lang, Maven, Json, Rest, Gradle,
+Google Play Services, Android Studio, Docker
+2016-04 - 2016-12 Various IoT Sensor Nodes(2016)
+9 Monate
+Rolle: Software Developer, Architect, Engineer
+Projektinhalte: Entwicklung diverser batteriebetriebener Sensor Nodes mit ESP8266
+Mikrokontrollern.
+21.02.2023 2 von 16
+Eingesetzte Produkte: C/C++, Cadsoft Eagle, Sensors, PlatformIO, Embedded Programming,
+RabbitMQ
+2016-01 - 2016-12 Various IoT Sensor Nodes
+1 Jahr
+Kunde: Software Developer, Architect, Engineer
+Projektinhalte: Entwicklung diverser batteriebetriebener Sensor Nodes mit ESP8266
+Mikrokontrollern
+Eingesetzte Produkte: C/C++, Cadsoft Eagle, Sensors, PlatformIO, Embedded Programming,
+RabbitMQ
+2016-06 - 2016-10 BCM
+5 Monate
+Rolle: Software Developer
+Kunde: PwC 2016
+Projektinhalte: Unterstützung für die Portierung, Konzeption, Design &amp; Architektur,
+Analyse, Beratung, Backund Frontendentwicklung und dem Testing einer
+auf Java (Backend) und (JavaScript) basierenden Anwendung zur
+Erstellung und Verwaltung von komplexen Formularen die im Einsatz mit
+den Endkunden steht. Implementierung, Bugfixing, Testing und Reporting
+diverser Features nach dem agilen Entwicklungsverfahren.
+Eingesetzte Produkte: Java EE, Javascript, KendoUI, AngularJS, TypeScript, Websphere, Maven,
+Git, Subversion, Jenkins, Jira, MS SQL 2012, IntelliJ Idea, Eclipse, Grunt,
+NPM, NodeJS, Karma, Istanbul, Jasmine, lodash, Protractor, Angular
+Material, AngularJS 2, jQuery, Less, SystemJS, HTML, CSS, JSON,
+IcoMoon, agile Dev. (Scrum, XP)
+2016-08 - 2016-09 Geräuschprotokollapp (2016)
+2 Monate
+Rolle: Software Developer, Architect
+Projektinhalte: Android App zur Verwaltung von Geräuschprotollen, Geräusche werden
+kategorisiert, zurechtgeschnitten und archiviert“.
+Eingesetzte Produkte: Java, Spring-Boot, H2, Hibernate, HikariCP, Spring-Test, Lombok,
+PostgreSQL, Logback, Junit, JavaMail, Maven, Json, Rest, Gradle, Google
+Play Services, Android Studio, Raspberry PI, 6 Mikrofone
+2016-08 - 2016-08 Toilets for the disabled (Code for FFM 2016)
+1 Monat
+Rolle: Software Developer
+Projektinhalte: Erstellung eines Frontends für einen Datascraper der sich
+Detailinformationen zu ca 2000 Toiletten aus der Stadt Frankfurt besorgt,
+zum Filtern und Anzeigen von Toiletten mit diversen Parametern, wie
+21.02.2023 3 von 16
+Breiten, Längenangaben, Sitzhöhnen, Stufenlose Erreichbarkeit etc. für
+behinderte Personen
+Eingesetzte Produkte: Leaflet, GeoJSON, HTML, CSS, JavaScript, Git
+2016-04 - 2016-05 Bitcoin Trader (2016)
+2 Monate
+Rolle: Software Developer, Architect
+Projektinhalte: Anwendung zum automatisierten Daytraden von Bitcoins.
+Eingesetzte Produkte: Java, Spring-Boot, Spring-Data, H2, PostgreSQL, XChange, Hibernate,
+Junit, Commons-Math, Commons-Lang, Maven, JSON, Gson
+2015-05 - 2016-04 Merck Malicious E-Mail Reporter Outlook Plugin
+1 Jahr
+Rolle: Software Developer, Architect
+Kunde: Merck KGaA, 2015/2016
+Projektinhalte: Design und Implementierung eines Microsoft Outlook Plugins, um E-Mails,
+bei Verdacht auf Bösartigkeit, mit diversen anderen Log Dateien und
+systemrelevanten Informationen an das Merck Thread Research Team
+weiterzuleiten.
+Eingesetzte Produkte: .NET, Outlook VSTO, Ribbon, XML, Ionic.Zip, Installshield LE
+2015-05 - 2016-04 K2 Q/A Framework
+1 Jahr
+Kunde: Merck KGaA, 2015
+Projektinhalte: Design und Implementierung eines Frameworks um eine auf K2 Blackpearl
+basierende Legacy Anwendung nach den Clean Code Prinzipien testbar zu
+machen. Schulung, Koordination, Projektplanung und Reporting als
+Teamlead in einem kleinen Team, Erstellung VM und Architektur die die
+Konzern Architektur abbildet, Konzeption und Entwicklung diverser
+Technologien und Frameworks, um eine saubere Mehrbenutzer
+Entwicklung zu gewährleisten, Erstellung diverser Unit Tests und Schulung
+der Mitarbeiter, Erstellung Integrationstests und Schulung der Mitarbeiter,
+Aufsetzen eines automatisierten Build- und Deployment-Prozesses,
+Aufsetzen diverser Tools um Metriken über die Codequalität zu erstellen,
+Schulung der bisherigen Entwickler in der Benutzung von Subversion.
+Eingesetzte Produkte: .Net, Vmware, K2, blackpearl, SonarQube, Selenium, NUnit, OpenLDAP,
+MSSQL, Subversion, Java (dumbster), MSBuild, Moq, Powershell,
+ReSharper, TeamCity, Active Directory, agile Dev. (XP), Projektplanung
+2015-05 - 2016-04 Airwatch S/MIME Certificate Provisioner
+1 Jahr
+Rolle: Software Developer, Architect
+21.02.2023 4 von 16
+Kunde: Merck KGaA, 2015
+Projektinhalte: Design und Implementierung einer Anwendung zur Provisionierung von
+S/MIME Zertifikaten über die von VMware Airwatch Enterprise Mobility
+Management (EMM) bereitgestellten REST-Schnittstellen. Die Anwendung
+wurde verwendet um diverse Zertifikate auf den mobilen Endgeräten aller
+Merck KGaA Mitarbeiter zu auszufahren.
+Eingesetzte Produkte: Java, Spring-Boot, Spring-Web, Jackson, JSON, SuperCSV, Logback,
+Lombok, Simple Crypto
+2015-01 - 2015-03 Admintool
+3 Monate
+Rolle: Software Developer
+Kunde: Valtech GmbH i.A. Audi AG, 2015
+Projektinhalte: Erweiterung, Customizing einer auf Wicket basierenden
+Administrationsanwendung zur Verwaltung von Nutzern, Fahrzeugdaten
+und deren Beziehungen. Umsetzung diverser zustandsbasierter Ajax-
+Komponenten zur Anzeige von Daten, Bereitstellung neuer Schnittstellen in
+der Middleware, Entwicklung von Unit Tests, Refactoring von FitNesse
+Integrationstests.
+Eingesetzte Produkte: Java EE, Wicket, SQL, Junit, FitNesse, Mockito, Jersey, Scriptella, JAX-RS
+REST, JSON, Tomcat, Maven, Jira, Jenkins, agile Dev. (Scrum)
+2013-10 - 2014-12 Grabber
+1 Jahr 3 Monate
+Rolle: Software Developer, Architect
+Kunde: Cerosia GmbH, seit. 2013
+Projektinhalte: Entwicklung diverser Webspider zur Beschaffung diverser Daten.
+Eingesetzte Produkte: Java EE, Spring-Boot, Spring-Data, Hibernate, HSQLDB, Apache Poi,
+Apache Commons, SuperCSV, Logback, Selenium, JdbcTemplate, JavaMail,
+SQL, Junit, Maven
+2014-07 - 2014-10 Pixelmind (2014)
+4 Monate
+Rolle: Software Developer, Engineer
+Projektinhalte: Ein autonomes 10x10 RGB LED-Pixel Panel das durch verschiedene
+Animationen springt die durch Umgebungsgeräusche modifiziert werden
+und "auf hypnotische Art neue Stimmungen erzeugt".
+Eingesetzte Produkte: Java, Processing, C, Raspberry Pi, Artnet/E1.31, TouchOSC (IPAD),
+Arduino/ Esp8266/Raspberry Pi
+21.02.2023 5 von 16
+2014-01 - 2014-03 Drawbot (2014)
+3 Monate
+Rolle: Software Developer, Engineer
+Projektinhalte: Ein an der Wand hängender Polarkoordinaten-Plotter der unter
+Zuhilfenahme eines handelsüblichen Stiftes in der Lage ist SVG
+Vektorgraphiken zu zeichnen
+Eingesetzte Produkte: Java, Processing, C, Arduino, 2 Stepper Motoren, 3D modelling
+(OpenSCAD)
+2012-02 - 2013-09 Messagegateway
+1 Jahr 8 Monate
+Rolle: Software Developer, Architect
+Kunde: Senacor Technologies AG i.A. Deutsche Bank, Postbank, 2013
+Projektinhalte: Erweiterung des bestehenden Messagegateways der Postbank der für den
+E-Mail und SMS Versand an den Endkunden zuständig ist, um einen neuen
+SMS-Provider um die Deutsche Bank an die Komponente anzubinden, der
+per RPC Webservice konsumiert wurde, transformation des Projektes in
+eine Multi-Mandanten fähige Anwendung um FrontendClienten der
+Deutschen sowie der Postbank bedienen zu können.
+Eingesetzte Produkte: J2EE, JAXRPC, AXIS 1, Wsdl, Jetty, JSON, WebSphere, Junit, Maven, ANT,
+SonarQube, Jenkins, Subversion
+2012-02 - 2013-09 MkX-Middleware
+1 Jahr 8 Monate
+Rolle: Software Developer
+Kunde: Senacor Technologies AG i.A. Postbank, 2012/2013
+Projektinhalte: Implementierung und Bugfixing diverser Aufgaben in der Multikanal
+Banking Middleware der Postbank/Deutschen Bank
+Eingesetzte Produkte: Java EE, JRebel, Advanced Ant and Maven usage, XML, XSLT, Selenium,
+Tomcat, SonarQube, Subversion, Scriptella, SQL, JPA
+2012-02 - 2013-09 Schulungsumgebung
+1 Jahr 8 Monate
+Rolle: Software Developer
+Kunde: Senacor Technologies AG i.A. Postbank, 2012/2013
+Projektinhalte: Portierung des auf Wicket und Struts basierenden Postbank
+Beraterfrontends in ein offline System zur Schulung von Mitarbeitern;
+Simulierung diverser Umsysteme, Integration, Reverse-Engineering,
+Mocking. Entwicklung; Umfang der Anwendung ca 450 Jars im
+Klassenpfad, 3 Tomcat Server.
+21.02.2023 6 von 16
+Eingesetzte Produkte: Java EE, JRebel, Advanced Ant and Maven usage, XML, XSLT, SQL,
+Selenium, Tomcat, SonarQube, Subversion, Reading humongous amounts
+of Log files
+2012-02 - 2013-09 Pin Tan Verwaltung
+1 Jahr 8 Monate
+Rolle: Software Developer, Architect
+Kunde: Senacor Technologies AG i.A. Postbank, 2012
+Projektinhalte: Entwicklung einer auf Wicket basierenden Call-Center Webanwendung zur
+Verwaltung von Legitimierungsverfahren, Passwörtern und Limits von
+Konten; Umsetzung von Multikanal Frontendkomponenten und Seiten,
+Design und Entwicklung der Mockingarchitektur.
+Eingesetzte Produkte: Java EE, Wicket, JRebel, Ant, Maven, WebSphere, SonarQube, Jenkins,
+Subversion
+2011-03 - 2011-08 Bosch Authorization Management
+6 Monate
+Rolle: Software Developer, Architect
+Kunde: Kogit GmbH i.A. Robert Bosch GmbH, 2011
+Projektinhalte: Entwicklung einer IDM (Identity Management) Anwendung/Erweiterung zur
+Ersetzung der bestehenden IDM Lösung. Implementierung SPML-Client
+und Webservice „Targetsystem“ zur Provisionierung, Deprovisionierung,
+Aktualisierung von Nutzern und deren Rollen/Berechtigungen im
+bestehenden IDM-System. Erstellung Schnittstellendesign und
+Implementierung eines SPML-Clienten „Audit API“ zur Erstellung diverser
+Berichte/Audits im IDM System. Entwicklung der persistenz Schicht,
+Connection Pooling, Internationalisierung, Dokumentation. Erstellung von
+Junit Tests / Mocks für diverse Komponenten des Systems.
+Eingesetzte Produkte: Java, Eclipse, Oracle XE, Spring, OpenSPML, Apache CXF, Apache
+Commons Pool, JPA, Hibernate, JMS, JavaMail, WebLogic, JUnit, DBUnit,
+XStream, Lombok, SVN/CVS, agile Dev. (KanBan)
+2011-04 - 2011-04 Identitiy Manager / Oracle Waveset Modification
+1 Monat Extractor (2011)
+Rolle: Software Developer, Architect
+Projektinhalte: Eine Anwendung um alle durchgeführten Veränderungen einer Waveset
+Installation in einem HTML-Report darzustellen. Extraktion aller
+Konfigurationsobjekte einer Waveset Installation und der Vergleich gegen
+die Objekte einer Basisinstallation. Sortierte Darstellung von Objekten die
+in der Quelle, dem Ziel und in beiden gleichzeitig Vorhanden sind. Die
+dargestellten Objekte können einfach durch Doppelklick im Report kopiert
+und in eine andere neue Wavest Installation eingespielt werden
+Eingesetzte Produkte: Java, XML diffing, XSLT processing, HTML Reporting
+21.02.2023 7 von 16
+2011-02 - 2011-02 Restrukturierung der Org-Gruppen im Öffentlichen
+1 Monat Adressbuch
+Rolle: Software Developer
+Kunde: Kogit GmbH i.A. Dr. Inh. H. c. F. Porsche AF, 2011
+Projektinhalte: Anpassung eines Schnittstellendesigns und Implementierung von Regeln
+zur automatisierten Vergabe von Org-Gruppen durch den Sun Identity
+Manager in Lotus Notes. Diverse andere IDM-Modifikationen, -Formulare, -
+Tools.
+Eingesetzte Produkte: Java, XPRESS, Eclipse, Lotus Notes, Sun Identity Manager, WebLogic,
+JRockit
+2009-10 - 2010-02 Projektsemester
+5 Monate
+Rolle: Software Developer, Architect
+Kunde: FH-Frankfurt, 2009
+Projektinhalte: Objektorientierte Entwicklung einer Ampelsteuerung für ein eingebettetes
+Steuerungssystem in C++. Erstellung eines Testkonzeptes auf Basis des
+IEEE 829 Standards und die Umsetzung der Modul-, Integrations-,
+System- und Regressionstests mit CppUnit. Entwicklung einer
+automatisierten Testsuite mit dessen Hilfe der Fujitsu Softune Compiler auf
+die Güte der Unterstützung untersucht wurde (Vorhersage der Laufzeit,
+Resourcen-Verbrauch etc.).
+2009-04 - 2009-09 Datenbankprogrammierung
+6 Monate
+Rolle: Software Developer, Architect
+Kunde: FH-Frankfurt, 2009
+Projektinhalte: Entwicklung einer Datenbankgestützten Webanwendung zur Simulation
+eines 24/7 Videoverleihautomaten. Die Software unterstützt unter
+anderem das Anlegen, Löschen und Verwalten von Filmen, Kategorien,
+Darstellern, Inventarisierung von Filmen, Entleihvorgänge, Autorisierung
+und Authentifizierung von Benutzern etc..
+Eingesetzte Produkte: Pflichtenheft, Lastenheft, OOD, UML, OOP, Java, Hibernate, log4j, JUnit,
+Apache Wicket, Spring, Ajax, JavaScript, CSS, MySQL, Maven2, Jetty,
+Eclipse, UML 2.0, Doxygen, MySQL Workbench, Subversion, SQuirreL,
+HeidiSQL, Navicat
+Anwendungsentwicklung HR-Resource Administration (CPC Unternehmensmanagement AG, 2008)
+Spezifische auf das Unternehmen bezogene Entwicklung einer MS Access Anwendung zur
+Verwaltung von komplexen verschiedenartigen Trainings. Entwicklung eines relationalen
+Datenbankmodells. Entwicklung der Abfragen, Formulare und Reports auf Basis von MS
+Access. Umfang: ca. 40 Tabellen.
+Software Reengineering (CPC Unternehmensmanagement AG, 2008)
+21.02.2023 8 von 16
+Reverse Engineering der Entwurfsspezifikationen einer Webapplikation in einem
+J2EE(Struts/IBATIS)/Tomcat/MySQL Umfeld. Definition/Entwurf/Wiedergewinnung von UML
+2.0 Use-Cases, Datenmodell, Klassenmodell, Kommunikationsmodell und
+Maskendokumentation. Das nachträgliche Reengineering/Bugfixing des Programms.
+Einführung eines Versionisierungskonzeptes auf Basis der Versionsverwaltung Subversion
+(SVN).
+Technologien: OOA, Java, J2EE, Spring, Struts, JSP, JavaScript, IBATIS, MySQL, Tomcat,
+SVN, Eclipse, MS Visio, Doxygen, Umbrello, Sparx Enterprise Architect, SQuirreL SQL
+Client, DIA.
+Projektunterstützung für Sofwareentwicklung(Java/J2EE), Systemoptimierung,
+Customizing und Test (Arlington Consulting, 2007)
+Mitarbeit an einer Business-To-Business Anwendung in einem J2EE/Oracle Umfeld,
+Umgestaltung des Datenbankbackends von JDBC in Hibernate, Portierung der Data- und
+Sessionbeans, Erstellung und Konzeption des neuen Datenbank Zugriffs (DAO), Einführung
+objektrelationaler Datenbankzugriffe, JProfiling, Testen der Applikation.
+Technologien: Java, J2EE, Hibernate, Spring, Struts, JProfiler, JUnit, Eclipse.
+Hotspot-System (Hotel Amadeus, 2007)
+Entwurf, Realisierung und Implementierung eines Hotspot-Systems basierend auf dem
+freien Betriebssystem OpenWRT für diverse Low-Cost Consumer Router.
+Ermittlung der Anforderungen in Zusammenarbeit mit der Hoteldirektion, Implementierung
+der Netzwerkstruktur auf Basis eines vermaschten Netztes, Bewertung und Einkauf von
+Hardware, Testen verschiedener Betriebssysteme und Komponenten, Montage und
+Inbetriebnahme vor Ort, Wartung des Systems, Erstellung einer allgemeinverständlichen
+Dokumentation.
+Technologien: C/C++, GCC, OpenWrt (Embedded Linux), JTAG.
+Dialin Updater (Randstad, 2006)
+Entwicklung eines Tools zur Umstellung der Einwahl in das VPN-Netz von Randstad
+Frankfurt. Ca. 1000 Notebooks wurden dabei, mit einem individuell für jeden Benutzer
+angefertigten Programm, ausgestattet.
+Aufgabengebiete beinhalteten die Planung, Analyse, Entwurf, Programmierung und
+Validierung in Teamarbeit.
+Technologien: SFX Archivierung, C++ WinAPI Programmierung, CryptoAPI, Visual Studio 6.
+Sonstige Projekte:
+Pixelmind (2014)
+Ein autonomes 10x10 RGB LED-Pixel Panel das durch verschiedene Animationen springt die
+durch Umgebungsgeräusche modifiziert werden und "auf hypnotische Art neue
+Stimmungen erzeugt".
+Technologien: Java, Processing, C, Raspberry Pi, Artnet/E1.31, TouchOSC (IPAD)
+Drawbot (2014)
+Ein an der Wand hängender Polarkoordinaten-Plotter der unter Zuhilfenahme eines
+handelsüblichen Stiftes in der Lage ist SVG Vektorgraphiken zu zeichnen.
+Technologien: Java, Processing, C, Arduino, 2 Stepper Motoren, 3D modelling (OpenSCAD)
+Sun Identitiy Manager / Oracle Waveset Modification Extractor (2011)
+Eine Anwendung um alle durchgeführten Veränderungen einer Waveset Installation in
+einem HTML-Report darzustellen. Extraktion aller Konfigurationsobjekte einer Waveset
+Installation und der Vergleich gegen die Objekte einer Basisinstallation. Sortierte
+Darstellung von Objekten die in der Quelle, dem Ziel und in beiden gleichzeitig Vorhanden
+sind. Die dargestellten Objekte können einfach durch Doppelklick im Report kopiert und in
+eine andere neue Wavest Installation eingespielt werden.
+Technologien: Java, XML diffing, XSLT processing, HTML Reporting
+Webspider Lib (2008)
+Eine effiziente C++ Bibliothek die automatisch das World Wide Web durchsucht, analysiert
+und in einer relationalen Datenbank ablegt. Die Bibliothek ist in der Lage mit mehreren
+Threads gleichzeitig zu Crawlen und über 50.000 Webseiten in einer Stunde zu Indexen.
+Unterstützt werden unter anderem HTTPS Seiten, URL-Filtermöglichkeiten, Definition eines
+21.02.2023 9 von 16
+Timeouts und Proxies.
+Technologien: C++, WinAPI, SQLite, Visual Studio 2005
+Rechnungsapp (2008)
+Eine MS Access Anwendung zur Erstellung und Verwaltung von Aufträgen, Rechnungen,
+Kontakten und Mitarbeitern. Die Rechnungen können einfach per Mausklick gedruckt oder
+in diversen Formaten per E-Mail verschickt werden.
+Bibsy (2007)
+Ein Client/Server Bibliothekssystem zur Verwaltung einer Bibliothek auf Basis eines
+relationalen Datenbankschemas in XML. Die Bücherei verwaltet die Ausleihe und
+Bestellung, sowie die Erstellung von Rechnungen, Lieferscheinen und
+Auftragsbestätigungen. Erstellt wurde das Programm in Zusammenarbeit mit einem
+Kommilitonen an der FH Frankfurt.
+Technologien: C++, MSXML, Stylus Studio, XML Copy Editor, Altova XMLSpy.
+Diverse Netzwerkapplikationen und verteilte Buchungssysteme (2006) mit
+Sockets, Corba, RMI, SOAP, Tomcat
+Sprachen
+Deutsch fließend
+Englisch fließend
+Türkisch befriedigend
+Kompetenzen
+Produkte / Standards / agile Dev. (Scrum)
+Erfahrungen / Methoden
+Agiles Software
+Development
+Apache Ant
+Apache Poi
+Apache Tomcat
+Apache Wicket
+ArgoUML
+CSS
+CVS
+DIA
+Docker
+21.02.2023 10 von 16
+Doxygen
+Eclipse
+Enterprise Architect
+Extreme Programming
+Gerrit
+Git
+Hibernate
+IBATIS
+JAXB
+JBoss
+JDBC
+Jenkins
+Jetty
+Jira
+JNDI
+JSP Servlet
+JUnit
+Maven
+Mercurial
+MS Visio
+MS Visual Studio
+OOA
+OOD
+Poseidon
+SCRUM
+Spring
+Struts
+Studio
+Subversion
+SVN
+21.02.2023 11 von 16
+Umbrello
+UML
+UML 2
+Virtual Box
+Websphere
+Xerces
+XSD
+Application Server:
+Oracle WebLogic 10g, Websphere, JBoss, Glassfish, Jetty, Apache
+Tomcat
+ 
+Tools:
+Ant, Maven, Gradle, Grunt, Make, Gulp, MSBuild, Rake
+ 
+IDEs:
+Eclipse, IDEA, Netbeans, Visual Studio 6-2015, Atom, Visual Studio
+Code, Vim
+ 
+Frameworks:
+Xerces, JAXB, Apache CXF, OpenSPML, Spring, IBATIS, Hibernate,
+Struts, Apache Wicket, JUnit,, CPPUnit, DBUnit, Processing, RabbitMQ,
+Apache ActiveMQ, ...
+ 
+Tools/Applications:
+Altova XMLSpy, MS IIS, Apache HTTP Server, Oracle Waveset (Sun
+Identity Manager), OpenDJ, OpenLDAP, OllyDbg, MS Visio, VMware,
+MS Virtual Server, SQuirrel, Subversion, Git, Issue/Bug-Tracking-
+Systeme, Jenkins, Hudson, TeamCity, SonarQube, Doxygen,
+Wireshark, Cadsoft Eagle, OpenSCAD, SketchUp, TouchOSC, Apache
+Directory Studio,
+Docker
+SUMMARY
+Nach dem Abschluss Fachoberschule für Gestaltung in Frankfurt
+entschloss sich Kerem die Richtung zu wechseln und studierte
+Informatik an der Fachhochschule Frankfurt am Main (Deutschland),
+die er als einer der besten Studenten des Jahres beendete. Seit dem
+arbeitet er als Softwareentwickler und Architekt und konnte bei der
+Entwicklung verschiedener komplexer Enterprise Umgebungen
+mithelfen. Seine große Liebe für Technologien und seine starke
+Lernbereitschaft weisen Ihm ständig den Weg in neue technische
+Richtungen, welche er ohne Berührungsängste meistert. Kerem ist
+aufgeschlossen, in der Lage schnell zu lernen und besitzt die richtige
+Portion Qualitätsbewusstsein, was Ihn zu einem guten Teamplayer
+macht, der das benötigte Tempo und die Qualität die in komplexen
+Umgebungen erforderlich ist meistern kann.
+ 
+PUBLICATIONS
+03/2010
+Evaluierung der Windows Mobile Schnittstellen zur Entwicklung einer
+clientseitigen Lösung gegen HTTP Angriffe (FH-Frankfurt, 2010),
+Kerem Seyhan Evaluierung des Betriebssystems Windows Mobile 5 -
+6.5 (Windows CE 5.x), Untersuchung der Netzwerkschnittstellen
+21.02.2023 12 von 16
+(NDIS, SPI (LSP), Winsock, etc.), Auseinandersetzung mit Phishing-
+und Pharming-Attacken, Architektur Windows CE (Anwendungsebene,
+Betriebssystemschicht, OEM Schicht, Hardware Schicht),
+Speichermodell, Zugriffsmodell, Entwicklung und Portierung von
+Programmen, Debugging, Packaging und Deployment von
+Applikationen, Signierung von Programcode, Treiber-,
+Anwendungsprogrammierung, Filterung von HTTP-Paketen auf
+verschiedenen Netzwerkschichten. Entwicklung eines eingebetteten
+HTTP-Proxies um Phishing Seiten mit Hilfe von datenbankgestützten
+Blacklisten zu blocken. Auch zum Filtern von HTTP-Parametern
+einsetzbar, um z.B. reflektive Cross-Site Scripting- Attacken zu
+verhindern.
+ 
+Technologien:
+C/C++, Win32, Sockets Note: 1,3
+ 
+Application Server:
+Oracle WebLogic 10g, Websphere, JBoss, Glassfish, Jetty, Apache
+Tomcat
+ 
+Tools:
+Ant, Maven, Gradle, Grunt, Make, Gulp, MSBuild, Rake
+ 
+IDEs:
+Eclipse, IDEA, Netbeans, Visual Studio 6-2015, Atom, Visual Studio
+Code, Vim
+ 
+Frameworks:
+Xerces, JAXB, Apache CXF, OpenSPML, Spring, IBATIS, Hibernate,
+Struts, Apache Wicket, JUnit,, CPPUnit, DBUnit, Processing, RabbitMQ,
+Apache ActiveMQ, ...
+ 
+Tools/Applications:
+Altova XMLSpy, MS IIS, Apache HTTP Server, Oracle Waveset (Sun
+Identity Manager), OpenDJ, OpenLDAP, OllyDbg, MS Visio, VMware,
+MS Virtual Server, SQuirrel, Subversion, Git, Issue/Bug-Tracking-
+Systeme, Jenkins, Hudson, TeamCity, SonarQube, Doxygen,
+Wireshark, Cadsoft Eagle, OpenSCAD, SketchUp, TouchOSC, Apache
+Directory Studio, Docker 
+Betriebssysteme Embedded Linux
+Embedded Windows
+Linux
+Windows
+Programmiersprachen .NET,
+Angular
+Assembler 80x86
+C gute Kenntnisse
+C++ gute Kenntnisse
+HTML
+21.02.2023 13 von 16
+J2ME
+Java sehr gute Kenntnisse
+Java EE
+JavaScript
+Jax-WS
+JSON
+Python
+Ruby
+SQL
+Tcl/Tk
+UML
+VBSCRIPT
+WSDL
+WSH
+XML
+XPATH
+XSL
+ Win32ASM
+Datenbanken Access
+B-Tree
+Berkeley DB
+DAO
+Datenbank-Design Gute Erfahrung
+relationaler Datenbanken
+Derby
+H2
+HSQLDB
+ISAM
+JDBC
+MariaDB
+21.02.2023 14 von 16
+MS SQL Server
+MySQL
+ODBC
+Oracle
+Oracle 11g DB
+Oracle9i
+Postgres
+SQL
+SQL Developer
+SQLite
+Datenkommunikation CORBA
+Ethernet
+Internet, Intranet
+NetBios
+RFC
+Router
+RS232
+SMTP
+TCP/IP
+Windows Netzwerk
+Winsock
+Hardware embedded Systeme
+Aus- und Weiterbildung
+21.02.2023 15 von 16
+2002-09 - 2010-06 Studium der Informatik
+7 Jahre 10 Monate
+Abschluss: (Diplom)
+Institution: Fachhochschule Frankfurt
+21.02.2023 16 von 16
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_110937
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                110937
+  
+Wohnort                    604xx Frankfurt am Main, Deutschland
+Jahrgang                   1978
+Staatsbürgerschaft         türkisch
+Stundensatz                350 EUR
+Verfügbar ab               04.04.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         02.12.10
+Profil zuletzt geändert am 11.04.18
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 05.03.2018 11:03:14
+
+Fachlicher Schwerpunkt:
+Softwareentwicklung in Java EE
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Dokumentation / DTP
+Engineering / IT-nahe Ingenieurdienstleistungen
+
+ 
+ 
+
+Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit bevorzugt
+
+Voraussetzung für Festanstellung: Voraussetzung für eine Festanstellung ist der
+Arbeitsort Frankfurt und Weiterentwicklungsmöglichkeiten in Richtung anderer
+Sprachen/Frameworks wie Django und RoR oder auch in Form von SCP Java
+Zertifikaten. Meine Gehaltsvorstellungen bewegen sich bei 60.000+ Euro pro
+Jahr.
+
+Ausbildung:
+09/2002 - 06/2010: Studium der Informatik
+ 
+Abschluss:          (Diplom)
+Institution:        Fachhochschule Frankfurt
+===============================================================================
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch  fließend
+Englisch fließend
+Türkischbefriedigend
+
+
+Hardware:
+embedded Systeme  
+
+
+Betriebssysteme:
+Embedded Linux    
+Embedded Windows  
+Linux             
+Windows           
+
+
+Programmiersprachen:
+Angular     
+Assembler  80x86
+C          gute Kenntnisse
+C++        gute Kenntnisse
+HTML        
+Java       sehr gute Kenntnisse
+Java EE     
+JavaScript  
+Jax-WS      
+JSON        
+J2ME        
+.NET,       
+Python      
+Ruby        
+SQL         
+Tcl/Tk      
+UML         
+VBSCRIPT    
+ Win32ASM  
+WSDL        
+WSH         
+XML         
+XPATH       
+XSL         
+
+
+Datenbanken:
+Access                                     
+Berkeley DB                                
+B-Tree                                     
+DAO                                        
+Datenbank-Design relationaler Datenbanken Gute Erfahrung
+Derby                                      
+HSQLDB                                     
+H2                                         
+ISAM                                       
+JDBC                                       
+MariaDB                                    
+MS SQL Server                              
+MySQL                                      
+ODBC                                       
+Oracle                                     
+Oracle 11g DB                              
+Oracle9i                                   
+Postgres                                   
+SQL                                        
+SQL Developer                              
+SQLite                                     
+
+
+Datenkommunikation:
+CORBA               
+Ethernet            
+Internet, Intranet  
+NetBios             
+RFC                 
+Router              
+RS232               
+SMTP                
+TCP/IP              
+Windows Netzwerk    
+Winsock             
+
+
+Produkte/Standards/Erfahrungen:
+agile Dev. (Scrum)           
+Agiles Software Development  
+Apache Ant                   
+Apache Poi                   
+Apache Tomcat                
+Apache Wicket                
+ArgoUML                      
+CSS                          
+CVS                          
+DIA                          
+Docker                       
+Doxygen                      
+Eclipse                      
+Enterprise Architect         
+Extreme Programming          
+Gerrit                       
+Git                          
+Hibernate                    
+IBATIS                       
+JAXB                         
+JBoss                        
+JDBC                         
+Jenkins                      
+Jetty                        
+Jira                         
+JNDI                         
+JSP Servlet                  
+JUnit                        
+Maven                        
+Mercurial                    
+MS Visio                     
+MS Visual Studio             
+OOA                          
+OOD                          
+Poseidon                     
+SCRUM                        
+Spring                       
+Struts                       
+Studio                       
+Subversion                   
+SVN                          
+Umbrello                     
+UML                          
+UML 2                        
+Virtual Box                  
+Websphere                    
+Xerces                       
+XSD                          
+Application Server:
+Oracle WebLogic 10g, Websphere, JBoss, Glassfish, Jetty, Apache Tomcat
+ 
+Tools:
+Ant, Maven, Gradle, Grunt, Make, Gulp, MSBuild, Rake
+ 
+IDEs:
+Eclipse, IDEA, Netbeans, Visual Studio 6-2015, Atom, Visual Studio Code, Vim
+ 
+Frameworks:
+Xerces, JAXB, Apache CXF, OpenSPML, Spring, IBATIS, Hibernate, Struts, Apache
+Wicket, JUnit,, CPPUnit, DBUnit, Processing, RabbitMQ, Apache ActiveMQ, ...
+ 
+Tools/Applications:
+Altova XMLSpy, MS IIS, Apache HTTP Server, Oracle Waveset (Sun Identity
+Manager), OpenDJ, OpenLDAP, OllyDbg, MS Visio, VMware, MS Virtual Server,
+SQuirrel, Subversion, Git, Issue/Bug-Tracking-Systeme, Jenkins, Hudson,
+TeamCity, SonarQube, Doxygen, Wireshark, Cadsoft Eagle, OpenSCAD, SketchUp,
+TouchOSC, Apache Directory Studio,
+Docker
+ 
+SUMMARY
+Nach dem Abschluss Fachoberschule für Gestaltung in Frankfurt entschloss sich
+Kerem die Richtung zu wechseln und studierte Informatik an der Fachhochschule
+Frankfurt am Main (Deutschland), die er als einer der besten Studenten des
+Jahres beendete. Seit dem arbeitet er als Softwareentwickler und Architekt und
+konnte bei der Entwicklung verschiedener komplexer Enterprise Umgebungen
+mithelfen. Seine große Liebe für Technologien und seine starke Lernbereitschaft
+weisen Ihm ständig den Weg in neue technische Richtungen, welche er ohne
+Berührungsängste meistert. Kerem ist aufgeschlossen, in der Lage schnell zu
+lernen und besitzt die richtige Portion Qualitätsbewusstsein, was Ihn zu einem
+guten Teamplayer macht, der das benötigte Tempo und die Qualität die in
+komplexen Umgebungen erforderlich ist meistern kann.
+ 
+PUBLICATIONS
+03/2010
+Evaluierung der Windows Mobile Schnittstellen zur Entwicklung einer
+clientseitigen Lösung gegen HTTP Angriffe (FH-Frankfurt, 2010), Kerem Seyhan
+Evaluierung des Betriebssystems Windows Mobile 5 - 6.5 (Windows CE 5.x),
+Untersuchung der Netzwerkschnittstellen (NDIS, SPI (LSP), Winsock, etc.),
+Auseinandersetzung mit Phishing- und Pharming-Attacken, Architektur Windows CE
+(Anwendungsebene, Betriebssystemschicht, OEM Schicht, Hardware Schicht),
+Speichermodell, Zugriffsmodell, Entwicklung und Portierung von Programmen,
+Debugging, Packaging und Deployment von Applikationen, Signierung von
+Programcode, Treiber-, Anwendungsprogrammierung, Filterung von HTTP-Paketen auf
+verschiedenen Netzwerkschichten. Entwicklung eines eingebetteten HTTP-Proxies
+um Phishing Seiten mit Hilfe von datenbankgestützten Blacklisten zu blocken.
+Auch zum Filtern von HTTP-Parametern einsetzbar, um z.B. reflektive Cross-Site
+Scripting- Attacken zu verhindern.
+ 
+Technologien:
+C/C++, Win32, Sockets Note: 1,3
+ 
+Application Server:
+Oracle WebLogic 10g, Websphere, JBoss, Glassfish, Jetty, Apache Tomcat
+ 
+Tools:
+Ant, Maven, Gradle, Grunt, Make, Gulp, MSBuild, Rake
+ 
+IDEs:
+Eclipse, IDEA, Netbeans, Visual Studio 6-2015, Atom, Visual Studio Code, Vim
+ 
+Frameworks:
+Xerces, JAXB, Apache CXF, OpenSPML, Spring, IBATIS, Hibernate, Struts, Apache
+Wicket, JUnit,, CPPUnit, DBUnit, Processing, RabbitMQ, Apache ActiveMQ, ...
+ 
+Tools/Applications:
+Altova XMLSpy, MS IIS, Apache HTTP Server, Oracle Waveset (Sun Identity
+Manager), OpenDJ, OpenLDAP, OllyDbg, MS Visio, VMware, MS Virtual Server,
+SQuirrel, Subversion, Git, Issue/Bug-Tracking-Systeme, Jenkins, Hudson,
+TeamCity, SonarQube, Doxygen, Wireshark, Cadsoft Eagle, OpenSCAD, SketchUp,
+TouchOSC, Apache Directory Studio, Docker 
+
+Projekte:
+01/2018 - 03/2018: Eventmanager-Revisited (2018)
+ 
+Rolle:              Software Developer, Architect
+ 
+Aufgaben:
+ 
+Angular Webapp mit Spring Boot Backend die einem alle Veranstaltungen in der
+Nähe anzeigt, inclusive „Like-Funktion“.
+ 
+Kenntnisse:
+ 
+Java 8, Spring-Boot 2.0.0, MongoDB, Spring-Test, Spring-Webflux, Spring-Data-
+MontoDB-Reactive, Reactor, Reactor-Test, Google Maps Services, GeoJson, Lombok,
+Logback, Mockito, Jackson, Tomcat, Junit, AssertJ, Maven, Json, Rest, Logstash,
+Elasticsearch, Kibana, Spring Cloud Sleuth, Spring Cloud Netflix Eureka, Spring
+Cloud Netflix Zuul, Docker, Docker Compose, Swagger UI, Angular 5, Angular-
+Material, Typescript, CSS, Flex-Layout
+===============================================================================
+07/2017 - 12/2017: Insurance Portal
+ 
+Rolle:              Software Developer, Architect
+Kunde:              Daimler AG 2017
+ 
+Aufgaben:
+ 
+Entwicklung von zwei Portal-Mocks zur Verwaltung diverser Versicherungen, auf
+Basis bestehender Komponenten des Unternehmens. Customizing des Frontends zur
+Anzeige der gewünschten Daten und Businesslogik. Nach Abschluss des Projektes
+Fertigung eines produktionsreifen Produkts. Ummodellierung Datenmodell und
+Objektmodell bestehender
+Komponenten. Erstellung VM auf Basis eingsetzter Technologien. Generierung
+WebService Mock und WebService Client auf Basis einer bereitgestellten WSDL.
+ 
+Eingesetzte Produkte:
+ 
+Java EE, Junit, WSDL, XSD, Jax-WS, Apache Poi, Javascript, Docker, Oracle 11g
+DB, SQL Developer, Websphere, Maven, Git, Gerrit, Jenkins, Jira, Angular, HTML,
+CSS, JSON, agile Dev. (Scrum), Virtual Box
+===============================================================================
+04/2017 - 04/2017: Flatfinder (2017)
+ 
+Rolle:              Software Developer, Architect
+ 
+Aufgaben:
+ 
+Web App die einem freie Wohnung in der Nähe anzeigt.“.
+ 
+Kenntnisse:
+ 
+Java, Spring-Boot, Spring-Data, H2, Hibernate, Spring-Test, Quartz, Selenium,
+Google Maps Services, GeoJson, Lombok, Logback, Junit, AssertJ, Commons-net,
+commons-lang, Maven, Json, Rest, Tomcat, Google Play Services, HTML, CSS
+===============================================================================
+11/2016 - 01/2017: Eventmanager (2016)
+ 
+Rolle:              Software Developer, Architect
+ 
+Aufgaben:
+ 
+Android App die einem alle Veranstaltungen in der Nähe anzeigt, inclusive
+„Like-Funktion“.
+ 
+Eingesetzte Produkte:
+ 
+Java, Spring Boot, H2, Hibernate, HikariCP, Spring-Test, JSoup, Google Maps
+Services, GeoJson, Lombok, PostgreSQL, Logback, Junit, Apache Poi, SuperCSV,
+Commonsnet, commons-lang, Maven, Json, Rest, Gradle, Google Play Services,
+Android Studio, Docker
+===============================================================================
+04/2016 - 12/2016: Various IoT Sensor Nodes(2016)
+ 
+Rolle:              Software Developer, Architect, Engineer
+ 
+Aufgaben:
+ 
+Entwicklung diverser batteriebetriebener Sensor Nodes mit ESP8266
+Mikrokontrollern.
+ 
+Eingesetzte Produkte:
+ 
+C/C++, Cadsoft Eagle, Sensors, PlatformIO, Embedded Programming, RabbitMQ
+===============================================================================
+01/2016 - 12/2016: Various IoT Sensor Nodes
+ 
+Kunde:              Software Developer, Architect, Engineer
+ 
+Aufgaben:
+ 
+Entwicklung diverser batteriebetriebener Sensor Nodes mit ESP8266
+Mikrokontrollern
+ 
+Eingesetzte Produkte:
+ 
+C/C++, Cadsoft Eagle, Sensors, PlatformIO, Embedded Programming, RabbitMQ
+===============================================================================
+06/2016 - 10/2016: BCM
+ 
+Rolle:              Software Developer
+Kunde:              PwC 2016
+ 
+Aufgaben:
+ 
+Unterstützung für die Portierung, Konzeption, Design &amp; Architektur, Analyse,
+Beratung, Backund Frontendentwicklung und dem Testing einer auf Java (Backend)
+und (JavaScript) basierenden Anwendung zur Erstellung und Verwaltung von
+komplexen Formularen die im Einsatz mit den Endkunden steht. Implementierung,
+Bugfixing, Testing und Reporting diverser Features nach dem agilen
+Entwicklungsverfahren.
+ 
+Eingesetzte Produkte:
+ 
+Java EE, Javascript, KendoUI, AngularJS, TypeScript, Websphere, Maven, Git,
+Subversion, Jenkins, Jira, MS SQL 2012, IntelliJ Idea, Eclipse, Grunt, NPM,
+NodeJS, Karma, Istanbul, Jasmine, lodash, Protractor, Angular Material,
+AngularJS 2, jQuery, Less, SystemJS, HTML, CSS, JSON, IcoMoon, agile Dev.
+(Scrum, XP)
+===============================================================================
+08/2016 - 09/2016: Geräuschprotokollapp (2016)
+ 
+Rolle:              Software Developer, Architect
+ 
+Aufgaben:
+ 
+Android App zur Verwaltung von Geräuschprotollen, Geräusche werden
+kategorisiert, zurechtgeschnitten und archiviert“.
+ 
+Eingesetzte Produkte:
+ 
+Java, Spring-Boot, H2, Hibernate, HikariCP, Spring-Test, Lombok, PostgreSQL,
+Logback, Junit, JavaMail, Maven, Json, Rest, Gradle, Google Play Services,
+Android Studio, Raspberry PI, 6 Mikrofone
+===============================================================================
+08/2016 - 08/2016: Toilets for the disabled (Code for FFM 2016)
+ 
+Rolle:              Software Developer
+ 
+Aufgaben:
+ 
+Erstellung eines Frontends für einen Datascraper der sich Detailinformationen
+zu ca 2000 Toiletten aus der Stadt Frankfurt besorgt, zum Filtern und Anzeigen
+von Toiletten mit diversen Parametern, wie Breiten, Längenangaben, Sitzhöhnen,
+Stufenlose Erreichbarkeit etc. für behinderte Personen
+ 
+Eingesetzte Produkte:
+ 
+Leaflet, GeoJSON, HTML, CSS, JavaScript, Git
+===============================================================================
+04/2016 - 05/2016: Bitcoin Trader (2016)
+ 
+Rolle:              Software Developer, Architect
+ 
+Aufgaben:
+ 
+Anwendung zum automatisierten Daytraden von Bitcoins.
+ 
+Eingesetzte Produkte:
+ 
+Java, Spring-Boot, Spring-Data, H2, PostgreSQL, XChange, Hibernate, Junit,
+Commons-Math, Commons-Lang, Maven, JSON, Gson
+===============================================================================
+05/2015 - 04/2016: Merck Malicious E-Mail Reporter Outlook Plugin
+ 
+Rolle:              Software Developer, Architect
+Kunde:              Merck KGaA, 2015/2016
+ 
+Aufgaben:
+ 
+Design und Implementierung eines Microsoft Outlook Plugins, um E-Mails, bei
+Verdacht auf Bösartigkeit, mit diversen anderen Log Dateien und
+systemrelevanten Informationen an das Merck Thread Research Team
+weiterzuleiten.
+ 
+Eingesetzte Produkte:
+ 
+.NET, Outlook VSTO, Ribbon, XML, Ionic.Zip, Installshield LE
+===============================================================================
+05/2015 - 04/2016: K2 Q/A Framework
+ 
+Kunde:              Merck KGaA, 2015
+ 
+Aufgaben:
+ 
+Design und Implementierung eines Frameworks um eine auf K2 Blackpearl
+basierende Legacy Anwendung nach den Clean Code Prinzipien testbar zu machen.
+Schulung, Koordination, Projektplanung und Reporting als Teamlead in einem
+kleinen Team, Erstellung VM und Architektur die die Konzern Architektur
+abbildet, Konzeption und Entwicklung diverser Technologien und Frameworks, um
+eine saubere Mehrbenutzer Entwicklung zu gewährleisten, Erstellung diverser
+Unit Tests und Schulung der Mitarbeiter, Erstellung Integrationstests und
+Schulung der Mitarbeiter, Aufsetzen eines automatisierten Build- und
+Deployment-Prozesses, Aufsetzen diverser Tools um Metriken über die
+Codequalität zu erstellen, Schulung der bisherigen Entwickler in der Benutzung
+von Subversion.
+ 
+Eingesetzte Produkte:
+ 
+.Net, Vmware, K2, blackpearl, SonarQube, Selenium, NUnit, OpenLDAP, MSSQL,
+Subversion, Java (dumbster), MSBuild, Moq, Powershell, ReSharper, TeamCity,
+Active Directory, agile Dev. (XP), Projektplanung
+===============================================================================
+05/2015 - 04/2016: Airwatch S/MIME Certificate Provisioner
+ 
+Rolle:              Software Developer, Architect
+Kunde:              Merck KGaA, 2015
+ 
+Aufgaben:
+ 
+Design und Implementierung einer Anwendung zur Provisionierung von S/MIME
+Zertifikaten über die von VMware Airwatch Enterprise Mobility Management (EMM)
+bereitgestellten REST-Schnittstellen. Die Anwendung wurde verwendet um diverse
+Zertifikate auf den mobilen Endgeräten aller Merck KGaA Mitarbeiter zu
+auszufahren.
+ 
+Eingesetzte Produkte:
+ 
+Java, Spring-Boot, Spring-Web, Jackson, JSON, SuperCSV, Logback, Lombok, Simple
+Crypto
+===============================================================================
+01/2015 - 03/2015: Admintool
+ 
+Rolle:              Software Developer
+Kunde:              Valtech GmbH i.A. Audi AG, 2015
+ 
+Aufgaben:
+ 
+Erweiterung, Customizing einer auf Wicket basierenden Administrationsanwendung
+zur Verwaltung von Nutzern, Fahrzeugdaten und deren Beziehungen. Umsetzung
+diverser zustandsbasierter Ajax-Komponenten zur Anzeige von Daten,
+Bereitstellung neuer Schnittstellen in der Middleware, Entwicklung von Unit
+Tests, Refactoring von FitNesse
+Integrationstests.
+ 
+Eingesetzte Produkte:
+ 
+Java EE, Wicket, SQL, Junit, FitNesse, Mockito, Jersey, Scriptella, JAX-RS
+REST, JSON, Tomcat, Maven, Jira, Jenkins, agile Dev. (Scrum)
+===============================================================================
+10/2013 - 12/2014: Grabber
+ 
+Rolle:              Software Developer, Architect
+Kunde:              Cerosia GmbH, seit. 2013
+ 
+Aufgaben:
+ 
+Entwicklung diverser Webspider zur Beschaffung diverser Daten.
+ 
+Eingesetzte Produkte:
+ 
+Java EE, Spring-Boot, Spring-Data, Hibernate, HSQLDB, Apache Poi, Apache
+Commons, SuperCSV, Logback, Selenium, JdbcTemplate, JavaMail, SQL, Junit, Maven
+===============================================================================
+07/2014 - 10/2014: Pixelmind (2014)
+ 
+Rolle:              Software Developer, Engineer
+ 
+Aufgaben:
+ 
+Ein autonomes 10x10 RGB LED-Pixel Panel das durch verschiedene Animationen
+springt die durch Umgebungsgeräusche modifiziert werden und "auf hypnotische
+Art neue Stimmungen erzeugt".
+ 
+Eingesetzte Produkte:
+ 
+Java, Processing, C, Raspberry Pi, Artnet/E1.31, TouchOSC (IPAD), Arduino/
+Esp8266/Raspberry Pi
+===============================================================================
+01/2014 - 03/2014: Drawbot (2014)
+ 
+Rolle:              Software Developer, Engineer
+ 
+Aufgaben:
+ 
+Ein an der Wand hängender Polarkoordinaten-Plotter der unter Zuhilfenahme eines
+handelsüblichen Stiftes in der Lage ist SVG Vektorgraphiken zu zeichnen
+ 
+Eingesetzte Produkte:
+ 
+Java, Processing, C, Arduino, 2 Stepper Motoren, 3D modelling (OpenSCAD)
+===============================================================================
+02/2012 - 09/2013: Messagegateway
+ 
+Rolle:              Software Developer, Architect
+Kunde:              Senacor Technologies AG i.A. Deutsche Bank, Postbank, 2013
+ 
+Aufgaben:
+ 
+Erweiterung des bestehenden Messagegateways der Postbank der für den E-Mail und
+SMS Versand an den Endkunden zuständig ist, um einen neuen SMS-Provider um die
+Deutsche Bank an die Komponente anzubinden, der per RPC Webservice konsumiert
+wurde, transformation des Projektes in eine Multi-Mandanten fähige Anwendung um
+FrontendClienten der Deutschen sowie der Postbank bedienen zu können.
+ 
+Eingesetzte Produkte:
+ 
+J2EE, JAXRPC, AXIS 1, Wsdl, Jetty, JSON, WebSphere, Junit, Maven, ANT,
+SonarQube, Jenkins, Subversion
+===============================================================================
+02/2012 - 09/2013: MkX-Middleware
+ 
+Rolle:              Software Developer
+Kunde:              Senacor Technologies AG i.A. Postbank, 2012/2013
+ 
+Aufgaben:
+ 
+Implementierung und Bugfixing diverser Aufgaben in der Multikanal Banking
+Middleware der Postbank/Deutschen Bank
+ 
+Eingesetzte Produkte:
+ 
+Java EE, JRebel, Advanced Ant and Maven usage, XML, XSLT, Selenium, Tomcat,
+SonarQube, Subversion, Scriptella, SQL, JPA
+===============================================================================
+02/2012 - 09/2013: Schulungsumgebung
+ 
+Rolle:              Software Developer
+Kunde:              Senacor Technologies AG i.A. Postbank, 2012/2013
+ 
+Aufgaben:
+ 
+Portierung des auf Wicket und Struts basierenden Postbank Beraterfrontends in
+ein offline System zur Schulung von Mitarbeitern; Simulierung diverser
+Umsysteme, Integration, Reverse-Engineering, Mocking. Entwicklung; Umfang der
+Anwendung ca 450 Jars im Klassenpfad, 3 Tomcat Server.
+ 
+Eingesetzte Produkte:
+ 
+Java EE, JRebel, Advanced Ant and Maven usage, XML, XSLT, SQL, Selenium,
+Tomcat, SonarQube, Subversion, Reading humongous amounts of Log files
+===============================================================================
+02/2012 - 09/2013: Pin Tan Verwaltung
+ 
+Rolle:              Software Developer, Architect
+Kunde:              Senacor Technologies AG i.A. Postbank, 2012
+ 
+Aufgaben:
+ 
+Entwicklung einer auf Wicket basierenden Call-Center Webanwendung zur
+Verwaltung von Legitimierungsverfahren, Passwörtern und Limits von Konten;
+Umsetzung von Multikanal Frontendkomponenten und Seiten, Design und Entwicklung
+der Mockingarchitektur.
+ 
+Eingesetzte Produkte:
+ 
+Java EE, Wicket, JRebel, Ant, Maven, WebSphere, SonarQube, Jenkins, Subversion
+===============================================================================
+03/2011 - 08/2011: Bosch Authorization Management
+ 
+Rolle:              Software Developer, Architect
+Kunde:              Kogit GmbH i.A. Robert Bosch GmbH, 2011
+ 
+Aufgaben:
+ 
+Entwicklung einer IDM (Identity Management) Anwendung/Erweiterung zur Ersetzung
+der bestehenden IDM Lösung. Implementierung SPML-Client und Webservice
+„Targetsystem“ zur Provisionierung, Deprovisionierung, Aktualisierung von
+Nutzern und deren Rollen/Berechtigungen im bestehenden IDM-System. Erstellung
+Schnittstellendesign und
+Implementierung eines SPML-Clienten „Audit API“ zur Erstellung diverser
+Berichte/Audits im IDM System. Entwicklung der persistenz Schicht, Connection
+Pooling, Internationalisierung, Dokumentation. Erstellung von Junit Tests /
+Mocks für diverse Komponenten des Systems.
+ 
+Eingesetzte Produkte:
+ 
+Java, Eclipse, Oracle XE, Spring, OpenSPML, Apache CXF, Apache Commons Pool,
+JPA, Hibernate, JMS, JavaMail, WebLogic, JUnit, DBUnit, XStream, Lombok, SVN/
+CVS, agile Dev. (KanBan)
+===============================================================================
+04/2011 - 04/2011: Identitiy Manager / Oracle Waveset Modification Extractor
+(2011)
+ 
+Rolle:              Software Developer, Architect
+ 
+Aufgaben:
+ 
+Eine Anwendung um alle durchgeführten Veränderungen einer Waveset Installation
+in einem HTML-Report darzustellen. Extraktion aller Konfigurationsobjekte einer
+Waveset Installation und der Vergleich gegen die Objekte einer
+Basisinstallation. Sortierte Darstellung von Objekten die in der Quelle, dem
+Ziel und in beiden gleichzeitig Vorhanden sind. Die dargestellten Objekte
+können einfach durch Doppelklick im Report kopiert und in eine andere neue
+Wavest Installation eingespielt werden
+ 
+Eingesetzte Produkte:
+ 
+Java, XML diffing, XSLT processing, HTML Reporting
+===============================================================================
+02/2011 - 02/2011: Restrukturierung der Org-Gruppen im Öffentlichen Adressbuch
+ 
+Rolle:              Software Developer
+Kunde:              Kogit GmbH i.A. Dr. Inh. H. c. F. Porsche AF, 2011
+ 
+Aufgaben:
+ 
+Anpassung eines Schnittstellendesigns und Implementierung von Regeln zur
+automatisierten Vergabe von Org-Gruppen durch den Sun Identity Manager in Lotus
+Notes. Diverse andere IDM-Modifikationen, -Formulare, -Tools.
+ 
+Eingesetzte Produkte:
+ 
+Java, XPRESS, Eclipse, Lotus Notes, Sun Identity Manager, WebLogic, JRockit
+===============================================================================
+10/2009 - 02/2010: Projektsemester
+ 
+Rolle:              Software Developer, Architect
+Kunde:              FH-Frankfurt, 2009
+ 
+Aufgaben:
+ 
+Objektorientierte Entwicklung einer Ampelsteuerung für ein eingebettetes
+Steuerungssystem in C++. Erstellung eines Testkonzeptes auf Basis des IEEE 829
+Standards und die Umsetzung der Modul-, Integrations-, System- und
+Regressionstests mit CppUnit. Entwicklung einer automatisierten Testsuite mit
+dessen Hilfe der Fujitsu Softune Compiler auf die Güte der Unterstützung
+untersucht wurde (Vorhersage der Laufzeit, Resourcen-Verbrauch etc.).
+===============================================================================
+04/2009 - 09/2009: Datenbankprogrammierung
+ 
+Rolle:              Software Developer, Architect
+Kunde:              FH-Frankfurt, 2009
+ 
+Aufgaben:
+ 
+Entwicklung einer Datenbankgestützten Webanwendung zur Simulation eines 24/
+7 Videoverleihautomaten. Die Software unterstützt unter anderem das Anlegen,
+Löschen und Verwalten von Filmen, Kategorien, Darstellern, Inventarisierung von
+Filmen, Entleihvorgänge, Autorisierung und Authentifizierung von Benutzern
+etc..
+ 
+Eingesetzte Produkte:
+ 
+Pflichtenheft, Lastenheft, OOD, UML, OOP, Java, Hibernate, log4j, JUnit, Apache
+Wicket, Spring, Ajax, JavaScript, CSS, MySQL, Maven2, Jetty, Eclipse, UML 2.0,
+Doxygen, MySQL Workbench, Subversion, SQuirreL, HeidiSQL, Navicat
+===============================================================================
+Anwendungsentwicklung HR-Resource Administration (CPC Unternehmensmanagement
+AG, 2008)
+Spezifische auf das Unternehmen bezogene Entwicklung einer MS Access Anwendung
+zur
+Verwaltung von komplexen verschiedenartigen Trainings. Entwicklung eines
+relationalen
+Datenbankmodells. Entwicklung der Abfragen, Formulare und Reports auf Basis von
+MS
+Access. Umfang: ca. 40 Tabellen.
+===============================================================================
+Software Reengineering (CPC Unternehmensmanagement AG, 2008)
+Reverse Engineering der Entwurfsspezifikationen einer Webapplikation in einem
+J2EE(Struts/IBATIS)/Tomcat/MySQL Umfeld. Definition/Entwurf/Wiedergewinnung von
+UML
+2.0 Use-Cases, Datenmodell, Klassenmodell, Kommunikationsmodell und
+Maskendokumentation. Das nachträgliche Reengineering/Bugfixing des Programms.
+Einführung eines Versionisierungskonzeptes auf Basis der Versionsverwaltung
+Subversion
+(SVN).
+Technologien: OOA, Java, J2EE, Spring, Struts, JSP, JavaScript, IBATIS, MySQL,
+Tomcat,
+SVN, Eclipse, MS Visio, Doxygen, Umbrello, Sparx Enterprise Architect, SQuirreL
+SQL
+Client, DIA.
+Projektunterstützung für Sofwareentwicklung(Java/J2EE), Systemoptimierung,
+===============================================================================
+Customizing und Test (Arlington Consulting, 2007)
+Mitarbeit an einer Business-To-Business Anwendung in einem J2EE/Oracle Umfeld,
+Umgestaltung des Datenbankbackends von JDBC in Hibernate, Portierung der Data-
+und
+Sessionbeans, Erstellung und Konzeption des neuen Datenbank Zugriffs (DAO),
+Einführung
+objektrelationaler Datenbankzugriffe, JProfiling, Testen der Applikation.
+Technologien: Java, J2EE, Hibernate, Spring, Struts, JProfiler, JUnit, Eclipse.
+===============================================================================
+Hotspot-System (Hotel Amadeus, 2007)
+Entwurf, Realisierung und Implementierung eines Hotspot-Systems basierend auf
+dem
+freien Betriebssystem OpenWRT für diverse Low-Cost Consumer Router.
+Ermittlung der Anforderungen in Zusammenarbeit mit der Hoteldirektion,
+Implementierung
+der Netzwerkstruktur auf Basis eines vermaschten Netztes, Bewertung und Einkauf
+von
+Hardware, Testen verschiedener Betriebssysteme und Komponenten, Montage und
+Inbetriebnahme vor Ort, Wartung des Systems, Erstellung einer
+allgemeinverständlichen
+Dokumentation.
+Technologien: C/C++, GCC, OpenWrt (Embedded Linux), JTAG.
+===============================================================================
+Dialin Updater (Randstad, 2006)
+Entwicklung eines Tools zur Umstellung der Einwahl in das VPN-Netz von Randstad
+Frankfurt. Ca. 1000 Notebooks wurden dabei, mit einem individuell für jeden
+Benutzer
+angefertigten Programm, ausgestattet.
+Aufgabengebiete beinhalteten die Planung, Analyse, Entwurf, Programmierung und
+Validierung in Teamarbeit.
+Technologien: SFX Archivierung, C++ WinAPI Programmierung, CryptoAPI, Visual
+Studio 6.
+Sonstige Projekte:
+===============================================================================
+Pixelmind (2014)
+Ein autonomes 10x10 RGB LED-Pixel Panel das durch verschiedene Animationen
+springt die
+durch Umgebungsgeräusche modifiziert werden und "auf hypnotische Art neue
+Stimmungen erzeugt".
+Technologien: Java, Processing, C, Raspberry Pi, Artnet/E1.31, TouchOSC (IPAD)
+===============================================================================
+Drawbot (2014)
+Ein an der Wand hängender Polarkoordinaten-Plotter der unter Zuhilfenahme eines
+handelsüblichen Stiftes in der Lage ist SVG Vektorgraphiken zu zeichnen.
+Technologien: Java, Processing, C, Arduino, 2 Stepper Motoren, 3D modelling
+(OpenSCAD)
+Sun Identitiy Manager / Oracle Waveset Modification Extractor (2011)
+Eine Anwendung um alle durchgeführten Veränderungen einer Waveset Installation
+in
+einem HTML-Report darzustellen. Extraktion aller Konfigurationsobjekte einer
+Waveset
+Installation und der Vergleich gegen die Objekte einer Basisinstallation.
+Sortierte
+Darstellung von Objekten die in der Quelle, dem Ziel und in beiden gleichzeitig
+Vorhanden
+sind. Die dargestellten Objekte können einfach durch Doppelklick im Report
+kopiert und in
+eine andere neue Wavest Installation eingespielt werden.
+Technologien: Java, XML diffing, XSLT processing, HTML Reporting
+===============================================================================
+Webspider Lib (2008)
+Eine effiziente C++ Bibliothek die automatisch das World Wide Web durchsucht,
+analysiert
+und in einer relationalen Datenbank ablegt. Die Bibliothek ist in der Lage mit
+mehreren
+Threads gleichzeitig zu Crawlen und über 50.000 Webseiten in einer Stunde zu
+Indexen.
+Unterstützt werden unter anderem HTTPS Seiten, URL-Filtermöglichkeiten,
+Definition eines
+Timeouts und Proxies.
+Technologien: C++, WinAPI, SQLite, Visual Studio 2005
+===============================================================================
+Rechnungsapp (2008)
+Eine MS Access Anwendung zur Erstellung und Verwaltung von Aufträgen,
+Rechnungen,
+Kontakten und Mitarbeitern. Die Rechnungen können einfach per Mausklick
+gedruckt oder
+in diversen Formaten per E-Mail verschickt werden.
+===============================================================================
+ 
+Bibsy (2007)
+Ein Client/Server Bibliothekssystem zur Verwaltung einer Bibliothek auf Basis
+eines
+relationalen Datenbankschemas in XML. Die Bücherei verwaltet die Ausleihe und
+Bestellung, sowie die Erstellung von Rechnungen, Lieferscheinen und
+Auftragsbestätigungen. Erstellt wurde das Programm in Zusammenarbeit mit einem
+Kommilitonen an der FH Frankfurt.
+Technologien: C++, MSXML, Stylus Studio, XML Copy Editor, Altova XMLSpy.
+Diverse Netzwerkapplikationen und verteilte Buchungssysteme (2006) mit
+Sockets, Corba, RMI, SOAP, Tomcat
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_110937
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 04.04.2020 00:48:35
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

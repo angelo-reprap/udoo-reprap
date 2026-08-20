@@ -1,0 +1,967 @@
+PHP Backend Entwickler, Senior
+Top-Skills: PHP, Symfony
+Verfügbar ab: 01.01.2023
+verfügbar zu: 20 %
+davon vor Ort: 0 %
+Stundensatz: 80,00 EUR
+Bemerkungen: für Remoteentwicklung, für vor Ort Einsätze
+kommt ein Aufschlag hinzu
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Schweiz
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Position
+Kommentar:
+Projekte
+2019-02 - 2019-03 Migration Windows Small Business Server 2008 auf
+2 Monate Windows Server 2019
+Projektinhalte:     •  Hyper-V Server 2016
+    •  Windows Server 2019
+    •  Dienste: AD, DNS, DHCP, WDS, GPO, Backup
+    •  Migration Subversion SVN auf Bonobo GIT
+2018-09 - 2018-12 Migration eines Kunden CMS von ZF1 auf Symfony 4 Flex
+4 Monate
+Kunde: Webdesignagentur, spezialisiert
+02.03.2023 1 von 10
+Projektinhalte:     •  Migration auf PHP 7.1+ / Symfony 4 Flex
+    •  Docker / Composer
+    •  Qualitätssicherung mit Unit Tests (PHPUnit) und
+     ?Integrationstests (Codeception)
+    •  Automatisierter Build des CMS inkl. Webkonfiguration
+2018-03 - 2018-05 Entwicklung und technische Projektleitung für die
+3 Monate Weiterentwicklung der Master PIM Software
+Rolle: Projektleitung / Entwicklung
+Kunde: Master PIM GmbH
+Einsatzort: Weimar, Thüringen
+Projektinhalte:     •  Analyse des bestehenden Systems in Hinblick auf Architektur,
+     ?Testbarkeit, Wartbarkeit
+    •  Ermittlung der Anforderung für eine Migration auf Heroku
+     ?(Container Cloud Lösung)
+    •  Aufteilung und Refactoring um den Anforderungen einer
+     ?skalierbaren Containerlösung gerecht zu werden
+    •  Technische Projektleitung / Entwicklung / Code Review /
+     ?Qualitätssicherung / Coaching
+    •  Projekt- und Zeitplanung in JIRA
+    •  PHP 7.1, Maria DB, Docker, Symfony 4 Flex, BMEcat
+    •  Testing mit Unit Tests, Integrationstests mit PHPUnit,
+     ?Integrationstests für das Frontend mit Codeception und Symfony
+     ?Bridge
+2017-12 - 2018-03 Migration eines Kunden CMS von ZF1 auf Symfony 4 Flex
+4 Monate
+Kunde: Webdesignagentur, spezialisiert
+Einsatzort: Remote
+Projektinhalte:     •  Migration auf PHP 7.1+ / Symfony 4 Flex
+    •  Docker / Composer
+    •  Qualitätssicherung mit Unit Tests (PHPUnit) und
+     ?Integrationstests (Codeception)
+    •  Automatisierter Build des CMS inkl. Webkonfiguration
+2010-09 - 2017-12 Refactoring und stetige Weiterentwicklung eines
+7 Jahre 4 Monate bestehenden Kunden CMS auf LAMP Basis
+Kunde: Auf Anfrage
+Einsatzort: München
+Projektinhalte:     •  Konzeption und Architektur
+    •  Einführung einer gemeinsamen Entwicklungsumgebung, SVN,
+     ?DokuWiki
+    •  Refactoring des CMS auf objektorientiertes PHP 5.6, UTF-8, PDO
+    •  Smarty v3 Templatesystem
+02.03.2023 2 von 10
+    •  Sprechende URLs mittels mod_rewrite und Abbildung der
+     ?Navigationsstruktur
+    •  Dynamisch generierte robots.txt und sitemap.xml
+    •  Mehrsprachiges CMS
+    •  HTML5 mit dem Responsive Webdesign (RWD) Framework
+Foundation
+    •  Zend Framework als Komponentenbibliothek
+    •  SOAP Client
+    •  Tracking (Zugriffe, Klicks und Anzeige von Werbeanzeigen)
+    •  Migration der Alt-Installationen auf das neue System
+    •  Härtung der Anwendung
+    •  Dokumentation
+2017-11 - 2017-11 Migration eines Webparsers auf ZF3
+1 Monat
+Projektinhalte:     •  Migration von ZF1 PHP5.3 auf PHP 7.2, ZF3, ZF\Console
+    •  Neuorganisation der Datenmengen, insbesondere auf dem
+     ?Dateisystem 300.000 Dateien in einer Größe von 23 GB
+2017-03 - 2017-06 Erweiterung der powercloud Software um ein
+4 Monate Provisionsmodul
+Kunde: badenova AG &amp; Co. KG / powercloud GmbH
+Einsatzort: Freiburg / Achern
+Projektinhalte:     •  Erweiterung der powercloud CRM Software um ein
+     ?kundenspezifisches Provisionsmodul zur Ermittlung und
+     ?Abrechnung von Vermittlungsprovisionen
+    •  Ermittlung der Geschäftsprozesse für die Abrechnung
+    •  Anpassung des Frontends
+    •  Erstellen der Cronjobs zur Ermittlung, Buchung und Rückbuchung
+     ?der Provisionen
+    •  Erstellen von Unit Tests mit PHPUnit
+    •  Frameworks: Slim, Paris, Idiorm
+    •  Agile Entwicklung
+2014-12 - 2015-08 SOAP Webservice Client-Server-Entwicklung für Content
+9 Monate Syndication
+Kunde: Auf Anfrage
+Einsatzort: München
+Projektinhalte:     •  Konzeption und Umsetzung eines SOAP-Webservice Servers zur
+     ?Bereitstellung von Content Syndication Daten für mehrere
+     ?Client-Webseiten
+    •  SOAP 1.2
+    •  PHP 5.4, MySQL
+    •  Server basierend auf Zend Framework 2 Skeleton Application
+    •  WSDL Autodiscovery
+    •  Authentifizierung
+    •  Zend Search Lucene
+02.03.2023 3 von 10
+    •  Erstellung eines SOAP Clients für das Auftraggeber-CMS und
+     ?eines Beispiel-Clients zur Bereitstellung für externe Kunden
+    •  Testing mittels SoapUi
+    •  Dokumentation
+2015-01 - 2015-03 Migration WCMS von IIS 6.0 auf IIS 8.5
+3 Monate
+Projektinhalte:     •  Migration Webserver Windows Server 2003 (IIS 6.0) auf Windows
+     ?Server 2012 R2 (IIS 8.5)
+    •  Migration und Anpassung des WCMS auf den neuen Server inkl.
+     ?Migration auf PHP 5.6
+2010-07 - 2013-12 Refactoring und Weiterentwicklung
+3 Jahre 6 Monate multimandantenfähiges Web Content Management
+System
+Projektinhalte:     •  Refactoring auf PHP 5.3 objektorientiert, PDO
+    •  Umstellung auf MVC Design Pattern
+    •  Zend Server auf MS Server 2003 mit IIS 6.0
+    •  Zend Framework als Komponentenbibliothek, z.B. Registry, Mail,
+     ?Loader
+    •  Smarty v3 Templatesystem
+    •  Starke Konzentrierung auf SEO, Usability und Barrierefreiheit
+    •  Dynamisch generierte robots.txt, humans.txt und sitemap.xml
+    •  Modul: Parser
+        •  Parser/Robot zum Auslesen einer Auktionsseite
+         ?mit Spezialisierung auf öffentliche Auftraggeber
+        •  Auslesen der Zuschlagspreise, auslesen der Auktionsdetails
+         ?und Zusammenführung in einer eigenen Datenbank zu
+         ?Archivierungs- und Dokumentationszwecken
+2013-06 - 2013-09 SOAP Webservice als Schnittstelle zwischen SAP CRM
+4 Monate und Internet
+Kunde: HiPP-Werk Georg Hipp OHG
+Einsatzort: Pfaffenhofen a. d. Ilm
+Projektinhalte:     •  Refactoring und Weiterentwicklung eines SOAP Webservice auf PHP
+     ?5.4 als Datenschnittstelle zwischen SAP CRM und Internet
+    •  Refactoring auf MVC, Boostraping, Autoloading
+    •  Zend Framework 2 als Komponentenbibliothek
+    •  Erweiterung des Build für die Entwicklungsumgebung und des
+     ?Deploys für die Umgebung Testing und Production
+    •  Überarbeitung des Exceptionshandlings
+    •  Erstellung Soap Client zur Testübermittlung von Daten aus einer
+     ?Datei an den Webservice
+    •  Beratung in Qualitätsmanagement, Testing, Architektur,
+     ?Hochverfügbarkeit und Infrastruktur
+02.03.2023 4 von 10
+2013-05 - 2013-05 Gutachten und Bewertung einer bestehenden
+1 Monat Anwendung
+Kunde: Siemens Schweiz AG
+Einsatzort: Zürich
+Projektinhalte:     •  Code-Review und technische Analyse einer Intranetanwendung auf
+     ?Basis von PHP und MySQL
+    •  Analyse in Hinblick auf Wartbarkeit, Infrastruktur, Architektur
+     ?und Sicherheit
+    •  Codeanalyse
+    •  Empfehlung für die Weiterentwicklung und Qualitätssicherung der
+     ?Anwendung 
+2012-10 - 2013-01 Migration Powerslave CMS von PHP 4 auf PHP 5.3
+4 Monate
+Kunde: ROHDE &amp; SCHWARZ GmbH &amp; Co. KG
+Einsatzort: München
+Projektinhalte:     •  Reengeneering und Migration einer customized Powerslave
+     ?Installation von PHP4 auf PHP 5.3 (Vorbereitung)
+    •  Ist-Analyse und Dokumentation des bestehenden Systems
+    •  Bewerten des Quellcodes und der PHP Konfiguration (php.ini) in
+     ?Bezug auf die Migration von PHP 4 auf PHP 5.3
+    •  Umstellung des Dateisystems auf eine Deployfreundliche
+     ?Anwendung
+    •  Bestimmung des Deployment und Go Live Workflows
+2011-05 - 2012-01 Webentwicklung multimandantenfähigen Web CMS
+9 Monate
+Rolle: PHP Entwickler
+Kunde: Sanofi-Aventis Deutschland GmbH
+Einsatzort: Frankfurt am Main
+Projektinhalte:     •  Weiterentwicklung eines multimandantenfähigen Web CMS
+    •  PHP 5.3, Zend Framework, MS SQL
+    •  Bugfixing und Refactoring
+    •  Umstellung der Klassenstruktur auf Zend Autoloading
+    •  Umstellung der Konfiguration auf Zend_Config_Ini
+    •  Einführung eines Bootstraping-Prozesses
+    •  Modulprogrammierung: Modul zum Auslesen eines RSS Feeds und
+     ?Ausgabe als HTML Content im CMS. Asynchrones Laden des Moduls
+     ?mittels jQuery.
+    •  Dynamisch generierte sitemap.xml und robots.txt
+2010-07 - 2010-07 Programmierung Web Steuerrechner
+1 Monat
+02.03.2023 5 von 10
+Kunde: Steuerberater, Firma auf Anfrage
+Einsatzort: München
+Projektinhalte:     •  Erstellen eines Web Steuerrechner zur Ermittlung der
+     ?Steuerreduzierung bei einer doppelten Haushaltsführung mit PHP
+     ?5.2 OO
+    •  Integration in ein bestehendes CMS
+2008-02 - 2010-06 DevOps und Administration Webserver
+2 Jahre 5 Monate
+Kunde: Sanofi-Aventis Deutschland GmbH
+Einsatzort: Frankfurt am Main
+Projektinhalte: Buildmanagement der Entwicklungsumgebungen
+    •  Administration und Bereitstellen von Testumgebungen für ein
+     ?hochverfügbares PHP/MSSQL/IIS Content Management System auf
+     ?verschiedenen Entwicklungsrollen: Entwicklerumgebungen DEV, AT,
+     ?QAT und UAT jeweils in den Versionen Trunk und zwei Branches
+    •  Automatisierter Build von Entwicklungs- und Testumgebungen aus
+     ?dem Subversion Repository (PHP Code,  MSSQL Datenbanken und IIS
+     ?Webs)
+    •  Scripting, Optimierung und Automatisierung des Buildprozesses
+     ?mit Apache ANT und Batch
+ 
+Administration der CMS Server in Bezug auf:
+    •  Installation und Administration von PHP 5+ CGI auf Windows
+     ?Server 2003 mit IIS 6.0, MS SQL Datenbanken, ISAPI Rewrite,
+     ?SSL-Zertifikate, ODBTP, NTFS und IIS Sicherheit
+    •  Bereitstellen des CMS auf den Produktivservern für Internet und
+     ?Intranet
+    •  Durchführen von Releaseupdates der Produktivsysteme Internet
+     ?und Intranet
+    •  Erweiterung und Umsetzung des Sicherheitskonzeptes für das CMS
+    •  Installation und Verwaltung der Subversion SVN Repositories,
+     ?Umstellung auf VisualSVN Server
+    •  Clientseitiges Bereitstellen von Entwicklungsumgebungen für die
+     ?Entwickler (Eclipse, Subversion, persönliche Testumgebung des
+     ?CMS)
+    •  Dokumentation der Installation und Administration in JIRA und
+     ?Dokuwiki
+ 
+Zahlen
+    •  6 produktiv Webserver, 1 Deploymentserver, 2
+     ?Entwicklungswebserver, JIRA Server, SVN Server, .NET Server, 1
+     ?Zend Verwaltungsserver
+    •  Internetwebs: 60 +
+    •  Intranetwebs: 200 +
+ 
+Webgenerierung
+    •  Scripting und Automatisierung für die Weberstellung
+    •  Datei- und Datenbankmigrationen von bestehenden Webs in das
+     ?neue CMS mittels SSIS
+ 
+Konfigurationsmanagement
+    •  Implementierung eines zentralen Konfigurationsmanagement für
+     ?Web-, Serverkonfiguration und Sicherheitsparameter  für das CMS
+02.03.2023 6 von 10
+    •  Export der IIS Konfiguration (insbesondere Hostheader) und
+     ?Aufbereitung als XML SOA Schnittstelle
+    •  Verwaltung von Stamm- und Konfigurationsdaten der Websites in
+     ?einer Web-Management-DB
+    •  Unterstützung bei der Planung eines Web-Management-Systems als
+     ?Weiterentwicklung der Web-Management-DB
+ 
+Statistikauswertung
+    •  Automatisierte Logfileauswertung von IIS und Apache Webservern
+     ?mittels AWStats und Bereitstellung der Reports
+ 
+Monitoring
+    •  Einführung eines Monitorings um fehlerhafte Webkonfigurationen
+     ?frühzeitig zu ermitteln
+    •  Analyse der produktiven PHP und CMS Errorlogs und Übernahme in
+     ?das Bugtrackingsystem JIRA
+ 
+.NET
+    •  Deploy und Buildmanagement für .NET Projekte
+ 
+Zend Plattform
+    •  Installation, Verwaltung und administrative Migration des CMS
+     ?auf Zend Plattform (Zend Core, Zend Plattform, Zend Framework)
+ 
+Windows Media Streaming
+    •  Bereitstellung und Verwaltung von Windows Media 9 Server für
+     ?Streaming
+2007-01 - 2007-02 Gutachten und Handlungsempfehlung einer
+2 Monate Webanwendung
+Kunde: Puls GmbH
+Einsatzort: München
+Projektinhalte:     •  Analyse der Webseite pulspower.com in Bezug auf die Optimierung
+     ?des Google Rankings
+    •  Analyse der Webseitentechnik und des technischen Aufbaus
+    •  Analyse der Webseitenlogik und des Inhalts
+    •  Analyse der Navigation in Bezug auf Barrierefreiheit
+    •  Aufzeigen von Optimierungsmöglichkeiten bezüglich der
+     ?Indizierung von Suchmaschinen
+2005-06 - 2005-11 Diplomarbeit
+6 Monate
+Kunde: Georg Fritzmeier GmbH &amp; Co. KG
+Einsatzort: Großhelfendorf
+Projektinhalte:     •  Thema:
+Standortvernetzung - Konzepte, Auswahl und
+     ?Realisierungsvorschlag für ein mittelständisches Unternehmen
+    •  Anforderungen:
+VoIP, LDAP, Mail, SAP, Oracle, QoS
+    •  Untersuchte Techniken:
+02.03.2023 7 von 10
+Standleitungen, Frame Relay, ATM, MPLS und VPN
+2003-07 - 2004-05 Architektur, Planung und Programmierung
+11 Monate
+Kunde: Fachhochschule Rosenheim
+Projektinhalte:     •  Architektur, Planung und Programmierung eines Community Systems
+     ?für den Fachbereich Wirtschaftsingenieurwesens der FH Rosenheim
+    •  Wartungsfreie Community, Anmeldung, Re-Verifizierung
+Eingesetzte Produkte: HTML, CSS, PHP, MySQL, LINUX, Apache
+2003-09 - 2004-02 Entwicklung eines B2C Online Shop
+6 Monate
+Projektinhalte:     •  Entwicklung eines B2C Online Shop
+    •  Automatisches Generierung der Rechnungen im PDF Format
+    •  Automatisches Mahnwesen
+    •  Versandkostenberechnung in Abhängigkeit des Gewichts
+    •  Anbindung an Froogle
+Eingesetzte Produkte: HTML, CSS, PHP, MySQL, PDFlib, LINUX, Apache
+Sprachen
+Deutsch
+Englisch UNICERT Level 3 Zertifikat
+Kompetenzen
+Produkte / Standards /
+Erfahrungen / Methoden
+Webentwicklung:
+    •  Technische Projektleitung
+    •  Erstellung von Gutachten und Analysen von bestehenden
+     ?Webanwendungen
+    •  Architektur, Konzeption und Planung von Webanwendungen
+    •  Webentwicklung mit PHP 7, HTML, XML, CSS, MSSQL, MySQL,
+     ?JavaScript, responsive, ...
+    •  Objektorientiert OOP, MVC, Dependency Injection, ...
+    •  Testgetriebene Entwicklung mittels Unit Tests,
+     ?Integrationstests, Live Tests
+    •  Webservice: SOAP, REST
+    •  Zend Certified Engineer PHP 5.3 (ZCE)
+02.03.2023 8 von 10
+[URL auf Anfrage]
+    •  Symfony 4 + 5
+    •  Zend Framework 1 + 2 + 3
+    •  Performance, Barrierefreiheit, Härtung, Code-Review, Code
+     ?Analyse, Wartbarkeit
+    •  Refactoring, Migration von PHP-Anwendungen
+    •  Onpage-Suchmaschinenoptimierung SEO
+    •  Dokumentation
+Kontinuierliche Integration / Continuous Integration:
+    •  Buildmanagement und kontinuierliche Integration mit
+     ?Composer, Jenkins, Batch, Shell, … (für Webprojekte auf PHP
+     ?Basis)
+    •  Deployment, Qualitätsmanagement
+    •  Revisionsverwaltung (GIT / Subversion SVN)
+Webserveradministration:
+    •  Administration und Verwaltung von Webservern Microsoft IIS
+     ?und Apache
+    •  Konfigurationsmanagement, Sicherheit, Berechtigungen
+    •  Management von Zertifikaten, DNS
+Kurzbeschreibung
+Als langjähriger PHP-Entwickler biete ich Ihnen professionelle
+Kenntnisse im gesamten PHP-Ökosystem. Von der technischen
+Projektleitung und Architektur, über objektorientierte, testgetriebene
+Entwicklung hin zur Qualitätssicherung und Pflege. Mein Schwerpunkt
+liegt in der Backend-Entwicklung von Webanwendungen mittels PHP,
+SQL, XML, aber auch mit HTML und CSS im Frontend. Mein
+Entwicklungssetup besteht aus PHPStorm, Docker, GIT, JIRA,
+Composer und DokuWiki.
+Serverseitig arbeite ich sowohl mit LINUX als auch mit Windows
+Servern. Clientseitig arbeite ich auf hauptsächlich auf Windows,
+teilweise mit LINUX.
+Darüber hinaus habe ich als Wirtschaftsingenieur fundierte
+betriebswirtschaftliche und technische Kenntnisse die über die
+Softwareentwicklung hinaus gehen.
+Persönlich zeichne ich mich durch hohe Professionalität, strukturierte
+Vorgehensweise und einem hohen Qualitätsbewusstsein aus. Ich
+dokumentiere und kommuniziere meine Arbeitsergebnisse offen.
+Beruflicher Werdegang:
+01/2006 - heute:
+Freiberuflicher Ingenieur im Bereich Webentwicklung
+ 
+01/2000 – 12/2005:
+Freiberuflicher Webentwickler
+Betriebssysteme Linux Administration Webserver |
+Anwenderkenntnisse als Entwickler
+Windows Sehr gute Kenntnisse in Client- und
+Serveradministration ab Version 2000 und
+höher
+02.03.2023 9 von 10
+Programmiersprachen PHP Zend Certified Engineer PHP 5.3 (ZCE)
+Shell sh, bash, Microsoft CMD Batch
+Datenbanken MS SQL Server
+MySQL
+SQL
+Teleworking / Remote:
+    •  Ich verfüge über eine vollausgestattete Infrastruktur zur
+     ?Webentwicklung.
+    •  Server, Workstations, professionelle Internetanbindung und
+     ?die entsprechende
+Software.
+    •  Es ist in kürzester Zeit möglich eine vollständige
+     ?Entwicklungsumgebung aufzubauen.
+Aus- und Weiterbildung
+1999-09 - 2005-12 Studium des Wirtschaftsingenieurwesens
+6 Jahre 4 Monate
+Abschluss: Dipl.-Wirtschaftsingenieur (FH)
+Institution: FH Rosenheim
+Logistik
+1995
+Facharbeiterbrief Technischen Zeichner, Maschinenbau
+02.03.2023 10 von 10
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_87458 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                87458
+  
+Wohnort                    942xx Bischofsmais, Deutschland
+Jahrgang                   1976
+Staatsbürgerschaft         deutsch
+Stundensatz                75 EUR
+                           für Remoteentwicklung, für vor Ort Einsätze kommt
+ein
+                           Aufschlag hinzu
+Verfügbar ab               01.07.21 zu 40%, Vor-Ort-Einsatz 0% möglich
+Profil erstellt am         12.12.07
+Profil zuletzt geändert am 26.12.20
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 27.01.2021 10:43:04
+
+Fachlicher Schwerpunkt:
+PHP Backend Entwickler, Senior
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Engineering / IT-nahe Ingenieurdienstleistungen
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+09/1999 - 12/2005: Studium des Wirtschaftsingenieurwesens
+ 
+Abschluss:          Dipl.-Wirtschaftsingenieur (FH)
+Institution:        FH Rosenheim
+ 
+Schwerpunkt:
+ 
+Logistik
+===============================================================================
+1995
+Facharbeiterbrief Technischen Zeichner, Maschinenbau
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch   
+Englisch UNICERT Level 3 Zertifikat
+
+
+Betriebssysteme:
+Linux   Administration Webserver | Anwenderkenntnisse als Entwickler
+Windows Sehr gute Kenntnisse in Client- und Serveradministration ab Version
+        2000 und höher
+
+
+Programmiersprachen:
+PHP   Zend Certified Engineer PHP 5.3 (ZCE)
+Shell sh, bash, Microsoft CMD Batch
+
+
+Datenbanken:
+MS SQL Server  
+MySQL          
+SQL            
+
+
+Produkte/Standards/Erfahrungen:
+Webentwicklung:
+    * Technische Projektleitung
+    * Erstellung von Gutachten und Analysen von bestehenden Webanwendungen
+    * Architektur, Konzeption und Planung von Webanwendungen
+    * Webentwicklung mit PHP 7, HTML, XML, CSS, MSSQL, MySQL, JavaScript,
+      responsive, ...
+    * Objektorientiert OOP, MVC, Dependency Injection, ...
+    * Testgetriebene Entwicklung mittels Unit Tests, Integrationstests, Live
+      Tests
+    * Webservice: SOAP, REST
+    * Zend Certified Engineer PHP 5.3 (ZCE)
+      [URL auf Anfrage]
+    * Symfony 4 + 5
+    * Zend Framework 1 + 2 + 3
+    * Performance, Barrierefreiheit, Härtung, Code-Review, Code Analyse,
+      Wartbarkeit
+    * Refactoring, Migration von PHP-Anwendungen
+    * Onpage-Suchmaschinenoptimierung SEO
+    * Dokumentation
+ 
+Kontinuierliche Integration / Continuous Integration:
+    * Buildmanagement und kontinuierliche Integration mit Composer, Jenkins,
+      Batch, Shell,  (für Webprojekte auf PHP Basis)
+    * Deployment, Qualitätsmanagement
+    * Revisionsverwaltung (GIT / Subversion SVN)
+ 
+Webserveradministration:
+    * Administration und Verwaltung von Webservern Microsoft IIS und Apache
+    * Konfigurationsmanagement, Sicherheit, Berechtigungen
+    * Management von Zertifikaten, DNS
+ 
+Kurzbeschreibung
+ 
+Als langjähriger PHP-Entwickler biete ich Ihnen professionelle Kenntnisse im
+gesamten PHP-Ökosystem. Von der technischen Projektleitung und Architektur,
+über objektorientierte, testgetriebene Entwicklung hin zur Qualitätssicherung
+und Pflege. Mein Schwerpunkt liegt in der Backend-Entwicklung von
+Webanwendungen mittels PHP, SQL, XML, aber auch mit HTML und CSS im Frontend.
+Mein Entwicklungssetup besteht aus PHPStorm, Docker, GIT, JIRA, Composer und
+DokuWiki.
+ 
+Serverseitig arbeite ich sowohl mit LINUX als auch mit Windows Servern.
+Clientseitig arbeite ich auf hauptsächlich auf Windows, teilweise mit LINUX.
+ 
+Darüber hinaus habe ich als Wirtschaftsingenieur fundierte
+betriebswirtschaftliche und technische Kenntnisse die über die
+Softwareentwicklung hinaus gehen.
+ 
+Persönlich zeichne ich mich durch hohe Professionalität, strukturierte
+Vorgehensweise und einem hohen Qualitätsbewusstsein aus. Ich dokumentiere und
+kommuniziere meine Arbeitsergebnisse offen.
+ 
+Beruflicher Werdegang:
+ 
+01/2006 - heute:
+Freiberuflicher Ingenieur im Bereich Webentwicklung
+ 
+01/2000  12/2005:
+Freiberuflicher Webentwickler
+
+Projekte:
+02/2019 - 03/2019: Migration Windows Small Business Server 2008 auf Windows
+Server 2019
+ 
+ 
+Aufgaben:
+ 
+    * Hyper-V Server 2016
+    * Windows Server 2019
+    * Dienste: AD, DNS, DHCP, WDS, GPO, Backup
+    * Migration Subversion SVN auf Bonobo GIT
+===============================================================================
+09/2018 - 12/2018: Migration eines Kunden CMS von ZF1 auf Symfony 4 Flex
+ 
+Kunde:              Webdesignagentur, spezialisiert
+ 
+Aufgaben:
+ 
+    * Migration auf PHP 7.1+ / Symfony 4 Flex
+    * Docker / Composer
+    * Qualitätssicherung mit Unit Tests (PHPUnit) und Integrationstests
+      (Codeception)
+    * Automatisierter Build des CMS inkl. Webkonfiguration
+===============================================================================
+03/2018 - 05/2018: Entwicklung und technische Projektleitung für die
+Weiterentwicklung der Master PIM Software
+ 
+Einsatzort:         Weimar, Thüringen
+Rolle:              Projektleitung / Entwicklung
+Kunde:              Master PIM GmbH
+ 
+Aufgaben:
+ 
+    * Analyse des bestehenden Systems in Hinblick auf Architektur, Testbarkeit,
+      Wartbarkeit
+    * Ermittlung der Anforderung für eine Migration auf Heroku (Container Cloud
+      Lösung)
+    * Aufteilung und Refactoring um den Anforderungen einer skalierbaren
+      Containerlösung gerecht zu werden
+    * Technische Projektleitung / Entwicklung / Code Review /
+      Qualitätssicherung / Coaching
+    * Projekt- und Zeitplanung in JIRA
+    * PHP 7.1, Maria DB, Docker, Symfony 4 Flex, BMEcat
+    * Testing mit Unit Tests, Integrationstests mit PHPUnit, Integrationstests
+      für das Frontend mit Codeception und Symfony Bridge
+===============================================================================
+12/2017 - 03/2018: Migration eines Kunden CMS von ZF1 auf Symfony 4 Flex
+ 
+Einsatzort:         Remote
+Kunde:              Webdesignagentur, spezialisiert
+ 
+Aufgaben:
+ 
+    * Migration auf PHP 7.1+ / Symfony 4 Flex
+    * Docker / Composer
+    * Qualitätssicherung mit Unit Tests (PHPUnit) und Integrationstests
+      (Codeception)
+    * Automatisierter Build des CMS inkl. Webkonfiguration
+===============================================================================
+09/2010 - 12/2017: Refactoring und stetige Weiterentwicklung eines bestehenden
+Kunden CMS auf LAMP Basis
+ 
+Einsatzort:         München
+Kunde:              Auf Anfrage
+Geschäftsstelle:    Webdesignagentur, spezialisiert
+Branche:            Sonstige
+ 
+Aufgaben:
+ 
+    * Konzeption und Architektur
+    * Einführung einer gemeinsamen Entwicklungsumgebung, SVN, DokuWiki
+    * Refactoring des CMS auf objektorientiertes PHP 5.6, UTF-8, PDO
+    * Smarty v3 Templatesystem
+    * Sprechende URLs mittels mod_rewrite und Abbildung der Navigationsstruktur
+    * Dynamisch generierte robots.txt und sitemap.xml
+    * Mehrsprachiges CMS
+    * HTML5 mit dem Responsive Webdesign (RWD) Framework Foundation
+    * Zend Framework als Komponentenbibliothek
+    * SOAP Client
+    * Tracking (Zugriffe, Klicks und Anzeige von Werbeanzeigen)
+    * Migration der Alt-Installationen auf das neue System
+    * Härtung der Anwendung
+    * Dokumentation
+===============================================================================
+11/2017 - 11/2017: Migration eines Webparsers auf ZF3
+ 
+ 
+Aufgaben:
+ 
+    * Migration von ZF1 PHP5.3 auf PHP 7.2, ZF3, ZF\Console
+    * Neuorganisation der Datenmengen, insbesondere auf dem Dateisystem 300.000
+      Dateien in einer Größe von 23 GB
+===============================================================================
+03/2017 - 06/2017: Erweiterung der powercloud Software um ein Provisionsmodul
+ 
+Einsatzort:         Freiburg / Achern
+Kunde:              badenova AG &amp; Co. KG / powercloud GmbH
+Branche:            Energieversorgung
+ 
+Aufgaben:
+ 
+    * Erweiterung der powercloud CRM Software um ein kundenspezifisches
+      Provisionsmodul zur Ermittlung und Abrechnung von Vermittlungsprovisionen
+    * Ermittlung der Geschäftsprozesse für die Abrechnung
+    * Anpassung des Frontends
+    * Erstellen der Cronjobs zur Ermittlung, Buchung und Rückbuchung der
+      Provisionen
+    * Erstellen von Unit Tests mit PHPUnit
+    * Frameworks: Slim, Paris, Idiorm
+    * Agile Entwicklung
+===============================================================================
+12/2014 - 08/2015: SOAP Webservice Client-Server-Entwicklung für Content
+Syndication
+ 
+Einsatzort:         München
+Kunde:              Auf Anfrage
+Geschäftsstelle:    Webagentur
+Branche:            Sonstige
+ 
+Aufgaben:
+ 
+    * Konzeption und Umsetzung eines SOAP-Webservice Servers zur Bereitstellung
+      von Content Syndication Daten für mehrere Client-Webseiten
+    * SOAP 1.2
+    * PHP 5.4, MySQL
+    * Server basierend auf Zend Framework 2 Skeleton Application
+    * WSDL Autodiscovery
+    * Authentifizierung
+    * Zend Search Lucene
+    * Erstellung eines SOAP Clients für das Auftraggeber-CMS und eines
+      Beispiel-Clients zur Bereitstellung für externe Kunden
+    * Testing mittels SoapUi
+    * Dokumentation
+===============================================================================
+01/2015 - 03/2015: Migration WCMS von IIS 6.0 auf IIS 8.5
+ 
+ 
+Aufgaben:
+ 
+    * Migration Webserver Windows Server 2003 (IIS 6.0) auf Windows Server 2012
+      R2 (IIS 8.5)
+    * Migration und Anpassung des WCMS auf den neuen Server inkl. Migration auf
+      PHP 5.6
+===============================================================================
+07/2010 - 12/2013: Refactoring und Weiterentwicklung multimandantenfähiges Web
+Content Management System
+ 
+ 
+Aufgaben:
+ 
+    * Refactoring auf PHP 5.3 objektorientiert, PDO
+    * Umstellung auf MVC Design Pattern
+    * Zend Server auf MS Server 2003 mit IIS 6.0
+    * Zend Framework als Komponentenbibliothek, z.B. Registry, Mail, Loader
+    * Smarty v3 Templatesystem
+    * Starke Konzentrierung auf SEO, Usability und Barrierefreiheit
+    * Dynamisch generierte robots.txt, humans.txt und sitemap.xml
+    * Modul: Parser
+          o Parser/Robot zum Auslesen einer Auktionsseite mit Spezialisierung
+            auf öffentliche Auftraggeber
+          o Auslesen der Zuschlagspreise, auslesen der Auktionsdetails und
+            Zusammenführung in einer eigenen Datenbank zu Archivierungs- und
+            Dokumentationszwecken
+===============================================================================
+06/2013 - 09/2013: SOAP Webservice als Schnittstelle zwischen SAP CRM und
+Internet
+ 
+Einsatzort:         Pfaffenhofen a. d. Ilm
+Kunde:              HiPP-Werk Georg Hipp OHG
+Branche:            Nahrungsmittelindustrie
+ 
+Aufgaben:
+ 
+    * Refactoring und Weiterentwicklung eines SOAP Webservice auf PHP 5.4 als
+      Datenschnittstelle zwischen SAP CRM und Internet
+    * Refactoring auf MVC, Boostraping, Autoloading
+    * Zend Framework 2 als Komponentenbibliothek
+    * Erweiterung des Build für die Entwicklungsumgebung und des Deploys für
+      die Umgebung Testing und Production
+    * Überarbeitung des Exceptionshandlings
+    * Erstellung Soap Client zur Testübermittlung von Daten aus einer Datei an
+      den Webservice
+    * Beratung in Qualitätsmanagement, Testing, Architektur, Hochverfügbarkeit
+      und Infrastruktur
+===============================================================================
+05/2013 - 05/2013: Gutachten und Bewertung einer bestehenden Anwendung
+ 
+Einsatzort:         Zürich
+Kunde:              Siemens Schweiz AG
+Branche:            Pharma
+ 
+Aufgaben:
+ 
+    * Code-Review und technische Analyse einer Intranetanwendung auf Basis von
+      PHP und MySQL
+    * Analyse in Hinblick auf Wartbarkeit, Infrastruktur, Architektur und
+      Sicherheit
+    * Codeanalyse
+    * Empfehlung für die Weiterentwicklung und Qualitätssicherung der
+      Anwendung 
+===============================================================================
+10/2012 - 01/2013: Migration Powerslave CMS von PHP 4 auf PHP 5.3
+ 
+Einsatzort:         München
+Kunde:              ROHDE &amp; SCHWARZ GmbH &amp; Co. KG
+Branche:            Elektronik &amp; Optik
+ 
+Aufgaben:
+ 
+    * Reengeneering und Migration einer customized Powerslave Installation von
+      PHP4 auf PHP 5.3 (Vorbereitung)
+    * Ist-Analyse und Dokumentation des bestehenden Systems
+    * Bewerten des Quellcodes und der PHP Konfiguration (php.ini) in Bezug auf
+      die Migration von PHP 4 auf PHP 5.3
+    * Umstellung des Dateisystems auf eine Deployfreundliche Anwendung
+    * Bestimmung des Deployment und Go Live Workflows
+===============================================================================
+05/2011 - 01/2012: Webentwicklung multimandantenfähigen Web CMS
+ 
+Einsatzort:         Frankfurt am Main
+Rolle:              PHP Entwickler
+Kunde:              Sanofi-Aventis Deutschland GmbH
+Branche:            Pharma
+ 
+Aufgaben:
+ 
+    * Weiterentwicklung eines multimandantenfähigen Web CMS
+    * PHP 5.3, Zend Framework, MS SQL
+    * Bugfixing und Refactoring
+    * Umstellung der Klassenstruktur auf Zend Autoloading
+    * Umstellung der Konfiguration auf Zend_Config_Ini
+    * Einführung eines Bootstraping-Prozesses
+    * Modulprogrammierung: Modul zum Auslesen eines RSS Feeds und Ausgabe als
+      HTML Content im CMS. Asynchrones Laden des Moduls mittels jQuery.
+    * Dynamisch generierte sitemap.xml und robots.txt
+===============================================================================
+07/2010 - 07/2010: Programmierung Web Steuerrechner
+ 
+Einsatzort:         München
+Kunde:              Steuerberater, Firma auf Anfrage
+ 
+Aufgaben:
+ 
+    * Erstellen eines Web Steuerrechner zur Ermittlung der Steuerreduzierung
+      bei einer doppelten Haushaltsführung mit PHP 5.2 OO
+    * Integration in ein bestehendes CMS
+===============================================================================
+02/2008 - 06/2010: DevOps und Administration Webserver
+ 
+Einsatzort:         Frankfurt am Main
+Kunde:              Sanofi-Aventis Deutschland GmbH
+ 
+Aufgaben:
+ 
+Buildmanagement der Entwicklungsumgebungen
+    * Administration und Bereitstellen von Testumgebungen für ein
+      hochverfügbares PHP/MSSQL/IIS Content Management System auf verschiedenen
+      Entwicklungsrollen: Entwicklerumgebungen DEV, AT, QAT und UAT jeweils in
+      den Versionen Trunk und zwei Branches
+    * Automatisierter Build von Entwicklungs- und Testumgebungen aus dem
+      Subversion Repository (PHP Code,  MSSQL Datenbanken und IIS Webs)
+    * Scripting, Optimierung und Automatisierung des Buildprozesses mit Apache
+      ANT und Batch
+ 
+Administration der CMS Server in Bezug auf:
+    * Installation und Administration von PHP 5+ CGI auf Windows Server 2003
+      mit IIS 6.0, MS SQL Datenbanken, ISAPI Rewrite, SSL-Zertifikate, ODBTP,
+      NTFS und IIS Sicherheit
+    * Bereitstellen des CMS auf den Produktivservern für Internet und Intranet
+    * Durchführen von Releaseupdates der Produktivsysteme Internet und Intranet
+    * Erweiterung und Umsetzung des Sicherheitskonzeptes für das CMS
+    * Installation und Verwaltung der Subversion SVN Repositories, Umstellung
+      auf VisualSVN Server
+    * Clientseitiges Bereitstellen von Entwicklungsumgebungen für die
+      Entwickler (Eclipse, Subversion, persönliche Testumgebung des CMS)
+    * Dokumentation der Installation und Administration in JIRA und Dokuwiki
+ 
+Zahlen
+    * 6 produktiv Webserver, 1 Deploymentserver, 2 Entwicklungswebserver, JIRA
+      Server, SVN Server, .NET Server, 1 Zend Verwaltungsserver
+    * Internetwebs: 60 +
+    * Intranetwebs: 200 +
+ 
+Webgenerierung
+    * Scripting und Automatisierung für die Weberstellung
+    * Datei- und Datenbankmigrationen von bestehenden Webs in das neue CMS
+      mittels SSIS
+ 
+Konfigurationsmanagement
+    * Implementierung eines zentralen Konfigurationsmanagement für Web-,
+      Serverkonfiguration und Sicherheitsparameter  für das CMS
+    * Export der IIS Konfiguration (insbesondere Hostheader) und Aufbereitung
+      als XML SOA Schnittstelle
+    * Verwaltung von Stamm- und Konfigurationsdaten der Websites in einer Web-
+      Management-DB
+    * Unterstützung bei der Planung eines Web-Management-Systems als
+      Weiterentwicklung der Web-Management-DB
+ 
+Statistikauswertung
+    * Automatisierte Logfileauswertung von IIS und Apache Webservern mittels
+      AWStats und Bereitstellung der Reports
+ 
+Monitoring
+    * Einführung eines Monitorings um fehlerhafte Webkonfigurationen frühzeitig
+      zu ermitteln
+    * Analyse der produktiven PHP und CMS Errorlogs und Übernahme in das
+      Bugtrackingsystem JIRA
+ 
+.NET
+    * Deploy und Buildmanagement für .NET Projekte
+ 
+Zend Plattform
+    * Installation, Verwaltung und administrative Migration des CMS auf Zend
+      Plattform (Zend Core, Zend Plattform, Zend Framework)
+ 
+Windows Media Streaming
+    * Bereitstellung und Verwaltung von Windows Media 9 Server für Streaming
+===============================================================================
+01/2007 - 02/2007: Gutachten und Handlungsempfehlung einer Webanwendung
+ 
+Einsatzort:         München
+Kunde:              Puls GmbH
+Branche:            Elektronik &amp; Optik
+ 
+Aufgaben:
+ 
+    * Analyse der Webseite pulspower.com in Bezug auf die Optimierung des
+      Google Rankings
+    * Analyse der Webseitentechnik und des technischen Aufbaus
+    * Analyse der Webseitenlogik und des Inhalts
+    * Analyse der Navigation in Bezug auf Barrierefreiheit
+    * Aufzeigen von Optimierungsmöglichkeiten bezüglich der Indizierung von
+      Suchmaschinen
+===============================================================================
+06/2005 - 11/2005: Diplomarbeit
+ 
+Einsatzort:         Großhelfendorf
+Kunde:              Georg Fritzmeier GmbH &amp; Co. KG
+Branche:            Automotive
+ 
+Aufgaben:
+ 
+    * Thema:
+      Standortvernetzung - Konzepte, Auswahl und Realisierungsvorschlag für ein
+      mittelständisches Unternehmen
+    * Anforderungen:
+      VoIP, LDAP, Mail, SAP, Oracle, QoS
+    * Untersuchte Techniken:
+      Standleitungen, Frame Relay, ATM, MPLS und VPN
+===============================================================================
+07/2003 - 05/2004: Architektur, Planung und Programmierung
+ 
+Kunde:              Fachhochschule Rosenheim
+ 
+Aufgaben:
+ 
+    * Architektur, Planung und Programmierung eines Community Systems für den
+      Fachbereich Wirtschaftsingenieurwesens der FH Rosenheim
+    * Wartungsfreie Community, Anmeldung, Re-Verifizierung
+ 
+Eingesetzte Produkte:
+ 
+HTML, CSS, PHP, MySQL, LINUX, Apache
+===============================================================================
+09/2003 - 02/2004: Entwicklung eines B2C Online Shop
+ 
+ 
+Aufgaben:
+ 
+    * Entwicklung eines B2C Online Shop
+    * Automatisches Generierung der Rechnungen im PDF Format
+    * Automatisches Mahnwesen
+    * Versandkostenberechnung in Abhängigkeit des Gewichts
+    * Anbindung an Froogle
+ 
+Eingesetzte Produkte:
+ 
+HTML, CSS, PHP, MySQL, PDFlib, LINUX, Apache
+===============================================================================
+
+Sonstige Anmerkungen:
+Teleworking / Remote:
+    * Ich verfüge über eine vollausgestattete Infrastruktur zur Webentwicklung.
+    * Server, Workstations, professionelle Internetanbindung und die
+      entsprechende
+      Software.
+    * Es ist in kürzester Zeit möglich eine vollständige Entwicklungsumgebung
+      aufzubauen.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_87458 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 27.12.2020 00:49:02
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

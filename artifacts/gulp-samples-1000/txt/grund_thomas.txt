@@ -1,0 +1,357 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_102950
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                102950
+  
+Wohnort                    808xx München, Deutschland
+Jahrgang                   1964
+Staatsbürgerschaft         deutsch
+Stundensatz                75 EUR
+Verfügbar ab               01.08.20 zu 100%, Vor-Ort-Einsatz 80% möglich
+Profil erstellt am         09.11.09
+Profil zuletzt geändert am 01.08.20
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 16.08.2020 11:44:02
+
+Fachlicher Schwerpunkt:
+AWS, JavaEE, JPA, JSF, CDI, Spring, EJB, Hibernate, JUnit, JBoss, WildFly,
+Tomcat, Oracle
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+1991
+Studium der Physik an der Julius-Maximilian-Universität in Würzburg, Diplom
+
+Einsatzort:
+Regionen:
+D8
+im Umkreis von:
+München (10 km)
+Ich möchte AUSSCHLIEßLICH für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+Deutsch     Muttersprache
+Englisch    fließend
+Französischausreichend
+
+
+Hardware:
+PC   
+SUN  
+
+
+Betriebssysteme:
+HP-UX            
+Linux            
+SUN OS, Solaris  
+Windows          
+
+
+Programmiersprachen:
+Java EE  
+Java SE  
+PL/SQL   
+Python  Grundkenntnisse
+XML     Verarbeitung mit SAX und DOM, DTD-Design und -Analyse, Analyse von XML-
+        Schema
+
+
+Datenbanken:
+DAO     
+DB/2   Grundkenntnisse
+JDBC    
+MySQL   
+Oracle auch Administration (ab Version 8i).
+RDB     
+SQL    Grundkenntnisse PL/SQL
+
+
+Datenkommunikation:
+HTTP                
+Internet, Intranet  
+REST                
+RPC                 
+SOAP                
+TCP/IP              
+WebServices         
+
+
+Design/Entwicklung/Konstruktion:
+Backend mit EBJ 3 oder Spring-Framework                               
+Persistenz mit JPA 2 (EclipseLink oder Hibernate, je nach Plattform)  
+Planung und Umsetzung von Mehrschicht-Anwendungen                     
+Präsentation mit Java Server Faces (JSF 2)                           
+
+
+Produkte/Standards/Erfahrungen:
+Ant, Maven, Gradle                     
+Apache Axis                            
+Apache POI                            Grundkenntnisse
+Apache Tomcat                          
+Apache TomEE                           
+Atlassian JIRA, Confluence, Bitbucket  
+Eclipse, IntelliJ IDEA                 
+EJB3                                   
+HP Quality Center                      
+Hudson/Jenkins                         
+JAX-RS                                 
+JAX-WS                                 
+JBoss Application Server               
+JMS                                   ActiveMQ, Kafka, AWS SQS
+JPA                                   Hibernate, EclipseLink
+JSF                                    
+JUnit                                  
+Nexus                                  
+Spring Boot                            
+Spring Core                            
+Subversion, Git                        
+WebSphere                              
+WSDL                                   
+ Lebenslauf
+    * Studium der Physik an der Julius-Maximilian-Universität in Würzburg,
+      Diplom 1991.
+    * Mehrere Jahre wissenschaftlicher Mitarbeiter zum Thema Anwendung von
+      Computer
+      Algebra in der Hochenergiephysik (siehe FeynArts, FeynCalc und verwandte
+      Programme).
+    * 2000 bis 2009 angestellt bei der empolis GmbH in Würzburg/Rimpar als
+      technischer
+      Projektleiter für die Content-Management-Systeme sigmalink und e:CLS.
+      Entwicklung von Projektplänen, Aufwandsschätzungen, Leitung von
+      Projektgruppen (bis zu sechs Mitarbeiter), intensiver Kundenkontakt
+      (inkl. Reisen). Verfassen von funktionalen und technischen
+      Spezifikationen, oft für mehrere Projekte parallel. Installationen und
+      Upgrades der Software (inkl. Oracle-Datenbanken) im In- und Ausland.
+    * Seit 2009 freiberuflich tätig.
+    * Seit 2013 wohnhaft in München.
+ 
+Kenntnisse
+    * Seit Mitte 2000 Erfahrung bei der Entwicklung von Java-Enterprise-
+      Anwendungen.
+    * Seit 2019 Erfahrung mit Amazon Web Services (AWS)
+    * Aktuelle Java-Technologien, z.B.
+    * Java EE 7, Java SE 11
+    * EJB 3.x,
+    * Java Server Faces (JSF) mit RichFaces 3 oder PrimeFaces 5,
+    * JPA 2.1 mit EclipseLink, Hibernate und OpenJPA,
+    * JBoss Application Server Version 5 bis 7, EAP 6,
+    * WildFly 8 bis 10,
+    * Oracle WebLogic Server,
+    * Tomcat Webserver Version 6 und 7, TomEE,
+    * Spring Core und Spring Security,
+    * Spring Boot und Docker,
+    * Web Services mit SOAP und REST,
+    * JUnit-Tests mit Arquillian, Mockito,
+    * Behavior Driven Development mit JGiven
+    * Message-oriented Middleware mit Apache ActiveMQ, HornetQ,
+    * EAI mit Apache Camel,
+    * speziell Camunda:
+          o Erstkontakt auf der W-JAX 2015, Herunterladen und Installation der
+            Software.
+          o Durcharbeiten des Buchs Real-Life BPMN
+          o Teilnahme an diversen Webinaren.
+          o Regelmäßige Teilnahme an den jährlichen Camunda Road Shows in
+            München.
+          o Durcharbeiten der meisten Beispiele, die von Camunda auf GitHub
+            bereitgestellt werden (letztmals Juni 2019).
+    * Oracle Datenbanken (8i bis 12c) inkl. Installation und PL/SQL.
+    * Betriebssysteme Solaris, Windows, Linux.
+    * Architektur von Enterprise-Anwendungen.
+    * Konfigurations- und Qualitäts-Management:
+    * Testgetriebene Entwicklung (TDD) mit JUnit, Integrations-Tests z.B. mit
+      Hudson/Jenkins.
+    * Build-Management mit Ant, Maven und Gradle.
+    * Versionierung mit CVS, Subversion, GIT.
+    * Bug-Tracking und Ticket-Verfolgung mit HPQC, JIRA.
+    * Atlassian Tools (Jira, Confluence, Fisheye, Crucible, Bitbucket).
+ 
+Beruflicher Werdegang:
+seit 07.2000
+Software-Entwickler, techn. Projektleiter, Trainer, Consultant
+ 
+Mehrere Jahre wissenschaftlicher Mitarbeiter
+Thema Anwendung von Computer Algebra in der Hochenergiephysik (siehe
+FeynArts, FeynCalc und verwandte Programme)
+ 
+Dienstleistungen:
+    * Entwicklung von Cloud-Architekturen mit AWS.
+    * Migration bestehender Systeme in die Amazon-Cloud
+    * Software-Entwicklung mit Java und Python unter Verwendung der AWS-SDKs.
+    * Software-Entwicklung, bevorzugt im Backend.
+    * Software-Architektur bzw. Begutachtung bestehender Architekturen.
+    * Technische Leitung, Team-Leitung.
+    * Erstellen von Spezifikationen (funktional und technisch) bei regelmäßigem
+      Kundenkontakt.
+    * Datenmigration und Software-Migration zur Überwindung von Altlasten.
+    * Erkennen und Minimierung technischer Schulden
+ 
+Sozialkompetenz, weitere Fähigkeiten
+    * Kommunikationsfähigkeit, (bedingte) Reisebereitschaft.
+    * Teamfähigkeit, Kollegialität, Sensibilität im Umgang mit Menschen.
+    * Bereitschaft, mich ständig mit neuen Technologien und heranwachsenden
+      Standards zu beschäftigen.
+
+Branchen:
+IT / Internet / EDV
+Automotive
+Versicherungen
+Telekommunikation
+
+Projekte:
+03/2018 - 10/2018: s.u. plus Kafka
+ 
+Kunde:              Cognizant Technology Solutions GmbH
+===============================================================================
+06/2017 - 02/2018: Entwicklung eines Backends
+ 
+Einsatzort:         München
+Rolle:              Software-Entwickler
+Kunde:              TNG Technology Consulting GmbH  für Telefónica o2
+ 
+Aufgaben:
+ 
+    * Entwicklung eines Backends, das u.a. von der Telefónica-Middleware (s.u.)
+      angesprochen wird.
+    * JavaEE 7, JavaSE 7, Weblogic 12.2,
+    * Build-Tools Ant und Gradle,
+    * CI mit Jenkins,
+    * Skripte mit Python, Apache-Webserver-Konfiguration mit mod_qos,
+    * Vagrant, Provisioning mit Salt,
+    * Docker und Kubernetes als Platform für ELK,
+    * Behavior Driven Development (BDD) mit JGiven,
+    * Libraries wie Google Guava und assertJ,
+    * Atlassian-Tools (Jira, Confluence, Fisheye, Crucible, HipChat),
+    * Vorgehen nach Scrum, z.T. englischsprachig,
+===============================================================================
+02/2016 - 12/2016: Fortsetzung der Entwicklung des vorhergegangenen Projekts
+ 
+Einsatzort:         München
+Kunde:              Cognizant Technology Solutions GmbH  für Telefónica o2
+ 
+Aufgaben:
+ 
+Tätigkeit s.u. plus:
+JavaEE 7, JavaSE 8, Weblogic 12.2, Migration von WebLogic 10.3 nach Weblogic
+12.2, Asynchrone Prozesse (Concurrency).
+===============================================================================
+08/2014 - 06/2015: Entwicklung einer Middleware (EAI), die Informationen
+zwischen verschiedenen Frontends (REST) und Backends (SOAP) verteilt.
+ 
+Einsatzort:         München
+Rolle:              Software-Entwickler und Berater
+Kunde:              Cognizant SetCon GmbH für Telefónica o2
+ 
+Aufgaben:
+ 
+    * Entwicklung einer Middleware, die Informationen zwischen verschiedenen
+      Frontends (REST) und Backends (SOAP) verteilt.
+    * WebLogic 10.3
+    * Oracle 11g Datenbank, Oracle Coherence (Cache), Oracle Advanced Queueing
+      (JMS)
+    * JBoss Drools (BRMS)
+    * JavaSE7, Spring 2.5, EclipseLink, JAXB, Mockito, PL/SQL, JAX-RS, JAX-WS,
+      SCRUM, Jira
+===============================================================================
+01/2013 - 01/2014: Aktienpläne, Accounting.
+ 
+Einsatzort:         München
+Rolle:              Software-Entwickler mit Teilverantwortung für Architektur-
+Fragen
+Kunde:              Siemens AG
+ 
+Aufgaben:
+ 
+    * JavaEE 6 Full Stack im JBoss EAP 6, insbesondere Hibernate 4, CDI und
+      EJB-WebServices. Oracle 11g Datenbank. SOA.
+    * Apache POI.
+    * Testgetriebene Entwicklung (TDD) mit Arquillian.
+    * Entwicklung an verteilten Standorten mit täglichen Telefon-Konferenzen,
+      allerdings ohne agile Prozesse.
+===============================================================================
+03/2012 - 10/2012: Mitarbeit bei der Entwicklung einer komplexen Anwendung im
+Automotive-Bereich
+ 
+Einsatzort:         Ismaning
+Rolle:              Software-Entwickler im Backend-Bereich einer komplexen
+Anwendung
+Kunde:              msg systems AG, Ismaning
+ 
+Aufgaben:
+ 
+    * Modellgetriebene Entwicklung mit EMF und Xtext.
+    * Plattform IBM Websphere und IBM DB2.
+    * Agiles Vorgehen nach SCRUM.
+    * Product Owner in einem SCRUM-Team mit Mitgliedern aus Deutschland und
+      Rumänien (Off Shore).
+    * Bewertung von Spezifikationen, Kostenschätzung von Change Requests,
+      regelmäßiger Kontakt zum Endkunden (inkl. Reisen).
+===============================================================================
+10/2011 - 01/2012: Datenmigration zwecks Einführung einer neuen Software
+ 
+Einsatzort:         München
+Rolle:              Mitwirkung bei einem komplexen Migrationsvorhaben
+Kunde:              Swiss Life, München
+ 
+Aufgaben:
+ 
+    * Oracle SQL und PL/SQL auf großen Datenbeständen (>100 Mio. Zeilen pro
+      Tabelle).
+    * Java-Entwicklung gegen einen ESB, SOAP-WebServices mit Apache CXF.
+    * Sparx Systems Enterprise Architect, SoapUI.
+    * Analyse von COBOL-Code zur Re-Implementierung in Java.
+      Basisanwendung von Grails.
+===============================================================================
+03/2011 - 06/2011: Entwurf und Implementierung einer Web-Anwendung für die
+Allianz AG
+ 
+Kunde:              metafinanz GmbH München
+ 
+Aufgaben:
+ 
+    * Entwurf und Implementierung einer Web-Anwendung für die Allianz AG, unter
+      Tomcat 6 mit Oracle 11g, Spring 3, Spring Security 3, JPA 2 (Hibernate
+      3.6) und JSF mit RichFaces 3.3
+===============================================================================
+07/2010 - 10/2010: Entwurf und Implementierung
+ 
+Kunde:              Minova GmbH Würzburg
+ 
+Aufgaben:
+ 
+    * Entwurf und Implementierung einer Java-Enterprise-Applikation mit JBoss
+      5.1 und MySQL 5.1 unter Ubuntu-Linux (EJB 3, JSF 1.2, JbossWS).
+===============================================================================
+07/2000 - 02/2009: Bereich Enterprise Content Management
+ 
+Einsatzort:         Rimpar bei Würzburg.
+Rolle:              Technischer Projektleiter und Teamleiter
+Kunde:              empolis GmbH
+ 
+Aufgaben:
+ 
+    * Bereich Enterprise Content Management.
+    * Viele Kunden im In- und Ausland, Workshops auf deutsch und englisch,
+      teilweise auch beim Kunden vor Ort.
+===============================================================================
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_102950
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 02.08.2020 00:49:23
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

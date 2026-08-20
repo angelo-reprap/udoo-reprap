@@ -1,0 +1,517 @@
+Softwareentwicklung Python, Backend, Software Craftsmanship,
+Continuous Integration, Data Analysis
+Top-Skills: Python, Testdriven Development, Linux,
+C++, Continuous Integration, R, Maven,
+Jenkins, Scrum, Oracle, SQL, CORBA,
+Parquet, Java, Microsoft-SQL-Server
+Verfügbar ab: 19.12.2022
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 90,00 EUR
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Schweiz, Einsatzort unbestimmt
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Position
+Kommentar: Software-Entwickler
+Projekte
+2021-10 - 2022-12 Configuration Mangement Service
+1 Jahr 3 Monate
+Rolle: Software-Enwtickler
+Kunde: Frequentis Comsoft
+Einsatzort: Remote
+Projektinhalte: Im Rahmen eines Rollout Systems für sicherheitskritische Informations-
+und Kommunikationssysteme wurde folgende Aufgaben umgesetzt:
+- Erweiterung der administrative Webapplikation um eine verteilte
+Benutzerverwaltung inklusive rollenbasierender Zugriffskontrolle
+16.02.2023 1 von 16
+- Erweiterung des verteiltes Konfigurationsmanagements
+- Erweiterung des verteiltes Systemmanagements
+- Pflege und Erweiterung der Continuous Integration
+- Implementierung eines Automatic Switchover für standortübergreifende
+Redundanz
+Kenntnisse: Python, Ansible, Flask, SQLAlchemy, Git, TDD, RHEL8, RHEL7, Jenkins
+Eingesetzte Produkte: PyCharm, Red Hat Enterprise Linux
+2020-03 - 2021-04 FINDIG
+1 Jahr 2 Monate
+Rolle: Software Engineer
+Kunde: 1&amp;1 Telecommunication SE
+Einsatzort: Remote
+Projektinhalte: Implementierung eines zweistufigen Caches zur Performance-Optimierung
+(Python, Pandas, Parquet, pyarrow).
+Implementierung der Konvertierung von MSSQL Datenbanktabellen nach
+Parquet Dateien (Python, MSSQL, Pandas, Parquet, pyarrow).
+Implementierung der Schnittstelle zum Data-Cube für die
+Deckungsbeitragsrechnung.
+Implementierung einer Snapshot basierenden Datenabfrage (Python,
+Parquet, pyarrow).
+Implementierung eines prototypischen Web-Service (Python, Flask,
+PostreSQL, SQLAlchemy, Docker).
+Parallelisieren von Programm-Teilen (Python, Dask, Pandas).
+Vorbereiten der Migration der legacy Continuous-Integration Strecke um
+sie bereit für Kubernetes zu machen (Jenkins, Docker, Kubernetes).
+Implementierung einer Ablaufsteuerung (Automic).
+Unterstützung von Maßnahmen zur Verbesserung der Code-Qualität (Code-
+Reviews, pylint).
+Vermittlung von Wissen zu Test Driven Development, Unit Testing,
+Software Pattern, Object-Relation Mapping.
+Kenntnisse: Python, Parquet, Jenkins, Dask, Pandas, REST, Scrum, Continuous
+Integration, Continuous Deployment
+Eingesetzte Produkte: PyCharm, Microsoft-SQL-Server, Kerberos, Docker, Automic
+2019-10 - 2019-12 ASHRAE - Great Energy Predictor III
+3 Monate
+Rolle: Data Scientist
+Einsatzort: Konstanz
+16.02.2023 2 von 16
+Projektinhalte: Develop accurate models of metered building energy usage in the following
+areas: chilled water, electric, hot water, and steam meters. The data
+comes from over 1,000 buildings over a three-year timeframe. With better
+estimates of these energy-saving investments, large scale investors and
+financial institutions will be more inclined to invest in this area to enable
+progress in building efficiencies.
+Kenntnisse: R, Python, Git, GitHub
+Eingesetzte Produkte: RStudio
+2019-05 - 2019-05 Konstanz Hackaton 2019
+1 Monat
+Rolle: Data Scientist
+Einsatzort: Konstanz
+Projektinhalte: Im Rahmen des HACK AND HARVEST Hackathon in Konstanz 2019
+untersuchte ich die Korrelation von Bevölkerungsstruktur und Nutzung der
+Fahrrad-Mietsysteme in Konstanz. Die Datenbasis bildete das Open Data
+Angebot Offene Daten Konstanz. Die Pitch Präsentation ist gibt es
+hier: https://r42sys.github.io/hackandharvest-2019.html
+Kenntnisse: R, GIS, Open Data
+Eingesetzte Produkte: RStudio
+2019-02 - 2019-04 Santander Customer Transaction Prediction
+3 Monate
+Rolle: Data Scientist
+Kunde: Santander
+Projektinhalte: Data science competition hosted by Kaggle.
+Result: Top 11%
+Kenntnisse: Python, Feature Engineering, Explorative Datenanalyse, R, Atom
+2018-07 - 2018-10 Roboter Echtzeitsteuerung
+4 Monate
+Rolle: Software-Entwickler
+Projektinhalte: Analyse, Design und Implementierung einer Softwarekomponente zur
+Echtzeitsteuerung eines Roboters via serieller Schnittstelle.
+Kenntnisse: Java, C, Linux, RS232, Eclipse, Git
+Eingesetzte Produkte: Atlassian Confluence, Atlassian JIRA
+16.02.2023 3 von 16
+2013-04 - 2018-06 Elternzeit
+5 Jahre 3 Monate
+2011-11 - 2013-03 Neue Preisdatenbank für historische Börsenkurse
+1 Jahr 5 Monate
+Rolle: Entwickler
+Kunde: SIX Financial Information
+Einsatzort: Zürich
+Projektinhalte: Design und Implementation eines Query Servers basierend auf dem Low-
+Latency-Messaging Produkt (Ultra Messaging Streaming) von Informatica
+und der Financial-Tick-Datenbank OneTick von OneMarket- Data im
+Rahmen des Projektes MAGELLAN „Prices and Related Figures".
+Kenntnisse: C++, Unix, 29West Low-Latency Messaging, OneTick CEP, Continuous
+Integration, Scrum, Test-driven Development, Boost, Emacs, CMake,
+Apache Subversion
+Eingesetzte Produkte: HP Application Lifecycle Management
+2010-04 - 2011-10 Applikation historische Börsenkurse
+1 Jahr 7 Monate
+Rolle: Architekt und Entwickler
+Kunde: SIX Financial Information
+Einsatzort: Zürich
+Projektinhalte:     •  Design und Implementation einer Importkomponente zu Yield Curve
+      Daten
+    •  Architekturverantwortung für HIKU (Historische Kurse) Quality
+      Projekte
+    •  Durchführen von Workshops Im Rahmen der Anforderungsanalyse
+und
+      Erstellen des "Data Quality Concept"
+    •  Evaluation GUI Technologie (Smart GWT)
+    •  Design und Implementation HIKU Workbench
+    •  Design und Implementation Quality KPI Framework
+    •  Verschiedene Wartungsarbeiten Performance Tuning C++
+      Komponenten
+Kenntnisse: GWT, JEE, Oracle, Unix, Continuous Integration, Scrum, Test-Driven
+Development, LDAP, Liquibase, Eclipse, Apache Subversion
+Eingesetzte Produkte: Apache Subversion, Nagios, Balsamiq
+2009-07 - 2010-03 Web-Applikation für die Terminverwaltung von
+9 Monate Kundenberatern mit Kunden
+16.02.2023 4 von 16
+Rolle: Entwickler
+Kunde: UBS AG
+Einsatzort: Zürich
+Projektinhalte:     •  Architektur und Entwicklung einer Web-Applikation mit der
+      Kundentermine innerhalb einer Filiale verwaltet werden können.
+    •  Migration einer Legacy Applikation
+Kenntnisse: AJAX, JEE, IBM Websphere Application Server, Oracle, Struts, Eclipse
+Eingesetzte Produkte: Apache Subversion
+2008-11 - 2009-06 Technologiestudie einer internationalen Workbench für
+8 Monate Kundenberater
+Rolle: Projektleiter und Entwickler
+Kunde: UBS AG
+Einsatzort: Zürich
+Projektinhalte: In einer Studie wurde die Machbarkeit einer Arbeitsumgebung für
+Bankmitarbeiter im internationalen Umfeld untersucht. Einzelne
+Komponenten wurden an verschiedenen weltweit verteilten Standorten
+installiert und zu einer Web-Applikation zusammengefügt. Unterschiedliche
+technische, sicherheitstechnische und rechtliche Fragestellungen waren
+Teil der Studie.
+Kenntnisse: AJAX, JEE, IBM Websphere Application Server, Eclipse
+Eingesetzte Produkte: Apache Subversion
+2007-07 - 2008-10 Komponenten für Arbeitsumgebungen für
+1 Jahr 4 Monate Kundenberater im Bereich Corporate/Private Banking
+Rolle: Entwickler
+Kunde: UBS AG
+Einsatzort: Zürich
+Projektinhalte:     •  Entwicklung von Software-Komponenten für eine Workbench für
+      Kundenberater im Bereich Corporate/Private.
+    •  Ausführung von analytischen Tätigkeiten sowie
+      Software-Entwicklung.
+    •  Umsetzung von fachlichen und betrieblichen Anforderungen.
+    •  Entwicklung von Lösungen für standardisierte Development-Tools
+      und -Techniken sowie Erstellung der entsprechenden
+      Dokumentationen.
+    •  Festlegung von funktionalen und qualitativen
+      Systemanforderungen sowie Schätzung der Aufwände für
+      Implementation und Unterhalt.
+    •  Bedürfnisanalyse von Kunden sowie Erarbeitung von Lösungen für
+16.02.2023 5 von 16
+      nicht standardisierte Produkte.
+ 
+Kenntnisse: JEE, IBM Websphere Portal Server, Eclipse, Apache Subversion, EJB
+Eingesetzte Produkte: HP Application Lifecycle Management
+2006-05 - 2007-06 Web-Applikation, Schlagwortsuche für
+1 Jahr 2 Monate Firmenmitarbeiter
+Rolle: Technischer Projektleiter und Entwickler
+Kunde: UBS AG
+Einsatzort: Zürich
+Projektinhalte:     •  Ausführung von analytischen Tätigkeiten sowie
+      Software-Entwicklung.
+    •  Umsetzung von fachlichen und betrieblichen Anforderungen.
+    •  Entwicklung von Lösungen für standardisierte Development-Tools
+      und -Techniken sowie Erstellung der entsprechenden
+      Dokumentationen.
+    •  Festlegung von funktionalen und qualitativen
+      Systemanforderungen sowie Schätzung der Aufwände für
+      Implementation und Unterhalt.
+    •  Bedürfnisanalyse von Kunden sowie Erarbeitung von Lösungen für
+      nicht standardisierte Produkte.
+Kenntnisse: JEE, IBM Websphere Application Server, Oracle, Unix, Struts, Eclipse,
+Apache Tomcat, Subversion
+2004-11 - 2006-04 Web-Applikation für die Durchführung von Marketing-
+1 Jahr 6 Monate Kampagnen
+Rolle: Technischer Projektleiter und Entwickler
+Kunde: UBS AG
+Einsatzort: Zürich
+Projektinhalte:     •  Erfassen von Outbound-Kampagnen
+    •  Telefonie-Integration in die Applikation
+    •  Erfassen von Kunden-Feedback evtl. Wiedervorlage für späteren
+      Kontaktversuch
+    •  Ausführung von analytischen Tätigkeiten sowie
+      Software-Entwicklung.
+    •  Umsetzung von fachlichen und betrieblichen Anforderungen.
+    •  Entwicklung von Lösungen für standardisierte Development-Tools
+      und -Techniken sowie Erstellung der entsprechenden
+      Dokumentationen.
+    •  Festlegung von funktionalen und qualitativen
+      Systemanforderungen sowie Schätzung der Aufwände für
+      Implementation und Unterhalt.
+    •  Bedürfnisanalyse von Kunden sowie Erarbeitung von Lösungen für
+      nicht standardisierte Produkte.
+16.02.2023 6 von 16
+Kenntnisse: JEE, IBM Websphere Application Server, Computer Telephony Integration
+(CTI), Oracle, Unix, Eclipse, Apache Tomcat, Apache Subversion
+2003-09 - 2004-10 Web-Applikation für das Management von Problemen
+1 Jahr 2 Monate von Bankkunden
+Rolle: Technischer Projektleiter und Entwickler
+Kunde: UBS AG
+Einsatzort: Zürich
+Projektinhalte:     •  Erfassen von Tickets auf Basis von Kundenbeschwerden durch
+      unterschiedliche Kanäle (zB Email, Telefon, Fax)
+    •  Sicherstellen der Einhaltung unterschiedlicher Ticket-SLAs
+    •  Ausführung von analytischen Tätigkeiten sowie
+      Software-Entwicklung.
+    •  Umsetzung von fachlichen und betrieblichen Anforderungen.
+    •  Entwicklung von Lösungen für standardisierte Development-Tools
+      und -Techniken sowie Erstellung der entsprechenden
+      Dokumentationen.
+    •  Festlegung von funktionalen und qualitativen
+      Systemanforderungen sowie Schätzung der Aufwände für
+      Implementation und Unterhalt.
+    •  Bedürfnisanalyse von Kunden sowie Erarbeitung von Lösungen für
+      nicht standardisierte Produkte.
+Kenntnisse: JEE, IBM Websphere Application Server, Oracle, Unix, Eclipse, Apache
+Tomcat
+2003-03 - 2003-08 Zentraler Authentisierung-Service für das E-Banking
+6 Monate
+Rolle: Entwickler
+Kunde: UBS AG
+Einsatzort: Zürich
+Projektinhalte: Entwicklung eines CORBA Service, der eine Kunden-Authentisierung
+auf Challenge/Response Basis sicherstellt.
+Kenntnisse: C++, CORBA, Unix, Emacs, Apache Subversion, GNU Autotools
+2002-01 - 2003-02 Chip Card Management System (Ablösung Streichliste)
+1 Jahr 2 Monate
+Rolle: Entwickler
+Kunde: UBS AG
+Einsatzort: Zürich
+Projektinhalte:     •  Entgegennahme von Daten vom Host, Verschlüsselung und sichere
+16.02.2023 7 von 16
+      Übertragung zum externen Dienstleister.
+    •  Softwaredesign und Implementierung in C++,
+Corba, XML und Perl
+    •  Technische Kommunikation mit einer externen Firma
+Kenntnisse: C++, 3DES, CORBA, Oracle, Perl, XML, Unix, Emacs, Apache Subversion
+1999-09 - 2001-12 Wartungsarbeiten Geldautomatenmanagement
+2 Jahre 4 Monate
+Rolle: Software-Entwickler
+Projektinhalte: Verteilung von Softwareupdates für Geldautomaten. Kleinere Features /
+Bug-Fixes.
+Kenntnisse: C++, CORBA, Oracle/SQL, Perl, Sun Solaris
+Eingesetzte Produkte: Oracle
+1998-10 - 1999-08 Alarmierung im Rahmen des
+11 Monate Geldautomatenmanagements
+Rolle: Teilprojektleitung und Entwickler
+Kunde: UBS AG
+Einsatzort: Zürich
+Projektinhalte:     •  Gesamtarchitekturverantwortung 'Automatenmanagement Services'
+    •  Teilprojektleitung 'ACS - Alarm Controlling System'
+    •  Alarmierung des zuständigen Betreuer via Pager im Fall
+      eines Problems im operativen Bereich eines Geldautomaten 
+    •  Eine Übersicht bzw Statistik zeigt aktuelle bzw prinzipielle
+      Probleme
+Kenntnisse: C++, CORBA, Oracle, Perl, Unix, Apache Subversion, Emacs
+1997-03 - 1998-09 Geldautomatenmanagment-Applikation
+1 Jahr 7 Monate
+Rolle: Entwickler
+Kunde: UBS AG
+Einsatzort: Zürich
+Projektinhalte:     •  Gesamtarchitekturverantwortung 'Automatenmanagement Services'
+    •  Ablösung von Papier-Logs
+    •  Stattdessen speichern der Automaten-Logs in einer Oracle
+      Datenbank
+    •  Web-Applikation für Kundenberater zur Abklärung von
+      Kunden-Reklamationen im Zusammenhang mit Automatenbezügen.
+Kenntnisse: C++, CORBA, Oracle, Perl, Unix, Sun Solaris, Emacs, Apache Subversion
+16.02.2023 8 von 16
+1996-04 - 1996-07 Graubildbinarisierung
+4 Monate
+Rolle: Entwickler
+Kunde: ICR GmbH
+Einsatzort: Überlingen
+Projektinhalte: Bildverarbeitung von sehr schlecht lesbaren Arztrezepten als Vorbereitung
+für die OCR.
+Kenntnisse: C
+1995-08 - 1995-12 Kontrastbestimmung und Ermittlung des
+5 Monate Fragmentierungsgrades von Freistempeln der britischen
+Post
+Rolle: Enrtwickler
+Kunde: AEG Electrocom GmbH
+Einsatzort: Konstanz
+Kenntnisse: C, Sun Solaris
+1994-02 - 1995-07 Kästchenerkennung
+1 Jahr 6 Monate
+Rolle: Entwickler
+Kunde: AEG Electrocom GmbH
+Einsatzort: Konstanz
+Projektinhalte: Migration eines Algorithmus von OCCAM nach C zur
+Hochgeschwindgkeitserkennung von Kästchen auf chinesischen Briefen
+Kenntnisse: Occam, C
+Eingesetzte Produkte: CVS, Sun Solaris
+1993-12 - 1994-01 Portierung von Legacy Software
+2 Monate
+Rolle: Entwickler
+Kunde: AEG Electrocom GmbH
+Einsatzort: Konstanz
+Projektinhalte: Portierung von Software von Sun Solaris auf DEC/Ultrix
+16.02.2023 9 von 16
+Kenntnisse: C, DEC/Ultrix, Emacs
+Eingesetzte Produkte: Sun Solaris, CVS
+1992-03 - 1993-08 Farbbildbinarisierung
+1 Jahr 6 Monate
+Rolle: Entwickler
+Kunde: AEG Electrocom GmbH
+Einsatzort: Konstanz
+Projektinhalte: Studie zur Farbbildbinarisierung von farblich aufwändig gestalteten
+Briefumschlägen zur Erkennung des Adressblocks.
+Kenntnisse: C, Unix, Emacs, CVS
+Eingesetzte Produkte: Solaris
+Branchen
+    •  Bank
+    •  Finanzdienstleister
+    •  Telekomunikkation
+    •  Flugsicherung
+Sprachen
+Deutsch Muttersprache
+Englisch Gute mündliche und schriftliche Kenntnisse
+Französisch Grundkenntnisse
+Kompetenzen
+Schwerpunkte Explorative Data Analysis gut
+Feature Engineering gut
+Aufgabenbereiche Technische Projektleitung
+Produkte / Standards / 29West Low-Latency gut
+Erfahrungen / Methoden Messaging
+16.02.2023 10 von 16
+3DES gut
+Apache Subversion gut
+Apache Tomcat gut
+Atlassian Confluence
+Atlassian JIRA
+Atom gut
+Automic
+Bildverarbeitung ok
+Boost ok
+CMake gut
+Computer Telefonie gut
+Integration
+Computer Telephony gut
+Integration (CTI)
+Continuous Deployment
+Continuous Integration sehr gut
+CVS
+Docker
+Eclipse gut
+EJB
+Emacs gut
+GCC sehr gut
+GDB gut
+GIS
+Git gut
+GitHub
+GNU Autotools gut
+GNU Compiler sehr gut
+GWT ok
+Hibernate gut
+HP Application Lifecycle
+Management
+16.02.2023 11 von 16
+HP Quality Center gut
+IBM Websphere ok
+Application Server
+IBM Websphere Portal ok
+Server
+Jenkins sehr gut
+JIRA gut
+Kerberos
+LDAP sehr gut
+Liquibase sehr gut
+Maven gut
+Nagios
+Nexus gut
+OneTick CEP gut
+Open Data
+OpenSSL gut
+Parquet
+PyCharm
+RCS gut
+REST
+RPM gut
+RStudio gut
+Scrum sehr gut
+SonarQube gut
+Struts gut
+Subversion sehr gut
+System V Packaging gut
+Test Driven Development gut
+Test-Driven Developmentgut
+UML gut
+Valgrind gut
+16.02.2023 12 von 16
+WebSphere ok
+Xcode sehr gut
+XML gut
+Zero Message Queue gut
+Beförderung
+07/1999
+Beförderung zum Prokurist
+Betriebssysteme C64 ok
+DEC/Ultrix sehr gut
+Linux gut
+MacOS sehr gut
+Microsoft Windows ok
+Solaris
+Sun Solaris sehr gut
+Unix sehr gut
+VAX/VMS ok
+Programmiersprachen Ada ok
+Ajax ok
+Assembler ok
+C sehr gut
+C++ gut
+CORBA IDL sehr gut
+Dask gut
+Embedded SQL sehr gut
+Java sehr gut
+JEE sehr gut
+Modula-2 gut
+Oberon ok
+Objective-C sehr gut
+Occam ok
+Oracle SQL gut
+16.02.2023 13 von 16
+Pandas gut
+Pascal gut
+Perl gut
+Python gut
+R sehr gut
+Datenbanken Ingres ok
+Microsoft-SQL-Server
+MySQL gut
+OneTick gut
+Oracle gut
+Postgres ok
+Datenkommunikation Corba gut
+REST gut
+RS232 gut
+TCI/IP gut
+Berechnung / Explorative Datenanalyse
+Simulation / Versuch /
+Validierung
+Design / Entwicklung / Balsamiq
+Konstruktion
+Aus- und Weiterbildung
+2018-04 - heute Mathematik
+4 Jahre 10 Monate
+Abschluss: B.Sc.
+Institution: FernUniversität Hagen
+16.02.2023 14 von 16
+2022-10 - 2022-11 AWS Cloud Technical Essentials
+2 Monate
+Institution: Coursera
+    •  Describe terminology and concepts related to AWS services   
+    •  Articulate key concepts of AWS security measures and AWS
+Identity and Access Management (IAM)    
+    •  You will learn to distinguish among several AWS compute
+services, including Amazon EC2, AWS Lambda, and Amazon ECS.
+    •  Understand AWS database and storage offerings, including
+Amazon Relational Database Service (Amazon RDS), Amazon
+DynamoDB, and Amazon S3.      
+2019-03 - 2019-03 AWSome Day 2019 Online Conference
+1 Monat
+Abschluss: Certificate of Attendance
+Institution: AWS, online
+Module 1: AWS Cloud Concepts
+Module 2: AWS Core Services
+Module 3:  AWS Security
+Module 4: AWS Architecting
+Module 5: AWS Pricing and Support
+2009-10 - 2009-10 Certified Scrum Master
+1 Monat
+Abschluss: Certified Scrum Master
+Institution: DIGICOMP, Zürich
+1985-10 - 1993-01 Chemie
+7 Jahre 4 Monate
+Abschluss: Diplom-Chemiker
+Institution: Universität Konstanz
+Thema der Diplomarbeit:
+Zur Konformation von Polymethinen in Lösung.
+Computerunterstützte Konformationsanalyse.
+09/1970 - 05/1984
+Gymnasium Rheinfelden/Baden
+02/1993 - 01/1997
+16.02.2023 15 von 16
+Promotion am Lehrstuhl Prof. Dr. Daltrozzo, Universität Konstanz. Abgebrochen - Stelle als
+Software-Entwickler bei der UBS AG angetreten.
+16.02.2023 16 von 16
+
+############################################
