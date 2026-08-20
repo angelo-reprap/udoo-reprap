@@ -79,12 +79,16 @@ EXECUTE = os.environ.get("EXECUTE", "0") in ("1", "true", "TRUE", "yes")
 MIN_LEN = int(os.environ.get("MIN_LEN") or "200")
 VERSION_TAG = os.environ.get("VERSION_TAG") or "1.0.0.0"
 
-# Keywords aus Repo laden (ohne Django-App-Import-Kette)
+# Keywords + Cleaner aus Repo laden (ohne Django-App-Import-Kette)
 import importlib.util
 kw_path = REPO / "Repo_abpe/cv_extractor/incoming/services/section_label_keywords.py"
 spec = importlib.util.spec_from_file_location("section_label_keywords", kw_path)
 kw = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(kw)
+clean_path = REPO / "Repo_abpe/cv_extractor/incoming/services/gulp_profile_clean.py"
+cspec = importlib.util.spec_from_file_location("gulp_profile_clean", clean_path)
+gclean = importlib.util.module_from_spec(cspec)
+cspec.loader.exec_module(gclean)
 
 CrmContactCstm = apps.get_model("abpe_crm", "CrmContactCstm")
 
@@ -271,14 +275,16 @@ if TXT_DIR and Path(TXT_DIR).is_dir():
         stem = fp.stem
         parts = stem.rsplit("_", 1)
         if len(parts) == 2:
-            last, first = parts[0], parts[1]
+            last_raw, first_raw = parts[0], parts[1]
         else:
-            last, first = stem, ""
+            last_raw, first_raw = stem, ""
+        last = last_raw.replace("_", " ").title()
+        first = first_raw.replace("_", " ").title()
         jobs.append(
             {
                 "contact_id": "",
                 "gulp_id": "",
-                "last": last.replace("_", " ").title() if "_" in last else last,
+                "last": last,
                 "first": first,
                 "fs_letter": "",
                 "fs_dir": stem,
@@ -375,18 +381,33 @@ for j in jobs:
         print(f"DRY {letter}/{dname}/{pdf_name} chars={len(text)} {note}")
         continue
 
-    sections = split_sections(text)
-    html_doc = to_html(first, last, j.get("gulp_id") or "", sections)
+    profile = gclean.clean_gulp_profile(
+        text, first=first, last=last, version=VERSION_TAG, max_activities=8
+    )
+    if profile.get("gulp_id") and not j.get("gulp_id"):
+        j["gulp_id"] = profile["gulp_id"]
+    aid = profile.get("aid_name") or f"AID-{ini}_{VERSION_TAG}"
+    ini = aid.split("_", 1)[0].replace("AID-", "") if aid.startswith("AID-") else ini
+    pdf_name = f"AID-{ini}_{VERSION_TAG}-gulp.pdf"
+    target = person_dir / pdf_name
+    html_doc = gclean.profile_to_html(
+        profile, display_title=f"{last}, {first}".strip(", ") or aid
+    )
+    plain = gclean.profile_to_plain(profile)
     web = ""
     with tempfile.TemporaryDirectory(prefix="gulp2aid_") as td:
         td_path = Path(td)
         html_stem = f"AID-{ini}_{VERSION_TAG}-gulp"
-        # unique-ish preview name when dumping into aaaMuster
         if OUT_DIR:
             html_stem = f"AID-{ini}_{VERSION_TAG}-gulp-{dname}"[:120]
             pdf_name = f"{html_stem}.pdf"
         html_path = td_path / f"{html_stem}.html"
         html_path.write_text(html_doc, encoding="utf-8")
+        (td_path / f"{html_stem}.txt").write_text(plain, encoding="utf-8")
+        (td_path / f"{html_stem}.experience.json").write_text(
+            json.dumps(profile.get("experience") or [], indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
         pdf = libreoffice_html_to_pdf(html_path, td_path)
         if not pdf:
             fail += 1
@@ -398,7 +419,6 @@ for j in jobs:
             shutil.copy2(pdf, target)
             written.append(str(target))
         elif not SKIP_PERSON_DIR and OUT_DIR:
-            # both: person dir + preview dir
             person_dir.mkdir(parents=True, exist_ok=True)
             person_pdf = person_dir / f"AID-{ini}_{VERSION_TAG}-gulp.pdf"
             shutil.copy2(pdf, person_pdf)
@@ -409,6 +429,11 @@ for j in jobs:
             dest = odir / pdf_name
             shutil.copy2(pdf, dest)
             shutil.copy2(html_path, odir / f"{html_stem}.html")
+            shutil.copy2(td_path / f"{html_stem}.txt", odir / f"{html_stem}.txt")
+            shutil.copy2(
+                td_path / f"{html_stem}.experience.json",
+                odir / f"{html_stem}.experience.json",
+            )
             written.append(str(dest))
             web = str(dest)
         if WEB_COPY:
@@ -420,8 +445,10 @@ for j in jobs:
         if OUT_DIR and not WEB_COPY:
             web_urls.append(web)
     ok += 1
+    nsec = len(profile.get("sections") or [])
+    nexp = len(profile.get("experience") or [])
     rows.append(f"OK\t{cid}\t{letter}\t{dname}\t{pdf_name}\t{len(text)}\t{note}\t{web}")
-    print(f"OK {dname} chars={len(text)} sections={len(sections)}")
+    print(f"OK {dname} chars={len(text)} sections={nsec} experience={nexp} aid={aid}")
     for w in written:
         print(f"  → {w}")
     if web and WEB_COPY:

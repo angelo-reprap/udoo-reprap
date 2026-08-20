@@ -8,7 +8,7 @@ DEST="${DEST:-/mnt/public/Berater/AID_profile/aaaMuster}"
 SRC="$REPO/artifacts/gulp-keyword/preview-aaaMuster"
 mkdir -p "$DEST"
 shopt -s nullglob
-files=("$SRC"/AID-*-gulp-*.pdf "$SRC"/AID-*-gulp-*.html)
+files=("$SRC"/AID-*-gulp-*.pdf "$SRC"/AID-*-gulp-*.html "$SRC"/AID-*-gulp-*.txt "$SRC"/AID-*-gulp-*.experience.json)
 if ((${#files[@]} == 0)); then
   echo "FAIL: keine Preview-Dateien unter $SRC" >&2
   exit 1
