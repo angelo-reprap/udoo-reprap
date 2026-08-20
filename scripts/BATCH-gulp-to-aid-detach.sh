@@ -48,12 +48,16 @@ fi
 
 ln -sfn "$STAMP_LOG" "$LOG"
 # Args/Env durchreichen (LIMIT=10 etc. bereits in Umgebung)
-nohup env LIMIT="${LIMIT:-10}" EXECUTE="${EXECUTE:-1}" \
-  MEM_THRESH="${MEM_THRESH:-88}" CPU_THRESH="${CPU_THRESH:-88}" \
-  SWAP_THRESH="${SWAP_THRESH:-95}" SWAP_MEM_COMBO="${SWAP_MEM_COMBO:-75}" \
-  MIN_AVAIL_MB="${MIN_AVAIL_MB:-1536}" \
-  THROTTLE_SLEEP="${THROTTLE_SLEEP:-30}" RUN_INVENTORY="${RUN_INVENTORY:-0}" \
-  NEED="${NEED:-}" \
+# Overnight-Defaults etwas konservativer als interaktiv (RAM/Swap-Schutz)
+nohup env \
+  LIMIT="${LIMIT:-10}" EXECUTE="${EXECUTE:-1}" \
+  MEM_THRESH="${MEM_THRESH:-82}" CPU_THRESH="${CPU_THRESH:-85}" \
+  SWAP_THRESH="${SWAP_THRESH:-90}" SWAP_MEM_COMBO="${SWAP_MEM_COMBO:-70}" \
+  MIN_AVAIL_MB="${MIN_AVAIL_MB:-2048}" \
+  THROTTLE_SLEEP="${THROTTLE_SLEEP:-45}" PAUSE_BETWEEN="${PAUSE_BETWEEN:-5}" \
+  RUN_INVENTORY="${RUN_INVENTORY:-0}" NEED="${NEED:-}" \
+  VERSION_TAG="${VERSION_TAG:-1.0.0.0}" \
+  SKIP_EXISTING_NEU="${SKIP_EXISTING_NEU:-1}" \
   bash "$SCRIPT" >>"$STAMP_LOG" 2>&1 &
 echo $! >"$PIDFILE"
 disown || true
@@ -62,6 +66,7 @@ echo "Detached gestartet."
 echo "  pid:  $(cat "$PIDFILE")"
 echo "  log:  $STAMP_LOG"
 echo "  link: $LOG"
+echo "  throttle: MEM≥${MEM_THRESH:-82}% CPU≥${CPU_THRESH:-85}% SWAP≥${SWAP_THRESH:-90}%(+RAM≥${SWAP_MEM_COMBO:-70}%) avail<${MIN_AVAIL_MB:-2048}MB → sleep ${THROTTLE_SLEEP:-45}s"
 echo
 echo "Status: bash $REPO/scripts/BATCH-gulp-to-aid-detach.sh --status"
 echo "Follow: tail -f $LOG"
