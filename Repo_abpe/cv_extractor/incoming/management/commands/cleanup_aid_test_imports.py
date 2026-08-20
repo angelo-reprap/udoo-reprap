@@ -118,6 +118,7 @@ class Command(BaseCommand):
         dirs = sorted(set(d.strip() for d in dirs if d and d.strip()))
 
         since = self._parse_since(opts['since'])
+        before = self._parse_since(opts['before'])
         aid_import_only = not opts['any_source']
         do_delete = bool(opts['yes']) and not opts['dry_run']
         # ohne --yes immer dry-run
@@ -128,11 +129,12 @@ class Command(BaseCommand):
         self.stdout.write(f'Modus:     {"DELETE" if do_delete else "DRY-RUN"}')
         self.stdout.write(f'Dirs:      {dirs or "(keine — nur since/aid_import)"}')
         self.stdout.write(f'Since:     {since or "(kein)"}')
+        self.stdout.write(f'Before:    {before or "(kein)"}')
         self.stdout.write(f'aid_import_only: {aid_import_only}')
         self.stdout.write(f'neu/cv:    {opts["neu_cv"]}')
         self.stdout.write(f'uploads:   {opts["uploads"]}')
 
-        if not dirs and not since and aid_import_only:
+        if not dirs and not since and not before and aid_import_only:
             # Inventar: alle aid_import Uploads zeigen
             ups = UploadedPDF.objects.filter(action_type='aid_import').order_by('-created_at')
             self.stdout.write(f'\nUploadedPDF aid_import: {ups.count()}')
@@ -176,6 +178,8 @@ class Command(BaseCommand):
             )
         if since:
             uq = uq.filter(created_at__gte=since)
+        if before:
+            uq = uq.filter(created_at__lt=before)
 
         upload_dirs = set()
         upload_aids = set()
@@ -192,10 +196,15 @@ class Command(BaseCommand):
         if dirs or upload_dirs:
             want = set(dirs) | upload_dirs
             cq = cq.filter(consultant_dir__in=want)
-        elif since:
-            cq = cq.filter(created_at__gte=since)
+        elif since or before:
+            cq = Consultant.objects.all()
         else:
             cq = cq.none()
+
+        if since:
+            cq = cq.filter(created_at__gte=since)
+        if before:
+            cq = cq.filter(created_at__lt=before)
 
         if aid_import_only and not dirs:
             # ohne explizite Dirs: nur Consultants die zu aid_import Uploads gehören
