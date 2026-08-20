@@ -26,25 +26,12 @@ cd "$BACKEND"
 export AID_PROFILE_ROOT="$ROOT"
 export INVENTORY_OUT="$OUT"
 export MIN_PROFIL_LEN
+export DJANGO_SETTINGS_MODULE="${DJANGO_SETTINGS_MODULE:-abpe_backend.settings}"
 
-python3 <<'PY'
+python3 manage.py shell <<'PY'
 import os, re, json, sys
 from pathlib import Path
 from collections import defaultdict
-
-import django
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
-# fallbacks common on this stack
-for mod in ("config.settings", "abpe.settings", "settings"):
-    os.environ["DJANGO_SETTINGS_MODULE"] = mod
-    try:
-        django.setup()
-        break
-    except Exception:
-        continue
-else:
-    print("FAIL: django.setup()", file=sys.stderr)
-    sys.exit(1)
 
 from django.apps import apps
 
