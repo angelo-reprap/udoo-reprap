@@ -1246,8 +1246,9 @@ def _dedupe_lang_list(langs: str) -> str:
         p = part.strip()
         if not p:
             continue
-        # Basis-Sprache vor Klammer/Doppelpunkt
+        # Basis-Sprache: erstes Wort vor Klammer/Niveau
         base = re.split(r"[\(:]", p, 1)[0].strip().lower()
+        base = re.split(r"\s+", base)[0] if base else ""
         if not base or base in seen:
             continue
         seen.add(base)
