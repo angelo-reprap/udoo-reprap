@@ -162,22 +162,31 @@ rows_all = []
 rows_need = []  # gulp ja, neu/cv nein (oder kein Ordner)
 summary = defaultdict(int)
 
+# Model-Felder: contact_id (FK), nicht Sugar-id_c
+cstm_fields = {f.name for f in CrmContactCstm._meta.get_fields() if hasattr(f, "name")}
+contact_fk = "contact_id" if "contact_id" in cstm_fields else ("contact" if "contact" in cstm_fields else None)
+if not contact_fk:
+    print("FAIL: kein contact/_id an CrmContactCstm", sorted(cstm_fields), file=sys.stderr)
+    raise SystemExit(1)
+
+contact_model = CrmContact
+cname_fields = {f.name for f in contact_model._meta.get_fields() if hasattr(f, "name")}
+# Namensfelder robust
+first_attr = next((x for x in ("first_name", "vorname", "first_name_c") if x in cname_fields), None)
+last_attr = next((x for x in ("last_name", "nachname", "last_name_c") if x in cname_fields), None)
+deleted_attr = next((x for x in ("deleted", "is_deleted", "deleted_c") if x in cname_fields), None)
+print(f"CRM: cstm.contact via {contact_fk}; name={first_attr}/{last_attr}; deleted={deleted_attr}")
+
+only_cstm = ["id", "gulp_id_c", "gulp_profil_c"]
+if contact_fk == "contact_id":
+    only_cstm.append("contact_id")
 qs = (
     CrmContactCstm.objects.exclude(gulp_profil_c__isnull=True)
     .exclude(gulp_profil_c="")
-    .only("id_c", "gulp_id_c", "gulp_profil_c")
+    .select_related("contact")
 )
 
-# Contact map
-contact_ids = list(qs.values_list("id_c", flat=True))
-contacts = {
-    c.id: c
-    for c in CrmContact.objects.filter(id__in=contact_ids).only(
-        "id", "first_name", "last_name", "deleted"
-    )
-}
-
-for st in qs.iterator(chunk_size=500):
+for st in qs.iterator(chunk_size=200):
     profil = st.gulp_profil_c or ""
     plen = len(profil.strip())
     if plen < MIN_LEN:
@@ -185,16 +194,23 @@ for st in qs.iterator(chunk_size=500):
         continue
     summary["gulp_ok_len"] += 1
 
-    c = contacts.get(st.id_c)
+    c = getattr(st, "contact", None)
+    if c is None and contact_fk == "contact_id":
+        cid = getattr(st, "contact_id", None)
+        if cid:
+            try:
+                c = contact_model.objects.get(pk=cid)
+            except contact_model.DoesNotExist:
+                c = None
     if c is None:
         summary["no_contact"] += 1
         continue
-    if getattr(c, "deleted", 0) in (1, True, "1"):
+    if deleted_attr and getattr(c, deleted_attr, 0) in (1, True, "1"):
         summary["contact_deleted"] += 1
         continue
 
-    first = (c.first_name or "").strip()
-    last = (c.last_name or "").strip()
+    first = (getattr(c, first_attr, None) or "").strip() if first_attr else ""
+    last = (getattr(c, last_attr, None) or "").strip() if last_attr else ""
     if not last:
         summary["no_lastname"] += 1
         continue
@@ -204,7 +220,7 @@ for st in qs.iterator(chunk_size=500):
         cat = "no_fs_dir"
         summary[cat] += 1
         row = {
-            "contact_id": c.id,
+            "contact_id": c.pk,
             "gulp_id": st.gulp_id_c or "",
             "first": first,
             "last": last,
@@ -226,7 +242,7 @@ for st in qs.iterator(chunk_size=500):
         cat = "fs_dir_no_neu"
         summary[cat] += 1
     row = {
-        "contact_id": c.id,
+        "contact_id": c.pk,
         "gulp_id": st.gulp_id_c or "",
         "first": first,
         "last": last,
