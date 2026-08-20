@@ -1,0 +1,710 @@
+---------- Gulp-Profil Stand 2013-02-06 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 31963:
+Relationale Datenbanken (Oracle Zertifizierungen), PL/SQL, Forms      
+            
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+31963 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 31963    Wohnort 905xx Zirndorf, Deutschland Jahrgang
+1958 Staatsbürgerschaft Deutsch Stundensatz 70 EUR von 60 EUR bis 80
+EUR (all Incl.) + MwSt. Verfügbar ab 01.02.13 zu 100%, Vor-Ort-Einsatz
+100% möglich Profil erstellt am 26.10.01 Profil zuletzt geändert am
+06.02.13 Lesen von Projektanfragen 2 Tage  [5]Direktkontakt [6]       
+ Kommentar:   Kommentar schreiben Profil angezeigt am 02.12.2014
+09:51:12       Fachlicher Schwerpunkt:  Relationale Datenbanken
+(Oracle Zertifizierungen), PL/SQL, Forms      Position: 
+Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit
+bevorzugt
+
+ Voraussetzung für Festanstellung: Gehalt > 80.000 Euro pro Jahr     
+Ausbildung:  Oracle Zertifizierungen:
+
+ Oracle Certified Associate (OCA) seit 25.07.03
+ Oracle Certified Professional (OCP) seit 26.09.03
+       Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz,
+außerhalb D/A/CH       Fremdsprachen:  
+
+		Deutsch
+		Muttersprache
+
+		Englisch
+		gute Kenntnisse
+
+      Hardware:  
+
+		PC
+
+		Siemens Großrechner
+
+      Betriebssysteme:  
+
+		BS2000
+		Erfahrungen > 10 Jahre
+
+		Windows
+		Erfahrungen > 10 Jahre
+
+ Grundkenntnisse Linux (SUSE)
+       Programmiersprachen:  
+
+		Assembler
+		liegt sehr lange zurück!
+
+		Basic
+
+		C
+
+		C++
+
+		Cobol
+		Erfahrungen > 10 Jahre
+
+		Java
+		aktuelles Projekt. Erfahrungen > 1 Jahr
+
+		JavaScript
+		aktuelles Projekt. Erfahrungen > 1 Jahr
+
+		Delta
+
+		Perl
+
+		PL/SQL
+		Oracle Zertifiziert und langjährige Praxis
+
+		Siron
+		liegt sehr lange zurück!
+
+      Datenbanken:  
+
+		Access
+		private Kenntnisse
+
+		Informix
+		Grundkenntnisse
+
+		MS SQL Server
+		Grundkenntnisse
+
+		Oracle
+		OCA und OCP sowie langjährige Projekterfahrungen
+
+		ISAM
+		Erfahrungen > 10 Jahre
+
+		LEASY
+		Erfahrungen > 10 Jahre
+
+		ODBC
+		aktuelles Projekt
+
+		SESAM
+		Erfahrungen > 10 Jahre
+
+		SQL
+		langjährige Projekterfahrungen
+
+		UDS/IDMS
+		liegt sehr lange zurück!
+
+Oracle Database Administrator Certified Associate (OCA)
+
+ Oracle Certified Professional Internet Application Developer,
+
+	 Oracle Forms Developer Rel. 6i (OCP)       Datenkommunikation:  
+
+		Internet, Intranet
+		Privat
+
+		TCP/IP
+		Privat
+
+		EDIFACT
+		mehrere Projekteinsätze
+
+		ISDN
+		Privat
+
+		Router
+		Privat
+
+		UTM - Transdata
+		Erfahrungen > 10 Jahre
+
+      Produkte/Standards/Erfahrungen:  Case Tool: Maestro II
+ QM : DIN EN ISO 9001
+       Branchen:  Industrie
+ Versicherung
+ Handel
+       Projekte:  12/08 - 01/09
+ Projekt: Schnittstellen
+ Kunde: Postbank Bonn
+ ORACLE / PL/SQL Projekt wurde vom Kunden aus Kostengründen beendet.
+
+ 05/08 - 11/08
+ Projekt: Providermanagement
+ Kunde: EDS Itellium Nürnberg
+ Im Projekt Providermanagement (Teilprojekt Mandantenvorbereitung)
+werden grundsätzlich alle Funktionalitäten angepasst welche,
+ die Mandantenfähigkeit betreffen und die es ermöglichen einen
+Mandanten auf verschiedenen Ebenen innerhalb der logistischen Systeme
+Primondo produktiv zu setzen.
+ Tätigkeit: Erzeugen Packages mit PL/SQL, entwickeln Forms mit Forms
+Builder,
+ Anlegen Tabellen, Index, Indices, Trigger, Synonyme usw.
+ Systemumfeld: Oracle 10g, Forms Builder Version 10.1.2.0.2, TOAD 9.1,
+PVCS (Serena ChangeMan Version Manager V.8.1.2), Sybase PowerDesigner
+
+ 09/07 - 04/08
+ Projekt: New Features 1
+ Hostablösung Auftragsschreibung / Bedarfsüberwachung
+ Kunde: EDS Itellium Nürnberg
+ Beschreibung: Migration Cobol / Assembler Programme nach Oracle
+PL/SQL.
+ Das Projekt "New Features Stufe 1" ist Teilprojekt des Projektes "New
+Features WaWi Host Ablösung" das zum Ziel hat,
+ die warenwirtschaftlichen HOST Programme in die Systeme der EASY
+Systemlandschaft zu überführen,
+ damit diese später auf dem Host abgeschaltet werden können. New
+Features besteht aus 6 Teilprojekten, die "Stufen" genannt werden.
+ Die Stufe 1, zu der der hier beschriebene Themenkomplex gehört,
+beschäftigt sich mit folgenden Bereichen:
+ - Transport Dispo / EDIFACT
+ - Import Export Routinen und Pflegemasken
+ - Schnittstellen/Prima Integration/ DBTABDAT Ablösung
+ - Listen / Reports, Dispo-Ablösung und Bonus Ausschöpfung
+ - Listen und Schnittstellen im Umfeld Orderbestand /WE
+ - Bedarfsüberwachung / Disposition
+ Es werden nur die noch aktiven und relevanten Host Programme
+migriert. Dabei sind grundsätzlich keine funktionalen Erweiterungen
+vorgesehen,
+ lediglich die 4 Konzepte des Projektes QKey (Schlüsselerweiterungen)
+werden berücksichtigt.
+ Tätigkeit: Fach- und IT Konzeption, Erzeugen Packages mit PL/SQL,
+entwickeln Forms mit Forms Builder,
+ Anlegen Tabellen, Index, Indices, Trigger, Synonyme usw.
+ Systemumfeld: Oracle 10g, Forms Builder Version 10.1.2.0.2, TOAD 9.1,
+PVCS (Serena ChangeMan Version Manager V.8.1.2)
+
+ 06/04 - 08/07
+ Prjekt: Stammdatenverwaltung
+ Kunde: europet Benelux Nürnberg
+ Stammdaten (Adressen, Kunden, Lieferanten, Vertreter, Artikel) werden
+über eine Java-Oberfläche verwaltet.
+ Die Daten werden aus der Produktions-DB (Informix) in eine MS-SQL
+Server DB übernommen.
+ Mit dem Java Programm sind Neuanlagen, änderungen sowie Löschungen
+über spezielle Berechtigungen möglich.
+ über individuelle Selektionskriterien werden die Auswertungen im
+PDF-Format erstellt (mit iText).
+ Mit dem Programm können die Listen per Adobe Reader gelesen, gedruckt
+sowie via Email versendet werden.
+ Der Einsatz dieser neuen Benutzeroberfläche ist auf einem
+Linux-Server vorgesehen.
+ Systemumfeld: Windows XP, Java, Borland JBuilder X, iText, MS
+SQL-Server.
+
+ 11/03 - 05/04 
+ Projekt: Infosystem
+ Informationssystem für Messeauftritt sowie Katalog (auf CD).
+ Kunde: europet Benelux Nürnberg
+ Die verschiedenen Produktbereiche können über Buttons ausgewählt und
+Detailinformationen abgerufen werden.
+ Die Messeversion holt die Daten aus einer SQL-Server DB und die
+CD-Version arbeitet mit internen Dateien.
+
+ Das Systemfeld bestand aus den Komponenten: Windows XP, Java, Borland
+JBuilder X, Informix und MS SQL-Server.
+
+ 08/00 - 09/02 
+ Projekt: WVLS
+ Warenverkehrs-Leitsystem
+ Kunde: Siemens Business Services
+ Das Warenverkehrs-Leitsystem WVLS ermittelt die Transportkosten der
+beauftragten Spediteure und übernimmt die Abrechnung.
+ Weiterbelastung der Transportkosten an verursachende Versandstellen.
+ Sendungsverfolgung (Tracking &amp; Tracing) via Intranet, später auch via
+Internet.
+
+ Meine Aufgabe bestand in der Entwicklung verschiedener C sowie Perl
+Module.
+ Ein weiterer Schwerpunkt war die Datenbank Oracle. Hier schrieb ich
+verschiedene SQL-Scripte sowie PL/SQL Routinen.
+
+ Das Systemfeld bestand aus den Komponenten: Windows NT, Oracle, C,
+Perl, Edifact.
+
+ 07/95 - 07/00 
+ Projekt: MAZURKA/ADREMA
+
+ Marktorientierte Zielgruppenwerbung unter Einbezug von
+Rahmenmöglichkeiten und Adressen
+ Kunde: Siemens Business Services
+ Konzeption und Realisierung von Programmerweiterungen im Dialog sowie
+im Batchteil nach DIN EN ISO 9001.
+
+ Integriert wurde z.B.: die APA-Drucktechnik sowie die Selektion aus
+einer ORACLE-DB. Auch wurden verschiedene WORD-Formulare mittels VBA
+entwickelt.
+
+ Das Systemfeld bestand aus den Komponenten: SIEMENS BS2000, UTM-D,
+SESAM, LEASY, ORACLE, COBOL.
+
+ 06/94 - 06/95 
+ Projekt: Neues Vergütungssystem
+ Teilprojekte: Ertragsblatt und Vergleichsrechnung
+ Kunde: GERLING Versicherung Köln
+ Zuerst wurde die Systemanalyse durchgeführt; d. h. die fachlichen
+Anforderungen wurden funktional und datenorientiert analysiert.
+ Im Rahmen der nachfolgenden Modellierung wurde nach der ER-Methode
+das logische Datenmodell entwickelt und die Programmvorgabe
+geschrieben. Die Dokumentation erfolgte dabei mittels SEtec und
+Maestro II.
+ Danach wurden die Module codiert, getestet und für die Produktion
+vorbereitet.
+
+ 09/92 - 05/94 
+ Projekt: MAZURKA/ADREMA 
+ Marktorientierte Zielgruppenwerbung unter Einbezug von
+Rahmenmöglichkeiten und Adressen.
+ Kunde: SIEMENS
+
+ Dialog- und Batcherweiterungen sowie Konzept und Realisierung neuer
+Postrichtlinien.
+
+ 03/91 - 08/92 
+ Projekt: AUFBAU 
+ Auftragsabwicklung im Bauteilevertrieb.
+ Kunde: SIEMENS
+
+ Auftragseingang im EDIFACT-Format realisieren (Konzept und
+Programmierung) sowie Umstellung von dezentralen UDS-DB's auf zentrale
+SESAM-DB.
+
+ 10/87 - 02/91 
+ Projekt: KOSA 
+ Kosten-Sammlung und Abrechnung.
+ Kunde: SIEMENS
+
+ 04/87 - 09/87 
+ Projekt: DESTI 
+ Dezentrale Stücklistenbearbeitung und Information.
+ Kunde: SIEMENS
+
+	 Schnittstellenprogrammierung SINIX/BS2000 in Assembler.
+
+ 10/86 - 03/87 
+ Projekt: KOSA 
+ Kosten-Sammlung und Abrechnung.
+ Kunde: SIEMENS
+
+ Das Produkt KOSA dient der Unterstützung der Kostenüberwachung und
+Leistungsverrechnung der ZWD (Zentralabteilung Werbung und Design)
+ sowie der Werbeabteilungen versch. Bereiche.
+ Außerdem beinhaltet es eine Budgetfortschreibung mit
+Soll-Ist-Vergleich.
+
+ 07/85 - 09/86 
+ Projekt: PROGü 
+ Programmplanung in der leitergebundenen übertragungstechnik.
+ Kunde: Deutsche Bundespost Nürnberg
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 31963 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 02.10.2014 16:41:53
+ (c) Copyright 1996-2014 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show021653
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?31963
+[4] /cgi-gulpsearch/gp.exe/UBONE31963?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?31963D4
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?31963D4
+[7] /cgi-gulpsearch/printdoc.exe/profil?KOM9W7HZ
+[8] /cgi-gulpsearch/printdoc.exe/profil?KOM9W7HZ
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show021653
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?31963
+[14] /cgi-gulpsearch/gp.exe/UBONE31963?0
+[15] mailto:info@gulp.de
+
+
+---------- Gulp-Profil Stand 2012-03-20 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 31963:
+Relationale Datenbanken (Oracle Zertifizierungen), PL/SQL, Forms      
+           
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+31963 [4]
+     Stammdaten (Auszug):   
+
+	 Personen-ID 31963    Wohnort 905xx Zirndorf, Deutschland Jahrgang
+1958 EDV-Erfahrung seit 1982 Staatsbürgerschaft Deutsch Stundensatz 70
+EUR von 60 EUR bis 80 EUR (all Incl.) + MwSt. Verfügbar ab 01.01.13 zu
+100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am 26.10.01 Profil
+zuletzt geändert am 20.03.12 Lesen von Projektanfragen 2 Tage 
+[5]Direktkontakt [6]         Kommentar:   Kommentar schreiben Profil
+angezeigt am 14.11.2008 08:52:13       Fachlicher Schwerpunkt: 
+Relationale Datenbanken (Oracle Zertifizierungen), PL/SQL, Forms     
+Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit
+bevorzugt
+
+ Voraussetzung für Festanstellung: Gehalt > 80.000 Euro pro Jahr     
+Ausbildung:  Oracle Zertifizierungen:
+
+ Oracle Certified Associate (OCA) seit 25.07.03
+ Oracle Certified Professional (OCP) seit 26.09.03
+       Einsatzort:  DeutschlandÖsterreichSchweizWeitere Einsatzorte:
+Niederlande, Liechtenstein      Fremdsprachen:  
+
+		Deutsch
+		Muttersprache
+
+		Englisch
+		gute Kenntnisse
+
+      Hardware:  
+
+		PC
+
+		Siemens Großrechner
+
+      Betriebssysteme:  
+
+		BS2000
+		Erfahrungen > 10 Jahre
+
+		Windows
+		Erfahrungen > 10 Jahre
+
+ Grundkenntnisse Linux (SUSE)
+       Programmiersprachen:  
+
+		Assembler
+		liegt sehr lange zurück!
+
+		Basic
+
+		C
+
+		C++
+
+		Cobol
+		Erfahrungen > 10 Jahre
+
+		Delta
+
+		Java
+		aktuelles Projekt. Erfahrungen > 1 Jahr
+
+		JavaScript
+		aktuelles Projekt. Erfahrungen > 1 Jahr
+
+		Perl
+
+		PL/SQL
+		Oracle Zertifiziert und langjährige Praxis
+
+		Siron
+		liegt sehr lange zurück!
+
+      Datenbanken:  
+
+		Access
+		private Kenntnisse
+
+		Informix
+		Grundkenntnisse
+
+		ISAM
+		Erfahrungen > 10 Jahre
+
+		LEASY
+		Erfahrungen > 10 Jahre
+
+		MS SQL Server
+		Grundkenntnisse
+
+		ODBC
+		aktuelles Projekt
+
+		Oracle
+		OCA und OCP sowie langjährige Projekterfahrungen
+
+		SESAM
+		Erfahrungen > 10 Jahre
+
+		SQL
+		langjährige Projekterfahrungen
+
+		UDS/IDMS
+		liegt sehr lange zurück!
+
+ Oracle Database Administrator Certified Associate (OCA)
+
+ Oracle Certified Professional Internet Application Developer,
+
+	 Oracle Forms Developer Rel. 6i (OCP)       Datenkommunikation:  
+
+		EDIFACT
+		mehrere Projekteinsätze
+
+		Internet, Intranet
+		Privat
+
+		ISDN
+		Privat
+
+		Router
+		Privat
+
+		TCP/IP
+		Privat
+
+		UTM - Transdata
+		Erfahrungen > 10 Jahre
+
+      Produkte/Standards/Erfahrungen:  Case Tool: Maestro II
+ QM : DIN EN ISO 9001
+       Branchen:  Industrie
+ Versicherung
+ Handel
+       Projekte:  12/08 - 01/09
+ Projekt: Schnittstellen
+ Kunde: Postbank Bonn
+ ORACLE / PL/SQL Projekt wurde vom Kunden aus Kostengründen beendet.
+
+ 05/08 - 11/08
+ Projekt: Providermanagement
+ Kunde: EDS Itellium Nürnberg
+ Im Projekt Providermanagement (Teilprojekt Mandantenvorbereitung)
+werden grundsätzlich alle Funktionalitäten angepasst welche,
+ die Mandantenfähigkeit betreffen und die es ermöglichen einen
+Mandanten auf verschiedenen Ebenen innerhalb der logistischen Systeme
+Primondo produktiv zu setzen.
+ Tätigkeit: Erzeugen Packages mit PL/SQL, entwickeln Forms mit Forms
+Builder,
+ Anlegen Tabellen, Index, Indices, Trigger, Synonyme usw.
+ Systemumfeld: Oracle 10g, Forms Builder Version 10.1.2.0.2, TOAD 9.1,
+PVCS (Serena ChangeMan Version Manager V.8.1.2), Sybase PowerDesigner
+
+ 09/07 - 04/08
+ Projekt: New Features 1
+ Hostablösung Auftragsschreibung / Bedarfsüberwachung
+ Kunde: EDS Itellium Nürnberg
+ Beschreibung: Migration Cobol / Assembler Programme nach Oracle
+PL/SQL.
+ Das Projekt "New Features Stufe 1" ist Teilprojekt des Projektes "New
+Features WaWi Host Ablösung" das zum Ziel hat,
+ die warenwirtschaftlichen HOST Programme in die Systeme der EASY
+Systemlandschaft zu überführen,
+ damit diese später auf dem Host abgeschaltet werden können. New
+Features besteht aus 6 Teilprojekten, die "Stufen" genannt werden.
+ Die Stufe 1, zu der der hier beschriebene Themenkomplex gehört,
+beschäftigt sich mit folgenden Bereichen:
+ - Transport Dispo / EDIFACT
+ - Import Export Routinen und Pflegemasken
+ - Schnittstellen/Prima Integration/ DBTABDAT Ablösung
+ - Listen / Reports, Dispo-Ablösung und Bonus Ausschöpfung
+ - Listen und Schnittstellen im Umfeld Orderbestand /WE
+ - Bedarfsüberwachung / Disposition
+ Es werden nur die noch aktiven und relevanten Host Programme
+migriert. Dabei sind grundsätzlich keine funktionalen Erweiterungen
+vorgesehen,
+ lediglich die 4 Konzepte des Projektes QKey (Schlüsselerweiterungen)
+werden berücksichtigt.
+ Tätigkeit: Fach- und IT Konzeption, Erzeugen Packages mit PL/SQL,
+entwickeln Forms mit Forms Builder,
+ Anlegen Tabellen, Index, Indices, Trigger, Synonyme usw.
+ Systemumfeld: Oracle 10g, Forms Builder Version 10.1.2.0.2, TOAD 9.1,
+PVCS (Serena ChangeMan Version Manager V.8.1.2)
+
+ 06/04 - 08/07
+ Prjekt: Stammdatenverwaltung
+ Kunde: europet Benelux Nürnberg
+ Stammdaten (Adressen, Kunden, Lieferanten, Vertreter, Artikel) werden
+über eine Java-Oberfläche verwaltet.
+ Die Daten werden aus der Produktions-DB (Informix) in eine MS-SQL
+Server DB übernommen.
+ Mit dem Java Programm sind Neuanlagen, änderungen sowie Löschungen
+über spezielle Berechtigungen möglich.
+ über individuelle Selektionskriterien werden die Auswertungen im
+PDF-Format erstellt (mit iText).
+ Mit dem Programm können die Listen per Adobe Reader gelesen, gedruckt
+sowie via Email versendet werden.
+ Der Einsatz dieser neuen Benutzeroberfläche ist auf einem
+Linux-Server vorgesehen.
+ Systemumfeld: Windows XP, Java, Borland JBuilder X, iText, MS
+SQL-Server.
+
+ 11/03 - 05/04 
+ Projekt: Infosystem
+ Informationssystem für Messeauftritt sowie Katalog (auf CD).
+ Kunde: europet Benelux Nürnberg
+ Die verschiedenen Produktbereiche können über Buttons ausgewählt und
+Detailinformationen abgerufen werden.
+ Die Messeversion holt die Daten aus einer SQL-Server DB und die
+CD-Version arbeitet mit internen Dateien.
+
+ Das Systemfeld bestand aus den Komponenten: Windows XP, Java, Borland
+JBuilder X, Informix und MS SQL-Server.
+
+ 08/00 - 09/02 
+ Projekt: WVLS
+ Warenverkehrs-Leitsystem
+ Kunde: Siemens Business Services
+ Das Warenverkehrs-Leitsystem WVLS ermittelt die Transportkosten der
+beauftragten Spediteure und übernimmt die Abrechnung.
+ Weiterbelastung der Transportkosten an verursachende Versandstellen.
+ Sendungsverfolgung (Tracking &amp; Tracing) via Intranet, später auch via
+Internet.
+
+ Meine Aufgabe bestand in der Entwicklung verschiedener C sowie Perl
+Module.
+ Ein weiterer Schwerpunkt war die Datenbank Oracle. Hier schrieb ich
+verschiedene SQL-Scripte sowie PL/SQL Routinen.
+
+ Das Systemfeld bestand aus den Komponenten: Windows NT, Oracle, C,
+Perl, Edifact.
+
+ 07/95 - 07/00 
+ Projekt: MAZURKA/ADREMA
+
+ Marktorientierte Zielgruppenwerbung unter Einbezug von
+Rahmenmöglichkeiten und Adressen
+ Kunde: Siemens Business Services
+ Konzeption und Realisierung von Programmerweiterungen im Dialog sowie
+im Batchteil nach DIN EN ISO 9001.
+
+ Integriert wurde z.B.: die APA-Drucktechnik sowie die Selektion aus
+einer ORACLE-DB. Auch wurden verschiedene WORD-Formulare mittels VBA
+entwickelt.
+
+ Das Systemfeld bestand aus den Komponenten: SIEMENS BS2000, UTM-D,
+SESAM, LEASY, ORACLE, COBOL.
+
+ 06/94 - 06/95 
+ Projekt: Neues Vergütungssystem
+ Teilprojekte: Ertragsblatt und Vergleichsrechnung
+ Kunde: GERLING Versicherung Köln
+ Zuerst wurde die Systemanalyse durchgeführt; d. h. die fachlichen
+Anforderungen wurden funktional und datenorientiert analysiert.
+ Im Rahmen der nachfolgenden Modellierung wurde nach der ER-Methode
+das logische Datenmodell entwickelt und die Programmvorgabe
+geschrieben. Die Dokumentation erfolgte dabei mittels SEtec und
+Maestro II.
+ Danach wurden die Module codiert, getestet und für die Produktion
+vorbereitet.
+
+ 09/92 - 05/94 
+ Projekt: MAZURKA/ADREMA 
+ Marktorientierte Zielgruppenwerbung unter Einbezug von
+Rahmenmöglichkeiten und Adressen.
+ Kunde: SIEMENS
+
+ Dialog- und Batcherweiterungen sowie Konzept und Realisierung neuer
+Postrichtlinien.
+
+ 03/91 - 08/92 
+ Projekt: AUFBAU 
+ Auftragsabwicklung im Bauteilevertrieb.
+ Kunde: SIEMENS
+
+ Auftragseingang im EDIFACT-Format realisieren (Konzept und
+Programmierung) sowie Umstellung von dezentralen UDS-DB's auf zentrale
+SESAM-DB.
+
+ 10/87 - 02/91 
+ Projekt: KOSA 
+ Kosten-Sammlung und Abrechnung.
+ Kunde: SIEMENS
+
+ 04/87 - 09/87 
+ Projekt: DESTI 
+ Dezentrale Stücklistenbearbeitung und Information.
+ Kunde: SIEMENS
+
+	 Schnittstellenprogrammierung SINIX/BS2000 in Assembler.
+
+ 10/86 - 03/87 
+ Projekt: KOSA 
+ Kosten-Sammlung und Abrechnung.
+ Kunde: SIEMENS
+
+ Das Produkt KOSA dient der Unterstützung der Kostenüberwachung und
+Leistungsverrechnung der ZWD (Zentralabteilung Werbung und Design)
+ sowie der Werbeabteilungen versch. Bereiche.
+ Außerdem beinhaltet es eine Budgetfortschreibung mit
+Soll-Ist-Vergleich.
+
+ 07/85 - 09/86 
+ Projekt: PROGü 
+ Programmplanung in der leitergebundenen übertragungstechnik.
+ Kunde: Deutsche Bundespost Nürnberg
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 31963 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 01.04.2012 00:55:38
+ (c) Copyright 1996-2012 GULP Information Services GmbH,
+ Ridlerstraße 37, D-80339 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+          Suche [16] | Kontakt [17] | AGB [18] | Impressum [19]       
+ 
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show010035
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?31963
+[4] /cgi-gulpsearch/gp.exe/UBONE31963?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?31963D4
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?31963D4
+[7] /cgi-gulpsearch/printdoc.exe/profil?KOM9W7HZ
+[8] /cgi-gulpsearch/printdoc.exe/profil?KOM9W7HZ
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show010038
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?31963
+[14] /cgi-gulpsearch/gp.exe/UBONE31963?0
+[15] mailto:info@gulp.de
+[16] /suche/mainsuche.html
+[17] /wiruu/mainkont.html
+[18] /agb/mainagb_feb_2012.html
+[19] /impressum/mainimp.html
