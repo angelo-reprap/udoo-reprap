@@ -42,14 +42,19 @@ EXTRA_DIRS="${EXTRA_DIRS:-}"
 
 die() { echo "FAIL: $*" >&2; exit 1; }
 
-# ── RESULT_TSV muss explizit oder eindeutig neueste gulp-batch sein ───────
+# ── RESULT_TSV: explizit oder neueste gulp-batch ──────────────────────────
 if [[ -z "$RESULT_TSV" ]]; then
   RESULT_TSV="$(ls -td /tmp/gulp-batch-*/result.tsv 2>/dev/null | head -1 || true)"
 fi
 [[ -n "$RESULT_TSV" && -f "$RESULT_TSV" ]] || die "RESULT_TSV fehlt — bitte setzen"
+# Sicherheitsnetz: Standard nur gulp-batch; Mini-TSV mit ALLOW_ANY_TSV=1
 case "$RESULT_TSV" in
   */gulp-batch-*/result.tsv) ;;
-  *) die "RESULT_TSV muss …/gulp-batch-…/result.tsv sein (got: $RESULT_TSV)" ;;
+  *)
+    if [[ "${ALLOW_ANY_TSV:-0}" != "1" ]]; then
+      die "RESULT_TSV muss …/gulp-batch-…/result.tsv sein (oder ALLOW_ANY_TSV=1): $RESULT_TSV"
+    fi
+    ;;
 esac
 
 # ── Guards ────────────────────────────────────────────────────────────────
