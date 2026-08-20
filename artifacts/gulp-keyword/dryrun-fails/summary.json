@@ -1,0 +1,21 @@
+{
+  "version": "v1.3-dryrun",
+  "min_len": 200,
+  "n_scanned": 5666,
+  "skip_short": 4,
+  "ok_min_structure": 5652,
+  "ok_pct": 99.75,
+  "fails_n": 14,
+  "stats": {
+    "projekte": 5629,
+    "project_signal": 5636,
+    "schwerpunkt": 5587,
+    "position": 5610,
+    "top_skills": 620,
+    "ausbildung": 5403,
+    "skills": 5593,
+    "zeitraum": 1277,
+    "date_led": 4373,
+    "proj_rich": 4841
+  }
+}

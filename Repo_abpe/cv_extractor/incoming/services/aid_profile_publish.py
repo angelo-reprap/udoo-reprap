@@ -91,6 +91,47 @@ def letter_bucket(consultant_dir: str, last_name: str = '') -> str:
     return ch * 3
 
 
+def find_existing_person_dir(root: Path, dir_name: str) -> Optional[Path]:
+    """Wenn nachname_vorname schon unter einem Letter liegt → diesen Ordner nutzen.
+
+    Verhindert z.B. Sch…-Re-Publish nach sss/, obwohl das Profil unter sch/ liegt
+    (letter_bucket('schaefer_arno') == 'sss').
+    Bei mehreren Treffern: Preferenz sch vor sss vor sonst alphabetisch.
+    """
+    name = (dir_name or '').strip().strip('/')
+    if not name or not root.is_dir():
+        return None
+    hits: list[Path] = []
+    try:
+        for letter_dir in root.iterdir():
+            if not letter_dir.is_dir():
+                continue
+            # Skip non-bucket clutter
+            if letter_dir.name.startswith('.') or letter_dir.name.startswith('__'):
+                continue
+            cand = letter_dir / name
+            if cand.is_dir():
+                hits.append(cand)
+    except OSError as e:
+        logger.debug(f'find_existing_person_dir {root}/{name}: {e}')
+        return None
+    if not hits:
+        return None
+    if len(hits) == 1:
+        return hits[0]
+
+    def _rank(p: Path) -> tuple[int, str]:
+        b = p.parent.name
+        if b == 'sch':
+            return (0, b)
+        if b == 'sss':
+            return (2, b)
+        return (1, b)
+
+    hits.sort(key=_rank)
+    return hits[0]
+
+
 def _chmod_path(path: Path, is_dir: bool = False) -> None:
     mode = 0o777 if is_dir else 0o666
     try:
@@ -119,6 +160,9 @@ def ensure_neu_cv_dir(consultant_dir: str, last_name: str = '') -> Optional[Path
     """
     …/AID_profile/{lll}/{consultant_dir}/neu/cv/
     Alle Zwischenordner 0777.
+
+    Wenn der Personen-Ordner bereits existiert (z.B. unter sch/), Publish dorthin —
+    nicht erneut nach letter_bucket (sss) anlegen.
     """
     root = resolve_aid_profile_root()
     if not root:
@@ -128,8 +172,16 @@ def ensure_neu_cv_dir(consultant_dir: str, last_name: str = '') -> Optional[Path
     if not dir_name:
         logger.warning('consultant_dir leer — Publish übersprungen')
         return None
-    bucket = letter_bucket(dir_name, last_name=last_name)
-    target = root / bucket / dir_name / 'neu' / 'cv'
+
+    existing = find_existing_person_dir(root, dir_name)
+    if existing is not None:
+        person = existing
+        bucket = existing.parent.name
+    else:
+        bucket = letter_bucket(dir_name, last_name=last_name)
+        person = root / bucket / dir_name
+
+    target = person / 'neu' / 'cv'
     try:
         # Eltern schrittweise anlegen + chmod
         cur = root

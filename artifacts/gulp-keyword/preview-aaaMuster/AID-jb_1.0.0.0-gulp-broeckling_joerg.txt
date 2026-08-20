@@ -1,0 +1,72 @@
+Name: AID-jb_1.0.0.0
+Wohnort: 337xx Schloß Holte-Stukenbrock, Deutschland
+Jahrgang: 1975
+Stundensatz: 0 EUR
+Verfügbar ab: 31.12.18 zu 100%, Vor-Ort-Einsatz 100% möglich
+#####
+
+Fachlicher Schwerpunkt
+Cisco, CCNA, LAN, WAN, Datacenter,Netzwerk,Netzwerkinfrastrukturplanung
+####
+
+Position
+Administration / Support
+Dokumentation / DTP
+Engineering / IT-nahe Ingenieurdienstleistungen
+####
+
+Einsatzort / Regionen
+österreich, Schweiz, D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+####
+
+Fremdsprachen
+Deutsch
+Englisch
+####
+
+Projekte / experience
+— Projekt 1
+  company: T-Systems International GmbH
+  title: Projektunterstützung in der Migration und Unterstützung im Tageschäft
+  period: 10/2011 - heute
+  location: Datacenter München, Krefeld
+  activities:
+    - Unterstüzung beim Umzug komplexer Kundenumgebungen vom Datacenter-Bielefeld zum Datacenter-Krefeld
+    - Aufnahme, Erweiterung, Verbesserung bestehender Netzinfrastrukturen
+    - Planung und Durchführung der Kundenaufträge im Tagesgeschäft
+    - Bearbeitung von Problemtickets
+  technologies: Cisco-Switche, F5, Juniper, Messtabs, Nortel, Brocade, HP-Asset Center, Aperture Vista, Exel
+###
+— Projekt 2
+  company: T-Systems Enterprise GmbH
+  title: Projektunterstützung Defragmentierung Datacenter Bielefeld Mitarbeit im Tagesgeschäft
+  period: 04/2009 - 09/2011
+  activities:
+    - Planung und Durchführung der Kundenaufträge im Tagesgeschäft
+    - Projektunterstützung bei der Defragmentierung des Datacenter Bielefeld für die Migration komplexer Kundenumgebungen
+    - Unterstützung bei der Planung des Redesigns der Cisco-CAT Umgebung auf Cisco-Nexus Technologie
+    - Neuaufbau der Switch-MGMT Umgebung
+    - Neuaufbau der DMZ Umgebung
+    - Unterstützung bei der DWDM-Backbone Umgebung
+    - Planung und Durchführung der Patcharbeiten LAN/SAN
+  technologies: HP-Asset Center, Aperture Vista, Exel
+###
+— Projekt 3
+  company: T-Systems International GmbH
+  title: Bearbeiten von Problemtickets
+  period: 04/2008-03/2009
+  activities:
+    - Troubleshooting Datacenter Bielefeld und Münster
+    - Analyse und Messarbeiten
+    - Austausch von aktiven und passiven Komponeten
+    - Planung und Durchführung der Patcharbeiten LAN/SAN
+###
+— Projekt 4
+  company: Deutsche Telekom AG
+  title: Patcharbeiten im HVT, Troubleshooting DSL
+  period: 06/2001-03/2008
+  activities:
+    - Patcharbeiten an verschiedenen Standorten in NRW
+    - Analyse und Messarbeiten
+    - Austausch von aktiven passiven DSL-Komponeten
+    - Analyse und Erweiterung der bestehenden Netzstruktur

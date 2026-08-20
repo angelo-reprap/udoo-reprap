@@ -1,0 +1,18 @@
+{
+  "version": "v1.3",
+  "n_files": 1000,
+  "ok_min_structure": 1000,
+  "ok_pct": 100.0,
+  "docs_projekte": 993,
+  "docs_project_signal": 997,
+  "docs_schwerpunkt": 983,
+  "docs_position": 986,
+  "docs_top_skills": 94,
+  "docs_ausbildung": 951,
+  "docs_skills": 989,
+  "docs_zeitraum": 244,
+  "docs_date_led": 759,
+  "docs_proj_rich": 850,
+  "fails_n": 0,
+  "fails_sample": []
+}

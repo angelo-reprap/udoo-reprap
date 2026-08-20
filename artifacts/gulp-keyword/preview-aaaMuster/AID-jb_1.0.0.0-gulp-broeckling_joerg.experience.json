@@ -1,0 +1,79 @@
+[
+  {
+    "period": "10/2011 - heute",
+    "title": "Projektunterstützung in der Migration und Unterstützung im Tageschäft",
+    "company": "T-Systems International GmbH",
+    "industry": "",
+    "role": "",
+    "location": "Datacenter München, Krefeld",
+    "activities": [
+      "Unterstüzung beim Umzug komplexer Kundenumgebungen vom Datacenter-Bielefeld zum Datacenter-Krefeld",
+      "Aufnahme, Erweiterung, Verbesserung bestehender Netzinfrastrukturen",
+      "Planung und Durchführung der Kundenaufträge im Tagesgeschäft",
+      "Bearbeitung von Problemtickets"
+    ],
+    "technologies": [
+      "Cisco-Switche",
+      "F5",
+      "Juniper",
+      "Messtabs",
+      "Nortel",
+      "Brocade",
+      "HP-Asset Center",
+      "Aperture Vista",
+      "Exel"
+    ]
+  },
+  {
+    "period": "04/2009 - 09/2011",
+    "title": "Projektunterstützung Defragmentierung Datacenter Bielefeld Mitarbeit im Tagesgeschäft",
+    "company": "T-Systems Enterprise GmbH",
+    "industry": "",
+    "role": "",
+    "location": "",
+    "activities": [
+      "Planung und Durchführung der Kundenaufträge im Tagesgeschäft",
+      "Projektunterstützung bei der Defragmentierung des Datacenter Bielefeld für die Migration komplexer Kundenumgebungen",
+      "Unterstützung bei der Planung des Redesigns der Cisco-CAT Umgebung auf Cisco-Nexus Technologie",
+      "Neuaufbau der Switch-MGMT Umgebung",
+      "Neuaufbau der DMZ Umgebung",
+      "Unterstützung bei der DWDM-Backbone Umgebung",
+      "Planung und Durchführung der Patcharbeiten LAN/SAN"
+    ],
+    "technologies": [
+      "HP-Asset Center",
+      "Aperture Vista",
+      "Exel"
+    ]
+  },
+  {
+    "period": "04/2008-03/2009",
+    "title": "Bearbeiten von Problemtickets",
+    "company": "T-Systems International GmbH",
+    "industry": "",
+    "role": "",
+    "location": "",
+    "activities": [
+      "Troubleshooting Datacenter Bielefeld und Münster",
+      "Analyse und Messarbeiten",
+      "Austausch von aktiven und passiven Komponeten",
+      "Planung und Durchführung der Patcharbeiten LAN/SAN"
+    ],
+    "technologies": []
+  },
+  {
+    "period": "06/2001-03/2008",
+    "title": "Patcharbeiten im HVT, Troubleshooting DSL",
+    "company": "Deutsche Telekom AG",
+    "industry": "",
+    "role": "",
+    "location": "",
+    "activities": [
+      "Patcharbeiten an verschiedenen Standorten in NRW",
+      "Analyse und Messarbeiten",
+      "Austausch von aktiven passiven DSL-Komponeten",
+      "Analyse und Erweiterung der bestehenden Netzstruktur"
+    ],
+    "technologies": []
+  }
+]
