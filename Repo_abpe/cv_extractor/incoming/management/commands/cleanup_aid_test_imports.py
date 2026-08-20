@@ -71,6 +71,10 @@ class Command(BaseCommand):
             help='Uploads/Consultants ab Datum (YYYY-MM-DD oder ISO)',
         )
         parser.add_argument(
+            '--before', default='',
+            help='Nur Consultants/Uploads VOR Datum (YYYY-MM-DD oder ISO) — Alt-Reste nach Re-Import',
+        )
+        parser.add_argument(
             '--any-source', action='store_true',
             help='Auch ohne aid_import (nur Dir/Since-Filter)',
         )

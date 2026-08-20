@@ -375,6 +375,10 @@ class MainDbImporter:
             lines.append(f"Name: {first} {last}")
             lines.append(f"Headline: {meta.get('headline','')}")
             lines.append(f"Ort: {p.get('location','')}")
+            if p.get('wohnort'):
+                lines.append(f"Wohnort: {p.get('wohnort')}")
+            if p.get('birth_year'):
+                lines.append(f"Jahrgang: {p.get('birth_year')}")
             lines.append(f"Verfügbar: {p.get('availability','')}")
             lines.append(f"EDV seit: {p.get('edv_experience_since','')}")
             langs = p.get('languages', [])
@@ -414,7 +418,7 @@ class MainDbImporter:
             lines.append("SKILLS:")
             for cat, items in ed.get('skills', {}).items():
                 if items:
-                    lines.append(f"  {cat}: {self._join_names(items, limit=5)}")
+                    lines.append(f"  {cat}: {self._join_names(items, limit=40)}")
             # skill_ablage dict-sicher (wie import_from_prejson)
             ablage = ed.get('skill_ablage') or []
             if ablage:
@@ -669,6 +673,13 @@ class MainDbImporter:
                 f"Name: {first} {last}",
                 f"Headline: {meta.get('headline', '') or p.get('headline', '')}",
                 f"Ort: {p.get('location', '')}",
+            ]
+            if p.get('wohnort'):
+                lines.append(f"Wohnort: {p.get('wohnort')}")
+            by = p.get('birth_year') or consultant.birth_year
+            if by:
+                lines.append(f"Jahrgang: {by}")
+            lines += [
                 f"Verfügbar: {p.get('availability', '')}",
                 f"EDV seit: {consultant.edv_experience_since or ''}",
                 f"Sprachen: {', '.join(l.get('name','') if isinstance(l,dict) else str(l) for l in p.get('languages',[]) if l)}",
@@ -697,10 +708,18 @@ class MainDbImporter:
                     joined = self._join_names(techs, limit=10)
                     if joined:
                         lines.append(f"    Techs: {joined}")
+            lines += ["", "SKILLS:"]
+            skills_map = ed.get('skills') or {}
+            if isinstance(skills_map, dict) and skills_map:
+                for cat, items in skills_map.items():
+                    joined = self._join_names(items, limit=40) if items else ""
+                    if joined:
+                        lines.append(f"  {cat}: {joined}")
+            ablage = ed.get('skill_ablage') or []
             lines += [
                 "",
                 "SKILL-ABLAGE:",
-                self._join_names(ed.get('skill_ablage', [])),
+                self._join_names(ablage),
             ]
             txt_content = '\n'.join(str(x) for x in lines)
             txt_path.write_text(txt_content, encoding='utf-8')
