@@ -9,9 +9,14 @@
 #   • Person-Stammordner selbst (nur Inhalt: neu/ + Convert-PDF)
 #
 # Löscht NUR (pro TSV-Zeile OK|FAIL):
-#   1) $AID_ROOT/$letter/$dir/neu/          (ganzen neu-Baum)
-#   2) $AID_ROOT/$letter/$dir/AID-*_1.0.0.0.pdf  (nur Convert-Quell-PDF)
+#   1) $AID_ROOT/$letter/$dir/neu/          (ganzen neu-Baum; busy → .busy-*/Warn)
+#   2) $AID_ROOT/$letter/$dir/AID-*.pdf     (Convert-Quell-PDFs; CIFS-busy → rename/skip)
 #   3) optional DB: Consultant/Uploads mit exakt consultant_dir=$dir
+#      (cleanup_aid_test_imports --dir NAME — nicht --dirs)
+#
+# Wenn Convert-PDF auf dem Share „Device or resource busy“ (Windows-Handle):
+#   CONVERT weicht automatisch auf AID-*_1.0.0.1.pdf usw. aus.
+#   Sofort-Workaround ohne Pull: VERSION_TAG=1.0.0.1 LIMIT=1 … BATCH…
 #
 # Ablauf (ucs5) — IMMER erst Dry-Run:
 #
