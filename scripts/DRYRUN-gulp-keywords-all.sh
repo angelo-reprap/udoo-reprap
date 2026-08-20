@@ -169,14 +169,26 @@ for contact_id, gulp_id, profil in qs.iterator(chunk_size=200):
     if is_ok:
         ok += 1
     else:
-        # resolve name lazily only for fails
+        # resolve name lazily only for fails — nie UUID an int-id
+        last, first = "", ""
         try:
-            cid_int = int(contact_id)
-        except (TypeError, ValueError):
-            cid_int = contact_id
-        c = CrmContact.objects.filter(id=cid_int).only("first_name", "last_name").first()
-        last = (getattr(c, "last_name", None) or "") if c else ""
-        first = (getattr(c, "first_name", None) or "") if c else ""
+            st_fail = (
+                CrmContactCstm.objects.filter(contact_id=contact_id)
+                .select_related("contact")
+                .first()
+            )
+            c = getattr(st_fail, "contact", None) if st_fail else None
+            if c is None and str(contact_id).isdigit():
+                c = (
+                    CrmContact.objects.filter(pk=int(contact_id))
+                    .only("first_name", "last_name")
+                    .first()
+                )
+            if c is not None:
+                last = (getattr(c, "last_name", None) or "")
+                first = (getattr(c, "first_name", None) or "")
+        except (ValueError, TypeError):
+            pass
         reason = []
         if not project_signal:
             reason.append("no_project_signal")
