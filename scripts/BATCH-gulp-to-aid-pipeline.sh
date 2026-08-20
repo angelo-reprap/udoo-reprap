@@ -9,7 +9,12 @@
 # Overnight (detached):
 #   LIMIT=0 bash scripts/BATCH-gulp-to-aid-detach.sh
 #
-# Throttle (Default): bei RAM≥88% oder CPU≥88% → sleep THROTTLE_SLEEP (30s), bis darunter.
+# Throttle (Default):
+#   - RAM (used vs Available) ≥ MEM_THRESH (88%) → sleep
+#   - CPU (1-min load / nproc) ≥ CPU_THRESH (88%) → sleep
+#   - Swap allein blockiert NICHT mehr (voller alter Swap + freier neuer Swap)
+#   - Swap nur wenn Swap≥SWAP_THRESH UND RAM≥SWAP_MEM_COMBO (Druck echt)
+#   - oder MemAvailable < MIN_AVAIL_MB
 #
 set -euo pipefail
 
@@ -23,8 +28,11 @@ SKIP_EXISTING_NEU="${SKIP_EXISTING_NEU:-1}"
 VERSION_TAG="${VERSION_TAG:-1.0.0.0}"
 MIN_LEN="${MIN_LEN:-200}"
 OUT_LOG="${OUT_LOG:-/tmp/gulp-batch-$(date +%Y%m%d-%H%M%S)}"
-MEM_THRESH="${MEM_THRESH:-88}"   # % genutzter RAM (ohne Available)
-CPU_THRESH="${CPU_THRESH:-88}"   # % aus 1-min Load / nproc
+MEM_THRESH="${MEM_THRESH:-88}"         # % RAM belegt (Total-Available)
+CPU_THRESH="${CPU_THRESH:-88}"         # % Load/nproc
+SWAP_THRESH="${SWAP_THRESH:-95}"       # % Swap — nur mit RAM-Druck
+SWAP_MEM_COMBO="${SWAP_MEM_COMBO:-75}" # Swap-Block nur wenn mem ≥ diesem Wert
+MIN_AVAIL_MB="${MIN_AVAIL_MB:-1536}"   # harte Untergrenze freier RAM
 THROTTLE_SLEEP="${THROTTLE_SLEEP:-30}"
 PAUSE_BETWEEN="${PAUSE_BETWEEN:-2}"  # kurze Pause zwischen Jobs (s)
 RUN_INVENTORY="${RUN_INVENTORY:-0}"  # 1 = vorher INVENTORY-gulp-vs-neu-cv.sh
@@ -35,6 +43,7 @@ exec > >(tee -a "$OUT_LOG/batch.log") 2>&1
 echo "======== BATCH gulp → AID Pipeline ========"
 echo "Start: $(date -Iseconds) host=$(hostname) pid=$$"
 echo "LIMIT=$LIMIT EXECUTE=$EXECUTE MEM_THRESH=$MEM_THRESH CPU_THRESH=$CPU_THRESH"
+echo "SWAP_THRESH=$SWAP_THRESH SWAP_MEM_COMBO=$SWAP_MEM_COMBO MIN_AVAIL_MB=$MIN_AVAIL_MB"
 echo "THROTTLE_SLEEP=$THROTTLE_SLEEP PAUSE_BETWEEN=$PAUSE_BETWEEN"
 echo "OUT_LOG=$OUT_LOG"
 echo
@@ -45,6 +54,10 @@ mem_used_pct() {
     if (t+0<1) {print 100; exit}
     printf "%d", (t-a)*100/t
   }' /proc/meminfo
+}
+
+mem_avail_mb() {
+  awk '/MemAvailable:/{printf "%d", $2/1024}' /proc/meminfo
 }
 
 cpu_load_pct() {
@@ -61,26 +74,51 @@ swap_used_pct() {
   }' /proc/meminfo
 }
 
+# 0 = ok weiter, 1 = drosseln
+throttle_should_wait() {
+  local mem="$1" cpu="$2" swap="$3" avail="$4"
+  local reasons=()
+  if (( mem >= MEM_THRESH )); then
+    reasons+=("mem=${mem}%≥${MEM_THRESH}")
+  fi
+  if (( cpu >= CPU_THRESH )); then
+    reasons+=("cpu=${cpu}%≥${CPU_THRESH}")
+  fi
+  if (( avail < MIN_AVAIL_MB )); then
+    reasons+=("avail=${avail}MB<${MIN_AVAIL_MB}")
+  fi
+  # Swap nur bei gleichzeitigem RAM-Druck
+  if (( swap >= SWAP_THRESH && mem >= SWAP_MEM_COMBO )); then
+    reasons+=("swap=${swap}%≥${SWAP_THRESH}+mem≥${SWAP_MEM_COMBO}")
+  fi
+  if ((${#reasons[@]} > 0)); then
+    printf '%s' "${reasons[*]}"
+    return 0
+  fi
+  return 1
+}
+
 throttle_wait() {
-  local mem cpu swap rounds=0
+  local mem cpu swap avail rounds=0 why
   while true; do
     mem="$(mem_used_pct)"
     cpu="$(cpu_load_pct)"
     swap="$(swap_used_pct)"
-    if (( mem < MEM_THRESH && cpu < CPU_THRESH && swap < 95 )); then
-      if (( rounds > 0 )); then
-        echo "THROTTLE clear mem=${mem}% cpu=${cpu}% swap=${swap}% (after ${rounds} waits)"
+    avail="$(mem_avail_mb)"
+    if why="$(throttle_should_wait "$mem" "$cpu" "$swap" "$avail")"; then
+      rounds=$((rounds + 1))
+      echo "THROTTLE ${why} (swap=${swap}% avail=${avail}MB) → sleep ${THROTTLE_SLEEP}s (#${rounds})"
+      sleep "$THROTTLE_SLEEP"
+      if (( rounds >= 120 )); then
+        echo "FAIL: Throttle >120 Runden — Abbruch (Ressourcen bleiben hoch)" >&2
+        return 1
       fi
-      return 0
+      continue
     fi
-    rounds=$((rounds + 1))
-    echo "THROTTLE mem=${mem}% (lim ${MEM_THRESH}) cpu=${cpu}% (lim ${CPU_THRESH}) swap=${swap}% → sleep ${THROTTLE_SLEEP}s (#${rounds})"
-    sleep "$THROTTLE_SLEEP"
-    # harte Notbremse: sehr viele Warterunden
-    if (( rounds >= 120 )); then
-      echo "FAIL: Throttle >120 Runden — Abbruch (Ressourcen bleiben hoch)" >&2
-      return 1
+    if (( rounds > 0 )); then
+      echo "THROTTLE clear mem=${mem}% cpu=${cpu}% swap=${swap}% avail=${avail}MB (after ${rounds} waits)"
     fi
+    return 0
   done
 }
 
