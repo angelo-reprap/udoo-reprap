@@ -1205,18 +1205,21 @@ def _clean_einsatzort_body(body: str) -> str:
       Augsburg (100 km)
       …
       Ich möchte BEVORZUGT …
-    Region/Umkreis behalten, Kommentar-/Kontakt-Fließtext weg.
+    Oder geklebt: 'DeutschlandKommentar: Bevorzugt Berlin…'
     """
     body = body or ""
+    # geklebte Varianten ohne Leerzeichen
+    body = re.split(r"(?i)Kommentar\s*:\s*", body)[0]
     body = re.split(r"(?i)Kommentar\s+zum\s+Einsatzort", body)[0]
     body = re.split(r"(?i)zur\s+Arbeitserlaubnis", body)[0]
     body = re.split(r"(?i)Ich möchte BEVORZUGT", body)[0]
+    body = re.split(r"(?i)Bevorzugt\b", body)[0]
     body = re.split(r"(?i)Kontaktwunsch\s*:", body)[0]
     body = re.split(r"(?i)Projekte mit hohem Remote", body)[0]
+    body = re.split(r"(?i)Anstellung\s+ausschlie", body)[0]
     lines = [ln.strip() for ln in body.splitlines() if ln.strip()]
     if not lines:
         return ""
-    # alle kurzen Regionszeilen zusammenführen (D8 + Umkreis + Städte)
     kept: List[str] = []
     for ln in lines:
         if len(ln) > 120:
@@ -1231,6 +1234,25 @@ def _clean_einsatzort_body(body: str) -> str:
     if len(primary) > 200:
         primary = primary[:200].rsplit(" ", 1)[0]
     return primary
+
+
+def _dedupe_lang_list(langs: str) -> str:
+    """'Deutsch, Deutsch (Muttersprache), Englisch' → eindeutig."""
+    if not langs:
+        return ""
+    seen = set()
+    out = []
+    for part in re.split(r"\s*,\s*", langs):
+        p = part.strip()
+        if not p:
+            continue
+        # Basis-Sprache vor Klammer/Doppelpunkt
+        base = re.split(r"[\(:]", p, 1)[0].strip().lower()
+        if not base or base in seen:
+            continue
+        seen.add(base)
+        out.append(p)
+    return ", ".join(out)
 
 
 def _section_map(profile: Dict[str, Any]) -> Dict[str, str]:
@@ -1254,7 +1276,8 @@ def _sprachen(profile: Dict[str, Any]) -> str:
     for k, v in sm.items():
         if "fremdsprachen" in k or k == "sprachen":
             langs = [ln.strip() for ln in v.splitlines() if ln.strip()]
-            return ", ".join(langs) if langs else _squash(v)
+            raw = ", ".join(langs) if langs else _squash(v)
+            return _dedupe_lang_list(raw)
     return ""
 
 

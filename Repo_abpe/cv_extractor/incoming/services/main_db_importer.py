@@ -710,8 +710,19 @@ class MainDbImporter:
                         lines.append(f"    Techs: {joined}")
             lines += [
                 "",
+                "SKILLS:",
+            ]
+            skills_map = ed.get('skills') or {}
+            if isinstance(skills_map, dict) and skills_map:
+                for cat, items in skills_map.items():
+                    joined = self._join_names(items, limit=40) if items else ""
+                    if joined:
+                        lines.append(f"  {cat}: {joined}")
+            ablage = ed.get('skill_ablage') or []
+            lines += [
+                "",
                 "SKILL-ABLAGE:",
-                self._join_names(ed.get('skill_ablage', [])),
+                self._join_names(ablage),
             ]
             txt_content = '\n'.join(str(x) for x in lines)
             txt_path.write_text(txt_content, encoding='utf-8')
