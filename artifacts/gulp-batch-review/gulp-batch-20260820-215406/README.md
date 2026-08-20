@@ -9,6 +9,8 @@ Pro Person:
 - `source/AID-*_1.0.0.0.pdf` — Convert-PDF
 - `neu/cv/AID-*.pdf` — Pipeline-Ziel
 - `extracted/AID-*.txt` — Pipeline-Extrakt
+- `extracted/AID-*.pre_json.json` — RAM pre_json (vor DB)
+- `extracted/AID-*.db_snapshot.json` — DB nach save (Vergleich)
 
 | Status | Letter/Dir | neu/cv PDF | Quelle TXT |
 |--------|------------|------------|------------|
