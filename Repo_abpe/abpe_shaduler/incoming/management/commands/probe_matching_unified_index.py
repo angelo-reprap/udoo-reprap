@@ -51,6 +51,10 @@ class Command(BaseCommand):
         parser.add_argument('--search', action='store_true', help='Nach Index kurze Skill-Suche')
         parser.add_argument('--out', default='')
         parser.add_argument('--recreate', action='store_true', help='Probe-Index vorher löschen')
+        parser.add_argument(
+            '--join-ratio', type=float, default=0.5,
+            help='Anteil der Stichprobe aus Join-Kandidaten (Radar/gulp), Rest Wild-Profil (0..1)',
+        )
         # Legacy-Flags (ignoriert, Warnung) — alte dual-stream Probe
         parser.add_argument('--pipeline', type=int, default=None, help='(legacy, ignoriert)')
         parser.add_argument('--wild', type=int, default=None, help='(legacy, ignoriert)')
@@ -93,10 +97,18 @@ class Command(BaseCommand):
             'join_via': {},
         }
 
+        self.stdout.write('building join index (Radar→Consultant)…')
+        join_index = mwp.build_join_index()
+        self.stdout.write(f"  join_index={join_index.get('stats')}")
+
         if only_id:
             targets = self._load_one(Contact, Cstm, only_id)
         else:
-            targets = self._sample_contacts(Contact, Cstm, n_contacts)
+            targets = self._sample_contacts(
+                Contact, Cstm, n_contacts,
+                join_index=join_index,
+                join_ratio=float(options.get('join_ratio') or 0.5),
+            )
 
         for contact, cstm in targets:
             crm_id = getattr(contact, 'crm_id', None) or (
@@ -108,6 +120,7 @@ class Command(BaseCommand):
                 cstm=cstm,
                 contact=contact,
                 skills_watch=skills,
+                join_index=join_index,
             )
             src = weighed['weight_source']
             counts[src] = counts.get(src, 0) + 1
@@ -172,6 +185,7 @@ class Command(BaseCommand):
             'contact_id_filter': only_id or None,
             'sampled': len(targets),
             'docs': len(docs),
+            'join_index': join_index.get('stats'),
             'counts': counts,
             'contacts': rows_meta,
         }
@@ -220,39 +234,86 @@ class Command(BaseCommand):
         )
         return [(contact, cstm)]
 
-    def _sample_contacts(self, Contact, Cstm, n: int):
-        """Contacts mit Profil-Text und/oder gulp_id (Join-Kandidaten)."""
+    def _sample_contacts(self, Contact, Cstm, n: int, *, join_index=None, join_ratio: float = 0.5):
+        """
+        Stratifizierte Stichprobe:
+          ~join_ratio aus Join-Kandidaten (Radar crm/gulp → Consultant)
+          Rest aus Wild-Profil-Text (ogo/*_profil)
+        """
         if n <= 0:
             return []
-        qs = (
-            Cstm.objects.filter(
-                Q(ogo_description_c__isnull=False) & ~Q(ogo_description_c='')
-                | Q(gulp_profil_c__isnull=False) & ~Q(gulp_profil_c='')
-                | Q(freelancermap_profil_c__isnull=False) & ~Q(freelancermap_profil_c='')
-                | Q(xing_profile_c__isnull=False) & ~Q(xing_profile_c='')
-                | Q(gulp_id_c__isnull=False) & ~Q(gulp_id_c='')
-            )
-            .select_related('contact')
-            .order_by('-id')
-        )
+        join_ratio = max(0.0, min(1.0, float(join_ratio)))
+        n_join = int(round(n * join_ratio))
+        n_wild = n - n_join
         out = []
         seen = set()
-        for cstm in qs.iterator(chunk_size=80):
-            if len(out) >= n:
-                break
-            contact = getattr(cstm, 'contact', None)
+
+        def _add(contact, cstm):
             if contact is None:
-                cid = getattr(cstm, 'contact_id', None)
-                if cid:
-                    contact = Contact.objects.filter(crm_id=cid).first()
-            if contact is None:
-                continue
+                return False
             crm_id = str(getattr(contact, 'crm_id', '') or '')
             if not crm_id or crm_id in seen:
-                continue
+                return False
             seen.add(crm_id)
             out.append((contact, cstm))
-        return out
+            return True
+
+        # ── Join-Kandidaten aus Radar-Index ────────────────────────────
+        by_crm = (join_index or {}).get('by_crm') or {}
+        by_gulp = (join_index or {}).get('by_gulp') or {}
+        join_crm_ids = list(by_crm.keys())
+        # neueste zuerst ist egal — wir nehmen Prefix der Map (Insertion = updated_at desc)
+        for crm_id in join_crm_ids:
+            if len(out) >= n_join:
+                break
+            contact = Contact.objects.filter(crm_id=crm_id).first()
+            if not contact:
+                continue
+            cstm = Cstm.objects.filter(contact_id=crm_id).select_related('contact').first()
+            _add(contact, cstm)
+
+        # Nachziehen über gulp_id_c ∈ by_gulp, falls noch Platz
+        if len(out) < n_join and by_gulp:
+            gulp_ids = list(by_gulp.keys())[: n_join * 3]
+            qs = (
+                Cstm.objects.filter(gulp_id_c__in=gulp_ids)
+                .select_related('contact')
+                .order_by('-id')
+            )
+            for cstm in qs.iterator(chunk_size=100):
+                if len(out) >= n_join:
+                    break
+                contact = getattr(cstm, 'contact', None)
+                if contact is None:
+                    cid = getattr(cstm, 'contact_id', None)
+                    contact = Contact.objects.filter(crm_id=cid).first() if cid else None
+                _add(contact, cstm)
+
+        # ── Wild-Profil (ogo / *_profil), ohne schon gesehene ───────────
+        need = n - len(out)
+        if need > 0:
+            qs = (
+                Cstm.objects.filter(
+                    Q(ogo_description_c__isnull=False) & ~Q(ogo_description_c='')
+                    | Q(gulp_profil_c__isnull=False) & ~Q(gulp_profil_c='')
+                    | Q(freelancermap_profil_c__isnull=False) & ~Q(freelancermap_profil_c='')
+                    | Q(xing_profile_c__isnull=False) & ~Q(xing_profile_c='')
+                )
+                .select_related('contact')
+                .order_by('-id')
+            )
+            for cstm in qs.iterator(chunk_size=100):
+                if len(out) >= n:
+                    break
+                contact = getattr(cstm, 'contact', None)
+                if contact is None:
+                    cid = getattr(cstm, 'contact_id', None)
+                    contact = Contact.objects.filter(crm_id=cid).first() if cid else None
+                _add(contact, cstm)
+
+        # Falls Join-Pool klein war: mit Wild auffüllen (oben schon); fertig
+        _ = n_wild  # dokumentiert Intent
+        return out[:n]
 
     def _write_es(self, index, docs, recreate, do_search, skills):
         from elasticsearch import Elasticsearch, helpers

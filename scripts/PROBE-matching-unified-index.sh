@@ -6,11 +6,8 @@
 #   cd /mnt/public/udoo-reprap
 #   git pull origin cursor/matching-contact-weight-index-1532
 #   bash scripts/SAFE-matching-unified-probe-deploy.sh
-#   bash scripts/PROBE-matching-unified-index.sh              # DRY, 20 Contacts
-#   EXECUTE=1 CONTACTS=40 bash scripts/PROBE-matching-unified-index.sh
-#   # Einzelne Prüfschleife (ohne Index-Wipe):
-#   CONTACT_ID=5db16d0d-42e5-691c-d572-4b1ebfb6ef9e bash scripts/PROBE-matching-unified-index.sh
-#   EXECUTE=1 CONTACT_ID=5db16d0d-42e5-691c-d572-4b1ebfb6ef9e bash scripts/PROBE-matching-unified-index.sh
+#   # große Stichprobe, 50% Join-Kandidaten (Radar/gulp):
+#   EXECUTE=1 CONTACTS=200 bash scripts/PROBE-matching-unified-index.sh
 #
 set -euo pipefail
 
@@ -21,6 +18,7 @@ SKILLS="${SKILLS:-Java,Python,Perl,Django,Spring,Kubernetes,Docker,AWS,SAP,SQL,L
 INDEX="${INDEX:-abpe_matching_profiles_probe}"
 EXECUTE="${EXECUTE:-0}"
 SEARCH="${SEARCH:-1}"
+JOIN_RATIO="${JOIN_RATIO:-0.5}"
 # Bulk-Stichprobe: Index neu. Einzel-CONTACT_ID: upsert, kein Wipe (RECREATE=1 erzwingen möglich).
 RECREATE="${RECREATE:-}"
 
@@ -33,6 +31,7 @@ ARGS=(
   probe_matching_unified_index
   --skills "$SKILLS"
   --index "$INDEX"
+  --join-ratio "$JOIN_RATIO"
 )
 if [[ -n "$CONTACT_ID" ]]; then
   ARGS+=(--contact-id "$CONTACT_ID")

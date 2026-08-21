@@ -374,7 +374,7 @@ def skill_stats_from_pipeline(consultant, *, require_category: bool = True) -> L
     """
     rows = []
     try:
-        qs = consultant.skills.select_related('skill', 'skill__category').all()
+        qs = consultant.skills.select_related('skill').all()
     except Exception:
         return rows
     for cs in qs:
@@ -411,6 +411,9 @@ def skill_stats_from_pipeline(consultant, *, require_category: bool = True) -> L
     rows = list(best.values())
     # stabile Sortierung: Gewicht, dann kürzerer Name (weniger Müll-Phrasen oben)
     rows.sort(key=lambda x: (-x['weight'], len(x['name']), x['name_lc']))
+    # Fallback: wenn Kategorien leer/falsch gepflegt → Name-Hygiene allein
+    if require_category and not rows:
+        return skill_stats_from_pipeline(consultant, require_category=False)
     return rows
 
 
@@ -466,12 +469,19 @@ def resolve_consultant_for_contact(
     contact=None,
     Consultant=None,
     RadarConsultantItem=None,
+    join_index: Optional[Dict] = None,
 ):
     """
     Join Contact → Consultant (CV-Pipeline), beste verfügbare Brücke zuerst.
 
     Returns: (consultant_or_None, join_via:str)
-      join_via: radar_fk | gulp_id_dir | gulp_id_aid | name | ''
+      join_via:
+        radar_fk          — RadarConsultantItem.consultant für crm_contact_id
+        radar_gulp        — Radar-Zeile mit gleichem gulp_id + consultant FK
+        gulp_id_dir/aid   — direkter Match auf consultant_dir / aid (selten)
+        email             — E-Mail exakt
+        name              — eindeutiger Vor+Nachname (nur wenn 1 Person)
+        ''                — kein Join
     """
     from django.apps import apps
     from django.db.models import Q
@@ -492,7 +502,20 @@ def resolve_consultant_for_contact(
         status__in=['completed', 'validated', 'profile_ready'],
     ).exclude(aid__endswith='-en')
 
-    # 1) Radar-Brücke (expliziter FK)
+    gulp_id = ''
+    if cstm is not None:
+        gulp_id = str(getattr(cstm, 'gulp_id_c', None) or '').strip()
+
+    # ── Schnellpfad über vorbereiteten Index (Bulk-Probe) ──────────────
+    if join_index:
+        if crm_id and crm_id in join_index.get('by_crm', {}):
+            c = join_index['by_crm'][crm_id]
+            return c, 'radar_fk'
+        if gulp_id and gulp_id in join_index.get('by_gulp', {}):
+            c = join_index['by_gulp'][gulp_id]
+            return c, 'radar_gulp'
+
+    # 1) Radar: crm_contact_id → consultant FK
     if RadarConsultantItem is not None and crm_id:
         radar = (
             RadarConsultantItem.objects.filter(
@@ -507,44 +530,136 @@ def resolve_consultant_for_contact(
         if radar and radar.consultant_id:
             c = radar.consultant
             if c and not str(getattr(c, 'aid', '') or '').endswith('-en'):
-                return c, 'radar_fk'
+                if c.status in ('completed', 'validated', 'profile_ready'):
+                    return c, 'radar_fk'
 
-    gulp_id = ''
-    if cstm is not None:
-        gulp_id = str(getattr(cstm, 'gulp_id_c', None) or '').strip()
+    # 2) Radar: gulp_id → consultant FK (CRM gulp_id_c = Radar.gulp_id)
+    if RadarConsultantItem is not None and gulp_id and len(gulp_id) >= 3:
+        radar = (
+            RadarConsultantItem.objects.filter(
+                gulp_id=gulp_id,
+                deleted_at__isnull=True,
+                consultant_id__isnull=False,
+            )
+            .select_related('consultant')
+            .order_by('-updated_at')
+            .first()
+        )
+        if radar and radar.consultant_id:
+            c = radar.consultant
+            if (
+                c
+                and not str(getattr(c, 'aid', '') or '').endswith('-en')
+                and c.status in ('completed', 'validated', 'profile_ready')
+            ):
+                return c, 'radar_gulp'
 
-    # 2) gulp_id ↔ consultant_dir / aid
-    if gulp_id:
+    # 3) Direkter gulp_id ↔ consultant_dir / aid (selten, aber hart)
+    if gulp_id and len(gulp_id) >= 3:
         hit = pool.filter(consultant_dir=gulp_id).order_by('-created_at').first()
         if hit:
             return hit, 'gulp_id_dir'
         hit = pool.filter(aid=gulp_id).order_by('-created_at').first()
         if hit:
             return hit, 'gulp_id_aid'
-        # dir oft Pfad/Name mit gulp-id darin
-        hit = (
-            pool.filter(
-                Q(consultant_dir__icontains=gulp_id) | Q(aid__icontains=gulp_id)
+        # nur ganze Token-Grenze, kein kurzer Zufallstreffer
+        if len(gulp_id) >= 5:
+            hit = (
+                pool.filter(
+                    Q(consultant_dir__endswith=gulp_id)
+                    | Q(consultant_dir__endswith=f'_{gulp_id}')
+                    | Q(consultant_dir__endswith=f'-{gulp_id}')
+                )
+                .order_by('-created_at')
+                .first()
             )
-            .order_by('-created_at')
-            .first()
-        )
-        if hit:
-            return hit, 'gulp_id_contains'
+            if hit:
+                return hit, 'gulp_id_dir_suffix'
 
-    # 3) schwacher Name-Match
+    # 4) E-Mail
+    email = ''
+    if contact is not None:
+        for attr in ('email_address', 'email1', 'email_c', 'email'):
+            email = (getattr(contact, attr, None) or '').strip()
+            if email:
+                break
+        # SuiteCRM oft über related emails — optional primary_address_mail?
+    if email and '@' in email:
+        hit = pool.filter(email__iexact=email).order_by('-created_at').first()
+        if hit:
+            return hit, 'email'
+
+    # 5) Name — nur wenn eindeutig eine Person (1 consultant_dir)
     first = (getattr(contact, 'first_name', None) or '').strip() if contact else ''
     last = (getattr(contact, 'last_name', None) or '').strip() if contact else ''
     if first and last and len(last) >= 2:
-        hit = (
-            pool.filter(first_name__iexact=first, last_name__iexact=last)
-            .order_by('-created_at')
-            .first()
+        name_qs = pool.filter(first_name__iexact=first, last_name__iexact=last)
+        dirs = list(
+            name_qs.values_list('consultant_dir', flat=True).distinct()[:5]
         )
-        if hit:
-            return hit, 'name'
+        # leere dirs zählen als eigene Keys
+        norm_dirs = {(d or '').lower().strip() for d in dirs}
+        if len(norm_dirs) == 1:
+            hit = name_qs.order_by('-created_at').first()
+            if hit:
+                return hit, 'name'
+        # mehrere Homonyme → kein Name-Join (zu riskant)
 
     return None, ''
+
+
+def build_join_index(Consultant=None, RadarConsultantItem=None) -> Dict:
+    """
+    Vorberechnete Maps für Bulk-Probe:
+      by_crm[crm_contact_id] → Consultant
+      by_gulp[gulp_id] → Consultant
+    Nur Radar-Zeilen mit gesetztem consultant FK.
+    """
+    from django.apps import apps
+
+    if Consultant is None:
+        Consultant = apps.get_model('cv_extractor', 'Consultant')
+    if RadarConsultantItem is None:
+        try:
+            RadarConsultantItem = apps.get_model('abpe_shaduler', 'RadarConsultantItem')
+        except LookupError:
+            return {'by_crm': {}, 'by_gulp': {}, 'stats': {'radar_with_consultant': 0}}
+
+    by_crm: Dict = {}
+    by_gulp: Dict = {}
+    n = 0
+    qs = (
+        RadarConsultantItem.objects.filter(
+            deleted_at__isnull=True,
+            consultant_id__isnull=False,
+        )
+        .select_related('consultant')
+        .order_by('-updated_at')
+    )
+    for r in qs.iterator(chunk_size=500):
+        c = r.consultant
+        if c is None:
+            continue
+        if str(getattr(c, 'aid', '') or '').endswith('-en'):
+            continue
+        if getattr(c, 'status', '') not in ('completed', 'validated', 'profile_ready'):
+            continue
+        n += 1
+        cid = str(r.crm_contact_id or '').strip()
+        if cid and cid not in by_crm:
+            by_crm[cid] = c
+        gid = str(r.gulp_id or '').strip()
+        if gid and gid not in by_gulp:
+            by_gulp[gid] = c
+    return {
+        'by_crm': by_crm,
+        'by_gulp': by_gulp,
+        'stats': {
+            'radar_with_consultant': n,
+            'unique_crm': len(by_crm),
+            'unique_gulp': len(by_gulp),
+        },
+    }
 
 
 def weight_for_contact(
@@ -553,6 +668,7 @@ def weight_for_contact(
     cstm=None,
     contact=None,
     skills_watch: Optional[List[str]] = None,
+    join_index: Optional[Dict] = None,
 ) -> Dict:
     """
     Prüfschleife pro Contact-ID:
@@ -563,7 +679,7 @@ def weight_for_contact(
     """
     skills_watch = skills_watch or []
     consultant, join_via = resolve_consultant_for_contact(
-        crm_id=crm_id, cstm=cstm, contact=contact,
+        crm_id=crm_id, cstm=cstm, contact=contact, join_index=join_index,
     )
     first = (getattr(contact, 'first_name', None) or '') if contact else ''
     last = (getattr(contact, 'last_name', None) or '') if contact else ''
