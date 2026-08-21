@@ -1,0 +1,1924 @@
+Full Stack Entwickler mit Java, Golang, Python. DevOps. API Designer
+mit OpenAPI, API First.
+Top-Skills: Spring Boot, REST API, Microservice, Java,
+API First, Angular, Typescript, DevOps, Linux,
+Google Cloud, Golang, LPIC1, PostgreSQL,
+Docker, Continuous Integration, Git, Kafka,
+OpenAPI, Python, Azure, REST, MongoDB
+Verfügbar ab: 01.03.2023
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 100,00 EUR
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Schweiz, Einsatzort unbestimmt
+Städte: Zürich 200 km
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Kommentar: Reisebereitschaft im DACH Bereich.
+ 
+Position
+Kommentar: Java, Golang, Angular Full-Stack Entwickler für Webservices
+Projekte
+2022-07 - 2023-01 Microservice Entwicklung
+7 Monate
+Rolle: Spring Boot, Golang Entwickler
+Einsatzort: Bern
+Projektinhalte: Entwicklung und Anpassung von Golang Microservices.
+24.02.2023 1 von 23
+Bugfixing.
+Senden und Empfangen von Messages mit RabbitMQ.
+Auswertung von Nachrichten mit Implementierung der Businesslogik
+(JSON, XML).
+QA Tests mit Postman Collections zur Validierung vom Message Schema
+(XSD).
+Technische Dokumentation (OpenAPI, Confluence, Asciidoc, DTCW).
+Perfomanceprüfung der SQLs, die durch GORM generiert werden.
+Frontend mit Angular &amp; Electron.js.
+API First mit OpenAPI Generator (Spring,Angular, Go).·        
+Azure Data Engineeringmit Azure Data Factory.
+Erstellen von Daten Pipelines in ADF.
+PoC für das Erstellen der ADF Pipeline.
+Managen von Storage Accounts mit Blob Storageund CosmosDB.
+Azure DevOps für die Erstellung einer CI/CDPipeline mit Github Actions.
+Durchführung und Verscriptung von Deploymentsmit Terraform.
+Angular Frontend Tabellen mit Sortierung undAmpel Status der Elemente.
+Anbindung von Angular an REST API (http client).
+Angular Model Generierung mit OpenAPIGenerator.·        Erstellung von
+Angular Formularen für dasHochladen von Images.
+Datenbank mit Azure CosmosDB SQL API und AtlasMongoDB.
+Persistierung der Daten aus Spring in MongoDB(Client).·        Persistierung
+von Daten aus Spring im AzureBlob Storage.·        Workshop Leitung für
+NoSQL Datenschemas.
+Workshop Leitung für API First mit OpenAPI.
+Anpassungen im Angular (14) Frontend mitTypescript.·        Agile
+Entwicklung mit Scrum.
+BDD (Behaviour DrivenDevelopment).
+Kenntnisse: Golang, Openapi, JavaScript, XML Schema, GORM, OAS3, Asciidoc, Data
+Engineering, Java, Spring, Typescript, Java 17, Maven, Azure, Cloud
+Computing
+Eingesetzte Produkte: Postman, Microservice, Spring, Angular, Azure, Azure Data Factory, Azure
+DevOps, Azure CosmosDB, Atlas MongoDB, Azure Storage
+24.02.2023 2 von 23
+2020-01 - 2023-01 Opensource Projekte
+3 Jahre 1 Monat
+Rolle: Java, Testautomatisierung, API Entwickler
+Kunde: Public
+Einsatzort: Opensource
+Projektinhalte: Opensource Projekt: QA Automatisierung, OpenAPI, API First
+    •  Automatisierung von REST API Tests mit API First (OpenAPI).
+    •  Auswertung und prozessierung von Postman Collections.
+    •  Automatisierung mit Postman CLI (Newman).
+    •  Anpassungen und Bugfixing von Idaithalam.
+    •  Erstellung einer Serverversion von Idaithalam.
+    •  Erstellung einer Library zum Generieren von OAS3 Dokumenten.
+    •  OAS3 Generierung mit Yaml Properties oder Exceldaten.
+Python Projekt mit FAST API
+    •  FAST API Webserver
+    •  Scripting zur Automatisierung
+Kenntnisse: OpenAPI, Postman, Newman CLI, Idaithalam, Docker, Jenkins,
+Microservice, IntelliJ, Git, Github, HTTP API, Python, FAST API
+2022-03 - 2022-06 Mehrere Teilzeitprojekte mit Spring und API Design
+4 Monate
+Rolle: Java &amp; Python &amp; Golang Microservice Entwickler, DevOps
+Kunde: Regierungsbehörden
+Einsatzort: Bern, Köln
+Projektinhalte:
+Spring Boot, API Design
+    •  Spring Boot mit API First und OpenAPI.
+    •  Validierung von Buchungen.
+    •  Integrationtest mit Karate und Idaithalam (BDD).
+    •  Authentifizierung mit JWT Token in Go.
+    •  Frontend mit Angular.
+    •  Einbindung Kafka Client in Spring.
+    •  Kafka Consumer Konfiguration.
+    •  Java und Golang DevOps Tätigkeiten.
+    •  Python Scripting für Automatisierungsaufgaben.
+    •  Jenkins Deployment nach Cloud Foundry.
+    •  Cloud Anbindung an AWS, MS Azure.
+    •  CI/CD pipeline development.
+    •  Entwicklung Dockerfile.
+API Design
+    •  API Design und Architektur einer neuen Anwendung.
+    •  Automatisierung der OAS3 Erstellung.
+    •  Entwicklung der Integrationstests mit Karate und Idaithalam.
+Kenntnisse: Golang 1.16, Gin Webserver, Java 11, Java Spring Boot 2.58, OAS3,
+24.02.2023 3 von 23
+OpenAPI, Postman, Jenkins, Microservice, IntelliJ, Git, Github, HTTP API,
+JIRA, MSSQL DB, PostgreSQL, Python
+2021-08 - 2022-03 Kundenportal, Full Stack, REST API Webservice
+8 Monate
+Rolle: Entwickler, DevOps
+Kunde: Dr. Gueldener Gruppe
+Einsatzort: Remote
+Projektinhalte:     •  Spring Boot Microservice Entwicklung.
+    •  Java Deployment mit Jenkins.
+    •  Entwicklung OpenAPI Spezifikationen.
+    •  Erstellung und Testen der Spring Dockerfiles.
+    •  Bau der Docker Images.
+    •  Jenkins Deployment.
+    •  Lokale Entwicklung mit Tilt, Docker und Minikube (Kubernetes).
+    •  Upgrade Spring Boot von 1.59 auf 2.58.
+    •  Generierung von OpenAPI Dokumenten.
+    •  Testautomatisierung mit Postman, Idaithalam.
+    •  Testdaten (Mockdaten) Erstellung.
+    •  Maven Multimodule Konfiguration.
+    •  Testanpassung / Upgrade von JUnit 4 auf JUnit 5 und Mockito.
+    •  Datenbank Anbindung Hibernate, Spring Data JPA Elastic.
+    •  Datenbank Elasticsearch, PostgreSQL.
+    •  Message transfer mit RabbitMQ.
+    •  Anpassung Kubernetes Konfiguration.
+    •  Konfiguration vom API Gateway Spring Cloud, Eureka.
+    •  Anpassungen im React.js Frontend (Javascript, JSX).
+    •  Konfiguration von Keycloak (Clients, Clientscope).
+    •  Authentifizierung mit OAuth2, JWT.
+    •  Backend Synchronisierung mit HTTP API.
+    •  Scripting Python Clients für REST API (Elasticsearch).
+    •  Automatisierung der Anpassung von OAS3 Dokumenten mit Python.
+    •  Automatisierung von Workflows mit Robot Framework (Python).
+    •  Agile Entwicklung mit Scrum.
+    •  BDD (Behaviour Driven Development).
+Kenntnisse: Java 8, 11, 17, Java Spring Boot 1.5.9/2.58, Swagger, OAS3, OpenAPI,
+Docker, Kubernetes, Jenkins, Microservice, IntelliJ, Git, Github, HTTP API,
+Cucumber, Gherkin, Idaithalam, JIRA, RabbitMQ, MSSQL DB,
+Elasticsearch, API Webservice, Angular, Spring Boot, Python
+2021-01 - 2021-06 Entwicklung Spring API Backend
+6 Monate
+Rolle: Java Webservice Entwickler, API Design
+Kunde: AXA Winterthur
+Einsatzort: Winterthur
+Projektinhalte:     •  Entwicklung Spring Boot mit API First Prinzip.
+    •  Entwicklung der REST API Services für das IdentityAccess
+     ?Management (IAM).
+24.02.2023 4 von 23
+    •  Erstellung der API Spezifikation für Microservices mit OAS3.
+    •  API First Prinzip mit Openapi-Tools als Maven Plugin.
+    •  Erstellung automatisierter Tests mit Idaithalam
+    •  Testautomatisierung mit JUnit 5 und Mockito.
+    •  Systemtests mit Wiremock.
+    •  Erstellung von Cucumber Reports für die Integrationtests.
+    •  Prüfung und Anpassung der REST API gemäss Firmen Policy.
+    •  API First mit Java Spring Resttemplate Webclients.
+    •  Datenbank Anbindung Hibernate, Spring Data JPA.
+    •  Event Streaming mit Apache Kafka (Consumer API).
+    •  Webclient für Kafka.
+    •  Datenimport in Elasticsearch mit Python (REST API).
+    •  Anbindung von Umsystemen in AWS (EC2).
+    •  Mapping von Objekten mit Mapstruct.
+    •  Maven Multimodule Konfiguration.
+    •  CI/CD deployment mit Jenkins.
+    •  Deployment in Kubernetes Openshift.
+    •  Agile Entwicklung mit Scrum.
+    •  BDD (Behaviour Driven Development).
+  
+Kenntnisse: Spring Boot, API First, REST API, Kafka, Hibernate, AWS, Wiremock,
+Python
+Eingesetzte Produkte: Confluent
+2020-06 - 2020-12 REST API Directory (API Portal)
+7 Monate
+Rolle: Full-Stack Entwickler
+Kunde: Landesbank BW
+Einsatzort: Stuttgart
+Projektinhalte:     •  Entwicklung REST API Directory, API Management mit APIOMAT.
+    •  Frontend Angular 7 Entwicklung mit Typescript.
+    •  Anbindung Angular an LDAP Benutzerverwaltung.
+    •  Validierung von REST API Spezifikationen nach OAS 3.0.2 und
+     ?Swagger.
+    •  Bearbeitung der API Spezifikationen mit Swagger Editor und
+     ?Swaggerhub.
+    •  Automatisierung von Java Spring Boot Server Stubs mit Openapi
+     ?Generator gemäss OAS 3.0.0.
+    •  Anpassung und Entwicklung eines neuen Generators für
+     ?Openapitools (Java Opensource).
+    •  Integration von Redoc anstelle von Swagger UI.
+    •  Entwicklung eines Spring Boot Microservices mit APIs für einen
+     ?automatisiertem Build sowie zum Import von Testdaten.
+    •  Entwicklung der REST API Services.
+    •  Erstellung eines Sicherheitskonzeptes für Webservicees.
+    •  Implementierung von OAuth2 und OpenID mit JWT Token in
+     ?Webservices.
+    •  Spezifikation der API des Microservices mit OAS3.
+    •  API First Prinzip mit Openapitools als Maven Plugin.
+    •  Erstellung automatisierter Tests mit Postman.
+    •  Erstellung von Feature Dateien für Karate (Gherkin, Cucumber)
+    •  Testautomatisierung mit JUnit4, JUnit 5, Karate und Mockito.
+    •  Evaluierung von Tools für Contract Testing (API
+24.02.2023 5 von 23
+     ?Testautomatisierung) mit Postman Contract Test Generator,
+     ?Idaithalam, NodeJS und Newman.
+    •  Entwicklung von CI/CD mit Jenkins Groovy Pipeline (DevOps).
+    •  Installation und Konfiguration einer Kafka Instanz um Testdaten
+     ?zu importieren.
+    •  Integration von Cucumber Reports mit Jenkins in JIRA.
+    •  Prüfung und Anpassung der REST API gemäss Firmen Policy.
+    •  Entwicklung und Planung gemäss API First Prinzip.
+    •  Entwicklung von Spring Boot Microservices gemäss API First mit
+     ?REST API.
+    •  Datenbank Anbindung Hibernate, Spring Data JPA.
+    •  Erstellung von Docker Images, Google Run (GCP).
+    •  Go Programme für Deployment nach Google Run (GCP).
+    •  Architekturvergleich mit Azure AKS
+    •  Entwicklung der Automatisierung von Testdaten (Virtualan),
+     ?Import mit CSV und JSON.
+    •  Scripting für Datenanalyse, Anpassungen mit Python.
+    •  Einarbeitung neuer Kollegen &amp; Java Codereview.
+    •  Agile Entwicklung mit Scrum.
+    •  BDD (Behaviour Driven Development).
+Kenntnisse: Java 8, Java 11, Java Spring Boot, Camunda IBM Workflows, APIOMAT,
+Swagger, Google Cloud GCP, MS Azure, Docker, Kubernetes, Typescript,
+Angular 7, Node.js, Python Postman, Visual Studio Code, Microservice,
+Eclipse, Git, Bitbucket, Artifactory, REST API, Karate, Cucumber, Gherkin,
+Jenkins (Groovy)., Apache Kafka, JIRA, Oracle DB, Linux RedHat, DevOps
+2019-06 - 2020-06 ARCHITEKTUR, TRANSITION MANAGEMENT
+1 Jahr 1 Monat
+Rolle: IT Architektur, Full Stack Development
+Kunde: HCOB
+Einsatzort: Kiel
+Projektinhalte: Transition Projekt, IT Architektur
+    •  Übernahme (Outsourcing) von Anwendungen.
+    •  HR Unterstützung, Rekrutierung und Betreuung neuer Mitarbeiter
+    •  Entwicklung und Administration von Java Anwendungen mit SAP
+     ?Schnittstellen zu SAP DM, CML, BA und BW.
+    •  Auswertung und Weiterverarbeitung von SAP Export (sRDI, XML)
+     ?Daten.
+    •  Weiterentwicklung der Banken Software mit Multi Threading und
+     ?Java 8 Streams zur Perfomanceverbesserung.
+    •  Betreuung und Weiterentwicklung von Java Anwendungen (Java 8,
+     ?JEE, Apache POI).
+    •  Konzepterstellung für Weiterentwicklungen mit aktuellen
+     ?Technologien (Spring Boot, Angular, Node.js, Spring Data JPA,
+     ?Lombok).
+    •  Weiterentwicklung von CI/CD Prozessen, Automatisierung, DevOps.
+    •  Monitoring mit Splunk.
+    •  Technische Dokumentation der Anwendungen.
+    •  Konzeption der Übernahme von Anwendungen unter Berücksichtigung
+     ?der Auslastung der Mitarbeiter.
+    •  Teil-Projektmanagement inklusive Human Resource, Absprachen mit
+     ?Kunden.
+    •  Absprache mit externen Dienstleistern für Support und
+24.02.2023 6 von 23
+     ?Vertragsanpassungen.
+    •  Workflow Administration mit Integration Designer, IBM Workflow
+     ?Process Server, Camunda, BCP Explorer und Eclipse für Java.
+    •  Überprüfung von Funktionen (Stored Procedures) und PL/SQL
+     ?Scripten in Oracle auf Upgradefähigkeit.
+    •  Massendruck Administration mit AFP und PDF Dateien, Inspire
+     ?Designer, Cosmos, PNetTNet Server, Control-M zur Batch
+     ?Steuerung.
+    •  Frontend Entwicklung mit SAP Netweaver Studio und Webdynpro für
+     ?Java
+Kenntnisse: Java 8, SAP, Camunda, IBM Workflows, REST API, Oracle DB, JDBC, Java
+Swing, Maven, Spring Boot, Angular, Node.js
+2019-10 - 2020-01 DEVOPS ENTWICKLUNG, DOCKER GOLANG
+4 Monate
+Kunde: Clive
+Einsatzort: Remote
+Projektinhalte: Clive Software, Angular JS, Docker Entwicklung &amp; DevOps für Portainer
+    •  Anpassung von Portainer (portainer.io) zur Steuerung
+     ?(Dashboard) von Docker Containern.
+    •  Web Frontend mit Angular (Components, Web Services).
+     ?Kommunikation von Angular mit REST API Calls zum Backend mit
+     ?Golang Microservices.
+    •  Erstellung von Docker Dateien für Docker Images.
+    •  Administration von Docker Containern.
+    •  Erstellen (Build) von Docker Images (AWS EKS).
+    •  DevOps Deployment auf AWS EC2 Linux Instanzen (DevOps).
+    •  Erstellen und Administration von AWS Repository für Docker
+     ?Images.
+    •  Erstellen von ECS Docker Instanzen.
+    •  Architekturvergleich mit Kubernetes als Alternative zu
+     ?Portainer.
+Kenntnisse: Golang, Docker, Angular JS, Node.js, AWS Amazon Cloud, REST API,
+Linux, Webtechnologien
+2019-04 - 2019-05 JAVA ARCHITEKTUR ANALYSE
+2 Monate
+Kunde: Energy From Waste
+Projektinhalte: Java JVM Analyse
+    •  Analyse der Enterprise Java Architektur.
+    •  Erstellung einer technischen Dokumentation mit Darstellung der
+     ?verschiedenen Probleme.
+    •  Analyse der von Support Tickets in Hinblick auf Java.
+    •  Analyse der Java Speicherverwaltung (Garbage Collector).
+    •  Analyse der Unterschiede der JVM Versionen, sowohl von der
+     ?Version (7 &amp; 8) als auch hinsichtlich Client - Server Modus.
+    •  Remote Analyse der Windows Clients mit Teamviewer.
+    •  Ausarbeitung und Präsentierung von Lösungsmöglichkeiten.
+    •  Ausarbeitung von alternativen Architekturlösungen.
+    •  Vorstellung einer Java Spring Boot Architektur mit Spring Data.
+24.02.2023 7 von 23
+Kenntnisse: Windows 10, Java 8 JVM, Java 7 JVM, Teamviewer, Tras, eDoc
+2018-11 - 2019-03 JAVA SPRING BOOT ENTWICKLUNG, REST API, CLOUD
+5 Monate
+Rolle: Java &amp; Cloud Architekt
+Kunde: MediaMarktSaturn
+Einsatzort: München
+Projektinhalte: Java REST API Architektur und Entwicklung
+    •  Erstellung von REST API Guidelines als Programmier-Richtlinien
+     ?für Entwickler.
+    •  Spezifizierung einer REST API mit Swaggerhub nach OAS2
+     ?Standard.
+    •  Entwicklung von Java Microservices zur Verarbeitung von JSON
+     ?Objekten, Validierung der Objekte und Schicken von JSON
+     ?Responseobjekten.
+    •  Entwicklung nach API First, BDD, TDD.
+    •  Definition der REST API Endpunkte.
+    •  Einbindung einer PostgreSQL DB in der Cloud als Saas.
+    •  Automatisierung der API Interfaces mit Maven und Swagger
+     ?CodeGen.
+    •  Architekturberatung in Google Cloud mit Kubernetes, Compute
+     ?Engine, Docker, Apache Kafka und Google APIGEE.
+    •  Planung der Datenströme mit Kafka zur Verarbeitung von externen
+     ?Datenquellen.
+    •  Administration von CI/CD in Google Cloud und Einbindung
+     ?statischer Codeanalyse (Sonarqube).
+    •  Umsetzung fachlicher Anforderungen in OAS3.
+    •  Anpassungen an Frontend mit Angular 6.
+    •  Agile Entwicklung mit Scrum.
+Kenntnisse: Windows, Google Cloud, Java Spring Boot, API First, OAS3, Swagger
+2018-09 - 2018-11 JAVA FRONTEND ENTWICKLUNG
+3 Monate
+Rolle: Java / Go Entwickler, Teamleiter
+Kunde: Versicherung
+Einsatzort: Zurich
+Projektinhalte:     •  Java Spring MVC Entwicklung (Eclipse, Git und Maven).
+    •  Teamleitung und Verteilung von Arbeitsaufgaben.
+    •  Organisation von Teambesprechungen.
+    •  Architekturplanung und Unterstützung der Implementierung.
+    •  Entwicklung einer H2 in-Memory Datenbank
+    •  Entwicklung von Frontend Komponenten mit Angular 5, CSS
+    •  Agile Entwicklung mit Scrum.
+Kenntnisse: Windows, Java 8, Spring, Maven, Git, H2 database, Angular
+24.02.2023 8 von 23
+2017-06 - 2018-08 JAVA REPOSITORY MIGRATION
+1 Jahr 3 Monate
+Rolle: Teilprojektleiter
+Kunde: Dresdner Bank
+Einsatzort: Zürich
+Projektinhalte: Java IT Architektur
+    •  Migration von Java Repository (Projektverwaltung) und Elias
+     ?(Java Schwachstellen Monitoring) von einer AD Domain zu einer
+     ?anderen AD Domain.
+    •  Entwicklung einer Benutzerabfrage mit Java über AD.
+    •  Planung, Organisation, Führung externer Arbeitskräfte,
+     ?Erstellung der Migrationsdokumentation sowie Installation und
+     ?Konfiguration. Erstellung von Powershell Scripten für
+     ?Überprüfung von AD Usern, sowie der betroffenen Java Projekte.
+    •  Architektur Planung und Organisation der Einführung neuer
+     ?Anwendungen. Insbesondere FileCloud, Service Virtualisierung,
+     ?Testdatenmanagement, Cucumber und SOAP UI zum Testen von
+REST
+     ?APIs.
+    •  Automatisierung der API Tests.
+    •  Organisation und Administration der Infrastruktur.
+Kenntnisse: Windows, Linux, Java, Active Directory, Cloud, Service Virtualisierung,
+Testdaten Management
+2017-02 - 2017-06 JAVA SPRING AUF GOOGLE CLOUD
+5 Monate
+Rolle: Planung und Entwicklung mit Java / J2EE / REST API
+Kunde: Bahn
+Einsatzort: Zürich
+Projektinhalte:     •  Entwicklung eines REST API Java Backend.
+    •  Datenbank auf Cloud mit Datastore und JPA.
+    •  Frontend mit Angular 5 (Typescript, CSS, HTML).
+    •  Entwicklung der REST API Schnittstelle von Excel zu Java mit
+     ?http POST.
+    •  Entwicklung von einem Excel Addin für die Erfassung von
+     ?Arbeitszeiten.
+    •  Berechnung von Tarif Zuschlägen, Spesen, Ferien- Abwesenheiten,
+     ?Fehltage, Sonderzulagen usw.
+    •  Unterstützung mit Google Cloud zur Datenspeicherung (REST API
+     ?mit Java Backend). Remote Datenverarbeitung mit J2EE und Cloud
+     ?Datastore.
+    •  Prüfung der Eingaben auf Korrektheit.
+    •  Erstellung von Eingabemasken in Excel mit Wertevalidierung.
+    •  Verwaltung der Benutzerdaten.
+    •  Export der Daten für eine SAP Import Schnittstelle.
+Kenntnisse: VBA, Cloud Datastore Excel Addin, Custom UI Editor, GCP, REST API, VBA
+Excel Addin Entwicklung, Java Spring
+24.02.2023 9 von 23
+2016-05 - 2016-12 ENTWICKLUNG JAVA / VBA
+8 Monate
+Rolle: Datenmigration, Tool Entwicklung
+Kunde: Credit Suisse
+Einsatzort: Zürich
+Projektinhalte: Entwicklung von Migrations Tools und Automatisierung für Bank Migration
+und Testmanagement
+    •   Entwicklung von Tools zur automatisierten Datenauswertung von
+     ?Bank Anwendungen (TDC, Finacle Treasury, Front Arena).
+    •  Entwicklung von API Schnittstellen mit Java und VBA
+     ?(Datenexport).
+    •  Entwicklung von automatisch erstellten Reports für Migration
+     ?von Bank SSI.
+    •  Automatisierte Auswertung von Murex Daten zur möglichen
+     ?manuellen Nachbearbeitung.
+    •  Aktive Mitarbeit im Testteam zur Unterstützung der
+     ?Automatisierung von Reports.
+    •  Aufbau von Windows Servern mit FTP Server für Datentransfer.
+    •  Betrieb und Wartung von Windows Server 2012
+    •  VBS Scripting und Scheduling zur Automatisierung von
+     ?Datenflows.
+    •  Administration von Linux und Windows Server.
+Kenntnisse: Java, VBA Excel 2010, VBS, Custom UI Editor, FTPS Server und Client,
+Windows Server 2012, JIRA
+2014-03 - 2016-03 Java Application Plattform Management
+2 Jahre 1 Monat
+Rolle: DevOps Linux / Java
+Kunde: Bank (Credit Suisse)
+Einsatzort: Zürich
+Projektinhalte:     •  Betreuung einer standardisierten Java Plattform für mehrere
+     ?hundert Java Enterprise Anwendungen.
+    •  DevOps Tätigkeiten, Deployment Überwachung und Troubleshooting,
+     ?Automatisierung von Builds mit Teamcity.
+    •  Programmmierung von Datenimporten für eine Web GUI (JSF,
+     ?Javascript AngularJS) mit Datenanalyse und Reporterstellung mit
+     ?Design Pattern MVC (Model View Controler).
+    •  Transformierung und Zusammeführung von Exceldaten in eine Java
+     ?Datenbank unter Verwendung von Apache Metamodel mit Joins über
+     ?mehrere Exceldateien.
+    •  Java Sourcecode Reviews zur Perfomanceverbesserung, Vermeidung
+     ?von Memory Leaks und Problembehebung von JVM Problemen.
+     ?Optimierung von JVM Parametern für Memory und Perfomance.
+    •  Support für Toolchain und Build Probleme (Maven, TIPD).
+    •  Oracle Weblogic Administration, Konfiguration, Deployments und
+     ?Maintenance für Java Business Anwendungen.
+    •  Management der Oracle Weblogic Server Infrastruktur.
+     ?Bearbeitung von Java und Java Application Server Problemen mit
+24.02.2023 10 von 23
+     ?Fehleranalyse und Behebung.
+    •  Anpassen der Startscripte (Linux Shell) von Weblogic für
+     ?erweiterte Anforderungen der Java Applkationen an JVM oder Java
+     ?Application Server..
+    •  Erstellen von Special Engineering zur Behebung von JAP
+     ?Problemen die nicht mit Standardmethoden lösbar sind (Linux
+     ?Shell, Java, und Apache Velocity).
+    •  Unterstützung von Enterprise Java Projekten in Planung, Design
+     ?und Architektur der Java Anwendungen inklusive Organisation von
+     ?Infrastruktur.
+    •  Security Management durch Konfiguration und Administration von
+     ?Sicherheitszonen für Java Anwendungen.
+    •  Troubleshooting und Support über JIRA
+    •  Technische Dokumentation für spezifische Workflows sowie
+     ?Vorträgen (Tutorial) mit Java und Java Application Server
+     ?Themen für das Team.
+    •  Lifecycle Management für Java Anwendungen.
+    •  Abhaltung von Vorträgen zur Weiterbildung des Teams.
+    •  Durchführung und Unterstützung mit Load und
+     ?Performancetests.Optimierung von Oracle Weblogic auf
+     ?Perfomance.
+    •  Troubleshooting von Datenbankproblemen mit Oracle.
+ 
+ 
+ 
+ 
+ 
+ 
+Kenntnisse: Java, J2EE, Java DB (HSQLDB), JSF, Angular JS, JSON, BEA Weblogic
+Server, Maven, Jenkins, Oracle DB, Apache POI, Apache Metamodel,
+Apache Velocity, JIRA, Confluence, Linux Red Hat, Linux Shell Scripting,
+Agile Softwareentwicklung, MVC, Oracle/SQL
+Eingesetzte Produkte: Eclipse, WLS, Apache Tomcat
+2013-10 - 2013-12 Javascript Schnittstellen Programmierung mit Siebel EAI
+3 Monate
+Rolle: Javascript Entwickler mit Siebel EAI
+Einsatzort: Frankfurt
+Projektinhalte:     •  Siebel EAI Intergration Component Anpassungen.
+    •  CRM Desktop Formulardaten customizing. Behebung der
+     ?Synchronisierungsfehler mit Siebel EAI. XML bearbeitung,
+     ?Anpassen der Javascript Business Logik.
+    •  Deployment und publizieren der XML Dateien.
+    •  Import der XML Daten mit Entwicklung eines MQ Client in Java
+     ?für Siebel EAI.
+ 
+ 
+Kenntnisse: Javascript, XML, XSLT, Java 1.7, Siebel EAI, IBM MQ.
+2013-08 - 2013-09 Java Entwicklung für Siebel Migration
+2 Monate
+24.02.2023 11 von 23
+Rolle: Java Entwickler
+Kunde: Finanzdienstleistung
+Einsatzort: Zug
+Projektinhalte:     •  Erstellung eines Frontend mit Java JSF (Primefaces) im MVC
+     ?Design.
+    •  Dateneingabe über Webgui, Eintragen von Daten für die
+     ?Projektplanung.
+    •  Administration von Infrastruktur. Datenanbindung über JDBC und
+     ?Hibernate mit einer MS SQL Server Datenbank.
+    •  Benutzerverwaltung mit LDAP und Spring Security.
+    •  Unterstützung der Migrationaufgaben von Siebel 8.1.1.7 auf
+     ?8.1.1.11.
+    •  Entwicklung einer Automatisierung des IRM (Incremental
+     ?Repository Merge), upgrade der Binaries auf 8.1.1.11.
+     ?Datenbankuprade auf 8.1.1.11. Compile des neuen SRF, Deployment
+     ?auf andere Umgebungen.
+    •  Dokumentation der Vorgehensweise.
+    •  Erstellung eines neuen Objektmanager für OpenUI mit CSS.
+    •  OpenUI aktivierung mit neuem Login.
+    •  Analyse und Behebung der Upgrade Fehler.
+ 
+Kenntnisse: Java 1.6, JSF (Primefaces), HTML, CSS, Javascript, JDBC, Hibernate, MS
+SQL Server, LDAP, Spring Security und Spring boot.
+2010-09 - 2013-07 Java / J2EE Entwicklung, System Mangement
+2 Jahre 11 Monate
+Rolle: Java Entwickler
+Kunde: Finanzen, Bank
+Einsatzort: Zürich
+Projektinhalte:     •  Administration von Siebel 8.0 und 8.1: Installation,
+     ?Konfiguration, Deployment auf AIX.
+    •  Automatisierung der Siebel installation (silent install) inkl.
+     ?Konfiguration für verteilte Umgebungen.
+    •  Datenbank Migration von Siebel 8.0.0.9 auf 8.1.1.10. Upgrade
+     ?der Software auf Siebel 8.1.1.10.
+    •  Konfiguration und installation von Siebel Monitoring Systemen.
+    •  Oracle Datenbank: export und import von Datenbanken, SQL, OEM,
+     ?performance Anpassungen.
+    •  Produktmanagement nach Scrum.
+    •  Entwicklung eines Infrastruktur Management Systems mit Java,
+     ?J2EE, JSF, JPA, Apache Derby und Siebel Java API (EAI)
+     ?Schnittstellenprogrammierung auf Linux Redhat.
+Kenntnisse: Windows (2003, 2008), AIX, Linux Red Hat, Java 1.6, JEE, JSF
+(Primefaces), IntelliJ, Maven, EJB, JPA Eclipselink, JDBC, Apache Derby,
+JBOSS, Apache Tomcat, Java Servlets, LDAP, Spring core 3.1, XML, XSLT,
+HTML, CSS, Javascript, Perl, Linux Shell, Windows Powershell, Windows
+Server 2008.
+24.02.2023 12 von 23
+2010-02 - 2010-09 Entwicklung Java für Monitoring, Siebel Administration
+8 Monate
+Kunde: Telekommunikation (Telekom Deutschland)
+Projektinhalte:     •  Betrieb von Siebel, Erstellung und Lösung von Troubletickets.
+     ?Problem Analysen.
+    •  Deployments mit ADM u.a.
+    •  Aufbau einer Testumgebung mit Siebel und Nagios (Monitoring
+     ?inkl. grafischer Darstellung für Performance Analysen).
+    •  Weiterentwicklung des Nagios Plugin mit Java.
+    •  Konfiguration und Erweiterung des Loadbalancing mit Resonate.
+     ?Installation und Administration Resonate.
+    •  BEA Weblogic Server Administration.
+2009-02 - 2009-11 Portalbetrieb (Java), Siebel EAI Entwicklung, Oracle DBA
+10 Monate
+Kunde: Pharmazie (Boehringer)
+Projektinhalte:     •  Architekturberatung, Infrastrukturplanung, Implementierung
+     ?Siebel Enterprise.
+    •  Konzepterstellung der Migration von Siebel Enterprise auf eine
+     ?verteilte und multilinguale Umgebung.
+    •  Installation und Konfiguration der neuen Siebel Enterprise
+     ?Umgebungen in einer zentralen Lokation, mit den Versionen
+     ?Siebel 7.8 und Siebel 8.1.
+    •  Konzept für Siebel Anwendungsmonitoring
+    •  Siebel Remote Konfigurationsoptimierung für Remoteclients mit
+     ?verteilten Daten, Troubleshooting, automatisierte Migration der
+     ?Siebel Clients.
+    •  Oracle DBA: Datenbankadministration, Datenexport / import,
+     ?Tablespace Administration, Clusteradministration.
+    •  Oracle Perfomancetuning für Siebel, Datenbankparameter
+     ?Optimierung.
+    •  Administration der SAP SD-HR XI Schnittstelle / Siebel EAI
+    •  Anpassung von Siebel EAI Business Services, Business Objects
+     ?mit Siebel Tools.
+    •  Anpassen von Views und Applets, Fehleranalyse.
+    •  Scripting für Automatisierung von Konfigurationen.
+    •  Third Level Support, maintenance SAP Netweaver Portal mit Java,
+     ?Servlet, JSP Backend Entwicklung.
+Kenntnisse: Linux Enterprise Red Hat, Windows2003, Windows2008, Oracle 9i, Oracle
+10g, Siebel 75, Siebel 78, Siebel 8.1
+2007-02 - 2008-12 Java Entwicklung mit Siebel EAI
+1 Jahr 11 Monate
+Kunde: Telekommunikation (Telekom Deutschland), IBM
+Projektinhalte:     •  Entwicklung einer Siebel EAI Schnittstelle mit Web GUI für die
+     ?Automatisierung von Siebel Benutzerdaten Export / Import
+     ?zwischen verschiedenen Siebel Enterprise Umgebungen.
+    •  Entwicklung eines MQ client mit Java für Siebel EAI,
+24.02.2023 13 von 23
+     ?Integration Components, Datamapping, Java Data Bean.
+    •  Siebel Tools für Anpassungen an Siebel Applets und Views.
+    •  Web GUI mit Java Servlet, JSP, Tomcat, JDBC, JDOM XML, IBM
+     ?Websphere MQ, Ajax.
+    •  Weiterentwicklung des Siebel Monitoringsystems (Nagios).
+    •  Entwicklung einer weiteren Web 2.0 Anwendung (J2EE, Hibernate,
+     ?Spring, JSP, XML, Dojo), mit u.a. Übersicht der automatisierten
+     ?Deployments aller Umgebungen, automatiserte History der
+     ?Versionen von Deployments, Eingabemasken für ToDos.
+Kenntnisse: AIX, Siebel 7.8.2.5, Nagios, Tomcat, JBOSS, Ajax, Siebel EAI, MQSeries
+2005-11 - 2006-12 Perl Entwicklung Monitoring, Implementierung
+1 Jahr 2 Monate
+Kunde: Systemhaus, Energie (RWE)
+Projektinhalte:     •  Implementierung Siebel Enterprise in einer verteilten
+     ?Umgebungen.
+    •  Entwicklung und Implementierung von Siebel Anwendungsmonitoring
+     ?(Nagios) mit Perl mit Komponentenüberwachung, Filesystem-,
+     ?Mountpointmonitoring und Logfileauswertung.
+    •  Installation, Konfiguration, Administration von Siebel.
+    •  Durchführung und Automatisierung von Deployments mit EAI, EIM.
+     ?Troubleshooting. Perfomanceanalysen mit Siebel SARM.
+Kenntnisse: Solaris, Siebel 7.8.2.3, Nagios, Perl, Shell Scripting.
+2005-09 - 2005-10 Siebel Third Level Support
+2 Monate
+Kunde: Dienstleister Transport
+Projektinhalte:     •  Durchführung und Automatisierung von Deployments, Siebel
+     ?Administration, Konfiguration Fehleranalyse.
+    •  Releasemanagement mit Qualitätskontrolle.
+    •  Installation, konfiguration und administration der
+     ?Deploymentautomatisierung (ADP, ADM, EIM)
+Kenntnisse: Windows XP, 2000, 2003, ca. 10 Server, ca. 1000 Clients.
+2005-06 - 2005-08 Installation Siebel mit Solaris Cluster
+3 Monate
+Kunde: Bank
+Projektinhalte:     •  Planung von Architekture und Ressourcen (Hardwareanforderungen)
+    •  Installation von Siebel in einer Solaris 8 Cluster Umgebung
+    •  Konfiguration Siebel Remote mit verteilten Daten
+Kenntnisse: Siebel, Solaris, ca. 400 Clients
+2005-02 - 2005-06 Datawarehouse, Java Schnittstellenprogrammierung
+5 Monate
+24.02.2023 14 von 23
+Kunde: Automobil (Mercedes)
+Projektinhalte:     •  Administration von ReportNet. Organisation von Kunden
+     ?Anforderungen
+    •  Lösungsentwicklung mit der SDK Schnittstelle von ReportNet (CRN
+     ?SDK, Java, Eclipse)
+    •  Automatische Verifizierung aller CRN Berichte, automatisierter
+     ?XML Auszug aller CRN Berichte, automatisierte testweise
+     ?Berichterstellung und Speicherung als Datei
+    •  Ausführung und Anpassung von DB2 SQL Scripten, DB2
+     ?Datenbankadministration (Konfiguration, Sicherung)
+    •  Abgleich der Anforderungen der verschiedenen Teams (Meetings,
+     ?Absprachen)
+    •  Erstellung von Verwaltungstools (Berichtsdatenverwaltung) inkl.
+     ?Datenbank
+    •  Erstellung von VBA Scripten zur Automatisierung von Workflows
+Kenntnisse: Cognos ReportNet, Java, Eclipse, DB2, VBA, Aqua Data Studio, SunOne,
+Testdirector, Merant Dimension PVCS, Framework Manager, Solaris,
+Windows XP.
+2003-09 - 2005-01 Siebel CRM / Datawarehouse Third Level Support
+1 Jahr 5 Monate
+Kunde: Pharmazie (Aventis)
+Projektinhalte:     •  Konzepterstellung, Planung und Umsetzung für Security,
+     ?Infrastruktur und Architektur vom Datawarehouse (Cognos,
+     ?Informatica, UC4, SAP)
+    •  Analyse der Hardwareanforderungen, Bestellung und Organisation
+     ?der Serverinstallationen
+    •  Aufbau einer verteilten Umgebung von Cognos ReportNet mit MS
+     ?Loadbalancer und Cognos Clusterverfahren. Perfomanceanalysen
+     ?und Troubleshooting
+    •  Planung und Verteilung von Hardware an neue Siebel Enterprise
+     ?Umgebungen
+    •  Durchführung der Datenbefüllung, Konfiguration von Siebel
+     ?Remote
+    •  Automatisierung der Migration von Siebel Clients auf eine neue
+     ?Umgebung
+    •  Aufnahme, Analyse und internationale Absprache von
+     ?Anforderungen in einem europäischen Siebel CRM Umfeld
+    •  Planung, Installation, Konfiguration und Administration von
+     ?Cognos (Powerplay, Report Net) im europäischen Projekt
+    •  Berichterstellung mit RepotNet (Query Studio),
+     ?Metadatenmodellierung.
+    •  Erstellung von automatisierten Reports mit SOAP und Cognos SDK
+     ?(PDF, Excel)
+    •  Automatisierung der Fehleranalyse (Datenauswertung Logfiles)
+     ?und Mail Benachrichtigung durch VBS, Foglight, sowie Cognos
+     ?Accelerator
+    •  Installation, Konfiguration und Administration von
+     ?Testdirector, UC4, Foglight (Anwendungs Monitoring), Password
+     ?Safe
+    •  Einrichtung.der Siebel und Datawarehouse Anwendungsüberwachung
+     ?durch Foglight, Programmierung von Foglightagenten
+    •  Automatisierte Fehleranalyse (Logfile Auswertung) mit Mail
+     ?Benachrichtigung durch VBS und Foglight. Einrichtung von Cognos
+     ?Accelerator
+24.02.2023 15 von 23
+    •  Entwicklung von Access Datenbanken für eine Software Lizenz-
+     ?und Serverdatenverwaltung (SQL, VBA, ADO, Makros)
+    •  Export/Import zwischen Access und Oracle Datenbanken
+    •  Erstellung von Dokumentationen nach standardisierten Verfahren
+     ?(SOP, ISM)
+    •  Administration Siebel 7.5 (Serverkomponenten,
+     ?Benutzeradministration)
+    •  Access (SQL, ADO, VBA) Entwicklung für diverse Routineaufgaben
+     ?sowie Scripting mit VBS, VBA, Batchscripts
+Kenntnisse: Oracle 9.2, Toad, ERWin, Testdirector, MS Access, MS Loadbalancer, MS
+Cluster, Remedy, Documentum, Visio, MS Office (VBA), SMS, IIS mit
+SMTP, Visual Source Safe, PC DUO, UC4, SAP, Informatica, Windows 2000
+Server, Cluster, Advanced Server u. Client, HP-UX, Ca. 70 Server
+Mai - Juli 2003
+Java Programmierung: Datawarehouse, Finanzsoftware
+Branche: Automobil (Mercedes)
+Entwicklung von Finanzsoftware. Programmierung einer Schnittstelle zur maschinellen
+Datenübernahme in die Datenbank. Programmierung der GUI, syntaktische Analyse der Daten,
+gegenprüfung auf Datenbank.
+Durchführung des Imports der Daten aus einer CSV Datei in die Datenbank. Ergebnisdarstellung in
+GUI in tabellarischer Form.
+Software: Eclipse 3.1, Java SDK, DB2, PVCS
+Teamgröße: ca 50
+EDV Umgebung:
+Windows XP Prof., NT 4.0 u. Win2000 Server, Solaris,   ca. 50 Server.
+Weiter Projekte seit 1999 gerne auf Anfrage
+ 
+Branchen
+    •  Banken
+    •  Finanzdienstleister
+    •  sonstige Dienstleister
+    •  Großhandel
+    •  Pharmazie
+    •  Automobil
+    •  Systemhaus
+    •  Telekommunikation
+    •  Energie
+    •  Versicherung
+    •  Regierung
+Sprachen
+Deutsch Muttersprache
+Englisch fließend (C2)
+Französisch Grundkenntnisse (B2)
+24.02.2023 16 von 23
+Kompetenzen
+Produkte / Standards / Apache Kafka
+Erfahrungen / Methoden
+Apache Maven
+Apache POI
+Apache Tomcat
+Apache Velocity
+APIGEE
+Apiomat
+Atlassian Confluence
+Atlassian JIRA Agile
+AWS
+AWS EC2
+AWS ECS
+AWS Repository
+CA Testdaten
+Management
+Camunda BPM
+Cloud
+Confluence
+Custom UI Editor
+Docker
+Eclipse
+EJB
+Filecloud
+FTPS Server und Client
+Git
+GitHub
+Google App Engine
+24.02.2023 17 von 23
+Google Cloud
+Google Cloud Appengine
+Google Cloud Firestore
+Google Datastore
+Gradle
+Hibernate
+IBM MQ.
+ini4j
+IntelliJ
+IntelliJ IDEA
+Java AWT
+Java Servlets
+Java springboot
+JBOSS
+Jenkins
+JetBrains IntelliJ IDEA
+JIRA
+JPA Eclipselink
+JSF (Primefaces)
+Kubernetes
+LDAP
+Maven
+Microsoft Azure
+MS Office Access, Excel, Word, etc. inkl. VBA
+Nagios
+OAuth
+OpenAPI
+Scrum
+Siebel EAI
+Soap UI
+24.02.2023 18 von 23
+Spring Boot
+Spring core 3.1
+SwaggerHub
+Tomcat
+VBA Excel
+Visual Studio Code
+Wiremock
+WLS
+XML
+XSLT
+Pulumi
+Robot
+Mein Profil
+    •  Langjährige Erfahrung in Entwicklung mit Java, Python und
+     ?Golang.
+    •  Entwicklung, Architektur, Konzepterstellung für CI/CD von
+     ?Microservices.
+    •  Selbständige, lösungsorientierte und professionelle
+     ?Arbeitsweise
+    •  Erfahrung in Deutsch und Englisch sprachigen Teams
+    •  Mehr als 20 Jahre Programmiererfahrung, Schwerpunkt Java
+     ?Backend.
+    •  Zertifiziert für Linux (LPIC1).
+    •  Cloud Expertise (AWS, GCP, Azure).
+Webtechnologie
+    •  REST API
+    •  OpenAPI 3.0 (OAS3)
+    •  HTML5
+    •  Javascript
+    •  Typescript
+    •  Python
+    •  Angular
+    •  React.js
+    •  Postman
+    •  Newman
+    •  CSS
+    •  DHTML
+    •  XHTML
+    •  XML
+    •  XSLT
+Entwicklungstools
+    •  IntelliJ
+    •  Java SDK
+    •  MS Visual Studio
+    •  Eclipse STS
+24.02.2023 19 von 23
+    •  Vi
+    •  Git
+ 
+ 
+Datenbankschnittstellen
+    •  JDBC
+    •  Hibernate
+    •  JPA
+    •  EclipseLink
+    •  Hibernate
+Opensource Projekte
+    •  Library für das Erstellen von OpenAPI Spezifikationen
+     ?(Java, OAS3).
+    •  OpenAPI Contract Testing (Newman, Javascript, Postman, REST
+     ?API)
+    •  OpenAPI Sourcecode Generator (Java)
+Betriebssysteme AIX
+Google Cloud
+HPUX
+Linux RedHat LPIC-1
+MS-DOS
+Novell CNE, NetWare 4.11
+SUN OS, Solaris
+Unix
+Linux
+Windows Server Server 2000, 2003, 2008, 2012, 2012 R2
+Amazon AWS
+MS Azure
+Programmiersprachen Angular
+Angular JS
+Assembler Grundkenntnisse
+Excel-VBA
+Go Experte, Projekterfahrung
+J2EE
+Java API for REST
+Services
+Java spring Boot
+24.02.2023 20 von 23
+JavaScript Experte, umfangreiche Projekterfahrung
+JEE
+JSON
+Linux Shell Scripting
+Oracle/SQL
+Perl Gute Kenntnisse, Projekterfahrungen
+TypeScript
+VBA, VBS, VB Umfangreiche Projektkenntnisse
+Windows Powershell
+Python
+Solidity
+Java 8,11,17  (Spring)
+Visual Basic
+Datenbanken Access Gute Kenntnisse, Projekterfahrungen
+Apache Derby Guten Kenntnissem Projekterfahrungen
+Google Cloud Datastore
+Google Cloud Firestore
+Java DB H2, HSQLDB, Derby
+JDBC
+MS SQL Server Gute Kenntnisse, Projekterfahrungen
+MySQL
+Oracle DB Admin, SQL
+SQL Gute Kenntnisse, Projekterfahrungen
+Postgresql
+Elasticsearch
+Informix
+Datenkommunikation Confluent
+Ethernet
+Internet, Intranet
+ISO/OSI
+24.02.2023 21 von 23
+Kafka
+LAN, LAN Manager
+Message Queuing
+NetBeui
+NetBios
+Novell
+PC-Anywhere
+REST API
+RFC
+RPC
+SMTP
+SNA
+SNMP
+TCP/IP
+Token Ring
+Windows Netzwerk
+Winsock
+Design / Entwicklung / OpenAPI 2.0
+Konstruktion
+OpenAPI 3.0
+REST API
+Swagger
+API First
+ 
+Managementerfahrung ITIL
+in Unternehmen
+Scrum
+Änderungs-Management
+SAFE
+ 
+Personalverantwortung HR Personalverwaltung
+24.02.2023 22 von 23
+Personalvermittlung
+Aus- und Weiterbildung
+2019-04 - 2019-04 Building Scalable Java Microservices with Spring Boot and
+1 Monat
+Institution: Coursera
+    •  Google Cloud
+    •  Microservice
+    •  Java Spring Boot
+2019-01 - 2019-03 Architecting with Google Cloud Platform Specialization
+3 Monate
+Abschluss: [URL auf Anfrage]
+Institution: Coursera
+2018-01 - 2018-08 Linux Administration
+8 Monate
+Abschluss: LPIC1
+Institution: LPI
+Ausbildung zum Netzwerkmanager
+Schwerpunkte:
+PC, AS/400, RS6000, IBM Großrechner, MS Windows, OS/2, OS/400, AIX, MVS/ESA, Novell Netware
+3.x, Netware 4.x, Windows NT Net Core Technologies (LAN, WAN, Ethernet, Tokenring), DNS, WINS,
+DHCP, TCP/IP, C++
+Zertifikate:
+    •  LInux: LPIC-1
+    •  Microsoft: MCP
+    •  Novell: CNE
+Schulungen:
+    •  SVN
+    •  Docker
+    •  Google Cloud Architecting
+    •  Java Spring Boot
+Private Weiterbildungen:
+    •  Java 8
+    •  Go in Google Cloud
+24.02.2023 23 von 23
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_103796 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                103796
+  
+Wohnort                    805x Zürich, Schweiz
+Jahrgang                   1968
+Staatsbürgerschaft         Deutsch
+Stundensatz                100 EUR
+Verfügbar ab               13.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         18.12.09
+Profil zuletzt geändert am 22.05.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 01.06.2021 14:49:00
+
+Fachlicher Schwerpunkt:
+Java Software engineer and architect for OAS3, REST API, microservices, Spring
+Boot and Golang.
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+
+Full Stack Entwickler (Java, Golang, React, Angular), Docker, REST API und
+Linux / DevOps.
+ 
+ 
+
+Festanstellung gleichrangig zu freiberuflicher Mitarbeit
+
+Voraussetzung für Festanstellung: Festanstellung im Raum Kanton Zürich / Zug /
+Bern
+
+Ausbildung:
+04/2019 - 04/2019: Building Scalable Java Microservices with Spring Boot and
+Spring Cloud
+ 
+Abschluss:          Building Scalable Java Microservices with Spring Boot and
+Spring Cloud
+Institution:        Coursera
+ 
+Schwerpunkt:
+ 
+Google Cloud, Microservice, Java Spring Boot.
+===============================================================================
+01/2019 - 03/2019: Architecting with Google Cloud Platform Specialization
+ 
+Abschluss:          [URL auf Anfrage]
+Institution:        Coursera
+===============================================================================
+01/2018 - 08/2018: Linux Administration
+ 
+Abschluss:          LPIC1
+Institution:        LPI
+ 
+Schwerpunkt:
+ 
+http://verify.CompTIA.org
+===============================================================================
+Zertifikate:
+    * LInux: LPIC-1
+    * Microsoft: MCP
+    * Novell: CNE
+ 
+Schulungen:
+    * SVN
+    * Docker
+    * Google Cloud Architecting
+    * Java Spring Boot
+ 
+Netzwerkmanager:
+PC, AS/400, RS6000, IBM Großrechner, MS Windows, OS/2, OS/400, AIX, MVS/ESA,
+Novell Netware 3.x, Netware 4.x, Windows NT Net Core Technologies (LAN, WAN,
+Ethernet, Tokenring), DNS, WINS, DHCP, TCP/IP, C++.
+ 
+Private Weiterbildungen:
+    * Java 8
+    * Go in Google Cloud
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+im Umkreis von:
+Zürich (200 km)
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+Reisebereitschaft im DACH Bereich.
+ 
+
+Fremdsprachen:
+Deutsch     Muttersprache
+Englisch    fließend
+FranzösischGrundkenntnisse
+
+
+Betriebssysteme:
+AIX                     
+BEA Weblogic Server     
+Google Cloud            
+HPUX                    
+Linux Red Hat           
+Linux RedHat           LPIC-1
+Microsoft              MCP Windows2000 Server und WS NT 4.0
+MS-DOS                  
+MVS, OS/390             
+Novell                 CNE, NetWare 4.11 
+OS/2                    
+SUN OS, Solaris         
+Unix                    
+Unix/Linux              
+Windows                Server 2000, 2003, 2008, 2012, 2012 R2
+Windows Server 2012 R2  
+
+
+Programmiersprachen:
+Angular                          
+Angular JS                       
+Assembler                       Grundkenntnisse
+C                               Gute Grundkenntnisse
+C++                             Gute Grundkenntnisse
+Content Repository API for Java  
+Technology
+Excel-VBA                        
+Go                              Experte, Projekterfahrung
+Java                            Experte, umfangreiche Projekterfahrung
+Java API for REST Services       
+Java spring Boot                 
+Java 1.6                         
+Java 1.7                         
+Java 1.8                         
+Java 8                           
+JavaScript                      Experte, umfangreiche Projekterfahrung
+JEE                              
+JSON                             
+J2EE                             
+Linux Shell                      
+Linux Shell Scripting            
+Oracle/SQL                       
+Perl                            Gute Kenntnisse, Projekterfahrungen
+PHP                             Gute Kenntnisse, Projekterfahrung
+PL/SQL                          Grundkenntnisse, Projekterfahrung
+Scala                            
+Shell                           Unix Shell, Powershell, Umfangreiche
+                                Projekterfahrung
+TypeScript                       
+VBA                              
+VBA, VBS, VB                    Umfangreiche Projektkenntnisse
+VBScript                         
+Windows Powershell               
+
+
+Datenbanken:
+Access                 Gute Kenntnisse, Projekterfahrungen
+Apache Derby           Guten Kenntnissem Projekterfahrungen
+Google Cloud Datastore  
+Google Cloud Firestore  
+Java DB (HSQLDB)        
+JDBC                    
+MS SQL Server          Gute Kenntnisse, Projekterfahrungen
+MySQL                   
+ODBC                    
+Oracle                 Gute Kenntnisse, DBA Projekterfahrungen
+Oracle DB               
+SQL                    Gute Kenntnisse, Projekterfahrungen
+
+
+Datenkommunikation:
+Confluent           
+Ethernet            
+Internet, Intranet  
+ISO/OSI             
+Kafka               
+LAN, LAN Manager    
+Message Queuing     
+NetBeui             
+NetBios             
+Novell              
+PC-Anywhere         
+REST API            
+RFC                 
+RPC                 
+SMTP                
+SNA                 
+SNMP                
+TCP/IP              
+Token Ring          
+Windows Netzwerk    
+Winsock             
+
+
+Design/Entwicklung/Konstruktion:
+OpenAPI 2.0  
+OpenAPI 3.0  
+REST API     
+Swagger      
+
+ 
+ 
+
+Managementerfahrung in Unternehmen:
+Änderungs-Management 
+ITIL                  
+Scrum                 
+
+ 
+ 
+
+Personalverantwortung:
+HR Personalverwaltung  
+Personalverantwortung  
+
+
+Produkte/Standards/Erfahrungen:
+3-Tier Architektur                                                 
+Agile Softwareentwicklung                                          
+Apache Kafka                                                       
+apache maven                                                       
+Apache Metamodel                                                   
+Apache POI                                                         
+Apache Tomcat                                                      
+Apache Velocity                                                    
+API First                                                          
+APIGEE                                                             
+Apiomat                                                            
+Atlassian Confluence                                               
+Atlassian JIRA Agile                                               
+AWS                                                                
+AWS EC2                                                            
+AWS ECS                                                            
+AWS Repository                                                     
+CA Testdaten Management                                            
+Camunda BPM                                                        
+Cloud                                                              
+Confluence                                                         
+CSS                                                                
+Custom UI Editor                                                   
+Devops Cloud                                                       
+Docker                                                             
+Eclipse                                                            
+Eclipse 3.7                                                        
+EJB                                                                
+Filecloud                                                          
+FTPS Server und Client                                             
+Git                                                                
+GitHub                                                             
+Google App Engine                                                  
+Google Cloud                                                       
+Google Cloud Appengine                                             
+Google Cloud Firestore                                             
+Google Datastore                                                   
+Gradle                                                             
+Hibernate                                                          
+HTML                                                               
+IBM MQ.                                                            
+ini4j                                                              
+IntelliJ                                                           
+IntelliJ IDEA                                                      
+Java AWT                                                           
+Java Servlets                                                      
+Java springboot                                                    
+JBOSS                                                              
+Jenkins                                                            
+JetBrains IntelliJ IDEA                                            
+JIRA                                                               
+JPA Eclipselink                                                    
+JSF                                                                
+JSF (Primefaces)                                                   
+Kubernetes                                                         
+LDAP                                                               
+log4j                                                              
+Maven                                                              
+Microsoft Azure                                                    
+MS Office                                                          
+MS Office 365                                                      
+MVC                                                                
+Nagios                                                             
+NSCA Client (Nagios) mit Netzwerk Socket Client Server Verbindung  
+OAuth                                                              
+OpenAPI                                                            
+SAP HANA                                                           
+SAP NetWeaver Developer Studio                                     
+Scrum                                                              
+Service Virtualisierung                                            
+Siebel EAI                                                         
+Soap UI                                                            
+Spring Boot                                                        
+Spring core 3.1                                                    
+SpringFramework                                                    
+SwaggerHub                                                         
+Swing                                                              
+Tomcat                                                             
+VBA Excel 2010                                                     
+Visual Studio Code                                                 
+WLS                                                                
+XML                                                                
+XSLT                                                               
+Webtechnologie
+REST API, OpenAPI 2.0, OpenAPI 3.0,HTML5, DOM, Javascript, Ajax (Dojo, Ext2
+(Sencha), JQuery), CSS, SOAP, DHTML, XHTML, XML, XSLT.
+ 
+Weitere Sprachen
+VBA, Perl, PHP, Shell (Bash), Go.
+ 
+Entwicklungstools
+Eclipse3.3, IntelliJ, Java SDK, MS Visual Studio, CodeChargeStudio, Unix
+Shells, Batch, Visual Source Safe ClearCase, Subversion (SVN), GIT.
+ 
+Enterprise CRM
+Siebel CRM Versionen 7.5, 7.8, 8.0.0.9, 8.1.1.10,8.1.1.11.
+Mit Siebel Java API und EAI.
+ 
+BI Datawarehouse
+Cognos ReportNet, mit Cognos Java SDK Schnitttelle.
+ 
+Datenbanktools:
+Toad, Oracle (DBA Studio, Enterprise Manager, SQL Plus, Client, TNS),
+Aquadatastudio
+ 
+Datenbankschnittstellen
+JDBC, ADO, DAO, ODBC, Hibernate, JPA, EclipseLink.
+
+Branchen:
+    * Banken
+    * Finanzdienstleister
+    * sonstige Dienstleister
+    * Großhandel
+    * Pharmazie
+    * Automobil
+    * Systemhaus
+    * Telekommunikation
+    * Energie
+
+Projekte:
+02/2021 - 05/2021: Entwicklung eines Spring API Backend
+ 
+Einsatzort:         Winterthur
+Rolle:              API &amp; Java Entwickler
+ 
+Aufgaben:
+ 
+    * Entwicklung Spring Boot mit API First Prinzip.
+    * Entwicklung der REST API Services für das IdentityAccess Management.
+    * Spezifikation der API des Microservices mit OAS3.
+    * API First Prinzip mit Openapi-Tools als Maven Plugin.
+    * Erstellung automatisierter Tests mit Idaithalam
+    * Testautomatisierung mit JUnit 5 und Mockito.
+    * Erstellung von Cucumber Reports für die Integrationtests.
+    * Prüfung und Anpassung der REST API gemäss Firmen Policy.
+    * Entwicklung und Planung gemäss API First Prinzip.
+    * Datenbank Anbindung Hibernate, Spring Data JPA.
+    * Event Streaming mit Apache Kafka (Consumer API)
+    * Anbindung von Umsystemen in AWS (EC2).
+    * Mapping von Objekten mit Mapstruct.
+    * Maven Multimodule Konfiguration.
+    * CI/CD deployment mit Jenkins.
+    * Deployment in Kubernetes Openshift.
+    * Agile Entwicklung mit Scrum.
+    * BDD (Behaviour Driven Development).
+ 
+ 
+ 
+ 
+Kenntnisse:
+ 
+Spring Boot, API First, REST API, Kafka, Hibernate, AWS
+ 
+Eingesetzte Produkte:
+ 
+Confluent
+===============================================================================
+04/2020 - 01/2021: REST API Directory
+ 
+Einsatzort:         Nürnberg
+Rolle:              Full Stack Entwickler mit REST API
+ 
+Aufgaben:
+ 
+Frontend Angular 7 Entwicklung mit Typescript.
+Prüfung von REST API Spezifikationen nach OAS 3.0.2 und Swagger.
+Bearbeitung der API Spezifikationen mit Swagger Editor
+Erstellung von Java Spring Boot Server Stubs mit Openapi Generator für OAS
+3.0.0.
+ 
+Entwicklung eines Microservice für die Validierung und Generierung von mehreren
+API Spezifikationen.
+Lesen und Schreiben von JSON Daten.
+Automatisierter Import von JSON Daten aus CSV Dateien.
+ 
+Testen der APIs mit  Postman.
+Evaluirung von Testtools.
+Testautomatisierung mit Karate, Postman und Mockito.
+ 
+ 
+Definition und Weiterentwicklung einer API Spezifikation nach OAS3. Manuelle
+und automatisierte Prüfung von vorhandenen API Spezifikationen.
+ 
+Automatisierte Generierung virtueller Microservices mit Testdatenimport.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Kenntnisse:
+ 
+Java API for REST Services, Angular, SpringFramework, Java 8, TypeScript
+ 
+Eingesetzte Produkte:
+ 
+Swagger, Eclipse, Visual Studio Code, Linux RedHat, apache maven, Microsoft
+Azure, Apiomat, Camunda BPM
+===============================================================================
+06/2019 - 03/2020: Transition Java / SAP
+ 
+Einsatzort:         Hamburg
+Rolle:              IT Architektur, Full Stack Development
+ 
+Aufgaben:
+ 
+Management der Übernahme (Outsourcing) von Anwendungen.
+
+Entwicklung und Administration für Java Anwendungen mit SAP Schnittstellen zu
+SAP DM, CML, BA und BW.
+Auswertung und Weiterverarbeitung von SAP Export (sRDI, XML) Daten.
+
+Ausarbeitung der  vertraglichen Anforderungen für den Service Vertrag.
+Spezifizierung der Vertrags- und Service Pflichten der Vertragsparteien (teils
+gemäss ITIL).
+Einarbeitung neuer Mitarbeiter.
+ 
+Unterstützung bei der Einführung von Monitoring für alle Anwendungen.
+
+Planung und Prüfung der vorhanden Möglichkeiten zum Monitoring. Ausloten der
+Möglichkeiten zur Übernahme vorhandener Systeme.
+ 
+Anpassung der Banken Software unter Verwendung von Java 8 Threading und Streams
+zur Perofmancesteigerung.
+ 
+Automatisierung der CI/CD pipeline mit jenkins.
+
+
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+Kenntnisse:
+ 
+REST API, Java 8, 3-Tier Architektur, ITIL, HR Personalverwaltung,
+Personalverantwortung, Scrum
+ 
+Eingesetzte Produkte:
+ 
+SAP NetWeaver Developer Studio, SAP HANA, Jenkins
+===============================================================================
+11/2018 - 05/2019: Einführung REST API in Google Cloud (Cloud Architektur)
+ 
+Einsatzort:         München
+Rolle:              Java &amp; Cloud Architekt
+Kunde:              MediaMarktSaturn
+ 
+Aufgaben:
+ 
+Architektur Beratung beim Aufbau einer REST API Schnittstelle in Google Cloud
+mit Java Springboot.
+ 
+Codereview und API Guideline Dokumentenerstellung.
+Entwicklung eines Java REST API Service zur Verarbeitung von JSON Objekten mit
+SwaggerHub und Java Spring Boot (Tomcat).
+Erstellung der API Spezifikation gemäss OAS2.
+Migration von OAS2 zu OAS3.
+ 
+DevOps Tätigkeiten mit Deployments (CI/CD) in github und Bitbucket, und
+automatisiertes Delivery in Produktion mit Webhooks. Infrastruktur
+Konfiguration mit JSON.
+Verwaltung der Docker Images im Repository und administration von Pods (Docker
+Container) mit Kubernetes.
+ 
+Datenmigration mit Protobuf.
+Authentifizierung mit OAuth2, API Key und JWT Token.
+ 
+Analyse und Architektur Erstellung für die Migration von Ruby API Projekt auf
+Java, mit Google Cloud Datastore, Pub/Sub und weiteren Google Services.
+Datenspeicherung in PostgreSQL, teilweise mit Cloud Spanner.
+Microservice mit Java 8.
+Nutzung von Compute Engine basierend auf Linux.
+ 
+Deployment auf Google Cloud Kubernetes Engine mit Docker.
+Apache Kafka für Datenstreaming (Datenimport).
+ 
+Setup eines API loadbalancer mit Google Apigee.
+ 
+Scrum Projekt.
+ 
+ 
+Kenntnisse:
+ 
+Java springboot, Scrum, JSON, Google Cloud, OpenAPI, Docker, OAuth, Apache
+Kafka, APIGEE, Änderungs-Management
+ 
+Eingesetzte Produkte:
+ 
+IntelliJ IDEA, Git, GitHub, SwaggerHub
+===============================================================================
+09/2018 - 11/2018: Teamleitung Erstellung einer Webanwendung
+ 
+Rolle:              Java Entwickler, Teamleiter
+Kunde:              Zurich Versicherung
+ 
+Aufgaben:
+ 
+Aufgaben
+    * Teamleitung eines Offshore Entwickler Teams.
+    * Planung und Verteilung von Arbeitsaufgaben.
+    * Organisation von Teambesprechungen.
+    * Erstellung einer H2 in-Memory Datenbank
+    * Anbindung an die Datenbank mit Hibernate.
+    * Erstellung eines Frontends mit Primefaces 6.1.
+    * Java Spring Boot Entwicklung mit Eclipse, Git und Maven.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Kenntnisse:
+ 
+Scrum, Hibernate
+===============================================================================
+06/2017 - 08/2018: DevOps Java Nexus Repositoy Migration
+ 
+Einsatzort:         Zürich
+Rolle:              Teilprojektleiter
+Kunde:              Dresdner Bank
+ 
+Aufgaben:
+ 
+    * Migration von Java Repository (Projektverwaltung) und Elias (Java
+      Schwachstellen Monitoring) von einer Windows AD Domain zu einer anderen
+      AD Domain.
+    * Planung, Organisation, Führung externer Arbeitskräfte, Erstellung der
+      Migrationsdokumentation sowie Installation und Konfiguration. Erstellung
+      von Powershell Scripten für Überprüfung von AD Usern, sowie der
+      betroffenen Java Projekte.
+    * Architektur Planung und Organisation der Einführung neuer Anwendungen.
+    * DevOps Tätigkeiten mit Java Nexus Repository und automatisiertem Build
+      von Java Anwendungen.
+    * Insbesondere FileCloud, Service Virtualisierung, Testdatenmanagement,
+      Cucumber und SOAP UI zum Testen von APIs.
+    * Organisation und Administration der Infrastruktur.
+    * Agile Entwicklung mit Scrum.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Kenntnisse:
+ 
+Scrum, Content Repository API for Java Technology
+ 
+Eingesetzte Produkte:
+ 
+Git, Eclipse, Atlassian JIRA Agile, Atlassian Confluence, Filecloud, Soap UI,
+CA Testdaten Management, Service Virtualisierung, Tomcat
+===============================================================================
+02/2017 - 06/2017: Entwicklung einer Zeitrapportierung für SAP Import
+ 
+Einsatzort:         Zürich
+Rolle:              Planung und Entwicklung mit Java / J2EE / REST API
+Kunde:              Bahn
+ 
+Aufgaben:
+ 
+          o Google Cloud Appengine Administration.
+          o Deployments von Java Backend Anwendungen.
+          o Entwicklung von einem Excel Addin (VBA) für die Erfassung von
+            Arbeitszeiten.
+          o Berechnung von Tarif Zuschlägen, Spesen, Ferien- Abwesenheiten,
+            Fehltage, Sonderzulagen usw.
+          o Unterstützung mit Google Cloud zur Datenspeicherung mit REST API
+            und Java Backend.
+          o Prüfung der Eingaben auf Korrektheit.
+          o Erstellung von Eingabemasken (Macros).
+          o Verwaltung der Benutzerdaten (Serverbackend).
+          o Export der Daten für eine SAP Import Schnittstelle.
+          o  
+            Deployment auf Linux Entwicklungs Servern mit Docker.
+ 
+ 
+ 
+ 
+ 
+Kenntnisse:
+ 
+Go, Cloud, Google App Engine
+ 
+Eingesetzte Produkte:
+ 
+Google Cloud Appengine, Google Cloud Datastore, Docker
+===============================================================================
+04/2016 - 12/2016: Tool zur Datenmigration für eine Bankenmigration
+ 
+Einsatzort:         Zürich
+Rolle:              Datenmigration, Tool Entwicklung
+Kunde:              Credit Suisse
+ 
+Aufgaben:
+ 
+    * Unterstützung bei der Migration einer Organisationseinheit der Bank auf
+      eine neue Rechtsform.
+    * Entwicklung von Tools mit VBA zur automatisierten Datenauswertung von
+      Bank Anwendungen (TDC, Finacel Treasury, Front Arena) für eine Übersicht
+      von vorhandenen SSI.
+    * Erstellung von GUIs in MS Office zur Datenverwaltung und Reports.
+    * Entwicklung von automatisch erstellten Reports (Excel VBA) zu Migrations
+      SSI.
+    * Automatisierte Auswertung von Murex Daten zur möglichen manuellen
+      Nachbearbeitung.
+    * Customizing von Excel Ribbons mit Custom UI Editor für eigene Addins
+      (xlam).
+    * Automatisierung der Analyse von migrierten Trades, Erstellung von Reports
+      mit Darstellung der fehlerhaften und der erfolgreich migrierten Trades.
+    * Import und Transformierung von CSV Dateien.
+    * Aufbau und Administration einer Server Infrastruktur für den Transfer mit
+      FTPS von Daten, sowie der automatisierten Weiterleitung und Analyse in
+      täglichen Reports.
+    * Administration und System Management von Windows Server 2012.
+    * Automatisierung des Datentransfers von End-Of-Day Dateien zur
+      automatischen Datenauswertung und Prüfung auf fehlerhafte Migrationen.
+    * Security Management: Sicherstellung der Einhaltung von Security Policies
+      der Bank. Techniche Dokumentation der Automatisierungen sowie der
+      aufgebauten Infrastruktur inklusive der technischen Workflows unter
+      Sicherheitsaspekten.
+    * Organisation und Koordinierung von mehreren Teams für den Datenfluss der
+      Bankanwendungen.
+    * Quality Assurance der Migrationen und der Migrationstools.
+    * Administration von Testcases, erstellung und automatisierung von
+      täglichen Reports.
+    * Koordinierung und Organisierung von Testcases, automatisierung von
+      Aufwertungen der Tests. Erstellung von Testcases (Drehbücher),
+      automatisch und manuell.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Kenntnisse:
+ 
+Custom UI Editor, FTPS Server und Client, Excel-VBA, VBScript
+ 
+Eingesetzte Produkte:
+ 
+Windows Server 2012 R2
+===============================================================================
+03/2014 - 03/2016: Java Application Plattform Management
+ 
+Einsatzort:         Zürich
+Rolle:              DevOps Linux / Java
+Kunde:              Bank (Credit Suisse)
+ 
+Aufgaben:
+ 
+    * Betreuung einer standardisierten Java Plattform für mehrere hundert Java
+      Enterprise Anwendungen.
+    * DevOps Tätigkeiten, Deployment Überwachung und Troubleshooting,
+      Automatisierung von Builds mit Teamcity.
+    * Programmmierung von Datenimporten für eine Web GUI (JSF, Javascript
+      AngularJS) mit Datenanalyse und Reporterstellung mit Design Pattern MVC
+      (Model View Controler).
+    * Transformierung und Zusammeführung von Exceldaten in eine Java Datenbank
+      unter Verwendung von Apache Metamodel mit Joins über mehrere
+      Exceldateien.
+    * Java Sourcecode Reviews zur Perfomanceverbesserung, Vermeidung von Memory
+      Leaks und Problembehebung von JVM Problemen. Optimierung von JVM
+      Parametern für Memory und Perfomance.
+    * Support für Toolchain und Build Probleme (Maven, TIPD).
+    * Oracle Weblogic Administration, Konfiguration, Deployments und
+      Maintenance für Java Business Anwendungen.
+    * Management der Oracle Weblogic Server Infrastruktur. Bearbeitung von Java
+      und Java Application Server Problemen mit Fehleranalyse und Behebung.
+    * Anpassen der Startscripte (Linux Shell) von Weblogic für erweiterte
+      Anforderungen der Java Applkationen an JVM oder Java Application Server..
+    * Erstellen von Special Engineering zur Behebung von JAP Problemen die
+      nicht mit Standardmethoden lösbar sind (Linux Shell, Java, und Apache
+      Velocity).
+    * Unterstützung von Enterprise Java Projekten in Planung, Design und
+      Architektur der Java Anwendungen inklusive Organisation von
+      Infrastruktur.
+    * Security Management durch Konfiguration und Administration von
+      Sicherheitszonen für Java Anwendung
+
+--- abpe-radar-cv gulp hash:a287162bbea4c27f ---
+Full-Stack Entwickler und KI Implementierung mit Java (Golang, Python), Spring Boot. DevOps mit Kubernetes, Linux, CI/CD.
+
+Full-Stack &amp; API Entwickler für Webservices mit Java (Spring), Golang, Python und React.
+
+Rollen:
+- CONSULTING
+- DEVELOPMENT
+- ADMINISTRATION
+- QUALITY_MANAGEMENT
+- PROJECT_MANAGEMENT
+
+Projekte:
+
+2023-06 – 2026-08
+Digitale Transformation & Modernisierung, Betrieb von Automatisierung und Workflows
+Rolle: Devops, Full-Stack Entwickler
+Projektinhalte: Backend Microservice Entwicklung • Planung, Design und Implementierung des Spring Boot Microservices. • Erstellung einer CI/CD Pipeline für Gitlab. • Helm Konfiguration und Durchführung von Deployments auf Kubernetes. • Automatisierung der Fehlererkennung und Erstellung der Jira Tickets im Betrieb der Testumgebung. • Entwicklung vom Spring Boot Backend mit OpenAPI und Java. • Erstellen von JUnit-Tests mit Mockito. • Erstellung vom Docker Image mit JIB. • Scheduling regelmässiger Routineaufgaben wie Housekeeping, Fehlermonitoring- und Behebung usw. Frontend • Entwicklung mit Typescript und React JS. • Darstellung der täglichen Analysedaten vom Betrieb. • Frontend für Automatisierungsaufgaben (Batch Restarts, Canceln, Analysen, Reports uws). • Daten vom Betrieb darstellen. Architektur • OpenAPI mit API-First-Methode. • Java Spring Boot und React JS. • Kubernetes Plattform. • Gitlab CI/CD. • Octopus Deployments. Persistenz • Persistierung mit JPA, Oracle und JDBC, MS SQL. DevOps • Sicherstellung vom Betrieb der Automatisierungssoftware AWA (Broadcom). • Automatisierung der Betriebsaufgaben.
+Kenntnisse: Java, Java 17, Python, Kubernetes, Helm, OpenAPI, VBA, REST
+
+2025-01 – 2025-12
+KI Implementierung
+Rolle: Architekt, Entwickler
+Kunde: qcg.ch
+Projektinhalte: Aufbau einer KI SaaS. Entwicklung von einem Webservice zur Entgegennahme von KI Anfragen (Allgemein, Entwicklung, Dokumentenbasiert). Tokenzerlegung von Text und Dokumenten. Speichern der Token in einer Vektordatenbank (PostgreSQL mit Erweiterung). Entwicklung vom Frontend mit React &amp; Typescript. REST API &amp; MCP Schnittstelle. Einbindung von LLMs (Mistral, Llama, usw) mit Ollama. Monorepository (Git) mit NX.
+Kenntnisse: Java 17, Python, React, TypeScript, LLM, KI
+
+2023-03 – 2023-06
+Cybersecurity Anwendungsentwicklung
+Rolle: Software Entwickler, Cloud Architekt
+Kunde: Jondos
+Projektinhalte: Auftragsarbeiten Rolle: Golang Entwickler, Cloud Architekt Aufgabe: Entwicklung einer Golang Anwendung zur Verbesserung der Sicherheit von Linux Servern. Die Software analysiert die Logs der Zugriffe auf den Server, und erstellt anhand der IP Adressen Firewallregeln (IP Tables). Eine Gruppierung durch Erstellung von IP Ranges ist möglich. Die IP Adressen werden dabei anhand von Mappingtabellen Ländern zugeordnet, und können entsprechend der Anzahl der Attacken von einem Land bei den IP Tables berücksichtigt werden. Die Software kann mit verschlüsselten Lizenzen frei gegeben werden. Architekturberatung bei Linux Servern, AWS und Kubernetes.
+Kenntnisse: Golang, Linux Administration
+
+2022-07 – 2023-03
+Full Stack Developer mit Spring Boot API Webservice, MS Azure, Angular.
+Rolle: Full-Stack Entwickler
+Kunde: Kion Group
+Projektinhalte: Aufgabe: Entwicklung einer umfassenden Full-Stack-Webanwendung unter Verwendung von Spring Boot, Angular, Azure Cloud und MongoDB-Technologien. Dieses Projekt umfasste das Design, die Implementierung und die Optimierung einer skalierbaren, performanten und sicheren Lösung, um die Kundenanforderungen für etwa 40-50.000 Kunden weltweit zu erfüllen. Die Anwendung ist ein Katalog für Techniker und muss sowohl als Offline-Desktop-Anwendung als auch als Online-Webservice laufen. Backend Microservice Entwicklung Planung, Design und Implementierung eines neuen Spring Boot Microservice. Implementierung der Datenspeicherung in Azure Blob Storage in Spring. Sicherstellung der Datenpersistenz mit MongoDB (Spring Data). Verwaltung und Konfiguration von Spring in Azure Webservice. Erstellen von JUnit-Tests mit Mockito. Frontend Entwicklung eines responsiven und benutzerfreundlichen Frontends mit Angular für eine nahtlose Benutzererfahrung auf verschiedenen Geräten. Nutzung von Angular Material und benutzerdefiniertem SCSS zur Erstellung einer optisch ansprechenden und konsistenten Benutzeroberfläche. Implementierung von Echtzeit-Datenbindung, Formularvalidierung und clientseitiger Fehlerbehandlung mit Angular Reactive Forms. Entwicklung benutzerdefinierter Angular-Komponenten und -Direktiven zur Verbesserung der Wiederverwendbarkeit und Wartungsfreundlichkeit des Codes. Electron.js, um eine Offline-Desktop-Version zu erstellen. OpenAPI zur Synchronisierung von API-Modellen mit dem Backend. Angular Forms für den Datei-Upload. Datensätze mit Sortierung, Filter und grafischer Statusampelanzeige Architektur API First mit OpenAPI-Generator (Spring, Angular). OpenAPI für den API-First-Ansatz. Anwendungsdesign für Azure. ETL, Daten-Streaming. MS Azure Cloud Azure Data Engineering mit Azure Data Factory. Entwicklung von Datenpipelines in ADF. Transformation von Daten (Datenbank, XML zu JSON). Bereitstellung mit Infrastructure As Code (Terraform) in der Microsoft Azure Cloud, um hohe Verfügbarkeit und Skalierbarkeit zu gewährleisten. Nutzung von Azure Blob Storage für die effiziente Speicherung und den Abruf von Multimedia-Inhalten. Verwendung von Azure Functions zur Erstellung von Serverless-Computing-Lösungen für die Bearbeitung ereignisgesteuerter Aufgaben. Gewährleistung einer sicheren und verschlüsselten Datenübertragung mit Azure Key Vault zur Speicherung und Verwaltung von Anwendungsgeheimnissen. Azure Cosmos DB (NoSQL-API) zum Speichern von Mediendatei-Metadaten. Persistenz Storage accounts mit Azure Blob Storage und CosmosDB NoSQL (CRUD). Datenbank Azure CosmosDB SQL API für Datei-Metadaten. Nutzung von MongoDB Atlas für Katalogdaten mit Datenbankhosting, das hohe Verfügbarkeit und automatische Skalierung gewährleistet. Implementierung von Indizierungsstrategien zur Optimierung der Abfrageleistung und Verkürzung der Antwortzeiten. Entwurf und Optimierung des MongoDB-Schemas für effiziente Datenspeicherung und -abfrage. DevOps Azure DevOps mit CI/CD-Pipeline. Nutzung von Azure Kubernetes Service (AKS) für die Container-Orchestrierung, um eine optimale Ressourcenzuweisung und effiziente Skalierung zu gewährleisten. Bereitstellungsmanagement in Kubernetes mit ArgoCD und Helm Chart. Anwendungsüberwachung und -verwaltung mit ArgoCD UI. Terraform-Skripting zur Erstellung und Pflege der Azure-Infrastruktur. Verwaltung und Konfiguration von Azure Webservices. Soziales Workshop für NoSQL-Datenschemata. Workshop für API First mit OpenAPI. Pair programming. Agile Entwicklung mit Scrum. BDD (Behavior Driven Development).
+Kenntnisse: Spring Boot, Angular, Openapi, Golang, XML Schema, GORM, OAS3, Asciidoc, Data Engineering, Java, Spring, Typescript, Java 17, Maven, Azure, Cloud Computing
+
+2020-01 – 2023-01
+Support für Opensource Projekte
+Rolle: Teilnahme an Opensource Projekten
+Kunde: Public
+Projektinhalte: Opensource Projekt: QA Automatisierung, OpenAPI, API First Automatisierung von REST API Tests mit API First (OpenAPI). Auswertung und prozessierung von Postman Collections. Automatisierung mit Postman CLI (Newman). Anpassungen und Bugfixing von Idaithalam. Erstellung einer Serverversion von Idaithalam. Erstellung einer Library zum Generieren von OAS3 Dokumenten. OAS3 Generierung mit Yaml Properties oder Exceldaten. Python Projekt mit FAST API FAST API Webserver Scripting zur Automatisierung
+Kenntnisse: OpenAPI, Postman, Newman CLI, Idaithalam, Docker, Jenkins, Microservice, IntelliJ, Git, Github, HTTP API, Python, FAST API
+
+2022-03 – 2022-06
+Mehrere Teilzeitprojekte für Microservices und API Design
+Rolle: API Entwicklung mit Java & Python & Golang, DevOps
+Kunde: Regierungsbehörden, WDR
+Projektinhalte: API-Management Planung, Konzepterstellung und Entwicklung von API-Microservices. Microservice Design und Architektur als API First mit OpenAPI Automatisierung zur Konvertierung von Datenbankmodellen in OAS3-Objekte. Java Spring Boot für Buchungssoftware, Datenvalidierung. Datum Zeitzonen-Synchronisation. Behebung von Fehlern im Microservice, Verringerung von Anfrageausfällen durch Validierungen. Spring Batch für Datenübertragungen. Python Python FASTAPI-Server mit MongoDB &amp; Angular-Frontend (PrimeNG). SQL-Migration von MySQL zu PostgreSQL mit Python. Automatisierung der Erzeugung von OpenAPI-Dokumenten mit Python. Python-Skripte zur Automatisierung von Aufgabenabläufen. Golang Golang Microservice mit Gin Server. Golang REST-Client. Web-Sicherheitsauthentifizierung mit JWT-Token (Golang). Implementierung neuer Microservice-API-Funktionen. Datenpersistenz in PostgreSQL mit GORM. Datenbank Datenpersistenz mit Apache Cassandra (CQL). Dokumentation Dokumentation mit ASCIIDOC nach arc42. DevOps Jenkins-Bereitstellung auf Cloud Foundry. Verwaltung von CI/CD-Pipelines (Jenkins). Entwicklung von Dockerfiles. Bereitstellung in Kubernetes, Red Hat OpenShift. Anwendungsmanagement in der OpenShift Web-Konsole.
+Kenntnisse: Golang 1.16, Java Spring Boot 2.58, Gin Webserver, Java 11, OAS3, OpenAPI, Postman, Jenkins, Microservice, IntelliJ, Git, Github, HTTP API, JIRA, MSSQL DB, PostgreSQL, Python
+
+2021-01 – 2022-03
+Kunden Webportal
+Rolle: Full-Stack und API Entwickler mit Spring Boot API & Angular
+Kunde: Dr. Gueldener Gruppe
+Projektinhalte: Die Aufgabe bestand darin, eine komplexe und heterogene Spring Boot-Anwendung mit Angular-Frontend und mehreren Persistenz-, Webservice- und Logikschichten zu erweitern. Java Backend Definition und Implementierung von RESTful APIs für die Kommunikation zwischen den Diensten und die Bereitstellung von Endpunkten für das Frontend. Implementierung der API-Dokumentation mit OpenAPI. Aktualisierung von Spring Boot von 1.59 auf 2.58. Konfiguration des API-Gateways mit Spring Zuul, um Anfragen weiterzuleiten, übergreifende Belange zu behandeln und einen zentralen Einstiegspunkt in das System zu schaffen. Konfiguration und Implementierung der Service-Erkennung und -Registrierung unter Verwendung von Eureka, um eine dynamische Service-Lokalisierung zu ermöglichen. Einrichtung von verteiltem Tracing mit Spring Sleuth und Integration der Überwachung mit Grafana und Kibana. Konfiguration und Verbesserung der Authentifizierung und Autorisierung mit Spring Security, OAuth2 und/oder JSON Web Tokens (JWT). Implementierung der eventgesteuerten Kommunikation mit Apache Kafka. Containerisierung und Bereitstellung: Containerisierung der Anwendung mit Docker und Bereitstellung in Azure Kubernetes (AKS). Maven Multimodul-Konfiguration. Mapping von Objekten mit Mapstruct. API-Verwaltung Erstellung von OpenAPI-Spezifikationen. Überprüfung und Anpassung der API-Spezifikationen gemäß den Unternehmensrichtlinien. API First-Prinzip mit OpenAPI-Tools als Maven-Plugin. Entwurf des CloudEvent-Schemas. Azure-Cloud Bereitstellung der Spring Boot-Anwendung in Azure App Service für nahtlose Integration, Skalierbarkeit und hohe Verfügbarkeit. Terraform für Infrastruktur as Code. Integration von Azure Kubernetes Service (AKS): Containerisierung der Spring Boot-Anwendung mit Docker und Bereitstellung in Azure Kubernetes Service. Konfiguration und Nutzung von Azure Blob Storage für die effiziente Speicherung und Abfrage von Multimedia-Inhalten, Protokollen und anderen unstrukturierten Daten. Implementierung von Azure Active Directory für eine sichere Authentifizierung und Autorisierung, die Single Sign-On (SSO) und eine rollenbasierte Zugriffskontrolle ermöglicht. Azure API-Verwaltung: Konfigurieren und Verwalten von Azure API Management zum Erstellen, Veröffentlichen und Sichern von APIs, um eine effiziente Kommunikation zwischen der Spring Boot-Anwendung und externen Diensten zu gewährleisten. Implementierung von Azure Functions: Entwicklung von serverlosen Azure-Functions zur Abwicklung von ereignisgesteuerten Aufgaben und Hintergrundverarbeitung, wodurch die Komplexität der Anwendung und die Ressourcennutzung reduziert werden. Qualitätssicherung, Testautomatisierung Automatisierung von Integrationstests mit Postman, Idaithalam. Erstellung von Massentestdaten für API-Anfragen. Automatisierung von Integrationstests mit Idaithalam. Entwicklung von Cucumber-Berichten für Integrationstests. Schreiben von Unit-, Integrations- und End-to-End-Tests mit JUnit5, Upgrade von JUnit 4 auf JUnit 5, Mockito und Testcontainern. Persistenz Datenbankverbindung: Hibernate, Spring Data JPA. Datenbanken: Elasticsearch, PostgreSQL. Messaging, Data streaming Data-Streaming mit Apache Kafka (Producer &amp; Consumer API) Entwicklung eines Java Kafka Clients. Modellierung und Deserialisierung von Kafka-Nachrichten. DevOps Erstellen von Dockerfiles für die Erstellung von Docker Images. Kubernetes-Konfiguration mit Helm. Jenkins-Bereitstellung in Azure Kubernetes (AKS). Migration einiger Jenkins-Aufgaben zu Azure DevOps. Entwickeln Sie eine CD-Pipeline in Azure DevOps, um die Spring Boot-Anwendung automatisch in Azure App Service und Azure Kubernetes Service (AKS) bereitzustellen. Entwicklung mit Tilt, Docker und Minikube (Kubernetes). Frontend Entwicklung von Frontend-Funktionen mit Angular (10) und Typescript. Verwendung von Angular Reactive Forms für dynamische Datenbindung und Formularvalidierung. Client-seitige Fehlerbehandlung, die die allgemeine Benutzerfreundlichkeit und Datenintegrität verbessert. Angular Material-Komponenten und benutzerdefiniertes SCSS für visuell ansprechende, konsistente und reaktionsfähige Benutzeroberflächen, die sich an verschiedene Geräte und Bildschirmgrößen anpassen. Erstellung neuer Angular Seiten für Kundenfeedback. Konfiguration für Keycloak (Clients, Clientscope). Integration der Authentifizierung mit OAuth2, JWT. Python Skripting Python Clients für REST API (Elasticsearch). Soziales Agile Entwicklung mit Scrum. Pair programming.
+Kenntnisse: Java 8, 11, 17, Java Spring Boot 1.5.9/2.58, Swagger, OAS3, OpenAPI, Docker, Kubernetes, Jenkins, Microservice, IntelliJ, Git, Github, HTTP API, Cucumber, Gherkin, Idaithalam, JIRA, MSSQL DB, Elasticsearch, API Webservice, Angular, Spring Boot, Python, Azure, Kafka
+
+2020-06 – 2020-12
+REST API Directory (API Portal)
+Rolle: Full-Stack-Entwickler und API-Architekt mit Spring Boot und Angular.
+Kunde: Landesbank BW
+Projektinhalte: Aufgabe war die Entwicklung und Implementierung eines REST-API Directoriese und Managementsystems unter Verwendung von APIOMAT, mit einem Angular 7 Frontend, automatisierten Tests und OAuth2- und OpenID-Implementierung. API-Entwicklung Entwicklung einer REST-API-Directory / API-Management Lösung mit APIOMAT. Validierung von REST-API-Spezifikationen gemäß OAS 3.0.2 und Swagger. Korrektur der API-Spezifikationen mit Swagger Editor und Swaggerhub. Automatisierung von Java Spring Boot Server Stubs mit OpenAPI Generator nach OAS 3.0.0. Anpassung und Entwicklung eines neuen Generators für OpenAPI-Tools (Java Opensource) für spezielle Anforderungen. Integration von Redoc als Ersatz für Swagger UI. Entwicklung eines Spring Boot Prototyps mit APIs für einen automatisierten Build und für den Import von Testdaten (Virtualan). Entwurf und Implementierung eines Sicherheitskonzepts für Webservices. Implementierung von OAuth2 und OpenID mit JWT-Tokens in Webservices. Überprüfung und Anpassung des API-Designs (Zalando API-Richtlinien). Entwicklung und Planung nach der API-First-Methode. Frontend-Entwicklung Frontend Angular 7 Entwicklung mit Typescript. Erstellen von APIOMAT-Datenmodellen in Angular mit Typescript-Klassen. Implementierung von APIOMAT-HTTP-Anfragen in Angular unter Verwendung des HttpClient-Moduls. Behandlung von APIOMAT-Response Daten in Angular mit Observables. Erstellen von Angular-Komponenten zur Anzeige und Interaktion mit APIOMAT-Daten. Implementierung der APIOMAT-Authentifizierung in Angular mit OAuth2 mit JWT-Tokens. Integration von APIOMAT-Daten mit anderen Angular-Modulen und -Diensten. Behandlung von APIOMAT-Errors und Exceptions in Angular. QA / Prüfung Erstellung automatisierter Tests mit Postman. Erstellung von Funktionsdateien für Karate (Gherkin, Cucumber). Testautomatisierung mit JUnit4, JUnit 5, Karate und Mockito. Evaluierung von Tools für Contract Testing (API-Testautomatisierung) mit Postman Contract Test Generator, Idaithalam, NodeJS und Newman. Automatisierung von API-Request/Response Pairs mit Testdaten (Virtualan). API-Import mit CSV- und JSON-Daten. DevOps CI/CD-Entwicklung mit Jenkins Groovy Pipeline. Integration von Cucumber Reports mit Jenkins in JIRA. Erstellen von Docker-Images für Azure AKS (Kubernetes), Container-Instanzen und Key Vault.
+Kenntnisse: Java Spring Boot, Angular 7, MS Azure, Java 11, Camunda IBM Workflows, APIOMAT, Swagger, Google Cloud GCP, Docker, Kubernetes, Typescript, Node.js, Python Postman, Visual Studio Code, Microservice, Eclipse, Git, Bitbucket, Artifactory, REST API, Karate, Cucumber, Gherkin, Jenkins (Groovy)., Apache Kafka, JIRA, Oracle DB, Linux RedHat, DevOps
+
+2020-06 – 2020-12
+Development and implementation of REST API directories
+Rolle: Full-stack development, API architecture, Spring & Angular
+Projektinhalte: The task was to develop and implement a REST API directory and management system using APIOMAT, with an Angular 7 frontend, automated testing, and OAuth2 and OpenID implementation. API development Development of a REST API directory/API management solution with APIOMAT. Validation of REST API specifications according to OAS 3.0.2 and Swagger. Correction of API specifications with Swagger Editor and Swaggerhub. Automation of Java Spring Boot server stubs with OpenAPI Generator according to OAS 3.0.0. Customization and development of a new generator for OpenAPI tools (Java open source) for specific requirements. Integration of Redoc as a replacement for Swagger UI. Development of a Spring Boot prototype with APIs for automated builds and for importing test data (Virtualan). Design and implementation of a security concept for web services. Implementation of OAuth2 and OpenID with JWT tokens in web services. Review and adaptation of the API design (Zalando API guidelines). Development and planning according to the API-first method. Frontend development Frontend Angular 7 development with Typescript. Creation of APIOMAT data models in Angular with Typescript classes. Implementation of APIOMAT HTTP requests in Angular using the HttpClient module. Handling of APIOMAT response data in Angular with Observables. Creation of Angular components for displaying and interacting with APIOMAT data. Implementing APIOMAT authentication in Angular with OAuth2 using JWT tokens. Integrating APIOMAT data with other Angular modules and services. Handling APIOMAT errors and exceptions in Angular. QA / Testing Creating automated tests with Postman. Creation of function files for Karate (Gherkin, Cucumber). Test automation with JUnit4, JUnit 5, Karate, and Mockito. Evaluation of tools for contract testing (API test automation) with Postman Contract Test Generator, Idaithalam, NodeJS, and Newman. Automation of API request/response pairs with test data (Virtualan). API import with CSV and JSON data. DevOps CI/CD development with Jenkins Groovy Pipeline. Integration of Cucumber Reports with Jenkins in JIRA. Creation of Docker images for Azure AKS (Kubernetes), container instances, and Key Vault.
+Kenntnisse: Java, Acceptance Test, Angular
+
+2019-06 – 2020-06
+Spring Backend, Transition und Projektmanagement.
+Rolle: Rolle als Projektleiter, Architekt und Spring MVC Entwickler.
+Kunde: HCOB
+Projektinhalte: Aufgabe war die Planung und Gestaltung einer Übergabe von internen Entwicklern zu externen Ressourcen. Planung und Implementierung eines Updates einer Spring-basierten Java-Anwendung, die mit SAP-Systemen (SAP DM, CML, BA und BW) integriert wird, um eine nahtlose Datenverwaltung und -verarbeitung über verschiedene Geschäftsbereiche hinweg zu ermöglichen. Spring REST API Service, der eine effiziente Kommunikation mit SAP-Schnittstellen ermöglicht, um den Datenaustausch mit SAP DM, CML, BA und BW-Modulen zu erleichtern. Nutzung des SAP Java Connectors (SAP JCo) und der Spring Boot-Starter für das SAP Cloud SDK, um eine nahtlose Integration mit dem SAP-Ökosystem zu gewährleisten. Entwicklung und Administration von Java-Anwendungen mit SAP-Schnittstellen zu SAP DM, CML, BA und BW. Auswertung und Weiterverarbeitung von SAP-Exportdaten (sRDI, XML). Updaten eines Webservices mit Multi-Threading und Java 8 Streams, um die Leistung zu verbessern. Unterstützung und Weiterentwicklung von mehreren separaten Java-Anwendungen (Java 8, JEE, Apache POI). Sicherheitsüberwachung mit Splunk. Dokumentation der Architektur, des Designs und der Funktionalität der Anwendung und Erstellung umfassender Leitfäden und Referenzmaterialien für Entwickler und Endbenutzer, um den Wissenstransfer und die Benutzerfreundlichkeit mit Markdown, AsciiDoc, Swagger, OpenAPI und PlantUML zu erleichtern. Gründliches Testen und Debuggen der Anwendung, einschließlich Einheitstests, Integrationstests und Leistungstests, um die Stabilität und Zuverlässigkeit des Systems mit JUnit, Mockito, TestNG, Selenium, RestAssured, JMeter und SonarQube zu gewährleisten Organisation des Transfers, Verwaltung der Humanressourcen, Vereinbarungen mit Kunden, Verwaltung von Teilprojekten. Workflow-Verwaltung mit Integration Designer, IBM Workflow Process Server, IBM Camunda, BCP Explorer und Eclipse für Java. Überprüfung von Funktionen (Stored Procedures) und PL/SQL-Skripten in Oracle auf Aktualisierbarkeit. Massendruckverwaltung mit AFP- und PDF-Dateien, Inspire Designer, Cosmos, PNetTNet Server, Control-M für Batch-Steuerung.
+Kenntnisse: Java 8, SAP, Camunda, IBM Workflows, REST API, Oracle DB, JDBC, Java Swing, Maven, Spring Boot, Angular, Node.js
+
+2019-10 – 2019-12
+Teilzeit: Portainer mit Anpassungen
+Rolle: AngularJS und Golang Entwickler
+Kunde: Clive
+Projektinhalte: Clive Software, Angular JS, Docker Entwicklung &amp; DevOps für Portainer Anpassung von Portainer (portainer.io) zur Steuerung (Dashboard) von Docker Containern. Web Frontend mit Angular (Components, Web Services). Kommunikation von Angular mit REST API Calls zum Backend mit Golang Microservices. Erstellung von Docker Dateien für Docker Images. Administration von Docker Containern. Erstellen (Build) von Docker Images (AWS EKS). DevOps Deployment auf AWS EC2 Linux Instanzen (DevOps). Erstellen und Administration von AWS Repository für Docker Images. Erstellen von ECS Docker Instanzen. Architekturvergleich mit Kubernetes als Alternative zu Portainer.
+Kenntnisse: Golang, Docker, Angular JS, Node.js, AWS Amazon Cloud, REST API, Linux, Webtechnologien
+
+2019-04 – 2019-05
+Java Unternehmensberatung
+Rolle: Java Architekt und Berater
+Kunde: Energy From Waste
+Projektinhalte: Java JVM Analyse Analyse der Enterprise Java Architektur. Erstellung einer technischen Dokumentation mit Darstellung der verschiedenen Probleme. Analyse der von Support Tickets in Hinblick auf Java. Analyse der Java Speicherverwaltung (Garbage Collector). Analyse der Unterschiede der JVM Versionen, sowohl von der Version (7 &amp; 8) als auch hinsichtlich Client - Server Modus. Remote Analyse der Windows Clients mit Teamviewer. Ausarbeitung und Präsentierung von Lösungsmöglichkeiten. Ausarbeitung von alternativen Architekturlösungen. Vorstellung einer Java Spring Boot Architektur mit Spring Data.
+Kenntnisse: Windows 10, Java 8 JVM, Java 7 JVM, Teamviewer, Tras, eDoc
+
+2018-09 – 2019-03
+Spring Microservice in Google Cloud Platform
+Rolle: Spring Entwickler, API und GCP Architektur
+Kunde: MediaMarktSaturn
+Projektinhalte: Erstellung von REST-API-Richtlinien (Zalando-orientiert), die als Programmierrichtlinien für andere Entwickler dienen. Spezifikation einer REST-API mit Swaggerhub unter Verwendung des OAS2-Standards. Entwicklung von Java-Microservices zur Verarbeitung, Validierung und Versendung von JSON-Antwortobjekten. Einhaltung der Entwicklungsmethoden API First, BDD, TDD. Definieren von REST-API-Endpunkten. Integration einer PostgreSQL-DB in GCP als SaaS. Automatisierung von API-Schnittstellen mit Maven und Swagger CodeGen. Bereitstellung von Architekturberatung für GCP mit Kubernetes, Compute Engine, Docker, Apache Kafka und Google APIGEE. Konfiguration von APIGEE mit OpenAPI, Entfernung von HTTP Header sowie Konfiguration der Filterregeln. Planung von Datenströmen mit Kafka zur Verarbeitung externer Daten. Verwaltung von CI/CD in Google Cloud und Integration der statistischen Codeanalyse (SonarQube). Entwicklung mit einem agilen Ansatz unter Verwendung von Scrum.
+Kenntnisse: Spring Boot, Google Cloud, API First, OAS3, Swagger, OpenAPI, Java 8
+
+2017-06 – 2018-08
+Java Repository Migration
+Rolle: Java Architektur & Teilprojektleiter
+Kunde: Dresdner Bank
+Projektinhalte: Java IT Architektur Migration von Java Repository (Projektverwaltung) und Elias (Java Schwachstellen Monitoring) von einer AD Domain zu einer anderen AD Domain. Entwicklung einer Benutzerabfrage mit Java über AD. Planung, Organisation, Führung externer Arbeitskräfte, Erstellung der Migrationsdokumentation sowie Installation und Konfiguration. Erstellung von Powershell Scripten für Überprüfung von AD Usern, sowie der betroffenen Java Projekte. Architektur Planung und Organisation der Einführung neuer Anwendungen. Insbesondere FileCloud, Service Virtualisierung, Testdatenmanagement, Cucumber und SOAP UI zum Testen von REST APIs. Automatisierung der API Tests. Organisation und Administration der Infrastruktur.
+Kenntnisse: Java, Service Virtualisierung, Cloud, Windows, Linux, Active Directory, Testdaten Management
+
+2017-02 – 2017-06
+Spring, VBA, Angular in Google Cloud Platform
+Rolle: Planung und Entwicklung mit Java / Spring / REST API
+Kunde: Kummler&Matter
+Projektinhalte: Entwicklung eines REST API Java Backend. Datenbank auf Cloud mit Datastore und JPA. Entwicklung einer Java Spring Anwendung in GCP Appengine. Frontend mit Angular 5 (Typescript, CSS, HTML). Entwicklung der REST API Schnittstelle von Excel zu Java mit http POST. Entwicklung von einem Excel Addin für die Erfassung von Arbeitszeiten. Berechnung von Tarif Zuschlägen, Spesen, Ferien- Abwesenheiten, Fehltage, Sonderzulagen usw. Unterstützung mit Google Cloud zur Datenspeicherung (REST API mit Java Backend). Remote Datenverarbeitung mit Cloud Datastore. Prüfung der Eingaben auf Korrektheit. Erstellung von Eingabemasken in Excel mit Wertevalidierung. Verwaltung der Benutzerdaten. Export der Daten für eine SAP Import Schnittstelle.
+Kenntnisse: GCP, VBA, Custom UI Editor, REST API, Java Spring, Excel Plugin
+
+2016-05 – 2016-12
+Bank Migration
+Rolle: Java, VBA Entwickler für Datenmigration und Tool Entwicklung
+Kunde: Credit Suisse
+Projektinhalte: Die Aufgabe bestand darin, streng vertrauliche Kontodaten zu migrieren. Entwicklung von Tools zur automatisierten Datenauswertung von Bankanwendungen (TDC, Finacle Treasury, Front Arena). Entwicklung von REST API-Schnittstellen für den Datenexport mit Java und VBA. Erstellung von Excel-Berichten und Datenmigrationsfunktionen für Kontomigrationen. Entwicklung von automatisch generierten Excel Reports für die Migration. Automatisierte Auswertung von Murex-Daten für eine mögliche manuelle Nachbearbeitung. VBS Scripting und Scheduling für die Automatisierung von Datenflüssen. Annahme von Änderungswünschen der Kunden. Bereitschaftsdienst für Migrationen am Wochenende. Verwaltung von Linux und Windows Server.
+Kenntnisse: Java, VBA Excel 2010, VBS, Custom UI Editor, FTPS Server und Client, Windows Server 2012, JIRA
+
+2014-03 – 2016-03
+Java Application Plattform Management
+Rolle: DevOps Linux / Java
+Kunde: Bank (Credit Suisse)
+Projektinhalte: DevOps Analyse und Fehlersuche auf einer standardisierten Java-Plattform (JAP). Projektunterstützung in Bezug auf Sicherheit und Anwendungsisolierung. Erstellung von Dokumentationen zur Standardisierung, Optimierung und Automatisierung von Arbeitsabläufen. Architekturberatung für den Betrieb und die Weiterentwicklung von Java-Anwendungen. Betrieb und Wartung der Toolchain (Maven, Jenkins, TeamCity). Betrieb, Wartung und Konfiguration des WebSphere Application Server. 2nd- und 3rd-Level-Support für Java-Anwendungen. Einrichtung von Batch-Jobs für IBM MQ. Fehlerbehebung bei Datenbankproblemen in Zusammenarbeit mit Oracle-DBAs. Java Entwicklung Java-Entwicklung zur Zusammenführung und Aufbereitung von Daten aus verschiedenen Quellen in einer Java DB (HSQLDB) mit MVC-Pattern. Backend Java Webservice J2EE mit Excel Datenimport und Migration der Daten zur Speicherung in der Datenbank. Auslesen und Migrieren von Daten aus Excel mit Apache POI. Entwicklung von Server Linux-Shell-Skripten. Unterstützung von automatisierten Java-Bereitstellungen. Frontend Entwicklung Primefaces als Frontend für die J2EE Webanwendung. Auswahl und hochladen von Excel Dateien.
+Kenntnisse: J2EE, JSF, BEA Weblogic Server, Java DB (HSQLDB), JSON, Maven, Jenkins, Java, Oracle DB, Apache POI, Apache Metamodel, Apache Velocity, JIRA, Confluence, Linux Red Hat, Linux Shell Scripting, Agile Softwareentwicklung, MVC, Oracle/SQL
+
+2013-10 – 2013-12
+Javascript Schnittstellen Programmierung mit Siebel EAI
+Rolle: Javascript Entwickler mit Siebel EAI
+Kunde: Commerzbank
+Projektinhalte: Siebel EAI Intergration Component Anpassungen. CRM Desktop Formulardaten customizing. Behebung der Synchronisierungsfehler mit Siebel EAI. XML bearbeitung. Anpassen der Javascript Business Logik. Deployment und publizieren der XML Dateien. Import der XML Daten mit Entwicklung eines MQ Client in Java für Siebel EAI.
+Kenntnisse: Javascript, XML, XSLT, Java 1.7, Siebel EAI, IBM MQ.
+
+2013-08 – 2013-09
+Java Entwicklung für Siebel Migration
+Rolle: Java und Frontend Entwickler
+Kunde: Partners Group
+Projektinhalte: Erstellung eines Frontend mit Java JSF (Primefaces) im MVC Design. Dateneingabe über Webgui, Eintragen von Daten für die Projektplanung. Administration von Infrastruktur. Datenanbindung über JDBC und Hibernate mit einer MS SQL Server Datenbank. Benutzerverwaltung mit LDAP und Spring Security. Unterstützung der Migrationaufgaben von Siebel 8.1.1.7 auf 8.1.1.11. Entwicklung einer Automatisierung des IRM (Incremental Repository Merge), upgrade der Binaries auf 8.1.1.11. Datenbankuprade auf 8.1.1.11. Compile des neuen SRF, Deployment auf andere Umgebungen. Dokumentation der Vorgehensweise. Erstellung eines neuen Objektmanager für OpenUI mit CSS. OpenUI aktivierung mit neuem Login. Analyse und Behebung der Upgrade Fehler.
+Kenntnisse: Java 1.6, JSF (Primefaces), Javascript, JDBC, HTML, CSS, Hibernate, MS SQL Server, LDAP, Spring Security, Siebel Administration
+
+2010-09 – 2013-07
+Infrastrukturverwaltung, System Mangement
+Rolle: DevOps mit J2EE und Frontend Entwicklung
+Kunde: Zürcher Kantonalbank
+Projektinhalte: Aufgabe war sowohl die Infrastruktur Verwaltung als auch das Erstellen eines internen Portals für das Servermanagment. Entwicklung eines Infrastruktur Management Systems mit Java, J2EE, JSF, JPA, Apache Derby und Siebel Java API (EAI). Schnittstellenprogrammierung auf Linux Redhat. API-Requests mit J2EE-Servlets. Frontend mit Primefaces (JSF) für Serververwaltung. Authentifizierung mit Spring LDAP und LDAP Server. Administration von Siebel 8.0 und 8.1: Installation, Konfiguration, Deployment auf AIX. Automatisierung der Siebel installation (Silent Install) inkl. Konfiguration für verteilte Umgebungen. Datenbank Migration von Siebel 8.0.0.9 auf 8.1.1.10. Upgrade der Software auf Siebel 8.1.1.10. Konfiguration und installation von Siebel Monitoring Systemen. Oracle Datenbank: export und import von Datenbanken, SQL, OEM, performance Anpassungen.
+Kenntnisse: J2EE, JSF (Primefaces), AIX, Linux Red Hat, Java 1.6, IntelliJ, Maven, EJB, JPA Eclipselink, JDBC, Apache Derby, JBOSS, Apache Tomcat, Java Servlets, LDAP, Spring core 3.1, XML, XSLT, HTML, CSS, Javascript, Perl, Linux Shell, Windows Powershell, Windows Server 2008., Windows Server 2003
+
+2010-02 – 2010-09
+Entwicklung Java für Monitoring, Siebel Administration
+Kunde: Telekommunikation (Telekom Deutschland)
+Projektinhalte: Betrieb von Siebel, Erstellung und L&ouml;sung von Troubletickets. Problem Analysen. Deployments mit ADM u.a. Aufbau einer Testumgebung mit Siebel und Nagios (Monitoring inkl. grafischer Darstellung f&uuml;r Performance Analysen). Weiterentwicklung des Nagios Plugin mit Java. Konfiguration und Erweiterung des Loadbalancing mit Resonate. Installation und Administration Resonate. BEA Weblogic Server Administration.
+
+2009-02 – 2009-11
+Portalbetrieb (Java), Siebel EAI Entwicklung, Oracle DBA
+Kunde: Pharmazie (Boehringer)
+Projektinhalte: Architekturberatung, Infrastrukturplanung, Implementierung Siebel Enterprise. Konzepterstellung der Migration von Siebel Enterprise auf eine verteilte und multilinguale Umgebung. Installation und Konfiguration der neuen Siebel Enterprise Umgebungen in einer zentralen Lokation, mit den Versionen Siebel 7.8 und Siebel 8.1. Konzept f&uuml;r Siebel Anwendungsmonitoring Siebel Remote Konfigurationsoptimierung f&uuml;r Remoteclients mit verteilten Daten, Troubleshooting, automatisierte Migration der Siebel Clients. Oracle DBA: Datenbankadministration, Datenexport / import, Tablespace Administration, Clusteradministration. Oracle Perfomancetuning f&uuml;r Siebel, Datenbankparameter Optimierung. Administration der SAP SD-HR XI Schnittstelle / Siebel EAI Anpassung von Siebel EAI Business Services, Business Objects mit Siebel Tools. Anpassen von Views und Applets, Fehleranalyse. Scripting f&uuml;r Automatisierung von Konfigurationen. Third Level Support, maintenance SAP Netweaver Portal mit Java, Servlet, JSP Backend Entwicklung.
+Kenntnisse: Linux Enterprise Red Hat, Windows2003, Windows2008, Oracle 9i, Oracle 10g, Siebel 75, Siebel 78, Siebel 8.1
+
+2007-02 – 2008-12
+Java Entwicklung mit Siebel EAI
+Kunde: Telekommunikation (Telekom Deutschland), IBM
+Projektinhalte: Entwicklung einer Siebel EAI Schnittstelle mit Web GUI f&uuml;r die Automatisierung von Siebel Benutzerdaten Export / Import zwischen verschiedenen Siebel Enterprise Umgebungen. Entwicklung eines MQ client mit Java f&uuml;r Siebel EAI, Integration Components, Datamapping, Java Data Bean. Siebel Tools f&uuml;r Anpassungen an Siebel Applets und Views. Web GUI mit Java Servlet, JSP, Tomcat, JDBC, JDOM XML, IBM Websphere MQ, Ajax. Weiterentwicklung des Siebel Monitoringsystems (Nagios). Entwicklung einer weiteren Web 2.0 Anwendung (J2EE, Hibernate, Spring, JSP, XML, Dojo), mit u.a. &Uuml;bersicht der automatisierten Deployments aller Umgebungen, automatiserte History der Versionen von Deployments, Eingabemasken f&uuml;r ToDos.
+Kenntnisse: AIX, Siebel 7.8.2.5, Nagios, Tomcat, JBOSS, Ajax, Siebel EAI, MQSeries
+
+2005-11 – 2006-12
+Perl Entwicklung Monitoring, Implementierung
+Kunde: Systemhaus, Energie (RWE)
+Projektinhalte: Implementierung Siebel Enterprise in einer verteilten Umgebungen. Entwicklung und Implementierung von Siebel Anwendungsmonitoring (Nagios) mit Perl mit Komponenten&uuml;berwachung, Filesystem-, Mountpointmonitoring und Logfileauswertung. Installation, Konfiguration, Administration von Siebel. Durchf&uuml;hrung und Automatisierung von Deployments mit EAI, EIM. Troubleshooting. Perfomanceanalysen mit Siebel SARM.
+Kenntnisse: Solaris, Siebel 7.8.2.3, Nagios, Perl, Shell Scripting.
+
+2005-09 – 2005-10
+Siebel Third Level Support
+Kunde: Dienstleister Transport
+Projektinhalte: Durchf&uuml;hrung und Automatisierung von Deployments, Siebel Administration, Konfiguration Fehleranalyse. Releasemanagement mit Qualit&auml;tskontrolle. Installation, konfiguration und administration der Deploymentautomatisierung (ADP, ADM, EIM)
+Kenntnisse: Windows XP, 2000, 2003, ca. 10 Server, ca. 1000 Clients.
+
+2005-06 – 2005-08
+Installation Siebel mit Solaris Cluster
+Kunde: Bank
+Projektinhalte: Planung von Architekture und Ressourcen (Hardwareanforderungen) Installation von Siebel in einer Solaris 8 Cluster Umgebung Konfiguration Siebel Remote mit verteilten Daten
+Kenntnisse: Siebel, Solaris, ca. 400 Clients
+
+2005-02 – 2005-06
+Datawarehouse, Java Schnittstellenprogrammierung
+Kunde: Automobil (Mercedes)
+Projektinhalte: Administration von ReportNet. Organisation von Kunden Anforderungen L&ouml;sungsentwicklung mit der SDK Schnittstelle von ReportNet (CRN SDK, Java, Eclipse) Automatische Verifizierung aller CRN Berichte, automatisierter XML Auszug aller CRN Berichte, automatisierte testweise Berichterstellung und Speicherung als Datei Ausf&uuml;hrung und Anpassung von DB2 SQL Scripten, DB2 Datenbankadministration (Konfiguration, Sicherung) Abgleich der Anforderungen der verschiedenen Teams (Meetings, Absprachen) Erstellung von Verwaltungstools (Berichtsdatenverwaltung) inkl. Datenbank Erstellung von VBA Scripten zur Automatisierung von Workflows
+Kenntnisse: Cognos ReportNet, Java, Eclipse, DB2, VBA, Aqua Data Studio, SunOne, Testdirector, Merant Dimension PVCS, Framework Manager, Solaris, Windows XP.
+
+2003-09 – 2005-01
+Siebel CRM / Datawarehouse Third Level Support
+Kunde: Pharmazie (Aventis)
+Projektinhalte: Konzepterstellung, Planung und Umsetzung f&uuml;r Security, Infrastruktur und Architektur vom Datawarehouse (Cognos, Informatica, UC4, SAP) Analyse der Hardwareanforderungen, Bestellung und Organisation der Serverinstallationen Aufbau einer verteilten Umgebung von Cognos ReportNet mit MS Loadbalancer und Cognos Clusterverfahren. Perfomanceanalysen und Troubleshooting Planung und Verteilung von Hardware an neue Siebel Enterprise Umgebungen Durchf&uuml;hrung der Datenbef&uuml;llung, Konfiguration von Siebel Remote Automatisierung der Migration von Siebel Clients auf eine neue Umgebung Aufnahme, Analyse und internationale Absprache von Anforderungen in einem europ&auml;ischen Siebel CRM Umfeld Planung, Installation, Konfiguration und Administration von Cognos (Powerplay, Report Net) im europ&auml;ischen Projekt Berichterstellung mit RepotNet (Query Studio), Metadatenmodellierung. Erstellung von automatisierten Reports mit SOAP und Cognos SDK (PDF, Excel) Automatisierung der Fehleranalyse (Datenauswertung Logfiles) und Mail Benachrichtigung durch VBS, Foglight, sowie Cognos Accelerator Installation, Konfiguration und Administration von Testdirector, UC4, Foglight (Anwendungs Monitoring), Password Safe Einrichtung.der Siebel und Datawarehouse Anwendungs&uuml;berwachung durch Foglight, Programmierung von Foglightagenten Automatisierte Fehleranalyse (Logfile Auswertung) mit Mail Benachrichtigung durch VBS und Foglight. Einrichtung von Cognos Accelerator Entwicklung von Access Datenbanken f&uuml;r eine Software Lizenz- und Serverdatenverwaltung (SQL, VBA, ADO, Makros) Export/Import zwischen Access und Oracle Datenbanken Erstellung von Dokumentationen nach standardisierten Verfahren (SOP, ISM) Administration Siebel 7.5 (Serverkomponenten, Benutzeradministration) Access (SQL, ADO, VBA) Entwicklung f&uuml;r diverse Routineaufgaben sowie Scripting mit VBS, VBA, Batchscripts
+Kenntnisse: Oracle 9.2, Toad, ERWin, Testdirector, MS Access, MS Loadbalancer, MS Cluster, Remedy, Documentum, Visio, MS Office (VBA), SMS, IIS mit SMTP, Visual Source Safe, PC DUO, UC4, SAP, Informatica, Windows 2000 Server, Cluster, Advanced Server u. Client, HP-UX, Ca. 70 Server
+
+Ausbildung:
+2019-01 – 2019-03 · [URL auf Anfrage] · Coursera
+2018-01 – 2018-08 · LPIC1 · LPI
+
+Sprachen:
+Deutsch · OTHER
+Englisch · OTHER
+Französisch · OTHER
+
+Kompetenzen:
+PROGRAMMING_LANGUAGES: Angular, Assembler, Excel-VBA, Go, J2EE, Java API for REST Services, Java spring Boot, JavaScript, JEE, JSON, Linux Shell Scripting, Oracle/SQL, Perl, TypeScript, VBA, VBS, VB, Windows Powershell, Python, Java, Visual Basic, React
+OPERATING_SYSTEM: AIX, Google Cloud, HPUX, Linux RedHat, MS-DOS, Novell, SUN OS, Solaris, Unix, Linux, Windows Server, Amazon AWS, MS Azure
+DATABASE: Access, Apache Derby, Google Cloud Datastore, Google Cloud Firestore, Java DB, JDBC, MS SQL Server, MySQL, Oracle DB, SQL, Postgresql, Elasticsearch, Informix, MongoDB
+DATA_COMMUNICATION: Confluent, Ethernet, Internet, Intranet, ISO/OSI, Kafka, LAN, LAN Manager, Message Queuing, NetBeui, NetBios, Novell, PC-Anywhere, REST API, RFC, RPC, SMTP, SNA, SNMP, TCP/IP, Token Ring, Windows Netzwerk, Winsock
+PRODUCTS_STANDARDS_EXP: Apache Kafka, Apache Maven, APIGEE, Apiomat, Atlassian Confluence, Atlassian JIRA Agile, Confluence, Docker, Filecloud, FTPS Server und Client, Git, GitHub, Google App Engine, Google Cloud, Google Cloud Appengine, Google Cloud Firestore, Google Datastore, Gradle, Hibernate, IBM MQ., IntelliJ IDEA, Java springboot, Jenkins, JIRA, JSF (Primefaces), Kubernetes, LDAP, Microsoft Azure, MS Office, OAuth, OpenAPI, Scrum, Siebel EAI, Spring Boot, Spring MVC, SwaggerHub, VBA Excel, Visual Studio Code, XML, XSLT
+COMPUTER_AIDED_DESIGN: OpenAPI 2.0, OpenAPI 3.0, REST API, Swagger, API First
+MANAGERIAL_EXPERIENCE: ITIL, Scrum, Änderungs-Management, SAFE
+PERSONNEL_RESPONSIBILITY: HR Personalverwaltung, Personalvermittlung

@@ -1,0 +1,11 @@
+{
+  "ok": 2,
+  "fail": 0,
+  "skip": 0,
+  "limit": 0,
+  "need": "/tmp/gulp-retry-20260821-110440/need_retry.tsv",
+  "mem_thresh": 82,
+  "cpu_thresh": 85,
+  "throttle_sleep": 45,
+  "ended": "2026-08-21T11:06:55"
+}

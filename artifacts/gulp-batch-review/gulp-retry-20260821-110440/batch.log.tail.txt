@@ -1,0 +1,400 @@
+INFO 2026-08-21 11:05:50,750 apps    🔌 ElasticSearch: VERFÜGBAR
+INFO 2026-08-21 11:05:50,750 apps    📊 Index: VORHANDEN
+INFO 2026-08-21 11:05:50,750 apps    📈 ES-Dokumente: 22
+INFO 2026-08-21 11:05:50,750 apps    🏷️  ES-Version: 8.11.0
+INFO 2026-08-21 11:05:50,750 apps    💾 Index-Größe: 0.06 MB
+INFO 2026-08-21 11:05:50,750 apps 🚀 ABpE Profile App ist bereit für Operationen
+WARNING 2026-08-21 11:05:50,753 apps ⚠️  Intake Integration Signals nicht gefunden
+INFO 2026-08-21 11:05:50,754 apps ✅ IngestEmail App bereit mit Auto-Reply
+INFO 2026-08-21 11:05:50,754 apps ✅ ingest_pdf Signale geladen (automatischer Task-Start aktiviert)
+INFO 2026-08-21 11:05:50,754 signals ✅ ai_cv_training Signals geladen und bereit
+============================================================
+✅ LDAP Configuration loaded for UCS5
+✅ Server: ldap://ucs5.win.abcona.info
+✅ Base DN: dc=win,dc=abcona,dc=info
+============================================================
+✅ LDAP Authentication Backend aktiviert
+============================================================
+✅ ABpE SETTINGS GELADEN (modular)
+✅ Django Version: 5.2.9
+✅ Apps: 79 installiert
+✅ Environment: development
+✅ DEBUG: True
+✅ AUTH Backends: 2 aktiviert
+============================================================
+✅ ABpE Apps Package loaded (version 2.0.0)
+[MODELS] LDAP Modelle erfolgreich geladen
+[MODELS] Verfügbare Modelle: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ CompleteConsultantAdmin registriert
+[ADMIN] LDAP Admin-Views erfolgreich geladen
+[ADMIN] Verfügbare Admin-Views: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ ABpE Search Admin - vereinfachte Version geladen (keine Models)
+✅ URL Import App ist bereit
+✅ CV Extractor bereit
+[SIGNALS] LDAP-Signals erfolgreich geladen
+2 objects could not be automatically imported:
+
+  djangocms_versioning.datastructures.SnippetVersion
+  djangocms_versioning.datastructures.PageContentVersion
+
+251 objects imported automatically (use -v 2 for details).
+
+jobs_candidates=1 EXECUTE=True AID_ROOT=/mnt/public/Berater/AID_profile
+keywords=v1.3-final
+  clean: experience=26 snapshot=94328 aid=AID-og_1.0.0.5
+OK glas_oliver_fritz chars=104962 sections=18 experience=26 aid=AID-og_1.0.0.5
+  → /mnt/public/Berater/AID_profile/ggg/glas_oliver_fritz/AID-og_1.0.0.5.pdf
+{
+  "execute": true,
+  "jobs_ok": 1,
+  "fail": 0,
+  "skip": 0,
+  "version_tag": "1.0.0.5",
+  "keywords": "v1.3-final",
+  "aid_root": "/mnt/public/Berater/AID_profile",
+  "web_urls": []
+}
+LOG=/tmp/gulp-retry-20260821-110440/convert-glas_oliver_fritz
+Convert-PDF: /mnt/public/Berater/AID_profile/ggg/glas_oliver_fritz/AID-og_1.0.0.5.pdf (letter=ggg)
+/opt/abpe/venv311/lib/python3.11/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (7.4.0.post2)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+INFO 2026-08-21 11:05:52,136 search_service ✅ ElasticSearch verbunden (Version: 8.11.0)
+INFO 2026-08-21 11:05:52,136 search_service ✅ SearchService initialisiert
+INFO 2026-08-21 11:05:52,468 aid_generator ✅ AIDGenerator initialisiert mit Media-Integration
+INFO 2026-08-21 11:05:52,532 ollama_service 🚀 OllamaService UNLIMITED initialisiert mit Modell: qwen2.5:7b
+INFO 2026-08-21 11:05:52,532 aid_generator ✅ AIDGenerator für Pipeline initialisiert
+INFO 2026-08-21 11:05:52,533 cv_processor ✅ CVProcessorService initialisiert mit strukturierter DB
+INFO 2026-08-21 11:05:52,586 apps 🚀 Initialisiere ABpE Profile App...
+INFO 2026-08-21 11:05:52,586 signals ✅ ABpE Profile Signals registriert (v6.0)
+INFO 2026-08-21 11:05:52,589 signals ✅ ElasticSearch Health: yellow
+INFO 2026-08-21 11:05:52,590 signals 📊 v1 Index 'abpe_profile_versions': 22 Dokumente
+INFO 2026-08-21 11:05:52,591 signals 📊 v2 Index 'abpe_profiles_v2': 0 Dokumente
+INFO 2026-08-21 11:05:52,591 apps ✅ Signals erfolgreich registriert
+INFO 2026-08-21 11:05:52,591 apps 📡 0 Signal-Handler für Profile registriert
+INFO 2026-08-21 11:05:52,592 apps ✅ ElasticSearch Hosts aus Settings: ['http://localhost:9200']
+INFO 2026-08-21 11:05:52,594 apps ✅ ElasticSearch 8.11.0 ist erreichbar
+INFO 2026-08-21 11:05:52,594 apps    Status: yellow
+INFO 2026-08-21 11:05:52,594 apps    Cluster: docker-cluster
+INFO 2026-08-21 11:05:52,594 apps    Build: default
+INFO 2026-08-21 11:05:52,597 apps ✅ Index 'abpe_profile_versions' Status:
+INFO 2026-08-21 11:05:52,597 apps    📊 Dokumente: 22
+INFO 2026-08-21 11:05:52,597 apps    📦 Größe: 0.06 MB
+INFO 2026-08-21 11:05:52,597 apps    📝 Felder: 13
+INFO 2026-08-21 11:05:52,597 apps    ✅ Wichtige Felder vorhanden: 7/7
+/opt/abpe/venv311/lib/python3.11/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+  warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+INFO 2026-08-21 11:05:52,612 apps 📊 Synchronisations-Status:
+INFO 2026-08-21 11:05:52,612 apps    🗄️  DB Profile: 1
+INFO 2026-08-21 11:05:52,612 apps    🗄️  DB Versionen: 0
+INFO 2026-08-21 11:05:52,613 apps    🔍 ES Versionen: 22
+INFO 2026-08-21 11:05:52,613 apps    🔄 Sync-Ratio: 0.0%
+WARNING 2026-08-21 11:05:52,613 apps ⚠️  Geringe Synchronisation (0.0%) - möglicherweise fehlen Dokumente in ES
+INFO 2026-08-21 11:05:52,613 apps ✅ ABpE Profile App initialisiert:
+INFO 2026-08-21 11:05:52,613 apps    🔌 ElasticSearch: VERFÜGBAR
+INFO 2026-08-21 11:05:52,613 apps    📊 Index: VORHANDEN
+INFO 2026-08-21 11:05:52,613 apps    📈 ES-Dokumente: 22
+INFO 2026-08-21 11:05:52,613 apps    🏷️  ES-Version: 8.11.0
+INFO 2026-08-21 11:05:52,613 apps    💾 Index-Größe: 0.06 MB
+INFO 2026-08-21 11:05:52,613 apps 🚀 ABpE Profile App ist bereit für Operationen
+WARNING 2026-08-21 11:05:52,616 apps ⚠️  Intake Integration Signals nicht gefunden
+INFO 2026-08-21 11:05:52,616 apps ✅ IngestEmail App bereit mit Auto-Reply
+INFO 2026-08-21 11:05:52,616 apps ✅ ingest_pdf Signale geladen (automatischer Task-Start aktiviert)
+INFO 2026-08-21 11:05:52,617 signals ✅ ai_cv_training Signals geladen und bereit
+INFO 2026-08-21 11:05:52,728 master_json_builder ✅ MasterJsonBuilder initialisiert
+INFO 2026-08-21 11:05:53,049 db_enricher DBEnricher initialisiert
+INFO 2026-08-21 11:05:53,049 extracted_to_db ✅ ExtractedToDB initialisiert (mit get_or_create)
+INFO 2026-08-21 11:05:53,050 master_json_builder ✅ MasterJsonBuilder initialisiert
+INFO 2026-08-21 11:05:53,050 self_learning_pipeline SelfLearningPipeline initialisiert
+INFO 2026-08-21 11:05:53,050 skill_graph_builder SkillGraphBuilder initialisiert
+INFO 2026-08-21 11:05:53,050 word2vec_matcher ✅ Word2VecMatcher initialisiert
+INFO 2026-08-21 11:05:53,050 word2vec_matcher ✅ Doc2VecMatcher initialisiert
+INFO 2026-08-21 11:05:53,051 search_enricher SearchEnricher initialisiert
+INFO 2026-08-21 11:05:53,170 aid_generator AIDGenerator (LLM-basiert) initialisiert
+INFO 2026-08-21 11:05:53,171 block_labeler BlockLabeler initialisiert
+INFO 2026-08-21 11:05:53,173 pipeline Pipeline initialisiert mit 28 Skill-Kategorien
+INFO 2026-08-21 11:05:53,321 tasks Stufe 1 Start: Oliver Fritz Glas | action=aid_import | dir=glas_oliver_fritz
+INFO 2026-08-21 11:05:53,358 main_pipeline_controller [MainPipeline] START: Oliver Fritz Glas — AID-og_1.0.0.5.pdf
+INFO 2026-08-21 11:05:53,358 main_pipeline_controller [MainPipeline] Schritt 1: PDF → Spans
+INFO 2026-08-21 11:05:53,458 main_pipeline_controller [MainPipeline] Spans: 1286
+INFO 2026-08-21 11:05:53,462 main_pipeline_controller [MainPipeline] Schritt 1b: lines=1286 chars=62405 aid_signals=5/5 is_aid=True
+INFO 2026-08-21 11:05:53,462 main_pipeline_controller [MainPipeline] Schritt 1b: abcona-Profil erkannt → Fast-Path
+INFO 2026-08-21 11:05:53,476 main_pipeline_controller [MainPipeline] Schritt 1b: 1040 Skills vorkategorisiert
+DEBUG 2026-08-21 11:05:53,497 aid_regex_extractor [AidRegex] 26 Projekte extrahiert
+INFO 2026-08-21 11:05:53,498 main_pipeline_controller [MainPipeline] Schritt 1b: headline=True | personal=True | fachbereiche=4 | branchen=9 | zertifikate=0 | ausbildung=0 | focus_exp=187 | projekte=26
+INFO 2026-08-21 11:05:53,499 main_pipeline_controller [MainPipeline] Schritt 2: Spans → Gruppen
+INFO 2026-08-21 11:06:12,226 main_pipeline_controller [MainPipeline] Gruppen: 73, Blöcke: 286
+INFO 2026-08-21 11:06:12,226 main_pipeline_controller [MainPipeline] Schritt 3: Labels
+INFO 2026-08-21 11:06:12,227 main_labeler [MainLabeler] 73 Gruppen
+INFO 2026-08-21 11:06:12,227 main_labeler   Stufe 1: Hauptlabels...
+INFO 2026-08-21 11:06:12,228 main_labeler   Regelbasiert: 36 Gruppen direkt gelabelt
+INFO 2026-08-21 11:06:14,686 main_labeler   LLM: 37 Gruppen nachklassifiziert
+INFO 2026-08-21 11:06:14,686 main_labeler   Labels: {'PERSONAL': 2, 'FACHBEREICHE': 3, 'SCHULUNGEN': 1, 'BRANCHEN': 1, 'SKILLS': 4, 'FOCUS_EXP': 2, 'PROJECT': 59, 'OTHER': 1}
+INFO 2026-08-21 11:06:14,686 main_labeler   Stufe 2: Skills kategorisieren...
+INFO 2026-08-21 11:06:14,686 main_labeler   Regelbasiert: 4 Skill-Kategorien direkt erkannt
+INFO 2026-08-21 11:06:14,686 main_labeler   4 Skill-Bloecke kategorisiert
+INFO 2026-08-21 11:06:14,686 main_labeler   Stufe 3: Projekte zusammenfuehren...
+INFO 2026-08-21 11:06:17,938 main_labeler   29 Projekte
+INFO 2026-08-21 11:06:17,939 main_labeler [MainLabeler] 29 Projekte, 4 Skill-Bloecke
+INFO 2026-08-21 11:06:17,939 main_pipeline_controller [MainPipeline] 59 Projekte, 4 Skill-Blöcke
+INFO 2026-08-21 11:06:17,939 main_pipeline_controller [MainPipeline] Schritt 4: pre_json
+============================================================
+✅ LDAP Configuration loaded for UCS5
+✅ Server: ldap://ucs5.win.abcona.info
+✅ Base DN: dc=win,dc=abcona,dc=info
+============================================================
+✅ LDAP Authentication Backend aktiviert
+============================================================
+✅ ABpE SETTINGS GELADEN (modular)
+✅ Django Version: 5.2.9
+✅ Apps: 79 installiert
+✅ Environment: development
+✅ DEBUG: True
+✅ AUTH Backends: 2 aktiviert
+============================================================
+✅ ABpE Apps Package loaded (version 2.0.0)
+[MODELS] LDAP Modelle erfolgreich geladen
+[MODELS] Verfügbare Modelle: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ CompleteConsultantAdmin registriert
+[ADMIN] LDAP Admin-Views erfolgreich geladen
+[ADMIN] Verfügbare Admin-Views: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ ABpE Search Admin - vereinfachte Version geladen (keine Models)
+✅ URL Import App ist bereit
+✅ CV Extractor bereit
+[SIGNALS] LDAP-Signals erfolgreich geladen
+⚠️  Using default ElasticSearch host: http://localhost:9200
+=== AID-Profil Import ===
+Basis:    /mnt/public/Berater/AID_profile (exists=True)
+Limit:    alle
+Letter:   ggg
+Dir:      glas_oliver_fritz
+Dry-run:  False
+Sync:     True
+Skip existing: False
+Direkt:   /mnt/public/Berater/AID_profile/ggg/glas_oliver_fritz
+  [   1] Oliver Fritz Glas ← AID-og_1.0.0.5.pdf
+  split_blocks 2nd-pass: 'Betriebssysteme' + 'AIX' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Datenkommunikation' + 'Confluent' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Sonstige Kenntnisse' + 'Spring Boot, API First, REST API, Kafka, Hibernate, AWS' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Produkte|Standards|Erfahrungen' + '3-Tier Architektur' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Schwerpunkte' + 'PC, AS/400, RS6000, IBM Großrechner, MS Windows, OS/2, OS/400, AIX, MVS/ESA,' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'MQSeries' + 'Zeitraum: 2005-11 - 2006-12' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 6 Header-Kleber behoben
+  Gruppierung: 286 Bloecke in einem Aufruf...
+  Gruppierer-Prompt: main_detector_group
+  Gruppen: 73
+  Format-Split: Keine Splits noetig
+  Quality-Check: Sende 11794 Zeichen an LLM...
+  Quality-Check: 32 Label-Korrekturen
+    G001: 'Kopfbereich mit Name, Schwerpunkt und Kontaktdaten' → 'Qualifikationsprofil: AID-og_1.0.0.5 www.abcona.de'
+    G002: 'Persönliche Daten' → 'Persönliche Daten: Name, Berater'
+    G004: 'Ausbildung und Kompetenzen' → 'Ausbildung: Coursera, LPI'
+    G010: 'Sonstige Kenntnisse' → 'Skills: Spring Boot, API First, REST API'
+    G045: 'Produkte, Standards, Erfahrungen' → 'Skills: 3-Tier Architektur, Agile Softwareentwicklung'
+    G046: 'Schwerpunkte, Zertifikate, Weiterbildungen' → 'Skills: PC, AS/400, RS6000'
+    G048: 'Projekt: Microservice Entwicklung' → 'Projekt: Microservice Entwicklung (2022-07 - 2023-01)'
+    G049: 'Projekt: Opensource Projekte' → 'Projekt: Opensource Projekte (2020-01 - 2023-01)'
+    G050: 'Projekt: Teilzeitprojekte für Microservices und API Design' → 'Projekt: Teilzeitprojekte für Microservices und API Design (2022-03 - 2022-06)'
+    G051: 'Projekt: Kunden Webportal' → 'Projekt: Kunden Webportal (2021-08 - 2022-03)'
+    G052: 'Projekt: Entwicklung Spring API Backend' → 'Projekt: Entwicklung Spring API Backend (2021-01 - 2021-06)'
+    G053: 'Projekt: REST API Directory (API Portal)' → 'Projekt: REST API Directory (API Portal) (2020-06 - 2020-12)'
+    G054: 'Projekt: Spring Backend, Transition und Projektmanagement' → 'Projekt: Spring Backend, Transition und Projektmanagement (2019-06 - 2020-06)'
+    G055: 'Projekt: DevOps Entwicklung, Docker Golang' → 'Projekt: DevOps Entwicklung, Docker Golang (2019-10 - 2020-01)'
+    G056: 'Projekt: Java Architektur Analyse' → 'Projekt: Java Architektur Analyse (2019-04 - 2019-05)'
+    G057: 'Projekt: Java Spring Boot Entwicklung, REST API, Cloud' → 'Projekt: Java Spring Boot Entwicklung, REST API, Cloud (2018-11 - 2019-03)'
+    G058: 'Projekt: Webanwendung Entwicklung' → 'Projekt: Webanwendung Entwicklung (2018-09 - 2018-11)'
+    G059: 'Projekt: Java Repository Migration' → 'Projekt: Java Repository Migration (2017-06 - 2018-08)'
+    G060: 'Projekt: Java Spring auf Google Cloud' → 'Projekt: Java Spring auf Google Cloud (2017-02 - 2017-06)'
+    G061: 'Projekt: Entwicklung Java / VBA' → 'Projekt: Entwicklung Java / VBA (2016-05 - 2016-12)'
+    G062: 'Projekt: Java Application Plattform Management' → 'Projekt: Java Application Plattform Management (2014-03 - 2016-03)'
+    G063: 'Projekt: Javascript Schnittstellen Programmierung mit Siebel EAI' → 'Projekt: Javascript Schnittstellen Programmierung mit Siebel EAI (2013-10 - 2013-12)'
+    G064: 'Projekt: Java Entwicklung für Siebel Migration' → 'Projekt: Java Entwicklung für Siebel Migration (2013-08 - 2013-09)'
+    G065: 'Projekt: Java / J2EE Entwicklung, System Mangement' → 'Projekt: Java / J2EE Entwicklung, System Mangement (2010-09 - 2013-07)'
+    G066: 'Projekt: Betrieb von Siebel, Erstellung und Lösung von Troubletickets' → 'Projekt: Betrieb von Siebel, Erstellung und Lösung von Troubletickets (2010-02 - 2010-09)'
+    G067: 'Projekt: Siebel Enterprise Migration und Monitoring' → 'Projekt: Siebel Enterprise Migration und Monitoring (2009-02 - 2009-11)'
+    G068: 'Projekt: Java Entwicklung mit Siebel EAI' → 'Projekt: Java Entwicklung mit Siebel EAI (2007-02 - 2008-12)'
+    G069: 'Projekt: Implementierung Siebel Enterprise' → 'Projekt: Implementierung Siebel Enterprise (2005-11 - 2006-12)'
+    G070: 'Projekt: Durchführung und Automatisierung von Deployments' → 'Projekt: Durchführung und Automatisierung von Deployments (2005-09 - 2005-10)'
+    G071: 'Projekt: Installation Siebel mit Solaris Cluster' → 'Projekt: Installation Siebel mit Solaris Cluster (2005-06 - 2005-08)'
+    G072: 'Projekt: Datawarehouse, Java Schnittstellenprogrammierung' → 'Projekt: Datawarehouse, Java Schnittstellenprogrammierung (2005-02 - 2005-06)'
+    G073: 'Projekt: Siebel CRM / Datawarehouse Third Level Support' → 'Projekt: Siebel CRM / Datawarehouse Third Level Support (2003-09 - 2005-01)'
+  LLM: 6 Extraktionen parallel...
+    OTHER: ✅
+    SCHULUNGEN: ✅
+    BRANCHEN: ✅
+    PERSONAL: ✅
+    FACHBEREICHE: ✅
+    FOCUS_EXP: ✅
+    personal gemerged: seed_keys=8 → 8
+    languages normalisiert: 6 Einträge
+    fachbereiche gemerged: seed=4 + llm → 14
+    schulungen gemerged: +2 courses (education gesamt 2)
+    branchen gemerged: seed=9 + llm → 9
+    focus_experience gemerged: seed=185 + llm=120 → 192
+  PROJEKTE: 59 einzeln parallel...
+    Projekt 16: ✅
+    Projekt 15: ✅
+    Projekt 13: ✅
+    Projekt 11: ✅
+    Projekt 17: ✅
+    Projekt 20: ✅
+    Projekt 12: ✅
+    Projekt 14: ✅
+    Projekt 19: ✅
+    Projekt 18: ✅
+    Projekt 21: ✅
+    Projekt 27: ✅
+    Projekt 28: ✅
+    Projekt 22: ✅
+    Projekt 25: ✅
+    Projekt 30: ✅
+    Projekt 24: ✅
+    Projekt 23: ✅
+    Projekt 29: ✅
+    Projekt 31: ✅
+    Projekt 26: ✅
+    Projekt 32: ✅
+    Projekt 34: ✅
+    Projekt 37: ✅
+    Projekt 33: ✅
+    Projekt 35: ✅
+    Projekt 38: ✅
+    Projekt 42: ✅
+    Projekt 39: ✅
+    Projekt 41: ✅
+    Projekt 40: ✅
+    Projekt 36: ✅
+    Projekt 43: ✅
+    Projekt 49: ✅
+    Projekt 50: ✅
+    Projekt 52: ✅
+    Projekt 51: ✅
+    Projekt 55: ✅
+    Projekt 54: ✅
+    Projekt 56: ✅
+    Projekt 44: ✅
+    Projekt 53: ✅
+    Projekt 57: ✅
+    Projekt 58: ✅
+    Projekt 59: ✅
+    Projekt 63: ✅
+    Projekt 66: ✅
+    Projekt 61: ✅
+    Projekt 60: ✅
+    Projekt 64: ✅
+    Projekt 62: ✅
+    Projekt 65: ✅
+    Projekt 67: ✅
+    Projekt 68: ✅
+    Projekt 71: ✅
+    Projekt 69: ✅
+    Projekt 70: ✅
+    Projekt 72: ✅
+    Projekt 73: ✅
+  26 Projekte extrahiert (seed=26, fill=59)
+  SKILLS: 4 Gruppe(n) → skill_ablage...
+    Betriebssysteme: 23 Skills (Regex)
+    Programmiersprachen: 39 Skills (Regex)
+    Datenbanken: 40 Skills (Regex)
+    Datenkommunikation: 33 Skills (Regex)
+INFO 2026-08-21 11:06:35,592 main_pipeline_controller [MainPipeline] pre_json: 26 Projekte, 33 skill_ablage
+INFO 2026-08-21 11:06:35,593 main_pipeline_controller [MainPipeline] Schritt 4b: Post-Processor
+INFO 2026-08-21 11:06:35,595 main_post_processor [MainPostProcessor] START: 26 Projekte
+INFO 2026-08-21 11:06:35,598 main_post_processor   [PostProcessor] EDV seit: 2003
+INFO 2026-08-21 11:06:35,697 main_post_processor   [PostProcessor] PDF Tokens: 1597
+INFO 2026-08-21 11:06:35,698 main_post_processor   [PostProcessor] Extrahierte Tokens: 911
+INFO 2026-08-21 11:06:35,698 main_post_processor   [PostProcessor] Coverage: 56.8% (907/1597)
+INFO 2026-08-21 11:06:35,698 main_post_processor   [PostProcessor] Fehlende Tokens: 664
+INFO 2026-08-21 11:06:37,719 main_post_processor   [PostProcessor] LLM: 9 Skills, 2 Produkte
+INFO 2026-08-21 11:06:37,720 main_post_processor   [PostProcessor] +9 Skills in skill_ablage
+INFO 2026-08-21 11:06:37,720 main_post_processor [MainPostProcessor] FERTIG: coverage=56.8% | fixes=3 | auto_skills=9
+INFO 2026-08-21 11:06:37,720 main_pipeline_controller [MainPipeline] Post-Processor: coverage=56.8% | fixes=3 | auto_skills=9
+INFO 2026-08-21 11:06:37,720 main_pipeline_controller [MainPipeline] skill_ablage nach PostProcessor: 42
+INFO 2026-08-21 11:06:37,720 main_pipeline_controller [MainPipeline] Schritt 5: DB-Import
+INFO 2026-08-21 11:06:37,721 main_extracted_to_db ✅ MainExtractedToDB initialisiert
+INFO 2026-08-21 11:06:37,721 main_db_importer [MainDbImporter] import_from_prejson: Oliver Fritz Glas
+INFO 2026-08-21 11:06:37,721 main_db_importer   Projekte: 26 | skill_ablage: 42
+INFO 2026-08-21 11:06:37,850 versioning Version reserviert: glas_oliver_fritz v1.0.0.0
+INFO 2026-08-21 11:06:38,607 aid_generator LLM Klassifikation: {'role_code': 2, 'landscape_code': 3, 'level_code': 2}
+INFO 2026-08-21 11:06:38,608 aid_generator AID generiert: AID-og_2.3.2.0
+INFO 2026-08-21 11:06:38,608 aid_generator   Rolle:      Entwickler (2)
+INFO 2026-08-21 11:06:38,608 aid_generator   Landschaft: Web/Software (3)
+INFO 2026-08-21 11:06:38,608 aid_generator   Level:      Senior (2)
+INFO 2026-08-21 11:06:38,608 aid_generator   Verzeichnis:glas_oliver_fritz
+INFO 2026-08-21 11:06:38,610 main_db_importer   pre_json: data/extracted/glas_oliver_fritz/AID-og_2.3.2.0.pre_json.json
+INFO 2026-08-21 11:06:38,717 main_extracted_to_db 💾 MainExtractedToDB: Speichere AID-og_2.3.2.0
+INFO 2026-08-21 11:06:40,296 main_extracted_to_db    - Skills gespeichert: 101 Einträge
+INFO 2026-08-21 11:06:41,284 main_extracted_to_db ✅ Daten gespeichert für AID-og_2.3.2.0
+INFO 2026-08-21 11:06:41,285 main_extracted_to_db    - Projekte:         26
+INFO 2026-08-21 11:06:41,285 main_extracted_to_db    - Skills:           101
+INFO 2026-08-21 11:06:41,286 main_extracted_to_db    - Zertifikate:      0
+INFO 2026-08-21 11:06:41,287 main_extracted_to_db    - Ausbildung:       0
+INFO 2026-08-21 11:06:41,287 main_extracted_to_db    - Schulungen:       2
+INFO 2026-08-21 11:06:41,288 main_extracted_to_db    - Focus Experience: 192
+INFO 2026-08-21 11:06:41,288 main_extracted_to_db    - Branchen:         9
+INFO 2026-08-21 11:06:41,289 main_extracted_to_db    - Fachbereiche:     14
+INFO 2026-08-21 11:06:41,289 main_extracted_to_db    - Sonstiges:        0
+INFO 2026-08-21 11:06:41,289 main_extracted_to_db    - Headline:         Java Software engineer and architect for OAS3, REST API, microservices, Spring Boot and Golang
+INFO 2026-08-21 11:06:41,289 main_extracted_to_db    - Degree:           
+INFO 2026-08-21 11:06:41,334 main_db_importer   Tech-Counter Projekte: 153 Technologien
+INFO 2026-08-21 11:06:41,334 main_db_importer   skill_ablage: +38 Zusatz-Skills
+INFO 2026-08-21 11:06:41,334 main_db_importer   Tech-Counter gesamt: 191 einzigartige Technologien
+INFO 2026-08-21 11:06:41,334 main_db_importer   1040 Skills aus PDF-Layout vorkategorisiert
+INFO 2026-08-21 11:06:41,334 main_db_importer   40 Projekt-Skills via Normalizer
+INFO 2026-08-21 11:06:41,334 main_skill_normalizer   SkillNormalizer START: 40 Projekt-Skills
+INFO 2026-08-21 11:06:41,334 main_skill_normalizer   Schritt 1 (pre_json): 0 bekannt → 40 uebrig
+INFO 2026-08-21 11:06:43,060 main_skill_normalizer   Schritt 2 (TrainingTerm): 33 gefunden → 7 uebrig
+INFO 2026-08-21 11:06:43,069 main_skill_normalizer   Schritt 3 (unbekannt): 7 → 'Sonstige Skills'
+INFO 2026-08-21 11:06:43,069 main_skill_normalizer   unknown_skills fuer Self-Learning: ['H2 database|AID-og_2.3.2.0.exp_96185.Glas.Oliver Fritz', 'Cloud Datastore Excel Addin|AID-og_2.3.2.0.exp_96187.Glas.Oliver Fritz', 'Windows (2003|AID-og_2.3.2.0.exp_96192.Glas.Oliver Fritz', '(PDF|AID-og_2.3.2.0.exp_96200.Glas.Oliver Fritz', 'NT 4.0 u. Win2000 Server|AID-og_2.3.2.0.exp_96200.Glas.Oliver Fritz']
+INFO 2026-08-21 11:06:43,069 main_skill_normalizer   SkillNormalizer FERTIG: 40 Skills kategorisiert, 7 unbekannt
+INFO 2026-08-21 11:06:43,076 main_db_importer   Gesamt: 191 Skills (151 aus PDF, 40 via Normalizer)
+INFO 2026-08-21 11:06:47,571 main_skill_normalizer   save_to_db: +170 neu, 0 aktualisiert
+INFO 2026-08-21 11:06:47,571 main_db_importer   SkillNormalizer: +170 Skills, 0 aktualisiert
+INFO 2026-08-21 11:06:47,571 main_db_importer   7 unbekannte Skills → Self-Learning Task
+INFO 2026-08-21 11:06:47,636 main_db_importer   db_snapshot: data/extracted/glas_oliver_fritz/AID-og_2.3.2.0.db_snapshot.json
+INFO 2026-08-21 11:06:47,716 cv_display_utils Offline-HTML Assets eingebettet: css, js, logo
+INFO 2026-08-21 11:06:47,771 aid_profile_publish Publish HTML offline-fähig: /mnt/public/Berater/AID_profile/ggg/glas_oliver_fritz/neu/cv/AID-og_2.3.2.0.html
+INFO 2026-08-21 11:06:49,396 aid_profile_publish Publish neu/cv: AID-og_2.3.2.0 → /mnt/public/Berater/AID_profile/ggg/glas_oliver_fritz/neu/cv (3 Dateien)
+INFO 2026-08-21 11:06:49,396 html_generator AID-Profile publiziert: AID-og_2.3.2.0 → /mnt/public/Berater/AID_profile/ggg/glas_oliver_fritz/neu/cv
+INFO 2026-08-21 11:06:49,440 cv_display_utils Offline-HTML Assets eingebettet: css-fallback, js-fallback, logo
+INFO 2026-08-21 11:06:49,442 main_db_importer   HTML: AID-og_2.3.2.0
+INFO 2026-08-21 11:06:49,470 main_db_importer   TXT: data/extracted/glas_oliver_fritz/AID-og_2.3.2.0.txt
+INFO 2026-08-21 11:06:49,470 search_enricher SearchEnricher fuer AID-og_2.3.2.0
+INFO 2026-08-21 11:06:49,508 search_enricher ES indexiert: AID-og_2.3.2.0
+INFO 2026-08-21 11:06:49,508 search_enricher SearchEnricher abgeschlossen fuer AID-og_2.3.2.0
+INFO 2026-08-21 11:06:49,582 self_learning_pipeline Self-Learning (sync) fuer AID-og_2.3.2.0
+INFO 2026-08-21 11:06:51,707 self_learning_pipeline Self-Learning (sync) abgeschlossen: 47 neu, 224 aktualisiert, 0 Prompts
+INFO 2026-08-21 11:06:51,730 main_pipeline_controller [MainPipeline] FERTIG: AID-og_2.3.2.0
+INFO 2026-08-21 11:06:51,746 signals Job 3618 abgeschlossen: AID-og_1.0.0.5.pdf
+INFO 2026-08-21 11:06:51,753 tasks ============================================================
+INFO 2026-08-21 11:06:51,753 tasks ✅ AID-og_2.3.2.0 | Oliver Fritz Glas | erfolgreich angelegt
+INFO 2026-08-21 11:06:51,753 tasks    Dauer: 58s | Projekte: 26 | Skills: 271
+INFO 2026-08-21 11:06:51,753 tasks ============================================================
+    135 Skills → skill_ablage (mit Kategorie)
+    skills befüllt: 3 Kategorien, skill_ablage Rest: 33
+    ✅ AID-og_2.3.2.0
+    📁 neu/cv: AID-og_2.3.2.0-short.html, AID-og_2.3.2.0.docx, AID-og_2.3.2.0.html, AID-og_2.3.2.0.pdf
+
+==================================================
+ERGEBNIS nach 58s (1.0 min):
+  Versucht:     1
+  Gestartet:    1
+  Fehler:       0
+  Übersprungen: 0
+  Ohne PDF:     0
+  Outputs:      {letter}/{nachname_vorname}/neu/cv/
+OK ggg/glas_oliver_fritz → AID-og_2.3.2.0.pdf (63s)
+{
+  "ok": 2,
+  "fail": 0,
+  "skip": 0,
+  "limit": 0,
+  "need": "/tmp/gulp-retry-20260821-110440/need_retry.tsv",
+  "mem_thresh": 82,
+  "cpu_thresh": 85,
+  "throttle_sleep": 45,
+  "ended": "2026-08-21T11:06:55"
+}
+
+======== FERTIG ok=2 fail=0 skip=0 ========
+Log: /tmp/gulp-retry-20260821-110440/batch.log
+TSV: /tmp/gulp-retry-20260821-110440/result.tsv
