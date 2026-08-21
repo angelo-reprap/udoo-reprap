@@ -1,0 +1,373 @@
+AID: AID-og_2.3.2.0
+Name: Oliver Fritz Glas
+Headline: Java Software engineer and architect for OAS3, REST API, microservices, Spring Boot and Golang
+Ort: 805x Zürich, Schweiz
+Wohnort: 805x Zürich, Schweiz
+Jahrgang: 1968
+Verfügbar: 13.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2003
+Sprachen: Deutsch Muttersprache, Englisch fließend, FranzösischGrundkenntnisse, Deutsch (Muttersprache), Englisch (fließend), Französisch (Grundkenntnisse)
+
+FACHBEREICHE:
+Java Software engineer and architect for OAS3 REST API microservices Spring Boot and Golang Software-Entwicklung / Programmierung
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination Administration / Support Qualitätsmanagement / Qualitätssicherung / Test Full Stack Entwickler (Java, Golang, React, Angular), Docker, REST API und Linux / DevOps.
+Bern
+Java Software engineer and architect for OAS3
+REST API
+microservices
+Spring Boot and Golang
+Software-Entwicklung / Programmierung
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Full Stack Entwickler (Java, Golang, React, Angular), Docker, REST API und Linux / DevOps
+PC, AS/400, RS6000, IBM Großrechner, MS Windows, OS/2, OS/400, AIX, MVS/ESA, Novell Netware 3.x, Netware 4.x, Windows NT Net Core Technologies (LAN, WAN, Ethernet, Tokenring), DNS, WINS, DHCP, TCP/IP, C++
+
+BRANCHEN:
+Banken
+Finanzdienstleister
+sonstige Dienstleister
+Großhandel
+Pharmazie
+Automobil
+Systemhaus
+Telekommunikation
+Energie
+
+PROJEKTE:
+  2022-07 - 2023-01 |  | Spring Boot, Golang Entwickler
+    - Entwicklung und Anpassung von Golang Microservices.
+    - Bugfixing.
+    - Senden und Empfangen von Messages mit RabbitMQ.
+    Techs: Golang, Openapi, JavaScript, XML Schema, GORM, OAS3, Asciidoc, Data
+  2022-03 - 2022-06 | Regierungsbehörden | Java & Python & Golang Microservice Entwickler, DevOps
+    - Spring Boot, API Design
+    - Spring Boot mit API First und OpenAPI.
+    - Validierung von Buchungen.
+    Techs: Golang 1.16, Gin Webserver, Java 11, Java Spring Boot 2.58, OAS3
+  2021-08 - 2022-03 | Dr. Gueldener Gruppe | Entwickler, DevOps
+    - Spring Boot Microservice Entwicklung.
+    - Java Deployment mit Jenkins.
+    - Entwicklung OpenAPI Spezifikationen.
+    Techs: Java 8, 11, 17, Java Spring Boot 1.5.9/2.58, Swagger, OAS3, OpenAPI
+  2021-01 - 2021-06 | AXA Winterthur | Java Webservice Entwickler, API Design
+    - Entwicklung Spring Boot mit API First Prinzip.
+    - Entwicklung der REST API Services für das IdentityAccess
+    - Management (IAM).
+    Techs: Spring Boot, API First, REST API, Kafka, Hibernate, AWS, Wiremock
+  2020-01 - 2023-01 | Public | Java, Testautomatisierung, API Entwickler
+    - Opensource Projekt: QA Automatisierung, OpenAPI, API First
+    - Automatisierung von REST API Tests mit API First (OpenAPI).
+    - Auswertung und prozessierung von Postman Collections.
+    Techs: OpenAPI, Postman, Newman CLI, Idaithalam, Docker, Jenkins
+  2020-06 - 2020-12 | Landesbank BW | Full-Stack Entwickler
+    - Entwicklung REST API Directory, API Management mit APIOMAT.
+    - Frontend Angular 7 Entwicklung mit Typescript.
+    - Anbindung Angular an LDAP Benutzerverwaltung.
+    Techs: Java 8, Java 11, Java Spring Boot, Camunda IBM Workflows, APIOMAT, Jenkins (Groovy), Apache Kafka, JIRA, Oracle DB, Linux RedHat
+  2019-06 - 2020-06 | HCOB | IT Architektur, Full Stack Development
+    - Transition Projekt, IT Architektur
+    - Übernahme (Outsourcing) von Anwendungen.
+    - HR Unterstützung, Rekrutierung und Betreuung neuer Mitarbeiter
+    Techs: Java 8, SAP, Camunda, IBM Workflows, REST API, Oracle DB, JDBC, Java
+  2019-10 - 2020-01 | Clive | DEVOPS ENTWICKLUNG, DOCKER GOLANG, Remote
+    - Clive Software, Angular JS, Docker Entwicklung & DevOps für Portainer
+    - Anpassung von Portainer (portainer.io) zur Steuerung
+    - (Dashboard) von Docker Containern.
+    Techs: Golang, Docker, Angular JS, Node.js, AWS Amazon Cloud, REST, API, Linux, Webtechnologien
+  2019-04 - 2019-05 | Energy From Waste | JAVA ARCHITEKTUR ANALYSE
+    - Java JVM Analyse
+    - Analyse der Enterprise Java Architektur.
+    - Erstellung einer technischen Dokumentation mit Darstellung der verschiedenen Probleme.
+    Techs: Windows 10, Java 8 JVM, Java 7 JVM, Teamviewer, Tras, eDoc
+  2018-11 - 2019-03 | MediaMarktSaturn | Java & Cloud Architekt
+    - Java REST API Architektur und Entwicklung
+    - Erstellung von REST API Guidelines als Programmier-Richtlinien für Entwickler.
+    - Spezifizierung einer REST API mit Swaggerhub nach OAS2
+    Techs: Windows, Google Cloud, Java Spring Boot, API First, OAS3, Swagger
+  2018-09 - 2018-11 | Versicherung | Java / Go Entwickler, Teamleiter
+    - Java Spring MVC Entwicklung (Eclipse, Git und Maven).
+    - Teamleitung und Verteilung von Arbeitsaufgaben.
+    - Organisation von Teambesprechungen.
+    Techs: Windows, Java 8, Spring, Maven, Git, H2 database, Angular
+  2017-06 - 2018-08 | Dresdner Bank | Teilprojektleiter
+    - Java IT Architektur
+    - Migration von Java Repository (Projektverwaltung) und Elias
+    - (Java Schwachstellen Monitoring) von einer AD Domain zu einer anderen AD Domain.
+    Techs: Windows, Linux, Java, Active Directory, Cloud, Service, Virtualisierung
+  2017-02 - 2017-06 | Bahn | Planung und Entwicklung mit Java / J2EE / REST API
+    - Entwicklung eines REST API Java Backend.
+    - Datenbank auf Cloud mit Datastore und JPA.
+    - Frontend mit Angular 5 (Typescript, CSS, HTML).
+    Techs: VBA, Cloud Datastore Excel Addin, Custom UI Editor, GCP, REST API, Java Spring
+  2016-05 - 2016-12 | Credit Suisse | Datenmigration, Tool Entwicklung
+    - Entwicklung von Migrations Tools und Automatisierung für Bank Migration und Testmanagement
+    - Entwicklung von Tools zur automatisierten Datenauswertung von Bank Anwendungen (TDC, Finacle Treasury, Front Arena).
+    - Entwicklung von API Schnittstellen mit Java und VBA
+    Techs: Java, VBA Excel 2010, VBS, Custom UI Editor, Client, Windows Server 2012, JIRA
+  2014-03 - 2016-03 | Bank (Credit Suisse) | DevOps Linux / Java
+    - Betreuung einer standardisierten Java Plattform für mehrere hundert Java Enterprise Anwendungen.
+    - DevOps Tätigkeiten, Deployment Überwachung und Troubleshooting,
+    - Automatisierung von Builds mit Teamcity.
+    Techs: Java, J2EE, Java DB (HSQLDB), JSF, Angular JS, JSON, BEA, Weblogic, Apache Velocity, JIRA
+  2013-10 - 2013-12 |  | Javascript Entwickler mit Siebel EAI
+    - Siebel EAI Intergration Component Anpassungen.
+    - CRM Desktop Formulardaten customizing. Behebung der Synchronisierungsfehler mit Siebel EAI. XML bearbeitung,
+    - Anpassen der Javascript Business Logik.
+    Techs: Javascript, XML, XSLT, Java 1.7, Siebel EAI, IBM MQ
+  2013-08 - 2013-09 | Finanzdienstleistung | Java Entwickler
+    - Erstellung eines Frontend mit Java JSF (Primefaces) im MVC
+    - Design.
+    - Dateneingabe über Webgui, Eintragen von Daten für die Projektplanung.
+    Techs: Java 1.6, JSF (Primefaces), HTML, CSS, Javascript, JDBC, Hibernate, MS
+  2010-09 - 2013-07 | Finanzen, Bank | Java Entwickler
+    - Administration von Siebel 8.0 und 8.1: Installation,
+    - Konfiguration, Deployment auf AIX.
+    - Automatisierung der Siebel installation (silent install) inkl.
+    Techs: Windows (2003, 2008), AIX, Linux Red Hat, Java 1.6, JEE, JSF, HTML, CSS, Javascript
+  2010-02 - 2010-09 | Telekommunikation (Telekom Deutschland) | Entwicklung Java für Monitoring, Siebel Administration
+    - Betrieb von Siebel, Erstellung und Lösung von Troubletickets.
+    - Problem Analysen.
+    - Deployments mit ADM u.a.
+  2009-02 - 2009-11 | Pharmazie (Boehringer) | Portalbetrieb (Java), Siebel EAI Entwicklung, Oracle DBA
+    - Architekturberatung, Infrastrukturplanung, Implementierung
+    - Siebel Enterprise.
+    - Konzepterstellung der Migration von Siebel Enterprise auf eine verteilte und multilinguale Umgebung.
+    Techs: Linux Enterprise Red Hat, Windows2003, Windows2008, Oracle, 9i
+  2007-02 - 2008-12 | Telekommunikation (Telekom Deutschland), IBM | Java Entwicklung mit Siebel EAI 11 Monate
+    - Entwicklung einer Siebel EAI Schnittstelle mit Web GUI für die Automatisierung von Siebel Benutzerdaten Export / Import zwischen verschiedenen Siebel Enterprise Umgebungen.
+    - Entwicklung eines MQ client mit Java für Siebel EAI,
+    - Integration Components, Datamapping, Java Data Bean.
+    Techs: AIX, Siebel 7.8.2.5, Nagios, Tomcat, JBOSS, Ajax, Siebel EAI, MQSeries
+  2005-11 - 2006-12 | Systemhaus, Energie (RWE) | Perl Entwicklung Monitoring, Implementierung 2 Monate
+    - Implementierung Siebel Enterprise in einer verteilten
+    - Umgebungen.
+    - Entwicklung und Implementierung von Siebel Anwendungsmonitoring
+    Techs: Solaris, Siebel 7.8.2.3, Nagios, Perl, Shell Scripting
+  2005-09 - 2005-10 | Dienstleister Transport | Siebel Third Level Support
+    - Durchführung und Automatisierung von Deployments, Siebel
+    - Administration, Konfiguration Fehleranalyse.
+    - Releasemanagement mit Qualitätskontrolle.
+    Techs: Windows XP, 2000, 2003, ca. 10 Server, ca. 1000 Clients
+  2005-06 - 2005-08 | Bank | Installation Siebel mit Solaris Cluster
+    - Planung von Architekture und Ressourcen (Hardwareanforderungen)
+    - Installation von Siebel in einer Solaris 8 Cluster Umgebung
+    - Konfiguration Siebel Remote mit verteilten Daten
+    Techs: Siebel, Solaris, ca. 400 Clients
+  2005-02 - 2005-06 | Automobil (Mercedes) | Datawarehouse, Java Schnittstellenprogrammierung
+    - Administration von ReportNet. Organisation von Kunden
+    - Anforderungen
+    - Lösungsentwicklung mit der SDK Schnittstelle von ReportNet (CRN
+    Techs: Cognos ReportNet, Java, Eclipse, DB2, VBA, Aqua Data Studio, SunOne
+  2003-09 - 2005-01 | Pharmazie (Aventis) | Siebel CRM / Datawarehouse Third Level Support 5 Monate
+    - Konzepterstellung, Planung und Umsetzung für Security,
+    - Infrastruktur und Architektur vom Datawarehouse (Cognos,
+    - Informatica, UC4, SAP)
+    Techs: (PDF, Excel), Oracle 9.2, Toad, ERWin, Testdirector, MS Access, MS Loadbalancer, MS, SMTP
+
+SKILLS:
+  database: Access Gute Kenntnisse, Apache Derby Guten Kenntnissem Projekterfahrungen, Google Cloud Datastore, Google Cloud Firestore, Java DB (HSQLDB), JDBC, MS SQL Server Gute Kenntnisse, MySQL, ODBC, Oracle Gute Kenntnisse, DBA Projekterfahrungen, Oracle DB, SQL Gute Kenntnisse, Elasticsearch, PostgreSQL. Messaging, Data streaming Data-Streaming mit, Apache Kafka (Producer & Consumer API) Entwicklung eines Java Kafka Clients, Modellierung und Deserialisierung von Kafka-Nachrichten. DevOps Erstellen von, Dockerfiles für die Erstellung von Docker Images. Kubernetes-Konfiguration mit, Helm. Jenkins-Bereitstellung in Azure Kubernetes (AKS). Migration einiger Jenkins-, Aufgaben zu Azure DevOps. Entwickeln Sie eine CD-Pipeline in Azure DevOps, um, die Spring Boot-Anwendung automatisch in Azure App Service und Azure, Kubernetes Service (AKS) bereitzustellen. Entwicklung mit Tilt, Docker und, Minikube (Kubernetes). Frontend Entwicklung von Frontend-Funktionen mit, Angular (10) und Typescript. Verwendung von Angular Reactive Forms für, dynamische Datenbindung und Formularvalidierung. Client-seitige, Fehlerbehandlung, die die allgemeine Benutzerfreundlichkeit und Datenintegrität, verbessert. Angular Material-Komponenten und benutzerdefiniertes SCSS für, visuell ansprechende, konsistente und reaktionsfähige Benutzeroberflächen, die, sich an verschiedene Geräte und Bildschirmgrößen anpassen. Erstellung neuer, Angular Seiten für Kundenfeedback. Konfiguration für Keycloak (Clients, Clientscope). Integration der Authentifizierung mit OAuth2, JWT. Python Skripting, Python Clients für REST API (Elasticsearch). Soziales Agile Entwicklung mit Scrum, Pair programming
+  operating_system: AIX, BEA Weblogic Server, Google Cloud, HPUX, Linux Red Hat, Linux RedHat LPIC-1, Microsoft MCP Windows2000 Server und WS NT 4.0, MS-DOS, MVS, OS/390, Novell CNE, NetWare 4.11, OS/2, SUN OS, Solaris, Unix, Unix/Linux, Windows Server 2000, 2003, 2008, 2012, 2012 R2, Windows Server 2012 R2
+  programming_languages: Angular, Angular JS, Assembler Grundkenntnisse, C Gute Grundkenntnisse, C++ Gute Grundkenntnisse, Content Repository API for Java, Technology, Excel-VBA, Go Experte, Projekterfahrung, Java Experte, umfangreiche Projekterfahrung, Java API for REST Services, Java spring Boot, Java 1.6, Java 1.7, Java 1.8, Java 8, JavaScript Experte, JEE, JSON, J2EE, Linux Shell, Linux Shell Scripting, Oracle/SQL, Perl Gute Kenntnisse, Projekterfahrungen, PHP Gute Kenntnisse, PL/SQL Grundkenntnisse, Scala, Shell Unix Shell, Powershell, Umfangreiche, TypeScript, VBA, VBS, VB Umfangreiche Projektkenntnisse, VBScript, Windows Powershell
+
+SKILL-ABLAGE:
+Confluent, Ethernet, Internet, Intranet, ISO/OSI, Kafka, LAN, LAN Manager, Message Queuing, NetBeui, NetBios, Novell, PC-Anywhere, REST API, RFC, RPC, SMTP, SNA, SNMP, TCP/IP, Token Ring, Windows Netzwerk, Winsock, Design/Entwicklung/Konstruktion, OpenAPI 2.0, OpenAPI 3.0, Swagger, Managementerfahrung in Unternehmen, Änderungs-Management, ITIL, Scrum, Personalverantwortung, HR Personalverwaltung, helm, terraform, nodejs, tracing, apis, framework, ci/cd-pipelines, datastore, visio
+
+AUSBILDUNG:
+2018-01 – 2018-08 | LPIC1  [course]
+2019-01 – 2019-03 | Coursera Kurs  [course]
+
+FOCUS_EXP:
+  3-Tier Architektur  [product_standard]
+  Agile Softwareentwicklung  [product_standard]
+  Apache Kafka  [product_standard]
+  apache maven  [product_standard]
+  Apache Metamodel  [product_standard]
+  Apache POI  [product_standard]
+  Apache Tomcat  [product_standard]
+  Apache Velocity  [product_standard]
+  API First  [product_standard]
+  APIGEE  [product_standard]
+  Apiomat  [product_standard]
+  Atlassian Confluence  [product_standard]
+  Atlassian JIRA Agile  [product_standard]
+  AWS  [product_standard]
+  AWS EC2  [product_standard]
+  AWS ECS  [product_standard]
+  AWS Repository  [product_standard]
+  CA Testdaten Management  [product_standard]
+  Camunda BPM  [product_standard]
+  Cloud  [product_standard]
+  Confluence  [product_standard]
+  CSS  [product_standard]
+  Custom UI Editor  [product_standard]
+  Devops Cloud  [product_standard]
+  Docker  [product_standard]
+  Eclipse  [product_standard]
+  Eclipse 3.7  [product_standard]
+  EJB  [product_standard]
+  Filecloud  [product_standard]
+  FTPS Server und Client  [product_standard]
+  Git  [product_standard]
+  GitHub  [product_standard]
+  Google App Engine  [product_standard]
+  Google Cloud  [product_standard]
+  Google Cloud Appengine  [product_standard]
+  Google Cloud Firestore  [product_standard]
+  Google Datastore  [product_standard]
+  Gradle  [product_standard]
+  Hibernate  [product_standard]
+  HTML  [product_standard]
+  IBM MQ.  [product_standard]
+  ini4j  [product_standard]
+  IntelliJ  [product_standard]
+  IntelliJ IDEA  [product_standard]
+  Java AWT  [product_standard]
+  Java Servlets  [product_standard]
+  Java springboot  [product_standard]
+  JBOSS  [product_standard]
+  Jenkins  [product_standard]
+  JetBrains IntelliJ IDEA  [product_standard]
+  JIRA  [product_standard]
+  JPA Eclipselink  [product_standard]
+  JSF  [product_standard]
+  JSF (Primefaces)  [product_standard]
+  Kubernetes  [product_standard]
+  LDAP  [product_standard]
+  log4j  [product_standard]
+  Maven  [product_standard]
+  Microsoft Azure  [product_standard]
+  MS Office  [product_standard]
+  MS Office 365  [product_standard]
+  MVC  [product_standard]
+  Nagios  [product_standard]
+  NSCA Client (Nagios) mit Netzwerk Socket Client Server Verbindung  [product_standard]
+  OAuth  [product_standard]
+  OpenAPI  [product_standard]
+  SAP HANA  [product_standard]
+  SAP NetWeaver Developer Studio  [product_standard]
+  Scrum  [product_standard]
+  Service Virtualisierung  [product_standard]
+  Siebel EAI  [product_standard]
+  Soap UI  [product_standard]
+  Spring Boot  [product_standard]
+  Spring core 3.1  [product_standard]
+  SpringFramework  [product_standard]
+  SwaggerHub  [product_standard]
+  Swing  [product_standard]
+  Tomcat  [product_standard]
+  VBA Excel 2010  [product_standard]
+  Visual Studio Code  [product_standard]
+  WLS  [product_standard]
+  XML  [product_standard]
+  XSLT  [product_standard]
+  Webtechnologie  [product_standard]
+  REST API  [product_standard]
+  OpenAPI 2.0  [product_standard]
+  OpenAPI 3.0  [product_standard]
+  HTML5  [product_standard]
+  DOM  [product_standard]
+  Javascript  [product_standard]
+  Ajax (Dojo  [product_standard]
+  Ext2  [product_standard]
+  (Sencha)  [product_standard]
+  JQuery)  [product_standard]
+  SOAP  [product_standard]
+  DHTML  [product_standard]
+  XHTML  [product_standard]
+  Weitere Sprachen  [product_standard]
+  VBA  [product_standard]
+  Perl  [product_standard]
+  PHP  [product_standard]
+  Shell (Bash)  [product_standard]
+  Entwicklungstools  [product_standard]
+  Eclipse3.3  [product_standard]
+  Java SDK  [product_standard]
+  MS Visual Studio  [product_standard]
+  CodeChargeStudio  [product_standard]
+  Unix  [product_standard]
+  Shells  [product_standard]
+  Batch  [product_standard]
+  Visual Source Safe ClearCase  [product_standard]
+  Subversion (SVN)  [product_standard]
+  Enterprise CRM  [product_standard]
+  Siebel CRM Versionen 7.5  [product_standard]
+  7.8  [product_standard]
+  8.0.0.9  [product_standard]
+  8.1.1.10  [product_standard]
+  8.1.1.11  [product_standard]
+  Mit Siebel Java API und EAI.  [product_standard]
+  BI Datawarehouse  [product_standard]
+  Cognos ReportNet  [product_standard]
+  mit Cognos Java SDK Schnitttelle  [product_standard]
+  Datenbanktools:  [product_standard]
+  Toad  [product_standard]
+  Oracle (DBA Studio  [product_standard]
+  Enterprise Manager  [product_standard]
+  SQL Plus  [product_standard]
+  Client  [product_standard]
+  TNS)  [product_standard]
+  Aquadatastudio  [product_standard]
+  Datenbankschnittstellen  [product_standard]
+  JDBC  [product_standard]
+  ADO  [product_standard]
+  DAO  [product_standard]
+  ODBC  [product_standard]
+  JPA  [product_standard]
+  EclipseLink  [product_standard]
+  Schwerpunkte  [product_standard]
+  AS/400  [product_standard]
+  RS6000  [product_standard]
+  IBM Großrechner  [product_standard]
+  MS Windows  [product_standard]
+  OS/2  [product_standard]
+  OS/400  [product_standard]
+  AIX  [product_standard]
+  MVS/ESA  [product_standard]
+  Novell Netware  [product_standard]
+  3.x  [product_standard]
+  Netware 4.x  [product_standard]
+  Windows NT Net Core Technologies (LAN  [product_standard]
+  WAN  [product_standard]
+  Ethernet  [product_standard]
+  Tokenring)  [product_standard]
+  DNS  [product_standard]
+  WINS  [product_standard]
+  DHCP  [product_standard]
+  TCP/IP  [product_standard]
+  C++  [product_standard]
+  Zertifikate:  [product_standard]
+  LInux: LPIC-1  [product_standard]
+  Microsoft: MCP  [product_standard]
+  Novell: CNE  [product_standard]
+  SVN  [product_standard]
+  Google Cloud Architecting  [product_standard]
+  Java Spring Boot  [product_standard]
+  Private Weiterbildungen:  [product_standard]
+  Java 8  [product_standard]
+  Go in Google Cloud  [product_standard]
+  ############################################  [product_standard]
+  Englisch anzeigen  [product_standard]
+  Stammdaten (Auszug):  [product_standard]
+  [Photo]  [product_standard]
+  Personen-ID 103796  [product_standard]
+  Wohnort 805x Zürich  [product_standard]
+  Schweiz  [product_standard]
+  Jahrgang 1968  [product_standard]
+  Staatsbürgerschaft Deutsch  [product_standard]
+  Stundensatz 100 EUR  [product_standard]
+  Verfügbar ab 13.06.21 zu 100%  [product_standard]
+  Vor-Ort-Einsatz 100% möglich  [product_standard]
+  Profil erstellt am 18.12.09  [product_standard]
+  Profil zuletzt geändert am 22.05.21  [product_standard]
+  Lesen von Projektanfragen 0  [product_standard]
+  5 Tage [09]Direktkontakt  [product_standard]
+  Kommentar_schreiben Profil angezeigt am 01.06.2021 14:49:00  [product_standard]
+  Ajax (Dojo, Ext2 (Sencha), JQuery)  [product_standard]
+  Unix Shells  [product_standard]
+  Siebel CRM Versionen 7.5, 7.8, 8.0.0.9, 8.1.1.10,8.1.1.11  [product_standard]
+  Siebel Java API  [product_standard]
+  Cognos Java SDK Schnitttelle  [product_standard]
+  Oracle (DBA Studio, Enterprise Manager, SQL Plus, Client, TNS)  [product_standard]
+  Confluent  [product_standard]

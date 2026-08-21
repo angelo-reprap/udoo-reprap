@@ -1,0 +1,400 @@
+INFO 2026-08-21 10:53:08,297 main_post_processor   [PostProcessor] PDF Tokens: 363
+INFO 2026-08-21 10:53:08,297 main_post_processor   [PostProcessor] Extrahierte Tokens: 327
+INFO 2026-08-21 10:53:08,298 main_post_processor   [PostProcessor] Coverage: 88.2% (320/363)
+INFO 2026-08-21 10:53:08,298 main_post_processor   [PostProcessor] Fehlende Tokens: 41
+INFO 2026-08-21 10:53:10,046 main_post_processor   [PostProcessor] LLM: 0 Skills, 0 Produkte
+INFO 2026-08-21 10:53:10,046 main_post_processor [MainPostProcessor] FERTIG: coverage=88.2% | fixes=0 | auto_skills=0
+INFO 2026-08-21 10:53:10,046 main_pipeline_controller [MainPipeline] Post-Processor: coverage=88.2% | fixes=0 | auto_skills=0
+INFO 2026-08-21 10:53:10,046 main_pipeline_controller [MainPipeline] skill_ablage nach PostProcessor: 13
+INFO 2026-08-21 10:53:10,046 main_pipeline_controller [MainPipeline] Schritt 5: DB-Import
+INFO 2026-08-21 10:53:10,047 main_extracted_to_db ✅ MainExtractedToDB initialisiert
+INFO 2026-08-21 10:53:10,047 main_db_importer [MainDbImporter] import_from_prejson: Wolfgang Schroeder
+INFO 2026-08-21 10:53:10,047 main_db_importer   Projekte: 13 | skill_ablage: 13
+INFO 2026-08-21 10:53:10,178 versioning Version reserviert: schroeder_wolfgang v1.0.0.0
+INFO 2026-08-21 10:53:11,391 aid_generator LLM Klassifikation: {'role_code': 2, 'landscape_code': 3, 'level_code': 4}
+INFO 2026-08-21 10:53:11,391 aid_generator AID generiert: AID-ws_2.3.4.0
+INFO 2026-08-21 10:53:11,391 aid_generator   Rolle:      Entwickler (2)
+INFO 2026-08-21 10:53:11,391 aid_generator   Landschaft: Web/Software (3)
+INFO 2026-08-21 10:53:11,391 aid_generator   Level:      Senior Experte (4)
+INFO 2026-08-21 10:53:11,391 aid_generator   Verzeichnis:schroeder_wolfgang
+INFO 2026-08-21 10:53:11,392 main_db_importer   pre_json: data/extracted/schroeder_wolfgang/AID-ws_2.3.4.0.pre_json.json
+INFO 2026-08-21 10:53:11,595 main_extracted_to_db 💾 MainExtractedToDB: Speichere AID-ws_2.3.4.0
+INFO 2026-08-21 10:53:12,609 main_extracted_to_db    - Skills gespeichert: 38 Einträge
+INFO 2026-08-21 10:53:13,037 main_extracted_to_db ✅ Daten gespeichert für AID-ws_2.3.4.0
+INFO 2026-08-21 10:53:13,038 main_extracted_to_db    - Projekte:         13
+INFO 2026-08-21 10:53:13,039 main_extracted_to_db    - Skills:           38
+INFO 2026-08-21 10:53:13,039 main_extracted_to_db    - Zertifikate:      0
+INFO 2026-08-21 10:53:13,040 main_extracted_to_db    - Ausbildung:       0
+INFO 2026-08-21 10:53:13,041 main_extracted_to_db    - Schulungen:       3
+INFO 2026-08-21 10:53:13,041 main_extracted_to_db    - Focus Experience: 49
+INFO 2026-08-21 10:53:13,042 main_extracted_to_db    - Branchen:         3
+INFO 2026-08-21 10:53:13,043 main_extracted_to_db    - Fachbereiche:     7
+INFO 2026-08-21 10:53:13,043 main_extracted_to_db    - Sonstiges:        0
+INFO 2026-08-21 10:53:13,043 main_extracted_to_db    - Headline:         Java/J2EE Entwicklung und Beratung im Client-Server Umfeld
+INFO 2026-08-21 10:53:13,043 main_extracted_to_db    - Degree:           
+INFO 2026-08-21 10:53:13,113 main_db_importer   Tech-Counter Projekte: 26 Technologien
+INFO 2026-08-21 10:53:13,113 main_db_importer   skill_ablage: +13 Zusatz-Skills
+INFO 2026-08-21 10:53:13,113 main_db_importer   Tech-Counter gesamt: 39 einzigartige Technologien
+INFO 2026-08-21 10:53:13,113 main_db_importer   55 Skills aus PDF-Layout vorkategorisiert
+INFO 2026-08-21 10:53:13,113 main_db_importer   21 Projekt-Skills via Normalizer
+INFO 2026-08-21 10:53:13,113 main_skill_normalizer   SkillNormalizer START: 20 Projekt-Skills
+INFO 2026-08-21 10:53:13,113 main_skill_normalizer   Schritt 1 (pre_json): 0 bekannt → 20 uebrig
+INFO 2026-08-21 10:53:14,864 main_skill_normalizer   Schritt 2 (TrainingTerm): 16 gefunden → 4 uebrig
+INFO 2026-08-21 10:53:14,872 main_skill_normalizer   Schritt 3 (unbekannt): 4 → 'Sonstige Skills'
+INFO 2026-08-21 10:53:14,872 main_skill_normalizer   unknown_skills fuer Self-Learning: ['basecmp|AID-ws_2.3.4.0.exp_96092.Schroeder.Wolfgang', 'OSCache|AID-ws_2.3.4.0.exp_96093.Schroeder.Wolfgang', 'Intershop Enfinity 2.3|AID-ws_2.3.4.0.exp_96095.Schroeder.Wolfgang', 'OpenMarket ContentServer|AID-ws_2.3.4.0.exp_96100.Schroeder.Wolfgang']
+INFO 2026-08-21 10:53:14,872 main_skill_normalizer   SkillNormalizer FERTIG: 20 Skills kategorisiert, 4 unbekannt
+INFO 2026-08-21 10:53:14,880 main_db_importer   Gesamt: 38 Skills (18 aus PDF, 20 via Normalizer)
+INFO 2026-08-21 10:53:20,330 main_skill_normalizer   save_to_db: +33 neu, 2 aktualisiert
+INFO 2026-08-21 10:53:20,330 main_db_importer   SkillNormalizer: +33 Skills, 2 aktualisiert
+INFO 2026-08-21 10:53:20,330 main_db_importer   4 unbekannte Skills → Self-Learning Task
+INFO 2026-08-21 10:53:20,375 main_db_importer   db_snapshot: data/extracted/schroeder_wolfgang/AID-ws_2.3.4.0.db_snapshot.json
+INFO 2026-08-21 10:53:20,445 cv_display_utils Offline-HTML Assets eingebettet: css, js, logo
+INFO 2026-08-21 10:53:20,539 aid_profile_publish Publish HTML offline-fähig: /mnt/public/Berater/AID_profile/sch/schroeder_wolfgang/neu/cv/AID-ws_2.3.4.0.html
+INFO 2026-08-21 10:53:22,545 aid_profile_publish Publish neu/cv: AID-ws_2.3.4.0 → /mnt/public/Berater/AID_profile/sch/schroeder_wolfgang/neu/cv (3 Dateien)
+INFO 2026-08-21 10:53:22,545 html_generator AID-Profile publiziert: AID-ws_2.3.4.0 → /mnt/public/Berater/AID_profile/sch/schroeder_wolfgang/neu/cv
+INFO 2026-08-21 10:53:22,570 cv_display_utils Offline-HTML Assets eingebettet: css-fallback, js-fallback, logo
+INFO 2026-08-21 10:53:22,572 main_db_importer   HTML: AID-ws_2.3.4.0
+INFO 2026-08-21 10:53:22,621 main_db_importer   TXT: data/extracted/schroeder_wolfgang/AID-ws_2.3.4.0.txt
+INFO 2026-08-21 10:53:22,621 search_enricher SearchEnricher fuer AID-ws_2.3.4.0
+INFO 2026-08-21 10:53:22,897 search_enricher ES indexiert: AID-ws_2.3.4.0
+INFO 2026-08-21 10:53:22,897 search_enricher SearchEnricher abgeschlossen fuer AID-ws_2.3.4.0
+INFO 2026-08-21 10:53:22,966 self_learning_pipeline Self-Learning (sync) fuer AID-ws_2.3.4.0
+INFO 2026-08-21 10:53:25,185 self_learning_pipeline Self-Learning (sync) abgeschlossen: 20 neu, 51 aktualisiert, 0 Prompts
+INFO 2026-08-21 10:53:25,209 main_pipeline_controller [MainPipeline] FERTIG: AID-ws_2.3.4.0
+INFO 2026-08-21 10:53:25,367 signals Job 3616 abgeschlossen: AID-ws_1.0.0.5.pdf
+INFO 2026-08-21 10:53:25,411 tasks ============================================================
+INFO 2026-08-21 10:53:25,422 tasks ✅ AID-ws_2.3.4.0 | Wolfgang Schroeder | erfolgreich angelegt
+INFO 2026-08-21 10:53:25,422 tasks    Dauer: 35s | Projekte: 13 | Skills: 71
+INFO 2026-08-21 10:53:25,422 tasks ============================================================
+============================================================
+✅ LDAP Configuration loaded for UCS5
+✅ Server: ldap://ucs5.win.abcona.info
+✅ Base DN: dc=win,dc=abcona,dc=info
+============================================================
+✅ LDAP Authentication Backend aktiviert
+============================================================
+✅ ABpE SETTINGS GELADEN (modular)
+✅ Django Version: 5.2.9
+✅ Apps: 79 installiert
+✅ Environment: development
+✅ DEBUG: True
+✅ AUTH Backends: 2 aktiviert
+============================================================
+✅ ABpE Apps Package loaded (version 2.0.0)
+[MODELS] LDAP Modelle erfolgreich geladen
+[MODELS] Verfügbare Modelle: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ CompleteConsultantAdmin registriert
+[ADMIN] LDAP Admin-Views erfolgreich geladen
+[ADMIN] Verfügbare Admin-Views: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ ABpE Search Admin - vereinfachte Version geladen (keine Models)
+✅ URL Import App ist bereit
+✅ CV Extractor bereit
+[SIGNALS] LDAP-Signals erfolgreich geladen
+⚠️  Using default ElasticSearch host: http://localhost:9200
+=== AID-Profil Import ===
+Basis:    /mnt/public/Berater/AID_profile (exists=True)
+Limit:    alle
+Letter:   sch
+Dir:      schroeder_wolfgang
+Dry-run:  False
+Sync:     True
+Skip existing: False
+  [   1] Wolfgang Schroeder ← AID-ws_1.0.0.5.pdf
+  split_blocks 2nd-pass: 'Betriebssysteme' + 'Unix' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Programmiersprachen' + 'Basic' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Datenbanken' + 'JDBC' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Hardware' + 'PC' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Produkte|Standards|Erfahrungen' + 'Produkte:' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 5 Header-Kleber behoben
+  Gruppierung: 103 Bloecke in einem Aufruf...
+  Gruppierer-Prompt: main_detector_group
+  Gruppen: 32
+  Format-Split: Keine Splits noetig
+  Quality-Check: Sende 4402 Zeichen an LLM...
+  Quality-Check: 21 Label-Korrekturen
+    G010: 'Weitere Branchen' → 'Branchen: Banken & Sparkassen, Maschinenbau'
+    G013: 'Projekt: Leitung Software-Entwicklung' → 'Projekt: Leitung Software-Entwicklung / Software-Architektur'
+    G014: 'Projekt: OpenSource CMS basecmp' → 'Projekt: OpenSource CMS basecmp'
+    G015: 'Projekt: Webbasiertes Redaktionssystem' → 'Projekt: Webbasiertes Redaktionssystem'
+    G016: 'Projekt: Leitung Software-Entwicklung' → 'Projekt: Leitung Software-Entwicklung / Software-Architektur'
+    G017: 'Projekt: Ersatzteil-Portal motoso.de' → 'Projekt: Ersatzteil-Portal motoso.de'
+    G018: 'Projekt: Leitung Software-Entwicklung' → 'Projekt: Leitung Software-Entwicklung'
+    G019: 'Projekt: FCB-Intranet' → 'Projekt: FCB-Intranet'
+    G020: 'Projekt: Leitung Software-Entwicklung' → 'Projekt: Leitung Software-Entwicklung'
+    G021: 'Projekt: Internet-Shopsystem' → 'Projekt: Internet-Shopsystem'
+    G022: 'Projekt: Otto-Supermarkt' → 'Projekt: Otto-Supermarkt'
+    G023: 'Projekt: Mexx' → 'Projekt: Mexx'
+    G024: 'Projekt: Leitung Software-Entwicklung' → 'Projekt: Leitung Software-Entwicklung'
+    G025: 'Projekt: Corporate-Website' → 'Projekt: Corporate-Website'
+    G026: 'Projekt: Software-Entwicklung' → 'Projekt: Software-Entwicklung'
+    G027: 'Projekt: Corporate-Website' → 'Projekt: Corporate-Website'
+    G028: 'Projekt: Software-Entwicklung' → 'Projekt: Software-Entwicklung'
+    G029: 'Projekt: Corporate-Website' → 'Projekt: Corporate-Website'
+    G030: 'Projekt: DSGV (Sparkasse)' → 'Projekt: DSGV (Sparkasse)'
+    G031: 'Projekt: Software-Entwicklung' → 'Projekt: Software-Entwicklung'
+    G032: 'Projekt: Financial Times Deutschland' → 'Projekt: Financial Times Deutschland'
+  LLM: 5 Extraktionen parallel...
+    BRANCHEN: ✅
+    FACHBEREICHE: ✅
+    SCHULUNGEN: ✅
+    PERSONAL: ✅
+    FOCUS_EXP: ✅
+    personal gemerged: seed_keys=8 → 8
+    languages normalisiert: 3 Einträge
+    fachbereiche gemerged: seed=5 + llm → 7
+    schulungen gemerged: +3 courses (education gesamt 3)
+    branchen gemerged: seed=3 + llm → 3
+    focus_experience gemerged: seed=32 + llm=29 → 49
+  PROJEKTE: 21 einzeln parallel...
+    Projekt 16: ✅
+    Projekt 20: ✅
+    Projekt 13: ✅
+    Projekt 10: ❌
+    Projekt 14: ✅
+    Projekt 18: ✅
+    Projekt 19: ✅
+    Projekt 15: ✅
+    Projekt 21: ✅
+    Projekt 17: ✅
+    Projekt 24: ✅
+    Projekt 27: ✅
+    Projekt 26: ✅
+    Projekt 28: ✅
+    Projekt 22: ✅
+    Projekt 25: ✅
+    Projekt 29: ✅
+    Projekt 23: ✅
+    Projekt 30: ✅
+    Projekt 32: ✅
+    Projekt 31: ✅
+  13 Projekte extrahiert (seed=19, fill=20)
+    HEADER:   | Java/J2EE Entwicklung und Beratung im Client-Server Umfeld
+  SKILLS: 5 Gruppe(n) → skill_ablage...
+    Betriebssysteme: 2 Skills (Regex)
+    Programmiersprachen: 29 Skills (Regex)
+    Datenbanken: 7 Skills (Regex)
+    Hardware: 2 Skills (Regex)
+    Datenkommunikation: 13 Skills (Regex)
+    53 Skills → skill_ablage (mit Kategorie)
+    skills befüllt: 4 Kategorien, skill_ablage Rest: 13
+    ✅ AID-ws_2.3.4.0
+    📁 neu/cv: AID-ws_2.3.4.0-short.html, AID-ws_2.3.4.0.docx, AID-ws_2.3.4.0.html, AID-ws_2.3.4.0.pdf
+
+==================================================
+ERGEBNIS nach 36s (0.6 min):
+  Versucht:     1
+  Gestartet:    1
+  Fehler:       0
+  Übersprungen: 0
+  Ohne PDF:     0
+  Outputs:      {letter}/{nachname_vorname}/neu/cv/
+OK sch/schroeder_wolfgang → AID-ws_2.3.4.0.pdf (39s)
+
+─── [3] ggg/glas_oliver_fritz (gulp_id=103796 len=106814) ───
+NEED=/tmp/gulp-retry-20260821-105239/one_glas_oliver_fritz.tsv FAILS= TXT_DIR= OUT_DIR= LIMIT=1 EXECUTE=1
+/opt/abpe/venv311/lib/python3.11/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (7.4.0.post2)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+INFO 2026-08-21 10:53:29,350 search_service ✅ ElasticSearch verbunden (Version: 8.11.0)
+INFO 2026-08-21 10:53:29,350 search_service ✅ SearchService initialisiert
+INFO 2026-08-21 10:53:29,686 aid_generator ✅ AIDGenerator initialisiert mit Media-Integration
+INFO 2026-08-21 10:53:29,751 ollama_service 🚀 OllamaService UNLIMITED initialisiert mit Modell: qwen2.5:7b
+INFO 2026-08-21 10:53:29,752 aid_generator ✅ AIDGenerator für Pipeline initialisiert
+INFO 2026-08-21 10:53:29,752 cv_processor ✅ CVProcessorService initialisiert mit strukturierter DB
+INFO 2026-08-21 10:53:29,807 apps 🚀 Initialisiere ABpE Profile App...
+INFO 2026-08-21 10:53:29,808 signals ✅ ABpE Profile Signals registriert (v6.0)
+INFO 2026-08-21 10:53:29,810 signals ✅ ElasticSearch Health: yellow
+INFO 2026-08-21 10:53:29,811 signals 📊 v1 Index 'abpe_profile_versions': 22 Dokumente
+INFO 2026-08-21 10:53:29,812 signals 📊 v2 Index 'abpe_profiles_v2': 0 Dokumente
+INFO 2026-08-21 10:53:29,812 apps ✅ Signals erfolgreich registriert
+INFO 2026-08-21 10:53:29,812 apps 📡 0 Signal-Handler für Profile registriert
+INFO 2026-08-21 10:53:29,812 apps ✅ ElasticSearch Hosts aus Settings: ['http://localhost:9200']
+INFO 2026-08-21 10:53:29,815 apps ✅ ElasticSearch 8.11.0 ist erreichbar
+INFO 2026-08-21 10:53:29,815 apps    Status: yellow
+INFO 2026-08-21 10:53:29,815 apps    Cluster: docker-cluster
+INFO 2026-08-21 10:53:29,815 apps    Build: default
+INFO 2026-08-21 10:53:29,817 apps ✅ Index 'abpe_profile_versions' Status:
+INFO 2026-08-21 10:53:29,817 apps    📊 Dokumente: 22
+INFO 2026-08-21 10:53:29,817 apps    📦 Größe: 0.06 MB
+INFO 2026-08-21 10:53:29,817 apps    📝 Felder: 13
+INFO 2026-08-21 10:53:29,817 apps    ✅ Wichtige Felder vorhanden: 7/7
+/opt/abpe/venv311/lib/python3.11/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+  warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+INFO 2026-08-21 10:53:29,833 apps 📊 Synchronisations-Status:
+INFO 2026-08-21 10:53:29,833 apps    🗄️  DB Profile: 1
+INFO 2026-08-21 10:53:29,833 apps    🗄️  DB Versionen: 0
+INFO 2026-08-21 10:53:29,833 apps    🔍 ES Versionen: 22
+INFO 2026-08-21 10:53:29,833 apps    🔄 Sync-Ratio: 0.0%
+WARNING 2026-08-21 10:53:29,833 apps ⚠️  Geringe Synchronisation (0.0%) - möglicherweise fehlen Dokumente in ES
+INFO 2026-08-21 10:53:29,833 apps ✅ ABpE Profile App initialisiert:
+INFO 2026-08-21 10:53:29,833 apps    🔌 ElasticSearch: VERFÜGBAR
+INFO 2026-08-21 10:53:29,833 apps    📊 Index: VORHANDEN
+INFO 2026-08-21 10:53:29,833 apps    📈 ES-Dokumente: 22
+INFO 2026-08-21 10:53:29,833 apps    🏷️  ES-Version: 8.11.0
+INFO 2026-08-21 10:53:29,833 apps    💾 Index-Größe: 0.06 MB
+INFO 2026-08-21 10:53:29,833 apps 🚀 ABpE Profile App ist bereit für Operationen
+WARNING 2026-08-21 10:53:29,836 apps ⚠️  Intake Integration Signals nicht gefunden
+INFO 2026-08-21 10:53:29,836 apps ✅ IngestEmail App bereit mit Auto-Reply
+INFO 2026-08-21 10:53:29,836 apps ✅ ingest_pdf Signale geladen (automatischer Task-Start aktiviert)
+INFO 2026-08-21 10:53:29,837 signals ✅ ai_cv_training Signals geladen und bereit
+============================================================
+✅ LDAP Configuration loaded for UCS5
+✅ Server: ldap://ucs5.win.abcona.info
+✅ Base DN: dc=win,dc=abcona,dc=info
+============================================================
+✅ LDAP Authentication Backend aktiviert
+============================================================
+✅ ABpE SETTINGS GELADEN (modular)
+✅ Django Version: 5.2.9
+✅ Apps: 79 installiert
+✅ Environment: development
+✅ DEBUG: True
+✅ AUTH Backends: 2 aktiviert
+============================================================
+✅ ABpE Apps Package loaded (version 2.0.0)
+[MODELS] LDAP Modelle erfolgreich geladen
+[MODELS] Verfügbare Modelle: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ CompleteConsultantAdmin registriert
+[ADMIN] LDAP Admin-Views erfolgreich geladen
+[ADMIN] Verfügbare Admin-Views: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ ABpE Search Admin - vereinfachte Version geladen (keine Models)
+✅ URL Import App ist bereit
+✅ CV Extractor bereit
+[SIGNALS] LDAP-Signals erfolgreich geladen
+2 objects could not be automatically imported:
+
+  djangocms_versioning.datastructures.SnippetVersion
+  djangocms_versioning.datastructures.PageContentVersion
+
+251 objects imported automatically (use -v 2 for details).
+
+jobs_candidates=1 EXECUTE=True AID_ROOT=/mnt/public/Berater/AID_profile
+keywords=v1.3-final
+  clean: experience=26 snapshot=94328 aid=AID-og_1.0.0.5
+OK glas_oliver_fritz chars=104962 sections=18 experience=26 aid=AID-og_1.0.0.5
+  → /mnt/public/Berater/AID_profile/ggg/glas_oliver_fritz/AID-og_1.0.0.5.pdf
+{
+  "execute": true,
+  "jobs_ok": 1,
+  "fail": 0,
+  "skip": 0,
+  "version_tag": "1.0.0.5",
+  "keywords": "v1.3-final",
+  "aid_root": "/mnt/public/Berater/AID_profile",
+  "web_urls": []
+}
+LOG=/tmp/gulp-retry-20260821-105239/convert-glas_oliver_fritz
+Convert-PDF: /mnt/public/Berater/AID_profile/ggg/glas_oliver_fritz/AID-og_1.0.0.5.pdf (letter=ggg)
+/opt/abpe/venv311/lib/python3.11/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (7.4.0.post2)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+INFO 2026-08-21 10:53:31,318 search_service ✅ ElasticSearch verbunden (Version: 8.11.0)
+INFO 2026-08-21 10:53:31,318 search_service ✅ SearchService initialisiert
+INFO 2026-08-21 10:53:31,655 aid_generator ✅ AIDGenerator initialisiert mit Media-Integration
+INFO 2026-08-21 10:53:31,722 ollama_service 🚀 OllamaService UNLIMITED initialisiert mit Modell: qwen2.5:7b
+INFO 2026-08-21 10:53:31,723 aid_generator ✅ AIDGenerator für Pipeline initialisiert
+INFO 2026-08-21 10:53:31,723 cv_processor ✅ CVProcessorService initialisiert mit strukturierter DB
+INFO 2026-08-21 10:53:31,778 apps 🚀 Initialisiere ABpE Profile App...
+INFO 2026-08-21 10:53:31,778 signals ✅ ABpE Profile Signals registriert (v6.0)
+INFO 2026-08-21 10:53:31,780 signals ✅ ElasticSearch Health: yellow
+INFO 2026-08-21 10:53:31,781 signals 📊 v1 Index 'abpe_profile_versions': 22 Dokumente
+INFO 2026-08-21 10:53:31,783 signals 📊 v2 Index 'abpe_profiles_v2': 0 Dokumente
+INFO 2026-08-21 10:53:31,783 apps ✅ Signals erfolgreich registriert
+INFO 2026-08-21 10:53:31,783 apps 📡 0 Signal-Handler für Profile registriert
+INFO 2026-08-21 10:53:31,783 apps ✅ ElasticSearch Hosts aus Settings: ['http://localhost:9200']
+INFO 2026-08-21 10:53:31,786 apps ✅ ElasticSearch 8.11.0 ist erreichbar
+INFO 2026-08-21 10:53:31,786 apps    Status: yellow
+INFO 2026-08-21 10:53:31,786 apps    Cluster: docker-cluster
+INFO 2026-08-21 10:53:31,786 apps    Build: default
+INFO 2026-08-21 10:53:31,788 apps ✅ Index 'abpe_profile_versions' Status:
+INFO 2026-08-21 10:53:31,788 apps    📊 Dokumente: 22
+INFO 2026-08-21 10:53:31,788 apps    📦 Größe: 0.06 MB
+INFO 2026-08-21 10:53:31,788 apps    📝 Felder: 13
+INFO 2026-08-21 10:53:31,788 apps    ✅ Wichtige Felder vorhanden: 7/7
+/opt/abpe/venv311/lib/python3.11/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+  warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+INFO 2026-08-21 10:53:31,805 apps 📊 Synchronisations-Status:
+INFO 2026-08-21 10:53:31,805 apps    🗄️  DB Profile: 1
+INFO 2026-08-21 10:53:31,805 apps    🗄️  DB Versionen: 0
+INFO 2026-08-21 10:53:31,805 apps    🔍 ES Versionen: 22
+INFO 2026-08-21 10:53:31,805 apps    🔄 Sync-Ratio: 0.0%
+WARNING 2026-08-21 10:53:31,805 apps ⚠️  Geringe Synchronisation (0.0%) - möglicherweise fehlen Dokumente in ES
+INFO 2026-08-21 10:53:31,805 apps ✅ ABpE Profile App initialisiert:
+INFO 2026-08-21 10:53:31,805 apps    🔌 ElasticSearch: VERFÜGBAR
+INFO 2026-08-21 10:53:31,805 apps    📊 Index: VORHANDEN
+INFO 2026-08-21 10:53:31,805 apps    📈 ES-Dokumente: 22
+INFO 2026-08-21 10:53:31,805 apps    🏷️  ES-Version: 8.11.0
+INFO 2026-08-21 10:53:31,805 apps    💾 Index-Größe: 0.06 MB
+INFO 2026-08-21 10:53:31,805 apps 🚀 ABpE Profile App ist bereit für Operationen
+WARNING 2026-08-21 10:53:31,808 apps ⚠️  Intake Integration Signals nicht gefunden
+INFO 2026-08-21 10:53:31,808 apps ✅ IngestEmail App bereit mit Auto-Reply
+INFO 2026-08-21 10:53:31,809 apps ✅ ingest_pdf Signale geladen (automatischer Task-Start aktiviert)
+INFO 2026-08-21 10:53:31,809 signals ✅ ai_cv_training Signals geladen und bereit
+INFO 2026-08-21 10:53:31,925 master_json_builder ✅ MasterJsonBuilder initialisiert
+INFO 2026-08-21 10:53:32,234 db_enricher DBEnricher initialisiert
+INFO 2026-08-21 10:53:32,235 extracted_to_db ✅ ExtractedToDB initialisiert (mit get_or_create)
+INFO 2026-08-21 10:53:32,235 master_json_builder ✅ MasterJsonBuilder initialisiert
+INFO 2026-08-21 10:53:32,235 self_learning_pipeline SelfLearningPipeline initialisiert
+INFO 2026-08-21 10:53:32,235 skill_graph_builder SkillGraphBuilder initialisiert
+INFO 2026-08-21 10:53:32,236 word2vec_matcher ✅ Word2VecMatcher initialisiert
+INFO 2026-08-21 10:53:32,236 word2vec_matcher ✅ Doc2VecMatcher initialisiert
+INFO 2026-08-21 10:53:32,236 search_enricher SearchEnricher initialisiert
+INFO 2026-08-21 10:53:32,366 aid_generator AIDGenerator (LLM-basiert) initialisiert
+INFO 2026-08-21 10:53:32,367 block_labeler BlockLabeler initialisiert
+INFO 2026-08-21 10:53:32,369 pipeline Pipeline initialisiert mit 28 Skill-Kategorien
+============================================================
+✅ LDAP Configuration loaded for UCS5
+✅ Server: ldap://ucs5.win.abcona.info
+✅ Base DN: dc=win,dc=abcona,dc=info
+============================================================
+✅ LDAP Authentication Backend aktiviert
+============================================================
+✅ ABpE SETTINGS GELADEN (modular)
+✅ Django Version: 5.2.9
+✅ Apps: 79 installiert
+✅ Environment: development
+✅ DEBUG: True
+✅ AUTH Backends: 2 aktiviert
+============================================================
+✅ ABpE Apps Package loaded (version 2.0.0)
+[MODELS] LDAP Modelle erfolgreich geladen
+[MODELS] Verfügbare Modelle: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ CompleteConsultantAdmin registriert
+[ADMIN] LDAP Admin-Views erfolgreich geladen
+[ADMIN] Verfügbare Admin-Views: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ ABpE Search Admin - vereinfachte Version geladen (keine Models)
+✅ URL Import App ist bereit
+✅ CV Extractor bereit
+[SIGNALS] LDAP-Signals erfolgreich geladen
+⚠️  Using default ElasticSearch host: http://localhost:9200
+=== AID-Profil Import ===
+Basis:    /mnt/public/Berater/AID_profile (exists=True)
+Limit:    alle
+Letter:   ggg
+Dir:      glas_oliver_fritz
+Dry-run:  False
+Sync:     True
+Skip existing: False
+
+==================================================
+ERGEBNIS nach 0s (0.0 min):
+  Versucht:     0
+  Gestartet:    0
+  Fehler:       0
+  Übersprungen: 0
+  Ohne PDF:     0
+  Outputs:      {letter}/{nachname_vorname}/neu/cv/
+FAIL no neu/cv pdf glas_oliver_fritz after import (looked in /mnt/public/Berater/AID_profile/ggg/glas_oliver_fritz/neu/cv)
+{
+  "ok": 1,
+  "fail": 2,
+  "skip": 0,
+  "limit": 0,
+  "need": "/tmp/gulp-retry-20260821-105239/need_retry.tsv",
+  "mem_thresh": 82,
+  "cpu_thresh": 85,
+  "throttle_sleep": 45,
+  "ended": "2026-08-21T10:53:35"
+}
+
+======== FERTIG ok=1 fail=2 skip=0 ========
+Log: /tmp/gulp-retry-20260821-105239/batch.log
+TSV: /tmp/gulp-retry-20260821-105239/result.tsv

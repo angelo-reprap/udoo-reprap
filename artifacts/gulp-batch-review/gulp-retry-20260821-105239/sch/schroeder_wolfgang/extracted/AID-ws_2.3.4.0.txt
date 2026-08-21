@@ -1,0 +1,145 @@
+AID: AID-ws_2.3.4.0
+Name: Wolfgang Schroeder
+Headline: Java/J2EE Entwicklung und Beratung im Client-Server Umfeld
+Ort: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Wohnort: 200xx Hamburg, Deutschland
+Jahrgang: 1967
+Verfügbar: 01.01.19 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 
+Sprachen: Englisch, sehr gut durch 4-jährige Tätigkeit im Ausland weltweit (davon, Englisch (sehr gut)
+
+FACHBEREICHE:
+Java/J2EE Entwicklung und Beratung im Client-Server Umfeld Software-Entwicklung / Programmierung
+Beratung / Consulting
+09/1991 - 09/1995
+Studium Elektrotechnik
+Fachrichtung Daten- und Nachrichtentechnik Fachhochschule Hamburg Abschluss als Diplom-Ingenieur (Dipl.-Ing) 07/1990 - 08/1991 Fachoberschule Technik, Stade Abschluss mit Fachhochschulreife 09/1983 - 01/1987 Ausbildung zum Radio- und Fernsehtechniker im Kundendienst bei der Hertie Kaufhaus AG, Stade
+Java/J2EE Entwicklung und Beratung im Client-Server Umfeld
+Software-Entwicklung / Programmierung
+
+BRANCHEN:
+Handel
+Medien
+Pharmazie
+
+PROJEKTE:
+  Projektbeschreibung: Rolle: Leitung Software-Entwicklung / Software-Architektur |  | Leitung Software-Entwicklung / Software-Architektur
+    - Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+    Techs: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+  Projektbeschreibung: Entwicklung und Ausbau des OpenSource CMS basecmp auf |  | Entwicklung und Ausbau des OpenSource CMS basecmp auf Java-Basis nach
+    - Entwicklung und Ausbau des OpenSource CMS basecmp auf Java-Basis nach objektorientierten Grundsätzen und einem sehr hohen Wiederverwendungsgrad.
+    - Wiederverwendungsgrad.
+    Techs: Java, basecmp
+  Projektbeschreibung: Entwicklung eines webbasierten Redaktionssystems. |  | Entwicklung eines webbasierten Redaktionssystems.
+    - Integration der OpenSource-Frameworks Axis, Castor, JUnit, Lucene, OSCache sowie der OpenSource-Komponenten Tomcat, MySQL und Ant
+    - OSCache sowie der OpenSource-Komponenten Tomcat, MySQL und Ant
+    - Merkmale des Frameworks: §1 Individuelle Workflows pro Asset
+    Techs: Axis, Castor, JUnit, Lucene, OSCache, Tomcat, MySQL, Ant
+  Projektbeschreibung: Planung und Entwicklung des Ersatzteil-Portals motoso.de |  | Planung und Entwicklung des Ersatzteil-Portals motoso.de auf Basis
+    - Planung und Entwicklung des Ersatzteil-Portals motoso.de auf Basis des OpenSource CMS-Frameworks BaseCMP
+    - §1 Detailierte Inseratseingabe mit dynamisch generierten Formularen
+    - §2 Volltextsuche mit Lucene
+    Techs: BaseCMP, Lucene
+  Projektbeschreibung: Rolle: Leitung Software-Entwicklung |  | Leitung Software-Entwicklung
+    - Technologien: Java, JSP, J2EE, XML, SQL, Intershop Enfinity 2.3
+    Techs: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP, Intershop Enfinity 2.3
+  Projektbeschreibung: Entwicklung und Betreuung des FCB-Intranets |  | Entwicklung und Betreuung des FCB-Intranets
+    - §1 Aggregation von Newsfeeds (RSS und HTML)
+    - Integration bestehender Server-Anwendungen (Legacy-Anwendungen Telefonbuch, Forum etc)
+    - (Legacy-Anwendungen Telefonbuch, Forum etc)
+    Techs: RSS, HTML
+  Projektbeschreibung: Entwicklung und fortlaufende Betreuung eines Internet- Shopsystems auf |  | Entwicklung und fortlaufende Betreuung eines Internet- Shopsystems auf
+    - Basis von Intershop enfinity 2.3
+    - §1 Anbindung an das Warenauslieferungssystem PaLoMa (Otto-Konzern)
+    - §2 Datenimport des Artikelstamms im PaLoMa-Austauschformat
+  Projektbeschreibung: Rolle: Software-Entwicklung, übernahme der |  | Software-Entwicklung, übernahme der Entwicklungsleitung
+    - Technologien: Java, JSP, J2EE, XML, SQL (Oracle), Intershop Enfinity
+    - Fortlaufende Betreuung und Weiterentwicklung des Internet-Lebenmittelsupermarktes www.otto-supermarkt.de auf Basis von Intershop enfinity 1.1. Hinweis:
+    - Der Shop wurde mitterlweile aufgrund einer Vorstandsentscheidung eingestellt
+    Techs: Java, JSP, J2EE, XML, SQL, Oracle, Intershop Enfinity, EMC, Flash
+  Projektbeschreibung: Entwicklung der Corporate-Website |  | Entwicklung der Corporate-Website
+    - §1 Webbasiertes Redaktionssystem
+    - §2 Java-basiertes Content-Management-System
+    - §3 Integration eines bestehenden Forum mit Single-Sign-On (SSO)
+    Techs: Java
+  Projektbeschreibung: Rolle: Software-Entwicklung |  | Software-Entwicklung
+    - Technologien: ColdFusion, JavaScript
+    - Online-Ausgabe der Tageszeitung Financial Times Deutschland
+    - Webbasiertes Redaktionssystem
+    Techs: ColdFusion, JavaScript, OpenMarket ContentServer, SQL, Oracle
+  Projektbeschreibung: Rolle: Software-Entwicklung |  | Software-Entwicklung
+    - Technologien: Java, JSP, J2EE, SQL, Tomcat
+    Techs: Java, JSP, J2EE, SQL, Tomcat
+  Projektbeschreibung: Rolle: Software-Entwicklung |  | Rolle: Software-Entwicklung
+    - Technologien: Vignette Storyserver, TCL/TK, SQL (Oracle)
+    - Portal-Site für den Deutschen Sparkassen-und Giroverband
+    - §1 Webbasiertes Redaktionssystem
+  Projektbeschreibung: Rolle: Software-Entwicklung |  | Rolle: Software-Entwicklung
+    - Technologien: OpenMarket ContentServer, SQL (Oracle)
+    - Online-Ausgabe der Tageszeitung Financial Times Deutschland
+    - §1 Webbasiertes Redaktionssystem
+
+SKILLS:
+  database: JDBC, MS SQL Server, Oracle, Postgres, SQL, Datenbank-unabhängige Programmierung beliebiger Datenbank-Server via, Java-JDBC (nicht administrativ)
+  hardware: PC, Börse & Finanzen
+  operating_system: Unix, Windows
+  programming_languages: Basic, Programmierung kleiner (Entwicklungs-)Tools und Makros für Excel für, den Eigenbedarf, Java, Schwerpunkt J2EE und Client/Server-Umgebungen, Opensource, Frameworks, u.a. Jakarta, OpenSymphony, Apache etc, JavaScript, PL/SQL, Ansi-SQL, MySQL, Sybase, MS, Grundkenntnisse in PL/SQL, Shell, Bash: Programmierung kleiner Entwicklungstools für Backup und, Deployment, Tcl/Tk, Vignette V5 Projekt-Erfahrung, UML: Softwarearchitektur und -Design mit UML-Diagrammen, (Klassendiagramm, Sequenz, Aktivitäts etc.), Siemens S5: Prozesssteuerung und Messtechnik im Bereich Produktion, (Tabakindustrie), XML: XPath XML-Schema DTD
+
+SKILL-ABLAGE:
+Internet, Intranet, HTTP, SOAP / Webservices, SIP, FTP, SSH, SCP, SMTP, TCP/IP, Java/J2EE: EJB, RPC, MBeans
+
+AUSBILDUNG:
+09/1991 - 09/1995 | Studium Elektrotechnik, Fachrichtung Daten- und Nachrichtentechnik | Fachhochschule Hamburg  [course]
+07/1990 - 08/1991 | Fachoberschule Technik | Stade  [course]
+09/1983 - 01/1987 | Ausbildung zum Radio- und Fernsehtechniker | Hertie Kaufhaus AG, Stade  [course]
+
+FOCUS_EXP:
+  Produkte:  [product_standard]
+  Tomcat 4.x/5.x  [product_standard]
+  Eclipse IDE inkl diverser Plugins  [product_standard]
+  UML mit Eclipse  [product_standard]
+  Datenbank-Design mit Powerbuilder  [product_standard]
+  Apache Webserver  [product_standard]
+  htdig  [product_standard]
+  Lucene Fulltextsearchengine  [product_standard]
+  Frameworks: Apache/Jakarta  [product_standard]
+  OpenSymphony  [product_standard]
+  Castor-XML  [product_standard]
+  Lucene  [product_standard]
+  Hibernate  [product_standard]
+  Velocity  [product_standard]
+  diverse weitere OpenSource-Frameworks - Intershop Enfinity 2.3  [product_standard]
+  Vignette V5  [product_standard]
+  Standards/Erfahrungen:  [product_standard]
+  CVS/Subversion-gestütztes arbeiten  [product_standard]
+  - Testing/Monitoring mit JUnit  [product_standard]
+  Canoo Webtest  [product_standard]
+  JMeter  [product_standard]
+  Nagios  [product_standard]
+  Bugtracking JIRA und Bugzilla  [product_standard]
+  Build-Management mit Maven und ANT  [product_standard]
+  IT-Projektplanung und Team-Koordination  [product_standard]
+  IT-Aufwandsschätzung  [product_standard]
+  Administration unter Linux  [product_standard]
+  Shell-Skripting (bash)  [product_standard]
+  OpenOffice / MSOffice  [product_standard]
+  - Internet-Standardtools (diverse Browser  [product_standard]
+  Mail  [product_standard]
+  SSH etc)  [product_standard]
+  Eclipse IDE  [product_standard]
+  UML  [product_standard]
+  Powerbuilder  [product_standard]
+  Apache/Jakarta  [product_standard]
+  Intershop Enfinity 2.3  [product_standard]
+  CVS  [product_standard]
+  Subversion  [product_standard]
+  JUnit  [product_standard]
+  JIRA  [product_standard]
+  Bugzilla  [product_standard]
+  Maven  [product_standard]
+  ANT  [product_standard]
+  Linux  [product_standard]
+  bash  [product_standard]
+  OpenOffice  [product_standard]
+  MSOffice  [product_standard]
+  SSH  [product_standard]
