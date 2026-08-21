@@ -40,6 +40,7 @@ class Command(BaseCommand):
         parser.add_argument('--dry-run', action='store_true', default=False)
         parser.add_argument('--search', action='store_true', help='Nach Index kurze Skill-Suche')
         parser.add_argument('--out', default='')
+        parser.add_argument('--recreate', action='store_true', help='Probe-Index vorher löschen')
 
     def handle(self, *args, **options):
         from apps.abpe_shaduler.services import matching_weight_probe as mwp
@@ -50,6 +51,7 @@ class Command(BaseCommand):
         index = options['index']
         execute = bool(options['execute']) and not bool(options['dry_run'])
         do_search = bool(options['search'])
+        recreate = bool(options.get('recreate'))
         out_dir = Path(options['out'] or f"/tmp/matching-unified-probe-{datetime.now().strftime('%Y%m%d-%H%M%S')}")
         out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -199,6 +201,10 @@ class Command(BaseCommand):
             self.stderr.write('ES ping failed')
             return
 
+        if recreate and es.indices.exists(index=index):
+            es.indices.delete(index=index)
+            self.stdout.write(f'deleted index {index}')
+
         if not es.indices.exists(index=index):
             es.indices.create(
                 index=index,
@@ -213,10 +219,29 @@ class Command(BaseCommand):
                             'last_name': {'type': 'text'},
                             'body_text': {'type': 'text'},
                             'skill_names': {'type': 'keyword'},
-                            'skill_weights': {'type': 'object', 'enabled': True},
-                            'skill_stats': {'type': 'nested'},
+                            'skill_weight_pairs': {
+                                'type': 'nested',
+                                'properties': {
+                                    'skill': {'type': 'keyword'},
+                                    'weight': {'type': 'float'},
+                                },
+                            },
+                            'skill_stats': {
+                                'type': 'nested',
+                                'properties': {
+                                    'name': {'type': 'keyword'},
+                                    'name_lc': {'type': 'keyword'},
+                                    'freq': {'type': 'integer'},
+                                    'projects': {'type': 'integer'},
+                                    'months': {'type': 'integer'},
+                                    'years': {'type': 'float'},
+                                    'weight': {'type': 'float'},
+                                    'from_db': {'type': 'boolean'},
+                                },
+                            },
                             'aid': {'type': 'keyword'},
                             'crm_contact_id': {'type': 'keyword'},
+                            'gulp_id': {'type': 'keyword'},
                             'indexed_at': {'type': 'date'},
                             'probe': {'type': 'boolean'},
                         }
@@ -229,15 +254,19 @@ class Command(BaseCommand):
             {'_index': index, '_id': d['doc_id'], '_source': d}
             for d in docs
         )
-        helpers.bulk(es, actions, chunk_size=50, request_timeout=120)
+        ok_n, errors = helpers.bulk(
+            es, actions, chunk_size=50, request_timeout=120, raise_on_error=False,
+        )
+        if errors:
+            self.stderr.write(f'bulk warnings: {len(errors)} failed (erste: {errors[0]})')
         es.indices.refresh(index=index)
         count = es.count(index=index)['count']
-        self.stdout.write(self.style.SUCCESS(f'indexed docs={len(docs)} es_count={count}'))
+        self.stdout.write(self.style.SUCCESS(f'indexed ok≈{ok_n} es_count={count}'))
 
         if do_search and skills:
-            q_skills = skills[:4]
+            q_skills = [s.lower() for s in skills[:4]]
             should = [{'match': {'body_text': s}} for s in q_skills]
-            should += [{'term': {'skill_names': s.lower()}} for s in q_skills]
+            should += [{'term': {'skill_names': s}} for s in q_skills]
             res = es.search(
                 index=index,
                 size=15,
@@ -248,13 +277,17 @@ class Command(BaseCommand):
             ranked = []
             for h in hits:
                 src = h.get('_source') or {}
-                wmap = src.get('skill_weights') or {}
-                score_boost = sum(float(wmap.get(s.lower(), 0) or 0) for s in q_skills)
+                pairs = src.get('skill_weight_pairs') or []
+                wmap = {p.get('skill'): float(p.get('weight') or 0) for p in pairs if p.get('skill')}
+                score_boost = sum(wmap.get(s, 0) for s in q_skills)
                 ranked.append((score_boost, h.get('_score') or 0, src))
             ranked.sort(key=lambda x: (-x[0], -x[1]))
             for boost, es_score, src in ranked:
+                top_w = ', '.join(
+                    f"{p.get('skill')}:{p.get('weight')}"
+                    for p in (src.get('skill_weight_pairs') or [])[:5]
+                )
                 self.stdout.write(
                     f"  boost={boost:.2f} es={es_score:.2f} "
-                    f"[{src.get('source')}] {src.get('full_name')} "
-                    f"weights={{{', '.join(f'{k}:{v}' for k,v in list((src.get('skill_weights') or {}).items())[:5])}}}"
+                    f"[{src.get('source')}] {src.get('full_name')} weights={{{top_w}}}"
                 )

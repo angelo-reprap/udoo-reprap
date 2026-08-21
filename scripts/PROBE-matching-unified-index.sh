@@ -31,7 +31,7 @@ ARGS=(
   --index "$INDEX"
 )
 if [[ "$EXECUTE" == "1" ]]; then
-  ARGS+=(--execute)
+  ARGS+=(--execute --recreate)
   if [[ "$SEARCH" == "1" ]]; then
     ARGS+=(--search)
   fi

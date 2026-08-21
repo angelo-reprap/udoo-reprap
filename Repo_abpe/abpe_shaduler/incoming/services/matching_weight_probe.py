@@ -190,6 +190,7 @@ def skill_stats_from_wild_text(
         project_count = 0
         total_months = 0
         hit_periods = []
+        seen_periods = set()
         for period, seg in segments:
             hits = pat.findall(seg)
             if not hits:
@@ -198,13 +199,21 @@ def skill_stats_from_wild_text(
             freq += n
             project_count += 1
             months = get_months(period) if period else 6
-            total_months += months
+            # gleiche Perioden-Labels nicht doppelt zur Laufzeit addieren
+            pkey = (period or '').strip().lower()
+            if pkey and pkey not in seen_periods:
+                seen_periods.add(pkey)
+                total_months += months
+            elif not pkey:
+                total_months += months
             hit_periods.append({'period': period or None, 'hits': n, 'months': months})
 
         if freq == 0:
             continue
         project_count = max(1, project_count)
         total_months = max(6, total_months)
+        # Cap: unrealistische Summen (z.B. 30+ Jahre durch Parsing) begrenzen
+        total_months = min(total_months, 240)  # max 20 Jahre
         weight = count_to_weight(freq, project_count, total_months)
         out.append({
             'name': skill.strip(),
@@ -220,6 +229,49 @@ def skill_stats_from_wild_text(
     return out
 
 
+def _safe_skill_key(name: str) -> str:
+    """ES object-keys dürfen nicht mit '.' starten/enden und keine Pfad-Konflikte erzeugen.
+    Deshalb speichern wir Weights nicht als dynamic object, sondern nur sanitized falls nötig.
+    """
+    s = (name or '').strip().lower()
+    s = re.sub(r'\s+', '_', s)
+    s = re.sub(r'[^a-z0-9_+\-#]', '_', s)
+    s = s.strip('._')
+    if not s or s in ('.', '_'):
+        return ''
+    # führenden Punkt (z.B. .net) absichern
+    if s.startswith('.'):
+        s = 'dot_' + s.lstrip('.')
+    return s[:80]
+
+
+def is_plausible_skill_name(name: str) -> bool:
+    """Filtert offensichtlichen Müll aus der Pipeline-Skill-DB für den Probe-Index."""
+    n = (name or '').strip()
+    if len(n) < 2 or len(n) > 48:
+        return False
+    low = n.lower()
+    # reine Zahlen / Jahreszahlen
+    if re.fullmatch(r'\d{1,4}', n):
+        return False
+    if re.fullmatch(r'(19|20)\d{2}', n):
+        return False
+    # Satzfragmente
+    junk_parts = (
+        'kenntnisse', 'erfahrung', 'grundkenntnisse', 'gute kenntnisse',
+        'sehr gute', 'länger her', 'aktuell nicht', 'jahr ', 'jahre',
+        'gemacht habe', 'in denen ich', 'alle bis heute', 'alle letzten',
+    )
+    if any(j in low for j in junk_parts):
+        return False
+    if low.count(' ') > 5:
+        return False
+    # abgebrochene Tokens
+    if n.endswith(('....)', '…', '...')):
+        return False
+    return True
+
+
 def skill_stats_from_pipeline(consultant) -> List[Dict]:
     """Liest ConsultantSkill.weight (+ Name) — schon vom Enricher berechnet."""
     rows = []
@@ -229,7 +281,7 @@ def skill_stats_from_pipeline(consultant) -> List[Dict]:
         return rows
     for cs in qs:
         name = getattr(getattr(cs, 'skill', None), 'name', None) or ''
-        if not name:
+        if not name or not is_plausible_skill_name(name):
             continue
         w = float(getattr(cs, 'weight', 0.5) or 0.5)
         rows.append({
@@ -243,6 +295,13 @@ def skill_stats_from_pipeline(consultant) -> List[Dict]:
             'segments': [],
             'from_db': True,
         })
+    # Dedup by name_lc — highest weight wins
+    best = {}
+    for r in rows:
+        k = r['name_lc']
+        if k not in best or r['weight'] > best[k]['weight']:
+            best[k] = r
+    rows = list(best.values())
     rows.sort(key=lambda x: (-x['weight'], x['name_lc']))
     return rows
 
@@ -259,8 +318,21 @@ def build_matching_doc(
     extra: Optional[Dict] = None,
 ) -> Dict:
     skill_stats = skill_stats or []
-    weights = {s['name_lc']: s['weight'] for s in skill_stats if s.get('name_lc')}
-    names = [s['name_lc'] for s in skill_stats]
+    # KEINE dynamic object keys (asp vs asp.net / .net) — nur nested + keyword list
+    names = []
+    seen = set()
+    for s in skill_stats:
+        lc = (s.get('name_lc') or '').strip()
+        if not lc or lc in seen:
+            continue
+        seen.add(lc)
+        names.append(lc)
+    # flache Gewichtsliste parallel zu skill_stats (suchbar/sortierbar ohne object-keys)
+    weight_pairs = [
+        {'skill': s['name_lc'], 'weight': s['weight']}
+        for s in skill_stats
+        if s.get('name_lc') is not None and s.get('weight') is not None
+    ]
     doc = {
         'doc_id': doc_id,
         'source': source,  # pipeline | ogo_wild | namazu
@@ -269,7 +341,7 @@ def build_matching_doc(
         'last_name': last_name,
         'body_text': (body_text or '')[:80000],
         'skill_names': names,
-        'skill_weights': weights,
+        'skill_weight_pairs': weight_pairs,
         'skill_stats': skill_stats,
         'indexed_at': datetime.utcnow().isoformat() + 'Z',
         'probe': True,
