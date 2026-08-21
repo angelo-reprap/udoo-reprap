@@ -40,6 +40,7 @@ FILES=(
   services/aid_profile_publish.py
   services/url_fl_db_importer.py
   management/commands/cleanup_aid_test_imports.py
+  management/commands/import_aid_profiles.py
 )
 
 cmd="${1:-help}"
