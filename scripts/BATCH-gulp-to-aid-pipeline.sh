@@ -36,6 +36,10 @@ MIN_AVAIL_MB="${MIN_AVAIL_MB:-1536}"   # harte Untergrenze freier RAM
 THROTTLE_SLEEP="${THROTTLE_SLEEP:-30}"
 PAUSE_BETWEEN="${PAUSE_BETWEEN:-2}"  # kurze Pause zwischen Jobs (s)
 RUN_INVENTORY="${RUN_INVENTORY:-0}"  # 1 = vorher INVENTORY-gulp-vs-neu-cv.sh
+# Optional: exportierte gulp_profil_c (vermeidet CRM-DB unter Last)
+# z.B. GULP_TXT_ROOT=/tmp/gulp-batch-…/source-txt
+GULP_TXT_ROOT="${GULP_TXT_ROOT:-}"
+PDF_WAIT_SECS="${PDF_WAIT_SECS:-15}"  # CIFS: auf Convert-PDF warten
 
 mkdir -p "$OUT_LOG"
 exec > >(tee -a "$OUT_LOG/batch.log") 2>&1
@@ -271,6 +275,7 @@ while IFS=$'\t' read -r cat contact_id gulp_id last first fs_letter fs_dir has_n
 
   if ! NEED="$ONE_NEED" LIMIT=1 EXECUTE=1 SKIP_PERSON_DIR=0 \
       OUT_DIR="" VERSION_TAG="$VERSION_TAG" MIN_LEN="$MIN_LEN" \
+      GULP_TXT_ROOT="$GULP_TXT_ROOT" \
       OUT_LOG="$OUT_LOG/convert-$dname" \
       bash "$REPO/scripts/CONVERT-gulp-txt-to-aid-pdf.sh"
   then
@@ -282,16 +287,50 @@ while IFS=$'\t' read -r cat contact_id gulp_id last first fs_letter fs_dir has_n
     continue
   fi
 
-  # 2) Import Pipeline (sync)
+  # Letter/PDF aus Convert-Result (sch vs sss, EBUSY-Rename, …)
+  conv_letter="$letter"
+  conv_pdf=""
+  conv_tsv="$OUT_LOG/convert-$dname/result.tsv"
+  if [[ -f "$conv_tsv" ]]; then
+    # status contact_id letter dir pdf …
+    IFS=$'\t' read -r _cstat _ccid conv_letter _cdir conv_pdf _crest < <(
+      tail -n +2 "$conv_tsv" | awk -F'\t' '$1=="OK"{print; exit}'
+    ) || true
+    [[ -n "${conv_letter:-}" ]] || conv_letter="$letter"
+  fi
+  person="$AID_ROOT/$conv_letter/$dname"
+  neu="$person/neu/cv"
+
+  # Auf Quell-PDF warten (CIFS-Sichtbarkeit nach mkdir/write)
+  pdf_src=""
+  for ((w = 0; w < PDF_WAIT_SECS; w++)); do
+    if [[ -n "$conv_pdf" && -f "$person/$conv_pdf" ]]; then
+      pdf_src="$person/$conv_pdf"
+      break
+    fi
+    pdf_src="$(find "$person" -maxdepth 1 -type f -iname 'AID-*.pdf' 2>/dev/null | head -1 || true)"
+    [[ -n "$pdf_src" ]] && break
+    sleep 1
+  done
+  if [[ -z "$pdf_src" ]]; then
+    fail=$((fail + 1))
+    echo "FAIL no source PDF after convert $conv_letter/$dname (waited ${PDF_WAIT_SECS}s)"
+    echo -e "FAIL\t$contact_id\t$gulp_id\t$conv_letter\t$dname\t\tno_source_pdf\t$(( $(date +%s) - t0 ))" >>"$RESULT_TSV"
+    sleep "$PAUSE_BETWEEN"
+    continue
+  fi
+  echo "Convert-PDF: $pdf_src (letter=$conv_letter)"
+
+  # 2) Import Pipeline (sync) — Letter = Convert-Ablage
   throttle_wait || true
   if ! python3 manage.py import_aid_profiles \
-      --letter "$letter" \
+      --letter "$conv_letter" \
       --dir "$dname" \
       --sync \
       --no-skip-existing
   then
     fail=$((fail + 1))
-    echo -e "FAIL\t$contact_id\t$gulp_id\t$letter\t$dname\t\timport\t$(( $(date +%s) - t0 ))" >>"$RESULT_TSV"
+    echo -e "FAIL\t$contact_id\t$gulp_id\t$conv_letter\t$dname\t\timport\t$(( $(date +%s) - t0 ))" >>"$RESULT_TSV"
     echo "FAIL import $dname"
     sleep "$PAUSE_BETWEEN"
     continue
@@ -301,12 +340,12 @@ while IFS=$'\t' read -r cat contact_id gulp_id last first fs_letter fs_dir has_n
   pdf_out="$(find "$neu" -maxdepth 1 -type f -iname 'AID-*.pdf' 2>/dev/null | head -1 || true)"
   if [[ -n "$pdf_out" ]]; then
     ok=$((ok + 1))
-    echo "OK $letter/$dname → $(basename "$pdf_out") (${secs}s)"
-    echo -e "OK\t$contact_id\t$gulp_id\t$letter\t$dname\t$(basename "$pdf_out")\tok\t$secs" >>"$RESULT_TSV"
+    echo "OK $conv_letter/$dname → $(basename "$pdf_out") (${secs}s)"
+    echo -e "OK\t$contact_id\t$gulp_id\t$conv_letter\t$dname\t$(basename "$pdf_out")\tok\t$secs" >>"$RESULT_TSV"
   else
     fail=$((fail + 1))
-    echo "FAIL no neu/cv pdf $dname after import"
-    echo -e "FAIL\t$contact_id\t$gulp_id\t$letter\t$dname\t\tno_neu_cv\t$secs" >>"$RESULT_TSV"
+    echo "FAIL no neu/cv pdf $dname after import (looked in $neu)"
+    echo -e "FAIL\t$contact_id\t$gulp_id\t$conv_letter\t$dname\t\tno_neu_cv\t$secs" >>"$RESULT_TSV"
   fi
 
   throttle_wait || true

@@ -164,17 +164,19 @@ def _stash_blocking_path(path: Path) -> bool:
         if not path.exists():
             return True
     except OSError:
-        return False
+        pass
     stamp = time.strftime('%H%M%S')
     junk = path.with_name(f"{path.name}.notdir-{stamp}")
-    for op in (
-        lambda: path.rename(junk),
-        lambda: path.unlink(),
-        lambda: shutil.rmtree(path) if path.is_dir() else (_ for _ in ()).throw(OSError('not dir')),
+    for op_name, op in (
+        ('rename', lambda: path.rename(junk)),
+        ('unlink', lambda: path.unlink()),
     ):
         try:
             op()
-            logger.warning('Publish: blockierenden Pfad entfernt/umbenannt: %s', path)
+            logger.warning(
+                'Publish: blockierenden Pfad per %s entfernt: %s → %s',
+                op_name, path, junk.name if op_name == 'rename' else '(gelöscht)',
+            )
             return True
         except OSError:
             continue
@@ -201,15 +203,14 @@ def _mkdir_cifs(path: Path) -> bool:
                 return False
         # existiert, ist aber kein Dir (oder CIFS-Ghost) → beiseite
         try:
-            if path.exists() and not path.is_dir():
-                if not _stash_blocking_path(path):
-                    return False
-                continue
+            exists = path.exists()
+            is_dir = path.is_dir() if exists else False
         except OSError:
+            exists, is_dir = True, False
+        if exists and not is_dir:
             if not _stash_blocking_path(path):
                 return False
             continue
-        # exist_ok-Fall: laut Stat Dir, mkdir trotzdem EEXIST — kurz warten
         if attempt < 3:
             time.sleep(0.15 * (attempt + 1))
             try:
@@ -217,6 +218,7 @@ def _mkdir_cifs(path: Path) -> bool:
                     return True
             except OSError:
                 pass
+            # Letzter Versuch vor nächster Runde: Ghost-Rename
             _stash_blocking_path(path)
     try:
         return path.is_dir()

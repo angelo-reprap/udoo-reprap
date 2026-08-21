@@ -59,6 +59,8 @@ cd "$BACKEND"
 [[ -f /opt/abpe/venv311/bin/activate ]] && source /opt/abpe/venv311/bin/activate
 export DJANGO_SETTINGS_MODULE="${DJANGO_SETTINGS_MODULE:-abpe_backend.settings}"
 export REPO AID_ROOT NEED FAILS TXT_DIR WEB_COPY OUT_DIR SKIP_PERSON_DIR OUT_LOG LIMIT EXECUTE MIN_LEN VERSION_TAG
+# Optional offline gulp text (by-person/ oder txt/)
+export GULP_TXT_ROOT="${GULP_TXT_ROOT:-}"
 
 python3 manage.py shell <<'PY'
 import errno, os, re, html, subprocess, tempfile, shutil, json, time
@@ -70,6 +72,7 @@ AID_ROOT = Path(os.environ["AID_ROOT"])
 NEED = (os.environ.get("NEED") or "").strip()
 FAILS = (os.environ.get("FAILS") or "").strip()
 TXT_DIR = (os.environ.get("TXT_DIR") or "").strip()
+GULP_TXT_ROOT = (os.environ.get("GULP_TXT_ROOT") or "").strip()
 WEB_COPY = (os.environ.get("WEB_COPY") or "").strip()
 OUT_DIR = (os.environ.get("OUT_DIR") or "").strip()
 SKIP_PERSON_DIR = os.environ.get("SKIP_PERSON_DIR", "0") in ("1", "true", "TRUE", "yes")
@@ -341,6 +344,31 @@ def cstm_text(cid: str, gulp_id: str = "") -> str:
     return (getattr(st, "gulp_profil_c", None) or "").strip() if st else ""
 
 
+def resolve_offline_txt(letter: str, dname: str, cid: str = "") -> str:
+    """GULP_TXT_ROOT: by-person/{letter}/{dir}/gulp_profil_c.txt oder txt/{letter}__{dir}.txt."""
+    root = Path(GULP_TXT_ROOT) if GULP_TXT_ROOT else None
+    if not root or not root.is_dir() or not dname:
+        return ""
+    cands = []
+    if letter:
+        cands.append(root / "by-person" / letter / dname / "gulp_profil_c.txt")
+        cands.append(root / "txt" / f"{letter}__{dname}.txt")
+    # Letter-Fallback: flache txt + by-person/*/dir
+    cands.append(root / "txt" / f"{dname}.txt")
+    bp = root / "by-person"
+    if bp.is_dir():
+        for sub in bp.iterdir():
+            if sub.is_dir():
+                cands.append(sub / dname / "gulp_profil_c.txt")
+    for p in cands:
+        try:
+            if p.is_file() and p.stat().st_size >= MIN_LEN:
+                return str(p)
+        except OSError:
+            continue
+    return ""
+
+
 # ── Jobs sammeln ────────────────────────────────────────────────────────────
 jobs = []
 if TXT_DIR and Path(TXT_DIR).is_dir():
@@ -394,6 +422,12 @@ elif NEED and Path(NEED).is_file():
             jobs[-1]["fs_dir"] = slug_name(p[3], p[4])
         if not re.fullmatch(r"(?:sch|[a-z]{3}|zzzSONSTIGES)", str(p[5] or "")):
             jobs[-1]["fs_letter"] = letter_bucket(jobs[-1]["fs_dir"], p[3])
+        # Offline-TXT wenn vorhanden (kein CRM-Hit unter DB-Last)
+        offline = resolve_offline_txt(
+            jobs[-1]["fs_letter"], jobs[-1]["fs_dir"], jobs[-1]["contact_id"]
+        )
+        if offline:
+            jobs[-1]["txt_path"] = offline
 elif FAILS and Path(FAILS).is_file():
     for i, line in enumerate(Path(FAILS).read_text(encoding="utf-8").splitlines()):
         if i == 0 or not line.strip():

@@ -296,9 +296,13 @@ class MainExtractedToDB:
         for idx, exp in enumerate(extracted.get('experience') or []):
             if not exp:
                 continue
+            period = (exp.get('period') or '').strip()
+            pl = period.lower().rstrip('.')
+            if pl in ('k.a', 'n/a', 'n.a', '-', '–', '—', 'ohne angabe'):
+                period = ''
             exp_obj = Experience.objects.create(
                 consultant = consultant,
-                period     = (exp.get('period') or '')[:200],
+                period     = period[:200],
 
                 title      = (exp.get('title') or '')[:200],
                 company    = (exp.get('company') or '')[:200],
