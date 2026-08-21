@@ -4,9 +4,9 @@
 #
 # ucs5:
 #   cd /mnt/public/udoo-reprap
-#   git pull origin cursor/matching-index-hygiene-1532
+#   git pull origin cursor/namazu-schedule-windows-1532
 #   bash scripts/SAFE-namazu-profiles-index-deploy.sh
-#   # Catch-up einmal (async via manage.py, nicht Webhook-Timeout):
+#   # Catch-up einmal (nur wenn Index leer/alt):
 #   FULL=1 bash scripts/SAFE-namazu-profiles-index-deploy.sh
 #
 set -euo pipefail
