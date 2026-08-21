@@ -1,22 +1,26 @@
 #!/usr/bin/env bash
-# Probe: ein Matching-Index für Pipeline + Wild-Ogo (Date-Segmente + Weight).
+# Probe: Contact-zentrierter Matching-Gewichtungs-Index
+# (CV-Pipeline-Weights ODER Wild aus ogo/*_profil.c — 1 Doc pro Contact-ID).
 #
 # ucs5:
 #   cd /mnt/public/udoo-reprap
-#   git fetch && git checkout cursor/matching-unified-index-probe-1532 && git pull
-#   bash scripts/SAFE-matching-unified-probe-deploy.sh   # Code → Live-Shaduler
-#   bash scripts/PROBE-matching-unified-index.sh         # DRY
-#   EXECUTE=1 bash scripts/PROBE-matching-unified-index.sh
+#   git pull origin cursor/matching-contact-weight-index-1532
+#   bash scripts/SAFE-matching-unified-probe-deploy.sh
+#   # große Stichprobe, 50% Join-Kandidaten (Radar/gulp):
+#   EXECUTE=1 CONTACTS=200 bash scripts/PROBE-matching-unified-index.sh
 #
 set -euo pipefail
 
 BACKEND="${BACKEND:-/opt/abpe/backend}"
-PIPELINE="${PIPELINE:-5}"
-WILD="${WILD:-5}"
+CONTACTS="${CONTACTS:-20}"
+CONTACT_ID="${CONTACT_ID:-}"
 SKILLS="${SKILLS:-Java,Python,Perl,Django,Spring,Kubernetes,Docker,AWS,SAP,SQL,Linux}"
 INDEX="${INDEX:-abpe_matching_profiles_probe}"
 EXECUTE="${EXECUTE:-0}"
 SEARCH="${SEARCH:-1}"
+JOIN_RATIO="${JOIN_RATIO:-0.5}"
+# Bulk-Stichprobe: Index neu. Einzel-CONTACT_ID: upsert, kein Wipe (RECREATE=1 erzwingen möglich).
+RECREATE="${RECREATE:-}"
 
 cd "$BACKEND"
 # shellcheck disable=SC1091
@@ -25,13 +29,27 @@ export DJANGO_SETTINGS_MODULE="${DJANGO_SETTINGS_MODULE:-abpe_backend.settings}"
 
 ARGS=(
   probe_matching_unified_index
-  --pipeline "$PIPELINE"
-  --wild "$WILD"
   --skills "$SKILLS"
   --index "$INDEX"
+  --join-ratio "$JOIN_RATIO"
 )
+if [[ -n "$CONTACT_ID" ]]; then
+  ARGS+=(--contact-id "$CONTACT_ID")
+  if [[ -z "$RECREATE" ]]; then
+    RECREATE=0
+  fi
+else
+  ARGS+=(--contacts "$CONTACTS")
+  if [[ -z "$RECREATE" ]]; then
+    RECREATE=1
+  fi
+fi
+
 if [[ "$EXECUTE" == "1" ]]; then
-  ARGS+=(--execute --recreate)
+  ARGS+=(--execute)
+  if [[ "$RECREATE" == "1" ]]; then
+    ARGS+=(--recreate)
+  fi
   if [[ "$SEARCH" == "1" ]]; then
     ARGS+=(--search)
   fi

@@ -1,14 +1,18 @@
 """
-probe_matching_unified_index — Test: ein Matching-Index für Pipeline + Wild-Ogo.
+probe_matching_unified_index — Contact-zentrierter Matching-Gewichtungs-Probe.
 
-Default: DRY (nur JSON-Report). Schreiben: --execute
+Prüfschleife pro CRM-Contact-ID:
+  1) CV-Pipeline-Gewichtung (ConsultantSkill.weight), wenn Join gelingt
+  2) sonst Wild-Gewichtung aus ogo_description_c / gulp_profil_c /
+     freelancermap_profil_c / xing_profile_c (+ description)
+
+Ein ES-Dokument pro Contact: contact:{crm_id}
 Index: abpe_matching_profiles_probe (kein Prod-Index).
 
 ucs5:
-  python manage.py probe_matching_unified_index --dry-run --pipeline 5 --wild 5
-  python manage.py probe_matching_unified_index --execute --pipeline 20 --wild 20
-  python manage.py probe_matching_unified_index --execute --pipeline 20 --wild 20 \\
-      --skills java,python,django --search
+  python manage.py probe_matching_unified_index --dry-run --contacts 10
+  python manage.py probe_matching_unified_index --contact-id <CRM_UUID> --dry-run
+  python manage.py probe_matching_unified_index --execute --contacts 40 --search
 """
 from __future__ import annotations
 
@@ -29,11 +33,17 @@ DEFAULT_SKILLS = [
 
 
 class Command(BaseCommand):
-    help = 'Probe: unified matching index (pipeline skills + wild ogo date/weight)'
+    help = 'Probe: 1 Matching-Doc pro CRM-Contact (Pipeline-CV-Weights oder Wild-Profil)'
 
     def add_arguments(self, parser):
-        parser.add_argument('--pipeline', type=int, default=5, help='Anzahl Consultant (DE)')
-        parser.add_argument('--wild', type=int, default=5, help='Anzahl Contacts mit ogo_description')
+        parser.add_argument(
+            '--contacts', type=int, default=20,
+            help='Anzahl Contacts für die Stichprobe (ignoriert bei --contact-id)',
+        )
+        parser.add_argument(
+            '--contact-id', default='',
+            help='Einzelne CRM-Contact-ID (Prüfschleife für genau einen Kontakt)',
+        )
         parser.add_argument('--skills', default=','.join(DEFAULT_SKILLS))
         parser.add_argument('--index', default=DEFAULT_INDEX)
         parser.add_argument('--execute', action='store_true')
@@ -41,132 +51,144 @@ class Command(BaseCommand):
         parser.add_argument('--search', action='store_true', help='Nach Index kurze Skill-Suche')
         parser.add_argument('--out', default='')
         parser.add_argument('--recreate', action='store_true', help='Probe-Index vorher löschen')
+        parser.add_argument(
+            '--join-ratio', type=float, default=0.5,
+            help='Anteil der Stichprobe aus Join-Kandidaten (Radar/gulp), Rest Wild-Profil (0..1)',
+        )
+        # Legacy-Flags (ignoriert, Warnung) — alte dual-stream Probe
+        parser.add_argument('--pipeline', type=int, default=None, help='(legacy, ignoriert)')
+        parser.add_argument('--wild', type=int, default=None, help='(legacy, ignoriert)')
 
     def handle(self, *args, **options):
         from apps.abpe_shaduler.services import matching_weight_probe as mwp
 
-        n_pipe = max(0, int(options['pipeline']))
-        n_wild = max(0, int(options['wild']))
+        if options.get('pipeline') is not None or options.get('wild') is not None:
+            self.stdout.write(self.style.WARNING(
+                'Hinweis: --pipeline/--wild sind legacy. Nutze --contacts / --contact-id '
+                '(1 Doc pro Contact: CV-Weight oder Wild-Profil).'
+            ))
+
+        n_contacts = max(0, int(options['contacts']))
+        only_id = (options.get('contact_id') or '').strip()
         skills = [s.strip() for s in (options['skills'] or '').split(',') if s.strip()]
         index = options['index']
         execute = bool(options['execute']) and not bool(options['dry_run'])
         do_search = bool(options['search'])
         recreate = bool(options.get('recreate'))
-        out_dir = Path(options['out'] or f"/tmp/matching-unified-probe-{datetime.now().strftime('%Y%m%d-%H%M%S')}")
+        out_dir = Path(
+            options['out']
+            or f"/tmp/matching-contact-probe-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
+        )
         out_dir.mkdir(parents=True, exist_ok=True)
 
+        try:
+            Contact = apps.get_model('abpe_crm', 'CrmContact')
+            Cstm = apps.get_model('abpe_crm', 'CrmContactCstm')
+        except LookupError as exc:
+            self.stderr.write(f'CRM models missing: {exc}')
+            return
+
+        rows_meta = []
         docs = []
-        report = {
-            'generated_at': datetime.now(timezone.utc).isoformat(),
-            'execute': execute,
-            'index': index,
-            'skills_watch': skills,
-            'pipeline': [],
-            'wild': [],
+        counts = {
+            'pipeline_cv': 0,
+            'wild_profil': 0,
+            'none': 0,
+            'join_via': {},
         }
 
-        # ── Pipeline ────────────────────────────────────────────────────
-        Consultant = apps.get_model('cv_extractor', 'Consultant')
-        qs = (
-            Consultant.objects.filter(status__in=['completed', 'validated', 'profile_ready'])
-            .exclude(aid__endswith='-en')
-            .prefetch_related('skills__skill')
-            .order_by('-created_at')
-        )
-        seen_dirs = set()
-        for c in qs.iterator(chunk_size=50):
-            if len(report['pipeline']) >= n_pipe:
-                break
-            key = (c.consultant_dir or c.aid or str(c.id)).lower()
-            if key in seen_dirs:
+        self.stdout.write('building join index (Radar→Consultant)…')
+        join_index = mwp.build_join_index()
+        self.stdout.write(f"  join_index={join_index.get('stats')}")
+
+        if only_id:
+            targets = self._load_one(Contact, Cstm, only_id)
+        else:
+            targets = self._sample_contacts(
+                Contact, Cstm, n_contacts,
+                join_index=join_index,
+                join_ratio=float(options.get('join_ratio') or 0.5),
+            )
+
+        for contact, cstm in targets:
+            crm_id = getattr(contact, 'crm_id', None) or (
+                getattr(cstm, 'contact_id', None) if cstm else None
+            ) or ''
+            crm_id = str(crm_id)
+            weighed = mwp.weight_for_contact(
+                crm_id=crm_id,
+                cstm=cstm,
+                contact=contact,
+                skills_watch=skills,
+                join_index=join_index,
+            )
+            src = weighed['weight_source']
+            counts[src] = counts.get(src, 0) + 1
+            jv = weighed.get('join_via') or ''
+            if jv:
+                counts['join_via'][jv] = counts['join_via'].get(jv, 0) + 1
+
+            if src == 'none':
+                rows_meta.append({
+                    'crm_id': crm_id,
+                    'name': weighed.get('full_name') or '',
+                    'weight_source': 'none',
+                    'join_via': jv,
+                    'skills': 0,
+                    'skip': 'no_pipeline_weights_and_no_profil_text',
+                })
                 continue
-            seen_dirs.add(key)
-            stats = mwp.skill_stats_from_pipeline(c)
-            body_parts = [
-                c.headline or '',
-                f'{c.first_name or ""} {c.last_name or ""}'.strip(),
-                c.location or '',
-                ' '.join(s['name'] for s in stats[:80]),
-            ]
+
+            es_source = 'pipeline_cv' if src == 'pipeline_cv' else 'wild_profil'
             doc = mwp.build_matching_doc(
-                doc_id=f'pipeline:{c.aid or c.id}',
-                source='pipeline',
-                full_name=f'{c.first_name or ""} {c.last_name or ""}'.strip(),
-                first_name=c.first_name or '',
-                last_name=c.last_name or '',
-                body_text=' '.join(p for p in body_parts if p),
-                skill_stats=stats[:60],
+                doc_id=f'contact:{crm_id}',
+                source=es_source,
+                full_name=weighed.get('full_name') or '',
+                first_name=weighed.get('first_name') or '',
+                last_name=weighed.get('last_name') or '',
+                body_text=weighed.get('body_text') or '',
+                skill_stats=weighed.get('skill_stats') or [],
                 extra={
-                    'aid': c.aid,
-                    'consultant_dir': c.consultant_dir,
-                    'status': c.status,
+                    'crm_contact_id': crm_id,
+                    'gulp_id': weighed.get('gulp_id') or '',
+                    'weight_source': src,
+                    'join_via': jv,
+                    'aid': weighed.get('aid') or '',
+                    'consultant_dir': weighed.get('consultant_dir') or '',
+                    'profil_fields': weighed.get('profil_fields') or [],
+                    'body_len': len(weighed.get('body_text') or ''),
                 },
             )
             docs.append(doc)
-            report['pipeline'].append({
-                'aid': c.aid,
-                'name': doc['full_name'],
-                'skills': len(stats),
-                'top': stats[:5],
+            top = (weighed.get('skill_stats') or [])[:5]
+            rows_meta.append({
+                'crm_id': crm_id,
+                'name': weighed.get('full_name') or '',
+                'weight_source': src,
+                'join_via': jv,
+                'aid': weighed.get('aid') or '',
+                'gulp_id': weighed.get('gulp_id') or '',
+                'profil_fields': weighed.get('profil_fields') or [],
+                'skills': len(weighed.get('skill_stats') or []),
+                'top': [
+                    {'name': t.get('name'), 'weight': t.get('weight')}
+                    for t in top
+                ],
             })
 
-        # ── Wild Ogo ────────────────────────────────────────────────────
-        wild_rows = []
-        try:
-            Cstm = apps.get_model('abpe_crm', 'CrmContactCstm')
-        except LookupError:
-            Cstm = None
-            report['wild_error'] = 'CrmContactCstm not found'
-
-        if Cstm is not None:
-            cstm_qs = (
-                Cstm.objects.exclude(Q(ogo_description_c__isnull=True) | Q(ogo_description_c=''))
-                .select_related('contact')
-                .order_by('-id')
-            )
-            for cstm in cstm_qs.iterator(chunk_size=50):
-                if len(wild_rows) >= n_wild:
-                    break
-                text = (cstm.ogo_description_c or '').strip()
-                if len(text) < 80:
-                    continue
-                for attr in ('gulp_profil_c', 'freelancermap_profil_c'):
-                    extra = getattr(cstm, attr, None) or ''
-                    if extra and len(extra) > 40:
-                        text = text + '\n\n' + extra
-                contact = getattr(cstm, 'contact', None)
-                first = (getattr(contact, 'first_name', None) or '') if contact else ''
-                last = (getattr(contact, 'last_name', None) or '') if contact else ''
-                full = f'{first} {last}'.strip()
-                crm_id = getattr(contact, 'crm_id', None) or getattr(cstm, 'crm_id_c', None) or str(cstm.pk)
-                gulp_id = getattr(cstm, 'gulp_id_c', None) or ''
-                stats = mwp.skill_stats_from_wild_text(text, skills)
-                doc = mwp.build_matching_doc(
-                    doc_id=f'ogo:{crm_id}',
-                    source='ogo_wild',
-                    full_name=full,
-                    first_name=first,
-                    last_name=last,
-                    body_text=text,
-                    skill_stats=stats,
-                    extra={
-                        'crm_contact_id': str(crm_id),
-                        'gulp_id': gulp_id,
-                        'body_len': len(text),
-                    },
-                )
-                docs.append(doc)
-                wild_rows.append({
-                    'crm_id': str(crm_id),
-                    'gulp_id': gulp_id,
-                    'name': full,
-                    'body_len': len(text),
-                    'skills_hit': len(stats),
-                    'top': stats[:5],
-                    'segments_sample': (stats[0]['segments'] if stats else []),
-                })
-            report['wild'] = wild_rows
-
+        report = {
+            'generated_at': datetime.now(timezone.utc).isoformat(),
+            'mode': 'contact_centric',
+            'execute': execute,
+            'index': index,
+            'skills_watch': skills,
+            'contact_id_filter': only_id or None,
+            'sampled': len(targets),
+            'docs': len(docs),
+            'join_index': join_index.get('stats'),
+            'counts': counts,
+            'contacts': rows_meta,
+        }
         (out_dir / 'report.json').write_text(
             json.dumps(report, ensure_ascii=False, indent=2, default=str) + '\n',
             encoding='utf-8',
@@ -175,19 +197,125 @@ class Command(BaseCommand):
             json.dumps(docs[:10], ensure_ascii=False, indent=2, default=str) + '\n',
             encoding='utf-8',
         )
-        self.stdout.write(f'pipeline={len(report["pipeline"])} wild={len(report["wild"])} docs={len(docs)}')
+
+        self.stdout.write(
+            f"contacts={len(targets)} docs={len(docs)} "
+            f"pipeline_cv={counts['pipeline_cv']} "
+            f"wild_profil={counts['wild_profil']} "
+            f"none={counts['none']}"
+        )
+        self.stdout.write(f"join_via={counts['join_via']}")
         self.stdout.write(f'report → {out_dir}/report.json')
 
+        for row in rows_meta[:8]:
+            self.stdout.write(
+                f"  [{row.get('weight_source')}] {row.get('name') or '?'} "
+                f"crm={str(row.get('crm_id') or '')[:8]}… "
+                f"join={row.get('join_via') or '-'} "
+                f"skills={row.get('skills')} top={row.get('top')}"
+            )
+
         if not execute:
-            self.stdout.write(self.style.WARNING('DRY — nichts nach ES. --execute zum Schreiben.'))
-            # show one wild example
-            for w in report['wild'][:2]:
-                self.stdout.write(f"  wild {w.get('name')}: hits={w.get('skills_hit')} top={w.get('top')}")
-            for p in report['pipeline'][:2]:
-                self.stdout.write(f"  pipe {p.get('name')}: skills={p.get('skills')} top={p.get('top')}")
+            self.stdout.write(self.style.WARNING(
+                'DRY — nichts nach ES. --execute zum Schreiben (1 Doc pro Contact).'
+            ))
             return
 
-        # ── ES write ────────────────────────────────────────────────────
+        self._write_es(index, docs, recreate, do_search, skills)
+
+    def _load_one(self, Contact, Cstm, crm_id: str):
+        contact = Contact.objects.filter(crm_id=crm_id).first()
+        if not contact:
+            self.stderr.write(f'Contact nicht gefunden: {crm_id}')
+            return []
+        cstm = (
+            Cstm.objects.filter(contact_id=crm_id).select_related('contact').first()
+            or getattr(contact, 'cstm', None)
+        )
+        return [(contact, cstm)]
+
+    def _sample_contacts(self, Contact, Cstm, n: int, *, join_index=None, join_ratio: float = 0.5):
+        """
+        Stratifizierte Stichprobe:
+          ~join_ratio aus Join-Kandidaten (Radar crm/gulp → Consultant)
+          Rest aus Wild-Profil-Text (ogo/*_profil)
+        """
+        if n <= 0:
+            return []
+        join_ratio = max(0.0, min(1.0, float(join_ratio)))
+        n_join = int(round(n * join_ratio))
+        n_wild = n - n_join
+        out = []
+        seen = set()
+
+        def _add(contact, cstm):
+            if contact is None:
+                return False
+            crm_id = str(getattr(contact, 'crm_id', '') or '')
+            if not crm_id or crm_id in seen:
+                return False
+            seen.add(crm_id)
+            out.append((contact, cstm))
+            return True
+
+        # ── Join-Kandidaten aus Radar-Index ────────────────────────────
+        by_crm = (join_index or {}).get('by_crm') or {}
+        by_gulp = (join_index or {}).get('by_gulp') or {}
+        join_crm_ids = list(by_crm.keys())
+        # neueste zuerst ist egal — wir nehmen Prefix der Map (Insertion = updated_at desc)
+        for crm_id in join_crm_ids:
+            if len(out) >= n_join:
+                break
+            contact = Contact.objects.filter(crm_id=crm_id).first()
+            if not contact:
+                continue
+            cstm = Cstm.objects.filter(contact_id=crm_id).select_related('contact').first()
+            _add(contact, cstm)
+
+        # Nachziehen über gulp_id_c ∈ by_gulp, falls noch Platz
+        if len(out) < n_join and by_gulp:
+            gulp_ids = list(by_gulp.keys())[: n_join * 3]
+            qs = (
+                Cstm.objects.filter(gulp_id_c__in=gulp_ids)
+                .select_related('contact')
+                .order_by('-id')
+            )
+            for cstm in qs.iterator(chunk_size=100):
+                if len(out) >= n_join:
+                    break
+                contact = getattr(cstm, 'contact', None)
+                if contact is None:
+                    cid = getattr(cstm, 'contact_id', None)
+                    contact = Contact.objects.filter(crm_id=cid).first() if cid else None
+                _add(contact, cstm)
+
+        # ── Wild-Profil (ogo / *_profil), ohne schon gesehene ───────────
+        need = n - len(out)
+        if need > 0:
+            qs = (
+                Cstm.objects.filter(
+                    Q(ogo_description_c__isnull=False) & ~Q(ogo_description_c='')
+                    | Q(gulp_profil_c__isnull=False) & ~Q(gulp_profil_c='')
+                    | Q(freelancermap_profil_c__isnull=False) & ~Q(freelancermap_profil_c='')
+                    | Q(xing_profile_c__isnull=False) & ~Q(xing_profile_c='')
+                )
+                .select_related('contact')
+                .order_by('-id')
+            )
+            for cstm in qs.iterator(chunk_size=100):
+                if len(out) >= n:
+                    break
+                contact = getattr(cstm, 'contact', None)
+                if contact is None:
+                    cid = getattr(cstm, 'contact_id', None)
+                    contact = Contact.objects.filter(crm_id=cid).first() if cid else None
+                _add(contact, cstm)
+
+        # Falls Join-Pool klein war: mit Wild auffüllen (oben schon); fertig
+        _ = n_wild  # dokumentiert Intent
+        return out[:n]
+
+    def _write_es(self, index, docs, recreate, do_search, skills):
         from elasticsearch import Elasticsearch, helpers
 
         cfg = {}
@@ -214,6 +342,8 @@ class Command(BaseCommand):
                         'properties': {
                             'doc_id': {'type': 'keyword'},
                             'source': {'type': 'keyword'},
+                            'weight_source': {'type': 'keyword'},
+                            'join_via': {'type': 'keyword'},
                             'full_name': {'type': 'text'},
                             'first_name': {'type': 'text'},
                             'last_name': {'type': 'text'},
@@ -240,8 +370,10 @@ class Command(BaseCommand):
                                 },
                             },
                             'aid': {'type': 'keyword'},
+                            'consultant_dir': {'type': 'keyword'},
                             'crm_contact_id': {'type': 'keyword'},
                             'gulp_id': {'type': 'keyword'},
+                            'profil_fields': {'type': 'keyword'},
                             'indexed_at': {'type': 'date'},
                             'probe': {'type': 'boolean'},
                         }
@@ -278,7 +410,10 @@ class Command(BaseCommand):
             for h in hits:
                 src = h.get('_source') or {}
                 pairs = src.get('skill_weight_pairs') or []
-                wmap = {p.get('skill'): float(p.get('weight') or 0) for p in pairs if p.get('skill')}
+                wmap = {
+                    p.get('skill'): float(p.get('weight') or 0)
+                    for p in pairs if p.get('skill')
+                }
                 score_boost = sum(wmap.get(s, 0) for s in q_skills)
                 ranked.append((score_boost, h.get('_score') or 0, src))
             ranked.sort(key=lambda x: (-x[0], -x[1]))
@@ -289,5 +424,8 @@ class Command(BaseCommand):
                 )
                 self.stdout.write(
                     f"  boost={boost:.2f} es={es_score:.2f} "
-                    f"[{src.get('source')}] {src.get('full_name')} weights={{{top_w}}}"
+                    f"[{src.get('weight_source')}|join={src.get('join_via') or '-'}] "
+                    f"{src.get('full_name')} "
+                    f"crm={str(src.get('crm_contact_id') or '')[:8]}… "
+                    f"weights={{{top_w}}}"
                 )
