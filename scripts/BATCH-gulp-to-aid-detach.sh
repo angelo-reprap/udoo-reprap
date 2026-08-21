@@ -58,6 +58,9 @@ nohup env \
   RUN_INVENTORY="${RUN_INVENTORY:-0}" NEED="${NEED:-}" \
   VERSION_TAG="${VERSION_TAG:-1.0.0.0}" \
   SKIP_EXISTING_NEU="${SKIP_EXISTING_NEU:-1}" \
+  GULP_TXT_ROOT="${GULP_TXT_ROOT:-}" \
+  OUT_LOG="${OUT_LOG:-}" \
+  PDF_WAIT_SECS="${PDF_WAIT_SECS:-15}" \
   bash "$SCRIPT" >>"$STAMP_LOG" 2>&1 &
 echo $! >"$PIDFILE"
 disown || true
