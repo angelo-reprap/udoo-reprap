@@ -245,29 +245,73 @@ def _safe_skill_key(name: str) -> str:
     return s[:80]
 
 
+def normalize_pipeline_skill_name(name: str) -> str:
+    """
+    Reinigt Enricher-Labels für Matching:
+      'Java: Grundlagen' → 'Java'
+      '2003 Server (tiefes Know-How)' → '2003 Server' (danach Filter)
+    """
+    n = (name or '').strip()
+    if not n:
+        return ''
+    # Level-Suffix in Klammern
+    n = re.sub(
+        r'\s*\((?:'
+        r'(?:tiefes?\s+)?know-?how|grundlagen|basics?|advanced|expert|'
+        r'sehr\s+gute?\s+kenntnisse|gute\s+kenntnisse|kenntnisse'
+        r')\)\s*$',
+        '',
+        n,
+        flags=re.I,
+    )
+    # 'Skill: Grundlagen' / 'Skill - gut'
+    n = re.sub(
+        r'\s*[:\-–—]\s*'
+        r'(?:grundlagen|kenntnisse|basics?|advanced|expert|'
+        r'tiefes?\s+know-?how|sehr\s+gut|gut|mittel|anfaenger|anfänger)\s*$',
+        '',
+        n,
+        flags=re.I,
+    )
+    n = re.sub(r'\s+', ' ', n).strip(' :-–—')
+    return n
+
+
 def is_plausible_skill_name(name: str) -> bool:
     """Filtert offensichtlichen Müll aus der Pipeline-Skill-DB für den Probe-Index."""
-    n = (name or '').strip()
-    if len(n) < 2 or len(n) > 48:
+    n = normalize_pipeline_skill_name(name) if name else ''
+    if len(n) < 2 or len(n) > 40:
         return False
     low = n.lower()
-    # reine Zahlen / Jahreszahlen
+    # reine Zahlen / Jahreszahlen / Versionsschrott
     if re.fullmatch(r'\d{1,4}', n):
         return False
     if re.fullmatch(r'(19|20)\d{2}', n):
         return False
-    # Satzfragmente
+    # '2003 Server', '95/98SE/ME', 'Windows 95/98'
+    if re.match(r'^(19|20)\d{2}\b', n):
+        return False
+    if re.match(r'^\d{1,2}\s*/\s*\d{1,2}', n):
+        return False
+    if re.fullmatch(r'[\d./x]+', low):
+        return False
+    # Satzfragmente / Level-Reste
     junk_parts = (
         'kenntnisse', 'erfahrung', 'grundkenntnisse', 'gute kenntnisse',
         'sehr gute', 'länger her', 'aktuell nicht', 'jahr ', 'jahre',
         'gemacht habe', 'in denen ich', 'alle bis heute', 'alle letzten',
+        'tiefes know', 'know-how', 'grundlagen',
     )
     if any(j in low for j in junk_parts):
         return False
-    if low.count(' ') > 5:
+    if low.count(' ') > 4:
         return False
-    # abgebrochene Tokens
+    # abgebrochene Tokens / OS-Müll
     if n.endswith(('....)', '…', '...')):
+        return False
+    if low in ('access', 'approach', 'word', 'excel', 'powerpoint', 'outlook'):
+        # zu generisch für Tech-Matching — behalten wir nur wenn explizit gewünscht;
+        # für Probe-Index: raus
         return False
     return True
 
@@ -280,13 +324,15 @@ def skill_stats_from_pipeline(consultant) -> List[Dict]:
     except Exception:
         return rows
     for cs in qs:
-        name = getattr(getattr(cs, 'skill', None), 'name', None) or ''
+        raw = getattr(getattr(cs, 'skill', None), 'name', None) or ''
+        name = normalize_pipeline_skill_name(raw)
         if not name or not is_plausible_skill_name(name):
             continue
         w = float(getattr(cs, 'weight', 0.5) or 0.5)
         rows.append({
             'name': name,
             'name_lc': name.lower(),
+            'raw_name': raw if raw != name else None,
             'freq': None,
             'projects': None,
             'months': None,
@@ -302,7 +348,8 @@ def skill_stats_from_pipeline(consultant) -> List[Dict]:
         if k not in best or r['weight'] > best[k]['weight']:
             best[k] = r
     rows = list(best.values())
-    rows.sort(key=lambda x: (-x['weight'], x['name_lc']))
+    # stabile Sortierung: Gewicht, dann kürzerer Name (weniger Müll-Phrasen oben)
+    rows.sort(key=lambda x: (-x['weight'], len(x['name']), x['name_lc']))
     return rows
 
 
