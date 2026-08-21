@@ -295,6 +295,14 @@ def is_plausible_skill_name(name: str) -> bool:
         return False
     if re.fullmatch(r'[\d./x]+', low):
         return False
+    # abgeschnittene Klammern / Fragmente: 'R6)', '(S)FTP)' ok nur wenn ausgewogen
+    if n.endswith(')') and n.count('(') < n.count(')'):
+        return False
+    if n.startswith('(') and n.count('(') > n.count(')'):
+        return False
+    # alte OS-/Versionskürzel ohne echten Skill-Wert für Matching
+    if re.fullmatch(r'(nt\d*|win\d{0,2}|w2k|w2k3|dos|os/?2|r\d+)', low):
+        return False
     # Satzfragmente / Level-Reste
     junk_parts = (
         'kenntnisse', 'erfahrung', 'grundkenntnisse', 'gute kenntnisse',
@@ -309,9 +317,8 @@ def is_plausible_skill_name(name: str) -> bool:
     # abgebrochene Tokens / OS-Müll
     if n.endswith(('....)', '…', '...')):
         return False
-    if low in ('access', 'approach', 'word', 'excel', 'powerpoint', 'outlook'):
-        # zu generisch für Tech-Matching — behalten wir nur wenn explizit gewünscht;
-        # für Probe-Index: raus
+    if low in ('access', 'approach', 'word', 'excel', 'powerpoint', 'outlook', 'rexx'):
+        # zu generisch / Legacy für Tech-Matching
         return False
     return True
 
