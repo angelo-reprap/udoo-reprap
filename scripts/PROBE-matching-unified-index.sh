@@ -8,8 +8,9 @@
 #   bash scripts/SAFE-matching-unified-probe-deploy.sh
 #   bash scripts/PROBE-matching-unified-index.sh              # DRY, 20 Contacts
 #   EXECUTE=1 CONTACTS=40 bash scripts/PROBE-matching-unified-index.sh
-#   # Einzelne Prüfschleife:
-#   CONTACT_ID=<crm-uuid> bash scripts/PROBE-matching-unified-index.sh
+#   # Einzelne Prüfschleife (ohne Index-Wipe):
+#   CONTACT_ID=5db16d0d-42e5-691c-d572-4b1ebfb6ef9e bash scripts/PROBE-matching-unified-index.sh
+#   EXECUTE=1 CONTACT_ID=5db16d0d-42e5-691c-d572-4b1ebfb6ef9e bash scripts/PROBE-matching-unified-index.sh
 #
 set -euo pipefail
 
@@ -20,6 +21,8 @@ SKILLS="${SKILLS:-Java,Python,Perl,Django,Spring,Kubernetes,Docker,AWS,SAP,SQL,L
 INDEX="${INDEX:-abpe_matching_profiles_probe}"
 EXECUTE="${EXECUTE:-0}"
 SEARCH="${SEARCH:-1}"
+# Bulk-Stichprobe: Index neu. Einzel-CONTACT_ID: upsert, kein Wipe (RECREATE=1 erzwingen möglich).
+RECREATE="${RECREATE:-}"
 
 cd "$BACKEND"
 # shellcheck disable=SC1091
@@ -33,12 +36,21 @@ ARGS=(
 )
 if [[ -n "$CONTACT_ID" ]]; then
   ARGS+=(--contact-id "$CONTACT_ID")
+  if [[ -z "$RECREATE" ]]; then
+    RECREATE=0
+  fi
 else
   ARGS+=(--contacts "$CONTACTS")
+  if [[ -z "$RECREATE" ]]; then
+    RECREATE=1
+  fi
 fi
 
 if [[ "$EXECUTE" == "1" ]]; then
-  ARGS+=(--execute --recreate)
+  ARGS+=(--execute)
+  if [[ "$RECREATE" == "1" ]]; then
+    ARGS+=(--recreate)
+  fi
   if [[ "$SEARCH" == "1" ]]; then
     ARGS+=(--search)
   fi
